@@ -3,11 +3,11 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
+%struct._value_string_ext = type { ptr, i32, i32, ptr, ptr }
 %struct.true_false_string = type { ptr, ptr }
 %struct._e_guid_t = type { i32, i16, i16, [8 x i8] }
-%struct._dcerpc_sub_dissector = type { i16, ptr, ptr, ptr }
-%struct._dcerpc_info = type { ptr, i32, i64, i8, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr }
+%struct._dcerpc_info = type { ptr, i32, i64, i8, i8, i8, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, %struct.anon }
+%struct.anon = type { i8, ptr, ptr, ptr, i8 }
 
 @ett_butc_Restore_flags = internal global i32 0, align 4
 @hf_butc_Restore_flags_TC_RESTORE_CREATE = internal global i32 0, align 4
@@ -28,14 +28,14 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_butc_tc_statusInfoSwitchVol = internal global i32 0, align 4
 @ett_butc_tc_statusInfoSwitchLabel = internal global i32 0, align 4
 @ett_butc_tciStatusS = internal global i32 0, align 4
-@proto_register_butc.hf = internal global [124 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_butc_opnum, %struct._header_field_info { ptr @.str.3, ptr @.str.4, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_rc, %struct._header_field_info { ptr @.str.5, ptr @.str.6, i32 7, i32 2, ptr @NT_errors, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_Restore_flags_TC_RESTORE_CREATE, %struct._header_field_info { ptr @.str.7, ptr @.str.8, i32 2, i32 32, ptr @TC_RESTORE_CREATE_tfs, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_Restore_flags_TC_RESTORE_INCR, %struct._header_field_info { ptr @.str.9, ptr @.str.10, i32 2, i32 32, ptr @TC_RESTORE_INCR_tfs, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_afsNetAddr_type, %struct._header_field_info { ptr @.str.11, ptr @.str.12, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_afsNetAddr_data, %struct._header_field_info { ptr @.str.13, ptr @.str.14, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpDesc_vid, %struct._header_field_info { ptr @.str.15, ptr @.str.16, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpDesc_name, %struct._header_field_info { ptr @.str.17, ptr @.str.18, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpDesc_partition, %struct._header_field_info { ptr @.str.19, ptr @.str.20, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpDesc_date, %struct._header_field_info { ptr @.str.21, ptr @.str.22, i32 24, i32 18, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpDesc_cloneDate, %struct._header_field_info { ptr @.str.23, ptr @.str.24, i32 24, i32 18, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpDesc_hostAddr, %struct._header_field_info { ptr @.str.25, ptr @.str.26, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpDesc_spare1, %struct._header_field_info { ptr @.str.27, ptr @.str.28, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpDesc_spare2, %struct._header_field_info { ptr @.str.29, ptr @.str.30, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpDesc_spare3, %struct._header_field_info { ptr @.str.31, ptr @.str.32, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpDesc_spare4, %struct._header_field_info { ptr @.str.33, ptr @.str.34, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_restoreDesc_frag, %struct._header_field_info { ptr @.str.35, ptr @.str.36, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_restoreDesc_tapeName, %struct._header_field_info { ptr @.str.37, ptr @.str.38, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_restoreDesc_position, %struct._header_field_info { ptr @.str.39, ptr @.str.40, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_restoreDesc_origVid, %struct._header_field_info { ptr @.str.41, ptr @.str.42, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_restoreDesc_vid, %struct._header_field_info { ptr @.str.15, ptr @.str.43, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_restoreDesc_partition, %struct._header_field_info { ptr @.str.19, ptr @.str.44, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_restoreDesc_flags, %struct._header_field_info { ptr @.str.45, ptr @.str.46, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_restoreDesc_hostAddr, %struct._header_field_info { ptr @.str.25, ptr @.str.47, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_restoreDesc_realDumpId, %struct._header_field_info { ptr @.str.48, ptr @.str.49, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_restoreDesc_spare2, %struct._header_field_info { ptr @.str.29, ptr @.str.50, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_restoreDesc_spare3, %struct._header_field_info { ptr @.str.31, ptr @.str.51, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_restoreDesc_spare4, %struct._header_field_info { ptr @.str.33, ptr @.str.52, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_restoreDesc_oldName, %struct._header_field_info { ptr @.str.53, ptr @.str.54, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_restoreDesc_newName, %struct._header_field_info { ptr @.str.55, ptr @.str.56, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpStat_dumpID, %struct._header_field_info { ptr @.str.57, ptr @.str.58, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpStat_bytesDumped, %struct._header_field_info { ptr @.str.59, ptr @.str.60, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpStat_volumeBeingDumped, %struct._header_field_info { ptr @.str.61, ptr @.str.62, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpStat_numVolErrs, %struct._header_field_info { ptr @.str.63, ptr @.str.64, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpStat_flags, %struct._header_field_info { ptr @.str.45, ptr @.str.65, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpStat_spare1, %struct._header_field_info { ptr @.str.27, ptr @.str.66, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpStat_spare2, %struct._header_field_info { ptr @.str.29, ptr @.str.67, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpStat_spare3, %struct._header_field_info { ptr @.str.31, ptr @.str.68, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpStat_spare4, %struct._header_field_info { ptr @.str.33, ptr @.str.69, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_tapeLabel_size, %struct._header_field_info { ptr @.str.70, ptr @.str.71, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_tapeLabel_size_ext, %struct._header_field_info { ptr @.str.72, ptr @.str.73, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_tapeLabel_spare1, %struct._header_field_info { ptr @.str.27, ptr @.str.74, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_tapeLabel_spare2, %struct._header_field_info { ptr @.str.29, ptr @.str.75, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_tapeLabel_spare3, %struct._header_field_info { ptr @.str.31, ptr @.str.76, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_tapeLabel_spare4, %struct._header_field_info { ptr @.str.33, ptr @.str.77, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_tapeLabel_nameLen, %struct._header_field_info { ptr @.str.78, ptr @.str.79, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_tapeLabel_name, %struct._header_field_info { ptr @.str.17, ptr @.str.80, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_tapeSet_id, %struct._header_field_info { ptr @.str.81, ptr @.str.82, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_tapeSet_tapeServer, %struct._header_field_info { ptr @.str.83, ptr @.str.84, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_tapeSet_format, %struct._header_field_info { ptr @.str.85, ptr @.str.86, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_tapeSet_maxTapes, %struct._header_field_info { ptr @.str.87, ptr @.str.88, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_tapeSet_a, %struct._header_field_info { ptr @.str.89, ptr @.str.90, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_tapeSet_b, %struct._header_field_info { ptr @.str.91, ptr @.str.92, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_tapeSet_expDate, %struct._header_field_info { ptr @.str.93, ptr @.str.94, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_tapeSet_expType, %struct._header_field_info { ptr @.str.95, ptr @.str.96, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_tapeSet_spare1, %struct._header_field_info { ptr @.str.27, ptr @.str.97, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_tapeSet_spare2, %struct._header_field_info { ptr @.str.29, ptr @.str.98, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_tapeSet_spare3, %struct._header_field_info { ptr @.str.31, ptr @.str.99, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_tapeSet_spare4, %struct._header_field_info { ptr @.str.33, ptr @.str.100, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_tcInfo_tcVersion, %struct._header_field_info { ptr @.str.101, ptr @.str.102, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_tcInfo_spare1, %struct._header_field_info { ptr @.str.27, ptr @.str.103, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_tcInfo_spare2, %struct._header_field_info { ptr @.str.29, ptr @.str.104, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_tcInfo_spare3, %struct._header_field_info { ptr @.str.31, ptr @.str.105, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_tcInfo_spare4, %struct._header_field_info { ptr @.str.33, ptr @.str.106, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_restoreArray_tc_restoreArray_len, %struct._header_field_info { ptr @.str.107, ptr @.str.108, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_restoreArray_tc_restoreArray_val, %struct._header_field_info { ptr @.str.109, ptr @.str.110, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpArray_tc_dumpArray_len, %struct._header_field_info { ptr @.str.111, ptr @.str.112, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpArray_tc_dumpArray, %struct._header_field_info { ptr @.str.113, ptr @.str.114, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpInterface_dumpPath, %struct._header_field_info { ptr @.str.115, ptr @.str.116, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpInterface_volumeSetName, %struct._header_field_info { ptr @.str.117, ptr @.str.118, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpInterface_dumpName, %struct._header_field_info { ptr @.str.119, ptr @.str.120, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpInterface_tapeSet, %struct._header_field_info { ptr @.str.121, ptr @.str.122, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpInterface_parentDumpId, %struct._header_field_info { ptr @.str.123, ptr @.str.124, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpInterface_dumpLevel, %struct._header_field_info { ptr @.str.125, ptr @.str.126, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpInterface_spare1, %struct._header_field_info { ptr @.str.27, ptr @.str.127, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpInterface_spare2, %struct._header_field_info { ptr @.str.29, ptr @.str.128, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpInterface_spare3, %struct._header_field_info { ptr @.str.31, ptr @.str.129, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpInterface_spare4, %struct._header_field_info { ptr @.str.33, ptr @.str.130, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_statusInfoSwitchVol_nKBytes, %struct._header_field_info { ptr @.str.131, ptr @.str.132, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_statusInfoSwitchVol_volumeName, %struct._header_field_info { ptr @.str.133, ptr @.str.134, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_statusInfoSwitchVol_volsFailed, %struct._header_field_info { ptr @.str.135, ptr @.str.136, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_statusInfoSwitchVol_spare1, %struct._header_field_info { ptr @.str.27, ptr @.str.137, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_statusInfoSwitchLabel_tapeLabel, %struct._header_field_info { ptr @.str.138, ptr @.str.139, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_statusInfoSwitchLabel_spare1, %struct._header_field_info { ptr @.str.27, ptr @.str.140, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_statusInfoSwitch_TCOP_NONE_none, %struct._header_field_info { ptr @.str.141, ptr @.str.142, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_statusInfoSwitch_TCOP_DUMP_vol, %struct._header_field_info { ptr @.str.143, ptr @.str.144, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_statusInfoSwitch_TCOP_RESTORE_vol, %struct._header_field_info { ptr @.str.143, ptr @.str.144, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_statusInfoSwitch_TCOP_LABELTAPE_label, %struct._header_field_info { ptr @.str.145, ptr @.str.146, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_statusInfoSwitch_TCOP_READLABEL_label, %struct._header_field_info { ptr @.str.145, ptr @.str.146, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_statusInfoSwitch_TCOP_SCANTAPE_spare1, %struct._header_field_info { ptr @.str.27, ptr @.str.147, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_statusInfoSwitch_TCOP_STATUS_spare2, %struct._header_field_info { ptr @.str.29, ptr @.str.148, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_statusInfoSwitch_TCOP_SAVEDB_spare3, %struct._header_field_info { ptr @.str.31, ptr @.str.149, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_statusInfoSwitch_TCOP_RESTOREDB_spare4, %struct._header_field_info { ptr @.str.33, ptr @.str.150, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_statusInfoSwitch_TCOP_SPARE_spare5, %struct._header_field_info { ptr @.str.151, ptr @.str.152, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tciStatusS_taskName, %struct._header_field_info { ptr @.str.153, ptr @.str.154, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tciStatusS_flags, %struct._header_field_info { ptr @.str.45, ptr @.str.155, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tciStatusS_lastPolled, %struct._header_field_info { ptr @.str.156, ptr @.str.157, i32 24, i32 18, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tciStatusS_info, %struct._header_field_info { ptr @.str.158, ptr @.str.159, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tciStatusS_taskId, %struct._header_field_info { ptr @.str.160, ptr @.str.161, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tciStatusS_spare2, %struct._header_field_info { ptr @.str.29, ptr @.str.162, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tciStatusS_spare3, %struct._header_field_info { ptr @.str.31, ptr @.str.163, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tciStatusS_spare4, %struct._header_field_info { ptr @.str.33, ptr @.str.164, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_BUTC_PerformDump_tcdiPtr, %struct._header_field_info { ptr @.str.165, ptr @.str.166, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_BUTC_PerformDump_dumps, %struct._header_field_info { ptr @.str.167, ptr @.str.168, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_BUTC_PerformDump_dumpID, %struct._header_field_info { ptr @.str.57, ptr @.str.169, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_BUTC_PerformRestore_dumpSetName, %struct._header_field_info { ptr @.str.170, ptr @.str.171, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_BUTC_PerformRestore_restores, %struct._header_field_info { ptr @.str.172, ptr @.str.173, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_BUTC_PerformRestore_dumpID, %struct._header_field_info { ptr @.str.57, ptr @.str.174, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_BUTC_AbortDump_dumpID, %struct._header_field_info { ptr @.str.57, ptr @.str.175, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_BUTC_LabelTape_label, %struct._header_field_info { ptr @.str.145, ptr @.str.176, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_BUTC_LabelTape_taskId, %struct._header_field_info { ptr @.str.160, ptr @.str.177, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_BUTC_ReadLabel_taskId, %struct._header_field_info { ptr @.str.160, ptr @.str.178, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_BUTC_ScanDumps_addDbFlag, %struct._header_field_info { ptr @.str.179, ptr @.str.180, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_BUTC_ScanDumps_taskId, %struct._header_field_info { ptr @.str.160, ptr @.str.181, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_BUTC_TCInfo_tciptr, %struct._header_field_info { ptr @.str.182, ptr @.str.183, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_BUTC_SaveDb_taskId, %struct._header_field_info { ptr @.str.160, ptr @.str.184, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_BUTC_RestoreDb_taskId, %struct._header_field_info { ptr @.str.160, ptr @.str.185, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_BUTC_EndStatus_taskId, %struct._header_field_info { ptr @.str.160, ptr @.str.186, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_BUTC_GetStatus_taskId, %struct._header_field_info { ptr @.str.160, ptr @.str.187, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_BUTC_GetStatus_statusPtr, %struct._header_field_info { ptr @.str.188, ptr @.str.189, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_BUTC_RequestAbort_taskId, %struct._header_field_info { ptr @.str.160, ptr @.str.190, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_BUTC_ScanStatus_taskId, %struct._header_field_info { ptr @.str.160, ptr @.str.191, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_BUTC_ScanStatus_statusPtr, %struct._header_field_info { ptr @.str.188, ptr @.str.192, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_BUTC_ScanStatus_flags, %struct._header_field_info { ptr @.str.45, ptr @.str.193, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
+@proto_register_butc.hf = internal global [124 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_butc_opnum, %struct._header_field_info { ptr @.str.3, ptr @.str.4, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_rc, %struct._header_field_info { ptr @.str.5, ptr @.str.6, i32 7, i32 514, ptr @NT_errors_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_Restore_flags_TC_RESTORE_CREATE, %struct._header_field_info { ptr @.str.7, ptr @.str.8, i32 2, i32 32, ptr @TC_RESTORE_CREATE_tfs, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_Restore_flags_TC_RESTORE_INCR, %struct._header_field_info { ptr @.str.9, ptr @.str.10, i32 2, i32 32, ptr @TC_RESTORE_INCR_tfs, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_afsNetAddr_type, %struct._header_field_info { ptr @.str.11, ptr @.str.12, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_afsNetAddr_data, %struct._header_field_info { ptr @.str.13, ptr @.str.14, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpDesc_vid, %struct._header_field_info { ptr @.str.15, ptr @.str.16, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpDesc_name, %struct._header_field_info { ptr @.str.17, ptr @.str.18, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpDesc_partition, %struct._header_field_info { ptr @.str.19, ptr @.str.20, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpDesc_date, %struct._header_field_info { ptr @.str.21, ptr @.str.22, i32 24, i32 18, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpDesc_cloneDate, %struct._header_field_info { ptr @.str.23, ptr @.str.24, i32 24, i32 18, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpDesc_hostAddr, %struct._header_field_info { ptr @.str.25, ptr @.str.26, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpDesc_spare1, %struct._header_field_info { ptr @.str.27, ptr @.str.28, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpDesc_spare2, %struct._header_field_info { ptr @.str.29, ptr @.str.30, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpDesc_spare3, %struct._header_field_info { ptr @.str.31, ptr @.str.32, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpDesc_spare4, %struct._header_field_info { ptr @.str.33, ptr @.str.34, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_restoreDesc_frag, %struct._header_field_info { ptr @.str.35, ptr @.str.36, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_restoreDesc_tapeName, %struct._header_field_info { ptr @.str.37, ptr @.str.38, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_restoreDesc_position, %struct._header_field_info { ptr @.str.39, ptr @.str.40, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_restoreDesc_origVid, %struct._header_field_info { ptr @.str.41, ptr @.str.42, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_restoreDesc_vid, %struct._header_field_info { ptr @.str.15, ptr @.str.43, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_restoreDesc_partition, %struct._header_field_info { ptr @.str.19, ptr @.str.44, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_restoreDesc_flags, %struct._header_field_info { ptr @.str.45, ptr @.str.46, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_restoreDesc_hostAddr, %struct._header_field_info { ptr @.str.25, ptr @.str.47, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_restoreDesc_realDumpId, %struct._header_field_info { ptr @.str.48, ptr @.str.49, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_restoreDesc_spare2, %struct._header_field_info { ptr @.str.29, ptr @.str.50, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_restoreDesc_spare3, %struct._header_field_info { ptr @.str.31, ptr @.str.51, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_restoreDesc_spare4, %struct._header_field_info { ptr @.str.33, ptr @.str.52, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_restoreDesc_oldName, %struct._header_field_info { ptr @.str.53, ptr @.str.54, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_restoreDesc_newName, %struct._header_field_info { ptr @.str.55, ptr @.str.56, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpStat_dumpID, %struct._header_field_info { ptr @.str.57, ptr @.str.58, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpStat_bytesDumped, %struct._header_field_info { ptr @.str.59, ptr @.str.60, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpStat_volumeBeingDumped, %struct._header_field_info { ptr @.str.61, ptr @.str.62, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpStat_numVolErrs, %struct._header_field_info { ptr @.str.63, ptr @.str.64, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpStat_flags, %struct._header_field_info { ptr @.str.45, ptr @.str.65, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpStat_spare1, %struct._header_field_info { ptr @.str.27, ptr @.str.66, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpStat_spare2, %struct._header_field_info { ptr @.str.29, ptr @.str.67, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpStat_spare3, %struct._header_field_info { ptr @.str.31, ptr @.str.68, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpStat_spare4, %struct._header_field_info { ptr @.str.33, ptr @.str.69, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_tapeLabel_size, %struct._header_field_info { ptr @.str.70, ptr @.str.71, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_tapeLabel_size_ext, %struct._header_field_info { ptr @.str.72, ptr @.str.73, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_tapeLabel_spare1, %struct._header_field_info { ptr @.str.27, ptr @.str.74, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_tapeLabel_spare2, %struct._header_field_info { ptr @.str.29, ptr @.str.75, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_tapeLabel_spare3, %struct._header_field_info { ptr @.str.31, ptr @.str.76, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_tapeLabel_spare4, %struct._header_field_info { ptr @.str.33, ptr @.str.77, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_tapeLabel_nameLen, %struct._header_field_info { ptr @.str.78, ptr @.str.79, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_tapeLabel_name, %struct._header_field_info { ptr @.str.17, ptr @.str.80, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_tapeSet_id, %struct._header_field_info { ptr @.str.81, ptr @.str.82, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_tapeSet_tapeServer, %struct._header_field_info { ptr @.str.83, ptr @.str.84, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_tapeSet_format, %struct._header_field_info { ptr @.str.85, ptr @.str.86, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_tapeSet_maxTapes, %struct._header_field_info { ptr @.str.87, ptr @.str.88, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_tapeSet_a, %struct._header_field_info { ptr @.str.89, ptr @.str.90, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_tapeSet_b, %struct._header_field_info { ptr @.str.91, ptr @.str.92, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_tapeSet_expDate, %struct._header_field_info { ptr @.str.93, ptr @.str.94, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_tapeSet_expType, %struct._header_field_info { ptr @.str.95, ptr @.str.96, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_tapeSet_spare1, %struct._header_field_info { ptr @.str.27, ptr @.str.97, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_tapeSet_spare2, %struct._header_field_info { ptr @.str.29, ptr @.str.98, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_tapeSet_spare3, %struct._header_field_info { ptr @.str.31, ptr @.str.99, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_tapeSet_spare4, %struct._header_field_info { ptr @.str.33, ptr @.str.100, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_tcInfo_tcVersion, %struct._header_field_info { ptr @.str.101, ptr @.str.102, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_tcInfo_spare1, %struct._header_field_info { ptr @.str.27, ptr @.str.103, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_tcInfo_spare2, %struct._header_field_info { ptr @.str.29, ptr @.str.104, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_tcInfo_spare3, %struct._header_field_info { ptr @.str.31, ptr @.str.105, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_tcInfo_spare4, %struct._header_field_info { ptr @.str.33, ptr @.str.106, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_restoreArray_tc_restoreArray_len, %struct._header_field_info { ptr @.str.107, ptr @.str.108, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_restoreArray_tc_restoreArray_val, %struct._header_field_info { ptr @.str.109, ptr @.str.110, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpArray_tc_dumpArray_len, %struct._header_field_info { ptr @.str.111, ptr @.str.112, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpArray_tc_dumpArray, %struct._header_field_info { ptr @.str.113, ptr @.str.114, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpInterface_dumpPath, %struct._header_field_info { ptr @.str.115, ptr @.str.116, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpInterface_volumeSetName, %struct._header_field_info { ptr @.str.117, ptr @.str.118, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpInterface_dumpName, %struct._header_field_info { ptr @.str.119, ptr @.str.120, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpInterface_tapeSet, %struct._header_field_info { ptr @.str.121, ptr @.str.122, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpInterface_parentDumpId, %struct._header_field_info { ptr @.str.123, ptr @.str.124, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpInterface_dumpLevel, %struct._header_field_info { ptr @.str.125, ptr @.str.126, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpInterface_spare1, %struct._header_field_info { ptr @.str.27, ptr @.str.127, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpInterface_spare2, %struct._header_field_info { ptr @.str.29, ptr @.str.128, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpInterface_spare3, %struct._header_field_info { ptr @.str.31, ptr @.str.129, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_dumpInterface_spare4, %struct._header_field_info { ptr @.str.33, ptr @.str.130, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_statusInfoSwitchVol_nKBytes, %struct._header_field_info { ptr @.str.131, ptr @.str.132, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_statusInfoSwitchVol_volumeName, %struct._header_field_info { ptr @.str.133, ptr @.str.134, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_statusInfoSwitchVol_volsFailed, %struct._header_field_info { ptr @.str.135, ptr @.str.136, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_statusInfoSwitchVol_spare1, %struct._header_field_info { ptr @.str.27, ptr @.str.137, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_statusInfoSwitchLabel_tapeLabel, %struct._header_field_info { ptr @.str.138, ptr @.str.139, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_statusInfoSwitchLabel_spare1, %struct._header_field_info { ptr @.str.27, ptr @.str.140, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_statusInfoSwitch_TCOP_NONE_none, %struct._header_field_info { ptr @.str.141, ptr @.str.142, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_statusInfoSwitch_TCOP_DUMP_vol, %struct._header_field_info { ptr @.str.143, ptr @.str.144, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_statusInfoSwitch_TCOP_RESTORE_vol, %struct._header_field_info { ptr @.str.143, ptr @.str.144, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_statusInfoSwitch_TCOP_LABELTAPE_label, %struct._header_field_info { ptr @.str.145, ptr @.str.146, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_statusInfoSwitch_TCOP_READLABEL_label, %struct._header_field_info { ptr @.str.145, ptr @.str.146, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_statusInfoSwitch_TCOP_SCANTAPE_spare1, %struct._header_field_info { ptr @.str.27, ptr @.str.147, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_statusInfoSwitch_TCOP_STATUS_spare2, %struct._header_field_info { ptr @.str.29, ptr @.str.148, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_statusInfoSwitch_TCOP_SAVEDB_spare3, %struct._header_field_info { ptr @.str.31, ptr @.str.149, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_statusInfoSwitch_TCOP_RESTOREDB_spare4, %struct._header_field_info { ptr @.str.33, ptr @.str.150, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tc_statusInfoSwitch_TCOP_SPARE_spare5, %struct._header_field_info { ptr @.str.151, ptr @.str.152, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tciStatusS_taskName, %struct._header_field_info { ptr @.str.153, ptr @.str.154, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tciStatusS_flags, %struct._header_field_info { ptr @.str.45, ptr @.str.155, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tciStatusS_lastPolled, %struct._header_field_info { ptr @.str.156, ptr @.str.157, i32 24, i32 18, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tciStatusS_info, %struct._header_field_info { ptr @.str.158, ptr @.str.159, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tciStatusS_taskId, %struct._header_field_info { ptr @.str.160, ptr @.str.161, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tciStatusS_spare2, %struct._header_field_info { ptr @.str.29, ptr @.str.162, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tciStatusS_spare3, %struct._header_field_info { ptr @.str.31, ptr @.str.163, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_tciStatusS_spare4, %struct._header_field_info { ptr @.str.33, ptr @.str.164, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_BUTC_PerformDump_tcdiPtr, %struct._header_field_info { ptr @.str.165, ptr @.str.166, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_BUTC_PerformDump_dumps, %struct._header_field_info { ptr @.str.167, ptr @.str.168, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_BUTC_PerformDump_dumpID, %struct._header_field_info { ptr @.str.57, ptr @.str.169, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_BUTC_PerformRestore_dumpSetName, %struct._header_field_info { ptr @.str.170, ptr @.str.171, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_BUTC_PerformRestore_restores, %struct._header_field_info { ptr @.str.172, ptr @.str.173, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_BUTC_PerformRestore_dumpID, %struct._header_field_info { ptr @.str.57, ptr @.str.174, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_BUTC_AbortDump_dumpID, %struct._header_field_info { ptr @.str.57, ptr @.str.175, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_BUTC_LabelTape_label, %struct._header_field_info { ptr @.str.145, ptr @.str.176, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_BUTC_LabelTape_taskId, %struct._header_field_info { ptr @.str.160, ptr @.str.177, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_BUTC_ReadLabel_taskId, %struct._header_field_info { ptr @.str.160, ptr @.str.178, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_BUTC_ScanDumps_addDbFlag, %struct._header_field_info { ptr @.str.179, ptr @.str.180, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_BUTC_ScanDumps_taskId, %struct._header_field_info { ptr @.str.160, ptr @.str.181, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_BUTC_TCInfo_tciptr, %struct._header_field_info { ptr @.str.182, ptr @.str.183, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_BUTC_SaveDb_taskId, %struct._header_field_info { ptr @.str.160, ptr @.str.184, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_BUTC_RestoreDb_taskId, %struct._header_field_info { ptr @.str.160, ptr @.str.185, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_BUTC_EndStatus_taskId, %struct._header_field_info { ptr @.str.160, ptr @.str.186, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_BUTC_GetStatus_taskId, %struct._header_field_info { ptr @.str.160, ptr @.str.187, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_BUTC_GetStatus_statusPtr, %struct._header_field_info { ptr @.str.188, ptr @.str.189, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_BUTC_RequestAbort_taskId, %struct._header_field_info { ptr @.str.160, ptr @.str.190, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_BUTC_ScanStatus_taskId, %struct._header_field_info { ptr @.str.160, ptr @.str.191, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_BUTC_ScanStatus_statusPtr, %struct._header_field_info { ptr @.str.188, ptr @.str.192, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_butc_BUTC_ScanStatus_flags, %struct._header_field_info { ptr @.str.45, ptr @.str.193, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_butc_opnum = internal global i32 0, align 4
 @.str.3 = private unnamed_addr constant [10 x i8] c"Operation\00", align 1
 @.str.4 = private unnamed_addr constant [11 x i8] c"butc.opnum\00", align 1
 @hf_butc_rc = internal global i32 0, align 4
 @.str.5 = private unnamed_addr constant [12 x i8] c"Return code\00", align 1
 @.str.6 = private unnamed_addr constant [8 x i8] c"butc.rc\00", align 1
-@NT_errors = external constant [0 x %struct._value_string], align 8
+@NT_errors_ext = external global %struct._value_string_ext, align 8
 @.str.7 = private unnamed_addr constant [18 x i8] c"TC_RESTORE_CREATE\00", align 1
 @.str.8 = private unnamed_addr constant [37 x i8] c"butc.Restore_flags.TC_RESTORE_CREATE\00", align 1
 @TC_RESTORE_CREATE_tfs = internal constant %struct.true_false_string { ptr @.str.198, ptr @.str.199 }, align 8
@@ -354,7 +354,6 @@ target triple = "x86_64-pc-linux-gnu"
 @proto_butc = internal global i32 0, align 4
 @uuid_dcerpc_butc = internal global %struct._e_guid_t { i32 488193032, i16 11, i16 4554, [8 x i8] c"\BA\1D\02`\8C.\A9n" }, align 4
 @ver_butc = internal global i16 4, align 2
-@function_dissectors = internal global [15 x %struct._dcerpc_sub_dissector] [%struct._dcerpc_sub_dissector { i16 0, ptr @.str.202, ptr @butc_dissect_BUTC_PerformDump_request, ptr @butc_dissect_BUTC_PerformDump_response }, %struct._dcerpc_sub_dissector { i16 1, ptr @.str.203, ptr @butc_dissect_BUTC_PerformRestore_request, ptr @butc_dissect_BUTC_PerformRestore_response }, %struct._dcerpc_sub_dissector { i16 2, ptr @.str.204, ptr @butc_dissect_BUTC_AbortDump_request, ptr @butc_dissect_BUTC_AbortDump_response }, %struct._dcerpc_sub_dissector { i16 3, ptr @.str.205, ptr @butc_dissect_BUTC_LabelTape_request, ptr @butc_dissect_BUTC_LabelTape_response }, %struct._dcerpc_sub_dissector { i16 4, ptr @.str.206, ptr @butc_dissect_BUTC_ReadLabel_request, ptr @butc_dissect_BUTC_ReadLabel_response }, %struct._dcerpc_sub_dissector { i16 5, ptr @.str.207, ptr @butc_dissect_BUTC_ScanDumps_request, ptr @butc_dissect_BUTC_ScanDumps_response }, %struct._dcerpc_sub_dissector { i16 6, ptr @.str.208, ptr @butc_dissect_BUTC_TCInfo_request, ptr @butc_dissect_BUTC_TCInfo_response }, %struct._dcerpc_sub_dissector { i16 7, ptr @.str.209, ptr @butc_dissect_BUTC_SaveDb_request, ptr @butc_dissect_BUTC_SaveDb_response }, %struct._dcerpc_sub_dissector { i16 8, ptr @.str.210, ptr @butc_dissect_BUTC_RestoreDb_request, ptr @butc_dissect_BUTC_RestoreDb_response }, %struct._dcerpc_sub_dissector { i16 9, ptr @.str.211, ptr @butc_dissect_BUTC_EndStatus_request, ptr @butc_dissect_BUTC_EndStatus_response }, %struct._dcerpc_sub_dissector { i16 10, ptr @.str.212, ptr @butc_dissect_BUTC_GetStatus_request, ptr @butc_dissect_BUTC_GetStatus_response }, %struct._dcerpc_sub_dissector { i16 11, ptr @.str.213, ptr @butc_dissect_BUTC_RequestAbort_request, ptr @butc_dissect_BUTC_RequestAbort_response }, %struct._dcerpc_sub_dissector { i16 12, ptr @.str.214, ptr @butc_dissect_BUTC_ScanStatus_request, ptr @butc_dissect_BUTC_ScanStatus_response }, %struct._dcerpc_sub_dissector { i16 13, ptr @.str.215, ptr @butc_dissect_BUTC_GetServerInterfaces_request, ptr @butc_dissect_BUTC_GetServerInterfaces_response }, %struct._dcerpc_sub_dissector zeroinitializer], align 16
 @.str.197 = private unnamed_addr constant [20 x i8] c"tc_statusInfoSwitch\00", align 1
 @.str.198 = private unnamed_addr constant [25 x i8] c"TC_RESTORE_CREATE is SET\00", align 1
 @.str.199 = private unnamed_addr constant [29 x i8] c"TC_RESTORE_CREATE is NOT set\00", align 1
@@ -374,8 +373,9 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.213 = private unnamed_addr constant [18 x i8] c"BUTC_RequestAbort\00", align 1
 @.str.214 = private unnamed_addr constant [16 x i8] c"BUTC_ScanStatus\00", align 1
 @.str.215 = private unnamed_addr constant [25 x i8] c"BUTC_GetServerInterfaces\00", align 1
+@function_dissectors = internal constant [15 x { i16, [6 x i8], ptr, ptr, ptr }] [{ i16, [6 x i8], ptr, ptr, ptr } { i16 0, [6 x i8] zeroinitializer, ptr @.str.202, ptr @butc_dissect_BUTC_PerformDump_request, ptr @butc_dissect_BUTC_PerformDump_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 1, [6 x i8] zeroinitializer, ptr @.str.203, ptr @butc_dissect_BUTC_PerformRestore_request, ptr @butc_dissect_BUTC_PerformRestore_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 2, [6 x i8] zeroinitializer, ptr @.str.204, ptr @butc_dissect_BUTC_AbortDump_request, ptr @butc_dissect_BUTC_AbortDump_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 3, [6 x i8] zeroinitializer, ptr @.str.205, ptr @butc_dissect_BUTC_LabelTape_request, ptr @butc_dissect_BUTC_LabelTape_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 4, [6 x i8] zeroinitializer, ptr @.str.206, ptr @butc_dissect_BUTC_ReadLabel_request, ptr @butc_dissect_BUTC_ReadLabel_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 5, [6 x i8] zeroinitializer, ptr @.str.207, ptr @butc_dissect_BUTC_ScanDumps_request, ptr @butc_dissect_BUTC_ScanDumps_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 6, [6 x i8] zeroinitializer, ptr @.str.208, ptr @butc_dissect_BUTC_TCInfo_request, ptr @butc_dissect_BUTC_TCInfo_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 7, [6 x i8] zeroinitializer, ptr @.str.209, ptr @butc_dissect_BUTC_SaveDb_request, ptr @butc_dissect_BUTC_SaveDb_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 8, [6 x i8] zeroinitializer, ptr @.str.210, ptr @butc_dissect_BUTC_RestoreDb_request, ptr @butc_dissect_BUTC_RestoreDb_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 9, [6 x i8] zeroinitializer, ptr @.str.211, ptr @butc_dissect_BUTC_EndStatus_request, ptr @butc_dissect_BUTC_EndStatus_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 10, [6 x i8] zeroinitializer, ptr @.str.212, ptr @butc_dissect_BUTC_GetStatus_request, ptr @butc_dissect_BUTC_GetStatus_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 11, [6 x i8] zeroinitializer, ptr @.str.213, ptr @butc_dissect_BUTC_RequestAbort_request, ptr @butc_dissect_BUTC_RequestAbort_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 12, [6 x i8] zeroinitializer, ptr @.str.214, ptr @butc_dissect_BUTC_ScanStatus_request, ptr @butc_dissect_BUTC_ScanStatus_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 13, [6 x i8] zeroinitializer, ptr @.str.215, ptr @butc_dissect_BUTC_GetServerInterfaces_request, ptr @butc_dissect_BUTC_GetServerInterfaces_response }, { i16, [6 x i8], ptr, ptr, ptr } zeroinitializer], align 16
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @butc_dissect_Restore_flags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -396,12 +396,15 @@ define hidden i32 @butc_dissect_Restore_flags(ptr noundef %0, i32 noundef %1, pt
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 4
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp ne i32 %22, 0
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 4
+  %22 = load i8, ptr %21, align 1, !range !6, !noundef !7
+  %23 = trunc i8 %22 to i1
   br i1 %23, label %33, label %24
 
 24:                                               ; preds = %8
@@ -501,20 +504,34 @@ define hidden i32 @butc_dissect_Restore_flags(ptr noundef %0, i32 noundef %1, pt
 
 88:                                               ; preds = %86, %81
   %89 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %89
 }
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare i32 @dissect_ndr_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @butc_dissect_afsNetAddr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -535,12 +552,15 @@ define hidden i32 @butc_dissect_afsNetAddr(ptr noundef %0, i32 noundef %1, ptr n
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 4
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp ne i32 %22, 0
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 4
+  %22 = load i8, ptr %21, align 1, !range !6, !noundef !7
+  %23 = trunc i8 %22 to i1
   br i1 %23, label %33, label %24
 
 24:                                               ; preds = %8
@@ -602,10 +622,13 @@ define hidden i32 @butc_dissect_afsNetAddr(ptr noundef %0, i32 noundef %1, ptr n
   %64 = sub i32 %62, %63
   call void @proto_item_set_len(ptr noundef %61, i32 noundef %64)
   %65 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %65
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_afsNetAddr_type(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -620,6 +643,7 @@ define internal i32 @butc_dissect_afsNetAddr_type(ptr noundef %0, i32 noundef %1
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -632,10 +656,11 @@ define internal i32 @butc_dissect_afsNetAddr_type(ptr noundef %0, i32 noundef %1
   %22 = call i32 @butc_dissect_uint16(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @fixedarray_butc_dissect_afsNetAddr_data(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -650,6 +675,7 @@ define internal i32 @fixedarray_butc_dissect_afsNetAddr_data(ptr noundef %0, i32
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 14, ptr %13, align 4
   br label %14
 
@@ -669,16 +695,18 @@ define internal i32 @fixedarray_butc_dissect_afsNetAddr_data(ptr noundef %0, i32
   %24 = load ptr, ptr %12, align 8
   %25 = call i32 @butc_dissect_afsNetAddr_data(ptr noundef %19, i32 noundef %20, ptr noundef %21, ptr noundef %22, ptr noundef %23, ptr noundef %24)
   store i32 %25, ptr %8, align 4
-  br label %14, !llvm.loop !4
+  br label %14, !llvm.loop !8
 
 26:                                               ; preds = %14
   %27 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %27
 }
 
-declare void @proto_item_set_len(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_set_len(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @butc_dissect_tc_dumpDesc(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -699,12 +727,15 @@ define hidden i32 @butc_dissect_tc_dumpDesc(ptr noundef %0, i32 noundef %1, ptr 
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 4
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp ne i32 %22, 0
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 4
+  %22 = load i8, ptr %21, align 1, !range !6, !noundef !7
+  %23 = trunc i8 %22 to i1
   br i1 %23, label %33, label %24
 
 24:                                               ; preds = %8
@@ -830,10 +861,13 @@ define hidden i32 @butc_dissect_tc_dumpDesc(ptr noundef %0, i32 noundef %1, ptr 
   %120 = sub i32 %118, %119
   call void @proto_item_set_len(ptr noundef %117, i32 noundef %120)
   %121 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %121
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_dumpDesc_vid(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -848,6 +882,7 @@ define internal i32 @butc_dissect_tc_dumpDesc_vid(ptr noundef %0, i32 noundef %1
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -860,10 +895,11 @@ define internal i32 @butc_dissect_tc_dumpDesc_vid(ptr noundef %0, i32 noundef %1
   %22 = call i32 @butc_dissect_udlong(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_dumpDesc_name(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -878,6 +914,7 @@ define internal i32 @butc_dissect_tc_dumpDesc_name(ptr noundef %0, i32 noundef %
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -890,10 +927,11 @@ define internal i32 @butc_dissect_tc_dumpDesc_name(ptr noundef %0, i32 noundef %
   %22 = call i32 @butc_dissect_NameString_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_dumpDesc_partition(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -908,6 +946,7 @@ define internal i32 @butc_dissect_tc_dumpDesc_partition(ptr noundef %0, i32 noun
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -920,10 +959,11 @@ define internal i32 @butc_dissect_tc_dumpDesc_partition(ptr noundef %0, i32 noun
   %22 = call i32 @butc_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_dumpDesc_date(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -938,6 +978,7 @@ define internal i32 @butc_dissect_tc_dumpDesc_date(ptr noundef %0, i32 noundef %
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -950,10 +991,11 @@ define internal i32 @butc_dissect_tc_dumpDesc_date(ptr noundef %0, i32 noundef %
   %22 = call i32 @butc_dissect_time_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_dumpDesc_cloneDate(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -968,6 +1010,7 @@ define internal i32 @butc_dissect_tc_dumpDesc_cloneDate(ptr noundef %0, i32 noun
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -980,10 +1023,11 @@ define internal i32 @butc_dissect_tc_dumpDesc_cloneDate(ptr noundef %0, i32 noun
   %22 = call i32 @butc_dissect_time_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_dumpDesc_hostAddr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -998,6 +1042,7 @@ define internal i32 @butc_dissect_tc_dumpDesc_hostAddr(ptr noundef %0, i32 nound
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -1010,10 +1055,11 @@ define internal i32 @butc_dissect_tc_dumpDesc_hostAddr(ptr noundef %0, i32 nound
   %22 = call i32 @butc_dissect_afsNetAddr(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_dumpDesc_spare1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1028,6 +1074,7 @@ define internal i32 @butc_dissect_tc_dumpDesc_spare1(ptr noundef %0, i32 noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -1040,10 +1087,11 @@ define internal i32 @butc_dissect_tc_dumpDesc_spare1(ptr noundef %0, i32 noundef
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_dumpDesc_spare2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1058,6 +1106,7 @@ define internal i32 @butc_dissect_tc_dumpDesc_spare2(ptr noundef %0, i32 noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -1070,10 +1119,11 @@ define internal i32 @butc_dissect_tc_dumpDesc_spare2(ptr noundef %0, i32 noundef
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_dumpDesc_spare3(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1088,6 +1138,7 @@ define internal i32 @butc_dissect_tc_dumpDesc_spare3(ptr noundef %0, i32 noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -1100,10 +1151,11 @@ define internal i32 @butc_dissect_tc_dumpDesc_spare3(ptr noundef %0, i32 noundef
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_dumpDesc_spare4(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1118,6 +1170,7 @@ define internal i32 @butc_dissect_tc_dumpDesc_spare4(ptr noundef %0, i32 noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -1130,10 +1183,11 @@ define internal i32 @butc_dissect_tc_dumpDesc_spare4(ptr noundef %0, i32 noundef
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @butc_dissect_tc_restoreDesc(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -1154,12 +1208,15 @@ define hidden i32 @butc_dissect_tc_restoreDesc(ptr noundef %0, i32 noundef %1, p
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 4
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp ne i32 %22, 0
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 4
+  %22 = load i8, ptr %21, align 1, !range !6, !noundef !7
+  %23 = trunc i8 %22 to i1
   br i1 %23, label %33, label %24
 
 24:                                               ; preds = %8
@@ -1317,10 +1374,13 @@ define hidden i32 @butc_dissect_tc_restoreDesc(ptr noundef %0, i32 noundef %1, p
   %148 = sub i32 %146, %147
   call void @proto_item_set_len(ptr noundef %145, i32 noundef %148)
   %149 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %149
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_restoreDesc_frag(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1335,6 +1395,7 @@ define internal i32 @butc_dissect_tc_restoreDesc_frag(ptr noundef %0, i32 nounde
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -1347,10 +1408,11 @@ define internal i32 @butc_dissect_tc_restoreDesc_frag(ptr noundef %0, i32 nounde
   %22 = call i32 @butc_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_restoreDesc_tapeName(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1365,6 +1427,7 @@ define internal i32 @butc_dissect_tc_restoreDesc_tapeName(ptr noundef %0, i32 no
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -1377,10 +1440,11 @@ define internal i32 @butc_dissect_tc_restoreDesc_tapeName(ptr noundef %0, i32 no
   %22 = call i32 @butc_dissect_NameString_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_restoreDesc_position(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1395,6 +1459,7 @@ define internal i32 @butc_dissect_tc_restoreDesc_position(ptr noundef %0, i32 no
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -1407,10 +1472,11 @@ define internal i32 @butc_dissect_tc_restoreDesc_position(ptr noundef %0, i32 no
   %22 = call i32 @butc_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_restoreDesc_origVid(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1425,6 +1491,7 @@ define internal i32 @butc_dissect_tc_restoreDesc_origVid(ptr noundef %0, i32 nou
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -1437,10 +1504,11 @@ define internal i32 @butc_dissect_tc_restoreDesc_origVid(ptr noundef %0, i32 nou
   %22 = call i32 @butc_dissect_udlong(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_restoreDesc_vid(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1455,6 +1523,7 @@ define internal i32 @butc_dissect_tc_restoreDesc_vid(ptr noundef %0, i32 noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -1467,10 +1536,11 @@ define internal i32 @butc_dissect_tc_restoreDesc_vid(ptr noundef %0, i32 noundef
   %22 = call i32 @butc_dissect_udlong(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_restoreDesc_partition(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1485,6 +1555,7 @@ define internal i32 @butc_dissect_tc_restoreDesc_partition(ptr noundef %0, i32 n
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -1497,10 +1568,11 @@ define internal i32 @butc_dissect_tc_restoreDesc_partition(ptr noundef %0, i32 n
   %22 = call i32 @butc_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_restoreDesc_flags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1515,6 +1587,7 @@ define internal i32 @butc_dissect_tc_restoreDesc_flags(ptr noundef %0, i32 nound
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -1527,10 +1600,11 @@ define internal i32 @butc_dissect_tc_restoreDesc_flags(ptr noundef %0, i32 nound
   %22 = call i32 @butc_dissect_Restore_flags(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_restoreDesc_hostAddr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1545,6 +1619,7 @@ define internal i32 @butc_dissect_tc_restoreDesc_hostAddr(ptr noundef %0, i32 no
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -1557,10 +1632,11 @@ define internal i32 @butc_dissect_tc_restoreDesc_hostAddr(ptr noundef %0, i32 no
   %22 = call i32 @butc_dissect_afsNetAddr(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_restoreDesc_realDumpId(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1575,6 +1651,7 @@ define internal i32 @butc_dissect_tc_restoreDesc_realDumpId(ptr noundef %0, i32 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -1587,10 +1664,11 @@ define internal i32 @butc_dissect_tc_restoreDesc_realDumpId(ptr noundef %0, i32 
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_restoreDesc_spare2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1605,6 +1683,7 @@ define internal i32 @butc_dissect_tc_restoreDesc_spare2(ptr noundef %0, i32 noun
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -1617,10 +1696,11 @@ define internal i32 @butc_dissect_tc_restoreDesc_spare2(ptr noundef %0, i32 noun
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_restoreDesc_spare3(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1635,6 +1715,7 @@ define internal i32 @butc_dissect_tc_restoreDesc_spare3(ptr noundef %0, i32 noun
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -1647,10 +1728,11 @@ define internal i32 @butc_dissect_tc_restoreDesc_spare3(ptr noundef %0, i32 noun
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_restoreDesc_spare4(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1665,6 +1747,7 @@ define internal i32 @butc_dissect_tc_restoreDesc_spare4(ptr noundef %0, i32 noun
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -1677,10 +1760,11 @@ define internal i32 @butc_dissect_tc_restoreDesc_spare4(ptr noundef %0, i32 noun
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_restoreDesc_oldName(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1695,6 +1779,7 @@ define internal i32 @butc_dissect_tc_restoreDesc_oldName(ptr noundef %0, i32 nou
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -1707,10 +1792,11 @@ define internal i32 @butc_dissect_tc_restoreDesc_oldName(ptr noundef %0, i32 nou
   %22 = call i32 @butc_dissect_NameString_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_restoreDesc_newName(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1725,6 +1811,7 @@ define internal i32 @butc_dissect_tc_restoreDesc_newName(ptr noundef %0, i32 nou
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -1737,10 +1824,11 @@ define internal i32 @butc_dissect_tc_restoreDesc_newName(ptr noundef %0, i32 nou
   %22 = call i32 @butc_dissect_NameString_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @butc_dissect_tc_dumpStat(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -1761,12 +1849,15 @@ define hidden i32 @butc_dissect_tc_dumpStat(ptr noundef %0, i32 noundef %1, ptr 
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 4
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp ne i32 %22, 0
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 4
+  %22 = load i8, ptr %21, align 1, !range !6, !noundef !7
+  %23 = trunc i8 %22 to i1
   br i1 %23, label %33, label %24
 
 24:                                               ; preds = %8
@@ -1884,10 +1975,13 @@ define hidden i32 @butc_dissect_tc_dumpStat(ptr noundef %0, i32 noundef %1, ptr 
   %113 = sub i32 %111, %112
   call void @proto_item_set_len(ptr noundef %110, i32 noundef %113)
   %114 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %114
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_dumpStat_dumpID(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1902,6 +1996,7 @@ define internal i32 @butc_dissect_tc_dumpStat_dumpID(ptr noundef %0, i32 noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -1914,10 +2009,11 @@ define internal i32 @butc_dissect_tc_dumpStat_dumpID(ptr noundef %0, i32 noundef
   %22 = call i32 @butc_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_dumpStat_bytesDumped(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1932,6 +2028,7 @@ define internal i32 @butc_dissect_tc_dumpStat_bytesDumped(ptr noundef %0, i32 no
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -1944,10 +2041,11 @@ define internal i32 @butc_dissect_tc_dumpStat_bytesDumped(ptr noundef %0, i32 no
   %22 = call i32 @butc_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_dumpStat_volumeBeingDumped(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1962,6 +2060,7 @@ define internal i32 @butc_dissect_tc_dumpStat_volumeBeingDumped(ptr noundef %0, 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -1974,10 +2073,11 @@ define internal i32 @butc_dissect_tc_dumpStat_volumeBeingDumped(ptr noundef %0, 
   %22 = call i32 @butc_dissect_udlong(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_dumpStat_numVolErrs(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1992,6 +2092,7 @@ define internal i32 @butc_dissect_tc_dumpStat_numVolErrs(ptr noundef %0, i32 nou
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -2004,10 +2105,11 @@ define internal i32 @butc_dissect_tc_dumpStat_numVolErrs(ptr noundef %0, i32 nou
   %22 = call i32 @butc_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_dumpStat_flags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2022,6 +2124,7 @@ define internal i32 @butc_dissect_tc_dumpStat_flags(ptr noundef %0, i32 noundef 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -2034,10 +2137,11 @@ define internal i32 @butc_dissect_tc_dumpStat_flags(ptr noundef %0, i32 noundef 
   %22 = call i32 @butc_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_dumpStat_spare1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2052,6 +2156,7 @@ define internal i32 @butc_dissect_tc_dumpStat_spare1(ptr noundef %0, i32 noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -2064,10 +2169,11 @@ define internal i32 @butc_dissect_tc_dumpStat_spare1(ptr noundef %0, i32 noundef
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_dumpStat_spare2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2082,6 +2188,7 @@ define internal i32 @butc_dissect_tc_dumpStat_spare2(ptr noundef %0, i32 noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -2094,10 +2201,11 @@ define internal i32 @butc_dissect_tc_dumpStat_spare2(ptr noundef %0, i32 noundef
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_dumpStat_spare3(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2112,6 +2220,7 @@ define internal i32 @butc_dissect_tc_dumpStat_spare3(ptr noundef %0, i32 noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -2124,10 +2233,11 @@ define internal i32 @butc_dissect_tc_dumpStat_spare3(ptr noundef %0, i32 noundef
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_dumpStat_spare4(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2142,6 +2252,7 @@ define internal i32 @butc_dissect_tc_dumpStat_spare4(ptr noundef %0, i32 noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -2154,10 +2265,11 @@ define internal i32 @butc_dissect_tc_dumpStat_spare4(ptr noundef %0, i32 noundef
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @butc_dissect_tc_tapeLabel(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -2178,12 +2290,15 @@ define hidden i32 @butc_dissect_tc_tapeLabel(ptr noundef %0, i32 noundef %1, ptr
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 4
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp ne i32 %22, 0
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 4
+  %22 = load i8, ptr %21, align 1, !range !6, !noundef !7
+  %23 = trunc i8 %22 to i1
   br i1 %23, label %33, label %24
 
 24:                                               ; preds = %8
@@ -2293,10 +2408,13 @@ define hidden i32 @butc_dissect_tc_tapeLabel(ptr noundef %0, i32 noundef %1, ptr
   %106 = sub i32 %104, %105
   call void @proto_item_set_len(ptr noundef %103, i32 noundef %106)
   %107 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %107
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_tapeLabel_size(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2311,6 +2429,7 @@ define internal i32 @butc_dissect_tc_tapeLabel_size(ptr noundef %0, i32 noundef 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -2323,10 +2442,11 @@ define internal i32 @butc_dissect_tc_tapeLabel_size(ptr noundef %0, i32 noundef 
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_tapeLabel_size_ext(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2341,6 +2461,7 @@ define internal i32 @butc_dissect_tc_tapeLabel_size_ext(ptr noundef %0, i32 noun
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -2353,10 +2474,11 @@ define internal i32 @butc_dissect_tc_tapeLabel_size_ext(ptr noundef %0, i32 noun
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_tapeLabel_spare1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2371,6 +2493,7 @@ define internal i32 @butc_dissect_tc_tapeLabel_spare1(ptr noundef %0, i32 nounde
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -2383,10 +2506,11 @@ define internal i32 @butc_dissect_tc_tapeLabel_spare1(ptr noundef %0, i32 nounde
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_tapeLabel_spare2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2401,6 +2525,7 @@ define internal i32 @butc_dissect_tc_tapeLabel_spare2(ptr noundef %0, i32 nounde
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -2413,10 +2538,11 @@ define internal i32 @butc_dissect_tc_tapeLabel_spare2(ptr noundef %0, i32 nounde
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_tapeLabel_spare3(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2431,6 +2557,7 @@ define internal i32 @butc_dissect_tc_tapeLabel_spare3(ptr noundef %0, i32 nounde
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -2443,10 +2570,11 @@ define internal i32 @butc_dissect_tc_tapeLabel_spare3(ptr noundef %0, i32 nounde
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_tapeLabel_spare4(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2461,6 +2589,7 @@ define internal i32 @butc_dissect_tc_tapeLabel_spare4(ptr noundef %0, i32 nounde
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -2473,10 +2602,11 @@ define internal i32 @butc_dissect_tc_tapeLabel_spare4(ptr noundef %0, i32 nounde
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_tapeLabel_nameLen(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2491,6 +2621,7 @@ define internal i32 @butc_dissect_tc_tapeLabel_nameLen(ptr noundef %0, i32 nound
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -2503,10 +2634,11 @@ define internal i32 @butc_dissect_tc_tapeLabel_nameLen(ptr noundef %0, i32 nound
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_tapeLabel_name(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2521,6 +2653,7 @@ define internal i32 @butc_dissect_tc_tapeLabel_name(ptr noundef %0, i32 noundef 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -2533,10 +2666,11 @@ define internal i32 @butc_dissect_tc_tapeLabel_name(ptr noundef %0, i32 noundef 
   %22 = call i32 @butc_dissect_NameString_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @butc_dissect_tc_tapeSet(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -2557,12 +2691,15 @@ define hidden i32 @butc_dissect_tc_tapeSet(ptr noundef %0, i32 noundef %1, ptr n
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 4
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp ne i32 %22, 0
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 4
+  %22 = load i8, ptr %21, align 1, !range !6, !noundef !7
+  %23 = trunc i8 %22 to i1
   br i1 %23, label %33, label %24
 
 24:                                               ; preds = %8
@@ -2704,10 +2841,13 @@ define hidden i32 @butc_dissect_tc_tapeSet(ptr noundef %0, i32 noundef %1, ptr n
   %134 = sub i32 %132, %133
   call void @proto_item_set_len(ptr noundef %131, i32 noundef %134)
   %135 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %135
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_tapeSet_id(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2722,6 +2862,7 @@ define internal i32 @butc_dissect_tc_tapeSet_id(ptr noundef %0, i32 noundef %1, 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -2734,10 +2875,11 @@ define internal i32 @butc_dissect_tc_tapeSet_id(ptr noundef %0, i32 noundef %1, 
   %22 = call i32 @butc_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_tapeSet_tapeServer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2752,6 +2894,7 @@ define internal i32 @butc_dissect_tc_tapeSet_tapeServer(ptr noundef %0, i32 noun
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -2764,10 +2907,11 @@ define internal i32 @butc_dissect_tc_tapeSet_tapeServer(ptr noundef %0, i32 noun
   %22 = call i32 @butc_dissect_NameString_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_tapeSet_format(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2782,6 +2926,7 @@ define internal i32 @butc_dissect_tc_tapeSet_format(ptr noundef %0, i32 noundef 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -2794,10 +2939,11 @@ define internal i32 @butc_dissect_tc_tapeSet_format(ptr noundef %0, i32 noundef 
   %22 = call i32 @butc_dissect_NameString_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_tapeSet_maxTapes(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2812,6 +2958,7 @@ define internal i32 @butc_dissect_tc_tapeSet_maxTapes(ptr noundef %0, i32 nounde
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -2824,10 +2971,11 @@ define internal i32 @butc_dissect_tc_tapeSet_maxTapes(ptr noundef %0, i32 nounde
   %22 = call i32 @butc_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_tapeSet_a(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2842,6 +2990,7 @@ define internal i32 @butc_dissect_tc_tapeSet_a(ptr noundef %0, i32 noundef %1, p
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -2854,10 +3003,11 @@ define internal i32 @butc_dissect_tc_tapeSet_a(ptr noundef %0, i32 noundef %1, p
   %22 = call i32 @butc_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_tapeSet_b(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2872,6 +3022,7 @@ define internal i32 @butc_dissect_tc_tapeSet_b(ptr noundef %0, i32 noundef %1, p
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -2884,10 +3035,11 @@ define internal i32 @butc_dissect_tc_tapeSet_b(ptr noundef %0, i32 noundef %1, p
   %22 = call i32 @butc_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_tapeSet_expDate(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2902,6 +3054,7 @@ define internal i32 @butc_dissect_tc_tapeSet_expDate(ptr noundef %0, i32 noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -2914,10 +3067,11 @@ define internal i32 @butc_dissect_tc_tapeSet_expDate(ptr noundef %0, i32 noundef
   %22 = call i32 @butc_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_tapeSet_expType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2932,6 +3086,7 @@ define internal i32 @butc_dissect_tc_tapeSet_expType(ptr noundef %0, i32 noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -2944,10 +3099,11 @@ define internal i32 @butc_dissect_tc_tapeSet_expType(ptr noundef %0, i32 noundef
   %22 = call i32 @butc_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_tapeSet_spare1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2962,6 +3118,7 @@ define internal i32 @butc_dissect_tc_tapeSet_spare1(ptr noundef %0, i32 noundef 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -2974,10 +3131,11 @@ define internal i32 @butc_dissect_tc_tapeSet_spare1(ptr noundef %0, i32 noundef 
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_tapeSet_spare2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2992,6 +3150,7 @@ define internal i32 @butc_dissect_tc_tapeSet_spare2(ptr noundef %0, i32 noundef 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -3004,10 +3163,11 @@ define internal i32 @butc_dissect_tc_tapeSet_spare2(ptr noundef %0, i32 noundef 
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_tapeSet_spare3(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3022,6 +3182,7 @@ define internal i32 @butc_dissect_tc_tapeSet_spare3(ptr noundef %0, i32 noundef 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -3034,10 +3195,11 @@ define internal i32 @butc_dissect_tc_tapeSet_spare3(ptr noundef %0, i32 noundef 
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_tapeSet_spare4(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3052,6 +3214,7 @@ define internal i32 @butc_dissect_tc_tapeSet_spare4(ptr noundef %0, i32 noundef 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -3064,10 +3227,11 @@ define internal i32 @butc_dissect_tc_tapeSet_spare4(ptr noundef %0, i32 noundef 
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @butc_dissect_tc_tcInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -3088,12 +3252,15 @@ define hidden i32 @butc_dissect_tc_tcInfo(ptr noundef %0, i32 noundef %1, ptr no
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 4
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp ne i32 %22, 0
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 4
+  %22 = load i8, ptr %21, align 1, !range !6, !noundef !7
+  %23 = trunc i8 %22 to i1
   br i1 %23, label %33, label %24
 
 24:                                               ; preds = %8
@@ -3179,10 +3346,13 @@ define hidden i32 @butc_dissect_tc_tcInfo(ptr noundef %0, i32 noundef %1, ptr no
   %85 = sub i32 %83, %84
   call void @proto_item_set_len(ptr noundef %82, i32 noundef %85)
   %86 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %86
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_tcInfo_tcVersion(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3197,6 +3367,7 @@ define internal i32 @butc_dissect_tc_tcInfo_tcVersion(ptr noundef %0, i32 nounde
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -3209,10 +3380,11 @@ define internal i32 @butc_dissect_tc_tcInfo_tcVersion(ptr noundef %0, i32 nounde
   %22 = call i32 @butc_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_tcInfo_spare1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3227,6 +3399,7 @@ define internal i32 @butc_dissect_tc_tcInfo_spare1(ptr noundef %0, i32 noundef %
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -3239,10 +3412,11 @@ define internal i32 @butc_dissect_tc_tcInfo_spare1(ptr noundef %0, i32 noundef %
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_tcInfo_spare2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3257,6 +3431,7 @@ define internal i32 @butc_dissect_tc_tcInfo_spare2(ptr noundef %0, i32 noundef %
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -3269,10 +3444,11 @@ define internal i32 @butc_dissect_tc_tcInfo_spare2(ptr noundef %0, i32 noundef %
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_tcInfo_spare3(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3287,6 +3463,7 @@ define internal i32 @butc_dissect_tc_tcInfo_spare3(ptr noundef %0, i32 noundef %
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -3299,10 +3476,11 @@ define internal i32 @butc_dissect_tc_tcInfo_spare3(ptr noundef %0, i32 noundef %
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_tcInfo_spare4(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3317,6 +3495,7 @@ define internal i32 @butc_dissect_tc_tcInfo_spare4(ptr noundef %0, i32 noundef %
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -3329,10 +3508,11 @@ define internal i32 @butc_dissect_tc_tcInfo_spare4(ptr noundef %0, i32 noundef %
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @butc_dissect_tc_restoreArray(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -3353,12 +3533,15 @@ define hidden i32 @butc_dissect_tc_restoreArray(ptr noundef %0, i32 noundef %1, 
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 4
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp ne i32 %22, 0
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 4
+  %22 = load i8, ptr %21, align 1, !range !6, !noundef !7
+  %23 = trunc i8 %22 to i1
   br i1 %23, label %33, label %24
 
 24:                                               ; preds = %8
@@ -3420,10 +3603,13 @@ define hidden i32 @butc_dissect_tc_restoreArray(ptr noundef %0, i32 noundef %1, 
   %64 = sub i32 %62, %63
   call void @proto_item_set_len(ptr noundef %61, i32 noundef %64)
   %65 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %65
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_restoreArray_tc_restoreArray_len(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3438,6 +3624,7 @@ define internal i32 @butc_dissect_tc_restoreArray_tc_restoreArray_len(ptr nounde
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -3450,10 +3637,11 @@ define internal i32 @butc_dissect_tc_restoreArray_tc_restoreArray_len(ptr nounde
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ucarray_ptr_butc_dissect_tc_restoreArray_tc_restoreArray_val(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3479,7 +3667,7 @@ define internal i32 @ucarray_ptr_butc_dissect_tc_restoreArray_tc_restoreArray_va
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @butc_dissect_tc_dumpArray(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -3500,12 +3688,15 @@ define hidden i32 @butc_dissect_tc_dumpArray(ptr noundef %0, i32 noundef %1, ptr
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 4
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp ne i32 %22, 0
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 4
+  %22 = load i8, ptr %21, align 1, !range !6, !noundef !7
+  %23 = trunc i8 %22 to i1
   br i1 %23, label %33, label %24
 
 24:                                               ; preds = %8
@@ -3567,10 +3758,13 @@ define hidden i32 @butc_dissect_tc_dumpArray(ptr noundef %0, i32 noundef %1, ptr
   %64 = sub i32 %62, %63
   call void @proto_item_set_len(ptr noundef %61, i32 noundef %64)
   %65 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %65
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_dumpArray_tc_dumpArray_len(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3585,6 +3779,7 @@ define internal i32 @butc_dissect_tc_dumpArray_tc_dumpArray_len(ptr noundef %0, 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -3597,10 +3792,11 @@ define internal i32 @butc_dissect_tc_dumpArray_tc_dumpArray_len(ptr noundef %0, 
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ucarray_ptr_butc_dissect_tc_dumpArray_tc_dumpArray(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3626,7 +3822,7 @@ define internal i32 @ucarray_ptr_butc_dissect_tc_dumpArray_tc_dumpArray(ptr noun
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @butc_dissect_tc_dumpInterface(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -3647,12 +3843,15 @@ define hidden i32 @butc_dissect_tc_dumpInterface(ptr noundef %0, i32 noundef %1,
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 4
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp ne i32 %22, 0
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 4
+  %22 = load i8, ptr %21, align 1, !range !6, !noundef !7
+  %23 = trunc i8 %22 to i1
   br i1 %23, label %33, label %24
 
 24:                                               ; preds = %8
@@ -3778,10 +3977,13 @@ define hidden i32 @butc_dissect_tc_dumpInterface(ptr noundef %0, i32 noundef %1,
   %120 = sub i32 %118, %119
   call void @proto_item_set_len(ptr noundef %117, i32 noundef %120)
   %121 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %121
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_dumpInterface_dumpPath(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3796,6 +3998,7 @@ define internal i32 @butc_dissect_tc_dumpInterface_dumpPath(ptr noundef %0, i32 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -3808,10 +4011,11 @@ define internal i32 @butc_dissect_tc_dumpInterface_dumpPath(ptr noundef %0, i32 
   %22 = call i32 @butc_dissect_NameString_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_dumpInterface_volumeSetName(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3826,6 +4030,7 @@ define internal i32 @butc_dissect_tc_dumpInterface_volumeSetName(ptr noundef %0,
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -3838,10 +4043,11 @@ define internal i32 @butc_dissect_tc_dumpInterface_volumeSetName(ptr noundef %0,
   %22 = call i32 @butc_dissect_NameString_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_dumpInterface_dumpName(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3856,6 +4062,7 @@ define internal i32 @butc_dissect_tc_dumpInterface_dumpName(ptr noundef %0, i32 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -3868,10 +4075,11 @@ define internal i32 @butc_dissect_tc_dumpInterface_dumpName(ptr noundef %0, i32 
   %22 = call i32 @butc_dissect_NameString_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_dumpInterface_tapeSet(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3886,6 +4094,7 @@ define internal i32 @butc_dissect_tc_dumpInterface_tapeSet(ptr noundef %0, i32 n
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -3898,10 +4107,11 @@ define internal i32 @butc_dissect_tc_dumpInterface_tapeSet(ptr noundef %0, i32 n
   %22 = call i32 @butc_dissect_tc_tapeSet(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_dumpInterface_parentDumpId(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3916,6 +4126,7 @@ define internal i32 @butc_dissect_tc_dumpInterface_parentDumpId(ptr noundef %0, 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -3928,10 +4139,11 @@ define internal i32 @butc_dissect_tc_dumpInterface_parentDumpId(ptr noundef %0, 
   %22 = call i32 @butc_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_dumpInterface_dumpLevel(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3946,6 +4158,7 @@ define internal i32 @butc_dissect_tc_dumpInterface_dumpLevel(ptr noundef %0, i32
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -3958,10 +4171,11 @@ define internal i32 @butc_dissect_tc_dumpInterface_dumpLevel(ptr noundef %0, i32
   %22 = call i32 @butc_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_dumpInterface_spare1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3976,6 +4190,7 @@ define internal i32 @butc_dissect_tc_dumpInterface_spare1(ptr noundef %0, i32 no
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -3988,10 +4203,11 @@ define internal i32 @butc_dissect_tc_dumpInterface_spare1(ptr noundef %0, i32 no
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_dumpInterface_spare2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4006,6 +4222,7 @@ define internal i32 @butc_dissect_tc_dumpInterface_spare2(ptr noundef %0, i32 no
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -4018,10 +4235,11 @@ define internal i32 @butc_dissect_tc_dumpInterface_spare2(ptr noundef %0, i32 no
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_dumpInterface_spare3(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4036,6 +4254,7 @@ define internal i32 @butc_dissect_tc_dumpInterface_spare3(ptr noundef %0, i32 no
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -4048,10 +4267,11 @@ define internal i32 @butc_dissect_tc_dumpInterface_spare3(ptr noundef %0, i32 no
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_dumpInterface_spare4(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4066,6 +4286,7 @@ define internal i32 @butc_dissect_tc_dumpInterface_spare4(ptr noundef %0, i32 no
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -4078,10 +4299,11 @@ define internal i32 @butc_dissect_tc_dumpInterface_spare4(ptr noundef %0, i32 no
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @butc_dissect_tc_statusInfoSwitchVol(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -4102,12 +4324,15 @@ define hidden i32 @butc_dissect_tc_statusInfoSwitchVol(ptr noundef %0, i32 nound
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 4
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp ne i32 %22, 0
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 4
+  %22 = load i8, ptr %21, align 1, !range !6, !noundef !7
+  %23 = trunc i8 %22 to i1
   br i1 %23, label %33, label %24
 
 24:                                               ; preds = %8
@@ -4185,10 +4410,13 @@ define hidden i32 @butc_dissect_tc_statusInfoSwitchVol(ptr noundef %0, i32 nound
   %78 = sub i32 %76, %77
   call void @proto_item_set_len(ptr noundef %75, i32 noundef %78)
   %79 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %79
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_statusInfoSwitchVol_nKBytes(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4203,6 +4431,7 @@ define internal i32 @butc_dissect_tc_statusInfoSwitchVol_nKBytes(ptr noundef %0,
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -4215,10 +4444,11 @@ define internal i32 @butc_dissect_tc_statusInfoSwitchVol_nKBytes(ptr noundef %0,
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_statusInfoSwitchVol_volumeName(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4233,6 +4463,7 @@ define internal i32 @butc_dissect_tc_statusInfoSwitchVol_volumeName(ptr noundef 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -4245,10 +4476,11 @@ define internal i32 @butc_dissect_tc_statusInfoSwitchVol_volumeName(ptr noundef 
   %22 = call i32 @butc_dissect_NameString_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_statusInfoSwitchVol_volsFailed(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4263,6 +4495,7 @@ define internal i32 @butc_dissect_tc_statusInfoSwitchVol_volsFailed(ptr noundef 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -4275,10 +4508,11 @@ define internal i32 @butc_dissect_tc_statusInfoSwitchVol_volsFailed(ptr noundef 
   %22 = call i32 @butc_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_statusInfoSwitchVol_spare1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4293,6 +4527,7 @@ define internal i32 @butc_dissect_tc_statusInfoSwitchVol_spare1(ptr noundef %0, 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -4305,10 +4540,11 @@ define internal i32 @butc_dissect_tc_statusInfoSwitchVol_spare1(ptr noundef %0, 
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @butc_dissect_tc_statusInfoSwitchLabel(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -4329,12 +4565,15 @@ define hidden i32 @butc_dissect_tc_statusInfoSwitchLabel(ptr noundef %0, i32 nou
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 4
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp ne i32 %22, 0
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 4
+  %22 = load i8, ptr %21, align 1, !range !6, !noundef !7
+  %23 = trunc i8 %22 to i1
   br i1 %23, label %33, label %24
 
 24:                                               ; preds = %8
@@ -4396,10 +4635,13 @@ define hidden i32 @butc_dissect_tc_statusInfoSwitchLabel(ptr noundef %0, i32 nou
   %64 = sub i32 %62, %63
   call void @proto_item_set_len(ptr noundef %61, i32 noundef %64)
   %65 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %65
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_statusInfoSwitchLabel_tapeLabel(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4414,6 +4656,7 @@ define internal i32 @butc_dissect_tc_statusInfoSwitchLabel_tapeLabel(ptr noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -4426,10 +4669,11 @@ define internal i32 @butc_dissect_tc_statusInfoSwitchLabel_tapeLabel(ptr noundef
   %22 = call i32 @butc_dissect_tc_tapeLabel(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_statusInfoSwitchLabel_spare1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4444,6 +4688,7 @@ define internal i32 @butc_dissect_tc_statusInfoSwitchLabel_spare1(ptr noundef %0
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -4456,10 +4701,11 @@ define internal i32 @butc_dissect_tc_statusInfoSwitchLabel_spare1(ptr noundef %0
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @butc_dissect_tciStatusS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -4480,12 +4726,15 @@ define hidden i32 @butc_dissect_tciStatusS(ptr noundef %0, i32 noundef %1, ptr n
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 4
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp ne i32 %22, 0
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 4
+  %22 = load i8, ptr %21, align 1, !range !6, !noundef !7
+  %23 = trunc i8 %22 to i1
   br i1 %23, label %33, label %24
 
 24:                                               ; preds = %8
@@ -4595,10 +4844,13 @@ define hidden i32 @butc_dissect_tciStatusS(ptr noundef %0, i32 noundef %1, ptr n
   %106 = sub i32 %104, %105
   call void @proto_item_set_len(ptr noundef %103, i32 noundef %106)
   %107 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %107
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tciStatusS_taskName(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4613,6 +4865,7 @@ define internal i32 @butc_dissect_tciStatusS_taskName(ptr noundef %0, i32 nounde
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -4625,10 +4878,11 @@ define internal i32 @butc_dissect_tciStatusS_taskName(ptr noundef %0, i32 nounde
   %22 = call i32 @butc_dissect_NameString_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tciStatusS_flags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4643,6 +4897,7 @@ define internal i32 @butc_dissect_tciStatusS_flags(ptr noundef %0, i32 noundef %
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -4655,10 +4910,11 @@ define internal i32 @butc_dissect_tciStatusS_flags(ptr noundef %0, i32 noundef %
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tciStatusS_lastPolled(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4673,6 +4929,7 @@ define internal i32 @butc_dissect_tciStatusS_lastPolled(ptr noundef %0, i32 noun
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -4685,10 +4942,11 @@ define internal i32 @butc_dissect_tciStatusS_lastPolled(ptr noundef %0, i32 noun
   %22 = call i32 @butc_dissect_time_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tciStatusS_info(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4703,6 +4961,7 @@ define internal i32 @butc_dissect_tciStatusS_info(ptr noundef %0, i32 noundef %1
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -4715,10 +4974,11 @@ define internal i32 @butc_dissect_tciStatusS_info(ptr noundef %0, i32 noundef %1
   %22 = call i32 @butc_dissect_union_tc_statusInfoSwitch(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tciStatusS_taskId(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4733,6 +4993,7 @@ define internal i32 @butc_dissect_tciStatusS_taskId(ptr noundef %0, i32 noundef 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -4745,10 +5006,11 @@ define internal i32 @butc_dissect_tciStatusS_taskId(ptr noundef %0, i32 noundef 
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tciStatusS_spare2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4763,6 +5025,7 @@ define internal i32 @butc_dissect_tciStatusS_spare2(ptr noundef %0, i32 noundef 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -4775,10 +5038,11 @@ define internal i32 @butc_dissect_tciStatusS_spare2(ptr noundef %0, i32 noundef 
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tciStatusS_spare3(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4793,6 +5057,7 @@ define internal i32 @butc_dissect_tciStatusS_spare3(ptr noundef %0, i32 noundef 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -4805,10 +5070,11 @@ define internal i32 @butc_dissect_tciStatusS_spare3(ptr noundef %0, i32 noundef 
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tciStatusS_spare4(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4823,6 +5089,7 @@ define internal i32 @butc_dissect_tciStatusS_spare4(ptr noundef %0, i32 noundef 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -4835,10 +5102,11 @@ define internal i32 @butc_dissect_tciStatusS_spare4(ptr noundef %0, i32 noundef 
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_butc() #0 {
   %1 = call i32 @proto_register_protocol(ptr noundef @.str.194, ptr noundef @.str.195, ptr noundef @.str.196)
   store i32 %1, ptr @proto_butc, align 4
@@ -4848,13 +5116,16 @@ define hidden void @proto_register_butc() #0 {
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_butc() #0 {
   %1 = load i32, ptr @proto_butc, align 4
   %2 = load i32, ptr @ett_butc, align 4
@@ -4864,9 +5135,10 @@ define hidden void @proto_reg_handoff_butc() #0 {
   ret void
 }
 
-declare void @dcerpc_init_uuid(i32 noundef, i32 noundef, ptr noundef, i16 noundef zeroext, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dcerpc_init_uuid(i32 noundef, i32 noundef, ptr noundef, i16 noundef zeroext, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_uint16(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -4897,9 +5169,10 @@ define internal i32 @butc_dissect_uint16(ptr noundef %0, i32 noundef %1, ptr nou
   ret i32 %25
 }
 
-declare i32 @dissect_ndr_uint16(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_uint16(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_afsNetAddr_data(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4914,6 +5187,7 @@ define internal i32 @butc_dissect_afsNetAddr_data(ptr noundef %0, i32 noundef %1
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -4926,10 +5200,11 @@ define internal i32 @butc_dissect_afsNetAddr_data(ptr noundef %0, i32 noundef %1
   %22 = call i32 @butc_dissect_uint8(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -4960,9 +5235,10 @@ define internal i32 @butc_dissect_uint8(ptr noundef %0, i32 noundef %1, ptr noun
   ret i32 %25
 }
 
-declare i32 @dissect_ndr_uint8(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_uint8(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_udlong(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -4993,9 +5269,10 @@ define internal i32 @butc_dissect_udlong(ptr noundef %0, i32 noundef %1, ptr nou
   ret i32 %25
 }
 
-declare i32 @dissect_ndr_duint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_duint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_NameString_t(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -5020,15 +5297,16 @@ define internal i32 @butc_dissect_NameString_t(ptr noundef %0, i32 noundef %1, p
   %21 = load ptr, ptr %13, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr %15, align 4
-  %24 = call i32 @dissect_ndr_vstring(ptr noundef %17, i32 noundef %18, ptr noundef %19, ptr noundef %20, ptr noundef %21, ptr noundef %22, i32 noundef 1, i32 noundef %23, i32 noundef 0, ptr noundef null)
+  %24 = call i32 @dissect_ndr_vstring(ptr noundef %17, i32 noundef %18, ptr noundef %19, ptr noundef %20, ptr noundef %21, ptr noundef %22, i32 noundef 1, i32 noundef %23, i1 noundef zeroext false, ptr noundef null)
   store i32 %24, ptr %10, align 4
   %25 = load i32, ptr %10, align 4
   ret i32 %25
 }
 
-declare i32 @dissect_ndr_vstring(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_vstring(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_int32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -5059,7 +5337,7 @@ define internal i32 @butc_dissect_int32(ptr noundef %0, i32 noundef %1, ptr noun
   ret i32 %25
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_time_t(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -5090,9 +5368,10 @@ define internal i32 @butc_dissect_time_t(ptr noundef %0, i32 noundef %1, ptr nou
   ret i32 %25
 }
 
-declare i32 @dissect_ndr_time_t(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_time_t(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -5123,9 +5402,10 @@ define internal i32 @butc_dissect_uint32(ptr noundef %0, i32 noundef %1, ptr nou
   ret i32 %25
 }
 
-declare i32 @dissect_ndr_ucarray(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_ucarray(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ptr_butc_dissect_tc_restoreArray_tc_restoreArray_val(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5151,9 +5431,10 @@ define internal i32 @ptr_butc_dissect_tc_restoreArray_tc_restoreArray_val(ptr no
   ret i32 %20
 }
 
-declare i32 @dissect_ndr_embedded_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_embedded_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_restoreArray_tc_restoreArray_val(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5168,6 +5449,7 @@ define internal i32 @butc_dissect_tc_restoreArray_tc_restoreArray_val(ptr nounde
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -5180,10 +5462,11 @@ define internal i32 @butc_dissect_tc_restoreArray_tc_restoreArray_val(ptr nounde
   %22 = call i32 @butc_dissect_tc_restoreDesc(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ptr_butc_dissect_tc_dumpArray_tc_dumpArray(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5209,7 +5492,7 @@ define internal i32 @ptr_butc_dissect_tc_dumpArray_tc_dumpArray(ptr noundef %0, 
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_tc_dumpArray_tc_dumpArray(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5224,6 +5507,7 @@ define internal i32 @butc_dissect_tc_dumpArray_tc_dumpArray(ptr noundef %0, i32 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -5236,10 +5520,11 @@ define internal i32 @butc_dissect_tc_dumpArray_tc_dumpArray(ptr noundef %0, i32 
   %22 = call i32 @butc_dissect_tc_dumpDesc(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_union_tc_statusInfoSwitch(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -5261,13 +5546,17 @@ define internal i32 @butc_dissect_union_tc_statusInfoSwitch(ptr noundef %0, i32 
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #4
   store i32 0, ptr %20, align 4
   %21 = load ptr, ptr %13, align 8
-  %22 = getelementptr inbounds %struct._dcerpc_info, ptr %21, i32 0, i32 4
-  %23 = load i32, ptr %22, align 4
-  %24 = icmp ne i32 %23, 0
+  %22 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %21, i32 0, i32 4
+  %23 = load i8, ptr %22, align 1, !range !6, !noundef !7
+  %24 = trunc i8 %23 to i1
   br i1 %24, label %34, label %25
 
 25:                                               ; preds = %8
@@ -5328,9 +5617,9 @@ define internal i32 @butc_dissect_union_tc_statusInfoSwitch(ptr noundef %0, i32 
 
 54:                                               ; preds = %44
   %55 = load ptr, ptr %13, align 8
-  %56 = getelementptr inbounds %struct._dcerpc_info, ptr %55, i32 0, i32 4
-  %57 = load i32, ptr %56, align 4
-  %58 = icmp ne i32 %57, 0
+  %56 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %55, i32 0, i32 4
+  %57 = load i8, ptr %56, align 1, !range !6, !noundef !7
+  %58 = trunc i8 %57 to i1
   br i1 %58, label %68, label %59
 
 59:                                               ; preds = %54
@@ -5362,9 +5651,9 @@ define internal i32 @butc_dissect_union_tc_statusInfoSwitch(ptr noundef %0, i32 
 
 76:                                               ; preds = %44
   %77 = load ptr, ptr %13, align 8
-  %78 = getelementptr inbounds %struct._dcerpc_info, ptr %77, i32 0, i32 4
-  %79 = load i32, ptr %78, align 4
-  %80 = icmp ne i32 %79, 0
+  %78 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %77, i32 0, i32 4
+  %79 = load i8, ptr %78, align 1, !range !6, !noundef !7
+  %80 = trunc i8 %79 to i1
   br i1 %80, label %90, label %81
 
 81:                                               ; preds = %76
@@ -5396,9 +5685,9 @@ define internal i32 @butc_dissect_union_tc_statusInfoSwitch(ptr noundef %0, i32 
 
 98:                                               ; preds = %44
   %99 = load ptr, ptr %13, align 8
-  %100 = getelementptr inbounds %struct._dcerpc_info, ptr %99, i32 0, i32 4
-  %101 = load i32, ptr %100, align 4
-  %102 = icmp ne i32 %101, 0
+  %100 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %99, i32 0, i32 4
+  %101 = load i8, ptr %100, align 1, !range !6, !noundef !7
+  %102 = trunc i8 %101 to i1
   br i1 %102, label %112, label %103
 
 103:                                              ; preds = %98
@@ -5430,9 +5719,9 @@ define internal i32 @butc_dissect_union_tc_statusInfoSwitch(ptr noundef %0, i32 
 
 120:                                              ; preds = %44
   %121 = load ptr, ptr %13, align 8
-  %122 = getelementptr inbounds %struct._dcerpc_info, ptr %121, i32 0, i32 4
-  %123 = load i32, ptr %122, align 4
-  %124 = icmp ne i32 %123, 0
+  %122 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %121, i32 0, i32 4
+  %123 = load i8, ptr %122, align 1, !range !6, !noundef !7
+  %124 = trunc i8 %123 to i1
   br i1 %124, label %134, label %125
 
 125:                                              ; preds = %120
@@ -5464,9 +5753,9 @@ define internal i32 @butc_dissect_union_tc_statusInfoSwitch(ptr noundef %0, i32 
 
 142:                                              ; preds = %44
   %143 = load ptr, ptr %13, align 8
-  %144 = getelementptr inbounds %struct._dcerpc_info, ptr %143, i32 0, i32 4
-  %145 = load i32, ptr %144, align 4
-  %146 = icmp ne i32 %145, 0
+  %144 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %143, i32 0, i32 4
+  %145 = load i8, ptr %144, align 1, !range !6, !noundef !7
+  %146 = trunc i8 %145 to i1
   br i1 %146, label %156, label %147
 
 147:                                              ; preds = %142
@@ -5498,9 +5787,9 @@ define internal i32 @butc_dissect_union_tc_statusInfoSwitch(ptr noundef %0, i32 
 
 164:                                              ; preds = %44
   %165 = load ptr, ptr %13, align 8
-  %166 = getelementptr inbounds %struct._dcerpc_info, ptr %165, i32 0, i32 4
-  %167 = load i32, ptr %166, align 4
-  %168 = icmp ne i32 %167, 0
+  %166 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %165, i32 0, i32 4
+  %167 = load i8, ptr %166, align 1, !range !6, !noundef !7
+  %168 = trunc i8 %167 to i1
   br i1 %168, label %178, label %169
 
 169:                                              ; preds = %164
@@ -5532,9 +5821,9 @@ define internal i32 @butc_dissect_union_tc_statusInfoSwitch(ptr noundef %0, i32 
 
 186:                                              ; preds = %44
   %187 = load ptr, ptr %13, align 8
-  %188 = getelementptr inbounds %struct._dcerpc_info, ptr %187, i32 0, i32 4
-  %189 = load i32, ptr %188, align 4
-  %190 = icmp ne i32 %189, 0
+  %188 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %187, i32 0, i32 4
+  %189 = load i8, ptr %188, align 1, !range !6, !noundef !7
+  %190 = trunc i8 %189 to i1
   br i1 %190, label %200, label %191
 
 191:                                              ; preds = %186
@@ -5566,9 +5855,9 @@ define internal i32 @butc_dissect_union_tc_statusInfoSwitch(ptr noundef %0, i32 
 
 208:                                              ; preds = %44
   %209 = load ptr, ptr %13, align 8
-  %210 = getelementptr inbounds %struct._dcerpc_info, ptr %209, i32 0, i32 4
-  %211 = load i32, ptr %210, align 4
-  %212 = icmp ne i32 %211, 0
+  %210 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %209, i32 0, i32 4
+  %211 = load i8, ptr %210, align 1, !range !6, !noundef !7
+  %212 = trunc i8 %211 to i1
   br i1 %212, label %222, label %213
 
 213:                                              ; preds = %208
@@ -5600,9 +5889,9 @@ define internal i32 @butc_dissect_union_tc_statusInfoSwitch(ptr noundef %0, i32 
 
 230:                                              ; preds = %44
   %231 = load ptr, ptr %13, align 8
-  %232 = getelementptr inbounds %struct._dcerpc_info, ptr %231, i32 0, i32 4
-  %233 = load i32, ptr %232, align 4
-  %234 = icmp ne i32 %233, 0
+  %232 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %231, i32 0, i32 4
+  %233 = load i8, ptr %232, align 1, !range !6, !noundef !7
+  %234 = trunc i8 %233 to i1
   br i1 %234, label %244, label %235
 
 235:                                              ; preds = %230
@@ -5634,9 +5923,9 @@ define internal i32 @butc_dissect_union_tc_statusInfoSwitch(ptr noundef %0, i32 
 
 252:                                              ; preds = %44
   %253 = load ptr, ptr %13, align 8
-  %254 = getelementptr inbounds %struct._dcerpc_info, ptr %253, i32 0, i32 4
-  %255 = load i32, ptr %254, align 4
-  %256 = icmp ne i32 %255, 0
+  %254 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %253, i32 0, i32 4
+  %255 = load i8, ptr %254, align 1, !range !6, !noundef !7
+  %256 = trunc i8 %255 to i1
   br i1 %256, label %266, label %257
 
 257:                                              ; preds = %252
@@ -5666,19 +5955,24 @@ define internal i32 @butc_dissect_union_tc_statusInfoSwitch(ptr noundef %0, i32 
   store i32 %273, ptr %10, align 4
   br label %274
 
-274:                                              ; preds = %266, %244, %222, %200, %178, %156, %134, %112, %90, %68, %44
+274:                                              ; preds = %44, %266, %244, %222, %200, %178, %156, %134, %112, %90, %68
   %275 = load ptr, ptr %17, align 8
   %276 = load i32, ptr %10, align 4
   %277 = load i32, ptr %19, align 4
   %278 = sub i32 %276, %277
   call void @proto_item_set_len(ptr noundef %275, i32 noundef %278)
   %279 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %279
 }
 
-declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_union_tc_statusInfoSwitch_TCOP_NONE_none(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5693,6 +5987,7 @@ define internal i32 @butc_dissect_union_tc_statusInfoSwitch_TCOP_NONE_none(ptr n
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -5705,10 +6000,11 @@ define internal i32 @butc_dissect_union_tc_statusInfoSwitch_TCOP_NONE_none(ptr n
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_union_tc_statusInfoSwitch_TCOP_DUMP_vol(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5723,6 +6019,7 @@ define internal i32 @butc_dissect_union_tc_statusInfoSwitch_TCOP_DUMP_vol(ptr no
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -5735,10 +6032,11 @@ define internal i32 @butc_dissect_union_tc_statusInfoSwitch_TCOP_DUMP_vol(ptr no
   %22 = call i32 @butc_dissect_tc_statusInfoSwitchVol(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_union_tc_statusInfoSwitch_TCOP_RESTORE_vol(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5753,6 +6051,7 @@ define internal i32 @butc_dissect_union_tc_statusInfoSwitch_TCOP_RESTORE_vol(ptr
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -5765,10 +6064,11 @@ define internal i32 @butc_dissect_union_tc_statusInfoSwitch_TCOP_RESTORE_vol(ptr
   %22 = call i32 @butc_dissect_tc_statusInfoSwitchVol(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_union_tc_statusInfoSwitch_TCOP_LABELTAPE_label(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5783,6 +6083,7 @@ define internal i32 @butc_dissect_union_tc_statusInfoSwitch_TCOP_LABELTAPE_label
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -5795,10 +6096,11 @@ define internal i32 @butc_dissect_union_tc_statusInfoSwitch_TCOP_LABELTAPE_label
   %22 = call i32 @butc_dissect_tc_statusInfoSwitchLabel(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_union_tc_statusInfoSwitch_TCOP_READLABEL_label(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5813,6 +6115,7 @@ define internal i32 @butc_dissect_union_tc_statusInfoSwitch_TCOP_READLABEL_label
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -5825,10 +6128,11 @@ define internal i32 @butc_dissect_union_tc_statusInfoSwitch_TCOP_READLABEL_label
   %22 = call i32 @butc_dissect_tc_statusInfoSwitchLabel(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_union_tc_statusInfoSwitch_TCOP_SCANTAPE_spare1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5843,6 +6147,7 @@ define internal i32 @butc_dissect_union_tc_statusInfoSwitch_TCOP_SCANTAPE_spare1
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -5855,10 +6160,11 @@ define internal i32 @butc_dissect_union_tc_statusInfoSwitch_TCOP_SCANTAPE_spare1
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_union_tc_statusInfoSwitch_TCOP_STATUS_spare2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5873,6 +6179,7 @@ define internal i32 @butc_dissect_union_tc_statusInfoSwitch_TCOP_STATUS_spare2(p
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -5885,10 +6192,11 @@ define internal i32 @butc_dissect_union_tc_statusInfoSwitch_TCOP_STATUS_spare2(p
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_union_tc_statusInfoSwitch_TCOP_SAVEDB_spare3(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5903,6 +6211,7 @@ define internal i32 @butc_dissect_union_tc_statusInfoSwitch_TCOP_SAVEDB_spare3(p
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -5915,10 +6224,11 @@ define internal i32 @butc_dissect_union_tc_statusInfoSwitch_TCOP_SAVEDB_spare3(p
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_union_tc_statusInfoSwitch_TCOP_RESTOREDB_spare4(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5933,6 +6243,7 @@ define internal i32 @butc_dissect_union_tc_statusInfoSwitch_TCOP_RESTOREDB_spare
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -5945,10 +6256,11 @@ define internal i32 @butc_dissect_union_tc_statusInfoSwitch_TCOP_RESTOREDB_spare
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_union_tc_statusInfoSwitch_TCOP_SPARE_spare5(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5963,6 +6275,7 @@ define internal i32 @butc_dissect_union_tc_statusInfoSwitch_TCOP_SPARE_spare5(pt
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -5975,10 +6288,11 @@ define internal i32 @butc_dissect_union_tc_statusInfoSwitch_TCOP_SPARE_spare5(pt
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_BUTC_PerformDump_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6026,7 +6340,7 @@ define internal i32 @butc_dissect_BUTC_PerformDump_request(ptr noundef %0, i32 n
   ret i32 %39
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_BUTC_PerformDump_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6068,7 +6382,7 @@ define internal i32 @butc_dissect_BUTC_PerformDump_response(ptr noundef %0, i32 
   ret i32 %34
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_BUTC_PerformRestore_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6116,7 +6430,7 @@ define internal i32 @butc_dissect_BUTC_PerformRestore_request(ptr noundef %0, i3
   ret i32 %39
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_BUTC_PerformRestore_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6158,7 +6472,7 @@ define internal i32 @butc_dissect_BUTC_PerformRestore_response(ptr noundef %0, i
   ret i32 %34
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_BUTC_AbortDump_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6191,7 +6505,7 @@ define internal i32 @butc_dissect_BUTC_AbortDump_request(ptr noundef %0, i32 nou
   ret i32 %26
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_BUTC_AbortDump_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6218,7 +6532,7 @@ define internal i32 @butc_dissect_BUTC_AbortDump_response(ptr noundef %0, i32 no
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_BUTC_LabelTape_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6251,7 +6565,7 @@ define internal i32 @butc_dissect_BUTC_LabelTape_request(ptr noundef %0, i32 nou
   ret i32 %26
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_BUTC_LabelTape_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6293,8 +6607,8 @@ define internal i32 @butc_dissect_BUTC_LabelTape_response(ptr noundef %0, i32 no
   ret i32 %34
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @butc_dissect_BUTC_ReadLabel_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @butc_dissect_BUTC_ReadLabel_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -6311,7 +6625,7 @@ define internal i32 @butc_dissect_BUTC_ReadLabel_request(ptr noundef %0, i32 nou
   ret i32 %13
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_BUTC_ReadLabel_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6353,7 +6667,7 @@ define internal i32 @butc_dissect_BUTC_ReadLabel_response(ptr noundef %0, i32 no
   ret i32 %34
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_BUTC_ScanDumps_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6386,7 +6700,7 @@ define internal i32 @butc_dissect_BUTC_ScanDumps_request(ptr noundef %0, i32 nou
   ret i32 %26
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_BUTC_ScanDumps_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6428,8 +6742,8 @@ define internal i32 @butc_dissect_BUTC_ScanDumps_response(ptr noundef %0, i32 no
   ret i32 %34
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @butc_dissect_BUTC_TCInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @butc_dissect_BUTC_TCInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -6446,7 +6760,7 @@ define internal i32 @butc_dissect_BUTC_TCInfo_request(ptr noundef %0, i32 nounde
   ret i32 %13
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_BUTC_TCInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6488,8 +6802,8 @@ define internal i32 @butc_dissect_BUTC_TCInfo_response(ptr noundef %0, i32 nound
   ret i32 %34
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @butc_dissect_BUTC_SaveDb_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @butc_dissect_BUTC_SaveDb_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -6506,7 +6820,7 @@ define internal i32 @butc_dissect_BUTC_SaveDb_request(ptr noundef %0, i32 nounde
   ret i32 %13
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_BUTC_SaveDb_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6548,8 +6862,8 @@ define internal i32 @butc_dissect_BUTC_SaveDb_response(ptr noundef %0, i32 nound
   ret i32 %34
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @butc_dissect_BUTC_RestoreDb_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @butc_dissect_BUTC_RestoreDb_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -6566,7 +6880,7 @@ define internal i32 @butc_dissect_BUTC_RestoreDb_request(ptr noundef %0, i32 nou
   ret i32 %13
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_BUTC_RestoreDb_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6608,7 +6922,7 @@ define internal i32 @butc_dissect_BUTC_RestoreDb_response(ptr noundef %0, i32 no
   ret i32 %34
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_BUTC_EndStatus_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6641,7 +6955,7 @@ define internal i32 @butc_dissect_BUTC_EndStatus_request(ptr noundef %0, i32 nou
   ret i32 %26
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_BUTC_EndStatus_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6668,7 +6982,7 @@ define internal i32 @butc_dissect_BUTC_EndStatus_response(ptr noundef %0, i32 no
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_BUTC_GetStatus_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6701,7 +7015,7 @@ define internal i32 @butc_dissect_BUTC_GetStatus_request(ptr noundef %0, i32 nou
   ret i32 %26
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_BUTC_GetStatus_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6743,7 +7057,7 @@ define internal i32 @butc_dissect_BUTC_GetStatus_response(ptr noundef %0, i32 no
   ret i32 %34
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_BUTC_RequestAbort_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6776,7 +7090,7 @@ define internal i32 @butc_dissect_BUTC_RequestAbort_request(ptr noundef %0, i32 
   ret i32 %26
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_BUTC_RequestAbort_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6803,7 +7117,7 @@ define internal i32 @butc_dissect_BUTC_RequestAbort_response(ptr noundef %0, i32
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_BUTC_ScanStatus_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6851,7 +7165,7 @@ define internal i32 @butc_dissect_BUTC_ScanStatus_request(ptr noundef %0, i32 no
   ret i32 %39
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_BUTC_ScanStatus_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6923,8 +7237,8 @@ define internal i32 @butc_dissect_BUTC_ScanStatus_response(ptr noundef %0, i32 n
   ret i32 %60
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @butc_dissect_BUTC_GetServerInterfaces_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @butc_dissect_BUTC_GetServerInterfaces_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -6941,7 +7255,7 @@ define internal i32 @butc_dissect_BUTC_GetServerInterfaces_request(ptr noundef %
   ret i32 %13
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_BUTC_GetServerInterfaces_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6968,7 +7282,7 @@ define internal i32 @butc_dissect_BUTC_GetServerInterfaces_response(ptr noundef 
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ref_butc_dissect_BUTC_PerformDump_tcdiPtr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6994,9 +7308,10 @@ define internal i32 @ref_butc_dissect_BUTC_PerformDump_tcdiPtr(ptr noundef %0, i
   ret i32 %20
 }
 
-declare i32 @dissect_deferred_pointers(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_deferred_pointers(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ref_butc_dissect_BUTC_PerformDump_dumps(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7022,9 +7337,10 @@ define internal i32 @ref_butc_dissect_BUTC_PerformDump_dumps(ptr noundef %0, i32
   ret i32 %20
 }
 
-declare i32 @dissect_ndr_toplevel_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_toplevel_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_BUTC_PerformDump_tcdiPtr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7039,6 +7355,7 @@ define internal i32 @butc_dissect_BUTC_PerformDump_tcdiPtr(ptr noundef %0, i32 n
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -7051,10 +7368,11 @@ define internal i32 @butc_dissect_BUTC_PerformDump_tcdiPtr(ptr noundef %0, i32 n
   %22 = call i32 @butc_dissect_tc_dumpInterface(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_BUTC_PerformDump_dumps(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7069,6 +7387,7 @@ define internal i32 @butc_dissect_BUTC_PerformDump_dumps(ptr noundef %0, i32 nou
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -7081,10 +7400,11 @@ define internal i32 @butc_dissect_BUTC_PerformDump_dumps(ptr noundef %0, i32 nou
   %22 = call i32 @butc_dissect_tc_dumpArray(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ref_butc_dissect_BUTC_PerformDump_dumpID(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7110,9 +7430,10 @@ define internal i32 @ref_butc_dissect_BUTC_PerformDump_dumpID(ptr noundef %0, i3
   ret i32 %20
 }
 
-declare i32 @dissect_ntstatus(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ntstatus(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_BUTC_PerformDump_dumpID(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7127,6 +7448,7 @@ define internal i32 @butc_dissect_BUTC_PerformDump_dumpID(ptr noundef %0, i32 no
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -7139,10 +7461,11 @@ define internal i32 @butc_dissect_BUTC_PerformDump_dumpID(ptr noundef %0, i32 no
   %22 = call i32 @butc_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ptr_butc_dissect_BUTC_PerformRestore_dumpSetName(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7168,7 +7491,7 @@ define internal i32 @ptr_butc_dissect_BUTC_PerformRestore_dumpSetName(ptr nounde
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ref_butc_dissect_BUTC_PerformRestore_restores(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7194,7 +7517,7 @@ define internal i32 @ref_butc_dissect_BUTC_PerformRestore_restores(ptr noundef %
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_BUTC_PerformRestore_dumpSetName(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7209,6 +7532,7 @@ define internal i32 @butc_dissect_BUTC_PerformRestore_dumpSetName(ptr noundef %0
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -7221,10 +7545,11 @@ define internal i32 @butc_dissect_BUTC_PerformRestore_dumpSetName(ptr noundef %0
   %22 = call i32 @butc_dissect_NameString_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_BUTC_PerformRestore_restores(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7239,6 +7564,7 @@ define internal i32 @butc_dissect_BUTC_PerformRestore_restores(ptr noundef %0, i
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -7251,10 +7577,11 @@ define internal i32 @butc_dissect_BUTC_PerformRestore_restores(ptr noundef %0, i
   %22 = call i32 @butc_dissect_tc_restoreArray(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ref_butc_dissect_BUTC_PerformRestore_dumpID(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7280,7 +7607,7 @@ define internal i32 @ref_butc_dissect_BUTC_PerformRestore_dumpID(ptr noundef %0,
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_BUTC_PerformRestore_dumpID(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7295,6 +7622,7 @@ define internal i32 @butc_dissect_BUTC_PerformRestore_dumpID(ptr noundef %0, i32
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -7307,10 +7635,11 @@ define internal i32 @butc_dissect_BUTC_PerformRestore_dumpID(ptr noundef %0, i32
   %22 = call i32 @butc_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_BUTC_AbortDump_dumpID(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7325,6 +7654,7 @@ define internal i32 @butc_dissect_BUTC_AbortDump_dumpID(ptr noundef %0, i32 noun
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -7337,10 +7667,11 @@ define internal i32 @butc_dissect_BUTC_AbortDump_dumpID(ptr noundef %0, i32 noun
   %22 = call i32 @butc_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ref_butc_dissect_BUTC_LabelTape_label(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7366,7 +7697,7 @@ define internal i32 @ref_butc_dissect_BUTC_LabelTape_label(ptr noundef %0, i32 n
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_BUTC_LabelTape_label(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7381,6 +7712,7 @@ define internal i32 @butc_dissect_BUTC_LabelTape_label(ptr noundef %0, i32 nound
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -7393,10 +7725,11 @@ define internal i32 @butc_dissect_BUTC_LabelTape_label(ptr noundef %0, i32 nound
   %22 = call i32 @butc_dissect_tc_tapeLabel(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ref_butc_dissect_BUTC_LabelTape_taskId(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7422,7 +7755,7 @@ define internal i32 @ref_butc_dissect_BUTC_LabelTape_taskId(ptr noundef %0, i32 
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_BUTC_LabelTape_taskId(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7437,6 +7770,7 @@ define internal i32 @butc_dissect_BUTC_LabelTape_taskId(ptr noundef %0, i32 noun
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -7449,10 +7783,11 @@ define internal i32 @butc_dissect_BUTC_LabelTape_taskId(ptr noundef %0, i32 noun
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ref_butc_dissect_BUTC_ReadLabel_taskId(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7478,7 +7813,7 @@ define internal i32 @ref_butc_dissect_BUTC_ReadLabel_taskId(ptr noundef %0, i32 
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_BUTC_ReadLabel_taskId(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7493,6 +7828,7 @@ define internal i32 @butc_dissect_BUTC_ReadLabel_taskId(ptr noundef %0, i32 noun
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -7505,10 +7841,11 @@ define internal i32 @butc_dissect_BUTC_ReadLabel_taskId(ptr noundef %0, i32 noun
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_BUTC_ScanDumps_addDbFlag(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7523,6 +7860,7 @@ define internal i32 @butc_dissect_BUTC_ScanDumps_addDbFlag(ptr noundef %0, i32 n
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -7535,10 +7873,11 @@ define internal i32 @butc_dissect_BUTC_ScanDumps_addDbFlag(ptr noundef %0, i32 n
   %22 = call i32 @butc_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ref_butc_dissect_BUTC_ScanDumps_taskId(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7564,7 +7903,7 @@ define internal i32 @ref_butc_dissect_BUTC_ScanDumps_taskId(ptr noundef %0, i32 
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_BUTC_ScanDumps_taskId(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7579,6 +7918,7 @@ define internal i32 @butc_dissect_BUTC_ScanDumps_taskId(ptr noundef %0, i32 noun
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -7591,10 +7931,11 @@ define internal i32 @butc_dissect_BUTC_ScanDumps_taskId(ptr noundef %0, i32 noun
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ref_butc_dissect_BUTC_TCInfo_tciptr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7620,7 +7961,7 @@ define internal i32 @ref_butc_dissect_BUTC_TCInfo_tciptr(ptr noundef %0, i32 nou
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_BUTC_TCInfo_tciptr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7635,6 +7976,7 @@ define internal i32 @butc_dissect_BUTC_TCInfo_tciptr(ptr noundef %0, i32 noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -7647,10 +7989,11 @@ define internal i32 @butc_dissect_BUTC_TCInfo_tciptr(ptr noundef %0, i32 noundef
   %22 = call i32 @butc_dissect_tc_tcInfo(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ref_butc_dissect_BUTC_SaveDb_taskId(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7676,7 +8019,7 @@ define internal i32 @ref_butc_dissect_BUTC_SaveDb_taskId(ptr noundef %0, i32 nou
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_BUTC_SaveDb_taskId(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7691,6 +8034,7 @@ define internal i32 @butc_dissect_BUTC_SaveDb_taskId(ptr noundef %0, i32 noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -7703,10 +8047,11 @@ define internal i32 @butc_dissect_BUTC_SaveDb_taskId(ptr noundef %0, i32 noundef
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ref_butc_dissect_BUTC_RestoreDb_taskId(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7732,7 +8077,7 @@ define internal i32 @ref_butc_dissect_BUTC_RestoreDb_taskId(ptr noundef %0, i32 
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_BUTC_RestoreDb_taskId(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7747,6 +8092,7 @@ define internal i32 @butc_dissect_BUTC_RestoreDb_taskId(ptr noundef %0, i32 noun
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -7759,10 +8105,11 @@ define internal i32 @butc_dissect_BUTC_RestoreDb_taskId(ptr noundef %0, i32 noun
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_BUTC_EndStatus_taskId(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7777,6 +8124,7 @@ define internal i32 @butc_dissect_BUTC_EndStatus_taskId(ptr noundef %0, i32 noun
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -7789,10 +8137,11 @@ define internal i32 @butc_dissect_BUTC_EndStatus_taskId(ptr noundef %0, i32 noun
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_BUTC_GetStatus_taskId(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7807,6 +8156,7 @@ define internal i32 @butc_dissect_BUTC_GetStatus_taskId(ptr noundef %0, i32 noun
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -7819,10 +8169,11 @@ define internal i32 @butc_dissect_BUTC_GetStatus_taskId(ptr noundef %0, i32 noun
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ref_butc_dissect_BUTC_GetStatus_statusPtr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7848,7 +8199,7 @@ define internal i32 @ref_butc_dissect_BUTC_GetStatus_statusPtr(ptr noundef %0, i
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_BUTC_GetStatus_statusPtr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7863,6 +8214,7 @@ define internal i32 @butc_dissect_BUTC_GetStatus_statusPtr(ptr noundef %0, i32 n
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -7875,10 +8227,11 @@ define internal i32 @butc_dissect_BUTC_GetStatus_statusPtr(ptr noundef %0, i32 n
   %22 = call i32 @butc_dissect_tciStatusS(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_BUTC_RequestAbort_taskId(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7893,6 +8246,7 @@ define internal i32 @butc_dissect_BUTC_RequestAbort_taskId(ptr noundef %0, i32 n
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -7905,10 +8259,11 @@ define internal i32 @butc_dissect_BUTC_RequestAbort_taskId(ptr noundef %0, i32 n
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ref_butc_dissect_BUTC_ScanStatus_taskId(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7934,7 +8289,7 @@ define internal i32 @ref_butc_dissect_BUTC_ScanStatus_taskId(ptr noundef %0, i32
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ref_butc_dissect_BUTC_ScanStatus_flags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7960,7 +8315,7 @@ define internal i32 @ref_butc_dissect_BUTC_ScanStatus_flags(ptr noundef %0, i32 
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_BUTC_ScanStatus_taskId(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7975,6 +8330,7 @@ define internal i32 @butc_dissect_BUTC_ScanStatus_taskId(ptr noundef %0, i32 nou
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -7987,10 +8343,11 @@ define internal i32 @butc_dissect_BUTC_ScanStatus_taskId(ptr noundef %0, i32 nou
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_BUTC_ScanStatus_flags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -8005,6 +8362,7 @@ define internal i32 @butc_dissect_BUTC_ScanStatus_flags(ptr noundef %0, i32 noun
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -8017,10 +8375,11 @@ define internal i32 @butc_dissect_BUTC_ScanStatus_flags(ptr noundef %0, i32 noun
   %22 = call i32 @butc_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ref_butc_dissect_BUTC_ScanStatus_statusPtr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -8046,7 +8405,7 @@ define internal i32 @ref_butc_dissect_BUTC_ScanStatus_statusPtr(ptr noundef %0, 
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @butc_dissect_BUTC_ScanStatus_statusPtr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -8061,6 +8420,7 @@ define internal i32 @butc_dissect_BUTC_ScanStatus_statusPtr(ptr noundef %0, i32 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -8073,17 +8433,25 @@ define internal i32 @butc_dissect_BUTC_ScanStatus_statusPtr(ptr noundef %0, i32 
   %22 = call i32 @butc_dissect_tciStatusS(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}

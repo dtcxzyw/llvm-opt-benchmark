@@ -3,29 +3,29 @@ source_filename = "bench/wireshark/original/frame_data_sequence.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct._frame_data = type { i32, i32, i32, i32, i64, ptr, ptr, ptr, i16, i16, %struct.nstime_t, %struct.nstime_t, i32, i32, i8 }
+%struct._frame_data = type <{ i32, i32, i32, i32, i32, [4 x i8], i64, ptr, ptr, ptr, i8, i16, [5 x i8], %struct.nstime_t, %struct.nstime_t, i32, i32 }>
 %struct.nstime_t = type { i64, i32 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define noalias noundef ptr @new_frame_data_sequence() local_unnamed_addr #0 {
-  %1 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #6
+  %1 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #5
   store i32 0, ptr %1, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr null, ptr %2, align 8
   ret ptr %1
 }
 
-; Function Attrs: allocsize(0)
+; Function Attrs: null_pointer_is_valid allocsize(0)
 declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define noundef ptr @frame_data_sequence_add(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %2
-  %6 = tail call noalias dereferenceable_or_null(106496) ptr @g_malloc(i64 noundef 106496) #6
+  %6 = tail call noalias dereferenceable_or_null(106496) ptr @g_malloc(i64 noundef 106496) #5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %7, align 8
   br label %148
@@ -46,11 +46,11 @@ define noundef ptr @frame_data_sequence_add(ptr noundef captures(none) %0, ptr n
   br i1 %16, label %17, label %23
 
 17:                                               ; preds = %15
-  %18 = tail call noalias dereferenceable_or_null(8192) ptr @g_malloc0(i64 noundef 8192) #6
+  %18 = tail call noalias dereferenceable_or_null(8192) ptr @g_malloc0(i64 noundef 8192) #5
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
   store ptr %20, ptr %18, align 8
-  %21 = tail call noalias dereferenceable_or_null(106496) ptr @g_malloc(i64 noundef 106496) #6
+  %21 = tail call noalias dereferenceable_or_null(106496) ptr @g_malloc(i64 noundef 106496) #5
   %22 = getelementptr i8, ptr %18, i64 8
   store ptr %21, ptr %22, align 8
   store ptr %18, ptr %19, align 8
@@ -71,7 +71,7 @@ define noundef ptr @frame_data_sequence_add(ptr noundef captures(none) %0, ptr n
   br i1 %32, label %33, label %39
 
 33:                                               ; preds = %25
-  %34 = tail call noalias dereferenceable_or_null(106496) ptr @g_malloc(i64 noundef 106496) #6
+  %34 = tail call noalias dereferenceable_or_null(106496) ptr @g_malloc(i64 noundef 106496) #5
   %35 = load i32, ptr %0, align 8
   %36 = lshr i32 %35, 10
   %37 = zext nneg i32 %36 to i64
@@ -93,14 +93,14 @@ define noundef ptr @frame_data_sequence_add(ptr noundef captures(none) %0, ptr n
   br i1 %45, label %46, label %53
 
 46:                                               ; preds = %44
-  %47 = tail call noalias dereferenceable_or_null(8192) ptr @g_malloc0(i64 noundef 8192) #6
+  %47 = tail call noalias dereferenceable_or_null(8192) ptr @g_malloc0(i64 noundef 8192) #5
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %49 = load ptr, ptr %48, align 8
   store ptr %49, ptr %47, align 8
-  %50 = tail call noalias dereferenceable_or_null(8192) ptr @g_malloc0(i64 noundef 8192) #6
+  %50 = tail call noalias dereferenceable_or_null(8192) ptr @g_malloc0(i64 noundef 8192) #5
   %51 = getelementptr i8, ptr %47, i64 8
   store ptr %50, ptr %51, align 8
-  %52 = tail call noalias dereferenceable_or_null(106496) ptr @g_malloc(i64 noundef 106496) #6
+  %52 = tail call noalias dereferenceable_or_null(106496) ptr @g_malloc(i64 noundef 106496) #5
   store ptr %52, ptr %50, align 8
   store ptr %47, ptr %48, align 8
   br label %148
@@ -120,7 +120,7 @@ define noundef ptr @frame_data_sequence_add(ptr noundef captures(none) %0, ptr n
   br i1 %62, label %63, label %69
 
 63:                                               ; preds = %55
-  %64 = tail call noalias dereferenceable_or_null(8192) ptr @g_malloc0(i64 noundef 8192) #6
+  %64 = tail call noalias dereferenceable_or_null(8192) ptr @g_malloc0(i64 noundef 8192) #5
   %65 = load i32, ptr %0, align 8
   %66 = lshr i32 %65, 20
   %67 = zext nneg i32 %66 to i64
@@ -141,7 +141,7 @@ define noundef ptr @frame_data_sequence_add(ptr noundef captures(none) %0, ptr n
   br i1 %76, label %77, label %84
 
 77:                                               ; preds = %69
-  %78 = tail call noalias dereferenceable_or_null(106496) ptr @g_malloc(i64 noundef 106496) #6
+  %78 = tail call noalias dereferenceable_or_null(106496) ptr @g_malloc(i64 noundef 106496) #5
   %79 = load i32, ptr %0, align 8
   %80 = lshr i32 %79, 10
   %81 = and i32 %80, 1023
@@ -164,16 +164,16 @@ define noundef ptr @frame_data_sequence_add(ptr noundef captures(none) %0, ptr n
   br i1 %90, label %91, label %99
 
 91:                                               ; preds = %89
-  %92 = tail call noalias dereferenceable_or_null(8192) ptr @g_malloc0(i64 noundef 8192) #6
+  %92 = tail call noalias dereferenceable_or_null(8192) ptr @g_malloc0(i64 noundef 8192) #5
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %94 = load ptr, ptr %93, align 8
   store ptr %94, ptr %92, align 8
-  %95 = tail call noalias dereferenceable_or_null(8192) ptr @g_malloc0(i64 noundef 8192) #6
+  %95 = tail call noalias dereferenceable_or_null(8192) ptr @g_malloc0(i64 noundef 8192) #5
   %96 = getelementptr i8, ptr %92, i64 8
   store ptr %95, ptr %96, align 8
-  %97 = tail call noalias dereferenceable_or_null(8192) ptr @g_malloc0(i64 noundef 8192) #6
+  %97 = tail call noalias dereferenceable_or_null(8192) ptr @g_malloc0(i64 noundef 8192) #5
   store ptr %97, ptr %95, align 8
-  %98 = tail call noalias dereferenceable_or_null(106496) ptr @g_malloc(i64 noundef 106496) #6
+  %98 = tail call noalias dereferenceable_or_null(106496) ptr @g_malloc(i64 noundef 106496) #5
   store ptr %98, ptr %97, align 8
   store ptr %92, ptr %93, align 8
   br label %148
@@ -189,7 +189,7 @@ define noundef ptr @frame_data_sequence_add(ptr noundef captures(none) %0, ptr n
   br i1 %106, label %107, label %113
 
 107:                                              ; preds = %99
-  %108 = tail call noalias dereferenceable_or_null(8192) ptr @g_malloc0(i64 noundef 8192) #6
+  %108 = tail call noalias dereferenceable_or_null(8192) ptr @g_malloc0(i64 noundef 8192) #5
   %109 = load i32, ptr %0, align 8
   %110 = lshr i32 %109, 30
   %111 = zext nneg i32 %110 to i64
@@ -210,7 +210,7 @@ define noundef ptr @frame_data_sequence_add(ptr noundef captures(none) %0, ptr n
   br i1 %120, label %121, label %128
 
 121:                                              ; preds = %113
-  %122 = tail call noalias dereferenceable_or_null(8192) ptr @g_malloc0(i64 noundef 8192) #6
+  %122 = tail call noalias dereferenceable_or_null(8192) ptr @g_malloc0(i64 noundef 8192) #5
   %123 = load i32, ptr %0, align 8
   %124 = lshr i32 %123, 20
   %125 = and i32 %124, 1023
@@ -232,7 +232,7 @@ define noundef ptr @frame_data_sequence_add(ptr noundef captures(none) %0, ptr n
   br i1 %135, label %136, label %143
 
 136:                                              ; preds = %128
-  %137 = tail call noalias dereferenceable_or_null(106496) ptr @g_malloc(i64 noundef 106496) #6
+  %137 = tail call noalias dereferenceable_or_null(106496) ptr @g_malloc(i64 noundef 106496) #5
   %138 = load i32, ptr %0, align 8
   %139 = lshr i32 %138, 10
   %140 = and i32 %139, 1023
@@ -252,20 +252,20 @@ define noundef ptr @frame_data_sequence_add(ptr noundef captures(none) %0, ptr n
 
 148:                                              ; preds = %10, %39, %84, %143, %91, %46, %17, %5
   %.0 = phi ptr [ %6, %5 ], [ %14, %10 ], [ %21, %17 ], [ %43, %39 ], [ %52, %46 ], [ %88, %84 ], [ %98, %91 ], [ %147, %143 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %.0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 104, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(104) %.0, ptr noundef align 8 dereferenceable(104) %1, i64 104, i1 false)
   %149 = load i32, ptr %0, align 8
   %150 = add i32 %149, 1
   store i32 %150, ptr %0, align 8
   ret ptr %.0
 }
 
-; Function Attrs: allocsize(0)
+; Function Attrs: null_pointer_is_valid allocsize(0)
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define ptr @frame_data_sequence_find(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = icmp eq i32 %1, 0
   %4 = icmp eq ptr %0, null
@@ -351,7 +351,7 @@ define ptr @frame_data_sequence_find(ptr noundef readonly captures(address_is_nu
   ret ptr %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @free_frame_data_sequence(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %2, 0
@@ -374,18 +374,17 @@ define void @free_frame_data_sequence(ptr noundef %0) local_unnamed_addr #0 {
   %.0.ph = phi i32 [ %., %7 ], [ 2, %5 ], [ 1, %3 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
-  tail call fastcc void @free_frame_data_array(ptr noundef %11, i32 noundef %2, i32 noundef %.0.ph, i32 noundef 1)
+  tail call fastcc void @free_frame_data_array(ptr noundef %11, i32 noundef %2, i32 noundef %.0.ph, i1 noundef zeroext true)
   br label %12
 
 12:                                               ; preds = %1, %9
-  tail call void @g_free(ptr noundef nonnull %0) #7
+  tail call void @g_free(ptr noundef %0)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal fastcc void @free_frame_data_array(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 5) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
-  %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %.thread, label %5
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal fastcc void @free_frame_data_array(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 5) %2, i1 noundef zeroext %3) unnamed_addr #0 {
+  br i1 %3, label %5, label %.thread
 
 5:                                                ; preds = %4
   %6 = mul nuw nsw i32 %2, 10
@@ -395,191 +394,201 @@ define internal fastcc void @free_frame_data_array(ptr noundef %0, i32 noundef %
   %notmask = shl nsw i32 -1, %7
   %10 = xor i32 %notmask, -1
   %11 = and i32 %1, %10
-  %.not31 = icmp ne i32 %11, 0
-  %12 = zext i1 %.not31 to i32
+  %.not = icmp ne i32 %11, 0
+  %12 = zext i1 %.not to i32
   %spec.select = add nuw nsw i32 %9, %12
   %13 = icmp samesign ugt i32 %2, 1
-  br i1 %13, label %.preheader, label %.preheader32
+  br i1 %13, label %.preheader, label %.preheader31
 
 .thread:                                          ; preds = %4
   %14 = icmp samesign ugt i32 %2, 1
-  br i1 %14, label %.lr.ph35, label %.lr.ph.preheader
+  br i1 %14, label %.lr.ph34, label %.lr.ph.preheader
 
-.preheader32:                                     ; preds = %5
-  %.not36 = icmp eq i32 %spec.select, 0
-  br i1 %.not36, label %.loopexit, label %.lr.ph.preheader
+.preheader31:                                     ; preds = %5
+  %.not35 = icmp eq i32 %spec.select, 0
+  br i1 %.not35, label %.loopexit, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %.thread, %.preheader32
-  %.0274851 = phi i32 [ %spec.select, %.preheader32 ], [ 1024, %.thread ]
-  %wide.trip.count = zext nneg i32 %.0274851 to i64
+.lr.ph.preheader:                                 ; preds = %.thread, %.preheader31
+  %.0274750 = phi i32 [ %spec.select, %.preheader31 ], [ 1024, %.thread ]
+  %wide.trip.count = zext nneg i32 %.0274750 to i64
   br label %.lr.ph
 
 .preheader:                                       ; preds = %5
   %15 = add nsw i32 %spec.select, -1
-  %.not37 = icmp eq i32 %15, 0
-  br i1 %.not37, label %.preheader.._crit_edge_crit_edge, label %.lr.ph35
+  %.not36 = icmp eq i32 %15, 0
+  br i1 %.not36, label %.preheader.._crit_edge_crit_edge, label %.lr.ph34
 
 .preheader.._crit_edge_crit_edge:                 ; preds = %.preheader
-  %.pre44 = add nsw i32 %2, -1
+  %.pre43 = add nsw i32 %2, -1
   br label %._crit_edge
 
-.lr.ph35:                                         ; preds = %.thread, %.preheader
+.lr.ph34:                                         ; preds = %.thread, %.preheader
   %16 = phi i32 [ %15, %.preheader ], [ 1023, %.thread ]
   %17 = add nsw i32 %2, -1
-  %wide.trip.count42 = zext i32 %16 to i64
+  %wide.trip.count41 = zext i32 %16 to i64
   br label %18
 
-18:                                               ; preds = %.lr.ph35, %18
-  %indvars.iv39 = phi i64 [ 0, %.lr.ph35 ], [ %indvars.iv.next40, %18 ]
-  %19 = getelementptr ptr, ptr %0, i64 %indvars.iv39
+18:                                               ; preds = %.lr.ph34, %18
+  %indvars.iv38 = phi i64 [ 0, %.lr.ph34 ], [ %indvars.iv.next39, %18 ]
+  %19 = getelementptr ptr, ptr %0, i64 %indvars.iv38
   %20 = load ptr, ptr %19, align 8
-  tail call fastcc void @free_frame_data_array(ptr noundef %20, i32 noundef %1, i32 noundef %17, i32 noundef 0)
-  %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
-  %exitcond43.not = icmp eq i64 %indvars.iv.next40, %wide.trip.count42
-  br i1 %exitcond43.not, label %._crit_edge, label %18, !llvm.loop !4
+  tail call fastcc void @free_frame_data_array(ptr noundef %20, i32 noundef %1, i32 noundef %17, i1 noundef zeroext false)
+  %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
+  %exitcond42.not = icmp eq i64 %indvars.iv.next39, %wide.trip.count41
+  br i1 %exitcond42.not, label %._crit_edge, label %18, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %18, %.preheader.._crit_edge_crit_edge
-  %.pre-phi45 = phi i32 [ %.pre44, %.preheader.._crit_edge_crit_edge ], [ %17, %18 ]
-  %.pre-phi = phi i64 [ 0, %.preheader.._crit_edge_crit_edge ], [ %wide.trip.count42, %18 ]
+  %.pre-phi44 = phi i32 [ %.pre43, %.preheader.._crit_edge_crit_edge ], [ %17, %18 ]
+  %.pre-phi = phi i64 [ 0, %.preheader.._crit_edge_crit_edge ], [ %wide.trip.count41, %18 ]
   %21 = getelementptr ptr, ptr %0, i64 %.pre-phi
   %22 = load ptr, ptr %21, align 8
-  tail call fastcc void @free_frame_data_array(ptr noundef %22, i32 noundef %1, i32 noundef %.pre-phi45, i32 noundef %3)
+  tail call fastcc void @free_frame_data_array(ptr noundef %22, i32 noundef %1, i32 noundef %.pre-phi44, i1 noundef zeroext %3)
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %23 = getelementptr %struct._frame_data, ptr %0, i64 %indvars.iv
-  tail call void @frame_data_destroy(ptr noundef %23) #7
+  tail call void @frame_data_destroy(ptr noundef %23)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
-.loopexit:                                        ; preds = %.lr.ph, %.preheader32, %._crit_edge
-  tail call void @g_free(ptr noundef %0) #7
+.loopexit:                                        ; preds = %.lr.ph, %.preheader31, %._crit_edge
+  tail call void @g_free(ptr noundef %0)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @g_free(ptr noundef) local_unnamed_addr #4
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @find_and_mark_frame_depended_upon(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = ptrtoint ptr %0 to i64
   %5 = trunc i64 %4 to i32
   %6 = icmp ne i32 %5, 0
   %7 = icmp ne ptr %2, null
   %or.cond = and i1 %6, %7
-  br i1 %or.cond, label %8, label %62
+  br i1 %or.cond, label %8, label %73
 
 8:                                                ; preds = %3
   %9 = add i32 %5, -1
   %10 = load i32, ptr %2, align 8
   %.not.i = icmp ult i32 %9, %10
-  tail call void @llvm.assume(i1 %.not.i)
-  %11 = icmp ult i32 %10, 1025
-  br i1 %11, label %12, label %14
+  br i1 %.not.i, label %11, label %frame_data_sequence_find.exit
 
-12:                                               ; preds = %8
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
+11:                                               ; preds = %8
+  %12 = icmp ult i32 %10, 1025
+  br i1 %12, label %13, label %18
+
+13:                                               ; preds = %11
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = zext i32 %9 to i64
+  %17 = getelementptr %struct._frame_data, ptr %15, i64 %16
   br label %frame_data_sequence_find.exit
 
-14:                                               ; preds = %8
-  %15 = icmp ult i32 %10, 1048577
-  br i1 %15, label %16, label %23
+18:                                               ; preds = %11
+  %19 = icmp ult i32 %10, 1048577
+  br i1 %19, label %20, label %30
 
-16:                                               ; preds = %14
-  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %18 = load ptr, ptr %17, align 8
-  %19 = lshr i32 %9, 10
-  %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr ptr, ptr %18, i64 %20
-  %22 = and i32 %9, 1023
-  br label %frame_data_sequence_find.exit
-
-23:                                               ; preds = %14
-  %24 = icmp ult i32 %10, 1073741825
-  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
+20:                                               ; preds = %18
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %22 = load ptr, ptr %21, align 8
+  %23 = lshr i32 %9, 10
+  %24 = zext nneg i32 %23 to i64
+  %25 = getelementptr ptr, ptr %22, i64 %24
   %26 = load ptr, ptr %25, align 8
-  br i1 %24, label %27, label %37
-
-27:                                               ; preds = %23
-  %28 = lshr i32 %9, 20
-  %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr ptr, ptr %26, i64 %29
-  %31 = load ptr, ptr %30, align 8
-  %32 = lshr i32 %9, 10
-  %33 = and i32 %32, 1023
-  %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr ptr, ptr %31, i64 %34
-  %36 = and i32 %9, 1023
+  %27 = and i32 %9, 1023
+  %28 = zext nneg i32 %27 to i64
+  %29 = getelementptr %struct._frame_data, ptr %26, i64 %28
   br label %frame_data_sequence_find.exit
 
-37:                                               ; preds = %23
-  %38 = lshr i32 %9, 30
-  %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr ptr, ptr %26, i64 %39
-  %41 = load ptr, ptr %40, align 8
-  %42 = lshr i32 %9, 20
-  %43 = and i32 %42, 1023
-  %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr ptr, ptr %41, i64 %44
-  %46 = load ptr, ptr %45, align 8
-  %47 = lshr i32 %9, 10
-  %48 = and i32 %47, 1023
+30:                                               ; preds = %18
+  %31 = icmp ult i32 %10, 1073741825
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %33 = load ptr, ptr %32, align 8
+  br i1 %31, label %34, label %47
+
+34:                                               ; preds = %30
+  %35 = lshr i32 %9, 20
+  %36 = zext nneg i32 %35 to i64
+  %37 = getelementptr ptr, ptr %33, i64 %36
+  %38 = load ptr, ptr %37, align 8
+  %39 = lshr i32 %9, 10
+  %40 = and i32 %39, 1023
+  %41 = zext nneg i32 %40 to i64
+  %42 = getelementptr ptr, ptr %38, i64 %41
+  %43 = load ptr, ptr %42, align 8
+  %44 = and i32 %9, 1023
+  %45 = zext nneg i32 %44 to i64
+  %46 = getelementptr %struct._frame_data, ptr %43, i64 %45
+  br label %frame_data_sequence_find.exit
+
+47:                                               ; preds = %30
+  %48 = lshr i32 %9, 30
   %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr ptr, ptr %46, i64 %49
-  %51 = and i32 %9, 1023
+  %50 = getelementptr ptr, ptr %33, i64 %49
+  %51 = load ptr, ptr %50, align 8
+  %52 = lshr i32 %9, 20
+  %53 = and i32 %52, 1023
+  %54 = zext nneg i32 %53 to i64
+  %55 = getelementptr ptr, ptr %51, i64 %54
+  %56 = load ptr, ptr %55, align 8
+  %57 = lshr i32 %9, 10
+  %58 = and i32 %57, 1023
+  %59 = zext nneg i32 %58 to i64
+  %60 = getelementptr ptr, ptr %56, i64 %59
+  %61 = load ptr, ptr %60, align 8
+  %62 = and i32 %9, 1023
+  %63 = zext nneg i32 %62 to i64
+  %64 = getelementptr %struct._frame_data, ptr %61, i64 %63
   br label %frame_data_sequence_find.exit
 
-frame_data_sequence_find.exit:                    ; preds = %12, %16, %27, %37
-  %.sink18 = phi i32 [ %9, %12 ], [ %22, %16 ], [ %36, %27 ], [ %51, %37 ]
-  %.sink.in = phi ptr [ %13, %12 ], [ %21, %16 ], [ %35, %27 ], [ %50, %37 ]
-  %.sink = load ptr, ptr %.sink.in, align 8
-  %52 = zext i32 %.sink18 to i64
-  %53 = getelementptr %struct._frame_data, ptr %.sink, i64 %52
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 50
-  %55 = load i16, ptr %54, align 2
-  %56 = and i16 %55, 3
-  %or.cond16 = icmp eq i16 %56, 0
-  br i1 %or.cond16, label %57, label %62
+frame_data_sequence_find.exit:                    ; preds = %8, %13, %20, %34, %47
+  %.0.i = phi ptr [ %17, %13 ], [ %29, %20 ], [ %46, %34 ], [ %64, %47 ], [ null, %8 ]
+  %65 = getelementptr inbounds nuw i8, ptr %.0.i, i64 57
+  %66 = load i16, ptr %65, align 1
+  %67 = and i16 %66, 3
+  %or.cond16 = icmp eq i16 %67, 0
+  br i1 %or.cond16, label %68, label %73
 
-57:                                               ; preds = %frame_data_sequence_find.exit
-  %58 = or disjoint i16 %55, 2
-  store i16 %58, ptr %54, align 2
-  %59 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  %60 = load ptr, ptr %59, align 8
-  %.not15 = icmp eq ptr %60, null
-  br i1 %.not15, label %62, label %61
+68:                                               ; preds = %frame_data_sequence_find.exit
+  %69 = or disjoint i16 %66, 2
+  store i16 %69, ptr %65, align 1
+  %70 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
+  %71 = load ptr, ptr %70, align 8
+  %.not15 = icmp eq ptr %71, null
+  br i1 %.not15, label %73, label %72
 
-61:                                               ; preds = %57
-  tail call void @g_hash_table_foreach(ptr noundef nonnull %60, ptr noundef nonnull @find_and_mark_frame_depended_upon, ptr noundef nonnull %2) #7
-  br label %62
+72:                                               ; preds = %68
+  tail call void @g_hash_table_foreach(ptr noundef nonnull %71, ptr noundef nonnull @find_and_mark_frame_depended_upon, ptr noundef nonnull %2)
+  br label %73
 
-62:                                               ; preds = %frame_data_sequence_find.exit, %61, %57, %3
+73:                                               ; preds = %frame_data_sequence_find.exit, %72, %68, %3
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @g_hash_table_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
+; Function Attrs: null_pointer_is_valid
 declare void @frame_data_destroy(ptr noundef) local_unnamed_addr #4
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #5
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { nounwind allocsize(0) }
-attributes #7 = { nounwind }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { allocsize(0) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}

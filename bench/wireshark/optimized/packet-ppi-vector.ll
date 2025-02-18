@@ -6,9 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
 %struct.unit_name_string = type { ptr, ptr }
-%struct._value_string = type { i32, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
 
 @proto_register_ppi_vector.hf = internal global [72 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_ppi_vector_version, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 4, i32 1, ptr null, i64 0, ptr @.str.2, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_pad, %struct._header_field_info { ptr @.str.3, ptr @.str.4, i32 4, i32 1, ptr null, i64 0, ptr @.str.5, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_length, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 5, i32 1, ptr null, i64 0, ptr @.str.8, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_present, %struct._header_field_info { ptr @.str.9, ptr @.str.10, i32 7, i32 2, ptr null, i64 0, ptr @.str.11, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_present_vflags, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 2, i32 32, ptr null, i64 1, ptr @.str.14, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_present_vchars, %struct._header_field_info { ptr @.str.15, ptr @.str.16, i32 2, i32 32, ptr null, i64 2, ptr @.str.17, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_present_val_x, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 2, i32 32, ptr null, i64 4, ptr @.str.20, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_present_val_y, %struct._header_field_info { ptr @.str.21, ptr @.str.22, i32 2, i32 32, ptr null, i64 8, ptr @.str.23, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_present_val_z, %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 2, i32 32, ptr null, i64 16, ptr @.str.26, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_present_off_r, %struct._header_field_info { ptr @.str.27, ptr @.str.28, i32 2, i32 32, ptr null, i64 32, ptr @.str.29, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_present_off_f, %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 2, i32 32, ptr null, i64 64, ptr @.str.32, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_present_off_u, %struct._header_field_info { ptr @.str.33, ptr @.str.34, i32 2, i32 32, ptr null, i64 128, ptr @.str.35, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_present_vel_r, %struct._header_field_info { ptr @.str.36, ptr @.str.37, i32 2, i32 32, ptr null, i64 256, ptr @.str.38, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_present_vel_f, %struct._header_field_info { ptr @.str.39, ptr @.str.40, i32 2, i32 32, ptr null, i64 512, ptr @.str.41, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_present_vel_u, %struct._header_field_info { ptr @.str.42, ptr @.str.43, i32 2, i32 32, ptr null, i64 1024, ptr @.str.44, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_present_vel_t, %struct._header_field_info { ptr @.str.45, ptr @.str.46, i32 2, i32 32, ptr null, i64 2048, ptr @.str.47, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_present_acc_r, %struct._header_field_info { ptr @.str.48, ptr @.str.49, i32 2, i32 32, ptr null, i64 4096, ptr @.str.50, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_present_acc_f, %struct._header_field_info { ptr @.str.51, ptr @.str.52, i32 2, i32 32, ptr null, i64 8192, ptr @.str.53, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_present_acc_u, %struct._header_field_info { ptr @.str.54, ptr @.str.55, i32 2, i32 32, ptr null, i64 16384, ptr @.str.56, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_present_acc_t, %struct._header_field_info { ptr @.str.57, ptr @.str.58, i32 2, i32 32, ptr null, i64 32768, ptr @.str.59, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_present_off_x, %struct._header_field_info { ptr @.str.27, ptr @.str.60, i32 2, i32 32, ptr null, i64 32, ptr @.str.61, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_present_off_y, %struct._header_field_info { ptr @.str.30, ptr @.str.62, i32 2, i32 32, ptr null, i64 64, ptr @.str.63, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_present_off_z, %struct._header_field_info { ptr @.str.33, ptr @.str.64, i32 2, i32 32, ptr null, i64 128, ptr @.str.65, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_present_err_rot, %struct._header_field_info { ptr @.str.66, ptr @.str.67, i32 2, i32 32, ptr null, i64 65536, ptr @.str.68, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_present_err_off, %struct._header_field_info { ptr @.str.69, ptr @.str.70, i32 2, i32 32, ptr null, i64 131072, ptr @.str.71, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_present_err_vel, %struct._header_field_info { ptr @.str.72, ptr @.str.73, i32 2, i32 32, ptr null, i64 262144, ptr @.str.74, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_present_err_acc, %struct._header_field_info { ptr @.str.75, ptr @.str.76, i32 2, i32 32, ptr null, i64 524288, ptr @.str.77, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_present_descstr, %struct._header_field_info { ptr @.str.78, ptr @.str.79, i32 2, i32 32, ptr null, i64 268435456, ptr @.str.77, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_presenappsecific_num, %struct._header_field_info { ptr @.str.80, ptr @.str.81, i32 2, i32 32, ptr null, i64 536870912, ptr @.str.82, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_present_appspecific_data, %struct._header_field_info { ptr @.str.83, ptr @.str.84, i32 2, i32 32, ptr null, i64 1073741824, ptr @.str.85, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_present_ext, %struct._header_field_info { ptr @.str.86, ptr @.str.87, i32 2, i32 32, ptr null, i64 2147483648, ptr @.str.88, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_vflags, %struct._header_field_info { ptr @.str.12, ptr @.str.89, i32 7, i32 2, ptr null, i64 0, ptr @.str.90, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_vchars, %struct._header_field_info { ptr @.str.91, ptr @.str.92, i32 7, i32 2, ptr null, i64 0, ptr @.str.93, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_rot_x, %struct._header_field_info { ptr @.str.18, ptr @.str.94, i32 23, i32 0, ptr null, i64 0, ptr @.str.95, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_rot_y, %struct._header_field_info { ptr @.str.21, ptr @.str.96, i32 23, i32 0, ptr null, i64 0, ptr @.str.97, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_rot_z, %struct._header_field_info { ptr @.str.24, ptr @.str.98, i32 23, i32 0, ptr null, i64 0, ptr @.str.99, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_off_r, %struct._header_field_info { ptr @.str.100, ptr @.str.101, i32 23, i32 0, ptr null, i64 0, ptr @.str.102, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_off_f, %struct._header_field_info { ptr @.str.103, ptr @.str.104, i32 23, i32 0, ptr null, i64 0, ptr @.str.105, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_off_u, %struct._header_field_info { ptr @.str.106, ptr @.str.107, i32 23, i32 0, ptr null, i64 0, ptr @.str.108, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_vel_r, %struct._header_field_info { ptr @.str.109, ptr @.str.110, i32 23, i32 4096, ptr @units_meter_sec, i64 0, ptr @.str.111, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_vel_f, %struct._header_field_info { ptr @.str.112, ptr @.str.113, i32 23, i32 4096, ptr @units_meter_sec, i64 0, ptr @.str.114, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_vel_u, %struct._header_field_info { ptr @.str.115, ptr @.str.116, i32 23, i32 4096, ptr @units_meter_sec, i64 0, ptr @.str.117, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_vel_t, %struct._header_field_info { ptr @.str.118, ptr @.str.119, i32 23, i32 4096, ptr @units_meter_sec, i64 0, ptr @.str.120, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_acc_r, %struct._header_field_info { ptr @.str.121, ptr @.str.122, i32 23, i32 4096, ptr @units_meter_sec_squared, i64 0, ptr @.str.123, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_acc_f, %struct._header_field_info { ptr @.str.124, ptr @.str.125, i32 23, i32 4096, ptr @units_meter_sec_squared, i64 0, ptr @.str.126, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_acc_u, %struct._header_field_info { ptr @.str.127, ptr @.str.128, i32 23, i32 4096, ptr @units_meter_sec_squared, i64 0, ptr @.str.129, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_acc_t, %struct._header_field_info { ptr @.str.130, ptr @.str.131, i32 23, i32 4096, ptr @units_meter_sec_squared, i64 0, ptr @.str.132, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_off_x, %struct._header_field_info { ptr @.str.133, ptr @.str.134, i32 23, i32 0, ptr null, i64 0, ptr @.str.135, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_off_y, %struct._header_field_info { ptr @.str.136, ptr @.str.137, i32 23, i32 0, ptr null, i64 0, ptr @.str.138, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_off_z, %struct._header_field_info { ptr @.str.139, ptr @.str.140, i32 23, i32 0, ptr null, i64 0, ptr @.str.141, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_err_rot, %struct._header_field_info { ptr @.str.142, ptr @.str.143, i32 23, i32 4096, ptr @units_degree_degrees, i64 0, ptr @.str.144, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_err_off, %struct._header_field_info { ptr @.str.145, ptr @.str.146, i32 23, i32 4096, ptr @units_meter_meters, i64 0, ptr @.str.147, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_err_vel, %struct._header_field_info { ptr @.str.148, ptr @.str.149, i32 23, i32 4096, ptr @units_meter_sec, i64 0, ptr @.str.150, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_err_acc, %struct._header_field_info { ptr @.str.151, ptr @.str.152, i32 23, i32 4096, ptr @units_meter_sec_squared, i64 0, ptr @.str.153, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_descstr, %struct._header_field_info { ptr @.str.154, ptr @.str.155, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_appspecific_num, %struct._header_field_info { ptr @.str.156, ptr @.str.157, i32 7, i32 2, ptr null, i64 0, ptr @.str.158, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_appspecific_data, %struct._header_field_info { ptr @.str.159, ptr @.str.160, i32 30, i32 0, ptr null, i64 0, ptr @.str.161, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_vflags_defines_forward, %struct._header_field_info { ptr @.str.162, ptr @.str.163, i32 2, i32 32, ptr null, i64 1, ptr @.str.164, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_vflags_rots_absolute, %struct._header_field_info { ptr @.str.165, ptr @.str.166, i32 2, i32 32, ptr null, i64 2, ptr @.str.167, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_vflags_offsets_from_gps, %struct._header_field_info { ptr @.str.168, ptr @.str.169, i32 2, i32 32, ptr null, i64 4, ptr @.str.170, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_vflags_relative_to, %struct._header_field_info { ptr @.str.171, ptr @.str.172, i32 7, i32 2, ptr @relativeto_string, i64 6, ptr @.str.173, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_vchars_antenna, %struct._header_field_info { ptr @.str.174, ptr @.str.175, i32 2, i32 32, ptr null, i64 1, ptr @.str.176, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_vchars_dir_of_travel, %struct._header_field_info { ptr @.str.177, ptr @.str.178, i32 2, i32 32, ptr null, i64 2, ptr @.str.179, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_vchars_front_of_veh, %struct._header_field_info { ptr @.str.180, ptr @.str.181, i32 2, i32 32, ptr null, i64 4, ptr @.str.182, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_vchars_angle_of_arrival, %struct._header_field_info { ptr @.str.183, ptr @.str.184, i32 2, i32 32, ptr null, i64 8, ptr @.str.185, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_vchars_transmitter_pos, %struct._header_field_info { ptr @.str.186, ptr @.str.187, i32 2, i32 32, ptr null, i64 16, ptr @.str.188, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_vchars_gps_derived, %struct._header_field_info { ptr @.str.189, ptr @.str.190, i32 2, i32 32, ptr null, i64 256, ptr @.str.191, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_vchars_ins_derived, %struct._header_field_info { ptr @.str.192, ptr @.str.193, i32 2, i32 32, ptr null, i64 512, ptr @.str.194, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_vchars_compass_derived, %struct._header_field_info { ptr @.str.195, ptr @.str.196, i32 2, i32 32, ptr null, i64 1024, ptr @.str.197, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_vchars_accelerometer_derived, %struct._header_field_info { ptr @.str.198, ptr @.str.199, i32 2, i32 32, ptr null, i64 2048, ptr @.str.200, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_vchars_human_derived, %struct._header_field_info { ptr @.str.201, ptr @.str.202, i32 2, i32 32, ptr null, i64 4096, ptr @.str.203, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_vector_unknown_data, %struct._header_field_info { ptr @.str.204, ptr @.str.205, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
@@ -250,7 +247,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_ppi_vector_vflags_relative_to = internal global i32 0, align 4
 @.str.171 = private unnamed_addr constant [11 x i8] c"RelativeTo\00", align 1
 @.str.172 = private unnamed_addr constant [30 x i8] c"ppi_vector.vflags.relative_to\00", align 1
-@relativeto_string = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.213 }, %struct._value_string { i32 1, ptr @.str.214 }, %struct._value_string { i32 2, ptr @.str.215 }, %struct._value_string { i32 3, ptr @.str.216 }, %struct._value_string zeroinitializer], align 16
 @.str.173 = private unnamed_addr constant [40 x i8] c"Reference frame vectors are RelativeTo:\00", align 1
 @hf_ppi_vector_vchars_antenna = internal global i32 0, align 4
 @.str.174 = private unnamed_addr constant [8 x i8] c"Antenna\00", align 1
@@ -300,7 +296,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_ppi_vector_present = internal global i32 0, align 4
 @ett_ppi_vectorflags = internal global i32 0, align 4
 @ett_ppi_vectorchars = internal global i32 0, align 4
-@proto_register_ppi_vector.ei = internal global [2 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_ppi_vector_present_bit, %struct.expert_field_info { ptr @.str.206, i32 150994944, i32 6291456, ptr @.str.207, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_ppi_vector_length, %struct.expert_field_info { ptr @.str.208, i32 117440512, i32 8388608, ptr @.str.209, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_ppi_vector.ei = internal global [2 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_ppi_vector_present_bit, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.206, i32 150994944, i32 6291456, ptr @.str.207, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_ppi_vector_length, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.208, i32 117440512, i32 8388608, ptr @.str.209, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_ppi_vector_present_bit = internal global %struct.expert_field zeroinitializer, align 4
 @.str.206 = private unnamed_addr constant [31 x i8] c"ppi_vector.present.unknown_bit\00", align 1
 @.str.207 = private unnamed_addr constant [53 x i8] c"Error: PPI-VECTOR: unknown bit set in present field.\00", align 1
@@ -315,90 +311,97 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.214 = private unnamed_addr constant [6 x i8] c"Earth\00", align 1
 @.str.215 = private unnamed_addr constant [8 x i8] c"Current\00", align 1
 @.str.216 = private unnamed_addr constant [9 x i8] c"Reserved\00", align 1
-@.str.217 = private unnamed_addr constant [34 x i8] c"PPI_Vector Capture v%u, Length %u\00", align 1
-@.str.218 = private unnamed_addr constant [8 x i8] c"Vector:\00", align 1
-@.str.219 = private unnamed_addr constant [49 x i8] c"Invalid PPI-Vector length - minimum length is %d\00", align 1
-@.str.220 = private unnamed_addr constant [45 x i8] c"Invalid PPI-Vector length  (got %d, %d max\0A)\00", align 1
+@relativeto_string = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.213 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.214 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.215 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.216 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.218 = private unnamed_addr constant [34 x i8] c"PPI_Vector Capture v%u, Length %u\00", align 1
+@.str.219 = private unnamed_addr constant [8 x i8] c"Vector:\00", align 1
+@.str.220 = private unnamed_addr constant [49 x i8] c"Invalid PPI-Vector length - minimum length is %d\00", align 1
+@.str.221 = private unnamed_addr constant [45 x i8] c"Invalid PPI-Vector length  (got %d, %d max\0A)\00", align 1
 @dissect_ppi_vector_v1.ppi_vector_present_flags = internal constant [25 x ptr] [ptr @hf_ppi_vector_present_vflags, ptr @hf_ppi_vector_present_vchars, ptr @hf_ppi_vector_present_val_x, ptr @hf_ppi_vector_present_val_y, ptr @hf_ppi_vector_present_val_z, ptr @hf_ppi_vector_present_off_r, ptr @hf_ppi_vector_present_off_f, ptr @hf_ppi_vector_present_off_u, ptr @hf_ppi_vector_present_vel_r, ptr @hf_ppi_vector_present_vel_f, ptr @hf_ppi_vector_present_vel_u, ptr @hf_ppi_vector_present_vel_t, ptr @hf_ppi_vector_present_acc_r, ptr @hf_ppi_vector_present_acc_f, ptr @hf_ppi_vector_present_acc_u, ptr @hf_ppi_vector_present_acc_t, ptr @hf_ppi_vector_present_err_rot, ptr @hf_ppi_vector_present_err_off, ptr @hf_ppi_vector_present_err_vel, ptr @hf_ppi_vector_present_err_acc, ptr @hf_ppi_vector_present_descstr, ptr @hf_ppi_vector_presenappsecific_num, ptr @hf_ppi_vector_present_appspecific_data, ptr @hf_ppi_vector_present_ext, ptr null], align 16
-@.str.221 = private unnamed_addr constant [20 x i8] c" Degrees (Absolute)\00", align 1
-@.str.222 = private unnamed_addr constant [26 x i8] c" Degrees (Rel to forward)\00", align 1
-@.str.223 = private unnamed_addr constant [21 x i8] c" Degrees (Absolute) \00", align 1
-@.str.224 = private unnamed_addr constant [17 x i8] c" m from Curr_GPS\00", align 1
-@.str.225 = private unnamed_addr constant [17 x i8] c" m from Curr_Pos\00", align 1
-@.str.226 = private unnamed_addr constant [9 x i8] c" (m/s)/s\00", align 1
-@.str.227 = private unnamed_addr constant [58 x i8] c"Error: PPI-VECTOR: unknown bit (%d) set in present field.\00", align 1
+@.str.222 = private unnamed_addr constant [20 x i8] c" Degrees (Absolute)\00", align 1
+@.str.223 = private unnamed_addr constant [26 x i8] c" Degrees (Rel to forward)\00", align 1
+@.str.224 = private unnamed_addr constant [21 x i8] c" Degrees (Absolute) \00", align 1
+@.str.225 = private unnamed_addr constant [17 x i8] c" m from Curr_GPS\00", align 1
+@.str.226 = private unnamed_addr constant [17 x i8] c" m from Curr_Pos\00", align 1
+@.str.227 = private unnamed_addr constant [9 x i8] c" (m/s)/s\00", align 1
+@.str.228 = private unnamed_addr constant [58 x i8] c"Error: PPI-VECTOR: unknown bit (%d) set in present field.\00", align 1
 @dissect_ppi_vector_v2.ppi_vector_present_flags = internal constant [15 x ptr] [ptr @hf_ppi_vector_present_vflags, ptr @hf_ppi_vector_present_vchars, ptr @hf_ppi_vector_present_val_x, ptr @hf_ppi_vector_present_val_y, ptr @hf_ppi_vector_present_val_z, ptr @hf_ppi_vector_present_off_x, ptr @hf_ppi_vector_present_off_y, ptr @hf_ppi_vector_present_off_z, ptr @hf_ppi_vector_present_err_rot, ptr @hf_ppi_vector_present_err_off, ptr @hf_ppi_vector_present_descstr, ptr @hf_ppi_vector_presenappsecific_num, ptr @hf_ppi_vector_present_appspecific_data, ptr @hf_ppi_vector_present_ext, ptr null], align 16
-@.str.228 = private unnamed_addr constant [11 x i8] c" (Forward)\00", align 1
-@.str.229 = private unnamed_addr constant [21 x i8] c" RelativeTo: Forward\00", align 1
-@.str.230 = private unnamed_addr constant [16 x i8] c" RelativeTo: %s\00", align 1
-@.str.231 = private unnamed_addr constant [24 x i8] c" Degrees RelativeTo: %s\00", align 1
-@.str.232 = private unnamed_addr constant [12 x i8] c" Pitch:%3f \00", align 1
-@.str.233 = private unnamed_addr constant [11 x i8] c" Roll:%3f \00", align 1
-@.str.234 = private unnamed_addr constant [14 x i8] c" Heading:%3f \00", align 1
-@.str.235 = private unnamed_addr constant [23 x i8] c" Meters RelativeTo: %s\00", align 1
-@.str.236 = private unnamed_addr constant [12 x i8] c" Off-X:%3f \00", align 1
-@.str.237 = private unnamed_addr constant [12 x i8] c" Off-Y:%3f \00", align 1
-@.str.238 = private unnamed_addr constant [12 x i8] c" Off-Z:%3f \00", align 1
-@.str.239 = private unnamed_addr constant [6 x i8] c" (%s)\00", align 1
-@.str.240 = private unnamed_addr constant [59 x i8] c"Error: PPI-VECTOR: unknown bit (%d) set in present field.\0A\00", align 1
-@.str.241 = private unnamed_addr constant [11 x i8] c" (Antenna)\00", align 1
-@.str.242 = private unnamed_addr constant [7 x i8] c" (DOT)\00", align 1
-@.str.243 = private unnamed_addr constant [16 x i8] c" (Front_of_veh)\00", align 1
-@.str.244 = private unnamed_addr constant [7 x i8] c" (AOA)\00", align 1
-@.str.245 = private unnamed_addr constant [19 x i8] c" (TRANSMITTER_POS)\00", align 1
+@.str.229 = private unnamed_addr constant [11 x i8] c" (Forward)\00", align 1
+@.str.230 = private unnamed_addr constant [21 x i8] c" RelativeTo: Forward\00", align 1
+@.str.231 = private unnamed_addr constant [16 x i8] c" RelativeTo: %s\00", align 1
+@.str.232 = private unnamed_addr constant [24 x i8] c" Degrees RelativeTo: %s\00", align 1
+@.str.233 = private unnamed_addr constant [12 x i8] c" Pitch:%3f \00", align 1
+@.str.234 = private unnamed_addr constant [11 x i8] c" Roll:%3f \00", align 1
+@.str.235 = private unnamed_addr constant [14 x i8] c" Heading:%3f \00", align 1
+@.str.236 = private unnamed_addr constant [23 x i8] c" Meters RelativeTo: %s\00", align 1
+@.str.237 = private unnamed_addr constant [12 x i8] c" Off-X:%3f \00", align 1
+@.str.238 = private unnamed_addr constant [12 x i8] c" Off-Y:%3f \00", align 1
+@.str.239 = private unnamed_addr constant [12 x i8] c" Off-Z:%3f \00", align 1
+@.str.240 = private unnamed_addr constant [6 x i8] c" (%s)\00", align 1
+@.str.241 = private unnamed_addr constant [59 x i8] c"Error: PPI-VECTOR: unknown bit (%d) set in present field.\0A\00", align 1
+@.str.242 = private unnamed_addr constant [11 x i8] c" (Antenna)\00", align 1
+@.str.243 = private unnamed_addr constant [7 x i8] c" (DOT)\00", align 1
+@.str.244 = private unnamed_addr constant [16 x i8] c" (Front_of_veh)\00", align 1
+@.str.245 = private unnamed_addr constant [7 x i8] c" (AOA)\00", align 1
+@.str.246 = private unnamed_addr constant [19 x i8] c" (TRANSMITTER_POS)\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_ppi_vector() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.210, ptr noundef nonnull @.str.211, ptr noundef nonnull @.str.212) #2
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.210, ptr noundef nonnull @.str.211, ptr noundef nonnull @.str.212)
   store i32 %1, ptr @proto_ppi_vector, align 4
-  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_ppi_vector.hf, i32 noundef 72) #2
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_ppi_vector.ett, i32 noundef 4) #2
+  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_ppi_vector.hf, i32 noundef 72)
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_ppi_vector.ett, i32 noundef 4)
   %2 = load i32, ptr @proto_ppi_vector, align 4
-  %3 = tail call ptr @expert_register_protocol(i32 noundef %2) #2
-  tail call void @expert_register_field_array(ptr noundef %3, ptr noundef nonnull @proto_register_ppi_vector.ei, i32 noundef 2) #2
+  %3 = tail call ptr @expert_register_protocol(i32 noundef %2)
+  tail call void @expert_register_field_array(ptr noundef %3, ptr noundef nonnull @proto_register_ppi_vector.ei, i32 noundef 2)
   %4 = load i32, ptr @proto_ppi_vector, align 4
-  %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.212, ptr noundef nonnull @dissect_ppi_vector, i32 noundef %4) #2
+  %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.212, ptr noundef nonnull @dissect_ppi_vector, i32 noundef %4)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ppi_vector(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
-  tail call void @col_clear(ptr noundef %6, i32 noundef 25) #2
-  %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #2
+  tail call void @col_clear(ptr noundef %6, i32 noundef 25)
+  %7 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %8 = zext i8 %7 to i32
-  %9 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 2) #2
+  %9 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 2)
   %10 = zext i16 %9 to i32
   %11 = load ptr, ptr %5, align 8
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %11, i32 noundef 25, ptr noundef nonnull @.str.217, i32 noundef %8, i32 noundef %10) #2
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %11, i32 noundef 25, ptr noundef nonnull @.str.218, i32 noundef %8, i32 noundef %10)
   %12 = load i32, ptr @proto_ppi_vector, align 4
-  %13 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef 0, i32 noundef %10, ptr noundef nonnull @.str.218) #2
+  %13 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef 0, i32 noundef %10, ptr noundef nonnull @.str.219)
   %14 = load i32, ptr @ett_ppi_vector, align 4
-  %15 = tail call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %14) #2
+  %15 = tail call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %14)
   %16 = load i32, ptr @hf_ppi_vector_version, align 4
-  %17 = tail call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %16, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %8) #2
+  %17 = tail call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %16, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %8)
   %18 = load i32, ptr @hf_ppi_vector_pad, align 4
-  %19 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %18, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #2
+  %19 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %18, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648)
   %20 = load i32, ptr @hf_ppi_vector_length, align 4
-  %21 = tail call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %20, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef %10) #2
+  %21 = tail call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %20, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef %10)
   %22 = icmp ult i16 %9, 8
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %4
-  %24 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %21, ptr noundef nonnull @ei_ppi_vector_length, ptr noundef nonnull @.str.219, i32 noundef 8) #2
+  %24 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %21, ptr noundef nonnull @ei_ppi_vector_length, ptr noundef nonnull @.str.220, i32 noundef 8)
   br label %618
 
 25:                                               ; preds = %4
@@ -408,10 +411,10 @@ define internal i32 @dissect_ppi_vector(ptr noundef %0, ptr noundef %1, ptr noun
   ]
 
 26:                                               ; preds = %25
-  %27 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 4) #2
+  %27 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 4)
   %28 = load i32, ptr @hf_ppi_vector_present, align 4
   %29 = load i32, ptr @ett_ppi_vector_present, align 4
-  %30 = tail call ptr @proto_tree_add_bitmask(ptr noundef %15, ptr noundef %0, i32 noundef 4, i32 noundef %28, i32 noundef %29, ptr noundef nonnull @dissect_ppi_vector_v1.ppi_vector_present_flags, i32 noundef -2147483648) #2
+  %30 = tail call ptr @proto_tree_add_bitmask(ptr noundef %15, ptr noundef %0, i32 noundef 4, i32 noundef %28, i32 noundef %29, ptr noundef nonnull @dissect_ppi_vector_v1.ppi_vector_present_flags, i32 noundef -2147483648)
   %.not428.i = icmp eq i32 %27, 0
   br i1 %.not428.i, label %dissect_ppi_vector_v1.exit, label %.lr.ph.i
 
@@ -597,20 +600,20 @@ define internal i32 @dissect_ppi_vector(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %94, label %334, label %95
 
 95:                                               ; preds = %93
-  %96 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0358431.i) #2
+  %96 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0358431.i)
   br i1 %.not423.i, label %108, label %97
 
 97:                                               ; preds = %95
   %98 = load i32, ptr @hf_ppi_vector_vflags, align 4
-  %99 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %15, i32 noundef %98, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, i32 noundef %96) #2
+  %99 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %15, i32 noundef %98, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, i32 noundef %96)
   %100 = load i32, ptr @ett_ppi_vectorflags, align 4
-  %101 = tail call ptr @proto_item_add_subtree(ptr noundef %99, i32 noundef %100) #2
+  %101 = tail call ptr @proto_item_add_subtree(ptr noundef %99, i32 noundef %100)
   %102 = load i32, ptr @hf_ppi_vector_vflags_defines_forward, align 4
-  %103 = tail call ptr @proto_tree_add_item(ptr noundef %101, i32 noundef %102, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, i32 noundef -2147483648) #2
+  %103 = tail call ptr @proto_tree_add_item(ptr noundef %101, i32 noundef %102, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, i32 noundef -2147483648)
   %104 = load i32, ptr @hf_ppi_vector_vflags_rots_absolute, align 4
-  %105 = tail call ptr @proto_tree_add_item(ptr noundef %101, i32 noundef %104, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, i32 noundef -2147483648) #2
+  %105 = tail call ptr @proto_tree_add_item(ptr noundef %101, i32 noundef %104, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, i32 noundef -2147483648)
   %106 = load i32, ptr @hf_ppi_vector_vflags_offsets_from_gps, align 4
-  %107 = tail call ptr @proto_tree_add_item(ptr noundef %101, i32 noundef %106, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, i32 noundef -2147483648) #2
+  %107 = tail call ptr @proto_tree_add_item(ptr noundef %101, i32 noundef %106, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, i32 noundef -2147483648)
   br label %108
 
 108:                                              ; preds = %97, %95
@@ -623,30 +626,30 @@ define internal i32 @dissect_ppi_vector(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %112, label %334, label %113
 
 113:                                              ; preds = %111
-  %114 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0358431.i) #2
+  %114 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0358431.i)
   br i1 %.not423.i, label %136, label %115
 
 115:                                              ; preds = %113
   %116 = load i32, ptr @hf_ppi_vector_vchars, align 4
-  %117 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %15, i32 noundef %116, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, i32 noundef %114) #2
+  %117 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %15, i32 noundef %116, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, i32 noundef %114)
   %118 = load i32, ptr @ett_ppi_vectorchars, align 4
-  %119 = tail call ptr @proto_item_add_subtree(ptr noundef %117, i32 noundef %118) #2
+  %119 = tail call ptr @proto_item_add_subtree(ptr noundef %117, i32 noundef %118)
   %120 = load i32, ptr @hf_ppi_vector_vchars_antenna, align 4
-  %121 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %120, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, i32 noundef -2147483648) #2
+  %121 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %120, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, i32 noundef -2147483648)
   %122 = load i32, ptr @hf_ppi_vector_vchars_dir_of_travel, align 4
-  %123 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %122, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, i32 noundef -2147483648) #2
+  %123 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %122, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, i32 noundef -2147483648)
   %124 = load i32, ptr @hf_ppi_vector_vchars_front_of_veh, align 4
-  %125 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %124, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, i32 noundef -2147483648) #2
+  %125 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %124, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, i32 noundef -2147483648)
   %126 = load i32, ptr @hf_ppi_vector_vchars_gps_derived, align 4
-  %127 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %126, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, i32 noundef -2147483648) #2
+  %127 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %126, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, i32 noundef -2147483648)
   %128 = load i32, ptr @hf_ppi_vector_vchars_ins_derived, align 4
-  %129 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %128, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, i32 noundef -2147483648) #2
+  %129 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %128, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, i32 noundef -2147483648)
   %130 = load i32, ptr @hf_ppi_vector_vchars_compass_derived, align 4
-  %131 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %130, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, i32 noundef -2147483648) #2
+  %131 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %130, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, i32 noundef -2147483648)
   %132 = load i32, ptr @hf_ppi_vector_vchars_accelerometer_derived, align 4
-  %133 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %132, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, i32 noundef -2147483648) #2
+  %133 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %132, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, i32 noundef -2147483648)
   %134 = load i32, ptr @hf_ppi_vector_vchars_human_derived, align 4
-  %135 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %134, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, i32 noundef -2147483648) #2
+  %135 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %134, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, i32 noundef -2147483648)
   br label %136
 
 136:                                              ; preds = %115, %113
@@ -658,17 +661,17 @@ define internal i32 @dissect_ppi_vector(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %88, label %334, label %139
 
 139:                                              ; preds = %.thread.i
-  %140 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0358431.i) #2
-  %141 = tail call double @ppi_fixed3_6_to_gdouble(i32 noundef %140) #2
+  %140 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0358431.i)
+  %141 = tail call double @ppi_fixed3_6_to_double(i32 noundef %140)
   br i1 %.not423.i, label %145, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %139
   %142 = load i32, ptr @hf_ppi_vector_rot_x, align 4
-  %143 = tail call ptr @proto_tree_add_double(ptr noundef nonnull %15, i32 noundef %142, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, double noundef %141) #2
+  %143 = tail call ptr @proto_tree_add_double(ptr noundef nonnull %15, i32 noundef %142, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, double noundef %141)
   %144 = and i32 %.0432.i, 2
   %.not424.i = icmp eq i32 %144, 0
-  %.str.222..str.221.i = select i1 %.not424.i, ptr @.str.222, ptr @.str.221
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %143, ptr noundef nonnull %.str.222..str.221.i) #2
+  %.str.223..str.222.i = select i1 %.not424.i, ptr @.str.223, ptr @.str.222
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %143, ptr noundef nonnull %.str.223..str.222.i)
   br label %145
 
 145:                                              ; preds = %.sink.split.i, %139
@@ -680,17 +683,17 @@ define internal i32 @dissect_ppi_vector(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %88, label %334, label %148
 
 148:                                              ; preds = %.thread427.i
-  %149 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0358431.i) #2
-  %150 = tail call double @ppi_fixed3_6_to_gdouble(i32 noundef %149) #2
+  %149 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0358431.i)
+  %150 = tail call double @ppi_fixed3_6_to_double(i32 noundef %149)
   br i1 %.not423.i, label %154, label %.sink.split439.i
 
 .sink.split439.i:                                 ; preds = %148
   %151 = load i32, ptr @hf_ppi_vector_rot_y, align 4
-  %152 = tail call ptr @proto_tree_add_double(ptr noundef nonnull %15, i32 noundef %151, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, double noundef %150) #2
+  %152 = tail call ptr @proto_tree_add_double(ptr noundef nonnull %15, i32 noundef %151, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, double noundef %150)
   %153 = and i32 %.0432.i, 2
   %.not422.i = icmp eq i32 %153, 0
-  %.str.222..str.221447.i = select i1 %.not422.i, ptr @.str.222, ptr @.str.221
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %152, ptr noundef nonnull %.str.222..str.221447.i) #2
+  %.str.223..str.222447.i = select i1 %.not422.i, ptr @.str.223, ptr @.str.222
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %152, ptr noundef nonnull %.str.223..str.222447.i)
   br label %154
 
 154:                                              ; preds = %.sink.split439.i, %148
@@ -703,17 +706,17 @@ define internal i32 @dissect_ppi_vector(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %158, label %334, label %159
 
 159:                                              ; preds = %157
-  %160 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0358431.i) #2
-  %161 = tail call double @ppi_fixed3_6_to_gdouble(i32 noundef %160) #2
+  %160 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0358431.i)
+  %161 = tail call double @ppi_fixed3_6_to_double(i32 noundef %160)
   br i1 %.not423.i, label %165, label %.sink.split441.i
 
 .sink.split441.i:                                 ; preds = %159
   %162 = load i32, ptr @hf_ppi_vector_rot_z, align 4
-  %163 = tail call ptr @proto_tree_add_double(ptr noundef nonnull %15, i32 noundef %162, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, double noundef %161) #2
+  %163 = tail call ptr @proto_tree_add_double(ptr noundef nonnull %15, i32 noundef %162, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, double noundef %161)
   %164 = and i32 %.0432.i, 2
   %.not420.i = icmp eq i32 %164, 0
-  %.str.222..str.223.i = select i1 %.not420.i, ptr @.str.222, ptr @.str.223
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %163, ptr noundef nonnull %.str.222..str.223.i) #2
+  %.str.223..str.224.i = select i1 %.not420.i, ptr @.str.223, ptr @.str.224
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %163, ptr noundef nonnull %.str.223..str.224.i)
   br label %165
 
 165:                                              ; preds = %.sink.split441.i, %159
@@ -726,17 +729,17 @@ define internal i32 @dissect_ppi_vector(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %169, label %334, label %170
 
 170:                                              ; preds = %168
-  %171 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0358431.i) #2
-  %172 = tail call double @ppi_fixed6_4_to_gdouble(i32 noundef %171) #2
+  %171 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0358431.i)
+  %172 = tail call double @ppi_fixed6_4_to_double(i32 noundef %171)
   br i1 %.not423.i, label %176, label %.sink.split442.i
 
 .sink.split442.i:                                 ; preds = %170
   %173 = load i32, ptr @hf_ppi_vector_off_r, align 4
-  %174 = tail call ptr @proto_tree_add_double(ptr noundef nonnull %15, i32 noundef %173, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, double noundef %172) #2
+  %174 = tail call ptr @proto_tree_add_double(ptr noundef nonnull %15, i32 noundef %173, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, double noundef %172)
   %175 = and i32 %.0432.i, 4
   %.not418.i = icmp eq i32 %175, 0
-  %.str.225..str.224.i = select i1 %.not418.i, ptr @.str.225, ptr @.str.224
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %174, ptr noundef nonnull %.str.225..str.224.i) #2
+  %.str.226..str.225.i = select i1 %.not418.i, ptr @.str.226, ptr @.str.225
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %174, ptr noundef nonnull %.str.226..str.225.i)
   br label %176
 
 176:                                              ; preds = %.sink.split442.i, %170
@@ -749,17 +752,17 @@ define internal i32 @dissect_ppi_vector(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %180, label %334, label %181
 
 181:                                              ; preds = %179
-  %182 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0358431.i) #2
-  %183 = tail call double @ppi_fixed6_4_to_gdouble(i32 noundef %182) #2
+  %182 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0358431.i)
+  %183 = tail call double @ppi_fixed6_4_to_double(i32 noundef %182)
   br i1 %.not423.i, label %187, label %.sink.split443.i
 
 .sink.split443.i:                                 ; preds = %181
   %184 = load i32, ptr @hf_ppi_vector_off_f, align 4
-  %185 = tail call ptr @proto_tree_add_double(ptr noundef nonnull %15, i32 noundef %184, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, double noundef %183) #2
+  %185 = tail call ptr @proto_tree_add_double(ptr noundef nonnull %15, i32 noundef %184, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, double noundef %183)
   %186 = and i32 %.0432.i, 4
   %.not416.i = icmp eq i32 %186, 0
-  %.str.225..str.224448.i = select i1 %.not416.i, ptr @.str.225, ptr @.str.224
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %185, ptr noundef nonnull %.str.225..str.224448.i) #2
+  %.str.226..str.225448.i = select i1 %.not416.i, ptr @.str.226, ptr @.str.225
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %185, ptr noundef nonnull %.str.226..str.225448.i)
   br label %187
 
 187:                                              ; preds = %.sink.split443.i, %181
@@ -772,17 +775,17 @@ define internal i32 @dissect_ppi_vector(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %191, label %334, label %192
 
 192:                                              ; preds = %190
-  %193 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0358431.i) #2
-  %194 = tail call double @ppi_fixed6_4_to_gdouble(i32 noundef %193) #2
+  %193 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0358431.i)
+  %194 = tail call double @ppi_fixed6_4_to_double(i32 noundef %193)
   br i1 %.not423.i, label %198, label %.sink.split445.i
 
 .sink.split445.i:                                 ; preds = %192
   %195 = load i32, ptr @hf_ppi_vector_off_u, align 4
-  %196 = tail call ptr @proto_tree_add_double(ptr noundef nonnull %15, i32 noundef %195, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, double noundef %194) #2
+  %196 = tail call ptr @proto_tree_add_double(ptr noundef nonnull %15, i32 noundef %195, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, double noundef %194)
   %197 = and i32 %.0432.i, 4
   %.not414.i = icmp eq i32 %197, 0
-  %.str.225..str.224449.i = select i1 %.not414.i, ptr @.str.225, ptr @.str.224
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %196, ptr noundef nonnull %.str.225..str.224449.i) #2
+  %.str.226..str.225449.i = select i1 %.not414.i, ptr @.str.226, ptr @.str.225
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %196, ptr noundef nonnull %.str.226..str.225449.i)
   br label %198
 
 198:                                              ; preds = %.sink.split445.i, %192
@@ -795,10 +798,10 @@ define internal i32 @dissect_ppi_vector(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %202, label %334, label %203
 
 203:                                              ; preds = %201
-  %204 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0358431.i) #2
-  %205 = tail call double @ppi_fixed6_4_to_gdouble(i32 noundef %204) #2
+  %204 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0358431.i)
+  %205 = tail call double @ppi_fixed6_4_to_double(i32 noundef %204)
   %206 = load i32, ptr @hf_ppi_vector_vel_r, align 4
-  %207 = tail call ptr @proto_tree_add_double(ptr noundef %15, i32 noundef %206, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, double noundef %205) #2
+  %207 = tail call ptr @proto_tree_add_double(ptr noundef %15, i32 noundef %206, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, double noundef %205)
   %208 = add i32 %.0358431.i, 4
   %209 = add nsw i32 %.0360430.i, -4
   br label %334
@@ -808,10 +811,10 @@ define internal i32 @dissect_ppi_vector(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %211, label %334, label %212
 
 212:                                              ; preds = %210
-  %213 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0358431.i) #2
-  %214 = tail call double @ppi_fixed6_4_to_gdouble(i32 noundef %213) #2
+  %213 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0358431.i)
+  %214 = tail call double @ppi_fixed6_4_to_double(i32 noundef %213)
   %215 = load i32, ptr @hf_ppi_vector_vel_f, align 4
-  %216 = tail call ptr @proto_tree_add_double(ptr noundef %15, i32 noundef %215, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, double noundef %214) #2
+  %216 = tail call ptr @proto_tree_add_double(ptr noundef %15, i32 noundef %215, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, double noundef %214)
   %217 = add i32 %.0358431.i, 4
   %218 = add nsw i32 %.0360430.i, -4
   br label %334
@@ -821,10 +824,10 @@ define internal i32 @dissect_ppi_vector(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %220, label %334, label %221
 
 221:                                              ; preds = %219
-  %222 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0358431.i) #2
-  %223 = tail call double @ppi_fixed6_4_to_gdouble(i32 noundef %222) #2
+  %222 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0358431.i)
+  %223 = tail call double @ppi_fixed6_4_to_double(i32 noundef %222)
   %224 = load i32, ptr @hf_ppi_vector_vel_u, align 4
-  %225 = tail call ptr @proto_tree_add_double(ptr noundef %15, i32 noundef %224, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, double noundef %223) #2
+  %225 = tail call ptr @proto_tree_add_double(ptr noundef %15, i32 noundef %224, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, double noundef %223)
   %226 = add i32 %.0358431.i, 4
   %227 = add nsw i32 %.0360430.i, -4
   br label %334
@@ -834,10 +837,10 @@ define internal i32 @dissect_ppi_vector(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %229, label %334, label %230
 
 230:                                              ; preds = %228
-  %231 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0358431.i) #2
-  %232 = tail call double @ppi_fixed6_4_to_gdouble(i32 noundef %231) #2
+  %231 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0358431.i)
+  %232 = tail call double @ppi_fixed6_4_to_double(i32 noundef %231)
   %233 = load i32, ptr @hf_ppi_vector_vel_t, align 4
-  %234 = tail call ptr @proto_tree_add_double(ptr noundef %15, i32 noundef %233, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, double noundef %232) #2
+  %234 = tail call ptr @proto_tree_add_double(ptr noundef %15, i32 noundef %233, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, double noundef %232)
   %235 = add i32 %.0358431.i, 4
   %236 = add nsw i32 %.0360430.i, -4
   br label %334
@@ -847,10 +850,10 @@ define internal i32 @dissect_ppi_vector(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %238, label %334, label %239
 
 239:                                              ; preds = %237
-  %240 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0358431.i) #2
-  %241 = tail call double @ppi_fixed6_4_to_gdouble(i32 noundef %240) #2
+  %240 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0358431.i)
+  %241 = tail call double @ppi_fixed6_4_to_double(i32 noundef %240)
   %242 = load i32, ptr @hf_ppi_vector_acc_r, align 4
-  %243 = tail call ptr @proto_tree_add_double(ptr noundef %15, i32 noundef %242, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, double noundef %241) #2
+  %243 = tail call ptr @proto_tree_add_double(ptr noundef %15, i32 noundef %242, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, double noundef %241)
   %244 = add i32 %.0358431.i, 4
   %245 = add nsw i32 %.0360430.i, -4
   br label %334
@@ -860,10 +863,10 @@ define internal i32 @dissect_ppi_vector(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %247, label %334, label %248
 
 248:                                              ; preds = %246
-  %249 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0358431.i) #2
-  %250 = tail call double @ppi_fixed6_4_to_gdouble(i32 noundef %249) #2
+  %249 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0358431.i)
+  %250 = tail call double @ppi_fixed6_4_to_double(i32 noundef %249)
   %251 = load i32, ptr @hf_ppi_vector_acc_f, align 4
-  %252 = tail call ptr @proto_tree_add_double(ptr noundef %15, i32 noundef %251, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, double noundef %250) #2
+  %252 = tail call ptr @proto_tree_add_double(ptr noundef %15, i32 noundef %251, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, double noundef %250)
   %253 = add i32 %.0358431.i, 4
   %254 = add nsw i32 %.0360430.i, -4
   br label %334
@@ -873,10 +876,10 @@ define internal i32 @dissect_ppi_vector(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %256, label %334, label %257
 
 257:                                              ; preds = %255
-  %258 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0358431.i) #2
-  %259 = tail call double @ppi_fixed6_4_to_gdouble(i32 noundef %258) #2
+  %258 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0358431.i)
+  %259 = tail call double @ppi_fixed6_4_to_double(i32 noundef %258)
   %260 = load i32, ptr @hf_ppi_vector_acc_u, align 4
-  %261 = tail call ptr @proto_tree_add_double(ptr noundef %15, i32 noundef %260, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, double noundef %259) #2
+  %261 = tail call ptr @proto_tree_add_double(ptr noundef %15, i32 noundef %260, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, double noundef %259)
   %262 = add i32 %.0358431.i, 4
   %263 = add nsw i32 %.0360430.i, -4
   br label %334
@@ -886,10 +889,10 @@ define internal i32 @dissect_ppi_vector(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %265, label %334, label %266
 
 266:                                              ; preds = %264
-  %267 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0358431.i) #2
-  %268 = tail call double @ppi_fixed6_4_to_gdouble(i32 noundef %267) #2
+  %267 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0358431.i)
+  %268 = tail call double @ppi_fixed6_4_to_double(i32 noundef %267)
   %269 = load i32, ptr @hf_ppi_vector_acc_t, align 4
-  %270 = tail call ptr @proto_tree_add_double(ptr noundef %15, i32 noundef %269, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, double noundef %268) #2
+  %270 = tail call ptr @proto_tree_add_double(ptr noundef %15, i32 noundef %269, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, double noundef %268)
   %271 = add i32 %.0358431.i, 4
   %272 = add nsw i32 %.0360430.i, -4
   br label %334
@@ -899,10 +902,10 @@ define internal i32 @dissect_ppi_vector(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %274, label %334, label %275
 
 275:                                              ; preds = %273
-  %276 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0358431.i) #2
-  %277 = tail call double @ppi_fixed3_6_to_gdouble(i32 noundef %276) #2
+  %276 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0358431.i)
+  %277 = tail call double @ppi_fixed3_6_to_double(i32 noundef %276)
   %278 = load i32, ptr @hf_ppi_vector_err_rot, align 4
-  %279 = tail call ptr @proto_tree_add_double(ptr noundef %15, i32 noundef %278, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, double noundef %277) #2
+  %279 = tail call ptr @proto_tree_add_double(ptr noundef %15, i32 noundef %278, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, double noundef %277)
   %280 = add i32 %.0358431.i, 4
   %281 = add nsw i32 %.0360430.i, -4
   br label %334
@@ -912,10 +915,10 @@ define internal i32 @dissect_ppi_vector(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %283, label %334, label %284
 
 284:                                              ; preds = %282
-  %285 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0358431.i) #2
-  %286 = tail call double @ppi_fixed6_4_to_gdouble(i32 noundef %285) #2
+  %285 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0358431.i)
+  %286 = tail call double @ppi_fixed6_4_to_double(i32 noundef %285)
   %287 = load i32, ptr @hf_ppi_vector_err_off, align 4
-  %288 = tail call ptr @proto_tree_add_double(ptr noundef %15, i32 noundef %287, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, double noundef %286) #2
+  %288 = tail call ptr @proto_tree_add_double(ptr noundef %15, i32 noundef %287, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, double noundef %286)
   %289 = add i32 %.0358431.i, 4
   %290 = add nsw i32 %.0360430.i, -4
   br label %334
@@ -925,10 +928,10 @@ define internal i32 @dissect_ppi_vector(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %292, label %334, label %293
 
 293:                                              ; preds = %291
-  %294 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0358431.i) #2
-  %295 = tail call double @ppi_fixed6_4_to_gdouble(i32 noundef %294) #2
+  %294 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0358431.i)
+  %295 = tail call double @ppi_fixed6_4_to_double(i32 noundef %294)
   %296 = load i32, ptr @hf_ppi_vector_err_vel, align 4
-  %297 = tail call ptr @proto_tree_add_double(ptr noundef %15, i32 noundef %296, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, double noundef %295) #2
+  %297 = tail call ptr @proto_tree_add_double(ptr noundef %15, i32 noundef %296, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, double noundef %295)
   %298 = add i32 %.0358431.i, 4
   %299 = add nsw i32 %.0360430.i, -4
   br label %334
@@ -938,14 +941,14 @@ define internal i32 @dissect_ppi_vector(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %301, label %334, label %302
 
 302:                                              ; preds = %300
-  %303 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0358431.i) #2
-  %304 = tail call double @ppi_fixed6_4_to_gdouble(i32 noundef %303) #2
+  %303 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0358431.i)
+  %304 = tail call double @ppi_fixed6_4_to_double(i32 noundef %303)
   br i1 %.not423.i, label %308, label %305
 
 305:                                              ; preds = %302
   %306 = load i32, ptr @hf_ppi_vector_err_acc, align 4
-  %307 = tail call ptr @proto_tree_add_double(ptr noundef nonnull %15, i32 noundef %306, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, double noundef %304) #2
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %307, ptr noundef nonnull @.str.226) #2
+  %307 = tail call ptr @proto_tree_add_double(ptr noundef nonnull %15, i32 noundef %306, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, double noundef %304)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %307, ptr noundef nonnull @.str.227)
   br label %308
 
 308:                                              ; preds = %305, %302
@@ -959,7 +962,7 @@ define internal i32 @dissect_ppi_vector(ptr noundef %0, ptr noundef %1, ptr noun
 
 313:                                              ; preds = %311
   %314 = load i32, ptr @hf_ppi_vector_descstr, align 4
-  %315 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %314, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 32, i32 noundef 0) #2
+  %315 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %314, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 32, i32 noundef 0)
   %316 = add i32 %.0358431.i, 32
   %317 = add nsw i32 %.0360430.i, -32
   br label %334
@@ -969,9 +972,9 @@ define internal i32 @dissect_ppi_vector(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %319, label %334, label %320
 
 320:                                              ; preds = %318
-  %321 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0358431.i) #2
+  %321 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0358431.i)
   %322 = load i32, ptr @hf_ppi_vector_appspecific_num, align 4
-  %323 = tail call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %322, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, i32 noundef %321) #2
+  %323 = tail call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %322, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 4, i32 noundef %321)
   %324 = add i32 %.0358431.i, 4
   %325 = add nsw i32 %.0360430.i, -4
   br label %334
@@ -982,13 +985,13 @@ define internal i32 @dissect_ppi_vector(ptr noundef %0, ptr noundef %1, ptr noun
 
 328:                                              ; preds = %326
   %329 = load i32, ptr @hf_ppi_vector_appspecific_data, align 4
-  %330 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %329, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 60, i32 noundef 0) #2
+  %330 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %329, ptr noundef %0, i32 noundef %.0358431.i, i32 noundef 60, i32 noundef 0)
   %331 = add i32 %.0358431.i, 60
   %332 = add nsw i32 %.0360430.i, -60
   br label %334
 
 .thread433.i:                                     ; preds = %91
-  %333 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %30, ptr noundef nonnull @ei_ppi_vector_present_bit, ptr noundef nonnull @.str.227, i32 noundef %92) #2
+  %333 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %30, ptr noundef nonnull @ei_ppi_vector_present_bit, ptr noundef nonnull @.str.228, i32 noundef %92)
   br label %dissect_ppi_vector_v1.exit
 
 334:                                              ; preds = %328, %326, %320, %318, %313, %311, %308, %300, %293, %291, %284, %282, %275, %273, %266, %264, %257, %255, %248, %246, %239, %237, %230, %228, %221, %219, %212, %210, %203, %201, %198, %190, %187, %179, %176, %168, %165, %157, %154, %.thread427.i, %145, %.thread.i, %136, %111, %108, %93
@@ -996,21 +999,21 @@ define internal i32 @dissect_ppi_vector(ptr noundef %0, ptr noundef %1, ptr noun
   %.1359.i = phi i32 [ %.0358431.i, %326 ], [ %331, %328 ], [ %.0358431.i, %318 ], [ %324, %320 ], [ %.0358431.i, %311 ], [ %316, %313 ], [ %.0358431.i, %300 ], [ %309, %308 ], [ %.0358431.i, %291 ], [ %298, %293 ], [ %.0358431.i, %282 ], [ %289, %284 ], [ %.0358431.i, %273 ], [ %280, %275 ], [ %.0358431.i, %264 ], [ %271, %266 ], [ %.0358431.i, %255 ], [ %262, %257 ], [ %.0358431.i, %246 ], [ %253, %248 ], [ %.0358431.i, %237 ], [ %244, %239 ], [ %.0358431.i, %228 ], [ %235, %230 ], [ %.0358431.i, %219 ], [ %226, %221 ], [ %.0358431.i, %210 ], [ %217, %212 ], [ %.0358431.i, %201 ], [ %208, %203 ], [ %.0358431.i, %190 ], [ %199, %198 ], [ %.0358431.i, %179 ], [ %188, %187 ], [ %.0358431.i, %168 ], [ %177, %176 ], [ %.0358431.i, %157 ], [ %166, %165 ], [ %.0358431.i, %.thread427.i ], [ %155, %154 ], [ %.0358431.i, %.thread.i ], [ %146, %145 ], [ %.0358431.i, %111 ], [ %137, %136 ], [ %.0358431.i, %93 ], [ %109, %108 ]
   %.1.i = phi i32 [ %.0432.i, %326 ], [ %.0432.i, %328 ], [ %.0432.i, %318 ], [ %.0432.i, %320 ], [ %.0432.i, %311 ], [ %.0432.i, %313 ], [ %.0432.i, %300 ], [ %.0432.i, %308 ], [ %.0432.i, %291 ], [ %.0432.i, %293 ], [ %.0432.i, %282 ], [ %.0432.i, %284 ], [ %.0432.i, %273 ], [ %.0432.i, %275 ], [ %.0432.i, %264 ], [ %.0432.i, %266 ], [ %.0432.i, %255 ], [ %.0432.i, %257 ], [ %.0432.i, %246 ], [ %.0432.i, %248 ], [ %.0432.i, %237 ], [ %.0432.i, %239 ], [ %.0432.i, %228 ], [ %.0432.i, %230 ], [ %.0432.i, %219 ], [ %.0432.i, %221 ], [ %.0432.i, %210 ], [ %.0432.i, %212 ], [ %.0432.i, %201 ], [ %.0432.i, %203 ], [ %.0432.i, %190 ], [ %.0432.i, %198 ], [ %.0432.i, %179 ], [ %.0432.i, %187 ], [ %.0432.i, %168 ], [ %.0432.i, %176 ], [ %.0432.i, %157 ], [ %.0432.i, %165 ], [ %.0432.i, %.thread427.i ], [ %.0432.i, %154 ], [ %.0432.i, %.thread.i ], [ %.0432.i, %145 ], [ %.0432.i, %111 ], [ %.0432.i, %136 ], [ %.0432.i, %93 ], [ %96, %108 ]
   %.not.i = icmp eq i32 %34, 0
-  br i1 %.not.i, label %dissect_ppi_vector_v1.exit, label %32, !llvm.loop !4
+  br i1 %.not.i, label %dissect_ppi_vector_v1.exit, label %32, !llvm.loop !6
 
 335:                                              ; preds = %25
   %336 = icmp ugt i16 %9, 144
   br i1 %336, label %337, label %339
 
 337:                                              ; preds = %335
-  %338 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %21, ptr noundef nonnull @ei_ppi_vector_length, ptr noundef nonnull @.str.220, i32 noundef %10, i32 noundef 144) #2
+  %338 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %21, ptr noundef nonnull @ei_ppi_vector_length, ptr noundef nonnull @.str.221, i32 noundef %10, i32 noundef 144)
   br label %618
 
 339:                                              ; preds = %335
-  %340 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 4) #2
+  %340 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 4)
   %341 = load i32, ptr @hf_ppi_vector_present, align 4
   %342 = load i32, ptr @ett_ppi_vector_present, align 4
-  %343 = tail call ptr @proto_tree_add_bitmask(ptr noundef %15, ptr noundef %0, i32 noundef 4, i32 noundef %341, i32 noundef %342, ptr noundef nonnull @dissect_ppi_vector_v2.ppi_vector_present_flags, i32 noundef -2147483648) #2
+  %343 = tail call ptr @proto_tree_add_bitmask(ptr noundef %15, ptr noundef %0, i32 noundef 4, i32 noundef %341, i32 noundef %342, ptr noundef nonnull @dissect_ppi_vector_v2.ppi_vector_present_flags, i32 noundef -2147483648)
   %344 = add nsw i32 %10, -8
   %345 = and i32 %340, 1
   %346 = icmp ne i32 %345, 0
@@ -1019,23 +1022,23 @@ define internal i32 @dissect_ppi_vector(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %or.cond.i, label %348, label %355
 
 348:                                              ; preds = %339
-  %349 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #2
+  %349 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8)
   %350 = lshr i32 %349, 1
   %351 = and i32 %350, 3
-  %352 = tail call ptr @val_to_str_const(i32 noundef %351, ptr noundef nonnull @relativeto_string, ptr noundef nonnull @.str.216) #2
+  %352 = tail call ptr @val_to_str_const(i32 noundef %351, ptr noundef nonnull @relativeto_string, ptr noundef nonnull @.str.216)
   %353 = and i32 %349, 1
   %.not.i52 = icmp eq i32 %353, 0
   br i1 %.not.i52, label %.thread.i51, label %354
 
 354:                                              ; preds = %348
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.228) #2
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.229)
   br label %.thread.i51
 
 355:                                              ; preds = %339
   br i1 %346, label %.thread.i51, label %.critedge.i
 
 .thread.i51:                                      ; preds = %355, %354, %348
-  %.0309387.i = phi ptr [ @.str.229, %355 ], [ %352, %348 ], [ %352, %354 ]
+  %.0309387.i = phi ptr [ @.str.230, %355 ], [ %352, %348 ], [ %352, %354 ]
   %.0311384.i = phi i32 [ 0, %355 ], [ %349, %348 ], [ %349, %354 ]
   %356 = and i32 %340, 2
   %357 = icmp ne i32 %356, 0
@@ -1051,9 +1054,9 @@ define internal i32 @dissect_ppi_vector(ptr noundef %0, ptr noundef %1, ptr noun
 
 361:                                              ; preds = %.critedge.i, %.thread.i51
   %.sink.i = phi i32 [ 12, %.thread.i51 ], [ 8, %.critedge.i ]
-  %.0309385.i = phi ptr [ %.0309387.i, %.thread.i51 ], [ @.str.229, %.critedge.i ]
+  %.0309385.i = phi ptr [ %.0309387.i, %.thread.i51 ], [ @.str.230, %.critedge.i ]
   %.0311382.i = phi i32 [ %.0311384.i, %.thread.i51 ], [ 0, %.critedge.i ]
-  %362 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.sink.i) #2
+  %362 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.sink.i)
   %.not329.i = icmp eq i32 %362, 0
   br i1 %.not329.i, label %.lr.ph.i48, label %363
 
@@ -1063,7 +1066,7 @@ define internal i32 @dissect_ppi_vector(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not.i.i, label %366, label %365
 
 365:                                              ; preds = %363
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.241) #2
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.242)
   br label %366
 
 366:                                              ; preds = %365, %363
@@ -1072,7 +1075,7 @@ define internal i32 @dissect_ppi_vector(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not9.i.i, label %369, label %368
 
 368:                                              ; preds = %366
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.242) #2
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.243)
   br label %369
 
 369:                                              ; preds = %368, %366
@@ -1081,7 +1084,7 @@ define internal i32 @dissect_ppi_vector(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not10.i.i, label %372, label %371
 
 371:                                              ; preds = %369
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.243) #2
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.244)
   br label %372
 
 372:                                              ; preds = %371, %369
@@ -1090,7 +1093,7 @@ define internal i32 @dissect_ppi_vector(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not11.i.i, label %375, label %374
 
 374:                                              ; preds = %372
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.244) #2
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.245)
   br label %375
 
 375:                                              ; preds = %374, %372
@@ -1099,7 +1102,7 @@ define internal i32 @dissect_ppi_vector(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not12.i.i, label %.lr.ph.i48, label %377
 
 377:                                              ; preds = %375
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.245) #2
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.246)
   br label %.lr.ph.i48
 
 annotate_vector_chars.exit.i:                     ; preds = %.critedge.i
@@ -1107,7 +1110,7 @@ annotate_vector_chars.exit.i:                     ; preds = %.critedge.i
   br i1 %.not330399.i, label %dissect_ppi_vector_v2.exit, label %.lr.ph.i48
 
 .lr.ph.i48:                                       ; preds = %annotate_vector_chars.exit.i, %377, %375, %361, %.thread.i51
-  %.0309385394409.i = phi ptr [ @.str.229, %annotate_vector_chars.exit.i ], [ %.0309387.i, %.thread.i51 ], [ %.0309385.i, %377 ], [ %.0309385.i, %375 ], [ %.0309385.i, %361 ]
+  %.0309385394409.i = phi ptr [ @.str.230, %annotate_vector_chars.exit.i ], [ %.0309387.i, %.thread.i51 ], [ %.0309385.i, %377 ], [ %.0309385.i, %375 ], [ %.0309385.i, %361 ]
   %.0311382395408.i = phi i32 [ 0, %annotate_vector_chars.exit.i ], [ %.0311384.i, %.thread.i51 ], [ %.0311382.i, %377 ], [ %.0311382.i, %375 ], [ %.0311382.i, %361 ]
   %.0310396407.i = phi i32 [ 0, %annotate_vector_chars.exit.i ], [ 0, %.thread.i51 ], [ %362, %377 ], [ %362, %375 ], [ 0, %361 ]
   %.not370.i = icmp eq ptr %15, null
@@ -1296,21 +1299,21 @@ annotate_vector_chars.exit.i:                     ; preds = %.critedge.i
 
 449:                                              ; preds = %448
   %450 = load i32, ptr @hf_ppi_vector_vflags, align 4
-  %451 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %15, i32 noundef %450, ptr noundef %0, i32 noundef %.0402.i, i32 noundef 4, i32 noundef %.0311382395408.i) #2
+  %451 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %15, i32 noundef %450, ptr noundef %0, i32 noundef %.0402.i, i32 noundef 4, i32 noundef %.0311382395408.i)
   %452 = load i32, ptr @ett_ppi_vectorflags, align 4
-  %453 = tail call ptr @proto_item_add_subtree(ptr noundef %451, i32 noundef %452) #2
+  %453 = tail call ptr @proto_item_add_subtree(ptr noundef %451, i32 noundef %452)
   %454 = load i32, ptr @hf_ppi_vector_vflags_defines_forward, align 4
-  %455 = tail call ptr @proto_tree_add_item(ptr noundef %453, i32 noundef %454, ptr noundef %0, i32 noundef %.0402.i, i32 noundef 4, i32 noundef -2147483648) #2
+  %455 = tail call ptr @proto_tree_add_item(ptr noundef %453, i32 noundef %454, ptr noundef %0, i32 noundef %.0402.i, i32 noundef 4, i32 noundef -2147483648)
   %456 = load i32, ptr @hf_ppi_vector_vflags_relative_to, align 4
-  %457 = tail call ptr @proto_tree_add_item(ptr noundef %453, i32 noundef %456, ptr noundef %0, i32 noundef %.0402.i, i32 noundef 4, i32 noundef -2147483648) #2
+  %457 = tail call ptr @proto_tree_add_item(ptr noundef %453, i32 noundef %456, ptr noundef %0, i32 noundef %.0402.i, i32 noundef 4, i32 noundef -2147483648)
   br i1 %.not373.i, label %459, label %458
 
 458:                                              ; preds = %449
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %453, ptr noundef nonnull @.str.228) #2
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %453, ptr noundef nonnull @.str.229)
   br label %459
 
 459:                                              ; preds = %458, %449
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %453, ptr noundef nonnull @.str.230, ptr noundef %.0309385394409.i) #2
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %453, ptr noundef nonnull @.str.231, ptr noundef %.0309385394409.i)
   br label %460
 
 460:                                              ; preds = %459, %448
@@ -1327,61 +1330,61 @@ annotate_vector_chars.exit.i:                     ; preds = %.critedge.i
 
 466:                                              ; preds = %465
   %467 = load i32, ptr @hf_ppi_vector_vchars, align 4
-  %468 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %15, i32 noundef %467, ptr noundef %0, i32 noundef %.0402.i, i32 noundef 4, i32 noundef %.0310396407.i) #2
+  %468 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %15, i32 noundef %467, ptr noundef %0, i32 noundef %.0402.i, i32 noundef 4, i32 noundef %.0310396407.i)
   %469 = load i32, ptr @ett_ppi_vectorchars, align 4
-  %470 = tail call ptr @proto_item_add_subtree(ptr noundef %468, i32 noundef %469) #2
+  %470 = tail call ptr @proto_item_add_subtree(ptr noundef %468, i32 noundef %469)
   %471 = load i32, ptr @hf_ppi_vector_vchars_antenna, align 4
-  %472 = tail call ptr @proto_tree_add_item(ptr noundef %470, i32 noundef %471, ptr noundef %0, i32 noundef %.0402.i, i32 noundef 4, i32 noundef -2147483648) #2
+  %472 = tail call ptr @proto_tree_add_item(ptr noundef %470, i32 noundef %471, ptr noundef %0, i32 noundef %.0402.i, i32 noundef 4, i32 noundef -2147483648)
   %473 = load i32, ptr @hf_ppi_vector_vchars_dir_of_travel, align 4
-  %474 = tail call ptr @proto_tree_add_item(ptr noundef %470, i32 noundef %473, ptr noundef %0, i32 noundef %.0402.i, i32 noundef 4, i32 noundef -2147483648) #2
+  %474 = tail call ptr @proto_tree_add_item(ptr noundef %470, i32 noundef %473, ptr noundef %0, i32 noundef %.0402.i, i32 noundef 4, i32 noundef -2147483648)
   %475 = load i32, ptr @hf_ppi_vector_vchars_front_of_veh, align 4
-  %476 = tail call ptr @proto_tree_add_item(ptr noundef %470, i32 noundef %475, ptr noundef %0, i32 noundef %.0402.i, i32 noundef 4, i32 noundef -2147483648) #2
+  %476 = tail call ptr @proto_tree_add_item(ptr noundef %470, i32 noundef %475, ptr noundef %0, i32 noundef %.0402.i, i32 noundef 4, i32 noundef -2147483648)
   %477 = load i32, ptr @hf_ppi_vector_vchars_angle_of_arrival, align 4
-  %478 = tail call ptr @proto_tree_add_item(ptr noundef %470, i32 noundef %477, ptr noundef %0, i32 noundef %.0402.i, i32 noundef 4, i32 noundef -2147483648) #2
+  %478 = tail call ptr @proto_tree_add_item(ptr noundef %470, i32 noundef %477, ptr noundef %0, i32 noundef %.0402.i, i32 noundef 4, i32 noundef -2147483648)
   %479 = load i32, ptr @hf_ppi_vector_vchars_transmitter_pos, align 4
-  %480 = tail call ptr @proto_tree_add_item(ptr noundef %470, i32 noundef %479, ptr noundef %0, i32 noundef %.0402.i, i32 noundef 4, i32 noundef -2147483648) #2
+  %480 = tail call ptr @proto_tree_add_item(ptr noundef %470, i32 noundef %479, ptr noundef %0, i32 noundef %.0402.i, i32 noundef 4, i32 noundef -2147483648)
   %481 = load i32, ptr @hf_ppi_vector_vchars_gps_derived, align 4
-  %482 = tail call ptr @proto_tree_add_item(ptr noundef %470, i32 noundef %481, ptr noundef %0, i32 noundef %.0402.i, i32 noundef 4, i32 noundef -2147483648) #2
+  %482 = tail call ptr @proto_tree_add_item(ptr noundef %470, i32 noundef %481, ptr noundef %0, i32 noundef %.0402.i, i32 noundef 4, i32 noundef -2147483648)
   %483 = load i32, ptr @hf_ppi_vector_vchars_ins_derived, align 4
-  %484 = tail call ptr @proto_tree_add_item(ptr noundef %470, i32 noundef %483, ptr noundef %0, i32 noundef %.0402.i, i32 noundef 4, i32 noundef -2147483648) #2
+  %484 = tail call ptr @proto_tree_add_item(ptr noundef %470, i32 noundef %483, ptr noundef %0, i32 noundef %.0402.i, i32 noundef 4, i32 noundef -2147483648)
   %485 = load i32, ptr @hf_ppi_vector_vchars_compass_derived, align 4
-  %486 = tail call ptr @proto_tree_add_item(ptr noundef %470, i32 noundef %485, ptr noundef %0, i32 noundef %.0402.i, i32 noundef 4, i32 noundef -2147483648) #2
+  %486 = tail call ptr @proto_tree_add_item(ptr noundef %470, i32 noundef %485, ptr noundef %0, i32 noundef %.0402.i, i32 noundef 4, i32 noundef -2147483648)
   %487 = load i32, ptr @hf_ppi_vector_vchars_accelerometer_derived, align 4
-  %488 = tail call ptr @proto_tree_add_item(ptr noundef %470, i32 noundef %487, ptr noundef %0, i32 noundef %.0402.i, i32 noundef 4, i32 noundef -2147483648) #2
+  %488 = tail call ptr @proto_tree_add_item(ptr noundef %470, i32 noundef %487, ptr noundef %0, i32 noundef %.0402.i, i32 noundef 4, i32 noundef -2147483648)
   %489 = load i32, ptr @hf_ppi_vector_vchars_human_derived, align 4
-  %490 = tail call ptr @proto_tree_add_item(ptr noundef %470, i32 noundef %489, ptr noundef %0, i32 noundef %.0402.i, i32 noundef 4, i32 noundef -2147483648) #2
+  %490 = tail call ptr @proto_tree_add_item(ptr noundef %470, i32 noundef %489, ptr noundef %0, i32 noundef %.0402.i, i32 noundef 4, i32 noundef -2147483648)
   br i1 %.not.i374.i, label %492, label %491
 
 491:                                              ; preds = %466
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %468, ptr noundef nonnull @.str.241) #2
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %468, ptr noundef nonnull @.str.242)
   br label %492
 
 492:                                              ; preds = %491, %466
   br i1 %.not9.i375.i, label %494, label %493
 
 493:                                              ; preds = %492
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %468, ptr noundef nonnull @.str.242) #2
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %468, ptr noundef nonnull @.str.243)
   br label %494
 
 494:                                              ; preds = %493, %492
   br i1 %.not10.i376.i, label %496, label %495
 
 495:                                              ; preds = %494
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %468, ptr noundef nonnull @.str.243) #2
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %468, ptr noundef nonnull @.str.244)
   br label %496
 
 496:                                              ; preds = %495, %494
   br i1 %.not11.i377.i, label %498, label %497
 
 497:                                              ; preds = %496
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %468, ptr noundef nonnull @.str.244) #2
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %468, ptr noundef nonnull @.str.245)
   br label %498
 
 498:                                              ; preds = %497, %496
   br i1 %.not12.i378.i, label %annotate_vector_chars.exit379.i, label %499
 
 499:                                              ; preds = %498
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %468, ptr noundef nonnull @.str.245) #2
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %468, ptr noundef nonnull @.str.246)
   br label %annotate_vector_chars.exit379.i
 
 annotate_vector_chars.exit379.i:                  ; preds = %499, %498, %465
@@ -1393,15 +1396,15 @@ annotate_vector_chars.exit379.i:                  ; preds = %499, %498, %465
   br i1 %441, label %613, label %502
 
 502:                                              ; preds = %.thread397.i
-  %503 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0402.i) #2
-  %504 = tail call double @ppi_fixed3_6_to_gdouble(i32 noundef %503) #2
+  %503 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0402.i)
+  %504 = tail call double @ppi_fixed3_6_to_double(i32 noundef %503)
   br i1 %.not370.i, label %508, label %505
 
 505:                                              ; preds = %502
   %506 = load i32, ptr @hf_ppi_vector_rot_x, align 4
-  %507 = tail call ptr @proto_tree_add_double(ptr noundef nonnull %15, i32 noundef %506, ptr noundef %0, i32 noundef %.0402.i, i32 noundef 4, double noundef %504) #2
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %507, ptr noundef nonnull @.str.231, ptr noundef %.0309385394409.i) #2
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.232, double noundef %504) #2
+  %507 = tail call ptr @proto_tree_add_double(ptr noundef nonnull %15, i32 noundef %506, ptr noundef %0, i32 noundef %.0402.i, i32 noundef 4, double noundef %504)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %507, ptr noundef nonnull @.str.232, ptr noundef %.0309385394409.i)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.233, double noundef %504)
   br label %508
 
 508:                                              ; preds = %505, %502
@@ -1413,15 +1416,15 @@ annotate_vector_chars.exit379.i:                  ; preds = %499, %498, %465
   br i1 %441, label %613, label %511
 
 511:                                              ; preds = %.thread398.i
-  %512 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0402.i) #2
-  %513 = tail call double @ppi_fixed3_6_to_gdouble(i32 noundef %512) #2
+  %512 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0402.i)
+  %513 = tail call double @ppi_fixed3_6_to_double(i32 noundef %512)
   br i1 %.not370.i, label %517, label %514
 
 514:                                              ; preds = %511
   %515 = load i32, ptr @hf_ppi_vector_rot_y, align 4
-  %516 = tail call ptr @proto_tree_add_double(ptr noundef nonnull %15, i32 noundef %515, ptr noundef %0, i32 noundef %.0402.i, i32 noundef 4, double noundef %513) #2
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %516, ptr noundef nonnull @.str.231, ptr noundef %.0309385394409.i) #2
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.233, double noundef %513) #2
+  %516 = tail call ptr @proto_tree_add_double(ptr noundef nonnull %15, i32 noundef %515, ptr noundef %0, i32 noundef %.0402.i, i32 noundef 4, double noundef %513)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %516, ptr noundef nonnull @.str.232, ptr noundef %.0309385394409.i)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.234, double noundef %513)
   br label %517
 
 517:                                              ; preds = %514, %511
@@ -1434,15 +1437,15 @@ annotate_vector_chars.exit379.i:                  ; preds = %499, %498, %465
   br i1 %521, label %613, label %522
 
 522:                                              ; preds = %520
-  %523 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0402.i) #2
-  %524 = tail call double @ppi_fixed3_6_to_gdouble(i32 noundef %523) #2
+  %523 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0402.i)
+  %524 = tail call double @ppi_fixed3_6_to_double(i32 noundef %523)
   br i1 %.not370.i, label %528, label %525
 
 525:                                              ; preds = %522
   %526 = load i32, ptr @hf_ppi_vector_rot_z, align 4
-  %527 = tail call ptr @proto_tree_add_double(ptr noundef nonnull %15, i32 noundef %526, ptr noundef %0, i32 noundef %.0402.i, i32 noundef 4, double noundef %524) #2
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %527, ptr noundef nonnull @.str.231, ptr noundef %.0309385394409.i) #2
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.234, double noundef %524) #2
+  %527 = tail call ptr @proto_tree_add_double(ptr noundef nonnull %15, i32 noundef %526, ptr noundef %0, i32 noundef %.0402.i, i32 noundef 4, double noundef %524)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %527, ptr noundef nonnull @.str.232, ptr noundef %.0309385394409.i)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.235, double noundef %524)
   br label %528
 
 528:                                              ; preds = %525, %522
@@ -1455,15 +1458,15 @@ annotate_vector_chars.exit379.i:                  ; preds = %499, %498, %465
   br i1 %532, label %613, label %533
 
 533:                                              ; preds = %531
-  %534 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0402.i) #2
-  %535 = tail call double @ppi_fixed6_4_to_gdouble(i32 noundef %534) #2
+  %534 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0402.i)
+  %535 = tail call double @ppi_fixed6_4_to_double(i32 noundef %534)
   br i1 %.not370.i, label %539, label %536
 
 536:                                              ; preds = %533
   %537 = load i32, ptr @hf_ppi_vector_off_x, align 4
-  %538 = tail call ptr @proto_tree_add_double(ptr noundef nonnull %15, i32 noundef %537, ptr noundef %0, i32 noundef %.0402.i, i32 noundef 4, double noundef %535) #2
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %538, ptr noundef nonnull @.str.235, ptr noundef %.0309385394409.i) #2
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.236, double noundef %535) #2
+  %538 = tail call ptr @proto_tree_add_double(ptr noundef nonnull %15, i32 noundef %537, ptr noundef %0, i32 noundef %.0402.i, i32 noundef 4, double noundef %535)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %538, ptr noundef nonnull @.str.236, ptr noundef %.0309385394409.i)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.237, double noundef %535)
   br label %539
 
 539:                                              ; preds = %536, %533
@@ -1476,15 +1479,15 @@ annotate_vector_chars.exit379.i:                  ; preds = %499, %498, %465
   br i1 %543, label %613, label %544
 
 544:                                              ; preds = %542
-  %545 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0402.i) #2
-  %546 = tail call double @ppi_fixed6_4_to_gdouble(i32 noundef %545) #2
+  %545 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0402.i)
+  %546 = tail call double @ppi_fixed6_4_to_double(i32 noundef %545)
   br i1 %.not370.i, label %550, label %547
 
 547:                                              ; preds = %544
   %548 = load i32, ptr @hf_ppi_vector_off_y, align 4
-  %549 = tail call ptr @proto_tree_add_double(ptr noundef nonnull %15, i32 noundef %548, ptr noundef %0, i32 noundef %.0402.i, i32 noundef 4, double noundef %546) #2
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %549, ptr noundef nonnull @.str.235, ptr noundef %.0309385394409.i) #2
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.237, double noundef %546) #2
+  %549 = tail call ptr @proto_tree_add_double(ptr noundef nonnull %15, i32 noundef %548, ptr noundef %0, i32 noundef %.0402.i, i32 noundef 4, double noundef %546)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %549, ptr noundef nonnull @.str.236, ptr noundef %.0309385394409.i)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.238, double noundef %546)
   br label %550
 
 550:                                              ; preds = %547, %544
@@ -1497,15 +1500,15 @@ annotate_vector_chars.exit379.i:                  ; preds = %499, %498, %465
   br i1 %554, label %613, label %555
 
 555:                                              ; preds = %553
-  %556 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0402.i) #2
-  %557 = tail call double @ppi_fixed6_4_to_gdouble(i32 noundef %556) #2
+  %556 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0402.i)
+  %557 = tail call double @ppi_fixed6_4_to_double(i32 noundef %556)
   br i1 %.not370.i, label %561, label %558
 
 558:                                              ; preds = %555
   %559 = load i32, ptr @hf_ppi_vector_off_z, align 4
-  %560 = tail call ptr @proto_tree_add_double(ptr noundef nonnull %15, i32 noundef %559, ptr noundef %0, i32 noundef %.0402.i, i32 noundef 4, double noundef %557) #2
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %560, ptr noundef nonnull @.str.235, ptr noundef %.0309385394409.i) #2
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.238, double noundef %557) #2
+  %560 = tail call ptr @proto_tree_add_double(ptr noundef nonnull %15, i32 noundef %559, ptr noundef %0, i32 noundef %.0402.i, i32 noundef 4, double noundef %557)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %560, ptr noundef nonnull @.str.236, ptr noundef %.0309385394409.i)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.239, double noundef %557)
   br label %561
 
 561:                                              ; preds = %558, %555
@@ -1518,10 +1521,10 @@ annotate_vector_chars.exit379.i:                  ; preds = %499, %498, %465
   br i1 %565, label %613, label %566
 
 566:                                              ; preds = %564
-  %567 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0402.i) #2
-  %568 = tail call double @ppi_fixed3_6_to_gdouble(i32 noundef %567) #2
+  %567 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0402.i)
+  %568 = tail call double @ppi_fixed3_6_to_double(i32 noundef %567)
   %569 = load i32, ptr @hf_ppi_vector_err_rot, align 4
-  %570 = tail call ptr @proto_tree_add_double(ptr noundef %15, i32 noundef %569, ptr noundef %0, i32 noundef %.0402.i, i32 noundef 4, double noundef %568) #2
+  %570 = tail call ptr @proto_tree_add_double(ptr noundef %15, i32 noundef %569, ptr noundef %0, i32 noundef %.0402.i, i32 noundef 4, double noundef %568)
   %571 = add i32 %.0402.i, 4
   %572 = add nsw i32 %.0305401.i, -4
   br label %613
@@ -1531,10 +1534,10 @@ annotate_vector_chars.exit379.i:                  ; preds = %499, %498, %465
   br i1 %574, label %613, label %575
 
 575:                                              ; preds = %573
-  %576 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0402.i) #2
-  %577 = tail call double @ppi_fixed6_4_to_gdouble(i32 noundef %576) #2
+  %576 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0402.i)
+  %577 = tail call double @ppi_fixed6_4_to_double(i32 noundef %576)
   %578 = load i32, ptr @hf_ppi_vector_err_off, align 4
-  %579 = tail call ptr @proto_tree_add_double(ptr noundef %15, i32 noundef %578, ptr noundef %0, i32 noundef %.0402.i, i32 noundef 4, double noundef %577) #2
+  %579 = tail call ptr @proto_tree_add_double(ptr noundef %15, i32 noundef %578, ptr noundef %0, i32 noundef %.0402.i, i32 noundef 4, double noundef %577)
   %580 = add i32 %.0402.i, 4
   %581 = add nsw i32 %.0305401.i, -4
   br label %613
@@ -1548,10 +1551,10 @@ annotate_vector_chars.exit379.i:                  ; preds = %499, %498, %465
 
 585:                                              ; preds = %584
   %586 = load ptr, ptr %378, align 8
-  %587 = tail call ptr @tvb_format_stringzpad(ptr noundef %586, ptr noundef %0, i32 noundef %.0402.i, i32 noundef 32) #2
+  %587 = tail call ptr @tvb_format_stringzpad(ptr noundef %586, ptr noundef %0, i32 noundef %.0402.i, i32 noundef 32)
   %588 = load i32, ptr @hf_ppi_vector_descstr, align 4
-  %589 = tail call ptr @proto_tree_add_string(ptr noundef nonnull %15, i32 noundef %588, ptr noundef %0, i32 noundef %.0402.i, i32 noundef 32, ptr noundef %587) #2
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.239, ptr noundef %587) #2
+  %589 = tail call ptr @proto_tree_add_string(ptr noundef nonnull %15, i32 noundef %588, ptr noundef %0, i32 noundef %.0402.i, i32 noundef 32, ptr noundef %587)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.240, ptr noundef %587)
   br label %590
 
 590:                                              ; preds = %585, %584
@@ -1564,12 +1567,12 @@ annotate_vector_chars.exit379.i:                  ; preds = %499, %498, %465
   br i1 %594, label %613, label %595
 
 595:                                              ; preds = %593
-  %596 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0402.i) #2
+  %596 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0402.i)
   br i1 %.not370.i, label %600, label %597
 
 597:                                              ; preds = %595
   %598 = load i32, ptr @hf_ppi_vector_appspecific_num, align 4
-  %599 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %15, i32 noundef %598, ptr noundef %0, i32 noundef %.0402.i, i32 noundef 4, i32 noundef %596) #2
+  %599 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %15, i32 noundef %598, ptr noundef %0, i32 noundef %.0402.i, i32 noundef 4, i32 noundef %596)
   br label %600
 
 600:                                              ; preds = %597, %595
@@ -1586,7 +1589,7 @@ annotate_vector_chars.exit379.i:                  ; preds = %499, %498, %465
 
 606:                                              ; preds = %605
   %607 = load i32, ptr @hf_ppi_vector_appspecific_data, align 4
-  %608 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %15, i32 noundef %607, ptr noundef %0, i32 noundef %.0402.i, i32 noundef 60, i32 noundef 0) #2
+  %608 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %15, i32 noundef %607, ptr noundef %0, i32 noundef %.0402.i, i32 noundef 60, i32 noundef 0)
   br label %609
 
 609:                                              ; preds = %606, %605
@@ -1595,27 +1598,27 @@ annotate_vector_chars.exit379.i:                  ; preds = %499, %498, %465
   br label %613
 
 .thread411.i:                                     ; preds = %444
-  %612 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %343, ptr noundef nonnull @ei_ppi_vector_present_bit, ptr noundef nonnull @.str.240, i32 noundef %445) #2
+  %612 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %343, ptr noundef nonnull @ei_ppi_vector_present_bit, ptr noundef nonnull @.str.241, i32 noundef %445)
   br label %dissect_ppi_vector_v2.exit
 
 613:                                              ; preds = %609, %603, %600, %593, %590, %582, %575, %573, %566, %564, %561, %553, %550, %542, %539, %531, %528, %520, %517, %.thread398.i, %508, %.thread397.i, %annotate_vector_chars.exit379.i, %463, %460, %446
   %.1306.i = phi i32 [ %.0305401.i, %603 ], [ %611, %609 ], [ %.0305401.i, %593 ], [ %602, %600 ], [ %.0305401.i, %582 ], [ %592, %590 ], [ %.0305401.i, %573 ], [ %581, %575 ], [ %.0305401.i, %564 ], [ %572, %566 ], [ %.0305401.i, %553 ], [ %563, %561 ], [ %.0305401.i, %542 ], [ %552, %550 ], [ %.0305401.i, %531 ], [ %541, %539 ], [ %.0305401.i, %520 ], [ %530, %528 ], [ %.0305401.i, %.thread398.i ], [ %519, %517 ], [ %.0305401.i, %.thread397.i ], [ %510, %508 ], [ %.0305401.i, %463 ], [ %501, %annotate_vector_chars.exit379.i ], [ %.0305401.i, %446 ], [ %462, %460 ]
   %.1.i50 = phi i32 [ %.0402.i, %603 ], [ %610, %609 ], [ %.0402.i, %593 ], [ %601, %600 ], [ %.0402.i, %582 ], [ %591, %590 ], [ %.0402.i, %573 ], [ %580, %575 ], [ %.0402.i, %564 ], [ %571, %566 ], [ %.0402.i, %553 ], [ %562, %561 ], [ %.0402.i, %542 ], [ %551, %550 ], [ %.0402.i, %531 ], [ %540, %539 ], [ %.0402.i, %520 ], [ %529, %528 ], [ %.0402.i, %.thread398.i ], [ %518, %517 ], [ %.0402.i, %.thread397.i ], [ %509, %508 ], [ %.0402.i, %463 ], [ %500, %annotate_vector_chars.exit379.i ], [ %.0402.i, %446 ], [ %461, %460 ]
   %.not330.i = icmp eq i32 %387, 0
-  br i1 %.not330.i, label %dissect_ppi_vector_v2.exit, label %385, !llvm.loop !6
+  br i1 %.not330.i, label %dissect_ppi_vector_v2.exit, label %385, !llvm.loop !8
 
 dissect_ppi_vector_v2.exit:                       ; preds = %613, %annotate_vector_chars.exit.i, %.thread411.i
-  %.0309385394410.i = phi ptr [ @.str.229, %annotate_vector_chars.exit.i ], [ %.0309385394409.i, %.thread411.i ], [ %.0309385394409.i, %613 ]
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.230, ptr noundef %.0309385394410.i) #2
+  %.0309385394410.i = phi ptr [ @.str.230, %annotate_vector_chars.exit.i ], [ %.0309385394409.i, %.thread411.i ], [ %.0309385394409.i, %613 ]
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.231, ptr noundef %.0309385394410.i)
   br label %dissect_ppi_vector_v1.exit
 
 614:                                              ; preds = %25
   %615 = load i32, ptr @hf_ppi_vector_unknown_data, align 4
-  %616 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %615, ptr noundef %0, i32 noundef 4, i32 noundef -1, i32 noundef 0) #2
+  %616 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %615, ptr noundef %0, i32 noundef 4, i32 noundef -1, i32 noundef 0)
   br label %dissect_ppi_vector_v1.exit
 
 dissect_ppi_vector_v1.exit:                       ; preds = %334, %.thread433.i, %26, %614, %dissect_ppi_vector_v2.exit
-  %617 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
+  %617 = tail call i32 @tvb_captured_length(ptr noundef %0)
   br label %618
 
 618:                                              ; preds = %dissect_ppi_vector_v1.exit, %337, %23
@@ -1623,54 +1626,74 @@ dissect_ppi_vector_v1.exit:                       ; preds = %334, %.thread433.i,
   ret i32 %.0
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_protocol_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare double @ppi_fixed3_6_to_gdouble(i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare double @ppi_fixed3_6_to_double(i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_double(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, double noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare double @ppi_fixed6_4_to_gdouble(i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare double @ppi_fixed6_4_to_double(i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_format_stringzpad(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}

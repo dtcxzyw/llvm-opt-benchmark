@@ -4,15 +4,12 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
 %struct._range_string = type { i64, i64, ptr }
-%struct._value_string = type { i32, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
-%struct._proto_node = type { ptr, ptr, ptr, ptr, ptr, ptr }
+%struct._proto_node = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.field_info = type { ptr, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, i32, i32 }
 
 @proto_register_dsmcc.hf = internal global [150 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_dsmcc_protocol_discriminator, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_type, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 4, i32 258, ptr @dsmcc_header_type_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_message_id, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_transaction_id, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_header_reserved, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_adaptation_length, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_message_length, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_flag_transaction_id_originator, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 7, i32 257, ptr @dsmcc_un_sess_transaction_id_originator_vals, i64 3221225472, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_flag_transaction_id_number, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 7, i32 1, ptr null, i64 1073741823, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_adaptation_type, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 4, i32 258, ptr @dsmcc_adaptation_header_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_adaptation_ca_reserved, %struct._header_field_info { ptr @.str.8, ptr @.str.20, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_adaptation_ca_system_id, %struct._header_field_info { ptr @.str.21, ptr @.str.22, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_adaptation_ca_length, %struct._header_field_info { ptr @.str.23, ptr @.str.24, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_adaptation_user_id_reserved, %struct._header_field_info { ptr @.str.8, ptr @.str.25, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_response, %struct._header_field_info { ptr @.str.26, ptr @.str.27, i32 5, i32 258, ptr @dsmcc_un_sess_message_response_codes_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_reason, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 5, i32 258, ptr @dsmcc_un_sess_message_reason_codes_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_reserved, %struct._header_field_info { ptr @.str.8, ptr @.str.30, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_flag_message_discriminator, %struct._header_field_info { ptr @.str.31, ptr @.str.32, i32 5, i32 257, ptr @dsmcc_un_sess_message_discriminator_vals, i64 49152, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_flag_message_scenario, %struct._header_field_info { ptr @.str.33, ptr @.str.34, i32 5, i32 257, ptr @dsmcc_un_sess_message_scenario_vals, i64 16368, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_flag_message_type, %struct._header_field_info { ptr @.str.35, ptr @.str.36, i32 5, i32 257, ptr @dsmcc_un_sess_message_type_vals, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_desc_count, %struct._header_field_info { ptr @.str.37, ptr @.str.38, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_uu_data_len, %struct._header_field_info { ptr @.str.39, ptr @.str.40, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_uu_data, %struct._header_field_info { ptr @.str.41, ptr @.str.42, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_priv_data_len, %struct._header_field_info { ptr @.str.43, ptr @.str.44, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_priv_data, %struct._header_field_info { ptr @.str.45, ptr @.str.46, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_forward_count, %struct._header_field_info { ptr @.str.47, ptr @.str.48, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_resource_count, %struct._header_field_info { ptr @.str.49, ptr @.str.50, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_resource_num, %struct._header_field_info { ptr @.str.51, ptr @.str.52, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_status_type, %struct._header_field_info { ptr @.str.53, ptr @.str.54, i32 5, i32 257, ptr @dsmcc_un_sess_status_type_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_status_count, %struct._header_field_info { ptr @.str.55, ptr @.str.56, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_status_byte, %struct._header_field_info { ptr @.str.57, ptr @.str.58, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_session_count, %struct._header_field_info { ptr @.str.59, ptr @.str.60, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_session_id_device_id, %struct._header_field_info { ptr @.str.61, ptr @.str.62, i32 29, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_session_id_session_number, %struct._header_field_info { ptr @.str.63, ptr @.str.64, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_request_id, %struct._header_field_info { ptr @.str.65, ptr @.str.66, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_descriptor_type, %struct._header_field_info { ptr @.str.67, ptr @.str.68, i32 5, i32 258, ptr @dsmcc_un_sess_rsrc_descriptor_type_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_number, %struct._header_field_info { ptr @.str.69, ptr @.str.70, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_association_tag, %struct._header_field_info { ptr @.str.71, ptr @.str.72, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_flags, %struct._header_field_info { ptr @.str.73, ptr @.str.74, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_status, %struct._header_field_info { ptr @.str.75, ptr @.str.76, i32 4, i32 258, ptr @dsmcc_un_sess_rsrc_status_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_desc_data_fields_length, %struct._header_field_info { ptr @.str.77, ptr @.str.78, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_data_field_count, %struct._header_field_info { ptr @.str.79, ptr @.str.80, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_type_owner_id, %struct._header_field_info { ptr @.str.81, ptr @.str.82, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_type_owner_value, %struct._header_field_info { ptr @.str.83, ptr @.str.84, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_flag_num_assignor, %struct._header_field_info { ptr @.str.85, ptr @.str.86, i32 5, i32 257, ptr @dsmcc_un_sess_rsrc_number_assignor_vals, i64 49152, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_flag_num_value, %struct._header_field_info { ptr @.str.87, ptr @.str.88, i32 5, i32 1, ptr null, i64 16383, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_flag_association_tag_assignor, %struct._header_field_info { ptr @.str.89, ptr @.str.90, i32 5, i32 257, ptr @dsmcc_un_sess_rsrc_association_tag_vals, i64 49152, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_flag_association_tag_value, %struct._header_field_info { ptr @.str.91, ptr @.str.92, i32 5, i32 1, ptr null, i64 16383, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_flag_allocator, %struct._header_field_info { ptr @.str.93, ptr @.str.94, i32 4, i32 257, ptr @dsmcc_un_sess_rsrc_allocator_vals, i64 3, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_flag_attribute, %struct._header_field_info { ptr @.str.95, ptr @.str.96, i32 4, i32 257, ptr @dsmcc_un_sess_rsrc_attribute_vals, i64 60, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_flag_view, %struct._header_field_info { ptr @.str.97, ptr @.str.98, i32 4, i32 257, ptr @dsmcc_un_sess_rsrc_view_vals, i64 192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_value_type, %struct._header_field_info { ptr @.str.99, ptr @.str.100, i32 5, i32 257, ptr @dsmcc_un_sess_rsrc_value_types_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_value_count, %struct._header_field_info { ptr @.str.101, ptr @.str.102, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_value_data, %struct._header_field_info { ptr @.str.103, ptr @.str.104, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_most_desired, %struct._header_field_info { ptr @.str.105, ptr @.str.106, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_least_desired, %struct._header_field_info { ptr @.str.107, ptr @.str.108, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_cfs_num_count, %struct._header_field_info { ptr @.str.109, ptr @.str.110, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_cfs_num, %struct._header_field_info { ptr @.str.51, ptr @.str.111, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_atm_vpi, %struct._header_field_info { ptr @.str.112, ptr @.str.113, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_atm_vci, %struct._header_field_info { ptr @.str.114, ptr @.str.115, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_mpeg_ca_pid, %struct._header_field_info { ptr @.str.116, ptr @.str.117, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_mpeg_elem_stream_count, %struct._header_field_info { ptr @.str.118, ptr @.str.119, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_reserved, %struct._header_field_info { ptr @.str.8, ptr @.str.120, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_phys_chan_direction, %struct._header_field_info { ptr @.str.121, ptr @.str.122, i32 5, i32 258, ptr @dsmcc_un_sess_rsrc_phys_chan_direction_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_src_ip_addr, %struct._header_field_info { ptr @.str.123, ptr @.str.124, i32 32, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_src_ip_port, %struct._header_field_info { ptr @.str.125, ptr @.str.126, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_dst_ip_addr, %struct._header_field_info { ptr @.str.127, ptr @.str.128, i32 32, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_dst_ip_port, %struct._header_field_info { ptr @.str.129, ptr @.str.130, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_ip_protocol, %struct._header_field_info { ptr @.str.131, ptr @.str.132, i32 5, i32 258, ptr @dsmcc_un_sess_rsrc_ip_protocol_types_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_pstn_calling_id, %struct._header_field_info { ptr @.str.133, ptr @.str.134, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_pstn_called_id, %struct._header_field_info { ptr @.str.135, ptr @.str.136, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_dlci_count, %struct._header_field_info { ptr @.str.137, ptr @.str.138, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_dlci, %struct._header_field_info { ptr @.str.139, ptr @.str.140, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_dl_association_tag, %struct._header_field_info { ptr @.str.71, ptr @.str.141, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_shared_resource_num, %struct._header_field_info { ptr @.str.142, ptr @.str.143, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_shared_resource_request_id, %struct._header_field_info { ptr @.str.144, ptr @.str.145, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_headend_count, %struct._header_field_info { ptr @.str.146, ptr @.str.147, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_headend_code, %struct._header_field_info { ptr @.str.148, ptr @.str.149, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_sdb_id, %struct._header_field_info { ptr @.str.150, ptr @.str.151, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_sdb_program_count, %struct._header_field_info { ptr @.str.152, ptr @.str.153, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_sdb_association_tag, %struct._header_field_info { ptr @.str.71, ptr @.str.154, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_sdb_broadcast_program_id, %struct._header_field_info { ptr @.str.155, ptr @.str.156, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_sdb_control_association_tag, %struct._header_field_info { ptr @.str.157, ptr @.str.158, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_sdb_program_association_tag, %struct._header_field_info { ptr @.str.159, ptr @.str.160, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_sdb_exclude_count, %struct._header_field_info { ptr @.str.161, ptr @.str.162, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_sdb_include_count, %struct._header_field_info { ptr @.str.163, ptr @.str.164, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_trans_system, %struct._header_field_info { ptr @.str.165, ptr @.str.166, i32 4, i32 258, ptr @dsmcc_un_sess_rsrc_transmission_system_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_inner_coding, %struct._header_field_info { ptr @.str.167, ptr @.str.168, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_split_bitstream, %struct._header_field_info { ptr @.str.169, ptr @.str.170, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_mod_format, %struct._header_field_info { ptr @.str.171, ptr @.str.172, i32 4, i32 258, ptr @dsmcc_un_sess_rsrc_modulation_format_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_symbol_rate, %struct._header_field_info { ptr @.str.173, ptr @.str.174, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_interleave_depth, %struct._header_field_info { ptr @.str.175, ptr @.str.176, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_modulation_mode, %struct._header_field_info { ptr @.str.177, ptr @.str.178, i32 4, i32 258, ptr @dsmcc_un_sess_rsrc_mod_mode_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_fec, %struct._header_field_info { ptr @.str.179, ptr @.str.180, i32 4, i32 258, ptr @dsmcc_un_sess_rsrc_fec_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_headend_flag, %struct._header_field_info { ptr @.str.181, ptr @.str.182, i32 5, i32 257, ptr @dsmcc_un_sess_rsrc_headend_flag_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_headend_tsid, %struct._header_field_info { ptr @.str.183, ptr @.str.184, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_server_ca_copyprotect, %struct._header_field_info { ptr @.str.185, ptr @.str.186, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_server_ca_usercount, %struct._header_field_info { ptr @.str.187, ptr @.str.188, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_client_ca_info_length, %struct._header_field_info { ptr @.str.189, ptr @.str.190, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_client_ca_info_data, %struct._header_field_info { ptr @.str.191, ptr @.str.192, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_rsrc_service_group, %struct._header_field_info { ptr @.str.193, ptr @.str.194, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_compat_desc_length, %struct._header_field_info { ptr @.str.195, ptr @.str.196, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_compat_desc_count, %struct._header_field_info { ptr @.str.197, ptr @.str.198, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_desc_type, %struct._header_field_info { ptr @.str.67, ptr @.str.199, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_desc_length, %struct._header_field_info { ptr @.str.197, ptr @.str.200, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_desc_spec_type, %struct._header_field_info { ptr @.str.201, ptr @.str.202, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_desc_spec_data, %struct._header_field_info { ptr @.str.203, ptr @.str.204, i32 6, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_desc_model, %struct._header_field_info { ptr @.str.205, ptr @.str.206, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_desc_version, %struct._header_field_info { ptr @.str.207, ptr @.str.208, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_desc_sub_desc_count, %struct._header_field_info { ptr @.str.207, ptr @.str.209, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_desc_sub_desc_type, %struct._header_field_info { ptr @.str.2, ptr @.str.210, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_desc_sub_desc_len, %struct._header_field_info { ptr @.str.211, ptr @.str.212, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_dd_download_id, %struct._header_field_info { ptr @.str.213, ptr @.str.214, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_dd_message_id, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 5, i32 2, ptr @dsmcc_dd_message_id_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_dii_download_id, %struct._header_field_info { ptr @.str.213, ptr @.str.215, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_dii_block_size, %struct._header_field_info { ptr @.str.216, ptr @.str.217, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_dii_window_size, %struct._header_field_info { ptr @.str.218, ptr @.str.219, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_dii_ack_period, %struct._header_field_info { ptr @.str.220, ptr @.str.221, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_dii_t_c_download_window, %struct._header_field_info { ptr @.str.222, ptr @.str.223, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_dii_t_c_download_scenario, %struct._header_field_info { ptr @.str.224, ptr @.str.225, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_dii_number_of_modules, %struct._header_field_info { ptr @.str.226, ptr @.str.227, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_dii_module_id, %struct._header_field_info { ptr @.str.228, ptr @.str.229, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_dii_module_size, %struct._header_field_info { ptr @.str.230, ptr @.str.231, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_dii_module_version, %struct._header_field_info { ptr @.str.232, ptr @.str.233, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_dii_module_info_length, %struct._header_field_info { ptr @.str.234, ptr @.str.235, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_dii_private_data_length, %struct._header_field_info { ptr @.str.236, ptr @.str.237, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_ddb_module_id, %struct._header_field_info { ptr @.str.228, ptr @.str.238, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_ddb_version, %struct._header_field_info { ptr @.str.207, ptr @.str.239, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_ddb_reserved, %struct._header_field_info { ptr @.str.8, ptr @.str.240, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_ddb_block_number, %struct._header_field_info { ptr @.str.241, ptr @.str.242, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_table_id, %struct._header_field_info { ptr @.str.243, ptr @.str.244, i32 4, i32 2, ptr @dsmcc_payload_name_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_section_syntax_indicator, %struct._header_field_info { ptr @.str.245, ptr @.str.246, i32 5, i32 1, ptr null, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_private_indicator, %struct._header_field_info { ptr @.str.247, ptr @.str.248, i32 5, i32 1, ptr null, i64 16384, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_reserved, %struct._header_field_info { ptr @.str.8, ptr @.str.249, i32 5, i32 2, ptr null, i64 12288, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_section_length, %struct._header_field_info { ptr @.str.211, ptr @.str.250, i32 5, i32 1, ptr null, i64 4095, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_table_id_extension, %struct._header_field_info { ptr @.str.251, ptr @.str.252, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_reserved2, %struct._header_field_info { ptr @.str.8, ptr @.str.253, i32 4, i32 2, ptr null, i64 192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_version_number, %struct._header_field_info { ptr @.str.254, ptr @.str.255, i32 4, i32 1, ptr null, i64 62, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_current_next_indicator, %struct._header_field_info { ptr @.str.256, ptr @.str.257, i32 4, i32 1, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_section_number, %struct._header_field_info { ptr @.str.258, ptr @.str.259, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_last_section_number, %struct._header_field_info { ptr @.str.260, ptr @.str.261, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_crc, %struct._header_field_info { ptr @.str.262, ptr @.str.263, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_checksum, %struct._header_field_info { ptr @.str.264, ptr @.str.265, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_nsap_afi, %struct._header_field_info { ptr @.str.266, ptr @.str.267, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_nsap_idi, %struct._header_field_info { ptr @.str.268, ptr @.str.269, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_nsap_ho_dsp, %struct._header_field_info { ptr @.str.270, ptr @.str.271, i32 32, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_nsap_esi, %struct._header_field_info { ptr @.str.272, ptr @.str.273, i32 29, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dsmcc_un_sess_nsap_sel, %struct._header_field_info { ptr @.str.274, ptr @.str.275, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_etv_module_abs_path, %struct._header_field_info { ptr @.str.276, ptr @.str.277, i32 28, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_etv_dii_authority, %struct._header_field_info { ptr @.str.278, ptr @.str.279, i32 28, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
@@ -369,7 +366,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.213 = private unnamed_addr constant [12 x i8] c"Download ID\00", align 1
 @.str.214 = private unnamed_addr constant [23 x i8] c"mpeg_dsmcc.download_id\00", align 1
 @hf_dsmcc_dd_message_id = internal global i32 0, align 4
-@dsmcc_dd_message_id_vals = internal constant [7 x %struct._value_string] [%struct._value_string { i32 4097, ptr @.str.475 }, %struct._value_string { i32 4098, ptr @.str.476 }, %struct._value_string { i32 4099, ptr @.str.477 }, %struct._value_string { i32 4100, ptr @.str.478 }, %struct._value_string { i32 4101, ptr @.str.479 }, %struct._value_string { i32 4102, ptr @.str.480 }, %struct._value_string zeroinitializer], align 16
 @hf_dsmcc_dii_download_id = internal global i32 0, align 4
 @.str.215 = private unnamed_addr constant [27 x i8] c"mpeg_dsmcc.dii.download_id\00", align 1
 @hf_dsmcc_dii_block_size = internal global i32 0, align 4
@@ -417,7 +413,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_dsmcc_table_id = internal global i32 0, align 4
 @.str.243 = private unnamed_addr constant [9 x i8] c"Table ID\00", align 1
 @.str.244 = private unnamed_addr constant [19 x i8] c"mpeg_sect.table_id\00", align 1
-@dsmcc_payload_name_vals = internal constant [6 x %struct._value_string] [%struct._value_string { i32 58, ptr @.str.481 }, %struct._value_string { i32 59, ptr @.str.482 }, %struct._value_string { i32 60, ptr @.str.483 }, %struct._value_string { i32 61, ptr @.str.484 }, %struct._value_string { i32 62, ptr @.str.485 }, %struct._value_string zeroinitializer], align 16
 @hf_dsmcc_section_syntax_indicator = internal global i32 0, align 4
 @.str.245 = private unnamed_addr constant [25 x i8] c"Session Syntax Indicator\00", align 1
 @.str.246 = private unnamed_addr constant [14 x i8] c"mpeg_sect.ssi\00", align 1
@@ -486,7 +481,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_dsmcc_compat = internal global i32 0, align 4
 @ett_dsmcc_compat_sub_desc = internal global i32 0, align 4
 @ett_dsmcc_dii_module = internal global i32 0, align 4
-@proto_register_dsmcc.ei = internal global [2 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_dsmcc_invalid_value, %struct.expert_field_info { ptr @.str.280, i32 150994944, i32 6291456, ptr @.str.281, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_dsmcc_crc_invalid, %struct.expert_field_info { ptr @.str.282, i32 16777216, i32 6291456, ptr @.str.283, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_dsmcc.ei = internal global [2 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_dsmcc_invalid_value, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.280, i32 150994944, i32 6291456, ptr @.str.281, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_dsmcc_crc_invalid, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.282, i32 16777216, i32 6291456, ptr @.str.283, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_dsmcc_invalid_value = internal global %struct.expert_field zeroinitializer, align 4
 @.str.280 = private unnamed_addr constant [25 x i8] c"mpeg_dsmcc.invalid_value\00", align 1
 @.str.281 = private unnamed_addr constant [14 x i8] c"Invalid value\00", align 1
@@ -505,7 +500,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.289 = private unnamed_addr constant [11 x i8] c"verify_crc\00", align 1
 @.str.290 = private unnamed_addr constant [35 x i8] c"Verify the section CRC or checksum\00", align 1
 @.str.291 = private unnamed_addr constant [64 x i8] c"Whether the section dissector should verify the CRC or checksum\00", align 1
-@dsmcc_sect_check_crc = internal global i32 0, align 4
+@dsmcc_sect_check_crc = internal global i8 0, align 1
 @.str.292 = private unnamed_addr constant [14 x i8] c"mpeg_sect.tid\00", align 1
 @.str.293 = private unnamed_addr constant [9 x i8] c"tcp.port\00", align 1
 @.str.294 = private unnamed_addr constant [9 x i8] c"udp.port\00", align 1
@@ -695,135 +690,139 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.478 = private unnamed_addr constant [22 x i8] c"Download Data Request\00", align 1
 @.str.479 = private unnamed_addr constant [21 x i8] c"Download Data Cancel\00", align 1
 @.str.480 = private unnamed_addr constant [25 x i8] c"Download Server Initiate\00", align 1
-@.str.481 = private unnamed_addr constant [8 x i8] c"LLCSNAP\00", align 1
-@.str.482 = private unnamed_addr constant [21 x i8] c"User Network Message\00", align 1
-@.str.483 = private unnamed_addr constant [22 x i8] c"Download Data Message\00", align 1
-@.str.484 = private unnamed_addr constant [16 x i8] c"Descriptor List\00", align 1
-@.str.485 = private unnamed_addr constant [8 x i8] c"Private\00", align 1
-@.str.486 = private unnamed_addr constant [7 x i8] c"DSM-CC\00", align 1
-@.str.487 = private unnamed_addr constant [11 x i8] c"Unverified\00", align 1
-@.str.488 = private unnamed_addr constant [9 x i8] c"Verified\00", align 1
-@.str.489 = private unnamed_addr constant [17 x i8] c"CRC: 0x%08x [%s]\00", align 1
-@.str.490 = private unnamed_addr constant [55 x i8] c"CRC: 0x%08x [Failed Verification (Calculated: 0x%08x)]\00", align 1
-@.str.491 = private unnamed_addr constant [36 x i8] c"User Network Message (Session) - %s\00", align 1
-@dsmcc_un_sess_message_id_vals = internal constant [51 x %struct._value_string] [%struct._value_string { i32 16400, ptr @.str.504 }, %struct._value_string { i32 16401, ptr @.str.505 }, %struct._value_string { i32 16416, ptr @.str.506 }, %struct._value_string { i32 16417, ptr @.str.507 }, %struct._value_string { i32 16418, ptr @.str.508 }, %struct._value_string { i32 16419, ptr @.str.509 }, %struct._value_string { i32 16434, ptr @.str.510 }, %struct._value_string { i32 16435, ptr @.str.511 }, %struct._value_string { i32 16450, ptr @.str.512 }, %struct._value_string { i32 16451, ptr @.str.513 }, %struct._value_string { i32 16480, ptr @.str.514 }, %struct._value_string { i32 16481, ptr @.str.515 }, %struct._value_string { i32 16482, ptr @.str.516 }, %struct._value_string { i32 16483, ptr @.str.517 }, %struct._value_string { i32 16496, ptr @.str.518 }, %struct._value_string { i32 16497, ptr @.str.519 }, %struct._value_string { i32 16498, ptr @.str.520 }, %struct._value_string { i32 16499, ptr @.str.521 }, %struct._value_string { i32 16514, ptr @.str.522 }, %struct._value_string { i32 16528, ptr @.str.523 }, %struct._value_string { i32 16546, ptr @.str.524 }, %struct._value_string { i32 16547, ptr @.str.525 }, %struct._value_string { i32 16560, ptr @.str.526 }, %struct._value_string { i32 32786, ptr @.str.527 }, %struct._value_string { i32 32787, ptr @.str.528 }, %struct._value_string { i32 32800, ptr @.str.529 }, %struct._value_string { i32 32801, ptr @.str.530 }, %struct._value_string { i32 32802, ptr @.str.531 }, %struct._value_string { i32 32803, ptr @.str.532 }, %struct._value_string { i32 32816, ptr @.str.533 }, %struct._value_string { i32 32817, ptr @.str.534 }, %struct._value_string { i32 32832, ptr @.str.535 }, %struct._value_string { i32 32833, ptr @.str.536 }, %struct._value_string { i32 32848, ptr @.str.537 }, %struct._value_string { i32 32849, ptr @.str.538 }, %struct._value_string { i32 32864, ptr @.str.539 }, %struct._value_string { i32 32865, ptr @.str.540 }, %struct._value_string { i32 32866, ptr @.str.541 }, %struct._value_string { i32 32867, ptr @.str.542 }, %struct._value_string { i32 32880, ptr @.str.543 }, %struct._value_string { i32 32881, ptr @.str.544 }, %struct._value_string { i32 32882, ptr @.str.545 }, %struct._value_string { i32 32883, ptr @.str.546 }, %struct._value_string { i32 32898, ptr @.str.547 }, %struct._value_string { i32 32914, ptr @.str.548 }, %struct._value_string { i32 32928, ptr @.str.549 }, %struct._value_string { i32 32929, ptr @.str.550 }, %struct._value_string { i32 32930, ptr @.str.551 }, %struct._value_string { i32 32931, ptr @.str.552 }, %struct._value_string { i32 32944, ptr @.str.553 }, %struct._value_string zeroinitializer], align 16
-@.str.492 = private unnamed_addr constant [5 x i8] c"0x%x\00", align 1
-@.str.493 = private unnamed_addr constant [10 x i8] c"Client ID\00", align 1
-@.str.494 = private unnamed_addr constant [10 x i8] c"Server ID\00", align 1
-@.str.495 = private unnamed_addr constant [10 x i8] c"User Data\00", align 1
-@.str.496 = private unnamed_addr constant [10 x i8] c"Resources\00", align 1
-@.str.497 = private unnamed_addr constant [14 x i8] c"Old Server ID\00", align 1
-@.str.498 = private unnamed_addr constant [14 x i8] c"New Server ID\00", align 1
-@.str.499 = private unnamed_addr constant [18 x i8] c"Forward Server ID\00", align 1
-@.str.500 = private unnamed_addr constant [15 x i8] c"Next Server ID\00", align 1
-@.str.501 = private unnamed_addr constant [22 x i8] c"Destination Server ID\00", align 1
-@.str.502 = private unnamed_addr constant [15 x i8] c"Base Server ID\00", align 1
-@.str.503 = private unnamed_addr constant [17 x i8] c"Source Server ID\00", align 1
-@.str.504 = private unnamed_addr constant [29 x i8] c"Client Session Setup Request\00", align 1
-@.str.505 = private unnamed_addr constant [29 x i8] c"Client Session Setup Confirm\00", align 1
-@.str.506 = private unnamed_addr constant [31 x i8] c"Client Session Release Request\00", align 1
-@.str.507 = private unnamed_addr constant [31 x i8] c"Client Session Release Confirm\00", align 1
-@.str.508 = private unnamed_addr constant [34 x i8] c"Client Session Release Indication\00", align 1
-@.str.509 = private unnamed_addr constant [32 x i8] c"Client Session Release Response\00", align 1
-@.str.510 = private unnamed_addr constant [31 x i8] c"Client Add Resource Indication\00", align 1
-@.str.511 = private unnamed_addr constant [29 x i8] c"Client Add Resource Response\00", align 1
-@.str.512 = private unnamed_addr constant [34 x i8] c"Client Delete Resource Indication\00", align 1
-@.str.513 = private unnamed_addr constant [32 x i8] c"Client Delete Resource Response\00", align 1
-@.str.514 = private unnamed_addr constant [22 x i8] c"Client Status Request\00", align 1
-@.str.515 = private unnamed_addr constant [22 x i8] c"Client Status Confirm\00", align 1
-@.str.516 = private unnamed_addr constant [25 x i8] c"Client Status Indication\00", align 1
-@.str.517 = private unnamed_addr constant [23 x i8] c"Client Status Response\00", align 1
-@.str.518 = private unnamed_addr constant [21 x i8] c"Client Reset Request\00", align 1
-@.str.519 = private unnamed_addr constant [21 x i8] c"Client Reset Confirm\00", align 1
-@.str.520 = private unnamed_addr constant [24 x i8] c"Client Reset Indication\00", align 1
-@.str.521 = private unnamed_addr constant [22 x i8] c"Client Reset Response\00", align 1
-@.str.522 = private unnamed_addr constant [37 x i8] c"Client Session Proceeding Indication\00", align 1
-@.str.523 = private unnamed_addr constant [23 x i8] c"Client Connect Request\00", align 1
-@.str.524 = private unnamed_addr constant [35 x i8] c"Client Session Transfer Indication\00", align 1
-@.str.525 = private unnamed_addr constant [33 x i8] c"Client Session Transfer Response\00", align 1
-@.str.526 = private unnamed_addr constant [35 x i8] c"Client Session In Progress Request\00", align 1
-@.str.527 = private unnamed_addr constant [32 x i8] c"Server Session Setup Indication\00", align 1
-@.str.528 = private unnamed_addr constant [30 x i8] c"Server Session Setup Response\00", align 1
-@.str.529 = private unnamed_addr constant [31 x i8] c"Server Session Release Request\00", align 1
-@.str.530 = private unnamed_addr constant [31 x i8] c"Server Session Release Confirm\00", align 1
-@.str.531 = private unnamed_addr constant [34 x i8] c"Server Session Release Indication\00", align 1
-@.str.532 = private unnamed_addr constant [32 x i8] c"Server Session Release Response\00", align 1
-@.str.533 = private unnamed_addr constant [28 x i8] c"Server Add Resource Request\00", align 1
-@.str.534 = private unnamed_addr constant [28 x i8] c"Server Add Resource Confirm\00", align 1
-@.str.535 = private unnamed_addr constant [31 x i8] c"Server Delete Resource Request\00", align 1
-@.str.536 = private unnamed_addr constant [31 x i8] c"Server Delete Resource Confirm\00", align 1
-@.str.537 = private unnamed_addr constant [39 x i8] c"Server Continuous Feed Session Request\00", align 1
-@.str.538 = private unnamed_addr constant [39 x i8] c"Server Continuous Feed Session Confirm\00", align 1
-@.str.539 = private unnamed_addr constant [22 x i8] c"Server Status Request\00", align 1
-@.str.540 = private unnamed_addr constant [22 x i8] c"Server Status Confirm\00", align 1
-@.str.541 = private unnamed_addr constant [25 x i8] c"Server Status Indication\00", align 1
-@.str.542 = private unnamed_addr constant [23 x i8] c"Server Status Response\00", align 1
-@.str.543 = private unnamed_addr constant [21 x i8] c"Server Reset Request\00", align 1
-@.str.544 = private unnamed_addr constant [21 x i8] c"Server Reset Confirm\00", align 1
-@.str.545 = private unnamed_addr constant [24 x i8] c"Server Reset Indication\00", align 1
-@.str.546 = private unnamed_addr constant [22 x i8] c"Server Reset Response\00", align 1
-@.str.547 = private unnamed_addr constant [37 x i8] c"Server Session Proceeding Indication\00", align 1
-@.str.548 = private unnamed_addr constant [26 x i8] c"Server Connect Indication\00", align 1
-@.str.549 = private unnamed_addr constant [32 x i8] c"Server Session Transfer Request\00", align 1
-@.str.550 = private unnamed_addr constant [32 x i8] c"Server Session Transfer Confirm\00", align 1
-@.str.551 = private unnamed_addr constant [35 x i8] c"Server Session Transfer Indication\00", align 1
-@.str.552 = private unnamed_addr constant [33 x i8] c"Server Session Transfer Response\00", align 1
-@.str.553 = private unnamed_addr constant [35 x i8] c"Server Session In Progress Request\00", align 1
-@.str.554 = private unnamed_addr constant [14 x i8] c"DSM-CC Header\00", align 1
-@.str.555 = private unnamed_addr constant [31 x i8] c"Invalid value - should be 0x11\00", align 1
+@dsmcc_dd_message_id_vals = internal constant [7 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 4097, [4 x i8] zeroinitializer, ptr @.str.475 }, { i32, [4 x i8], ptr } { i32 4098, [4 x i8] zeroinitializer, ptr @.str.476 }, { i32, [4 x i8], ptr } { i32 4099, [4 x i8] zeroinitializer, ptr @.str.477 }, { i32, [4 x i8], ptr } { i32 4100, [4 x i8] zeroinitializer, ptr @.str.478 }, { i32, [4 x i8], ptr } { i32 4101, [4 x i8] zeroinitializer, ptr @.str.479 }, { i32, [4 x i8], ptr } { i32 4102, [4 x i8] zeroinitializer, ptr @.str.480 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.482 = private unnamed_addr constant [8 x i8] c"LLCSNAP\00", align 1
+@.str.483 = private unnamed_addr constant [21 x i8] c"User Network Message\00", align 1
+@.str.484 = private unnamed_addr constant [22 x i8] c"Download Data Message\00", align 1
+@.str.485 = private unnamed_addr constant [16 x i8] c"Descriptor List\00", align 1
+@.str.486 = private unnamed_addr constant [8 x i8] c"Private\00", align 1
+@dsmcc_payload_name_vals = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 58, [4 x i8] zeroinitializer, ptr @.str.482 }, { i32, [4 x i8], ptr } { i32 59, [4 x i8] zeroinitializer, ptr @.str.483 }, { i32, [4 x i8], ptr } { i32 60, [4 x i8] zeroinitializer, ptr @.str.484 }, { i32, [4 x i8], ptr } { i32 61, [4 x i8] zeroinitializer, ptr @.str.485 }, { i32, [4 x i8], ptr } { i32 62, [4 x i8] zeroinitializer, ptr @.str.486 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.488 = private unnamed_addr constant [7 x i8] c"DSM-CC\00", align 1
+@.str.489 = private unnamed_addr constant [11 x i8] c"Unverified\00", align 1
+@.str.490 = private unnamed_addr constant [9 x i8] c"Verified\00", align 1
+@.str.491 = private unnamed_addr constant [17 x i8] c"CRC: 0x%08x [%s]\00", align 1
+@.str.492 = private unnamed_addr constant [55 x i8] c"CRC: 0x%08x [Failed Verification (Calculated: 0x%08x)]\00", align 1
+@.str.493 = private unnamed_addr constant [36 x i8] c"User Network Message (Session) - %s\00", align 1
+@.str.494 = private unnamed_addr constant [5 x i8] c"0x%x\00", align 1
+@.str.495 = private unnamed_addr constant [10 x i8] c"Client ID\00", align 1
+@.str.496 = private unnamed_addr constant [10 x i8] c"Server ID\00", align 1
+@.str.497 = private unnamed_addr constant [10 x i8] c"User Data\00", align 1
+@.str.498 = private unnamed_addr constant [10 x i8] c"Resources\00", align 1
+@.str.499 = private unnamed_addr constant [14 x i8] c"Old Server ID\00", align 1
+@.str.500 = private unnamed_addr constant [14 x i8] c"New Server ID\00", align 1
+@.str.501 = private unnamed_addr constant [18 x i8] c"Forward Server ID\00", align 1
+@.str.502 = private unnamed_addr constant [15 x i8] c"Next Server ID\00", align 1
+@.str.503 = private unnamed_addr constant [22 x i8] c"Destination Server ID\00", align 1
+@.str.504 = private unnamed_addr constant [15 x i8] c"Base Server ID\00", align 1
+@.str.505 = private unnamed_addr constant [17 x i8] c"Source Server ID\00", align 1
+@.str.506 = private unnamed_addr constant [29 x i8] c"Client Session Setup Request\00", align 1
+@.str.507 = private unnamed_addr constant [29 x i8] c"Client Session Setup Confirm\00", align 1
+@.str.508 = private unnamed_addr constant [31 x i8] c"Client Session Release Request\00", align 1
+@.str.509 = private unnamed_addr constant [31 x i8] c"Client Session Release Confirm\00", align 1
+@.str.510 = private unnamed_addr constant [34 x i8] c"Client Session Release Indication\00", align 1
+@.str.511 = private unnamed_addr constant [32 x i8] c"Client Session Release Response\00", align 1
+@.str.512 = private unnamed_addr constant [31 x i8] c"Client Add Resource Indication\00", align 1
+@.str.513 = private unnamed_addr constant [29 x i8] c"Client Add Resource Response\00", align 1
+@.str.514 = private unnamed_addr constant [34 x i8] c"Client Delete Resource Indication\00", align 1
+@.str.515 = private unnamed_addr constant [32 x i8] c"Client Delete Resource Response\00", align 1
+@.str.516 = private unnamed_addr constant [22 x i8] c"Client Status Request\00", align 1
+@.str.517 = private unnamed_addr constant [22 x i8] c"Client Status Confirm\00", align 1
+@.str.518 = private unnamed_addr constant [25 x i8] c"Client Status Indication\00", align 1
+@.str.519 = private unnamed_addr constant [23 x i8] c"Client Status Response\00", align 1
+@.str.520 = private unnamed_addr constant [21 x i8] c"Client Reset Request\00", align 1
+@.str.521 = private unnamed_addr constant [21 x i8] c"Client Reset Confirm\00", align 1
+@.str.522 = private unnamed_addr constant [24 x i8] c"Client Reset Indication\00", align 1
+@.str.523 = private unnamed_addr constant [22 x i8] c"Client Reset Response\00", align 1
+@.str.524 = private unnamed_addr constant [37 x i8] c"Client Session Proceeding Indication\00", align 1
+@.str.525 = private unnamed_addr constant [23 x i8] c"Client Connect Request\00", align 1
+@.str.526 = private unnamed_addr constant [35 x i8] c"Client Session Transfer Indication\00", align 1
+@.str.527 = private unnamed_addr constant [33 x i8] c"Client Session Transfer Response\00", align 1
+@.str.528 = private unnamed_addr constant [35 x i8] c"Client Session In Progress Request\00", align 1
+@.str.529 = private unnamed_addr constant [32 x i8] c"Server Session Setup Indication\00", align 1
+@.str.530 = private unnamed_addr constant [30 x i8] c"Server Session Setup Response\00", align 1
+@.str.531 = private unnamed_addr constant [31 x i8] c"Server Session Release Request\00", align 1
+@.str.532 = private unnamed_addr constant [31 x i8] c"Server Session Release Confirm\00", align 1
+@.str.533 = private unnamed_addr constant [34 x i8] c"Server Session Release Indication\00", align 1
+@.str.534 = private unnamed_addr constant [32 x i8] c"Server Session Release Response\00", align 1
+@.str.535 = private unnamed_addr constant [28 x i8] c"Server Add Resource Request\00", align 1
+@.str.536 = private unnamed_addr constant [28 x i8] c"Server Add Resource Confirm\00", align 1
+@.str.537 = private unnamed_addr constant [31 x i8] c"Server Delete Resource Request\00", align 1
+@.str.538 = private unnamed_addr constant [31 x i8] c"Server Delete Resource Confirm\00", align 1
+@.str.539 = private unnamed_addr constant [39 x i8] c"Server Continuous Feed Session Request\00", align 1
+@.str.540 = private unnamed_addr constant [39 x i8] c"Server Continuous Feed Session Confirm\00", align 1
+@.str.541 = private unnamed_addr constant [22 x i8] c"Server Status Request\00", align 1
+@.str.542 = private unnamed_addr constant [22 x i8] c"Server Status Confirm\00", align 1
+@.str.543 = private unnamed_addr constant [25 x i8] c"Server Status Indication\00", align 1
+@.str.544 = private unnamed_addr constant [23 x i8] c"Server Status Response\00", align 1
+@.str.545 = private unnamed_addr constant [21 x i8] c"Server Reset Request\00", align 1
+@.str.546 = private unnamed_addr constant [21 x i8] c"Server Reset Confirm\00", align 1
+@.str.547 = private unnamed_addr constant [24 x i8] c"Server Reset Indication\00", align 1
+@.str.548 = private unnamed_addr constant [22 x i8] c"Server Reset Response\00", align 1
+@.str.549 = private unnamed_addr constant [37 x i8] c"Server Session Proceeding Indication\00", align 1
+@.str.550 = private unnamed_addr constant [26 x i8] c"Server Connect Indication\00", align 1
+@.str.551 = private unnamed_addr constant [32 x i8] c"Server Session Transfer Request\00", align 1
+@.str.552 = private unnamed_addr constant [32 x i8] c"Server Session Transfer Confirm\00", align 1
+@.str.553 = private unnamed_addr constant [35 x i8] c"Server Session Transfer Indication\00", align 1
+@.str.554 = private unnamed_addr constant [33 x i8] c"Server Session Transfer Response\00", align 1
+@.str.555 = private unnamed_addr constant [35 x i8] c"Server Session In Progress Request\00", align 1
+@dsmcc_un_sess_message_id_vals = internal constant [51 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 16400, [4 x i8] zeroinitializer, ptr @.str.506 }, { i32, [4 x i8], ptr } { i32 16401, [4 x i8] zeroinitializer, ptr @.str.507 }, { i32, [4 x i8], ptr } { i32 16416, [4 x i8] zeroinitializer, ptr @.str.508 }, { i32, [4 x i8], ptr } { i32 16417, [4 x i8] zeroinitializer, ptr @.str.509 }, { i32, [4 x i8], ptr } { i32 16418, [4 x i8] zeroinitializer, ptr @.str.510 }, { i32, [4 x i8], ptr } { i32 16419, [4 x i8] zeroinitializer, ptr @.str.511 }, { i32, [4 x i8], ptr } { i32 16434, [4 x i8] zeroinitializer, ptr @.str.512 }, { i32, [4 x i8], ptr } { i32 16435, [4 x i8] zeroinitializer, ptr @.str.513 }, { i32, [4 x i8], ptr } { i32 16450, [4 x i8] zeroinitializer, ptr @.str.514 }, { i32, [4 x i8], ptr } { i32 16451, [4 x i8] zeroinitializer, ptr @.str.515 }, { i32, [4 x i8], ptr } { i32 16480, [4 x i8] zeroinitializer, ptr @.str.516 }, { i32, [4 x i8], ptr } { i32 16481, [4 x i8] zeroinitializer, ptr @.str.517 }, { i32, [4 x i8], ptr } { i32 16482, [4 x i8] zeroinitializer, ptr @.str.518 }, { i32, [4 x i8], ptr } { i32 16483, [4 x i8] zeroinitializer, ptr @.str.519 }, { i32, [4 x i8], ptr } { i32 16496, [4 x i8] zeroinitializer, ptr @.str.520 }, { i32, [4 x i8], ptr } { i32 16497, [4 x i8] zeroinitializer, ptr @.str.521 }, { i32, [4 x i8], ptr } { i32 16498, [4 x i8] zeroinitializer, ptr @.str.522 }, { i32, [4 x i8], ptr } { i32 16499, [4 x i8] zeroinitializer, ptr @.str.523 }, { i32, [4 x i8], ptr } { i32 16514, [4 x i8] zeroinitializer, ptr @.str.524 }, { i32, [4 x i8], ptr } { i32 16528, [4 x i8] zeroinitializer, ptr @.str.525 }, { i32, [4 x i8], ptr } { i32 16546, [4 x i8] zeroinitializer, ptr @.str.526 }, { i32, [4 x i8], ptr } { i32 16547, [4 x i8] zeroinitializer, ptr @.str.527 }, { i32, [4 x i8], ptr } { i32 16560, [4 x i8] zeroinitializer, ptr @.str.528 }, { i32, [4 x i8], ptr } { i32 32786, [4 x i8] zeroinitializer, ptr @.str.529 }, { i32, [4 x i8], ptr } { i32 32787, [4 x i8] zeroinitializer, ptr @.str.530 }, { i32, [4 x i8], ptr } { i32 32800, [4 x i8] zeroinitializer, ptr @.str.531 }, { i32, [4 x i8], ptr } { i32 32801, [4 x i8] zeroinitializer, ptr @.str.532 }, { i32, [4 x i8], ptr } { i32 32802, [4 x i8] zeroinitializer, ptr @.str.533 }, { i32, [4 x i8], ptr } { i32 32803, [4 x i8] zeroinitializer, ptr @.str.534 }, { i32, [4 x i8], ptr } { i32 32816, [4 x i8] zeroinitializer, ptr @.str.535 }, { i32, [4 x i8], ptr } { i32 32817, [4 x i8] zeroinitializer, ptr @.str.536 }, { i32, [4 x i8], ptr } { i32 32832, [4 x i8] zeroinitializer, ptr @.str.537 }, { i32, [4 x i8], ptr } { i32 32833, [4 x i8] zeroinitializer, ptr @.str.538 }, { i32, [4 x i8], ptr } { i32 32848, [4 x i8] zeroinitializer, ptr @.str.539 }, { i32, [4 x i8], ptr } { i32 32849, [4 x i8] zeroinitializer, ptr @.str.540 }, { i32, [4 x i8], ptr } { i32 32864, [4 x i8] zeroinitializer, ptr @.str.541 }, { i32, [4 x i8], ptr } { i32 32865, [4 x i8] zeroinitializer, ptr @.str.542 }, { i32, [4 x i8], ptr } { i32 32866, [4 x i8] zeroinitializer, ptr @.str.543 }, { i32, [4 x i8], ptr } { i32 32867, [4 x i8] zeroinitializer, ptr @.str.544 }, { i32, [4 x i8], ptr } { i32 32880, [4 x i8] zeroinitializer, ptr @.str.545 }, { i32, [4 x i8], ptr } { i32 32881, [4 x i8] zeroinitializer, ptr @.str.546 }, { i32, [4 x i8], ptr } { i32 32882, [4 x i8] zeroinitializer, ptr @.str.547 }, { i32, [4 x i8], ptr } { i32 32883, [4 x i8] zeroinitializer, ptr @.str.548 }, { i32, [4 x i8], ptr } { i32 32898, [4 x i8] zeroinitializer, ptr @.str.549 }, { i32, [4 x i8], ptr } { i32 32914, [4 x i8] zeroinitializer, ptr @.str.550 }, { i32, [4 x i8], ptr } { i32 32928, [4 x i8] zeroinitializer, ptr @.str.551 }, { i32, [4 x i8], ptr } { i32 32929, [4 x i8] zeroinitializer, ptr @.str.552 }, { i32, [4 x i8], ptr } { i32 32930, [4 x i8] zeroinitializer, ptr @.str.553 }, { i32, [4 x i8], ptr } { i32 32931, [4 x i8] zeroinitializer, ptr @.str.554 }, { i32, [4 x i8], ptr } { i32 32944, [4 x i8] zeroinitializer, ptr @.str.555 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.557 = private unnamed_addr constant [14 x i8] c"DSM-CC Header\00", align 1
+@.str.558 = private unnamed_addr constant [31 x i8] c"Invalid value - should be 0x11\00", align 1
 @bf_message_id = internal constant [4 x ptr] [ptr @hf_dsmcc_un_sess_flag_message_discriminator, ptr @hf_dsmcc_un_sess_flag_message_scenario, ptr @hf_dsmcc_un_sess_flag_message_type, ptr null], align 16
 @bf_transaction_id = internal constant [3 x ptr] [ptr @hf_dsmcc_un_sess_flag_transaction_id_originator, ptr @hf_dsmcc_un_sess_flag_transaction_id_number, ptr null], align 16
-@.str.556 = private unnamed_addr constant [31 x i8] c"Invalid value - should be 0xff\00", align 1
-@.str.557 = private unnamed_addr constant [18 x i8] c"Adaptation Header\00", align 1
-@.str.558 = private unnamed_addr constant [8 x i8] c"User ID\00", align 1
-@.str.559 = private unnamed_addr constant [26 x i8] c"Unknown Adaptation Header\00", align 1
-@.str.560 = private unnamed_addr constant [11 x i8] c"Session ID\00", align 1
-@.str.561 = private unnamed_addr constant [17 x i8] c"Session ID: 0x%s\00", align 1
-@.str.562 = private unnamed_addr constant [12 x i8] c"Resource %u\00", align 1
-@.str.563 = private unnamed_addr constant [7 x i8] c"Header\00", align 1
+@.str.559 = private unnamed_addr constant [31 x i8] c"Invalid value - should be 0xff\00", align 1
+@.str.560 = private unnamed_addr constant [18 x i8] c"Adaptation Header\00", align 1
+@.str.561 = private unnamed_addr constant [8 x i8] c"User ID\00", align 1
+@.str.562 = private unnamed_addr constant [26 x i8] c"Unknown Adaptation Header\00", align 1
+@.str.563 = private unnamed_addr constant [11 x i8] c"Session ID\00", align 1
+@.str.564 = private unnamed_addr constant [17 x i8] c"Session ID: 0x%s\00", align 1
+@.str.565 = private unnamed_addr constant [12 x i8] c"Resource %u\00", align 1
+@.str.566 = private unnamed_addr constant [7 x i8] c"Header\00", align 1
 @bf_rsrc_number = internal constant [3 x ptr] [ptr @hf_dsmcc_un_sess_rsrc_flag_num_assignor, ptr @hf_dsmcc_un_sess_rsrc_flag_num_value, ptr null], align 16
 @bf_rsrc_association_tag = internal constant [3 x ptr] [ptr @hf_dsmcc_un_sess_rsrc_flag_association_tag_assignor, ptr @hf_dsmcc_un_sess_rsrc_flag_association_tag_value, ptr null], align 16
 @bf_rsrc_flags = internal constant [4 x ptr] [ptr @hf_dsmcc_un_sess_rsrc_flag_view, ptr @hf_dsmcc_un_sess_rsrc_flag_attribute, ptr @hf_dsmcc_un_sess_rsrc_flag_allocator, ptr null], align 16
-@.str.564 = private unnamed_addr constant [5 x i8] c"Data\00", align 1
-@.str.565 = private unnamed_addr constant [13 x i8] c"ATM Address:\00", align 1
-@.str.566 = private unnamed_addr constant [9 x i8] c"ATM VCI:\00", align 1
-@.str.567 = private unnamed_addr constant [9 x i8] c"ATM VPI:\00", align 1
-@.str.568 = private unnamed_addr constant [21 x i8] c"MPEG Program Number:\00", align 1
-@.str.569 = private unnamed_addr constant [14 x i8] c"MPEG PMT PID:\00", align 1
-@.str.570 = private unnamed_addr constant [10 x i8] c"MPEG PID:\00", align 1
-@.str.571 = private unnamed_addr constant [18 x i8] c"MPEG Stream Type:\00", align 1
-@.str.572 = private unnamed_addr constant [22 x i8] c"MPEG Association Tag:\00", align 1
-@.str.573 = private unnamed_addr constant [10 x i8] c"MPEG PCR:\00", align 1
-@.str.574 = private unnamed_addr constant [17 x i8] c"Channel ID (Hz):\00", align 1
-@.str.575 = private unnamed_addr constant [23 x i8] c"TS Upstream Bandwidth:\00", align 1
-@.str.576 = private unnamed_addr constant [18 x i8] c"TS Upstream TSID:\00", align 1
-@.str.577 = private unnamed_addr constant [25 x i8] c"TS Downstream Bandwidth:\00", align 1
-@.str.578 = private unnamed_addr constant [20 x i8] c"TS Downstream TSID:\00", align 1
-@.str.579 = private unnamed_addr constant [19 x i8] c"Start Slot Number:\00", align 1
-@.str.580 = private unnamed_addr constant [17 x i8] c"Number of Slots:\00", align 1
-@.str.581 = private unnamed_addr constant [14 x i8] c"Slot Spacing:\00", align 1
-@.str.582 = private unnamed_addr constant [23 x i8] c"Upstream Transport ID:\00", align 1
-@.str.583 = private unnamed_addr constant [40 x i8] c"Invalid value - should be values 1 to 4\00", align 1
-@.str.584 = private unnamed_addr constant [12 x i8] c"Headend ID:\00", align 1
-@.str.585 = private unnamed_addr constant [21 x i8] c"Server CA System ID:\00", align 1
-@.str.586 = private unnamed_addr constant [11 x i8] c"User ID %u\00", align 1
-@.str.587 = private unnamed_addr constant [21 x i8] c"Client CA System ID:\00", align 1
-@.str.588 = private unnamed_addr constant [21 x i8] c"Ethernet Source UDP:\00", align 1
-@.str.589 = private unnamed_addr constant [20 x i8] c"Ethernet Source IP:\00", align 1
-@.str.590 = private unnamed_addr constant [21 x i8] c"Ethernet Source MAC:\00", align 1
-@.str.591 = private unnamed_addr constant [26 x i8] c"Ethernet Destination UDP:\00", align 1
-@.str.592 = private unnamed_addr constant [25 x i8] c"Ethernet Destination IP:\00", align 1
-@.str.593 = private unnamed_addr constant [26 x i8] c"Ethernet Destination MAC:\00", align 1
-@.str.594 = private unnamed_addr constant [26 x i8] c"User Network Message - %s\00", align 1
-@.str.595 = private unnamed_addr constant [3 x i8] c"%u\00", align 1
-@.str.596 = private unnamed_addr constant [39 x i8] c"Module Id: 0x%x, Version: %u, Size: %u\00", align 1
-@.str.597 = private unnamed_addr constant [25 x i8] c"Compatibility Descriptor\00", align 1
-@.str.598 = private unnamed_addr constant [15 x i8] c"Sub Descriptor\00", align 1
+@.str.567 = private unnamed_addr constant [5 x i8] c"Data\00", align 1
+@.str.568 = private unnamed_addr constant [13 x i8] c"ATM Address:\00", align 1
+@.str.569 = private unnamed_addr constant [9 x i8] c"ATM VCI:\00", align 1
+@.str.570 = private unnamed_addr constant [9 x i8] c"ATM VPI:\00", align 1
+@.str.571 = private unnamed_addr constant [21 x i8] c"MPEG Program Number:\00", align 1
+@.str.572 = private unnamed_addr constant [14 x i8] c"MPEG PMT PID:\00", align 1
+@.str.573 = private unnamed_addr constant [10 x i8] c"MPEG PID:\00", align 1
+@.str.574 = private unnamed_addr constant [18 x i8] c"MPEG Stream Type:\00", align 1
+@.str.575 = private unnamed_addr constant [22 x i8] c"MPEG Association Tag:\00", align 1
+@.str.576 = private unnamed_addr constant [10 x i8] c"MPEG PCR:\00", align 1
+@.str.577 = private unnamed_addr constant [17 x i8] c"Channel ID (Hz):\00", align 1
+@.str.578 = private unnamed_addr constant [23 x i8] c"TS Upstream Bandwidth:\00", align 1
+@.str.579 = private unnamed_addr constant [18 x i8] c"TS Upstream TSID:\00", align 1
+@.str.580 = private unnamed_addr constant [25 x i8] c"TS Downstream Bandwidth:\00", align 1
+@.str.581 = private unnamed_addr constant [20 x i8] c"TS Downstream TSID:\00", align 1
+@.str.582 = private unnamed_addr constant [19 x i8] c"Start Slot Number:\00", align 1
+@.str.583 = private unnamed_addr constant [17 x i8] c"Number of Slots:\00", align 1
+@.str.584 = private unnamed_addr constant [14 x i8] c"Slot Spacing:\00", align 1
+@.str.585 = private unnamed_addr constant [23 x i8] c"Upstream Transport ID:\00", align 1
+@.str.586 = private unnamed_addr constant [40 x i8] c"Invalid value - should be values 1 to 4\00", align 1
+@.str.587 = private unnamed_addr constant [12 x i8] c"Headend ID:\00", align 1
+@.str.588 = private unnamed_addr constant [21 x i8] c"Server CA System ID:\00", align 1
+@.str.589 = private unnamed_addr constant [11 x i8] c"User ID %u\00", align 1
+@.str.590 = private unnamed_addr constant [21 x i8] c"Client CA System ID:\00", align 1
+@.str.591 = private unnamed_addr constant [21 x i8] c"Ethernet Source UDP:\00", align 1
+@.str.592 = private unnamed_addr constant [20 x i8] c"Ethernet Source IP:\00", align 1
+@.str.593 = private unnamed_addr constant [21 x i8] c"Ethernet Source MAC:\00", align 1
+@.str.594 = private unnamed_addr constant [26 x i8] c"Ethernet Destination UDP:\00", align 1
+@.str.595 = private unnamed_addr constant [25 x i8] c"Ethernet Destination IP:\00", align 1
+@.str.596 = private unnamed_addr constant [26 x i8] c"Ethernet Destination MAC:\00", align 1
+@.str.597 = private unnamed_addr constant [26 x i8] c"User Network Message - %s\00", align 1
+@.str.598 = private unnamed_addr constant [3 x i8] c"%u\00", align 1
+@.str.599 = private unnamed_addr constant [39 x i8] c"Module Id: 0x%x, Version: %u, Size: %u\00", align 1
+@.str.600 = private unnamed_addr constant [25 x i8] c"Compatibility Descriptor\00", align 1
+@.str.601 = private unnamed_addr constant [15 x i8] c"Sub Descriptor\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_dsmcc() #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #4
   %3 = call i32 @proto_register_protocol(ptr noundef @.str.284, ptr noundef @.str.284, ptr noundef @.str.285)
   store i32 %3, ptr @proto_dsmcc, align 4
   %4 = load i32, ptr @proto_dsmcc, align 4
@@ -848,22 +847,33 @@ define hidden void @proto_register_dsmcc() #0 {
   store ptr %15, ptr %1, align 8
   %16 = load ptr, ptr %1, align 8
   call void @prefs_register_bool_preference(ptr noundef %16, ptr noundef @.str.289, ptr noundef @.str.290, ptr noundef @.str.291, ptr noundef @dsmcc_sect_check_crc)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #4
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #2
 
-declare ptr @expert_register_protocol(i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #2
 
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_register_protocol(i32 noundef) #2
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dsmcc_ts(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -885,6 +895,17 @@ define internal i32 @dissect_dsmcc_ts(ptr noundef %0, ptr noundef %1, ptr nounde
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %18) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
   store i32 0, ptr %19, align 4
   %21 = load ptr, ptr %7, align 8
   %22 = load i32, ptr @proto_dsmcc, align 4
@@ -896,12 +917,12 @@ define internal i32 @dissect_dsmcc_ts(ptr noundef %0, ptr noundef %1, ptr nounde
   %27 = call ptr @proto_item_add_subtree(ptr noundef %25, i32 noundef %26)
   store ptr %27, ptr %10, align 8
   %28 = load ptr, ptr %6, align 8
-  %29 = getelementptr inbounds %struct._packet_info, ptr %28, i32 0, i32 1
+  %29 = getelementptr inbounds nuw %struct._packet_info, ptr %28, i32 0, i32 1
   %30 = load ptr, ptr %29, align 8
-  call void @col_set_str(ptr noundef %30, i32 noundef 34, ptr noundef @.str.486)
+  call void @col_set_str(ptr noundef %30, i32 noundef 35, ptr noundef @.str.488)
   %31 = load ptr, ptr %5, align 8
   %32 = load i32, ptr %19, align 4
-  %33 = call zeroext i8 @tvb_get_guint8(ptr noundef %31, i32 noundef %32)
+  %33 = call zeroext i8 @tvb_get_uint8(ptr noundef %31, i32 noundef %32)
   store i8 %33, ptr %12, align 1
   %34 = load ptr, ptr %10, align 8
   %35 = load i32, ptr @hf_dsmcc_table_id, align 4
@@ -1003,117 +1024,121 @@ define internal i32 @dissect_dsmcc_ts(ptr noundef %0, ptr noundef %1, ptr nounde
   store ptr %120, ptr %17, align 8
   %121 = load i8, ptr %12, align 1
   %122 = zext i8 %121 to i32
-  switch i32 %122, label %131 [
-    i32 58, label %123
-    i32 59, label %124
-    i32 60, label %124
+  switch i32 %122, label %128 [
+    i32 58, label %129
+    i32 59, label %123
+    i32 60, label %123
     i32 61, label %129
-    i32 62, label %130
+    i32 62, label %129
   ]
 
-123:                                              ; preds = %4
-  br label %132
+123:                                              ; preds = %4, %4
+  %124 = load ptr, ptr %17, align 8
+  %125 = load ptr, ptr %6, align 8
+  %126 = load ptr, ptr %10, align 8
+  %127 = load ptr, ptr %7, align 8
+  call void @dissect_dsmcc_un(ptr noundef %124, ptr noundef %125, ptr noundef %126, ptr noundef %127)
+  br label %129
 
-124:                                              ; preds = %4, %4
-  %125 = load ptr, ptr %17, align 8
-  %126 = load ptr, ptr %6, align 8
-  %127 = load ptr, ptr %10, align 8
-  %128 = load ptr, ptr %7, align 8
-  call void @dissect_dsmcc_un(ptr noundef %125, ptr noundef %126, ptr noundef %127, ptr noundef %128)
-  br label %132
+128:                                              ; preds = %4
+  br label %129
 
-129:                                              ; preds = %4
-  br label %132
+129:                                              ; preds = %128, %4, %4, %123, %4
+  %130 = load i16, ptr %13, align 2
+  %131 = zext i16 %130 to i32
+  %132 = add i32 3, %131
+  %133 = sub i32 %132, 4
+  store i32 %133, ptr %11, align 4
+  %134 = load i16, ptr %18, align 2
+  %135 = icmp ne i16 %134, 0
+  br i1 %135, label %136, label %174
 
-130:                                              ; preds = %4
-  br label %132
+136:                                              ; preds = %129
+  %137 = load ptr, ptr %5, align 8
+  %138 = load i32, ptr %11, align 4
+  %139 = call i32 @tvb_get_ntohl(ptr noundef %137, i32 noundef %138)
+  store i32 %139, ptr %14, align 4
+  %140 = load i32, ptr %14, align 4
+  store i32 %140, ptr %15, align 4
+  store ptr @.str.489, ptr %16, align 8
+  %141 = load i8, ptr @dsmcc_sect_check_crc, align 1, !range !6, !noundef !7
+  %142 = trunc i8 %141 to i1
+  br i1 %142, label %143, label %147
 
-131:                                              ; preds = %4
-  br label %132
+143:                                              ; preds = %136
+  store ptr @.str.490, ptr %16, align 8
+  %144 = load ptr, ptr %5, align 8
+  %145 = load i32, ptr %11, align 4
+  %146 = call i32 @crc32_mpeg2_tvb_offset(ptr noundef %144, i32 noundef 0, i32 noundef %145)
+  store i32 %146, ptr %15, align 4
+  br label %147
 
-132:                                              ; preds = %131, %130, %129, %124, %123
-  %133 = load i16, ptr %13, align 2
-  %134 = zext i16 %133 to i32
-  %135 = add i32 3, %134
-  %136 = sub i32 %135, 4
-  store i32 %136, ptr %11, align 4
-  %137 = load i16, ptr %18, align 2
-  %138 = icmp ne i16 %137, 0
-  br i1 %138, label %139, label %177
+147:                                              ; preds = %143, %136
+  %148 = load i32, ptr %15, align 4
+  %149 = load i32, ptr %14, align 4
+  %150 = icmp eq i32 %148, %149
+  br i1 %150, label %151, label %160
 
-139:                                              ; preds = %132
-  %140 = load ptr, ptr %5, align 8
-  %141 = load i32, ptr %11, align 4
-  %142 = call i32 @tvb_get_ntohl(ptr noundef %140, i32 noundef %141)
-  store i32 %142, ptr %14, align 4
-  %143 = load i32, ptr %14, align 4
-  store i32 %143, ptr %15, align 4
-  store ptr @.str.487, ptr %16, align 8
-  %144 = load i32, ptr @dsmcc_sect_check_crc, align 4
-  %145 = icmp ne i32 %144, 0
-  br i1 %145, label %146, label %150
+151:                                              ; preds = %147
+  %152 = load ptr, ptr %10, align 8
+  %153 = load i32, ptr @hf_dsmcc_crc, align 4
+  %154 = load ptr, ptr %5, align 8
+  %155 = load i32, ptr %11, align 4
+  %156 = load i32, ptr %14, align 4
+  %157 = load i32, ptr %14, align 4
+  %158 = load ptr, ptr %16, align 8
+  %159 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %152, i32 noundef %153, ptr noundef %154, i32 noundef %155, i32 noundef 4, i32 noundef %156, ptr noundef @.str.491, i32 noundef %157, ptr noundef %158)
+  br label %173
 
-146:                                              ; preds = %139
-  store ptr @.str.488, ptr %16, align 8
-  %147 = load ptr, ptr %5, align 8
-  %148 = load i32, ptr %11, align 4
-  %149 = call i32 @crc32_mpeg2_tvb_offset(ptr noundef %147, i32 noundef 0, i32 noundef %148)
-  store i32 %149, ptr %15, align 4
-  br label %150
+160:                                              ; preds = %147
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #4
+  %161 = load ptr, ptr %10, align 8
+  %162 = load i32, ptr @hf_dsmcc_crc, align 4
+  %163 = load ptr, ptr %5, align 8
+  %164 = load i32, ptr %11, align 4
+  %165 = load i32, ptr %14, align 4
+  %166 = load i32, ptr %14, align 4
+  %167 = load i32, ptr %15, align 4
+  %168 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %161, i32 noundef %162, ptr noundef %163, i32 noundef %164, i32 noundef 4, i32 noundef %165, ptr noundef @.str.492, i32 noundef %166, i32 noundef %167)
+  store ptr %168, ptr %20, align 8
+  %169 = load ptr, ptr %20, align 8
+  call void @proto_item_set_generated(ptr noundef %169)
+  %170 = load ptr, ptr %6, align 8
+  %171 = load ptr, ptr %20, align 8
+  %172 = call ptr @expert_add_info(ptr noundef %170, ptr noundef %171, ptr noundef @ei_dsmcc_crc_invalid)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #4
+  br label %173
 
-150:                                              ; preds = %146, %139
-  %151 = load i32, ptr %15, align 4
-  %152 = load i32, ptr %14, align 4
-  %153 = icmp eq i32 %151, %152
-  br i1 %153, label %154, label %163
+173:                                              ; preds = %160, %151
+  br label %181
 
-154:                                              ; preds = %150
-  %155 = load ptr, ptr %10, align 8
-  %156 = load i32, ptr @hf_dsmcc_crc, align 4
-  %157 = load ptr, ptr %5, align 8
-  %158 = load i32, ptr %11, align 4
-  %159 = load i32, ptr %14, align 4
-  %160 = load i32, ptr %14, align 4
-  %161 = load ptr, ptr %16, align 8
-  %162 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %155, i32 noundef %156, ptr noundef %157, i32 noundef %158, i32 noundef 4, i32 noundef %159, ptr noundef @.str.489, i32 noundef %160, ptr noundef %161)
-  br label %176
+174:                                              ; preds = %129
+  %175 = load ptr, ptr %10, align 8
+  %176 = load ptr, ptr %5, align 8
+  %177 = load i32, ptr %11, align 4
+  %178 = load i32, ptr @hf_dsmcc_checksum, align 4
+  %179 = load ptr, ptr %6, align 8
+  %180 = call ptr @proto_tree_add_checksum(ptr noundef %175, ptr noundef %176, i32 noundef %177, i32 noundef %178, i32 noundef -1, ptr noundef null, ptr noundef %179, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  br label %181
 
-163:                                              ; preds = %150
-  %164 = load ptr, ptr %10, align 8
-  %165 = load i32, ptr @hf_dsmcc_crc, align 4
-  %166 = load ptr, ptr %5, align 8
-  %167 = load i32, ptr %11, align 4
-  %168 = load i32, ptr %14, align 4
-  %169 = load i32, ptr %14, align 4
-  %170 = load i32, ptr %15, align 4
-  %171 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %164, i32 noundef %165, ptr noundef %166, i32 noundef %167, i32 noundef 4, i32 noundef %168, ptr noundef @.str.490, i32 noundef %169, i32 noundef %170)
-  store ptr %171, ptr %20, align 8
-  %172 = load ptr, ptr %20, align 8
-  call void @proto_item_set_generated(ptr noundef %172)
-  %173 = load ptr, ptr %6, align 8
-  %174 = load ptr, ptr %20, align 8
-  %175 = call ptr @expert_add_info(ptr noundef %173, ptr noundef %174, ptr noundef @ei_dsmcc_crc_invalid)
-  br label %176
-
-176:                                              ; preds = %163, %154
-  br label %184
-
-177:                                              ; preds = %132
-  %178 = load ptr, ptr %10, align 8
-  %179 = load ptr, ptr %5, align 8
-  %180 = load i32, ptr %11, align 4
-  %181 = load i32, ptr @hf_dsmcc_checksum, align 4
-  %182 = load ptr, ptr %6, align 8
-  %183 = call ptr @proto_tree_add_checksum(ptr noundef %178, ptr noundef %179, i32 noundef %180, i32 noundef %181, i32 noundef -1, ptr noundef null, ptr noundef %182, i32 noundef 0, i32 noundef 0, i32 noundef 0)
-  br label %184
-
-184:                                              ; preds = %177, %176
-  %185 = load ptr, ptr %5, align 8
-  %186 = call i32 @tvb_reported_length(ptr noundef %185)
-  ret i32 %186
+181:                                              ; preds = %174, %173
+  %182 = load ptr, ptr %5, align 8
+  %183 = call i32 @tvb_reported_length(ptr noundef %182)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
+  ret i32 %183
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dsmcc_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -1122,54 +1147,61 @@ define internal i32 @dissect_dsmcc_tcp(ptr noundef %0, ptr noundef %1, ptr nound
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = call zeroext i8 @tvb_get_guint8(ptr noundef %12, i32 noundef 0)
-  %14 = zext i8 %13 to i32
-  %15 = icmp ne i32 %14, 17
-  br i1 %15, label %16, label %17
-
-16:                                               ; preds = %4
-  store i32 0, ptr %5, align 4
-  br label %37
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #4
+  %13 = load ptr, ptr %6, align 8
+  %14 = call zeroext i8 @tvb_get_uint8(ptr noundef %13, i32 noundef 0)
+  %15 = zext i8 %14 to i32
+  %16 = icmp ne i32 %15, 17
+  br i1 %16, label %17, label %18
 
 17:                                               ; preds = %4
-  %18 = load ptr, ptr %7, align 8
-  %19 = getelementptr inbounds %struct._packet_info, ptr %18, i32 0, i32 1
-  %20 = load ptr, ptr %19, align 8
-  call void @col_set_str(ptr noundef %20, i32 noundef 34, ptr noundef @.str.486)
-  %21 = load ptr, ptr %7, align 8
-  %22 = getelementptr inbounds %struct._packet_info, ptr %21, i32 0, i32 1
-  %23 = load ptr, ptr %22, align 8
-  call void @col_clear(ptr noundef %23, i32 noundef 25)
-  %24 = load ptr, ptr %8, align 8
-  %25 = load i32, ptr @proto_dsmcc, align 4
-  %26 = load ptr, ptr %6, align 8
-  %27 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %25, ptr noundef %26, i32 noundef 0, i32 noundef -1, i32 noundef 0)
-  store ptr %27, ptr %10, align 8
-  %28 = load ptr, ptr %10, align 8
-  %29 = load i32, ptr @ett_dsmcc, align 4
-  %30 = call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29)
-  store ptr %30, ptr %11, align 8
-  %31 = load ptr, ptr %6, align 8
-  %32 = load ptr, ptr %7, align 8
-  %33 = load ptr, ptr %11, align 8
-  %34 = load ptr, ptr %8, align 8
-  call void @dissect_dsmcc_un(ptr noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34)
-  %35 = load ptr, ptr %6, align 8
-  %36 = call i32 @tvb_reported_length(ptr noundef %35)
-  store i32 %36, ptr %5, align 4
-  br label %37
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %12, align 4
+  br label %38
 
-37:                                               ; preds = %17, %16
-  %38 = load i32, ptr %5, align 4
-  ret i32 %38
+18:                                               ; preds = %4
+  %19 = load ptr, ptr %7, align 8
+  %20 = getelementptr inbounds nuw %struct._packet_info, ptr %19, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8
+  call void @col_set_str(ptr noundef %21, i32 noundef 35, ptr noundef @.str.488)
+  %22 = load ptr, ptr %7, align 8
+  %23 = getelementptr inbounds nuw %struct._packet_info, ptr %22, i32 0, i32 1
+  %24 = load ptr, ptr %23, align 8
+  call void @col_clear(ptr noundef %24, i32 noundef 25)
+  %25 = load ptr, ptr %8, align 8
+  %26 = load i32, ptr @proto_dsmcc, align 4
+  %27 = load ptr, ptr %6, align 8
+  %28 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %26, ptr noundef %27, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  store ptr %28, ptr %10, align 8
+  %29 = load ptr, ptr %10, align 8
+  %30 = load i32, ptr @ett_dsmcc, align 4
+  %31 = call ptr @proto_item_add_subtree(ptr noundef %29, i32 noundef %30)
+  store ptr %31, ptr %11, align 8
+  %32 = load ptr, ptr %6, align 8
+  %33 = load ptr, ptr %7, align 8
+  %34 = load ptr, ptr %11, align 8
+  %35 = load ptr, ptr %8, align 8
+  call void @dissect_dsmcc_un(ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35)
+  %36 = load ptr, ptr %6, align 8
+  %37 = call i32 @tvb_reported_length(ptr noundef %36)
+  store i32 %37, ptr %5, align 4
+  store i32 1, ptr %12, align 4
+  br label %38
+
+38:                                               ; preds = %18, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  %39 = load i32, ptr %5, align 4
+  ret i32 %39
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dsmcc_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -1178,58 +1210,70 @@ define internal i32 @dissect_dsmcc_udp(ptr noundef %0, ptr noundef %1, ptr nound
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = call zeroext i8 @tvb_get_guint8(ptr noundef %12, i32 noundef 0)
-  %14 = zext i8 %13 to i32
-  %15 = icmp ne i32 %14, 17
-  br i1 %15, label %16, label %17
-
-16:                                               ; preds = %4
-  store i32 0, ptr %5, align 4
-  br label %37
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #4
+  %13 = load ptr, ptr %6, align 8
+  %14 = call zeroext i8 @tvb_get_uint8(ptr noundef %13, i32 noundef 0)
+  %15 = zext i8 %14 to i32
+  %16 = icmp ne i32 %15, 17
+  br i1 %16, label %17, label %18
 
 17:                                               ; preds = %4
-  %18 = load ptr, ptr %7, align 8
-  %19 = getelementptr inbounds %struct._packet_info, ptr %18, i32 0, i32 1
-  %20 = load ptr, ptr %19, align 8
-  call void @col_set_str(ptr noundef %20, i32 noundef 34, ptr noundef @.str.486)
-  %21 = load ptr, ptr %7, align 8
-  %22 = getelementptr inbounds %struct._packet_info, ptr %21, i32 0, i32 1
-  %23 = load ptr, ptr %22, align 8
-  call void @col_clear(ptr noundef %23, i32 noundef 25)
-  %24 = load ptr, ptr %8, align 8
-  %25 = load i32, ptr @proto_dsmcc, align 4
-  %26 = load ptr, ptr %6, align 8
-  %27 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %25, ptr noundef %26, i32 noundef 0, i32 noundef -1, i32 noundef 0)
-  store ptr %27, ptr %10, align 8
-  %28 = load ptr, ptr %10, align 8
-  %29 = load i32, ptr @ett_dsmcc, align 4
-  %30 = call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29)
-  store ptr %30, ptr %11, align 8
-  %31 = load ptr, ptr %6, align 8
-  %32 = load ptr, ptr %7, align 8
-  %33 = load ptr, ptr %11, align 8
-  %34 = load ptr, ptr %8, align 8
-  call void @dissect_dsmcc_un(ptr noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34)
-  %35 = load ptr, ptr %6, align 8
-  %36 = call i32 @tvb_reported_length(ptr noundef %35)
-  store i32 %36, ptr %5, align 4
-  br label %37
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %12, align 4
+  br label %38
 
-37:                                               ; preds = %17, %16
-  %38 = load i32, ptr %5, align 4
-  ret i32 %38
+18:                                               ; preds = %4
+  %19 = load ptr, ptr %7, align 8
+  %20 = getelementptr inbounds nuw %struct._packet_info, ptr %19, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8
+  call void @col_set_str(ptr noundef %21, i32 noundef 35, ptr noundef @.str.488)
+  %22 = load ptr, ptr %7, align 8
+  %23 = getelementptr inbounds nuw %struct._packet_info, ptr %22, i32 0, i32 1
+  %24 = load ptr, ptr %23, align 8
+  call void @col_clear(ptr noundef %24, i32 noundef 25)
+  %25 = load ptr, ptr %8, align 8
+  %26 = load i32, ptr @proto_dsmcc, align 4
+  %27 = load ptr, ptr %6, align 8
+  %28 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %26, ptr noundef %27, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  store ptr %28, ptr %10, align 8
+  %29 = load ptr, ptr %10, align 8
+  %30 = load i32, ptr @ett_dsmcc, align 4
+  %31 = call ptr @proto_item_add_subtree(ptr noundef %29, i32 noundef %30)
+  store ptr %31, ptr %11, align 8
+  %32 = load ptr, ptr %6, align 8
+  %33 = load ptr, ptr %7, align 8
+  %34 = load ptr, ptr %11, align 8
+  %35 = load ptr, ptr %8, align 8
+  call void @dissect_dsmcc_un(ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35)
+  %36 = load ptr, ptr %6, align 8
+  %37 = call i32 @tvb_reported_length(ptr noundef %36)
+  store i32 %37, ptr %5, align 4
+  store i32 1, ptr %12, align 4
+  br label %38
+
+38:                                               ; preds = %18, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  %39 = load i32, ptr %5, align 4
+  ret i32 %39
 }
 
-declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) #2
 
-declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_dsmcc() #0 {
   %1 = load ptr, ptr @dsmcc_ts_handle, align 8
   call void @dissector_add_uint(ptr noundef @.str.292, i32 noundef 58, ptr noundef %1)
@@ -1246,23 +1290,31 @@ define hidden void @proto_reg_handoff_dsmcc() #0 {
   ret void
 }
 
-declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #2
 
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #2
 
-declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #2
 
-declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_dsmcc_un(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1273,59 +1325,55 @@ define internal void @dissect_dsmcc_un(ptr noundef %0, ptr noundef %1, ptr nound
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #4
   %10 = load ptr, ptr %5, align 8
-  %11 = call zeroext i8 @tvb_get_guint8(ptr noundef %10, i32 noundef 1)
+  %11 = call zeroext i8 @tvb_get_uint8(ptr noundef %10, i32 noundef 1)
   store i8 %11, ptr %9, align 1
   %12 = load i8, ptr %9, align 1
   %13 = zext i8 %12 to i32
-  switch i32 %13, label %27 [
-    i32 1, label %14
-    i32 2, label %15
-    i32 3, label %20
+  switch i32 %13, label %24 [
+    i32 1, label %25
+    i32 2, label %14
+    i32 3, label %19
     i32 4, label %25
-    i32 5, label %26
+    i32 5, label %25
   ]
 
 14:                                               ; preds = %4
-  br label %28
+  %15 = load ptr, ptr %5, align 8
+  %16 = load ptr, ptr %6, align 8
+  %17 = load ptr, ptr %7, align 8
+  %18 = load ptr, ptr %8, align 8
+  call void @dissect_dsmcc_un_session(ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18)
+  br label %25
 
-15:                                               ; preds = %4
-  %16 = load ptr, ptr %5, align 8
-  %17 = load ptr, ptr %6, align 8
-  %18 = load ptr, ptr %7, align 8
-  %19 = load ptr, ptr %8, align 8
-  call void @dissect_dsmcc_un_session(ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19)
-  br label %28
+19:                                               ; preds = %4
+  %20 = load ptr, ptr %5, align 8
+  %21 = load ptr, ptr %6, align 8
+  %22 = load ptr, ptr %7, align 8
+  %23 = load ptr, ptr %8, align 8
+  call void @dissect_dsmcc_un_download(ptr noundef %20, ptr noundef %21, ptr noundef %22, ptr noundef %23)
+  br label %25
 
-20:                                               ; preds = %4
-  %21 = load ptr, ptr %5, align 8
-  %22 = load ptr, ptr %6, align 8
-  %23 = load ptr, ptr %7, align 8
-  %24 = load ptr, ptr %8, align 8
-  call void @dissect_dsmcc_un_download(ptr noundef %21, ptr noundef %22, ptr noundef %23, ptr noundef %24)
-  br label %28
+24:                                               ; preds = %4
+  br label %25
 
-25:                                               ; preds = %4
-  br label %28
-
-26:                                               ; preds = %4
-  br label %28
-
-27:                                               ; preds = %4
-  br label %28
-
-28:                                               ; preds = %27, %26, %25, %20, %15, %14
+25:                                               ; preds = %24, %4, %4, %19, %14, %4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #4
   ret void
 }
 
-declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) #2
 
-declare i32 @crc32_mpeg2_tvb_offset(ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @crc32_mpeg2_tvb_offset(ptr noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) #2
 
-; Function Attrs: nounwind uwtable
-define internal void @proto_item_set_generated(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind null_pointer_is_valid sspstrong uwtable
+define internal void @proto_item_set_generated(ptr noundef %0) #3 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -1337,22 +1385,22 @@ define internal void @proto_item_set_generated(ptr noundef %0) #0 {
 
 6:                                                ; preds = %5
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct._proto_node, ptr %7, i32 0, i32 4
+  %8 = getelementptr inbounds nuw %struct._proto_node, ptr %7, i32 0, i32 5
   %9 = load ptr, ptr %8, align 8
   %10 = icmp ne ptr %9, null
   br i1 %10, label %11, label %22
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct._proto_node, ptr %12, i32 0, i32 4
+  %13 = getelementptr inbounds nuw %struct._proto_node, ptr %12, i32 0, i32 5
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds %struct.field_info, ptr %14, i32 0, i32 6
+  %15 = getelementptr inbounds nuw %struct.field_info, ptr %14, i32 0, i32 6
   %16 = load i32, ptr %15, align 4
   %17 = or i32 %16, 2
   %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds %struct._proto_node, ptr %18, i32 0, i32 4
+  %19 = getelementptr inbounds nuw %struct._proto_node, ptr %18, i32 0, i32 5
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds %struct.field_info, ptr %20, i32 0, i32 6
+  %21 = getelementptr inbounds nuw %struct.field_info, ptr %20, i32 0, i32 6
   store i32 %17, ptr %21, align 4
   br label %22
 
@@ -1366,13 +1414,16 @@ define internal void @proto_item_set_generated(ptr noundef %0) #0 {
   ret void
 }
 
-declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @proto_tree_add_checksum(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_checksum(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare i32 @tvb_reported_length(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length(ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1389,6 +1440,13 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #4
   store i32 0, ptr %15, align 4
   %16 = load ptr, ptr %5, align 8
   %17 = load i32, ptr %15, align 4
@@ -1401,21 +1459,21 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %23 = load i32, ptr @ett_dsmcc_payload, align 4
   %24 = load i16, ptr %14, align 2
   %25 = zext i16 %24 to i32
-  %26 = call ptr @val_to_str(i32 noundef %25, ptr noundef @dsmcc_un_sess_message_id_vals, ptr noundef @.str.492)
-  %27 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef -1, i32 noundef %23, ptr noundef %9, ptr noundef @.str.491, ptr noundef %26)
+  %26 = call ptr @val_to_str(i32 noundef %25, ptr noundef @dsmcc_un_sess_message_id_vals, ptr noundef @.str.494)
+  %27 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef -1, i32 noundef %23, ptr noundef %9, ptr noundef @.str.493, ptr noundef %26)
   store ptr %27, ptr %10, align 8
   %28 = load ptr, ptr %6, align 8
-  %29 = getelementptr inbounds %struct._packet_info, ptr %28, i32 0, i32 1
+  %29 = getelementptr inbounds nuw %struct._packet_info, ptr %28, i32 0, i32 1
   %30 = load ptr, ptr %29, align 8
   %31 = load i16, ptr %14, align 2
   %32 = zext i16 %31 to i32
-  %33 = call ptr @val_to_str(i32 noundef %32, ptr noundef @dsmcc_un_sess_message_id_vals, ptr noundef @.str.492)
+  %33 = call ptr @val_to_str(i32 noundef %32, ptr noundef @dsmcc_un_sess_message_id_vals, ptr noundef @.str.494)
   call void @col_append_sep_str(ptr noundef %30, i32 noundef 25, ptr noundef null, ptr noundef %33)
   %34 = load ptr, ptr %5, align 8
   %35 = load ptr, ptr %6, align 8
   %36 = load ptr, ptr %10, align 8
   %37 = load i32, ptr %15, align 4
-  %38 = call i32 @dissect_dsmcc_header(ptr noundef %34, ptr noundef %35, ptr noundef %36, i32 noundef %37, i32 noundef 0)
+  %38 = call i32 @dissect_dsmcc_header(ptr noundef %34, ptr noundef %35, ptr noundef %36, i32 noundef %37, i1 noundef zeroext false)
   %39 = load i32, ptr %15, align 4
   %40 = add i32 %39, %38
   store i32 %40, ptr %15, align 4
@@ -1495,7 +1553,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %59 = load ptr, ptr %5, align 8
   %60 = load i32, ptr %15, align 4
   %61 = load i32, ptr @ett_dsmcc_heading, align 4
-  %62 = call ptr @proto_tree_add_subtree(ptr noundef %58, ptr noundef %59, i32 noundef %60, i32 noundef 20, i32 noundef %61, ptr noundef null, ptr noundef @.str.493)
+  %62 = call ptr @proto_tree_add_subtree(ptr noundef %58, ptr noundef %59, i32 noundef %60, i32 noundef 20, i32 noundef %61, ptr noundef null, ptr noundef @.str.495)
   store ptr %62, ptr %11, align 8
   %63 = load ptr, ptr %5, align 8
   %64 = load i32, ptr %15, align 4
@@ -1509,7 +1567,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %71 = load ptr, ptr %5, align 8
   %72 = load i32, ptr %15, align 4
   %73 = load i32, ptr @ett_dsmcc_heading, align 4
-  %74 = call ptr @proto_tree_add_subtree(ptr noundef %70, ptr noundef %71, i32 noundef %72, i32 noundef 20, i32 noundef %73, ptr noundef null, ptr noundef @.str.494)
+  %74 = call ptr @proto_tree_add_subtree(ptr noundef %70, ptr noundef %71, i32 noundef %72, i32 noundef 20, i32 noundef %73, ptr noundef null, ptr noundef @.str.496)
   store ptr %74, ptr %11, align 8
   %75 = load ptr, ptr %5, align 8
   %76 = load i32, ptr %15, align 4
@@ -1523,7 +1581,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %83 = load ptr, ptr %5, align 8
   %84 = load i32, ptr %15, align 4
   %85 = load i32, ptr @ett_dsmcc_heading, align 4
-  %86 = call ptr @proto_tree_add_subtree(ptr noundef %82, ptr noundef %83, i32 noundef %84, i32 noundef -1, i32 noundef %85, ptr noundef null, ptr noundef @.str.495)
+  %86 = call ptr @proto_tree_add_subtree(ptr noundef %82, ptr noundef %83, i32 noundef %84, i32 noundef -1, i32 noundef %85, ptr noundef null, ptr noundef @.str.497)
   store ptr %86, ptr %11, align 8
   %87 = load ptr, ptr %5, align 8
   %88 = load i32, ptr %15, align 4
@@ -1556,7 +1614,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %110 = load ptr, ptr %5, align 8
   %111 = load i32, ptr %15, align 4
   %112 = load i32, ptr @ett_dsmcc_heading, align 4
-  %113 = call ptr @proto_tree_add_subtree(ptr noundef %109, ptr noundef %110, i32 noundef %111, i32 noundef 20, i32 noundef %112, ptr noundef null, ptr noundef @.str.494)
+  %113 = call ptr @proto_tree_add_subtree(ptr noundef %109, ptr noundef %110, i32 noundef %111, i32 noundef 20, i32 noundef %112, ptr noundef null, ptr noundef @.str.496)
   store ptr %113, ptr %11, align 8
   %114 = load ptr, ptr %5, align 8
   %115 = load i32, ptr %15, align 4
@@ -1570,7 +1628,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %122 = load ptr, ptr %5, align 8
   %123 = load i32, ptr %15, align 4
   %124 = load i32, ptr @ett_dsmcc_heading, align 4
-  %125 = call ptr @proto_tree_add_subtree(ptr noundef %121, ptr noundef %122, i32 noundef %123, i32 noundef -1, i32 noundef %124, ptr noundef null, ptr noundef @.str.496)
+  %125 = call ptr @proto_tree_add_subtree(ptr noundef %121, ptr noundef %122, i32 noundef %123, i32 noundef -1, i32 noundef %124, ptr noundef null, ptr noundef @.str.498)
   store ptr %125, ptr %11, align 8
   %126 = load ptr, ptr %5, align 8
   %127 = load i32, ptr %15, align 4
@@ -1584,7 +1642,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %134 = load ptr, ptr %5, align 8
   %135 = load i32, ptr %15, align 4
   %136 = load i32, ptr @ett_dsmcc_heading, align 4
-  %137 = call ptr @proto_tree_add_subtree(ptr noundef %133, ptr noundef %134, i32 noundef %135, i32 noundef -1, i32 noundef %136, ptr noundef null, ptr noundef @.str.495)
+  %137 = call ptr @proto_tree_add_subtree(ptr noundef %133, ptr noundef %134, i32 noundef %135, i32 noundef -1, i32 noundef %136, ptr noundef null, ptr noundef @.str.497)
   store ptr %137, ptr %11, align 8
   %138 = load ptr, ptr %5, align 8
   %139 = load i32, ptr %15, align 4
@@ -1617,7 +1675,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %161 = load ptr, ptr %5, align 8
   %162 = load i32, ptr %15, align 4
   %163 = load i32, ptr @ett_dsmcc_heading, align 4
-  %164 = call ptr @proto_tree_add_subtree(ptr noundef %160, ptr noundef %161, i32 noundef %162, i32 noundef -1, i32 noundef %163, ptr noundef null, ptr noundef @.str.495)
+  %164 = call ptr @proto_tree_add_subtree(ptr noundef %160, ptr noundef %161, i32 noundef %162, i32 noundef -1, i32 noundef %163, ptr noundef null, ptr noundef @.str.497)
   store ptr %164, ptr %11, align 8
   %165 = load ptr, ptr %5, align 8
   %166 = load i32, ptr %15, align 4
@@ -1650,7 +1708,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %188 = load ptr, ptr %5, align 8
   %189 = load i32, ptr %15, align 4
   %190 = load i32, ptr @ett_dsmcc_heading, align 4
-  %191 = call ptr @proto_tree_add_subtree(ptr noundef %187, ptr noundef %188, i32 noundef %189, i32 noundef -1, i32 noundef %190, ptr noundef null, ptr noundef @.str.495)
+  %191 = call ptr @proto_tree_add_subtree(ptr noundef %187, ptr noundef %188, i32 noundef %189, i32 noundef -1, i32 noundef %190, ptr noundef null, ptr noundef @.str.497)
   store ptr %191, ptr %11, align 8
   %192 = load ptr, ptr %5, align 8
   %193 = load i32, ptr %15, align 4
@@ -1683,7 +1741,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %215 = load ptr, ptr %5, align 8
   %216 = load i32, ptr %15, align 4
   %217 = load i32, ptr @ett_dsmcc_heading, align 4
-  %218 = call ptr @proto_tree_add_subtree(ptr noundef %214, ptr noundef %215, i32 noundef %216, i32 noundef -1, i32 noundef %217, ptr noundef null, ptr noundef @.str.495)
+  %218 = call ptr @proto_tree_add_subtree(ptr noundef %214, ptr noundef %215, i32 noundef %216, i32 noundef -1, i32 noundef %217, ptr noundef null, ptr noundef @.str.497)
   store ptr %218, ptr %11, align 8
   %219 = load ptr, ptr %5, align 8
   %220 = load i32, ptr %15, align 4
@@ -1716,7 +1774,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %242 = load ptr, ptr %5, align 8
   %243 = load i32, ptr %15, align 4
   %244 = load i32, ptr @ett_dsmcc_heading, align 4
-  %245 = call ptr @proto_tree_add_subtree(ptr noundef %241, ptr noundef %242, i32 noundef %243, i32 noundef -1, i32 noundef %244, ptr noundef null, ptr noundef @.str.495)
+  %245 = call ptr @proto_tree_add_subtree(ptr noundef %241, ptr noundef %242, i32 noundef %243, i32 noundef -1, i32 noundef %244, ptr noundef null, ptr noundef @.str.497)
   store ptr %245, ptr %11, align 8
   %246 = load ptr, ptr %5, align 8
   %247 = load i32, ptr %15, align 4
@@ -1741,7 +1799,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %262 = load ptr, ptr %5, align 8
   %263 = load i32, ptr %15, align 4
   %264 = load i32, ptr @ett_dsmcc_heading, align 4
-  %265 = call ptr @proto_tree_add_subtree(ptr noundef %261, ptr noundef %262, i32 noundef %263, i32 noundef -1, i32 noundef %264, ptr noundef null, ptr noundef @.str.496)
+  %265 = call ptr @proto_tree_add_subtree(ptr noundef %261, ptr noundef %262, i32 noundef %263, i32 noundef -1, i32 noundef %264, ptr noundef null, ptr noundef @.str.498)
   store ptr %265, ptr %11, align 8
   %266 = load ptr, ptr %5, align 8
   %267 = load i32, ptr %15, align 4
@@ -1755,7 +1813,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %274 = load ptr, ptr %5, align 8
   %275 = load i32, ptr %15, align 4
   %276 = load i32, ptr @ett_dsmcc_heading, align 4
-  %277 = call ptr @proto_tree_add_subtree(ptr noundef %273, ptr noundef %274, i32 noundef %275, i32 noundef -1, i32 noundef %276, ptr noundef null, ptr noundef @.str.495)
+  %277 = call ptr @proto_tree_add_subtree(ptr noundef %273, ptr noundef %274, i32 noundef %275, i32 noundef -1, i32 noundef %276, ptr noundef null, ptr noundef @.str.497)
   store ptr %277, ptr %11, align 8
   %278 = load ptr, ptr %5, align 8
   %279 = load i32, ptr %15, align 4
@@ -1788,7 +1846,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %301 = load ptr, ptr %5, align 8
   %302 = load i32, ptr %15, align 4
   %303 = load i32, ptr @ett_dsmcc_heading, align 4
-  %304 = call ptr @proto_tree_add_subtree(ptr noundef %300, ptr noundef %301, i32 noundef %302, i32 noundef -1, i32 noundef %303, ptr noundef null, ptr noundef @.str.496)
+  %304 = call ptr @proto_tree_add_subtree(ptr noundef %300, ptr noundef %301, i32 noundef %302, i32 noundef -1, i32 noundef %303, ptr noundef null, ptr noundef @.str.498)
   store ptr %304, ptr %11, align 8
   %305 = load ptr, ptr %5, align 8
   %306 = load i32, ptr %15, align 4
@@ -1802,7 +1860,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %313 = load ptr, ptr %5, align 8
   %314 = load i32, ptr %15, align 4
   %315 = load i32, ptr @ett_dsmcc_heading, align 4
-  %316 = call ptr @proto_tree_add_subtree(ptr noundef %312, ptr noundef %313, i32 noundef %314, i32 noundef -1, i32 noundef %315, ptr noundef null, ptr noundef @.str.495)
+  %316 = call ptr @proto_tree_add_subtree(ptr noundef %312, ptr noundef %313, i32 noundef %314, i32 noundef -1, i32 noundef %315, ptr noundef null, ptr noundef @.str.497)
   store ptr %316, ptr %11, align 8
   %317 = load ptr, ptr %5, align 8
   %318 = load i32, ptr %15, align 4
@@ -1863,14 +1921,14 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %359 = load i32, ptr %12, align 4
   %360 = add i32 %359, 1
   store i32 %360, ptr %12, align 4
-  br label %346, !llvm.loop !4
+  br label %346, !llvm.loop !8
 
 361:                                              ; preds = %346
   %362 = load ptr, ptr %10, align 8
   %363 = load ptr, ptr %5, align 8
   %364 = load i32, ptr %15, align 4
   %365 = load i32, ptr @ett_dsmcc_heading, align 4
-  %366 = call ptr @proto_tree_add_subtree(ptr noundef %362, ptr noundef %363, i32 noundef %364, i32 noundef -1, i32 noundef %365, ptr noundef null, ptr noundef @.str.495)
+  %366 = call ptr @proto_tree_add_subtree(ptr noundef %362, ptr noundef %363, i32 noundef %364, i32 noundef -1, i32 noundef %365, ptr noundef null, ptr noundef @.str.497)
   store ptr %366, ptr %11, align 8
   %367 = load ptr, ptr %5, align 8
   %368 = load i32, ptr %15, align 4
@@ -1903,7 +1961,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %390 = load ptr, ptr %5, align 8
   %391 = load i32, ptr %15, align 4
   %392 = load i32, ptr @ett_dsmcc_heading, align 4
-  %393 = call ptr @proto_tree_add_subtree(ptr noundef %389, ptr noundef %390, i32 noundef %391, i32 noundef -1, i32 noundef %392, ptr noundef null, ptr noundef @.str.495)
+  %393 = call ptr @proto_tree_add_subtree(ptr noundef %389, ptr noundef %390, i32 noundef %391, i32 noundef -1, i32 noundef %392, ptr noundef null, ptr noundef @.str.497)
   store ptr %393, ptr %11, align 8
   %394 = load ptr, ptr %5, align 8
   %395 = load i32, ptr %15, align 4
@@ -1936,7 +1994,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %417 = load ptr, ptr %5, align 8
   %418 = load i32, ptr %15, align 4
   %419 = load i32, ptr @ett_dsmcc_heading, align 4
-  %420 = call ptr @proto_tree_add_subtree(ptr noundef %416, ptr noundef %417, i32 noundef %418, i32 noundef 20, i32 noundef %419, ptr noundef null, ptr noundef @.str.493)
+  %420 = call ptr @proto_tree_add_subtree(ptr noundef %416, ptr noundef %417, i32 noundef %418, i32 noundef 20, i32 noundef %419, ptr noundef null, ptr noundef @.str.495)
   store ptr %420, ptr %11, align 8
   %421 = load ptr, ptr %5, align 8
   %422 = load i32, ptr %15, align 4
@@ -1986,7 +2044,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %455 = load i32, ptr %12, align 4
   %456 = add i32 %455, 1
   store i32 %456, ptr %12, align 4
-  br label %442, !llvm.loop !6
+  br label %442, !llvm.loop !10
 
 457:                                              ; preds = %442
   br label %1773
@@ -2040,7 +2098,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %493 = load i32, ptr %12, align 4
   %494 = add i32 %493, 1
   store i32 %494, ptr %12, align 4
-  br label %480, !llvm.loop !7
+  br label %480, !llvm.loop !11
 
 495:                                              ; preds = %480
   br label %1773
@@ -2094,7 +2152,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %531 = load i32, ptr %12, align 4
   %532 = add i32 %531, 1
   store i32 %532, ptr %12, align 4
-  br label %518, !llvm.loop !8
+  br label %518, !llvm.loop !12
 
 533:                                              ; preds = %518
   br label %1773
@@ -2148,7 +2206,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %569 = load i32, ptr %12, align 4
   %570 = add i32 %569, 1
   store i32 %570, ptr %12, align 4
-  br label %556, !llvm.loop !9
+  br label %556, !llvm.loop !13
 
 571:                                              ; preds = %556
   br label %1773
@@ -2158,7 +2216,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %574 = load ptr, ptr %5, align 8
   %575 = load i32, ptr %15, align 4
   %576 = load i32, ptr @ett_dsmcc_heading, align 4
-  %577 = call ptr @proto_tree_add_subtree(ptr noundef %573, ptr noundef %574, i32 noundef %575, i32 noundef 20, i32 noundef %576, ptr noundef null, ptr noundef @.str.493)
+  %577 = call ptr @proto_tree_add_subtree(ptr noundef %573, ptr noundef %574, i32 noundef %575, i32 noundef 20, i32 noundef %576, ptr noundef null, ptr noundef @.str.495)
   store ptr %577, ptr %11, align 8
   %578 = load ptr, ptr %5, align 8
   %579 = load i32, ptr %15, align 4
@@ -2183,7 +2241,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %594 = load ptr, ptr %5, align 8
   %595 = load i32, ptr %15, align 4
   %596 = load i32, ptr @ett_dsmcc_heading, align 4
-  %597 = call ptr @proto_tree_add_subtree(ptr noundef %593, ptr noundef %594, i32 noundef %595, i32 noundef 20, i32 noundef %596, ptr noundef null, ptr noundef @.str.493)
+  %597 = call ptr @proto_tree_add_subtree(ptr noundef %593, ptr noundef %594, i32 noundef %595, i32 noundef 20, i32 noundef %596, ptr noundef null, ptr noundef @.str.495)
   store ptr %597, ptr %11, align 8
   %598 = load ptr, ptr %5, align 8
   %599 = load i32, ptr %15, align 4
@@ -2208,7 +2266,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %614 = load ptr, ptr %5, align 8
   %615 = load i32, ptr %15, align 4
   %616 = load i32, ptr @ett_dsmcc_heading, align 4
-  %617 = call ptr @proto_tree_add_subtree(ptr noundef %613, ptr noundef %614, i32 noundef %615, i32 noundef 20, i32 noundef %616, ptr noundef null, ptr noundef @.str.493)
+  %617 = call ptr @proto_tree_add_subtree(ptr noundef %613, ptr noundef %614, i32 noundef %615, i32 noundef 20, i32 noundef %616, ptr noundef null, ptr noundef @.str.495)
   store ptr %617, ptr %11, align 8
   %618 = load ptr, ptr %5, align 8
   %619 = load i32, ptr %15, align 4
@@ -2233,7 +2291,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %634 = load ptr, ptr %5, align 8
   %635 = load i32, ptr %15, align 4
   %636 = load i32, ptr @ett_dsmcc_heading, align 4
-  %637 = call ptr @proto_tree_add_subtree(ptr noundef %633, ptr noundef %634, i32 noundef %635, i32 noundef 20, i32 noundef %636, ptr noundef null, ptr noundef @.str.493)
+  %637 = call ptr @proto_tree_add_subtree(ptr noundef %633, ptr noundef %634, i32 noundef %635, i32 noundef 20, i32 noundef %636, ptr noundef null, ptr noundef @.str.495)
   store ptr %637, ptr %11, align 8
   %638 = load ptr, ptr %5, align 8
   %639 = load i32, ptr %15, align 4
@@ -2285,7 +2343,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %676 = load ptr, ptr %5, align 8
   %677 = load i32, ptr %15, align 4
   %678 = load i32, ptr @ett_dsmcc_heading, align 4
-  %679 = call ptr @proto_tree_add_subtree(ptr noundef %675, ptr noundef %676, i32 noundef %677, i32 noundef -1, i32 noundef %678, ptr noundef null, ptr noundef @.str.495)
+  %679 = call ptr @proto_tree_add_subtree(ptr noundef %675, ptr noundef %676, i32 noundef %677, i32 noundef -1, i32 noundef %678, ptr noundef null, ptr noundef @.str.497)
   store ptr %679, ptr %11, align 8
   %680 = load ptr, ptr %5, align 8
   %681 = load i32, ptr %15, align 4
@@ -2318,7 +2376,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %703 = load ptr, ptr %5, align 8
   %704 = load i32, ptr %15, align 4
   %705 = load i32, ptr @ett_dsmcc_heading, align 4
-  %706 = call ptr @proto_tree_add_subtree(ptr noundef %702, ptr noundef %703, i32 noundef %704, i32 noundef 20, i32 noundef %705, ptr noundef null, ptr noundef @.str.493)
+  %706 = call ptr @proto_tree_add_subtree(ptr noundef %702, ptr noundef %703, i32 noundef %704, i32 noundef 20, i32 noundef %705, ptr noundef null, ptr noundef @.str.495)
   store ptr %706, ptr %11, align 8
   %707 = load ptr, ptr %5, align 8
   %708 = load i32, ptr %15, align 4
@@ -2332,7 +2390,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %715 = load ptr, ptr %5, align 8
   %716 = load i32, ptr %15, align 4
   %717 = load i32, ptr @ett_dsmcc_heading, align 4
-  %718 = call ptr @proto_tree_add_subtree(ptr noundef %714, ptr noundef %715, i32 noundef %716, i32 noundef 20, i32 noundef %717, ptr noundef null, ptr noundef @.str.497)
+  %718 = call ptr @proto_tree_add_subtree(ptr noundef %714, ptr noundef %715, i32 noundef %716, i32 noundef 20, i32 noundef %717, ptr noundef null, ptr noundef @.str.499)
   store ptr %718, ptr %11, align 8
   %719 = load ptr, ptr %5, align 8
   %720 = load i32, ptr %15, align 4
@@ -2346,7 +2404,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %727 = load ptr, ptr %5, align 8
   %728 = load i32, ptr %15, align 4
   %729 = load i32, ptr @ett_dsmcc_heading, align 4
-  %730 = call ptr @proto_tree_add_subtree(ptr noundef %726, ptr noundef %727, i32 noundef %728, i32 noundef 20, i32 noundef %729, ptr noundef null, ptr noundef @.str.498)
+  %730 = call ptr @proto_tree_add_subtree(ptr noundef %726, ptr noundef %727, i32 noundef %728, i32 noundef 20, i32 noundef %729, ptr noundef null, ptr noundef @.str.500)
   store ptr %730, ptr %11, align 8
   %731 = load ptr, ptr %5, align 8
   %732 = load i32, ptr %15, align 4
@@ -2360,7 +2418,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %739 = load ptr, ptr %5, align 8
   %740 = load i32, ptr %15, align 4
   %741 = load i32, ptr @ett_dsmcc_heading, align 4
-  %742 = call ptr @proto_tree_add_subtree(ptr noundef %738, ptr noundef %739, i32 noundef %740, i32 noundef -1, i32 noundef %741, ptr noundef null, ptr noundef @.str.496)
+  %742 = call ptr @proto_tree_add_subtree(ptr noundef %738, ptr noundef %739, i32 noundef %740, i32 noundef -1, i32 noundef %741, ptr noundef null, ptr noundef @.str.498)
   store ptr %742, ptr %11, align 8
   %743 = load ptr, ptr %5, align 8
   %744 = load i32, ptr %15, align 4
@@ -2374,7 +2432,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %751 = load ptr, ptr %5, align 8
   %752 = load i32, ptr %15, align 4
   %753 = load i32, ptr @ett_dsmcc_heading, align 4
-  %754 = call ptr @proto_tree_add_subtree(ptr noundef %750, ptr noundef %751, i32 noundef %752, i32 noundef -1, i32 noundef %753, ptr noundef null, ptr noundef @.str.495)
+  %754 = call ptr @proto_tree_add_subtree(ptr noundef %750, ptr noundef %751, i32 noundef %752, i32 noundef -1, i32 noundef %753, ptr noundef null, ptr noundef @.str.497)
   store ptr %754, ptr %11, align 8
   %755 = load ptr, ptr %5, align 8
   %756 = load i32, ptr %15, align 4
@@ -2407,7 +2465,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %778 = load ptr, ptr %5, align 8
   %779 = load i32, ptr %15, align 4
   %780 = load i32, ptr @ett_dsmcc_heading, align 4
-  %781 = call ptr @proto_tree_add_subtree(ptr noundef %777, ptr noundef %778, i32 noundef %779, i32 noundef -1, i32 noundef %780, ptr noundef null, ptr noundef @.str.495)
+  %781 = call ptr @proto_tree_add_subtree(ptr noundef %777, ptr noundef %778, i32 noundef %779, i32 noundef -1, i32 noundef %780, ptr noundef null, ptr noundef @.str.497)
   store ptr %781, ptr %11, align 8
   %782 = load ptr, ptr %5, align 8
   %783 = load i32, ptr %15, align 4
@@ -2452,7 +2510,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %810 = load i32, ptr %12, align 4
   %811 = add i32 %810, 1
   store i32 %811, ptr %12, align 4
-  br label %797, !llvm.loop !10
+  br label %797, !llvm.loop !14
 
 812:                                              ; preds = %797
   br label %1773
@@ -2478,7 +2536,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %829 = load ptr, ptr %5, align 8
   %830 = load i32, ptr %15, align 4
   %831 = load i32, ptr @ett_dsmcc_heading, align 4
-  %832 = call ptr @proto_tree_add_subtree(ptr noundef %828, ptr noundef %829, i32 noundef %830, i32 noundef 20, i32 noundef %831, ptr noundef null, ptr noundef @.str.493)
+  %832 = call ptr @proto_tree_add_subtree(ptr noundef %828, ptr noundef %829, i32 noundef %830, i32 noundef 20, i32 noundef %831, ptr noundef null, ptr noundef @.str.495)
   store ptr %832, ptr %11, align 8
   %833 = load ptr, ptr %5, align 8
   %834 = load i32, ptr %15, align 4
@@ -2492,7 +2550,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %841 = load ptr, ptr %5, align 8
   %842 = load i32, ptr %15, align 4
   %843 = load i32, ptr @ett_dsmcc_heading, align 4
-  %844 = call ptr @proto_tree_add_subtree(ptr noundef %840, ptr noundef %841, i32 noundef %842, i32 noundef 20, i32 noundef %843, ptr noundef null, ptr noundef @.str.494)
+  %844 = call ptr @proto_tree_add_subtree(ptr noundef %840, ptr noundef %841, i32 noundef %842, i32 noundef 20, i32 noundef %843, ptr noundef null, ptr noundef @.str.496)
   store ptr %844, ptr %11, align 8
   %845 = load ptr, ptr %5, align 8
   %846 = load i32, ptr %15, align 4
@@ -2524,7 +2582,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %865 = load ptr, ptr %5, align 8
   %866 = load i32, ptr %15, align 4
   %867 = load i32, ptr @ett_dsmcc_heading, align 4
-  %868 = call ptr @proto_tree_add_subtree(ptr noundef %864, ptr noundef %865, i32 noundef %866, i32 noundef 20, i32 noundef %867, ptr noundef null, ptr noundef @.str.499)
+  %868 = call ptr @proto_tree_add_subtree(ptr noundef %864, ptr noundef %865, i32 noundef %866, i32 noundef 20, i32 noundef %867, ptr noundef null, ptr noundef @.str.501)
   store ptr %868, ptr %11, align 8
   %869 = load ptr, ptr %5, align 8
   %870 = load i32, ptr %15, align 4
@@ -2540,14 +2598,14 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %877 = load i32, ptr %12, align 4
   %878 = add i32 %877, 1
   store i32 %878, ptr %12, align 4
-  br label %859, !llvm.loop !11
+  br label %859, !llvm.loop !15
 
 879:                                              ; preds = %859
   %880 = load ptr, ptr %10, align 8
   %881 = load ptr, ptr %5, align 8
   %882 = load i32, ptr %15, align 4
   %883 = load i32, ptr @ett_dsmcc_heading, align 4
-  %884 = call ptr @proto_tree_add_subtree(ptr noundef %880, ptr noundef %881, i32 noundef %882, i32 noundef -1, i32 noundef %883, ptr noundef null, ptr noundef @.str.495)
+  %884 = call ptr @proto_tree_add_subtree(ptr noundef %880, ptr noundef %881, i32 noundef %882, i32 noundef -1, i32 noundef %883, ptr noundef null, ptr noundef @.str.497)
   store ptr %884, ptr %11, align 8
   %885 = load ptr, ptr %5, align 8
   %886 = load i32, ptr %15, align 4
@@ -2580,7 +2638,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %908 = load ptr, ptr %5, align 8
   %909 = load i32, ptr %15, align 4
   %910 = load i32, ptr @ett_dsmcc_heading, align 4
-  %911 = call ptr @proto_tree_add_subtree(ptr noundef %907, ptr noundef %908, i32 noundef %909, i32 noundef 20, i32 noundef %910, ptr noundef null, ptr noundef @.str.494)
+  %911 = call ptr @proto_tree_add_subtree(ptr noundef %907, ptr noundef %908, i32 noundef %909, i32 noundef 20, i32 noundef %910, ptr noundef null, ptr noundef @.str.496)
   store ptr %911, ptr %11, align 8
   %912 = load ptr, ptr %5, align 8
   %913 = load i32, ptr %15, align 4
@@ -2594,7 +2652,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %920 = load ptr, ptr %5, align 8
   %921 = load i32, ptr %15, align 4
   %922 = load i32, ptr @ett_dsmcc_heading, align 4
-  %923 = call ptr @proto_tree_add_subtree(ptr noundef %919, ptr noundef %920, i32 noundef %921, i32 noundef 20, i32 noundef %922, ptr noundef null, ptr noundef @.str.500)
+  %923 = call ptr @proto_tree_add_subtree(ptr noundef %919, ptr noundef %920, i32 noundef %921, i32 noundef 20, i32 noundef %922, ptr noundef null, ptr noundef @.str.502)
   store ptr %923, ptr %11, align 8
   %924 = load ptr, ptr %5, align 8
   %925 = load i32, ptr %15, align 4
@@ -2608,7 +2666,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %932 = load ptr, ptr %5, align 8
   %933 = load i32, ptr %15, align 4
   %934 = load i32, ptr @ett_dsmcc_heading, align 4
-  %935 = call ptr @proto_tree_add_subtree(ptr noundef %931, ptr noundef %932, i32 noundef %933, i32 noundef -1, i32 noundef %934, ptr noundef null, ptr noundef @.str.496)
+  %935 = call ptr @proto_tree_add_subtree(ptr noundef %931, ptr noundef %932, i32 noundef %933, i32 noundef -1, i32 noundef %934, ptr noundef null, ptr noundef @.str.498)
   store ptr %935, ptr %11, align 8
   %936 = load ptr, ptr %5, align 8
   %937 = load i32, ptr %15, align 4
@@ -2622,7 +2680,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %944 = load ptr, ptr %5, align 8
   %945 = load i32, ptr %15, align 4
   %946 = load i32, ptr @ett_dsmcc_heading, align 4
-  %947 = call ptr @proto_tree_add_subtree(ptr noundef %943, ptr noundef %944, i32 noundef %945, i32 noundef -1, i32 noundef %946, ptr noundef null, ptr noundef @.str.495)
+  %947 = call ptr @proto_tree_add_subtree(ptr noundef %943, ptr noundef %944, i32 noundef %945, i32 noundef -1, i32 noundef %946, ptr noundef null, ptr noundef @.str.497)
   store ptr %947, ptr %11, align 8
   %948 = load ptr, ptr %5, align 8
   %949 = load i32, ptr %15, align 4
@@ -2655,7 +2713,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %971 = load ptr, ptr %5, align 8
   %972 = load i32, ptr %15, align 4
   %973 = load i32, ptr @ett_dsmcc_heading, align 4
-  %974 = call ptr @proto_tree_add_subtree(ptr noundef %970, ptr noundef %971, i32 noundef %972, i32 noundef -1, i32 noundef %973, ptr noundef null, ptr noundef @.str.495)
+  %974 = call ptr @proto_tree_add_subtree(ptr noundef %970, ptr noundef %971, i32 noundef %972, i32 noundef -1, i32 noundef %973, ptr noundef null, ptr noundef @.str.497)
   store ptr %974, ptr %11, align 8
   %975 = load ptr, ptr %5, align 8
   %976 = load i32, ptr %15, align 4
@@ -2688,7 +2746,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %998 = load ptr, ptr %5, align 8
   %999 = load i32, ptr %15, align 4
   %1000 = load i32, ptr @ett_dsmcc_heading, align 4
-  %1001 = call ptr @proto_tree_add_subtree(ptr noundef %997, ptr noundef %998, i32 noundef %999, i32 noundef -1, i32 noundef %1000, ptr noundef null, ptr noundef @.str.495)
+  %1001 = call ptr @proto_tree_add_subtree(ptr noundef %997, ptr noundef %998, i32 noundef %999, i32 noundef -1, i32 noundef %1000, ptr noundef null, ptr noundef @.str.497)
   store ptr %1001, ptr %11, align 8
   %1002 = load ptr, ptr %5, align 8
   %1003 = load i32, ptr %15, align 4
@@ -2721,7 +2779,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %1025 = load ptr, ptr %5, align 8
   %1026 = load i32, ptr %15, align 4
   %1027 = load i32, ptr @ett_dsmcc_heading, align 4
-  %1028 = call ptr @proto_tree_add_subtree(ptr noundef %1024, ptr noundef %1025, i32 noundef %1026, i32 noundef -1, i32 noundef %1027, ptr noundef null, ptr noundef @.str.495)
+  %1028 = call ptr @proto_tree_add_subtree(ptr noundef %1024, ptr noundef %1025, i32 noundef %1026, i32 noundef -1, i32 noundef %1027, ptr noundef null, ptr noundef @.str.497)
   store ptr %1028, ptr %11, align 8
   %1029 = load ptr, ptr %5, align 8
   %1030 = load i32, ptr %15, align 4
@@ -2754,7 +2812,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %1052 = load ptr, ptr %5, align 8
   %1053 = load i32, ptr %15, align 4
   %1054 = load i32, ptr @ett_dsmcc_heading, align 4
-  %1055 = call ptr @proto_tree_add_subtree(ptr noundef %1051, ptr noundef %1052, i32 noundef %1053, i32 noundef -1, i32 noundef %1054, ptr noundef null, ptr noundef @.str.495)
+  %1055 = call ptr @proto_tree_add_subtree(ptr noundef %1051, ptr noundef %1052, i32 noundef %1053, i32 noundef -1, i32 noundef %1054, ptr noundef null, ptr noundef @.str.497)
   store ptr %1055, ptr %11, align 8
   %1056 = load ptr, ptr %5, align 8
   %1057 = load i32, ptr %15, align 4
@@ -2779,7 +2837,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %1072 = load ptr, ptr %5, align 8
   %1073 = load i32, ptr %15, align 4
   %1074 = load i32, ptr @ett_dsmcc_heading, align 4
-  %1075 = call ptr @proto_tree_add_subtree(ptr noundef %1071, ptr noundef %1072, i32 noundef %1073, i32 noundef -1, i32 noundef %1074, ptr noundef null, ptr noundef @.str.496)
+  %1075 = call ptr @proto_tree_add_subtree(ptr noundef %1071, ptr noundef %1072, i32 noundef %1073, i32 noundef -1, i32 noundef %1074, ptr noundef null, ptr noundef @.str.498)
   store ptr %1075, ptr %11, align 8
   %1076 = load ptr, ptr %5, align 8
   %1077 = load i32, ptr %15, align 4
@@ -2793,7 +2851,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %1084 = load ptr, ptr %5, align 8
   %1085 = load i32, ptr %15, align 4
   %1086 = load i32, ptr @ett_dsmcc_heading, align 4
-  %1087 = call ptr @proto_tree_add_subtree(ptr noundef %1083, ptr noundef %1084, i32 noundef %1085, i32 noundef -1, i32 noundef %1086, ptr noundef null, ptr noundef @.str.495)
+  %1087 = call ptr @proto_tree_add_subtree(ptr noundef %1083, ptr noundef %1084, i32 noundef %1085, i32 noundef -1, i32 noundef %1086, ptr noundef null, ptr noundef @.str.497)
   store ptr %1087, ptr %11, align 8
   %1088 = load ptr, ptr %5, align 8
   %1089 = load i32, ptr %15, align 4
@@ -2826,7 +2884,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %1111 = load ptr, ptr %5, align 8
   %1112 = load i32, ptr %15, align 4
   %1113 = load i32, ptr @ett_dsmcc_heading, align 4
-  %1114 = call ptr @proto_tree_add_subtree(ptr noundef %1110, ptr noundef %1111, i32 noundef %1112, i32 noundef -1, i32 noundef %1113, ptr noundef null, ptr noundef @.str.496)
+  %1114 = call ptr @proto_tree_add_subtree(ptr noundef %1110, ptr noundef %1111, i32 noundef %1112, i32 noundef -1, i32 noundef %1113, ptr noundef null, ptr noundef @.str.498)
   store ptr %1114, ptr %11, align 8
   %1115 = load ptr, ptr %5, align 8
   %1116 = load i32, ptr %15, align 4
@@ -2840,7 +2898,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %1123 = load ptr, ptr %5, align 8
   %1124 = load i32, ptr %15, align 4
   %1125 = load i32, ptr @ett_dsmcc_heading, align 4
-  %1126 = call ptr @proto_tree_add_subtree(ptr noundef %1122, ptr noundef %1123, i32 noundef %1124, i32 noundef -1, i32 noundef %1125, ptr noundef null, ptr noundef @.str.495)
+  %1126 = call ptr @proto_tree_add_subtree(ptr noundef %1122, ptr noundef %1123, i32 noundef %1124, i32 noundef -1, i32 noundef %1125, ptr noundef null, ptr noundef @.str.497)
   store ptr %1126, ptr %11, align 8
   %1127 = load ptr, ptr %5, align 8
   %1128 = load i32, ptr %15, align 4
@@ -2901,14 +2959,14 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %1169 = load i32, ptr %12, align 4
   %1170 = add i32 %1169, 1
   store i32 %1170, ptr %12, align 4
-  br label %1156, !llvm.loop !12
+  br label %1156, !llvm.loop !16
 
 1171:                                             ; preds = %1156
   %1172 = load ptr, ptr %10, align 8
   %1173 = load ptr, ptr %5, align 8
   %1174 = load i32, ptr %15, align 4
   %1175 = load i32, ptr @ett_dsmcc_heading, align 4
-  %1176 = call ptr @proto_tree_add_subtree(ptr noundef %1172, ptr noundef %1173, i32 noundef %1174, i32 noundef -1, i32 noundef %1175, ptr noundef null, ptr noundef @.str.495)
+  %1176 = call ptr @proto_tree_add_subtree(ptr noundef %1172, ptr noundef %1173, i32 noundef %1174, i32 noundef -1, i32 noundef %1175, ptr noundef null, ptr noundef @.str.497)
   store ptr %1176, ptr %11, align 8
   %1177 = load ptr, ptr %5, align 8
   %1178 = load i32, ptr %15, align 4
@@ -2941,7 +2999,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %1200 = load ptr, ptr %5, align 8
   %1201 = load i32, ptr %15, align 4
   %1202 = load i32, ptr @ett_dsmcc_heading, align 4
-  %1203 = call ptr @proto_tree_add_subtree(ptr noundef %1199, ptr noundef %1200, i32 noundef %1201, i32 noundef -1, i32 noundef %1202, ptr noundef null, ptr noundef @.str.495)
+  %1203 = call ptr @proto_tree_add_subtree(ptr noundef %1199, ptr noundef %1200, i32 noundef %1201, i32 noundef -1, i32 noundef %1202, ptr noundef null, ptr noundef @.str.497)
   store ptr %1203, ptr %11, align 8
   %1204 = load ptr, ptr %5, align 8
   %1205 = load i32, ptr %15, align 4
@@ -2974,7 +3032,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %1227 = load ptr, ptr %5, align 8
   %1228 = load i32, ptr %15, align 4
   %1229 = load i32, ptr @ett_dsmcc_heading, align 4
-  %1230 = call ptr @proto_tree_add_subtree(ptr noundef %1226, ptr noundef %1227, i32 noundef %1228, i32 noundef 20, i32 noundef %1229, ptr noundef null, ptr noundef @.str.494)
+  %1230 = call ptr @proto_tree_add_subtree(ptr noundef %1226, ptr noundef %1227, i32 noundef %1228, i32 noundef 20, i32 noundef %1229, ptr noundef null, ptr noundef @.str.496)
   store ptr %1230, ptr %11, align 8
   %1231 = load ptr, ptr %5, align 8
   %1232 = load i32, ptr %15, align 4
@@ -2988,7 +3046,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %1239 = load ptr, ptr %5, align 8
   %1240 = load i32, ptr %15, align 4
   %1241 = load i32, ptr @ett_dsmcc_heading, align 4
-  %1242 = call ptr @proto_tree_add_subtree(ptr noundef %1238, ptr noundef %1239, i32 noundef %1240, i32 noundef -1, i32 noundef %1241, ptr noundef null, ptr noundef @.str.496)
+  %1242 = call ptr @proto_tree_add_subtree(ptr noundef %1238, ptr noundef %1239, i32 noundef %1240, i32 noundef -1, i32 noundef %1241, ptr noundef null, ptr noundef @.str.498)
   store ptr %1242, ptr %11, align 8
   %1243 = load ptr, ptr %5, align 8
   %1244 = load i32, ptr %15, align 4
@@ -3021,7 +3079,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %1266 = load ptr, ptr %5, align 8
   %1267 = load i32, ptr %15, align 4
   %1268 = load i32, ptr @ett_dsmcc_heading, align 4
-  %1269 = call ptr @proto_tree_add_subtree(ptr noundef %1265, ptr noundef %1266, i32 noundef %1267, i32 noundef -1, i32 noundef %1268, ptr noundef null, ptr noundef @.str.496)
+  %1269 = call ptr @proto_tree_add_subtree(ptr noundef %1265, ptr noundef %1266, i32 noundef %1267, i32 noundef -1, i32 noundef %1268, ptr noundef null, ptr noundef @.str.498)
   store ptr %1269, ptr %11, align 8
   %1270 = load ptr, ptr %5, align 8
   %1271 = load i32, ptr %15, align 4
@@ -3046,7 +3104,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %1286 = load ptr, ptr %5, align 8
   %1287 = load i32, ptr %15, align 4
   %1288 = load i32, ptr @ett_dsmcc_heading, align 4
-  %1289 = call ptr @proto_tree_add_subtree(ptr noundef %1285, ptr noundef %1286, i32 noundef %1287, i32 noundef 20, i32 noundef %1288, ptr noundef null, ptr noundef @.str.494)
+  %1289 = call ptr @proto_tree_add_subtree(ptr noundef %1285, ptr noundef %1286, i32 noundef %1287, i32 noundef 20, i32 noundef %1288, ptr noundef null, ptr noundef @.str.496)
   store ptr %1289, ptr %11, align 8
   %1290 = load ptr, ptr %5, align 8
   %1291 = load i32, ptr %15, align 4
@@ -3096,7 +3154,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %1324 = load i32, ptr %12, align 4
   %1325 = add i32 %1324, 1
   store i32 %1325, ptr %12, align 4
-  br label %1311, !llvm.loop !13
+  br label %1311, !llvm.loop !17
 
 1326:                                             ; preds = %1311
   br label %1773
@@ -3150,7 +3208,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %1362 = load i32, ptr %12, align 4
   %1363 = add i32 %1362, 1
   store i32 %1363, ptr %12, align 4
-  br label %1349, !llvm.loop !14
+  br label %1349, !llvm.loop !18
 
 1364:                                             ; preds = %1349
   br label %1773
@@ -3204,7 +3262,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %1400 = load i32, ptr %12, align 4
   %1401 = add i32 %1400, 1
   store i32 %1401, ptr %12, align 4
-  br label %1387, !llvm.loop !15
+  br label %1387, !llvm.loop !19
 
 1402:                                             ; preds = %1387
   br label %1773
@@ -3258,7 +3316,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %1438 = load i32, ptr %12, align 4
   %1439 = add i32 %1438, 1
   store i32 %1439, ptr %12, align 4
-  br label %1425, !llvm.loop !16
+  br label %1425, !llvm.loop !20
 
 1440:                                             ; preds = %1425
   br label %1773
@@ -3268,7 +3326,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %1443 = load ptr, ptr %5, align 8
   %1444 = load i32, ptr %15, align 4
   %1445 = load i32, ptr @ett_dsmcc_heading, align 4
-  %1446 = call ptr @proto_tree_add_subtree(ptr noundef %1442, ptr noundef %1443, i32 noundef %1444, i32 noundef 20, i32 noundef %1445, ptr noundef null, ptr noundef @.str.494)
+  %1446 = call ptr @proto_tree_add_subtree(ptr noundef %1442, ptr noundef %1443, i32 noundef %1444, i32 noundef 20, i32 noundef %1445, ptr noundef null, ptr noundef @.str.496)
   store ptr %1446, ptr %11, align 8
   %1447 = load ptr, ptr %5, align 8
   %1448 = load i32, ptr %15, align 4
@@ -3293,7 +3351,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %1463 = load ptr, ptr %5, align 8
   %1464 = load i32, ptr %15, align 4
   %1465 = load i32, ptr @ett_dsmcc_heading, align 4
-  %1466 = call ptr @proto_tree_add_subtree(ptr noundef %1462, ptr noundef %1463, i32 noundef %1464, i32 noundef 20, i32 noundef %1465, ptr noundef null, ptr noundef @.str.494)
+  %1466 = call ptr @proto_tree_add_subtree(ptr noundef %1462, ptr noundef %1463, i32 noundef %1464, i32 noundef 20, i32 noundef %1465, ptr noundef null, ptr noundef @.str.496)
   store ptr %1466, ptr %11, align 8
   %1467 = load ptr, ptr %5, align 8
   %1468 = load i32, ptr %15, align 4
@@ -3318,7 +3376,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %1483 = load ptr, ptr %5, align 8
   %1484 = load i32, ptr %15, align 4
   %1485 = load i32, ptr @ett_dsmcc_heading, align 4
-  %1486 = call ptr @proto_tree_add_subtree(ptr noundef %1482, ptr noundef %1483, i32 noundef %1484, i32 noundef 20, i32 noundef %1485, ptr noundef null, ptr noundef @.str.494)
+  %1486 = call ptr @proto_tree_add_subtree(ptr noundef %1482, ptr noundef %1483, i32 noundef %1484, i32 noundef 20, i32 noundef %1485, ptr noundef null, ptr noundef @.str.496)
   store ptr %1486, ptr %11, align 8
   %1487 = load ptr, ptr %5, align 8
   %1488 = load i32, ptr %15, align 4
@@ -3343,7 +3401,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %1503 = load ptr, ptr %5, align 8
   %1504 = load i32, ptr %15, align 4
   %1505 = load i32, ptr @ett_dsmcc_heading, align 4
-  %1506 = call ptr @proto_tree_add_subtree(ptr noundef %1502, ptr noundef %1503, i32 noundef %1504, i32 noundef 20, i32 noundef %1505, ptr noundef null, ptr noundef @.str.494)
+  %1506 = call ptr @proto_tree_add_subtree(ptr noundef %1502, ptr noundef %1503, i32 noundef %1504, i32 noundef 20, i32 noundef %1505, ptr noundef null, ptr noundef @.str.496)
   store ptr %1506, ptr %11, align 8
   %1507 = load ptr, ptr %5, align 8
   %1508 = load i32, ptr %15, align 4
@@ -3395,7 +3453,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %1545 = load ptr, ptr %5, align 8
   %1546 = load i32, ptr %15, align 4
   %1547 = load i32, ptr @ett_dsmcc_heading, align 4
-  %1548 = call ptr @proto_tree_add_subtree(ptr noundef %1544, ptr noundef %1545, i32 noundef %1546, i32 noundef -1, i32 noundef %1547, ptr noundef null, ptr noundef @.str.495)
+  %1548 = call ptr @proto_tree_add_subtree(ptr noundef %1544, ptr noundef %1545, i32 noundef %1546, i32 noundef -1, i32 noundef %1547, ptr noundef null, ptr noundef @.str.497)
   store ptr %1548, ptr %11, align 8
   %1549 = load ptr, ptr %5, align 8
   %1550 = load i32, ptr %15, align 4
@@ -3428,7 +3486,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %1572 = load ptr, ptr %5, align 8
   %1573 = load i32, ptr %15, align 4
   %1574 = load i32, ptr @ett_dsmcc_heading, align 4
-  %1575 = call ptr @proto_tree_add_subtree(ptr noundef %1571, ptr noundef %1572, i32 noundef %1573, i32 noundef 20, i32 noundef %1574, ptr noundef null, ptr noundef @.str.501)
+  %1575 = call ptr @proto_tree_add_subtree(ptr noundef %1571, ptr noundef %1572, i32 noundef %1573, i32 noundef 20, i32 noundef %1574, ptr noundef null, ptr noundef @.str.503)
   store ptr %1575, ptr %11, align 8
   %1576 = load ptr, ptr %5, align 8
   %1577 = load i32, ptr %15, align 4
@@ -3442,7 +3500,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %1584 = load ptr, ptr %5, align 8
   %1585 = load i32, ptr %15, align 4
   %1586 = load i32, ptr @ett_dsmcc_heading, align 4
-  %1587 = call ptr @proto_tree_add_subtree(ptr noundef %1583, ptr noundef %1584, i32 noundef %1585, i32 noundef 20, i32 noundef %1586, ptr noundef null, ptr noundef @.str.502)
+  %1587 = call ptr @proto_tree_add_subtree(ptr noundef %1583, ptr noundef %1584, i32 noundef %1585, i32 noundef 20, i32 noundef %1586, ptr noundef null, ptr noundef @.str.504)
   store ptr %1587, ptr %11, align 8
   %1588 = load ptr, ptr %5, align 8
   %1589 = load i32, ptr %15, align 4
@@ -3456,7 +3514,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %1596 = load ptr, ptr %5, align 8
   %1597 = load i32, ptr %15, align 4
   %1598 = load i32, ptr @ett_dsmcc_heading, align 4
-  %1599 = call ptr @proto_tree_add_subtree(ptr noundef %1595, ptr noundef %1596, i32 noundef %1597, i32 noundef -1, i32 noundef %1598, ptr noundef null, ptr noundef @.str.495)
+  %1599 = call ptr @proto_tree_add_subtree(ptr noundef %1595, ptr noundef %1596, i32 noundef %1597, i32 noundef -1, i32 noundef %1598, ptr noundef null, ptr noundef @.str.497)
   store ptr %1599, ptr %11, align 8
   %1600 = load ptr, ptr %5, align 8
   %1601 = load i32, ptr %15, align 4
@@ -3489,7 +3547,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %1623 = load ptr, ptr %5, align 8
   %1624 = load i32, ptr %15, align 4
   %1625 = load i32, ptr @ett_dsmcc_heading, align 4
-  %1626 = call ptr @proto_tree_add_subtree(ptr noundef %1622, ptr noundef %1623, i32 noundef %1624, i32 noundef -1, i32 noundef %1625, ptr noundef null, ptr noundef @.str.495)
+  %1626 = call ptr @proto_tree_add_subtree(ptr noundef %1622, ptr noundef %1623, i32 noundef %1624, i32 noundef -1, i32 noundef %1625, ptr noundef null, ptr noundef @.str.497)
   store ptr %1626, ptr %11, align 8
   %1627 = load ptr, ptr %5, align 8
   %1628 = load i32, ptr %15, align 4
@@ -3522,7 +3580,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %1650 = load ptr, ptr %5, align 8
   %1651 = load i32, ptr %15, align 4
   %1652 = load i32, ptr @ett_dsmcc_heading, align 4
-  %1653 = call ptr @proto_tree_add_subtree(ptr noundef %1649, ptr noundef %1650, i32 noundef %1651, i32 noundef 20, i32 noundef %1652, ptr noundef null, ptr noundef @.str.493)
+  %1653 = call ptr @proto_tree_add_subtree(ptr noundef %1649, ptr noundef %1650, i32 noundef %1651, i32 noundef 20, i32 noundef %1652, ptr noundef null, ptr noundef @.str.495)
   store ptr %1653, ptr %11, align 8
   %1654 = load ptr, ptr %5, align 8
   %1655 = load i32, ptr %15, align 4
@@ -3536,7 +3594,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %1662 = load ptr, ptr %5, align 8
   %1663 = load i32, ptr %15, align 4
   %1664 = load i32, ptr @ett_dsmcc_heading, align 4
-  %1665 = call ptr @proto_tree_add_subtree(ptr noundef %1661, ptr noundef %1662, i32 noundef %1663, i32 noundef 20, i32 noundef %1664, ptr noundef null, ptr noundef @.str.503)
+  %1665 = call ptr @proto_tree_add_subtree(ptr noundef %1661, ptr noundef %1662, i32 noundef %1663, i32 noundef 20, i32 noundef %1664, ptr noundef null, ptr noundef @.str.505)
   store ptr %1665, ptr %11, align 8
   %1666 = load ptr, ptr %5, align 8
   %1667 = load i32, ptr %15, align 4
@@ -3550,7 +3608,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %1674 = load ptr, ptr %5, align 8
   %1675 = load i32, ptr %15, align 4
   %1676 = load i32, ptr @ett_dsmcc_heading, align 4
-  %1677 = call ptr @proto_tree_add_subtree(ptr noundef %1673, ptr noundef %1674, i32 noundef %1675, i32 noundef 20, i32 noundef %1676, ptr noundef null, ptr noundef @.str.502)
+  %1677 = call ptr @proto_tree_add_subtree(ptr noundef %1673, ptr noundef %1674, i32 noundef %1675, i32 noundef 20, i32 noundef %1676, ptr noundef null, ptr noundef @.str.504)
   store ptr %1677, ptr %11, align 8
   %1678 = load ptr, ptr %5, align 8
   %1679 = load i32, ptr %15, align 4
@@ -3564,7 +3622,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %1686 = load ptr, ptr %5, align 8
   %1687 = load i32, ptr %15, align 4
   %1688 = load i32, ptr @ett_dsmcc_heading, align 4
-  %1689 = call ptr @proto_tree_add_subtree(ptr noundef %1685, ptr noundef %1686, i32 noundef %1687, i32 noundef -1, i32 noundef %1688, ptr noundef null, ptr noundef @.str.496)
+  %1689 = call ptr @proto_tree_add_subtree(ptr noundef %1685, ptr noundef %1686, i32 noundef %1687, i32 noundef -1, i32 noundef %1688, ptr noundef null, ptr noundef @.str.498)
   store ptr %1689, ptr %11, align 8
   %1690 = load ptr, ptr %5, align 8
   %1691 = load i32, ptr %15, align 4
@@ -3578,7 +3636,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %1698 = load ptr, ptr %5, align 8
   %1699 = load i32, ptr %15, align 4
   %1700 = load i32, ptr @ett_dsmcc_heading, align 4
-  %1701 = call ptr @proto_tree_add_subtree(ptr noundef %1697, ptr noundef %1698, i32 noundef %1699, i32 noundef -1, i32 noundef %1700, ptr noundef null, ptr noundef @.str.495)
+  %1701 = call ptr @proto_tree_add_subtree(ptr noundef %1697, ptr noundef %1698, i32 noundef %1699, i32 noundef -1, i32 noundef %1700, ptr noundef null, ptr noundef @.str.497)
   store ptr %1701, ptr %11, align 8
   %1702 = load ptr, ptr %5, align 8
   %1703 = load i32, ptr %15, align 4
@@ -3611,7 +3669,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %1725 = load ptr, ptr %5, align 8
   %1726 = load i32, ptr %15, align 4
   %1727 = load i32, ptr @ett_dsmcc_heading, align 4
-  %1728 = call ptr @proto_tree_add_subtree(ptr noundef %1724, ptr noundef %1725, i32 noundef %1726, i32 noundef -1, i32 noundef %1727, ptr noundef null, ptr noundef @.str.496)
+  %1728 = call ptr @proto_tree_add_subtree(ptr noundef %1724, ptr noundef %1725, i32 noundef %1726, i32 noundef -1, i32 noundef %1727, ptr noundef null, ptr noundef @.str.498)
   store ptr %1728, ptr %11, align 8
   %1729 = load ptr, ptr %5, align 8
   %1730 = load i32, ptr %15, align 4
@@ -3625,7 +3683,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %1737 = load ptr, ptr %5, align 8
   %1738 = load i32, ptr %15, align 4
   %1739 = load i32, ptr @ett_dsmcc_heading, align 4
-  %1740 = call ptr @proto_tree_add_subtree(ptr noundef %1736, ptr noundef %1737, i32 noundef %1738, i32 noundef -1, i32 noundef %1739, ptr noundef null, ptr noundef @.str.495)
+  %1740 = call ptr @proto_tree_add_subtree(ptr noundef %1736, ptr noundef %1737, i32 noundef %1738, i32 noundef -1, i32 noundef %1739, ptr noundef null, ptr noundef @.str.497)
   store ptr %1740, ptr %11, align 8
   %1741 = load ptr, ptr %5, align 8
   %1742 = load i32, ptr %15, align 4
@@ -3670,7 +3728,7 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %1769 = load i32, ptr %12, align 4
   %1770 = add i32 %1769, 1
   store i32 %1770, ptr %12, align 4
-  br label %1756, !llvm.loop !17
+  br label %1756, !llvm.loop !21
 
 1771:                                             ; preds = %1756
   br label %1773
@@ -3682,10 +3740,17 @@ define internal void @dissect_dsmcc_un_session(ptr noundef %0, ptr noundef %1, p
   %1774 = load ptr, ptr %9, align 8
   %1775 = load i32, ptr %15, align 4
   call void @proto_item_set_len(ptr noundef %1774, i32 noundef %1775)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_dsmcc_un_download(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3698,6 +3763,9 @@ define internal void @dissect_dsmcc_un_download(ptr noundef %0, ptr noundef %1, 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
   store i32 0, ptr %11, align 4
   %12 = load ptr, ptr %5, align 8
   %13 = load i32, ptr %11, align 4
@@ -3709,18 +3777,18 @@ define internal void @dissect_dsmcc_un_download(ptr noundef %0, ptr noundef %1, 
   %18 = load i32, ptr @ett_dsmcc_payload, align 4
   %19 = load i16, ptr %10, align 2
   %20 = zext i16 %19 to i32
-  %21 = call ptr @val_to_str(i32 noundef %20, ptr noundef @dsmcc_dd_message_id_vals, ptr noundef @.str.595)
-  %22 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %16, ptr noundef %17, i32 noundef 0, i32 noundef -1, i32 noundef %18, ptr noundef null, ptr noundef @.str.594, ptr noundef %21)
+  %21 = call ptr @val_to_str(i32 noundef %20, ptr noundef @dsmcc_dd_message_id_vals, ptr noundef @.str.598)
+  %22 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %16, ptr noundef %17, i32 noundef 0, i32 noundef -1, i32 noundef %18, ptr noundef null, ptr noundef @.str.597, ptr noundef %21)
   store ptr %22, ptr %9, align 8
   %23 = load i16, ptr %10, align 2
   %24 = zext i16 %23 to i32
-  switch i32 %24, label %53 [
+  switch i32 %24, label %50 [
     i32 4097, label %25
     i32 4098, label %25
     i32 4099, label %37
-    i32 4100, label %50
+    i32 4100, label %51
     i32 4101, label %51
-    i32 4102, label %52
+    i32 4102, label %51
   ]
 
 25:                                               ; preds = %4, %4
@@ -3728,7 +3796,7 @@ define internal void @dissect_dsmcc_un_download(ptr noundef %0, ptr noundef %1, 
   %27 = load ptr, ptr %6, align 8
   %28 = load ptr, ptr %9, align 8
   %29 = load i32, ptr %11, align 4
-  %30 = call i32 @dissect_dsmcc_header(ptr noundef %26, ptr noundef %27, ptr noundef %28, i32 noundef %29, i32 noundef 0)
+  %30 = call i32 @dissect_dsmcc_header(ptr noundef %26, ptr noundef %27, ptr noundef %28, i32 noundef %29, i1 noundef zeroext false)
   %31 = load i32, ptr %11, align 4
   %32 = add i32 %31, %30
   store i32 %32, ptr %11, align 4
@@ -3737,14 +3805,14 @@ define internal void @dissect_dsmcc_un_download(ptr noundef %0, ptr noundef %1, 
   %35 = load ptr, ptr %9, align 8
   %36 = load i32, ptr %11, align 4
   call void @dissect_dsmcc_dii(ptr noundef %33, ptr noundef %34, ptr noundef %35, i32 noundef %36)
-  br label %54
+  br label %51
 
 37:                                               ; preds = %4
   %38 = load ptr, ptr %5, align 8
   %39 = load ptr, ptr %6, align 8
   %40 = load ptr, ptr %9, align 8
   %41 = load i32, ptr %11, align 4
-  %42 = call i32 @dissect_dsmcc_header(ptr noundef %38, ptr noundef %39, ptr noundef %40, i32 noundef %41, i32 noundef 1)
+  %42 = call i32 @dissect_dsmcc_header(ptr noundef %38, ptr noundef %39, ptr noundef %40, i32 noundef %41, i1 noundef zeroext true)
   %43 = load i32, ptr %11, align 4
   %44 = add i32 %43, %42
   store i32 %44, ptr %11, align 4
@@ -3754,37 +3822,34 @@ define internal void @dissect_dsmcc_un_download(ptr noundef %0, ptr noundef %1, 
   %48 = load ptr, ptr %8, align 8
   %49 = load i32, ptr %11, align 4
   call void @dissect_dsmcc_ddb(ptr noundef %45, ptr noundef %46, ptr noundef %47, ptr noundef %48, i32 noundef %49)
-  br label %54
+  br label %51
 
 50:                                               ; preds = %4
-  br label %54
+  br label %51
 
-51:                                               ; preds = %4
-  br label %54
-
-52:                                               ; preds = %4
-  br label %54
-
-53:                                               ; preds = %4
-  br label %54
-
-54:                                               ; preds = %53, %52, %51, %50, %37, %25
+51:                                               ; preds = %50, %4, %4, %4, %37, %25
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
   ret void
 }
 
-declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #2
 
-declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) #2
 
-declare void @col_append_sep_str(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_sep_str(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dsmcc_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @dissect_dsmcc_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
-  %10 = alloca i32, align 4
+  %10 = alloca i8, align 1
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
   %13 = alloca ptr, align 8
@@ -3798,182 +3863,203 @@ define internal i32 @dissect_dsmcc_header(ptr noundef %0, ptr noundef %1, ptr no
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
-  store i32 %4, ptr %10, align 4
-  %20 = load i32, ptr %9, align 4
-  store i32 %20, ptr %17, align 4
-  %21 = load ptr, ptr %6, align 8
-  %22 = load i32, ptr %9, align 4
-  %23 = call zeroext i8 @tvb_get_guint8(ptr noundef %21, i32 noundef %22)
-  store i8 %23, ptr %14, align 1
-  %24 = load ptr, ptr %6, align 8
-  %25 = load i32, ptr %9, align 4
-  %26 = add i32 8, %25
-  %27 = call zeroext i8 @tvb_get_guint8(ptr noundef %24, i32 noundef %26)
-  %28 = zext i8 %27 to i32
-  store i32 %28, ptr %16, align 4
-  %29 = load ptr, ptr %6, align 8
-  %30 = load i32, ptr %9, align 4
-  %31 = add i32 9, %30
-  %32 = call zeroext i8 @tvb_get_guint8(ptr noundef %29, i32 noundef %31)
-  store i8 %32, ptr %15, align 1
-  %33 = load ptr, ptr %8, align 8
-  %34 = load ptr, ptr %6, align 8
-  %35 = load i32, ptr %9, align 4
-  %36 = load i8, ptr %15, align 1
-  %37 = zext i8 %36 to i32
-  %38 = add i32 12, %37
-  %39 = load i32, ptr @ett_dsmcc_header, align 4
-  %40 = call ptr @proto_tree_add_subtree(ptr noundef %33, ptr noundef %34, i32 noundef %35, i32 noundef %38, i32 noundef %39, ptr noundef null, ptr noundef @.str.554)
-  store ptr %40, ptr %13, align 8
-  %41 = load ptr, ptr %13, align 8
-  %42 = load i32, ptr @hf_dsmcc_protocol_discriminator, align 4
-  %43 = load ptr, ptr %6, align 8
-  %44 = load i32, ptr %9, align 4
-  %45 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %42, ptr noundef %43, i32 noundef %44, i32 noundef 1, i32 noundef 0)
-  store ptr %45, ptr %12, align 8
-  %46 = load i8, ptr %14, align 1
-  %47 = zext i8 %46 to i32
-  %48 = icmp ne i32 17, %47
-  br i1 %48, label %49, label %53
+  %20 = zext i1 %4 to i8
+  store i8 %20, ptr %10, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
+  %21 = load i32, ptr %9, align 4
+  store i32 %21, ptr %17, align 4
+  %22 = load ptr, ptr %6, align 8
+  %23 = load i32, ptr %9, align 4
+  %24 = call zeroext i8 @tvb_get_uint8(ptr noundef %22, i32 noundef %23)
+  store i8 %24, ptr %14, align 1
+  %25 = load ptr, ptr %6, align 8
+  %26 = load i32, ptr %9, align 4
+  %27 = add i32 8, %26
+  %28 = call zeroext i8 @tvb_get_uint8(ptr noundef %25, i32 noundef %27)
+  %29 = zext i8 %28 to i32
+  store i32 %29, ptr %16, align 4
+  %30 = load ptr, ptr %6, align 8
+  %31 = load i32, ptr %9, align 4
+  %32 = add i32 9, %31
+  %33 = call zeroext i8 @tvb_get_uint8(ptr noundef %30, i32 noundef %32)
+  store i8 %33, ptr %15, align 1
+  %34 = load ptr, ptr %8, align 8
+  %35 = load ptr, ptr %6, align 8
+  %36 = load i32, ptr %9, align 4
+  %37 = load i8, ptr %15, align 1
+  %38 = zext i8 %37 to i32
+  %39 = add i32 12, %38
+  %40 = load i32, ptr @ett_dsmcc_header, align 4
+  %41 = call ptr @proto_tree_add_subtree(ptr noundef %34, ptr noundef %35, i32 noundef %36, i32 noundef %39, i32 noundef %40, ptr noundef null, ptr noundef @.str.557)
+  store ptr %41, ptr %13, align 8
+  %42 = load ptr, ptr %13, align 8
+  %43 = load i32, ptr @hf_dsmcc_protocol_discriminator, align 4
+  %44 = load ptr, ptr %6, align 8
+  %45 = load i32, ptr %9, align 4
+  %46 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %43, ptr noundef %44, i32 noundef %45, i32 noundef 1, i32 noundef 0)
+  store ptr %46, ptr %12, align 8
+  %47 = load i8, ptr %14, align 1
+  %48 = zext i8 %47 to i32
+  %49 = icmp ne i32 17, %48
+  br i1 %49, label %50, label %54
 
-49:                                               ; preds = %5
-  %50 = load ptr, ptr %7, align 8
-  %51 = load ptr, ptr %12, align 8
-  %52 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %50, ptr noundef %51, ptr noundef @ei_dsmcc_invalid_value, ptr noundef @.str.555)
-  br label %53
+50:                                               ; preds = %5
+  %51 = load ptr, ptr %7, align 8
+  %52 = load ptr, ptr %12, align 8
+  %53 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %51, ptr noundef %52, ptr noundef @ei_dsmcc_invalid_value, ptr noundef @.str.558)
+  br label %54
 
-53:                                               ; preds = %49, %5
-  %54 = load i32, ptr %9, align 4
-  %55 = add i32 %54, 1
-  store i32 %55, ptr %9, align 4
-  %56 = load ptr, ptr %13, align 8
-  %57 = load i32, ptr @hf_dsmcc_type, align 4
-  %58 = load ptr, ptr %6, align 8
-  %59 = load i32, ptr %9, align 4
-  %60 = call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %57, ptr noundef %58, i32 noundef %59, i32 noundef 1, i32 noundef 0)
-  %61 = load i32, ptr %9, align 4
-  %62 = add i32 %61, 1
-  store i32 %62, ptr %9, align 4
-  %63 = load i32, ptr %10, align 4
-  %64 = icmp eq i32 1, %63
-  br i1 %64, label %65, label %82
+54:                                               ; preds = %50, %5
+  %55 = load i32, ptr %9, align 4
+  %56 = add i32 %55, 1
+  store i32 %56, ptr %9, align 4
+  %57 = load ptr, ptr %13, align 8
+  %58 = load i32, ptr @hf_dsmcc_type, align 4
+  %59 = load ptr, ptr %6, align 8
+  %60 = load i32, ptr %9, align 4
+  %61 = call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %58, ptr noundef %59, i32 noundef %60, i32 noundef 1, i32 noundef 0)
+  %62 = load i32, ptr %9, align 4
+  %63 = add i32 %62, 1
+  store i32 %63, ptr %9, align 4
+  %64 = load i8, ptr %10, align 1, !range !6, !noundef !7
+  %65 = trunc i8 %64 to i1
+  %66 = zext i1 %65 to i32
+  %67 = icmp eq i32 1, %66
+  br i1 %67, label %68, label %85
 
-65:                                               ; preds = %53
-  %66 = load i32, ptr @hf_dsmcc_dd_message_id, align 4
-  store i32 %66, ptr %18, align 4
-  %67 = load i32, ptr @hf_dsmcc_dd_download_id, align 4
-  store i32 %67, ptr %19, align 4
-  %68 = load ptr, ptr %13, align 8
-  %69 = load i32, ptr %18, align 4
-  %70 = load ptr, ptr %6, align 8
-  %71 = load i32, ptr %9, align 4
-  %72 = call ptr @proto_tree_add_item(ptr noundef %68, i32 noundef %69, ptr noundef %70, i32 noundef %71, i32 noundef 2, i32 noundef 0)
-  %73 = load i32, ptr %9, align 4
-  %74 = add i32 %73, 2
-  store i32 %74, ptr %9, align 4
-  %75 = load ptr, ptr %13, align 8
-  %76 = load i32, ptr %19, align 4
-  %77 = load ptr, ptr %6, align 8
-  %78 = load i32, ptr %9, align 4
-  %79 = call ptr @proto_tree_add_item(ptr noundef %75, i32 noundef %76, ptr noundef %77, i32 noundef %78, i32 noundef 4, i32 noundef 0)
-  %80 = load i32, ptr %9, align 4
-  %81 = add i32 %80, 4
-  store i32 %81, ptr %9, align 4
-  br label %101
+68:                                               ; preds = %54
+  %69 = load i32, ptr @hf_dsmcc_dd_message_id, align 4
+  store i32 %69, ptr %18, align 4
+  %70 = load i32, ptr @hf_dsmcc_dd_download_id, align 4
+  store i32 %70, ptr %19, align 4
+  %71 = load ptr, ptr %13, align 8
+  %72 = load i32, ptr %18, align 4
+  %73 = load ptr, ptr %6, align 8
+  %74 = load i32, ptr %9, align 4
+  %75 = call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %72, ptr noundef %73, i32 noundef %74, i32 noundef 2, i32 noundef 0)
+  %76 = load i32, ptr %9, align 4
+  %77 = add i32 %76, 2
+  store i32 %77, ptr %9, align 4
+  %78 = load ptr, ptr %13, align 8
+  %79 = load i32, ptr %19, align 4
+  %80 = load ptr, ptr %6, align 8
+  %81 = load i32, ptr %9, align 4
+  %82 = call ptr @proto_tree_add_item(ptr noundef %78, i32 noundef %79, ptr noundef %80, i32 noundef %81, i32 noundef 4, i32 noundef 0)
+  %83 = load i32, ptr %9, align 4
+  %84 = add i32 %83, 4
+  store i32 %84, ptr %9, align 4
+  br label %104
 
-82:                                               ; preds = %53
-  %83 = load i32, ptr @hf_dsmcc_message_id, align 4
-  store i32 %83, ptr %18, align 4
-  %84 = load i32, ptr @hf_dsmcc_transaction_id, align 4
-  store i32 %84, ptr %19, align 4
-  %85 = load ptr, ptr %13, align 8
-  %86 = load ptr, ptr %6, align 8
-  %87 = load i32, ptr %9, align 4
-  %88 = load i32, ptr %18, align 4
-  %89 = load i32, ptr @ett_dsmcc_message_id, align 4
-  %90 = call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %85, ptr noundef %86, i32 noundef %87, i32 noundef %88, i32 noundef %89, ptr noundef @bf_message_id, i32 noundef 0, i32 noundef 1)
-  %91 = load i32, ptr %9, align 4
-  %92 = add i32 %91, 2
-  store i32 %92, ptr %9, align 4
-  %93 = load ptr, ptr %13, align 8
-  %94 = load ptr, ptr %6, align 8
-  %95 = load i32, ptr %9, align 4
-  %96 = load i32, ptr %19, align 4
-  %97 = load i32, ptr @ett_dsmcc_transaction_id, align 4
-  %98 = call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %93, ptr noundef %94, i32 noundef %95, i32 noundef %96, i32 noundef %97, ptr noundef @bf_transaction_id, i32 noundef 0, i32 noundef 1)
-  %99 = load i32, ptr %9, align 4
-  %100 = add i32 %99, 4
-  store i32 %100, ptr %9, align 4
-  br label %101
+85:                                               ; preds = %54
+  %86 = load i32, ptr @hf_dsmcc_message_id, align 4
+  store i32 %86, ptr %18, align 4
+  %87 = load i32, ptr @hf_dsmcc_transaction_id, align 4
+  store i32 %87, ptr %19, align 4
+  %88 = load ptr, ptr %13, align 8
+  %89 = load ptr, ptr %6, align 8
+  %90 = load i32, ptr %9, align 4
+  %91 = load i32, ptr %18, align 4
+  %92 = load i32, ptr @ett_dsmcc_message_id, align 4
+  %93 = call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %88, ptr noundef %89, i32 noundef %90, i32 noundef %91, i32 noundef %92, ptr noundef @bf_message_id, i32 noundef 0, i32 noundef 1)
+  %94 = load i32, ptr %9, align 4
+  %95 = add i32 %94, 2
+  store i32 %95, ptr %9, align 4
+  %96 = load ptr, ptr %13, align 8
+  %97 = load ptr, ptr %6, align 8
+  %98 = load i32, ptr %9, align 4
+  %99 = load i32, ptr %19, align 4
+  %100 = load i32, ptr @ett_dsmcc_transaction_id, align 4
+  %101 = call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %96, ptr noundef %97, i32 noundef %98, i32 noundef %99, i32 noundef %100, ptr noundef @bf_transaction_id, i32 noundef 0, i32 noundef 1)
+  %102 = load i32, ptr %9, align 4
+  %103 = add i32 %102, 4
+  store i32 %103, ptr %9, align 4
+  br label %104
 
-101:                                              ; preds = %82, %65
-  %102 = load ptr, ptr %13, align 8
-  %103 = load i32, ptr @hf_dsmcc_header_reserved, align 4
-  %104 = load ptr, ptr %6, align 8
-  %105 = load i32, ptr %9, align 4
-  %106 = call ptr @proto_tree_add_item(ptr noundef %102, i32 noundef %103, ptr noundef %104, i32 noundef %105, i32 noundef 1, i32 noundef 0)
-  store ptr %106, ptr %12, align 8
-  %107 = load i32, ptr %16, align 4
-  %108 = icmp ne i32 255, %107
-  br i1 %108, label %109, label %113
+104:                                              ; preds = %85, %68
+  %105 = load ptr, ptr %13, align 8
+  %106 = load i32, ptr @hf_dsmcc_header_reserved, align 4
+  %107 = load ptr, ptr %6, align 8
+  %108 = load i32, ptr %9, align 4
+  %109 = call ptr @proto_tree_add_item(ptr noundef %105, i32 noundef %106, ptr noundef %107, i32 noundef %108, i32 noundef 1, i32 noundef 0)
+  store ptr %109, ptr %12, align 8
+  %110 = load i32, ptr %16, align 4
+  %111 = icmp ne i32 255, %110
+  br i1 %111, label %112, label %116
 
-109:                                              ; preds = %101
-  %110 = load ptr, ptr %7, align 8
-  %111 = load ptr, ptr %12, align 8
-  %112 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %110, ptr noundef %111, ptr noundef @ei_dsmcc_invalid_value, ptr noundef @.str.556)
-  br label %113
+112:                                              ; preds = %104
+  %113 = load ptr, ptr %7, align 8
+  %114 = load ptr, ptr %12, align 8
+  %115 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %113, ptr noundef %114, ptr noundef @ei_dsmcc_invalid_value, ptr noundef @.str.559)
+  br label %116
 
-113:                                              ; preds = %109, %101
-  %114 = load i32, ptr %9, align 4
-  %115 = add i32 %114, 1
-  store i32 %115, ptr %9, align 4
-  %116 = load ptr, ptr %13, align 8
-  %117 = load i32, ptr @hf_dsmcc_adaptation_length, align 4
-  %118 = load ptr, ptr %6, align 8
-  %119 = load i32, ptr %9, align 4
-  %120 = call ptr @proto_tree_add_item(ptr noundef %116, i32 noundef %117, ptr noundef %118, i32 noundef %119, i32 noundef 1, i32 noundef 0)
-  %121 = load i32, ptr %9, align 4
-  %122 = add i32 %121, 1
-  store i32 %122, ptr %9, align 4
-  %123 = load ptr, ptr %13, align 8
-  %124 = load i32, ptr @hf_dsmcc_message_length, align 4
-  %125 = load ptr, ptr %6, align 8
-  %126 = load i32, ptr %9, align 4
-  %127 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %124, ptr noundef %125, i32 noundef %126, i32 noundef 2, i32 noundef 0)
-  %128 = load i32, ptr %9, align 4
-  %129 = add i32 %128, 2
-  store i32 %129, ptr %9, align 4
-  %130 = load i8, ptr %15, align 1
-  %131 = zext i8 %130 to i32
-  %132 = icmp slt i32 0, %131
-  br i1 %132, label %133, label %146
+116:                                              ; preds = %112, %104
+  %117 = load i32, ptr %9, align 4
+  %118 = add i32 %117, 1
+  store i32 %118, ptr %9, align 4
+  %119 = load ptr, ptr %13, align 8
+  %120 = load i32, ptr @hf_dsmcc_adaptation_length, align 4
+  %121 = load ptr, ptr %6, align 8
+  %122 = load i32, ptr %9, align 4
+  %123 = call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %120, ptr noundef %121, i32 noundef %122, i32 noundef 1, i32 noundef 0)
+  %124 = load i32, ptr %9, align 4
+  %125 = add i32 %124, 1
+  store i32 %125, ptr %9, align 4
+  %126 = load ptr, ptr %13, align 8
+  %127 = load i32, ptr @hf_dsmcc_message_length, align 4
+  %128 = load ptr, ptr %6, align 8
+  %129 = load i32, ptr %9, align 4
+  %130 = call ptr @proto_tree_add_item(ptr noundef %126, i32 noundef %127, ptr noundef %128, i32 noundef %129, i32 noundef 2, i32 noundef 0)
+  %131 = load i32, ptr %9, align 4
+  %132 = add i32 %131, 2
+  store i32 %132, ptr %9, align 4
+  %133 = load i8, ptr %15, align 1
+  %134 = zext i8 %133 to i32
+  %135 = icmp slt i32 0, %134
+  br i1 %135, label %136, label %149
 
-133:                                              ; preds = %113
-  %134 = load ptr, ptr %6, align 8
-  %135 = load i32, ptr %9, align 4
-  %136 = load i8, ptr %15, align 1
-  %137 = zext i8 %136 to i32
-  %138 = call ptr @tvb_new_subset_length(ptr noundef %134, i32 noundef %135, i32 noundef %137)
-  store ptr %138, ptr %11, align 8
-  %139 = load ptr, ptr %11, align 8
-  %140 = load ptr, ptr %7, align 8
-  %141 = load ptr, ptr %13, align 8
-  call void @dissect_dsmcc_adaptation_header(ptr noundef %139, ptr noundef %140, ptr noundef %141)
-  %142 = load i8, ptr %15, align 1
-  %143 = zext i8 %142 to i32
-  %144 = load i32, ptr %9, align 4
-  %145 = add i32 %144, %143
-  store i32 %145, ptr %9, align 4
-  br label %146
-
-146:                                              ; preds = %133, %113
+136:                                              ; preds = %116
+  %137 = load ptr, ptr %6, align 8
+  %138 = load i32, ptr %9, align 4
+  %139 = load i8, ptr %15, align 1
+  %140 = zext i8 %139 to i32
+  %141 = call ptr @tvb_new_subset_length(ptr noundef %137, i32 noundef %138, i32 noundef %140)
+  store ptr %141, ptr %11, align 8
+  %142 = load ptr, ptr %11, align 8
+  %143 = load ptr, ptr %7, align 8
+  %144 = load ptr, ptr %13, align 8
+  call void @dissect_dsmcc_adaptation_header(ptr noundef %142, ptr noundef %143, ptr noundef %144)
+  %145 = load i8, ptr %15, align 1
+  %146 = zext i8 %145 to i32
   %147 = load i32, ptr %9, align 4
-  %148 = load i32, ptr %17, align 4
-  %149 = sub i32 %147, %148
-  ret i32 %149
+  %148 = add i32 %147, %146
+  store i32 %148, ptr %9, align 4
+  br label %149
+
+149:                                              ; preds = %136, %116
+  %150 = load i32, ptr %9, align 4
+  %151 = load i32, ptr %17, align 4
+  %152 = sub i32 %150, %151
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #4
+  ret i32 %152
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dsmcc_un_session_id(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -3985,22 +4071,24 @@ define internal i32 @dissect_dsmcc_un_session_id(ptr noundef %0, i32 noundef %1,
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
   %11 = load i32, ptr %6, align 4
   store i32 %11, ptr %10, align 4
   %12 = load ptr, ptr %8, align 8
   %13 = load ptr, ptr %5, align 8
   %14 = load i32, ptr %6, align 4
   %15 = load i32, ptr @ett_dsmcc_heading, align 4
-  %16 = call ptr @proto_tree_add_subtree(ptr noundef %12, ptr noundef %13, i32 noundef %14, i32 noundef 10, i32 noundef %15, ptr noundef null, ptr noundef @.str.560)
+  %16 = call ptr @proto_tree_add_subtree(ptr noundef %12, ptr noundef %13, i32 noundef %14, i32 noundef 10, i32 noundef %15, ptr noundef null, ptr noundef @.str.563)
   store ptr %16, ptr %9, align 8
   %17 = load ptr, ptr %9, align 8
   %18 = load ptr, ptr %7, align 8
-  %19 = getelementptr inbounds %struct._packet_info, ptr %18, i32 0, i32 50
+  %19 = getelementptr inbounds nuw %struct._packet_info, ptr %18, i32 0, i32 51
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %5, align 8
   %22 = load i32, ptr %6, align 4
   %23 = call ptr @tvb_bytes_to_str(ptr noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef 10)
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %17, ptr noundef @.str.561, ptr noundef %23)
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %17, ptr noundef @.str.564, ptr noundef %23)
   %24 = load ptr, ptr %9, align 8
   %25 = load i32, ptr @hf_dsmcc_un_sess_session_id_device_id, align 4
   %26 = load ptr, ptr %5, align 8
@@ -4020,12 +4108,15 @@ define internal i32 @dissect_dsmcc_un_session_id(ptr noundef %0, i32 noundef %1,
   %38 = load i32, ptr %6, align 4
   %39 = load i32, ptr %10, align 4
   %40 = sub i32 %38, %39
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
   ret i32 %40
 }
 
-declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dsmcc_un_session_nsap(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -4036,6 +4127,7 @@ define internal i32 @dissect_dsmcc_un_session_nsap(ptr noundef %0, i32 noundef %
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
   %10 = load i32, ptr %6, align 4
   store i32 %10, ptr %9, align 4
   %11 = load ptr, ptr %8, align 8
@@ -4081,10 +4173,11 @@ define internal i32 @dissect_dsmcc_un_session_nsap(ptr noundef %0, i32 noundef %
   %46 = load i32, ptr %6, align 4
   %47 = load i32, ptr %9, align 4
   %48 = sub i32 %46, %47
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %48
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dsmcc_un_session_user_data(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -4097,6 +4190,9 @@ define internal i32 @dissect_dsmcc_un_session_user_data(ptr noundef %0, i32 noun
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %11) #4
   %12 = load i32, ptr %6, align 4
   store i32 %12, ptr %9, align 4
   %13 = load ptr, ptr %5, align 8
@@ -4168,10 +4264,13 @@ define internal i32 @dissect_dsmcc_un_session_user_data(ptr noundef %0, i32 noun
   %65 = load i32, ptr %6, align 4
   %66 = load i32, ptr %9, align 4
   %67 = sub i32 %65, %66
+  call void @llvm.lifetime.end.p0(i64 2, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %67
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dsmcc_un_session_resources(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -4195,6 +4294,20 @@ define internal i32 @dissect_dsmcc_un_session_resources(ptr noundef %0, i32 noun
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %18) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %19) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %20) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %21) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #4
   %23 = load i32, ptr %6, align 4
   store i32 %23, ptr %22, align 4
   %24 = load ptr, ptr %8, align 8
@@ -4208,11 +4321,11 @@ define internal i32 @dissect_dsmcc_un_session_resources(ptr noundef %0, i32 noun
   store i32 0, ptr %15, align 4
   br label %31
 
-31:                                               ; preds = %970, %4
+31:                                               ; preds = %966, %4
   %32 = load i32, ptr %15, align 4
   %33 = load i32, ptr %17, align 4
   %34 = icmp ult i32 %32, %33
-  br i1 %34, label %35, label %973
+  br i1 %34, label %35, label %969
 
 35:                                               ; preds = %31
   %36 = load ptr, ptr %8, align 8
@@ -4221,13 +4334,13 @@ define internal i32 @dissect_dsmcc_un_session_resources(ptr noundef %0, i32 noun
   %39 = load i32, ptr @ett_dsmcc_heading, align 4
   %40 = load i32, ptr %15, align 4
   %41 = add i32 1, %40
-  %42 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %36, ptr noundef %37, i32 noundef %38, i32 noundef 0, i32 noundef %39, ptr noundef null, ptr noundef @.str.562, i32 noundef %41)
+  %42 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %36, ptr noundef %37, i32 noundef %38, i32 noundef 0, i32 noundef %39, ptr noundef null, ptr noundef @.str.565, i32 noundef %41)
   store ptr %42, ptr %10, align 8
   %43 = load ptr, ptr %10, align 8
   %44 = load ptr, ptr %5, align 8
   %45 = load i32, ptr %6, align 4
   %46 = load i32, ptr @ett_dsmcc_heading, align 4
-  %47 = call ptr @proto_tree_add_subtree(ptr noundef %43, ptr noundef %44, i32 noundef %45, i32 noundef 14, i32 noundef %46, ptr noundef null, ptr noundef @.str.563)
+  %47 = call ptr @proto_tree_add_subtree(ptr noundef %43, ptr noundef %44, i32 noundef %45, i32 noundef 14, i32 noundef %46, ptr noundef null, ptr noundef @.str.566)
   store ptr %47, ptr %11, align 8
   %48 = load ptr, ptr %11, align 8
   %49 = load i32, ptr @hf_dsmcc_un_sess_rsrc_request_id, align 4
@@ -4244,7 +4357,7 @@ define internal i32 @dissect_dsmcc_un_session_resources(ptr noundef %0, i32 noun
   %59 = call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %56, ptr noundef %57, i32 noundef %58, i32 noundef 2, i32 noundef 0)
   %60 = load ptr, ptr %5, align 8
   %61 = load i32, ptr %6, align 4
-  %62 = call zeroext i16 @tvb_get_guint16(ptr noundef %60, i32 noundef %61, i32 noundef 0)
+  %62 = call zeroext i16 @tvb_get_uint16(ptr noundef %60, i32 noundef %61, i32 noundef 0)
   store i16 %62, ptr %19, align 2
   %63 = load i32, ptr %6, align 4
   %64 = add i32 %63, 2
@@ -4291,7 +4404,7 @@ define internal i32 @dissect_dsmcc_un_session_resources(ptr noundef %0, i32 noun
   %100 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %97, ptr noundef %98, i32 noundef %99, i32 noundef 2, i32 noundef 0)
   %101 = load ptr, ptr %5, align 8
   %102 = load i32, ptr %6, align 4
-  %103 = call zeroext i16 @tvb_get_guint16(ptr noundef %101, i32 noundef %102, i32 noundef 0)
+  %103 = call zeroext i16 @tvb_get_uint16(ptr noundef %101, i32 noundef %102, i32 noundef 0)
   store i16 %103, ptr %20, align 2
   %104 = load i32, ptr %6, align 4
   %105 = add i32 %104, 2
@@ -4310,39 +4423,39 @@ define internal i32 @dissect_dsmcc_un_session_resources(ptr noundef %0, i32 noun
   %116 = load i16, ptr %20, align 2
   %117 = zext i16 %116 to i32
   %118 = load i32, ptr @ett_dsmcc_heading, align 4
-  %119 = call ptr @proto_tree_add_subtree(ptr noundef %113, ptr noundef %114, i32 noundef %115, i32 noundef %117, i32 noundef %118, ptr noundef null, ptr noundef @.str.564)
+  %119 = call ptr @proto_tree_add_subtree(ptr noundef %113, ptr noundef %114, i32 noundef %115, i32 noundef %117, i32 noundef %118, ptr noundef null, ptr noundef @.str.567)
   store ptr %119, ptr %11, align 8
   %120 = load i16, ptr %19, align 2
   %121 = zext i16 %120 to i32
-  switch i32 %121, label %968 [
+  switch i32 %121, label %964 [
     i32 1, label %122
     i32 2, label %163
     i32 3, label %200
     i32 4, label %303
     i32 5, label %323
     i32 6, label %348
-    i32 7, label %373
-    i32 8, label %374
-    i32 9, label %375
-    i32 10, label %411
-    i32 11, label %460
-    i32 12, label %475
-    i32 13, label %476
-    i32 14, label %477
-    i32 15, label %508
-    i32 16, label %532
-    i32 17, label %547
-    i32 18, label %585
-    i32 19, label %600
-    i32 61441, label %654
-    i32 61443, label %718
-    i32 61444, label %760
-    i32 61445, label %810
-    i32 61446, label %849
-    i32 61447, label %922
-    i32 32766, label %937
-    i32 32767, label %945
-    i32 65535, label %953
+    i32 7, label %965
+    i32 8, label %965
+    i32 9, label %373
+    i32 10, label %409
+    i32 11, label %458
+    i32 12, label %965
+    i32 13, label %965
+    i32 14, label %473
+    i32 15, label %504
+    i32 16, label %528
+    i32 17, label %543
+    i32 18, label %581
+    i32 19, label %596
+    i32 61441, label %650
+    i32 61443, label %714
+    i32 61444, label %756
+    i32 61445, label %806
+    i32 61446, label %845
+    i32 61447, label %918
+    i32 32766, label %933
+    i32 32767, label %941
+    i32 65535, label %949
   ]
 
 122:                                              ; preds = %35
@@ -4350,7 +4463,7 @@ define internal i32 @dissect_dsmcc_un_session_resources(ptr noundef %0, i32 noun
   %124 = load ptr, ptr %5, align 8
   %125 = load i32, ptr %6, align 4
   %126 = load i32, ptr @ett_dsmcc_heading, align 4
-  %127 = call ptr @proto_tree_add_subtree(ptr noundef %123, ptr noundef %124, i32 noundef %125, i32 noundef 10, i32 noundef %126, ptr noundef null, ptr noundef @.str.560)
+  %127 = call ptr @proto_tree_add_subtree(ptr noundef %123, ptr noundef %124, i32 noundef %125, i32 noundef 10, i32 noundef %126, ptr noundef null, ptr noundef @.str.563)
   store ptr %127, ptr %13, align 8
   %128 = load ptr, ptr %13, align 8
   %129 = load i32, ptr @hf_dsmcc_un_sess_session_id_device_id, align 4
@@ -4397,17 +4510,17 @@ define internal i32 @dissect_dsmcc_un_session_resources(ptr noundef %0, i32 noun
   %160 = load i32, ptr %14, align 4
   %161 = add i32 %160, 1
   store i32 %161, ptr %14, align 4
-  br label %149, !llvm.loop !18
+  br label %149, !llvm.loop !22
 
 162:                                              ; preds = %149
-  br label %969
+  br label %965
 
 163:                                              ; preds = %35
   %164 = load ptr, ptr %11, align 8
   %165 = load ptr, ptr %5, align 8
   %166 = load i32, ptr %6, align 4
   %167 = load i32, ptr @ett_dsmcc_heading, align 4
-  %168 = call ptr @proto_tree_add_subtree(ptr noundef %164, ptr noundef %165, i32 noundef %166, i32 noundef 0, i32 noundef %167, ptr noundef null, ptr noundef @.str.565)
+  %168 = call ptr @proto_tree_add_subtree(ptr noundef %164, ptr noundef %165, i32 noundef %166, i32 noundef 0, i32 noundef %167, ptr noundef null, ptr noundef @.str.568)
   store ptr %168, ptr %13, align 8
   %169 = load ptr, ptr %5, align 8
   %170 = load i32, ptr %6, align 4
@@ -4421,7 +4534,7 @@ define internal i32 @dissect_dsmcc_un_session_resources(ptr noundef %0, i32 noun
   %177 = load ptr, ptr %5, align 8
   %178 = load i32, ptr %6, align 4
   %179 = load i32, ptr @ett_dsmcc_heading, align 4
-  %180 = call ptr @proto_tree_add_subtree(ptr noundef %176, ptr noundef %177, i32 noundef %178, i32 noundef 0, i32 noundef %179, ptr noundef null, ptr noundef @.str.566)
+  %180 = call ptr @proto_tree_add_subtree(ptr noundef %176, ptr noundef %177, i32 noundef %178, i32 noundef 0, i32 noundef %179, ptr noundef null, ptr noundef @.str.569)
   store ptr %180, ptr %13, align 8
   %181 = load ptr, ptr %5, align 8
   %182 = load i32, ptr %6, align 4
@@ -4435,7 +4548,7 @@ define internal i32 @dissect_dsmcc_un_session_resources(ptr noundef %0, i32 noun
   %189 = load ptr, ptr %5, align 8
   %190 = load i32, ptr %6, align 4
   %191 = load i32, ptr @ett_dsmcc_heading, align 4
-  %192 = call ptr @proto_tree_add_subtree(ptr noundef %188, ptr noundef %189, i32 noundef %190, i32 noundef 0, i32 noundef %191, ptr noundef null, ptr noundef @.str.567)
+  %192 = call ptr @proto_tree_add_subtree(ptr noundef %188, ptr noundef %189, i32 noundef %190, i32 noundef 0, i32 noundef %191, ptr noundef null, ptr noundef @.str.570)
   store ptr %192, ptr %13, align 8
   %193 = load ptr, ptr %5, align 8
   %194 = load i32, ptr %6, align 4
@@ -4445,14 +4558,14 @@ define internal i32 @dissect_dsmcc_un_session_resources(ptr noundef %0, i32 noun
   %198 = load i32, ptr %6, align 4
   %199 = add i32 %198, %197
   store i32 %199, ptr %6, align 4
-  br label %969
+  br label %965
 
 200:                                              ; preds = %35
   %201 = load ptr, ptr %11, align 8
   %202 = load ptr, ptr %5, align 8
   %203 = load i32, ptr %6, align 4
   %204 = load i32, ptr @ett_dsmcc_heading, align 4
-  %205 = call ptr @proto_tree_add_subtree(ptr noundef %201, ptr noundef %202, i32 noundef %203, i32 noundef 0, i32 noundef %204, ptr noundef null, ptr noundef @.str.568)
+  %205 = call ptr @proto_tree_add_subtree(ptr noundef %201, ptr noundef %202, i32 noundef %203, i32 noundef 0, i32 noundef %204, ptr noundef null, ptr noundef @.str.571)
   store ptr %205, ptr %13, align 8
   %206 = load ptr, ptr %5, align 8
   %207 = load i32, ptr %6, align 4
@@ -4466,7 +4579,7 @@ define internal i32 @dissect_dsmcc_un_session_resources(ptr noundef %0, i32 noun
   %214 = load ptr, ptr %5, align 8
   %215 = load i32, ptr %6, align 4
   %216 = load i32, ptr @ett_dsmcc_heading, align 4
-  %217 = call ptr @proto_tree_add_subtree(ptr noundef %213, ptr noundef %214, i32 noundef %215, i32 noundef 0, i32 noundef %216, ptr noundef null, ptr noundef @.str.569)
+  %217 = call ptr @proto_tree_add_subtree(ptr noundef %213, ptr noundef %214, i32 noundef %215, i32 noundef 0, i32 noundef %216, ptr noundef null, ptr noundef @.str.572)
   store ptr %217, ptr %13, align 8
   %218 = load ptr, ptr %5, align 8
   %219 = load i32, ptr %6, align 4
@@ -4506,7 +4619,7 @@ define internal i32 @dissect_dsmcc_un_session_resources(ptr noundef %0, i32 noun
   %245 = load ptr, ptr %5, align 8
   %246 = load i32, ptr %6, align 4
   %247 = load i32, ptr @ett_dsmcc_heading, align 4
-  %248 = call ptr @proto_tree_add_subtree(ptr noundef %244, ptr noundef %245, i32 noundef %246, i32 noundef 0, i32 noundef %247, ptr noundef null, ptr noundef @.str.570)
+  %248 = call ptr @proto_tree_add_subtree(ptr noundef %244, ptr noundef %245, i32 noundef %246, i32 noundef 0, i32 noundef %247, ptr noundef null, ptr noundef @.str.573)
   store ptr %248, ptr %13, align 8
   %249 = load ptr, ptr %5, align 8
   %250 = load i32, ptr %6, align 4
@@ -4520,7 +4633,7 @@ define internal i32 @dissect_dsmcc_un_session_resources(ptr noundef %0, i32 noun
   %257 = load ptr, ptr %5, align 8
   %258 = load i32, ptr %6, align 4
   %259 = load i32, ptr @ett_dsmcc_heading, align 4
-  %260 = call ptr @proto_tree_add_subtree(ptr noundef %256, ptr noundef %257, i32 noundef %258, i32 noundef 0, i32 noundef %259, ptr noundef null, ptr noundef @.str.571)
+  %260 = call ptr @proto_tree_add_subtree(ptr noundef %256, ptr noundef %257, i32 noundef %258, i32 noundef 0, i32 noundef %259, ptr noundef null, ptr noundef @.str.574)
   store ptr %260, ptr %13, align 8
   %261 = load ptr, ptr %5, align 8
   %262 = load i32, ptr %6, align 4
@@ -4542,7 +4655,7 @@ define internal i32 @dissect_dsmcc_un_session_resources(ptr noundef %0, i32 noun
   %276 = load ptr, ptr %5, align 8
   %277 = load i32, ptr %6, align 4
   %278 = load i32, ptr @ett_dsmcc_heading, align 4
-  %279 = call ptr @proto_tree_add_subtree(ptr noundef %275, ptr noundef %276, i32 noundef %277, i32 noundef 0, i32 noundef %278, ptr noundef null, ptr noundef @.str.572)
+  %279 = call ptr @proto_tree_add_subtree(ptr noundef %275, ptr noundef %276, i32 noundef %277, i32 noundef 0, i32 noundef %278, ptr noundef null, ptr noundef @.str.575)
   store ptr %279, ptr %13, align 8
   %280 = load ptr, ptr %5, align 8
   %281 = load i32, ptr %6, align 4
@@ -4558,14 +4671,14 @@ define internal i32 @dissect_dsmcc_un_session_resources(ptr noundef %0, i32 noun
   %288 = load i32, ptr %14, align 4
   %289 = add i32 %288, 1
   store i32 %289, ptr %14, align 4
-  br label %239, !llvm.loop !19
+  br label %239, !llvm.loop !23
 
 290:                                              ; preds = %239
   %291 = load ptr, ptr %11, align 8
   %292 = load ptr, ptr %5, align 8
   %293 = load i32, ptr %6, align 4
   %294 = load i32, ptr @ett_dsmcc_heading, align 4
-  %295 = call ptr @proto_tree_add_subtree(ptr noundef %291, ptr noundef %292, i32 noundef %293, i32 noundef 0, i32 noundef %294, ptr noundef null, ptr noundef @.str.573)
+  %295 = call ptr @proto_tree_add_subtree(ptr noundef %291, ptr noundef %292, i32 noundef %293, i32 noundef 0, i32 noundef %294, ptr noundef null, ptr noundef @.str.576)
   store ptr %295, ptr %13, align 8
   %296 = load ptr, ptr %5, align 8
   %297 = load i32, ptr %6, align 4
@@ -4575,14 +4688,14 @@ define internal i32 @dissect_dsmcc_un_session_resources(ptr noundef %0, i32 noun
   %301 = load i32, ptr %6, align 4
   %302 = add i32 %301, %300
   store i32 %302, ptr %6, align 4
-  br label %969
+  br label %965
 
 303:                                              ; preds = %35
   %304 = load ptr, ptr %11, align 8
   %305 = load ptr, ptr %5, align 8
   %306 = load i32, ptr %6, align 4
   %307 = load i32, ptr @ett_dsmcc_heading, align 4
-  %308 = call ptr @proto_tree_add_subtree(ptr noundef %304, ptr noundef %305, i32 noundef %306, i32 noundef 0, i32 noundef %307, ptr noundef null, ptr noundef @.str.574)
+  %308 = call ptr @proto_tree_add_subtree(ptr noundef %304, ptr noundef %305, i32 noundef %306, i32 noundef 0, i32 noundef %307, ptr noundef null, ptr noundef @.str.577)
   store ptr %308, ptr %13, align 8
   %309 = load ptr, ptr %5, align 8
   %310 = load i32, ptr %6, align 4
@@ -4600,14 +4713,14 @@ define internal i32 @dissect_dsmcc_un_session_resources(ptr noundef %0, i32 noun
   %321 = load i32, ptr %6, align 4
   %322 = add i32 %321, 2
   store i32 %322, ptr %6, align 4
-  br label %969
+  br label %965
 
 323:                                              ; preds = %35
   %324 = load ptr, ptr %11, align 8
   %325 = load ptr, ptr %5, align 8
   %326 = load i32, ptr %6, align 4
   %327 = load i32, ptr @ett_dsmcc_heading, align 4
-  %328 = call ptr @proto_tree_add_subtree(ptr noundef %324, ptr noundef %325, i32 noundef %326, i32 noundef 0, i32 noundef %327, ptr noundef null, ptr noundef @.str.575)
+  %328 = call ptr @proto_tree_add_subtree(ptr noundef %324, ptr noundef %325, i32 noundef %326, i32 noundef 0, i32 noundef %327, ptr noundef null, ptr noundef @.str.578)
   store ptr %328, ptr %13, align 8
   %329 = load ptr, ptr %5, align 8
   %330 = load i32, ptr %6, align 4
@@ -4621,7 +4734,7 @@ define internal i32 @dissect_dsmcc_un_session_resources(ptr noundef %0, i32 noun
   %337 = load ptr, ptr %5, align 8
   %338 = load i32, ptr %6, align 4
   %339 = load i32, ptr @ett_dsmcc_heading, align 4
-  %340 = call ptr @proto_tree_add_subtree(ptr noundef %336, ptr noundef %337, i32 noundef %338, i32 noundef 0, i32 noundef %339, ptr noundef null, ptr noundef @.str.576)
+  %340 = call ptr @proto_tree_add_subtree(ptr noundef %336, ptr noundef %337, i32 noundef %338, i32 noundef 0, i32 noundef %339, ptr noundef null, ptr noundef @.str.579)
   store ptr %340, ptr %13, align 8
   %341 = load ptr, ptr %5, align 8
   %342 = load i32, ptr %6, align 4
@@ -4631,14 +4744,14 @@ define internal i32 @dissect_dsmcc_un_session_resources(ptr noundef %0, i32 noun
   %346 = load i32, ptr %6, align 4
   %347 = add i32 %346, %345
   store i32 %347, ptr %6, align 4
-  br label %969
+  br label %965
 
 348:                                              ; preds = %35
   %349 = load ptr, ptr %11, align 8
   %350 = load ptr, ptr %5, align 8
   %351 = load i32, ptr %6, align 4
   %352 = load i32, ptr @ett_dsmcc_heading, align 4
-  %353 = call ptr @proto_tree_add_subtree(ptr noundef %349, ptr noundef %350, i32 noundef %351, i32 noundef 0, i32 noundef %352, ptr noundef null, ptr noundef @.str.577)
+  %353 = call ptr @proto_tree_add_subtree(ptr noundef %349, ptr noundef %350, i32 noundef %351, i32 noundef 0, i32 noundef %352, ptr noundef null, ptr noundef @.str.580)
   store ptr %353, ptr %13, align 8
   %354 = load ptr, ptr %5, align 8
   %355 = load i32, ptr %6, align 4
@@ -4652,7 +4765,7 @@ define internal i32 @dissect_dsmcc_un_session_resources(ptr noundef %0, i32 noun
   %362 = load ptr, ptr %5, align 8
   %363 = load i32, ptr %6, align 4
   %364 = load i32, ptr @ett_dsmcc_heading, align 4
-  %365 = call ptr @proto_tree_add_subtree(ptr noundef %361, ptr noundef %362, i32 noundef %363, i32 noundef 0, i32 noundef %364, ptr noundef null, ptr noundef @.str.578)
+  %365 = call ptr @proto_tree_add_subtree(ptr noundef %361, ptr noundef %362, i32 noundef %363, i32 noundef 0, i32 noundef %364, ptr noundef null, ptr noundef @.str.581)
   store ptr %365, ptr %13, align 8
   %366 = load ptr, ptr %5, align 8
   %367 = load i32, ptr %6, align 4
@@ -4662,822 +4775,828 @@ define internal i32 @dissect_dsmcc_un_session_resources(ptr noundef %0, i32 noun
   %371 = load i32, ptr %6, align 4
   %372 = add i32 %371, %370
   store i32 %372, ptr %6, align 4
-  br label %969
+  br label %965
 
 373:                                              ; preds = %35
-  br label %969
-
-374:                                              ; preds = %35
-  br label %969
-
-375:                                              ; preds = %35
-  %376 = load ptr, ptr %11, align 8
-  %377 = load i32, ptr @hf_dsmcc_un_sess_rsrc_src_ip_addr, align 4
-  %378 = load ptr, ptr %5, align 8
+  %374 = load ptr, ptr %11, align 8
+  %375 = load i32, ptr @hf_dsmcc_un_sess_rsrc_src_ip_addr, align 4
+  %376 = load ptr, ptr %5, align 8
+  %377 = load i32, ptr %6, align 4
+  %378 = call ptr @proto_tree_add_item(ptr noundef %374, i32 noundef %375, ptr noundef %376, i32 noundef %377, i32 noundef 4, i32 noundef 0)
   %379 = load i32, ptr %6, align 4
-  %380 = call ptr @proto_tree_add_item(ptr noundef %376, i32 noundef %377, ptr noundef %378, i32 noundef %379, i32 noundef 4, i32 noundef 0)
-  %381 = load i32, ptr %6, align 4
-  %382 = add i32 %381, 4
-  store i32 %382, ptr %6, align 4
-  %383 = load ptr, ptr %11, align 8
-  %384 = load i32, ptr @hf_dsmcc_un_sess_rsrc_src_ip_port, align 4
-  %385 = load ptr, ptr %5, align 8
+  %380 = add i32 %379, 4
+  store i32 %380, ptr %6, align 4
+  %381 = load ptr, ptr %11, align 8
+  %382 = load i32, ptr @hf_dsmcc_un_sess_rsrc_src_ip_port, align 4
+  %383 = load ptr, ptr %5, align 8
+  %384 = load i32, ptr %6, align 4
+  %385 = call ptr @proto_tree_add_item(ptr noundef %381, i32 noundef %382, ptr noundef %383, i32 noundef %384, i32 noundef 2, i32 noundef 0)
   %386 = load i32, ptr %6, align 4
-  %387 = call ptr @proto_tree_add_item(ptr noundef %383, i32 noundef %384, ptr noundef %385, i32 noundef %386, i32 noundef 2, i32 noundef 0)
-  %388 = load i32, ptr %6, align 4
-  %389 = add i32 %388, 2
-  store i32 %389, ptr %6, align 4
-  %390 = load ptr, ptr %11, align 8
-  %391 = load i32, ptr @hf_dsmcc_un_sess_rsrc_dst_ip_addr, align 4
-  %392 = load ptr, ptr %5, align 8
+  %387 = add i32 %386, 2
+  store i32 %387, ptr %6, align 4
+  %388 = load ptr, ptr %11, align 8
+  %389 = load i32, ptr @hf_dsmcc_un_sess_rsrc_dst_ip_addr, align 4
+  %390 = load ptr, ptr %5, align 8
+  %391 = load i32, ptr %6, align 4
+  %392 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %389, ptr noundef %390, i32 noundef %391, i32 noundef 4, i32 noundef 0)
   %393 = load i32, ptr %6, align 4
-  %394 = call ptr @proto_tree_add_item(ptr noundef %390, i32 noundef %391, ptr noundef %392, i32 noundef %393, i32 noundef 4, i32 noundef 0)
-  %395 = load i32, ptr %6, align 4
-  %396 = add i32 %395, 4
-  store i32 %396, ptr %6, align 4
-  %397 = load ptr, ptr %11, align 8
-  %398 = load i32, ptr @hf_dsmcc_un_sess_rsrc_dst_ip_port, align 4
-  %399 = load ptr, ptr %5, align 8
+  %394 = add i32 %393, 4
+  store i32 %394, ptr %6, align 4
+  %395 = load ptr, ptr %11, align 8
+  %396 = load i32, ptr @hf_dsmcc_un_sess_rsrc_dst_ip_port, align 4
+  %397 = load ptr, ptr %5, align 8
+  %398 = load i32, ptr %6, align 4
+  %399 = call ptr @proto_tree_add_item(ptr noundef %395, i32 noundef %396, ptr noundef %397, i32 noundef %398, i32 noundef 2, i32 noundef 0)
   %400 = load i32, ptr %6, align 4
-  %401 = call ptr @proto_tree_add_item(ptr noundef %397, i32 noundef %398, ptr noundef %399, i32 noundef %400, i32 noundef 2, i32 noundef 0)
-  %402 = load i32, ptr %6, align 4
-  %403 = add i32 %402, 2
-  store i32 %403, ptr %6, align 4
-  %404 = load ptr, ptr %11, align 8
-  %405 = load i32, ptr @hf_dsmcc_un_sess_rsrc_ip_protocol, align 4
-  %406 = load ptr, ptr %5, align 8
+  %401 = add i32 %400, 2
+  store i32 %401, ptr %6, align 4
+  %402 = load ptr, ptr %11, align 8
+  %403 = load i32, ptr @hf_dsmcc_un_sess_rsrc_ip_protocol, align 4
+  %404 = load ptr, ptr %5, align 8
+  %405 = load i32, ptr %6, align 4
+  %406 = call ptr @proto_tree_add_item(ptr noundef %402, i32 noundef %403, ptr noundef %404, i32 noundef %405, i32 noundef 2, i32 noundef 0)
   %407 = load i32, ptr %6, align 4
-  %408 = call ptr @proto_tree_add_item(ptr noundef %404, i32 noundef %405, ptr noundef %406, i32 noundef %407, i32 noundef 2, i32 noundef 0)
-  %409 = load i32, ptr %6, align 4
-  %410 = add i32 %409, 2
-  store i32 %410, ptr %6, align 4
-  br label %969
+  %408 = add i32 %407, 2
+  store i32 %408, ptr %6, align 4
+  br label %965
 
-411:                                              ; preds = %35
-  %412 = load ptr, ptr %11, align 8
-  %413 = load ptr, ptr %5, align 8
-  %414 = load i32, ptr %6, align 4
-  %415 = load i32, ptr @ett_dsmcc_heading, align 4
-  %416 = call ptr @proto_tree_add_subtree(ptr noundef %412, ptr noundef %413, i32 noundef %414, i32 noundef 0, i32 noundef %415, ptr noundef null, ptr noundef @.str.579)
-  store ptr %416, ptr %13, align 8
-  %417 = load ptr, ptr %5, align 8
-  %418 = load i32, ptr %6, align 4
-  %419 = load ptr, ptr %7, align 8
-  %420 = load ptr, ptr %13, align 8
-  %421 = call i32 @dissect_dsmcc_un_session_resource_value(ptr noundef %417, i32 noundef %418, ptr noundef %419, ptr noundef %420, i32 noundef 4)
-  %422 = load i32, ptr %6, align 4
-  %423 = add i32 %422, %421
-  store i32 %423, ptr %6, align 4
-  %424 = load ptr, ptr %11, align 8
-  %425 = load ptr, ptr %5, align 8
-  %426 = load i32, ptr %6, align 4
-  %427 = load i32, ptr @ett_dsmcc_heading, align 4
-  %428 = call ptr @proto_tree_add_subtree(ptr noundef %424, ptr noundef %425, i32 noundef %426, i32 noundef 0, i32 noundef %427, ptr noundef null, ptr noundef @.str.580)
-  store ptr %428, ptr %13, align 8
-  %429 = load ptr, ptr %5, align 8
-  %430 = load i32, ptr %6, align 4
-  %431 = load ptr, ptr %7, align 8
-  %432 = load ptr, ptr %13, align 8
-  %433 = call i32 @dissect_dsmcc_un_session_resource_value(ptr noundef %429, i32 noundef %430, ptr noundef %431, ptr noundef %432, i32 noundef 4)
-  %434 = load i32, ptr %6, align 4
-  %435 = add i32 %434, %433
-  store i32 %435, ptr %6, align 4
-  %436 = load ptr, ptr %11, align 8
-  %437 = load ptr, ptr %5, align 8
-  %438 = load i32, ptr %6, align 4
-  %439 = load i32, ptr @ett_dsmcc_heading, align 4
-  %440 = call ptr @proto_tree_add_subtree(ptr noundef %436, ptr noundef %437, i32 noundef %438, i32 noundef 0, i32 noundef %439, ptr noundef null, ptr noundef @.str.581)
-  store ptr %440, ptr %13, align 8
-  %441 = load ptr, ptr %5, align 8
-  %442 = load i32, ptr %6, align 4
-  %443 = load ptr, ptr %7, align 8
-  %444 = load ptr, ptr %13, align 8
-  %445 = call i32 @dissect_dsmcc_un_session_resource_value(ptr noundef %441, i32 noundef %442, ptr noundef %443, ptr noundef %444, i32 noundef 4)
-  %446 = load i32, ptr %6, align 4
-  %447 = add i32 %446, %445
-  store i32 %447, ptr %6, align 4
-  %448 = load ptr, ptr %11, align 8
-  %449 = load ptr, ptr %5, align 8
-  %450 = load i32, ptr %6, align 4
-  %451 = load i32, ptr @ett_dsmcc_heading, align 4
-  %452 = call ptr @proto_tree_add_subtree(ptr noundef %448, ptr noundef %449, i32 noundef %450, i32 noundef 0, i32 noundef %451, ptr noundef null, ptr noundef @.str.582)
-  store ptr %452, ptr %13, align 8
-  %453 = load ptr, ptr %5, align 8
-  %454 = load i32, ptr %6, align 4
-  %455 = load ptr, ptr %7, align 8
-  %456 = load ptr, ptr %13, align 8
-  %457 = call i32 @dissect_dsmcc_un_session_resource_value(ptr noundef %453, i32 noundef %454, ptr noundef %455, ptr noundef %456, i32 noundef 4)
-  %458 = load i32, ptr %6, align 4
-  %459 = add i32 %458, %457
-  store i32 %459, ptr %6, align 4
-  br label %969
+409:                                              ; preds = %35
+  %410 = load ptr, ptr %11, align 8
+  %411 = load ptr, ptr %5, align 8
+  %412 = load i32, ptr %6, align 4
+  %413 = load i32, ptr @ett_dsmcc_heading, align 4
+  %414 = call ptr @proto_tree_add_subtree(ptr noundef %410, ptr noundef %411, i32 noundef %412, i32 noundef 0, i32 noundef %413, ptr noundef null, ptr noundef @.str.582)
+  store ptr %414, ptr %13, align 8
+  %415 = load ptr, ptr %5, align 8
+  %416 = load i32, ptr %6, align 4
+  %417 = load ptr, ptr %7, align 8
+  %418 = load ptr, ptr %13, align 8
+  %419 = call i32 @dissect_dsmcc_un_session_resource_value(ptr noundef %415, i32 noundef %416, ptr noundef %417, ptr noundef %418, i32 noundef 4)
+  %420 = load i32, ptr %6, align 4
+  %421 = add i32 %420, %419
+  store i32 %421, ptr %6, align 4
+  %422 = load ptr, ptr %11, align 8
+  %423 = load ptr, ptr %5, align 8
+  %424 = load i32, ptr %6, align 4
+  %425 = load i32, ptr @ett_dsmcc_heading, align 4
+  %426 = call ptr @proto_tree_add_subtree(ptr noundef %422, ptr noundef %423, i32 noundef %424, i32 noundef 0, i32 noundef %425, ptr noundef null, ptr noundef @.str.583)
+  store ptr %426, ptr %13, align 8
+  %427 = load ptr, ptr %5, align 8
+  %428 = load i32, ptr %6, align 4
+  %429 = load ptr, ptr %7, align 8
+  %430 = load ptr, ptr %13, align 8
+  %431 = call i32 @dissect_dsmcc_un_session_resource_value(ptr noundef %427, i32 noundef %428, ptr noundef %429, ptr noundef %430, i32 noundef 4)
+  %432 = load i32, ptr %6, align 4
+  %433 = add i32 %432, %431
+  store i32 %433, ptr %6, align 4
+  %434 = load ptr, ptr %11, align 8
+  %435 = load ptr, ptr %5, align 8
+  %436 = load i32, ptr %6, align 4
+  %437 = load i32, ptr @ett_dsmcc_heading, align 4
+  %438 = call ptr @proto_tree_add_subtree(ptr noundef %434, ptr noundef %435, i32 noundef %436, i32 noundef 0, i32 noundef %437, ptr noundef null, ptr noundef @.str.584)
+  store ptr %438, ptr %13, align 8
+  %439 = load ptr, ptr %5, align 8
+  %440 = load i32, ptr %6, align 4
+  %441 = load ptr, ptr %7, align 8
+  %442 = load ptr, ptr %13, align 8
+  %443 = call i32 @dissect_dsmcc_un_session_resource_value(ptr noundef %439, i32 noundef %440, ptr noundef %441, ptr noundef %442, i32 noundef 4)
+  %444 = load i32, ptr %6, align 4
+  %445 = add i32 %444, %443
+  store i32 %445, ptr %6, align 4
+  %446 = load ptr, ptr %11, align 8
+  %447 = load ptr, ptr %5, align 8
+  %448 = load i32, ptr %6, align 4
+  %449 = load i32, ptr @ett_dsmcc_heading, align 4
+  %450 = call ptr @proto_tree_add_subtree(ptr noundef %446, ptr noundef %447, i32 noundef %448, i32 noundef 0, i32 noundef %449, ptr noundef null, ptr noundef @.str.585)
+  store ptr %450, ptr %13, align 8
+  %451 = load ptr, ptr %5, align 8
+  %452 = load i32, ptr %6, align 4
+  %453 = load ptr, ptr %7, align 8
+  %454 = load ptr, ptr %13, align 8
+  %455 = call i32 @dissect_dsmcc_un_session_resource_value(ptr noundef %451, i32 noundef %452, ptr noundef %453, ptr noundef %454, i32 noundef 4)
+  %456 = load i32, ptr %6, align 4
+  %457 = add i32 %456, %455
+  store i32 %457, ptr %6, align 4
+  br label %965
 
-460:                                              ; preds = %35
-  %461 = load ptr, ptr %11, align 8
-  %462 = load i32, ptr @hf_dsmcc_un_sess_rsrc_pstn_calling_id, align 4
-  %463 = load ptr, ptr %5, align 8
+458:                                              ; preds = %35
+  %459 = load ptr, ptr %11, align 8
+  %460 = load i32, ptr @hf_dsmcc_un_sess_rsrc_pstn_calling_id, align 4
+  %461 = load ptr, ptr %5, align 8
+  %462 = load i32, ptr %6, align 4
+  %463 = call ptr @proto_tree_add_item(ptr noundef %459, i32 noundef %460, ptr noundef %461, i32 noundef %462, i32 noundef 12, i32 noundef 0)
   %464 = load i32, ptr %6, align 4
-  %465 = call ptr @proto_tree_add_item(ptr noundef %461, i32 noundef %462, ptr noundef %463, i32 noundef %464, i32 noundef 12, i32 noundef 0)
-  %466 = load i32, ptr %6, align 4
-  %467 = add i32 %466, 12
-  store i32 %467, ptr %6, align 4
-  %468 = load ptr, ptr %11, align 8
-  %469 = load i32, ptr @hf_dsmcc_un_sess_rsrc_pstn_called_id, align 4
-  %470 = load ptr, ptr %5, align 8
+  %465 = add i32 %464, 12
+  store i32 %465, ptr %6, align 4
+  %466 = load ptr, ptr %11, align 8
+  %467 = load i32, ptr @hf_dsmcc_un_sess_rsrc_pstn_called_id, align 4
+  %468 = load ptr, ptr %5, align 8
+  %469 = load i32, ptr %6, align 4
+  %470 = call ptr @proto_tree_add_item(ptr noundef %466, i32 noundef %467, ptr noundef %468, i32 noundef %469, i32 noundef 12, i32 noundef 0)
   %471 = load i32, ptr %6, align 4
-  %472 = call ptr @proto_tree_add_item(ptr noundef %468, i32 noundef %469, ptr noundef %470, i32 noundef %471, i32 noundef 12, i32 noundef 0)
-  %473 = load i32, ptr %6, align 4
-  %474 = add i32 %473, 12
-  store i32 %474, ptr %6, align 4
-  br label %969
+  %472 = add i32 %471, 12
+  store i32 %472, ptr %6, align 4
+  br label %965
 
-475:                                              ; preds = %35
-  br label %969
-
-476:                                              ; preds = %35
-  br label %969
-
-477:                                              ; preds = %35
-  %478 = load ptr, ptr %11, align 8
-  %479 = load i32, ptr @hf_dsmcc_un_sess_rsrc_dlci_count, align 4
-  %480 = load ptr, ptr %5, align 8
-  %481 = load i32, ptr %6, align 4
-  %482 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %478, i32 noundef %479, ptr noundef %480, i32 noundef %481, i32 noundef 2, i32 noundef 0, ptr noundef %16)
-  %483 = load i32, ptr %6, align 4
-  %484 = add i32 %483, 2
-  store i32 %484, ptr %6, align 4
+473:                                              ; preds = %35
+  %474 = load ptr, ptr %11, align 8
+  %475 = load i32, ptr @hf_dsmcc_un_sess_rsrc_dlci_count, align 4
+  %476 = load ptr, ptr %5, align 8
+  %477 = load i32, ptr %6, align 4
+  %478 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %474, i32 noundef %475, ptr noundef %476, i32 noundef %477, i32 noundef 2, i32 noundef 0, ptr noundef %16)
+  %479 = load i32, ptr %6, align 4
+  %480 = add i32 %479, 2
+  store i32 %480, ptr %6, align 4
   store i32 0, ptr %14, align 4
-  br label %485
+  br label %481
 
-485:                                              ; preds = %504, %477
-  %486 = load i32, ptr %14, align 4
-  %487 = load i32, ptr %16, align 4
-  %488 = icmp ult i32 %486, %487
-  br i1 %488, label %489, label %507
+481:                                              ; preds = %500, %473
+  %482 = load i32, ptr %14, align 4
+  %483 = load i32, ptr %16, align 4
+  %484 = icmp ult i32 %482, %483
+  br i1 %484, label %485, label %503
 
-489:                                              ; preds = %485
-  %490 = load ptr, ptr %11, align 8
-  %491 = load i32, ptr @hf_dsmcc_un_sess_rsrc_dlci, align 4
-  %492 = load ptr, ptr %5, align 8
-  %493 = load i32, ptr %6, align 4
-  %494 = call ptr @proto_tree_add_item(ptr noundef %490, i32 noundef %491, ptr noundef %492, i32 noundef %493, i32 noundef 2, i32 noundef 0)
-  %495 = load i32, ptr %6, align 4
-  %496 = add i32 %495, 2
-  store i32 %496, ptr %6, align 4
-  %497 = load ptr, ptr %11, align 8
-  %498 = load i32, ptr @hf_dsmcc_un_sess_rsrc_dl_association_tag, align 4
-  %499 = load ptr, ptr %5, align 8
-  %500 = load i32, ptr %6, align 4
-  %501 = call ptr @proto_tree_add_item(ptr noundef %497, i32 noundef %498, ptr noundef %499, i32 noundef %500, i32 noundef 2, i32 noundef 0)
-  %502 = load i32, ptr %6, align 4
-  %503 = add i32 %502, 2
-  store i32 %503, ptr %6, align 4
-  br label %504
+485:                                              ; preds = %481
+  %486 = load ptr, ptr %11, align 8
+  %487 = load i32, ptr @hf_dsmcc_un_sess_rsrc_dlci, align 4
+  %488 = load ptr, ptr %5, align 8
+  %489 = load i32, ptr %6, align 4
+  %490 = call ptr @proto_tree_add_item(ptr noundef %486, i32 noundef %487, ptr noundef %488, i32 noundef %489, i32 noundef 2, i32 noundef 0)
+  %491 = load i32, ptr %6, align 4
+  %492 = add i32 %491, 2
+  store i32 %492, ptr %6, align 4
+  %493 = load ptr, ptr %11, align 8
+  %494 = load i32, ptr @hf_dsmcc_un_sess_rsrc_dl_association_tag, align 4
+  %495 = load ptr, ptr %5, align 8
+  %496 = load i32, ptr %6, align 4
+  %497 = call ptr @proto_tree_add_item(ptr noundef %493, i32 noundef %494, ptr noundef %495, i32 noundef %496, i32 noundef 2, i32 noundef 0)
+  %498 = load i32, ptr %6, align 4
+  %499 = add i32 %498, 2
+  store i32 %499, ptr %6, align 4
+  br label %500
 
-504:                                              ; preds = %489
-  %505 = load i32, ptr %14, align 4
-  %506 = add i32 %505, 1
-  store i32 %506, ptr %14, align 4
-  br label %485, !llvm.loop !20
+500:                                              ; preds = %485
+  %501 = load i32, ptr %14, align 4
+  %502 = add i32 %501, 1
+  store i32 %502, ptr %14, align 4
+  br label %481, !llvm.loop !24
 
-507:                                              ; preds = %485
-  br label %969
+503:                                              ; preds = %481
+  br label %965
 
-508:                                              ; preds = %35
-  %509 = load ptr, ptr %11, align 8
-  %510 = load i32, ptr @hf_dsmcc_un_sess_rsrc_headend_count, align 4
-  %511 = load ptr, ptr %5, align 8
-  %512 = load i32, ptr %6, align 4
-  %513 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %509, i32 noundef %510, ptr noundef %511, i32 noundef %512, i32 noundef 2, i32 noundef 0, ptr noundef %16)
-  %514 = load i32, ptr %6, align 4
-  %515 = add i32 %514, 2
-  store i32 %515, ptr %6, align 4
+504:                                              ; preds = %35
+  %505 = load ptr, ptr %11, align 8
+  %506 = load i32, ptr @hf_dsmcc_un_sess_rsrc_headend_count, align 4
+  %507 = load ptr, ptr %5, align 8
+  %508 = load i32, ptr %6, align 4
+  %509 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %505, i32 noundef %506, ptr noundef %507, i32 noundef %508, i32 noundef 2, i32 noundef 0, ptr noundef %16)
+  %510 = load i32, ptr %6, align 4
+  %511 = add i32 %510, 2
+  store i32 %511, ptr %6, align 4
   store i32 0, ptr %14, align 4
-  br label %516
+  br label %512
 
-516:                                              ; preds = %528, %508
-  %517 = load i32, ptr %14, align 4
-  %518 = load i32, ptr %16, align 4
-  %519 = icmp ult i32 %517, %518
-  br i1 %519, label %520, label %531
+512:                                              ; preds = %524, %504
+  %513 = load i32, ptr %14, align 4
+  %514 = load i32, ptr %16, align 4
+  %515 = icmp ult i32 %513, %514
+  br i1 %515, label %516, label %527
 
-520:                                              ; preds = %516
-  %521 = load ptr, ptr %11, align 8
-  %522 = load i32, ptr @hf_dsmcc_un_sess_rsrc_headend_code, align 4
-  %523 = load ptr, ptr %5, align 8
-  %524 = load i32, ptr %6, align 4
-  %525 = call ptr @proto_tree_add_item(ptr noundef %521, i32 noundef %522, ptr noundef %523, i32 noundef %524, i32 noundef 20, i32 noundef 0)
-  %526 = load i32, ptr %6, align 4
-  %527 = add i32 %526, 20
-  store i32 %527, ptr %6, align 4
-  br label %528
+516:                                              ; preds = %512
+  %517 = load ptr, ptr %11, align 8
+  %518 = load i32, ptr @hf_dsmcc_un_sess_rsrc_headend_code, align 4
+  %519 = load ptr, ptr %5, align 8
+  %520 = load i32, ptr %6, align 4
+  %521 = call ptr @proto_tree_add_item(ptr noundef %517, i32 noundef %518, ptr noundef %519, i32 noundef %520, i32 noundef 20, i32 noundef 0)
+  %522 = load i32, ptr %6, align 4
+  %523 = add i32 %522, 20
+  store i32 %523, ptr %6, align 4
+  br label %524
 
-528:                                              ; preds = %520
-  %529 = load i32, ptr %14, align 4
-  %530 = add i32 %529, 1
-  store i32 %530, ptr %14, align 4
-  br label %516, !llvm.loop !21
+524:                                              ; preds = %516
+  %525 = load i32, ptr %14, align 4
+  %526 = add i32 %525, 1
+  store i32 %526, ptr %14, align 4
+  br label %512, !llvm.loop !25
 
-531:                                              ; preds = %516
-  br label %969
+527:                                              ; preds = %512
+  br label %965
 
-532:                                              ; preds = %35
-  %533 = load ptr, ptr %11, align 8
-  %534 = load i32, ptr @hf_dsmcc_un_sess_rsrc_atm_vpi, align 4
-  %535 = load ptr, ptr %5, align 8
-  %536 = load i32, ptr %6, align 4
-  %537 = call ptr @proto_tree_add_item(ptr noundef %533, i32 noundef %534, ptr noundef %535, i32 noundef %536, i32 noundef 2, i32 noundef 0)
-  %538 = load i32, ptr %6, align 4
-  %539 = add i32 %538, 2
-  store i32 %539, ptr %6, align 4
-  %540 = load ptr, ptr %11, align 8
-  %541 = load i32, ptr @hf_dsmcc_un_sess_rsrc_atm_vci, align 4
-  %542 = load ptr, ptr %5, align 8
-  %543 = load i32, ptr %6, align 4
-  %544 = call ptr @proto_tree_add_item(ptr noundef %540, i32 noundef %541, ptr noundef %542, i32 noundef %543, i32 noundef 2, i32 noundef 0)
-  %545 = load i32, ptr %6, align 4
-  %546 = add i32 %545, 2
-  store i32 %546, ptr %6, align 4
-  br label %969
+528:                                              ; preds = %35
+  %529 = load ptr, ptr %11, align 8
+  %530 = load i32, ptr @hf_dsmcc_un_sess_rsrc_atm_vpi, align 4
+  %531 = load ptr, ptr %5, align 8
+  %532 = load i32, ptr %6, align 4
+  %533 = call ptr @proto_tree_add_item(ptr noundef %529, i32 noundef %530, ptr noundef %531, i32 noundef %532, i32 noundef 2, i32 noundef 0)
+  %534 = load i32, ptr %6, align 4
+  %535 = add i32 %534, 2
+  store i32 %535, ptr %6, align 4
+  %536 = load ptr, ptr %11, align 8
+  %537 = load i32, ptr @hf_dsmcc_un_sess_rsrc_atm_vci, align 4
+  %538 = load ptr, ptr %5, align 8
+  %539 = load i32, ptr %6, align 4
+  %540 = call ptr @proto_tree_add_item(ptr noundef %536, i32 noundef %537, ptr noundef %538, i32 noundef %539, i32 noundef 2, i32 noundef 0)
+  %541 = load i32, ptr %6, align 4
+  %542 = add i32 %541, 2
+  store i32 %542, ptr %6, align 4
+  br label %965
 
-547:                                              ; preds = %35
-  %548 = load ptr, ptr %11, align 8
-  %549 = load i32, ptr @hf_dsmcc_un_sess_rsrc_sdb_id, align 4
-  %550 = load ptr, ptr %5, align 8
-  %551 = load i32, ptr %6, align 4
-  %552 = call ptr @proto_tree_add_item(ptr noundef %548, i32 noundef %549, ptr noundef %550, i32 noundef %551, i32 noundef 6, i32 noundef 0)
-  %553 = load i32, ptr %6, align 4
-  %554 = add i32 %553, 6
-  store i32 %554, ptr %6, align 4
-  %555 = load ptr, ptr %11, align 8
-  %556 = load i32, ptr @hf_dsmcc_un_sess_rsrc_sdb_program_count, align 4
-  %557 = load ptr, ptr %5, align 8
-  %558 = load i32, ptr %6, align 4
-  %559 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %555, i32 noundef %556, ptr noundef %557, i32 noundef %558, i32 noundef 2, i32 noundef 0, ptr noundef %16)
-  %560 = load i32, ptr %6, align 4
-  %561 = add i32 %560, 2
-  store i32 %561, ptr %6, align 4
+543:                                              ; preds = %35
+  %544 = load ptr, ptr %11, align 8
+  %545 = load i32, ptr @hf_dsmcc_un_sess_rsrc_sdb_id, align 4
+  %546 = load ptr, ptr %5, align 8
+  %547 = load i32, ptr %6, align 4
+  %548 = call ptr @proto_tree_add_item(ptr noundef %544, i32 noundef %545, ptr noundef %546, i32 noundef %547, i32 noundef 6, i32 noundef 0)
+  %549 = load i32, ptr %6, align 4
+  %550 = add i32 %549, 6
+  store i32 %550, ptr %6, align 4
+  %551 = load ptr, ptr %11, align 8
+  %552 = load i32, ptr @hf_dsmcc_un_sess_rsrc_sdb_program_count, align 4
+  %553 = load ptr, ptr %5, align 8
+  %554 = load i32, ptr %6, align 4
+  %555 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %551, i32 noundef %552, ptr noundef %553, i32 noundef %554, i32 noundef 2, i32 noundef 0, ptr noundef %16)
+  %556 = load i32, ptr %6, align 4
+  %557 = add i32 %556, 2
+  store i32 %557, ptr %6, align 4
   store i32 0, ptr %14, align 4
-  br label %562
+  br label %558
 
-562:                                              ; preds = %581, %547
-  %563 = load i32, ptr %14, align 4
-  %564 = load i32, ptr %16, align 4
-  %565 = icmp ult i32 %563, %564
-  br i1 %565, label %566, label %584
+558:                                              ; preds = %577, %543
+  %559 = load i32, ptr %14, align 4
+  %560 = load i32, ptr %16, align 4
+  %561 = icmp ult i32 %559, %560
+  br i1 %561, label %562, label %580
 
-566:                                              ; preds = %562
-  %567 = load ptr, ptr %11, align 8
-  %568 = load i32, ptr @hf_dsmcc_un_sess_rsrc_sdb_association_tag, align 4
-  %569 = load ptr, ptr %5, align 8
-  %570 = load i32, ptr %6, align 4
-  %571 = call ptr @proto_tree_add_item(ptr noundef %567, i32 noundef %568, ptr noundef %569, i32 noundef %570, i32 noundef 2, i32 noundef 0)
-  %572 = load i32, ptr %6, align 4
-  %573 = add i32 %572, 2
-  store i32 %573, ptr %6, align 4
-  %574 = load ptr, ptr %11, align 8
-  %575 = load i32, ptr @hf_dsmcc_un_sess_rsrc_sdb_broadcast_program_id, align 4
-  %576 = load ptr, ptr %5, align 8
-  %577 = load i32, ptr %6, align 4
-  %578 = call ptr @proto_tree_add_item(ptr noundef %574, i32 noundef %575, ptr noundef %576, i32 noundef %577, i32 noundef 2, i32 noundef 0)
-  %579 = load i32, ptr %6, align 4
-  %580 = add i32 %579, 2
-  store i32 %580, ptr %6, align 4
-  br label %581
+562:                                              ; preds = %558
+  %563 = load ptr, ptr %11, align 8
+  %564 = load i32, ptr @hf_dsmcc_un_sess_rsrc_sdb_association_tag, align 4
+  %565 = load ptr, ptr %5, align 8
+  %566 = load i32, ptr %6, align 4
+  %567 = call ptr @proto_tree_add_item(ptr noundef %563, i32 noundef %564, ptr noundef %565, i32 noundef %566, i32 noundef 2, i32 noundef 0)
+  %568 = load i32, ptr %6, align 4
+  %569 = add i32 %568, 2
+  store i32 %569, ptr %6, align 4
+  %570 = load ptr, ptr %11, align 8
+  %571 = load i32, ptr @hf_dsmcc_un_sess_rsrc_sdb_broadcast_program_id, align 4
+  %572 = load ptr, ptr %5, align 8
+  %573 = load i32, ptr %6, align 4
+  %574 = call ptr @proto_tree_add_item(ptr noundef %570, i32 noundef %571, ptr noundef %572, i32 noundef %573, i32 noundef 2, i32 noundef 0)
+  %575 = load i32, ptr %6, align 4
+  %576 = add i32 %575, 2
+  store i32 %576, ptr %6, align 4
+  br label %577
 
-581:                                              ; preds = %566
-  %582 = load i32, ptr %14, align 4
-  %583 = add i32 %582, 1
-  store i32 %583, ptr %14, align 4
-  br label %562, !llvm.loop !22
+577:                                              ; preds = %562
+  %578 = load i32, ptr %14, align 4
+  %579 = add i32 %578, 1
+  store i32 %579, ptr %14, align 4
+  br label %558, !llvm.loop !26
 
-584:                                              ; preds = %562
-  br label %969
+580:                                              ; preds = %558
+  br label %965
 
-585:                                              ; preds = %35
-  %586 = load ptr, ptr %11, align 8
-  %587 = load i32, ptr @hf_dsmcc_un_sess_rsrc_sdb_control_association_tag, align 4
-  %588 = load ptr, ptr %5, align 8
-  %589 = load i32, ptr %6, align 4
-  %590 = call ptr @proto_tree_add_item(ptr noundef %586, i32 noundef %587, ptr noundef %588, i32 noundef %589, i32 noundef 2, i32 noundef 0)
-  %591 = load i32, ptr %6, align 4
-  %592 = add i32 %591, 2
-  store i32 %592, ptr %6, align 4
-  %593 = load ptr, ptr %11, align 8
-  %594 = load i32, ptr @hf_dsmcc_un_sess_rsrc_sdb_program_association_tag, align 4
-  %595 = load ptr, ptr %5, align 8
-  %596 = load i32, ptr %6, align 4
-  %597 = call ptr @proto_tree_add_item(ptr noundef %593, i32 noundef %594, ptr noundef %595, i32 noundef %596, i32 noundef 2, i32 noundef 0)
-  %598 = load i32, ptr %6, align 4
-  %599 = add i32 %598, 2
-  store i32 %599, ptr %6, align 4
-  br label %969
+581:                                              ; preds = %35
+  %582 = load ptr, ptr %11, align 8
+  %583 = load i32, ptr @hf_dsmcc_un_sess_rsrc_sdb_control_association_tag, align 4
+  %584 = load ptr, ptr %5, align 8
+  %585 = load i32, ptr %6, align 4
+  %586 = call ptr @proto_tree_add_item(ptr noundef %582, i32 noundef %583, ptr noundef %584, i32 noundef %585, i32 noundef 2, i32 noundef 0)
+  %587 = load i32, ptr %6, align 4
+  %588 = add i32 %587, 2
+  store i32 %588, ptr %6, align 4
+  %589 = load ptr, ptr %11, align 8
+  %590 = load i32, ptr @hf_dsmcc_un_sess_rsrc_sdb_program_association_tag, align 4
+  %591 = load ptr, ptr %5, align 8
+  %592 = load i32, ptr %6, align 4
+  %593 = call ptr @proto_tree_add_item(ptr noundef %589, i32 noundef %590, ptr noundef %591, i32 noundef %592, i32 noundef 2, i32 noundef 0)
+  %594 = load i32, ptr %6, align 4
+  %595 = add i32 %594, 2
+  store i32 %595, ptr %6, align 4
+  br label %965
 
-600:                                              ; preds = %35
-  %601 = load ptr, ptr %11, align 8
-  %602 = load i32, ptr @hf_dsmcc_un_sess_rsrc_sdb_id, align 4
-  %603 = load ptr, ptr %5, align 8
-  %604 = load i32, ptr %6, align 4
-  %605 = call ptr @proto_tree_add_item(ptr noundef %601, i32 noundef %602, ptr noundef %603, i32 noundef %604, i32 noundef 6, i32 noundef 0)
-  %606 = load i32, ptr %6, align 4
-  %607 = add i32 %606, 6
-  store i32 %607, ptr %6, align 4
-  %608 = load ptr, ptr %11, align 8
-  %609 = load i32, ptr @hf_dsmcc_un_sess_rsrc_sdb_exclude_count, align 4
-  %610 = load ptr, ptr %5, align 8
-  %611 = load i32, ptr %6, align 4
-  %612 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %608, i32 noundef %609, ptr noundef %610, i32 noundef %611, i32 noundef 2, i32 noundef 0, ptr noundef %16)
-  %613 = load i32, ptr %6, align 4
-  %614 = add i32 %613, 2
-  store i32 %614, ptr %6, align 4
+596:                                              ; preds = %35
+  %597 = load ptr, ptr %11, align 8
+  %598 = load i32, ptr @hf_dsmcc_un_sess_rsrc_sdb_id, align 4
+  %599 = load ptr, ptr %5, align 8
+  %600 = load i32, ptr %6, align 4
+  %601 = call ptr @proto_tree_add_item(ptr noundef %597, i32 noundef %598, ptr noundef %599, i32 noundef %600, i32 noundef 6, i32 noundef 0)
+  %602 = load i32, ptr %6, align 4
+  %603 = add i32 %602, 6
+  store i32 %603, ptr %6, align 4
+  %604 = load ptr, ptr %11, align 8
+  %605 = load i32, ptr @hf_dsmcc_un_sess_rsrc_sdb_exclude_count, align 4
+  %606 = load ptr, ptr %5, align 8
+  %607 = load i32, ptr %6, align 4
+  %608 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %604, i32 noundef %605, ptr noundef %606, i32 noundef %607, i32 noundef 2, i32 noundef 0, ptr noundef %16)
+  %609 = load i32, ptr %6, align 4
+  %610 = add i32 %609, 2
+  store i32 %610, ptr %6, align 4
   store i32 0, ptr %14, align 4
-  br label %615
+  br label %611
 
-615:                                              ; preds = %627, %600
-  %616 = load i32, ptr %14, align 4
-  %617 = load i32, ptr %16, align 4
-  %618 = icmp ult i32 %616, %617
-  br i1 %618, label %619, label %630
+611:                                              ; preds = %623, %596
+  %612 = load i32, ptr %14, align 4
+  %613 = load i32, ptr %16, align 4
+  %614 = icmp ult i32 %612, %613
+  br i1 %614, label %615, label %626
 
-619:                                              ; preds = %615
-  %620 = load ptr, ptr %11, align 8
-  %621 = load i32, ptr @hf_dsmcc_un_sess_rsrc_sdb_broadcast_program_id, align 4
-  %622 = load ptr, ptr %5, align 8
-  %623 = load i32, ptr %6, align 4
-  %624 = call ptr @proto_tree_add_item(ptr noundef %620, i32 noundef %621, ptr noundef %622, i32 noundef %623, i32 noundef 2, i32 noundef 0)
-  %625 = load i32, ptr %6, align 4
-  %626 = add i32 %625, 2
-  store i32 %626, ptr %6, align 4
-  br label %627
+615:                                              ; preds = %611
+  %616 = load ptr, ptr %11, align 8
+  %617 = load i32, ptr @hf_dsmcc_un_sess_rsrc_sdb_broadcast_program_id, align 4
+  %618 = load ptr, ptr %5, align 8
+  %619 = load i32, ptr %6, align 4
+  %620 = call ptr @proto_tree_add_item(ptr noundef %616, i32 noundef %617, ptr noundef %618, i32 noundef %619, i32 noundef 2, i32 noundef 0)
+  %621 = load i32, ptr %6, align 4
+  %622 = add i32 %621, 2
+  store i32 %622, ptr %6, align 4
+  br label %623
 
-627:                                              ; preds = %619
-  %628 = load i32, ptr %14, align 4
-  %629 = add i32 %628, 1
-  store i32 %629, ptr %14, align 4
-  br label %615, !llvm.loop !23
+623:                                              ; preds = %615
+  %624 = load i32, ptr %14, align 4
+  %625 = add i32 %624, 1
+  store i32 %625, ptr %14, align 4
+  br label %611, !llvm.loop !27
 
-630:                                              ; preds = %615
-  %631 = load ptr, ptr %11, align 8
-  %632 = load i32, ptr @hf_dsmcc_un_sess_rsrc_sdb_include_count, align 4
-  %633 = load ptr, ptr %5, align 8
-  %634 = load i32, ptr %6, align 4
-  %635 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %631, i32 noundef %632, ptr noundef %633, i32 noundef %634, i32 noundef 2, i32 noundef 0, ptr noundef %16)
-  %636 = load i32, ptr %6, align 4
-  %637 = add i32 %636, 2
-  store i32 %637, ptr %6, align 4
+626:                                              ; preds = %611
+  %627 = load ptr, ptr %11, align 8
+  %628 = load i32, ptr @hf_dsmcc_un_sess_rsrc_sdb_include_count, align 4
+  %629 = load ptr, ptr %5, align 8
+  %630 = load i32, ptr %6, align 4
+  %631 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %627, i32 noundef %628, ptr noundef %629, i32 noundef %630, i32 noundef 2, i32 noundef 0, ptr noundef %16)
+  %632 = load i32, ptr %6, align 4
+  %633 = add i32 %632, 2
+  store i32 %633, ptr %6, align 4
   store i32 0, ptr %14, align 4
-  br label %638
+  br label %634
 
-638:                                              ; preds = %650, %630
-  %639 = load i32, ptr %14, align 4
-  %640 = load i32, ptr %16, align 4
-  %641 = icmp ult i32 %639, %640
-  br i1 %641, label %642, label %653
+634:                                              ; preds = %646, %626
+  %635 = load i32, ptr %14, align 4
+  %636 = load i32, ptr %16, align 4
+  %637 = icmp ult i32 %635, %636
+  br i1 %637, label %638, label %649
 
-642:                                              ; preds = %638
-  %643 = load ptr, ptr %11, align 8
-  %644 = load i32, ptr @hf_dsmcc_un_sess_rsrc_sdb_broadcast_program_id, align 4
-  %645 = load ptr, ptr %5, align 8
-  %646 = load i32, ptr %6, align 4
-  %647 = call ptr @proto_tree_add_item(ptr noundef %643, i32 noundef %644, ptr noundef %645, i32 noundef %646, i32 noundef 2, i32 noundef 0)
-  %648 = load i32, ptr %6, align 4
-  %649 = add i32 %648, 2
-  store i32 %649, ptr %6, align 4
-  br label %650
+638:                                              ; preds = %634
+  %639 = load ptr, ptr %11, align 8
+  %640 = load i32, ptr @hf_dsmcc_un_sess_rsrc_sdb_broadcast_program_id, align 4
+  %641 = load ptr, ptr %5, align 8
+  %642 = load i32, ptr %6, align 4
+  %643 = call ptr @proto_tree_add_item(ptr noundef %639, i32 noundef %640, ptr noundef %641, i32 noundef %642, i32 noundef 2, i32 noundef 0)
+  %644 = load i32, ptr %6, align 4
+  %645 = add i32 %644, 2
+  store i32 %645, ptr %6, align 4
+  br label %646
 
-650:                                              ; preds = %642
-  %651 = load i32, ptr %14, align 4
-  %652 = add i32 %651, 1
-  store i32 %652, ptr %14, align 4
-  br label %638, !llvm.loop !24
+646:                                              ; preds = %638
+  %647 = load i32, ptr %14, align 4
+  %648 = add i32 %647, 1
+  store i32 %648, ptr %14, align 4
+  br label %634, !llvm.loop !28
 
-653:                                              ; preds = %638
-  br label %969
+649:                                              ; preds = %634
+  br label %965
 
-654:                                              ; preds = %35
-  %655 = load ptr, ptr %11, align 8
-  %656 = load i32, ptr @hf_dsmcc_un_sess_rsrc_trans_system, align 4
-  %657 = load ptr, ptr %5, align 8
-  %658 = load i32, ptr %6, align 4
-  %659 = call ptr @proto_tree_add_item(ptr noundef %655, i32 noundef %656, ptr noundef %657, i32 noundef %658, i32 noundef 1, i32 noundef 0)
-  %660 = load i32, ptr %6, align 4
-  %661 = add i32 %660, 1
-  store i32 %661, ptr %6, align 4
-  %662 = load ptr, ptr %11, align 8
-  %663 = load i32, ptr @hf_dsmcc_un_sess_rsrc_inner_coding, align 4
-  %664 = load ptr, ptr %5, align 8
-  %665 = load i32, ptr %6, align 4
-  %666 = call ptr @proto_tree_add_item(ptr noundef %662, i32 noundef %663, ptr noundef %664, i32 noundef %665, i32 noundef 1, i32 noundef 0)
-  %667 = load i32, ptr %6, align 4
-  %668 = add i32 %667, 1
-  store i32 %668, ptr %6, align 4
-  %669 = load ptr, ptr %11, align 8
-  %670 = load i32, ptr @hf_dsmcc_un_sess_rsrc_split_bitstream, align 4
-  %671 = load ptr, ptr %5, align 8
-  %672 = load i32, ptr %6, align 4
-  %673 = call ptr @proto_tree_add_item(ptr noundef %669, i32 noundef %670, ptr noundef %671, i32 noundef %672, i32 noundef 1, i32 noundef 0)
-  %674 = load i32, ptr %6, align 4
-  %675 = add i32 %674, 1
-  store i32 %675, ptr %6, align 4
-  %676 = load ptr, ptr %11, align 8
-  %677 = load i32, ptr @hf_dsmcc_un_sess_rsrc_mod_format, align 4
-  %678 = load ptr, ptr %5, align 8
-  %679 = load i32, ptr %6, align 4
-  %680 = call ptr @proto_tree_add_item(ptr noundef %676, i32 noundef %677, ptr noundef %678, i32 noundef %679, i32 noundef 1, i32 noundef 0)
-  %681 = load i32, ptr %6, align 4
-  %682 = add i32 %681, 1
-  store i32 %682, ptr %6, align 4
-  %683 = load ptr, ptr %11, align 8
-  %684 = load i32, ptr @hf_dsmcc_un_sess_rsrc_symbol_rate, align 4
-  %685 = load ptr, ptr %5, align 8
-  %686 = load i32, ptr %6, align 4
-  %687 = call ptr @proto_tree_add_item(ptr noundef %683, i32 noundef %684, ptr noundef %685, i32 noundef %686, i32 noundef 4, i32 noundef 0)
-  %688 = load i32, ptr %6, align 4
-  %689 = add i32 %688, 4
-  store i32 %689, ptr %6, align 4
-  %690 = load ptr, ptr %11, align 8
-  %691 = load i32, ptr @hf_dsmcc_un_sess_rsrc_reserved, align 4
-  %692 = load ptr, ptr %5, align 8
-  %693 = load i32, ptr %6, align 4
-  %694 = call ptr @proto_tree_add_item(ptr noundef %690, i32 noundef %691, ptr noundef %692, i32 noundef %693, i32 noundef 1, i32 noundef 0)
-  %695 = load i32, ptr %6, align 4
-  %696 = add i32 %695, 1
-  store i32 %696, ptr %6, align 4
-  %697 = load ptr, ptr %11, align 8
-  %698 = load i32, ptr @hf_dsmcc_un_sess_rsrc_interleave_depth, align 4
-  %699 = load ptr, ptr %5, align 8
-  %700 = load i32, ptr %6, align 4
-  %701 = call ptr @proto_tree_add_item(ptr noundef %697, i32 noundef %698, ptr noundef %699, i32 noundef %700, i32 noundef 1, i32 noundef 0)
-  %702 = load i32, ptr %6, align 4
-  %703 = add i32 %702, 1
-  store i32 %703, ptr %6, align 4
-  %704 = load ptr, ptr %11, align 8
-  %705 = load i32, ptr @hf_dsmcc_un_sess_rsrc_modulation_mode, align 4
-  %706 = load ptr, ptr %5, align 8
-  %707 = load i32, ptr %6, align 4
-  %708 = call ptr @proto_tree_add_item(ptr noundef %704, i32 noundef %705, ptr noundef %706, i32 noundef %707, i32 noundef 1, i32 noundef 0)
-  %709 = load i32, ptr %6, align 4
-  %710 = add i32 %709, 1
-  store i32 %710, ptr %6, align 4
-  %711 = load ptr, ptr %11, align 8
-  %712 = load i32, ptr @hf_dsmcc_un_sess_rsrc_fec, align 4
-  %713 = load ptr, ptr %5, align 8
-  %714 = load i32, ptr %6, align 4
-  %715 = call ptr @proto_tree_add_item(ptr noundef %711, i32 noundef %712, ptr noundef %713, i32 noundef %714, i32 noundef 1, i32 noundef 0)
+650:                                              ; preds = %35
+  %651 = load ptr, ptr %11, align 8
+  %652 = load i32, ptr @hf_dsmcc_un_sess_rsrc_trans_system, align 4
+  %653 = load ptr, ptr %5, align 8
+  %654 = load i32, ptr %6, align 4
+  %655 = call ptr @proto_tree_add_item(ptr noundef %651, i32 noundef %652, ptr noundef %653, i32 noundef %654, i32 noundef 1, i32 noundef 0)
+  %656 = load i32, ptr %6, align 4
+  %657 = add i32 %656, 1
+  store i32 %657, ptr %6, align 4
+  %658 = load ptr, ptr %11, align 8
+  %659 = load i32, ptr @hf_dsmcc_un_sess_rsrc_inner_coding, align 4
+  %660 = load ptr, ptr %5, align 8
+  %661 = load i32, ptr %6, align 4
+  %662 = call ptr @proto_tree_add_item(ptr noundef %658, i32 noundef %659, ptr noundef %660, i32 noundef %661, i32 noundef 1, i32 noundef 0)
+  %663 = load i32, ptr %6, align 4
+  %664 = add i32 %663, 1
+  store i32 %664, ptr %6, align 4
+  %665 = load ptr, ptr %11, align 8
+  %666 = load i32, ptr @hf_dsmcc_un_sess_rsrc_split_bitstream, align 4
+  %667 = load ptr, ptr %5, align 8
+  %668 = load i32, ptr %6, align 4
+  %669 = call ptr @proto_tree_add_item(ptr noundef %665, i32 noundef %666, ptr noundef %667, i32 noundef %668, i32 noundef 1, i32 noundef 0)
+  %670 = load i32, ptr %6, align 4
+  %671 = add i32 %670, 1
+  store i32 %671, ptr %6, align 4
+  %672 = load ptr, ptr %11, align 8
+  %673 = load i32, ptr @hf_dsmcc_un_sess_rsrc_mod_format, align 4
+  %674 = load ptr, ptr %5, align 8
+  %675 = load i32, ptr %6, align 4
+  %676 = call ptr @proto_tree_add_item(ptr noundef %672, i32 noundef %673, ptr noundef %674, i32 noundef %675, i32 noundef 1, i32 noundef 0)
+  %677 = load i32, ptr %6, align 4
+  %678 = add i32 %677, 1
+  store i32 %678, ptr %6, align 4
+  %679 = load ptr, ptr %11, align 8
+  %680 = load i32, ptr @hf_dsmcc_un_sess_rsrc_symbol_rate, align 4
+  %681 = load ptr, ptr %5, align 8
+  %682 = load i32, ptr %6, align 4
+  %683 = call ptr @proto_tree_add_item(ptr noundef %679, i32 noundef %680, ptr noundef %681, i32 noundef %682, i32 noundef 4, i32 noundef 0)
+  %684 = load i32, ptr %6, align 4
+  %685 = add i32 %684, 4
+  store i32 %685, ptr %6, align 4
+  %686 = load ptr, ptr %11, align 8
+  %687 = load i32, ptr @hf_dsmcc_un_sess_rsrc_reserved, align 4
+  %688 = load ptr, ptr %5, align 8
+  %689 = load i32, ptr %6, align 4
+  %690 = call ptr @proto_tree_add_item(ptr noundef %686, i32 noundef %687, ptr noundef %688, i32 noundef %689, i32 noundef 1, i32 noundef 0)
+  %691 = load i32, ptr %6, align 4
+  %692 = add i32 %691, 1
+  store i32 %692, ptr %6, align 4
+  %693 = load ptr, ptr %11, align 8
+  %694 = load i32, ptr @hf_dsmcc_un_sess_rsrc_interleave_depth, align 4
+  %695 = load ptr, ptr %5, align 8
+  %696 = load i32, ptr %6, align 4
+  %697 = call ptr @proto_tree_add_item(ptr noundef %693, i32 noundef %694, ptr noundef %695, i32 noundef %696, i32 noundef 1, i32 noundef 0)
+  %698 = load i32, ptr %6, align 4
+  %699 = add i32 %698, 1
+  store i32 %699, ptr %6, align 4
+  %700 = load ptr, ptr %11, align 8
+  %701 = load i32, ptr @hf_dsmcc_un_sess_rsrc_modulation_mode, align 4
+  %702 = load ptr, ptr %5, align 8
+  %703 = load i32, ptr %6, align 4
+  %704 = call ptr @proto_tree_add_item(ptr noundef %700, i32 noundef %701, ptr noundef %702, i32 noundef %703, i32 noundef 1, i32 noundef 0)
+  %705 = load i32, ptr %6, align 4
+  %706 = add i32 %705, 1
+  store i32 %706, ptr %6, align 4
+  %707 = load ptr, ptr %11, align 8
+  %708 = load i32, ptr @hf_dsmcc_un_sess_rsrc_fec, align 4
+  %709 = load ptr, ptr %5, align 8
+  %710 = load i32, ptr %6, align 4
+  %711 = call ptr @proto_tree_add_item(ptr noundef %707, i32 noundef %708, ptr noundef %709, i32 noundef %710, i32 noundef 1, i32 noundef 0)
+  %712 = load i32, ptr %6, align 4
+  %713 = add i32 %712, 1
+  store i32 %713, ptr %6, align 4
+  br label %965
+
+714:                                              ; preds = %35
+  %715 = load ptr, ptr %5, align 8
   %716 = load i32, ptr %6, align 4
-  %717 = add i32 %716, 1
-  store i32 %717, ptr %6, align 4
-  br label %969
+  %717 = call zeroext i16 @tvb_get_uint16(ptr noundef %715, i32 noundef %716, i32 noundef 0)
+  store i16 %717, ptr %18, align 2
+  %718 = load ptr, ptr %11, align 8
+  %719 = load i32, ptr @hf_dsmcc_un_sess_rsrc_headend_flag, align 4
+  %720 = load ptr, ptr %5, align 8
+  %721 = load i32, ptr %6, align 4
+  %722 = call ptr @proto_tree_add_item(ptr noundef %718, i32 noundef %719, ptr noundef %720, i32 noundef %721, i32 noundef 2, i32 noundef 0)
+  store ptr %722, ptr %9, align 8
+  %723 = load i16, ptr %18, align 2
+  %724 = zext i16 %723 to i32
+  %725 = icmp eq i32 %724, 0
+  br i1 %725, label %730, label %726
 
-718:                                              ; preds = %35
-  %719 = load ptr, ptr %5, align 8
-  %720 = load i32, ptr %6, align 4
-  %721 = call zeroext i16 @tvb_get_guint16(ptr noundef %719, i32 noundef %720, i32 noundef 0)
-  store i16 %721, ptr %18, align 2
-  %722 = load ptr, ptr %11, align 8
-  %723 = load i32, ptr @hf_dsmcc_un_sess_rsrc_headend_flag, align 4
-  %724 = load ptr, ptr %5, align 8
-  %725 = load i32, ptr %6, align 4
-  %726 = call ptr @proto_tree_add_item(ptr noundef %722, i32 noundef %723, ptr noundef %724, i32 noundef %725, i32 noundef 2, i32 noundef 0)
-  store ptr %726, ptr %9, align 8
+726:                                              ; preds = %714
   %727 = load i16, ptr %18, align 2
   %728 = zext i16 %727 to i32
-  %729 = icmp eq i32 %728, 0
-  br i1 %729, label %734, label %730
+  %729 = icmp sgt i32 %728, 4
+  br i1 %729, label %730, label %734
 
-730:                                              ; preds = %718
-  %731 = load i16, ptr %18, align 2
-  %732 = zext i16 %731 to i32
-  %733 = icmp sgt i32 %732, 4
-  br i1 %733, label %734, label %738
+730:                                              ; preds = %726, %714
+  %731 = load ptr, ptr %7, align 8
+  %732 = load ptr, ptr %9, align 8
+  %733 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %731, ptr noundef %732, ptr noundef @ei_dsmcc_invalid_value, ptr noundef @.str.586)
+  br label %734
 
-734:                                              ; preds = %730, %718
-  %735 = load ptr, ptr %7, align 8
-  %736 = load ptr, ptr %9, align 8
-  %737 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %735, ptr noundef %736, ptr noundef @ei_dsmcc_invalid_value, ptr noundef @.str.583)
-  br label %738
-
-738:                                              ; preds = %734, %730
+734:                                              ; preds = %730, %726
+  %735 = load i32, ptr %6, align 4
+  %736 = add i32 %735, 2
+  store i32 %736, ptr %6, align 4
+  %737 = load ptr, ptr %11, align 8
+  %738 = load ptr, ptr %5, align 8
   %739 = load i32, ptr %6, align 4
-  %740 = add i32 %739, 2
-  store i32 %740, ptr %6, align 4
-  %741 = load ptr, ptr %11, align 8
+  %740 = load i32, ptr @ett_dsmcc_heading, align 4
+  %741 = call ptr @proto_tree_add_subtree(ptr noundef %737, ptr noundef %738, i32 noundef %739, i32 noundef 20, i32 noundef %740, ptr noundef null, ptr noundef @.str.587)
+  store ptr %741, ptr %12, align 8
   %742 = load ptr, ptr %5, align 8
   %743 = load i32, ptr %6, align 4
-  %744 = load i32, ptr @ett_dsmcc_heading, align 4
-  %745 = call ptr @proto_tree_add_subtree(ptr noundef %741, ptr noundef %742, i32 noundef %743, i32 noundef 20, i32 noundef %744, ptr noundef null, ptr noundef @.str.584)
-  store ptr %745, ptr %12, align 8
-  %746 = load ptr, ptr %5, align 8
+  %744 = load ptr, ptr %7, align 8
+  %745 = load ptr, ptr %12, align 8
+  %746 = call i32 @dissect_dsmcc_un_session_nsap(ptr noundef %742, i32 noundef %743, ptr noundef %744, ptr noundef %745)
   %747 = load i32, ptr %6, align 4
-  %748 = load ptr, ptr %7, align 8
-  %749 = load ptr, ptr %12, align 8
-  %750 = call i32 @dissect_dsmcc_un_session_nsap(ptr noundef %746, i32 noundef %747, ptr noundef %748, ptr noundef %749)
-  %751 = load i32, ptr %6, align 4
-  %752 = add i32 %751, %750
-  store i32 %752, ptr %6, align 4
-  %753 = load ptr, ptr %11, align 8
-  %754 = load i32, ptr @hf_dsmcc_un_sess_rsrc_headend_tsid, align 4
-  %755 = load ptr, ptr %5, align 8
-  %756 = load i32, ptr %6, align 4
-  %757 = call ptr @proto_tree_add_item(ptr noundef %753, i32 noundef %754, ptr noundef %755, i32 noundef %756, i32 noundef 4, i32 noundef 0)
-  %758 = load i32, ptr %6, align 4
-  %759 = add i32 %758, 4
-  store i32 %759, ptr %6, align 4
-  br label %969
+  %748 = add i32 %747, %746
+  store i32 %748, ptr %6, align 4
+  %749 = load ptr, ptr %11, align 8
+  %750 = load i32, ptr @hf_dsmcc_un_sess_rsrc_headend_tsid, align 4
+  %751 = load ptr, ptr %5, align 8
+  %752 = load i32, ptr %6, align 4
+  %753 = call ptr @proto_tree_add_item(ptr noundef %749, i32 noundef %750, ptr noundef %751, i32 noundef %752, i32 noundef 4, i32 noundef 0)
+  %754 = load i32, ptr %6, align 4
+  %755 = add i32 %754, 4
+  store i32 %755, ptr %6, align 4
+  br label %965
 
-760:                                              ; preds = %35
-  %761 = load ptr, ptr %11, align 8
+756:                                              ; preds = %35
+  %757 = load ptr, ptr %11, align 8
+  %758 = load ptr, ptr %5, align 8
+  %759 = load i32, ptr %6, align 4
+  %760 = load i32, ptr @ett_dsmcc_heading, align 4
+  %761 = call ptr @proto_tree_add_subtree(ptr noundef %757, ptr noundef %758, i32 noundef %759, i32 noundef 0, i32 noundef %760, ptr noundef null, ptr noundef @.str.588)
+  store ptr %761, ptr %13, align 8
   %762 = load ptr, ptr %5, align 8
   %763 = load i32, ptr %6, align 4
-  %764 = load i32, ptr @ett_dsmcc_heading, align 4
-  %765 = call ptr @proto_tree_add_subtree(ptr noundef %761, ptr noundef %762, i32 noundef %763, i32 noundef 0, i32 noundef %764, ptr noundef null, ptr noundef @.str.585)
-  store ptr %765, ptr %13, align 8
-  %766 = load ptr, ptr %5, align 8
+  %764 = load ptr, ptr %7, align 8
+  %765 = load ptr, ptr %13, align 8
+  %766 = call i32 @dissect_dsmcc_un_session_resource_value(ptr noundef %762, i32 noundef %763, ptr noundef %764, ptr noundef %765, i32 noundef 2)
   %767 = load i32, ptr %6, align 4
-  %768 = load ptr, ptr %7, align 8
-  %769 = load ptr, ptr %13, align 8
-  %770 = call i32 @dissect_dsmcc_un_session_resource_value(ptr noundef %766, i32 noundef %767, ptr noundef %768, ptr noundef %769, i32 noundef 2)
-  %771 = load i32, ptr %6, align 4
-  %772 = add i32 %771, %770
-  store i32 %772, ptr %6, align 4
-  %773 = load ptr, ptr %11, align 8
-  %774 = load i32, ptr @hf_dsmcc_un_sess_rsrc_server_ca_copyprotect, align 4
-  %775 = load ptr, ptr %5, align 8
-  %776 = load i32, ptr %6, align 4
-  %777 = call ptr @proto_tree_add_item(ptr noundef %773, i32 noundef %774, ptr noundef %775, i32 noundef %776, i32 noundef 2, i32 noundef 0)
-  %778 = load i32, ptr %6, align 4
-  %779 = add i32 %778, 2
-  store i32 %779, ptr %6, align 4
-  %780 = load ptr, ptr %11, align 8
-  %781 = load i32, ptr @hf_dsmcc_un_sess_rsrc_server_ca_usercount, align 4
-  %782 = load ptr, ptr %5, align 8
-  %783 = load i32, ptr %6, align 4
-  %784 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %780, i32 noundef %781, ptr noundef %782, i32 noundef %783, i32 noundef 2, i32 noundef 0, ptr noundef %16)
-  %785 = load i32, ptr %6, align 4
-  %786 = add i32 %785, 2
-  store i32 %786, ptr %6, align 4
+  %768 = add i32 %767, %766
+  store i32 %768, ptr %6, align 4
+  %769 = load ptr, ptr %11, align 8
+  %770 = load i32, ptr @hf_dsmcc_un_sess_rsrc_server_ca_copyprotect, align 4
+  %771 = load ptr, ptr %5, align 8
+  %772 = load i32, ptr %6, align 4
+  %773 = call ptr @proto_tree_add_item(ptr noundef %769, i32 noundef %770, ptr noundef %771, i32 noundef %772, i32 noundef 2, i32 noundef 0)
+  %774 = load i32, ptr %6, align 4
+  %775 = add i32 %774, 2
+  store i32 %775, ptr %6, align 4
+  %776 = load ptr, ptr %11, align 8
+  %777 = load i32, ptr @hf_dsmcc_un_sess_rsrc_server_ca_usercount, align 4
+  %778 = load ptr, ptr %5, align 8
+  %779 = load i32, ptr %6, align 4
+  %780 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %776, i32 noundef %777, ptr noundef %778, i32 noundef %779, i32 noundef 2, i32 noundef 0, ptr noundef %16)
+  %781 = load i32, ptr %6, align 4
+  %782 = add i32 %781, 2
+  store i32 %782, ptr %6, align 4
   store i32 0, ptr %14, align 4
-  br label %787
+  br label %783
 
-787:                                              ; preds = %806, %760
-  %788 = load i32, ptr %14, align 4
-  %789 = load i32, ptr %16, align 4
-  %790 = icmp ult i32 %788, %789
-  br i1 %790, label %791, label %809
+783:                                              ; preds = %802, %756
+  %784 = load i32, ptr %14, align 4
+  %785 = load i32, ptr %16, align 4
+  %786 = icmp ult i32 %784, %785
+  br i1 %786, label %787, label %805
 
-791:                                              ; preds = %787
-  %792 = load ptr, ptr %11, align 8
-  %793 = load ptr, ptr %5, align 8
-  %794 = load i32, ptr %6, align 4
-  %795 = load i32, ptr @ett_dsmcc_heading, align 4
-  %796 = load i32, ptr %14, align 4
-  %797 = add i32 1, %796
-  %798 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %792, ptr noundef %793, i32 noundef %794, i32 noundef 20, i32 noundef %795, ptr noundef null, ptr noundef @.str.586, i32 noundef %797)
-  store ptr %798, ptr %12, align 8
-  %799 = load ptr, ptr %5, align 8
+787:                                              ; preds = %783
+  %788 = load ptr, ptr %11, align 8
+  %789 = load ptr, ptr %5, align 8
+  %790 = load i32, ptr %6, align 4
+  %791 = load i32, ptr @ett_dsmcc_heading, align 4
+  %792 = load i32, ptr %14, align 4
+  %793 = add i32 1, %792
+  %794 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %788, ptr noundef %789, i32 noundef %790, i32 noundef 20, i32 noundef %791, ptr noundef null, ptr noundef @.str.589, i32 noundef %793)
+  store ptr %794, ptr %12, align 8
+  %795 = load ptr, ptr %5, align 8
+  %796 = load i32, ptr %6, align 4
+  %797 = load ptr, ptr %7, align 8
+  %798 = load ptr, ptr %12, align 8
+  %799 = call i32 @dissect_dsmcc_un_session_nsap(ptr noundef %795, i32 noundef %796, ptr noundef %797, ptr noundef %798)
   %800 = load i32, ptr %6, align 4
-  %801 = load ptr, ptr %7, align 8
-  %802 = load ptr, ptr %12, align 8
-  %803 = call i32 @dissect_dsmcc_un_session_nsap(ptr noundef %799, i32 noundef %800, ptr noundef %801, ptr noundef %802)
-  %804 = load i32, ptr %6, align 4
-  %805 = add i32 %804, %803
-  store i32 %805, ptr %6, align 4
-  br label %806
+  %801 = add i32 %800, %799
+  store i32 %801, ptr %6, align 4
+  br label %802
 
-806:                                              ; preds = %791
-  %807 = load i32, ptr %14, align 4
-  %808 = add i32 %807, 1
-  store i32 %808, ptr %14, align 4
-  br label %787, !llvm.loop !25
+802:                                              ; preds = %787
+  %803 = load i32, ptr %14, align 4
+  %804 = add i32 %803, 1
+  store i32 %804, ptr %14, align 4
+  br label %783, !llvm.loop !29
 
-809:                                              ; preds = %787
-  br label %969
+805:                                              ; preds = %783
+  br label %965
 
-810:                                              ; preds = %35
-  %811 = load ptr, ptr %11, align 8
+806:                                              ; preds = %35
+  %807 = load ptr, ptr %11, align 8
+  %808 = load ptr, ptr %5, align 8
+  %809 = load i32, ptr %6, align 4
+  %810 = load i32, ptr @ett_dsmcc_heading, align 4
+  %811 = call ptr @proto_tree_add_subtree(ptr noundef %807, ptr noundef %808, i32 noundef %809, i32 noundef 0, i32 noundef %810, ptr noundef null, ptr noundef @.str.590)
+  store ptr %811, ptr %13, align 8
   %812 = load ptr, ptr %5, align 8
   %813 = load i32, ptr %6, align 4
-  %814 = load i32, ptr @ett_dsmcc_heading, align 4
-  %815 = call ptr @proto_tree_add_subtree(ptr noundef %811, ptr noundef %812, i32 noundef %813, i32 noundef 0, i32 noundef %814, ptr noundef null, ptr noundef @.str.587)
-  store ptr %815, ptr %13, align 8
-  %816 = load ptr, ptr %5, align 8
+  %814 = load ptr, ptr %7, align 8
+  %815 = load ptr, ptr %13, align 8
+  %816 = call i32 @dissect_dsmcc_un_session_resource_value(ptr noundef %812, i32 noundef %813, ptr noundef %814, ptr noundef %815, i32 noundef 2)
   %817 = load i32, ptr %6, align 4
-  %818 = load ptr, ptr %7, align 8
-  %819 = load ptr, ptr %13, align 8
-  %820 = call i32 @dissect_dsmcc_un_session_resource_value(ptr noundef %816, i32 noundef %817, ptr noundef %818, ptr noundef %819, i32 noundef 2)
-  %821 = load i32, ptr %6, align 4
-  %822 = add i32 %821, %820
-  store i32 %822, ptr %6, align 4
-  %823 = load ptr, ptr %11, align 8
-  %824 = load i32, ptr @hf_dsmcc_un_sess_rsrc_client_ca_info_length, align 4
-  %825 = load ptr, ptr %5, align 8
-  %826 = load i32, ptr %6, align 4
-  %827 = call ptr @proto_tree_add_item(ptr noundef %823, i32 noundef %824, ptr noundef %825, i32 noundef %826, i32 noundef 2, i32 noundef 0)
-  %828 = load ptr, ptr %5, align 8
-  %829 = load i32, ptr %6, align 4
-  %830 = call zeroext i16 @tvb_get_guint16(ptr noundef %828, i32 noundef %829, i32 noundef 0)
-  store i16 %830, ptr %21, align 2
-  %831 = load i32, ptr %6, align 4
-  %832 = add i32 %831, 2
-  store i32 %832, ptr %6, align 4
-  %833 = load i16, ptr %21, align 2
-  %834 = zext i16 %833 to i32
-  %835 = icmp sgt i32 %834, 0
-  br i1 %835, label %836, label %848
+  %818 = add i32 %817, %816
+  store i32 %818, ptr %6, align 4
+  %819 = load ptr, ptr %11, align 8
+  %820 = load i32, ptr @hf_dsmcc_un_sess_rsrc_client_ca_info_length, align 4
+  %821 = load ptr, ptr %5, align 8
+  %822 = load i32, ptr %6, align 4
+  %823 = call ptr @proto_tree_add_item(ptr noundef %819, i32 noundef %820, ptr noundef %821, i32 noundef %822, i32 noundef 2, i32 noundef 0)
+  %824 = load ptr, ptr %5, align 8
+  %825 = load i32, ptr %6, align 4
+  %826 = call zeroext i16 @tvb_get_uint16(ptr noundef %824, i32 noundef %825, i32 noundef 0)
+  store i16 %826, ptr %21, align 2
+  %827 = load i32, ptr %6, align 4
+  %828 = add i32 %827, 2
+  store i32 %828, ptr %6, align 4
+  %829 = load i16, ptr %21, align 2
+  %830 = zext i16 %829 to i32
+  %831 = icmp sgt i32 %830, 0
+  br i1 %831, label %832, label %844
 
-836:                                              ; preds = %810
-  %837 = load ptr, ptr %11, align 8
-  %838 = load i32, ptr @hf_dsmcc_un_sess_rsrc_client_ca_info_data, align 4
-  %839 = load ptr, ptr %5, align 8
+832:                                              ; preds = %806
+  %833 = load ptr, ptr %11, align 8
+  %834 = load i32, ptr @hf_dsmcc_un_sess_rsrc_client_ca_info_data, align 4
+  %835 = load ptr, ptr %5, align 8
+  %836 = load i32, ptr %6, align 4
+  %837 = load i16, ptr %21, align 2
+  %838 = zext i16 %837 to i32
+  %839 = call ptr @proto_tree_add_item(ptr noundef %833, i32 noundef %834, ptr noundef %835, i32 noundef %836, i32 noundef %838, i32 noundef 0)
   %840 = load i32, ptr %6, align 4
   %841 = load i16, ptr %21, align 2
   %842 = zext i16 %841 to i32
-  %843 = call ptr @proto_tree_add_item(ptr noundef %837, i32 noundef %838, ptr noundef %839, i32 noundef %840, i32 noundef %842, i32 noundef 0)
-  %844 = load i32, ptr %6, align 4
-  %845 = load i16, ptr %21, align 2
-  %846 = zext i16 %845 to i32
-  %847 = add i32 %844, %846
-  store i32 %847, ptr %6, align 4
-  br label %848
+  %843 = add i32 %840, %842
+  store i32 %843, ptr %6, align 4
+  br label %844
 
-848:                                              ; preds = %836, %810
-  br label %969
+844:                                              ; preds = %832, %806
+  br label %965
 
-849:                                              ; preds = %35
-  %850 = load ptr, ptr %11, align 8
+845:                                              ; preds = %35
+  %846 = load ptr, ptr %11, align 8
+  %847 = load ptr, ptr %5, align 8
+  %848 = load i32, ptr %6, align 4
+  %849 = load i32, ptr @ett_dsmcc_heading, align 4
+  %850 = call ptr @proto_tree_add_subtree(ptr noundef %846, ptr noundef %847, i32 noundef %848, i32 noundef 0, i32 noundef %849, ptr noundef null, ptr noundef @.str.591)
+  store ptr %850, ptr %13, align 8
   %851 = load ptr, ptr %5, align 8
   %852 = load i32, ptr %6, align 4
-  %853 = load i32, ptr @ett_dsmcc_heading, align 4
-  %854 = call ptr @proto_tree_add_subtree(ptr noundef %850, ptr noundef %851, i32 noundef %852, i32 noundef 0, i32 noundef %853, ptr noundef null, ptr noundef @.str.588)
-  store ptr %854, ptr %13, align 8
-  %855 = load ptr, ptr %5, align 8
+  %853 = load ptr, ptr %7, align 8
+  %854 = load ptr, ptr %13, align 8
+  %855 = call i32 @dissect_dsmcc_un_session_resource_value(ptr noundef %851, i32 noundef %852, ptr noundef %853, ptr noundef %854, i32 noundef 2)
   %856 = load i32, ptr %6, align 4
-  %857 = load ptr, ptr %7, align 8
-  %858 = load ptr, ptr %13, align 8
-  %859 = call i32 @dissect_dsmcc_un_session_resource_value(ptr noundef %855, i32 noundef %856, ptr noundef %857, ptr noundef %858, i32 noundef 2)
+  %857 = add i32 %856, %855
+  store i32 %857, ptr %6, align 4
+  %858 = load ptr, ptr %11, align 8
+  %859 = load ptr, ptr %5, align 8
   %860 = load i32, ptr %6, align 4
-  %861 = add i32 %860, %859
-  store i32 %861, ptr %6, align 4
-  %862 = load ptr, ptr %11, align 8
+  %861 = load i32, ptr @ett_dsmcc_heading, align 4
+  %862 = call ptr @proto_tree_add_subtree(ptr noundef %858, ptr noundef %859, i32 noundef %860, i32 noundef 0, i32 noundef %861, ptr noundef null, ptr noundef @.str.592)
+  store ptr %862, ptr %13, align 8
   %863 = load ptr, ptr %5, align 8
   %864 = load i32, ptr %6, align 4
-  %865 = load i32, ptr @ett_dsmcc_heading, align 4
-  %866 = call ptr @proto_tree_add_subtree(ptr noundef %862, ptr noundef %863, i32 noundef %864, i32 noundef 0, i32 noundef %865, ptr noundef null, ptr noundef @.str.589)
-  store ptr %866, ptr %13, align 8
-  %867 = load ptr, ptr %5, align 8
+  %865 = load ptr, ptr %7, align 8
+  %866 = load ptr, ptr %13, align 8
+  %867 = call i32 @dissect_dsmcc_un_session_resource_value(ptr noundef %863, i32 noundef %864, ptr noundef %865, ptr noundef %866, i32 noundef 4)
   %868 = load i32, ptr %6, align 4
-  %869 = load ptr, ptr %7, align 8
-  %870 = load ptr, ptr %13, align 8
-  %871 = call i32 @dissect_dsmcc_un_session_resource_value(ptr noundef %867, i32 noundef %868, ptr noundef %869, ptr noundef %870, i32 noundef 4)
+  %869 = add i32 %868, %867
+  store i32 %869, ptr %6, align 4
+  %870 = load ptr, ptr %11, align 8
+  %871 = load ptr, ptr %5, align 8
   %872 = load i32, ptr %6, align 4
-  %873 = add i32 %872, %871
-  store i32 %873, ptr %6, align 4
-  %874 = load ptr, ptr %11, align 8
+  %873 = load i32, ptr @ett_dsmcc_heading, align 4
+  %874 = call ptr @proto_tree_add_subtree(ptr noundef %870, ptr noundef %871, i32 noundef %872, i32 noundef 0, i32 noundef %873, ptr noundef null, ptr noundef @.str.593)
+  store ptr %874, ptr %13, align 8
   %875 = load ptr, ptr %5, align 8
   %876 = load i32, ptr %6, align 4
-  %877 = load i32, ptr @ett_dsmcc_heading, align 4
-  %878 = call ptr @proto_tree_add_subtree(ptr noundef %874, ptr noundef %875, i32 noundef %876, i32 noundef 0, i32 noundef %877, ptr noundef null, ptr noundef @.str.590)
-  store ptr %878, ptr %13, align 8
-  %879 = load ptr, ptr %5, align 8
+  %877 = load ptr, ptr %7, align 8
+  %878 = load ptr, ptr %13, align 8
+  %879 = call i32 @dissect_dsmcc_un_session_resource_value(ptr noundef %875, i32 noundef %876, ptr noundef %877, ptr noundef %878, i32 noundef 6)
   %880 = load i32, ptr %6, align 4
-  %881 = load ptr, ptr %7, align 8
-  %882 = load ptr, ptr %13, align 8
-  %883 = call i32 @dissect_dsmcc_un_session_resource_value(ptr noundef %879, i32 noundef %880, ptr noundef %881, ptr noundef %882, i32 noundef 6)
+  %881 = add i32 %880, %879
+  store i32 %881, ptr %6, align 4
+  %882 = load ptr, ptr %11, align 8
+  %883 = load ptr, ptr %5, align 8
   %884 = load i32, ptr %6, align 4
-  %885 = add i32 %884, %883
-  store i32 %885, ptr %6, align 4
-  %886 = load ptr, ptr %11, align 8
+  %885 = load i32, ptr @ett_dsmcc_heading, align 4
+  %886 = call ptr @proto_tree_add_subtree(ptr noundef %882, ptr noundef %883, i32 noundef %884, i32 noundef 0, i32 noundef %885, ptr noundef null, ptr noundef @.str.594)
+  store ptr %886, ptr %13, align 8
   %887 = load ptr, ptr %5, align 8
   %888 = load i32, ptr %6, align 4
-  %889 = load i32, ptr @ett_dsmcc_heading, align 4
-  %890 = call ptr @proto_tree_add_subtree(ptr noundef %886, ptr noundef %887, i32 noundef %888, i32 noundef 0, i32 noundef %889, ptr noundef null, ptr noundef @.str.591)
-  store ptr %890, ptr %13, align 8
-  %891 = load ptr, ptr %5, align 8
+  %889 = load ptr, ptr %7, align 8
+  %890 = load ptr, ptr %13, align 8
+  %891 = call i32 @dissect_dsmcc_un_session_resource_value(ptr noundef %887, i32 noundef %888, ptr noundef %889, ptr noundef %890, i32 noundef 2)
   %892 = load i32, ptr %6, align 4
-  %893 = load ptr, ptr %7, align 8
-  %894 = load ptr, ptr %13, align 8
-  %895 = call i32 @dissect_dsmcc_un_session_resource_value(ptr noundef %891, i32 noundef %892, ptr noundef %893, ptr noundef %894, i32 noundef 2)
+  %893 = add i32 %892, %891
+  store i32 %893, ptr %6, align 4
+  %894 = load ptr, ptr %11, align 8
+  %895 = load ptr, ptr %5, align 8
   %896 = load i32, ptr %6, align 4
-  %897 = add i32 %896, %895
-  store i32 %897, ptr %6, align 4
-  %898 = load ptr, ptr %11, align 8
+  %897 = load i32, ptr @ett_dsmcc_heading, align 4
+  %898 = call ptr @proto_tree_add_subtree(ptr noundef %894, ptr noundef %895, i32 noundef %896, i32 noundef 0, i32 noundef %897, ptr noundef null, ptr noundef @.str.595)
+  store ptr %898, ptr %13, align 8
   %899 = load ptr, ptr %5, align 8
   %900 = load i32, ptr %6, align 4
-  %901 = load i32, ptr @ett_dsmcc_heading, align 4
-  %902 = call ptr @proto_tree_add_subtree(ptr noundef %898, ptr noundef %899, i32 noundef %900, i32 noundef 0, i32 noundef %901, ptr noundef null, ptr noundef @.str.592)
-  store ptr %902, ptr %13, align 8
-  %903 = load ptr, ptr %5, align 8
+  %901 = load ptr, ptr %7, align 8
+  %902 = load ptr, ptr %13, align 8
+  %903 = call i32 @dissect_dsmcc_un_session_resource_value(ptr noundef %899, i32 noundef %900, ptr noundef %901, ptr noundef %902, i32 noundef 4)
   %904 = load i32, ptr %6, align 4
-  %905 = load ptr, ptr %7, align 8
-  %906 = load ptr, ptr %13, align 8
-  %907 = call i32 @dissect_dsmcc_un_session_resource_value(ptr noundef %903, i32 noundef %904, ptr noundef %905, ptr noundef %906, i32 noundef 4)
+  %905 = add i32 %904, %903
+  store i32 %905, ptr %6, align 4
+  %906 = load ptr, ptr %11, align 8
+  %907 = load ptr, ptr %5, align 8
   %908 = load i32, ptr %6, align 4
-  %909 = add i32 %908, %907
-  store i32 %909, ptr %6, align 4
-  %910 = load ptr, ptr %11, align 8
+  %909 = load i32, ptr @ett_dsmcc_heading, align 4
+  %910 = call ptr @proto_tree_add_subtree(ptr noundef %906, ptr noundef %907, i32 noundef %908, i32 noundef 0, i32 noundef %909, ptr noundef null, ptr noundef @.str.596)
+  store ptr %910, ptr %13, align 8
   %911 = load ptr, ptr %5, align 8
   %912 = load i32, ptr %6, align 4
-  %913 = load i32, ptr @ett_dsmcc_heading, align 4
-  %914 = call ptr @proto_tree_add_subtree(ptr noundef %910, ptr noundef %911, i32 noundef %912, i32 noundef 0, i32 noundef %913, ptr noundef null, ptr noundef @.str.593)
-  store ptr %914, ptr %13, align 8
-  %915 = load ptr, ptr %5, align 8
+  %913 = load ptr, ptr %7, align 8
+  %914 = load ptr, ptr %13, align 8
+  %915 = call i32 @dissect_dsmcc_un_session_resource_value(ptr noundef %911, i32 noundef %912, ptr noundef %913, ptr noundef %914, i32 noundef 6)
   %916 = load i32, ptr %6, align 4
-  %917 = load ptr, ptr %7, align 8
-  %918 = load ptr, ptr %13, align 8
-  %919 = call i32 @dissect_dsmcc_un_session_resource_value(ptr noundef %915, i32 noundef %916, ptr noundef %917, ptr noundef %918, i32 noundef 6)
-  %920 = load i32, ptr %6, align 4
-  %921 = add i32 %920, %919
-  store i32 %921, ptr %6, align 4
-  br label %969
+  %917 = add i32 %916, %915
+  store i32 %917, ptr %6, align 4
+  br label %965
 
-922:                                              ; preds = %35
-  %923 = load ptr, ptr %11, align 8
-  %924 = load i32, ptr @hf_dsmcc_un_sess_rsrc_value_type, align 4
-  %925 = load ptr, ptr %5, align 8
-  %926 = load i32, ptr %6, align 4
-  %927 = call ptr @proto_tree_add_item(ptr noundef %923, i32 noundef %924, ptr noundef %925, i32 noundef %926, i32 noundef 2, i32 noundef 0)
-  %928 = load i32, ptr %6, align 4
-  %929 = add i32 %928, 2
-  store i32 %929, ptr %6, align 4
-  %930 = load ptr, ptr %11, align 8
-  %931 = load i32, ptr @hf_dsmcc_un_sess_rsrc_service_group, align 4
-  %932 = load ptr, ptr %5, align 8
-  %933 = load i32, ptr %6, align 4
-  %934 = call ptr @proto_tree_add_item(ptr noundef %930, i32 noundef %931, ptr noundef %932, i32 noundef %933, i32 noundef 4, i32 noundef 0)
-  %935 = load i32, ptr %6, align 4
-  %936 = add i32 %935, 4
-  store i32 %936, ptr %6, align 4
-  br label %969
+918:                                              ; preds = %35
+  %919 = load ptr, ptr %11, align 8
+  %920 = load i32, ptr @hf_dsmcc_un_sess_rsrc_value_type, align 4
+  %921 = load ptr, ptr %5, align 8
+  %922 = load i32, ptr %6, align 4
+  %923 = call ptr @proto_tree_add_item(ptr noundef %919, i32 noundef %920, ptr noundef %921, i32 noundef %922, i32 noundef 2, i32 noundef 0)
+  %924 = load i32, ptr %6, align 4
+  %925 = add i32 %924, 2
+  store i32 %925, ptr %6, align 4
+  %926 = load ptr, ptr %11, align 8
+  %927 = load i32, ptr @hf_dsmcc_un_sess_rsrc_service_group, align 4
+  %928 = load ptr, ptr %5, align 8
+  %929 = load i32, ptr %6, align 4
+  %930 = call ptr @proto_tree_add_item(ptr noundef %926, i32 noundef %927, ptr noundef %928, i32 noundef %929, i32 noundef 4, i32 noundef 0)
+  %931 = load i32, ptr %6, align 4
+  %932 = add i32 %931, 4
+  store i32 %932, ptr %6, align 4
+  br label %965
 
-937:                                              ; preds = %35
-  %938 = load ptr, ptr %11, align 8
-  %939 = load i32, ptr @hf_dsmcc_un_sess_rsrc_shared_resource_num, align 4
-  %940 = load ptr, ptr %5, align 8
-  %941 = load i32, ptr %6, align 4
-  %942 = call ptr @proto_tree_add_item(ptr noundef %938, i32 noundef %939, ptr noundef %940, i32 noundef %941, i32 noundef 2, i32 noundef 0)
-  %943 = load i32, ptr %6, align 4
-  %944 = add i32 %943, 2
-  store i32 %944, ptr %6, align 4
-  br label %969
+933:                                              ; preds = %35
+  %934 = load ptr, ptr %11, align 8
+  %935 = load i32, ptr @hf_dsmcc_un_sess_rsrc_shared_resource_num, align 4
+  %936 = load ptr, ptr %5, align 8
+  %937 = load i32, ptr %6, align 4
+  %938 = call ptr @proto_tree_add_item(ptr noundef %934, i32 noundef %935, ptr noundef %936, i32 noundef %937, i32 noundef 2, i32 noundef 0)
+  %939 = load i32, ptr %6, align 4
+  %940 = add i32 %939, 2
+  store i32 %940, ptr %6, align 4
+  br label %965
 
-945:                                              ; preds = %35
-  %946 = load ptr, ptr %11, align 8
-  %947 = load i32, ptr @hf_dsmcc_un_sess_rsrc_shared_resource_request_id, align 4
-  %948 = load ptr, ptr %5, align 8
-  %949 = load i32, ptr %6, align 4
-  %950 = call ptr @proto_tree_add_item(ptr noundef %946, i32 noundef %947, ptr noundef %948, i32 noundef %949, i32 noundef 2, i32 noundef 0)
-  %951 = load i32, ptr %6, align 4
-  %952 = add i32 %951, 2
-  store i32 %952, ptr %6, align 4
-  br label %969
+941:                                              ; preds = %35
+  %942 = load ptr, ptr %11, align 8
+  %943 = load i32, ptr @hf_dsmcc_un_sess_rsrc_shared_resource_request_id, align 4
+  %944 = load ptr, ptr %5, align 8
+  %945 = load i32, ptr %6, align 4
+  %946 = call ptr @proto_tree_add_item(ptr noundef %942, i32 noundef %943, ptr noundef %944, i32 noundef %945, i32 noundef 2, i32 noundef 0)
+  %947 = load i32, ptr %6, align 4
+  %948 = add i32 %947, 2
+  store i32 %948, ptr %6, align 4
+  br label %965
 
-953:                                              ; preds = %35
-  %954 = load ptr, ptr %11, align 8
-  %955 = load i32, ptr @hf_dsmcc_un_sess_rsrc_type_owner_id, align 4
-  %956 = load ptr, ptr %5, align 8
-  %957 = load i32, ptr %6, align 4
-  %958 = call ptr @proto_tree_add_item(ptr noundef %954, i32 noundef %955, ptr noundef %956, i32 noundef %957, i32 noundef 3, i32 noundef 0)
-  %959 = load i32, ptr %6, align 4
-  %960 = add i32 %959, 3
-  store i32 %960, ptr %6, align 4
-  %961 = load ptr, ptr %11, align 8
-  %962 = load i32, ptr @hf_dsmcc_un_sess_rsrc_type_owner_value, align 4
-  %963 = load ptr, ptr %5, align 8
-  %964 = load i32, ptr %6, align 4
-  %965 = call ptr @proto_tree_add_item(ptr noundef %961, i32 noundef %962, ptr noundef %963, i32 noundef %964, i32 noundef 3, i32 noundef 0)
-  %966 = load i32, ptr %6, align 4
-  %967 = add i32 %966, 3
-  store i32 %967, ptr %6, align 4
-  br label %969
+949:                                              ; preds = %35
+  %950 = load ptr, ptr %11, align 8
+  %951 = load i32, ptr @hf_dsmcc_un_sess_rsrc_type_owner_id, align 4
+  %952 = load ptr, ptr %5, align 8
+  %953 = load i32, ptr %6, align 4
+  %954 = call ptr @proto_tree_add_item(ptr noundef %950, i32 noundef %951, ptr noundef %952, i32 noundef %953, i32 noundef 3, i32 noundef 0)
+  %955 = load i32, ptr %6, align 4
+  %956 = add i32 %955, 3
+  store i32 %956, ptr %6, align 4
+  %957 = load ptr, ptr %11, align 8
+  %958 = load i32, ptr @hf_dsmcc_un_sess_rsrc_type_owner_value, align 4
+  %959 = load ptr, ptr %5, align 8
+  %960 = load i32, ptr %6, align 4
+  %961 = call ptr @proto_tree_add_item(ptr noundef %957, i32 noundef %958, ptr noundef %959, i32 noundef %960, i32 noundef 3, i32 noundef 0)
+  %962 = load i32, ptr %6, align 4
+  %963 = add i32 %962, 3
+  store i32 %963, ptr %6, align 4
+  br label %965
 
-968:                                              ; preds = %35
-  br label %969
+964:                                              ; preds = %35
+  br label %965
 
-969:                                              ; preds = %968, %953, %945, %937, %922, %849, %848, %809, %738, %654, %653, %585, %584, %532, %531, %507, %476, %475, %460, %411, %375, %374, %373, %348, %323, %303, %290, %163, %162
-  br label %970
+965:                                              ; preds = %964, %949, %941, %933, %918, %845, %844, %805, %734, %650, %649, %581, %580, %528, %527, %503, %35, %35, %458, %35, %35, %409, %373, %348, %323, %303, %290, %163, %162
+  br label %966
 
-970:                                              ; preds = %969
-  %971 = load i32, ptr %15, align 4
-  %972 = add i32 %971, 1
-  store i32 %972, ptr %15, align 4
-  br label %31, !llvm.loop !26
+966:                                              ; preds = %965
+  %967 = load i32, ptr %15, align 4
+  %968 = add i32 %967, 1
+  store i32 %968, ptr %15, align 4
+  br label %31, !llvm.loop !30
 
-973:                                              ; preds = %31
-  %974 = load i32, ptr %6, align 4
-  %975 = load i32, ptr %22, align 4
-  %976 = sub i32 %974, %975
-  ret i32 %976
+969:                                              ; preds = %31
+  %970 = load i32, ptr %6, align 4
+  %971 = load i32, ptr %22, align 4
+  %972 = sub i32 %970, %971
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %21) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %20) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
+  ret i32 %972
 }
 
-declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #2
 
-declare void @proto_item_set_len(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_set_len(ptr noundef, i32 noundef) #2
 
-declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) #2
 
-declare ptr @proto_tree_add_bitmask_with_flags(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_bitmask_with_flags(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_dsmcc_adaptation_header(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -5493,10 +5612,18 @@ define internal void @dissect_dsmcc_adaptation_header(ptr noundef %0, ptr nounde
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
   store i32 0, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %14) #4
   %15 = load ptr, ptr %4, align 8
   %16 = load i32, ptr %8, align 4
-  %17 = call zeroext i8 @tvb_get_guint8(ptr noundef %15, i32 noundef %16)
+  %17 = call zeroext i8 @tvb_get_uint8(ptr noundef %15, i32 noundef %16)
   store i8 %17, ptr %12, align 1
   %18 = load i8, ptr %12, align 1
   %19 = zext i8 %18 to i32
@@ -5508,7 +5635,7 @@ define internal void @dissect_dsmcc_adaptation_header(ptr noundef %0, ptr nounde
   %23 = load ptr, ptr %4, align 8
   %24 = load i32, ptr %8, align 4
   %25 = load i32, ptr @ett_dsmcc_adaptation_header, align 4
-  %26 = call ptr @proto_tree_add_subtree(ptr noundef %22, ptr noundef %23, i32 noundef %24, i32 noundef -1, i32 noundef %25, ptr noundef null, ptr noundef @.str.557)
+  %26 = call ptr @proto_tree_add_subtree(ptr noundef %22, ptr noundef %23, i32 noundef %24, i32 noundef -1, i32 noundef %25, ptr noundef null, ptr noundef @.str.560)
   store ptr %26, ptr %10, align 8
   %27 = load ptr, ptr %10, align 8
   %28 = load i32, ptr @hf_dsmcc_adaptation_type, align 4
@@ -5520,7 +5647,7 @@ define internal void @dissect_dsmcc_adaptation_header(ptr noundef %0, ptr nounde
   store i32 %33, ptr %8, align 4
   %34 = load ptr, ptr %4, align 8
   %35 = load i32, ptr %8, align 4
-  %36 = call zeroext i8 @tvb_get_guint8(ptr noundef %34, i32 noundef %35)
+  %36 = call zeroext i8 @tvb_get_uint8(ptr noundef %34, i32 noundef %35)
   store i8 %36, ptr %13, align 1
   %37 = load ptr, ptr %10, align 8
   %38 = load i32, ptr @hf_dsmcc_adaptation_ca_reserved, align 4
@@ -5536,7 +5663,7 @@ define internal void @dissect_dsmcc_adaptation_header(ptr noundef %0, ptr nounde
 45:                                               ; preds = %21
   %46 = load ptr, ptr %5, align 8
   %47 = load ptr, ptr %9, align 8
-  %48 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %46, ptr noundef %47, ptr noundef @ei_dsmcc_invalid_value, ptr noundef @.str.556)
+  %48 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %46, ptr noundef %47, ptr noundef @ei_dsmcc_invalid_value, ptr noundef @.str.559)
   br label %49
 
 49:                                               ; preds = %45, %21
@@ -5586,7 +5713,7 @@ define internal void @dissect_dsmcc_adaptation_header(ptr noundef %0, ptr nounde
   %84 = load ptr, ptr %4, align 8
   %85 = load i32, ptr %8, align 4
   %86 = load i32, ptr @ett_dsmcc_adaptation_header, align 4
-  %87 = call ptr @proto_tree_add_subtree(ptr noundef %83, ptr noundef %84, i32 noundef %85, i32 noundef -1, i32 noundef %86, ptr noundef null, ptr noundef @.str.557)
+  %87 = call ptr @proto_tree_add_subtree(ptr noundef %83, ptr noundef %84, i32 noundef %85, i32 noundef -1, i32 noundef %86, ptr noundef null, ptr noundef @.str.560)
   store ptr %87, ptr %10, align 8
   %88 = load ptr, ptr %10, align 8
   %89 = load i32, ptr @hf_dsmcc_adaptation_type, align 4
@@ -5598,7 +5725,7 @@ define internal void @dissect_dsmcc_adaptation_header(ptr noundef %0, ptr nounde
   store i32 %94, ptr %8, align 4
   %95 = load ptr, ptr %4, align 8
   %96 = load i32, ptr %8, align 4
-  %97 = call zeroext i8 @tvb_get_guint8(ptr noundef %95, i32 noundef %96)
+  %97 = call zeroext i8 @tvb_get_uint8(ptr noundef %95, i32 noundef %96)
   store i8 %97, ptr %13, align 1
   %98 = load ptr, ptr %10, align 8
   %99 = load i32, ptr @hf_dsmcc_adaptation_user_id_reserved, align 4
@@ -5614,7 +5741,7 @@ define internal void @dissect_dsmcc_adaptation_header(ptr noundef %0, ptr nounde
 106:                                              ; preds = %82
   %107 = load ptr, ptr %5, align 8
   %108 = load ptr, ptr %9, align 8
-  %109 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %107, ptr noundef %108, ptr noundef @ei_dsmcc_invalid_value, ptr noundef @.str.556)
+  %109 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %107, ptr noundef %108, ptr noundef @ei_dsmcc_invalid_value, ptr noundef @.str.559)
   br label %110
 
 110:                                              ; preds = %106, %82
@@ -5625,7 +5752,7 @@ define internal void @dissect_dsmcc_adaptation_header(ptr noundef %0, ptr nounde
   %114 = load ptr, ptr %4, align 8
   %115 = load i32, ptr %8, align 4
   %116 = load i32, ptr @ett_dsmcc_heading, align 4
-  %117 = call ptr @proto_tree_add_subtree(ptr noundef %113, ptr noundef %114, i32 noundef %115, i32 noundef 20, i32 noundef %116, ptr noundef null, ptr noundef @.str.558)
+  %117 = call ptr @proto_tree_add_subtree(ptr noundef %113, ptr noundef %114, i32 noundef %115, i32 noundef 20, i32 noundef %116, ptr noundef null, ptr noundef @.str.561)
   store ptr %117, ptr %11, align 8
   %118 = load ptr, ptr %4, align 8
   %119 = load i32, ptr %8, align 4
@@ -5639,7 +5766,7 @@ define internal void @dissect_dsmcc_adaptation_header(ptr noundef %0, ptr nounde
   %125 = load ptr, ptr %4, align 8
   %126 = load i32, ptr %8, align 4
   %127 = load i32, ptr @ett_dsmcc_adaptation_header, align 4
-  %128 = call ptr @proto_tree_add_subtree(ptr noundef %124, ptr noundef %125, i32 noundef %126, i32 noundef -1, i32 noundef %127, ptr noundef null, ptr noundef @.str.559)
+  %128 = call ptr @proto_tree_add_subtree(ptr noundef %124, ptr noundef %125, i32 noundef %126, i32 noundef -1, i32 noundef %127, ptr noundef null, ptr noundef @.str.562)
   store ptr %128, ptr %10, align 8
   %129 = load ptr, ptr %10, align 8
   %130 = load i32, ptr @hf_dsmcc_adaptation_type, align 4
@@ -5652,18 +5779,30 @@ define internal void @dissect_dsmcc_adaptation_header(ptr noundef %0, ptr nounde
   br label %135
 
 135:                                              ; preds = %134, %49
+  call void @llvm.lifetime.end.p0(i64 2, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #4
   ret void
 }
 
-declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @proto_item_set_text(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_set_text(ptr noundef, ptr noundef, ...) #2
 
-declare ptr @tvb_bytes_to_str(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_bytes_to_str(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-declare zeroext i16 @tvb_get_guint16(ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_uint16(ptr noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dsmcc_un_session_resource_value(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -5679,6 +5818,10 @@ define internal i32 @dissect_dsmcc_un_session_resource_value(ptr noundef %0, i32
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   store i32 %4, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #4
   %15 = load i32, ptr %7, align 4
   store i32 %15, ptr %14, align 4
   %16 = load ptr, ptr %9, align 8
@@ -5746,7 +5889,7 @@ define internal i32 @dissect_dsmcc_un_session_resource_value(ptr noundef %0, i32
   %61 = load i32, ptr %11, align 4
   %62 = add i32 %61, 1
   store i32 %62, ptr %11, align 4
-  br label %46, !llvm.loop !27
+  br label %46, !llvm.loop !31
 
 63:                                               ; preds = %46
   br label %87
@@ -5789,10 +5932,14 @@ define internal i32 @dissect_dsmcc_un_session_resource_value(ptr noundef %0, i32
   %89 = load i32, ptr %7, align 4
   %90 = load i32, ptr %14, align 4
   %91 = sub i32 %89, %90
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
   ret i32 %91
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_dsmcc_dii(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -5810,6 +5957,14 @@ define internal void @dissect_dsmcc_dii(ptr noundef %0, ptr noundef %1, ptr noun
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #4
   %17 = load ptr, ptr %7, align 8
   %18 = load i32, ptr @hf_dsmcc_dii_download_id, align 4
   %19 = load ptr, ptr %5, align 8
@@ -5901,7 +6056,7 @@ define internal void @dissect_dsmcc_dii(ptr noundef %0, ptr noundef %1, ptr noun
   %89 = load ptr, ptr %5, align 8
   %90 = load i32, ptr %8, align 4
   %91 = add i32 6, %90
-  %92 = call zeroext i8 @tvb_get_guint8(ptr noundef %89, i32 noundef %91)
+  %92 = call zeroext i8 @tvb_get_uint8(ptr noundef %89, i32 noundef %91)
   store i8 %92, ptr %13, align 1
   %93 = load ptr, ptr %7, align 8
   %94 = load ptr, ptr %5, align 8
@@ -5912,7 +6067,7 @@ define internal void @dissect_dsmcc_dii(ptr noundef %0, ptr noundef %1, ptr noun
   %99 = load i8, ptr %13, align 1
   %100 = zext i8 %99 to i32
   %101 = load i32, ptr %15, align 4
-  %102 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %93, ptr noundef %94, i32 noundef %95, i32 noundef -1, i32 noundef %96, ptr noundef null, ptr noundef @.str.596, i32 noundef %98, i32 noundef %100, i32 noundef %101)
+  %102 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %93, ptr noundef %94, i32 noundef %95, i32 noundef -1, i32 noundef %96, ptr noundef null, ptr noundef @.str.599, i32 noundef %98, i32 noundef %100, i32 noundef %101)
   store ptr %102, ptr %16, align 8
   %103 = load ptr, ptr %16, align 8
   %104 = load i32, ptr @hf_dsmcc_dii_module_id, align 4
@@ -5940,7 +6095,7 @@ define internal void @dissect_dsmcc_dii(ptr noundef %0, ptr noundef %1, ptr noun
   store i32 %123, ptr %8, align 4
   %124 = load ptr, ptr %5, align 8
   %125 = load i32, ptr %8, align 4
-  %126 = call zeroext i8 @tvb_get_guint8(ptr noundef %124, i32 noundef %125)
+  %126 = call zeroext i8 @tvb_get_uint8(ptr noundef %124, i32 noundef %125)
   store i8 %126, ptr %12, align 1
   %127 = load ptr, ptr %16, align 8
   %128 = load i32, ptr @hf_dsmcc_dii_module_info_length, align 4
@@ -5975,7 +6130,7 @@ define internal void @dissect_dsmcc_dii(ptr noundef %0, ptr noundef %1, ptr noun
   %149 = load i32, ptr %14, align 4
   %150 = add i32 %149, 1
   store i32 %150, ptr %14, align 4
-  br label %76, !llvm.loop !28
+  br label %76, !llvm.loop !32
 
 151:                                              ; preds = %76
   %152 = load ptr, ptr %5, align 8
@@ -6004,10 +6159,18 @@ define internal void @dissect_dsmcc_dii(ptr noundef %0, ptr noundef %1, ptr noun
   br label %171
 
 171:                                              ; preds = %165, %151
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %9) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_dsmcc_ddb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -6022,6 +6185,9 @@ define internal void @dissect_dsmcc_ddb(ptr noundef %0, ptr noundef %1, ptr noun
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   store i32 %4, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #4
   %14 = load ptr, ptr %8, align 8
   %15 = load i32, ptr @hf_dsmcc_ddb_module_id, align 4
   %16 = load ptr, ptr %6, align 8
@@ -6040,7 +6206,7 @@ define internal void @dissect_dsmcc_ddb(ptr noundef %0, ptr noundef %1, ptr noun
   store i32 %27, ptr %10, align 4
   %28 = load ptr, ptr %6, align 8
   %29 = load i32, ptr %10, align 4
-  %30 = call zeroext i8 @tvb_get_guint8(ptr noundef %28, i32 noundef %29)
+  %30 = call zeroext i8 @tvb_get_uint8(ptr noundef %28, i32 noundef %29)
   store i8 %30, ptr %13, align 1
   %31 = load ptr, ptr %8, align 8
   %32 = load i32, ptr @hf_dsmcc_ddb_reserved, align 4
@@ -6056,7 +6222,7 @@ define internal void @dissect_dsmcc_ddb(ptr noundef %0, ptr noundef %1, ptr noun
 39:                                               ; preds = %5
   %40 = load ptr, ptr %7, align 8
   %41 = load ptr, ptr %12, align 8
-  %42 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %40, ptr noundef %41, ptr noundef @ei_dsmcc_invalid_value, ptr noundef @.str.556)
+  %42 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %40, ptr noundef %41, ptr noundef @ei_dsmcc_invalid_value, ptr noundef @.str.559)
   br label %43
 
 43:                                               ; preds = %39, %5
@@ -6079,10 +6245,13 @@ define internal void @dissect_dsmcc_ddb(ptr noundef %0, ptr noundef %1, ptr noun
   %57 = load ptr, ptr %7, align 8
   %58 = load ptr, ptr %9, align 8
   %59 = call i32 @call_data_dissector(ptr noundef %56, ptr noundef %57, ptr noundef %58)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dsmcc_dii_compat_desc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -6100,6 +6269,14 @@ define internal i32 @dissect_dsmcc_dii_compat_desc(ptr noundef %0, ptr noundef %
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #4
   %17 = load ptr, ptr %5, align 8
   %18 = load i32, ptr %8, align 4
   %19 = call zeroext i16 @tvb_get_ntohs(ptr noundef %17, i32 noundef %18)
@@ -6147,7 +6324,7 @@ define internal i32 @dissect_dsmcc_dii_compat_desc(ptr noundef %0, ptr noundef %
   %50 = load i16, ptr %13, align 2
   %51 = zext i16 %50 to i32
   %52 = load i32, ptr @ett_dsmcc_compat, align 4
-  %53 = call ptr @proto_tree_add_subtree(ptr noundef %47, ptr noundef %48, i32 noundef %49, i32 noundef %51, i32 noundef %52, ptr noundef null, ptr noundef @.str.597)
+  %53 = call ptr @proto_tree_add_subtree(ptr noundef %47, ptr noundef %48, i32 noundef %49, i32 noundef %51, i32 noundef %52, ptr noundef null, ptr noundef @.str.600)
   store ptr %53, ptr %15, align 8
   %54 = load ptr, ptr %15, align 8
   %55 = load i32, ptr @hf_desc_type, align 4
@@ -6199,7 +6376,7 @@ define internal i32 @dissect_dsmcc_dii_compat_desc(ptr noundef %0, ptr noundef %
   store i32 %95, ptr %8, align 4
   %96 = load ptr, ptr %5, align 8
   %97 = load i32, ptr %8, align 4
-  %98 = call zeroext i8 @tvb_get_guint8(ptr noundef %96, i32 noundef %97)
+  %98 = call zeroext i8 @tvb_get_uint8(ptr noundef %96, i32 noundef %97)
   store i8 %98, ptr %11, align 1
   %99 = load ptr, ptr %15, align 8
   %100 = load i32, ptr @hf_desc_sub_desc_count, align 4
@@ -6223,7 +6400,7 @@ define internal i32 @dissect_dsmcc_dii_compat_desc(ptr noundef %0, ptr noundef %
   %112 = load ptr, ptr %5, align 8
   %113 = load i32, ptr %8, align 4
   %114 = add i32 %113, 1
-  %115 = call zeroext i8 @tvb_get_guint8(ptr noundef %112, i32 noundef %114)
+  %115 = call zeroext i8 @tvb_get_uint8(ptr noundef %112, i32 noundef %114)
   store i8 %115, ptr %12, align 1
   %116 = load ptr, ptr %15, align 8
   %117 = load ptr, ptr %5, align 8
@@ -6232,7 +6409,7 @@ define internal i32 @dissect_dsmcc_dii_compat_desc(ptr noundef %0, ptr noundef %
   %120 = zext i8 %119 to i32
   %121 = add i32 %120, 2
   %122 = load i32, ptr @ett_dsmcc_compat_sub_desc, align 4
-  %123 = call ptr @proto_tree_add_subtree(ptr noundef %116, ptr noundef %117, i32 noundef %118, i32 noundef %121, i32 noundef %122, ptr noundef null, ptr noundef @.str.598)
+  %123 = call ptr @proto_tree_add_subtree(ptr noundef %116, ptr noundef %117, i32 noundef %118, i32 noundef %121, i32 noundef %122, ptr noundef null, ptr noundef @.str.601)
   store ptr %123, ptr %16, align 8
   %124 = load ptr, ptr %16, align 8
   %125 = load i32, ptr @hf_desc_sub_desc_type, align 4
@@ -6261,7 +6438,7 @@ define internal i32 @dissect_dsmcc_dii_compat_desc(ptr noundef %0, ptr noundef %
   %143 = load i32, ptr %10, align 4
   %144 = add i32 %143, 1
   store i32 %144, ptr %10, align 4
-  br label %106, !llvm.loop !29
+  br label %106, !llvm.loop !33
 
 145:                                              ; preds = %106
   br label %146
@@ -6270,7 +6447,7 @@ define internal i32 @dissect_dsmcc_dii_compat_desc(ptr noundef %0, ptr noundef %
   %147 = load i32, ptr %9, align 4
   %148 = add i32 %147, 1
   store i32 %148, ptr %9, align 4
-  br label %41, !llvm.loop !30
+  br label %41, !llvm.loop !34
 
 149:                                              ; preds = %41
   %150 = load i32, ptr %8, align 4
@@ -6289,46 +6466,63 @@ define internal i32 @dissect_dsmcc_dii_compat_desc(ptr noundef %0, ptr noundef %
   %157 = load i16, ptr %13, align 2
   %158 = zext i16 %157 to i32
   %159 = add i32 2, %158
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %159
 }
 
-declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) #2
 
-declare void @col_clear(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_clear(ptr noundef, i32 noundef) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}
+!18 = distinct !{!18, !9}
+!19 = distinct !{!19, !9}
+!20 = distinct !{!20, !9}
+!21 = distinct !{!21, !9}
+!22 = distinct !{!22, !9}
+!23 = distinct !{!23, !9}
+!24 = distinct !{!24, !9}
+!25 = distinct !{!25, !9}
+!26 = distinct !{!26, !9}
+!27 = distinct !{!27, !9}
+!28 = distinct !{!28, !9}
+!29 = distinct !{!29, !9}
+!30 = distinct !{!30, !9}
+!31 = distinct !{!31, !9}
+!32 = distinct !{!32, !9}
+!33 = distinct !{!33, !9}
+!34 = distinct !{!34, !9}

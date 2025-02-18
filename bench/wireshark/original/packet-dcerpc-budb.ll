@@ -3,10 +3,10 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
+%struct._value_string_ext = type { ptr, i32, i32, ptr, ptr }
 %struct._e_guid_t = type { i32, i16, i16, [8 x i8] }
-%struct._dcerpc_sub_dissector = type { i16, ptr, ptr, ptr }
-%struct._dcerpc_info = type { ptr, i32, i64, i8, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr }
+%struct._dcerpc_info = type { ptr, i32, i64, i8, i8, i8, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, %struct.anon }
+%struct.anon = type { i8, ptr, ptr, ptr, i8 }
 
 @ett_budb_principal = internal global i32 0, align 4
 @ett_budb_tapeSet = internal global i32 0, align 4
@@ -22,14 +22,14 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_budb_structDumpHeader = internal global i32 0, align 4
 @ett_budb_dfs_interfaceDescription = internal global i32 0, align 4
 @ett_budb_dfs_interfaceList = internal global i32 0, align 4
-@proto_register_budb.hf = internal global [214 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_budb_opnum, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_rc, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 7, i32 2, ptr @NT_errors, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_principal_name, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_principal_instance, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_principal_cell, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_principal_spare, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_principal_spare1, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_principal_spare2, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_principal_spare3, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_principal_spare4, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeSet_id, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeSet_tapeServer, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeSet_format, %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeSet_maxTapes, %struct._header_field_info { ptr @.str.26, ptr @.str.27, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeSet_a, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeSet_b, %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeSet_spare1, %struct._header_field_info { ptr @.str.12, ptr @.str.32, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeSet_spare2, %struct._header_field_info { ptr @.str.14, ptr @.str.33, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeSet_spare3, %struct._header_field_info { ptr @.str.16, ptr @.str.34, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeSet_spare4, %struct._header_field_info { ptr @.str.18, ptr @.str.35, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dumpEntry_id, %struct._header_field_info { ptr @.str.20, ptr @.str.36, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dumpEntry_parent, %struct._header_field_info { ptr @.str.37, ptr @.str.38, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dumpEntry_level, %struct._header_field_info { ptr @.str.39, ptr @.str.40, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dumpEntry_flags, %struct._header_field_info { ptr @.str.41, ptr @.str.42, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dumpEntry_volumeSetName, %struct._header_field_info { ptr @.str.43, ptr @.str.44, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dumpEntry_dumpPath, %struct._header_field_info { ptr @.str.45, ptr @.str.46, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dumpEntry_name, %struct._header_field_info { ptr @.str.4, ptr @.str.47, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dumpEntry_created, %struct._header_field_info { ptr @.str.48, ptr @.str.49, i32 24, i32 18, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dumpEntry_incTime, %struct._header_field_info { ptr @.str.50, ptr @.str.51, i32 24, i32 18, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dumpEntry_nVolumes, %struct._header_field_info { ptr @.str.52, ptr @.str.53, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dumpEntry_tapes, %struct._header_field_info { ptr @.str.54, ptr @.str.55, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dumpEntry_dumper, %struct._header_field_info { ptr @.str.56, ptr @.str.57, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dumpEntry_spare1, %struct._header_field_info { ptr @.str.12, ptr @.str.58, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dumpEntry_spare2, %struct._header_field_info { ptr @.str.14, ptr @.str.59, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dumpEntry_spare3, %struct._header_field_info { ptr @.str.16, ptr @.str.60, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dumpEntry_spare4, %struct._header_field_info { ptr @.str.18, ptr @.str.61, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeEntry_name, %struct._header_field_info { ptr @.str.4, ptr @.str.62, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeEntry_flags, %struct._header_field_info { ptr @.str.41, ptr @.str.63, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeEntry_written, %struct._header_field_info { ptr @.str.64, ptr @.str.65, i32 24, i32 18, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeEntry_expires, %struct._header_field_info { ptr @.str.66, ptr @.str.67, i32 24, i32 18, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeEntry_nMBytes, %struct._header_field_info { ptr @.str.68, ptr @.str.69, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeEntry_nBytes, %struct._header_field_info { ptr @.str.70, ptr @.str.71, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeEntry_nFiles, %struct._header_field_info { ptr @.str.72, ptr @.str.73, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeEntry_nVolumes, %struct._header_field_info { ptr @.str.52, ptr @.str.74, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeEntry_seq, %struct._header_field_info { ptr @.str.75, ptr @.str.76, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeEntry_tapeid, %struct._header_field_info { ptr @.str.77, ptr @.str.78, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeEntry_useCount, %struct._header_field_info { ptr @.str.79, ptr @.str.80, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeEntry_mediaType, %struct._header_field_info { ptr @.str.81, ptr @.str.82, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeEntry_dump, %struct._header_field_info { ptr @.str.83, ptr @.str.84, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeEntry_spare1, %struct._header_field_info { ptr @.str.12, ptr @.str.85, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeEntry_spare2, %struct._header_field_info { ptr @.str.14, ptr @.str.86, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeEntry_spare3, %struct._header_field_info { ptr @.str.16, ptr @.str.87, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeEntry_spare4, %struct._header_field_info { ptr @.str.18, ptr @.str.88, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_volumeEntry_name, %struct._header_field_info { ptr @.str.4, ptr @.str.89, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_volumeEntry_flags, %struct._header_field_info { ptr @.str.41, ptr @.str.90, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_volumeEntry_id, %struct._header_field_info { ptr @.str.20, ptr @.str.91, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_volumeEntry_server, %struct._header_field_info { ptr @.str.92, ptr @.str.93, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_volumeEntry_partition, %struct._header_field_info { ptr @.str.94, ptr @.str.95, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_volumeEntry_nFrags, %struct._header_field_info { ptr @.str.96, ptr @.str.97, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_volumeEntry_position, %struct._header_field_info { ptr @.str.98, ptr @.str.99, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_volumeEntry_clone, %struct._header_field_info { ptr @.str.100, ptr @.str.101, i32 24, i32 18, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_volumeEntry_incTime, %struct._header_field_info { ptr @.str.50, ptr @.str.102, i32 24, i32 18, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_volumeEntry_startByte, %struct._header_field_info { ptr @.str.103, ptr @.str.104, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_volumeEntry_nBytes, %struct._header_field_info { ptr @.str.70, ptr @.str.105, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_volumeEntry_seq, %struct._header_field_info { ptr @.str.75, ptr @.str.106, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_volumeEntry_dump, %struct._header_field_info { ptr @.str.83, ptr @.str.107, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_volumeEntry_tape, %struct._header_field_info { ptr @.str.108, ptr @.str.109, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_volumeEntry_spare1, %struct._header_field_info { ptr @.str.12, ptr @.str.110, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_volumeEntry_spare2, %struct._header_field_info { ptr @.str.14, ptr @.str.111, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_volumeEntry_spare3, %struct._header_field_info { ptr @.str.16, ptr @.str.112, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_volumeEntry_spare4, %struct._header_field_info { ptr @.str.18, ptr @.str.113, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_volumeList_volumeList_len, %struct._header_field_info { ptr @.str.114, ptr @.str.115, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_volumeList_volumeList_val, %struct._header_field_info { ptr @.str.116, ptr @.str.117, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dumpList_dumpList_len, %struct._header_field_info { ptr @.str.118, ptr @.str.119, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dumpList_dumpList_val, %struct._header_field_info { ptr @.str.120, ptr @.str.121, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeList_tapeList_len, %struct._header_field_info { ptr @.str.122, ptr @.str.123, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeList_tapeList_val, %struct._header_field_info { ptr @.str.124, ptr @.str.125, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_charListT_charListT_len, %struct._header_field_info { ptr @.str.126, ptr @.str.127, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_charListT_charListT_val, %struct._header_field_info { ptr @.str.128, ptr @.str.129, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_DbHeader_dbversion, %struct._header_field_info { ptr @.str.130, ptr @.str.131, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_DbHeader_created, %struct._header_field_info { ptr @.str.48, ptr @.str.132, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_DbHeader_cell, %struct._header_field_info { ptr @.str.8, ptr @.str.133, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_DbHeader_lastDumpId, %struct._header_field_info { ptr @.str.134, ptr @.str.135, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_DbHeader_lastInstanceId, %struct._header_field_info { ptr @.str.136, ptr @.str.137, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_DbHeader_lastTapeId, %struct._header_field_info { ptr @.str.138, ptr @.str.139, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_DbHeader_spare1, %struct._header_field_info { ptr @.str.12, ptr @.str.140, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_DbHeader_spare2, %struct._header_field_info { ptr @.str.14, ptr @.str.141, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_DbHeader_spare3, %struct._header_field_info { ptr @.str.16, ptr @.str.142, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_DbHeader_spare4, %struct._header_field_info { ptr @.str.18, ptr @.str.143, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dbVolume_name, %struct._header_field_info { ptr @.str.4, ptr @.str.144, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dbVolume_flags, %struct._header_field_info { ptr @.str.41, ptr @.str.145, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dbVolume_id, %struct._header_field_info { ptr @.str.20, ptr @.str.146, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dbVolume_server, %struct._header_field_info { ptr @.str.92, ptr @.str.147, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dbVolume_partition, %struct._header_field_info { ptr @.str.94, ptr @.str.148, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dbVolume_nFrags, %struct._header_field_info { ptr @.str.96, ptr @.str.149, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dbVolume_position, %struct._header_field_info { ptr @.str.98, ptr @.str.150, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dbVolume_clone, %struct._header_field_info { ptr @.str.100, ptr @.str.151, i32 24, i32 18, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dbVolume_incTime, %struct._header_field_info { ptr @.str.50, ptr @.str.152, i32 24, i32 18, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dbVolume_startByte, %struct._header_field_info { ptr @.str.103, ptr @.str.153, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dbVolume_nBytes, %struct._header_field_info { ptr @.str.70, ptr @.str.154, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dbVolume_seq, %struct._header_field_info { ptr @.str.75, ptr @.str.155, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dbVolume_dump, %struct._header_field_info { ptr @.str.83, ptr @.str.156, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dbVolume_tape, %struct._header_field_info { ptr @.str.108, ptr @.str.157, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dbVolume_spare1, %struct._header_field_info { ptr @.str.12, ptr @.str.158, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dbVolume_spare2, %struct._header_field_info { ptr @.str.14, ptr @.str.159, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dbVolume_spare3, %struct._header_field_info { ptr @.str.16, ptr @.str.160, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dbVolume_spare4, %struct._header_field_info { ptr @.str.18, ptr @.str.161, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_structDumpHeader_type, %struct._header_field_info { ptr @.str.162, ptr @.str.163, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_structDumpHeader_structversion, %struct._header_field_info { ptr @.str.164, ptr @.str.165, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_structDumpHeader_size, %struct._header_field_info { ptr @.str.166, ptr @.str.167, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_structDumpHeader_spare1, %struct._header_field_info { ptr @.str.12, ptr @.str.168, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_structDumpHeader_spare2, %struct._header_field_info { ptr @.str.14, ptr @.str.169, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_structDumpHeader_spare3, %struct._header_field_info { ptr @.str.16, ptr @.str.170, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_structDumpHeader_spare4, %struct._header_field_info { ptr @.str.18, ptr @.str.171, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_AddVolume_vol, %struct._header_field_info { ptr @.str.172, ptr @.str.173, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_CreateDump_dump, %struct._header_field_info { ptr @.str.83, ptr @.str.174, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_DeleteDump_id, %struct._header_field_info { ptr @.str.20, ptr @.str.175, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_DeleteTape_tape, %struct._header_field_info { ptr @.str.108, ptr @.str.176, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_DeleteVDP_dsname, %struct._header_field_info { ptr @.str.177, ptr @.str.178, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_DeleteVDP_dumpPath, %struct._header_field_info { ptr @.str.45, ptr @.str.179, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_DeleteVDP_curDumpId, %struct._header_field_info { ptr @.str.180, ptr @.str.181, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_FindClone_dumpID, %struct._header_field_info { ptr @.str.182, ptr @.str.183, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_FindClone_volName, %struct._header_field_info { ptr @.str.184, ptr @.str.185, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_FindClone_clonetime, %struct._header_field_info { ptr @.str.186, ptr @.str.187, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_FindClone_cloneSpare, %struct._header_field_info { ptr @.str.188, ptr @.str.189, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_FindDump_volName, %struct._header_field_info { ptr @.str.184, ptr @.str.190, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_FindDump_beforeDate, %struct._header_field_info { ptr @.str.191, ptr @.str.192, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_FindDump_dateSpare, %struct._header_field_info { ptr @.str.193, ptr @.str.194, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_FindDump_deptr, %struct._header_field_info { ptr @.str.195, ptr @.str.196, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_FindLatestDump_vsname, %struct._header_field_info { ptr @.str.197, ptr @.str.198, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_FindLatestDump_dname, %struct._header_field_info { ptr @.str.199, ptr @.str.200, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_FindLatestDump_dumpentry, %struct._header_field_info { ptr @.str.201, ptr @.str.202, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_FinishDump_dump, %struct._header_field_info { ptr @.str.83, ptr @.str.203, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_FinishTape_tape, %struct._header_field_info { ptr @.str.108, ptr @.str.204, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetDumps_majorVersion, %struct._header_field_info { ptr @.str.205, ptr @.str.206, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetDumps_flags, %struct._header_field_info { ptr @.str.41, ptr @.str.207, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetDumps_name, %struct._header_field_info { ptr @.str.4, ptr @.str.208, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetDumps_start, %struct._header_field_info { ptr @.str.209, ptr @.str.210, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetDumps_end, %struct._header_field_info { ptr @.str.211, ptr @.str.212, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetDumps_index, %struct._header_field_info { ptr @.str.213, ptr @.str.214, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetDumps_nextIndex, %struct._header_field_info { ptr @.str.215, ptr @.str.216, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetDumps_dbUpdate, %struct._header_field_info { ptr @.str.217, ptr @.str.218, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetDumps_dumps, %struct._header_field_info { ptr @.str.219, ptr @.str.220, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetTapes_majorVersion, %struct._header_field_info { ptr @.str.205, ptr @.str.221, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetTapes_flags, %struct._header_field_info { ptr @.str.41, ptr @.str.222, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetTapes_name, %struct._header_field_info { ptr @.str.4, ptr @.str.223, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetTapes_start, %struct._header_field_info { ptr @.str.209, ptr @.str.224, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetTapes_end, %struct._header_field_info { ptr @.str.211, ptr @.str.225, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetTapes_index, %struct._header_field_info { ptr @.str.213, ptr @.str.226, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetTapes_nextIndex, %struct._header_field_info { ptr @.str.215, ptr @.str.227, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetTapes_dbUpdate, %struct._header_field_info { ptr @.str.217, ptr @.str.228, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetTapes_tapes, %struct._header_field_info { ptr @.str.54, ptr @.str.229, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetVolumes_majorVersion, %struct._header_field_info { ptr @.str.205, ptr @.str.230, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetVolumes_flags, %struct._header_field_info { ptr @.str.41, ptr @.str.231, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetVolumes_name, %struct._header_field_info { ptr @.str.4, ptr @.str.232, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetVolumes_start, %struct._header_field_info { ptr @.str.209, ptr @.str.233, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetVolumes_end, %struct._header_field_info { ptr @.str.211, ptr @.str.234, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetVolumes_index, %struct._header_field_info { ptr @.str.213, ptr @.str.235, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetVolumes_nextIndex, %struct._header_field_info { ptr @.str.215, ptr @.str.236, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetVolumes_dbUpdate, %struct._header_field_info { ptr @.str.217, ptr @.str.237, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetVolumes_volumes, %struct._header_field_info { ptr @.str.238, ptr @.str.239, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_UseTape_tape, %struct._header_field_info { ptr @.str.108, ptr @.str.240, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_UseTape_new, %struct._header_field_info { ptr @.str.241, ptr @.str.242, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetText_lockHandle, %struct._header_field_info { ptr @.str.243, ptr @.str.244, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetText_textType, %struct._header_field_info { ptr @.str.245, ptr @.str.246, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetText_maxLength, %struct._header_field_info { ptr @.str.247, ptr @.str.248, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetText_offset, %struct._header_field_info { ptr @.str.249, ptr @.str.250, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetText_nextOffset, %struct._header_field_info { ptr @.str.251, ptr @.str.252, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetText_charListPtr, %struct._header_field_info { ptr @.str.253, ptr @.str.254, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetTextVersion_textType, %struct._header_field_info { ptr @.str.245, ptr @.str.255, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetTextVersion_tversion, %struct._header_field_info { ptr @.str.256, ptr @.str.257, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_SaveText_lockHandle, %struct._header_field_info { ptr @.str.243, ptr @.str.258, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_SaveText_textType, %struct._header_field_info { ptr @.str.245, ptr @.str.259, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_SaveText_offset, %struct._header_field_info { ptr @.str.249, ptr @.str.260, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_SaveText_flags, %struct._header_field_info { ptr @.str.41, ptr @.str.261, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_SaveText_charListPtr, %struct._header_field_info { ptr @.str.253, ptr @.str.262, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_FreeAllLocks_instanceId, %struct._header_field_info { ptr @.str.263, ptr @.str.264, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_FreeLock_lockHandle, %struct._header_field_info { ptr @.str.243, ptr @.str.265, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetInstanceId_instanceId, %struct._header_field_info { ptr @.str.263, ptr @.str.266, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetLock_instanceId, %struct._header_field_info { ptr @.str.263, ptr @.str.267, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetLock_lockName, %struct._header_field_info { ptr @.str.268, ptr @.str.269, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetLock_expiration, %struct._header_field_info { ptr @.str.270, ptr @.str.271, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetLock_lockHandle, %struct._header_field_info { ptr @.str.243, ptr @.str.272, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_DbVerify_status, %struct._header_field_info { ptr @.str.273, ptr @.str.274, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_DbVerify_orphans, %struct._header_field_info { ptr @.str.275, ptr @.str.276, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_DbVerify_host, %struct._header_field_info { ptr @.str.277, ptr @.str.278, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_DumpDB_maxLength, %struct._header_field_info { ptr @.str.247, ptr @.str.279, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_DumpDB_flags, %struct._header_field_info { ptr @.str.41, ptr @.str.280, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_DumpDB_charListPtr, %struct._header_field_info { ptr @.str.253, ptr @.str.281, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_RestoreDbHeader_header, %struct._header_field_info { ptr @.str.282, ptr @.str.283, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_T_GetVersion_majorVersion, %struct._header_field_info { ptr @.str.205, ptr @.str.284, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_T_DumpHashTable_type, %struct._header_field_info { ptr @.str.162, ptr @.str.285, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_T_DumpHashTable_filename, %struct._header_field_info { ptr @.str.286, ptr @.str.287, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_T_DumpDatabase_filename, %struct._header_field_info { ptr @.str.286, ptr @.str.288, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dfs_interfaceDescription_interface_uuid, %struct._header_field_info { ptr @.str.289, ptr @.str.290, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dfs_interfaceDescription_vers_major, %struct._header_field_info { ptr @.str.291, ptr @.str.292, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dfs_interfaceDescription_vers_minor, %struct._header_field_info { ptr @.str.293, ptr @.str.294, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dfs_interfaceDescription_vers_provider, %struct._header_field_info { ptr @.str.295, ptr @.str.296, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dfs_interfaceDescription_spare0, %struct._header_field_info { ptr @.str.297, ptr @.str.298, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dfs_interfaceDescription_spare1, %struct._header_field_info { ptr @.str.12, ptr @.str.299, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dfs_interfaceDescription_spare2, %struct._header_field_info { ptr @.str.14, ptr @.str.300, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dfs_interfaceDescription_spare3, %struct._header_field_info { ptr @.str.16, ptr @.str.301, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dfs_interfaceDescription_spare4, %struct._header_field_info { ptr @.str.18, ptr @.str.302, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dfs_interfaceDescription_spare5, %struct._header_field_info { ptr @.str.303, ptr @.str.304, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dfs_interfaceDescription_spare6, %struct._header_field_info { ptr @.str.305, ptr @.str.306, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dfs_interfaceDescription_spare7, %struct._header_field_info { ptr @.str.307, ptr @.str.308, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dfs_interfaceDescription_spare8, %struct._header_field_info { ptr @.str.309, ptr @.str.310, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dfs_interfaceDescription_spare9, %struct._header_field_info { ptr @.str.311, ptr @.str.312, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dfs_interfaceDescription_spareText, %struct._header_field_info { ptr @.str.313, ptr @.str.314, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dfs_interfaceList_dfs_interfaceList_len, %struct._header_field_info { ptr @.str.315, ptr @.str.316, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dfs_interfaceList_dfs_interfaceList_val, %struct._header_field_info { ptr @.str.317, ptr @.str.318, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetServerInterfaces_serverInterfacesP, %struct._header_field_info { ptr @.str.319, ptr @.str.320, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_AddVolumes_cnt, %struct._header_field_info { ptr @.str.321, ptr @.str.322, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_AddVolumes_vol, %struct._header_field_info { ptr @.str.172, ptr @.str.323, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
+@proto_register_budb.hf = internal global [214 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_budb_opnum, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_rc, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 7, i32 514, ptr @NT_errors_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_principal_name, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_principal_instance, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_principal_cell, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_principal_spare, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_principal_spare1, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_principal_spare2, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_principal_spare3, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_principal_spare4, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeSet_id, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeSet_tapeServer, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeSet_format, %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeSet_maxTapes, %struct._header_field_info { ptr @.str.26, ptr @.str.27, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeSet_a, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeSet_b, %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeSet_spare1, %struct._header_field_info { ptr @.str.12, ptr @.str.32, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeSet_spare2, %struct._header_field_info { ptr @.str.14, ptr @.str.33, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeSet_spare3, %struct._header_field_info { ptr @.str.16, ptr @.str.34, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeSet_spare4, %struct._header_field_info { ptr @.str.18, ptr @.str.35, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dumpEntry_id, %struct._header_field_info { ptr @.str.20, ptr @.str.36, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dumpEntry_parent, %struct._header_field_info { ptr @.str.37, ptr @.str.38, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dumpEntry_level, %struct._header_field_info { ptr @.str.39, ptr @.str.40, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dumpEntry_flags, %struct._header_field_info { ptr @.str.41, ptr @.str.42, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dumpEntry_volumeSetName, %struct._header_field_info { ptr @.str.43, ptr @.str.44, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dumpEntry_dumpPath, %struct._header_field_info { ptr @.str.45, ptr @.str.46, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dumpEntry_name, %struct._header_field_info { ptr @.str.4, ptr @.str.47, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dumpEntry_created, %struct._header_field_info { ptr @.str.48, ptr @.str.49, i32 24, i32 18, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dumpEntry_incTime, %struct._header_field_info { ptr @.str.50, ptr @.str.51, i32 24, i32 18, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dumpEntry_nVolumes, %struct._header_field_info { ptr @.str.52, ptr @.str.53, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dumpEntry_tapes, %struct._header_field_info { ptr @.str.54, ptr @.str.55, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dumpEntry_dumper, %struct._header_field_info { ptr @.str.56, ptr @.str.57, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dumpEntry_spare1, %struct._header_field_info { ptr @.str.12, ptr @.str.58, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dumpEntry_spare2, %struct._header_field_info { ptr @.str.14, ptr @.str.59, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dumpEntry_spare3, %struct._header_field_info { ptr @.str.16, ptr @.str.60, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dumpEntry_spare4, %struct._header_field_info { ptr @.str.18, ptr @.str.61, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeEntry_name, %struct._header_field_info { ptr @.str.4, ptr @.str.62, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeEntry_flags, %struct._header_field_info { ptr @.str.41, ptr @.str.63, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeEntry_written, %struct._header_field_info { ptr @.str.64, ptr @.str.65, i32 24, i32 18, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeEntry_expires, %struct._header_field_info { ptr @.str.66, ptr @.str.67, i32 24, i32 18, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeEntry_nMBytes, %struct._header_field_info { ptr @.str.68, ptr @.str.69, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeEntry_nBytes, %struct._header_field_info { ptr @.str.70, ptr @.str.71, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeEntry_nFiles, %struct._header_field_info { ptr @.str.72, ptr @.str.73, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeEntry_nVolumes, %struct._header_field_info { ptr @.str.52, ptr @.str.74, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeEntry_seq, %struct._header_field_info { ptr @.str.75, ptr @.str.76, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeEntry_tapeid, %struct._header_field_info { ptr @.str.77, ptr @.str.78, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeEntry_useCount, %struct._header_field_info { ptr @.str.79, ptr @.str.80, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeEntry_mediaType, %struct._header_field_info { ptr @.str.81, ptr @.str.82, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeEntry_dump, %struct._header_field_info { ptr @.str.83, ptr @.str.84, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeEntry_spare1, %struct._header_field_info { ptr @.str.12, ptr @.str.85, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeEntry_spare2, %struct._header_field_info { ptr @.str.14, ptr @.str.86, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeEntry_spare3, %struct._header_field_info { ptr @.str.16, ptr @.str.87, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeEntry_spare4, %struct._header_field_info { ptr @.str.18, ptr @.str.88, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_volumeEntry_name, %struct._header_field_info { ptr @.str.4, ptr @.str.89, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_volumeEntry_flags, %struct._header_field_info { ptr @.str.41, ptr @.str.90, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_volumeEntry_id, %struct._header_field_info { ptr @.str.20, ptr @.str.91, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_volumeEntry_server, %struct._header_field_info { ptr @.str.92, ptr @.str.93, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_volumeEntry_partition, %struct._header_field_info { ptr @.str.94, ptr @.str.95, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_volumeEntry_nFrags, %struct._header_field_info { ptr @.str.96, ptr @.str.97, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_volumeEntry_position, %struct._header_field_info { ptr @.str.98, ptr @.str.99, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_volumeEntry_clone, %struct._header_field_info { ptr @.str.100, ptr @.str.101, i32 24, i32 18, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_volumeEntry_incTime, %struct._header_field_info { ptr @.str.50, ptr @.str.102, i32 24, i32 18, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_volumeEntry_startByte, %struct._header_field_info { ptr @.str.103, ptr @.str.104, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_volumeEntry_nBytes, %struct._header_field_info { ptr @.str.70, ptr @.str.105, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_volumeEntry_seq, %struct._header_field_info { ptr @.str.75, ptr @.str.106, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_volumeEntry_dump, %struct._header_field_info { ptr @.str.83, ptr @.str.107, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_volumeEntry_tape, %struct._header_field_info { ptr @.str.108, ptr @.str.109, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_volumeEntry_spare1, %struct._header_field_info { ptr @.str.12, ptr @.str.110, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_volumeEntry_spare2, %struct._header_field_info { ptr @.str.14, ptr @.str.111, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_volumeEntry_spare3, %struct._header_field_info { ptr @.str.16, ptr @.str.112, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_volumeEntry_spare4, %struct._header_field_info { ptr @.str.18, ptr @.str.113, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_volumeList_volumeList_len, %struct._header_field_info { ptr @.str.114, ptr @.str.115, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_volumeList_volumeList_val, %struct._header_field_info { ptr @.str.116, ptr @.str.117, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dumpList_dumpList_len, %struct._header_field_info { ptr @.str.118, ptr @.str.119, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dumpList_dumpList_val, %struct._header_field_info { ptr @.str.120, ptr @.str.121, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeList_tapeList_len, %struct._header_field_info { ptr @.str.122, ptr @.str.123, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_tapeList_tapeList_val, %struct._header_field_info { ptr @.str.124, ptr @.str.125, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_charListT_charListT_len, %struct._header_field_info { ptr @.str.126, ptr @.str.127, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_charListT_charListT_val, %struct._header_field_info { ptr @.str.128, ptr @.str.129, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_DbHeader_dbversion, %struct._header_field_info { ptr @.str.130, ptr @.str.131, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_DbHeader_created, %struct._header_field_info { ptr @.str.48, ptr @.str.132, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_DbHeader_cell, %struct._header_field_info { ptr @.str.8, ptr @.str.133, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_DbHeader_lastDumpId, %struct._header_field_info { ptr @.str.134, ptr @.str.135, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_DbHeader_lastInstanceId, %struct._header_field_info { ptr @.str.136, ptr @.str.137, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_DbHeader_lastTapeId, %struct._header_field_info { ptr @.str.138, ptr @.str.139, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_DbHeader_spare1, %struct._header_field_info { ptr @.str.12, ptr @.str.140, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_DbHeader_spare2, %struct._header_field_info { ptr @.str.14, ptr @.str.141, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_DbHeader_spare3, %struct._header_field_info { ptr @.str.16, ptr @.str.142, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_DbHeader_spare4, %struct._header_field_info { ptr @.str.18, ptr @.str.143, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dbVolume_name, %struct._header_field_info { ptr @.str.4, ptr @.str.144, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dbVolume_flags, %struct._header_field_info { ptr @.str.41, ptr @.str.145, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dbVolume_id, %struct._header_field_info { ptr @.str.20, ptr @.str.146, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dbVolume_server, %struct._header_field_info { ptr @.str.92, ptr @.str.147, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dbVolume_partition, %struct._header_field_info { ptr @.str.94, ptr @.str.148, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dbVolume_nFrags, %struct._header_field_info { ptr @.str.96, ptr @.str.149, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dbVolume_position, %struct._header_field_info { ptr @.str.98, ptr @.str.150, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dbVolume_clone, %struct._header_field_info { ptr @.str.100, ptr @.str.151, i32 24, i32 18, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dbVolume_incTime, %struct._header_field_info { ptr @.str.50, ptr @.str.152, i32 24, i32 18, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dbVolume_startByte, %struct._header_field_info { ptr @.str.103, ptr @.str.153, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dbVolume_nBytes, %struct._header_field_info { ptr @.str.70, ptr @.str.154, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dbVolume_seq, %struct._header_field_info { ptr @.str.75, ptr @.str.155, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dbVolume_dump, %struct._header_field_info { ptr @.str.83, ptr @.str.156, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dbVolume_tape, %struct._header_field_info { ptr @.str.108, ptr @.str.157, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dbVolume_spare1, %struct._header_field_info { ptr @.str.12, ptr @.str.158, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dbVolume_spare2, %struct._header_field_info { ptr @.str.14, ptr @.str.159, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dbVolume_spare3, %struct._header_field_info { ptr @.str.16, ptr @.str.160, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dbVolume_spare4, %struct._header_field_info { ptr @.str.18, ptr @.str.161, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_structDumpHeader_type, %struct._header_field_info { ptr @.str.162, ptr @.str.163, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_structDumpHeader_structversion, %struct._header_field_info { ptr @.str.164, ptr @.str.165, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_structDumpHeader_size, %struct._header_field_info { ptr @.str.166, ptr @.str.167, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_structDumpHeader_spare1, %struct._header_field_info { ptr @.str.12, ptr @.str.168, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_structDumpHeader_spare2, %struct._header_field_info { ptr @.str.14, ptr @.str.169, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_structDumpHeader_spare3, %struct._header_field_info { ptr @.str.16, ptr @.str.170, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_structDumpHeader_spare4, %struct._header_field_info { ptr @.str.18, ptr @.str.171, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_AddVolume_vol, %struct._header_field_info { ptr @.str.172, ptr @.str.173, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_CreateDump_dump, %struct._header_field_info { ptr @.str.83, ptr @.str.174, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_DeleteDump_id, %struct._header_field_info { ptr @.str.20, ptr @.str.175, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_DeleteTape_tape, %struct._header_field_info { ptr @.str.108, ptr @.str.176, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_DeleteVDP_dsname, %struct._header_field_info { ptr @.str.177, ptr @.str.178, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_DeleteVDP_dumpPath, %struct._header_field_info { ptr @.str.45, ptr @.str.179, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_DeleteVDP_curDumpId, %struct._header_field_info { ptr @.str.180, ptr @.str.181, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_FindClone_dumpID, %struct._header_field_info { ptr @.str.182, ptr @.str.183, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_FindClone_volName, %struct._header_field_info { ptr @.str.184, ptr @.str.185, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_FindClone_clonetime, %struct._header_field_info { ptr @.str.186, ptr @.str.187, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_FindClone_cloneSpare, %struct._header_field_info { ptr @.str.188, ptr @.str.189, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_FindDump_volName, %struct._header_field_info { ptr @.str.184, ptr @.str.190, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_FindDump_beforeDate, %struct._header_field_info { ptr @.str.191, ptr @.str.192, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_FindDump_dateSpare, %struct._header_field_info { ptr @.str.193, ptr @.str.194, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_FindDump_deptr, %struct._header_field_info { ptr @.str.195, ptr @.str.196, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_FindLatestDump_vsname, %struct._header_field_info { ptr @.str.197, ptr @.str.198, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_FindLatestDump_dname, %struct._header_field_info { ptr @.str.199, ptr @.str.200, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_FindLatestDump_dumpentry, %struct._header_field_info { ptr @.str.201, ptr @.str.202, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_FinishDump_dump, %struct._header_field_info { ptr @.str.83, ptr @.str.203, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_FinishTape_tape, %struct._header_field_info { ptr @.str.108, ptr @.str.204, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetDumps_majorVersion, %struct._header_field_info { ptr @.str.205, ptr @.str.206, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetDumps_flags, %struct._header_field_info { ptr @.str.41, ptr @.str.207, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetDumps_name, %struct._header_field_info { ptr @.str.4, ptr @.str.208, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetDumps_start, %struct._header_field_info { ptr @.str.209, ptr @.str.210, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetDumps_end, %struct._header_field_info { ptr @.str.211, ptr @.str.212, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetDumps_index, %struct._header_field_info { ptr @.str.213, ptr @.str.214, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetDumps_nextIndex, %struct._header_field_info { ptr @.str.215, ptr @.str.216, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetDumps_dbUpdate, %struct._header_field_info { ptr @.str.217, ptr @.str.218, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetDumps_dumps, %struct._header_field_info { ptr @.str.219, ptr @.str.220, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetTapes_majorVersion, %struct._header_field_info { ptr @.str.205, ptr @.str.221, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetTapes_flags, %struct._header_field_info { ptr @.str.41, ptr @.str.222, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetTapes_name, %struct._header_field_info { ptr @.str.4, ptr @.str.223, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetTapes_start, %struct._header_field_info { ptr @.str.209, ptr @.str.224, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetTapes_end, %struct._header_field_info { ptr @.str.211, ptr @.str.225, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetTapes_index, %struct._header_field_info { ptr @.str.213, ptr @.str.226, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetTapes_nextIndex, %struct._header_field_info { ptr @.str.215, ptr @.str.227, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetTapes_dbUpdate, %struct._header_field_info { ptr @.str.217, ptr @.str.228, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetTapes_tapes, %struct._header_field_info { ptr @.str.54, ptr @.str.229, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetVolumes_majorVersion, %struct._header_field_info { ptr @.str.205, ptr @.str.230, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetVolumes_flags, %struct._header_field_info { ptr @.str.41, ptr @.str.231, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetVolumes_name, %struct._header_field_info { ptr @.str.4, ptr @.str.232, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetVolumes_start, %struct._header_field_info { ptr @.str.209, ptr @.str.233, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetVolumes_end, %struct._header_field_info { ptr @.str.211, ptr @.str.234, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetVolumes_index, %struct._header_field_info { ptr @.str.213, ptr @.str.235, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetVolumes_nextIndex, %struct._header_field_info { ptr @.str.215, ptr @.str.236, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetVolumes_dbUpdate, %struct._header_field_info { ptr @.str.217, ptr @.str.237, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetVolumes_volumes, %struct._header_field_info { ptr @.str.238, ptr @.str.239, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_UseTape_tape, %struct._header_field_info { ptr @.str.108, ptr @.str.240, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_UseTape_new, %struct._header_field_info { ptr @.str.241, ptr @.str.242, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetText_lockHandle, %struct._header_field_info { ptr @.str.243, ptr @.str.244, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetText_textType, %struct._header_field_info { ptr @.str.245, ptr @.str.246, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetText_maxLength, %struct._header_field_info { ptr @.str.247, ptr @.str.248, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetText_offset, %struct._header_field_info { ptr @.str.249, ptr @.str.250, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetText_nextOffset, %struct._header_field_info { ptr @.str.251, ptr @.str.252, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetText_charListPtr, %struct._header_field_info { ptr @.str.253, ptr @.str.254, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetTextVersion_textType, %struct._header_field_info { ptr @.str.245, ptr @.str.255, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetTextVersion_tversion, %struct._header_field_info { ptr @.str.256, ptr @.str.257, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_SaveText_lockHandle, %struct._header_field_info { ptr @.str.243, ptr @.str.258, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_SaveText_textType, %struct._header_field_info { ptr @.str.245, ptr @.str.259, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_SaveText_offset, %struct._header_field_info { ptr @.str.249, ptr @.str.260, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_SaveText_flags, %struct._header_field_info { ptr @.str.41, ptr @.str.261, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_SaveText_charListPtr, %struct._header_field_info { ptr @.str.253, ptr @.str.262, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_FreeAllLocks_instanceId, %struct._header_field_info { ptr @.str.263, ptr @.str.264, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_FreeLock_lockHandle, %struct._header_field_info { ptr @.str.243, ptr @.str.265, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetInstanceId_instanceId, %struct._header_field_info { ptr @.str.263, ptr @.str.266, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetLock_instanceId, %struct._header_field_info { ptr @.str.263, ptr @.str.267, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetLock_lockName, %struct._header_field_info { ptr @.str.268, ptr @.str.269, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetLock_expiration, %struct._header_field_info { ptr @.str.270, ptr @.str.271, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetLock_lockHandle, %struct._header_field_info { ptr @.str.243, ptr @.str.272, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_DbVerify_status, %struct._header_field_info { ptr @.str.273, ptr @.str.274, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_DbVerify_orphans, %struct._header_field_info { ptr @.str.275, ptr @.str.276, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_DbVerify_host, %struct._header_field_info { ptr @.str.277, ptr @.str.278, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_DumpDB_maxLength, %struct._header_field_info { ptr @.str.247, ptr @.str.279, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_DumpDB_flags, %struct._header_field_info { ptr @.str.41, ptr @.str.280, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_DumpDB_charListPtr, %struct._header_field_info { ptr @.str.253, ptr @.str.281, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_RestoreDbHeader_header, %struct._header_field_info { ptr @.str.282, ptr @.str.283, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_T_GetVersion_majorVersion, %struct._header_field_info { ptr @.str.205, ptr @.str.284, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_T_DumpHashTable_type, %struct._header_field_info { ptr @.str.162, ptr @.str.285, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_T_DumpHashTable_filename, %struct._header_field_info { ptr @.str.286, ptr @.str.287, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_T_DumpDatabase_filename, %struct._header_field_info { ptr @.str.286, ptr @.str.288, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dfs_interfaceDescription_interface_uuid, %struct._header_field_info { ptr @.str.289, ptr @.str.290, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dfs_interfaceDescription_vers_major, %struct._header_field_info { ptr @.str.291, ptr @.str.292, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dfs_interfaceDescription_vers_minor, %struct._header_field_info { ptr @.str.293, ptr @.str.294, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dfs_interfaceDescription_vers_provider, %struct._header_field_info { ptr @.str.295, ptr @.str.296, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dfs_interfaceDescription_spare0, %struct._header_field_info { ptr @.str.297, ptr @.str.298, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dfs_interfaceDescription_spare1, %struct._header_field_info { ptr @.str.12, ptr @.str.299, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dfs_interfaceDescription_spare2, %struct._header_field_info { ptr @.str.14, ptr @.str.300, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dfs_interfaceDescription_spare3, %struct._header_field_info { ptr @.str.16, ptr @.str.301, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dfs_interfaceDescription_spare4, %struct._header_field_info { ptr @.str.18, ptr @.str.302, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dfs_interfaceDescription_spare5, %struct._header_field_info { ptr @.str.303, ptr @.str.304, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dfs_interfaceDescription_spare6, %struct._header_field_info { ptr @.str.305, ptr @.str.306, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dfs_interfaceDescription_spare7, %struct._header_field_info { ptr @.str.307, ptr @.str.308, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dfs_interfaceDescription_spare8, %struct._header_field_info { ptr @.str.309, ptr @.str.310, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dfs_interfaceDescription_spare9, %struct._header_field_info { ptr @.str.311, ptr @.str.312, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dfs_interfaceDescription_spareText, %struct._header_field_info { ptr @.str.313, ptr @.str.314, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dfs_interfaceList_dfs_interfaceList_len, %struct._header_field_info { ptr @.str.315, ptr @.str.316, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_dfs_interfaceList_dfs_interfaceList_val, %struct._header_field_info { ptr @.str.317, ptr @.str.318, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_GetServerInterfaces_serverInterfacesP, %struct._header_field_info { ptr @.str.319, ptr @.str.320, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_AddVolumes_cnt, %struct._header_field_info { ptr @.str.321, ptr @.str.322, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_budb_AddVolumes_vol, %struct._header_field_info { ptr @.str.172, ptr @.str.323, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_budb_opnum = internal global i32 0, align 4
 @.str = private unnamed_addr constant [10 x i8] c"Operation\00", align 1
 @.str.1 = private unnamed_addr constant [11 x i8] c"budb.opnum\00", align 1
 @hf_budb_rc = internal global i32 0, align 4
 @.str.2 = private unnamed_addr constant [12 x i8] c"Return code\00", align 1
 @.str.3 = private unnamed_addr constant [8 x i8] c"budb.rc\00", align 1
-@NT_errors = external constant [0 x %struct._value_string], align 8
+@NT_errors_ext = external global %struct._value_string_ext, align 8
 @hf_budb_principal_name = internal global i32 0, align 4
 @.str.4 = private unnamed_addr constant [5 x i8] c"name\00", align 1
 @.str.5 = private unnamed_addr constant [20 x i8] c"budb.principal.name\00", align 1
@@ -570,7 +570,6 @@ target triple = "x86_64-pc-linux-gnu"
 @proto_budb = internal global i32 0, align 4
 @uuid_dcerpc_budb = internal global %struct._e_guid_t { i32 -343847382, i16 153, i16 4554, [8 x i8] c"\86x\02`\8C.\A9n" }, align 4
 @ver_budb = internal global i16 4, align 2
-@function_dissectors = internal global [30 x %struct._dcerpc_sub_dissector] [%struct._dcerpc_sub_dissector { i16 0, ptr @.str.327, ptr @budb_dissect_AddVolume_request, ptr @budb_dissect_AddVolume_response }, %struct._dcerpc_sub_dissector { i16 1, ptr @.str.328, ptr @budb_dissect_CreateDump_request, ptr @budb_dissect_CreateDump_response }, %struct._dcerpc_sub_dissector { i16 2, ptr @.str.329, ptr @budb_dissect_DeleteDump_request, ptr @budb_dissect_DeleteDump_response }, %struct._dcerpc_sub_dissector { i16 3, ptr @.str.330, ptr @budb_dissect_DeleteTape_request, ptr @budb_dissect_DeleteTape_response }, %struct._dcerpc_sub_dissector { i16 4, ptr @.str.331, ptr @budb_dissect_DeleteVDP_request, ptr @budb_dissect_DeleteVDP_response }, %struct._dcerpc_sub_dissector { i16 5, ptr @.str.332, ptr @budb_dissect_FindClone_request, ptr @budb_dissect_FindClone_response }, %struct._dcerpc_sub_dissector { i16 6, ptr @.str.333, ptr @budb_dissect_FindDump_request, ptr @budb_dissect_FindDump_response }, %struct._dcerpc_sub_dissector { i16 7, ptr @.str.334, ptr @budb_dissect_FindLatestDump_request, ptr @budb_dissect_FindLatestDump_response }, %struct._dcerpc_sub_dissector { i16 8, ptr @.str.335, ptr @budb_dissect_FinishDump_request, ptr @budb_dissect_FinishDump_response }, %struct._dcerpc_sub_dissector { i16 9, ptr @.str.336, ptr @budb_dissect_FinishTape_request, ptr @budb_dissect_FinishTape_response }, %struct._dcerpc_sub_dissector { i16 10, ptr @.str.337, ptr @budb_dissect_GetDumps_request, ptr @budb_dissect_GetDumps_response }, %struct._dcerpc_sub_dissector { i16 11, ptr @.str.338, ptr @budb_dissect_GetTapes_request, ptr @budb_dissect_GetTapes_response }, %struct._dcerpc_sub_dissector { i16 12, ptr @.str.339, ptr @budb_dissect_GetVolumes_request, ptr @budb_dissect_GetVolumes_response }, %struct._dcerpc_sub_dissector { i16 13, ptr @.str.340, ptr @budb_dissect_UseTape_request, ptr @budb_dissect_UseTape_response }, %struct._dcerpc_sub_dissector { i16 14, ptr @.str.341, ptr @budb_dissect_GetText_request, ptr @budb_dissect_GetText_response }, %struct._dcerpc_sub_dissector { i16 15, ptr @.str.342, ptr @budb_dissect_GetTextVersion_request, ptr @budb_dissect_GetTextVersion_response }, %struct._dcerpc_sub_dissector { i16 16, ptr @.str.343, ptr @budb_dissect_SaveText_request, ptr @budb_dissect_SaveText_response }, %struct._dcerpc_sub_dissector { i16 17, ptr @.str.344, ptr @budb_dissect_FreeAllLocks_request, ptr @budb_dissect_FreeAllLocks_response }, %struct._dcerpc_sub_dissector { i16 18, ptr @.str.345, ptr @budb_dissect_FreeLock_request, ptr @budb_dissect_FreeLock_response }, %struct._dcerpc_sub_dissector { i16 19, ptr @.str.346, ptr @budb_dissect_GetInstanceId_request, ptr @budb_dissect_GetInstanceId_response }, %struct._dcerpc_sub_dissector { i16 20, ptr @.str.347, ptr @budb_dissect_GetLock_request, ptr @budb_dissect_GetLock_response }, %struct._dcerpc_sub_dissector { i16 21, ptr @.str.348, ptr @budb_dissect_DbVerify_request, ptr @budb_dissect_DbVerify_response }, %struct._dcerpc_sub_dissector { i16 22, ptr @.str.349, ptr @budb_dissect_DumpDB_request, ptr @budb_dissect_DumpDB_response }, %struct._dcerpc_sub_dissector { i16 23, ptr @.str.350, ptr @budb_dissect_RestoreDbHeader_request, ptr @budb_dissect_RestoreDbHeader_response }, %struct._dcerpc_sub_dissector { i16 24, ptr @.str.351, ptr @budb_dissect_T_GetVersion_request, ptr @budb_dissect_T_GetVersion_response }, %struct._dcerpc_sub_dissector { i16 25, ptr @.str.352, ptr @budb_dissect_T_DumpHashTable_request, ptr @budb_dissect_T_DumpHashTable_response }, %struct._dcerpc_sub_dissector { i16 26, ptr @.str.353, ptr @budb_dissect_T_DumpDatabase_request, ptr @budb_dissect_T_DumpDatabase_response }, %struct._dcerpc_sub_dissector { i16 27, ptr @.str.354, ptr @budb_dissect_GetServerInterfaces_request, ptr @budb_dissect_GetServerInterfaces_response }, %struct._dcerpc_sub_dissector { i16 28, ptr @.str.355, ptr @budb_dissect_AddVolumes_request, ptr @budb_dissect_AddVolumes_response }, %struct._dcerpc_sub_dissector zeroinitializer], align 16
 @.str.327 = private unnamed_addr constant [10 x i8] c"AddVolume\00", align 1
 @.str.328 = private unnamed_addr constant [11 x i8] c"CreateDump\00", align 1
 @.str.329 = private unnamed_addr constant [11 x i8] c"DeleteDump\00", align 1
@@ -600,8 +599,9 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.353 = private unnamed_addr constant [15 x i8] c"T_DumpDatabase\00", align 1
 @.str.354 = private unnamed_addr constant [20 x i8] c"GetServerInterfaces\00", align 1
 @.str.355 = private unnamed_addr constant [11 x i8] c"AddVolumes\00", align 1
+@function_dissectors = internal constant [30 x { i16, [6 x i8], ptr, ptr, ptr }] [{ i16, [6 x i8], ptr, ptr, ptr } { i16 0, [6 x i8] zeroinitializer, ptr @.str.327, ptr @budb_dissect_AddVolume_request, ptr @budb_dissect_AddVolume_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 1, [6 x i8] zeroinitializer, ptr @.str.328, ptr @budb_dissect_CreateDump_request, ptr @budb_dissect_CreateDump_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 2, [6 x i8] zeroinitializer, ptr @.str.329, ptr @budb_dissect_DeleteDump_request, ptr @budb_dissect_DeleteDump_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 3, [6 x i8] zeroinitializer, ptr @.str.330, ptr @budb_dissect_DeleteTape_request, ptr @budb_dissect_DeleteTape_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 4, [6 x i8] zeroinitializer, ptr @.str.331, ptr @budb_dissect_DeleteVDP_request, ptr @budb_dissect_DeleteVDP_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 5, [6 x i8] zeroinitializer, ptr @.str.332, ptr @budb_dissect_FindClone_request, ptr @budb_dissect_FindClone_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 6, [6 x i8] zeroinitializer, ptr @.str.333, ptr @budb_dissect_FindDump_request, ptr @budb_dissect_FindDump_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 7, [6 x i8] zeroinitializer, ptr @.str.334, ptr @budb_dissect_FindLatestDump_request, ptr @budb_dissect_FindLatestDump_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 8, [6 x i8] zeroinitializer, ptr @.str.335, ptr @budb_dissect_FinishDump_request, ptr @budb_dissect_FinishDump_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 9, [6 x i8] zeroinitializer, ptr @.str.336, ptr @budb_dissect_FinishTape_request, ptr @budb_dissect_FinishTape_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 10, [6 x i8] zeroinitializer, ptr @.str.337, ptr @budb_dissect_GetDumps_request, ptr @budb_dissect_GetDumps_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 11, [6 x i8] zeroinitializer, ptr @.str.338, ptr @budb_dissect_GetTapes_request, ptr @budb_dissect_GetTapes_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 12, [6 x i8] zeroinitializer, ptr @.str.339, ptr @budb_dissect_GetVolumes_request, ptr @budb_dissect_GetVolumes_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 13, [6 x i8] zeroinitializer, ptr @.str.340, ptr @budb_dissect_UseTape_request, ptr @budb_dissect_UseTape_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 14, [6 x i8] zeroinitializer, ptr @.str.341, ptr @budb_dissect_GetText_request, ptr @budb_dissect_GetText_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 15, [6 x i8] zeroinitializer, ptr @.str.342, ptr @budb_dissect_GetTextVersion_request, ptr @budb_dissect_GetTextVersion_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 16, [6 x i8] zeroinitializer, ptr @.str.343, ptr @budb_dissect_SaveText_request, ptr @budb_dissect_SaveText_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 17, [6 x i8] zeroinitializer, ptr @.str.344, ptr @budb_dissect_FreeAllLocks_request, ptr @budb_dissect_FreeAllLocks_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 18, [6 x i8] zeroinitializer, ptr @.str.345, ptr @budb_dissect_FreeLock_request, ptr @budb_dissect_FreeLock_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 19, [6 x i8] zeroinitializer, ptr @.str.346, ptr @budb_dissect_GetInstanceId_request, ptr @budb_dissect_GetInstanceId_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 20, [6 x i8] zeroinitializer, ptr @.str.347, ptr @budb_dissect_GetLock_request, ptr @budb_dissect_GetLock_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 21, [6 x i8] zeroinitializer, ptr @.str.348, ptr @budb_dissect_DbVerify_request, ptr @budb_dissect_DbVerify_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 22, [6 x i8] zeroinitializer, ptr @.str.349, ptr @budb_dissect_DumpDB_request, ptr @budb_dissect_DumpDB_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 23, [6 x i8] zeroinitializer, ptr @.str.350, ptr @budb_dissect_RestoreDbHeader_request, ptr @budb_dissect_RestoreDbHeader_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 24, [6 x i8] zeroinitializer, ptr @.str.351, ptr @budb_dissect_T_GetVersion_request, ptr @budb_dissect_T_GetVersion_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 25, [6 x i8] zeroinitializer, ptr @.str.352, ptr @budb_dissect_T_DumpHashTable_request, ptr @budb_dissect_T_DumpHashTable_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 26, [6 x i8] zeroinitializer, ptr @.str.353, ptr @budb_dissect_T_DumpDatabase_request, ptr @budb_dissect_T_DumpDatabase_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 27, [6 x i8] zeroinitializer, ptr @.str.354, ptr @budb_dissect_GetServerInterfaces_request, ptr @budb_dissect_GetServerInterfaces_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 28, [6 x i8] zeroinitializer, ptr @.str.355, ptr @budb_dissect_AddVolumes_request, ptr @budb_dissect_AddVolumes_response }, { i16, [6 x i8], ptr, ptr, ptr } zeroinitializer], align 16
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @budb_dissect_principal(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -622,12 +622,15 @@ define hidden i32 @budb_dissect_principal(ptr noundef %0, i32 noundef %1, ptr no
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 4
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp ne i32 %22, 0
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 4
+  %22 = load i8, ptr %21, align 1, !range !6, !noundef !7
+  %23 = trunc i8 %22 to i1
   br i1 %23, label %33, label %24
 
 24:                                               ; preds = %8
@@ -737,14 +740,22 @@ define hidden i32 @budb_dissect_principal(ptr noundef %0, i32 noundef %1, ptr no
   %106 = sub i32 %104, %105
   call void @proto_item_set_len(ptr noundef %103, i32 noundef %106)
   %107 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %107
 }
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_principal_name(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -759,6 +770,7 @@ define internal i32 @budb_dissect_principal_name(ptr noundef %0, i32 noundef %1,
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -771,10 +783,11 @@ define internal i32 @budb_dissect_principal_name(ptr noundef %0, i32 noundef %1,
   %22 = call i32 @budb_dissect_NameString_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_principal_instance(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -789,6 +802,7 @@ define internal i32 @budb_dissect_principal_instance(ptr noundef %0, i32 noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -801,10 +815,11 @@ define internal i32 @budb_dissect_principal_instance(ptr noundef %0, i32 noundef
   %22 = call i32 @budb_dissect_NameString_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_principal_cell(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -819,6 +834,7 @@ define internal i32 @budb_dissect_principal_cell(ptr noundef %0, i32 noundef %1,
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -831,10 +847,11 @@ define internal i32 @budb_dissect_principal_cell(ptr noundef %0, i32 noundef %1,
   %22 = call i32 @budb_dissect_NameString_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_principal_spare(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -849,6 +866,7 @@ define internal i32 @budb_dissect_principal_spare(ptr noundef %0, i32 noundef %1
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -861,10 +879,11 @@ define internal i32 @budb_dissect_principal_spare(ptr noundef %0, i32 noundef %1
   %22 = call i32 @budb_dissect_NameString_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_principal_spare1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -879,6 +898,7 @@ define internal i32 @budb_dissect_principal_spare1(ptr noundef %0, i32 noundef %
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -891,10 +911,11 @@ define internal i32 @budb_dissect_principal_spare1(ptr noundef %0, i32 noundef %
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_principal_spare2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -909,6 +930,7 @@ define internal i32 @budb_dissect_principal_spare2(ptr noundef %0, i32 noundef %
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -921,10 +943,11 @@ define internal i32 @budb_dissect_principal_spare2(ptr noundef %0, i32 noundef %
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_principal_spare3(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -939,6 +962,7 @@ define internal i32 @budb_dissect_principal_spare3(ptr noundef %0, i32 noundef %
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -951,10 +975,11 @@ define internal i32 @budb_dissect_principal_spare3(ptr noundef %0, i32 noundef %
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_principal_spare4(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -969,6 +994,7 @@ define internal i32 @budb_dissect_principal_spare4(ptr noundef %0, i32 noundef %
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -981,12 +1007,17 @@ define internal i32 @budb_dissect_principal_spare4(ptr noundef %0, i32 noundef %
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-declare void @proto_item_set_len(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_set_len(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @budb_dissect_tapeSet(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -1007,12 +1038,15 @@ define hidden i32 @budb_dissect_tapeSet(ptr noundef %0, i32 noundef %1, ptr noun
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 4
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp ne i32 %22, 0
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 4
+  %22 = load i8, ptr %21, align 1, !range !6, !noundef !7
+  %23 = trunc i8 %22 to i1
   br i1 %23, label %33, label %24
 
 24:                                               ; preds = %8
@@ -1138,10 +1172,13 @@ define hidden i32 @budb_dissect_tapeSet(ptr noundef %0, i32 noundef %1, ptr noun
   %120 = sub i32 %118, %119
   call void @proto_item_set_len(ptr noundef %117, i32 noundef %120)
   %121 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %121
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_tapeSet_id(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1156,6 +1193,7 @@ define internal i32 @budb_dissect_tapeSet_id(ptr noundef %0, i32 noundef %1, ptr
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -1168,10 +1206,11 @@ define internal i32 @budb_dissect_tapeSet_id(ptr noundef %0, i32 noundef %1, ptr
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_tapeSet_tapeServer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1186,6 +1225,7 @@ define internal i32 @budb_dissect_tapeSet_tapeServer(ptr noundef %0, i32 noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -1198,10 +1238,11 @@ define internal i32 @budb_dissect_tapeSet_tapeServer(ptr noundef %0, i32 noundef
   %22 = call i32 @budb_dissect_NameString_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_tapeSet_format(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1216,6 +1257,7 @@ define internal i32 @budb_dissect_tapeSet_format(ptr noundef %0, i32 noundef %1,
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -1228,10 +1270,11 @@ define internal i32 @budb_dissect_tapeSet_format(ptr noundef %0, i32 noundef %1,
   %22 = call i32 @budb_dissect_NameString_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_tapeSet_maxTapes(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1246,6 +1289,7 @@ define internal i32 @budb_dissect_tapeSet_maxTapes(ptr noundef %0, i32 noundef %
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -1258,10 +1302,11 @@ define internal i32 @budb_dissect_tapeSet_maxTapes(ptr noundef %0, i32 noundef %
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_tapeSet_a(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1276,6 +1321,7 @@ define internal i32 @budb_dissect_tapeSet_a(ptr noundef %0, i32 noundef %1, ptr 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -1288,10 +1334,11 @@ define internal i32 @budb_dissect_tapeSet_a(ptr noundef %0, i32 noundef %1, ptr 
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_tapeSet_b(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1306,6 +1353,7 @@ define internal i32 @budb_dissect_tapeSet_b(ptr noundef %0, i32 noundef %1, ptr 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -1318,10 +1366,11 @@ define internal i32 @budb_dissect_tapeSet_b(ptr noundef %0, i32 noundef %1, ptr 
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_tapeSet_spare1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1336,6 +1385,7 @@ define internal i32 @budb_dissect_tapeSet_spare1(ptr noundef %0, i32 noundef %1,
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -1348,10 +1398,11 @@ define internal i32 @budb_dissect_tapeSet_spare1(ptr noundef %0, i32 noundef %1,
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_tapeSet_spare2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1366,6 +1417,7 @@ define internal i32 @budb_dissect_tapeSet_spare2(ptr noundef %0, i32 noundef %1,
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -1378,10 +1430,11 @@ define internal i32 @budb_dissect_tapeSet_spare2(ptr noundef %0, i32 noundef %1,
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_tapeSet_spare3(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1396,6 +1449,7 @@ define internal i32 @budb_dissect_tapeSet_spare3(ptr noundef %0, i32 noundef %1,
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -1408,10 +1462,11 @@ define internal i32 @budb_dissect_tapeSet_spare3(ptr noundef %0, i32 noundef %1,
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_tapeSet_spare4(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1426,6 +1481,7 @@ define internal i32 @budb_dissect_tapeSet_spare4(ptr noundef %0, i32 noundef %1,
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -1438,10 +1494,11 @@ define internal i32 @budb_dissect_tapeSet_spare4(ptr noundef %0, i32 noundef %1,
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @budb_dissect_dumpEntry(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -1462,12 +1519,15 @@ define hidden i32 @budb_dissect_dumpEntry(ptr noundef %0, i32 noundef %1, ptr no
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 4
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp ne i32 %22, 0
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 4
+  %22 = load i8, ptr %21, align 1, !range !6, !noundef !7
+  %23 = trunc i8 %22 to i1
   br i1 %23, label %33, label %24
 
 24:                                               ; preds = %8
@@ -1641,10 +1701,13 @@ define hidden i32 @budb_dissect_dumpEntry(ptr noundef %0, i32 noundef %1, ptr no
   %162 = sub i32 %160, %161
   call void @proto_item_set_len(ptr noundef %159, i32 noundef %162)
   %163 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %163
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dumpEntry_id(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1659,6 +1722,7 @@ define internal i32 @budb_dissect_dumpEntry_id(ptr noundef %0, i32 noundef %1, p
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -1671,10 +1735,11 @@ define internal i32 @budb_dissect_dumpEntry_id(ptr noundef %0, i32 noundef %1, p
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dumpEntry_parent(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1689,6 +1754,7 @@ define internal i32 @budb_dissect_dumpEntry_parent(ptr noundef %0, i32 noundef %
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -1701,10 +1767,11 @@ define internal i32 @budb_dissect_dumpEntry_parent(ptr noundef %0, i32 noundef %
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dumpEntry_level(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1719,6 +1786,7 @@ define internal i32 @budb_dissect_dumpEntry_level(ptr noundef %0, i32 noundef %1
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -1731,10 +1799,11 @@ define internal i32 @budb_dissect_dumpEntry_level(ptr noundef %0, i32 noundef %1
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dumpEntry_flags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1749,6 +1818,7 @@ define internal i32 @budb_dissect_dumpEntry_flags(ptr noundef %0, i32 noundef %1
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -1761,10 +1831,11 @@ define internal i32 @budb_dissect_dumpEntry_flags(ptr noundef %0, i32 noundef %1
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dumpEntry_volumeSetName(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1779,6 +1850,7 @@ define internal i32 @budb_dissect_dumpEntry_volumeSetName(ptr noundef %0, i32 no
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -1791,10 +1863,11 @@ define internal i32 @budb_dissect_dumpEntry_volumeSetName(ptr noundef %0, i32 no
   %22 = call i32 @budb_dissect_NameString_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dumpEntry_dumpPath(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1809,6 +1882,7 @@ define internal i32 @budb_dissect_dumpEntry_dumpPath(ptr noundef %0, i32 noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -1821,10 +1895,11 @@ define internal i32 @budb_dissect_dumpEntry_dumpPath(ptr noundef %0, i32 noundef
   %22 = call i32 @budb_dissect_NameString_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dumpEntry_name(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1839,6 +1914,7 @@ define internal i32 @budb_dissect_dumpEntry_name(ptr noundef %0, i32 noundef %1,
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -1851,10 +1927,11 @@ define internal i32 @budb_dissect_dumpEntry_name(ptr noundef %0, i32 noundef %1,
   %22 = call i32 @budb_dissect_NameString_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dumpEntry_created(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1869,6 +1946,7 @@ define internal i32 @budb_dissect_dumpEntry_created(ptr noundef %0, i32 noundef 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -1881,10 +1959,11 @@ define internal i32 @budb_dissect_dumpEntry_created(ptr noundef %0, i32 noundef 
   %22 = call i32 @budb_dissect_time_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dumpEntry_incTime(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1899,6 +1978,7 @@ define internal i32 @budb_dissect_dumpEntry_incTime(ptr noundef %0, i32 noundef 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -1911,10 +1991,11 @@ define internal i32 @budb_dissect_dumpEntry_incTime(ptr noundef %0, i32 noundef 
   %22 = call i32 @budb_dissect_time_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dumpEntry_nVolumes(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1929,6 +2010,7 @@ define internal i32 @budb_dissect_dumpEntry_nVolumes(ptr noundef %0, i32 noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -1941,10 +2023,11 @@ define internal i32 @budb_dissect_dumpEntry_nVolumes(ptr noundef %0, i32 noundef
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dumpEntry_tapes(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1959,6 +2042,7 @@ define internal i32 @budb_dissect_dumpEntry_tapes(ptr noundef %0, i32 noundef %1
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -1971,10 +2055,11 @@ define internal i32 @budb_dissect_dumpEntry_tapes(ptr noundef %0, i32 noundef %1
   %22 = call i32 @budb_dissect_tapeSet(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dumpEntry_dumper(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1989,6 +2074,7 @@ define internal i32 @budb_dissect_dumpEntry_dumper(ptr noundef %0, i32 noundef %
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -2001,10 +2087,11 @@ define internal i32 @budb_dissect_dumpEntry_dumper(ptr noundef %0, i32 noundef %
   %22 = call i32 @budb_dissect_principal(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dumpEntry_spare1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2019,6 +2106,7 @@ define internal i32 @budb_dissect_dumpEntry_spare1(ptr noundef %0, i32 noundef %
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -2031,10 +2119,11 @@ define internal i32 @budb_dissect_dumpEntry_spare1(ptr noundef %0, i32 noundef %
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dumpEntry_spare2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2049,6 +2138,7 @@ define internal i32 @budb_dissect_dumpEntry_spare2(ptr noundef %0, i32 noundef %
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -2061,10 +2151,11 @@ define internal i32 @budb_dissect_dumpEntry_spare2(ptr noundef %0, i32 noundef %
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dumpEntry_spare3(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2079,6 +2170,7 @@ define internal i32 @budb_dissect_dumpEntry_spare3(ptr noundef %0, i32 noundef %
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -2091,10 +2183,11 @@ define internal i32 @budb_dissect_dumpEntry_spare3(ptr noundef %0, i32 noundef %
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dumpEntry_spare4(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2109,6 +2202,7 @@ define internal i32 @budb_dissect_dumpEntry_spare4(ptr noundef %0, i32 noundef %
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -2121,10 +2215,11 @@ define internal i32 @budb_dissect_dumpEntry_spare4(ptr noundef %0, i32 noundef %
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @budb_dissect_tapeEntry(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -2145,12 +2240,15 @@ define hidden i32 @budb_dissect_tapeEntry(ptr noundef %0, i32 noundef %1, ptr no
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 4
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp ne i32 %22, 0
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 4
+  %22 = load i8, ptr %21, align 1, !range !6, !noundef !7
+  %23 = trunc i8 %22 to i1
   br i1 %23, label %33, label %24
 
 24:                                               ; preds = %8
@@ -2332,10 +2430,13 @@ define hidden i32 @budb_dissect_tapeEntry(ptr noundef %0, i32 noundef %1, ptr no
   %169 = sub i32 %167, %168
   call void @proto_item_set_len(ptr noundef %166, i32 noundef %169)
   %170 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %170
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_tapeEntry_name(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2350,6 +2451,7 @@ define internal i32 @budb_dissect_tapeEntry_name(ptr noundef %0, i32 noundef %1,
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -2362,10 +2464,11 @@ define internal i32 @budb_dissect_tapeEntry_name(ptr noundef %0, i32 noundef %1,
   %22 = call i32 @budb_dissect_NameString_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_tapeEntry_flags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2380,6 +2483,7 @@ define internal i32 @budb_dissect_tapeEntry_flags(ptr noundef %0, i32 noundef %1
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -2392,10 +2496,11 @@ define internal i32 @budb_dissect_tapeEntry_flags(ptr noundef %0, i32 noundef %1
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_tapeEntry_written(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2410,6 +2515,7 @@ define internal i32 @budb_dissect_tapeEntry_written(ptr noundef %0, i32 noundef 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -2422,10 +2528,11 @@ define internal i32 @budb_dissect_tapeEntry_written(ptr noundef %0, i32 noundef 
   %22 = call i32 @budb_dissect_time_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_tapeEntry_expires(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2440,6 +2547,7 @@ define internal i32 @budb_dissect_tapeEntry_expires(ptr noundef %0, i32 noundef 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -2452,10 +2560,11 @@ define internal i32 @budb_dissect_tapeEntry_expires(ptr noundef %0, i32 noundef 
   %22 = call i32 @budb_dissect_time_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_tapeEntry_nMBytes(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2470,6 +2579,7 @@ define internal i32 @budb_dissect_tapeEntry_nMBytes(ptr noundef %0, i32 noundef 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -2482,10 +2592,11 @@ define internal i32 @budb_dissect_tapeEntry_nMBytes(ptr noundef %0, i32 noundef 
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_tapeEntry_nBytes(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2500,6 +2611,7 @@ define internal i32 @budb_dissect_tapeEntry_nBytes(ptr noundef %0, i32 noundef %
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -2512,10 +2624,11 @@ define internal i32 @budb_dissect_tapeEntry_nBytes(ptr noundef %0, i32 noundef %
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_tapeEntry_nFiles(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2530,6 +2643,7 @@ define internal i32 @budb_dissect_tapeEntry_nFiles(ptr noundef %0, i32 noundef %
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -2542,10 +2656,11 @@ define internal i32 @budb_dissect_tapeEntry_nFiles(ptr noundef %0, i32 noundef %
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_tapeEntry_nVolumes(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2560,6 +2675,7 @@ define internal i32 @budb_dissect_tapeEntry_nVolumes(ptr noundef %0, i32 noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -2572,10 +2688,11 @@ define internal i32 @budb_dissect_tapeEntry_nVolumes(ptr noundef %0, i32 noundef
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_tapeEntry_seq(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2590,6 +2707,7 @@ define internal i32 @budb_dissect_tapeEntry_seq(ptr noundef %0, i32 noundef %1, 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -2602,10 +2720,11 @@ define internal i32 @budb_dissect_tapeEntry_seq(ptr noundef %0, i32 noundef %1, 
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_tapeEntry_tapeid(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2620,6 +2739,7 @@ define internal i32 @budb_dissect_tapeEntry_tapeid(ptr noundef %0, i32 noundef %
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -2632,10 +2752,11 @@ define internal i32 @budb_dissect_tapeEntry_tapeid(ptr noundef %0, i32 noundef %
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_tapeEntry_useCount(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2650,6 +2771,7 @@ define internal i32 @budb_dissect_tapeEntry_useCount(ptr noundef %0, i32 noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -2662,10 +2784,11 @@ define internal i32 @budb_dissect_tapeEntry_useCount(ptr noundef %0, i32 noundef
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_tapeEntry_mediaType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2680,6 +2803,7 @@ define internal i32 @budb_dissect_tapeEntry_mediaType(ptr noundef %0, i32 nounde
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -2692,10 +2816,11 @@ define internal i32 @budb_dissect_tapeEntry_mediaType(ptr noundef %0, i32 nounde
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_tapeEntry_dump(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2710,6 +2835,7 @@ define internal i32 @budb_dissect_tapeEntry_dump(ptr noundef %0, i32 noundef %1,
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -2722,10 +2848,11 @@ define internal i32 @budb_dissect_tapeEntry_dump(ptr noundef %0, i32 noundef %1,
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_tapeEntry_spare1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2740,6 +2867,7 @@ define internal i32 @budb_dissect_tapeEntry_spare1(ptr noundef %0, i32 noundef %
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -2752,10 +2880,11 @@ define internal i32 @budb_dissect_tapeEntry_spare1(ptr noundef %0, i32 noundef %
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_tapeEntry_spare2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2770,6 +2899,7 @@ define internal i32 @budb_dissect_tapeEntry_spare2(ptr noundef %0, i32 noundef %
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -2782,10 +2912,11 @@ define internal i32 @budb_dissect_tapeEntry_spare2(ptr noundef %0, i32 noundef %
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_tapeEntry_spare3(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2800,6 +2931,7 @@ define internal i32 @budb_dissect_tapeEntry_spare3(ptr noundef %0, i32 noundef %
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -2812,10 +2944,11 @@ define internal i32 @budb_dissect_tapeEntry_spare3(ptr noundef %0, i32 noundef %
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_tapeEntry_spare4(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2830,6 +2963,7 @@ define internal i32 @budb_dissect_tapeEntry_spare4(ptr noundef %0, i32 noundef %
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -2842,10 +2976,11 @@ define internal i32 @budb_dissect_tapeEntry_spare4(ptr noundef %0, i32 noundef %
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @budb_dissect_volumeEntry(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -2866,12 +3001,15 @@ define hidden i32 @budb_dissect_volumeEntry(ptr noundef %0, i32 noundef %1, ptr 
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 4
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp ne i32 %22, 0
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 4
+  %22 = load i8, ptr %21, align 1, !range !6, !noundef !7
+  %23 = trunc i8 %22 to i1
   br i1 %23, label %33, label %24
 
 24:                                               ; preds = %8
@@ -3061,10 +3199,13 @@ define hidden i32 @budb_dissect_volumeEntry(ptr noundef %0, i32 noundef %1, ptr 
   %176 = sub i32 %174, %175
   call void @proto_item_set_len(ptr noundef %173, i32 noundef %176)
   %177 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %177
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_volumeEntry_name(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3079,6 +3220,7 @@ define internal i32 @budb_dissect_volumeEntry_name(ptr noundef %0, i32 noundef %
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -3091,10 +3233,11 @@ define internal i32 @budb_dissect_volumeEntry_name(ptr noundef %0, i32 noundef %
   %22 = call i32 @budb_dissect_NameString_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_volumeEntry_flags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3109,6 +3252,7 @@ define internal i32 @budb_dissect_volumeEntry_flags(ptr noundef %0, i32 noundef 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -3121,10 +3265,11 @@ define internal i32 @budb_dissect_volumeEntry_flags(ptr noundef %0, i32 noundef 
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_volumeEntry_id(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3139,6 +3284,7 @@ define internal i32 @budb_dissect_volumeEntry_id(ptr noundef %0, i32 noundef %1,
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -3151,10 +3297,11 @@ define internal i32 @budb_dissect_volumeEntry_id(ptr noundef %0, i32 noundef %1,
   %22 = call i32 @budb_dissect_udlong(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_volumeEntry_server(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3169,6 +3316,7 @@ define internal i32 @budb_dissect_volumeEntry_server(ptr noundef %0, i32 noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -3181,10 +3329,11 @@ define internal i32 @budb_dissect_volumeEntry_server(ptr noundef %0, i32 noundef
   %22 = call i32 @budb_dissect_NameString_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_volumeEntry_partition(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3199,6 +3348,7 @@ define internal i32 @budb_dissect_volumeEntry_partition(ptr noundef %0, i32 noun
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -3211,10 +3361,11 @@ define internal i32 @budb_dissect_volumeEntry_partition(ptr noundef %0, i32 noun
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_volumeEntry_nFrags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3229,6 +3380,7 @@ define internal i32 @budb_dissect_volumeEntry_nFrags(ptr noundef %0, i32 noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -3241,10 +3393,11 @@ define internal i32 @budb_dissect_volumeEntry_nFrags(ptr noundef %0, i32 noundef
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_volumeEntry_position(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3259,6 +3412,7 @@ define internal i32 @budb_dissect_volumeEntry_position(ptr noundef %0, i32 nound
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -3271,10 +3425,11 @@ define internal i32 @budb_dissect_volumeEntry_position(ptr noundef %0, i32 nound
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_volumeEntry_clone(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3289,6 +3444,7 @@ define internal i32 @budb_dissect_volumeEntry_clone(ptr noundef %0, i32 noundef 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -3301,10 +3457,11 @@ define internal i32 @budb_dissect_volumeEntry_clone(ptr noundef %0, i32 noundef 
   %22 = call i32 @budb_dissect_time_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_volumeEntry_incTime(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3319,6 +3476,7 @@ define internal i32 @budb_dissect_volumeEntry_incTime(ptr noundef %0, i32 nounde
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -3331,10 +3489,11 @@ define internal i32 @budb_dissect_volumeEntry_incTime(ptr noundef %0, i32 nounde
   %22 = call i32 @budb_dissect_time_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_volumeEntry_startByte(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3349,6 +3508,7 @@ define internal i32 @budb_dissect_volumeEntry_startByte(ptr noundef %0, i32 noun
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -3361,10 +3521,11 @@ define internal i32 @budb_dissect_volumeEntry_startByte(ptr noundef %0, i32 noun
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_volumeEntry_nBytes(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3379,6 +3540,7 @@ define internal i32 @budb_dissect_volumeEntry_nBytes(ptr noundef %0, i32 noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -3391,10 +3553,11 @@ define internal i32 @budb_dissect_volumeEntry_nBytes(ptr noundef %0, i32 noundef
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_volumeEntry_seq(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3409,6 +3572,7 @@ define internal i32 @budb_dissect_volumeEntry_seq(ptr noundef %0, i32 noundef %1
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -3421,10 +3585,11 @@ define internal i32 @budb_dissect_volumeEntry_seq(ptr noundef %0, i32 noundef %1
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_volumeEntry_dump(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3439,6 +3604,7 @@ define internal i32 @budb_dissect_volumeEntry_dump(ptr noundef %0, i32 noundef %
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -3451,10 +3617,11 @@ define internal i32 @budb_dissect_volumeEntry_dump(ptr noundef %0, i32 noundef %
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_volumeEntry_tape(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3469,6 +3636,7 @@ define internal i32 @budb_dissect_volumeEntry_tape(ptr noundef %0, i32 noundef %
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -3481,10 +3649,11 @@ define internal i32 @budb_dissect_volumeEntry_tape(ptr noundef %0, i32 noundef %
   %22 = call i32 @budb_dissect_NameString_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_volumeEntry_spare1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3499,6 +3668,7 @@ define internal i32 @budb_dissect_volumeEntry_spare1(ptr noundef %0, i32 noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -3511,10 +3681,11 @@ define internal i32 @budb_dissect_volumeEntry_spare1(ptr noundef %0, i32 noundef
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_volumeEntry_spare2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3529,6 +3700,7 @@ define internal i32 @budb_dissect_volumeEntry_spare2(ptr noundef %0, i32 noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -3541,10 +3713,11 @@ define internal i32 @budb_dissect_volumeEntry_spare2(ptr noundef %0, i32 noundef
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_volumeEntry_spare3(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3559,6 +3732,7 @@ define internal i32 @budb_dissect_volumeEntry_spare3(ptr noundef %0, i32 noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -3571,10 +3745,11 @@ define internal i32 @budb_dissect_volumeEntry_spare3(ptr noundef %0, i32 noundef
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_volumeEntry_spare4(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3589,6 +3764,7 @@ define internal i32 @budb_dissect_volumeEntry_spare4(ptr noundef %0, i32 noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -3601,10 +3777,11 @@ define internal i32 @budb_dissect_volumeEntry_spare4(ptr noundef %0, i32 noundef
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @budb_dissect_volumeList(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -3625,12 +3802,15 @@ define hidden i32 @budb_dissect_volumeList(ptr noundef %0, i32 noundef %1, ptr n
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 4
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp ne i32 %22, 0
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 4
+  %22 = load i8, ptr %21, align 1, !range !6, !noundef !7
+  %23 = trunc i8 %22 to i1
   br i1 %23, label %33, label %24
 
 24:                                               ; preds = %8
@@ -3692,10 +3872,13 @@ define hidden i32 @budb_dissect_volumeList(ptr noundef %0, i32 noundef %1, ptr n
   %64 = sub i32 %62, %63
   call void @proto_item_set_len(ptr noundef %61, i32 noundef %64)
   %65 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %65
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_volumeList_volumeList_len(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3710,6 +3893,7 @@ define internal i32 @budb_dissect_volumeList_volumeList_len(ptr noundef %0, i32 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -3722,10 +3906,11 @@ define internal i32 @budb_dissect_volumeList_volumeList_len(ptr noundef %0, i32 
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ucarray_ptr_budb_dissect_volumeList_volumeList_val(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3751,7 +3936,7 @@ define internal i32 @ucarray_ptr_budb_dissect_volumeList_volumeList_val(ptr noun
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @budb_dissect_dumpList(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -3772,12 +3957,15 @@ define hidden i32 @budb_dissect_dumpList(ptr noundef %0, i32 noundef %1, ptr nou
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 4
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp ne i32 %22, 0
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 4
+  %22 = load i8, ptr %21, align 1, !range !6, !noundef !7
+  %23 = trunc i8 %22 to i1
   br i1 %23, label %33, label %24
 
 24:                                               ; preds = %8
@@ -3839,10 +4027,13 @@ define hidden i32 @budb_dissect_dumpList(ptr noundef %0, i32 noundef %1, ptr nou
   %64 = sub i32 %62, %63
   call void @proto_item_set_len(ptr noundef %61, i32 noundef %64)
   %65 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %65
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dumpList_dumpList_len(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3857,6 +4048,7 @@ define internal i32 @budb_dissect_dumpList_dumpList_len(ptr noundef %0, i32 noun
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -3869,10 +4061,11 @@ define internal i32 @budb_dissect_dumpList_dumpList_len(ptr noundef %0, i32 noun
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ucarray_ptr_budb_dissect_dumpList_dumpList_val(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3898,7 +4091,7 @@ define internal i32 @ucarray_ptr_budb_dissect_dumpList_dumpList_val(ptr noundef 
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @budb_dissect_tapeList(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -3919,12 +4112,15 @@ define hidden i32 @budb_dissect_tapeList(ptr noundef %0, i32 noundef %1, ptr nou
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 4
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp ne i32 %22, 0
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 4
+  %22 = load i8, ptr %21, align 1, !range !6, !noundef !7
+  %23 = trunc i8 %22 to i1
   br i1 %23, label %33, label %24
 
 24:                                               ; preds = %8
@@ -3986,10 +4182,13 @@ define hidden i32 @budb_dissect_tapeList(ptr noundef %0, i32 noundef %1, ptr nou
   %64 = sub i32 %62, %63
   call void @proto_item_set_len(ptr noundef %61, i32 noundef %64)
   %65 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %65
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_tapeList_tapeList_len(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4004,6 +4203,7 @@ define internal i32 @budb_dissect_tapeList_tapeList_len(ptr noundef %0, i32 noun
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -4016,10 +4216,11 @@ define internal i32 @budb_dissect_tapeList_tapeList_len(ptr noundef %0, i32 noun
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ucarray_ptr_budb_dissect_tapeList_tapeList_val(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4045,7 +4246,7 @@ define internal i32 @ucarray_ptr_budb_dissect_tapeList_tapeList_val(ptr noundef 
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @budb_dissect_charListT(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -4066,12 +4267,15 @@ define hidden i32 @budb_dissect_charListT(ptr noundef %0, i32 noundef %1, ptr no
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 4
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp ne i32 %22, 0
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 4
+  %22 = load i8, ptr %21, align 1, !range !6, !noundef !7
+  %23 = trunc i8 %22 to i1
   br i1 %23, label %33, label %24
 
 24:                                               ; preds = %8
@@ -4133,10 +4337,13 @@ define hidden i32 @budb_dissect_charListT(ptr noundef %0, i32 noundef %1, ptr no
   %64 = sub i32 %62, %63
   call void @proto_item_set_len(ptr noundef %61, i32 noundef %64)
   %65 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %65
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_charListT_charListT_len(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4151,6 +4358,7 @@ define internal i32 @budb_dissect_charListT_charListT_len(ptr noundef %0, i32 no
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -4163,10 +4371,11 @@ define internal i32 @budb_dissect_charListT_charListT_len(ptr noundef %0, i32 no
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @uvarray_fixedarray_budb_dissect_charListT_charListT_val(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4192,7 +4401,7 @@ define internal i32 @uvarray_fixedarray_budb_dissect_charListT_charListT_val(ptr
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @budb_dissect_DbHeader(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -4213,12 +4422,15 @@ define hidden i32 @budb_dissect_DbHeader(ptr noundef %0, i32 noundef %1, ptr nou
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 4
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp ne i32 %22, 0
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 4
+  %22 = load i8, ptr %21, align 1, !range !6, !noundef !7
+  %23 = trunc i8 %22 to i1
   br i1 %23, label %33, label %24
 
 24:                                               ; preds = %8
@@ -4344,10 +4556,13 @@ define hidden i32 @budb_dissect_DbHeader(ptr noundef %0, i32 noundef %1, ptr nou
   %120 = sub i32 %118, %119
   call void @proto_item_set_len(ptr noundef %117, i32 noundef %120)
   %121 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %121
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_DbHeader_dbversion(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4362,6 +4577,7 @@ define internal i32 @budb_dissect_DbHeader_dbversion(ptr noundef %0, i32 noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -4374,10 +4590,11 @@ define internal i32 @budb_dissect_DbHeader_dbversion(ptr noundef %0, i32 noundef
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_DbHeader_created(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4392,6 +4609,7 @@ define internal i32 @budb_dissect_DbHeader_created(ptr noundef %0, i32 noundef %
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -4404,10 +4622,11 @@ define internal i32 @budb_dissect_DbHeader_created(ptr noundef %0, i32 noundef %
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_DbHeader_cell(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4422,6 +4641,7 @@ define internal i32 @budb_dissect_DbHeader_cell(ptr noundef %0, i32 noundef %1, 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -4434,10 +4654,11 @@ define internal i32 @budb_dissect_DbHeader_cell(ptr noundef %0, i32 noundef %1, 
   %22 = call i32 @budb_dissect_NameString_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_DbHeader_lastDumpId(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4452,6 +4673,7 @@ define internal i32 @budb_dissect_DbHeader_lastDumpId(ptr noundef %0, i32 nounde
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -4464,10 +4686,11 @@ define internal i32 @budb_dissect_DbHeader_lastDumpId(ptr noundef %0, i32 nounde
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_DbHeader_lastInstanceId(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4482,6 +4705,7 @@ define internal i32 @budb_dissect_DbHeader_lastInstanceId(ptr noundef %0, i32 no
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -4494,10 +4718,11 @@ define internal i32 @budb_dissect_DbHeader_lastInstanceId(ptr noundef %0, i32 no
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_DbHeader_lastTapeId(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4512,6 +4737,7 @@ define internal i32 @budb_dissect_DbHeader_lastTapeId(ptr noundef %0, i32 nounde
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -4524,10 +4750,11 @@ define internal i32 @budb_dissect_DbHeader_lastTapeId(ptr noundef %0, i32 nounde
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_DbHeader_spare1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4542,6 +4769,7 @@ define internal i32 @budb_dissect_DbHeader_spare1(ptr noundef %0, i32 noundef %1
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -4554,10 +4782,11 @@ define internal i32 @budb_dissect_DbHeader_spare1(ptr noundef %0, i32 noundef %1
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_DbHeader_spare2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4572,6 +4801,7 @@ define internal i32 @budb_dissect_DbHeader_spare2(ptr noundef %0, i32 noundef %1
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -4584,10 +4814,11 @@ define internal i32 @budb_dissect_DbHeader_spare2(ptr noundef %0, i32 noundef %1
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_DbHeader_spare3(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4602,6 +4833,7 @@ define internal i32 @budb_dissect_DbHeader_spare3(ptr noundef %0, i32 noundef %1
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -4614,10 +4846,11 @@ define internal i32 @budb_dissect_DbHeader_spare3(ptr noundef %0, i32 noundef %1
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_DbHeader_spare4(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4632,6 +4865,7 @@ define internal i32 @budb_dissect_DbHeader_spare4(ptr noundef %0, i32 noundef %1
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -4644,10 +4878,11 @@ define internal i32 @budb_dissect_DbHeader_spare4(ptr noundef %0, i32 noundef %1
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @budb_dissect_dbVolume(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -4668,12 +4903,15 @@ define hidden i32 @budb_dissect_dbVolume(ptr noundef %0, i32 noundef %1, ptr nou
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 4
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp ne i32 %22, 0
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 4
+  %22 = load i8, ptr %21, align 1, !range !6, !noundef !7
+  %23 = trunc i8 %22 to i1
   br i1 %23, label %33, label %24
 
 24:                                               ; preds = %8
@@ -4863,10 +5101,13 @@ define hidden i32 @budb_dissect_dbVolume(ptr noundef %0, i32 noundef %1, ptr nou
   %176 = sub i32 %174, %175
   call void @proto_item_set_len(ptr noundef %173, i32 noundef %176)
   %177 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %177
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dbVolume_name(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4881,6 +5122,7 @@ define internal i32 @budb_dissect_dbVolume_name(ptr noundef %0, i32 noundef %1, 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -4893,10 +5135,11 @@ define internal i32 @budb_dissect_dbVolume_name(ptr noundef %0, i32 noundef %1, 
   %22 = call i32 @budb_dissect_NameString_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dbVolume_flags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4911,6 +5154,7 @@ define internal i32 @budb_dissect_dbVolume_flags(ptr noundef %0, i32 noundef %1,
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -4923,10 +5167,11 @@ define internal i32 @budb_dissect_dbVolume_flags(ptr noundef %0, i32 noundef %1,
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dbVolume_id(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4941,6 +5186,7 @@ define internal i32 @budb_dissect_dbVolume_id(ptr noundef %0, i32 noundef %1, pt
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -4953,10 +5199,11 @@ define internal i32 @budb_dissect_dbVolume_id(ptr noundef %0, i32 noundef %1, pt
   %22 = call i32 @budb_dissect_udlong(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dbVolume_server(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4971,6 +5218,7 @@ define internal i32 @budb_dissect_dbVolume_server(ptr noundef %0, i32 noundef %1
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -4983,10 +5231,11 @@ define internal i32 @budb_dissect_dbVolume_server(ptr noundef %0, i32 noundef %1
   %22 = call i32 @budb_dissect_NameString_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dbVolume_partition(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5001,6 +5250,7 @@ define internal i32 @budb_dissect_dbVolume_partition(ptr noundef %0, i32 noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -5013,10 +5263,11 @@ define internal i32 @budb_dissect_dbVolume_partition(ptr noundef %0, i32 noundef
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dbVolume_nFrags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5031,6 +5282,7 @@ define internal i32 @budb_dissect_dbVolume_nFrags(ptr noundef %0, i32 noundef %1
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -5043,10 +5295,11 @@ define internal i32 @budb_dissect_dbVolume_nFrags(ptr noundef %0, i32 noundef %1
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dbVolume_position(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5061,6 +5314,7 @@ define internal i32 @budb_dissect_dbVolume_position(ptr noundef %0, i32 noundef 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -5073,10 +5327,11 @@ define internal i32 @budb_dissect_dbVolume_position(ptr noundef %0, i32 noundef 
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dbVolume_clone(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5091,6 +5346,7 @@ define internal i32 @budb_dissect_dbVolume_clone(ptr noundef %0, i32 noundef %1,
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -5103,10 +5359,11 @@ define internal i32 @budb_dissect_dbVolume_clone(ptr noundef %0, i32 noundef %1,
   %22 = call i32 @budb_dissect_time_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dbVolume_incTime(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5121,6 +5378,7 @@ define internal i32 @budb_dissect_dbVolume_incTime(ptr noundef %0, i32 noundef %
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -5133,10 +5391,11 @@ define internal i32 @budb_dissect_dbVolume_incTime(ptr noundef %0, i32 noundef %
   %22 = call i32 @budb_dissect_time_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dbVolume_startByte(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5151,6 +5410,7 @@ define internal i32 @budb_dissect_dbVolume_startByte(ptr noundef %0, i32 noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -5163,10 +5423,11 @@ define internal i32 @budb_dissect_dbVolume_startByte(ptr noundef %0, i32 noundef
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dbVolume_nBytes(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5181,6 +5442,7 @@ define internal i32 @budb_dissect_dbVolume_nBytes(ptr noundef %0, i32 noundef %1
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -5193,10 +5455,11 @@ define internal i32 @budb_dissect_dbVolume_nBytes(ptr noundef %0, i32 noundef %1
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dbVolume_seq(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5211,6 +5474,7 @@ define internal i32 @budb_dissect_dbVolume_seq(ptr noundef %0, i32 noundef %1, p
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -5223,10 +5487,11 @@ define internal i32 @budb_dissect_dbVolume_seq(ptr noundef %0, i32 noundef %1, p
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dbVolume_dump(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5241,6 +5506,7 @@ define internal i32 @budb_dissect_dbVolume_dump(ptr noundef %0, i32 noundef %1, 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -5253,10 +5519,11 @@ define internal i32 @budb_dissect_dbVolume_dump(ptr noundef %0, i32 noundef %1, 
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dbVolume_tape(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5271,6 +5538,7 @@ define internal i32 @budb_dissect_dbVolume_tape(ptr noundef %0, i32 noundef %1, 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -5283,10 +5551,11 @@ define internal i32 @budb_dissect_dbVolume_tape(ptr noundef %0, i32 noundef %1, 
   %22 = call i32 @budb_dissect_NameString_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dbVolume_spare1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5301,6 +5570,7 @@ define internal i32 @budb_dissect_dbVolume_spare1(ptr noundef %0, i32 noundef %1
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -5313,10 +5583,11 @@ define internal i32 @budb_dissect_dbVolume_spare1(ptr noundef %0, i32 noundef %1
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dbVolume_spare2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5331,6 +5602,7 @@ define internal i32 @budb_dissect_dbVolume_spare2(ptr noundef %0, i32 noundef %1
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -5343,10 +5615,11 @@ define internal i32 @budb_dissect_dbVolume_spare2(ptr noundef %0, i32 noundef %1
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dbVolume_spare3(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5361,6 +5634,7 @@ define internal i32 @budb_dissect_dbVolume_spare3(ptr noundef %0, i32 noundef %1
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -5373,10 +5647,11 @@ define internal i32 @budb_dissect_dbVolume_spare3(ptr noundef %0, i32 noundef %1
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dbVolume_spare4(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5391,6 +5666,7 @@ define internal i32 @budb_dissect_dbVolume_spare4(ptr noundef %0, i32 noundef %1
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -5403,10 +5679,11 @@ define internal i32 @budb_dissect_dbVolume_spare4(ptr noundef %0, i32 noundef %1
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @budb_dissect_structDumpHeader(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -5427,12 +5704,15 @@ define hidden i32 @budb_dissect_structDumpHeader(ptr noundef %0, i32 noundef %1,
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 4
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp ne i32 %22, 0
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 4
+  %22 = load i8, ptr %21, align 1, !range !6, !noundef !7
+  %23 = trunc i8 %22 to i1
   br i1 %23, label %33, label %24
 
 24:                                               ; preds = %8
@@ -5534,10 +5814,13 @@ define hidden i32 @budb_dissect_structDumpHeader(ptr noundef %0, i32 noundef %1,
   %99 = sub i32 %97, %98
   call void @proto_item_set_len(ptr noundef %96, i32 noundef %99)
   %100 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %100
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_structDumpHeader_type(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5552,6 +5835,7 @@ define internal i32 @budb_dissect_structDumpHeader_type(ptr noundef %0, i32 noun
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -5564,10 +5848,11 @@ define internal i32 @budb_dissect_structDumpHeader_type(ptr noundef %0, i32 noun
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_structDumpHeader_structversion(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5582,6 +5867,7 @@ define internal i32 @budb_dissect_structDumpHeader_structversion(ptr noundef %0,
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -5594,10 +5880,11 @@ define internal i32 @budb_dissect_structDumpHeader_structversion(ptr noundef %0,
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_structDumpHeader_size(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5612,6 +5899,7 @@ define internal i32 @budb_dissect_structDumpHeader_size(ptr noundef %0, i32 noun
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -5624,10 +5912,11 @@ define internal i32 @budb_dissect_structDumpHeader_size(ptr noundef %0, i32 noun
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_structDumpHeader_spare1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5642,6 +5931,7 @@ define internal i32 @budb_dissect_structDumpHeader_spare1(ptr noundef %0, i32 no
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -5654,10 +5944,11 @@ define internal i32 @budb_dissect_structDumpHeader_spare1(ptr noundef %0, i32 no
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_structDumpHeader_spare2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5672,6 +5963,7 @@ define internal i32 @budb_dissect_structDumpHeader_spare2(ptr noundef %0, i32 no
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -5684,10 +5976,11 @@ define internal i32 @budb_dissect_structDumpHeader_spare2(ptr noundef %0, i32 no
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_structDumpHeader_spare3(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5702,6 +5995,7 @@ define internal i32 @budb_dissect_structDumpHeader_spare3(ptr noundef %0, i32 no
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -5714,10 +6008,11 @@ define internal i32 @budb_dissect_structDumpHeader_spare3(ptr noundef %0, i32 no
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_structDumpHeader_spare4(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5732,6 +6027,7 @@ define internal i32 @budb_dissect_structDumpHeader_spare4(ptr noundef %0, i32 no
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -5744,10 +6040,11 @@ define internal i32 @budb_dissect_structDumpHeader_spare4(ptr noundef %0, i32 no
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @budb_dissect_dfs_interfaceDescription(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -5768,12 +6065,15 @@ define hidden i32 @budb_dissect_dfs_interfaceDescription(ptr noundef %0, i32 nou
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 4
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp ne i32 %22, 0
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 4
+  %22 = load i8, ptr %21, align 1, !range !6, !noundef !7
+  %23 = trunc i8 %22 to i1
   br i1 %23, label %33, label %24
 
 24:                                               ; preds = %8
@@ -5939,10 +6239,13 @@ define hidden i32 @budb_dissect_dfs_interfaceDescription(ptr noundef %0, i32 nou
   %155 = sub i32 %153, %154
   call void @proto_item_set_len(ptr noundef %152, i32 noundef %155)
   %156 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %156
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dfs_interfaceDescription_interface_uuid(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5957,6 +6260,7 @@ define internal i32 @budb_dissect_dfs_interfaceDescription_interface_uuid(ptr no
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -5969,10 +6273,11 @@ define internal i32 @budb_dissect_dfs_interfaceDescription_interface_uuid(ptr no
   %22 = call i32 @budb_dissect_uuid_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dfs_interfaceDescription_vers_major(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5987,6 +6292,7 @@ define internal i32 @budb_dissect_dfs_interfaceDescription_vers_major(ptr nounde
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -5999,10 +6305,11 @@ define internal i32 @budb_dissect_dfs_interfaceDescription_vers_major(ptr nounde
   %22 = call i32 @budb_dissect_uint16(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dfs_interfaceDescription_vers_minor(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6017,6 +6324,7 @@ define internal i32 @budb_dissect_dfs_interfaceDescription_vers_minor(ptr nounde
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -6029,10 +6337,11 @@ define internal i32 @budb_dissect_dfs_interfaceDescription_vers_minor(ptr nounde
   %22 = call i32 @budb_dissect_uint16(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dfs_interfaceDescription_vers_provider(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6047,6 +6356,7 @@ define internal i32 @budb_dissect_dfs_interfaceDescription_vers_provider(ptr nou
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -6059,10 +6369,11 @@ define internal i32 @budb_dissect_dfs_interfaceDescription_vers_provider(ptr nou
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dfs_interfaceDescription_spare0(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6077,6 +6388,7 @@ define internal i32 @budb_dissect_dfs_interfaceDescription_spare0(ptr noundef %0
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -6089,10 +6401,11 @@ define internal i32 @budb_dissect_dfs_interfaceDescription_spare0(ptr noundef %0
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dfs_interfaceDescription_spare1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6107,6 +6420,7 @@ define internal i32 @budb_dissect_dfs_interfaceDescription_spare1(ptr noundef %0
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -6119,10 +6433,11 @@ define internal i32 @budb_dissect_dfs_interfaceDescription_spare1(ptr noundef %0
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dfs_interfaceDescription_spare2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6137,6 +6452,7 @@ define internal i32 @budb_dissect_dfs_interfaceDescription_spare2(ptr noundef %0
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -6149,10 +6465,11 @@ define internal i32 @budb_dissect_dfs_interfaceDescription_spare2(ptr noundef %0
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dfs_interfaceDescription_spare3(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6167,6 +6484,7 @@ define internal i32 @budb_dissect_dfs_interfaceDescription_spare3(ptr noundef %0
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -6179,10 +6497,11 @@ define internal i32 @budb_dissect_dfs_interfaceDescription_spare3(ptr noundef %0
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dfs_interfaceDescription_spare4(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6197,6 +6516,7 @@ define internal i32 @budb_dissect_dfs_interfaceDescription_spare4(ptr noundef %0
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -6209,10 +6529,11 @@ define internal i32 @budb_dissect_dfs_interfaceDescription_spare4(ptr noundef %0
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dfs_interfaceDescription_spare5(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6227,6 +6548,7 @@ define internal i32 @budb_dissect_dfs_interfaceDescription_spare5(ptr noundef %0
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -6239,10 +6561,11 @@ define internal i32 @budb_dissect_dfs_interfaceDescription_spare5(ptr noundef %0
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dfs_interfaceDescription_spare6(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6257,6 +6580,7 @@ define internal i32 @budb_dissect_dfs_interfaceDescription_spare6(ptr noundef %0
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -6269,10 +6593,11 @@ define internal i32 @budb_dissect_dfs_interfaceDescription_spare6(ptr noundef %0
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dfs_interfaceDescription_spare7(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6287,6 +6612,7 @@ define internal i32 @budb_dissect_dfs_interfaceDescription_spare7(ptr noundef %0
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -6299,10 +6625,11 @@ define internal i32 @budb_dissect_dfs_interfaceDescription_spare7(ptr noundef %0
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dfs_interfaceDescription_spare8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6317,6 +6644,7 @@ define internal i32 @budb_dissect_dfs_interfaceDescription_spare8(ptr noundef %0
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -6329,10 +6657,11 @@ define internal i32 @budb_dissect_dfs_interfaceDescription_spare8(ptr noundef %0
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dfs_interfaceDescription_spare9(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6347,6 +6676,7 @@ define internal i32 @budb_dissect_dfs_interfaceDescription_spare9(ptr noundef %0
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -6359,10 +6689,11 @@ define internal i32 @budb_dissect_dfs_interfaceDescription_spare9(ptr noundef %0
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @fixedarray_budb_dissect_dfs_interfaceDescription_spareText(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6377,6 +6708,7 @@ define internal i32 @fixedarray_budb_dissect_dfs_interfaceDescription_spareText(
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 50, ptr %13, align 4
   br label %14
 
@@ -6396,14 +6728,15 @@ define internal i32 @fixedarray_budb_dissect_dfs_interfaceDescription_spareText(
   %24 = load ptr, ptr %12, align 8
   %25 = call i32 @budb_dissect_dfs_interfaceDescription_spareText(ptr noundef %19, i32 noundef %20, ptr noundef %21, ptr noundef %22, ptr noundef %23, ptr noundef %24)
   store i32 %25, ptr %8, align 4
-  br label %14, !llvm.loop !4
+  br label %14, !llvm.loop !8
 
 26:                                               ; preds = %14
   %27 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %27
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @budb_dissect_dfs_interfaceList(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -6424,12 +6757,15 @@ define hidden i32 @budb_dissect_dfs_interfaceList(ptr noundef %0, i32 noundef %1
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 4
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp ne i32 %22, 0
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 4
+  %22 = load i8, ptr %21, align 1, !range !6, !noundef !7
+  %23 = trunc i8 %22 to i1
   br i1 %23, label %33, label %24
 
 24:                                               ; preds = %8
@@ -6491,10 +6827,13 @@ define hidden i32 @budb_dissect_dfs_interfaceList(ptr noundef %0, i32 noundef %1
   %64 = sub i32 %62, %63
   call void @proto_item_set_len(ptr noundef %61, i32 noundef %64)
   %65 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %65
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dfs_interfaceList_dfs_interfaceList_len(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6509,6 +6848,7 @@ define internal i32 @budb_dissect_dfs_interfaceList_dfs_interfaceList_len(ptr no
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -6521,10 +6861,11 @@ define internal i32 @budb_dissect_dfs_interfaceList_dfs_interfaceList_len(ptr no
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @uvarray_budb_dissect_dfs_interfaceList_dfs_interfaceList_val(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6550,7 +6891,7 @@ define internal i32 @uvarray_budb_dissect_dfs_interfaceList_dfs_interfaceList_va
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_budb() #0 {
   %1 = call i32 @proto_register_protocol(ptr noundef @.str.324, ptr noundef @.str.325, ptr noundef @.str.326)
   store i32 %1, ptr @proto_budb, align 4
@@ -6560,13 +6901,16 @@ define hidden void @proto_register_budb() #0 {
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_budb() #0 {
   %1 = load i32, ptr @proto_budb, align 4
   %2 = load i32, ptr @ett_budb, align 4
@@ -6576,9 +6920,10 @@ define hidden void @proto_reg_handoff_budb() #0 {
   ret void
 }
 
-declare void @dcerpc_init_uuid(i32 noundef, i32 noundef, ptr noundef, i16 noundef zeroext, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dcerpc_init_uuid(i32 noundef, i32 noundef, ptr noundef, i16 noundef zeroext, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_NameString_t(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -6603,15 +6948,16 @@ define internal i32 @budb_dissect_NameString_t(ptr noundef %0, i32 noundef %1, p
   %21 = load ptr, ptr %13, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr %15, align 4
-  %24 = call i32 @dissect_ndr_vstring(ptr noundef %17, i32 noundef %18, ptr noundef %19, ptr noundef %20, ptr noundef %21, ptr noundef %22, i32 noundef 1, i32 noundef %23, i32 noundef 0, ptr noundef null)
+  %24 = call i32 @dissect_ndr_vstring(ptr noundef %17, i32 noundef %18, ptr noundef %19, ptr noundef %20, ptr noundef %21, ptr noundef %22, i32 noundef 1, i32 noundef %23, i1 noundef zeroext false, ptr noundef null)
   store i32 %24, ptr %10, align 4
   %25 = load i32, ptr %10, align 4
   ret i32 %25
 }
 
-declare i32 @dissect_ndr_vstring(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_vstring(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -6642,9 +6988,10 @@ define internal i32 @budb_dissect_uint32(ptr noundef %0, i32 noundef %1, ptr nou
   ret i32 %25
 }
 
-declare i32 @dissect_ndr_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_int32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -6675,7 +7022,7 @@ define internal i32 @budb_dissect_int32(ptr noundef %0, i32 noundef %1, ptr noun
   ret i32 %25
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_time_t(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -6706,9 +7053,10 @@ define internal i32 @budb_dissect_time_t(ptr noundef %0, i32 noundef %1, ptr nou
   ret i32 %25
 }
 
-declare i32 @dissect_ndr_time_t(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_time_t(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_udlong(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -6739,11 +7087,13 @@ define internal i32 @budb_dissect_udlong(ptr noundef %0, i32 noundef %1, ptr nou
   ret i32 %25
 }
 
-declare i32 @dissect_ndr_duint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_duint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
-declare i32 @dissect_ndr_ucarray(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_ucarray(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ptr_budb_dissect_volumeList_volumeList_val(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6769,9 +7119,10 @@ define internal i32 @ptr_budb_dissect_volumeList_volumeList_val(ptr noundef %0, 
   ret i32 %20
 }
 
-declare i32 @dissect_ndr_embedded_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_embedded_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_volumeList_volumeList_val(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6786,6 +7137,7 @@ define internal i32 @budb_dissect_volumeList_volumeList_val(ptr noundef %0, i32 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -6798,10 +7150,11 @@ define internal i32 @budb_dissect_volumeList_volumeList_val(ptr noundef %0, i32 
   %22 = call i32 @budb_dissect_volumeEntry(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ptr_budb_dissect_dumpList_dumpList_val(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6827,7 +7180,7 @@ define internal i32 @ptr_budb_dissect_dumpList_dumpList_val(ptr noundef %0, i32 
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dumpList_dumpList_val(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6842,6 +7195,7 @@ define internal i32 @budb_dissect_dumpList_dumpList_val(ptr noundef %0, i32 noun
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -6854,10 +7208,11 @@ define internal i32 @budb_dissect_dumpList_dumpList_val(ptr noundef %0, i32 noun
   %22 = call i32 @budb_dissect_dumpEntry(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ptr_budb_dissect_tapeList_tapeList_val(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6883,7 +7238,7 @@ define internal i32 @ptr_budb_dissect_tapeList_tapeList_val(ptr noundef %0, i32 
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_tapeList_tapeList_val(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6898,6 +7253,7 @@ define internal i32 @budb_dissect_tapeList_tapeList_val(ptr noundef %0, i32 noun
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -6910,12 +7266,14 @@ define internal i32 @budb_dissect_tapeList_tapeList_val(ptr noundef %0, i32 noun
   %22 = call i32 @budb_dissect_tapeEntry(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-declare i32 @dissect_ndr_uvarray(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_uvarray(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @fixedarray_budb_dissect_charListT_charListT_val(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6930,6 +7288,7 @@ define internal i32 @fixedarray_budb_dissect_charListT_charListT_val(ptr noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 1024, ptr %13, align 4
   br label %14
 
@@ -6949,14 +7308,15 @@ define internal i32 @fixedarray_budb_dissect_charListT_charListT_val(ptr noundef
   %24 = load ptr, ptr %12, align 8
   %25 = call i32 @budb_dissect_charListT_charListT_val(ptr noundef %19, i32 noundef %20, ptr noundef %21, ptr noundef %22, ptr noundef %23, ptr noundef %24)
   store i32 %25, ptr %8, align 4
-  br label %14, !llvm.loop !6
+  br label %14, !llvm.loop !10
 
 26:                                               ; preds = %14
   %27 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %27
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_charListT_charListT_val(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6971,6 +7331,7 @@ define internal i32 @budb_dissect_charListT_charListT_val(ptr noundef %0, i32 no
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -6983,10 +7344,11 @@ define internal i32 @budb_dissect_charListT_charListT_val(ptr noundef %0, i32 no
   %22 = call i32 @budb_dissect_uint8(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -7017,9 +7379,10 @@ define internal i32 @budb_dissect_uint8(ptr noundef %0, i32 noundef %1, ptr noun
   ret i32 %25
 }
 
-declare i32 @dissect_ndr_uint8(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_uint8(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_uuid_t(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -7050,9 +7413,10 @@ define internal i32 @budb_dissect_uuid_t(ptr noundef %0, i32 noundef %1, ptr nou
   ret i32 %25
 }
 
-declare i32 @dissect_ndr_uuid_t(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_uuid_t(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_uint16(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -7083,9 +7447,10 @@ define internal i32 @budb_dissect_uint16(ptr noundef %0, i32 noundef %1, ptr nou
   ret i32 %25
 }
 
-declare i32 @dissect_ndr_uint16(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_uint16(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dfs_interfaceDescription_spareText(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7100,6 +7465,7 @@ define internal i32 @budb_dissect_dfs_interfaceDescription_spareText(ptr noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -7112,10 +7478,11 @@ define internal i32 @budb_dissect_dfs_interfaceDescription_spareText(ptr noundef
   %22 = call i32 @budb_dissect_uint8(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_dfs_interfaceList_dfs_interfaceList_val(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7130,6 +7497,7 @@ define internal i32 @budb_dissect_dfs_interfaceList_dfs_interfaceList_val(ptr no
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -7142,10 +7510,11 @@ define internal i32 @budb_dissect_dfs_interfaceList_dfs_interfaceList_val(ptr no
   %22 = call i32 @budb_dissect_dfs_interfaceDescription(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_AddVolume_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7178,7 +7547,7 @@ define internal i32 @budb_dissect_AddVolume_request(ptr noundef %0, i32 noundef 
   ret i32 %26
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_AddVolume_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7205,7 +7574,7 @@ define internal i32 @budb_dissect_AddVolume_response(ptr noundef %0, i32 noundef
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_CreateDump_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7238,7 +7607,7 @@ define internal i32 @budb_dissect_CreateDump_request(ptr noundef %0, i32 noundef
   ret i32 %26
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_CreateDump_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7280,7 +7649,7 @@ define internal i32 @budb_dissect_CreateDump_response(ptr noundef %0, i32 nounde
   ret i32 %34
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_DeleteDump_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7313,7 +7682,7 @@ define internal i32 @budb_dissect_DeleteDump_request(ptr noundef %0, i32 noundef
   ret i32 %26
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_DeleteDump_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7340,7 +7709,7 @@ define internal i32 @budb_dissect_DeleteDump_response(ptr noundef %0, i32 nounde
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_DeleteTape_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7373,7 +7742,7 @@ define internal i32 @budb_dissect_DeleteTape_request(ptr noundef %0, i32 noundef
   ret i32 %26
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_DeleteTape_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7400,7 +7769,7 @@ define internal i32 @budb_dissect_DeleteTape_response(ptr noundef %0, i32 nounde
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_DeleteVDP_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7463,7 +7832,7 @@ define internal i32 @budb_dissect_DeleteVDP_request(ptr noundef %0, i32 noundef 
   ret i32 %52
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_DeleteVDP_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7490,7 +7859,7 @@ define internal i32 @budb_dissect_DeleteVDP_response(ptr noundef %0, i32 noundef
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_FindClone_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7538,7 +7907,7 @@ define internal i32 @budb_dissect_FindClone_request(ptr noundef %0, i32 noundef 
   ret i32 %39
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_FindClone_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7595,7 +7964,7 @@ define internal i32 @budb_dissect_FindClone_response(ptr noundef %0, i32 noundef
   ret i32 %47
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_FindDump_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7658,7 +8027,7 @@ define internal i32 @budb_dissect_FindDump_request(ptr noundef %0, i32 noundef %
   ret i32 %52
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_FindDump_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7700,7 +8069,7 @@ define internal i32 @budb_dissect_FindDump_response(ptr noundef %0, i32 noundef 
   ret i32 %34
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_FindLatestDump_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7748,7 +8117,7 @@ define internal i32 @budb_dissect_FindLatestDump_request(ptr noundef %0, i32 nou
   ret i32 %39
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_FindLatestDump_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7790,7 +8159,7 @@ define internal i32 @budb_dissect_FindLatestDump_response(ptr noundef %0, i32 no
   ret i32 %34
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_FinishDump_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7823,7 +8192,7 @@ define internal i32 @budb_dissect_FinishDump_request(ptr noundef %0, i32 noundef
   ret i32 %26
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_FinishDump_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7865,7 +8234,7 @@ define internal i32 @budb_dissect_FinishDump_response(ptr noundef %0, i32 nounde
   ret i32 %34
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_FinishTape_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7898,7 +8267,7 @@ define internal i32 @budb_dissect_FinishTape_request(ptr noundef %0, i32 noundef
   ret i32 %26
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_FinishTape_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7925,7 +8294,7 @@ define internal i32 @budb_dissect_FinishTape_response(ptr noundef %0, i32 nounde
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetDumps_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -8033,7 +8402,7 @@ define internal i32 @budb_dissect_GetDumps_request(ptr noundef %0, i32 noundef %
   ret i32 %91
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetDumps_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -8105,7 +8474,7 @@ define internal i32 @budb_dissect_GetDumps_response(ptr noundef %0, i32 noundef 
   ret i32 %60
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetTapes_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -8213,7 +8582,7 @@ define internal i32 @budb_dissect_GetTapes_request(ptr noundef %0, i32 noundef %
   ret i32 %91
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetTapes_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -8285,7 +8654,7 @@ define internal i32 @budb_dissect_GetTapes_response(ptr noundef %0, i32 noundef 
   ret i32 %60
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetVolumes_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -8393,7 +8762,7 @@ define internal i32 @budb_dissect_GetVolumes_request(ptr noundef %0, i32 noundef
   ret i32 %91
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetVolumes_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -8465,7 +8834,7 @@ define internal i32 @budb_dissect_GetVolumes_response(ptr noundef %0, i32 nounde
   ret i32 %60
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_UseTape_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -8498,7 +8867,7 @@ define internal i32 @budb_dissect_UseTape_request(ptr noundef %0, i32 noundef %1
   ret i32 %26
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_UseTape_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -8540,7 +8909,7 @@ define internal i32 @budb_dissect_UseTape_response(ptr noundef %0, i32 noundef %
   ret i32 %34
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetText_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -8618,7 +8987,7 @@ define internal i32 @budb_dissect_GetText_request(ptr noundef %0, i32 noundef %1
   ret i32 %65
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetText_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -8675,7 +9044,7 @@ define internal i32 @budb_dissect_GetText_response(ptr noundef %0, i32 noundef %
   ret i32 %47
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetTextVersion_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -8708,7 +9077,7 @@ define internal i32 @budb_dissect_GetTextVersion_request(ptr noundef %0, i32 nou
   ret i32 %26
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetTextVersion_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -8750,7 +9119,7 @@ define internal i32 @budb_dissect_GetTextVersion_response(ptr noundef %0, i32 no
   ret i32 %34
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_SaveText_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -8843,7 +9212,7 @@ define internal i32 @budb_dissect_SaveText_request(ptr noundef %0, i32 noundef %
   ret i32 %78
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_SaveText_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -8870,7 +9239,7 @@ define internal i32 @budb_dissect_SaveText_response(ptr noundef %0, i32 noundef 
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_FreeAllLocks_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -8903,7 +9272,7 @@ define internal i32 @budb_dissect_FreeAllLocks_request(ptr noundef %0, i32 nound
   ret i32 %26
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_FreeAllLocks_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -8930,7 +9299,7 @@ define internal i32 @budb_dissect_FreeAllLocks_response(ptr noundef %0, i32 noun
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_FreeLock_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -8963,7 +9332,7 @@ define internal i32 @budb_dissect_FreeLock_request(ptr noundef %0, i32 noundef %
   ret i32 %26
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_FreeLock_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -8990,8 +9359,8 @@ define internal i32 @budb_dissect_FreeLock_response(ptr noundef %0, i32 noundef 
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @budb_dissect_GetInstanceId_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @budb_dissect_GetInstanceId_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -9008,7 +9377,7 @@ define internal i32 @budb_dissect_GetInstanceId_request(ptr noundef %0, i32 noun
   ret i32 %13
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetInstanceId_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -9050,7 +9419,7 @@ define internal i32 @budb_dissect_GetInstanceId_response(ptr noundef %0, i32 nou
   ret i32 %34
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetLock_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -9113,7 +9482,7 @@ define internal i32 @budb_dissect_GetLock_request(ptr noundef %0, i32 noundef %1
   ret i32 %52
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetLock_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -9155,8 +9524,8 @@ define internal i32 @budb_dissect_GetLock_response(ptr noundef %0, i32 noundef %
   ret i32 %34
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @budb_dissect_DbVerify_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @budb_dissect_DbVerify_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -9173,7 +9542,7 @@ define internal i32 @budb_dissect_DbVerify_request(ptr noundef %0, i32 noundef %
   ret i32 %13
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_DbVerify_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -9245,7 +9614,7 @@ define internal i32 @budb_dissect_DbVerify_response(ptr noundef %0, i32 noundef 
   ret i32 %60
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_DumpDB_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -9278,7 +9647,7 @@ define internal i32 @budb_dissect_DumpDB_request(ptr noundef %0, i32 noundef %1,
   ret i32 %26
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_DumpDB_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -9335,7 +9704,7 @@ define internal i32 @budb_dissect_DumpDB_response(ptr noundef %0, i32 noundef %1
   ret i32 %47
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_RestoreDbHeader_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -9368,7 +9737,7 @@ define internal i32 @budb_dissect_RestoreDbHeader_request(ptr noundef %0, i32 no
   ret i32 %26
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_RestoreDbHeader_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -9395,8 +9764,8 @@ define internal i32 @budb_dissect_RestoreDbHeader_response(ptr noundef %0, i32 n
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @budb_dissect_T_GetVersion_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @budb_dissect_T_GetVersion_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -9413,7 +9782,7 @@ define internal i32 @budb_dissect_T_GetVersion_request(ptr noundef %0, i32 nound
   ret i32 %13
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_T_GetVersion_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -9455,7 +9824,7 @@ define internal i32 @budb_dissect_T_GetVersion_response(ptr noundef %0, i32 noun
   ret i32 %34
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_T_DumpHashTable_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -9503,7 +9872,7 @@ define internal i32 @budb_dissect_T_DumpHashTable_request(ptr noundef %0, i32 no
   ret i32 %39
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_T_DumpHashTable_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -9530,7 +9899,7 @@ define internal i32 @budb_dissect_T_DumpHashTable_response(ptr noundef %0, i32 n
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_T_DumpDatabase_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -9563,7 +9932,7 @@ define internal i32 @budb_dissect_T_DumpDatabase_request(ptr noundef %0, i32 nou
   ret i32 %26
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_T_DumpDatabase_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -9590,7 +9959,7 @@ define internal i32 @budb_dissect_T_DumpDatabase_response(ptr noundef %0, i32 no
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetServerInterfaces_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -9623,7 +9992,7 @@ define internal i32 @budb_dissect_GetServerInterfaces_request(ptr noundef %0, i3
   ret i32 %26
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetServerInterfaces_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -9665,7 +10034,7 @@ define internal i32 @budb_dissect_GetServerInterfaces_response(ptr noundef %0, i
   ret i32 %34
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_AddVolumes_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -9713,7 +10082,7 @@ define internal i32 @budb_dissect_AddVolumes_request(ptr noundef %0, i32 noundef
   ret i32 %39
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_AddVolumes_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -9740,7 +10109,7 @@ define internal i32 @budb_dissect_AddVolumes_response(ptr noundef %0, i32 nounde
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ref_budb_dissect_AddVolume_vol(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -9766,11 +10135,13 @@ define internal i32 @ref_budb_dissect_AddVolume_vol(ptr noundef %0, i32 noundef 
   ret i32 %20
 }
 
-declare i32 @dissect_deferred_pointers(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_deferred_pointers(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
-declare i32 @dissect_ndr_toplevel_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_toplevel_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_AddVolume_vol(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -9785,6 +10156,7 @@ define internal i32 @budb_dissect_AddVolume_vol(ptr noundef %0, i32 noundef %1, 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -9797,12 +10169,14 @@ define internal i32 @budb_dissect_AddVolume_vol(ptr noundef %0, i32 noundef %1, 
   %22 = call i32 @budb_dissect_volumeEntry(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-declare i32 @dissect_ntstatus(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ntstatus(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ref_budb_dissect_CreateDump_dump(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -9828,7 +10202,7 @@ define internal i32 @ref_budb_dissect_CreateDump_dump(ptr noundef %0, i32 nounde
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_CreateDump_dump(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -9843,6 +10217,7 @@ define internal i32 @budb_dissect_CreateDump_dump(ptr noundef %0, i32 noundef %1
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -9855,10 +10230,11 @@ define internal i32 @budb_dissect_CreateDump_dump(ptr noundef %0, i32 noundef %1
   %22 = call i32 @budb_dissect_dumpEntry(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_DeleteDump_id(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -9873,6 +10249,7 @@ define internal i32 @budb_dissect_DeleteDump_id(ptr noundef %0, i32 noundef %1, 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -9885,10 +10262,11 @@ define internal i32 @budb_dissect_DeleteDump_id(ptr noundef %0, i32 noundef %1, 
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ref_budb_dissect_DeleteTape_tape(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -9914,7 +10292,7 @@ define internal i32 @ref_budb_dissect_DeleteTape_tape(ptr noundef %0, i32 nounde
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_DeleteTape_tape(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -9929,6 +10307,7 @@ define internal i32 @budb_dissect_DeleteTape_tape(ptr noundef %0, i32 noundef %1
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -9941,10 +10320,11 @@ define internal i32 @budb_dissect_DeleteTape_tape(ptr noundef %0, i32 noundef %1
   %22 = call i32 @budb_dissect_tapeEntry(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ptr_budb_dissect_DeleteVDP_dsname(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -9970,7 +10350,7 @@ define internal i32 @ptr_budb_dissect_DeleteVDP_dsname(ptr noundef %0, i32 nound
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ptr_budb_dissect_DeleteVDP_dumpPath(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -9996,7 +10376,7 @@ define internal i32 @ptr_budb_dissect_DeleteVDP_dumpPath(ptr noundef %0, i32 nou
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_DeleteVDP_curDumpId(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -10011,6 +10391,7 @@ define internal i32 @budb_dissect_DeleteVDP_curDumpId(ptr noundef %0, i32 nounde
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -10023,10 +10404,11 @@ define internal i32 @budb_dissect_DeleteVDP_curDumpId(ptr noundef %0, i32 nounde
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_DeleteVDP_dsname(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -10041,6 +10423,7 @@ define internal i32 @budb_dissect_DeleteVDP_dsname(ptr noundef %0, i32 noundef %
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -10053,10 +10436,11 @@ define internal i32 @budb_dissect_DeleteVDP_dsname(ptr noundef %0, i32 noundef %
   %22 = call i32 @budb_dissect_NameString_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_DeleteVDP_dumpPath(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -10071,6 +10455,7 @@ define internal i32 @budb_dissect_DeleteVDP_dumpPath(ptr noundef %0, i32 noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -10083,10 +10468,11 @@ define internal i32 @budb_dissect_DeleteVDP_dumpPath(ptr noundef %0, i32 noundef
   %22 = call i32 @budb_dissect_NameString_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_FindClone_dumpID(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -10101,6 +10487,7 @@ define internal i32 @budb_dissect_FindClone_dumpID(ptr noundef %0, i32 noundef %
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -10113,10 +10500,11 @@ define internal i32 @budb_dissect_FindClone_dumpID(ptr noundef %0, i32 noundef %
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ptr_budb_dissect_FindClone_volName(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -10142,7 +10530,7 @@ define internal i32 @ptr_budb_dissect_FindClone_volName(ptr noundef %0, i32 noun
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_FindClone_volName(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -10157,6 +10545,7 @@ define internal i32 @budb_dissect_FindClone_volName(ptr noundef %0, i32 noundef 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -10169,10 +10558,11 @@ define internal i32 @budb_dissect_FindClone_volName(ptr noundef %0, i32 noundef 
   %22 = call i32 @budb_dissect_NameString_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ref_budb_dissect_FindClone_clonetime(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -10198,7 +10588,7 @@ define internal i32 @ref_budb_dissect_FindClone_clonetime(ptr noundef %0, i32 no
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ref_budb_dissect_FindClone_cloneSpare(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -10224,7 +10614,7 @@ define internal i32 @ref_budb_dissect_FindClone_cloneSpare(ptr noundef %0, i32 n
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_FindClone_clonetime(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -10239,6 +10629,7 @@ define internal i32 @budb_dissect_FindClone_clonetime(ptr noundef %0, i32 nounde
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -10251,10 +10642,11 @@ define internal i32 @budb_dissect_FindClone_clonetime(ptr noundef %0, i32 nounde
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_FindClone_cloneSpare(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -10269,6 +10661,7 @@ define internal i32 @budb_dissect_FindClone_cloneSpare(ptr noundef %0, i32 nound
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -10281,10 +10674,11 @@ define internal i32 @budb_dissect_FindClone_cloneSpare(ptr noundef %0, i32 nound
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ptr_budb_dissect_FindDump_volName(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -10310,7 +10704,7 @@ define internal i32 @ptr_budb_dissect_FindDump_volName(ptr noundef %0, i32 nound
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_FindDump_beforeDate(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -10325,6 +10719,7 @@ define internal i32 @budb_dissect_FindDump_beforeDate(ptr noundef %0, i32 nounde
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -10337,10 +10732,11 @@ define internal i32 @budb_dissect_FindDump_beforeDate(ptr noundef %0, i32 nounde
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_FindDump_dateSpare(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -10355,6 +10751,7 @@ define internal i32 @budb_dissect_FindDump_dateSpare(ptr noundef %0, i32 noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -10367,10 +10764,11 @@ define internal i32 @budb_dissect_FindDump_dateSpare(ptr noundef %0, i32 noundef
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_FindDump_volName(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -10385,6 +10783,7 @@ define internal i32 @budb_dissect_FindDump_volName(ptr noundef %0, i32 noundef %
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -10397,10 +10796,11 @@ define internal i32 @budb_dissect_FindDump_volName(ptr noundef %0, i32 noundef %
   %22 = call i32 @budb_dissect_NameString_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ref_budb_dissect_FindDump_deptr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -10426,7 +10826,7 @@ define internal i32 @ref_budb_dissect_FindDump_deptr(ptr noundef %0, i32 noundef
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_FindDump_deptr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -10441,6 +10841,7 @@ define internal i32 @budb_dissect_FindDump_deptr(ptr noundef %0, i32 noundef %1,
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -10453,10 +10854,11 @@ define internal i32 @budb_dissect_FindDump_deptr(ptr noundef %0, i32 noundef %1,
   %22 = call i32 @budb_dissect_dumpEntry(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ptr_budb_dissect_FindLatestDump_vsname(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -10482,7 +10884,7 @@ define internal i32 @ptr_budb_dissect_FindLatestDump_vsname(ptr noundef %0, i32 
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ptr_budb_dissect_FindLatestDump_dname(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -10508,7 +10910,7 @@ define internal i32 @ptr_budb_dissect_FindLatestDump_dname(ptr noundef %0, i32 n
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_FindLatestDump_vsname(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -10523,6 +10925,7 @@ define internal i32 @budb_dissect_FindLatestDump_vsname(ptr noundef %0, i32 noun
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -10535,10 +10938,11 @@ define internal i32 @budb_dissect_FindLatestDump_vsname(ptr noundef %0, i32 noun
   %22 = call i32 @budb_dissect_NameString_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_FindLatestDump_dname(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -10553,6 +10957,7 @@ define internal i32 @budb_dissect_FindLatestDump_dname(ptr noundef %0, i32 nound
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -10565,10 +10970,11 @@ define internal i32 @budb_dissect_FindLatestDump_dname(ptr noundef %0, i32 nound
   %22 = call i32 @budb_dissect_NameString_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ref_budb_dissect_FindLatestDump_dumpentry(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -10594,7 +11000,7 @@ define internal i32 @ref_budb_dissect_FindLatestDump_dumpentry(ptr noundef %0, i
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_FindLatestDump_dumpentry(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -10609,6 +11015,7 @@ define internal i32 @budb_dissect_FindLatestDump_dumpentry(ptr noundef %0, i32 n
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -10621,10 +11028,11 @@ define internal i32 @budb_dissect_FindLatestDump_dumpentry(ptr noundef %0, i32 n
   %22 = call i32 @budb_dissect_dumpEntry(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ref_budb_dissect_FinishDump_dump(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -10650,7 +11058,7 @@ define internal i32 @ref_budb_dissect_FinishDump_dump(ptr noundef %0, i32 nounde
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_FinishDump_dump(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -10665,6 +11073,7 @@ define internal i32 @budb_dissect_FinishDump_dump(ptr noundef %0, i32 noundef %1
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -10677,10 +11086,11 @@ define internal i32 @budb_dissect_FinishDump_dump(ptr noundef %0, i32 noundef %1
   %22 = call i32 @budb_dissect_dumpEntry(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ref_budb_dissect_FinishTape_tape(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -10706,7 +11116,7 @@ define internal i32 @ref_budb_dissect_FinishTape_tape(ptr noundef %0, i32 nounde
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_FinishTape_tape(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -10721,6 +11131,7 @@ define internal i32 @budb_dissect_FinishTape_tape(ptr noundef %0, i32 noundef %1
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -10733,10 +11144,11 @@ define internal i32 @budb_dissect_FinishTape_tape(ptr noundef %0, i32 noundef %1
   %22 = call i32 @budb_dissect_tapeEntry(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetDumps_majorVersion(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -10751,6 +11163,7 @@ define internal i32 @budb_dissect_GetDumps_majorVersion(ptr noundef %0, i32 noun
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -10763,10 +11176,11 @@ define internal i32 @budb_dissect_GetDumps_majorVersion(ptr noundef %0, i32 noun
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetDumps_flags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -10781,6 +11195,7 @@ define internal i32 @budb_dissect_GetDumps_flags(ptr noundef %0, i32 noundef %1,
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -10793,10 +11208,11 @@ define internal i32 @budb_dissect_GetDumps_flags(ptr noundef %0, i32 noundef %1,
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ptr_budb_dissect_GetDumps_name(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -10822,7 +11238,7 @@ define internal i32 @ptr_budb_dissect_GetDumps_name(ptr noundef %0, i32 noundef 
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetDumps_start(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -10837,6 +11253,7 @@ define internal i32 @budb_dissect_GetDumps_start(ptr noundef %0, i32 noundef %1,
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -10849,10 +11266,11 @@ define internal i32 @budb_dissect_GetDumps_start(ptr noundef %0, i32 noundef %1,
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetDumps_end(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -10867,6 +11285,7 @@ define internal i32 @budb_dissect_GetDumps_end(ptr noundef %0, i32 noundef %1, p
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -10879,10 +11298,11 @@ define internal i32 @budb_dissect_GetDumps_end(ptr noundef %0, i32 noundef %1, p
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetDumps_index(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -10897,6 +11317,7 @@ define internal i32 @budb_dissect_GetDumps_index(ptr noundef %0, i32 noundef %1,
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -10909,10 +11330,11 @@ define internal i32 @budb_dissect_GetDumps_index(ptr noundef %0, i32 noundef %1,
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetDumps_name(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -10927,6 +11349,7 @@ define internal i32 @budb_dissect_GetDumps_name(ptr noundef %0, i32 noundef %1, 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -10939,10 +11362,11 @@ define internal i32 @budb_dissect_GetDumps_name(ptr noundef %0, i32 noundef %1, 
   %22 = call i32 @budb_dissect_NameString_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ref_budb_dissect_GetDumps_nextIndex(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -10968,7 +11392,7 @@ define internal i32 @ref_budb_dissect_GetDumps_nextIndex(ptr noundef %0, i32 nou
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ref_budb_dissect_GetDumps_dbUpdate(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -10994,7 +11418,7 @@ define internal i32 @ref_budb_dissect_GetDumps_dbUpdate(ptr noundef %0, i32 noun
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ptr_ptr_budb_dissect_GetDumps_dumps(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -11020,7 +11444,7 @@ define internal i32 @ptr_ptr_budb_dissect_GetDumps_dumps(ptr noundef %0, i32 nou
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetDumps_nextIndex(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -11035,6 +11459,7 @@ define internal i32 @budb_dissect_GetDumps_nextIndex(ptr noundef %0, i32 noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -11047,10 +11472,11 @@ define internal i32 @budb_dissect_GetDumps_nextIndex(ptr noundef %0, i32 noundef
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetDumps_dbUpdate(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -11065,6 +11491,7 @@ define internal i32 @budb_dissect_GetDumps_dbUpdate(ptr noundef %0, i32 noundef 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -11077,10 +11504,11 @@ define internal i32 @budb_dissect_GetDumps_dbUpdate(ptr noundef %0, i32 noundef 
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ptr_budb_dissect_GetDumps_dumps(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -11106,7 +11534,7 @@ define internal i32 @ptr_budb_dissect_GetDumps_dumps(ptr noundef %0, i32 noundef
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetDumps_dumps(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -11121,6 +11549,7 @@ define internal i32 @budb_dissect_GetDumps_dumps(ptr noundef %0, i32 noundef %1,
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -11133,10 +11562,11 @@ define internal i32 @budb_dissect_GetDumps_dumps(ptr noundef %0, i32 noundef %1,
   %22 = call i32 @budb_dissect_dumpList(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetTapes_majorVersion(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -11151,6 +11581,7 @@ define internal i32 @budb_dissect_GetTapes_majorVersion(ptr noundef %0, i32 noun
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -11163,10 +11594,11 @@ define internal i32 @budb_dissect_GetTapes_majorVersion(ptr noundef %0, i32 noun
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetTapes_flags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -11181,6 +11613,7 @@ define internal i32 @budb_dissect_GetTapes_flags(ptr noundef %0, i32 noundef %1,
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -11193,10 +11626,11 @@ define internal i32 @budb_dissect_GetTapes_flags(ptr noundef %0, i32 noundef %1,
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ptr_budb_dissect_GetTapes_name(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -11222,7 +11656,7 @@ define internal i32 @ptr_budb_dissect_GetTapes_name(ptr noundef %0, i32 noundef 
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetTapes_start(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -11237,6 +11671,7 @@ define internal i32 @budb_dissect_GetTapes_start(ptr noundef %0, i32 noundef %1,
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -11249,10 +11684,11 @@ define internal i32 @budb_dissect_GetTapes_start(ptr noundef %0, i32 noundef %1,
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetTapes_end(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -11267,6 +11703,7 @@ define internal i32 @budb_dissect_GetTapes_end(ptr noundef %0, i32 noundef %1, p
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -11279,10 +11716,11 @@ define internal i32 @budb_dissect_GetTapes_end(ptr noundef %0, i32 noundef %1, p
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetTapes_index(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -11297,6 +11735,7 @@ define internal i32 @budb_dissect_GetTapes_index(ptr noundef %0, i32 noundef %1,
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -11309,10 +11748,11 @@ define internal i32 @budb_dissect_GetTapes_index(ptr noundef %0, i32 noundef %1,
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetTapes_name(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -11327,6 +11767,7 @@ define internal i32 @budb_dissect_GetTapes_name(ptr noundef %0, i32 noundef %1, 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -11339,10 +11780,11 @@ define internal i32 @budb_dissect_GetTapes_name(ptr noundef %0, i32 noundef %1, 
   %22 = call i32 @budb_dissect_NameString_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ref_budb_dissect_GetTapes_nextIndex(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -11368,7 +11810,7 @@ define internal i32 @ref_budb_dissect_GetTapes_nextIndex(ptr noundef %0, i32 nou
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ref_budb_dissect_GetTapes_dbUpdate(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -11394,7 +11836,7 @@ define internal i32 @ref_budb_dissect_GetTapes_dbUpdate(ptr noundef %0, i32 noun
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ptr_ptr_budb_dissect_GetTapes_tapes(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -11420,7 +11862,7 @@ define internal i32 @ptr_ptr_budb_dissect_GetTapes_tapes(ptr noundef %0, i32 nou
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetTapes_nextIndex(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -11435,6 +11877,7 @@ define internal i32 @budb_dissect_GetTapes_nextIndex(ptr noundef %0, i32 noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -11447,10 +11890,11 @@ define internal i32 @budb_dissect_GetTapes_nextIndex(ptr noundef %0, i32 noundef
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetTapes_dbUpdate(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -11465,6 +11909,7 @@ define internal i32 @budb_dissect_GetTapes_dbUpdate(ptr noundef %0, i32 noundef 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -11477,10 +11922,11 @@ define internal i32 @budb_dissect_GetTapes_dbUpdate(ptr noundef %0, i32 noundef 
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ptr_budb_dissect_GetTapes_tapes(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -11506,7 +11952,7 @@ define internal i32 @ptr_budb_dissect_GetTapes_tapes(ptr noundef %0, i32 noundef
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetTapes_tapes(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -11521,6 +11967,7 @@ define internal i32 @budb_dissect_GetTapes_tapes(ptr noundef %0, i32 noundef %1,
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -11533,10 +11980,11 @@ define internal i32 @budb_dissect_GetTapes_tapes(ptr noundef %0, i32 noundef %1,
   %22 = call i32 @budb_dissect_tapeList(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetVolumes_majorVersion(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -11551,6 +11999,7 @@ define internal i32 @budb_dissect_GetVolumes_majorVersion(ptr noundef %0, i32 no
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -11563,10 +12012,11 @@ define internal i32 @budb_dissect_GetVolumes_majorVersion(ptr noundef %0, i32 no
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetVolumes_flags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -11581,6 +12031,7 @@ define internal i32 @budb_dissect_GetVolumes_flags(ptr noundef %0, i32 noundef %
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -11593,10 +12044,11 @@ define internal i32 @budb_dissect_GetVolumes_flags(ptr noundef %0, i32 noundef %
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ptr_budb_dissect_GetVolumes_name(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -11622,7 +12074,7 @@ define internal i32 @ptr_budb_dissect_GetVolumes_name(ptr noundef %0, i32 nounde
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetVolumes_start(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -11637,6 +12089,7 @@ define internal i32 @budb_dissect_GetVolumes_start(ptr noundef %0, i32 noundef %
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -11649,10 +12102,11 @@ define internal i32 @budb_dissect_GetVolumes_start(ptr noundef %0, i32 noundef %
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetVolumes_end(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -11667,6 +12121,7 @@ define internal i32 @budb_dissect_GetVolumes_end(ptr noundef %0, i32 noundef %1,
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -11679,10 +12134,11 @@ define internal i32 @budb_dissect_GetVolumes_end(ptr noundef %0, i32 noundef %1,
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetVolumes_index(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -11697,6 +12153,7 @@ define internal i32 @budb_dissect_GetVolumes_index(ptr noundef %0, i32 noundef %
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -11709,10 +12166,11 @@ define internal i32 @budb_dissect_GetVolumes_index(ptr noundef %0, i32 noundef %
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetVolumes_name(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -11727,6 +12185,7 @@ define internal i32 @budb_dissect_GetVolumes_name(ptr noundef %0, i32 noundef %1
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -11739,10 +12198,11 @@ define internal i32 @budb_dissect_GetVolumes_name(ptr noundef %0, i32 noundef %1
   %22 = call i32 @budb_dissect_NameString_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ref_budb_dissect_GetVolumes_nextIndex(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -11768,7 +12228,7 @@ define internal i32 @ref_budb_dissect_GetVolumes_nextIndex(ptr noundef %0, i32 n
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ref_budb_dissect_GetVolumes_dbUpdate(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -11794,7 +12254,7 @@ define internal i32 @ref_budb_dissect_GetVolumes_dbUpdate(ptr noundef %0, i32 no
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ptr_ptr_budb_dissect_GetVolumes_volumes(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -11820,7 +12280,7 @@ define internal i32 @ptr_ptr_budb_dissect_GetVolumes_volumes(ptr noundef %0, i32
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetVolumes_nextIndex(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -11835,6 +12295,7 @@ define internal i32 @budb_dissect_GetVolumes_nextIndex(ptr noundef %0, i32 nound
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -11847,10 +12308,11 @@ define internal i32 @budb_dissect_GetVolumes_nextIndex(ptr noundef %0, i32 nound
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetVolumes_dbUpdate(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -11865,6 +12327,7 @@ define internal i32 @budb_dissect_GetVolumes_dbUpdate(ptr noundef %0, i32 nounde
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -11877,10 +12340,11 @@ define internal i32 @budb_dissect_GetVolumes_dbUpdate(ptr noundef %0, i32 nounde
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ptr_budb_dissect_GetVolumes_volumes(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -11906,7 +12370,7 @@ define internal i32 @ptr_budb_dissect_GetVolumes_volumes(ptr noundef %0, i32 nou
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetVolumes_volumes(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -11921,6 +12385,7 @@ define internal i32 @budb_dissect_GetVolumes_volumes(ptr noundef %0, i32 noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -11933,10 +12398,11 @@ define internal i32 @budb_dissect_GetVolumes_volumes(ptr noundef %0, i32 noundef
   %22 = call i32 @budb_dissect_volumeList(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ref_budb_dissect_UseTape_tape(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -11962,7 +12428,7 @@ define internal i32 @ref_budb_dissect_UseTape_tape(ptr noundef %0, i32 noundef %
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_UseTape_tape(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -11977,6 +12443,7 @@ define internal i32 @budb_dissect_UseTape_tape(ptr noundef %0, i32 noundef %1, p
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -11989,10 +12456,11 @@ define internal i32 @budb_dissect_UseTape_tape(ptr noundef %0, i32 noundef %1, p
   %22 = call i32 @budb_dissect_tapeEntry(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ref_budb_dissect_UseTape_new(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -12018,7 +12486,7 @@ define internal i32 @ref_budb_dissect_UseTape_new(ptr noundef %0, i32 noundef %1
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_UseTape_new(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -12033,6 +12501,7 @@ define internal i32 @budb_dissect_UseTape_new(ptr noundef %0, i32 noundef %1, pt
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -12045,10 +12514,11 @@ define internal i32 @budb_dissect_UseTape_new(ptr noundef %0, i32 noundef %1, pt
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetText_lockHandle(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -12063,6 +12533,7 @@ define internal i32 @budb_dissect_GetText_lockHandle(ptr noundef %0, i32 noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -12075,10 +12546,11 @@ define internal i32 @budb_dissect_GetText_lockHandle(ptr noundef %0, i32 noundef
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetText_textType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -12093,6 +12565,7 @@ define internal i32 @budb_dissect_GetText_textType(ptr noundef %0, i32 noundef %
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -12105,10 +12578,11 @@ define internal i32 @budb_dissect_GetText_textType(ptr noundef %0, i32 noundef %
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetText_maxLength(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -12123,6 +12597,7 @@ define internal i32 @budb_dissect_GetText_maxLength(ptr noundef %0, i32 noundef 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -12135,10 +12610,11 @@ define internal i32 @budb_dissect_GetText_maxLength(ptr noundef %0, i32 noundef 
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetText_offset(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -12153,6 +12629,7 @@ define internal i32 @budb_dissect_GetText_offset(ptr noundef %0, i32 noundef %1,
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -12165,10 +12642,11 @@ define internal i32 @budb_dissect_GetText_offset(ptr noundef %0, i32 noundef %1,
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ref_budb_dissect_GetText_nextOffset(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -12194,7 +12672,7 @@ define internal i32 @ref_budb_dissect_GetText_nextOffset(ptr noundef %0, i32 nou
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ref_budb_dissect_GetText_charListPtr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -12220,7 +12698,7 @@ define internal i32 @ref_budb_dissect_GetText_charListPtr(ptr noundef %0, i32 no
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetText_nextOffset(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -12235,6 +12713,7 @@ define internal i32 @budb_dissect_GetText_nextOffset(ptr noundef %0, i32 noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -12247,10 +12726,11 @@ define internal i32 @budb_dissect_GetText_nextOffset(ptr noundef %0, i32 noundef
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetText_charListPtr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -12265,6 +12745,7 @@ define internal i32 @budb_dissect_GetText_charListPtr(ptr noundef %0, i32 nounde
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -12277,10 +12758,11 @@ define internal i32 @budb_dissect_GetText_charListPtr(ptr noundef %0, i32 nounde
   %22 = call i32 @budb_dissect_charListT(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetTextVersion_textType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -12295,6 +12777,7 @@ define internal i32 @budb_dissect_GetTextVersion_textType(ptr noundef %0, i32 no
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -12307,10 +12790,11 @@ define internal i32 @budb_dissect_GetTextVersion_textType(ptr noundef %0, i32 no
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ref_budb_dissect_GetTextVersion_tversion(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -12336,7 +12820,7 @@ define internal i32 @ref_budb_dissect_GetTextVersion_tversion(ptr noundef %0, i3
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetTextVersion_tversion(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -12351,6 +12835,7 @@ define internal i32 @budb_dissect_GetTextVersion_tversion(ptr noundef %0, i32 no
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -12363,10 +12848,11 @@ define internal i32 @budb_dissect_GetTextVersion_tversion(ptr noundef %0, i32 no
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_SaveText_lockHandle(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -12381,6 +12867,7 @@ define internal i32 @budb_dissect_SaveText_lockHandle(ptr noundef %0, i32 nounde
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -12393,10 +12880,11 @@ define internal i32 @budb_dissect_SaveText_lockHandle(ptr noundef %0, i32 nounde
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_SaveText_textType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -12411,6 +12899,7 @@ define internal i32 @budb_dissect_SaveText_textType(ptr noundef %0, i32 noundef 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -12423,10 +12912,11 @@ define internal i32 @budb_dissect_SaveText_textType(ptr noundef %0, i32 noundef 
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_SaveText_offset(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -12441,6 +12931,7 @@ define internal i32 @budb_dissect_SaveText_offset(ptr noundef %0, i32 noundef %1
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -12453,10 +12944,11 @@ define internal i32 @budb_dissect_SaveText_offset(ptr noundef %0, i32 noundef %1
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_SaveText_flags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -12471,6 +12963,7 @@ define internal i32 @budb_dissect_SaveText_flags(ptr noundef %0, i32 noundef %1,
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -12483,10 +12976,11 @@ define internal i32 @budb_dissect_SaveText_flags(ptr noundef %0, i32 noundef %1,
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ref_budb_dissect_SaveText_charListPtr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -12512,7 +13006,7 @@ define internal i32 @ref_budb_dissect_SaveText_charListPtr(ptr noundef %0, i32 n
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_SaveText_charListPtr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -12527,6 +13021,7 @@ define internal i32 @budb_dissect_SaveText_charListPtr(ptr noundef %0, i32 nound
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -12539,10 +13034,11 @@ define internal i32 @budb_dissect_SaveText_charListPtr(ptr noundef %0, i32 nound
   %22 = call i32 @budb_dissect_charListT(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_FreeAllLocks_instanceId(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -12557,6 +13053,7 @@ define internal i32 @budb_dissect_FreeAllLocks_instanceId(ptr noundef %0, i32 no
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -12569,10 +13066,11 @@ define internal i32 @budb_dissect_FreeAllLocks_instanceId(ptr noundef %0, i32 no
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_FreeLock_lockHandle(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -12587,6 +13085,7 @@ define internal i32 @budb_dissect_FreeLock_lockHandle(ptr noundef %0, i32 nounde
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -12599,10 +13098,11 @@ define internal i32 @budb_dissect_FreeLock_lockHandle(ptr noundef %0, i32 nounde
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ref_budb_dissect_GetInstanceId_instanceId(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -12628,7 +13128,7 @@ define internal i32 @ref_budb_dissect_GetInstanceId_instanceId(ptr noundef %0, i
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetInstanceId_instanceId(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -12643,6 +13143,7 @@ define internal i32 @budb_dissect_GetInstanceId_instanceId(ptr noundef %0, i32 n
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -12655,10 +13156,11 @@ define internal i32 @budb_dissect_GetInstanceId_instanceId(ptr noundef %0, i32 n
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetLock_instanceId(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -12673,6 +13175,7 @@ define internal i32 @budb_dissect_GetLock_instanceId(ptr noundef %0, i32 noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -12685,10 +13188,11 @@ define internal i32 @budb_dissect_GetLock_instanceId(ptr noundef %0, i32 noundef
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetLock_lockName(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -12703,6 +13207,7 @@ define internal i32 @budb_dissect_GetLock_lockName(ptr noundef %0, i32 noundef %
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -12715,10 +13220,11 @@ define internal i32 @budb_dissect_GetLock_lockName(ptr noundef %0, i32 noundef %
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetLock_expiration(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -12733,6 +13239,7 @@ define internal i32 @budb_dissect_GetLock_expiration(ptr noundef %0, i32 noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -12745,10 +13252,11 @@ define internal i32 @budb_dissect_GetLock_expiration(ptr noundef %0, i32 noundef
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ref_budb_dissect_GetLock_lockHandle(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -12774,7 +13282,7 @@ define internal i32 @ref_budb_dissect_GetLock_lockHandle(ptr noundef %0, i32 nou
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetLock_lockHandle(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -12789,6 +13297,7 @@ define internal i32 @budb_dissect_GetLock_lockHandle(ptr noundef %0, i32 noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -12801,10 +13310,11 @@ define internal i32 @budb_dissect_GetLock_lockHandle(ptr noundef %0, i32 noundef
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ref_budb_dissect_DbVerify_status(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -12830,7 +13340,7 @@ define internal i32 @ref_budb_dissect_DbVerify_status(ptr noundef %0, i32 nounde
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ref_budb_dissect_DbVerify_orphans(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -12856,7 +13366,7 @@ define internal i32 @ref_budb_dissect_DbVerify_orphans(ptr noundef %0, i32 nound
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ref_budb_dissect_DbVerify_host(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -12882,7 +13392,7 @@ define internal i32 @ref_budb_dissect_DbVerify_host(ptr noundef %0, i32 noundef 
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_DbVerify_status(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -12897,6 +13407,7 @@ define internal i32 @budb_dissect_DbVerify_status(ptr noundef %0, i32 noundef %1
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -12909,10 +13420,11 @@ define internal i32 @budb_dissect_DbVerify_status(ptr noundef %0, i32 noundef %1
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_DbVerify_orphans(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -12927,6 +13439,7 @@ define internal i32 @budb_dissect_DbVerify_orphans(ptr noundef %0, i32 noundef %
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -12939,10 +13452,11 @@ define internal i32 @budb_dissect_DbVerify_orphans(ptr noundef %0, i32 noundef %
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_DbVerify_host(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -12957,6 +13471,7 @@ define internal i32 @budb_dissect_DbVerify_host(ptr noundef %0, i32 noundef %1, 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -12969,10 +13484,11 @@ define internal i32 @budb_dissect_DbVerify_host(ptr noundef %0, i32 noundef %1, 
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_DumpDB_maxLength(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -12987,6 +13503,7 @@ define internal i32 @budb_dissect_DumpDB_maxLength(ptr noundef %0, i32 noundef %
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -12999,10 +13516,11 @@ define internal i32 @budb_dissect_DumpDB_maxLength(ptr noundef %0, i32 noundef %
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ref_budb_dissect_DumpDB_flags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -13028,7 +13546,7 @@ define internal i32 @ref_budb_dissect_DumpDB_flags(ptr noundef %0, i32 noundef %
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ref_budb_dissect_DumpDB_charListPtr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -13054,7 +13572,7 @@ define internal i32 @ref_budb_dissect_DumpDB_charListPtr(ptr noundef %0, i32 nou
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_DumpDB_flags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -13069,6 +13587,7 @@ define internal i32 @budb_dissect_DumpDB_flags(ptr noundef %0, i32 noundef %1, p
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -13081,10 +13600,11 @@ define internal i32 @budb_dissect_DumpDB_flags(ptr noundef %0, i32 noundef %1, p
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_DumpDB_charListPtr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -13099,6 +13619,7 @@ define internal i32 @budb_dissect_DumpDB_charListPtr(ptr noundef %0, i32 noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -13111,10 +13632,11 @@ define internal i32 @budb_dissect_DumpDB_charListPtr(ptr noundef %0, i32 noundef
   %22 = call i32 @budb_dissect_charListT(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ref_budb_dissect_RestoreDbHeader_header(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -13140,7 +13662,7 @@ define internal i32 @ref_budb_dissect_RestoreDbHeader_header(ptr noundef %0, i32
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_RestoreDbHeader_header(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -13155,6 +13677,7 @@ define internal i32 @budb_dissect_RestoreDbHeader_header(ptr noundef %0, i32 nou
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -13167,10 +13690,11 @@ define internal i32 @budb_dissect_RestoreDbHeader_header(ptr noundef %0, i32 nou
   %22 = call i32 @budb_dissect_DbHeader(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ref_budb_dissect_T_GetVersion_majorVersion(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -13196,7 +13720,7 @@ define internal i32 @ref_budb_dissect_T_GetVersion_majorVersion(ptr noundef %0, 
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_T_GetVersion_majorVersion(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -13211,6 +13735,7 @@ define internal i32 @budb_dissect_T_GetVersion_majorVersion(ptr noundef %0, i32 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -13223,10 +13748,11 @@ define internal i32 @budb_dissect_T_GetVersion_majorVersion(ptr noundef %0, i32 
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_T_DumpHashTable_type(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -13241,6 +13767,7 @@ define internal i32 @budb_dissect_T_DumpHashTable_type(ptr noundef %0, i32 nound
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -13253,10 +13780,11 @@ define internal i32 @budb_dissect_T_DumpHashTable_type(ptr noundef %0, i32 nound
   %22 = call i32 @budb_dissect_int32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ptr_budb_dissect_T_DumpHashTable_filename(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -13282,7 +13810,7 @@ define internal i32 @ptr_budb_dissect_T_DumpHashTable_filename(ptr noundef %0, i
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_T_DumpHashTable_filename(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -13297,6 +13825,7 @@ define internal i32 @budb_dissect_T_DumpHashTable_filename(ptr noundef %0, i32 n
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -13309,10 +13838,11 @@ define internal i32 @budb_dissect_T_DumpHashTable_filename(ptr noundef %0, i32 n
   %22 = call i32 @budb_dissect_NameString_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ptr_budb_dissect_T_DumpDatabase_filename(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -13338,7 +13868,7 @@ define internal i32 @ptr_budb_dissect_T_DumpDatabase_filename(ptr noundef %0, i3
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_T_DumpDatabase_filename(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -13353,6 +13883,7 @@ define internal i32 @budb_dissect_T_DumpDatabase_filename(ptr noundef %0, i32 no
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -13365,10 +13896,11 @@ define internal i32 @budb_dissect_T_DumpDatabase_filename(ptr noundef %0, i32 no
   %22 = call i32 @budb_dissect_NameString_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ref_budb_dissect_GetServerInterfaces_serverInterfacesP(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -13394,7 +13926,7 @@ define internal i32 @ref_budb_dissect_GetServerInterfaces_serverInterfacesP(ptr 
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_GetServerInterfaces_serverInterfacesP(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -13409,6 +13941,7 @@ define internal i32 @budb_dissect_GetServerInterfaces_serverInterfacesP(ptr noun
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -13421,10 +13954,11 @@ define internal i32 @budb_dissect_GetServerInterfaces_serverInterfacesP(ptr noun
   %22 = call i32 @budb_dissect_dfs_interfaceList(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_AddVolumes_cnt(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -13439,6 +13973,7 @@ define internal i32 @budb_dissect_AddVolumes_cnt(ptr noundef %0, i32 noundef %1,
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -13451,10 +13986,11 @@ define internal i32 @budb_dissect_AddVolumes_cnt(ptr noundef %0, i32 noundef %1,
   %22 = call i32 @budb_dissect_uint32(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ucarray_budb_dissect_AddVolumes_vol(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -13480,7 +14016,7 @@ define internal i32 @ucarray_budb_dissect_AddVolumes_vol(ptr noundef %0, i32 nou
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @budb_dissect_AddVolumes_vol(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -13495,6 +14031,7 @@ define internal i32 @budb_dissect_AddVolumes_vol(ptr noundef %0, i32 noundef %1,
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -13507,18 +14044,26 @@ define internal i32 @budb_dissect_AddVolumes_vol(ptr noundef %0, i32 noundef %1,
   %22 = call i32 @budb_dissect_volumeEntry(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %23
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}

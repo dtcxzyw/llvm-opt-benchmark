@@ -4,15 +4,13 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.expert_field = type { i32, i32 }
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.zbee_nwk_hints_t = type { i32, i32, ptr, ptr, ptr, i32, i64 }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
-%struct.ieee802154_packet = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i8, i32, i32, i32, i16, i16, i16, i64, i16, i64, i32, i32, i32, i32, i8, i64, %union.anon, i8, i8, ptr }
+%struct._value_string = type { i32, ptr }
+%struct.ieee802154_packet = type { i32, i32, i32, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i16, i16, i64, i16, i64, i32, i32, i8, i32, i8, i64, %union.anon, i8, i8, ptr }
 %union.anon = type { i64 }
 
 @proto_zbee_tlv = internal global i32 0, align 4
@@ -23,7 +21,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_zbee_tlv_relay_msg_type = internal global i32 0, align 4
 @.str.1 = private unnamed_addr constant [5 x i8] c"Type\00", align 1
 @.str.2 = private unnamed_addr constant [20 x i8] c"zbee_tlv.relay.type\00", align 1
-@zbee_aps_relay_tlvs = internal constant [2 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.213 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_relay_msg_length = internal global i32 0, align 4
 @.str.3 = private unnamed_addr constant [7 x i8] c"Length\00", align 1
 @.str.4 = private unnamed_addr constant [22 x i8] c"zbee_tlv.relay.length\00", align 1
@@ -32,32 +29,19 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.6 = private unnamed_addr constant [27 x i8] c"zbee_tlv.relay.joiner_ieee\00", align 1
 @hf_zbee_tlv_global_type = internal global i32 0, align 4
 @.str.7 = private unnamed_addr constant [21 x i8] c"zbee_tlv.type_global\00", align 1
-@zbee_tlv_global_types = internal constant [12 x %struct._value_string] [%struct._value_string { i32 64, ptr @.str.214 }, %struct._value_string { i32 65, ptr @.str.215 }, %struct._value_string { i32 66, ptr @.str.216 }, %struct._value_string { i32 67, ptr @.str.217 }, %struct._value_string { i32 68, ptr @.str.218 }, %struct._value_string { i32 69, ptr @.str.219 }, %struct._value_string { i32 70, ptr @.str.220 }, %struct._value_string { i32 71, ptr @.str.221 }, %struct._value_string { i32 72, ptr @.str.222 }, %struct._value_string { i32 73, ptr @.str.223 }, %struct._value_string { i32 75, ptr @.str.224 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_local_type_key_update_req_rsp = internal global i32 0, align 4
 @.str.8 = private unnamed_addr constant [20 x i8] c"zbee_tlv.type_local\00", align 1
-@zbee_tlv_local_types_key_update_req_rsp = internal constant [2 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.225 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_local_type_key_negotiation_req_rsp = internal global i32 0, align 4
-@zbee_tlv_local_types_key_negotiation_req_rsp = internal constant [2 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.226 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_local_type_get_auth_level_rsp = internal global i32 0, align 4
-@zbee_tlv_local_types_get_auth_level_rsp = internal constant [2 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.227 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_local_type_clear_all_bindings_req = internal global i32 0, align 4
-@zbee_tlv_local_types_clear_all_bindings_req = internal constant [2 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.228 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_local_type_req_security_get_auth_token = internal global i32 0, align 4
-@zbee_tlv_local_types_req_security_get_auth_token = internal constant [2 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.229 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_local_type_req_security_get_auth_level = internal global i32 0, align 4
-@zbee_tlv_local_types_req_security_get_auth_level = internal constant [2 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.230 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_local_type_req_security_decommission = internal global i32 0, align 4
-@zbee_tlv_local_types_req_security_decommission = internal constant [2 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.231 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_local_type_req_beacon_survey = internal global i32 0, align 4
-@zbee_tlv_local_types_req_beacon_survey = internal constant [2 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.232 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_local_type_rsp_beacon_survey = internal global i32 0, align 4
-@zbee_tlv_local_types_rsp_beacon_survey = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.232 }, %struct._value_string { i32 1, ptr @.str.233 }, %struct._value_string { i32 2, ptr @.str.234 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_local_type_req_challenge = internal global i32 0, align 4
-@zbee_tlv_local_types_req_challenge = internal constant [2 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.235 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_local_type_rsp_challenge = internal global i32 0, align 4
-@zbee_tlv_local_types_rsp_challenge = internal constant [2 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.236 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_local_type_rsp_set_configuration = internal global i32 0, align 4
-@zbee_tlv_local_types_rsp_set_configuration = internal constant [2 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.237 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_type = internal global i32 0, align 4
 @.str.9 = private unnamed_addr constant [13 x i8] c"Unknown Type\00", align 1
 @.str.10 = private unnamed_addr constant [14 x i8] c"zbee_tlv.type\00", align 1
@@ -192,11 +176,9 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_zbee_tlv_selected_key_negotiation_method = internal global i32 0, align 4
 @.str.96 = private unnamed_addr constant [32 x i8] c"Selected Key Negotiation Method\00", align 1
 @.str.97 = private unnamed_addr constant [41 x i8] c"zbee_tlv.selected_key_negotiation_method\00", align 1
-@zbee_tlv_selected_key_negotiation_method = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.238 }, %struct._value_string { i32 1, ptr @.str.28 }, %struct._value_string { i32 2, ptr @.str.30 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_selected_pre_shared_secret = internal global i32 0, align 4
 @.str.98 = private unnamed_addr constant [27 x i8] c"Selected Pre Shared Secret\00", align 1
 @.str.99 = private unnamed_addr constant [36 x i8] c"zbee_tlv.selected_pre_shared_secret\00", align 1
-@zbee_tlv_selected_pre_shared_secret = internal constant [7 x %struct._value_string] [%struct._value_string { i32 255, ptr @.str.239 }, %struct._value_string { i32 0, ptr @.str.34 }, %struct._value_string { i32 1, ptr @.str.240 }, %struct._value_string { i32 2, ptr @.str.241 }, %struct._value_string { i32 3, ptr @.str.40 }, %struct._value_string { i32 4, ptr @.str.42 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_device_eui64 = internal global i32 0, align 4
 @.str.100 = private unnamed_addr constant [13 x i8] c"Device EUI64\00", align 1
 @.str.101 = private unnamed_addr constant [22 x i8] c"zbee_tlv.device_eui64\00", align 1
@@ -214,21 +196,16 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_zbee_tlv_local_initial_join_method = internal global i32 0, align 4
 @.str.109 = private unnamed_addr constant [20 x i8] c"Initial Join Method\00", align 1
 @.str.110 = private unnamed_addr constant [21 x i8] c"zbee_tlv.init_method\00", align 1
-@zbee_initial_join_methods = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.242 }, %struct._value_string { i32 1, ptr @.str.243 }, %struct._value_string { i32 2, ptr @.str.244 }, %struct._value_string { i32 3, ptr @.str.245 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_local_active_lk_type = internal global i32 0, align 4
 @.str.111 = private unnamed_addr constant [21 x i8] c"Active link key type\00", align 1
 @.str.112 = private unnamed_addr constant [17 x i8] c"zbee_tlv.lk_type\00", align 1
-@zbee_active_lk_types = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.246 }, %struct._value_string { i32 1, ptr @.str.247 }, %struct._value_string { i32 2, ptr @.str.248 }, %struct._value_string { i32 3, ptr @.str.245 }, %struct._value_string { i32 4, ptr @.str.249 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_zbd_comm_tlv = internal global i32 0, align 4
 @.str.113 = private unnamed_addr constant [38 x i8] c"ZBD Commissioning Service TLV Type ID\00", align 1
 @.str.114 = private unnamed_addr constant [25 x i8] c"zbee_tlv.zbd.comm_tlv_id\00", align 1
-@zbee_tlv_zbd_comm_types = internal constant [16 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.121 }, %struct._value_string { i32 1, ptr @.str.123 }, %struct._value_string { i32 2, ptr @.str.250 }, %struct._value_string { i32 3, ptr @.str.251 }, %struct._value_string { i32 4, ptr @.str.174 }, %struct._value_string { i32 5, ptr @.str.252 }, %struct._value_string { i32 6, ptr @.str.253 }, %struct._value_string { i32 7, ptr @.str.254 }, %struct._value_string { i32 8, ptr @.str.255 }, %struct._value_string { i32 9, ptr @.str.256 }, %struct._value_string { i32 10, ptr @.str.180 }, %struct._value_string { i32 11, ptr @.str.257 }, %struct._value_string { i32 12, ptr @.str.258 }, %struct._value_string { i32 13, ptr @.str.259 }, %struct._value_string { i32 14, ptr @.str.260 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_zbd_comm_mj_cmd_tlv = internal global i32 0, align 4
 @.str.115 = private unnamed_addr constant [31 x i8] c"ZBD Manage Joiners TLV Type ID\00", align 1
 @.str.116 = private unnamed_addr constant [28 x i8] c"zbee_tlv.zbd.comm_mj_tlv_id\00", align 1
-@zbee_tlv_zbd_comm_mj_types = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.261 }, %struct._value_string { i32 1, ptr @.str.255 }, %struct._value_string { i32 2, ptr @.str.262 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_zbd_secur_tlv = internal global i32 0, align 4
-@zbee_tlv_zbd_secur_types = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.263 }, %struct._value_string { i32 1, ptr @.str.264 }, %struct._value_string { i32 2, ptr @.str.265 }, %struct._value_string { i32 3, ptr @.str.266 }, %struct._value_string { i32 4, ptr @.str.267 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_local_tunneling_npdu = internal global i32 0, align 4
 @.str.117 = private unnamed_addr constant [5 x i8] c"NPDU\00", align 1
 @.str.118 = private unnamed_addr constant [18 x i8] c"zbee_tlv.zbd.npdu\00", align 1
@@ -259,14 +236,12 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_zbee_tlv_local_comm_dev_type = internal global i32 0, align 4
 @.str.135 = private unnamed_addr constant [12 x i8] c"Device type\00", align 1
 @.str.136 = private unnamed_addr constant [27 x i8] c"zbee_tlv.zbd.comm.dev_type\00", align 1
-@zbee_tlv_local_types_dev_type_str = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.268 }, %struct._value_string { i32 1, ptr @.str.269 }, %struct._value_string { i32 2, ptr @.str.270 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_local_comm_nwk_addr = internal global i32 0, align 4
 @.str.137 = private unnamed_addr constant [16 x i8] c"Network address\00", align 1
 @.str.138 = private unnamed_addr constant [27 x i8] c"zbee_tlv.zbd.comm.nwk_addr\00", align 1
 @hf_zbee_tlv_local_comm_join_method = internal global i32 0, align 4
 @.str.139 = private unnamed_addr constant [12 x i8] c"Join method\00", align 1
 @.str.140 = private unnamed_addr constant [30 x i8] c"zbee_tlv.zbd.comm.join_method\00", align 1
-@zbee_tlv_local_types_join_method_str = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.271 }, %struct._value_string { i32 1, ptr @.str.272 }, %struct._value_string { i32 2, ptr @.str.273 }, %struct._value_string { i32 3, ptr @.str.274 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_local_comm_tc_addr = internal global i32 0, align 4
 @.str.141 = private unnamed_addr constant [11 x i8] c"TC address\00", align 1
 @.str.142 = private unnamed_addr constant [26 x i8] c"zbee_tlv.zbd.comm.tc_addr\00", align 1
@@ -282,7 +257,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_zbee_tlv_local_comm_status_code_domain = internal global i32 0, align 4
 @.str.149 = private unnamed_addr constant [7 x i8] c"Domain\00", align 1
 @.str.150 = private unnamed_addr constant [37 x i8] c"zbee_tlv.zbd.comm.status_code_domain\00", align 1
-@zbee_tlv_local_types_status_code_domain_str = internal constant [9 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.275 }, %struct._value_string { i32 1, ptr @.str.276 }, %struct._value_string { i32 2, ptr @.str.277 }, %struct._value_string { i32 3, ptr @.str.278 }, %struct._value_string { i32 4, ptr @.str.279 }, %struct._value_string { i32 5, ptr @.str.280 }, %struct._value_string { i32 6, ptr @.str.281 }, %struct._value_string { i32 7, ptr @.str.282 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_local_comm_status_code_value = internal global i32 0, align 4
 @.str.151 = private unnamed_addr constant [5 x i8] c"Code\00", align 1
 @.str.152 = private unnamed_addr constant [36 x i8] c"zbee_tlv.zbd.comm.status_code_value\00", align 1
@@ -295,7 +269,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_zbee_tlv_local_comm_mj_cmd = internal global i32 0, align 4
 @.str.157 = private unnamed_addr constant [23 x i8] c"Manage Joiners command\00", align 1
 @.str.158 = private unnamed_addr constant [37 x i8] c"zbee_tlv.zbd.comm.manage_joiners_cmd\00", align 1
-@zbee_tlv_local_types_mj_cmd_str = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.283 }, %struct._value_string { i32 1, ptr @.str.284 }, %struct._value_string { i32 2, ptr @.str.285 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_local_tunneling_npdu_flags = internal global i32 0, align 4
 @.str.159 = private unnamed_addr constant [11 x i8] c"NPDU Flags\00", align 1
 @.str.160 = private unnamed_addr constant [34 x i8] c"zbee_tlv.zbd.tunneling.npdu_flags\00", align 1
@@ -310,11 +283,9 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.166 = private unnamed_addr constant [35 x i8] c"zbee_tlv.zbd.tunneling.npdu_length\00", align 1
 @hf_zbee_tlv_local_selected_key_method = internal global i32 0, align 4
 @.str.167 = private unnamed_addr constant [30 x i8] c"zbee_tlv.zbd.secur.key_method\00", align 1
-@zbee_tlv_local_types_key_method_str = internal constant [4 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.286 }, %struct._value_string { i32 2, ptr @.str.287 }, %struct._value_string { i32 3, ptr @.str.288 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_local_selected_psk_secret = internal global i32 0, align 4
 @.str.168 = private unnamed_addr constant [20 x i8] c"Selected PSK Secret\00", align 1
 @.str.169 = private unnamed_addr constant [30 x i8] c"zbee_tlv.zbd.secur.psk_secret\00", align 1
-@zbee_tlv_local_types_psk_secret_str = internal constant [7 x %struct._value_string] [%struct._value_string { i32 255, ptr @.str.289 }, %struct._value_string { i32 0, ptr @.str.290 }, %struct._value_string { i32 1, ptr @.str.240 }, %struct._value_string { i32 2, ptr @.str.291 }, %struct._value_string { i32 3, ptr @.str.40 }, %struct._value_string { i32 4, ptr @.str.42 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_local_nwk_key_seq_num = internal global i32 0, align 4
 @.str.170 = private unnamed_addr constant [28 x i8] c"Network Key Sequence Number\00", align 1
 @.str.171 = private unnamed_addr constant [35 x i8] c"zbee_tlv.zbd.secur.nwk_key_seq_num\00", align 1
@@ -327,26 +298,21 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_zbee_tlv_local_comm_link_key_flags_unique = internal global i32 0, align 4
 @.str.176 = private unnamed_addr constant [7 x i8] c"Unique\00", align 1
 @.str.177 = private unnamed_addr constant [39 x i8] c"zbee_tlv.zbd.comm.join.link_key.unique\00", align 1
-@zbee_tlv_local_types_lnk_key_unique_str = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.292 }, %struct._value_string { i32 1, ptr @.str.176 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_local_comm_link_key_flags_provisional = internal global i32 0, align 4
 @.str.178 = private unnamed_addr constant [12 x i8] c"Provisional\00", align 1
 @.str.179 = private unnamed_addr constant [44 x i8] c"zbee_tlv.zbd.comm.join.link_key.provisional\00", align 1
-@zbee_tlv_local_types_lnk_key_provisional_str = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.293 }, %struct._value_string { i32 1, ptr @.str.178 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_local_comm_network_status_map = internal global i32 0, align 4
 @.str.180 = private unnamed_addr constant [19 x i8] c"Network Status Map\00", align 1
 @.str.181 = private unnamed_addr constant [29 x i8] c"zbee_tlv.zbd.comm.status_map\00", align 1
 @hf_zbee_tlv_local_comm_network_status_map_joined_status = internal global i32 0, align 4
 @.str.182 = private unnamed_addr constant [7 x i8] c"Joined\00", align 1
 @.str.183 = private unnamed_addr constant [43 x i8] c"zbee_tlv.zbd.comm.status_map.joined_status\00", align 1
-@zbee_tlv_local_types_joined_status_str = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.294 }, %struct._value_string { i32 1, ptr @.str.295 }, %struct._value_string { i32 2, ptr @.str.182 }, %struct._value_string { i32 3, ptr @.str.296 }, %struct._value_string { i32 4, ptr @.str.297 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_local_comm_network_status_map_open_status = internal global i32 0, align 4
 @.str.184 = private unnamed_addr constant [12 x i8] c"Open/Closed\00", align 1
 @.str.185 = private unnamed_addr constant [41 x i8] c"zbee_tlv.zbd.comm.status_map.open_status\00", align 1
-@zbee_tlv_local_types_nwk_state_str = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.199 }, %struct._value_string { i32 1, ptr @.str.198 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_network_status_map_network_type = internal global i32 0, align 4
 @.str.186 = private unnamed_addr constant [13 x i8] c"Network Type\00", align 1
 @.str.187 = private unnamed_addr constant [42 x i8] c"zbee_tlv.zbd.comm.status_map.network_type\00", align 1
-@zbee_tlv_local_types_nwk_type_str = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.201 }, %struct._value_string { i32 1, ptr @.str.200 }, %struct._value_string zeroinitializer], align 16
 @proto_register_zbee_tlv.ett = internal global [12 x ptr] [ptr @ett_zbee_aps_tlv, ptr @ett_zbee_aps_relay, ptr @ett_zbee_tlv, ptr @ett_zbee_tlv_supported_key_negotiation_methods, ptr @ett_zbee_tlv_supported_secrets, ptr @ett_zbee_tlv_router_information, ptr @ett_zbee_tlv_configuration_param, ptr @ett_zbee_tlv_capability_information, ptr @ett_zbee_tlv_zbd_tunneling_npdu, ptr @ett_zbee_tlv_zbd_tunneling_npdu_flags, ptr @ett_zbee_tlv_link_key_flags, ptr @ett_zbee_tlv_network_status_map], align 16
 @ett_zbee_aps_tlv = internal global i32 0, align 4
 @ett_zbee_aps_relay = internal global i32 0, align 4
@@ -359,7 +325,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_zbee_tlv_zbd_tunneling_npdu_flags = internal global i32 0, align 4
 @ett_zbee_tlv_link_key_flags = internal global i32 0, align 4
 @ett_zbee_tlv_network_status_map = internal global i32 0, align 4
-@proto_register_zbee_tlv.ei = internal global [1 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_zbee_tlv_max_recursion_depth_reached, %struct.expert_field_info { ptr @.str.188, i32 150994944, i32 6291456, ptr @.str.189, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_zbee_tlv.ei = internal global [1 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_zbee_tlv_max_recursion_depth_reached, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.188, i32 150994944, i32 6291456, ptr @.str.189, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @.str.188 = private unnamed_addr constant [37 x i8] c"zbee_tlv.max_recursion_depth_reached\00", align 1
 @.str.189 = private unnamed_addr constant [56 x i8] c"Maximum allowed recursion depth reached - stop decoding\00", align 1
 @.str.190 = private unnamed_addr constant [11 x i8] c"Zigbee TLV\00", align 1
@@ -405,92 +371,124 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.212 = private unnamed_addr constant [6 x i8] c"False\00", align 1
 @dissect_zbee_tlv_link_key.link_key_flags = internal constant [3 x ptr] [ptr @hf_zbee_tlv_local_comm_link_key_flags_unique, ptr @hf_zbee_tlv_local_comm_link_key_flags_provisional, ptr null], align 16
 @.str.213 = private unnamed_addr constant [18 x i8] c"Relay Message TLV\00", align 1
-@.str.214 = private unnamed_addr constant [33 x i8] c"Manufacturer Specific Global TLV\00", align 1
-@.str.215 = private unnamed_addr constant [45 x i8] c"Supported Key Negotiation Methods Global TLV\00", align 1
-@.str.216 = private unnamed_addr constant [34 x i8] c"PAN ID Conflict Report Global TLV\00", align 1
-@.str.217 = private unnamed_addr constant [23 x i8] c"Next PAN ID Global TLV\00", align 1
-@.str.218 = private unnamed_addr constant [31 x i8] c"Next Channel Change Global TLV\00", align 1
-@.str.219 = private unnamed_addr constant [22 x i8] c"Passphrase Global TLV\00", align 1
-@.str.220 = private unnamed_addr constant [30 x i8] c"Router Information Global TLV\00", align 1
-@.str.221 = private unnamed_addr constant [36 x i8] c"Fragmentation Parameters Global TLV\00", align 1
-@.str.222 = private unnamed_addr constant [32 x i8] c"Joiner Encapsulation Global TLV\00", align 1
-@.str.223 = private unnamed_addr constant [41 x i8] c"Beacon Appendix Encapsulation Global TLV\00", align 1
-@.str.224 = private unnamed_addr constant [41 x i8] c"Configuration Mode Parameters Global TLV\00", align 1
-@.str.225 = private unnamed_addr constant [43 x i8] c"Selected Key Negotiations Method Local TLV\00", align 1
-@.str.226 = private unnamed_addr constant [34 x i8] c"Curve25519 Public Point Local TLV\00", align 1
-@.str.227 = private unnamed_addr constant [32 x i8] c"Device Authentication Level TLV\00", align 1
-@.str.228 = private unnamed_addr constant [33 x i8] c"Clear All Bindings Req EUI64 TLV\00", align 1
-@.str.229 = private unnamed_addr constant [38 x i8] c"Requested Authentication Token ID TLV\00", align 1
-@.str.230 = private unnamed_addr constant [24 x i8] c"Target IEEE Address TLV\00", align 1
-@.str.231 = private unnamed_addr constant [10 x i8] c"EUI64 TLV\00", align 1
-@.str.232 = private unnamed_addr constant [32 x i8] c"Beacon Survey Configuration TLV\00", align 1
-@.str.233 = private unnamed_addr constant [26 x i8] c"Beacon Survey Results TLV\00", align 1
-@.str.234 = private unnamed_addr constant [36 x i8] c"Beacon Survey Potential Parents TLV\00", align 1
-@.str.235 = private unnamed_addr constant [40 x i8] c"APS Frame Counter Challenge Request TLV\00", align 1
-@.str.236 = private unnamed_addr constant [41 x i8] c"APS Frame Counter Challenge Response TLV\00", align 1
-@.str.237 = private unnamed_addr constant [22 x i8] c"Processing status TLV\00", align 1
-@.str.238 = private unnamed_addr constant [11 x i8] c"Zigbee 3.0\00", align 1
-@.str.239 = private unnamed_addr constant [15 x i8] c"Well Known Key\00", align 1
-@.str.240 = private unnamed_addr constant [55 x i8] c"Pre-configured link-ley derived from installation code\00", align 1
-@.str.241 = private unnamed_addr constant [26 x i8] c"Variable-length pass code\00", align 1
-@.str.242 = private unnamed_addr constant [18 x i8] c"No authentication\00", align 1
-@.str.243 = private unnamed_addr constant [17 x i8] c"Install Code Key\00", align 1
-@.str.244 = private unnamed_addr constant [26 x i8] c"Anonymous key negotiation\00", align 1
-@.str.245 = private unnamed_addr constant [31 x i8] c"Authentication Key Negotiation\00", align 1
-@.str.246 = private unnamed_addr constant [12 x i8] c"Not Updated\00", align 1
-@.str.247 = private unnamed_addr constant [19 x i8] c"Key Request Method\00", align 1
-@.str.248 = private unnamed_addr constant [33 x i8] c"Unauthentication Key Negotiation\00", align 1
-@.str.249 = private unnamed_addr constant [45 x i8] c"Application Defined Certificate Based Mutual\00", align 1
-@.str.250 = private unnamed_addr constant [16 x i8] c"Network Channel\00", align 1
-@.str.251 = private unnamed_addr constant [12 x i8] c"Network Key\00", align 1
-@.str.252 = private unnamed_addr constant [12 x i8] c"Device Type\00", align 1
-@.str.253 = private unnamed_addr constant [12 x i8] c"NWK Address\00", align 1
-@.str.254 = private unnamed_addr constant [15 x i8] c"Joining Method\00", align 1
-@.str.255 = private unnamed_addr constant [13 x i8] c"IEEE Address\00", align 1
-@.str.256 = private unnamed_addr constant [21 x i8] c"Trust Center Address\00", align 1
-@.str.257 = private unnamed_addr constant [14 x i8] c"NWK Update ID\00", align 1
-@.str.258 = private unnamed_addr constant [26 x i8] c"NWK Active Key Seq Number\00", align 1
-@.str.259 = private unnamed_addr constant [10 x i8] c"Admin Key\00", align 1
-@.str.260 = private unnamed_addr constant [12 x i8] c"Status Code\00", align 1
-@.str.261 = private unnamed_addr constant [17 x i8] c"Provisional Link\00", align 1
-@.str.262 = private unnamed_addr constant [23 x i8] c"Manage Joiners Command\00", align 1
-@.str.263 = private unnamed_addr constant [31 x i8] c"ZBD Key Negotiation Method TLV\00", align 1
-@.str.264 = private unnamed_addr constant [43 x i8] c"ZBD Key Negotiation P-256 Public Point TLV\00", align 1
-@.str.265 = private unnamed_addr constant [48 x i8] c"ZBD Key Negotiation Curve25519 Public Point TLV\00", align 1
-@.str.266 = private unnamed_addr constant [31 x i8] c"Network KeySequence Number TLV\00", align 1
-@.str.267 = private unnamed_addr constant [11 x i8] c"MacTag Tlv\00", align 1
-@.str.268 = private unnamed_addr constant [19 x i8] c"ZigBee Coordinator\00", align 1
-@.str.269 = private unnamed_addr constant [14 x i8] c"ZigBee Router\00", align 1
-@.str.270 = private unnamed_addr constant [18 x i8] c"ZigBee End Device\00", align 1
-@.str.271 = private unnamed_addr constant [16 x i8] c"MAC association\00", align 1
-@.str.272 = private unnamed_addr constant [11 x i8] c"NWK rejoin\00", align 1
-@.str.273 = private unnamed_addr constant [72 x i8] c"Out-of-band commissioning (with check for nearby IEEE 802.15.4 beacons)\00", align 1
-@.str.274 = private unnamed_addr constant [75 x i8] c"Out-of-band commissioning (without check for nearby IEEE 802.15.4 beacons)\00", align 1
-@.str.275 = private unnamed_addr constant [39 x i8] c"General domain or unspecific operation\00", align 1
-@.str.276 = private unnamed_addr constant [23 x i8] c"Form Network Operation\00", align 1
-@.str.277 = private unnamed_addr constant [23 x i8] c"Join Network Operation\00", align 1
-@.str.278 = private unnamed_addr constant [25 x i8] c"Permit Joining Operation\00", align 1
-@.str.279 = private unnamed_addr constant [24 x i8] c"Leave Network Operation\00", align 1
-@.str.280 = private unnamed_addr constant [22 x i8] c"Manage Joiners Domain\00", align 1
-@.str.281 = private unnamed_addr constant [19 x i8] c"Identify Operation\00", align 1
-@.str.282 = private unnamed_addr constant [25 x i8] c"Finding & Binding Domain\00", align 1
-@.str.283 = private unnamed_addr constant [40 x i8] c"Drop all joiners' Provisional Link Keys\00", align 1
-@.str.284 = private unnamed_addr constant [36 x i8] c"Add a joiner's Provisional Link Key\00", align 1
-@.str.285 = private unnamed_addr constant [39 x i8] c"Remove a joiner's Provisional Link Key\00", align 1
-@.str.286 = private unnamed_addr constant [25 x i8] c"Curve 25519 / AESMMO-128\00", align 1
-@.str.287 = private unnamed_addr constant [22 x i8] c"Curve 25519 / SHA-256\00", align 1
-@.str.288 = private unnamed_addr constant [16 x i8] c"P-256 / SHA-256\00", align 1
-@.str.289 = private unnamed_addr constant [15 x i8] c"Well known key\00", align 1
-@.str.290 = private unnamed_addr constant [20 x i8] c"Authorization token\00", align 1
-@.str.291 = private unnamed_addr constant [14 x i8] c"PAKE passcode\00", align 1
-@.str.292 = private unnamed_addr constant [7 x i8] c"Global\00", align 1
-@.str.293 = private unnamed_addr constant [10 x i8] c"Permanent\00", align 1
-@.str.294 = private unnamed_addr constant [11 x i8] c"No network\00", align 1
-@.str.295 = private unnamed_addr constant [8 x i8] c"Joining\00", align 1
-@.str.296 = private unnamed_addr constant [19 x i8] c"Joined (no parent)\00", align 1
-@.str.297 = private unnamed_addr constant [8 x i8] c"Leaving\00", align 1
+@zbee_aps_relay_tlvs = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.213 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.215 = private unnamed_addr constant [33 x i8] c"Manufacturer Specific Global TLV\00", align 1
+@.str.216 = private unnamed_addr constant [45 x i8] c"Supported Key Negotiation Methods Global TLV\00", align 1
+@.str.217 = private unnamed_addr constant [34 x i8] c"PAN ID Conflict Report Global TLV\00", align 1
+@.str.218 = private unnamed_addr constant [23 x i8] c"Next PAN ID Global TLV\00", align 1
+@.str.219 = private unnamed_addr constant [31 x i8] c"Next Channel Change Global TLV\00", align 1
+@.str.220 = private unnamed_addr constant [22 x i8] c"Passphrase Global TLV\00", align 1
+@.str.221 = private unnamed_addr constant [30 x i8] c"Router Information Global TLV\00", align 1
+@.str.222 = private unnamed_addr constant [36 x i8] c"Fragmentation Parameters Global TLV\00", align 1
+@.str.223 = private unnamed_addr constant [32 x i8] c"Joiner Encapsulation Global TLV\00", align 1
+@.str.224 = private unnamed_addr constant [41 x i8] c"Beacon Appendix Encapsulation Global TLV\00", align 1
+@.str.225 = private unnamed_addr constant [41 x i8] c"Configuration Mode Parameters Global TLV\00", align 1
+@zbee_tlv_global_types = internal constant [12 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 64, [4 x i8] zeroinitializer, ptr @.str.215 }, { i32, [4 x i8], ptr } { i32 65, [4 x i8] zeroinitializer, ptr @.str.216 }, { i32, [4 x i8], ptr } { i32 66, [4 x i8] zeroinitializer, ptr @.str.217 }, { i32, [4 x i8], ptr } { i32 67, [4 x i8] zeroinitializer, ptr @.str.218 }, { i32, [4 x i8], ptr } { i32 68, [4 x i8] zeroinitializer, ptr @.str.219 }, { i32, [4 x i8], ptr } { i32 69, [4 x i8] zeroinitializer, ptr @.str.220 }, { i32, [4 x i8], ptr } { i32 70, [4 x i8] zeroinitializer, ptr @.str.221 }, { i32, [4 x i8], ptr } { i32 71, [4 x i8] zeroinitializer, ptr @.str.222 }, { i32, [4 x i8], ptr } { i32 72, [4 x i8] zeroinitializer, ptr @.str.223 }, { i32, [4 x i8], ptr } { i32 73, [4 x i8] zeroinitializer, ptr @.str.224 }, { i32, [4 x i8], ptr } { i32 75, [4 x i8] zeroinitializer, ptr @.str.225 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.227 = private unnamed_addr constant [43 x i8] c"Selected Key Negotiations Method Local TLV\00", align 1
+@zbee_tlv_local_types_key_update_req_rsp = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.227 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.229 = private unnamed_addr constant [34 x i8] c"Curve25519 Public Point Local TLV\00", align 1
+@zbee_tlv_local_types_key_negotiation_req_rsp = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.229 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.231 = private unnamed_addr constant [32 x i8] c"Device Authentication Level TLV\00", align 1
+@zbee_tlv_local_types_get_auth_level_rsp = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.231 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.233 = private unnamed_addr constant [33 x i8] c"Clear All Bindings Req EUI64 TLV\00", align 1
+@zbee_tlv_local_types_clear_all_bindings_req = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.233 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.235 = private unnamed_addr constant [38 x i8] c"Requested Authentication Token ID TLV\00", align 1
+@zbee_tlv_local_types_req_security_get_auth_token = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.235 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.237 = private unnamed_addr constant [24 x i8] c"Target IEEE Address TLV\00", align 1
+@zbee_tlv_local_types_req_security_get_auth_level = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.237 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.239 = private unnamed_addr constant [10 x i8] c"EUI64 TLV\00", align 1
+@zbee_tlv_local_types_req_security_decommission = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.239 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.241 = private unnamed_addr constant [32 x i8] c"Beacon Survey Configuration TLV\00", align 1
+@zbee_tlv_local_types_req_beacon_survey = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.241 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.243 = private unnamed_addr constant [26 x i8] c"Beacon Survey Results TLV\00", align 1
+@.str.244 = private unnamed_addr constant [36 x i8] c"Beacon Survey Potential Parents TLV\00", align 1
+@zbee_tlv_local_types_rsp_beacon_survey = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.241 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.243 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.244 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.246 = private unnamed_addr constant [40 x i8] c"APS Frame Counter Challenge Request TLV\00", align 1
+@zbee_tlv_local_types_req_challenge = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.246 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.248 = private unnamed_addr constant [41 x i8] c"APS Frame Counter Challenge Response TLV\00", align 1
+@zbee_tlv_local_types_rsp_challenge = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.248 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.250 = private unnamed_addr constant [22 x i8] c"Processing status TLV\00", align 1
+@zbee_tlv_local_types_rsp_set_configuration = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.250 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.252 = private unnamed_addr constant [11 x i8] c"Zigbee 3.0\00", align 1
+@zbee_tlv_selected_key_negotiation_method = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.252 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.28 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.30 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.254 = private unnamed_addr constant [15 x i8] c"Well Known Key\00", align 1
+@.str.255 = private unnamed_addr constant [55 x i8] c"Pre-configured link-ley derived from installation code\00", align 1
+@.str.256 = private unnamed_addr constant [26 x i8] c"Variable-length pass code\00", align 1
+@zbee_tlv_selected_pre_shared_secret = internal constant [7 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 255, [4 x i8] zeroinitializer, ptr @.str.254 }, { i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.34 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.255 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.256 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.40 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.42 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.258 = private unnamed_addr constant [18 x i8] c"No authentication\00", align 1
+@.str.259 = private unnamed_addr constant [17 x i8] c"Install Code Key\00", align 1
+@.str.260 = private unnamed_addr constant [26 x i8] c"Anonymous key negotiation\00", align 1
+@.str.261 = private unnamed_addr constant [31 x i8] c"Authentication Key Negotiation\00", align 1
+@zbee_initial_join_methods = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.258 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.259 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.260 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.261 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.263 = private unnamed_addr constant [12 x i8] c"Not Updated\00", align 1
+@.str.264 = private unnamed_addr constant [19 x i8] c"Key Request Method\00", align 1
+@.str.265 = private unnamed_addr constant [33 x i8] c"Unauthentication Key Negotiation\00", align 1
+@.str.266 = private unnamed_addr constant [45 x i8] c"Application Defined Certificate Based Mutual\00", align 1
+@zbee_active_lk_types = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.263 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.264 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.265 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.261 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.266 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.268 = private unnamed_addr constant [16 x i8] c"Network Channel\00", align 1
+@.str.269 = private unnamed_addr constant [12 x i8] c"Network Key\00", align 1
+@.str.270 = private unnamed_addr constant [12 x i8] c"Device Type\00", align 1
+@.str.271 = private unnamed_addr constant [12 x i8] c"NWK Address\00", align 1
+@.str.272 = private unnamed_addr constant [15 x i8] c"Joining Method\00", align 1
+@.str.273 = private unnamed_addr constant [13 x i8] c"IEEE Address\00", align 1
+@.str.274 = private unnamed_addr constant [21 x i8] c"Trust Center Address\00", align 1
+@.str.275 = private unnamed_addr constant [14 x i8] c"NWK Update ID\00", align 1
+@.str.276 = private unnamed_addr constant [26 x i8] c"NWK Active Key Seq Number\00", align 1
+@.str.277 = private unnamed_addr constant [10 x i8] c"Admin Key\00", align 1
+@.str.278 = private unnamed_addr constant [12 x i8] c"Status Code\00", align 1
+@zbee_tlv_zbd_comm_types = internal constant [16 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.121 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.123 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.268 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.269 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.174 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.270 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.271 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.272 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.273 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.274 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.180 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.275 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.276 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.277 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.278 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.280 = private unnamed_addr constant [17 x i8] c"Provisional Link\00", align 1
+@.str.281 = private unnamed_addr constant [23 x i8] c"Manage Joiners Command\00", align 1
+@zbee_tlv_zbd_comm_mj_types = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.280 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.273 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.281 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.283 = private unnamed_addr constant [31 x i8] c"ZBD Key Negotiation Method TLV\00", align 1
+@.str.284 = private unnamed_addr constant [43 x i8] c"ZBD Key Negotiation P-256 Public Point TLV\00", align 1
+@.str.285 = private unnamed_addr constant [48 x i8] c"ZBD Key Negotiation Curve25519 Public Point TLV\00", align 1
+@.str.286 = private unnamed_addr constant [31 x i8] c"Network KeySequence Number TLV\00", align 1
+@.str.287 = private unnamed_addr constant [11 x i8] c"MacTag Tlv\00", align 1
+@zbee_tlv_zbd_secur_types = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.283 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.284 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.285 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.286 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.287 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.289 = private unnamed_addr constant [19 x i8] c"ZigBee Coordinator\00", align 1
+@.str.290 = private unnamed_addr constant [14 x i8] c"ZigBee Router\00", align 1
+@.str.291 = private unnamed_addr constant [18 x i8] c"ZigBee End Device\00", align 1
+@zbee_tlv_local_types_dev_type_str = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.289 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.290 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.291 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.293 = private unnamed_addr constant [16 x i8] c"MAC association\00", align 1
+@.str.294 = private unnamed_addr constant [11 x i8] c"NWK rejoin\00", align 1
+@.str.295 = private unnamed_addr constant [72 x i8] c"Out-of-band commissioning (with check for nearby IEEE 802.15.4 beacons)\00", align 1
+@.str.296 = private unnamed_addr constant [75 x i8] c"Out-of-band commissioning (without check for nearby IEEE 802.15.4 beacons)\00", align 1
+@zbee_tlv_local_types_join_method_str = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.293 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.294 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.295 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.296 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.298 = private unnamed_addr constant [39 x i8] c"General domain or unspecific operation\00", align 1
+@.str.299 = private unnamed_addr constant [23 x i8] c"Form Network Operation\00", align 1
+@.str.300 = private unnamed_addr constant [23 x i8] c"Join Network Operation\00", align 1
+@.str.301 = private unnamed_addr constant [25 x i8] c"Permit Joining Operation\00", align 1
+@.str.302 = private unnamed_addr constant [24 x i8] c"Leave Network Operation\00", align 1
+@.str.303 = private unnamed_addr constant [22 x i8] c"Manage Joiners Domain\00", align 1
+@.str.304 = private unnamed_addr constant [19 x i8] c"Identify Operation\00", align 1
+@.str.305 = private unnamed_addr constant [25 x i8] c"Finding & Binding Domain\00", align 1
+@zbee_tlv_local_types_status_code_domain_str = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.298 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.299 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.300 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.301 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.302 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.303 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.304 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.305 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.307 = private unnamed_addr constant [40 x i8] c"Drop all joiners' Provisional Link Keys\00", align 1
+@.str.308 = private unnamed_addr constant [36 x i8] c"Add a joiner's Provisional Link Key\00", align 1
+@.str.309 = private unnamed_addr constant [39 x i8] c"Remove a joiner's Provisional Link Key\00", align 1
+@zbee_tlv_local_types_mj_cmd_str = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.307 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.308 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.309 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.311 = private unnamed_addr constant [25 x i8] c"Curve 25519 / AESMMO-128\00", align 1
+@.str.312 = private unnamed_addr constant [22 x i8] c"Curve 25519 / SHA-256\00", align 1
+@.str.313 = private unnamed_addr constant [16 x i8] c"P-256 / SHA-256\00", align 1
+@zbee_tlv_local_types_key_method_str = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.311 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.312 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.313 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.315 = private unnamed_addr constant [15 x i8] c"Well known key\00", align 1
+@.str.316 = private unnamed_addr constant [20 x i8] c"Authorization token\00", align 1
+@.str.317 = private unnamed_addr constant [14 x i8] c"PAKE passcode\00", align 1
+@zbee_tlv_local_types_psk_secret_str = internal constant [7 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 255, [4 x i8] zeroinitializer, ptr @.str.315 }, { i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.316 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.255 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.317 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.40 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.42 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.319 = private unnamed_addr constant [7 x i8] c"Global\00", align 1
+@zbee_tlv_local_types_lnk_key_unique_str = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.319 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.176 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.321 = private unnamed_addr constant [10 x i8] c"Permanent\00", align 1
+@zbee_tlv_local_types_lnk_key_provisional_str = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.321 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.178 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.323 = private unnamed_addr constant [11 x i8] c"No network\00", align 1
+@.str.324 = private unnamed_addr constant [8 x i8] c"Joining\00", align 1
+@.str.325 = private unnamed_addr constant [19 x i8] c"Joined (no parent)\00", align 1
+@.str.326 = private unnamed_addr constant [8 x i8] c"Leaving\00", align 1
+@zbee_tlv_local_types_joined_status_str = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.323 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.324 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.182 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.325 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.326 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@zbee_tlv_local_types_nwk_state_str = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.199 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.198 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@zbee_tlv_local_types_nwk_type_str = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.201 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.200 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dissect_zbee_tlvs(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i8 noundef zeroext %5, i32 noundef %6) #0 {
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -503,6 +501,7 @@ define hidden i32 @dissect_zbee_tlvs(ptr noundef %0, ptr noundef %1, ptr noundef
   %16 = alloca ptr, align 8
   %17 = alloca i8, align 1
   %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
   store ptr %0, ptr %9, align 8
   store ptr %1, ptr %10, align 8
   store ptr %2, ptr %11, align 8
@@ -510,104 +509,116 @@ define hidden i32 @dissect_zbee_tlvs(ptr noundef %0, ptr noundef %1, ptr noundef
   store ptr %4, ptr %13, align 8
   store i8 %5, ptr %14, align 1
   store i32 %6, ptr %15, align 4
-  %19 = load ptr, ptr %10, align 8
-  %20 = load i32, ptr @proto_zbee_tlv, align 4
-  %21 = call i32 @p_get_proto_depth(ptr noundef %19, i32 noundef %20)
-  store i32 %21, ptr %18, align 4
-  %22 = load i32, ptr %18, align 4
-  %23 = add i32 %22, 1
-  store i32 %23, ptr %18, align 4
-  %24 = icmp uge i32 %23, 5
-  br i1 %24, label %25, label %33
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %17) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #6
+  %20 = load ptr, ptr %10, align 8
+  %21 = load i32, ptr @proto_zbee_tlv, align 4
+  %22 = call i32 @p_get_proto_depth(ptr noundef %20, i32 noundef %21)
+  store i32 %22, ptr %18, align 4
+  %23 = load i32, ptr %18, align 4
+  %24 = add i32 %23, 1
+  store i32 %24, ptr %18, align 4
+  %25 = icmp uge i32 %24, 5
+  br i1 %25, label %26, label %32
 
-25:                                               ; preds = %7
-  %26 = load ptr, ptr %11, align 8
-  %27 = load ptr, ptr %10, align 8
-  %28 = load ptr, ptr %9, align 8
-  %29 = call ptr @proto_tree_add_expert(ptr noundef %26, ptr noundef %27, ptr noundef @ei_zbee_tlv_max_recursion_depth_reached, ptr noundef %28, i32 noundef 0, i32 noundef 0)
-  %30 = load ptr, ptr %9, align 8
+26:                                               ; preds = %7
+  %27 = load ptr, ptr %11, align 8
+  %28 = load ptr, ptr %10, align 8
+  %29 = load ptr, ptr %9, align 8
+  %30 = call ptr @proto_tree_add_expert(ptr noundef %27, ptr noundef %28, ptr noundef @ei_zbee_tlv_max_recursion_depth_reached, ptr noundef %29, i32 noundef 0, i32 noundef 0)
   %31 = load i32, ptr %12, align 4
-  %32 = call i32 @tvb_reported_length_remaining(ptr noundef %30, i32 noundef %31)
-  store i32 %32, ptr %8, align 4
-  br label %75
+  store i32 %31, ptr %8, align 4
+  store i32 1, ptr %19, align 4
+  br label %73
 
-33:                                               ; preds = %7
-  %34 = load ptr, ptr %10, align 8
-  %35 = load i32, ptr @proto_zbee_tlv, align 4
-  %36 = load i32, ptr %18, align 4
-  call void @p_set_proto_depth(ptr noundef %34, i32 noundef %35, i32 noundef %36)
-  br label %37
+32:                                               ; preds = %7
+  %33 = load ptr, ptr %10, align 8
+  %34 = load i32, ptr @proto_zbee_tlv, align 4
+  %35 = load i32, ptr %18, align 4
+  call void @p_set_proto_depth(ptr noundef %33, i32 noundef %34, i32 noundef %35)
+  br label %36
 
-37:                                               ; preds = %42, %33
-  %38 = load ptr, ptr %9, align 8
-  %39 = load i32, ptr %12, align 4
-  %40 = call i32 @tvb_bytes_exist(ptr noundef %38, i32 noundef %39, i32 noundef 2)
-  %41 = icmp ne i32 %40, 0
-  br i1 %41, label %42, label %66
+36:                                               ; preds = %40, %32
+  %37 = load ptr, ptr %9, align 8
+  %38 = load i32, ptr %12, align 4
+  %39 = call zeroext i1 @tvb_bytes_exist(ptr noundef %37, i32 noundef %38, i32 noundef 2)
+  br i1 %39, label %40, label %64
 
-42:                                               ; preds = %37
-  %43 = load ptr, ptr %9, align 8
-  %44 = load i32, ptr %12, align 4
-  %45 = add i32 %44, 1
-  %46 = call zeroext i8 @tvb_get_guint8(ptr noundef %43, i32 noundef %45)
-  %47 = zext i8 %46 to i32
-  %48 = add i32 %47, 1
-  %49 = trunc i32 %48 to i8
-  store i8 %49, ptr %17, align 1
-  %50 = load ptr, ptr %11, align 8
-  %51 = load ptr, ptr %9, align 8
-  %52 = load i32, ptr %12, align 4
-  %53 = load i8, ptr %17, align 1
-  %54 = zext i8 %53 to i32
-  %55 = add i32 2, %54
-  %56 = load i32, ptr @ett_zbee_tlv, align 4
-  %57 = call ptr @proto_tree_add_subtree(ptr noundef %50, ptr noundef %51, i32 noundef %52, i32 noundef %55, i32 noundef %56, ptr noundef null, ptr noundef @.str)
-  store ptr %57, ptr %16, align 8
-  %58 = load ptr, ptr %9, align 8
-  %59 = load ptr, ptr %10, align 8
-  %60 = load ptr, ptr %16, align 8
-  %61 = load i32, ptr %12, align 4
-  %62 = load ptr, ptr %13, align 8
-  %63 = load i8, ptr %14, align 1
-  %64 = load i32, ptr %15, align 4
-  %65 = call i32 @dissect_zbee_tlv(ptr noundef %58, ptr noundef %59, ptr noundef %60, i32 noundef %61, ptr noundef %62, i8 noundef zeroext %63, i32 noundef %64)
-  store i32 %65, ptr %12, align 4
-  br label %37, !llvm.loop !4
+40:                                               ; preds = %36
+  %41 = load ptr, ptr %9, align 8
+  %42 = load i32, ptr %12, align 4
+  %43 = add i32 %42, 1
+  %44 = call zeroext i8 @tvb_get_uint8(ptr noundef %41, i32 noundef %43)
+  %45 = zext i8 %44 to i32
+  %46 = add i32 %45, 1
+  %47 = trunc i32 %46 to i8
+  store i8 %47, ptr %17, align 1
+  %48 = load ptr, ptr %11, align 8
+  %49 = load ptr, ptr %9, align 8
+  %50 = load i32, ptr %12, align 4
+  %51 = load i8, ptr %17, align 1
+  %52 = zext i8 %51 to i32
+  %53 = add i32 2, %52
+  %54 = load i32, ptr @ett_zbee_tlv, align 4
+  %55 = call ptr @proto_tree_add_subtree(ptr noundef %48, ptr noundef %49, i32 noundef %50, i32 noundef %53, i32 noundef %54, ptr noundef null, ptr noundef @.str)
+  store ptr %55, ptr %16, align 8
+  %56 = load ptr, ptr %9, align 8
+  %57 = load ptr, ptr %10, align 8
+  %58 = load ptr, ptr %16, align 8
+  %59 = load i32, ptr %12, align 4
+  %60 = load ptr, ptr %13, align 8
+  %61 = load i8, ptr %14, align 1
+  %62 = load i32, ptr %15, align 4
+  %63 = call i32 @dissect_zbee_tlv(ptr noundef %56, ptr noundef %57, ptr noundef %58, i32 noundef %59, ptr noundef %60, i8 noundef zeroext %61, i32 noundef %62)
+  store i32 %63, ptr %12, align 4
+  br label %36, !llvm.loop !6
 
-66:                                               ; preds = %37
-  %67 = load ptr, ptr %10, align 8
-  %68 = load i32, ptr @proto_zbee_tlv, align 4
-  %69 = call i32 @p_get_proto_depth(ptr noundef %67, i32 noundef %68)
-  store i32 %69, ptr %18, align 4
-  %70 = load ptr, ptr %10, align 8
-  %71 = load i32, ptr @proto_zbee_tlv, align 4
-  %72 = load i32, ptr %18, align 4
-  %73 = sub i32 %72, 1
-  call void @p_set_proto_depth(ptr noundef %70, i32 noundef %71, i32 noundef %73)
-  %74 = load i32, ptr %12, align 4
-  store i32 %74, ptr %8, align 4
-  br label %75
+64:                                               ; preds = %36
+  %65 = load ptr, ptr %10, align 8
+  %66 = load i32, ptr @proto_zbee_tlv, align 4
+  %67 = call i32 @p_get_proto_depth(ptr noundef %65, i32 noundef %66)
+  store i32 %67, ptr %18, align 4
+  %68 = load ptr, ptr %10, align 8
+  %69 = load i32, ptr @proto_zbee_tlv, align 4
+  %70 = load i32, ptr %18, align 4
+  %71 = sub i32 %70, 1
+  call void @p_set_proto_depth(ptr noundef %68, i32 noundef %69, i32 noundef %71)
+  %72 = load i32, ptr %12, align 4
+  store i32 %72, ptr %8, align 4
+  store i32 1, ptr %19, align 4
+  br label %73
 
-75:                                               ; preds = %66, %25
-  %76 = load i32, ptr %8, align 4
-  ret i32 %76
+73:                                               ; preds = %64, %26
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %17) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #6
+  %74 = load i32, ptr %8, align 4
+  ret i32 %74
 }
 
-declare i32 @p_get_proto_depth(ptr noundef, i32 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @p_get_proto_depth(ptr noundef, i32 noundef) #2
 
-declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-declare void @p_set_proto_depth(ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @p_set_proto_depth(ptr noundef, i32 noundef, i32 noundef) #2
 
-declare i32 @tvb_bytes_exist(ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @tvb_bytes_exist(ptr noundef, i32 noundef, i32 noundef) #2
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zbee_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i8 noundef zeroext %5, i32 noundef %6) #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -624,9 +635,10 @@ define internal i32 @dissect_zbee_tlv(ptr noundef %0, ptr noundef %1, ptr nounde
   store ptr %4, ptr %12, align 8
   store i8 %5, ptr %13, align 1
   store i32 %6, ptr %14, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #6
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr %11, align 4
-  %18 = call zeroext i8 @tvb_get_guint8(ptr noundef %16, i32 noundef %17)
+  %18 = call zeroext i8 @tvb_get_uint8(ptr noundef %16, i32 noundef %17)
   store i8 %18, ptr %15, align 1
   %19 = load i8, ptr %15, align 1
   %20 = zext i8 %19 to i32
@@ -697,10 +709,14 @@ define internal i32 @dissect_zbee_tlv(ptr noundef %0, ptr noundef %1, ptr nounde
 
 61:                                               ; preds = %60, %22
   %62 = load i32, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #6
   ret i32 %62
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_zbee_tlv() #0 {
   %1 = alloca ptr, align 8
   %2 = call i32 @proto_register_protocol(ptr noundef @.str.190, ptr noundef @.str.191, ptr noundef @.str.192)
@@ -708,6 +724,7 @@ define hidden void @proto_register_zbee_tlv() #0 {
   %3 = load i32, ptr @proto_zbee_tlv, align 4
   call void @proto_register_field_array(i32 noundef %3, ptr noundef @proto_register_zbee_tlv.hf, i32 noundef 108)
   call void @proto_register_subtree_array(ptr noundef @proto_register_zbee_tlv.ett, i32 noundef 12)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #6
   %4 = load i32, ptr @proto_zbee_tlv, align 4
   %5 = call ptr @expert_register_protocol(i32 noundef %4)
   store ptr %5, ptr %1, align 8
@@ -717,22 +734,29 @@ define hidden void @proto_register_zbee_tlv() #0 {
   %8 = call ptr @register_dissector(ptr noundef @.str.192, ptr noundef @dissect_zbee_tlv_default, i32 noundef %7)
   %9 = call ptr @find_dissector(ptr noundef @.str.193)
   store ptr %9, ptr @zbee_nwk_handle, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #6
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #2
 
-declare ptr @expert_register_protocol(i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_register_protocol(i32 noundef) #2
 
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #2
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zbee_tlv_default(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -744,6 +768,7 @@ define internal i32 @dissect_zbee_tlv_default(ptr noundef %0, ptr noundef %1, pt
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
   store i32 0, ptr %9, align 4
   %11 = load ptr, ptr %5, align 8
   %12 = load ptr, ptr %6, align 8
@@ -759,6 +784,7 @@ define internal i32 @dissect_zbee_tlv_default(ptr noundef %0, ptr noundef %1, pt
   br i1 %20, label %21, label %29
 
 21:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
   %22 = load ptr, ptr %5, align 8
   %23 = load i32, ptr %9, align 4
   %24 = call ptr @tvb_new_subset_remaining(ptr noundef %22, i32 noundef %23)
@@ -767,17 +793,20 @@ define internal i32 @dissect_zbee_tlv_default(ptr noundef %0, ptr noundef %1, pt
   %26 = load ptr, ptr %6, align 8
   %27 = load ptr, ptr %7, align 8
   %28 = call i32 @call_data_dissector(ptr noundef %25, ptr noundef %26, ptr noundef %27)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
   br label %29
 
 29:                                               ; preds = %21, %4
   %30 = load ptr, ptr %5, align 8
   %31 = call i32 @tvb_captured_length(ptr noundef %30)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
   ret i32 %31
 }
 
-declare ptr @find_dissector(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @find_dissector(ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_global_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -790,9 +819,12 @@ define internal i32 @dissect_global_tlv(ptr noundef %0, ptr noundef %1, ptr noun
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #6
   %12 = load ptr, ptr %5, align 8
   %13 = load i32, ptr %8, align 4
-  %14 = call zeroext i8 @tvb_get_guint8(ptr noundef %12, i32 noundef %13)
+  %14 = call zeroext i8 @tvb_get_uint8(ptr noundef %12, i32 noundef %13)
   store i8 %14, ptr %9, align 1
   %15 = load ptr, ptr %7, align 8
   %16 = load i32, ptr @hf_zbee_tlv_global_type, align 4
@@ -804,7 +836,7 @@ define internal i32 @dissect_global_tlv(ptr noundef %0, ptr noundef %1, ptr noun
   store i32 %21, ptr %8, align 4
   %22 = load ptr, ptr %5, align 8
   %23 = load i32, ptr %8, align 4
-  %24 = call zeroext i8 @tvb_get_guint8(ptr noundef %22, i32 noundef %23)
+  %24 = call zeroext i8 @tvb_get_uint8(ptr noundef %22, i32 noundef %23)
   store i8 %24, ptr %10, align 1
   %25 = load ptr, ptr %7, align 8
   %26 = load i32, ptr @hf_zbee_tlv_length, align 4
@@ -988,10 +1020,13 @@ define internal i32 @dissect_global_tlv(ptr noundef %0, ptr noundef %1, ptr noun
 
 143:                                              ; preds = %131, %124
   %144 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #6
   ret i32 %144
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zdp_local_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -1005,15 +1040,17 @@ define internal i32 @dissect_zdp_local_tlv(ptr noundef %0, ptr noundef %1, ptr n
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i32 %4, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #6
   %13 = load ptr, ptr %6, align 8
   %14 = load i32, ptr %9, align 4
   %15 = add i32 %14, 1
-  %16 = call zeroext i8 @tvb_get_guint8(ptr noundef %13, i32 noundef %15)
+  %16 = call zeroext i8 @tvb_get_uint8(ptr noundef %13, i32 noundef %15)
   %17 = zext i8 %16 to i32
   %18 = add i32 2, %17
   %19 = add i32 %18, 1
   %20 = trunc i32 %19 to i8
   store i8 %20, ptr %11, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #6
   %21 = load i32, ptr %9, align 4
   %22 = trunc i32 %21 to i8
   store i8 %22, ptr %12, align 1
@@ -1182,10 +1219,12 @@ define internal i32 @dissect_zdp_local_tlv(ptr noundef %0, ptr noundef %1, ptr n
 
 124:                                              ; preds = %110, %102
   %125 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #6
   ret i32 %125
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_aps_local_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -1207,6 +1246,7 @@ define internal i32 @dissect_aps_local_tlv(ptr noundef %0, ptr noundef %1, ptr n
   ]
 
 15:                                               ; preds = %6, %6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #6
   %16 = call ptr @wmem_file_scope()
   %17 = load ptr, ptr %8, align 8
   %18 = call i32 @proto_get_id_by_filter_name(ptr noundef @.str.193)
@@ -1216,8 +1256,9 @@ define internal i32 @dissect_aps_local_tlv(ptr noundef %0, ptr noundef %1, ptr n
   %21 = icmp eq i32 %20, 17
   %22 = select i1 %21, i32 2, i32 1
   %23 = load ptr, ptr %13, align 8
-  %24 = getelementptr inbounds %struct.zbee_nwk_hints_t, ptr %23, i32 0, i32 5
+  %24 = getelementptr inbounds nuw %struct.zbee_nwk_hints_t, ptr %23, i32 0, i32 5
   store i32 %22, ptr %24, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #6
   %25 = load ptr, ptr %7, align 8
   %26 = load ptr, ptr %8, align 8
   %27 = load ptr, ptr %9, align 8
@@ -1241,7 +1282,7 @@ define internal i32 @dissect_aps_local_tlv(ptr noundef %0, ptr noundef %1, ptr n
   ret i32 %38
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zbd_local_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -1257,15 +1298,17 @@ define internal i32 @dissect_zbd_local_tlv(ptr noundef %0, ptr noundef %1, ptr n
   store i32 %3, ptr %10, align 4
   store ptr %4, ptr %11, align 8
   store i32 %5, ptr %12, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #6
   %15 = load ptr, ptr %7, align 8
   %16 = load i32, ptr %10, align 4
   %17 = add i32 %16, 1
-  %18 = call zeroext i8 @tvb_get_guint8(ptr noundef %15, i32 noundef %17)
+  %18 = call zeroext i8 @tvb_get_uint8(ptr noundef %15, i32 noundef %17)
   %19 = zext i8 %18 to i32
   %20 = add i32 2, %19
   %21 = add i32 %20, 1
   %22 = trunc i32 %21 to i8
   store i8 %22, ptr %13, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #6
   %23 = load i32, ptr %10, align 4
   %24 = trunc i32 %23 to i8
   store i8 %24, ptr %14, align 1
@@ -1373,10 +1416,12 @@ define internal i32 @dissect_zbd_local_tlv(ptr noundef %0, ptr noundef %1, ptr n
 
 90:                                               ; preds = %76, %68
   %91 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #6
   ret i32 %91
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_unknown_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1387,6 +1432,7 @@ define internal i32 @dissect_unknown_tlv(ptr noundef %0, ptr noundef %1, ptr nou
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #6
   %10 = load ptr, ptr %7, align 8
   %11 = load i32, ptr @hf_zbee_tlv_type, align 4
   %12 = load ptr, ptr %5, align 8
@@ -1397,7 +1443,7 @@ define internal i32 @dissect_unknown_tlv(ptr noundef %0, ptr noundef %1, ptr nou
   store i32 %16, ptr %8, align 4
   %17 = load ptr, ptr %5, align 8
   %18 = load i32, ptr %8, align 4
-  %19 = call zeroext i8 @tvb_get_guint8(ptr noundef %17, i32 noundef %18)
+  %19 = call zeroext i8 @tvb_get_uint8(ptr noundef %17, i32 noundef %18)
   store i8 %19, ptr %9, align 1
   %20 = load ptr, ptr %7, align 8
   %21 = load i32, ptr @hf_zbee_tlv_length, align 4
@@ -1425,12 +1471,14 @@ define internal i32 @dissect_unknown_tlv(ptr noundef %0, ptr noundef %1, ptr nou
   %41 = add i32 %40, %39
   store i32 %41, ptr %8, align 4
   %42 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #6
   ret i32 %42
 }
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zbee_tlv_manufacturer_specific(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -1468,7 +1516,7 @@ define internal i32 @dissect_zbee_tlv_manufacturer_specific(ptr noundef %0, ptr 
   ret i32 %31
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zbee_tlv_supported_key_negotiation_methods(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1508,7 +1556,7 @@ define internal i32 @dissect_zbee_tlv_supported_key_negotiation_methods(ptr noun
   ret i32 %32
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zbee_tlv_panid_conflict_report(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1530,7 +1578,7 @@ define internal i32 @dissect_zbee_tlv_panid_conflict_report(ptr noundef %0, ptr 
   ret i32 %16
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zbee_tlv_next_pan_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1552,7 +1600,7 @@ define internal i32 @dissect_zbee_tlv_next_pan_id(ptr noundef %0, ptr noundef %1
   ret i32 %16
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zbee_tlv_next_channel_change(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1574,7 +1622,7 @@ define internal i32 @dissect_zbee_tlv_next_channel_change(ptr noundef %0, ptr no
   ret i32 %16
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zbee_tlv_passphrase(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1596,7 +1644,7 @@ define internal i32 @dissect_zbee_tlv_passphrase(ptr noundef %0, ptr noundef %1,
   ret i32 %16
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zbee_tlv_router_information(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1619,7 +1667,7 @@ define internal i32 @dissect_zbee_tlv_router_information(ptr noundef %0, ptr nou
   ret i32 %17
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zbee_tlv_fragmentation_parameters(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1657,7 +1705,7 @@ define internal i32 @dissect_zbee_tlv_fragmentation_parameters(ptr noundef %0, p
   ret i32 %30
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zbee_tlv_configuration_parameters(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1680,7 +1728,7 @@ define internal i32 @dissect_zbee_tlv_configuration_parameters(ptr noundef %0, p
   ret i32 %17
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zbee_tlv_dev_cap_ext(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1703,9 +1751,10 @@ define internal i32 @dissect_zbee_tlv_dev_cap_ext(ptr noundef %0, ptr noundef %1
   ret i32 %17
 }
 
-declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zdp_req_clear_all_bindings_local_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1717,9 +1766,11 @@ define internal i32 @dissect_zdp_req_clear_all_bindings_local_tlv(ptr noundef %0
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #6
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %8, align 4
-  %13 = call zeroext i8 @tvb_get_guint8(ptr noundef %11, i32 noundef %12)
+  %13 = call zeroext i8 @tvb_get_uint8(ptr noundef %11, i32 noundef %12)
   store i8 %13, ptr %9, align 1
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr @hf_zbee_tlv_local_type_clear_all_bindings_req, align 4
@@ -1731,7 +1782,7 @@ define internal i32 @dissect_zdp_req_clear_all_bindings_local_tlv(ptr noundef %0
   store i32 %20, ptr %8, align 4
   %21 = load ptr, ptr %5, align 8
   %22 = load i32, ptr %8, align 4
-  %23 = call zeroext i8 @tvb_get_guint8(ptr noundef %21, i32 noundef %22)
+  %23 = call zeroext i8 @tvb_get_uint8(ptr noundef %21, i32 noundef %22)
   store i8 %23, ptr %10, align 1
   %24 = load ptr, ptr %7, align 8
   %25 = load i32, ptr @hf_zbee_tlv_length, align 4
@@ -1778,10 +1829,12 @@ define internal i32 @dissect_zdp_req_clear_all_bindings_local_tlv(ptr noundef %0
 
 55:                                               ; preds = %43, %37
   %56 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #6
   ret i32 %56
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zdp_security_key_upd_local_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1793,9 +1846,11 @@ define internal i32 @dissect_zdp_security_key_upd_local_tlv(ptr noundef %0, ptr 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #6
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %8, align 4
-  %13 = call zeroext i8 @tvb_get_guint8(ptr noundef %11, i32 noundef %12)
+  %13 = call zeroext i8 @tvb_get_uint8(ptr noundef %11, i32 noundef %12)
   store i8 %13, ptr %9, align 1
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr @hf_zbee_tlv_local_type_key_update_req_rsp, align 4
@@ -1807,7 +1862,7 @@ define internal i32 @dissect_zdp_security_key_upd_local_tlv(ptr noundef %0, ptr 
   store i32 %20, ptr %8, align 4
   %21 = load ptr, ptr %5, align 8
   %22 = load i32, ptr %8, align 4
-  %23 = call zeroext i8 @tvb_get_guint8(ptr noundef %21, i32 noundef %22)
+  %23 = call zeroext i8 @tvb_get_uint8(ptr noundef %21, i32 noundef %22)
   store i8 %23, ptr %10, align 1
   %24 = load ptr, ptr %7, align 8
   %25 = load i32, ptr @hf_zbee_tlv_length, align 4
@@ -1854,10 +1909,12 @@ define internal i32 @dissect_zdp_security_key_upd_local_tlv(ptr noundef %0, ptr 
 
 55:                                               ; preds = %43, %37
   %56 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #6
   ret i32 %56
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zdp_security_start_key_neg_local_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1869,9 +1926,11 @@ define internal i32 @dissect_zdp_security_start_key_neg_local_tlv(ptr noundef %0
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #6
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %8, align 4
-  %13 = call zeroext i8 @tvb_get_guint8(ptr noundef %11, i32 noundef %12)
+  %13 = call zeroext i8 @tvb_get_uint8(ptr noundef %11, i32 noundef %12)
   store i8 %13, ptr %9, align 1
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr @hf_zbee_tlv_local_type_key_negotiation_req_rsp, align 4
@@ -1883,7 +1942,7 @@ define internal i32 @dissect_zdp_security_start_key_neg_local_tlv(ptr noundef %0
   store i32 %20, ptr %8, align 4
   %21 = load ptr, ptr %5, align 8
   %22 = load i32, ptr %8, align 4
-  %23 = call zeroext i8 @tvb_get_guint8(ptr noundef %21, i32 noundef %22)
+  %23 = call zeroext i8 @tvb_get_uint8(ptr noundef %21, i32 noundef %22)
   store i8 %23, ptr %10, align 1
   %24 = load ptr, ptr %7, align 8
   %25 = load i32, ptr @hf_zbee_tlv_length, align 4
@@ -1931,10 +1990,12 @@ define internal i32 @dissect_zdp_security_start_key_neg_local_tlv(ptr noundef %0
 
 56:                                               ; preds = %44, %37
   %57 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #6
   ret i32 %57
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zdp_req_security_get_auth_token_local_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1946,9 +2007,11 @@ define internal i32 @dissect_zdp_req_security_get_auth_token_local_tlv(ptr nound
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #6
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %8, align 4
-  %13 = call zeroext i8 @tvb_get_guint8(ptr noundef %11, i32 noundef %12)
+  %13 = call zeroext i8 @tvb_get_uint8(ptr noundef %11, i32 noundef %12)
   store i8 %13, ptr %9, align 1
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr @hf_zbee_tlv_local_type_req_security_get_auth_token, align 4
@@ -1960,7 +2023,7 @@ define internal i32 @dissect_zdp_req_security_get_auth_token_local_tlv(ptr nound
   store i32 %20, ptr %8, align 4
   %21 = load ptr, ptr %5, align 8
   %22 = load i32, ptr %8, align 4
-  %23 = call zeroext i8 @tvb_get_guint8(ptr noundef %21, i32 noundef %22)
+  %23 = call zeroext i8 @tvb_get_uint8(ptr noundef %21, i32 noundef %22)
   store i8 %23, ptr %10, align 1
   %24 = load ptr, ptr %7, align 8
   %25 = load i32, ptr @hf_zbee_tlv_length, align 4
@@ -2007,10 +2070,12 @@ define internal i32 @dissect_zdp_req_security_get_auth_token_local_tlv(ptr nound
 
 55:                                               ; preds = %43, %37
   %56 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #6
   ret i32 %56
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zdp_req_security_get_auth_level_local_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2022,9 +2087,11 @@ define internal i32 @dissect_zdp_req_security_get_auth_level_local_tlv(ptr nound
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #6
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %8, align 4
-  %13 = call zeroext i8 @tvb_get_guint8(ptr noundef %11, i32 noundef %12)
+  %13 = call zeroext i8 @tvb_get_uint8(ptr noundef %11, i32 noundef %12)
   store i8 %13, ptr %9, align 1
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr @hf_zbee_tlv_local_type_req_security_get_auth_level, align 4
@@ -2036,7 +2103,7 @@ define internal i32 @dissect_zdp_req_security_get_auth_level_local_tlv(ptr nound
   store i32 %20, ptr %8, align 4
   %21 = load ptr, ptr %5, align 8
   %22 = load i32, ptr %8, align 4
-  %23 = call zeroext i8 @tvb_get_guint8(ptr noundef %21, i32 noundef %22)
+  %23 = call zeroext i8 @tvb_get_uint8(ptr noundef %21, i32 noundef %22)
   store i8 %23, ptr %10, align 1
   %24 = load ptr, ptr %7, align 8
   %25 = load i32, ptr @hf_zbee_tlv_length, align 4
@@ -2083,10 +2150,12 @@ define internal i32 @dissect_zdp_req_security_get_auth_level_local_tlv(ptr nound
 
 55:                                               ; preds = %43, %37
   %56 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #6
   ret i32 %56
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zdp_req_security_decommission_local_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2098,9 +2167,11 @@ define internal i32 @dissect_zdp_req_security_decommission_local_tlv(ptr noundef
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #6
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %8, align 4
-  %13 = call zeroext i8 @tvb_get_guint8(ptr noundef %11, i32 noundef %12)
+  %13 = call zeroext i8 @tvb_get_uint8(ptr noundef %11, i32 noundef %12)
   store i8 %13, ptr %9, align 1
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr @hf_zbee_tlv_local_type_req_security_decommission, align 4
@@ -2112,7 +2183,7 @@ define internal i32 @dissect_zdp_req_security_decommission_local_tlv(ptr noundef
   store i32 %20, ptr %8, align 4
   %21 = load ptr, ptr %5, align 8
   %22 = load i32, ptr %8, align 4
-  %23 = call zeroext i8 @tvb_get_guint8(ptr noundef %21, i32 noundef %22)
+  %23 = call zeroext i8 @tvb_get_uint8(ptr noundef %21, i32 noundef %22)
   store i8 %23, ptr %10, align 1
   %24 = load ptr, ptr %7, align 8
   %25 = load i32, ptr @hf_zbee_tlv_length, align 4
@@ -2159,10 +2230,12 @@ define internal i32 @dissect_zdp_req_security_decommission_local_tlv(ptr noundef
 
 55:                                               ; preds = %43, %37
   %56 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #6
   ret i32 %56
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zdp_rsp_security_get_auth_level_local_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2174,9 +2247,11 @@ define internal i32 @dissect_zdp_rsp_security_get_auth_level_local_tlv(ptr nound
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #6
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %8, align 4
-  %13 = call zeroext i8 @tvb_get_guint8(ptr noundef %11, i32 noundef %12)
+  %13 = call zeroext i8 @tvb_get_uint8(ptr noundef %11, i32 noundef %12)
   store i8 %13, ptr %9, align 1
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr @hf_zbee_tlv_local_type_get_auth_level_rsp, align 4
@@ -2188,7 +2263,7 @@ define internal i32 @dissect_zdp_rsp_security_get_auth_level_local_tlv(ptr nound
   store i32 %20, ptr %8, align 4
   %21 = load ptr, ptr %5, align 8
   %22 = load i32, ptr %8, align 4
-  %23 = call zeroext i8 @tvb_get_guint8(ptr noundef %21, i32 noundef %22)
+  %23 = call zeroext i8 @tvb_get_uint8(ptr noundef %21, i32 noundef %22)
   store i8 %23, ptr %10, align 1
   %24 = load ptr, ptr %7, align 8
   %25 = load i32, ptr @hf_zbee_tlv_length, align 4
@@ -2235,10 +2310,12 @@ define internal i32 @dissect_zdp_rsp_security_get_auth_level_local_tlv(ptr nound
 
 55:                                               ; preds = %43, %37
   %56 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #6
   ret i32 %56
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zdp_req_beacon_survey_local_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2252,9 +2329,11 @@ define internal i32 @dissect_zdp_req_beacon_survey_local_tlv(ptr noundef %0, ptr
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #6
   %13 = load ptr, ptr %5, align 8
   %14 = load i32, ptr %8, align 4
-  %15 = call zeroext i8 @tvb_get_guint8(ptr noundef %13, i32 noundef %14)
+  %15 = call zeroext i8 @tvb_get_uint8(ptr noundef %13, i32 noundef %14)
   store i8 %15, ptr %9, align 1
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr @hf_zbee_tlv_local_type_req_beacon_survey, align 4
@@ -2266,7 +2345,7 @@ define internal i32 @dissect_zdp_req_beacon_survey_local_tlv(ptr noundef %0, ptr
   store i32 %22, ptr %8, align 4
   %23 = load ptr, ptr %5, align 8
   %24 = load i32, ptr %8, align 4
-  %25 = call zeroext i8 @tvb_get_guint8(ptr noundef %23, i32 noundef %24)
+  %25 = call zeroext i8 @tvb_get_uint8(ptr noundef %23, i32 noundef %24)
   store i8 %25, ptr %10, align 1
   %26 = load ptr, ptr %7, align 8
   %27 = load i32, ptr @hf_zbee_tlv_length, align 4
@@ -2288,9 +2367,11 @@ define internal i32 @dissect_zdp_req_beacon_survey_local_tlv(ptr noundef %0, ptr
   ]
 
 39:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #6
   %40 = load ptr, ptr %5, align 8
   %41 = load i32, ptr %8, align 4
-  %42 = call zeroext i8 @tvb_get_guint8(ptr noundef %40, i32 noundef %41)
+  %42 = call zeroext i8 @tvb_get_uint8(ptr noundef %40, i32 noundef %41)
   store i8 %42, ptr %11, align 1
   %43 = load ptr, ptr %7, align 8
   %44 = load i32, ptr @hf_zbee_zdp_beacon_survey_scan_mask_cnt, align 4
@@ -2326,7 +2407,7 @@ define internal i32 @dissect_zdp_req_beacon_survey_local_tlv(ptr noundef %0, ptr
   %65 = load i8, ptr %12, align 1
   %66 = add i8 %65, 1
   store i8 %66, ptr %12, align 1
-  br label %50, !llvm.loop !6
+  br label %50, !llvm.loop !8
 
 67:                                               ; preds = %50
   %68 = load ptr, ptr %7, align 8
@@ -2337,6 +2418,8 @@ define internal i32 @dissect_zdp_req_beacon_survey_local_tlv(ptr noundef %0, ptr
   %73 = load i32, ptr %8, align 4
   %74 = add i32 %73, 1
   store i32 %74, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #6
   br label %87
 
 75:                                               ; preds = %4
@@ -2356,10 +2439,12 @@ define internal i32 @dissect_zdp_req_beacon_survey_local_tlv(ptr noundef %0, ptr
 
 87:                                               ; preds = %75, %67
   %88 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #6
   ret i32 %88
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zdp_rsp_beacon_survey_local_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2373,9 +2458,11 @@ define internal i32 @dissect_zdp_rsp_beacon_survey_local_tlv(ptr noundef %0, ptr
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #6
   %13 = load ptr, ptr %5, align 8
   %14 = load i32, ptr %8, align 4
-  %15 = call zeroext i8 @tvb_get_guint8(ptr noundef %13, i32 noundef %14)
+  %15 = call zeroext i8 @tvb_get_uint8(ptr noundef %13, i32 noundef %14)
   store i8 %15, ptr %9, align 1
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr @hf_zbee_tlv_local_type_rsp_beacon_survey, align 4
@@ -2387,7 +2474,7 @@ define internal i32 @dissect_zdp_rsp_beacon_survey_local_tlv(ptr noundef %0, ptr
   store i32 %22, ptr %8, align 4
   %23 = load ptr, ptr %5, align 8
   %24 = load i32, ptr %8, align 4
-  %25 = call zeroext i8 @tvb_get_guint8(ptr noundef %23, i32 noundef %24)
+  %25 = call zeroext i8 @tvb_get_uint8(ptr noundef %23, i32 noundef %24)
   store i8 %25, ptr %10, align 1
   %26 = load ptr, ptr %7, align 8
   %27 = load i32, ptr @hf_zbee_tlv_length, align 4
@@ -2411,6 +2498,8 @@ define internal i32 @dissect_zdp_rsp_beacon_survey_local_tlv(ptr noundef %0, ptr
   ]
 
 39:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #6
   %40 = load ptr, ptr %7, align 8
   %41 = load i32, ptr @hf_zbee_zdp_beacon_survey_conf_mask, align 4
   %42 = load ptr, ptr %5, align 8
@@ -2421,7 +2510,7 @@ define internal i32 @dissect_zdp_rsp_beacon_survey_local_tlv(ptr noundef %0, ptr
   store i32 %46, ptr %8, align 4
   %47 = load ptr, ptr %5, align 8
   %48 = load i32, ptr %8, align 4
-  %49 = call zeroext i8 @tvb_get_guint8(ptr noundef %47, i32 noundef %48)
+  %49 = call zeroext i8 @tvb_get_uint8(ptr noundef %47, i32 noundef %48)
   store i8 %49, ptr %11, align 1
   %50 = load ptr, ptr %7, align 8
   %51 = load i32, ptr @hf_zbee_zdp_beacon_survey_scan_mask_cnt, align 4
@@ -2457,9 +2546,11 @@ define internal i32 @dissect_zdp_rsp_beacon_survey_local_tlv(ptr noundef %0, ptr
   %72 = load i8, ptr %12, align 1
   %73 = add i8 %72, 1
   store i8 %73, ptr %12, align 1
-  br label %57, !llvm.loop !7
+  br label %57, !llvm.loop !9
 
 74:                                               ; preds = %57
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #6
   br label %122
 
 75:                                               ; preds = %4
@@ -2523,10 +2614,12 @@ define internal i32 @dissect_zdp_rsp_beacon_survey_local_tlv(ptr noundef %0, ptr
 
 122:                                              ; preds = %110, %104, %75, %74
   %123 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #6
   ret i32 %123
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zdp_req_security_challenge_local_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2538,9 +2631,11 @@ define internal i32 @dissect_zdp_req_security_challenge_local_tlv(ptr noundef %0
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #6
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %8, align 4
-  %13 = call zeroext i8 @tvb_get_guint8(ptr noundef %11, i32 noundef %12)
+  %13 = call zeroext i8 @tvb_get_uint8(ptr noundef %11, i32 noundef %12)
   store i8 %13, ptr %9, align 1
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr @hf_zbee_tlv_local_type_req_challenge, align 4
@@ -2552,7 +2647,7 @@ define internal i32 @dissect_zdp_req_security_challenge_local_tlv(ptr noundef %0
   store i32 %20, ptr %8, align 4
   %21 = load ptr, ptr %5, align 8
   %22 = load i32, ptr %8, align 4
-  %23 = call zeroext i8 @tvb_get_guint8(ptr noundef %21, i32 noundef %22)
+  %23 = call zeroext i8 @tvb_get_uint8(ptr noundef %21, i32 noundef %22)
   store i8 %23, ptr %10, align 1
   %24 = load ptr, ptr %7, align 8
   %25 = load i32, ptr @hf_zbee_tlv_length, align 4
@@ -2609,10 +2704,12 @@ define internal i32 @dissect_zdp_req_security_challenge_local_tlv(ptr noundef %0
 
 64:                                               ; preds = %52, %37
   %65 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #6
   ret i32 %65
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zdp_rsp_security_challenge_local_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2624,9 +2721,11 @@ define internal i32 @dissect_zdp_rsp_security_challenge_local_tlv(ptr noundef %0
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #6
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %8, align 4
-  %13 = call zeroext i8 @tvb_get_guint8(ptr noundef %11, i32 noundef %12)
+  %13 = call zeroext i8 @tvb_get_uint8(ptr noundef %11, i32 noundef %12)
   store i8 %13, ptr %9, align 1
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr @hf_zbee_tlv_local_type_rsp_challenge, align 4
@@ -2638,7 +2737,7 @@ define internal i32 @dissect_zdp_rsp_security_challenge_local_tlv(ptr noundef %0
   store i32 %20, ptr %8, align 4
   %21 = load ptr, ptr %5, align 8
   %22 = load i32, ptr %8, align 4
-  %23 = call zeroext i8 @tvb_get_guint8(ptr noundef %21, i32 noundef %22)
+  %23 = call zeroext i8 @tvb_get_uint8(ptr noundef %21, i32 noundef %22)
   store i8 %23, ptr %10, align 1
   %24 = load ptr, ptr %7, align 8
   %25 = load i32, ptr @hf_zbee_tlv_length, align 4
@@ -2719,10 +2818,12 @@ define internal i32 @dissect_zdp_rsp_security_challenge_local_tlv(ptr noundef %0
 
 85:                                               ; preds = %73, %37
   %86 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #6
   ret i32 %86
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zdp_rsp_security_set_configuration_local_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2736,9 +2837,11 @@ define internal i32 @dissect_zdp_rsp_security_set_configuration_local_tlv(ptr no
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #6
   %13 = load ptr, ptr %5, align 8
   %14 = load i32, ptr %8, align 4
-  %15 = call zeroext i8 @tvb_get_guint8(ptr noundef %13, i32 noundef %14)
+  %15 = call zeroext i8 @tvb_get_uint8(ptr noundef %13, i32 noundef %14)
   store i8 %15, ptr %9, align 1
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr @hf_zbee_tlv_local_type_rsp_set_configuration, align 4
@@ -2750,7 +2853,7 @@ define internal i32 @dissect_zdp_rsp_security_set_configuration_local_tlv(ptr no
   store i32 %22, ptr %8, align 4
   %23 = load ptr, ptr %5, align 8
   %24 = load i32, ptr %8, align 4
-  %25 = call zeroext i8 @tvb_get_guint8(ptr noundef %23, i32 noundef %24)
+  %25 = call zeroext i8 @tvb_get_uint8(ptr noundef %23, i32 noundef %24)
   store i8 %25, ptr %10, align 1
   %26 = load ptr, ptr %7, align 8
   %27 = load i32, ptr @hf_zbee_tlv_length, align 4
@@ -2772,9 +2875,11 @@ define internal i32 @dissect_zdp_rsp_security_set_configuration_local_tlv(ptr no
   ]
 
 39:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #6
   %40 = load ptr, ptr %5, align 8
   %41 = load i32, ptr %8, align 4
-  %42 = call zeroext i8 @tvb_get_guint8(ptr noundef %40, i32 noundef %41)
+  %42 = call zeroext i8 @tvb_get_uint8(ptr noundef %40, i32 noundef %41)
   store i8 %42, ptr %11, align 1
   %43 = load ptr, ptr %7, align 8
   %44 = load i32, ptr @hf_zbee_tlv_local_status_count, align 4
@@ -2818,9 +2923,11 @@ define internal i32 @dissect_zdp_rsp_security_set_configuration_local_tlv(ptr no
   %72 = load i8, ptr %12, align 1
   %73 = add i8 %72, 1
   store i8 %73, ptr %12, align 1
-  br label %50, !llvm.loop !8
+  br label %50, !llvm.loop !10
 
 74:                                               ; preds = %50
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #6
   br label %87
 
 75:                                               ; preds = %4
@@ -2840,10 +2947,12 @@ define internal i32 @dissect_zdp_rsp_security_set_configuration_local_tlv(ptr no
 
 87:                                               ; preds = %75, %74
   %88 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #6
   ret i32 %88
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zbee_tlv_clear_all_bindigs_eui64(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2861,7 +2970,7 @@ define internal i32 @dissect_zbee_tlv_clear_all_bindigs_eui64(ptr noundef %0, pt
   ret i32 %13
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zbee_tlv_eui64(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2873,9 +2982,11 @@ define internal i32 @dissect_zbee_tlv_eui64(ptr noundef %0, ptr noundef %1, ptr 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #6
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %8, align 4
-  %13 = call zeroext i8 @tvb_get_guint8(ptr noundef %11, i32 noundef %12)
+  %13 = call zeroext i8 @tvb_get_uint8(ptr noundef %11, i32 noundef %12)
   store i8 %13, ptr %9, align 1
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr @hf_zbee_tlv_count, align 4
@@ -2911,14 +3022,16 @@ define internal i32 @dissect_zbee_tlv_eui64(ptr noundef %0, ptr noundef %1, ptr 
   %36 = load i8, ptr %10, align 1
   %37 = add i8 %36, 1
   store i8 %37, ptr %10, align 1
-  br label %21, !llvm.loop !9
+  br label %21, !llvm.loop !11
 
 38:                                               ; preds = %21
   %39 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #6
   ret i32 %39
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zbee_tlv_selected_key_negotiation_method(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2956,7 +3069,7 @@ define internal i32 @dissect_zbee_tlv_selected_key_negotiation_method(ptr nounde
   ret i32 %30
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zbee_tlv_public_point(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -2969,6 +3082,7 @@ define internal i32 @dissect_zbee_tlv_public_point(ptr noundef %0, ptr noundef %
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i8 %4, ptr %10, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #6
   %12 = load i8, ptr %10, align 1
   %13 = zext i8 %12 to i32
   %14 = sub i32 %13, 8
@@ -2995,10 +3109,11 @@ define internal i32 @dissect_zbee_tlv_public_point(ptr noundef %0, ptr noundef %
   %33 = add i32 %32, %31
   store i32 %33, ptr %9, align 4
   %34 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #6
   ret i32 %34
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zbee_tlv_requested_auth_token_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3020,7 +3135,7 @@ define internal i32 @dissect_zbee_tlv_requested_auth_token_id(ptr noundef %0, pt
   ret i32 %16
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zbee_tlv_target_ieee_address(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3042,7 +3157,7 @@ define internal i32 @dissect_zbee_tlv_target_ieee_address(ptr noundef %0, ptr no
   ret i32 %16
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zbee_tlv_device_auth_level(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3080,7 +3195,7 @@ define internal i32 @dissect_zbee_tlv_device_auth_level(ptr noundef %0, ptr noun
   ret i32 %30
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zbee_tlv_potential_parents(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3092,6 +3207,8 @@ define internal i32 @dissect_zbee_tlv_potential_parents(ptr noundef %0, ptr noun
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #6
   %11 = load ptr, ptr %7, align 8
   %12 = load i32, ptr @hf_zbee_zdp_beacon_survey_current_parent, align 4
   %13 = load ptr, ptr %5, align 8
@@ -3110,7 +3227,7 @@ define internal i32 @dissect_zbee_tlv_potential_parents(ptr noundef %0, ptr noun
   store i32 %24, ptr %8, align 4
   %25 = load ptr, ptr %5, align 8
   %26 = load i32, ptr %8, align 4
-  %27 = call zeroext i8 @tvb_get_guint8(ptr noundef %25, i32 noundef %26)
+  %27 = call zeroext i8 @tvb_get_uint8(ptr noundef %25, i32 noundef %26)
   store i8 %27, ptr %9, align 1
   %28 = load ptr, ptr %7, align 8
   %29 = load i32, ptr @hf_zbee_zdp_beacon_survey_cnt_parents, align 4
@@ -3154,20 +3271,25 @@ define internal i32 @dissect_zbee_tlv_potential_parents(ptr noundef %0, ptr noun
   %57 = load i8, ptr %10, align 1
   %58 = add i8 %57, 1
   store i8 %58, ptr %10, align 1
-  br label %35, !llvm.loop !10
+  br label %35, !llvm.loop !12
 
 59:                                               ; preds = %35
   %60 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #6
   ret i32 %60
 }
 
-declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @wmem_file_scope() #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_file_scope() #2
 
-declare i32 @proto_get_id_by_filter_name(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_get_id_by_filter_name(ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_aps_relay_local_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -3184,6 +3306,11 @@ define internal i32 @dissect_aps_relay_local_tlv(ptr noundef %0, ptr noundef %1,
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store ptr %4, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #6
   %16 = call ptr @find_dissector(ptr noundef @.str.194)
   store ptr %16, ptr @zigbee_aps_handle, align 8
   %17 = load ptr, ptr %8, align 8
@@ -3196,7 +3323,7 @@ define internal i32 @dissect_aps_relay_local_tlv(ptr noundef %0, ptr noundef %1,
   store i32 %23, ptr %9, align 4
   %24 = load ptr, ptr %6, align 8
   %25 = load i32, ptr %9, align 4
-  %26 = call zeroext i8 @tvb_get_guint8(ptr noundef %24, i32 noundef %25)
+  %26 = call zeroext i8 @tvb_get_uint8(ptr noundef %24, i32 noundef %25)
   %27 = zext i8 %26 to i32
   %28 = add i32 %27, 1
   %29 = trunc i32 %28 to i8
@@ -3223,7 +3350,7 @@ define internal i32 @dissect_aps_relay_local_tlv(ptr noundef %0, ptr noundef %1,
   %47 = load i32, ptr %9, align 4
   %48 = call i64 @tvb_get_letoh64(ptr noundef %46, i32 noundef %47)
   %49 = load ptr, ptr %15, align 8
-  %50 = getelementptr inbounds %struct.zbee_nwk_hints_t, ptr %49, i32 0, i32 6
+  %50 = getelementptr inbounds nuw %struct.zbee_nwk_hints_t, ptr %49, i32 0, i32 6
   store i64 %48, ptr %50, align 8
   %51 = load i32, ptr %9, align 4
   %52 = add i32 %51, 8
@@ -3248,27 +3375,38 @@ define internal i32 @dissect_aps_relay_local_tlv(ptr noundef %0, ptr noundef %1,
   %68 = load ptr, ptr %10, align 8
   %69 = call i32 @call_dissector_with_data(ptr noundef %64, ptr noundef %65, ptr noundef %66, ptr noundef %67, ptr noundef %68)
   %70 = load ptr, ptr %7, align 8
-  %71 = getelementptr inbounds %struct._packet_info, ptr %70, i32 0, i32 1
+  %71 = getelementptr inbounds nuw %struct._packet_info, ptr %70, i32 0, i32 1
   %72 = load ptr, ptr %71, align 8
   call void @col_append_str(ptr noundef %72, i32 noundef 25, ptr noundef @.str.196)
   %73 = load ptr, ptr %6, align 8
   %74 = call i32 @tvb_captured_length(ptr noundef %73)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
   ret i32 %74
 }
 
-declare i64 @tvb_get_letoh64(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i64 @tvb_get_letoh64(ptr noundef, i32 noundef) #2
 
-declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #2
 
-declare i32 @call_dissector_with_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @call_dissector_with_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare i32 @tvb_captured_length(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length(ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zbd_msg_status_local_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3280,9 +3418,11 @@ define internal i32 @dissect_zbd_msg_status_local_tlv(ptr noundef %0, ptr nounde
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #6
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %8, align 4
-  %13 = call zeroext i8 @tvb_get_guint8(ptr noundef %11, i32 noundef %12)
+  %13 = call zeroext i8 @tvb_get_uint8(ptr noundef %11, i32 noundef %12)
   store i8 %13, ptr %9, align 1
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr @hf_zbee_tlv_zbd_comm_tlv, align 4
@@ -3294,7 +3434,7 @@ define internal i32 @dissect_zbd_msg_status_local_tlv(ptr noundef %0, ptr nounde
   store i32 %20, ptr %8, align 4
   %21 = load ptr, ptr %5, align 8
   %22 = load i32, ptr %8, align 4
-  %23 = call zeroext i8 @tvb_get_guint8(ptr noundef %21, i32 noundef %22)
+  %23 = call zeroext i8 @tvb_get_uint8(ptr noundef %21, i32 noundef %22)
   store i8 %23, ptr %10, align 1
   %24 = load ptr, ptr %7, align 8
   %25 = load i32, ptr @hf_zbee_tlv_length, align 4
@@ -3451,10 +3591,12 @@ define internal i32 @dissect_zbd_msg_status_local_tlv(ptr noundef %0, ptr nounde
 
 121:                                              ; preds = %109, %103, %97, %91, %85, %79, %73, %67, %61, %55, %49, %43, %37
   %122 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #6
   ret i32 %122
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zbd_msg_tunneling_local_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3466,10 +3608,12 @@ define internal i32 @dissect_zbd_msg_tunneling_local_tlv(ptr noundef %0, ptr nou
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #6
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %8, align 4
-  %13 = call zeroext i8 @tvb_get_guint8(ptr noundef %11, i32 noundef %12)
+  %13 = call zeroext i8 @tvb_get_uint8(ptr noundef %11, i32 noundef %12)
   store i8 %13, ptr %9, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #6
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr @hf_zbee_tlv_zbd_tunneling_npdu_msg_tlv, align 4
   %16 = load ptr, ptr %5, align 8
@@ -3480,7 +3624,7 @@ define internal i32 @dissect_zbd_msg_tunneling_local_tlv(ptr noundef %0, ptr nou
   store i32 %20, ptr %8, align 4
   %21 = load ptr, ptr %5, align 8
   %22 = load i32, ptr %8, align 4
-  %23 = call zeroext i8 @tvb_get_guint8(ptr noundef %21, i32 noundef %22)
+  %23 = call zeroext i8 @tvb_get_uint8(ptr noundef %21, i32 noundef %22)
   store i8 %23, ptr %10, align 1
   %24 = load ptr, ptr %7, align 8
   %25 = load i32, ptr @hf_zbee_tlv_length, align 4
@@ -3503,9 +3647,9 @@ define internal i32 @dissect_zbd_msg_tunneling_local_tlv(ptr noundef %0, ptr nou
 
 37:                                               ; preds = %4
   %38 = load ptr, ptr %6, align 8
-  %39 = getelementptr inbounds %struct._packet_info, ptr %38, i32 0, i32 1
+  %39 = getelementptr inbounds nuw %struct._packet_info, ptr %38, i32 0, i32 1
   %40 = load ptr, ptr %39, align 8
-  call void @col_set_fence(ptr noundef %40, i32 noundef 34)
+  call void @col_set_fence(ptr noundef %40, i32 noundef 35)
   %41 = load ptr, ptr %5, align 8
   %42 = load ptr, ptr %6, align 8
   %43 = load ptr, ptr %7, align 8
@@ -3532,10 +3676,12 @@ define internal i32 @dissect_zbd_msg_tunneling_local_tlv(ptr noundef %0, ptr nou
 
 59:                                               ; preds = %47, %37
   %60 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #6
   ret i32 %60
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zbd_msg_manage_joiners_local_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3547,9 +3693,11 @@ define internal i32 @dissect_zbd_msg_manage_joiners_local_tlv(ptr noundef %0, pt
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #6
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %8, align 4
-  %13 = call zeroext i8 @tvb_get_guint8(ptr noundef %11, i32 noundef %12)
+  %13 = call zeroext i8 @tvb_get_uint8(ptr noundef %11, i32 noundef %12)
   store i8 %13, ptr %9, align 1
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr @hf_zbee_tlv_zbd_comm_mj_cmd_tlv, align 4
@@ -3561,7 +3709,7 @@ define internal i32 @dissect_zbd_msg_manage_joiners_local_tlv(ptr noundef %0, pt
   store i32 %20, ptr %8, align 4
   %21 = load ptr, ptr %5, align 8
   %22 = load i32, ptr %8, align 4
-  %23 = call zeroext i8 @tvb_get_guint8(ptr noundef %21, i32 noundef %22)
+  %23 = call zeroext i8 @tvb_get_uint8(ptr noundef %21, i32 noundef %22)
   store i8 %23, ptr %10, align 1
   %24 = load ptr, ptr %7, align 8
   %25 = load i32, ptr @hf_zbee_tlv_length, align 4
@@ -3628,10 +3776,12 @@ define internal i32 @dissect_zbd_msg_manage_joiners_local_tlv(ptr noundef %0, pt
 
 67:                                               ; preds = %55, %49, %43, %37
   %68 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #6
   ret i32 %68
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zbd_msg_join_local_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3643,9 +3793,11 @@ define internal i32 @dissect_zbd_msg_join_local_tlv(ptr noundef %0, ptr noundef 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #6
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %8, align 4
-  %13 = call zeroext i8 @tvb_get_guint8(ptr noundef %11, i32 noundef %12)
+  %13 = call zeroext i8 @tvb_get_uint8(ptr noundef %11, i32 noundef %12)
   store i8 %13, ptr %9, align 1
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr @hf_zbee_tlv_zbd_comm_tlv, align 4
@@ -3657,7 +3809,7 @@ define internal i32 @dissect_zbd_msg_join_local_tlv(ptr noundef %0, ptr noundef 
   store i32 %20, ptr %8, align 4
   %21 = load ptr, ptr %5, align 8
   %22 = load i32, ptr %8, align 4
-  %23 = call zeroext i8 @tvb_get_guint8(ptr noundef %21, i32 noundef %22)
+  %23 = call zeroext i8 @tvb_get_uint8(ptr noundef %21, i32 noundef %22)
   store i8 %23, ptr %10, align 1
   %24 = load ptr, ptr %7, align 8
   %25 = load i32, ptr @hf_zbee_tlv_length, align 4
@@ -3804,10 +3956,12 @@ define internal i32 @dissect_zbd_msg_join_local_tlv(ptr noundef %0, ptr noundef 
 
 115:                                              ; preds = %103, %97, %91, %85, %79, %73, %67, %61, %55, %49, %43, %37
   %116 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #6
   ret i32 %116
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zbd_msg_formation_local_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3819,9 +3973,11 @@ define internal i32 @dissect_zbd_msg_formation_local_tlv(ptr noundef %0, ptr nou
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #6
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %8, align 4
-  %13 = call zeroext i8 @tvb_get_guint8(ptr noundef %11, i32 noundef %12)
+  %13 = call zeroext i8 @tvb_get_uint8(ptr noundef %11, i32 noundef %12)
   store i8 %13, ptr %9, align 1
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr @hf_zbee_tlv_zbd_comm_tlv, align 4
@@ -3833,7 +3989,7 @@ define internal i32 @dissect_zbd_msg_formation_local_tlv(ptr noundef %0, ptr nou
   store i32 %20, ptr %8, align 4
   %21 = load ptr, ptr %5, align 8
   %22 = load i32, ptr %8, align 4
-  %23 = call zeroext i8 @tvb_get_guint8(ptr noundef %21, i32 noundef %22)
+  %23 = call zeroext i8 @tvb_get_uint8(ptr noundef %21, i32 noundef %22)
   store i8 %23, ptr %10, align 1
   %24 = load ptr, ptr %7, align 8
   %25 = load i32, ptr @hf_zbee_tlv_length, align 4
@@ -3970,10 +4126,12 @@ define internal i32 @dissect_zbd_msg_formation_local_tlv(ptr noundef %0, ptr nou
 
 109:                                              ; preds = %97, %91, %85, %79, %73, %67, %61, %55, %49, %43, %37
   %110 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #6
   ret i32 %110
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zbd_msg_secur_local_tlv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3985,9 +4143,11 @@ define internal i32 @dissect_zbd_msg_secur_local_tlv(ptr noundef %0, ptr noundef
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #6
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %8, align 4
-  %13 = call zeroext i8 @tvb_get_guint8(ptr noundef %11, i32 noundef %12)
+  %13 = call zeroext i8 @tvb_get_uint8(ptr noundef %11, i32 noundef %12)
   store i8 %13, ptr %9, align 1
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr @hf_zbee_tlv_zbd_secur_tlv, align 4
@@ -3999,7 +4159,7 @@ define internal i32 @dissect_zbd_msg_secur_local_tlv(ptr noundef %0, ptr noundef
   store i32 %20, ptr %8, align 4
   %21 = load ptr, ptr %5, align 8
   %22 = load i32, ptr %8, align 4
-  %23 = call zeroext i8 @tvb_get_guint8(ptr noundef %21, i32 noundef %22)
+  %23 = call zeroext i8 @tvb_get_uint8(ptr noundef %21, i32 noundef %22)
   store i8 %23, ptr %10, align 1
   %24 = load ptr, ptr %7, align 8
   %25 = load i32, ptr @hf_zbee_tlv_length, align 4
@@ -4079,10 +4239,12 @@ define internal i32 @dissect_zbd_msg_secur_local_tlv(ptr noundef %0, ptr noundef
 
 75:                                               ; preds = %63, %56, %50, %43, %37
   %76 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #6
   ret i32 %76
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zbee_tlv_ieee_addr(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4104,7 +4266,7 @@ define internal i32 @dissect_zbee_tlv_ieee_addr(ptr noundef %0, ptr noundef %1, 
   ret i32 %16
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zbee_tlv_nwk_status_map(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4118,9 +4280,13 @@ define internal i32 @dissect_zbee_tlv_nwk_status_map(ptr noundef %0, ptr noundef
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
   %13 = load ptr, ptr %5, align 8
   %14 = load i32, ptr %8, align 4
-  %15 = call zeroext i8 @tvb_get_guint8(ptr noundef %13, i32 noundef %14)
+  %15 = call zeroext i8 @tvb_get_uint8(ptr noundef %13, i32 noundef %14)
   store i8 %15, ptr %9, align 1
   %16 = load ptr, ptr %7, align 8
   %17 = load ptr, ptr %5, align 8
@@ -4157,12 +4323,12 @@ define internal i32 @dissect_zbee_tlv_nwk_status_map(ptr noundef %0, ptr noundef
 
 41:                                               ; preds = %38, %4
   %42 = load ptr, ptr %6, align 8
-  %43 = getelementptr inbounds %struct._packet_info, ptr %42, i32 0, i32 1
+  %43 = getelementptr inbounds nuw %struct._packet_info, ptr %42, i32 0, i32 1
   %44 = load ptr, ptr %43, align 8
   %45 = load i32, ptr %10, align 4
   %46 = zext i32 %45 to i64
   %47 = getelementptr [6 x %struct._value_string], ptr @zbee_tlv_local_types_joined_status_str, i64 0, i64 %46
-  %48 = getelementptr inbounds %struct._value_string, ptr %47, i32 0, i32 1
+  %48 = getelementptr inbounds nuw %struct._value_string, ptr %47, i32 0, i32 1
   %49 = load ptr, ptr %48, align 8
   %50 = load i32, ptr %11, align 4
   %51 = icmp ne i32 %50, 0
@@ -4175,22 +4341,26 @@ define internal i32 @dissect_zbee_tlv_nwk_status_map(ptr noundef %0, ptr noundef
 
 56:                                               ; preds = %38
   %57 = load ptr, ptr %6, align 8
-  %58 = getelementptr inbounds %struct._packet_info, ptr %57, i32 0, i32 1
+  %58 = getelementptr inbounds nuw %struct._packet_info, ptr %57, i32 0, i32 1
   %59 = load ptr, ptr %58, align 8
   %60 = load i32, ptr %10, align 4
   %61 = zext i32 %60 to i64
   %62 = getelementptr [6 x %struct._value_string], ptr @zbee_tlv_local_types_joined_status_str, i64 0, i64 %61
-  %63 = getelementptr inbounds %struct._value_string, ptr %62, i32 0, i32 1
+  %63 = getelementptr inbounds nuw %struct._value_string, ptr %62, i32 0, i32 1
   %64 = load ptr, ptr %63, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %59, i32 noundef 25, ptr noundef @.str.202, ptr noundef %64)
   br label %65
 
 65:                                               ; preds = %56, %41
   %66 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #6
   ret i32 %66
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zbee_tlv_tc_addr(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4212,7 +4382,7 @@ define internal i32 @dissect_zbee_tlv_tc_addr(ptr noundef %0, ptr noundef %1, pt
   ret i32 %16
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zbee_tlv_ext_pan_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4234,7 +4404,7 @@ define internal i32 @dissect_zbee_tlv_ext_pan_id(ptr noundef %0, ptr noundef %1,
   ret i32 %16
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zbee_tlv_short_pan_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4256,7 +4426,7 @@ define internal i32 @dissect_zbee_tlv_short_pan_id(ptr noundef %0, ptr noundef %
   ret i32 %16
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zbee_tlv_nwk_channel_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4268,6 +4438,7 @@ define internal i32 @dissect_zbee_tlv_nwk_channel_list(ptr noundef %0, ptr nound
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
   store i32 0, ptr %9, align 4
   %11 = load ptr, ptr %7, align 8
   %12 = load i32, ptr @hf_zbee_tlv_local_comm_channel_page_count, align 4
@@ -4277,37 +4448,43 @@ define internal i32 @dissect_zbee_tlv_nwk_channel_list(ptr noundef %0, ptr nound
   %16 = load i32, ptr %8, align 4
   %17 = add i32 %16, 1
   store i32 %17, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
   store i32 0, ptr %10, align 4
   br label %18
 
-18:                                               ; preds = %29, %4
+18:                                               ; preds = %30, %4
   %19 = load i32, ptr %10, align 4
   %20 = load i32, ptr %9, align 4
   %21 = icmp ult i32 %19, %20
-  br i1 %21, label %22, label %32
+  br i1 %21, label %23, label %22
 
 22:                                               ; preds = %18
-  %23 = load ptr, ptr %7, align 8
-  %24 = load ptr, ptr %5, align 8
-  %25 = load i32, ptr %8, align 4
-  %26 = load i32, ptr @hf_zbee_tlv_local_comm_channel_page, align 4
-  %27 = load i32, ptr @hf_zbee_tlv_local_comm_channel_mask, align 4
-  %28 = call i32 @dissect_zbee_tlv_chanmask(ptr noundef %23, ptr noundef %24, i32 noundef %25, i32 noundef %26, i32 noundef %27)
-  store i32 %28, ptr %8, align 4
-  br label %29
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
+  br label %33
 
-29:                                               ; preds = %22
-  %30 = load i32, ptr %10, align 4
-  %31 = add i32 %30, 1
-  store i32 %31, ptr %10, align 4
-  br label %18, !llvm.loop !11
+23:                                               ; preds = %18
+  %24 = load ptr, ptr %7, align 8
+  %25 = load ptr, ptr %5, align 8
+  %26 = load i32, ptr %8, align 4
+  %27 = load i32, ptr @hf_zbee_tlv_local_comm_channel_page, align 4
+  %28 = load i32, ptr @hf_zbee_tlv_local_comm_channel_mask, align 4
+  %29 = call i32 @dissect_zbee_tlv_chanmask(ptr noundef %24, ptr noundef %25, i32 noundef %26, i32 noundef %27, i32 noundef %28)
+  store i32 %29, ptr %8, align 4
+  br label %30
 
-32:                                               ; preds = %18
-  %33 = load i32, ptr %8, align 4
-  ret i32 %33
+30:                                               ; preds = %23
+  %31 = load i32, ptr %10, align 4
+  %32 = add i32 %31, 1
+  store i32 %32, ptr %10, align 4
+  br label %18, !llvm.loop !13
+
+33:                                               ; preds = %22
+  %34 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
+  ret i32 %34
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zbee_tlv_nwk_key(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4329,7 +4506,7 @@ define internal i32 @dissect_zbee_tlv_nwk_key(ptr noundef %0, ptr noundef %1, pt
   ret i32 %16
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zbee_tlv_nwk_addr(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4351,7 +4528,7 @@ define internal i32 @dissect_zbee_tlv_nwk_addr(ptr noundef %0, ptr noundef %1, p
   ret i32 %16
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zbee_tlv_nwk_upd_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4373,7 +4550,7 @@ define internal i32 @dissect_zbee_tlv_nwk_upd_id(ptr noundef %0, ptr noundef %1,
   ret i32 %16
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zbee_tlv_key_seq_num(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4395,7 +4572,7 @@ define internal i32 @dissect_zbee_tlv_key_seq_num(ptr noundef %0, ptr noundef %1
   ret i32 %16
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zbee_tlv_dev_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4417,7 +4594,7 @@ define internal i32 @dissect_zbee_tlv_dev_type(ptr noundef %0, ptr noundef %1, p
   ret i32 %16
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zbee_tlv_status_code(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4429,6 +4606,8 @@ define internal i32 @dissect_zbee_tlv_status_code(ptr noundef %0, ptr noundef %1
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
   %11 = load ptr, ptr %7, align 8
   %12 = load i32, ptr @hf_zbee_tlv_local_comm_status_code_domain, align 4
   %13 = load ptr, ptr %5, align 8
@@ -4452,14 +4631,18 @@ define internal i32 @dissect_zbee_tlv_status_code(ptr noundef %0, ptr noundef %1
   %28 = select i1 %27, ptr @.str.208, ptr @.str.209
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %25, ptr noundef @.str.202, ptr noundef %28)
   %29 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
   ret i32 %29
 }
 
-declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #2
 
-declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zbee_tlv_chanmask(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -4475,6 +4658,10 @@ define internal i32 @dissect_zbee_tlv_chanmask(ptr noundef %0, ptr noundef %1, i
   store i32 %2, ptr %8, align 4
   store i32 %3, ptr %9, align 4
   store i32 %4, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #6
   %15 = load ptr, ptr %7, align 8
   %16 = load i32, ptr %8, align 4
   %17 = call i32 @tvb_get_letohl(ptr noundef %15, i32 noundef %16)
@@ -4518,7 +4705,7 @@ define internal i32 @dissect_zbee_tlv_chanmask(ptr noundef %0, ptr noundef %1, i
 
 44:                                               ; preds = %58, %43
   %45 = load i32, ptr %11, align 4
-  %46 = icmp slt i32 %45, 32
+  %46 = icmp ult i32 %45, 32
   br i1 %46, label %47, label %61
 
 47:                                               ; preds = %44
@@ -4544,15 +4731,15 @@ define internal i32 @dissect_zbee_tlv_chanmask(ptr noundef %0, ptr noundef %1, i
   %59 = load i32, ptr %11, align 4
   %60 = add i32 %59, 1
   store i32 %60, ptr %11, align 4
-  br label %44, !llvm.loop !12
+  br label %44, !llvm.loop !14
 
 61:                                               ; preds = %53, %44
   br label %62
 
-62:                                               ; preds = %102, %61
+62:                                               ; preds = %107, %61
   %63 = load i32, ptr %11, align 4
-  %64 = icmp slt i32 %63, 32
-  br i1 %64, label %65, label %105
+  %64 = icmp ult i32 %63, 32
+  br i1 %64, label %65, label %110
 
 65:                                               ; preds = %62
   %66 = load i32, ptr %11, align 4
@@ -4563,7 +4750,7 @@ define internal i32 @dissect_zbee_tlv_chanmask(ptr noundef %0, ptr noundef %1, i
   br i1 %70, label %72, label %71
 
 71:                                               ; preds = %65
-  br label %102
+  br label %107
 
 72:                                               ; preds = %65
   %73 = load i32, ptr %11, align 4
@@ -4586,61 +4773,79 @@ define internal i32 @dissect_zbee_tlv_chanmask(ptr noundef %0, ptr noundef %1, i
   %85 = load i32, ptr %12, align 4
   %86 = and i32 %84, %85
   %87 = icmp ne i32 %86, 0
-  br i1 %87, label %88, label %101
+  br i1 %87, label %88, label %106
 
 88:                                               ; preds = %82
   br label %89
 
-89:                                               ; preds = %95, %88
+89:                                               ; preds = %100, %88
   %90 = load i32, ptr %11, align 4
-  %91 = shl i32 2, %90
-  %92 = load i32, ptr %12, align 4
-  %93 = and i32 %91, %92
-  %94 = icmp ne i32 %93, 0
-  br i1 %94, label %95, label %98
+  %91 = icmp ult i32 %90, 32
+  br i1 %91, label %92, label %98
 
-95:                                               ; preds = %89
-  %96 = load i32, ptr %11, align 4
-  %97 = add i32 %96, 1
-  store i32 %97, ptr %11, align 4
-  br label %89, !llvm.loop !13
+92:                                               ; preds = %89
+  %93 = load i32, ptr %11, align 4
+  %94 = shl i32 2, %93
+  %95 = load i32, ptr %12, align 4
+  %96 = and i32 %94, %95
+  %97 = icmp ne i32 %96, 0
+  br label %98
 
-98:                                               ; preds = %89
-  %99 = load ptr, ptr %14, align 8
-  %100 = load i32, ptr %11, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %99, ptr noundef @.str.207, i32 noundef %100)
-  br label %101
+98:                                               ; preds = %92, %89
+  %99 = phi i1 [ false, %89 ], [ %97, %92 ]
+  br i1 %99, label %100, label %103
 
-101:                                              ; preds = %98, %82
-  br label %102
+100:                                              ; preds = %98
+  %101 = load i32, ptr %11, align 4
+  %102 = add i32 %101, 1
+  store i32 %102, ptr %11, align 4
+  br label %89, !llvm.loop !15
 
-102:                                              ; preds = %101, %71
-  %103 = load i32, ptr %11, align 4
-  %104 = add i32 %103, 1
-  store i32 %104, ptr %11, align 4
-  br label %62, !llvm.loop !14
+103:                                              ; preds = %98
+  %104 = load ptr, ptr %14, align 8
+  %105 = load i32, ptr %11, align 4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %104, ptr noundef @.str.207, i32 noundef %105)
+  br label %106
 
-105:                                              ; preds = %62
-  %106 = load i32, ptr %8, align 4
-  %107 = zext i32 %106 to i64
-  %108 = add i64 %107, 4
-  %109 = trunc i64 %108 to i32
-  store i32 %109, ptr %8, align 4
-  %110 = load i32, ptr %8, align 4
-  ret i32 %110
+106:                                              ; preds = %103, %82
+  br label %107
+
+107:                                              ; preds = %106, %71
+  %108 = load i32, ptr %11, align 4
+  %109 = add i32 %108, 1
+  store i32 %109, ptr %11, align 4
+  br label %62, !llvm.loop !16
+
+110:                                              ; preds = %62
+  %111 = load i32, ptr %8, align 4
+  %112 = zext i32 %111 to i64
+  %113 = add i64 %112, 4
+  %114 = trunc i64 %113 to i32
+  store i32 %114, ptr %8, align 4
+  %115 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #6
+  ret i32 %115
 }
 
-declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) #2
 
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #2
 
-declare void @col_set_fence(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_fence(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zbee_tlv_tunneling_npdu_msg(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -4650,7 +4855,7 @@ define internal i32 @dissect_zbee_tlv_tunneling_npdu_msg(ptr noundef %0, ptr nou
   %11 = alloca i32, align 4
   %12 = alloca ptr, align 8
   %13 = alloca ptr, align 8
-  %14 = alloca i32, align 4
+  %14 = alloca i8, align 1
   %15 = alloca ptr, align 8
   %16 = alloca ptr, align 8
   %17 = alloca %struct.ieee802154_packet, align 8
@@ -4659,17 +4864,21 @@ define internal i32 @dissect_zbee_tlv_tunneling_npdu_msg(ptr noundef %0, ptr nou
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i8 %4, ptr %10, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #6
   store i32 0, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #6
   %18 = load ptr, ptr %8, align 8
   %19 = load i32, ptr @hf_zbee_tlv_local_tunneling_npdu_flags, align 4
   %20 = load ptr, ptr %6, align 8
   %21 = load i32, ptr %9, align 4
   %22 = call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %19, ptr noundef %20, i32 noundef %21, i32 noundef 1, i32 noundef -2147483648)
   store ptr %22, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #6
   %23 = load ptr, ptr %12, align 8
   %24 = load i32, ptr @ett_zbee_tlv_zbd_tunneling_npdu_flags, align 4
   %25 = call ptr @proto_item_add_subtree(ptr noundef %23, i32 noundef %24)
   store ptr %25, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #6
   %26 = load ptr, ptr %13, align 8
   %27 = load i32, ptr @hf_zbee_tlv_local_tunneling_npdu_flags_security, align 4
   %28 = load ptr, ptr %6, align 8
@@ -4682,8 +4891,8 @@ define internal i32 @dissect_zbee_tlv_tunneling_npdu_msg(ptr noundef %0, ptr nou
   %35 = add i32 %34, 1
   %36 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %31, i32 noundef %32, ptr noundef %33, i32 noundef %35, i32 noundef 1, i32 noundef -2147483648, ptr noundef %11)
   %37 = load ptr, ptr %12, align 8
-  %38 = load i32, ptr %14, align 4
-  %39 = icmp ne i32 %38, 0
+  %38 = load i8, ptr %14, align 1, !range !17, !noundef !18
+  %39 = trunc i8 %38 to i1
   %40 = select i1 %39, ptr @.str.211, ptr @.str.212
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %37, ptr noundef @.str.210, ptr noundef %40)
   %41 = load ptr, ptr %13, align 8
@@ -4691,6 +4900,10 @@ define internal i32 @dissect_zbee_tlv_tunneling_npdu_msg(ptr noundef %0, ptr nou
   %43 = load ptr, ptr %6, align 8
   %44 = load i32, ptr %9, align 4
   %45 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %42, ptr noundef %43, i32 noundef %44, i32 noundef 1, i32 noundef -2147483648)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #6
   %46 = load ptr, ptr %8, align 8
   %47 = load i32, ptr @hf_zbee_tlv_local_tunneling_npdu, align 4
   %48 = load ptr, ptr %6, align 8
@@ -4699,39 +4912,68 @@ define internal i32 @dissect_zbee_tlv_tunneling_npdu_msg(ptr noundef %0, ptr nou
   %51 = load i32, ptr %11, align 4
   %52 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %47, ptr noundef %48, i32 noundef %50, i32 noundef %51, i32 noundef 0)
   store ptr %52, ptr %15, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #6
   %53 = load ptr, ptr %15, align 8
   %54 = load i32, ptr @ett_zbee_tlv_zbd_tunneling_npdu, align 4
   %55 = call ptr @proto_item_add_subtree(ptr noundef %53, i32 noundef %54)
   store ptr %55, ptr %16, align 8
-  call void @llvm.memset.p0.i64(ptr align 8 %17, i8 0, i64 152, i1 false)
-  %56 = load ptr, ptr @zbee_nwk_handle, align 8
-  %57 = load ptr, ptr %6, align 8
-  %58 = load i32, ptr %9, align 4
-  %59 = add i32 %58, 2
-  %60 = load i32, ptr %11, align 4
-  %61 = call ptr @tvb_new_subset_length(ptr noundef %57, i32 noundef %59, i32 noundef %60)
-  %62 = load ptr, ptr %7, align 8
-  %63 = load ptr, ptr %16, align 8
-  %64 = call i32 @call_dissector_with_data(ptr noundef %56, ptr noundef %61, ptr noundef %62, ptr noundef %63, ptr noundef %17)
-  %65 = load i8, ptr %10, align 1
-  %66 = zext i8 %65 to i32
-  %67 = load i32, ptr %9, align 4
-  %68 = add i32 %67, %66
-  store i32 %68, ptr %9, align 4
-  %69 = load i32, ptr %9, align 4
-  ret i32 %69
+  call void @llvm.lifetime.start.p0(i64 120, ptr %17) #6
+  %56 = call ptr @memset.inline(ptr noundef %17, i32 noundef 0, i64 noundef 120) #6
+  %57 = load ptr, ptr @zbee_nwk_handle, align 8
+  %58 = load ptr, ptr %6, align 8
+  %59 = load i32, ptr %9, align 4
+  %60 = add i32 %59, 2
+  %61 = load i32, ptr %11, align 4
+  %62 = call ptr @tvb_new_subset_length(ptr noundef %58, i32 noundef %60, i32 noundef %61)
+  %63 = load ptr, ptr %7, align 8
+  %64 = load ptr, ptr %16, align 8
+  %65 = call i32 @call_dissector_with_data(ptr noundef %57, ptr noundef %62, ptr noundef %63, ptr noundef %64, ptr noundef %17)
+  call void @llvm.lifetime.end.p0(i64 120, ptr %17) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #6
+  %66 = load i8, ptr %10, align 1
+  %67 = zext i8 %66 to i32
+  %68 = load i32, ptr %9, align 4
+  %69 = add i32 %68, %67
+  store i32 %69, ptr %9, align 4
+  %70 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #6
+  ret i32 %70
 }
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_item_ret_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item_ret_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #2
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+; Function Attrs: alwaysinline nounwind
+define internal ptr @memset.inline(ptr %0, i32 %1, i64 %2) #3 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i32, ptr %5, align 4
+  %9 = load i64, ptr %6, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = call i64 @llvm.objectsize.i64.p0(ptr %10, i1 false, i1 true, i1 true)
+  %12 = call ptr @__memset_chk(ptr noundef %7, i32 noundef %8, i64 noundef %9, i64 noundef %11) #6
+  ret ptr %12
+}
 
-declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind null_pointer_is_valid
+declare ptr @__memset_chk(ptr noundef, i32 noundef, i64 noundef, i64 noundef) #4
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.objectsize.i64.p0(ptr, i1 immarg, i1 immarg, i1 immarg) #5
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zbee_tlv_mj_cmd(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4753,7 +4995,7 @@ define internal i32 @dissect_zbee_tlv_mj_cmd(ptr noundef %0, ptr noundef %1, ptr
   ret i32 %16
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zbee_tlv_mj_ieee_addr(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4775,7 +5017,7 @@ define internal i32 @dissect_zbee_tlv_mj_ieee_addr(ptr noundef %0, ptr noundef %
   ret i32 %16
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zbee_tlv_mj_prov_lnk_key(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4797,7 +5039,7 @@ define internal i32 @dissect_zbee_tlv_mj_prov_lnk_key(ptr noundef %0, ptr nounde
   ret i32 %16
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zbee_tlv_join_method(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4819,7 +5061,7 @@ define internal i32 @dissect_zbee_tlv_join_method(ptr noundef %0, ptr noundef %1
   ret i32 %16
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zbee_tlv_adm_key(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4841,7 +5083,7 @@ define internal i32 @dissect_zbee_tlv_adm_key(ptr noundef %0, ptr noundef %1, pt
   ret i32 %16
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zbee_tlv_link_key(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4872,7 +5114,7 @@ define internal i32 @dissect_zbee_tlv_link_key(ptr noundef %0, ptr noundef %1, p
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zbee_tlv_key_neg_method(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4902,7 +5144,7 @@ define internal i32 @dissect_zbee_tlv_key_neg_method(ptr noundef %0, ptr noundef
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zbee_tlv_nwk_key_seq_num(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4924,7 +5166,7 @@ define internal i32 @dissect_zbee_tlv_nwk_key_seq_num(ptr noundef %0, ptr nounde
   ret i32 %16
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zbee_tlv_mac_tag(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -4952,26 +5194,35 @@ define internal i32 @dissect_zbee_tlv_mac_tag(ptr noundef %0, ptr noundef %1, pt
   ret i32 %22
 }
 
-declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { alwaysinline nounwind "min-legal-vector-width"="0" }
+attributes #4 = { nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = !{i8 0, i8 2}
+!18 = !{}

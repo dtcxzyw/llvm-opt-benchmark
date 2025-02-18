@@ -5,10 +5,9 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
 %struct._e_guid_t = type { i32, i16, i16, [8 x i8] }
 
-@proto_register_pn_ptcp.hf = internal global [34 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_pn_ptcp_header, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_block, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_block_tlvheader, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_res1, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_res2, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_delay10ns, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_seq_id, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_delay1ns_byte, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_delay1ns, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_delay1ns_fup, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_tl_length, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 5, i32 1, ptr null, i64 511, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_tl_type, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 5, i32 1, ptr null, i64 65024, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_master_source_address, %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 29, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_subdomain_uuid, %struct._header_field_info { ptr @.str.26, ptr @.str.27, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_port_mac_address, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 29, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_t2portrxdelay, %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_t3porttxdelay, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_t2timestamp, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_epoch_number, %struct._header_field_info { ptr @.str.36, ptr @.str.37, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_seconds, %struct._header_field_info { ptr @.str.38, ptr @.str.39, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_nanoseconds, %struct._header_field_info { ptr @.str.40, ptr @.str.41, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_flags, %struct._header_field_info { ptr @.str.42, ptr @.str.43, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_currentutcoffset, %struct._header_field_info { ptr @.str.44, ptr @.str.45, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_master_priority1, %struct._header_field_info { ptr @.str.46, ptr @.str.47, i32 4, i32 2, ptr @pn_ptcp_master_prio1_vals, i64 7, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_master_priority_level, %struct._header_field_info { ptr @.str.48, ptr @.str.49, i32 4, i32 2, ptr @pn_ptcp_master_prio1_levels, i64 56, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_master_priority1_res, %struct._header_field_info { ptr @.str.50, ptr @.str.51, i32 4, i32 2, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_master_priority1_act, %struct._header_field_info { ptr @.str.52, ptr @.str.53, i32 4, i32 2, ptr @pn_ptcp_master_prio1_vals_active, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_master_priority2, %struct._header_field_info { ptr @.str.54, ptr @.str.55, i32 4, i32 1, ptr @pn_ptcp_master_prio2_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_clock_class, %struct._header_field_info { ptr @.str.56, ptr @.str.57, i32 4, i32 1, ptr @pn_ptcp_clock_class_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_clock_accuracy, %struct._header_field_info { ptr @.str.58, ptr @.str.59, i32 4, i32 1, ptr @pn_ptcp_clock_accuracy_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_clockvariance, %struct._header_field_info { ptr @.str.60, ptr @.str.61, i32 13, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_oui, %struct._header_field_info { ptr @.str.62, ptr @.str.63, i32 6, i32 2, ptr @pn_ptcp_oui_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_profinet_subtype, %struct._header_field_info { ptr @.str.64, ptr @.str.65, i32 4, i32 2, ptr @pn_ptcp_profinet_subtype_vals, i64 0, ptr @.str.66, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_irdata_uuid, %struct._header_field_info { ptr @.str.67, ptr @.str.68, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
+@proto_register_pn_ptcp.hf = internal global [34 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_pn_ptcp_header, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_block, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_block_tlvheader, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_res1, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_res2, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_delay10ns, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_seq_id, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_delay1ns_byte, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_delay1ns, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_delay1ns_fup, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_tl_length, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 5, i32 1, ptr null, i64 511, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_tl_type, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 5, i32 1, ptr null, i64 65024, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_master_source_address, %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 29, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_subdomain_uuid, %struct._header_field_info { ptr @.str.26, ptr @.str.27, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_port_mac_address, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 29, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_t2portrxdelay, %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_t3porttxdelay, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_t2timestamp, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_epoch_number, %struct._header_field_info { ptr @.str.36, ptr @.str.37, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_seconds, %struct._header_field_info { ptr @.str.38, ptr @.str.39, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_nanoseconds, %struct._header_field_info { ptr @.str.40, ptr @.str.41, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_flags, %struct._header_field_info { ptr @.str.42, ptr @.str.43, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_currentutcoffset, %struct._header_field_info { ptr @.str.44, ptr @.str.45, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_master_priority1, %struct._header_field_info { ptr @.str.46, ptr @.str.47, i32 4, i32 2, ptr @pn_ptcp_master_prio1_vals, i64 7, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_master_priority_level, %struct._header_field_info { ptr @.str.48, ptr @.str.49, i32 4, i32 2, ptr @pn_ptcp_master_prio1_levels, i64 56, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_master_priority1_res, %struct._header_field_info { ptr @.str.50, ptr @.str.51, i32 4, i32 2, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_master_priority1_act, %struct._header_field_info { ptr @.str.52, ptr @.str.53, i32 4, i32 2, ptr @pn_ptcp_master_prio1_vals_active, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_master_priority2, %struct._header_field_info { ptr @.str.54, ptr @.str.55, i32 4, i32 1, ptr @pn_ptcp_master_prio2_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_clock_class, %struct._header_field_info { ptr @.str.56, ptr @.str.57, i32 4, i32 1, ptr @pn_ptcp_clock_class_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_clock_accuracy, %struct._header_field_info { ptr @.str.58, ptr @.str.59, i32 4, i32 1, ptr @pn_ptcp_clock_accuracy_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_clockvariance, %struct._header_field_info { ptr @.str.60, ptr @.str.61, i32 13, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_oui, %struct._header_field_info { ptr @.str.62, ptr @.str.63, i32 6, i32 17, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_profinet_subtype, %struct._header_field_info { ptr @.str.64, ptr @.str.65, i32 4, i32 2, ptr @pn_ptcp_profinet_subtype_vals, i64 0, ptr @.str.66, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn_ptcp_irdata_uuid, %struct._header_field_info { ptr @.str.67, ptr @.str.68, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_pn_ptcp_header = internal global i32 0, align 4
 @.str = private unnamed_addr constant [7 x i8] c"Header\00", align 1
 @.str.1 = private unnamed_addr constant [15 x i8] c"pn_ptcp.header\00", align 1
@@ -81,41 +80,33 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_pn_ptcp_master_priority1 = internal global i32 0, align 4
 @.str.46 = private unnamed_addr constant [25 x i8] c"MasterPriority1.Priority\00", align 1
 @.str.47 = private unnamed_addr constant [30 x i8] c"pn_ptcp.master_priority1_prio\00", align 1
-@pn_ptcp_master_prio1_vals = internal constant [9 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.75 }, %struct._value_string { i32 1, ptr @.str.76 }, %struct._value_string { i32 2, ptr @.str.77 }, %struct._value_string { i32 3, ptr @.str.78 }, %struct._value_string { i32 4, ptr @.str.78 }, %struct._value_string { i32 5, ptr @.str.78 }, %struct._value_string { i32 6, ptr @.str.78 }, %struct._value_string { i32 7, ptr @.str.78 }, %struct._value_string zeroinitializer], align 16
 @hf_pn_ptcp_master_priority_level = internal global i32 0, align 4
 @.str.48 = private unnamed_addr constant [22 x i8] c"MasterPriority1.Level\00", align 1
 @.str.49 = private unnamed_addr constant [31 x i8] c"pn_ptcp.master_priority1_level\00", align 1
-@pn_ptcp_master_prio1_levels = internal constant [9 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.79 }, %struct._value_string { i32 1, ptr @.str.80 }, %struct._value_string { i32 2, ptr @.str.81 }, %struct._value_string { i32 3, ptr @.str.82 }, %struct._value_string { i32 4, ptr @.str.83 }, %struct._value_string { i32 5, ptr @.str.84 }, %struct._value_string { i32 6, ptr @.str.85 }, %struct._value_string { i32 7, ptr @.str.86 }, %struct._value_string zeroinitializer], align 16
 @hf_pn_ptcp_master_priority1_res = internal global i32 0, align 4
 @.str.50 = private unnamed_addr constant [25 x i8] c"MasterPriority1.Reserved\00", align 1
 @.str.51 = private unnamed_addr constant [29 x i8] c"pn_ptcp.master_priority1_res\00", align 1
 @hf_pn_ptcp_master_priority1_act = internal global i32 0, align 4
 @.str.52 = private unnamed_addr constant [23 x i8] c"MasterPriority1.Active\00", align 1
 @.str.53 = private unnamed_addr constant [29 x i8] c"pn_ptcp.master_priority1_act\00", align 1
-@pn_ptcp_master_prio1_vals_active = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.87 }, %struct._value_string { i32 1, ptr @.str.88 }, %struct._value_string zeroinitializer], align 16
 @hf_pn_ptcp_master_priority2 = internal global i32 0, align 4
 @.str.54 = private unnamed_addr constant [16 x i8] c"MasterPriority2\00", align 1
 @.str.55 = private unnamed_addr constant [25 x i8] c"pn_ptcp.master_priority2\00", align 1
-@pn_ptcp_master_prio2_vals = internal constant [2 x %struct._value_string] [%struct._value_string { i32 255, ptr @.str.89 }, %struct._value_string zeroinitializer], align 16
 @hf_pn_ptcp_clock_class = internal global i32 0, align 4
 @.str.56 = private unnamed_addr constant [11 x i8] c"ClockClass\00", align 1
 @.str.57 = private unnamed_addr constant [20 x i8] c"pn_ptcp.clock_class\00", align 1
-@pn_ptcp_clock_class_vals = internal constant [2 x %struct._value_string] [%struct._value_string { i32 255, ptr @.str.90 }, %struct._value_string zeroinitializer], align 16
 @hf_pn_ptcp_clock_accuracy = internal global i32 0, align 4
 @.str.58 = private unnamed_addr constant [14 x i8] c"ClockAccuracy\00", align 1
 @.str.59 = private unnamed_addr constant [23 x i8] c"pn_ptcp.clock_accuracy\00", align 1
-@pn_ptcp_clock_accuracy_vals = internal constant [12 x %struct._value_string] [%struct._value_string { i32 32, ptr @.str.91 }, %struct._value_string { i32 33, ptr @.str.92 }, %struct._value_string { i32 34, ptr @.str.93 }, %struct._value_string { i32 35, ptr @.str.94 }, %struct._value_string { i32 36, ptr @.str.95 }, %struct._value_string { i32 37, ptr @.str.96 }, %struct._value_string { i32 38, ptr @.str.97 }, %struct._value_string { i32 39, ptr @.str.98 }, %struct._value_string { i32 40, ptr @.str.99 }, %struct._value_string { i32 41, ptr @.str.100 }, %struct._value_string { i32 254, ptr @.str.101 }, %struct._value_string zeroinitializer], align 16
 @hf_pn_ptcp_clockvariance = internal global i32 0, align 4
 @.str.60 = private unnamed_addr constant [14 x i8] c"ClockVariance\00", align 1
 @.str.61 = private unnamed_addr constant [22 x i8] c"pn_ptcp.clockvariance\00", align 1
 @hf_pn_ptcp_oui = internal global i32 0, align 4
 @.str.62 = private unnamed_addr constant [35 x i8] c"Organizationally Unique Identifier\00", align 1
 @.str.63 = private unnamed_addr constant [12 x i8] c"pn_ptcp.oui\00", align 1
-@pn_ptcp_oui_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 3791, ptr @.str.102 }, %struct._value_string { i32 69327, ptr @.str.102 }, %struct._value_string zeroinitializer], align 16
 @hf_pn_ptcp_profinet_subtype = internal global i32 0, align 4
 @.str.64 = private unnamed_addr constant [8 x i8] c"Subtype\00", align 1
 @.str.65 = private unnamed_addr constant [16 x i8] c"pn_ptcp.subtype\00", align 1
-@pn_ptcp_profinet_subtype_vals = internal constant [2 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.103 }, %struct._value_string zeroinitializer], align 16
 @.str.66 = private unnamed_addr constant [17 x i8] c"PROFINET Subtype\00", align 1
 @hf_pn_ptcp_irdata_uuid = internal global i32 0, align 4
 @.str.67 = private unnamed_addr constant [11 x i8] c"IRDataUUID\00", align 1
@@ -136,145 +127,155 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.76 = private unnamed_addr constant [15 x i8] c"Primary master\00", align 1
 @.str.77 = private unnamed_addr constant [17 x i8] c"Secondary master\00", align 1
 @.str.78 = private unnamed_addr constant [9 x i8] c"Reserved\00", align 1
-@.str.79 = private unnamed_addr constant [18 x i8] c"Level 0 (highest)\00", align 1
-@.str.80 = private unnamed_addr constant [8 x i8] c"Level 1\00", align 1
-@.str.81 = private unnamed_addr constant [8 x i8] c"Level 2\00", align 1
-@.str.82 = private unnamed_addr constant [8 x i8] c"Level 3\00", align 1
-@.str.83 = private unnamed_addr constant [8 x i8] c"Level 4\00", align 1
-@.str.84 = private unnamed_addr constant [8 x i8] c"Level 5\00", align 1
-@.str.85 = private unnamed_addr constant [8 x i8] c"Level 6\00", align 1
-@.str.86 = private unnamed_addr constant [17 x i8] c"Level 7 (lowest)\00", align 1
-@.str.87 = private unnamed_addr constant [9 x i8] c"inactive\00", align 1
-@.str.88 = private unnamed_addr constant [7 x i8] c"active\00", align 1
-@.str.89 = private unnamed_addr constant [8 x i8] c"Default\00", align 1
-@.str.90 = private unnamed_addr constant [17 x i8] c"Slave-only clock\00", align 1
-@.str.91 = private unnamed_addr constant [5 x i8] c"25ns\00", align 1
-@.str.92 = private unnamed_addr constant [16 x i8] c"100ns (Default)\00", align 1
-@.str.93 = private unnamed_addr constant [6 x i8] c"250ns\00", align 1
-@.str.94 = private unnamed_addr constant [4 x i8] c"1us\00", align 1
-@.str.95 = private unnamed_addr constant [6 x i8] c"2.5us\00", align 1
-@.str.96 = private unnamed_addr constant [5 x i8] c"10us\00", align 1
-@.str.97 = private unnamed_addr constant [5 x i8] c"25us\00", align 1
-@.str.98 = private unnamed_addr constant [6 x i8] c"100us\00", align 1
-@.str.99 = private unnamed_addr constant [6 x i8] c"250us\00", align 1
-@.str.100 = private unnamed_addr constant [4 x i8] c"1ms\00", align 1
-@.str.101 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
-@.str.102 = private unnamed_addr constant [9 x i8] c"PROFINET\00", align 1
-@.str.103 = private unnamed_addr constant [7 x i8] c"RTData\00", align 1
-@.str.104 = private unnamed_addr constant [16 x i8] c"PROFINET PTCP, \00", align 1
-@.str.105 = private unnamed_addr constant [18 x i8] c"RTSync FU (Clock)\00", align 1
-@.str.106 = private unnamed_addr constant [18 x i8] c"RTSync FU  (Time)\00", align 1
-@.str.107 = private unnamed_addr constant [17 x i8] c"RTSync FU (Time)\00", align 1
-@.str.108 = private unnamed_addr constant [18 x i8] c"RTSync    (Clock)\00", align 1
-@.str.109 = private unnamed_addr constant [15 x i8] c"RTSync (Clock)\00", align 1
-@.str.110 = private unnamed_addr constant [18 x i8] c"RTSync     (Time)\00", align 1
-@.str.111 = private unnamed_addr constant [14 x i8] c"RTSync (Time)\00", align 1
-@.str.112 = private unnamed_addr constant [18 x i8] c"Announce  (Clock)\00", align 1
-@.str.113 = private unnamed_addr constant [17 x i8] c"Announce (Clock)\00", align 1
-@.str.114 = private unnamed_addr constant [18 x i8] c"Announce   (Time)\00", align 1
-@.str.115 = private unnamed_addr constant [16 x i8] c"Announce (Time)\00", align 1
-@.str.116 = private unnamed_addr constant [18 x i8] c"FollowUp  (Clock)\00", align 1
-@.str.117 = private unnamed_addr constant [17 x i8] c"FollowUp (Clock)\00", align 1
-@.str.118 = private unnamed_addr constant [18 x i8] c"FollowUp   (Time)\00", align 1
-@.str.119 = private unnamed_addr constant [16 x i8] c"FollowUp (Time)\00", align 1
-@.str.120 = private unnamed_addr constant [18 x i8] c"DelayReq         \00", align 1
-@.str.121 = private unnamed_addr constant [9 x i8] c"DelayReq\00", align 1
-@.str.122 = private unnamed_addr constant [18 x i8] c"DelayRes         \00", align 1
-@.str.123 = private unnamed_addr constant [9 x i8] c"DelayRes\00", align 1
-@.str.124 = private unnamed_addr constant [18 x i8] c"DelayFuRes       \00", align 1
-@.str.125 = private unnamed_addr constant [11 x i8] c"DelayFuRes\00", align 1
-@.str.126 = private unnamed_addr constant [24 x i8] c"Reserved FrameID 0x%04x\00", align 1
-@.str.127 = private unnamed_addr constant [27 x i8] c"%s, Seq=%3u, Delay=%11luns\00", align 1
-@.str.128 = private unnamed_addr constant [29 x i8] c"%s: Sequence=%u, Delay=%luns\00", align 1
-@.str.129 = private unnamed_addr constant [27 x i8] c": Sequence=%u, Delay=%luns\00", align 1
-@.str.130 = private unnamed_addr constant [25 x i8] c" (%u.%03u,%03u,%03u sec)\00", align 1
-@.str.131 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
-@pn_ptcp_block_type = internal constant [10 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.133 }, %struct._value_string { i32 1, ptr @.str.134 }, %struct._value_string { i32 2, ptr @.str.135 }, %struct._value_string { i32 3, ptr @.str.136 }, %struct._value_string { i32 4, ptr @.str.137 }, %struct._value_string { i32 5, ptr @.str.138 }, %struct._value_string { i32 6, ptr @.str.139 }, %struct._value_string { i32 7, ptr @.str.140 }, %struct._value_string { i32 127, ptr @.str.141 }, %struct._value_string zeroinitializer], align 16
-@.str.132 = private unnamed_addr constant [26 x i8] c": Type=%s (%x), Length=%u\00", align 1
-@.str.133 = private unnamed_addr constant [4 x i8] c"End\00", align 1
-@.str.134 = private unnamed_addr constant [10 x i8] c"Subdomain\00", align 1
-@.str.135 = private unnamed_addr constant [5 x i8] c"Time\00", align 1
-@.str.136 = private unnamed_addr constant [14 x i8] c"TimeExtension\00", align 1
-@.str.137 = private unnamed_addr constant [7 x i8] c"Master\00", align 1
-@.str.138 = private unnamed_addr constant [14 x i8] c"PortParameter\00", align 1
-@.str.139 = private unnamed_addr constant [15 x i8] c"DelayParameter\00", align 1
-@.str.140 = private unnamed_addr constant [9 x i8] c"PortTime\00", align 1
-@.str.141 = private unnamed_addr constant [26 x i8] c"Organizationally Specific\00", align 1
-@.str.142 = private unnamed_addr constant [39 x i8] c", Master=%02x:%02x:%02x:%02x:%02x:%02x\00", align 1
-@.str.143 = private unnamed_addr constant [45 x i8] c": MasterSource=%02x:%02x:%02x:%02x:%02x:%02x\00", align 1
-@.str.144 = private unnamed_addr constant [61 x i8] c", Subdomain=%08x-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x\00", align 1
-@.str.145 = private unnamed_addr constant [43 x i8] c": Seconds=%u NanoSeconds=%u EpochNumber=%u\00", align 1
-@.str.146 = private unnamed_addr constant [31 x i8] c", Time: %4us %09uns, Epoch: %u\00", align 1
-@.str.147 = private unnamed_addr constant [34 x i8] c": Flags=0x%x, CurrentUTCOffset=%u\00", align 1
-@.str.148 = private unnamed_addr constant [13 x i8] c", Prio1=\22%s\22\00", align 1
-@.str.149 = private unnamed_addr constant [17 x i8] c"(Reserved: 0x%x)\00", align 1
-@.str.150 = private unnamed_addr constant [68 x i8] c": Prio1=\22%s\22, Prio2=%s, Clock: Class=\22%s\22, Accuracy=%s, Variance=%d\00", align 1
-@.str.151 = private unnamed_addr constant [8 x i8] c" active\00", align 1
-@.str.152 = private unnamed_addr constant [78 x i8] c": Prio1=\22%s\22 is active, Prio2=%s, Clock: Class=\22%s\22, Accuracy=%s, Variance=%d\00", align 1
-@.str.153 = private unnamed_addr constant [41 x i8] c": T2PortRxDelay=%uns, T3PortTxDelay=%uns\00", align 1
-@.str.154 = private unnamed_addr constant [23 x i8] c", T2Rx=%uns, T3Tx=%uns\00", align 1
-@.str.155 = private unnamed_addr constant [40 x i8] c": PortMAC=%02x:%02x:%02x:%02x:%02x:%02x\00", align 1
-@.str.156 = private unnamed_addr constant [40 x i8] c", PortMAC=%02x:%02x:%02x:%02x:%02x:%02x\00", align 1
-@.str.157 = private unnamed_addr constant [19 x i8] c": T2TimeStamp=%uns\00", align 1
-@.str.158 = private unnamed_addr constant [12 x i8] c", T2TS=%uns\00", align 1
-@.str.159 = private unnamed_addr constant [11 x i8] c": PROFINET\00", align 1
-@.str.160 = private unnamed_addr constant [62 x i8] c": IRDataUUID=%08x-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x\00", align 1
-@.str.161 = private unnamed_addr constant [12 x i8] c"%s, Seq=%3u\00", align 1
-@.str.162 = private unnamed_addr constant [16 x i8] c"%s: Sequence=%u\00", align 1
-@.str.163 = private unnamed_addr constant [14 x i8] c": Sequence=%u\00", align 1
-@.str.164 = private unnamed_addr constant [26 x i8] c"%s, Seq=%3u, Delay=%11dns\00", align 1
-@.str.165 = private unnamed_addr constant [28 x i8] c"%s: Sequence=%u, Delay=%dns\00", align 1
-@.str.166 = private unnamed_addr constant [26 x i8] c": Sequence=%u, Delay=%dns\00", align 1
-@.str.167 = private unnamed_addr constant [26 x i8] c"%s, Seq=%3u, Delay=%11uns\00", align 1
-@.str.168 = private unnamed_addr constant [28 x i8] c"%s: Sequence=%u, Delay=%uns\00", align 1
-@.str.169 = private unnamed_addr constant [26 x i8] c": Sequence=%u, Delay=%uns\00", align 1
+@pn_ptcp_master_prio1_vals = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.75 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.76 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.77 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.78 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.78 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.78 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.78 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.78 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.80 = private unnamed_addr constant [18 x i8] c"Level 0 (highest)\00", align 1
+@.str.81 = private unnamed_addr constant [8 x i8] c"Level 1\00", align 1
+@.str.82 = private unnamed_addr constant [8 x i8] c"Level 2\00", align 1
+@.str.83 = private unnamed_addr constant [8 x i8] c"Level 3\00", align 1
+@.str.84 = private unnamed_addr constant [8 x i8] c"Level 4\00", align 1
+@.str.85 = private unnamed_addr constant [8 x i8] c"Level 5\00", align 1
+@.str.86 = private unnamed_addr constant [8 x i8] c"Level 6\00", align 1
+@.str.87 = private unnamed_addr constant [17 x i8] c"Level 7 (lowest)\00", align 1
+@pn_ptcp_master_prio1_levels = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.80 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.81 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.82 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.83 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.84 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.85 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.86 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.87 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.89 = private unnamed_addr constant [9 x i8] c"inactive\00", align 1
+@.str.90 = private unnamed_addr constant [7 x i8] c"active\00", align 1
+@pn_ptcp_master_prio1_vals_active = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.89 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.90 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.92 = private unnamed_addr constant [8 x i8] c"Default\00", align 1
+@pn_ptcp_master_prio2_vals = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 255, [4 x i8] zeroinitializer, ptr @.str.92 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.94 = private unnamed_addr constant [17 x i8] c"Slave-only clock\00", align 1
+@pn_ptcp_clock_class_vals = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 255, [4 x i8] zeroinitializer, ptr @.str.94 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.96 = private unnamed_addr constant [5 x i8] c"25ns\00", align 1
+@.str.97 = private unnamed_addr constant [16 x i8] c"100ns (Default)\00", align 1
+@.str.98 = private unnamed_addr constant [6 x i8] c"250ns\00", align 1
+@.str.99 = private unnamed_addr constant [4 x i8] c"1us\00", align 1
+@.str.100 = private unnamed_addr constant [6 x i8] c"2.5us\00", align 1
+@.str.101 = private unnamed_addr constant [5 x i8] c"10us\00", align 1
+@.str.102 = private unnamed_addr constant [5 x i8] c"25us\00", align 1
+@.str.103 = private unnamed_addr constant [6 x i8] c"100us\00", align 1
+@.str.104 = private unnamed_addr constant [6 x i8] c"250us\00", align 1
+@.str.105 = private unnamed_addr constant [4 x i8] c"1ms\00", align 1
+@.str.106 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
+@pn_ptcp_clock_accuracy_vals = internal constant [12 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.96 }, { i32, [4 x i8], ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.97 }, { i32, [4 x i8], ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.98 }, { i32, [4 x i8], ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.99 }, { i32, [4 x i8], ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.100 }, { i32, [4 x i8], ptr } { i32 37, [4 x i8] zeroinitializer, ptr @.str.101 }, { i32, [4 x i8], ptr } { i32 38, [4 x i8] zeroinitializer, ptr @.str.102 }, { i32, [4 x i8], ptr } { i32 39, [4 x i8] zeroinitializer, ptr @.str.103 }, { i32, [4 x i8], ptr } { i32 40, [4 x i8] zeroinitializer, ptr @.str.104 }, { i32, [4 x i8], ptr } { i32 41, [4 x i8] zeroinitializer, ptr @.str.105 }, { i32, [4 x i8], ptr } { i32 254, [4 x i8] zeroinitializer, ptr @.str.106 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.108 = private unnamed_addr constant [7 x i8] c"RTData\00", align 1
+@pn_ptcp_profinet_subtype_vals = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.108 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.110 = private unnamed_addr constant [16 x i8] c"PROFINET PTCP, \00", align 1
+@.str.111 = private unnamed_addr constant [18 x i8] c"RTSync FU (Clock)\00", align 1
+@.str.112 = private unnamed_addr constant [18 x i8] c"RTSync FU  (Time)\00", align 1
+@.str.113 = private unnamed_addr constant [17 x i8] c"RTSync FU (Time)\00", align 1
+@.str.114 = private unnamed_addr constant [18 x i8] c"RTSync    (Clock)\00", align 1
+@.str.115 = private unnamed_addr constant [15 x i8] c"RTSync (Clock)\00", align 1
+@.str.116 = private unnamed_addr constant [18 x i8] c"RTSync     (Time)\00", align 1
+@.str.117 = private unnamed_addr constant [14 x i8] c"RTSync (Time)\00", align 1
+@.str.118 = private unnamed_addr constant [18 x i8] c"Announce  (Clock)\00", align 1
+@.str.119 = private unnamed_addr constant [17 x i8] c"Announce (Clock)\00", align 1
+@.str.120 = private unnamed_addr constant [18 x i8] c"Announce   (Time)\00", align 1
+@.str.121 = private unnamed_addr constant [16 x i8] c"Announce (Time)\00", align 1
+@.str.122 = private unnamed_addr constant [18 x i8] c"FollowUp  (Clock)\00", align 1
+@.str.123 = private unnamed_addr constant [17 x i8] c"FollowUp (Clock)\00", align 1
+@.str.124 = private unnamed_addr constant [18 x i8] c"FollowUp   (Time)\00", align 1
+@.str.125 = private unnamed_addr constant [16 x i8] c"FollowUp (Time)\00", align 1
+@.str.126 = private unnamed_addr constant [18 x i8] c"DelayReq         \00", align 1
+@.str.127 = private unnamed_addr constant [9 x i8] c"DelayReq\00", align 1
+@.str.128 = private unnamed_addr constant [18 x i8] c"DelayRes         \00", align 1
+@.str.129 = private unnamed_addr constant [9 x i8] c"DelayRes\00", align 1
+@.str.130 = private unnamed_addr constant [18 x i8] c"DelayFuRes       \00", align 1
+@.str.131 = private unnamed_addr constant [11 x i8] c"DelayFuRes\00", align 1
+@.str.132 = private unnamed_addr constant [24 x i8] c"Reserved FrameID 0x%04x\00", align 1
+@.str.133 = private unnamed_addr constant [27 x i8] c"%s, Seq=%3u, Delay=%11luns\00", align 1
+@.str.134 = private unnamed_addr constant [29 x i8] c"%s: Sequence=%u, Delay=%luns\00", align 1
+@.str.135 = private unnamed_addr constant [27 x i8] c": Sequence=%u, Delay=%luns\00", align 1
+@.str.136 = private unnamed_addr constant [25 x i8] c" (%u.%03u,%03u,%03u sec)\00", align 1
+@.str.137 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
+@.str.138 = private unnamed_addr constant [26 x i8] c": Type=%s (%x), Length=%u\00", align 1
+@.str.139 = private unnamed_addr constant [4 x i8] c"End\00", align 1
+@.str.140 = private unnamed_addr constant [10 x i8] c"Subdomain\00", align 1
+@.str.141 = private unnamed_addr constant [5 x i8] c"Time\00", align 1
+@.str.142 = private unnamed_addr constant [14 x i8] c"TimeExtension\00", align 1
+@.str.143 = private unnamed_addr constant [7 x i8] c"Master\00", align 1
+@.str.144 = private unnamed_addr constant [14 x i8] c"PortParameter\00", align 1
+@.str.145 = private unnamed_addr constant [15 x i8] c"DelayParameter\00", align 1
+@.str.146 = private unnamed_addr constant [9 x i8] c"PortTime\00", align 1
+@.str.147 = private unnamed_addr constant [26 x i8] c"Organizationally Specific\00", align 1
+@pn_ptcp_block_type = internal constant [10 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.139 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.140 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.141 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.142 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.143 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.144 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.145 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.146 }, { i32, [4 x i8], ptr } { i32 127, [4 x i8] zeroinitializer, ptr @.str.147 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.149 = private unnamed_addr constant [39 x i8] c", Master=%02x:%02x:%02x:%02x:%02x:%02x\00", align 1
+@.str.150 = private unnamed_addr constant [45 x i8] c": MasterSource=%02x:%02x:%02x:%02x:%02x:%02x\00", align 1
+@.str.151 = private unnamed_addr constant [61 x i8] c", Subdomain=%08x-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x\00", align 1
+@.str.152 = private unnamed_addr constant [43 x i8] c": Seconds=%u NanoSeconds=%u EpochNumber=%u\00", align 1
+@.str.153 = private unnamed_addr constant [31 x i8] c", Time: %4us %09uns, Epoch: %u\00", align 1
+@.str.154 = private unnamed_addr constant [34 x i8] c": Flags=0x%x, CurrentUTCOffset=%u\00", align 1
+@.str.155 = private unnamed_addr constant [13 x i8] c", Prio1=\22%s\22\00", align 1
+@.str.156 = private unnamed_addr constant [17 x i8] c"(Reserved: 0x%x)\00", align 1
+@.str.157 = private unnamed_addr constant [68 x i8] c": Prio1=\22%s\22, Prio2=%s, Clock: Class=\22%s\22, Accuracy=%s, Variance=%d\00", align 1
+@.str.158 = private unnamed_addr constant [8 x i8] c" active\00", align 1
+@.str.159 = private unnamed_addr constant [78 x i8] c": Prio1=\22%s\22 is active, Prio2=%s, Clock: Class=\22%s\22, Accuracy=%s, Variance=%d\00", align 1
+@.str.160 = private unnamed_addr constant [41 x i8] c": T2PortRxDelay=%uns, T3PortTxDelay=%uns\00", align 1
+@.str.161 = private unnamed_addr constant [23 x i8] c", T2Rx=%uns, T3Tx=%uns\00", align 1
+@.str.162 = private unnamed_addr constant [40 x i8] c": PortMAC=%02x:%02x:%02x:%02x:%02x:%02x\00", align 1
+@.str.163 = private unnamed_addr constant [40 x i8] c", PortMAC=%02x:%02x:%02x:%02x:%02x:%02x\00", align 1
+@.str.164 = private unnamed_addr constant [19 x i8] c": T2TimeStamp=%uns\00", align 1
+@.str.165 = private unnamed_addr constant [12 x i8] c", T2TS=%uns\00", align 1
+@.str.166 = private unnamed_addr constant [11 x i8] c": PROFINET\00", align 1
+@.str.167 = private unnamed_addr constant [62 x i8] c": IRDataUUID=%08x-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x\00", align 1
+@.str.168 = private unnamed_addr constant [12 x i8] c"%s, Seq=%3u\00", align 1
+@.str.169 = private unnamed_addr constant [16 x i8] c"%s: Sequence=%u\00", align 1
+@.str.170 = private unnamed_addr constant [14 x i8] c": Sequence=%u\00", align 1
+@.str.171 = private unnamed_addr constant [26 x i8] c"%s, Seq=%3u, Delay=%11dns\00", align 1
+@.str.172 = private unnamed_addr constant [28 x i8] c"%s: Sequence=%u, Delay=%dns\00", align 1
+@.str.173 = private unnamed_addr constant [26 x i8] c": Sequence=%u, Delay=%dns\00", align 1
+@.str.174 = private unnamed_addr constant [26 x i8] c"%s, Seq=%3u, Delay=%11uns\00", align 1
+@.str.175 = private unnamed_addr constant [28 x i8] c"%s: Sequence=%u, Delay=%uns\00", align 1
+@.str.176 = private unnamed_addr constant [26 x i8] c": Sequence=%u, Delay=%uns\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_pn_ptcp() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.71) #3
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.71)
   store i32 %1, ptr @proto_pn_ptcp, align 4
-  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_pn_ptcp.hf, i32 noundef 34) #3
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_pn_ptcp.ett, i32 noundef 4) #3
+  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_pn_ptcp.hf, i32 noundef 34)
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_pn_ptcp.ett, i32 noundef 4)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_pn_ptcp() local_unnamed_addr #0 {
   %1 = load i32, ptr @proto_pn_ptcp, align 4
-  tail call void @heur_dissector_add(ptr noundef nonnull @.str.72, ptr noundef nonnull @dissect_PNPTCP_Data_heur, ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.74, i32 noundef %1, i32 noundef 1) #3
+  tail call void @heur_dissector_add(ptr noundef nonnull @.str.72, ptr noundef nonnull @dissect_PNPTCP_Data_heur, ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.74, i32 noundef %1, i32 noundef 1)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_PNPTCP_Data_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal noundef zeroext i1 @dissect_PNPTCP_Data_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = ptrtoint ptr %3 to i64
   %6 = trunc i64 %5 to i32
   %7 = and i32 %6, 65535
-  %8 = add nsw i32 %7, -256
-  %or.cond = icmp ult i32 %8, 65024
-  %9 = icmp samesign ugt i32 %7, 65375
-  %or.cond5 = select i1 %or.cond, i1 true, i1 %9
-  br i1 %or.cond5, label %50, label %10
+  %8 = add nsw i32 %7, -65280
+  %or.cond = icmp ult i32 %8, -65024
+  %9 = icmp samesign ult i32 %7, 65376
+  %or.cond5.not = select i1 %or.cond, i1 %9, i1 false
+  br i1 %or.cond5.not, label %10, label %50
 
 10:                                               ; preds = %4
   %11 = trunc i64 %5 to i16
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
-  tail call void @col_set_str(ptr noundef %13, i32 noundef 34, ptr noundef nonnull @.str.70) #3
+  tail call void @col_set_str(ptr noundef %13, i32 noundef 35, ptr noundef nonnull @.str.70)
   %14 = load ptr, ptr %12, align 8
-  tail call void @col_clear(ptr noundef %14, i32 noundef 25) #3
+  tail call void @col_clear(ptr noundef %14, i32 noundef 25)
   %15 = load i32, ptr @proto_pn_ptcp, align 4
-  %16 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.104) #3
+  %16 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.110)
   %17 = load i32, ptr @ett_pn_ptcp, align 4
-  %18 = tail call ptr @proto_item_add_subtree(ptr noundef %16, i32 noundef %17) #3
+  %18 = tail call ptr @proto_item_add_subtree(ptr noundef %16, i32 noundef %17)
   switch i16 %11, label %43 [
     i16 32, label %19
     i16 33, label %21
@@ -291,106 +292,116 @@ define internal range(i32 0, 2) i32 @dissect_PNPTCP_Data_heur(ptr noundef %0, pt
   ]
 
 19:                                               ; preds = %10
-  %20 = tail call fastcc i32 @dissect_PNPTCP_RTSyncPDU(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef %16, i16 noundef zeroext 32, ptr noundef nonnull @.str.105, ptr noundef nonnull @.str.105)
+  %20 = tail call fastcc i32 @dissect_PNPTCP_RTSyncPDU(ptr noundef %0, ptr noundef %1, ptr noundef %18, ptr noundef %16, i16 noundef zeroext 32, ptr noundef nonnull @.str.111, ptr noundef nonnull @.str.111)
   br label %49
 
 21:                                               ; preds = %10
-  %22 = tail call fastcc i32 @dissect_PNPTCP_RTSyncPDU(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef %16, i16 noundef zeroext 33, ptr noundef nonnull @.str.106, ptr noundef nonnull @.str.107)
+  %22 = tail call fastcc i32 @dissect_PNPTCP_RTSyncPDU(ptr noundef %0, ptr noundef %1, ptr noundef %18, ptr noundef %16, i16 noundef zeroext 33, ptr noundef nonnull @.str.112, ptr noundef nonnull @.str.113)
   br label %49
 
 23:                                               ; preds = %10
-  %24 = tail call fastcc i32 @dissect_PNPTCP_RTSyncPDU(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef %16, i16 noundef zeroext 128, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.109)
+  %24 = tail call fastcc i32 @dissect_PNPTCP_RTSyncPDU(ptr noundef %0, ptr noundef %1, ptr noundef %18, ptr noundef %16, i16 noundef zeroext 128, ptr noundef nonnull @.str.114, ptr noundef nonnull @.str.115)
   br label %49
 
 25:                                               ; preds = %10
-  %26 = tail call fastcc i32 @dissect_PNPTCP_RTSyncPDU(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef %16, i16 noundef zeroext 129, ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.111)
+  %26 = tail call fastcc i32 @dissect_PNPTCP_RTSyncPDU(ptr noundef %0, ptr noundef %1, ptr noundef %18, ptr noundef %16, i16 noundef zeroext 129, ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.117)
   br label %49
 
 27:                                               ; preds = %10
-  %28 = tail call fastcc i32 @dissect_PNPTCP_AnnouncePDU(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef %16, i16 noundef zeroext -256, ptr noundef nonnull @.str.112, ptr noundef nonnull @.str.113)
+  %28 = tail call fastcc i32 @dissect_PNPTCP_AnnouncePDU(ptr noundef %0, ptr noundef %1, ptr noundef %18, ptr noundef %16, i16 noundef zeroext -256, ptr noundef nonnull @.str.118, ptr noundef nonnull @.str.119)
   br label %49
 
 29:                                               ; preds = %10
-  %30 = tail call fastcc i32 @dissect_PNPTCP_AnnouncePDU(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef %16, i16 noundef zeroext -255, ptr noundef nonnull @.str.114, ptr noundef nonnull @.str.115)
+  %30 = tail call fastcc i32 @dissect_PNPTCP_AnnouncePDU(ptr noundef %0, ptr noundef %1, ptr noundef %18, ptr noundef %16, i16 noundef zeroext -255, ptr noundef nonnull @.str.120, ptr noundef nonnull @.str.121)
   br label %49
 
 31:                                               ; preds = %10
-  %32 = tail call fastcc i32 @dissect_PNPTCP_FollowUpPDU(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef %16, i16 noundef zeroext -224, ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.117)
+  %32 = tail call fastcc i32 @dissect_PNPTCP_FollowUpPDU(ptr noundef %0, ptr noundef %1, ptr noundef %18, ptr noundef %16, i16 noundef zeroext -224, ptr noundef nonnull @.str.122, ptr noundef nonnull @.str.123)
   br label %49
 
 33:                                               ; preds = %10
-  %34 = tail call fastcc i32 @dissect_PNPTCP_FollowUpPDU(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef %16, i16 noundef zeroext -223, ptr noundef nonnull @.str.118, ptr noundef nonnull @.str.119)
+  %34 = tail call fastcc i32 @dissect_PNPTCP_FollowUpPDU(ptr noundef %0, ptr noundef %1, ptr noundef %18, ptr noundef %16, i16 noundef zeroext -223, ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.125)
   br label %49
 
 35:                                               ; preds = %10
-  %36 = tail call fastcc i32 @dissect_PNPTCP_DelayPDU(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef %16, i16 noundef zeroext -192, ptr noundef nonnull @.str.120, ptr noundef nonnull @.str.121)
+  %36 = tail call fastcc i32 @dissect_PNPTCP_DelayPDU(ptr noundef %0, ptr noundef %1, ptr noundef %18, ptr noundef %16, i16 noundef zeroext -192, ptr noundef nonnull @.str.126, ptr noundef nonnull @.str.127)
   br label %49
 
 37:                                               ; preds = %10
-  %38 = tail call fastcc i32 @dissect_PNPTCP_DelayPDU(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef %16, i16 noundef zeroext -191, ptr noundef nonnull @.str.122, ptr noundef nonnull @.str.123)
+  %38 = tail call fastcc i32 @dissect_PNPTCP_DelayPDU(ptr noundef %0, ptr noundef %1, ptr noundef %18, ptr noundef %16, i16 noundef zeroext -191, ptr noundef nonnull @.str.128, ptr noundef nonnull @.str.129)
   br label %49
 
 39:                                               ; preds = %10
-  %40 = tail call fastcc i32 @dissect_PNPTCP_DelayPDU(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef %16, i16 noundef zeroext -190, ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.125)
+  %40 = tail call fastcc i32 @dissect_PNPTCP_DelayPDU(ptr noundef %0, ptr noundef %1, ptr noundef %18, ptr noundef %16, i16 noundef zeroext -190, ptr noundef nonnull @.str.130, ptr noundef nonnull @.str.131)
   br label %49
 
 41:                                               ; preds = %10
-  %42 = tail call fastcc i32 @dissect_PNPTCP_DelayPDU(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %18, ptr noundef %16, i16 noundef zeroext -189, ptr noundef nonnull @.str.122, ptr noundef nonnull @.str.123)
+  %42 = tail call fastcc i32 @dissect_PNPTCP_DelayPDU(ptr noundef %0, ptr noundef %1, ptr noundef %18, ptr noundef %16, i16 noundef zeroext -189, ptr noundef nonnull @.str.128, ptr noundef nonnull @.str.129)
   br label %49
 
 43:                                               ; preds = %10
-  %44 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 0) #3
-  %45 = tail call i32 @dissect_pn_undecoded(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %44) #3
+  %44 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 0)
+  %45 = tail call i32 @dissect_pn_undecoded(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, i32 noundef %44)
   %46 = load ptr, ptr %12, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %46, i32 noundef 25, ptr noundef nonnull @.str.126, i32 noundef %7) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.126, i32 noundef %7) #3
-  %47 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %45) #3
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %46, i32 noundef 25, ptr noundef nonnull @.str.132, i32 noundef %7)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.132, i32 noundef %7)
+  %47 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %45)
   %48 = add i32 %47, %45
   br label %49
 
 49:                                               ; preds = %43, %41, %39, %37, %35, %33, %31, %29, %27, %25, %23, %21, %19
   %.0104 = phi i32 [ %48, %43 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ]
-  tail call void @proto_item_set_len(ptr noundef %16, i32 noundef %.0104) #3
+  tail call void @proto_item_set_len(ptr noundef %16, i32 noundef %.0104)
   br label %50
 
 50:                                               ; preds = %4, %49
-  %.0 = phi i32 [ 1, %49 ], [ 0, %4 ]
-  ret i32 %.0
+  ret i1 %or.cond5.not
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_protocol_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_PNPTCP_RTSyncPDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca i16, align 2
   %10 = alloca i8, align 1
   %11 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #3
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #3
   %12 = load i32, ptr @hf_pn_ptcp_header, align 4
-  %13 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef 0, i32 noundef 20, i32 noundef 0) #3
+  %13 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef 0, i32 noundef 20, i32 noundef 0)
   %14 = load i32, ptr @ett_pn_ptcp_header, align 4
-  %15 = tail call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %14) #3
+  %15 = tail call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %14)
   %16 = load i32, ptr @hf_pn_ptcp_res1, align 4
-  %17 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %16, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #3
+  %17 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %16, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0)
   %18 = load i32, ptr @hf_pn_ptcp_res2, align 4
-  %19 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %18, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #3
+  %19 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %18, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0)
   %20 = load i32, ptr @hf_pn_ptcp_delay10ns, align 4
-  %21 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %8) #3
+  %21 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %8)
   %22 = load i32, ptr @hf_pn_ptcp_seq_id, align 4
-  %23 = call i32 @dissect_pn_uint16(ptr noundef %0, i32 noundef 12, ptr noundef %1, ptr noundef %15, i32 noundef %22, ptr noundef nonnull %9) #3
+  %23 = call i32 @dissect_pn_uint16(ptr noundef %0, i32 noundef 12, ptr noundef %1, ptr noundef %15, i32 noundef %22, ptr noundef nonnull %9)
   %24 = load i32, ptr @hf_pn_ptcp_delay1ns_byte, align 4
-  %25 = call i32 @dissect_pn_uint8(ptr noundef %0, i32 noundef %23, ptr noundef %1, ptr noundef %15, i32 noundef %24, ptr noundef nonnull %10) #3
-  %26 = call i32 @dissect_pn_align4(ptr noundef %0, i32 noundef %25, ptr noundef %1, ptr noundef %15) #3
+  %25 = call i32 @dissect_pn_uint8(ptr noundef %0, i32 noundef %23, ptr noundef %1, ptr noundef %15, i32 noundef %24, ptr noundef nonnull %10)
+  %26 = call i32 @dissect_pn_align4(ptr noundef %0, i32 noundef %25, ptr noundef %1, ptr noundef %15)
   %27 = load i32, ptr @hf_pn_ptcp_delay1ns, align 4
-  %28 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %27, ptr noundef %0, i32 noundef %26, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %11) #3
+  %28 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %27, ptr noundef %0, i32 noundef %26, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %11)
   %29 = add i32 %26, 4
-  %30 = call i32 @dissect_pn_align4(ptr noundef %0, i32 noundef %29, ptr noundef %1, ptr noundef %2) #3
+  %30 = call i32 @dissect_pn_align4(ptr noundef %0, i32 noundef %29, ptr noundef %1, ptr noundef %2)
   %31 = load i32, ptr %8, align 4
   %32 = zext i32 %31 to i64
   %33 = mul nuw nsw i64 %32, 10
@@ -404,13 +415,13 @@ define internal fastcc i32 @dissect_PNPTCP_RTSyncPDU(ptr noundef %0, ptr noundef
   %41 = load ptr, ptr %40, align 8
   %42 = load i16, ptr %9, align 2
   %43 = zext i16 %42 to i32
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %41, i32 noundef 25, ptr noundef nonnull @.str.127, ptr noundef %5, i32 noundef %43, i64 noundef %39) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %41, i32 noundef 25, ptr noundef nonnull @.str.133, ptr noundef %5, i32 noundef %43, i64 noundef %39)
   %44 = load i16, ptr %9, align 2
   %45 = zext i16 %44 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.128, ptr noundef %6, i32 noundef %45, i64 noundef %39) #3
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.134, ptr noundef %6, i32 noundef %45, i64 noundef %39)
   %46 = load i16, ptr %9, align 2
   %47 = zext i16 %46 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.129, i32 noundef %47, i64 noundef %39) #3
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.135, i32 noundef %47, i64 noundef %39)
   %.not = icmp eq i64 %39, 0
   br i1 %.not, label %60, label %48
 
@@ -429,127 +440,154 @@ define internal fastcc i32 @dissect_PNPTCP_RTSyncPDU(ptr noundef %0, ptr noundef
   %57 = load i8, ptr %10, align 1
   %58 = zext i8 %57 to i32
   %59 = add nuw nsw i32 %56, %58
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.130, i32 noundef %.zext, i32 noundef %.zext56, i32 noundef %54, i32 noundef %59) #3
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.136, i32 noundef %.zext, i32 noundef %.zext56, i32 noundef %54, i32 noundef %59)
   br label %60
 
 60:                                               ; preds = %48, %7
-  %61 = call fastcc i32 @dissect_PNPTCP_blocks(ptr noundef %0, i32 noundef %30, ptr noundef nonnull %1, ptr noundef %2, i16 noundef zeroext %4)
+  %61 = call fastcc i32 @dissect_PNPTCP_blocks(ptr noundef %0, i32 noundef %30, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %4)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #3
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #3
   ret i32 %61
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_PNPTCP_AnnouncePDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca i16, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #3
   %9 = load i32, ptr @hf_pn_ptcp_header, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 20, i32 noundef 0) #3
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 20, i32 noundef 0)
   %11 = load i32, ptr @ett_pn_ptcp_header, align 4
-  %12 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %11) #3
-  %13 = tail call i32 @dissect_pn_padding(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %12, i32 noundef 12) #3
+  %12 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %11)
+  %13 = tail call i32 @dissect_pn_padding(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %12, i32 noundef 12)
   %14 = load i32, ptr @hf_pn_ptcp_seq_id, align 4
-  %15 = call i32 @dissect_pn_uint16(ptr noundef %0, i32 noundef %13, ptr noundef %1, ptr noundef %12, i32 noundef %14, ptr noundef nonnull %8) #3
-  %16 = call i32 @dissect_pn_padding(ptr noundef %0, i32 noundef %15, ptr noundef %1, ptr noundef %12, i32 noundef 6) #3
+  %15 = call i32 @dissect_pn_uint16(ptr noundef %0, i32 noundef %13, ptr noundef %1, ptr noundef %12, i32 noundef %14, ptr noundef nonnull %8)
+  %16 = call i32 @dissect_pn_padding(ptr noundef %0, i32 noundef %15, ptr noundef %1, ptr noundef %12, i32 noundef 6)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = load i16, ptr %8, align 2
   %20 = zext i16 %19 to i32
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %18, i32 noundef 25, ptr noundef nonnull @.str.161, ptr noundef %5, i32 noundef %20) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %18, i32 noundef 25, ptr noundef nonnull @.str.168, ptr noundef %5, i32 noundef %20)
   %21 = load i16, ptr %8, align 2
   %22 = zext i16 %21 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.162, ptr noundef %6, i32 noundef %22) #3
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.169, ptr noundef %6, i32 noundef %22)
   %23 = load i16, ptr %8, align 2
   %24 = zext i16 %23 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef nonnull @.str.163, i32 noundef %24) #3
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef nonnull @.str.170, i32 noundef %24)
   %25 = call fastcc i32 @dissect_PNPTCP_blocks(ptr noundef %0, i32 noundef %16, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %4)
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #3
   ret i32 %25
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_PNPTCP_FollowUpPDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca i16, align 2
   %9 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #3
   %10 = load i32, ptr @hf_pn_ptcp_header, align 4
-  %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 20, i32 noundef 0) #3
+  %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 20, i32 noundef 0)
   %12 = load i32, ptr @ett_pn_ptcp_header, align 4
-  %13 = tail call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #3
-  %14 = tail call i32 @dissect_pn_padding(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %13, i32 noundef 12) #3
+  %13 = tail call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12)
+  %14 = tail call i32 @dissect_pn_padding(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %13, i32 noundef 12)
   %15 = load i32, ptr @hf_pn_ptcp_seq_id, align 4
-  %16 = call i32 @dissect_pn_uint16(ptr noundef %0, i32 noundef %14, ptr noundef %1, ptr noundef %13, i32 noundef %15, ptr noundef nonnull %8) #3
-  %17 = call i32 @dissect_pn_align4(ptr noundef %0, i32 noundef %16, ptr noundef %1, ptr noundef %13) #3
+  %16 = call i32 @dissect_pn_uint16(ptr noundef %0, i32 noundef %14, ptr noundef %1, ptr noundef %13, i32 noundef %15, ptr noundef nonnull %8)
+  %17 = call i32 @dissect_pn_align4(ptr noundef %0, i32 noundef %16, ptr noundef %1, ptr noundef %13)
   %18 = load i32, ptr @hf_pn_ptcp_delay1ns_fup, align 4
-  %19 = call ptr @proto_tree_add_item_ret_int(ptr noundef %13, i32 noundef %18, ptr noundef %0, i32 noundef %17, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %9) #3
+  %19 = call ptr @proto_tree_add_item_ret_int(ptr noundef %13, i32 noundef %18, ptr noundef %0, i32 noundef %17, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %9)
   %20 = add i32 %17, 4
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = load i16, ptr %8, align 2
   %24 = zext i16 %23 to i32
   %25 = load i32, ptr %9, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %22, i32 noundef 25, ptr noundef nonnull @.str.164, ptr noundef %5, i32 noundef %24, i32 noundef %25) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %22, i32 noundef 25, ptr noundef nonnull @.str.171, ptr noundef %5, i32 noundef %24, i32 noundef %25)
   %26 = load i16, ptr %8, align 2
   %27 = zext i16 %26 to i32
   %28 = load i32, ptr %9, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.165, ptr noundef %6, i32 noundef %27, i32 noundef %28) #3
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.172, ptr noundef %6, i32 noundef %27, i32 noundef %28)
   %29 = load i16, ptr %8, align 2
   %30 = zext i16 %29 to i32
   %31 = load i32, ptr %9, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef nonnull @.str.166, i32 noundef %30, i32 noundef %31) #3
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef nonnull @.str.173, i32 noundef %30, i32 noundef %31)
   %32 = call fastcc i32 @dissect_PNPTCP_blocks(ptr noundef %0, i32 noundef %20, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %4)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #3
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #3
   ret i32 %32
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_PNPTCP_DelayPDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca i16, align 2
   %9 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #3
   %10 = load i32, ptr @hf_pn_ptcp_header, align 4
-  %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 20, i32 noundef 0) #3
+  %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 20, i32 noundef 0)
   %12 = load i32, ptr @ett_pn_ptcp_header, align 4
-  %13 = tail call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #3
-  %14 = tail call i32 @dissect_pn_padding(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %13, i32 noundef 12) #3
+  %13 = tail call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12)
+  %14 = tail call i32 @dissect_pn_padding(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %13, i32 noundef 12)
   %15 = load i32, ptr @hf_pn_ptcp_seq_id, align 4
-  %16 = call i32 @dissect_pn_uint16(ptr noundef %0, i32 noundef %14, ptr noundef %1, ptr noundef %13, i32 noundef %15, ptr noundef nonnull %8) #3
-  %17 = call i32 @dissect_pn_align4(ptr noundef %0, i32 noundef %16, ptr noundef %1, ptr noundef %13) #3
+  %16 = call i32 @dissect_pn_uint16(ptr noundef %0, i32 noundef %14, ptr noundef %1, ptr noundef %13, i32 noundef %15, ptr noundef nonnull %8)
+  %17 = call i32 @dissect_pn_align4(ptr noundef %0, i32 noundef %16, ptr noundef %1, ptr noundef %13)
   %18 = load i32, ptr @hf_pn_ptcp_delay1ns, align 4
-  %19 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %18, ptr noundef %0, i32 noundef %17, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %9) #3
+  %19 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %18, ptr noundef %0, i32 noundef %17, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %9)
   %20 = add i32 %17, 4
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = load i16, ptr %8, align 2
   %24 = zext i16 %23 to i32
   %25 = load i32, ptr %9, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %22, i32 noundef 25, ptr noundef nonnull @.str.167, ptr noundef %5, i32 noundef %24, i32 noundef %25) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %22, i32 noundef 25, ptr noundef nonnull @.str.174, ptr noundef %5, i32 noundef %24, i32 noundef %25)
   %26 = load i16, ptr %8, align 2
   %27 = zext i16 %26 to i32
   %28 = load i32, ptr %9, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.168, ptr noundef %6, i32 noundef %27, i32 noundef %28) #3
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.175, ptr noundef %6, i32 noundef %27, i32 noundef %28)
   %29 = load i16, ptr %8, align 2
   %30 = zext i16 %29 to i32
   %31 = load i32, ptr %9, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef nonnull @.str.169, i32 noundef %30, i32 noundef %31) #3
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef nonnull @.str.176, i32 noundef %30, i32 noundef %31)
   %32 = call fastcc i32 @dissect_PNPTCP_blocks(ptr noundef %0, i32 noundef %20, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %4)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #3
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #3
   ret i32 %32
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_pn_undecoded(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_pn_uint16(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_pn_uint8(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_pn_align4(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_PNPTCP_blocks(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca i8, align 1
   %7 = alloca %struct._e_guid_t, align 4
@@ -610,31 +648,31 @@ define internal fastcc i32 @dissect_PNPTCP_blocks(ptr noundef %0, i32 noundef %1
 59:                                               ; preds = %dissect_PNPTCP_block.exit, %5
   %.02 = phi i32 [ %1, %5 ], [ %296, %dissect_PNPTCP_block.exit ]
   %60 = load i32, ptr @hf_pn_ptcp_block, align 4
-  %61 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %60, ptr noundef %0, i32 noundef %.02, i32 noundef 0, i32 noundef 0) #3
+  %61 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %60, ptr noundef %0, i32 noundef %.02, i32 noundef 0, i32 noundef 0)
   %62 = load i32, ptr @ett_pn_ptcp_block, align 4
-  %63 = call ptr @proto_item_add_subtree(ptr noundef %61, i32 noundef %62) #3
+  %63 = call ptr @proto_item_add_subtree(ptr noundef %61, i32 noundef %62)
   %64 = load i32, ptr @hf_pn_ptcp_block_tlvheader, align 4
-  %65 = call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %64, ptr noundef %0, i32 noundef %.02, i32 noundef 2, i32 noundef 0) #3
+  %65 = call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %64, ptr noundef %0, i32 noundef %.02, i32 noundef 2, i32 noundef 0)
   %66 = load i32, ptr @ett_pn_ptcp_block_header, align 4
-  %67 = call ptr @proto_item_add_subtree(ptr noundef %65, i32 noundef %66) #3
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %25)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %26)
+  %67 = call ptr @proto_item_add_subtree(ptr noundef %65, i32 noundef %66)
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %25) #3
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %26) #3
   %68 = load i32, ptr @hf_pn_ptcp_tl_type, align 4
-  %69 = call i32 @dissect_pn_uint16(ptr noundef %0, i32 noundef %.02, ptr noundef %2, ptr noundef %67, i32 noundef %68, ptr noundef nonnull %25) #3
+  %69 = call i32 @dissect_pn_uint16(ptr noundef %0, i32 noundef %.02, ptr noundef %2, ptr noundef %67, i32 noundef %68, ptr noundef nonnull %25)
   %70 = load i16, ptr %25, align 2
   %71 = lshr i16 %70, 9
   %72 = load i32, ptr @hf_pn_ptcp_tl_length, align 4
-  %73 = call i32 @dissect_pn_uint16(ptr noundef %0, i32 noundef %.02, ptr noundef %2, ptr noundef %67, i32 noundef %72, ptr noundef nonnull %26) #3
+  %73 = call i32 @dissect_pn_uint16(ptr noundef %0, i32 noundef %.02, ptr noundef %2, ptr noundef %67, i32 noundef %72, ptr noundef nonnull %26)
   %74 = load i16, ptr %26, align 2
   %75 = and i16 %74, 511
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %25)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %26) #3
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %25) #3
   %76 = zext nneg i16 %71 to i32
-  %77 = call ptr @val_to_str_const(i32 noundef %76, ptr noundef nonnull @pn_ptcp_block_type, ptr noundef nonnull @.str.101) #3
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %61, ptr noundef nonnull @.str.131, ptr noundef %77) #3
-  %78 = call ptr @val_to_str_const(i32 noundef %76, ptr noundef nonnull @pn_ptcp_block_type, ptr noundef nonnull @.str.101) #3
+  %77 = call ptr @val_to_str_const(i32 noundef %76, ptr noundef nonnull @pn_ptcp_block_type, ptr noundef nonnull @.str.106)
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %61, ptr noundef nonnull @.str.137, ptr noundef %77)
+  %78 = call ptr @val_to_str_const(i32 noundef %76, ptr noundef nonnull @pn_ptcp_block_type, ptr noundef nonnull @.str.106)
   %79 = zext nneg i16 %75 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %65, ptr noundef nonnull @.str.132, ptr noundef %78, i32 noundef %76, i32 noundef %79) #3
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %65, ptr noundef nonnull @.str.138, ptr noundef %78, i32 noundef %76, i32 noundef %79)
   switch i16 %71, label %294 [
     i16 0, label %298
     i16 1, label %80
@@ -648,12 +686,12 @@ define internal fastcc i32 @dissect_PNPTCP_blocks(ptr noundef %0, i32 noundef %1
   ]
 
 80:                                               ; preds = %59
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %23)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %23) #3
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24) #3
   %81 = load i32, ptr @hf_pn_ptcp_master_source_address, align 4
-  %82 = call i32 @dissect_pn_mac(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %63, i32 noundef %81, ptr noundef nonnull %23) #3
+  %82 = call i32 @dissect_pn_mac(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %63, i32 noundef %81, ptr noundef nonnull %23)
   %83 = load i32, ptr @hf_pn_ptcp_subdomain_uuid, align 4
-  %84 = call i32 @dissect_pn_uuid(ptr noundef %0, i32 noundef %82, ptr noundef %2, ptr noundef %63, i32 noundef %83, ptr noundef nonnull %24) #3
+  %84 = call i32 @dissect_pn_uuid(ptr noundef %0, i32 noundef %82, ptr noundef %2, ptr noundef %63, i32 noundef %83, ptr noundef nonnull %24)
   br i1 %or.cond.i.i, label %85, label %dissect_PNPTCP_Subdomain.exit.i
 
 85:                                               ; preds = %80
@@ -670,7 +708,7 @@ define internal fastcc i32 @dissect_PNPTCP_blocks(ptr noundef %0, i32 noundef %1
   %96 = zext i8 %95 to i32
   %97 = load i8, ptr %48, align 1
   %98 = zext i8 %97 to i32
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %86, i32 noundef 25, ptr noundef nonnull @.str.142, i32 noundef %88, i32 noundef %90, i32 noundef %92, i32 noundef %94, i32 noundef %96, i32 noundef %98) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %86, i32 noundef 25, ptr noundef nonnull @.str.149, i32 noundef %88, i32 noundef %90, i32 noundef %92, i32 noundef %94, i32 noundef %96, i32 noundef %98)
   br label %dissect_PNPTCP_Subdomain.exit.i
 
 dissect_PNPTCP_Subdomain.exit.i:                  ; preds = %85, %80
@@ -686,7 +724,7 @@ dissect_PNPTCP_Subdomain.exit.i:                  ; preds = %85, %80
   %108 = zext i8 %107 to i32
   %109 = load i8, ptr %48, align 1
   %110 = zext i8 %109 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %61, ptr noundef nonnull @.str.143, i32 noundef %100, i32 noundef %102, i32 noundef %104, i32 noundef %106, i32 noundef %108, i32 noundef %110) #3
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %61, ptr noundef nonnull @.str.150, i32 noundef %100, i32 noundef %102, i32 noundef %104, i32 noundef %106, i32 noundef %108, i32 noundef %110)
   %111 = load i32, ptr %24, align 4
   %112 = load i16, ptr %49, align 4
   %113 = zext i16 %112 to i32
@@ -708,144 +746,144 @@ dissect_PNPTCP_Subdomain.exit.i:                  ; preds = %85, %80
   %129 = zext i8 %128 to i32
   %130 = load i8, ptr %58, align 1
   %131 = zext i8 %130 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %61, ptr noundef nonnull @.str.144, i32 noundef %111, i32 noundef %113, i32 noundef %115, i32 noundef %117, i32 noundef %119, i32 noundef %121, i32 noundef %123, i32 noundef %125, i32 noundef %127, i32 noundef %129, i32 noundef %131) #3
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %23)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %61, ptr noundef nonnull @.str.151, i32 noundef %111, i32 noundef %113, i32 noundef %115, i32 noundef %117, i32 noundef %119, i32 noundef %121, i32 noundef %123, i32 noundef %125, i32 noundef %127, i32 noundef %129, i32 noundef %131)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24) #3
+  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %23) #3
   br label %dissect_PNPTCP_block.exit
 
 132:                                              ; preds = %59
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %20)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22)
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %20) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #3
   %133 = load i32, ptr @hf_pn_ptcp_epoch_number, align 4
-  %134 = call i32 @dissect_pn_uint16(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %63, i32 noundef %133, ptr noundef nonnull %20) #3
+  %134 = call i32 @dissect_pn_uint16(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %63, i32 noundef %133, ptr noundef nonnull %20)
   %135 = load i32, ptr @hf_pn_ptcp_seconds, align 4
-  %136 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %63, i32 noundef %135, ptr noundef %0, i32 noundef %134, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %21) #3
+  %136 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %63, i32 noundef %135, ptr noundef %0, i32 noundef %134, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %21)
   %137 = add i32 %134, 4
   %138 = load i32, ptr @hf_pn_ptcp_nanoseconds, align 4
-  %139 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %63, i32 noundef %138, ptr noundef %0, i32 noundef %137, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %22) #3
+  %139 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %63, i32 noundef %138, ptr noundef %0, i32 noundef %137, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %22)
   %140 = load i32, ptr %21, align 4
   %141 = load i32, ptr %22, align 4
   %142 = load i16, ptr %20, align 2
   %143 = zext i16 %142 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %61, ptr noundef nonnull @.str.145, i32 noundef %140, i32 noundef %141, i32 noundef %143) #3
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %61, ptr noundef nonnull @.str.152, i32 noundef %140, i32 noundef %141, i32 noundef %143)
   %144 = load ptr, ptr %37, align 8
   %145 = load i32, ptr %21, align 4
   %146 = load i32, ptr %22, align 4
   %147 = load i16, ptr %20, align 2
   %148 = zext i16 %147 to i32
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %144, i32 noundef 25, ptr noundef nonnull @.str.146, i32 noundef %145, i32 noundef %146, i32 noundef %148) #3
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %20)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %144, i32 noundef 25, ptr noundef nonnull @.str.153, i32 noundef %145, i32 noundef %146, i32 noundef %148)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #3
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %20) #3
   br label %dissect_PNPTCP_block.exit
 
 149:                                              ; preds = %59
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %18)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %18) #3
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %19) #3
   %150 = load i32, ptr @hf_pn_ptcp_flags, align 4
-  %151 = call i32 @dissect_pn_uint16(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %63, i32 noundef %150, ptr noundef nonnull %18) #3
+  %151 = call i32 @dissect_pn_uint16(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %63, i32 noundef %150, ptr noundef nonnull %18)
   %152 = load i32, ptr @hf_pn_ptcp_currentutcoffset, align 4
-  %153 = call i32 @dissect_pn_uint16(ptr noundef %0, i32 noundef %151, ptr noundef %2, ptr noundef %63, i32 noundef %152, ptr noundef nonnull %19) #3
-  %154 = call i32 @dissect_pn_align4(ptr noundef %0, i32 noundef %153, ptr noundef %2, ptr noundef %63) #3
+  %153 = call i32 @dissect_pn_uint16(ptr noundef %0, i32 noundef %151, ptr noundef %2, ptr noundef %63, i32 noundef %152, ptr noundef nonnull %19)
+  %154 = call i32 @dissect_pn_align4(ptr noundef %0, i32 noundef %153, ptr noundef %2, ptr noundef %63)
   %155 = load i16, ptr %18, align 2
   %156 = zext i16 %155 to i32
   %157 = load i16, ptr %19, align 2
   %158 = zext i16 %157 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %61, ptr noundef nonnull @.str.147, i32 noundef %156, i32 noundef %158) #3
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %18)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %19)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %61, ptr noundef nonnull @.str.154, i32 noundef %156, i32 noundef %158)
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %19) #3
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %18) #3
   br label %dissect_PNPTCP_block.exit
 
 159:                                              ; preds = %59
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16) #3
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %17) #3
   %160 = load i32, ptr @hf_pn_ptcp_master_priority1, align 4
-  %161 = call i32 @dissect_pn_uint8(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %63, i32 noundef %160, ptr noundef nonnull %13) #3
+  %161 = call i32 @dissect_pn_uint8(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %63, i32 noundef %160, ptr noundef nonnull %13)
   %162 = load i32, ptr @hf_pn_ptcp_master_priority_level, align 4
-  %163 = call i32 @dissect_pn_uint8(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %63, i32 noundef %162, ptr noundef nonnull %13) #3
+  %163 = call i32 @dissect_pn_uint8(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %63, i32 noundef %162, ptr noundef nonnull %13)
   %164 = load i32, ptr @hf_pn_ptcp_master_priority1_res, align 4
-  %165 = call i32 @dissect_pn_uint8(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %63, i32 noundef %164, ptr noundef nonnull %13) #3
+  %165 = call i32 @dissect_pn_uint8(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %63, i32 noundef %164, ptr noundef nonnull %13)
   %166 = load i32, ptr @hf_pn_ptcp_master_priority1_act, align 4
-  %167 = call i32 @dissect_pn_uint8(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %63, i32 noundef %166, ptr noundef nonnull %13) #3
+  %167 = call i32 @dissect_pn_uint8(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %63, i32 noundef %166, ptr noundef nonnull %13)
   %168 = load i32, ptr @hf_pn_ptcp_master_priority2, align 4
-  %169 = call i32 @dissect_pn_uint8(ptr noundef %0, i32 noundef %167, ptr noundef %2, ptr noundef %63, i32 noundef %168, ptr noundef nonnull %14) #3
+  %169 = call i32 @dissect_pn_uint8(ptr noundef %0, i32 noundef %167, ptr noundef %2, ptr noundef %63, i32 noundef %168, ptr noundef nonnull %14)
   %170 = load i32, ptr @hf_pn_ptcp_clock_class, align 4
-  %171 = call i32 @dissect_pn_uint8(ptr noundef %0, i32 noundef %169, ptr noundef %2, ptr noundef %63, i32 noundef %170, ptr noundef nonnull %15) #3
+  %171 = call i32 @dissect_pn_uint8(ptr noundef %0, i32 noundef %169, ptr noundef %2, ptr noundef %63, i32 noundef %170, ptr noundef nonnull %15)
   %172 = load i32, ptr @hf_pn_ptcp_clock_accuracy, align 4
-  %173 = call i32 @dissect_pn_uint8(ptr noundef %0, i32 noundef %171, ptr noundef %2, ptr noundef %63, i32 noundef %172, ptr noundef nonnull %16) #3
+  %173 = call i32 @dissect_pn_uint8(ptr noundef %0, i32 noundef %171, ptr noundef %2, ptr noundef %63, i32 noundef %172, ptr noundef nonnull %16)
   %174 = load i32, ptr @hf_pn_ptcp_clockvariance, align 4
-  %175 = call i32 @dissect_pn_int16(ptr noundef %0, i32 noundef %173, ptr noundef %2, ptr noundef %63, i32 noundef %174, ptr noundef nonnull %17) #3
-  %176 = call i32 @dissect_pn_align4(ptr noundef %0, i32 noundef %175, ptr noundef %2, ptr noundef %63) #3
+  %175 = call i32 @dissect_pn_int16(ptr noundef %0, i32 noundef %173, ptr noundef %2, ptr noundef %63, i32 noundef %174, ptr noundef nonnull %17)
+  %176 = call i32 @dissect_pn_align4(ptr noundef %0, i32 noundef %175, ptr noundef %2, ptr noundef %63)
   %177 = load ptr, ptr %37, align 8
   %178 = load i8, ptr %13, align 1
   %179 = and i8 %178, 7
   %180 = zext nneg i8 %179 to i32
-  %181 = call ptr @val_to_str(i32 noundef %180, ptr noundef nonnull @pn_ptcp_master_prio1_vals, ptr noundef nonnull @.str.149) #3
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %177, i32 noundef 25, ptr noundef nonnull @.str.148, ptr noundef %181) #3
+  %181 = call ptr @val_to_str(i32 noundef %180, ptr noundef nonnull @pn_ptcp_master_prio1_vals, ptr noundef nonnull @.str.156)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %177, i32 noundef 25, ptr noundef nonnull @.str.155, ptr noundef %181)
   %182 = load i8, ptr %13, align 1
   %183 = icmp sgt i8 %182, -1
   br i1 %183, label %dissect_PNPTCP_Master.exit.i, label %184
 
 184:                                              ; preds = %159
   %185 = load ptr, ptr %37, align 8
-  call void @col_append_str(ptr noundef %185, i32 noundef 25, ptr noundef nonnull @.str.151) #3
+  call void @col_append_str(ptr noundef %185, i32 noundef 25, ptr noundef nonnull @.str.158)
   %186 = load i8, ptr %13, align 1
   br label %dissect_PNPTCP_Master.exit.i
 
 dissect_PNPTCP_Master.exit.i:                     ; preds = %184, %159
   %.sink52.i.i = phi i8 [ %186, %184 ], [ %182, %159 ]
-  %.str.152.sink.i.i = phi ptr [ @.str.152, %184 ], [ @.str.150, %159 ]
+  %.str.159.sink.i.i = phi ptr [ @.str.159, %184 ], [ @.str.157, %159 ]
   %187 = and i8 %.sink52.i.i, 7
   %188 = zext nneg i8 %187 to i32
-  %189 = call ptr @val_to_str(i32 noundef %188, ptr noundef nonnull @pn_ptcp_master_prio1_vals, ptr noundef nonnull @.str.149) #3
+  %189 = call ptr @val_to_str(i32 noundef %188, ptr noundef nonnull @pn_ptcp_master_prio1_vals, ptr noundef nonnull @.str.156)
   %190 = load i8, ptr %14, align 1
   %191 = zext i8 %190 to i32
-  %192 = call ptr @val_to_str(i32 noundef %191, ptr noundef nonnull @pn_ptcp_master_prio2_vals, ptr noundef nonnull @.str.149) #3
+  %192 = call ptr @val_to_str(i32 noundef %191, ptr noundef nonnull @pn_ptcp_master_prio2_vals, ptr noundef nonnull @.str.156)
   %193 = load i8, ptr %15, align 1
   %194 = zext i8 %193 to i32
-  %195 = call ptr @val_to_str(i32 noundef %194, ptr noundef nonnull @pn_ptcp_clock_class_vals, ptr noundef nonnull @.str.149) #3
+  %195 = call ptr @val_to_str(i32 noundef %194, ptr noundef nonnull @pn_ptcp_clock_class_vals, ptr noundef nonnull @.str.156)
   %196 = load i8, ptr %16, align 1
   %197 = zext i8 %196 to i32
-  %198 = call ptr @val_to_str(i32 noundef %197, ptr noundef nonnull @pn_ptcp_clock_accuracy_vals, ptr noundef nonnull @.str.149) #3
+  %198 = call ptr @val_to_str(i32 noundef %197, ptr noundef nonnull @pn_ptcp_clock_accuracy_vals, ptr noundef nonnull @.str.156)
   %199 = load i16, ptr %17, align 2
   %200 = sext i16 %199 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %61, ptr noundef nonnull %.str.152.sink.i.i, ptr noundef %189, ptr noundef %192, ptr noundef %195, ptr noundef %198, i32 noundef %200) #3
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %17)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %61, ptr noundef nonnull %.str.159.sink.i.i, ptr noundef %189, ptr noundef %192, ptr noundef %195, ptr noundef %198, i32 noundef %200)
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %17) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #3
   br label %dissect_PNPTCP_block.exit
 
 201:                                              ; preds = %59
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
-  %202 = call i32 @dissect_pn_align4(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %63) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #3
+  %202 = call i32 @dissect_pn_align4(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %63)
   %203 = load i32, ptr @hf_pn_ptcp_t2portrxdelay, align 4
-  %204 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %63, i32 noundef %203, ptr noundef %0, i32 noundef %202, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %11) #3
+  %204 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %63, i32 noundef %203, ptr noundef %0, i32 noundef %202, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %11)
   %205 = add i32 %202, 4
   %206 = load i32, ptr @hf_pn_ptcp_t3porttxdelay, align 4
-  %207 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %63, i32 noundef %206, ptr noundef %0, i32 noundef %205, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %12) #3
+  %207 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %63, i32 noundef %206, ptr noundef %0, i32 noundef %205, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %12)
   %208 = load i32, ptr %11, align 4
   %209 = load i32, ptr %12, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %61, ptr noundef nonnull @.str.153, i32 noundef %208, i32 noundef %209) #3
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %61, ptr noundef nonnull @.str.160, i32 noundef %208, i32 noundef %209)
   %210 = load ptr, ptr %37, align 8
   %211 = load i32, ptr %11, align 4
   %212 = load i32, ptr %12, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %210, i32 noundef 25, ptr noundef nonnull @.str.154, i32 noundef %211, i32 noundef %212) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %210, i32 noundef 25, ptr noundef nonnull @.str.161, i32 noundef %211, i32 noundef %212)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #3
   br label %dissect_PNPTCP_block.exit
 
 213:                                              ; preds = %59
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %10) #3
   %214 = load i32, ptr @hf_pn_ptcp_port_mac_address, align 4
-  %215 = call i32 @dissect_pn_mac(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %63, i32 noundef %214, ptr noundef nonnull %10) #3
-  %216 = call i32 @dissect_pn_align4(ptr noundef %0, i32 noundef %215, ptr noundef %2, ptr noundef %63) #3
+  %215 = call i32 @dissect_pn_mac(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %63, i32 noundef %214, ptr noundef nonnull %10)
+  %216 = call i32 @dissect_pn_align4(ptr noundef %0, i32 noundef %215, ptr noundef %2, ptr noundef %63)
   %217 = load i8, ptr %10, align 1
   %218 = zext i8 %217 to i32
   %219 = load i8, ptr %38, align 1
@@ -858,7 +896,7 @@ dissect_PNPTCP_Master.exit.i:                     ; preds = %184, %159
   %226 = zext i8 %225 to i32
   %227 = load i8, ptr %42, align 1
   %228 = zext i8 %227 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %61, ptr noundef nonnull @.str.155, i32 noundef %218, i32 noundef %220, i32 noundef %222, i32 noundef %224, i32 noundef %226, i32 noundef %228) #3
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %61, ptr noundef nonnull @.str.162, i32 noundef %218, i32 noundef %220, i32 noundef %222, i32 noundef %224, i32 noundef %226, i32 noundef %228)
   %229 = load ptr, ptr %37, align 8
   %230 = load i8, ptr %10, align 1
   %231 = zext i8 %230 to i32
@@ -872,35 +910,35 @@ dissect_PNPTCP_Master.exit.i:                     ; preds = %184, %159
   %239 = zext i8 %238 to i32
   %240 = load i8, ptr %42, align 1
   %241 = zext i8 %240 to i32
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %229, i32 noundef 25, ptr noundef nonnull @.str.156, i32 noundef %231, i32 noundef %233, i32 noundef %235, i32 noundef %237, i32 noundef %239, i32 noundef %241) #3
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %10)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %229, i32 noundef 25, ptr noundef nonnull @.str.163, i32 noundef %231, i32 noundef %233, i32 noundef %235, i32 noundef %237, i32 noundef %239, i32 noundef %241)
+  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %10) #3
   br label %dissect_PNPTCP_block.exit
 
 242:                                              ; preds = %59
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
-  %243 = call i32 @dissect_pn_align4(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %63) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #3
+  %243 = call i32 @dissect_pn_align4(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %63)
   %244 = load i32, ptr @hf_pn_ptcp_t2timestamp, align 4
-  %245 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %63, i32 noundef %244, ptr noundef %0, i32 noundef %243, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %9) #3
+  %245 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %63, i32 noundef %244, ptr noundef %0, i32 noundef %243, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %9)
   %246 = load i32, ptr %9, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %61, ptr noundef nonnull @.str.157, i32 noundef %246) #3
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %61, ptr noundef nonnull @.str.164, i32 noundef %246)
   %247 = load ptr, ptr %37, align 8
   %248 = load i32, ptr %9, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %247, i32 noundef 25, ptr noundef nonnull @.str.158, i32 noundef %248) #3
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %247, i32 noundef 25, ptr noundef nonnull @.str.165, i32 noundef %248)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #3
   br label %dissect_PNPTCP_block.exit
 
 249:                                              ; preds = %59
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #3
   %250 = icmp samesign ult i16 %75, 4
   br i1 %250, label %251, label %253
 
 251:                                              ; preds = %249
-  %252 = call i32 @dissect_pn_undecoded(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %63, i32 noundef %79) #3
+  %252 = call i32 @dissect_pn_undecoded(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %63, i32 noundef %79)
   br label %dissect_PNPTCP_Option.exit.i
 
 253:                                              ; preds = %249
   %254 = load i32, ptr @hf_pn_ptcp_oui, align 4
-  %255 = call i32 @dissect_pn_oid(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %63, i32 noundef %254, ptr noundef nonnull %8) #3
+  %255 = call i32 @dissect_pn_oid(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %63, i32 noundef %254, ptr noundef nonnull %8)
   %256 = load i32, ptr %8, align 4
   switch i32 %256, label %290 [
     i32 3791, label %257
@@ -908,19 +946,19 @@ dissect_PNPTCP_Master.exit.i:                     ; preds = %184, %159
   ]
 
 257:                                              ; preds = %253, %253
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %61, ptr noundef nonnull @.str.159) #3
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %61, ptr noundef nonnull @.str.166)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #3
   %258 = load i32, ptr @hf_pn_ptcp_profinet_subtype, align 4
-  %259 = call i32 @dissect_pn_uint8(ptr noundef %0, i32 noundef %255, ptr noundef %2, ptr noundef %63, i32 noundef %258, ptr noundef nonnull %6) #3
+  %259 = call i32 @dissect_pn_uint8(ptr noundef %0, i32 noundef %255, ptr noundef %2, ptr noundef %63, i32 noundef %258, ptr noundef nonnull %6)
   %260 = load i8, ptr %6, align 1
   %cond.i.i.i = icmp eq i8 %260, 1
   br i1 %cond.i.i.i, label %261, label %286
 
 261:                                              ; preds = %257
-  %262 = call i32 @dissect_pn_align4(ptr noundef %0, i32 noundef %259, ptr noundef %2, ptr noundef %63) #3
+  %262 = call i32 @dissect_pn_align4(ptr noundef %0, i32 noundef %259, ptr noundef %2, ptr noundef %63)
   %263 = load i32, ptr @hf_pn_ptcp_irdata_uuid, align 4
-  %264 = call i32 @dissect_pn_uuid(ptr noundef %0, i32 noundef %262, ptr noundef %2, ptr noundef %63, i32 noundef %263, ptr noundef nonnull %7) #3
+  %264 = call i32 @dissect_pn_uuid(ptr noundef %0, i32 noundef %262, ptr noundef %2, ptr noundef %63, i32 noundef %263, ptr noundef nonnull %7)
   %265 = load i32, ptr %7, align 4
   %266 = load i16, ptr %27, align 4
   %267 = zext i16 %266 to i32
@@ -942,84 +980,90 @@ dissect_PNPTCP_Master.exit.i:                     ; preds = %184, %159
   %283 = zext i8 %282 to i32
   %284 = load i8, ptr %36, align 1
   %285 = zext i8 %284 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %61, ptr noundef nonnull @.str.160, i32 noundef %265, i32 noundef %267, i32 noundef %269, i32 noundef %271, i32 noundef %273, i32 noundef %275, i32 noundef %277, i32 noundef %279, i32 noundef %281, i32 noundef %283, i32 noundef %285) #3
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %61, ptr noundef nonnull @.str.167, i32 noundef %265, i32 noundef %267, i32 noundef %269, i32 noundef %271, i32 noundef %273, i32 noundef %275, i32 noundef %277, i32 noundef %279, i32 noundef %281, i32 noundef %283, i32 noundef %285)
   br label %dissect_PNPTCP_Option_PROFINET.exit.i.i
 
 286:                                              ; preds = %257
   %287 = add nsw i16 %75, -4
   %288 = zext nneg i16 %287 to i32
-  %289 = call i32 @dissect_pn_undecoded(ptr noundef %0, i32 noundef %259, ptr noundef %2, ptr noundef %63, i32 noundef %288) #3
+  %289 = call i32 @dissect_pn_undecoded(ptr noundef %0, i32 noundef %259, ptr noundef %2, ptr noundef %63, i32 noundef %288)
   br label %dissect_PNPTCP_Option_PROFINET.exit.i.i
 
 dissect_PNPTCP_Option_PROFINET.exit.i.i:          ; preds = %286, %261
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #3
   br label %dissect_PNPTCP_Option.exit.i
 
 290:                                              ; preds = %253
   %291 = add nsw i16 %75, -3
   %292 = zext nneg i16 %291 to i32
-  %293 = call i32 @dissect_pn_undecoded(ptr noundef %0, i32 noundef %255, ptr noundef %2, ptr noundef %63, i32 noundef %292) #3
+  %293 = call i32 @dissect_pn_undecoded(ptr noundef %0, i32 noundef %255, ptr noundef %2, ptr noundef %63, i32 noundef %292)
   br label %dissect_PNPTCP_Option.exit.i
 
 dissect_PNPTCP_Option.exit.i:                     ; preds = %290, %dissect_PNPTCP_Option_PROFINET.exit.i.i, %251
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #3
   br label %dissect_PNPTCP_block.exit
 
 294:                                              ; preds = %59
-  %295 = call i32 @dissect_pn_undecoded(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %3, i32 noundef %79) #3
+  %295 = call i32 @dissect_pn_undecoded(ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %3, i32 noundef %79)
   br label %dissect_PNPTCP_block.exit
 
 dissect_PNPTCP_block.exit:                        ; preds = %dissect_PNPTCP_Subdomain.exit.i, %132, %149, %dissect_PNPTCP_Master.exit.i, %201, %213, %242, %dissect_PNPTCP_Option.exit.i, %294
   %.0.i = phi i32 [ %295, %294 ], [ %73, %dissect_PNPTCP_Option.exit.i ], [ %73, %242 ], [ %73, %213 ], [ %73, %201 ], [ %73, %dissect_PNPTCP_Master.exit.i ], [ %73, %149 ], [ %73, %132 ], [ %73, %dissect_PNPTCP_Subdomain.exit.i ]
   %296 = add i32 %.0.i, %79
   %297 = sub i32 %296, %.02
-  call void @proto_item_set_len(ptr noundef %61, i32 noundef %297) #3
-  br label %59, !llvm.loop !4
+  call void @proto_item_set_len(ptr noundef %61, i32 noundef %297)
+  br label %59, !llvm.loop !6
 
 298:                                              ; preds = %59
   %299 = add i32 %73, %79
   %300 = sub i32 %299, %.02
-  call void @proto_item_set_len(ptr noundef %61, i32 noundef %300) #3
+  call void @proto_item_set_len(ptr noundef %61, i32 noundef %300)
   ret i32 %299
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_item_set_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_pn_mac(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_pn_uuid(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_pn_int16(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_pn_oid(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_pn_padding(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item_ret_int(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}

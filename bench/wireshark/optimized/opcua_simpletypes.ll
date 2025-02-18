@@ -5,10 +5,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
+%struct._value_string = type { i32, ptr }
 %struct._asn1_ctx_t = type { i32, i32, i8, ptr, ptr, ptr, ptr, ptr, %struct.anon.0, %struct.anon.3, %struct.anon.4, ptr }
 %struct.anon.0 = type { i32, i8, i8, i8, ptr, ptr, i32, i32, ptr, ptr, ptr, %union.anon }
 %union.anon = type { %struct.anon.1 }
@@ -53,7 +51,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.20 = private unnamed_addr constant [23 x i8] c"opcua.loctext.has_text\00", align 1
 @hf_opcua_nodeid_encodingmask = internal global i32 0, align 4
 @.str.21 = private unnamed_addr constant [26 x i8] c"opcua.nodeid.encodingmask\00", align 1
-@g_nodeidmasks = internal constant [7 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.217 }, %struct._value_string { i32 1, ptr @.str.218 }, %struct._value_string { i32 2, ptr @.str.219 }, %struct._value_string { i32 3, ptr @.str.194 }, %struct._value_string { i32 4, ptr @.str.220 }, %struct._value_string { i32 5, ptr @.str.221 }, %struct._value_string zeroinitializer], align 16
 @hf_opcua_nodeid_nsindex = internal global i32 0, align 4
 @.str.22 = private unnamed_addr constant [16 x i8] c"Namespace Index\00", align 1
 @.str.23 = private unnamed_addr constant [21 x i8] c"opcua.nodeid.nsindex\00", align 1
@@ -112,7 +109,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_opcua_variant_encodingmask = internal global i32 0, align 4
 @.str.58 = private unnamed_addr constant [13 x i8] c"Variant Type\00", align 1
 @.str.59 = private unnamed_addr constant [24 x i8] c"opcua.variant.has_value\00", align 1
-@g_VariantTypes = internal constant [79 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.222 }, %struct._value_string { i32 1, ptr @.str.183 }, %struct._value_string { i32 2, ptr @.str.184 }, %struct._value_string { i32 3, ptr @.str.185 }, %struct._value_string { i32 4, ptr @.str.186 }, %struct._value_string { i32 5, ptr @.str.187 }, %struct._value_string { i32 6, ptr @.str.188 }, %struct._value_string { i32 7, ptr @.str.189 }, %struct._value_string { i32 8, ptr @.str.190 }, %struct._value_string { i32 9, ptr @.str.191 }, %struct._value_string { i32 10, ptr @.str.192 }, %struct._value_string { i32 11, ptr @.str.193 }, %struct._value_string { i32 12, ptr @.str.194 }, %struct._value_string { i32 13, ptr @.str.195 }, %struct._value_string { i32 14, ptr @.str.196 }, %struct._value_string { i32 15, ptr @.str.197 }, %struct._value_string { i32 16, ptr @.str.198 }, %struct._value_string { i32 17, ptr @.str.199 }, %struct._value_string { i32 18, ptr @.str.200 }, %struct._value_string { i32 19, ptr @.str.201 }, %struct._value_string { i32 20, ptr @.str.203 }, %struct._value_string { i32 21, ptr @.str.72 }, %struct._value_string { i32 22, ptr @.str.204 }, %struct._value_string { i32 23, ptr @.str.205 }, %struct._value_string { i32 24, ptr @.str.206 }, %struct._value_string { i32 25, ptr @.str.202 }, %struct._value_string { i32 128, ptr @.str.223 }, %struct._value_string { i32 129, ptr @.str.224 }, %struct._value_string { i32 130, ptr @.str.225 }, %struct._value_string { i32 131, ptr @.str.226 }, %struct._value_string { i32 132, ptr @.str.227 }, %struct._value_string { i32 133, ptr @.str.228 }, %struct._value_string { i32 134, ptr @.str.229 }, %struct._value_string { i32 135, ptr @.str.230 }, %struct._value_string { i32 136, ptr @.str.231 }, %struct._value_string { i32 137, ptr @.str.232 }, %struct._value_string { i32 138, ptr @.str.233 }, %struct._value_string { i32 139, ptr @.str.234 }, %struct._value_string { i32 140, ptr @.str.235 }, %struct._value_string { i32 141, ptr @.str.236 }, %struct._value_string { i32 142, ptr @.str.237 }, %struct._value_string { i32 143, ptr @.str.238 }, %struct._value_string { i32 144, ptr @.str.239 }, %struct._value_string { i32 145, ptr @.str.240 }, %struct._value_string { i32 146, ptr @.str.241 }, %struct._value_string { i32 147, ptr @.str.242 }, %struct._value_string { i32 148, ptr @.str.243 }, %struct._value_string { i32 149, ptr @.str.244 }, %struct._value_string { i32 150, ptr @.str.245 }, %struct._value_string { i32 151, ptr @.str.246 }, %struct._value_string { i32 152, ptr @.str.247 }, %struct._value_string { i32 153, ptr @.str.248 }, %struct._value_string { i32 192, ptr @.str.249 }, %struct._value_string { i32 193, ptr @.str.250 }, %struct._value_string { i32 194, ptr @.str.251 }, %struct._value_string { i32 195, ptr @.str.252 }, %struct._value_string { i32 196, ptr @.str.253 }, %struct._value_string { i32 197, ptr @.str.254 }, %struct._value_string { i32 198, ptr @.str.255 }, %struct._value_string { i32 199, ptr @.str.256 }, %struct._value_string { i32 200, ptr @.str.257 }, %struct._value_string { i32 201, ptr @.str.258 }, %struct._value_string { i32 202, ptr @.str.259 }, %struct._value_string { i32 203, ptr @.str.260 }, %struct._value_string { i32 204, ptr @.str.261 }, %struct._value_string { i32 205, ptr @.str.262 }, %struct._value_string { i32 206, ptr @.str.263 }, %struct._value_string { i32 207, ptr @.str.264 }, %struct._value_string { i32 208, ptr @.str.265 }, %struct._value_string { i32 209, ptr @.str.266 }, %struct._value_string { i32 210, ptr @.str.267 }, %struct._value_string { i32 211, ptr @.str.268 }, %struct._value_string { i32 212, ptr @.str.269 }, %struct._value_string { i32 213, ptr @.str.270 }, %struct._value_string { i32 214, ptr @.str.271 }, %struct._value_string { i32 215, ptr @.str.272 }, %struct._value_string { i32 216, ptr @.str.273 }, %struct._value_string { i32 217, ptr @.str.274 }, %struct._value_string zeroinitializer], align 16
 @hf_opcua_SourceTimestamp = internal global i32 0, align 4
 @.str.60 = private unnamed_addr constant [16 x i8] c"SourceTimestamp\00", align 1
 @.str.61 = private unnamed_addr constant [32 x i8] c"opcua.datavalue.SourceTimestamp\00", align 1
@@ -177,15 +173,12 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_opcua_status_InfoType = internal global i32 0, align 4
 @.str.100 = private unnamed_addr constant [9 x i8] c"InfoType\00", align 1
 @.str.101 = private unnamed_addr constant [26 x i8] c"opcua.statuscode.infoType\00", align 1
-@g_infotype = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.275 }, %struct._value_string { i32 1, ptr @.str.205 }, %struct._value_string { i32 2, ptr @.str.276 }, %struct._value_string { i32 3, ptr @.str.276 }, %struct._value_string zeroinitializer], align 16
 @hf_opcua_status_Limit = internal global i32 0, align 4
 @.str.102 = private unnamed_addr constant [6 x i8] c"Limit\00", align 1
 @.str.103 = private unnamed_addr constant [23 x i8] c"opcua.statuscode.limit\00", align 1
-@g_limit = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.277 }, %struct._value_string { i32 1, ptr @.str.278 }, %struct._value_string { i32 2, ptr @.str.279 }, %struct._value_string { i32 3, ptr @.str.280 }, %struct._value_string zeroinitializer], align 16
 @hf_opcua_status_Historian = internal global i32 0, align 4
 @.str.104 = private unnamed_addr constant [10 x i8] c"Historian\00", align 1
 @.str.105 = private unnamed_addr constant [27 x i8] c"opcua.statuscode.historian\00", align 1
-@g_historian = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.281 }, %struct._value_string { i32 1, ptr @.str.282 }, %struct._value_string { i32 2, ptr @.str.283 }, %struct._value_string { i32 3, ptr @.str.276 }, %struct._value_string zeroinitializer], align 16
 @hf_opcua_returnDiag = hidden global i32 0, align 4
 @.str.106 = private unnamed_addr constant [19 x i8] c"Return Diagnostics\00", align 1
 @.str.107 = private unnamed_addr constant [17 x i8] c"opcua.returndiag\00", align 1
@@ -224,7 +217,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.129 = private unnamed_addr constant [20 x i8] c"opcua.nodeclassmask\00", align 1
 @hf_opcua_nodeClassMask_all = hidden global i32 0, align 4
 @.str.130 = private unnamed_addr constant [24 x i8] c"opcua.nodeclassmask.all\00", align 1
-@g_NodeClassMask = internal constant [2 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.284 }, %struct._value_string zeroinitializer], align 16
 @hf_opcua_nodeClassMask_object = hidden global i32 0, align 4
 @.str.131 = private unnamed_addr constant [7 x i8] c"Object\00", align 1
 @.str.132 = private unnamed_addr constant [27 x i8] c"opcua.nodeclassmask.object\00", align 1
@@ -272,8 +264,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.160 = private unnamed_addr constant [32 x i8] c"opcua.resultmask.typedefinition\00", align 1
 @hf_opcua_resultMask_all = hidden global i32 0, align 4
 @.str.161 = private unnamed_addr constant [21 x i8] c"opcua.resultmask.all\00", align 1
-@g_ResultMask = internal constant [2 x %struct._value_string] [%struct._value_string { i32 63, ptr @.str.284 }, %struct._value_string zeroinitializer], align 16
-@registerSimpleTypes.ei = internal global [2 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_array_length, %struct.expert_field_info { ptr @.str.162, i32 83886080, i32 8388608, ptr @.str.163, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_nesting_depth, %struct.expert_field_info { ptr @.str.164, i32 83886080, i32 8388608, ptr @.str.165, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@registerSimpleTypes.ei = internal global [2 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_array_length, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.162, i32 83886080, i32 8388608, ptr @.str.163, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_nesting_depth, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.164, i32 83886080, i32 8388608, ptr @.str.165, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_array_length = internal global %struct.expert_field zeroinitializer, align 4
 @.str.162 = private unnamed_addr constant [19 x i8] c"opcua.array.length\00", align 1
 @.str.163 = private unnamed_addr constant [26 x i8] c"Max array length exceeded\00", align 1
@@ -408,183 +399,201 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.219 = private unnamed_addr constant [28 x i8] c"Numeric of arbitrary length\00", align 1
 @.str.220 = private unnamed_addr constant [5 x i8] c"GUID\00", align 1
 @.str.221 = private unnamed_addr constant [7 x i8] c"Opaque\00", align 1
-@.str.222 = private unnamed_addr constant [5 x i8] c"Null\00", align 1
-@.str.223 = private unnamed_addr constant [14 x i8] c"Array of Null\00", align 1
-@.str.224 = private unnamed_addr constant [17 x i8] c"Array of Boolean\00", align 1
-@.str.225 = private unnamed_addr constant [15 x i8] c"Array of SByte\00", align 1
-@.str.226 = private unnamed_addr constant [14 x i8] c"Array of Byte\00", align 1
-@.str.227 = private unnamed_addr constant [15 x i8] c"Array of Int16\00", align 1
-@.str.228 = private unnamed_addr constant [16 x i8] c"Array of UInt16\00", align 1
-@.str.229 = private unnamed_addr constant [15 x i8] c"Array of Int32\00", align 1
-@.str.230 = private unnamed_addr constant [16 x i8] c"Array of UInt32\00", align 1
-@.str.231 = private unnamed_addr constant [15 x i8] c"Array of Int64\00", align 1
-@.str.232 = private unnamed_addr constant [16 x i8] c"Array of UInt64\00", align 1
-@.str.233 = private unnamed_addr constant [15 x i8] c"Array of Float\00", align 1
-@.str.234 = private unnamed_addr constant [16 x i8] c"Array of Double\00", align 1
-@.str.235 = private unnamed_addr constant [16 x i8] c"Array of String\00", align 1
-@.str.236 = private unnamed_addr constant [18 x i8] c"Array of DateTime\00", align 1
-@.str.237 = private unnamed_addr constant [14 x i8] c"Array of Guid\00", align 1
-@.str.238 = private unnamed_addr constant [20 x i8] c"Array of ByteString\00", align 1
-@.str.239 = private unnamed_addr constant [20 x i8] c"Array of XmlElement\00", align 1
-@.str.240 = private unnamed_addr constant [16 x i8] c"Array of NodeId\00", align 1
-@.str.241 = private unnamed_addr constant [24 x i8] c"Array of ExpandedNodeId\00", align 1
-@.str.242 = private unnamed_addr constant [20 x i8] c"Array of StatusCode\00", align 1
-@.str.243 = private unnamed_addr constant [23 x i8] c"Array of QualifiedName\00", align 1
-@.str.244 = private unnamed_addr constant [23 x i8] c"Array of LocalizedText\00", align 1
-@.str.245 = private unnamed_addr constant [25 x i8] c"Array of ExtensionObject\00", align 1
-@.str.246 = private unnamed_addr constant [19 x i8] c"Array of DataValue\00", align 1
-@.str.247 = private unnamed_addr constant [17 x i8] c"Array of Variant\00", align 1
-@.str.248 = private unnamed_addr constant [24 x i8] c"Array of DiagnosticInfo\00", align 1
-@.str.249 = private unnamed_addr constant [15 x i8] c"Matrix of Null\00", align 1
-@.str.250 = private unnamed_addr constant [18 x i8] c"Matrix of Boolean\00", align 1
-@.str.251 = private unnamed_addr constant [16 x i8] c"Matrix of SByte\00", align 1
-@.str.252 = private unnamed_addr constant [15 x i8] c"Matrix of Byte\00", align 1
-@.str.253 = private unnamed_addr constant [16 x i8] c"Matrix of Int16\00", align 1
-@.str.254 = private unnamed_addr constant [17 x i8] c"Matrix of UInt16\00", align 1
-@.str.255 = private unnamed_addr constant [16 x i8] c"Matrix of Int32\00", align 1
-@.str.256 = private unnamed_addr constant [17 x i8] c"Matrix of UInt32\00", align 1
-@.str.257 = private unnamed_addr constant [16 x i8] c"Matrix of Int64\00", align 1
-@.str.258 = private unnamed_addr constant [17 x i8] c"Matrix of UInt64\00", align 1
-@.str.259 = private unnamed_addr constant [16 x i8] c"Matrix of Float\00", align 1
-@.str.260 = private unnamed_addr constant [17 x i8] c"Matrix of Double\00", align 1
-@.str.261 = private unnamed_addr constant [17 x i8] c"Matrix of String\00", align 1
-@.str.262 = private unnamed_addr constant [19 x i8] c"Matrix of DateTime\00", align 1
-@.str.263 = private unnamed_addr constant [15 x i8] c"Matrix of Guid\00", align 1
-@.str.264 = private unnamed_addr constant [21 x i8] c"Matrix of ByteString\00", align 1
-@.str.265 = private unnamed_addr constant [21 x i8] c"Matrix of XmlElement\00", align 1
-@.str.266 = private unnamed_addr constant [17 x i8] c"Matrix of NodeId\00", align 1
-@.str.267 = private unnamed_addr constant [25 x i8] c"Matrix of ExpandedNodeId\00", align 1
-@.str.268 = private unnamed_addr constant [21 x i8] c"Matrix of StatusCode\00", align 1
-@.str.269 = private unnamed_addr constant [24 x i8] c"Matrix of QualifiedName\00", align 1
-@.str.270 = private unnamed_addr constant [24 x i8] c"Matrix of LocalizedText\00", align 1
-@.str.271 = private unnamed_addr constant [26 x i8] c"Matrix of ExtensionObject\00", align 1
-@.str.272 = private unnamed_addr constant [20 x i8] c"Matrix of DataValue\00", align 1
-@.str.273 = private unnamed_addr constant [18 x i8] c"Matrix of Variant\00", align 1
-@.str.274 = private unnamed_addr constant [25 x i8] c"Matrix of DiagnosticInfo\00", align 1
-@.str.275 = private unnamed_addr constant [9 x i8] c"Not used\00", align 1
-@.str.276 = private unnamed_addr constant [9 x i8] c"Reserved\00", align 1
-@.str.277 = private unnamed_addr constant [5 x i8] c"None\00", align 1
-@.str.278 = private unnamed_addr constant [4 x i8] c"Low\00", align 1
-@.str.279 = private unnamed_addr constant [5 x i8] c"High\00", align 1
-@.str.280 = private unnamed_addr constant [9 x i8] c"Constant\00", align 1
-@.str.281 = private unnamed_addr constant [4 x i8] c"Raw\00", align 1
-@.str.282 = private unnamed_addr constant [11 x i8] c"Calculated\00", align 1
-@.str.283 = private unnamed_addr constant [13 x i8] c"Interpolated\00", align 1
-@.str.284 = private unnamed_addr constant [4 x i8] c"All\00", align 1
+@g_nodeidmasks = internal constant [7 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.217 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.218 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.219 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.194 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.220 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.221 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.223 = private unnamed_addr constant [5 x i8] c"Null\00", align 1
+@.str.224 = private unnamed_addr constant [14 x i8] c"Array of Null\00", align 1
+@.str.225 = private unnamed_addr constant [17 x i8] c"Array of Boolean\00", align 1
+@.str.226 = private unnamed_addr constant [15 x i8] c"Array of SByte\00", align 1
+@.str.227 = private unnamed_addr constant [14 x i8] c"Array of Byte\00", align 1
+@.str.228 = private unnamed_addr constant [15 x i8] c"Array of Int16\00", align 1
+@.str.229 = private unnamed_addr constant [16 x i8] c"Array of UInt16\00", align 1
+@.str.230 = private unnamed_addr constant [15 x i8] c"Array of Int32\00", align 1
+@.str.231 = private unnamed_addr constant [16 x i8] c"Array of UInt32\00", align 1
+@.str.232 = private unnamed_addr constant [15 x i8] c"Array of Int64\00", align 1
+@.str.233 = private unnamed_addr constant [16 x i8] c"Array of UInt64\00", align 1
+@.str.234 = private unnamed_addr constant [15 x i8] c"Array of Float\00", align 1
+@.str.235 = private unnamed_addr constant [16 x i8] c"Array of Double\00", align 1
+@.str.236 = private unnamed_addr constant [16 x i8] c"Array of String\00", align 1
+@.str.237 = private unnamed_addr constant [18 x i8] c"Array of DateTime\00", align 1
+@.str.238 = private unnamed_addr constant [14 x i8] c"Array of Guid\00", align 1
+@.str.239 = private unnamed_addr constant [20 x i8] c"Array of ByteString\00", align 1
+@.str.240 = private unnamed_addr constant [20 x i8] c"Array of XmlElement\00", align 1
+@.str.241 = private unnamed_addr constant [16 x i8] c"Array of NodeId\00", align 1
+@.str.242 = private unnamed_addr constant [24 x i8] c"Array of ExpandedNodeId\00", align 1
+@.str.243 = private unnamed_addr constant [20 x i8] c"Array of StatusCode\00", align 1
+@.str.244 = private unnamed_addr constant [23 x i8] c"Array of QualifiedName\00", align 1
+@.str.245 = private unnamed_addr constant [23 x i8] c"Array of LocalizedText\00", align 1
+@.str.246 = private unnamed_addr constant [25 x i8] c"Array of ExtensionObject\00", align 1
+@.str.247 = private unnamed_addr constant [19 x i8] c"Array of DataValue\00", align 1
+@.str.248 = private unnamed_addr constant [17 x i8] c"Array of Variant\00", align 1
+@.str.249 = private unnamed_addr constant [24 x i8] c"Array of DiagnosticInfo\00", align 1
+@.str.250 = private unnamed_addr constant [15 x i8] c"Matrix of Null\00", align 1
+@.str.251 = private unnamed_addr constant [18 x i8] c"Matrix of Boolean\00", align 1
+@.str.252 = private unnamed_addr constant [16 x i8] c"Matrix of SByte\00", align 1
+@.str.253 = private unnamed_addr constant [15 x i8] c"Matrix of Byte\00", align 1
+@.str.254 = private unnamed_addr constant [16 x i8] c"Matrix of Int16\00", align 1
+@.str.255 = private unnamed_addr constant [17 x i8] c"Matrix of UInt16\00", align 1
+@.str.256 = private unnamed_addr constant [16 x i8] c"Matrix of Int32\00", align 1
+@.str.257 = private unnamed_addr constant [17 x i8] c"Matrix of UInt32\00", align 1
+@.str.258 = private unnamed_addr constant [16 x i8] c"Matrix of Int64\00", align 1
+@.str.259 = private unnamed_addr constant [17 x i8] c"Matrix of UInt64\00", align 1
+@.str.260 = private unnamed_addr constant [16 x i8] c"Matrix of Float\00", align 1
+@.str.261 = private unnamed_addr constant [17 x i8] c"Matrix of Double\00", align 1
+@.str.262 = private unnamed_addr constant [17 x i8] c"Matrix of String\00", align 1
+@.str.263 = private unnamed_addr constant [19 x i8] c"Matrix of DateTime\00", align 1
+@.str.264 = private unnamed_addr constant [15 x i8] c"Matrix of Guid\00", align 1
+@.str.265 = private unnamed_addr constant [21 x i8] c"Matrix of ByteString\00", align 1
+@.str.266 = private unnamed_addr constant [21 x i8] c"Matrix of XmlElement\00", align 1
+@.str.267 = private unnamed_addr constant [17 x i8] c"Matrix of NodeId\00", align 1
+@.str.268 = private unnamed_addr constant [25 x i8] c"Matrix of ExpandedNodeId\00", align 1
+@.str.269 = private unnamed_addr constant [21 x i8] c"Matrix of StatusCode\00", align 1
+@.str.270 = private unnamed_addr constant [24 x i8] c"Matrix of QualifiedName\00", align 1
+@.str.271 = private unnamed_addr constant [24 x i8] c"Matrix of LocalizedText\00", align 1
+@.str.272 = private unnamed_addr constant [26 x i8] c"Matrix of ExtensionObject\00", align 1
+@.str.273 = private unnamed_addr constant [20 x i8] c"Matrix of DataValue\00", align 1
+@.str.274 = private unnamed_addr constant [18 x i8] c"Matrix of Variant\00", align 1
+@.str.275 = private unnamed_addr constant [25 x i8] c"Matrix of DiagnosticInfo\00", align 1
+@g_VariantTypes = internal constant [79 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.223 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.183 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.184 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.185 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.186 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.187 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.188 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.189 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.190 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.191 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.192 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.193 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.194 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.195 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.196 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.197 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.198 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.199 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.200 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.201 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.203 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.72 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.204 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.205 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.206 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.202 }, { i32, [4 x i8], ptr } { i32 128, [4 x i8] zeroinitializer, ptr @.str.224 }, { i32, [4 x i8], ptr } { i32 129, [4 x i8] zeroinitializer, ptr @.str.225 }, { i32, [4 x i8], ptr } { i32 130, [4 x i8] zeroinitializer, ptr @.str.226 }, { i32, [4 x i8], ptr } { i32 131, [4 x i8] zeroinitializer, ptr @.str.227 }, { i32, [4 x i8], ptr } { i32 132, [4 x i8] zeroinitializer, ptr @.str.228 }, { i32, [4 x i8], ptr } { i32 133, [4 x i8] zeroinitializer, ptr @.str.229 }, { i32, [4 x i8], ptr } { i32 134, [4 x i8] zeroinitializer, ptr @.str.230 }, { i32, [4 x i8], ptr } { i32 135, [4 x i8] zeroinitializer, ptr @.str.231 }, { i32, [4 x i8], ptr } { i32 136, [4 x i8] zeroinitializer, ptr @.str.232 }, { i32, [4 x i8], ptr } { i32 137, [4 x i8] zeroinitializer, ptr @.str.233 }, { i32, [4 x i8], ptr } { i32 138, [4 x i8] zeroinitializer, ptr @.str.234 }, { i32, [4 x i8], ptr } { i32 139, [4 x i8] zeroinitializer, ptr @.str.235 }, { i32, [4 x i8], ptr } { i32 140, [4 x i8] zeroinitializer, ptr @.str.236 }, { i32, [4 x i8], ptr } { i32 141, [4 x i8] zeroinitializer, ptr @.str.237 }, { i32, [4 x i8], ptr } { i32 142, [4 x i8] zeroinitializer, ptr @.str.238 }, { i32, [4 x i8], ptr } { i32 143, [4 x i8] zeroinitializer, ptr @.str.239 }, { i32, [4 x i8], ptr } { i32 144, [4 x i8] zeroinitializer, ptr @.str.240 }, { i32, [4 x i8], ptr } { i32 145, [4 x i8] zeroinitializer, ptr @.str.241 }, { i32, [4 x i8], ptr } { i32 146, [4 x i8] zeroinitializer, ptr @.str.242 }, { i32, [4 x i8], ptr } { i32 147, [4 x i8] zeroinitializer, ptr @.str.243 }, { i32, [4 x i8], ptr } { i32 148, [4 x i8] zeroinitializer, ptr @.str.244 }, { i32, [4 x i8], ptr } { i32 149, [4 x i8] zeroinitializer, ptr @.str.245 }, { i32, [4 x i8], ptr } { i32 150, [4 x i8] zeroinitializer, ptr @.str.246 }, { i32, [4 x i8], ptr } { i32 151, [4 x i8] zeroinitializer, ptr @.str.247 }, { i32, [4 x i8], ptr } { i32 152, [4 x i8] zeroinitializer, ptr @.str.248 }, { i32, [4 x i8], ptr } { i32 153, [4 x i8] zeroinitializer, ptr @.str.249 }, { i32, [4 x i8], ptr } { i32 192, [4 x i8] zeroinitializer, ptr @.str.250 }, { i32, [4 x i8], ptr } { i32 193, [4 x i8] zeroinitializer, ptr @.str.251 }, { i32, [4 x i8], ptr } { i32 194, [4 x i8] zeroinitializer, ptr @.str.252 }, { i32, [4 x i8], ptr } { i32 195, [4 x i8] zeroinitializer, ptr @.str.253 }, { i32, [4 x i8], ptr } { i32 196, [4 x i8] zeroinitializer, ptr @.str.254 }, { i32, [4 x i8], ptr } { i32 197, [4 x i8] zeroinitializer, ptr @.str.255 }, { i32, [4 x i8], ptr } { i32 198, [4 x i8] zeroinitializer, ptr @.str.256 }, { i32, [4 x i8], ptr } { i32 199, [4 x i8] zeroinitializer, ptr @.str.257 }, { i32, [4 x i8], ptr } { i32 200, [4 x i8] zeroinitializer, ptr @.str.258 }, { i32, [4 x i8], ptr } { i32 201, [4 x i8] zeroinitializer, ptr @.str.259 }, { i32, [4 x i8], ptr } { i32 202, [4 x i8] zeroinitializer, ptr @.str.260 }, { i32, [4 x i8], ptr } { i32 203, [4 x i8] zeroinitializer, ptr @.str.261 }, { i32, [4 x i8], ptr } { i32 204, [4 x i8] zeroinitializer, ptr @.str.262 }, { i32, [4 x i8], ptr } { i32 205, [4 x i8] zeroinitializer, ptr @.str.263 }, { i32, [4 x i8], ptr } { i32 206, [4 x i8] zeroinitializer, ptr @.str.264 }, { i32, [4 x i8], ptr } { i32 207, [4 x i8] zeroinitializer, ptr @.str.265 }, { i32, [4 x i8], ptr } { i32 208, [4 x i8] zeroinitializer, ptr @.str.266 }, { i32, [4 x i8], ptr } { i32 209, [4 x i8] zeroinitializer, ptr @.str.267 }, { i32, [4 x i8], ptr } { i32 210, [4 x i8] zeroinitializer, ptr @.str.268 }, { i32, [4 x i8], ptr } { i32 211, [4 x i8] zeroinitializer, ptr @.str.269 }, { i32, [4 x i8], ptr } { i32 212, [4 x i8] zeroinitializer, ptr @.str.270 }, { i32, [4 x i8], ptr } { i32 213, [4 x i8] zeroinitializer, ptr @.str.271 }, { i32, [4 x i8], ptr } { i32 214, [4 x i8] zeroinitializer, ptr @.str.272 }, { i32, [4 x i8], ptr } { i32 215, [4 x i8] zeroinitializer, ptr @.str.273 }, { i32, [4 x i8], ptr } { i32 216, [4 x i8] zeroinitializer, ptr @.str.274 }, { i32, [4 x i8], ptr } { i32 217, [4 x i8] zeroinitializer, ptr @.str.275 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.277 = private unnamed_addr constant [9 x i8] c"Not used\00", align 1
+@.str.278 = private unnamed_addr constant [9 x i8] c"Reserved\00", align 1
+@g_infotype = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.277 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.205 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.278 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.278 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.280 = private unnamed_addr constant [5 x i8] c"None\00", align 1
+@.str.281 = private unnamed_addr constant [4 x i8] c"Low\00", align 1
+@.str.282 = private unnamed_addr constant [5 x i8] c"High\00", align 1
+@.str.283 = private unnamed_addr constant [9 x i8] c"Constant\00", align 1
+@g_limit = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.280 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.281 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.282 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.283 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.285 = private unnamed_addr constant [4 x i8] c"Raw\00", align 1
+@.str.286 = private unnamed_addr constant [11 x i8] c"Calculated\00", align 1
+@.str.287 = private unnamed_addr constant [13 x i8] c"Interpolated\00", align 1
+@g_historian = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.285 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.286 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.287 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.278 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.289 = private unnamed_addr constant [4 x i8] c"All\00", align 1
+@g_NodeClassMask = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.289 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@g_ResultMask = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 63, [4 x i8] zeroinitializer, ptr @.str.289 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @registerSimpleTypes(i32 noundef %0) local_unnamed_addr #0 {
-  tail call void @proto_register_field_array(i32 noundef %0, ptr noundef nonnull @registerSimpleTypes.hf, i32 noundef 85) #4
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @ett, i32 noundef 44) #4
-  %2 = tail call ptr @expert_register_protocol(i32 noundef %0) #4
-  tail call void @expert_register_field_array(ptr noundef %2, ptr noundef nonnull @registerSimpleTypes.ei, i32 noundef 2) #4
+  tail call void @proto_register_field_array(i32 noundef %0, ptr noundef nonnull @registerSimpleTypes.hf, i32 noundef 85)
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @ett, i32 noundef 44)
+  %2 = tail call ptr @expert_register_protocol(i32 noundef %0)
+  tail call void @expert_register_field_array(ptr noundef %2, ptr noundef nonnull @registerSimpleTypes.ei, i32 noundef 2)
   ret void
 }
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden ptr @parseBoolean(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef captures(none) %3, i32 noundef %4) #0 {
   %6 = load i32, ptr %3, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %6, i32 noundef 1, i32 noundef -2147483648) #4
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %6, i32 noundef 1, i32 noundef -2147483648)
   %8 = load i32, ptr %3, align 4
   %9 = add i32 %8, 1
   store i32 %9, ptr %3, align 4
   ret ptr %7
 }
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden ptr @parseByte(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef captures(none) %3, i32 noundef %4) #0 {
   %6 = load i32, ptr %3, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %6, i32 noundef 1, i32 noundef -2147483648) #4
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %6, i32 noundef 1, i32 noundef -2147483648)
   %8 = load i32, ptr %3, align 4
   %9 = add i32 %8, 1
   store i32 %9, ptr %3, align 4
   ret ptr %7
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden ptr @parseSByte(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef captures(none) %3, i32 noundef %4) #0 {
   %6 = load i32, ptr %3, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %6, i32 noundef 1, i32 noundef -2147483648) #4
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %6, i32 noundef 1, i32 noundef -2147483648)
   %8 = load i32, ptr %3, align 4
   %9 = add i32 %8, 1
   store i32 %9, ptr %3, align 4
   ret ptr %7
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden ptr @parseUInt16(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef captures(none) %3, i32 noundef %4) #0 {
   %6 = load i32, ptr %3, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %6, i32 noundef 2, i32 noundef -2147483648) #4
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %6, i32 noundef 2, i32 noundef -2147483648)
   %8 = load i32, ptr %3, align 4
   %9 = add i32 %8, 2
   store i32 %9, ptr %3, align 4
   ret ptr %7
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden ptr @parseInt16(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef captures(none) %3, i32 noundef %4) #0 {
   %6 = load i32, ptr %3, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %6, i32 noundef 2, i32 noundef -2147483648) #4
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %6, i32 noundef 2, i32 noundef -2147483648)
   %8 = load i32, ptr %3, align 4
   %9 = add i32 %8, 2
   store i32 %9, ptr %3, align 4
   ret ptr %7
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden ptr @parseUInt32(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef captures(none) %3, i32 noundef %4) #0 {
   %6 = load i32, ptr %3, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %6, i32 noundef 4, i32 noundef -2147483648) #4
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %6, i32 noundef 4, i32 noundef -2147483648)
   %8 = load i32, ptr %3, align 4
   %9 = add i32 %8, 4
   store i32 %9, ptr %3, align 4
   ret ptr %7
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden ptr @parseInt32(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef captures(none) %3, i32 noundef %4) #0 {
   %6 = load i32, ptr %3, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %6, i32 noundef 4, i32 noundef -2147483648) #4
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %6, i32 noundef 4, i32 noundef -2147483648)
   %8 = load i32, ptr %3, align 4
   %9 = add i32 %8, 4
   store i32 %9, ptr %3, align 4
   ret ptr %7
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden ptr @parseUInt64(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef captures(none) %3, i32 noundef %4) #0 {
   %6 = load i32, ptr %3, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %6, i32 noundef 8, i32 noundef -2147483648) #4
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %6, i32 noundef 8, i32 noundef -2147483648)
   %8 = load i32, ptr %3, align 4
   %9 = add i32 %8, 8
   store i32 %9, ptr %3, align 4
   ret ptr %7
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden ptr @parseInt64(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef captures(none) %3, i32 noundef %4) #0 {
   %6 = load i32, ptr %3, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %6, i32 noundef 8, i32 noundef -2147483648) #4
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %6, i32 noundef 8, i32 noundef -2147483648)
   %8 = load i32, ptr %3, align 4
   %9 = add i32 %8, 8
   store i32 %9, ptr %3, align 4
   ret ptr %7
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden ptr @parseString(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3, i32 noundef %4) #0 {
   %6 = load i32, ptr %3, align 4
-  %7 = tail call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %6) #4
+  %7 = tail call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %6)
   %8 = add i32 %6, 4
   switch i32 %7, label %19 [
     i32 -1, label %9
@@ -593,20 +602,20 @@ define hidden ptr @parseString(ptr noundef %0, ptr noundef %1, ptr noundef reado
 
 9:                                                ; preds = %5
   %10 = load i32, ptr %3, align 4
-  %11 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %10, i32 noundef 0, i32 noundef 0) #4
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef nonnull @.str.166) #4
+  %11 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %10, i32 noundef 0, i32 noundef 0)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef nonnull @.str.166)
   %12 = load i32, ptr %3, align 4
   %13 = add i32 %12, 4
-  tail call void @proto_item_set_end(ptr noundef %11, ptr noundef %1, i32 noundef %13) #4
+  tail call void @proto_item_set_end(ptr noundef %11, ptr noundef %1, i32 noundef %13)
   br label %32
 
 14:                                               ; preds = %5
   %15 = load i32, ptr %3, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %15, i32 noundef 0, i32 noundef 0) #4
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.167) #4
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %15, i32 noundef 0, i32 noundef 0)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.167)
   %17 = load i32, ptr %3, align 4
   %18 = add i32 %17, 4
-  tail call void @proto_item_set_end(ptr noundef %16, ptr noundef %1, i32 noundef %18) #4
+  tail call void @proto_item_set_end(ptr noundef %16, ptr noundef %1, i32 noundef %18)
   br label %32
 
 19:                                               ; preds = %5
@@ -614,20 +623,20 @@ define hidden ptr @parseString(ptr noundef %0, ptr noundef %1, ptr noundef reado
   br i1 %20, label %21, label %24
 
 21:                                               ; preds = %19
-  %22 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %8, i32 noundef %7, i32 noundef 2) #4
+  %22 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %8, i32 noundef %7, i32 noundef 2)
   %23 = add i32 %8, %7
   br label %32
 
 24:                                               ; preds = %19
   %25 = load i32, ptr %3, align 4
-  %26 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %25, i32 noundef 0, i32 noundef 0) #4
+  %26 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %25, i32 noundef 0, i32 noundef 0)
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %28 = load ptr, ptr %27, align 8
-  %29 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %28, ptr noundef nonnull @.str.168, i32 noundef %7) #4
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %26, ptr noundef nonnull @.str.169, ptr noundef %29) #4
+  %29 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %28, ptr noundef nonnull @.str.168, i32 noundef %7)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %26, ptr noundef nonnull @.str.169, ptr noundef %29)
   %30 = load i32, ptr %3, align 4
   %31 = add i32 %30, 4
-  tail call void @proto_item_set_end(ptr noundef %26, ptr noundef %1, i32 noundef %31) #4
+  tail call void @proto_item_set_end(ptr noundef %26, ptr noundef %1, i32 noundef %31)
   br label %32
 
 32:                                               ; preds = %14, %24, %21, %9
@@ -637,18 +646,22 @@ define hidden ptr @parseString(ptr noundef %0, ptr noundef %1, ptr noundef reado
   ret ptr %.0
 }
 
-declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare void @proto_item_set_end(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_set_end(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden ptr @parseString_ret_string_and_length(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = load i32, ptr %3, align 4
-  %9 = tail call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %8) #4
+  %9 = tail call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %8)
   %10 = add i32 %8, 4
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %12, label %11
@@ -673,20 +686,20 @@ define hidden ptr @parseString_ret_string_and_length(ptr noundef %0, ptr noundef
 
 15:                                               ; preds = %14
   %16 = load i32, ptr %3, align 4
-  %17 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %16, i32 noundef 0, i32 noundef 0) #4
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %17, ptr noundef nonnull @.str.166) #4
+  %17 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %16, i32 noundef 0, i32 noundef 0)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %17, ptr noundef nonnull @.str.166)
   %18 = load i32, ptr %3, align 4
   %19 = add i32 %18, 4
-  tail call void @proto_item_set_end(ptr noundef %17, ptr noundef %1, i32 noundef %19) #4
+  tail call void @proto_item_set_end(ptr noundef %17, ptr noundef %1, i32 noundef %19)
   br label %38
 
 20:                                               ; preds = %14
   %21 = load i32, ptr %3, align 4
-  %22 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %21, i32 noundef 0, i32 noundef 0) #4
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef nonnull @.str.167) #4
+  %22 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %21, i32 noundef 0, i32 noundef 0)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef nonnull @.str.167)
   %23 = load i32, ptr %3, align 4
   %24 = add i32 %23, 4
-  tail call void @proto_item_set_end(ptr noundef %22, ptr noundef %1, i32 noundef %24) #4
+  tail call void @proto_item_set_end(ptr noundef %22, ptr noundef %1, i32 noundef %24)
   br label %38
 
 25:                                               ; preds = %14
@@ -694,20 +707,20 @@ define hidden ptr @parseString_ret_string_and_length(ptr noundef %0, ptr noundef
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %25
-  %28 = tail call ptr @proto_tree_add_item_ret_string_and_length(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %10, i32 noundef %9, i32 noundef 2, ptr noundef null, ptr noundef %5, ptr noundef %6) #4
+  %28 = tail call ptr @proto_tree_add_item_ret_string_and_length(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %10, i32 noundef %9, i32 noundef 2, ptr noundef null, ptr noundef %5, ptr noundef %6)
   %29 = add i32 %10, %9
   br label %38
 
 30:                                               ; preds = %25
   %31 = load i32, ptr %3, align 4
-  %32 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %31, i32 noundef 0, i32 noundef 0) #4
+  %32 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %31, i32 noundef 0, i32 noundef 0)
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %34 = load ptr, ptr %33, align 8
-  %35 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %34, ptr noundef nonnull @.str.168, i32 noundef %9) #4
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %32, ptr noundef nonnull @.str.169, ptr noundef %35) #4
+  %35 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %34, ptr noundef nonnull @.str.168, i32 noundef %9)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %32, ptr noundef nonnull @.str.169, ptr noundef %35)
   %36 = load i32, ptr %3, align 4
   %37 = add i32 %36, 4
-  tail call void @proto_item_set_end(ptr noundef %32, ptr noundef %1, i32 noundef %37) #4
+  tail call void @proto_item_set_end(ptr noundef %32, ptr noundef %1, i32 noundef %37)
   br label %38
 
 38:                                               ; preds = %20, %30, %27, %15
@@ -717,17 +730,18 @@ define hidden ptr @parseString_ret_string_and_length(ptr noundef %0, ptr noundef
   ret ptr %.0
 }
 
-declare ptr @proto_tree_add_item_ret_string_and_length(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item_ret_string_and_length(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden ptr @parseStatusCode(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef captures(none) %3, i32 noundef %4) #0 {
   %6 = load i32, ptr %3, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %6, i32 noundef 4, i32 noundef -2147483648) #4
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %6, i32 noundef 4, i32 noundef -2147483648)
   %8 = load i32, ptr %3, align 4
-  %9 = tail call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %8) #4
+  %9 = tail call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %8)
   %10 = and i32 %9, -65536
-  %11 = tail call ptr @val_to_str_const(i32 noundef %10, ptr noundef nonnull @g_statusCodes, ptr noundef nonnull @.str.171) #4
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %7, ptr noundef nonnull @.str.172, ptr noundef %11) #4
+  %11 = tail call ptr @val_to_str_const(i32 noundef %10, ptr noundef nonnull @g_statusCodes, ptr noundef nonnull @.str.171)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %7, ptr noundef nonnull @.str.172, ptr noundef %11)
   %12 = and i32 %9, 65535
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %39, label %13
@@ -735,32 +749,32 @@ define hidden ptr @parseStatusCode(ptr noundef %0, ptr noundef %1, ptr readnone 
 13:                                               ; preds = %5
   %14 = load i32, ptr %3, align 4
   %15 = load i32, ptr @ett_opcua_statuscode, align 4
-  %16 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %15) #4
+  %16 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %15)
   %17 = load i32, ptr @hf_opcua_status_StructureChanged, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %17, ptr noundef %1, i32 noundef %14, i32 noundef 2, i32 noundef -2147483648) #4
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %17, ptr noundef %1, i32 noundef %14, i32 noundef 2, i32 noundef -2147483648)
   %19 = load i32, ptr @hf_opcua_status_SemanticsChanged, align 4
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %19, ptr noundef %1, i32 noundef %14, i32 noundef 2, i32 noundef -2147483648) #4
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %19, ptr noundef %1, i32 noundef %14, i32 noundef 2, i32 noundef -2147483648)
   %21 = load i32, ptr @hf_opcua_status_InfoType, align 4
-  %22 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %21, ptr noundef %1, i32 noundef %14, i32 noundef 2, i32 noundef -2147483648) #4
+  %22 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %21, ptr noundef %1, i32 noundef %14, i32 noundef 2, i32 noundef -2147483648)
   %23 = and i32 %9, 3072
   %cond = icmp eq i32 %23, 1024
   br i1 %cond, label %24, label %39
 
 24:                                               ; preds = %13
   %25 = load i32, ptr @ett_opcua_statuscode_info, align 4
-  %26 = tail call ptr @proto_item_add_subtree(ptr noundef %22, i32 noundef %25) #4
+  %26 = tail call ptr @proto_item_add_subtree(ptr noundef %22, i32 noundef %25)
   %27 = load i32, ptr @hf_opcua_status_Limit, align 4
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %27, ptr noundef %1, i32 noundef %14, i32 noundef 2, i32 noundef -2147483648) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %27, ptr noundef %1, i32 noundef %14, i32 noundef 2, i32 noundef -2147483648)
   %29 = load i32, ptr @hf_opcua_status_InfoBit_Limit_Overflow, align 4
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %29, ptr noundef %1, i32 noundef %14, i32 noundef 2, i32 noundef -2147483648) #4
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %29, ptr noundef %1, i32 noundef %14, i32 noundef 2, i32 noundef -2147483648)
   %31 = load i32, ptr @hf_opcua_status_InfoBit_Historian_MultiValue, align 4
-  %32 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %31, ptr noundef %1, i32 noundef %14, i32 noundef 2, i32 noundef -2147483648) #4
+  %32 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %31, ptr noundef %1, i32 noundef %14, i32 noundef 2, i32 noundef -2147483648)
   %33 = load i32, ptr @hf_opcua_status_InfoBit_Historian_ExtraData, align 4
-  %34 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %33, ptr noundef %1, i32 noundef %14, i32 noundef 2, i32 noundef -2147483648) #4
+  %34 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %33, ptr noundef %1, i32 noundef %14, i32 noundef 2, i32 noundef -2147483648)
   %35 = load i32, ptr @hf_opcua_status_InfoBit_Historian_Partial, align 4
-  %36 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %35, ptr noundef %1, i32 noundef %14, i32 noundef 2, i32 noundef -2147483648) #4
+  %36 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %35, ptr noundef %1, i32 noundef %14, i32 noundef 2, i32 noundef -2147483648)
   %37 = load i32, ptr @hf_opcua_status_Historian, align 4
-  %38 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %37, ptr noundef %1, i32 noundef %14, i32 noundef 2, i32 noundef -2147483648) #4
+  %38 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %37, ptr noundef %1, i32 noundef %14, i32 noundef 2, i32 noundef -2147483648)
   br label %39
 
 39:                                               ; preds = %13, %24, %5
@@ -770,21 +784,25 @@ define hidden ptr @parseStatusCode(ptr noundef %0, ptr noundef %1, ptr readnone 
   ret ptr %7
 }
 
-declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @parseLocalizedText(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3, ptr noundef %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #4
   %8 = load i32, ptr %3, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
   %9 = load i32, ptr @ett_opcua_localizedtext, align 4
-  %10 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %1, i32 noundef %8, i32 noundef -1, i32 noundef %9, ptr noundef nonnull %7, ptr noundef nonnull @.str.173, ptr noundef %4) #4
-  %11 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %8) #4
+  %10 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %1, i32 noundef %8, i32 noundef -1, i32 noundef %9, ptr noundef nonnull %7, ptr noundef nonnull @.str.173, ptr noundef %4)
+  %11 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %8)
   %12 = load i32, ptr @hf_opcua_loctext_mask, align 4
   %13 = load i32, ptr @ett_opcua_localizedtext_encodingmask, align 4
-  %14 = call ptr @proto_tree_add_bitmask(ptr noundef %10, ptr noundef %1, i32 noundef %8, i32 noundef %12, i32 noundef %13, ptr noundef nonnull @parseLocalizedText.loctext_mask, i32 noundef -2147483648) #4
+  %14 = call ptr @proto_tree_add_bitmask(ptr noundef %10, ptr noundef %1, i32 noundef %8, i32 noundef %12, i32 noundef %13, ptr noundef nonnull @parseLocalizedText.loctext_mask, i32 noundef -2147483648)
   %15 = add i32 %8, 1
   store i32 %15, ptr %6, align 4
   %16 = zext i8 %11 to i32
@@ -810,31 +828,36 @@ define hidden void @parseLocalizedText(ptr noundef %0, ptr noundef %1, ptr nound
 26:                                               ; preds = %23, %21
   %27 = load ptr, ptr %7, align 8
   %28 = load i32, ptr %6, align 4
-  call void @proto_item_set_end(ptr noundef %27, ptr noundef %1, i32 noundef %28) #4
+  call void @proto_item_set_end(ptr noundef %27, ptr noundef %1, i32 noundef %28)
   store i32 %28, ptr %3, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #4
   ret void
 }
 
-declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden ptr @parseGuid(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef captures(none) %3, i32 noundef %4) #0 {
   %6 = load i32, ptr %3, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %6, i32 noundef 16, i32 noundef -2147483648) #4
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %6, i32 noundef 16, i32 noundef -2147483648)
   %8 = load i32, ptr %3, align 4
   %9 = add i32 %8, 16
   store i32 %9, ptr %3, align 4
   ret ptr %7
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden ptr @parseByteString(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3, i32 noundef %4) #0 {
   %6 = load i32, ptr %3, align 4
-  %7 = tail call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %6) #4
+  %7 = tail call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %6)
   %8 = add i32 %6, 4
   switch i32 %7, label %19 [
     i32 -1, label %9
@@ -843,20 +866,20 @@ define hidden ptr @parseByteString(ptr noundef %0, ptr noundef %1, ptr noundef r
 
 9:                                                ; preds = %5
   %10 = load i32, ptr %3, align 4
-  %11 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %10, i32 noundef 0, i32 noundef 0) #4
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef nonnull @.str.174) #4
+  %11 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %10, i32 noundef 0, i32 noundef 0)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef nonnull @.str.174)
   %12 = load i32, ptr %3, align 4
   %13 = add i32 %12, 4
-  tail call void @proto_item_set_end(ptr noundef %11, ptr noundef %1, i32 noundef %13) #4
+  tail call void @proto_item_set_end(ptr noundef %11, ptr noundef %1, i32 noundef %13)
   br label %32
 
 14:                                               ; preds = %5
   %15 = load i32, ptr %3, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %15, i32 noundef 0, i32 noundef 0) #4
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.175) #4
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %15, i32 noundef 0, i32 noundef 0)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.175)
   %17 = load i32, ptr %3, align 4
   %18 = add i32 %17, 4
-  tail call void @proto_item_set_end(ptr noundef %16, ptr noundef %1, i32 noundef %18) #4
+  tail call void @proto_item_set_end(ptr noundef %16, ptr noundef %1, i32 noundef %18)
   br label %32
 
 19:                                               ; preds = %5
@@ -864,20 +887,20 @@ define hidden ptr @parseByteString(ptr noundef %0, ptr noundef %1, ptr noundef r
   br i1 %20, label %21, label %24
 
 21:                                               ; preds = %19
-  %22 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %8, i32 noundef %7, i32 noundef 0) #4
+  %22 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %8, i32 noundef %7, i32 noundef 0)
   %23 = add i32 %8, %7
   br label %32
 
 24:                                               ; preds = %19
   %25 = load i32, ptr %3, align 4
-  %26 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %25, i32 noundef 0, i32 noundef 0) #4
+  %26 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %25, i32 noundef 0, i32 noundef 0)
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %28 = load ptr, ptr %27, align 8
-  %29 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %28, ptr noundef nonnull @.str.176, i32 noundef %7) #4
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %26, ptr noundef nonnull @.str.169, ptr noundef %29) #4
+  %29 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %28, ptr noundef nonnull @.str.176, i32 noundef %7)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %26, ptr noundef nonnull @.str.169, ptr noundef %29)
   %30 = load i32, ptr %3, align 4
   %31 = add i32 %30, 4
-  tail call void @proto_item_set_end(ptr noundef %26, ptr noundef %1, i32 noundef %31) #4
+  tail call void @proto_item_set_end(ptr noundef %26, ptr noundef %1, i32 noundef %31)
   br label %32
 
 32:                                               ; preds = %14, %24, %21, %9
@@ -887,56 +910,58 @@ define hidden ptr @parseByteString(ptr noundef %0, ptr noundef %1, ptr noundef r
   ret ptr %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden ptr @parseXmlElement(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3, i32 noundef %4) #0 {
   %6 = tail call ptr @parseByteString(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
   ret ptr %6
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden ptr @parseFloat(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef captures(none) %3, i32 noundef %4) #0 {
   %6 = load i32, ptr %3, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %6, i32 noundef 4, i32 noundef -2147483648) #4
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %6, i32 noundef 4, i32 noundef -2147483648)
   %8 = load i32, ptr %3, align 4
   %9 = add i32 %8, 4
   store i32 %9, ptr %3, align 4
   ret ptr %7
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden ptr @parseDouble(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef captures(none) %3, i32 noundef %4) #0 {
   %6 = load i32, ptr %3, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %6, i32 noundef 8, i32 noundef -2147483648) #4
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %6, i32 noundef 8, i32 noundef -2147483648)
   %8 = load i32, ptr %3, align 4
   %9 = add i32 %8, 8
   store i32 %9, ptr %3, align 4
   ret ptr %7
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden ptr @parseDateTime(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef captures(none) %3, i32 noundef %4) #0 {
-  %6 = alloca ptr, align 8
-  store ptr null, ptr %6, align 8
-  %7 = load i32, ptr %3, align 4
-  %8 = call i32 @dissect_nt_64bit_time_ex(ptr noundef %1, ptr noundef %0, i32 noundef %7, i32 noundef %4, ptr noundef nonnull %6, i32 noundef 0) #4
-  store i32 %8, ptr %3, align 4
-  %9 = load ptr, ptr %6, align 8
-  ret ptr %9
+  %6 = load i32, ptr %3, align 4
+  %7 = tail call ptr @dissect_nttime(ptr noundef %1, ptr noundef %0, i32 noundef %6, i32 noundef %4, i32 noundef -2147483648)
+  %8 = load i32, ptr %3, align 4
+  %9 = add i32 %8, 8
+  store i32 %9, ptr %3, align 4
+  ret ptr %7
 }
 
-declare i32 @dissect_nt_64bit_time_ex(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @dissect_nttime(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @parseDiagnosticInfo(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3, ptr noundef %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #4
   %8 = load i32, ptr %3, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
   %9 = load i32, ptr @ett_opcua_diagnosticinfo, align 4
-  %10 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %1, i32 noundef %8, i32 noundef -1, i32 noundef %9, ptr noundef nonnull %7, ptr noundef nonnull @.str.177, ptr noundef %4) #4
+  %10 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %1, i32 noundef %8, i32 noundef -1, i32 noundef %9, ptr noundef nonnull %7, ptr noundef nonnull @.str.177, ptr noundef %4)
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @proto_opcua, align 4
-  %14 = call ptr @p_get_proto_data(ptr noundef %12, ptr noundef %2, i32 noundef %13, i32 noundef 0) #4
+  %14 = call ptr @p_get_proto_data(ptr noundef %12, ptr noundef %2, i32 noundef %13, i32 noundef 0)
   %15 = ptrtoint ptr %14 to i64
   %16 = trunc i64 %15 to i32
   %17 = icmp ugt i32 %16, 99
@@ -944,7 +969,7 @@ define hidden void @parseDiagnosticInfo(ptr noundef %0, ptr noundef %1, ptr noun
 
 18:                                               ; preds = %5
   %19 = load ptr, ptr %7, align 8
-  %20 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %19, ptr noundef nonnull @ei_nesting_depth) #4
+  %20 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %19, ptr noundef nonnull @ei_nesting_depth)
   br label %79
 
 21:                                               ; preds = %5
@@ -953,13 +978,14 @@ define hidden void @parseDiagnosticInfo(ptr noundef %0, ptr noundef %1, ptr noun
   %24 = load i32, ptr @proto_opcua, align 4
   %25 = and i64 %22, 255
   %26 = inttoptr i64 %25 to ptr
-  call void @p_add_proto_data(ptr noundef %23, ptr noundef nonnull %2, i32 noundef %24, i32 noundef 0, ptr noundef %26) #4
-  %27 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %8) #4
+  call void @p_add_proto_data(ptr noundef %23, ptr noundef %2, i32 noundef %24, i32 noundef 0, ptr noundef %26)
+  %27 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %8)
   %28 = load i32, ptr @hf_opcua_diag_mask, align 4
   %29 = load i32, ptr @ett_opcua_diagnosticinfo_encodingmask, align 4
-  %30 = call ptr @proto_tree_add_bitmask(ptr noundef %10, ptr noundef %1, i32 noundef %8, i32 noundef %28, i32 noundef %29, ptr noundef nonnull @parseDiagnosticInfo.diag_mask, i32 noundef -2147483648) #4
+  %30 = call ptr @proto_tree_add_bitmask(ptr noundef %10, ptr noundef %1, i32 noundef %8, i32 noundef %28, i32 noundef %29, ptr noundef nonnull @parseDiagnosticInfo.diag_mask, i32 noundef -2147483648)
   %31 = add i32 %8, 1
   store i32 %31, ptr %6, align 4
+  call void @increment_dissection_depth(ptr noundef %2)
   %32 = zext i8 %27 to i32
   %33 = and i32 %32, 1
   %.not = icmp eq i32 %33, 0
@@ -967,7 +993,7 @@ define hidden void @parseDiagnosticInfo(ptr noundef %0, ptr noundef %1, ptr noun
 
 34:                                               ; preds = %21
   %35 = load i32, ptr @hf_opcua_diag_symbolicid, align 4
-  %36 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %35, ptr noundef %1, i32 noundef %31, i32 noundef 4, i32 noundef -2147483648) #4
+  %36 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %35, ptr noundef %1, i32 noundef %31, i32 noundef 4, i32 noundef -2147483648)
   %37 = add i32 %8, 5
   store i32 %37, ptr %6, align 4
   br label %38
@@ -975,12 +1001,12 @@ define hidden void @parseDiagnosticInfo(ptr noundef %0, ptr noundef %1, ptr noun
 38:                                               ; preds = %34, %21
   %39 = phi i32 [ %37, %34 ], [ %31, %21 ]
   %40 = and i32 %32, 2
-  %.not49 = icmp eq i32 %40, 0
-  br i1 %.not49, label %45, label %41
+  %.not51 = icmp eq i32 %40, 0
+  br i1 %.not51, label %45, label %41
 
 41:                                               ; preds = %38
   %42 = load i32, ptr @hf_opcua_diag_namespace, align 4
-  %43 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %42, ptr noundef %1, i32 noundef %39, i32 noundef 4, i32 noundef -2147483648) #4
+  %43 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %42, ptr noundef %1, i32 noundef %39, i32 noundef 4, i32 noundef -2147483648)
   %44 = add i32 %39, 4
   store i32 %44, ptr %6, align 4
   br label %45
@@ -988,12 +1014,12 @@ define hidden void @parseDiagnosticInfo(ptr noundef %0, ptr noundef %1, ptr noun
 45:                                               ; preds = %41, %38
   %46 = phi i32 [ %44, %41 ], [ %39, %38 ]
   %47 = and i32 %32, 8
-  %.not50 = icmp eq i32 %47, 0
-  br i1 %.not50, label %52, label %48
+  %.not52 = icmp eq i32 %47, 0
+  br i1 %.not52, label %52, label %48
 
 48:                                               ; preds = %45
   %49 = load i32, ptr @hf_opcua_diag_locale, align 4
-  %50 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %49, ptr noundef %1, i32 noundef %46, i32 noundef 4, i32 noundef -2147483648) #4
+  %50 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %49, ptr noundef %1, i32 noundef %46, i32 noundef 4, i32 noundef -2147483648)
   %51 = add i32 %46, 4
   store i32 %51, ptr %6, align 4
   br label %52
@@ -1001,92 +1027,106 @@ define hidden void @parseDiagnosticInfo(ptr noundef %0, ptr noundef %1, ptr noun
 52:                                               ; preds = %48, %45
   %53 = phi i32 [ %51, %48 ], [ %46, %45 ]
   %54 = and i32 %32, 4
-  %.not51 = icmp eq i32 %54, 0
-  br i1 %.not51, label %59, label %55
+  %.not53 = icmp eq i32 %54, 0
+  br i1 %.not53, label %59, label %55
 
 55:                                               ; preds = %52
   %56 = load i32, ptr @hf_opcua_diag_localizedtext, align 4
-  %57 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %56, ptr noundef %1, i32 noundef %53, i32 noundef 4, i32 noundef -2147483648) #4
+  %57 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %56, ptr noundef %1, i32 noundef %53, i32 noundef 4, i32 noundef -2147483648)
   %58 = add i32 %53, 4
   store i32 %58, ptr %6, align 4
   br label %59
 
 59:                                               ; preds = %55, %52
   %60 = and i32 %32, 16
-  %.not52 = icmp eq i32 %60, 0
-  br i1 %.not52, label %64, label %61
+  %.not54 = icmp eq i32 %60, 0
+  br i1 %.not54, label %64, label %61
 
 61:                                               ; preds = %59
   %62 = load i32, ptr @hf_opcua_diag_additionalinfo, align 4
-  %63 = call ptr @parseString(ptr noundef %10, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %6, i32 noundef %62)
+  %63 = call ptr @parseString(ptr noundef %10, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6, i32 noundef %62)
   br label %64
 
 64:                                               ; preds = %61, %59
   %65 = and i32 %32, 32
-  %.not53 = icmp eq i32 %65, 0
-  br i1 %.not53, label %69, label %66
+  %.not55 = icmp eq i32 %65, 0
+  br i1 %.not55, label %69, label %66
 
 66:                                               ; preds = %64
   %67 = load i32, ptr @hf_opcua_diag_innerstatuscode, align 4
-  %68 = call ptr @parseStatusCode(ptr noundef %10, ptr noundef %1, ptr nonnull poison, ptr noundef nonnull %6, i32 noundef %67)
+  %68 = call ptr @parseStatusCode(ptr noundef %10, ptr noundef %1, ptr poison, ptr noundef nonnull %6, i32 noundef %67)
   br label %69
 
 69:                                               ; preds = %66, %64
   %70 = and i32 %32, 64
-  %.not54 = icmp eq i32 %70, 0
-  br i1 %.not54, label %72, label %71
+  %.not56 = icmp eq i32 %70, 0
+  br i1 %.not56, label %72, label %71
 
 71:                                               ; preds = %69
-  call void @parseDiagnosticInfo(ptr noundef %10, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %6, ptr noundef nonnull @.str.178)
+  call void @parseDiagnosticInfo(ptr noundef %10, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull @.str.178)
   br label %72
 
 72:                                               ; preds = %71, %69
+  call void @decrement_dissection_depth(ptr noundef %2)
   %73 = load ptr, ptr %7, align 8
   %74 = load i32, ptr %6, align 4
-  call void @proto_item_set_end(ptr noundef %73, ptr noundef %1, i32 noundef %74) #4
+  call void @proto_item_set_end(ptr noundef %73, ptr noundef %1, i32 noundef %74)
   store i32 %74, ptr %3, align 4
   %75 = load ptr, ptr %11, align 8
   %76 = load i32, ptr @proto_opcua, align 4
   %77 = and i64 %15, 127
   %78 = inttoptr i64 %77 to ptr
-  call void @p_add_proto_data(ptr noundef %75, ptr noundef nonnull %2, i32 noundef %76, i32 noundef 0, ptr noundef %78) #4
+  call void @p_add_proto_data(ptr noundef %75, ptr noundef %2, i32 noundef %76, i32 noundef 0, ptr noundef %78)
   br label %79
 
 79:                                               ; preds = %72, %18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #4
   ret void
 }
 
-declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @p_add_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @p_add_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare void @increment_dissection_depth(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: null_pointer_is_valid
+declare void @decrement_dissection_depth(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @parseQualifiedName(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr @ett_opcua_qualifiedname, align 4
-  %9 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %1, i32 noundef %7, i32 noundef -1, i32 noundef %8, ptr noundef nonnull %6, ptr noundef nonnull @.str.179, ptr noundef %4) #4
+  %9 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %1, i32 noundef %7, i32 noundef -1, i32 noundef %8, ptr noundef nonnull %6, ptr noundef nonnull @.str.179, ptr noundef %4)
   %10 = load i32, ptr @hf_opcua_qualifiedname_id, align 4
   %11 = load i32, ptr %3, align 4
-  %12 = call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %10, ptr noundef %1, i32 noundef %11, i32 noundef 2, i32 noundef -2147483648) #4
+  %12 = call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %10, ptr noundef %1, i32 noundef %11, i32 noundef 2, i32 noundef -2147483648)
   %13 = load i32, ptr %3, align 4
   %14 = add i32 %13, 2
   store i32 %14, ptr %3, align 4
   %15 = load i32, ptr @hf_opcua_qualifiedname_name, align 4
-  %16 = call ptr @parseString(ptr noundef %9, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %15)
+  %16 = call ptr @parseString(ptr noundef %9, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %15)
   %17 = load ptr, ptr %6, align 8
   %18 = load i32, ptr %3, align 4
-  call void @proto_item_set_end(ptr noundef %17, ptr noundef %1, i32 noundef %18) #4
+  call void @proto_item_set_end(ptr noundef %17, ptr noundef %1, i32 noundef %18)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @parseCertificate(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct._asn1_ctx_t, align 8
   %7 = load i32, ptr %3, align 4
-  %8 = tail call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %7) #4
+  %8 = tail call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %7)
   %9 = add i32 %7, 4
   switch i32 %8, label %16 [
     i32 -1, label %10
@@ -1095,14 +1135,14 @@ define hidden void @parseCertificate(ptr noundef %0, ptr noundef %1, ptr noundef
 
 10:                                               ; preds = %5
   %11 = load i32, ptr %3, align 4
-  %12 = tail call ptr @proto_tree_add_bytes_with_length(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %11, i32 noundef 4, ptr noundef null, i32 noundef 0) #4
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.174) #4
+  %12 = tail call ptr @proto_tree_add_bytes_with_length(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %11, i32 noundef 4, ptr noundef null, i32 noundef 0)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.174)
   br label %27
 
 13:                                               ; preds = %5
   %14 = load i32, ptr %3, align 4
-  %15 = tail call ptr @proto_tree_add_bytes_with_length(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %14, i32 noundef 4, ptr noundef null, i32 noundef 0) #4
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %15, ptr noundef nonnull @.str.175) #4
+  %15 = tail call ptr @proto_tree_add_bytes_with_length(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %14, i32 noundef 4, ptr noundef null, i32 noundef 0)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %15, ptr noundef nonnull @.str.175)
   br label %27
 
 16:                                               ; preds = %5
@@ -1110,18 +1150,20 @@ define hidden void @parseCertificate(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %16
-  call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 0, i1 noundef zeroext true, ptr noundef %2) #4
-  %19 = call i32 @dissect_x509af_Certificate(i1 noundef zeroext false, ptr noundef %1, i32 noundef %9, ptr noundef nonnull %6, ptr noundef %0, i32 noundef %4) #4
+  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %6) #4
+  call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 0, i1 noundef zeroext true, ptr noundef %2)
+  %19 = call i32 @dissect_x509af_Certificate(i1 noundef zeroext false, ptr noundef %1, i32 noundef %9, ptr noundef nonnull %6, ptr noundef %0, i32 noundef %4)
   %20 = add i32 %9, %8
+  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %6) #4
   br label %27
 
 21:                                               ; preds = %16
   %22 = load i32, ptr %3, align 4
-  %23 = tail call ptr @proto_tree_add_bytes_with_length(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %22, i32 noundef 4, ptr noundef null, i32 noundef 0) #4
+  %23 = tail call ptr @proto_tree_add_bytes_with_length(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %22, i32 noundef 4, ptr noundef null, i32 noundef 0)
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %25, ptr noundef nonnull @.str.176, i32 noundef %8) #4
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %23, ptr noundef nonnull @.str.169, ptr noundef %26) #4
+  %26 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %25, ptr noundef nonnull @.str.176, i32 noundef %8)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %23, ptr noundef nonnull @.str.169, ptr noundef %26)
   br label %27
 
 27:                                               ; preds = %13, %21, %18, %10
@@ -1130,588 +1172,616 @@ define hidden void @parseCertificate(ptr noundef %0, ptr noundef %1, ptr noundef
   ret void
 }
 
-declare ptr @proto_tree_add_bytes_with_length(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_bytes_with_length(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @asn1_ctx_init(ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @asn1_ctx_init(ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
-declare i32 @dissect_x509af_Certificate(i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_x509af_Certificate(i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @parseDataValue(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca i32, align 4
-  %10 = load i32, ptr %3, align 4
-  %11 = load i32, ptr @ett_opcua_datavalue, align 4
-  %12 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %1, i32 noundef %10, i32 noundef -1, i32 noundef %11, ptr noundef nonnull %8, ptr noundef nonnull @.str.180, ptr noundef %4) #4
-  %13 = load i32, ptr %3, align 4
-  %14 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %13) #4
-  %15 = load i32, ptr @hf_opcua_datavalue_mask, align 4
-  %16 = load i32, ptr @ett_opcua_datavalue_encodingmask, align 4
-  %17 = call ptr @proto_tree_add_bitmask(ptr noundef %12, ptr noundef %1, i32 noundef %13, i32 noundef %15, i32 noundef %16, ptr noundef nonnull @parseDataValue.datavalue_mask, i32 noundef -2147483648) #4
-  %18 = add i32 %13, 1
-  store i32 %18, ptr %9, align 4
-  %19 = zext i8 %14 to i32
-  %20 = and i32 %19, 1
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %22, label %21
+  %7 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
+  %8 = load i32, ptr %3, align 4
+  %9 = load i32, ptr @ett_opcua_datavalue, align 4
+  %10 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %1, i32 noundef %8, i32 noundef -1, i32 noundef %9, ptr noundef nonnull %6, ptr noundef nonnull @.str.180, ptr noundef %4)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  %11 = load i32, ptr %3, align 4
+  %12 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %11)
+  %13 = load i32, ptr @hf_opcua_datavalue_mask, align 4
+  %14 = load i32, ptr @ett_opcua_datavalue_encodingmask, align 4
+  %15 = call ptr @proto_tree_add_bitmask(ptr noundef %10, ptr noundef %1, i32 noundef %11, i32 noundef %13, i32 noundef %14, ptr noundef nonnull @parseDataValue.datavalue_mask, i32 noundef -2147483648)
+  %16 = add i32 %11, 1
+  store i32 %16, ptr %7, align 4
+  call void @increment_dissection_depth(ptr noundef %2)
+  %17 = zext i8 %12 to i32
+  %18 = and i32 %17, 1
+  %.not = icmp eq i32 %18, 0
+  br i1 %.not, label %20, label %19
 
-21:                                               ; preds = %5
-  call void @parseVariant(ptr noundef %12, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9, ptr noundef nonnull @.str.181)
-  br label %22
+19:                                               ; preds = %5
+  call void @parseVariant(ptr noundef %10, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull @.str.181)
+  br label %20
 
-22:                                               ; preds = %21, %5
-  %23 = and i32 %19, 2
-  %.not33 = icmp eq i32 %23, 0
-  br i1 %.not33, label %27, label %24
+20:                                               ; preds = %19, %5
+  %21 = and i32 %17, 2
+  %.not35 = icmp eq i32 %21, 0
+  br i1 %.not35, label %25, label %22
 
-24:                                               ; preds = %22
-  %25 = load i32, ptr @hf_opcua_StatusCode, align 4
-  %26 = call ptr @parseStatusCode(ptr noundef %12, ptr noundef %1, ptr poison, ptr noundef nonnull %9, i32 noundef %25)
-  br label %27
+22:                                               ; preds = %20
+  %23 = load i32, ptr @hf_opcua_StatusCode, align 4
+  %24 = call ptr @parseStatusCode(ptr noundef %10, ptr noundef %1, ptr poison, ptr noundef nonnull %7, i32 noundef %23)
+  br label %25
 
-27:                                               ; preds = %24, %22
-  %28 = and i32 %19, 4
-  %.not34 = icmp eq i32 %28, 0
-  %.pre.pre.pre.pre = load i32, ptr %9, align 4
-  br i1 %.not34, label %32, label %29
+25:                                               ; preds = %22, %20
+  %26 = and i32 %17, 4
+  %.not36 = icmp eq i32 %26, 0
+  %.pre.pre.pre.pre = load i32, ptr %7, align 4
+  br i1 %.not36, label %31, label %27
 
-29:                                               ; preds = %27
-  %30 = load i32, ptr @hf_opcua_SourceTimestamp, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  store ptr null, ptr %7, align 8
-  %31 = call i32 @dissect_nt_64bit_time_ex(ptr noundef %1, ptr noundef %12, i32 noundef %.pre.pre.pre.pre, i32 noundef %30, ptr noundef nonnull %7, i32 noundef 0) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  br label %32
+27:                                               ; preds = %25
+  %28 = load i32, ptr @hf_opcua_SourceTimestamp, align 4
+  %29 = call ptr @dissect_nttime(ptr noundef %1, ptr noundef %10, i32 noundef %.pre.pre.pre.pre, i32 noundef %28, i32 noundef -2147483648)
+  %30 = add i32 %.pre.pre.pre.pre, 8
+  br label %31
 
-32:                                               ; preds = %29, %27
-  %.pre.pre.pre = phi i32 [ %31, %29 ], [ %.pre.pre.pre.pre, %27 ]
-  %33 = and i32 %19, 16
-  %.not35 = icmp eq i32 %33, 0
-  br i1 %.not35, label %38, label %34
+31:                                               ; preds = %27, %25
+  %.pre.pre.pre = phi i32 [ %30, %27 ], [ %.pre.pre.pre.pre, %25 ]
+  %32 = and i32 %17, 16
+  %.not37 = icmp eq i32 %32, 0
+  br i1 %.not37, label %37, label %33
 
-34:                                               ; preds = %32
-  %35 = load i32, ptr @hf_opcua_SourcePicoseconds, align 4
-  %36 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %35, ptr noundef %1, i32 noundef %.pre.pre.pre, i32 noundef 2, i32 noundef -2147483648) #4
-  %37 = add i32 %.pre.pre.pre, 2
-  br label %38
+33:                                               ; preds = %31
+  %34 = load i32, ptr @hf_opcua_SourcePicoseconds, align 4
+  %35 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %34, ptr noundef %1, i32 noundef %.pre.pre.pre, i32 noundef 2, i32 noundef -2147483648)
+  %36 = add i32 %.pre.pre.pre, 2
+  br label %37
 
-38:                                               ; preds = %34, %32
-  %.pre.pre = phi i32 [ %37, %34 ], [ %.pre.pre.pre, %32 ]
-  %39 = and i32 %19, 8
-  %.not36 = icmp eq i32 %39, 0
-  br i1 %.not36, label %43, label %40
+37:                                               ; preds = %33, %31
+  %.pre.pre = phi i32 [ %36, %33 ], [ %.pre.pre.pre, %31 ]
+  %38 = and i32 %17, 8
+  %.not38 = icmp eq i32 %38, 0
+  br i1 %.not38, label %43, label %39
 
-40:                                               ; preds = %38
-  %41 = load i32, ptr @hf_opcua_ServerTimestamp, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  store ptr null, ptr %6, align 8
-  %42 = call i32 @dissect_nt_64bit_time_ex(ptr noundef %1, ptr noundef %12, i32 noundef %.pre.pre, i32 noundef %41, ptr noundef nonnull %6, i32 noundef 0) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+39:                                               ; preds = %37
+  %40 = load i32, ptr @hf_opcua_ServerTimestamp, align 4
+  %41 = call ptr @dissect_nttime(ptr noundef %1, ptr noundef %10, i32 noundef %.pre.pre, i32 noundef %40, i32 noundef -2147483648)
+  %42 = add i32 %.pre.pre, 8
   br label %43
 
-43:                                               ; preds = %40, %38
-  %.pre = phi i32 [ %42, %40 ], [ %.pre.pre, %38 ]
-  %44 = and i32 %19, 32
-  %.not37 = icmp eq i32 %44, 0
-  br i1 %.not37, label %49, label %45
+43:                                               ; preds = %39, %37
+  %.pre = phi i32 [ %42, %39 ], [ %.pre.pre, %37 ]
+  %44 = and i32 %17, 32
+  %.not39 = icmp eq i32 %44, 0
+  br i1 %.not39, label %49, label %45
 
 45:                                               ; preds = %43
   %46 = load i32, ptr @hf_opcua_ServerPicoseconds, align 4
-  %47 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %46, ptr noundef %1, i32 noundef %.pre, i32 noundef 2, i32 noundef -2147483648) #4
+  %47 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %46, ptr noundef %1, i32 noundef %.pre, i32 noundef 2, i32 noundef -2147483648)
   %48 = add i32 %.pre, 2
   br label %49
 
 49:                                               ; preds = %45, %43
   %50 = phi i32 [ %48, %45 ], [ %.pre, %43 ]
-  %51 = load ptr, ptr %8, align 8
-  call void @proto_item_set_end(ptr noundef %51, ptr noundef %1, i32 noundef %50) #4
+  call void @decrement_dissection_depth(ptr noundef %2)
+  %51 = load ptr, ptr %6, align 8
+  call void @proto_item_set_end(ptr noundef %51, ptr noundef %1, i32 noundef %50)
   store i32 %50, ptr %3, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @parseVariant(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca i32, align 4
-  %9 = alloca ptr, align 8
-  %10 = load i32, ptr %3, align 4
-  %11 = load i32, ptr @ett_opcua_variant, align 4
-  %12 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %1, i32 noundef %10, i32 noundef -1, i32 noundef %11, ptr noundef nonnull %7, ptr noundef nonnull @.str.182, ptr noundef %4) #4
-  %13 = load i32, ptr %3, align 4
-  store i32 %13, ptr %8, align 4
-  %14 = getelementptr inbounds nuw i8, ptr %2, i64 408
-  %15 = load ptr, ptr %14, align 8
-  %16 = load i32, ptr @proto_opcua, align 4
-  %17 = call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %2, i32 noundef %16, i32 noundef 0) #4
-  %18 = ptrtoint ptr %17 to i64
-  %19 = trunc i64 %18 to i32
-  %20 = icmp ugt i32 %19, 99
-  br i1 %20, label %21, label %24
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
+  %9 = load i32, ptr %3, align 4
+  %10 = load i32, ptr @ett_opcua_variant, align 4
+  %11 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %1, i32 noundef %9, i32 noundef -1, i32 noundef %10, ptr noundef nonnull %6, ptr noundef nonnull @.str.182, ptr noundef %4)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
+  %12 = load i32, ptr %3, align 4
+  store i32 %12, ptr %7, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 408
+  %14 = load ptr, ptr %13, align 8
+  %15 = load i32, ptr @proto_opcua, align 4
+  %16 = call ptr @p_get_proto_data(ptr noundef %14, ptr noundef %2, i32 noundef %15, i32 noundef 0)
+  %17 = ptrtoint ptr %16 to i64
+  %18 = trunc i64 %17 to i32
+  %19 = icmp ugt i32 %18, 99
+  br i1 %19, label %20, label %23
 
-21:                                               ; preds = %5
-  %22 = load ptr, ptr %7, align 8
-  %23 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %22, ptr noundef nonnull @ei_nesting_depth) #4
-  br label %225
+20:                                               ; preds = %5
+  %21 = load ptr, ptr %6, align 8
+  %22 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %21, ptr noundef nonnull @ei_nesting_depth)
+  br label %239
 
-24:                                               ; preds = %5
-  %25 = add nuw nsw i64 %18, 1
-  %26 = load ptr, ptr %14, align 8
-  %27 = load i32, ptr @proto_opcua, align 4
-  %28 = and i64 %25, 255
-  %29 = inttoptr i64 %28 to ptr
-  call void @p_add_proto_data(ptr noundef %26, ptr noundef nonnull %2, i32 noundef %27, i32 noundef 0, ptr noundef %29) #4
-  %30 = load i32, ptr %8, align 4
-  %31 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %30) #4
-  %32 = load i32, ptr @hf_opcua_variant_encodingmask, align 4
-  %33 = load i32, ptr %8, align 4
-  %34 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %32, ptr noundef %1, i32 noundef %33, i32 noundef 1, i32 noundef -2147483648) #4
-  %35 = load i32, ptr %8, align 4
-  %36 = add i32 %35, 1
-  store i32 %36, ptr %8, align 4
-  %37 = zext i8 %31 to i32
-  %.not = icmp sgt i8 %31, -1
-  %38 = and i32 %37, 63
-  br i1 %.not, label %133, label %39
+23:                                               ; preds = %5
+  %24 = add nuw nsw i64 %17, 1
+  %25 = load ptr, ptr %13, align 8
+  %26 = load i32, ptr @proto_opcua, align 4
+  %27 = and i64 %24, 255
+  %28 = inttoptr i64 %27 to ptr
+  call void @p_add_proto_data(ptr noundef %25, ptr noundef %2, i32 noundef %26, i32 noundef 0, ptr noundef %28)
+  %29 = load i32, ptr %7, align 4
+  %30 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %29)
+  %31 = load i32, ptr @hf_opcua_variant_encodingmask, align 4
+  %32 = load i32, ptr %7, align 4
+  %33 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %31, ptr noundef %1, i32 noundef %32, i32 noundef 1, i32 noundef -2147483648)
+  %34 = load i32, ptr %7, align 4
+  %35 = add i32 %34, 1
+  store i32 %35, ptr %7, align 4
+  %36 = zext i8 %30 to i32
+  %.not = icmp sgt i8 %30, -1
+  call void @increment_dissection_depth(ptr noundef %2)
+  %37 = and i32 %36, 63
+  br i1 %.not, label %131, label %38
 
-39:                                               ; preds = %24
-  switch i32 %38, label %107 [
-    i32 24, label %105
-    i32 1, label %40
-    i32 2, label %43
-    i32 3, label %46
-    i32 4, label %49
-    i32 5, label %52
-    i32 6, label %55
-    i32 7, label %58
-    i32 8, label %61
-    i32 9, label %64
-    i32 10, label %67
-    i32 11, label %70
-    i32 12, label %73
-    i32 13, label %76
-    i32 14, label %79
-    i32 15, label %82
-    i32 16, label %85
-    i32 17, label %88
-    i32 18, label %90
-    i32 19, label %92
-    i32 25, label %95
-    i32 20, label %97
-    i32 21, label %99
-    i32 22, label %101
-    i32 23, label %103
+38:                                               ; preds = %23
+  switch i32 %37, label %106 [
+    i32 24, label %104
+    i32 1, label %39
+    i32 2, label %42
+    i32 3, label %45
+    i32 4, label %48
+    i32 5, label %51
+    i32 6, label %54
+    i32 7, label %57
+    i32 8, label %60
+    i32 9, label %63
+    i32 10, label %66
+    i32 11, label %69
+    i32 12, label %72
+    i32 13, label %75
+    i32 14, label %78
+    i32 15, label %81
+    i32 16, label %84
+    i32 17, label %87
+    i32 18, label %89
+    i32 19, label %91
+    i32 25, label %94
+    i32 20, label %96
+    i32 21, label %98
+    i32 22, label %100
+    i32 23, label %102
   ]
 
-40:                                               ; preds = %39
-  %41 = load i32, ptr @hf_opcua_Boolean, align 4
-  %42 = load i32, ptr @ett_opcua_array_Boolean, align 4
-  call void @parseArraySimple(ptr noundef %12, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.183, i32 noundef %41, ptr noundef nonnull @parseBoolean, i32 noundef %42)
-  br label %107
+39:                                               ; preds = %38
+  %40 = load i32, ptr @hf_opcua_Boolean, align 4
+  %41 = load i32, ptr @ett_opcua_array_Boolean, align 4
+  call void @parseArraySimple(ptr noundef %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.183, i32 noundef %40, ptr noundef nonnull @parseBoolean, i32 noundef %41)
+  br label %106
 
-43:                                               ; preds = %39
-  %44 = load i32, ptr @hf_opcua_SByte, align 4
-  %45 = load i32, ptr @ett_opcua_array_SByte, align 4
-  call void @parseArraySimple(ptr noundef %12, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef nonnull @.str.184, ptr noundef nonnull @.str.184, i32 noundef %44, ptr noundef nonnull @parseSByte, i32 noundef %45)
-  br label %107
+42:                                               ; preds = %38
+  %43 = load i32, ptr @hf_opcua_SByte, align 4
+  %44 = load i32, ptr @ett_opcua_array_SByte, align 4
+  call void @parseArraySimple(ptr noundef %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull @.str.184, ptr noundef nonnull @.str.184, i32 noundef %43, ptr noundef nonnull @parseSByte, i32 noundef %44)
+  br label %106
 
-46:                                               ; preds = %39
-  %47 = load i32, ptr @hf_opcua_Byte, align 4
-  %48 = load i32, ptr @ett_opcua_array_Byte, align 4
-  call void @parseArraySimple(ptr noundef %12, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef nonnull @.str.185, ptr noundef nonnull @.str.185, i32 noundef %47, ptr noundef nonnull @parseByte, i32 noundef %48)
-  br label %107
+45:                                               ; preds = %38
+  %46 = load i32, ptr @hf_opcua_Byte, align 4
+  %47 = load i32, ptr @ett_opcua_array_Byte, align 4
+  call void @parseArraySimple(ptr noundef %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull @.str.185, ptr noundef nonnull @.str.185, i32 noundef %46, ptr noundef nonnull @parseByte, i32 noundef %47)
+  br label %106
 
-49:                                               ; preds = %39
-  %50 = load i32, ptr @hf_opcua_Int16, align 4
-  %51 = load i32, ptr @ett_opcua_array_Int16, align 4
-  call void @parseArraySimple(ptr noundef %12, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef nonnull @.str.186, ptr noundef nonnull @.str.186, i32 noundef %50, ptr noundef nonnull @parseInt16, i32 noundef %51)
-  br label %107
+48:                                               ; preds = %38
+  %49 = load i32, ptr @hf_opcua_Int16, align 4
+  %50 = load i32, ptr @ett_opcua_array_Int16, align 4
+  call void @parseArraySimple(ptr noundef %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull @.str.186, ptr noundef nonnull @.str.186, i32 noundef %49, ptr noundef nonnull @parseInt16, i32 noundef %50)
+  br label %106
 
-52:                                               ; preds = %39
-  %53 = load i32, ptr @hf_opcua_UInt16, align 4
-  %54 = load i32, ptr @ett_opcua_array_UInt16, align 4
-  call void @parseArraySimple(ptr noundef %12, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef nonnull @.str.187, ptr noundef nonnull @.str.187, i32 noundef %53, ptr noundef nonnull @parseUInt16, i32 noundef %54)
-  br label %107
+51:                                               ; preds = %38
+  %52 = load i32, ptr @hf_opcua_UInt16, align 4
+  %53 = load i32, ptr @ett_opcua_array_UInt16, align 4
+  call void @parseArraySimple(ptr noundef %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull @.str.187, ptr noundef nonnull @.str.187, i32 noundef %52, ptr noundef nonnull @parseUInt16, i32 noundef %53)
+  br label %106
 
-55:                                               ; preds = %39
-  %56 = load i32, ptr @hf_opcua_Int32, align 4
-  %57 = load i32, ptr @ett_opcua_array_Int32, align 4
-  call void @parseArraySimple(ptr noundef %12, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef nonnull @.str.188, ptr noundef nonnull @.str.188, i32 noundef %56, ptr noundef nonnull @parseInt32, i32 noundef %57)
-  br label %107
+54:                                               ; preds = %38
+  %55 = load i32, ptr @hf_opcua_Int32, align 4
+  %56 = load i32, ptr @ett_opcua_array_Int32, align 4
+  call void @parseArraySimple(ptr noundef %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull @.str.188, ptr noundef nonnull @.str.188, i32 noundef %55, ptr noundef nonnull @parseInt32, i32 noundef %56)
+  br label %106
 
-58:                                               ; preds = %39
-  %59 = load i32, ptr @hf_opcua_UInt32, align 4
-  %60 = load i32, ptr @ett_opcua_array_UInt32, align 4
-  call void @parseArraySimple(ptr noundef %12, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef nonnull @.str.189, ptr noundef nonnull @.str.189, i32 noundef %59, ptr noundef nonnull @parseUInt32, i32 noundef %60)
-  br label %107
+57:                                               ; preds = %38
+  %58 = load i32, ptr @hf_opcua_UInt32, align 4
+  %59 = load i32, ptr @ett_opcua_array_UInt32, align 4
+  call void @parseArraySimple(ptr noundef %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull @.str.189, ptr noundef nonnull @.str.189, i32 noundef %58, ptr noundef nonnull @parseUInt32, i32 noundef %59)
+  br label %106
 
-61:                                               ; preds = %39
-  %62 = load i32, ptr @hf_opcua_Int64, align 4
-  %63 = load i32, ptr @ett_opcua_array_Int64, align 4
-  call void @parseArraySimple(ptr noundef %12, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef nonnull @.str.190, ptr noundef nonnull @.str.190, i32 noundef %62, ptr noundef nonnull @parseInt64, i32 noundef %63)
-  br label %107
+60:                                               ; preds = %38
+  %61 = load i32, ptr @hf_opcua_Int64, align 4
+  %62 = load i32, ptr @ett_opcua_array_Int64, align 4
+  call void @parseArraySimple(ptr noundef %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull @.str.190, ptr noundef nonnull @.str.190, i32 noundef %61, ptr noundef nonnull @parseInt64, i32 noundef %62)
+  br label %106
 
-64:                                               ; preds = %39
-  %65 = load i32, ptr @hf_opcua_UInt64, align 4
-  %66 = load i32, ptr @ett_opcua_array_UInt64, align 4
-  call void @parseArraySimple(ptr noundef %12, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef nonnull @.str.191, ptr noundef nonnull @.str.191, i32 noundef %65, ptr noundef nonnull @parseUInt64, i32 noundef %66)
-  br label %107
+63:                                               ; preds = %38
+  %64 = load i32, ptr @hf_opcua_UInt64, align 4
+  %65 = load i32, ptr @ett_opcua_array_UInt64, align 4
+  call void @parseArraySimple(ptr noundef %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull @.str.191, ptr noundef nonnull @.str.191, i32 noundef %64, ptr noundef nonnull @parseUInt64, i32 noundef %65)
+  br label %106
 
-67:                                               ; preds = %39
-  %68 = load i32, ptr @hf_opcua_Float, align 4
-  %69 = load i32, ptr @ett_opcua_array_Float, align 4
-  call void @parseArraySimple(ptr noundef %12, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef nonnull @.str.192, ptr noundef nonnull @.str.192, i32 noundef %68, ptr noundef nonnull @parseFloat, i32 noundef %69)
-  br label %107
+66:                                               ; preds = %38
+  %67 = load i32, ptr @hf_opcua_Float, align 4
+  %68 = load i32, ptr @ett_opcua_array_Float, align 4
+  call void @parseArraySimple(ptr noundef %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull @.str.192, ptr noundef nonnull @.str.192, i32 noundef %67, ptr noundef nonnull @parseFloat, i32 noundef %68)
+  br label %106
 
-70:                                               ; preds = %39
-  %71 = load i32, ptr @hf_opcua_Double, align 4
-  %72 = load i32, ptr @ett_opcua_array_Double, align 4
-  call void @parseArraySimple(ptr noundef %12, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef nonnull @.str.193, ptr noundef nonnull @.str.193, i32 noundef %71, ptr noundef nonnull @parseDouble, i32 noundef %72)
-  br label %107
+69:                                               ; preds = %38
+  %70 = load i32, ptr @hf_opcua_Double, align 4
+  %71 = load i32, ptr @ett_opcua_array_Double, align 4
+  call void @parseArraySimple(ptr noundef %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull @.str.193, ptr noundef nonnull @.str.193, i32 noundef %70, ptr noundef nonnull @parseDouble, i32 noundef %71)
+  br label %106
 
-73:                                               ; preds = %39
-  %74 = load i32, ptr @hf_opcua_String, align 4
-  %75 = load i32, ptr @ett_opcua_array_String, align 4
-  call void @parseArraySimple(ptr noundef %12, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef nonnull @.str.194, ptr noundef nonnull @.str.194, i32 noundef %74, ptr noundef nonnull @parseString, i32 noundef %75)
-  br label %107
+72:                                               ; preds = %38
+  %73 = load i32, ptr @hf_opcua_String, align 4
+  %74 = load i32, ptr @ett_opcua_array_String, align 4
+  call void @parseArraySimple(ptr noundef %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull @.str.194, ptr noundef nonnull @.str.194, i32 noundef %73, ptr noundef nonnull @parseString, i32 noundef %74)
+  br label %106
 
-76:                                               ; preds = %39
-  %77 = load i32, ptr @hf_opcua_DateTime, align 4
-  %78 = load i32, ptr @ett_opcua_array_DateTime, align 4
-  call void @parseArraySimple(ptr noundef %12, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef nonnull @.str.195, ptr noundef nonnull @.str.195, i32 noundef %77, ptr noundef nonnull @parseDateTime, i32 noundef %78)
-  br label %107
+75:                                               ; preds = %38
+  %76 = load i32, ptr @hf_opcua_DateTime, align 4
+  %77 = load i32, ptr @ett_opcua_array_DateTime, align 4
+  call void @parseArraySimple(ptr noundef %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull @.str.195, ptr noundef nonnull @.str.195, i32 noundef %76, ptr noundef nonnull @parseDateTime, i32 noundef %77)
+  br label %106
 
-79:                                               ; preds = %39
-  %80 = load i32, ptr @hf_opcua_Guid, align 4
-  %81 = load i32, ptr @ett_opcua_array_Guid, align 4
-  call void @parseArraySimple(ptr noundef %12, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef nonnull @.str.196, ptr noundef nonnull @.str.196, i32 noundef %80, ptr noundef nonnull @parseGuid, i32 noundef %81)
-  br label %107
+78:                                               ; preds = %38
+  %79 = load i32, ptr @hf_opcua_Guid, align 4
+  %80 = load i32, ptr @ett_opcua_array_Guid, align 4
+  call void @parseArraySimple(ptr noundef %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull @.str.196, ptr noundef nonnull @.str.196, i32 noundef %79, ptr noundef nonnull @parseGuid, i32 noundef %80)
+  br label %106
 
-82:                                               ; preds = %39
-  %83 = load i32, ptr @hf_opcua_ByteString, align 4
-  %84 = load i32, ptr @ett_opcua_array_ByteString, align 4
-  call void @parseArraySimple(ptr noundef %12, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef nonnull @.str.197, ptr noundef nonnull @.str.197, i32 noundef %83, ptr noundef nonnull @parseByteString, i32 noundef %84)
-  br label %107
+81:                                               ; preds = %38
+  %82 = load i32, ptr @hf_opcua_ByteString, align 4
+  %83 = load i32, ptr @ett_opcua_array_ByteString, align 4
+  call void @parseArraySimple(ptr noundef %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull @.str.197, ptr noundef nonnull @.str.197, i32 noundef %82, ptr noundef nonnull @parseByteString, i32 noundef %83)
+  br label %106
 
-85:                                               ; preds = %39
-  %86 = load i32, ptr @hf_opcua_XmlElement, align 4
-  %87 = load i32, ptr @ett_opcua_array_XmlElement, align 4
-  call void @parseArraySimple(ptr noundef %12, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef nonnull @.str.198, ptr noundef nonnull @.str.198, i32 noundef %86, ptr noundef nonnull @parseXmlElement, i32 noundef %87)
-  br label %107
+84:                                               ; preds = %38
+  %85 = load i32, ptr @hf_opcua_XmlElement, align 4
+  %86 = load i32, ptr @ett_opcua_array_XmlElement, align 4
+  call void @parseArraySimple(ptr noundef %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull @.str.198, ptr noundef nonnull @.str.198, i32 noundef %85, ptr noundef nonnull @parseXmlElement, i32 noundef %86)
+  br label %106
 
-88:                                               ; preds = %39
-  %89 = load i32, ptr @ett_opcua_array_NodeId, align 4
-  call void @parseArrayComplex(ptr noundef %12, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef nonnull @.str.199, ptr noundef nonnull @.str.199, ptr noundef nonnull @parseNodeId, i32 noundef %89)
-  br label %107
+87:                                               ; preds = %38
+  %88 = load i32, ptr @ett_opcua_array_NodeId, align 4
+  call void @parseArrayComplex(ptr noundef %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull @.str.199, ptr noundef nonnull @.str.199, ptr noundef nonnull @parseNodeId, i32 noundef %88)
+  br label %106
 
-90:                                               ; preds = %39
-  %91 = load i32, ptr @ett_opcua_array_ExpandedNodeId, align 4
-  call void @parseArrayComplex(ptr noundef %12, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef nonnull @.str.200, ptr noundef nonnull @.str.200, ptr noundef nonnull @parseExpandedNodeId, i32 noundef %91)
-  br label %107
+89:                                               ; preds = %38
+  %90 = load i32, ptr @ett_opcua_array_ExpandedNodeId, align 4
+  call void @parseArrayComplex(ptr noundef %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull @.str.200, ptr noundef nonnull @.str.200, ptr noundef nonnull @parseExpandedNodeId, i32 noundef %90)
+  br label %106
 
-92:                                               ; preds = %39
-  %93 = load i32, ptr @hf_opcua_StatusCode, align 4
-  %94 = load i32, ptr @ett_opcua_array_StatusCode, align 4
-  call void @parseArraySimple(ptr noundef %12, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef nonnull @.str.201, ptr noundef nonnull @.str.201, i32 noundef %93, ptr noundef nonnull @parseStatusCode, i32 noundef %94)
-  br label %107
+91:                                               ; preds = %38
+  %92 = load i32, ptr @hf_opcua_StatusCode, align 4
+  %93 = load i32, ptr @ett_opcua_array_StatusCode, align 4
+  call void @parseArraySimple(ptr noundef %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull @.str.201, ptr noundef nonnull @.str.201, i32 noundef %92, ptr noundef nonnull @parseStatusCode, i32 noundef %93)
+  br label %106
 
-95:                                               ; preds = %39
-  %96 = load i32, ptr @ett_opcua_array_DiagnosticInfo, align 4
-  call void @parseArrayComplex(ptr noundef %12, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef nonnull @.str.202, ptr noundef nonnull @.str.202, ptr noundef nonnull @parseDiagnosticInfo, i32 noundef %96)
-  br label %107
+94:                                               ; preds = %38
+  %95 = load i32, ptr @ett_opcua_array_DiagnosticInfo, align 4
+  call void @parseArrayComplex(ptr noundef %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull @.str.202, ptr noundef nonnull @.str.202, ptr noundef nonnull @parseDiagnosticInfo, i32 noundef %95)
+  br label %106
 
-97:                                               ; preds = %39
-  %98 = load i32, ptr @ett_opcua_array_QualifiedName, align 4
-  call void @parseArrayComplex(ptr noundef %12, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef nonnull @.str.203, ptr noundef nonnull @.str.203, ptr noundef nonnull @parseQualifiedName, i32 noundef %98)
-  br label %107
+96:                                               ; preds = %38
+  %97 = load i32, ptr @ett_opcua_array_QualifiedName, align 4
+  call void @parseArrayComplex(ptr noundef %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull @.str.203, ptr noundef nonnull @.str.203, ptr noundef nonnull @parseQualifiedName, i32 noundef %97)
+  br label %106
 
-99:                                               ; preds = %39
-  %100 = load i32, ptr @ett_opcua_array_LocalizedText, align 4
-  call void @parseArrayComplex(ptr noundef %12, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.72, ptr noundef nonnull @parseLocalizedText, i32 noundef %100)
-  br label %107
+98:                                               ; preds = %38
+  %99 = load i32, ptr @ett_opcua_array_LocalizedText, align 4
+  call void @parseArrayComplex(ptr noundef %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.72, ptr noundef nonnull @parseLocalizedText, i32 noundef %99)
+  br label %106
 
-101:                                              ; preds = %39
-  %102 = load i32, ptr @ett_opcua_array_ExtensionObject, align 4
-  call void @parseArrayComplex(ptr noundef %12, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef nonnull @.str.204, ptr noundef nonnull @.str.204, ptr noundef nonnull @parseExtensionObject, i32 noundef %102)
-  br label %107
+100:                                              ; preds = %38
+  %101 = load i32, ptr @ett_opcua_array_ExtensionObject, align 4
+  call void @parseArrayComplex(ptr noundef %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull @.str.204, ptr noundef nonnull @.str.204, ptr noundef nonnull @parseExtensionObject, i32 noundef %101)
+  br label %106
 
-103:                                              ; preds = %39
-  %104 = load i32, ptr @ett_opcua_array_DataValue, align 4
-  call void @parseArrayComplex(ptr noundef %12, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef nonnull @.str.205, ptr noundef nonnull @.str.205, ptr noundef nonnull @parseDataValue, i32 noundef %104)
-  br label %107
+102:                                              ; preds = %38
+  %103 = load i32, ptr @ett_opcua_array_DataValue, align 4
+  call void @parseArrayComplex(ptr noundef %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull @.str.205, ptr noundef nonnull @.str.205, ptr noundef nonnull @parseDataValue, i32 noundef %103)
+  br label %106
 
-105:                                              ; preds = %39
-  %106 = load i32, ptr @ett_opcua_array_Variant, align 4
-  call void @parseArrayComplex(ptr noundef %12, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef nonnull @.str.206, ptr noundef nonnull @.str.206, ptr noundef nonnull @parseVariant, i32 noundef %106)
-  br label %107
+104:                                              ; preds = %38
+  %105 = load i32, ptr @ett_opcua_array_Variant, align 4
+  call void @parseArrayComplex(ptr noundef %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull @.str.206, ptr noundef nonnull @.str.206, ptr noundef nonnull @parseVariant, i32 noundef %105)
+  br label %106
 
-107:                                              ; preds = %105, %103, %101, %99, %97, %95, %92, %90, %88, %85, %82, %79, %76, %73, %70, %67, %64, %61, %58, %55, %52, %49, %46, %43, %40, %39
-  %108 = and i32 %37, 64
-  %.not194 = icmp eq i32 %108, 0
-  br i1 %.not194, label %217, label %109
+106:                                              ; preds = %104, %102, %100, %98, %96, %94, %91, %89, %87, %84, %81, %78, %75, %72, %69, %66, %63, %60, %57, %54, %51, %48, %45, %42, %39, %38
+  call void @decrement_dissection_depth(ptr noundef %2)
+  %107 = and i32 %36, 64
+  %.not200 = icmp eq i32 %107, 0
+  br i1 %.not200, label %231, label %108
 
-109:                                              ; preds = %107
-  %110 = load i32, ptr %8, align 4
-  %111 = load i32, ptr @ett_opcua_variant_arraydims, align 4
-  %112 = call ptr @proto_tree_add_subtree(ptr noundef %12, ptr noundef %1, i32 noundef %110, i32 noundef -1, i32 noundef %111, ptr noundef nonnull %9, ptr noundef nonnull @.str.207) #4
-  %113 = load i32, ptr %8, align 4
-  %114 = call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %113) #4
-  %115 = load i32, ptr @hf_opcua_ArraySize, align 4
-  %116 = load i32, ptr %8, align 4
-  %117 = call ptr @proto_tree_add_item(ptr noundef %112, i32 noundef %115, ptr noundef %1, i32 noundef %116, i32 noundef 4, i32 noundef -2147483648) #4
-  %118 = icmp sgt i32 %114, 10000
-  %119 = load i32, ptr %8, align 4
-  br i1 %118, label %120, label %122
+108:                                              ; preds = %106
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
+  %109 = load i32, ptr %7, align 4
+  %110 = load i32, ptr @ett_opcua_variant_arraydims, align 4
+  %111 = call ptr @proto_tree_add_subtree(ptr noundef %11, ptr noundef %1, i32 noundef %109, i32 noundef -1, i32 noundef %110, ptr noundef nonnull %8, ptr noundef nonnull @.str.207)
+  %112 = load i32, ptr %7, align 4
+  %113 = call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %112)
+  %114 = load i32, ptr @hf_opcua_ArraySize, align 4
+  %115 = load i32, ptr %7, align 4
+  %116 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %114, ptr noundef %1, i32 noundef %115, i32 noundef 4, i32 noundef -2147483648)
+  %117 = icmp slt i32 %113, 10001
+  %118 = load i32, ptr %7, align 4
+  br i1 %117, label %120, label %.thread
 
-120:                                              ; preds = %109
-  %121 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %112, ptr noundef nonnull %2, ptr noundef nonnull @ei_array_length, ptr noundef %1, i32 noundef %119, i32 noundef 4, ptr noundef nonnull @.str.208, i32 noundef %114) #4
-  br label %225
+.thread:                                          ; preds = %108
+  %119 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %111, ptr noundef %2, ptr noundef nonnull @ei_array_length, ptr noundef %1, i32 noundef %118, i32 noundef 4, ptr noundef nonnull @.str.208, i32 noundef %113)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4
+  br label %239
 
-122:                                              ; preds = %109
-  %123 = add i32 %119, 4
-  store i32 %123, ptr %8, align 4
-  %124 = icmp sgt i32 %114, 0
-  br i1 %124, label %.lr.ph, label %._crit_edge
+120:                                              ; preds = %108
+  %121 = add i32 %118, 4
+  store i32 %121, ptr %7, align 4
+  %122 = icmp sgt i32 %113, 0
+  br i1 %122, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %122, %.lr.ph
-  %125 = phi i32 [ %129, %.lr.ph ], [ %123, %122 ]
-  %.0195 = phi i32 [ %130, %.lr.ph ], [ 0, %122 ]
-  %126 = load i32, ptr @hf_opcua_Int32, align 4
-  %127 = call ptr @proto_tree_add_item(ptr noundef %112, i32 noundef %126, ptr noundef %1, i32 noundef %125, i32 noundef 4, i32 noundef -2147483648) #4
-  %128 = load i32, ptr %8, align 4
-  %129 = add i32 %128, 4
-  store i32 %129, ptr %8, align 4
-  %130 = add nuw nsw i32 %.0195, 1
-  %exitcond.not = icmp eq i32 %130, %114
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
+.lr.ph:                                           ; preds = %120, %.lr.ph
+  %123 = phi i32 [ %127, %.lr.ph ], [ %121, %120 ]
+  %.0201 = phi i32 [ %128, %.lr.ph ], [ 0, %120 ]
+  %124 = load i32, ptr @hf_opcua_Int32, align 4
+  %125 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %124, ptr noundef %1, i32 noundef %123, i32 noundef 4, i32 noundef -2147483648)
+  %126 = load i32, ptr %7, align 4
+  %127 = add i32 %126, 4
+  store i32 %127, ptr %7, align 4
+  %128 = add nuw nsw i32 %.0201, 1
+  %exitcond.not = icmp eq i32 %128, %113
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %.lr.ph, %122
-  %131 = phi i32 [ %123, %122 ], [ %129, %.lr.ph ]
-  %132 = load ptr, ptr %9, align 8
-  call void @proto_item_set_end(ptr noundef %132, ptr noundef %1, i32 noundef %131) #4
-  br label %217
+._crit_edge:                                      ; preds = %.lr.ph, %120
+  %129 = phi i32 [ %121, %120 ], [ %127, %.lr.ph ]
+  %130 = load ptr, ptr %8, align 8
+  call void @proto_item_set_end(ptr noundef %130, ptr noundef %1, i32 noundef %129)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4
+  br label %231
 
-133:                                              ; preds = %24
-  switch i32 %38, label %217 [
-    i32 24, label %216
-    i32 1, label %134
-    i32 2, label %139
+131:                                              ; preds = %23
+  switch i32 %37, label %230 [
+    i32 24, label %229
+    i32 1, label %132
+    i32 2, label %138
     i32 3, label %144
-    i32 4, label %149
-    i32 5, label %154
-    i32 6, label %159
-    i32 7, label %164
-    i32 8, label %169
-    i32 9, label %174
-    i32 10, label %179
-    i32 11, label %184
-    i32 12, label %189
-    i32 13, label %192
-    i32 14, label %195
-    i32 15, label %200
-    i32 16, label %203
-    i32 17, label %206
-    i32 18, label %207
-    i32 19, label %208
-    i32 25, label %211
-    i32 20, label %212
-    i32 21, label %213
-    i32 22, label %214
-    i32 23, label %215
+    i32 4, label %150
+    i32 5, label %156
+    i32 6, label %162
+    i32 7, label %168
+    i32 8, label %174
+    i32 9, label %180
+    i32 10, label %186
+    i32 11, label %192
+    i32 12, label %198
+    i32 13, label %201
+    i32 14, label %207
+    i32 15, label %213
+    i32 16, label %216
+    i32 17, label %219
+    i32 18, label %220
+    i32 19, label %221
+    i32 25, label %224
+    i32 20, label %225
+    i32 21, label %226
+    i32 22, label %227
+    i32 23, label %228
   ]
 
-134:                                              ; preds = %133
-  %135 = load i32, ptr @hf_opcua_Boolean, align 4
-  %136 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %135, ptr noundef %1, i32 noundef %36, i32 noundef 1, i32 noundef -2147483648) #4
-  %137 = load i32, ptr %8, align 4
-  %138 = add i32 %137, 1
-  store i32 %138, ptr %8, align 4
-  br label %217
+132:                                              ; preds = %131
+  %133 = load i32, ptr @hf_opcua_Boolean, align 4
+  %134 = load i32, ptr %7, align 4
+  %135 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %133, ptr noundef %1, i32 noundef %134, i32 noundef 1, i32 noundef -2147483648)
+  %136 = load i32, ptr %7, align 4
+  %137 = add i32 %136, 1
+  store i32 %137, ptr %7, align 4
+  br label %230
 
-139:                                              ; preds = %133
-  %140 = load i32, ptr @hf_opcua_SByte, align 4
-  %141 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %140, ptr noundef %1, i32 noundef %36, i32 noundef 1, i32 noundef -2147483648) #4
-  %142 = load i32, ptr %8, align 4
+138:                                              ; preds = %131
+  %139 = load i32, ptr @hf_opcua_SByte, align 4
+  %140 = load i32, ptr %7, align 4
+  %141 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %139, ptr noundef %1, i32 noundef %140, i32 noundef 1, i32 noundef -2147483648)
+  %142 = load i32, ptr %7, align 4
   %143 = add i32 %142, 1
-  store i32 %143, ptr %8, align 4
-  br label %217
+  store i32 %143, ptr %7, align 4
+  br label %230
 
-144:                                              ; preds = %133
+144:                                              ; preds = %131
   %145 = load i32, ptr @hf_opcua_Byte, align 4
-  %146 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %145, ptr noundef %1, i32 noundef %36, i32 noundef 1, i32 noundef -2147483648) #4
-  %147 = load i32, ptr %8, align 4
-  %148 = add i32 %147, 1
-  store i32 %148, ptr %8, align 4
-  br label %217
+  %146 = load i32, ptr %7, align 4
+  %147 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %145, ptr noundef %1, i32 noundef %146, i32 noundef 1, i32 noundef -2147483648)
+  %148 = load i32, ptr %7, align 4
+  %149 = add i32 %148, 1
+  store i32 %149, ptr %7, align 4
+  br label %230
 
-149:                                              ; preds = %133
-  %150 = load i32, ptr @hf_opcua_Int16, align 4
-  %151 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %150, ptr noundef %1, i32 noundef %36, i32 noundef 2, i32 noundef -2147483648) #4
-  %152 = load i32, ptr %8, align 4
-  %153 = add i32 %152, 2
-  store i32 %153, ptr %8, align 4
-  br label %217
+150:                                              ; preds = %131
+  %151 = load i32, ptr @hf_opcua_Int16, align 4
+  %152 = load i32, ptr %7, align 4
+  %153 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %151, ptr noundef %1, i32 noundef %152, i32 noundef 2, i32 noundef -2147483648)
+  %154 = load i32, ptr %7, align 4
+  %155 = add i32 %154, 2
+  store i32 %155, ptr %7, align 4
+  br label %230
 
-154:                                              ; preds = %133
-  %155 = load i32, ptr @hf_opcua_UInt16, align 4
-  %156 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %155, ptr noundef %1, i32 noundef %36, i32 noundef 2, i32 noundef -2147483648) #4
-  %157 = load i32, ptr %8, align 4
-  %158 = add i32 %157, 2
-  store i32 %158, ptr %8, align 4
-  br label %217
+156:                                              ; preds = %131
+  %157 = load i32, ptr @hf_opcua_UInt16, align 4
+  %158 = load i32, ptr %7, align 4
+  %159 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %157, ptr noundef %1, i32 noundef %158, i32 noundef 2, i32 noundef -2147483648)
+  %160 = load i32, ptr %7, align 4
+  %161 = add i32 %160, 2
+  store i32 %161, ptr %7, align 4
+  br label %230
 
-159:                                              ; preds = %133
-  %160 = load i32, ptr @hf_opcua_Int32, align 4
-  %161 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %160, ptr noundef %1, i32 noundef %36, i32 noundef 4, i32 noundef -2147483648) #4
-  %162 = load i32, ptr %8, align 4
-  %163 = add i32 %162, 4
-  store i32 %163, ptr %8, align 4
-  br label %217
+162:                                              ; preds = %131
+  %163 = load i32, ptr @hf_opcua_Int32, align 4
+  %164 = load i32, ptr %7, align 4
+  %165 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %163, ptr noundef %1, i32 noundef %164, i32 noundef 4, i32 noundef -2147483648)
+  %166 = load i32, ptr %7, align 4
+  %167 = add i32 %166, 4
+  store i32 %167, ptr %7, align 4
+  br label %230
 
-164:                                              ; preds = %133
-  %165 = load i32, ptr @hf_opcua_UInt32, align 4
-  %166 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %165, ptr noundef %1, i32 noundef %36, i32 noundef 4, i32 noundef -2147483648) #4
-  %167 = load i32, ptr %8, align 4
-  %168 = add i32 %167, 4
-  store i32 %168, ptr %8, align 4
-  br label %217
+168:                                              ; preds = %131
+  %169 = load i32, ptr @hf_opcua_UInt32, align 4
+  %170 = load i32, ptr %7, align 4
+  %171 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %169, ptr noundef %1, i32 noundef %170, i32 noundef 4, i32 noundef -2147483648)
+  %172 = load i32, ptr %7, align 4
+  %173 = add i32 %172, 4
+  store i32 %173, ptr %7, align 4
+  br label %230
 
-169:                                              ; preds = %133
-  %170 = load i32, ptr @hf_opcua_Int64, align 4
-  %171 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %170, ptr noundef %1, i32 noundef %36, i32 noundef 8, i32 noundef -2147483648) #4
-  %172 = load i32, ptr %8, align 4
-  %173 = add i32 %172, 8
-  store i32 %173, ptr %8, align 4
-  br label %217
+174:                                              ; preds = %131
+  %175 = load i32, ptr @hf_opcua_Int64, align 4
+  %176 = load i32, ptr %7, align 4
+  %177 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %175, ptr noundef %1, i32 noundef %176, i32 noundef 8, i32 noundef -2147483648)
+  %178 = load i32, ptr %7, align 4
+  %179 = add i32 %178, 8
+  store i32 %179, ptr %7, align 4
+  br label %230
 
-174:                                              ; preds = %133
-  %175 = load i32, ptr @hf_opcua_UInt64, align 4
-  %176 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %175, ptr noundef %1, i32 noundef %36, i32 noundef 8, i32 noundef -2147483648) #4
-  %177 = load i32, ptr %8, align 4
-  %178 = add i32 %177, 8
-  store i32 %178, ptr %8, align 4
-  br label %217
+180:                                              ; preds = %131
+  %181 = load i32, ptr @hf_opcua_UInt64, align 4
+  %182 = load i32, ptr %7, align 4
+  %183 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %181, ptr noundef %1, i32 noundef %182, i32 noundef 8, i32 noundef -2147483648)
+  %184 = load i32, ptr %7, align 4
+  %185 = add i32 %184, 8
+  store i32 %185, ptr %7, align 4
+  br label %230
 
-179:                                              ; preds = %133
-  %180 = load i32, ptr @hf_opcua_Float, align 4
-  %181 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %180, ptr noundef %1, i32 noundef %36, i32 noundef 4, i32 noundef -2147483648) #4
-  %182 = load i32, ptr %8, align 4
-  %183 = add i32 %182, 4
-  store i32 %183, ptr %8, align 4
-  br label %217
+186:                                              ; preds = %131
+  %187 = load i32, ptr @hf_opcua_Float, align 4
+  %188 = load i32, ptr %7, align 4
+  %189 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %187, ptr noundef %1, i32 noundef %188, i32 noundef 4, i32 noundef -2147483648)
+  %190 = load i32, ptr %7, align 4
+  %191 = add i32 %190, 4
+  store i32 %191, ptr %7, align 4
+  br label %230
 
-184:                                              ; preds = %133
-  %185 = load i32, ptr @hf_opcua_Double, align 4
-  %186 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %185, ptr noundef %1, i32 noundef %36, i32 noundef 8, i32 noundef -2147483648) #4
-  %187 = load i32, ptr %8, align 4
-  %188 = add i32 %187, 8
-  store i32 %188, ptr %8, align 4
-  br label %217
+192:                                              ; preds = %131
+  %193 = load i32, ptr @hf_opcua_Double, align 4
+  %194 = load i32, ptr %7, align 4
+  %195 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %193, ptr noundef %1, i32 noundef %194, i32 noundef 8, i32 noundef -2147483648)
+  %196 = load i32, ptr %7, align 4
+  %197 = add i32 %196, 8
+  store i32 %197, ptr %7, align 4
+  br label %230
 
-189:                                              ; preds = %133
-  %190 = load i32, ptr @hf_opcua_String, align 4
-  %191 = call ptr @parseString(ptr noundef %12, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %8, i32 noundef %190)
-  br label %217
+198:                                              ; preds = %131
+  %199 = load i32, ptr @hf_opcua_String, align 4
+  %200 = call ptr @parseString(ptr noundef %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, i32 noundef %199)
+  br label %230
 
-192:                                              ; preds = %133
-  %193 = load i32, ptr @hf_opcua_DateTime, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  store ptr null, ptr %6, align 8
-  %194 = call i32 @dissect_nt_64bit_time_ex(ptr noundef %1, ptr noundef %12, i32 noundef %36, i32 noundef %193, ptr noundef nonnull %6, i32 noundef 0) #4
-  store i32 %194, ptr %8, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br label %217
+201:                                              ; preds = %131
+  %202 = load i32, ptr @hf_opcua_DateTime, align 4
+  %203 = load i32, ptr %7, align 4
+  %204 = call ptr @dissect_nttime(ptr noundef %1, ptr noundef %11, i32 noundef %203, i32 noundef %202, i32 noundef -2147483648)
+  %205 = load i32, ptr %7, align 4
+  %206 = add i32 %205, 8
+  store i32 %206, ptr %7, align 4
+  br label %230
 
-195:                                              ; preds = %133
-  %196 = load i32, ptr @hf_opcua_Guid, align 4
-  %197 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %196, ptr noundef %1, i32 noundef %36, i32 noundef 16, i32 noundef -2147483648) #4
-  %198 = load i32, ptr %8, align 4
-  %199 = add i32 %198, 16
-  store i32 %199, ptr %8, align 4
-  br label %217
+207:                                              ; preds = %131
+  %208 = load i32, ptr @hf_opcua_Guid, align 4
+  %209 = load i32, ptr %7, align 4
+  %210 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %208, ptr noundef %1, i32 noundef %209, i32 noundef 16, i32 noundef -2147483648)
+  %211 = load i32, ptr %7, align 4
+  %212 = add i32 %211, 16
+  store i32 %212, ptr %7, align 4
+  br label %230
 
-200:                                              ; preds = %133
-  %201 = load i32, ptr @hf_opcua_ByteString, align 4
-  %202 = call ptr @parseByteString(ptr noundef %12, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %8, i32 noundef %201)
-  br label %217
+213:                                              ; preds = %131
+  %214 = load i32, ptr @hf_opcua_ByteString, align 4
+  %215 = call ptr @parseByteString(ptr noundef %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, i32 noundef %214)
+  br label %230
 
-203:                                              ; preds = %133
-  %204 = load i32, ptr @hf_opcua_XmlElement, align 4
-  %205 = call ptr @parseByteString(ptr noundef %12, ptr noundef %1, ptr noundef nonnull readonly %2, ptr noundef nonnull %8, i32 noundef %204)
-  br label %217
+216:                                              ; preds = %131
+  %217 = load i32, ptr @hf_opcua_XmlElement, align 4
+  %218 = call ptr @parseByteString(ptr noundef %11, ptr noundef %1, ptr noundef readonly %2, ptr noundef nonnull %7, i32 noundef %217)
+  br label %230
 
-206:                                              ; preds = %133
-  call void @parseNodeId(ptr noundef %12, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef nonnull @.str.181)
-  br label %217
+219:                                              ; preds = %131
+  call void @parseNodeId(ptr noundef %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull @.str.181)
+  br label %230
 
-207:                                              ; preds = %133
-  call void @parseExpandedNodeId(ptr noundef %12, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef nonnull @.str.181)
-  br label %217
+220:                                              ; preds = %131
+  call void @parseExpandedNodeId(ptr noundef %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull @.str.181)
+  br label %230
 
-208:                                              ; preds = %133
-  %209 = load i32, ptr @hf_opcua_StatusCode, align 4
-  %210 = call ptr @parseStatusCode(ptr noundef %12, ptr noundef %1, ptr nonnull poison, ptr noundef nonnull %8, i32 noundef %209)
-  br label %217
+221:                                              ; preds = %131
+  %222 = load i32, ptr @hf_opcua_StatusCode, align 4
+  %223 = call ptr @parseStatusCode(ptr noundef %11, ptr noundef %1, ptr poison, ptr noundef nonnull %7, i32 noundef %222)
+  br label %230
 
-211:                                              ; preds = %133
-  call void @parseDiagnosticInfo(ptr noundef %12, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef nonnull @.str.181)
-  br label %217
+224:                                              ; preds = %131
+  call void @parseDiagnosticInfo(ptr noundef %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull @.str.181)
+  br label %230
 
-212:                                              ; preds = %133
-  call void @parseQualifiedName(ptr noundef %12, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef nonnull @.str.181)
-  br label %217
+225:                                              ; preds = %131
+  call void @parseQualifiedName(ptr noundef %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull @.str.181)
+  br label %230
 
-213:                                              ; preds = %133
-  call void @parseLocalizedText(ptr noundef %12, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef nonnull @.str.181)
-  br label %217
+226:                                              ; preds = %131
+  call void @parseLocalizedText(ptr noundef %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull @.str.181)
+  br label %230
 
-214:                                              ; preds = %133
-  call void @parseExtensionObject(ptr noundef %12, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef nonnull @.str.181)
-  br label %217
+227:                                              ; preds = %131
+  call void @parseExtensionObject(ptr noundef %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull @.str.181)
+  br label %230
 
-215:                                              ; preds = %133
-  call void @parseDataValue(ptr noundef %12, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef nonnull @.str.181)
-  br label %217
+228:                                              ; preds = %131
+  call void @parseDataValue(ptr noundef %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull @.str.181)
+  br label %230
 
-216:                                              ; preds = %133
-  call void @parseVariant(ptr noundef %12, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef nonnull @.str.181)
-  br label %217
+229:                                              ; preds = %131
+  call void @parseVariant(ptr noundef %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull @.str.181)
+  br label %230
 
-217:                                              ; preds = %133, %134, %139, %144, %149, %154, %159, %164, %169, %174, %179, %184, %189, %192, %195, %200, %203, %206, %207, %208, %211, %212, %213, %214, %215, %216, %107, %._crit_edge
-  %218 = load ptr, ptr %7, align 8
-  %219 = load i32, ptr %8, align 4
-  call void @proto_item_set_end(ptr noundef %218, ptr noundef %1, i32 noundef %219) #4
-  %220 = load i32, ptr %8, align 4
-  store i32 %220, ptr %3, align 4
-  %221 = load ptr, ptr %14, align 8
-  %222 = load i32, ptr @proto_opcua, align 4
-  %223 = and i64 %18, 127
-  %224 = inttoptr i64 %223 to ptr
-  call void @p_add_proto_data(ptr noundef %221, ptr noundef nonnull %2, i32 noundef %222, i32 noundef 0, ptr noundef %224) #4
-  br label %225
+230:                                              ; preds = %229, %228, %227, %226, %225, %224, %221, %220, %219, %216, %213, %207, %201, %198, %192, %186, %180, %174, %168, %162, %156, %150, %144, %138, %132, %131
+  call void @decrement_dissection_depth(ptr noundef %2)
+  br label %231
 
-225:                                              ; preds = %217, %120, %21
+231:                                              ; preds = %._crit_edge, %106, %230
+  %232 = load ptr, ptr %6, align 8
+  %233 = load i32, ptr %7, align 4
+  call void @proto_item_set_end(ptr noundef %232, ptr noundef %1, i32 noundef %233)
+  %234 = load i32, ptr %7, align 4
+  store i32 %234, ptr %3, align 4
+  %235 = load ptr, ptr %13, align 8
+  %236 = load i32, ptr @proto_opcua, align 4
+  %237 = and i64 %17, 127
+  %238 = inttoptr i64 %237 to ptr
+  call void @p_add_proto_data(ptr noundef %235, ptr noundef %2, i32 noundef %236, i32 noundef 0, ptr noundef %238)
+  br label %239
+
+239:                                              ; preds = %.thread, %231, %20
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @parseArraySimple(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef readonly captures(none) %7, i32 noundef %8) local_unnamed_addr #0 {
   %10 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #4
   %11 = load i32, ptr %3, align 4
-  %12 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %1, i32 noundef %11, i32 noundef -1, i32 noundef %8, ptr noundef nonnull %10, ptr noundef nonnull @.str.209, ptr noundef %4, ptr noundef %5) #4
+  %12 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %1, i32 noundef %11, i32 noundef -1, i32 noundef %8, ptr noundef nonnull %10, ptr noundef nonnull @.str.209, ptr noundef %4, ptr noundef %5)
   %13 = load i32, ptr %3, align 4
-  %14 = call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %13) #4
+  %14 = call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %13)
   %15 = load i32, ptr @hf_opcua_ArraySize, align 4
   %16 = load i32, ptr %3, align 4
-  %17 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %15, ptr noundef %1, i32 noundef %16, i32 noundef 4, i32 noundef -2147483648) #4
+  %17 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %15, ptr noundef %1, i32 noundef %16, i32 noundef 4, i32 noundef -2147483648)
   %18 = icmp sgt i32 %14, 10000
   %19 = load i32, ptr %3, align 4
   br i1 %18, label %20, label %22
 
 20:                                               ; preds = %9
-  %21 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %12, ptr noundef %2, ptr noundef nonnull @ei_array_length, ptr noundef %1, i32 noundef %19, i32 noundef 4, ptr noundef nonnull @.str.210, i32 noundef %14) #4
+  %21 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %12, ptr noundef %2, ptr noundef nonnull @ei_array_length, ptr noundef %1, i32 noundef %19, i32 noundef 4, ptr noundef nonnull @.str.210, i32 noundef %14)
   br label %31
 
 22:                                               ; preds = %9
@@ -1722,18 +1792,18 @@ define hidden void @parseArraySimple(ptr noundef %0, ptr noundef %1, ptr noundef
 
 .lr.ph:                                           ; preds = %22, %27
   %.033 = phi i32 [ %28, %27 ], [ 0, %22 ]
-  %25 = call ptr %7(ptr noundef %12, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %6) #4
+  %25 = call ptr %7(ptr noundef %12, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %6)
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %27, label %26
 
 26:                                               ; preds = %.lr.ph
-  call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef nonnull %25, ptr noundef nonnull @.str.211, i32 noundef %.033) #4
+  call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef nonnull %25, ptr noundef nonnull @.str.211, i32 noundef %.033)
   br label %27
 
-27:                                               ; preds = %.lr.ph, %26
+27:                                               ; preds = %26, %.lr.ph
   %28 = add nuw nsw i32 %.033, 1
   %exitcond.not = icmp eq i32 %28, %14
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !6
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge.loopexit:                             ; preds = %27
   %.pre = load i32, ptr %3, align 4
@@ -1742,30 +1812,32 @@ define hidden void @parseArraySimple(ptr noundef %0, ptr noundef %1, ptr noundef
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %22
   %29 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %23, %22 ]
   %30 = load ptr, ptr %10, align 8
-  call void @proto_item_set_end(ptr noundef %30, ptr noundef %1, i32 noundef %29) #4
+  call void @proto_item_set_end(ptr noundef %30, ptr noundef %1, i32 noundef %29)
   br label %31
 
 31:                                               ; preds = %._crit_edge, %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @parseArrayComplex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly captures(none) %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = alloca [20 x i8], align 16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #4
   %11 = load i32, ptr %3, align 4
-  %12 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %1, i32 noundef %11, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %9, ptr noundef nonnull @.str.209, ptr noundef %4, ptr noundef %5) #4
+  %12 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %1, i32 noundef %11, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %9, ptr noundef nonnull @.str.209, ptr noundef %4, ptr noundef %5)
   %13 = load i32, ptr %3, align 4
-  %14 = call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %13) #4
+  %14 = call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %13)
   %15 = load i32, ptr @hf_opcua_ArraySize, align 4
   %16 = load i32, ptr %3, align 4
-  %17 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %15, ptr noundef %1, i32 noundef %16, i32 noundef 4, i32 noundef -2147483648) #4
+  %17 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %15, ptr noundef %1, i32 noundef %16, i32 noundef 4, i32 noundef -2147483648)
   %18 = icmp sgt i32 %14, 10000
   %19 = load i32, ptr %3, align 4
   br i1 %18, label %20, label %22
 
 20:                                               ; preds = %8
-  %21 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %12, ptr noundef %2, ptr noundef nonnull @ei_array_length, ptr noundef %1, i32 noundef %19, i32 noundef 4, ptr noundef nonnull @.str.210, i32 noundef %14) #4
+  %21 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %12, ptr noundef %2, ptr noundef nonnull @ei_array_length, ptr noundef %1, i32 noundef %19, i32 noundef 4, ptr noundef nonnull @.str.210, i32 noundef %14)
   br label %29
 
 22:                                               ; preds = %8
@@ -1776,11 +1848,13 @@ define hidden void @parseArrayComplex(ptr noundef %0, ptr noundef %1, ptr nounde
 
 .lr.ph:                                           ; preds = %22, %.lr.ph
   %.029 = phi i32 [ %26, %.lr.ph ], [ 0, %22 ]
-  %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 20, ptr noundef nonnull @.str.212, i32 noundef %.029) #4
-  call void %6(ptr noundef %12, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %10) #4
+  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %10) #4
+  %25 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %10, i64 noundef 20, i32 noundef 2, i64 noundef 20, ptr noundef nonnull @.str.212, i32 noundef %.029)
+  call void %6(ptr noundef %12, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %10)
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %10) #4
   %26 = add nuw nsw i32 %.029, 1
   %exitcond.not = icmp eq i32 %26, %14
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i32, ptr %3, align 4
@@ -1789,24 +1863,27 @@ define hidden void @parseArrayComplex(ptr noundef %0, ptr noundef %1, ptr nounde
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %22
   %27 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %23, %22 ]
   %28 = load ptr, ptr %9, align 8
-  call void @proto_item_set_end(ptr noundef %28, ptr noundef %1, i32 noundef %27) #4
+  call void @proto_item_set_end(ptr noundef %28, ptr noundef %1, i32 noundef %27)
   br label %29
 
 29:                                               ; preds = %._crit_edge, %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @parseNodeId(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
   %8 = load i32, ptr %3, align 4
   %9 = load i32, ptr @ett_opcua_nodeid, align 4
-  %10 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %1, i32 noundef %8, i32 noundef -1, i32 noundef %9, ptr noundef nonnull %6, ptr noundef nonnull @.str.213, ptr noundef %4) #4
+  %10 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %1, i32 noundef %8, i32 noundef -1, i32 noundef %9, ptr noundef nonnull %6, ptr noundef nonnull @.str.213, ptr noundef %4)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
   %11 = load i32, ptr %3, align 4
-  %12 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %11) #4
+  %12 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %11)
   %13 = load i32, ptr @hf_opcua_nodeid_encodingmask, align 4
-  %14 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %13, ptr noundef %1, i32 noundef %11, i32 noundef 1, i32 noundef -2147483648) #4
+  %14 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %13, ptr noundef %1, i32 noundef %11, i32 noundef 1, i32 noundef -2147483648)
   %15 = add i32 %11, 1
   store i32 %15, ptr %7, align 4
   switch i8 %12, label %53 [
@@ -1820,34 +1897,34 @@ define hidden void @parseNodeId(ptr noundef %0, ptr noundef %1, ptr noundef read
 
 16:                                               ; preds = %5
   %17 = load i32, ptr @hf_opcua_nodeid_numeric, align 4
-  %18 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %17, ptr noundef %1, i32 noundef %15, i32 noundef 1, i32 noundef -2147483648) #4
+  %18 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %17, ptr noundef %1, i32 noundef %15, i32 noundef 1, i32 noundef -2147483648)
   %19 = add i32 %11, 2
   store i32 %19, ptr %7, align 4
   br label %53
 
 20:                                               ; preds = %5
   %21 = load i32, ptr @hf_opcua_nodeid_nsindex, align 4
-  %22 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %21, ptr noundef %1, i32 noundef %15, i32 noundef 1, i32 noundef -2147483648) #4
+  %22 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %21, ptr noundef %1, i32 noundef %15, i32 noundef 1, i32 noundef -2147483648)
   %23 = add i32 %11, 2
   %24 = load i32, ptr @hf_opcua_nodeid_numeric, align 4
-  %25 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %24, ptr noundef %1, i32 noundef %23, i32 noundef 2, i32 noundef -2147483648) #4
+  %25 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %24, ptr noundef %1, i32 noundef %23, i32 noundef 2, i32 noundef -2147483648)
   %26 = add i32 %11, 4
   store i32 %26, ptr %7, align 4
   br label %53
 
 27:                                               ; preds = %5
   %28 = load i32, ptr @hf_opcua_nodeid_nsindex, align 4
-  %29 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %28, ptr noundef %1, i32 noundef %15, i32 noundef 2, i32 noundef -2147483648) #4
+  %29 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %28, ptr noundef %1, i32 noundef %15, i32 noundef 2, i32 noundef -2147483648)
   %30 = add i32 %11, 3
   %31 = load i32, ptr @hf_opcua_nodeid_numeric, align 4
-  %32 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %31, ptr noundef %1, i32 noundef %30, i32 noundef 4, i32 noundef -2147483648) #4
+  %32 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %31, ptr noundef %1, i32 noundef %30, i32 noundef 4, i32 noundef -2147483648)
   %33 = add i32 %11, 7
   store i32 %33, ptr %7, align 4
   br label %53
 
 34:                                               ; preds = %5
   %35 = load i32, ptr @hf_opcua_nodeid_nsindex, align 4
-  %36 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %35, ptr noundef %1, i32 noundef %15, i32 noundef 2, i32 noundef -2147483648) #4
+  %36 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %35, ptr noundef %1, i32 noundef %15, i32 noundef 2, i32 noundef -2147483648)
   %37 = add i32 %11, 3
   store i32 %37, ptr %7, align 4
   %38 = load i32, ptr @hf_opcua_nodeid_string, align 4
@@ -1856,17 +1933,17 @@ define hidden void @parseNodeId(ptr noundef %0, ptr noundef %1, ptr noundef read
 
 40:                                               ; preds = %5
   %41 = load i32, ptr @hf_opcua_nodeid_nsindex, align 4
-  %42 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %41, ptr noundef %1, i32 noundef %15, i32 noundef 2, i32 noundef -2147483648) #4
+  %42 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %41, ptr noundef %1, i32 noundef %15, i32 noundef 2, i32 noundef -2147483648)
   %43 = add i32 %11, 3
   %44 = load i32, ptr @hf_opcua_nodeid_guid, align 4
-  %45 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %44, ptr noundef %1, i32 noundef %43, i32 noundef 16, i32 noundef -2147483648) #4
+  %45 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %44, ptr noundef %1, i32 noundef %43, i32 noundef 16, i32 noundef -2147483648)
   %46 = add i32 %11, 19
   store i32 %46, ptr %7, align 4
   br label %53
 
 47:                                               ; preds = %5
   %48 = load i32, ptr @hf_opcua_nodeid_nsindex, align 4
-  %49 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %48, ptr noundef %1, i32 noundef %15, i32 noundef 2, i32 noundef -2147483648) #4
+  %49 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %48, ptr noundef %1, i32 noundef %15, i32 noundef 2, i32 noundef -2147483648)
   %50 = add i32 %11, 3
   store i32 %50, ptr %7, align 4
   %51 = load i32, ptr @hf_opcua_nodeid_bytestring, align 4
@@ -1876,23 +1953,27 @@ define hidden void @parseNodeId(ptr noundef %0, ptr noundef %1, ptr noundef read
 53:                                               ; preds = %47, %40, %34, %27, %20, %16, %5
   %54 = load ptr, ptr %6, align 8
   %55 = load i32, ptr %7, align 4
-  call void @proto_item_set_end(ptr noundef %54, ptr noundef %1, i32 noundef %55) #4
+  call void @proto_item_set_end(ptr noundef %54, ptr noundef %1, i32 noundef %55)
   store i32 %55, ptr %3, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @parseExpandedNodeId(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
   %8 = load i32, ptr %3, align 4
   %9 = load i32, ptr @ett_opcua_expandednodeid, align 4
-  %10 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %1, i32 noundef %8, i32 noundef -1, i32 noundef %9, ptr noundef nonnull %6, ptr noundef nonnull @.str.216, ptr noundef %4) #4
+  %10 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %1, i32 noundef %8, i32 noundef -1, i32 noundef %9, ptr noundef nonnull %6, ptr noundef nonnull @.str.216, ptr noundef %4)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
   %11 = load i32, ptr %3, align 4
-  %12 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %11) #4
+  %12 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %11)
   %13 = load i32, ptr @hf_opcua_expandednodeid_mask, align 4
   %14 = load i32, ptr @ett_opcua_expandednodeid_encodingmask, align 4
-  %15 = call ptr @proto_tree_add_bitmask(ptr noundef %10, ptr noundef %1, i32 noundef %11, i32 noundef %13, i32 noundef %14, ptr noundef nonnull @parseExpandedNodeId.expandednodeid_mask, i32 noundef -2147483648) #4
+  %15 = call ptr @proto_tree_add_bitmask(ptr noundef %10, ptr noundef %1, i32 noundef %11, i32 noundef %13, i32 noundef %14, ptr noundef nonnull @parseExpandedNodeId.expandednodeid_mask, i32 noundef -2147483648)
   %16 = add i32 %11, 1
   store i32 %16, ptr %7, align 4
   %17 = zext i8 %12 to i32
@@ -1908,34 +1989,34 @@ define hidden void @parseExpandedNodeId(ptr noundef %0, ptr noundef %1, ptr noun
 
 19:                                               ; preds = %5
   %20 = load i32, ptr @hf_opcua_nodeid_numeric, align 4
-  %21 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %20, ptr noundef %1, i32 noundef %16, i32 noundef 1, i32 noundef -2147483648) #4
+  %21 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %20, ptr noundef %1, i32 noundef %16, i32 noundef 1, i32 noundef -2147483648)
   %22 = add i32 %11, 2
   store i32 %22, ptr %7, align 4
   br label %56
 
 23:                                               ; preds = %5
   %24 = load i32, ptr @hf_opcua_nodeid_nsindex, align 4
-  %25 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %24, ptr noundef %1, i32 noundef %16, i32 noundef 1, i32 noundef -2147483648) #4
+  %25 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %24, ptr noundef %1, i32 noundef %16, i32 noundef 1, i32 noundef -2147483648)
   %26 = add i32 %11, 2
   %27 = load i32, ptr @hf_opcua_nodeid_numeric, align 4
-  %28 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %27, ptr noundef %1, i32 noundef %26, i32 noundef 2, i32 noundef -2147483648) #4
+  %28 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %27, ptr noundef %1, i32 noundef %26, i32 noundef 2, i32 noundef -2147483648)
   %29 = add i32 %11, 4
   store i32 %29, ptr %7, align 4
   br label %56
 
 30:                                               ; preds = %5
   %31 = load i32, ptr @hf_opcua_nodeid_nsindex, align 4
-  %32 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %31, ptr noundef %1, i32 noundef %16, i32 noundef 2, i32 noundef -2147483648) #4
+  %32 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %31, ptr noundef %1, i32 noundef %16, i32 noundef 2, i32 noundef -2147483648)
   %33 = add i32 %11, 3
   %34 = load i32, ptr @hf_opcua_nodeid_numeric, align 4
-  %35 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %34, ptr noundef %1, i32 noundef %33, i32 noundef 4, i32 noundef -2147483648) #4
+  %35 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %34, ptr noundef %1, i32 noundef %33, i32 noundef 4, i32 noundef -2147483648)
   %36 = add i32 %11, 7
   store i32 %36, ptr %7, align 4
   br label %56
 
 37:                                               ; preds = %5
   %38 = load i32, ptr @hf_opcua_nodeid_nsindex, align 4
-  %39 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %38, ptr noundef %1, i32 noundef %16, i32 noundef 2, i32 noundef -2147483648) #4
+  %39 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %38, ptr noundef %1, i32 noundef %16, i32 noundef 2, i32 noundef -2147483648)
   %40 = add i32 %11, 3
   store i32 %40, ptr %7, align 4
   %41 = load i32, ptr @hf_opcua_nodeid_string, align 4
@@ -1944,17 +2025,17 @@ define hidden void @parseExpandedNodeId(ptr noundef %0, ptr noundef %1, ptr noun
 
 43:                                               ; preds = %5
   %44 = load i32, ptr @hf_opcua_nodeid_nsindex, align 4
-  %45 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %44, ptr noundef %1, i32 noundef %16, i32 noundef 2, i32 noundef -2147483648) #4
+  %45 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %44, ptr noundef %1, i32 noundef %16, i32 noundef 2, i32 noundef -2147483648)
   %46 = add i32 %11, 3
   %47 = load i32, ptr @hf_opcua_nodeid_guid, align 4
-  %48 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %47, ptr noundef %1, i32 noundef %46, i32 noundef 16, i32 noundef -2147483648) #4
+  %48 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %47, ptr noundef %1, i32 noundef %46, i32 noundef 16, i32 noundef -2147483648)
   %49 = add i32 %11, 19
   store i32 %49, ptr %7, align 4
   br label %56
 
 50:                                               ; preds = %5
   %51 = load i32, ptr @hf_opcua_nodeid_nsindex, align 4
-  %52 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %51, ptr noundef %1, i32 noundef %16, i32 noundef 2, i32 noundef -2147483648) #4
+  %52 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %51, ptr noundef %1, i32 noundef %16, i32 noundef 2, i32 noundef -2147483648)
   %53 = add i32 %11, 3
   store i32 %53, ptr %7, align 4
   %54 = load i32, ptr @hf_opcua_nodeid_bytestring, align 4
@@ -1978,30 +2059,34 @@ define hidden void @parseExpandedNodeId(ptr noundef %0, ptr noundef %1, ptr noun
 
 62:                                               ; preds = %60
   %63 = load i32, ptr @hf_opcua_ServerIndex, align 4
-  %64 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %63, ptr noundef %1, i32 noundef %.pre, i32 noundef 4, i32 noundef -2147483648) #4
+  %64 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %63, ptr noundef %1, i32 noundef %.pre, i32 noundef 4, i32 noundef -2147483648)
   %65 = add i32 %.pre, 4
   br label %66
 
 66:                                               ; preds = %62, %60
   %67 = phi i32 [ %65, %62 ], [ %.pre, %60 ]
   %68 = load ptr, ptr %6, align 8
-  call void @proto_item_set_end(ptr noundef %68, ptr noundef %1, i32 noundef %67) #4
+  call void @proto_item_set_end(ptr noundef %68, ptr noundef %1, i32 noundef %67)
   store i32 %67, ptr %3, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @parseExtensionObject(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3, ptr noundef %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #4
   %8 = load i32, ptr %3, align 4
   store i32 %8, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
   %9 = load i32, ptr @ett_opcua_extensionobject, align 4
-  %10 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %1, i32 noundef %8, i32 noundef -1, i32 noundef %9, ptr noundef nonnull %7, ptr noundef nonnull @.str.214, ptr noundef %4) #4
+  %10 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %1, i32 noundef %8, i32 noundef -1, i32 noundef %9, ptr noundef nonnull %7, ptr noundef nonnull @.str.214, ptr noundef %4)
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @proto_opcua, align 4
-  %14 = call ptr @p_get_proto_data(ptr noundef %12, ptr noundef %2, i32 noundef %13, i32 noundef 0) #4
+  %14 = call ptr @p_get_proto_data(ptr noundef %12, ptr noundef %2, i32 noundef %13, i32 noundef 0)
   %15 = ptrtoint ptr %14 to i64
   %16 = trunc i64 %15 to i32
   %17 = icmp ugt i32 %16, 99
@@ -2009,7 +2094,7 @@ define hidden void @parseExtensionObject(ptr noundef %0, ptr noundef %1, ptr nou
 
 18:                                               ; preds = %5
   %19 = load ptr, ptr %7, align 8
-  %20 = call ptr @expert_add_info(ptr noundef nonnull %2, ptr noundef %19, ptr noundef nonnull @ei_nesting_depth) #4
+  %20 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %19, ptr noundef nonnull @ei_nesting_depth)
   br label %55
 
 21:                                               ; preds = %5
@@ -2018,8 +2103,8 @@ define hidden void @parseExtensionObject(ptr noundef %0, ptr noundef %1, ptr nou
   %24 = load i32, ptr @proto_opcua, align 4
   %25 = and i64 %22, 255
   %26 = inttoptr i64 %25 to ptr
-  call void @p_add_proto_data(ptr noundef %23, ptr noundef nonnull %2, i32 noundef %24, i32 noundef 0, ptr noundef %26) #4
-  %27 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %8) #4
+  call void @p_add_proto_data(ptr noundef %23, ptr noundef %2, i32 noundef %24, i32 noundef 0, ptr noundef %26)
+  %27 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %8)
   switch i8 %27, label %getExtensionObjectType.exit [
     i8 0, label %28
     i8 1, label %32
@@ -2028,29 +2113,29 @@ define hidden void @parseExtensionObject(ptr noundef %0, ptr noundef %1, ptr nou
 
 28:                                               ; preds = %21
   %29 = add i32 %8, 1
-  %30 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %29) #4
+  %30 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %29)
   %31 = zext i8 %30 to i32
   br label %getExtensionObjectType.exit
 
 32:                                               ; preds = %21
   %33 = add i32 %8, 2
-  %34 = call zeroext i16 @tvb_get_letohs(ptr noundef %1, i32 noundef %33) #4
+  %34 = call zeroext i16 @tvb_get_letohs(ptr noundef %1, i32 noundef %33)
   %35 = zext i16 %34 to i32
   br label %getExtensionObjectType.exit
 
 36:                                               ; preds = %21
   %37 = add i32 %8, 3
-  %38 = call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %37) #4
+  %38 = call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %37)
   br label %getExtensionObjectType.exit
 
 getExtensionObjectType.exit:                      ; preds = %21, %28, %32, %36
   %.0.i = phi i32 [ 0, %21 ], [ %38, %36 ], [ %35, %32 ], [ %31, %28 ]
-  call void @parseNodeId(ptr noundef %10, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %6, ptr noundef nonnull @.str.215)
+  call void @parseNodeId(ptr noundef %10, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull @.str.215)
   %39 = load i32, ptr %6, align 4
-  %40 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %39) #4
+  %40 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %39)
   %41 = load i32, ptr @hf_opcua_extobj_mask, align 4
   %42 = load i32, ptr @ett_opcua_extensionobject_encodingmask, align 4
-  %43 = call ptr @proto_tree_add_bitmask(ptr noundef %10, ptr noundef %1, i32 noundef %39, i32 noundef %41, i32 noundef %42, ptr noundef nonnull @parseExtensionObject.extobj_mask, i32 noundef -2147483648) #4
+  %43 = call ptr @proto_tree_add_bitmask(ptr noundef %10, ptr noundef %1, i32 noundef %39, i32 noundef %41, i32 noundef %42, ptr noundef nonnull @parseExtensionObject.extobj_mask, i32 noundef -2147483648)
   %44 = add i32 %39, 1
   store i32 %44, ptr %6, align 4
   %45 = and i8 %40, 1
@@ -2058,49 +2143,55 @@ getExtensionObjectType.exit:                      ; preds = %21, %28, %32, %36
   br i1 %.not, label %47, label %46
 
 46:                                               ; preds = %getExtensionObjectType.exit
-  call void @dispatchExtensionObjectType(ptr noundef %10, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %6, i32 noundef %.0.i) #4
+  call void @dispatchExtensionObjectType(ptr noundef %10, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6, i32 noundef %.0.i)
   %.pre = load i32, ptr %6, align 4
   br label %47
 
 47:                                               ; preds = %46, %getExtensionObjectType.exit
   %48 = phi i32 [ %.pre, %46 ], [ %44, %getExtensionObjectType.exit ]
   %49 = load ptr, ptr %7, align 8
-  call void @proto_item_set_end(ptr noundef %49, ptr noundef %1, i32 noundef %48) #4
+  call void @proto_item_set_end(ptr noundef %49, ptr noundef %1, i32 noundef %48)
   %50 = load i32, ptr %6, align 4
   store i32 %50, ptr %3, align 4
   %51 = load ptr, ptr %11, align 8
   %52 = load i32, ptr @proto_opcua, align 4
   %53 = and i64 %15, 127
   %54 = inttoptr i64 %53 to ptr
-  call void @p_add_proto_data(ptr noundef %51, ptr noundef nonnull %2, i32 noundef %52, i32 noundef 0, ptr noundef %54) #4
+  call void @p_add_proto_data(ptr noundef %51, ptr noundef %2, i32 noundef %52, i32 noundef 0, ptr noundef %54)
   br label %55
 
 55:                                               ; preds = %47, %18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #4
   ret void
 }
 
-declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare void @proto_item_prepend_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_prepend_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @parseArrayEnum(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly captures(none) %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #4
   %10 = load i32, ptr %3, align 4
-  %11 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %1, i32 noundef %10, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %9, ptr noundef nonnull @.str.209, ptr noundef %4, ptr noundef %5) #4
+  %11 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %1, i32 noundef %10, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %9, ptr noundef nonnull @.str.209, ptr noundef %4, ptr noundef %5)
   %12 = load i32, ptr %3, align 4
-  %13 = call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %12) #4
+  %13 = call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %12)
   %14 = load i32, ptr @hf_opcua_ArraySize, align 4
   %15 = load i32, ptr %3, align 4
-  %16 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %14, ptr noundef %1, i32 noundef %15, i32 noundef 4, i32 noundef -2147483648) #4
+  %16 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %14, ptr noundef %1, i32 noundef %15, i32 noundef 4, i32 noundef -2147483648)
   %17 = icmp sgt i32 %13, 10000
   %18 = load i32, ptr %3, align 4
   br i1 %17, label %19, label %21
 
 19:                                               ; preds = %8
-  %20 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %11, ptr noundef %2, ptr noundef nonnull @ei_array_length, ptr noundef %1, i32 noundef %18, i32 noundef 4, ptr noundef nonnull @.str.210, i32 noundef %13) #4
+  %20 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %11, ptr noundef %2, ptr noundef nonnull @ei_array_length, ptr noundef %1, i32 noundef %18, i32 noundef 4, ptr noundef nonnull @.str.210, i32 noundef %13)
   br label %27
 
 21:                                               ; preds = %8
@@ -2111,10 +2202,10 @@ define hidden void @parseArrayEnum(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 .lr.ph:                                           ; preds = %21, %.lr.ph
   %.028 = phi i32 [ %24, %.lr.ph ], [ 0, %21 ]
-  call void %6(ptr noundef %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) #4
+  call void %6(ptr noundef %11, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %24 = add nuw nsw i32 %.028, 1
   %exitcond.not = icmp eq i32 %24, %13
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i32, ptr %3, align 4
@@ -2123,20 +2214,21 @@ define hidden void @parseArrayEnum(ptr noundef %0, ptr noundef %1, ptr noundef %
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %21
   %25 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %22, %21 ]
   %26 = load ptr, ptr %9, align 8
-  call void @proto_item_set_end(ptr noundef %26, ptr noundef %1, i32 noundef %25) #4
+  call void @proto_item_set_end(ptr noundef %26, ptr noundef %1, i32 noundef %25)
   br label %27
 
 27:                                               ; preds = %._crit_edge, %19
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #4
   ret void
 }
 
-; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #2
+; Function Attrs: nofree null_pointer_is_valid
+declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @getExtensionObjectType(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %1, align 4
-  %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #4
+  %4 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %3)
   switch i8 %4, label %16 [
     i8 0, label %5
     i8 1, label %9
@@ -2145,19 +2237,19 @@ define hidden i32 @getExtensionObjectType(ptr noundef %0, ptr noundef readonly c
 
 5:                                                ; preds = %2
   %6 = add i32 %3, 1
-  %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %6) #4
+  %7 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %6)
   %8 = zext i8 %7 to i32
   br label %16
 
 9:                                                ; preds = %2
   %10 = add i32 %3, 2
-  %11 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %10) #4
+  %11 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %10)
   %12 = zext i16 %11 to i32
   br label %16
 
 13:                                               ; preds = %2
   %14 = add i32 %3, 3
-  %15 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %14) #4
+  %15 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %14)
   br label %16
 
 16:                                               ; preds = %13, %9, %5, %2
@@ -2165,28 +2257,30 @@ define hidden i32 @getExtensionObjectType(ptr noundef %0, ptr noundef readonly c
   ret i32 %.0
 }
 
-declare void @dispatchExtensionObjectType(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @dispatchExtensionObjectType(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @parseNodeClassMask(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = load i32, ptr %3, align 4
-  %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %5) #4
+  %6 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %5)
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %4
   %9 = load i32, ptr @hf_opcua_nodeClassMask_all, align 4
   %10 = load i32, ptr %3, align 4
-  %11 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %9, ptr noundef %1, i32 noundef %10, i32 noundef 4, i32 noundef -2147483648) #4
+  %11 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %9, ptr noundef %1, i32 noundef %10, i32 noundef 4, i32 noundef -2147483648)
   br label %17
 
 12:                                               ; preds = %4
   %13 = load i32, ptr %3, align 4
   %14 = load i32, ptr @hf_opcua_nodeClassMask, align 4
   %15 = load i32, ptr @ett_opcua_nodeClassMask, align 4
-  %16 = tail call ptr @proto_tree_add_bitmask(ptr noundef %0, ptr noundef %1, i32 noundef %13, i32 noundef %14, i32 noundef %15, ptr noundef nonnull @parseNodeClassMask.nodeclass_mask, i32 noundef -2147483648) #4
+  %16 = tail call ptr @proto_tree_add_bitmask(ptr noundef %0, ptr noundef %1, i32 noundef %13, i32 noundef %14, i32 noundef %15, ptr noundef nonnull @parseNodeClassMask.nodeclass_mask, i32 noundef -2147483648)
   br label %17
 
 17:                                               ; preds = %12, %8
@@ -2196,24 +2290,24 @@ define hidden void @parseNodeClassMask(ptr noundef %0, ptr noundef %1, ptr nound
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @parseResultMask(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = load i32, ptr %3, align 4
-  %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %5) #4
+  %6 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %5)
   %7 = icmp eq i8 %6, 63
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %4
   %9 = load i32, ptr @hf_opcua_resultMask_all, align 4
   %10 = load i32, ptr %3, align 4
-  %11 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %9, ptr noundef %1, i32 noundef %10, i32 noundef 4, i32 noundef -2147483648) #4
+  %11 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %9, ptr noundef %1, i32 noundef %10, i32 noundef 4, i32 noundef -2147483648)
   br label %17
 
 12:                                               ; preds = %4
   %13 = load i32, ptr %3, align 4
   %14 = load i32, ptr @hf_opcua_resultMask, align 4
   %15 = load i32, ptr @ett_opcua_resultMask, align 4
-  %16 = tail call ptr @proto_tree_add_bitmask(ptr noundef %0, ptr noundef %1, i32 noundef %13, i32 noundef %14, i32 noundef %15, ptr noundef nonnull @parseResultMask.browseresult_mask, i32 noundef -2147483648) #4
+  %16 = tail call ptr @proto_tree_add_bitmask(ptr noundef %0, ptr noundef %1, i32 noundef %13, i32 noundef %14, i32 noundef %15, ptr noundef nonnull @parseResultMask.browseresult_mask, i32 noundef -2147483648)
   br label %17
 
 17:                                               ; preds = %12, %8
@@ -2223,26 +2317,22 @@ define hidden void @parseResultMask(ptr noundef %0, ptr noundef %1, ptr noundef 
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

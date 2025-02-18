@@ -6,10 +6,9 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
 %struct._value_string = type { i32, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
-%struct._dcerpc_info = type { ptr, i32, i64, i8, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr }
+%struct._dcerpc_info = type { ptr, i32, i64, i8, i8, i8, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, %struct.anon.0 }
+%struct.anon.0 = type { i8, ptr, ptr, ptr, i8 }
 %struct._dcerpc_call_value = type { %struct._e_guid_t, i16, %struct._e_guid_t, i16, i32, %struct.nstime_t, i32, i32, ptr, ptr, ptr, i32 }
 %struct._e_guid_t = type { i32, i16, i16, [8 x i8] }
 %struct.nstime_t = type { i64, i32 }
@@ -27,14 +26,11 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_tnef_attribute_lvl = internal global i32 0, align 4
 @.str.6 = private unnamed_addr constant [5 x i8] c"Type\00", align 1
 @.str.7 = private unnamed_addr constant [19 x i8] c"tnef.attribute.lvl\00", align 1
-@tnef_Lvl_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.120 }, %struct._value_string { i32 2, ptr @.str.121 }, %struct._value_string zeroinitializer], align 16
 @hf_tnef_attribute_tag = internal global i32 0, align 4
 @.str.8 = private unnamed_addr constant [4 x i8] c"Tag\00", align 1
 @.str.9 = private unnamed_addr constant [19 x i8] c"tnef.attribute.tag\00", align 1
-@tnef_Attribute_vals = internal constant [34 x %struct._value_string] [%struct._value_string { i32 393216, ptr @.str.122 }, %struct._value_string { i32 393217, ptr @.str.123 }, %struct._value_string { i32 393218, ptr @.str.124 }, %struct._value_string { i32 393216, ptr @.str.122 }, %struct._value_string { i32 196614, ptr @.str.125 }, %struct._value_string { i32 196615, ptr @.str.126 }, %struct._value_string { i32 262152, ptr @.str.127 }, %struct._value_string { i32 262153, ptr @.str.128 }, %struct._value_string { i32 32768, ptr @.str.129 }, %struct._value_string { i32 98308, ptr @.str.130 }, %struct._value_string { i32 229381, ptr @.str.131 }, %struct._value_string { i32 229382, ptr @.str.132 }, %struct._value_string { i32 425991, ptr @.str.133 }, %struct._value_string { i32 491528, ptr @.str.134 }, %struct._value_string { i32 98313, ptr @.str.135 }, %struct._value_string { i32 98314, ptr @.str.136 }, %struct._value_string { i32 98315, ptr @.str.137 }, %struct._value_string { i32 163852, ptr @.str.138 }, %struct._value_string { i32 294925, ptr @.str.139 }, %struct._value_string { i32 425999, ptr @.str.140 }, %struct._value_string { i32 98320, ptr @.str.141 }, %struct._value_string { i32 426001, ptr @.str.142 }, %struct._value_string { i32 229394, ptr @.str.143 }, %struct._value_string { i32 229395, ptr @.str.144 }, %struct._value_string { i32 229408, ptr @.str.145 }, %struct._value_string { i32 430081, ptr @.str.146 }, %struct._value_string { i32 430082, ptr @.str.147 }, %struct._value_string { i32 430083, ptr @.str.148 }, %struct._value_string { i32 430084, ptr @.str.149 }, %struct._value_string { i32 430085, ptr @.str.150 }, %struct._value_string { i32 561158, ptr @.str.151 }, %struct._value_string { i32 430087, ptr @.str.152 }, %struct._value_string { i32 495624, ptr @.str.153 }, %struct._value_string zeroinitializer], align 16
 @hf_tnef_attribute_tag_type = internal global i32 0, align 4
 @.str.10 = private unnamed_addr constant [24 x i8] c"tnef.attribute.tag.type\00", align 1
-@tnef_Types_vals = internal constant [11 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.154 }, %struct._value_string { i32 1, ptr @.str.16 }, %struct._value_string { i32 2, ptr @.str.155 }, %struct._value_string { i32 3, ptr @.str.18 }, %struct._value_string { i32 4, ptr @.str.156 }, %struct._value_string { i32 5, ptr @.str.157 }, %struct._value_string { i32 6, ptr @.str.158 }, %struct._value_string { i32 7, ptr @.str.159 }, %struct._value_string { i32 8, ptr @.str.160 }, %struct._value_string { i32 9, ptr @.str.161 }, %struct._value_string zeroinitializer], align 16
 @hf_tnef_attribute_tag_id = internal global i32 0, align 4
 @.str.11 = private unnamed_addr constant [22 x i8] c"tnef.attribute.tag.id\00", align 1
 @hf_tnef_attribute_length = internal global i32 0, align 4
@@ -76,7 +72,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_tnef_attribute_date_day_of_week = internal global i32 0, align 4
 @.str.36 = private unnamed_addr constant [12 x i8] c"Day Of Week\00", align 1
 @.str.37 = private unnamed_addr constant [32 x i8] c"tnef.attribute.date.day_of_week\00", align 1
-@weekday_vals = internal constant [8 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.162 }, %struct._value_string { i32 1, ptr @.str.163 }, %struct._value_string { i32 2, ptr @.str.164 }, %struct._value_string { i32 3, ptr @.str.165 }, %struct._value_string { i32 4, ptr @.str.166 }, %struct._value_string { i32 5, ptr @.str.167 }, %struct._value_string { i32 6, ptr @.str.168 }, %struct._value_string zeroinitializer], align 16
 @hf_tnef_attribute_checksum = internal global i32 0, align 4
 @.str.38 = private unnamed_addr constant [9 x i8] c"Checksum\00", align 1
 @.str.39 = private unnamed_addr constant [24 x i8] c"tnef.attribute.checksum\00", align 1
@@ -98,7 +93,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_tnef_priority = internal global i32 0, align 4
 @.str.50 = private unnamed_addr constant [9 x i8] c"Priority\00", align 1
 @.str.51 = private unnamed_addr constant [14 x i8] c"tnef.priority\00", align 1
-@tnef_Priority_vals = internal constant [4 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.169 }, %struct._value_string { i32 2, ptr @.str.170 }, %struct._value_string { i32 3, ptr @.str.171 }, %struct._value_string zeroinitializer], align 16
 @hf_tnef_mapi_props_count = internal global i32 0, align 4
 @.str.52 = private unnamed_addr constant [6 x i8] c"Count\00", align 1
 @.str.53 = private unnamed_addr constant [22 x i8] c"tnef.mapi_props.count\00", align 1
@@ -200,7 +194,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_tnef_counted_items = internal global i32 0, align 4
 @ett_tnef_attribute_date = internal global i32 0, align 4
 @ett_tnef_attribute_address = internal global i32 0, align 4
-@proto_register_tnef.ei = internal global [2 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_tnef_expect_single_item, %struct.expert_field_info { ptr @.str.108, i32 117440512, i32 8388608, ptr @.str.109, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_tnef_incorrect_signature, %struct.expert_field_info { ptr @.str.110, i32 117440512, i32 6291456, ptr @.str.111, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_tnef.ei = internal global [2 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_tnef_expect_single_item, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.108, i32 117440512, i32 8388608, ptr @.str.109, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_tnef_incorrect_signature, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.110, i32 117440512, i32 6291456, ptr @.str.111, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_tnef_expect_single_item = internal global %struct.expert_field zeroinitializer, align 4
 @.str.108 = private unnamed_addr constant [24 x i8] c"tnef.expect_single_item\00", align 1
 @.str.109 = private unnamed_addr constant [21 x i8] c"Expected single item\00", align 1
@@ -219,130 +213,145 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.119 = private unnamed_addr constant [11 x i8] c"wtap_encap\00", align 1
 @.str.120 = private unnamed_addr constant [12 x i8] c"LVL-MESSAGE\00", align 1
 @.str.121 = private unnamed_addr constant [15 x i8] c"LVL-ATTACHMENT\00", align 1
-@.str.122 = private unnamed_addr constant [10 x i8] c"ATT_OWNER\00", align 1
-@.str.123 = private unnamed_addr constant [13 x i8] c"ATT_SENT_FOR\00", align 1
-@.str.124 = private unnamed_addr constant [13 x i8] c"ATT_DELEGATE\00", align 1
-@.str.125 = private unnamed_addr constant [15 x i8] c"ATT_DATE_START\00", align 1
-@.str.126 = private unnamed_addr constant [13 x i8] c"ATT_DATE_END\00", align 1
-@.str.127 = private unnamed_addr constant [14 x i8] c"ATT_AID_OWNER\00", align 1
-@.str.128 = private unnamed_addr constant [16 x i8] c"ATT_REQUEST_RES\00", align 1
-@.str.129 = private unnamed_addr constant [9 x i8] c"ATT_FROM\00", align 1
-@.str.130 = private unnamed_addr constant [12 x i8] c"ATT_SUBJECT\00", align 1
-@.str.131 = private unnamed_addr constant [14 x i8] c"ATT_DATE_SENT\00", align 1
-@.str.132 = private unnamed_addr constant [14 x i8] c"ATT_DATE_RECD\00", align 1
-@.str.133 = private unnamed_addr constant [19 x i8] c"ATT_MESSAGE_STATUS\00", align 1
-@.str.134 = private unnamed_addr constant [18 x i8] c"ATT_MESSAGE_CLASS\00", align 1
-@.str.135 = private unnamed_addr constant [15 x i8] c"ATT_MESSAGE_ID\00", align 1
-@.str.136 = private unnamed_addr constant [14 x i8] c"ATT_PARENT_ID\00", align 1
-@.str.137 = private unnamed_addr constant [20 x i8] c"ATT_CONVERSATION_ID\00", align 1
-@.str.138 = private unnamed_addr constant [9 x i8] c"ATT_BODY\00", align 1
-@.str.139 = private unnamed_addr constant [13 x i8] c"ATT_PRIORITY\00", align 1
-@.str.140 = private unnamed_addr constant [16 x i8] c"ATT_ATTACH_DATA\00", align 1
-@.str.141 = private unnamed_addr constant [17 x i8] c"ATT_ATTACH_TITLE\00", align 1
-@.str.142 = private unnamed_addr constant [21 x i8] c"ATT_ATTACH_META_FILE\00", align 1
-@.str.143 = private unnamed_addr constant [23 x i8] c"ATT_ATTACH_CREATE_DATE\00", align 1
-@.str.144 = private unnamed_addr constant [23 x i8] c"ATT_ATTACH_MODIFY_DATE\00", align 1
-@.str.145 = private unnamed_addr constant [18 x i8] c"ATT_DATE_MODIFIED\00", align 1
-@.str.146 = private unnamed_addr constant [30 x i8] c"ATT_ATTACH_TRANSPORT_FILENAME\00", align 1
-@.str.147 = private unnamed_addr constant [21 x i8] c"ATT_ATTACH_REND_DATA\00", align 1
-@.str.148 = private unnamed_addr constant [15 x i8] c"ATT_MAPI_PROPS\00", align 1
-@.str.149 = private unnamed_addr constant [16 x i8] c"ATT_RECIP_TABLE\00", align 1
-@.str.150 = private unnamed_addr constant [15 x i8] c"ATT_ATTACHMENT\00", align 1
-@.str.151 = private unnamed_addr constant [17 x i8] c"ATT_TNEF_VERSION\00", align 1
-@.str.152 = private unnamed_addr constant [17 x i8] c"ATT_OEM_CODEPAGE\00", align 1
-@.str.153 = private unnamed_addr constant [27 x i8] c"ATT_ORIGINAL_MESSAGE_CLASS\00", align 1
-@.str.154 = private unnamed_addr constant [8 x i8] c"Triples\00", align 1
-@.str.155 = private unnamed_addr constant [5 x i8] c"Text\00", align 1
-@.str.156 = private unnamed_addr constant [6 x i8] c"Short\00", align 1
-@.str.157 = private unnamed_addr constant [5 x i8] c"Long\00", align 1
-@.str.158 = private unnamed_addr constant [5 x i8] c"Byte\00", align 1
-@.str.159 = private unnamed_addr constant [5 x i8] c"Word\00", align 1
-@.str.160 = private unnamed_addr constant [6 x i8] c"DWord\00", align 1
-@.str.161 = private unnamed_addr constant [4 x i8] c"Max\00", align 1
-@.str.162 = private unnamed_addr constant [7 x i8] c"Sunday\00", align 1
-@.str.163 = private unnamed_addr constant [7 x i8] c"Monday\00", align 1
-@.str.164 = private unnamed_addr constant [8 x i8] c"Tuesday\00", align 1
-@.str.165 = private unnamed_addr constant [10 x i8] c"Wednesday\00", align 1
-@.str.166 = private unnamed_addr constant [9 x i8] c"Thursday\00", align 1
-@.str.167 = private unnamed_addr constant [7 x i8] c"Friday\00", align 1
-@.str.168 = private unnamed_addr constant [9 x i8] c"Saturday\00", align 1
-@.str.169 = private unnamed_addr constant [4 x i8] c"Low\00", align 1
-@.str.170 = private unnamed_addr constant [5 x i8] c"High\00", align 1
-@.str.171 = private unnamed_addr constant [7 x i8] c"Normal\00", align 1
-@.str.172 = private unnamed_addr constant [116 x i8] c" [Incorrect, should be 0x%x. No further dissection possible. Check any Content-Transfer-Encoding has been removed.]\00", align 1
-@.str.173 = private unnamed_addr constant [11 x i8] c" [Correct]\00", align 1
-@.str.174 = private unnamed_addr constant [4 x i8] c" %s\00", align 1
-@.str.175 = private unnamed_addr constant [22 x i8] c"Unknown tag (0x%08lx)\00", align 1
+@tnef_Lvl_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.120 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.121 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.123 = private unnamed_addr constant [10 x i8] c"ATT_OWNER\00", align 1
+@.str.124 = private unnamed_addr constant [13 x i8] c"ATT_SENT_FOR\00", align 1
+@.str.125 = private unnamed_addr constant [13 x i8] c"ATT_DELEGATE\00", align 1
+@.str.126 = private unnamed_addr constant [15 x i8] c"ATT_DATE_START\00", align 1
+@.str.127 = private unnamed_addr constant [13 x i8] c"ATT_DATE_END\00", align 1
+@.str.128 = private unnamed_addr constant [14 x i8] c"ATT_AID_OWNER\00", align 1
+@.str.129 = private unnamed_addr constant [16 x i8] c"ATT_REQUEST_RES\00", align 1
+@.str.130 = private unnamed_addr constant [9 x i8] c"ATT_FROM\00", align 1
+@.str.131 = private unnamed_addr constant [12 x i8] c"ATT_SUBJECT\00", align 1
+@.str.132 = private unnamed_addr constant [14 x i8] c"ATT_DATE_SENT\00", align 1
+@.str.133 = private unnamed_addr constant [14 x i8] c"ATT_DATE_RECD\00", align 1
+@.str.134 = private unnamed_addr constant [19 x i8] c"ATT_MESSAGE_STATUS\00", align 1
+@.str.135 = private unnamed_addr constant [18 x i8] c"ATT_MESSAGE_CLASS\00", align 1
+@.str.136 = private unnamed_addr constant [15 x i8] c"ATT_MESSAGE_ID\00", align 1
+@.str.137 = private unnamed_addr constant [14 x i8] c"ATT_PARENT_ID\00", align 1
+@.str.138 = private unnamed_addr constant [20 x i8] c"ATT_CONVERSATION_ID\00", align 1
+@.str.139 = private unnamed_addr constant [9 x i8] c"ATT_BODY\00", align 1
+@.str.140 = private unnamed_addr constant [13 x i8] c"ATT_PRIORITY\00", align 1
+@.str.141 = private unnamed_addr constant [16 x i8] c"ATT_ATTACH_DATA\00", align 1
+@.str.142 = private unnamed_addr constant [17 x i8] c"ATT_ATTACH_TITLE\00", align 1
+@.str.143 = private unnamed_addr constant [21 x i8] c"ATT_ATTACH_META_FILE\00", align 1
+@.str.144 = private unnamed_addr constant [23 x i8] c"ATT_ATTACH_CREATE_DATE\00", align 1
+@.str.145 = private unnamed_addr constant [23 x i8] c"ATT_ATTACH_MODIFY_DATE\00", align 1
+@.str.146 = private unnamed_addr constant [18 x i8] c"ATT_DATE_MODIFIED\00", align 1
+@.str.147 = private unnamed_addr constant [30 x i8] c"ATT_ATTACH_TRANSPORT_FILENAME\00", align 1
+@.str.148 = private unnamed_addr constant [21 x i8] c"ATT_ATTACH_REND_DATA\00", align 1
+@.str.149 = private unnamed_addr constant [15 x i8] c"ATT_MAPI_PROPS\00", align 1
+@.str.150 = private unnamed_addr constant [16 x i8] c"ATT_RECIP_TABLE\00", align 1
+@.str.151 = private unnamed_addr constant [15 x i8] c"ATT_ATTACHMENT\00", align 1
+@.str.152 = private unnamed_addr constant [17 x i8] c"ATT_TNEF_VERSION\00", align 1
+@.str.153 = private unnamed_addr constant [17 x i8] c"ATT_OEM_CODEPAGE\00", align 1
+@.str.154 = private unnamed_addr constant [27 x i8] c"ATT_ORIGINAL_MESSAGE_CLASS\00", align 1
+@tnef_Attribute_vals = internal constant [34 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 393216, [4 x i8] zeroinitializer, ptr @.str.123 }, { i32, [4 x i8], ptr } { i32 393217, [4 x i8] zeroinitializer, ptr @.str.124 }, { i32, [4 x i8], ptr } { i32 393218, [4 x i8] zeroinitializer, ptr @.str.125 }, { i32, [4 x i8], ptr } { i32 393216, [4 x i8] zeroinitializer, ptr @.str.123 }, { i32, [4 x i8], ptr } { i32 196614, [4 x i8] zeroinitializer, ptr @.str.126 }, { i32, [4 x i8], ptr } { i32 196615, [4 x i8] zeroinitializer, ptr @.str.127 }, { i32, [4 x i8], ptr } { i32 262152, [4 x i8] zeroinitializer, ptr @.str.128 }, { i32, [4 x i8], ptr } { i32 262153, [4 x i8] zeroinitializer, ptr @.str.129 }, { i32, [4 x i8], ptr } { i32 32768, [4 x i8] zeroinitializer, ptr @.str.130 }, { i32, [4 x i8], ptr } { i32 98308, [4 x i8] zeroinitializer, ptr @.str.131 }, { i32, [4 x i8], ptr } { i32 229381, [4 x i8] zeroinitializer, ptr @.str.132 }, { i32, [4 x i8], ptr } { i32 229382, [4 x i8] zeroinitializer, ptr @.str.133 }, { i32, [4 x i8], ptr } { i32 425991, [4 x i8] zeroinitializer, ptr @.str.134 }, { i32, [4 x i8], ptr } { i32 491528, [4 x i8] zeroinitializer, ptr @.str.135 }, { i32, [4 x i8], ptr } { i32 98313, [4 x i8] zeroinitializer, ptr @.str.136 }, { i32, [4 x i8], ptr } { i32 98314, [4 x i8] zeroinitializer, ptr @.str.137 }, { i32, [4 x i8], ptr } { i32 98315, [4 x i8] zeroinitializer, ptr @.str.138 }, { i32, [4 x i8], ptr } { i32 163852, [4 x i8] zeroinitializer, ptr @.str.139 }, { i32, [4 x i8], ptr } { i32 294925, [4 x i8] zeroinitializer, ptr @.str.140 }, { i32, [4 x i8], ptr } { i32 425999, [4 x i8] zeroinitializer, ptr @.str.141 }, { i32, [4 x i8], ptr } { i32 98320, [4 x i8] zeroinitializer, ptr @.str.142 }, { i32, [4 x i8], ptr } { i32 426001, [4 x i8] zeroinitializer, ptr @.str.143 }, { i32, [4 x i8], ptr } { i32 229394, [4 x i8] zeroinitializer, ptr @.str.144 }, { i32, [4 x i8], ptr } { i32 229395, [4 x i8] zeroinitializer, ptr @.str.145 }, { i32, [4 x i8], ptr } { i32 229408, [4 x i8] zeroinitializer, ptr @.str.146 }, { i32, [4 x i8], ptr } { i32 430081, [4 x i8] zeroinitializer, ptr @.str.147 }, { i32, [4 x i8], ptr } { i32 430082, [4 x i8] zeroinitializer, ptr @.str.148 }, { i32, [4 x i8], ptr } { i32 430083, [4 x i8] zeroinitializer, ptr @.str.149 }, { i32, [4 x i8], ptr } { i32 430084, [4 x i8] zeroinitializer, ptr @.str.150 }, { i32, [4 x i8], ptr } { i32 430085, [4 x i8] zeroinitializer, ptr @.str.151 }, { i32, [4 x i8], ptr } { i32 561158, [4 x i8] zeroinitializer, ptr @.str.152 }, { i32, [4 x i8], ptr } { i32 430087, [4 x i8] zeroinitializer, ptr @.str.153 }, { i32, [4 x i8], ptr } { i32 495624, [4 x i8] zeroinitializer, ptr @.str.154 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.156 = private unnamed_addr constant [8 x i8] c"Triples\00", align 1
+@.str.157 = private unnamed_addr constant [5 x i8] c"Text\00", align 1
+@.str.158 = private unnamed_addr constant [6 x i8] c"Short\00", align 1
+@.str.159 = private unnamed_addr constant [5 x i8] c"Long\00", align 1
+@.str.160 = private unnamed_addr constant [5 x i8] c"Byte\00", align 1
+@.str.161 = private unnamed_addr constant [5 x i8] c"Word\00", align 1
+@.str.162 = private unnamed_addr constant [6 x i8] c"DWord\00", align 1
+@.str.163 = private unnamed_addr constant [4 x i8] c"Max\00", align 1
+@tnef_Types_vals = internal constant [11 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.156 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.16 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.157 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.18 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.158 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.159 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.160 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.161 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.162 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.163 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.165 = private unnamed_addr constant [7 x i8] c"Sunday\00", align 1
+@.str.166 = private unnamed_addr constant [7 x i8] c"Monday\00", align 1
+@.str.167 = private unnamed_addr constant [8 x i8] c"Tuesday\00", align 1
+@.str.168 = private unnamed_addr constant [10 x i8] c"Wednesday\00", align 1
+@.str.169 = private unnamed_addr constant [9 x i8] c"Thursday\00", align 1
+@.str.170 = private unnamed_addr constant [7 x i8] c"Friday\00", align 1
+@.str.171 = private unnamed_addr constant [9 x i8] c"Saturday\00", align 1
+@weekday_vals = internal constant [8 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.165 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.166 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.167 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.168 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.169 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.170 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.171 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.173 = private unnamed_addr constant [4 x i8] c"Low\00", align 1
+@.str.174 = private unnamed_addr constant [5 x i8] c"High\00", align 1
+@.str.175 = private unnamed_addr constant [7 x i8] c"Normal\00", align 1
+@tnef_Priority_vals = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.173 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.174 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.175 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.177 = private unnamed_addr constant [116 x i8] c" [Incorrect, should be 0x%x. No further dissection possible. Check any Content-Transfer-Encoding has been removed.]\00", align 1
+@.str.178 = private unnamed_addr constant [11 x i8] c" [Correct]\00", align 1
+@.str.179 = private unnamed_addr constant [4 x i8] c" %s\00", align 1
+@.str.180 = private unnamed_addr constant [22 x i8] c"Unknown tag (0x%08lx)\00", align 1
 @dissect_mapiprops.di = internal global %struct._dcerpc_info zeroinitializer, align 8
 @dissect_mapiprops.call_data = internal global %struct._dcerpc_call_value zeroinitializer, align 8
-@.str.176 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
-@.str.177 = private unnamed_addr constant [17 x i8] c" [Named Property\00", align 1
-@.str.178 = private unnamed_addr constant [5 x i8] c": %s\00", align 1
-@.str.179 = private unnamed_addr constant [2 x i8] c"]\00", align 1
-@.str.180 = private unnamed_addr constant [37 x i8] c"Expecting a single item but found %d\00", align 1
-@.str.181 = private unnamed_addr constant [18 x i8] c"TNEF encoded file\00", align 1
+@.str.181 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@.str.182 = private unnamed_addr constant [17 x i8] c" [Named Property\00", align 1
+@.str.183 = private unnamed_addr constant [5 x i8] c": %s\00", align 1
+@.str.184 = private unnamed_addr constant [2 x i8] c"]\00", align 1
+@.str.185 = private unnamed_addr constant [37 x i8] c"Expecting a single item but found %d\00", align 1
+@.str.186 = private unnamed_addr constant [18 x i8] c"TNEF encoded file\00", align 1
 @switch.table.dissect_tnef = private unnamed_addr constant [3 x i32] [i32 42, i32 60, i32 58], align 4
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_tnef() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.112, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.114) #4
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.112, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.114)
   store i32 %1, ptr @proto_tnef, align 4
-  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_tnef.hf, i32 noundef 59) #4
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_tnef.ett, i32 noundef 9) #4
+  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_tnef.hf, i32 noundef 59)
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_tnef.ett, i32 noundef 9)
   %2 = load i32, ptr @proto_tnef, align 4
-  %3 = tail call ptr @expert_register_protocol(i32 noundef %2) #4
-  tail call void @expert_register_field_array(ptr noundef %3, ptr noundef nonnull @proto_register_tnef.ei, i32 noundef 2) #4
+  %3 = tail call ptr @expert_register_protocol(i32 noundef %2)
+  tail call void @expert_register_field_array(ptr noundef %3, ptr noundef nonnull @proto_register_tnef.ei, i32 noundef 2)
   %4 = load i32, ptr @proto_tnef, align 4
-  %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.114, ptr noundef nonnull @dissect_tnef, i32 noundef %4) #4
+  %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.114, ptr noundef nonnull @dissect_tnef, i32 noundef %4)
   store ptr %5, ptr @tnef_handle, align 8
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #2
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_tnef(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca [2 x i8], align 2
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %14, label %9
 
 9:                                                ; preds = %4
   %10 = load i32, ptr @proto_tnef, align 4
-  %11 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
+  %11 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %12 = load i32, ptr @ett_tnef, align 4
-  %13 = tail call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #4
+  %13 = tail call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12)
   br label %14
 
 14:                                               ; preds = %9, %4
   %.0137 = phi ptr [ %13, %9 ], [ null, %4 ]
-  %15 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 0) #4
+  %15 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 0)
   %16 = load i32, ptr @hf_tnef_signature, align 4
-  %17 = tail call ptr @proto_tree_add_item(ptr noundef %.0137, i32 noundef %16, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648) #4
+  %17 = tail call ptr @proto_tree_add_item(ptr noundef %.0137, i32 noundef %16, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648)
   %.not142 = icmp eq i32 %15, 574529400
   br i1 %.not142, label %20, label %18
 
 18:                                               ; preds = %14
-  %19 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %17, ptr noundef nonnull @ei_tnef_incorrect_signature, ptr noundef nonnull @.str.172, i32 noundef 574529400) #4
+  %19 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %17, ptr noundef nonnull @ei_tnef_incorrect_signature, ptr noundef nonnull @.str.177, i32 noundef 574529400)
   br label %254
 
 20:                                               ; preds = %14
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %17, ptr noundef nonnull @.str.173) #4
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %17, ptr noundef nonnull @.str.178)
   %21 = load i32, ptr @hf_tnef_key, align 4
-  %22 = tail call ptr @proto_tree_add_item(ptr noundef %.0137, i32 noundef %21, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef -2147483648) #4
-  %23 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 6) #4
+  %22 = tail call ptr @proto_tree_add_item(ptr noundef %.0137, i32 noundef %21, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef -2147483648)
+  %23 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 6)
   %24 = icmp sgt i32 %23, 9
   br i1 %24, label %.lr.ph, label %._crit_edge
 
@@ -354,28 +363,28 @@ define internal i32 @dissect_tnef(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %.0145 = phi i32 [ 0, %.lr.ph ], [ %.1, %239 ]
   %.0135144 = phi i32 [ 6, %.lr.ph ], [ %243, %239 ]
   %27 = load i32, ptr @hf_tnef_attribute, align 4
-  %28 = call ptr @proto_tree_add_item(ptr noundef %.0137, i32 noundef %27, ptr noundef %0, i32 noundef %.0135144, i32 noundef -1, i32 noundef 0) #4
+  %28 = call ptr @proto_tree_add_item(ptr noundef %.0137, i32 noundef %27, ptr noundef %0, i32 noundef %.0135144, i32 noundef -1, i32 noundef 0)
   %29 = load i32, ptr @ett_tnef_attribute, align 4
-  %30 = call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #4
+  %30 = call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29)
   %31 = load i32, ptr @hf_tnef_attribute_lvl, align 4
-  %32 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %31, ptr noundef %0, i32 noundef %.0135144, i32 noundef 1, i32 noundef -2147483648) #4
+  %32 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %31, ptr noundef %0, i32 noundef %.0135144, i32 noundef 1, i32 noundef -2147483648)
   %33 = add i32 %.0135144, 1
   %34 = load i32, ptr @hf_tnef_attribute_tag, align 4
-  %35 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %34, ptr noundef %0, i32 noundef %33, i32 noundef 4, i32 noundef -2147483648) #4
+  %35 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %34, ptr noundef %0, i32 noundef %33, i32 noundef 4, i32 noundef -2147483648)
   %36 = load i32, ptr @ett_tnef_attribute_tag, align 4
-  %37 = call ptr @proto_item_add_subtree(ptr noundef %35, i32 noundef %36) #4
-  %38 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %33) #4
-  %39 = call ptr @val_to_str(i32 noundef %38, ptr noundef nonnull @tnef_Attribute_vals, ptr noundef nonnull @.str.175) #4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %28, ptr noundef nonnull @.str.174, ptr noundef %39) #4
+  %37 = call ptr @proto_item_add_subtree(ptr noundef %35, i32 noundef %36)
+  %38 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %33)
+  %39 = call ptr @val_to_str(i32 noundef %38, ptr noundef nonnull @tnef_Attribute_vals, ptr noundef nonnull @.str.180)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %28, ptr noundef nonnull @.str.179, ptr noundef %39)
   %40 = load i32, ptr @hf_tnef_attribute_tag_id, align 4
-  %41 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %40, ptr noundef %0, i32 noundef %33, i32 noundef 2, i32 noundef -2147483648) #4
+  %41 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %40, ptr noundef %0, i32 noundef %33, i32 noundef 2, i32 noundef -2147483648)
   %42 = add i32 %.0135144, 3
   %43 = load i32, ptr @hf_tnef_attribute_tag_type, align 4
-  %44 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %43, ptr noundef %0, i32 noundef %42, i32 noundef 2, i32 noundef -2147483648) #4
+  %44 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %43, ptr noundef %0, i32 noundef %42, i32 noundef 2, i32 noundef -2147483648)
   %45 = add i32 %.0135144, 5
-  %46 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %45) #4
+  %46 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %45)
   %47 = load i32, ptr @hf_tnef_attribute_length, align 4
-  %48 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %47, ptr noundef %0, i32 noundef %45, i32 noundef 4, i32 noundef -2147483648) #4
+  %48 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %47, ptr noundef %0, i32 noundef %45, i32 noundef 4, i32 noundef -2147483648)
   %49 = add i32 %.0135144, 9
   switch i32 %38, label %209 [
     i32 430087, label %50
@@ -390,7 +399,7 @@ define internal i32 @dissect_tnef(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 50:                                               ; preds = %26
   %51 = load i32, ptr @hf_tnef_oem_codepage, align 4
-  %52 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %30, i32 noundef %51, ptr noundef %0, i32 noundef %49, i32 noundef %46, i32 noundef -2147483648, ptr noundef nonnull %7) #4
+  %52 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %30, i32 noundef %51, ptr noundef %0, i32 noundef %49, i32 noundef %46, i32 noundef -2147483648, ptr noundef nonnull %7)
   %53 = load i64, ptr %7, align 8
   %switch.tableidx = add i64 %53, -1250
   %54 = icmp ult i64 %switch.tableidx, 3
@@ -398,85 +407,85 @@ define internal i32 @dissect_tnef(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 55:                                               ; preds = %26
   %56 = load i32, ptr @hf_tnef_version, align 4
-  %57 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %56, ptr noundef %0, i32 noundef %49, i32 noundef %46, i32 noundef -2147483648) #4
+  %57 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %56, ptr noundef %0, i32 noundef %49, i32 noundef %46, i32 noundef -2147483648)
   br label %239
 
 58:                                               ; preds = %26
   %59 = load i32, ptr @hf_tnef_message_class, align 4
-  %60 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %59, ptr noundef %0, i32 noundef %49, i32 noundef %46, i32 noundef 0) #4
+  %60 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %59, ptr noundef %0, i32 noundef %49, i32 noundef %46, i32 noundef 0)
   br label %239
 
 61:                                               ; preds = %26
   %62 = load i32, ptr @hf_tnef_original_message_class, align 4
-  %63 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %62, ptr noundef %0, i32 noundef %49, i32 noundef %46, i32 noundef 0) #4
+  %63 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %62, ptr noundef %0, i32 noundef %49, i32 noundef %46, i32 noundef 0)
   br label %239
 
 64:                                               ; preds = %26
   %65 = load i32, ptr @hf_tnef_mapi_props, align 4
-  %66 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %65, ptr noundef %0, i32 noundef %49, i32 noundef %46, i32 noundef 0) #4
+  %66 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %65, ptr noundef %0, i32 noundef %49, i32 noundef %46, i32 noundef 0)
   %67 = load i32, ptr @ett_tnef_mapi_props, align 4
-  %68 = call ptr @proto_item_add_subtree(ptr noundef %66, i32 noundef %67) #4
-  %69 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %49, i32 noundef %46) #4
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  %68 = call ptr @proto_item_add_subtree(ptr noundef %66, i32 noundef %67)
+  %69 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %49, i32 noundef %46)
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #4
   store i16 16, ptr %5, align 2
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @dissect_mapiprops.di, i64 28), align 4
-  store ptr @dissect_mapiprops.call_data, ptr getelementptr inbounds nuw (i8, ptr @dissect_mapiprops.di, i64 72), align 8
-  store ptr @.str.176, ptr getelementptr inbounds nuw (i8, ptr @dissect_mapiprops.di, i64 80), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @dissect_mapiprops.di, i64 25), align 1
+  store ptr @dissect_mapiprops.call_data, ptr getelementptr inbounds nuw (i8, ptr @dissect_mapiprops.di, i64 64), align 8
+  store ptr @.str.181, ptr getelementptr inbounds nuw (i8, ptr @dissect_mapiprops.di, i64 72), align 8
   %70 = load i32, ptr @hf_tnef_mapi_props_count, align 4
-  %71 = call ptr @proto_tree_add_item(ptr noundef %68, i32 noundef %70, ptr noundef %69, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648) #4
-  %72 = call i32 @tvb_reported_length_remaining(ptr noundef %69, i32 noundef 4) #4
+  %71 = call ptr @proto_tree_add_item(ptr noundef %68, i32 noundef %70, ptr noundef %69, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648)
+  %72 = call i32 @tvb_reported_length_remaining(ptr noundef %69, i32 noundef 4)
   %73 = icmp sgt i32 %72, 0
   br i1 %73, label %.lr.ph.i, label %dissect_mapiprops.exit
 
 .lr.ph.i:                                         ; preds = %64, %185
   %.0156.i = phi i32 [ %.4.i, %185 ], [ 4, %64 ]
   %74 = load i32, ptr @hf_tnef_property, align 4
-  %75 = call ptr @proto_tree_add_item(ptr noundef %68, i32 noundef %74, ptr noundef %69, i32 noundef %.0156.i, i32 noundef -1, i32 noundef 0) #4
+  %75 = call ptr @proto_tree_add_item(ptr noundef %68, i32 noundef %74, ptr noundef %69, i32 noundef %.0156.i, i32 noundef -1, i32 noundef 0)
   %76 = load i32, ptr @ett_tnef_property, align 4
-  %77 = call ptr @proto_item_add_subtree(ptr noundef %75, i32 noundef %76) #4
+  %77 = call ptr @proto_item_add_subtree(ptr noundef %75, i32 noundef %76)
   %78 = load i32, ptr @hf_tnef_property_tag, align 4
-  %79 = call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %78, ptr noundef %69, i32 noundef %.0156.i, i32 noundef 4, i32 noundef -2147483648) #4
+  %79 = call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %78, ptr noundef %69, i32 noundef %.0156.i, i32 noundef 4, i32 noundef -2147483648)
   %80 = load i32, ptr @ett_tnef_property_tag, align 4
-  %81 = call ptr @proto_item_add_subtree(ptr noundef %79, i32 noundef %80) #4
-  %82 = call i32 @tvb_get_letohl(ptr noundef %69, i32 noundef %.0156.i) #4
-  %83 = call ptr @val_to_str(i32 noundef %82, ptr noundef nonnull @nspi_MAPITAGS_vals, ptr noundef nonnull @.str.175) #4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %75, ptr noundef nonnull @.str.174, ptr noundef %83) #4
+  %81 = call ptr @proto_item_add_subtree(ptr noundef %79, i32 noundef %80)
+  %82 = call i32 @tvb_get_letohl(ptr noundef %69, i32 noundef %.0156.i)
+  %83 = call ptr @val_to_str(i32 noundef %82, ptr noundef nonnull @nspi_MAPITAGS_vals, ptr noundef nonnull @.str.180)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %75, ptr noundef nonnull @.str.179, ptr noundef %83)
   %84 = load i32, ptr @hf_tnef_property_tag_type, align 4
-  %85 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %84, ptr noundef %69, i32 noundef %.0156.i, i32 noundef 2, i32 noundef -2147483648) #4
+  %85 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %84, ptr noundef %69, i32 noundef %.0156.i, i32 noundef 2, i32 noundef -2147483648)
   %86 = add i32 %.0156.i, 2
   %87 = load i32, ptr @hf_tnef_property_tag_id, align 4
-  %88 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %87, ptr noundef %69, i32 noundef %86, i32 noundef 2, i32 noundef -2147483648) #4
+  %88 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %87, ptr noundef %69, i32 noundef %86, i32 noundef 2, i32 noundef -2147483648)
   %89 = add i32 %.0156.i, 4
   %.not.i = icmp sgt i32 %82, -1
   br i1 %.not.i, label %122, label %90
 
 90:                                               ; preds = %.lr.ph.i
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
   store ptr null, ptr %6, align 8
   %91 = load i32, ptr @hf_tnef_property_tag_set, align 4
-  %92 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %91, ptr noundef %69, i32 noundef %89, i32 noundef 16, i32 noundef -2147483648) #4
+  %92 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %91, ptr noundef %69, i32 noundef %89, i32 noundef 16, i32 noundef -2147483648)
   %93 = add i32 %.0156.i, 20
-  %94 = call i32 @tvb_get_letohl(ptr noundef %69, i32 noundef %93) #4
+  %94 = call i32 @tvb_get_letohl(ptr noundef %69, i32 noundef %93)
   %95 = load i32, ptr @hf_tnef_property_tag_kind, align 4
-  %96 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %95, ptr noundef %69, i32 noundef %93, i32 noundef 4, i32 noundef -2147483648) #4
+  %96 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %95, ptr noundef %69, i32 noundef %93, i32 noundef 4, i32 noundef -2147483648)
   %97 = add i32 %.0156.i, 24
   %98 = icmp eq i32 %94, 0
   br i1 %98, label %99, label %103
 
 99:                                               ; preds = %90
   %100 = load i32, ptr @hf_tnef_property_tag_name_id, align 4
-  %101 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %100, ptr noundef %69, i32 noundef %97, i32 noundef 4, i32 noundef -2147483648) #4
+  %101 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %100, ptr noundef %69, i32 noundef %97, i32 noundef 4, i32 noundef -2147483648)
   %102 = add i32 %.0156.i, 28
   br label %118
 
 103:                                              ; preds = %90
-  %104 = call i32 @tvb_get_letohl(ptr noundef %69, i32 noundef %97) #4
+  %104 = call i32 @tvb_get_letohl(ptr noundef %69, i32 noundef %97)
   %105 = load i32, ptr @hf_tnef_property_tag_name_length, align 4
-  %106 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %105, ptr noundef %69, i32 noundef %97, i32 noundef 4, i32 noundef -2147483648) #4
+  %106 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %105, ptr noundef %69, i32 noundef %97, i32 noundef 4, i32 noundef -2147483648)
   %107 = add i32 %.0156.i, 28
   %108 = load i32, ptr @hf_tnef_property_tag_name_string, align 4
   %109 = load ptr, ptr %25, align 8
-  %110 = call ptr @proto_tree_add_item_ret_string(ptr noundef %81, i32 noundef %108, ptr noundef %69, i32 noundef %107, i32 noundef %104, i32 noundef -2147483644, ptr noundef %109, ptr noundef nonnull %6) #4
+  %110 = call ptr @proto_tree_add_item_ret_string(ptr noundef %81, i32 noundef %108, ptr noundef %69, i32 noundef %107, i32 noundef %104, i32 noundef -2147483644, ptr noundef %109, ptr noundef nonnull %6)
   %111 = add i32 %104, %107
   %112 = and i32 %104, 3
   %.not153.i = icmp eq i32 %112, 0
@@ -485,23 +494,24 @@ define internal i32 @dissect_tnef(ptr noundef %0, ptr noundef %1, ptr noundef %2
 113:                                              ; preds = %103
   %114 = sub nuw nsw i32 4, %112
   %115 = load i32, ptr @hf_tnef_property_padding, align 4
-  %116 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %115, ptr noundef %69, i32 noundef %111, i32 noundef %114, i32 noundef 0) #4
+  %116 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %115, ptr noundef %69, i32 noundef %111, i32 noundef %114, i32 noundef 0)
   %117 = add i32 %114, %111
   br label %118
 
 118:                                              ; preds = %113, %103, %99
   %.1.i = phi i32 [ %102, %99 ], [ %117, %113 ], [ %111, %103 ]
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %75, ptr noundef nonnull @.str.177) #4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %75, ptr noundef nonnull @.str.182)
   %119 = load ptr, ptr %6, align 8
   %.not154.i = icmp eq ptr %119, null
   br i1 %.not154.i, label %121, label %120
 
 120:                                              ; preds = %118
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %75, ptr noundef nonnull @.str.178, ptr noundef nonnull %119) #4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %75, ptr noundef nonnull @.str.183, ptr noundef nonnull %119)
   br label %121
 
 121:                                              ; preds = %120, %118
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %75, ptr noundef nonnull @.str.179) #4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %75, ptr noundef nonnull @.str.184)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
   br label %122
 
 122:                                              ; preds = %121, %.lr.ph.i
@@ -530,17 +540,17 @@ define internal i32 @dissect_tnef(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 123:                                              ; preds = %122
   %124 = load i32, ptr @hf_tnef_PropValue_i, align 4
-  %125 = call i32 @PIDL_dissect_uint16(ptr noundef %69, i32 noundef %.2.i, ptr noundef %1, ptr noundef %77, ptr noundef nonnull @dissect_mapiprops.di, ptr noundef nonnull %5, i32 noundef %124, i32 noundef 0) #4
+  %125 = call i32 @PIDL_dissect_uint16(ptr noundef %69, i32 noundef %.2.i, ptr noundef %1, ptr noundef %77, ptr noundef nonnull @dissect_mapiprops.di, ptr noundef nonnull %5, i32 noundef %124, i32 noundef 0)
   br label %177
 
 126:                                              ; preds = %122
   %127 = load i32, ptr @hf_tnef_PropValue_l, align 4
-  %128 = call i32 @PIDL_dissect_uint32(ptr noundef %69, i32 noundef %.2.i, ptr noundef %1, ptr noundef %77, ptr noundef nonnull @dissect_mapiprops.di, ptr noundef nonnull %5, i32 noundef %127, i32 noundef 0) #4
+  %128 = call i32 @PIDL_dissect_uint32(ptr noundef %69, i32 noundef %.2.i, ptr noundef %1, ptr noundef %77, ptr noundef nonnull @dissect_mapiprops.di, ptr noundef nonnull %5, i32 noundef %127, i32 noundef 0)
   br label %177
 
 129:                                              ; preds = %122
   %130 = load i32, ptr @hf_tnef_PropValue_b, align 4
-  %131 = call i32 @PIDL_dissect_uint16(ptr noundef %69, i32 noundef %.2.i, ptr noundef %1, ptr noundef %77, ptr noundef nonnull @dissect_mapiprops.di, ptr noundef nonnull %5, i32 noundef %130, i32 noundef 0) #4
+  %131 = call i32 @PIDL_dissect_uint16(ptr noundef %69, i32 noundef %.2.i, ptr noundef %1, ptr noundef %77, ptr noundef nonnull @dissect_mapiprops.di, ptr noundef nonnull %5, i32 noundef %130, i32 noundef 0)
   br label %177
 
 132:                                              ; preds = %122
@@ -560,62 +570,62 @@ define internal i32 @dissect_tnef(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 141:                                              ; preds = %122
   %142 = load i32, ptr @hf_tnef_PropValue_lpguid, align 4
-  %143 = call i32 @nspi_dissect_struct_MAPIUID(ptr noundef %69, i32 noundef %.2.i, ptr noundef %1, ptr noundef %77, ptr noundef nonnull @dissect_mapiprops.di, ptr noundef nonnull %5, i32 noundef %142, i32 noundef 0) #4
+  %143 = call i32 @nspi_dissect_struct_MAPIUID(ptr noundef %69, i32 noundef %.2.i, ptr noundef %1, ptr noundef %77, ptr noundef nonnull @dissect_mapiprops.di, ptr noundef nonnull %5, i32 noundef %142, i32 noundef 0)
   br label %177
 
 144:                                              ; preds = %122
   %145 = load i32, ptr @hf_tnef_PropValue_ft, align 4
-  %146 = call i32 @nspi_dissect_struct_FILETIME(ptr noundef %69, i32 noundef %.2.i, ptr noundef %1, ptr noundef %77, ptr noundef nonnull @dissect_mapiprops.di, ptr noundef nonnull %5, i32 noundef %145, i32 noundef 0) #4
+  %146 = call i32 @nspi_dissect_struct_FILETIME(ptr noundef %69, i32 noundef %.2.i, ptr noundef %1, ptr noundef %77, ptr noundef nonnull @dissect_mapiprops.di, ptr noundef nonnull %5, i32 noundef %145, i32 noundef 0)
   br label %177
 
 147:                                              ; preds = %122
   %148 = load i32, ptr @hf_tnef_PropValue_err, align 4
-  %149 = call i32 @nspi_dissect_enum_MAPISTATUS(ptr noundef %69, i32 noundef %.2.i, ptr noundef %1, ptr noundef %77, ptr noundef nonnull @dissect_mapiprops.di, ptr noundef nonnull %5, i32 noundef %148, ptr noundef null) #4
+  %149 = call i32 @nspi_dissect_enum_MAPISTATUS(ptr noundef %69, i32 noundef %.2.i, ptr noundef %1, ptr noundef %77, ptr noundef nonnull @dissect_mapiprops.di, ptr noundef nonnull %5, i32 noundef %148, ptr noundef null)
   br label %177
 
 150:                                              ; preds = %122
   %151 = load i32, ptr @hf_tnef_PropValue_MVi, align 4
-  %152 = call i32 @nspi_dissect_struct_SShortArray(ptr noundef %69, i32 noundef %.2.i, ptr noundef %1, ptr noundef %77, ptr noundef nonnull @dissect_mapiprops.di, ptr noundef nonnull %5, i32 noundef %151, i32 noundef 0) #4
+  %152 = call i32 @nspi_dissect_struct_SShortArray(ptr noundef %69, i32 noundef %.2.i, ptr noundef %1, ptr noundef %77, ptr noundef nonnull @dissect_mapiprops.di, ptr noundef nonnull %5, i32 noundef %151, i32 noundef 0)
   br label %177
 
 153:                                              ; preds = %122
   %154 = load i32, ptr @hf_tnef_PropValue_MVl, align 4
-  %155 = call i32 @nspi_dissect_struct_MV_LONG_STRUCT(ptr noundef %69, i32 noundef %.2.i, ptr noundef %1, ptr noundef %77, ptr noundef nonnull @dissect_mapiprops.di, ptr noundef nonnull %5, i32 noundef %154, i32 noundef 0) #4
+  %155 = call i32 @nspi_dissect_struct_MV_LONG_STRUCT(ptr noundef %69, i32 noundef %.2.i, ptr noundef %1, ptr noundef %77, ptr noundef nonnull @dissect_mapiprops.di, ptr noundef nonnull %5, i32 noundef %154, i32 noundef 0)
   br label %177
 
 156:                                              ; preds = %122
   %157 = load i32, ptr @hf_tnef_PropValue_MVszA, align 4
-  %158 = call i32 @nspi_dissect_struct_SLPSTRArray(ptr noundef %69, i32 noundef %.2.i, ptr noundef %1, ptr noundef %77, ptr noundef nonnull @dissect_mapiprops.di, ptr noundef nonnull %5, i32 noundef %157, i32 noundef 0) #4
+  %158 = call i32 @nspi_dissect_struct_SLPSTRArray(ptr noundef %69, i32 noundef %.2.i, ptr noundef %1, ptr noundef %77, ptr noundef nonnull @dissect_mapiprops.di, ptr noundef nonnull %5, i32 noundef %157, i32 noundef 0)
   br label %177
 
 159:                                              ; preds = %122
   %160 = load i32, ptr @hf_tnef_PropValue_MVbin, align 4
-  %161 = call i32 @nspi_dissect_struct_SBinaryArray(ptr noundef %69, i32 noundef %.2.i, ptr noundef %1, ptr noundef %77, ptr noundef nonnull @dissect_mapiprops.di, ptr noundef nonnull %5, i32 noundef %160, i32 noundef 0) #4
+  %161 = call i32 @nspi_dissect_struct_SBinaryArray(ptr noundef %69, i32 noundef %.2.i, ptr noundef %1, ptr noundef %77, ptr noundef nonnull @dissect_mapiprops.di, ptr noundef nonnull %5, i32 noundef %160, i32 noundef 0)
   br label %177
 
 162:                                              ; preds = %122
   %163 = load i32, ptr @hf_tnef_PropValue_MVguid, align 4
-  %164 = call i32 @nspi_dissect_struct_SGuidArray(ptr noundef %69, i32 noundef %.2.i, ptr noundef %1, ptr noundef %77, ptr noundef nonnull @dissect_mapiprops.di, ptr noundef nonnull %5, i32 noundef %163, i32 noundef 0) #4
+  %164 = call i32 @nspi_dissect_struct_SGuidArray(ptr noundef %69, i32 noundef %.2.i, ptr noundef %1, ptr noundef %77, ptr noundef nonnull @dissect_mapiprops.di, ptr noundef nonnull %5, i32 noundef %163, i32 noundef 0)
   br label %177
 
 165:                                              ; preds = %122
   %166 = load i32, ptr @hf_tnef_PropValue_MVszW, align 4
-  %167 = call i32 @nspi_dissect_struct_MV_UNICODE_STRUCT(ptr noundef %69, i32 noundef %.2.i, ptr noundef %1, ptr noundef %77, ptr noundef nonnull @dissect_mapiprops.di, ptr noundef nonnull %5, i32 noundef %166, i32 noundef 0) #4
+  %167 = call i32 @nspi_dissect_struct_MV_UNICODE_STRUCT(ptr noundef %69, i32 noundef %.2.i, ptr noundef %1, ptr noundef %77, ptr noundef nonnull @dissect_mapiprops.di, ptr noundef nonnull %5, i32 noundef %166, i32 noundef 0)
   br label %177
 
 168:                                              ; preds = %122
   %169 = load i32, ptr @hf_tnef_PropValue_MVft, align 4
-  %170 = call i32 @nspi_dissect_struct_SDateTimeArray(ptr noundef %69, i32 noundef %.2.i, ptr noundef %1, ptr noundef %77, ptr noundef nonnull @dissect_mapiprops.di, ptr noundef nonnull %5, i32 noundef %169, i32 noundef 0) #4
+  %170 = call i32 @nspi_dissect_struct_SDateTimeArray(ptr noundef %69, i32 noundef %.2.i, ptr noundef %1, ptr noundef %77, ptr noundef nonnull @dissect_mapiprops.di, ptr noundef nonnull %5, i32 noundef %169, i32 noundef 0)
   br label %177
 
 171:                                              ; preds = %122
   %172 = load i32, ptr @hf_tnef_PropValue_null, align 4
-  %173 = call i32 @PIDL_dissect_uint32(ptr noundef %69, i32 noundef %.2.i, ptr noundef %1, ptr noundef %77, ptr noundef nonnull @dissect_mapiprops.di, ptr noundef nonnull %5, i32 noundef %172, i32 noundef 0) #4
+  %173 = call i32 @PIDL_dissect_uint32(ptr noundef %69, i32 noundef %.2.i, ptr noundef %1, ptr noundef %77, ptr noundef nonnull @dissect_mapiprops.di, ptr noundef nonnull %5, i32 noundef %172, i32 noundef 0)
   br label %177
 
 174:                                              ; preds = %122
   %175 = load i32, ptr @hf_tnef_PropValue_object, align 4
-  %176 = call i32 @PIDL_dissect_uint32(ptr noundef %69, i32 noundef %.2.i, ptr noundef %1, ptr noundef %77, ptr noundef nonnull @dissect_mapiprops.di, ptr noundef nonnull %5, i32 noundef %175, i32 noundef 0) #4
+  %176 = call i32 @PIDL_dissect_uint32(ptr noundef %69, i32 noundef %.2.i, ptr noundef %1, ptr noundef %77, ptr noundef nonnull @dissect_mapiprops.di, ptr noundef nonnull %5, i32 noundef %175, i32 noundef 0)
   br label %177
 
 177:                                              ; preds = %174, %171, %168, %165, %162, %159, %156, %153, %150, %147, %144, %141, %138, %135, %132, %129, %126, %123, %122
@@ -628,7 +638,7 @@ define internal i32 @dissect_tnef(ptr noundef %0, ptr noundef %1, ptr noundef %2
 180:                                              ; preds = %177
   %181 = sub nsw i32 4, %179
   %182 = load i32, ptr @hf_tnef_property_padding, align 4
-  %183 = call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %182, ptr noundef %69, i32 noundef %.3.i, i32 noundef %181, i32 noundef 0) #4
+  %183 = call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %182, ptr noundef %69, i32 noundef %.3.i, i32 noundef %181, i32 noundef 0)
   %184 = add i32 %181, %.3.i
   %.pre.i = sub i32 %184, %.0156.i
   br label %185
@@ -636,39 +646,38 @@ define internal i32 @dissect_tnef(ptr noundef %0, ptr noundef %1, ptr noundef %2
 185:                                              ; preds = %180, %177
   %.pre-phi.i = phi i32 [ %.pre.i, %180 ], [ %178, %177 ]
   %.4.i = phi i32 [ %184, %180 ], [ %.3.i, %177 ]
-  call void @proto_item_set_len(ptr noundef %75, i32 noundef %.pre-phi.i) #4
-  %186 = call i32 @tvb_reported_length_remaining(ptr noundef %69, i32 noundef %.4.i) #4
+  call void @proto_item_set_len(ptr noundef %75, i32 noundef %.pre-phi.i)
+  %186 = call i32 @tvb_reported_length_remaining(ptr noundef %69, i32 noundef %.4.i)
   %187 = icmp sgt i32 %186, 0
-  br i1 %187, label %.lr.ph.i, label %dissect_mapiprops.exit, !llvm.loop !4
+  br i1 %187, label %.lr.ph.i, label %dissect_mapiprops.exit, !llvm.loop !6
 
 dissect_mapiprops.exit:                           ; preds = %185, %64
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #4
   br label %239
 
 188:                                              ; preds = %26, %26
   %189 = load i32, ptr @ett_tnef_attribute_address, align 4
-  %190 = call ptr @proto_item_add_subtree(ptr noundef %35, i32 noundef %189) #4
-  %191 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %49) #4
+  %190 = call ptr @proto_item_add_subtree(ptr noundef %35, i32 noundef %189)
+  %191 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %49)
   %192 = load i32, ptr @hf_tnef_value_length, align 4
-  %193 = call ptr @proto_tree_add_item(ptr noundef %190, i32 noundef %192, ptr noundef %0, i32 noundef %49, i32 noundef 2, i32 noundef -2147483648) #4
+  %193 = call ptr @proto_tree_add_item(ptr noundef %190, i32 noundef %192, ptr noundef %0, i32 noundef %49, i32 noundef 2, i32 noundef -2147483648)
   %194 = add i32 %.0135144, 11
   %195 = load i32, ptr @hf_tnef_attribute_display_name, align 4
   %196 = zext i16 %191 to i32
-  %197 = call ptr @proto_tree_add_item(ptr noundef %190, i32 noundef %195, ptr noundef %0, i32 noundef %194, i32 noundef %196, i32 noundef 0) #4
+  %197 = call ptr @proto_tree_add_item(ptr noundef %190, i32 noundef %195, ptr noundef %0, i32 noundef %194, i32 noundef %196, i32 noundef 0)
   %198 = add i32 %194, %196
-  %199 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %198) #4
+  %199 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %198)
   %200 = load i32, ptr @hf_tnef_value_length, align 4
-  %201 = call ptr @proto_tree_add_item(ptr noundef %190, i32 noundef %200, ptr noundef %0, i32 noundef %198, i32 noundef 2, i32 noundef -2147483648) #4
+  %201 = call ptr @proto_tree_add_item(ptr noundef %190, i32 noundef %200, ptr noundef %0, i32 noundef %198, i32 noundef 2, i32 noundef -2147483648)
   %202 = add i32 %198, 2
   %203 = load i32, ptr @hf_tnef_attribute_email_address, align 4
   %204 = zext i16 %199 to i32
-  %205 = call ptr @proto_tree_add_item(ptr noundef %190, i32 noundef %203, ptr noundef %0, i32 noundef %202, i32 noundef %204, i32 noundef 0) #4
+  %205 = call ptr @proto_tree_add_item(ptr noundef %190, i32 noundef %203, ptr noundef %0, i32 noundef %202, i32 noundef %204, i32 noundef 0)
   br label %239
 
 206:                                              ; preds = %26
   %207 = load i32, ptr @hf_tnef_priority, align 4
-  %208 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %207, ptr noundef %0, i32 noundef %49, i32 noundef %46, i32 noundef -2147483648) #4
+  %208 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %207, ptr noundef %0, i32 noundef %49, i32 noundef %46, i32 noundef -2147483648)
   br label %239
 
 209:                                              ; preds = %26
@@ -681,37 +690,39 @@ dissect_mapiprops.exit:                           ; preds = %185, %64
 
 211:                                              ; preds = %209
   %212 = load i32, ptr @hf_tnef_attribute_date, align 4
-  %213 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %212, ptr noundef %0, i32 noundef %49, i32 noundef %46, i32 noundef 0) #4
+  %213 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %212, ptr noundef %0, i32 noundef %49, i32 noundef %46, i32 noundef 0)
   %214 = load i32, ptr @ett_tnef_attribute_date, align 4
-  %215 = call ptr @proto_item_add_subtree(ptr noundef %213, i32 noundef %214) #4
-  %216 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %49, i32 noundef %46) #4
+  %215 = call ptr @proto_item_add_subtree(ptr noundef %213, i32 noundef %214)
+  %216 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %49, i32 noundef %46)
   %217 = load i32, ptr @hf_tnef_attribute_date_year, align 4
-  %218 = call ptr @proto_tree_add_item(ptr noundef %215, i32 noundef %217, ptr noundef %216, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648) #4
+  %218 = call ptr @proto_tree_add_item(ptr noundef %215, i32 noundef %217, ptr noundef %216, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648)
   %219 = load i32, ptr @hf_tnef_attribute_date_month, align 4
-  %220 = call ptr @proto_tree_add_item(ptr noundef %215, i32 noundef %219, ptr noundef %216, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648) #4
+  %220 = call ptr @proto_tree_add_item(ptr noundef %215, i32 noundef %219, ptr noundef %216, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648)
   %221 = load i32, ptr @hf_tnef_attribute_date_day, align 4
-  %222 = call ptr @proto_tree_add_item(ptr noundef %215, i32 noundef %221, ptr noundef %216, i32 noundef 4, i32 noundef 2, i32 noundef -2147483648) #4
+  %222 = call ptr @proto_tree_add_item(ptr noundef %215, i32 noundef %221, ptr noundef %216, i32 noundef 4, i32 noundef 2, i32 noundef -2147483648)
   %223 = load i32, ptr @hf_tnef_attribute_date_hour, align 4
-  %224 = call ptr @proto_tree_add_item(ptr noundef %215, i32 noundef %223, ptr noundef %216, i32 noundef 6, i32 noundef 2, i32 noundef -2147483648) #4
+  %224 = call ptr @proto_tree_add_item(ptr noundef %215, i32 noundef %223, ptr noundef %216, i32 noundef 6, i32 noundef 2, i32 noundef -2147483648)
   %225 = load i32, ptr @hf_tnef_attribute_date_minute, align 4
-  %226 = call ptr @proto_tree_add_item(ptr noundef %215, i32 noundef %225, ptr noundef %216, i32 noundef 8, i32 noundef 2, i32 noundef -2147483648) #4
+  %226 = call ptr @proto_tree_add_item(ptr noundef %215, i32 noundef %225, ptr noundef %216, i32 noundef 8, i32 noundef 2, i32 noundef -2147483648)
   %227 = load i32, ptr @hf_tnef_attribute_date_second, align 4
-  %228 = call ptr @proto_tree_add_item(ptr noundef %215, i32 noundef %227, ptr noundef %216, i32 noundef 10, i32 noundef 2, i32 noundef -2147483648) #4
+  %228 = call ptr @proto_tree_add_item(ptr noundef %215, i32 noundef %227, ptr noundef %216, i32 noundef 10, i32 noundef 2, i32 noundef -2147483648)
   %229 = load i32, ptr @hf_tnef_attribute_date_day_of_week, align 4
-  %230 = call ptr @proto_tree_add_item(ptr noundef %215, i32 noundef %229, ptr noundef %216, i32 noundef 12, i32 noundef 2, i32 noundef -2147483648) #4
+  %230 = call ptr @proto_tree_add_item(ptr noundef %215, i32 noundef %229, ptr noundef %216, i32 noundef 12, i32 noundef 2, i32 noundef -2147483648)
   br label %239
 
 231:                                              ; preds = %209
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
   %232 = load i32, ptr @hf_tnef_attribute_string, align 4
   %233 = load ptr, ptr %25, align 8
-  %234 = call ptr @proto_tree_add_item_ret_string(ptr noundef %30, i32 noundef %232, ptr noundef %0, i32 noundef %49, i32 noundef %46, i32 noundef %.0145, ptr noundef %233, ptr noundef nonnull %8) #4
+  %234 = call ptr @proto_tree_add_item_ret_string(ptr noundef %30, i32 noundef %232, ptr noundef %0, i32 noundef %49, i32 noundef %46, i32 noundef %.0145, ptr noundef %233, ptr noundef nonnull %8)
   %235 = load ptr, ptr %8, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %28, ptr noundef nonnull @.str.174, ptr noundef %235) #4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %28, ptr noundef nonnull @.str.179, ptr noundef %235)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4
   br label %239
 
 236:                                              ; preds = %209
   %237 = load i32, ptr @hf_tnef_attribute_value, align 4
-  %238 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %237, ptr noundef %0, i32 noundef %49, i32 noundef %46, i32 noundef 0) #4
+  %238 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %237, ptr noundef %0, i32 noundef %49, i32 noundef %46, i32 noundef 0)
   br label %239
 
 switch.lookup:                                    ; preds = %50
@@ -724,112 +735,135 @@ switch.lookup:                                    ; preds = %50
   %240 = add i32 %46, %49
   %spec.select = call i32 @llvm.umax.i32(i32 %240, i32 %49)
   %241 = load i32, ptr @hf_tnef_attribute_checksum, align 4
-  %242 = call ptr @proto_tree_add_checksum(ptr noundef %30, ptr noundef %0, i32 noundef %spec.select, i32 noundef %241, i32 noundef -1, ptr noundef null, ptr noundef %1, i32 noundef 0, i32 noundef -2147483648, i32 noundef 0) #4
+  %242 = call ptr @proto_tree_add_checksum(ptr noundef %30, ptr noundef %0, i32 noundef %spec.select, i32 noundef %241, i32 noundef -1, ptr noundef null, ptr noundef %1, i32 noundef 0, i32 noundef -2147483648, i32 noundef 0)
   %243 = add i32 %spec.select, 2
   %244 = sub i32 %243, %.0135144
-  call void @proto_item_set_len(ptr noundef %28, i32 noundef %244) #4
-  %245 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %243) #4
+  call void @proto_item_set_len(ptr noundef %28, i32 noundef %244)
+  %245 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %243)
   %246 = icmp sgt i32 %245, 9
-  br i1 %246, label %26, label %._crit_edge, !llvm.loop !6
+  br i1 %246, label %26, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %239, %20
   %.0135.lcssa = phi i32 [ 6, %20 ], [ %243, %239 ]
-  %247 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0135.lcssa) #4
+  %247 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0135.lcssa)
   %.not143 = icmp eq i32 %247, 0
   br i1 %.not143, label %252, label %248
 
 248:                                              ; preds = %._crit_edge
   %249 = load i32, ptr @hf_tnef_padding, align 4
-  %250 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0135.lcssa) #4
-  %251 = call ptr @proto_tree_add_item(ptr noundef %.0137, i32 noundef %249, ptr noundef %0, i32 noundef %.0135.lcssa, i32 noundef %250, i32 noundef 0) #4
+  %250 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0135.lcssa)
+  %251 = call ptr @proto_tree_add_item(ptr noundef %.0137, i32 noundef %249, ptr noundef %0, i32 noundef %.0135.lcssa, i32 noundef %250, i32 noundef 0)
   br label %252
 
 252:                                              ; preds = %248, %._crit_edge
-  %253 = call i32 @tvb_captured_length(ptr noundef %0) #4
+  %253 = call i32 @tvb_captured_length(ptr noundef %0)
   br label %254
 
 254:                                              ; preds = %252, %18
   %.0134 = phi i32 [ 4, %18 ], [ %253, %252 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
   ret i32 %.0134
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_tnef() local_unnamed_addr #0 {
   %1 = load i32, ptr @proto_tnef, align 4
-  %2 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_tnef_file, i32 noundef %1) #4
+  %2 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_tnef_file, i32 noundef %1)
   %3 = load ptr, ptr @tnef_handle, align 8
-  tail call void @dissector_add_string(ptr noundef nonnull @.str.115, ptr noundef nonnull @.str.116, ptr noundef %3) #4
+  tail call void @dissector_add_string(ptr noundef nonnull @.str.115, ptr noundef nonnull @.str.116, ptr noundef %3)
   %4 = load ptr, ptr @tnef_handle, align 8
   %5 = load i32, ptr @proto_tnef, align 4
-  tail call void @register_ber_oid_dissector_handle(ptr noundef nonnull @.str.117, ptr noundef %4, i32 noundef %5, ptr noundef nonnull @.str.118) #4
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.119, i32 noundef 114, ptr noundef %2) #4
+  tail call void @register_ber_oid_dissector_handle(ptr noundef nonnull @.str.117, ptr noundef %4, i32 noundef %5, ptr noundef nonnull @.str.118)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.119, i32 noundef 114, ptr noundef %2)
   ret void
 }
 
-declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_tnef_file(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
-  tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.113) #4
+  tail call void @col_set_str(ptr noundef %6, i32 noundef 35, ptr noundef nonnull @.str.113)
   %7 = load ptr, ptr %5, align 8
-  tail call void @col_set_str(ptr noundef %7, i32 noundef 36, ptr noundef nonnull @.str.181) #4
+  tail call void @col_set_str(ptr noundef %7, i32 noundef 37, ptr noundef nonnull @.str.186)
   %8 = load ptr, ptr %5, align 8
-  tail call void @col_append_str(ptr noundef %8, i32 noundef 25, ptr noundef nonnull @.str.112) #4
+  tail call void @col_append_str(ptr noundef %8, i32 noundef 25, ptr noundef nonnull @.str.112)
   %9 = tail call i32 @dissect_tnef(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
-  %10 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
+  %10 = tail call i32 @tvb_captured_length(ptr noundef %0)
   ret i32 %10
 }
 
-declare void @dissector_add_string(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_add_string(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @register_ber_oid_dissector_handle(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @register_ber_oid_dissector_handle(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_item_ret_uint64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item_ret_uint64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_item_ret_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item_ret_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_checksum(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_checksum(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
 
-declare i32 @PIDL_dissect_uint16(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @PIDL_dissect_uint16(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @PIDL_dissect_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @PIDL_dissect_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_counted_values(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef range(i32 -2147483644, 61) %5) unnamed_addr #0 {
-  %7 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %1) #4
+  %7 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %1)
   %8 = load i32, ptr @hf_tnef_values_count, align 4
-  %9 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %8, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef -2147483648) #4
+  %9 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %8, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef -2147483648)
   %10 = icmp ugt i32 %7, 1
   br i1 %10, label %.thread, label %15
 
 .thread:                                          ; preds = %6
-  %11 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %4, ptr noundef %3, ptr noundef nonnull @ei_tnef_expect_single_item, ptr noundef %0, i32 noundef %1, i32 noundef 4, ptr noundef nonnull @.str.180, i32 noundef %7) #4
+  %11 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %4, ptr noundef %3, ptr noundef nonnull @ei_tnef_expect_single_item, ptr noundef %0, i32 noundef %1, i32 noundef 4, ptr noundef nonnull @.str.185, i32 noundef %7)
   %12 = load i32, ptr @ett_tnef_counted_items, align 4
-  %13 = tail call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #4
+  %13 = tail call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12)
   %14 = add i32 %1, 4
   br label %.lr.ph.preheader
 
@@ -840,77 +874,87 @@ define internal fastcc i32 @dissect_counted_values(ptr noundef %0, i32 noundef %
 
 .lr.ph.preheader:                                 ; preds = %.thread, %15
   %17 = phi i32 [ %14, %.thread ], [ %16, %15 ]
-  %.03339 = phi ptr [ %13, %.thread ], [ %4, %15 ]
+  %.03238 = phi ptr [ %13, %.thread ], [ %4, %15 ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.036 = phi i32 [ %24, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.03235 = phi i32 [ %23, %.lr.ph ], [ %17, %.lr.ph.preheader ]
-  %18 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.03235) #4
+  %.035 = phi i32 [ %24, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.03134 = phi i32 [ %23, %.lr.ph ], [ %17, %.lr.ph.preheader ]
+  %18 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.03134)
   %19 = load i32, ptr @hf_tnef_value_length, align 4
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %.03339, i32 noundef %19, ptr noundef %0, i32 noundef %.03235, i32 noundef 4, i32 noundef -2147483648) #4
-  %21 = add i32 %.03235, 4
-  %22 = tail call ptr @proto_tree_add_item(ptr noundef %.03339, i32 noundef %2, ptr noundef %0, i32 noundef %21, i32 noundef %18, i32 noundef %5) #4
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %.03238, i32 noundef %19, ptr noundef %0, i32 noundef %.03134, i32 noundef 4, i32 noundef -2147483648)
+  %21 = add i32 %.03134, 4
+  %22 = tail call ptr @proto_tree_add_item(ptr noundef %.03238, i32 noundef %2, ptr noundef %0, i32 noundef %21, i32 noundef %18, i32 noundef %5)
   %23 = add i32 %18, %21
-  %24 = add nuw i32 %.036, 1
+  %24 = add nuw i32 %.035, 1
   %exitcond.not = icmp eq i32 %24, %7
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %15
-  %.032.lcssa = phi i32 [ %16, %15 ], [ %23, %.lr.ph ]
-  ret i32 %.032.lcssa
+  %.031.lcssa = phi i32 [ %16, %15 ], [ %23, %.lr.ph ]
+  ret i32 %.031.lcssa
 }
 
-declare i32 @nspi_dissect_struct_MAPIUID(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @nspi_dissect_struct_MAPIUID(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @nspi_dissect_struct_FILETIME(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @nspi_dissect_struct_FILETIME(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @nspi_dissect_enum_MAPISTATUS(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @nspi_dissect_enum_MAPISTATUS(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @nspi_dissect_struct_SShortArray(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @nspi_dissect_struct_SShortArray(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @nspi_dissect_struct_MV_LONG_STRUCT(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @nspi_dissect_struct_MV_LONG_STRUCT(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @nspi_dissect_struct_SLPSTRArray(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @nspi_dissect_struct_SLPSTRArray(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @nspi_dissect_struct_SBinaryArray(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @nspi_dissect_struct_SBinaryArray(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @nspi_dissect_struct_SGuidArray(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @nspi_dissect_struct_SGuidArray(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @nspi_dissect_struct_MV_UNICODE_STRUCT(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @nspi_dissect_struct_MV_UNICODE_STRUCT(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @nspi_dissect_struct_SDateTimeArray(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @nspi_dissect_struct_SDateTimeArray(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #3
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

@@ -1,12 +1,12 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct._value_string = type { i32, ptr }
 %struct._value_string_ext = type { ptr, i32, i32, ptr, ptr }
 %struct._scsi_cdb_table_t = type { ptr }
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._value_string = type { i32, ptr }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
@@ -36,10 +36,9 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_scsi_smc_avoltag = internal global i32 0, align 4
 @hf_scsi_smc_element_descriptor_length = internal global i32 0, align 4
 @hf_scsi_smc_byte_count_of_descriptor_data_available = internal global i32 0, align 4
-@scsi_smc_vals = internal constant [39 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.108 }, %struct._value_string { i32 3, ptr @.str.109 }, %struct._value_string { i32 7, ptr @.str.110 }, %struct._value_string { i32 18, ptr @.str.111 }, %struct._value_string { i32 21, ptr @.str.112 }, %struct._value_string { i32 22, ptr @.str.113 }, %struct._value_string { i32 23, ptr @.str.114 }, %struct._value_string { i32 26, ptr @.str.115 }, %struct._value_string { i32 27, ptr @.str.116 }, %struct._value_string { i32 28, ptr @.str.117 }, %struct._value_string { i32 29, ptr @.str.118 }, %struct._value_string { i32 30, ptr @.str.119 }, %struct._value_string { i32 43, ptr @.str.120 }, %struct._value_string { i32 55, ptr @.str.121 }, %struct._value_string { i32 59, ptr @.str.122 }, %struct._value_string { i32 60, ptr @.str.123 }, %struct._value_string { i32 64, ptr @.str.124 }, %struct._value_string { i32 68, ptr @.str.125 }, %struct._value_string { i32 76, ptr @.str.126 }, %struct._value_string { i32 77, ptr @.str.127 }, %struct._value_string { i32 85, ptr @.str.128 }, %struct._value_string { i32 86, ptr @.str.129 }, %struct._value_string { i32 87, ptr @.str.130 }, %struct._value_string { i32 90, ptr @.str.131 }, %struct._value_string { i32 94, ptr @.str.132 }, %struct._value_string { i32 95, ptr @.str.133 }, %struct._value_string { i32 134, ptr @.str.134 }, %struct._value_string { i32 135, ptr @.str.135 }, %struct._value_string { i32 140, ptr @.str.136 }, %struct._value_string { i32 141, ptr @.str.137 }, %struct._value_string { i32 160, ptr @.str.138 }, %struct._value_string { i32 163, ptr @.str.139 }, %struct._value_string { i32 165, ptr @.str.140 }, %struct._value_string { i32 167, ptr @.str.141 }, %struct._value_string { i32 180, ptr @.str.142 }, %struct._value_string { i32 181, ptr @.str.143 }, %struct._value_string { i32 182, ptr @.str.144 }, %struct._value_string { i32 184, ptr @.str.145 }, %struct._value_string zeroinitializer], align 16
 @.str = private unnamed_addr constant [14 x i8] c"scsi_smc_vals\00", align 1
 @scsi_smc_vals_ext = global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 38, ptr @scsi_smc_vals, ptr @.str }, align 8
-@scsi_smc_table = hidden global <{ [185 x %struct._scsi_cdb_table_t], [71 x %struct._scsi_cdb_table_t] }> <{ [185 x %struct._scsi_cdb_table_t] [%struct._scsi_cdb_table_t { ptr @dissect_spc_testunitready }, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t { ptr @dissect_spc_requestsense }, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t { ptr @dissect_smc_initialize_element_status }, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t { ptr @dissect_spc_inquiry }, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t { ptr @dissect_spc_modeselect6 }, %struct._scsi_cdb_table_t { ptr @dissect_spc_reserve6 }, %struct._scsi_cdb_table_t { ptr @dissect_spc_release6 }, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t { ptr @dissect_spc_modesense6 }, %struct._scsi_cdb_table_t { ptr @dissect_smc_openclose_importexport_element }, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t { ptr @dissect_spc_senddiagnostic }, %struct._scsi_cdb_table_t { ptr @dissect_spc_preventallowmediaremoval }, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t { ptr @dissect_smc_position_to_element }, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t { ptr @dissect_smc_initialize_element_status_with_range }, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t { ptr @dissect_spc_writebuffer }, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t { ptr @dissect_spc_logselect }, %struct._scsi_cdb_table_t { ptr @dissect_spc_logsense }, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t { ptr @dissect_spc_modeselect10 }, %struct._scsi_cdb_table_t { ptr @dissect_spc_reserve10 }, %struct._scsi_cdb_table_t { ptr @dissect_spc_release10 }, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t { ptr @dissect_spc_modesense10 }, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t { ptr @dissect_spc_persistentreservein }, %struct._scsi_cdb_table_t { ptr @dissect_spc_persistentreserveout }, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t { ptr @dissect_spc_reportluns }, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t { ptr @dissect_spc_mgmt_protocol_in }, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t { ptr @dissect_smc_movemedium }, %struct._scsi_cdb_table_t { ptr @dissect_smc_exchangemedium }, %struct._scsi_cdb_table_t { ptr @dissect_smc_movemedium }, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t { ptr @dissect_smc_readelementstatus }, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t { ptr @dissect_smc_readelementstatus }], [71 x %struct._scsi_cdb_table_t] zeroinitializer }>, align 16
+@scsi_smc_table = hidden constant <{ [185 x %struct._scsi_cdb_table_t], [71 x %struct._scsi_cdb_table_t] }> <{ [185 x %struct._scsi_cdb_table_t] [%struct._scsi_cdb_table_t { ptr @dissect_spc_testunitready }, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t { ptr @dissect_spc_requestsense }, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t { ptr @dissect_smc_initialize_element_status }, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t { ptr @dissect_spc_inquiry }, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t { ptr @dissect_spc_modeselect6 }, %struct._scsi_cdb_table_t { ptr @dissect_spc_reserve6 }, %struct._scsi_cdb_table_t { ptr @dissect_spc_release6 }, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t { ptr @dissect_spc_modesense6 }, %struct._scsi_cdb_table_t { ptr @dissect_smc_openclose_importexport_element }, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t { ptr @dissect_spc_senddiagnostic }, %struct._scsi_cdb_table_t { ptr @dissect_spc_preventallowmediaremoval }, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t { ptr @dissect_smc_position_to_element }, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t { ptr @dissect_smc_initialize_element_status_with_range }, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t { ptr @dissect_spc_writebuffer }, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t { ptr @dissect_spc_logselect }, %struct._scsi_cdb_table_t { ptr @dissect_spc_logsense }, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t { ptr @dissect_spc_modeselect10 }, %struct._scsi_cdb_table_t { ptr @dissect_spc_reserve10 }, %struct._scsi_cdb_table_t { ptr @dissect_spc_release10 }, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t { ptr @dissect_spc_modesense10 }, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t { ptr @dissect_spc_persistentreservein }, %struct._scsi_cdb_table_t { ptr @dissect_spc_persistentreserveout }, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t { ptr @dissect_spc_reportluns }, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t { ptr @dissect_spc_mgmt_protocol_in }, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t { ptr @dissect_smc_movemedium }, %struct._scsi_cdb_table_t { ptr @dissect_smc_exchangemedium }, %struct._scsi_cdb_table_t { ptr @dissect_smc_movemedium }, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t { ptr @dissect_smc_readelementstatus }, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t zeroinitializer, %struct._scsi_cdb_table_t { ptr @dissect_smc_readelementstatus }], [71 x %struct._scsi_cdb_table_t] zeroinitializer }>, align 16
 @proto_register_scsi_smc.hf = internal global [55 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_scsi_smc_opcode, %struct._header_field_info { ptr @.str.1, ptr @.str.2, i32 4, i32 514, ptr @scsi_smc_vals_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_mta, %struct._header_field_info { ptr @.str.3, ptr @.str.4, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_sa, %struct._header_field_info { ptr @.str.5, ptr @.str.6, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_da, %struct._header_field_info { ptr @.str.7, ptr @.str.8, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_fda, %struct._header_field_info { ptr @.str.9, ptr @.str.10, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_sda, %struct._header_field_info { ptr @.str.11, ptr @.str.12, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_medium_flags, %struct._header_field_info { ptr @.str.13, ptr @.str.14, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_inv1, %struct._header_field_info { ptr @.str.15, ptr @.str.16, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_inv2, %struct._header_field_info { ptr @.str.17, ptr @.str.18, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_range_flags, %struct._header_field_info { ptr @.str.13, ptr @.str.19, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_fast, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_range, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_num_elements, %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_invert, %struct._header_field_info { ptr @.str.26, ptr @.str.27, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_ea, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_action_code, %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 4, i32 2, ptr @action_code_vals, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_scsi_bus_address, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_source_storage_element_address, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_code_set, %struct._header_field_info { ptr @.str.36, ptr @.str.37, i32 4, i32 1, ptr @scsi_devid_codeset_val, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_identifier_type, %struct._header_field_info { ptr @.str.38, ptr @.str.39, i32 4, i32 1, ptr @scsi_devid_idtype_val, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_identifier_length, %struct._header_field_info { ptr @.str.40, ptr @.str.41, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_identifier, %struct._header_field_info { ptr @.str.42, ptr @.str.43, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_vendor_specific_data, %struct._header_field_info { ptr @.str.44, ptr @.str.45, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_voltag, %struct._header_field_info { ptr @.str.46, ptr @.str.47, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_starting_element_address, %struct._header_field_info { ptr @.str.48, ptr @.str.49, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_number_of_elements, %struct._header_field_info { ptr @.str.24, ptr @.str.50, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_curdata, %struct._header_field_info { ptr @.str.51, ptr @.str.52, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_allocation_length, %struct._header_field_info { ptr @.str.53, ptr @.str.54, i32 6, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_first_element_address_reported, %struct._header_field_info { ptr @.str.55, ptr @.str.56, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_number_of_elements_available, %struct._header_field_info { ptr @.str.57, ptr @.str.58, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_byte_count_of_report_available, %struct._header_field_info { ptr @.str.59, ptr @.str.60, i32 6, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_element_type_code, %struct._header_field_info { ptr @.str.61, ptr @.str.62, i32 4, i32 1, ptr @element_type_code_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_element_type_code_0F, %struct._header_field_info { ptr @.str.61, ptr @.str.62, i32 4, i32 1, ptr @element_type_code_vals, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_pvoltag, %struct._header_field_info { ptr @.str.63, ptr @.str.64, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_element_descriptor_length, %struct._header_field_info { ptr @.str.65, ptr @.str.66, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_byte_count_of_descriptor_data_available, %struct._header_field_info { ptr @.str.67, ptr @.str.68, i32 6, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_except, %struct._header_field_info { ptr @.str.69, ptr @.str.70, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_access, %struct._header_field_info { ptr @.str.71, ptr @.str.72, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_cmc, %struct._header_field_info { ptr @.str.73, ptr @.str.74, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_additional_sense_code_qualifier, %struct._header_field_info { ptr @.str.75, ptr @.str.76, i32 5, i32 514, ptr @scsi_asc_val_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_not_bus, %struct._header_field_info { ptr @.str.77, ptr @.str.78, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_id_valid, %struct._header_field_info { ptr @.str.79, ptr @.str.80, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_lu_valid, %struct._header_field_info { ptr @.str.81, ptr @.str.82, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_svalid, %struct._header_field_info { ptr @.str.83, ptr @.str.84, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_dvcid, %struct._header_field_info { ptr @.str.85, ptr @.str.86, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_avoltag, %struct._header_field_info { ptr @.str.87, ptr @.str.64, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_full, %struct._header_field_info { ptr @.str.88, ptr @.str.89, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_exenab, %struct._header_field_info { ptr @.str.90, ptr @.str.91, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_inenab, %struct._header_field_info { ptr @.str.92, ptr @.str.93, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_impexp, %struct._header_field_info { ptr @.str.94, ptr @.str.95, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_lun, %struct._header_field_info { ptr @.str.96, ptr @.str.97, i32 4, i32 1, ptr null, i64 7, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_primary_vol_tag_id, %struct._header_field_info { ptr @.str.98, ptr @.str.99, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_alternate_vol_tag_id, %struct._header_field_info { ptr @.str.100, ptr @.str.101, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_primary_vol_seq_num, %struct._header_field_info { ptr @.str.102, ptr @.str.103, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_scsi_smc_alternate_vol_seq_num, %struct._header_field_info { ptr @.str.104, ptr @.str.105, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_scsi_smc_opcode = hidden global i32 0, align 4
 @.str.1 = private unnamed_addr constant [11 x i8] c"SMC Opcode\00", align 1
@@ -83,7 +82,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_scsi_smc_action_code = internal global i32 0, align 4
 @.str.30 = private unnamed_addr constant [12 x i8] c"Action Code\00", align 1
 @.str.31 = private unnamed_addr constant [21 x i8] c"scsi_smc.action_code\00", align 1
-@action_code_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.146 }, %struct._value_string { i32 1, ptr @.str.147 }, %struct._value_string zeroinitializer], align 16
 @hf_scsi_smc_scsi_bus_address = internal global i32 0, align 4
 @.str.32 = private unnamed_addr constant [17 x i8] c"SCSI Bus Address\00", align 1
 @.str.33 = private unnamed_addr constant [26 x i8] c"scsi_smc.scsi_bus_address\00", align 1
@@ -124,7 +122,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.60 = private unnamed_addr constant [40 x i8] c"scsi_smc.byte_count_of_report_available\00", align 1
 @.str.61 = private unnamed_addr constant [18 x i8] c"Element Type Code\00", align 1
 @.str.62 = private unnamed_addr constant [27 x i8] c"scsi_smc.element_type_code\00", align 1
-@element_type_code_vals = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.148 }, %struct._value_string { i32 1, ptr @.str.149 }, %struct._value_string { i32 2, ptr @.str.150 }, %struct._value_string { i32 3, ptr @.str.151 }, %struct._value_string { i32 4, ptr @.str.152 }, %struct._value_string zeroinitializer], align 16
 @.str.63 = private unnamed_addr constant [8 x i8] c"PVOLTAG\00", align 1
 @.str.64 = private unnamed_addr constant [17 x i8] c"scsi_smc.pvoltag\00", align 1
 @.str.65 = private unnamed_addr constant [26 x i8] c"Element Descriptor Length\00", align 1
@@ -230,103 +227,110 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.143 = private unnamed_addr constant [31 x i8] c"Request Volume Element Address\00", align 1
 @.str.144 = private unnamed_addr constant [16 x i8] c"Send Volume Tag\00", align 1
 @.str.145 = private unnamed_addr constant [20 x i8] c"Read Element Status\00", align 1
+@scsi_smc_vals = internal constant [39 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.108 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.109 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.110 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.111 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.112 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.113 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.114 }, { i32, [4 x i8], ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.115 }, { i32, [4 x i8], ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.116 }, { i32, [4 x i8], ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.117 }, { i32, [4 x i8], ptr } { i32 29, [4 x i8] zeroinitializer, ptr @.str.118 }, { i32, [4 x i8], ptr } { i32 30, [4 x i8] zeroinitializer, ptr @.str.119 }, { i32, [4 x i8], ptr } { i32 43, [4 x i8] zeroinitializer, ptr @.str.120 }, { i32, [4 x i8], ptr } { i32 55, [4 x i8] zeroinitializer, ptr @.str.121 }, { i32, [4 x i8], ptr } { i32 59, [4 x i8] zeroinitializer, ptr @.str.122 }, { i32, [4 x i8], ptr } { i32 60, [4 x i8] zeroinitializer, ptr @.str.123 }, { i32, [4 x i8], ptr } { i32 64, [4 x i8] zeroinitializer, ptr @.str.124 }, { i32, [4 x i8], ptr } { i32 68, [4 x i8] zeroinitializer, ptr @.str.125 }, { i32, [4 x i8], ptr } { i32 76, [4 x i8] zeroinitializer, ptr @.str.126 }, { i32, [4 x i8], ptr } { i32 77, [4 x i8] zeroinitializer, ptr @.str.127 }, { i32, [4 x i8], ptr } { i32 85, [4 x i8] zeroinitializer, ptr @.str.128 }, { i32, [4 x i8], ptr } { i32 86, [4 x i8] zeroinitializer, ptr @.str.129 }, { i32, [4 x i8], ptr } { i32 87, [4 x i8] zeroinitializer, ptr @.str.130 }, { i32, [4 x i8], ptr } { i32 90, [4 x i8] zeroinitializer, ptr @.str.131 }, { i32, [4 x i8], ptr } { i32 94, [4 x i8] zeroinitializer, ptr @.str.132 }, { i32, [4 x i8], ptr } { i32 95, [4 x i8] zeroinitializer, ptr @.str.133 }, { i32, [4 x i8], ptr } { i32 134, [4 x i8] zeroinitializer, ptr @.str.134 }, { i32, [4 x i8], ptr } { i32 135, [4 x i8] zeroinitializer, ptr @.str.135 }, { i32, [4 x i8], ptr } { i32 140, [4 x i8] zeroinitializer, ptr @.str.136 }, { i32, [4 x i8], ptr } { i32 141, [4 x i8] zeroinitializer, ptr @.str.137 }, { i32, [4 x i8], ptr } { i32 160, [4 x i8] zeroinitializer, ptr @.str.138 }, { i32, [4 x i8], ptr } { i32 163, [4 x i8] zeroinitializer, ptr @.str.139 }, { i32, [4 x i8], ptr } { i32 165, [4 x i8] zeroinitializer, ptr @.str.140 }, { i32, [4 x i8], ptr } { i32 167, [4 x i8] zeroinitializer, ptr @.str.141 }, { i32, [4 x i8], ptr } { i32 180, [4 x i8] zeroinitializer, ptr @.str.142 }, { i32, [4 x i8], ptr } { i32 181, [4 x i8] zeroinitializer, ptr @.str.143 }, { i32, [4 x i8], ptr } { i32 182, [4 x i8] zeroinitializer, ptr @.str.144 }, { i32, [4 x i8], ptr } { i32 184, [4 x i8] zeroinitializer, ptr @.str.145 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
 @dissect_smc_position_to_element.pte_fields = internal constant [2 x ptr] [ptr @hf_scsi_smc_invert, ptr null], align 16
 @dissect_smc_initialize_element_status_with_range.range_fields = internal constant [3 x ptr] [ptr @hf_scsi_smc_fast, ptr @hf_scsi_smc_range, ptr null], align 16
 @dissect_smc_exchangemedium.exchg_fields = internal constant [3 x ptr] [ptr @hf_scsi_smc_inv1, ptr @hf_scsi_smc_inv2, ptr null], align 16
-@.str.146 = private unnamed_addr constant [27 x i8] c"OPEN Import/Export Element\00", align 1
-@.str.147 = private unnamed_addr constant [28 x i8] c"CLOSE Import/Export Element\00", align 1
-@.str.148 = private unnamed_addr constant [18 x i8] c"All element types\00", align 1
-@.str.149 = private unnamed_addr constant [25 x i8] c"Medium transport element\00", align 1
-@.str.150 = private unnamed_addr constant [16 x i8] c"Storage element\00", align 1
-@.str.151 = private unnamed_addr constant [22 x i8] c"Import/export element\00", align 1
-@.str.152 = private unnamed_addr constant [22 x i8] c"Data transfer element\00", align 1
+@.str.147 = private unnamed_addr constant [27 x i8] c"OPEN Import/Export Element\00", align 1
+@.str.148 = private unnamed_addr constant [28 x i8] c"CLOSE Import/Export Element\00", align 1
+@action_code_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.147 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.148 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.150 = private unnamed_addr constant [18 x i8] c"All element types\00", align 1
+@.str.151 = private unnamed_addr constant [25 x i8] c"Medium transport element\00", align 1
+@.str.152 = private unnamed_addr constant [16 x i8] c"Storage element\00", align 1
+@.str.153 = private unnamed_addr constant [22 x i8] c"Import/export element\00", align 1
+@.str.154 = private unnamed_addr constant [22 x i8] c"Data transfer element\00", align 1
+@element_type_code_vals = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.150 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.151 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.152 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.153 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.154 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
 
-; Function Attrs: nounwind uwtable
-define hidden void @dissect_smc_movemedium(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define hidden void @dissect_smc_movemedium(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca i32, align 4
-  %13 = alloca i32, align 4
-  %14 = alloca i32, align 4
+  %13 = alloca i8, align 1
+  %14 = alloca i8, align 1
   %15 = alloca i32, align 4
   %16 = alloca ptr, align 8
   store ptr %0, ptr %9, align 8
   store ptr %1, ptr %10, align 8
   store ptr %2, ptr %11, align 8
   store i32 %3, ptr %12, align 4
-  store i32 %4, ptr %13, align 4
-  store i32 %5, ptr %14, align 4
+  %17 = zext i1 %4 to i8
+  store i8 %17, ptr %13, align 1
+  %18 = zext i1 %5 to i8
+  store i8 %18, ptr %14, align 1
   store i32 %6, ptr %15, align 4
   store ptr %7, ptr %16, align 8
-  %17 = load ptr, ptr %11, align 8
-  %18 = icmp ne ptr %17, null
-  br i1 %18, label %20, label %19
+  %19 = load ptr, ptr %11, align 8
+  %20 = icmp ne ptr %19, null
+  br i1 %20, label %22, label %21
 
-19:                                               ; preds = %8
-  br label %59
+21:                                               ; preds = %8
+  br label %61
 
-20:                                               ; preds = %8
-  %21 = load i32, ptr %13, align 4
-  %22 = icmp ne i32 %21, 0
-  br i1 %22, label %23, label %59
+22:                                               ; preds = %8
+  %23 = load i8, ptr %13, align 1, !range !6, !noundef !7
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %61
 
-23:                                               ; preds = %20
-  %24 = load i32, ptr %14, align 4
-  %25 = icmp ne i32 %24, 0
-  br i1 %25, label %26, label %59
+25:                                               ; preds = %22
+  %26 = load i8, ptr %14, align 1, !range !6, !noundef !7
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %28, label %61
 
-26:                                               ; preds = %23
-  %27 = load ptr, ptr %11, align 8
-  %28 = load i32, ptr @hf_scsi_smc_mta, align 4
-  %29 = load ptr, ptr %9, align 8
-  %30 = load i32, ptr %12, align 4
-  %31 = add i32 %30, 1
-  %32 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %28, ptr noundef %29, i32 noundef %31, i32 noundef 2, i32 noundef 0)
-  %33 = load ptr, ptr %11, align 8
-  %34 = load i32, ptr @hf_scsi_smc_sa, align 4
-  %35 = load ptr, ptr %9, align 8
-  %36 = load i32, ptr %12, align 4
-  %37 = add i32 %36, 3
-  %38 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %34, ptr noundef %35, i32 noundef %37, i32 noundef 2, i32 noundef 0)
-  %39 = load ptr, ptr %11, align 8
-  %40 = load i32, ptr @hf_scsi_smc_da, align 4
-  %41 = load ptr, ptr %9, align 8
-  %42 = load i32, ptr %12, align 4
-  %43 = add i32 %42, 5
-  %44 = call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %40, ptr noundef %41, i32 noundef %43, i32 noundef 2, i32 noundef 0)
-  %45 = load ptr, ptr %11, align 8
-  %46 = load ptr, ptr %9, align 8
-  %47 = load i32, ptr %12, align 4
-  %48 = add i32 %47, 9
-  %49 = load i32, ptr @hf_scsi_smc_range_flags, align 4
-  %50 = load i32, ptr @ett_scsi_move, align 4
-  %51 = call ptr @proto_tree_add_bitmask(ptr noundef %45, ptr noundef %46, i32 noundef %48, i32 noundef %49, i32 noundef %50, ptr noundef @dissect_smc_movemedium.move_fields, i32 noundef 0)
-  %52 = load ptr, ptr %11, align 8
-  %53 = load ptr, ptr %9, align 8
-  %54 = load i32, ptr %12, align 4
-  %55 = add i32 %54, 10
-  %56 = load i32, ptr @hf_scsi_control, align 4
-  %57 = load i32, ptr @ett_scsi_control, align 4
-  %58 = call ptr @proto_tree_add_bitmask(ptr noundef %52, ptr noundef %53, i32 noundef %55, i32 noundef %56, i32 noundef %57, ptr noundef @cdb_control_fields, i32 noundef 0)
-  br label %59
+28:                                               ; preds = %25
+  %29 = load ptr, ptr %11, align 8
+  %30 = load i32, ptr @hf_scsi_smc_mta, align 4
+  %31 = load ptr, ptr %9, align 8
+  %32 = load i32, ptr %12, align 4
+  %33 = add i32 %32, 1
+  %34 = call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %30, ptr noundef %31, i32 noundef %33, i32 noundef 2, i32 noundef 0)
+  %35 = load ptr, ptr %11, align 8
+  %36 = load i32, ptr @hf_scsi_smc_sa, align 4
+  %37 = load ptr, ptr %9, align 8
+  %38 = load i32, ptr %12, align 4
+  %39 = add i32 %38, 3
+  %40 = call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %36, ptr noundef %37, i32 noundef %39, i32 noundef 2, i32 noundef 0)
+  %41 = load ptr, ptr %11, align 8
+  %42 = load i32, ptr @hf_scsi_smc_da, align 4
+  %43 = load ptr, ptr %9, align 8
+  %44 = load i32, ptr %12, align 4
+  %45 = add i32 %44, 5
+  %46 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %42, ptr noundef %43, i32 noundef %45, i32 noundef 2, i32 noundef 0)
+  %47 = load ptr, ptr %11, align 8
+  %48 = load ptr, ptr %9, align 8
+  %49 = load i32, ptr %12, align 4
+  %50 = add i32 %49, 9
+  %51 = load i32, ptr @hf_scsi_smc_range_flags, align 4
+  %52 = load i32, ptr @ett_scsi_move, align 4
+  %53 = call ptr @proto_tree_add_bitmask(ptr noundef %47, ptr noundef %48, i32 noundef %50, i32 noundef %51, i32 noundef %52, ptr noundef @dissect_smc_movemedium.move_fields, i32 noundef 0)
+  %54 = load ptr, ptr %11, align 8
+  %55 = load ptr, ptr %9, align 8
+  %56 = load i32, ptr %12, align 4
+  %57 = add i32 %56, 10
+  %58 = load i32, ptr @hf_scsi_control, align 4
+  %59 = load i32, ptr @ett_scsi_control, align 4
+  %60 = call ptr @proto_tree_add_bitmask(ptr noundef %54, ptr noundef %55, i32 noundef %57, i32 noundef %58, i32 noundef %59, ptr noundef @cdb_control_fields, i32 noundef 0)
+  br label %61
 
-59:                                               ; preds = %26, %23, %20, %19
+61:                                               ; preds = %21, %28, %25, %22
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
-define hidden void @dissect_smc_readelementstatus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define hidden void @dissect_smc_readelementstatus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca i32, align 4
-  %13 = alloca i32, align 4
-  %14 = alloca i32, align 4
+  %13 = alloca i8, align 1
+  %14 = alloca i8, align 1
   %15 = alloca i32, align 4
   %16 = alloca ptr, align 8
   %17 = alloca i32, align 4
@@ -334,276 +338,310 @@ define hidden void @dissect_smc_readelementstatus(ptr noundef %0, ptr noundef %1
   %19 = alloca i8, align 1
   %20 = alloca i8, align 1
   %21 = alloca i16, align 2
+  %22 = alloca i32, align 4
   store ptr %0, ptr %9, align 8
   store ptr %1, ptr %10, align 8
   store ptr %2, ptr %11, align 8
   store i32 %3, ptr %12, align 4
-  store i32 %4, ptr %13, align 4
-  store i32 %5, ptr %14, align 4
+  %23 = zext i1 %4 to i8
+  store i8 %23, ptr %13, align 1
+  %24 = zext i1 %5 to i8
+  store i8 %24, ptr %14, align 1
   store i32 %6, ptr %15, align 4
   store ptr %7, ptr %16, align 8
-  %22 = load ptr, ptr %11, align 8
-  %23 = icmp ne ptr %22, null
-  br i1 %23, label %25, label %24
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %19) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %20) #3
+  call void @llvm.lifetime.start.p0(i64 2, ptr %21) #3
+  %25 = load ptr, ptr %11, align 8
+  %26 = icmp ne ptr %25, null
+  br i1 %26, label %28, label %27
 
-24:                                               ; preds = %8
-  br label %208
+27:                                               ; preds = %8
+  store i32 1, ptr %22, align 4
+  br label %212
 
-25:                                               ; preds = %8
-  %26 = load i32, ptr %13, align 4
-  %27 = icmp ne i32 %26, 0
-  br i1 %27, label %28, label %79
-
-28:                                               ; preds = %25
-  %29 = load i32, ptr %14, align 4
-  %30 = icmp ne i32 %29, 0
-  br i1 %30, label %31, label %79
+28:                                               ; preds = %8
+  %29 = load i8, ptr %13, align 1, !range !6, !noundef !7
+  %30 = trunc i8 %29 to i1
+  br i1 %30, label %31, label %82
 
 31:                                               ; preds = %28
-  %32 = load ptr, ptr %11, align 8
-  %33 = load i32, ptr @hf_scsi_smc_voltag, align 4
-  %34 = load ptr, ptr %9, align 8
-  %35 = load i32, ptr %12, align 4
-  %36 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %33, ptr noundef %34, i32 noundef %35, i32 noundef 1, i32 noundef 0)
-  %37 = load ptr, ptr %11, align 8
-  %38 = load i32, ptr @hf_scsi_smc_element_type_code_0F, align 4
-  %39 = load ptr, ptr %9, align 8
-  %40 = load i32, ptr %12, align 4
-  %41 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %38, ptr noundef %39, i32 noundef %40, i32 noundef 1, i32 noundef 0)
-  %42 = load ptr, ptr %11, align 8
-  %43 = load i32, ptr @hf_scsi_smc_starting_element_address, align 4
-  %44 = load ptr, ptr %9, align 8
-  %45 = load i32, ptr %12, align 4
-  %46 = add i32 %45, 1
-  %47 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %43, ptr noundef %44, i32 noundef %46, i32 noundef 2, i32 noundef 0)
-  %48 = load ptr, ptr %11, align 8
-  %49 = load i32, ptr @hf_scsi_smc_number_of_elements, align 4
-  %50 = load ptr, ptr %9, align 8
-  %51 = load i32, ptr %12, align 4
-  %52 = add i32 %51, 3
-  %53 = call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %49, ptr noundef %50, i32 noundef %52, i32 noundef 2, i32 noundef 0)
-  %54 = load ptr, ptr %11, align 8
-  %55 = load i32, ptr @hf_scsi_smc_curdata, align 4
-  %56 = load ptr, ptr %9, align 8
-  %57 = load i32, ptr %12, align 4
-  %58 = add i32 %57, 4
-  %59 = call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %55, ptr noundef %56, i32 noundef %58, i32 noundef 1, i32 noundef 0)
-  %60 = load ptr, ptr %11, align 8
-  %61 = load i32, ptr @hf_scsi_smc_dvcid, align 4
-  %62 = load ptr, ptr %9, align 8
-  %63 = load i32, ptr %12, align 4
-  %64 = add i32 %63, 4
-  %65 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %61, ptr noundef %62, i32 noundef %64, i32 noundef 1, i32 noundef 0)
-  %66 = load ptr, ptr %11, align 8
-  %67 = load i32, ptr @hf_scsi_smc_allocation_length, align 4
-  %68 = load ptr, ptr %9, align 8
-  %69 = load i32, ptr %12, align 4
-  %70 = add i32 %69, 6
-  %71 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %67, ptr noundef %68, i32 noundef %70, i32 noundef 3, i32 noundef 0)
-  %72 = load ptr, ptr %11, align 8
-  %73 = load ptr, ptr %9, align 8
-  %74 = load i32, ptr %12, align 4
-  %75 = add i32 %74, 10
-  %76 = load i32, ptr @hf_scsi_control, align 4
-  %77 = load i32, ptr @ett_scsi_control, align 4
-  %78 = call ptr @proto_tree_add_bitmask(ptr noundef %72, ptr noundef %73, i32 noundef %75, i32 noundef %76, i32 noundef %77, ptr noundef @cdb_control_fields, i32 noundef 0)
-  br label %208
+  %32 = load i8, ptr %14, align 1, !range !6, !noundef !7
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %34, label %82
 
-79:                                               ; preds = %28, %25
-  %80 = load i32, ptr %13, align 4
-  %81 = icmp ne i32 %80, 0
-  br i1 %81, label %207, label %82
+34:                                               ; preds = %31
+  %35 = load ptr, ptr %11, align 8
+  %36 = load i32, ptr @hf_scsi_smc_voltag, align 4
+  %37 = load ptr, ptr %9, align 8
+  %38 = load i32, ptr %12, align 4
+  %39 = call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %36, ptr noundef %37, i32 noundef %38, i32 noundef 1, i32 noundef 0)
+  %40 = load ptr, ptr %11, align 8
+  %41 = load i32, ptr @hf_scsi_smc_element_type_code_0F, align 4
+  %42 = load ptr, ptr %9, align 8
+  %43 = load i32, ptr %12, align 4
+  %44 = call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %41, ptr noundef %42, i32 noundef %43, i32 noundef 1, i32 noundef 0)
+  %45 = load ptr, ptr %11, align 8
+  %46 = load i32, ptr @hf_scsi_smc_starting_element_address, align 4
+  %47 = load ptr, ptr %9, align 8
+  %48 = load i32, ptr %12, align 4
+  %49 = add i32 %48, 1
+  %50 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %46, ptr noundef %47, i32 noundef %49, i32 noundef 2, i32 noundef 0)
+  %51 = load ptr, ptr %11, align 8
+  %52 = load i32, ptr @hf_scsi_smc_number_of_elements, align 4
+  %53 = load ptr, ptr %9, align 8
+  %54 = load i32, ptr %12, align 4
+  %55 = add i32 %54, 3
+  %56 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %52, ptr noundef %53, i32 noundef %55, i32 noundef 2, i32 noundef 0)
+  %57 = load ptr, ptr %11, align 8
+  %58 = load i32, ptr @hf_scsi_smc_curdata, align 4
+  %59 = load ptr, ptr %9, align 8
+  %60 = load i32, ptr %12, align 4
+  %61 = add i32 %60, 4
+  %62 = call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %58, ptr noundef %59, i32 noundef %61, i32 noundef 1, i32 noundef 0)
+  %63 = load ptr, ptr %11, align 8
+  %64 = load i32, ptr @hf_scsi_smc_dvcid, align 4
+  %65 = load ptr, ptr %9, align 8
+  %66 = load i32, ptr %12, align 4
+  %67 = add i32 %66, 4
+  %68 = call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %64, ptr noundef %65, i32 noundef %67, i32 noundef 1, i32 noundef 0)
+  %69 = load ptr, ptr %11, align 8
+  %70 = load i32, ptr @hf_scsi_smc_allocation_length, align 4
+  %71 = load ptr, ptr %9, align 8
+  %72 = load i32, ptr %12, align 4
+  %73 = add i32 %72, 6
+  %74 = call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %70, ptr noundef %71, i32 noundef %73, i32 noundef 3, i32 noundef 0)
+  %75 = load ptr, ptr %11, align 8
+  %76 = load ptr, ptr %9, align 8
+  %77 = load i32, ptr %12, align 4
+  %78 = add i32 %77, 10
+  %79 = load i32, ptr @hf_scsi_control, align 4
+  %80 = load i32, ptr @ett_scsi_control, align 4
+  %81 = call ptr @proto_tree_add_bitmask(ptr noundef %75, ptr noundef %76, i32 noundef %78, i32 noundef %79, i32 noundef %80, ptr noundef @cdb_control_fields, i32 noundef 0)
+  br label %211
 
-82:                                               ; preds = %79
-  %83 = load ptr, ptr %11, align 8
-  %84 = load i32, ptr @hf_scsi_smc_first_element_address_reported, align 4
-  %85 = load ptr, ptr %9, align 8
-  %86 = load i32, ptr %12, align 4
-  %87 = call ptr @proto_tree_add_item(ptr noundef %83, i32 noundef %84, ptr noundef %85, i32 noundef %86, i32 noundef 2, i32 noundef 0)
-  %88 = load i32, ptr %12, align 4
-  %89 = add i32 %88, 2
-  store i32 %89, ptr %12, align 4
-  %90 = load ptr, ptr %11, align 8
-  %91 = load i32, ptr @hf_scsi_smc_number_of_elements_available, align 4
-  %92 = load ptr, ptr %9, align 8
-  %93 = load i32, ptr %12, align 4
-  %94 = call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %91, ptr noundef %92, i32 noundef %93, i32 noundef 2, i32 noundef 0)
-  %95 = load i32, ptr %12, align 4
-  %96 = add i32 %95, 2
-  store i32 %96, ptr %12, align 4
-  %97 = load i32, ptr %12, align 4
-  %98 = add i32 %97, 1
-  store i32 %98, ptr %12, align 4
-  %99 = load ptr, ptr %9, align 8
+82:                                               ; preds = %31, %28
+  %83 = load i8, ptr %13, align 1, !range !6, !noundef !7
+  %84 = trunc i8 %83 to i1
+  br i1 %84, label %210, label %85
+
+85:                                               ; preds = %82
+  %86 = load ptr, ptr %11, align 8
+  %87 = load i32, ptr @hf_scsi_smc_first_element_address_reported, align 4
+  %88 = load ptr, ptr %9, align 8
+  %89 = load i32, ptr %12, align 4
+  %90 = call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %87, ptr noundef %88, i32 noundef %89, i32 noundef 2, i32 noundef 0)
+  %91 = load i32, ptr %12, align 4
+  %92 = add i32 %91, 2
+  store i32 %92, ptr %12, align 4
+  %93 = load ptr, ptr %11, align 8
+  %94 = load i32, ptr @hf_scsi_smc_number_of_elements_available, align 4
+  %95 = load ptr, ptr %9, align 8
+  %96 = load i32, ptr %12, align 4
+  %97 = call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %94, ptr noundef %95, i32 noundef %96, i32 noundef 2, i32 noundef 0)
+  %98 = load i32, ptr %12, align 4
+  %99 = add i32 %98, 2
+  store i32 %99, ptr %12, align 4
   %100 = load i32, ptr %12, align 4
-  %101 = call i32 @tvb_get_ntoh24(ptr noundef %99, i32 noundef %100)
-  store i32 %101, ptr %17, align 4
-  %102 = load ptr, ptr %11, align 8
-  %103 = load i32, ptr @hf_scsi_smc_byte_count_of_report_available, align 4
-  %104 = load ptr, ptr %9, align 8
-  %105 = load i32, ptr %12, align 4
-  %106 = call ptr @proto_tree_add_item(ptr noundef %102, i32 noundef %103, ptr noundef %104, i32 noundef %105, i32 noundef 3, i32 noundef 0)
-  %107 = load i32, ptr %12, align 4
-  %108 = add i32 %107, 3
-  store i32 %108, ptr %12, align 4
-  br label %109
+  %101 = add i32 %100, 1
+  store i32 %101, ptr %12, align 4
+  %102 = load ptr, ptr %9, align 8
+  %103 = load i32, ptr %12, align 4
+  %104 = call i32 @tvb_get_ntoh24(ptr noundef %102, i32 noundef %103)
+  store i32 %104, ptr %17, align 4
+  %105 = load ptr, ptr %11, align 8
+  %106 = load i32, ptr @hf_scsi_smc_byte_count_of_report_available, align 4
+  %107 = load ptr, ptr %9, align 8
+  %108 = load i32, ptr %12, align 4
+  %109 = call ptr @proto_tree_add_item(ptr noundef %105, i32 noundef %106, ptr noundef %107, i32 noundef %108, i32 noundef 3, i32 noundef 0)
+  %110 = load i32, ptr %12, align 4
+  %111 = add i32 %110, 3
+  store i32 %111, ptr %12, align 4
+  br label %112
 
-109:                                              ; preds = %191, %82
-  %110 = load i32, ptr %17, align 4
-  %111 = icmp ne i32 %110, 0
-  br i1 %111, label %112, label %206
+112:                                              ; preds = %194, %85
+  %113 = load i32, ptr %17, align 4
+  %114 = icmp ne i32 %113, 0
+  br i1 %114, label %115, label %209
 
-112:                                              ; preds = %109
-  %113 = load ptr, ptr %9, align 8
-  %114 = load i32, ptr %12, align 4
-  %115 = call zeroext i8 @tvb_get_guint8(ptr noundef %113, i32 noundef %114)
-  store i8 %115, ptr %19, align 1
-  %116 = load ptr, ptr %11, align 8
-  %117 = load i32, ptr @hf_scsi_smc_element_type_code, align 4
-  %118 = load ptr, ptr %9, align 8
-  %119 = load i32, ptr %12, align 4
-  %120 = call ptr @proto_tree_add_item(ptr noundef %116, i32 noundef %117, ptr noundef %118, i32 noundef %119, i32 noundef 1, i32 noundef 0)
-  %121 = load i32, ptr %12, align 4
-  %122 = add i32 %121, 1
-  store i32 %122, ptr %12, align 4
-  %123 = load i32, ptr %17, align 4
-  %124 = sub i32 %123, 1
-  store i32 %124, ptr %17, align 4
-  %125 = load i32, ptr %17, align 4
-  %126 = icmp ult i32 %125, 1
-  br i1 %126, label %127, label %128
+115:                                              ; preds = %112
+  %116 = load ptr, ptr %9, align 8
+  %117 = load i32, ptr %12, align 4
+  %118 = call zeroext i8 @tvb_get_uint8(ptr noundef %116, i32 noundef %117)
+  store i8 %118, ptr %19, align 1
+  %119 = load ptr, ptr %11, align 8
+  %120 = load i32, ptr @hf_scsi_smc_element_type_code, align 4
+  %121 = load ptr, ptr %9, align 8
+  %122 = load i32, ptr %12, align 4
+  %123 = call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %120, ptr noundef %121, i32 noundef %122, i32 noundef 1, i32 noundef 0)
+  %124 = load i32, ptr %12, align 4
+  %125 = add i32 %124, 1
+  store i32 %125, ptr %12, align 4
+  %126 = load i32, ptr %17, align 4
+  %127 = sub i32 %126, 1
+  store i32 %127, ptr %17, align 4
+  %128 = load i32, ptr %17, align 4
+  %129 = icmp ult i32 %128, 1
+  br i1 %129, label %130, label %131
 
-127:                                              ; preds = %112
-  br label %206
+130:                                              ; preds = %115
+  br label %209
 
-128:                                              ; preds = %112
-  %129 = load ptr, ptr %9, align 8
-  %130 = load i32, ptr %12, align 4
-  %131 = call zeroext i8 @tvb_get_guint8(ptr noundef %129, i32 noundef %130)
-  store i8 %131, ptr %20, align 1
-  %132 = load ptr, ptr %11, align 8
-  %133 = load i32, ptr @hf_scsi_smc_pvoltag, align 4
-  %134 = load ptr, ptr %9, align 8
-  %135 = load i32, ptr %12, align 4
-  %136 = call ptr @proto_tree_add_item(ptr noundef %132, i32 noundef %133, ptr noundef %134, i32 noundef %135, i32 noundef 1, i32 noundef 0)
-  %137 = load ptr, ptr %11, align 8
-  %138 = load i32, ptr @hf_scsi_smc_avoltag, align 4
-  %139 = load ptr, ptr %9, align 8
-  %140 = load i32, ptr %12, align 4
-  %141 = call ptr @proto_tree_add_item(ptr noundef %137, i32 noundef %138, ptr noundef %139, i32 noundef %140, i32 noundef 1, i32 noundef 0)
-  %142 = load i32, ptr %12, align 4
-  %143 = add i32 %142, 1
-  store i32 %143, ptr %12, align 4
-  %144 = load i32, ptr %17, align 4
-  %145 = sub i32 %144, 1
-  store i32 %145, ptr %17, align 4
-  %146 = load i32, ptr %17, align 4
-  %147 = icmp ult i32 %146, 2
-  br i1 %147, label %148, label %149
+131:                                              ; preds = %115
+  %132 = load ptr, ptr %9, align 8
+  %133 = load i32, ptr %12, align 4
+  %134 = call zeroext i8 @tvb_get_uint8(ptr noundef %132, i32 noundef %133)
+  store i8 %134, ptr %20, align 1
+  %135 = load ptr, ptr %11, align 8
+  %136 = load i32, ptr @hf_scsi_smc_pvoltag, align 4
+  %137 = load ptr, ptr %9, align 8
+  %138 = load i32, ptr %12, align 4
+  %139 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %136, ptr noundef %137, i32 noundef %138, i32 noundef 1, i32 noundef 0)
+  %140 = load ptr, ptr %11, align 8
+  %141 = load i32, ptr @hf_scsi_smc_avoltag, align 4
+  %142 = load ptr, ptr %9, align 8
+  %143 = load i32, ptr %12, align 4
+  %144 = call ptr @proto_tree_add_item(ptr noundef %140, i32 noundef %141, ptr noundef %142, i32 noundef %143, i32 noundef 1, i32 noundef 0)
+  %145 = load i32, ptr %12, align 4
+  %146 = add i32 %145, 1
+  store i32 %146, ptr %12, align 4
+  %147 = load i32, ptr %17, align 4
+  %148 = sub i32 %147, 1
+  store i32 %148, ptr %17, align 4
+  %149 = load i32, ptr %17, align 4
+  %150 = icmp ult i32 %149, 2
+  br i1 %150, label %151, label %152
 
-148:                                              ; preds = %128
-  br label %206
+151:                                              ; preds = %131
+  br label %209
 
-149:                                              ; preds = %128
-  %150 = load ptr, ptr %9, align 8
-  %151 = load i32, ptr %12, align 4
-  %152 = call zeroext i16 @tvb_get_ntohs(ptr noundef %150, i32 noundef %151)
-  store i16 %152, ptr %21, align 2
-  %153 = load ptr, ptr %11, align 8
-  %154 = load i32, ptr @hf_scsi_smc_element_descriptor_length, align 4
-  %155 = load ptr, ptr %9, align 8
-  %156 = load i32, ptr %12, align 4
-  %157 = call ptr @proto_tree_add_item(ptr noundef %153, i32 noundef %154, ptr noundef %155, i32 noundef %156, i32 noundef 2, i32 noundef 0)
-  %158 = load i32, ptr %12, align 4
-  %159 = add i32 %158, 2
-  store i32 %159, ptr %12, align 4
-  %160 = load i32, ptr %17, align 4
-  %161 = sub i32 %160, 2
-  store i32 %161, ptr %17, align 4
-  %162 = load i32, ptr %17, align 4
-  %163 = icmp ult i32 %162, 1
-  br i1 %163, label %164, label %165
+152:                                              ; preds = %131
+  %153 = load ptr, ptr %9, align 8
+  %154 = load i32, ptr %12, align 4
+  %155 = call zeroext i16 @tvb_get_ntohs(ptr noundef %153, i32 noundef %154)
+  store i16 %155, ptr %21, align 2
+  %156 = load ptr, ptr %11, align 8
+  %157 = load i32, ptr @hf_scsi_smc_element_descriptor_length, align 4
+  %158 = load ptr, ptr %9, align 8
+  %159 = load i32, ptr %12, align 4
+  %160 = call ptr @proto_tree_add_item(ptr noundef %156, i32 noundef %157, ptr noundef %158, i32 noundef %159, i32 noundef 2, i32 noundef 0)
+  %161 = load i32, ptr %12, align 4
+  %162 = add i32 %161, 2
+  store i32 %162, ptr %12, align 4
+  %163 = load i32, ptr %17, align 4
+  %164 = sub i32 %163, 2
+  store i32 %164, ptr %17, align 4
+  %165 = load i32, ptr %17, align 4
+  %166 = icmp ult i32 %165, 1
+  br i1 %166, label %167, label %168
 
-164:                                              ; preds = %149
-  br label %206
+167:                                              ; preds = %152
+  br label %209
 
-165:                                              ; preds = %149
-  %166 = load i32, ptr %12, align 4
-  %167 = add i32 %166, 1
-  store i32 %167, ptr %12, align 4
-  %168 = load i32, ptr %17, align 4
-  %169 = sub i32 %168, 1
-  store i32 %169, ptr %17, align 4
-  %170 = load i32, ptr %17, align 4
-  %171 = icmp ult i32 %170, 3
-  br i1 %171, label %172, label %173
+168:                                              ; preds = %152
+  %169 = load i32, ptr %12, align 4
+  %170 = add i32 %169, 1
+  store i32 %170, ptr %12, align 4
+  %171 = load i32, ptr %17, align 4
+  %172 = sub i32 %171, 1
+  store i32 %172, ptr %17, align 4
+  %173 = load i32, ptr %17, align 4
+  %174 = icmp ult i32 %173, 3
+  br i1 %174, label %175, label %176
 
-172:                                              ; preds = %165
-  br label %206
+175:                                              ; preds = %168
+  br label %209
 
-173:                                              ; preds = %165
-  %174 = load ptr, ptr %9, align 8
-  %175 = load i32, ptr %12, align 4
-  %176 = call i32 @tvb_get_ntoh24(ptr noundef %174, i32 noundef %175)
-  store i32 %176, ptr %18, align 4
-  %177 = load ptr, ptr %11, align 8
-  %178 = load i32, ptr @hf_scsi_smc_byte_count_of_descriptor_data_available, align 4
-  %179 = load ptr, ptr %9, align 8
-  %180 = load i32, ptr %12, align 4
-  %181 = call ptr @proto_tree_add_item(ptr noundef %177, i32 noundef %178, ptr noundef %179, i32 noundef %180, i32 noundef 3, i32 noundef 0)
-  %182 = load i32, ptr %12, align 4
-  %183 = add i32 %182, 3
-  store i32 %183, ptr %12, align 4
-  %184 = load i32, ptr %17, align 4
-  %185 = sub i32 %184, 3
-  store i32 %185, ptr %17, align 4
-  %186 = load i32, ptr %18, align 4
+176:                                              ; preds = %168
+  %177 = load ptr, ptr %9, align 8
+  %178 = load i32, ptr %12, align 4
+  %179 = call i32 @tvb_get_ntoh24(ptr noundef %177, i32 noundef %178)
+  store i32 %179, ptr %18, align 4
+  %180 = load ptr, ptr %11, align 8
+  %181 = load i32, ptr @hf_scsi_smc_byte_count_of_descriptor_data_available, align 4
+  %182 = load ptr, ptr %9, align 8
+  %183 = load i32, ptr %12, align 4
+  %184 = call ptr @proto_tree_add_item(ptr noundef %180, i32 noundef %181, ptr noundef %182, i32 noundef %183, i32 noundef 3, i32 noundef 0)
+  %185 = load i32, ptr %12, align 4
+  %186 = add i32 %185, 3
+  store i32 %186, ptr %12, align 4
   %187 = load i32, ptr %17, align 4
-  %188 = icmp ugt i32 %186, %187
-  br i1 %188, label %189, label %191
-
-189:                                              ; preds = %173
+  %188 = sub i32 %187, 3
+  store i32 %188, ptr %17, align 4
+  %189 = load i32, ptr %18, align 4
   %190 = load i32, ptr %17, align 4
-  store i32 %190, ptr %18, align 4
-  br label %191
+  %191 = icmp ugt i32 %189, %190
+  br i1 %191, label %192, label %194
 
-191:                                              ; preds = %189, %173
-  %192 = load ptr, ptr %9, align 8
-  %193 = load ptr, ptr %10, align 8
-  %194 = load ptr, ptr %11, align 8
-  %195 = load i32, ptr %12, align 4
-  %196 = load i32, ptr %18, align 4
-  %197 = load i8, ptr %19, align 1
-  %198 = load i8, ptr %20, align 1
-  %199 = load i16, ptr %21, align 2
-  call void @dissect_scsi_smc_elements(ptr noundef %192, ptr noundef %193, ptr noundef %194, i32 noundef %195, i32 noundef %196, i8 noundef zeroext %197, i8 noundef zeroext %198, i16 noundef zeroext %199)
-  %200 = load i32, ptr %18, align 4
-  %201 = load i32, ptr %12, align 4
-  %202 = add i32 %201, %200
-  store i32 %202, ptr %12, align 4
+192:                                              ; preds = %176
+  %193 = load i32, ptr %17, align 4
+  store i32 %193, ptr %18, align 4
+  br label %194
+
+194:                                              ; preds = %192, %176
+  %195 = load ptr, ptr %9, align 8
+  %196 = load ptr, ptr %10, align 8
+  %197 = load ptr, ptr %11, align 8
+  %198 = load i32, ptr %12, align 4
+  %199 = load i32, ptr %18, align 4
+  %200 = load i8, ptr %19, align 1
+  %201 = load i8, ptr %20, align 1
+  %202 = load i16, ptr %21, align 2
+  call void @dissect_scsi_smc_elements(ptr noundef %195, ptr noundef %196, ptr noundef %197, i32 noundef %198, i32 noundef %199, i8 noundef zeroext %200, i8 noundef zeroext %201, i16 noundef zeroext %202)
   %203 = load i32, ptr %18, align 4
-  %204 = load i32, ptr %17, align 4
-  %205 = sub i32 %204, %203
-  store i32 %205, ptr %17, align 4
-  br label %109, !llvm.loop !4
+  %204 = load i32, ptr %12, align 4
+  %205 = add i32 %204, %203
+  store i32 %205, ptr %12, align 4
+  %206 = load i32, ptr %18, align 4
+  %207 = load i32, ptr %17, align 4
+  %208 = sub i32 %207, %206
+  store i32 %208, ptr %17, align 4
+  br label %112, !llvm.loop !8
 
-206:                                              ; preds = %172, %164, %148, %127, %109
-  br label %207
+209:                                              ; preds = %175, %167, %151, %130, %112
+  br label %210
 
-207:                                              ; preds = %206, %79
-  br label %208
+210:                                              ; preds = %209, %82
+  br label %211
 
-208:                                              ; preds = %207, %31, %24
+211:                                              ; preds = %210, %34
+  store i32 0, ptr %22, align 4
+  br label %212
+
+212:                                              ; preds = %211, %27
+  call void @llvm.lifetime.end.p0(i64 2, ptr %21) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %20) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %19) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #3
+  %213 = load i32, ptr %22, align 4
+  switch i32 %213, label %215 [
+    i32 0, label %214
+    i32 1, label %214
+  ]
+
+214:                                              ; preds = %212, %212
   ret void
+
+215:                                              ; preds = %212
+  unreachable
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_get_ntoh24(ptr noundef, i32 noundef) #1
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_scsi_smc_elements(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i8 noundef zeroext %5, i8 noundef zeroext %6, i16 noundef zeroext %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
@@ -622,6 +660,7 @@ define internal void @dissect_scsi_smc_elements(ptr noundef %0, ptr noundef %1, 
   store i8 %5, ptr %14, align 1
   store i8 %6, ptr %15, align 1
   store i16 %7, ptr %16, align 2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #3
   br label %18
 
 18:                                               ; preds = %33, %8
@@ -668,380 +707,415 @@ define internal void @dissect_scsi_smc_elements(ptr noundef %0, ptr noundef %1, 
   %45 = load i32, ptr %13, align 4
   %46 = sub i32 %45, %44
   store i32 %46, ptr %13, align 4
-  br label %18, !llvm.loop !6
+  br label %18, !llvm.loop !10
 
 47:                                               ; preds = %32, %18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #3
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
 
-declare void @dissect_spc_testunitready(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissect_spc_testunitready(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, i1 noundef zeroext, i32 noundef, ptr noundef) #1
 
-declare void @dissect_spc_requestsense(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissect_spc_requestsense(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, i1 noundef zeroext, i32 noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
-define internal void @dissect_smc_initialize_element_status(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal void @dissect_smc_initialize_element_status(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca i32, align 4
-  %13 = alloca i32, align 4
-  %14 = alloca i32, align 4
+  %13 = alloca i8, align 1
+  %14 = alloca i8, align 1
   %15 = alloca i32, align 4
   %16 = alloca ptr, align 8
   store ptr %0, ptr %9, align 8
   store ptr %1, ptr %10, align 8
   store ptr %2, ptr %11, align 8
   store i32 %3, ptr %12, align 4
-  store i32 %4, ptr %13, align 4
-  store i32 %5, ptr %14, align 4
+  %17 = zext i1 %4 to i8
+  store i8 %17, ptr %13, align 1
+  %18 = zext i1 %5 to i8
+  store i8 %18, ptr %14, align 1
   store i32 %6, ptr %15, align 4
   store ptr %7, ptr %16, align 8
-  %17 = load ptr, ptr %11, align 8
-  %18 = icmp ne ptr %17, null
-  br i1 %18, label %20, label %19
+  %19 = load ptr, ptr %11, align 8
+  %20 = icmp ne ptr %19, null
+  br i1 %20, label %22, label %21
 
-19:                                               ; preds = %8
-  br label %34
+21:                                               ; preds = %8
+  br label %36
 
-20:                                               ; preds = %8
-  %21 = load i32, ptr %13, align 4
-  %22 = icmp ne i32 %21, 0
-  br i1 %22, label %23, label %34
+22:                                               ; preds = %8
+  %23 = load i8, ptr %13, align 1, !range !6, !noundef !7
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %36
 
-23:                                               ; preds = %20
-  %24 = load i32, ptr %14, align 4
-  %25 = icmp ne i32 %24, 0
-  br i1 %25, label %26, label %34
+25:                                               ; preds = %22
+  %26 = load i8, ptr %14, align 1, !range !6, !noundef !7
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %28, label %36
 
-26:                                               ; preds = %23
-  %27 = load ptr, ptr %11, align 8
-  %28 = load ptr, ptr %9, align 8
-  %29 = load i32, ptr %12, align 4
-  %30 = add i32 %29, 4
-  %31 = load i32, ptr @hf_scsi_control, align 4
-  %32 = load i32, ptr @ett_scsi_control, align 4
-  %33 = call ptr @proto_tree_add_bitmask(ptr noundef %27, ptr noundef %28, i32 noundef %30, i32 noundef %31, i32 noundef %32, ptr noundef @cdb_control_fields, i32 noundef 0)
-  br label %34
+28:                                               ; preds = %25
+  %29 = load ptr, ptr %11, align 8
+  %30 = load ptr, ptr %9, align 8
+  %31 = load i32, ptr %12, align 4
+  %32 = add i32 %31, 4
+  %33 = load i32, ptr @hf_scsi_control, align 4
+  %34 = load i32, ptr @ett_scsi_control, align 4
+  %35 = call ptr @proto_tree_add_bitmask(ptr noundef %29, ptr noundef %30, i32 noundef %32, i32 noundef %33, i32 noundef %34, ptr noundef @cdb_control_fields, i32 noundef 0)
+  br label %36
 
-34:                                               ; preds = %26, %23, %20, %19
+36:                                               ; preds = %21, %28, %25, %22
   ret void
 }
 
-declare void @dissect_spc_inquiry(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissect_spc_inquiry(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, i1 noundef zeroext, i32 noundef, ptr noundef) #1
 
-declare void @dissect_spc_modeselect6(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissect_spc_modeselect6(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, i1 noundef zeroext, i32 noundef, ptr noundef) #1
 
-declare void @dissect_spc_reserve6(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissect_spc_reserve6(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, i1 noundef zeroext, i32 noundef, ptr noundef) #1
 
-declare void @dissect_spc_release6(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissect_spc_release6(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, i1 noundef zeroext, i32 noundef, ptr noundef) #1
 
-declare void @dissect_spc_modesense6(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissect_spc_modesense6(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, i1 noundef zeroext, i32 noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
-define internal void @dissect_smc_openclose_importexport_element(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal void @dissect_smc_openclose_importexport_element(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca i32, align 4
-  %13 = alloca i32, align 4
-  %14 = alloca i32, align 4
+  %13 = alloca i8, align 1
+  %14 = alloca i8, align 1
   %15 = alloca i32, align 4
   %16 = alloca ptr, align 8
   store ptr %0, ptr %9, align 8
   store ptr %1, ptr %10, align 8
   store ptr %2, ptr %11, align 8
   store i32 %3, ptr %12, align 4
-  store i32 %4, ptr %13, align 4
-  store i32 %5, ptr %14, align 4
+  %17 = zext i1 %4 to i8
+  store i8 %17, ptr %13, align 1
+  %18 = zext i1 %5 to i8
+  store i8 %18, ptr %14, align 1
   store i32 %6, ptr %15, align 4
   store ptr %7, ptr %16, align 8
-  %17 = load ptr, ptr %11, align 8
-  %18 = icmp ne ptr %17, null
-  br i1 %18, label %20, label %19
+  %19 = load ptr, ptr %11, align 8
+  %20 = icmp ne ptr %19, null
+  br i1 %20, label %22, label %21
 
-19:                                               ; preds = %8
-  br label %46
+21:                                               ; preds = %8
+  br label %48
 
-20:                                               ; preds = %8
-  %21 = load i32, ptr %13, align 4
-  %22 = icmp ne i32 %21, 0
-  br i1 %22, label %23, label %46
+22:                                               ; preds = %8
+  %23 = load i8, ptr %13, align 1, !range !6, !noundef !7
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %48
 
-23:                                               ; preds = %20
-  %24 = load i32, ptr %14, align 4
-  %25 = icmp ne i32 %24, 0
-  br i1 %25, label %26, label %46
+25:                                               ; preds = %22
+  %26 = load i8, ptr %14, align 1, !range !6, !noundef !7
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %28, label %48
 
-26:                                               ; preds = %23
-  %27 = load ptr, ptr %11, align 8
-  %28 = load i32, ptr @hf_scsi_smc_ea, align 4
-  %29 = load ptr, ptr %9, align 8
-  %30 = load i32, ptr %12, align 4
-  %31 = add i32 %30, 1
-  %32 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %28, ptr noundef %29, i32 noundef %31, i32 noundef 2, i32 noundef 0)
-  %33 = load ptr, ptr %11, align 8
-  %34 = load i32, ptr @hf_scsi_smc_action_code, align 4
-  %35 = load ptr, ptr %9, align 8
-  %36 = load i32, ptr %12, align 4
-  %37 = add i32 %36, 3
-  %38 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %34, ptr noundef %35, i32 noundef %37, i32 noundef 1, i32 noundef 0)
-  %39 = load ptr, ptr %11, align 8
-  %40 = load ptr, ptr %9, align 8
-  %41 = load i32, ptr %12, align 4
-  %42 = add i32 %41, 4
-  %43 = load i32, ptr @hf_scsi_control, align 4
-  %44 = load i32, ptr @ett_scsi_control, align 4
-  %45 = call ptr @proto_tree_add_bitmask(ptr noundef %39, ptr noundef %40, i32 noundef %42, i32 noundef %43, i32 noundef %44, ptr noundef @cdb_control_fields, i32 noundef 0)
-  br label %46
+28:                                               ; preds = %25
+  %29 = load ptr, ptr %11, align 8
+  %30 = load i32, ptr @hf_scsi_smc_ea, align 4
+  %31 = load ptr, ptr %9, align 8
+  %32 = load i32, ptr %12, align 4
+  %33 = add i32 %32, 1
+  %34 = call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %30, ptr noundef %31, i32 noundef %33, i32 noundef 2, i32 noundef 0)
+  %35 = load ptr, ptr %11, align 8
+  %36 = load i32, ptr @hf_scsi_smc_action_code, align 4
+  %37 = load ptr, ptr %9, align 8
+  %38 = load i32, ptr %12, align 4
+  %39 = add i32 %38, 3
+  %40 = call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %36, ptr noundef %37, i32 noundef %39, i32 noundef 1, i32 noundef 0)
+  %41 = load ptr, ptr %11, align 8
+  %42 = load ptr, ptr %9, align 8
+  %43 = load i32, ptr %12, align 4
+  %44 = add i32 %43, 4
+  %45 = load i32, ptr @hf_scsi_control, align 4
+  %46 = load i32, ptr @ett_scsi_control, align 4
+  %47 = call ptr @proto_tree_add_bitmask(ptr noundef %41, ptr noundef %42, i32 noundef %44, i32 noundef %45, i32 noundef %46, ptr noundef @cdb_control_fields, i32 noundef 0)
+  br label %48
 
-46:                                               ; preds = %26, %23, %20, %19
+48:                                               ; preds = %21, %28, %25, %22
   ret void
 }
 
-declare void @dissect_spc_senddiagnostic(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissect_spc_senddiagnostic(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, i1 noundef zeroext, i32 noundef, ptr noundef) #1
 
-declare void @dissect_spc_preventallowmediaremoval(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissect_spc_preventallowmediaremoval(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, i1 noundef zeroext, i32 noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
-define internal void @dissect_smc_position_to_element(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal void @dissect_smc_position_to_element(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca i32, align 4
-  %13 = alloca i32, align 4
-  %14 = alloca i32, align 4
+  %13 = alloca i8, align 1
+  %14 = alloca i8, align 1
   %15 = alloca i32, align 4
   %16 = alloca ptr, align 8
   store ptr %0, ptr %9, align 8
   store ptr %1, ptr %10, align 8
   store ptr %2, ptr %11, align 8
   store i32 %3, ptr %12, align 4
-  store i32 %4, ptr %13, align 4
-  store i32 %5, ptr %14, align 4
+  %17 = zext i1 %4 to i8
+  store i8 %17, ptr %13, align 1
+  %18 = zext i1 %5 to i8
+  store i8 %18, ptr %14, align 1
   store i32 %6, ptr %15, align 4
   store ptr %7, ptr %16, align 8
-  %17 = load ptr, ptr %11, align 8
-  %18 = icmp ne ptr %17, null
-  br i1 %18, label %20, label %19
+  %19 = load ptr, ptr %11, align 8
+  %20 = icmp ne ptr %19, null
+  br i1 %20, label %22, label %21
 
-19:                                               ; preds = %8
-  br label %53
+21:                                               ; preds = %8
+  br label %55
 
-20:                                               ; preds = %8
-  %21 = load i32, ptr %13, align 4
-  %22 = icmp ne i32 %21, 0
-  br i1 %22, label %23, label %53
+22:                                               ; preds = %8
+  %23 = load i8, ptr %13, align 1, !range !6, !noundef !7
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %55
 
-23:                                               ; preds = %20
-  %24 = load i32, ptr %14, align 4
-  %25 = icmp ne i32 %24, 0
-  br i1 %25, label %26, label %53
+25:                                               ; preds = %22
+  %26 = load i8, ptr %14, align 1, !range !6, !noundef !7
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %28, label %55
 
-26:                                               ; preds = %23
-  %27 = load ptr, ptr %11, align 8
-  %28 = load i32, ptr @hf_scsi_smc_mta, align 4
-  %29 = load ptr, ptr %9, align 8
-  %30 = load i32, ptr %12, align 4
-  %31 = add i32 %30, 1
-  %32 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %28, ptr noundef %29, i32 noundef %31, i32 noundef 2, i32 noundef 0)
-  %33 = load ptr, ptr %11, align 8
-  %34 = load i32, ptr @hf_scsi_smc_da, align 4
-  %35 = load ptr, ptr %9, align 8
-  %36 = load i32, ptr %12, align 4
-  %37 = add i32 %36, 3
-  %38 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %34, ptr noundef %35, i32 noundef %37, i32 noundef 2, i32 noundef 0)
-  %39 = load ptr, ptr %11, align 8
-  %40 = load ptr, ptr %9, align 8
-  %41 = load i32, ptr %12, align 4
-  %42 = add i32 %41, 7
-  %43 = load i32, ptr @hf_scsi_smc_medium_flags, align 4
-  %44 = load i32, ptr @ett_scsi_exchange_medium, align 4
-  %45 = call ptr @proto_tree_add_bitmask(ptr noundef %39, ptr noundef %40, i32 noundef %42, i32 noundef %43, i32 noundef %44, ptr noundef @dissect_smc_position_to_element.pte_fields, i32 noundef 0)
-  %46 = load ptr, ptr %11, align 8
-  %47 = load ptr, ptr %9, align 8
-  %48 = load i32, ptr %12, align 4
-  %49 = add i32 %48, 8
-  %50 = load i32, ptr @hf_scsi_control, align 4
-  %51 = load i32, ptr @ett_scsi_control, align 4
-  %52 = call ptr @proto_tree_add_bitmask(ptr noundef %46, ptr noundef %47, i32 noundef %49, i32 noundef %50, i32 noundef %51, ptr noundef @cdb_control_fields, i32 noundef 0)
-  br label %53
+28:                                               ; preds = %25
+  %29 = load ptr, ptr %11, align 8
+  %30 = load i32, ptr @hf_scsi_smc_mta, align 4
+  %31 = load ptr, ptr %9, align 8
+  %32 = load i32, ptr %12, align 4
+  %33 = add i32 %32, 1
+  %34 = call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %30, ptr noundef %31, i32 noundef %33, i32 noundef 2, i32 noundef 0)
+  %35 = load ptr, ptr %11, align 8
+  %36 = load i32, ptr @hf_scsi_smc_da, align 4
+  %37 = load ptr, ptr %9, align 8
+  %38 = load i32, ptr %12, align 4
+  %39 = add i32 %38, 3
+  %40 = call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %36, ptr noundef %37, i32 noundef %39, i32 noundef 2, i32 noundef 0)
+  %41 = load ptr, ptr %11, align 8
+  %42 = load ptr, ptr %9, align 8
+  %43 = load i32, ptr %12, align 4
+  %44 = add i32 %43, 7
+  %45 = load i32, ptr @hf_scsi_smc_medium_flags, align 4
+  %46 = load i32, ptr @ett_scsi_exchange_medium, align 4
+  %47 = call ptr @proto_tree_add_bitmask(ptr noundef %41, ptr noundef %42, i32 noundef %44, i32 noundef %45, i32 noundef %46, ptr noundef @dissect_smc_position_to_element.pte_fields, i32 noundef 0)
+  %48 = load ptr, ptr %11, align 8
+  %49 = load ptr, ptr %9, align 8
+  %50 = load i32, ptr %12, align 4
+  %51 = add i32 %50, 8
+  %52 = load i32, ptr @hf_scsi_control, align 4
+  %53 = load i32, ptr @ett_scsi_control, align 4
+  %54 = call ptr @proto_tree_add_bitmask(ptr noundef %48, ptr noundef %49, i32 noundef %51, i32 noundef %52, i32 noundef %53, ptr noundef @cdb_control_fields, i32 noundef 0)
+  br label %55
 
-53:                                               ; preds = %26, %23, %20, %19
+55:                                               ; preds = %21, %28, %25, %22
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @dissect_smc_initialize_element_status_with_range(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal void @dissect_smc_initialize_element_status_with_range(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca i32, align 4
-  %13 = alloca i32, align 4
-  %14 = alloca i32, align 4
+  %13 = alloca i8, align 1
+  %14 = alloca i8, align 1
   %15 = alloca i32, align 4
   %16 = alloca ptr, align 8
   store ptr %0, ptr %9, align 8
   store ptr %1, ptr %10, align 8
   store ptr %2, ptr %11, align 8
   store i32 %3, ptr %12, align 4
-  store i32 %4, ptr %13, align 4
-  store i32 %5, ptr %14, align 4
+  %17 = zext i1 %4 to i8
+  store i8 %17, ptr %13, align 1
+  %18 = zext i1 %5 to i8
+  store i8 %18, ptr %14, align 1
   store i32 %6, ptr %15, align 4
   store ptr %7, ptr %16, align 8
-  %17 = load ptr, ptr %11, align 8
-  %18 = icmp ne ptr %17, null
-  br i1 %18, label %20, label %19
+  %19 = load ptr, ptr %11, align 8
+  %20 = icmp ne ptr %19, null
+  br i1 %20, label %22, label %21
 
-19:                                               ; preds = %8
-  br label %52
+21:                                               ; preds = %8
+  br label %54
 
-20:                                               ; preds = %8
-  %21 = load i32, ptr %13, align 4
-  %22 = icmp ne i32 %21, 0
-  br i1 %22, label %23, label %52
+22:                                               ; preds = %8
+  %23 = load i8, ptr %13, align 1, !range !6, !noundef !7
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %54
 
-23:                                               ; preds = %20
-  %24 = load i32, ptr %14, align 4
-  %25 = icmp ne i32 %24, 0
-  br i1 %25, label %26, label %52
+25:                                               ; preds = %22
+  %26 = load i8, ptr %14, align 1, !range !6, !noundef !7
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %28, label %54
 
-26:                                               ; preds = %23
-  %27 = load ptr, ptr %11, align 8
-  %28 = load ptr, ptr %9, align 8
-  %29 = load i32, ptr %12, align 4
-  %30 = load i32, ptr @hf_scsi_smc_range_flags, align 4
-  %31 = load i32, ptr @ett_scsi_range, align 4
-  %32 = call ptr @proto_tree_add_bitmask(ptr noundef %27, ptr noundef %28, i32 noundef %29, i32 noundef %30, i32 noundef %31, ptr noundef @dissect_smc_initialize_element_status_with_range.range_fields, i32 noundef 0)
-  %33 = load ptr, ptr %11, align 8
-  %34 = load i32, ptr @hf_scsi_smc_sa, align 4
-  %35 = load ptr, ptr %9, align 8
-  %36 = load i32, ptr %12, align 4
-  %37 = add i32 %36, 1
-  %38 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %34, ptr noundef %35, i32 noundef %37, i32 noundef 2, i32 noundef 0)
-  %39 = load ptr, ptr %11, align 8
-  %40 = load i32, ptr @hf_scsi_smc_num_elements, align 4
-  %41 = load ptr, ptr %9, align 8
-  %42 = load i32, ptr %12, align 4
-  %43 = add i32 %42, 5
-  %44 = call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %40, ptr noundef %41, i32 noundef %43, i32 noundef 2, i32 noundef 0)
-  %45 = load ptr, ptr %11, align 8
-  %46 = load ptr, ptr %9, align 8
-  %47 = load i32, ptr %12, align 4
-  %48 = add i32 %47, 8
-  %49 = load i32, ptr @hf_scsi_control, align 4
-  %50 = load i32, ptr @ett_scsi_control, align 4
-  %51 = call ptr @proto_tree_add_bitmask(ptr noundef %45, ptr noundef %46, i32 noundef %48, i32 noundef %49, i32 noundef %50, ptr noundef @cdb_control_fields, i32 noundef 0)
-  br label %52
+28:                                               ; preds = %25
+  %29 = load ptr, ptr %11, align 8
+  %30 = load ptr, ptr %9, align 8
+  %31 = load i32, ptr %12, align 4
+  %32 = load i32, ptr @hf_scsi_smc_range_flags, align 4
+  %33 = load i32, ptr @ett_scsi_range, align 4
+  %34 = call ptr @proto_tree_add_bitmask(ptr noundef %29, ptr noundef %30, i32 noundef %31, i32 noundef %32, i32 noundef %33, ptr noundef @dissect_smc_initialize_element_status_with_range.range_fields, i32 noundef 0)
+  %35 = load ptr, ptr %11, align 8
+  %36 = load i32, ptr @hf_scsi_smc_sa, align 4
+  %37 = load ptr, ptr %9, align 8
+  %38 = load i32, ptr %12, align 4
+  %39 = add i32 %38, 1
+  %40 = call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %36, ptr noundef %37, i32 noundef %39, i32 noundef 2, i32 noundef 0)
+  %41 = load ptr, ptr %11, align 8
+  %42 = load i32, ptr @hf_scsi_smc_num_elements, align 4
+  %43 = load ptr, ptr %9, align 8
+  %44 = load i32, ptr %12, align 4
+  %45 = add i32 %44, 5
+  %46 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %42, ptr noundef %43, i32 noundef %45, i32 noundef 2, i32 noundef 0)
+  %47 = load ptr, ptr %11, align 8
+  %48 = load ptr, ptr %9, align 8
+  %49 = load i32, ptr %12, align 4
+  %50 = add i32 %49, 8
+  %51 = load i32, ptr @hf_scsi_control, align 4
+  %52 = load i32, ptr @ett_scsi_control, align 4
+  %53 = call ptr @proto_tree_add_bitmask(ptr noundef %47, ptr noundef %48, i32 noundef %50, i32 noundef %51, i32 noundef %52, ptr noundef @cdb_control_fields, i32 noundef 0)
+  br label %54
 
-52:                                               ; preds = %26, %23, %20, %19
+54:                                               ; preds = %21, %28, %25, %22
   ret void
 }
 
-declare void @dissect_spc_writebuffer(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissect_spc_writebuffer(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, i1 noundef zeroext, i32 noundef, ptr noundef) #1
 
-declare void @dissect_spc_logselect(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissect_spc_logselect(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, i1 noundef zeroext, i32 noundef, ptr noundef) #1
 
-declare void @dissect_spc_logsense(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissect_spc_logsense(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, i1 noundef zeroext, i32 noundef, ptr noundef) #1
 
-declare void @dissect_spc_modeselect10(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissect_spc_modeselect10(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, i1 noundef zeroext, i32 noundef, ptr noundef) #1
 
-declare void @dissect_spc_reserve10(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissect_spc_reserve10(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, i1 noundef zeroext, i32 noundef, ptr noundef) #1
 
-declare void @dissect_spc_release10(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissect_spc_release10(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, i1 noundef zeroext, i32 noundef, ptr noundef) #1
 
-declare void @dissect_spc_modesense10(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissect_spc_modesense10(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, i1 noundef zeroext, i32 noundef, ptr noundef) #1
 
-declare void @dissect_spc_persistentreservein(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissect_spc_persistentreservein(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, i1 noundef zeroext, i32 noundef, ptr noundef) #1
 
-declare void @dissect_spc_persistentreserveout(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissect_spc_persistentreserveout(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, i1 noundef zeroext, i32 noundef, ptr noundef) #1
 
-declare void @dissect_spc_reportluns(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissect_spc_reportluns(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, i1 noundef zeroext, i32 noundef, ptr noundef) #1
 
-declare void @dissect_spc_mgmt_protocol_in(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissect_spc_mgmt_protocol_in(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, i1 noundef zeroext, i32 noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
-define internal void @dissect_smc_exchangemedium(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal void @dissect_smc_exchangemedium(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca i32, align 4
-  %13 = alloca i32, align 4
-  %14 = alloca i32, align 4
+  %13 = alloca i8, align 1
+  %14 = alloca i8, align 1
   %15 = alloca i32, align 4
   %16 = alloca ptr, align 8
   store ptr %0, ptr %9, align 8
   store ptr %1, ptr %10, align 8
   store ptr %2, ptr %11, align 8
   store i32 %3, ptr %12, align 4
-  store i32 %4, ptr %13, align 4
-  store i32 %5, ptr %14, align 4
+  %17 = zext i1 %4 to i8
+  store i8 %17, ptr %13, align 1
+  %18 = zext i1 %5 to i8
+  store i8 %18, ptr %14, align 1
   store i32 %6, ptr %15, align 4
   store ptr %7, ptr %16, align 8
-  %17 = load ptr, ptr %11, align 8
-  %18 = icmp ne ptr %17, null
-  br i1 %18, label %20, label %19
+  %19 = load ptr, ptr %11, align 8
+  %20 = icmp ne ptr %19, null
+  br i1 %20, label %22, label %21
 
-19:                                               ; preds = %8
-  br label %65
+21:                                               ; preds = %8
+  br label %67
 
-20:                                               ; preds = %8
-  %21 = load i32, ptr %13, align 4
-  %22 = icmp ne i32 %21, 0
-  br i1 %22, label %23, label %65
+22:                                               ; preds = %8
+  %23 = load i8, ptr %13, align 1, !range !6, !noundef !7
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %67
 
-23:                                               ; preds = %20
-  %24 = load i32, ptr %14, align 4
-  %25 = icmp ne i32 %24, 0
-  br i1 %25, label %26, label %65
+25:                                               ; preds = %22
+  %26 = load i8, ptr %14, align 1, !range !6, !noundef !7
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %28, label %67
 
-26:                                               ; preds = %23
-  %27 = load ptr, ptr %11, align 8
-  %28 = load i32, ptr @hf_scsi_smc_mta, align 4
-  %29 = load ptr, ptr %9, align 8
-  %30 = load i32, ptr %12, align 4
-  %31 = add i32 %30, 1
-  %32 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %28, ptr noundef %29, i32 noundef %31, i32 noundef 2, i32 noundef 0)
-  %33 = load ptr, ptr %11, align 8
-  %34 = load i32, ptr @hf_scsi_smc_sa, align 4
-  %35 = load ptr, ptr %9, align 8
-  %36 = load i32, ptr %12, align 4
-  %37 = add i32 %36, 3
-  %38 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %34, ptr noundef %35, i32 noundef %37, i32 noundef 2, i32 noundef 0)
-  %39 = load ptr, ptr %11, align 8
-  %40 = load i32, ptr @hf_scsi_smc_fda, align 4
-  %41 = load ptr, ptr %9, align 8
-  %42 = load i32, ptr %12, align 4
-  %43 = add i32 %42, 5
-  %44 = call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %40, ptr noundef %41, i32 noundef %43, i32 noundef 2, i32 noundef 0)
-  %45 = load ptr, ptr %11, align 8
-  %46 = load i32, ptr @hf_scsi_smc_sda, align 4
-  %47 = load ptr, ptr %9, align 8
-  %48 = load i32, ptr %12, align 4
-  %49 = add i32 %48, 7
-  %50 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %46, ptr noundef %47, i32 noundef %49, i32 noundef 2, i32 noundef 0)
-  %51 = load ptr, ptr %11, align 8
-  %52 = load ptr, ptr %9, align 8
-  %53 = load i32, ptr %12, align 4
-  %54 = add i32 %53, 9
-  %55 = load i32, ptr @hf_scsi_smc_medium_flags, align 4
-  %56 = load i32, ptr @ett_scsi_exchange_medium, align 4
-  %57 = call ptr @proto_tree_add_bitmask(ptr noundef %51, ptr noundef %52, i32 noundef %54, i32 noundef %55, i32 noundef %56, ptr noundef @dissect_smc_exchangemedium.exchg_fields, i32 noundef 0)
-  %58 = load ptr, ptr %11, align 8
-  %59 = load ptr, ptr %9, align 8
-  %60 = load i32, ptr %12, align 4
-  %61 = add i32 %60, 10
-  %62 = load i32, ptr @hf_scsi_control, align 4
-  %63 = load i32, ptr @ett_scsi_control, align 4
-  %64 = call ptr @proto_tree_add_bitmask(ptr noundef %58, ptr noundef %59, i32 noundef %61, i32 noundef %62, i32 noundef %63, ptr noundef @cdb_control_fields, i32 noundef 0)
-  br label %65
+28:                                               ; preds = %25
+  %29 = load ptr, ptr %11, align 8
+  %30 = load i32, ptr @hf_scsi_smc_mta, align 4
+  %31 = load ptr, ptr %9, align 8
+  %32 = load i32, ptr %12, align 4
+  %33 = add i32 %32, 1
+  %34 = call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %30, ptr noundef %31, i32 noundef %33, i32 noundef 2, i32 noundef 0)
+  %35 = load ptr, ptr %11, align 8
+  %36 = load i32, ptr @hf_scsi_smc_sa, align 4
+  %37 = load ptr, ptr %9, align 8
+  %38 = load i32, ptr %12, align 4
+  %39 = add i32 %38, 3
+  %40 = call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %36, ptr noundef %37, i32 noundef %39, i32 noundef 2, i32 noundef 0)
+  %41 = load ptr, ptr %11, align 8
+  %42 = load i32, ptr @hf_scsi_smc_fda, align 4
+  %43 = load ptr, ptr %9, align 8
+  %44 = load i32, ptr %12, align 4
+  %45 = add i32 %44, 5
+  %46 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %42, ptr noundef %43, i32 noundef %45, i32 noundef 2, i32 noundef 0)
+  %47 = load ptr, ptr %11, align 8
+  %48 = load i32, ptr @hf_scsi_smc_sda, align 4
+  %49 = load ptr, ptr %9, align 8
+  %50 = load i32, ptr %12, align 4
+  %51 = add i32 %50, 7
+  %52 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %48, ptr noundef %49, i32 noundef %51, i32 noundef 2, i32 noundef 0)
+  %53 = load ptr, ptr %11, align 8
+  %54 = load ptr, ptr %9, align 8
+  %55 = load i32, ptr %12, align 4
+  %56 = add i32 %55, 9
+  %57 = load i32, ptr @hf_scsi_smc_medium_flags, align 4
+  %58 = load i32, ptr @ett_scsi_exchange_medium, align 4
+  %59 = call ptr @proto_tree_add_bitmask(ptr noundef %53, ptr noundef %54, i32 noundef %56, i32 noundef %57, i32 noundef %58, ptr noundef @dissect_smc_exchangemedium.exchg_fields, i32 noundef 0)
+  %60 = load ptr, ptr %11, align 8
+  %61 = load ptr, ptr %9, align 8
+  %62 = load i32, ptr %12, align 4
+  %63 = add i32 %62, 10
+  %64 = load i32, ptr @hf_scsi_control, align 4
+  %65 = load i32, ptr @ett_scsi_control, align 4
+  %66 = call ptr @proto_tree_add_bitmask(ptr noundef %60, ptr noundef %61, i32 noundef %63, i32 noundef %64, i32 noundef %65, ptr noundef @cdb_control_fields, i32 noundef 0)
+  br label %67
 
-65:                                               ; preds = %26, %23, %20, %19
+67:                                               ; preds = %21, %28, %25, %22
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_scsi_smc() #0 {
   %1 = call i32 @proto_register_protocol(ptr noundef @.str.106, ptr noundef @.str.106, ptr noundef @.str.107)
   store i32 %1, ptr @proto_scsi_smc, align 4
@@ -1051,13 +1125,16 @@ define hidden void @proto_register_scsi_smc() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_scsi_smc_element(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i8 noundef zeroext %5, i8 noundef zeroext %6) #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -1068,6 +1145,7 @@ define internal void @dissect_scsi_smc_element(ptr noundef %0, ptr noundef %1, p
   %14 = alloca i8, align 1
   %15 = alloca i8, align 1
   %16 = alloca i8, align 1
+  %17 = alloca i32, align 4
   store ptr %0, ptr %8, align 8
   store ptr %1, ptr %9, align 8
   store ptr %2, ptr %10, align 8
@@ -1075,485 +1153,515 @@ define internal void @dissect_scsi_smc_element(ptr noundef %0, ptr noundef %1, p
   store i32 %4, ptr %12, align 4
   store i8 %5, ptr %13, align 1
   store i8 %6, ptr %14, align 1
-  %17 = load ptr, ptr %10, align 8
-  %18 = load i32, ptr @hf_scsi_smc_ea, align 4
-  %19 = load ptr, ptr %8, align 8
-  %20 = load i32, ptr %11, align 4
-  %21 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef 2, i32 noundef 0)
-  %22 = load i32, ptr %11, align 4
-  %23 = add i32 %22, 2
-  store i32 %23, ptr %11, align 4
-  %24 = load i32, ptr %12, align 4
-  %25 = sub i32 %24, 2
-  store i32 %25, ptr %12, align 4
-  %26 = load i32, ptr %12, align 4
-  %27 = icmp ult i32 %26, 1
-  br i1 %27, label %28, label %29
-
-28:                                               ; preds = %7
-  br label %351
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %16) #3
+  %18 = load ptr, ptr %10, align 8
+  %19 = load i32, ptr @hf_scsi_smc_ea, align 4
+  %20 = load ptr, ptr %8, align 8
+  %21 = load i32, ptr %11, align 4
+  %22 = call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %19, ptr noundef %20, i32 noundef %21, i32 noundef 2, i32 noundef 0)
+  %23 = load i32, ptr %11, align 4
+  %24 = add i32 %23, 2
+  store i32 %24, ptr %11, align 4
+  %25 = load i32, ptr %12, align 4
+  %26 = sub i32 %25, 2
+  store i32 %26, ptr %12, align 4
+  %27 = load i32, ptr %12, align 4
+  %28 = icmp ult i32 %27, 1
+  br i1 %28, label %29, label %30
 
 29:                                               ; preds = %7
-  %30 = load ptr, ptr %8, align 8
-  %31 = load i32, ptr %11, align 4
-  %32 = call zeroext i8 @tvb_get_guint8(ptr noundef %30, i32 noundef %31)
-  store i8 %32, ptr %15, align 1
-  %33 = load i8, ptr %13, align 1
-  %34 = zext i8 %33 to i32
-  switch i32 %34, label %98 [
-    i32 1, label %35
-    i32 2, label %46
-    i32 4, label %46
-    i32 3, label %62
+  store i32 1, ptr %17, align 4
+  br label %353
+
+30:                                               ; preds = %7
+  %31 = load ptr, ptr %8, align 8
+  %32 = load i32, ptr %11, align 4
+  %33 = call zeroext i8 @tvb_get_uint8(ptr noundef %31, i32 noundef %32)
+  store i8 %33, ptr %15, align 1
+  %34 = load i8, ptr %13, align 1
+  %35 = zext i8 %34 to i32
+  switch i32 %35, label %99 [
+    i32 1, label %36
+    i32 2, label %47
+    i32 4, label %47
+    i32 3, label %63
   ]
 
-35:                                               ; preds = %29
-  %36 = load ptr, ptr %10, align 8
-  %37 = load i32, ptr @hf_scsi_smc_except, align 4
-  %38 = load ptr, ptr %8, align 8
-  %39 = load i32, ptr %11, align 4
-  %40 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %37, ptr noundef %38, i32 noundef %39, i32 noundef 1, i32 noundef 0)
-  %41 = load ptr, ptr %10, align 8
-  %42 = load i32, ptr @hf_scsi_smc_full, align 4
-  %43 = load ptr, ptr %8, align 8
-  %44 = load i32, ptr %11, align 4
-  %45 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %42, ptr noundef %43, i32 noundef %44, i32 noundef 1, i32 noundef 0)
-  br label %98
+36:                                               ; preds = %30
+  %37 = load ptr, ptr %10, align 8
+  %38 = load i32, ptr @hf_scsi_smc_except, align 4
+  %39 = load ptr, ptr %8, align 8
+  %40 = load i32, ptr %11, align 4
+  %41 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %38, ptr noundef %39, i32 noundef %40, i32 noundef 1, i32 noundef 0)
+  %42 = load ptr, ptr %10, align 8
+  %43 = load i32, ptr @hf_scsi_smc_full, align 4
+  %44 = load ptr, ptr %8, align 8
+  %45 = load i32, ptr %11, align 4
+  %46 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %43, ptr noundef %44, i32 noundef %45, i32 noundef 1, i32 noundef 0)
+  br label %99
 
-46:                                               ; preds = %29, %29
-  %47 = load ptr, ptr %10, align 8
-  %48 = load i32, ptr @hf_scsi_smc_access, align 4
-  %49 = load ptr, ptr %8, align 8
-  %50 = load i32, ptr %11, align 4
-  %51 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %48, ptr noundef %49, i32 noundef %50, i32 noundef 1, i32 noundef 0)
-  %52 = load ptr, ptr %10, align 8
-  %53 = load i32, ptr @hf_scsi_smc_except, align 4
-  %54 = load ptr, ptr %8, align 8
-  %55 = load i32, ptr %11, align 4
-  %56 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %53, ptr noundef %54, i32 noundef %55, i32 noundef 1, i32 noundef 0)
-  %57 = load ptr, ptr %10, align 8
-  %58 = load i32, ptr @hf_scsi_smc_full, align 4
-  %59 = load ptr, ptr %8, align 8
-  %60 = load i32, ptr %11, align 4
-  %61 = call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %58, ptr noundef %59, i32 noundef %60, i32 noundef 1, i32 noundef 0)
-  br label %98
+47:                                               ; preds = %30, %30
+  %48 = load ptr, ptr %10, align 8
+  %49 = load i32, ptr @hf_scsi_smc_access, align 4
+  %50 = load ptr, ptr %8, align 8
+  %51 = load i32, ptr %11, align 4
+  %52 = call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %49, ptr noundef %50, i32 noundef %51, i32 noundef 1, i32 noundef 0)
+  %53 = load ptr, ptr %10, align 8
+  %54 = load i32, ptr @hf_scsi_smc_except, align 4
+  %55 = load ptr, ptr %8, align 8
+  %56 = load i32, ptr %11, align 4
+  %57 = call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %54, ptr noundef %55, i32 noundef %56, i32 noundef 1, i32 noundef 0)
+  %58 = load ptr, ptr %10, align 8
+  %59 = load i32, ptr @hf_scsi_smc_full, align 4
+  %60 = load ptr, ptr %8, align 8
+  %61 = load i32, ptr %11, align 4
+  %62 = call ptr @proto_tree_add_item(ptr noundef %58, i32 noundef %59, ptr noundef %60, i32 noundef %61, i32 noundef 1, i32 noundef 0)
+  br label %99
 
-62:                                               ; preds = %29
-  %63 = load ptr, ptr %10, align 8
-  %64 = load i32, ptr @hf_scsi_smc_cmc, align 4
-  %65 = load ptr, ptr %8, align 8
-  %66 = load i32, ptr %11, align 4
-  %67 = call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %64, ptr noundef %65, i32 noundef %66, i32 noundef 1, i32 noundef 0)
-  %68 = load ptr, ptr %10, align 8
-  %69 = load i32, ptr @hf_scsi_smc_inenab, align 4
-  %70 = load ptr, ptr %8, align 8
-  %71 = load i32, ptr %11, align 4
-  %72 = call ptr @proto_tree_add_item(ptr noundef %68, i32 noundef %69, ptr noundef %70, i32 noundef %71, i32 noundef 1, i32 noundef 0)
-  %73 = load ptr, ptr %10, align 8
-  %74 = load i32, ptr @hf_scsi_smc_exenab, align 4
-  %75 = load ptr, ptr %8, align 8
-  %76 = load i32, ptr %11, align 4
-  %77 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %74, ptr noundef %75, i32 noundef %76, i32 noundef 1, i32 noundef 0)
-  %78 = load ptr, ptr %10, align 8
-  %79 = load i32, ptr @hf_scsi_smc_impexp, align 4
-  %80 = load ptr, ptr %8, align 8
-  %81 = load i32, ptr %11, align 4
-  %82 = call ptr @proto_tree_add_item(ptr noundef %78, i32 noundef %79, ptr noundef %80, i32 noundef %81, i32 noundef 1, i32 noundef 0)
-  %83 = load ptr, ptr %10, align 8
-  %84 = load i32, ptr @hf_scsi_smc_access, align 4
-  %85 = load ptr, ptr %8, align 8
-  %86 = load i32, ptr %11, align 4
-  %87 = call ptr @proto_tree_add_item(ptr noundef %83, i32 noundef %84, ptr noundef %85, i32 noundef %86, i32 noundef 1, i32 noundef 0)
-  %88 = load ptr, ptr %10, align 8
-  %89 = load i32, ptr @hf_scsi_smc_except, align 4
-  %90 = load ptr, ptr %8, align 8
-  %91 = load i32, ptr %11, align 4
-  %92 = call ptr @proto_tree_add_item(ptr noundef %88, i32 noundef %89, ptr noundef %90, i32 noundef %91, i32 noundef 1, i32 noundef 0)
-  %93 = load ptr, ptr %10, align 8
-  %94 = load i32, ptr @hf_scsi_smc_full, align 4
-  %95 = load ptr, ptr %8, align 8
-  %96 = load i32, ptr %11, align 4
-  %97 = call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %94, ptr noundef %95, i32 noundef %96, i32 noundef 1, i32 noundef 0)
-  br label %98
+63:                                               ; preds = %30
+  %64 = load ptr, ptr %10, align 8
+  %65 = load i32, ptr @hf_scsi_smc_cmc, align 4
+  %66 = load ptr, ptr %8, align 8
+  %67 = load i32, ptr %11, align 4
+  %68 = call ptr @proto_tree_add_item(ptr noundef %64, i32 noundef %65, ptr noundef %66, i32 noundef %67, i32 noundef 1, i32 noundef 0)
+  %69 = load ptr, ptr %10, align 8
+  %70 = load i32, ptr @hf_scsi_smc_inenab, align 4
+  %71 = load ptr, ptr %8, align 8
+  %72 = load i32, ptr %11, align 4
+  %73 = call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %70, ptr noundef %71, i32 noundef %72, i32 noundef 1, i32 noundef 0)
+  %74 = load ptr, ptr %10, align 8
+  %75 = load i32, ptr @hf_scsi_smc_exenab, align 4
+  %76 = load ptr, ptr %8, align 8
+  %77 = load i32, ptr %11, align 4
+  %78 = call ptr @proto_tree_add_item(ptr noundef %74, i32 noundef %75, ptr noundef %76, i32 noundef %77, i32 noundef 1, i32 noundef 0)
+  %79 = load ptr, ptr %10, align 8
+  %80 = load i32, ptr @hf_scsi_smc_impexp, align 4
+  %81 = load ptr, ptr %8, align 8
+  %82 = load i32, ptr %11, align 4
+  %83 = call ptr @proto_tree_add_item(ptr noundef %79, i32 noundef %80, ptr noundef %81, i32 noundef %82, i32 noundef 1, i32 noundef 0)
+  %84 = load ptr, ptr %10, align 8
+  %85 = load i32, ptr @hf_scsi_smc_access, align 4
+  %86 = load ptr, ptr %8, align 8
+  %87 = load i32, ptr %11, align 4
+  %88 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %85, ptr noundef %86, i32 noundef %87, i32 noundef 1, i32 noundef 0)
+  %89 = load ptr, ptr %10, align 8
+  %90 = load i32, ptr @hf_scsi_smc_except, align 4
+  %91 = load ptr, ptr %8, align 8
+  %92 = load i32, ptr %11, align 4
+  %93 = call ptr @proto_tree_add_item(ptr noundef %89, i32 noundef %90, ptr noundef %91, i32 noundef %92, i32 noundef 1, i32 noundef 0)
+  %94 = load ptr, ptr %10, align 8
+  %95 = load i32, ptr @hf_scsi_smc_full, align 4
+  %96 = load ptr, ptr %8, align 8
+  %97 = load i32, ptr %11, align 4
+  %98 = call ptr @proto_tree_add_item(ptr noundef %94, i32 noundef %95, ptr noundef %96, i32 noundef %97, i32 noundef 1, i32 noundef 0)
+  br label %99
 
-98:                                               ; preds = %62, %46, %35, %29
-  %99 = load i32, ptr %11, align 4
-  %100 = add i32 %99, 1
-  store i32 %100, ptr %11, align 4
-  %101 = load i32, ptr %12, align 4
-  %102 = sub i32 %101, 1
-  store i32 %102, ptr %12, align 4
-  %103 = load i32, ptr %12, align 4
-  %104 = icmp ult i32 %103, 1
-  br i1 %104, label %105, label %106
+99:                                               ; preds = %30, %63, %47, %36
+  %100 = load i32, ptr %11, align 4
+  %101 = add i32 %100, 1
+  store i32 %101, ptr %11, align 4
+  %102 = load i32, ptr %12, align 4
+  %103 = sub i32 %102, 1
+  store i32 %103, ptr %12, align 4
+  %104 = load i32, ptr %12, align 4
+  %105 = icmp ult i32 %104, 1
+  br i1 %105, label %106, label %107
 
-105:                                              ; preds = %98
-  br label %351
+106:                                              ; preds = %99
+  store i32 1, ptr %17, align 4
+  br label %353
 
-106:                                              ; preds = %98
-  %107 = load i32, ptr %11, align 4
-  %108 = add i32 %107, 1
-  store i32 %108, ptr %11, align 4
-  %109 = load i32, ptr %12, align 4
-  %110 = sub i32 %109, 1
-  store i32 %110, ptr %12, align 4
-  %111 = load i32, ptr %12, align 4
-  %112 = icmp ult i32 %111, 2
-  br i1 %112, label %113, label %114
+107:                                              ; preds = %99
+  %108 = load i32, ptr %11, align 4
+  %109 = add i32 %108, 1
+  store i32 %109, ptr %11, align 4
+  %110 = load i32, ptr %12, align 4
+  %111 = sub i32 %110, 1
+  store i32 %111, ptr %12, align 4
+  %112 = load i32, ptr %12, align 4
+  %113 = icmp ult i32 %112, 2
+  br i1 %113, label %114, label %115
 
-113:                                              ; preds = %106
-  br label %351
+114:                                              ; preds = %107
+  store i32 1, ptr %17, align 4
+  br label %353
 
-114:                                              ; preds = %106
-  %115 = load i8, ptr %15, align 1
-  %116 = zext i8 %115 to i32
-  %117 = and i32 %116, 4
-  %118 = icmp ne i32 %117, 0
-  br i1 %118, label %119, label %125
+115:                                              ; preds = %107
+  %116 = load i8, ptr %15, align 1
+  %117 = zext i8 %116 to i32
+  %118 = and i32 %117, 4
+  %119 = icmp ne i32 %118, 0
+  br i1 %119, label %120, label %126
 
-119:                                              ; preds = %114
-  %120 = load ptr, ptr %10, align 8
-  %121 = load i32, ptr @hf_scsi_smc_additional_sense_code_qualifier, align 4
-  %122 = load ptr, ptr %8, align 8
-  %123 = load i32, ptr %11, align 4
-  %124 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %121, ptr noundef %122, i32 noundef %123, i32 noundef 2, i32 noundef 0)
-  br label %125
+120:                                              ; preds = %115
+  %121 = load ptr, ptr %10, align 8
+  %122 = load i32, ptr @hf_scsi_smc_additional_sense_code_qualifier, align 4
+  %123 = load ptr, ptr %8, align 8
+  %124 = load i32, ptr %11, align 4
+  %125 = call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %122, ptr noundef %123, i32 noundef %124, i32 noundef 2, i32 noundef 0)
+  br label %126
 
-125:                                              ; preds = %119, %114
-  %126 = load i32, ptr %11, align 4
-  %127 = add i32 %126, 2
-  store i32 %127, ptr %11, align 4
-  %128 = load i32, ptr %12, align 4
-  %129 = sub i32 %128, 2
-  store i32 %129, ptr %12, align 4
-  %130 = load i32, ptr %12, align 4
-  %131 = icmp ult i32 %130, 3
-  br i1 %131, label %132, label %133
+126:                                              ; preds = %120, %115
+  %127 = load i32, ptr %11, align 4
+  %128 = add i32 %127, 2
+  store i32 %128, ptr %11, align 4
+  %129 = load i32, ptr %12, align 4
+  %130 = sub i32 %129, 2
+  store i32 %130, ptr %12, align 4
+  %131 = load i32, ptr %12, align 4
+  %132 = icmp ult i32 %131, 3
+  br i1 %132, label %133, label %134
 
-132:                                              ; preds = %125
-  br label %351
+133:                                              ; preds = %126
+  store i32 1, ptr %17, align 4
+  br label %353
 
-133:                                              ; preds = %125
-  %134 = load i8, ptr %13, align 1
-  %135 = zext i8 %134 to i32
-  switch i32 %135, label %183 [
-    i32 4, label %136
+134:                                              ; preds = %126
+  %135 = load i8, ptr %13, align 1
+  %136 = zext i8 %135 to i32
+  switch i32 %136, label %184 [
+    i32 4, label %137
   ]
 
-136:                                              ; preds = %133
-  %137 = load ptr, ptr %8, align 8
-  %138 = load i32, ptr %11, align 4
-  %139 = call zeroext i8 @tvb_get_guint8(ptr noundef %137, i32 noundef %138)
-  store i8 %139, ptr %15, align 1
-  %140 = load i8, ptr %15, align 1
-  %141 = zext i8 %140 to i32
-  %142 = and i32 %141, 16
-  %143 = icmp ne i32 %142, 0
-  br i1 %143, label %144, label %150
+137:                                              ; preds = %134
+  %138 = load ptr, ptr %8, align 8
+  %139 = load i32, ptr %11, align 4
+  %140 = call zeroext i8 @tvb_get_uint8(ptr noundef %138, i32 noundef %139)
+  store i8 %140, ptr %15, align 1
+  %141 = load i8, ptr %15, align 1
+  %142 = zext i8 %141 to i32
+  %143 = and i32 %142, 16
+  %144 = icmp ne i32 %143, 0
+  br i1 %144, label %145, label %151
 
-144:                                              ; preds = %136
-  %145 = load ptr, ptr %10, align 8
-  %146 = load i32, ptr @hf_scsi_smc_lun, align 4
-  %147 = load ptr, ptr %8, align 8
-  %148 = load i32, ptr %11, align 4
-  %149 = call ptr @proto_tree_add_item(ptr noundef %145, i32 noundef %146, ptr noundef %147, i32 noundef %148, i32 noundef 1, i32 noundef 0)
-  br label %150
+145:                                              ; preds = %137
+  %146 = load ptr, ptr %10, align 8
+  %147 = load i32, ptr @hf_scsi_smc_lun, align 4
+  %148 = load ptr, ptr %8, align 8
+  %149 = load i32, ptr %11, align 4
+  %150 = call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %147, ptr noundef %148, i32 noundef %149, i32 noundef 1, i32 noundef 0)
+  br label %151
 
-150:                                              ; preds = %144, %136
-  %151 = load ptr, ptr %10, align 8
-  %152 = load i32, ptr @hf_scsi_smc_not_bus, align 4
-  %153 = load ptr, ptr %8, align 8
-  %154 = load i32, ptr %11, align 4
-  %155 = call ptr @proto_tree_add_item(ptr noundef %151, i32 noundef %152, ptr noundef %153, i32 noundef %154, i32 noundef 1, i32 noundef 0)
-  %156 = load ptr, ptr %10, align 8
-  %157 = load i32, ptr @hf_scsi_smc_id_valid, align 4
-  %158 = load ptr, ptr %8, align 8
-  %159 = load i32, ptr %11, align 4
-  %160 = call ptr @proto_tree_add_item(ptr noundef %156, i32 noundef %157, ptr noundef %158, i32 noundef %159, i32 noundef 1, i32 noundef 0)
-  %161 = load ptr, ptr %10, align 8
-  %162 = load i32, ptr @hf_scsi_smc_lu_valid, align 4
-  %163 = load ptr, ptr %8, align 8
-  %164 = load i32, ptr %11, align 4
-  %165 = call ptr @proto_tree_add_item(ptr noundef %161, i32 noundef %162, ptr noundef %163, i32 noundef %164, i32 noundef 1, i32 noundef 0)
-  %166 = load i32, ptr %11, align 4
-  %167 = add i32 %166, 1
-  store i32 %167, ptr %11, align 4
-  %168 = load i8, ptr %15, align 1
-  %169 = zext i8 %168 to i32
-  %170 = and i32 %169, 32
-  %171 = icmp ne i32 %170, 0
-  br i1 %171, label %172, label %178
+151:                                              ; preds = %145, %137
+  %152 = load ptr, ptr %10, align 8
+  %153 = load i32, ptr @hf_scsi_smc_not_bus, align 4
+  %154 = load ptr, ptr %8, align 8
+  %155 = load i32, ptr %11, align 4
+  %156 = call ptr @proto_tree_add_item(ptr noundef %152, i32 noundef %153, ptr noundef %154, i32 noundef %155, i32 noundef 1, i32 noundef 0)
+  %157 = load ptr, ptr %10, align 8
+  %158 = load i32, ptr @hf_scsi_smc_id_valid, align 4
+  %159 = load ptr, ptr %8, align 8
+  %160 = load i32, ptr %11, align 4
+  %161 = call ptr @proto_tree_add_item(ptr noundef %157, i32 noundef %158, ptr noundef %159, i32 noundef %160, i32 noundef 1, i32 noundef 0)
+  %162 = load ptr, ptr %10, align 8
+  %163 = load i32, ptr @hf_scsi_smc_lu_valid, align 4
+  %164 = load ptr, ptr %8, align 8
+  %165 = load i32, ptr %11, align 4
+  %166 = call ptr @proto_tree_add_item(ptr noundef %162, i32 noundef %163, ptr noundef %164, i32 noundef %165, i32 noundef 1, i32 noundef 0)
+  %167 = load i32, ptr %11, align 4
+  %168 = add i32 %167, 1
+  store i32 %168, ptr %11, align 4
+  %169 = load i8, ptr %15, align 1
+  %170 = zext i8 %169 to i32
+  %171 = and i32 %170, 32
+  %172 = icmp ne i32 %171, 0
+  br i1 %172, label %173, label %179
 
-172:                                              ; preds = %150
-  %173 = load ptr, ptr %10, align 8
-  %174 = load i32, ptr @hf_scsi_smc_scsi_bus_address, align 4
-  %175 = load ptr, ptr %8, align 8
-  %176 = load i32, ptr %11, align 4
-  %177 = call ptr @proto_tree_add_item(ptr noundef %173, i32 noundef %174, ptr noundef %175, i32 noundef %176, i32 noundef 1, i32 noundef 0)
-  br label %178
+173:                                              ; preds = %151
+  %174 = load ptr, ptr %10, align 8
+  %175 = load i32, ptr @hf_scsi_smc_scsi_bus_address, align 4
+  %176 = load ptr, ptr %8, align 8
+  %177 = load i32, ptr %11, align 4
+  %178 = call ptr @proto_tree_add_item(ptr noundef %174, i32 noundef %175, ptr noundef %176, i32 noundef %177, i32 noundef 1, i32 noundef 0)
+  br label %179
 
-178:                                              ; preds = %172, %150
-  %179 = load i32, ptr %11, align 4
-  %180 = add i32 %179, 1
-  store i32 %180, ptr %11, align 4
-  %181 = load i32, ptr %11, align 4
-  %182 = add i32 %181, 1
-  store i32 %182, ptr %11, align 4
-  br label %186
+179:                                              ; preds = %173, %151
+  %180 = load i32, ptr %11, align 4
+  %181 = add i32 %180, 1
+  store i32 %181, ptr %11, align 4
+  %182 = load i32, ptr %11, align 4
+  %183 = add i32 %182, 1
+  store i32 %183, ptr %11, align 4
+  br label %187
 
-183:                                              ; preds = %133
-  %184 = load i32, ptr %11, align 4
-  %185 = add i32 %184, 3
-  store i32 %185, ptr %11, align 4
-  br label %186
+184:                                              ; preds = %134
+  %185 = load i32, ptr %11, align 4
+  %186 = add i32 %185, 3
+  store i32 %186, ptr %11, align 4
+  br label %187
 
-186:                                              ; preds = %183, %178
-  %187 = load i32, ptr %12, align 4
-  %188 = sub i32 %187, 3
-  store i32 %188, ptr %12, align 4
-  %189 = load i32, ptr %12, align 4
-  %190 = icmp ult i32 %189, 3
-  br i1 %190, label %191, label %192
+187:                                              ; preds = %184, %179
+  %188 = load i32, ptr %12, align 4
+  %189 = sub i32 %188, 3
+  store i32 %189, ptr %12, align 4
+  %190 = load i32, ptr %12, align 4
+  %191 = icmp ult i32 %190, 3
+  br i1 %191, label %192, label %193
 
-191:                                              ; preds = %186
-  br label %351
+192:                                              ; preds = %187
+  store i32 1, ptr %17, align 4
+  br label %353
 
-192:                                              ; preds = %186
-  %193 = load ptr, ptr %8, align 8
-  %194 = load i32, ptr %11, align 4
-  %195 = call zeroext i8 @tvb_get_guint8(ptr noundef %193, i32 noundef %194)
-  store i8 %195, ptr %15, align 1
-  %196 = load ptr, ptr %10, align 8
-  %197 = load i32, ptr @hf_scsi_smc_svalid, align 4
-  %198 = load ptr, ptr %8, align 8
-  %199 = load i32, ptr %11, align 4
-  %200 = call ptr @proto_tree_add_item(ptr noundef %196, i32 noundef %197, ptr noundef %198, i32 noundef %199, i32 noundef 1, i32 noundef 0)
-  %201 = load i8, ptr %15, align 1
-  %202 = zext i8 %201 to i32
-  %203 = and i32 %202, 128
-  %204 = icmp ne i32 %203, 0
-  br i1 %204, label %205, label %220
+193:                                              ; preds = %187
+  %194 = load ptr, ptr %8, align 8
+  %195 = load i32, ptr %11, align 4
+  %196 = call zeroext i8 @tvb_get_uint8(ptr noundef %194, i32 noundef %195)
+  store i8 %196, ptr %15, align 1
+  %197 = load ptr, ptr %10, align 8
+  %198 = load i32, ptr @hf_scsi_smc_svalid, align 4
+  %199 = load ptr, ptr %8, align 8
+  %200 = load i32, ptr %11, align 4
+  %201 = call ptr @proto_tree_add_item(ptr noundef %197, i32 noundef %198, ptr noundef %199, i32 noundef %200, i32 noundef 1, i32 noundef 0)
+  %202 = load i8, ptr %15, align 1
+  %203 = zext i8 %202 to i32
+  %204 = and i32 %203, 128
+  %205 = icmp ne i32 %204, 0
+  br i1 %205, label %206, label %221
 
-205:                                              ; preds = %192
-  %206 = load ptr, ptr %10, align 8
-  %207 = load i32, ptr @hf_scsi_smc_invert, align 4
-  %208 = load ptr, ptr %8, align 8
-  %209 = load i32, ptr %11, align 4
-  %210 = call ptr @proto_tree_add_item(ptr noundef %206, i32 noundef %207, ptr noundef %208, i32 noundef %209, i32 noundef 1, i32 noundef 0)
-  %211 = load i32, ptr %11, align 4
-  %212 = add i32 %211, 1
-  store i32 %212, ptr %11, align 4
-  %213 = load ptr, ptr %10, align 8
-  %214 = load i32, ptr @hf_scsi_smc_source_storage_element_address, align 4
-  %215 = load ptr, ptr %8, align 8
-  %216 = load i32, ptr %11, align 4
-  %217 = call ptr @proto_tree_add_item(ptr noundef %213, i32 noundef %214, ptr noundef %215, i32 noundef %216, i32 noundef 2, i32 noundef 0)
-  %218 = load i32, ptr %11, align 4
-  %219 = add i32 %218, 2
-  store i32 %219, ptr %11, align 4
-  br label %223
+206:                                              ; preds = %193
+  %207 = load ptr, ptr %10, align 8
+  %208 = load i32, ptr @hf_scsi_smc_invert, align 4
+  %209 = load ptr, ptr %8, align 8
+  %210 = load i32, ptr %11, align 4
+  %211 = call ptr @proto_tree_add_item(ptr noundef %207, i32 noundef %208, ptr noundef %209, i32 noundef %210, i32 noundef 1, i32 noundef 0)
+  %212 = load i32, ptr %11, align 4
+  %213 = add i32 %212, 1
+  store i32 %213, ptr %11, align 4
+  %214 = load ptr, ptr %10, align 8
+  %215 = load i32, ptr @hf_scsi_smc_source_storage_element_address, align 4
+  %216 = load ptr, ptr %8, align 8
+  %217 = load i32, ptr %11, align 4
+  %218 = call ptr @proto_tree_add_item(ptr noundef %214, i32 noundef %215, ptr noundef %216, i32 noundef %217, i32 noundef 2, i32 noundef 0)
+  %219 = load i32, ptr %11, align 4
+  %220 = add i32 %219, 2
+  store i32 %220, ptr %11, align 4
+  br label %224
 
-220:                                              ; preds = %192
-  %221 = load i32, ptr %11, align 4
-  %222 = add i32 %221, 3
-  store i32 %222, ptr %11, align 4
-  br label %223
+221:                                              ; preds = %193
+  %222 = load i32, ptr %11, align 4
+  %223 = add i32 %222, 3
+  store i32 %223, ptr %11, align 4
+  br label %224
 
-223:                                              ; preds = %220, %205
-  %224 = load i32, ptr %12, align 4
-  %225 = sub i32 %224, 3
-  store i32 %225, ptr %12, align 4
-  %226 = load i8, ptr %14, align 1
-  %227 = zext i8 %226 to i32
-  %228 = and i32 %227, 128
-  %229 = icmp ne i32 %228, 0
-  br i1 %229, label %230, label %245
+224:                                              ; preds = %221, %206
+  %225 = load i32, ptr %12, align 4
+  %226 = sub i32 %225, 3
+  store i32 %226, ptr %12, align 4
+  %227 = load i8, ptr %14, align 1
+  %228 = zext i8 %227 to i32
+  %229 = and i32 %228, 128
+  %230 = icmp ne i32 %229, 0
+  br i1 %230, label %231, label %246
 
-230:                                              ; preds = %223
-  %231 = load i32, ptr %12, align 4
-  %232 = icmp ult i32 %231, 36
-  br i1 %232, label %233, label %234
+231:                                              ; preds = %224
+  %232 = load i32, ptr %12, align 4
+  %233 = icmp ult i32 %232, 36
+  br i1 %233, label %234, label %235
 
-233:                                              ; preds = %230
-  br label %351
+234:                                              ; preds = %231
+  store i32 1, ptr %17, align 4
+  br label %353
 
-234:                                              ; preds = %230
-  %235 = load ptr, ptr %8, align 8
-  %236 = load ptr, ptr %9, align 8
-  %237 = load ptr, ptr %10, align 8
-  %238 = load i32, ptr %11, align 4
-  %239 = load i32, ptr @hf_scsi_smc_primary_vol_tag_id, align 4
-  %240 = load i32, ptr @hf_scsi_smc_primary_vol_seq_num, align 4
-  call void @dissect_scsi_smc_volume_tag(ptr noundef %235, ptr noundef %236, ptr noundef %237, i32 noundef %238, i32 noundef %239, i32 noundef %240)
-  %241 = load i32, ptr %11, align 4
-  %242 = add i32 %241, 36
-  store i32 %242, ptr %11, align 4
-  %243 = load i32, ptr %12, align 4
-  %244 = sub i32 %243, 36
-  store i32 %244, ptr %12, align 4
-  br label %245
+235:                                              ; preds = %231
+  %236 = load ptr, ptr %8, align 8
+  %237 = load ptr, ptr %9, align 8
+  %238 = load ptr, ptr %10, align 8
+  %239 = load i32, ptr %11, align 4
+  %240 = load i32, ptr @hf_scsi_smc_primary_vol_tag_id, align 4
+  %241 = load i32, ptr @hf_scsi_smc_primary_vol_seq_num, align 4
+  call void @dissect_scsi_smc_volume_tag(ptr noundef %236, ptr noundef %237, ptr noundef %238, i32 noundef %239, i32 noundef %240, i32 noundef %241)
+  %242 = load i32, ptr %11, align 4
+  %243 = add i32 %242, 36
+  store i32 %243, ptr %11, align 4
+  %244 = load i32, ptr %12, align 4
+  %245 = sub i32 %244, 36
+  store i32 %245, ptr %12, align 4
+  br label %246
 
-245:                                              ; preds = %234, %223
-  %246 = load i8, ptr %14, align 1
-  %247 = zext i8 %246 to i32
-  %248 = and i32 %247, 64
-  %249 = icmp ne i32 %248, 0
-  br i1 %249, label %250, label %265
+246:                                              ; preds = %235, %224
+  %247 = load i8, ptr %14, align 1
+  %248 = zext i8 %247 to i32
+  %249 = and i32 %248, 64
+  %250 = icmp ne i32 %249, 0
+  br i1 %250, label %251, label %266
 
-250:                                              ; preds = %245
-  %251 = load i32, ptr %12, align 4
-  %252 = icmp ult i32 %251, 36
-  br i1 %252, label %253, label %254
+251:                                              ; preds = %246
+  %252 = load i32, ptr %12, align 4
+  %253 = icmp ult i32 %252, 36
+  br i1 %253, label %254, label %255
 
-253:                                              ; preds = %250
-  br label %351
+254:                                              ; preds = %251
+  store i32 1, ptr %17, align 4
+  br label %353
 
-254:                                              ; preds = %250
-  %255 = load ptr, ptr %8, align 8
-  %256 = load ptr, ptr %9, align 8
-  %257 = load ptr, ptr %10, align 8
-  %258 = load i32, ptr %11, align 4
-  %259 = load i32, ptr @hf_scsi_smc_alternate_vol_tag_id, align 4
-  %260 = load i32, ptr @hf_scsi_smc_alternate_vol_seq_num, align 4
-  call void @dissect_scsi_smc_volume_tag(ptr noundef %255, ptr noundef %256, ptr noundef %257, i32 noundef %258, i32 noundef %259, i32 noundef %260)
-  %261 = load i32, ptr %11, align 4
-  %262 = add i32 %261, 36
-  store i32 %262, ptr %11, align 4
-  %263 = load i32, ptr %12, align 4
-  %264 = sub i32 %263, 36
-  store i32 %264, ptr %12, align 4
-  br label %265
+255:                                              ; preds = %251
+  %256 = load ptr, ptr %8, align 8
+  %257 = load ptr, ptr %9, align 8
+  %258 = load ptr, ptr %10, align 8
+  %259 = load i32, ptr %11, align 4
+  %260 = load i32, ptr @hf_scsi_smc_alternate_vol_tag_id, align 4
+  %261 = load i32, ptr @hf_scsi_smc_alternate_vol_seq_num, align 4
+  call void @dissect_scsi_smc_volume_tag(ptr noundef %256, ptr noundef %257, ptr noundef %258, i32 noundef %259, i32 noundef %260, i32 noundef %261)
+  %262 = load i32, ptr %11, align 4
+  %263 = add i32 %262, 36
+  store i32 %263, ptr %11, align 4
+  %264 = load i32, ptr %12, align 4
+  %265 = sub i32 %264, 36
+  store i32 %265, ptr %12, align 4
+  br label %266
 
-265:                                              ; preds = %254, %245
-  %266 = load i32, ptr %12, align 4
-  %267 = icmp ult i32 %266, 1
-  br i1 %267, label %268, label %269
+266:                                              ; preds = %255, %246
+  %267 = load i32, ptr %12, align 4
+  %268 = icmp ult i32 %267, 1
+  br i1 %268, label %269, label %270
 
-268:                                              ; preds = %265
-  br label %351
+269:                                              ; preds = %266
+  store i32 1, ptr %17, align 4
+  br label %353
 
-269:                                              ; preds = %265
-  %270 = load ptr, ptr %10, align 8
-  %271 = load i32, ptr @hf_scsi_smc_code_set, align 4
-  %272 = load ptr, ptr %8, align 8
-  %273 = load i32, ptr %11, align 4
-  %274 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %271, ptr noundef %272, i32 noundef %273, i32 noundef 1, i32 noundef 0)
-  %275 = load i32, ptr %11, align 4
-  %276 = add i32 %275, 1
-  store i32 %276, ptr %11, align 4
-  %277 = load i32, ptr %12, align 4
-  %278 = sub i32 %277, 1
-  store i32 %278, ptr %12, align 4
-  %279 = load i32, ptr %12, align 4
-  %280 = icmp ult i32 %279, 1
-  br i1 %280, label %281, label %282
+270:                                              ; preds = %266
+  %271 = load ptr, ptr %10, align 8
+  %272 = load i32, ptr @hf_scsi_smc_code_set, align 4
+  %273 = load ptr, ptr %8, align 8
+  %274 = load i32, ptr %11, align 4
+  %275 = call ptr @proto_tree_add_item(ptr noundef %271, i32 noundef %272, ptr noundef %273, i32 noundef %274, i32 noundef 1, i32 noundef 0)
+  %276 = load i32, ptr %11, align 4
+  %277 = add i32 %276, 1
+  store i32 %277, ptr %11, align 4
+  %278 = load i32, ptr %12, align 4
+  %279 = sub i32 %278, 1
+  store i32 %279, ptr %12, align 4
+  %280 = load i32, ptr %12, align 4
+  %281 = icmp ult i32 %280, 1
+  br i1 %281, label %282, label %283
 
-281:                                              ; preds = %269
-  br label %351
+282:                                              ; preds = %270
+  store i32 1, ptr %17, align 4
+  br label %353
 
-282:                                              ; preds = %269
-  %283 = load ptr, ptr %10, align 8
-  %284 = load i32, ptr @hf_scsi_smc_identifier_type, align 4
-  %285 = load ptr, ptr %8, align 8
-  %286 = load i32, ptr %11, align 4
-  %287 = call ptr @proto_tree_add_item(ptr noundef %283, i32 noundef %284, ptr noundef %285, i32 noundef %286, i32 noundef 1, i32 noundef 0)
-  %288 = load i32, ptr %11, align 4
-  %289 = add i32 %288, 1
-  store i32 %289, ptr %11, align 4
-  %290 = load i32, ptr %12, align 4
-  %291 = sub i32 %290, 1
-  store i32 %291, ptr %12, align 4
-  %292 = load i32, ptr %12, align 4
-  %293 = icmp ult i32 %292, 1
-  br i1 %293, label %294, label %295
+283:                                              ; preds = %270
+  %284 = load ptr, ptr %10, align 8
+  %285 = load i32, ptr @hf_scsi_smc_identifier_type, align 4
+  %286 = load ptr, ptr %8, align 8
+  %287 = load i32, ptr %11, align 4
+  %288 = call ptr @proto_tree_add_item(ptr noundef %284, i32 noundef %285, ptr noundef %286, i32 noundef %287, i32 noundef 1, i32 noundef 0)
+  %289 = load i32, ptr %11, align 4
+  %290 = add i32 %289, 1
+  store i32 %290, ptr %11, align 4
+  %291 = load i32, ptr %12, align 4
+  %292 = sub i32 %291, 1
+  store i32 %292, ptr %12, align 4
+  %293 = load i32, ptr %12, align 4
+  %294 = icmp ult i32 %293, 1
+  br i1 %294, label %295, label %296
 
-294:                                              ; preds = %282
-  br label %351
+295:                                              ; preds = %283
+  store i32 1, ptr %17, align 4
+  br label %353
 
-295:                                              ; preds = %282
-  %296 = load i32, ptr %11, align 4
-  %297 = add i32 %296, 1
-  store i32 %297, ptr %11, align 4
-  %298 = load i32, ptr %12, align 4
-  %299 = sub i32 %298, 1
-  store i32 %299, ptr %12, align 4
-  %300 = load i32, ptr %12, align 4
-  %301 = icmp ult i32 %300, 1
-  br i1 %301, label %302, label %303
+296:                                              ; preds = %283
+  %297 = load i32, ptr %11, align 4
+  %298 = add i32 %297, 1
+  store i32 %298, ptr %11, align 4
+  %299 = load i32, ptr %12, align 4
+  %300 = sub i32 %299, 1
+  store i32 %300, ptr %12, align 4
+  %301 = load i32, ptr %12, align 4
+  %302 = icmp ult i32 %301, 1
+  br i1 %302, label %303, label %304
 
-302:                                              ; preds = %295
-  br label %351
+303:                                              ; preds = %296
+  store i32 1, ptr %17, align 4
+  br label %353
 
-303:                                              ; preds = %295
-  %304 = load ptr, ptr %8, align 8
-  %305 = load i32, ptr %11, align 4
-  %306 = call zeroext i8 @tvb_get_guint8(ptr noundef %304, i32 noundef %305)
-  store i8 %306, ptr %16, align 1
-  %307 = load ptr, ptr %10, align 8
-  %308 = load i32, ptr @hf_scsi_smc_identifier_length, align 4
-  %309 = load ptr, ptr %8, align 8
-  %310 = load i32, ptr %11, align 4
-  %311 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %308, ptr noundef %309, i32 noundef %310, i32 noundef 1, i32 noundef 0)
-  %312 = load i32, ptr %11, align 4
-  %313 = add i32 %312, 1
-  store i32 %313, ptr %11, align 4
-  %314 = load i32, ptr %12, align 4
-  %315 = sub i32 %314, 1
-  store i32 %315, ptr %12, align 4
-  %316 = load i8, ptr %16, align 1
-  %317 = zext i8 %316 to i32
-  %318 = icmp ne i32 %317, 0
-  br i1 %318, label %319, label %341
+304:                                              ; preds = %296
+  %305 = load ptr, ptr %8, align 8
+  %306 = load i32, ptr %11, align 4
+  %307 = call zeroext i8 @tvb_get_uint8(ptr noundef %305, i32 noundef %306)
+  store i8 %307, ptr %16, align 1
+  %308 = load ptr, ptr %10, align 8
+  %309 = load i32, ptr @hf_scsi_smc_identifier_length, align 4
+  %310 = load ptr, ptr %8, align 8
+  %311 = load i32, ptr %11, align 4
+  %312 = call ptr @proto_tree_add_item(ptr noundef %308, i32 noundef %309, ptr noundef %310, i32 noundef %311, i32 noundef 1, i32 noundef 0)
+  %313 = load i32, ptr %11, align 4
+  %314 = add i32 %313, 1
+  store i32 %314, ptr %11, align 4
+  %315 = load i32, ptr %12, align 4
+  %316 = sub i32 %315, 1
+  store i32 %316, ptr %12, align 4
+  %317 = load i8, ptr %16, align 1
+  %318 = zext i8 %317 to i32
+  %319 = icmp ne i32 %318, 0
+  br i1 %319, label %320, label %342
 
-319:                                              ; preds = %303
-  %320 = load i32, ptr %12, align 4
-  %321 = load i8, ptr %16, align 1
-  %322 = zext i8 %321 to i32
-  %323 = icmp ult i32 %320, %322
-  br i1 %323, label %324, label %325
+320:                                              ; preds = %304
+  %321 = load i32, ptr %12, align 4
+  %322 = load i8, ptr %16, align 1
+  %323 = zext i8 %322 to i32
+  %324 = icmp ult i32 %321, %323
+  br i1 %324, label %325, label %326
 
-324:                                              ; preds = %319
-  br label %351
+325:                                              ; preds = %320
+  store i32 1, ptr %17, align 4
+  br label %353
 
-325:                                              ; preds = %319
-  %326 = load ptr, ptr %10, align 8
-  %327 = load i32, ptr @hf_scsi_smc_identifier, align 4
-  %328 = load ptr, ptr %8, align 8
-  %329 = load i32, ptr %11, align 4
-  %330 = load i8, ptr %16, align 1
-  %331 = zext i8 %330 to i32
-  %332 = call ptr @proto_tree_add_item(ptr noundef %326, i32 noundef %327, ptr noundef %328, i32 noundef %329, i32 noundef %331, i32 noundef 0)
-  %333 = load i8, ptr %16, align 1
-  %334 = zext i8 %333 to i32
-  %335 = load i32, ptr %11, align 4
-  %336 = add i32 %335, %334
-  store i32 %336, ptr %11, align 4
-  %337 = load i8, ptr %16, align 1
-  %338 = zext i8 %337 to i32
-  %339 = load i32, ptr %12, align 4
-  %340 = sub i32 %339, %338
-  store i32 %340, ptr %12, align 4
-  br label %341
+326:                                              ; preds = %320
+  %327 = load ptr, ptr %10, align 8
+  %328 = load i32, ptr @hf_scsi_smc_identifier, align 4
+  %329 = load ptr, ptr %8, align 8
+  %330 = load i32, ptr %11, align 4
+  %331 = load i8, ptr %16, align 1
+  %332 = zext i8 %331 to i32
+  %333 = call ptr @proto_tree_add_item(ptr noundef %327, i32 noundef %328, ptr noundef %329, i32 noundef %330, i32 noundef %332, i32 noundef 0)
+  %334 = load i8, ptr %16, align 1
+  %335 = zext i8 %334 to i32
+  %336 = load i32, ptr %11, align 4
+  %337 = add i32 %336, %335
+  store i32 %337, ptr %11, align 4
+  %338 = load i8, ptr %16, align 1
+  %339 = zext i8 %338 to i32
+  %340 = load i32, ptr %12, align 4
+  %341 = sub i32 %340, %339
+  store i32 %341, ptr %12, align 4
+  br label %342
 
-341:                                              ; preds = %325, %303
-  %342 = load i32, ptr %12, align 4
-  %343 = icmp ne i32 %342, 0
-  br i1 %343, label %344, label %351
+342:                                              ; preds = %326, %304
+  %343 = load i32, ptr %12, align 4
+  %344 = icmp ne i32 %343, 0
+  br i1 %344, label %345, label %352
 
-344:                                              ; preds = %341
-  %345 = load ptr, ptr %10, align 8
-  %346 = load i32, ptr @hf_scsi_smc_vendor_specific_data, align 4
-  %347 = load ptr, ptr %8, align 8
-  %348 = load i32, ptr %11, align 4
-  %349 = load i32, ptr %12, align 4
-  %350 = call ptr @proto_tree_add_item(ptr noundef %345, i32 noundef %346, ptr noundef %347, i32 noundef %348, i32 noundef %349, i32 noundef 0)
-  br label %351
+345:                                              ; preds = %342
+  %346 = load ptr, ptr %10, align 8
+  %347 = load i32, ptr @hf_scsi_smc_vendor_specific_data, align 4
+  %348 = load ptr, ptr %8, align 8
+  %349 = load i32, ptr %11, align 4
+  %350 = load i32, ptr %12, align 4
+  %351 = call ptr @proto_tree_add_item(ptr noundef %346, i32 noundef %347, ptr noundef %348, i32 noundef %349, i32 noundef %350, i32 noundef 0)
+  br label %352
 
-351:                                              ; preds = %344, %341, %324, %302, %294, %281, %268, %253, %233, %191, %132, %113, %105, %28
+352:                                              ; preds = %345, %342
+  store i32 0, ptr %17, align 4
+  br label %353
+
+353:                                              ; preds = %352, %325, %303, %295, %282, %269, %254, %234, %192, %133, %114, %106, %29
+  call void @llvm.lifetime.end.p0(i64 1, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #3
+  %354 = load i32, ptr %17, align 4
+  switch i32 %354, label %356 [
+    i32 0, label %355
+    i32 1, label %355
+  ]
+
+355:                                              ; preds = %353, %353
   ret void
+
+356:                                              ; preds = %353
+  unreachable
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_scsi_smc_volume_tag(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -1569,6 +1677,8 @@ define internal void @dissect_scsi_smc_volume_tag(ptr noundef %0, ptr noundef %1
   store i32 %3, ptr %10, align 4
   store i32 %4, ptr %11, align 4
   store i32 %5, ptr %12, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #3
   store i32 32, ptr %14, align 4
   br label %15
 
@@ -1583,7 +1693,7 @@ define internal void @dissect_scsi_smc_volume_tag(ptr noundef %0, ptr noundef %1
   %21 = load i32, ptr %14, align 4
   %22 = add i32 %20, %21
   %23 = sub i32 %22, 1
-  %24 = call zeroext i8 @tvb_get_guint8(ptr noundef %19, i32 noundef %23)
+  %24 = call zeroext i8 @tvb_get_uint8(ptr noundef %19, i32 noundef %23)
   %25 = zext i8 %24 to i32
   %26 = icmp ne i32 %25, 32
   br i1 %26, label %27, label %28
@@ -1598,11 +1708,11 @@ define internal void @dissect_scsi_smc_volume_tag(ptr noundef %0, ptr noundef %1
   %30 = load i32, ptr %14, align 4
   %31 = add i32 %30, -1
   store i32 %31, ptr %14, align 4
-  br label %15, !llvm.loop !7
+  br label %15, !llvm.loop !11
 
 32:                                               ; preds = %27, %15
   %33 = load ptr, ptr %8, align 8
-  %34 = getelementptr inbounds %struct._packet_info, ptr %33, i32 0, i32 50
+  %34 = getelementptr inbounds nuw %struct._packet_info, ptr %33, i32 0, i32 51
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %7, align 8
   %37 = load i32, ptr %10, align 4
@@ -1621,23 +1731,33 @@ define internal void @dissect_scsi_smc_volume_tag(ptr noundef %0, ptr noundef %1
   %49 = load i32, ptr %10, align 4
   %50 = add i32 %49, 34
   %51 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %47, ptr noundef %48, i32 noundef %50, i32 noundef 2, i32 noundef 0)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #3
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}

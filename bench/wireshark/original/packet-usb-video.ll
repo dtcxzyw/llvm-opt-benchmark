@@ -3,23 +3,21 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
 %struct._value_string_ext = type { ptr, i32, i32, ptr, ptr }
 %struct.true_false_string = type { ptr, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
-%struct._usb_setup_dissector_table_t = type { i8, ptr }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
-%struct._usb_conv_info_t = type { i16, i16, i8, i32, i8, i8, i16, i32, i32, i32, i8, i32, i16, i16, i16, i8, i16, i32, i16, i8, ptr, ptr, ptr, i32, ptr }
-%struct._usb_trans_info_t = type { i32, i32, %struct.nstime_t, i32, %struct._usb_setup, %union.anon, ptr, i64 }
+%struct._urb_info_t = type { i16, i16, i8, i32, i8, i32, i8, i8, i8, i32, ptr, ptr }
+%struct._usb_setup_dissector_table_t = type { i8, ptr }
+%struct._usb_trans_info_t = type { i32, i32, %struct.nstime_t, i32, %struct._usb_setup, %union.anon, i8, ptr, i64 }
 %struct._usb_setup = type { i8, i8, i16, i16, i16 }
 %union.anon = type { %struct.anon.0 }
 %struct.anon.0 = type { i8, i8 }
-%struct._proto_node = type { ptr, ptr, ptr, ptr, ptr, ptr }
+%struct._usb_conv_info_t = type { i8, i16, i16, i16, i16, i8, i16, i32, i16, i8, ptr, ptr, i32, ptr }
+%struct._proto_node = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.field_info = type { ptr, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, i32, i32 }
 %struct._video_conv_info_t = type { ptr }
 %struct.video_entity_t = type { i8, i8, i16 }
@@ -28,14 +26,13 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_usb_vid_request = internal global i32 0, align 4
 @.str = private unnamed_addr constant [9 x i8] c"bRequest\00", align 1
 @.str.1 = private unnamed_addr constant [24 x i8] c"usbvideo.setup.bRequest\00", align 1
-@setup_request_names_vals = internal constant [15 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.417 }, %struct._value_string { i32 17, ptr @.str.418 }, %struct._value_string { i32 129, ptr @.str.419 }, %struct._value_string { i32 130, ptr @.str.420 }, %struct._value_string { i32 131, ptr @.str.421 }, %struct._value_string { i32 132, ptr @.str.422 }, %struct._value_string { i32 133, ptr @.str.423 }, %struct._value_string { i32 134, ptr @.str.424 }, %struct._value_string { i32 135, ptr @.str.425 }, %struct._value_string { i32 145, ptr @.str.426 }, %struct._value_string { i32 146, ptr @.str.427 }, %struct._value_string { i32 147, ptr @.str.428 }, %struct._value_string { i32 148, ptr @.str.429 }, %struct._value_string { i32 151, ptr @.str.430 }, %struct._value_string zeroinitializer], align 16
 @hf_usb_vid_length = internal global i32 0, align 4
 @.str.2 = private unnamed_addr constant [8 x i8] c"wLength\00", align 1
 @.str.3 = private unnamed_addr constant [23 x i8] c"usbvideo.setup.wLength\00", align 1
 @hf_usb_vid_request_error = internal global i32 0, align 4
 @.str.4 = private unnamed_addr constant [18 x i8] c"bRequestErrorCode\00", align 1
 @.str.5 = private unnamed_addr constant [23 x i8] c"usbvideo.reqerror.code\00", align 1
-@request_error_codes_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 10, ptr @request_error_codes, ptr @.str.431 }, align 8
+@request_error_codes_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 10, ptr @request_error_codes, ptr @.str.432 }, align 8
 @.str.6 = private unnamed_addr constant [19 x i8] c"Request Error Code\00", align 1
 @hf_usb_vid_control_selector = internal global i32 0, align 4
 @.str.7 = private unnamed_addr constant [17 x i8] c"Control Selector\00", align 1
@@ -98,7 +95,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_usb_vid_control_ifdesc_terminal_type = internal global i32 0, align 4
 @.str.51 = private unnamed_addr constant [14 x i8] c"wTerminalType\00", align 1
 @.str.52 = private unnamed_addr constant [23 x i8] c"usbvideo.terminal.type\00", align 1
-@vc_terminal_types_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 12, ptr @vc_terminal_types, ptr @.str.442 }, align 8
+@vc_terminal_types_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 12, ptr @vc_terminal_types, ptr @.str.444 }, align 8
 @hf_usb_vid_control_ifdesc_assoc_terminal = internal global i32 0, align 4
 @.str.53 = private unnamed_addr constant [15 x i8] c"bAssocTerminal\00", align 1
 @.str.54 = private unnamed_addr constant [32 x i8] c"usbvideo.terminal.assocTerminal\00", align 1
@@ -254,7 +251,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_usb_vid_probe_hint_D = internal global [5 x i32] zeroinitializer, align 16
 @.str.187 = private unnamed_addr constant [16 x i8] c"dwFrameInterval\00", align 1
 @.str.188 = private unnamed_addr constant [23 x i8] c"usbvideo.probe.hint.D0\00", align 1
-@probe_hint_meaning = internal constant %struct.true_false_string { ptr @.str.455, ptr @.str.456 }, align 8
+@probe_hint_meaning = internal constant %struct.true_false_string { ptr @.str.458, ptr @.str.459 }, align 8
 @.str.189 = private unnamed_addr constant [11 x i8] c"Frame Rate\00", align 1
 @.str.190 = private unnamed_addr constant [14 x i8] c"wKeyFrameRate\00", align 1
 @.str.191 = private unnamed_addr constant [23 x i8] c"usbvideo.probe.hint.D1\00", align 1
@@ -351,22 +348,21 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_usb_vid_is_interlaced = internal global i32 0, align 4
 @.str.260 = private unnamed_addr constant [18 x i8] c"Interlaced stream\00", align 1
 @.str.261 = private unnamed_addr constant [29 x i8] c"usbvideo.format.interlace.D0\00", align 1
-@is_interlaced_meaning = internal constant %struct.true_false_string { ptr @.str.457, ptr @.str.458 }, align 8
+@is_interlaced_meaning = internal constant %struct.true_false_string { ptr @.str.460, ptr @.str.461 }, align 8
 @hf_usb_vid_interlaced_fields = internal global i32 0, align 4
 @.str.262 = private unnamed_addr constant [17 x i8] c"Fields per frame\00", align 1
 @.str.263 = private unnamed_addr constant [29 x i8] c"usbvideo.format.interlace.D1\00", align 1
-@interlaced_fields_meaning = internal constant %struct.true_false_string { ptr @.str.459, ptr @.str.460 }, align 8
+@interlaced_fields_meaning = internal constant %struct.true_false_string { ptr @.str.462, ptr @.str.463 }, align 8
 @hf_usb_vid_field_1_first = internal global i32 0, align 4
 @.str.264 = private unnamed_addr constant [14 x i8] c"Field 1 first\00", align 1
 @.str.265 = private unnamed_addr constant [29 x i8] c"usbvideo.format.interlace.D2\00", align 1
 @hf_usb_vid_field_pattern = internal global i32 0, align 4
 @.str.266 = private unnamed_addr constant [14 x i8] c"Field pattern\00", align 1
 @.str.267 = private unnamed_addr constant [34 x i8] c"usbvideo.format.interlace.pattern\00", align 1
-@field_pattern_meaning_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 4, ptr @field_pattern_meaning, ptr @.str.461 }, align 8
+@field_pattern_meaning_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 4, ptr @field_pattern_meaning, ptr @.str.464 }, align 8
 @hf_usb_vid_copy_protect = internal global i32 0, align 4
 @.str.268 = private unnamed_addr constant [13 x i8] c"bCopyProtect\00", align 1
 @.str.269 = private unnamed_addr constant [28 x i8] c"usbvideo.format.copyProtect\00", align 1
-@copy_protect_meaning = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.466 }, %struct._value_string { i32 1, ptr @.str.467 }, %struct._value_string zeroinitializer], align 16
 @hf_usb_vid_variable_size = internal global i32 0, align 4
 @.str.270 = private unnamed_addr constant [14 x i8] c"Variable size\00", align 1
 @.str.271 = private unnamed_addr constant [29 x i8] c"usbvideo.format.variableSize\00", align 1
@@ -441,15 +437,15 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_usb_vid_color_primaries = internal global i32 0, align 4
 @.str.321 = private unnamed_addr constant [16 x i8] c"bColorPrimaries\00", align 1
 @.str.322 = private unnamed_addr constant [25 x i8] c"usbvideo.color.primaries\00", align 1
-@color_primaries_meaning_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 6, ptr @color_primaries_meaning, ptr @.str.468 }, align 8
+@color_primaries_meaning_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 6, ptr @color_primaries_meaning, ptr @.str.473 }, align 8
 @hf_usb_vid_transfer_characteristics = internal global i32 0, align 4
 @.str.323 = private unnamed_addr constant [25 x i8] c"bTransferCharacteristics\00", align 1
 @.str.324 = private unnamed_addr constant [39 x i8] c"usbvideo.color.transferCharacteristics\00", align 1
-@color_transfer_characteristics_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 8, ptr @color_transfer_characteristics, ptr @.str.475 }, align 8
+@color_transfer_characteristics_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 8, ptr @color_transfer_characteristics, ptr @.str.481 }, align 8
 @hf_usb_vid_matrix_coefficients = internal global i32 0, align 4
 @.str.325 = private unnamed_addr constant [20 x i8] c"bMatrixCoefficients\00", align 1
 @.str.326 = private unnamed_addr constant [34 x i8] c"usbvideo.color.matrixCoefficients\00", align 1
-@matrix_coefficients_meaning_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 6, ptr @matrix_coefficients_meaning, ptr @.str.479 }, align 8
+@matrix_coefficients_meaning_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 6, ptr @matrix_coefficients_meaning, ptr @.str.486 }, align 8
 @hf_usb_vid_control_ifdesc_bcdUVC = internal global i32 0, align 4
 @.str.327 = private unnamed_addr constant [7 x i8] c"bcdUVC\00", align 1
 @.str.328 = private unnamed_addr constant [16 x i8] c"usbvideo.bcdUVC\00", align 1
@@ -489,7 +485,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_usb_vid_streaming_still_capture_method = internal global i32 0, align 4
 @.str.355 = private unnamed_addr constant [20 x i8] c"bStillCaptureMethod\00", align 1
 @.str.356 = private unnamed_addr constant [38 x i8] c"usbvideo.streaming.stillCaptureMethod\00", align 1
-@vs_still_capture_methods_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 4, ptr @vs_still_capture_methods, ptr @.str.482 }, align 8
+@vs_still_capture_methods_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 4, ptr @vs_still_capture_methods, ptr @.str.490 }, align 8
 @.str.357 = private unnamed_addr constant [30 x i8] c"Method of Still Image Capture\00", align 1
 @hf_usb_vid_streaming_trigger_support = internal global i32 0, align 4
 @.str.358 = private unnamed_addr constant [14 x i8] c"HW Triggering\00", align 1
@@ -498,16 +494,14 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_usb_vid_streaming_trigger_usage = internal global i32 0, align 4
 @.str.361 = private unnamed_addr constant [14 x i8] c"bTriggerUsage\00", align 1
 @.str.362 = private unnamed_addr constant [32 x i8] c"usbvideo.streaming.triggerUsage\00", align 1
-@vs_trigger_usage = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.486 }, %struct._value_string { i32 1, ptr @.str.487 }, %struct._value_string zeroinitializer], align 16
 @.str.363 = private unnamed_addr constant [38 x i8] c"How host SW should respond to trigger\00", align 1
 @hf_usb_vid_interrupt_bStatusType = internal global i32 0, align 4
 @.str.364 = private unnamed_addr constant [12 x i8] c"Status Type\00", align 1
 @.str.365 = private unnamed_addr constant [30 x i8] c"usbvideo.interrupt.statusType\00", align 1
-@interrupt_status_types = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.488 }, %struct._value_string { i32 2, ptr @.str.489 }, %struct._value_string zeroinitializer], align 16
 @hf_usb_vid_interrupt_bAttribute = internal global i32 0, align 4
 @.str.366 = private unnamed_addr constant [12 x i8] c"Change Type\00", align 1
 @.str.367 = private unnamed_addr constant [29 x i8] c"usbvideo.interrupt.attribute\00", align 1
-@control_change_types_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 5, ptr @control_change_types, ptr @.str.490 }, align 8
+@control_change_types_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 5, ptr @control_change_types, ptr @.str.501 }, align 8
 @.str.368 = private unnamed_addr constant [23 x i8] c"Type of control change\00", align 1
 @hf_usb_vid_interrupt_bOriginator = internal global i32 0, align 4
 @.str.369 = private unnamed_addr constant [11 x i8] c"Originator\00", align 1
@@ -516,12 +510,10 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_usb_vid_control_interrupt_bEvent = internal global i32 0, align 4
 @.str.372 = private unnamed_addr constant [6 x i8] c"Event\00", align 1
 @.str.373 = private unnamed_addr constant [32 x i8] c"usbvideo.interrupt.controlEvent\00", align 1
-@control_interrupt_events = internal constant [2 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.496 }, %struct._value_string zeroinitializer], align 16
 @.str.374 = private unnamed_addr constant [14 x i8] c"Type of event\00", align 1
 @hf_usb_vid_epdesc_subtype = internal global i32 0, align 4
 @.str.375 = private unnamed_addr constant [8 x i8] c"Subtype\00", align 1
 @.str.376 = private unnamed_addr constant [30 x i8] c"usbvideo.ep.descriptorSubType\00", align 1
-@vc_ep_descriptor_subtypes = internal constant [2 x %struct._value_string] [%struct._value_string { i32 3, ptr @.str.497 }, %struct._value_string zeroinitializer], align 16
 @.str.377 = private unnamed_addr constant [19 x i8] c"Descriptor Subtype\00", align 1
 @hf_usb_vid_epdesc_max_transfer_sz = internal global i32 0, align 4
 @.str.378 = private unnamed_addr constant [17 x i8] c"wMaxTransferSize\00", align 1
@@ -547,10 +539,10 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.393 = private unnamed_addr constant [48 x i8] c"Entity to which this terminal/unit is connected\00", align 1
 @hf_usb_vid_control_ifdesc_subtype = internal global i32 0, align 4
 @.str.394 = private unnamed_addr constant [35 x i8] c"usbvideo.control.descriptorSubType\00", align 1
-@vc_if_descriptor_subtypes_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 7, ptr @vc_if_descriptor_subtypes, ptr @.str.498 }, align 8
+@vc_if_descriptor_subtypes_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 7, ptr @vc_if_descriptor_subtypes, ptr @.str.512 }, align 8
 @hf_usb_vid_streaming_ifdesc_subtype = internal global i32 0, align 4
 @.str.395 = private unnamed_addr constant [37 x i8] c"usbvideo.streaming.descriptorSubType\00", align 1
-@vs_if_descriptor_subtypes_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 25, ptr @vs_if_descriptor_subtypes, ptr @.str.506 }, align 8
+@vs_if_descriptor_subtypes_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 25, ptr @vs_if_descriptor_subtypes, ptr @.str.521 }, align 8
 @hf_usb_vid_descriptor_data = internal global i32 0, align 4
 @.str.396 = private unnamed_addr constant [16 x i8] c"Descriptor data\00", align 1
 @.str.397 = private unnamed_addr constant [25 x i8] c"usbvideo.descriptor_data\00", align 1
@@ -563,7 +555,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_usb_vid_value_data = internal global i32 0, align 4
 @.str.402 = private unnamed_addr constant [11 x i8] c"Value data\00", align 1
 @.str.403 = private unnamed_addr constant [20 x i8] c"usbvideo.value_data\00", align 1
-@proto_register_usb_vid.usb_vid_subtrees = internal global [16 x ptr] [ptr @ett_usb_vid, ptr @ett_descriptor_video_endpoint, ptr @ett_descriptor_video_control, ptr @ett_descriptor_video_streaming, ptr @ett_camera_controls, ptr @ett_processing_controls, ptr @ett_streaming_controls, ptr @ett_streaming_info, ptr @ett_interlace_flags, ptr @ett_frame_capability_flags, ptr @ett_mjpeg_flags, ptr @ett_video_probe, ptr @ett_probe_hint, ptr @ett_probe_framing, ptr @ett_video_standards, ptr @ett_control_capabilities], align 16
+@proto_register_usb_vid.usb_vid_ett = internal global [16 x ptr] [ptr @ett_usb_vid, ptr @ett_descriptor_video_endpoint, ptr @ett_descriptor_video_control, ptr @ett_descriptor_video_streaming, ptr @ett_camera_controls, ptr @ett_processing_controls, ptr @ett_streaming_controls, ptr @ett_streaming_info, ptr @ett_interlace_flags, ptr @ett_frame_capability_flags, ptr @ett_mjpeg_flags, ptr @ett_video_probe, ptr @ett_probe_hint, ptr @ett_probe_framing, ptr @ett_video_standards, ptr @ett_control_capabilities], align 16
 @ett_usb_vid = internal global i32 0, align 4
 @ett_descriptor_video_endpoint = internal global i32 0, align 4
 @ett_descriptor_video_control = internal global i32 0, align 4
@@ -580,7 +572,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_probe_framing = internal global i32 0, align 4
 @ett_video_standards = internal global i32 0, align 4
 @ett_control_capabilities = internal global i32 0, align 4
-@proto_register_usb_vid.ei = internal global [2 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_usb_vid_subtype_unknown, %struct.expert_field_info { ptr @.str.404, i32 83886080, i32 6291456, ptr @.str.405, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_usb_vid_bitmask_len, %struct.expert_field_info { ptr @.str.406, i32 83886080, i32 6291456, ptr @.str.407, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_usb_vid.ei = internal global [2 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_usb_vid_subtype_unknown, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.404, i32 83886080, i32 6291456, ptr @.str.405, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_usb_vid_bitmask_len, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.406, i32 83886080, i32 6291456, ptr @.str.407, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_usb_vid_subtype_unknown = internal global %struct.expert_field zeroinitializer, align 4
 @.str.404 = private unnamed_addr constant [25 x i8] c"usbvideo.subtype.unknown\00", align 1
 @.str.405 = private unnamed_addr constant [19 x i8] c"Unknown VC subtype\00", align 1
@@ -614,210 +606,217 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.428 = private unnamed_addr constant [12 x i8] c"GET MAX ALL\00", align 1
 @.str.429 = private unnamed_addr constant [12 x i8] c"GET RES ALL\00", align 1
 @.str.430 = private unnamed_addr constant [12 x i8] c"GET DEF ALL\00", align 1
-@request_error_codes = internal constant [11 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.432 }, %struct._value_string { i32 1, ptr @.str.433 }, %struct._value_string { i32 2, ptr @.str.434 }, %struct._value_string { i32 3, ptr @.str.435 }, %struct._value_string { i32 4, ptr @.str.436 }, %struct._value_string { i32 5, ptr @.str.437 }, %struct._value_string { i32 6, ptr @.str.438 }, %struct._value_string { i32 7, ptr @.str.439 }, %struct._value_string { i32 8, ptr @.str.440 }, %struct._value_string { i32 255, ptr @.str.441 }, %struct._value_string zeroinitializer], align 16
-@.str.431 = private unnamed_addr constant [20 x i8] c"request_error_codes\00", align 1
-@.str.432 = private unnamed_addr constant [9 x i8] c"No error\00", align 1
-@.str.433 = private unnamed_addr constant [10 x i8] c"Not ready\00", align 1
-@.str.434 = private unnamed_addr constant [12 x i8] c"Wrong state\00", align 1
-@.str.435 = private unnamed_addr constant [19 x i8] c"Insufficient power\00", align 1
-@.str.436 = private unnamed_addr constant [13 x i8] c"Out of range\00", align 1
-@.str.437 = private unnamed_addr constant [13 x i8] c"Invalid unit\00", align 1
-@.str.438 = private unnamed_addr constant [16 x i8] c"Invalid control\00", align 1
-@.str.439 = private unnamed_addr constant [16 x i8] c"Invalid request\00", align 1
-@.str.440 = private unnamed_addr constant [27 x i8] c"Invalid value within range\00", align 1
-@.str.441 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
-@vc_terminal_types = internal constant [13 x %struct._value_string] [%struct._value_string { i32 256, ptr @.str.443 }, %struct._value_string { i32 257, ptr @.str.444 }, %struct._value_string { i32 512, ptr @.str.445 }, %struct._value_string { i32 513, ptr @.str.446 }, %struct._value_string { i32 514, ptr @.str.447 }, %struct._value_string { i32 768, ptr @.str.448 }, %struct._value_string { i32 769, ptr @.str.449 }, %struct._value_string { i32 770, ptr @.str.450 }, %struct._value_string { i32 1024, ptr @.str.451 }, %struct._value_string { i32 1025, ptr @.str.452 }, %struct._value_string { i32 1026, ptr @.str.453 }, %struct._value_string { i32 1027, ptr @.str.454 }, %struct._value_string zeroinitializer], align 16
-@.str.442 = private unnamed_addr constant [18 x i8] c"vc_terminal_types\00", align 1
-@.str.443 = private unnamed_addr constant [16 x i8] c"Vendor Specific\00", align 1
-@.str.444 = private unnamed_addr constant [10 x i8] c"Streaming\00", align 1
-@.str.445 = private unnamed_addr constant [22 x i8] c"Vendor Specific Input\00", align 1
-@.str.446 = private unnamed_addr constant [13 x i8] c"Camera Input\00", align 1
-@.str.447 = private unnamed_addr constant [22 x i8] c"Media Transport Input\00", align 1
-@.str.448 = private unnamed_addr constant [23 x i8] c"Vendor Specific Output\00", align 1
-@.str.449 = private unnamed_addr constant [15 x i8] c"Display Output\00", align 1
-@.str.450 = private unnamed_addr constant [23 x i8] c"Media Transport Output\00", align 1
-@.str.451 = private unnamed_addr constant [25 x i8] c"Vendor Specific External\00", align 1
-@.str.452 = private unnamed_addr constant [20 x i8] c"Composite Connector\00", align 1
-@.str.453 = private unnamed_addr constant [17 x i8] c"SVideo Connector\00", align 1
-@.str.454 = private unnamed_addr constant [20 x i8] c"Component Connector\00", align 1
-@.str.455 = private unnamed_addr constant [9 x i8] c"Constant\00", align 1
-@.str.456 = private unnamed_addr constant [9 x i8] c"Variable\00", align 1
-@.str.457 = private unnamed_addr constant [11 x i8] c"Interlaced\00", align 1
-@.str.458 = private unnamed_addr constant [15 x i8] c"Non-interlaced\00", align 1
-@.str.459 = private unnamed_addr constant [8 x i8] c"1 field\00", align 1
-@.str.460 = private unnamed_addr constant [9 x i8] c"2 fields\00", align 1
-@field_pattern_meaning = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.462 }, %struct._value_string { i32 1, ptr @.str.463 }, %struct._value_string { i32 2, ptr @.str.464 }, %struct._value_string { i32 3, ptr @.str.465 }, %struct._value_string zeroinitializer], align 16
-@.str.461 = private unnamed_addr constant [22 x i8] c"field_pattern_meaning\00", align 1
-@.str.462 = private unnamed_addr constant [13 x i8] c"Field 1 only\00", align 1
-@.str.463 = private unnamed_addr constant [13 x i8] c"Field 2 only\00", align 1
-@.str.464 = private unnamed_addr constant [34 x i8] c"Regular pattern of fields 1 and 2\00", align 1
-@.str.465 = private unnamed_addr constant [33 x i8] c"Random pattern of fields 1 and 2\00", align 1
-@.str.466 = private unnamed_addr constant [16 x i8] c"No restrictions\00", align 1
-@.str.467 = private unnamed_addr constant [21 x i8] c"Restrict duplication\00", align 1
-@color_primaries_meaning = internal constant [7 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.469 }, %struct._value_string { i32 1, ptr @.str.470 }, %struct._value_string { i32 2, ptr @.str.471 }, %struct._value_string { i32 3, ptr @.str.472 }, %struct._value_string { i32 4, ptr @.str.473 }, %struct._value_string { i32 5, ptr @.str.474 }, %struct._value_string zeroinitializer], align 16
-@.str.468 = private unnamed_addr constant [24 x i8] c"color_primaries_meaning\00", align 1
-@.str.469 = private unnamed_addr constant [12 x i8] c"Unspecified\00", align 1
-@.str.470 = private unnamed_addr constant [13 x i8] c"BT.709, sRGB\00", align 1
-@.str.471 = private unnamed_addr constant [13 x i8] c"BT.470-2 (M)\00", align 1
-@.str.472 = private unnamed_addr constant [15 x i8] c"BT.470-2 (B,G)\00", align 1
-@.str.473 = private unnamed_addr constant [11 x i8] c"SMPTE 170M\00", align 1
-@.str.474 = private unnamed_addr constant [11 x i8] c"SMPTE 240M\00", align 1
-@color_transfer_characteristics = internal constant [9 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.469 }, %struct._value_string { i32 1, ptr @.str.476 }, %struct._value_string { i32 2, ptr @.str.471 }, %struct._value_string { i32 3, ptr @.str.472 }, %struct._value_string { i32 4, ptr @.str.473 }, %struct._value_string { i32 5, ptr @.str.474 }, %struct._value_string { i32 6, ptr @.str.477 }, %struct._value_string { i32 7, ptr @.str.478 }, %struct._value_string zeroinitializer], align 16
-@.str.475 = private unnamed_addr constant [31 x i8] c"color_transfer_characteristics\00", align 1
-@.str.476 = private unnamed_addr constant [7 x i8] c"BT.709\00", align 1
-@.str.477 = private unnamed_addr constant [14 x i8] c"Linear (V=Lc)\00", align 1
-@.str.478 = private unnamed_addr constant [5 x i8] c"sRGB\00", align 1
-@matrix_coefficients_meaning = internal constant [7 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.469 }, %struct._value_string { i32 1, ptr @.str.476 }, %struct._value_string { i32 2, ptr @.str.480 }, %struct._value_string { i32 3, ptr @.str.472 }, %struct._value_string { i32 4, ptr @.str.481 }, %struct._value_string { i32 5, ptr @.str.474 }, %struct._value_string zeroinitializer], align 16
-@.str.479 = private unnamed_addr constant [28 x i8] c"matrix_coefficients_meaning\00", align 1
-@.str.480 = private unnamed_addr constant [4 x i8] c"FCC\00", align 1
-@.str.481 = private unnamed_addr constant [20 x i8] c"SMPTE 170M (BT.601)\00", align 1
-@vs_still_capture_methods = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.159 }, %struct._value_string { i32 1, ptr @.str.483 }, %struct._value_string { i32 2, ptr @.str.484 }, %struct._value_string { i32 3, ptr @.str.485 }, %struct._value_string zeroinitializer], align 16
-@.str.482 = private unnamed_addr constant [25 x i8] c"vs_still_capture_methods\00", align 1
-@.str.483 = private unnamed_addr constant [24 x i8] c"Uninterrupted streaming\00", align 1
-@.str.484 = private unnamed_addr constant [20 x i8] c"Suspended streaming\00", align 1
-@.str.485 = private unnamed_addr constant [15 x i8] c"Dedicated pipe\00", align 1
-@.str.486 = private unnamed_addr constant [29 x i8] c"Initiate still image capture\00", align 1
-@.str.487 = private unnamed_addr constant [29 x i8] c"General purpose button event\00", align 1
-@.str.488 = private unnamed_addr constant [23 x i8] c"VideoControl Interface\00", align 1
-@.str.489 = private unnamed_addr constant [25 x i8] c"VideoStreaming Interface\00", align 1
-@control_change_types = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.491 }, %struct._value_string { i32 1, ptr @.str.492 }, %struct._value_string { i32 2, ptr @.str.493 }, %struct._value_string { i32 3, ptr @.str.494 }, %struct._value_string { i32 4, ptr @.str.495 }, %struct._value_string zeroinitializer], align 16
-@.str.490 = private unnamed_addr constant [21 x i8] c"control_change_types\00", align 1
-@.str.491 = private unnamed_addr constant [6 x i8] c"Value\00", align 1
-@.str.492 = private unnamed_addr constant [5 x i8] c"Info\00", align 1
-@.str.493 = private unnamed_addr constant [8 x i8] c"Failure\00", align 1
-@.str.494 = private unnamed_addr constant [4 x i8] c"Min\00", align 1
-@.str.495 = private unnamed_addr constant [4 x i8] c"Max\00", align 1
-@.str.496 = private unnamed_addr constant [15 x i8] c"Control Change\00", align 1
-@.str.497 = private unnamed_addr constant [10 x i8] c"Interrupt\00", align 1
-@vc_if_descriptor_subtypes = internal constant [8 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.499 }, %struct._value_string { i32 2, ptr @.str.500 }, %struct._value_string { i32 3, ptr @.str.501 }, %struct._value_string { i32 4, ptr @.str.502 }, %struct._value_string { i32 5, ptr @.str.503 }, %struct._value_string { i32 6, ptr @.str.504 }, %struct._value_string { i32 7, ptr @.str.505 }, %struct._value_string zeroinitializer], align 16
-@.str.498 = private unnamed_addr constant [26 x i8] c"vc_if_descriptor_subtypes\00", align 1
-@.str.499 = private unnamed_addr constant [7 x i8] c"Header\00", align 1
-@.str.500 = private unnamed_addr constant [15 x i8] c"Input Terminal\00", align 1
-@.str.501 = private unnamed_addr constant [16 x i8] c"Output Terminal\00", align 1
-@.str.502 = private unnamed_addr constant [14 x i8] c"Selector Unit\00", align 1
-@.str.503 = private unnamed_addr constant [16 x i8] c"Processing Unit\00", align 1
-@.str.504 = private unnamed_addr constant [15 x i8] c"Extension Unit\00", align 1
-@.str.505 = private unnamed_addr constant [14 x i8] c"Encoding Unit\00", align 1
-@vs_if_descriptor_subtypes = internal constant [26 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.507 }, %struct._value_string { i32 1, ptr @.str.508 }, %struct._value_string { i32 2, ptr @.str.509 }, %struct._value_string { i32 3, ptr @.str.510 }, %struct._value_string { i32 4, ptr @.str.511 }, %struct._value_string { i32 5, ptr @.str.512 }, %struct._value_string { i32 6, ptr @.str.513 }, %struct._value_string { i32 7, ptr @.str.514 }, %struct._value_string { i32 8, ptr @.str.515 }, %struct._value_string { i32 9, ptr @.str.516 }, %struct._value_string { i32 10, ptr @.str.517 }, %struct._value_string { i32 11, ptr @.str.518 }, %struct._value_string { i32 12, ptr @.str.519 }, %struct._value_string { i32 13, ptr @.str.520 }, %struct._value_string { i32 14, ptr @.str.521 }, %struct._value_string { i32 15, ptr @.str.522 }, %struct._value_string { i32 16, ptr @.str.523 }, %struct._value_string { i32 17, ptr @.str.524 }, %struct._value_string { i32 18, ptr @.str.525 }, %struct._value_string { i32 19, ptr @.str.526 }, %struct._value_string { i32 20, ptr @.str.527 }, %struct._value_string { i32 21, ptr @.str.528 }, %struct._value_string { i32 22, ptr @.str.529 }, %struct._value_string { i32 23, ptr @.str.530 }, %struct._value_string { i32 24, ptr @.str.531 }, %struct._value_string zeroinitializer], align 16
-@.str.506 = private unnamed_addr constant [26 x i8] c"vs_if_descriptor_subtypes\00", align 1
-@.str.507 = private unnamed_addr constant [10 x i8] c"Undefined\00", align 1
-@.str.508 = private unnamed_addr constant [13 x i8] c"Input Header\00", align 1
-@.str.509 = private unnamed_addr constant [14 x i8] c"Output Header\00", align 1
-@.str.510 = private unnamed_addr constant [18 x i8] c"Still Image Frame\00", align 1
-@.str.511 = private unnamed_addr constant [20 x i8] c"Format Uncompressed\00", align 1
-@.str.512 = private unnamed_addr constant [19 x i8] c"Frame Uncompressed\00", align 1
-@.str.513 = private unnamed_addr constant [13 x i8] c"Format MJPEG\00", align 1
-@.str.514 = private unnamed_addr constant [12 x i8] c"Frame MJPEG\00", align 1
-@.str.515 = private unnamed_addr constant [13 x i8] c"Format MPEG1\00", align 1
-@.str.516 = private unnamed_addr constant [16 x i8] c"Format MPEG2-PS\00", align 1
-@.str.517 = private unnamed_addr constant [16 x i8] c"Format MPEG2-TS\00", align 1
-@.str.518 = private unnamed_addr constant [16 x i8] c"Format MPEG4-SL\00", align 1
-@.str.519 = private unnamed_addr constant [10 x i8] c"Format DV\00", align 1
-@.str.520 = private unnamed_addr constant [12 x i8] c"Colorformat\00", align 1
-@.str.521 = private unnamed_addr constant [14 x i8] c"Format Vendor\00", align 1
-@.str.522 = private unnamed_addr constant [13 x i8] c"Frame Vendor\00", align 1
-@.str.523 = private unnamed_addr constant [19 x i8] c"Format Frame-Based\00", align 1
-@.str.524 = private unnamed_addr constant [18 x i8] c"Frame Frame-Based\00", align 1
-@.str.525 = private unnamed_addr constant [20 x i8] c"Format Stream Based\00", align 1
-@.str.526 = private unnamed_addr constant [13 x i8] c"Format H.264\00", align 1
-@.str.527 = private unnamed_addr constant [12 x i8] c"Frame H.264\00", align 1
-@.str.528 = private unnamed_addr constant [23 x i8] c"Format H.264 Simulcast\00", align 1
-@.str.529 = private unnamed_addr constant [11 x i8] c"Format VP8\00", align 1
-@.str.530 = private unnamed_addr constant [10 x i8] c"Frame VP8\00", align 1
-@.str.531 = private unnamed_addr constant [21 x i8] c"Format VP8 Simulcast\00", align 1
-@setup_dissectors = internal constant [14 x %struct._usb_setup_dissector_table_t] [%struct._usb_setup_dissector_table_t { i8 1, ptr @dissect_usb_vid_get_set }, %struct._usb_setup_dissector_table_t { i8 17, ptr @dissect_usb_vid_get_set }, %struct._usb_setup_dissector_table_t { i8 -127, ptr @dissect_usb_vid_get_set }, %struct._usb_setup_dissector_table_t { i8 -126, ptr @dissect_usb_vid_get_set }, %struct._usb_setup_dissector_table_t { i8 -125, ptr @dissect_usb_vid_get_set }, %struct._usb_setup_dissector_table_t { i8 -124, ptr @dissect_usb_vid_get_set }, %struct._usb_setup_dissector_table_t { i8 -123, ptr @dissect_usb_vid_get_set }, %struct._usb_setup_dissector_table_t { i8 -122, ptr @dissect_usb_vid_get_set }, %struct._usb_setup_dissector_table_t { i8 -121, ptr @dissect_usb_vid_get_set }, %struct._usb_setup_dissector_table_t { i8 -111, ptr @dissect_usb_vid_get_set }, %struct._usb_setup_dissector_table_t { i8 -110, ptr @dissect_usb_vid_get_set }, %struct._usb_setup_dissector_table_t { i8 -109, ptr @dissect_usb_vid_get_set }, %struct._usb_setup_dissector_table_t { i8 -108, ptr @dissect_usb_vid_get_set }, %struct._usb_setup_dissector_table_t zeroinitializer], align 16
-@.str.532 = private unnamed_addr constant [6 x i8] c"%s %s\00", align 1
-@.str.533 = private unnamed_addr constant [16 x i8] c"Unknown type %x\00", align 1
-@.str.534 = private unnamed_addr constant [9 x i8] c"Request \00", align 1
-@.str.535 = private unnamed_addr constant [9 x i8] c"Response\00", align 1
-@.str.536 = private unnamed_addr constant [3 x i8] c" [\00", align 1
-@.str.537 = private unnamed_addr constant [26 x i8] c"Interface %u control 0x%x\00", align 1
-@.str.538 = private unnamed_addr constant [21 x i8] c"Unit %u control 0x%x\00", align 1
-@.str.539 = private unnamed_addr constant [2 x i8] c"]\00", align 1
-@.str.540 = private unnamed_addr constant [12 x i8] c"%s (0x%02x)\00", align 1
-@cs_control_interface_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 4, ptr @cs_control_interface, ptr @.str.541 }, align 8
-@cs_streaming_interface_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 10, ptr @cs_streaming_interface, ptr @.str.544 }, align 8
-@cs_camera_terminal_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 21, ptr @cs_camera_terminal, ptr @.str.552 }, align 8
-@cs_processing_unit_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 20, ptr @cs_processing_unit, ptr @.str.556 }, align 8
-@cs_selector_unit_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 2, ptr @cs_selector_unit, ptr @.str.563 }, align 8
-@cs_control_interface = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.507 }, %struct._value_string { i32 1, ptr @.str.542 }, %struct._value_string { i32 2, ptr @.str.6 }, %struct._value_string { i32 3, ptr @.str.543 }, %struct._value_string zeroinitializer], align 16
-@.str.541 = private unnamed_addr constant [21 x i8] c"cs_control_interface\00", align 1
-@.str.542 = private unnamed_addr constant [17 x i8] c"Video Power Mode\00", align 1
-@.str.543 = private unnamed_addr constant [28 x i8] c"Request Indicate Host Clock\00", align 1
-@cs_streaming_interface = internal constant [11 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.507 }, %struct._value_string { i32 1, ptr @.str.545 }, %struct._value_string { i32 2, ptr @.str.546 }, %struct._value_string { i32 3, ptr @.str.547 }, %struct._value_string { i32 4, ptr @.str.548 }, %struct._value_string { i32 5, ptr @.str.549 }, %struct._value_string { i32 6, ptr @.str.550 }, %struct._value_string { i32 7, ptr @.str.348 }, %struct._value_string { i32 8, ptr @.str.350 }, %struct._value_string { i32 9, ptr @.str.551 }, %struct._value_string zeroinitializer], align 16
-@.str.544 = private unnamed_addr constant [23 x i8] c"cs_streaming_interface\00", align 1
-@.str.545 = private unnamed_addr constant [6 x i8] c"Probe\00", align 1
-@.str.546 = private unnamed_addr constant [7 x i8] c"Commit\00", align 1
-@.str.547 = private unnamed_addr constant [12 x i8] c"Still Probe\00", align 1
-@.str.548 = private unnamed_addr constant [13 x i8] c"Still Commit\00", align 1
-@.str.549 = private unnamed_addr constant [20 x i8] c"Still Image Trigger\00", align 1
-@.str.550 = private unnamed_addr constant [18 x i8] c"Stream Error Code\00", align 1
-@.str.551 = private unnamed_addr constant [12 x i8] c"Synch Delay\00", align 1
-@cs_camera_terminal = internal constant [22 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.507 }, %struct._value_string { i32 1, ptr @.str.64 }, %struct._value_string { i32 2, ptr @.str.553 }, %struct._value_string { i32 3, ptr @.str.554 }, %struct._value_string { i32 4, ptr @.str.70 }, %struct._value_string { i32 5, ptr @.str.72 }, %struct._value_string { i32 6, ptr @.str.74 }, %struct._value_string { i32 7, ptr @.str.76 }, %struct._value_string { i32 8, ptr @.str.555 }, %struct._value_string { i32 9, ptr @.str.78 }, %struct._value_string { i32 10, ptr @.str.80 }, %struct._value_string { i32 11, ptr @.str.82 }, %struct._value_string { i32 12, ptr @.str.84 }, %struct._value_string { i32 13, ptr @.str.86 }, %struct._value_string { i32 14, ptr @.str.88 }, %struct._value_string { i32 15, ptr @.str.90 }, %struct._value_string { i32 16, ptr @.str.92 }, %struct._value_string { i32 17, ptr @.str.100 }, %struct._value_string { i32 18, ptr @.str.102 }, %struct._value_string { i32 19, ptr @.str.104 }, %struct._value_string { i32 20, ptr @.str.106 }, %struct._value_string zeroinitializer], align 16
-@.str.552 = private unnamed_addr constant [19 x i8] c"cs_camera_terminal\00", align 1
-@.str.553 = private unnamed_addr constant [19 x i8] c"Auto-Exposure Mode\00", align 1
-@.str.554 = private unnamed_addr constant [23 x i8] c"Auto-Exposure Priority\00", align 1
-@.str.555 = private unnamed_addr constant [12 x i8] c"Focus, Auto\00", align 1
-@cs_processing_unit = internal constant [21 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.507 }, %struct._value_string { i32 1, ptr @.str.134 }, %struct._value_string { i32 2, ptr @.str.118 }, %struct._value_string { i32 3, ptr @.str.120 }, %struct._value_string { i32 4, ptr @.str.136 }, %struct._value_string { i32 5, ptr @.str.138 }, %struct._value_string { i32 6, ptr @.str.122 }, %struct._value_string { i32 7, ptr @.str.124 }, %struct._value_string { i32 8, ptr @.str.126 }, %struct._value_string { i32 9, ptr @.str.128 }, %struct._value_string { i32 10, ptr @.str.130 }, %struct._value_string { i32 11, ptr @.str.557 }, %struct._value_string { i32 12, ptr @.str.132 }, %struct._value_string { i32 13, ptr @.str.558 }, %struct._value_string { i32 14, ptr @.str.146 }, %struct._value_string { i32 15, ptr @.str.148 }, %struct._value_string { i32 16, ptr @.str.559 }, %struct._value_string { i32 17, ptr @.str.560 }, %struct._value_string { i32 18, ptr @.str.561 }, %struct._value_string { i32 19, ptr @.str.562 }, %struct._value_string zeroinitializer], align 16
-@.str.556 = private unnamed_addr constant [19 x i8] c"cs_processing_unit\00", align 1
-@.str.557 = private unnamed_addr constant [31 x i8] c"White Balance Temperature Auto\00", align 1
-@.str.558 = private unnamed_addr constant [29 x i8] c"White Balance Component Auto\00", align 1
-@.str.559 = private unnamed_addr constant [9 x i8] c"Hue Auto\00", align 1
-@.str.560 = private unnamed_addr constant [15 x i8] c"Video Standard\00", align 1
-@.str.561 = private unnamed_addr constant [19 x i8] c"Analog Lock Status\00", align 1
-@.str.562 = private unnamed_addr constant [14 x i8] c"Contrast Auto\00", align 1
-@cs_selector_unit = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.507 }, %struct._value_string { i32 1, ptr @.str.564 }, %struct._value_string zeroinitializer], align 16
-@.str.563 = private unnamed_addr constant [17 x i8] c"cs_selector_unit\00", align 1
-@.str.564 = private unnamed_addr constant [13 x i8] c"Input Select\00", align 1
+@setup_request_names_vals = internal constant [15 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.417 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.418 }, { i32, [4 x i8], ptr } { i32 129, [4 x i8] zeroinitializer, ptr @.str.419 }, { i32, [4 x i8], ptr } { i32 130, [4 x i8] zeroinitializer, ptr @.str.420 }, { i32, [4 x i8], ptr } { i32 131, [4 x i8] zeroinitializer, ptr @.str.421 }, { i32, [4 x i8], ptr } { i32 132, [4 x i8] zeroinitializer, ptr @.str.422 }, { i32, [4 x i8], ptr } { i32 133, [4 x i8] zeroinitializer, ptr @.str.423 }, { i32, [4 x i8], ptr } { i32 134, [4 x i8] zeroinitializer, ptr @.str.424 }, { i32, [4 x i8], ptr } { i32 135, [4 x i8] zeroinitializer, ptr @.str.425 }, { i32, [4 x i8], ptr } { i32 145, [4 x i8] zeroinitializer, ptr @.str.426 }, { i32, [4 x i8], ptr } { i32 146, [4 x i8] zeroinitializer, ptr @.str.427 }, { i32, [4 x i8], ptr } { i32 147, [4 x i8] zeroinitializer, ptr @.str.428 }, { i32, [4 x i8], ptr } { i32 148, [4 x i8] zeroinitializer, ptr @.str.429 }, { i32, [4 x i8], ptr } { i32 151, [4 x i8] zeroinitializer, ptr @.str.430 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.432 = private unnamed_addr constant [20 x i8] c"request_error_codes\00", align 1
+@.str.433 = private unnamed_addr constant [9 x i8] c"No error\00", align 1
+@.str.434 = private unnamed_addr constant [10 x i8] c"Not ready\00", align 1
+@.str.435 = private unnamed_addr constant [12 x i8] c"Wrong state\00", align 1
+@.str.436 = private unnamed_addr constant [19 x i8] c"Insufficient power\00", align 1
+@.str.437 = private unnamed_addr constant [13 x i8] c"Out of range\00", align 1
+@.str.438 = private unnamed_addr constant [13 x i8] c"Invalid unit\00", align 1
+@.str.439 = private unnamed_addr constant [16 x i8] c"Invalid control\00", align 1
+@.str.440 = private unnamed_addr constant [16 x i8] c"Invalid request\00", align 1
+@.str.441 = private unnamed_addr constant [27 x i8] c"Invalid value within range\00", align 1
+@.str.442 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
+@request_error_codes = internal constant [11 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.433 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.434 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.435 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.436 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.437 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.438 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.439 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.440 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.441 }, { i32, [4 x i8], ptr } { i32 255, [4 x i8] zeroinitializer, ptr @.str.442 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.444 = private unnamed_addr constant [18 x i8] c"vc_terminal_types\00", align 1
+@.str.445 = private unnamed_addr constant [16 x i8] c"Vendor Specific\00", align 1
+@.str.446 = private unnamed_addr constant [10 x i8] c"Streaming\00", align 1
+@.str.447 = private unnamed_addr constant [22 x i8] c"Vendor Specific Input\00", align 1
+@.str.448 = private unnamed_addr constant [13 x i8] c"Camera Input\00", align 1
+@.str.449 = private unnamed_addr constant [22 x i8] c"Media Transport Input\00", align 1
+@.str.450 = private unnamed_addr constant [23 x i8] c"Vendor Specific Output\00", align 1
+@.str.451 = private unnamed_addr constant [15 x i8] c"Display Output\00", align 1
+@.str.452 = private unnamed_addr constant [23 x i8] c"Media Transport Output\00", align 1
+@.str.453 = private unnamed_addr constant [25 x i8] c"Vendor Specific External\00", align 1
+@.str.454 = private unnamed_addr constant [20 x i8] c"Composite Connector\00", align 1
+@.str.455 = private unnamed_addr constant [17 x i8] c"SVideo Connector\00", align 1
+@.str.456 = private unnamed_addr constant [20 x i8] c"Component Connector\00", align 1
+@vc_terminal_types = internal constant [13 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 256, [4 x i8] zeroinitializer, ptr @.str.445 }, { i32, [4 x i8], ptr } { i32 257, [4 x i8] zeroinitializer, ptr @.str.446 }, { i32, [4 x i8], ptr } { i32 512, [4 x i8] zeroinitializer, ptr @.str.447 }, { i32, [4 x i8], ptr } { i32 513, [4 x i8] zeroinitializer, ptr @.str.448 }, { i32, [4 x i8], ptr } { i32 514, [4 x i8] zeroinitializer, ptr @.str.449 }, { i32, [4 x i8], ptr } { i32 768, [4 x i8] zeroinitializer, ptr @.str.450 }, { i32, [4 x i8], ptr } { i32 769, [4 x i8] zeroinitializer, ptr @.str.451 }, { i32, [4 x i8], ptr } { i32 770, [4 x i8] zeroinitializer, ptr @.str.452 }, { i32, [4 x i8], ptr } { i32 1024, [4 x i8] zeroinitializer, ptr @.str.453 }, { i32, [4 x i8], ptr } { i32 1025, [4 x i8] zeroinitializer, ptr @.str.454 }, { i32, [4 x i8], ptr } { i32 1026, [4 x i8] zeroinitializer, ptr @.str.455 }, { i32, [4 x i8], ptr } { i32 1027, [4 x i8] zeroinitializer, ptr @.str.456 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.458 = private unnamed_addr constant [9 x i8] c"Constant\00", align 1
+@.str.459 = private unnamed_addr constant [9 x i8] c"Variable\00", align 1
+@.str.460 = private unnamed_addr constant [11 x i8] c"Interlaced\00", align 1
+@.str.461 = private unnamed_addr constant [15 x i8] c"Non-interlaced\00", align 1
+@.str.462 = private unnamed_addr constant [8 x i8] c"1 field\00", align 1
+@.str.463 = private unnamed_addr constant [9 x i8] c"2 fields\00", align 1
+@.str.464 = private unnamed_addr constant [22 x i8] c"field_pattern_meaning\00", align 1
+@.str.465 = private unnamed_addr constant [13 x i8] c"Field 1 only\00", align 1
+@.str.466 = private unnamed_addr constant [13 x i8] c"Field 2 only\00", align 1
+@.str.467 = private unnamed_addr constant [34 x i8] c"Regular pattern of fields 1 and 2\00", align 1
+@.str.468 = private unnamed_addr constant [33 x i8] c"Random pattern of fields 1 and 2\00", align 1
+@field_pattern_meaning = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.465 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.466 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.467 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.468 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.470 = private unnamed_addr constant [16 x i8] c"No restrictions\00", align 1
+@.str.471 = private unnamed_addr constant [21 x i8] c"Restrict duplication\00", align 1
+@copy_protect_meaning = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.470 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.471 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.473 = private unnamed_addr constant [24 x i8] c"color_primaries_meaning\00", align 1
+@.str.474 = private unnamed_addr constant [12 x i8] c"Unspecified\00", align 1
+@.str.475 = private unnamed_addr constant [13 x i8] c"BT.709, sRGB\00", align 1
+@.str.476 = private unnamed_addr constant [13 x i8] c"BT.470-2 (M)\00", align 1
+@.str.477 = private unnamed_addr constant [15 x i8] c"BT.470-2 (B,G)\00", align 1
+@.str.478 = private unnamed_addr constant [11 x i8] c"SMPTE 170M\00", align 1
+@.str.479 = private unnamed_addr constant [11 x i8] c"SMPTE 240M\00", align 1
+@color_primaries_meaning = internal constant [7 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.474 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.475 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.476 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.477 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.478 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.479 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.481 = private unnamed_addr constant [31 x i8] c"color_transfer_characteristics\00", align 1
+@.str.482 = private unnamed_addr constant [7 x i8] c"BT.709\00", align 1
+@.str.483 = private unnamed_addr constant [14 x i8] c"Linear (V=Lc)\00", align 1
+@.str.484 = private unnamed_addr constant [5 x i8] c"sRGB\00", align 1
+@color_transfer_characteristics = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.474 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.482 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.476 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.477 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.478 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.479 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.483 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.484 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.486 = private unnamed_addr constant [28 x i8] c"matrix_coefficients_meaning\00", align 1
+@.str.487 = private unnamed_addr constant [4 x i8] c"FCC\00", align 1
+@.str.488 = private unnamed_addr constant [20 x i8] c"SMPTE 170M (BT.601)\00", align 1
+@matrix_coefficients_meaning = internal constant [7 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.474 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.482 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.487 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.477 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.488 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.479 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.490 = private unnamed_addr constant [25 x i8] c"vs_still_capture_methods\00", align 1
+@.str.491 = private unnamed_addr constant [24 x i8] c"Uninterrupted streaming\00", align 1
+@.str.492 = private unnamed_addr constant [20 x i8] c"Suspended streaming\00", align 1
+@.str.493 = private unnamed_addr constant [15 x i8] c"Dedicated pipe\00", align 1
+@vs_still_capture_methods = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.159 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.491 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.492 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.493 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.495 = private unnamed_addr constant [29 x i8] c"Initiate still image capture\00", align 1
+@.str.496 = private unnamed_addr constant [29 x i8] c"General purpose button event\00", align 1
+@vs_trigger_usage = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.495 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.496 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.498 = private unnamed_addr constant [23 x i8] c"VideoControl Interface\00", align 1
+@.str.499 = private unnamed_addr constant [25 x i8] c"VideoStreaming Interface\00", align 1
+@interrupt_status_types = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.498 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.499 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.501 = private unnamed_addr constant [21 x i8] c"control_change_types\00", align 1
+@.str.502 = private unnamed_addr constant [6 x i8] c"Value\00", align 1
+@.str.503 = private unnamed_addr constant [5 x i8] c"Info\00", align 1
+@.str.504 = private unnamed_addr constant [8 x i8] c"Failure\00", align 1
+@.str.505 = private unnamed_addr constant [4 x i8] c"Min\00", align 1
+@.str.506 = private unnamed_addr constant [4 x i8] c"Max\00", align 1
+@control_change_types = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.502 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.503 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.504 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.505 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.506 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.508 = private unnamed_addr constant [15 x i8] c"Control Change\00", align 1
+@control_interrupt_events = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.508 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.510 = private unnamed_addr constant [10 x i8] c"Interrupt\00", align 1
+@vc_ep_descriptor_subtypes = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.510 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.512 = private unnamed_addr constant [26 x i8] c"vc_if_descriptor_subtypes\00", align 1
+@.str.513 = private unnamed_addr constant [7 x i8] c"Header\00", align 1
+@.str.514 = private unnamed_addr constant [15 x i8] c"Input Terminal\00", align 1
+@.str.515 = private unnamed_addr constant [16 x i8] c"Output Terminal\00", align 1
+@.str.516 = private unnamed_addr constant [14 x i8] c"Selector Unit\00", align 1
+@.str.517 = private unnamed_addr constant [16 x i8] c"Processing Unit\00", align 1
+@.str.518 = private unnamed_addr constant [15 x i8] c"Extension Unit\00", align 1
+@.str.519 = private unnamed_addr constant [14 x i8] c"Encoding Unit\00", align 1
+@vc_if_descriptor_subtypes = internal constant [8 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.513 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.514 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.515 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.516 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.517 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.518 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.519 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.521 = private unnamed_addr constant [26 x i8] c"vs_if_descriptor_subtypes\00", align 1
+@.str.522 = private unnamed_addr constant [10 x i8] c"Undefined\00", align 1
+@.str.523 = private unnamed_addr constant [13 x i8] c"Input Header\00", align 1
+@.str.524 = private unnamed_addr constant [14 x i8] c"Output Header\00", align 1
+@.str.525 = private unnamed_addr constant [18 x i8] c"Still Image Frame\00", align 1
+@.str.526 = private unnamed_addr constant [20 x i8] c"Format Uncompressed\00", align 1
+@.str.527 = private unnamed_addr constant [19 x i8] c"Frame Uncompressed\00", align 1
+@.str.528 = private unnamed_addr constant [13 x i8] c"Format MJPEG\00", align 1
+@.str.529 = private unnamed_addr constant [12 x i8] c"Frame MJPEG\00", align 1
+@.str.530 = private unnamed_addr constant [13 x i8] c"Format MPEG1\00", align 1
+@.str.531 = private unnamed_addr constant [16 x i8] c"Format MPEG2-PS\00", align 1
+@.str.532 = private unnamed_addr constant [16 x i8] c"Format MPEG2-TS\00", align 1
+@.str.533 = private unnamed_addr constant [16 x i8] c"Format MPEG4-SL\00", align 1
+@.str.534 = private unnamed_addr constant [10 x i8] c"Format DV\00", align 1
+@.str.535 = private unnamed_addr constant [12 x i8] c"Colorformat\00", align 1
+@.str.536 = private unnamed_addr constant [14 x i8] c"Format Vendor\00", align 1
+@.str.537 = private unnamed_addr constant [13 x i8] c"Frame Vendor\00", align 1
+@.str.538 = private unnamed_addr constant [19 x i8] c"Format Frame-Based\00", align 1
+@.str.539 = private unnamed_addr constant [18 x i8] c"Frame Frame-Based\00", align 1
+@.str.540 = private unnamed_addr constant [20 x i8] c"Format Stream Based\00", align 1
+@.str.541 = private unnamed_addr constant [13 x i8] c"Format H.264\00", align 1
+@.str.542 = private unnamed_addr constant [12 x i8] c"Frame H.264\00", align 1
+@.str.543 = private unnamed_addr constant [23 x i8] c"Format H.264 Simulcast\00", align 1
+@.str.544 = private unnamed_addr constant [11 x i8] c"Format VP8\00", align 1
+@.str.545 = private unnamed_addr constant [10 x i8] c"Frame VP8\00", align 1
+@.str.546 = private unnamed_addr constant [21 x i8] c"Format VP8 Simulcast\00", align 1
+@vs_if_descriptor_subtypes = internal constant [26 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.522 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.523 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.524 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.525 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.526 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.527 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.528 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.529 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.530 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.531 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.532 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.533 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.534 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.535 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.536 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.537 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.538 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.539 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.540 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.541 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.542 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.543 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.544 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.545 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.546 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.548 = private unnamed_addr constant [6 x i8] c"%s %s\00", align 1
+@.str.549 = private unnamed_addr constant [16 x i8] c"Unknown type %x\00", align 1
+@.str.550 = private unnamed_addr constant [9 x i8] c"Request \00", align 1
+@.str.551 = private unnamed_addr constant [9 x i8] c"Response\00", align 1
+@setup_dissectors = internal constant [14 x { i8, [7 x i8], ptr }] [{ i8, [7 x i8], ptr } { i8 1, [7 x i8] zeroinitializer, ptr @dissect_usb_vid_get_set }, { i8, [7 x i8], ptr } { i8 17, [7 x i8] zeroinitializer, ptr @dissect_usb_vid_get_set }, { i8, [7 x i8], ptr } { i8 -127, [7 x i8] zeroinitializer, ptr @dissect_usb_vid_get_set }, { i8, [7 x i8], ptr } { i8 -126, [7 x i8] zeroinitializer, ptr @dissect_usb_vid_get_set }, { i8, [7 x i8], ptr } { i8 -125, [7 x i8] zeroinitializer, ptr @dissect_usb_vid_get_set }, { i8, [7 x i8], ptr } { i8 -124, [7 x i8] zeroinitializer, ptr @dissect_usb_vid_get_set }, { i8, [7 x i8], ptr } { i8 -123, [7 x i8] zeroinitializer, ptr @dissect_usb_vid_get_set }, { i8, [7 x i8], ptr } { i8 -122, [7 x i8] zeroinitializer, ptr @dissect_usb_vid_get_set }, { i8, [7 x i8], ptr } { i8 -121, [7 x i8] zeroinitializer, ptr @dissect_usb_vid_get_set }, { i8, [7 x i8], ptr } { i8 -111, [7 x i8] zeroinitializer, ptr @dissect_usb_vid_get_set }, { i8, [7 x i8], ptr } { i8 -110, [7 x i8] zeroinitializer, ptr @dissect_usb_vid_get_set }, { i8, [7 x i8], ptr } { i8 -109, [7 x i8] zeroinitializer, ptr @dissect_usb_vid_get_set }, { i8, [7 x i8], ptr } { i8 -108, [7 x i8] zeroinitializer, ptr @dissect_usb_vid_get_set }, { i8, [7 x i8], ptr } zeroinitializer], align 16
+@.str.553 = private unnamed_addr constant [3 x i8] c" [\00", align 1
+@.str.554 = private unnamed_addr constant [26 x i8] c"Interface %u control 0x%x\00", align 1
+@.str.555 = private unnamed_addr constant [21 x i8] c"Unit %u control 0x%x\00", align 1
+@.str.556 = private unnamed_addr constant [2 x i8] c"]\00", align 1
+@.str.557 = private unnamed_addr constant [12 x i8] c"%s (0x%02x)\00", align 1
+@cs_control_interface_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 4, ptr @cs_control_interface, ptr @.str.558 }, align 8
+@cs_streaming_interface_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 10, ptr @cs_streaming_interface, ptr @.str.562 }, align 8
+@cs_camera_terminal_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 21, ptr @cs_camera_terminal, ptr @.str.571 }, align 8
+@cs_processing_unit_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 20, ptr @cs_processing_unit, ptr @.str.576 }, align 8
+@cs_selector_unit_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 2, ptr @cs_selector_unit, ptr @.str.584 }, align 8
+@.str.558 = private unnamed_addr constant [21 x i8] c"cs_control_interface\00", align 1
+@.str.559 = private unnamed_addr constant [17 x i8] c"Video Power Mode\00", align 1
+@.str.560 = private unnamed_addr constant [28 x i8] c"Request Indicate Host Clock\00", align 1
+@cs_control_interface = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.522 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.559 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.6 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.560 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.562 = private unnamed_addr constant [23 x i8] c"cs_streaming_interface\00", align 1
+@.str.563 = private unnamed_addr constant [6 x i8] c"Probe\00", align 1
+@.str.564 = private unnamed_addr constant [7 x i8] c"Commit\00", align 1
+@.str.565 = private unnamed_addr constant [12 x i8] c"Still Probe\00", align 1
+@.str.566 = private unnamed_addr constant [13 x i8] c"Still Commit\00", align 1
+@.str.567 = private unnamed_addr constant [20 x i8] c"Still Image Trigger\00", align 1
+@.str.568 = private unnamed_addr constant [18 x i8] c"Stream Error Code\00", align 1
+@.str.569 = private unnamed_addr constant [12 x i8] c"Synch Delay\00", align 1
+@cs_streaming_interface = internal constant [11 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.522 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.563 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.564 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.565 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.566 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.567 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.568 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.348 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.350 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.569 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.571 = private unnamed_addr constant [19 x i8] c"cs_camera_terminal\00", align 1
+@.str.572 = private unnamed_addr constant [19 x i8] c"Auto-Exposure Mode\00", align 1
+@.str.573 = private unnamed_addr constant [23 x i8] c"Auto-Exposure Priority\00", align 1
+@.str.574 = private unnamed_addr constant [12 x i8] c"Focus, Auto\00", align 1
+@cs_camera_terminal = internal constant [22 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.522 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.64 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.572 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.573 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.70 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.72 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.74 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.76 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.574 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.78 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.80 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.82 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.84 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.86 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.88 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.90 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.92 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.100 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.102 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.104 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.106 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.576 = private unnamed_addr constant [19 x i8] c"cs_processing_unit\00", align 1
+@.str.577 = private unnamed_addr constant [31 x i8] c"White Balance Temperature Auto\00", align 1
+@.str.578 = private unnamed_addr constant [29 x i8] c"White Balance Component Auto\00", align 1
+@.str.579 = private unnamed_addr constant [9 x i8] c"Hue Auto\00", align 1
+@.str.580 = private unnamed_addr constant [15 x i8] c"Video Standard\00", align 1
+@.str.581 = private unnamed_addr constant [19 x i8] c"Analog Lock Status\00", align 1
+@.str.582 = private unnamed_addr constant [14 x i8] c"Contrast Auto\00", align 1
+@cs_processing_unit = internal constant [21 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.522 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.134 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.118 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.120 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.136 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.138 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.122 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.124 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.126 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.128 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.130 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.577 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.132 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.578 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.146 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.148 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.579 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.580 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.581 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.582 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.584 = private unnamed_addr constant [17 x i8] c"cs_selector_unit\00", align 1
+@.str.585 = private unnamed_addr constant [13 x i8] c"Input Select\00", align 1
+@cs_selector_unit = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.522 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.585 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
 @dissect_usb_vid_probe.hint_bits = internal constant [6 x ptr] [ptr @hf_usb_vid_probe_hint_D, ptr getelementptr (i8, ptr @hf_usb_vid_probe_hint_D, i64 4), ptr getelementptr (i8, ptr @hf_usb_vid_probe_hint_D, i64 8), ptr getelementptr (i8, ptr @hf_usb_vid_probe_hint_D, i64 12), ptr getelementptr (i8, ptr @hf_usb_vid_probe_hint_D, i64 16), ptr null], align 16
-@.str.565 = private unnamed_addr constant [18 x i8] c"Probe/Commit Info\00", align 1
+@.str.587 = private unnamed_addr constant [18 x i8] c"Probe/Commit Info\00", align 1
 @dissect_usb_vid_probe.framing_bits = internal constant [3 x ptr] [ptr @hf_usb_vid_probe_framing_D, ptr getelementptr (i8, ptr @hf_usb_vid_probe_framing_D, i64 4), ptr null], align 16
 @dissect_usb_vid_control_info.capability_bits = internal constant [8 x ptr] [ptr @hf_usb_vid_control_info_D, ptr getelementptr (i8, ptr @hf_usb_vid_control_info_D, i64 4), ptr getelementptr (i8, ptr @hf_usb_vid_control_info_D, i64 8), ptr getelementptr (i8, ptr @hf_usb_vid_control_info_D, i64 12), ptr getelementptr (i8, ptr @hf_usb_vid_control_info_D, i64 16), ptr getelementptr (i8, ptr @hf_usb_vid_control_info_D, i64 20), ptr getelementptr (i8, ptr @hf_usb_vid_control_info_D, i64 24), ptr null], align 16
-@.str.566 = private unnamed_addr constant [14 x i8] c"Default Value\00", align 1
-@.str.567 = private unnamed_addr constant [10 x i8] c"Min Value\00", align 1
-@.str.568 = private unnamed_addr constant [10 x i8] c"Max Value\00", align 1
-@.str.569 = private unnamed_addr constant [14 x i8] c"Current Value\00", align 1
-@.str.570 = private unnamed_addr constant [29 x i8] c"%s:%u: failed assertion \22%s\22\00", align 1
-@.str.571 = private unnamed_addr constant [35 x i8] c"epan/dissectors/packet-usb-video.c\00", align 1
-@.str.572 = private unnamed_addr constant [557 x i8] c"(((hfinfo->type) == FT_INT8 || (hfinfo->type) == FT_INT16 || (hfinfo->type) == FT_INT24 || (hfinfo->type) == FT_INT32) || ((hfinfo->type) == FT_INT40 || (hfinfo->type) == FT_INT48 || (hfinfo->type) == FT_INT56 || (hfinfo->type) == FT_INT64)) || (((hfinfo->type) == FT_CHAR || (hfinfo->type) == FT_UINT8 || (hfinfo->type) == FT_UINT16 || (hfinfo->type) == FT_UINT24 || (hfinfo->type) == FT_UINT32 || (hfinfo->type) == FT_FRAMENUM) || ((hfinfo->type) == FT_UINT40 || (hfinfo->type) == FT_UINT48 || (hfinfo->type) == FT_UINT56 || (hfinfo->type) == FT_UINT64))\00", align 1
-@.str.573 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
-@.str.574 = private unnamed_addr constant [15 x i8] c"Unknown (0x%x)\00", align 1
-@.str.575 = private unnamed_addr constant [39 x i8] c"VIDEO CONTROL ENDPOINT DESCRIPTOR [%s]\00", align 1
-@vid_descriptor_type_vals_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 2, ptr @vid_descriptor_type_vals, ptr @.str.576 }, align 8
-@vid_descriptor_type_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 36, ptr @.str.577 }, %struct._value_string { i32 37, ptr @.str.578 }, %struct._value_string zeroinitializer], align 16
-@.str.576 = private unnamed_addr constant [25 x i8] c"vid_descriptor_type_vals\00", align 1
-@.str.577 = private unnamed_addr constant [22 x i8] c"video class interface\00", align 1
-@.str.578 = private unnamed_addr constant [21 x i8] c"video class endpoint\00", align 1
-@.str.579 = private unnamed_addr constant [40 x i8] c"VIDEO CONTROL INTERFACE DESCRIPTOR [%s]\00", align 1
-@.str.580 = private unnamed_addr constant [22 x i8] c"Unknown VC subtype %u\00", align 1
-@.str.581 = private unnamed_addr constant [13 x i8] c" (Entity %d)\00", align 1
+@.str.588 = private unnamed_addr constant [14 x i8] c"Default Value\00", align 1
+@.str.589 = private unnamed_addr constant [10 x i8] c"Min Value\00", align 1
+@.str.590 = private unnamed_addr constant [10 x i8] c"Max Value\00", align 1
+@.str.591 = private unnamed_addr constant [14 x i8] c"Current Value\00", align 1
+@.str.592 = private unnamed_addr constant [29 x i8] c"%s:%u: failed assertion \22%s\22\00", align 1
+@.str.593 = private unnamed_addr constant [35 x i8] c"epan/dissectors/packet-usb-video.c\00", align 1
+@.str.594 = private unnamed_addr constant [557 x i8] c"(((hfinfo->type) == FT_INT8 || (hfinfo->type) == FT_INT16 || (hfinfo->type) == FT_INT24 || (hfinfo->type) == FT_INT32) || ((hfinfo->type) == FT_INT40 || (hfinfo->type) == FT_INT48 || (hfinfo->type) == FT_INT56 || (hfinfo->type) == FT_INT64)) || (((hfinfo->type) == FT_CHAR || (hfinfo->type) == FT_UINT8 || (hfinfo->type) == FT_UINT16 || (hfinfo->type) == FT_UINT24 || (hfinfo->type) == FT_UINT32 || (hfinfo->type) == FT_FRAMENUM) || ((hfinfo->type) == FT_UINT40 || (hfinfo->type) == FT_UINT48 || (hfinfo->type) == FT_UINT56 || (hfinfo->type) == FT_UINT64))\00", align 1
+@.str.595 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
+@.str.596 = private unnamed_addr constant [15 x i8] c"Unknown (0x%x)\00", align 1
+@.str.597 = private unnamed_addr constant [39 x i8] c"VIDEO CONTROL ENDPOINT DESCRIPTOR [%s]\00", align 1
+@vid_descriptor_type_vals_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 2, ptr @vid_descriptor_type_vals, ptr @.str.598 }, align 8
+@.str.598 = private unnamed_addr constant [25 x i8] c"vid_descriptor_type_vals\00", align 1
+@.str.599 = private unnamed_addr constant [22 x i8] c"video class interface\00", align 1
+@.str.600 = private unnamed_addr constant [21 x i8] c"video class endpoint\00", align 1
+@vid_descriptor_type_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.599 }, { i32, [4 x i8], ptr } { i32 37, [4 x i8] zeroinitializer, ptr @.str.600 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.602 = private unnamed_addr constant [40 x i8] c"VIDEO CONTROL INTERFACE DESCRIPTOR [%s]\00", align 1
+@.str.603 = private unnamed_addr constant [22 x i8] c"Unknown VC subtype %u\00", align 1
+@.str.604 = private unnamed_addr constant [13 x i8] c" (Entity %d)\00", align 1
 @dissect_usb_video_camera_terminal.control_bits = internal constant [23 x ptr] [ptr @hf_usb_vid_cam_control_D, ptr getelementptr (i8, ptr @hf_usb_vid_cam_control_D, i64 4), ptr getelementptr (i8, ptr @hf_usb_vid_cam_control_D, i64 8), ptr getelementptr (i8, ptr @hf_usb_vid_cam_control_D, i64 12), ptr getelementptr (i8, ptr @hf_usb_vid_cam_control_D, i64 16), ptr getelementptr (i8, ptr @hf_usb_vid_cam_control_D, i64 20), ptr getelementptr (i8, ptr @hf_usb_vid_cam_control_D, i64 24), ptr getelementptr (i8, ptr @hf_usb_vid_cam_control_D, i64 28), ptr getelementptr (i8, ptr @hf_usb_vid_cam_control_D, i64 32), ptr getelementptr (i8, ptr @hf_usb_vid_cam_control_D, i64 36), ptr getelementptr (i8, ptr @hf_usb_vid_cam_control_D, i64 40), ptr getelementptr (i8, ptr @hf_usb_vid_cam_control_D, i64 44), ptr getelementptr (i8, ptr @hf_usb_vid_cam_control_D, i64 48), ptr getelementptr (i8, ptr @hf_usb_vid_cam_control_D, i64 52), ptr getelementptr (i8, ptr @hf_usb_vid_cam_control_D, i64 56), ptr getelementptr (i8, ptr @hf_usb_vid_cam_control_D, i64 60), ptr getelementptr (i8, ptr @hf_usb_vid_cam_control_D, i64 64), ptr getelementptr (i8, ptr @hf_usb_vid_cam_control_D, i64 68), ptr getelementptr (i8, ptr @hf_usb_vid_cam_control_D, i64 72), ptr getelementptr (i8, ptr @hf_usb_vid_cam_control_D, i64 76), ptr getelementptr (i8, ptr @hf_usb_vid_cam_control_D, i64 80), ptr getelementptr (i8, ptr @hf_usb_vid_cam_control_D, i64 84), ptr null], align 16
 @dissect_usb_video_processing_unit.control_bits = internal constant [20 x ptr] [ptr @hf_usb_vid_proc_control_D, ptr getelementptr (i8, ptr @hf_usb_vid_proc_control_D, i64 4), ptr getelementptr (i8, ptr @hf_usb_vid_proc_control_D, i64 8), ptr getelementptr (i8, ptr @hf_usb_vid_proc_control_D, i64 12), ptr getelementptr (i8, ptr @hf_usb_vid_proc_control_D, i64 16), ptr getelementptr (i8, ptr @hf_usb_vid_proc_control_D, i64 20), ptr getelementptr (i8, ptr @hf_usb_vid_proc_control_D, i64 24), ptr getelementptr (i8, ptr @hf_usb_vid_proc_control_D, i64 28), ptr getelementptr (i8, ptr @hf_usb_vid_proc_control_D, i64 32), ptr getelementptr (i8, ptr @hf_usb_vid_proc_control_D, i64 36), ptr getelementptr (i8, ptr @hf_usb_vid_proc_control_D, i64 40), ptr getelementptr (i8, ptr @hf_usb_vid_proc_control_D, i64 44), ptr getelementptr (i8, ptr @hf_usb_vid_proc_control_D, i64 48), ptr getelementptr (i8, ptr @hf_usb_vid_proc_control_D, i64 52), ptr getelementptr (i8, ptr @hf_usb_vid_proc_control_D, i64 56), ptr getelementptr (i8, ptr @hf_usb_vid_proc_control_D, i64 60), ptr getelementptr (i8, ptr @hf_usb_vid_proc_control_D, i64 64), ptr getelementptr (i8, ptr @hf_usb_vid_proc_control_D, i64 68), ptr getelementptr (i8, ptr @hf_usb_vid_proc_control_D, i64 72), ptr null], align 16
 @dissect_usb_video_processing_unit.standard_bits = internal constant [7 x ptr] [ptr @hf_usb_vid_proc_standards_D, ptr getelementptr (i8, ptr @hf_usb_vid_proc_standards_D, i64 4), ptr getelementptr (i8, ptr @hf_usb_vid_proc_standards_D, i64 8), ptr getelementptr (i8, ptr @hf_usb_vid_proc_standards_D, i64 12), ptr getelementptr (i8, ptr @hf_usb_vid_proc_standards_D, i64 16), ptr getelementptr (i8, ptr @hf_usb_vid_proc_standards_D, i64 20), ptr null], align 16
-@.str.582 = private unnamed_addr constant [42 x i8] c"VIDEO STREAMING INTERFACE DESCRIPTOR [%s]\00", align 1
+@.str.605 = private unnamed_addr constant [42 x i8] c"VIDEO STREAMING INTERFACE DESCRIPTOR [%s]\00", align 1
 @dissect_usb_video_streaming_input_header.info_bits = internal constant [2 x ptr] [ptr @hf_usb_vid_streaming_info_D, ptr null], align 16
 @dissect_usb_video_streaming_input_header.control_bits = internal constant [7 x ptr] [ptr @hf_usb_vid_streaming_control_D, ptr getelementptr (i8, ptr @hf_usb_vid_streaming_control_D, i64 4), ptr getelementptr (i8, ptr @hf_usb_vid_streaming_control_D, i64 8), ptr getelementptr (i8, ptr @hf_usb_vid_streaming_control_D, i64 12), ptr getelementptr (i8, ptr @hf_usb_vid_streaming_control_D, i64 16), ptr getelementptr (i8, ptr @hf_usb_vid_streaming_control_D, i64 20), ptr null], align 16
-@.str.583 = private unnamed_addr constant [15 x i8] c"Not applicable\00", align 1
+@.str.606 = private unnamed_addr constant [15 x i8] c"Not applicable\00", align 1
 @dissect_usb_video_format.interlace_bits = internal constant [5 x ptr] [ptr @hf_usb_vid_is_interlaced, ptr @hf_usb_vid_interlaced_fields, ptr @hf_usb_vid_field_1_first, ptr @hf_usb_vid_field_pattern, ptr null], align 16
-@.str.584 = private unnamed_addr constant [14 x i8] c"  (Format %u)\00", align 1
-@.str.585 = private unnamed_addr constant [5 x i8] c": %s\00", align 1
+@.str.607 = private unnamed_addr constant [14 x i8] c"  (Format %u)\00", align 1
+@.str.608 = private unnamed_addr constant [5 x i8] c": %s\00", align 1
 @dissect_usb_video_format.flags = internal constant [2 x ptr] [ptr @hf_usb_vid_mjpeg_fixed_samples, ptr null], align 16
-@.str.586 = private unnamed_addr constant [55 x i8] c"%s:%u: failed assertion \22DISSECTOR_ASSERT_NOT_REACHED\22\00", align 1
+@.str.609 = private unnamed_addr constant [55 x i8] c"%s:%u: failed assertion \22DISSECTOR_ASSERT_NOT_REACHED\22\00", align 1
 @dissect_usb_video_frame.capability_bits = internal constant [3 x ptr] [ptr @hf_usb_vid_frame_stills_supported, ptr @hf_usb_vid_frame_fixed_frame_rate, ptr null], align 16
-@.str.587 = private unnamed_addr constant [26 x i8] c"   (Index %2u): %4u x %4u\00", align 1
-@.str.588 = private unnamed_addr constant [15 x i8] c"Continuous (0)\00", align 1
-@.str.589 = private unnamed_addr constant [23 x i8] c"Discrete (%u choice%s)\00", align 1
-@.str.590 = private unnamed_addr constant [2 x i8] c"s\00", align 1
-@.str.591 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@.str.610 = private unnamed_addr constant [26 x i8] c"   (Index %2u): %4u x %4u\00", align 1
+@.str.611 = private unnamed_addr constant [15 x i8] c"Continuous (0)\00", align 1
+@.str.612 = private unnamed_addr constant [23 x i8] c"Discrete (%u choice%s)\00", align 1
+@.str.613 = private unnamed_addr constant [2 x i8] c"s\00", align 1
+@.str.614 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_usb_vid() #0 {
   %1 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #6
   %2 = call i32 @proto_register_protocol(ptr noundef @.str.408, ptr noundef @.str.409, ptr noundef @.str.410)
   store i32 %2, ptr @proto_usb_vid, align 4
   %3 = load i32, ptr @proto_usb_vid, align 4
   call void @proto_register_field_array(i32 noundef %3, ptr noundef @proto_register_usb_vid.hf, i32 noundef 173)
-  call void @proto_register_subtree_array(ptr noundef @proto_register_usb_vid.usb_vid_subtrees, i32 noundef 16)
+  call void @proto_register_subtree_array(ptr noundef @proto_register_usb_vid.usb_vid_ett, i32 noundef 16)
   %4 = load i32, ptr @proto_usb_vid, align 4
   %5 = call ptr @expert_register_protocol(i32 noundef %4)
   store ptr %5, ptr %1, align 8
@@ -832,170 +831,204 @@ define hidden void @proto_register_usb_vid() #0 {
   %11 = load i32, ptr @proto_usb_vid, align 4
   %12 = call ptr @register_dissector(ptr noundef @.str.413, ptr noundef @dissect_usb_vid_interrupt, i32 noundef %11)
   store ptr %12, ptr @usb_vid_interrupt_handle, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #6
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #2
 
-declare ptr @expert_register_protocol(i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #2
 
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_register_protocol(i32 noundef) #2
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_usb_vid_control(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  %10 = alloca i32, align 4
+  %10 = alloca i8, align 1
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
   %13 = alloca i32, align 4
   %14 = alloca ptr, align 8
   %15 = alloca ptr, align 8
+  %16 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
-  %16 = load ptr, ptr %7, align 8
-  %17 = getelementptr inbounds %struct._packet_info, ptr %16, i32 0, i32 23
-  %18 = load i32, ptr %17, align 4
-  %19 = icmp eq i32 %18, -1
-  %20 = zext i1 %19 to i32
-  store i32 %20, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #6
+  %17 = load ptr, ptr %7, align 8
+  %18 = getelementptr inbounds nuw %struct._packet_info, ptr %17, i32 0, i32 24
+  %19 = load i32, ptr %18, align 4
+  %20 = icmp eq i32 %19, -1
+  %21 = zext i1 %20 to i8
+  store i8 %21, ptr %10, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
+  %22 = load ptr, ptr %9, align 8
+  store ptr %22, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #6
   store i32 0, ptr %13, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #6
   store ptr null, ptr %14, align 8
-  %21 = load ptr, ptr %9, align 8
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %28, label %23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #6
+  %23 = load ptr, ptr %11, align 8
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %35, label %25
 
-23:                                               ; preds = %4
-  %24 = load ptr, ptr %9, align 8
-  %25 = getelementptr inbounds %struct._usb_conv_info_t, ptr %24, i32 0, i32 21
-  %26 = load ptr, ptr %25, align 8
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %28, label %29
+25:                                               ; preds = %4
+  %26 = load ptr, ptr %11, align 8
+  %27 = getelementptr inbounds nuw %struct._urb_info_t, ptr %26, i32 0, i32 11
+  %28 = load ptr, ptr %27, align 8
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %35, label %30
 
-28:                                               ; preds = %23, %4
-  store i32 0, ptr %5, align 4
-  br label %99
-
-29:                                               ; preds = %23
-  %30 = load ptr, ptr %9, align 8
-  store ptr %30, ptr %11, align 8
+30:                                               ; preds = %25
   %31 = load ptr, ptr %11, align 8
-  %32 = getelementptr inbounds %struct._usb_conv_info_t, ptr %31, i32 0, i32 21
+  %32 = getelementptr inbounds nuw %struct._urb_info_t, ptr %31, i32 0, i32 10
   %33 = load ptr, ptr %32, align 8
-  store ptr %33, ptr %12, align 8
-  store ptr @setup_dissectors, ptr %15, align 8
-  br label %34
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %35, label %36
 
-34:                                               ; preds = %55, %29
-  %35 = load ptr, ptr %15, align 8
-  %36 = getelementptr inbounds %struct._usb_setup_dissector_table_t, ptr %35, i32 0, i32 1
-  %37 = load ptr, ptr %36, align 8
-  %38 = icmp ne ptr %37, null
-  br i1 %38, label %39, label %58
-
-39:                                               ; preds = %34
-  %40 = load ptr, ptr %15, align 8
-  %41 = getelementptr inbounds %struct._usb_setup_dissector_table_t, ptr %40, i32 0, i32 0
-  %42 = load i8, ptr %41, align 8
-  %43 = zext i8 %42 to i32
-  %44 = load ptr, ptr %12, align 8
-  %45 = getelementptr inbounds %struct._usb_trans_info_t, ptr %44, i32 0, i32 4
-  %46 = getelementptr inbounds %struct._usb_setup, ptr %45, i32 0, i32 1
-  %47 = load i8, ptr %46, align 1
-  %48 = zext i8 %47 to i32
-  %49 = icmp eq i32 %43, %48
-  br i1 %49, label %50, label %54
-
-50:                                               ; preds = %39
-  %51 = load ptr, ptr %15, align 8
-  %52 = getelementptr inbounds %struct._usb_setup_dissector_table_t, ptr %51, i32 0, i32 1
-  %53 = load ptr, ptr %52, align 8
-  store ptr %53, ptr %14, align 8
-  br label %58
-
-54:                                               ; preds = %39
-  br label %55
-
-55:                                               ; preds = %54
-  %56 = load ptr, ptr %15, align 8
-  %57 = getelementptr %struct._usb_setup_dissector_table_t, ptr %56, i32 1
-  store ptr %57, ptr %15, align 8
-  br label %34, !llvm.loop !4
-
-58:                                               ; preds = %50, %34
-  %59 = load ptr, ptr %14, align 8
-  %60 = icmp ne ptr %59, null
-  br i1 %60, label %62, label %61
-
-61:                                               ; preds = %58
+35:                                               ; preds = %30, %25, %4
   store i32 0, ptr %5, align 4
-  br label %99
+  store i32 1, ptr %16, align 4
+  br label %106
 
-62:                                               ; preds = %58
-  %63 = load ptr, ptr %7, align 8
-  %64 = getelementptr inbounds %struct._packet_info, ptr %63, i32 0, i32 1
-  %65 = load ptr, ptr %64, align 8
-  call void @col_set_str(ptr noundef %65, i32 noundef 34, ptr noundef @.str.409)
-  %66 = load ptr, ptr %7, align 8
-  %67 = getelementptr inbounds %struct._packet_info, ptr %66, i32 0, i32 1
-  %68 = load ptr, ptr %67, align 8
-  %69 = load ptr, ptr %12, align 8
-  %70 = getelementptr inbounds %struct._usb_trans_info_t, ptr %69, i32 0, i32 4
-  %71 = getelementptr inbounds %struct._usb_setup, ptr %70, i32 0, i32 1
-  %72 = load i8, ptr %71, align 1
-  %73 = zext i8 %72 to i32
-  %74 = call ptr @val_to_str(i32 noundef %73, ptr noundef @setup_request_names_vals, ptr noundef @.str.533)
-  %75 = load i32, ptr %10, align 4
-  %76 = icmp ne i32 %75, 0
-  %77 = select i1 %76, ptr @.str.534, ptr @.str.535
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %68, i32 noundef 25, ptr noundef @.str.532, ptr noundef %74, ptr noundef %77)
-  %78 = load i32, ptr %10, align 4
-  %79 = icmp ne i32 %78, 0
-  br i1 %79, label %80, label %88
+36:                                               ; preds = %30
+  %37 = load ptr, ptr %11, align 8
+  %38 = getelementptr inbounds nuw %struct._urb_info_t, ptr %37, i32 0, i32 10
+  %39 = load ptr, ptr %38, align 8
+  store ptr %39, ptr %12, align 8
+  store ptr @setup_dissectors, ptr %15, align 8
+  br label %40
 
-80:                                               ; preds = %62
-  %81 = load ptr, ptr %8, align 8
-  %82 = load i32, ptr @hf_usb_vid_request, align 4
-  %83 = load ptr, ptr %6, align 8
-  %84 = load i32, ptr %13, align 4
-  %85 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %82, ptr noundef %83, i32 noundef %84, i32 noundef 1, i32 noundef -2147483648)
-  %86 = load i32, ptr %13, align 4
-  %87 = add i32 %86, 1
-  store i32 %87, ptr %13, align 4
-  br label %88
+40:                                               ; preds = %61, %36
+  %41 = load ptr, ptr %15, align 8
+  %42 = getelementptr inbounds nuw %struct._usb_setup_dissector_table_t, ptr %41, i32 0, i32 1
+  %43 = load ptr, ptr %42, align 8
+  %44 = icmp ne ptr %43, null
+  br i1 %44, label %45, label %64
 
-88:                                               ; preds = %80, %62
-  %89 = load ptr, ptr %14, align 8
-  %90 = load ptr, ptr %7, align 8
-  %91 = load ptr, ptr %8, align 8
-  %92 = load ptr, ptr %6, align 8
-  %93 = load i32, ptr %13, align 4
-  %94 = load i32, ptr %10, align 4
-  %95 = load ptr, ptr %12, align 8
-  %96 = load ptr, ptr %11, align 8
-  %97 = call i32 %89(ptr noundef %90, ptr noundef %91, ptr noundef %92, i32 noundef %93, i32 noundef %94, ptr noundef %95, ptr noundef %96)
-  store i32 %97, ptr %13, align 4
-  %98 = load i32, ptr %13, align 4
-  store i32 %98, ptr %5, align 4
-  br label %99
+45:                                               ; preds = %40
+  %46 = load ptr, ptr %15, align 8
+  %47 = getelementptr inbounds nuw %struct._usb_setup_dissector_table_t, ptr %46, i32 0, i32 0
+  %48 = load i8, ptr %47, align 8
+  %49 = zext i8 %48 to i32
+  %50 = load ptr, ptr %12, align 8
+  %51 = getelementptr inbounds nuw %struct._usb_trans_info_t, ptr %50, i32 0, i32 4
+  %52 = getelementptr inbounds nuw %struct._usb_setup, ptr %51, i32 0, i32 1
+  %53 = load i8, ptr %52, align 1
+  %54 = zext i8 %53 to i32
+  %55 = icmp eq i32 %49, %54
+  br i1 %55, label %56, label %60
 
-99:                                               ; preds = %88, %61, %28
-  %100 = load i32, ptr %5, align 4
-  ret i32 %100
+56:                                               ; preds = %45
+  %57 = load ptr, ptr %15, align 8
+  %58 = getelementptr inbounds nuw %struct._usb_setup_dissector_table_t, ptr %57, i32 0, i32 1
+  %59 = load ptr, ptr %58, align 8
+  store ptr %59, ptr %14, align 8
+  br label %64
+
+60:                                               ; preds = %45
+  br label %61
+
+61:                                               ; preds = %60
+  %62 = load ptr, ptr %15, align 8
+  %63 = getelementptr %struct._usb_setup_dissector_table_t, ptr %62, i32 1
+  store ptr %63, ptr %15, align 8
+  br label %40, !llvm.loop !6
+
+64:                                               ; preds = %56, %40
+  %65 = load ptr, ptr %14, align 8
+  %66 = icmp ne ptr %65, null
+  br i1 %66, label %68, label %67
+
+67:                                               ; preds = %64
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %16, align 4
+  br label %106
+
+68:                                               ; preds = %64
+  %69 = load ptr, ptr %7, align 8
+  %70 = getelementptr inbounds nuw %struct._packet_info, ptr %69, i32 0, i32 1
+  %71 = load ptr, ptr %70, align 8
+  call void @col_set_str(ptr noundef %71, i32 noundef 35, ptr noundef @.str.409)
+  %72 = load ptr, ptr %7, align 8
+  %73 = getelementptr inbounds nuw %struct._packet_info, ptr %72, i32 0, i32 1
+  %74 = load ptr, ptr %73, align 8
+  %75 = load ptr, ptr %12, align 8
+  %76 = getelementptr inbounds nuw %struct._usb_trans_info_t, ptr %75, i32 0, i32 4
+  %77 = getelementptr inbounds nuw %struct._usb_setup, ptr %76, i32 0, i32 1
+  %78 = load i8, ptr %77, align 1
+  %79 = zext i8 %78 to i32
+  %80 = call ptr @val_to_str(i32 noundef %79, ptr noundef @setup_request_names_vals, ptr noundef @.str.549)
+  %81 = load i8, ptr %10, align 1, !range !8, !noundef !9
+  %82 = trunc i8 %81 to i1
+  %83 = select i1 %82, ptr @.str.550, ptr @.str.551
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %74, i32 noundef 25, ptr noundef @.str.548, ptr noundef %80, ptr noundef %83)
+  %84 = load i8, ptr %10, align 1, !range !8, !noundef !9
+  %85 = trunc i8 %84 to i1
+  br i1 %85, label %86, label %94
+
+86:                                               ; preds = %68
+  %87 = load ptr, ptr %8, align 8
+  %88 = load i32, ptr @hf_usb_vid_request, align 4
+  %89 = load ptr, ptr %6, align 8
+  %90 = load i32, ptr %13, align 4
+  %91 = call ptr @proto_tree_add_item(ptr noundef %87, i32 noundef %88, ptr noundef %89, i32 noundef %90, i32 noundef 1, i32 noundef -2147483648)
+  %92 = load i32, ptr %13, align 4
+  %93 = add i32 %92, 1
+  store i32 %93, ptr %13, align 4
+  br label %94
+
+94:                                               ; preds = %86, %68
+  %95 = load ptr, ptr %14, align 8
+  %96 = load ptr, ptr %7, align 8
+  %97 = load ptr, ptr %8, align 8
+  %98 = load ptr, ptr %6, align 8
+  %99 = load i32, ptr %13, align 4
+  %100 = load i8, ptr %10, align 1, !range !8, !noundef !9
+  %101 = trunc i8 %100 to i1
+  %102 = load ptr, ptr %12, align 8
+  %103 = load ptr, ptr %11, align 8
+  %104 = call i32 %95(ptr noundef %96, ptr noundef %97, ptr noundef %98, i32 noundef %99, i1 noundef zeroext %101, ptr noundef %102, ptr noundef %103)
+  store i32 %104, ptr %13, align 4
+  %105 = load i32, ptr %13, align 4
+  store i32 %105, ptr %5, align 4
+  store i32 1, ptr %16, align 4
+  br label %106
+
+106:                                              ; preds = %94, %67, %35
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #6
+  %107 = load i32, ptr %5, align 4
+  ret i32 %107
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_usb_vid_descriptor(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1011,17 +1044,23 @@ define internal i32 @dissect_usb_vid_descriptor(ptr noundef %0, ptr noundef %1, 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
   store i32 0, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #6
   %15 = load ptr, ptr %8, align 8
   store ptr %15, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #6
   %16 = load ptr, ptr %5, align 8
   %17 = load i32, ptr %9, align 4
-  %18 = call zeroext i8 @tvb_get_guint8(ptr noundef %16, i32 noundef %17)
+  %18 = call zeroext i8 @tvb_get_uint8(ptr noundef %16, i32 noundef %17)
   store i8 %18, ptr %10, align 1
   %19 = load ptr, ptr %5, align 8
   %20 = load i32, ptr %9, align 4
   %21 = add i32 %20, 1
-  %22 = call zeroext i8 @tvb_get_guint8(ptr noundef %19, i32 noundef %21)
+  %22 = call zeroext i8 @tvb_get_uint8(ptr noundef %19, i32 noundef %21)
   store i8 %22, ptr %11, align 1
   %23 = load ptr, ptr %5, align 8
   %24 = load i32, ptr %9, align 4
@@ -1044,73 +1083,97 @@ define internal i32 @dissect_usb_vid_descriptor(ptr noundef %0, ptr noundef %1, 
   %37 = load i8, ptr %10, align 1
   %38 = call i32 @dissect_usb_video_endpoint_descriptor(ptr noundef %35, ptr noundef %36, i8 noundef zeroext %37)
   store i32 %38, ptr %9, align 4
-  br label %76
+  br label %90
 
 39:                                               ; preds = %4
   %40 = load i8, ptr %11, align 1
   %41 = zext i8 %40 to i32
   %42 = icmp eq i32 %41, 36
-  br i1 %42, label %43, label %75
+  br i1 %42, label %43, label %89
 
 43:                                               ; preds = %39
   %44 = load ptr, ptr %13, align 8
   %45 = icmp ne ptr %44, null
-  br i1 %45, label %46, label %59
+  br i1 %45, label %46, label %66
 
 46:                                               ; preds = %43
   %47 = load ptr, ptr %13, align 8
-  %48 = getelementptr inbounds %struct._usb_conv_info_t, ptr %47, i32 0, i32 13
-  %49 = load i16, ptr %48, align 2
-  %50 = zext i16 %49 to i32
-  %51 = icmp eq i32 %50, 1
-  br i1 %51, label %52, label %59
+  %48 = getelementptr inbounds nuw %struct._urb_info_t, ptr %47, i32 0, i32 11
+  %49 = load ptr, ptr %48, align 8
+  %50 = icmp ne ptr %49, null
+  br i1 %50, label %51, label %66
 
-52:                                               ; preds = %46
-  %53 = load ptr, ptr %7, align 8
-  %54 = load ptr, ptr %14, align 8
-  %55 = load i8, ptr %10, align 1
-  %56 = load ptr, ptr %6, align 8
-  %57 = load ptr, ptr %13, align 8
-  %58 = call i32 @dissect_usb_video_control_interface_descriptor(ptr noundef %53, ptr noundef %54, i8 noundef zeroext %55, ptr noundef %56, ptr noundef %57)
-  store i32 %58, ptr %9, align 4
-  br label %74
+51:                                               ; preds = %46
+  %52 = load ptr, ptr %13, align 8
+  %53 = getelementptr inbounds nuw %struct._urb_info_t, ptr %52, i32 0, i32 11
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds nuw %struct._usb_conv_info_t, ptr %54, i32 0, i32 3
+  %56 = load i16, ptr %55, align 2
+  %57 = zext i16 %56 to i32
+  %58 = icmp eq i32 %57, 1
+  br i1 %58, label %59, label %66
 
-59:                                               ; preds = %46, %43
-  %60 = load ptr, ptr %13, align 8
-  %61 = icmp ne ptr %60, null
-  br i1 %61, label %62, label %73
+59:                                               ; preds = %51
+  %60 = load ptr, ptr %7, align 8
+  %61 = load ptr, ptr %14, align 8
+  %62 = load i8, ptr %10, align 1
+  %63 = load ptr, ptr %6, align 8
+  %64 = load ptr, ptr %13, align 8
+  %65 = call i32 @dissect_usb_video_control_interface_descriptor(ptr noundef %60, ptr noundef %61, i8 noundef zeroext %62, ptr noundef %63, ptr noundef %64)
+  store i32 %65, ptr %9, align 4
+  br label %88
 
-62:                                               ; preds = %59
-  %63 = load ptr, ptr %13, align 8
-  %64 = getelementptr inbounds %struct._usb_conv_info_t, ptr %63, i32 0, i32 13
-  %65 = load i16, ptr %64, align 2
-  %66 = zext i16 %65 to i32
-  %67 = icmp eq i32 %66, 2
-  br i1 %67, label %68, label %73
+66:                                               ; preds = %51, %46, %43
+  %67 = load ptr, ptr %13, align 8
+  %68 = icmp ne ptr %67, null
+  br i1 %68, label %69, label %87
 
-68:                                               ; preds = %62
-  %69 = load ptr, ptr %7, align 8
-  %70 = load ptr, ptr %14, align 8
-  %71 = load i8, ptr %10, align 1
-  %72 = call i32 @dissect_usb_video_streaming_interface_descriptor(ptr noundef %69, ptr noundef %70, i8 noundef zeroext %71)
-  store i32 %72, ptr %9, align 4
-  br label %73
+69:                                               ; preds = %66
+  %70 = load ptr, ptr %13, align 8
+  %71 = getelementptr inbounds nuw %struct._urb_info_t, ptr %70, i32 0, i32 11
+  %72 = load ptr, ptr %71, align 8
+  %73 = icmp ne ptr %72, null
+  br i1 %73, label %74, label %87
 
-73:                                               ; preds = %68, %62, %59
-  br label %74
+74:                                               ; preds = %69
+  %75 = load ptr, ptr %13, align 8
+  %76 = getelementptr inbounds nuw %struct._urb_info_t, ptr %75, i32 0, i32 11
+  %77 = load ptr, ptr %76, align 8
+  %78 = getelementptr inbounds nuw %struct._usb_conv_info_t, ptr %77, i32 0, i32 3
+  %79 = load i16, ptr %78, align 2
+  %80 = zext i16 %79 to i32
+  %81 = icmp eq i32 %80, 2
+  br i1 %81, label %82, label %87
 
-74:                                               ; preds = %73, %52
-  br label %75
+82:                                               ; preds = %74
+  %83 = load ptr, ptr %7, align 8
+  %84 = load ptr, ptr %14, align 8
+  %85 = load i8, ptr %10, align 1
+  %86 = call i32 @dissect_usb_video_streaming_interface_descriptor(ptr noundef %83, ptr noundef %84, i8 noundef zeroext %85)
+  store i32 %86, ptr %9, align 4
+  br label %87
 
-75:                                               ; preds = %74, %39
-  br label %76
+87:                                               ; preds = %82, %74, %69, %66
+  br label %88
 
-76:                                               ; preds = %75, %34
-  %77 = load i32, ptr %9, align 4
-  ret i32 %77
+88:                                               ; preds = %87, %59
+  br label %89
+
+89:                                               ; preds = %88, %39
+  br label %90
+
+90:                                               ; preds = %89, %34
+  %91 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
+  ret i32 %91
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_usb_vid_interrupt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1128,6 +1191,9 @@ define internal i32 @dissect_usb_vid_interrupt(ptr noundef %0, ptr noundef %1, p
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #6
   store i32 0, ptr %11, align 4
   %17 = load ptr, ptr %8, align 8
   store ptr %17, ptr %9, align 8
@@ -1136,17 +1202,19 @@ define internal i32 @dissect_usb_vid_interrupt(ptr noundef %0, ptr noundef %1, p
   %20 = call i32 @tvb_reported_length_remaining(ptr noundef %18, i32 noundef %19)
   store i32 %20, ptr %10, align 4
   %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds %struct._packet_info, ptr %21, i32 0, i32 1
+  %22 = getelementptr inbounds nuw %struct._packet_info, ptr %21, i32 0, i32 1
   %23 = load ptr, ptr %22, align 8
-  call void @col_set_str(ptr noundef %23, i32 noundef 34, ptr noundef @.str.409)
+  call void @col_set_str(ptr noundef %23, i32 noundef 35, ptr noundef @.str.409)
   %24 = load i32, ptr %10, align 4
   %25 = icmp sgt i32 %24, 0
-  br i1 %25, label %26, label %138
+  br i1 %25, label %26, label %140
 
 26:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #6
   %27 = load ptr, ptr %5, align 8
   %28 = load i32, ptr %11, align 4
-  %29 = call zeroext i8 @tvb_get_guint8(ptr noundef %27, i32 noundef %28)
+  %29 = call zeroext i8 @tvb_get_uint8(ptr noundef %27, i32 noundef %28)
   %30 = zext i8 %29 to i32
   %31 = and i32 %30, 15
   %32 = trunc i32 %31 to i8
@@ -1161,7 +1229,7 @@ define internal i32 @dissect_usb_vid_interrupt(ptr noundef %0, ptr noundef %1, p
   store i32 %39, ptr %11, align 4
   %40 = load ptr, ptr %5, align 8
   %41 = load i32, ptr %11, align 4
-  %42 = call zeroext i8 @tvb_get_guint8(ptr noundef %40, i32 noundef %41)
+  %42 = call zeroext i8 @tvb_get_uint8(ptr noundef %40, i32 noundef %41)
   store i8 %42, ptr %13, align 1
   %43 = load ptr, ptr %7, align 8
   %44 = load i32, ptr @hf_usb_vid_interrupt_bOriginator, align 4
@@ -1174,9 +1242,12 @@ define internal i32 @dissect_usb_vid_interrupt(ptr noundef %0, ptr noundef %1, p
   %50 = load i8, ptr %12, align 1
   %51 = zext i8 %50 to i32
   %52 = icmp eq i32 %51, 1
-  br i1 %52, label %53, label %131
+  br i1 %52, label %53, label %133
 
 53:                                               ; preds = %26
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #6
   %54 = load ptr, ptr %7, align 8
   %55 = load i32, ptr @hf_usb_vid_control_interrupt_bEvent, align 4
   %56 = load ptr, ptr %5, align 8
@@ -1187,132 +1258,145 @@ define internal i32 @dissect_usb_vid_interrupt(ptr noundef %0, ptr noundef %1, p
   store i32 %60, ptr %11, align 4
   %61 = load ptr, ptr %5, align 8
   %62 = load i32, ptr %11, align 4
-  %63 = call zeroext i8 @tvb_get_guint8(ptr noundef %61, i32 noundef %62)
+  %63 = call zeroext i8 @tvb_get_uint8(ptr noundef %61, i32 noundef %62)
   store i8 %63, ptr %14, align 1
   %64 = load i8, ptr %13, align 1
   %65 = load i8, ptr %14, align 1
   %66 = load ptr, ptr %9, align 8
-  %67 = call ptr @get_control_selector_name(i8 noundef zeroext %64, i8 noundef zeroext %65, ptr noundef %66)
-  store ptr %67, ptr %16, align 8
-  %68 = load ptr, ptr %16, align 8
-  %69 = icmp ne ptr %68, null
-  br i1 %69, label %71, label %70
+  %67 = getelementptr inbounds nuw %struct._urb_info_t, ptr %66, i32 0, i32 11
+  %68 = load ptr, ptr %67, align 8
+  %69 = call ptr @get_control_selector_name(i8 noundef zeroext %64, i8 noundef zeroext %65, ptr noundef %68)
+  store ptr %69, ptr %16, align 8
+  %70 = load ptr, ptr %16, align 8
+  %71 = icmp ne ptr %70, null
+  br i1 %71, label %73, label %72
 
-70:                                               ; preds = %53
-  store ptr @.str.441, ptr %16, align 8
-  br label %71
+72:                                               ; preds = %53
+  store ptr @.str.442, ptr %16, align 8
+  br label %73
 
-71:                                               ; preds = %70, %53
-  %72 = load ptr, ptr %7, align 8
-  %73 = load i32, ptr @hf_usb_vid_control_selector, align 4
-  %74 = load ptr, ptr %5, align 8
-  %75 = load i32, ptr %11, align 4
-  %76 = load i8, ptr %14, align 1
-  %77 = zext i8 %76 to i32
-  %78 = load ptr, ptr %16, align 8
-  %79 = load i8, ptr %14, align 1
-  %80 = zext i8 %79 to i32
-  %81 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %72, i32 noundef %73, ptr noundef %74, i32 noundef %75, i32 noundef 1, i32 noundef %77, ptr noundef @.str.540, ptr noundef %78, i32 noundef %80)
-  %82 = load i32, ptr %11, align 4
-  %83 = add i32 %82, 1
-  store i32 %83, ptr %11, align 4
-  %84 = load ptr, ptr %5, align 8
-  %85 = load i32, ptr %11, align 4
-  %86 = call zeroext i8 @tvb_get_guint8(ptr noundef %84, i32 noundef %85)
-  store i8 %86, ptr %15, align 1
-  %87 = load ptr, ptr %7, align 8
-  %88 = load i32, ptr @hf_usb_vid_interrupt_bAttribute, align 4
-  %89 = load ptr, ptr %5, align 8
-  %90 = load i32, ptr %11, align 4
-  %91 = call ptr @proto_tree_add_item(ptr noundef %87, i32 noundef %88, ptr noundef %89, i32 noundef %90, i32 noundef 1, i32 noundef -2147483648)
+73:                                               ; preds = %72, %53
+  %74 = load ptr, ptr %7, align 8
+  %75 = load i32, ptr @hf_usb_vid_control_selector, align 4
+  %76 = load ptr, ptr %5, align 8
+  %77 = load i32, ptr %11, align 4
+  %78 = load i8, ptr %14, align 1
+  %79 = zext i8 %78 to i32
+  %80 = load ptr, ptr %16, align 8
+  %81 = load i8, ptr %14, align 1
+  %82 = zext i8 %81 to i32
+  %83 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %74, i32 noundef %75, ptr noundef %76, i32 noundef %77, i32 noundef 1, i32 noundef %79, ptr noundef @.str.557, ptr noundef %80, i32 noundef %82)
+  %84 = load i32, ptr %11, align 4
+  %85 = add i32 %84, 1
+  store i32 %85, ptr %11, align 4
+  %86 = load ptr, ptr %5, align 8
+  %87 = load i32, ptr %11, align 4
+  %88 = call zeroext i8 @tvb_get_uint8(ptr noundef %86, i32 noundef %87)
+  store i8 %88, ptr %15, align 1
+  %89 = load ptr, ptr %7, align 8
+  %90 = load i32, ptr @hf_usb_vid_interrupt_bAttribute, align 4
+  %91 = load ptr, ptr %5, align 8
   %92 = load i32, ptr %11, align 4
-  %93 = add i32 %92, 1
-  store i32 %93, ptr %11, align 4
-  %94 = load i8, ptr %15, align 1
-  %95 = zext i8 %94 to i32
-  switch i32 %95, label %119 [
-    i32 2, label %96
-    i32 1, label %104
-    i32 0, label %109
-    i32 3, label %109
-    i32 4, label %109
+  %93 = call ptr @proto_tree_add_item(ptr noundef %89, i32 noundef %90, ptr noundef %91, i32 noundef %92, i32 noundef 1, i32 noundef -2147483648)
+  %94 = load i32, ptr %11, align 4
+  %95 = add i32 %94, 1
+  store i32 %95, ptr %11, align 4
+  %96 = load i8, ptr %15, align 1
+  %97 = zext i8 %96 to i32
+  switch i32 %97, label %121 [
+    i32 2, label %98
+    i32 1, label %106
+    i32 0, label %111
+    i32 3, label %111
+    i32 4, label %111
   ]
 
-96:                                               ; preds = %71
-  %97 = load ptr, ptr %7, align 8
-  %98 = load i32, ptr @hf_usb_vid_request_error, align 4
-  %99 = load ptr, ptr %5, align 8
-  %100 = load i32, ptr %11, align 4
-  %101 = call ptr @proto_tree_add_item(ptr noundef %97, i32 noundef %98, ptr noundef %99, i32 noundef %100, i32 noundef 1, i32 noundef -2147483648)
+98:                                               ; preds = %73
+  %99 = load ptr, ptr %7, align 8
+  %100 = load i32, ptr @hf_usb_vid_request_error, align 4
+  %101 = load ptr, ptr %5, align 8
   %102 = load i32, ptr %11, align 4
-  %103 = add i32 %102, 1
-  store i32 %103, ptr %11, align 4
-  br label %130
+  %103 = call ptr @proto_tree_add_item(ptr noundef %99, i32 noundef %100, ptr noundef %101, i32 noundef %102, i32 noundef 1, i32 noundef -2147483648)
+  %104 = load i32, ptr %11, align 4
+  %105 = add i32 %104, 1
+  store i32 %105, ptr %11, align 4
+  br label %132
 
-104:                                              ; preds = %71
-  %105 = load ptr, ptr %7, align 8
-  %106 = load ptr, ptr %5, align 8
-  %107 = load i32, ptr %11, align 4
-  %108 = call i32 @dissect_usb_vid_control_info(ptr noundef %105, ptr noundef %106, i32 noundef %107)
-  store i32 %108, ptr %11, align 4
-  br label %130
+106:                                              ; preds = %73
+  %107 = load ptr, ptr %7, align 8
+  %108 = load ptr, ptr %5, align 8
+  %109 = load i32, ptr %11, align 4
+  %110 = call i32 @dissect_usb_vid_control_info(ptr noundef %107, ptr noundef %108, i32 noundef %109)
+  store i32 %110, ptr %11, align 4
+  br label %132
 
-109:                                              ; preds = %71, %71, %71
-  %110 = load ptr, ptr %7, align 8
-  %111 = load ptr, ptr %5, align 8
-  %112 = load i32, ptr %11, align 4
-  %113 = load i8, ptr %15, align 1
-  call void @dissect_usb_vid_control_value(ptr noundef %110, ptr noundef %111, i32 noundef %112, i8 noundef zeroext %113)
-  %114 = load ptr, ptr %5, align 8
-  %115 = load i32, ptr %11, align 4
-  %116 = call i32 @tvb_reported_length_remaining(ptr noundef %114, i32 noundef %115)
+111:                                              ; preds = %73, %73, %73
+  %112 = load ptr, ptr %7, align 8
+  %113 = load ptr, ptr %5, align 8
+  %114 = load i32, ptr %11, align 4
+  %115 = load i8, ptr %15, align 1
+  call void @dissect_usb_vid_control_value(ptr noundef %112, ptr noundef %113, i32 noundef %114, i8 noundef zeroext %115)
+  %116 = load ptr, ptr %5, align 8
   %117 = load i32, ptr %11, align 4
-  %118 = add i32 %117, %116
-  store i32 %118, ptr %11, align 4
-  br label %130
+  %118 = call i32 @tvb_reported_length_remaining(ptr noundef %116, i32 noundef %117)
+  %119 = load i32, ptr %11, align 4
+  %120 = add i32 %119, %118
+  store i32 %120, ptr %11, align 4
+  br label %132
 
-119:                                              ; preds = %71
-  %120 = load ptr, ptr %7, align 8
-  %121 = load i32, ptr @hf_usb_vid_value_data, align 4
-  %122 = load ptr, ptr %5, align 8
-  %123 = load i32, ptr %11, align 4
-  %124 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %121, ptr noundef %122, i32 noundef %123, i32 noundef -1, i32 noundef 0)
-  %125 = load ptr, ptr %5, align 8
-  %126 = load i32, ptr %11, align 4
-  %127 = call i32 @tvb_reported_length_remaining(ptr noundef %125, i32 noundef %126)
+121:                                              ; preds = %73
+  %122 = load ptr, ptr %7, align 8
+  %123 = load i32, ptr @hf_usb_vid_value_data, align 4
+  %124 = load ptr, ptr %5, align 8
+  %125 = load i32, ptr %11, align 4
+  %126 = call ptr @proto_tree_add_item(ptr noundef %122, i32 noundef %123, ptr noundef %124, i32 noundef %125, i32 noundef -1, i32 noundef 0)
+  %127 = load ptr, ptr %5, align 8
   %128 = load i32, ptr %11, align 4
-  %129 = add i32 %128, %127
-  store i32 %129, ptr %11, align 4
-  br label %130
+  %129 = call i32 @tvb_reported_length_remaining(ptr noundef %127, i32 noundef %128)
+  %130 = load i32, ptr %11, align 4
+  %131 = add i32 %130, %129
+  store i32 %131, ptr %11, align 4
+  br label %132
 
-130:                                              ; preds = %119, %109, %104, %96
-  br label %137
-
-131:                                              ; preds = %26
-  %132 = load i8, ptr %12, align 1
-  %133 = zext i8 %132 to i32
-  %134 = icmp eq i32 %133, 2
-  br i1 %134, label %135, label %136
-
-135:                                              ; preds = %131
-  br label %136
-
-136:                                              ; preds = %135, %131
-  br label %137
-
-137:                                              ; preds = %136, %130
+132:                                              ; preds = %121, %111, %106, %98
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #6
   br label %139
 
-138:                                              ; preds = %4
+133:                                              ; preds = %26
+  %134 = load i8, ptr %12, align 1
+  %135 = zext i8 %134 to i32
+  %136 = icmp eq i32 %135, 2
+  br i1 %136, label %137, label %138
+
+137:                                              ; preds = %133
+  br label %138
+
+138:                                              ; preds = %137, %133
+  br label %139
+
+139:                                              ; preds = %138, %132
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #6
+  br label %141
+
+140:                                              ; preds = %4
   store i32 -2, ptr %11, align 4
-  br label %139
+  br label %141
 
-139:                                              ; preds = %138, %137
-  %140 = load i32, ptr %11, align 4
-  ret i32 %140
+141:                                              ; preds = %140, %139
+  %142 = load i32, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  ret i32 %142
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_usb_vid() #0 {
   %1 = load ptr, ptr @usb_vid_control_handle, align 8
   call void @dissector_add_uint(ptr noundef @.str.414, i32 noundef 14, ptr noundef %1)
@@ -1323,25 +1407,31 @@ define hidden void @proto_reg_handoff_usb_vid() #0 {
   ret void
 }
 
-declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #2
 
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #2
 
-declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_usb_vid_get_set(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @dissect_usb_vid_get_set(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef %5, ptr noundef %6) #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
-  %12 = alloca i32, align 4
+  %12 = alloca i8, align 1
   %13 = alloca ptr, align 8
   %14 = alloca ptr, align 8
   %15 = alloca ptr, align 8
@@ -1354,386 +1444,408 @@ define internal i32 @dissect_usb_vid_get_set(ptr noundef %0, ptr noundef %1, ptr
   store ptr %1, ptr %9, align 8
   store ptr %2, ptr %10, align 8
   store i32 %3, ptr %11, align 4
-  store i32 %4, ptr %12, align 4
+  %21 = zext i1 %4 to i8
+  store i8 %21, ptr %12, align 1
   store ptr %5, ptr %13, align 8
   store ptr %6, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #6
   store ptr null, ptr %15, align 8
-  %21 = load ptr, ptr %13, align 8
-  %22 = getelementptr inbounds %struct._usb_trans_info_t, ptr %21, i32 0, i32 4
-  %23 = getelementptr inbounds %struct._usb_setup, ptr %22, i32 0, i32 3
-  %24 = load i16, ptr %23, align 4
-  %25 = zext i16 %24 to i32
-  %26 = ashr i32 %25, 8
-  %27 = trunc i32 %26 to i8
-  store i8 %27, ptr %17, align 1
-  %28 = load ptr, ptr %13, align 8
-  %29 = getelementptr inbounds %struct._usb_trans_info_t, ptr %28, i32 0, i32 4
-  %30 = getelementptr inbounds %struct._usb_setup, ptr %29, i32 0, i32 2
-  %31 = load i16, ptr %30, align 2
-  %32 = zext i16 %31 to i32
-  %33 = ashr i32 %32, 8
-  %34 = trunc i32 %33 to i8
-  store i8 %34, ptr %16, align 1
-  %35 = load ptr, ptr %8, align 8
-  %36 = getelementptr inbounds %struct._packet_info, ptr %35, i32 0, i32 1
-  %37 = load ptr, ptr %36, align 8
-  call void @col_append_str(ptr noundef %37, i32 noundef 25, ptr noundef @.str.536)
-  %38 = load i8, ptr %17, align 1
-  %39 = load i8, ptr %16, align 1
-  %40 = load ptr, ptr %14, align 8
-  %41 = call ptr @get_control_selector_name(i8 noundef zeroext %38, i8 noundef zeroext %39, ptr noundef %40)
-  store ptr %41, ptr %15, align 8
-  %42 = load ptr, ptr %15, align 8
-  %43 = icmp ne ptr %42, null
-  br i1 %43, label %44, label %49
+  call void @llvm.lifetime.start.p0(i64 1, ptr %16) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %17) #6
+  %22 = load ptr, ptr %13, align 8
+  %23 = getelementptr inbounds nuw %struct._usb_trans_info_t, ptr %22, i32 0, i32 4
+  %24 = getelementptr inbounds nuw %struct._usb_setup, ptr %23, i32 0, i32 3
+  %25 = load i16, ptr %24, align 4
+  %26 = zext i16 %25 to i32
+  %27 = ashr i32 %26, 8
+  %28 = trunc i32 %27 to i8
+  store i8 %28, ptr %17, align 1
+  %29 = load ptr, ptr %13, align 8
+  %30 = getelementptr inbounds nuw %struct._usb_trans_info_t, ptr %29, i32 0, i32 4
+  %31 = getelementptr inbounds nuw %struct._usb_setup, ptr %30, i32 0, i32 2
+  %32 = load i16, ptr %31, align 2
+  %33 = zext i16 %32 to i32
+  %34 = ashr i32 %33, 8
+  %35 = trunc i32 %34 to i8
+  store i8 %35, ptr %16, align 1
+  %36 = load ptr, ptr %8, align 8
+  %37 = getelementptr inbounds nuw %struct._packet_info, ptr %36, i32 0, i32 1
+  %38 = load ptr, ptr %37, align 8
+  call void @col_append_str(ptr noundef %38, i32 noundef 25, ptr noundef @.str.553)
+  %39 = load i8, ptr %17, align 1
+  %40 = load i8, ptr %16, align 1
+  %41 = load ptr, ptr %14, align 8
+  %42 = getelementptr inbounds nuw %struct._urb_info_t, ptr %41, i32 0, i32 11
+  %43 = load ptr, ptr %42, align 8
+  %44 = call ptr @get_control_selector_name(i8 noundef zeroext %39, i8 noundef zeroext %40, ptr noundef %43)
+  store ptr %44, ptr %15, align 8
+  %45 = load ptr, ptr %15, align 8
+  %46 = icmp ne ptr %45, null
+  br i1 %46, label %47, label %52
 
-44:                                               ; preds = %7
-  %45 = load ptr, ptr %8, align 8
-  %46 = getelementptr inbounds %struct._packet_info, ptr %45, i32 0, i32 1
-  %47 = load ptr, ptr %46, align 8
-  %48 = load ptr, ptr %15, align 8
-  call void @col_append_str(ptr noundef %47, i32 noundef 25, ptr noundef %48)
-  br label %72
+47:                                               ; preds = %7
+  %48 = load ptr, ptr %8, align 8
+  %49 = getelementptr inbounds nuw %struct._packet_info, ptr %48, i32 0, i32 1
+  %50 = load ptr, ptr %49, align 8
+  %51 = load ptr, ptr %15, align 8
+  call void @col_append_str(ptr noundef %50, i32 noundef 25, ptr noundef %51)
+  br label %77
 
-49:                                               ; preds = %7
-  store ptr @.str.441, ptr %15, align 8
-  %50 = load i8, ptr %17, align 1
-  %51 = zext i8 %50 to i32
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %53, label %63
+52:                                               ; preds = %7
+  store ptr @.str.442, ptr %15, align 8
+  %53 = load i8, ptr %17, align 1
+  %54 = zext i8 %53 to i32
+  %55 = icmp eq i32 %54, 0
+  br i1 %55, label %56, label %68
 
-53:                                               ; preds = %49
-  %54 = load ptr, ptr %8, align 8
-  %55 = getelementptr inbounds %struct._packet_info, ptr %54, i32 0, i32 1
-  %56 = load ptr, ptr %55, align 8
-  %57 = load ptr, ptr %14, align 8
-  %58 = getelementptr inbounds %struct._usb_conv_info_t, ptr %57, i32 0, i32 15
-  %59 = load i8, ptr %58, align 2
-  %60 = zext i8 %59 to i32
-  %61 = load i8, ptr %16, align 1
-  %62 = zext i8 %61 to i32
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %56, i32 noundef 25, ptr noundef @.str.537, i32 noundef %60, i32 noundef %62)
-  br label %71
+56:                                               ; preds = %52
+  %57 = load ptr, ptr %8, align 8
+  %58 = getelementptr inbounds nuw %struct._packet_info, ptr %57, i32 0, i32 1
+  %59 = load ptr, ptr %58, align 8
+  %60 = load ptr, ptr %14, align 8
+  %61 = getelementptr inbounds nuw %struct._urb_info_t, ptr %60, i32 0, i32 11
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds nuw %struct._usb_conv_info_t, ptr %62, i32 0, i32 5
+  %64 = load i8, ptr %63, align 2
+  %65 = zext i8 %64 to i32
+  %66 = load i8, ptr %16, align 1
+  %67 = zext i8 %66 to i32
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %59, i32 noundef 25, ptr noundef @.str.554, i32 noundef %65, i32 noundef %67)
+  br label %76
 
-63:                                               ; preds = %49
-  %64 = load ptr, ptr %8, align 8
-  %65 = getelementptr inbounds %struct._packet_info, ptr %64, i32 0, i32 1
-  %66 = load ptr, ptr %65, align 8
-  %67 = load i8, ptr %17, align 1
-  %68 = zext i8 %67 to i32
-  %69 = load i8, ptr %16, align 1
-  %70 = zext i8 %69 to i32
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %66, i32 noundef 25, ptr noundef @.str.538, i32 noundef %68, i32 noundef %70)
-  br label %71
+68:                                               ; preds = %52
+  %69 = load ptr, ptr %8, align 8
+  %70 = getelementptr inbounds nuw %struct._packet_info, ptr %69, i32 0, i32 1
+  %71 = load ptr, ptr %70, align 8
+  %72 = load i8, ptr %17, align 1
+  %73 = zext i8 %72 to i32
+  %74 = load i8, ptr %16, align 1
+  %75 = zext i8 %74 to i32
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %71, i32 noundef 25, ptr noundef @.str.555, i32 noundef %73, i32 noundef %75)
+  br label %76
 
-71:                                               ; preds = %63, %53
-  br label %72
+76:                                               ; preds = %68, %56
+  br label %77
 
-72:                                               ; preds = %71, %44
-  %73 = load ptr, ptr %8, align 8
-  %74 = getelementptr inbounds %struct._packet_info, ptr %73, i32 0, i32 1
-  %75 = load ptr, ptr %74, align 8
-  call void @col_append_str(ptr noundef %75, i32 noundef 25, ptr noundef @.str.539)
-  %76 = load ptr, ptr %8, align 8
-  %77 = getelementptr inbounds %struct._packet_info, ptr %76, i32 0, i32 1
-  %78 = load ptr, ptr %77, align 8
-  call void @col_set_fence(ptr noundef %78, i32 noundef 25)
-  %79 = load i32, ptr %12, align 4
-  %80 = icmp ne i32 %79, 0
-  br i1 %80, label %81, label %117
+77:                                               ; preds = %76, %47
+  %78 = load ptr, ptr %8, align 8
+  %79 = getelementptr inbounds nuw %struct._packet_info, ptr %78, i32 0, i32 1
+  %80 = load ptr, ptr %79, align 8
+  call void @col_append_str(ptr noundef %80, i32 noundef 25, ptr noundef @.str.556)
+  %81 = load ptr, ptr %8, align 8
+  %82 = getelementptr inbounds nuw %struct._packet_info, ptr %81, i32 0, i32 1
+  %83 = load ptr, ptr %82, align 8
+  call void @col_set_fence(ptr noundef %83, i32 noundef 25)
+  %84 = load i8, ptr %12, align 1, !range !8, !noundef !9
+  %85 = trunc i8 %84 to i1
+  br i1 %85, label %86, label %122
 
-81:                                               ; preds = %72
-  %82 = load i32, ptr %11, align 4
-  %83 = add i32 %82, 1
-  store i32 %83, ptr %11, align 4
-  %84 = load ptr, ptr %9, align 8
-  %85 = load i32, ptr @hf_usb_vid_control_selector, align 4
-  %86 = load ptr, ptr %10, align 8
+86:                                               ; preds = %77
   %87 = load i32, ptr %11, align 4
-  %88 = load i8, ptr %16, align 1
-  %89 = zext i8 %88 to i32
-  %90 = load ptr, ptr %15, align 8
-  %91 = load i8, ptr %16, align 1
-  %92 = zext i8 %91 to i32
-  %93 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %84, i32 noundef %85, ptr noundef %86, i32 noundef %87, i32 noundef 1, i32 noundef %89, ptr noundef @.str.540, ptr noundef %90, i32 noundef %92)
-  %94 = load i32, ptr %11, align 4
-  %95 = add i32 %94, 1
-  store i32 %95, ptr %11, align 4
-  %96 = load ptr, ptr %9, align 8
-  %97 = load i32, ptr @hf_usb_vid_control_interface, align 4
-  %98 = load ptr, ptr %10, align 8
+  %88 = add i32 %87, 1
+  store i32 %88, ptr %11, align 4
+  %89 = load ptr, ptr %9, align 8
+  %90 = load i32, ptr @hf_usb_vid_control_selector, align 4
+  %91 = load ptr, ptr %10, align 8
+  %92 = load i32, ptr %11, align 4
+  %93 = load i8, ptr %16, align 1
+  %94 = zext i8 %93 to i32
+  %95 = load ptr, ptr %15, align 8
+  %96 = load i8, ptr %16, align 1
+  %97 = zext i8 %96 to i32
+  %98 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %89, i32 noundef %90, ptr noundef %91, i32 noundef %92, i32 noundef 1, i32 noundef %94, ptr noundef @.str.557, ptr noundef %95, i32 noundef %97)
   %99 = load i32, ptr %11, align 4
-  %100 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %97, ptr noundef %98, i32 noundef %99, i32 noundef 1, i32 noundef -2147483648)
-  %101 = load i32, ptr %11, align 4
-  %102 = add i32 %101, 1
-  store i32 %102, ptr %11, align 4
-  %103 = load ptr, ptr %9, align 8
-  %104 = load i32, ptr @hf_usb_vid_control_entity, align 4
-  %105 = load ptr, ptr %10, align 8
+  %100 = add i32 %99, 1
+  store i32 %100, ptr %11, align 4
+  %101 = load ptr, ptr %9, align 8
+  %102 = load i32, ptr @hf_usb_vid_control_interface, align 4
+  %103 = load ptr, ptr %10, align 8
+  %104 = load i32, ptr %11, align 4
+  %105 = call ptr @proto_tree_add_item(ptr noundef %101, i32 noundef %102, ptr noundef %103, i32 noundef %104, i32 noundef 1, i32 noundef -2147483648)
   %106 = load i32, ptr %11, align 4
-  %107 = call ptr @proto_tree_add_item(ptr noundef %103, i32 noundef %104, ptr noundef %105, i32 noundef %106, i32 noundef 1, i32 noundef -2147483648)
-  %108 = load i32, ptr %11, align 4
-  %109 = add i32 %108, 1
-  store i32 %109, ptr %11, align 4
-  %110 = load ptr, ptr %9, align 8
-  %111 = load i32, ptr @hf_usb_vid_length, align 4
-  %112 = load ptr, ptr %10, align 8
+  %107 = add i32 %106, 1
+  store i32 %107, ptr %11, align 4
+  %108 = load ptr, ptr %9, align 8
+  %109 = load i32, ptr @hf_usb_vid_control_entity, align 4
+  %110 = load ptr, ptr %10, align 8
+  %111 = load i32, ptr %11, align 4
+  %112 = call ptr @proto_tree_add_item(ptr noundef %108, i32 noundef %109, ptr noundef %110, i32 noundef %111, i32 noundef 1, i32 noundef -2147483648)
   %113 = load i32, ptr %11, align 4
-  %114 = call ptr @proto_tree_add_item(ptr noundef %110, i32 noundef %111, ptr noundef %112, i32 noundef %113, i32 noundef 2, i32 noundef -2147483648)
-  %115 = load i32, ptr %11, align 4
-  %116 = add i32 %115, 2
-  store i32 %116, ptr %11, align 4
-  br label %146
+  %114 = add i32 %113, 1
+  store i32 %114, ptr %11, align 4
+  %115 = load ptr, ptr %9, align 8
+  %116 = load i32, ptr @hf_usb_vid_length, align 4
+  %117 = load ptr, ptr %10, align 8
+  %118 = load i32, ptr %11, align 4
+  %119 = call ptr @proto_tree_add_item(ptr noundef %115, i32 noundef %116, ptr noundef %117, i32 noundef %118, i32 noundef 2, i32 noundef -2147483648)
+  %120 = load i32, ptr %11, align 4
+  %121 = add i32 %120, 2
+  store i32 %121, ptr %11, align 4
+  br label %151
 
-117:                                              ; preds = %72
-  %118 = load ptr, ptr %9, align 8
-  %119 = load i32, ptr @hf_usb_vid_control_interface, align 4
-  %120 = load ptr, ptr %10, align 8
-  %121 = load ptr, ptr %13, align 8
-  %122 = getelementptr inbounds %struct._usb_trans_info_t, ptr %121, i32 0, i32 4
-  %123 = getelementptr inbounds %struct._usb_setup, ptr %122, i32 0, i32 3
-  %124 = load i16, ptr %123, align 4
-  %125 = zext i16 %124 to i32
-  %126 = and i32 %125, 255
-  %127 = call ptr @proto_tree_add_uint(ptr noundef %118, i32 noundef %119, ptr noundef %120, i32 noundef 0, i32 noundef 0, i32 noundef %126)
-  store ptr %127, ptr %18, align 8
-  %128 = load ptr, ptr %18, align 8
-  call void @proto_item_set_generated(ptr noundef %128)
-  %129 = load ptr, ptr %9, align 8
-  %130 = load i32, ptr @hf_usb_vid_control_entity, align 4
-  %131 = load ptr, ptr %10, align 8
-  %132 = load i8, ptr %17, align 1
-  %133 = zext i8 %132 to i32
-  %134 = call ptr @proto_tree_add_uint(ptr noundef %129, i32 noundef %130, ptr noundef %131, i32 noundef 0, i32 noundef 0, i32 noundef %133)
-  store ptr %134, ptr %18, align 8
-  %135 = load ptr, ptr %18, align 8
-  call void @proto_item_set_generated(ptr noundef %135)
-  %136 = load ptr, ptr %9, align 8
-  %137 = load i32, ptr @hf_usb_vid_control_selector, align 4
-  %138 = load ptr, ptr %10, align 8
-  %139 = load i8, ptr %16, align 1
-  %140 = zext i8 %139 to i32
-  %141 = load ptr, ptr %15, align 8
-  %142 = load i8, ptr %16, align 1
-  %143 = zext i8 %142 to i32
-  %144 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %136, i32 noundef %137, ptr noundef %138, i32 noundef 0, i32 noundef 0, i32 noundef %140, ptr noundef @.str.540, ptr noundef %141, i32 noundef %143)
-  store ptr %144, ptr %18, align 8
-  %145 = load ptr, ptr %18, align 8
-  call void @proto_item_set_generated(ptr noundef %145)
-  br label %146
+122:                                              ; preds = %77
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #6
+  %123 = load ptr, ptr %9, align 8
+  %124 = load i32, ptr @hf_usb_vid_control_interface, align 4
+  %125 = load ptr, ptr %10, align 8
+  %126 = load ptr, ptr %13, align 8
+  %127 = getelementptr inbounds nuw %struct._usb_trans_info_t, ptr %126, i32 0, i32 4
+  %128 = getelementptr inbounds nuw %struct._usb_setup, ptr %127, i32 0, i32 3
+  %129 = load i16, ptr %128, align 4
+  %130 = zext i16 %129 to i32
+  %131 = and i32 %130, 255
+  %132 = call ptr @proto_tree_add_uint(ptr noundef %123, i32 noundef %124, ptr noundef %125, i32 noundef 0, i32 noundef 0, i32 noundef %131)
+  store ptr %132, ptr %18, align 8
+  %133 = load ptr, ptr %18, align 8
+  call void @proto_item_set_generated(ptr noundef %133)
+  %134 = load ptr, ptr %9, align 8
+  %135 = load i32, ptr @hf_usb_vid_control_entity, align 4
+  %136 = load ptr, ptr %10, align 8
+  %137 = load i8, ptr %17, align 1
+  %138 = zext i8 %137 to i32
+  %139 = call ptr @proto_tree_add_uint(ptr noundef %134, i32 noundef %135, ptr noundef %136, i32 noundef 0, i32 noundef 0, i32 noundef %138)
+  store ptr %139, ptr %18, align 8
+  %140 = load ptr, ptr %18, align 8
+  call void @proto_item_set_generated(ptr noundef %140)
+  %141 = load ptr, ptr %9, align 8
+  %142 = load i32, ptr @hf_usb_vid_control_selector, align 4
+  %143 = load ptr, ptr %10, align 8
+  %144 = load i8, ptr %16, align 1
+  %145 = zext i8 %144 to i32
+  %146 = load ptr, ptr %15, align 8
+  %147 = load i8, ptr %16, align 1
+  %148 = zext i8 %147 to i32
+  %149 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %141, i32 noundef %142, ptr noundef %143, i32 noundef 0, i32 noundef 0, i32 noundef %145, ptr noundef @.str.557, ptr noundef %146, i32 noundef %148)
+  store ptr %149, ptr %18, align 8
+  %150 = load ptr, ptr %18, align 8
+  call void @proto_item_set_generated(ptr noundef %150)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #6
+  br label %151
 
-146:                                              ; preds = %117, %81
-  %147 = load i32, ptr %12, align 4
-  %148 = icmp ne i32 %147, 0
-  br i1 %148, label %149, label %156
+151:                                              ; preds = %122, %86
+  %152 = load i8, ptr %12, align 1, !range !8, !noundef !9
+  %153 = trunc i8 %152 to i1
+  br i1 %153, label %154, label %161
 
-149:                                              ; preds = %146
-  %150 = load ptr, ptr %13, align 8
-  %151 = getelementptr inbounds %struct._usb_trans_info_t, ptr %150, i32 0, i32 4
-  %152 = getelementptr inbounds %struct._usb_setup, ptr %151, i32 0, i32 1
-  %153 = load i8, ptr %152, align 1
-  %154 = zext i8 %153 to i32
-  %155 = icmp eq i32 %154, 1
-  br i1 %155, label %156, label %284
+154:                                              ; preds = %151
+  %155 = load ptr, ptr %13, align 8
+  %156 = getelementptr inbounds nuw %struct._usb_trans_info_t, ptr %155, i32 0, i32 4
+  %157 = getelementptr inbounds nuw %struct._usb_setup, ptr %156, i32 0, i32 1
+  %158 = load i8, ptr %157, align 1
+  %159 = zext i8 %158 to i32
+  %160 = icmp eq i32 %159, 1
+  br i1 %160, label %161, label %293
 
-156:                                              ; preds = %149, %146
-  %157 = load ptr, ptr %10, align 8
-  %158 = load i32, ptr %11, align 4
-  %159 = call i32 @tvb_reported_length_remaining(ptr noundef %157, i32 noundef %158)
-  store i32 %159, ptr %19, align 4
-  %160 = load i32, ptr %19, align 4
-  %161 = icmp ne i32 %160, 0
-  br i1 %161, label %162, label %283
+161:                                              ; preds = %154, %151
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #6
+  %162 = load ptr, ptr %10, align 8
+  %163 = load i32, ptr %11, align 4
+  %164 = call i32 @tvb_reported_length_remaining(ptr noundef %162, i32 noundef %163)
+  store i32 %164, ptr %19, align 4
+  %165 = load i32, ptr %19, align 4
+  %166 = icmp ne i32 %165, 0
+  br i1 %166, label %167, label %292
 
-162:                                              ; preds = %156
-  %163 = load i8, ptr %17, align 1
-  %164 = zext i8 %163 to i32
-  %165 = icmp eq i32 %164, 0
-  br i1 %165, label %166, label %192
+167:                                              ; preds = %161
+  %168 = load i8, ptr %17, align 1
+  %169 = zext i8 %168 to i32
+  %170 = icmp eq i32 %169, 0
+  br i1 %170, label %171, label %199
 
-166:                                              ; preds = %162
-  %167 = load ptr, ptr %14, align 8
-  %168 = getelementptr inbounds %struct._usb_conv_info_t, ptr %167, i32 0, i32 13
-  %169 = load i16, ptr %168, align 2
-  %170 = zext i16 %169 to i32
-  %171 = icmp eq i32 %170, 2
-  br i1 %171, label %172, label %192
+171:                                              ; preds = %167
+  %172 = load ptr, ptr %14, align 8
+  %173 = getelementptr inbounds nuw %struct._urb_info_t, ptr %172, i32 0, i32 11
+  %174 = load ptr, ptr %173, align 8
+  %175 = getelementptr inbounds nuw %struct._usb_conv_info_t, ptr %174, i32 0, i32 3
+  %176 = load i16, ptr %175, align 2
+  %177 = zext i16 %176 to i32
+  %178 = icmp eq i32 %177, 2
+  br i1 %178, label %179, label %199
 
-172:                                              ; preds = %166
-  %173 = load i8, ptr %16, align 1
-  %174 = zext i8 %173 to i32
-  %175 = icmp eq i32 %174, 1
-  br i1 %175, label %180, label %176
+179:                                              ; preds = %171
+  %180 = load i8, ptr %16, align 1
+  %181 = zext i8 %180 to i32
+  %182 = icmp eq i32 %181, 1
+  br i1 %182, label %187, label %183
 
-176:                                              ; preds = %172
-  %177 = load i8, ptr %16, align 1
-  %178 = zext i8 %177 to i32
-  %179 = icmp eq i32 %178, 2
-  br i1 %179, label %180, label %191
+183:                                              ; preds = %179
+  %184 = load i8, ptr %16, align 1
+  %185 = zext i8 %184 to i32
+  %186 = icmp eq i32 %185, 2
+  br i1 %186, label %187, label %198
 
-180:                                              ; preds = %176, %172
-  %181 = load i32, ptr %11, align 4
-  store i32 %181, ptr %20, align 4
-  %182 = load ptr, ptr %9, align 8
-  %183 = load ptr, ptr %10, align 8
-  %184 = load i32, ptr %11, align 4
-  %185 = call i32 @dissect_usb_vid_probe(ptr noundef %182, ptr noundef %183, i32 noundef %184)
-  store i32 %185, ptr %11, align 4
-  %186 = load i32, ptr %11, align 4
-  %187 = load i32, ptr %20, align 4
-  %188 = sub i32 %186, %187
-  %189 = load i32, ptr %19, align 4
-  %190 = sub i32 %189, %188
-  store i32 %190, ptr %19, align 4
-  br label %191
+187:                                              ; preds = %183, %179
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #6
+  %188 = load i32, ptr %11, align 4
+  store i32 %188, ptr %20, align 4
+  %189 = load ptr, ptr %9, align 8
+  %190 = load ptr, ptr %10, align 8
+  %191 = load i32, ptr %11, align 4
+  %192 = call i32 @dissect_usb_vid_probe(ptr noundef %189, ptr noundef %190, i32 noundef %191)
+  store i32 %192, ptr %11, align 4
+  %193 = load i32, ptr %11, align 4
+  %194 = load i32, ptr %20, align 4
+  %195 = sub i32 %193, %194
+  %196 = load i32, ptr %19, align 4
+  %197 = sub i32 %196, %195
+  store i32 %197, ptr %19, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #6
+  br label %198
 
-191:                                              ; preds = %180, %176
-  br label %270
+198:                                              ; preds = %187, %183
+  br label %279
 
-192:                                              ; preds = %166, %162
-  %193 = load ptr, ptr %13, align 8
-  %194 = getelementptr inbounds %struct._usb_trans_info_t, ptr %193, i32 0, i32 4
-  %195 = getelementptr inbounds %struct._usb_setup, ptr %194, i32 0, i32 1
-  %196 = load i8, ptr %195, align 1
-  %197 = zext i8 %196 to i32
-  %198 = icmp eq i32 %197, 134
-  br i1 %198, label %199, label %208
+199:                                              ; preds = %171, %167
+  %200 = load ptr, ptr %13, align 8
+  %201 = getelementptr inbounds nuw %struct._usb_trans_info_t, ptr %200, i32 0, i32 4
+  %202 = getelementptr inbounds nuw %struct._usb_setup, ptr %201, i32 0, i32 1
+  %203 = load i8, ptr %202, align 1
+  %204 = zext i8 %203 to i32
+  %205 = icmp eq i32 %204, 134
+  br i1 %205, label %206, label %215
 
-199:                                              ; preds = %192
-  %200 = load ptr, ptr %9, align 8
-  %201 = load ptr, ptr %10, align 8
-  %202 = load i32, ptr %11, align 4
-  %203 = call i32 @dissect_usb_vid_control_info(ptr noundef %200, ptr noundef %201, i32 noundef %202)
-  %204 = load i32, ptr %11, align 4
-  %205 = add i32 %204, 1
-  store i32 %205, ptr %11, align 4
-  %206 = load i32, ptr %19, align 4
-  %207 = add i32 %206, -1
-  store i32 %207, ptr %19, align 4
-  br label %269
+206:                                              ; preds = %199
+  %207 = load ptr, ptr %9, align 8
+  %208 = load ptr, ptr %10, align 8
+  %209 = load i32, ptr %11, align 4
+  %210 = call i32 @dissect_usb_vid_control_info(ptr noundef %207, ptr noundef %208, i32 noundef %209)
+  %211 = load i32, ptr %11, align 4
+  %212 = add i32 %211, 1
+  store i32 %212, ptr %11, align 4
+  %213 = load i32, ptr %19, align 4
+  %214 = add i32 %213, -1
+  store i32 %214, ptr %19, align 4
+  br label %278
 
-208:                                              ; preds = %192
-  %209 = load ptr, ptr %13, align 8
-  %210 = getelementptr inbounds %struct._usb_trans_info_t, ptr %209, i32 0, i32 4
-  %211 = getelementptr inbounds %struct._usb_setup, ptr %210, i32 0, i32 1
-  %212 = load i8, ptr %211, align 1
-  %213 = zext i8 %212 to i32
-  %214 = icmp eq i32 %213, 133
-  br i1 %214, label %215, label %225
+215:                                              ; preds = %199
+  %216 = load ptr, ptr %13, align 8
+  %217 = getelementptr inbounds nuw %struct._usb_trans_info_t, ptr %216, i32 0, i32 4
+  %218 = getelementptr inbounds nuw %struct._usb_setup, ptr %217, i32 0, i32 1
+  %219 = load i8, ptr %218, align 1
+  %220 = zext i8 %219 to i32
+  %221 = icmp eq i32 %220, 133
+  br i1 %221, label %222, label %232
 
-215:                                              ; preds = %208
-  %216 = load ptr, ptr %9, align 8
-  %217 = load i32, ptr @hf_usb_vid_control_length, align 4
-  %218 = load ptr, ptr %10, align 8
-  %219 = load i32, ptr %11, align 4
-  %220 = call ptr @proto_tree_add_item(ptr noundef %216, i32 noundef %217, ptr noundef %218, i32 noundef %219, i32 noundef 2, i32 noundef -2147483648)
-  %221 = load i32, ptr %11, align 4
-  %222 = add i32 %221, 2
-  store i32 %222, ptr %11, align 4
-  %223 = load i32, ptr %19, align 4
-  %224 = sub i32 %223, 2
-  store i32 %224, ptr %19, align 4
-  br label %268
+222:                                              ; preds = %215
+  %223 = load ptr, ptr %9, align 8
+  %224 = load i32, ptr @hf_usb_vid_control_length, align 4
+  %225 = load ptr, ptr %10, align 8
+  %226 = load i32, ptr %11, align 4
+  %227 = call ptr @proto_tree_add_item(ptr noundef %223, i32 noundef %224, ptr noundef %225, i32 noundef %226, i32 noundef 2, i32 noundef -2147483648)
+  %228 = load i32, ptr %11, align 4
+  %229 = add i32 %228, 2
+  store i32 %229, ptr %11, align 4
+  %230 = load i32, ptr %19, align 4
+  %231 = sub i32 %230, 2
+  store i32 %231, ptr %19, align 4
+  br label %277
 
-225:                                              ; preds = %208
-  %226 = load ptr, ptr %13, align 8
-  %227 = getelementptr inbounds %struct._usb_trans_info_t, ptr %226, i32 0, i32 4
-  %228 = getelementptr inbounds %struct._usb_setup, ptr %227, i32 0, i32 1
-  %229 = load i8, ptr %228, align 1
-  %230 = zext i8 %229 to i32
-  %231 = icmp eq i32 %230, 129
-  br i1 %231, label %232, label %256
+232:                                              ; preds = %215
+  %233 = load ptr, ptr %13, align 8
+  %234 = getelementptr inbounds nuw %struct._usb_trans_info_t, ptr %233, i32 0, i32 4
+  %235 = getelementptr inbounds nuw %struct._usb_setup, ptr %234, i32 0, i32 1
+  %236 = load i8, ptr %235, align 1
+  %237 = zext i8 %236 to i32
+  %238 = icmp eq i32 %237, 129
+  br i1 %238, label %239, label %265
 
-232:                                              ; preds = %225
-  %233 = load i8, ptr %17, align 1
-  %234 = zext i8 %233 to i32
-  %235 = icmp eq i32 %234, 0
-  br i1 %235, label %236, label %256
+239:                                              ; preds = %232
+  %240 = load i8, ptr %17, align 1
+  %241 = zext i8 %240 to i32
+  %242 = icmp eq i32 %241, 0
+  br i1 %242, label %243, label %265
 
-236:                                              ; preds = %232
-  %237 = load ptr, ptr %14, align 8
-  %238 = getelementptr inbounds %struct._usb_conv_info_t, ptr %237, i32 0, i32 13
-  %239 = load i16, ptr %238, align 2
-  %240 = zext i16 %239 to i32
-  %241 = icmp eq i32 %240, 1
-  br i1 %241, label %242, label %256
+243:                                              ; preds = %239
+  %244 = load ptr, ptr %14, align 8
+  %245 = getelementptr inbounds nuw %struct._urb_info_t, ptr %244, i32 0, i32 11
+  %246 = load ptr, ptr %245, align 8
+  %247 = getelementptr inbounds nuw %struct._usb_conv_info_t, ptr %246, i32 0, i32 3
+  %248 = load i16, ptr %247, align 2
+  %249 = zext i16 %248 to i32
+  %250 = icmp eq i32 %249, 1
+  br i1 %250, label %251, label %265
 
-242:                                              ; preds = %236
-  %243 = load i8, ptr %16, align 1
-  %244 = zext i8 %243 to i32
-  %245 = icmp eq i32 %244, 2
-  br i1 %245, label %246, label %256
+251:                                              ; preds = %243
+  %252 = load i8, ptr %16, align 1
+  %253 = zext i8 %252 to i32
+  %254 = icmp eq i32 %253, 2
+  br i1 %254, label %255, label %265
 
-246:                                              ; preds = %242
-  %247 = load ptr, ptr %9, align 8
-  %248 = load i32, ptr @hf_usb_vid_request_error, align 4
-  %249 = load ptr, ptr %10, align 8
-  %250 = load i32, ptr %11, align 4
-  %251 = call ptr @proto_tree_add_item(ptr noundef %247, i32 noundef %248, ptr noundef %249, i32 noundef %250, i32 noundef 1, i32 noundef -2147483648)
-  %252 = load i32, ptr %11, align 4
-  %253 = add i32 %252, 1
-  store i32 %253, ptr %11, align 4
-  %254 = load i32, ptr %19, align 4
-  %255 = add i32 %254, -1
-  store i32 %255, ptr %19, align 4
-  br label %267
-
-256:                                              ; preds = %242, %236, %232, %225
-  %257 = load ptr, ptr %9, align 8
+255:                                              ; preds = %251
+  %256 = load ptr, ptr %9, align 8
+  %257 = load i32, ptr @hf_usb_vid_request_error, align 4
   %258 = load ptr, ptr %10, align 8
   %259 = load i32, ptr %11, align 4
-  %260 = load ptr, ptr %13, align 8
-  %261 = getelementptr inbounds %struct._usb_trans_info_t, ptr %260, i32 0, i32 4
-  %262 = getelementptr inbounds %struct._usb_setup, ptr %261, i32 0, i32 1
-  %263 = load i8, ptr %262, align 1
-  call void @dissect_usb_vid_control_value(ptr noundef %257, ptr noundef %258, i32 noundef %259, i8 noundef zeroext %263)
-  %264 = load i32, ptr %19, align 4
-  %265 = load i32, ptr %11, align 4
-  %266 = add i32 %265, %264
-  store i32 %266, ptr %11, align 4
+  %260 = call ptr @proto_tree_add_item(ptr noundef %256, i32 noundef %257, ptr noundef %258, i32 noundef %259, i32 noundef 1, i32 noundef -2147483648)
+  %261 = load i32, ptr %11, align 4
+  %262 = add i32 %261, 1
+  store i32 %262, ptr %11, align 4
+  %263 = load i32, ptr %19, align 4
+  %264 = add i32 %263, -1
+  store i32 %264, ptr %19, align 4
+  br label %276
+
+265:                                              ; preds = %251, %243, %239, %232
+  %266 = load ptr, ptr %9, align 8
+  %267 = load ptr, ptr %10, align 8
+  %268 = load i32, ptr %11, align 4
+  %269 = load ptr, ptr %13, align 8
+  %270 = getelementptr inbounds nuw %struct._usb_trans_info_t, ptr %269, i32 0, i32 4
+  %271 = getelementptr inbounds nuw %struct._usb_setup, ptr %270, i32 0, i32 1
+  %272 = load i8, ptr %271, align 1
+  call void @dissect_usb_vid_control_value(ptr noundef %266, ptr noundef %267, i32 noundef %268, i8 noundef zeroext %272)
+  %273 = load i32, ptr %19, align 4
+  %274 = load i32, ptr %11, align 4
+  %275 = add i32 %274, %273
+  store i32 %275, ptr %11, align 4
   store i32 0, ptr %19, align 4
-  br label %267
+  br label %276
 
-267:                                              ; preds = %256, %246
-  br label %268
+276:                                              ; preds = %265, %255
+  br label %277
 
-268:                                              ; preds = %267, %215
-  br label %269
+277:                                              ; preds = %276, %222
+  br label %278
 
-269:                                              ; preds = %268, %199
-  br label %270
+278:                                              ; preds = %277, %206
+  br label %279
 
-270:                                              ; preds = %269, %191
-  %271 = load i32, ptr %19, align 4
-  %272 = icmp sgt i32 %271, 0
-  br i1 %272, label %273, label %282
+279:                                              ; preds = %278, %198
+  %280 = load i32, ptr %19, align 4
+  %281 = icmp sgt i32 %280, 0
+  br i1 %281, label %282, label %291
 
-273:                                              ; preds = %270
-  %274 = load ptr, ptr %9, align 8
-  %275 = load i32, ptr @hf_usb_vid_control_data, align 4
-  %276 = load ptr, ptr %10, align 8
-  %277 = load i32, ptr %11, align 4
-  %278 = call ptr @proto_tree_add_item(ptr noundef %274, i32 noundef %275, ptr noundef %276, i32 noundef %277, i32 noundef -1, i32 noundef 0)
-  %279 = load i32, ptr %19, align 4
-  %280 = load i32, ptr %11, align 4
-  %281 = add i32 %280, %279
-  store i32 %281, ptr %11, align 4
-  br label %282
+282:                                              ; preds = %279
+  %283 = load ptr, ptr %9, align 8
+  %284 = load i32, ptr @hf_usb_vid_control_data, align 4
+  %285 = load ptr, ptr %10, align 8
+  %286 = load i32, ptr %11, align 4
+  %287 = call ptr @proto_tree_add_item(ptr noundef %283, i32 noundef %284, ptr noundef %285, i32 noundef %286, i32 noundef -1, i32 noundef 0)
+  %288 = load i32, ptr %19, align 4
+  %289 = load i32, ptr %11, align 4
+  %290 = add i32 %289, %288
+  store i32 %290, ptr %11, align 4
+  br label %291
 
-282:                                              ; preds = %273, %270
-  br label %283
+291:                                              ; preds = %282, %279
+  br label %292
 
-283:                                              ; preds = %282, %156
-  br label %284
+292:                                              ; preds = %291, %161
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #6
+  br label %293
 
-284:                                              ; preds = %283, %149
-  %285 = load i32, ptr %11, align 4
-  ret i32 %285
+293:                                              ; preds = %292, %154
+  %294 = load i32, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %17) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #6
+  ret i32 %294
 }
 
-declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal ptr @get_control_selector_name(i8 noundef zeroext %0, i8 noundef zeroext %1, ptr noundef %2) #0 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
@@ -1743,7 +1855,9 @@ define internal ptr @get_control_selector_name(i8 noundef zeroext %0, i8 noundef
   store i8 %0, ptr %4, align 1
   store i8 %1, ptr %5, align 1
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
   store ptr null, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
   store ptr null, ptr %8, align 8
   %9 = load i8, ptr %4, align 1
   %10 = load ptr, ptr %6, align 8
@@ -1763,19 +1877,25 @@ define internal ptr @get_control_selector_name(i8 noundef zeroext %0, i8 noundef
 
 19:                                               ; preds = %14, %3
   %20 = load ptr, ptr %7, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
   ret ptr %20
 }
 
-declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #2
 
-declare void @col_set_fence(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_fence(ptr noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) #2
 
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal void @proto_item_set_generated(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind null_pointer_is_valid sspstrong uwtable
+define internal void @proto_item_set_generated(ptr noundef %0) #3 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -1787,22 +1907,22 @@ define internal void @proto_item_set_generated(ptr noundef %0) #0 {
 
 6:                                                ; preds = %5
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct._proto_node, ptr %7, i32 0, i32 4
+  %8 = getelementptr inbounds nuw %struct._proto_node, ptr %7, i32 0, i32 5
   %9 = load ptr, ptr %8, align 8
   %10 = icmp ne ptr %9, null
   br i1 %10, label %11, label %22
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct._proto_node, ptr %12, i32 0, i32 4
+  %13 = getelementptr inbounds nuw %struct._proto_node, ptr %12, i32 0, i32 5
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds %struct.field_info, ptr %14, i32 0, i32 6
+  %15 = getelementptr inbounds nuw %struct.field_info, ptr %14, i32 0, i32 6
   %16 = load i32, ptr %15, align 4
   %17 = or i32 %16, 2
   %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds %struct._proto_node, ptr %18, i32 0, i32 4
+  %19 = getelementptr inbounds nuw %struct._proto_node, ptr %18, i32 0, i32 5
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds %struct.field_info, ptr %20, i32 0, i32 6
+  %21 = getelementptr inbounds nuw %struct.field_info, ptr %20, i32 0, i32 6
   store i32 %17, ptr %21, align 4
   br label %22
 
@@ -1816,9 +1936,10 @@ define internal void @proto_item_set_generated(ptr noundef %0) #0 {
   ret void
 }
 
-declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_usb_vid_probe(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -1827,11 +1948,12 @@ define internal i32 @dissect_usb_vid_probe(ptr noundef %0, ptr noundef %1, i32 n
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
   %8 = load ptr, ptr %4, align 8
   %9 = load ptr, ptr %5, align 8
   %10 = load i32, ptr %6, align 4
   %11 = load i32, ptr @ett_video_probe, align 4
-  %12 = call ptr @proto_tree_add_subtree(ptr noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef -1, i32 noundef %11, ptr noundef null, ptr noundef @.str.565)
+  %12 = call ptr @proto_tree_add_subtree(ptr noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef -1, i32 noundef %11, ptr noundef null, ptr noundef @.str.587)
   store ptr %12, ptr %7, align 8
   %13 = load ptr, ptr %7, align 8
   %14 = load ptr, ptr %5, align 8
@@ -1950,10 +2072,11 @@ define internal i32 @dissect_usb_vid_probe(ptr noundef %0, ptr noundef %1, i32 n
 
 120:                                              ; preds = %85, %3
   %121 = load i32, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
   ret i32 %121
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_usb_vid_control_info(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -1972,7 +2095,7 @@ define internal i32 @dissect_usb_vid_control_info(ptr noundef %0, ptr noundef %1
   ret i32 %14
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_usb_vid_control_value(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1986,6 +2109,9 @@ define internal void @dissect_usb_vid_control_value(ptr noundef %0, ptr noundef 
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store i8 %3, ptr %8, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #6
   %13 = load i8, ptr %8, align 1
   %14 = zext i8 %13 to i32
   switch i32 %14, label %25 [
@@ -2003,19 +2129,19 @@ define internal void @dissect_usb_vid_control_value(ptr noundef %0, ptr noundef 
 15:                                               ; preds = %4
   %16 = load i32, ptr @hf_usb_vid_control_default, align 4
   store i32 %16, ptr %11, align 4
-  store ptr @.str.566, ptr %10, align 8
+  store ptr @.str.588, ptr %10, align 8
   br label %26
 
 17:                                               ; preds = %4, %4
   %18 = load i32, ptr @hf_usb_vid_control_min, align 4
   store i32 %18, ptr %11, align 4
-  store ptr @.str.567, ptr %10, align 8
+  store ptr @.str.589, ptr %10, align 8
   br label %26
 
 19:                                               ; preds = %4, %4
   %20 = load i32, ptr @hf_usb_vid_control_max, align 4
   store i32 %20, ptr %11, align 4
-  store ptr @.str.568, ptr %10, align 8
+  store ptr @.str.590, ptr %10, align 8
   br label %26
 
 21:                                               ; preds = %4
@@ -2027,12 +2153,12 @@ define internal void @dissect_usb_vid_control_value(ptr noundef %0, ptr noundef 
 23:                                               ; preds = %4, %4, %4
   %24 = load i32, ptr @hf_usb_vid_control_cur, align 4
   store i32 %24, ptr %11, align 4
-  store ptr @.str.569, ptr %10, align 8
+  store ptr @.str.591, ptr %10, align 8
   br label %26
 
 25:                                               ; preds = %4
   store i32 -1, ptr %11, align 4
-  store ptr @.str.491, ptr %10, align 8
+  store ptr @.str.502, ptr %10, align 8
   br label %26
 
 26:                                               ; preds = %25, %23, %21, %19, %17, %15
@@ -2045,130 +2171,131 @@ define internal void @dissect_usb_vid_control_value(ptr noundef %0, ptr noundef 
   br i1 %31, label %32, label %128
 
 32:                                               ; preds = %26
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #6
   %33 = load i32, ptr %11, align 4
   %34 = call ptr @proto_registrar_get_nth(i32 noundef %33)
   store ptr %34, ptr %12, align 8
   %35 = load ptr, ptr %12, align 8
-  %36 = getelementptr inbounds %struct._header_field_info, ptr %35, i32 0, i32 2
+  %36 = getelementptr inbounds nuw %struct._header_field_info, ptr %35, i32 0, i32 2
   %37 = load i32, ptr %36, align 8
   %38 = icmp eq i32 %37, 12
   br i1 %38, label %124, label %39
 
 39:                                               ; preds = %32
   %40 = load ptr, ptr %12, align 8
-  %41 = getelementptr inbounds %struct._header_field_info, ptr %40, i32 0, i32 2
+  %41 = getelementptr inbounds nuw %struct._header_field_info, ptr %40, i32 0, i32 2
   %42 = load i32, ptr %41, align 8
   %43 = icmp eq i32 %42, 13
   br i1 %43, label %124, label %44
 
 44:                                               ; preds = %39
   %45 = load ptr, ptr %12, align 8
-  %46 = getelementptr inbounds %struct._header_field_info, ptr %45, i32 0, i32 2
+  %46 = getelementptr inbounds nuw %struct._header_field_info, ptr %45, i32 0, i32 2
   %47 = load i32, ptr %46, align 8
   %48 = icmp eq i32 %47, 14
   br i1 %48, label %124, label %49
 
 49:                                               ; preds = %44
   %50 = load ptr, ptr %12, align 8
-  %51 = getelementptr inbounds %struct._header_field_info, ptr %50, i32 0, i32 2
+  %51 = getelementptr inbounds nuw %struct._header_field_info, ptr %50, i32 0, i32 2
   %52 = load i32, ptr %51, align 8
   %53 = icmp eq i32 %52, 15
   br i1 %53, label %124, label %54
 
 54:                                               ; preds = %49
   %55 = load ptr, ptr %12, align 8
-  %56 = getelementptr inbounds %struct._header_field_info, ptr %55, i32 0, i32 2
+  %56 = getelementptr inbounds nuw %struct._header_field_info, ptr %55, i32 0, i32 2
   %57 = load i32, ptr %56, align 8
   %58 = icmp eq i32 %57, 16
   br i1 %58, label %124, label %59
 
 59:                                               ; preds = %54
   %60 = load ptr, ptr %12, align 8
-  %61 = getelementptr inbounds %struct._header_field_info, ptr %60, i32 0, i32 2
+  %61 = getelementptr inbounds nuw %struct._header_field_info, ptr %60, i32 0, i32 2
   %62 = load i32, ptr %61, align 8
   %63 = icmp eq i32 %62, 17
   br i1 %63, label %124, label %64
 
 64:                                               ; preds = %59
   %65 = load ptr, ptr %12, align 8
-  %66 = getelementptr inbounds %struct._header_field_info, ptr %65, i32 0, i32 2
+  %66 = getelementptr inbounds nuw %struct._header_field_info, ptr %65, i32 0, i32 2
   %67 = load i32, ptr %66, align 8
   %68 = icmp eq i32 %67, 18
   br i1 %68, label %124, label %69
 
 69:                                               ; preds = %64
   %70 = load ptr, ptr %12, align 8
-  %71 = getelementptr inbounds %struct._header_field_info, ptr %70, i32 0, i32 2
+  %71 = getelementptr inbounds nuw %struct._header_field_info, ptr %70, i32 0, i32 2
   %72 = load i32, ptr %71, align 8
   %73 = icmp eq i32 %72, 19
   br i1 %73, label %124, label %74
 
 74:                                               ; preds = %69
   %75 = load ptr, ptr %12, align 8
-  %76 = getelementptr inbounds %struct._header_field_info, ptr %75, i32 0, i32 2
+  %76 = getelementptr inbounds nuw %struct._header_field_info, ptr %75, i32 0, i32 2
   %77 = load i32, ptr %76, align 8
   %78 = icmp eq i32 %77, 3
   br i1 %78, label %124, label %79
 
 79:                                               ; preds = %74
   %80 = load ptr, ptr %12, align 8
-  %81 = getelementptr inbounds %struct._header_field_info, ptr %80, i32 0, i32 2
+  %81 = getelementptr inbounds nuw %struct._header_field_info, ptr %80, i32 0, i32 2
   %82 = load i32, ptr %81, align 8
   %83 = icmp eq i32 %82, 4
   br i1 %83, label %124, label %84
 
 84:                                               ; preds = %79
   %85 = load ptr, ptr %12, align 8
-  %86 = getelementptr inbounds %struct._header_field_info, ptr %85, i32 0, i32 2
+  %86 = getelementptr inbounds nuw %struct._header_field_info, ptr %85, i32 0, i32 2
   %87 = load i32, ptr %86, align 8
   %88 = icmp eq i32 %87, 5
   br i1 %88, label %124, label %89
 
 89:                                               ; preds = %84
   %90 = load ptr, ptr %12, align 8
-  %91 = getelementptr inbounds %struct._header_field_info, ptr %90, i32 0, i32 2
+  %91 = getelementptr inbounds nuw %struct._header_field_info, ptr %90, i32 0, i32 2
   %92 = load i32, ptr %91, align 8
   %93 = icmp eq i32 %92, 6
   br i1 %93, label %124, label %94
 
 94:                                               ; preds = %89
   %95 = load ptr, ptr %12, align 8
-  %96 = getelementptr inbounds %struct._header_field_info, ptr %95, i32 0, i32 2
+  %96 = getelementptr inbounds nuw %struct._header_field_info, ptr %95, i32 0, i32 2
   %97 = load i32, ptr %96, align 8
   %98 = icmp eq i32 %97, 7
   br i1 %98, label %124, label %99
 
 99:                                               ; preds = %94
   %100 = load ptr, ptr %12, align 8
-  %101 = getelementptr inbounds %struct._header_field_info, ptr %100, i32 0, i32 2
+  %101 = getelementptr inbounds nuw %struct._header_field_info, ptr %100, i32 0, i32 2
   %102 = load i32, ptr %101, align 8
   %103 = icmp eq i32 %102, 35
   br i1 %103, label %124, label %104
 
 104:                                              ; preds = %99
   %105 = load ptr, ptr %12, align 8
-  %106 = getelementptr inbounds %struct._header_field_info, ptr %105, i32 0, i32 2
+  %106 = getelementptr inbounds nuw %struct._header_field_info, ptr %105, i32 0, i32 2
   %107 = load i32, ptr %106, align 8
   %108 = icmp eq i32 %107, 8
   br i1 %108, label %124, label %109
 
 109:                                              ; preds = %104
   %110 = load ptr, ptr %12, align 8
-  %111 = getelementptr inbounds %struct._header_field_info, ptr %110, i32 0, i32 2
+  %111 = getelementptr inbounds nuw %struct._header_field_info, ptr %110, i32 0, i32 2
   %112 = load i32, ptr %111, align 8
   %113 = icmp eq i32 %112, 9
   br i1 %113, label %124, label %114
 
 114:                                              ; preds = %109
   %115 = load ptr, ptr %12, align 8
-  %116 = getelementptr inbounds %struct._header_field_info, ptr %115, i32 0, i32 2
+  %116 = getelementptr inbounds nuw %struct._header_field_info, ptr %115, i32 0, i32 2
   %117 = load i32, ptr %116, align 8
   %118 = icmp eq i32 %117, 10
   br i1 %118, label %124, label %119
 
 119:                                              ; preds = %114
   %120 = load ptr, ptr %12, align 8
-  %121 = getelementptr inbounds %struct._header_field_info, ptr %120, i32 0, i32 2
+  %121 = getelementptr inbounds nuw %struct._header_field_info, ptr %120, i32 0, i32 2
   %122 = load i32, ptr %121, align 8
   %123 = icmp eq i32 %122, 11
   br i1 %123, label %124, label %125
@@ -2177,13 +2304,14 @@ define internal void @dissect_usb_vid_control_value(ptr noundef %0, ptr noundef 
   br label %127
 
 125:                                              ; preds = %119
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.570, ptr noundef @.str.571, i32 noundef 1743, ptr noundef @.str.572) #3
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.592, ptr noundef @.str.593, i32 noundef 1747, ptr noundef @.str.594) #7
   unreachable
 
 126:                                              ; No predecessors!
   br label %127
 
 127:                                              ; preds = %126, %124
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #6
   br label %128
 
 128:                                              ; preds = %127, %26
@@ -2212,14 +2340,17 @@ define internal void @dissect_usb_vid_control_value(ptr noundef %0, ptr noundef 
   %145 = load i32, ptr %7, align 4
   %146 = load i32, ptr %9, align 4
   %147 = load ptr, ptr %10, align 8
-  %148 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %142, i32 noundef %143, ptr noundef %144, i32 noundef %145, i32 noundef %146, ptr noundef null, ptr noundef @.str.573, ptr noundef %147)
+  %148 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %142, i32 noundef %143, ptr noundef %144, i32 noundef %145, i32 noundef %146, ptr noundef null, ptr noundef @.str.595, ptr noundef %147)
   br label %149
 
 149:                                              ; preds = %141, %134
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal ptr @get_control_selector_values(i8 noundef zeroext %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i8, align 1
@@ -2227,147 +2358,172 @@ define internal ptr @get_control_selector_values(i8 noundef zeroext %0, ptr noun
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
   store i8 %0, ptr %4, align 1
   store ptr %1, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
   store ptr null, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
   store ptr null, ptr %8, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %11, label %12
-
-11:                                               ; preds = %2
-  store ptr null, ptr %3, align 8
-  br label %61
+  %10 = load ptr, ptr %5, align 8
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %17, label %12
 
 12:                                               ; preds = %2
   %13 = load ptr, ptr %5, align 8
-  %14 = getelementptr inbounds %struct._usb_conv_info_t, ptr %13, i32 0, i32 22
-  %15 = load ptr, ptr %14, align 8
-  store ptr %15, ptr %6, align 8
-  %16 = load ptr, ptr %6, align 8
-  %17 = icmp ne ptr %16, null
-  br i1 %17, label %18, label %25
+  %14 = getelementptr inbounds nuw %struct._usb_conv_info_t, ptr %13, i32 0, i32 12
+  %15 = load i32, ptr %14, align 8
+  %16 = icmp ne i32 %15, 3
+  br i1 %16, label %17, label %18
+
+17:                                               ; preds = %12, %2
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %9, align 4
+  br label %67
 
 18:                                               ; preds = %12
-  %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr inbounds %struct._video_conv_info_t, ptr %19, i32 0, i32 0
+  %19 = load ptr, ptr %5, align 8
+  %20 = getelementptr inbounds nuw %struct._usb_conv_info_t, ptr %19, i32 0, i32 11
   %21 = load ptr, ptr %20, align 8
-  %22 = load i8, ptr %4, align 1
-  %23 = zext i8 %22 to i32
-  %24 = call ptr @wmem_tree_lookup32(ptr noundef %21, i32 noundef %23)
-  store ptr %24, ptr %7, align 8
-  br label %25
+  store ptr %21, ptr %6, align 8
+  %22 = load ptr, ptr %6, align 8
+  %23 = icmp ne ptr %22, null
+  br i1 %23, label %24, label %31
 
-25:                                               ; preds = %18, %12
-  %26 = load i8, ptr %4, align 1
-  %27 = zext i8 %26 to i32
-  %28 = icmp eq i32 %27, 0
-  br i1 %28, label %29, label %38
+24:                                               ; preds = %18
+  %25 = load ptr, ptr %6, align 8
+  %26 = getelementptr inbounds nuw %struct._video_conv_info_t, ptr %25, i32 0, i32 0
+  %27 = load ptr, ptr %26, align 8
+  %28 = load i8, ptr %4, align 1
+  %29 = zext i8 %28 to i32
+  %30 = call ptr @wmem_tree_lookup32(ptr noundef %27, i32 noundef %29)
+  store ptr %30, ptr %7, align 8
+  br label %31
 
-29:                                               ; preds = %25
-  %30 = load ptr, ptr %5, align 8
-  %31 = getelementptr inbounds %struct._usb_conv_info_t, ptr %30, i32 0, i32 13
-  %32 = load i16, ptr %31, align 2
-  %33 = zext i16 %32 to i32
-  switch i32 %33, label %36 [
-    i32 1, label %34
-    i32 2, label %35
+31:                                               ; preds = %24, %18
+  %32 = load i8, ptr %4, align 1
+  %33 = zext i8 %32 to i32
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %35, label %44
+
+35:                                               ; preds = %31
+  %36 = load ptr, ptr %5, align 8
+  %37 = getelementptr inbounds nuw %struct._usb_conv_info_t, ptr %36, i32 0, i32 3
+  %38 = load i16, ptr %37, align 2
+  %39 = zext i16 %38 to i32
+  switch i32 %39, label %42 [
+    i32 1, label %40
+    i32 2, label %41
   ]
 
-34:                                               ; preds = %29
+40:                                               ; preds = %35
   store ptr @cs_control_interface_ext, ptr %8, align 8
-  br label %37
+  br label %43
 
-35:                                               ; preds = %29
+41:                                               ; preds = %35
   store ptr @cs_streaming_interface_ext, ptr %8, align 8
-  br label %37
+  br label %43
 
-36:                                               ; preds = %29
-  br label %37
+42:                                               ; preds = %35
+  br label %43
 
-37:                                               ; preds = %36, %35, %34
-  br label %59
+43:                                               ; preds = %42, %41, %40
+  br label %65
 
-38:                                               ; preds = %25
-  %39 = load ptr, ptr %7, align 8
-  %40 = icmp ne ptr %39, null
-  br i1 %40, label %41, label %58
+44:                                               ; preds = %31
+  %45 = load ptr, ptr %7, align 8
+  %46 = icmp ne ptr %45, null
+  br i1 %46, label %47, label %64
 
-41:                                               ; preds = %38
-  %42 = load ptr, ptr %7, align 8
-  %43 = getelementptr inbounds %struct.video_entity_t, ptr %42, i32 0, i32 1
-  %44 = load i8, ptr %43, align 1
-  %45 = zext i8 %44 to i32
-  switch i32 %45, label %56 [
-    i32 2, label %46
-    i32 5, label %54
-    i32 4, label %55
+47:                                               ; preds = %44
+  %48 = load ptr, ptr %7, align 8
+  %49 = getelementptr inbounds nuw %struct.video_entity_t, ptr %48, i32 0, i32 1
+  %50 = load i8, ptr %49, align 1
+  %51 = zext i8 %50 to i32
+  switch i32 %51, label %62 [
+    i32 2, label %52
+    i32 5, label %60
+    i32 4, label %61
   ]
 
-46:                                               ; preds = %41
-  %47 = load ptr, ptr %7, align 8
-  %48 = getelementptr inbounds %struct.video_entity_t, ptr %47, i32 0, i32 2
-  %49 = load i16, ptr %48, align 2
-  %50 = zext i16 %49 to i32
-  %51 = icmp eq i32 %50, 513
-  br i1 %51, label %52, label %53
+52:                                               ; preds = %47
+  %53 = load ptr, ptr %7, align 8
+  %54 = getelementptr inbounds nuw %struct.video_entity_t, ptr %53, i32 0, i32 2
+  %55 = load i16, ptr %54, align 2
+  %56 = zext i16 %55 to i32
+  %57 = icmp eq i32 %56, 513
+  br i1 %57, label %58, label %59
 
-52:                                               ; preds = %46
+58:                                               ; preds = %52
   store ptr @cs_camera_terminal_ext, ptr %8, align 8
-  br label %53
-
-53:                                               ; preds = %52, %46
-  br label %57
-
-54:                                               ; preds = %41
-  store ptr @cs_processing_unit_ext, ptr %8, align 8
-  br label %57
-
-55:                                               ; preds = %41
-  store ptr @cs_selector_unit_ext, ptr %8, align 8
-  br label %57
-
-56:                                               ; preds = %41
-  br label %57
-
-57:                                               ; preds = %56, %55, %54, %53
-  br label %58
-
-58:                                               ; preds = %57, %38
   br label %59
 
-59:                                               ; preds = %58, %37
-  %60 = load ptr, ptr %8, align 8
-  store ptr %60, ptr %3, align 8
-  br label %61
+59:                                               ; preds = %58, %52
+  br label %63
 
-61:                                               ; preds = %59, %11
-  %62 = load ptr, ptr %3, align 8
-  ret ptr %62
+60:                                               ; preds = %47
+  store ptr @cs_processing_unit_ext, ptr %8, align 8
+  br label %63
+
+61:                                               ; preds = %47
+  store ptr @cs_selector_unit_ext, ptr %8, align 8
+  br label %63
+
+62:                                               ; preds = %47
+  br label %63
+
+63:                                               ; preds = %62, %61, %60, %59
+  br label %64
+
+64:                                               ; preds = %63, %44
+  br label %65
+
+65:                                               ; preds = %64, %43
+  %66 = load ptr, ptr %8, align 8
+  store ptr %66, ptr %3, align 8
+  store i32 1, ptr %9, align 4
+  br label %67
+
+67:                                               ; preds = %65, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  %68 = load ptr, ptr %3, align 8
+  ret ptr %68
 }
 
-declare ptr @try_val_to_str_ext(i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @try_val_to_str_ext(i32 noundef, ptr noundef) #2
 
-declare ptr @wmem_tree_lookup32(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_tree_lookup32(ptr noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #2
 
-declare ptr @proto_registrar_get_nth(i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_registrar_get_nth(i32 noundef) #2
 
-; Function Attrs: noreturn
-declare void @proto_report_dissector_bug(ptr noundef, ...) #2
+; Function Attrs: noreturn null_pointer_is_valid
+declare void @proto_report_dissector_bug(ptr noundef, ...) #4
 
-declare ptr @proto_tree_add_bytes_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_bytes_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #2
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #2
 
-declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) #2
 
-declare ptr @tvb_new_subset_length_caplen(ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_subset_length_caplen(ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_usb_video_endpoint_descriptor(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -2379,21 +2535,25 @@ define internal i32 @dissect_usb_video_endpoint_descriptor(ptr noundef %0, ptr n
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i8 %2, ptr %6, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
   store ptr null, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #6
   store i32 0, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #6
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %8, align 4
   %13 = add i32 %12, 2
-  %14 = call zeroext i8 @tvb_get_guint8(ptr noundef %11, i32 noundef %13)
+  %14 = call zeroext i8 @tvb_get_uint8(ptr noundef %11, i32 noundef %13)
   store i8 %14, ptr %9, align 1
   %15 = load ptr, ptr %4, align 8
   %16 = icmp ne ptr %15, null
   br i1 %16, label %17, label %29
 
 17:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
   %18 = load i8, ptr %9, align 1
   %19 = zext i8 %18 to i32
-  %20 = call ptr @val_to_str(i32 noundef %19, ptr noundef @vc_ep_descriptor_subtypes, ptr noundef @.str.574)
+  %20 = call ptr @val_to_str(i32 noundef %19, ptr noundef @vc_ep_descriptor_subtypes, ptr noundef @.str.596)
   store ptr %20, ptr %10, align 8
   %21 = load ptr, ptr %4, align 8
   %22 = load ptr, ptr %5, align 8
@@ -2402,8 +2562,9 @@ define internal i32 @dissect_usb_video_endpoint_descriptor(ptr noundef %0, ptr n
   %25 = zext i8 %24 to i32
   %26 = load i32, ptr @ett_descriptor_video_endpoint, align 4
   %27 = load ptr, ptr %10, align 8
-  %28 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %21, ptr noundef %22, i32 noundef %23, i32 noundef %25, i32 noundef %26, ptr noundef null, ptr noundef @.str.575, ptr noundef %27)
+  %28 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %21, ptr noundef %22, i32 noundef %23, i32 noundef %25, i32 noundef %26, ptr noundef null, ptr noundef @.str.597, ptr noundef %27)
   store ptr %28, ptr %7, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
   br label %29
 
 29:                                               ; preds = %17, %3
@@ -2458,10 +2619,13 @@ define internal i32 @dissect_usb_video_endpoint_descriptor(ptr noundef %0, ptr n
 68:                                               ; preds = %58, %53
   %69 = load i8, ptr %6, align 1
   %70 = zext i8 %69 to i32
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
   ret i32 %70
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_usb_video_control_interface_descriptor(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -2480,470 +2644,517 @@ define internal i32 @dissect_usb_video_control_interface_descriptor(ptr noundef 
   %20 = alloca i8, align 1
   %21 = alloca ptr, align 8
   %22 = alloca i8, align 1
+  %23 = alloca ptr, align 8
+  %24 = alloca i32, align 4
   store ptr %0, ptr %7, align 8
   store ptr %1, ptr %8, align 8
   store i8 %2, ptr %9, align 1
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #6
   store ptr null, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #6
   store ptr null, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #6
   store ptr null, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #6
   store ptr null, ptr %15, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #6
   store ptr null, ptr %16, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %17) #6
   store i8 0, ptr %17, align 1
+  call void @llvm.lifetime.start.p0(i64 2, ptr %18) #6
   store i16 0, ptr %18, align 2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #6
   store i32 0, ptr %19, align 4
-  %23 = load ptr, ptr %8, align 8
-  %24 = load i32, ptr %19, align 4
-  %25 = add i32 %24, 2
-  %26 = call zeroext i8 @tvb_get_guint8(ptr noundef %23, i32 noundef %25)
-  store i8 %26, ptr %20, align 1
-  %27 = load ptr, ptr %7, align 8
-  %28 = icmp ne ptr %27, null
-  br i1 %28, label %29, label %41
+  call void @llvm.lifetime.start.p0(i64 1, ptr %20) #6
+  %25 = load ptr, ptr %8, align 8
+  %26 = load i32, ptr %19, align 4
+  %27 = add i32 %26, 2
+  %28 = call zeroext i8 @tvb_get_uint8(ptr noundef %25, i32 noundef %27)
+  store i8 %28, ptr %20, align 1
+  %29 = load ptr, ptr %7, align 8
+  %30 = icmp ne ptr %29, null
+  br i1 %30, label %31, label %43
 
-29:                                               ; preds = %5
-  %30 = load i8, ptr %20, align 1
-  %31 = zext i8 %30 to i32
-  %32 = call ptr @val_to_str_ext(i32 noundef %31, ptr noundef @vc_if_descriptor_subtypes_ext, ptr noundef @.str.574)
-  store ptr %32, ptr %21, align 8
-  %33 = load ptr, ptr %7, align 8
-  %34 = load ptr, ptr %8, align 8
-  %35 = load i32, ptr %19, align 4
-  %36 = load i8, ptr %9, align 1
-  %37 = zext i8 %36 to i32
-  %38 = load i32, ptr @ett_descriptor_video_control, align 4
-  %39 = load ptr, ptr %21, align 8
-  %40 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %33, ptr noundef %34, i32 noundef %35, i32 noundef %37, i32 noundef %38, ptr noundef %14, ptr noundef @.str.579, ptr noundef %39)
-  store ptr %40, ptr %16, align 8
-  br label %41
+31:                                               ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #6
+  %32 = load i8, ptr %20, align 1
+  %33 = zext i8 %32 to i32
+  %34 = call ptr @val_to_str_ext(i32 noundef %33, ptr noundef @vc_if_descriptor_subtypes_ext, ptr noundef @.str.596)
+  store ptr %34, ptr %21, align 8
+  %35 = load ptr, ptr %7, align 8
+  %36 = load ptr, ptr %8, align 8
+  %37 = load i32, ptr %19, align 4
+  %38 = load i8, ptr %9, align 1
+  %39 = zext i8 %38 to i32
+  %40 = load i32, ptr @ett_descriptor_video_control, align 4
+  %41 = load ptr, ptr %21, align 8
+  %42 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %35, ptr noundef %36, i32 noundef %37, i32 noundef %39, i32 noundef %40, ptr noundef %14, ptr noundef @.str.602, ptr noundef %41)
+  store ptr %42, ptr %16, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #6
+  br label %43
 
-41:                                               ; preds = %29, %5
-  %42 = load ptr, ptr %16, align 8
-  %43 = load ptr, ptr %8, align 8
-  %44 = load i32, ptr %19, align 4
-  %45 = call ptr @dissect_usb_descriptor_header(ptr noundef %42, ptr noundef %43, i32 noundef %44, ptr noundef @vid_descriptor_type_vals_ext)
-  %46 = load ptr, ptr %16, align 8
-  %47 = load i32, ptr @hf_usb_vid_control_ifdesc_subtype, align 4
-  %48 = load ptr, ptr %8, align 8
-  %49 = load i32, ptr %19, align 4
-  %50 = add i32 %49, 2
-  %51 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %47, ptr noundef %48, i32 noundef %50, i32 noundef 1, i32 noundef -2147483648)
-  store ptr %51, ptr %15, align 8
-  %52 = load i32, ptr %19, align 4
-  %53 = add i32 %52, 3
-  store i32 %53, ptr %19, align 4
-  %54 = load i8, ptr %20, align 1
-  %55 = zext i8 %54 to i32
-  %56 = icmp eq i32 %55, 1
-  br i1 %56, label %57, label %103
+43:                                               ; preds = %31, %5
+  %44 = load ptr, ptr %16, align 8
+  %45 = load ptr, ptr %8, align 8
+  %46 = load i32, ptr %19, align 4
+  %47 = call ptr @dissect_usb_descriptor_header(ptr noundef %44, ptr noundef %45, i32 noundef %46, ptr noundef @vid_descriptor_type_vals_ext)
+  %48 = load ptr, ptr %16, align 8
+  %49 = load i32, ptr @hf_usb_vid_control_ifdesc_subtype, align 4
+  %50 = load ptr, ptr %8, align 8
+  %51 = load i32, ptr %19, align 4
+  %52 = add i32 %51, 2
+  %53 = call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %49, ptr noundef %50, i32 noundef %52, i32 noundef 1, i32 noundef -2147483648)
+  store ptr %53, ptr %15, align 8
+  %54 = load i32, ptr %19, align 4
+  %55 = add i32 %54, 3
+  store i32 %55, ptr %19, align 4
+  %56 = load i8, ptr %20, align 1
+  %57 = zext i8 %56 to i32
+  %58 = icmp eq i32 %57, 1
+  br i1 %58, label %59, label %105
 
-57:                                               ; preds = %41
-  %58 = load ptr, ptr %16, align 8
-  %59 = load i32, ptr @hf_usb_vid_control_ifdesc_bcdUVC, align 4
-  %60 = load ptr, ptr %8, align 8
-  %61 = load i32, ptr %19, align 4
-  %62 = call ptr @proto_tree_add_item(ptr noundef %58, i32 noundef %59, ptr noundef %60, i32 noundef %61, i32 noundef 2, i32 noundef -2147483648)
-  %63 = load ptr, ptr %16, align 8
-  %64 = load i32, ptr @hf_usb_vid_ifdesc_wTotalLength, align 4
-  %65 = load ptr, ptr %8, align 8
-  %66 = load i32, ptr %19, align 4
-  %67 = add i32 %66, 2
-  %68 = call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %64, ptr noundef %65, i32 noundef %67, i32 noundef 2, i32 noundef -2147483648)
-  %69 = load ptr, ptr %16, align 8
-  %70 = load i32, ptr @hf_usb_vid_control_ifdesc_dwClockFrequency, align 4
-  %71 = load ptr, ptr %8, align 8
-  %72 = load i32, ptr %19, align 4
-  %73 = add i32 %72, 4
-  %74 = call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %70, ptr noundef %71, i32 noundef %73, i32 noundef 4, i32 noundef -2147483648)
-  %75 = load ptr, ptr %8, align 8
-  %76 = load i32, ptr %19, align 4
-  %77 = add i32 %76, 8
-  %78 = call zeroext i8 @tvb_get_guint8(ptr noundef %75, i32 noundef %77)
-  store i8 %78, ptr %22, align 1
-  %79 = load ptr, ptr %16, align 8
-  %80 = load i32, ptr @hf_usb_vid_control_ifdesc_bInCollection, align 4
-  %81 = load ptr, ptr %8, align 8
-  %82 = load i32, ptr %19, align 4
-  %83 = add i32 %82, 8
-  %84 = call ptr @proto_tree_add_item(ptr noundef %79, i32 noundef %80, ptr noundef %81, i32 noundef %83, i32 noundef 1, i32 noundef -2147483648)
-  %85 = load i8, ptr %22, align 1
-  %86 = zext i8 %85 to i32
-  %87 = icmp sgt i32 %86, 0
-  br i1 %87, label %88, label %97
+59:                                               ; preds = %43
+  call void @llvm.lifetime.start.p0(i64 1, ptr %22) #6
+  %60 = load ptr, ptr %16, align 8
+  %61 = load i32, ptr @hf_usb_vid_control_ifdesc_bcdUVC, align 4
+  %62 = load ptr, ptr %8, align 8
+  %63 = load i32, ptr %19, align 4
+  %64 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %61, ptr noundef %62, i32 noundef %63, i32 noundef 2, i32 noundef -2147483648)
+  %65 = load ptr, ptr %16, align 8
+  %66 = load i32, ptr @hf_usb_vid_ifdesc_wTotalLength, align 4
+  %67 = load ptr, ptr %8, align 8
+  %68 = load i32, ptr %19, align 4
+  %69 = add i32 %68, 2
+  %70 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %66, ptr noundef %67, i32 noundef %69, i32 noundef 2, i32 noundef -2147483648)
+  %71 = load ptr, ptr %16, align 8
+  %72 = load i32, ptr @hf_usb_vid_control_ifdesc_dwClockFrequency, align 4
+  %73 = load ptr, ptr %8, align 8
+  %74 = load i32, ptr %19, align 4
+  %75 = add i32 %74, 4
+  %76 = call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %72, ptr noundef %73, i32 noundef %75, i32 noundef 4, i32 noundef -2147483648)
+  %77 = load ptr, ptr %8, align 8
+  %78 = load i32, ptr %19, align 4
+  %79 = add i32 %78, 8
+  %80 = call zeroext i8 @tvb_get_uint8(ptr noundef %77, i32 noundef %79)
+  store i8 %80, ptr %22, align 1
+  %81 = load ptr, ptr %16, align 8
+  %82 = load i32, ptr @hf_usb_vid_control_ifdesc_bInCollection, align 4
+  %83 = load ptr, ptr %8, align 8
+  %84 = load i32, ptr %19, align 4
+  %85 = add i32 %84, 8
+  %86 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %82, ptr noundef %83, i32 noundef %85, i32 noundef 1, i32 noundef -2147483648)
+  %87 = load i8, ptr %22, align 1
+  %88 = zext i8 %87 to i32
+  %89 = icmp sgt i32 %88, 0
+  br i1 %89, label %90, label %99
 
-88:                                               ; preds = %57
-  %89 = load ptr, ptr %16, align 8
-  %90 = load i32, ptr @hf_usb_vid_control_ifdesc_baInterfaceNr, align 4
-  %91 = load ptr, ptr %8, align 8
-  %92 = load i32, ptr %19, align 4
-  %93 = add i32 %92, 9
-  %94 = load i8, ptr %22, align 1
-  %95 = zext i8 %94 to i32
-  %96 = call ptr @proto_tree_add_item(ptr noundef %89, i32 noundef %90, ptr noundef %91, i32 noundef %93, i32 noundef %95, i32 noundef 0)
-  br label %97
+90:                                               ; preds = %59
+  %91 = load ptr, ptr %16, align 8
+  %92 = load i32, ptr @hf_usb_vid_control_ifdesc_baInterfaceNr, align 4
+  %93 = load ptr, ptr %8, align 8
+  %94 = load i32, ptr %19, align 4
+  %95 = add i32 %94, 9
+  %96 = load i8, ptr %22, align 1
+  %97 = zext i8 %96 to i32
+  %98 = call ptr @proto_tree_add_item(ptr noundef %91, i32 noundef %92, ptr noundef %93, i32 noundef %95, i32 noundef %97, i32 noundef 0)
+  br label %99
 
-97:                                               ; preds = %88, %57
-  %98 = load i8, ptr %22, align 1
-  %99 = zext i8 %98 to i32
-  %100 = add i32 9, %99
-  %101 = load i32, ptr %19, align 4
-  %102 = add i32 %101, %100
-  store i32 %102, ptr %19, align 4
-  br label %240
+99:                                               ; preds = %90, %59
+  %100 = load i8, ptr %22, align 1
+  %101 = zext i8 %100 to i32
+  %102 = add i32 9, %101
+  %103 = load i32, ptr %19, align 4
+  %104 = add i32 %103, %102
+  store i32 %104, ptr %19, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %22) #6
+  br label %242
 
-103:                                              ; preds = %41
-  %104 = load i8, ptr %20, align 1
-  %105 = zext i8 %104 to i32
-  %106 = icmp eq i32 %105, 2
-  br i1 %106, label %111, label %107
+105:                                              ; preds = %43
+  %106 = load i8, ptr %20, align 1
+  %107 = zext i8 %106 to i32
+  %108 = icmp eq i32 %107, 2
+  br i1 %108, label %113, label %109
 
-107:                                              ; preds = %103
-  %108 = load i8, ptr %20, align 1
-  %109 = zext i8 %108 to i32
-  %110 = icmp eq i32 %109, 3
-  br i1 %110, label %111, label %187
+109:                                              ; preds = %105
+  %110 = load i8, ptr %20, align 1
+  %111 = zext i8 %110 to i32
+  %112 = icmp eq i32 %111, 3
+  br i1 %112, label %113, label %189
 
-111:                                              ; preds = %107, %103
-  %112 = load ptr, ptr %8, align 8
-  %113 = load i32, ptr %19, align 4
-  %114 = call zeroext i8 @tvb_get_guint8(ptr noundef %112, i32 noundef %113)
-  store i8 %114, ptr %17, align 1
-  %115 = load ptr, ptr %8, align 8
-  %116 = load i32, ptr %19, align 4
-  %117 = add i32 %116, 1
-  %118 = call zeroext i16 @tvb_get_letohs(ptr noundef %115, i32 noundef %117)
-  store i16 %118, ptr %18, align 2
-  %119 = load ptr, ptr %16, align 8
-  %120 = load i32, ptr @hf_usb_vid_control_ifdesc_terminal_id, align 4
-  %121 = load ptr, ptr %8, align 8
-  %122 = load i32, ptr %19, align 4
-  %123 = call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %120, ptr noundef %121, i32 noundef %122, i32 noundef 1, i32 noundef -2147483648)
-  %124 = load ptr, ptr %16, align 8
-  %125 = load i32, ptr @hf_usb_vid_control_ifdesc_terminal_type, align 4
-  %126 = load ptr, ptr %8, align 8
-  %127 = load i32, ptr %19, align 4
-  %128 = add i32 %127, 1
-  %129 = call ptr @proto_tree_add_item(ptr noundef %124, i32 noundef %125, ptr noundef %126, i32 noundef %128, i32 noundef 2, i32 noundef -2147483648)
-  %130 = load ptr, ptr %16, align 8
-  %131 = load i32, ptr @hf_usb_vid_control_ifdesc_assoc_terminal, align 4
-  %132 = load ptr, ptr %8, align 8
-  %133 = load i32, ptr %19, align 4
-  %134 = add i32 %133, 3
-  %135 = call ptr @proto_tree_add_item(ptr noundef %130, i32 noundef %131, ptr noundef %132, i32 noundef %134, i32 noundef 1, i32 noundef -2147483648)
-  %136 = load i32, ptr %19, align 4
-  %137 = add i32 %136, 4
-  store i32 %137, ptr %19, align 4
-  %138 = load i8, ptr %20, align 1
-  %139 = zext i8 %138 to i32
-  %140 = icmp eq i32 %139, 3
-  br i1 %140, label %141, label %149
+113:                                              ; preds = %109, %105
+  %114 = load ptr, ptr %8, align 8
+  %115 = load i32, ptr %19, align 4
+  %116 = call zeroext i8 @tvb_get_uint8(ptr noundef %114, i32 noundef %115)
+  store i8 %116, ptr %17, align 1
+  %117 = load ptr, ptr %8, align 8
+  %118 = load i32, ptr %19, align 4
+  %119 = add i32 %118, 1
+  %120 = call zeroext i16 @tvb_get_letohs(ptr noundef %117, i32 noundef %119)
+  store i16 %120, ptr %18, align 2
+  %121 = load ptr, ptr %16, align 8
+  %122 = load i32, ptr @hf_usb_vid_control_ifdesc_terminal_id, align 4
+  %123 = load ptr, ptr %8, align 8
+  %124 = load i32, ptr %19, align 4
+  %125 = call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %122, ptr noundef %123, i32 noundef %124, i32 noundef 1, i32 noundef -2147483648)
+  %126 = load ptr, ptr %16, align 8
+  %127 = load i32, ptr @hf_usb_vid_control_ifdesc_terminal_type, align 4
+  %128 = load ptr, ptr %8, align 8
+  %129 = load i32, ptr %19, align 4
+  %130 = add i32 %129, 1
+  %131 = call ptr @proto_tree_add_item(ptr noundef %126, i32 noundef %127, ptr noundef %128, i32 noundef %130, i32 noundef 2, i32 noundef -2147483648)
+  %132 = load ptr, ptr %16, align 8
+  %133 = load i32, ptr @hf_usb_vid_control_ifdesc_assoc_terminal, align 4
+  %134 = load ptr, ptr %8, align 8
+  %135 = load i32, ptr %19, align 4
+  %136 = add i32 %135, 3
+  %137 = call ptr @proto_tree_add_item(ptr noundef %132, i32 noundef %133, ptr noundef %134, i32 noundef %136, i32 noundef 1, i32 noundef -2147483648)
+  %138 = load i32, ptr %19, align 4
+  %139 = add i32 %138, 4
+  store i32 %139, ptr %19, align 4
+  %140 = load i8, ptr %20, align 1
+  %141 = zext i8 %140 to i32
+  %142 = icmp eq i32 %141, 3
+  br i1 %142, label %143, label %151
 
-141:                                              ; preds = %111
-  %142 = load ptr, ptr %16, align 8
-  %143 = load i32, ptr @hf_usb_vid_control_ifdesc_src_id, align 4
-  %144 = load ptr, ptr %8, align 8
-  %145 = load i32, ptr %19, align 4
-  %146 = call ptr @proto_tree_add_item(ptr noundef %142, i32 noundef %143, ptr noundef %144, i32 noundef %145, i32 noundef 1, i32 noundef -2147483648)
+143:                                              ; preds = %113
+  %144 = load ptr, ptr %16, align 8
+  %145 = load i32, ptr @hf_usb_vid_control_ifdesc_src_id, align 4
+  %146 = load ptr, ptr %8, align 8
   %147 = load i32, ptr %19, align 4
-  %148 = add i32 %147, 1
-  store i32 %148, ptr %19, align 4
-  br label %149
+  %148 = call ptr @proto_tree_add_item(ptr noundef %144, i32 noundef %145, ptr noundef %146, i32 noundef %147, i32 noundef 1, i32 noundef -2147483648)
+  %149 = load i32, ptr %19, align 4
+  %150 = add i32 %149, 1
+  store i32 %150, ptr %19, align 4
+  br label %151
 
-149:                                              ; preds = %141, %111
-  %150 = load ptr, ptr %16, align 8
-  %151 = load i32, ptr @hf_usb_vid_control_ifdesc_iTerminal, align 4
-  %152 = load ptr, ptr %8, align 8
-  %153 = load i32, ptr %19, align 4
-  %154 = call ptr @proto_tree_add_item(ptr noundef %150, i32 noundef %151, ptr noundef %152, i32 noundef %153, i32 noundef 1, i32 noundef -2147483648)
+151:                                              ; preds = %143, %113
+  %152 = load ptr, ptr %16, align 8
+  %153 = load i32, ptr @hf_usb_vid_control_ifdesc_iTerminal, align 4
+  %154 = load ptr, ptr %8, align 8
   %155 = load i32, ptr %19, align 4
-  %156 = add i32 %155, 1
-  store i32 %156, ptr %19, align 4
-  %157 = load i8, ptr %20, align 1
-  %158 = zext i8 %157 to i32
-  %159 = icmp eq i32 %158, 2
-  br i1 %159, label %160, label %176
+  %156 = call ptr @proto_tree_add_item(ptr noundef %152, i32 noundef %153, ptr noundef %154, i32 noundef %155, i32 noundef 1, i32 noundef -2147483648)
+  %157 = load i32, ptr %19, align 4
+  %158 = add i32 %157, 1
+  store i32 %158, ptr %19, align 4
+  %159 = load i8, ptr %20, align 1
+  %160 = zext i8 %159 to i32
+  %161 = icmp eq i32 %160, 2
+  br i1 %161, label %162, label %178
 
-160:                                              ; preds = %149
-  %161 = load i16, ptr %18, align 2
-  %162 = zext i16 %161 to i32
-  %163 = icmp eq i32 %162, 513
-  br i1 %163, label %164, label %169
+162:                                              ; preds = %151
+  %163 = load i16, ptr %18, align 2
+  %164 = zext i16 %163 to i32
+  %165 = icmp eq i32 %164, 513
+  br i1 %165, label %166, label %171
 
-164:                                              ; preds = %160
-  %165 = load ptr, ptr %16, align 8
-  %166 = load ptr, ptr %8, align 8
-  %167 = load i32, ptr %19, align 4
-  %168 = call i32 @dissect_usb_video_camera_terminal(ptr noundef %165, ptr noundef %166, i32 noundef %167)
-  store i32 %168, ptr %19, align 4
-  br label %175
+166:                                              ; preds = %162
+  %167 = load ptr, ptr %16, align 8
+  %168 = load ptr, ptr %8, align 8
+  %169 = load i32, ptr %19, align 4
+  %170 = call i32 @dissect_usb_video_camera_terminal(ptr noundef %167, ptr noundef %168, i32 noundef %169)
+  store i32 %170, ptr %19, align 4
+  br label %177
 
-169:                                              ; preds = %160
-  %170 = load i16, ptr %18, align 2
-  %171 = zext i16 %170 to i32
-  %172 = icmp eq i32 %171, 514
-  br i1 %172, label %173, label %174
+171:                                              ; preds = %162
+  %172 = load i16, ptr %18, align 2
+  %173 = zext i16 %172 to i32
+  %174 = icmp eq i32 %173, 514
+  br i1 %174, label %175, label %176
 
-173:                                              ; preds = %169
-  br label %174
-
-174:                                              ; preds = %173, %169
-  br label %175
-
-175:                                              ; preds = %174, %164
+175:                                              ; preds = %171
   br label %176
 
-176:                                              ; preds = %175, %149
-  %177 = load i8, ptr %20, align 1
-  %178 = zext i8 %177 to i32
-  %179 = icmp eq i32 %178, 3
-  br i1 %179, label %180, label %186
+176:                                              ; preds = %175, %171
+  br label %177
 
-180:                                              ; preds = %176
-  %181 = load i16, ptr %18, align 2
-  %182 = zext i16 %181 to i32
-  %183 = icmp eq i32 %182, 770
-  br i1 %183, label %184, label %185
+177:                                              ; preds = %176, %166
+  br label %178
 
-184:                                              ; preds = %180
-  br label %185
+178:                                              ; preds = %177, %151
+  %179 = load i8, ptr %20, align 1
+  %180 = zext i8 %179 to i32
+  %181 = icmp eq i32 %180, 3
+  br i1 %181, label %182, label %188
 
-185:                                              ; preds = %184, %180
-  br label %186
+182:                                              ; preds = %178
+  %183 = load i16, ptr %18, align 2
+  %184 = zext i16 %183 to i32
+  %185 = icmp eq i32 %184, 770
+  br i1 %185, label %186, label %187
 
-186:                                              ; preds = %185, %176
-  br label %239
+186:                                              ; preds = %182
+  br label %187
 
-187:                                              ; preds = %107
-  %188 = load ptr, ptr %8, align 8
-  %189 = load i32, ptr %19, align 4
-  %190 = call zeroext i8 @tvb_get_guint8(ptr noundef %188, i32 noundef %189)
-  store i8 %190, ptr %17, align 1
-  %191 = load ptr, ptr %16, align 8
-  %192 = load i32, ptr @hf_usb_vid_control_ifdesc_unit_id, align 4
-  %193 = load ptr, ptr %8, align 8
-  %194 = load i32, ptr %19, align 4
-  %195 = call ptr @proto_tree_add_item(ptr noundef %191, i32 noundef %192, ptr noundef %193, i32 noundef %194, i32 noundef 1, i32 noundef -2147483648)
+187:                                              ; preds = %186, %182
+  br label %188
+
+188:                                              ; preds = %187, %178
+  br label %241
+
+189:                                              ; preds = %109
+  %190 = load ptr, ptr %8, align 8
+  %191 = load i32, ptr %19, align 4
+  %192 = call zeroext i8 @tvb_get_uint8(ptr noundef %190, i32 noundef %191)
+  store i8 %192, ptr %17, align 1
+  %193 = load ptr, ptr %16, align 8
+  %194 = load i32, ptr @hf_usb_vid_control_ifdesc_unit_id, align 4
+  %195 = load ptr, ptr %8, align 8
   %196 = load i32, ptr %19, align 4
-  %197 = add i32 %196, 1
-  store i32 %197, ptr %19, align 4
-  %198 = load i8, ptr %20, align 1
-  %199 = zext i8 %198 to i32
-  %200 = icmp eq i32 %199, 5
-  br i1 %200, label %201, label %206
+  %197 = call ptr @proto_tree_add_item(ptr noundef %193, i32 noundef %194, ptr noundef %195, i32 noundef %196, i32 noundef 1, i32 noundef -2147483648)
+  %198 = load i32, ptr %19, align 4
+  %199 = add i32 %198, 1
+  store i32 %199, ptr %19, align 4
+  %200 = load i8, ptr %20, align 1
+  %201 = zext i8 %200 to i32
+  %202 = icmp eq i32 %201, 5
+  br i1 %202, label %203, label %208
 
-201:                                              ; preds = %187
-  %202 = load ptr, ptr %16, align 8
-  %203 = load ptr, ptr %8, align 8
-  %204 = load i32, ptr %19, align 4
-  %205 = call i32 @dissect_usb_video_processing_unit(ptr noundef %202, ptr noundef %203, i32 noundef %204)
-  store i32 %205, ptr %19, align 4
-  br label %238
-
-206:                                              ; preds = %187
-  %207 = load i8, ptr %20, align 1
-  %208 = zext i8 %207 to i32
-  %209 = icmp eq i32 %208, 4
-  br i1 %209, label %210, label %215
-
-210:                                              ; preds = %206
-  %211 = load ptr, ptr %16, align 8
-  %212 = load ptr, ptr %8, align 8
-  %213 = load i32, ptr %19, align 4
-  %214 = call i32 @dissect_usb_video_selector_unit(ptr noundef %211, ptr noundef %212, i32 noundef %213)
-  store i32 %214, ptr %19, align 4
-  br label %237
-
-215:                                              ; preds = %206
-  %216 = load i8, ptr %20, align 1
-  %217 = zext i8 %216 to i32
-  %218 = icmp eq i32 %217, 6
-  br i1 %218, label %219, label %224
-
-219:                                              ; preds = %215
-  %220 = load ptr, ptr %16, align 8
-  %221 = load ptr, ptr %8, align 8
-  %222 = load i32, ptr %19, align 4
-  %223 = call i32 @dissect_usb_video_extension_unit(ptr noundef %220, ptr noundef %221, i32 noundef %222)
-  store i32 %223, ptr %19, align 4
-  br label %236
-
-224:                                              ; preds = %215
-  %225 = load i8, ptr %20, align 1
-  %226 = zext i8 %225 to i32
-  %227 = icmp eq i32 %226, 7
-  br i1 %227, label %228, label %229
-
-228:                                              ; preds = %224
-  br label %235
-
-229:                                              ; preds = %224
-  %230 = load ptr, ptr %10, align 8
-  %231 = load ptr, ptr %15, align 8
-  %232 = load i8, ptr %20, align 1
-  %233 = zext i8 %232 to i32
-  %234 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %230, ptr noundef %231, ptr noundef @ei_usb_vid_subtype_unknown, ptr noundef @.str.580, i32 noundef %233)
-  br label %235
-
-235:                                              ; preds = %229, %228
-  br label %236
-
-236:                                              ; preds = %235, %219
-  br label %237
-
-237:                                              ; preds = %236, %210
-  br label %238
-
-238:                                              ; preds = %237, %201
-  br label %239
-
-239:                                              ; preds = %238, %186
+203:                                              ; preds = %189
+  %204 = load ptr, ptr %16, align 8
+  %205 = load ptr, ptr %8, align 8
+  %206 = load i32, ptr %19, align 4
+  %207 = call i32 @dissect_usb_video_processing_unit(ptr noundef %204, ptr noundef %205, i32 noundef %206)
+  store i32 %207, ptr %19, align 4
   br label %240
 
-240:                                              ; preds = %239, %97
-  %241 = load i32, ptr %19, align 4
-  %242 = load i8, ptr %9, align 1
-  %243 = zext i8 %242 to i32
-  %244 = icmp slt i32 %241, %243
-  br i1 %244, label %245, label %255
+208:                                              ; preds = %189
+  %209 = load i8, ptr %20, align 1
+  %210 = zext i8 %209 to i32
+  %211 = icmp eq i32 %210, 4
+  br i1 %211, label %212, label %217
 
-245:                                              ; preds = %240
-  %246 = load ptr, ptr %16, align 8
-  %247 = load i32, ptr @hf_usb_vid_descriptor_data, align 4
-  %248 = load ptr, ptr %8, align 8
-  %249 = load i32, ptr %19, align 4
-  %250 = load i8, ptr %9, align 1
-  %251 = zext i8 %250 to i32
-  %252 = load i32, ptr %19, align 4
-  %253 = sub i32 %251, %252
-  %254 = call ptr @proto_tree_add_item(ptr noundef %246, i32 noundef %247, ptr noundef %248, i32 noundef %249, i32 noundef %253, i32 noundef 0)
-  br label %255
+212:                                              ; preds = %208
+  %213 = load ptr, ptr %16, align 8
+  %214 = load ptr, ptr %8, align 8
+  %215 = load i32, ptr %19, align 4
+  %216 = call i32 @dissect_usb_video_selector_unit(ptr noundef %213, ptr noundef %214, i32 noundef %215)
+  store i32 %216, ptr %19, align 4
+  br label %239
 
-255:                                              ; preds = %245, %240
-  %256 = load i8, ptr %17, align 1
-  %257 = zext i8 %256 to i32
-  %258 = icmp ne i32 %257, 0
-  br i1 %258, label %259, label %263
+217:                                              ; preds = %208
+  %218 = load i8, ptr %20, align 1
+  %219 = zext i8 %218 to i32
+  %220 = icmp eq i32 %219, 6
+  br i1 %220, label %221, label %226
 
-259:                                              ; preds = %255
-  %260 = load ptr, ptr %14, align 8
-  %261 = load i8, ptr %17, align 1
-  %262 = zext i8 %261 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %260, ptr noundef @.str.581, i32 noundef %262)
-  br label %263
+221:                                              ; preds = %217
+  %222 = load ptr, ptr %16, align 8
+  %223 = load ptr, ptr %8, align 8
+  %224 = load i32, ptr %19, align 4
+  %225 = call i32 @dissect_usb_video_extension_unit(ptr noundef %222, ptr noundef %223, i32 noundef %224)
+  store i32 %225, ptr %19, align 4
+  br label %238
 
-263:                                              ; preds = %259, %255
-  %264 = load i8, ptr %20, align 1
-  %265 = zext i8 %264 to i32
-  %266 = icmp ne i32 %265, 1
-  br i1 %266, label %267, label %330
+226:                                              ; preds = %217
+  %227 = load i8, ptr %20, align 1
+  %228 = zext i8 %227 to i32
+  %229 = icmp eq i32 %228, 7
+  br i1 %229, label %230, label %231
 
-267:                                              ; preds = %263
-  %268 = load ptr, ptr %11, align 8
-  %269 = icmp ne ptr %268, null
-  br i1 %269, label %270, label %330
+230:                                              ; preds = %226
+  br label %237
 
-270:                                              ; preds = %267
-  %271 = load ptr, ptr %10, align 8
-  %272 = load ptr, ptr %11, align 8
-  %273 = getelementptr inbounds %struct._usb_conv_info_t, ptr %272, i32 0, i32 15
-  %274 = load i8, ptr %273, align 2
-  %275 = call ptr @get_usb_iface_conv_info(ptr noundef %271, i8 noundef zeroext %274)
-  store ptr %275, ptr %11, align 8
-  %276 = load ptr, ptr %11, align 8
-  %277 = getelementptr inbounds %struct._usb_conv_info_t, ptr %276, i32 0, i32 22
-  %278 = load ptr, ptr %277, align 8
-  store ptr %278, ptr %12, align 8
-  %279 = load ptr, ptr %12, align 8
-  %280 = icmp ne ptr %279, null
-  br i1 %280, label %293, label %281
+231:                                              ; preds = %226
+  %232 = load ptr, ptr %10, align 8
+  %233 = load ptr, ptr %15, align 8
+  %234 = load i8, ptr %20, align 1
+  %235 = zext i8 %234 to i32
+  %236 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %232, ptr noundef %233, ptr noundef @ei_usb_vid_subtype_unknown, ptr noundef @.str.603, i32 noundef %235)
+  br label %237
 
-281:                                              ; preds = %270
-  %282 = call ptr @wmem_file_scope()
-  %283 = call noalias ptr @wmem_alloc(ptr noundef %282, i64 noundef 8)
-  store ptr %283, ptr %12, align 8
-  %284 = call ptr @wmem_file_scope()
-  %285 = call noalias ptr @wmem_tree_new(ptr noundef %284)
-  %286 = load ptr, ptr %12, align 8
-  %287 = getelementptr inbounds %struct._video_conv_info_t, ptr %286, i32 0, i32 0
-  store ptr %285, ptr %287, align 8
+237:                                              ; preds = %231, %230
+  br label %238
+
+238:                                              ; preds = %237, %221
+  br label %239
+
+239:                                              ; preds = %238, %212
+  br label %240
+
+240:                                              ; preds = %239, %203
+  br label %241
+
+241:                                              ; preds = %240, %188
+  br label %242
+
+242:                                              ; preds = %241, %99
+  %243 = load i32, ptr %19, align 4
+  %244 = load i8, ptr %9, align 1
+  %245 = zext i8 %244 to i32
+  %246 = icmp slt i32 %243, %245
+  br i1 %246, label %247, label %257
+
+247:                                              ; preds = %242
+  %248 = load ptr, ptr %16, align 8
+  %249 = load i32, ptr @hf_usb_vid_descriptor_data, align 4
+  %250 = load ptr, ptr %8, align 8
+  %251 = load i32, ptr %19, align 4
+  %252 = load i8, ptr %9, align 1
+  %253 = zext i8 %252 to i32
+  %254 = load i32, ptr %19, align 4
+  %255 = sub i32 %253, %254
+  %256 = call ptr @proto_tree_add_item(ptr noundef %248, i32 noundef %249, ptr noundef %250, i32 noundef %251, i32 noundef %255, i32 noundef 0)
+  br label %257
+
+257:                                              ; preds = %247, %242
+  %258 = load i8, ptr %17, align 1
+  %259 = zext i8 %258 to i32
+  %260 = icmp ne i32 %259, 0
+  br i1 %260, label %261, label %265
+
+261:                                              ; preds = %257
+  %262 = load ptr, ptr %14, align 8
+  %263 = load i8, ptr %17, align 1
+  %264 = zext i8 %263 to i32
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %262, ptr noundef @.str.604, i32 noundef %264)
+  br label %265
+
+265:                                              ; preds = %261, %257
+  %266 = load i8, ptr %20, align 1
+  %267 = zext i8 %266 to i32
+  %268 = icmp ne i32 %267, 1
+  br i1 %268, label %269, label %342
+
+269:                                              ; preds = %265
+  %270 = load ptr, ptr %11, align 8
+  %271 = icmp ne ptr %270, null
+  br i1 %271, label %272, label %342
+
+272:                                              ; preds = %269
+  %273 = load ptr, ptr %11, align 8
+  %274 = getelementptr inbounds nuw %struct._urb_info_t, ptr %273, i32 0, i32 11
+  %275 = load ptr, ptr %274, align 8
+  %276 = icmp ne ptr %275, null
+  br i1 %276, label %277, label %342
+
+277:                                              ; preds = %272
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #6
+  %278 = load ptr, ptr %10, align 8
+  %279 = load ptr, ptr %11, align 8
+  %280 = getelementptr inbounds nuw %struct._urb_info_t, ptr %279, i32 0, i32 11
+  %281 = load ptr, ptr %280, align 8
+  %282 = getelementptr inbounds nuw %struct._usb_conv_info_t, ptr %281, i32 0, i32 5
+  %283 = load i8, ptr %282, align 2
+  %284 = call ptr @get_usb_iface_conv_info(ptr noundef %278, i8 noundef zeroext %283)
+  store ptr %284, ptr %23, align 8
+  %285 = load ptr, ptr %23, align 8
+  %286 = getelementptr inbounds nuw %struct._usb_conv_info_t, ptr %285, i32 0, i32 11
+  %287 = load ptr, ptr %286, align 8
+  store ptr %287, ptr %12, align 8
   %288 = load ptr, ptr %12, align 8
-  %289 = load ptr, ptr %11, align 8
-  %290 = getelementptr inbounds %struct._usb_conv_info_t, ptr %289, i32 0, i32 22
-  store ptr %288, ptr %290, align 8
-  %291 = load ptr, ptr %11, align 8
-  %292 = getelementptr inbounds %struct._usb_conv_info_t, ptr %291, i32 0, i32 23
-  store i32 3, ptr %292, align 8
-  br label %302
+  %289 = icmp ne ptr %288, null
+  br i1 %289, label %302, label %290
 
-293:                                              ; preds = %270
-  %294 = load ptr, ptr %11, align 8
-  %295 = getelementptr inbounds %struct._usb_conv_info_t, ptr %294, i32 0, i32 23
-  %296 = load i32, ptr %295, align 8
-  %297 = icmp ne i32 %296, 3
-  br i1 %297, label %298, label %301
+290:                                              ; preds = %277
+  %291 = call ptr @wmem_file_scope()
+  %292 = call noalias ptr @wmem_alloc(ptr noundef %291, i64 noundef 8) #8
+  store ptr %292, ptr %12, align 8
+  %293 = call ptr @wmem_file_scope()
+  %294 = call noalias ptr @wmem_tree_new(ptr noundef %293)
+  %295 = load ptr, ptr %12, align 8
+  %296 = getelementptr inbounds nuw %struct._video_conv_info_t, ptr %295, i32 0, i32 0
+  store ptr %294, ptr %296, align 8
+  %297 = load ptr, ptr %12, align 8
+  %298 = load ptr, ptr %23, align 8
+  %299 = getelementptr inbounds nuw %struct._usb_conv_info_t, ptr %298, i32 0, i32 11
+  store ptr %297, ptr %299, align 8
+  %300 = load ptr, ptr %23, align 8
+  %301 = getelementptr inbounds nuw %struct._usb_conv_info_t, ptr %300, i32 0, i32 12
+  store i32 3, ptr %301, align 8
+  br label %311
 
-298:                                              ; preds = %293
-  %299 = load i8, ptr %9, align 1
-  %300 = zext i8 %299 to i32
-  store i32 %300, ptr %6, align 4
-  br label %333
+302:                                              ; preds = %277
+  %303 = load ptr, ptr %23, align 8
+  %304 = getelementptr inbounds nuw %struct._usb_conv_info_t, ptr %303, i32 0, i32 12
+  %305 = load i32, ptr %304, align 8
+  %306 = icmp ne i32 %305, 3
+  br i1 %306, label %307, label %310
 
-301:                                              ; preds = %293
-  br label %302
+307:                                              ; preds = %302
+  %308 = load i8, ptr %9, align 1
+  %309 = zext i8 %308 to i32
+  store i32 %309, ptr %6, align 4
+  store i32 1, ptr %24, align 4
+  br label %339
 
-302:                                              ; preds = %301, %281
-  %303 = load ptr, ptr %12, align 8
-  %304 = getelementptr inbounds %struct._video_conv_info_t, ptr %303, i32 0, i32 0
-  %305 = load ptr, ptr %304, align 8
-  %306 = load i8, ptr %17, align 1
-  %307 = zext i8 %306 to i32
-  %308 = call ptr @wmem_tree_lookup32(ptr noundef %305, i32 noundef %307)
-  store ptr %308, ptr %13, align 8
-  %309 = load ptr, ptr %13, align 8
-  %310 = icmp ne ptr %309, null
-  br i1 %310, label %329, label %311
+310:                                              ; preds = %302
+  br label %311
 
-311:                                              ; preds = %302
-  %312 = call ptr @wmem_file_scope()
-  %313 = call noalias ptr @wmem_alloc(ptr noundef %312, i64 noundef 4)
-  store ptr %313, ptr %13, align 8
-  %314 = load i8, ptr %17, align 1
-  %315 = load ptr, ptr %13, align 8
-  %316 = getelementptr inbounds %struct.video_entity_t, ptr %315, i32 0, i32 0
-  store i8 %314, ptr %316, align 2
-  %317 = load i8, ptr %20, align 1
+311:                                              ; preds = %310, %290
+  %312 = load ptr, ptr %12, align 8
+  %313 = getelementptr inbounds nuw %struct._video_conv_info_t, ptr %312, i32 0, i32 0
+  %314 = load ptr, ptr %313, align 8
+  %315 = load i8, ptr %17, align 1
+  %316 = zext i8 %315 to i32
+  %317 = call ptr @wmem_tree_lookup32(ptr noundef %314, i32 noundef %316)
+  store ptr %317, ptr %13, align 8
   %318 = load ptr, ptr %13, align 8
-  %319 = getelementptr inbounds %struct.video_entity_t, ptr %318, i32 0, i32 1
-  store i8 %317, ptr %319, align 1
-  %320 = load i16, ptr %18, align 2
-  %321 = load ptr, ptr %13, align 8
-  %322 = getelementptr inbounds %struct.video_entity_t, ptr %321, i32 0, i32 2
-  store i16 %320, ptr %322, align 2
-  %323 = load ptr, ptr %12, align 8
-  %324 = getelementptr inbounds %struct._video_conv_info_t, ptr %323, i32 0, i32 0
-  %325 = load ptr, ptr %324, align 8
-  %326 = load i8, ptr %17, align 1
-  %327 = zext i8 %326 to i32
-  %328 = load ptr, ptr %13, align 8
-  call void @wmem_tree_insert32(ptr noundef %325, i32 noundef %327, ptr noundef %328)
-  br label %329
+  %319 = icmp ne ptr %318, null
+  br i1 %319, label %338, label %320
 
-329:                                              ; preds = %311, %302
-  br label %330
+320:                                              ; preds = %311
+  %321 = call ptr @wmem_file_scope()
+  %322 = call noalias ptr @wmem_alloc(ptr noundef %321, i64 noundef 4) #8
+  store ptr %322, ptr %13, align 8
+  %323 = load i8, ptr %17, align 1
+  %324 = load ptr, ptr %13, align 8
+  %325 = getelementptr inbounds nuw %struct.video_entity_t, ptr %324, i32 0, i32 0
+  store i8 %323, ptr %325, align 2
+  %326 = load i8, ptr %20, align 1
+  %327 = load ptr, ptr %13, align 8
+  %328 = getelementptr inbounds nuw %struct.video_entity_t, ptr %327, i32 0, i32 1
+  store i8 %326, ptr %328, align 1
+  %329 = load i16, ptr %18, align 2
+  %330 = load ptr, ptr %13, align 8
+  %331 = getelementptr inbounds nuw %struct.video_entity_t, ptr %330, i32 0, i32 2
+  store i16 %329, ptr %331, align 2
+  %332 = load ptr, ptr %12, align 8
+  %333 = getelementptr inbounds nuw %struct._video_conv_info_t, ptr %332, i32 0, i32 0
+  %334 = load ptr, ptr %333, align 8
+  %335 = load i8, ptr %17, align 1
+  %336 = zext i8 %335 to i32
+  %337 = load ptr, ptr %13, align 8
+  call void @wmem_tree_insert32(ptr noundef %334, i32 noundef %336, ptr noundef %337)
+  br label %338
 
-330:                                              ; preds = %329, %267, %263
-  %331 = load i8, ptr %9, align 1
-  %332 = zext i8 %331 to i32
-  store i32 %332, ptr %6, align 4
-  br label %333
+338:                                              ; preds = %320, %311
+  store i32 0, ptr %24, align 4
+  br label %339
 
-333:                                              ; preds = %330, %298
-  %334 = load i32, ptr %6, align 4
-  ret i32 %334
+339:                                              ; preds = %338, %307
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #6
+  %340 = load i32, ptr %24, align 4
+  switch i32 %340, label %345 [
+    i32 0, label %341
+  ]
+
+341:                                              ; preds = %339
+  br label %342
+
+342:                                              ; preds = %341, %272, %269, %265
+  %343 = load i8, ptr %9, align 1
+  %344 = zext i8 %343 to i32
+  store i32 %344, ptr %6, align 4
+  store i32 1, ptr %24, align 4
+  br label %345
+
+345:                                              ; preds = %342, %339
+  call void @llvm.lifetime.end.p0(i64 1, ptr %20) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #6
+  call void @llvm.lifetime.end.p0(i64 2, ptr %18) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %17) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #6
+  %346 = load i32, ptr %6, align 4
+  ret i32 %346
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_usb_video_streaming_interface_descriptor(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -2955,15 +3166,19 @@ define internal i32 @dissect_usb_video_streaming_interface_descriptor(ptr nounde
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i8 %2, ptr %6, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #6
   store i32 0, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #6
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %8, align 4
   %13 = add i32 %12, 2
-  %14 = call zeroext i8 @tvb_get_guint8(ptr noundef %11, i32 noundef %13)
+  %14 = call zeroext i8 @tvb_get_uint8(ptr noundef %11, i32 noundef %13)
   store i8 %14, ptr %10, align 1
   %15 = load i8, ptr %10, align 1
   %16 = zext i8 %15 to i32
-  %17 = call ptr @val_to_str_ext(i32 noundef %16, ptr noundef @vs_if_descriptor_subtypes_ext, ptr noundef @.str.574)
+  %17 = call ptr @val_to_str_ext(i32 noundef %16, ptr noundef @vs_if_descriptor_subtypes_ext, ptr noundef @.str.596)
   store ptr %17, ptr %9, align 8
   %18 = load ptr, ptr %4, align 8
   %19 = load ptr, ptr %5, align 8
@@ -2972,7 +3187,7 @@ define internal i32 @dissect_usb_video_streaming_interface_descriptor(ptr nounde
   %22 = zext i8 %21 to i32
   %23 = load i32, ptr @ett_descriptor_video_streaming, align 4
   %24 = load ptr, ptr %9, align 8
-  %25 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %22, i32 noundef %23, ptr noundef null, ptr noundef @.str.582, ptr noundef %24)
+  %25 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %22, i32 noundef %23, ptr noundef null, ptr noundef @.str.605, ptr noundef %24)
   store ptr %25, ptr %7, align 8
   %26 = load ptr, ptr %7, align 8
   %27 = load ptr, ptr %5, align 8
@@ -3059,18 +3274,26 @@ define internal i32 @dissect_usb_video_streaming_interface_descriptor(ptr nounde
 78:                                               ; preds = %68, %63
   %79 = load i8, ptr %6, align 1
   %80 = zext i8 %79 to i32
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
   ret i32 %80
 }
 
-declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #2
 
-declare ptr @dissect_usb_descriptor_header(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @dissect_usb_descriptor_header(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) #2
 
-declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_usb_video_camera_terminal(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -3112,7 +3335,7 @@ define internal i32 @dissect_usb_video_camera_terminal(ptr noundef %0, ptr nound
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_usb_video_processing_unit(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -3171,7 +3394,7 @@ define internal i32 @dissect_usb_video_processing_unit(ptr noundef %0, ptr nound
   ret i32 %46
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_usb_video_selector_unit(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -3180,9 +3403,10 @@ define internal i32 @dissect_usb_video_selector_unit(ptr noundef %0, ptr noundef
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #6
   %8 = load ptr, ptr %5, align 8
   %9 = load i32, ptr %6, align 4
-  %10 = call zeroext i8 @tvb_get_guint8(ptr noundef %8, i32 noundef %9)
+  %10 = call zeroext i8 @tvb_get_uint8(ptr noundef %8, i32 noundef %9)
   store i8 %10, ptr %7, align 1
   %11 = load ptr, ptr %4, align 8
   %12 = load i32, ptr @hf_usb_vid_num_inputs, align 4
@@ -3222,10 +3446,11 @@ define internal i32 @dissect_usb_video_selector_unit(ptr noundef %0, ptr noundef
   %40 = add i32 %39, 1
   store i32 %40, ptr %6, align 4
   %41 = load i32, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #6
   ret i32 %41
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_usb_video_extension_unit(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -3235,6 +3460,8 @@ define internal i32 @dissect_usb_video_extension_unit(ptr noundef %0, ptr nounde
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #6
   %9 = load ptr, ptr %4, align 8
   %10 = load i32, ptr @hf_usb_vid_exten_guid, align 4
   %11 = load ptr, ptr %5, align 8
@@ -3251,7 +3478,7 @@ define internal i32 @dissect_usb_video_extension_unit(ptr noundef %0, ptr nounde
   store i32 %21, ptr %6, align 4
   %22 = load ptr, ptr %5, align 8
   %23 = load i32, ptr %6, align 4
-  %24 = call zeroext i8 @tvb_get_guint8(ptr noundef %22, i32 noundef %23)
+  %24 = call zeroext i8 @tvb_get_uint8(ptr noundef %22, i32 noundef %23)
   store i8 %24, ptr %7, align 1
   %25 = load ptr, ptr %4, align 8
   %26 = load i32, ptr @hf_usb_vid_num_inputs, align 4
@@ -3284,7 +3511,7 @@ define internal i32 @dissect_usb_video_extension_unit(ptr noundef %0, ptr nounde
 47:                                               ; preds = %35, %3
   %48 = load ptr, ptr %5, align 8
   %49 = load i32, ptr %6, align 4
-  %50 = call zeroext i8 @tvb_get_guint8(ptr noundef %48, i32 noundef %49)
+  %50 = call zeroext i8 @tvb_get_uint8(ptr noundef %48, i32 noundef %49)
   store i8 %50, ptr %8, align 1
   %51 = load ptr, ptr %4, align 8
   %52 = load i32, ptr @hf_usb_vid_bControlSize, align 4
@@ -3345,24 +3572,33 @@ define internal i32 @dissect_usb_video_extension_unit(ptr noundef %0, ptr nounde
   %95 = add i32 %94, 1
   store i32 %95, ptr %6, align 4
   %96 = load i32, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #6
   ret i32 %96
 }
 
-declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) #2
 
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #2
 
-declare ptr @get_usb_iface_conv_info(ptr noundef, i8 noundef zeroext) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @get_usb_iface_conv_info(ptr noundef, i8 noundef zeroext) #2
 
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) #1
+; Function Attrs: null_pointer_is_valid allocsize(1)
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) #5
 
-declare ptr @wmem_file_scope() #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_file_scope() #2
 
-declare noalias ptr @wmem_tree_new(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @wmem_tree_new(ptr noundef) #2
 
-declare void @wmem_tree_insert32(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @wmem_tree_insert32(ptr noundef, i32 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_bmControl(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -3375,10 +3611,11 @@ define internal i32 @dissect_bmControl(ptr noundef %0, ptr noundef %1, i32 nound
   store i32 %2, ptr %8, align 4
   store i32 %3, ptr %9, align 4
   store ptr %4, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #6
   store i8 0, ptr %11, align 1
   %12 = load ptr, ptr %7, align 8
   %13 = load i32, ptr %8, align 4
-  %14 = call zeroext i8 @tvb_get_guint8(ptr noundef %12, i32 noundef %13)
+  %14 = call zeroext i8 @tvb_get_uint8(ptr noundef %12, i32 noundef %13)
   store i8 %14, ptr %11, align 1
   %15 = load ptr, ptr %6, align 8
   %16 = load i32, ptr @hf_usb_vid_bControlSize, align 4
@@ -3412,14 +3649,17 @@ define internal i32 @dissect_bmControl(ptr noundef %0, ptr noundef %1, i32 nound
 
 39:                                               ; preds = %25, %5
   %40 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #6
   ret i32 %40
 }
 
-declare ptr @proto_tree_add_bitmask_len(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_bitmask_len(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) #2
 
-declare i32 @proto_registrar_get_length(i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_registrar_get_length(i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_usb_video_streaming_input_header(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -3430,9 +3670,11 @@ define internal i32 @dissect_usb_video_streaming_input_header(ptr noundef %0, pt
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #6
   %10 = load ptr, ptr %5, align 8
   %11 = load i32, ptr %6, align 4
-  %12 = call zeroext i8 @tvb_get_guint8(ptr noundef %10, i32 noundef %11)
+  %12 = call zeroext i8 @tvb_get_uint8(ptr noundef %10, i32 noundef %11)
   store i8 %12, ptr %7, align 1
   %13 = load ptr, ptr %4, align 8
   %14 = load i32, ptr @hf_usb_vid_streaming_ifdesc_bNumFormats, align 4
@@ -3483,7 +3725,7 @@ define internal i32 @dissect_usb_video_streaming_input_header(ptr noundef %0, pt
   %55 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %52, ptr noundef %53, i32 noundef %54, i32 noundef 1, i32 noundef 0)
   %56 = load ptr, ptr %5, align 8
   %57 = load i32, ptr %6, align 4
-  %58 = call zeroext i8 @tvb_get_guint8(ptr noundef %56, i32 noundef %57)
+  %58 = call zeroext i8 @tvb_get_uint8(ptr noundef %56, i32 noundef %57)
   %59 = zext i8 %58 to i32
   %60 = icmp sgt i32 %59, 0
   br i1 %60, label %61, label %68
@@ -3503,7 +3745,7 @@ define internal i32 @dissect_usb_video_streaming_input_header(ptr noundef %0, pt
   %71 = load ptr, ptr %5, align 8
   %72 = load i32, ptr %6, align 4
   %73 = add i32 %72, 1
-  %74 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %69, i32 noundef %70, ptr noundef %71, i32 noundef %73, i32 noundef 1, i32 noundef 0, ptr noundef @.str.583)
+  %74 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %69, i32 noundef %70, ptr noundef %71, i32 noundef %73, i32 noundef 1, i32 noundef 0, ptr noundef @.str.606)
   br label %75
 
 75:                                               ; preds = %68, %61
@@ -3512,7 +3754,7 @@ define internal i32 @dissect_usb_video_streaming_input_header(ptr noundef %0, pt
   store i32 %77, ptr %6, align 4
   %78 = load ptr, ptr %5, align 8
   %79 = load i32, ptr %6, align 4
-  %80 = call zeroext i8 @tvb_get_guint8(ptr noundef %78, i32 noundef %79)
+  %80 = call zeroext i8 @tvb_get_uint8(ptr noundef %78, i32 noundef %79)
   store i8 %80, ptr %8, align 1
   %81 = load ptr, ptr %4, align 8
   %82 = load i32, ptr @hf_usb_vid_bControlSize, align 4
@@ -3528,6 +3770,7 @@ define internal i32 @dissect_usb_video_streaming_input_header(ptr noundef %0, pt
   br i1 %90, label %91, label %115
 
 91:                                               ; preds = %75
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #6
   store i8 0, ptr %9, align 1
   br label %92
 
@@ -3559,17 +3802,20 @@ define internal i32 @dissect_usb_video_streaming_input_header(ptr noundef %0, pt
   %112 = load i8, ptr %9, align 1
   %113 = add i8 %112, 1
   store i8 %113, ptr %9, align 1
-  br label %92, !llvm.loop !6
+  br label %92, !llvm.loop !10
 
 114:                                              ; preds = %92
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #6
   br label %115
 
 115:                                              ; preds = %114, %75
   %116 = load i32, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #6
   ret i32 %116
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_usb_video_format(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3581,9 +3827,11 @@ define internal i32 @dissect_usb_video_format(ptr noundef %0, ptr noundef %1, i3
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store i8 %3, ptr %8, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #6
   %11 = load ptr, ptr %6, align 8
   %12 = load i32, ptr %7, align 4
-  %13 = call zeroext i8 @tvb_get_guint8(ptr noundef %11, i32 noundef %12)
+  %13 = call zeroext i8 @tvb_get_uint8(ptr noundef %11, i32 noundef %12)
   store i8 %13, ptr %10, align 1
   %14 = load ptr, ptr %5, align 8
   %15 = call ptr @proto_tree_get_parent(ptr noundef %14)
@@ -3591,7 +3839,7 @@ define internal i32 @dissect_usb_video_format(ptr noundef %0, ptr noundef %1, i3
   %16 = load ptr, ptr %9, align 8
   %17 = load i8, ptr %10, align 1
   %18 = zext i8 %17 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef @.str.584, i32 noundef %18)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef @.str.607, i32 noundef %18)
   %19 = load ptr, ptr %5, align 8
   %20 = load i32, ptr @hf_usb_vid_format_index, align 4
   %21 = load ptr, ptr %6, align 8
@@ -3623,7 +3871,7 @@ define internal i32 @dissect_usb_video_format(ptr noundef %0, ptr noundef %1, i3
   %42 = load ptr, ptr %6, align 8
   %43 = load i32, ptr %7, align 4
   %44 = call ptr @tvb_format_text(ptr noundef %41, ptr noundef %42, i32 noundef %43, i32 noundef 4)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %40, ptr noundef @.str.585, ptr noundef %44)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %40, ptr noundef @.str.608, ptr noundef %44)
   %45 = load ptr, ptr %5, align 8
   %46 = load i32, ptr @hf_usb_vid_format_guid, align 4
   %47 = load ptr, ptr %6, align 8
@@ -3659,7 +3907,7 @@ define internal i32 @dissect_usb_video_format(ptr noundef %0, ptr noundef %1, i3
   br label %72
 
 71:                                               ; preds = %58
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.586, ptr noundef @.str.571, i32 noundef 1182) #3
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.609, ptr noundef @.str.593, i32 noundef 1185) #7
   unreachable
 
 72:                                               ; preds = %62
@@ -3721,10 +3969,12 @@ define internal i32 @dissect_usb_video_format(ptr noundef %0, ptr noundef %1, i3
 
 119:                                              ; preds = %111, %73
   %120 = load i32, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
   ret i32 %120
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_usb_video_frame(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3740,9 +3990,14 @@ define internal i32 @dissect_usb_video_frame(ptr noundef %0, ptr noundef %1, i32
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store i8 %3, ptr %8, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #6
+  call void @llvm.lifetime.start.p0(i64 2, ptr %12) #6
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #6
   %15 = load ptr, ptr %6, align 8
   %16 = load i32, ptr %7, align 4
-  %17 = call zeroext i8 @tvb_get_guint8(ptr noundef %15, i32 noundef %16)
+  %17 = call zeroext i8 @tvb_get_uint8(ptr noundef %15, i32 noundef %16)
   store i8 %17, ptr %11, align 1
   %18 = load ptr, ptr %5, align 8
   %19 = load i32, ptr @hf_usb_vid_frame_index, align 4
@@ -3791,7 +4046,7 @@ define internal i32 @dissect_usb_video_frame(ptr noundef %0, ptr noundef %1, i32
   %57 = zext i16 %56 to i32
   %58 = load i16, ptr %13, align 2
   %59 = zext i16 %58 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %53, ptr noundef @.str.587, i32 noundef %55, i32 noundef %57, i32 noundef %59)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %53, ptr noundef @.str.610, i32 noundef %55, i32 noundef %57, i32 noundef %59)
   %60 = load ptr, ptr %5, align 8
   %61 = load i32, ptr @hf_usb_vid_frame_min_bit_rate, align 4
   %62 = load ptr, ptr %6, align 8
@@ -3834,7 +4089,7 @@ define internal i32 @dissect_usb_video_frame(ptr noundef %0, ptr noundef %1, i32
   store i32 %92, ptr %7, align 4
   %93 = load ptr, ptr %6, align 8
   %94 = load i32, ptr %7, align 4
-  %95 = call zeroext i8 @tvb_get_guint8(ptr noundef %93, i32 noundef %94)
+  %95 = call zeroext i8 @tvb_get_uint8(ptr noundef %93, i32 noundef %94)
   store i8 %95, ptr %10, align 1
   %96 = load i8, ptr %10, align 1
   %97 = zext i8 %96 to i32
@@ -3848,7 +4103,7 @@ define internal i32 @dissect_usb_video_frame(ptr noundef %0, ptr noundef %1, i32
   %103 = load i32, ptr %7, align 4
   %104 = load i8, ptr %10, align 1
   %105 = zext i8 %104 to i32
-  %106 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %100, i32 noundef %101, ptr noundef %102, i32 noundef %103, i32 noundef 1, i32 noundef %105, ptr noundef @.str.588)
+  %106 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %100, i32 noundef %101, ptr noundef %102, i32 noundef %103, i32 noundef 1, i32 noundef %105, ptr noundef @.str.611)
   %107 = load i32, ptr %7, align 4
   %108 = add i32 %107, 1
   store i32 %108, ptr %7, align 4
@@ -3892,6 +4147,7 @@ define internal i32 @dissect_usb_video_frame(ptr noundef %0, ptr noundef %1, i32
   br label %186
 
 140:                                              ; preds = %85
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #6
   %141 = load ptr, ptr %5, align 8
   %142 = load i32, ptr @hf_usb_vid_frame_interval_type, align 4
   %143 = load ptr, ptr %6, align 8
@@ -3903,8 +4159,8 @@ define internal i32 @dissect_usb_video_frame(ptr noundef %0, ptr noundef %1, i32
   %149 = load i8, ptr %10, align 1
   %150 = zext i8 %149 to i32
   %151 = icmp sgt i32 %150, 1
-  %152 = select i1 %151, ptr @.str.590, ptr @.str.591
-  %153 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %141, i32 noundef %142, ptr noundef %143, i32 noundef %144, i32 noundef 1, i32 noundef %146, ptr noundef @.str.589, i32 noundef %148, ptr noundef %152)
+  %152 = select i1 %151, ptr @.str.613, ptr @.str.614
+  %153 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %141, i32 noundef %142, ptr noundef %143, i32 noundef %144, i32 noundef 1, i32 noundef %146, ptr noundef @.str.612, i32 noundef %148, ptr noundef %152)
   %154 = load i32, ptr %7, align 4
   %155 = add i32 %154, 1
   store i32 %155, ptr %7, align 4
@@ -3951,17 +4207,23 @@ define internal i32 @dissect_usb_video_frame(ptr noundef %0, ptr noundef %1, i32
   %183 = load i8, ptr %14, align 1
   %184 = add i8 %183, 1
   store i8 %184, ptr %14, align 1
-  br label %168, !llvm.loop !7
+  br label %168, !llvm.loop !11
 
 185:                                              ; preds = %168
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #6
   br label %186
 
 186:                                              ; preds = %185, %120
   %187 = load i32, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 2, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
   ret i32 %187
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_usb_video_colorformat(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -3993,26 +4255,39 @@ define internal i32 @dissect_usb_video_colorformat(ptr noundef %0, ptr noundef %
   ret i32 %26
 }
 
-declare void @dissect_usb_endpoint_address(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissect_usb_endpoint_address(ptr noundef, ptr noundef, i32 noundef) #2
 
-declare ptr @proto_tree_get_parent(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_get_parent(ptr noundef) #2
 
-declare ptr @tvb_format_text(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_format_text(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @wmem_packet_scope() #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_packet_scope() #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind }
+attributes #7 = { noreturn }
+attributes #8 = { allocsize(1) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

@@ -3,11 +3,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
@@ -40,7 +37,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_gcsna_ackRequired = internal global i32 0, align 4
 @.str.16 = private unnamed_addr constant [13 x i8] c"Ack Required\00", align 1
 @.str.17 = private unnamed_addr constant [18 x i8] c"gcsna.ackRequired\00", align 1
-@gcsna_tru_false_values = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.55 }, %struct._value_string { i32 1, ptr @.str.56 }, %struct._value_string zeroinitializer], align 16
 @hf_gcsna_altGCSNAOptionIncluded = internal global i32 0, align 4
 @.str.18 = private unnamed_addr constant [28 x i8] c"AlternativeGCSNAOption_INCL\00", align 1
 @.str.19 = private unnamed_addr constant [29 x i8] c"gcsna.altGCSNAOptionIncluded\00", align 1
@@ -50,7 +46,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_gcsna_gcsna_option = internal global i32 0, align 4
 @.str.22 = private unnamed_addr constant [13 x i8] c"GCSNA Option\00", align 1
 @.str.23 = private unnamed_addr constant [13 x i8] c"gcsna.Option\00", align 1
-@gcsna_option_values = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.57 }, %struct._value_string { i32 1, ptr @.str.58 }, %struct._value_string { i32 2, ptr @.str.59 }, %struct._value_string { i32 8, ptr @.str.60 }, %struct._value_string zeroinitializer], align 16
 @hf_gcsna_NumaltGCSNAOption = internal global i32 0, align 4
 @.str.24 = private unnamed_addr constant [27 x i8] c"NumAlternativeGCSNAOptions\00", align 1
 @.str.25 = private unnamed_addr constant [24 x i8] c"gcsna.NumaltGCSNAOption\00", align 1
@@ -81,14 +76,12 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_gcsna_cause = internal global i32 0, align 4
 @.str.42 = private unnamed_addr constant [6 x i8] c"Cause\00", align 1
 @.str.43 = private unnamed_addr constant [12 x i8] c"gcsna.cause\00", align 1
-@gcsna_cause_types = internal constant [7 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.61 }, %struct._value_string { i32 1, ptr @.str.62 }, %struct._value_string { i32 2, ptr @.str.63 }, %struct._value_string { i32 3, ptr @.str.64 }, %struct._value_string { i32 4, ptr @.str.65 }, %struct._value_string { i32 5, ptr @.str.66 }, %struct._value_string zeroinitializer], align 16
 @hf_gcsna_rejSequence = internal global i32 0, align 4
 @.str.44 = private unnamed_addr constant [16 x i8] c"Reject Sequence\00", align 1
 @.str.45 = private unnamed_addr constant [18 x i8] c"gcsna.rejSequence\00", align 1
 @hf_gcsna_msgid = internal global i32 0, align 4
 @.str.46 = private unnamed_addr constant [19 x i8] c"GCSNA Message Type\00", align 1
 @.str.47 = private unnamed_addr constant [12 x i8] c"gcsna.msgId\00", align 1
-@gcsna_message_types = internal constant [4 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.67 }, %struct._value_string { i32 2, ptr @.str.68 }, %struct._value_string { i32 3, ptr @.str.69 }, %struct._value_string zeroinitializer], align 16
 @hf_gcsna_unsupported_reject_seq = internal global i32 0, align 4
 @.str.48 = private unnamed_addr constant [52 x i8] c"Invalid / Unsupported GCSNA Message Reject Sequence\00", align 1
 @.str.49 = private unnamed_addr constant [27 x i8] c"gcsna.unsupportedrejectseq\00", align 1
@@ -96,7 +89,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_gcsna_msghdr = internal global i32 0, align 4
 @ett_gcsna_subtree = internal global i32 0, align 4
 @ett_gcsna_option = internal global i32 0, align 4
-@proto_register_gcsna.ei = internal global [1 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_gcsna_error, %struct.expert_field_info { ptr @.str.50, i32 150994944, i32 8388608, ptr @.str.51, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_gcsna.ei = internal global [1 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_gcsna_error, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.50, i32 150994944, i32 8388608, ptr @.str.51, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_gcsna_error = internal global %struct.expert_field zeroinitializer, align 4
 @.str.50 = private unnamed_addr constant [12 x i8] c"gcsna.error\00", align 1
 @.str.51 = private unnamed_addr constant [63 x i8] c"Violation of protocol specs (e.g. invalid information element)\00", align 1
@@ -108,24 +101,29 @@ target triple = "x86_64-pc-linux-gnu"
 @cdma2k_handle = internal global ptr null, align 8
 @.str.55 = private unnamed_addr constant [6 x i8] c"False\00", align 1
 @.str.56 = private unnamed_addr constant [5 x i8] c"True\00", align 1
-@.str.57 = private unnamed_addr constant [30 x i8] c"Release 8 1xCSFB from E-UTRAN\00", align 1
-@.str.58 = private unnamed_addr constant [31 x i8] c"Release 9 e1xCSFB from E-UTRAN\00", align 1
-@.str.59 = private unnamed_addr constant [26 x i8] c"C.S0097-A supported eCSFB\00", align 1
-@.str.60 = private unnamed_addr constant [19 x i8] c"SRVCC from E-UTRAN\00", align 1
-@.str.61 = private unnamed_addr constant [20 x i8] c"Invalid GCSNAOption\00", align 1
-@.str.62 = private unnamed_addr constant [27 x i8] c"Invalid 1xProtocolRevision\00", align 1
-@.str.63 = private unnamed_addr constant [43 x i8] c"Invalid GCSNAOption and 1xProtocolRevision\00", align 1
-@.str.64 = private unnamed_addr constant [19 x i8] c"Invalid Message Id\00", align 1
-@.str.65 = private unnamed_addr constant [49 x i8] c"GCSNA 1xParameters provisioning is not supported\00", align 1
-@.str.66 = private unnamed_addr constant [53 x i8] c"Unsupported RecordType in GCSNA 1xParameters message\00", align 1
-@.str.67 = private unnamed_addr constant [24 x i8] c"GCSNA 1X Circuitservice\00", align 1
-@.str.68 = private unnamed_addr constant [13 x i8] c"GCSNA L2 Ack\00", align 1
-@.str.69 = private unnamed_addr constant [20 x i8] c"GCSNA Servicereject\00", align 1
-@.str.70 = private unnamed_addr constant [8 x i8] c"[gcsna]\00", align 1
+@gcsna_tru_false_values = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.55 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.56 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.58 = private unnamed_addr constant [30 x i8] c"Release 8 1xCSFB from E-UTRAN\00", align 1
+@.str.59 = private unnamed_addr constant [31 x i8] c"Release 9 e1xCSFB from E-UTRAN\00", align 1
+@.str.60 = private unnamed_addr constant [26 x i8] c"C.S0097-A supported eCSFB\00", align 1
+@.str.61 = private unnamed_addr constant [19 x i8] c"SRVCC from E-UTRAN\00", align 1
+@gcsna_option_values = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.58 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.59 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.60 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.61 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.63 = private unnamed_addr constant [20 x i8] c"Invalid GCSNAOption\00", align 1
+@.str.64 = private unnamed_addr constant [27 x i8] c"Invalid 1xProtocolRevision\00", align 1
+@.str.65 = private unnamed_addr constant [43 x i8] c"Invalid GCSNAOption and 1xProtocolRevision\00", align 1
+@.str.66 = private unnamed_addr constant [19 x i8] c"Invalid Message Id\00", align 1
+@.str.67 = private unnamed_addr constant [49 x i8] c"GCSNA 1xParameters provisioning is not supported\00", align 1
+@.str.68 = private unnamed_addr constant [53 x i8] c"Unsupported RecordType in GCSNA 1xParameters message\00", align 1
+@gcsna_cause_types = internal constant [7 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.63 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.64 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.65 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.66 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.67 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.68 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.70 = private unnamed_addr constant [24 x i8] c"GCSNA 1X Circuitservice\00", align 1
+@.str.71 = private unnamed_addr constant [13 x i8] c"GCSNA L2 Ack\00", align 1
+@.str.72 = private unnamed_addr constant [20 x i8] c"GCSNA Servicereject\00", align 1
+@gcsna_message_types = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.70 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.71 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.72 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.74 = private unnamed_addr constant [8 x i8] c"[gcsna]\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_gcsna() #0 {
   %1 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #3
   %2 = call i32 @proto_register_protocol(ptr noundef @.str.52, ptr noundef @.str.52, ptr noundef @.str.53)
   store i32 %2, ptr @proto_gcsna, align 4
   %3 = load i32, ptr @proto_gcsna, align 4
@@ -139,14 +137,20 @@ define hidden void @proto_register_gcsna() #0 {
   store ptr %7, ptr %1, align 8
   %8 = load ptr, ptr %1, align 8
   call void @expert_register_field_array(ptr noundef %8, ptr noundef @proto_register_gcsna.ei, i32 noundef 1)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #3
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gcsna(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -160,18 +164,22 @@ define internal i32 @dissect_gcsna(ptr noundef %0, ptr noundef %1, ptr noundef %
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
   store ptr null, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
   store ptr null, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
   store i32 0, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %12) #3
   store i16 1, ptr %12, align 2
   %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds %struct._packet_info, ptr %13, i32 0, i32 1
+  %14 = getelementptr inbounds nuw %struct._packet_info, ptr %13, i32 0, i32 1
   %15 = load ptr, ptr %14, align 8
-  call void @col_set_str(ptr noundef %15, i32 noundef 34, ptr noundef @.str.53)
+  call void @col_set_str(ptr noundef %15, i32 noundef 35, ptr noundef @.str.53)
   %16 = load ptr, ptr %6, align 8
-  %17 = getelementptr inbounds %struct._packet_info, ptr %16, i32 0, i32 1
+  %17 = getelementptr inbounds nuw %struct._packet_info, ptr %16, i32 0, i32 1
   %18 = load ptr, ptr %17, align 8
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %18, i32 noundef 25, ptr noundef @.str.70)
+  call void @col_set_str(ptr noundef %18, i32 noundef 25, ptr noundef @.str.74)
   %19 = load ptr, ptr %7, align 8
   %20 = load i32, ptr @hf_gcsna_msghdr, align 4
   %21 = load ptr, ptr %5, align 8
@@ -217,7 +225,7 @@ define internal i32 @dissect_gcsna(ptr noundef %0, ptr noundef %1, ptr noundef %
   %49 = load ptr, ptr %7, align 8
   %50 = load ptr, ptr %6, align 8
   call void @gcsna_message_decode(ptr noundef %46, ptr noundef %47, ptr noundef %48, ptr noundef %11, ptr noundef %49, ptr noundef %12, ptr noundef %50)
-  br label %34, !llvm.loop !4
+  br label %34, !llvm.loop !6
 
 51:                                               ; preds = %43
   %52 = load i16, ptr %12, align 2
@@ -237,37 +245,51 @@ define internal i32 @dissect_gcsna(ptr noundef %0, ptr noundef %1, ptr noundef %
 60:                                               ; preds = %59, %4
   %61 = load ptr, ptr %5, align 8
   %62 = call i32 @tvb_reported_length(ptr noundef %61)
+  call void @llvm.lifetime.end.p0(i64 2, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
   ret i32 %62
 }
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #2
 
-declare ptr @expert_register_protocol(i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_register_protocol(i32 noundef) #2
 
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_gcsna() #0 {
   %1 = call ptr @find_dissector(ptr noundef @.str.54)
   store ptr %1, ptr @cdma2k_handle, align 8
   ret void
 }
 
-declare ptr @find_dissector(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @find_dissector(ptr noundef) #2
 
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #2
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) #2
 
-declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) #1
-
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @gcsna_message_decode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -284,11 +306,12 @@ define internal void @gcsna_message_decode(ptr noundef %0, ptr noundef %1, ptr n
   store ptr %4, ptr %12, align 8
   store ptr %5, ptr %13, align 8
   store ptr %6, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %15) #3
   store i16 -1, ptr %15, align 2
   %16 = load ptr, ptr %9, align 8
   %17 = load ptr, ptr %11, align 8
   %18 = load i32, ptr %17, align 4
-  %19 = call zeroext i8 @tvb_get_guint8(ptr noundef %16, i32 noundef %18)
+  %19 = call zeroext i8 @tvb_get_uint8(ptr noundef %16, i32 noundef %18)
   %20 = zext i8 %19 to i16
   store i16 %20, ptr %15, align 2
   %21 = load ptr, ptr %11, align 8
@@ -335,16 +358,20 @@ define internal void @gcsna_message_decode(ptr noundef %0, ptr noundef %1, ptr n
   br label %45
 
 45:                                               ; preds = %43, %38, %33, %26
+  call void @llvm.lifetime.end.p0(i64 2, ptr %15) #3
   ret void
 }
 
-declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare i32 @tvb_reported_length(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length(ptr noundef) #2
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @gcsna_message_GCSNA1xCircuitService(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -365,14 +392,21 @@ define internal void @gcsna_message_GCSNA1xCircuitService(ptr noundef %0, ptr no
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #3
   store i16 0, ptr %13, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %14) #3
   store i16 -1, ptr %14, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %15) #3
   store i16 0, ptr %15, align 2
+  call void @llvm.lifetime.start.p0(i64 1, ptr %16) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #3
   %20 = load ptr, ptr %12, align 8
   %21 = load i32, ptr %20, align 4
   %22 = mul i32 %21, 8
   store i32 %22, ptr %17, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #3
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #3
   %23 = load ptr, ptr %11, align 8
   %24 = load i32, ptr @hf_gcsna_gcsna_option, align 4
   %25 = load ptr, ptr %8, align 8
@@ -451,7 +485,7 @@ define internal void @gcsna_message_GCSNA1xCircuitService(ptr noundef %0, ptr no
   %83 = load i16, ptr %14, align 2
   %84 = add i16 %83, -1
   store i16 %84, ptr %14, align 2
-  br label %71, !llvm.loop !6
+  br label %71, !llvm.loop !8
 
 85:                                               ; preds = %71
   br label %86
@@ -571,10 +605,17 @@ define internal void @gcsna_message_GCSNA1xCircuitService(ptr noundef %0, ptr no
   %179 = load i32, ptr %178, align 4
   %180 = add i32 %179, %177
   store i32 %180, ptr %178, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 2, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 2, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #3
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @gcsna_message_GCSNAL2Ack(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -585,6 +626,7 @@ define internal void @gcsna_message_GCSNAL2Ack(ptr noundef %0, ptr noundef %1, p
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
   store ptr null, ptr %9, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = load i32, ptr @hf_gcsna_l2ack, align 4
@@ -608,10 +650,11 @@ define internal void @gcsna_message_GCSNAL2Ack(ptr noundef %0, ptr noundef %1, p
   %27 = load i32, ptr %26, align 4
   %28 = add i32 %27, 1
   store i32 %28, ptr %26, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @gcsna_message_GCSNAServiceReject(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -625,9 +668,13 @@ define internal void @gcsna_message_GCSNAServiceReject(ptr noundef %0, ptr nound
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %9) #3
   store i16 -1, ptr %9, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %10) #3
   store i16 -1, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %11) #3
   store i16 -1, ptr %11, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #3
   store ptr null, ptr %12, align 8
   %13 = load ptr, ptr %7, align 8
   %14 = load i32, ptr @hf_gcsna_servicereject, align 4
@@ -731,7 +778,7 @@ define internal void @gcsna_message_GCSNAServiceReject(ptr noundef %0, ptr nound
   %90 = load i16, ptr %10, align 2
   %91 = add i16 %90, -1
   store i16 %91, ptr %10, align 2
-  br label %65, !llvm.loop !7
+  br label %65, !llvm.loop !9
 
 92:                                               ; preds = %65
   %93 = load i16, ptr %9, align 2
@@ -819,7 +866,7 @@ define internal void @gcsna_message_GCSNAServiceReject(ptr noundef %0, ptr nound
   %155 = load i16, ptr %10, align 2
   %156 = add i16 %155, -1
   store i16 %156, ptr %10, align 2
-  br label %140, !llvm.loop !8
+  br label %140, !llvm.loop !10
 
 157:                                              ; preds = %140
   br label %165
@@ -858,30 +905,43 @@ define internal void @gcsna_message_GCSNAServiceReject(ptr noundef %0, ptr nound
   br label %181
 
 181:                                              ; preds = %175, %170
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 2, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 2, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 2, ptr %9) #3
   ret void
 }
 
-declare ptr @proto_tree_add_bits_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_bits_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare zeroext i8 @tvb_get_bits8(ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_bits8(ptr noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) #2
 
-declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

@@ -36,45 +36,47 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.18 = private unnamed_addr constant [4 x i8] c"UDP\00", align 1
 @.str.19 = private unnamed_addr constant [4 x i8] c"TCP\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_tplink_smarthome() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8) #2
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8)
   store i32 %1, ptr @proto_tplink_smarthome, align 4
-  %2 = tail call ptr @register_dissector(ptr noundef nonnull @.str.8, ptr noundef nonnull @dissect_tplink_smarthome, i32 noundef %1) #2
+  %2 = tail call ptr @register_dissector(ptr noundef nonnull @.str.8, ptr noundef nonnull @dissect_tplink_smarthome, i32 noundef %1)
   store ptr %2, ptr @tplink_smarthome_handle, align 8
   %3 = load i32, ptr @proto_tplink_smarthome, align 4
-  %4 = tail call ptr @register_dissector(ptr noundef nonnull @.str.9, ptr noundef nonnull @dissect_tplink_smarthome_message, i32 noundef %3) #2
+  %4 = tail call ptr @register_dissector(ptr noundef nonnull @.str.9, ptr noundef nonnull @dissect_tplink_smarthome_message, i32 noundef %3)
   store ptr %4, ptr @tplink_smarthome_message_handle, align 8
   %5 = load i32, ptr @proto_tplink_smarthome, align 4
-  tail call void @proto_register_field_array(i32 noundef %5, ptr noundef nonnull @proto_register_tplink_smarthome.hf, i32 noundef 2) #2
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_tplink_smarthome.ett, i32 noundef 1) #2
+  tail call void @proto_register_field_array(i32 noundef %5, ptr noundef nonnull @proto_register_tplink_smarthome.hf, i32 noundef 2)
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_tplink_smarthome.ett, i32 noundef 1)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_tplink_smarthome(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #2
+  %5 = tail call ptr @find_or_create_conversation(ptr noundef %1)
   %6 = load i32, ptr @proto_tplink_smarthome, align 4
-  %7 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %5, i32 noundef %6) #2
+  %7 = tail call ptr @conversation_get_proto_data(ptr noundef %5, i32 noundef %6)
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %16
 
 8:                                                ; preds = %4
-  %9 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 4) #2
+  %9 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 4)
   %10 = icmp slt i32 %9, 2
   br i1 %10, label %test_tplink_smarthome.exit.thread, label %11
 
 11:                                               ; preds = %8
-  %12 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #2
+  %12 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 4)
   %.not.i = icmp eq i8 %12, -48
   br i1 %.not.i, label %test_tplink_smarthome.exit, label %test_tplink_smarthome.exit.thread
 
 test_tplink_smarthome.exit:                       ; preds = %11
-  %13 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 5) #2
+  %13 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 5)
   switch i8 %13, label %test_tplink_smarthome.exit.thread [
     i8 -14, label %14
     i8 -83, label %14
@@ -82,12 +84,12 @@ test_tplink_smarthome.exit:                       ; preds = %11
 
 14:                                               ; preds = %test_tplink_smarthome.exit, %test_tplink_smarthome.exit
   %15 = load i32, ptr @proto_tplink_smarthome, align 4
-  tail call void @conversation_add_proto_data(ptr noundef nonnull %5, i32 noundef %15, ptr noundef nonnull inttoptr (i64 1 to ptr)) #2
+  tail call void @conversation_add_proto_data(ptr noundef %5, i32 noundef %15, ptr noundef nonnull inttoptr (i64 1 to ptr))
   br label %16
 
 16:                                               ; preds = %14, %4
-  tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, i32 noundef 4, ptr noundef nonnull @get_tplink_smarthome_message_len, ptr noundef nonnull @dissect_tplink_smarthome_message, ptr noundef %3) #2
-  %17 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
+  tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, i32 noundef 4, ptr noundef nonnull @get_tplink_smarthome_message_len, ptr noundef nonnull @dissect_tplink_smarthome_message, ptr noundef %3)
+  %17 = tail call i32 @tvb_captured_length(ptr noundef %0)
   br label %test_tplink_smarthome.exit.thread
 
 test_tplink_smarthome.exit.thread:                ; preds = %test_tplink_smarthome.exit, %11, %8, %16
@@ -95,9 +97,9 @@ test_tplink_smarthome.exit.thread:                ; preds = %test_tplink_smartho
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_tplink_smarthome_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
-  %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
+  %5 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %7 = load i32, ptr %6, align 8
   switch i32 %7, label %test_tplink_smarthome.exit.thread [
@@ -110,18 +112,18 @@ define internal i32 @dissect_tplink_smarthome_message(ptr noundef %0, ptr nounde
 
 9:                                                ; preds = %4, %8
   %.058 = phi i32 [ 4, %8 ], [ 0, %4 ]
-  %10 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef range(i32 0, 5) %.058) #2
+  %10 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef range(i32 0, 5) %.058)
   %11 = icmp slt i32 %10, 2
   br i1 %11, label %test_tplink_smarthome.exit.thread, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef range(i32 0, 5) %.058) #2
+  %13 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef range(i32 0, 5) %.058)
   %.not.i = icmp eq i8 %13, -48
   br i1 %.not.i, label %test_tplink_smarthome.exit, label %test_tplink_smarthome.exit.thread
 
 test_tplink_smarthome.exit:                       ; preds = %12
   %14 = or disjoint i32 %.058, 1
-  %15 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %14) #2
+  %15 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %14)
   switch i8 %15, label %test_tplink_smarthome.exit.thread [
     i8 -14, label %16
     i8 -83, label %16
@@ -130,20 +132,20 @@ test_tplink_smarthome.exit:                       ; preds = %12
 16:                                               ; preds = %test_tplink_smarthome.exit, %test_tplink_smarthome.exit
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
-  tail call void @col_set_str(ptr noundef %18, i32 noundef 34, ptr noundef nonnull @.str.7) #2
+  tail call void @col_set_str(ptr noundef %18, i32 noundef 35, ptr noundef nonnull @.str.7)
   %19 = load ptr, ptr %17, align 8
-  tail call void @col_clear(ptr noundef %19, i32 noundef 25) #2
+  tail call void @col_clear(ptr noundef %19, i32 noundef 25)
   %20 = load i32, ptr @proto_tplink_smarthome, align 4
-  %21 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
+  %21 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %22 = load i32, ptr @ett_tplink_smarthome, align 4
-  %23 = tail call ptr @proto_item_add_subtree(ptr noundef %21, i32 noundef %22) #2
+  %23 = tail call ptr @proto_item_add_subtree(ptr noundef %21, i32 noundef %22)
   %24 = load i32, ptr %6, align 8
   %25 = icmp eq i32 %24, 2
   br i1 %25, label %26, label %29
 
 26:                                               ; preds = %16
   %27 = load i32, ptr @hf_tplink_smarthome_Len, align 4
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %27, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #2
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %27, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0)
   br label %29
 
 29:                                               ; preds = %26, %16
@@ -153,7 +155,7 @@ test_tplink_smarthome.exit:                       ; preds = %12
   %33 = add i32 %5, 1
   %34 = sub i32 %33, %.058
   %35 = sext i32 %34 to i64
-  %36 = tail call noalias ptr @wmem_alloc(ptr noundef %32, i64 noundef %35) #2
+  %36 = tail call noalias ptr @wmem_alloc(ptr noundef %32, i64 noundef %35) #3
   %37 = icmp sgt i32 %30, 0
   br i1 %37, label %.lr.ph, label %._crit_edge
 
@@ -164,22 +166,22 @@ test_tplink_smarthome.exit:                       ; preds = %12
 
 39:                                               ; preds = %.lr.ph, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
-  %.05968 = phi i8 [ -85, %.lr.ph ], [ %40, %39 ]
-  %.06166 = phi i32 [ %.058, %.lr.ph ], [ %48, %39 ]
-  %40 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.06166) #2
-  %41 = xor i8 %40, %.05968
+  %.05966 = phi i8 [ -85, %.lr.ph ], [ %40, %39 ]
+  %.06164 = phi i32 [ %.058, %.lr.ph ], [ %48, %39 ]
+  %40 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.06164)
+  %41 = xor i8 %40, %.05966
   %42 = zext i8 %41 to i64
   %43 = getelementptr i16, ptr %38, i64 %42
   %44 = load i16, ptr %43, align 2
   %45 = and i16 %44, 64
-  %.not63 = icmp eq i16 %45, 0
-  %46 = select i1 %.not63, i8 46, i8 %41
+  %.not = icmp eq i16 %45, 0
+  %46 = select i1 %.not, i8 46, i8 %41
   %47 = getelementptr i8, ptr %36, i64 %indvars.iv
   store i8 %46, ptr %47, align 1
-  %48 = add nuw i32 %.06166, 1
+  %48 = add nuw i32 %.06164, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %39, !llvm.loop !4
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %39, !llvm.loop !6
 
 ._crit_edge.loopexit:                             ; preds = %39
   %49 = zext nneg i32 %30 to i64
@@ -204,17 +206,17 @@ test_tplink_smarthome.exit:                       ; preds = %12
 58:                                               ; preds = %54, %._crit_edge
   %.057 = phi ptr [ @.str.12, %._crit_edge ], [ %.str.13..str.3, %54 ]
   %59 = load i32, ptr @hf_tplink_smarthome_Msg, align 4
-  %60 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %23, i32 noundef %59, ptr noundef %0, i32 noundef %.058, i32 noundef -1, ptr noundef nonnull %36, ptr noundef nonnull @.str.14, ptr noundef nonnull %.057, ptr noundef nonnull %36) #2
-  %61 = tail call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef nonnull %36, i32 noundef %30, i32 noundef %30) #2
-  tail call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef %61, ptr noundef nonnull @.str.15) #2
-  %62 = tail call ptr @find_dissector(ptr noundef nonnull @.str.16) #2
-  %63 = tail call i32 @call_dissector(ptr noundef %62, ptr noundef %61, ptr noundef nonnull %1, ptr noundef %21) #2
+  %60 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %23, i32 noundef %59, ptr noundef %0, i32 noundef %.058, i32 noundef -1, ptr noundef %36, ptr noundef nonnull @.str.14, ptr noundef nonnull %.057, ptr noundef %36)
+  %61 = tail call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %36, i32 noundef %30, i32 noundef %30)
+  tail call void @add_new_data_source(ptr noundef %1, ptr noundef %61, ptr noundef nonnull @.str.15)
+  %62 = tail call ptr @find_dissector(ptr noundef nonnull @.str.16)
+  %63 = tail call i32 @call_dissector(ptr noundef %62, ptr noundef %61, ptr noundef %1, ptr noundef %21)
   %64 = load ptr, ptr %17, align 8
   %65 = load i32, ptr %6, align 8
   %66 = icmp eq i32 %65, 3
   %67 = select i1 %66, ptr @.str.18, ptr @.str.19
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %64, i32 noundef 25, ptr noundef nonnull @.str.17, ptr noundef nonnull %67, ptr noundef nonnull %.057, ptr noundef nonnull %36) #2
-  %68 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %64, i32 noundef 25, ptr noundef nonnull @.str.17, ptr noundef nonnull %67, ptr noundef nonnull %.057, ptr noundef %36)
+  %68 = tail call i32 @tvb_captured_length(ptr noundef %0)
   br label %test_tplink_smarthome.exit.thread
 
 test_tplink_smarthome.exit.thread:                ; preds = %test_tplink_smarthome.exit, %12, %9, %4, %58
@@ -222,75 +224,100 @@ test_tplink_smarthome.exit.thread:                ; preds = %test_tplink_smartho
   ret i32 %.0
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_tplink_smarthome() local_unnamed_addr #0 {
   %1 = load ptr, ptr @tplink_smarthome_handle, align 8
-  tail call void @dissector_add_uint_with_preference(ptr noundef nonnull @.str.10, i32 noundef 9999, ptr noundef %1) #2
+  tail call void @dissector_add_uint_with_preference(ptr noundef nonnull @.str.10, i32 noundef 9999, ptr noundef %1)
   %2 = load ptr, ptr @tplink_smarthome_message_handle, align 8
-  tail call void @dissector_add_uint_with_preference(ptr noundef nonnull @.str.11, i32 noundef 9999, ptr noundef %2) #2
+  tail call void @dissector_add_uint_with_preference(ptr noundef nonnull @.str.11, i32 noundef 9999, ptr noundef %2)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare nonnull ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @get_tplink_smarthome_message_len(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
-  %5 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %2) #2
+  %5 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %2)
   %6 = add i32 %5, 4
   ret i32 %6
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid allocsize(1)
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_string_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_new_child_real_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @find_dissector(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { allocsize(1) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}

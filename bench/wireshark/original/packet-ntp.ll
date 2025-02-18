@@ -3,32 +3,32 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
 %struct._range_string = type { i64, i64, ptr }
 %struct.true_false_string = type { ptr, ptr }
 %struct._value_string_ext = type { ptr, i32, i32, ptr, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
 %struct.anon.0 = type { ptr, ptr }
 %struct.anon.1 = type { ptr, ptr }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 %struct.nstime_t = type { i64, i32 }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
 %struct.ntp_conv_info_t = type { ptr }
 %struct._wmem_tree_key_t = type { i32, ptr }
-%struct._frame_data = type { i32, i32, i32, i32, i64, ptr, ptr, ptr, i16, i16, %struct.nstime_t, %struct.nstime_t, i32, i32, i8 }
+%struct._frame_data = type <{ i32, i32, i32, i32, i32, [4 x i8], i64, ptr, ptr, ptr, i8, i16, [5 x i8], %struct.nstime_t, %struct.nstime_t, i32, i32 }>
 %struct.ntp_trans_info_t = type { i32, i32, %struct.nstime_t, i32 }
-%struct._proto_node = type { ptr, ptr, ptr, ptr, ptr, ptr }
+%struct._proto_node = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.field_info = type { ptr, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, i32, i32 }
+%struct._nts_used_frames_lookup_t = type { ptr, ptr, i32 }
+%struct._nts_cookie_t = type { i32, ptr, ptr, i16, i8, [64 x i8], [64 x i8] }
+%struct._nts_aead = type { i16, i16, i8, i16, i16 }
 
 @.str = private unnamed_addr constant [5 x i8] c"NULL\00", align 1
 @.str.1 = private unnamed_addr constant [18 x i8] c"Not representable\00", align 1
 @.str.2 = private unnamed_addr constant [30 x i8] c"%s %2d, %d %02d:%02d:%02d UTC\00", align 1
-@mon_names = internal global [12 x ptr] [ptr @.str.595, ptr @.str.596, ptr @.str.597, ptr @.str.598, ptr @.str.599, ptr @.str.600, ptr @.str.601, ptr @.str.602, ptr @.str.603, ptr @.str.604, ptr @.str.605, ptr @.str.606], align 16
-@proto_register_ntp.hf = internal global [293 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_ntp_flags, %struct._header_field_info { ptr @.str.3, ptr @.str.4, i32 4, i32 2, ptr null, i64 0, ptr @.str.5, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_flags_li, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 4, i32 1, ptr @li_types, i64 192, ptr @.str.8, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_flags_vn, %struct._header_field_info { ptr @.str.9, ptr @.str.10, i32 4, i32 1, ptr @ver_nums, i64 56, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_flags_mode, %struct._header_field_info { ptr @.str.11, ptr @.str.12, i32 4, i32 1, ptr @mode_types, i64 7, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_stratum, %struct._header_field_info { ptr @.str.13, ptr @.str.14, i32 4, i32 257, ptr @stratum_rvals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_ppoll, %struct._header_field_info { ptr @.str.15, ptr @.str.16, i32 12, i32 1, ptr null, i64 0, ptr @.str.17, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_precision, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 12, i32 1, ptr null, i64 0, ptr @.str.20, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_rootdelay, %struct._header_field_info { ptr @.str.21, ptr @.str.22, i32 7, i32 1, ptr null, i64 0, ptr @.str.23, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_rootdispersion, %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 7, i32 1, ptr null, i64 0, ptr @.str.26, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_refid, %struct._header_field_info { ptr @.str.27, ptr @.str.28, i32 30, i32 0, ptr null, i64 0, ptr @.str.29, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_reftime, %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 24, i32 21, ptr null, i64 0, ptr @.str.32, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_org, %struct._header_field_info { ptr @.str.33, ptr @.str.34, i32 24, i32 21, ptr null, i64 0, ptr @.str.35, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_rec, %struct._header_field_info { ptr @.str.36, ptr @.str.37, i32 24, i32 21, ptr null, i64 0, ptr @.str.38, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_xmt, %struct._header_field_info { ptr @.str.39, ptr @.str.40, i32 24, i32 21, ptr null, i64 0, ptr @.str.41, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_keyid, %struct._header_field_info { ptr @.str.42, ptr @.str.43, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_mac, %struct._header_field_info { ptr @.str.44, ptr @.str.45, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_padding, %struct._header_field_info { ptr @.str.46, ptr @.str.47, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_key_type, %struct._header_field_info { ptr @.str.48, ptr @.str.49, i32 4, i32 1, ptr @authentication_types, i64 0, ptr @.str.50, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_key_index, %struct._header_field_info { ptr @.str.51, ptr @.str.52, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_key_signature, %struct._header_field_info { ptr @.str.53, ptr @.str.54, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_response_in, %struct._header_field_info { ptr @.str.55, ptr @.str.56, i32 35, i32 0, ptr inttoptr (i64 2 to ptr), i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_request_in, %struct._header_field_info { ptr @.str.57, ptr @.str.58, i32 35, i32 0, ptr inttoptr (i64 1 to ptr), i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_delta_time, %struct._header_field_info { ptr @.str.59, ptr @.str.60, i32 25, i32 0, ptr null, i64 0, ptr @.str.61, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_ext, %struct._header_field_info { ptr @.str.62, ptr @.str.63, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_ext_type, %struct._header_field_info { ptr @.str.64, ptr @.str.65, i32 5, i32 2, ptr @ntp_ext_field_types, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_ext_length, %struct._header_field_info { ptr @.str.66, ptr @.str.67, i32 5, i32 1, ptr null, i64 0, ptr @.str.68, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_ext_value, %struct._header_field_info { ptr @.str.69, ptr @.str.70, i32 30, i32 0, ptr null, i64 0, ptr @.str.71, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_flags2, %struct._header_field_info { ptr @.str.72, ptr @.str.73, i32 4, i32 2, ptr null, i64 0, ptr @.str.74, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_flags2_r, %struct._header_field_info { ptr @.str.75, ptr @.str.76, i32 2, i32 8, ptr @tfs_response_request, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_flags2_error, %struct._header_field_info { ptr @.str.77, ptr @.str.78, i32 4, i32 1, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_flags2_more, %struct._header_field_info { ptr @.str.79, ptr @.str.80, i32 4, i32 1, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_flags2_opcode, %struct._header_field_info { ptr @.str.81, ptr @.str.82, i32 4, i32 1, ptr @ctrl_op_types, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_sequence, %struct._header_field_info { ptr @.str.83, ptr @.str.84, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_status, %struct._header_field_info { ptr @.str.85, ptr @.str.86, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_error_status_word, %struct._header_field_info { ptr @.str.87, ptr @.str.88, i32 5, i32 1, ptr @ctrl_err_status_types, i64 65280, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_sys_status_li, %struct._header_field_info { ptr @.str.6, ptr @.str.89, i32 5, i32 1, ptr @li_types, i64 49152, ptr @.str.8, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_sys_status_clksrc, %struct._header_field_info { ptr @.str.90, ptr @.str.91, i32 5, i32 1, ptr @ctrl_sys_status_clksource_types, i64 16128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_sys_status_count, %struct._header_field_info { ptr @.str.92, ptr @.str.93, i32 5, i32 1, ptr null, i64 240, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_sys_status_code, %struct._header_field_info { ptr @.str.94, ptr @.str.95, i32 5, i32 1, ptr @ctrl_sys_status_event_types, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_peer_status_b0, %struct._header_field_info { ptr @.str.96, ptr @.str.97, i32 2, i32 16, ptr @tfs_ctrl_peer_status_config, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_peer_status_b1, %struct._header_field_info { ptr @.str.96, ptr @.str.98, i32 2, i32 16, ptr @tfs_ctrl_peer_status_authenable, i64 16384, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_peer_status_b2, %struct._header_field_info { ptr @.str.96, ptr @.str.99, i32 2, i32 16, ptr @tfs_ctrl_peer_status_authentic, i64 8192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_peer_status_b3, %struct._header_field_info { ptr @.str.96, ptr @.str.100, i32 2, i32 16, ptr @tfs_ctrl_peer_status_reach, i64 4096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_peer_status_b4, %struct._header_field_info { ptr @.str.101, ptr @.str.102, i32 2, i32 16, ptr @tfs_set_notset, i64 2048, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_peer_status_selection, %struct._header_field_info { ptr @.str.103, ptr @.str.104, i32 5, i32 1, ptr @ctrl_peer_status_selection_types, i64 1792, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_peer_status_count, %struct._header_field_info { ptr @.str.105, ptr @.str.106, i32 5, i32 1, ptr null, i64 240, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_peer_status_code, %struct._header_field_info { ptr @.str.107, ptr @.str.108, i32 5, i32 1, ptr @ctrl_peer_status_event_types, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_clk_status, %struct._header_field_info { ptr @.str.109, ptr @.str.110, i32 5, i32 1, ptr @ctrl_clk_status_types, i64 65280, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_clk_status_code, %struct._header_field_info { ptr @.str.111, ptr @.str.112, i32 5, i32 1, ptr null, i64 255, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_data, %struct._header_field_info { ptr @.str.113, ptr @.str.114, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_item, %struct._header_field_info { ptr @.str.115, ptr @.str.116, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_associd, %struct._header_field_info { ptr @.str.117, ptr @.str.118, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_offset, %struct._header_field_info { ptr @.str.119, ptr @.str.120, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_count, %struct._header_field_info { ptr @.str.121, ptr @.str.122, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_trapmsg, %struct._header_field_info { ptr @.str.123, ptr @.str.124, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_configuration, %struct._header_field_info { ptr @.str.125, ptr @.str.126, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_mru, %struct._header_field_info { ptr @.str.127, ptr @.str.128, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_ordlist, %struct._header_field_info { ptr @.str.129, ptr @.str.130, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_nonce, %struct._header_field_info { ptr @.str.131, ptr @.str.132, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_flags_r, %struct._header_field_info { ptr @.str.75, ptr @.str.133, i32 2, i32 8, ptr @tfs_response_request, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_flags_more, %struct._header_field_info { ptr @.str.79, ptr @.str.134, i32 4, i32 1, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_auth_seq, %struct._header_field_info { ptr @.str.135, ptr @.str.136, i32 4, i32 1, ptr null, i64 0, ptr @.str.137, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_auth, %struct._header_field_info { ptr @.str.138, ptr @.str.139, i32 4, i32 1, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_seq, %struct._header_field_info { ptr @.str.140, ptr @.str.141, i32 4, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_impl, %struct._header_field_info { ptr @.str.142, ptr @.str.143, i32 4, i32 1, ptr @priv_impl_types, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_reqcode, %struct._header_field_info { ptr @.str.144, ptr @.str.145, i32 4, i32 513, ptr @priv_rc_types_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_errcode, %struct._header_field_info { ptr @.str.146, ptr @.str.147, i32 4, i32 2, ptr @err_values_types, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_numitems, %struct._header_field_info { ptr @.str.148, ptr @.str.149, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mbz, %struct._header_field_info { ptr @.str.150, ptr @.str.151, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_item, %struct._header_field_info { ptr @.str.152, ptr @.str.153, i32 27, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_itemsize, %struct._header_field_info { ptr @.str.154, ptr @.str.155, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_avgint, %struct._header_field_info { ptr @.str.156, ptr @.str.157, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_lsint, %struct._header_field_info { ptr @.str.158, ptr @.str.159, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_restr, %struct._header_field_info { ptr @.str.160, ptr @.str.161, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_count, %struct._header_field_info { ptr @.str.162, ptr @.str.163, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_addr, %struct._header_field_info { ptr @.str.164, ptr @.str.165, i32 32, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_daddr, %struct._header_field_info { ptr @.str.166, ptr @.str.167, i32 32, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_flags, %struct._header_field_info { ptr @.str.168, ptr @.str.169, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_port, %struct._header_field_info { ptr @.str.170, ptr @.str.171, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode, %struct._header_field_info { ptr @.str.172, ptr @.str.173, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_version, %struct._header_field_info { ptr @.str.174, ptr @.str.175, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_v6_flag, %struct._header_field_info { ptr @.str.176, ptr @.str.177, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_unused, %struct._header_field_info { ptr @.str.178, ptr @.str.179, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_addr6, %struct._header_field_info { ptr @.str.180, ptr @.str.181, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_daddr6, %struct._header_field_info { ptr @.str.182, ptr @.str.183, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_tstamp, %struct._header_field_info { ptr @.str.184, ptr @.str.185, i32 24, i32 21, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_addr, %struct._header_field_info { ptr @.str.186, ptr @.str.187, i32 32, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_mask, %struct._header_field_info { ptr @.str.188, ptr @.str.189, i32 32, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_bcast, %struct._header_field_info { ptr @.str.190, ptr @.str.191, i32 32, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_port, %struct._header_field_info { ptr @.str.192, ptr @.str.193, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_hmode, %struct._header_field_info { ptr @.str.194, ptr @.str.195, i32 4, i32 1, ptr @mode_types, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_peer_flags, %struct._header_field_info { ptr @.str.3, ptr @.str.196, i32 4, i32 2, ptr null, i64 255, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_v6_flag, %struct._header_field_info { ptr @.str.197, ptr @.str.198, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_unused, %struct._header_field_info { ptr @.str.199, ptr @.str.200, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_addr6, %struct._header_field_info { ptr @.str.201, ptr @.str.202, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_mask6, %struct._header_field_info { ptr @.str.203, ptr @.str.204, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_bcast6, %struct._header_field_info { ptr @.str.205, ptr @.str.206, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_peer_flags_config, %struct._header_field_info { ptr @.str.207, ptr @.str.208, i32 2, i32 8, ptr @tfs_set_notset, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_peer_flags_syspeer, %struct._header_field_info { ptr @.str.209, ptr @.str.210, i32 2, i32 8, ptr @tfs_set_notset, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_peer_flags_burst, %struct._header_field_info { ptr @.str.211, ptr @.str.212, i32 2, i32 8, ptr @tfs_set_notset, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_peer_flags_refclock, %struct._header_field_info { ptr @.str.213, ptr @.str.214, i32 2, i32 8, ptr @tfs_set_notset, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_peer_flags_prefer, %struct._header_field_info { ptr @.str.215, ptr @.str.216, i32 2, i32 8, ptr @tfs_set_notset, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_peer_flags_authenable, %struct._header_field_info { ptr @.str.217, ptr @.str.218, i32 2, i32 8, ptr @tfs_set_notset, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_peer_flags_sel_candidate, %struct._header_field_info { ptr @.str.219, ptr @.str.220, i32 2, i32 8, ptr @tfs_set_notset, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_peer_flags_shortlist, %struct._header_field_info { ptr @.str.221, ptr @.str.222, i32 2, i32 8, ptr @tfs_set_notset, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_dstaddr, %struct._header_field_info { ptr @.str.223, ptr @.str.224, i32 32, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_srcaddr, %struct._header_field_info { ptr @.str.225, ptr @.str.226, i32 32, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_srcport, %struct._header_field_info { ptr @.str.227, ptr @.str.228, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_count, %struct._header_field_info { ptr @.str.121, ptr @.str.229, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_hpoll, %struct._header_field_info { ptr @.str.230, ptr @.str.231, i32 12, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_reach, %struct._header_field_info { ptr @.str.232, ptr @.str.233, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_delay, %struct._header_field_info { ptr @.str.234, ptr @.str.235, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_offset, %struct._header_field_info { ptr @.str.119, ptr @.str.236, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_dispersion, %struct._header_field_info { ptr @.str.237, ptr @.str.238, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_dstaddr6, %struct._header_field_info { ptr @.str.239, ptr @.str.240, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_srcaddr6, %struct._header_field_info { ptr @.str.241, ptr @.str.242, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_leap, %struct._header_field_info { ptr @.str.243, ptr @.str.244, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_pmode, %struct._header_field_info { ptr @.str.245, ptr @.str.246, i32 4, i32 1, ptr @mode_types, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_version, %struct._header_field_info { ptr @.str.247, ptr @.str.248, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_unreach, %struct._header_field_info { ptr @.str.249, ptr @.str.250, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_flash, %struct._header_field_info { ptr @.str.251, ptr @.str.252, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_ttl, %struct._header_field_info { ptr @.str.253, ptr @.str.254, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_flash2, %struct._header_field_info { ptr @.str.255, ptr @.str.256, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_associd, %struct._header_field_info { ptr @.str.257, ptr @.str.258, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_pkeyid, %struct._header_field_info { ptr @.str.259, ptr @.str.260, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_timer, %struct._header_field_info { ptr @.str.261, ptr @.str.262, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_filtdelay, %struct._header_field_info { ptr @.str.263, ptr @.str.264, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_filtoffset, %struct._header_field_info { ptr @.str.265, ptr @.str.266, i32 19, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_order, %struct._header_field_info { ptr @.str.267, ptr @.str.268, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_selectdis, %struct._header_field_info { ptr @.str.269, ptr @.str.270, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_estbdelay, %struct._header_field_info { ptr @.str.271, ptr @.str.272, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_bdelay, %struct._header_field_info { ptr @.str.273, ptr @.str.274, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_authdelay, %struct._header_field_info { ptr @.str.275, ptr @.str.276, i32 19, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_minpoll, %struct._header_field_info { ptr @.str.277, ptr @.str.278, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_maxpoll, %struct._header_field_info { ptr @.str.279, ptr @.str.280, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_config_flags, %struct._header_field_info { ptr @.str.3, ptr @.str.281, i32 4, i32 2, ptr null, i64 255, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_config_flags_auth, %struct._header_field_info { ptr @.str.282, ptr @.str.283, i32 2, i32 8, ptr @tfs_set_notset, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_config_flags_prefer, %struct._header_field_info { ptr @.str.215, ptr @.str.284, i32 2, i32 8, ptr @tfs_set_notset, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_config_flags_burst, %struct._header_field_info { ptr @.str.211, ptr @.str.285, i32 2, i32 8, ptr @tfs_set_notset, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_config_flags_iburst, %struct._header_field_info { ptr @.str.286, ptr @.str.287, i32 2, i32 8, ptr @tfs_set_notset, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_config_flags_noselect, %struct._header_field_info { ptr @.str.288, ptr @.str.289, i32 2, i32 8, ptr @tfs_set_notset, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_config_flags_skey, %struct._header_field_info { ptr @.str.290, ptr @.str.291, i32 2, i32 8, ptr @tfs_set_notset, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_key_file, %struct._header_field_info { ptr @.str.292, ptr @.str.293, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_sys_flags, %struct._header_field_info { ptr @.str.3, ptr @.str.294, i32 7, i32 2, ptr null, i64 255, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_sys_flags_bclient, %struct._header_field_info { ptr @.str.295, ptr @.str.296, i32 2, i32 8, ptr @tfs_set_notset, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_sys_flags_pps, %struct._header_field_info { ptr @.str.297, ptr @.str.298, i32 2, i32 8, ptr @tfs_set_notset, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_sys_flags_ntp, %struct._header_field_info { ptr @.str.299, ptr @.str.300, i32 2, i32 8, ptr @tfs_set_notset, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_sys_flags_kernel, %struct._header_field_info { ptr @.str.301, ptr @.str.302, i32 2, i32 8, ptr @tfs_set_notset, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_sys_flags_monitor, %struct._header_field_info { ptr @.str.303, ptr @.str.304, i32 2, i32 8, ptr @tfs_set_notset, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_sys_flags_filegen, %struct._header_field_info { ptr @.str.305, ptr @.str.306, i32 2, i32 8, ptr @tfs_set_notset, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_sys_flags_auth, %struct._header_field_info { ptr @.str.307, ptr @.str.308, i32 2, i32 8, ptr @tfs_set_notset, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_sys_flags_cal, %struct._header_field_info { ptr @.str.309, ptr @.str.310, i32 2, i32 8, ptr @tfs_set_notset, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_reset_stats_flags, %struct._header_field_info { ptr @.str.3, ptr @.str.311, i32 7, i32 2, ptr null, i64 255, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_reset_stats_flags_allpeers, %struct._header_field_info { ptr @.str.312, ptr @.str.313, i32 2, i32 32, ptr @tfs_set_notset, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_reset_stats_flags_io, %struct._header_field_info { ptr @.str.314, ptr @.str.315, i32 2, i32 32, ptr @tfs_set_notset, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_reset_stats_flags_sys, %struct._header_field_info { ptr @.str.316, ptr @.str.317, i32 2, i32 32, ptr @tfs_set_notset, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_reset_stats_flags_mem, %struct._header_field_info { ptr @.str.318, ptr @.str.319, i32 2, i32 32, ptr @tfs_set_notset, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_reset_stats_flags_timer, %struct._header_field_info { ptr @.str.261, ptr @.str.320, i32 2, i32 32, ptr @tfs_set_notset, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_reset_stats_flags_auth, %struct._header_field_info { ptr @.str.307, ptr @.str.321, i32 2, i32 32, ptr @tfs_set_notset, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_reset_stats_flags_ctl, %struct._header_field_info { ptr @.str.322, ptr @.str.323, i32 2, i32 32, ptr @tfs_set_notset, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_key, %struct._header_field_info { ptr @.str.324, ptr @.str.325, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_timeup, %struct._header_field_info { ptr @.str.326, ptr @.str.327, i32 7, i32 1, ptr null, i64 0, ptr @.str.328, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_timereset, %struct._header_field_info { ptr @.str.329, ptr @.str.330, i32 7, i32 1, ptr null, i64 0, ptr @.str.328, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_timereceived, %struct._header_field_info { ptr @.str.331, ptr @.str.332, i32 7, i32 1, ptr null, i64 0, ptr @.str.333, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_timetosend, %struct._header_field_info { ptr @.str.334, ptr @.str.335, i32 7, i32 1, ptr null, i64 0, ptr @.str.336, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_timereachable, %struct._header_field_info { ptr @.str.337, ptr @.str.338, i32 7, i32 1, ptr null, i64 0, ptr @.str.339, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_sent, %struct._header_field_info { ptr @.str.340, ptr @.str.341, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_processed, %struct._header_field_info { ptr @.str.342, ptr @.str.343, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_badauth, %struct._header_field_info { ptr @.str.344, ptr @.str.345, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_bogusorg, %struct._header_field_info { ptr @.str.346, ptr @.str.347, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_oldpkt, %struct._header_field_info { ptr @.str.348, ptr @.str.349, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_seldisp, %struct._header_field_info { ptr @.str.350, ptr @.str.351, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_selbroken, %struct._header_field_info { ptr @.str.352, ptr @.str.353, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_candidate, %struct._header_field_info { ptr @.str.354, ptr @.str.355, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_numkeys, %struct._header_field_info { ptr @.str.356, ptr @.str.357, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_numfreekeys, %struct._header_field_info { ptr @.str.358, ptr @.str.359, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_keylookups, %struct._header_field_info { ptr @.str.360, ptr @.str.361, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_keynotfound, %struct._header_field_info { ptr @.str.362, ptr @.str.363, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_encryptions, %struct._header_field_info { ptr @.str.364, ptr @.str.365, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_decryptions, %struct._header_field_info { ptr @.str.366, ptr @.str.367, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_expired, %struct._header_field_info { ptr @.str.368, ptr @.str.369, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_keyuncached, %struct._header_field_info { ptr @.str.370, ptr @.str.371, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_local_addr, %struct._header_field_info { ptr @.str.372, ptr @.str.373, i32 32, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_trap_addr, %struct._header_field_info { ptr @.str.374, ptr @.str.375, i32 32, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_trap_port, %struct._header_field_info { ptr @.str.376, ptr @.str.377, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_sequence, %struct._header_field_info { ptr @.str.140, ptr @.str.378, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_settime, %struct._header_field_info { ptr @.str.379, ptr @.str.380, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_origtime, %struct._header_field_info { ptr @.str.381, ptr @.str.382, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_resets, %struct._header_field_info { ptr @.str.383, ptr @.str.384, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_traps_flags, %struct._header_field_info { ptr @.str.3, ptr @.str.385, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_local_addr6, %struct._header_field_info { ptr @.str.386, ptr @.str.387, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_trap_addr6, %struct._header_field_info { ptr @.str.388, ptr @.str.389, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_req, %struct._header_field_info { ptr @.str.390, ptr @.str.391, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_badpkts, %struct._header_field_info { ptr @.str.392, ptr @.str.393, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_responses, %struct._header_field_info { ptr @.str.394, ptr @.str.395, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_frags, %struct._header_field_info { ptr @.str.396, ptr @.str.397, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_errors, %struct._header_field_info { ptr @.str.398, ptr @.str.399, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_tooshort, %struct._header_field_info { ptr @.str.400, ptr @.str.401, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_inputresp, %struct._header_field_info { ptr @.str.402, ptr @.str.403, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_inputfrag, %struct._header_field_info { ptr @.str.404, ptr @.str.405, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_inputerr, %struct._header_field_info { ptr @.str.406, ptr @.str.407, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_badoffset, %struct._header_field_info { ptr @.str.408, ptr @.str.409, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_badversion, %struct._header_field_info { ptr @.str.410, ptr @.str.411, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_datatooshort, %struct._header_field_info { ptr @.str.412, ptr @.str.413, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_badop, %struct._header_field_info { ptr @.str.414, ptr @.str.415, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_asyncmsgs, %struct._header_field_info { ptr @.str.416, ptr @.str.417, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_type, %struct._header_field_info { ptr @.str.418, ptr @.str.419, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_clock_flags, %struct._header_field_info { ptr @.str.420, ptr @.str.421, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_lastevent, %struct._header_field_info { ptr @.str.422, ptr @.str.423, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_currentstatus, %struct._header_field_info { ptr @.str.424, ptr @.str.425, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_polls, %struct._header_field_info { ptr @.str.426, ptr @.str.427, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_noresponse, %struct._header_field_info { ptr @.str.428, ptr @.str.429, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_badformat, %struct._header_field_info { ptr @.str.430, ptr @.str.431, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_baddata, %struct._header_field_info { ptr @.str.432, ptr @.str.433, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_timestarted, %struct._header_field_info { ptr @.str.434, ptr @.str.435, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_fudgetime1, %struct._header_field_info { ptr @.str.436, ptr @.str.437, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_fudgetime2, %struct._header_field_info { ptr @.str.438, ptr @.str.439, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_fudgeval1, %struct._header_field_info { ptr @.str.440, ptr @.str.441, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_fudgeval2, %struct._header_field_info { ptr @.str.442, ptr @.str.443, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_kernel_offset, %struct._header_field_info { ptr @.str.119, ptr @.str.444, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_freq, %struct._header_field_info { ptr @.str.445, ptr @.str.446, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_stability, %struct._header_field_info { ptr @.str.447, ptr @.str.448, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_maxerror, %struct._header_field_info { ptr @.str.449, ptr @.str.450, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_esterror, %struct._header_field_info { ptr @.str.451, ptr @.str.452, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_status, %struct._header_field_info { ptr @.str.85, ptr @.str.453, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_shift, %struct._header_field_info { ptr @.str.454, ptr @.str.455, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_constant, %struct._header_field_info { ptr @.str.456, ptr @.str.457, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_precision, %struct._header_field_info { ptr @.str.458, ptr @.str.459, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_tolerance, %struct._header_field_info { ptr @.str.460, ptr @.str.461, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_ppsfreq, %struct._header_field_info { ptr @.str.462, ptr @.str.463, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_jitter, %struct._header_field_info { ptr @.str.464, ptr @.str.465, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_stabil, %struct._header_field_info { ptr @.str.466, ptr @.str.467, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_jitcnt, %struct._header_field_info { ptr @.str.468, ptr @.str.469, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_calcnt, %struct._header_field_info { ptr @.str.470, ptr @.str.471, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_errcnt, %struct._header_field_info { ptr @.str.472, ptr @.str.473, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_stbcnt, %struct._header_field_info { ptr @.str.474, ptr @.str.475, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_last_offset, %struct._header_field_info { ptr @.str.476, ptr @.str.477, i32 19, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_drift_comp, %struct._header_field_info { ptr @.str.478, ptr @.str.479, i32 19, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_compliance, %struct._header_field_info { ptr @.str.480, ptr @.str.481, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_watchdog_timer, %struct._header_field_info { ptr @.str.482, ptr @.str.483, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_poll32, %struct._header_field_info { ptr @.str.484, ptr @.str.485, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_sys_flags8, %struct._header_field_info { ptr @.str.3, ptr @.str.486, i32 4, i32 2, ptr null, i64 255, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_denied, %struct._header_field_info { ptr @.str.487, ptr @.str.488, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_oldversion, %struct._header_field_info { ptr @.str.489, ptr @.str.490, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_newversion, %struct._header_field_info { ptr @.str.491, ptr @.str.492, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_badlength, %struct._header_field_info { ptr @.str.493, ptr @.str.494, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_limitrejected, %struct._header_field_info { ptr @.str.495, ptr @.str.496, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_lamport, %struct._header_field_info { ptr @.str.497, ptr @.str.498, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_tsrounding, %struct._header_field_info { ptr @.str.499, ptr @.str.500, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_totalmem, %struct._header_field_info { ptr @.str.501, ptr @.str.502, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_freemem, %struct._header_field_info { ptr @.str.503, ptr @.str.504, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_findpeer_calls, %struct._header_field_info { ptr @.str.505, ptr @.str.506, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_allocations, %struct._header_field_info { ptr @.str.507, ptr @.str.508, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_demobilizations, %struct._header_field_info { ptr @.str.509, ptr @.str.510, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_hashcount, %struct._header_field_info { ptr @.str.511, ptr @.str.512, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_totalrecvbufs, %struct._header_field_info { ptr @.str.513, ptr @.str.514, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_freerecvbufs, %struct._header_field_info { ptr @.str.515, ptr @.str.516, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_fullrecvbufs, %struct._header_field_info { ptr @.str.517, ptr @.str.518, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_lowwater, %struct._header_field_info { ptr @.str.519, ptr @.str.520, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_dropped, %struct._header_field_info { ptr @.str.521, ptr @.str.522, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_ignored, %struct._header_field_info { ptr @.str.523, ptr @.str.524, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_received, %struct._header_field_info { ptr @.str.525, ptr @.str.526, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_notsent, %struct._header_field_info { ptr @.str.527, ptr @.str.528, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_interrupts, %struct._header_field_info { ptr @.str.529, ptr @.str.530, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_int_received, %struct._header_field_info { ptr @.str.531, ptr @.str.532, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_alarms, %struct._header_field_info { ptr @.str.533, ptr @.str.534, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_overflows, %struct._header_field_info { ptr @.str.535, ptr @.str.536, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_xmtcalls, %struct._header_field_info { ptr @.str.537, ptr @.str.538, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_rflags, %struct._header_field_info { ptr @.str.539, ptr @.str.540, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_mflags, %struct._header_field_info { ptr @.str.541, ptr @.str.542, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_int_name, %struct._header_field_info { ptr @.str.543, ptr @.str.544, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_int_flags, %struct._header_field_info { ptr @.str.545, ptr @.str.546, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_last_ttl, %struct._header_field_info { ptr @.str.547, ptr @.str.548, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_num_mcast, %struct._header_field_info { ptr @.str.549, ptr @.str.550, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_uptime, %struct._header_field_info { ptr @.str.551, ptr @.str.552, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_scopeid, %struct._header_field_info { ptr @.str.553, ptr @.str.554, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_ifindex, %struct._header_field_info { ptr @.str.555, ptr @.str.556, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_ifnum, %struct._header_field_info { ptr @.str.557, ptr @.str.558, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_peercnt, %struct._header_field_info { ptr @.str.559, ptr @.str.560, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_family, %struct._header_field_info { ptr @.str.561, ptr @.str.562, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_ignore_pkt, %struct._header_field_info { ptr @.str.563, ptr @.str.564, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_action, %struct._header_field_info { ptr @.str.565, ptr @.str.566, i32 4, i32 1, ptr @priv_mode7_int_action, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_nvalues, %struct._header_field_info { ptr @.str.567, ptr @.str.568, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_ntimes, %struct._header_field_info { ptr @.str.569, ptr @.str.570, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_svalues, %struct._header_field_info { ptr @.str.571, ptr @.str.572, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_stimes, %struct._header_field_info { ptr @.str.573, ptr @.str.574, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_values, %struct._header_field_info { ptr @.str.575, ptr @.str.576, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_times, %struct._header_field_info { ptr @.str.577, ptr @.str.578, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_which, %struct._header_field_info { ptr @.str.579, ptr @.str.580, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_fudgetime, %struct._header_field_info { ptr @.str.581, ptr @.str.582, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_fudgeval_flags, %struct._header_field_info { ptr @.str.583, ptr @.str.584, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_ippeerlimit, %struct._header_field_info { ptr @.str.585, ptr @.str.586, i32 13, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_restrict_flags, %struct._header_field_info { ptr @.str.587, ptr @.str.588, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
+@mon_names = internal global [12 x ptr] [ptr @.str.616, ptr @.str.617, ptr @.str.618, ptr @.str.619, ptr @.str.620, ptr @.str.621, ptr @.str.622, ptr @.str.623, ptr @.str.624, ptr @.str.625, ptr @.str.626, ptr @.str.627], align 16
+@proto_register_ntp.hf = internal global [301 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_ntp_flags, %struct._header_field_info { ptr @.str.3, ptr @.str.4, i32 4, i32 2, ptr null, i64 0, ptr @.str.5, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_flags_li, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 4, i32 1, ptr @li_types, i64 192, ptr @.str.8, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_flags_vn, %struct._header_field_info { ptr @.str.9, ptr @.str.10, i32 4, i32 1, ptr @ver_nums, i64 56, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_flags_mode, %struct._header_field_info { ptr @.str.11, ptr @.str.12, i32 4, i32 1, ptr @mode_types, i64 7, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_stratum, %struct._header_field_info { ptr @.str.13, ptr @.str.14, i32 4, i32 257, ptr @stratum_rvals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_ppoll, %struct._header_field_info { ptr @.str.15, ptr @.str.16, i32 12, i32 1, ptr null, i64 0, ptr @.str.17, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_precision, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 12, i32 1, ptr null, i64 0, ptr @.str.20, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_rootdelay, %struct._header_field_info { ptr @.str.21, ptr @.str.22, i32 7, i32 1, ptr null, i64 0, ptr @.str.23, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_rootdispersion, %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 7, i32 1, ptr null, i64 0, ptr @.str.26, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_refid, %struct._header_field_info { ptr @.str.27, ptr @.str.28, i32 30, i32 0, ptr null, i64 0, ptr @.str.29, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_reftime, %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 24, i32 21, ptr null, i64 0, ptr @.str.32, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_org, %struct._header_field_info { ptr @.str.33, ptr @.str.34, i32 24, i32 21, ptr null, i64 0, ptr @.str.35, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_rec, %struct._header_field_info { ptr @.str.36, ptr @.str.37, i32 24, i32 21, ptr null, i64 0, ptr @.str.38, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_xmt, %struct._header_field_info { ptr @.str.39, ptr @.str.40, i32 24, i32 21, ptr null, i64 0, ptr @.str.41, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_keyid, %struct._header_field_info { ptr @.str.42, ptr @.str.43, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_mac, %struct._header_field_info { ptr @.str.44, ptr @.str.45, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_padding, %struct._header_field_info { ptr @.str.46, ptr @.str.47, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_key_type, %struct._header_field_info { ptr @.str.48, ptr @.str.49, i32 4, i32 1, ptr @authentication_types, i64 0, ptr @.str.50, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_key_index, %struct._header_field_info { ptr @.str.51, ptr @.str.52, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_key_signature, %struct._header_field_info { ptr @.str.53, ptr @.str.54, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_response_in, %struct._header_field_info { ptr @.str.55, ptr @.str.56, i32 35, i32 0, ptr inttoptr (i64 2 to ptr), i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_request_in, %struct._header_field_info { ptr @.str.57, ptr @.str.58, i32 35, i32 0, ptr inttoptr (i64 1 to ptr), i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_delta_time, %struct._header_field_info { ptr @.str.59, ptr @.str.60, i32 25, i32 0, ptr null, i64 0, ptr @.str.61, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_ext, %struct._header_field_info { ptr @.str.62, ptr @.str.63, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_ext_type, %struct._header_field_info { ptr @.str.64, ptr @.str.65, i32 5, i32 258, ptr @ntp_ext_field_types, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_ext_length, %struct._header_field_info { ptr @.str.66, ptr @.str.67, i32 5, i32 1, ptr null, i64 0, ptr @.str.68, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_ext_value, %struct._header_field_info { ptr @.str.69, ptr @.str.70, i32 30, i32 0, ptr null, i64 0, ptr @.str.71, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_ext_nts, %struct._header_field_info { ptr @.str.72, ptr @.str.73, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_nts_nonce_length, %struct._header_field_info { ptr @.str.74, ptr @.str.75, i32 5, i32 1, ptr null, i64 0, ptr @.str.76, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_nts_ciphertext_length, %struct._header_field_info { ptr @.str.77, ptr @.str.78, i32 5, i32 1, ptr null, i64 0, ptr @.str.79, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_nts_nonce, %struct._header_field_info { ptr @.str.80, ptr @.str.81, i32 30, i32 0, ptr null, i64 0, ptr @.str.79, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_nts_ciphertext, %struct._header_field_info { ptr @.str.82, ptr @.str.83, i32 30, i32 0, ptr null, i64 0, ptr @.str.79, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_nts_cookie_receive_frame, %struct._header_field_info { ptr @.str.84, ptr @.str.85, i32 35, i32 0, ptr null, i64 0, ptr @.str.86, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_nts_cookie_used_frame, %struct._header_field_info { ptr @.str.87, ptr @.str.88, i32 35, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntp_nts_crypto_success, %struct._header_field_info { ptr @.str.89, ptr @.str.90, i32 2, i32 0, ptr @tfs_yes_no, i64 0, ptr @.str.91, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_flags2, %struct._header_field_info { ptr @.str.92, ptr @.str.93, i32 4, i32 2, ptr null, i64 0, ptr @.str.94, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_flags2_r, %struct._header_field_info { ptr @.str.95, ptr @.str.96, i32 2, i32 8, ptr @tfs_response_request, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_flags2_error, %struct._header_field_info { ptr @.str.97, ptr @.str.98, i32 4, i32 1, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_flags2_more, %struct._header_field_info { ptr @.str.99, ptr @.str.100, i32 4, i32 1, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_flags2_opcode, %struct._header_field_info { ptr @.str.101, ptr @.str.102, i32 4, i32 1, ptr @ctrl_op_types, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_sequence, %struct._header_field_info { ptr @.str.103, ptr @.str.104, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_status, %struct._header_field_info { ptr @.str.105, ptr @.str.106, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_error_status_word, %struct._header_field_info { ptr @.str.107, ptr @.str.108, i32 5, i32 1, ptr @ctrl_err_status_types, i64 65280, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_sys_status_li, %struct._header_field_info { ptr @.str.6, ptr @.str.109, i32 5, i32 1, ptr @li_types, i64 49152, ptr @.str.8, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_sys_status_clksrc, %struct._header_field_info { ptr @.str.110, ptr @.str.111, i32 5, i32 1, ptr @ctrl_sys_status_clksource_types, i64 16128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_sys_status_count, %struct._header_field_info { ptr @.str.112, ptr @.str.113, i32 5, i32 1, ptr null, i64 240, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_sys_status_code, %struct._header_field_info { ptr @.str.114, ptr @.str.115, i32 5, i32 1, ptr @ctrl_sys_status_event_types, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_peer_status_b0, %struct._header_field_info { ptr @.str.116, ptr @.str.117, i32 2, i32 16, ptr @tfs_ctrl_peer_status_config, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_peer_status_b1, %struct._header_field_info { ptr @.str.116, ptr @.str.118, i32 2, i32 16, ptr @tfs_ctrl_peer_status_authenable, i64 16384, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_peer_status_b2, %struct._header_field_info { ptr @.str.116, ptr @.str.119, i32 2, i32 16, ptr @tfs_ctrl_peer_status_authentic, i64 8192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_peer_status_b3, %struct._header_field_info { ptr @.str.116, ptr @.str.120, i32 2, i32 16, ptr @tfs_ctrl_peer_status_reach, i64 4096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_peer_status_b4, %struct._header_field_info { ptr @.str.121, ptr @.str.122, i32 2, i32 16, ptr @tfs_set_notset, i64 2048, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_peer_status_selection, %struct._header_field_info { ptr @.str.123, ptr @.str.124, i32 5, i32 1, ptr @ctrl_peer_status_selection_types, i64 1792, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_peer_status_count, %struct._header_field_info { ptr @.str.125, ptr @.str.126, i32 5, i32 1, ptr null, i64 240, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_peer_status_code, %struct._header_field_info { ptr @.str.127, ptr @.str.128, i32 5, i32 1, ptr @ctrl_peer_status_event_types, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_clk_status, %struct._header_field_info { ptr @.str.129, ptr @.str.130, i32 5, i32 1, ptr @ctrl_clk_status_types, i64 65280, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_clk_status_code, %struct._header_field_info { ptr @.str.131, ptr @.str.132, i32 5, i32 1, ptr null, i64 255, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_data, %struct._header_field_info { ptr @.str.133, ptr @.str.134, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_item, %struct._header_field_info { ptr @.str.135, ptr @.str.136, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_associd, %struct._header_field_info { ptr @.str.137, ptr @.str.138, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_offset, %struct._header_field_info { ptr @.str.139, ptr @.str.140, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_count, %struct._header_field_info { ptr @.str.141, ptr @.str.142, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_trapmsg, %struct._header_field_info { ptr @.str.143, ptr @.str.144, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_configuration, %struct._header_field_info { ptr @.str.145, ptr @.str.146, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_mru, %struct._header_field_info { ptr @.str.147, ptr @.str.148, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_ordlist, %struct._header_field_info { ptr @.str.149, ptr @.str.150, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntpctrl_nonce, %struct._header_field_info { ptr @.str.80, ptr @.str.151, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_flags_r, %struct._header_field_info { ptr @.str.95, ptr @.str.152, i32 2, i32 8, ptr @tfs_response_request, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_flags_more, %struct._header_field_info { ptr @.str.99, ptr @.str.153, i32 4, i32 1, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_auth_seq, %struct._header_field_info { ptr @.str.154, ptr @.str.155, i32 4, i32 1, ptr null, i64 0, ptr @.str.156, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_auth, %struct._header_field_info { ptr @.str.157, ptr @.str.158, i32 4, i32 1, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_seq, %struct._header_field_info { ptr @.str.159, ptr @.str.160, i32 4, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_impl, %struct._header_field_info { ptr @.str.161, ptr @.str.162, i32 4, i32 1, ptr @priv_impl_types, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_reqcode, %struct._header_field_info { ptr @.str.163, ptr @.str.164, i32 4, i32 513, ptr @priv_rc_types_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_errcode, %struct._header_field_info { ptr @.str.165, ptr @.str.166, i32 4, i32 2, ptr @err_values_types, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_numitems, %struct._header_field_info { ptr @.str.167, ptr @.str.168, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mbz, %struct._header_field_info { ptr @.str.169, ptr @.str.170, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_item, %struct._header_field_info { ptr @.str.171, ptr @.str.172, i32 27, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_itemsize, %struct._header_field_info { ptr @.str.173, ptr @.str.174, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_avgint, %struct._header_field_info { ptr @.str.175, ptr @.str.176, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_lsint, %struct._header_field_info { ptr @.str.177, ptr @.str.178, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_restr, %struct._header_field_info { ptr @.str.179, ptr @.str.180, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_count, %struct._header_field_info { ptr @.str.181, ptr @.str.182, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_addr, %struct._header_field_info { ptr @.str.183, ptr @.str.184, i32 32, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_daddr, %struct._header_field_info { ptr @.str.185, ptr @.str.186, i32 32, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_flags, %struct._header_field_info { ptr @.str.187, ptr @.str.188, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_port, %struct._header_field_info { ptr @.str.189, ptr @.str.190, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode, %struct._header_field_info { ptr @.str.191, ptr @.str.192, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_version, %struct._header_field_info { ptr @.str.193, ptr @.str.194, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_v6_flag, %struct._header_field_info { ptr @.str.195, ptr @.str.196, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_unused, %struct._header_field_info { ptr @.str.197, ptr @.str.198, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_addr6, %struct._header_field_info { ptr @.str.199, ptr @.str.200, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_daddr6, %struct._header_field_info { ptr @.str.201, ptr @.str.202, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_tstamp, %struct._header_field_info { ptr @.str.203, ptr @.str.204, i32 24, i32 21, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_addr, %struct._header_field_info { ptr @.str.205, ptr @.str.206, i32 32, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_mask, %struct._header_field_info { ptr @.str.207, ptr @.str.208, i32 32, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_bcast, %struct._header_field_info { ptr @.str.209, ptr @.str.210, i32 32, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_port, %struct._header_field_info { ptr @.str.211, ptr @.str.212, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_hmode, %struct._header_field_info { ptr @.str.213, ptr @.str.214, i32 4, i32 1, ptr @mode_types, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_peer_flags, %struct._header_field_info { ptr @.str.3, ptr @.str.215, i32 4, i32 2, ptr null, i64 255, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_v6_flag, %struct._header_field_info { ptr @.str.216, ptr @.str.217, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_unused, %struct._header_field_info { ptr @.str.218, ptr @.str.219, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_addr6, %struct._header_field_info { ptr @.str.220, ptr @.str.221, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_mask6, %struct._header_field_info { ptr @.str.222, ptr @.str.223, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_bcast6, %struct._header_field_info { ptr @.str.224, ptr @.str.225, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_peer_flags_config, %struct._header_field_info { ptr @.str.226, ptr @.str.227, i32 2, i32 8, ptr @tfs_set_notset, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_peer_flags_syspeer, %struct._header_field_info { ptr @.str.228, ptr @.str.229, i32 2, i32 8, ptr @tfs_set_notset, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_peer_flags_burst, %struct._header_field_info { ptr @.str.230, ptr @.str.231, i32 2, i32 8, ptr @tfs_set_notset, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_peer_flags_refclock, %struct._header_field_info { ptr @.str.232, ptr @.str.233, i32 2, i32 8, ptr @tfs_set_notset, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_peer_flags_prefer, %struct._header_field_info { ptr @.str.234, ptr @.str.235, i32 2, i32 8, ptr @tfs_set_notset, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_peer_flags_authenable, %struct._header_field_info { ptr @.str.236, ptr @.str.237, i32 2, i32 8, ptr @tfs_set_notset, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_peer_flags_sel_candidate, %struct._header_field_info { ptr @.str.238, ptr @.str.239, i32 2, i32 8, ptr @tfs_set_notset, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_peer_flags_shortlist, %struct._header_field_info { ptr @.str.240, ptr @.str.241, i32 2, i32 8, ptr @tfs_set_notset, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_dstaddr, %struct._header_field_info { ptr @.str.242, ptr @.str.243, i32 32, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_srcaddr, %struct._header_field_info { ptr @.str.244, ptr @.str.245, i32 32, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_srcport, %struct._header_field_info { ptr @.str.246, ptr @.str.247, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_count, %struct._header_field_info { ptr @.str.141, ptr @.str.248, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_hpoll, %struct._header_field_info { ptr @.str.249, ptr @.str.250, i32 12, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_reach, %struct._header_field_info { ptr @.str.251, ptr @.str.252, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_delay, %struct._header_field_info { ptr @.str.253, ptr @.str.254, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_offset, %struct._header_field_info { ptr @.str.139, ptr @.str.255, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_dispersion, %struct._header_field_info { ptr @.str.256, ptr @.str.257, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_dstaddr6, %struct._header_field_info { ptr @.str.258, ptr @.str.259, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_srcaddr6, %struct._header_field_info { ptr @.str.260, ptr @.str.261, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_leap, %struct._header_field_info { ptr @.str.262, ptr @.str.263, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_pmode, %struct._header_field_info { ptr @.str.264, ptr @.str.265, i32 4, i32 1, ptr @mode_types, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_version, %struct._header_field_info { ptr @.str.266, ptr @.str.267, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_unreach, %struct._header_field_info { ptr @.str.268, ptr @.str.269, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_flash, %struct._header_field_info { ptr @.str.270, ptr @.str.271, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_ttl, %struct._header_field_info { ptr @.str.272, ptr @.str.273, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_flash2, %struct._header_field_info { ptr @.str.274, ptr @.str.275, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_associd, %struct._header_field_info { ptr @.str.276, ptr @.str.277, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_pkeyid, %struct._header_field_info { ptr @.str.278, ptr @.str.279, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_timer, %struct._header_field_info { ptr @.str.280, ptr @.str.281, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_filtdelay, %struct._header_field_info { ptr @.str.282, ptr @.str.283, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_filtoffset, %struct._header_field_info { ptr @.str.284, ptr @.str.285, i32 19, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_order, %struct._header_field_info { ptr @.str.286, ptr @.str.287, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_selectdis, %struct._header_field_info { ptr @.str.288, ptr @.str.289, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_estbdelay, %struct._header_field_info { ptr @.str.290, ptr @.str.291, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_bdelay, %struct._header_field_info { ptr @.str.292, ptr @.str.293, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_authdelay, %struct._header_field_info { ptr @.str.294, ptr @.str.295, i32 19, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_minpoll, %struct._header_field_info { ptr @.str.296, ptr @.str.297, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_maxpoll, %struct._header_field_info { ptr @.str.298, ptr @.str.299, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_config_flags, %struct._header_field_info { ptr @.str.3, ptr @.str.300, i32 4, i32 2, ptr null, i64 255, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_config_flags_auth, %struct._header_field_info { ptr @.str.301, ptr @.str.302, i32 2, i32 8, ptr @tfs_set_notset, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_config_flags_prefer, %struct._header_field_info { ptr @.str.234, ptr @.str.303, i32 2, i32 8, ptr @tfs_set_notset, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_config_flags_burst, %struct._header_field_info { ptr @.str.230, ptr @.str.304, i32 2, i32 8, ptr @tfs_set_notset, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_config_flags_iburst, %struct._header_field_info { ptr @.str.305, ptr @.str.306, i32 2, i32 8, ptr @tfs_set_notset, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_config_flags_noselect, %struct._header_field_info { ptr @.str.307, ptr @.str.308, i32 2, i32 8, ptr @tfs_set_notset, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_config_flags_skey, %struct._header_field_info { ptr @.str.309, ptr @.str.310, i32 2, i32 8, ptr @tfs_set_notset, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_key_file, %struct._header_field_info { ptr @.str.311, ptr @.str.312, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_sys_flags, %struct._header_field_info { ptr @.str.3, ptr @.str.313, i32 7, i32 2, ptr null, i64 255, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_sys_flags_bclient, %struct._header_field_info { ptr @.str.314, ptr @.str.315, i32 2, i32 8, ptr @tfs_set_notset, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_sys_flags_pps, %struct._header_field_info { ptr @.str.316, ptr @.str.317, i32 2, i32 8, ptr @tfs_set_notset, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_sys_flags_ntp, %struct._header_field_info { ptr @.str.318, ptr @.str.319, i32 2, i32 8, ptr @tfs_set_notset, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_sys_flags_kernel, %struct._header_field_info { ptr @.str.320, ptr @.str.321, i32 2, i32 8, ptr @tfs_set_notset, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_sys_flags_monitor, %struct._header_field_info { ptr @.str.322, ptr @.str.323, i32 2, i32 8, ptr @tfs_set_notset, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_sys_flags_filegen, %struct._header_field_info { ptr @.str.324, ptr @.str.325, i32 2, i32 8, ptr @tfs_set_notset, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_sys_flags_auth, %struct._header_field_info { ptr @.str.326, ptr @.str.327, i32 2, i32 8, ptr @tfs_set_notset, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_sys_flags_cal, %struct._header_field_info { ptr @.str.328, ptr @.str.329, i32 2, i32 8, ptr @tfs_set_notset, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_reset_stats_flags, %struct._header_field_info { ptr @.str.3, ptr @.str.330, i32 7, i32 2, ptr null, i64 255, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_reset_stats_flags_allpeers, %struct._header_field_info { ptr @.str.331, ptr @.str.332, i32 2, i32 32, ptr @tfs_set_notset, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_reset_stats_flags_io, %struct._header_field_info { ptr @.str.333, ptr @.str.334, i32 2, i32 32, ptr @tfs_set_notset, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_reset_stats_flags_sys, %struct._header_field_info { ptr @.str.335, ptr @.str.336, i32 2, i32 32, ptr @tfs_set_notset, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_reset_stats_flags_mem, %struct._header_field_info { ptr @.str.337, ptr @.str.338, i32 2, i32 32, ptr @tfs_set_notset, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_reset_stats_flags_timer, %struct._header_field_info { ptr @.str.280, ptr @.str.339, i32 2, i32 32, ptr @tfs_set_notset, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_reset_stats_flags_auth, %struct._header_field_info { ptr @.str.326, ptr @.str.340, i32 2, i32 32, ptr @tfs_set_notset, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_reset_stats_flags_ctl, %struct._header_field_info { ptr @.str.341, ptr @.str.342, i32 2, i32 32, ptr @tfs_set_notset, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_key, %struct._header_field_info { ptr @.str.343, ptr @.str.344, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_timeup, %struct._header_field_info { ptr @.str.345, ptr @.str.346, i32 7, i32 1, ptr null, i64 0, ptr @.str.347, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_timereset, %struct._header_field_info { ptr @.str.348, ptr @.str.349, i32 7, i32 1, ptr null, i64 0, ptr @.str.347, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_timereceived, %struct._header_field_info { ptr @.str.350, ptr @.str.351, i32 7, i32 1, ptr null, i64 0, ptr @.str.352, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_timetosend, %struct._header_field_info { ptr @.str.353, ptr @.str.354, i32 7, i32 1, ptr null, i64 0, ptr @.str.355, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_timereachable, %struct._header_field_info { ptr @.str.356, ptr @.str.357, i32 7, i32 1, ptr null, i64 0, ptr @.str.358, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_sent, %struct._header_field_info { ptr @.str.359, ptr @.str.360, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_processed, %struct._header_field_info { ptr @.str.361, ptr @.str.362, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_badauth, %struct._header_field_info { ptr @.str.363, ptr @.str.364, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_bogusorg, %struct._header_field_info { ptr @.str.365, ptr @.str.366, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_oldpkt, %struct._header_field_info { ptr @.str.367, ptr @.str.368, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_seldisp, %struct._header_field_info { ptr @.str.369, ptr @.str.370, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_selbroken, %struct._header_field_info { ptr @.str.371, ptr @.str.372, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_candidate, %struct._header_field_info { ptr @.str.373, ptr @.str.374, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_numkeys, %struct._header_field_info { ptr @.str.375, ptr @.str.376, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_numfreekeys, %struct._header_field_info { ptr @.str.377, ptr @.str.378, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_keylookups, %struct._header_field_info { ptr @.str.379, ptr @.str.380, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_keynotfound, %struct._header_field_info { ptr @.str.381, ptr @.str.382, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_encryptions, %struct._header_field_info { ptr @.str.383, ptr @.str.384, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_decryptions, %struct._header_field_info { ptr @.str.385, ptr @.str.386, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_expired, %struct._header_field_info { ptr @.str.387, ptr @.str.388, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_keyuncached, %struct._header_field_info { ptr @.str.389, ptr @.str.390, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_local_addr, %struct._header_field_info { ptr @.str.391, ptr @.str.392, i32 32, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_trap_addr, %struct._header_field_info { ptr @.str.393, ptr @.str.394, i32 32, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_trap_port, %struct._header_field_info { ptr @.str.395, ptr @.str.396, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_sequence, %struct._header_field_info { ptr @.str.159, ptr @.str.397, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_settime, %struct._header_field_info { ptr @.str.398, ptr @.str.399, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_origtime, %struct._header_field_info { ptr @.str.400, ptr @.str.401, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_resets, %struct._header_field_info { ptr @.str.402, ptr @.str.403, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_traps_flags, %struct._header_field_info { ptr @.str.3, ptr @.str.404, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_local_addr6, %struct._header_field_info { ptr @.str.405, ptr @.str.406, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_trap_addr6, %struct._header_field_info { ptr @.str.407, ptr @.str.408, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_req, %struct._header_field_info { ptr @.str.409, ptr @.str.410, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_badpkts, %struct._header_field_info { ptr @.str.411, ptr @.str.412, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_responses, %struct._header_field_info { ptr @.str.413, ptr @.str.414, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_frags, %struct._header_field_info { ptr @.str.415, ptr @.str.416, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_errors, %struct._header_field_info { ptr @.str.417, ptr @.str.418, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_tooshort, %struct._header_field_info { ptr @.str.419, ptr @.str.420, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_inputresp, %struct._header_field_info { ptr @.str.421, ptr @.str.422, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_inputfrag, %struct._header_field_info { ptr @.str.423, ptr @.str.424, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_inputerr, %struct._header_field_info { ptr @.str.425, ptr @.str.426, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_badoffset, %struct._header_field_info { ptr @.str.427, ptr @.str.428, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_badversion, %struct._header_field_info { ptr @.str.429, ptr @.str.430, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_datatooshort, %struct._header_field_info { ptr @.str.431, ptr @.str.432, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_badop, %struct._header_field_info { ptr @.str.433, ptr @.str.434, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_asyncmsgs, %struct._header_field_info { ptr @.str.435, ptr @.str.436, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_type, %struct._header_field_info { ptr @.str.437, ptr @.str.438, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_clock_flags, %struct._header_field_info { ptr @.str.439, ptr @.str.440, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_lastevent, %struct._header_field_info { ptr @.str.441, ptr @.str.442, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_currentstatus, %struct._header_field_info { ptr @.str.443, ptr @.str.444, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_polls, %struct._header_field_info { ptr @.str.445, ptr @.str.446, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_noresponse, %struct._header_field_info { ptr @.str.447, ptr @.str.448, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_badformat, %struct._header_field_info { ptr @.str.449, ptr @.str.450, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_baddata, %struct._header_field_info { ptr @.str.451, ptr @.str.452, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_timestarted, %struct._header_field_info { ptr @.str.453, ptr @.str.454, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_fudgetime1, %struct._header_field_info { ptr @.str.455, ptr @.str.456, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_fudgetime2, %struct._header_field_info { ptr @.str.457, ptr @.str.458, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_fudgeval1, %struct._header_field_info { ptr @.str.459, ptr @.str.460, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_fudgeval2, %struct._header_field_info { ptr @.str.461, ptr @.str.462, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_kernel_offset, %struct._header_field_info { ptr @.str.139, ptr @.str.463, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_freq, %struct._header_field_info { ptr @.str.464, ptr @.str.465, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_stability, %struct._header_field_info { ptr @.str.466, ptr @.str.467, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_maxerror, %struct._header_field_info { ptr @.str.468, ptr @.str.469, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_esterror, %struct._header_field_info { ptr @.str.470, ptr @.str.471, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_status, %struct._header_field_info { ptr @.str.105, ptr @.str.472, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_shift, %struct._header_field_info { ptr @.str.473, ptr @.str.474, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_constant, %struct._header_field_info { ptr @.str.475, ptr @.str.476, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_precision, %struct._header_field_info { ptr @.str.477, ptr @.str.478, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_tolerance, %struct._header_field_info { ptr @.str.479, ptr @.str.480, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_ppsfreq, %struct._header_field_info { ptr @.str.481, ptr @.str.482, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_jitter, %struct._header_field_info { ptr @.str.483, ptr @.str.484, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_stabil, %struct._header_field_info { ptr @.str.485, ptr @.str.486, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_jitcnt, %struct._header_field_info { ptr @.str.487, ptr @.str.488, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_calcnt, %struct._header_field_info { ptr @.str.489, ptr @.str.490, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_errcnt, %struct._header_field_info { ptr @.str.491, ptr @.str.492, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_stbcnt, %struct._header_field_info { ptr @.str.493, ptr @.str.494, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_last_offset, %struct._header_field_info { ptr @.str.495, ptr @.str.496, i32 19, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_drift_comp, %struct._header_field_info { ptr @.str.497, ptr @.str.498, i32 19, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_compliance, %struct._header_field_info { ptr @.str.499, ptr @.str.500, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_watchdog_timer, %struct._header_field_info { ptr @.str.501, ptr @.str.502, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_poll32, %struct._header_field_info { ptr @.str.503, ptr @.str.504, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_sys_flags8, %struct._header_field_info { ptr @.str.3, ptr @.str.505, i32 4, i32 2, ptr null, i64 255, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_denied, %struct._header_field_info { ptr @.str.506, ptr @.str.507, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_oldversion, %struct._header_field_info { ptr @.str.508, ptr @.str.509, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_newversion, %struct._header_field_info { ptr @.str.510, ptr @.str.511, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_badlength, %struct._header_field_info { ptr @.str.512, ptr @.str.513, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_limitrejected, %struct._header_field_info { ptr @.str.514, ptr @.str.515, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_lamport, %struct._header_field_info { ptr @.str.516, ptr @.str.517, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_tsrounding, %struct._header_field_info { ptr @.str.518, ptr @.str.519, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_totalmem, %struct._header_field_info { ptr @.str.520, ptr @.str.521, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_freemem, %struct._header_field_info { ptr @.str.522, ptr @.str.523, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_findpeer_calls, %struct._header_field_info { ptr @.str.524, ptr @.str.525, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_allocations, %struct._header_field_info { ptr @.str.526, ptr @.str.527, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_demobilizations, %struct._header_field_info { ptr @.str.528, ptr @.str.529, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_hashcount, %struct._header_field_info { ptr @.str.530, ptr @.str.531, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_totalrecvbufs, %struct._header_field_info { ptr @.str.532, ptr @.str.533, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_freerecvbufs, %struct._header_field_info { ptr @.str.534, ptr @.str.535, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_fullrecvbufs, %struct._header_field_info { ptr @.str.536, ptr @.str.537, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_lowwater, %struct._header_field_info { ptr @.str.538, ptr @.str.539, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_dropped, %struct._header_field_info { ptr @.str.540, ptr @.str.541, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_ignored, %struct._header_field_info { ptr @.str.542, ptr @.str.543, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_received, %struct._header_field_info { ptr @.str.544, ptr @.str.545, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_notsent, %struct._header_field_info { ptr @.str.546, ptr @.str.547, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_interrupts, %struct._header_field_info { ptr @.str.548, ptr @.str.549, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_int_received, %struct._header_field_info { ptr @.str.550, ptr @.str.551, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_alarms, %struct._header_field_info { ptr @.str.552, ptr @.str.553, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_overflows, %struct._header_field_info { ptr @.str.554, ptr @.str.555, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_xmtcalls, %struct._header_field_info { ptr @.str.556, ptr @.str.557, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_rflags, %struct._header_field_info { ptr @.str.558, ptr @.str.559, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_mflags, %struct._header_field_info { ptr @.str.560, ptr @.str.561, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_int_name, %struct._header_field_info { ptr @.str.562, ptr @.str.563, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_int_flags, %struct._header_field_info { ptr @.str.564, ptr @.str.565, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_last_ttl, %struct._header_field_info { ptr @.str.566, ptr @.str.567, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_num_mcast, %struct._header_field_info { ptr @.str.568, ptr @.str.569, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_uptime, %struct._header_field_info { ptr @.str.570, ptr @.str.571, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_scopeid, %struct._header_field_info { ptr @.str.572, ptr @.str.573, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_ifindex, %struct._header_field_info { ptr @.str.574, ptr @.str.575, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_ifnum, %struct._header_field_info { ptr @.str.576, ptr @.str.577, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_peercnt, %struct._header_field_info { ptr @.str.578, ptr @.str.579, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_family, %struct._header_field_info { ptr @.str.580, ptr @.str.581, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_ignore_pkt, %struct._header_field_info { ptr @.str.582, ptr @.str.583, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_action, %struct._header_field_info { ptr @.str.584, ptr @.str.585, i32 4, i32 1, ptr @priv_mode7_int_action, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_nvalues, %struct._header_field_info { ptr @.str.586, ptr @.str.587, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_ntimes, %struct._header_field_info { ptr @.str.588, ptr @.str.589, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_svalues, %struct._header_field_info { ptr @.str.590, ptr @.str.591, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_stimes, %struct._header_field_info { ptr @.str.592, ptr @.str.593, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_values, %struct._header_field_info { ptr @.str.594, ptr @.str.595, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_times, %struct._header_field_info { ptr @.str.596, ptr @.str.597, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_which, %struct._header_field_info { ptr @.str.598, ptr @.str.599, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_fudgetime, %struct._header_field_info { ptr @.str.600, ptr @.str.601, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_fudgeval_flags, %struct._header_field_info { ptr @.str.602, ptr @.str.603, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_ippeerlimit, %struct._header_field_info { ptr @.str.604, ptr @.str.605, i32 13, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ntppriv_mode7_restrict_flags, %struct._header_field_info { ptr @.str.606, ptr @.str.607, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_ntp_flags = internal global i32 0, align 4
 @.str.3 = private unnamed_addr constant [6 x i8] c"Flags\00", align 1
 @.str.4 = private unnamed_addr constant [10 x i8] c"ntp.flags\00", align 1
@@ -36,20 +36,17 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_ntp_flags_li = internal global i32 0, align 4
 @.str.6 = private unnamed_addr constant [15 x i8] c"Leap Indicator\00", align 1
 @.str.7 = private unnamed_addr constant [13 x i8] c"ntp.flags.li\00", align 1
-@li_types = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.607 }, %struct._value_string { i32 1, ptr @.str.608 }, %struct._value_string { i32 2, ptr @.str.609 }, %struct._value_string { i32 3, ptr @.str.610 }, %struct._value_string zeroinitializer], align 16
 @.str.8 = private unnamed_addr constant [102 x i8] c"Warning of an impending leap second to be inserted or deleted in the last minute of the current month\00", align 1
 @hf_ntp_flags_vn = internal global i32 0, align 4
 @.str.9 = private unnamed_addr constant [15 x i8] c"Version number\00", align 1
 @.str.10 = private unnamed_addr constant [13 x i8] c"ntp.flags.vn\00", align 1
-@ver_nums = internal constant [9 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.611 }, %struct._value_string { i32 1, ptr @.str.612 }, %struct._value_string { i32 2, ptr @.str.613 }, %struct._value_string { i32 3, ptr @.str.614 }, %struct._value_string { i32 4, ptr @.str.615 }, %struct._value_string { i32 5, ptr @.str.611 }, %struct._value_string { i32 6, ptr @.str.611 }, %struct._value_string { i32 7, ptr @.str.611 }, %struct._value_string zeroinitializer], align 16
 @hf_ntp_flags_mode = internal global i32 0, align 4
 @.str.11 = private unnamed_addr constant [5 x i8] c"Mode\00", align 1
 @.str.12 = private unnamed_addr constant [15 x i8] c"ntp.flags.mode\00", align 1
-@mode_types = internal constant [9 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.611 }, %struct._value_string { i32 1, ptr @.str.616 }, %struct._value_string { i32 2, ptr @.str.617 }, %struct._value_string { i32 3, ptr @.str.618 }, %struct._value_string { i32 4, ptr @.str.619 }, %struct._value_string { i32 5, ptr @.str.620 }, %struct._value_string { i32 6, ptr @.str.621 }, %struct._value_string { i32 7, ptr @.str.622 }, %struct._value_string zeroinitializer], align 16
 @hf_ntp_stratum = internal global i32 0, align 4
 @.str.13 = private unnamed_addr constant [19 x i8] c"Peer Clock Stratum\00", align 1
 @.str.14 = private unnamed_addr constant [12 x i8] c"ntp.stratum\00", align 1
-@stratum_rvals = internal constant [6 x %struct._range_string] [%struct._range_string { i64 0, i64 0, ptr @.str.623 }, %struct._range_string { i64 1, i64 1, ptr @.str.624 }, %struct._range_string { i64 2, i64 15, ptr @.str.625 }, %struct._range_string { i64 16, i64 16, ptr @.str.626 }, %struct._range_string { i64 17, i64 255, ptr @.str.611 }, %struct._range_string zeroinitializer], align 16
+@stratum_rvals = internal constant [6 x %struct._range_string] [%struct._range_string { i64 0, i64 0, ptr @.str.647 }, %struct._range_string { i64 1, i64 1, ptr @.str.648 }, %struct._range_string { i64 2, i64 15, ptr @.str.649 }, %struct._range_string { i64 16, i64 16, ptr @.str.650 }, %struct._range_string { i64 17, i64 255, ptr @.str.633 }, %struct._range_string zeroinitializer], align 16
 @hf_ntp_ppoll = internal global i32 0, align 4
 @.str.15 = private unnamed_addr constant [22 x i8] c"Peer Polling Interval\00", align 1
 @.str.16 = private unnamed_addr constant [10 x i8] c"ntp.ppoll\00", align 1
@@ -98,7 +95,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_ntp_key_type = internal global i32 0, align 4
 @.str.48 = private unnamed_addr constant [9 x i8] c"Key type\00", align 1
 @.str.49 = private unnamed_addr constant [13 x i8] c"ntp.key_type\00", align 1
-@authentication_types = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.627 }, %struct._value_string { i32 1, ptr @.str.628 }, %struct._value_string zeroinitializer], align 16
 @.str.50 = private unnamed_addr constant [30 x i8] c"Authentication algorithm used\00", align 1
 @hf_ntp_key_index = internal global i32 0, align 4
 @.str.51 = private unnamed_addr constant [9 x i8] c"KeyIndex\00", align 1
@@ -122,7 +118,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_ntp_ext_type = internal global i32 0, align 4
 @.str.64 = private unnamed_addr constant [11 x i8] c"Field Type\00", align 1
 @.str.65 = private unnamed_addr constant [13 x i8] c"ntp.ext.type\00", align 1
-@ntp_ext_field_types = internal constant [36 x %struct._value_string] [%struct._value_string { i32 2, ptr @.str.629 }, %struct._value_string { i32 258, ptr @.str.630 }, %struct._value_string { i32 260, ptr @.str.631 }, %struct._value_string { i32 514, ptr @.str.632 }, %struct._value_string { i32 516, ptr @.str.633 }, %struct._value_string { i32 770, ptr @.str.634 }, %struct._value_string { i32 772, ptr @.str.635 }, %struct._value_string { i32 1026, ptr @.str.636 }, %struct._value_string { i32 1028, ptr @.str.637 }, %struct._value_string { i32 1282, ptr @.str.638 }, %struct._value_string { i32 1538, ptr @.str.639 }, %struct._value_string { i32 1794, ptr @.str.640 }, %struct._value_string { i32 2050, ptr @.str.641 }, %struct._value_string { i32 2306, ptr @.str.642 }, %struct._value_string { i32 8197, ptr @.str.643 }, %struct._value_string { i32 32770, ptr @.str.644 }, %struct._value_string { i32 33026, ptr @.str.645 }, %struct._value_string { i32 33282, ptr @.str.646 }, %struct._value_string { i32 33538, ptr @.str.647 }, %struct._value_string { i32 33794, ptr @.str.648 }, %struct._value_string { i32 34050, ptr @.str.649 }, %struct._value_string { i32 34306, ptr @.str.650 }, %struct._value_string { i32 34562, ptr @.str.651 }, %struct._value_string { i32 34818, ptr @.str.652 }, %struct._value_string { i32 35074, ptr @.str.653 }, %struct._value_string { i32 49154, ptr @.str.654 }, %struct._value_string { i32 49410, ptr @.str.655 }, %struct._value_string { i32 49666, ptr @.str.656 }, %struct._value_string { i32 49922, ptr @.str.657 }, %struct._value_string { i32 50178, ptr @.str.658 }, %struct._value_string { i32 50434, ptr @.str.659 }, %struct._value_string { i32 50690, ptr @.str.660 }, %struct._value_string { i32 50946, ptr @.str.661 }, %struct._value_string { i32 51202, ptr @.str.662 }, %struct._value_string { i32 51458, ptr @.str.663 }, %struct._value_string zeroinitializer], align 16
+@ntp_ext_field_types = internal constant [64 x %struct._range_string] [%struct._range_string { i64 0, i64 0, ptr @.str.654 }, %struct._range_string { i64 2, i64 2, ptr @.str.655 }, %struct._range_string { i64 258, i64 258, ptr @.str.655 }, %struct._range_string { i64 260, i64 260, ptr @.str.656 }, %struct._range_string { i64 512, i64 512, ptr @.str.657 }, %struct._range_string { i64 513, i64 513, ptr @.str.658 }, %struct._range_string { i64 514, i64 514, ptr @.str.659 }, %struct._range_string { i64 515, i64 515, ptr @.str.660 }, %struct._range_string { i64 516, i64 516, ptr @.str.661 }, %struct._range_string { i64 517, i64 517, ptr @.str.662 }, %struct._range_string { i64 518, i64 518, ptr @.str.663 }, %struct._range_string { i64 519, i64 519, ptr @.str.664 }, %struct._range_string { i64 520, i64 520, ptr @.str.665 }, %struct._range_string { i64 521, i64 521, ptr @.str.666 }, %struct._range_string { i64 770, i64 770, ptr @.str.655 }, %struct._range_string { i64 772, i64 772, ptr @.str.667 }, %struct._range_string { i64 1026, i64 1026, ptr @.str.655 }, %struct._range_string { i64 1028, i64 1028, ptr @.str.668 }, %struct._range_string { i64 1282, i64 1282, ptr @.str.655 }, %struct._range_string { i64 1538, i64 1538, ptr @.str.655 }, %struct._range_string { i64 1794, i64 1794, ptr @.str.655 }, %struct._range_string { i64 2050, i64 2050, ptr @.str.655 }, %struct._range_string { i64 2306, i64 2306, ptr @.str.655 }, %struct._range_string { i64 8197, i64 8197, ptr @.str.669 }, %struct._range_string { i64 32770, i64 32770, ptr @.str.655 }, %struct._range_string { i64 33026, i64 33026, ptr @.str.655 }, %struct._range_string { i64 33280, i64 33280, ptr @.str.670 }, %struct._range_string { i64 33281, i64 33281, ptr @.str.671 }, %struct._range_string { i64 33282, i64 33282, ptr @.str.672 }, %struct._range_string { i64 33283, i64 33283, ptr @.str.673 }, %struct._range_string { i64 33284, i64 33284, ptr @.str.674 }, %struct._range_string { i64 33285, i64 33285, ptr @.str.675 }, %struct._range_string { i64 33286, i64 33286, ptr @.str.676 }, %struct._range_string { i64 33287, i64 33287, ptr @.str.677 }, %struct._range_string { i64 33288, i64 33288, ptr @.str.678 }, %struct._range_string { i64 33289, i64 33289, ptr @.str.679 }, %struct._range_string { i64 33538, i64 33538, ptr @.str.655 }, %struct._range_string { i64 33794, i64 33794, ptr @.str.655 }, %struct._range_string { i64 34050, i64 34050, ptr @.str.655 }, %struct._range_string { i64 34306, i64 34306, ptr @.str.655 }, %struct._range_string { i64 34562, i64 34562, ptr @.str.655 }, %struct._range_string { i64 34818, i64 34818, ptr @.str.655 }, %struct._range_string { i64 35074, i64 35074, ptr @.str.655 }, %struct._range_string { i64 49154, i64 49154, ptr @.str.655 }, %struct._range_string { i64 49410, i64 49410, ptr @.str.655 }, %struct._range_string { i64 49664, i64 49664, ptr @.str.680 }, %struct._range_string { i64 49665, i64 49665, ptr @.str.681 }, %struct._range_string { i64 49666, i64 49666, ptr @.str.682 }, %struct._range_string { i64 49667, i64 49667, ptr @.str.683 }, %struct._range_string { i64 49668, i64 49668, ptr @.str.684 }, %struct._range_string { i64 49669, i64 49669, ptr @.str.685 }, %struct._range_string { i64 49670, i64 49670, ptr @.str.686 }, %struct._range_string { i64 49671, i64 49671, ptr @.str.687 }, %struct._range_string { i64 49672, i64 49672, ptr @.str.688 }, %struct._range_string { i64 49673, i64 49673, ptr @.str.689 }, %struct._range_string { i64 49922, i64 49922, ptr @.str.655 }, %struct._range_string { i64 50178, i64 50178, ptr @.str.655 }, %struct._range_string { i64 50434, i64 50434, ptr @.str.655 }, %struct._range_string { i64 50690, i64 50690, ptr @.str.655 }, %struct._range_string { i64 50946, i64 50946, ptr @.str.655 }, %struct._range_string { i64 51202, i64 51202, ptr @.str.655 }, %struct._range_string { i64 51458, i64 51458, ptr @.str.655 }, %struct._range_string { i64 61440, i64 65535, ptr @.str.690 }, %struct._range_string zeroinitializer], align 16
 @hf_ntp_ext_length = internal global i32 0, align 4
 @.str.66 = private unnamed_addr constant [7 x i8] c"Length\00", align 1
 @.str.67 = private unnamed_addr constant [15 x i8] c"ntp.ext.length\00", align 1
@@ -131,811 +127,830 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.69 = private unnamed_addr constant [6 x i8] c"Value\00", align 1
 @.str.70 = private unnamed_addr constant [14 x i8] c"ntp.ext.value\00", align 1
 @.str.71 = private unnamed_addr constant [20 x i8] c"Type-specific value\00", align 1
+@hf_ntp_ext_nts = internal global i32 0, align 4
+@.str.72 = private unnamed_addr constant [22 x i8] c"Network Time Security\00", align 1
+@.str.73 = private unnamed_addr constant [12 x i8] c"ntp.ext.nts\00", align 1
+@hf_ntp_nts_nonce_length = internal global i32 0, align 4
+@.str.74 = private unnamed_addr constant [13 x i8] c"Nonce Length\00", align 1
+@.str.75 = private unnamed_addr constant [21 x i8] c"ntp.nts.nonce.length\00", align 1
+@.str.76 = private unnamed_addr constant [20 x i8] c"Length of NTS nonce\00", align 1
+@hf_ntp_nts_ciphertext_length = internal global i32 0, align 4
+@.str.77 = private unnamed_addr constant [18 x i8] c"Ciphertext Length\00", align 1
+@.str.78 = private unnamed_addr constant [26 x i8] c"ntp.nts.ciphertext.length\00", align 1
+@.str.79 = private unnamed_addr constant [25 x i8] c"Length of NTS ciphertext\00", align 1
+@hf_ntp_nts_nonce = internal global i32 0, align 4
+@.str.80 = private unnamed_addr constant [6 x i8] c"Nonce\00", align 1
+@.str.81 = private unnamed_addr constant [14 x i8] c"ntp.nts.nonce\00", align 1
+@hf_ntp_nts_ciphertext = internal global i32 0, align 4
+@.str.82 = private unnamed_addr constant [11 x i8] c"Ciphertext\00", align 1
+@.str.83 = private unnamed_addr constant [19 x i8] c"ntp.nts.ciphertext\00", align 1
+@hf_ntp_nts_cookie_receive_frame = internal global i32 0, align 4
+@.str.84 = private unnamed_addr constant [19 x i8] c"Received cookie in\00", align 1
+@.str.85 = private unnamed_addr constant [29 x i8] c"ntp.nts.cookie.receive_frame\00", align 1
+@.str.86 = private unnamed_addr constant [32 x i8] c"Frame where cookie was received\00", align 1
+@hf_ntp_nts_cookie_used_frame = internal global i32 0, align 4
+@.str.87 = private unnamed_addr constant [15 x i8] c"Used cookie in\00", align 1
+@.str.88 = private unnamed_addr constant [25 x i8] c"ntp.nts.cookie.use_frame\00", align 1
+@hf_ntp_nts_crypto_success = internal global i32 0, align 4
+@.str.89 = private unnamed_addr constant [21 x i8] c"Cryptography Success\00", align 1
+@.str.90 = private unnamed_addr constant [23 x i8] c"ntp.nts.crypto_success\00", align 1
+@tfs_yes_no = external constant %struct.true_false_string, align 8
+@.str.91 = private unnamed_addr constant [45 x i8] c"Decryption and authentication was successful\00", align 1
 @hf_ntpctrl_flags2 = internal global i32 0, align 4
-@.str.72 = private unnamed_addr constant [8 x i8] c"Flags 2\00", align 1
-@.str.73 = private unnamed_addr constant [16 x i8] c"ntp.ctrl.flags2\00", align 1
-@.str.74 = private unnamed_addr constant [35 x i8] c"Flags (Response/Error/More/Opcode)\00", align 1
+@.str.92 = private unnamed_addr constant [8 x i8] c"Flags 2\00", align 1
+@.str.93 = private unnamed_addr constant [16 x i8] c"ntp.ctrl.flags2\00", align 1
+@.str.94 = private unnamed_addr constant [35 x i8] c"Flags (Response/Error/More/Opcode)\00", align 1
 @hf_ntpctrl_flags2_r = internal global i32 0, align 4
-@.str.75 = private unnamed_addr constant [13 x i8] c"Response bit\00", align 1
-@.str.76 = private unnamed_addr constant [18 x i8] c"ntp.ctrl.flags2.r\00", align 1
+@.str.95 = private unnamed_addr constant [13 x i8] c"Response bit\00", align 1
+@.str.96 = private unnamed_addr constant [18 x i8] c"ntp.ctrl.flags2.r\00", align 1
 @tfs_response_request = external constant %struct.true_false_string, align 8
 @hf_ntpctrl_flags2_error = internal global i32 0, align 4
-@.str.77 = private unnamed_addr constant [10 x i8] c"Error bit\00", align 1
-@.str.78 = private unnamed_addr constant [22 x i8] c"ntp.ctrl.flags2.error\00", align 1
+@.str.97 = private unnamed_addr constant [10 x i8] c"Error bit\00", align 1
+@.str.98 = private unnamed_addr constant [22 x i8] c"ntp.ctrl.flags2.error\00", align 1
 @hf_ntpctrl_flags2_more = internal global i32 0, align 4
-@.str.79 = private unnamed_addr constant [9 x i8] c"More bit\00", align 1
-@.str.80 = private unnamed_addr constant [21 x i8] c"ntp.ctrl.flags2.more\00", align 1
+@.str.99 = private unnamed_addr constant [9 x i8] c"More bit\00", align 1
+@.str.100 = private unnamed_addr constant [21 x i8] c"ntp.ctrl.flags2.more\00", align 1
 @hf_ntpctrl_flags2_opcode = internal global i32 0, align 4
-@.str.81 = private unnamed_addr constant [7 x i8] c"Opcode\00", align 1
-@.str.82 = private unnamed_addr constant [23 x i8] c"ntp.ctrl.flags2.opcode\00", align 1
-@ctrl_op_types = internal constant [15 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.611 }, %struct._value_string { i32 1, ptr @.str.664 }, %struct._value_string { i32 2, ptr @.str.665 }, %struct._value_string { i32 3, ptr @.str.666 }, %struct._value_string { i32 4, ptr @.str.667 }, %struct._value_string { i32 5, ptr @.str.668 }, %struct._value_string { i32 6, ptr @.str.669 }, %struct._value_string { i32 7, ptr @.str.670 }, %struct._value_string { i32 8, ptr @.str.671 }, %struct._value_string { i32 9, ptr @.str.672 }, %struct._value_string { i32 10, ptr @.str.673 }, %struct._value_string { i32 11, ptr @.str.674 }, %struct._value_string { i32 12, ptr @.str.675 }, %struct._value_string { i32 31, ptr @.str.676 }, %struct._value_string zeroinitializer], align 16
+@.str.101 = private unnamed_addr constant [7 x i8] c"Opcode\00", align 1
+@.str.102 = private unnamed_addr constant [23 x i8] c"ntp.ctrl.flags2.opcode\00", align 1
 @hf_ntpctrl_sequence = internal global i32 0, align 4
-@.str.83 = private unnamed_addr constant [9 x i8] c"Sequence\00", align 1
-@.str.84 = private unnamed_addr constant [18 x i8] c"ntp.ctrl.sequence\00", align 1
+@.str.103 = private unnamed_addr constant [9 x i8] c"Sequence\00", align 1
+@.str.104 = private unnamed_addr constant [18 x i8] c"ntp.ctrl.sequence\00", align 1
 @hf_ntpctrl_status = internal global i32 0, align 4
-@.str.85 = private unnamed_addr constant [7 x i8] c"Status\00", align 1
-@.str.86 = private unnamed_addr constant [16 x i8] c"ntp.ctrl.status\00", align 1
+@.str.105 = private unnamed_addr constant [7 x i8] c"Status\00", align 1
+@.str.106 = private unnamed_addr constant [16 x i8] c"ntp.ctrl.status\00", align 1
 @hf_ntpctrl_error_status_word = internal global i32 0, align 4
-@.str.87 = private unnamed_addr constant [18 x i8] c"Error Status Word\00", align 1
-@.str.88 = private unnamed_addr constant [20 x i8] c"ntp.ctrl.err_status\00", align 1
-@ctrl_err_status_types = internal constant [9 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.677 }, %struct._value_string { i32 1, ptr @.str.678 }, %struct._value_string { i32 2, ptr @.str.679 }, %struct._value_string { i32 3, ptr @.str.680 }, %struct._value_string { i32 4, ptr @.str.681 }, %struct._value_string { i32 5, ptr @.str.682 }, %struct._value_string { i32 6, ptr @.str.683 }, %struct._value_string { i32 7, ptr @.str.684 }, %struct._value_string zeroinitializer], align 16
+@.str.107 = private unnamed_addr constant [18 x i8] c"Error Status Word\00", align 1
+@.str.108 = private unnamed_addr constant [20 x i8] c"ntp.ctrl.err_status\00", align 1
 @hf_ntpctrl_sys_status_li = internal global i32 0, align 4
-@.str.89 = private unnamed_addr constant [23 x i8] c"ntp.ctrl.sys_status.li\00", align 1
+@.str.109 = private unnamed_addr constant [23 x i8] c"ntp.ctrl.sys_status.li\00", align 1
 @hf_ntpctrl_sys_status_clksrc = internal global i32 0, align 4
-@.str.90 = private unnamed_addr constant [13 x i8] c"Clock Source\00", align 1
-@.str.91 = private unnamed_addr constant [27 x i8] c"ntp.ctrl.sys_status.clksrc\00", align 1
-@ctrl_sys_status_clksource_types = internal constant [11 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.685 }, %struct._value_string { i32 1, ptr @.str.686 }, %struct._value_string { i32 2, ptr @.str.687 }, %struct._value_string { i32 3, ptr @.str.688 }, %struct._value_string { i32 4, ptr @.str.689 }, %struct._value_string { i32 5, ptr @.str.690 }, %struct._value_string { i32 6, ptr @.str.691 }, %struct._value_string { i32 7, ptr @.str.692 }, %struct._value_string { i32 8, ptr @.str.693 }, %struct._value_string { i32 9, ptr @.str.694 }, %struct._value_string zeroinitializer], align 16
+@.str.110 = private unnamed_addr constant [13 x i8] c"Clock Source\00", align 1
+@.str.111 = private unnamed_addr constant [27 x i8] c"ntp.ctrl.sys_status.clksrc\00", align 1
 @hf_ntpctrl_sys_status_count = internal global i32 0, align 4
-@.str.92 = private unnamed_addr constant [21 x i8] c"System Event Counter\00", align 1
-@.str.93 = private unnamed_addr constant [26 x i8] c"ntp.ctrl.sys_status.count\00", align 1
+@.str.112 = private unnamed_addr constant [21 x i8] c"System Event Counter\00", align 1
+@.str.113 = private unnamed_addr constant [26 x i8] c"ntp.ctrl.sys_status.count\00", align 1
 @hf_ntpctrl_sys_status_code = internal global i32 0, align 4
-@.str.94 = private unnamed_addr constant [18 x i8] c"System Event Code\00", align 1
-@.str.95 = private unnamed_addr constant [25 x i8] c"ntp.ctrl.sys_status.code\00", align 1
-@ctrl_sys_status_event_types = internal constant [17 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.677 }, %struct._value_string { i32 1, ptr @.str.695 }, %struct._value_string { i32 2, ptr @.str.696 }, %struct._value_string { i32 3, ptr @.str.697 }, %struct._value_string { i32 4, ptr @.str.698 }, %struct._value_string { i32 5, ptr @.str.699 }, %struct._value_string { i32 6, ptr @.str.700 }, %struct._value_string { i32 7, ptr @.str.701 }, %struct._value_string { i32 8, ptr @.str.702 }, %struct._value_string { i32 9, ptr @.str.703 }, %struct._value_string { i32 10, ptr @.str.704 }, %struct._value_string { i32 11, ptr @.str.705 }, %struct._value_string { i32 12, ptr @.str.706 }, %struct._value_string { i32 13, ptr @.str.707 }, %struct._value_string { i32 14, ptr @.str.708 }, %struct._value_string { i32 15, ptr @.str.709 }, %struct._value_string zeroinitializer], align 16
+@.str.114 = private unnamed_addr constant [18 x i8] c"System Event Code\00", align 1
+@.str.115 = private unnamed_addr constant [25 x i8] c"ntp.ctrl.sys_status.code\00", align 1
 @hf_ntpctrl_peer_status_b0 = internal global i32 0, align 4
-@.str.96 = private unnamed_addr constant [12 x i8] c"Peer Status\00", align 1
-@.str.97 = private unnamed_addr constant [28 x i8] c"ntp.ctrl.peer_status.config\00", align 1
-@tfs_ctrl_peer_status_config = internal constant %struct.true_false_string { ptr @.str.710, ptr @.str.711 }, align 8
+@.str.116 = private unnamed_addr constant [12 x i8] c"Peer Status\00", align 1
+@.str.117 = private unnamed_addr constant [28 x i8] c"ntp.ctrl.peer_status.config\00", align 1
+@tfs_ctrl_peer_status_config = internal constant %struct.true_false_string { ptr @.str.741, ptr @.str.742 }, align 8
 @hf_ntpctrl_peer_status_b1 = internal global i32 0, align 4
-@.str.98 = private unnamed_addr constant [32 x i8] c"ntp.ctrl.peer_status.authenable\00", align 1
-@tfs_ctrl_peer_status_authenable = internal constant %struct.true_false_string { ptr @.str.712, ptr @.str.713 }, align 8
+@.str.118 = private unnamed_addr constant [32 x i8] c"ntp.ctrl.peer_status.authenable\00", align 1
+@tfs_ctrl_peer_status_authenable = internal constant %struct.true_false_string { ptr @.str.743, ptr @.str.744 }, align 8
 @hf_ntpctrl_peer_status_b2 = internal global i32 0, align 4
-@.str.99 = private unnamed_addr constant [31 x i8] c"ntp.ctrl.peer_status.authentic\00", align 1
-@tfs_ctrl_peer_status_authentic = internal constant %struct.true_false_string { ptr @.str.714, ptr @.str.715 }, align 8
+@.str.119 = private unnamed_addr constant [31 x i8] c"ntp.ctrl.peer_status.authentic\00", align 1
+@tfs_ctrl_peer_status_authentic = internal constant %struct.true_false_string { ptr @.str.745, ptr @.str.746 }, align 8
 @hf_ntpctrl_peer_status_b3 = internal global i32 0, align 4
-@.str.100 = private unnamed_addr constant [27 x i8] c"ntp.ctrl.peer_status.reach\00", align 1
-@tfs_ctrl_peer_status_reach = internal constant %struct.true_false_string { ptr @.str.716, ptr @.str.717 }, align 8
+@.str.120 = private unnamed_addr constant [27 x i8] c"ntp.ctrl.peer_status.reach\00", align 1
+@tfs_ctrl_peer_status_reach = internal constant %struct.true_false_string { ptr @.str.747, ptr @.str.748 }, align 8
 @hf_ntpctrl_peer_status_b4 = internal global i32 0, align 4
-@.str.101 = private unnamed_addr constant [34 x i8] c"Peer Status broadcast association\00", align 1
-@.str.102 = private unnamed_addr constant [27 x i8] c"ntp.ctrl.peer_status.bcast\00", align 1
+@.str.121 = private unnamed_addr constant [34 x i8] c"Peer Status broadcast association\00", align 1
+@.str.122 = private unnamed_addr constant [27 x i8] c"ntp.ctrl.peer_status.bcast\00", align 1
 @tfs_set_notset = external constant %struct.true_false_string, align 8
 @hf_ntpctrl_peer_status_selection = internal global i32 0, align 4
-@.str.103 = private unnamed_addr constant [15 x i8] c"Peer Selection\00", align 1
-@.str.104 = private unnamed_addr constant [31 x i8] c"ntp.ctrl.peer_status.selection\00", align 1
-@ctrl_peer_status_selection_types = internal constant [9 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.718 }, %struct._value_string { i32 1, ptr @.str.719 }, %struct._value_string { i32 2, ptr @.str.720 }, %struct._value_string { i32 3, ptr @.str.721 }, %struct._value_string { i32 4, ptr @.str.722 }, %struct._value_string { i32 5, ptr @.str.723 }, %struct._value_string { i32 6, ptr @.str.724 }, %struct._value_string { i32 7, ptr @.str.611 }, %struct._value_string zeroinitializer], align 16
+@.str.123 = private unnamed_addr constant [15 x i8] c"Peer Selection\00", align 1
+@.str.124 = private unnamed_addr constant [31 x i8] c"ntp.ctrl.peer_status.selection\00", align 1
 @hf_ntpctrl_peer_status_count = internal global i32 0, align 4
-@.str.105 = private unnamed_addr constant [19 x i8] c"Peer Event Counter\00", align 1
-@.str.106 = private unnamed_addr constant [27 x i8] c"ntp.ctrl.peer_status.count\00", align 1
+@.str.125 = private unnamed_addr constant [19 x i8] c"Peer Event Counter\00", align 1
+@.str.126 = private unnamed_addr constant [27 x i8] c"ntp.ctrl.peer_status.count\00", align 1
 @hf_ntpctrl_peer_status_code = internal global i32 0, align 4
-@.str.107 = private unnamed_addr constant [16 x i8] c"Peer Event Code\00", align 1
-@.str.108 = private unnamed_addr constant [26 x i8] c"ntp.ctrl.peer_status.code\00", align 1
-@ctrl_peer_status_event_types = internal constant [17 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.677 }, %struct._value_string { i32 1, ptr @.str.725 }, %struct._value_string { i32 2, ptr @.str.726 }, %struct._value_string { i32 3, ptr @.str.727 }, %struct._value_string { i32 4, ptr @.str.728 }, %struct._value_string { i32 5, ptr @.str.729 }, %struct._value_string { i32 6, ptr @.str.730 }, %struct._value_string { i32 7, ptr @.str.731 }, %struct._value_string { i32 8, ptr @.str.732 }, %struct._value_string { i32 9, ptr @.str.733 }, %struct._value_string { i32 10, ptr @.str.734 }, %struct._value_string { i32 11, ptr @.str.735 }, %struct._value_string { i32 12, ptr @.str.678 }, %struct._value_string { i32 13, ptr @.str.736 }, %struct._value_string { i32 14, ptr @.str.737 }, %struct._value_string { i32 15, ptr @.str.738 }, %struct._value_string zeroinitializer], align 16
+@.str.127 = private unnamed_addr constant [16 x i8] c"Peer Event Code\00", align 1
+@.str.128 = private unnamed_addr constant [26 x i8] c"ntp.ctrl.peer_status.code\00", align 1
 @hf_ntpctrl_clk_status = internal global i32 0, align 4
-@.str.109 = private unnamed_addr constant [13 x i8] c"Clock Status\00", align 1
-@.str.110 = private unnamed_addr constant [29 x i8] c"ntp.ctrl.clock_status.status\00", align 1
-@ctrl_clk_status_types = internal constant [8 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.739 }, %struct._value_string { i32 1, ptr @.str.740 }, %struct._value_string { i32 2, ptr @.str.741 }, %struct._value_string { i32 3, ptr @.str.742 }, %struct._value_string { i32 4, ptr @.str.743 }, %struct._value_string { i32 5, ptr @.str.744 }, %struct._value_string { i32 6, ptr @.str.745 }, %struct._value_string zeroinitializer], align 16
+@.str.129 = private unnamed_addr constant [13 x i8] c"Clock Status\00", align 1
+@.str.130 = private unnamed_addr constant [29 x i8] c"ntp.ctrl.clock_status.status\00", align 1
 @hf_ntpctrl_clk_status_code = internal global i32 0, align 4
-@.str.111 = private unnamed_addr constant [17 x i8] c"Clock Event Code\00", align 1
-@.str.112 = private unnamed_addr constant [27 x i8] c"ntp.ctrl.clock_status.code\00", align 1
+@.str.131 = private unnamed_addr constant [17 x i8] c"Clock Event Code\00", align 1
+@.str.132 = private unnamed_addr constant [27 x i8] c"ntp.ctrl.clock_status.code\00", align 1
 @hf_ntpctrl_data = internal global i32 0, align 4
-@.str.113 = private unnamed_addr constant [5 x i8] c"Data\00", align 1
-@.str.114 = private unnamed_addr constant [14 x i8] c"ntp.ctrl.data\00", align 1
+@.str.133 = private unnamed_addr constant [5 x i8] c"Data\00", align 1
+@.str.134 = private unnamed_addr constant [14 x i8] c"ntp.ctrl.data\00", align 1
 @hf_ntpctrl_item = internal global i32 0, align 4
-@.str.115 = private unnamed_addr constant [5 x i8] c"Item\00", align 1
-@.str.116 = private unnamed_addr constant [14 x i8] c"ntp.ctrl.item\00", align 1
+@.str.135 = private unnamed_addr constant [5 x i8] c"Item\00", align 1
+@.str.136 = private unnamed_addr constant [14 x i8] c"ntp.ctrl.item\00", align 1
 @hf_ntpctrl_associd = internal global i32 0, align 4
-@.str.117 = private unnamed_addr constant [14 x i8] c"AssociationID\00", align 1
-@.str.118 = private unnamed_addr constant [17 x i8] c"ntp.ctrl.associd\00", align 1
+@.str.137 = private unnamed_addr constant [14 x i8] c"AssociationID\00", align 1
+@.str.138 = private unnamed_addr constant [17 x i8] c"ntp.ctrl.associd\00", align 1
 @hf_ntpctrl_offset = internal global i32 0, align 4
-@.str.119 = private unnamed_addr constant [7 x i8] c"Offset\00", align 1
-@.str.120 = private unnamed_addr constant [16 x i8] c"ntp.ctrl.offset\00", align 1
+@.str.139 = private unnamed_addr constant [7 x i8] c"Offset\00", align 1
+@.str.140 = private unnamed_addr constant [16 x i8] c"ntp.ctrl.offset\00", align 1
 @hf_ntpctrl_count = internal global i32 0, align 4
-@.str.121 = private unnamed_addr constant [6 x i8] c"Count\00", align 1
-@.str.122 = private unnamed_addr constant [15 x i8] c"ntp.ctrl.count\00", align 1
+@.str.141 = private unnamed_addr constant [6 x i8] c"Count\00", align 1
+@.str.142 = private unnamed_addr constant [15 x i8] c"ntp.ctrl.count\00", align 1
 @hf_ntpctrl_trapmsg = internal global i32 0, align 4
-@.str.123 = private unnamed_addr constant [13 x i8] c"Trap message\00", align 1
-@.str.124 = private unnamed_addr constant [17 x i8] c"ntp.ctrl.trapmsg\00", align 1
+@.str.143 = private unnamed_addr constant [13 x i8] c"Trap message\00", align 1
+@.str.144 = private unnamed_addr constant [17 x i8] c"ntp.ctrl.trapmsg\00", align 1
 @hf_ntpctrl_configuration = internal global i32 0, align 4
-@.str.125 = private unnamed_addr constant [14 x i8] c"Configuration\00", align 1
-@.str.126 = private unnamed_addr constant [23 x i8] c"ntp.ctrl.configuration\00", align 1
+@.str.145 = private unnamed_addr constant [14 x i8] c"Configuration\00", align 1
+@.str.146 = private unnamed_addr constant [23 x i8] c"ntp.ctrl.configuration\00", align 1
 @hf_ntpctrl_mru = internal global i32 0, align 4
-@.str.127 = private unnamed_addr constant [4 x i8] c"MRU\00", align 1
-@.str.128 = private unnamed_addr constant [13 x i8] c"ntp.ctrl.mru\00", align 1
+@.str.147 = private unnamed_addr constant [4 x i8] c"MRU\00", align 1
+@.str.148 = private unnamed_addr constant [13 x i8] c"ntp.ctrl.mru\00", align 1
 @hf_ntpctrl_ordlist = internal global i32 0, align 4
-@.str.129 = private unnamed_addr constant [13 x i8] c"Ordered List\00", align 1
-@.str.130 = private unnamed_addr constant [17 x i8] c"ntp.ctrl.ordlist\00", align 1
+@.str.149 = private unnamed_addr constant [13 x i8] c"Ordered List\00", align 1
+@.str.150 = private unnamed_addr constant [17 x i8] c"ntp.ctrl.ordlist\00", align 1
 @hf_ntpctrl_nonce = internal global i32 0, align 4
-@.str.131 = private unnamed_addr constant [6 x i8] c"Nonce\00", align 1
-@.str.132 = private unnamed_addr constant [15 x i8] c"ntp.ctrl.nonce\00", align 1
+@.str.151 = private unnamed_addr constant [15 x i8] c"ntp.ctrl.nonce\00", align 1
 @hf_ntppriv_flags_r = internal global i32 0, align 4
-@.str.133 = private unnamed_addr constant [17 x i8] c"ntp.priv.flags.r\00", align 1
+@.str.152 = private unnamed_addr constant [17 x i8] c"ntp.priv.flags.r\00", align 1
 @hf_ntppriv_flags_more = internal global i32 0, align 4
-@.str.134 = private unnamed_addr constant [20 x i8] c"ntp.priv.flags.more\00", align 1
+@.str.153 = private unnamed_addr constant [20 x i8] c"ntp.priv.flags.more\00", align 1
 @hf_ntppriv_auth_seq = internal global i32 0, align 4
-@.str.135 = private unnamed_addr constant [15 x i8] c"Auth, sequence\00", align 1
-@.str.136 = private unnamed_addr constant [18 x i8] c"ntp.priv.auth_seq\00", align 1
-@.str.137 = private unnamed_addr constant [26 x i8] c"Auth bit, sequence number\00", align 1
+@.str.154 = private unnamed_addr constant [15 x i8] c"Auth, sequence\00", align 1
+@.str.155 = private unnamed_addr constant [18 x i8] c"ntp.priv.auth_seq\00", align 1
+@.str.156 = private unnamed_addr constant [26 x i8] c"Auth bit, sequence number\00", align 1
 @hf_ntppriv_auth = internal global i32 0, align 4
-@.str.138 = private unnamed_addr constant [9 x i8] c"Auth bit\00", align 1
-@.str.139 = private unnamed_addr constant [14 x i8] c"ntp.priv.auth\00", align 1
+@.str.157 = private unnamed_addr constant [9 x i8] c"Auth bit\00", align 1
+@.str.158 = private unnamed_addr constant [14 x i8] c"ntp.priv.auth\00", align 1
 @hf_ntppriv_seq = internal global i32 0, align 4
-@.str.140 = private unnamed_addr constant [16 x i8] c"Sequence number\00", align 1
-@.str.141 = private unnamed_addr constant [13 x i8] c"ntp.priv.seq\00", align 1
+@.str.159 = private unnamed_addr constant [16 x i8] c"Sequence number\00", align 1
+@.str.160 = private unnamed_addr constant [13 x i8] c"ntp.priv.seq\00", align 1
 @hf_ntppriv_impl = internal global i32 0, align 4
-@.str.142 = private unnamed_addr constant [15 x i8] c"Implementation\00", align 1
-@.str.143 = private unnamed_addr constant [14 x i8] c"ntp.priv.impl\00", align 1
-@priv_impl_types = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.746 }, %struct._value_string { i32 2, ptr @.str.747 }, %struct._value_string { i32 3, ptr @.str.748 }, %struct._value_string zeroinitializer], align 16
+@.str.161 = private unnamed_addr constant [15 x i8] c"Implementation\00", align 1
+@.str.162 = private unnamed_addr constant [14 x i8] c"ntp.priv.impl\00", align 1
 @hf_ntppriv_reqcode = internal global i32 0, align 4
-@.str.144 = private unnamed_addr constant [13 x i8] c"Request code\00", align 1
-@.str.145 = private unnamed_addr constant [17 x i8] c"ntp.priv.reqcode\00", align 1
-@priv_rc_types_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 46, ptr @priv_rc_types, ptr @.str.749 }, align 8
+@.str.163 = private unnamed_addr constant [13 x i8] c"Request code\00", align 1
+@.str.164 = private unnamed_addr constant [17 x i8] c"ntp.priv.reqcode\00", align 1
+@priv_rc_types_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 46, ptr @priv_rc_types, ptr @.str.784 }, align 8
 @hf_ntppriv_errcode = internal global i32 0, align 4
-@.str.146 = private unnamed_addr constant [4 x i8] c"Err\00", align 1
-@.str.147 = private unnamed_addr constant [13 x i8] c"ntp.priv.err\00", align 1
-@err_values_types = internal constant [9 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.796 }, %struct._value_string { i32 1, ptr @.str.797 }, %struct._value_string { i32 2, ptr @.str.798 }, %struct._value_string { i32 3, ptr @.str.799 }, %struct._value_string { i32 4, ptr @.str.800 }, %struct._value_string { i32 5, ptr @.str.801 }, %struct._value_string { i32 6, ptr @.str.801 }, %struct._value_string { i32 7, ptr @.str.678 }, %struct._value_string zeroinitializer], align 16
+@.str.165 = private unnamed_addr constant [4 x i8] c"Err\00", align 1
+@.str.166 = private unnamed_addr constant [13 x i8] c"ntp.priv.err\00", align 1
 @hf_ntppriv_numitems = internal global i32 0, align 4
-@.str.148 = private unnamed_addr constant [21 x i8] c"Number of data items\00", align 1
-@.str.149 = private unnamed_addr constant [18 x i8] c"ntp.priv.numitems\00", align 1
+@.str.167 = private unnamed_addr constant [21 x i8] c"Number of data items\00", align 1
+@.str.168 = private unnamed_addr constant [18 x i8] c"ntp.priv.numitems\00", align 1
 @hf_ntppriv_mbz = internal global i32 0, align 4
-@.str.150 = private unnamed_addr constant [9 x i8] c"Reserved\00", align 1
-@.str.151 = private unnamed_addr constant [18 x i8] c"ntp.priv.reserved\00", align 1
+@.str.169 = private unnamed_addr constant [9 x i8] c"Reserved\00", align 1
+@.str.170 = private unnamed_addr constant [18 x i8] c"ntp.priv.reserved\00", align 1
 @hf_ntppriv_mode7_item = internal global i32 0, align 4
-@.str.152 = private unnamed_addr constant [11 x i8] c"Mode7 item\00", align 1
-@.str.153 = private unnamed_addr constant [20 x i8] c"ntp.priv.mode7.item\00", align 1
+@.str.171 = private unnamed_addr constant [11 x i8] c"Mode7 item\00", align 1
+@.str.172 = private unnamed_addr constant [20 x i8] c"ntp.priv.mode7.item\00", align 1
 @hf_ntppriv_itemsize = internal global i32 0, align 4
-@.str.154 = private unnamed_addr constant [18 x i8] c"Size of data item\00", align 1
-@.str.155 = private unnamed_addr constant [18 x i8] c"ntp.priv.itemsize\00", align 1
+@.str.173 = private unnamed_addr constant [18 x i8] c"Size of data item\00", align 1
+@.str.174 = private unnamed_addr constant [18 x i8] c"ntp.priv.itemsize\00", align 1
 @hf_ntppriv_avgint = internal global i32 0, align 4
-@.str.156 = private unnamed_addr constant [7 x i8] c"avgint\00", align 1
-@.str.157 = private unnamed_addr constant [24 x i8] c"ntp.priv.monlist.avgint\00", align 1
+@.str.175 = private unnamed_addr constant [7 x i8] c"avgint\00", align 1
+@.str.176 = private unnamed_addr constant [24 x i8] c"ntp.priv.monlist.avgint\00", align 1
 @hf_ntppriv_lsint = internal global i32 0, align 4
-@.str.158 = private unnamed_addr constant [6 x i8] c"lsint\00", align 1
-@.str.159 = private unnamed_addr constant [23 x i8] c"ntp.priv.monlist.lsint\00", align 1
+@.str.177 = private unnamed_addr constant [6 x i8] c"lsint\00", align 1
+@.str.178 = private unnamed_addr constant [23 x i8] c"ntp.priv.monlist.lsint\00", align 1
 @hf_ntppriv_restr = internal global i32 0, align 4
-@.str.160 = private unnamed_addr constant [6 x i8] c"restr\00", align 1
-@.str.161 = private unnamed_addr constant [23 x i8] c"ntp.priv.monlist.restr\00", align 1
+@.str.179 = private unnamed_addr constant [6 x i8] c"restr\00", align 1
+@.str.180 = private unnamed_addr constant [23 x i8] c"ntp.priv.monlist.restr\00", align 1
 @hf_ntppriv_count = internal global i32 0, align 4
-@.str.162 = private unnamed_addr constant [6 x i8] c"count\00", align 1
-@.str.163 = private unnamed_addr constant [23 x i8] c"ntp.priv.monlist.count\00", align 1
+@.str.181 = private unnamed_addr constant [6 x i8] c"count\00", align 1
+@.str.182 = private unnamed_addr constant [23 x i8] c"ntp.priv.monlist.count\00", align 1
 @hf_ntppriv_addr = internal global i32 0, align 4
-@.str.164 = private unnamed_addr constant [15 x i8] c"remote address\00", align 1
-@.str.165 = private unnamed_addr constant [32 x i8] c"ntp.priv.monlist.remote_address\00", align 1
+@.str.183 = private unnamed_addr constant [15 x i8] c"remote address\00", align 1
+@.str.184 = private unnamed_addr constant [32 x i8] c"ntp.priv.monlist.remote_address\00", align 1
 @hf_ntppriv_daddr = internal global i32 0, align 4
-@.str.166 = private unnamed_addr constant [14 x i8] c"local address\00", align 1
-@.str.167 = private unnamed_addr constant [31 x i8] c"ntp.priv.monlist.local_address\00", align 1
+@.str.185 = private unnamed_addr constant [14 x i8] c"local address\00", align 1
+@.str.186 = private unnamed_addr constant [31 x i8] c"ntp.priv.monlist.local_address\00", align 1
 @hf_ntppriv_flags = internal global i32 0, align 4
-@.str.168 = private unnamed_addr constant [6 x i8] c"flags\00", align 1
-@.str.169 = private unnamed_addr constant [23 x i8] c"ntp.priv.monlist.flags\00", align 1
+@.str.187 = private unnamed_addr constant [6 x i8] c"flags\00", align 1
+@.str.188 = private unnamed_addr constant [23 x i8] c"ntp.priv.monlist.flags\00", align 1
 @hf_ntppriv_port = internal global i32 0, align 4
-@.str.170 = private unnamed_addr constant [5 x i8] c"port\00", align 1
-@.str.171 = private unnamed_addr constant [22 x i8] c"ntp.priv.monlist.port\00", align 1
+@.str.189 = private unnamed_addr constant [5 x i8] c"port\00", align 1
+@.str.190 = private unnamed_addr constant [22 x i8] c"ntp.priv.monlist.port\00", align 1
 @hf_ntppriv_mode = internal global i32 0, align 4
-@.str.172 = private unnamed_addr constant [5 x i8] c"mode\00", align 1
-@.str.173 = private unnamed_addr constant [22 x i8] c"ntp.priv.monlist.mode\00", align 1
+@.str.191 = private unnamed_addr constant [5 x i8] c"mode\00", align 1
+@.str.192 = private unnamed_addr constant [22 x i8] c"ntp.priv.monlist.mode\00", align 1
 @hf_ntppriv_version = internal global i32 0, align 4
-@.str.174 = private unnamed_addr constant [8 x i8] c"version\00", align 1
-@.str.175 = private unnamed_addr constant [25 x i8] c"ntp.priv.monlist.version\00", align 1
+@.str.193 = private unnamed_addr constant [8 x i8] c"version\00", align 1
+@.str.194 = private unnamed_addr constant [25 x i8] c"ntp.priv.monlist.version\00", align 1
 @hf_ntppriv_v6_flag = internal global i32 0, align 4
-@.str.176 = private unnamed_addr constant [5 x i8] c"ipv6\00", align 1
-@.str.177 = private unnamed_addr constant [22 x i8] c"ntp.priv.monlist.ipv6\00", align 1
+@.str.195 = private unnamed_addr constant [5 x i8] c"ipv6\00", align 1
+@.str.196 = private unnamed_addr constant [22 x i8] c"ntp.priv.monlist.ipv6\00", align 1
 @hf_ntppriv_unused = internal global i32 0, align 4
-@.str.178 = private unnamed_addr constant [7 x i8] c"unused\00", align 1
-@.str.179 = private unnamed_addr constant [24 x i8] c"ntp.priv.monlist.unused\00", align 1
+@.str.197 = private unnamed_addr constant [7 x i8] c"unused\00", align 1
+@.str.198 = private unnamed_addr constant [24 x i8] c"ntp.priv.monlist.unused\00", align 1
 @hf_ntppriv_addr6 = internal global i32 0, align 4
-@.str.180 = private unnamed_addr constant [17 x i8] c"ipv6 remote addr\00", align 1
-@.str.181 = private unnamed_addr constant [23 x i8] c"ntp.priv.monlist.addr6\00", align 1
+@.str.199 = private unnamed_addr constant [17 x i8] c"ipv6 remote addr\00", align 1
+@.str.200 = private unnamed_addr constant [23 x i8] c"ntp.priv.monlist.addr6\00", align 1
 @hf_ntppriv_daddr6 = internal global i32 0, align 4
-@.str.182 = private unnamed_addr constant [16 x i8] c"ipv6 local addr\00", align 1
-@.str.183 = private unnamed_addr constant [24 x i8] c"ntp.priv.monlist.daddr6\00", align 1
+@.str.201 = private unnamed_addr constant [16 x i8] c"ipv6 local addr\00", align 1
+@.str.202 = private unnamed_addr constant [24 x i8] c"ntp.priv.monlist.daddr6\00", align 1
 @hf_ntppriv_tstamp = internal global i32 0, align 4
-@.str.184 = private unnamed_addr constant [25 x i8] c"Authentication timestamp\00", align 1
-@.str.185 = private unnamed_addr constant [16 x i8] c"ntp.priv.tstamp\00", align 1
+@.str.203 = private unnamed_addr constant [25 x i8] c"Authentication timestamp\00", align 1
+@.str.204 = private unnamed_addr constant [16 x i8] c"ntp.priv.tstamp\00", align 1
 @hf_ntppriv_mode7_addr = internal global i32 0, align 4
-@.str.186 = private unnamed_addr constant [8 x i8] c"Address\00", align 1
-@.str.187 = private unnamed_addr constant [23 x i8] c"ntp.priv.mode7.address\00", align 1
+@.str.205 = private unnamed_addr constant [8 x i8] c"Address\00", align 1
+@.str.206 = private unnamed_addr constant [23 x i8] c"ntp.priv.mode7.address\00", align 1
 @hf_ntppriv_mode7_mask = internal global i32 0, align 4
-@.str.188 = private unnamed_addr constant [5 x i8] c"Mask\00", align 1
-@.str.189 = private unnamed_addr constant [20 x i8] c"ntp.priv.mode7.mask\00", align 1
+@.str.207 = private unnamed_addr constant [5 x i8] c"Mask\00", align 1
+@.str.208 = private unnamed_addr constant [20 x i8] c"ntp.priv.mode7.mask\00", align 1
 @hf_ntppriv_mode7_bcast = internal global i32 0, align 4
-@.str.190 = private unnamed_addr constant [6 x i8] c"Bcast\00", align 1
-@.str.191 = private unnamed_addr constant [21 x i8] c"ntp.priv.mode7.bcast\00", align 1
+@.str.209 = private unnamed_addr constant [6 x i8] c"Bcast\00", align 1
+@.str.210 = private unnamed_addr constant [21 x i8] c"ntp.priv.mode7.bcast\00", align 1
 @hf_ntppriv_mode7_port = internal global i32 0, align 4
-@.str.192 = private unnamed_addr constant [5 x i8] c"Port\00", align 1
-@.str.193 = private unnamed_addr constant [20 x i8] c"ntp.priv.mode7.port\00", align 1
+@.str.211 = private unnamed_addr constant [5 x i8] c"Port\00", align 1
+@.str.212 = private unnamed_addr constant [20 x i8] c"ntp.priv.mode7.port\00", align 1
 @hf_ntppriv_mode7_hmode = internal global i32 0, align 4
-@.str.194 = private unnamed_addr constant [6 x i8] c"HMode\00", align 1
-@.str.195 = private unnamed_addr constant [21 x i8] c"ntp.priv.mode7.hmode\00", align 1
+@.str.213 = private unnamed_addr constant [6 x i8] c"HMode\00", align 1
+@.str.214 = private unnamed_addr constant [21 x i8] c"ntp.priv.mode7.hmode\00", align 1
 @hf_ntppriv_mode7_peer_flags = internal global i32 0, align 4
-@.str.196 = private unnamed_addr constant [26 x i8] c"ntp.priv.mode7.peer.flags\00", align 1
+@.str.215 = private unnamed_addr constant [26 x i8] c"ntp.priv.mode7.peer.flags\00", align 1
 @hf_ntppriv_mode7_v6_flag = internal global i32 0, align 4
-@.str.197 = private unnamed_addr constant [10 x i8] c"IPv6 Flag\00", align 1
-@.str.198 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.ipv6_flag\00", align 1
+@.str.216 = private unnamed_addr constant [10 x i8] c"IPv6 Flag\00", align 1
+@.str.217 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.ipv6_flag\00", align 1
 @hf_ntppriv_mode7_unused = internal global i32 0, align 4
-@.str.199 = private unnamed_addr constant [7 x i8] c"Unused\00", align 1
-@.str.200 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.unused\00", align 1
+@.str.218 = private unnamed_addr constant [7 x i8] c"Unused\00", align 1
+@.str.219 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.unused\00", align 1
 @hf_ntppriv_mode7_addr6 = internal global i32 0, align 4
-@.str.201 = private unnamed_addr constant [10 x i8] c"IPv6 addr\00", align 1
-@.str.202 = private unnamed_addr constant [24 x i8] c"ntp.priv.mode7.address6\00", align 1
+@.str.220 = private unnamed_addr constant [10 x i8] c"IPv6 addr\00", align 1
+@.str.221 = private unnamed_addr constant [24 x i8] c"ntp.priv.mode7.address6\00", align 1
 @hf_ntppriv_mode7_mask6 = internal global i32 0, align 4
-@.str.203 = private unnamed_addr constant [10 x i8] c"IPv6 mask\00", align 1
-@.str.204 = private unnamed_addr constant [21 x i8] c"ntp.priv.mode7.mask6\00", align 1
+@.str.222 = private unnamed_addr constant [10 x i8] c"IPv6 mask\00", align 1
+@.str.223 = private unnamed_addr constant [21 x i8] c"ntp.priv.mode7.mask6\00", align 1
 @hf_ntppriv_mode7_bcast6 = internal global i32 0, align 4
-@.str.205 = private unnamed_addr constant [11 x i8] c"IPv6 bcast\00", align 1
-@.str.206 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.bcast6\00", align 1
+@.str.224 = private unnamed_addr constant [11 x i8] c"IPv6 bcast\00", align 1
+@.str.225 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.bcast6\00", align 1
 @hf_ntppriv_mode7_peer_flags_config = internal global i32 0, align 4
-@.str.207 = private unnamed_addr constant [7 x i8] c"Config\00", align 1
-@.str.208 = private unnamed_addr constant [33 x i8] c"ntp.priv.mode7.peer.flags.config\00", align 1
+@.str.226 = private unnamed_addr constant [7 x i8] c"Config\00", align 1
+@.str.227 = private unnamed_addr constant [33 x i8] c"ntp.priv.mode7.peer.flags.config\00", align 1
 @hf_ntppriv_mode7_peer_flags_syspeer = internal global i32 0, align 4
-@.str.209 = private unnamed_addr constant [8 x i8] c"Syspeer\00", align 1
-@.str.210 = private unnamed_addr constant [34 x i8] c"ntp.priv.mode7.peer.flags.syspeer\00", align 1
+@.str.228 = private unnamed_addr constant [8 x i8] c"Syspeer\00", align 1
+@.str.229 = private unnamed_addr constant [34 x i8] c"ntp.priv.mode7.peer.flags.syspeer\00", align 1
 @hf_ntppriv_mode7_peer_flags_burst = internal global i32 0, align 4
-@.str.211 = private unnamed_addr constant [6 x i8] c"Burst\00", align 1
-@.str.212 = private unnamed_addr constant [32 x i8] c"ntp.priv.mode7.peer.flags.burst\00", align 1
+@.str.230 = private unnamed_addr constant [6 x i8] c"Burst\00", align 1
+@.str.231 = private unnamed_addr constant [32 x i8] c"ntp.priv.mode7.peer.flags.burst\00", align 1
 @hf_ntppriv_mode7_peer_flags_refclock = internal global i32 0, align 4
-@.str.213 = private unnamed_addr constant [9 x i8] c"Refclock\00", align 1
-@.str.214 = private unnamed_addr constant [35 x i8] c"ntp.priv.mode7.peer.flags.refclock\00", align 1
+@.str.232 = private unnamed_addr constant [9 x i8] c"Refclock\00", align 1
+@.str.233 = private unnamed_addr constant [35 x i8] c"ntp.priv.mode7.peer.flags.refclock\00", align 1
 @hf_ntppriv_mode7_peer_flags_prefer = internal global i32 0, align 4
-@.str.215 = private unnamed_addr constant [7 x i8] c"Prefer\00", align 1
-@.str.216 = private unnamed_addr constant [33 x i8] c"ntp.priv.mode7.peer.flags.prefer\00", align 1
+@.str.234 = private unnamed_addr constant [7 x i8] c"Prefer\00", align 1
+@.str.235 = private unnamed_addr constant [33 x i8] c"ntp.priv.mode7.peer.flags.prefer\00", align 1
 @hf_ntppriv_mode7_peer_flags_authenable = internal global i32 0, align 4
-@.str.217 = private unnamed_addr constant [12 x i8] c"Auth enable\00", align 1
-@.str.218 = private unnamed_addr constant [37 x i8] c"ntp.priv.mode7.peer.flags.authenable\00", align 1
+@.str.236 = private unnamed_addr constant [12 x i8] c"Auth enable\00", align 1
+@.str.237 = private unnamed_addr constant [37 x i8] c"ntp.priv.mode7.peer.flags.authenable\00", align 1
 @hf_ntppriv_mode7_peer_flags_sel_candidate = internal global i32 0, align 4
-@.str.219 = private unnamed_addr constant [14 x i8] c"Sel Candidate\00", align 1
-@.str.220 = private unnamed_addr constant [40 x i8] c"ntp.priv.mode7.peer.flags.sel_candidate\00", align 1
+@.str.238 = private unnamed_addr constant [14 x i8] c"Sel Candidate\00", align 1
+@.str.239 = private unnamed_addr constant [40 x i8] c"ntp.priv.mode7.peer.flags.sel_candidate\00", align 1
 @hf_ntppriv_mode7_peer_flags_shortlist = internal global i32 0, align 4
-@.str.221 = private unnamed_addr constant [10 x i8] c"Shortlist\00", align 1
-@.str.222 = private unnamed_addr constant [36 x i8] c"ntp.priv.mode7.peer.flags.shortlist\00", align 1
+@.str.240 = private unnamed_addr constant [10 x i8] c"Shortlist\00", align 1
+@.str.241 = private unnamed_addr constant [36 x i8] c"ntp.priv.mode7.peer.flags.shortlist\00", align 1
 @hf_ntppriv_mode7_dstaddr = internal global i32 0, align 4
-@.str.223 = private unnamed_addr constant [20 x i8] c"Destination address\00", align 1
-@.str.224 = private unnamed_addr constant [26 x i8] c"ntp.priv.mode7.dstaddress\00", align 1
+@.str.242 = private unnamed_addr constant [20 x i8] c"Destination address\00", align 1
+@.str.243 = private unnamed_addr constant [26 x i8] c"ntp.priv.mode7.dstaddress\00", align 1
 @hf_ntppriv_mode7_srcaddr = internal global i32 0, align 4
-@.str.225 = private unnamed_addr constant [15 x i8] c"Source address\00", align 1
-@.str.226 = private unnamed_addr constant [26 x i8] c"ntp.priv.mode7.srcaddress\00", align 1
+@.str.244 = private unnamed_addr constant [15 x i8] c"Source address\00", align 1
+@.str.245 = private unnamed_addr constant [26 x i8] c"ntp.priv.mode7.srcaddress\00", align 1
 @hf_ntppriv_mode7_srcport = internal global i32 0, align 4
-@.str.227 = private unnamed_addr constant [12 x i8] c"Source port\00", align 1
-@.str.228 = private unnamed_addr constant [23 x i8] c"ntp.priv.mode7.srcport\00", align 1
+@.str.246 = private unnamed_addr constant [12 x i8] c"Source port\00", align 1
+@.str.247 = private unnamed_addr constant [23 x i8] c"ntp.priv.mode7.srcport\00", align 1
 @hf_ntppriv_mode7_count = internal global i32 0, align 4
-@.str.229 = private unnamed_addr constant [21 x i8] c"ntp.priv.mode7.count\00", align 1
+@.str.248 = private unnamed_addr constant [21 x i8] c"ntp.priv.mode7.count\00", align 1
 @hf_ntppriv_mode7_hpoll = internal global i32 0, align 4
-@.str.230 = private unnamed_addr constant [22 x i8] c"Host polling interval\00", align 1
-@.str.231 = private unnamed_addr constant [21 x i8] c"ntp.priv.mode7.hpoll\00", align 1
+@.str.249 = private unnamed_addr constant [22 x i8] c"Host polling interval\00", align 1
+@.str.250 = private unnamed_addr constant [21 x i8] c"ntp.priv.mode7.hpoll\00", align 1
 @hf_ntppriv_mode7_reach = internal global i32 0, align 4
-@.str.232 = private unnamed_addr constant [6 x i8] c"Reach\00", align 1
-@.str.233 = private unnamed_addr constant [21 x i8] c"ntp.priv.mode7.reach\00", align 1
+@.str.251 = private unnamed_addr constant [6 x i8] c"Reach\00", align 1
+@.str.252 = private unnamed_addr constant [21 x i8] c"ntp.priv.mode7.reach\00", align 1
 @hf_ntppriv_mode7_delay = internal global i32 0, align 4
-@.str.234 = private unnamed_addr constant [6 x i8] c"Delay\00", align 1
-@.str.235 = private unnamed_addr constant [21 x i8] c"ntp.priv.mode7.delay\00", align 1
+@.str.253 = private unnamed_addr constant [6 x i8] c"Delay\00", align 1
+@.str.254 = private unnamed_addr constant [21 x i8] c"ntp.priv.mode7.delay\00", align 1
 @hf_ntppriv_mode7_offset = internal global i32 0, align 4
-@.str.236 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.offset\00", align 1
+@.str.255 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.offset\00", align 1
 @hf_ntppriv_mode7_dispersion = internal global i32 0, align 4
-@.str.237 = private unnamed_addr constant [11 x i8] c"Dispersion\00", align 1
-@.str.238 = private unnamed_addr constant [26 x i8] c"ntp.priv.mode7.dispersion\00", align 1
+@.str.256 = private unnamed_addr constant [11 x i8] c"Dispersion\00", align 1
+@.str.257 = private unnamed_addr constant [26 x i8] c"ntp.priv.mode7.dispersion\00", align 1
 @hf_ntppriv_mode7_dstaddr6 = internal global i32 0, align 4
-@.str.239 = private unnamed_addr constant [22 x i8] c"IPv6 destination addr\00", align 1
-@.str.240 = private unnamed_addr constant [27 x i8] c"ntp.priv.mode7.dstaddress6\00", align 1
+@.str.258 = private unnamed_addr constant [22 x i8] c"IPv6 destination addr\00", align 1
+@.str.259 = private unnamed_addr constant [27 x i8] c"ntp.priv.mode7.dstaddress6\00", align 1
 @hf_ntppriv_mode7_srcaddr6 = internal global i32 0, align 4
-@.str.241 = private unnamed_addr constant [17 x i8] c"IPv6 source addr\00", align 1
-@.str.242 = private unnamed_addr constant [27 x i8] c"ntp.priv.mode7.srcaddress6\00", align 1
+@.str.260 = private unnamed_addr constant [17 x i8] c"IPv6 source addr\00", align 1
+@.str.261 = private unnamed_addr constant [27 x i8] c"ntp.priv.mode7.srcaddress6\00", align 1
 @hf_ntppriv_mode7_leap = internal global i32 0, align 4
-@.str.243 = private unnamed_addr constant [5 x i8] c"Leap\00", align 1
-@.str.244 = private unnamed_addr constant [20 x i8] c"ntp.priv.mode7.leap\00", align 1
+@.str.262 = private unnamed_addr constant [5 x i8] c"Leap\00", align 1
+@.str.263 = private unnamed_addr constant [20 x i8] c"ntp.priv.mode7.leap\00", align 1
 @hf_ntppriv_mode7_pmode = internal global i32 0, align 4
-@.str.245 = private unnamed_addr constant [10 x i8] c"Peer mode\00", align 1
-@.str.246 = private unnamed_addr constant [21 x i8] c"ntp.priv.mode7.pmode\00", align 1
+@.str.264 = private unnamed_addr constant [10 x i8] c"Peer mode\00", align 1
+@.str.265 = private unnamed_addr constant [21 x i8] c"ntp.priv.mode7.pmode\00", align 1
 @hf_ntppriv_mode7_version = internal global i32 0, align 4
-@.str.247 = private unnamed_addr constant [8 x i8] c"Version\00", align 1
-@.str.248 = private unnamed_addr constant [23 x i8] c"ntp.priv.mode7.version\00", align 1
+@.str.266 = private unnamed_addr constant [8 x i8] c"Version\00", align 1
+@.str.267 = private unnamed_addr constant [23 x i8] c"ntp.priv.mode7.version\00", align 1
 @hf_ntppriv_mode7_unreach = internal global i32 0, align 4
-@.str.249 = private unnamed_addr constant [8 x i8] c"Unreach\00", align 1
-@.str.250 = private unnamed_addr constant [23 x i8] c"ntp.priv.mode7.unreach\00", align 1
+@.str.268 = private unnamed_addr constant [8 x i8] c"Unreach\00", align 1
+@.str.269 = private unnamed_addr constant [23 x i8] c"ntp.priv.mode7.unreach\00", align 1
 @hf_ntppriv_mode7_flash = internal global i32 0, align 4
-@.str.251 = private unnamed_addr constant [6 x i8] c"Flash\00", align 1
-@.str.252 = private unnamed_addr constant [21 x i8] c"ntp.priv.mode7.flash\00", align 1
+@.str.270 = private unnamed_addr constant [6 x i8] c"Flash\00", align 1
+@.str.271 = private unnamed_addr constant [21 x i8] c"ntp.priv.mode7.flash\00", align 1
 @hf_ntppriv_mode7_ttl = internal global i32 0, align 4
-@.str.253 = private unnamed_addr constant [4 x i8] c"TTL\00", align 1
-@.str.254 = private unnamed_addr constant [19 x i8] c"ntp.priv.mode7.ttl\00", align 1
+@.str.272 = private unnamed_addr constant [4 x i8] c"TTL\00", align 1
+@.str.273 = private unnamed_addr constant [19 x i8] c"ntp.priv.mode7.ttl\00", align 1
 @hf_ntppriv_mode7_flash2 = internal global i32 0, align 4
-@.str.255 = private unnamed_addr constant [10 x i8] c"Flash new\00", align 1
-@.str.256 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.flash2\00", align 1
+@.str.274 = private unnamed_addr constant [10 x i8] c"Flash new\00", align 1
+@.str.275 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.flash2\00", align 1
 @hf_ntppriv_mode7_associd = internal global i32 0, align 4
-@.str.257 = private unnamed_addr constant [15 x i8] c"Association ID\00", align 1
-@.str.258 = private unnamed_addr constant [23 x i8] c"ntp.priv.mode7.associd\00", align 1
+@.str.276 = private unnamed_addr constant [15 x i8] c"Association ID\00", align 1
+@.str.277 = private unnamed_addr constant [23 x i8] c"ntp.priv.mode7.associd\00", align 1
 @hf_ntppriv_mode7_pkeyid = internal global i32 0, align 4
-@.str.259 = private unnamed_addr constant [12 x i8] c"Peer Key ID\00", align 1
-@.str.260 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.pkeyid\00", align 1
+@.str.278 = private unnamed_addr constant [12 x i8] c"Peer Key ID\00", align 1
+@.str.279 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.pkeyid\00", align 1
 @hf_ntppriv_mode7_timer = internal global i32 0, align 4
-@.str.261 = private unnamed_addr constant [6 x i8] c"Timer\00", align 1
-@.str.262 = private unnamed_addr constant [21 x i8] c"ntp.priv.mode7.timer\00", align 1
+@.str.280 = private unnamed_addr constant [6 x i8] c"Timer\00", align 1
+@.str.281 = private unnamed_addr constant [21 x i8] c"ntp.priv.mode7.timer\00", align 1
 @hf_ntppriv_mode7_filtdelay = internal global i32 0, align 4
-@.str.263 = private unnamed_addr constant [11 x i8] c"Filt delay\00", align 1
-@.str.264 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.filtdelay\00", align 1
+@.str.282 = private unnamed_addr constant [11 x i8] c"Filt delay\00", align 1
+@.str.283 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.filtdelay\00", align 1
 @hf_ntppriv_mode7_filtoffset = internal global i32 0, align 4
-@.str.265 = private unnamed_addr constant [12 x i8] c"Filt offset\00", align 1
-@.str.266 = private unnamed_addr constant [26 x i8] c"ntp.priv.mode7.filtoffset\00", align 1
+@.str.284 = private unnamed_addr constant [12 x i8] c"Filt offset\00", align 1
+@.str.285 = private unnamed_addr constant [26 x i8] c"ntp.priv.mode7.filtoffset\00", align 1
 @hf_ntppriv_mode7_order = internal global i32 0, align 4
-@.str.267 = private unnamed_addr constant [6 x i8] c"Order\00", align 1
-@.str.268 = private unnamed_addr constant [21 x i8] c"ntp.priv.mode7.order\00", align 1
+@.str.286 = private unnamed_addr constant [6 x i8] c"Order\00", align 1
+@.str.287 = private unnamed_addr constant [21 x i8] c"ntp.priv.mode7.order\00", align 1
 @hf_ntppriv_mode7_selectdis = internal global i32 0, align 4
-@.str.269 = private unnamed_addr constant [10 x i8] c"Selectdis\00", align 1
-@.str.270 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.selectdis\00", align 1
+@.str.288 = private unnamed_addr constant [10 x i8] c"Selectdis\00", align 1
+@.str.289 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.selectdis\00", align 1
 @hf_ntppriv_mode7_estbdelay = internal global i32 0, align 4
-@.str.271 = private unnamed_addr constant [10 x i8] c"Estbdelay\00", align 1
-@.str.272 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.estbdelay\00", align 1
+@.str.290 = private unnamed_addr constant [10 x i8] c"Estbdelay\00", align 1
+@.str.291 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.estbdelay\00", align 1
 @hf_ntppriv_mode7_bdelay = internal global i32 0, align 4
-@.str.273 = private unnamed_addr constant [7 x i8] c"Bdelay\00", align 1
-@.str.274 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.bdelay\00", align 1
+@.str.292 = private unnamed_addr constant [7 x i8] c"Bdelay\00", align 1
+@.str.293 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.bdelay\00", align 1
 @hf_ntppriv_mode7_authdelay = internal global i32 0, align 4
-@.str.275 = private unnamed_addr constant [11 x i8] c"Auth delay\00", align 1
-@.str.276 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.authdelay\00", align 1
+@.str.294 = private unnamed_addr constant [11 x i8] c"Auth delay\00", align 1
+@.str.295 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.authdelay\00", align 1
 @hf_ntppriv_mode7_minpoll = internal global i32 0, align 4
-@.str.277 = private unnamed_addr constant [8 x i8] c"Minpoll\00", align 1
-@.str.278 = private unnamed_addr constant [23 x i8] c"ntp.priv.mode7.minpoll\00", align 1
+@.str.296 = private unnamed_addr constant [8 x i8] c"Minpoll\00", align 1
+@.str.297 = private unnamed_addr constant [23 x i8] c"ntp.priv.mode7.minpoll\00", align 1
 @hf_ntppriv_mode7_maxpoll = internal global i32 0, align 4
-@.str.279 = private unnamed_addr constant [8 x i8] c"Maxpoll\00", align 1
-@.str.280 = private unnamed_addr constant [23 x i8] c"ntp.priv.mode7.maxpoll\00", align 1
+@.str.298 = private unnamed_addr constant [8 x i8] c"Maxpoll\00", align 1
+@.str.299 = private unnamed_addr constant [23 x i8] c"ntp.priv.mode7.maxpoll\00", align 1
 @hf_ntppriv_mode7_config_flags = internal global i32 0, align 4
-@.str.281 = private unnamed_addr constant [22 x i8] c"ntp.priv.config.flags\00", align 1
+@.str.300 = private unnamed_addr constant [22 x i8] c"ntp.priv.config.flags\00", align 1
 @hf_ntppriv_mode7_config_flags_auth = internal global i32 0, align 4
-@.str.282 = private unnamed_addr constant [11 x i8] c"Authenable\00", align 1
-@.str.283 = private unnamed_addr constant [39 x i8] c"ntp.priv.mode7.config.flags.authenable\00", align 1
+@.str.301 = private unnamed_addr constant [11 x i8] c"Authenable\00", align 1
+@.str.302 = private unnamed_addr constant [39 x i8] c"ntp.priv.mode7.config.flags.authenable\00", align 1
 @hf_ntppriv_mode7_config_flags_prefer = internal global i32 0, align 4
-@.str.284 = private unnamed_addr constant [35 x i8] c"ntp.priv.mode7.config.flags.prefer\00", align 1
+@.str.303 = private unnamed_addr constant [35 x i8] c"ntp.priv.mode7.config.flags.prefer\00", align 1
 @hf_ntppriv_mode7_config_flags_burst = internal global i32 0, align 4
-@.str.285 = private unnamed_addr constant [34 x i8] c"ntp.priv.mode7.config.flags.burst\00", align 1
+@.str.304 = private unnamed_addr constant [34 x i8] c"ntp.priv.mode7.config.flags.burst\00", align 1
 @hf_ntppriv_mode7_config_flags_iburst = internal global i32 0, align 4
-@.str.286 = private unnamed_addr constant [7 x i8] c"IBurst\00", align 1
-@.str.287 = private unnamed_addr constant [35 x i8] c"ntp.priv.mode7.config.flags.iburst\00", align 1
+@.str.305 = private unnamed_addr constant [7 x i8] c"IBurst\00", align 1
+@.str.306 = private unnamed_addr constant [35 x i8] c"ntp.priv.mode7.config.flags.iburst\00", align 1
 @hf_ntppriv_mode7_config_flags_noselect = internal global i32 0, align 4
-@.str.288 = private unnamed_addr constant [10 x i8] c"No Select\00", align 1
-@.str.289 = private unnamed_addr constant [38 x i8] c"ntp.priv.mode7.config.flags.no_select\00", align 1
+@.str.307 = private unnamed_addr constant [10 x i8] c"No Select\00", align 1
+@.str.308 = private unnamed_addr constant [38 x i8] c"ntp.priv.mode7.config.flags.no_select\00", align 1
 @hf_ntppriv_mode7_config_flags_skey = internal global i32 0, align 4
-@.str.290 = private unnamed_addr constant [5 x i8] c"Skey\00", align 1
-@.str.291 = private unnamed_addr constant [33 x i8] c"ntp.priv.mode7.config.flags.skey\00", align 1
+@.str.309 = private unnamed_addr constant [5 x i8] c"Skey\00", align 1
+@.str.310 = private unnamed_addr constant [33 x i8] c"ntp.priv.mode7.config.flags.skey\00", align 1
 @hf_ntppriv_mode7_key_file = internal global i32 0, align 4
-@.str.292 = private unnamed_addr constant [14 x i8] c"Key file name\00", align 1
-@.str.293 = private unnamed_addr constant [24 x i8] c"ntp.priv.mode7.key_file\00", align 1
+@.str.311 = private unnamed_addr constant [14 x i8] c"Key file name\00", align 1
+@.str.312 = private unnamed_addr constant [24 x i8] c"ntp.priv.mode7.key_file\00", align 1
 @hf_ntppriv_mode7_sys_flags = internal global i32 0, align 4
-@.str.294 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.sys.flags\00", align 1
+@.str.313 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.sys.flags\00", align 1
 @hf_ntppriv_mode7_sys_flags_bclient = internal global i32 0, align 4
-@.str.295 = private unnamed_addr constant [8 x i8] c"Bclient\00", align 1
-@.str.296 = private unnamed_addr constant [33 x i8] c"ntp.priv.mode7.sys.flags.bclient\00", align 1
+@.str.314 = private unnamed_addr constant [8 x i8] c"Bclient\00", align 1
+@.str.315 = private unnamed_addr constant [33 x i8] c"ntp.priv.mode7.sys.flags.bclient\00", align 1
 @hf_ntppriv_mode7_sys_flags_pps = internal global i32 0, align 4
-@.str.297 = private unnamed_addr constant [4 x i8] c"PPS\00", align 1
-@.str.298 = private unnamed_addr constant [29 x i8] c"ntp.priv.mode7.sys.flags.pps\00", align 1
+@.str.316 = private unnamed_addr constant [4 x i8] c"PPS\00", align 1
+@.str.317 = private unnamed_addr constant [29 x i8] c"ntp.priv.mode7.sys.flags.pps\00", align 1
 @hf_ntppriv_mode7_sys_flags_ntp = internal global i32 0, align 4
-@.str.299 = private unnamed_addr constant [4 x i8] c"NTP\00", align 1
-@.str.300 = private unnamed_addr constant [29 x i8] c"ntp.priv.mode7.sys.flags.ntp\00", align 1
+@.str.318 = private unnamed_addr constant [4 x i8] c"NTP\00", align 1
+@.str.319 = private unnamed_addr constant [29 x i8] c"ntp.priv.mode7.sys.flags.ntp\00", align 1
 @hf_ntppriv_mode7_sys_flags_kernel = internal global i32 0, align 4
-@.str.301 = private unnamed_addr constant [7 x i8] c"Kernel\00", align 1
-@.str.302 = private unnamed_addr constant [32 x i8] c"ntp.priv.mode7.sys.flags.kernel\00", align 1
+@.str.320 = private unnamed_addr constant [7 x i8] c"Kernel\00", align 1
+@.str.321 = private unnamed_addr constant [32 x i8] c"ntp.priv.mode7.sys.flags.kernel\00", align 1
 @hf_ntppriv_mode7_sys_flags_monitor = internal global i32 0, align 4
-@.str.303 = private unnamed_addr constant [8 x i8] c"Monitor\00", align 1
-@.str.304 = private unnamed_addr constant [33 x i8] c"ntp.priv.mode7.sys.flags.monitor\00", align 1
+@.str.322 = private unnamed_addr constant [8 x i8] c"Monitor\00", align 1
+@.str.323 = private unnamed_addr constant [33 x i8] c"ntp.priv.mode7.sys.flags.monitor\00", align 1
 @hf_ntppriv_mode7_sys_flags_filegen = internal global i32 0, align 4
-@.str.305 = private unnamed_addr constant [8 x i8] c"Filegen\00", align 1
-@.str.306 = private unnamed_addr constant [33 x i8] c"ntp.priv.mode7.sys.flags.filegen\00", align 1
+@.str.324 = private unnamed_addr constant [8 x i8] c"Filegen\00", align 1
+@.str.325 = private unnamed_addr constant [33 x i8] c"ntp.priv.mode7.sys.flags.filegen\00", align 1
 @hf_ntppriv_mode7_sys_flags_auth = internal global i32 0, align 4
-@.str.307 = private unnamed_addr constant [5 x i8] c"Auth\00", align 1
-@.str.308 = private unnamed_addr constant [30 x i8] c"ntp.priv.mode7.sys.flags.auth\00", align 1
+@.str.326 = private unnamed_addr constant [5 x i8] c"Auth\00", align 1
+@.str.327 = private unnamed_addr constant [30 x i8] c"ntp.priv.mode7.sys.flags.auth\00", align 1
 @hf_ntppriv_mode7_sys_flags_cal = internal global i32 0, align 4
-@.str.309 = private unnamed_addr constant [4 x i8] c"Cal\00", align 1
-@.str.310 = private unnamed_addr constant [29 x i8] c"ntp.priv.mode7.sys.flags.cal\00", align 1
+@.str.328 = private unnamed_addr constant [4 x i8] c"Cal\00", align 1
+@.str.329 = private unnamed_addr constant [29 x i8] c"ntp.priv.mode7.sys.flags.cal\00", align 1
 @hf_ntppriv_mode7_reset_stats_flags = internal global i32 0, align 4
-@.str.311 = private unnamed_addr constant [33 x i8] c"ntp.priv.mode7.reset_stats.flags\00", align 1
+@.str.330 = private unnamed_addr constant [33 x i8] c"ntp.priv.mode7.reset_stats.flags\00", align 1
 @hf_ntppriv_mode7_reset_stats_flags_allpeers = internal global i32 0, align 4
-@.str.312 = private unnamed_addr constant [10 x i8] c"All Peers\00", align 1
-@.str.313 = private unnamed_addr constant [42 x i8] c"ntp.priv.mode7.reset_stats.flags.allpeers\00", align 1
+@.str.331 = private unnamed_addr constant [10 x i8] c"All Peers\00", align 1
+@.str.332 = private unnamed_addr constant [42 x i8] c"ntp.priv.mode7.reset_stats.flags.allpeers\00", align 1
 @hf_ntppriv_mode7_reset_stats_flags_io = internal global i32 0, align 4
-@.str.314 = private unnamed_addr constant [3 x i8] c"IO\00", align 1
-@.str.315 = private unnamed_addr constant [36 x i8] c"ntp.priv.mode7.reset_stats.flags.io\00", align 1
+@.str.333 = private unnamed_addr constant [3 x i8] c"IO\00", align 1
+@.str.334 = private unnamed_addr constant [36 x i8] c"ntp.priv.mode7.reset_stats.flags.io\00", align 1
 @hf_ntppriv_mode7_reset_stats_flags_sys = internal global i32 0, align 4
-@.str.316 = private unnamed_addr constant [4 x i8] c"Sys\00", align 1
-@.str.317 = private unnamed_addr constant [37 x i8] c"ntp.priv.mode7.reset_stats.flags.sys\00", align 1
+@.str.335 = private unnamed_addr constant [4 x i8] c"Sys\00", align 1
+@.str.336 = private unnamed_addr constant [37 x i8] c"ntp.priv.mode7.reset_stats.flags.sys\00", align 1
 @hf_ntppriv_mode7_reset_stats_flags_mem = internal global i32 0, align 4
-@.str.318 = private unnamed_addr constant [4 x i8] c"Mem\00", align 1
-@.str.319 = private unnamed_addr constant [37 x i8] c"ntp.priv.mode7.reset_stats.flags.mem\00", align 1
+@.str.337 = private unnamed_addr constant [4 x i8] c"Mem\00", align 1
+@.str.338 = private unnamed_addr constant [37 x i8] c"ntp.priv.mode7.reset_stats.flags.mem\00", align 1
 @hf_ntppriv_mode7_reset_stats_flags_timer = internal global i32 0, align 4
-@.str.320 = private unnamed_addr constant [39 x i8] c"ntp.priv.mode7.reset_stats.flags.timer\00", align 1
+@.str.339 = private unnamed_addr constant [39 x i8] c"ntp.priv.mode7.reset_stats.flags.timer\00", align 1
 @hf_ntppriv_mode7_reset_stats_flags_auth = internal global i32 0, align 4
-@.str.321 = private unnamed_addr constant [38 x i8] c"ntp.priv.mode7.reset_stats.flags.auth\00", align 1
+@.str.340 = private unnamed_addr constant [38 x i8] c"ntp.priv.mode7.reset_stats.flags.auth\00", align 1
 @hf_ntppriv_mode7_reset_stats_flags_ctl = internal global i32 0, align 4
-@.str.322 = private unnamed_addr constant [4 x i8] c"Ctl\00", align 1
-@.str.323 = private unnamed_addr constant [37 x i8] c"ntp.priv.mode7.reset_stats.flags.ctl\00", align 1
+@.str.341 = private unnamed_addr constant [4 x i8] c"Ctl\00", align 1
+@.str.342 = private unnamed_addr constant [37 x i8] c"ntp.priv.mode7.reset_stats.flags.ctl\00", align 1
 @hf_ntppriv_mode7_key = internal global i32 0, align 4
-@.str.324 = private unnamed_addr constant [4 x i8] c"Key\00", align 1
-@.str.325 = private unnamed_addr constant [19 x i8] c"ntp.priv.mode7.key\00", align 1
+@.str.343 = private unnamed_addr constant [4 x i8] c"Key\00", align 1
+@.str.344 = private unnamed_addr constant [19 x i8] c"ntp.priv.mode7.key\00", align 1
 @hf_ntppriv_mode7_timeup = internal global i32 0, align 4
-@.str.326 = private unnamed_addr constant [8 x i8] c"Time up\00", align 1
-@.str.327 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.timeup\00", align 1
-@.str.328 = private unnamed_addr constant [25 x i8] c"time counters were reset\00", align 1
+@.str.345 = private unnamed_addr constant [8 x i8] c"Time up\00", align 1
+@.str.346 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.timeup\00", align 1
+@.str.347 = private unnamed_addr constant [25 x i8] c"time counters were reset\00", align 1
 @hf_ntppriv_mode7_timereset = internal global i32 0, align 4
-@.str.329 = private unnamed_addr constant [11 x i8] c"Time reset\00", align 1
-@.str.330 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.timereset\00", align 1
+@.str.348 = private unnamed_addr constant [11 x i8] c"Time reset\00", align 1
+@.str.349 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.timereset\00", align 1
 @hf_ntppriv_mode7_timereceived = internal global i32 0, align 4
-@.str.331 = private unnamed_addr constant [14 x i8] c"Time received\00", align 1
-@.str.332 = private unnamed_addr constant [28 x i8] c"ntp.priv.mode7.timereceived\00", align 1
-@.str.333 = private unnamed_addr constant [29 x i8] c"time since a packet received\00", align 1
+@.str.350 = private unnamed_addr constant [14 x i8] c"Time received\00", align 1
+@.str.351 = private unnamed_addr constant [28 x i8] c"ntp.priv.mode7.timereceived\00", align 1
+@.str.352 = private unnamed_addr constant [29 x i8] c"time since a packet received\00", align 1
 @hf_ntppriv_mode7_timetosend = internal global i32 0, align 4
-@.str.334 = private unnamed_addr constant [13 x i8] c"Time to send\00", align 1
-@.str.335 = private unnamed_addr constant [26 x i8] c"ntp.priv.mode7.timetosend\00", align 1
-@.str.336 = private unnamed_addr constant [25 x i8] c"time until a packet sent\00", align 1
+@.str.353 = private unnamed_addr constant [13 x i8] c"Time to send\00", align 1
+@.str.354 = private unnamed_addr constant [26 x i8] c"ntp.priv.mode7.timetosend\00", align 1
+@.str.355 = private unnamed_addr constant [25 x i8] c"time until a packet sent\00", align 1
 @hf_ntppriv_mode7_timereachable = internal global i32 0, align 4
-@.str.337 = private unnamed_addr constant [15 x i8] c"Time reachable\00", align 1
-@.str.338 = private unnamed_addr constant [29 x i8] c"ntp.priv.mode7.timereachable\00", align 1
-@.str.339 = private unnamed_addr constant [29 x i8] c"time peer has been reachable\00", align 1
+@.str.356 = private unnamed_addr constant [15 x i8] c"Time reachable\00", align 1
+@.str.357 = private unnamed_addr constant [29 x i8] c"ntp.priv.mode7.timereachable\00", align 1
+@.str.358 = private unnamed_addr constant [29 x i8] c"time peer has been reachable\00", align 1
 @hf_ntppriv_mode7_sent = internal global i32 0, align 4
-@.str.340 = private unnamed_addr constant [5 x i8] c"Sent\00", align 1
-@.str.341 = private unnamed_addr constant [20 x i8] c"ntp.priv.mode7.sent\00", align 1
+@.str.359 = private unnamed_addr constant [5 x i8] c"Sent\00", align 1
+@.str.360 = private unnamed_addr constant [20 x i8] c"ntp.priv.mode7.sent\00", align 1
 @hf_ntppriv_mode7_processed = internal global i32 0, align 4
-@.str.342 = private unnamed_addr constant [10 x i8] c"Processed\00", align 1
-@.str.343 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.processed\00", align 1
+@.str.361 = private unnamed_addr constant [10 x i8] c"Processed\00", align 1
+@.str.362 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.processed\00", align 1
 @hf_ntppriv_mode7_badauth = internal global i32 0, align 4
-@.str.344 = private unnamed_addr constant [19 x i8] c"Bad authentication\00", align 1
-@.str.345 = private unnamed_addr constant [23 x i8] c"ntp.priv.mode7.badauth\00", align 1
+@.str.363 = private unnamed_addr constant [19 x i8] c"Bad authentication\00", align 1
+@.str.364 = private unnamed_addr constant [23 x i8] c"ntp.priv.mode7.badauth\00", align 1
 @hf_ntppriv_mode7_bogusorg = internal global i32 0, align 4
-@.str.346 = private unnamed_addr constant [13 x i8] c"Bogus origin\00", align 1
-@.str.347 = private unnamed_addr constant [24 x i8] c"ntp.priv.mode7.bogusorg\00", align 1
+@.str.365 = private unnamed_addr constant [13 x i8] c"Bogus origin\00", align 1
+@.str.366 = private unnamed_addr constant [24 x i8] c"ntp.priv.mode7.bogusorg\00", align 1
 @hf_ntppriv_mode7_oldpkt = internal global i32 0, align 4
-@.str.348 = private unnamed_addr constant [11 x i8] c"Old packet\00", align 1
-@.str.349 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.oldpkt\00", align 1
+@.str.367 = private unnamed_addr constant [11 x i8] c"Old packet\00", align 1
+@.str.368 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.oldpkt\00", align 1
 @hf_ntppriv_mode7_seldisp = internal global i32 0, align 4
-@.str.350 = private unnamed_addr constant [15 x i8] c"Bad dispersion\00", align 1
-@.str.351 = private unnamed_addr constant [23 x i8] c"ntp.priv.mode7.seldisp\00", align 1
+@.str.369 = private unnamed_addr constant [15 x i8] c"Bad dispersion\00", align 1
+@.str.370 = private unnamed_addr constant [23 x i8] c"ntp.priv.mode7.seldisp\00", align 1
 @hf_ntppriv_mode7_selbroken = internal global i32 0, align 4
-@.str.352 = private unnamed_addr constant [19 x i8] c"Bad reference time\00", align 1
-@.str.353 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.selbroken\00", align 1
+@.str.371 = private unnamed_addr constant [19 x i8] c"Bad reference time\00", align 1
+@.str.372 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.selbroken\00", align 1
 @hf_ntppriv_mode7_candidate = internal global i32 0, align 4
-@.str.354 = private unnamed_addr constant [10 x i8] c"Candidate\00", align 1
-@.str.355 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.candidate\00", align 1
+@.str.373 = private unnamed_addr constant [10 x i8] c"Candidate\00", align 1
+@.str.374 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.candidate\00", align 1
 @hf_ntppriv_mode7_numkeys = internal global i32 0, align 4
-@.str.356 = private unnamed_addr constant [9 x i8] c"Num keys\00", align 1
-@.str.357 = private unnamed_addr constant [23 x i8] c"ntp.priv.mode7.numkeys\00", align 1
+@.str.375 = private unnamed_addr constant [9 x i8] c"Num keys\00", align 1
+@.str.376 = private unnamed_addr constant [23 x i8] c"ntp.priv.mode7.numkeys\00", align 1
 @hf_ntppriv_mode7_numfreekeys = internal global i32 0, align 4
-@.str.358 = private unnamed_addr constant [14 x i8] c"Num free keys\00", align 1
-@.str.359 = private unnamed_addr constant [27 x i8] c"ntp.priv.mode7.numfreekeys\00", align 1
+@.str.377 = private unnamed_addr constant [14 x i8] c"Num free keys\00", align 1
+@.str.378 = private unnamed_addr constant [27 x i8] c"ntp.priv.mode7.numfreekeys\00", align 1
 @hf_ntppriv_mode7_keylookups = internal global i32 0, align 4
-@.str.360 = private unnamed_addr constant [11 x i8] c"Keylookups\00", align 1
-@.str.361 = private unnamed_addr constant [26 x i8] c"ntp.priv.mode7.keylookups\00", align 1
+@.str.379 = private unnamed_addr constant [11 x i8] c"Keylookups\00", align 1
+@.str.380 = private unnamed_addr constant [26 x i8] c"ntp.priv.mode7.keylookups\00", align 1
 @hf_ntppriv_mode7_keynotfound = internal global i32 0, align 4
-@.str.362 = private unnamed_addr constant [14 x i8] c"Key not found\00", align 1
-@.str.363 = private unnamed_addr constant [27 x i8] c"ntp.priv.mode7.keynotfound\00", align 1
+@.str.381 = private unnamed_addr constant [14 x i8] c"Key not found\00", align 1
+@.str.382 = private unnamed_addr constant [27 x i8] c"ntp.priv.mode7.keynotfound\00", align 1
 @hf_ntppriv_mode7_encryptions = internal global i32 0, align 4
-@.str.364 = private unnamed_addr constant [12 x i8] c"Encryptions\00", align 1
-@.str.365 = private unnamed_addr constant [27 x i8] c"ntp.priv.mode7.encryptions\00", align 1
+@.str.383 = private unnamed_addr constant [12 x i8] c"Encryptions\00", align 1
+@.str.384 = private unnamed_addr constant [27 x i8] c"ntp.priv.mode7.encryptions\00", align 1
 @hf_ntppriv_mode7_decryptions = internal global i32 0, align 4
-@.str.366 = private unnamed_addr constant [12 x i8] c"Decryptions\00", align 1
-@.str.367 = private unnamed_addr constant [27 x i8] c"ntp.priv.mode7.decryptions\00", align 1
+@.str.385 = private unnamed_addr constant [12 x i8] c"Decryptions\00", align 1
+@.str.386 = private unnamed_addr constant [27 x i8] c"ntp.priv.mode7.decryptions\00", align 1
 @hf_ntppriv_mode7_expired = internal global i32 0, align 4
-@.str.368 = private unnamed_addr constant [8 x i8] c"Expired\00", align 1
-@.str.369 = private unnamed_addr constant [23 x i8] c"ntp.priv.mode7.expired\00", align 1
+@.str.387 = private unnamed_addr constant [8 x i8] c"Expired\00", align 1
+@.str.388 = private unnamed_addr constant [23 x i8] c"ntp.priv.mode7.expired\00", align 1
 @hf_ntppriv_mode7_keyuncached = internal global i32 0, align 4
-@.str.370 = private unnamed_addr constant [13 x i8] c"Key uncached\00", align 1
-@.str.371 = private unnamed_addr constant [27 x i8] c"ntp.priv.mode7.keyuncached\00", align 1
+@.str.389 = private unnamed_addr constant [13 x i8] c"Key uncached\00", align 1
+@.str.390 = private unnamed_addr constant [27 x i8] c"ntp.priv.mode7.keyuncached\00", align 1
 @hf_ntppriv_mode7_local_addr = internal global i32 0, align 4
-@.str.372 = private unnamed_addr constant [14 x i8] c"Local address\00", align 1
-@.str.373 = private unnamed_addr constant [29 x i8] c"ntp.priv.mode7.local_address\00", align 1
+@.str.391 = private unnamed_addr constant [14 x i8] c"Local address\00", align 1
+@.str.392 = private unnamed_addr constant [29 x i8] c"ntp.priv.mode7.local_address\00", align 1
 @hf_ntppriv_mode7_trap_addr = internal global i32 0, align 4
-@.str.374 = private unnamed_addr constant [13 x i8] c"Trap address\00", align 1
-@.str.375 = private unnamed_addr constant [28 x i8] c"ntp.priv.mode7.trap_address\00", align 1
+@.str.393 = private unnamed_addr constant [13 x i8] c"Trap address\00", align 1
+@.str.394 = private unnamed_addr constant [28 x i8] c"ntp.priv.mode7.trap_address\00", align 1
 @hf_ntppriv_mode7_trap_port = internal global i32 0, align 4
-@.str.376 = private unnamed_addr constant [10 x i8] c"Trap port\00", align 1
-@.str.377 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.trap_port\00", align 1
+@.str.395 = private unnamed_addr constant [10 x i8] c"Trap port\00", align 1
+@.str.396 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.trap_port\00", align 1
 @hf_ntppriv_mode7_sequence = internal global i32 0, align 4
-@.str.378 = private unnamed_addr constant [24 x i8] c"ntp.priv.mode7.sequence\00", align 1
+@.str.397 = private unnamed_addr constant [24 x i8] c"ntp.priv.mode7.sequence\00", align 1
 @hf_ntppriv_mode7_settime = internal global i32 0, align 4
-@.str.379 = private unnamed_addr constant [14 x i8] c"Trap set time\00", align 1
-@.str.380 = private unnamed_addr constant [23 x i8] c"ntp.priv.mode7.settime\00", align 1
+@.str.398 = private unnamed_addr constant [14 x i8] c"Trap set time\00", align 1
+@.str.399 = private unnamed_addr constant [23 x i8] c"ntp.priv.mode7.settime\00", align 1
 @hf_ntppriv_mode7_origtime = internal global i32 0, align 4
-@.str.381 = private unnamed_addr constant [21 x i8] c"Trap originally time\00", align 1
-@.str.382 = private unnamed_addr constant [24 x i8] c"ntp.priv.mode7.origtime\00", align 1
+@.str.400 = private unnamed_addr constant [21 x i8] c"Trap originally time\00", align 1
+@.str.401 = private unnamed_addr constant [24 x i8] c"ntp.priv.mode7.origtime\00", align 1
 @hf_ntppriv_mode7_resets = internal global i32 0, align 4
-@.str.383 = private unnamed_addr constant [7 x i8] c"Resets\00", align 1
-@.str.384 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.resets\00", align 1
+@.str.402 = private unnamed_addr constant [7 x i8] c"Resets\00", align 1
+@.str.403 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.resets\00", align 1
 @hf_ntppriv_traps_flags = internal global i32 0, align 4
-@.str.385 = private unnamed_addr constant [21 x i8] c"ntp.priv.traps.flags\00", align 1
+@.str.404 = private unnamed_addr constant [21 x i8] c"ntp.priv.traps.flags\00", align 1
 @hf_ntppriv_mode7_local_addr6 = internal global i32 0, align 4
-@.str.386 = private unnamed_addr constant [16 x i8] c"IPv6 local addr\00", align 1
-@.str.387 = private unnamed_addr constant [30 x i8] c"ntp.priv.mode7.local_address6\00", align 1
+@.str.405 = private unnamed_addr constant [16 x i8] c"IPv6 local addr\00", align 1
+@.str.406 = private unnamed_addr constant [30 x i8] c"ntp.priv.mode7.local_address6\00", align 1
 @hf_ntppriv_mode7_trap_addr6 = internal global i32 0, align 4
-@.str.388 = private unnamed_addr constant [15 x i8] c"IPv6 trap addr\00", align 1
-@.str.389 = private unnamed_addr constant [29 x i8] c"ntp.priv.mode7.trap_address6\00", align 1
+@.str.407 = private unnamed_addr constant [15 x i8] c"IPv6 trap addr\00", align 1
+@.str.408 = private unnamed_addr constant [29 x i8] c"ntp.priv.mode7.trap_address6\00", align 1
 @hf_ntppriv_mode7_req = internal global i32 0, align 4
-@.str.390 = private unnamed_addr constant [9 x i8] c"Requests\00", align 1
-@.str.391 = private unnamed_addr constant [24 x i8] c"ntp.priv.mode7.requests\00", align 1
+@.str.409 = private unnamed_addr constant [9 x i8] c"Requests\00", align 1
+@.str.410 = private unnamed_addr constant [24 x i8] c"ntp.priv.mode7.requests\00", align 1
 @hf_ntppriv_mode7_badpkts = internal global i32 0, align 4
-@.str.392 = private unnamed_addr constant [12 x i8] c"Bad packets\00", align 1
-@.str.393 = private unnamed_addr constant [27 x i8] c"ntp.priv.mode7.bad_packets\00", align 1
+@.str.411 = private unnamed_addr constant [12 x i8] c"Bad packets\00", align 1
+@.str.412 = private unnamed_addr constant [27 x i8] c"ntp.priv.mode7.bad_packets\00", align 1
 @hf_ntppriv_mode7_responses = internal global i32 0, align 4
-@.str.394 = private unnamed_addr constant [10 x i8] c"Responses\00", align 1
-@.str.395 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.responses\00", align 1
+@.str.413 = private unnamed_addr constant [10 x i8] c"Responses\00", align 1
+@.str.414 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.responses\00", align 1
 @hf_ntppriv_mode7_frags = internal global i32 0, align 4
-@.str.396 = private unnamed_addr constant [10 x i8] c"Fragments\00", align 1
-@.str.397 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.fragments\00", align 1
+@.str.415 = private unnamed_addr constant [10 x i8] c"Fragments\00", align 1
+@.str.416 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.fragments\00", align 1
 @hf_ntppriv_mode7_errors = internal global i32 0, align 4
-@.str.398 = private unnamed_addr constant [7 x i8] c"Errors\00", align 1
-@.str.399 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.errors\00", align 1
+@.str.417 = private unnamed_addr constant [7 x i8] c"Errors\00", align 1
+@.str.418 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.errors\00", align 1
 @hf_ntppriv_mode7_tooshort = internal global i32 0, align 4
-@.str.400 = private unnamed_addr constant [18 x i8] c"Too short packets\00", align 1
-@.str.401 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.too_short\00", align 1
+@.str.419 = private unnamed_addr constant [18 x i8] c"Too short packets\00", align 1
+@.str.420 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.too_short\00", align 1
 @hf_ntppriv_mode7_inputresp = internal global i32 0, align 4
-@.str.402 = private unnamed_addr constant [19 x i8] c"Responses on input\00", align 1
-@.str.403 = private unnamed_addr constant [31 x i8] c"ntp.priv.mode7.input_responses\00", align 1
+@.str.421 = private unnamed_addr constant [19 x i8] c"Responses on input\00", align 1
+@.str.422 = private unnamed_addr constant [31 x i8] c"ntp.priv.mode7.input_responses\00", align 1
 @hf_ntppriv_mode7_inputfrag = internal global i32 0, align 4
-@.str.404 = private unnamed_addr constant [19 x i8] c"Fragments on input\00", align 1
-@.str.405 = private unnamed_addr constant [31 x i8] c"ntp.priv.mode7.input_fragments\00", align 1
+@.str.423 = private unnamed_addr constant [19 x i8] c"Fragments on input\00", align 1
+@.str.424 = private unnamed_addr constant [31 x i8] c"ntp.priv.mode7.input_fragments\00", align 1
 @hf_ntppriv_mode7_inputerr = internal global i32 0, align 4
-@.str.406 = private unnamed_addr constant [16 x i8] c"Errors on input\00", align 1
-@.str.407 = private unnamed_addr constant [28 x i8] c"ntp.priv.mode7.input_errors\00", align 1
+@.str.425 = private unnamed_addr constant [16 x i8] c"Errors on input\00", align 1
+@.str.426 = private unnamed_addr constant [28 x i8] c"ntp.priv.mode7.input_errors\00", align 1
 @hf_ntppriv_mode7_badoffset = internal global i32 0, align 4
-@.str.408 = private unnamed_addr constant [24 x i8] c"Non zero offset packets\00", align 1
-@.str.409 = private unnamed_addr constant [26 x i8] c"ntp.priv.mode7.bad_offset\00", align 1
+@.str.427 = private unnamed_addr constant [24 x i8] c"Non zero offset packets\00", align 1
+@.str.428 = private unnamed_addr constant [26 x i8] c"ntp.priv.mode7.bad_offset\00", align 1
 @hf_ntppriv_mode7_badversion = internal global i32 0, align 4
-@.str.410 = private unnamed_addr constant [24 x i8] c"Unknown version packets\00", align 1
-@.str.411 = private unnamed_addr constant [27 x i8] c"ntp.priv.mode7.bad_version\00", align 1
+@.str.429 = private unnamed_addr constant [24 x i8] c"Unknown version packets\00", align 1
+@.str.430 = private unnamed_addr constant [27 x i8] c"ntp.priv.mode7.bad_version\00", align 1
 @hf_ntppriv_mode7_datatooshort = internal global i32 0, align 4
-@.str.412 = private unnamed_addr constant [15 x i8] c"Data too short\00", align 1
-@.str.413 = private unnamed_addr constant [30 x i8] c"ntp.priv.mode7.data_too_short\00", align 1
+@.str.431 = private unnamed_addr constant [15 x i8] c"Data too short\00", align 1
+@.str.432 = private unnamed_addr constant [30 x i8] c"ntp.priv.mode7.data_too_short\00", align 1
 @hf_ntppriv_mode7_badop = internal global i32 0, align 4
-@.str.414 = private unnamed_addr constant [18 x i8] c"Bad op code found\00", align 1
-@.str.415 = private unnamed_addr constant [21 x i8] c"ntp.priv.mode7.badop\00", align 1
+@.str.433 = private unnamed_addr constant [18 x i8] c"Bad op code found\00", align 1
+@.str.434 = private unnamed_addr constant [21 x i8] c"ntp.priv.mode7.badop\00", align 1
 @hf_ntppriv_mode7_asyncmsgs = internal global i32 0, align 4
-@.str.416 = private unnamed_addr constant [15 x i8] c"Async messages\00", align 1
-@.str.417 = private unnamed_addr constant [30 x i8] c"ntp.priv.mode7.async_messages\00", align 1
+@.str.435 = private unnamed_addr constant [15 x i8] c"Async messages\00", align 1
+@.str.436 = private unnamed_addr constant [30 x i8] c"ntp.priv.mode7.async_messages\00", align 1
 @hf_ntppriv_mode7_type = internal global i32 0, align 4
-@.str.418 = private unnamed_addr constant [5 x i8] c"Type\00", align 1
-@.str.419 = private unnamed_addr constant [20 x i8] c"ntp.priv.mode7.type\00", align 1
+@.str.437 = private unnamed_addr constant [5 x i8] c"Type\00", align 1
+@.str.438 = private unnamed_addr constant [20 x i8] c"ntp.priv.mode7.type\00", align 1
 @hf_ntppriv_mode7_clock_flags = internal global i32 0, align 4
-@.str.420 = private unnamed_addr constant [12 x i8] c"Clock Flags\00", align 1
-@.str.421 = private unnamed_addr constant [27 x i8] c"ntp.priv.mode7.clock_flags\00", align 1
+@.str.439 = private unnamed_addr constant [12 x i8] c"Clock Flags\00", align 1
+@.str.440 = private unnamed_addr constant [27 x i8] c"ntp.priv.mode7.clock_flags\00", align 1
 @hf_ntppriv_mode7_lastevent = internal global i32 0, align 4
-@.str.422 = private unnamed_addr constant [11 x i8] c"Last event\00", align 1
-@.str.423 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.lastevent\00", align 1
+@.str.441 = private unnamed_addr constant [11 x i8] c"Last event\00", align 1
+@.str.442 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.lastevent\00", align 1
 @hf_ntppriv_mode7_currentstatus = internal global i32 0, align 4
-@.str.424 = private unnamed_addr constant [15 x i8] c"Current status\00", align 1
-@.str.425 = private unnamed_addr constant [29 x i8] c"ntp.priv.mode7.currentstatus\00", align 1
+@.str.443 = private unnamed_addr constant [15 x i8] c"Current status\00", align 1
+@.str.444 = private unnamed_addr constant [29 x i8] c"ntp.priv.mode7.currentstatus\00", align 1
 @hf_ntppriv_mode7_polls = internal global i32 0, align 4
-@.str.426 = private unnamed_addr constant [6 x i8] c"Polls\00", align 1
-@.str.427 = private unnamed_addr constant [21 x i8] c"ntp.priv.mode7.polls\00", align 1
+@.str.445 = private unnamed_addr constant [6 x i8] c"Polls\00", align 1
+@.str.446 = private unnamed_addr constant [21 x i8] c"ntp.priv.mode7.polls\00", align 1
 @hf_ntppriv_mode7_noresponse = internal global i32 0, align 4
-@.str.428 = private unnamed_addr constant [11 x i8] c"Noresponse\00", align 1
-@.str.429 = private unnamed_addr constant [26 x i8] c"ntp.priv.mode7.noresponse\00", align 1
+@.str.447 = private unnamed_addr constant [11 x i8] c"Noresponse\00", align 1
+@.str.448 = private unnamed_addr constant [26 x i8] c"ntp.priv.mode7.noresponse\00", align 1
 @hf_ntppriv_mode7_badformat = internal global i32 0, align 4
-@.str.430 = private unnamed_addr constant [11 x i8] c"Bad format\00", align 1
-@.str.431 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.badformat\00", align 1
+@.str.449 = private unnamed_addr constant [11 x i8] c"Bad format\00", align 1
+@.str.450 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.badformat\00", align 1
 @hf_ntppriv_mode7_baddata = internal global i32 0, align 4
-@.str.432 = private unnamed_addr constant [9 x i8] c"Bad data\00", align 1
-@.str.433 = private unnamed_addr constant [23 x i8] c"ntp.priv.mode7.baddata\00", align 1
+@.str.451 = private unnamed_addr constant [9 x i8] c"Bad data\00", align 1
+@.str.452 = private unnamed_addr constant [23 x i8] c"ntp.priv.mode7.baddata\00", align 1
 @hf_ntppriv_mode7_timestarted = internal global i32 0, align 4
-@.str.434 = private unnamed_addr constant [13 x i8] c"Time started\00", align 1
-@.str.435 = private unnamed_addr constant [27 x i8] c"ntp.priv.mode7.timestarted\00", align 1
+@.str.453 = private unnamed_addr constant [13 x i8] c"Time started\00", align 1
+@.str.454 = private unnamed_addr constant [27 x i8] c"ntp.priv.mode7.timestarted\00", align 1
 @hf_ntppriv_mode7_fudgetime1 = internal global i32 0, align 4
-@.str.436 = private unnamed_addr constant [13 x i8] c"Fudge time 1\00", align 1
-@.str.437 = private unnamed_addr constant [26 x i8] c"ntp.priv.mode7.fudgetime1\00", align 1
+@.str.455 = private unnamed_addr constant [13 x i8] c"Fudge time 1\00", align 1
+@.str.456 = private unnamed_addr constant [26 x i8] c"ntp.priv.mode7.fudgetime1\00", align 1
 @hf_ntppriv_mode7_fudgetime2 = internal global i32 0, align 4
-@.str.438 = private unnamed_addr constant [13 x i8] c"Fudge time 2\00", align 1
-@.str.439 = private unnamed_addr constant [26 x i8] c"ntp.priv.mode7.fudgetime2\00", align 1
+@.str.457 = private unnamed_addr constant [13 x i8] c"Fudge time 2\00", align 1
+@.str.458 = private unnamed_addr constant [26 x i8] c"ntp.priv.mode7.fudgetime2\00", align 1
 @hf_ntppriv_mode7_fudgeval1 = internal global i32 0, align 4
-@.str.440 = private unnamed_addr constant [12 x i8] c"Fudge val 1\00", align 1
-@.str.441 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.fudgeval1\00", align 1
+@.str.459 = private unnamed_addr constant [12 x i8] c"Fudge val 1\00", align 1
+@.str.460 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.fudgeval1\00", align 1
 @hf_ntppriv_mode7_fudgeval2 = internal global i32 0, align 4
-@.str.442 = private unnamed_addr constant [12 x i8] c"Fudge val 2\00", align 1
-@.str.443 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.fudgeval2\00", align 1
+@.str.461 = private unnamed_addr constant [12 x i8] c"Fudge val 2\00", align 1
+@.str.462 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.fudgeval2\00", align 1
 @hf_ntppriv_mode7_kernel_offset = internal global i32 0, align 4
-@.str.444 = private unnamed_addr constant [29 x i8] c"ntp.priv.mode7.kernel_offset\00", align 1
+@.str.463 = private unnamed_addr constant [29 x i8] c"ntp.priv.mode7.kernel_offset\00", align 1
 @hf_ntppriv_mode7_freq = internal global i32 0, align 4
-@.str.445 = private unnamed_addr constant [5 x i8] c"Freq\00", align 1
-@.str.446 = private unnamed_addr constant [20 x i8] c"ntp.priv.mode7.freq\00", align 1
+@.str.464 = private unnamed_addr constant [5 x i8] c"Freq\00", align 1
+@.str.465 = private unnamed_addr constant [20 x i8] c"ntp.priv.mode7.freq\00", align 1
 @hf_ntppriv_mode7_stability = internal global i32 0, align 4
-@.str.447 = private unnamed_addr constant [16 x i8] c"Stability (ppm)\00", align 1
-@.str.448 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.stability\00", align 1
+@.str.466 = private unnamed_addr constant [16 x i8] c"Stability (ppm)\00", align 1
+@.str.467 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.stability\00", align 1
 @hf_ntppriv_mode7_maxerror = internal global i32 0, align 4
-@.str.449 = private unnamed_addr constant [10 x i8] c"Max error\00", align 1
-@.str.450 = private unnamed_addr constant [24 x i8] c"ntp.priv.mode7.maxerror\00", align 1
+@.str.468 = private unnamed_addr constant [10 x i8] c"Max error\00", align 1
+@.str.469 = private unnamed_addr constant [24 x i8] c"ntp.priv.mode7.maxerror\00", align 1
 @hf_ntppriv_mode7_esterror = internal global i32 0, align 4
-@.str.451 = private unnamed_addr constant [10 x i8] c"Est error\00", align 1
-@.str.452 = private unnamed_addr constant [24 x i8] c"ntp.priv.mode7.esterror\00", align 1
+@.str.470 = private unnamed_addr constant [10 x i8] c"Est error\00", align 1
+@.str.471 = private unnamed_addr constant [24 x i8] c"ntp.priv.mode7.esterror\00", align 1
 @hf_ntppriv_mode7_status = internal global i32 0, align 4
-@.str.453 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.status\00", align 1
+@.str.472 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.status\00", align 1
 @hf_ntppriv_mode7_shift = internal global i32 0, align 4
-@.str.454 = private unnamed_addr constant [6 x i8] c"Shift\00", align 1
-@.str.455 = private unnamed_addr constant [21 x i8] c"ntp.priv.mode7.shift\00", align 1
+@.str.473 = private unnamed_addr constant [6 x i8] c"Shift\00", align 1
+@.str.474 = private unnamed_addr constant [21 x i8] c"ntp.priv.mode7.shift\00", align 1
 @hf_ntppriv_mode7_constant = internal global i32 0, align 4
-@.str.456 = private unnamed_addr constant [9 x i8] c"Constant\00", align 1
-@.str.457 = private unnamed_addr constant [24 x i8] c"ntp.priv.mode7.constant\00", align 1
+@.str.475 = private unnamed_addr constant [9 x i8] c"Constant\00", align 1
+@.str.476 = private unnamed_addr constant [24 x i8] c"ntp.priv.mode7.constant\00", align 1
 @hf_ntppriv_mode7_precision = internal global i32 0, align 4
-@.str.458 = private unnamed_addr constant [10 x i8] c"Precision\00", align 1
-@.str.459 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.precision\00", align 1
+@.str.477 = private unnamed_addr constant [10 x i8] c"Precision\00", align 1
+@.str.478 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.precision\00", align 1
 @hf_ntppriv_mode7_tolerance = internal global i32 0, align 4
-@.str.460 = private unnamed_addr constant [10 x i8] c"tolerance\00", align 1
-@.str.461 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.tolerance\00", align 1
+@.str.479 = private unnamed_addr constant [10 x i8] c"tolerance\00", align 1
+@.str.480 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.tolerance\00", align 1
 @hf_ntppriv_mode7_ppsfreq = internal global i32 0, align 4
-@.str.462 = private unnamed_addr constant [8 x i8] c"ppsfreq\00", align 1
-@.str.463 = private unnamed_addr constant [23 x i8] c"ntp.priv.mode7.ppsfreq\00", align 1
+@.str.481 = private unnamed_addr constant [8 x i8] c"ppsfreq\00", align 1
+@.str.482 = private unnamed_addr constant [23 x i8] c"ntp.priv.mode7.ppsfreq\00", align 1
 @hf_ntppriv_mode7_jitter = internal global i32 0, align 4
-@.str.464 = private unnamed_addr constant [7 x i8] c"jitter\00", align 1
-@.str.465 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.jitter\00", align 1
+@.str.483 = private unnamed_addr constant [7 x i8] c"jitter\00", align 1
+@.str.484 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.jitter\00", align 1
 @hf_ntppriv_mode7_stabil = internal global i32 0, align 4
-@.str.466 = private unnamed_addr constant [7 x i8] c"stabil\00", align 1
-@.str.467 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.stabil\00", align 1
+@.str.485 = private unnamed_addr constant [7 x i8] c"stabil\00", align 1
+@.str.486 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.stabil\00", align 1
 @hf_ntppriv_mode7_jitcnt = internal global i32 0, align 4
-@.str.468 = private unnamed_addr constant [7 x i8] c"jitcnt\00", align 1
-@.str.469 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.jitcnt\00", align 1
+@.str.487 = private unnamed_addr constant [7 x i8] c"jitcnt\00", align 1
+@.str.488 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.jitcnt\00", align 1
 @hf_ntppriv_mode7_calcnt = internal global i32 0, align 4
-@.str.470 = private unnamed_addr constant [7 x i8] c"calcnt\00", align 1
-@.str.471 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.calcnt\00", align 1
+@.str.489 = private unnamed_addr constant [7 x i8] c"calcnt\00", align 1
+@.str.490 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.calcnt\00", align 1
 @hf_ntppriv_mode7_errcnt = internal global i32 0, align 4
-@.str.472 = private unnamed_addr constant [7 x i8] c"errcnt\00", align 1
-@.str.473 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.errcnt\00", align 1
+@.str.491 = private unnamed_addr constant [7 x i8] c"errcnt\00", align 1
+@.str.492 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.errcnt\00", align 1
 @hf_ntppriv_mode7_stbcnt = internal global i32 0, align 4
-@.str.474 = private unnamed_addr constant [7 x i8] c"stbcnt\00", align 1
-@.str.475 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.stbcnt\00", align 1
+@.str.493 = private unnamed_addr constant [7 x i8] c"stbcnt\00", align 1
+@.str.494 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.stbcnt\00", align 1
 @hf_ntppriv_mode7_last_offset = internal global i32 0, align 4
-@.str.476 = private unnamed_addr constant [12 x i8] c"Last offset\00", align 1
-@.str.477 = private unnamed_addr constant [27 x i8] c"ntp.priv.mode7.last_offset\00", align 1
+@.str.495 = private unnamed_addr constant [12 x i8] c"Last offset\00", align 1
+@.str.496 = private unnamed_addr constant [27 x i8] c"ntp.priv.mode7.last_offset\00", align 1
 @hf_ntppriv_mode7_drift_comp = internal global i32 0, align 4
-@.str.478 = private unnamed_addr constant [11 x i8] c"Drift comp\00", align 1
-@.str.479 = private unnamed_addr constant [26 x i8] c"ntp.priv.mode7.drift_comp\00", align 1
+@.str.497 = private unnamed_addr constant [11 x i8] c"Drift comp\00", align 1
+@.str.498 = private unnamed_addr constant [26 x i8] c"ntp.priv.mode7.drift_comp\00", align 1
 @hf_ntppriv_mode7_compliance = internal global i32 0, align 4
-@.str.480 = private unnamed_addr constant [11 x i8] c"Compliance\00", align 1
-@.str.481 = private unnamed_addr constant [26 x i8] c"ntp.priv.mode7.compliance\00", align 1
+@.str.499 = private unnamed_addr constant [11 x i8] c"Compliance\00", align 1
+@.str.500 = private unnamed_addr constant [26 x i8] c"ntp.priv.mode7.compliance\00", align 1
 @hf_ntppriv_mode7_watchdog_timer = internal global i32 0, align 4
-@.str.482 = private unnamed_addr constant [15 x i8] c"Watchdog timer\00", align 1
-@.str.483 = private unnamed_addr constant [30 x i8] c"ntp.priv.mode7.watchdog_timer\00", align 1
+@.str.501 = private unnamed_addr constant [15 x i8] c"Watchdog timer\00", align 1
+@.str.502 = private unnamed_addr constant [30 x i8] c"ntp.priv.mode7.watchdog_timer\00", align 1
 @hf_ntppriv_mode7_poll32 = internal global i32 0, align 4
-@.str.484 = private unnamed_addr constant [5 x i8] c"Poll\00", align 1
-@.str.485 = private unnamed_addr constant [20 x i8] c"ntp.priv.mode7.poll\00", align 1
+@.str.503 = private unnamed_addr constant [5 x i8] c"Poll\00", align 1
+@.str.504 = private unnamed_addr constant [20 x i8] c"ntp.priv.mode7.poll\00", align 1
 @hf_ntppriv_mode7_sys_flags8 = internal global i32 0, align 4
-@.str.486 = private unnamed_addr constant [26 x i8] c"ntp.priv.mode7.sys.flags8\00", align 1
+@.str.505 = private unnamed_addr constant [26 x i8] c"ntp.priv.mode7.sys.flags8\00", align 1
 @hf_ntppriv_mode7_denied = internal global i32 0, align 4
-@.str.487 = private unnamed_addr constant [7 x i8] c"Denied\00", align 1
-@.str.488 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.denied\00", align 1
+@.str.506 = private unnamed_addr constant [7 x i8] c"Denied\00", align 1
+@.str.507 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.denied\00", align 1
 @hf_ntppriv_mode7_oldversion = internal global i32 0, align 4
-@.str.489 = private unnamed_addr constant [12 x i8] c"Old version\00", align 1
-@.str.490 = private unnamed_addr constant [26 x i8] c"ntp.priv.mode7.oldversion\00", align 1
+@.str.508 = private unnamed_addr constant [12 x i8] c"Old version\00", align 1
+@.str.509 = private unnamed_addr constant [26 x i8] c"ntp.priv.mode7.oldversion\00", align 1
 @hf_ntppriv_mode7_newversion = internal global i32 0, align 4
-@.str.491 = private unnamed_addr constant [12 x i8] c"New version\00", align 1
-@.str.492 = private unnamed_addr constant [26 x i8] c"ntp.priv.mode7.newversion\00", align 1
+@.str.510 = private unnamed_addr constant [12 x i8] c"New version\00", align 1
+@.str.511 = private unnamed_addr constant [26 x i8] c"ntp.priv.mode7.newversion\00", align 1
 @hf_ntppriv_mode7_badlength = internal global i32 0, align 4
-@.str.493 = private unnamed_addr constant [11 x i8] c"Bad length\00", align 1
-@.str.494 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.badlength\00", align 1
+@.str.512 = private unnamed_addr constant [11 x i8] c"Bad length\00", align 1
+@.str.513 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.badlength\00", align 1
 @hf_ntppriv_mode7_limitrejected = internal global i32 0, align 4
-@.str.495 = private unnamed_addr constant [15 x i8] c"Limit rejected\00", align 1
-@.str.496 = private unnamed_addr constant [29 x i8] c"ntp.priv.mode7.limitrejected\00", align 1
+@.str.514 = private unnamed_addr constant [15 x i8] c"Limit rejected\00", align 1
+@.str.515 = private unnamed_addr constant [29 x i8] c"ntp.priv.mode7.limitrejected\00", align 1
 @hf_ntppriv_mode7_lamport = internal global i32 0, align 4
-@.str.497 = private unnamed_addr constant [18 x i8] c"Lamport violation\00", align 1
-@.str.498 = private unnamed_addr constant [23 x i8] c"ntp.priv.mode7.lamport\00", align 1
+@.str.516 = private unnamed_addr constant [18 x i8] c"Lamport violation\00", align 1
+@.str.517 = private unnamed_addr constant [23 x i8] c"ntp.priv.mode7.lamport\00", align 1
 @hf_ntppriv_mode7_tsrounding = internal global i32 0, align 4
-@.str.499 = private unnamed_addr constant [25 x i8] c"Timestamp rounding error\00", align 1
-@.str.500 = private unnamed_addr constant [26 x i8] c"ntp.priv.mode7.tsrounding\00", align 1
+@.str.518 = private unnamed_addr constant [25 x i8] c"Timestamp rounding error\00", align 1
+@.str.519 = private unnamed_addr constant [26 x i8] c"ntp.priv.mode7.tsrounding\00", align 1
 @hf_ntppriv_mode7_totalmem = internal global i32 0, align 4
-@.str.501 = private unnamed_addr constant [13 x i8] c"Total memory\00", align 1
-@.str.502 = private unnamed_addr constant [24 x i8] c"ntp.priv.mode7.totalmem\00", align 1
+@.str.520 = private unnamed_addr constant [13 x i8] c"Total memory\00", align 1
+@.str.521 = private unnamed_addr constant [24 x i8] c"ntp.priv.mode7.totalmem\00", align 1
 @hf_ntppriv_mode7_freemem = internal global i32 0, align 4
-@.str.503 = private unnamed_addr constant [12 x i8] c"Free memory\00", align 1
-@.str.504 = private unnamed_addr constant [23 x i8] c"ntp.priv.mode7.freemem\00", align 1
+@.str.522 = private unnamed_addr constant [12 x i8] c"Free memory\00", align 1
+@.str.523 = private unnamed_addr constant [23 x i8] c"ntp.priv.mode7.freemem\00", align 1
 @hf_ntppriv_mode7_findpeer_calls = internal global i32 0, align 4
-@.str.505 = private unnamed_addr constant [16 x i8] c"Find peer calls\00", align 1
-@.str.506 = private unnamed_addr constant [30 x i8] c"ntp.priv.mode7.findpeer_calls\00", align 1
+@.str.524 = private unnamed_addr constant [16 x i8] c"Find peer calls\00", align 1
+@.str.525 = private unnamed_addr constant [30 x i8] c"ntp.priv.mode7.findpeer_calls\00", align 1
 @hf_ntppriv_mode7_allocations = internal global i32 0, align 4
-@.str.507 = private unnamed_addr constant [12 x i8] c"Allocations\00", align 1
-@.str.508 = private unnamed_addr constant [27 x i8] c"ntp.priv.mode7.allocations\00", align 1
+@.str.526 = private unnamed_addr constant [12 x i8] c"Allocations\00", align 1
+@.str.527 = private unnamed_addr constant [27 x i8] c"ntp.priv.mode7.allocations\00", align 1
 @hf_ntppriv_mode7_demobilizations = internal global i32 0, align 4
-@.str.509 = private unnamed_addr constant [16 x i8] c"Demobilizations\00", align 1
-@.str.510 = private unnamed_addr constant [31 x i8] c"ntp.priv.mode7.demobilizations\00", align 1
+@.str.528 = private unnamed_addr constant [16 x i8] c"Demobilizations\00", align 1
+@.str.529 = private unnamed_addr constant [31 x i8] c"ntp.priv.mode7.demobilizations\00", align 1
 @hf_ntppriv_mode7_hashcount = internal global i32 0, align 4
-@.str.511 = private unnamed_addr constant [10 x i8] c"Hashcount\00", align 1
-@.str.512 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.hashcount\00", align 1
+@.str.530 = private unnamed_addr constant [10 x i8] c"Hashcount\00", align 1
+@.str.531 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.hashcount\00", align 1
 @hf_ntppriv_mode7_totalrecvbufs = internal global i32 0, align 4
-@.str.513 = private unnamed_addr constant [20 x i8] c"Toal receive buffer\00", align 1
-@.str.514 = private unnamed_addr constant [29 x i8] c"ntp.priv.mode7.totalrecvbufs\00", align 1
+@.str.532 = private unnamed_addr constant [20 x i8] c"Toal receive buffer\00", align 1
+@.str.533 = private unnamed_addr constant [29 x i8] c"ntp.priv.mode7.totalrecvbufs\00", align 1
 @hf_ntppriv_mode7_freerecvbufs = internal global i32 0, align 4
-@.str.515 = private unnamed_addr constant [20 x i8] c"Free receive buffer\00", align 1
-@.str.516 = private unnamed_addr constant [28 x i8] c"ntp.priv.mode7.freerecvbufs\00", align 1
+@.str.534 = private unnamed_addr constant [20 x i8] c"Free receive buffer\00", align 1
+@.str.535 = private unnamed_addr constant [28 x i8] c"ntp.priv.mode7.freerecvbufs\00", align 1
 @hf_ntppriv_mode7_fullrecvbufs = internal global i32 0, align 4
-@.str.517 = private unnamed_addr constant [20 x i8] c"Full receive buffer\00", align 1
-@.str.518 = private unnamed_addr constant [28 x i8] c"ntp.priv.mode7.fullrecvbufs\00", align 1
+@.str.536 = private unnamed_addr constant [20 x i8] c"Full receive buffer\00", align 1
+@.str.537 = private unnamed_addr constant [28 x i8] c"ntp.priv.mode7.fullrecvbufs\00", align 1
 @hf_ntppriv_mode7_lowwater = internal global i32 0, align 4
-@.str.519 = private unnamed_addr constant [10 x i8] c"Low water\00", align 1
-@.str.520 = private unnamed_addr constant [24 x i8] c"ntp.priv.mode7.lowwater\00", align 1
+@.str.538 = private unnamed_addr constant [10 x i8] c"Low water\00", align 1
+@.str.539 = private unnamed_addr constant [24 x i8] c"ntp.priv.mode7.lowwater\00", align 1
 @hf_ntppriv_mode7_dropped = internal global i32 0, align 4
-@.str.521 = private unnamed_addr constant [16 x i8] c"Dropped packets\00", align 1
-@.str.522 = private unnamed_addr constant [23 x i8] c"ntp.priv.mode7.dropped\00", align 1
+@.str.540 = private unnamed_addr constant [16 x i8] c"Dropped packets\00", align 1
+@.str.541 = private unnamed_addr constant [23 x i8] c"ntp.priv.mode7.dropped\00", align 1
 @hf_ntppriv_mode7_ignored = internal global i32 0, align 4
-@.str.523 = private unnamed_addr constant [16 x i8] c"Ignored packets\00", align 1
-@.str.524 = private unnamed_addr constant [23 x i8] c"ntp.priv.mode7.ignored\00", align 1
+@.str.542 = private unnamed_addr constant [16 x i8] c"Ignored packets\00", align 1
+@.str.543 = private unnamed_addr constant [23 x i8] c"ntp.priv.mode7.ignored\00", align 1
 @hf_ntppriv_mode7_received = internal global i32 0, align 4
-@.str.525 = private unnamed_addr constant [17 x i8] c"Received packets\00", align 1
-@.str.526 = private unnamed_addr constant [24 x i8] c"ntp.priv.mode7.received\00", align 1
+@.str.544 = private unnamed_addr constant [17 x i8] c"Received packets\00", align 1
+@.str.545 = private unnamed_addr constant [24 x i8] c"ntp.priv.mode7.received\00", align 1
 @hf_ntppriv_mode7_notsent = internal global i32 0, align 4
-@.str.527 = private unnamed_addr constant [17 x i8] c"Not sent packets\00", align 1
-@.str.528 = private unnamed_addr constant [23 x i8] c"ntp.priv.mode7.notsent\00", align 1
+@.str.546 = private unnamed_addr constant [17 x i8] c"Not sent packets\00", align 1
+@.str.547 = private unnamed_addr constant [23 x i8] c"ntp.priv.mode7.notsent\00", align 1
 @hf_ntppriv_mode7_interrupts = internal global i32 0, align 4
-@.str.529 = private unnamed_addr constant [11 x i8] c"Interrupts\00", align 1
-@.str.530 = private unnamed_addr constant [26 x i8] c"ntp.priv.mode7.interrupts\00", align 1
+@.str.548 = private unnamed_addr constant [11 x i8] c"Interrupts\00", align 1
+@.str.549 = private unnamed_addr constant [26 x i8] c"ntp.priv.mode7.interrupts\00", align 1
 @hf_ntppriv_mode7_int_received = internal global i32 0, align 4
-@.str.531 = private unnamed_addr constant [30 x i8] c"Received by interrupt handler\00", align 1
-@.str.532 = private unnamed_addr constant [28 x i8] c"ntp.priv.mode7.int_received\00", align 1
+@.str.550 = private unnamed_addr constant [30 x i8] c"Received by interrupt handler\00", align 1
+@.str.551 = private unnamed_addr constant [28 x i8] c"ntp.priv.mode7.int_received\00", align 1
 @hf_ntppriv_mode7_alarms = internal global i32 0, align 4
-@.str.533 = private unnamed_addr constant [7 x i8] c"Alarms\00", align 1
-@.str.534 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.alarms\00", align 1
+@.str.552 = private unnamed_addr constant [7 x i8] c"Alarms\00", align 1
+@.str.553 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.alarms\00", align 1
 @hf_ntppriv_mode7_overflows = internal global i32 0, align 4
-@.str.535 = private unnamed_addr constant [10 x i8] c"Overflows\00", align 1
-@.str.536 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.overflows\00", align 1
+@.str.554 = private unnamed_addr constant [10 x i8] c"Overflows\00", align 1
+@.str.555 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.overflows\00", align 1
 @hf_ntppriv_mode7_xmtcalls = internal global i32 0, align 4
-@.str.537 = private unnamed_addr constant [18 x i8] c"Transmitted calls\00", align 1
-@.str.538 = private unnamed_addr constant [24 x i8] c"ntp.priv.mode7.xmtcalls\00", align 1
+@.str.556 = private unnamed_addr constant [18 x i8] c"Transmitted calls\00", align 1
+@.str.557 = private unnamed_addr constant [24 x i8] c"ntp.priv.mode7.xmtcalls\00", align 1
 @hf_ntppriv_mode7_rflags = internal global i32 0, align 4
-@.str.539 = private unnamed_addr constant [7 x i8] c"Rflags\00", align 1
-@.str.540 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.rflags\00", align 1
+@.str.558 = private unnamed_addr constant [7 x i8] c"Rflags\00", align 1
+@.str.559 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.rflags\00", align 1
 @hf_ntppriv_mode7_mflags = internal global i32 0, align 4
-@.str.541 = private unnamed_addr constant [7 x i8] c"Mflags\00", align 1
-@.str.542 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.mflags\00", align 1
+@.str.560 = private unnamed_addr constant [7 x i8] c"Mflags\00", align 1
+@.str.561 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.mflags\00", align 1
 @hf_ntppriv_mode7_int_name = internal global i32 0, align 4
-@.str.543 = private unnamed_addr constant [15 x i8] c"Interface name\00", align 1
-@.str.544 = private unnamed_addr constant [24 x i8] c"ntp.priv.mode7.int_name\00", align 1
+@.str.562 = private unnamed_addr constant [15 x i8] c"Interface name\00", align 1
+@.str.563 = private unnamed_addr constant [24 x i8] c"ntp.priv.mode7.int_name\00", align 1
 @hf_ntppriv_mode7_int_flags = internal global i32 0, align 4
-@.str.545 = private unnamed_addr constant [16 x i8] c"Interface flags\00", align 1
-@.str.546 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.int_flags\00", align 1
+@.str.564 = private unnamed_addr constant [16 x i8] c"Interface flags\00", align 1
+@.str.565 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.int_flags\00", align 1
 @hf_ntppriv_mode7_last_ttl = internal global i32 0, align 4
-@.str.547 = private unnamed_addr constant [19 x i8] c"Last TTL specified\00", align 1
-@.str.548 = private unnamed_addr constant [24 x i8] c"ntp.priv.mode7.last_ttl\00", align 1
+@.str.566 = private unnamed_addr constant [19 x i8] c"Last TTL specified\00", align 1
+@.str.567 = private unnamed_addr constant [24 x i8] c"ntp.priv.mode7.last_ttl\00", align 1
 @hf_ntppriv_mode7_num_mcast = internal global i32 0, align 4
-@.str.549 = private unnamed_addr constant [24 x i8] c"Numer multicast sockets\00", align 1
-@.str.550 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.num_mcast\00", align 1
+@.str.568 = private unnamed_addr constant [24 x i8] c"Numer multicast sockets\00", align 1
+@.str.569 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.num_mcast\00", align 1
 @hf_ntppriv_mode7_uptime = internal global i32 0, align 4
-@.str.551 = private unnamed_addr constant [7 x i8] c"Uptime\00", align 1
-@.str.552 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.uptime\00", align 1
+@.str.570 = private unnamed_addr constant [7 x i8] c"Uptime\00", align 1
+@.str.571 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.uptime\00", align 1
 @hf_ntppriv_mode7_scopeid = internal global i32 0, align 4
-@.str.553 = private unnamed_addr constant [8 x i8] c"Scopeid\00", align 1
-@.str.554 = private unnamed_addr constant [23 x i8] c"ntp.priv.mode7.scopeid\00", align 1
+@.str.572 = private unnamed_addr constant [8 x i8] c"Scopeid\00", align 1
+@.str.573 = private unnamed_addr constant [23 x i8] c"ntp.priv.mode7.scopeid\00", align 1
 @hf_ntppriv_mode7_ifindex = internal global i32 0, align 4
-@.str.555 = private unnamed_addr constant [8 x i8] c"Ifindex\00", align 1
-@.str.556 = private unnamed_addr constant [23 x i8] c"ntp.priv.mode7.ifindex\00", align 1
+@.str.574 = private unnamed_addr constant [8 x i8] c"Ifindex\00", align 1
+@.str.575 = private unnamed_addr constant [23 x i8] c"ntp.priv.mode7.ifindex\00", align 1
 @hf_ntppriv_mode7_ifnum = internal global i32 0, align 4
-@.str.557 = private unnamed_addr constant [6 x i8] c"Ifnum\00", align 1
-@.str.558 = private unnamed_addr constant [21 x i8] c"ntp.priv.mode7.ifnum\00", align 1
+@.str.576 = private unnamed_addr constant [6 x i8] c"Ifnum\00", align 1
+@.str.577 = private unnamed_addr constant [21 x i8] c"ntp.priv.mode7.ifnum\00", align 1
 @hf_ntppriv_mode7_peercnt = internal global i32 0, align 4
-@.str.559 = private unnamed_addr constant [11 x i8] c"Peer count\00", align 1
-@.str.560 = private unnamed_addr constant [23 x i8] c"ntp.priv.mode7.peercnt\00", align 1
+@.str.578 = private unnamed_addr constant [11 x i8] c"Peer count\00", align 1
+@.str.579 = private unnamed_addr constant [23 x i8] c"ntp.priv.mode7.peercnt\00", align 1
 @hf_ntppriv_mode7_family = internal global i32 0, align 4
-@.str.561 = private unnamed_addr constant [15 x i8] c"Address family\00", align 1
-@.str.562 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.family\00", align 1
+@.str.580 = private unnamed_addr constant [15 x i8] c"Address family\00", align 1
+@.str.581 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.family\00", align 1
 @hf_ntppriv_mode7_ignore_pkt = internal global i32 0, align 4
-@.str.563 = private unnamed_addr constant [15 x i8] c"Ignore packets\00", align 1
-@.str.564 = private unnamed_addr constant [27 x i8] c"ntp.priv.mode7.ignore_pkts\00", align 1
+@.str.582 = private unnamed_addr constant [15 x i8] c"Ignore packets\00", align 1
+@.str.583 = private unnamed_addr constant [27 x i8] c"ntp.priv.mode7.ignore_pkts\00", align 1
 @hf_ntppriv_mode7_action = internal global i32 0, align 4
-@.str.565 = private unnamed_addr constant [7 x i8] c"Action\00", align 1
-@.str.566 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.action\00", align 1
-@priv_mode7_int_action = internal constant [4 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.802 }, %struct._value_string { i32 2, ptr @.str.803 }, %struct._value_string { i32 3, ptr @.str.804 }, %struct._value_string zeroinitializer], align 16
+@.str.584 = private unnamed_addr constant [7 x i8] c"Action\00", align 1
+@.str.585 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.action\00", align 1
 @hf_ntppriv_mode7_nvalues = internal global i32 0, align 4
-@.str.567 = private unnamed_addr constant [8 x i8] c"Nvalues\00", align 1
-@.str.568 = private unnamed_addr constant [23 x i8] c"ntp.priv.mode7.nvalues\00", align 1
+@.str.586 = private unnamed_addr constant [8 x i8] c"Nvalues\00", align 1
+@.str.587 = private unnamed_addr constant [23 x i8] c"ntp.priv.mode7.nvalues\00", align 1
 @hf_ntppriv_mode7_ntimes = internal global i32 0, align 4
-@.str.569 = private unnamed_addr constant [7 x i8] c"Ntimes\00", align 1
-@.str.570 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.ntimes\00", align 1
+@.str.588 = private unnamed_addr constant [7 x i8] c"Ntimes\00", align 1
+@.str.589 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.ntimes\00", align 1
 @hf_ntppriv_mode7_svalues = internal global i32 0, align 4
-@.str.571 = private unnamed_addr constant [8 x i8] c"Svalues\00", align 1
-@.str.572 = private unnamed_addr constant [23 x i8] c"ntp.priv.mode7.svalues\00", align 1
+@.str.590 = private unnamed_addr constant [8 x i8] c"Svalues\00", align 1
+@.str.591 = private unnamed_addr constant [23 x i8] c"ntp.priv.mode7.svalues\00", align 1
 @hf_ntppriv_mode7_stimes = internal global i32 0, align 4
-@.str.573 = private unnamed_addr constant [7 x i8] c"Stimes\00", align 1
-@.str.574 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.stimes\00", align 1
+@.str.592 = private unnamed_addr constant [7 x i8] c"Stimes\00", align 1
+@.str.593 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.stimes\00", align 1
 @hf_ntppriv_mode7_values = internal global i32 0, align 4
-@.str.575 = private unnamed_addr constant [7 x i8] c"Values\00", align 1
-@.str.576 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.values\00", align 1
+@.str.594 = private unnamed_addr constant [7 x i8] c"Values\00", align 1
+@.str.595 = private unnamed_addr constant [22 x i8] c"ntp.priv.mode7.values\00", align 1
 @hf_ntppriv_mode7_times = internal global i32 0, align 4
-@.str.577 = private unnamed_addr constant [6 x i8] c"Times\00", align 1
-@.str.578 = private unnamed_addr constant [21 x i8] c"ntp.priv.mode7.times\00", align 1
+@.str.596 = private unnamed_addr constant [6 x i8] c"Times\00", align 1
+@.str.597 = private unnamed_addr constant [21 x i8] c"ntp.priv.mode7.times\00", align 1
 @hf_ntppriv_mode7_which = internal global i32 0, align 4
-@.str.579 = private unnamed_addr constant [6 x i8] c"Which\00", align 1
-@.str.580 = private unnamed_addr constant [21 x i8] c"ntp.priv.mode7.which\00", align 1
+@.str.598 = private unnamed_addr constant [6 x i8] c"Which\00", align 1
+@.str.599 = private unnamed_addr constant [21 x i8] c"ntp.priv.mode7.which\00", align 1
 @hf_ntppriv_mode7_fudgetime = internal global i32 0, align 4
-@.str.581 = private unnamed_addr constant [10 x i8] c"Fudgetime\00", align 1
-@.str.582 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.fudgetime\00", align 1
+@.str.600 = private unnamed_addr constant [10 x i8] c"Fudgetime\00", align 1
+@.str.601 = private unnamed_addr constant [25 x i8] c"ntp.priv.mode7.fudgetime\00", align 1
 @hf_ntppriv_mode7_fudgeval_flags = internal global i32 0, align 4
-@.str.583 = private unnamed_addr constant [15 x i8] c"Fudgeval flags\00", align 1
-@.str.584 = private unnamed_addr constant [30 x i8] c"ntp.priv.mode7.fudgeval_flags\00", align 1
+@.str.602 = private unnamed_addr constant [15 x i8] c"Fudgeval flags\00", align 1
+@.str.603 = private unnamed_addr constant [30 x i8] c"ntp.priv.mode7.fudgeval_flags\00", align 1
 @hf_ntppriv_mode7_ippeerlimit = internal global i32 0, align 4
-@.str.585 = private unnamed_addr constant [14 x i8] c"IP peer limit\00", align 1
-@.str.586 = private unnamed_addr constant [27 x i8] c"ntp.priv.mode7.ippeerlimit\00", align 1
+@.str.604 = private unnamed_addr constant [14 x i8] c"IP peer limit\00", align 1
+@.str.605 = private unnamed_addr constant [27 x i8] c"ntp.priv.mode7.ippeerlimit\00", align 1
 @hf_ntppriv_mode7_restrict_flags = internal global i32 0, align 4
-@.str.587 = private unnamed_addr constant [15 x i8] c"Restrict flags\00", align 1
-@.str.588 = private unnamed_addr constant [30 x i8] c"ntp.priv.mode7.restrict_flags\00", align 1
-@proto_register_ntp.ett = internal global [15 x ptr] [ptr @ett_ntp, ptr @ett_ntp_flags, ptr @ett_ntp_ext, ptr @ett_ntp_ext_flags, ptr @ett_ntpctrl_flags2, ptr @ett_ntpctrl_status, ptr @ett_ntpctrl_data, ptr @ett_ntpctrl_item, ptr @ett_ntppriv_auth_seq, ptr @ett_mode7_item, ptr @ett_ntppriv_peer_list_flags, ptr @ett_ntppriv_config_flags, ptr @ett_ntppriv_sys_flag_flags, ptr @ett_ntppriv_reset_stats_flags, ptr @ett_ntp_authenticator], align 16
+@.str.606 = private unnamed_addr constant [15 x i8] c"Restrict flags\00", align 1
+@.str.607 = private unnamed_addr constant [30 x i8] c"ntp.priv.mode7.restrict_flags\00", align 1
+@proto_register_ntp.ett = internal global [16 x ptr] [ptr @ett_ntp, ptr @ett_ntp_flags, ptr @ett_ntp_ext, ptr @ett_ntp_ext_flags, ptr @ett_ntp_ext_nts, ptr @ett_ntpctrl_flags2, ptr @ett_ntpctrl_status, ptr @ett_ntpctrl_data, ptr @ett_ntpctrl_item, ptr @ett_ntppriv_auth_seq, ptr @ett_mode7_item, ptr @ett_ntppriv_peer_list_flags, ptr @ett_ntppriv_config_flags, ptr @ett_ntppriv_sys_flag_flags, ptr @ett_ntppriv_reset_stats_flags, ptr @ett_ntp_authenticator], align 16
 @ett_ntp = internal global i32 0, align 4
 @ett_ntp_flags = internal global i32 0, align 4
 @ett_ntp_ext = internal global i32 0, align 4
 @ett_ntp_ext_flags = internal global i32 0, align 4
+@ett_ntp_ext_nts = internal global i32 0, align 4
 @ett_ntpctrl_flags2 = internal global i32 0, align 4
 @ett_ntpctrl_status = internal global i32 0, align 4
 @ett_ntpctrl_data = internal global i32 0, align 4
@@ -947,334 +962,394 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_ntppriv_sys_flag_flags = internal global i32 0, align 4
 @ett_ntppriv_reset_stats_flags = internal global i32 0, align 4
 @ett_ntp_authenticator = internal global i32 0, align 4
-@proto_register_ntp.ei = internal global [1 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_ntp_ext, %struct.expert_field_info { ptr @.str.589, i32 150994944, i32 6291456, ptr @.str.590, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
-@ei_ntp_ext = internal global %struct.expert_field zeroinitializer, align 4
-@.str.589 = private unnamed_addr constant [23 x i8] c"ntp.ext.invalid_length\00", align 1
-@.str.590 = private unnamed_addr constant [25 x i8] c"Extension invalid length\00", align 1
-@.str.591 = private unnamed_addr constant [22 x i8] c"Network Time Protocol\00", align 1
-@.str.592 = private unnamed_addr constant [4 x i8] c"ntp\00", align 1
+@proto_register_ntp.ei = internal global [2 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_ntp_ext_invalid_length, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.608, i32 150994944, i32 6291456, ptr @.str.609, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_ntp_ext_historic, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.610, i32 234881024, i32 4194304, ptr @.str.611, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@ei_ntp_ext_invalid_length = internal global %struct.expert_field zeroinitializer, align 4
+@.str.608 = private unnamed_addr constant [23 x i8] c"ntp.ext.invalid_length\00", align 1
+@.str.609 = private unnamed_addr constant [25 x i8] c"Extension invalid length\00", align 1
+@ei_ntp_ext_historic = internal global %struct.expert_field zeroinitializer, align 4
+@.str.610 = private unnamed_addr constant [17 x i8] c"ntp.ext.historic\00", align 1
+@.str.611 = private unnamed_addr constant [24 x i8] c"Historic extension type\00", align 1
+@.str.612 = private unnamed_addr constant [22 x i8] c"Network Time Protocol\00", align 1
+@.str.613 = private unnamed_addr constant [4 x i8] c"ntp\00", align 1
 @proto_ntp = internal global i32 0, align 4
 @ntp_handle = internal global ptr null, align 8
-@.str.593 = private unnamed_addr constant [9 x i8] c"udp.port\00", align 1
-@.str.594 = private unnamed_addr constant [9 x i8] c"tcp.port\00", align 1
-@.str.595 = private unnamed_addr constant [4 x i8] c"Jan\00", align 1
-@.str.596 = private unnamed_addr constant [4 x i8] c"Feb\00", align 1
-@.str.597 = private unnamed_addr constant [4 x i8] c"Mar\00", align 1
-@.str.598 = private unnamed_addr constant [4 x i8] c"Apr\00", align 1
-@.str.599 = private unnamed_addr constant [4 x i8] c"May\00", align 1
-@.str.600 = private unnamed_addr constant [4 x i8] c"Jun\00", align 1
-@.str.601 = private unnamed_addr constant [4 x i8] c"Jul\00", align 1
-@.str.602 = private unnamed_addr constant [4 x i8] c"Aug\00", align 1
-@.str.603 = private unnamed_addr constant [4 x i8] c"Sep\00", align 1
-@.str.604 = private unnamed_addr constant [4 x i8] c"Oct\00", align 1
-@.str.605 = private unnamed_addr constant [4 x i8] c"Nov\00", align 1
-@.str.606 = private unnamed_addr constant [4 x i8] c"Dec\00", align 1
-@.str.607 = private unnamed_addr constant [11 x i8] c"no warning\00", align 1
-@.str.608 = private unnamed_addr constant [38 x i8] c"last minute of the day has 61 seconds\00", align 1
-@.str.609 = private unnamed_addr constant [38 x i8] c"last minute of the day has 59 seconds\00", align 1
-@.str.610 = private unnamed_addr constant [31 x i8] c"unknown (clock unsynchronized)\00", align 1
-@.str.611 = private unnamed_addr constant [9 x i8] c"reserved\00", align 1
-@.str.612 = private unnamed_addr constant [14 x i8] c"NTP Version 1\00", align 1
-@.str.613 = private unnamed_addr constant [14 x i8] c"NTP Version 2\00", align 1
-@.str.614 = private unnamed_addr constant [14 x i8] c"NTP Version 3\00", align 1
-@.str.615 = private unnamed_addr constant [14 x i8] c"NTP Version 4\00", align 1
-@.str.616 = private unnamed_addr constant [17 x i8] c"symmetric active\00", align 1
-@.str.617 = private unnamed_addr constant [18 x i8] c"symmetric passive\00", align 1
-@.str.618 = private unnamed_addr constant [7 x i8] c"client\00", align 1
-@.str.619 = private unnamed_addr constant [7 x i8] c"server\00", align 1
-@.str.620 = private unnamed_addr constant [10 x i8] c"broadcast\00", align 1
-@.str.621 = private unnamed_addr constant [33 x i8] c"reserved for NTP control message\00", align 1
-@.str.622 = private unnamed_addr constant [25 x i8] c"reserved for private use\00", align 1
-@.str.623 = private unnamed_addr constant [23 x i8] c"unspecified or invalid\00", align 1
-@.str.624 = private unnamed_addr constant [18 x i8] c"primary reference\00", align 1
-@.str.625 = private unnamed_addr constant [20 x i8] c"secondary reference\00", align 1
-@.str.626 = private unnamed_addr constant [15 x i8] c"unsynchronized\00", align 1
-@.str.627 = private unnamed_addr constant [4 x i8] c"MD5\00", align 1
-@.str.628 = private unnamed_addr constant [4 x i8] c"SHA\00", align 1
-@.str.629 = private unnamed_addr constant [21 x i8] c"No-Operation Request\00", align 1
-@.str.630 = private unnamed_addr constant [28 x i8] c"Association Message Request\00", align 1
-@.str.631 = private unnamed_addr constant [18 x i8] c"Unique Identifier\00", align 1
-@.str.632 = private unnamed_addr constant [28 x i8] c"Certificate Message Request\00", align 1
-@.str.633 = private unnamed_addr constant [11 x i8] c"NTS Cookie\00", align 1
-@.str.634 = private unnamed_addr constant [23 x i8] c"Cookie Message Request\00", align 1
-@.str.635 = private unnamed_addr constant [23 x i8] c"NTS Cookie Placeholder\00", align 1
-@.str.636 = private unnamed_addr constant [24 x i8] c"Autokey Message Request\00", align 1
-@.str.637 = private unnamed_addr constant [49 x i8] c"NTS Authenticator and Encrypted Extension Fields\00", align 1
-@.str.638 = private unnamed_addr constant [28 x i8] c"Leapseconds Message Request\00", align 1
-@.str.639 = private unnamed_addr constant [21 x i8] c"Sign Message Request\00", align 1
-@.str.640 = private unnamed_addr constant [29 x i8] c"IFF Identity Message Request\00", align 1
-@.str.641 = private unnamed_addr constant [28 x i8] c"GQ Identity Message Request\00", align 1
-@.str.642 = private unnamed_addr constant [28 x i8] c"MV Identity Message Request\00", align 1
-@.str.643 = private unnamed_addr constant [20 x i8] c"Checksum Complement\00", align 1
-@.str.644 = private unnamed_addr constant [22 x i8] c"No-Operation Response\00", align 1
-@.str.645 = private unnamed_addr constant [29 x i8] c"Association Message Response\00", align 1
-@.str.646 = private unnamed_addr constant [29 x i8] c"Certificate Message Response\00", align 1
-@.str.647 = private unnamed_addr constant [24 x i8] c"Cookie Message Response\00", align 1
-@.str.648 = private unnamed_addr constant [25 x i8] c"Autokey Message Response\00", align 1
-@.str.649 = private unnamed_addr constant [29 x i8] c"Leapseconds Message Response\00", align 1
-@.str.650 = private unnamed_addr constant [22 x i8] c"Sign Message Response\00", align 1
-@.str.651 = private unnamed_addr constant [30 x i8] c"IFF Identity Message Response\00", align 1
-@.str.652 = private unnamed_addr constant [29 x i8] c"GQ Identity Message Response\00", align 1
-@.str.653 = private unnamed_addr constant [29 x i8] c"MV Identity Message Response\00", align 1
-@.str.654 = private unnamed_addr constant [28 x i8] c"No-Operation Error Response\00", align 1
-@.str.655 = private unnamed_addr constant [35 x i8] c"Association Message Error Response\00", align 1
-@.str.656 = private unnamed_addr constant [35 x i8] c"Certificate Message Error Response\00", align 1
-@.str.657 = private unnamed_addr constant [30 x i8] c"Cookie Message Error Response\00", align 1
-@.str.658 = private unnamed_addr constant [31 x i8] c"Autokey Message Error Response\00", align 1
-@.str.659 = private unnamed_addr constant [35 x i8] c"Leapseconds Message Error Response\00", align 1
-@.str.660 = private unnamed_addr constant [28 x i8] c"Sign Message Error Response\00", align 1
-@.str.661 = private unnamed_addr constant [36 x i8] c"IFF Identity Message Error Response\00", align 1
-@.str.662 = private unnamed_addr constant [35 x i8] c"GQ Identity Message Error Response\00", align 1
-@.str.663 = private unnamed_addr constant [35 x i8] c"MV Identity Message Error Response\00", align 1
-@.str.664 = private unnamed_addr constant [12 x i8] c"read status\00", align 1
-@.str.665 = private unnamed_addr constant [15 x i8] c"read variables\00", align 1
-@.str.666 = private unnamed_addr constant [16 x i8] c"write variables\00", align 1
-@.str.667 = private unnamed_addr constant [21 x i8] c"read clock variables\00", align 1
-@.str.668 = private unnamed_addr constant [22 x i8] c"write clock variables\00", align 1
-@.str.669 = private unnamed_addr constant [22 x i8] c"set trap address/port\00", align 1
-@.str.670 = private unnamed_addr constant [21 x i8] c"asynchronous message\00", align 1
-@.str.671 = private unnamed_addr constant [22 x i8] c"runtime configuration\00", align 1
-@.str.672 = private unnamed_addr constant [20 x i8] c"save config to file\00", align 1
-@.str.673 = private unnamed_addr constant [23 x i8] c"retrieve MRU (mrulist)\00", align 1
-@.str.674 = private unnamed_addr constant [22 x i8] c"retrieve ordered list\00", align 1
-@.str.675 = private unnamed_addr constant [23 x i8] c"request a client nonce\00", align 1
-@.str.676 = private unnamed_addr constant [24 x i8] c"unset trap address/port\00", align 1
-@.str.677 = private unnamed_addr constant [12 x i8] c"unspecified\00", align 1
-@.str.678 = private unnamed_addr constant [23 x i8] c"authentication failure\00", align 1
-@.str.679 = private unnamed_addr constant [33 x i8] c"invalid message length or format\00", align 1
-@.str.680 = private unnamed_addr constant [15 x i8] c"invalid opcode\00", align 1
-@.str.681 = private unnamed_addr constant [31 x i8] c"unknown association identifier\00", align 1
-@.str.682 = private unnamed_addr constant [22 x i8] c"unknown variable name\00", align 1
-@.str.683 = private unnamed_addr constant [23 x i8] c"invalid variable value\00", align 1
-@.str.684 = private unnamed_addr constant [28 x i8] c"administratively prohibited\00", align 1
-@.str.685 = private unnamed_addr constant [23 x i8] c"unspecified or unknown\00", align 1
-@.str.686 = private unnamed_addr constant [39 x i8] c"Calibrated atomic clock (e.g. HP 5061)\00", align 1
-@.str.687 = private unnamed_addr constant [53 x i8] c"VLF (band 4) or LF (band 5) radio (e.g. OMEGA, WWVB)\00", align 1
-@.str.688 = private unnamed_addr constant [41 x i8] c"HF (band 7) radio (e.g. CHU, MSF, WWV/H)\00", align 1
-@.str.689 = private unnamed_addr constant [40 x i8] c"UHF (band 9) satellite (e.g. GOES, GPS)\00", align 1
-@.str.690 = private unnamed_addr constant [31 x i8] c"local net (e.g. DCN, TSP, DTS)\00", align 1
-@.str.691 = private unnamed_addr constant [8 x i8] c"UDP/NTP\00", align 1
-@.str.692 = private unnamed_addr constant [9 x i8] c"UDP/TIME\00", align 1
-@.str.693 = private unnamed_addr constant [23 x i8] c"eyeball-and-wristwatch\00", align 1
-@.str.694 = private unnamed_addr constant [28 x i8] c"telephone modem (e.g. NIST)\00", align 1
-@.str.695 = private unnamed_addr constant [48 x i8] c"frequency correction (drift) file not available\00", align 1
-@.str.696 = private unnamed_addr constant [49 x i8] c"frequency correction started (frequency stepped)\00", align 1
-@.str.697 = private unnamed_addr constant [51 x i8] c"spike detected and ignored, starting stepout timer\00", align 1
-@.str.698 = private unnamed_addr constant [27 x i8] c"frequency training started\00", align 1
-@.str.699 = private unnamed_addr constant [19 x i8] c"clock synchronized\00", align 1
-@.str.700 = private unnamed_addr constant [15 x i8] c"system restart\00", align 1
-@.str.701 = private unnamed_addr constant [56 x i8] c"panic stop (required step greater than panic threshold)\00", align 1
-@.str.702 = private unnamed_addr constant [15 x i8] c"no system peer\00", align 1
-@.str.703 = private unnamed_addr constant [37 x i8] c"leap second insertion/deletion armed\00", align 1
-@.str.704 = private unnamed_addr constant [21 x i8] c"leap second disarmed\00", align 1
-@.str.705 = private unnamed_addr constant [32 x i8] c"leap second inserted or deleted\00", align 1
-@.str.706 = private unnamed_addr constant [38 x i8] c"clock stepped (stepout timer expired)\00", align 1
-@.str.707 = private unnamed_addr constant [38 x i8] c"kernel loop discipline status changed\00", align 1
-@.str.708 = private unnamed_addr constant [35 x i8] c"leapseconds table loaded from file\00", align 1
-@.str.709 = private unnamed_addr constant [48 x i8] c"leapseconds table outdated, updated file needed\00", align 1
-@.str.710 = private unnamed_addr constant [25 x i8] c"configured (peer.config)\00", align 1
-@.str.711 = private unnamed_addr constant [29 x i8] c"not configured (peer.config)\00", align 1
-@.str.712 = private unnamed_addr constant [41 x i8] c"authentication enabled (peer.authenable)\00", align 1
-@.str.713 = private unnamed_addr constant [42 x i8] c"authentication disabled (peer.authenable)\00", align 1
-@.str.714 = private unnamed_addr constant [37 x i8] c"authentication okay (peer.authentic)\00", align 1
-@.str.715 = private unnamed_addr constant [41 x i8] c"authentication not okay (peer.authentic)\00", align 1
-@.str.716 = private unnamed_addr constant [36 x i8] c"reachability okay (peer.reach != 0)\00", align 1
-@.str.717 = private unnamed_addr constant [40 x i8] c"reachability not okay (peer.reach != 0)\00", align 1
-@.str.718 = private unnamed_addr constant [9 x i8] c"rejected\00", align 1
-@.str.719 = private unnamed_addr constant [58 x i8] c"passed sanity checks (tests 1 through 8 in Section 3.4.3)\00", align 1
-@.str.720 = private unnamed_addr constant [68 x i8] c"passed correctness checks (intersection algorithm in Section 4.2.1)\00", align 1
-@.str.721 = private unnamed_addr constant [53 x i8] c"passed candidate checks (if limit check implemented)\00", align 1
-@.str.722 = private unnamed_addr constant [62 x i8] c"passed outlier checks (clustering algorithm in Section 4.2.2)\00", align 1
-@.str.723 = private unnamed_addr constant [83 x i8] c"current synchronization source; max distance exceeded (if limit check implemented)\00", align 1
-@.str.724 = private unnamed_addr constant [50 x i8] c"current synchronization source; max distance okay\00", align 1
-@.str.725 = private unnamed_addr constant [22 x i8] c"association mobilized\00", align 1
-@.str.726 = private unnamed_addr constant [24 x i8] c"association demobilized\00", align 1
-@.str.727 = private unnamed_addr constant [51 x i8] c"peer unreachable (peer.reach was nonzero now zero)\00", align 1
-@.str.728 = private unnamed_addr constant [49 x i8] c"peer reachable (peer.reach was zero now nonzero)\00", align 1
-@.str.729 = private unnamed_addr constant [35 x i8] c"association restarted or timed out\00", align 1
-@.str.730 = private unnamed_addr constant [31 x i8] c"no server found (ntpdate mode)\00", align 1
-@.str.731 = private unnamed_addr constant [31 x i8] c"rate exceeded (kiss code RATE)\00", align 1
-@.str.732 = private unnamed_addr constant [31 x i8] c"access denied (kiss code DENY)\00", align 1
-@.str.733 = private unnamed_addr constant [31 x i8] c"leap armed from server LI code\00", align 1
-@.str.734 = private unnamed_addr constant [19 x i8] c"become system peer\00", align 1
-@.str.735 = private unnamed_addr constant [46 x i8] c"reference clock event (see clock status word)\00", align 1
-@.str.736 = private unnamed_addr constant [25 x i8] c"popcorn spike suppressor\00", align 1
-@.str.737 = private unnamed_addr constant [25 x i8] c"entering interleave mode\00", align 1
-@.str.738 = private unnamed_addr constant [29 x i8] c"interleave error (recovered)\00", align 1
-@.str.739 = private unnamed_addr constant [32 x i8] c"clock operating within nominals\00", align 1
-@.str.740 = private unnamed_addr constant [14 x i8] c"reply timeout\00", align 1
-@.str.741 = private unnamed_addr constant [17 x i8] c"bad reply format\00", align 1
-@.str.742 = private unnamed_addr constant [27 x i8] c"hardware or software fault\00", align 1
-@.str.743 = private unnamed_addr constant [20 x i8] c"propagation failure\00", align 1
-@.str.744 = private unnamed_addr constant [25 x i8] c"bad date format or value\00", align 1
-@.str.745 = private unnamed_addr constant [25 x i8] c"bad time format or value\00", align 1
-@.str.746 = private unnamed_addr constant [5 x i8] c"UNIV\00", align 1
-@.str.747 = private unnamed_addr constant [21 x i8] c"XNTPD_OLD (pre-IPv6)\00", align 1
-@.str.748 = private unnamed_addr constant [6 x i8] c"XNTPD\00", align 1
-@priv_rc_types = internal constant [47 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.750 }, %struct._value_string { i32 1, ptr @.str.751 }, %struct._value_string { i32 2, ptr @.str.752 }, %struct._value_string { i32 3, ptr @.str.753 }, %struct._value_string { i32 4, ptr @.str.754 }, %struct._value_string { i32 5, ptr @.str.755 }, %struct._value_string { i32 6, ptr @.str.756 }, %struct._value_string { i32 7, ptr @.str.757 }, %struct._value_string { i32 8, ptr @.str.758 }, %struct._value_string { i32 9, ptr @.str.759 }, %struct._value_string { i32 10, ptr @.str.760 }, %struct._value_string { i32 11, ptr @.str.761 }, %struct._value_string { i32 12, ptr @.str.762 }, %struct._value_string { i32 13, ptr @.str.763 }, %struct._value_string { i32 14, ptr @.str.764 }, %struct._value_string { i32 15, ptr @.str.765 }, %struct._value_string { i32 16, ptr @.str.766 }, %struct._value_string { i32 17, ptr @.str.767 }, %struct._value_string { i32 18, ptr @.str.768 }, %struct._value_string { i32 19, ptr @.str.769 }, %struct._value_string { i32 20, ptr @.str.770 }, %struct._value_string { i32 21, ptr @.str.771 }, %struct._value_string { i32 22, ptr @.str.772 }, %struct._value_string { i32 23, ptr @.str.773 }, %struct._value_string { i32 24, ptr @.str.774 }, %struct._value_string { i32 25, ptr @.str.775 }, %struct._value_string { i32 26, ptr @.str.776 }, %struct._value_string { i32 27, ptr @.str.777 }, %struct._value_string { i32 28, ptr @.str.778 }, %struct._value_string { i32 29, ptr @.str.779 }, %struct._value_string { i32 30, ptr @.str.780 }, %struct._value_string { i32 31, ptr @.str.781 }, %struct._value_string { i32 32, ptr @.str.782 }, %struct._value_string { i32 33, ptr @.str.783 }, %struct._value_string { i32 34, ptr @.str.784 }, %struct._value_string { i32 35, ptr @.str.785 }, %struct._value_string { i32 36, ptr @.str.786 }, %struct._value_string { i32 37, ptr @.str.787 }, %struct._value_string { i32 38, ptr @.str.788 }, %struct._value_string { i32 39, ptr @.str.789 }, %struct._value_string { i32 40, ptr @.str.790 }, %struct._value_string { i32 41, ptr @.str.791 }, %struct._value_string { i32 42, ptr @.str.792 }, %struct._value_string { i32 43, ptr @.str.793 }, %struct._value_string { i32 44, ptr @.str.794 }, %struct._value_string { i32 45, ptr @.str.795 }, %struct._value_string zeroinitializer], align 16
-@.str.749 = private unnamed_addr constant [14 x i8] c"priv_rc_types\00", align 1
-@.str.750 = private unnamed_addr constant [10 x i8] c"PEER_LIST\00", align 1
-@.str.751 = private unnamed_addr constant [14 x i8] c"PEER_LIST_SUM\00", align 1
-@.str.752 = private unnamed_addr constant [10 x i8] c"PEER_INFO\00", align 1
-@.str.753 = private unnamed_addr constant [11 x i8] c"PEER_STATS\00", align 1
-@.str.754 = private unnamed_addr constant [9 x i8] c"SYS_INFO\00", align 1
-@.str.755 = private unnamed_addr constant [10 x i8] c"SYS_STATS\00", align 1
-@.str.756 = private unnamed_addr constant [9 x i8] c"IO_STATS\00", align 1
-@.str.757 = private unnamed_addr constant [10 x i8] c"MEM_STATS\00", align 1
-@.str.758 = private unnamed_addr constant [10 x i8] c"LOOP_INFO\00", align 1
-@.str.759 = private unnamed_addr constant [12 x i8] c"TIMER_STATS\00", align 1
-@.str.760 = private unnamed_addr constant [7 x i8] c"CONFIG\00", align 1
-@.str.761 = private unnamed_addr constant [9 x i8] c"UNCONFIG\00", align 1
-@.str.762 = private unnamed_addr constant [13 x i8] c"SET_SYS_FLAG\00", align 1
-@.str.763 = private unnamed_addr constant [13 x i8] c"CLR_SYS_FLAG\00", align 1
-@.str.764 = private unnamed_addr constant [8 x i8] c"MONITOR\00", align 1
-@.str.765 = private unnamed_addr constant [10 x i8] c"NOMONITOR\00", align 1
-@.str.766 = private unnamed_addr constant [13 x i8] c"GET_RESTRICT\00", align 1
-@.str.767 = private unnamed_addr constant [12 x i8] c"RESADDFLAGS\00", align 1
-@.str.768 = private unnamed_addr constant [12 x i8] c"RESSUBFLAGS\00", align 1
-@.str.769 = private unnamed_addr constant [11 x i8] c"UNRESTRICT\00", align 1
-@.str.770 = private unnamed_addr constant [12 x i8] c"MON_GETLIST\00", align 1
-@.str.771 = private unnamed_addr constant [12 x i8] c"RESET_STATS\00", align 1
-@.str.772 = private unnamed_addr constant [11 x i8] c"RESET_PEER\00", align 1
-@.str.773 = private unnamed_addr constant [12 x i8] c"REREAD_KEYS\00", align 1
-@.str.774 = private unnamed_addr constant [14 x i8] c"DO_DIRTY_HACK\00", align 1
-@.str.775 = private unnamed_addr constant [16 x i8] c"DONT_DIRTY_HACK\00", align 1
-@.str.776 = private unnamed_addr constant [9 x i8] c"TRUSTKEY\00", align 1
-@.str.777 = private unnamed_addr constant [11 x i8] c"UNTRUSTKEY\00", align 1
-@.str.778 = private unnamed_addr constant [9 x i8] c"AUTHINFO\00", align 1
-@.str.779 = private unnamed_addr constant [6 x i8] c"TRAPS\00", align 1
-@.str.780 = private unnamed_addr constant [9 x i8] c"ADD_TRAP\00", align 1
-@.str.781 = private unnamed_addr constant [9 x i8] c"CLR_TRAP\00", align 1
-@.str.782 = private unnamed_addr constant [12 x i8] c"REQUEST_KEY\00", align 1
-@.str.783 = private unnamed_addr constant [12 x i8] c"CONTROL_KEY\00", align 1
-@.str.784 = private unnamed_addr constant [13 x i8] c"GET_CTLSTATS\00", align 1
-@.str.785 = private unnamed_addr constant [13 x i8] c"GET_LEAPINFO\00", align 1
-@.str.786 = private unnamed_addr constant [14 x i8] c"GET_CLOCKINFO\00", align 1
-@.str.787 = private unnamed_addr constant [13 x i8] c"SET_CLKFUDGE\00", align 1
-@.str.788 = private unnamed_addr constant [11 x i8] c"GET_KERNEL\00", align 1
-@.str.789 = private unnamed_addr constant [15 x i8] c"GET_CLKBUGINFO\00", align 1
-@.str.790 = private unnamed_addr constant [11 x i8] c"UNASSIGNED\00", align 1
-@.str.791 = private unnamed_addr constant [14 x i8] c"SET_PRECISION\00", align 1
-@.str.792 = private unnamed_addr constant [14 x i8] c"MON_GETLIST_1\00", align 1
-@.str.793 = private unnamed_addr constant [17 x i8] c"HOSTNAME_ASSOCID\00", align 1
-@.str.794 = private unnamed_addr constant [9 x i8] c"IF_STATS\00", align 1
-@.str.795 = private unnamed_addr constant [10 x i8] c"IF_RELOAD\00", align 1
-@.str.796 = private unnamed_addr constant [9 x i8] c"No error\00", align 1
-@.str.797 = private unnamed_addr constant [35 x i8] c"incompatible implementation number\00", align 1
-@.str.798 = private unnamed_addr constant [27 x i8] c"unimplemented request code\00", align 1
-@.str.799 = private unnamed_addr constant [13 x i8] c"format error\00", align 1
-@.str.800 = private unnamed_addr constant [18 x i8] c"no data available\00", align 1
-@.str.801 = private unnamed_addr constant [8 x i8] c"unknown\00", align 1
-@.str.802 = private unnamed_addr constant [17 x i8] c"Interface exists\00", align 1
-@.str.803 = private unnamed_addr constant [18 x i8] c"Interface created\00", align 1
-@.str.804 = private unnamed_addr constant [18 x i8] c"Interface deleted\00", align 1
-@.str.805 = private unnamed_addr constant [7 x i8] c"%s, %s\00", align 1
-@.str.806 = private unnamed_addr constant [16 x i8] c"Unknown version\00", align 1
-@info_mode_types = internal constant [9 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.611 }, %struct._value_string { i32 1, ptr @.str.616 }, %struct._value_string { i32 2, ptr @.str.617 }, %struct._value_string { i32 3, ptr @.str.618 }, %struct._value_string { i32 4, ptr @.str.619 }, %struct._value_string { i32 5, ptr @.str.620 }, %struct._value_string { i32 6, ptr @.str.916 }, %struct._value_string { i32 7, ptr @.str.917 }, %struct._value_string zeroinitializer], align 16
-@.str.807 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
-@.str.808 = private unnamed_addr constant [10 x i8] c" (%s, %s)\00", align 1
+@.str.614 = private unnamed_addr constant [9 x i8] c"udp.port\00", align 1
+@.str.615 = private unnamed_addr constant [9 x i8] c"tcp.port\00", align 1
+@.str.616 = private unnamed_addr constant [4 x i8] c"Jan\00", align 1
+@.str.617 = private unnamed_addr constant [4 x i8] c"Feb\00", align 1
+@.str.618 = private unnamed_addr constant [4 x i8] c"Mar\00", align 1
+@.str.619 = private unnamed_addr constant [4 x i8] c"Apr\00", align 1
+@.str.620 = private unnamed_addr constant [4 x i8] c"May\00", align 1
+@.str.621 = private unnamed_addr constant [4 x i8] c"Jun\00", align 1
+@.str.622 = private unnamed_addr constant [4 x i8] c"Jul\00", align 1
+@.str.623 = private unnamed_addr constant [4 x i8] c"Aug\00", align 1
+@.str.624 = private unnamed_addr constant [4 x i8] c"Sep\00", align 1
+@.str.625 = private unnamed_addr constant [4 x i8] c"Oct\00", align 1
+@.str.626 = private unnamed_addr constant [4 x i8] c"Nov\00", align 1
+@.str.627 = private unnamed_addr constant [4 x i8] c"Dec\00", align 1
+@.str.628 = private unnamed_addr constant [11 x i8] c"no warning\00", align 1
+@.str.629 = private unnamed_addr constant [38 x i8] c"last minute of the day has 61 seconds\00", align 1
+@.str.630 = private unnamed_addr constant [38 x i8] c"last minute of the day has 59 seconds\00", align 1
+@.str.631 = private unnamed_addr constant [31 x i8] c"unknown (clock unsynchronized)\00", align 1
+@li_types = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.628 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.629 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.630 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.631 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.633 = private unnamed_addr constant [9 x i8] c"reserved\00", align 1
+@.str.634 = private unnamed_addr constant [14 x i8] c"NTP Version 1\00", align 1
+@.str.635 = private unnamed_addr constant [14 x i8] c"NTP Version 2\00", align 1
+@.str.636 = private unnamed_addr constant [14 x i8] c"NTP Version 3\00", align 1
+@.str.637 = private unnamed_addr constant [14 x i8] c"NTP Version 4\00", align 1
+@ver_nums = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.633 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.634 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.635 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.636 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.637 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.633 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.633 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.633 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.639 = private unnamed_addr constant [17 x i8] c"symmetric active\00", align 1
+@.str.640 = private unnamed_addr constant [18 x i8] c"symmetric passive\00", align 1
+@.str.641 = private unnamed_addr constant [7 x i8] c"client\00", align 1
+@.str.642 = private unnamed_addr constant [7 x i8] c"server\00", align 1
+@.str.643 = private unnamed_addr constant [10 x i8] c"broadcast\00", align 1
+@.str.644 = private unnamed_addr constant [33 x i8] c"reserved for NTP control message\00", align 1
+@.str.645 = private unnamed_addr constant [25 x i8] c"reserved for private use\00", align 1
+@mode_types = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.633 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.639 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.640 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.641 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.642 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.643 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.644 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.645 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.647 = private unnamed_addr constant [23 x i8] c"unspecified or invalid\00", align 1
+@.str.648 = private unnamed_addr constant [18 x i8] c"primary reference\00", align 1
+@.str.649 = private unnamed_addr constant [20 x i8] c"secondary reference\00", align 1
+@.str.650 = private unnamed_addr constant [15 x i8] c"unsynchronized\00", align 1
+@.str.651 = private unnamed_addr constant [4 x i8] c"MD5\00", align 1
+@.str.652 = private unnamed_addr constant [4 x i8] c"SHA\00", align 1
+@authentication_types = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.651 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.652 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.654 = private unnamed_addr constant [35 x i8] c"Crypto-NAK; authentication failure\00", align 1
+@.str.655 = private unnamed_addr constant [30 x i8] c"Reserved for historic reasons\00", align 1
+@.str.656 = private unnamed_addr constant [18 x i8] c"Unique Identifier\00", align 1
+@.str.657 = private unnamed_addr constant [21 x i8] c"No-Operation Request\00", align 1
+@.str.658 = private unnamed_addr constant [28 x i8] c"Association Message Request\00", align 1
+@.str.659 = private unnamed_addr constant [28 x i8] c"Certificate Message Request\00", align 1
+@.str.660 = private unnamed_addr constant [23 x i8] c"Cookie Message Request\00", align 1
+@.str.661 = private unnamed_addr constant [38 x i8] c"NTS Cookie or Autokey Message Request\00", align 1
+@.str.662 = private unnamed_addr constant [28 x i8] c"Leapseconds Message Request\00", align 1
+@.str.663 = private unnamed_addr constant [21 x i8] c"Sign Message Request\00", align 1
+@.str.664 = private unnamed_addr constant [29 x i8] c"IFF Identity Message Request\00", align 1
+@.str.665 = private unnamed_addr constant [28 x i8] c"GQ Identity Message Request\00", align 1
+@.str.666 = private unnamed_addr constant [28 x i8] c"MV Identity Message Request\00", align 1
+@.str.667 = private unnamed_addr constant [23 x i8] c"NTS Cookie Placeholder\00", align 1
+@.str.668 = private unnamed_addr constant [49 x i8] c"NTS Authenticator and Encrypted Extension Fields\00", align 1
+@.str.669 = private unnamed_addr constant [24 x i8] c"UDP Checksum Complement\00", align 1
+@.str.670 = private unnamed_addr constant [22 x i8] c"No-Operation Response\00", align 1
+@.str.671 = private unnamed_addr constant [29 x i8] c"Association Message Response\00", align 1
+@.str.672 = private unnamed_addr constant [29 x i8] c"Certificate Message Response\00", align 1
+@.str.673 = private unnamed_addr constant [24 x i8] c"Cookie Message Response\00", align 1
+@.str.674 = private unnamed_addr constant [25 x i8] c"Autokey Message Response\00", align 1
+@.str.675 = private unnamed_addr constant [29 x i8] c"Leapseconds Message Response\00", align 1
+@.str.676 = private unnamed_addr constant [22 x i8] c"Sign Message Response\00", align 1
+@.str.677 = private unnamed_addr constant [30 x i8] c"IFF Identity Message Response\00", align 1
+@.str.678 = private unnamed_addr constant [29 x i8] c"GQ Identity Message Response\00", align 1
+@.str.679 = private unnamed_addr constant [29 x i8] c"MV Identity Message Response\00", align 1
+@.str.680 = private unnamed_addr constant [28 x i8] c"No-Operation Error Response\00", align 1
+@.str.681 = private unnamed_addr constant [35 x i8] c"Association Message Error Response\00", align 1
+@.str.682 = private unnamed_addr constant [35 x i8] c"Certificate Message Error Response\00", align 1
+@.str.683 = private unnamed_addr constant [30 x i8] c"Cookie Message Error Response\00", align 1
+@.str.684 = private unnamed_addr constant [31 x i8] c"Autokey Message Error Response\00", align 1
+@.str.685 = private unnamed_addr constant [35 x i8] c"Leapseconds Message Error Response\00", align 1
+@.str.686 = private unnamed_addr constant [28 x i8] c"Sign Message Error Response\00", align 1
+@.str.687 = private unnamed_addr constant [36 x i8] c"IFF Identity Message Error Response\00", align 1
+@.str.688 = private unnamed_addr constant [35 x i8] c"GQ Identity Message Error Response\00", align 1
+@.str.689 = private unnamed_addr constant [35 x i8] c"MV Identity Message Error Response\00", align 1
+@.str.690 = private unnamed_addr constant [30 x i8] c"Reserved for Experimental Use\00", align 1
+@.str.691 = private unnamed_addr constant [12 x i8] c"read status\00", align 1
+@.str.692 = private unnamed_addr constant [15 x i8] c"read variables\00", align 1
+@.str.693 = private unnamed_addr constant [16 x i8] c"write variables\00", align 1
+@.str.694 = private unnamed_addr constant [21 x i8] c"read clock variables\00", align 1
+@.str.695 = private unnamed_addr constant [22 x i8] c"write clock variables\00", align 1
+@.str.696 = private unnamed_addr constant [22 x i8] c"set trap address/port\00", align 1
+@.str.697 = private unnamed_addr constant [21 x i8] c"asynchronous message\00", align 1
+@.str.698 = private unnamed_addr constant [22 x i8] c"runtime configuration\00", align 1
+@.str.699 = private unnamed_addr constant [20 x i8] c"save config to file\00", align 1
+@.str.700 = private unnamed_addr constant [23 x i8] c"retrieve MRU (mrulist)\00", align 1
+@.str.701 = private unnamed_addr constant [22 x i8] c"retrieve ordered list\00", align 1
+@.str.702 = private unnamed_addr constant [23 x i8] c"request a client nonce\00", align 1
+@.str.703 = private unnamed_addr constant [24 x i8] c"unset trap address/port\00", align 1
+@ctrl_op_types = internal constant [15 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.633 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.691 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.692 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.693 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.694 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.695 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.696 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.697 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.698 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.699 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.700 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.701 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.702 }, { i32, [4 x i8], ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.703 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.705 = private unnamed_addr constant [12 x i8] c"unspecified\00", align 1
+@.str.706 = private unnamed_addr constant [23 x i8] c"authentication failure\00", align 1
+@.str.707 = private unnamed_addr constant [33 x i8] c"invalid message length or format\00", align 1
+@.str.708 = private unnamed_addr constant [15 x i8] c"invalid opcode\00", align 1
+@.str.709 = private unnamed_addr constant [31 x i8] c"unknown association identifier\00", align 1
+@.str.710 = private unnamed_addr constant [22 x i8] c"unknown variable name\00", align 1
+@.str.711 = private unnamed_addr constant [23 x i8] c"invalid variable value\00", align 1
+@.str.712 = private unnamed_addr constant [28 x i8] c"administratively prohibited\00", align 1
+@ctrl_err_status_types = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.705 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.706 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.707 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.708 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.709 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.710 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.711 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.712 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.714 = private unnamed_addr constant [23 x i8] c"unspecified or unknown\00", align 1
+@.str.715 = private unnamed_addr constant [39 x i8] c"Calibrated atomic clock (e.g. HP 5061)\00", align 1
+@.str.716 = private unnamed_addr constant [53 x i8] c"VLF (band 4) or LF (band 5) radio (e.g. OMEGA, WWVB)\00", align 1
+@.str.717 = private unnamed_addr constant [41 x i8] c"HF (band 7) radio (e.g. CHU, MSF, WWV/H)\00", align 1
+@.str.718 = private unnamed_addr constant [40 x i8] c"UHF (band 9) satellite (e.g. GOES, GPS)\00", align 1
+@.str.719 = private unnamed_addr constant [31 x i8] c"local net (e.g. DCN, TSP, DTS)\00", align 1
+@.str.720 = private unnamed_addr constant [8 x i8] c"UDP/NTP\00", align 1
+@.str.721 = private unnamed_addr constant [9 x i8] c"UDP/TIME\00", align 1
+@.str.722 = private unnamed_addr constant [23 x i8] c"eyeball-and-wristwatch\00", align 1
+@.str.723 = private unnamed_addr constant [28 x i8] c"telephone modem (e.g. NIST)\00", align 1
+@ctrl_sys_status_clksource_types = internal constant [11 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.714 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.715 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.716 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.717 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.718 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.719 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.720 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.721 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.722 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.723 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.725 = private unnamed_addr constant [48 x i8] c"frequency correction (drift) file not available\00", align 1
+@.str.726 = private unnamed_addr constant [49 x i8] c"frequency correction started (frequency stepped)\00", align 1
+@.str.727 = private unnamed_addr constant [51 x i8] c"spike detected and ignored, starting stepout timer\00", align 1
+@.str.728 = private unnamed_addr constant [27 x i8] c"frequency training started\00", align 1
+@.str.729 = private unnamed_addr constant [19 x i8] c"clock synchronized\00", align 1
+@.str.730 = private unnamed_addr constant [15 x i8] c"system restart\00", align 1
+@.str.731 = private unnamed_addr constant [56 x i8] c"panic stop (required step greater than panic threshold)\00", align 1
+@.str.732 = private unnamed_addr constant [15 x i8] c"no system peer\00", align 1
+@.str.733 = private unnamed_addr constant [37 x i8] c"leap second insertion/deletion armed\00", align 1
+@.str.734 = private unnamed_addr constant [21 x i8] c"leap second disarmed\00", align 1
+@.str.735 = private unnamed_addr constant [32 x i8] c"leap second inserted or deleted\00", align 1
+@.str.736 = private unnamed_addr constant [38 x i8] c"clock stepped (stepout timer expired)\00", align 1
+@.str.737 = private unnamed_addr constant [38 x i8] c"kernel loop discipline status changed\00", align 1
+@.str.738 = private unnamed_addr constant [35 x i8] c"leapseconds table loaded from file\00", align 1
+@.str.739 = private unnamed_addr constant [48 x i8] c"leapseconds table outdated, updated file needed\00", align 1
+@ctrl_sys_status_event_types = internal constant [17 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.705 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.725 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.726 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.727 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.728 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.729 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.730 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.731 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.732 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.733 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.734 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.735 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.736 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.737 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.738 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.739 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.741 = private unnamed_addr constant [25 x i8] c"configured (peer.config)\00", align 1
+@.str.742 = private unnamed_addr constant [29 x i8] c"not configured (peer.config)\00", align 1
+@.str.743 = private unnamed_addr constant [41 x i8] c"authentication enabled (peer.authenable)\00", align 1
+@.str.744 = private unnamed_addr constant [42 x i8] c"authentication disabled (peer.authenable)\00", align 1
+@.str.745 = private unnamed_addr constant [37 x i8] c"authentication okay (peer.authentic)\00", align 1
+@.str.746 = private unnamed_addr constant [41 x i8] c"authentication not okay (peer.authentic)\00", align 1
+@.str.747 = private unnamed_addr constant [36 x i8] c"reachability okay (peer.reach != 0)\00", align 1
+@.str.748 = private unnamed_addr constant [40 x i8] c"reachability not okay (peer.reach != 0)\00", align 1
+@.str.749 = private unnamed_addr constant [9 x i8] c"rejected\00", align 1
+@.str.750 = private unnamed_addr constant [58 x i8] c"passed sanity checks (tests 1 through 8 in Section 3.4.3)\00", align 1
+@.str.751 = private unnamed_addr constant [68 x i8] c"passed correctness checks (intersection algorithm in Section 4.2.1)\00", align 1
+@.str.752 = private unnamed_addr constant [53 x i8] c"passed candidate checks (if limit check implemented)\00", align 1
+@.str.753 = private unnamed_addr constant [62 x i8] c"passed outlier checks (clustering algorithm in Section 4.2.2)\00", align 1
+@.str.754 = private unnamed_addr constant [83 x i8] c"current synchronization source; max distance exceeded (if limit check implemented)\00", align 1
+@.str.755 = private unnamed_addr constant [50 x i8] c"current synchronization source; max distance okay\00", align 1
+@ctrl_peer_status_selection_types = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.749 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.750 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.751 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.752 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.753 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.754 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.755 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.633 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.757 = private unnamed_addr constant [22 x i8] c"association mobilized\00", align 1
+@.str.758 = private unnamed_addr constant [24 x i8] c"association demobilized\00", align 1
+@.str.759 = private unnamed_addr constant [51 x i8] c"peer unreachable (peer.reach was nonzero now zero)\00", align 1
+@.str.760 = private unnamed_addr constant [49 x i8] c"peer reachable (peer.reach was zero now nonzero)\00", align 1
+@.str.761 = private unnamed_addr constant [35 x i8] c"association restarted or timed out\00", align 1
+@.str.762 = private unnamed_addr constant [31 x i8] c"no server found (ntpdate mode)\00", align 1
+@.str.763 = private unnamed_addr constant [31 x i8] c"rate exceeded (kiss code RATE)\00", align 1
+@.str.764 = private unnamed_addr constant [31 x i8] c"access denied (kiss code DENY)\00", align 1
+@.str.765 = private unnamed_addr constant [31 x i8] c"leap armed from server LI code\00", align 1
+@.str.766 = private unnamed_addr constant [19 x i8] c"become system peer\00", align 1
+@.str.767 = private unnamed_addr constant [46 x i8] c"reference clock event (see clock status word)\00", align 1
+@.str.768 = private unnamed_addr constant [25 x i8] c"popcorn spike suppressor\00", align 1
+@.str.769 = private unnamed_addr constant [25 x i8] c"entering interleave mode\00", align 1
+@.str.770 = private unnamed_addr constant [29 x i8] c"interleave error (recovered)\00", align 1
+@ctrl_peer_status_event_types = internal constant [17 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.705 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.757 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.758 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.759 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.760 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.761 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.762 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.763 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.764 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.765 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.766 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.767 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.706 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.768 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.769 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.770 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.772 = private unnamed_addr constant [32 x i8] c"clock operating within nominals\00", align 1
+@.str.773 = private unnamed_addr constant [14 x i8] c"reply timeout\00", align 1
+@.str.774 = private unnamed_addr constant [17 x i8] c"bad reply format\00", align 1
+@.str.775 = private unnamed_addr constant [27 x i8] c"hardware or software fault\00", align 1
+@.str.776 = private unnamed_addr constant [20 x i8] c"propagation failure\00", align 1
+@.str.777 = private unnamed_addr constant [25 x i8] c"bad date format or value\00", align 1
+@.str.778 = private unnamed_addr constant [25 x i8] c"bad time format or value\00", align 1
+@ctrl_clk_status_types = internal constant [8 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.772 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.773 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.774 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.775 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.776 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.777 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.778 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.780 = private unnamed_addr constant [5 x i8] c"UNIV\00", align 1
+@.str.781 = private unnamed_addr constant [21 x i8] c"XNTPD_OLD (pre-IPv6)\00", align 1
+@.str.782 = private unnamed_addr constant [6 x i8] c"XNTPD\00", align 1
+@priv_impl_types = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.780 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.781 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.782 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.784 = private unnamed_addr constant [14 x i8] c"priv_rc_types\00", align 1
+@.str.785 = private unnamed_addr constant [10 x i8] c"PEER_LIST\00", align 1
+@.str.786 = private unnamed_addr constant [14 x i8] c"PEER_LIST_SUM\00", align 1
+@.str.787 = private unnamed_addr constant [10 x i8] c"PEER_INFO\00", align 1
+@.str.788 = private unnamed_addr constant [11 x i8] c"PEER_STATS\00", align 1
+@.str.789 = private unnamed_addr constant [9 x i8] c"SYS_INFO\00", align 1
+@.str.790 = private unnamed_addr constant [10 x i8] c"SYS_STATS\00", align 1
+@.str.791 = private unnamed_addr constant [9 x i8] c"IO_STATS\00", align 1
+@.str.792 = private unnamed_addr constant [10 x i8] c"MEM_STATS\00", align 1
+@.str.793 = private unnamed_addr constant [10 x i8] c"LOOP_INFO\00", align 1
+@.str.794 = private unnamed_addr constant [12 x i8] c"TIMER_STATS\00", align 1
+@.str.795 = private unnamed_addr constant [7 x i8] c"CONFIG\00", align 1
+@.str.796 = private unnamed_addr constant [9 x i8] c"UNCONFIG\00", align 1
+@.str.797 = private unnamed_addr constant [13 x i8] c"SET_SYS_FLAG\00", align 1
+@.str.798 = private unnamed_addr constant [13 x i8] c"CLR_SYS_FLAG\00", align 1
+@.str.799 = private unnamed_addr constant [8 x i8] c"MONITOR\00", align 1
+@.str.800 = private unnamed_addr constant [10 x i8] c"NOMONITOR\00", align 1
+@.str.801 = private unnamed_addr constant [13 x i8] c"GET_RESTRICT\00", align 1
+@.str.802 = private unnamed_addr constant [12 x i8] c"RESADDFLAGS\00", align 1
+@.str.803 = private unnamed_addr constant [12 x i8] c"RESSUBFLAGS\00", align 1
+@.str.804 = private unnamed_addr constant [11 x i8] c"UNRESTRICT\00", align 1
+@.str.805 = private unnamed_addr constant [12 x i8] c"MON_GETLIST\00", align 1
+@.str.806 = private unnamed_addr constant [12 x i8] c"RESET_STATS\00", align 1
+@.str.807 = private unnamed_addr constant [11 x i8] c"RESET_PEER\00", align 1
+@.str.808 = private unnamed_addr constant [12 x i8] c"REREAD_KEYS\00", align 1
+@.str.809 = private unnamed_addr constant [14 x i8] c"DO_DIRTY_HACK\00", align 1
+@.str.810 = private unnamed_addr constant [16 x i8] c"DONT_DIRTY_HACK\00", align 1
+@.str.811 = private unnamed_addr constant [9 x i8] c"TRUSTKEY\00", align 1
+@.str.812 = private unnamed_addr constant [11 x i8] c"UNTRUSTKEY\00", align 1
+@.str.813 = private unnamed_addr constant [9 x i8] c"AUTHINFO\00", align 1
+@.str.814 = private unnamed_addr constant [6 x i8] c"TRAPS\00", align 1
+@.str.815 = private unnamed_addr constant [9 x i8] c"ADD_TRAP\00", align 1
+@.str.816 = private unnamed_addr constant [9 x i8] c"CLR_TRAP\00", align 1
+@.str.817 = private unnamed_addr constant [12 x i8] c"REQUEST_KEY\00", align 1
+@.str.818 = private unnamed_addr constant [12 x i8] c"CONTROL_KEY\00", align 1
+@.str.819 = private unnamed_addr constant [13 x i8] c"GET_CTLSTATS\00", align 1
+@.str.820 = private unnamed_addr constant [13 x i8] c"GET_LEAPINFO\00", align 1
+@.str.821 = private unnamed_addr constant [14 x i8] c"GET_CLOCKINFO\00", align 1
+@.str.822 = private unnamed_addr constant [13 x i8] c"SET_CLKFUDGE\00", align 1
+@.str.823 = private unnamed_addr constant [11 x i8] c"GET_KERNEL\00", align 1
+@.str.824 = private unnamed_addr constant [15 x i8] c"GET_CLKBUGINFO\00", align 1
+@.str.825 = private unnamed_addr constant [11 x i8] c"UNASSIGNED\00", align 1
+@.str.826 = private unnamed_addr constant [14 x i8] c"SET_PRECISION\00", align 1
+@.str.827 = private unnamed_addr constant [14 x i8] c"MON_GETLIST_1\00", align 1
+@.str.828 = private unnamed_addr constant [17 x i8] c"HOSTNAME_ASSOCID\00", align 1
+@.str.829 = private unnamed_addr constant [9 x i8] c"IF_STATS\00", align 1
+@.str.830 = private unnamed_addr constant [10 x i8] c"IF_RELOAD\00", align 1
+@priv_rc_types = internal constant [47 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.785 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.786 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.787 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.788 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.789 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.790 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.791 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.792 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.793 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.794 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.795 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.796 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.797 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.798 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.799 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.800 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.801 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.802 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.803 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.804 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.805 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.806 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.807 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.808 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.809 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.810 }, { i32, [4 x i8], ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.811 }, { i32, [4 x i8], ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.812 }, { i32, [4 x i8], ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.813 }, { i32, [4 x i8], ptr } { i32 29, [4 x i8] zeroinitializer, ptr @.str.814 }, { i32, [4 x i8], ptr } { i32 30, [4 x i8] zeroinitializer, ptr @.str.815 }, { i32, [4 x i8], ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.816 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.817 }, { i32, [4 x i8], ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.818 }, { i32, [4 x i8], ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.819 }, { i32, [4 x i8], ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.820 }, { i32, [4 x i8], ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.821 }, { i32, [4 x i8], ptr } { i32 37, [4 x i8] zeroinitializer, ptr @.str.822 }, { i32, [4 x i8], ptr } { i32 38, [4 x i8] zeroinitializer, ptr @.str.823 }, { i32, [4 x i8], ptr } { i32 39, [4 x i8] zeroinitializer, ptr @.str.824 }, { i32, [4 x i8], ptr } { i32 40, [4 x i8] zeroinitializer, ptr @.str.825 }, { i32, [4 x i8], ptr } { i32 41, [4 x i8] zeroinitializer, ptr @.str.826 }, { i32, [4 x i8], ptr } { i32 42, [4 x i8] zeroinitializer, ptr @.str.827 }, { i32, [4 x i8], ptr } { i32 43, [4 x i8] zeroinitializer, ptr @.str.828 }, { i32, [4 x i8], ptr } { i32 44, [4 x i8] zeroinitializer, ptr @.str.829 }, { i32, [4 x i8], ptr } { i32 45, [4 x i8] zeroinitializer, ptr @.str.830 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.832 = private unnamed_addr constant [9 x i8] c"No error\00", align 1
+@.str.833 = private unnamed_addr constant [35 x i8] c"incompatible implementation number\00", align 1
+@.str.834 = private unnamed_addr constant [27 x i8] c"unimplemented request code\00", align 1
+@.str.835 = private unnamed_addr constant [13 x i8] c"format error\00", align 1
+@.str.836 = private unnamed_addr constant [18 x i8] c"no data available\00", align 1
+@.str.837 = private unnamed_addr constant [8 x i8] c"unknown\00", align 1
+@err_values_types = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.832 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.833 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.834 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.835 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.836 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.837 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.837 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.706 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.839 = private unnamed_addr constant [17 x i8] c"Interface exists\00", align 1
+@.str.840 = private unnamed_addr constant [18 x i8] c"Interface created\00", align 1
+@.str.841 = private unnamed_addr constant [18 x i8] c"Interface deleted\00", align 1
+@priv_mode7_int_action = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.839 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.840 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.841 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@nts_cookie = internal global ptr null, align 8
+@nts_tvb_uid_offset = internal global i32 0, align 4
+@nts_tvb_uid_length = internal global i32 0, align 4
+@nts_aad_start = internal global i32 0, align 4
+@.str.843 = private unnamed_addr constant [7 x i8] c"%s, %s\00", align 1
+@.str.844 = private unnamed_addr constant [16 x i8] c"Unknown version\00", align 1
+@.str.845 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
+@.str.846 = private unnamed_addr constant [10 x i8] c" (%s, %s)\00", align 1
 @ntp_header_fields = internal constant [4 x ptr] [ptr @hf_ntp_flags_li, ptr @hf_ntp_flags_vn, ptr @hf_ntp_flags_mode, ptr null], align 16
-@.str.809 = private unnamed_addr constant [18 x i8] c"%d (%.0f seconds)\00", align 1
-@.str.810 = private unnamed_addr constant [19 x i8] c"%d (%5.3f seconds)\00", align 1
-@.str.811 = private unnamed_addr constant [20 x i8] c"%d (%11.9f seconds)\00", align 1
-@.str.812 = private unnamed_addr constant [14 x i8] c"%8.6f seconds\00", align 1
-@.str.813 = private unnamed_addr constant [40 x i8] c"Unidentified Kiss-o'-Death message '%s'\00", align 1
-@kod_messages = internal constant [17 x %struct.anon.0] [%struct.anon.0 { ptr @.str.816, ptr @.str.817 }, %struct.anon.0 { ptr @.str.818, ptr @.str.819 }, %struct.anon.0 { ptr @.str.820, ptr @.str.821 }, %struct.anon.0 { ptr @.str.822, ptr @.str.823 }, %struct.anon.0 { ptr @.str.824, ptr @.str.825 }, %struct.anon.0 { ptr @.str.826, ptr @.str.827 }, %struct.anon.0 { ptr @.str.828, ptr @.str.829 }, %struct.anon.0 { ptr @.str.830, ptr @.str.831 }, %struct.anon.0 { ptr @.str.832, ptr @.str.833 }, %struct.anon.0 { ptr @.str.834, ptr @.str.835 }, %struct.anon.0 { ptr @.str.836, ptr @.str.837 }, %struct.anon.0 { ptr @.str.838, ptr @.str.839 }, %struct.anon.0 { ptr @.str.840, ptr @.str.841 }, %struct.anon.0 { ptr @.str.842, ptr @.str.843 }, %struct.anon.0 { ptr @.str.844, ptr @.str.845 }, %struct.anon.0 { ptr @.str.846, ptr @.str }, %struct.anon.0 zeroinitializer], align 16
-@.str.814 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
-@.str.815 = private unnamed_addr constant [35 x i8] c"Unidentified reference source '%s'\00", align 1
-@primary_sources = internal constant [32 x %struct.anon.1] [%struct.anon.1 { ptr @.str.847, ptr @.str.848 }, %struct.anon.1 { ptr @.str.849, ptr @.str.850 }, %struct.anon.1 { ptr @.str.851, ptr @.str.852 }, %struct.anon.1 { ptr @.str.853, ptr @.str.854 }, %struct.anon.1 { ptr @.str.855, ptr @.str.856 }, %struct.anon.1 { ptr @.str.857, ptr @.str.858 }, %struct.anon.1 { ptr @.str.859, ptr @.str.860 }, %struct.anon.1 { ptr @.str.861, ptr @.str.862 }, %struct.anon.1 { ptr @.str.863, ptr @.str.864 }, %struct.anon.1 { ptr @.str.865, ptr @.str.866 }, %struct.anon.1 { ptr @.str.867, ptr @.str.868 }, %struct.anon.1 { ptr @.str.869, ptr @.str.870 }, %struct.anon.1 { ptr @.str.871, ptr @.str.872 }, %struct.anon.1 { ptr @.str.873, ptr @.str.874 }, %struct.anon.1 { ptr @.str.875, ptr @.str.876 }, %struct.anon.1 { ptr @.str.877, ptr @.str.878 }, %struct.anon.1 { ptr @.str.879, ptr @.str.878 }, %struct.anon.1 { ptr @.str.880, ptr @.str.881 }, %struct.anon.1 { ptr @.str.882, ptr @.str.883 }, %struct.anon.1 { ptr @.str.884, ptr @.str.885 }, %struct.anon.1 { ptr @.str.886, ptr @.str.887 }, %struct.anon.1 { ptr @.str.888, ptr @.str.889 }, %struct.anon.1 { ptr @.str.890, ptr @.str.891 }, %struct.anon.1 { ptr @.str.892, ptr @.str.893 }, %struct.anon.1 { ptr @.str.894, ptr @.str.895 }, %struct.anon.1 { ptr @.str.896, ptr @.str.897 }, %struct.anon.1 { ptr @.str.898, ptr @.str.899 }, %struct.anon.1 { ptr @.str.900, ptr @.str.901 }, %struct.anon.1 { ptr @.str.902, ptr @.str.903 }, %struct.anon.1 { ptr @.str.904, ptr @.str.905 }, %struct.anon.1 { ptr @.str.846, ptr @.str }, %struct.anon.1 zeroinitializer], align 16
-@.str.816 = private unnamed_addr constant [5 x i8] c"ACST\00", align 1
-@.str.817 = private unnamed_addr constant [44 x i8] c"The association belongs to a unicast server\00", align 1
-@.str.818 = private unnamed_addr constant [5 x i8] c"AUTH\00", align 1
-@.str.819 = private unnamed_addr constant [29 x i8] c"Server authentication failed\00", align 1
-@.str.820 = private unnamed_addr constant [5 x i8] c"AUTO\00", align 1
-@.str.821 = private unnamed_addr constant [24 x i8] c"Autokey sequence failed\00", align 1
-@.str.822 = private unnamed_addr constant [5 x i8] c"BCST\00", align 1
-@.str.823 = private unnamed_addr constant [46 x i8] c"The association belongs to a broadcast server\00", align 1
-@.str.824 = private unnamed_addr constant [5 x i8] c"CRYP\00", align 1
-@.str.825 = private unnamed_addr constant [54 x i8] c"Cryptographic authentication or identification failed\00", align 1
-@.str.826 = private unnamed_addr constant [5 x i8] c"DENY\00", align 1
-@.str.827 = private unnamed_addr constant [31 x i8] c"Access denied by remote server\00", align 1
-@.str.828 = private unnamed_addr constant [5 x i8] c"DROP\00", align 1
-@.str.829 = private unnamed_addr constant [28 x i8] c"Lost peer in symmetric mode\00", align 1
-@.str.830 = private unnamed_addr constant [5 x i8] c"RSTR\00", align 1
-@.str.831 = private unnamed_addr constant [34 x i8] c"Access denied due to local policy\00", align 1
-@.str.832 = private unnamed_addr constant [5 x i8] c"INIT\00", align 1
-@.str.833 = private unnamed_addr constant [60 x i8] c"The association has not yet synchronized for the first time\00", align 1
-@.str.834 = private unnamed_addr constant [5 x i8] c"MCST\00", align 1
-@.str.835 = private unnamed_addr constant [59 x i8] c"The association belongs to a dynamically discovered server\00", align 1
-@.str.836 = private unnamed_addr constant [5 x i8] c"NKEY\00", align 1
-@.str.837 = private unnamed_addr constant [67 x i8] c"No key found. Either the key was never installed or is not trusted\00", align 1
-@.str.838 = private unnamed_addr constant [5 x i8] c"NTSN\00", align 1
-@.str.839 = private unnamed_addr constant [58 x i8] c"Network Time Security (NTS) negative-acknowledgment (NAK)\00", align 1
-@.str.840 = private unnamed_addr constant [5 x i8] c"RATE\00", align 1
-@.str.841 = private unnamed_addr constant [103 x i8] c"Rate exceeded. The server has temporarily denied access because the client exceeded the rate threshold\00", align 1
-@.str.842 = private unnamed_addr constant [5 x i8] c"RMOT\00", align 1
-@.str.843 = private unnamed_addr constant [60 x i8] c"Alteration of association from a remote host running ntpdc.\00", align 1
-@.str.844 = private unnamed_addr constant [5 x i8] c"STEP\00", align 1
-@.str.845 = private unnamed_addr constant [90 x i8] c"A step change in system time has occurred, but the association has not yet resynchronized\00", align 1
-@.str.846 = private unnamed_addr constant [5 x i8] zeroinitializer, align 1
-@.str.847 = private unnamed_addr constant [5 x i8] c"GOES\00", align 1
-@.str.848 = private unnamed_addr constant [42 x i8] c"Geostationary Orbit Environment Satellite\00", align 1
-@.str.849 = private unnamed_addr constant [5 x i8] c"GPS\00\00", align 1
-@.str.850 = private unnamed_addr constant [23 x i8] c"Global Position System\00", align 1
-@.str.851 = private unnamed_addr constant [5 x i8] c"GAL\00\00", align 1
-@.str.852 = private unnamed_addr constant [27 x i8] c"Galileo Positioning System\00", align 1
-@.str.853 = private unnamed_addr constant [5 x i8] c"PPS\00\00", align 1
-@.str.854 = private unnamed_addr constant [25 x i8] c"Generic pulse-per-second\00", align 1
-@.str.855 = private unnamed_addr constant [5 x i8] c"IRIG\00", align 1
-@.str.856 = private unnamed_addr constant [34 x i8] c"Inter-Range Instrumentation Group\00", align 1
-@.str.857 = private unnamed_addr constant [5 x i8] c"WWVB\00", align 1
-@.str.858 = private unnamed_addr constant [37 x i8] c"LF Radio WWVB Ft. Collins, CO 60 kHz\00", align 1
-@.str.859 = private unnamed_addr constant [5 x i8] c"DCF\00\00", align 1
-@.str.860 = private unnamed_addr constant [40 x i8] c"LF Radio DCF77 Mainflingen, DE 77.5 kHz\00", align 1
-@.str.861 = private unnamed_addr constant [5 x i8] c"HBG\00\00", align 1
-@.str.862 = private unnamed_addr constant [33 x i8] c"LF Radio HBG Prangins, HB 75 kHz\00", align 1
-@.str.863 = private unnamed_addr constant [5 x i8] c"MSF\00\00", align 1
-@.str.864 = private unnamed_addr constant [32 x i8] c"LF Radio MSF Anthorn, UK 60 kHz\00", align 1
-@.str.865 = private unnamed_addr constant [5 x i8] c"JJY\00\00", align 1
-@.str.866 = private unnamed_addr constant [51 x i8] c"LF Radio JJY Fukushima, JP 40 kHz, Saga, JP 60 kHz\00", align 1
-@.str.867 = private unnamed_addr constant [5 x i8] c"LORC\00", align 1
-@.str.868 = private unnamed_addr constant [34 x i8] c"MF Radio LORAN C station, 100 kHz\00", align 1
-@.str.869 = private unnamed_addr constant [5 x i8] c"TDF\00\00", align 1
-@.str.870 = private unnamed_addr constant [29 x i8] c"MF Radio Allouis, FR 162 kHz\00", align 1
-@.str.871 = private unnamed_addr constant [5 x i8] c"CHU\00\00", align 1
-@.str.872 = private unnamed_addr constant [29 x i8] c"HF Radio CHU Ottawa, Ontario\00", align 1
-@.str.873 = private unnamed_addr constant [5 x i8] c"WWV\00\00", align 1
-@.str.874 = private unnamed_addr constant [29 x i8] c"HF Radio WWV Ft. Collins, CO\00", align 1
-@.str.875 = private unnamed_addr constant [5 x i8] c"WWVH\00", align 1
-@.str.876 = private unnamed_addr constant [24 x i8] c"HF Radio WWVH Kauai, HI\00", align 1
-@.str.877 = private unnamed_addr constant [5 x i8] c"NIST\00", align 1
-@.str.878 = private unnamed_addr constant [21 x i8] c"NIST telephone modem\00", align 1
-@.str.879 = private unnamed_addr constant [5 x i8] c"ACTS\00", align 1
-@.str.880 = private unnamed_addr constant [5 x i8] c"USNO\00", align 1
-@.str.881 = private unnamed_addr constant [21 x i8] c"USNO telephone modem\00", align 1
-@.str.882 = private unnamed_addr constant [5 x i8] c"PTB\00\00", align 1
-@.str.883 = private unnamed_addr constant [25 x i8] c"European telephone modem\00", align 1
-@.str.884 = private unnamed_addr constant [5 x i8] c"LOCL\00", align 1
-@.str.885 = private unnamed_addr constant [25 x i8] c"uncalibrated local clock\00", align 1
-@.str.886 = private unnamed_addr constant [5 x i8] c"CESM\00", align 1
-@.str.887 = private unnamed_addr constant [24 x i8] c"calibrated Cesium clock\00", align 1
-@.str.888 = private unnamed_addr constant [5 x i8] c"RBDM\00", align 1
-@.str.889 = private unnamed_addr constant [26 x i8] c"calibrated Rubidium clock\00", align 1
-@.str.890 = private unnamed_addr constant [5 x i8] c"OMEG\00", align 1
-@.str.891 = private unnamed_addr constant [29 x i8] c"OMEGA radionavigation system\00", align 1
-@.str.892 = private unnamed_addr constant [5 x i8] c"DCN\00\00", align 1
-@.str.893 = private unnamed_addr constant [21 x i8] c"DCN routing protocol\00", align 1
-@.str.894 = private unnamed_addr constant [5 x i8] c"TSP\00\00", align 1
-@.str.895 = private unnamed_addr constant [18 x i8] c"TSP time protocol\00", align 1
-@.str.896 = private unnamed_addr constant [5 x i8] c"DTS\00\00", align 1
-@.str.897 = private unnamed_addr constant [21 x i8] c"Digital Time Service\00", align 1
-@.str.898 = private unnamed_addr constant [5 x i8] c"ATOM\00", align 1
-@.str.899 = private unnamed_addr constant [26 x i8] c"Atomic clock (calibrated)\00", align 1
-@.str.900 = private unnamed_addr constant [5 x i8] c"VLF\00\00", align 1
-@.str.901 = private unnamed_addr constant [25 x i8] c"VLF radio (OMEGA,, etc.)\00", align 1
-@.str.902 = private unnamed_addr constant [5 x i8] c"1PPS\00", align 1
-@.str.903 = private unnamed_addr constant [21 x i8] c"External 1 PPS input\00", align 1
-@.str.904 = private unnamed_addr constant [5 x i8] c"FREE\00", align 1
-@.str.905 = private unnamed_addr constant [17 x i8] c"(Internal clock)\00", align 1
-@.str.906 = private unnamed_addr constant [24 x i8] c"Extension length %u < 8\00", align 1
-@.str.907 = private unnamed_addr constant [42 x i8] c"Extension length %u isn't a multiple of 4\00", align 1
+@.str.847 = private unnamed_addr constant [18 x i8] c"%d (%.0f seconds)\00", align 1
+@.str.848 = private unnamed_addr constant [19 x i8] c"%d (%5.3f seconds)\00", align 1
+@.str.849 = private unnamed_addr constant [20 x i8] c"%d (%11.9f seconds)\00", align 1
+@.str.850 = private unnamed_addr constant [14 x i8] c"%8.6f seconds\00", align 1
+@.str.851 = private unnamed_addr constant [40 x i8] c"Unidentified Kiss-o'-Death message '%s'\00", align 1
+@kod_messages = internal constant [17 x %struct.anon.0] [%struct.anon.0 { ptr @.str.854, ptr @.str.855 }, %struct.anon.0 { ptr @.str.856, ptr @.str.857 }, %struct.anon.0 { ptr @.str.858, ptr @.str.859 }, %struct.anon.0 { ptr @.str.860, ptr @.str.861 }, %struct.anon.0 { ptr @.str.862, ptr @.str.863 }, %struct.anon.0 { ptr @.str.864, ptr @.str.865 }, %struct.anon.0 { ptr @.str.866, ptr @.str.867 }, %struct.anon.0 { ptr @.str.868, ptr @.str.869 }, %struct.anon.0 { ptr @.str.870, ptr @.str.871 }, %struct.anon.0 { ptr @.str.872, ptr @.str.873 }, %struct.anon.0 { ptr @.str.874, ptr @.str.875 }, %struct.anon.0 { ptr @.str.876, ptr @.str.877 }, %struct.anon.0 { ptr @.str.878, ptr @.str.879 }, %struct.anon.0 { ptr @.str.880, ptr @.str.881 }, %struct.anon.0 { ptr @.str.882, ptr @.str.883 }, %struct.anon.0 { ptr @.str.884, ptr @.str }, %struct.anon.0 zeroinitializer], align 16
+@.str.852 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
+@.str.853 = private unnamed_addr constant [35 x i8] c"Unidentified reference source '%s'\00", align 1
+@primary_sources = internal constant [47 x %struct.anon.1] [%struct.anon.1 { ptr @.str.885, ptr @.str.886 }, %struct.anon.1 { ptr @.str.887, ptr @.str.888 }, %struct.anon.1 { ptr @.str.889, ptr @.str.890 }, %struct.anon.1 { ptr @.str.891, ptr @.str.892 }, %struct.anon.1 { ptr @.str.893, ptr @.str.894 }, %struct.anon.1 { ptr @.str.895, ptr @.str.896 }, %struct.anon.1 { ptr @.str.897, ptr @.str.898 }, %struct.anon.1 { ptr @.str.899, ptr @.str.900 }, %struct.anon.1 { ptr @.str.901, ptr @.str.902 }, %struct.anon.1 { ptr @.str.903, ptr @.str.904 }, %struct.anon.1 { ptr @.str.905, ptr @.str.906 }, %struct.anon.1 { ptr @.str.907, ptr @.str.908 }, %struct.anon.1 { ptr @.str.909, ptr @.str.910 }, %struct.anon.1 { ptr @.str.911, ptr @.str.912 }, %struct.anon.1 { ptr @.str.913, ptr @.str.914 }, %struct.anon.1 { ptr @.str.915, ptr @.str.916 }, %struct.anon.1 { ptr @.str.917, ptr @.str.916 }, %struct.anon.1 { ptr @.str.918, ptr @.str.919 }, %struct.anon.1 { ptr @.str.920, ptr @.str.921 }, %struct.anon.1 { ptr @.str.922, ptr @.str.923 }, %struct.anon.1 { ptr @.str.924, ptr @.str.925 }, %struct.anon.1 { ptr @.str.926, ptr @.str.925 }, %struct.anon.1 { ptr @.str.927, ptr @.str.928 }, %struct.anon.1 { ptr @.str.929, ptr @.str.930 }, %struct.anon.1 { ptr @.str.931, ptr @.str.932 }, %struct.anon.1 { ptr @.str.933, ptr @.str.934 }, %struct.anon.1 { ptr @.str.935, ptr @.str.936 }, %struct.anon.1 { ptr @.str.937, ptr @.str.938 }, %struct.anon.1 { ptr @.str.939, ptr @.str.940 }, %struct.anon.1 { ptr @.str.941, ptr @.str.942 }, %struct.anon.1 { ptr @.str.943, ptr @.str.944 }, %struct.anon.1 { ptr @.str.945, ptr @.str.946 }, %struct.anon.1 { ptr @.str.947, ptr @.str.948 }, %struct.anon.1 { ptr @.str.949, ptr @.str.950 }, %struct.anon.1 { ptr @.str.951, ptr @.str.952 }, %struct.anon.1 { ptr @.str.953, ptr @.str.954 }, %struct.anon.1 { ptr @.str.955, ptr @.str.956 }, %struct.anon.1 { ptr @.str.957, ptr @.str.958 }, %struct.anon.1 { ptr @.str.959, ptr @.str.960 }, %struct.anon.1 { ptr @.str.961, ptr @.str.962 }, %struct.anon.1 { ptr @.str.963, ptr @.str.964 }, %struct.anon.1 { ptr @.str.965, ptr @.str.966 }, %struct.anon.1 { ptr @.str.967, ptr @.str.968 }, %struct.anon.1 { ptr @.str.969, ptr @.str.970 }, %struct.anon.1 { ptr @.str.971, ptr @.str.972 }, %struct.anon.1 { ptr @.str.884, ptr @.str }, %struct.anon.1 zeroinitializer], align 16
+@.str.854 = private unnamed_addr constant [5 x i8] c"ACST\00", align 1
+@.str.855 = private unnamed_addr constant [44 x i8] c"The association belongs to a unicast server\00", align 1
+@.str.856 = private unnamed_addr constant [5 x i8] c"AUTH\00", align 1
+@.str.857 = private unnamed_addr constant [29 x i8] c"Server authentication failed\00", align 1
+@.str.858 = private unnamed_addr constant [5 x i8] c"AUTO\00", align 1
+@.str.859 = private unnamed_addr constant [24 x i8] c"Autokey sequence failed\00", align 1
+@.str.860 = private unnamed_addr constant [5 x i8] c"BCST\00", align 1
+@.str.861 = private unnamed_addr constant [46 x i8] c"The association belongs to a broadcast server\00", align 1
+@.str.862 = private unnamed_addr constant [5 x i8] c"CRYP\00", align 1
+@.str.863 = private unnamed_addr constant [54 x i8] c"Cryptographic authentication or identification failed\00", align 1
+@.str.864 = private unnamed_addr constant [5 x i8] c"DENY\00", align 1
+@.str.865 = private unnamed_addr constant [31 x i8] c"Access denied by remote server\00", align 1
+@.str.866 = private unnamed_addr constant [5 x i8] c"DROP\00", align 1
+@.str.867 = private unnamed_addr constant [28 x i8] c"Lost peer in symmetric mode\00", align 1
+@.str.868 = private unnamed_addr constant [5 x i8] c"RSTR\00", align 1
+@.str.869 = private unnamed_addr constant [34 x i8] c"Access denied due to local policy\00", align 1
+@.str.870 = private unnamed_addr constant [5 x i8] c"INIT\00", align 1
+@.str.871 = private unnamed_addr constant [60 x i8] c"The association has not yet synchronized for the first time\00", align 1
+@.str.872 = private unnamed_addr constant [5 x i8] c"MCST\00", align 1
+@.str.873 = private unnamed_addr constant [59 x i8] c"The association belongs to a dynamically discovered server\00", align 1
+@.str.874 = private unnamed_addr constant [5 x i8] c"NKEY\00", align 1
+@.str.875 = private unnamed_addr constant [67 x i8] c"No key found. Either the key was never installed or is not trusted\00", align 1
+@.str.876 = private unnamed_addr constant [5 x i8] c"NTSN\00", align 1
+@.str.877 = private unnamed_addr constant [58 x i8] c"Network Time Security (NTS) negative-acknowledgment (NAK)\00", align 1
+@.str.878 = private unnamed_addr constant [5 x i8] c"RATE\00", align 1
+@.str.879 = private unnamed_addr constant [103 x i8] c"Rate exceeded. The server has temporarily denied access because the client exceeded the rate threshold\00", align 1
+@.str.880 = private unnamed_addr constant [5 x i8] c"RMOT\00", align 1
+@.str.881 = private unnamed_addr constant [60 x i8] c"Alteration of association from a remote host running ntpdc.\00", align 1
+@.str.882 = private unnamed_addr constant [5 x i8] c"STEP\00", align 1
+@.str.883 = private unnamed_addr constant [90 x i8] c"A step change in system time has occurred, but the association has not yet resynchronized\00", align 1
+@.str.884 = private unnamed_addr constant [5 x i8] zeroinitializer, align 1
+@.str.885 = private unnamed_addr constant [5 x i8] c"GOES\00", align 1
+@.str.886 = private unnamed_addr constant [42 x i8] c"Geostationary Orbit Environment Satellite\00", align 1
+@.str.887 = private unnamed_addr constant [5 x i8] c"GPS\00\00", align 1
+@.str.888 = private unnamed_addr constant [23 x i8] c"Global Position System\00", align 1
+@.str.889 = private unnamed_addr constant [5 x i8] c"GAL\00\00", align 1
+@.str.890 = private unnamed_addr constant [27 x i8] c"Galileo Positioning System\00", align 1
+@.str.891 = private unnamed_addr constant [5 x i8] c"PPS\00\00", align 1
+@.str.892 = private unnamed_addr constant [25 x i8] c"Generic pulse-per-second\00", align 1
+@.str.893 = private unnamed_addr constant [5 x i8] c"IRIG\00", align 1
+@.str.894 = private unnamed_addr constant [34 x i8] c"Inter-Range Instrumentation Group\00", align 1
+@.str.895 = private unnamed_addr constant [5 x i8] c"WWVB\00", align 1
+@.str.896 = private unnamed_addr constant [37 x i8] c"LF Radio WWVB Ft. Collins, CO 60 kHz\00", align 1
+@.str.897 = private unnamed_addr constant [5 x i8] c"DCF\00\00", align 1
+@.str.898 = private unnamed_addr constant [40 x i8] c"LF Radio DCF77 Mainflingen, DE 77.5 kHz\00", align 1
+@.str.899 = private unnamed_addr constant [5 x i8] c"HBG\00\00", align 1
+@.str.900 = private unnamed_addr constant [33 x i8] c"LF Radio HBG Prangins, HB 75 kHz\00", align 1
+@.str.901 = private unnamed_addr constant [5 x i8] c"MSF\00\00", align 1
+@.str.902 = private unnamed_addr constant [32 x i8] c"LF Radio MSF Anthorn, UK 60 kHz\00", align 1
+@.str.903 = private unnamed_addr constant [5 x i8] c"JJY\00\00", align 1
+@.str.904 = private unnamed_addr constant [51 x i8] c"LF Radio JJY Fukushima, JP 40 kHz, Saga, JP 60 kHz\00", align 1
+@.str.905 = private unnamed_addr constant [5 x i8] c"LORC\00", align 1
+@.str.906 = private unnamed_addr constant [34 x i8] c"MF Radio LORAN C station, 100 kHz\00", align 1
+@.str.907 = private unnamed_addr constant [5 x i8] c"TDF\00\00", align 1
+@.str.908 = private unnamed_addr constant [29 x i8] c"MF Radio Allouis, FR 162 kHz\00", align 1
+@.str.909 = private unnamed_addr constant [5 x i8] c"CHU\00\00", align 1
+@.str.910 = private unnamed_addr constant [29 x i8] c"HF Radio CHU Ottawa, Ontario\00", align 1
+@.str.911 = private unnamed_addr constant [5 x i8] c"WWV\00\00", align 1
+@.str.912 = private unnamed_addr constant [29 x i8] c"HF Radio WWV Ft. Collins, CO\00", align 1
+@.str.913 = private unnamed_addr constant [5 x i8] c"WWVH\00", align 1
+@.str.914 = private unnamed_addr constant [24 x i8] c"HF Radio WWVH Kauai, HI\00", align 1
+@.str.915 = private unnamed_addr constant [5 x i8] c"NIST\00", align 1
+@.str.916 = private unnamed_addr constant [21 x i8] c"NIST telephone modem\00", align 1
+@.str.917 = private unnamed_addr constant [5 x i8] c"ACTS\00", align 1
+@.str.918 = private unnamed_addr constant [5 x i8] c"USNO\00", align 1
+@.str.919 = private unnamed_addr constant [21 x i8] c"USNO telephone modem\00", align 1
+@.str.920 = private unnamed_addr constant [5 x i8] c"PTB\00\00", align 1
+@.str.921 = private unnamed_addr constant [25 x i8] c"European telephone modem\00", align 1
+@.str.922 = private unnamed_addr constant [5 x i8] c"DFM\00\00", align 1
+@.str.923 = private unnamed_addr constant [9 x i8] c"UTC(DFM)\00", align 1
+@.str.924 = private unnamed_addr constant [5 x i8] c"LCL\00\00", align 1
+@.str.925 = private unnamed_addr constant [25 x i8] c"uncalibrated local clock\00", align 1
+@.str.926 = private unnamed_addr constant [5 x i8] c"LOCL\00", align 1
+@.str.927 = private unnamed_addr constant [5 x i8] c"CESM\00", align 1
+@.str.928 = private unnamed_addr constant [24 x i8] c"calibrated Cesium clock\00", align 1
+@.str.929 = private unnamed_addr constant [5 x i8] c"RBDM\00", align 1
+@.str.930 = private unnamed_addr constant [26 x i8] c"calibrated Rubidium clock\00", align 1
+@.str.931 = private unnamed_addr constant [5 x i8] c"OMEG\00", align 1
+@.str.932 = private unnamed_addr constant [29 x i8] c"OMEGA radionavigation system\00", align 1
+@.str.933 = private unnamed_addr constant [5 x i8] c"DCN\00\00", align 1
+@.str.934 = private unnamed_addr constant [21 x i8] c"DCN routing protocol\00", align 1
+@.str.935 = private unnamed_addr constant [5 x i8] c"TSP\00\00", align 1
+@.str.936 = private unnamed_addr constant [18 x i8] c"TSP time protocol\00", align 1
+@.str.937 = private unnamed_addr constant [5 x i8] c"DTS\00\00", align 1
+@.str.938 = private unnamed_addr constant [21 x i8] c"Digital Time Service\00", align 1
+@.str.939 = private unnamed_addr constant [5 x i8] c"ATOM\00", align 1
+@.str.940 = private unnamed_addr constant [26 x i8] c"Atomic clock (calibrated)\00", align 1
+@.str.941 = private unnamed_addr constant [5 x i8] c"VLF\00\00", align 1
+@.str.942 = private unnamed_addr constant [25 x i8] c"VLF radio (OMEGA,, etc.)\00", align 1
+@.str.943 = private unnamed_addr constant [5 x i8] c"DCFa\00", align 1
+@.str.944 = private unnamed_addr constant [32 x i8] c"DCF77 with amplitude modulation\00", align 1
+@.str.945 = private unnamed_addr constant [5 x i8] c"DCFp\00", align 1
+@.str.946 = private unnamed_addr constant [59 x i8] c"DCF77 with phase modulation/pseudo random phase modulation\00", align 1
+@.str.947 = private unnamed_addr constant [5 x i8] c"PZF\00\00", align 1
+@.str.948 = private unnamed_addr constant [45 x i8] c"DCF77 correlation receiver for middle Europe\00", align 1
+@.str.949 = private unnamed_addr constant [5 x i8] c"PZFs\00", align 1
+@.str.950 = private unnamed_addr constant [55 x i8] c"DCF77 correlation receiver (with shared memory access)\00", align 1
+@.str.951 = private unnamed_addr constant [5 x i8] c"PZFi\00", align 1
+@.str.952 = private unnamed_addr constant [57 x i8] c"DCF77 correlation receiver (with interrupt based access)\00", align 1
+@.str.953 = private unnamed_addr constant [5 x i8] c"GPSD\00", align 1
+@.str.954 = private unnamed_addr constant [19 x i8] c"GPSD client driver\00", align 1
+@.str.955 = private unnamed_addr constant [5 x i8] c"GPSs\00", align 1
+@.str.956 = private unnamed_addr constant [32 x i8] c"GPS (with shared memory access)\00", align 1
+@.str.957 = private unnamed_addr constant [5 x i8] c"GPSi\00", align 1
+@.str.958 = private unnamed_addr constant [34 x i8] c"GPS (with interrupt based access)\00", align 1
+@.str.959 = private unnamed_addr constant [5 x i8] c"GLNs\00", align 1
+@.str.960 = private unnamed_addr constant [40 x i8] c"GPS/GLONASS (with shared memory access)\00", align 1
+@.str.961 = private unnamed_addr constant [5 x i8] c"GLNi\00", align 1
+@.str.962 = private unnamed_addr constant [42 x i8] c"GPS/GLONASS (with interrupt based access)\00", align 1
+@.str.963 = private unnamed_addr constant [5 x i8] c"GNSS\00", align 1
+@.str.964 = private unnamed_addr constant [35 x i8] c"Global Navigation Satellite System\00", align 1
+@.str.965 = private unnamed_addr constant [5 x i8] c"MRS\00\00", align 1
+@.str.966 = private unnamed_addr constant [23 x i8] c"Multi Reference System\00", align 1
+@.str.967 = private unnamed_addr constant [5 x i8] c"Nut1\00", align 1
+@.str.968 = private unnamed_addr constant [10 x i8] c"UT1(NIST)\00", align 1
+@.str.969 = private unnamed_addr constant [5 x i8] c"1PPS\00", align 1
+@.str.970 = private unnamed_addr constant [21 x i8] c"External 1 PPS input\00", align 1
+@.str.971 = private unnamed_addr constant [5 x i8] c"FREE\00", align 1
+@.str.972 = private unnamed_addr constant [17 x i8] c"(Internal clock)\00", align 1
+@.str.973 = private unnamed_addr constant [8 x i8] c" for %s\00", align 1
+@.str.974 = private unnamed_addr constant [2 x i8] c",\00", align 1
+@.str.975 = private unnamed_addr constant [5 x i8] c" NTS\00", align 1
+@.str.976 = private unnamed_addr constant [24 x i8] c"Autokey Message Request\00", align 1
+@.str.977 = private unnamed_addr constant [34 x i8] c"Leapseconds Value Message Request\00", align 1
+@.str.978 = private unnamed_addr constant [35 x i8] c"Leapseconds Value Message Response\00", align 1
+@.str.979 = private unnamed_addr constant [41 x i8] c"Leapseconds Value Message Error Response\00", align 1
+@ntp_ext_field_types_historic = internal constant [28 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.657 }, { i32, [4 x i8], ptr } { i32 258, [4 x i8] zeroinitializer, ptr @.str.658 }, { i32, [4 x i8], ptr } { i32 770, [4 x i8] zeroinitializer, ptr @.str.660 }, { i32, [4 x i8], ptr } { i32 1026, [4 x i8] zeroinitializer, ptr @.str.976 }, { i32, [4 x i8], ptr } { i32 1282, [4 x i8] zeroinitializer, ptr @.str.977 }, { i32, [4 x i8], ptr } { i32 1538, [4 x i8] zeroinitializer, ptr @.str.663 }, { i32, [4 x i8], ptr } { i32 1794, [4 x i8] zeroinitializer, ptr @.str.664 }, { i32, [4 x i8], ptr } { i32 2050, [4 x i8] zeroinitializer, ptr @.str.665 }, { i32, [4 x i8], ptr } { i32 2306, [4 x i8] zeroinitializer, ptr @.str.666 }, { i32, [4 x i8], ptr } { i32 32770, [4 x i8] zeroinitializer, ptr @.str.670 }, { i32, [4 x i8], ptr } { i32 33026, [4 x i8] zeroinitializer, ptr @.str.671 }, { i32, [4 x i8], ptr } { i32 33538, [4 x i8] zeroinitializer, ptr @.str.673 }, { i32, [4 x i8], ptr } { i32 33794, [4 x i8] zeroinitializer, ptr @.str.674 }, { i32, [4 x i8], ptr } { i32 34050, [4 x i8] zeroinitializer, ptr @.str.978 }, { i32, [4 x i8], ptr } { i32 34306, [4 x i8] zeroinitializer, ptr @.str.676 }, { i32, [4 x i8], ptr } { i32 34562, [4 x i8] zeroinitializer, ptr @.str.677 }, { i32, [4 x i8], ptr } { i32 34818, [4 x i8] zeroinitializer, ptr @.str.678 }, { i32, [4 x i8], ptr } { i32 35074, [4 x i8] zeroinitializer, ptr @.str.679 }, { i32, [4 x i8], ptr } { i32 49154, [4 x i8] zeroinitializer, ptr @.str.680 }, { i32, [4 x i8], ptr } { i32 49410, [4 x i8] zeroinitializer, ptr @.str.681 }, { i32, [4 x i8], ptr } { i32 49922, [4 x i8] zeroinitializer, ptr @.str.683 }, { i32, [4 x i8], ptr } { i32 50178, [4 x i8] zeroinitializer, ptr @.str.684 }, { i32, [4 x i8], ptr } { i32 50434, [4 x i8] zeroinitializer, ptr @.str.979 }, { i32, [4 x i8], ptr } { i32 50690, [4 x i8] zeroinitializer, ptr @.str.686 }, { i32, [4 x i8], ptr } { i32 50946, [4 x i8] zeroinitializer, ptr @.str.687 }, { i32, [4 x i8], ptr } { i32 51202, [4 x i8] zeroinitializer, ptr @.str.688 }, { i32, [4 x i8], ptr } { i32 51458, [4 x i8] zeroinitializer, ptr @.str.689 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.981 = private unnamed_addr constant [24 x i8] c"Extension length %u < 8\00", align 1
+@.str.982 = private unnamed_addr constant [42 x i8] c"Extension length %u isn't a multiple of 4\00", align 1
+@.str.983 = private unnamed_addr constant [14 x i8] c"Decrypted NTP\00", align 1
 @dissect_ntp_ctrl.ntpctrl_flags = internal constant [5 x ptr] [ptr @hf_ntpctrl_flags2_r, ptr @hf_ntpctrl_flags2_error, ptr @hf_ntpctrl_flags2_more, ptr @hf_ntpctrl_flags2_opcode, ptr null], align 16
 @dissect_ntp_ctrl.errorstatus = internal constant [2 x ptr] [ptr @hf_ntpctrl_error_status_word, ptr null], align 16
 @peer_status_flags = internal constant [9 x ptr] [ptr @hf_ntpctrl_peer_status_b0, ptr @hf_ntpctrl_peer_status_b1, ptr @hf_ntpctrl_peer_status_b2, ptr @hf_ntpctrl_peer_status_b3, ptr @hf_ntpctrl_peer_status_b4, ptr @hf_ntpctrl_peer_status_selection, ptr @hf_ntpctrl_peer_status_count, ptr @hf_ntpctrl_peer_status_code, ptr null], align 16
@@ -1282,29 +1357,29 @@ target triple = "x86_64-pc-linux-gnu"
 @dissect_ntp_ctrl.clockstatus = internal constant [3 x ptr] [ptr @hf_ntpctrl_clk_status, ptr @hf_ntpctrl_clk_status_code, ptr null], align 16
 @want_ignore = internal global ptr null, align 8
 @want = internal global ptr null, align 8
-@.str.908 = private unnamed_addr constant [14 x i8] c"Authenticator\00", align 1
+@.str.984 = private unnamed_addr constant [14 x i8] c"Authenticator\00", align 1
 @dissect_ntp_priv.priv_flags = internal constant [5 x ptr] [ptr @hf_ntppriv_flags_r, ptr @hf_ntppriv_flags_more, ptr @hf_ntp_flags_vn, ptr @hf_ntp_flags_mode, ptr null], align 16
 @dissect_ntp_priv.auth_flags = internal constant [3 x ptr] [ptr @hf_ntppriv_auth, ptr @hf_ntppriv_seq, ptr null], align 16
-@.str.909 = private unnamed_addr constant [9 x i8] c", %s, %s\00", align 1
-@.str.910 = private unnamed_addr constant [9 x i8] c"Response\00", align 1
-@.str.911 = private unnamed_addr constant [8 x i8] c"Request\00", align 1
-@.str.912 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
-@.str.913 = private unnamed_addr constant [8 x i8] c"%s Item\00", align 1
-@.str.914 = private unnamed_addr constant [13 x i8] c"Monlist Item\00", align 1
-@.str.915 = private unnamed_addr constant [29 x i8] c"Monlist item: address: %s:%u\00", align 1
+@.str.985 = private unnamed_addr constant [9 x i8] c", %s, %s\00", align 1
+@.str.986 = private unnamed_addr constant [9 x i8] c"Response\00", align 1
+@.str.987 = private unnamed_addr constant [8 x i8] c"Request\00", align 1
+@.str.988 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@.str.989 = private unnamed_addr constant [8 x i8] c"%s Item\00", align 1
+@.str.990 = private unnamed_addr constant [13 x i8] c"Monlist Item\00", align 1
+@.str.991 = private unnamed_addr constant [29 x i8] c"Monlist item: address: %s:%u\00", align 1
 @ntppriv_peer_list_flags = internal constant [9 x ptr] [ptr @hf_ntppriv_mode7_peer_flags_config, ptr @hf_ntppriv_mode7_peer_flags_syspeer, ptr @hf_ntppriv_mode7_peer_flags_burst, ptr @hf_ntppriv_mode7_peer_flags_refclock, ptr @hf_ntppriv_mode7_peer_flags_prefer, ptr @hf_ntppriv_mode7_peer_flags_authenable, ptr @hf_ntppriv_mode7_peer_flags_sel_candidate, ptr @hf_ntppriv_mode7_peer_flags_shortlist, ptr null], align 16
 @ntppriv_sys_flag_flags = internal constant [9 x ptr] [ptr @hf_ntppriv_mode7_sys_flags_bclient, ptr @hf_ntppriv_mode7_sys_flags_pps, ptr @hf_ntppriv_mode7_sys_flags_ntp, ptr @hf_ntppriv_mode7_sys_flags_kernel, ptr @hf_ntppriv_mode7_sys_flags_monitor, ptr @hf_ntppriv_mode7_sys_flags_filegen, ptr @hf_ntppriv_mode7_sys_flags_auth, ptr @hf_ntppriv_mode7_sys_flags_cal, ptr null], align 16
 @ntppriv_config_flags = internal constant [7 x ptr] [ptr @hf_ntppriv_mode7_config_flags_auth, ptr @hf_ntppriv_mode7_config_flags_prefer, ptr @hf_ntppriv_mode7_config_flags_burst, ptr @hf_ntppriv_mode7_config_flags_iburst, ptr @hf_ntppriv_mode7_config_flags_noselect, ptr @hf_ntppriv_mode7_config_flags_skey, ptr null], align 16
 @ntppriv_reset_stats_flags = internal constant [8 x ptr] [ptr @hf_ntppriv_mode7_reset_stats_flags_allpeers, ptr @hf_ntppriv_mode7_reset_stats_flags_io, ptr @hf_ntppriv_mode7_reset_stats_flags_sys, ptr @hf_ntppriv_mode7_reset_stats_flags_mem, ptr @hf_ntppriv_mode7_reset_stats_flags_timer, ptr @hf_ntppriv_mode7_reset_stats_flags_auth, ptr @hf_ntppriv_mode7_reset_stats_flags_ctl, ptr null], align 16
-@.str.916 = private unnamed_addr constant [8 x i8] c"control\00", align 1
-@.str.917 = private unnamed_addr constant [8 x i8] c"private\00", align 1
-@.str.918 = private unnamed_addr constant [66 x i8] c"abcdefghijklmnopqrstuvwxyz-_ABCDEFGHIJKLMNOPQRSTUVWXYZ.0123456789\00", align 1
-@.str.919 = private unnamed_addr constant [2 x i8] c"=\00", align 1
-@.str.920 = private unnamed_addr constant [67 x i8] c"abcdefghijklmnopqrstuvwxyz-_ABCDEFGHIJKLMNOPQRSTUVWXYZ.0123456789 \00", align 1
-@.str.921 = private unnamed_addr constant [2 x i8] c",\00", align 1
-@.str.922 = private unnamed_addr constant [5 x i8] c" \09\0D\0A\00", align 1
+@.str.992 = private unnamed_addr constant [8 x i8] c"control\00", align 1
+@.str.993 = private unnamed_addr constant [8 x i8] c"private\00", align 1
+@info_mode_types = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.633 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.639 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.640 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.641 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.642 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.643 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.992 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.993 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.995 = private unnamed_addr constant [66 x i8] c"abcdefghijklmnopqrstuvwxyz-_ABCDEFGHIJKLMNOPQRSTUVWXYZ.0123456789\00", align 1
+@.str.996 = private unnamed_addr constant [2 x i8] c"=\00", align 1
+@.str.997 = private unnamed_addr constant [67 x i8] c"abcdefghijklmnopqrstuvwxyz-_ABCDEFGHIJKLMNOPQRSTUVWXYZ.0123456789 \00", align 1
+@.str.998 = private unnamed_addr constant [5 x i8] c" \09\0D\0A\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden ptr @tvb_ntp_fmt_ts_sec(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -1313,85 +1388,111 @@ define hidden ptr @tvb_ntp_fmt_ts_sec(ptr noundef %0, i32 noundef %1) #0 {
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
-  %10 = load ptr, ptr %4, align 8
-  %11 = load i32, ptr %5, align 4
-  %12 = call i32 @tvb_get_ntohl(ptr noundef %10, i32 noundef %11)
-  store i32 %12, ptr %6, align 4
-  %13 = load i32, ptr %6, align 4
-  %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %16
-
-15:                                               ; preds = %2
-  store ptr @.str, ptr %3, align 8
-  br label %52
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
+  %11 = load ptr, ptr %4, align 8
+  %12 = load i32, ptr %5, align 4
+  %13 = call i32 @tvb_get_ntohl(ptr noundef %11, i32 noundef %12)
+  store i32 %13, ptr %6, align 4
+  %14 = load i32, ptr %6, align 4
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %16, label %17
 
 16:                                               ; preds = %2
-  %17 = load i32, ptr %6, align 4
-  %18 = sub i32 %17, -2085978496
-  %19 = zext i32 %18 to i64
-  store i64 %19, ptr %7, align 8
-  %20 = call ptr @gmtime(ptr noundef %7) #4
-  store ptr %20, ptr %8, align 8
-  %21 = load ptr, ptr %8, align 8
-  %22 = icmp ne ptr %21, null
-  br i1 %22, label %24, label %23
+  store ptr @.str, ptr %3, align 8
+  store i32 1, ptr %10, align 4
+  br label %55
 
-23:                                               ; preds = %16
+17:                                               ; preds = %2
+  %18 = load i32, ptr %6, align 4
+  %19 = sub i32 %18, -2085978496
+  %20 = zext i32 %19 to i64
+  store i64 %20, ptr %7, align 8
+  %21 = call ptr @gmtime(ptr noundef %7) #10
+  store ptr %21, ptr %8, align 8
+  %22 = load ptr, ptr %8, align 8
+  %23 = icmp ne ptr %22, null
+  br i1 %23, label %25, label %24
+
+24:                                               ; preds = %17
   store ptr @.str.1, ptr %3, align 8
-  br label %52
+  store i32 1, ptr %10, align 4
+  br label %55
 
-24:                                               ; preds = %16
-  %25 = call ptr @wmem_packet_scope()
-  %26 = call noalias ptr @wmem_alloc(ptr noundef %25, i64 noundef 110)
-  store ptr %26, ptr %9, align 8
-  %27 = load ptr, ptr %9, align 8
-  %28 = load ptr, ptr %8, align 8
-  %29 = getelementptr inbounds %struct.tm, ptr %28, i32 0, i32 4
-  %30 = load i32, ptr %29, align 8
-  %31 = sext i32 %30 to i64
-  %32 = getelementptr [12 x ptr], ptr @mon_names, i64 0, i64 %31
-  %33 = load ptr, ptr %32, align 8
-  %34 = load ptr, ptr %8, align 8
-  %35 = getelementptr inbounds %struct.tm, ptr %34, i32 0, i32 3
-  %36 = load i32, ptr %35, align 4
+25:                                               ; preds = %17
+  %26 = call ptr @wmem_packet_scope()
+  %27 = call noalias ptr @wmem_alloc(ptr noundef %26, i64 noundef 110) #11
+  store ptr %27, ptr %9, align 8
+  %28 = load ptr, ptr %9, align 8
+  %29 = load ptr, ptr %9, align 8
+  %30 = call i64 @llvm.objectsize.i64.p0(ptr %29, i1 false, i1 true, i1 true)
+  %31 = load ptr, ptr %8, align 8
+  %32 = getelementptr inbounds nuw %struct.tm, ptr %31, i32 0, i32 4
+  %33 = load i32, ptr %32, align 8
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr [12 x ptr], ptr @mon_names, i64 0, i64 %34
+  %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr %8, align 8
-  %38 = getelementptr inbounds %struct.tm, ptr %37, i32 0, i32 5
+  %38 = getelementptr inbounds nuw %struct.tm, ptr %37, i32 0, i32 3
   %39 = load i32, ptr %38, align 4
-  %40 = add i32 %39, 1900
-  %41 = load ptr, ptr %8, align 8
-  %42 = getelementptr inbounds %struct.tm, ptr %41, i32 0, i32 2
-  %43 = load i32, ptr %42, align 8
+  %40 = load ptr, ptr %8, align 8
+  %41 = getelementptr inbounds nuw %struct.tm, ptr %40, i32 0, i32 5
+  %42 = load i32, ptr %41, align 4
+  %43 = add i32 %42, 1900
   %44 = load ptr, ptr %8, align 8
-  %45 = getelementptr inbounds %struct.tm, ptr %44, i32 0, i32 1
-  %46 = load i32, ptr %45, align 4
+  %45 = getelementptr inbounds nuw %struct.tm, ptr %44, i32 0, i32 2
+  %46 = load i32, ptr %45, align 8
   %47 = load ptr, ptr %8, align 8
-  %48 = getelementptr inbounds %struct.tm, ptr %47, i32 0, i32 0
-  %49 = load i32, ptr %48, align 8
-  %50 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %27, i64 noundef 110, ptr noundef @.str.2, ptr noundef %33, i32 noundef %36, i32 noundef %40, i32 noundef %43, i32 noundef %46, i32 noundef %49) #4
-  %51 = load ptr, ptr %9, align 8
-  store ptr %51, ptr %3, align 8
-  br label %52
+  %48 = getelementptr inbounds nuw %struct.tm, ptr %47, i32 0, i32 1
+  %49 = load i32, ptr %48, align 4
+  %50 = load ptr, ptr %8, align 8
+  %51 = getelementptr inbounds nuw %struct.tm, ptr %50, i32 0, i32 0
+  %52 = load i32, ptr %51, align 8
+  %53 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %28, i64 noundef 110, i32 noundef 2, i64 noundef %30, ptr noundef @.str.2, ptr noundef %36, i32 noundef %39, i32 noundef %43, i32 noundef %46, i32 noundef %49, i32 noundef %52)
+  %54 = load ptr, ptr %9, align 8
+  store ptr %54, ptr %3, align 8
+  store i32 1, ptr %10, align 4
+  br label %55
 
-52:                                               ; preds = %24, %23, %15
-  %53 = load ptr, ptr %3, align 8
-  ret ptr %53
+55:                                               ; preds = %25, %24, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #10
+  %56 = load ptr, ptr %3, align 8
+  ret ptr %56
 }
 
-declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-; Function Attrs: nounwind
-declare ptr @gmtime(ptr noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) #2
 
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) #1
+; Function Attrs: nounwind null_pointer_is_valid
+declare ptr @gmtime(ptr noundef) #3
 
-declare ptr @wmem_packet_scope() #1
+; Function Attrs: null_pointer_is_valid allocsize(1)
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) #4
 
-; Function Attrs: nounwind
-declare i32 @snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_packet_scope() #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) #2
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.objectsize.i64.p0(ptr, i1 immarg, i1 immarg, i1 immarg) #5
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @ntp_to_nstime(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -1400,6 +1501,7 @@ define hidden void @ntp_to_nstime(ptr noundef %0, i32 noundef %1, ptr noundef %2
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #10
   %8 = load ptr, ptr %4, align 8
   %9 = load i32, ptr %5, align 4
   %10 = call i32 @tvb_get_ntohl(ptr noundef %8, i32 noundef %9)
@@ -1413,7 +1515,7 @@ define hidden void @ntp_to_nstime(ptr noundef %0, i32 noundef %1, ptr noundef %2
   %15 = sub i32 %14, -2085978496
   %16 = zext i32 %15 to i64
   %17 = load ptr, ptr %6, align 8
-  %18 = getelementptr inbounds %struct.nstime_t, ptr %17, i32 0, i32 0
+  %18 = getelementptr inbounds nuw %struct.nstime_t, ptr %17, i32 0, i32 0
   store i64 %16, ptr %18, align 8
   br label %24
 
@@ -1421,7 +1523,7 @@ define hidden void @ntp_to_nstime(ptr noundef %0, i32 noundef %1, ptr noundef %2
   %20 = load i32, ptr %7, align 4
   %21 = zext i32 %20 to i64
   %22 = load ptr, ptr %6, align 8
-  %23 = getelementptr inbounds %struct.nstime_t, ptr %22, i32 0, i32 0
+  %23 = getelementptr inbounds nuw %struct.nstime_t, ptr %22, i32 0, i32 0
   store i64 %21, ptr %23, align 8
   br label %24
 
@@ -1434,44 +1536,53 @@ define hidden void @ntp_to_nstime(ptr noundef %0, i32 noundef %1, ptr noundef %2
   %30 = fdiv double %29, 0x40112E0BE826D695
   %31 = fptosi double %30 to i32
   %32 = load ptr, ptr %6, align 8
-  %33 = getelementptr inbounds %struct.nstime_t, ptr %32, i32 0, i32 1
+  %33 = getelementptr inbounds nuw %struct.nstime_t, ptr %32, i32 0, i32 1
   store i32 %31, ptr %33, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_ntp() #0 {
   %1 = alloca ptr, align 8
-  %2 = call i32 @proto_register_protocol(ptr noundef @.str.591, ptr noundef @.str.299, ptr noundef @.str.592)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #10
+  %2 = call i32 @proto_register_protocol(ptr noundef @.str.612, ptr noundef @.str.318, ptr noundef @.str.613)
   store i32 %2, ptr @proto_ntp, align 4
   %3 = load i32, ptr @proto_ntp, align 4
-  call void @proto_register_field_array(i32 noundef %3, ptr noundef @proto_register_ntp.hf, i32 noundef 293)
-  call void @proto_register_subtree_array(ptr noundef @proto_register_ntp.ett, i32 noundef 15)
+  call void @proto_register_field_array(i32 noundef %3, ptr noundef @proto_register_ntp.hf, i32 noundef 301)
+  call void @proto_register_subtree_array(ptr noundef @proto_register_ntp.ett, i32 noundef 16)
   %4 = load i32, ptr @proto_ntp, align 4
   %5 = call ptr @expert_register_protocol(i32 noundef %4)
   store ptr %5, ptr %1, align 8
   %6 = load ptr, ptr %1, align 8
-  call void @expert_register_field_array(ptr noundef %6, ptr noundef @proto_register_ntp.ei, i32 noundef 1)
+  call void @expert_register_field_array(ptr noundef %6, ptr noundef @proto_register_ntp.ei, i32 noundef 2)
   %7 = load i32, ptr @proto_ntp, align 4
-  %8 = call ptr @register_dissector(ptr noundef @.str.592, ptr noundef @dissect_ntp, i32 noundef %7)
+  %8 = call ptr @register_dissector(ptr noundef @.str.613, ptr noundef @dissect_ntp, i32 noundef %7)
   store ptr %8, ptr @ntp_handle, align 8
   call void @init_parser()
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #10
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #2
 
-declare ptr @expert_register_protocol(i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_register_protocol(i32 noundef) #2
 
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #2
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ntp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1487,17 +1598,27 @@ define internal i32 @dissect_ntp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
   store ptr null, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #10
   %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds %struct._packet_info, ptr %15, i32 0, i32 1
+  %16 = getelementptr inbounds nuw %struct._packet_info, ptr %15, i32 0, i32 1
   %17 = load ptr, ptr %16, align 8
-  call void @col_set_str(ptr noundef %17, i32 noundef 34, ptr noundef @.str.299)
+  call void @col_set_str(ptr noundef %17, i32 noundef 35, ptr noundef @.str.318)
   %18 = load ptr, ptr %6, align 8
-  %19 = getelementptr inbounds %struct._packet_info, ptr %18, i32 0, i32 1
+  %19 = getelementptr inbounds nuw %struct._packet_info, ptr %18, i32 0, i32 1
   %20 = load ptr, ptr %19, align 8
   call void @col_clear(ptr noundef %20, i32 noundef 25)
+  store ptr null, ptr @nts_cookie, align 8
+  store i32 0, ptr @nts_tvb_uid_offset, align 4
+  store i32 0, ptr @nts_tvb_uid_length, align 4
+  store i32 0, ptr @nts_aad_start, align 4
   %21 = load ptr, ptr %5, align 8
-  %22 = call zeroext i8 @tvb_get_guint8(ptr noundef %21, i32 noundef 0)
+  %22 = call zeroext i8 @tvb_get_uint8(ptr noundef %21, i32 noundef 0)
   store i8 %22, ptr %11, align 1
   %23 = load i8, ptr %11, align 1
   %24 = zext i8 %23 to i32
@@ -1530,31 +1651,31 @@ define internal i32 @dissect_ntp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %36 = call ptr @proto_item_add_subtree(ptr noundef %34, i32 noundef %35)
   store ptr %36, ptr %9, align 8
   %37 = load ptr, ptr %6, align 8
-  %38 = getelementptr inbounds %struct._packet_info, ptr %37, i32 0, i32 1
+  %38 = getelementptr inbounds nuw %struct._packet_info, ptr %37, i32 0, i32 1
   %39 = load ptr, ptr %38, align 8
   %40 = load i8, ptr %11, align 1
   %41 = zext i8 %40 to i32
   %42 = and i32 %41, 56
   %43 = ashr i32 %42, 3
-  %44 = call ptr @val_to_str_const(i32 noundef %43, ptr noundef @ver_nums, ptr noundef @.str.806)
+  %44 = call ptr @val_to_str_const(i32 noundef %43, ptr noundef @ver_nums, ptr noundef @.str.844)
   %45 = load i8, ptr %11, align 1
   %46 = zext i8 %45 to i32
   %47 = and i32 %46, 7
-  %48 = call ptr @val_to_str_const(i32 noundef %47, ptr noundef @info_mode_types, ptr noundef @.str.807)
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %39, i32 noundef 25, ptr noundef @.str.805, ptr noundef %44, ptr noundef %48)
+  %48 = call ptr @val_to_str_const(i32 noundef %47, ptr noundef @info_mode_types, ptr noundef @.str.845)
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %39, i32 noundef 25, ptr noundef @.str.843, ptr noundef %44, ptr noundef %48)
   %49 = load ptr, ptr %10, align 8
   %50 = load i8, ptr %11, align 1
   %51 = zext i8 %50 to i32
   %52 = and i32 %51, 56
   %53 = ashr i32 %52, 3
-  %54 = call ptr @val_to_str_const(i32 noundef %53, ptr noundef @ver_nums, ptr noundef @.str.806)
+  %54 = call ptr @val_to_str_const(i32 noundef %53, ptr noundef @ver_nums, ptr noundef @.str.844)
   %55 = load i8, ptr %11, align 1
   %56 = zext i8 %55 to i32
   %57 = and i32 %56, 7
-  %58 = call ptr @val_to_str_const(i32 noundef %57, ptr noundef @info_mode_types, ptr noundef @.str.807)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %49, ptr noundef @.str.808, ptr noundef %54, ptr noundef %58)
+  %58 = call ptr @val_to_str_const(i32 noundef %57, ptr noundef @info_mode_types, ptr noundef @.str.845)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %49, ptr noundef @.str.846, ptr noundef %54, ptr noundef %58)
   %59 = load ptr, ptr %6, align 8
-  %60 = call nonnull ptr @find_or_create_conversation(ptr noundef %59)
+  %60 = call ptr @find_or_create_conversation(ptr noundef %59)
   store ptr %60, ptr %12, align 8
   %61 = load ptr, ptr %12, align 8
   %62 = load i32, ptr @proto_ntp, align 4
@@ -1566,12 +1687,12 @@ define internal i32 @dissect_ntp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 66:                                               ; preds = %29
   %67 = call ptr @wmem_file_scope()
-  %68 = call noalias ptr @wmem_alloc(ptr noundef %67, i64 noundef 8)
+  %68 = call noalias ptr @wmem_alloc(ptr noundef %67, i64 noundef 8) #11
   store ptr %68, ptr %13, align 8
   %69 = call ptr @wmem_file_scope()
   %70 = call noalias ptr @wmem_tree_new(ptr noundef %69)
   %71 = load ptr, ptr %13, align 8
-  %72 = getelementptr inbounds %struct.ntp_conv_info_t, ptr %71, i32 0, i32 0
+  %72 = getelementptr inbounds nuw %struct.ntp_conv_info_t, ptr %71, i32 0, i32 0
   store ptr %70, ptr %72, align 8
   %73 = load ptr, ptr %12, align 8
   %74 = load i32, ptr @proto_ntp, align 4
@@ -1588,10 +1709,16 @@ define internal i32 @dissect_ntp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   call void %77(ptr noundef %78, ptr noundef %79, ptr noundef %80, ptr noundef %81)
   %82 = load ptr, ptr %5, align 8
   %83 = call i32 @tvb_captured_length(ptr noundef %82)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
   ret i32 %83
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @init_parser() #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
@@ -1599,23 +1726,29 @@ define internal void @init_parser() #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  %7 = call ptr @tvbparse_chars(i32 noundef -1, i32 noundef 1, i32 noundef 0, ptr noundef @.str.918, ptr noundef null, ptr noundef null, ptr noundef null)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #10
+  %7 = call ptr @tvbparse_chars(i32 noundef -1, i32 noundef 1, i32 noundef 0, ptr noundef @.str.995, ptr noundef null, ptr noundef null, ptr noundef null)
   store ptr %7, ptr %1, align 8
-  %8 = call ptr @tvbparse_char(i32 noundef -1, ptr noundef @.str.919, ptr noundef null, ptr noundef null, ptr noundef null)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #10
+  %8 = call ptr @tvbparse_char(i32 noundef -1, ptr noundef @.str.996, ptr noundef null, ptr noundef null, ptr noundef null)
   store ptr %8, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
   %9 = call ptr @tvbparse_quoted(i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef @tvbparse_shrink_token_cb, i8 noundef signext 34, i8 noundef signext 92)
   %10 = call ptr @tvbparse_quoted(i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef @tvbparse_shrink_token_cb, i8 noundef signext 39, i8 noundef signext 92)
-  %11 = call ptr @tvbparse_chars(i32 noundef -1, i32 noundef 1, i32 noundef 0, ptr noundef @.str.920, ptr noundef null, ptr noundef null, ptr noundef null)
+  %11 = call ptr @tvbparse_chars(i32 noundef -1, i32 noundef 1, i32 noundef 0, ptr noundef @.str.997, ptr noundef null, ptr noundef null, ptr noundef null)
   %12 = call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_oneof(i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef null)
   store ptr %12, ptr %3, align 8
-  %13 = call ptr @tvbparse_char(i32 noundef -1, ptr noundef @.str.921, ptr noundef null, ptr noundef null, ptr noundef null)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #10
+  %13 = call ptr @tvbparse_char(i32 noundef -1, ptr noundef @.str.974, ptr noundef null, ptr noundef null, ptr noundef null)
   %14 = call ptr @tvbparse_until(i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %13, i32 noundef 1)
   store ptr %14, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
   %15 = load ptr, ptr %1, align 8
   %16 = load ptr, ptr %4, align 8
   %17 = call ptr @tvbparse_some(i32 noundef -1, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %16)
   %18 = call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_seq(i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %15, ptr noundef %17, ptr noundef null)
   store ptr %18, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
   %19 = load ptr, ptr %1, align 8
   %20 = load ptr, ptr %2, align 8
   %21 = load ptr, ptr %3, align 8
@@ -1624,35 +1757,46 @@ define internal void @init_parser() #0 {
   %24 = call ptr @tvbparse_some(i32 noundef -1, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %23)
   %25 = call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_seq(i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %19, ptr noundef %20, ptr noundef %22, ptr noundef %24, ptr noundef null)
   store ptr %25, ptr %6, align 8
-  %26 = call ptr @tvbparse_chars(i32 noundef -1, i32 noundef 1, i32 noundef 0, ptr noundef @.str.922, ptr noundef null, ptr noundef null, ptr noundef null)
+  %26 = call ptr @tvbparse_chars(i32 noundef -1, i32 noundef 1, i32 noundef 0, ptr noundef @.str.998, ptr noundef null, ptr noundef null, ptr noundef null)
   store ptr %26, ptr @want_ignore, align 8
   %27 = load ptr, ptr %6, align 8
   %28 = load ptr, ptr %5, align 8
   %29 = call ptr (i32, ptr, ptr, ptr, ...) @tvbparse_set_oneof(i32 noundef -1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %27, ptr noundef %28, ptr noundef null)
   store ptr %29, ptr @want, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #10
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_ntp() #0 {
   %1 = load ptr, ptr @ntp_handle, align 8
-  call void @dissector_add_uint_with_preference(ptr noundef @.str.593, i32 noundef 123, ptr noundef %1)
+  call void @dissector_add_uint_with_preference(ptr noundef @.str.614, i32 noundef 123, ptr noundef %1)
   %2 = load ptr, ptr @ntp_handle, align 8
-  call void @dissector_add_uint_with_preference(ptr noundef @.str.594, i32 noundef 123, ptr noundef %2)
+  call void @dissector_add_uint_with_preference(ptr noundef @.str.615, i32 noundef 123, ptr noundef %2)
   ret void
 }
 
-declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #2
 
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare void @col_clear(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_clear(ptr noundef, i32 noundef) #2
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_ntp_std(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1681,632 +1825,712 @@ define internal void @dissect_ntp_std(ptr noundef %0, ptr noundef %1, ptr nounde
   %29 = alloca %struct.nstime_t, align 8
   %30 = alloca i32, align 4
   %31 = alloca i16, align 2
+  %32 = alloca i32, align 4
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #10
+  call void @llvm.lifetime.start.p0(i64 2, ptr %20) #10
   store i16 0, ptr %20, align 2
-  %32 = load ptr, ptr %7, align 8
-  %33 = load ptr, ptr %5, align 8
-  %34 = load i32, ptr @hf_ntp_flags, align 4
-  %35 = load i32, ptr @ett_ntp_flags, align 4
-  %36 = call ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef %32, ptr noundef %33, i32 noundef 0, i32 noundef %34, i32 noundef %35, ptr noundef @ntp_header_fields, i32 noundef 0, ptr noundef %25)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #10
+  call void @llvm.lifetime.start.p0(i64 48, ptr %24) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %26) #10
+  %33 = load ptr, ptr %7, align 8
+  %34 = load ptr, ptr %5, align 8
+  %35 = load i32, ptr @hf_ntp_flags, align 4
+  %36 = load i32, ptr @ett_ntp_flags, align 4
+  %37 = call ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef %33, ptr noundef %34, i32 noundef 0, i32 noundef %35, i32 noundef %36, ptr noundef @ntp_header_fields, i32 noundef 0, ptr noundef %25)
   store i32 -1, ptr %26, align 4
-  %37 = getelementptr [3 x %struct._wmem_tree_key_t], ptr %24, i64 0, i64 0
-  %38 = getelementptr inbounds %struct._wmem_tree_key_t, ptr %37, i32 0, i32 0
-  store i32 1, ptr %38, align 16
-  %39 = getelementptr [3 x %struct._wmem_tree_key_t], ptr %24, i64 0, i64 0
-  %40 = getelementptr inbounds %struct._wmem_tree_key_t, ptr %39, i32 0, i32 1
-  store ptr %26, ptr %40, align 8
-  %41 = getelementptr [3 x %struct._wmem_tree_key_t], ptr %24, i64 0, i64 1
-  %42 = getelementptr inbounds %struct._wmem_tree_key_t, ptr %41, i32 0, i32 0
-  store i32 1, ptr %42, align 16
-  %43 = load ptr, ptr %6, align 8
-  %44 = getelementptr inbounds %struct._packet_info, ptr %43, i32 0, i32 3
-  %45 = getelementptr [3 x %struct._wmem_tree_key_t], ptr %24, i64 0, i64 1
-  %46 = getelementptr inbounds %struct._wmem_tree_key_t, ptr %45, i32 0, i32 1
-  store ptr %44, ptr %46, align 8
-  %47 = getelementptr [3 x %struct._wmem_tree_key_t], ptr %24, i64 0, i64 2
-  %48 = getelementptr inbounds %struct._wmem_tree_key_t, ptr %47, i32 0, i32 0
-  store i32 0, ptr %48, align 16
-  %49 = getelementptr [3 x %struct._wmem_tree_key_t], ptr %24, i64 0, i64 2
-  %50 = getelementptr inbounds %struct._wmem_tree_key_t, ptr %49, i32 0, i32 1
-  store ptr null, ptr %50, align 8
-  %51 = load i64, ptr %25, align 8
-  %52 = and i64 %51, 7
-  %53 = icmp eq i64 %52, 3
-  br i1 %53, label %54, label %116
+  %38 = getelementptr [3 x %struct._wmem_tree_key_t], ptr %24, i64 0, i64 0
+  %39 = getelementptr inbounds nuw %struct._wmem_tree_key_t, ptr %38, i32 0, i32 0
+  store i32 1, ptr %39, align 16
+  %40 = getelementptr [3 x %struct._wmem_tree_key_t], ptr %24, i64 0, i64 0
+  %41 = getelementptr inbounds nuw %struct._wmem_tree_key_t, ptr %40, i32 0, i32 1
+  store ptr %26, ptr %41, align 8
+  %42 = getelementptr [3 x %struct._wmem_tree_key_t], ptr %24, i64 0, i64 1
+  %43 = getelementptr inbounds nuw %struct._wmem_tree_key_t, ptr %42, i32 0, i32 0
+  store i32 1, ptr %43, align 16
+  %44 = load ptr, ptr %6, align 8
+  %45 = getelementptr inbounds nuw %struct._packet_info, ptr %44, i32 0, i32 3
+  %46 = getelementptr [3 x %struct._wmem_tree_key_t], ptr %24, i64 0, i64 1
+  %47 = getelementptr inbounds nuw %struct._wmem_tree_key_t, ptr %46, i32 0, i32 1
+  store ptr %45, ptr %47, align 8
+  %48 = getelementptr [3 x %struct._wmem_tree_key_t], ptr %24, i64 0, i64 2
+  %49 = getelementptr inbounds nuw %struct._wmem_tree_key_t, ptr %48, i32 0, i32 0
+  store i32 0, ptr %49, align 16
+  %50 = getelementptr [3 x %struct._wmem_tree_key_t], ptr %24, i64 0, i64 2
+  %51 = getelementptr inbounds nuw %struct._wmem_tree_key_t, ptr %50, i32 0, i32 1
+  store ptr null, ptr %51, align 8
+  %52 = load i64, ptr %25, align 8
+  %53 = and i64 %52, 7
+  %54 = icmp eq i64 %53, 3
+  br i1 %54, label %55, label %117
 
-54:                                               ; preds = %4
-  %55 = load ptr, ptr %6, align 8
-  %56 = getelementptr inbounds %struct._packet_info, ptr %55, i32 0, i32 8
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds %struct._frame_data, ptr %57, i32 0, i32 9
-  %59 = load i16, ptr %58, align 2
-  %60 = lshr i16 %59, 3
-  %61 = and i16 %60, 1
-  %62 = zext i16 %61 to i32
-  %63 = icmp ne i32 %62, 0
-  br i1 %63, label %86, label %64
+55:                                               ; preds = %4
+  %56 = load ptr, ptr %6, align 8
+  %57 = getelementptr inbounds nuw %struct._packet_info, ptr %56, i32 0, i32 8
+  %58 = load ptr, ptr %57, align 8
+  %59 = getelementptr inbounds nuw %struct._frame_data, ptr %58, i32 0, i32 11
+  %60 = load i16, ptr %59, align 1
+  %61 = lshr i16 %60, 3
+  %62 = and i16 %61, 1
+  %63 = zext i16 %62 to i32
+  %64 = icmp ne i32 %63, 0
+  br i1 %64, label %87, label %65
 
-64:                                               ; preds = %54
-  %65 = call ptr @wmem_file_scope()
-  %66 = call noalias ptr @wmem_alloc(ptr noundef %65, i64 noundef 32)
-  store ptr %66, ptr %23, align 8
-  %67 = load ptr, ptr %6, align 8
-  %68 = getelementptr inbounds %struct._packet_info, ptr %67, i32 0, i32 3
-  %69 = load i32, ptr %68, align 4
-  %70 = load ptr, ptr %23, align 8
-  %71 = getelementptr inbounds %struct.ntp_trans_info_t, ptr %70, i32 0, i32 0
-  store i32 %69, ptr %71, align 8
-  %72 = load ptr, ptr %23, align 8
-  %73 = getelementptr inbounds %struct.ntp_trans_info_t, ptr %72, i32 0, i32 1
-  store i32 0, ptr %73, align 4
-  %74 = load ptr, ptr %23, align 8
-  %75 = getelementptr inbounds %struct.ntp_trans_info_t, ptr %74, i32 0, i32 2
-  %76 = load ptr, ptr %6, align 8
-  %77 = getelementptr inbounds %struct._packet_info, ptr %76, i32 0, i32 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %75, ptr align 8 %77, i64 16, i1 false)
-  %78 = load i32, ptr %26, align 4
-  %79 = load ptr, ptr %23, align 8
-  %80 = getelementptr inbounds %struct.ntp_trans_info_t, ptr %79, i32 0, i32 3
-  store i32 %78, ptr %80, align 8
-  %81 = load ptr, ptr %8, align 8
-  %82 = getelementptr inbounds %struct.ntp_conv_info_t, ptr %81, i32 0, i32 0
-  %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds [3 x %struct._wmem_tree_key_t], ptr %24, i64 0, i64 0
-  %85 = load ptr, ptr %23, align 8
-  call void @wmem_tree_insert32_array(ptr noundef %83, ptr noundef %84, ptr noundef %85)
+65:                                               ; preds = %55
+  %66 = call ptr @wmem_file_scope()
+  %67 = call noalias ptr @wmem_alloc(ptr noundef %66, i64 noundef 32) #11
+  store ptr %67, ptr %23, align 8
+  %68 = load ptr, ptr %6, align 8
+  %69 = getelementptr inbounds nuw %struct._packet_info, ptr %68, i32 0, i32 3
+  %70 = load i32, ptr %69, align 4
+  %71 = load ptr, ptr %23, align 8
+  %72 = getelementptr inbounds nuw %struct.ntp_trans_info_t, ptr %71, i32 0, i32 0
+  store i32 %70, ptr %72, align 8
+  %73 = load ptr, ptr %23, align 8
+  %74 = getelementptr inbounds nuw %struct.ntp_trans_info_t, ptr %73, i32 0, i32 1
+  store i32 0, ptr %74, align 4
+  %75 = load ptr, ptr %23, align 8
+  %76 = getelementptr inbounds nuw %struct.ntp_trans_info_t, ptr %75, i32 0, i32 2
+  %77 = load ptr, ptr %6, align 8
+  %78 = getelementptr inbounds nuw %struct._packet_info, ptr %77, i32 0, i32 4
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %76, ptr align 8 %78, i64 16, i1 false)
+  %79 = load i32, ptr %26, align 4
+  %80 = load ptr, ptr %23, align 8
+  %81 = getelementptr inbounds nuw %struct.ntp_trans_info_t, ptr %80, i32 0, i32 3
+  store i32 %79, ptr %81, align 8
+  %82 = load ptr, ptr %8, align 8
+  %83 = getelementptr inbounds nuw %struct.ntp_conv_info_t, ptr %82, i32 0, i32 0
+  %84 = load ptr, ptr %83, align 8
+  %85 = getelementptr inbounds [3 x %struct._wmem_tree_key_t], ptr %24, i64 0, i64 0
+  %86 = load ptr, ptr %23, align 8
+  call void @wmem_tree_insert32_array(ptr noundef %84, ptr noundef %85, ptr noundef %86)
+  br label %116
+
+87:                                               ; preds = %55
+  %88 = load ptr, ptr %8, align 8
+  %89 = getelementptr inbounds nuw %struct.ntp_conv_info_t, ptr %88, i32 0, i32 0
+  %90 = load ptr, ptr %89, align 8
+  %91 = getelementptr inbounds [3 x %struct._wmem_tree_key_t], ptr %24, i64 0, i64 0
+  %92 = call ptr @wmem_tree_lookup32_array_le(ptr noundef %90, ptr noundef %91)
+  store ptr %92, ptr %23, align 8
+  %93 = load ptr, ptr %23, align 8
+  %94 = icmp ne ptr %93, null
+  br i1 %94, label %95, label %115
+
+95:                                               ; preds = %87
+  %96 = load ptr, ptr %23, align 8
+  %97 = getelementptr inbounds nuw %struct.ntp_trans_info_t, ptr %96, i32 0, i32 1
+  %98 = load i32, ptr %97, align 4
+  %99 = icmp ne i32 %98, 0
+  br i1 %99, label %100, label %115
+
+100:                                              ; preds = %95
+  %101 = load ptr, ptr %23, align 8
+  %102 = getelementptr inbounds nuw %struct.ntp_trans_info_t, ptr %101, i32 0, i32 3
+  %103 = load i32, ptr %102, align 8
+  %104 = load i32, ptr %26, align 4
+  %105 = icmp eq i32 %103, %104
+  br i1 %105, label %106, label %115
+
+106:                                              ; preds = %100
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #10
+  %107 = load ptr, ptr %7, align 8
+  %108 = load i32, ptr @hf_ntp_response_in, align 4
+  %109 = load ptr, ptr %5, align 8
+  %110 = load ptr, ptr %23, align 8
+  %111 = getelementptr inbounds nuw %struct.ntp_trans_info_t, ptr %110, i32 0, i32 1
+  %112 = load i32, ptr %111, align 4
+  %113 = call ptr @proto_tree_add_uint(ptr noundef %107, i32 noundef %108, ptr noundef %109, i32 noundef 0, i32 noundef 0, i32 noundef %112)
+  store ptr %113, ptr %27, align 8
+  %114 = load ptr, ptr %27, align 8
+  call void @proto_item_set_generated(ptr noundef %114)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #10
   br label %115
 
-86:                                               ; preds = %54
-  %87 = load ptr, ptr %8, align 8
-  %88 = getelementptr inbounds %struct.ntp_conv_info_t, ptr %87, i32 0, i32 0
-  %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds [3 x %struct._wmem_tree_key_t], ptr %24, i64 0, i64 0
-  %91 = call ptr @wmem_tree_lookup32_array_le(ptr noundef %89, ptr noundef %90)
-  store ptr %91, ptr %23, align 8
-  %92 = load ptr, ptr %23, align 8
-  %93 = icmp ne ptr %92, null
-  br i1 %93, label %94, label %114
+115:                                              ; preds = %106, %100, %95, %87
+  br label %116
 
-94:                                               ; preds = %86
-  %95 = load ptr, ptr %23, align 8
-  %96 = getelementptr inbounds %struct.ntp_trans_info_t, ptr %95, i32 0, i32 1
-  %97 = load i32, ptr %96, align 4
-  %98 = icmp ne i32 %97, 0
-  br i1 %98, label %99, label %114
+116:                                              ; preds = %115, %65
+  br label %187
 
-99:                                               ; preds = %94
-  %100 = load ptr, ptr %23, align 8
-  %101 = getelementptr inbounds %struct.ntp_trans_info_t, ptr %100, i32 0, i32 3
-  %102 = load i32, ptr %101, align 8
-  %103 = load i32, ptr %26, align 4
-  %104 = icmp eq i32 %102, %103
-  br i1 %104, label %105, label %114
+117:                                              ; preds = %4
+  %118 = load i64, ptr %25, align 8
+  %119 = and i64 %118, 7
+  %120 = icmp eq i64 %119, 4
+  br i1 %120, label %121, label %186
 
-105:                                              ; preds = %99
-  %106 = load ptr, ptr %7, align 8
-  %107 = load i32, ptr @hf_ntp_response_in, align 4
-  %108 = load ptr, ptr %5, align 8
-  %109 = load ptr, ptr %23, align 8
-  %110 = getelementptr inbounds %struct.ntp_trans_info_t, ptr %109, i32 0, i32 1
-  %111 = load i32, ptr %110, align 4
-  %112 = call ptr @proto_tree_add_uint(ptr noundef %106, i32 noundef %107, ptr noundef %108, i32 noundef 0, i32 noundef 0, i32 noundef %111)
-  store ptr %112, ptr %27, align 8
-  %113 = load ptr, ptr %27, align 8
-  call void @proto_item_set_generated(ptr noundef %113)
-  br label %114
+121:                                              ; preds = %117
+  %122 = load ptr, ptr %8, align 8
+  %123 = getelementptr inbounds nuw %struct.ntp_conv_info_t, ptr %122, i32 0, i32 0
+  %124 = load ptr, ptr %123, align 8
+  %125 = getelementptr inbounds [3 x %struct._wmem_tree_key_t], ptr %24, i64 0, i64 0
+  %126 = call ptr @wmem_tree_lookup32_array_le(ptr noundef %124, ptr noundef %125)
+  store ptr %126, ptr %23, align 8
+  %127 = load ptr, ptr %23, align 8
+  %128 = icmp ne ptr %127, null
+  br i1 %128, label %129, label %185
 
-114:                                              ; preds = %105, %99, %94, %86
-  br label %115
+129:                                              ; preds = %121
+  %130 = load ptr, ptr %23, align 8
+  %131 = getelementptr inbounds nuw %struct.ntp_trans_info_t, ptr %130, i32 0, i32 3
+  %132 = load i32, ptr %131, align 8
+  %133 = load i32, ptr %26, align 4
+  %134 = icmp eq i32 %132, %133
+  br i1 %134, label %135, label %185
 
-115:                                              ; preds = %114, %64
-  br label %186
+135:                                              ; preds = %129
+  %136 = load ptr, ptr %6, align 8
+  %137 = getelementptr inbounds nuw %struct._packet_info, ptr %136, i32 0, i32 8
+  %138 = load ptr, ptr %137, align 8
+  %139 = getelementptr inbounds nuw %struct._frame_data, ptr %138, i32 0, i32 11
+  %140 = load i16, ptr %139, align 1
+  %141 = lshr i16 %140, 3
+  %142 = and i16 %141, 1
+  %143 = zext i16 %142 to i32
+  %144 = icmp ne i32 %143, 0
+  br i1 %144, label %157, label %145
 
-116:                                              ; preds = %4
-  %117 = load i64, ptr %25, align 8
-  %118 = and i64 %117, 7
-  %119 = icmp eq i64 %118, 4
-  br i1 %119, label %120, label %185
+145:                                              ; preds = %135
+  %146 = load ptr, ptr %23, align 8
+  %147 = getelementptr inbounds nuw %struct.ntp_trans_info_t, ptr %146, i32 0, i32 1
+  %148 = load i32, ptr %147, align 4
+  %149 = icmp eq i32 %148, 0
+  br i1 %149, label %150, label %156
 
-120:                                              ; preds = %116
-  %121 = load ptr, ptr %8, align 8
-  %122 = getelementptr inbounds %struct.ntp_conv_info_t, ptr %121, i32 0, i32 0
-  %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds [3 x %struct._wmem_tree_key_t], ptr %24, i64 0, i64 0
-  %125 = call ptr @wmem_tree_lookup32_array_le(ptr noundef %123, ptr noundef %124)
-  store ptr %125, ptr %23, align 8
-  %126 = load ptr, ptr %23, align 8
-  %127 = icmp ne ptr %126, null
-  br i1 %127, label %128, label %184
+150:                                              ; preds = %145
+  %151 = load ptr, ptr %6, align 8
+  %152 = getelementptr inbounds nuw %struct._packet_info, ptr %151, i32 0, i32 3
+  %153 = load i32, ptr %152, align 4
+  %154 = load ptr, ptr %23, align 8
+  %155 = getelementptr inbounds nuw %struct.ntp_trans_info_t, ptr %154, i32 0, i32 1
+  store i32 %153, ptr %155, align 4
+  br label %156
 
-128:                                              ; preds = %120
-  %129 = load ptr, ptr %23, align 8
-  %130 = getelementptr inbounds %struct.ntp_trans_info_t, ptr %129, i32 0, i32 3
-  %131 = load i32, ptr %130, align 8
-  %132 = load i32, ptr %26, align 4
-  %133 = icmp eq i32 %131, %132
-  br i1 %133, label %134, label %184
-
-134:                                              ; preds = %128
-  %135 = load ptr, ptr %6, align 8
-  %136 = getelementptr inbounds %struct._packet_info, ptr %135, i32 0, i32 8
-  %137 = load ptr, ptr %136, align 8
-  %138 = getelementptr inbounds %struct._frame_data, ptr %137, i32 0, i32 9
-  %139 = load i16, ptr %138, align 2
-  %140 = lshr i16 %139, 3
-  %141 = and i16 %140, 1
-  %142 = zext i16 %141 to i32
-  %143 = icmp ne i32 %142, 0
-  br i1 %143, label %156, label %144
-
-144:                                              ; preds = %134
-  %145 = load ptr, ptr %23, align 8
-  %146 = getelementptr inbounds %struct.ntp_trans_info_t, ptr %145, i32 0, i32 1
-  %147 = load i32, ptr %146, align 4
-  %148 = icmp eq i32 %147, 0
-  br i1 %148, label %149, label %155
-
-149:                                              ; preds = %144
-  %150 = load ptr, ptr %6, align 8
-  %151 = getelementptr inbounds %struct._packet_info, ptr %150, i32 0, i32 3
-  %152 = load i32, ptr %151, align 4
-  %153 = load ptr, ptr %23, align 8
-  %154 = getelementptr inbounds %struct.ntp_trans_info_t, ptr %153, i32 0, i32 1
-  store i32 %152, ptr %154, align 4
-  br label %155
-
-155:                                              ; preds = %149, %144
-  br label %183
-
-156:                                              ; preds = %134
-  %157 = load ptr, ptr %23, align 8
-  %158 = getelementptr inbounds %struct.ntp_trans_info_t, ptr %157, i32 0, i32 1
-  %159 = load i32, ptr %158, align 4
-  %160 = load ptr, ptr %6, align 8
-  %161 = getelementptr inbounds %struct._packet_info, ptr %160, i32 0, i32 3
-  %162 = load i32, ptr %161, align 4
-  %163 = icmp eq i32 %159, %162
-  br i1 %163, label %164, label %182
-
-164:                                              ; preds = %156
-  %165 = load ptr, ptr %7, align 8
-  %166 = load i32, ptr @hf_ntp_request_in, align 4
-  %167 = load ptr, ptr %5, align 8
-  %168 = load ptr, ptr %23, align 8
-  %169 = getelementptr inbounds %struct.ntp_trans_info_t, ptr %168, i32 0, i32 0
-  %170 = load i32, ptr %169, align 8
-  %171 = call ptr @proto_tree_add_uint(ptr noundef %165, i32 noundef %166, ptr noundef %167, i32 noundef 0, i32 noundef 0, i32 noundef %170)
-  store ptr %171, ptr %28, align 8
-  %172 = load ptr, ptr %28, align 8
-  call void @proto_item_set_generated(ptr noundef %172)
-  %173 = load ptr, ptr %6, align 8
-  %174 = getelementptr inbounds %struct._packet_info, ptr %173, i32 0, i32 4
-  %175 = load ptr, ptr %23, align 8
-  %176 = getelementptr inbounds %struct.ntp_trans_info_t, ptr %175, i32 0, i32 2
-  call void @nstime_delta(ptr noundef %29, ptr noundef %174, ptr noundef %176)
-  %177 = load ptr, ptr %7, align 8
-  %178 = load i32, ptr @hf_ntp_delta_time, align 4
-  %179 = load ptr, ptr %5, align 8
-  %180 = call ptr @proto_tree_add_time(ptr noundef %177, i32 noundef %178, ptr noundef %179, i32 noundef 0, i32 noundef 0, ptr noundef %29)
-  store ptr %180, ptr %28, align 8
-  %181 = load ptr, ptr %28, align 8
-  call void @proto_item_set_generated(ptr noundef %181)
-  br label %182
-
-182:                                              ; preds = %164, %156
-  br label %183
-
-183:                                              ; preds = %182, %155
+156:                                              ; preds = %150, %145
   br label %184
 
-184:                                              ; preds = %183, %128, %120
+157:                                              ; preds = %135
+  %158 = load ptr, ptr %23, align 8
+  %159 = getelementptr inbounds nuw %struct.ntp_trans_info_t, ptr %158, i32 0, i32 1
+  %160 = load i32, ptr %159, align 4
+  %161 = load ptr, ptr %6, align 8
+  %162 = getelementptr inbounds nuw %struct._packet_info, ptr %161, i32 0, i32 3
+  %163 = load i32, ptr %162, align 4
+  %164 = icmp eq i32 %160, %163
+  br i1 %164, label %165, label %183
+
+165:                                              ; preds = %157
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #10
+  call void @llvm.lifetime.start.p0(i64 16, ptr %29) #10
+  %166 = load ptr, ptr %7, align 8
+  %167 = load i32, ptr @hf_ntp_request_in, align 4
+  %168 = load ptr, ptr %5, align 8
+  %169 = load ptr, ptr %23, align 8
+  %170 = getelementptr inbounds nuw %struct.ntp_trans_info_t, ptr %169, i32 0, i32 0
+  %171 = load i32, ptr %170, align 8
+  %172 = call ptr @proto_tree_add_uint(ptr noundef %166, i32 noundef %167, ptr noundef %168, i32 noundef 0, i32 noundef 0, i32 noundef %171)
+  store ptr %172, ptr %28, align 8
+  %173 = load ptr, ptr %28, align 8
+  call void @proto_item_set_generated(ptr noundef %173)
+  %174 = load ptr, ptr %6, align 8
+  %175 = getelementptr inbounds nuw %struct._packet_info, ptr %174, i32 0, i32 4
+  %176 = load ptr, ptr %23, align 8
+  %177 = getelementptr inbounds nuw %struct.ntp_trans_info_t, ptr %176, i32 0, i32 2
+  call void @nstime_delta(ptr noundef %29, ptr noundef %175, ptr noundef %177)
+  %178 = load ptr, ptr %7, align 8
+  %179 = load i32, ptr @hf_ntp_delta_time, align 4
+  %180 = load ptr, ptr %5, align 8
+  %181 = call ptr @proto_tree_add_time(ptr noundef %178, i32 noundef %179, ptr noundef %180, i32 noundef 0, i32 noundef 0, ptr noundef %29)
+  store ptr %181, ptr %28, align 8
+  %182 = load ptr, ptr %28, align 8
+  call void @proto_item_set_generated(ptr noundef %182)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %29) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #10
+  br label %183
+
+183:                                              ; preds = %165, %157
+  br label %184
+
+184:                                              ; preds = %183, %156
   br label %185
 
-185:                                              ; preds = %184, %116
+185:                                              ; preds = %184, %129, %121
   br label %186
 
-186:                                              ; preds = %185, %115
-  %187 = load ptr, ptr %7, align 8
-  %188 = load i32, ptr @hf_ntp_stratum, align 4
-  %189 = load ptr, ptr %5, align 8
-  %190 = call ptr @proto_tree_add_item(ptr noundef %187, i32 noundef %188, ptr noundef %189, i32 noundef 1, i32 noundef 1, i32 noundef 0)
-  %191 = load ptr, ptr %5, align 8
-  %192 = call zeroext i8 @tvb_get_guint8(ptr noundef %191, i32 noundef 1)
-  store i8 %192, ptr %9, align 1
-  %193 = load ptr, ptr %5, align 8
-  %194 = call signext i8 @tvb_get_gint8(ptr noundef %193, i32 noundef 2)
-  store i8 %194, ptr %10, align 1
-  %195 = load ptr, ptr %7, align 8
-  %196 = load i32, ptr @hf_ntp_ppoll, align 4
-  %197 = load ptr, ptr %5, align 8
-  %198 = load i8, ptr %10, align 1
-  %199 = sext i8 %198 to i32
-  %200 = load i8, ptr %10, align 1
-  %201 = sext i8 %200 to i32
-  %202 = icmp sge i32 %201, 0
-  %203 = select i1 %202, ptr @.str.809, ptr @.str.810
-  %204 = load i8, ptr %10, align 1
-  %205 = sext i8 %204 to i32
-  %206 = load i8, ptr %10, align 1
-  %207 = sitofp i8 %206 to double
-  %208 = call double @pow(double noundef 2.000000e+00, double noundef %207) #4
-  %209 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_int_format_value(ptr noundef %195, i32 noundef %196, ptr noundef %197, i32 noundef 2, i32 noundef 1, i32 noundef %199, ptr noundef %203, i32 noundef %205, double noundef %208)
-  %210 = load ptr, ptr %5, align 8
-  %211 = call signext i8 @tvb_get_gint8(ptr noundef %210, i32 noundef 3)
-  store i8 %211, ptr %11, align 1
-  %212 = load ptr, ptr %7, align 8
-  %213 = load i32, ptr @hf_ntp_precision, align 4
-  %214 = load ptr, ptr %5, align 8
-  %215 = load i8, ptr %11, align 1
-  %216 = sext i8 %215 to i32
-  %217 = load i8, ptr %11, align 1
-  %218 = sext i8 %217 to i32
-  %219 = load i8, ptr %11, align 1
-  %220 = sitofp i8 %219 to double
-  %221 = call double @pow(double noundef 2.000000e+00, double noundef %220) #4
-  %222 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_int_format_value(ptr noundef %212, i32 noundef %213, ptr noundef %214, i32 noundef 3, i32 noundef 1, i32 noundef %216, ptr noundef @.str.811, i32 noundef %218, double noundef %221)
-  %223 = load ptr, ptr %5, align 8
-  %224 = call i32 @tvb_get_ntohl(ptr noundef %223, i32 noundef 4)
-  store i32 %224, ptr %12, align 4
-  %225 = load i32, ptr %12, align 4
-  %226 = lshr i32 %225, 16
-  %227 = uitofp i32 %226 to double
-  %228 = load i32, ptr %12, align 4
-  %229 = and i32 %228, 65535
-  %230 = uitofp i32 %229 to double
-  %231 = fdiv double %230, 6.553600e+04
-  %232 = fadd double %227, %231
-  store double %232, ptr %13, align 8
-  %233 = load ptr, ptr %7, align 8
-  %234 = load i32, ptr @hf_ntp_rootdelay, align 4
-  %235 = load ptr, ptr %5, align 8
-  %236 = load i32, ptr %12, align 4
-  %237 = load double, ptr %13, align 8
-  %238 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %233, i32 noundef %234, ptr noundef %235, i32 noundef 4, i32 noundef 4, i32 noundef %236, ptr noundef @.str.812, double noundef %237)
-  %239 = load ptr, ptr %5, align 8
-  %240 = call i32 @tvb_get_ntohl(ptr noundef %239, i32 noundef 8)
-  store i32 %240, ptr %14, align 4
-  %241 = load i32, ptr %14, align 4
-  %242 = lshr i32 %241, 16
-  %243 = uitofp i32 %242 to double
-  %244 = load i32, ptr %14, align 4
-  %245 = and i32 %244, 65535
-  %246 = uitofp i32 %245 to double
-  %247 = fdiv double %246, 6.553600e+04
-  %248 = fadd double %243, %247
-  store double %248, ptr %15, align 8
-  %249 = load ptr, ptr %7, align 8
-  %250 = load i32, ptr @hf_ntp_rootdispersion, align 4
-  %251 = load ptr, ptr %5, align 8
-  %252 = load i32, ptr %14, align 4
-  %253 = load double, ptr %15, align 8
-  %254 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %249, i32 noundef %250, ptr noundef %251, i32 noundef 8, i32 noundef 4, i32 noundef %252, ptr noundef @.str.812, double noundef %253)
-  %255 = call ptr @wmem_packet_scope()
-  %256 = call noalias ptr @wmem_alloc(ptr noundef %255, i64 noundef 110)
-  store ptr %256, ptr %17, align 8
-  %257 = load i8, ptr %9, align 1
-  %258 = zext i8 %257 to i32
-  %259 = icmp eq i32 %258, 0
-  br i1 %259, label %260, label %295
+186:                                              ; preds = %185, %117
+  br label %187
 
-260:                                              ; preds = %186
-  %261 = load ptr, ptr %17, align 8
-  %262 = call ptr @wmem_packet_scope()
-  %263 = load ptr, ptr %5, align 8
-  %264 = call ptr @tvb_get_string_enc(ptr noundef %262, ptr noundef %263, i32 noundef 12, i32 noundef 4, i32 noundef 0)
-  %265 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %261, i64 noundef 110, ptr noundef @.str.813, ptr noundef %264) #4
+187:                                              ; preds = %186, %116
+  %188 = load ptr, ptr %7, align 8
+  %189 = load i32, ptr @hf_ntp_stratum, align 4
+  %190 = load ptr, ptr %5, align 8
+  %191 = call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %189, ptr noundef %190, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  %192 = load ptr, ptr %5, align 8
+  %193 = call zeroext i8 @tvb_get_uint8(ptr noundef %192, i32 noundef 1)
+  store i8 %193, ptr %9, align 1
+  %194 = load ptr, ptr %5, align 8
+  %195 = call signext i8 @tvb_get_int8(ptr noundef %194, i32 noundef 2)
+  store i8 %195, ptr %10, align 1
+  %196 = load ptr, ptr %7, align 8
+  %197 = load i32, ptr @hf_ntp_ppoll, align 4
+  %198 = load ptr, ptr %5, align 8
+  %199 = load i8, ptr %10, align 1
+  %200 = sext i8 %199 to i32
+  %201 = load i8, ptr %10, align 1
+  %202 = sext i8 %201 to i32
+  %203 = icmp sge i32 %202, 0
+  %204 = select i1 %203, ptr @.str.847, ptr @.str.848
+  %205 = load i8, ptr %10, align 1
+  %206 = sext i8 %205 to i32
+  %207 = load i8, ptr %10, align 1
+  %208 = sitofp i8 %207 to double
+  %209 = call double @pow(double noundef 2.000000e+00, double noundef %208) #10
+  %210 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_int_format_value(ptr noundef %196, i32 noundef %197, ptr noundef %198, i32 noundef 2, i32 noundef 1, i32 noundef %200, ptr noundef %204, i32 noundef %206, double noundef %209)
+  %211 = load ptr, ptr %5, align 8
+  %212 = call signext i8 @tvb_get_int8(ptr noundef %211, i32 noundef 3)
+  store i8 %212, ptr %11, align 1
+  %213 = load ptr, ptr %7, align 8
+  %214 = load i32, ptr @hf_ntp_precision, align 4
+  %215 = load ptr, ptr %5, align 8
+  %216 = load i8, ptr %11, align 1
+  %217 = sext i8 %216 to i32
+  %218 = load i8, ptr %11, align 1
+  %219 = sext i8 %218 to i32
+  %220 = load i8, ptr %11, align 1
+  %221 = sitofp i8 %220 to double
+  %222 = call double @pow(double noundef 2.000000e+00, double noundef %221) #10
+  %223 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_int_format_value(ptr noundef %213, i32 noundef %214, ptr noundef %215, i32 noundef 3, i32 noundef 1, i32 noundef %217, ptr noundef @.str.849, i32 noundef %219, double noundef %222)
+  %224 = load ptr, ptr %5, align 8
+  %225 = call i32 @tvb_get_ntohl(ptr noundef %224, i32 noundef 4)
+  store i32 %225, ptr %12, align 4
+  %226 = load i32, ptr %12, align 4
+  %227 = lshr i32 %226, 16
+  %228 = uitofp i32 %227 to double
+  %229 = load i32, ptr %12, align 4
+  %230 = and i32 %229, 65535
+  %231 = uitofp i32 %230 to double
+  %232 = fdiv double %231, 6.553600e+04
+  %233 = fadd double %228, %232
+  store double %233, ptr %13, align 8
+  %234 = load ptr, ptr %7, align 8
+  %235 = load i32, ptr @hf_ntp_rootdelay, align 4
+  %236 = load ptr, ptr %5, align 8
+  %237 = load i32, ptr %12, align 4
+  %238 = load double, ptr %13, align 8
+  %239 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %234, i32 noundef %235, ptr noundef %236, i32 noundef 4, i32 noundef 4, i32 noundef %237, ptr noundef @.str.850, double noundef %238)
+  %240 = load ptr, ptr %5, align 8
+  %241 = call i32 @tvb_get_ntohl(ptr noundef %240, i32 noundef 8)
+  store i32 %241, ptr %14, align 4
+  %242 = load i32, ptr %14, align 4
+  %243 = lshr i32 %242, 16
+  %244 = uitofp i32 %243 to double
+  %245 = load i32, ptr %14, align 4
+  %246 = and i32 %245, 65535
+  %247 = uitofp i32 %246 to double
+  %248 = fdiv double %247, 6.553600e+04
+  %249 = fadd double %244, %248
+  store double %249, ptr %15, align 8
+  %250 = load ptr, ptr %7, align 8
+  %251 = load i32, ptr @hf_ntp_rootdispersion, align 4
+  %252 = load ptr, ptr %5, align 8
+  %253 = load i32, ptr %14, align 4
+  %254 = load double, ptr %15, align 8
+  %255 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %250, i32 noundef %251, ptr noundef %252, i32 noundef 8, i32 noundef 4, i32 noundef %253, ptr noundef @.str.850, double noundef %254)
+  %256 = load ptr, ptr %6, align 8
+  %257 = getelementptr inbounds nuw %struct._packet_info, ptr %256, i32 0, i32 51
+  %258 = load ptr, ptr %257, align 8
+  %259 = call noalias ptr @wmem_alloc(ptr noundef %258, i64 noundef 110) #11
+  store ptr %259, ptr %17, align 8
+  %260 = load i8, ptr %9, align 1
+  %261 = zext i8 %260 to i32
+  %262 = icmp eq i32 %261, 0
+  br i1 %262, label %263, label %304
+
+263:                                              ; preds = %187
+  %264 = load ptr, ptr %17, align 8
+  %265 = load ptr, ptr %17, align 8
+  %266 = call i64 @llvm.objectsize.i64.p0(ptr %265, i1 false, i1 true, i1 true)
+  %267 = load ptr, ptr %6, align 8
+  %268 = getelementptr inbounds nuw %struct._packet_info, ptr %267, i32 0, i32 51
+  %269 = load ptr, ptr %268, align 8
+  %270 = load ptr, ptr %5, align 8
+  %271 = call ptr @tvb_get_string_enc(ptr noundef %269, ptr noundef %270, i32 noundef 12, i32 noundef 4, i32 noundef 0)
+  %272 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %264, i64 noundef 110, i32 noundef 2, i64 noundef %266, ptr noundef @.str.851, ptr noundef %271)
   store i32 0, ptr %18, align 4
-  br label %266
+  br label %273
 
-266:                                              ; preds = %291, %260
-  %267 = load i32, ptr %18, align 4
-  %268 = sext i32 %267 to i64
-  %269 = getelementptr [17 x %struct.anon.0], ptr @kod_messages, i64 0, i64 %268
-  %270 = getelementptr inbounds %struct.anon.0, ptr %269, i32 0, i32 0
-  %271 = load ptr, ptr %270, align 16
-  %272 = icmp ne ptr %271, null
-  br i1 %272, label %273, label %294
+273:                                              ; preds = %300, %263
+  %274 = load i32, ptr %18, align 4
+  %275 = sext i32 %274 to i64
+  %276 = getelementptr [17 x %struct.anon.0], ptr @kod_messages, i64 0, i64 %275
+  %277 = getelementptr inbounds nuw %struct.anon.0, ptr %276, i32 0, i32 0
+  %278 = load ptr, ptr %277, align 16
+  %279 = icmp ne ptr %278, null
+  br i1 %279, label %280, label %303
 
-273:                                              ; preds = %266
-  %274 = load ptr, ptr %5, align 8
-  %275 = load i32, ptr %18, align 4
-  %276 = sext i32 %275 to i64
-  %277 = getelementptr [17 x %struct.anon.0], ptr @kod_messages, i64 0, i64 %276
-  %278 = getelementptr inbounds %struct.anon.0, ptr %277, i32 0, i32 0
-  %279 = load ptr, ptr %278, align 16
-  %280 = call i32 @tvb_memeql(ptr noundef %274, i32 noundef 12, ptr noundef %279, i64 noundef 4)
-  %281 = icmp eq i32 %280, 0
-  br i1 %281, label %282, label %290
+280:                                              ; preds = %273
+  %281 = load ptr, ptr %5, align 8
+  %282 = load i32, ptr %18, align 4
+  %283 = sext i32 %282 to i64
+  %284 = getelementptr [17 x %struct.anon.0], ptr @kod_messages, i64 0, i64 %283
+  %285 = getelementptr inbounds nuw %struct.anon.0, ptr %284, i32 0, i32 0
+  %286 = load ptr, ptr %285, align 16
+  %287 = call i32 @tvb_memeql(ptr noundef %281, i32 noundef 12, ptr noundef %286, i64 noundef 4)
+  %288 = icmp eq i32 %287, 0
+  br i1 %288, label %289, label %299
 
-282:                                              ; preds = %273
-  %283 = load ptr, ptr %17, align 8
-  %284 = load i32, ptr %18, align 4
-  %285 = sext i32 %284 to i64
-  %286 = getelementptr [17 x %struct.anon.0], ptr @kod_messages, i64 0, i64 %285
-  %287 = getelementptr inbounds %struct.anon.0, ptr %286, i32 0, i32 1
-  %288 = load ptr, ptr %287, align 8
-  %289 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %283, i64 noundef 110, ptr noundef @.str.814, ptr noundef %288) #4
-  br label %294
+289:                                              ; preds = %280
+  %290 = load ptr, ptr %17, align 8
+  %291 = load ptr, ptr %17, align 8
+  %292 = call i64 @llvm.objectsize.i64.p0(ptr %291, i1 false, i1 true, i1 true)
+  %293 = load i32, ptr %18, align 4
+  %294 = sext i32 %293 to i64
+  %295 = getelementptr [17 x %struct.anon.0], ptr @kod_messages, i64 0, i64 %294
+  %296 = getelementptr inbounds nuw %struct.anon.0, ptr %295, i32 0, i32 1
+  %297 = load ptr, ptr %296, align 8
+  %298 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %290, i64 noundef 110, i32 noundef 2, i64 noundef %292, ptr noundef @.str.852, ptr noundef %297)
+  br label %303
 
-290:                                              ; preds = %273
-  br label %291
+299:                                              ; preds = %280
+  br label %300
 
-291:                                              ; preds = %290
-  %292 = load i32, ptr %18, align 4
-  %293 = add i32 %292, 1
-  store i32 %293, ptr %18, align 4
-  br label %266, !llvm.loop !4
+300:                                              ; preds = %299
+  %301 = load i32, ptr %18, align 4
+  %302 = add i32 %301, 1
+  store i32 %302, ptr %18, align 4
+  br label %273, !llvm.loop !6
 
-294:                                              ; preds = %282, %266
-  br label %354
+303:                                              ; preds = %289, %273
+  br label %371
 
-295:                                              ; preds = %186
-  %296 = load i8, ptr %9, align 1
-  %297 = zext i8 %296 to i32
-  %298 = icmp eq i32 %297, 1
-  br i1 %298, label %299, label %334
+304:                                              ; preds = %187
+  %305 = load i8, ptr %9, align 1
+  %306 = zext i8 %305 to i32
+  %307 = icmp eq i32 %306, 1
+  br i1 %307, label %308, label %349
 
-299:                                              ; preds = %295
-  %300 = load ptr, ptr %17, align 8
-  %301 = call ptr @wmem_packet_scope()
-  %302 = load ptr, ptr %5, align 8
-  %303 = call ptr @tvb_get_string_enc(ptr noundef %301, ptr noundef %302, i32 noundef 12, i32 noundef 4, i32 noundef 0)
-  %304 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %300, i64 noundef 110, ptr noundef @.str.815, ptr noundef %303) #4
+308:                                              ; preds = %304
+  %309 = load ptr, ptr %17, align 8
+  %310 = load ptr, ptr %17, align 8
+  %311 = call i64 @llvm.objectsize.i64.p0(ptr %310, i1 false, i1 true, i1 true)
+  %312 = load ptr, ptr %6, align 8
+  %313 = getelementptr inbounds nuw %struct._packet_info, ptr %312, i32 0, i32 51
+  %314 = load ptr, ptr %313, align 8
+  %315 = load ptr, ptr %5, align 8
+  %316 = call ptr @tvb_get_string_enc(ptr noundef %314, ptr noundef %315, i32 noundef 12, i32 noundef 4, i32 noundef 0)
+  %317 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %309, i64 noundef 110, i32 noundef 2, i64 noundef %311, ptr noundef @.str.853, ptr noundef %316)
   store i32 0, ptr %18, align 4
-  br label %305
+  br label %318
 
-305:                                              ; preds = %330, %299
-  %306 = load i32, ptr %18, align 4
-  %307 = sext i32 %306 to i64
-  %308 = getelementptr [32 x %struct.anon.1], ptr @primary_sources, i64 0, i64 %307
-  %309 = getelementptr inbounds %struct.anon.1, ptr %308, i32 0, i32 0
-  %310 = load ptr, ptr %309, align 16
-  %311 = icmp ne ptr %310, null
-  br i1 %311, label %312, label %333
+318:                                              ; preds = %345, %308
+  %319 = load i32, ptr %18, align 4
+  %320 = sext i32 %319 to i64
+  %321 = getelementptr [47 x %struct.anon.1], ptr @primary_sources, i64 0, i64 %320
+  %322 = getelementptr inbounds nuw %struct.anon.1, ptr %321, i32 0, i32 0
+  %323 = load ptr, ptr %322, align 16
+  %324 = icmp ne ptr %323, null
+  br i1 %324, label %325, label %348
 
-312:                                              ; preds = %305
-  %313 = load ptr, ptr %5, align 8
-  %314 = load i32, ptr %18, align 4
-  %315 = sext i32 %314 to i64
-  %316 = getelementptr [32 x %struct.anon.1], ptr @primary_sources, i64 0, i64 %315
-  %317 = getelementptr inbounds %struct.anon.1, ptr %316, i32 0, i32 0
-  %318 = load ptr, ptr %317, align 16
-  %319 = call i32 @tvb_memeql(ptr noundef %313, i32 noundef 12, ptr noundef %318, i64 noundef 4)
-  %320 = icmp eq i32 %319, 0
-  br i1 %320, label %321, label %329
+325:                                              ; preds = %318
+  %326 = load ptr, ptr %5, align 8
+  %327 = load i32, ptr %18, align 4
+  %328 = sext i32 %327 to i64
+  %329 = getelementptr [47 x %struct.anon.1], ptr @primary_sources, i64 0, i64 %328
+  %330 = getelementptr inbounds nuw %struct.anon.1, ptr %329, i32 0, i32 0
+  %331 = load ptr, ptr %330, align 16
+  %332 = call i32 @tvb_memeql(ptr noundef %326, i32 noundef 12, ptr noundef %331, i64 noundef 4)
+  %333 = icmp eq i32 %332, 0
+  br i1 %333, label %334, label %344
 
-321:                                              ; preds = %312
-  %322 = load ptr, ptr %17, align 8
-  %323 = load i32, ptr %18, align 4
-  %324 = sext i32 %323 to i64
-  %325 = getelementptr [32 x %struct.anon.1], ptr @primary_sources, i64 0, i64 %324
-  %326 = getelementptr inbounds %struct.anon.1, ptr %325, i32 0, i32 1
-  %327 = load ptr, ptr %326, align 8
-  %328 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %322, i64 noundef 110, ptr noundef @.str.814, ptr noundef %327) #4
-  br label %333
+334:                                              ; preds = %325
+  %335 = load ptr, ptr %17, align 8
+  %336 = load ptr, ptr %17, align 8
+  %337 = call i64 @llvm.objectsize.i64.p0(ptr %336, i1 false, i1 true, i1 true)
+  %338 = load i32, ptr %18, align 4
+  %339 = sext i32 %338 to i64
+  %340 = getelementptr [47 x %struct.anon.1], ptr @primary_sources, i64 0, i64 %339
+  %341 = getelementptr inbounds nuw %struct.anon.1, ptr %340, i32 0, i32 1
+  %342 = load ptr, ptr %341, align 8
+  %343 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %335, i64 noundef 110, i32 noundef 2, i64 noundef %337, ptr noundef @.str.852, ptr noundef %342)
+  br label %348
 
-329:                                              ; preds = %312
-  br label %330
+344:                                              ; preds = %325
+  br label %345
 
-330:                                              ; preds = %329
-  %331 = load i32, ptr %18, align 4
-  %332 = add i32 %331, 1
-  store i32 %332, ptr %18, align 4
-  br label %305, !llvm.loop !6
+345:                                              ; preds = %344
+  %346 = load i32, ptr %18, align 4
+  %347 = add i32 %346, 1
+  store i32 %347, ptr %18, align 4
+  br label %318, !llvm.loop !8
 
-333:                                              ; preds = %321, %305
-  br label %353
+348:                                              ; preds = %334, %318
+  br label %370
 
-334:                                              ; preds = %295
-  %335 = load ptr, ptr %5, align 8
-  %336 = call i32 @tvb_get_ipv4(ptr noundef %335, i32 noundef 12)
-  store i32 %336, ptr %16, align 4
-  %337 = load ptr, ptr %17, align 8
-  %338 = load i32, ptr %16, align 4
-  %339 = call ptr @get_hostname(i32 noundef %338)
-  %340 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %337, i64 noundef 110, ptr noundef @.str.814, ptr noundef %339) #4
-  store i32 %340, ptr %30, align 4
-  %341 = load i32, ptr %30, align 4
-  %342 = icmp sge i32 %341, 110
-  br i1 %342, label %343, label %352
+349:                                              ; preds = %304
+  call void @llvm.lifetime.start.p0(i64 4, ptr %30) #10
+  %350 = load ptr, ptr %5, align 8
+  %351 = call i32 @tvb_get_ipv4(ptr noundef %350, i32 noundef 12)
+  store i32 %351, ptr %16, align 4
+  %352 = load ptr, ptr %17, align 8
+  %353 = load ptr, ptr %17, align 8
+  %354 = call i64 @llvm.objectsize.i64.p0(ptr %353, i1 false, i1 true, i1 true)
+  %355 = load i32, ptr %16, align 4
+  %356 = call ptr @get_hostname(i32 noundef %355)
+  %357 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %352, i64 noundef 110, i32 noundef 2, i64 noundef %354, ptr noundef @.str.852, ptr noundef %356)
+  store i32 %357, ptr %30, align 4
+  %358 = load i32, ptr %30, align 4
+  %359 = icmp sge i32 %358, 110
+  br i1 %359, label %360, label %369
 
-343:                                              ; preds = %334
-  %344 = load ptr, ptr %17, align 8
-  %345 = getelementptr i8, ptr %344, i64 106
-  store i8 46, ptr %345, align 1
-  %346 = load ptr, ptr %17, align 8
-  %347 = getelementptr i8, ptr %346, i64 107
-  store i8 46, ptr %347, align 1
-  %348 = load ptr, ptr %17, align 8
-  %349 = getelementptr i8, ptr %348, i64 108
-  store i8 46, ptr %349, align 1
-  %350 = load ptr, ptr %17, align 8
-  %351 = getelementptr i8, ptr %350, i64 109
-  store i8 0, ptr %351, align 1
-  br label %352
+360:                                              ; preds = %349
+  %361 = load ptr, ptr %17, align 8
+  %362 = getelementptr i8, ptr %361, i64 106
+  store i8 46, ptr %362, align 1
+  %363 = load ptr, ptr %17, align 8
+  %364 = getelementptr i8, ptr %363, i64 107
+  store i8 46, ptr %364, align 1
+  %365 = load ptr, ptr %17, align 8
+  %366 = getelementptr i8, ptr %365, i64 108
+  store i8 46, ptr %366, align 1
+  %367 = load ptr, ptr %17, align 8
+  %368 = getelementptr i8, ptr %367, i64 109
+  store i8 0, ptr %368, align 1
+  br label %369
 
-352:                                              ; preds = %343, %334
-  br label %353
+369:                                              ; preds = %360, %349
+  call void @llvm.lifetime.end.p0(i64 4, ptr %30) #10
+  br label %370
 
-353:                                              ; preds = %352, %333
-  br label %354
+370:                                              ; preds = %369, %348
+  br label %371
 
-354:                                              ; preds = %353, %294
-  %355 = load ptr, ptr %7, align 8
-  %356 = load i32, ptr @hf_ntp_refid, align 4
-  %357 = load ptr, ptr %5, align 8
-  %358 = load ptr, ptr %17, align 8
-  %359 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %355, i32 noundef %356, ptr noundef %357, i32 noundef 12, i32 noundef 4, ptr noundef null, ptr noundef @.str.814, ptr noundef %358)
-  %360 = load ptr, ptr %7, align 8
-  %361 = load i32, ptr @hf_ntp_reftime, align 4
-  %362 = load ptr, ptr %5, align 8
-  %363 = call ptr @proto_tree_add_item(ptr noundef %360, i32 noundef %361, ptr noundef %362, i32 noundef 16, i32 noundef 8, i32 noundef 2)
-  %364 = load ptr, ptr %7, align 8
-  %365 = load i32, ptr @hf_ntp_org, align 4
-  %366 = load ptr, ptr %5, align 8
-  %367 = call ptr @proto_tree_add_item(ptr noundef %364, i32 noundef %365, ptr noundef %366, i32 noundef 24, i32 noundef 8, i32 noundef 2)
-  %368 = load ptr, ptr %7, align 8
-  %369 = load i32, ptr @hf_ntp_rec, align 4
-  %370 = load ptr, ptr %5, align 8
-  %371 = call ptr @proto_tree_add_item(ptr noundef %368, i32 noundef %369, ptr noundef %370, i32 noundef 32, i32 noundef 8, i32 noundef 2)
+371:                                              ; preds = %370, %303
   %372 = load ptr, ptr %7, align 8
-  %373 = load i32, ptr @hf_ntp_xmt, align 4
+  %373 = load i32, ptr @hf_ntp_refid, align 4
   %374 = load ptr, ptr %5, align 8
-  %375 = call ptr @proto_tree_add_item(ptr noundef %372, i32 noundef %373, ptr noundef %374, i32 noundef 40, i32 noundef 8, i32 noundef 2)
-  store i32 48, ptr %19, align 4
-  br label %376
-
-376:                                              ; preds = %398, %354
-  %377 = load ptr, ptr %5, align 8
-  %378 = load i32, ptr %19, align 4
-  %379 = call i32 @tvb_reported_length_remaining(ptr noundef %377, i32 noundef %378)
-  %380 = icmp sge i32 %379, 16
-  br i1 %380, label %381, label %404
-
-381:                                              ; preds = %376
-  %382 = load ptr, ptr %5, align 8
-  %383 = load i32, ptr %19, align 4
-  %384 = add i32 %383, 2
-  %385 = call zeroext i16 @tvb_get_ntohs(ptr noundef %382, i32 noundef %384)
-  store i16 %385, ptr %31, align 2
-  %386 = load i16, ptr %31, align 2
-  %387 = zext i16 %386 to i32
-  %388 = icmp slt i32 %387, 16
-  br i1 %388, label %389, label %390
-
-389:                                              ; preds = %381
-  br label %404
-
-390:                                              ; preds = %381
+  %375 = load ptr, ptr %17, align 8
+  %376 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %372, i32 noundef %373, ptr noundef %374, i32 noundef 12, i32 noundef 4, ptr noundef null, ptr noundef @.str.852, ptr noundef %375)
+  %377 = load ptr, ptr %7, align 8
+  %378 = load i32, ptr @hf_ntp_reftime, align 4
+  %379 = load ptr, ptr %5, align 8
+  %380 = call ptr @proto_tree_add_item(ptr noundef %377, i32 noundef %378, ptr noundef %379, i32 noundef 16, i32 noundef 8, i32 noundef 2)
+  %381 = load ptr, ptr %7, align 8
+  %382 = load i32, ptr @hf_ntp_org, align 4
+  %383 = load ptr, ptr %5, align 8
+  %384 = call ptr @proto_tree_add_item(ptr noundef %381, i32 noundef %382, ptr noundef %383, i32 noundef 24, i32 noundef 8, i32 noundef 2)
+  %385 = load ptr, ptr %7, align 8
+  %386 = load i32, ptr @hf_ntp_rec, align 4
+  %387 = load ptr, ptr %5, align 8
+  %388 = call ptr @proto_tree_add_item(ptr noundef %385, i32 noundef %386, ptr noundef %387, i32 noundef 32, i32 noundef 8, i32 noundef 2)
+  %389 = load ptr, ptr %7, align 8
+  %390 = load i32, ptr @hf_ntp_xmt, align 4
   %391 = load ptr, ptr %5, align 8
-  %392 = load i32, ptr %19, align 4
-  %393 = call i32 @tvb_reported_length_remaining(ptr noundef %391, i32 noundef %392)
-  %394 = load i16, ptr %31, align 2
-  %395 = zext i16 %394 to i32
-  %396 = icmp slt i32 %393, %395
-  br i1 %396, label %397, label %398
+  %392 = call ptr @proto_tree_add_item(ptr noundef %389, i32 noundef %390, ptr noundef %391, i32 noundef 40, i32 noundef 8, i32 noundef 2)
+  store i32 48, ptr %19, align 4
+  br label %393
 
-397:                                              ; preds = %390
-  br label %404
+393:                                              ; preds = %423, %371
+  %394 = load ptr, ptr %5, align 8
+  %395 = load i32, ptr %19, align 4
+  %396 = call i32 @tvb_reported_length_remaining(ptr noundef %394, i32 noundef %395)
+  %397 = icmp sge i32 %396, 16
+  br i1 %397, label %398, label %424
 
-398:                                              ; preds = %390
-  %399 = load i16, ptr %31, align 2
-  %400 = zext i16 %399 to i32
-  %401 = load i32, ptr %19, align 4
-  %402 = add i32 %401, %400
-  store i32 %402, ptr %19, align 4
+398:                                              ; preds = %393
+  call void @llvm.lifetime.start.p0(i64 2, ptr %31) #10
+  %399 = load ptr, ptr %5, align 8
+  %400 = load i32, ptr %19, align 4
+  %401 = add i32 %400, 2
+  %402 = call zeroext i16 @tvb_get_ntohs(ptr noundef %399, i32 noundef %401)
+  store i16 %402, ptr %31, align 2
   %403 = load i16, ptr %31, align 2
-  store i16 %403, ptr %20, align 2
-  br label %376, !llvm.loop !7
+  %404 = zext i16 %403 to i32
+  %405 = icmp slt i32 %404, 16
+  br i1 %405, label %406, label %407
 
-404:                                              ; preds = %397, %389, %376
-  %405 = load ptr, ptr %5, align 8
-  %406 = load i32, ptr %19, align 4
-  %407 = call i32 @tvb_reported_length_remaining(ptr noundef %405, i32 noundef %406)
-  store i32 %407, ptr %22, align 4
-  %408 = load i32, ptr %22, align 4
-  %409 = icmp eq i32 %408, 0
-  br i1 %409, label %410, label %411
+406:                                              ; preds = %398
+  store i32 9, ptr %32, align 4
+  br label %421
 
-410:                                              ; preds = %404
-  br label %430
+407:                                              ; preds = %398
+  %408 = load ptr, ptr %5, align 8
+  %409 = load i32, ptr %19, align 4
+  %410 = call i32 @tvb_reported_length_remaining(ptr noundef %408, i32 noundef %409)
+  %411 = load i16, ptr %31, align 2
+  %412 = zext i16 %411 to i32
+  %413 = icmp slt i32 %410, %412
+  br i1 %413, label %414, label %415
 
-411:                                              ; preds = %404
-  %412 = load i32, ptr %22, align 4
-  %413 = icmp eq i32 %412, 4
-  br i1 %413, label %414, label %420
+414:                                              ; preds = %407
+  store i32 9, ptr %32, align 4
+  br label %421
 
-414:                                              ; preds = %411
-  %415 = load ptr, ptr %5, align 8
-  %416 = load i32, ptr %19, align 4
-  %417 = call i32 @tvb_get_ntohl(ptr noundef %415, i32 noundef %416)
-  %418 = icmp eq i32 %417, 0
-  br i1 %418, label %419, label %420
+415:                                              ; preds = %407
+  %416 = load i16, ptr %31, align 2
+  %417 = zext i16 %416 to i32
+  %418 = load i32, ptr %19, align 4
+  %419 = add i32 %418, %417
+  store i32 %419, ptr %19, align 4
+  %420 = load i16, ptr %31, align 2
+  store i16 %420, ptr %20, align 2
+  store i32 0, ptr %32, align 4
+  br label %421
 
-419:                                              ; preds = %414
-  br label %429
+421:                                              ; preds = %415, %414, %406
+  call void @llvm.lifetime.end.p0(i64 2, ptr %31) #10
+  %422 = load i32, ptr %32, align 4
+  switch i32 %422, label %489 [
+    i32 0, label %423
+    i32 9, label %424
+  ]
 
-420:                                              ; preds = %414, %411
-  %421 = load i32, ptr %22, align 4
-  %422 = icmp ult i32 %421, 20
-  br i1 %422, label %423, label %428
+423:                                              ; preds = %421
+  br label %393, !llvm.loop !9
 
-423:                                              ; preds = %420
-  %424 = load i16, ptr %20, align 2
-  %425 = zext i16 %424 to i32
+424:                                              ; preds = %421, %393
+  %425 = load ptr, ptr %5, align 8
   %426 = load i32, ptr %19, align 4
-  %427 = sub i32 %426, %425
-  store i32 %427, ptr %19, align 4
-  br label %428
+  %427 = call i32 @tvb_reported_length_remaining(ptr noundef %425, i32 noundef %426)
+  store i32 %427, ptr %22, align 4
+  %428 = load i32, ptr %22, align 4
+  %429 = icmp eq i32 %428, 0
+  br i1 %429, label %430, label %431
 
-428:                                              ; preds = %423, %420
-  br label %429
+430:                                              ; preds = %424
+  br label %450
 
-429:                                              ; preds = %428, %419
-  br label %430
+431:                                              ; preds = %424
+  %432 = load i32, ptr %22, align 4
+  %433 = icmp eq i32 %432, 4
+  br i1 %433, label %434, label %440
 
-430:                                              ; preds = %429, %410
+434:                                              ; preds = %431
+  %435 = load ptr, ptr %5, align 8
+  %436 = load i32, ptr %19, align 4
+  %437 = call i32 @tvb_get_ntohl(ptr noundef %435, i32 noundef %436)
+  %438 = icmp eq i32 %437, 0
+  br i1 %438, label %439, label %440
+
+439:                                              ; preds = %434
+  br label %449
+
+440:                                              ; preds = %434, %431
+  %441 = load i32, ptr %22, align 4
+  %442 = icmp ult i32 %441, 20
+  br i1 %442, label %443, label %448
+
+443:                                              ; preds = %440
+  %444 = load i16, ptr %20, align 2
+  %445 = zext i16 %444 to i32
+  %446 = load i32, ptr %19, align 4
+  %447 = sub i32 %446, %445
+  store i32 %447, ptr %19, align 4
+  br label %448
+
+448:                                              ; preds = %443, %440
+  br label %449
+
+449:                                              ; preds = %448, %439
+  br label %450
+
+450:                                              ; preds = %449, %430
   store i32 48, ptr %21, align 4
-  br label %431
+  br label %451
 
-431:                                              ; preds = %435, %430
-  %432 = load i32, ptr %21, align 4
-  %433 = load i32, ptr %19, align 4
-  %434 = icmp slt i32 %432, %433
-  br i1 %434, label %435, label %441
+451:                                              ; preds = %455, %450
+  %452 = load i32, ptr %21, align 4
+  %453 = load i32, ptr %19, align 4
+  %454 = icmp slt i32 %452, %453
+  br i1 %454, label %455, label %462
 
-435:                                              ; preds = %431
-  %436 = load ptr, ptr %5, align 8
-  %437 = load ptr, ptr %6, align 8
-  %438 = load ptr, ptr %7, align 8
-  %439 = load i32, ptr %21, align 4
-  %440 = call i32 @dissect_ntp_ext(ptr noundef %436, ptr noundef %437, ptr noundef %438, i32 noundef %439)
-  store i32 %440, ptr %21, align 4
-  br label %431, !llvm.loop !8
+455:                                              ; preds = %451
+  %456 = load ptr, ptr %5, align 8
+  %457 = load ptr, ptr %6, align 8
+  %458 = load ptr, ptr %7, align 8
+  %459 = load i32, ptr %21, align 4
+  %460 = load i64, ptr %25, align 8
+  %461 = call i32 @dissect_ntp_ext(ptr noundef %456, ptr noundef %457, ptr noundef %458, i32 noundef %459, i64 noundef %460)
+  store i32 %461, ptr %21, align 4
+  br label %451, !llvm.loop !10
 
-441:                                              ; preds = %431
-  %442 = load ptr, ptr %5, align 8
-  %443 = load i32, ptr %21, align 4
-  %444 = call i32 @tvb_reported_length_remaining(ptr noundef %442, i32 noundef %443)
-  %445 = icmp sge i32 %444, 4
-  br i1 %445, label %446, label %452
-
-446:                                              ; preds = %441
-  %447 = load ptr, ptr %7, align 8
-  %448 = load i32, ptr @hf_ntp_keyid, align 4
-  %449 = load ptr, ptr %5, align 8
-  %450 = load i32, ptr %21, align 4
-  %451 = call ptr @proto_tree_add_item(ptr noundef %447, i32 noundef %448, ptr noundef %449, i32 noundef %450, i32 noundef 4, i32 noundef 0)
-  br label %452
-
-452:                                              ; preds = %446, %441
-  %453 = load i32, ptr %21, align 4
-  %454 = add i32 %453, 4
-  store i32 %454, ptr %21, align 4
-  %455 = load ptr, ptr %5, align 8
-  %456 = load i32, ptr %21, align 4
-  %457 = call i32 @tvb_reported_length_remaining(ptr noundef %455, i32 noundef %456)
-  store i32 %457, ptr %22, align 4
-  %458 = load i32, ptr %22, align 4
-  %459 = icmp ugt i32 %458, 0
-  br i1 %459, label %460, label %467
-
-460:                                              ; preds = %452
-  %461 = load ptr, ptr %7, align 8
-  %462 = load i32, ptr @hf_ntp_mac, align 4
+462:                                              ; preds = %451
   %463 = load ptr, ptr %5, align 8
   %464 = load i32, ptr %21, align 4
-  %465 = load i32, ptr %22, align 4
-  %466 = call ptr @proto_tree_add_item(ptr noundef %461, i32 noundef %462, ptr noundef %463, i32 noundef %464, i32 noundef %465, i32 noundef 0)
-  br label %467
+  %465 = call i32 @tvb_reported_length_remaining(ptr noundef %463, i32 noundef %464)
+  %466 = icmp sge i32 %465, 4
+  br i1 %466, label %467, label %473
 
-467:                                              ; preds = %460, %452
+467:                                              ; preds = %462
+  %468 = load ptr, ptr %7, align 8
+  %469 = load i32, ptr @hf_ntp_keyid, align 4
+  %470 = load ptr, ptr %5, align 8
+  %471 = load i32, ptr %21, align 4
+  %472 = call ptr @proto_tree_add_item(ptr noundef %468, i32 noundef %469, ptr noundef %470, i32 noundef %471, i32 noundef 4, i32 noundef 0)
+  br label %473
+
+473:                                              ; preds = %467, %462
+  %474 = load i32, ptr %21, align 4
+  %475 = add i32 %474, 4
+  store i32 %475, ptr %21, align 4
+  %476 = load ptr, ptr %5, align 8
+  %477 = load i32, ptr %21, align 4
+  %478 = call i32 @tvb_reported_length_remaining(ptr noundef %476, i32 noundef %477)
+  store i32 %478, ptr %22, align 4
+  %479 = load i32, ptr %22, align 4
+  %480 = icmp ugt i32 %479, 0
+  br i1 %480, label %481, label %488
+
+481:                                              ; preds = %473
+  %482 = load ptr, ptr %7, align 8
+  %483 = load i32, ptr @hf_ntp_mac, align 4
+  %484 = load ptr, ptr %5, align 8
+  %485 = load i32, ptr %21, align 4
+  %486 = load i32, ptr %22, align 4
+  %487 = call ptr @proto_tree_add_item(ptr noundef %482, i32 noundef %483, ptr noundef %484, i32 noundef %485, i32 noundef %486, i32 noundef 0)
+  br label %488
+
+488:                                              ; preds = %481, %473
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #10
+  call void @llvm.lifetime.end.p0(i64 48, ptr %24) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #10
+  call void @llvm.lifetime.end.p0(i64 2, ptr %20) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #10
   ret void
+
+489:                                              ; preds = %421
+  unreachable
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_ntp_ctrl(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2322,7 +2546,7 @@ define internal void @dissect_ntp_ctrl(ptr noundef %0, ptr noundef %1, ptr nound
   %16 = alloca i16, align 2
   %17 = alloca i16, align 2
   %18 = alloca i32, align 4
-  %19 = alloca i32, align 4
+  %19 = alloca i8, align 1
   %20 = alloca ptr, align 8
   %21 = alloca i32, align 4
   %22 = alloca [3 x %struct._wmem_tree_key_t], align 16
@@ -2336,7 +2560,23 @@ define internal void @dissect_ntp_ctrl(ptr noundef %0, ptr noundef %1, ptr nound
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
-  store i32 0, ptr %19, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #10
+  call void @llvm.lifetime.start.p0(i64 2, ptr %15) #10
+  call void @llvm.lifetime.start.p0(i64 2, ptr %16) #10
+  call void @llvm.lifetime.start.p0(i64 2, ptr %17) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr %19) #10
+  store i8 0, ptr %19, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #10
+  call void @llvm.lifetime.start.p0(i64 48, ptr %22) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #10
   %29 = load ptr, ptr %7, align 8
   %30 = load ptr, ptr %5, align 8
   %31 = load i32, ptr @hf_ntp_flags, align 4
@@ -2348,31 +2588,31 @@ define internal void @dissect_ntp_ctrl(ptr noundef %0, ptr noundef %1, ptr nound
   %37 = load i32, ptr @ett_ntpctrl_flags2, align 4
   %38 = call ptr @proto_tree_add_bitmask(ptr noundef %34, ptr noundef %35, i32 noundef 1, i32 noundef %36, i32 noundef %37, ptr noundef @dissect_ntp_ctrl.ntpctrl_flags, i32 noundef 0)
   %39 = load ptr, ptr %5, align 8
-  %40 = call zeroext i8 @tvb_get_guint8(ptr noundef %39, i32 noundef 1)
+  %40 = call zeroext i8 @tvb_get_uint8(ptr noundef %39, i32 noundef 1)
   store i8 %40, ptr %9, align 1
   %41 = load ptr, ptr %7, align 8
   %42 = load i32, ptr @hf_ntpctrl_sequence, align 4
   %43 = load ptr, ptr %5, align 8
   %44 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %41, i32 noundef %42, ptr noundef %43, i32 noundef 2, i32 noundef 2, i32 noundef 0, ptr noundef %21)
   %45 = getelementptr [3 x %struct._wmem_tree_key_t], ptr %22, i64 0, i64 0
-  %46 = getelementptr inbounds %struct._wmem_tree_key_t, ptr %45, i32 0, i32 0
+  %46 = getelementptr inbounds nuw %struct._wmem_tree_key_t, ptr %45, i32 0, i32 0
   store i32 1, ptr %46, align 16
   %47 = getelementptr [3 x %struct._wmem_tree_key_t], ptr %22, i64 0, i64 0
-  %48 = getelementptr inbounds %struct._wmem_tree_key_t, ptr %47, i32 0, i32 1
+  %48 = getelementptr inbounds nuw %struct._wmem_tree_key_t, ptr %47, i32 0, i32 1
   store ptr %21, ptr %48, align 8
   %49 = getelementptr [3 x %struct._wmem_tree_key_t], ptr %22, i64 0, i64 1
-  %50 = getelementptr inbounds %struct._wmem_tree_key_t, ptr %49, i32 0, i32 0
+  %50 = getelementptr inbounds nuw %struct._wmem_tree_key_t, ptr %49, i32 0, i32 0
   store i32 1, ptr %50, align 16
   %51 = load ptr, ptr %6, align 8
-  %52 = getelementptr inbounds %struct._packet_info, ptr %51, i32 0, i32 3
+  %52 = getelementptr inbounds nuw %struct._packet_info, ptr %51, i32 0, i32 3
   %53 = getelementptr [3 x %struct._wmem_tree_key_t], ptr %22, i64 0, i64 1
-  %54 = getelementptr inbounds %struct._wmem_tree_key_t, ptr %53, i32 0, i32 1
+  %54 = getelementptr inbounds nuw %struct._wmem_tree_key_t, ptr %53, i32 0, i32 1
   store ptr %52, ptr %54, align 8
   %55 = getelementptr [3 x %struct._wmem_tree_key_t], ptr %22, i64 0, i64 2
-  %56 = getelementptr inbounds %struct._wmem_tree_key_t, ptr %55, i32 0, i32 0
+  %56 = getelementptr inbounds nuw %struct._wmem_tree_key_t, ptr %55, i32 0, i32 0
   store i32 0, ptr %56, align 16
   %57 = getelementptr [3 x %struct._wmem_tree_key_t], ptr %22, i64 0, i64 2
-  %58 = getelementptr inbounds %struct._wmem_tree_key_t, ptr %57, i32 0, i32 1
+  %58 = getelementptr inbounds nuw %struct._wmem_tree_key_t, ptr %57, i32 0, i32 1
   store ptr null, ptr %58, align 8
   %59 = load ptr, ptr %5, align 8
   %60 = call zeroext i16 @tvb_get_ntohs(ptr noundef %59, i32 noundef 6)
@@ -2385,7 +2625,7 @@ define internal void @dissect_ntp_ctrl(ptr noundef %0, ptr noundef %1, ptr nound
 
 65:                                               ; preds = %4
   %66 = load ptr, ptr %8, align 8
-  %67 = getelementptr inbounds %struct.ntp_conv_info_t, ptr %66, i32 0, i32 0
+  %67 = getelementptr inbounds nuw %struct.ntp_conv_info_t, ptr %66, i32 0, i32 0
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds [3 x %struct._wmem_tree_key_t], ptr %22, i64 0, i64 0
   %70 = call ptr @wmem_tree_lookup32_array_le(ptr noundef %68, ptr noundef %69)
@@ -2396,7 +2636,7 @@ define internal void @dissect_ntp_ctrl(ptr noundef %0, ptr noundef %1, ptr nound
 
 73:                                               ; preds = %65
   %74 = load ptr, ptr %20, align 8
-  %75 = getelementptr inbounds %struct.ntp_trans_info_t, ptr %74, i32 0, i32 3
+  %75 = getelementptr inbounds nuw %struct.ntp_trans_info_t, ptr %74, i32 0, i32 3
   %76 = load i32, ptr %75, align 8
   %77 = load i32, ptr %21, align 4
   %78 = icmp eq i32 %76, %77
@@ -2404,10 +2644,10 @@ define internal void @dissect_ntp_ctrl(ptr noundef %0, ptr noundef %1, ptr nound
 
 79:                                               ; preds = %73
   %80 = load ptr, ptr %6, align 8
-  %81 = getelementptr inbounds %struct._packet_info, ptr %80, i32 0, i32 8
+  %81 = getelementptr inbounds nuw %struct._packet_info, ptr %80, i32 0, i32 8
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds %struct._frame_data, ptr %82, i32 0, i32 9
-  %84 = load i16, ptr %83, align 2
+  %83 = getelementptr inbounds nuw %struct._frame_data, ptr %82, i32 0, i32 11
+  %84 = load i16, ptr %83, align 1
   %85 = lshr i16 %84, 3
   %86 = and i16 %85, 1
   %87 = zext i16 %86 to i32
@@ -2416,17 +2656,17 @@ define internal void @dissect_ntp_ctrl(ptr noundef %0, ptr noundef %1, ptr nound
 
 89:                                               ; preds = %79
   %90 = load ptr, ptr %20, align 8
-  %91 = getelementptr inbounds %struct.ntp_trans_info_t, ptr %90, i32 0, i32 1
+  %91 = getelementptr inbounds nuw %struct.ntp_trans_info_t, ptr %90, i32 0, i32 1
   %92 = load i32, ptr %91, align 4
   %93 = icmp eq i32 %92, 0
   br i1 %93, label %94, label %100
 
 94:                                               ; preds = %89
   %95 = load ptr, ptr %6, align 8
-  %96 = getelementptr inbounds %struct._packet_info, ptr %95, i32 0, i32 3
+  %96 = getelementptr inbounds nuw %struct._packet_info, ptr %95, i32 0, i32 3
   %97 = load i32, ptr %96, align 4
   %98 = load ptr, ptr %20, align 8
-  %99 = getelementptr inbounds %struct.ntp_trans_info_t, ptr %98, i32 0, i32 1
+  %99 = getelementptr inbounds nuw %struct.ntp_trans_info_t, ptr %98, i32 0, i32 1
   store i32 %97, ptr %99, align 4
   br label %100
 
@@ -2434,20 +2674,22 @@ define internal void @dissect_ntp_ctrl(ptr noundef %0, ptr noundef %1, ptr nound
   br label %119
 
 101:                                              ; preds = %79
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #10
+  call void @llvm.lifetime.start.p0(i64 16, ptr %26) #10
   %102 = load ptr, ptr %7, align 8
   %103 = load i32, ptr @hf_ntp_request_in, align 4
   %104 = load ptr, ptr %5, align 8
   %105 = load ptr, ptr %20, align 8
-  %106 = getelementptr inbounds %struct.ntp_trans_info_t, ptr %105, i32 0, i32 0
+  %106 = getelementptr inbounds nuw %struct.ntp_trans_info_t, ptr %105, i32 0, i32 0
   %107 = load i32, ptr %106, align 8
   %108 = call ptr @proto_tree_add_uint(ptr noundef %102, i32 noundef %103, ptr noundef %104, i32 noundef 0, i32 noundef 0, i32 noundef %107)
   store ptr %108, ptr %25, align 8
   %109 = load ptr, ptr %25, align 8
   call void @proto_item_set_generated(ptr noundef %109)
   %110 = load ptr, ptr %6, align 8
-  %111 = getelementptr inbounds %struct._packet_info, ptr %110, i32 0, i32 4
+  %111 = getelementptr inbounds nuw %struct._packet_info, ptr %110, i32 0, i32 4
   %112 = load ptr, ptr %20, align 8
-  %113 = getelementptr inbounds %struct.ntp_trans_info_t, ptr %112, i32 0, i32 2
+  %113 = getelementptr inbounds nuw %struct.ntp_trans_info_t, ptr %112, i32 0, i32 2
   call void @nstime_delta(ptr noundef %26, ptr noundef %111, ptr noundef %113)
   %114 = load ptr, ptr %7, align 8
   %115 = load i32, ptr @hf_ntp_delta_time, align 4
@@ -2456,6 +2698,8 @@ define internal void @dissect_ntp_ctrl(ptr noundef %0, ptr noundef %1, ptr nound
   store ptr %117, ptr %25, align 8
   %118 = load ptr, ptr %25, align 8
   call void @proto_item_set_generated(ptr noundef %118)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %26) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #10
   br label %119
 
 119:                                              ; preds = %101, %100
@@ -2526,7 +2770,7 @@ define internal void @dissect_ntp_ctrl(ptr noundef %0, ptr noundef %1, ptr nound
 157:                                              ; preds = %131, %131
   br label %158
 
-158:                                              ; preds = %157, %131
+158:                                              ; preds = %131, %157
   %159 = load ptr, ptr %7, align 8
   %160 = load i32, ptr @hf_ntpctrl_status, align 4
   %161 = load ptr, ptr %5, align 8
@@ -2541,10 +2785,10 @@ define internal void @dissect_ntp_ctrl(ptr noundef %0, ptr noundef %1, ptr nound
 
 165:                                              ; preds = %4
   %166 = load ptr, ptr %6, align 8
-  %167 = getelementptr inbounds %struct._packet_info, ptr %166, i32 0, i32 8
+  %167 = getelementptr inbounds nuw %struct._packet_info, ptr %166, i32 0, i32 8
   %168 = load ptr, ptr %167, align 8
-  %169 = getelementptr inbounds %struct._frame_data, ptr %168, i32 0, i32 9
-  %170 = load i16, ptr %169, align 2
+  %169 = getelementptr inbounds nuw %struct._frame_data, ptr %168, i32 0, i32 11
+  %170 = load i16, ptr %169, align 1
   %171 = lshr i16 %170, 3
   %172 = and i16 %171, 1
   %173 = zext i16 %172 to i32
@@ -2553,28 +2797,28 @@ define internal void @dissect_ntp_ctrl(ptr noundef %0, ptr noundef %1, ptr nound
 
 175:                                              ; preds = %165
   %176 = call ptr @wmem_file_scope()
-  %177 = call noalias ptr @wmem_alloc(ptr noundef %176, i64 noundef 32)
+  %177 = call noalias ptr @wmem_alloc(ptr noundef %176, i64 noundef 32) #11
   store ptr %177, ptr %20, align 8
   %178 = load ptr, ptr %6, align 8
-  %179 = getelementptr inbounds %struct._packet_info, ptr %178, i32 0, i32 3
+  %179 = getelementptr inbounds nuw %struct._packet_info, ptr %178, i32 0, i32 3
   %180 = load i32, ptr %179, align 4
   %181 = load ptr, ptr %20, align 8
-  %182 = getelementptr inbounds %struct.ntp_trans_info_t, ptr %181, i32 0, i32 0
+  %182 = getelementptr inbounds nuw %struct.ntp_trans_info_t, ptr %181, i32 0, i32 0
   store i32 %180, ptr %182, align 8
   %183 = load ptr, ptr %20, align 8
-  %184 = getelementptr inbounds %struct.ntp_trans_info_t, ptr %183, i32 0, i32 1
+  %184 = getelementptr inbounds nuw %struct.ntp_trans_info_t, ptr %183, i32 0, i32 1
   store i32 0, ptr %184, align 4
   %185 = load ptr, ptr %20, align 8
-  %186 = getelementptr inbounds %struct.ntp_trans_info_t, ptr %185, i32 0, i32 2
+  %186 = getelementptr inbounds nuw %struct.ntp_trans_info_t, ptr %185, i32 0, i32 2
   %187 = load ptr, ptr %6, align 8
-  %188 = getelementptr inbounds %struct._packet_info, ptr %187, i32 0, i32 4
+  %188 = getelementptr inbounds nuw %struct._packet_info, ptr %187, i32 0, i32 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %186, ptr align 8 %188, i64 16, i1 false)
   %189 = load i32, ptr %21, align 4
   %190 = load ptr, ptr %20, align 8
-  %191 = getelementptr inbounds %struct.ntp_trans_info_t, ptr %190, i32 0, i32 3
+  %191 = getelementptr inbounds nuw %struct.ntp_trans_info_t, ptr %190, i32 0, i32 3
   store i32 %189, ptr %191, align 8
   %192 = load ptr, ptr %8, align 8
-  %193 = getelementptr inbounds %struct.ntp_conv_info_t, ptr %192, i32 0, i32 0
+  %193 = getelementptr inbounds nuw %struct.ntp_conv_info_t, ptr %192, i32 0, i32 0
   %194 = load ptr, ptr %193, align 8
   %195 = getelementptr inbounds [3 x %struct._wmem_tree_key_t], ptr %22, i64 0, i64 0
   %196 = load ptr, ptr %20, align 8
@@ -2583,7 +2827,7 @@ define internal void @dissect_ntp_ctrl(ptr noundef %0, ptr noundef %1, ptr nound
 
 197:                                              ; preds = %165
   %198 = load ptr, ptr %8, align 8
-  %199 = getelementptr inbounds %struct.ntp_conv_info_t, ptr %198, i32 0, i32 0
+  %199 = getelementptr inbounds nuw %struct.ntp_conv_info_t, ptr %198, i32 0, i32 0
   %200 = load ptr, ptr %199, align 8
   %201 = getelementptr inbounds [3 x %struct._wmem_tree_key_t], ptr %22, i64 0, i64 0
   %202 = call ptr @wmem_tree_lookup32_array_le(ptr noundef %200, ptr noundef %201)
@@ -2594,30 +2838,32 @@ define internal void @dissect_ntp_ctrl(ptr noundef %0, ptr noundef %1, ptr nound
 
 205:                                              ; preds = %197
   %206 = load ptr, ptr %20, align 8
-  %207 = getelementptr inbounds %struct.ntp_trans_info_t, ptr %206, i32 0, i32 1
+  %207 = getelementptr inbounds nuw %struct.ntp_trans_info_t, ptr %206, i32 0, i32 1
   %208 = load i32, ptr %207, align 4
   %209 = icmp ne i32 %208, 0
   br i1 %209, label %210, label %225
 
 210:                                              ; preds = %205
   %211 = load ptr, ptr %20, align 8
-  %212 = getelementptr inbounds %struct.ntp_trans_info_t, ptr %211, i32 0, i32 3
+  %212 = getelementptr inbounds nuw %struct.ntp_trans_info_t, ptr %211, i32 0, i32 3
   %213 = load i32, ptr %212, align 8
   %214 = load i32, ptr %21, align 4
   %215 = icmp eq i32 %213, %214
   br i1 %215, label %216, label %225
 
 216:                                              ; preds = %210
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #10
   %217 = load ptr, ptr %7, align 8
   %218 = load i32, ptr @hf_ntp_response_in, align 4
   %219 = load ptr, ptr %5, align 8
   %220 = load ptr, ptr %20, align 8
-  %221 = getelementptr inbounds %struct.ntp_trans_info_t, ptr %220, i32 0, i32 1
+  %221 = getelementptr inbounds nuw %struct.ntp_trans_info_t, ptr %220, i32 0, i32 1
   %222 = load i32, ptr %221, align 4
   %223 = call ptr @proto_tree_add_uint(ptr noundef %217, i32 noundef %218, ptr noundef %219, i32 noundef 0, i32 noundef 0, i32 noundef %222)
   store ptr %223, ptr %27, align 8
   %224 = load ptr, ptr %27, align 8
   call void @proto_item_set_generated(ptr noundef %224)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #10
   br label %225
 
 225:                                              ; preds = %216, %210, %205, %197
@@ -2737,7 +2983,7 @@ define internal void @dissect_ntp_ctrl(ptr noundef %0, ptr noundef %1, ptr nound
   %305 = sub i32 %304, 4
   %306 = trunc i32 %305 to i16
   store i16 %306, ptr %16, align 2
-  br label %269, !llvm.loop !9
+  br label %269, !llvm.loop !11
 
 307:                                              ; preds = %269
   br label %374
@@ -2745,9 +2991,9 @@ define internal void @dissect_ntp_ctrl(ptr noundef %0, ptr noundef %1, ptr nound
 308:                                              ; preds = %265
   br label %309
 
-309:                                              ; preds = %308, %250, %250, %250, %250
+309:                                              ; preds = %250, %250, %250, %250, %308
   %310 = load ptr, ptr %6, align 8
-  %311 = getelementptr inbounds %struct._packet_info, ptr %310, i32 0, i32 50
+  %311 = getelementptr inbounds nuw %struct._packet_info, ptr %310, i32 0, i32 51
   %312 = load ptr, ptr %311, align 8
   %313 = load ptr, ptr %5, align 8
   %314 = load i16, ptr %17, align 2
@@ -2771,7 +3017,7 @@ define internal void @dissect_ntp_ctrl(ptr noundef %0, ptr noundef %1, ptr nound
   %326 = load ptr, ptr %10, align 8
   %327 = load ptr, ptr %24, align 8
   call void @tvbparse_tree_add_elem(ptr noundef %326, ptr noundef %327)
-  br label %320, !llvm.loop !10
+  br label %320, !llvm.loop !12
 
 328:                                              ; preds = %320
   br label %374
@@ -2796,7 +3042,7 @@ define internal void @dissect_ntp_ctrl(ptr noundef %0, ptr noundef %1, ptr nound
   %344 = load i16, ptr %16, align 2
   %345 = zext i16 %344 to i32
   %346 = call ptr @proto_tree_add_item(ptr noundef %339, i32 noundef %340, ptr noundef %341, i32 noundef %343, i32 noundef %345, i32 noundef 0)
-  store i32 1, ptr %19, align 4
+  store i8 1, ptr %19, align 1
   br label %374
 
 347:                                              ; preds = %250
@@ -2808,7 +3054,7 @@ define internal void @dissect_ntp_ctrl(ptr noundef %0, ptr noundef %1, ptr nound
   %353 = load i16, ptr %16, align 2
   %354 = zext i16 %353 to i32
   %355 = call ptr @proto_tree_add_item(ptr noundef %348, i32 noundef %349, ptr noundef %350, i32 noundef %352, i32 noundef %354, i32 noundef 0)
-  store i32 1, ptr %19, align 4
+  store i8 1, ptr %19, align 1
   br label %374
 
 356:                                              ; preds = %250
@@ -2820,7 +3066,7 @@ define internal void @dissect_ntp_ctrl(ptr noundef %0, ptr noundef %1, ptr nound
   %362 = load i16, ptr %16, align 2
   %363 = zext i16 %362 to i32
   %364 = call ptr @proto_tree_add_item(ptr noundef %357, i32 noundef %358, ptr noundef %359, i32 noundef %361, i32 noundef %363, i32 noundef 0)
-  store i32 1, ptr %19, align 4
+  store i8 1, ptr %19, align 1
   br label %374
 
 365:                                              ; preds = %250
@@ -2832,10 +3078,10 @@ define internal void @dissect_ntp_ctrl(ptr noundef %0, ptr noundef %1, ptr nound
   %371 = load i16, ptr %16, align 2
   %372 = zext i16 %371 to i32
   %373 = call ptr @proto_tree_add_item(ptr noundef %366, i32 noundef %367, ptr noundef %368, i32 noundef %370, i32 noundef %372, i32 noundef 0)
-  store i32 1, ptr %19, align 4
+  store i8 1, ptr %19, align 1
   br label %374
 
-374:                                              ; preds = %365, %356, %347, %338, %329, %328, %307, %250
+374:                                              ; preds = %250, %365, %356, %347, %338, %329, %328, %307
   br label %375
 
 375:                                              ; preds = %374, %231
@@ -2848,143 +3094,163 @@ define internal void @dissect_ntp_ctrl(ptr noundef %0, ptr noundef %1, ptr nound
   %381 = zext i8 %380 to i32
   %382 = and i32 %381, 128
   %383 = icmp eq i32 %382, 0
-  br i1 %383, label %387, label %384
+  br i1 %383, label %389, label %384
 
 384:                                              ; preds = %375
-  %385 = load i32, ptr %19, align 4
-  %386 = icmp eq i32 %385, 1
-  br i1 %386, label %387, label %478
+  %385 = load i8, ptr %19, align 1, !range !13, !noundef !14
+  %386 = trunc i8 %385 to i1
+  %387 = zext i1 %386 to i32
+  %388 = icmp eq i32 %387, 1
+  br i1 %388, label %389, label %480
 
-387:                                              ; preds = %384, %375
-  %388 = load ptr, ptr %5, align 8
-  %389 = load i16, ptr %17, align 2
-  %390 = zext i16 %389 to i32
-  %391 = call i32 @tvb_reported_length_remaining(ptr noundef %388, i32 noundef %390)
-  store i32 %391, ptr %18, align 4
-  %392 = load i16, ptr %17, align 2
-  %393 = zext i16 %392 to i32
-  %394 = and i32 %393, 7
-  %395 = icmp ne i32 %394, 0
-  br i1 %395, label %396, label %401
+389:                                              ; preds = %384, %375
+  call void @llvm.lifetime.start.p0(i64 4, ptr %28) #10
+  %390 = load ptr, ptr %5, align 8
+  %391 = load i16, ptr %17, align 2
+  %392 = zext i16 %391 to i32
+  %393 = call i32 @tvb_reported_length_remaining(ptr noundef %390, i32 noundef %392)
+  store i32 %393, ptr %18, align 4
+  %394 = load i16, ptr %17, align 2
+  %395 = zext i16 %394 to i32
+  %396 = and i32 %395, 7
+  %397 = icmp ne i32 %396, 0
+  br i1 %397, label %398, label %403
 
-396:                                              ; preds = %387
-  %397 = load i16, ptr %17, align 2
-  %398 = zext i16 %397 to i32
-  %399 = and i32 %398, 7
-  %400 = sub i32 8, %399
-  br label %402
+398:                                              ; preds = %389
+  %399 = load i16, ptr %17, align 2
+  %400 = zext i16 %399 to i32
+  %401 = and i32 %400, 7
+  %402 = sub i32 8, %401
+  br label %404
 
-401:                                              ; preds = %387
-  br label %402
+403:                                              ; preds = %389
+  br label %404
 
-402:                                              ; preds = %401, %396
-  %403 = phi i32 [ %400, %396 ], [ 0, %401 ]
-  store i32 %403, ptr %28, align 4
-  %404 = load i32, ptr %18, align 4
-  %405 = load i32, ptr %28, align 4
-  %406 = icmp sgt i32 %404, %405
-  br i1 %406, label %407, label %477
+404:                                              ; preds = %403, %398
+  %405 = phi i32 [ %402, %398 ], [ 0, %403 ]
+  store i32 %405, ptr %28, align 4
+  %406 = load i32, ptr %18, align 4
+  %407 = load i32, ptr %28, align 4
+  %408 = icmp sgt i32 %406, %407
+  br i1 %408, label %409, label %479
 
-407:                                              ; preds = %402
-  %408 = load i32, ptr %28, align 4
-  %409 = icmp ne i32 %408, 0
-  br i1 %409, label %410, label %426
+409:                                              ; preds = %404
+  %410 = load i32, ptr %28, align 4
+  %411 = icmp ne i32 %410, 0
+  br i1 %411, label %412, label %428
 
-410:                                              ; preds = %407
-  %411 = load ptr, ptr %7, align 8
-  %412 = load i32, ptr @hf_ntp_padding, align 4
-  %413 = load ptr, ptr %5, align 8
-  %414 = load i16, ptr %17, align 2
-  %415 = zext i16 %414 to i32
-  %416 = load i32, ptr %28, align 4
-  %417 = call ptr @proto_tree_add_item(ptr noundef %411, i32 noundef %412, ptr noundef %413, i32 noundef %415, i32 noundef %416, i32 noundef 0)
+412:                                              ; preds = %409
+  %413 = load ptr, ptr %7, align 8
+  %414 = load i32, ptr @hf_ntp_padding, align 4
+  %415 = load ptr, ptr %5, align 8
+  %416 = load i16, ptr %17, align 2
+  %417 = zext i16 %416 to i32
   %418 = load i32, ptr %28, align 4
-  %419 = load i16, ptr %17, align 2
-  %420 = zext i16 %419 to i32
-  %421 = add i32 %420, %418
-  %422 = trunc i32 %421 to i16
-  store i16 %422, ptr %17, align 2
-  %423 = load i32, ptr %28, align 4
-  %424 = load i32, ptr %18, align 4
-  %425 = sub i32 %424, %423
-  store i32 %425, ptr %18, align 4
-  br label %426
+  %419 = call ptr @proto_tree_add_item(ptr noundef %413, i32 noundef %414, ptr noundef %415, i32 noundef %417, i32 noundef %418, i32 noundef 0)
+  %420 = load i32, ptr %28, align 4
+  %421 = load i16, ptr %17, align 2
+  %422 = zext i16 %421 to i32
+  %423 = add i32 %422, %420
+  %424 = trunc i32 %423 to i16
+  store i16 %424, ptr %17, align 2
+  %425 = load i32, ptr %28, align 4
+  %426 = load i32, ptr %18, align 4
+  %427 = sub i32 %426, %425
+  store i32 %427, ptr %18, align 4
+  br label %428
 
-426:                                              ; preds = %410, %407
-  %427 = load ptr, ptr %7, align 8
-  %428 = load ptr, ptr %5, align 8
-  %429 = load i16, ptr %17, align 2
-  %430 = zext i16 %429 to i32
-  %431 = load i32, ptr @ett_ntp_authenticator, align 4
-  %432 = call ptr @proto_tree_add_subtree(ptr noundef %427, ptr noundef %428, i32 noundef %430, i32 noundef -1, i32 noundef %431, ptr noundef null, ptr noundef @.str.908)
-  store ptr %432, ptr %12, align 8
-  %433 = load i32, ptr %18, align 4
-  switch i32 %433, label %476 [
-    i32 20, label %434
-    i32 24, label %455
+428:                                              ; preds = %412, %409
+  %429 = load ptr, ptr %7, align 8
+  %430 = load ptr, ptr %5, align 8
+  %431 = load i16, ptr %17, align 2
+  %432 = zext i16 %431 to i32
+  %433 = load i32, ptr @ett_ntp_authenticator, align 4
+  %434 = call ptr @proto_tree_add_subtree(ptr noundef %429, ptr noundef %430, i32 noundef %432, i32 noundef -1, i32 noundef %433, ptr noundef null, ptr noundef @.str.984)
+  store ptr %434, ptr %12, align 8
+  %435 = load i32, ptr %18, align 4
+  switch i32 %435, label %478 [
+    i32 20, label %436
+    i32 24, label %457
   ]
 
-434:                                              ; preds = %426
-  %435 = load ptr, ptr %12, align 8
-  %436 = load i32, ptr @hf_ntp_key_type, align 4
-  %437 = load ptr, ptr %5, align 8
-  %438 = load i16, ptr %17, align 2
-  %439 = zext i16 %438 to i32
-  %440 = call ptr @proto_tree_add_uint(ptr noundef %435, i32 noundef %436, ptr noundef %437, i32 noundef %439, i32 noundef 0, i32 noundef 0)
-  store ptr %440, ptr %14, align 8
-  %441 = load ptr, ptr %14, align 8
-  call void @proto_item_set_generated(ptr noundef %441)
-  %442 = load ptr, ptr %12, align 8
-  %443 = load i32, ptr @hf_ntp_key_index, align 4
-  %444 = load ptr, ptr %5, align 8
-  %445 = load i16, ptr %17, align 2
-  %446 = zext i16 %445 to i32
-  %447 = call ptr @proto_tree_add_item(ptr noundef %442, i32 noundef %443, ptr noundef %444, i32 noundef %446, i32 noundef 4, i32 noundef 0)
-  %448 = load ptr, ptr %12, align 8
-  %449 = load i32, ptr @hf_ntp_key_signature, align 4
-  %450 = load ptr, ptr %5, align 8
-  %451 = load i16, ptr %17, align 2
-  %452 = zext i16 %451 to i32
-  %453 = add i32 %452, 4
-  %454 = call ptr @proto_tree_add_item(ptr noundef %448, i32 noundef %449, ptr noundef %450, i32 noundef %453, i32 noundef 16, i32 noundef 0)
-  br label %476
-
-455:                                              ; preds = %426
-  %456 = load ptr, ptr %12, align 8
-  %457 = load i32, ptr @hf_ntp_key_type, align 4
-  %458 = load ptr, ptr %5, align 8
-  %459 = load i16, ptr %17, align 2
-  %460 = zext i16 %459 to i32
-  %461 = call ptr @proto_tree_add_uint(ptr noundef %456, i32 noundef %457, ptr noundef %458, i32 noundef %460, i32 noundef 0, i32 noundef 1)
-  store ptr %461, ptr %14, align 8
-  %462 = load ptr, ptr %14, align 8
-  call void @proto_item_set_generated(ptr noundef %462)
-  %463 = load ptr, ptr %12, align 8
-  %464 = load i32, ptr @hf_ntp_key_index, align 4
-  %465 = load ptr, ptr %5, align 8
-  %466 = load i16, ptr %17, align 2
-  %467 = zext i16 %466 to i32
-  %468 = call ptr @proto_tree_add_item(ptr noundef %463, i32 noundef %464, ptr noundef %465, i32 noundef %467, i32 noundef 4, i32 noundef 0)
-  %469 = load ptr, ptr %12, align 8
-  %470 = load i32, ptr @hf_ntp_key_signature, align 4
-  %471 = load ptr, ptr %5, align 8
-  %472 = load i16, ptr %17, align 2
-  %473 = zext i16 %472 to i32
-  %474 = add i32 %473, 4
-  %475 = call ptr @proto_tree_add_item(ptr noundef %469, i32 noundef %470, ptr noundef %471, i32 noundef %474, i32 noundef 20, i32 noundef 0)
-  br label %476
-
-476:                                              ; preds = %455, %434, %426
-  br label %477
-
-477:                                              ; preds = %476, %402
+436:                                              ; preds = %428
+  %437 = load ptr, ptr %12, align 8
+  %438 = load i32, ptr @hf_ntp_key_type, align 4
+  %439 = load ptr, ptr %5, align 8
+  %440 = load i16, ptr %17, align 2
+  %441 = zext i16 %440 to i32
+  %442 = call ptr @proto_tree_add_uint(ptr noundef %437, i32 noundef %438, ptr noundef %439, i32 noundef %441, i32 noundef 0, i32 noundef 0)
+  store ptr %442, ptr %14, align 8
+  %443 = load ptr, ptr %14, align 8
+  call void @proto_item_set_generated(ptr noundef %443)
+  %444 = load ptr, ptr %12, align 8
+  %445 = load i32, ptr @hf_ntp_key_index, align 4
+  %446 = load ptr, ptr %5, align 8
+  %447 = load i16, ptr %17, align 2
+  %448 = zext i16 %447 to i32
+  %449 = call ptr @proto_tree_add_item(ptr noundef %444, i32 noundef %445, ptr noundef %446, i32 noundef %448, i32 noundef 4, i32 noundef 0)
+  %450 = load ptr, ptr %12, align 8
+  %451 = load i32, ptr @hf_ntp_key_signature, align 4
+  %452 = load ptr, ptr %5, align 8
+  %453 = load i16, ptr %17, align 2
+  %454 = zext i16 %453 to i32
+  %455 = add i32 %454, 4
+  %456 = call ptr @proto_tree_add_item(ptr noundef %450, i32 noundef %451, ptr noundef %452, i32 noundef %455, i32 noundef 16, i32 noundef 0)
   br label %478
 
-478:                                              ; preds = %477, %384
+457:                                              ; preds = %428
+  %458 = load ptr, ptr %12, align 8
+  %459 = load i32, ptr @hf_ntp_key_type, align 4
+  %460 = load ptr, ptr %5, align 8
+  %461 = load i16, ptr %17, align 2
+  %462 = zext i16 %461 to i32
+  %463 = call ptr @proto_tree_add_uint(ptr noundef %458, i32 noundef %459, ptr noundef %460, i32 noundef %462, i32 noundef 0, i32 noundef 1)
+  store ptr %463, ptr %14, align 8
+  %464 = load ptr, ptr %14, align 8
+  call void @proto_item_set_generated(ptr noundef %464)
+  %465 = load ptr, ptr %12, align 8
+  %466 = load i32, ptr @hf_ntp_key_index, align 4
+  %467 = load ptr, ptr %5, align 8
+  %468 = load i16, ptr %17, align 2
+  %469 = zext i16 %468 to i32
+  %470 = call ptr @proto_tree_add_item(ptr noundef %465, i32 noundef %466, ptr noundef %467, i32 noundef %469, i32 noundef 4, i32 noundef 0)
+  %471 = load ptr, ptr %12, align 8
+  %472 = load i32, ptr @hf_ntp_key_signature, align 4
+  %473 = load ptr, ptr %5, align 8
+  %474 = load i16, ptr %17, align 2
+  %475 = zext i16 %474 to i32
+  %476 = add i32 %475, 4
+  %477 = call ptr @proto_tree_add_item(ptr noundef %471, i32 noundef %472, ptr noundef %473, i32 noundef %476, i32 noundef 20, i32 noundef 0)
+  br label %478
+
+478:                                              ; preds = %428, %457, %436
+  br label %479
+
+479:                                              ; preds = %478, %404
+  call void @llvm.lifetime.end.p0(i64 4, ptr %28) #10
+  br label %480
+
+480:                                              ; preds = %479, %384
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #10
+  call void @llvm.lifetime.end.p0(i64 48, ptr %22) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %19) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #10
+  call void @llvm.lifetime.end.p0(i64 2, ptr %17) #10
+  call void @llvm.lifetime.end.p0(i64 2, ptr %16) #10
+  call void @llvm.lifetime.end.p0(i64 2, ptr %15) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #10
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_ntp_priv(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3012,6 +3278,13 @@ define internal void @dissect_ntp_priv(ptr noundef %0, ptr noundef %1, ptr nound
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #10
+  call void @llvm.lifetime.start.p0(i64 48, ptr %14) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #10
   %27 = load ptr, ptr %7, align 8
   %28 = load ptr, ptr %5, align 8
   %29 = load i32, ptr @hf_ntp_flags, align 4
@@ -3031,37 +3304,37 @@ define internal void @dissect_ntp_priv(ptr noundef %0, ptr noundef %1, ptr nound
   %43 = load ptr, ptr %5, align 8
   %44 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %41, i32 noundef %42, ptr noundef %43, i32 noundef 3, i32 noundef 1, i32 noundef 0, ptr noundef %10)
   %45 = load ptr, ptr %6, align 8
-  %46 = getelementptr inbounds %struct._packet_info, ptr %45, i32 0, i32 1
+  %46 = getelementptr inbounds nuw %struct._packet_info, ptr %45, i32 0, i32 1
   %47 = load ptr, ptr %46, align 8
   %48 = load i64, ptr %11, align 8
   %49 = and i64 %48, 128
   %50 = icmp ne i64 %49, 0
-  %51 = select i1 %50, ptr @.str.910, ptr @.str.911
+  %51 = select i1 %50, ptr @.str.986, ptr @.str.987
   %52 = load i32, ptr %10, align 4
-  %53 = call ptr @val_to_str_ext_const(i32 noundef %52, ptr noundef @priv_rc_types_ext, ptr noundef @.str.807)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %47, i32 noundef 25, ptr noundef @.str.909, ptr noundef %51, ptr noundef %53)
+  %53 = call ptr @val_to_str_ext_const(i32 noundef %52, ptr noundef @priv_rc_types_ext, ptr noundef @.str.845)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %47, i32 noundef 25, ptr noundef @.str.985, ptr noundef %51, ptr noundef %53)
   %54 = load i32, ptr %9, align 4
   %55 = or i32 -16777216, %54
   store i32 %55, ptr %15, align 4
   %56 = getelementptr [3 x %struct._wmem_tree_key_t], ptr %14, i64 0, i64 0
-  %57 = getelementptr inbounds %struct._wmem_tree_key_t, ptr %56, i32 0, i32 0
+  %57 = getelementptr inbounds nuw %struct._wmem_tree_key_t, ptr %56, i32 0, i32 0
   store i32 1, ptr %57, align 16
   %58 = getelementptr [3 x %struct._wmem_tree_key_t], ptr %14, i64 0, i64 0
-  %59 = getelementptr inbounds %struct._wmem_tree_key_t, ptr %58, i32 0, i32 1
+  %59 = getelementptr inbounds nuw %struct._wmem_tree_key_t, ptr %58, i32 0, i32 1
   store ptr %15, ptr %59, align 8
   %60 = getelementptr [3 x %struct._wmem_tree_key_t], ptr %14, i64 0, i64 1
-  %61 = getelementptr inbounds %struct._wmem_tree_key_t, ptr %60, i32 0, i32 0
+  %61 = getelementptr inbounds nuw %struct._wmem_tree_key_t, ptr %60, i32 0, i32 0
   store i32 1, ptr %61, align 16
   %62 = load ptr, ptr %6, align 8
-  %63 = getelementptr inbounds %struct._packet_info, ptr %62, i32 0, i32 3
+  %63 = getelementptr inbounds nuw %struct._packet_info, ptr %62, i32 0, i32 3
   %64 = getelementptr [3 x %struct._wmem_tree_key_t], ptr %14, i64 0, i64 1
-  %65 = getelementptr inbounds %struct._wmem_tree_key_t, ptr %64, i32 0, i32 1
+  %65 = getelementptr inbounds nuw %struct._wmem_tree_key_t, ptr %64, i32 0, i32 1
   store ptr %63, ptr %65, align 8
   %66 = getelementptr [3 x %struct._wmem_tree_key_t], ptr %14, i64 0, i64 2
-  %67 = getelementptr inbounds %struct._wmem_tree_key_t, ptr %66, i32 0, i32 0
+  %67 = getelementptr inbounds nuw %struct._wmem_tree_key_t, ptr %66, i32 0, i32 0
   store i32 0, ptr %67, align 16
   %68 = getelementptr [3 x %struct._wmem_tree_key_t], ptr %14, i64 0, i64 2
-  %69 = getelementptr inbounds %struct._wmem_tree_key_t, ptr %68, i32 0, i32 1
+  %69 = getelementptr inbounds nuw %struct._wmem_tree_key_t, ptr %68, i32 0, i32 1
   store ptr null, ptr %69, align 8
   %70 = load i64, ptr %11, align 8
   %71 = and i64 %70, 128
@@ -3070,7 +3343,7 @@ define internal void @dissect_ntp_priv(ptr noundef %0, ptr noundef %1, ptr nound
 
 73:                                               ; preds = %4
   %74 = load ptr, ptr %8, align 8
-  %75 = getelementptr inbounds %struct.ntp_conv_info_t, ptr %74, i32 0, i32 0
+  %75 = getelementptr inbounds nuw %struct.ntp_conv_info_t, ptr %74, i32 0, i32 0
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr inbounds [3 x %struct._wmem_tree_key_t], ptr %14, i64 0, i64 0
   %78 = call ptr @wmem_tree_lookup32_array_le(ptr noundef %76, ptr noundef %77)
@@ -3081,7 +3354,7 @@ define internal void @dissect_ntp_priv(ptr noundef %0, ptr noundef %1, ptr nound
 
 81:                                               ; preds = %73
   %82 = load ptr, ptr %13, align 8
-  %83 = getelementptr inbounds %struct.ntp_trans_info_t, ptr %82, i32 0, i32 3
+  %83 = getelementptr inbounds nuw %struct.ntp_trans_info_t, ptr %82, i32 0, i32 3
   %84 = load i32, ptr %83, align 8
   %85 = load i32, ptr %15, align 4
   %86 = icmp eq i32 %84, %85
@@ -3089,10 +3362,10 @@ define internal void @dissect_ntp_priv(ptr noundef %0, ptr noundef %1, ptr nound
 
 87:                                               ; preds = %81
   %88 = load ptr, ptr %6, align 8
-  %89 = getelementptr inbounds %struct._packet_info, ptr %88, i32 0, i32 8
+  %89 = getelementptr inbounds nuw %struct._packet_info, ptr %88, i32 0, i32 8
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds %struct._frame_data, ptr %90, i32 0, i32 9
-  %92 = load i16, ptr %91, align 2
+  %91 = getelementptr inbounds nuw %struct._frame_data, ptr %90, i32 0, i32 11
+  %92 = load i16, ptr %91, align 1
   %93 = lshr i16 %92, 3
   %94 = and i16 %93, 1
   %95 = zext i16 %94 to i32
@@ -3101,17 +3374,17 @@ define internal void @dissect_ntp_priv(ptr noundef %0, ptr noundef %1, ptr nound
 
 97:                                               ; preds = %87
   %98 = load ptr, ptr %13, align 8
-  %99 = getelementptr inbounds %struct.ntp_trans_info_t, ptr %98, i32 0, i32 1
+  %99 = getelementptr inbounds nuw %struct.ntp_trans_info_t, ptr %98, i32 0, i32 1
   %100 = load i32, ptr %99, align 4
   %101 = icmp eq i32 %100, 0
   br i1 %101, label %102, label %108
 
 102:                                              ; preds = %97
   %103 = load ptr, ptr %6, align 8
-  %104 = getelementptr inbounds %struct._packet_info, ptr %103, i32 0, i32 3
+  %104 = getelementptr inbounds nuw %struct._packet_info, ptr %103, i32 0, i32 3
   %105 = load i32, ptr %104, align 4
   %106 = load ptr, ptr %13, align 8
-  %107 = getelementptr inbounds %struct.ntp_trans_info_t, ptr %106, i32 0, i32 1
+  %107 = getelementptr inbounds nuw %struct.ntp_trans_info_t, ptr %106, i32 0, i32 1
   store i32 %105, ptr %107, align 4
   br label %108
 
@@ -3119,20 +3392,22 @@ define internal void @dissect_ntp_priv(ptr noundef %0, ptr noundef %1, ptr nound
   br label %127
 
 109:                                              ; preds = %87
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #10
+  call void @llvm.lifetime.start.p0(i64 16, ptr %17) #10
   %110 = load ptr, ptr %7, align 8
   %111 = load i32, ptr @hf_ntp_request_in, align 4
   %112 = load ptr, ptr %5, align 8
   %113 = load ptr, ptr %13, align 8
-  %114 = getelementptr inbounds %struct.ntp_trans_info_t, ptr %113, i32 0, i32 0
+  %114 = getelementptr inbounds nuw %struct.ntp_trans_info_t, ptr %113, i32 0, i32 0
   %115 = load i32, ptr %114, align 8
   %116 = call ptr @proto_tree_add_uint(ptr noundef %110, i32 noundef %111, ptr noundef %112, i32 noundef 0, i32 noundef 0, i32 noundef %115)
   store ptr %116, ptr %16, align 8
   %117 = load ptr, ptr %16, align 8
   call void @proto_item_set_generated(ptr noundef %117)
   %118 = load ptr, ptr %6, align 8
-  %119 = getelementptr inbounds %struct._packet_info, ptr %118, i32 0, i32 4
+  %119 = getelementptr inbounds nuw %struct._packet_info, ptr %118, i32 0, i32 4
   %120 = load ptr, ptr %13, align 8
-  %121 = getelementptr inbounds %struct.ntp_trans_info_t, ptr %120, i32 0, i32 2
+  %121 = getelementptr inbounds nuw %struct.ntp_trans_info_t, ptr %120, i32 0, i32 2
   call void @nstime_delta(ptr noundef %17, ptr noundef %119, ptr noundef %121)
   %122 = load ptr, ptr %7, align 8
   %123 = load i32, ptr @hf_ntp_delta_time, align 4
@@ -3141,6 +3416,8 @@ define internal void @dissect_ntp_priv(ptr noundef %0, ptr noundef %1, ptr nound
   store ptr %125, ptr %16, align 8
   %126 = load ptr, ptr %16, align 8
   call void @proto_item_set_generated(ptr noundef %126)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %17) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #10
   br label %127
 
 127:                                              ; preds = %109, %108
@@ -3151,10 +3428,10 @@ define internal void @dissect_ntp_priv(ptr noundef %0, ptr noundef %1, ptr nound
 
 129:                                              ; preds = %4
   %130 = load ptr, ptr %6, align 8
-  %131 = getelementptr inbounds %struct._packet_info, ptr %130, i32 0, i32 8
+  %131 = getelementptr inbounds nuw %struct._packet_info, ptr %130, i32 0, i32 8
   %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds %struct._frame_data, ptr %132, i32 0, i32 9
-  %134 = load i16, ptr %133, align 2
+  %133 = getelementptr inbounds nuw %struct._frame_data, ptr %132, i32 0, i32 11
+  %134 = load i16, ptr %133, align 1
   %135 = lshr i16 %134, 3
   %136 = and i16 %135, 1
   %137 = zext i16 %136 to i32
@@ -3163,28 +3440,28 @@ define internal void @dissect_ntp_priv(ptr noundef %0, ptr noundef %1, ptr nound
 
 139:                                              ; preds = %129
   %140 = call ptr @wmem_file_scope()
-  %141 = call noalias ptr @wmem_alloc(ptr noundef %140, i64 noundef 32)
+  %141 = call noalias ptr @wmem_alloc(ptr noundef %140, i64 noundef 32) #11
   store ptr %141, ptr %13, align 8
   %142 = load ptr, ptr %6, align 8
-  %143 = getelementptr inbounds %struct._packet_info, ptr %142, i32 0, i32 3
+  %143 = getelementptr inbounds nuw %struct._packet_info, ptr %142, i32 0, i32 3
   %144 = load i32, ptr %143, align 4
   %145 = load ptr, ptr %13, align 8
-  %146 = getelementptr inbounds %struct.ntp_trans_info_t, ptr %145, i32 0, i32 0
+  %146 = getelementptr inbounds nuw %struct.ntp_trans_info_t, ptr %145, i32 0, i32 0
   store i32 %144, ptr %146, align 8
   %147 = load ptr, ptr %13, align 8
-  %148 = getelementptr inbounds %struct.ntp_trans_info_t, ptr %147, i32 0, i32 1
+  %148 = getelementptr inbounds nuw %struct.ntp_trans_info_t, ptr %147, i32 0, i32 1
   store i32 0, ptr %148, align 4
   %149 = load ptr, ptr %13, align 8
-  %150 = getelementptr inbounds %struct.ntp_trans_info_t, ptr %149, i32 0, i32 2
+  %150 = getelementptr inbounds nuw %struct.ntp_trans_info_t, ptr %149, i32 0, i32 2
   %151 = load ptr, ptr %6, align 8
-  %152 = getelementptr inbounds %struct._packet_info, ptr %151, i32 0, i32 4
+  %152 = getelementptr inbounds nuw %struct._packet_info, ptr %151, i32 0, i32 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %150, ptr align 8 %152, i64 16, i1 false)
   %153 = load i32, ptr %15, align 4
   %154 = load ptr, ptr %13, align 8
-  %155 = getelementptr inbounds %struct.ntp_trans_info_t, ptr %154, i32 0, i32 3
+  %155 = getelementptr inbounds nuw %struct.ntp_trans_info_t, ptr %154, i32 0, i32 3
   store i32 %153, ptr %155, align 8
   %156 = load ptr, ptr %8, align 8
-  %157 = getelementptr inbounds %struct.ntp_conv_info_t, ptr %156, i32 0, i32 0
+  %157 = getelementptr inbounds nuw %struct.ntp_conv_info_t, ptr %156, i32 0, i32 0
   %158 = load ptr, ptr %157, align 8
   %159 = getelementptr inbounds [3 x %struct._wmem_tree_key_t], ptr %14, i64 0, i64 0
   %160 = load ptr, ptr %13, align 8
@@ -3193,7 +3470,7 @@ define internal void @dissect_ntp_priv(ptr noundef %0, ptr noundef %1, ptr nound
 
 161:                                              ; preds = %129
   %162 = load ptr, ptr %8, align 8
-  %163 = getelementptr inbounds %struct.ntp_conv_info_t, ptr %162, i32 0, i32 0
+  %163 = getelementptr inbounds nuw %struct.ntp_conv_info_t, ptr %162, i32 0, i32 0
   %164 = load ptr, ptr %163, align 8
   %165 = getelementptr inbounds [3 x %struct._wmem_tree_key_t], ptr %14, i64 0, i64 0
   %166 = call ptr @wmem_tree_lookup32_array_le(ptr noundef %164, ptr noundef %165)
@@ -3204,30 +3481,32 @@ define internal void @dissect_ntp_priv(ptr noundef %0, ptr noundef %1, ptr nound
 
 169:                                              ; preds = %161
   %170 = load ptr, ptr %13, align 8
-  %171 = getelementptr inbounds %struct.ntp_trans_info_t, ptr %170, i32 0, i32 1
+  %171 = getelementptr inbounds nuw %struct.ntp_trans_info_t, ptr %170, i32 0, i32 1
   %172 = load i32, ptr %171, align 4
   %173 = icmp ne i32 %172, 0
   br i1 %173, label %174, label %189
 
 174:                                              ; preds = %169
   %175 = load ptr, ptr %13, align 8
-  %176 = getelementptr inbounds %struct.ntp_trans_info_t, ptr %175, i32 0, i32 3
+  %176 = getelementptr inbounds nuw %struct.ntp_trans_info_t, ptr %175, i32 0, i32 3
   %177 = load i32, ptr %176, align 8
   %178 = load i32, ptr %15, align 4
   %179 = icmp eq i32 %177, %178
   br i1 %179, label %180, label %189
 
 180:                                              ; preds = %174
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #10
   %181 = load ptr, ptr %7, align 8
   %182 = load i32, ptr @hf_ntp_response_in, align 4
   %183 = load ptr, ptr %5, align 8
   %184 = load ptr, ptr %13, align 8
-  %185 = getelementptr inbounds %struct.ntp_trans_info_t, ptr %184, i32 0, i32 1
+  %185 = getelementptr inbounds nuw %struct.ntp_trans_info_t, ptr %184, i32 0, i32 1
   %186 = load i32, ptr %185, align 4
   %187 = call ptr @proto_tree_add_uint(ptr noundef %181, i32 noundef %182, ptr noundef %183, i32 noundef 0, i32 noundef 0, i32 noundef %186)
   store ptr %187, ptr %18, align 8
   %188 = load ptr, ptr %18, align 8
   call void @proto_item_set_generated(ptr noundef %188)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #10
   br label %189
 
 189:                                              ; preds = %180, %174, %169, %161
@@ -3242,7 +3521,14 @@ define internal void @dissect_ntp_priv(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %193, label %194, label %3575
 
 194:                                              ; preds = %191
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #10
+  call void @llvm.lifetime.start.p0(i64 2, ptr %21) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #10
   store i32 0, ptr %23, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #10
   store ptr null, ptr %25, align 8
   %195 = load ptr, ptr %7, align 8
   %196 = load i32, ptr @hf_ntppriv_errcode, align 4
@@ -3298,8 +3584,8 @@ define internal void @dissect_ntp_priv(ptr noundef %0, ptr noundef %1, ptr nound
   %236 = load i64, ptr %20, align 8
   %237 = trunc i64 %236 to i32
   %238 = load i32, ptr %10, align 4
-  %239 = call ptr @val_to_str_ext_const(i32 noundef %238, ptr noundef @priv_rc_types_ext, ptr noundef @.str.807)
-  %240 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %231, i32 noundef %232, ptr noundef %233, i32 noundef %235, i32 noundef %237, ptr noundef @.str.912, ptr noundef @.str.913, ptr noundef %239)
+  %239 = call ptr @val_to_str_ext_const(i32 noundef %238, ptr noundef @priv_rc_types_ext, ptr noundef @.str.845)
+  %240 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %231, i32 noundef %232, ptr noundef %233, i32 noundef %235, i32 noundef %237, ptr noundef @.str.988, ptr noundef @.str.989, ptr noundef %239)
   store ptr %240, ptr %24, align 8
   %241 = load ptr, ptr %24, align 8
   %242 = load i32, ptr @ett_mode7_item, align 4
@@ -3358,7 +3644,7 @@ define internal void @dissect_ntp_priv(ptr noundef %0, ptr noundef %1, ptr nound
   %252 = load i64, ptr %20, align 8
   %253 = trunc i64 %252 to i32
   %254 = load ptr, ptr %6, align 8
-  %255 = getelementptr inbounds %struct._packet_info, ptr %254, i32 0, i32 50
+  %255 = getelementptr inbounds nuw %struct._packet_info, ptr %254, i32 0, i32 51
   %256 = load ptr, ptr %255, align 8
   %257 = load ptr, ptr %5, align 8
   %258 = load i16, ptr %21, align 2
@@ -3374,7 +3660,7 @@ define internal void @dissect_ntp_priv(ptr noundef %0, ptr noundef %1, ptr nound
   %268 = add i32 %264, %267
   %269 = call zeroext i16 @tvb_get_ntohs(ptr noundef %262, i32 noundef %268)
   %270 = zext i16 %269 to i32
-  %271 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %247, i32 noundef %248, ptr noundef %249, i32 noundef %251, i32 noundef %253, ptr noundef @.str.914, ptr noundef @.str.915, ptr noundef %261, i32 noundef %270)
+  %271 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %247, i32 noundef %248, ptr noundef %249, i32 noundef %251, i32 noundef %253, ptr noundef @.str.990, ptr noundef @.str.991, ptr noundef %261, i32 noundef %270)
   store ptr %271, ptr %24, align 8
   %272 = load ptr, ptr %24, align 8
   %273 = load i32, ptr @ett_mode7_item, align 4
@@ -7077,16 +7363,23 @@ define internal void @dissect_ntp_priv(ptr noundef %0, ptr noundef %1, ptr nound
   %3569 = call ptr @proto_tree_add_item(ptr noundef %3564, i32 noundef %3565, ptr noundef %3566, i32 noundef %3568, i32 noundef 4, i32 noundef 0)
   br label %3570
 
-3570:                                             ; preds = %3403, %3332, %3097, %3060, %3059, %2764, %2757, %2690, %2583, %2496, %2489, %2462, %2454, %2377, %2290, %2282, %2255, %2127, %2090, %2053, %1983, %1866, %1739, %1551, %1550, %1199, %491, %423, %422, %244
+3570:                                             ; preds = %244, %3403, %3332, %3097, %3060, %3059, %2764, %2757, %2690, %2583, %2496, %2489, %2462, %2454, %2377, %2290, %2282, %2255, %2127, %2090, %2053, %1983, %1866, %1739, %1551, %1550, %1199, %491, %423, %422
   br label %3571
 
 3571:                                             ; preds = %3570
   %3572 = load i32, ptr %22, align 4
   %3573 = add i32 %3572, 1
   store i32 %3573, ptr %22, align 4
-  br label %211, !llvm.loop !11
+  br label %211, !llvm.loop !15
 
 3574:                                             ; preds = %211
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #10
+  call void @llvm.lifetime.end.p0(i64 2, ptr %21) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #10
   br label %3575
 
 3575:                                             ; preds = %3574, %191
@@ -7102,6 +7395,7 @@ define internal void @dissect_ntp_priv(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %3582, label %3583, label %3603
 
 3583:                                             ; preds = %3579
+  call void @llvm.lifetime.start.p0(i64 4, ptr %26) #10
   %3584 = load ptr, ptr %7, align 8
   %3585 = load i32, ptr @hf_ntppriv_tstamp, align 4
   %3586 = load ptr, ptr %5, align 8
@@ -7126,47 +7420,70 @@ define internal void @dissect_ntp_priv(ptr noundef %0, ptr noundef %1, ptr nound
   br label %3602
 
 3602:                                             ; preds = %3596, %3583
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #10
   br label %3603
 
 3603:                                             ; preds = %3602, %3579, %3575
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #10
+  call void @llvm.lifetime.end.p0(i64 48, ptr %14) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #10
   ret void
 }
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #2
 
-declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #2
 
-declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) #2
 
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #2
 
-declare nonnull ptr @find_or_create_conversation(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @find_or_create_conversation(ptr noundef) #2
 
-declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) #2
 
-declare ptr @wmem_file_scope() #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_file_scope() #2
 
-declare noalias ptr @wmem_tree_new(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @wmem_tree_new(ptr noundef) #2
 
-declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare i32 @tvb_captured_length(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length(ptr noundef) #2
 
-declare ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
-declare void @wmem_tree_insert32_array(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @wmem_tree_insert32_array(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @wmem_tree_lookup32_array_le(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_tree_lookup32_array_le(ptr noundef, ptr noundef) #2
 
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal void @proto_item_set_generated(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind null_pointer_is_valid sspstrong uwtable
+define internal void @proto_item_set_generated(ptr noundef %0) #7 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -7178,22 +7495,22 @@ define internal void @proto_item_set_generated(ptr noundef %0) #0 {
 
 6:                                                ; preds = %5
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct._proto_node, ptr %7, i32 0, i32 4
+  %8 = getelementptr inbounds nuw %struct._proto_node, ptr %7, i32 0, i32 5
   %9 = load ptr, ptr %8, align 8
   %10 = icmp ne ptr %9, null
   br i1 %10, label %11, label %22
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct._proto_node, ptr %12, i32 0, i32 4
+  %13 = getelementptr inbounds nuw %struct._proto_node, ptr %12, i32 0, i32 5
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds %struct.field_info, ptr %14, i32 0, i32 6
+  %15 = getelementptr inbounds nuw %struct.field_info, ptr %14, i32 0, i32 6
   %16 = load i32, ptr %15, align 4
   %17 = or i32 %16, 2
   %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds %struct._proto_node, ptr %18, i32 0, i32 4
+  %19 = getelementptr inbounds nuw %struct._proto_node, ptr %18, i32 0, i32 5
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds %struct.field_info, ptr %20, i32 0, i32 6
+  %21 = getelementptr inbounds nuw %struct.field_info, ptr %20, i32 0, i32 6
   store i32 %17, ptr %21, align 4
   br label %22
 
@@ -7207,201 +7524,1161 @@ define internal void @proto_item_set_generated(ptr noundef %0) #0 {
   ret void
 }
 
-declare void @nstime_delta(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @nstime_delta(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #2
 
-declare signext i8 @tvb_get_gint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare signext i8 @tvb_get_int8(ptr noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_int_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_int_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) #2
 
-; Function Attrs: nounwind
-declare double @pow(double noundef, double noundef) #2
+; Function Attrs: nounwind null_pointer_is_valid
+declare double @pow(double noundef, double noundef) #3
 
-declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) #2
 
-declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare i32 @tvb_memeql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_memeql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-declare i32 @tvb_get_ipv4(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_ipv4(ptr noundef, i32 noundef) #2
 
-declare ptr @get_hostname(i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @get_hostname(i32 noundef) #2
 
-declare ptr @proto_tree_add_bytes_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_bytes_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #2
 
-declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #2
 
-declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_ntp_ext(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
-  %5 = alloca i32, align 4
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @dissect_ntp_ext(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
-  %10 = alloca ptr, align 8
+  %10 = alloca i64, align 8
   %11 = alloca ptr, align 8
-  %12 = alloca i16, align 2
-  %13 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i16, align 2
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  %18 = alloca i32, align 4
+  %19 = alloca ptr, align 8
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
-  %14 = load ptr, ptr %6, align 8
-  %15 = load i32, ptr %9, align 4
-  %16 = add i32 %15, 2
-  %17 = call zeroext i16 @tvb_get_ntohs(ptr noundef %14, i32 noundef %16)
-  store i16 %17, ptr %12, align 2
-  %18 = load ptr, ptr %8, align 8
-  %19 = load i32, ptr @hf_ntp_ext, align 4
-  %20 = load ptr, ptr %6, align 8
-  %21 = load i32, ptr %9, align 4
-  %22 = load i16, ptr %12, align 2
-  %23 = zext i16 %22 to i32
-  %24 = call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %19, ptr noundef %20, i32 noundef %21, i32 noundef %23, i32 noundef 0)
-  store ptr %24, ptr %11, align 8
-  %25 = load ptr, ptr %11, align 8
-  %26 = load i32, ptr @ett_ntp_ext, align 4
-  %27 = call ptr @proto_item_add_subtree(ptr noundef %25, i32 noundef %26)
-  store ptr %27, ptr %10, align 8
-  %28 = load ptr, ptr %10, align 8
-  %29 = load i32, ptr @hf_ntp_ext_type, align 4
-  %30 = load ptr, ptr %6, align 8
-  %31 = load i32, ptr %9, align 4
-  %32 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %29, ptr noundef %30, i32 noundef %31, i32 noundef 2, i32 noundef 0)
-  %33 = load i32, ptr %9, align 4
-  %34 = add i32 %33, 2
-  store i32 %34, ptr %9, align 4
-  %35 = load ptr, ptr %10, align 8
-  %36 = load i32, ptr @hf_ntp_ext_length, align 4
-  %37 = load ptr, ptr %6, align 8
-  %38 = load i32, ptr %9, align 4
-  %39 = call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %36, ptr noundef %37, i32 noundef %38, i32 noundef 2, i32 noundef 0)
-  store ptr %39, ptr %11, align 8
-  %40 = load i32, ptr %9, align 4
-  %41 = add i32 %40, 2
-  store i32 %41, ptr %9, align 4
-  %42 = load i16, ptr %12, align 2
-  %43 = zext i16 %42 to i32
-  %44 = icmp slt i32 %43, 8
-  br i1 %44, label %45, label %53
+  store i64 %4, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #10
+  call void @llvm.lifetime.start.p0(i64 2, ptr %15) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #10
+  %20 = load i32, ptr %9, align 4
+  store i32 %20, ptr %18, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #10
+  %21 = load ptr, ptr %7, align 8
+  call void @increment_dissection_depth(ptr noundef %21)
+  %22 = load ptr, ptr %6, align 8
+  %23 = load i32, ptr %9, align 4
+  %24 = add i32 %23, 2
+  %25 = call zeroext i16 @tvb_get_ntohs(ptr noundef %22, i32 noundef %24)
+  store i16 %25, ptr %15, align 2
+  %26 = load ptr, ptr %8, align 8
+  %27 = load i32, ptr @hf_ntp_ext, align 4
+  %28 = load ptr, ptr %6, align 8
+  %29 = load i32, ptr %9, align 4
+  %30 = load i16, ptr %15, align 2
+  %31 = zext i16 %30 to i32
+  %32 = call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %27, ptr noundef %28, i32 noundef %29, i32 noundef %31, i32 noundef 0)
+  store ptr %32, ptr %12, align 8
+  %33 = load ptr, ptr %12, align 8
+  %34 = load i32, ptr @ett_ntp_ext, align 4
+  %35 = call ptr @proto_item_add_subtree(ptr noundef %33, i32 noundef %34)
+  store ptr %35, ptr %11, align 8
+  %36 = load ptr, ptr %11, align 8
+  %37 = load i32, ptr @hf_ntp_ext_type, align 4
+  %38 = load ptr, ptr %6, align 8
+  %39 = load i32, ptr %9, align 4
+  %40 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %36, i32 noundef %37, ptr noundef %38, i32 noundef %39, i32 noundef 2, i32 noundef 0, ptr noundef %16)
+  store ptr %40, ptr %13, align 8
+  %41 = load i32, ptr %9, align 4
+  %42 = add i32 %41, 2
+  store i32 %42, ptr %9, align 4
+  %43 = load i32, ptr %16, align 4
+  %44 = call ptr @try_val_to_str(i32 noundef %43, ptr noundef @ntp_ext_field_types_historic)
+  store ptr %44, ptr %19, align 8
+  %45 = load ptr, ptr %19, align 8
+  %46 = icmp ne ptr %45, null
+  br i1 %46, label %47, label %53
 
-45:                                               ; preds = %4
-  %46 = load ptr, ptr %7, align 8
-  %47 = load ptr, ptr %11, align 8
-  %48 = load i16, ptr %12, align 2
-  %49 = zext i16 %48 to i32
-  %50 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %46, ptr noundef %47, ptr noundef @ei_ntp_ext, ptr noundef @.str.906, i32 noundef %49)
-  %51 = load ptr, ptr %6, align 8
-  %52 = call i32 @tvb_reported_length(ptr noundef %51)
-  store i32 %52, ptr %5, align 4
-  br label %80
+47:                                               ; preds = %5
+  %48 = load ptr, ptr %7, align 8
+  %49 = load ptr, ptr %13, align 8
+  %50 = call ptr @expert_add_info(ptr noundef %48, ptr noundef %49, ptr noundef @ei_ntp_ext_historic)
+  store ptr %50, ptr %14, align 8
+  %51 = load ptr, ptr %14, align 8
+  %52 = load ptr, ptr %19, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %51, ptr noundef @.str.973, ptr noundef %52)
+  br label %53
 
-53:                                               ; preds = %4
-  %54 = load i16, ptr %12, align 2
-  %55 = zext i16 %54 to i32
-  %56 = srem i32 %55, 4
-  %57 = icmp ne i32 %56, 0
-  br i1 %57, label %58, label %66
+53:                                               ; preds = %47, %5
+  %54 = load ptr, ptr %6, align 8
+  %55 = load ptr, ptr %7, align 8
+  %56 = load ptr, ptr %11, align 8
+  %57 = load i32, ptr %9, align 4
+  %58 = load i16, ptr %15, align 2
+  %59 = call i32 @dissect_ntp_ext_data(ptr noundef %54, ptr noundef %55, ptr noundef %56, i32 noundef %57, i16 noundef zeroext %58)
+  store i32 %59, ptr %9, align 4
+  %60 = load i16, ptr %15, align 2
+  %61 = zext i16 %60 to i32
+  %62 = sub i32 %61, 4
+  store i32 %62, ptr %17, align 4
+  %63 = load i32, ptr %16, align 4
+  %64 = icmp eq i32 %63, 260
+  br i1 %64, label %65, label %71
 
-58:                                               ; preds = %53
-  %59 = load ptr, ptr %7, align 8
-  %60 = load ptr, ptr %11, align 8
-  %61 = load i16, ptr %12, align 2
-  %62 = zext i16 %61 to i32
-  %63 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %59, ptr noundef %60, ptr noundef @ei_ntp_ext, ptr noundef @.str.907, i32 noundef %62)
-  %64 = load ptr, ptr %6, align 8
-  %65 = call i32 @tvb_reported_length(ptr noundef %64)
-  store i32 %65, ptr %5, align 4
-  br label %80
+65:                                               ; preds = %53
+  %66 = load i32, ptr %9, align 4
+  store i32 %66, ptr @nts_tvb_uid_offset, align 4
+  %67 = load i32, ptr %17, align 4
+  store i32 %67, ptr @nts_tvb_uid_length, align 4
+  %68 = load ptr, ptr %7, align 8
+  %69 = getelementptr inbounds nuw %struct._packet_info, ptr %68, i32 0, i32 1
+  %70 = load ptr, ptr %69, align 8
+  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %70, i32 noundef 25, ptr noundef @.str.974, ptr noundef @.str.975)
+  br label %71
 
-66:                                               ; preds = %53
-  %67 = load i16, ptr %12, align 2
-  %68 = zext i16 %67 to i32
-  %69 = sub i32 %68, 4
-  store i32 %69, ptr %13, align 4
-  %70 = load ptr, ptr %10, align 8
-  %71 = load i32, ptr @hf_ntp_ext_value, align 4
-  %72 = load ptr, ptr %6, align 8
-  %73 = load i32, ptr %9, align 4
-  %74 = load i32, ptr %13, align 4
-  %75 = call ptr @proto_tree_add_item(ptr noundef %70, i32 noundef %71, ptr noundef %72, i32 noundef %73, i32 noundef %74, i32 noundef 0)
-  %76 = load i32, ptr %13, align 4
-  %77 = load i32, ptr %9, align 4
-  %78 = add i32 %77, %76
-  store i32 %78, ptr %9, align 4
-  %79 = load i32, ptr %9, align 4
-  store i32 %79, ptr %5, align 4
-  br label %80
+71:                                               ; preds = %65, %53
+  %72 = load i32, ptr %16, align 4
+  %73 = icmp eq i32 %72, 516
+  br i1 %73, label %74, label %81
 
-80:                                               ; preds = %66, %58, %45
-  %81 = load i32, ptr %5, align 4
-  ret i32 %81
+74:                                               ; preds = %71
+  %75 = load ptr, ptr %6, align 8
+  %76 = load ptr, ptr %7, align 8
+  %77 = load ptr, ptr %11, align 8
+  %78 = load i32, ptr %9, align 4
+  %79 = load i32, ptr %17, align 4
+  %80 = load i64, ptr %10, align 8
+  call void @dissect_nts_cookie(ptr noundef %75, ptr noundef %76, ptr noundef %77, i32 noundef %78, i32 noundef %79, i64 noundef %80)
+  br label %81
+
+81:                                               ; preds = %74, %71
+  %82 = load i32, ptr %16, align 4
+  %83 = icmp eq i32 %82, 1028
+  br i1 %83, label %84, label %93
+
+84:                                               ; preds = %81
+  %85 = load ptr, ptr %6, align 8
+  %86 = load ptr, ptr %7, align 8
+  %87 = load ptr, ptr %11, align 8
+  %88 = load ptr, ptr %8, align 8
+  %89 = load i32, ptr %9, align 4
+  %90 = load i32, ptr %17, align 4
+  %91 = load i64, ptr %10, align 8
+  %92 = load i32, ptr %18, align 4
+  call void @dissect_nts_ext(ptr noundef %85, ptr noundef %86, ptr noundef %87, ptr noundef %88, i32 noundef %89, i32 noundef %90, i64 noundef %91, i32 noundef %92)
+  br label %93
+
+93:                                               ; preds = %84, %81
+  %94 = load i32, ptr %17, align 4
+  %95 = load i32, ptr %9, align 4
+  %96 = add i32 %95, %94
+  store i32 %96, ptr %9, align 4
+  %97 = load ptr, ptr %7, align 8
+  call void @decrement_dissection_depth(ptr noundef %97)
+  %98 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #10
+  call void @llvm.lifetime.end.p0(i64 2, ptr %15) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
+  ret i32 %98
 }
 
-declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @increment_dissection_depth(ptr noundef) #2
 
-declare i32 @tvb_reported_length(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @try_val_to_str(i32 noundef, ptr noundef) #2
 
-declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @tvbparse_init(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @dissect_ntp_ext_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i16, align 2
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store i32 %3, ptr %10, align 4
+  store i16 %4, ptr %11, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #10
+  %15 = load ptr, ptr %9, align 8
+  %16 = load i32, ptr @hf_ntp_ext_length, align 4
+  %17 = load ptr, ptr %7, align 8
+  %18 = load i32, ptr %10, align 4
+  %19 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef 2, i32 noundef 0)
+  store ptr %19, ptr %12, align 8
+  %20 = load i32, ptr %10, align 4
+  %21 = add i32 %20, 2
+  store i32 %21, ptr %10, align 4
+  %22 = load i16, ptr %11, align 2
+  %23 = zext i16 %22 to i32
+  %24 = icmp slt i32 %23, 8
+  br i1 %24, label %25, label %33
 
-declare ptr @tvbparse_get(ptr noundef, ptr noundef) #1
+25:                                               ; preds = %5
+  %26 = load ptr, ptr %8, align 8
+  %27 = load ptr, ptr %12, align 8
+  %28 = load i16, ptr %11, align 2
+  %29 = zext i16 %28 to i32
+  %30 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %26, ptr noundef %27, ptr noundef @ei_ntp_ext_invalid_length, ptr noundef @.str.981, i32 noundef %29)
+  %31 = load ptr, ptr %7, align 8
+  %32 = call i32 @tvb_reported_length(ptr noundef %31)
+  store i32 %32, ptr %6, align 4
+  store i32 1, ptr %14, align 4
+  br label %57
 
-declare void @tvbparse_tree_add_elem(ptr noundef, ptr noundef) #1
+33:                                               ; preds = %5
+  %34 = load i16, ptr %11, align 2
+  %35 = zext i16 %34 to i32
+  %36 = srem i32 %35, 4
+  %37 = icmp ne i32 %36, 0
+  br i1 %37, label %38, label %46
 
-declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #1
+38:                                               ; preds = %33
+  %39 = load ptr, ptr %8, align 8
+  %40 = load ptr, ptr %12, align 8
+  %41 = load i16, ptr %11, align 2
+  %42 = zext i16 %41 to i32
+  %43 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %39, ptr noundef %40, ptr noundef @ei_ntp_ext_invalid_length, ptr noundef @.str.982, i32 noundef %42)
+  %44 = load ptr, ptr %7, align 8
+  %45 = call i32 @tvb_reported_length(ptr noundef %44)
+  store i32 %45, ptr %6, align 4
+  store i32 1, ptr %14, align 4
+  br label %57
 
-declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
+46:                                               ; preds = %33
+  %47 = load i16, ptr %11, align 2
+  %48 = zext i16 %47 to i32
+  %49 = sub i32 %48, 4
+  store i32 %49, ptr %13, align 4
+  %50 = load ptr, ptr %9, align 8
+  %51 = load i32, ptr @hf_ntp_ext_value, align 4
+  %52 = load ptr, ptr %7, align 8
+  %53 = load i32, ptr %10, align 4
+  %54 = load i32, ptr %13, align 4
+  %55 = call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %51, ptr noundef %52, i32 noundef %53, i32 noundef %54, i32 noundef 0)
+  %56 = load i32, ptr %10, align 4
+  store i32 %56, ptr %6, align 4
+  store i32 1, ptr %14, align 4
+  br label %57
 
-declare ptr @val_to_str_ext_const(i32 noundef, ptr noundef, ptr noundef) #1
+57:                                               ; preds = %46, %38, %25
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #10
+  %58 = load i32, ptr %6, align 4
+  ret i32 %58
+}
 
-declare ptr @proto_tree_add_bits_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_sep_fstr(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) #2
 
-declare ptr @proto_tree_add_bits_ret_val(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal void @dissect_nts_cookie(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5) #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i64, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca %struct._nts_used_frames_lookup_t, align 8
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store i32 %3, ptr %10, align 4
+  store i32 %4, ptr %11, align 4
+  store i64 %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #10
+  call void @llvm.lifetime.start.p0(i64 24, ptr %15) #10
+  %16 = getelementptr inbounds nuw %struct._nts_used_frames_lookup_t, ptr %15, i32 0, i32 0
+  %17 = load ptr, ptr %7, align 8
+  store ptr %17, ptr %16, align 8
+  %18 = getelementptr inbounds nuw %struct._nts_used_frames_lookup_t, ptr %15, i32 0, i32 1
+  store ptr null, ptr %18, align 8
+  %19 = getelementptr inbounds nuw %struct._nts_used_frames_lookup_t, ptr %15, i32 0, i32 2
+  %20 = load i32, ptr @hf_ntp_nts_cookie_used_frame, align 4
+  store i32 %20, ptr %19, align 8
+  %21 = getelementptr i8, ptr %15, i64 20
+  call void @llvm.memset.p0.i64(ptr align 4 %21, i8 0, i64 4, i1 false)
+  %22 = load i64, ptr %12, align 8
+  %23 = and i64 %22, 7
+  %24 = icmp eq i64 %23, 3
+  br i1 %24, label %25, label %48
 
-declare ptr @proto_tree_add_string_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #1
+25:                                               ; preds = %6
+  %26 = load ptr, ptr %7, align 8
+  %27 = load i32, ptr %10, align 4
+  %28 = load i32, ptr %11, align 4
+  %29 = call ptr @tvb_new_subset_length(ptr noundef %26, i32 noundef %27, i32 noundef %28)
+  %30 = load ptr, ptr %7, align 8
+  %31 = load i32, ptr @nts_tvb_uid_offset, align 4
+  %32 = load i32, ptr @nts_tvb_uid_length, align 4
+  %33 = call ptr @tvb_new_subset_length(ptr noundef %30, i32 noundef %31, i32 noundef %32)
+  %34 = load ptr, ptr %8, align 8
+  %35 = call ptr @nts_use_cookie(ptr noundef %29, ptr noundef %33, ptr noundef %34)
+  store ptr %35, ptr @nts_cookie, align 8
+  %36 = load ptr, ptr @nts_cookie, align 8
+  %37 = icmp ne ptr %36, null
+  br i1 %37, label %38, label %47
 
-declare ptr @tvb_address_to_str(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+38:                                               ; preds = %25
+  %39 = load ptr, ptr %9, align 8
+  %40 = load i32, ptr @hf_ntp_nts_cookie_receive_frame, align 4
+  %41 = load ptr, ptr %7, align 8
+  %42 = load ptr, ptr @nts_cookie, align 8
+  %43 = getelementptr inbounds nuw %struct._nts_cookie_t, ptr %42, i32 0, i32 0
+  %44 = load i32, ptr %43, align 8
+  %45 = call ptr @proto_tree_add_uint(ptr noundef %39, i32 noundef %40, ptr noundef %41, i32 noundef 0, i32 noundef 0, i32 noundef %44)
+  store ptr %45, ptr %13, align 8
+  %46 = load ptr, ptr %13, align 8
+  call void @proto_item_set_generated(ptr noundef %46)
+  br label %47
 
-declare ptr @tvbparse_chars(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+47:                                               ; preds = %38, %25
+  br label %73
 
-declare ptr @tvbparse_char(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+48:                                               ; preds = %6
+  %49 = load i64, ptr %12, align 8
+  %50 = and i64 %49, 7
+  %51 = icmp eq i64 %50, 4
+  br i1 %51, label %52, label %72
 
-declare ptr @tvbparse_set_oneof(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) #1
+52:                                               ; preds = %48
+  %53 = load ptr, ptr @nts_cookie, align 8
+  %54 = icmp ne ptr %53, null
+  br i1 %54, label %55, label %72
 
-declare ptr @tvbparse_quoted(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i8 noundef signext, i8 noundef signext) #1
+55:                                               ; preds = %52
+  %56 = load ptr, ptr %7, align 8
+  %57 = load i32, ptr %10, align 4
+  %58 = load i32, ptr %11, align 4
+  %59 = call ptr @tvb_new_subset_length(ptr noundef %56, i32 noundef %57, i32 noundef %58)
+  %60 = load ptr, ptr @nts_cookie, align 8
+  %61 = load ptr, ptr %8, align 8
+  %62 = call ptr @nts_new_cookie_copy(ptr noundef %59, ptr noundef %60, ptr noundef %61)
+  store ptr %62, ptr %14, align 8
+  %63 = load ptr, ptr %14, align 8
+  %64 = icmp ne ptr %63, null
+  br i1 %64, label %65, label %71
 
-declare void @tvbparse_shrink_token_cb(ptr noundef, ptr noundef, ptr noundef) #1
+65:                                               ; preds = %55
+  %66 = load ptr, ptr %9, align 8
+  %67 = getelementptr inbounds nuw %struct._nts_used_frames_lookup_t, ptr %15, i32 0, i32 1
+  store ptr %66, ptr %67, align 8
+  %68 = load ptr, ptr %14, align 8
+  %69 = getelementptr inbounds nuw %struct._nts_cookie_t, ptr %68, i32 0, i32 1
+  %70 = load ptr, ptr %69, align 8
+  call void @wmem_list_foreach(ptr noundef %70, ptr noundef @nts_append_used_frames_to_tree, ptr noundef %15)
+  br label %71
 
-declare ptr @tvbparse_until(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
+71:                                               ; preds = %65, %55
+  br label %72
 
-declare ptr @tvbparse_set_seq(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) #1
+72:                                               ; preds = %71, %52, %48
+  br label %73
 
-declare ptr @tvbparse_some(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+73:                                               ; preds = %72, %47
+  call void @llvm.lifetime.end.p0(i64 24, ptr %15) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #10
+  ret void
+}
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nounwind }
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal void @dissect_nts_ext(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i64 noundef %6, i32 noundef %7) #0 {
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i64, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca i32, align 4
+  %21 = alloca i32, align 4
+  %22 = alloca i32, align 4
+  %23 = alloca ptr, align 8
+  %24 = alloca ptr, align 8
+  %25 = alloca ptr, align 8
+  %26 = alloca ptr, align 8
+  %27 = alloca ptr, align 8
+  %28 = alloca i32, align 4
+  %29 = alloca i32, align 4
+  %30 = alloca ptr, align 8
+  %31 = alloca i32, align 4
+  store ptr %0, ptr %9, align 8
+  store ptr %1, ptr %10, align 8
+  store ptr %2, ptr %11, align 8
+  store ptr %3, ptr %12, align 8
+  store i32 %4, ptr %13, align 4
+  store i32 %5, ptr %14, align 4
+  store i64 %6, ptr %15, align 8
+  store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #10
+  store ptr null, ptr %26, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %28) #10
+  store i32 0, ptr %28, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %29) #10
+  %32 = load i32, ptr %13, align 4
+  store i32 %32, ptr %29, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %30) #10
+  %33 = load ptr, ptr %11, align 8
+  %34 = load i32, ptr @hf_ntp_ext_nts, align 4
+  %35 = load ptr, ptr %9, align 8
+  %36 = load i32, ptr %29, align 4
+  %37 = load i32, ptr %14, align 4
+  %38 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %34, ptr noundef %35, i32 noundef %36, i32 noundef %37, i32 noundef 0)
+  store ptr %38, ptr %18, align 8
+  %39 = load ptr, ptr %18, align 8
+  %40 = load i32, ptr @ett_ntp_ext_nts, align 4
+  %41 = call ptr @proto_item_add_subtree(ptr noundef %39, i32 noundef %40)
+  store ptr %41, ptr %17, align 8
+  %42 = load ptr, ptr %17, align 8
+  %43 = load i32, ptr @hf_ntp_nts_nonce_length, align 4
+  %44 = load ptr, ptr %9, align 8
+  %45 = load i32, ptr %29, align 4
+  %46 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %42, i32 noundef %43, ptr noundef %44, i32 noundef %45, i32 noundef 2, i32 noundef 0, ptr noundef %20)
+  %47 = load i32, ptr %29, align 4
+  %48 = add i32 %47, 2
+  store i32 %48, ptr %29, align 4
+  %49 = load ptr, ptr %17, align 8
+  %50 = load i32, ptr @hf_ntp_nts_ciphertext_length, align 4
+  %51 = load ptr, ptr %9, align 8
+  %52 = load i32, ptr %29, align 4
+  %53 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %49, i32 noundef %50, ptr noundef %51, i32 noundef %52, i32 noundef 2, i32 noundef 0, ptr noundef %21)
+  %54 = load i32, ptr %29, align 4
+  %55 = add i32 %54, 2
+  store i32 %55, ptr %29, align 4
+  %56 = load ptr, ptr %17, align 8
+  %57 = load i32, ptr @hf_ntp_nts_nonce, align 4
+  %58 = load ptr, ptr %9, align 8
+  %59 = load i32, ptr %29, align 4
+  %60 = load i32, ptr %20, align 4
+  %61 = call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %57, ptr noundef %58, i32 noundef %59, i32 noundef %60, i32 noundef 0)
+  %62 = load ptr, ptr %10, align 8
+  %63 = getelementptr inbounds nuw %struct._packet_info, ptr %62, i32 0, i32 51
+  %64 = load ptr, ptr %63, align 8
+  %65 = load ptr, ptr %9, align 8
+  %66 = load i32, ptr %29, align 4
+  %67 = load i32, ptr %20, align 4
+  %68 = zext i32 %67 to i64
+  %69 = call ptr @tvb_memdup(ptr noundef %64, ptr noundef %65, i32 noundef %66, i64 noundef %68)
+  store ptr %69, ptr %23, align 8
+  %70 = load i32, ptr %20, align 4
+  %71 = load i32, ptr %29, align 4
+  %72 = add i32 %71, %70
+  store i32 %72, ptr %29, align 4
+  %73 = load ptr, ptr %17, align 8
+  %74 = load i32, ptr @hf_ntp_nts_ciphertext, align 4
+  %75 = load ptr, ptr %9, align 8
+  %76 = load i32, ptr %29, align 4
+  %77 = load i32, ptr %21, align 4
+  %78 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %74, ptr noundef %75, i32 noundef %76, i32 noundef %77, i32 noundef 0)
+  %79 = load ptr, ptr %10, align 8
+  %80 = getelementptr inbounds nuw %struct._packet_info, ptr %79, i32 0, i32 51
+  %81 = load ptr, ptr %80, align 8
+  %82 = load ptr, ptr %9, align 8
+  %83 = load i32, ptr %29, align 4
+  %84 = load i32, ptr %21, align 4
+  %85 = zext i32 %84 to i64
+  %86 = call ptr @tvb_memdup(ptr noundef %81, ptr noundef %82, i32 noundef %83, i64 noundef %85)
+  store ptr %86, ptr %25, align 8
+  %87 = load i64, ptr %15, align 8
+  %88 = and i64 %87, 7
+  %89 = icmp eq i64 %88, 3
+  br i1 %89, label %90, label %98
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+90:                                               ; preds = %8
+  %91 = load ptr, ptr @nts_cookie, align 8
+  %92 = icmp ne ptr %91, null
+  br i1 %92, label %94, label %93
+
+93:                                               ; preds = %90
+  store i32 1, ptr %31, align 4
+  br label %185
+
+94:                                               ; preds = %90
+  %95 = load ptr, ptr @nts_cookie, align 8
+  %96 = getelementptr inbounds nuw %struct._nts_cookie_t, ptr %95, i32 0, i32 5
+  %97 = getelementptr inbounds [64 x i8], ptr %96, i64 0, i64 0
+  store ptr %97, ptr %26, align 8
+  br label %124
+
+98:                                               ; preds = %8
+  %99 = load i64, ptr %15, align 8
+  %100 = and i64 %99, 7
+  %101 = icmp eq i64 %100, 4
+  br i1 %101, label %102, label %122
+
+102:                                              ; preds = %98
+  %103 = load i32, ptr @nts_tvb_uid_length, align 4
+  %104 = icmp sgt i32 %103, 0
+  br i1 %104, label %105, label %114
+
+105:                                              ; preds = %102
+  %106 = load i32, ptr @nts_tvb_uid_offset, align 4
+  %107 = icmp sgt i32 %106, 0
+  br i1 %107, label %108, label %114
+
+108:                                              ; preds = %105
+  %109 = load ptr, ptr %9, align 8
+  %110 = load i32, ptr @nts_tvb_uid_offset, align 4
+  %111 = load i32, ptr @nts_tvb_uid_length, align 4
+  %112 = call ptr @tvb_new_subset_length(ptr noundef %109, i32 noundef %110, i32 noundef %111)
+  %113 = call ptr @nts_find_cookie_by_uid(ptr noundef %112)
+  store ptr %113, ptr @nts_cookie, align 8
+  br label %114
+
+114:                                              ; preds = %108, %105, %102
+  %115 = load ptr, ptr @nts_cookie, align 8
+  %116 = icmp ne ptr %115, null
+  br i1 %116, label %118, label %117
+
+117:                                              ; preds = %114
+  store i32 1, ptr %31, align 4
+  br label %185
+
+118:                                              ; preds = %114
+  %119 = load ptr, ptr @nts_cookie, align 8
+  %120 = getelementptr inbounds nuw %struct._nts_cookie_t, ptr %119, i32 0, i32 6
+  %121 = getelementptr inbounds [64 x i8], ptr %120, i64 0, i64 0
+  store ptr %121, ptr %26, align 8
+  br label %123
+
+122:                                              ; preds = %98
+  store i32 1, ptr %31, align 4
+  br label %185
+
+123:                                              ; preds = %118
+  br label %124
+
+124:                                              ; preds = %123, %94
+  %125 = load ptr, ptr @nts_cookie, align 8
+  %126 = getelementptr inbounds nuw %struct._nts_cookie_t, ptr %125, i32 0, i32 3
+  %127 = load i16, ptr %126, align 8
+  %128 = call ptr @nts_find_aead(i16 noundef zeroext %127)
+  store ptr %128, ptr %27, align 8
+  %129 = load ptr, ptr %27, align 8
+  %130 = icmp ne ptr %129, null
+  br i1 %130, label %131, label %136
+
+131:                                              ; preds = %124
+  %132 = load ptr, ptr @nts_cookie, align 8
+  %133 = getelementptr inbounds nuw %struct._nts_cookie_t, ptr %132, i32 0, i32 4
+  %134 = load i8, ptr %133, align 2, !range !13, !noundef !14
+  %135 = trunc i8 %134 to i1
+  br i1 %135, label %137, label %136
+
+136:                                              ; preds = %131, %124
+  store i32 1, ptr %31, align 4
+  br label %185
+
+137:                                              ; preds = %131
+  %138 = load i32, ptr %16, align 4
+  store i32 %138, ptr %22, align 4
+  %139 = load ptr, ptr %10, align 8
+  %140 = getelementptr inbounds nuw %struct._packet_info, ptr %139, i32 0, i32 51
+  %141 = load ptr, ptr %140, align 8
+  %142 = load ptr, ptr %9, align 8
+  %143 = load i32, ptr @nts_aad_start, align 4
+  %144 = load i32, ptr %22, align 4
+  %145 = zext i32 %144 to i64
+  %146 = call ptr @tvb_memdup(ptr noundef %141, ptr noundef %142, i32 noundef %143, i64 noundef %145)
+  store ptr %146, ptr %24, align 8
+  %147 = load ptr, ptr %9, align 8
+  %148 = load ptr, ptr %10, align 8
+  %149 = load ptr, ptr %23, align 8
+  %150 = load i32, ptr %20, align 4
+  %151 = load ptr, ptr %25, align 8
+  %152 = load i32, ptr %21, align 4
+  %153 = load ptr, ptr %24, align 8
+  %154 = load i32, ptr %22, align 4
+  %155 = load ptr, ptr %27, align 8
+  %156 = load ptr, ptr %26, align 8
+  %157 = call ptr @ntp_decrypt_nts(ptr noundef %147, ptr noundef %148, ptr noundef %149, i32 noundef %150, ptr noundef %151, i32 noundef %152, ptr noundef %153, i32 noundef %154, ptr noundef %155, ptr noundef %156)
+  store ptr %157, ptr %30, align 8
+  %158 = load ptr, ptr %17, align 8
+  %159 = load i32, ptr @hf_ntp_nts_crypto_success, align 4
+  %160 = load ptr, ptr %9, align 8
+  %161 = load ptr, ptr %30, align 8
+  %162 = icmp ne ptr %161, null
+  %163 = zext i1 %162 to i64
+  %164 = call ptr @proto_tree_add_boolean(ptr noundef %158, i32 noundef %159, ptr noundef %160, i32 noundef 0, i32 noundef 0, i64 noundef %163)
+  store ptr %164, ptr %19, align 8
+  %165 = load ptr, ptr %19, align 8
+  call void @proto_item_set_generated(ptr noundef %165)
+  %166 = load ptr, ptr %30, align 8
+  %167 = icmp ne ptr %166, null
+  br i1 %167, label %168, label %184
+
+168:                                              ; preds = %137
+  %169 = load ptr, ptr %10, align 8
+  %170 = load ptr, ptr %30, align 8
+  call void @add_new_data_source(ptr noundef %169, ptr noundef %170, ptr noundef @.str.983)
+  br label %171
+
+171:                                              ; preds = %176, %168
+  %172 = load i32, ptr %28, align 4
+  %173 = load ptr, ptr %30, align 8
+  %174 = call i32 @tvb_reported_length(ptr noundef %173)
+  %175 = icmp ult i32 %172, %174
+  br i1 %175, label %176, label %183
+
+176:                                              ; preds = %171
+  %177 = load ptr, ptr %30, align 8
+  %178 = load ptr, ptr %10, align 8
+  %179 = load ptr, ptr %12, align 8
+  %180 = load i32, ptr %28, align 4
+  %181 = load i64, ptr %15, align 8
+  %182 = call i32 @dissect_ntp_ext(ptr noundef %177, ptr noundef %178, ptr noundef %179, i32 noundef %180, i64 noundef %181)
+  store i32 %182, ptr %28, align 4
+  br label %171, !llvm.loop !16
+
+183:                                              ; preds = %171
+  br label %184
+
+184:                                              ; preds = %183, %137
+  store i32 0, ptr %31, align 4
+  br label %185
+
+185:                                              ; preds = %184, %136, %122, %117, %93
+  call void @llvm.lifetime.end.p0(i64 8, ptr %30) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %29) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %28) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #10
+  %186 = load i32, ptr %31, align 4
+  switch i32 %186, label %188 [
+    i32 0, label %187
+    i32 1, label %187
+  ]
+
+187:                                              ; preds = %185, %185
+  ret void
+
+188:                                              ; preds = %185
+  unreachable
+}
+
+; Function Attrs: null_pointer_is_valid
+declare void @decrement_dissection_depth(ptr noundef) #2
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) #2
+
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length(ptr noundef) #2
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @nts_use_cookie(ptr noundef, ptr noundef, ptr noundef) #2
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @nts_new_cookie_copy(ptr noundef, ptr noundef, ptr noundef) #2
+
+; Function Attrs: null_pointer_is_valid
+declare void @wmem_list_foreach(ptr noundef, ptr noundef, ptr noundef) #2
+
+; Function Attrs: null_pointer_is_valid
+declare void @nts_append_used_frames_to_tree(ptr noundef, ptr noundef) #2
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_memdup(ptr noundef, ptr noundef, i32 noundef, i64 noundef) #2
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @nts_find_cookie_by_uid(ptr noundef) #2
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @nts_find_aead(i16 noundef zeroext) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal ptr @ntp_decrypt_nts(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef %8, ptr noundef %9) #0 {
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  %17 = alloca i32, align 4
+  %18 = alloca ptr, align 8
+  %19 = alloca i32, align 4
+  %20 = alloca ptr, align 8
+  %21 = alloca ptr, align 8
+  %22 = alloca ptr, align 8
+  %23 = alloca i32, align 4
+  %24 = alloca ptr, align 8
+  %25 = alloca ptr, align 8
+  %26 = alloca i32, align 4
+  %27 = alloca i32, align 4
+  store ptr %0, ptr %12, align 8
+  store ptr %1, ptr %13, align 8
+  store ptr %2, ptr %14, align 8
+  store i32 %3, ptr %15, align 4
+  store ptr %4, ptr %16, align 8
+  store i32 %5, ptr %17, align 4
+  store ptr %6, ptr %18, align 8
+  store i32 %7, ptr %19, align 4
+  store ptr %8, ptr %20, align 8
+  store ptr %9, ptr %21, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #10
+  store ptr null, ptr %22, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %26) #10
+  %28 = load i32, ptr %17, align 4
+  %29 = load ptr, ptr %20, align 8
+  %30 = getelementptr inbounds nuw %struct._nts_aead, ptr %29, i32 0, i32 4
+  %31 = load i16, ptr %30, align 2
+  %32 = zext i16 %31 to i32
+  %33 = sub i32 %28, %32
+  store i32 %33, ptr %26, align 4
+  %34 = load ptr, ptr %13, align 8
+  %35 = getelementptr inbounds nuw %struct._packet_info, ptr %34, i32 0, i32 51
+  %36 = load ptr, ptr %35, align 8
+  %37 = load ptr, ptr %20, align 8
+  %38 = getelementptr inbounds nuw %struct._nts_aead, ptr %37, i32 0, i32 4
+  %39 = load i16, ptr %38, align 2
+  %40 = zext i16 %39 to i64
+  %41 = call noalias ptr @wmem_alloc0(ptr noundef %36, i64 noundef %40) #11
+  store ptr %41, ptr %24, align 8
+  %42 = load ptr, ptr %13, align 8
+  %43 = getelementptr inbounds nuw %struct._packet_info, ptr %42, i32 0, i32 51
+  %44 = load ptr, ptr %43, align 8
+  %45 = load i32, ptr %26, align 4
+  %46 = zext i32 %45 to i64
+  %47 = call noalias ptr @wmem_alloc0(ptr noundef %44, i64 noundef %46) #11
+  store ptr %47, ptr %25, align 8
+  %48 = load ptr, ptr %25, align 8
+  %49 = load ptr, ptr %16, align 8
+  %50 = load i32, ptr %26, align 4
+  %51 = zext i32 %50 to i64
+  %52 = call ptr @memcpy.inline(ptr noundef %48, ptr noundef %49, i64 noundef %51) #10
+  %53 = load ptr, ptr %24, align 8
+  %54 = load ptr, ptr %16, align 8
+  %55 = load i32, ptr %26, align 4
+  %56 = zext i32 %55 to i64
+  %57 = getelementptr i8, ptr %54, i64 %56
+  %58 = load ptr, ptr %20, align 8
+  %59 = getelementptr inbounds nuw %struct._nts_aead, ptr %58, i32 0, i32 4
+  %60 = load i16, ptr %59, align 2
+  %61 = zext i16 %60 to i64
+  %62 = call ptr @memcpy.inline(ptr noundef %53, ptr noundef %57, i64 noundef %61) #10
+  %63 = load ptr, ptr %20, align 8
+  %64 = getelementptr inbounds nuw %struct._nts_aead, ptr %63, i32 0, i32 1
+  %65 = load i16, ptr %64, align 2
+  %66 = zext i16 %65 to i32
+  %67 = load ptr, ptr %20, align 8
+  %68 = getelementptr inbounds nuw %struct._nts_aead, ptr %67, i32 0, i32 2
+  %69 = load i8, ptr %68, align 2
+  %70 = zext i8 %69 to i32
+  %71 = call i32 @gcry_cipher_open(ptr noundef %22, i32 noundef %66, i32 noundef %70, i32 noundef 0)
+  store i32 %71, ptr %23, align 4
+  %72 = load i32, ptr %23, align 4
+  %73 = icmp ne i32 %72, 0
+  br i1 %73, label %74, label %79
+
+74:                                               ; preds = %10
+  br label %75
+
+75:                                               ; preds = %74
+  br label %76
+
+76:                                               ; preds = %75
+  br label %77
+
+77:                                               ; preds = %76
+  %78 = load ptr, ptr %22, align 8
+  call void @gcry_cipher_close(ptr noundef %78)
+  store ptr null, ptr %11, align 8
+  store i32 1, ptr %27, align 4
+  br label %159
+
+79:                                               ; preds = %10
+  %80 = load ptr, ptr %22, align 8
+  %81 = load ptr, ptr %21, align 8
+  %82 = load ptr, ptr %20, align 8
+  %83 = getelementptr inbounds nuw %struct._nts_aead, ptr %82, i32 0, i32 3
+  %84 = load i16, ptr %83, align 2
+  %85 = zext i16 %84 to i64
+  %86 = call i32 @gcry_cipher_setkey(ptr noundef %80, ptr noundef %81, i64 noundef %85)
+  store i32 %86, ptr %23, align 4
+  %87 = load i32, ptr %23, align 4
+  %88 = icmp ne i32 %87, 0
+  br i1 %88, label %89, label %94
+
+89:                                               ; preds = %79
+  br label %90
+
+90:                                               ; preds = %89
+  br label %91
+
+91:                                               ; preds = %90
+  br label %92
+
+92:                                               ; preds = %91
+  %93 = load ptr, ptr %22, align 8
+  call void @gcry_cipher_close(ptr noundef %93)
+  store ptr null, ptr %11, align 8
+  store i32 1, ptr %27, align 4
+  br label %159
+
+94:                                               ; preds = %79
+  %95 = load ptr, ptr %22, align 8
+  %96 = load ptr, ptr %18, align 8
+  %97 = load i32, ptr %19, align 4
+  %98 = zext i32 %97 to i64
+  %99 = call i32 @gcry_cipher_authenticate(ptr noundef %95, ptr noundef %96, i64 noundef %98)
+  store i32 %99, ptr %23, align 4
+  %100 = load i32, ptr %23, align 4
+  %101 = icmp ne i32 %100, 0
+  br i1 %101, label %102, label %107
+
+102:                                              ; preds = %94
+  br label %103
+
+103:                                              ; preds = %102
+  br label %104
+
+104:                                              ; preds = %103
+  br label %105
+
+105:                                              ; preds = %104
+  %106 = load ptr, ptr %22, align 8
+  call void @gcry_cipher_close(ptr noundef %106)
+  store ptr null, ptr %11, align 8
+  store i32 1, ptr %27, align 4
+  br label %159
+
+107:                                              ; preds = %94
+  %108 = load ptr, ptr %22, align 8
+  %109 = load ptr, ptr %14, align 8
+  %110 = load i32, ptr %15, align 4
+  %111 = zext i32 %110 to i64
+  %112 = call i32 @gcry_cipher_setiv(ptr noundef %108, ptr noundef %109, i64 noundef %111)
+  store i32 %112, ptr %23, align 4
+  %113 = load i32, ptr %23, align 4
+  %114 = icmp ne i32 %113, 0
+  br i1 %114, label %115, label %120
+
+115:                                              ; preds = %107
+  br label %116
+
+116:                                              ; preds = %115
+  br label %117
+
+117:                                              ; preds = %116
+  br label %118
+
+118:                                              ; preds = %117
+  %119 = load ptr, ptr %22, align 8
+  call void @gcry_cipher_close(ptr noundef %119)
+  store ptr null, ptr %11, align 8
+  store i32 1, ptr %27, align 4
+  br label %159
+
+120:                                              ; preds = %107
+  %121 = load ptr, ptr %22, align 8
+  %122 = load ptr, ptr %25, align 8
+  %123 = load i32, ptr %26, align 4
+  %124 = zext i32 %123 to i64
+  %125 = call i32 @gcry_cipher_decrypt(ptr noundef %121, ptr noundef %122, i64 noundef %124, ptr noundef null, i64 noundef 0)
+  store i32 %125, ptr %23, align 4
+  %126 = load i32, ptr %23, align 4
+  %127 = icmp ne i32 %126, 0
+  br i1 %127, label %128, label %133
+
+128:                                              ; preds = %120
+  br label %129
+
+129:                                              ; preds = %128
+  br label %130
+
+130:                                              ; preds = %129
+  br label %131
+
+131:                                              ; preds = %130
+  %132 = load ptr, ptr %22, align 8
+  call void @gcry_cipher_close(ptr noundef %132)
+  store ptr null, ptr %11, align 8
+  store i32 1, ptr %27, align 4
+  br label %159
+
+133:                                              ; preds = %120
+  %134 = load ptr, ptr %22, align 8
+  %135 = load ptr, ptr %24, align 8
+  %136 = load ptr, ptr %20, align 8
+  %137 = getelementptr inbounds nuw %struct._nts_aead, ptr %136, i32 0, i32 4
+  %138 = load i16, ptr %137, align 2
+  %139 = zext i16 %138 to i64
+  %140 = call i32 @gcry_cipher_checktag(ptr noundef %134, ptr noundef %135, i64 noundef %139)
+  store i32 %140, ptr %23, align 4
+  %141 = load i32, ptr %23, align 4
+  %142 = icmp ne i32 %141, 0
+  br i1 %142, label %143, label %148
+
+143:                                              ; preds = %133
+  br label %144
+
+144:                                              ; preds = %143
+  br label %145
+
+145:                                              ; preds = %144
+  br label %146
+
+146:                                              ; preds = %145
+  %147 = load ptr, ptr %22, align 8
+  call void @gcry_cipher_close(ptr noundef %147)
+  store ptr null, ptr %11, align 8
+  store i32 1, ptr %27, align 4
+  br label %159
+
+148:                                              ; preds = %133
+  %149 = load ptr, ptr %22, align 8
+  %150 = icmp ne ptr %149, null
+  br i1 %150, label %151, label %153
+
+151:                                              ; preds = %148
+  %152 = load ptr, ptr %22, align 8
+  call void @gcry_cipher_close(ptr noundef %152)
+  br label %153
+
+153:                                              ; preds = %151, %148
+  %154 = load ptr, ptr %12, align 8
+  %155 = load ptr, ptr %25, align 8
+  %156 = load i32, ptr %26, align 4
+  %157 = load i32, ptr %26, align 4
+  %158 = call ptr @tvb_new_child_real_data(ptr noundef %154, ptr noundef %155, i32 noundef %156, i32 noundef %157)
+  store ptr %158, ptr %11, align 8
+  store i32 1, ptr %27, align 4
+  br label %159
+
+159:                                              ; preds = %153, %146, %131, %118, %105, %92, %77
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #10
+  %160 = load ptr, ptr %11, align 8
+  ret ptr %160
+}
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) #2
+
+; Function Attrs: null_pointer_is_valid
+declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) #2
+
+; Function Attrs: null_pointer_is_valid allocsize(1)
+declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) #4
+
+; Function Attrs: alwaysinline nounwind
+define internal ptr @memcpy.inline(ptr noalias %0, ptr noalias %1, i64 %2) #9 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load i64, ptr %6, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = call i64 @llvm.objectsize.i64.p0(ptr %10, i1 false, i1 true, i1 true)
+  %12 = call ptr @__memcpy_chk(ptr noundef %7, ptr noundef %8, i64 noundef %9, i64 noundef %11) #10
+  ret ptr %12
+}
+
+; Function Attrs: null_pointer_is_valid
+declare i32 @gcry_cipher_open(ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid
+declare void @gcry_cipher_close(ptr noundef) #2
+
+; Function Attrs: null_pointer_is_valid
+declare i32 @gcry_cipher_setkey(ptr noundef, ptr noundef, i64 noundef) #2
+
+; Function Attrs: null_pointer_is_valid
+declare i32 @gcry_cipher_authenticate(ptr noundef, ptr noundef, i64 noundef) #2
+
+; Function Attrs: null_pointer_is_valid
+declare i32 @gcry_cipher_setiv(ptr noundef, ptr noundef, i64 noundef) #2
+
+; Function Attrs: null_pointer_is_valid
+declare i32 @gcry_cipher_decrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) #2
+
+; Function Attrs: null_pointer_is_valid
+declare i32 @gcry_cipher_checktag(ptr noundef, ptr noundef, i64 noundef) #2
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_child_real_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
+
+; Function Attrs: nounwind null_pointer_is_valid
+declare ptr @__memcpy_chk(ptr noundef, ptr noundef, i64 noundef, i64 noundef) #3
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvbparse_init(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #2
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvbparse_get(ptr noundef, ptr noundef) #2
+
+; Function Attrs: null_pointer_is_valid
+declare void @tvbparse_tree_add_elem(ptr noundef, ptr noundef) #2
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #2
+
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #2
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str_ext_const(i32 noundef, ptr noundef, ptr noundef) #2
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_bits_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_bits_ret_val(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_string_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #2
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_address_to_str(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvbparse_chars(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvbparse_char(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvbparse_set_oneof(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) #2
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvbparse_quoted(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i8 noundef signext, i8 noundef signext) #2
+
+; Function Attrs: null_pointer_is_valid
+declare void @tvbparse_shrink_token_cb(ptr noundef, ptr noundef, ptr noundef) #2
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvbparse_until(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvbparse_set_seq(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) #2
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvbparse_some(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { inlinehint nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { alwaysinline nounwind "min-legal-vector-width"="0" }
+attributes #10 = { nounwind }
+attributes #11 = { allocsize(1) }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = !{i8 0, i8 2}
+!14 = !{}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}

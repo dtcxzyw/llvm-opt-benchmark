@@ -4,17 +4,16 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
 %struct._value_string_ext = type { ptr, i32, i32, ptr, ptr }
-%struct._value_string = type { i32, ptr }
 %struct.unit_name_string = type { ptr, ptr }
 %struct.Tecm_interpretation = type { i32, ptr, ptr, i32 }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
-%struct._proto_node = type { ptr, ptr, ptr, ptr, ptr, ptr }
+%struct._proto_node = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.field_info = type { ptr, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, i32, i32 }
 
-@proto_register_simulcrypt.hf = internal global [91 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_simulcrypt_header, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_version, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_message_type, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 5, i32 514, ptr @messagetypenames_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_interface, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 5, i32 1, ptr @interfacenames, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_message_length, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 5, i32 4097, ptr @units_byte_bytes, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_message, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_parameter, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_parameter_type, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_ecmg_parameter_type, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 5, i32 514, ptr @ecmg_parametertypenames_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_emmg_parameter_type, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 5, i32 514, ptr @emmg_parametertypenames_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_parameter_length, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 5, i32 4097, ptr @units_byte_bytes, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_ca_system_id, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_ca_subsystem_id, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_super_cas_id, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_section_tspkt_flag, %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_ecm_channel_id, %struct._header_field_info { ptr @.str.26, ptr @.str.27, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_delay_start, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 13, i32 4097, ptr @units_milliseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_delay_stop, %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 13, i32 4097, ptr @units_milliseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_ac_delay_start, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 13, i32 4097, ptr @units_milliseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_ac_delay_stop, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 13, i32 4097, ptr @units_milliseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_transition_delay_start, %struct._header_field_info { ptr @.str.36, ptr @.str.37, i32 13, i32 4097, ptr @units_milliseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_transition_delay_stop, %struct._header_field_info { ptr @.str.38, ptr @.str.39, i32 13, i32 4097, ptr @units_milliseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_ecm_rep_period, %struct._header_field_info { ptr @.str.40, ptr @.str.41, i32 5, i32 4097, ptr @units_milliseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_max_streams, %struct._header_field_info { ptr @.str.42, ptr @.str.43, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_min_cp_duration, %struct._header_field_info { ptr @.str.44, ptr @.str.45, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_lead_cw, %struct._header_field_info { ptr @.str.46, ptr @.str.47, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_cw_per_msg, %struct._header_field_info { ptr @.str.48, ptr @.str.49, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_max_comp_time, %struct._header_field_info { ptr @.str.50, ptr @.str.51, i32 5, i32 4097, ptr @units_milliseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_access_criteria, %struct._header_field_info { ptr @.str.52, ptr @.str.53, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_ecm_stream_id, %struct._header_field_info { ptr @.str.54, ptr @.str.55, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_nominal_cp_duration, %struct._header_field_info { ptr @.str.56, ptr @.str.57, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_access_criteria_transfer_mode, %struct._header_field_info { ptr @.str.58, ptr @.str.59, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_cp_number, %struct._header_field_info { ptr @.str.60, ptr @.str.61, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_cp_duration, %struct._header_field_info { ptr @.str.62, ptr @.str.63, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_cp_cw_combination, %struct._header_field_info { ptr @.str.64, ptr @.str.65, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_ecm_datagram, %struct._header_field_info { ptr @.str.66, ptr @.str.67, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_cw_encryption, %struct._header_field_info { ptr @.str.68, ptr @.str.69, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_ecm_id, %struct._header_field_info { ptr @.str.70, ptr @.str.71, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_client_id, %struct._header_field_info { ptr @.str.72, ptr @.str.73, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_data_channel_id, %struct._header_field_info { ptr @.str.74, ptr @.str.75, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_data_stream_id, %struct._header_field_info { ptr @.str.76, ptr @.str.77, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_datagram, %struct._header_field_info { ptr @.str.78, ptr @.str.79, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_bandwidth, %struct._header_field_info { ptr @.str.80, ptr @.str.81, i32 5, i32 4097, ptr @units_kbps, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_data_type, %struct._header_field_info { ptr @.str.82, ptr @.str.83, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_data_id, %struct._header_field_info { ptr @.str.84, ptr @.str.85, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_ecmg_error_status, %struct._header_field_info { ptr @.str.86, ptr @.str.87, i32 5, i32 513, ptr @ecmg_error_values_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_emmg_error_status, %struct._header_field_info { ptr @.str.86, ptr @.str.87, i32 5, i32 513, ptr @emmg_error_values_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_error_information, %struct._header_field_info { ptr @.str.88, ptr @.str.89, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_eis_parameter_type, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 5, i32 514, ptr @eis_parametertypenames_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_eis_channel_id, %struct._header_field_info { ptr @.str.90, ptr @.str.91, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_service_flag, %struct._header_field_info { ptr @.str.92, ptr @.str.93, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_component_flag, %struct._header_field_info { ptr @.str.94, ptr @.str.95, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_max_scg, %struct._header_field_info { ptr @.str.96, ptr @.str.97, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_ecm_group, %struct._header_field_info { ptr @.str.98, ptr @.str.99, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_scg_id, %struct._header_field_info { ptr @.str.100, ptr @.str.101, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_scg_reference_id, %struct._header_field_info { ptr @.str.102, ptr @.str.103, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_activation_time, %struct._header_field_info { ptr @.str.104, ptr @.str.105, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_year, %struct._header_field_info { ptr @.str.106, ptr @.str.107, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_month, %struct._header_field_info { ptr @.str.108, ptr @.str.109, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_day, %struct._header_field_info { ptr @.str.110, ptr @.str.111, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_hour, %struct._header_field_info { ptr @.str.112, ptr @.str.113, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_minute, %struct._header_field_info { ptr @.str.114, ptr @.str.115, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_second, %struct._header_field_info { ptr @.str.116, ptr @.str.117, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_hundredth_second, %struct._header_field_info { ptr @.str.118, ptr @.str.119, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_activation_pending_flag, %struct._header_field_info { ptr @.str.120, ptr @.str.121, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_component_id, %struct._header_field_info { ptr @.str.122, ptr @.str.123, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_service_id, %struct._header_field_info { ptr @.str.124, ptr @.str.125, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_transport_stream_id, %struct._header_field_info { ptr @.str.126, ptr @.str.127, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_ac_changed_flag, %struct._header_field_info { ptr @.str.128, ptr @.str.129, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_scg_current_reference_id, %struct._header_field_info { ptr @.str.130, ptr @.str.131, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_scg_pending_reference_id, %struct._header_field_info { ptr @.str.132, ptr @.str.133, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_cp_duration_flag, %struct._header_field_info { ptr @.str.134, ptr @.str.135, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_recommended_cp_duration, %struct._header_field_info { ptr @.str.136, ptr @.str.137, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_scg_nominal_cp_duration, %struct._header_field_info { ptr @.str.138, ptr @.str.139, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_original_network_id, %struct._header_field_info { ptr @.str.140, ptr @.str.141, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_eis_error_status, %struct._header_field_info { ptr @.str.86, ptr @.str.87, i32 5, i32 513, ptr @eis_error_values_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_error_description, %struct._header_field_info { ptr @.str.86, ptr @.str.142, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_psig_parameter_type, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 5, i32 514, ptr @psig_parametertypenames_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_psig_type, %struct._header_field_info { ptr @.str.143, ptr @.str.144, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_channel_id, %struct._header_field_info { ptr @.str.145, ptr @.str.146, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_stream_id, %struct._header_field_info { ptr @.str.147, ptr @.str.148, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_packet_id, %struct._header_field_info { ptr @.str.149, ptr @.str.150, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_interface_mode_configuration, %struct._header_field_info { ptr @.str.151, ptr @.str.152, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_max_stream, %struct._header_field_info { ptr @.str.153, ptr @.str.154, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_table_period_pair, %struct._header_field_info { ptr @.str.155, ptr @.str.156, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_mpeg_section, %struct._header_field_info { ptr @.str.157, ptr @.str.158, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_repetition_rate, %struct._header_field_info { ptr @.str.159, ptr @.str.160, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_initial_bandwidth, %struct._header_field_info { ptr @.str.161, ptr @.str.162, i32 5, i32 4097, ptr @units_kbps, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_asi_input_packet_id, %struct._header_field_info { ptr @.str.163, ptr @.str.164, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_psig_error_status, %struct._header_field_info { ptr @.str.86, ptr @.str.165, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_parameter_value, %struct._header_field_info { ptr @.str.166, ptr @.str.167, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
+@proto_register_simulcrypt.hf = internal global [91 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_simulcrypt_header, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_version, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_message_type, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 5, i32 514, ptr @messagetypenames_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_interface, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 5, i32 1, ptr @interfacenames, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_message_length, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 5, i32 4097, ptr @units_byte_bytes, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_message, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_parameter, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_parameter_type, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_ecmg_parameter_type, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 5, i32 514, ptr @ecmg_parametertypenames_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_emmg_parameter_type, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 5, i32 514, ptr @emmg_parametertypenames_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_parameter_length, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 5, i32 4097, ptr @units_byte_bytes, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_ca_system_id, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_ca_subsystem_id, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_super_cas_id, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_section_tspkt_flag, %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_ecm_channel_id, %struct._header_field_info { ptr @.str.26, ptr @.str.27, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_delay_start, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 13, i32 4097, ptr @units_milliseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_delay_stop, %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 13, i32 4097, ptr @units_milliseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_ac_delay_start, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 13, i32 4097, ptr @units_milliseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_ac_delay_stop, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 13, i32 4097, ptr @units_milliseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_transition_delay_start, %struct._header_field_info { ptr @.str.36, ptr @.str.37, i32 13, i32 4097, ptr @units_milliseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_transition_delay_stop, %struct._header_field_info { ptr @.str.38, ptr @.str.39, i32 13, i32 4097, ptr @units_milliseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_ecm_rep_period, %struct._header_field_info { ptr @.str.40, ptr @.str.41, i32 5, i32 4097, ptr @units_milliseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_max_streams, %struct._header_field_info { ptr @.str.42, ptr @.str.43, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_min_cp_duration, %struct._header_field_info { ptr @.str.44, ptr @.str.45, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_lead_cw, %struct._header_field_info { ptr @.str.46, ptr @.str.47, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_cw_per_msg, %struct._header_field_info { ptr @.str.48, ptr @.str.49, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_max_comp_time, %struct._header_field_info { ptr @.str.50, ptr @.str.51, i32 5, i32 4097, ptr @units_milliseconds, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_access_criteria, %struct._header_field_info { ptr @.str.52, ptr @.str.53, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_ecm_stream_id, %struct._header_field_info { ptr @.str.54, ptr @.str.55, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_nominal_cp_duration, %struct._header_field_info { ptr @.str.56, ptr @.str.57, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_access_criteria_transfer_mode, %struct._header_field_info { ptr @.str.58, ptr @.str.59, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_cp_number, %struct._header_field_info { ptr @.str.60, ptr @.str.61, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_cp_duration, %struct._header_field_info { ptr @.str.62, ptr @.str.63, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_cp_cw_combination, %struct._header_field_info { ptr @.str.64, ptr @.str.65, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_ecm_datagram, %struct._header_field_info { ptr @.str.66, ptr @.str.67, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_cw_encryption, %struct._header_field_info { ptr @.str.68, ptr @.str.69, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_ecm_id, %struct._header_field_info { ptr @.str.70, ptr @.str.71, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_client_id, %struct._header_field_info { ptr @.str.72, ptr @.str.73, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_data_channel_id, %struct._header_field_info { ptr @.str.74, ptr @.str.75, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_data_stream_id, %struct._header_field_info { ptr @.str.76, ptr @.str.77, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_datagram, %struct._header_field_info { ptr @.str.78, ptr @.str.79, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_bandwidth, %struct._header_field_info { ptr @.str.80, ptr @.str.81, i32 5, i32 4097, ptr @units_kbps, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_data_type, %struct._header_field_info { ptr @.str.82, ptr @.str.83, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_data_id, %struct._header_field_info { ptr @.str.84, ptr @.str.85, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_ecmg_error_status, %struct._header_field_info { ptr @.str.86, ptr @.str.87, i32 5, i32 513, ptr @ecmg_error_values_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_emmg_error_status, %struct._header_field_info { ptr @.str.86, ptr @.str.87, i32 5, i32 513, ptr @emmg_error_values_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_error_information, %struct._header_field_info { ptr @.str.88, ptr @.str.89, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_eis_parameter_type, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 5, i32 514, ptr @eis_parametertypenames_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_eis_channel_id, %struct._header_field_info { ptr @.str.90, ptr @.str.91, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_service_flag, %struct._header_field_info { ptr @.str.92, ptr @.str.93, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_component_flag, %struct._header_field_info { ptr @.str.94, ptr @.str.95, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_max_scg, %struct._header_field_info { ptr @.str.96, ptr @.str.97, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_ecm_group, %struct._header_field_info { ptr @.str.98, ptr @.str.99, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_scg_id, %struct._header_field_info { ptr @.str.100, ptr @.str.101, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_scg_reference_id, %struct._header_field_info { ptr @.str.102, ptr @.str.103, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_activation_time, %struct._header_field_info { ptr @.str.104, ptr @.str.105, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_year, %struct._header_field_info { ptr @.str.106, ptr @.str.107, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_month, %struct._header_field_info { ptr @.str.108, ptr @.str.109, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_day, %struct._header_field_info { ptr @.str.110, ptr @.str.111, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_hour, %struct._header_field_info { ptr @.str.112, ptr @.str.113, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_minute, %struct._header_field_info { ptr @.str.114, ptr @.str.115, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_second, %struct._header_field_info { ptr @.str.116, ptr @.str.117, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_hundredth_second, %struct._header_field_info { ptr @.str.118, ptr @.str.119, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_activation_pending_flag, %struct._header_field_info { ptr @.str.120, ptr @.str.121, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_component_id, %struct._header_field_info { ptr @.str.122, ptr @.str.123, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_service_id, %struct._header_field_info { ptr @.str.124, ptr @.str.125, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_transport_stream_id, %struct._header_field_info { ptr @.str.126, ptr @.str.127, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_ac_changed_flag, %struct._header_field_info { ptr @.str.128, ptr @.str.129, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_scg_current_reference_id, %struct._header_field_info { ptr @.str.130, ptr @.str.131, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_scg_pending_reference_id, %struct._header_field_info { ptr @.str.132, ptr @.str.133, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_cp_duration_flag, %struct._header_field_info { ptr @.str.134, ptr @.str.135, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_recommended_cp_duration, %struct._header_field_info { ptr @.str.136, ptr @.str.137, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_scg_nominal_cp_duration, %struct._header_field_info { ptr @.str.138, ptr @.str.139, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_original_network_id, %struct._header_field_info { ptr @.str.140, ptr @.str.141, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_eis_error_status, %struct._header_field_info { ptr @.str.86, ptr @.str.87, i32 5, i32 513, ptr @eis_error_values_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_error_description, %struct._header_field_info { ptr @.str.142, ptr @.str.143, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_psig_parameter_type, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 5, i32 514, ptr @psig_parametertypenames_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_psig_type, %struct._header_field_info { ptr @.str.144, ptr @.str.145, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_channel_id, %struct._header_field_info { ptr @.str.146, ptr @.str.147, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_stream_id, %struct._header_field_info { ptr @.str.148, ptr @.str.149, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_packet_id, %struct._header_field_info { ptr @.str.150, ptr @.str.151, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_interface_mode_configuration, %struct._header_field_info { ptr @.str.152, ptr @.str.153, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_max_stream, %struct._header_field_info { ptr @.str.154, ptr @.str.155, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_table_period_pair, %struct._header_field_info { ptr @.str.156, ptr @.str.157, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_mpeg_section, %struct._header_field_info { ptr @.str.158, ptr @.str.159, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_repetition_rate, %struct._header_field_info { ptr @.str.160, ptr @.str.161, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_initial_bandwidth, %struct._header_field_info { ptr @.str.162, ptr @.str.163, i32 5, i32 4097, ptr @units_kbps, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_asi_input_packet_id, %struct._header_field_info { ptr @.str.164, ptr @.str.165, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_psig_error_status, %struct._header_field_info { ptr @.str.86, ptr @.str.166, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_simulcrypt_parameter_value, %struct._header_field_info { ptr @.str.167, ptr @.str.168, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_simulcrypt_header = internal global i32 0, align 4
 @.str = private unnamed_addr constant [7 x i8] c"Header\00", align 1
 @.str.1 = private unnamed_addr constant [18 x i8] c"simulcrypt.header\00", align 1
@@ -24,11 +23,10 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_simulcrypt_message_type = internal global i32 0, align 4
 @.str.4 = private unnamed_addr constant [13 x i8] c"Message Type\00", align 1
 @.str.5 = private unnamed_addr constant [24 x i8] c"simulcrypt.message.type\00", align 1
-@messagetypenames_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 55, ptr @messagetypenames, ptr @.str.176 }, align 8
+@messagetypenames_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 55, ptr @messagetypenames, ptr @.str.177 }, align 8
 @hf_simulcrypt_interface = internal global i32 0, align 4
 @.str.6 = private unnamed_addr constant [10 x i8] c"Interface\00", align 1
 @.str.7 = private unnamed_addr constant [29 x i8] c"simulcrypt.message.interface\00", align 1
-@interfacenames = internal constant [10 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.206 }, %struct._value_string { i32 1, ptr @.str.207 }, %struct._value_string { i32 2, ptr @.str.208 }, %struct._value_string { i32 3, ptr @.str.209 }, %struct._value_string { i32 4, ptr @.str.210 }, %struct._value_string { i32 5, ptr @.str.211 }, %struct._value_string { i32 6, ptr @.str.212 }, %struct._value_string { i32 7, ptr @.str.213 }, %struct._value_string { i32 8, ptr @.str.214 }, %struct._value_string zeroinitializer], align 16
 @hf_simulcrypt_message_length = internal global i32 0, align 4
 @.str.8 = private unnamed_addr constant [15 x i8] c"Message Length\00", align 1
 @.str.9 = private unnamed_addr constant [23 x i8] c"simulcrypt.message.len\00", align 1
@@ -43,9 +41,9 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.14 = private unnamed_addr constant [15 x i8] c"Parameter Type\00", align 1
 @.str.15 = private unnamed_addr constant [26 x i8] c"simulcrypt.parameter.type\00", align 1
 @hf_simulcrypt_ecmg_parameter_type = internal global i32 0, align 4
-@ecmg_parametertypenames_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 28, ptr @ecmg_parametertypenames, ptr @.str.215 }, align 8
+@ecmg_parametertypenames_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 28, ptr @ecmg_parametertypenames, ptr @.str.218 }, align 8
 @hf_simulcrypt_emmg_parameter_type = internal global i32 0, align 4
-@emmg_parametertypenames_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 11, ptr @emmg_parametertypenames, ptr @.str.244 }, align 8
+@emmg_parametertypenames_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 11, ptr @emmg_parametertypenames, ptr @.str.248 }, align 8
 @hf_simulcrypt_parameter_length = internal global i32 0, align 4
 @.str.16 = private unnamed_addr constant [17 x i8] c"Parameter Length\00", align 1
 @.str.17 = private unnamed_addr constant [25 x i8] c"simulcrypt.parameter.len\00", align 1
@@ -156,14 +154,14 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_simulcrypt_ecmg_error_status = internal global i32 0, align 4
 @.str.86 = private unnamed_addr constant [13 x i8] c"Error status\00", align 1
 @.str.87 = private unnamed_addr constant [24 x i8] c"simulcrypt.error_status\00", align 1
-@ecmg_error_values_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 24, ptr @ecmg_error_values, ptr @.str.252 }, align 8
+@ecmg_error_values_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 24, ptr @ecmg_error_values, ptr @.str.257 }, align 8
 @hf_simulcrypt_emmg_error_status = internal global i32 0, align 4
-@emmg_error_values_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 23, ptr @emmg_error_values, ptr @.str.277 }, align 8
+@emmg_error_values_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 23, ptr @emmg_error_values, ptr @.str.283 }, align 8
 @hf_simulcrypt_error_information = internal global i32 0, align 4
 @.str.88 = private unnamed_addr constant [18 x i8] c"Error information\00", align 1
 @.str.89 = private unnamed_addr constant [29 x i8] c"simulcrypt.error_information\00", align 1
 @hf_simulcrypt_eis_parameter_type = internal global i32 0, align 4
-@eis_parametertypenames_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 26, ptr @eis_parametertypenames, ptr @.str.291 }, align 8
+@eis_parametertypenames_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 26, ptr @eis_parametertypenames, ptr @.str.298 }, align 8
 @hf_simulcrypt_eis_channel_id = internal global i32 0, align 4
 @.str.90 = private unnamed_addr constant [15 x i8] c"EIS channel ID\00", align 1
 @.str.91 = private unnamed_addr constant [36 x i8] c"simulcrypt.parameter.eis_channel_id\00", align 1
@@ -243,49 +241,50 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.140 = private unnamed_addr constant [20 x i8] c"Original network ID\00", align 1
 @.str.141 = private unnamed_addr constant [41 x i8] c"simulcrypt.parameter.original_network_id\00", align 1
 @hf_simulcrypt_eis_error_status = internal global i32 0, align 4
-@eis_error_values_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 23, ptr @eis_error_values, ptr @.str.312 }, align 8
+@eis_error_values_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 23, ptr @eis_error_values, ptr @.str.320 }, align 8
 @hf_simulcrypt_error_description = internal global i32 0, align 4
-@.str.142 = private unnamed_addr constant [29 x i8] c"simulcrypt.error_description\00", align 1
+@.str.142 = private unnamed_addr constant [18 x i8] c"Error description\00", align 1
+@.str.143 = private unnamed_addr constant [29 x i8] c"simulcrypt.error_description\00", align 1
 @hf_simulcrypt_psig_parameter_type = internal global i32 0, align 4
-@psig_parametertypenames_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 20, ptr @psig_parametertypenames, ptr @.str.330 }, align 8
+@psig_parametertypenames_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 20, ptr @psig_parametertypenames, ptr @.str.339 }, align 8
 @hf_simulcrypt_psig_type = internal global i32 0, align 4
-@.str.143 = private unnamed_addr constant [10 x i8] c"PSIG type\00", align 1
-@.str.144 = private unnamed_addr constant [31 x i8] c"simulcrypt.parameter.psig_type\00", align 1
+@.str.144 = private unnamed_addr constant [10 x i8] c"PSIG type\00", align 1
+@.str.145 = private unnamed_addr constant [31 x i8] c"simulcrypt.parameter.psig_type\00", align 1
 @hf_simulcrypt_channel_id = internal global i32 0, align 4
-@.str.145 = private unnamed_addr constant [11 x i8] c"Channel ID\00", align 1
-@.str.146 = private unnamed_addr constant [32 x i8] c"simulcrypt.parameter.channel_id\00", align 1
+@.str.146 = private unnamed_addr constant [11 x i8] c"Channel ID\00", align 1
+@.str.147 = private unnamed_addr constant [32 x i8] c"simulcrypt.parameter.channel_id\00", align 1
 @hf_simulcrypt_stream_id = internal global i32 0, align 4
-@.str.147 = private unnamed_addr constant [10 x i8] c"Stream ID\00", align 1
-@.str.148 = private unnamed_addr constant [31 x i8] c"simulcrypt.parameter.stream_id\00", align 1
+@.str.148 = private unnamed_addr constant [10 x i8] c"Stream ID\00", align 1
+@.str.149 = private unnamed_addr constant [31 x i8] c"simulcrypt.parameter.stream_id\00", align 1
 @hf_simulcrypt_packet_id = internal global i32 0, align 4
-@.str.149 = private unnamed_addr constant [10 x i8] c"Packet ID\00", align 1
-@.str.150 = private unnamed_addr constant [31 x i8] c"simulcrypt.parameter.packet_id\00", align 1
+@.str.150 = private unnamed_addr constant [10 x i8] c"Packet ID\00", align 1
+@.str.151 = private unnamed_addr constant [31 x i8] c"simulcrypt.parameter.packet_id\00", align 1
 @hf_simulcrypt_interface_mode_configuration = internal global i32 0, align 4
-@.str.151 = private unnamed_addr constant [29 x i8] c"Interface mode configuration\00", align 1
-@.str.152 = private unnamed_addr constant [50 x i8] c"simulcrypt.parameter.interface_mode_configuration\00", align 1
+@.str.152 = private unnamed_addr constant [29 x i8] c"Interface mode configuration\00", align 1
+@.str.153 = private unnamed_addr constant [50 x i8] c"simulcrypt.parameter.interface_mode_configuration\00", align 1
 @hf_simulcrypt_max_stream = internal global i32 0, align 4
-@.str.153 = private unnamed_addr constant [11 x i8] c"Max stream\00", align 1
-@.str.154 = private unnamed_addr constant [32 x i8] c"simulcrypt.parameter.max_stream\00", align 1
+@.str.154 = private unnamed_addr constant [11 x i8] c"Max stream\00", align 1
+@.str.155 = private unnamed_addr constant [32 x i8] c"simulcrypt.parameter.max_stream\00", align 1
 @hf_simulcrypt_table_period_pair = internal global i32 0, align 4
-@.str.155 = private unnamed_addr constant [18 x i8] c"Table period pair\00", align 1
-@.str.156 = private unnamed_addr constant [39 x i8] c"simulcrypt.parameter.table_period_pair\00", align 1
+@.str.156 = private unnamed_addr constant [18 x i8] c"Table period pair\00", align 1
+@.str.157 = private unnamed_addr constant [39 x i8] c"simulcrypt.parameter.table_period_pair\00", align 1
 @hf_simulcrypt_mpeg_section = internal global i32 0, align 4
-@.str.157 = private unnamed_addr constant [13 x i8] c"MPEG section\00", align 1
-@.str.158 = private unnamed_addr constant [34 x i8] c"simulcrypt.parameter.mpeg_section\00", align 1
+@.str.158 = private unnamed_addr constant [13 x i8] c"MPEG section\00", align 1
+@.str.159 = private unnamed_addr constant [34 x i8] c"simulcrypt.parameter.mpeg_section\00", align 1
 @hf_simulcrypt_repetition_rate = internal global i32 0, align 4
-@.str.159 = private unnamed_addr constant [16 x i8] c"Repetition rate\00", align 1
-@.str.160 = private unnamed_addr constant [37 x i8] c"simulcrypt.parameter.repetition_rate\00", align 1
+@.str.160 = private unnamed_addr constant [16 x i8] c"Repetition rate\00", align 1
+@.str.161 = private unnamed_addr constant [37 x i8] c"simulcrypt.parameter.repetition_rate\00", align 1
 @hf_simulcrypt_initial_bandwidth = internal global i32 0, align 4
-@.str.161 = private unnamed_addr constant [18 x i8] c"Initial bandwidth\00", align 1
-@.str.162 = private unnamed_addr constant [39 x i8] c"simulcrypt.parameter.initial_bandwidth\00", align 1
+@.str.162 = private unnamed_addr constant [18 x i8] c"Initial bandwidth\00", align 1
+@.str.163 = private unnamed_addr constant [39 x i8] c"simulcrypt.parameter.initial_bandwidth\00", align 1
 @hf_simulcrypt_asi_input_packet_id = internal global i32 0, align 4
-@.str.163 = private unnamed_addr constant [20 x i8] c"ASI input packet ID\00", align 1
-@.str.164 = private unnamed_addr constant [41 x i8] c"simulcrypt.parameter.asi_input_packet_id\00", align 1
+@.str.164 = private unnamed_addr constant [20 x i8] c"ASI input packet ID\00", align 1
+@.str.165 = private unnamed_addr constant [41 x i8] c"simulcrypt.parameter.asi_input_packet_id\00", align 1
 @hf_simulcrypt_psig_error_status = internal global i32 0, align 4
-@.str.165 = private unnamed_addr constant [34 x i8] c"simulcrypt.parameter.error_status\00", align 1
+@.str.166 = private unnamed_addr constant [34 x i8] c"simulcrypt.parameter.error_status\00", align 1
 @hf_simulcrypt_parameter_value = internal global i32 0, align 4
-@.str.166 = private unnamed_addr constant [16 x i8] c"Parameter Value\00", align 1
-@.str.167 = private unnamed_addr constant [27 x i8] c"simulcrypt.parameter.value\00", align 1
+@.str.167 = private unnamed_addr constant [16 x i8] c"Parameter Value\00", align 1
+@.str.168 = private unnamed_addr constant [27 x i8] c"simulcrypt.parameter.value\00", align 1
 @proto_register_simulcrypt.ett = internal global [9 x ptr] [ptr @ett_simulcrypt, ptr @ett_simulcrypt_header, ptr @ett_simulcrypt_message, ptr @ett_simulcrypt_parameter, ptr @ett_simulcrypt_super_cas_id, ptr @ett_simulcrypt_ecm_datagram, ptr @ett_simulcrypt_ecm_group, ptr @ett_simulcrypt_activation_time, ptr @ett_simulcrypt_table_period_pair], align 16
 @ett_simulcrypt = internal global i32 0, align 4
 @ett_simulcrypt_header = internal global i32 0, align 4
@@ -296,245 +295,256 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_simulcrypt_ecm_group = internal global i32 0, align 4
 @ett_simulcrypt_activation_time = internal global i32 0, align 4
 @ett_simulcrypt_table_period_pair = internal global i32 0, align 4
-@.str.168 = private unnamed_addr constant [20 x i8] c"SIMULCRYPT Protocol\00", align 1
-@.str.169 = private unnamed_addr constant [11 x i8] c"SIMULCRYPT\00", align 1
-@.str.170 = private unnamed_addr constant [11 x i8] c"simulcrypt\00", align 1
+@.str.169 = private unnamed_addr constant [20 x i8] c"SIMULCRYPT Protocol\00", align 1
+@.str.170 = private unnamed_addr constant [11 x i8] c"SIMULCRYPT\00", align 1
+@.str.171 = private unnamed_addr constant [11 x i8] c"simulcrypt\00", align 1
 @proto_simulcrypt = internal global i32 0, align 4
 @simulcrypt_handle = internal global ptr null, align 8
-@.str.171 = private unnamed_addr constant [19 x i8] c"ca_system_id_mikey\00", align 1
-@.str.172 = private unnamed_addr constant [32 x i8] c"MIKEY ECM CA_system_ID (in hex)\00", align 1
-@.str.173 = private unnamed_addr constant [58 x i8] c"Set the CA_system_ID used to decode ECM datagram as MIKEY\00", align 1
+@.str.172 = private unnamed_addr constant [19 x i8] c"ca_system_id_mikey\00", align 1
+@.str.173 = private unnamed_addr constant [32 x i8] c"MIKEY ECM CA_system_ID (in hex)\00", align 1
+@.str.174 = private unnamed_addr constant [58 x i8] c"Set the CA_system_ID used to decode ECM datagram as MIKEY\00", align 1
 @ca_system_id_mikey = internal global i32 39321, align 4
-@proto_reg_handoff_simulcrypt.initialized = internal global i32 0, align 4
-@tab_ecm_inter = internal global [1 x %struct.Tecm_interpretation] [%struct.Tecm_interpretation { i32 39321, ptr @.str.361, ptr null, i32 -1 }], align 16
-@.str.174 = private unnamed_addr constant [9 x i8] c"udp.port\00", align 1
-@.str.175 = private unnamed_addr constant [9 x i8] c"tcp.port\00", align 1
-@messagetypenames = internal constant [56 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.177 }, %struct._value_string { i32 2, ptr @.str.178 }, %struct._value_string { i32 3, ptr @.str.179 }, %struct._value_string { i32 4, ptr @.str.180 }, %struct._value_string { i32 5, ptr @.str.181 }, %struct._value_string { i32 17, ptr @.str.177 }, %struct._value_string { i32 18, ptr @.str.178 }, %struct._value_string { i32 19, ptr @.str.179 }, %struct._value_string { i32 20, ptr @.str.180 }, %struct._value_string { i32 21, ptr @.str.181 }, %struct._value_string { i32 257, ptr @.str.182 }, %struct._value_string { i32 258, ptr @.str.183 }, %struct._value_string { i32 259, ptr @.str.184 }, %struct._value_string { i32 260, ptr @.str.185 }, %struct._value_string { i32 261, ptr @.str.186 }, %struct._value_string { i32 262, ptr @.str.187 }, %struct._value_string { i32 273, ptr @.str.182 }, %struct._value_string { i32 274, ptr @.str.183 }, %struct._value_string { i32 275, ptr @.str.184 }, %struct._value_string { i32 276, ptr @.str.185 }, %struct._value_string { i32 277, ptr @.str.186 }, %struct._value_string { i32 278, ptr @.str.187 }, %struct._value_string { i32 279, ptr @.str.188 }, %struct._value_string { i32 280, ptr @.str.189 }, %struct._value_string { i32 513, ptr @.str.190 }, %struct._value_string { i32 514, ptr @.str.191 }, %struct._value_string { i32 529, ptr @.str.192 }, %struct._value_string { i32 1025, ptr @.str.193 }, %struct._value_string { i32 1026, ptr @.str.178 }, %struct._value_string { i32 1027, ptr @.str.179 }, %struct._value_string { i32 1028, ptr @.str.180 }, %struct._value_string { i32 1029, ptr @.str.181 }, %struct._value_string { i32 1030, ptr @.str.194 }, %struct._value_string { i32 1032, ptr @.str.195 }, %struct._value_string { i32 1033, ptr @.str.196 }, %struct._value_string { i32 1034, ptr @.str.197 }, %struct._value_string { i32 1035, ptr @.str.198 }, %struct._value_string { i32 1036, ptr @.str.199 }, %struct._value_string { i32 1037, ptr @.str.200 }, %struct._value_string { i32 1041, ptr @.str.177 }, %struct._value_string { i32 1042, ptr @.str.178 }, %struct._value_string { i32 1043, ptr @.str.179 }, %struct._value_string { i32 1044, ptr @.str.180 }, %struct._value_string { i32 1045, ptr @.str.181 }, %struct._value_string { i32 1057, ptr @.str.182 }, %struct._value_string { i32 1058, ptr @.str.183 }, %struct._value_string { i32 1059, ptr @.str.184 }, %struct._value_string { i32 1060, ptr @.str.185 }, %struct._value_string { i32 1061, ptr @.str.186 }, %struct._value_string { i32 1062, ptr @.str.187 }, %struct._value_string { i32 1073, ptr @.str.201 }, %struct._value_string { i32 1074, ptr @.str.202 }, %struct._value_string { i32 1089, ptr @.str.203 }, %struct._value_string { i32 1090, ptr @.str.204 }, %struct._value_string { i32 1091, ptr @.str.205 }, %struct._value_string zeroinitializer], align 16
-@.str.176 = private unnamed_addr constant [17 x i8] c"messagetypenames\00", align 1
-@.str.177 = private unnamed_addr constant [14 x i8] c"CHANNEL_SETUP\00", align 1
-@.str.178 = private unnamed_addr constant [13 x i8] c"CHANNEL_TEST\00", align 1
-@.str.179 = private unnamed_addr constant [15 x i8] c"CHANNEL_STATUS\00", align 1
-@.str.180 = private unnamed_addr constant [14 x i8] c"CHANNEL_CLOSE\00", align 1
-@.str.181 = private unnamed_addr constant [14 x i8] c"CHANNEL_ERROR\00", align 1
-@.str.182 = private unnamed_addr constant [13 x i8] c"STREAM_SETUP\00", align 1
-@.str.183 = private unnamed_addr constant [12 x i8] c"STREAM_TEST\00", align 1
-@.str.184 = private unnamed_addr constant [14 x i8] c"STREAM_STATUS\00", align 1
-@.str.185 = private unnamed_addr constant [21 x i8] c"STREAM_CLOSE_REQUEST\00", align 1
-@.str.186 = private unnamed_addr constant [22 x i8] c"STREAM_CLOSE_RESPONSE\00", align 1
-@.str.187 = private unnamed_addr constant [13 x i8] c"STREAM_ERROR\00", align 1
-@.str.188 = private unnamed_addr constant [18 x i8] c"STREAM_BW_REQUEST\00", align 1
-@.str.189 = private unnamed_addr constant [21 x i8] c"STREAM_BW_ALLOCATION\00", align 1
-@.str.190 = private unnamed_addr constant [13 x i8] c"CW_PROVISION\00", align 1
-@.str.191 = private unnamed_addr constant [13 x i8] c"ECM_RESPONSE\00", align 1
-@.str.192 = private unnamed_addr constant [15 x i8] c"DATA_PROVISION\00", align 1
-@.str.193 = private unnamed_addr constant [15 x i8] c"CHANNEL_SET_UP\00", align 1
-@.str.194 = private unnamed_addr constant [14 x i8] c"CHANNEL_RESET\00", align 1
-@.str.195 = private unnamed_addr constant [14 x i8] c"SCG_PROVISION\00", align 1
-@.str.196 = private unnamed_addr constant [9 x i8] c"SCG_TEST\00", align 1
-@.str.197 = private unnamed_addr constant [11 x i8] c"SCG_STATUS\00", align 1
-@.str.198 = private unnamed_addr constant [10 x i8] c"SCG_ERROR\00", align 1
-@.str.199 = private unnamed_addr constant [17 x i8] c"SCG_LIST_REQUEST\00", align 1
-@.str.200 = private unnamed_addr constant [18 x i8] c"SCG_LIST_RESPONSE\00", align 1
-@.str.201 = private unnamed_addr constant [29 x i8] c"CIM_STREAM_SECTION_PROVISION\00", align 1
-@.str.202 = private unnamed_addr constant [18 x i8] c"CIM_CHANNEL_RESET\00", align 1
-@.str.203 = private unnamed_addr constant [22 x i8] c"CIM_STREAM_BW_REQUEST\00", align 1
-@.str.204 = private unnamed_addr constant [25 x i8] c"CIM_STREAM_BW_ALLOCATION\00", align 1
-@.str.205 = private unnamed_addr constant [26 x i8] c"CIM_STREAM_DATA_PROVISION\00", align 1
-@.str.206 = private unnamed_addr constant [13 x i8] c"DVB reserved\00", align 1
-@.str.207 = private unnamed_addr constant [13 x i8] c"ECMG <-> SCS\00", align 1
-@.str.208 = private unnamed_addr constant [13 x i8] c"EMMG <-> MUX\00", align 1
-@.str.209 = private unnamed_addr constant [19 x i8] c"C(P)SIG <-> (P)SIG\00", align 1
-@.str.210 = private unnamed_addr constant [12 x i8] c"EIS <-> SCS\00", align 1
-@.str.211 = private unnamed_addr constant [15 x i8] c"(P)SIG <-> MUX\00", align 1
-@.str.212 = private unnamed_addr constant [26 x i8] c"Carousel in the MUX - CiM\00", align 1
-@.str.213 = private unnamed_addr constant [26 x i8] c"Carousel in the (P) - CiP\00", align 1
-@.str.214 = private unnamed_addr constant [13 x i8] c"User defined\00", align 1
-@ecmg_parametertypenames = internal constant [29 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.216 }, %struct._value_string { i32 1, ptr @.str.217 }, %struct._value_string { i32 2, ptr @.str.218 }, %struct._value_string { i32 3, ptr @.str.219 }, %struct._value_string { i32 4, ptr @.str.220 }, %struct._value_string { i32 5, ptr @.str.221 }, %struct._value_string { i32 6, ptr @.str.222 }, %struct._value_string { i32 7, ptr @.str.223 }, %struct._value_string { i32 8, ptr @.str.224 }, %struct._value_string { i32 9, ptr @.str.225 }, %struct._value_string { i32 10, ptr @.str.226 }, %struct._value_string { i32 11, ptr @.str.227 }, %struct._value_string { i32 12, ptr @.str.228 }, %struct._value_string { i32 13, ptr @.str.229 }, %struct._value_string { i32 14, ptr @.str.230 }, %struct._value_string { i32 15, ptr @.str.231 }, %struct._value_string { i32 16, ptr @.str.232 }, %struct._value_string { i32 17, ptr @.str.233 }, %struct._value_string { i32 18, ptr @.str.234 }, %struct._value_string { i32 19, ptr @.str.235 }, %struct._value_string { i32 20, ptr @.str.236 }, %struct._value_string { i32 21, ptr @.str.237 }, %struct._value_string { i32 22, ptr @.str.238 }, %struct._value_string { i32 23, ptr @.str.239 }, %struct._value_string { i32 24, ptr @.str.240 }, %struct._value_string { i32 25, ptr @.str.241 }, %struct._value_string { i32 28672, ptr @.str.242 }, %struct._value_string { i32 28673, ptr @.str.243 }, %struct._value_string zeroinitializer], align 16
-@.str.215 = private unnamed_addr constant [24 x i8] c"ecmg_parametertypenames\00", align 1
-@.str.216 = private unnamed_addr constant [13 x i8] c"DVB_RESERVED\00", align 1
-@.str.217 = private unnamed_addr constant [13 x i8] c"SUPER_CAS_ID\00", align 1
-@.str.218 = private unnamed_addr constant [19 x i8] c"SECTION_TSPKT_FLAG\00", align 1
-@.str.219 = private unnamed_addr constant [12 x i8] c"DELAY_START\00", align 1
-@.str.220 = private unnamed_addr constant [11 x i8] c"DELAY_STOP\00", align 1
-@.str.221 = private unnamed_addr constant [23 x i8] c"TRANSITION_DELAY_START\00", align 1
-@.str.222 = private unnamed_addr constant [22 x i8] c"TRANSITION_DELAY_STOP\00", align 1
-@.str.223 = private unnamed_addr constant [15 x i8] c"ECM_REP_PERIOD\00", align 1
-@.str.224 = private unnamed_addr constant [12 x i8] c"MAX_STREAMS\00", align 1
-@.str.225 = private unnamed_addr constant [16 x i8] c"MIN_CP_DURATION\00", align 1
-@.str.226 = private unnamed_addr constant [8 x i8] c"LEAD_CW\00", align 1
-@.str.227 = private unnamed_addr constant [15 x i8] c"CW_PER_MESSAGE\00", align 1
-@.str.228 = private unnamed_addr constant [14 x i8] c"MAX_COMP_TIME\00", align 1
-@.str.229 = private unnamed_addr constant [16 x i8] c"ACCESS_CRITERIA\00", align 1
-@.str.230 = private unnamed_addr constant [15 x i8] c"ECM_CHANNEL_ID\00", align 1
-@.str.231 = private unnamed_addr constant [14 x i8] c"ECM_STREAM_ID\00", align 1
-@.str.232 = private unnamed_addr constant [20 x i8] c"NOMINAL_CP_DURATION\00", align 1
-@.str.233 = private unnamed_addr constant [30 x i8] c"ACCESS_CRITERIA_TRANSFER_MODE\00", align 1
-@.str.234 = private unnamed_addr constant [10 x i8] c"CP_NUMBER\00", align 1
-@.str.235 = private unnamed_addr constant [12 x i8] c"CP_DURATION\00", align 1
-@.str.236 = private unnamed_addr constant [18 x i8] c"CP_CW_COMBINATION\00", align 1
-@.str.237 = private unnamed_addr constant [13 x i8] c"ECM_DATAGRAM\00", align 1
-@.str.238 = private unnamed_addr constant [15 x i8] c"AC_DELAY_START\00", align 1
-@.str.239 = private unnamed_addr constant [14 x i8] c"AC_DELAY_STOP\00", align 1
-@.str.240 = private unnamed_addr constant [14 x i8] c"CW_ENCRYPTION\00", align 1
-@.str.241 = private unnamed_addr constant [7 x i8] c"ECM_ID\00", align 1
-@.str.242 = private unnamed_addr constant [13 x i8] c"ERROR_STATUS\00", align 1
-@.str.243 = private unnamed_addr constant [18 x i8] c"ERROR_INFORMATION\00", align 1
-@emmg_parametertypenames = internal constant [12 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.216 }, %struct._value_string { i32 1, ptr @.str.245 }, %struct._value_string { i32 2, ptr @.str.218 }, %struct._value_string { i32 3, ptr @.str.246 }, %struct._value_string { i32 4, ptr @.str.247 }, %struct._value_string { i32 5, ptr @.str.248 }, %struct._value_string { i32 6, ptr @.str.249 }, %struct._value_string { i32 7, ptr @.str.250 }, %struct._value_string { i32 8, ptr @.str.251 }, %struct._value_string { i32 28672, ptr @.str.242 }, %struct._value_string { i32 28673, ptr @.str.243 }, %struct._value_string zeroinitializer], align 16
-@.str.244 = private unnamed_addr constant [24 x i8] c"emmg_parametertypenames\00", align 1
-@.str.245 = private unnamed_addr constant [10 x i8] c"CLIENT_ID\00", align 1
-@.str.246 = private unnamed_addr constant [16 x i8] c"DATA_CHANNEL_ID\00", align 1
-@.str.247 = private unnamed_addr constant [15 x i8] c"DATA_STREAM_ID\00", align 1
-@.str.248 = private unnamed_addr constant [9 x i8] c"DATAGRAM\00", align 1
-@.str.249 = private unnamed_addr constant [10 x i8] c"BANDWIDTH\00", align 1
-@.str.250 = private unnamed_addr constant [10 x i8] c"DATA_TYPE\00", align 1
-@.str.251 = private unnamed_addr constant [8 x i8] c"DATA_ID\00", align 1
-@ecmg_error_values = internal constant [25 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.253 }, %struct._value_string { i32 1, ptr @.str.254 }, %struct._value_string { i32 2, ptr @.str.255 }, %struct._value_string { i32 3, ptr @.str.256 }, %struct._value_string { i32 4, ptr @.str.257 }, %struct._value_string { i32 5, ptr @.str.258 }, %struct._value_string { i32 6, ptr @.str.259 }, %struct._value_string { i32 7, ptr @.str.260 }, %struct._value_string { i32 8, ptr @.str.261 }, %struct._value_string { i32 9, ptr @.str.262 }, %struct._value_string { i32 10, ptr @.str.263 }, %struct._value_string { i32 11, ptr @.str.264 }, %struct._value_string { i32 12, ptr @.str.265 }, %struct._value_string { i32 13, ptr @.str.266 }, %struct._value_string { i32 14, ptr @.str.267 }, %struct._value_string { i32 15, ptr @.str.268 }, %struct._value_string { i32 16, ptr @.str.269 }, %struct._value_string { i32 17, ptr @.str.270 }, %struct._value_string { i32 18, ptr @.str.271 }, %struct._value_string { i32 19, ptr @.str.272 }, %struct._value_string { i32 20, ptr @.str.273 }, %struct._value_string { i32 21, ptr @.str.274 }, %struct._value_string { i32 28672, ptr @.str.275 }, %struct._value_string { i32 28673, ptr @.str.276 }, %struct._value_string zeroinitializer], align 16
-@.str.252 = private unnamed_addr constant [18 x i8] c"ecmg_error_values\00", align 1
-@.str.253 = private unnamed_addr constant [13 x i8] c"DVB Reserved\00", align 1
-@.str.254 = private unnamed_addr constant [16 x i8] c"Invalid message\00", align 1
-@.str.255 = private unnamed_addr constant [29 x i8] c"Unsupported protocol version\00", align 1
-@.str.256 = private unnamed_addr constant [27 x i8] c"Unknown message type value\00", align 1
-@.str.257 = private unnamed_addr constant [17 x i8] c"Message too long\00", align 1
-@.str.258 = private unnamed_addr constant [27 x i8] c"Unknown super CAS ID value\00", align 1
-@.str.259 = private unnamed_addr constant [29 x i8] c"Unknown ECM channel ID value\00", align 1
-@.str.260 = private unnamed_addr constant [28 x i8] c"Unknown ECM stream ID value\00", align 1
-@.str.261 = private unnamed_addr constant [31 x i8] c"Too many channels on this ECMG\00", align 1
-@.str.262 = private unnamed_addr constant [37 x i8] c"Too many ECM streams on this channel\00", align 1
-@.str.263 = private unnamed_addr constant [34 x i8] c"Too many ECM streams on this ECMG\00", align 1
-@.str.264 = private unnamed_addr constant [40 x i8] c"Not enough control words to compute ECM\00", align 1
-@.str.265 = private unnamed_addr constant [29 x i8] c"ECMG out of storage capacity\00", align 1
-@.str.266 = private unnamed_addr constant [36 x i8] c"ECMG out of computational resources\00", align 1
-@.str.267 = private unnamed_addr constant [29 x i8] c"Unknown parameter type value\00", align 1
-@.str.268 = private unnamed_addr constant [38 x i8] c"Inconsistent length for DVB parameter\00", align 1
-@.str.269 = private unnamed_addr constant [32 x i8] c"Missing mandatory DVB parameter\00", align 1
-@.str.270 = private unnamed_addr constant [32 x i8] c"Invalid value for DVB parameter\00", align 1
-@.str.271 = private unnamed_addr constant [21 x i8] c"Unknown ECM ID value\00", align 1
-@.str.272 = private unnamed_addr constant [36 x i8] c"ECM channel ID value already in use\00", align 1
-@.str.273 = private unnamed_addr constant [35 x i8] c"ECM stream ID value already in use\00", align 1
-@.str.274 = private unnamed_addr constant [28 x i8] c"ECM ID value already in use\00", align 1
-@.str.275 = private unnamed_addr constant [14 x i8] c"Unknown error\00", align 1
-@.str.276 = private unnamed_addr constant [20 x i8] c"Unrecoverable error\00", align 1
-@emmg_error_values = internal constant [24 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.253 }, %struct._value_string { i32 1, ptr @.str.254 }, %struct._value_string { i32 2, ptr @.str.255 }, %struct._value_string { i32 3, ptr @.str.256 }, %struct._value_string { i32 4, ptr @.str.257 }, %struct._value_string { i32 5, ptr @.str.278 }, %struct._value_string { i32 6, ptr @.str.279 }, %struct._value_string { i32 7, ptr @.str.280 }, %struct._value_string { i32 8, ptr @.str.281 }, %struct._value_string { i32 9, ptr @.str.282 }, %struct._value_string { i32 10, ptr @.str.283 }, %struct._value_string { i32 11, ptr @.str.268 }, %struct._value_string { i32 12, ptr @.str.269 }, %struct._value_string { i32 13, ptr @.str.270 }, %struct._value_string { i32 14, ptr @.str.284 }, %struct._value_string { i32 15, ptr @.str.285 }, %struct._value_string { i32 16, ptr @.str.286 }, %struct._value_string { i32 17, ptr @.str.287 }, %struct._value_string { i32 18, ptr @.str.288 }, %struct._value_string { i32 19, ptr @.str.289 }, %struct._value_string { i32 20, ptr @.str.290 }, %struct._value_string { i32 28672, ptr @.str.275 }, %struct._value_string { i32 28673, ptr @.str.276 }, %struct._value_string zeroinitializer], align 16
-@.str.277 = private unnamed_addr constant [18 x i8] c"emmg_error_values\00", align 1
-@.str.278 = private unnamed_addr constant [29 x i8] c"Unknown data stream ID value\00", align 1
-@.str.279 = private unnamed_addr constant [30 x i8] c"Unknown data channel ID value\00", align 1
-@.str.280 = private unnamed_addr constant [30 x i8] c"Too many channels on this MUX\00", align 1
-@.str.281 = private unnamed_addr constant [38 x i8] c"Too many data streams on this channel\00", align 1
-@.str.282 = private unnamed_addr constant [34 x i8] c"Too many data streams on this MUX\00", align 1
-@.str.283 = private unnamed_addr constant [23 x i8] c"Unknown parameter type\00", align 1
-@.str.284 = private unnamed_addr constant [24 x i8] c"Unknown client ID value\00", align 1
-@.str.285 = private unnamed_addr constant [19 x i8] c"Exceeded bandwidth\00", align 1
-@.str.286 = private unnamed_addr constant [22 x i8] c"Unknown data ID value\00", align 1
-@.str.287 = private unnamed_addr constant [37 x i8] c"Data channel ID value already in use\00", align 1
-@.str.288 = private unnamed_addr constant [36 x i8] c"Data stream ID value already in use\00", align 1
-@.str.289 = private unnamed_addr constant [29 x i8] c"Data ID value already in use\00", align 1
-@.str.290 = private unnamed_addr constant [31 x i8] c"Client ID value already in use\00", align 1
-@eis_parametertypenames = internal constant [27 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.216 }, %struct._value_string { i32 1, ptr @.str.292 }, %struct._value_string { i32 2, ptr @.str.293 }, %struct._value_string { i32 3, ptr @.str.294 }, %struct._value_string { i32 4, ptr @.str.295 }, %struct._value_string { i32 5, ptr @.str.296 }, %struct._value_string { i32 6, ptr @.str.297 }, %struct._value_string { i32 7, ptr @.str.298 }, %struct._value_string { i32 8, ptr @.str.217 }, %struct._value_string { i32 9, ptr @.str.241 }, %struct._value_string { i32 10, ptr @.str.229 }, %struct._value_string { i32 11, ptr @.str.299 }, %struct._value_string { i32 12, ptr @.str.300 }, %struct._value_string { i32 13, ptr @.str.301 }, %struct._value_string { i32 14, ptr @.str.302 }, %struct._value_string { i32 15, ptr @.str.303 }, %struct._value_string { i32 16, ptr @.str.304 }, %struct._value_string { i32 17, ptr @.str.305 }, %struct._value_string { i32 18, ptr @.str.306 }, %struct._value_string { i32 19, ptr @.str.307 }, %struct._value_string { i32 20, ptr @.str.308 }, %struct._value_string { i32 21, ptr @.str.309 }, %struct._value_string { i32 22, ptr @.str.310 }, %struct._value_string { i32 28672, ptr @.str.242 }, %struct._value_string { i32 28673, ptr @.str.243 }, %struct._value_string { i32 28674, ptr @.str.311 }, %struct._value_string zeroinitializer], align 16
-@.str.291 = private unnamed_addr constant [23 x i8] c"eis_parametertypenames\00", align 1
-@.str.292 = private unnamed_addr constant [15 x i8] c"EIS_CHANNEL_ID\00", align 1
-@.str.293 = private unnamed_addr constant [13 x i8] c"SERVICE_FLAG\00", align 1
-@.str.294 = private unnamed_addr constant [15 x i8] c"COMPONENT_FLAG\00", align 1
-@.str.295 = private unnamed_addr constant [8 x i8] c"MAX_SCG\00", align 1
-@.str.296 = private unnamed_addr constant [10 x i8] c"ECM_GROUP\00", align 1
-@.str.297 = private unnamed_addr constant [7 x i8] c"SCG_ID\00", align 1
-@.str.298 = private unnamed_addr constant [17 x i8] c"SCG_REFERENCE_ID\00", align 1
-@.str.299 = private unnamed_addr constant [16 x i8] c"ACTIVATION_TIME\00", align 1
-@.str.300 = private unnamed_addr constant [24 x i8] c"ACTIVATION_PENDING_FLAG\00", align 1
-@.str.301 = private unnamed_addr constant [13 x i8] c"COMPONENT_ID\00", align 1
-@.str.302 = private unnamed_addr constant [11 x i8] c"SERVICE_ID\00", align 1
-@.str.303 = private unnamed_addr constant [20 x i8] c"TRANSPORT_STREAM_ID\00", align 1
-@.str.304 = private unnamed_addr constant [16 x i8] c"AC_CHANGED_FLAG\00", align 1
-@.str.305 = private unnamed_addr constant [25 x i8] c"SCG_CURRENT_REFERENCE_ID\00", align 1
-@.str.306 = private unnamed_addr constant [25 x i8] c"SCG_PENDING_REFERENCE_ID\00", align 1
-@.str.307 = private unnamed_addr constant [17 x i8] c"CP_DURATION_FLAG\00", align 1
-@.str.308 = private unnamed_addr constant [24 x i8] c"RECOMMENDED_CP_DURATION\00", align 1
-@.str.309 = private unnamed_addr constant [24 x i8] c"SCG_NOMINAL_CP_DURATION\00", align 1
-@.str.310 = private unnamed_addr constant [20 x i8] c"ORIGINAL_NETWORK_ID\00", align 1
-@.str.311 = private unnamed_addr constant [18 x i8] c"ERROR_DESCRIPTION\00", align 1
-@eis_error_values = internal constant [24 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.253 }, %struct._value_string { i32 1, ptr @.str.254 }, %struct._value_string { i32 2, ptr @.str.255 }, %struct._value_string { i32 3, ptr @.str.313 }, %struct._value_string { i32 4, ptr @.str.257 }, %struct._value_string { i32 5, ptr @.str.314 }, %struct._value_string { i32 6, ptr @.str.315 }, %struct._value_string { i32 7, ptr @.str.316 }, %struct._value_string { i32 8, ptr @.str.317 }, %struct._value_string { i32 9, ptr @.str.318 }, %struct._value_string { i32 10, ptr @.str.319 }, %struct._value_string { i32 11, ptr @.str.320 }, %struct._value_string { i32 12, ptr @.str.321 }, %struct._value_string { i32 13, ptr @.str.322 }, %struct._value_string { i32 14, ptr @.str.323 }, %struct._value_string { i32 15, ptr @.str.324 }, %struct._value_string { i32 16, ptr @.str.325 }, %struct._value_string { i32 17, ptr @.str.326 }, %struct._value_string { i32 18, ptr @.str.327 }, %struct._value_string { i32 19, ptr @.str.328 }, %struct._value_string { i32 20, ptr @.str.329 }, %struct._value_string { i32 28672, ptr @.str.275 }, %struct._value_string { i32 28673, ptr @.str.276 }, %struct._value_string zeroinitializer], align 16
-@.str.312 = private unnamed_addr constant [17 x i8] c"eis_error_values\00", align 1
-@.str.313 = private unnamed_addr constant [27 x i8] c"Unknown message_type value\00", align 1
-@.str.314 = private unnamed_addr constant [34 x i8] c"Inconsistent length for parameter\00", align 1
-@.str.315 = private unnamed_addr constant [28 x i8] c"Missing mandatory parameter\00", align 1
-@.str.316 = private unnamed_addr constant [28 x i8] c"Invalid value for parameter\00", align 1
-@.str.317 = private unnamed_addr constant [29 x i8] c"Unknown EIS_channel_ID value\00", align 1
-@.str.318 = private unnamed_addr constant [21 x i8] c"Unknown SCG_ID value\00", align 1
-@.str.319 = private unnamed_addr constant [25 x i8] c"Max SCGs already defined\00", align 1
-@.str.320 = private unnamed_addr constant [45 x i8] c"Service level SCG definitions not supportend\00", align 1
-@.str.321 = private unnamed_addr constant [54 x i8] c"Elementary Stream level SCG definitions not supported\00", align 1
-@.str.322 = private unnamed_addr constant [57 x i8] c"Activation_time possibly too soon for SCS to be accurate\00", align 1
-@.str.323 = private unnamed_addr constant [48 x i8] c"SCG definition cannot span transport boundaries\00", align 1
-@.str.324 = private unnamed_addr constant [38 x i8] c"A resource does not exist on this SCG\00", align 1
-@.str.325 = private unnamed_addr constant [49 x i8] c"A resource is already defined in an existing SCG\00", align 1
-@.str.326 = private unnamed_addr constant [73 x i8] c"SCG may not contain one or more content entries and no ECM_Group entries\00", align 1
-@.str.327 = private unnamed_addr constant [73 x i8] c"SCG may not contain one or more ECM_Group entries and no content entries\00", align 1
-@.str.328 = private unnamed_addr constant [36 x i8] c"EIS_channel_ID value already in use\00", align 1
-@.str.329 = private unnamed_addr constant [21 x i8] c"Unknown Super_CAS_Id\00", align 1
-@psig_parametertypenames = internal constant [21 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.216 }, %struct._value_string { i32 1, ptr @.str.331 }, %struct._value_string { i32 2, ptr @.str.332 }, %struct._value_string { i32 3, ptr @.str.333 }, %struct._value_string { i32 4, ptr @.str.303 }, %struct._value_string { i32 5, ptr @.str.310 }, %struct._value_string { i32 6, ptr @.str.334 }, %struct._value_string { i32 7, ptr @.str.335 }, %struct._value_string { i32 8, ptr @.str.336 }, %struct._value_string { i32 9, ptr @.str.337 }, %struct._value_string { i32 10, ptr @.str.338 }, %struct._value_string { i32 11, ptr @.str.339 }, %struct._value_string { i32 12, ptr @.str.299 }, %struct._value_string { i32 13, ptr @.str.248 }, %struct._value_string { i32 14, ptr @.str.249 }, %struct._value_string { i32 15, ptr @.str.340 }, %struct._value_string { i32 16, ptr @.str.228 }, %struct._value_string { i32 17, ptr @.str.341 }, %struct._value_string { i32 28672, ptr @.str.242 }, %struct._value_string { i32 28673, ptr @.str.243 }, %struct._value_string zeroinitializer], align 16
-@.str.330 = private unnamed_addr constant [24 x i8] c"psig_parametertypenames\00", align 1
-@.str.331 = private unnamed_addr constant [10 x i8] c"PSIG_TYPE\00", align 1
-@.str.332 = private unnamed_addr constant [16 x i8] c"PSIG_CHANNEL_ID\00", align 1
-@.str.333 = private unnamed_addr constant [10 x i8] c"STREAM_ID\00", align 1
-@.str.334 = private unnamed_addr constant [10 x i8] c"PACKET_ID\00", align 1
-@.str.335 = private unnamed_addr constant [29 x i8] c"INTERFACE_MODE_CONFIGURATION\00", align 1
-@.str.336 = private unnamed_addr constant [11 x i8] c"MAX_STREAM\00", align 1
-@.str.337 = private unnamed_addr constant [18 x i8] c"TABLE_PERIOD_PAIR\00", align 1
-@.str.338 = private unnamed_addr constant [13 x i8] c"MPEG_SECTION\00", align 1
-@.str.339 = private unnamed_addr constant [16 x i8] c"REPETITION_RATE\00", align 1
-@.str.340 = private unnamed_addr constant [18 x i8] c"INITIAL_BANDWIDTH\00", align 1
-@.str.341 = private unnamed_addr constant [20 x i8] c"ASI_INPUT_PACKET_ID\00", align 1
-@.str.342 = private unnamed_addr constant [23 x i8] c"%d > %d Info Type:[%s]\00", align 1
-@.str.343 = private unnamed_addr constant [20 x i8] c"Unknown Type:0x%02x\00", align 1
-@.str.344 = private unnamed_addr constant [16 x i8] c", Interface: %s\00", align 1
-@.str.345 = private unnamed_addr constant [17 x i8] c"Unknown (0x%02x)\00", align 1
-@.str.346 = private unnamed_addr constant [13 x i8] c", Length: %s\00", align 1
-@.str.347 = private unnamed_addr constant [8 x i8] c"5 bytes\00", align 1
-@.str.348 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
-@.str.349 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
-@.str.350 = private unnamed_addr constant [27 x i8] c" containing TLV parameters\00", align 1
-@.str.351 = private unnamed_addr constant [21 x i8] c", Length: %d (bytes)\00", align 1
-@.str.352 = private unnamed_addr constant [10 x i8] c": Type=%s\00", align 1
-@.str.353 = private unnamed_addr constant [14 x i8] c": Type=0x%02x\00", align 1
-@.str.354 = private unnamed_addr constant [26 x i8] c", Value Length=%d (bytes)\00", align 1
-@.str.355 = private unnamed_addr constant [13 x i8] c", Value=0x%s\00", align 1
-@.str.356 = private unnamed_addr constant [23 x i8] c", Port %d, Protocol %s\00", align 1
-@.str.357 = private unnamed_addr constant [9 x i8] c" (%d ms)\00", align 1
-@.str.358 = private unnamed_addr constant [8 x i8] c" (PSIG)\00", align 1
-@.str.359 = private unnamed_addr constant [7 x i8] c" (SIG)\00", align 1
-@.str.360 = private unnamed_addr constant [10 x i8] c" (PSISIG)\00", align 1
-@.str.361 = private unnamed_addr constant [6 x i8] c"mikey\00", align 1
+@proto_reg_handoff_simulcrypt.initialized = internal global i8 0, align 1
+@.str.175 = private unnamed_addr constant [9 x i8] c"udp.port\00", align 1
+@.str.176 = private unnamed_addr constant [9 x i8] c"tcp.port\00", align 1
+@.str.177 = private unnamed_addr constant [17 x i8] c"messagetypenames\00", align 1
+@.str.178 = private unnamed_addr constant [14 x i8] c"CHANNEL_SETUP\00", align 1
+@.str.179 = private unnamed_addr constant [13 x i8] c"CHANNEL_TEST\00", align 1
+@.str.180 = private unnamed_addr constant [15 x i8] c"CHANNEL_STATUS\00", align 1
+@.str.181 = private unnamed_addr constant [14 x i8] c"CHANNEL_CLOSE\00", align 1
+@.str.182 = private unnamed_addr constant [14 x i8] c"CHANNEL_ERROR\00", align 1
+@.str.183 = private unnamed_addr constant [13 x i8] c"STREAM_SETUP\00", align 1
+@.str.184 = private unnamed_addr constant [12 x i8] c"STREAM_TEST\00", align 1
+@.str.185 = private unnamed_addr constant [14 x i8] c"STREAM_STATUS\00", align 1
+@.str.186 = private unnamed_addr constant [21 x i8] c"STREAM_CLOSE_REQUEST\00", align 1
+@.str.187 = private unnamed_addr constant [22 x i8] c"STREAM_CLOSE_RESPONSE\00", align 1
+@.str.188 = private unnamed_addr constant [13 x i8] c"STREAM_ERROR\00", align 1
+@.str.189 = private unnamed_addr constant [18 x i8] c"STREAM_BW_REQUEST\00", align 1
+@.str.190 = private unnamed_addr constant [21 x i8] c"STREAM_BW_ALLOCATION\00", align 1
+@.str.191 = private unnamed_addr constant [13 x i8] c"CW_PROVISION\00", align 1
+@.str.192 = private unnamed_addr constant [13 x i8] c"ECM_RESPONSE\00", align 1
+@.str.193 = private unnamed_addr constant [15 x i8] c"DATA_PROVISION\00", align 1
+@.str.194 = private unnamed_addr constant [15 x i8] c"CHANNEL_SET_UP\00", align 1
+@.str.195 = private unnamed_addr constant [14 x i8] c"CHANNEL_RESET\00", align 1
+@.str.196 = private unnamed_addr constant [14 x i8] c"SCG_PROVISION\00", align 1
+@.str.197 = private unnamed_addr constant [9 x i8] c"SCG_TEST\00", align 1
+@.str.198 = private unnamed_addr constant [11 x i8] c"SCG_STATUS\00", align 1
+@.str.199 = private unnamed_addr constant [10 x i8] c"SCG_ERROR\00", align 1
+@.str.200 = private unnamed_addr constant [17 x i8] c"SCG_LIST_REQUEST\00", align 1
+@.str.201 = private unnamed_addr constant [18 x i8] c"SCG_LIST_RESPONSE\00", align 1
+@.str.202 = private unnamed_addr constant [29 x i8] c"CIM_STREAM_SECTION_PROVISION\00", align 1
+@.str.203 = private unnamed_addr constant [18 x i8] c"CIM_CHANNEL_RESET\00", align 1
+@.str.204 = private unnamed_addr constant [22 x i8] c"CIM_STREAM_BW_REQUEST\00", align 1
+@.str.205 = private unnamed_addr constant [25 x i8] c"CIM_STREAM_BW_ALLOCATION\00", align 1
+@.str.206 = private unnamed_addr constant [26 x i8] c"CIM_STREAM_DATA_PROVISION\00", align 1
+@messagetypenames = internal constant [56 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.178 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.179 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.180 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.181 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.182 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.178 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.179 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.180 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.181 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.182 }, { i32, [4 x i8], ptr } { i32 257, [4 x i8] zeroinitializer, ptr @.str.183 }, { i32, [4 x i8], ptr } { i32 258, [4 x i8] zeroinitializer, ptr @.str.184 }, { i32, [4 x i8], ptr } { i32 259, [4 x i8] zeroinitializer, ptr @.str.185 }, { i32, [4 x i8], ptr } { i32 260, [4 x i8] zeroinitializer, ptr @.str.186 }, { i32, [4 x i8], ptr } { i32 261, [4 x i8] zeroinitializer, ptr @.str.187 }, { i32, [4 x i8], ptr } { i32 262, [4 x i8] zeroinitializer, ptr @.str.188 }, { i32, [4 x i8], ptr } { i32 273, [4 x i8] zeroinitializer, ptr @.str.183 }, { i32, [4 x i8], ptr } { i32 274, [4 x i8] zeroinitializer, ptr @.str.184 }, { i32, [4 x i8], ptr } { i32 275, [4 x i8] zeroinitializer, ptr @.str.185 }, { i32, [4 x i8], ptr } { i32 276, [4 x i8] zeroinitializer, ptr @.str.186 }, { i32, [4 x i8], ptr } { i32 277, [4 x i8] zeroinitializer, ptr @.str.187 }, { i32, [4 x i8], ptr } { i32 278, [4 x i8] zeroinitializer, ptr @.str.188 }, { i32, [4 x i8], ptr } { i32 279, [4 x i8] zeroinitializer, ptr @.str.189 }, { i32, [4 x i8], ptr } { i32 280, [4 x i8] zeroinitializer, ptr @.str.190 }, { i32, [4 x i8], ptr } { i32 513, [4 x i8] zeroinitializer, ptr @.str.191 }, { i32, [4 x i8], ptr } { i32 514, [4 x i8] zeroinitializer, ptr @.str.192 }, { i32, [4 x i8], ptr } { i32 529, [4 x i8] zeroinitializer, ptr @.str.193 }, { i32, [4 x i8], ptr } { i32 1025, [4 x i8] zeroinitializer, ptr @.str.194 }, { i32, [4 x i8], ptr } { i32 1026, [4 x i8] zeroinitializer, ptr @.str.179 }, { i32, [4 x i8], ptr } { i32 1027, [4 x i8] zeroinitializer, ptr @.str.180 }, { i32, [4 x i8], ptr } { i32 1028, [4 x i8] zeroinitializer, ptr @.str.181 }, { i32, [4 x i8], ptr } { i32 1029, [4 x i8] zeroinitializer, ptr @.str.182 }, { i32, [4 x i8], ptr } { i32 1030, [4 x i8] zeroinitializer, ptr @.str.195 }, { i32, [4 x i8], ptr } { i32 1032, [4 x i8] zeroinitializer, ptr @.str.196 }, { i32, [4 x i8], ptr } { i32 1033, [4 x i8] zeroinitializer, ptr @.str.197 }, { i32, [4 x i8], ptr } { i32 1034, [4 x i8] zeroinitializer, ptr @.str.198 }, { i32, [4 x i8], ptr } { i32 1035, [4 x i8] zeroinitializer, ptr @.str.199 }, { i32, [4 x i8], ptr } { i32 1036, [4 x i8] zeroinitializer, ptr @.str.200 }, { i32, [4 x i8], ptr } { i32 1037, [4 x i8] zeroinitializer, ptr @.str.201 }, { i32, [4 x i8], ptr } { i32 1041, [4 x i8] zeroinitializer, ptr @.str.178 }, { i32, [4 x i8], ptr } { i32 1042, [4 x i8] zeroinitializer, ptr @.str.179 }, { i32, [4 x i8], ptr } { i32 1043, [4 x i8] zeroinitializer, ptr @.str.180 }, { i32, [4 x i8], ptr } { i32 1044, [4 x i8] zeroinitializer, ptr @.str.181 }, { i32, [4 x i8], ptr } { i32 1045, [4 x i8] zeroinitializer, ptr @.str.182 }, { i32, [4 x i8], ptr } { i32 1057, [4 x i8] zeroinitializer, ptr @.str.183 }, { i32, [4 x i8], ptr } { i32 1058, [4 x i8] zeroinitializer, ptr @.str.184 }, { i32, [4 x i8], ptr } { i32 1059, [4 x i8] zeroinitializer, ptr @.str.185 }, { i32, [4 x i8], ptr } { i32 1060, [4 x i8] zeroinitializer, ptr @.str.186 }, { i32, [4 x i8], ptr } { i32 1061, [4 x i8] zeroinitializer, ptr @.str.187 }, { i32, [4 x i8], ptr } { i32 1062, [4 x i8] zeroinitializer, ptr @.str.188 }, { i32, [4 x i8], ptr } { i32 1073, [4 x i8] zeroinitializer, ptr @.str.202 }, { i32, [4 x i8], ptr } { i32 1074, [4 x i8] zeroinitializer, ptr @.str.203 }, { i32, [4 x i8], ptr } { i32 1089, [4 x i8] zeroinitializer, ptr @.str.204 }, { i32, [4 x i8], ptr } { i32 1090, [4 x i8] zeroinitializer, ptr @.str.205 }, { i32, [4 x i8], ptr } { i32 1091, [4 x i8] zeroinitializer, ptr @.str.206 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.208 = private unnamed_addr constant [13 x i8] c"DVB reserved\00", align 1
+@.str.209 = private unnamed_addr constant [13 x i8] c"ECMG <-> SCS\00", align 1
+@.str.210 = private unnamed_addr constant [13 x i8] c"EMMG <-> MUX\00", align 1
+@.str.211 = private unnamed_addr constant [19 x i8] c"C(P)SIG <-> (P)SIG\00", align 1
+@.str.212 = private unnamed_addr constant [12 x i8] c"EIS <-> SCS\00", align 1
+@.str.213 = private unnamed_addr constant [15 x i8] c"(P)SIG <-> MUX\00", align 1
+@.str.214 = private unnamed_addr constant [26 x i8] c"Carousel in the MUX - CiM\00", align 1
+@.str.215 = private unnamed_addr constant [26 x i8] c"Carousel in the (P) - CiP\00", align 1
+@.str.216 = private unnamed_addr constant [13 x i8] c"User defined\00", align 1
+@interfacenames = internal constant [10 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.208 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.209 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.210 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.211 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.212 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.213 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.214 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.215 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.216 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.218 = private unnamed_addr constant [24 x i8] c"ecmg_parametertypenames\00", align 1
+@.str.219 = private unnamed_addr constant [13 x i8] c"DVB_RESERVED\00", align 1
+@.str.220 = private unnamed_addr constant [13 x i8] c"SUPER_CAS_ID\00", align 1
+@.str.221 = private unnamed_addr constant [19 x i8] c"SECTION_TSPKT_FLAG\00", align 1
+@.str.222 = private unnamed_addr constant [12 x i8] c"DELAY_START\00", align 1
+@.str.223 = private unnamed_addr constant [11 x i8] c"DELAY_STOP\00", align 1
+@.str.224 = private unnamed_addr constant [23 x i8] c"TRANSITION_DELAY_START\00", align 1
+@.str.225 = private unnamed_addr constant [22 x i8] c"TRANSITION_DELAY_STOP\00", align 1
+@.str.226 = private unnamed_addr constant [15 x i8] c"ECM_REP_PERIOD\00", align 1
+@.str.227 = private unnamed_addr constant [12 x i8] c"MAX_STREAMS\00", align 1
+@.str.228 = private unnamed_addr constant [16 x i8] c"MIN_CP_DURATION\00", align 1
+@.str.229 = private unnamed_addr constant [8 x i8] c"LEAD_CW\00", align 1
+@.str.230 = private unnamed_addr constant [15 x i8] c"CW_PER_MESSAGE\00", align 1
+@.str.231 = private unnamed_addr constant [14 x i8] c"MAX_COMP_TIME\00", align 1
+@.str.232 = private unnamed_addr constant [16 x i8] c"ACCESS_CRITERIA\00", align 1
+@.str.233 = private unnamed_addr constant [15 x i8] c"ECM_CHANNEL_ID\00", align 1
+@.str.234 = private unnamed_addr constant [14 x i8] c"ECM_STREAM_ID\00", align 1
+@.str.235 = private unnamed_addr constant [20 x i8] c"NOMINAL_CP_DURATION\00", align 1
+@.str.236 = private unnamed_addr constant [30 x i8] c"ACCESS_CRITERIA_TRANSFER_MODE\00", align 1
+@.str.237 = private unnamed_addr constant [10 x i8] c"CP_NUMBER\00", align 1
+@.str.238 = private unnamed_addr constant [12 x i8] c"CP_DURATION\00", align 1
+@.str.239 = private unnamed_addr constant [18 x i8] c"CP_CW_COMBINATION\00", align 1
+@.str.240 = private unnamed_addr constant [13 x i8] c"ECM_DATAGRAM\00", align 1
+@.str.241 = private unnamed_addr constant [15 x i8] c"AC_DELAY_START\00", align 1
+@.str.242 = private unnamed_addr constant [14 x i8] c"AC_DELAY_STOP\00", align 1
+@.str.243 = private unnamed_addr constant [14 x i8] c"CW_ENCRYPTION\00", align 1
+@.str.244 = private unnamed_addr constant [7 x i8] c"ECM_ID\00", align 1
+@.str.245 = private unnamed_addr constant [13 x i8] c"ERROR_STATUS\00", align 1
+@.str.246 = private unnamed_addr constant [18 x i8] c"ERROR_INFORMATION\00", align 1
+@ecmg_parametertypenames = internal constant [29 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.219 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.220 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.221 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.222 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.223 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.224 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.225 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.226 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.227 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.228 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.229 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.230 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.231 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.232 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.233 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.234 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.235 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.236 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.237 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.238 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.239 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.240 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.241 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.242 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.243 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.244 }, { i32, [4 x i8], ptr } { i32 28672, [4 x i8] zeroinitializer, ptr @.str.245 }, { i32, [4 x i8], ptr } { i32 28673, [4 x i8] zeroinitializer, ptr @.str.246 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.248 = private unnamed_addr constant [24 x i8] c"emmg_parametertypenames\00", align 1
+@.str.249 = private unnamed_addr constant [10 x i8] c"CLIENT_ID\00", align 1
+@.str.250 = private unnamed_addr constant [16 x i8] c"DATA_CHANNEL_ID\00", align 1
+@.str.251 = private unnamed_addr constant [15 x i8] c"DATA_STREAM_ID\00", align 1
+@.str.252 = private unnamed_addr constant [9 x i8] c"DATAGRAM\00", align 1
+@.str.253 = private unnamed_addr constant [10 x i8] c"BANDWIDTH\00", align 1
+@.str.254 = private unnamed_addr constant [10 x i8] c"DATA_TYPE\00", align 1
+@.str.255 = private unnamed_addr constant [8 x i8] c"DATA_ID\00", align 1
+@emmg_parametertypenames = internal constant [12 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.219 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.249 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.221 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.250 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.251 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.252 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.253 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.254 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.255 }, { i32, [4 x i8], ptr } { i32 28672, [4 x i8] zeroinitializer, ptr @.str.245 }, { i32, [4 x i8], ptr } { i32 28673, [4 x i8] zeroinitializer, ptr @.str.246 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.257 = private unnamed_addr constant [18 x i8] c"ecmg_error_values\00", align 1
+@.str.258 = private unnamed_addr constant [13 x i8] c"DVB Reserved\00", align 1
+@.str.259 = private unnamed_addr constant [16 x i8] c"Invalid message\00", align 1
+@.str.260 = private unnamed_addr constant [29 x i8] c"Unsupported protocol version\00", align 1
+@.str.261 = private unnamed_addr constant [27 x i8] c"Unknown message type value\00", align 1
+@.str.262 = private unnamed_addr constant [17 x i8] c"Message too long\00", align 1
+@.str.263 = private unnamed_addr constant [27 x i8] c"Unknown super CAS ID value\00", align 1
+@.str.264 = private unnamed_addr constant [29 x i8] c"Unknown ECM channel ID value\00", align 1
+@.str.265 = private unnamed_addr constant [28 x i8] c"Unknown ECM stream ID value\00", align 1
+@.str.266 = private unnamed_addr constant [31 x i8] c"Too many channels on this ECMG\00", align 1
+@.str.267 = private unnamed_addr constant [37 x i8] c"Too many ECM streams on this channel\00", align 1
+@.str.268 = private unnamed_addr constant [34 x i8] c"Too many ECM streams on this ECMG\00", align 1
+@.str.269 = private unnamed_addr constant [40 x i8] c"Not enough control words to compute ECM\00", align 1
+@.str.270 = private unnamed_addr constant [29 x i8] c"ECMG out of storage capacity\00", align 1
+@.str.271 = private unnamed_addr constant [36 x i8] c"ECMG out of computational resources\00", align 1
+@.str.272 = private unnamed_addr constant [29 x i8] c"Unknown parameter type value\00", align 1
+@.str.273 = private unnamed_addr constant [38 x i8] c"Inconsistent length for DVB parameter\00", align 1
+@.str.274 = private unnamed_addr constant [32 x i8] c"Missing mandatory DVB parameter\00", align 1
+@.str.275 = private unnamed_addr constant [32 x i8] c"Invalid value for DVB parameter\00", align 1
+@.str.276 = private unnamed_addr constant [21 x i8] c"Unknown ECM ID value\00", align 1
+@.str.277 = private unnamed_addr constant [36 x i8] c"ECM channel ID value already in use\00", align 1
+@.str.278 = private unnamed_addr constant [35 x i8] c"ECM stream ID value already in use\00", align 1
+@.str.279 = private unnamed_addr constant [28 x i8] c"ECM ID value already in use\00", align 1
+@.str.280 = private unnamed_addr constant [14 x i8] c"Unknown error\00", align 1
+@.str.281 = private unnamed_addr constant [20 x i8] c"Unrecoverable error\00", align 1
+@ecmg_error_values = internal constant [25 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.258 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.259 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.260 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.261 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.262 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.263 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.264 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.265 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.266 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.267 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.268 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.269 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.270 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.271 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.272 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.273 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.274 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.275 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.276 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.277 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.278 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.279 }, { i32, [4 x i8], ptr } { i32 28672, [4 x i8] zeroinitializer, ptr @.str.280 }, { i32, [4 x i8], ptr } { i32 28673, [4 x i8] zeroinitializer, ptr @.str.281 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.283 = private unnamed_addr constant [18 x i8] c"emmg_error_values\00", align 1
+@.str.284 = private unnamed_addr constant [29 x i8] c"Unknown data stream ID value\00", align 1
+@.str.285 = private unnamed_addr constant [30 x i8] c"Unknown data channel ID value\00", align 1
+@.str.286 = private unnamed_addr constant [30 x i8] c"Too many channels on this MUX\00", align 1
+@.str.287 = private unnamed_addr constant [38 x i8] c"Too many data streams on this channel\00", align 1
+@.str.288 = private unnamed_addr constant [34 x i8] c"Too many data streams on this MUX\00", align 1
+@.str.289 = private unnamed_addr constant [23 x i8] c"Unknown parameter type\00", align 1
+@.str.290 = private unnamed_addr constant [24 x i8] c"Unknown client ID value\00", align 1
+@.str.291 = private unnamed_addr constant [19 x i8] c"Exceeded bandwidth\00", align 1
+@.str.292 = private unnamed_addr constant [22 x i8] c"Unknown data ID value\00", align 1
+@.str.293 = private unnamed_addr constant [37 x i8] c"Data channel ID value already in use\00", align 1
+@.str.294 = private unnamed_addr constant [36 x i8] c"Data stream ID value already in use\00", align 1
+@.str.295 = private unnamed_addr constant [29 x i8] c"Data ID value already in use\00", align 1
+@.str.296 = private unnamed_addr constant [31 x i8] c"Client ID value already in use\00", align 1
+@emmg_error_values = internal constant [24 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.258 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.259 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.260 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.261 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.262 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.284 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.285 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.286 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.287 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.288 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.289 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.273 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.274 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.275 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.290 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.291 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.292 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.293 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.294 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.295 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.296 }, { i32, [4 x i8], ptr } { i32 28672, [4 x i8] zeroinitializer, ptr @.str.280 }, { i32, [4 x i8], ptr } { i32 28673, [4 x i8] zeroinitializer, ptr @.str.281 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.298 = private unnamed_addr constant [23 x i8] c"eis_parametertypenames\00", align 1
+@.str.299 = private unnamed_addr constant [15 x i8] c"EIS_CHANNEL_ID\00", align 1
+@.str.300 = private unnamed_addr constant [13 x i8] c"SERVICE_FLAG\00", align 1
+@.str.301 = private unnamed_addr constant [15 x i8] c"COMPONENT_FLAG\00", align 1
+@.str.302 = private unnamed_addr constant [8 x i8] c"MAX_SCG\00", align 1
+@.str.303 = private unnamed_addr constant [10 x i8] c"ECM_GROUP\00", align 1
+@.str.304 = private unnamed_addr constant [7 x i8] c"SCG_ID\00", align 1
+@.str.305 = private unnamed_addr constant [17 x i8] c"SCG_REFERENCE_ID\00", align 1
+@.str.306 = private unnamed_addr constant [16 x i8] c"ACTIVATION_TIME\00", align 1
+@.str.307 = private unnamed_addr constant [24 x i8] c"ACTIVATION_PENDING_FLAG\00", align 1
+@.str.308 = private unnamed_addr constant [13 x i8] c"COMPONENT_ID\00", align 1
+@.str.309 = private unnamed_addr constant [11 x i8] c"SERVICE_ID\00", align 1
+@.str.310 = private unnamed_addr constant [20 x i8] c"TRANSPORT_STREAM_ID\00", align 1
+@.str.311 = private unnamed_addr constant [16 x i8] c"AC_CHANGED_FLAG\00", align 1
+@.str.312 = private unnamed_addr constant [25 x i8] c"SCG_CURRENT_REFERENCE_ID\00", align 1
+@.str.313 = private unnamed_addr constant [25 x i8] c"SCG_PENDING_REFERENCE_ID\00", align 1
+@.str.314 = private unnamed_addr constant [17 x i8] c"CP_DURATION_FLAG\00", align 1
+@.str.315 = private unnamed_addr constant [24 x i8] c"RECOMMENDED_CP_DURATION\00", align 1
+@.str.316 = private unnamed_addr constant [24 x i8] c"SCG_NOMINAL_CP_DURATION\00", align 1
+@.str.317 = private unnamed_addr constant [20 x i8] c"ORIGINAL_NETWORK_ID\00", align 1
+@.str.318 = private unnamed_addr constant [18 x i8] c"ERROR_DESCRIPTION\00", align 1
+@eis_parametertypenames = internal constant [27 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.219 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.299 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.300 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.301 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.302 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.303 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.304 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.305 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.220 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.244 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.232 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.306 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.307 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.308 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.309 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.310 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.311 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.312 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.313 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.314 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.315 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.316 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.317 }, { i32, [4 x i8], ptr } { i32 28672, [4 x i8] zeroinitializer, ptr @.str.245 }, { i32, [4 x i8], ptr } { i32 28673, [4 x i8] zeroinitializer, ptr @.str.246 }, { i32, [4 x i8], ptr } { i32 28674, [4 x i8] zeroinitializer, ptr @.str.318 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.320 = private unnamed_addr constant [17 x i8] c"eis_error_values\00", align 1
+@.str.321 = private unnamed_addr constant [27 x i8] c"Unknown message_type value\00", align 1
+@.str.322 = private unnamed_addr constant [34 x i8] c"Inconsistent length for parameter\00", align 1
+@.str.323 = private unnamed_addr constant [28 x i8] c"Missing mandatory parameter\00", align 1
+@.str.324 = private unnamed_addr constant [28 x i8] c"Invalid value for parameter\00", align 1
+@.str.325 = private unnamed_addr constant [29 x i8] c"Unknown EIS_channel_ID value\00", align 1
+@.str.326 = private unnamed_addr constant [21 x i8] c"Unknown SCG_ID value\00", align 1
+@.str.327 = private unnamed_addr constant [25 x i8] c"Max SCGs already defined\00", align 1
+@.str.328 = private unnamed_addr constant [45 x i8] c"Service level SCG definitions not supportend\00", align 1
+@.str.329 = private unnamed_addr constant [54 x i8] c"Elementary Stream level SCG definitions not supported\00", align 1
+@.str.330 = private unnamed_addr constant [57 x i8] c"Activation_time possibly too soon for SCS to be accurate\00", align 1
+@.str.331 = private unnamed_addr constant [48 x i8] c"SCG definition cannot span transport boundaries\00", align 1
+@.str.332 = private unnamed_addr constant [38 x i8] c"A resource does not exist on this SCG\00", align 1
+@.str.333 = private unnamed_addr constant [49 x i8] c"A resource is already defined in an existing SCG\00", align 1
+@.str.334 = private unnamed_addr constant [73 x i8] c"SCG may not contain one or more content entries and no ECM_Group entries\00", align 1
+@.str.335 = private unnamed_addr constant [73 x i8] c"SCG may not contain one or more ECM_Group entries and no content entries\00", align 1
+@.str.336 = private unnamed_addr constant [36 x i8] c"EIS_channel_ID value already in use\00", align 1
+@.str.337 = private unnamed_addr constant [21 x i8] c"Unknown Super_CAS_Id\00", align 1
+@eis_error_values = internal constant [24 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.258 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.259 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.260 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.321 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.262 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.322 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.323 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.324 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.325 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.326 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.327 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.328 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.329 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.330 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.331 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.332 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.333 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.334 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.335 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.336 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.337 }, { i32, [4 x i8], ptr } { i32 28672, [4 x i8] zeroinitializer, ptr @.str.280 }, { i32, [4 x i8], ptr } { i32 28673, [4 x i8] zeroinitializer, ptr @.str.281 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.339 = private unnamed_addr constant [24 x i8] c"psig_parametertypenames\00", align 1
+@.str.340 = private unnamed_addr constant [10 x i8] c"PSIG_TYPE\00", align 1
+@.str.341 = private unnamed_addr constant [16 x i8] c"PSIG_CHANNEL_ID\00", align 1
+@.str.342 = private unnamed_addr constant [10 x i8] c"STREAM_ID\00", align 1
+@.str.343 = private unnamed_addr constant [10 x i8] c"PACKET_ID\00", align 1
+@.str.344 = private unnamed_addr constant [29 x i8] c"INTERFACE_MODE_CONFIGURATION\00", align 1
+@.str.345 = private unnamed_addr constant [11 x i8] c"MAX_STREAM\00", align 1
+@.str.346 = private unnamed_addr constant [18 x i8] c"TABLE_PERIOD_PAIR\00", align 1
+@.str.347 = private unnamed_addr constant [13 x i8] c"MPEG_SECTION\00", align 1
+@.str.348 = private unnamed_addr constant [16 x i8] c"REPETITION_RATE\00", align 1
+@.str.349 = private unnamed_addr constant [18 x i8] c"INITIAL_BANDWIDTH\00", align 1
+@.str.350 = private unnamed_addr constant [20 x i8] c"ASI_INPUT_PACKET_ID\00", align 1
+@psig_parametertypenames = internal constant [21 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.219 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.340 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.341 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.342 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.310 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.317 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.343 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.344 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.345 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.346 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.347 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.348 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.306 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.252 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.253 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.349 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.231 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.350 }, { i32, [4 x i8], ptr } { i32 28672, [4 x i8] zeroinitializer, ptr @.str.245 }, { i32, [4 x i8], ptr } { i32 28673, [4 x i8] zeroinitializer, ptr @.str.246 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.352 = private unnamed_addr constant [23 x i8] c"%d > %d Info Type:[%s]\00", align 1
+@.str.353 = private unnamed_addr constant [20 x i8] c"Unknown Type:0x%02x\00", align 1
+@.str.354 = private unnamed_addr constant [16 x i8] c", Interface: %s\00", align 1
+@.str.355 = private unnamed_addr constant [17 x i8] c"Unknown (0x%02x)\00", align 1
+@.str.356 = private unnamed_addr constant [13 x i8] c", Length: %s\00", align 1
+@.str.357 = private unnamed_addr constant [8 x i8] c"5 bytes\00", align 1
+@.str.358 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
+@.str.359 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
+@.str.360 = private unnamed_addr constant [27 x i8] c" containing TLV parameters\00", align 1
+@.str.361 = private unnamed_addr constant [21 x i8] c", Length: %d (bytes)\00", align 1
+@.str.362 = private unnamed_addr constant [10 x i8] c": Type=%s\00", align 1
+@.str.363 = private unnamed_addr constant [14 x i8] c": Type=0x%02x\00", align 1
+@.str.364 = private unnamed_addr constant [26 x i8] c", Value Length=%d (bytes)\00", align 1
+@.str.365 = private unnamed_addr constant [13 x i8] c", Value=0x%s\00", align 1
+@.str.366 = private unnamed_addr constant [23 x i8] c", Port %d, Protocol %s\00", align 1
+@.str.367 = private unnamed_addr constant [9 x i8] c" (%d ms)\00", align 1
+@.str.368 = private unnamed_addr constant [8 x i8] c" (PSIG)\00", align 1
+@.str.369 = private unnamed_addr constant [7 x i8] c" (SIG)\00", align 1
+@.str.370 = private unnamed_addr constant [10 x i8] c" (PSISIG)\00", align 1
+@.str.371 = private unnamed_addr constant [6 x i8] c"mikey\00", align 1
+@tab_ecm_inter = internal global [1 x { i32, [4 x i8], ptr, ptr, i32, [4 x i8] }] [{ i32, [4 x i8], ptr, ptr, i32, [4 x i8] } { i32 39321, [4 x i8] zeroinitializer, ptr @.str.371, ptr null, i32 -1, [4 x i8] zeroinitializer }], align 16
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_simulcrypt() #0 {
   %1 = alloca ptr, align 8
-  %2 = call i32 @proto_register_protocol(ptr noundef @.str.168, ptr noundef @.str.169, ptr noundef @.str.170)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #5
+  %2 = call i32 @proto_register_protocol(ptr noundef @.str.169, ptr noundef @.str.170, ptr noundef @.str.171)
   store i32 %2, ptr @proto_simulcrypt, align 4
   %3 = load i32, ptr @proto_simulcrypt, align 4
   call void @proto_register_field_array(i32 noundef %3, ptr noundef @proto_register_simulcrypt.hf, i32 noundef 91)
   call void @proto_register_subtree_array(ptr noundef @proto_register_simulcrypt.ett, i32 noundef 9)
   call void @register_init_routine(ptr noundef @simulcrypt_init)
   %4 = load i32, ptr @proto_simulcrypt, align 4
-  %5 = call ptr @register_dissector(ptr noundef @.str.170, ptr noundef @dissect_simulcrypt, i32 noundef %4)
+  %5 = call ptr @register_dissector(ptr noundef @.str.171, ptr noundef @dissect_simulcrypt, i32 noundef %4)
   store ptr %5, ptr @simulcrypt_handle, align 8
   %6 = load i32, ptr @proto_simulcrypt, align 4
   %7 = call ptr @prefs_register_protocol(i32 noundef %6, ptr noundef @proto_reg_handoff_simulcrypt)
   store ptr %7, ptr %1, align 8
   %8 = load ptr, ptr %1, align 8
-  call void @prefs_register_uint_preference(ptr noundef %8, ptr noundef @.str.171, ptr noundef @.str.172, ptr noundef @.str.173, i32 noundef 16, ptr noundef @ca_system_id_mikey)
+  call void @prefs_register_uint_preference(ptr noundef %8, ptr noundef @.str.172, ptr noundef @.str.173, ptr noundef @.str.174, i32 noundef 16, ptr noundef @ca_system_id_mikey)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #5
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #2
 
-declare void @register_init_routine(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal void @simulcrypt_init() #0 {
+; Function Attrs: null_pointer_is_valid
+declare void @register_init_routine(ptr noundef) #2
+
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal void @simulcrypt_init() #3 {
   %1 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %1) #5
   store i32 0, ptr %1, align 4
   br label %2
 
@@ -548,7 +558,7 @@ define internal void @simulcrypt_init() #0 {
   %7 = load i32, ptr %1, align 4
   %8 = zext i32 %7 to i64
   %9 = getelementptr [1 x %struct.Tecm_interpretation], ptr @tab_ecm_inter, i64 0, i64 %8
-  %10 = getelementptr inbounds %struct.Tecm_interpretation, ptr %9, i32 0, i32 3
+  %10 = getelementptr inbounds nuw %struct.Tecm_interpretation, ptr %9, i32 0, i32 3
   store i32 -1, ptr %10, align 8
   br label %11
 
@@ -556,15 +566,17 @@ define internal void @simulcrypt_init() #0 {
   %12 = load i32, ptr %1, align 4
   %13 = add i32 %12, 1
   store i32 %13, ptr %1, align 4
-  br label %2, !llvm.loop !4
+  br label %2, !llvm.loop !6
 
 14:                                               ; preds = %2
+  call void @llvm.lifetime.end.p0(i64 4, ptr %1) #5
   ret void
 }
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_simulcrypt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -578,19 +590,21 @@ define internal i32 @dissect_simulcrypt(ptr noundef %0, ptr noundef %1, ptr noun
   %10 = load ptr, ptr %6, align 8
   %11 = load ptr, ptr %7, align 8
   %12 = load ptr, ptr %8, align 8
-  call void @tcp_dissect_pdus(ptr noundef %9, ptr noundef %10, ptr noundef %11, i32 noundef 1, i32 noundef 8, ptr noundef @get_simulcrypt_message_len, ptr noundef @dissect_simulcrypt_message, ptr noundef %12)
+  call void @tcp_dissect_pdus(ptr noundef %9, ptr noundef %10, ptr noundef %11, i1 noundef zeroext true, i32 noundef 8, ptr noundef @get_simulcrypt_message_len, ptr noundef @dissect_simulcrypt_message, ptr noundef %12)
   %13 = load ptr, ptr %5, align 8
   %14 = call i32 @tvb_captured_length(ptr noundef %13)
   ret i32 %14
 }
 
-declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_simulcrypt() #0 {
   %1 = alloca i32, align 4
-  %2 = load i32, ptr @proto_reg_handoff_simulcrypt.initialized, align 4
-  %3 = icmp ne i32 %2, 0
+  call void @llvm.lifetime.start.p0(i64 4, ptr %1) #5
+  %2 = load i8, ptr @proto_reg_handoff_simulcrypt.initialized, align 1, !range !8, !noundef !9
+  %3 = trunc i8 %2 to i1
   br i1 %3, label %26, label %4
 
 4:                                                ; preds = %0
@@ -607,13 +621,13 @@ define hidden void @proto_reg_handoff_simulcrypt() #0 {
   %10 = load i32, ptr %1, align 4
   %11 = zext i32 %10 to i64
   %12 = getelementptr [1 x %struct.Tecm_interpretation], ptr @tab_ecm_inter, i64 0, i64 %11
-  %13 = getelementptr inbounds %struct.Tecm_interpretation, ptr %12, i32 0, i32 1
+  %13 = getelementptr inbounds nuw %struct.Tecm_interpretation, ptr %12, i32 0, i32 1
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @find_dissector(ptr noundef %14)
   %16 = load i32, ptr %1, align 4
   %17 = zext i32 %16 to i64
   %18 = getelementptr [1 x %struct.Tecm_interpretation], ptr @tab_ecm_inter, i64 0, i64 %17
-  %19 = getelementptr inbounds %struct.Tecm_interpretation, ptr %18, i32 0, i32 2
+  %19 = getelementptr inbounds nuw %struct.Tecm_interpretation, ptr %18, i32 0, i32 2
   store ptr %15, ptr %19, align 16
   br label %20
 
@@ -621,33 +635,42 @@ define hidden void @proto_reg_handoff_simulcrypt() #0 {
   %21 = load i32, ptr %1, align 4
   %22 = add i32 %21, 1
   store i32 %22, ptr %1, align 4
-  br label %5, !llvm.loop !6
+  br label %5, !llvm.loop !10
 
 23:                                               ; preds = %5
   %24 = load ptr, ptr @simulcrypt_handle, align 8
-  call void @dissector_add_for_decode_as_with_preference(ptr noundef @.str.174, ptr noundef %24)
+  call void @dissector_add_for_decode_as_with_preference(ptr noundef @.str.175, ptr noundef %24)
   %25 = load ptr, ptr @simulcrypt_handle, align 8
-  call void @dissector_add_for_decode_as_with_preference(ptr noundef @.str.175, ptr noundef %25)
-  store i32 1, ptr @proto_reg_handoff_simulcrypt.initialized, align 4
+  call void @dissector_add_for_decode_as_with_preference(ptr noundef @.str.176, ptr noundef %25)
+  store i8 1, ptr @proto_reg_handoff_simulcrypt.initialized, align 1
   br label %26
 
 26:                                               ; preds = %23, %0
   %27 = load i32, ptr @ca_system_id_mikey, align 4
   store i32 %27, ptr @tab_ecm_inter, align 16
+  call void @llvm.lifetime.end.p0(i64 4, ptr %1) #5
   ret void
 }
 
-declare void @prefs_register_uint_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @prefs_register_uint_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @find_dissector(ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @dissector_add_for_decode_as_with_preference(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @find_dissector(ptr noundef) #2
 
-declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_add_for_decode_as_with_preference(ptr noundef, ptr noundef) #2
 
-declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @get_simulcrypt_message_len(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -658,6 +681,7 @@ define internal i32 @get_simulcrypt_message_len(ptr noundef %0, ptr noundef %1, 
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   %10 = load ptr, ptr %6, align 8
   %11 = load i32, ptr %7, align 4
   %12 = add i32 %11, 3
@@ -668,10 +692,11 @@ define internal i32 @get_simulcrypt_message_len(ptr noundef %0, ptr noundef %1, 
   %16 = add i32 %15, 5
   store i32 %16, ptr %9, align 4
   %17 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %17
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_simulcrypt_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -689,12 +714,18 @@ define internal i32 @dissect_simulcrypt_message(ptr noundef %0, ptr noundef %1, 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 2, ptr %14) #5
   %17 = load ptr, ptr %6, align 8
-  %18 = getelementptr inbounds %struct._packet_info, ptr %17, i32 0, i32 1
+  %18 = getelementptr inbounds nuw %struct._packet_info, ptr %17, i32 0, i32 1
   %19 = load ptr, ptr %18, align 8
-  call void @col_set_str(ptr noundef %19, i32 noundef 34, ptr noundef @.str.169)
+  call void @col_set_str(ptr noundef %19, i32 noundef 35, ptr noundef @.str.170)
   %20 = load ptr, ptr %6, align 8
-  %21 = getelementptr inbounds %struct._packet_info, ptr %20, i32 0, i32 1
+  %21 = getelementptr inbounds nuw %struct._packet_info, ptr %20, i32 0, i32 1
   %22 = load ptr, ptr %21, align 8
   call void @col_clear(ptr noundef %22, i32 noundef 25)
   %23 = load ptr, ptr %5, align 8
@@ -704,24 +735,26 @@ define internal i32 @dissect_simulcrypt_message(ptr noundef %0, ptr noundef %1, 
   %26 = call zeroext i16 @get_interface(i16 noundef zeroext %25)
   store i16 %26, ptr %14, align 2
   %27 = load ptr, ptr %6, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr %6, align 8
-  %31 = getelementptr inbounds %struct._packet_info, ptr %30, i32 0, i32 23
+  %31 = getelementptr inbounds nuw %struct._packet_info, ptr %30, i32 0, i32 24
   %32 = load i32, ptr %31, align 4
   %33 = load ptr, ptr %6, align 8
-  %34 = getelementptr inbounds %struct._packet_info, ptr %33, i32 0, i32 24
+  %34 = getelementptr inbounds nuw %struct._packet_info, ptr %33, i32 0, i32 25
   %35 = load i32, ptr %34, align 8
   %36 = load i16, ptr %13, align 2
   %37 = zext i16 %36 to i32
-  %38 = call ptr @val_to_str_ext(i32 noundef %37, ptr noundef @messagetypenames_ext, ptr noundef @.str.343)
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.342, i32 noundef %32, i32 noundef %35, ptr noundef %38)
+  %38 = call ptr @val_to_str_ext(i32 noundef %37, ptr noundef @messagetypenames_ext, ptr noundef @.str.353)
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.352, i32 noundef %32, i32 noundef %35, ptr noundef %38)
   %39 = load ptr, ptr %7, align 8
   %40 = icmp ne ptr %39, null
   br i1 %40, label %41, label %118
 
 41:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
   store i32 0, ptr %15, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #5
   %42 = load ptr, ptr %7, align 8
   %43 = load i32, ptr @proto_simulcrypt, align 4
   %44 = load ptr, ptr %5, align 8
@@ -734,8 +767,8 @@ define internal i32 @dissect_simulcrypt_message(ptr noundef %0, ptr noundef %1, 
   %49 = load ptr, ptr %9, align 8
   %50 = load i16, ptr %14, align 2
   %51 = zext i16 %50 to i32
-  %52 = call ptr @val_to_str(i32 noundef %51, ptr noundef @interfacenames, ptr noundef @.str.345)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %49, ptr noundef @.str.344, ptr noundef %52)
+  %52 = call ptr @val_to_str(i32 noundef %51, ptr noundef @interfacenames, ptr noundef @.str.355)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %49, ptr noundef @.str.354, ptr noundef %52)
   %53 = load ptr, ptr %10, align 8
   %54 = load i32, ptr @hf_simulcrypt_header, align 4
   %55 = load ptr, ptr %5, align 8
@@ -747,7 +780,7 @@ define internal i32 @dissect_simulcrypt_message(ptr noundef %0, ptr noundef %1, 
   %60 = call ptr @proto_item_add_subtree(ptr noundef %58, i32 noundef %59)
   store ptr %60, ptr %11, align 8
   %61 = load ptr, ptr %11, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %61, ptr noundef @.str.346, ptr noundef @.str.347)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %61, ptr noundef @.str.356, ptr noundef @.str.357)
   %62 = load ptr, ptr %11, align 8
   %63 = load i32, ptr @hf_simulcrypt_version, align 4
   %64 = load ptr, ptr %5, align 8
@@ -769,8 +802,8 @@ define internal i32 @dissect_simulcrypt_message(ptr noundef %0, ptr noundef %1, 
   %79 = zext i16 %78 to i32
   %80 = load i16, ptr %14, align 2
   %81 = zext i16 %80 to i32
-  %82 = call ptr @val_to_str_const(i32 noundef %81, ptr noundef @interfacenames, ptr noundef @.str.349)
-  %83 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %74, i32 noundef %75, ptr noundef %76, i32 noundef %77, i32 noundef 2, i32 noundef %79, ptr noundef @.str.348, ptr noundef %82)
+  %82 = call ptr @val_to_str_const(i32 noundef %81, ptr noundef @interfacenames, ptr noundef @.str.359)
+  %83 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %74, i32 noundef %75, ptr noundef %76, i32 noundef %77, i32 noundef 2, i32 noundef %79, ptr noundef @.str.358, ptr noundef %82)
   store ptr %83, ptr %9, align 8
   %84 = load ptr, ptr %9, align 8
   call void @proto_item_set_generated(ptr noundef %84)
@@ -801,10 +834,10 @@ define internal i32 @dissect_simulcrypt_message(ptr noundef %0, ptr noundef %1, 
   %105 = call ptr @proto_item_add_subtree(ptr noundef %103, i32 noundef %104)
   store ptr %105, ptr %12, align 8
   %106 = load ptr, ptr %12, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %106, ptr noundef @.str.350)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %106, ptr noundef @.str.360)
   %107 = load ptr, ptr %12, align 8
   %108 = load i32, ptr %16, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %107, ptr noundef @.str.351, i32 noundef %108)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %107, ptr noundef @.str.361, i32 noundef %108)
   %109 = load ptr, ptr %12, align 8
   %110 = load ptr, ptr %9, align 8
   %111 = load ptr, ptr %6, align 8
@@ -814,119 +847,144 @@ define internal i32 @dissect_simulcrypt_message(ptr noundef %0, ptr noundef %1, 
   %115 = load i32, ptr %16, align 4
   %116 = add i32 %115, 5
   %117 = load i16, ptr %14, align 2
-  call void @dissect_simulcrypt_data(ptr noundef %109, ptr noundef %110, ptr noundef %111, ptr noundef %112, ptr noundef %113, i32 noundef %114, i32 noundef %116, i16 noundef zeroext %117, i32 noundef 0)
+  call void @dissect_simulcrypt_data(ptr noundef %109, ptr noundef %110, ptr noundef %111, ptr noundef %112, ptr noundef %113, i32 noundef %114, i32 noundef %116, i16 noundef zeroext %117, i1 noundef zeroext false)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
   br label %118
 
 118:                                              ; preds = %41, %4
   %119 = load ptr, ptr %5, align 8
   %120 = call i32 @tvb_captured_length(ptr noundef %119)
+  call void @llvm.lifetime.end.p0(i64 2, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
   ret i32 %120
 }
 
-declare i32 @tvb_captured_length(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length(ptr noundef) #2
 
-declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #2
 
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare void @col_clear(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_clear(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i16 @get_interface(i16 noundef zeroext %0) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal zeroext i16 @get_interface(i16 noundef zeroext %0) #3 {
   %2 = alloca i16, align 2
   %3 = alloca i16, align 2
   %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
   store i16 %0, ptr %3, align 2
-  %5 = load i16, ptr %3, align 2
-  %6 = zext i16 %5 to i32
-  %7 = icmp sge i32 %6, 32768
-  br i1 %7, label %8, label %9
-
-8:                                                ; preds = %1
-  store i16 8, ptr %2, align 2
-  br label %24
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #5
+  %6 = load i16, ptr %3, align 2
+  %7 = zext i16 %6 to i32
+  %8 = icmp sge i32 %7, 32768
+  br i1 %8, label %9, label %10
 
 9:                                                ; preds = %1
-  %10 = load i16, ptr %3, align 2
-  %11 = zext i16 %10 to i32
-  %12 = and i32 %11, 65520
-  switch i32 %12, label %20 [
-    i32 0, label %13
-    i32 256, label %13
-    i32 512, label %13
-    i32 16, label %14
-    i32 272, label %14
-    i32 528, label %14
-    i32 784, label %15
-    i32 800, label %15
-    i32 1024, label %16
-    i32 1040, label %17
-    i32 1056, label %17
-    i32 1072, label %18
-    i32 1088, label %19
+  store i16 8, ptr %2, align 2
+  store i32 1, ptr %5, align 4
+  br label %25
+
+10:                                               ; preds = %1
+  %11 = load i16, ptr %3, align 2
+  %12 = zext i16 %11 to i32
+  %13 = and i32 %12, 65520
+  switch i32 %13, label %21 [
+    i32 0, label %14
+    i32 256, label %14
+    i32 512, label %14
+    i32 16, label %15
+    i32 272, label %15
+    i32 528, label %15
+    i32 784, label %16
+    i32 800, label %16
+    i32 1024, label %17
+    i32 1040, label %18
+    i32 1056, label %18
+    i32 1072, label %19
+    i32 1088, label %20
   ]
 
-13:                                               ; preds = %9, %9, %9
+14:                                               ; preds = %10, %10, %10
   store i32 1, ptr %4, align 4
-  br label %21
+  br label %22
 
-14:                                               ; preds = %9, %9, %9
+15:                                               ; preds = %10, %10, %10
   store i32 2, ptr %4, align 4
-  br label %21
+  br label %22
 
-15:                                               ; preds = %9, %9
+16:                                               ; preds = %10, %10
   store i32 3, ptr %4, align 4
-  br label %21
+  br label %22
 
-16:                                               ; preds = %9
+17:                                               ; preds = %10
   store i32 4, ptr %4, align 4
-  br label %21
+  br label %22
 
-17:                                               ; preds = %9, %9
+18:                                               ; preds = %10, %10
   store i32 5, ptr %4, align 4
-  br label %21
+  br label %22
 
-18:                                               ; preds = %9
+19:                                               ; preds = %10
   store i32 6, ptr %4, align 4
-  br label %21
+  br label %22
 
-19:                                               ; preds = %9
+20:                                               ; preds = %10
   store i32 7, ptr %4, align 4
-  br label %21
+  br label %22
 
-20:                                               ; preds = %9
+21:                                               ; preds = %10
   store i32 0, ptr %4, align 4
-  br label %21
+  br label %22
 
-21:                                               ; preds = %20, %19, %18, %17, %16, %15, %14, %13
-  %22 = load i32, ptr %4, align 4
-  %23 = trunc i32 %22 to i16
-  store i16 %23, ptr %2, align 2
-  br label %24
+22:                                               ; preds = %21, %20, %19, %18, %17, %16, %15, %14
+  %23 = load i32, ptr %4, align 4
+  %24 = trunc i32 %23 to i16
+  store i16 %24, ptr %2, align 2
+  store i32 1, ptr %5, align 4
+  br label %25
 
-24:                                               ; preds = %21, %8
-  %25 = load i16, ptr %2, align 2
-  ret i16 %25
+25:                                               ; preds = %22, %9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #5
+  %26 = load i16, ptr %2, align 2
+  ret i16 %26
 }
 
-declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #2
 
-declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #2
 
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #2
 
-declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) #2
 
-declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal void @proto_item_set_generated(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind null_pointer_is_valid sspstrong uwtable
+define internal void @proto_item_set_generated(ptr noundef %0) #4 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -938,22 +996,22 @@ define internal void @proto_item_set_generated(ptr noundef %0) #0 {
 
 6:                                                ; preds = %5
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct._proto_node, ptr %7, i32 0, i32 4
+  %8 = getelementptr inbounds nuw %struct._proto_node, ptr %7, i32 0, i32 5
   %9 = load ptr, ptr %8, align 8
   %10 = icmp ne ptr %9, null
   br i1 %10, label %11, label %22
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct._proto_node, ptr %12, i32 0, i32 4
+  %13 = getelementptr inbounds nuw %struct._proto_node, ptr %12, i32 0, i32 5
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds %struct.field_info, ptr %14, i32 0, i32 6
+  %15 = getelementptr inbounds nuw %struct.field_info, ptr %14, i32 0, i32 6
   %16 = load i32, ptr %15, align 4
   %17 = or i32 %16, 2
   %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds %struct._proto_node, ptr %18, i32 0, i32 4
+  %19 = getelementptr inbounds nuw %struct._proto_node, ptr %18, i32 0, i32 5
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds %struct.field_info, ptr %20, i32 0, i32 6
+  %21 = getelementptr inbounds nuw %struct.field_info, ptr %20, i32 0, i32 6
   store i32 %17, ptr %21, align 4
   br label %22
 
@@ -967,8 +1025,8 @@ define internal void @proto_item_set_generated(ptr noundef %0) #0 {
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @dissect_simulcrypt_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i16 noundef zeroext %7, i32 noundef %8) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal void @dissect_simulcrypt_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i16 noundef zeroext %7, i1 noundef zeroext %8) #0 {
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
@@ -977,7 +1035,7 @@ define internal void @dissect_simulcrypt_data(ptr noundef %0, ptr noundef %1, pt
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i16, align 2
-  %18 = alloca i32, align 4
+  %18 = alloca i8, align 1
   %19 = alloca i32, align 4
   %20 = alloca ptr, align 8
   %21 = alloca i32, align 4
@@ -992,286 +1050,300 @@ define internal void @dissect_simulcrypt_data(ptr noundef %0, ptr noundef %1, pt
   store i32 %5, ptr %15, align 4
   store i32 %6, ptr %16, align 4
   store i16 %7, ptr %17, align 2
-  store i32 %8, ptr %18, align 4
+  %25 = zext i1 %8 to i8
+  store i8 %25, ptr %18, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #5
   store i32 0, ptr %19, align 4
-  %25 = load i32, ptr %18, align 4
-  %26 = icmp ne i32 %25, 0
-  br i1 %26, label %27, label %29
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #5
+  %26 = load i8, ptr %18, align 1, !range !8, !noundef !9
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %28, label %30
 
-27:                                               ; preds = %9
-  %28 = load i32, ptr %19, align 4
-  store i32 %28, ptr %21, align 4
-  br label %31
-
-29:                                               ; preds = %9
-  %30 = load i32, ptr %15, align 4
-  store i32 %30, ptr %21, align 4
-  br label %31
-
-31:                                               ; preds = %29, %27
+28:                                               ; preds = %9
+  %29 = load i32, ptr %19, align 4
+  store i32 %29, ptr %21, align 4
   br label %32
 
-32:                                               ; preds = %197, %31
-  %33 = load i32, ptr %21, align 4
-  %34 = load i32, ptr %16, align 4
-  %35 = icmp slt i32 %33, %34
-  br i1 %35, label %36, label %198
+30:                                               ; preds = %9
+  %31 = load i32, ptr %15, align 4
+  store i32 %31, ptr %21, align 4
+  br label %32
 
-36:                                               ; preds = %32
-  %37 = load ptr, ptr %13, align 8
-  %38 = load i32, ptr %15, align 4
-  %39 = call zeroext i16 @tvb_get_ntohs(ptr noundef %37, i32 noundef %38)
-  store i16 %39, ptr %23, align 2
-  %40 = load ptr, ptr %13, align 8
-  %41 = load i32, ptr %15, align 4
-  %42 = add i32 %41, 2
-  %43 = call zeroext i16 @tvb_get_ntohs(ptr noundef %40, i32 noundef %42)
-  store i16 %43, ptr %22, align 2
-  %44 = load ptr, ptr %12, align 8
-  %45 = getelementptr inbounds %struct._packet_info, ptr %44, i32 0, i32 50
-  %46 = load ptr, ptr %45, align 8
-  %47 = load ptr, ptr %13, align 8
-  %48 = load i32, ptr %15, align 4
-  %49 = add i32 %48, 4
-  %50 = load i16, ptr %22, align 2
-  %51 = zext i16 %50 to i32
-  %52 = call ptr @tvb_bytes_to_str(ptr noundef %46, ptr noundef %47, i32 noundef %49, i32 noundef %51)
-  store ptr %52, ptr %24, align 8
-  %53 = load ptr, ptr %10, align 8
-  %54 = load i32, ptr @hf_simulcrypt_parameter, align 4
-  %55 = load ptr, ptr %13, align 8
-  %56 = load i32, ptr %15, align 4
-  %57 = load i16, ptr %22, align 2
-  %58 = zext i16 %57 to i32
-  %59 = add i32 %58, 2
+32:                                               ; preds = %30, %28
+  br label %33
+
+33:                                               ; preds = %198, %32
+  %34 = load i32, ptr %21, align 4
+  %35 = load i32, ptr %16, align 4
+  %36 = icmp slt i32 %34, %35
+  br i1 %36, label %37, label %199
+
+37:                                               ; preds = %33
+  call void @llvm.lifetime.start.p0(i64 2, ptr %22) #5
+  call void @llvm.lifetime.start.p0(i64 2, ptr %23) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #5
+  %38 = load ptr, ptr %13, align 8
+  %39 = load i32, ptr %15, align 4
+  %40 = call zeroext i16 @tvb_get_ntohs(ptr noundef %38, i32 noundef %39)
+  store i16 %40, ptr %23, align 2
+  %41 = load ptr, ptr %13, align 8
+  %42 = load i32, ptr %15, align 4
+  %43 = add i32 %42, 2
+  %44 = call zeroext i16 @tvb_get_ntohs(ptr noundef %41, i32 noundef %43)
+  store i16 %44, ptr %22, align 2
+  %45 = load ptr, ptr %12, align 8
+  %46 = getelementptr inbounds nuw %struct._packet_info, ptr %45, i32 0, i32 51
+  %47 = load ptr, ptr %46, align 8
+  %48 = load ptr, ptr %13, align 8
+  %49 = load i32, ptr %15, align 4
+  %50 = add i32 %49, 4
+  %51 = load i16, ptr %22, align 2
+  %52 = zext i16 %51 to i32
+  %53 = call ptr @tvb_bytes_to_str(ptr noundef %47, ptr noundef %48, i32 noundef %50, i32 noundef %52)
+  store ptr %53, ptr %24, align 8
+  %54 = load ptr, ptr %10, align 8
+  %55 = load i32, ptr @hf_simulcrypt_parameter, align 4
+  %56 = load ptr, ptr %13, align 8
+  %57 = load i32, ptr %15, align 4
+  %58 = load i16, ptr %22, align 2
+  %59 = zext i16 %58 to i32
   %60 = add i32 %59, 2
-  %61 = call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %54, ptr noundef %55, i32 noundef %56, i32 noundef %60, i32 noundef 0)
-  store ptr %61, ptr %11, align 8
-  %62 = load i16, ptr %17, align 2
-  %63 = zext i16 %62 to i32
-  switch i32 %63, label %84 [
-    i32 1, label %64
-    i32 2, label %69
-    i32 4, label %74
-    i32 5, label %79
-    i32 6, label %79
-    i32 7, label %79
+  %61 = add i32 %60, 2
+  %62 = call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %55, ptr noundef %56, i32 noundef %57, i32 noundef %61, i32 noundef 0)
+  store ptr %62, ptr %11, align 8
+  %63 = load i16, ptr %17, align 2
+  %64 = zext i16 %63 to i32
+  switch i32 %64, label %85 [
+    i32 1, label %65
+    i32 2, label %70
+    i32 4, label %75
+    i32 5, label %80
+    i32 6, label %80
+    i32 7, label %80
   ]
 
-64:                                               ; preds = %36
-  %65 = load ptr, ptr %11, align 8
-  %66 = load i16, ptr %23, align 2
-  %67 = zext i16 %66 to i32
-  %68 = call ptr @val_to_str_ext(i32 noundef %67, ptr noundef @ecmg_parametertypenames_ext, ptr noundef @.str.343)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %65, ptr noundef @.str.352, ptr noundef %68)
-  br label %88
+65:                                               ; preds = %37
+  %66 = load ptr, ptr %11, align 8
+  %67 = load i16, ptr %23, align 2
+  %68 = zext i16 %67 to i32
+  %69 = call ptr @val_to_str_ext(i32 noundef %68, ptr noundef @ecmg_parametertypenames_ext, ptr noundef @.str.353)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %66, ptr noundef @.str.362, ptr noundef %69)
+  br label %89
 
-69:                                               ; preds = %36
-  %70 = load ptr, ptr %11, align 8
-  %71 = load i16, ptr %23, align 2
-  %72 = zext i16 %71 to i32
-  %73 = call ptr @val_to_str_ext(i32 noundef %72, ptr noundef @emmg_parametertypenames_ext, ptr noundef @.str.343)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %70, ptr noundef @.str.352, ptr noundef %73)
-  br label %88
+70:                                               ; preds = %37
+  %71 = load ptr, ptr %11, align 8
+  %72 = load i16, ptr %23, align 2
+  %73 = zext i16 %72 to i32
+  %74 = call ptr @val_to_str_ext(i32 noundef %73, ptr noundef @emmg_parametertypenames_ext, ptr noundef @.str.353)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %71, ptr noundef @.str.362, ptr noundef %74)
+  br label %89
 
-74:                                               ; preds = %36
-  %75 = load ptr, ptr %11, align 8
-  %76 = load i16, ptr %23, align 2
-  %77 = zext i16 %76 to i32
-  %78 = call ptr @val_to_str_ext(i32 noundef %77, ptr noundef @eis_parametertypenames_ext, ptr noundef @.str.343)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %75, ptr noundef @.str.352, ptr noundef %78)
-  br label %88
+75:                                               ; preds = %37
+  %76 = load ptr, ptr %11, align 8
+  %77 = load i16, ptr %23, align 2
+  %78 = zext i16 %77 to i32
+  %79 = call ptr @val_to_str_ext(i32 noundef %78, ptr noundef @eis_parametertypenames_ext, ptr noundef @.str.353)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %76, ptr noundef @.str.362, ptr noundef %79)
+  br label %89
 
-79:                                               ; preds = %36, %36, %36
-  %80 = load ptr, ptr %11, align 8
-  %81 = load i16, ptr %23, align 2
-  %82 = zext i16 %81 to i32
-  %83 = call ptr @val_to_str_ext(i32 noundef %82, ptr noundef @psig_parametertypenames_ext, ptr noundef @.str.343)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %80, ptr noundef @.str.352, ptr noundef %83)
-  br label %88
+80:                                               ; preds = %37, %37, %37
+  %81 = load ptr, ptr %11, align 8
+  %82 = load i16, ptr %23, align 2
+  %83 = zext i16 %82 to i32
+  %84 = call ptr @val_to_str_ext(i32 noundef %83, ptr noundef @psig_parametertypenames_ext, ptr noundef @.str.353)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %81, ptr noundef @.str.362, ptr noundef %84)
+  br label %89
 
-84:                                               ; preds = %36
-  %85 = load ptr, ptr %11, align 8
-  %86 = load i16, ptr %23, align 2
-  %87 = zext i16 %86 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %85, ptr noundef @.str.353, i32 noundef %87)
-  br label %88
+85:                                               ; preds = %37
+  %86 = load ptr, ptr %11, align 8
+  %87 = load i16, ptr %23, align 2
+  %88 = zext i16 %87 to i32
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %86, ptr noundef @.str.363, i32 noundef %88)
+  br label %89
 
-88:                                               ; preds = %84, %79, %74, %69, %64
-  %89 = load ptr, ptr %11, align 8
-  %90 = load i16, ptr %22, align 2
-  %91 = zext i16 %90 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %89, ptr noundef @.str.354, i32 noundef %91)
-  %92 = load ptr, ptr %11, align 8
-  %93 = load ptr, ptr %24, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %92, ptr noundef @.str.355, ptr noundef %93)
-  %94 = load ptr, ptr %11, align 8
-  %95 = load i32, ptr @ett_simulcrypt_parameter, align 4
-  %96 = call ptr @proto_item_add_subtree(ptr noundef %94, i32 noundef %95)
-  store ptr %96, ptr %20, align 8
-  %97 = load i16, ptr %17, align 2
-  %98 = zext i16 %97 to i32
-  switch i32 %98, label %123 [
-    i32 1, label %99
-    i32 2, label %105
-    i32 4, label %111
-    i32 5, label %117
-    i32 6, label %117
-    i32 7, label %117
+89:                                               ; preds = %85, %80, %75, %70, %65
+  %90 = load ptr, ptr %11, align 8
+  %91 = load i16, ptr %22, align 2
+  %92 = zext i16 %91 to i32
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %90, ptr noundef @.str.364, i32 noundef %92)
+  %93 = load ptr, ptr %11, align 8
+  %94 = load ptr, ptr %24, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %93, ptr noundef @.str.365, ptr noundef %94)
+  %95 = load ptr, ptr %11, align 8
+  %96 = load i32, ptr @ett_simulcrypt_parameter, align 4
+  %97 = call ptr @proto_item_add_subtree(ptr noundef %95, i32 noundef %96)
+  store ptr %97, ptr %20, align 8
+  %98 = load i16, ptr %17, align 2
+  %99 = zext i16 %98 to i32
+  switch i32 %99, label %124 [
+    i32 1, label %100
+    i32 2, label %106
+    i32 4, label %112
+    i32 5, label %118
+    i32 6, label %118
+    i32 7, label %118
   ]
 
-99:                                               ; preds = %88
-  %100 = load ptr, ptr %20, align 8
-  %101 = load i32, ptr @hf_simulcrypt_ecmg_parameter_type, align 4
-  %102 = load ptr, ptr %13, align 8
-  %103 = load i32, ptr %15, align 4
-  %104 = call ptr @proto_tree_add_item(ptr noundef %100, i32 noundef %101, ptr noundef %102, i32 noundef %103, i32 noundef 2, i32 noundef 0)
-  br label %129
+100:                                              ; preds = %89
+  %101 = load ptr, ptr %20, align 8
+  %102 = load i32, ptr @hf_simulcrypt_ecmg_parameter_type, align 4
+  %103 = load ptr, ptr %13, align 8
+  %104 = load i32, ptr %15, align 4
+  %105 = call ptr @proto_tree_add_item(ptr noundef %101, i32 noundef %102, ptr noundef %103, i32 noundef %104, i32 noundef 2, i32 noundef 0)
+  br label %130
 
-105:                                              ; preds = %88
-  %106 = load ptr, ptr %20, align 8
-  %107 = load i32, ptr @hf_simulcrypt_emmg_parameter_type, align 4
-  %108 = load ptr, ptr %13, align 8
-  %109 = load i32, ptr %15, align 4
-  %110 = call ptr @proto_tree_add_item(ptr noundef %106, i32 noundef %107, ptr noundef %108, i32 noundef %109, i32 noundef 2, i32 noundef 0)
-  br label %129
+106:                                              ; preds = %89
+  %107 = load ptr, ptr %20, align 8
+  %108 = load i32, ptr @hf_simulcrypt_emmg_parameter_type, align 4
+  %109 = load ptr, ptr %13, align 8
+  %110 = load i32, ptr %15, align 4
+  %111 = call ptr @proto_tree_add_item(ptr noundef %107, i32 noundef %108, ptr noundef %109, i32 noundef %110, i32 noundef 2, i32 noundef 0)
+  br label %130
 
-111:                                              ; preds = %88
-  %112 = load ptr, ptr %20, align 8
-  %113 = load i32, ptr @hf_simulcrypt_eis_parameter_type, align 4
-  %114 = load ptr, ptr %13, align 8
-  %115 = load i32, ptr %15, align 4
-  %116 = call ptr @proto_tree_add_item(ptr noundef %112, i32 noundef %113, ptr noundef %114, i32 noundef %115, i32 noundef 2, i32 noundef 0)
-  br label %129
+112:                                              ; preds = %89
+  %113 = load ptr, ptr %20, align 8
+  %114 = load i32, ptr @hf_simulcrypt_eis_parameter_type, align 4
+  %115 = load ptr, ptr %13, align 8
+  %116 = load i32, ptr %15, align 4
+  %117 = call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %114, ptr noundef %115, i32 noundef %116, i32 noundef 2, i32 noundef 0)
+  br label %130
 
-117:                                              ; preds = %88, %88, %88
-  %118 = load ptr, ptr %20, align 8
-  %119 = load i32, ptr @hf_simulcrypt_psig_parameter_type, align 4
-  %120 = load ptr, ptr %13, align 8
-  %121 = load i32, ptr %15, align 4
-  %122 = call ptr @proto_tree_add_item(ptr noundef %118, i32 noundef %119, ptr noundef %120, i32 noundef %121, i32 noundef 2, i32 noundef 0)
-  br label %129
+118:                                              ; preds = %89, %89, %89
+  %119 = load ptr, ptr %20, align 8
+  %120 = load i32, ptr @hf_simulcrypt_psig_parameter_type, align 4
+  %121 = load ptr, ptr %13, align 8
+  %122 = load i32, ptr %15, align 4
+  %123 = call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %120, ptr noundef %121, i32 noundef %122, i32 noundef 2, i32 noundef 0)
+  br label %130
 
-123:                                              ; preds = %88
-  %124 = load ptr, ptr %20, align 8
-  %125 = load i32, ptr @hf_simulcrypt_parameter_type, align 4
-  %126 = load ptr, ptr %13, align 8
-  %127 = load i32, ptr %15, align 4
-  %128 = call ptr @proto_tree_add_item(ptr noundef %124, i32 noundef %125, ptr noundef %126, i32 noundef %127, i32 noundef 2, i32 noundef 0)
-  br label %129
+124:                                              ; preds = %89
+  %125 = load ptr, ptr %20, align 8
+  %126 = load i32, ptr @hf_simulcrypt_parameter_type, align 4
+  %127 = load ptr, ptr %13, align 8
+  %128 = load i32, ptr %15, align 4
+  %129 = call ptr @proto_tree_add_item(ptr noundef %125, i32 noundef %126, ptr noundef %127, i32 noundef %128, i32 noundef 2, i32 noundef 0)
+  br label %130
 
-129:                                              ; preds = %123, %117, %111, %105, %99
-  %130 = load ptr, ptr %20, align 8
-  %131 = load i32, ptr @hf_simulcrypt_parameter_length, align 4
-  %132 = load ptr, ptr %13, align 8
-  %133 = load i32, ptr %15, align 4
-  %134 = add i32 %133, 2
-  %135 = call ptr @proto_tree_add_item(ptr noundef %130, i32 noundef %131, ptr noundef %132, i32 noundef %134, i32 noundef 2, i32 noundef 0)
-  %136 = load i32, ptr %15, align 4
-  %137 = add i32 %136, 4
-  store i32 %137, ptr %15, align 4
-  %138 = load i16, ptr %17, align 2
-  %139 = zext i16 %138 to i32
-  switch i32 %139, label %172 [
-    i32 1, label %140
-    i32 2, label %148
-    i32 4, label %156
-    i32 5, label %164
-    i32 6, label %164
-    i32 7, label %164
+130:                                              ; preds = %124, %118, %112, %106, %100
+  %131 = load ptr, ptr %20, align 8
+  %132 = load i32, ptr @hf_simulcrypt_parameter_length, align 4
+  %133 = load ptr, ptr %13, align 8
+  %134 = load i32, ptr %15, align 4
+  %135 = add i32 %134, 2
+  %136 = call ptr @proto_tree_add_item(ptr noundef %131, i32 noundef %132, ptr noundef %133, i32 noundef %135, i32 noundef 2, i32 noundef 0)
+  %137 = load i32, ptr %15, align 4
+  %138 = add i32 %137, 4
+  store i32 %138, ptr %15, align 4
+  %139 = load i16, ptr %17, align 2
+  %140 = zext i16 %139 to i32
+  switch i32 %140, label %173 [
+    i32 1, label %141
+    i32 2, label %149
+    i32 4, label %157
+    i32 5, label %165
+    i32 6, label %165
+    i32 7, label %165
   ]
 
-140:                                              ; preds = %129
-  %141 = load ptr, ptr %20, align 8
-  %142 = load ptr, ptr %13, align 8
-  %143 = load ptr, ptr %12, align 8
-  %144 = load i32, ptr %15, align 4
-  %145 = load i16, ptr %22, align 2
-  %146 = load i16, ptr %23, align 2
-  %147 = load ptr, ptr %24, align 8
-  call void @dissect_ecmg_parameter_value(ptr noundef %141, ptr noundef %142, ptr noundef %143, i32 noundef %144, i16 noundef zeroext %145, i16 noundef zeroext %146, ptr noundef %147)
-  br label %181
+141:                                              ; preds = %130
+  %142 = load ptr, ptr %20, align 8
+  %143 = load ptr, ptr %13, align 8
+  %144 = load ptr, ptr %12, align 8
+  %145 = load i32, ptr %15, align 4
+  %146 = load i16, ptr %22, align 2
+  %147 = load i16, ptr %23, align 2
+  %148 = load ptr, ptr %24, align 8
+  call void @dissect_ecmg_parameter_value(ptr noundef %142, ptr noundef %143, ptr noundef %144, i32 noundef %145, i16 noundef zeroext %146, i16 noundef zeroext %147, ptr noundef %148)
+  br label %182
 
-148:                                              ; preds = %129
-  %149 = load ptr, ptr %20, align 8
-  %150 = load ptr, ptr %13, align 8
-  %151 = load ptr, ptr %12, align 8
-  %152 = load i32, ptr %15, align 4
-  %153 = load i16, ptr %22, align 2
-  %154 = load i16, ptr %23, align 2
-  %155 = load ptr, ptr %24, align 8
-  call void @dissect_emmg_parameter_value(ptr noundef %149, ptr noundef %150, ptr noundef %151, i32 noundef %152, i16 noundef zeroext %153, i16 noundef zeroext %154, ptr noundef %155)
-  br label %181
+149:                                              ; preds = %130
+  %150 = load ptr, ptr %20, align 8
+  %151 = load ptr, ptr %13, align 8
+  %152 = load ptr, ptr %12, align 8
+  %153 = load i32, ptr %15, align 4
+  %154 = load i16, ptr %22, align 2
+  %155 = load i16, ptr %23, align 2
+  %156 = load ptr, ptr %24, align 8
+  call void @dissect_emmg_parameter_value(ptr noundef %150, ptr noundef %151, ptr noundef %152, i32 noundef %153, i16 noundef zeroext %154, i16 noundef zeroext %155, ptr noundef %156)
+  br label %182
 
-156:                                              ; preds = %129
-  %157 = load ptr, ptr %20, align 8
-  %158 = load ptr, ptr %13, align 8
-  %159 = load ptr, ptr %12, align 8
-  %160 = load i32, ptr %15, align 4
-  %161 = load i16, ptr %22, align 2
-  %162 = load i16, ptr %23, align 2
-  %163 = load ptr, ptr %24, align 8
-  call void @dissect_eis_parameter_value(ptr noundef %157, ptr noundef %158, ptr noundef %159, i32 noundef %160, i16 noundef zeroext %161, i16 noundef zeroext %162, ptr noundef %163)
-  br label %181
+157:                                              ; preds = %130
+  %158 = load ptr, ptr %20, align 8
+  %159 = load ptr, ptr %13, align 8
+  %160 = load ptr, ptr %12, align 8
+  %161 = load i32, ptr %15, align 4
+  %162 = load i16, ptr %22, align 2
+  %163 = load i16, ptr %23, align 2
+  %164 = load ptr, ptr %24, align 8
+  call void @dissect_eis_parameter_value(ptr noundef %158, ptr noundef %159, ptr noundef %160, i32 noundef %161, i16 noundef zeroext %162, i16 noundef zeroext %163, ptr noundef %164)
+  br label %182
 
-164:                                              ; preds = %129, %129, %129
-  %165 = load ptr, ptr %20, align 8
-  %166 = load ptr, ptr %13, align 8
-  %167 = load ptr, ptr %12, align 8
-  %168 = load i32, ptr %15, align 4
-  %169 = load i16, ptr %22, align 2
-  %170 = load i16, ptr %23, align 2
-  %171 = load ptr, ptr %24, align 8
-  call void @dissect_psig_parameter_value(ptr noundef %165, ptr noundef %166, ptr noundef %167, i32 noundef %168, i16 noundef zeroext %169, i16 noundef zeroext %170, ptr noundef %171)
-  br label %181
+165:                                              ; preds = %130, %130, %130
+  %166 = load ptr, ptr %20, align 8
+  %167 = load ptr, ptr %13, align 8
+  %168 = load ptr, ptr %12, align 8
+  %169 = load i32, ptr %15, align 4
+  %170 = load i16, ptr %22, align 2
+  %171 = load i16, ptr %23, align 2
+  %172 = load ptr, ptr %24, align 8
+  call void @dissect_psig_parameter_value(ptr noundef %166, ptr noundef %167, ptr noundef %168, i32 noundef %169, i16 noundef zeroext %170, i16 noundef zeroext %171, ptr noundef %172)
+  br label %182
 
-172:                                              ; preds = %129
-  %173 = load ptr, ptr %14, align 8
-  %174 = load i32, ptr @hf_simulcrypt_parameter_value, align 4
-  %175 = load ptr, ptr %13, align 8
-  %176 = load i32, ptr %15, align 4
-  %177 = load i16, ptr %22, align 2
-  %178 = zext i16 %177 to i32
-  %179 = load ptr, ptr %24, align 8
-  %180 = call ptr @proto_tree_add_string(ptr noundef %173, i32 noundef %174, ptr noundef %175, i32 noundef %176, i32 noundef %178, ptr noundef %179)
-  br label %181
+173:                                              ; preds = %130
+  %174 = load ptr, ptr %14, align 8
+  %175 = load i32, ptr @hf_simulcrypt_parameter_value, align 4
+  %176 = load ptr, ptr %13, align 8
+  %177 = load i32, ptr %15, align 4
+  %178 = load i16, ptr %22, align 2
+  %179 = zext i16 %178 to i32
+  %180 = load ptr, ptr %24, align 8
+  %181 = call ptr @proto_tree_add_string(ptr noundef %174, i32 noundef %175, ptr noundef %176, i32 noundef %177, i32 noundef %179, ptr noundef %180)
+  br label %182
 
-181:                                              ; preds = %172, %164, %156, %148, %140
-  %182 = load i16, ptr %22, align 2
-  %183 = zext i16 %182 to i32
-  %184 = load i32, ptr %15, align 4
-  %185 = add i32 %184, %183
-  store i32 %185, ptr %15, align 4
-  %186 = load i16, ptr %22, align 2
-  %187 = zext i16 %186 to i32
-  %188 = add i32 4, %187
-  %189 = load i32, ptr %19, align 4
-  %190 = add i32 %189, %188
-  store i32 %190, ptr %19, align 4
-  %191 = load i32, ptr %18, align 4
-  %192 = icmp ne i32 %191, 0
-  br i1 %192, label %193, label %195
+182:                                              ; preds = %173, %165, %157, %149, %141
+  %183 = load i16, ptr %22, align 2
+  %184 = zext i16 %183 to i32
+  %185 = load i32, ptr %15, align 4
+  %186 = add i32 %185, %184
+  store i32 %186, ptr %15, align 4
+  %187 = load i16, ptr %22, align 2
+  %188 = zext i16 %187 to i32
+  %189 = add i32 4, %188
+  %190 = load i32, ptr %19, align 4
+  %191 = add i32 %190, %189
+  store i32 %191, ptr %19, align 4
+  %192 = load i8, ptr %18, align 1, !range !8, !noundef !9
+  %193 = trunc i8 %192 to i1
+  br i1 %193, label %194, label %196
 
-193:                                              ; preds = %181
-  %194 = load i32, ptr %19, align 4
-  store i32 %194, ptr %21, align 4
-  br label %197
+194:                                              ; preds = %182
+  %195 = load i32, ptr %19, align 4
+  store i32 %195, ptr %21, align 4
+  br label %198
 
-195:                                              ; preds = %181
-  %196 = load i32, ptr %15, align 4
-  store i32 %196, ptr %21, align 4
-  br label %197
+196:                                              ; preds = %182
+  %197 = load i32, ptr %15, align 4
+  store i32 %197, ptr %21, align 4
+  br label %198
 
-197:                                              ; preds = %195, %193
-  br label %32, !llvm.loop !7
+198:                                              ; preds = %196, %194
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #5
+  call void @llvm.lifetime.end.p0(i64 2, ptr %23) #5
+  call void @llvm.lifetime.end.p0(i64 2, ptr %22) #5
+  br label %33, !llvm.loop !11
 
-198:                                              ; preds = %32
+199:                                              ; preds = %33
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #5
   ret void
 }
 
-declare ptr @tvb_bytes_to_str(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_bytes_to_str(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_ecmg_parameter_value(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4, i16 noundef zeroext %5, ptr noundef %6) #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -1294,6 +1366,13 @@ define internal void @dissect_ecmg_parameter_value(ptr noundef %0, ptr noundef %
   store i16 %4, ptr %12, align 2
   store i16 %5, ptr %13, align 2
   store ptr %6, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #5
   %22 = load i16, ptr %13, align 2
   %23 = zext i16 %22 to i32
   switch i32 %23, label %361 [
@@ -1363,7 +1442,7 @@ define internal void @dissect_ecmg_parameter_value(ptr noundef %0, ptr noundef %
   %49 = load i32, ptr %21, align 4
   %50 = zext i32 %49 to i64
   %51 = getelementptr [1 x %struct.Tecm_interpretation], ptr @tab_ecm_inter, i64 0, i64 %50
-  %52 = getelementptr inbounds %struct.Tecm_interpretation, ptr %51, i32 0, i32 0
+  %52 = getelementptr inbounds nuw %struct.Tecm_interpretation, ptr %51, i32 0, i32 0
   %53 = load i32, ptr %52, align 16
   %54 = load i32, ptr %20, align 4
   %55 = icmp eq i32 %53, %54
@@ -1371,25 +1450,25 @@ define internal void @dissect_ecmg_parameter_value(ptr noundef %0, ptr noundef %
 
 56:                                               ; preds = %48
   %57 = load ptr, ptr %10, align 8
-  %58 = getelementptr inbounds %struct._packet_info, ptr %57, i32 0, i32 24
+  %58 = getelementptr inbounds nuw %struct._packet_info, ptr %57, i32 0, i32 25
   %59 = load i32, ptr %58, align 8
   %60 = load i32, ptr %21, align 4
   %61 = zext i32 %60 to i64
   %62 = getelementptr [1 x %struct.Tecm_interpretation], ptr @tab_ecm_inter, i64 0, i64 %61
-  %63 = getelementptr inbounds %struct.Tecm_interpretation, ptr %62, i32 0, i32 3
+  %63 = getelementptr inbounds nuw %struct.Tecm_interpretation, ptr %62, i32 0, i32 3
   store i32 %59, ptr %63, align 8
   %64 = load ptr, ptr %15, align 8
   %65 = load i32, ptr %21, align 4
   %66 = zext i32 %65 to i64
   %67 = getelementptr [1 x %struct.Tecm_interpretation], ptr @tab_ecm_inter, i64 0, i64 %66
-  %68 = getelementptr inbounds %struct.Tecm_interpretation, ptr %67, i32 0, i32 3
+  %68 = getelementptr inbounds nuw %struct.Tecm_interpretation, ptr %67, i32 0, i32 3
   %69 = load i32, ptr %68, align 8
   %70 = load i32, ptr %21, align 4
   %71 = zext i32 %70 to i64
   %72 = getelementptr [1 x %struct.Tecm_interpretation], ptr @tab_ecm_inter, i64 0, i64 %71
-  %73 = getelementptr inbounds %struct.Tecm_interpretation, ptr %72, i32 0, i32 1
+  %73 = getelementptr inbounds nuw %struct.Tecm_interpretation, ptr %72, i32 0, i32 1
   %74 = load ptr, ptr %73, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %64, ptr noundef @.str.356, i32 noundef %69, ptr noundef %74)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %64, ptr noundef @.str.366, i32 noundef %69, ptr noundef %74)
   br label %79
 
 75:                                               ; preds = %48
@@ -1399,7 +1478,7 @@ define internal void @dissect_ecmg_parameter_value(ptr noundef %0, ptr noundef %
   %77 = load i32, ptr %21, align 4
   %78 = add i32 %77, 1
   store i32 %78, ptr %21, align 4
-  br label %44, !llvm.loop !8
+  br label %44, !llvm.loop !12
 
 79:                                               ; preds = %56, %44
   %80 = load ptr, ptr %16, align 8
@@ -1529,7 +1608,7 @@ define internal void @dissect_ecmg_parameter_value(ptr noundef %0, ptr noundef %
   store ptr %179, ptr %15, align 8
   %180 = load ptr, ptr %15, align 8
   %181 = load i32, ptr %19, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %180, ptr noundef @.str.357, i32 noundef %181)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %180, ptr noundef @.str.367, i32 noundef %181)
   br label %370
 
 182:                                              ; preds = %7
@@ -1601,7 +1680,7 @@ define internal void @dissect_ecmg_parameter_value(ptr noundef %0, ptr noundef %
   store ptr %235, ptr %15, align 8
   %236 = load ptr, ptr %15, align 8
   %237 = load i32, ptr %19, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %236, ptr noundef @.str.357, i32 noundef %237)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %236, ptr noundef @.str.367, i32 noundef %237)
   br label %370
 
 238:                                              ; preds = %7
@@ -1643,7 +1722,7 @@ define internal void @dissect_ecmg_parameter_value(ptr noundef %0, ptr noundef %
   store ptr %267, ptr %15, align 8
   %268 = load ptr, ptr %15, align 8
   %269 = load i32, ptr %19, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %268, ptr noundef @.str.357, i32 noundef %269)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %268, ptr noundef @.str.367, i32 noundef %269)
   br label %370
 
 270:                                              ; preds = %7
@@ -1678,10 +1757,10 @@ define internal void @dissect_ecmg_parameter_value(ptr noundef %0, ptr noundef %
   %291 = load i32, ptr %21, align 4
   %292 = zext i32 %291 to i64
   %293 = getelementptr [1 x %struct.Tecm_interpretation], ptr @tab_ecm_inter, i64 0, i64 %292
-  %294 = getelementptr inbounds %struct.Tecm_interpretation, ptr %293, i32 0, i32 3
+  %294 = getelementptr inbounds nuw %struct.Tecm_interpretation, ptr %293, i32 0, i32 3
   %295 = load i32, ptr %294, align 8
   %296 = load ptr, ptr %10, align 8
-  %297 = getelementptr inbounds %struct._packet_info, ptr %296, i32 0, i32 23
+  %297 = getelementptr inbounds nuw %struct._packet_info, ptr %296, i32 0, i32 24
   %298 = load i32, ptr %297, align 4
   %299 = icmp eq i32 %295, %298
   br i1 %299, label %300, label %324
@@ -1698,7 +1777,7 @@ define internal void @dissect_ecmg_parameter_value(ptr noundef %0, ptr noundef %
   %307 = load i32, ptr %21, align 4
   %308 = zext i32 %307 to i64
   %309 = getelementptr [1 x %struct.Tecm_interpretation], ptr @tab_ecm_inter, i64 0, i64 %308
-  %310 = getelementptr inbounds %struct.Tecm_interpretation, ptr %309, i32 0, i32 2
+  %310 = getelementptr inbounds nuw %struct.Tecm_interpretation, ptr %309, i32 0, i32 2
   %311 = load ptr, ptr %310, align 16
   %312 = icmp ne ptr %311, null
   br i1 %312, label %313, label %323
@@ -1707,7 +1786,7 @@ define internal void @dissect_ecmg_parameter_value(ptr noundef %0, ptr noundef %
   %314 = load i32, ptr %21, align 4
   %315 = zext i32 %314 to i64
   %316 = getelementptr [1 x %struct.Tecm_interpretation], ptr @tab_ecm_inter, i64 0, i64 %315
-  %317 = getelementptr inbounds %struct.Tecm_interpretation, ptr %316, i32 0, i32 2
+  %317 = getelementptr inbounds nuw %struct.Tecm_interpretation, ptr %316, i32 0, i32 2
   %318 = load ptr, ptr %317, align 16
   %319 = load ptr, ptr %18, align 8
   %320 = load ptr, ptr %10, align 8
@@ -1725,7 +1804,7 @@ define internal void @dissect_ecmg_parameter_value(ptr noundef %0, ptr noundef %
   %326 = load i32, ptr %21, align 4
   %327 = add i32 %326, 1
   store i32 %327, ptr %21, align 4
-  br label %286, !llvm.loop !9
+  br label %286, !llvm.loop !13
 
 328:                                              ; preds = %323, %286
   br label %370
@@ -1782,10 +1861,17 @@ define internal void @dissect_ecmg_parameter_value(ptr noundef %0, ptr noundef %
   br label %370
 
 370:                                              ; preds = %361, %353, %345, %337, %329, %328, %270, %254, %246, %238, %222, %214, %206, %198, %190, %182, %166, %158, %150, %142, %134, %126, %118, %110, %102, %94, %86, %79
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #5
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_emmg_parameter_value(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4, i16 noundef zeroext %5, ptr noundef %6) #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -1931,7 +2017,7 @@ define internal void @dissect_emmg_parameter_value(ptr noundef %0, ptr noundef %
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_eis_parameter_value(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4, i16 noundef zeroext %5, ptr noundef %6) #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -1954,6 +2040,13 @@ define internal void @dissect_eis_parameter_value(ptr noundef %0, ptr noundef %1
   store i16 %4, ptr %12, align 2
   store i16 %5, ptr %13, align 2
   store ptr %6, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #5
   %22 = load i16, ptr %13, align 2
   %23 = zext i16 %22 to i32
   switch i32 %23, label %349 [
@@ -2045,7 +2138,7 @@ define internal void @dissect_eis_parameter_value(ptr noundef %0, ptr noundef %1
   %72 = load i32, ptr %11, align 4
   %73 = load i16, ptr %12, align 2
   %74 = zext i16 %73 to i32
-  call void @dissect_simulcrypt_data(ptr noundef %67, ptr noundef %68, ptr noundef %69, ptr noundef %70, ptr noundef %71, i32 noundef %72, i32 noundef %74, i16 noundef zeroext 4, i32 noundef 1)
+  call void @dissect_simulcrypt_data(ptr noundef %67, ptr noundef %68, ptr noundef %69, ptr noundef %70, ptr noundef %71, i32 noundef %72, i32 noundef %74, i16 noundef zeroext 4, i1 noundef zeroext true)
   br label %358
 
 75:                                               ; preds = %7
@@ -2105,7 +2198,7 @@ define internal void @dissect_eis_parameter_value(ptr noundef %0, ptr noundef %1
   %116 = load i32, ptr %21, align 4
   %117 = zext i32 %116 to i64
   %118 = getelementptr [1 x %struct.Tecm_interpretation], ptr @tab_ecm_inter, i64 0, i64 %117
-  %119 = getelementptr inbounds %struct.Tecm_interpretation, ptr %118, i32 0, i32 0
+  %119 = getelementptr inbounds nuw %struct.Tecm_interpretation, ptr %118, i32 0, i32 0
   %120 = load i32, ptr %119, align 16
   %121 = load i32, ptr %20, align 4
   %122 = icmp eq i32 %120, %121
@@ -2113,25 +2206,25 @@ define internal void @dissect_eis_parameter_value(ptr noundef %0, ptr noundef %1
 
 123:                                              ; preds = %115
   %124 = load ptr, ptr %10, align 8
-  %125 = getelementptr inbounds %struct._packet_info, ptr %124, i32 0, i32 24
+  %125 = getelementptr inbounds nuw %struct._packet_info, ptr %124, i32 0, i32 25
   %126 = load i32, ptr %125, align 8
   %127 = load i32, ptr %21, align 4
   %128 = zext i32 %127 to i64
   %129 = getelementptr [1 x %struct.Tecm_interpretation], ptr @tab_ecm_inter, i64 0, i64 %128
-  %130 = getelementptr inbounds %struct.Tecm_interpretation, ptr %129, i32 0, i32 3
+  %130 = getelementptr inbounds nuw %struct.Tecm_interpretation, ptr %129, i32 0, i32 3
   store i32 %126, ptr %130, align 8
   %131 = load ptr, ptr %15, align 8
   %132 = load i32, ptr %21, align 4
   %133 = zext i32 %132 to i64
   %134 = getelementptr [1 x %struct.Tecm_interpretation], ptr @tab_ecm_inter, i64 0, i64 %133
-  %135 = getelementptr inbounds %struct.Tecm_interpretation, ptr %134, i32 0, i32 3
+  %135 = getelementptr inbounds nuw %struct.Tecm_interpretation, ptr %134, i32 0, i32 3
   %136 = load i32, ptr %135, align 8
   %137 = load i32, ptr %21, align 4
   %138 = zext i32 %137 to i64
   %139 = getelementptr [1 x %struct.Tecm_interpretation], ptr @tab_ecm_inter, i64 0, i64 %138
-  %140 = getelementptr inbounds %struct.Tecm_interpretation, ptr %139, i32 0, i32 1
+  %140 = getelementptr inbounds nuw %struct.Tecm_interpretation, ptr %139, i32 0, i32 1
   %141 = load ptr, ptr %140, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %131, ptr noundef @.str.356, i32 noundef %136, ptr noundef %141)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %131, ptr noundef @.str.366, i32 noundef %136, ptr noundef %141)
   br label %146
 
 142:                                              ; preds = %115
@@ -2141,7 +2234,7 @@ define internal void @dissect_eis_parameter_value(ptr noundef %0, ptr noundef %1
   %144 = load i32, ptr %21, align 4
   %145 = add i32 %144, 1
   store i32 %145, ptr %21, align 4
-  br label %111, !llvm.loop !10
+  br label %111, !llvm.loop !14
 
 146:                                              ; preds = %123, %111
   %147 = load ptr, ptr %16, align 8
@@ -2327,7 +2420,7 @@ define internal void @dissect_eis_parameter_value(ptr noundef %0, ptr noundef %1
   store ptr %298, ptr %15, align 8
   %299 = load ptr, ptr %15, align 8
   %300 = load i32, ptr %19, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %299, ptr noundef @.str.357, i32 noundef %300)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %299, ptr noundef @.str.367, i32 noundef %300)
   br label %358
 
 301:                                              ; preds = %7
@@ -2349,7 +2442,7 @@ define internal void @dissect_eis_parameter_value(ptr noundef %0, ptr noundef %1
   store ptr %314, ptr %15, align 8
   %315 = load ptr, ptr %15, align 8
   %316 = load i32, ptr %19, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %315, ptr noundef @.str.357, i32 noundef %316)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %315, ptr noundef @.str.367, i32 noundef %316)
   br label %358
 
 317:                                              ; preds = %7
@@ -2404,10 +2497,17 @@ define internal void @dissect_eis_parameter_value(ptr noundef %0, ptr noundef %1
   br label %358
 
 358:                                              ; preds = %349, %341, %333, %325, %317, %301, %285, %277, %269, %261, %253, %245, %237, %229, %221, %169, %161, %153, %146, %83, %75, %56, %48, %40, %32, %24
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #5
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_psig_parameter_value(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4, i16 noundef zeroext %5, ptr noundef %6) #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -2427,348 +2527,378 @@ define internal void @dissect_psig_parameter_value(ptr noundef %0, ptr noundef %
   store i16 %4, ptr %12, align 2
   store i16 %5, ptr %13, align 2
   store ptr %6, ptr %14, align 8
-  %19 = load i16, ptr %13, align 2
-  %20 = zext i16 %19 to i32
-  switch i32 %20, label %241 [
-    i32 1, label %21
-    i32 2, label %42
-    i32 3, label %50
-    i32 4, label %58
-    i32 5, label %66
-    i32 6, label %74
-    i32 7, label %82
-    i32 8, label %90
-    i32 9, label %98
-    i32 10, label %117
-    i32 11, label %125
-    i32 12, label %133
-    i32 13, label %185
-    i32 14, label %193
-    i32 15, label %201
-    i32 16, label %209
-    i32 17, label %217
-    i32 28672, label %225
-    i32 28673, label %233
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #5
+  %19 = load ptr, ptr %10, align 8
+  call void @increment_dissection_depth(ptr noundef %19)
+  %20 = load i16, ptr %13, align 2
+  %21 = zext i16 %20 to i32
+  switch i32 %21, label %242 [
+    i32 1, label %22
+    i32 2, label %43
+    i32 3, label %51
+    i32 4, label %59
+    i32 5, label %67
+    i32 6, label %75
+    i32 7, label %83
+    i32 8, label %91
+    i32 9, label %99
+    i32 10, label %118
+    i32 11, label %126
+    i32 12, label %134
+    i32 13, label %186
+    i32 14, label %194
+    i32 15, label %202
+    i32 16, label %210
+    i32 17, label %218
+    i32 28672, label %226
+    i32 28673, label %234
   ]
 
-21:                                               ; preds = %7
-  %22 = load ptr, ptr %9, align 8
-  %23 = load i32, ptr %11, align 4
-  %24 = call zeroext i8 @tvb_get_guint8(ptr noundef %22, i32 noundef %23)
-  %25 = zext i8 %24 to i32
-  store i32 %25, ptr %18, align 4
-  %26 = load ptr, ptr %8, align 8
-  %27 = load i32, ptr @hf_simulcrypt_psig_type, align 4
-  %28 = load ptr, ptr %9, align 8
-  %29 = load i32, ptr %11, align 4
-  %30 = load i16, ptr %12, align 2
-  %31 = zext i16 %30 to i32
-  %32 = call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %27, ptr noundef %28, i32 noundef %29, i32 noundef %31, i32 noundef 0)
-  store ptr %32, ptr %17, align 8
-  %33 = load i32, ptr %18, align 4
-  switch i32 %33, label %40 [
-    i32 1, label %34
-    i32 2, label %36
-    i32 3, label %38
+22:                                               ; preds = %7
+  %23 = load ptr, ptr %9, align 8
+  %24 = load i32, ptr %11, align 4
+  %25 = call zeroext i8 @tvb_get_uint8(ptr noundef %23, i32 noundef %24)
+  %26 = zext i8 %25 to i32
+  store i32 %26, ptr %18, align 4
+  %27 = load ptr, ptr %8, align 8
+  %28 = load i32, ptr @hf_simulcrypt_psig_type, align 4
+  %29 = load ptr, ptr %9, align 8
+  %30 = load i32, ptr %11, align 4
+  %31 = load i16, ptr %12, align 2
+  %32 = zext i16 %31 to i32
+  %33 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %28, ptr noundef %29, i32 noundef %30, i32 noundef %32, i32 noundef 0)
+  store ptr %33, ptr %17, align 8
+  %34 = load i32, ptr %18, align 4
+  switch i32 %34, label %41 [
+    i32 1, label %35
+    i32 2, label %37
+    i32 3, label %39
   ]
 
-34:                                               ; preds = %21
-  %35 = load ptr, ptr %17, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %35, ptr noundef @.str.358)
-  br label %41
+35:                                               ; preds = %22
+  %36 = load ptr, ptr %17, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %36, ptr noundef @.str.368)
+  br label %42
 
-36:                                               ; preds = %21
-  %37 = load ptr, ptr %17, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %37, ptr noundef @.str.359)
-  br label %41
+37:                                               ; preds = %22
+  %38 = load ptr, ptr %17, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %38, ptr noundef @.str.369)
+  br label %42
 
-38:                                               ; preds = %21
-  %39 = load ptr, ptr %17, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %39, ptr noundef @.str.360)
-  br label %41
+39:                                               ; preds = %22
+  %40 = load ptr, ptr %17, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %40, ptr noundef @.str.370)
+  br label %42
 
-40:                                               ; preds = %21
-  br label %41
+41:                                               ; preds = %22
+  br label %42
 
-41:                                               ; preds = %40, %38, %36, %34
-  br label %250
+42:                                               ; preds = %41, %39, %37, %35
+  br label %251
 
-42:                                               ; preds = %7
-  %43 = load ptr, ptr %8, align 8
-  %44 = load i32, ptr @hf_simulcrypt_channel_id, align 4
-  %45 = load ptr, ptr %9, align 8
-  %46 = load i32, ptr %11, align 4
-  %47 = load i16, ptr %12, align 2
-  %48 = zext i16 %47 to i32
-  %49 = call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %44, ptr noundef %45, i32 noundef %46, i32 noundef %48, i32 noundef 0)
-  br label %250
+43:                                               ; preds = %7
+  %44 = load ptr, ptr %8, align 8
+  %45 = load i32, ptr @hf_simulcrypt_channel_id, align 4
+  %46 = load ptr, ptr %9, align 8
+  %47 = load i32, ptr %11, align 4
+  %48 = load i16, ptr %12, align 2
+  %49 = zext i16 %48 to i32
+  %50 = call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %45, ptr noundef %46, i32 noundef %47, i32 noundef %49, i32 noundef 0)
+  br label %251
 
-50:                                               ; preds = %7
-  %51 = load ptr, ptr %8, align 8
-  %52 = load i32, ptr @hf_simulcrypt_stream_id, align 4
-  %53 = load ptr, ptr %9, align 8
-  %54 = load i32, ptr %11, align 4
-  %55 = load i16, ptr %12, align 2
-  %56 = zext i16 %55 to i32
-  %57 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %52, ptr noundef %53, i32 noundef %54, i32 noundef %56, i32 noundef 0)
-  br label %250
+51:                                               ; preds = %7
+  %52 = load ptr, ptr %8, align 8
+  %53 = load i32, ptr @hf_simulcrypt_stream_id, align 4
+  %54 = load ptr, ptr %9, align 8
+  %55 = load i32, ptr %11, align 4
+  %56 = load i16, ptr %12, align 2
+  %57 = zext i16 %56 to i32
+  %58 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %53, ptr noundef %54, i32 noundef %55, i32 noundef %57, i32 noundef 0)
+  br label %251
 
-58:                                               ; preds = %7
-  %59 = load ptr, ptr %8, align 8
-  %60 = load i32, ptr @hf_simulcrypt_transport_stream_id, align 4
-  %61 = load ptr, ptr %9, align 8
-  %62 = load i32, ptr %11, align 4
-  %63 = load i16, ptr %12, align 2
-  %64 = zext i16 %63 to i32
-  %65 = call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %60, ptr noundef %61, i32 noundef %62, i32 noundef %64, i32 noundef 0)
-  br label %250
+59:                                               ; preds = %7
+  %60 = load ptr, ptr %8, align 8
+  %61 = load i32, ptr @hf_simulcrypt_transport_stream_id, align 4
+  %62 = load ptr, ptr %9, align 8
+  %63 = load i32, ptr %11, align 4
+  %64 = load i16, ptr %12, align 2
+  %65 = zext i16 %64 to i32
+  %66 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %61, ptr noundef %62, i32 noundef %63, i32 noundef %65, i32 noundef 0)
+  br label %251
 
-66:                                               ; preds = %7
-  %67 = load ptr, ptr %8, align 8
-  %68 = load i32, ptr @hf_simulcrypt_original_network_id, align 4
-  %69 = load ptr, ptr %9, align 8
-  %70 = load i32, ptr %11, align 4
-  %71 = load i16, ptr %12, align 2
-  %72 = zext i16 %71 to i32
-  %73 = call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %68, ptr noundef %69, i32 noundef %70, i32 noundef %72, i32 noundef 0)
-  br label %250
+67:                                               ; preds = %7
+  %68 = load ptr, ptr %8, align 8
+  %69 = load i32, ptr @hf_simulcrypt_original_network_id, align 4
+  %70 = load ptr, ptr %9, align 8
+  %71 = load i32, ptr %11, align 4
+  %72 = load i16, ptr %12, align 2
+  %73 = zext i16 %72 to i32
+  %74 = call ptr @proto_tree_add_item(ptr noundef %68, i32 noundef %69, ptr noundef %70, i32 noundef %71, i32 noundef %73, i32 noundef 0)
+  br label %251
 
-74:                                               ; preds = %7
-  %75 = load ptr, ptr %8, align 8
-  %76 = load i32, ptr @hf_simulcrypt_packet_id, align 4
-  %77 = load ptr, ptr %9, align 8
-  %78 = load i32, ptr %11, align 4
-  %79 = load i16, ptr %12, align 2
-  %80 = zext i16 %79 to i32
-  %81 = call ptr @proto_tree_add_item(ptr noundef %75, i32 noundef %76, ptr noundef %77, i32 noundef %78, i32 noundef %80, i32 noundef 0)
-  br label %250
+75:                                               ; preds = %7
+  %76 = load ptr, ptr %8, align 8
+  %77 = load i32, ptr @hf_simulcrypt_packet_id, align 4
+  %78 = load ptr, ptr %9, align 8
+  %79 = load i32, ptr %11, align 4
+  %80 = load i16, ptr %12, align 2
+  %81 = zext i16 %80 to i32
+  %82 = call ptr @proto_tree_add_item(ptr noundef %76, i32 noundef %77, ptr noundef %78, i32 noundef %79, i32 noundef %81, i32 noundef 0)
+  br label %251
 
-82:                                               ; preds = %7
-  %83 = load ptr, ptr %8, align 8
-  %84 = load i32, ptr @hf_simulcrypt_interface_mode_configuration, align 4
-  %85 = load ptr, ptr %9, align 8
-  %86 = load i32, ptr %11, align 4
-  %87 = load i16, ptr %12, align 2
-  %88 = zext i16 %87 to i32
-  %89 = call ptr @proto_tree_add_item(ptr noundef %83, i32 noundef %84, ptr noundef %85, i32 noundef %86, i32 noundef %88, i32 noundef 0)
-  br label %250
+83:                                               ; preds = %7
+  %84 = load ptr, ptr %8, align 8
+  %85 = load i32, ptr @hf_simulcrypt_interface_mode_configuration, align 4
+  %86 = load ptr, ptr %9, align 8
+  %87 = load i32, ptr %11, align 4
+  %88 = load i16, ptr %12, align 2
+  %89 = zext i16 %88 to i32
+  %90 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %85, ptr noundef %86, i32 noundef %87, i32 noundef %89, i32 noundef 0)
+  br label %251
 
-90:                                               ; preds = %7
-  %91 = load ptr, ptr %8, align 8
-  %92 = load i32, ptr @hf_simulcrypt_max_stream, align 4
-  %93 = load ptr, ptr %9, align 8
-  %94 = load i32, ptr %11, align 4
-  %95 = load i16, ptr %12, align 2
-  %96 = zext i16 %95 to i32
-  %97 = call ptr @proto_tree_add_item(ptr noundef %91, i32 noundef %92, ptr noundef %93, i32 noundef %94, i32 noundef %96, i32 noundef 0)
-  br label %250
+91:                                               ; preds = %7
+  %92 = load ptr, ptr %8, align 8
+  %93 = load i32, ptr @hf_simulcrypt_max_stream, align 4
+  %94 = load ptr, ptr %9, align 8
+  %95 = load i32, ptr %11, align 4
+  %96 = load i16, ptr %12, align 2
+  %97 = zext i16 %96 to i32
+  %98 = call ptr @proto_tree_add_item(ptr noundef %92, i32 noundef %93, ptr noundef %94, i32 noundef %95, i32 noundef %97, i32 noundef 0)
+  br label %251
 
-98:                                               ; preds = %7
-  %99 = load ptr, ptr %8, align 8
-  %100 = load i32, ptr @hf_simulcrypt_table_period_pair, align 4
-  %101 = load ptr, ptr %9, align 8
-  %102 = load i32, ptr %11, align 4
-  %103 = load i16, ptr %12, align 2
-  %104 = zext i16 %103 to i32
-  %105 = call ptr @proto_tree_add_item(ptr noundef %99, i32 noundef %100, ptr noundef %101, i32 noundef %102, i32 noundef %104, i32 noundef 0)
-  store ptr %105, ptr %17, align 8
-  %106 = load ptr, ptr %17, align 8
-  %107 = load i32, ptr @ett_simulcrypt_table_period_pair, align 4
-  %108 = call ptr @proto_item_add_subtree(ptr noundef %106, i32 noundef %107)
-  store ptr %108, ptr %15, align 8
-  %109 = load ptr, ptr %15, align 8
-  %110 = load ptr, ptr %17, align 8
-  %111 = load ptr, ptr %10, align 8
-  %112 = load ptr, ptr %9, align 8
-  %113 = load ptr, ptr %8, align 8
-  %114 = load i32, ptr %11, align 4
-  %115 = load i16, ptr %12, align 2
-  %116 = zext i16 %115 to i32
-  call void @dissect_simulcrypt_data(ptr noundef %109, ptr noundef %110, ptr noundef %111, ptr noundef %112, ptr noundef %113, i32 noundef %114, i32 noundef %116, i16 noundef zeroext 6, i32 noundef 1)
-  br label %250
+99:                                               ; preds = %7
+  %100 = load ptr, ptr %8, align 8
+  %101 = load i32, ptr @hf_simulcrypt_table_period_pair, align 4
+  %102 = load ptr, ptr %9, align 8
+  %103 = load i32, ptr %11, align 4
+  %104 = load i16, ptr %12, align 2
+  %105 = zext i16 %104 to i32
+  %106 = call ptr @proto_tree_add_item(ptr noundef %100, i32 noundef %101, ptr noundef %102, i32 noundef %103, i32 noundef %105, i32 noundef 0)
+  store ptr %106, ptr %17, align 8
+  %107 = load ptr, ptr %17, align 8
+  %108 = load i32, ptr @ett_simulcrypt_table_period_pair, align 4
+  %109 = call ptr @proto_item_add_subtree(ptr noundef %107, i32 noundef %108)
+  store ptr %109, ptr %15, align 8
+  %110 = load ptr, ptr %15, align 8
+  %111 = load ptr, ptr %17, align 8
+  %112 = load ptr, ptr %10, align 8
+  %113 = load ptr, ptr %9, align 8
+  %114 = load ptr, ptr %8, align 8
+  %115 = load i32, ptr %11, align 4
+  %116 = load i16, ptr %12, align 2
+  %117 = zext i16 %116 to i32
+  call void @dissect_simulcrypt_data(ptr noundef %110, ptr noundef %111, ptr noundef %112, ptr noundef %113, ptr noundef %114, i32 noundef %115, i32 noundef %117, i16 noundef zeroext 6, i1 noundef zeroext true)
+  br label %251
 
-117:                                              ; preds = %7
-  %118 = load ptr, ptr %8, align 8
-  %119 = load i32, ptr @hf_simulcrypt_mpeg_section, align 4
-  %120 = load ptr, ptr %9, align 8
-  %121 = load i32, ptr %11, align 4
-  %122 = load i16, ptr %12, align 2
-  %123 = zext i16 %122 to i32
-  %124 = call ptr @proto_tree_add_item(ptr noundef %118, i32 noundef %119, ptr noundef %120, i32 noundef %121, i32 noundef %123, i32 noundef 0)
-  br label %250
+118:                                              ; preds = %7
+  %119 = load ptr, ptr %8, align 8
+  %120 = load i32, ptr @hf_simulcrypt_mpeg_section, align 4
+  %121 = load ptr, ptr %9, align 8
+  %122 = load i32, ptr %11, align 4
+  %123 = load i16, ptr %12, align 2
+  %124 = zext i16 %123 to i32
+  %125 = call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %120, ptr noundef %121, i32 noundef %122, i32 noundef %124, i32 noundef 0)
+  br label %251
 
-125:                                              ; preds = %7
-  %126 = load ptr, ptr %8, align 8
-  %127 = load i32, ptr @hf_simulcrypt_repetition_rate, align 4
-  %128 = load ptr, ptr %9, align 8
-  %129 = load i32, ptr %11, align 4
-  %130 = load i16, ptr %12, align 2
-  %131 = zext i16 %130 to i32
-  %132 = call ptr @proto_tree_add_item(ptr noundef %126, i32 noundef %127, ptr noundef %128, i32 noundef %129, i32 noundef %131, i32 noundef 0)
-  br label %250
+126:                                              ; preds = %7
+  %127 = load ptr, ptr %8, align 8
+  %128 = load i32, ptr @hf_simulcrypt_repetition_rate, align 4
+  %129 = load ptr, ptr %9, align 8
+  %130 = load i32, ptr %11, align 4
+  %131 = load i16, ptr %12, align 2
+  %132 = zext i16 %131 to i32
+  %133 = call ptr @proto_tree_add_item(ptr noundef %127, i32 noundef %128, ptr noundef %129, i32 noundef %130, i32 noundef %132, i32 noundef 0)
+  br label %251
 
-133:                                              ; preds = %7
-  %134 = load ptr, ptr %8, align 8
-  %135 = load i32, ptr @hf_simulcrypt_activation_time, align 4
-  %136 = load ptr, ptr %9, align 8
-  %137 = load i32, ptr %11, align 4
-  %138 = load i16, ptr %12, align 2
-  %139 = zext i16 %138 to i32
-  %140 = call ptr @proto_tree_add_item(ptr noundef %134, i32 noundef %135, ptr noundef %136, i32 noundef %137, i32 noundef %139, i32 noundef 0)
-  store ptr %140, ptr %17, align 8
-  %141 = load ptr, ptr %17, align 8
-  %142 = load i32, ptr @ett_simulcrypt_activation_time, align 4
-  %143 = call ptr @proto_item_add_subtree(ptr noundef %141, i32 noundef %142)
-  store ptr %143, ptr %16, align 8
-  %144 = load ptr, ptr %16, align 8
-  %145 = load i32, ptr @hf_simulcrypt_year, align 4
-  %146 = load ptr, ptr %9, align 8
-  %147 = load i32, ptr %11, align 4
-  %148 = call ptr @proto_tree_add_item(ptr noundef %144, i32 noundef %145, ptr noundef %146, i32 noundef %147, i32 noundef 2, i32 noundef 0)
-  %149 = load ptr, ptr %16, align 8
-  %150 = load i32, ptr @hf_simulcrypt_month, align 4
-  %151 = load ptr, ptr %9, align 8
-  %152 = load i32, ptr %11, align 4
-  %153 = add i32 %152, 2
-  %154 = call ptr @proto_tree_add_item(ptr noundef %149, i32 noundef %150, ptr noundef %151, i32 noundef %153, i32 noundef 1, i32 noundef 0)
-  %155 = load ptr, ptr %16, align 8
-  %156 = load i32, ptr @hf_simulcrypt_day, align 4
-  %157 = load ptr, ptr %9, align 8
-  %158 = load i32, ptr %11, align 4
-  %159 = add i32 %158, 3
-  %160 = call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %156, ptr noundef %157, i32 noundef %159, i32 noundef 1, i32 noundef 0)
-  %161 = load ptr, ptr %16, align 8
-  %162 = load i32, ptr @hf_simulcrypt_hour, align 4
-  %163 = load ptr, ptr %9, align 8
-  %164 = load i32, ptr %11, align 4
-  %165 = add i32 %164, 4
-  %166 = call ptr @proto_tree_add_item(ptr noundef %161, i32 noundef %162, ptr noundef %163, i32 noundef %165, i32 noundef 1, i32 noundef 0)
-  %167 = load ptr, ptr %16, align 8
-  %168 = load i32, ptr @hf_simulcrypt_minute, align 4
-  %169 = load ptr, ptr %9, align 8
-  %170 = load i32, ptr %11, align 4
-  %171 = add i32 %170, 5
-  %172 = call ptr @proto_tree_add_item(ptr noundef %167, i32 noundef %168, ptr noundef %169, i32 noundef %171, i32 noundef 1, i32 noundef 0)
-  %173 = load ptr, ptr %16, align 8
-  %174 = load i32, ptr @hf_simulcrypt_second, align 4
-  %175 = load ptr, ptr %9, align 8
-  %176 = load i32, ptr %11, align 4
-  %177 = add i32 %176, 6
-  %178 = call ptr @proto_tree_add_item(ptr noundef %173, i32 noundef %174, ptr noundef %175, i32 noundef %177, i32 noundef 1, i32 noundef 0)
-  %179 = load ptr, ptr %16, align 8
-  %180 = load i32, ptr @hf_simulcrypt_hundredth_second, align 4
-  %181 = load ptr, ptr %9, align 8
-  %182 = load i32, ptr %11, align 4
-  %183 = add i32 %182, 7
-  %184 = call ptr @proto_tree_add_item(ptr noundef %179, i32 noundef %180, ptr noundef %181, i32 noundef %183, i32 noundef 1, i32 noundef 0)
-  br label %250
+134:                                              ; preds = %7
+  %135 = load ptr, ptr %8, align 8
+  %136 = load i32, ptr @hf_simulcrypt_activation_time, align 4
+  %137 = load ptr, ptr %9, align 8
+  %138 = load i32, ptr %11, align 4
+  %139 = load i16, ptr %12, align 2
+  %140 = zext i16 %139 to i32
+  %141 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %136, ptr noundef %137, i32 noundef %138, i32 noundef %140, i32 noundef 0)
+  store ptr %141, ptr %17, align 8
+  %142 = load ptr, ptr %17, align 8
+  %143 = load i32, ptr @ett_simulcrypt_activation_time, align 4
+  %144 = call ptr @proto_item_add_subtree(ptr noundef %142, i32 noundef %143)
+  store ptr %144, ptr %16, align 8
+  %145 = load ptr, ptr %16, align 8
+  %146 = load i32, ptr @hf_simulcrypt_year, align 4
+  %147 = load ptr, ptr %9, align 8
+  %148 = load i32, ptr %11, align 4
+  %149 = call ptr @proto_tree_add_item(ptr noundef %145, i32 noundef %146, ptr noundef %147, i32 noundef %148, i32 noundef 2, i32 noundef 0)
+  %150 = load ptr, ptr %16, align 8
+  %151 = load i32, ptr @hf_simulcrypt_month, align 4
+  %152 = load ptr, ptr %9, align 8
+  %153 = load i32, ptr %11, align 4
+  %154 = add i32 %153, 2
+  %155 = call ptr @proto_tree_add_item(ptr noundef %150, i32 noundef %151, ptr noundef %152, i32 noundef %154, i32 noundef 1, i32 noundef 0)
+  %156 = load ptr, ptr %16, align 8
+  %157 = load i32, ptr @hf_simulcrypt_day, align 4
+  %158 = load ptr, ptr %9, align 8
+  %159 = load i32, ptr %11, align 4
+  %160 = add i32 %159, 3
+  %161 = call ptr @proto_tree_add_item(ptr noundef %156, i32 noundef %157, ptr noundef %158, i32 noundef %160, i32 noundef 1, i32 noundef 0)
+  %162 = load ptr, ptr %16, align 8
+  %163 = load i32, ptr @hf_simulcrypt_hour, align 4
+  %164 = load ptr, ptr %9, align 8
+  %165 = load i32, ptr %11, align 4
+  %166 = add i32 %165, 4
+  %167 = call ptr @proto_tree_add_item(ptr noundef %162, i32 noundef %163, ptr noundef %164, i32 noundef %166, i32 noundef 1, i32 noundef 0)
+  %168 = load ptr, ptr %16, align 8
+  %169 = load i32, ptr @hf_simulcrypt_minute, align 4
+  %170 = load ptr, ptr %9, align 8
+  %171 = load i32, ptr %11, align 4
+  %172 = add i32 %171, 5
+  %173 = call ptr @proto_tree_add_item(ptr noundef %168, i32 noundef %169, ptr noundef %170, i32 noundef %172, i32 noundef 1, i32 noundef 0)
+  %174 = load ptr, ptr %16, align 8
+  %175 = load i32, ptr @hf_simulcrypt_second, align 4
+  %176 = load ptr, ptr %9, align 8
+  %177 = load i32, ptr %11, align 4
+  %178 = add i32 %177, 6
+  %179 = call ptr @proto_tree_add_item(ptr noundef %174, i32 noundef %175, ptr noundef %176, i32 noundef %178, i32 noundef 1, i32 noundef 0)
+  %180 = load ptr, ptr %16, align 8
+  %181 = load i32, ptr @hf_simulcrypt_hundredth_second, align 4
+  %182 = load ptr, ptr %9, align 8
+  %183 = load i32, ptr %11, align 4
+  %184 = add i32 %183, 7
+  %185 = call ptr @proto_tree_add_item(ptr noundef %180, i32 noundef %181, ptr noundef %182, i32 noundef %184, i32 noundef 1, i32 noundef 0)
+  br label %251
 
-185:                                              ; preds = %7
-  %186 = load ptr, ptr %8, align 8
-  %187 = load i32, ptr @hf_simulcrypt_datagram, align 4
-  %188 = load ptr, ptr %9, align 8
-  %189 = load i32, ptr %11, align 4
-  %190 = load i16, ptr %12, align 2
-  %191 = zext i16 %190 to i32
-  %192 = call ptr @proto_tree_add_item(ptr noundef %186, i32 noundef %187, ptr noundef %188, i32 noundef %189, i32 noundef %191, i32 noundef 0)
-  br label %250
+186:                                              ; preds = %7
+  %187 = load ptr, ptr %8, align 8
+  %188 = load i32, ptr @hf_simulcrypt_datagram, align 4
+  %189 = load ptr, ptr %9, align 8
+  %190 = load i32, ptr %11, align 4
+  %191 = load i16, ptr %12, align 2
+  %192 = zext i16 %191 to i32
+  %193 = call ptr @proto_tree_add_item(ptr noundef %187, i32 noundef %188, ptr noundef %189, i32 noundef %190, i32 noundef %192, i32 noundef 0)
+  br label %251
 
-193:                                              ; preds = %7
-  %194 = load ptr, ptr %8, align 8
-  %195 = load i32, ptr @hf_simulcrypt_bandwidth, align 4
-  %196 = load ptr, ptr %9, align 8
-  %197 = load i32, ptr %11, align 4
-  %198 = load i16, ptr %12, align 2
-  %199 = zext i16 %198 to i32
-  %200 = call ptr @proto_tree_add_item(ptr noundef %194, i32 noundef %195, ptr noundef %196, i32 noundef %197, i32 noundef %199, i32 noundef 0)
-  br label %250
+194:                                              ; preds = %7
+  %195 = load ptr, ptr %8, align 8
+  %196 = load i32, ptr @hf_simulcrypt_bandwidth, align 4
+  %197 = load ptr, ptr %9, align 8
+  %198 = load i32, ptr %11, align 4
+  %199 = load i16, ptr %12, align 2
+  %200 = zext i16 %199 to i32
+  %201 = call ptr @proto_tree_add_item(ptr noundef %195, i32 noundef %196, ptr noundef %197, i32 noundef %198, i32 noundef %200, i32 noundef 0)
+  br label %251
 
-201:                                              ; preds = %7
-  %202 = load ptr, ptr %8, align 8
-  %203 = load i32, ptr @hf_simulcrypt_initial_bandwidth, align 4
-  %204 = load ptr, ptr %9, align 8
-  %205 = load i32, ptr %11, align 4
-  %206 = load i16, ptr %12, align 2
-  %207 = zext i16 %206 to i32
-  %208 = call ptr @proto_tree_add_item(ptr noundef %202, i32 noundef %203, ptr noundef %204, i32 noundef %205, i32 noundef %207, i32 noundef 0)
-  br label %250
+202:                                              ; preds = %7
+  %203 = load ptr, ptr %8, align 8
+  %204 = load i32, ptr @hf_simulcrypt_initial_bandwidth, align 4
+  %205 = load ptr, ptr %9, align 8
+  %206 = load i32, ptr %11, align 4
+  %207 = load i16, ptr %12, align 2
+  %208 = zext i16 %207 to i32
+  %209 = call ptr @proto_tree_add_item(ptr noundef %203, i32 noundef %204, ptr noundef %205, i32 noundef %206, i32 noundef %208, i32 noundef 0)
+  br label %251
 
-209:                                              ; preds = %7
-  %210 = load ptr, ptr %8, align 8
-  %211 = load i32, ptr @hf_simulcrypt_max_comp_time, align 4
-  %212 = load ptr, ptr %9, align 8
-  %213 = load i32, ptr %11, align 4
-  %214 = load i16, ptr %12, align 2
-  %215 = zext i16 %214 to i32
-  %216 = call ptr @proto_tree_add_item(ptr noundef %210, i32 noundef %211, ptr noundef %212, i32 noundef %213, i32 noundef %215, i32 noundef 0)
-  br label %250
+210:                                              ; preds = %7
+  %211 = load ptr, ptr %8, align 8
+  %212 = load i32, ptr @hf_simulcrypt_max_comp_time, align 4
+  %213 = load ptr, ptr %9, align 8
+  %214 = load i32, ptr %11, align 4
+  %215 = load i16, ptr %12, align 2
+  %216 = zext i16 %215 to i32
+  %217 = call ptr @proto_tree_add_item(ptr noundef %211, i32 noundef %212, ptr noundef %213, i32 noundef %214, i32 noundef %216, i32 noundef 0)
+  br label %251
 
-217:                                              ; preds = %7
-  %218 = load ptr, ptr %8, align 8
-  %219 = load i32, ptr @hf_simulcrypt_asi_input_packet_id, align 4
-  %220 = load ptr, ptr %9, align 8
-  %221 = load i32, ptr %11, align 4
-  %222 = load i16, ptr %12, align 2
-  %223 = zext i16 %222 to i32
-  %224 = call ptr @proto_tree_add_item(ptr noundef %218, i32 noundef %219, ptr noundef %220, i32 noundef %221, i32 noundef %223, i32 noundef 0)
-  br label %250
+218:                                              ; preds = %7
+  %219 = load ptr, ptr %8, align 8
+  %220 = load i32, ptr @hf_simulcrypt_asi_input_packet_id, align 4
+  %221 = load ptr, ptr %9, align 8
+  %222 = load i32, ptr %11, align 4
+  %223 = load i16, ptr %12, align 2
+  %224 = zext i16 %223 to i32
+  %225 = call ptr @proto_tree_add_item(ptr noundef %219, i32 noundef %220, ptr noundef %221, i32 noundef %222, i32 noundef %224, i32 noundef 0)
+  br label %251
 
-225:                                              ; preds = %7
-  %226 = load ptr, ptr %8, align 8
-  %227 = load i32, ptr @hf_simulcrypt_psig_error_status, align 4
-  %228 = load ptr, ptr %9, align 8
-  %229 = load i32, ptr %11, align 4
-  %230 = load i16, ptr %12, align 2
-  %231 = zext i16 %230 to i32
-  %232 = call ptr @proto_tree_add_item(ptr noundef %226, i32 noundef %227, ptr noundef %228, i32 noundef %229, i32 noundef %231, i32 noundef 0)
-  br label %250
+226:                                              ; preds = %7
+  %227 = load ptr, ptr %8, align 8
+  %228 = load i32, ptr @hf_simulcrypt_psig_error_status, align 4
+  %229 = load ptr, ptr %9, align 8
+  %230 = load i32, ptr %11, align 4
+  %231 = load i16, ptr %12, align 2
+  %232 = zext i16 %231 to i32
+  %233 = call ptr @proto_tree_add_item(ptr noundef %227, i32 noundef %228, ptr noundef %229, i32 noundef %230, i32 noundef %232, i32 noundef 0)
+  br label %251
 
-233:                                              ; preds = %7
-  %234 = load ptr, ptr %8, align 8
-  %235 = load i32, ptr @hf_simulcrypt_error_information, align 4
-  %236 = load ptr, ptr %9, align 8
-  %237 = load i32, ptr %11, align 4
-  %238 = load i16, ptr %12, align 2
-  %239 = zext i16 %238 to i32
-  %240 = call ptr @proto_tree_add_item(ptr noundef %234, i32 noundef %235, ptr noundef %236, i32 noundef %237, i32 noundef %239, i32 noundef 0)
-  br label %250
+234:                                              ; preds = %7
+  %235 = load ptr, ptr %8, align 8
+  %236 = load i32, ptr @hf_simulcrypt_error_information, align 4
+  %237 = load ptr, ptr %9, align 8
+  %238 = load i32, ptr %11, align 4
+  %239 = load i16, ptr %12, align 2
+  %240 = zext i16 %239 to i32
+  %241 = call ptr @proto_tree_add_item(ptr noundef %235, i32 noundef %236, ptr noundef %237, i32 noundef %238, i32 noundef %240, i32 noundef 0)
+  br label %251
 
-241:                                              ; preds = %7
-  %242 = load ptr, ptr %8, align 8
-  %243 = load i32, ptr @hf_simulcrypt_parameter_value, align 4
-  %244 = load ptr, ptr %9, align 8
-  %245 = load i32, ptr %11, align 4
-  %246 = load i16, ptr %12, align 2
-  %247 = zext i16 %246 to i32
-  %248 = load ptr, ptr %14, align 8
-  %249 = call ptr @proto_tree_add_string(ptr noundef %242, i32 noundef %243, ptr noundef %244, i32 noundef %245, i32 noundef %247, ptr noundef %248)
-  br label %250
+242:                                              ; preds = %7
+  %243 = load ptr, ptr %8, align 8
+  %244 = load i32, ptr @hf_simulcrypt_parameter_value, align 4
+  %245 = load ptr, ptr %9, align 8
+  %246 = load i32, ptr %11, align 4
+  %247 = load i16, ptr %12, align 2
+  %248 = zext i16 %247 to i32
+  %249 = load ptr, ptr %14, align 8
+  %250 = call ptr @proto_tree_add_string(ptr noundef %243, i32 noundef %244, ptr noundef %245, i32 noundef %246, i32 noundef %248, ptr noundef %249)
+  br label %251
 
-250:                                              ; preds = %241, %233, %225, %217, %209, %201, %193, %185, %133, %125, %117, %98, %90, %82, %74, %66, %58, %50, %42, %41
+251:                                              ; preds = %242, %234, %226, %218, %210, %202, %194, %186, %134, %126, %118, %99, %91, %83, %75, %67, %59, %51, %43, %42
+  %252 = load ptr, ptr %10, align 8
+  call void @decrement_dissection_depth(ptr noundef %252)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #5
   ret void
 }
 
-declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) #2
 
-declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @increment_dissection_depth(ptr noundef) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #2
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+; Function Attrs: null_pointer_is_valid
+declare void @decrement_dissection_depth(ptr noundef) #2
+
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}

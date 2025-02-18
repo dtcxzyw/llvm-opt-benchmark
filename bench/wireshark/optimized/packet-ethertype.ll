@@ -3,8 +3,6 @@ source_filename = "bench/wireshark/original/packet-ethertype.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct._value_string = type { i32, ptr }
-%struct.decode_as_value_s = type { ptr, i32, ptr }
 %struct.decode_as_s = type { ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.except_id_t = type { i64, i64 }
 %struct.except_stacknode = type { ptr, i32, %union.anon }
@@ -157,9 +155,9 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.140 = private unnamed_addr constant [31 x i8] c"Allied Telesis Resiliency Link\00", align 1
 @.str.141 = private unnamed_addr constant [23 x i8] c"Cisco ACI ARP gleaning\00", align 1
 @.str.142 = private unnamed_addr constant [58 x i8] c"802.1CB Frame Replication and Elimination for Reliability\00", align 1
-@etype_vals = constant [144 x %struct._value_string] [%struct._value_string { i32 2048, ptr @.str }, %struct._value_string { i32 34525, ptr @.str.1 }, %struct._value_string { i32 33024, ptr @.str.2 }, %struct._value_string { i32 33026, ptr @.str.3 }, %struct._value_string { i32 33027, ptr @.str.4 }, %struct._value_string { i32 33028, ptr @.str.5 }, %struct._value_string { i32 2054, ptr @.str.6 }, %struct._value_string { i32 34605, ptr @.str.7 }, %struct._value_string { i32 34691, ptr @.str.8 }, %struct._value_string { i32 9298, ptr @.str.9 }, %struct._value_string { i32 1536, ptr @.str.10 }, %struct._value_string { i32 2053, ptr @.str.11 }, %struct._value_string { i32 2114, ptr @.str.12 }, %struct._value_string { i32 2288, ptr @.str.13 }, %struct._value_string { i32 15935, ptr @.str.14 }, %struct._value_string { i32 32821, ptr @.str.15 }, %struct._value_string { i32 32824, ptr @.str.16 }, %struct._value_string { i32 32923, ptr @.str.17 }, %struct._value_string { i32 32981, ptr @.str.18 }, %struct._value_string { i32 32993, ptr @.str.19 }, %struct._value_string { i32 33011, ptr @.str.20 }, %struct._value_string { i32 33079, ptr @.str.21 }, %struct._value_string { i32 2989, ptr @.str.22 }, %struct._value_string { i32 2991, ptr @.str.23 }, %struct._value_string { i32 6532, ptr @.str.24 }, %struct._value_string { i32 36864, ptr @.str.25 }, %struct._value_string { i32 34906, ptr @.str.26 }, %struct._value_string { i32 33023, ptr @.str.27 }, %struct._value_string { i32 33153, ptr @.str.28 }, %struct._value_string { i32 33277, ptr @.str.29 }, %struct._value_string { i32 33279, ptr @.str.30 }, %struct._value_string { i32 33284, ptr @.str.31 }, %struct._value_string { i32 34915, ptr @.str.32 }, %struct._value_string { i32 34916, ptr @.str.33 }, %struct._value_string { i32 34924, ptr @.str.34 }, %struct._value_string { i32 34925, ptr @.str.35 }, %struct._value_string { i32 34927, ptr @.str.36 }, %struct._value_string { i32 34928, ptr @.str.37 }, %struct._value_string { i32 34932, ptr @.str.38 }, %struct._value_string { i32 34939, ptr @.str.39 }, %struct._value_string { i32 35041, ptr @.str.40 }, %struct._value_string { i32 35043, ptr @.str.41 }, %struct._value_string { i32 34984, ptr @.str.42 }, %struct._value_string { i32 35045, ptr @.str.43 }, %struct._value_string { i32 35130, ptr @.str.44 }, %struct._value_string { i32 35047, ptr @.str.45 }, %struct._value_string { i32 35135, ptr @.str.46 }, %struct._value_string { i32 34958, ptr @.str.47 }, %struct._value_string { i32 34960, ptr @.str.48 }, %struct._value_string { i32 35015, ptr @.str.49 }, %struct._value_string { i32 34887, ptr @.str.50 }, %struct._value_string { i32 34888, ptr @.str.51 }, %struct._value_string { i32 15367, ptr @.str.52 }, %struct._value_string { i32 24576, ptr @.str.53 }, %struct._value_string { i32 24577, ptr @.str.54 }, %struct._value_string { i32 24578, ptr @.str.55 }, %struct._value_string { i32 24579, ptr @.str.56 }, %struct._value_string { i32 24580, ptr @.str.57 }, %struct._value_string { i32 24581, ptr @.str.58 }, %struct._value_string { i32 24582, ptr @.str.59 }, %struct._value_string { i32 24583, ptr @.str.60 }, %struct._value_string { i32 32833, ptr @.str.61 }, %struct._value_string { i32 25944, ptr @.str.62 }, %struct._value_string { i32 8193, ptr @.str.63 }, %struct._value_string { i32 8933, ptr @.str.64 }, %struct._value_string { i32 8938, ptr @.str.65 }, %struct._value_string { i32 35062, ptr @.str.66 }, %struct._value_string { i32 35151, ptr @.str.67 }, %struct._value_string { i32 35208, ptr @.str.68 }, %struct._value_string { i32 8944, ptr @.str.69 }, %struct._value_string { i32 8945, ptr @.str.70 }, %struct._value_string { i32 8947, ptr @.str.71 }, %struct._value_string { i32 8948, ptr @.str.72 }, %struct._value_string { i32 34824, ptr @.str.73 }, %struct._value_string { i32 34825, ptr @.str.74 }, %struct._value_string { i32 36897, ptr @.str.75 }, %struct._value_string { i32 36898, ptr @.str.76 }, %struct._value_string { i32 34945, ptr @.str.77 }, %struct._value_string { i32 34948, ptr @.str.78 }, %struct._value_string { i32 34962, ptr @.str.79 }, %struct._value_string { i32 34969, ptr @.str.80 }, %struct._value_string { i32 34978, ptr @.str.81 }, %struct._value_string { i32 34980, ptr @.str.82 }, %struct._value_string { i32 34977, ptr @.str.83 }, %struct._value_string { i32 34987, ptr @.str.84 }, %struct._value_string { i32 34989, ptr @.str.85 }, %struct._value_string { i32 34971, ptr @.str.86 }, %struct._value_string { i32 34997, ptr @.str.87 }, %struct._value_string { i32 34998, ptr @.str.88 }, %struct._value_string { i32 34999, ptr @.str.89 }, %struct._value_string { i32 35000, ptr @.str.90 }, %struct._value_string { i32 35001, ptr @.str.91 }, %struct._value_string { i32 35002, ptr @.str.92 }, %struct._value_string { i32 35018, ptr @.str.93 }, %struct._value_string { i32 35020, ptr @.str.94 }, %struct._value_string { i32 35026, ptr @.str.95 }, %struct._value_string { i32 35101, ptr @.str.96 }, %struct._value_string { i32 35032, ptr @.str.97 }, %struct._value_string { i32 35033, ptr @.str.98 }, %struct._value_string { i32 35036, ptr @.str.99 }, %struct._value_string { i32 35038, ptr @.str.100 }, %struct._value_string { i32 34841, ptr @.str.101 }, %struct._value_string { i32 33075, ptr @.str.102 }, %struct._value_string { i32 37124, ptr @.str.103 }, %struct._value_string { i32 32801, ptr @.str.104 }, %struct._value_string { i32 49185, ptr @.str.105 }, %struct._value_string { i32 49187, ptr @.str.106 }, %struct._value_string { i32 33021, ptr @.str.107 }, %struct._value_string { i32 51966, ptr @.str.108 }, %struct._value_string { i32 35074, ptr @.str.109 }, %struct._value_string { i32 35075, ptr @.str.110 }, %struct._value_string { i32 35078, ptr @.str.111 }, %struct._value_string { i32 35085, ptr @.str.112 }, %struct._value_string { i32 35089, ptr @.str.113 }, %struct._value_string { i32 35092, ptr @.str.114 }, %struct._value_string { i32 35095, ptr @.str.115 }, %struct._value_string { i32 35054, ptr @.str.116 }, %struct._value_string { i32 35063, ptr @.str.117 }, %struct._value_string { i32 35064, ptr @.str.118 }, %struct._value_string { i32 35067, ptr @.str.119 }, %struct._value_string { i32 35073, ptr @.str.120 }, %struct._value_string { i32 35093, ptr @.str.121 }, %struct._value_string { i32 53261, ptr @.str.122 }, %struct._value_string { i32 34996, ptr @.str.123 }, %struct._value_string { i32 35110, ptr @.str.124 }, %struct._value_string { i32 35115, ptr @.str.125 }, %struct._value_string { i32 35119, ptr @.str.126 }, %struct._value_string { i32 2303, ptr @.str.127 }, %struct._value_string { i32 35081, ptr @.str.128 }, %struct._value_string { i32 35143, ptr @.str.129 }, %struct._value_string { i32 49374, ptr @.str.130 }, %struct._value_string { i32 49375, ptr @.str.131 }, %struct._value_string { i32 35117, ptr @.str.132 }, %struct._value_string { i32 37120, ptr @.str.133 }, %struct._value_string { i32 39422, ptr @.str.134 }, %struct._value_string { i32 41197, ptr @.str.135 }, %struct._value_string { i32 53899, ptr @.str.136 }, %struct._value_string { i32 44798, ptr @.str.137 }, %struct._value_string { i32 46307, ptr @.str.138 }, %struct._value_string { i32 58709, ptr @.str.139 }, %struct._value_string { i32 64428, ptr @.str.140 }, %struct._value_string { i32 65522, ptr @.str.141 }, %struct._value_string { i32 61889, ptr @.str.142 }, %struct._value_string zeroinitializer], align 16
+@etype_vals = constant [144 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 2048, [4 x i8] zeroinitializer, ptr @.str }, { i32, [4 x i8], ptr } { i32 34525, [4 x i8] zeroinitializer, ptr @.str.1 }, { i32, [4 x i8], ptr } { i32 33024, [4 x i8] zeroinitializer, ptr @.str.2 }, { i32, [4 x i8], ptr } { i32 33026, [4 x i8] zeroinitializer, ptr @.str.3 }, { i32, [4 x i8], ptr } { i32 33027, [4 x i8] zeroinitializer, ptr @.str.4 }, { i32, [4 x i8], ptr } { i32 33028, [4 x i8] zeroinitializer, ptr @.str.5 }, { i32, [4 x i8], ptr } { i32 2054, [4 x i8] zeroinitializer, ptr @.str.6 }, { i32, [4 x i8], ptr } { i32 34605, [4 x i8] zeroinitializer, ptr @.str.7 }, { i32, [4 x i8], ptr } { i32 34691, [4 x i8] zeroinitializer, ptr @.str.8 }, { i32, [4 x i8], ptr } { i32 9298, [4 x i8] zeroinitializer, ptr @.str.9 }, { i32, [4 x i8], ptr } { i32 1536, [4 x i8] zeroinitializer, ptr @.str.10 }, { i32, [4 x i8], ptr } { i32 2053, [4 x i8] zeroinitializer, ptr @.str.11 }, { i32, [4 x i8], ptr } { i32 2114, [4 x i8] zeroinitializer, ptr @.str.12 }, { i32, [4 x i8], ptr } { i32 2288, [4 x i8] zeroinitializer, ptr @.str.13 }, { i32, [4 x i8], ptr } { i32 15935, [4 x i8] zeroinitializer, ptr @.str.14 }, { i32, [4 x i8], ptr } { i32 32821, [4 x i8] zeroinitializer, ptr @.str.15 }, { i32, [4 x i8], ptr } { i32 32824, [4 x i8] zeroinitializer, ptr @.str.16 }, { i32, [4 x i8], ptr } { i32 32923, [4 x i8] zeroinitializer, ptr @.str.17 }, { i32, [4 x i8], ptr } { i32 32981, [4 x i8] zeroinitializer, ptr @.str.18 }, { i32, [4 x i8], ptr } { i32 32993, [4 x i8] zeroinitializer, ptr @.str.19 }, { i32, [4 x i8], ptr } { i32 33011, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } { i32 33079, [4 x i8] zeroinitializer, ptr @.str.21 }, { i32, [4 x i8], ptr } { i32 2989, [4 x i8] zeroinitializer, ptr @.str.22 }, { i32, [4 x i8], ptr } { i32 2991, [4 x i8] zeroinitializer, ptr @.str.23 }, { i32, [4 x i8], ptr } { i32 6532, [4 x i8] zeroinitializer, ptr @.str.24 }, { i32, [4 x i8], ptr } { i32 36864, [4 x i8] zeroinitializer, ptr @.str.25 }, { i32, [4 x i8], ptr } { i32 34906, [4 x i8] zeroinitializer, ptr @.str.26 }, { i32, [4 x i8], ptr } { i32 33023, [4 x i8] zeroinitializer, ptr @.str.27 }, { i32, [4 x i8], ptr } { i32 33153, [4 x i8] zeroinitializer, ptr @.str.28 }, { i32, [4 x i8], ptr } { i32 33277, [4 x i8] zeroinitializer, ptr @.str.29 }, { i32, [4 x i8], ptr } { i32 33279, [4 x i8] zeroinitializer, ptr @.str.30 }, { i32, [4 x i8], ptr } { i32 33284, [4 x i8] zeroinitializer, ptr @.str.31 }, { i32, [4 x i8], ptr } { i32 34915, [4 x i8] zeroinitializer, ptr @.str.32 }, { i32, [4 x i8], ptr } { i32 34916, [4 x i8] zeroinitializer, ptr @.str.33 }, { i32, [4 x i8], ptr } { i32 34924, [4 x i8] zeroinitializer, ptr @.str.34 }, { i32, [4 x i8], ptr } { i32 34925, [4 x i8] zeroinitializer, ptr @.str.35 }, { i32, [4 x i8], ptr } { i32 34927, [4 x i8] zeroinitializer, ptr @.str.36 }, { i32, [4 x i8], ptr } { i32 34928, [4 x i8] zeroinitializer, ptr @.str.37 }, { i32, [4 x i8], ptr } { i32 34932, [4 x i8] zeroinitializer, ptr @.str.38 }, { i32, [4 x i8], ptr } { i32 34939, [4 x i8] zeroinitializer, ptr @.str.39 }, { i32, [4 x i8], ptr } { i32 35041, [4 x i8] zeroinitializer, ptr @.str.40 }, { i32, [4 x i8], ptr } { i32 35043, [4 x i8] zeroinitializer, ptr @.str.41 }, { i32, [4 x i8], ptr } { i32 34984, [4 x i8] zeroinitializer, ptr @.str.42 }, { i32, [4 x i8], ptr } { i32 35045, [4 x i8] zeroinitializer, ptr @.str.43 }, { i32, [4 x i8], ptr } { i32 35130, [4 x i8] zeroinitializer, ptr @.str.44 }, { i32, [4 x i8], ptr } { i32 35047, [4 x i8] zeroinitializer, ptr @.str.45 }, { i32, [4 x i8], ptr } { i32 35135, [4 x i8] zeroinitializer, ptr @.str.46 }, { i32, [4 x i8], ptr } { i32 34958, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 34960, [4 x i8] zeroinitializer, ptr @.str.48 }, { i32, [4 x i8], ptr } { i32 35015, [4 x i8] zeroinitializer, ptr @.str.49 }, { i32, [4 x i8], ptr } { i32 34887, [4 x i8] zeroinitializer, ptr @.str.50 }, { i32, [4 x i8], ptr } { i32 34888, [4 x i8] zeroinitializer, ptr @.str.51 }, { i32, [4 x i8], ptr } { i32 15367, [4 x i8] zeroinitializer, ptr @.str.52 }, { i32, [4 x i8], ptr } { i32 24576, [4 x i8] zeroinitializer, ptr @.str.53 }, { i32, [4 x i8], ptr } { i32 24577, [4 x i8] zeroinitializer, ptr @.str.54 }, { i32, [4 x i8], ptr } { i32 24578, [4 x i8] zeroinitializer, ptr @.str.55 }, { i32, [4 x i8], ptr } { i32 24579, [4 x i8] zeroinitializer, ptr @.str.56 }, { i32, [4 x i8], ptr } { i32 24580, [4 x i8] zeroinitializer, ptr @.str.57 }, { i32, [4 x i8], ptr } { i32 24581, [4 x i8] zeroinitializer, ptr @.str.58 }, { i32, [4 x i8], ptr } { i32 24582, [4 x i8] zeroinitializer, ptr @.str.59 }, { i32, [4 x i8], ptr } { i32 24583, [4 x i8] zeroinitializer, ptr @.str.60 }, { i32, [4 x i8], ptr } { i32 32833, [4 x i8] zeroinitializer, ptr @.str.61 }, { i32, [4 x i8], ptr } { i32 25944, [4 x i8] zeroinitializer, ptr @.str.62 }, { i32, [4 x i8], ptr } { i32 8193, [4 x i8] zeroinitializer, ptr @.str.63 }, { i32, [4 x i8], ptr } { i32 8933, [4 x i8] zeroinitializer, ptr @.str.64 }, { i32, [4 x i8], ptr } { i32 8938, [4 x i8] zeroinitializer, ptr @.str.65 }, { i32, [4 x i8], ptr } { i32 35062, [4 x i8] zeroinitializer, ptr @.str.66 }, { i32, [4 x i8], ptr } { i32 35151, [4 x i8] zeroinitializer, ptr @.str.67 }, { i32, [4 x i8], ptr } { i32 35208, [4 x i8] zeroinitializer, ptr @.str.68 }, { i32, [4 x i8], ptr } { i32 8944, [4 x i8] zeroinitializer, ptr @.str.69 }, { i32, [4 x i8], ptr } { i32 8945, [4 x i8] zeroinitializer, ptr @.str.70 }, { i32, [4 x i8], ptr } { i32 8947, [4 x i8] zeroinitializer, ptr @.str.71 }, { i32, [4 x i8], ptr } { i32 8948, [4 x i8] zeroinitializer, ptr @.str.72 }, { i32, [4 x i8], ptr } { i32 34824, [4 x i8] zeroinitializer, ptr @.str.73 }, { i32, [4 x i8], ptr } { i32 34825, [4 x i8] zeroinitializer, ptr @.str.74 }, { i32, [4 x i8], ptr } { i32 36897, [4 x i8] zeroinitializer, ptr @.str.75 }, { i32, [4 x i8], ptr } { i32 36898, [4 x i8] zeroinitializer, ptr @.str.76 }, { i32, [4 x i8], ptr } { i32 34945, [4 x i8] zeroinitializer, ptr @.str.77 }, { i32, [4 x i8], ptr } { i32 34948, [4 x i8] zeroinitializer, ptr @.str.78 }, { i32, [4 x i8], ptr } { i32 34962, [4 x i8] zeroinitializer, ptr @.str.79 }, { i32, [4 x i8], ptr } { i32 34969, [4 x i8] zeroinitializer, ptr @.str.80 }, { i32, [4 x i8], ptr } { i32 34978, [4 x i8] zeroinitializer, ptr @.str.81 }, { i32, [4 x i8], ptr } { i32 34980, [4 x i8] zeroinitializer, ptr @.str.82 }, { i32, [4 x i8], ptr } { i32 34977, [4 x i8] zeroinitializer, ptr @.str.83 }, { i32, [4 x i8], ptr } { i32 34987, [4 x i8] zeroinitializer, ptr @.str.84 }, { i32, [4 x i8], ptr } { i32 34989, [4 x i8] zeroinitializer, ptr @.str.85 }, { i32, [4 x i8], ptr } { i32 34971, [4 x i8] zeroinitializer, ptr @.str.86 }, { i32, [4 x i8], ptr } { i32 34997, [4 x i8] zeroinitializer, ptr @.str.87 }, { i32, [4 x i8], ptr } { i32 34998, [4 x i8] zeroinitializer, ptr @.str.88 }, { i32, [4 x i8], ptr } { i32 34999, [4 x i8] zeroinitializer, ptr @.str.89 }, { i32, [4 x i8], ptr } { i32 35000, [4 x i8] zeroinitializer, ptr @.str.90 }, { i32, [4 x i8], ptr } { i32 35001, [4 x i8] zeroinitializer, ptr @.str.91 }, { i32, [4 x i8], ptr } { i32 35002, [4 x i8] zeroinitializer, ptr @.str.92 }, { i32, [4 x i8], ptr } { i32 35018, [4 x i8] zeroinitializer, ptr @.str.93 }, { i32, [4 x i8], ptr } { i32 35020, [4 x i8] zeroinitializer, ptr @.str.94 }, { i32, [4 x i8], ptr } { i32 35026, [4 x i8] zeroinitializer, ptr @.str.95 }, { i32, [4 x i8], ptr } { i32 35101, [4 x i8] zeroinitializer, ptr @.str.96 }, { i32, [4 x i8], ptr } { i32 35032, [4 x i8] zeroinitializer, ptr @.str.97 }, { i32, [4 x i8], ptr } { i32 35033, [4 x i8] zeroinitializer, ptr @.str.98 }, { i32, [4 x i8], ptr } { i32 35036, [4 x i8] zeroinitializer, ptr @.str.99 }, { i32, [4 x i8], ptr } { i32 35038, [4 x i8] zeroinitializer, ptr @.str.100 }, { i32, [4 x i8], ptr } { i32 34841, [4 x i8] zeroinitializer, ptr @.str.101 }, { i32, [4 x i8], ptr } { i32 33075, [4 x i8] zeroinitializer, ptr @.str.102 }, { i32, [4 x i8], ptr } { i32 37124, [4 x i8] zeroinitializer, ptr @.str.103 }, { i32, [4 x i8], ptr } { i32 32801, [4 x i8] zeroinitializer, ptr @.str.104 }, { i32, [4 x i8], ptr } { i32 49185, [4 x i8] zeroinitializer, ptr @.str.105 }, { i32, [4 x i8], ptr } { i32 49187, [4 x i8] zeroinitializer, ptr @.str.106 }, { i32, [4 x i8], ptr } { i32 33021, [4 x i8] zeroinitializer, ptr @.str.107 }, { i32, [4 x i8], ptr } { i32 51966, [4 x i8] zeroinitializer, ptr @.str.108 }, { i32, [4 x i8], ptr } { i32 35074, [4 x i8] zeroinitializer, ptr @.str.109 }, { i32, [4 x i8], ptr } { i32 35075, [4 x i8] zeroinitializer, ptr @.str.110 }, { i32, [4 x i8], ptr } { i32 35078, [4 x i8] zeroinitializer, ptr @.str.111 }, { i32, [4 x i8], ptr } { i32 35085, [4 x i8] zeroinitializer, ptr @.str.112 }, { i32, [4 x i8], ptr } { i32 35089, [4 x i8] zeroinitializer, ptr @.str.113 }, { i32, [4 x i8], ptr } { i32 35092, [4 x i8] zeroinitializer, ptr @.str.114 }, { i32, [4 x i8], ptr } { i32 35095, [4 x i8] zeroinitializer, ptr @.str.115 }, { i32, [4 x i8], ptr } { i32 35054, [4 x i8] zeroinitializer, ptr @.str.116 }, { i32, [4 x i8], ptr } { i32 35063, [4 x i8] zeroinitializer, ptr @.str.117 }, { i32, [4 x i8], ptr } { i32 35064, [4 x i8] zeroinitializer, ptr @.str.118 }, { i32, [4 x i8], ptr } { i32 35067, [4 x i8] zeroinitializer, ptr @.str.119 }, { i32, [4 x i8], ptr } { i32 35073, [4 x i8] zeroinitializer, ptr @.str.120 }, { i32, [4 x i8], ptr } { i32 35093, [4 x i8] zeroinitializer, ptr @.str.121 }, { i32, [4 x i8], ptr } { i32 53261, [4 x i8] zeroinitializer, ptr @.str.122 }, { i32, [4 x i8], ptr } { i32 34996, [4 x i8] zeroinitializer, ptr @.str.123 }, { i32, [4 x i8], ptr } { i32 35110, [4 x i8] zeroinitializer, ptr @.str.124 }, { i32, [4 x i8], ptr } { i32 35115, [4 x i8] zeroinitializer, ptr @.str.125 }, { i32, [4 x i8], ptr } { i32 35119, [4 x i8] zeroinitializer, ptr @.str.126 }, { i32, [4 x i8], ptr } { i32 2303, [4 x i8] zeroinitializer, ptr @.str.127 }, { i32, [4 x i8], ptr } { i32 35081, [4 x i8] zeroinitializer, ptr @.str.128 }, { i32, [4 x i8], ptr } { i32 35143, [4 x i8] zeroinitializer, ptr @.str.129 }, { i32, [4 x i8], ptr } { i32 49374, [4 x i8] zeroinitializer, ptr @.str.130 }, { i32, [4 x i8], ptr } { i32 49375, [4 x i8] zeroinitializer, ptr @.str.131 }, { i32, [4 x i8], ptr } { i32 35117, [4 x i8] zeroinitializer, ptr @.str.132 }, { i32, [4 x i8], ptr } { i32 37120, [4 x i8] zeroinitializer, ptr @.str.133 }, { i32, [4 x i8], ptr } { i32 39422, [4 x i8] zeroinitializer, ptr @.str.134 }, { i32, [4 x i8], ptr } { i32 41197, [4 x i8] zeroinitializer, ptr @.str.135 }, { i32, [4 x i8], ptr } { i32 53899, [4 x i8] zeroinitializer, ptr @.str.136 }, { i32, [4 x i8], ptr } { i32 44798, [4 x i8] zeroinitializer, ptr @.str.137 }, { i32, [4 x i8], ptr } { i32 46307, [4 x i8] zeroinitializer, ptr @.str.138 }, { i32, [4 x i8], ptr } { i32 58709, [4 x i8] zeroinitializer, ptr @.str.139 }, { i32, [4 x i8], ptr } { i32 64428, [4 x i8] zeroinitializer, ptr @.str.140 }, { i32, [4 x i8], ptr } { i32 65522, [4 x i8] zeroinitializer, ptr @.str.141 }, { i32, [4 x i8], ptr } { i32 61889, [4 x i8] zeroinitializer, ptr @.str.142 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
 @proto_register_ethertype.eth_da_build_value = internal global [1 x ptr] [ptr @eth_value], align 8
-@proto_register_ethertype.eth_da_values = internal global %struct.decode_as_value_s { ptr @eth_prompt, i32 1, ptr @proto_register_ethertype.eth_da_build_value }, align 8
+@proto_register_ethertype.eth_da_values = internal global { ptr, i32, [4 x i8], ptr } { ptr @eth_prompt, i32 1, [4 x i8] zeroinitializer, ptr @proto_register_ethertype.eth_da_build_value }, align 8
 @proto_register_ethertype.ethertype_da = internal global %struct.decode_as_s { ptr @.str.143, ptr @.str.143, i32 1, i32 0, ptr @proto_register_ethertype.eth_da_values, ptr null, ptr null, ptr @decode_as_default_populate_list, ptr @decode_as_default_reset, ptr @decode_as_default_change, ptr null }, align 8
 @.str.143 = private unnamed_addr constant [10 x i8] c"ethertype\00", align 1
 @.str.144 = private unnamed_addr constant [10 x i8] c"Ethertype\00", align 1
@@ -169,22 +167,22 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.146 = private unnamed_addr constant [7 x i8] c"0x%04x\00", align 1
 @dissect_ethertype.catch_spec = internal constant [1 x %struct.except_id_t] [%struct.except_id_t { i64 1, i64 0 }], align 16
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_ethertype() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.144, ptr noundef nonnull @.str.144, ptr noundef nonnull @.str.143) #6
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.144, ptr noundef nonnull @.str.144, ptr noundef nonnull @.str.143)
   store i32 %1, ptr @proto_ethertype, align 4
-  tail call void @proto_set_cant_toggle(i32 noundef %1) #6
+  tail call void @proto_set_cant_toggle(i32 noundef %1)
   %2 = load i32, ptr @proto_ethertype, align 4
-  %3 = tail call ptr @register_dissector(ptr noundef nonnull @.str.143, ptr noundef nonnull @dissect_ethertype, i32 noundef %2) #6
+  %3 = tail call ptr @register_dissector(ptr noundef nonnull @.str.143, ptr noundef nonnull @dissect_ethertype, i32 noundef %2)
   %4 = load i32, ptr @proto_ethertype, align 4
-  %5 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.143, ptr noundef nonnull @.str.144, i32 noundef %4, i32 noundef 5, i32 noundef 2) #6
+  %5 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.143, ptr noundef nonnull @.str.144, i32 noundef %4, i32 noundef 5, i32 noundef 2)
   store ptr %5, ptr @ethertype_dissector_table, align 8
-  tail call void @register_capture_dissector_table(ptr noundef nonnull @.str.143, ptr noundef nonnull @.str.144) #6
-  tail call void @register_decode_as(ptr noundef nonnull @proto_register_ethertype.ethertype_da) #6
+  tail call void @register_capture_dissector_table(ptr noundef nonnull @.str.143, ptr noundef nonnull @.str.144)
+  tail call void @register_decode_as(ptr noundef nonnull @proto_register_ethertype.ethertype_da)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal ptr @eth_value(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %3 = load ptr, ptr %2, align 8
@@ -192,38 +190,44 @@ define internal ptr @eth_value(ptr noundef %0) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %6 = load i8, ptr %5, align 8
   %7 = zext i8 %6 to i32
-  %8 = tail call ptr @p_get_proto_data(ptr noundef %3, ptr noundef %0, i32 noundef %4, i32 noundef %7) #6
+  %8 = tail call ptr @p_get_proto_data(ptr noundef %3, ptr noundef %0, i32 noundef %4, i32 noundef %7)
   ret ptr %8
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @eth_prompt(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal void @eth_prompt(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr @proto_ethertype, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %7 = load i8, ptr %6, align 8
   %8 = zext i8 %7 to i32
-  %9 = tail call ptr @p_get_proto_data(ptr noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef %8) #6
+  %9 = tail call ptr @p_get_proto_data(ptr noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef %8)
   %10 = ptrtoint ptr %9 to i64
   %11 = trunc i64 %10 to i32
-  %12 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 200, ptr noundef nonnull @.str.145, i32 noundef %11) #6
+  %12 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %1, i64 noundef 200, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.145, i32 noundef %11)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @decode_as_default_populate_list(ptr noundef, ptr noundef, ptr noundef) #1
 
-declare i32 @decode_as_default_reset(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @decode_as_default_reset(ptr noundef, ptr noundef) #1
 
-declare i32 @decode_as_default_change(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @decode_as_default_change(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_set_cant_toggle(i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ethertype(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -232,16 +236,19 @@ define internal i32 @dissect_ethertype(ptr noundef %0, ptr noundef %1, ptr nound
   %9 = alloca i32, align 4
   %10 = alloca %struct.except_stacknode, align 8
   %11 = alloca %struct.except_catch, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store volatile i32 0, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %12 = icmp eq ptr %3, null
   br i1 %12, label %132, label %13
 
 13:                                               ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %15 = load i32, ptr %14, align 4
-  %16 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %15) #6
+  %16 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %15)
   %17 = load i32, ptr %14, align 4
-  %18 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %17) #6
+  %18 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %17)
   %19 = load i16, ptr %3, align 8
   %20 = icmp eq i16 %19, -14
   br i1 %20, label %21, label %35
@@ -249,22 +256,22 @@ define internal i32 @dissect_ethertype(ptr noundef %0, ptr noundef %1, ptr nound
 21:                                               ; preds = %13
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %23, i32 noundef 34, ptr noundef nonnull @.str.146, i32 noundef 65522) #6
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %23, i32 noundef 35, ptr noundef nonnull @.str.146, i32 noundef 65522)
   %24 = load ptr, ptr %22, align 8
-  call void @col_set_writable(ptr noundef %24, i32 noundef 34, i32 noundef 0) #6
+  call void @col_set_writable(ptr noundef %24, i32 noundef 35, i1 noundef zeroext false)
   %25 = load i16, ptr %3, align 8
   %26 = zext i16 %25 to i32
-  %27 = call ptr @try_val_to_str(i32 noundef %26, ptr noundef nonnull @etype_vals) #6
+  %27 = call ptr @try_val_to_str(i32 noundef %26, ptr noundef nonnull @etype_vals)
   %28 = load ptr, ptr %22, align 8
-  call void @col_add_str(ptr noundef %28, i32 noundef 25, ptr noundef %27) #6
+  call void @col_add_str(ptr noundef %28, i32 noundef 25, ptr noundef %27)
   %29 = load ptr, ptr %22, align 8
-  call void @col_set_writable(ptr noundef %29, i32 noundef 25, i32 noundef 0) #6
+  call void @col_set_writable(ptr noundef %29, i32 noundef 25, i1 noundef zeroext false)
   %30 = icmp sgt i32 %18, 0
   br i1 %30, label %31, label %35
 
 31:                                               ; preds = %21
   %32 = load i32, ptr %14, align 4
-  %33 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %32) #6
+  %33 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %32)
   %34 = lshr i8 %33, 4
   %switch.selectcmp = icmp eq i8 %34, 6
   %switch.select = select i1 %switch.selectcmp, i16 -31045, i16 2054
@@ -296,7 +303,7 @@ define internal i32 @dissect_ethertype(ptr noundef %0, ptr noundef %1, ptr nound
   %.089 = phi i32 [ %16, %39 ], [ %16, %35 ], [ %spec.select105, %42 ]
   %.088 = phi i32 [ %18, %39 ], [ %18, %35 ], [ %spec.select, %42 ]
   %45 = load i32, ptr %14, align 4
-  %46 = call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %45, i32 noundef %.089, i32 noundef %.088) #6
+  %46 = call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %45, i32 noundef %.089, i32 noundef %.088)
   store volatile ptr %46, ptr %5, align 8
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %48 = load ptr, ptr %47, align 8
@@ -307,13 +314,17 @@ define internal i32 @dissect_ethertype(ptr noundef %0, ptr noundef %1, ptr nound
   %53 = load i16, ptr %3, align 8
   %54 = zext i16 %53 to i64
   %55 = inttoptr i64 %54 to ptr
-  call void @p_add_proto_data(ptr noundef %48, ptr noundef %1, i32 noundef %49, i32 noundef %52, ptr noundef %55) #6
+  call void @p_add_proto_data(ptr noundef %48, ptr noundef %1, i32 noundef %49, i32 noundef %52, ptr noundef %55)
   %56 = load ptr, ptr %1, align 8
   store volatile ptr %56, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store volatile i32 0, ptr %9, align 4
-  call void @except_setup_try(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull @dissect_ethertype.catch_spec, i64 noundef 1) #6
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %11) #7
+  call void @except_setup_try(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull @dissect_ethertype.catch_spec, i64 noundef 1)
   %57 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  %58 = call i32 @_setjmp(ptr noundef nonnull %57) #7
+  %58 = call i32 @_setjmp(ptr noundef nonnull %57) #8
   %.not96 = icmp eq i32 %58, 0
   %59 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.sink = select i1 %.not96, ptr null, ptr %59
@@ -347,7 +358,7 @@ define internal i32 @dissect_ethertype(ptr noundef %0, ptr noundef %1, ptr nound
   %70 = load i16, ptr %3, align 8
   %71 = zext i16 %70 to i32
   %.0..0..0..0.52 = load volatile ptr, ptr %5, align 8
-  %72 = call i32 @dissector_try_uint(ptr noundef %69, i32 noundef %71, ptr noundef %.0..0..0..0.52, ptr noundef nonnull %1, ptr noundef %2) #6
+  %72 = call i32 @dissector_try_uint(ptr noundef %69, i32 noundef %71, ptr noundef %.0..0..0..0.52, ptr noundef %1, ptr noundef %2)
   store volatile i32 %72, ptr %6, align 4
   br label %73
 
@@ -400,7 +411,7 @@ define internal i32 @dissect_ethertype(ptr noundef %0, ptr noundef %1, ptr nound
   %.0..0..0..0.15 = load volatile ptr, ptr %8, align 8
   %96 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.15, i64 16
   %97 = load volatile ptr, ptr %96, align 8
-  call void @show_exception(ptr noundef %.0..0..0..0.53, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %95, ptr noundef %97) #6
+  call void @show_exception(ptr noundef %.0..0..0..0.53, ptr noundef %1, ptr noundef %2, i64 noundef %95, ptr noundef %97)
   store volatile i32 1, ptr %6, align 4
   %.0..0..0..0.38 = load volatile ptr, ptr %7, align 8
   store ptr %.0..0..0..0.38, ptr %1, align 8
@@ -419,35 +430,39 @@ define internal i32 @dissect_ethertype(ptr noundef %0, ptr noundef %1, ptr nound
 
 101:                                              ; preds = %100
   %.0..0..0..0.17 = load volatile ptr, ptr %8, align 8
-  call void @except_rethrow(ptr noundef %.0..0..0..0.17) #8
+  call void @except_rethrow(ptr noundef %.0..0..0..0.17) #9
   unreachable
 
 102:                                              ; preds = %100, %98
   %103 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %104 = load volatile ptr, ptr %103, align 8
-  call void @except_free(ptr noundef %104) #6
-  %105 = call ptr @except_pop() #6
+  call void @except_free(ptr noundef %104)
+  %105 = call ptr @except_pop()
+  call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %11) #7
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   %.0..0..0..0.39 = load volatile i32, ptr %6, align 4
   %.not101 = icmp eq i32 %.0..0..0..0.39, 0
   br i1 %.not101, label %106, label %117
 
 106:                                              ; preds = %102
   %.0..0..0..0.54 = load volatile ptr, ptr %5, align 8
-  %107 = call i32 @call_data_dissector(ptr noundef %.0..0..0..0.54, ptr noundef nonnull %1, ptr noundef %2) #6
+  %107 = call i32 @call_data_dissector(ptr noundef %.0..0..0..0.54, ptr noundef %1, ptr noundef %2)
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %109 = load ptr, ptr %108, align 8
   %110 = load i16, ptr %3, align 8
   %111 = zext i16 %110 to i32
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %109, i32 noundef 34, ptr noundef nonnull @.str.146, i32 noundef %111) #6
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %109, i32 noundef 35, ptr noundef nonnull @.str.146, i32 noundef %111)
   %112 = load i16, ptr %3, align 8
   %113 = zext i16 %112 to i32
-  %114 = call ptr @try_val_to_str(i32 noundef %113, ptr noundef nonnull @etype_vals) #6
+  %114 = call ptr @try_val_to_str(i32 noundef %113, ptr noundef nonnull @etype_vals)
   %.not102 = icmp eq ptr %114, null
   br i1 %.not102, label %117, label %115
 
 115:                                              ; preds = %106
   %116 = load ptr, ptr %108, align 8
-  call void @col_add_str(ptr noundef %116, i32 noundef 25, ptr noundef nonnull %114) #6
+  call void @col_add_str(ptr noundef %116, i32 noundef 25, ptr noundef nonnull %114)
   br label %117
 
 117:                                              ; preds = %106, %115, %102
@@ -458,104 +473,139 @@ define internal i32 @dissect_ethertype(ptr noundef %0, ptr noundef %1, ptr nound
   %.0..0..0..0.55 = load volatile ptr, ptr %5, align 8
   %122 = load i32, ptr %14, align 4
   %123 = load i32, ptr %36, align 4
-  %124 = call i32 @tvb_reported_length(ptr noundef %.0..0..0..0.55) #6
+  %124 = call i32 @tvb_reported_length(ptr noundef %.0..0..0..0.55)
   %125 = icmp ult i32 %124, %18
   br i1 %125, label %126, label %add_dix_trailer.exit
 
 126:                                              ; preds = %117
   %127 = add i32 %124, %122
-  %128 = call i32 @tvb_offset_exists(ptr noundef %0, i32 noundef %127) #6
-  %.not.i = icmp eq i32 %128, 0
-  br i1 %.not.i, label %add_dix_trailer.exit, label %129
+  %128 = call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %127)
+  br i1 %128, label %129, label %add_dix_trailer.exit
 
 129:                                              ; preds = %126
-  %130 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %127) #6
+  %130 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %127)
   br label %add_dix_trailer.exit
 
 add_dix_trailer.exit:                             ; preds = %117, %126, %129
   %.0.i = phi ptr [ %130, %129 ], [ null, %126 ], [ null, %117 ]
-  call void @add_ethernet_trailer(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %119, i32 noundef %121, ptr noundef %0, ptr noundef %.0.i, i32 noundef %123, i32 noundef %122) #6
-  %131 = call i32 @tvb_captured_length(ptr noundef %0) #6
+  call void @add_ethernet_trailer(ptr noundef %1, ptr noundef %2, ptr noundef %119, i32 noundef %121, ptr noundef %0, ptr noundef %.0.i, i32 noundef %123, i32 noundef %122)
+  %131 = call i32 @tvb_captured_length(ptr noundef %0)
   br label %132
 
 132:                                              ; preds = %4, %add_dix_trailer.exit
   %.087 = phi i32 [ %131, %add_dix_trailer.exit ], [ 0, %4 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   ret i32 %.087
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector_table(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @register_capture_dissector_table(ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @register_decode_as(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #2
+; Function Attrs: nofree null_pointer_is_valid
+declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare void @col_set_writable(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_writable(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @try_val_to_str(i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_new_subset_length_caplen(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @p_add_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @except_setup_try(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind returns_twice
-declare i32 @_setjmp(ptr noundef) local_unnamed_addr #3
+; Function Attrs: nounwind null_pointer_is_valid returns_twice
+declare i32 @_setjmp(ptr noundef) local_unnamed_addr #4
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissector_try_uint(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @show_exception(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: noreturn
-declare void @except_rethrow(ptr noundef) local_unnamed_addr #4
+; Function Attrs: noreturn null_pointer_is_valid
+declare void @except_rethrow(ptr noundef) local_unnamed_addr #5
 
+; Function Attrs: null_pointer_is_valid
 declare void @except_free(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @except_pop() local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
-declare i32 @tvb_offset_exists(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @tvb_offset_exists(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @add_ethernet_trailer(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #5
+declare i32 @llvm.smin.i32(i32, i32) #6
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind returns_twice "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind }
-attributes #7 = { nounwind returns_twice }
-attributes #8 = { noreturn nounwind }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nounwind null_pointer_is_valid returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind }
+attributes #8 = { nounwind returns_twice }
+attributes #9 = { noreturn }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}

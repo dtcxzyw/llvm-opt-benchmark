@@ -6,10 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._value_string_ext = type { ptr, i32, i32, ptr, ptr }
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
 %struct.true_false_string = type { ptr, ptr }
-%struct._rpc_proc_list = type { i32, ptr, ptr }
-%struct._vsff = type { i32, ptr, ptr, ptr }
 %struct._e_guid_t = type { i32, i16, i16, [8 x i8] }
 
 @ett_glusterfs_iatt = internal global i32 0, align 4
@@ -54,7 +51,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_glusterfs_proc = internal global i32 0, align 4
 @.str.13 = private unnamed_addr constant [10 x i8] c"GlusterFS\00", align 1
 @.str.14 = private unnamed_addr constant [15 x i8] c"glusterfs.proc\00", align 1
-@glusterfs3_1_fop_proc_vals_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 50, ptr @glusterfs3_1_fop_proc_vals, ptr @.str.472 }, align 8
+@glusterfs3_1_fop_proc_vals_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 50, ptr @glusterfs3_1_fop_proc_vals, ptr @.str.473 }, align 8
 @.str.15 = private unnamed_addr constant [13 x i8] c"Return value\00", align 1
 @.str.16 = private unnamed_addr constant [15 x i8] c"gluster.op_ret\00", align 1
 @.str.17 = private unnamed_addr constant [6 x i8] c"Errno\00", align 1
@@ -93,11 +90,10 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_glusterfs_type = internal global i32 0, align 4
 @.str.41 = private unnamed_addr constant [5 x i8] c"Type\00", align 1
 @.str.42 = private unnamed_addr constant [15 x i8] c"glusterfs.type\00", align 1
-@glusterfs_lk_type_names = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.523 }, %struct._value_string { i32 1, ptr @.str.524 }, %struct._value_string { i32 2, ptr @.str.525 }, %struct._value_string { i32 3, ptr @.str.526 }, %struct._value_string zeroinitializer], align 16
 @hf_glusterfs_cmd = internal global i32 0, align 4
 @.str.43 = private unnamed_addr constant [8 x i8] c"Command\00", align 1
 @.str.44 = private unnamed_addr constant [14 x i8] c"glusterfs.cmd\00", align 1
-@glusterfs_lk_cmd_names_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 7, ptr @glusterfs_lk_cmd_names, ptr @.str.527 }, align 8
+@glusterfs_lk_cmd_names_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 7, ptr @glusterfs_lk_cmd_names, ptr @.str.530 }, align 8
 @hf_glusterfs_volume = internal global i32 0, align 4
 @.str.45 = private unnamed_addr constant [7 x i8] c"Volume\00", align 1
 @.str.46 = private unnamed_addr constant [17 x i8] c"glusterfs.volume\00", align 1
@@ -119,14 +115,13 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_glusterfs_whence = internal global i32 0, align 4
 @.str.57 = private unnamed_addr constant [7 x i8] c"Whence\00", align 1
 @.str.58 = private unnamed_addr constant [17 x i8] c"glusterfs.whence\00", align 1
-@glusterfs_seek_whence = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.535 }, %struct._value_string { i32 1, ptr @.str.536 }, %struct._value_string zeroinitializer], align 16
 @hf_glusterfs_flags = internal global i32 0, align 4
 @.str.59 = private unnamed_addr constant [6 x i8] c"Flags\00", align 1
 @.str.60 = private unnamed_addr constant [16 x i8] c"glusterfs.flags\00", align 1
 @hf_glusterfs_flags_rdonly = internal global i32 0, align 4
 @.str.61 = private unnamed_addr constant [9 x i8] c"O_RDONLY\00", align 1
 @.str.62 = private unnamed_addr constant [23 x i8] c"glusterfs.flags.rdonly\00", align 1
-@glusterfs_notset_set = internal constant %struct.true_false_string { ptr @.str.537, ptr @.str.538 }, align 8
+@glusterfs_notset_set = internal constant %struct.true_false_string { ptr @.str.542, ptr @.str.543 }, align 8
 @hf_glusterfs_flags_wronly = internal global i32 0, align 4
 @.str.63 = private unnamed_addr constant [9 x i8] c"O_WRONLY\00", align 1
 @.str.64 = private unnamed_addr constant [23 x i8] c"glusterfs.flags.wronly\00", align 1
@@ -137,7 +132,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_glusterfs_flags_accmode = internal global i32 0, align 4
 @.str.67 = private unnamed_addr constant [10 x i8] c"O_ACCMODE\00", align 1
 @.str.68 = private unnamed_addr constant [24 x i8] c"glusterfs.flags.accmode\00", align 1
-@glusterfs_accmode_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.537 }, %struct._value_string { i32 1, ptr @.str.537 }, %struct._value_string { i32 2, ptr @.str.537 }, %struct._value_string { i32 3, ptr @.str.538 }, %struct._value_string zeroinitializer], align 16
 @hf_glusterfs_flags_append = internal global i32 0, align 4
 @.str.69 = private unnamed_addr constant [9 x i8] c"O_APPEND\00", align 1
 @.str.70 = private unnamed_addr constant [23 x i8] c"glusterfs.flags.append\00", align 1
@@ -251,7 +245,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.146 = private unnamed_addr constant [20 x i8] c"glusterfs.entry.len\00", align 1
 @hf_glusterfs_entry_type = internal global i32 0, align 4
 @.str.147 = private unnamed_addr constant [23 x i8] c"glusterfs.entry.d_type\00", align 1
-@glusterfs_entry_type_names_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 9, ptr @glusterfs_entry_type_names, ptr @.str.539 }, align 8
+@glusterfs_entry_type_names_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 9, ptr @glusterfs_entry_type_names, ptr @.str.545 }, align 8
 @hf_glusterfs_entry_path = internal global i32 0, align 4
 @.str.148 = private unnamed_addr constant [21 x i8] c"glusterfs.entry.path\00", align 1
 @hf_glusterfs_iatt = internal global i32 0, align 4
@@ -341,7 +335,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.211 = private unnamed_addr constant [21 x i8] c"glusterfs.flock.type\00", align 1
 @hf_glusterfs_flock_whence = internal global i32 0, align 4
 @.str.212 = private unnamed_addr constant [23 x i8] c"glusterfs.flock.whence\00", align 1
-@glusterfs_lk_whence = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.549 }, %struct._value_string { i32 1, ptr @.str.550 }, %struct._value_string { i32 2, ptr @.str.551 }, %struct._value_string zeroinitializer], align 16
 @hf_glusterfs_flock_start = internal global i32 0, align 4
 @.str.213 = private unnamed_addr constant [6 x i8] c"Start\00", align 1
 @.str.214 = private unnamed_addr constant [22 x i8] c"glusterfs.flock.start\00", align 1
@@ -492,9 +485,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_gluster_dict_items = internal global i32 0, align 4
 @.str.306 = private unnamed_addr constant [10 x i8] c"glusterfs\00", align 1
 @proto_glusterfs = internal unnamed_addr global i32 0, align 4
-@glusterfs_vers_info = internal constant [3 x %struct._rpc_proc_list] [%struct._rpc_proc_list { i32 310, ptr @glusterfs3_1_fop_proc, ptr @hf_glusterfs_proc }, %struct._rpc_proc_list { i32 330, ptr @glusterfs3_3_fop_proc, ptr @hf_glusterfs_proc }, %struct._rpc_proc_list { i32 400, ptr @glusterfs4_0_fop_proc, ptr @hf_glusterfs_proc }], align 16
 @glusterfs_rpc_dissect_mode.mode_bits = internal constant [14 x ptr] [ptr @hf_glusterfs_mode_suid, ptr @hf_glusterfs_mode_sgid, ptr @hf_glusterfs_mode_svtx, ptr @hf_glusterfs_mode_rusr, ptr @hf_glusterfs_mode_wusr, ptr @hf_glusterfs_mode_xusr, ptr @hf_glusterfs_mode_rgrp, ptr @hf_glusterfs_mode_wgrp, ptr @hf_glusterfs_mode_xgrp, ptr @hf_glusterfs_mode_roth, ptr @hf_glusterfs_mode_woth, ptr @hf_glusterfs_mode_xoth, ptr @hf_glusterfs_mode_reserved, ptr null], align 16
-@glusterfs_error_codes = internal constant [166 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.308 }, %struct._value_string { i32 1, ptr @.str.309 }, %struct._value_string { i32 2, ptr @.str.310 }, %struct._value_string { i32 3, ptr @.str.311 }, %struct._value_string { i32 4, ptr @.str.312 }, %struct._value_string { i32 5, ptr @.str.313 }, %struct._value_string { i32 6, ptr @.str.314 }, %struct._value_string { i32 7, ptr @.str.315 }, %struct._value_string { i32 8, ptr @.str.316 }, %struct._value_string { i32 9, ptr @.str.317 }, %struct._value_string { i32 10, ptr @.str.318 }, %struct._value_string { i32 11, ptr @.str.319 }, %struct._value_string { i32 12, ptr @.str.320 }, %struct._value_string { i32 13, ptr @.str.321 }, %struct._value_string { i32 14, ptr @.str.322 }, %struct._value_string { i32 15, ptr @.str.323 }, %struct._value_string { i32 16, ptr @.str.324 }, %struct._value_string { i32 17, ptr @.str.325 }, %struct._value_string { i32 18, ptr @.str.326 }, %struct._value_string { i32 19, ptr @.str.327 }, %struct._value_string { i32 20, ptr @.str.328 }, %struct._value_string { i32 21, ptr @.str.329 }, %struct._value_string { i32 22, ptr @.str.330 }, %struct._value_string { i32 23, ptr @.str.331 }, %struct._value_string { i32 24, ptr @.str.332 }, %struct._value_string { i32 25, ptr @.str.333 }, %struct._value_string { i32 26, ptr @.str.334 }, %struct._value_string { i32 27, ptr @.str.335 }, %struct._value_string { i32 28, ptr @.str.336 }, %struct._value_string { i32 29, ptr @.str.337 }, %struct._value_string { i32 30, ptr @.str.338 }, %struct._value_string { i32 31, ptr @.str.339 }, %struct._value_string { i32 32, ptr @.str.340 }, %struct._value_string { i32 33, ptr @.str.341 }, %struct._value_string { i32 34, ptr @.str.342 }, %struct._value_string { i32 35, ptr @.str.343 }, %struct._value_string { i32 36, ptr @.str.344 }, %struct._value_string { i32 37, ptr @.str.345 }, %struct._value_string { i32 38, ptr @.str.346 }, %struct._value_string { i32 39, ptr @.str.347 }, %struct._value_string { i32 40, ptr @.str.348 }, %struct._value_string { i32 42, ptr @.str.349 }, %struct._value_string { i32 43, ptr @.str.350 }, %struct._value_string { i32 44, ptr @.str.351 }, %struct._value_string { i32 45, ptr @.str.352 }, %struct._value_string { i32 46, ptr @.str.353 }, %struct._value_string { i32 47, ptr @.str.354 }, %struct._value_string { i32 48, ptr @.str.355 }, %struct._value_string { i32 49, ptr @.str.356 }, %struct._value_string { i32 50, ptr @.str.357 }, %struct._value_string { i32 51, ptr @.str.358 }, %struct._value_string { i32 52, ptr @.str.359 }, %struct._value_string { i32 53, ptr @.str.360 }, %struct._value_string { i32 54, ptr @.str.361 }, %struct._value_string { i32 55, ptr @.str.362 }, %struct._value_string { i32 56, ptr @.str.363 }, %struct._value_string { i32 57, ptr @.str.364 }, %struct._value_string { i32 59, ptr @.str.365 }, %struct._value_string { i32 60, ptr @.str.366 }, %struct._value_string { i32 61, ptr @.str.367 }, %struct._value_string { i32 62, ptr @.str.368 }, %struct._value_string { i32 63, ptr @.str.369 }, %struct._value_string { i32 64, ptr @.str.370 }, %struct._value_string { i32 65, ptr @.str.371 }, %struct._value_string { i32 66, ptr @.str.372 }, %struct._value_string { i32 67, ptr @.str.373 }, %struct._value_string { i32 68, ptr @.str.374 }, %struct._value_string { i32 69, ptr @.str.375 }, %struct._value_string { i32 70, ptr @.str.376 }, %struct._value_string { i32 71, ptr @.str.377 }, %struct._value_string { i32 72, ptr @.str.378 }, %struct._value_string { i32 73, ptr @.str.379 }, %struct._value_string { i32 74, ptr @.str.380 }, %struct._value_string { i32 75, ptr @.str.381 }, %struct._value_string { i32 76, ptr @.str.382 }, %struct._value_string { i32 77, ptr @.str.383 }, %struct._value_string { i32 78, ptr @.str.384 }, %struct._value_string { i32 79, ptr @.str.385 }, %struct._value_string { i32 80, ptr @.str.386 }, %struct._value_string { i32 81, ptr @.str.387 }, %struct._value_string { i32 82, ptr @.str.388 }, %struct._value_string { i32 83, ptr @.str.389 }, %struct._value_string { i32 84, ptr @.str.390 }, %struct._value_string { i32 85, ptr @.str.391 }, %struct._value_string { i32 86, ptr @.str.392 }, %struct._value_string { i32 87, ptr @.str.393 }, %struct._value_string { i32 88, ptr @.str.394 }, %struct._value_string { i32 89, ptr @.str.395 }, %struct._value_string { i32 90, ptr @.str.396 }, %struct._value_string { i32 91, ptr @.str.397 }, %struct._value_string { i32 92, ptr @.str.398 }, %struct._value_string { i32 93, ptr @.str.399 }, %struct._value_string { i32 94, ptr @.str.400 }, %struct._value_string { i32 95, ptr @.str.401 }, %struct._value_string { i32 96, ptr @.str.402 }, %struct._value_string { i32 97, ptr @.str.403 }, %struct._value_string { i32 98, ptr @.str.404 }, %struct._value_string { i32 99, ptr @.str.405 }, %struct._value_string { i32 100, ptr @.str.406 }, %struct._value_string { i32 101, ptr @.str.407 }, %struct._value_string { i32 102, ptr @.str.408 }, %struct._value_string { i32 103, ptr @.str.409 }, %struct._value_string { i32 104, ptr @.str.410 }, %struct._value_string { i32 105, ptr @.str.411 }, %struct._value_string { i32 106, ptr @.str.412 }, %struct._value_string { i32 107, ptr @.str.413 }, %struct._value_string { i32 108, ptr @.str.414 }, %struct._value_string { i32 109, ptr @.str.415 }, %struct._value_string { i32 110, ptr @.str.416 }, %struct._value_string { i32 111, ptr @.str.417 }, %struct._value_string { i32 112, ptr @.str.418 }, %struct._value_string { i32 113, ptr @.str.419 }, %struct._value_string { i32 114, ptr @.str.420 }, %struct._value_string { i32 115, ptr @.str.421 }, %struct._value_string { i32 116, ptr @.str.422 }, %struct._value_string { i32 117, ptr @.str.423 }, %struct._value_string { i32 118, ptr @.str.424 }, %struct._value_string { i32 119, ptr @.str.425 }, %struct._value_string { i32 120, ptr @.str.426 }, %struct._value_string { i32 121, ptr @.str.427 }, %struct._value_string { i32 122, ptr @.str.428 }, %struct._value_string { i32 123, ptr @.str.429 }, %struct._value_string { i32 124, ptr @.str.430 }, %struct._value_string { i32 125, ptr @.str.431 }, %struct._value_string { i32 126, ptr @.str.432 }, %struct._value_string { i32 127, ptr @.str.433 }, %struct._value_string { i32 128, ptr @.str.434 }, %struct._value_string { i32 129, ptr @.str.435 }, %struct._value_string { i32 130, ptr @.str.436 }, %struct._value_string { i32 131, ptr @.str.437 }, %struct._value_string { i32 512, ptr @.str.438 }, %struct._value_string { i32 513, ptr @.str.439 }, %struct._value_string { i32 514, ptr @.str.440 }, %struct._value_string { i32 515, ptr @.str.441 }, %struct._value_string { i32 516, ptr @.str.442 }, %struct._value_string { i32 521, ptr @.str.443 }, %struct._value_string { i32 522, ptr @.str.444 }, %struct._value_string { i32 523, ptr @.str.445 }, %struct._value_string { i32 524, ptr @.str.446 }, %struct._value_string { i32 525, ptr @.str.447 }, %struct._value_string { i32 526, ptr @.str.448 }, %struct._value_string { i32 527, ptr @.str.449 }, %struct._value_string { i32 528, ptr @.str.450 }, %struct._value_string { i32 529, ptr @.str.451 }, %struct._value_string { i32 530, ptr @.str.452 }, %struct._value_string { i32 701, ptr @.str.453 }, %struct._value_string { i32 702, ptr @.str.454 }, %struct._value_string { i32 703, ptr @.str.455 }, %struct._value_string { i32 704, ptr @.str.456 }, %struct._value_string { i32 705, ptr @.str.457 }, %struct._value_string { i32 706, ptr @.str.458 }, %struct._value_string { i32 707, ptr @.str.459 }, %struct._value_string { i32 801, ptr @.str.460 }, %struct._value_string { i32 802, ptr @.str.461 }, %struct._value_string { i32 901, ptr @.str.462 }, %struct._value_string { i32 902, ptr @.str.463 }, %struct._value_string { i32 903, ptr @.str.464 }, %struct._value_string { i32 904, ptr @.str.465 }, %struct._value_string { i32 905, ptr @.str.466 }, %struct._value_string { i32 905, ptr @.str.467 }, %struct._value_string { i32 906, ptr @.str.468 }, %struct._value_string { i32 907, ptr @.str.469 }, %struct._value_string { i32 908, ptr @.str.470 }, %struct._value_string { i32 909, ptr @.str.471 }, %struct._value_string { i32 1024, ptr @.str.12 }, %struct._value_string zeroinitializer], align 16
 @.str.307 = private unnamed_addr constant [22 x i8] c"glusterfs_error_codes\00", align 1
 @.str.308 = private unnamed_addr constant [8 x i8] c"Success\00", align 1
 @.str.309 = private unnamed_addr constant [24 x i8] c"Operation not permitted\00", align 1
@@ -660,199 +651,219 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.469 = private unnamed_addr constant [21 x i8] c"Authentication error\00", align 1
 @.str.470 = private unnamed_addr constant [19 x i8] c"Need authenticator\00", align 1
 @.str.471 = private unnamed_addr constant [18 x i8] c"Programming error\00", align 1
-@glusterfs3_1_fop_proc_vals = internal constant [51 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.473 }, %struct._value_string { i32 1, ptr @.str.474 }, %struct._value_string { i32 2, ptr @.str.475 }, %struct._value_string { i32 3, ptr @.str.476 }, %struct._value_string { i32 4, ptr @.str.477 }, %struct._value_string { i32 5, ptr @.str.478 }, %struct._value_string { i32 6, ptr @.str.479 }, %struct._value_string { i32 7, ptr @.str.480 }, %struct._value_string { i32 8, ptr @.str.481 }, %struct._value_string { i32 9, ptr @.str.482 }, %struct._value_string { i32 10, ptr @.str.483 }, %struct._value_string { i32 11, ptr @.str.484 }, %struct._value_string { i32 12, ptr @.str.485 }, %struct._value_string { i32 13, ptr @.str.486 }, %struct._value_string { i32 14, ptr @.str.487 }, %struct._value_string { i32 15, ptr @.str.488 }, %struct._value_string { i32 16, ptr @.str.489 }, %struct._value_string { i32 17, ptr @.str.490 }, %struct._value_string { i32 18, ptr @.str.491 }, %struct._value_string { i32 19, ptr @.str.492 }, %struct._value_string { i32 20, ptr @.str.493 }, %struct._value_string { i32 21, ptr @.str.494 }, %struct._value_string { i32 22, ptr @.str.495 }, %struct._value_string { i32 23, ptr @.str.496 }, %struct._value_string { i32 24, ptr @.str.497 }, %struct._value_string { i32 25, ptr @.str.498 }, %struct._value_string { i32 26, ptr @.str.499 }, %struct._value_string { i32 27, ptr @.str.500 }, %struct._value_string { i32 28, ptr @.str.501 }, %struct._value_string { i32 29, ptr @.str.502 }, %struct._value_string { i32 30, ptr @.str.503 }, %struct._value_string { i32 31, ptr @.str.504 }, %struct._value_string { i32 32, ptr @.str.505 }, %struct._value_string { i32 33, ptr @.str.506 }, %struct._value_string { i32 34, ptr @.str.507 }, %struct._value_string { i32 35, ptr @.str.508 }, %struct._value_string { i32 36, ptr @.str.509 }, %struct._value_string { i32 37, ptr @.str.510 }, %struct._value_string { i32 38, ptr @.str.511 }, %struct._value_string { i32 39, ptr @.str.512 }, %struct._value_string { i32 40, ptr @.str.513 }, %struct._value_string { i32 41, ptr @.str.514 }, %struct._value_string { i32 42, ptr @.str.515 }, %struct._value_string { i32 43, ptr @.str.516 }, %struct._value_string { i32 44, ptr @.str.517 }, %struct._value_string { i32 45, ptr @.str.518 }, %struct._value_string { i32 46, ptr @.str.519 }, %struct._value_string { i32 47, ptr @.str.520 }, %struct._value_string { i32 48, ptr @.str.521 }, %struct._value_string { i32 49, ptr @.str.522 }, %struct._value_string zeroinitializer], align 16
-@.str.472 = private unnamed_addr constant [27 x i8] c"glusterfs3_1_fop_proc_vals\00", align 1
-@.str.473 = private unnamed_addr constant [5 x i8] c"NULL\00", align 1
-@.str.474 = private unnamed_addr constant [5 x i8] c"STAT\00", align 1
-@.str.475 = private unnamed_addr constant [9 x i8] c"READLINK\00", align 1
-@.str.476 = private unnamed_addr constant [6 x i8] c"MKNOD\00", align 1
-@.str.477 = private unnamed_addr constant [6 x i8] c"MKDIR\00", align 1
-@.str.478 = private unnamed_addr constant [7 x i8] c"UNLINK\00", align 1
-@.str.479 = private unnamed_addr constant [6 x i8] c"RMDIR\00", align 1
-@.str.480 = private unnamed_addr constant [8 x i8] c"SYMLINK\00", align 1
-@.str.481 = private unnamed_addr constant [7 x i8] c"RENAME\00", align 1
-@.str.482 = private unnamed_addr constant [5 x i8] c"LINK\00", align 1
-@.str.483 = private unnamed_addr constant [9 x i8] c"TRUNCATE\00", align 1
-@.str.484 = private unnamed_addr constant [5 x i8] c"OPEN\00", align 1
-@.str.485 = private unnamed_addr constant [5 x i8] c"READ\00", align 1
-@.str.486 = private unnamed_addr constant [6 x i8] c"WRITE\00", align 1
-@.str.487 = private unnamed_addr constant [7 x i8] c"STATFS\00", align 1
-@.str.488 = private unnamed_addr constant [6 x i8] c"FLUSH\00", align 1
-@.str.489 = private unnamed_addr constant [6 x i8] c"FSYNC\00", align 1
-@.str.490 = private unnamed_addr constant [9 x i8] c"SETXATTR\00", align 1
-@.str.491 = private unnamed_addr constant [9 x i8] c"GETXATTR\00", align 1
-@.str.492 = private unnamed_addr constant [12 x i8] c"REMOVEXATTR\00", align 1
-@.str.493 = private unnamed_addr constant [8 x i8] c"OPENDIR\00", align 1
-@.str.494 = private unnamed_addr constant [9 x i8] c"FSYNCDIR\00", align 1
-@.str.495 = private unnamed_addr constant [7 x i8] c"ACCESS\00", align 1
-@.str.496 = private unnamed_addr constant [7 x i8] c"CREATE\00", align 1
-@.str.497 = private unnamed_addr constant [10 x i8] c"FTRUNCATE\00", align 1
-@.str.498 = private unnamed_addr constant [6 x i8] c"FSTAT\00", align 1
-@.str.499 = private unnamed_addr constant [3 x i8] c"LK\00", align 1
-@.str.500 = private unnamed_addr constant [7 x i8] c"LOOKUP\00", align 1
-@.str.501 = private unnamed_addr constant [8 x i8] c"READDIR\00", align 1
-@.str.502 = private unnamed_addr constant [8 x i8] c"INODELK\00", align 1
-@.str.503 = private unnamed_addr constant [9 x i8] c"FINODELK\00", align 1
-@.str.504 = private unnamed_addr constant [8 x i8] c"ENTRYLK\00", align 1
-@.str.505 = private unnamed_addr constant [9 x i8] c"FENTRYLK\00", align 1
-@.str.506 = private unnamed_addr constant [8 x i8] c"XATTROP\00", align 1
-@.str.507 = private unnamed_addr constant [9 x i8] c"FXATTROP\00", align 1
-@.str.508 = private unnamed_addr constant [10 x i8] c"FGETXATTR\00", align 1
-@.str.509 = private unnamed_addr constant [10 x i8] c"FSETXATTR\00", align 1
-@.str.510 = private unnamed_addr constant [10 x i8] c"RCHECKSUM\00", align 1
-@.str.511 = private unnamed_addr constant [8 x i8] c"SETATTR\00", align 1
-@.str.512 = private unnamed_addr constant [9 x i8] c"FSETATTR\00", align 1
-@.str.513 = private unnamed_addr constant [9 x i8] c"READDIRP\00", align 1
-@.str.514 = private unnamed_addr constant [7 x i8] c"FORGET\00", align 1
-@.str.515 = private unnamed_addr constant [8 x i8] c"RELEASE\00", align 1
-@.str.516 = private unnamed_addr constant [11 x i8] c"RELEASEDIR\00", align 1
-@.str.517 = private unnamed_addr constant [13 x i8] c"FREMOVEXATTR\00", align 1
-@.str.518 = private unnamed_addr constant [10 x i8] c"FALLOCATE\00", align 1
-@.str.519 = private unnamed_addr constant [8 x i8] c"DISCARD\00", align 1
-@.str.520 = private unnamed_addr constant [9 x i8] c"ZEROFILL\00", align 1
-@.str.521 = private unnamed_addr constant [4 x i8] c"IPC\00", align 1
-@.str.522 = private unnamed_addr constant [5 x i8] c"SEEK\00", align 1
-@.str.523 = private unnamed_addr constant [14 x i8] c"GF_LK_F_RDLCK\00", align 1
-@.str.524 = private unnamed_addr constant [14 x i8] c"GF_LK_F_WRLCK\00", align 1
-@.str.525 = private unnamed_addr constant [14 x i8] c"GF_LK_F_UNLCK\00", align 1
-@.str.526 = private unnamed_addr constant [10 x i8] c"GF_LK_EOL\00", align 1
-@glusterfs_lk_cmd_names = internal constant [8 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.528 }, %struct._value_string { i32 1, ptr @.str.529 }, %struct._value_string { i32 2, ptr @.str.530 }, %struct._value_string { i32 3, ptr @.str.531 }, %struct._value_string { i32 4, ptr @.str.532 }, %struct._value_string { i32 5, ptr @.str.533 }, %struct._value_string { i32 6, ptr @.str.534 }, %struct._value_string zeroinitializer], align 16
-@.str.527 = private unnamed_addr constant [23 x i8] c"glusterfs_lk_cmd_names\00", align 1
-@.str.528 = private unnamed_addr constant [12 x i8] c"GF_LK_GETLK\00", align 1
-@.str.529 = private unnamed_addr constant [12 x i8] c"GF_LK_SETLK\00", align 1
-@.str.530 = private unnamed_addr constant [13 x i8] c"GF_LK_SETLKW\00", align 1
-@.str.531 = private unnamed_addr constant [16 x i8] c"GF_LK_RESLK_LCK\00", align 1
-@.str.532 = private unnamed_addr constant [17 x i8] c"GF_LK_RESLK_LCKW\00", align 1
-@.str.533 = private unnamed_addr constant [18 x i8] c"GF_LK_RESLK_UNLCK\00", align 1
-@.str.534 = private unnamed_addr constant [15 x i8] c"GF_LK_GETLK_FD\00", align 1
-@.str.535 = private unnamed_addr constant [10 x i8] c"SEEK_DATA\00", align 1
-@.str.536 = private unnamed_addr constant [10 x i8] c"SEEK_HOLE\00", align 1
-@.str.537 = private unnamed_addr constant [8 x i8] c"Not set\00", align 1
-@.str.538 = private unnamed_addr constant [4 x i8] c"Set\00", align 1
-@glusterfs_entry_type_names = internal constant [10 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.540 }, %struct._value_string { i32 1, ptr @.str.541 }, %struct._value_string { i32 2, ptr @.str.542 }, %struct._value_string { i32 4, ptr @.str.543 }, %struct._value_string { i32 6, ptr @.str.544 }, %struct._value_string { i32 8, ptr @.str.545 }, %struct._value_string { i32 10, ptr @.str.546 }, %struct._value_string { i32 12, ptr @.str.547 }, %struct._value_string { i32 14, ptr @.str.548 }, %struct._value_string zeroinitializer], align 16
-@.str.539 = private unnamed_addr constant [27 x i8] c"glusterfs_entry_type_names\00", align 1
-@.str.540 = private unnamed_addr constant [11 x i8] c"DT_UNKNOWN\00", align 1
-@.str.541 = private unnamed_addr constant [8 x i8] c"DT_FIFO\00", align 1
-@.str.542 = private unnamed_addr constant [7 x i8] c"DT_CHR\00", align 1
-@.str.543 = private unnamed_addr constant [7 x i8] c"DT_DIR\00", align 1
-@.str.544 = private unnamed_addr constant [7 x i8] c"DT_BLK\00", align 1
-@.str.545 = private unnamed_addr constant [7 x i8] c"DT_REG\00", align 1
-@.str.546 = private unnamed_addr constant [7 x i8] c"DT_LNK\00", align 1
-@.str.547 = private unnamed_addr constant [8 x i8] c"DT_SOCK\00", align 1
-@.str.548 = private unnamed_addr constant [7 x i8] c"DT_WHT\00", align 1
-@.str.549 = private unnamed_addr constant [9 x i8] c"SEEK_SET\00", align 1
-@.str.550 = private unnamed_addr constant [9 x i8] c"SEEK_CUR\00", align 1
-@.str.551 = private unnamed_addr constant [9 x i8] c"SEEK_END\00", align 1
-@glusterfs3_1_fop_proc = internal constant [44 x %struct._vsff] [%struct._vsff { i32 0, ptr @.str.473, ptr @dissect_rpc_void, ptr @dissect_rpc_void }, %struct._vsff { i32 1, ptr @.str.474, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 2, ptr @.str.475, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 3, ptr @.str.476, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 4, ptr @.str.477, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 5, ptr @.str.478, ptr @glusterfs_gfs3_op_unlink_call, ptr @glusterfs_gfs3_op_unlink_reply }, %struct._vsff { i32 6, ptr @.str.479, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 7, ptr @.str.480, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 8, ptr @.str.481, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 9, ptr @.str.482, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 10, ptr @.str.483, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 11, ptr @.str.484, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 12, ptr @.str.485, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 13, ptr @.str.486, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 14, ptr @.str.487, ptr @glusterfs_gfs3_op_statfs_call, ptr @glusterfs_gfs3_op_statfs_reply }, %struct._vsff { i32 15, ptr @.str.488, ptr @glusterfs_gfs3_op_flush_call, ptr @gluster_local_dissect_common_reply }, %struct._vsff { i32 16, ptr @.str.489, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 17, ptr @.str.490, ptr @glusterfs_gfs3_op_setxattr_call, ptr @gluster_local_dissect_common_reply }, %struct._vsff { i32 18, ptr @.str.491, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 19, ptr @.str.492, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 20, ptr @.str.493, ptr @glusterfs_gfs3_op_opendir_call, ptr @glusterfs_gfs3_op_opendir_reply }, %struct._vsff { i32 21, ptr @.str.494, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 22, ptr @.str.495, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 23, ptr @.str.496, ptr @glusterfs_gfs3_op_create_call, ptr @glusterfs_gfs3_op_create_reply }, %struct._vsff { i32 24, ptr @.str.497, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 25, ptr @.str.498, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 26, ptr @.str.499, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 27, ptr @.str.500, ptr @glusterfs_gfs3_op_lookup_call, ptr @glusterfs_gfs3_op_lookup_reply }, %struct._vsff { i32 28, ptr @.str.501, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 29, ptr @.str.502, ptr @glusterfs_gfs3_op_inodelk_call, ptr @gluster_local_dissect_common_reply }, %struct._vsff { i32 30, ptr @.str.503, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 31, ptr @.str.504, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 32, ptr @.str.505, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 33, ptr @.str.506, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 34, ptr @.str.507, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 35, ptr @.str.508, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 36, ptr @.str.509, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 37, ptr @.str.510, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 38, ptr @.str.511, ptr @glusterfs_gfs3_op_setattr_call, ptr @glusterfs_gfs3_op_setattr_reply }, %struct._vsff { i32 39, ptr @.str.512, ptr @glusterfs_gfs3_op_setattr_call, ptr @glusterfs_gfs3_op_setattr_reply }, %struct._vsff { i32 40, ptr @.str.513, ptr @glusterfs_gfs3_op_readdirp_call, ptr @glusterfs_gfs3_op_readdirp_reply }, %struct._vsff { i32 42, ptr @.str.515, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 43, ptr @.str.516, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff zeroinitializer], align 16
-@glusterfs3_3_fop_proc = internal constant [49 x %struct._vsff] [%struct._vsff { i32 0, ptr @.str.473, ptr @dissect_rpc_void, ptr @dissect_rpc_void }, %struct._vsff { i32 1, ptr @.str.474, ptr @glusterfs_gfs3_3_op_stat_call, ptr @glusterfs_gfs3_3_op_stat_reply }, %struct._vsff { i32 2, ptr @.str.475, ptr @glusterfs_gfs3_3_op_readlink_call, ptr @glusterfs_gfs3_3_op_readlink_reply }, %struct._vsff { i32 3, ptr @.str.476, ptr @glusterfs_gfs3_3_op_mknod_call, ptr @glusterfs_gfs3_3_op_mknod_reply }, %struct._vsff { i32 4, ptr @.str.477, ptr @glusterfs_gfs3_3_op_mkdir_call, ptr @glusterfs_gfs3_3_op_mknod_reply }, %struct._vsff { i32 5, ptr @.str.478, ptr @glusterfs_gfs3_3_op_unlink_call, ptr @glusterfs_gfs3_3_op_unlink_reply }, %struct._vsff { i32 6, ptr @.str.479, ptr @glusterfs_gfs3_3_op_rmdir_call, ptr @glusterfs_gfs3_3_op_unlink_reply }, %struct._vsff { i32 7, ptr @.str.480, ptr @glusterfs_gfs3_3_op_symlink_call, ptr @glusterfs_gfs3_3_op_mknod_reply }, %struct._vsff { i32 8, ptr @.str.481, ptr @glusterfs_gfs3_3_op_rename_call, ptr @glusterfs_gfs3_3_op_rename_reply }, %struct._vsff { i32 9, ptr @.str.482, ptr @glusterfs_gfs3_3_op_link_call, ptr @glusterfs_gfs3_3_op_mknod_reply }, %struct._vsff { i32 10, ptr @.str.483, ptr @glusterfs_gfs3_3_op_truncate_call, ptr @glusterfs_gfs3_3_op_unlink_reply }, %struct._vsff { i32 11, ptr @.str.484, ptr @glusterfs_gfs3_3_op_open_call, ptr @glusterfs_gfs3_3_op_open_reply }, %struct._vsff { i32 12, ptr @.str.485, ptr @glusterfs_gfs3_3_op_read_call, ptr @glusterfs_gfs3_3_op_read_reply }, %struct._vsff { i32 13, ptr @.str.486, ptr @glusterfs_gfs3_3_op_write_call, ptr @glusterfs_gfs3_3_op_setattr_reply }, %struct._vsff { i32 14, ptr @.str.487, ptr @glusterfs_gfs3_3_op_statfs_call, ptr @glusterfs_gfs3_3_op_statfs_reply }, %struct._vsff { i32 15, ptr @.str.488, ptr @glusterfs_gfs3_3_op_flush_call, ptr @glusterfs_gfs3_3_op_common_reply }, %struct._vsff { i32 16, ptr @.str.489, ptr @glusterfs_gfs3_3_op_fsync_call, ptr @glusterfs_gfs3_3_op_setattr_reply }, %struct._vsff { i32 17, ptr @.str.490, ptr @glusterfs_gfs3_3_op_setxattr_call, ptr @glusterfs_gfs3_3_op_common_reply }, %struct._vsff { i32 18, ptr @.str.491, ptr @glusterfs_gfs3_3_op_getxattr_call, ptr @glusterfs_gfs3_3_op_getxattr_reply }, %struct._vsff { i32 19, ptr @.str.492, ptr @glusterfs_gfs3_3_op_removexattr_call, ptr @glusterfs_gfs3_3_op_common_reply }, %struct._vsff { i32 20, ptr @.str.493, ptr @glusterfs_gfs3_3_op_opendir_call, ptr @glusterfs_gfs3_3_op_opendir_reply }, %struct._vsff { i32 21, ptr @.str.494, ptr @glusterfs_gfs3_3_op_fsync_call, ptr @glusterfs_gfs3_3_op_common_reply }, %struct._vsff { i32 22, ptr @.str.495, ptr @glusterfs_gfs3_3_op_access_call, ptr @glusterfs_gfs3_3_op_common_reply }, %struct._vsff { i32 23, ptr @.str.496, ptr @glusterfs_gfs3_3_op_create_call, ptr @glusterfs_gfs3_3_op_create_reply }, %struct._vsff { i32 24, ptr @.str.497, ptr @glusterfs_gfs3_3_op_ftruncate_call, ptr @glusterfs_gfs3_3_op_unlink_reply }, %struct._vsff { i32 25, ptr @.str.498, ptr @glusterfs_gfs3_3_op_fstat_call, ptr @glusterfs_gfs3_3_op_fstat_reply }, %struct._vsff { i32 26, ptr @.str.499, ptr @glusterfs_gfs3_3_op_lk_call, ptr @glusterfs_gfs3_3_op_lk_reply }, %struct._vsff { i32 27, ptr @.str.500, ptr @glusterfs_gfs3_3_op_lookup_call, ptr @glusterfs_gfs3_3_op_setattr_reply }, %struct._vsff { i32 28, ptr @.str.501, ptr @glusterfs_gfs3_3_op_readdir_call, ptr @glusterfs_gfs3_3_op_readdir_reply }, %struct._vsff { i32 29, ptr @.str.502, ptr @glusterfs_gfs3_3_op_inodelk_call, ptr @glusterfs_gfs3_3_op_common_reply }, %struct._vsff { i32 30, ptr @.str.503, ptr @glusterfs_gfs3_3_op_finodelk_call, ptr @glusterfs_gfs3_3_op_common_reply }, %struct._vsff { i32 31, ptr @.str.504, ptr @glusterfs_gfs3_3_op_entrylk_call, ptr @glusterfs_gfs3_3_op_common_reply }, %struct._vsff { i32 32, ptr @.str.505, ptr @glusterfs_gfs3_3_op_fentrylk_call, ptr @glusterfs_gfs3_3_op_common_reply }, %struct._vsff { i32 33, ptr @.str.506, ptr @glusterfs_gfs3_3_op_xattrop_call, ptr @glusterfs_gfs3_3_op_xattrop_reply }, %struct._vsff { i32 34, ptr @.str.507, ptr @glusterfs_gfs3_3_op_fxattrop_call, ptr @glusterfs_gfs3_3_op_xattrop_reply }, %struct._vsff { i32 35, ptr @.str.508, ptr @glusterfs_gfs3_3_op_fgetxattr_call, ptr @glusterfs_gfs3_3_op_xattrop_reply }, %struct._vsff { i32 36, ptr @.str.509, ptr @gluter_gfs3_3_op_fsetxattr_call, ptr @glusterfs_gfs3_3_op_common_reply }, %struct._vsff { i32 37, ptr @.str.510, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 38, ptr @.str.511, ptr @glusterfs_gfs3_3_op_setattr_call, ptr @glusterfs_gfs3_3_op_setattr_reply }, %struct._vsff { i32 39, ptr @.str.512, ptr @glusterfs_gfs3_3_op_setattr_call, ptr @glusterfs_gfs3_3_op_setattr_reply }, %struct._vsff { i32 40, ptr @.str.513, ptr @glusterfs_gfs3_3_op_readdirp_call, ptr @glusterfs_gfs3_3_op_readdirp_reply }, %struct._vsff { i32 42, ptr @.str.515, ptr @glusterfs_gfs3_3_op_release_call, ptr @glusterfs_gfs3_3_op_common_reply }, %struct._vsff { i32 43, ptr @.str.516, ptr @glusterfs_gfs3_3_op_releasedir_call, ptr @glusterfs_gfs3_3_op_common_reply }, %struct._vsff { i32 44, ptr @.str.517, ptr @glusterfs_gfs3_3_op_fremovexattr_call, ptr @glusterfs_gfs3_3_op_common_reply }, %struct._vsff { i32 45, ptr @.str.518, ptr @glusterfs_gfs3_3_op_fallocate_call, ptr @glusterfs_gfs3_3_op_setattr_reply }, %struct._vsff { i32 46, ptr @.str.519, ptr @glusterfs_gfs3_3_op_readdirp_call, ptr @glusterfs_gfs3_3_op_setattr_reply }, %struct._vsff { i32 47, ptr @.str.520, ptr @glusterfs_gfs3_3_op_zerofill_call, ptr @glusterfs_gfs3_3_op_setattr_reply }, %struct._vsff { i32 49, ptr @.str.522, ptr @glusterfs_gfs3_3_op_seek_call, ptr @glusterfs_gfs3_3_op_seek_reply }, %struct._vsff zeroinitializer], align 16
-@glusterfs4_0_fop_proc = internal constant [49 x %struct._vsff] [%struct._vsff { i32 0, ptr @.str.473, ptr @dissect_rpc_void, ptr @dissect_rpc_void }, %struct._vsff { i32 1, ptr @.str.474, ptr @glusterfs_gfs4_0_op_stat_call, ptr @glusterfs_gfs4_0_op_common_iatt_reply }, %struct._vsff { i32 2, ptr @.str.475, ptr @glusterfs_gfs4_0_op_readlink_call, ptr @glusterfs_gfs4_0_op_readlink_reply }, %struct._vsff { i32 3, ptr @.str.476, ptr @glusterfs_gfs4_0_op_mknod_call, ptr @glusterfs_gfs4_0_op_common_3iatt_reply }, %struct._vsff { i32 4, ptr @.str.477, ptr @glusterfs_gfs4_0_op_mkdir_call, ptr @glusterfs_gfs4_0_op_common_3iatt_reply }, %struct._vsff { i32 5, ptr @.str.478, ptr @glusterfs_gfs4_0_op_unlink_call, ptr @glusterfs_gfs4_0_op_common_2parent_iatt_reply }, %struct._vsff { i32 6, ptr @.str.479, ptr @glusterfs_gfs4_0_op_rmdir_call, ptr @glusterfs_gfs4_0_op_common_2parent_iatt_reply }, %struct._vsff { i32 7, ptr @.str.480, ptr @glusterfs_gfs4_0_op_symlink_call, ptr @glusterfs_gfs4_0_op_common_3iatt_reply }, %struct._vsff { i32 8, ptr @.str.481, ptr @glusterfs_gfs4_0_op_rename_call, ptr @glusterfs_gfs4_0_op_rename_reply }, %struct._vsff { i32 9, ptr @.str.482, ptr @glusterfs_gfs4_0_op_link_call, ptr @glusterfs_gfs4_0_op_common_3iatt_reply }, %struct._vsff { i32 10, ptr @.str.483, ptr @glusterfs_gfs4_0_op_truncate_call, ptr @glusterfs_gfs4_0_op_common_2iatt_reply }, %struct._vsff { i32 11, ptr @.str.484, ptr @glusterfs_gfs4_0_op_open_call, ptr @glusterfs_gfs4_0_op_open_reply }, %struct._vsff { i32 12, ptr @.str.485, ptr @glusterfs_gfs4_0_op_read_call, ptr @glusterfs_gfs4_0_op_read_reply }, %struct._vsff { i32 13, ptr @.str.486, ptr @glusterfs_gfs4_0_op_write_call, ptr @glusterfs_gfs4_0_op_common_2iatt_reply }, %struct._vsff { i32 14, ptr @.str.487, ptr @glusterfs_gfs4_0_op_statfs_call, ptr @glusterfs_gfs4_0_op_statfs_reply }, %struct._vsff { i32 15, ptr @.str.488, ptr @glusterfs_gfs4_0_op_flush_call, ptr @glusterfs_gfs4_0_op_common_reply }, %struct._vsff { i32 16, ptr @.str.489, ptr @glusterfs_gfs4_0_op_fsync_call, ptr @glusterfs_gfs4_0_op_common_2iatt_reply }, %struct._vsff { i32 17, ptr @.str.490, ptr @glusterfs_gfs4_0_op_setxattr_call, ptr @glusterfs_gfs4_0_op_common_reply }, %struct._vsff { i32 18, ptr @.str.491, ptr @glusterfs_gfs4_0_op_getxattr_call, ptr @glusterfs_gfs4_0_op_common_dict_reply }, %struct._vsff { i32 19, ptr @.str.492, ptr @glusterfs_gfs4_0_op_removexattr_call, ptr @glusterfs_gfs4_0_op_common_reply }, %struct._vsff { i32 20, ptr @.str.493, ptr @glusterfs_gfs4_0_op_opendir_call, ptr @glusterfs_gfs4_0_op_open_reply }, %struct._vsff { i32 21, ptr @.str.494, ptr @glusterfs_gfs4_0_op_fsync_call, ptr @glusterfs_gfs4_0_op_common_reply }, %struct._vsff { i32 22, ptr @.str.495, ptr @glusterfs_gfs4_0_op_access_call, ptr @glusterfs_gfs4_0_op_common_reply }, %struct._vsff { i32 23, ptr @.str.496, ptr @glusterfs_gfs4_0_op_create_call, ptr @glusterfs_gfs4_0_op_create_reply }, %struct._vsff { i32 24, ptr @.str.497, ptr @glusterfs_gfs4_0_op_ftruncate_call, ptr @glusterfs_gfs4_0_op_common_2iatt_reply }, %struct._vsff { i32 25, ptr @.str.498, ptr @glusterfs_gfs4_0_op_fstat_call, ptr @glusterfs_gfs4_0_op_common_iatt_reply }, %struct._vsff { i32 26, ptr @.str.499, ptr @glusterfs_gfs4_0_op_lk_call, ptr @glusterfs_gfs4_0_op_lk_reply }, %struct._vsff { i32 27, ptr @.str.500, ptr @glusterfs_gfs4_0_op_lookup_call, ptr @glusterfs_gfs4_0_op_common_2iatt_reply }, %struct._vsff { i32 28, ptr @.str.501, ptr @glusterfs_gfs4_0_op_readdir_call, ptr @glusterfs_gfs4_0_op_readdir_reply }, %struct._vsff { i32 29, ptr @.str.502, ptr @glusterfs_gfs4_0_op_inodelk_call, ptr @glusterfs_gfs4_0_op_common_reply }, %struct._vsff { i32 30, ptr @.str.503, ptr @glusterfs_gfs4_0_op_finodelk_call, ptr @glusterfs_gfs4_0_op_common_reply }, %struct._vsff { i32 31, ptr @.str.504, ptr @glusterfs_gfs4_0_op_entrylk_call, ptr @glusterfs_gfs4_0_op_common_reply }, %struct._vsff { i32 32, ptr @.str.505, ptr @glusterfs_gfs4_0_op_fentrylk_call, ptr @glusterfs_gfs4_0_op_common_reply }, %struct._vsff { i32 33, ptr @.str.506, ptr @glusterfs_gfs4_0_op_xattrop_call, ptr @glusterfs_gfs4_0_op_common_dict_reply }, %struct._vsff { i32 34, ptr @.str.507, ptr @glusterfs_gfs4_0_op_fxattrop_call, ptr @glusterfs_gfs4_0_op_common_dict_reply }, %struct._vsff { i32 35, ptr @.str.508, ptr @glusterfs_gfs4_0_op_fgetxattr_call, ptr @glusterfs_gfs4_0_op_common_dict_reply }, %struct._vsff { i32 36, ptr @.str.509, ptr @gluter_gfs4_0_op_fsetxattr_call, ptr @glusterfs_gfs4_0_op_common_reply }, %struct._vsff { i32 37, ptr @.str.510, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 38, ptr @.str.511, ptr @glusterfs_gfs4_0_op_setattr_call, ptr @glusterfs_gfs4_0_op_common_2iatt_reply }, %struct._vsff { i32 39, ptr @.str.512, ptr @glusterfs_gfs4_0_op_fsetattr_call, ptr @glusterfs_gfs4_0_op_common_2iatt_reply }, %struct._vsff { i32 40, ptr @.str.513, ptr @glusterfs_gfs4_0_op_readdirp_call, ptr @glusterfs_gfs4_0_op_readdirp_reply }, %struct._vsff { i32 42, ptr @.str.515, ptr @glusterfs_gfs4_0_op_release_call, ptr @glusterfs_gfs4_0_op_common_reply }, %struct._vsff { i32 43, ptr @.str.516, ptr @glusterfs_gfs4_0_op_releasedir_call, ptr @glusterfs_gfs4_0_op_common_reply }, %struct._vsff { i32 44, ptr @.str.517, ptr @glusterfs_gfs4_0_op_fremovexattr_call, ptr @glusterfs_gfs4_0_op_common_reply }, %struct._vsff { i32 45, ptr @.str.518, ptr @glusterfs_gfs4_0_op_fallocate_call, ptr @glusterfs_gfs4_0_op_common_2iatt_reply }, %struct._vsff { i32 46, ptr @.str.519, ptr @glusterfs_gfs4_0_op_readdirp_call, ptr @glusterfs_gfs4_0_op_common_2iatt_reply }, %struct._vsff { i32 47, ptr @.str.520, ptr @glusterfs_gfs4_0_op_zerofill_call, ptr @glusterfs_gfs4_0_op_common_2iatt_reply }, %struct._vsff { i32 49, ptr @.str.522, ptr @glusterfs_gfs4_0_op_seek_call, ptr @glusterfs_gfs4_0_op_seek_reply }, %struct._vsff zeroinitializer], align 16
+@glusterfs_error_codes = internal constant [166 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.308 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.309 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.310 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.311 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.312 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.313 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.314 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.315 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.316 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.317 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.318 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.319 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.320 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.321 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.322 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.323 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.324 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.325 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.326 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.327 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.328 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.329 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.330 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.331 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.332 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.333 }, { i32, [4 x i8], ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.334 }, { i32, [4 x i8], ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.335 }, { i32, [4 x i8], ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.336 }, { i32, [4 x i8], ptr } { i32 29, [4 x i8] zeroinitializer, ptr @.str.337 }, { i32, [4 x i8], ptr } { i32 30, [4 x i8] zeroinitializer, ptr @.str.338 }, { i32, [4 x i8], ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.339 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.340 }, { i32, [4 x i8], ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.341 }, { i32, [4 x i8], ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.342 }, { i32, [4 x i8], ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.343 }, { i32, [4 x i8], ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.344 }, { i32, [4 x i8], ptr } { i32 37, [4 x i8] zeroinitializer, ptr @.str.345 }, { i32, [4 x i8], ptr } { i32 38, [4 x i8] zeroinitializer, ptr @.str.346 }, { i32, [4 x i8], ptr } { i32 39, [4 x i8] zeroinitializer, ptr @.str.347 }, { i32, [4 x i8], ptr } { i32 40, [4 x i8] zeroinitializer, ptr @.str.348 }, { i32, [4 x i8], ptr } { i32 42, [4 x i8] zeroinitializer, ptr @.str.349 }, { i32, [4 x i8], ptr } { i32 43, [4 x i8] zeroinitializer, ptr @.str.350 }, { i32, [4 x i8], ptr } { i32 44, [4 x i8] zeroinitializer, ptr @.str.351 }, { i32, [4 x i8], ptr } { i32 45, [4 x i8] zeroinitializer, ptr @.str.352 }, { i32, [4 x i8], ptr } { i32 46, [4 x i8] zeroinitializer, ptr @.str.353 }, { i32, [4 x i8], ptr } { i32 47, [4 x i8] zeroinitializer, ptr @.str.354 }, { i32, [4 x i8], ptr } { i32 48, [4 x i8] zeroinitializer, ptr @.str.355 }, { i32, [4 x i8], ptr } { i32 49, [4 x i8] zeroinitializer, ptr @.str.356 }, { i32, [4 x i8], ptr } { i32 50, [4 x i8] zeroinitializer, ptr @.str.357 }, { i32, [4 x i8], ptr } { i32 51, [4 x i8] zeroinitializer, ptr @.str.358 }, { i32, [4 x i8], ptr } { i32 52, [4 x i8] zeroinitializer, ptr @.str.359 }, { i32, [4 x i8], ptr } { i32 53, [4 x i8] zeroinitializer, ptr @.str.360 }, { i32, [4 x i8], ptr } { i32 54, [4 x i8] zeroinitializer, ptr @.str.361 }, { i32, [4 x i8], ptr } { i32 55, [4 x i8] zeroinitializer, ptr @.str.362 }, { i32, [4 x i8], ptr } { i32 56, [4 x i8] zeroinitializer, ptr @.str.363 }, { i32, [4 x i8], ptr } { i32 57, [4 x i8] zeroinitializer, ptr @.str.364 }, { i32, [4 x i8], ptr } { i32 59, [4 x i8] zeroinitializer, ptr @.str.365 }, { i32, [4 x i8], ptr } { i32 60, [4 x i8] zeroinitializer, ptr @.str.366 }, { i32, [4 x i8], ptr } { i32 61, [4 x i8] zeroinitializer, ptr @.str.367 }, { i32, [4 x i8], ptr } { i32 62, [4 x i8] zeroinitializer, ptr @.str.368 }, { i32, [4 x i8], ptr } { i32 63, [4 x i8] zeroinitializer, ptr @.str.369 }, { i32, [4 x i8], ptr } { i32 64, [4 x i8] zeroinitializer, ptr @.str.370 }, { i32, [4 x i8], ptr } { i32 65, [4 x i8] zeroinitializer, ptr @.str.371 }, { i32, [4 x i8], ptr } { i32 66, [4 x i8] zeroinitializer, ptr @.str.372 }, { i32, [4 x i8], ptr } { i32 67, [4 x i8] zeroinitializer, ptr @.str.373 }, { i32, [4 x i8], ptr } { i32 68, [4 x i8] zeroinitializer, ptr @.str.374 }, { i32, [4 x i8], ptr } { i32 69, [4 x i8] zeroinitializer, ptr @.str.375 }, { i32, [4 x i8], ptr } { i32 70, [4 x i8] zeroinitializer, ptr @.str.376 }, { i32, [4 x i8], ptr } { i32 71, [4 x i8] zeroinitializer, ptr @.str.377 }, { i32, [4 x i8], ptr } { i32 72, [4 x i8] zeroinitializer, ptr @.str.378 }, { i32, [4 x i8], ptr } { i32 73, [4 x i8] zeroinitializer, ptr @.str.379 }, { i32, [4 x i8], ptr } { i32 74, [4 x i8] zeroinitializer, ptr @.str.380 }, { i32, [4 x i8], ptr } { i32 75, [4 x i8] zeroinitializer, ptr @.str.381 }, { i32, [4 x i8], ptr } { i32 76, [4 x i8] zeroinitializer, ptr @.str.382 }, { i32, [4 x i8], ptr } { i32 77, [4 x i8] zeroinitializer, ptr @.str.383 }, { i32, [4 x i8], ptr } { i32 78, [4 x i8] zeroinitializer, ptr @.str.384 }, { i32, [4 x i8], ptr } { i32 79, [4 x i8] zeroinitializer, ptr @.str.385 }, { i32, [4 x i8], ptr } { i32 80, [4 x i8] zeroinitializer, ptr @.str.386 }, { i32, [4 x i8], ptr } { i32 81, [4 x i8] zeroinitializer, ptr @.str.387 }, { i32, [4 x i8], ptr } { i32 82, [4 x i8] zeroinitializer, ptr @.str.388 }, { i32, [4 x i8], ptr } { i32 83, [4 x i8] zeroinitializer, ptr @.str.389 }, { i32, [4 x i8], ptr } { i32 84, [4 x i8] zeroinitializer, ptr @.str.390 }, { i32, [4 x i8], ptr } { i32 85, [4 x i8] zeroinitializer, ptr @.str.391 }, { i32, [4 x i8], ptr } { i32 86, [4 x i8] zeroinitializer, ptr @.str.392 }, { i32, [4 x i8], ptr } { i32 87, [4 x i8] zeroinitializer, ptr @.str.393 }, { i32, [4 x i8], ptr } { i32 88, [4 x i8] zeroinitializer, ptr @.str.394 }, { i32, [4 x i8], ptr } { i32 89, [4 x i8] zeroinitializer, ptr @.str.395 }, { i32, [4 x i8], ptr } { i32 90, [4 x i8] zeroinitializer, ptr @.str.396 }, { i32, [4 x i8], ptr } { i32 91, [4 x i8] zeroinitializer, ptr @.str.397 }, { i32, [4 x i8], ptr } { i32 92, [4 x i8] zeroinitializer, ptr @.str.398 }, { i32, [4 x i8], ptr } { i32 93, [4 x i8] zeroinitializer, ptr @.str.399 }, { i32, [4 x i8], ptr } { i32 94, [4 x i8] zeroinitializer, ptr @.str.400 }, { i32, [4 x i8], ptr } { i32 95, [4 x i8] zeroinitializer, ptr @.str.401 }, { i32, [4 x i8], ptr } { i32 96, [4 x i8] zeroinitializer, ptr @.str.402 }, { i32, [4 x i8], ptr } { i32 97, [4 x i8] zeroinitializer, ptr @.str.403 }, { i32, [4 x i8], ptr } { i32 98, [4 x i8] zeroinitializer, ptr @.str.404 }, { i32, [4 x i8], ptr } { i32 99, [4 x i8] zeroinitializer, ptr @.str.405 }, { i32, [4 x i8], ptr } { i32 100, [4 x i8] zeroinitializer, ptr @.str.406 }, { i32, [4 x i8], ptr } { i32 101, [4 x i8] zeroinitializer, ptr @.str.407 }, { i32, [4 x i8], ptr } { i32 102, [4 x i8] zeroinitializer, ptr @.str.408 }, { i32, [4 x i8], ptr } { i32 103, [4 x i8] zeroinitializer, ptr @.str.409 }, { i32, [4 x i8], ptr } { i32 104, [4 x i8] zeroinitializer, ptr @.str.410 }, { i32, [4 x i8], ptr } { i32 105, [4 x i8] zeroinitializer, ptr @.str.411 }, { i32, [4 x i8], ptr } { i32 106, [4 x i8] zeroinitializer, ptr @.str.412 }, { i32, [4 x i8], ptr } { i32 107, [4 x i8] zeroinitializer, ptr @.str.413 }, { i32, [4 x i8], ptr } { i32 108, [4 x i8] zeroinitializer, ptr @.str.414 }, { i32, [4 x i8], ptr } { i32 109, [4 x i8] zeroinitializer, ptr @.str.415 }, { i32, [4 x i8], ptr } { i32 110, [4 x i8] zeroinitializer, ptr @.str.416 }, { i32, [4 x i8], ptr } { i32 111, [4 x i8] zeroinitializer, ptr @.str.417 }, { i32, [4 x i8], ptr } { i32 112, [4 x i8] zeroinitializer, ptr @.str.418 }, { i32, [4 x i8], ptr } { i32 113, [4 x i8] zeroinitializer, ptr @.str.419 }, { i32, [4 x i8], ptr } { i32 114, [4 x i8] zeroinitializer, ptr @.str.420 }, { i32, [4 x i8], ptr } { i32 115, [4 x i8] zeroinitializer, ptr @.str.421 }, { i32, [4 x i8], ptr } { i32 116, [4 x i8] zeroinitializer, ptr @.str.422 }, { i32, [4 x i8], ptr } { i32 117, [4 x i8] zeroinitializer, ptr @.str.423 }, { i32, [4 x i8], ptr } { i32 118, [4 x i8] zeroinitializer, ptr @.str.424 }, { i32, [4 x i8], ptr } { i32 119, [4 x i8] zeroinitializer, ptr @.str.425 }, { i32, [4 x i8], ptr } { i32 120, [4 x i8] zeroinitializer, ptr @.str.426 }, { i32, [4 x i8], ptr } { i32 121, [4 x i8] zeroinitializer, ptr @.str.427 }, { i32, [4 x i8], ptr } { i32 122, [4 x i8] zeroinitializer, ptr @.str.428 }, { i32, [4 x i8], ptr } { i32 123, [4 x i8] zeroinitializer, ptr @.str.429 }, { i32, [4 x i8], ptr } { i32 124, [4 x i8] zeroinitializer, ptr @.str.430 }, { i32, [4 x i8], ptr } { i32 125, [4 x i8] zeroinitializer, ptr @.str.431 }, { i32, [4 x i8], ptr } { i32 126, [4 x i8] zeroinitializer, ptr @.str.432 }, { i32, [4 x i8], ptr } { i32 127, [4 x i8] zeroinitializer, ptr @.str.433 }, { i32, [4 x i8], ptr } { i32 128, [4 x i8] zeroinitializer, ptr @.str.434 }, { i32, [4 x i8], ptr } { i32 129, [4 x i8] zeroinitializer, ptr @.str.435 }, { i32, [4 x i8], ptr } { i32 130, [4 x i8] zeroinitializer, ptr @.str.436 }, { i32, [4 x i8], ptr } { i32 131, [4 x i8] zeroinitializer, ptr @.str.437 }, { i32, [4 x i8], ptr } { i32 512, [4 x i8] zeroinitializer, ptr @.str.438 }, { i32, [4 x i8], ptr } { i32 513, [4 x i8] zeroinitializer, ptr @.str.439 }, { i32, [4 x i8], ptr } { i32 514, [4 x i8] zeroinitializer, ptr @.str.440 }, { i32, [4 x i8], ptr } { i32 515, [4 x i8] zeroinitializer, ptr @.str.441 }, { i32, [4 x i8], ptr } { i32 516, [4 x i8] zeroinitializer, ptr @.str.442 }, { i32, [4 x i8], ptr } { i32 521, [4 x i8] zeroinitializer, ptr @.str.443 }, { i32, [4 x i8], ptr } { i32 522, [4 x i8] zeroinitializer, ptr @.str.444 }, { i32, [4 x i8], ptr } { i32 523, [4 x i8] zeroinitializer, ptr @.str.445 }, { i32, [4 x i8], ptr } { i32 524, [4 x i8] zeroinitializer, ptr @.str.446 }, { i32, [4 x i8], ptr } { i32 525, [4 x i8] zeroinitializer, ptr @.str.447 }, { i32, [4 x i8], ptr } { i32 526, [4 x i8] zeroinitializer, ptr @.str.448 }, { i32, [4 x i8], ptr } { i32 527, [4 x i8] zeroinitializer, ptr @.str.449 }, { i32, [4 x i8], ptr } { i32 528, [4 x i8] zeroinitializer, ptr @.str.450 }, { i32, [4 x i8], ptr } { i32 529, [4 x i8] zeroinitializer, ptr @.str.451 }, { i32, [4 x i8], ptr } { i32 530, [4 x i8] zeroinitializer, ptr @.str.452 }, { i32, [4 x i8], ptr } { i32 701, [4 x i8] zeroinitializer, ptr @.str.453 }, { i32, [4 x i8], ptr } { i32 702, [4 x i8] zeroinitializer, ptr @.str.454 }, { i32, [4 x i8], ptr } { i32 703, [4 x i8] zeroinitializer, ptr @.str.455 }, { i32, [4 x i8], ptr } { i32 704, [4 x i8] zeroinitializer, ptr @.str.456 }, { i32, [4 x i8], ptr } { i32 705, [4 x i8] zeroinitializer, ptr @.str.457 }, { i32, [4 x i8], ptr } { i32 706, [4 x i8] zeroinitializer, ptr @.str.458 }, { i32, [4 x i8], ptr } { i32 707, [4 x i8] zeroinitializer, ptr @.str.459 }, { i32, [4 x i8], ptr } { i32 801, [4 x i8] zeroinitializer, ptr @.str.460 }, { i32, [4 x i8], ptr } { i32 802, [4 x i8] zeroinitializer, ptr @.str.461 }, { i32, [4 x i8], ptr } { i32 901, [4 x i8] zeroinitializer, ptr @.str.462 }, { i32, [4 x i8], ptr } { i32 902, [4 x i8] zeroinitializer, ptr @.str.463 }, { i32, [4 x i8], ptr } { i32 903, [4 x i8] zeroinitializer, ptr @.str.464 }, { i32, [4 x i8], ptr } { i32 904, [4 x i8] zeroinitializer, ptr @.str.465 }, { i32, [4 x i8], ptr } { i32 905, [4 x i8] zeroinitializer, ptr @.str.466 }, { i32, [4 x i8], ptr } { i32 905, [4 x i8] zeroinitializer, ptr @.str.467 }, { i32, [4 x i8], ptr } { i32 906, [4 x i8] zeroinitializer, ptr @.str.468 }, { i32, [4 x i8], ptr } { i32 907, [4 x i8] zeroinitializer, ptr @.str.469 }, { i32, [4 x i8], ptr } { i32 908, [4 x i8] zeroinitializer, ptr @.str.470 }, { i32, [4 x i8], ptr } { i32 909, [4 x i8] zeroinitializer, ptr @.str.471 }, { i32, [4 x i8], ptr } { i32 1024, [4 x i8] zeroinitializer, ptr @.str.12 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.473 = private unnamed_addr constant [27 x i8] c"glusterfs3_1_fop_proc_vals\00", align 1
+@.str.474 = private unnamed_addr constant [5 x i8] c"NULL\00", align 1
+@.str.475 = private unnamed_addr constant [5 x i8] c"STAT\00", align 1
+@.str.476 = private unnamed_addr constant [9 x i8] c"READLINK\00", align 1
+@.str.477 = private unnamed_addr constant [6 x i8] c"MKNOD\00", align 1
+@.str.478 = private unnamed_addr constant [6 x i8] c"MKDIR\00", align 1
+@.str.479 = private unnamed_addr constant [7 x i8] c"UNLINK\00", align 1
+@.str.480 = private unnamed_addr constant [6 x i8] c"RMDIR\00", align 1
+@.str.481 = private unnamed_addr constant [8 x i8] c"SYMLINK\00", align 1
+@.str.482 = private unnamed_addr constant [7 x i8] c"RENAME\00", align 1
+@.str.483 = private unnamed_addr constant [5 x i8] c"LINK\00", align 1
+@.str.484 = private unnamed_addr constant [9 x i8] c"TRUNCATE\00", align 1
+@.str.485 = private unnamed_addr constant [5 x i8] c"OPEN\00", align 1
+@.str.486 = private unnamed_addr constant [5 x i8] c"READ\00", align 1
+@.str.487 = private unnamed_addr constant [6 x i8] c"WRITE\00", align 1
+@.str.488 = private unnamed_addr constant [7 x i8] c"STATFS\00", align 1
+@.str.489 = private unnamed_addr constant [6 x i8] c"FLUSH\00", align 1
+@.str.490 = private unnamed_addr constant [6 x i8] c"FSYNC\00", align 1
+@.str.491 = private unnamed_addr constant [9 x i8] c"SETXATTR\00", align 1
+@.str.492 = private unnamed_addr constant [9 x i8] c"GETXATTR\00", align 1
+@.str.493 = private unnamed_addr constant [12 x i8] c"REMOVEXATTR\00", align 1
+@.str.494 = private unnamed_addr constant [8 x i8] c"OPENDIR\00", align 1
+@.str.495 = private unnamed_addr constant [9 x i8] c"FSYNCDIR\00", align 1
+@.str.496 = private unnamed_addr constant [7 x i8] c"ACCESS\00", align 1
+@.str.497 = private unnamed_addr constant [7 x i8] c"CREATE\00", align 1
+@.str.498 = private unnamed_addr constant [10 x i8] c"FTRUNCATE\00", align 1
+@.str.499 = private unnamed_addr constant [6 x i8] c"FSTAT\00", align 1
+@.str.500 = private unnamed_addr constant [3 x i8] c"LK\00", align 1
+@.str.501 = private unnamed_addr constant [7 x i8] c"LOOKUP\00", align 1
+@.str.502 = private unnamed_addr constant [8 x i8] c"READDIR\00", align 1
+@.str.503 = private unnamed_addr constant [8 x i8] c"INODELK\00", align 1
+@.str.504 = private unnamed_addr constant [9 x i8] c"FINODELK\00", align 1
+@.str.505 = private unnamed_addr constant [8 x i8] c"ENTRYLK\00", align 1
+@.str.506 = private unnamed_addr constant [9 x i8] c"FENTRYLK\00", align 1
+@.str.507 = private unnamed_addr constant [8 x i8] c"XATTROP\00", align 1
+@.str.508 = private unnamed_addr constant [9 x i8] c"FXATTROP\00", align 1
+@.str.509 = private unnamed_addr constant [10 x i8] c"FGETXATTR\00", align 1
+@.str.510 = private unnamed_addr constant [10 x i8] c"FSETXATTR\00", align 1
+@.str.511 = private unnamed_addr constant [10 x i8] c"RCHECKSUM\00", align 1
+@.str.512 = private unnamed_addr constant [8 x i8] c"SETATTR\00", align 1
+@.str.513 = private unnamed_addr constant [9 x i8] c"FSETATTR\00", align 1
+@.str.514 = private unnamed_addr constant [9 x i8] c"READDIRP\00", align 1
+@.str.515 = private unnamed_addr constant [7 x i8] c"FORGET\00", align 1
+@.str.516 = private unnamed_addr constant [8 x i8] c"RELEASE\00", align 1
+@.str.517 = private unnamed_addr constant [11 x i8] c"RELEASEDIR\00", align 1
+@.str.518 = private unnamed_addr constant [13 x i8] c"FREMOVEXATTR\00", align 1
+@.str.519 = private unnamed_addr constant [10 x i8] c"FALLOCATE\00", align 1
+@.str.520 = private unnamed_addr constant [8 x i8] c"DISCARD\00", align 1
+@.str.521 = private unnamed_addr constant [9 x i8] c"ZEROFILL\00", align 1
+@.str.522 = private unnamed_addr constant [4 x i8] c"IPC\00", align 1
+@.str.523 = private unnamed_addr constant [5 x i8] c"SEEK\00", align 1
+@glusterfs3_1_fop_proc_vals = internal constant [51 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.474 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.475 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.476 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.477 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.478 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.479 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.480 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.481 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.482 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.483 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.484 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.485 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.486 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.487 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.488 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.489 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.490 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.491 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.492 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.493 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.494 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.495 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.496 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.497 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.498 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.499 }, { i32, [4 x i8], ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.500 }, { i32, [4 x i8], ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.501 }, { i32, [4 x i8], ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.502 }, { i32, [4 x i8], ptr } { i32 29, [4 x i8] zeroinitializer, ptr @.str.503 }, { i32, [4 x i8], ptr } { i32 30, [4 x i8] zeroinitializer, ptr @.str.504 }, { i32, [4 x i8], ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.505 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.506 }, { i32, [4 x i8], ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.507 }, { i32, [4 x i8], ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.508 }, { i32, [4 x i8], ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.509 }, { i32, [4 x i8], ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.510 }, { i32, [4 x i8], ptr } { i32 37, [4 x i8] zeroinitializer, ptr @.str.511 }, { i32, [4 x i8], ptr } { i32 38, [4 x i8] zeroinitializer, ptr @.str.512 }, { i32, [4 x i8], ptr } { i32 39, [4 x i8] zeroinitializer, ptr @.str.513 }, { i32, [4 x i8], ptr } { i32 40, [4 x i8] zeroinitializer, ptr @.str.514 }, { i32, [4 x i8], ptr } { i32 41, [4 x i8] zeroinitializer, ptr @.str.515 }, { i32, [4 x i8], ptr } { i32 42, [4 x i8] zeroinitializer, ptr @.str.516 }, { i32, [4 x i8], ptr } { i32 43, [4 x i8] zeroinitializer, ptr @.str.517 }, { i32, [4 x i8], ptr } { i32 44, [4 x i8] zeroinitializer, ptr @.str.518 }, { i32, [4 x i8], ptr } { i32 45, [4 x i8] zeroinitializer, ptr @.str.519 }, { i32, [4 x i8], ptr } { i32 46, [4 x i8] zeroinitializer, ptr @.str.520 }, { i32, [4 x i8], ptr } { i32 47, [4 x i8] zeroinitializer, ptr @.str.521 }, { i32, [4 x i8], ptr } { i32 48, [4 x i8] zeroinitializer, ptr @.str.522 }, { i32, [4 x i8], ptr } { i32 49, [4 x i8] zeroinitializer, ptr @.str.523 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.525 = private unnamed_addr constant [14 x i8] c"GF_LK_F_RDLCK\00", align 1
+@.str.526 = private unnamed_addr constant [14 x i8] c"GF_LK_F_WRLCK\00", align 1
+@.str.527 = private unnamed_addr constant [14 x i8] c"GF_LK_F_UNLCK\00", align 1
+@.str.528 = private unnamed_addr constant [10 x i8] c"GF_LK_EOL\00", align 1
+@glusterfs_lk_type_names = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.525 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.526 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.527 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.528 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.530 = private unnamed_addr constant [23 x i8] c"glusterfs_lk_cmd_names\00", align 1
+@.str.531 = private unnamed_addr constant [12 x i8] c"GF_LK_GETLK\00", align 1
+@.str.532 = private unnamed_addr constant [12 x i8] c"GF_LK_SETLK\00", align 1
+@.str.533 = private unnamed_addr constant [13 x i8] c"GF_LK_SETLKW\00", align 1
+@.str.534 = private unnamed_addr constant [16 x i8] c"GF_LK_RESLK_LCK\00", align 1
+@.str.535 = private unnamed_addr constant [17 x i8] c"GF_LK_RESLK_LCKW\00", align 1
+@.str.536 = private unnamed_addr constant [18 x i8] c"GF_LK_RESLK_UNLCK\00", align 1
+@.str.537 = private unnamed_addr constant [15 x i8] c"GF_LK_GETLK_FD\00", align 1
+@glusterfs_lk_cmd_names = internal constant [8 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.531 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.532 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.533 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.534 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.535 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.536 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.537 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.539 = private unnamed_addr constant [10 x i8] c"SEEK_DATA\00", align 1
+@.str.540 = private unnamed_addr constant [10 x i8] c"SEEK_HOLE\00", align 1
+@glusterfs_seek_whence = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.539 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.540 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.542 = private unnamed_addr constant [8 x i8] c"Not set\00", align 1
+@.str.543 = private unnamed_addr constant [4 x i8] c"Set\00", align 1
+@glusterfs_accmode_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.542 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.542 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.542 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.543 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.545 = private unnamed_addr constant [27 x i8] c"glusterfs_entry_type_names\00", align 1
+@.str.546 = private unnamed_addr constant [11 x i8] c"DT_UNKNOWN\00", align 1
+@.str.547 = private unnamed_addr constant [8 x i8] c"DT_FIFO\00", align 1
+@.str.548 = private unnamed_addr constant [7 x i8] c"DT_CHR\00", align 1
+@.str.549 = private unnamed_addr constant [7 x i8] c"DT_DIR\00", align 1
+@.str.550 = private unnamed_addr constant [7 x i8] c"DT_BLK\00", align 1
+@.str.551 = private unnamed_addr constant [7 x i8] c"DT_REG\00", align 1
+@.str.552 = private unnamed_addr constant [7 x i8] c"DT_LNK\00", align 1
+@.str.553 = private unnamed_addr constant [8 x i8] c"DT_SOCK\00", align 1
+@.str.554 = private unnamed_addr constant [7 x i8] c"DT_WHT\00", align 1
+@glusterfs_entry_type_names = internal constant [10 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.546 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.547 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.548 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.549 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.550 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.551 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.552 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.553 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.554 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.556 = private unnamed_addr constant [9 x i8] c"SEEK_SET\00", align 1
+@.str.557 = private unnamed_addr constant [9 x i8] c"SEEK_CUR\00", align 1
+@.str.558 = private unnamed_addr constant [9 x i8] c"SEEK_END\00", align 1
+@glusterfs_lk_whence = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.556 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.557 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.558 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@glusterfs_vers_info = internal constant [3 x { i32, [4 x i8], ptr, ptr }] [{ i32, [4 x i8], ptr, ptr } { i32 310, [4 x i8] zeroinitializer, ptr @glusterfs3_1_fop_proc, ptr @hf_glusterfs_proc }, { i32, [4 x i8], ptr, ptr } { i32 330, [4 x i8] zeroinitializer, ptr @glusterfs3_3_fop_proc, ptr @hf_glusterfs_proc }, { i32, [4 x i8], ptr, ptr } { i32 400, [4 x i8] zeroinitializer, ptr @glusterfs4_0_fop_proc, ptr @hf_glusterfs_proc }], align 16
+@glusterfs3_1_fop_proc = internal constant [44 x { i32, [4 x i8], ptr, ptr, ptr }] [{ i32, [4 x i8], ptr, ptr, ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.474, ptr @dissect_rpc_void, ptr @dissect_rpc_void }, { i32, [4 x i8], ptr, ptr, ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.475, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.476, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.477, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.478, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.479, ptr @glusterfs_gfs3_op_unlink_call, ptr @glusterfs_gfs3_op_unlink_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.480, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.481, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.482, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.483, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.484, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.485, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.486, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.487, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.488, ptr @glusterfs_gfs3_op_statfs_call, ptr @glusterfs_gfs3_op_statfs_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.489, ptr @glusterfs_gfs3_op_flush_call, ptr @gluster_local_dissect_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.490, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.491, ptr @glusterfs_gfs3_op_setxattr_call, ptr @gluster_local_dissect_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.492, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.493, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.494, ptr @glusterfs_gfs3_op_opendir_call, ptr @glusterfs_gfs3_op_opendir_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.495, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.496, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.497, ptr @glusterfs_gfs3_op_create_call, ptr @glusterfs_gfs3_op_create_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.498, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.499, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.500, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.501, ptr @glusterfs_gfs3_op_lookup_call, ptr @glusterfs_gfs3_op_lookup_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.502, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 29, [4 x i8] zeroinitializer, ptr @.str.503, ptr @glusterfs_gfs3_op_inodelk_call, ptr @gluster_local_dissect_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 30, [4 x i8] zeroinitializer, ptr @.str.504, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.505, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.506, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.507, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.508, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.509, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.510, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 37, [4 x i8] zeroinitializer, ptr @.str.511, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 38, [4 x i8] zeroinitializer, ptr @.str.512, ptr @glusterfs_gfs3_op_setattr_call, ptr @glusterfs_gfs3_op_setattr_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 39, [4 x i8] zeroinitializer, ptr @.str.513, ptr @glusterfs_gfs3_op_setattr_call, ptr @glusterfs_gfs3_op_setattr_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 40, [4 x i8] zeroinitializer, ptr @.str.514, ptr @glusterfs_gfs3_op_readdirp_call, ptr @glusterfs_gfs3_op_readdirp_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 42, [4 x i8] zeroinitializer, ptr @.str.516, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 43, [4 x i8] zeroinitializer, ptr @.str.517, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } zeroinitializer], align 16
 @glusterfs_rpc_dissect_statfs.flag_bits = internal constant [13 x ptr] [ptr @hf_glusterfs_mnt_flag_rdonly, ptr @hf_glusterfs_mnt_flag_nosuid, ptr @hf_glusterfs_mnt_flag_nodev, ptr @hf_glusterfs_mnt_flag_noexec, ptr @hf_glusterfs_mnt_flag_synchronous, ptr @hf_glusterfs_mnt_flag_mandlock, ptr @hf_glusterfs_mnt_flag_write, ptr @hf_glusterfs_mnt_flag_append, ptr @hf_glusterfs_mnt_flag_immutable, ptr @hf_glusterfs_mnt_flag_noatime, ptr @hf_glusterfs_mnt_flag_nodiratime, ptr @hf_glusterfs_mnt_flag_relatime, ptr null], align 16
 @glusterfs_rpc_dissect_flags.flag_bits = internal constant [19 x ptr] [ptr @hf_glusterfs_flags_wronly, ptr @hf_glusterfs_flags_rdwr, ptr @hf_glusterfs_flags_creat, ptr @hf_glusterfs_flags_excl, ptr @hf_glusterfs_flags_noctty, ptr @hf_glusterfs_flags_trunc, ptr @hf_glusterfs_flags_append, ptr @hf_glusterfs_flags_nonblock, ptr @hf_glusterfs_flags_ndelay, ptr @hf_glusterfs_flags_sync, ptr @hf_glusterfs_flags_async, ptr @hf_glusterfs_flags_direct, ptr @hf_glusterfs_flags_largefile, ptr @hf_glusterfs_flags_directory, ptr @hf_glusterfs_flags_nofollow, ptr @hf_glusterfs_flags_noatime, ptr @hf_glusterfs_flags_cloexec, ptr @hf_glusterfs_flags_reserved, ptr null], align 16
-@.str.552 = private unnamed_addr constant [5 x i8] c", %s\00", align 1
-@.str.553 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
-@.str.554 = private unnamed_addr constant [6 x i8] c"Flock\00", align 1
+@.str.562 = private unnamed_addr constant [5 x i8] c", %s\00", align 1
+@.str.563 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
+@.str.564 = private unnamed_addr constant [6 x i8] c"Flock\00", align 1
 @glusterfs_rpc_dissect_setattr.flag_bits = internal constant [8 x ptr] [ptr @hf_glusterfs_setattr_set_mode, ptr @hf_glusterfs_setattr_set_uid, ptr @hf_glusterfs_setattr_set_gid, ptr @hf_glusterfs_setattr_set_size, ptr @hf_glusterfs_setattr_set_atime, ptr @hf_glusterfs_setattr_set_mtime, ptr @hf_glusterfs_setattr_set_reserved, ptr null], align 16
-@.str.555 = private unnamed_addr constant [23 x i8] c" (More replies follow)\00", align 1
-@.str.556 = private unnamed_addr constant [14 x i8] c" (Last reply)\00", align 1
-@.str.557 = private unnamed_addr constant [6 x i8] c"Entry\00", align 1
-@.str.558 = private unnamed_addr constant [10 x i8] c" Path: %s\00", align 1
-@.str.559 = private unnamed_addr constant [8 x i8] c"%s: %ld\00", align 1
-@.str.560 = private unnamed_addr constant [8 x i8] c"%s: %lu\00", align 1
-@.str.561 = private unnamed_addr constant [7 x i8] c"%s: %f\00", align 1
-@.str.562 = private unnamed_addr constant [15 x i8] c", Filename: %s\00", align 1
-@.str.563 = private unnamed_addr constant [13 x i8] c"Flags: 0%02o\00", align 1
-@.str.564 = private unnamed_addr constant [11 x i8] c"Old parent\00", align 1
-@.str.565 = private unnamed_addr constant [11 x i8] c"New parent\00", align 1
+@.str.565 = private unnamed_addr constant [23 x i8] c" (More replies follow)\00", align 1
+@.str.566 = private unnamed_addr constant [14 x i8] c" (Last reply)\00", align 1
+@.str.567 = private unnamed_addr constant [6 x i8] c"Entry\00", align 1
+@.str.568 = private unnamed_addr constant [10 x i8] c" Path: %s\00", align 1
+@.str.569 = private unnamed_addr constant [8 x i8] c"%s: %ld\00", align 1
+@.str.570 = private unnamed_addr constant [8 x i8] c"%s: %lu\00", align 1
+@.str.571 = private unnamed_addr constant [7 x i8] c"%s: %f\00", align 1
+@glusterfs3_3_fop_proc = internal constant [49 x { i32, [4 x i8], ptr, ptr, ptr }] [{ i32, [4 x i8], ptr, ptr, ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.474, ptr @dissect_rpc_void, ptr @dissect_rpc_void }, { i32, [4 x i8], ptr, ptr, ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.475, ptr @glusterfs_gfs3_3_op_stat_call, ptr @glusterfs_gfs3_3_op_stat_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.476, ptr @glusterfs_gfs3_3_op_readlink_call, ptr @glusterfs_gfs3_3_op_readlink_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.477, ptr @glusterfs_gfs3_3_op_mknod_call, ptr @glusterfs_gfs3_3_op_mknod_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.478, ptr @glusterfs_gfs3_3_op_mkdir_call, ptr @glusterfs_gfs3_3_op_mknod_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.479, ptr @glusterfs_gfs3_3_op_unlink_call, ptr @glusterfs_gfs3_3_op_unlink_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.480, ptr @glusterfs_gfs3_3_op_rmdir_call, ptr @glusterfs_gfs3_3_op_unlink_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.481, ptr @glusterfs_gfs3_3_op_symlink_call, ptr @glusterfs_gfs3_3_op_mknod_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.482, ptr @glusterfs_gfs3_3_op_rename_call, ptr @glusterfs_gfs3_3_op_rename_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.483, ptr @glusterfs_gfs3_3_op_link_call, ptr @glusterfs_gfs3_3_op_mknod_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.484, ptr @glusterfs_gfs3_3_op_truncate_call, ptr @glusterfs_gfs3_3_op_unlink_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.485, ptr @glusterfs_gfs3_3_op_open_call, ptr @glusterfs_gfs3_3_op_open_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.486, ptr @glusterfs_gfs3_3_op_read_call, ptr @glusterfs_gfs3_3_op_read_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.487, ptr @glusterfs_gfs3_3_op_write_call, ptr @glusterfs_gfs3_3_op_setattr_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.488, ptr @glusterfs_gfs3_3_op_statfs_call, ptr @glusterfs_gfs3_3_op_statfs_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.489, ptr @glusterfs_gfs3_3_op_flush_call, ptr @glusterfs_gfs3_3_op_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.490, ptr @glusterfs_gfs3_3_op_fsync_call, ptr @glusterfs_gfs3_3_op_setattr_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.491, ptr @glusterfs_gfs3_3_op_setxattr_call, ptr @glusterfs_gfs3_3_op_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.492, ptr @glusterfs_gfs3_3_op_getxattr_call, ptr @glusterfs_gfs3_3_op_getxattr_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.493, ptr @glusterfs_gfs3_3_op_removexattr_call, ptr @glusterfs_gfs3_3_op_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.494, ptr @glusterfs_gfs3_3_op_opendir_call, ptr @glusterfs_gfs3_3_op_opendir_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.495, ptr @glusterfs_gfs3_3_op_fsync_call, ptr @glusterfs_gfs3_3_op_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.496, ptr @glusterfs_gfs3_3_op_access_call, ptr @glusterfs_gfs3_3_op_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.497, ptr @glusterfs_gfs3_3_op_create_call, ptr @glusterfs_gfs3_3_op_create_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.498, ptr @glusterfs_gfs3_3_op_ftruncate_call, ptr @glusterfs_gfs3_3_op_unlink_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.499, ptr @glusterfs_gfs3_3_op_fstat_call, ptr @glusterfs_gfs3_3_op_fstat_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.500, ptr @glusterfs_gfs3_3_op_lk_call, ptr @glusterfs_gfs3_3_op_lk_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.501, ptr @glusterfs_gfs3_3_op_lookup_call, ptr @glusterfs_gfs3_3_op_setattr_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.502, ptr @glusterfs_gfs3_3_op_readdir_call, ptr @glusterfs_gfs3_3_op_readdir_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 29, [4 x i8] zeroinitializer, ptr @.str.503, ptr @glusterfs_gfs3_3_op_inodelk_call, ptr @glusterfs_gfs3_3_op_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 30, [4 x i8] zeroinitializer, ptr @.str.504, ptr @glusterfs_gfs3_3_op_finodelk_call, ptr @glusterfs_gfs3_3_op_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.505, ptr @glusterfs_gfs3_3_op_entrylk_call, ptr @glusterfs_gfs3_3_op_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.506, ptr @glusterfs_gfs3_3_op_fentrylk_call, ptr @glusterfs_gfs3_3_op_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.507, ptr @glusterfs_gfs3_3_op_xattrop_call, ptr @glusterfs_gfs3_3_op_xattrop_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.508, ptr @glusterfs_gfs3_3_op_fxattrop_call, ptr @glusterfs_gfs3_3_op_xattrop_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.509, ptr @glusterfs_gfs3_3_op_fgetxattr_call, ptr @glusterfs_gfs3_3_op_xattrop_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.510, ptr @gluter_gfs3_3_op_fsetxattr_call, ptr @glusterfs_gfs3_3_op_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 37, [4 x i8] zeroinitializer, ptr @.str.511, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 38, [4 x i8] zeroinitializer, ptr @.str.512, ptr @glusterfs_gfs3_3_op_setattr_call, ptr @glusterfs_gfs3_3_op_setattr_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 39, [4 x i8] zeroinitializer, ptr @.str.513, ptr @glusterfs_gfs3_3_op_setattr_call, ptr @glusterfs_gfs3_3_op_setattr_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 40, [4 x i8] zeroinitializer, ptr @.str.514, ptr @glusterfs_gfs3_3_op_readdirp_call, ptr @glusterfs_gfs3_3_op_readdirp_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 42, [4 x i8] zeroinitializer, ptr @.str.516, ptr @glusterfs_gfs3_3_op_release_call, ptr @glusterfs_gfs3_3_op_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 43, [4 x i8] zeroinitializer, ptr @.str.517, ptr @glusterfs_gfs3_3_op_releasedir_call, ptr @glusterfs_gfs3_3_op_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 44, [4 x i8] zeroinitializer, ptr @.str.518, ptr @glusterfs_gfs3_3_op_fremovexattr_call, ptr @glusterfs_gfs3_3_op_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 45, [4 x i8] zeroinitializer, ptr @.str.519, ptr @glusterfs_gfs3_3_op_fallocate_call, ptr @glusterfs_gfs3_3_op_setattr_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 46, [4 x i8] zeroinitializer, ptr @.str.520, ptr @glusterfs_gfs3_3_op_readdirp_call, ptr @glusterfs_gfs3_3_op_setattr_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 47, [4 x i8] zeroinitializer, ptr @.str.521, ptr @glusterfs_gfs3_3_op_zerofill_call, ptr @glusterfs_gfs3_3_op_setattr_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 49, [4 x i8] zeroinitializer, ptr @.str.523, ptr @glusterfs_gfs3_3_op_seek_call, ptr @glusterfs_gfs3_3_op_seek_reply }, { i32, [4 x i8], ptr, ptr, ptr } zeroinitializer], align 16
+@.str.573 = private unnamed_addr constant [15 x i8] c", Filename: %s\00", align 1
+@.str.574 = private unnamed_addr constant [13 x i8] c"Flags: 0%02o\00", align 1
+@.str.575 = private unnamed_addr constant [11 x i8] c"Old parent\00", align 1
+@.str.576 = private unnamed_addr constant [11 x i8] c"New parent\00", align 1
 @glusterfs_gfs3_3_op_fsync_call.flag_bits = internal constant [3 x ptr] [ptr @hf_glusterfs_fsync_flag_datasync, ptr @hf_glusterfs_fsync_flag_unknown, ptr null], align 16
-@.str.566 = private unnamed_addr constant [32 x i8] c", Filename: (nameless, by GFID)\00", align 1
+@.str.577 = private unnamed_addr constant [32 x i8] c", Filename: (nameless, by GFID)\00", align 1
+@glusterfs4_0_fop_proc = internal constant [49 x { i32, [4 x i8], ptr, ptr, ptr }] [{ i32, [4 x i8], ptr, ptr, ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.474, ptr @dissect_rpc_void, ptr @dissect_rpc_void }, { i32, [4 x i8], ptr, ptr, ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.475, ptr @glusterfs_gfs4_0_op_stat_call, ptr @glusterfs_gfs4_0_op_common_iatt_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.476, ptr @glusterfs_gfs4_0_op_readlink_call, ptr @glusterfs_gfs4_0_op_readlink_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.477, ptr @glusterfs_gfs4_0_op_mknod_call, ptr @glusterfs_gfs4_0_op_common_3iatt_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.478, ptr @glusterfs_gfs4_0_op_mkdir_call, ptr @glusterfs_gfs4_0_op_common_3iatt_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.479, ptr @glusterfs_gfs4_0_op_unlink_call, ptr @glusterfs_gfs4_0_op_common_2parent_iatt_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.480, ptr @glusterfs_gfs4_0_op_rmdir_call, ptr @glusterfs_gfs4_0_op_common_2parent_iatt_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.481, ptr @glusterfs_gfs4_0_op_symlink_call, ptr @glusterfs_gfs4_0_op_common_3iatt_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.482, ptr @glusterfs_gfs4_0_op_rename_call, ptr @glusterfs_gfs4_0_op_rename_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.483, ptr @glusterfs_gfs4_0_op_link_call, ptr @glusterfs_gfs4_0_op_common_3iatt_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.484, ptr @glusterfs_gfs4_0_op_truncate_call, ptr @glusterfs_gfs4_0_op_common_2iatt_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.485, ptr @glusterfs_gfs4_0_op_open_call, ptr @glusterfs_gfs4_0_op_open_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.486, ptr @glusterfs_gfs4_0_op_read_call, ptr @glusterfs_gfs4_0_op_read_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.487, ptr @glusterfs_gfs4_0_op_write_call, ptr @glusterfs_gfs4_0_op_common_2iatt_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.488, ptr @glusterfs_gfs4_0_op_statfs_call, ptr @glusterfs_gfs4_0_op_statfs_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.489, ptr @glusterfs_gfs4_0_op_flush_call, ptr @glusterfs_gfs4_0_op_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.490, ptr @glusterfs_gfs4_0_op_fsync_call, ptr @glusterfs_gfs4_0_op_common_2iatt_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.491, ptr @glusterfs_gfs4_0_op_setxattr_call, ptr @glusterfs_gfs4_0_op_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.492, ptr @glusterfs_gfs4_0_op_getxattr_call, ptr @glusterfs_gfs4_0_op_common_dict_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.493, ptr @glusterfs_gfs4_0_op_removexattr_call, ptr @glusterfs_gfs4_0_op_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.494, ptr @glusterfs_gfs4_0_op_opendir_call, ptr @glusterfs_gfs4_0_op_open_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.495, ptr @glusterfs_gfs4_0_op_fsync_call, ptr @glusterfs_gfs4_0_op_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.496, ptr @glusterfs_gfs4_0_op_access_call, ptr @glusterfs_gfs4_0_op_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.497, ptr @glusterfs_gfs4_0_op_create_call, ptr @glusterfs_gfs4_0_op_create_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.498, ptr @glusterfs_gfs4_0_op_ftruncate_call, ptr @glusterfs_gfs4_0_op_common_2iatt_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.499, ptr @glusterfs_gfs4_0_op_fstat_call, ptr @glusterfs_gfs4_0_op_common_iatt_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.500, ptr @glusterfs_gfs4_0_op_lk_call, ptr @glusterfs_gfs4_0_op_lk_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.501, ptr @glusterfs_gfs4_0_op_lookup_call, ptr @glusterfs_gfs4_0_op_common_2iatt_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.502, ptr @glusterfs_gfs4_0_op_readdir_call, ptr @glusterfs_gfs4_0_op_readdir_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 29, [4 x i8] zeroinitializer, ptr @.str.503, ptr @glusterfs_gfs4_0_op_inodelk_call, ptr @glusterfs_gfs4_0_op_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 30, [4 x i8] zeroinitializer, ptr @.str.504, ptr @glusterfs_gfs4_0_op_finodelk_call, ptr @glusterfs_gfs4_0_op_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.505, ptr @glusterfs_gfs4_0_op_entrylk_call, ptr @glusterfs_gfs4_0_op_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.506, ptr @glusterfs_gfs4_0_op_fentrylk_call, ptr @glusterfs_gfs4_0_op_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.507, ptr @glusterfs_gfs4_0_op_xattrop_call, ptr @glusterfs_gfs4_0_op_common_dict_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.508, ptr @glusterfs_gfs4_0_op_fxattrop_call, ptr @glusterfs_gfs4_0_op_common_dict_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.509, ptr @glusterfs_gfs4_0_op_fgetxattr_call, ptr @glusterfs_gfs4_0_op_common_dict_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.510, ptr @gluter_gfs4_0_op_fsetxattr_call, ptr @glusterfs_gfs4_0_op_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 37, [4 x i8] zeroinitializer, ptr @.str.511, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 38, [4 x i8] zeroinitializer, ptr @.str.512, ptr @glusterfs_gfs4_0_op_setattr_call, ptr @glusterfs_gfs4_0_op_common_2iatt_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 39, [4 x i8] zeroinitializer, ptr @.str.513, ptr @glusterfs_gfs4_0_op_fsetattr_call, ptr @glusterfs_gfs4_0_op_common_2iatt_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 40, [4 x i8] zeroinitializer, ptr @.str.514, ptr @glusterfs_gfs4_0_op_readdirp_call, ptr @glusterfs_gfs4_0_op_readdirp_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 42, [4 x i8] zeroinitializer, ptr @.str.516, ptr @glusterfs_gfs4_0_op_release_call, ptr @glusterfs_gfs4_0_op_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 43, [4 x i8] zeroinitializer, ptr @.str.517, ptr @glusterfs_gfs4_0_op_releasedir_call, ptr @glusterfs_gfs4_0_op_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 44, [4 x i8] zeroinitializer, ptr @.str.518, ptr @glusterfs_gfs4_0_op_fremovexattr_call, ptr @glusterfs_gfs4_0_op_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 45, [4 x i8] zeroinitializer, ptr @.str.519, ptr @glusterfs_gfs4_0_op_fallocate_call, ptr @glusterfs_gfs4_0_op_common_2iatt_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 46, [4 x i8] zeroinitializer, ptr @.str.520, ptr @glusterfs_gfs4_0_op_readdirp_call, ptr @glusterfs_gfs4_0_op_common_2iatt_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 47, [4 x i8] zeroinitializer, ptr @.str.521, ptr @glusterfs_gfs4_0_op_zerofill_call, ptr @glusterfs_gfs4_0_op_common_2iatt_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 49, [4 x i8] zeroinitializer, ptr @.str.523, ptr @glusterfs_gfs4_0_op_seek_call, ptr @glusterfs_gfs4_0_op_seek_reply }, { i32, [4 x i8], ptr, ptr, ptr } zeroinitializer], align 16
 @glusterfs_gfs4_0_op_fsync_call.flag_bits = internal constant [3 x ptr] [ptr @hf_glusterfs_fsync_flag_datasync, ptr @hf_glusterfs_fsync_flag_unknown, ptr null], align 16
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef i32 @glusterfs_rpc_dissect_gf_iatt(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %2, ptr noundef %1, i32 noundef %3, i32 noundef -1, i32 noundef 0) #3
+  %5 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %2, ptr noundef %1, i32 noundef %3, i32 noundef -1, i32 noundef 0)
   %6 = load i32, ptr @ett_glusterfs_iatt, align 4
-  %7 = tail call ptr @proto_item_add_subtree(ptr noundef %5, i32 noundef %6) #3
+  %7 = tail call ptr @proto_item_add_subtree(ptr noundef %5, i32 noundef %6)
   %8 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %9 = tail call ptr @proto_tree_add_item(ptr noundef %7, i32 noundef %8, ptr noundef %1, i32 noundef %3, i32 noundef 16, i32 noundef 0) #3
+  %9 = tail call ptr @proto_tree_add_item(ptr noundef %7, i32 noundef %8, ptr noundef %1, i32 noundef %3, i32 noundef 16, i32 noundef 0)
   %10 = add i32 %3, 16
   %11 = load i32, ptr @hf_glusterfs_ia_ino, align 4
-  %12 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %7, i32 noundef %11, i32 noundef %10) #3
+  %12 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %7, i32 noundef %11, i32 noundef %10)
   %13 = load i32, ptr @hf_glusterfs_ia_dev, align 4
-  %14 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %7, i32 noundef %13, i32 noundef %12) #3
+  %14 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %7, i32 noundef %13, i32 noundef %12)
   %15 = load i32, ptr @hf_glusterfs_ia_mode, align 4
   %16 = load i32, ptr @ett_glusterfs_mode, align 4
-  %17 = tail call ptr @proto_tree_add_bitmask(ptr noundef %7, ptr noundef %1, i32 noundef %14, i32 noundef %15, i32 noundef %16, ptr noundef nonnull @glusterfs_rpc_dissect_mode.mode_bits, i32 noundef 0) #3
+  %17 = tail call ptr @proto_tree_add_bitmask(ptr noundef %7, ptr noundef %1, i32 noundef %14, i32 noundef %15, i32 noundef %16, ptr noundef nonnull @glusterfs_rpc_dissect_mode.mode_bits, i32 noundef 0)
   %18 = add i32 %14, 4
   %19 = load i32, ptr @hf_glusterfs_ia_nlink, align 4
-  %20 = tail call i32 @dissect_rpc_uint32(ptr noundef %1, ptr noundef %7, i32 noundef %19, i32 noundef %18) #3
+  %20 = tail call i32 @dissect_rpc_uint32(ptr noundef %1, ptr noundef %7, i32 noundef %19, i32 noundef %18)
   %21 = load i32, ptr @hf_glusterfs_ia_uid, align 4
-  %22 = tail call i32 @dissect_rpc_uint32(ptr noundef %1, ptr noundef %7, i32 noundef %21, i32 noundef %20) #3
+  %22 = tail call i32 @dissect_rpc_uint32(ptr noundef %1, ptr noundef %7, i32 noundef %21, i32 noundef %20)
   %23 = load i32, ptr @hf_glusterfs_ia_gid, align 4
-  %24 = tail call i32 @dissect_rpc_uint32(ptr noundef %1, ptr noundef %7, i32 noundef %23, i32 noundef %22) #3
+  %24 = tail call i32 @dissect_rpc_uint32(ptr noundef %1, ptr noundef %7, i32 noundef %23, i32 noundef %22)
   %25 = load i32, ptr @hf_glusterfs_ia_rdev, align 4
-  %26 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %7, i32 noundef %25, i32 noundef %24) #3
+  %26 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %7, i32 noundef %25, i32 noundef %24)
   %27 = load i32, ptr @hf_glusterfs_ia_size, align 4
-  %28 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %7, i32 noundef %27, i32 noundef %26) #3
+  %28 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %7, i32 noundef %27, i32 noundef %26)
   %29 = load i32, ptr @hf_glusterfs_ia_blksize, align 4
-  %30 = tail call i32 @dissect_rpc_uint32(ptr noundef %1, ptr noundef %7, i32 noundef %29, i32 noundef %28) #3
+  %30 = tail call i32 @dissect_rpc_uint32(ptr noundef %1, ptr noundef %7, i32 noundef %29, i32 noundef %28)
   %31 = load i32, ptr @hf_glusterfs_ia_blocks, align 4
-  %32 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %7, i32 noundef %31, i32 noundef %30) #3
+  %32 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %7, i32 noundef %31, i32 noundef %30)
   %33 = load i32, ptr @hf_glusterfs_ia_atime, align 4
-  %34 = tail call ptr @proto_tree_add_item(ptr noundef %7, i32 noundef %33, ptr noundef %1, i32 noundef %32, i32 noundef 8, i32 noundef 0) #3
+  %34 = tail call ptr @proto_tree_add_item(ptr noundef %7, i32 noundef %33, ptr noundef %1, i32 noundef %32, i32 noundef 8, i32 noundef 0)
   %35 = add i32 %32, 8
   %36 = load i32, ptr @hf_glusterfs_ia_mtime, align 4
-  %37 = tail call ptr @proto_tree_add_item(ptr noundef %7, i32 noundef %36, ptr noundef %1, i32 noundef %35, i32 noundef 8, i32 noundef 0) #3
+  %37 = tail call ptr @proto_tree_add_item(ptr noundef %7, i32 noundef %36, ptr noundef %1, i32 noundef %35, i32 noundef 8, i32 noundef 0)
   %38 = add i32 %32, 16
   %39 = load i32, ptr @hf_glusterfs_ia_ctime, align 4
-  %40 = tail call ptr @proto_tree_add_item(ptr noundef %7, i32 noundef %39, ptr noundef %1, i32 noundef %38, i32 noundef 8, i32 noundef 0) #3
+  %40 = tail call ptr @proto_tree_add_item(ptr noundef %7, i32 noundef %39, ptr noundef %1, i32 noundef %38, i32 noundef 8, i32 noundef 0)
   %41 = add i32 %32, 24
   %42 = sub i32 %41, %3
-  tail call void @proto_item_set_len(ptr noundef %5, i32 noundef %42) #3
+  tail call void @proto_item_set_len(ptr noundef %5, i32 noundef %42)
   ret i32 %41
 }
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @dissect_rpc_uint64(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @dissect_rpc_uint32(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_rpc_uint64(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_rpc_uint32(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @gluster_rpc_dissect_dict(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca %struct._e_guid_t, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
   %9 = icmp sgt i32 %2, -1
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %4
-  %11 = tail call ptr @proto_registrar_get_nth(i32 noundef %2) #3
+  %11 = tail call ptr @proto_registrar_get_nth(i32 noundef %2)
   %12 = load ptr, ptr %11, align 8
   br label %13
 
 13:                                               ; preds = %4, %10
   %.087 = phi ptr [ %12, %10 ], [ @.str, %4 ]
   %14 = load i32, ptr @ett_gluster_dict, align 4
-  %15 = call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef %3, i32 noundef -1, i32 noundef %14, ptr noundef nonnull %7, ptr noundef %.087) #3
-  %16 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %3) #3
+  %15 = call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef %3, i32 noundef -1, i32 noundef %14, ptr noundef nonnull %7, ptr noundef %.087)
+  %16 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %3)
   store i32 %16, ptr %6, align 4
-  %17 = call i32 @rpc_roundup(i32 noundef %16) #3
+  %17 = call i32 @rpc_roundup(i32 noundef %16)
   %18 = sub i32 %17, %16
   %19 = load i32, ptr @hf_gluster_dict_size, align 4
-  %20 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %15, i32 noundef %19, ptr noundef %1, i32 noundef %3, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %6) #3
+  %20 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %15, i32 noundef %19, ptr noundef %1, i32 noundef %3, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %6)
   %21 = load i32, ptr %6, align 4
-  %22 = call i32 @rpc_roundup(i32 noundef %21) #3
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %20, ptr noundef nonnull @.str.1, i32 noundef %22) #3
+  %22 = call i32 @rpc_roundup(i32 noundef %21)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %20, ptr noundef nonnull @.str.1, i32 noundef %22)
   %.not.i = icmp eq ptr %20, null
   br i1 %.not.i, label %proto_item_set_generated.exit, label %23
 
 23:                                               ; preds = %13
-  %24 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %25 = load ptr, ptr %24, align 8
   %.not5.i = icmp eq ptr %25, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %26
@@ -871,7 +882,7 @@ proto_item_set_generated.exit:                    ; preds = %13, %23, %26
   br i1 %32, label %.thread, label %33
 
 33:                                               ; preds = %proto_item_set_generated.exit
-  %34 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %30) #3
+  %34 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %30)
   %35 = icmp eq i32 %34, 1
   %spec.select101 = select i1 %35, ptr @.str.3, ptr @.str.4
   br label %.thread
@@ -880,14 +891,14 @@ proto_item_set_generated.exit:                    ; preds = %13, %23, %26
   %.089100 = phi i32 [ %34, %33 ], [ 0, %proto_item_set_generated.exit ]
   %36 = phi ptr [ %spec.select101, %33 ], [ @.str.4, %proto_item_set_generated.exit ]
   %37 = load ptr, ptr %7, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %37, ptr noundef nonnull @.str.2, i32 noundef %.089100, ptr noundef nonnull %36) #3
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %37, ptr noundef nonnull @.str.2, i32 noundef %.089100, ptr noundef nonnull %36)
   %38 = load i32, ptr %6, align 4
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %95, label %40
 
 40:                                               ; preds = %.thread
   %41 = load i32, ptr @hf_gluster_num_dict_items, align 4
-  %42 = call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %41, ptr noundef %1, i32 noundef %30, i32 noundef 4, i32 noundef %.089100) #3
+  %42 = call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %41, ptr noundef %1, i32 noundef %30, i32 noundef 4, i32 noundef %.089100)
   %43 = add i32 %3, 8
   %.not104 = icmp eq i32 %.089100, 0
   br i1 %.not104, label %._crit_edge, label %.lr.ph
@@ -896,10 +907,10 @@ proto_item_set_generated.exit:                    ; preds = %13, %23, %26
   %.085103 = phi i32 [ %78, %77 ], [ %43, %40 ]
   %.088102 = phi i32 [ %80, %77 ], [ 0, %40 ]
   %44 = add i32 %.085103, 4
-  %45 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %44) #3
+  %45 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %44)
   %46 = add i32 %.085103, 8
-  %47 = call ptr @wmem_packet_scope() #3
-  %48 = call ptr @tvb_get_stringz_enc(ptr noundef %47, ptr noundef %1, i32 noundef %46, ptr noundef nonnull %5, i32 noundef 0) #3
+  %47 = call ptr @wmem_packet_scope()
+  %48 = call ptr @tvb_get_stringz_enc(ptr noundef %47, ptr noundef %1, i32 noundef %46, ptr noundef nonnull %5, i32 noundef 0)
   %49 = load i32, ptr %5, align 4
   %50 = add i32 %49, %46
   switch i32 %45, label %72 [
@@ -908,58 +919,60 @@ proto_item_set_generated.exit:                    ; preds = %13, %23, %26
   ]
 
 51:                                               ; preds = %.lr.ph
-  %52 = call i32 @strncmp(ptr noundef nonnull dereferenceable(9) @.str.5, ptr noundef nonnull dereferenceable(1) %48, i64 noundef 8) #4
+  %52 = call i32 @strncmp(ptr noundef nonnull dereferenceable(9) @.str.5, ptr noundef %48, i64 noundef 8) #5
   %.not92 = icmp eq i32 %52, 0
   br i1 %.not92, label %57, label %53
 
 53:                                               ; preds = %51
-  %54 = call i32 @strncmp(ptr noundef nonnull dereferenceable(15) @.str.6, ptr noundef nonnull dereferenceable(1) %48, i64 noundef 14) #4
+  %54 = call i32 @strncmp(ptr noundef nonnull dereferenceable(15) @.str.6, ptr noundef %48, i64 noundef 14) #5
   %.not93 = icmp eq i32 %54, 0
   br i1 %.not93, label %57, label %55
 
 55:                                               ; preds = %53
-  %56 = call i32 @strncmp(ptr noundef nonnull dereferenceable(16) @.str.7, ptr noundef nonnull dereferenceable(1) %48, i64 noundef 15) #4
+  %56 = call i32 @strncmp(ptr noundef nonnull dereferenceable(16) @.str.7, ptr noundef %48, i64 noundef 15) #5
   %.not94 = icmp eq i32 %56, 0
   br i1 %.not94, label %57, label %72
 
 57:                                               ; preds = %55, %53, %51
-  call void @tvb_get_ntohguid(ptr noundef %1, i32 noundef %50, ptr noundef nonnull %8) #3
-  %58 = call ptr @wmem_packet_scope() #3
-  %59 = call ptr @guid_to_str(ptr noundef %58, ptr noundef nonnull %8) #3
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #4
+  call void @tvb_get_ntohguid(ptr noundef %1, i32 noundef %50, ptr noundef nonnull %8)
+  %58 = call ptr @wmem_packet_scope()
+  %59 = call ptr @guid_to_str(ptr noundef %58, ptr noundef nonnull %8)
   %60 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %61 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_guid_format(ptr noundef %15, i32 noundef %60, ptr noundef %1, i32 noundef %50, i32 noundef 16, ptr noundef nonnull %8, ptr noundef nonnull @.str.8, ptr noundef nonnull %48, ptr noundef %59) #3
+  %61 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_guid_format(ptr noundef %15, i32 noundef %60, ptr noundef %1, i32 noundef %50, i32 noundef 16, ptr noundef nonnull %8, ptr noundef nonnull @.str.8, ptr noundef %48, ptr noundef %59)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #4
   br label %77
 
 62:                                               ; preds = %.lr.ph
-  %63 = call i32 @strncmp(ptr noundef nonnull dereferenceable(13) @.str.9, ptr noundef nonnull dereferenceable(1) %48, i64 noundef 12) #4
+  %63 = call i32 @strncmp(ptr noundef nonnull dereferenceable(13) @.str.9, ptr noundef %48, i64 noundef 12) #5
   %.not95 = icmp eq i32 %63, 0
   br i1 %.not95, label %64, label %72
 
 64:                                               ; preds = %62
   %65 = load i32, ptr @hf_gluster_trusted_afr_key, align 4
-  %66 = call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %50) #3
+  %66 = call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %50)
   %67 = add i32 %50, 4
-  %68 = call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %67) #3
+  %68 = call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %67)
   %69 = add i32 %50, 8
-  %70 = call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %69) #3
-  %71 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %15, i32 noundef %65, ptr noundef %1, i32 noundef %50, i32 noundef 12, ptr noundef null, ptr noundef nonnull @.str.10, ptr noundef nonnull %48, i32 noundef %66, i32 noundef %68, i32 noundef %70) #3
+  %70 = call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %69)
+  %71 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %15, i32 noundef %65, ptr noundef %1, i32 noundef %50, i32 noundef 12, ptr noundef null, ptr noundef nonnull @.str.10, ptr noundef %48, i32 noundef %66, i32 noundef %68, i32 noundef %70)
   br label %77
 
 72:                                               ; preds = %55, %.lr.ph, %62
-  %73 = call ptr @wmem_packet_scope() #3
-  %74 = call ptr @tvb_get_string_enc(ptr noundef %73, ptr noundef %1, i32 noundef %50, i32 noundef %45, i32 noundef 0) #3
+  %73 = call ptr @wmem_packet_scope()
+  %74 = call ptr @tvb_get_string_enc(ptr noundef %73, ptr noundef %1, i32 noundef %50, i32 noundef %45, i32 noundef 0)
   %75 = load i32, ptr @hf_gluster_dict_value, align 4
-  %76 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %15, i32 noundef %75, ptr noundef %1, i32 noundef %50, i32 noundef %45, ptr noundef %74, ptr noundef nonnull @.str.8, ptr noundef %48, ptr noundef %74) #3
+  %76 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %15, i32 noundef %75, ptr noundef %1, i32 noundef %50, i32 noundef %45, ptr noundef %74, ptr noundef nonnull @.str.8, ptr noundef %48, ptr noundef %74)
   br label %77
 
 77:                                               ; preds = %64, %72, %57
   %.086 = phi ptr [ %76, %72 ], [ %71, %64 ], [ %61, %57 ]
   %78 = add i32 %50, %45
   %79 = sub i32 %78, %46
-  call void @proto_item_set_len(ptr noundef %.086, i32 noundef %79) #3
+  call void @proto_item_set_len(ptr noundef %.086, i32 noundef %79)
   %80 = add nuw i32 %.088102, 1
   %exitcond.not = icmp eq i32 %80, %.089100
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %77, %40
   %.085.lcssa = phi i32 [ %43, %40 ], [ %78, %77 ]
@@ -968,12 +981,12 @@ proto_item_set_generated.exit:                    ; preds = %13, %23, %26
 
 81:                                               ; preds = %._crit_edge
   %82 = load i32, ptr @hf_gluster_rpc_roundup_bytes, align 4
-  %83 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %82, ptr noundef %1, i32 noundef %.085.lcssa, i32 noundef -1, i32 noundef 0) #3
+  %83 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %82, ptr noundef %1, i32 noundef %.085.lcssa, i32 noundef -1, i32 noundef 0)
   %.not.i96 = icmp eq ptr %83, null
   br i1 %.not.i96, label %proto_item_set_generated.exit98, label %84
 
 84:                                               ; preds = %81
-  %85 = getelementptr inbounds nuw i8, ptr %83, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %83, i64 40
   %86 = load ptr, ptr %85, align 8
   %.not5.i97 = icmp eq ptr %86, null
   br i1 %.not5.i97, label %proto_item_set_generated.exit98, label %87
@@ -993,127 +1006,156 @@ proto_item_set_generated.exit98:                  ; preds = %81, %84, %87
   %.1 = phi i32 [ %91, %proto_item_set_generated.exit98 ], [ %.085.lcssa, %._crit_edge ]
   %93 = load ptr, ptr %7, align 8
   %94 = sub i32 %.1, %3
-  call void @proto_item_set_len(ptr noundef %93, i32 noundef %94) #3
+  call void @proto_item_set_len(ptr noundef %93, i32 noundef %94)
   br label %95
 
 95:                                               ; preds = %.thread, %92
   %.0 = phi i32 [ %.1, %92 ], [ %30, %.thread ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
   ret i32 %.0
 }
 
-declare ptr @proto_registrar_get_nth(i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_registrar_get_nth(i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @rpc_roundup(i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @rpc_roundup(i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @tvb_get_stringz_enc(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_get_stringz_enc(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @wmem_packet_scope() local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_packet_scope() local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
-declare void @tvb_get_ntohguid(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @tvb_get_ntohguid(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @guid_to_str(ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @guid_to_str(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_guid_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_guid_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_bytes_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_bytes_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_string_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_string_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden noundef i32 @gluster_dissect_common_reply(ptr noundef %0, i32 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #0 {
   %6 = load i32, ptr @hf_gluster_op_ret, align 4
-  %7 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %3, i32 noundef %6, i32 noundef %1) #3
-  %8 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %7) #3
+  %7 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %3, i32 noundef %6, i32 noundef %1)
+  %8 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %7)
   %9 = load i32, ptr @hf_gluster_op_errno, align 4
-  %10 = tail call ptr @proto_tree_add_int(ptr noundef %3, i32 noundef %9, ptr noundef %0, i32 noundef %7, i32 noundef 4, i32 noundef %8) #3
-  %11 = tail call ptr @val_to_str_ext_const(i32 noundef %8, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef nonnull @.str.11, ptr noundef %11) #3
+  %10 = tail call ptr @proto_tree_add_int(ptr noundef %3, i32 noundef %9, ptr noundef %0, i32 noundef %7, i32 noundef 4, i32 noundef %8)
+  %11 = tail call ptr @val_to_str_ext_const(i32 noundef %8, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef nonnull @.str.11, ptr noundef %11)
   %12 = add i32 %7, 4
   ret i32 %12
 }
 
-declare ptr @proto_tree_add_int(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_int(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @val_to_str_ext_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str_ext_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @glusterfs_gfs3_3_op_common_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
-  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
-  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
+  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0)
+  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6)
   %8 = load i32, ptr @hf_gluster_op_errno, align 4
-  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7) #3
-  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10) #3
+  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7)
+  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10)
   %11 = add i32 %6, 4
   %12 = load i32, ptr @hf_glusterfs_dict, align 4
   %13 = tail call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %12, i32 noundef %11)
   ret i32 %13
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_glusterfs() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.306) #3
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.306)
   store i32 %1, ptr @proto_glusterfs, align 4
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_glusterfs.ett, i32 noundef 12) #3
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_glusterfs.ett, i32 noundef 12)
   %2 = load i32, ptr @proto_glusterfs, align 4
-  tail call void @proto_register_field_array(i32 noundef %2, ptr noundef nonnull @proto_register_glusterfs.hf, i32 noundef 148) #3
+  tail call void @proto_register_field_array(i32 noundef %2, ptr noundef nonnull @proto_register_glusterfs.hf, i32 noundef 148)
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_glusterfs() local_unnamed_addr #0 {
   %1 = load i32, ptr @proto_glusterfs, align 4
   %2 = load i32, ptr @ett_glusterfs, align 4
-  tail call void @rpc_init_prog(i32 noundef %1, i32 noundef 1298437, i32 noundef %2, i64 noundef 3, ptr noundef nonnull @glusterfs_vers_info) #3
+  tail call void @rpc_init_prog(i32 noundef %1, i32 noundef 1298437, i32 noundef %2, i64 noundef 3, ptr noundef nonnull @glusterfs_vers_info)
   ret void
 }
 
-declare void @rpc_init_prog(i32 noundef, i32 noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @rpc_init_prog(i32 noundef, i32 noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #2
 
-declare i32 @dissect_rpc_void(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_rpc_void(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare i32 @dissect_rpc_unknown(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_rpc_unknown(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_op_unlink_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_pargfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_path, align 4
-  %8 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16, ptr noundef null) #3
+  %8 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16, ptr noundef null)
   %9 = load i32, ptr @hf_glusterfs_bname, align 4
-  %10 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8, ptr noundef null) #3
+  %10 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8, ptr noundef null)
   ret i32 %10
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @glusterfs_gfs3_op_unlink_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_preparent_iatt, align 4
   %6 = tail call i32 @glusterfs_rpc_dissect_gf_iatt(ptr noundef %2, ptr noundef %0, i32 noundef %5, i32 noundef 0)
@@ -1122,119 +1164,119 @@ define internal noundef i32 @glusterfs_gfs3_op_unlink_reply(ptr noundef %0, ptr 
   ret i32 %8
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_op_statfs_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_path, align 4
-  %8 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16, ptr noundef null) #3
+  %8 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16, ptr noundef null)
   ret i32 %8
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_op_statfs_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
-  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
-  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
+  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0)
+  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6)
   %8 = load i32, ptr @hf_gluster_op_errno, align 4
-  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7) #3
-  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10) #3
+  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7)
+  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10)
   %11 = add i32 %6, 4
   %12 = tail call fastcc i32 @glusterfs_rpc_dissect_statfs(ptr noundef %2, ptr noundef %0, i32 noundef %11)
   ret i32 %12
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_op_flush_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
-  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   ret i32 %8
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @gluster_local_dissect_common_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
-  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
-  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
+  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0)
+  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6)
   %8 = load i32, ptr @hf_gluster_op_errno, align 4
-  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7) #3
-  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10) #3
+  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7)
+  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10)
   %11 = add i32 %6, 4
   ret i32 %11
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_op_setxattr_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = tail call fastcc i32 @glusterfs_rpc_dissect_flags(ptr noundef %2, ptr noundef %0, i32 noundef 16)
   %8 = load i32, ptr @hf_glusterfs_dict, align 4
   %9 = tail call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %8, i32 noundef %7)
   %10 = load i32, ptr @hf_glusterfs_path, align 4
-  %11 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %10, i32 noundef %9, ptr noundef null) #3
+  %11 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %10, i32 noundef %9, ptr noundef null)
   ret i32 %11
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_op_opendir_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_path, align 4
-  %8 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16, ptr noundef null) #3
+  %8 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16, ptr noundef null)
   ret i32 %8
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_op_opendir_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
-  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
-  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
+  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0)
+  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6)
   %8 = load i32, ptr @hf_gluster_op_errno, align 4
-  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7) #3
-  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10) #3
+  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7)
+  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10)
   %11 = add i32 %6, 4
   %12 = load i32, ptr @hf_glusterfs_fd, align 4
-  %13 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %12, i32 noundef %11) #3
+  %13 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %12, i32 noundef %11)
   ret i32 %13
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_op_create_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_pargfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = tail call fastcc i32 @glusterfs_rpc_dissect_flags(ptr noundef %2, ptr noundef %0, i32 noundef 16)
   %8 = load i32, ptr @hf_glusterfs_mode, align 4
   %9 = load i32, ptr @ett_glusterfs_mode, align 4
-  %10 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef nonnull @glusterfs_rpc_dissect_mode.mode_bits, i32 noundef 0) #3
+  %10 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef nonnull @glusterfs_rpc_dissect_mode.mode_bits, i32 noundef 0)
   %11 = add i32 %7, 4
   %12 = load i32, ptr @hf_glusterfs_path, align 4
-  %13 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %12, i32 noundef %11, ptr noundef null) #3
+  %13 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %12, i32 noundef %11, ptr noundef null)
   %14 = load i32, ptr @hf_glusterfs_bname, align 4
-  %15 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %14, i32 noundef %13, ptr noundef null) #3
+  %15 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %14, i32 noundef %13, ptr noundef null)
   %16 = load i32, ptr @hf_glusterfs_dict, align 4
   %17 = tail call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %16, i32 noundef %15)
   ret i32 %17
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @glusterfs_gfs3_op_create_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
-  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
-  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
+  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0)
+  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6)
   %8 = load i32, ptr @hf_gluster_op_errno, align 4
-  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7) #3
-  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10) #3
+  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7)
+  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10)
   %11 = add i32 %6, 4
   %12 = load i32, ptr @hf_glusterfs_iatt, align 4
   %13 = tail call i32 @glusterfs_rpc_dissect_gf_iatt(ptr noundef %2, ptr noundef %0, i32 noundef %12, i32 noundef %11)
   %14 = load i32, ptr @hf_glusterfs_fd, align 4
-  %15 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %14, i32 noundef %13) #3
+  %15 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %14, i32 noundef %13)
   %16 = load i32, ptr @hf_glusterfs_preparent_iatt, align 4
   %17 = tail call i32 @glusterfs_rpc_dissect_gf_iatt(ptr noundef %2, ptr noundef %0, i32 noundef %16, i32 noundef %15)
   %18 = load i32, ptr @hf_glusterfs_postparent_iatt, align 4
@@ -1242,31 +1284,31 @@ define internal noundef i32 @glusterfs_gfs3_op_create_reply(ptr noundef %0, ptr 
   ret i32 %19
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_op_lookup_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_pargfid, align 4
-  %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 16, i32 noundef 16, i32 noundef 0) #3
+  %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 16, i32 noundef 16, i32 noundef 0)
   %9 = tail call fastcc i32 @glusterfs_rpc_dissect_flags(ptr noundef %2, ptr noundef %0, i32 noundef 32)
   %10 = load i32, ptr @hf_glusterfs_path, align 4
-  %11 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %10, i32 noundef %9, ptr noundef null) #3
+  %11 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %10, i32 noundef %9, ptr noundef null)
   %12 = load i32, ptr @hf_glusterfs_bname, align 4
-  %13 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %12, i32 noundef %11, ptr noundef null) #3
+  %13 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %12, i32 noundef %11, ptr noundef null)
   %14 = load i32, ptr @hf_glusterfs_dict, align 4
   %15 = tail call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %14, i32 noundef %13)
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_op_lookup_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
-  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
-  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
+  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0)
+  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6)
   %8 = load i32, ptr @hf_gluster_op_errno, align 4
-  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7) #3
-  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10) #3
+  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7)
+  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10)
   %11 = add i32 %6, 4
   %12 = load i32, ptr @hf_glusterfs_iatt, align 4
   %13 = tail call i32 @glusterfs_rpc_dissect_gf_iatt(ptr noundef %2, ptr noundef %0, i32 noundef %12, i32 noundef %11)
@@ -1277,64 +1319,66 @@ define internal i32 @glusterfs_gfs3_op_lookup_reply(ptr noundef %0, ptr readnone
   ret i32 %17
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_op_inodelk_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
   %6 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %8 = load i32, ptr @hf_glusterfs_cmd, align 4
-  %9 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %8, i32 noundef 16) #3
+  %9 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %8, i32 noundef 16)
   %10 = load i32, ptr @hf_glusterfs_type, align 4
-  %11 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %10, i32 noundef %9) #3
+  %11 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %10, i32 noundef %9)
   %12 = load i32, ptr @ett_glusterfs_flock, align 4
-  %13 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %11, i32 noundef -1, i32 noundef %12, ptr noundef nonnull %5, ptr noundef nonnull @.str.554) #3
+  %13 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %11, i32 noundef -1, i32 noundef %12, ptr noundef nonnull %5, ptr noundef nonnull @.str.564)
   %14 = load i32, ptr @hf_glusterfs_flock_type, align 4
-  %15 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %13, i32 noundef %14, i32 noundef %11) #3
+  %15 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %13, i32 noundef %14, i32 noundef %11)
   %16 = load i32, ptr @hf_glusterfs_flock_whence, align 4
-  %17 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %13, i32 noundef %16, i32 noundef %15) #3
+  %17 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %13, i32 noundef %16, i32 noundef %15)
   %18 = load i32, ptr @hf_glusterfs_flock_start, align 4
-  %19 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %13, i32 noundef %18, i32 noundef %17) #3
+  %19 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %13, i32 noundef %18, i32 noundef %17)
   %20 = load i32, ptr @hf_glusterfs_flock_len, align 4
-  %21 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %13, i32 noundef %20, i32 noundef %19) #3
+  %21 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %13, i32 noundef %20, i32 noundef %19)
   %22 = load i32, ptr @hf_glusterfs_flock_pid, align 4
-  %23 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %13, i32 noundef %22, i32 noundef %21) #3
+  %23 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %13, i32 noundef %22, i32 noundef %21)
   %24 = load i32, ptr @hf_glusterfs_flock_owner, align 4
-  %25 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %24, ptr noundef %0, i32 noundef %23, i32 noundef 8, i32 noundef 0) #3
+  %25 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %24, ptr noundef %0, i32 noundef %23, i32 noundef 8, i32 noundef 0)
   %26 = add i32 %23, 8
   %27 = load ptr, ptr %5, align 8
   %28 = sub i32 %26, %11
-  call void @proto_item_set_len(ptr noundef %27, i32 noundef %28) #3
+  call void @proto_item_set_len(ptr noundef %27, i32 noundef %28)
   %29 = load i32, ptr @hf_glusterfs_path, align 4
-  %30 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %29, i32 noundef %26, ptr noundef null) #3
+  %30 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %29, i32 noundef %26, ptr noundef null)
   %31 = load i32, ptr @hf_glusterfs_volume, align 4
-  %32 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %31, i32 noundef %30, ptr noundef null) #3
+  %32 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %31, i32 noundef %30, ptr noundef null)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
   ret i32 %32
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_op_setattr_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_iatt, align 4
   %8 = tail call i32 @glusterfs_rpc_dissect_gf_iatt(ptr noundef %2, ptr noundef %0, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_setattr_valid, align 4
   %10 = load i32, ptr @ett_glusterfs_setattr_valid, align 4
-  %11 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef nonnull @glusterfs_rpc_dissect_setattr.flag_bits, i32 noundef 0) #3
+  %11 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef nonnull @glusterfs_rpc_dissect_setattr.flag_bits, i32 noundef 0)
   %12 = add i32 %8, 4
   %13 = load i32, ptr @hf_glusterfs_path, align 4
-  %14 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %13, i32 noundef %12, ptr noundef null) #3
+  %14 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %13, i32 noundef %12, ptr noundef null)
   ret i32 %14
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @glusterfs_gfs3_op_setattr_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
-  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
-  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
+  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0)
+  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6)
   %8 = load i32, ptr @hf_gluster_op_errno, align 4
-  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7) #3
-  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10) #3
+  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7)
+  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10)
   %11 = add i32 %6, 4
   %12 = load i32, ptr @hf_glusterfs_preop_iatt, align 4
   %13 = tail call i32 @glusterfs_rpc_dissect_gf_iatt(ptr noundef %2, ptr noundef %0, i32 noundef %12, i32 noundef %11)
@@ -1343,26 +1387,26 @@ define internal noundef i32 @glusterfs_gfs3_op_setattr_reply(ptr noundef %0, ptr
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_op_readdirp_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
-  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_offset, align 4
-  %10 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8) #3
+  %10 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8)
   %11 = load i32, ptr @hf_glusterfs_size, align 4
-  %12 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10) #3
+  %12 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10)
   ret i32 %12
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_op_readdirp_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_entries, align 4
-  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
-  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
+  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0)
+  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6)
   %8 = load i32, ptr @hf_gluster_op_errno, align 4
-  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7) #3
+  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7)
   switch i32 %7, label %_glusterfs_gfs3_common_readdir_reply.exit [
     i32 0, label %.sink.split.i
     i32 2, label %10
@@ -1372,76 +1416,77 @@ define internal i32 @glusterfs_gfs3_op_readdirp_reply(ptr noundef %0, ptr nounde
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %10, %4
-  %.str.556.sink.i = phi ptr [ @.str.556, %10 ], [ @.str.555, %4 ]
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull %.str.556.sink.i) #3
+  %.str.566.sink.i = phi ptr [ @.str.566, %10 ], [ @.str.565, %4 ]
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull %.str.566.sink.i)
   br label %_glusterfs_gfs3_common_readdir_reply.exit
 
 _glusterfs_gfs3_common_readdir_reply.exit:        ; preds = %4, %.sink.split.i
   %11 = add i32 %6, 4
-  %12 = tail call i32 @dissect_rpc_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %11, ptr noundef nonnull @glusterfs_gfs3_op_readdirp_entry, ptr noundef null) #3
+  %12 = tail call i32 @dissect_rpc_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %11, ptr noundef nonnull @glusterfs_gfs3_op_readdirp_entry, ptr noundef null)
   ret i32 %12
 }
 
-declare i32 @dissect_rpc_string(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_rpc_string(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @glusterfs_rpc_dissect_statfs(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_glusterfs_bsize, align 4
-  %5 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %0, i32 noundef %4, i32 noundef %2) #3
+  %5 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %0, i32 noundef %4, i32 noundef %2)
   %6 = load i32, ptr @hf_glusterfs_frsize, align 4
-  %7 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %0, i32 noundef %6, i32 noundef %5) #3
+  %7 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %0, i32 noundef %6, i32 noundef %5)
   %8 = load i32, ptr @hf_glusterfs_blocks, align 4
-  %9 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %7) #3
+  %9 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %0, i32 noundef %8, i32 noundef %7)
   %10 = load i32, ptr @hf_glusterfs_bfree, align 4
-  %11 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %0, i32 noundef %10, i32 noundef %9) #3
+  %11 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %0, i32 noundef %10, i32 noundef %9)
   %12 = load i32, ptr @hf_glusterfs_bavail, align 4
-  %13 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %0, i32 noundef %12, i32 noundef %11) #3
+  %13 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %0, i32 noundef %12, i32 noundef %11)
   %14 = load i32, ptr @hf_glusterfs_files, align 4
-  %15 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %0, i32 noundef %14, i32 noundef %13) #3
+  %15 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %0, i32 noundef %14, i32 noundef %13)
   %16 = load i32, ptr @hf_glusterfs_ffree, align 4
-  %17 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %0, i32 noundef %16, i32 noundef %15) #3
+  %17 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %0, i32 noundef %16, i32 noundef %15)
   %18 = load i32, ptr @hf_glusterfs_favail, align 4
-  %19 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %0, i32 noundef %18, i32 noundef %17) #3
+  %19 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %0, i32 noundef %18, i32 noundef %17)
   %20 = load i32, ptr @hf_glusterfs_id, align 4
-  %21 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %0, i32 noundef %20, i32 noundef %19) #3
+  %21 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %0, i32 noundef %20, i32 noundef %19)
   %22 = load i32, ptr @hf_glusterfs_mnt_flags, align 4
   %23 = load i32, ptr @ett_glusterfs_mnt_flags, align 4
-  %24 = tail call ptr @proto_tree_add_bitmask(ptr noundef %0, ptr noundef %1, i32 noundef %21, i32 noundef %22, i32 noundef %23, ptr noundef nonnull @glusterfs_rpc_dissect_statfs.flag_bits, i32 noundef 0) #3
+  %24 = tail call ptr @proto_tree_add_bitmask(ptr noundef %0, ptr noundef %1, i32 noundef %21, i32 noundef %22, i32 noundef %23, ptr noundef nonnull @glusterfs_rpc_dissect_statfs.flag_bits, i32 noundef 0)
   %25 = add i32 %21, 8
   %26 = load i32, ptr @hf_glusterfs_namemax, align 4
-  %27 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %0, i32 noundef %26, i32 noundef %25) #3
+  %27 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %0, i32 noundef %26, i32 noundef %25)
   ret i32 %27
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef i32 @glusterfs_rpc_dissect_flags(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_glusterfs_flags, align 4
   %5 = load i32, ptr @ett_glusterfs_flags, align 4
-  %6 = tail call ptr @proto_tree_add_bitmask(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @glusterfs_rpc_dissect_flags.flag_bits, i32 noundef 0) #3
-  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %2) #3
+  %6 = tail call ptr @proto_tree_add_bitmask(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @glusterfs_rpc_dissect_flags.flag_bits, i32 noundef 0)
+  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %2)
   %8 = icmp eq i32 %7, 0
   %9 = load i32, ptr @hf_glusterfs_flags_rdonly, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %9, ptr noundef %1, i32 noundef %2, i32 noundef 4, i32 noundef 0) #3
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %9, ptr noundef %1, i32 noundef %2, i32 noundef 4, i32 noundef 0)
   br i1 %8, label %11, label %15
 
 11:                                               ; preds = %3
   %12 = load i32, ptr @hf_glusterfs_flags_rdonly, align 4
-  %13 = tail call ptr @proto_registrar_get_nth(i32 noundef %12) #3
+  %13 = tail call ptr @proto_registrar_get_nth(i32 noundef %12)
   %14 = load ptr, ptr %13, align 8
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %6, ptr noundef nonnull @.str.552, ptr noundef %14) #3
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %6, ptr noundef nonnull @.str.562, ptr noundef %14)
   br label %15
 
 15:                                               ; preds = %11, %3
   %16 = load i32, ptr @hf_glusterfs_flags_accmode, align 4
-  %17 = tail call ptr @proto_registrar_get_nth(i32 noundef %16) #3
-  %18 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %2) #3
+  %17 = tail call ptr @proto_registrar_get_nth(i32 noundef %16)
+  %18 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %2)
   %19 = load i32, ptr @hf_glusterfs_flags_accmode, align 4
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %21 = load i64, ptr %20, align 8
   %22 = trunc i64 %21 to i32
   %23 = and i32 %18, %22
-  %24 = tail call ptr @val_to_str_const(i32 noundef %23, ptr noundef nonnull @glusterfs_accmode_vals, ptr noundef nonnull @.str.12) #3
-  %25 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %6, i32 noundef %19, ptr noundef %1, i32 noundef %2, i32 noundef 4, i32 noundef %18, ptr noundef nonnull @.str.553, ptr noundef %24) #3
+  %24 = tail call ptr @val_to_str_const(i32 noundef %23, ptr noundef nonnull @glusterfs_accmode_vals, ptr noundef nonnull @.str.12)
+  %25 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %6, i32 noundef %19, ptr noundef %1, i32 noundef %2, i32 noundef 4, i32 noundef %18, ptr noundef nonnull @.str.563, ptr noundef %24)
   %26 = zext i32 %18 to i64
   %27 = load i64, ptr %20, align 8
   %28 = and i64 %27, %26
@@ -1450,9 +1495,9 @@ define internal fastcc noundef i32 @glusterfs_rpc_dissect_flags(ptr noundef %0, 
 
 30:                                               ; preds = %15
   %31 = load i32, ptr @hf_glusterfs_flags_accmode, align 4
-  %32 = tail call ptr @proto_registrar_get_nth(i32 noundef %31) #3
+  %32 = tail call ptr @proto_registrar_get_nth(i32 noundef %31)
   %33 = load ptr, ptr %32, align 8
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %6, ptr noundef nonnull @.str.552, ptr noundef %33) #3
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %6, ptr noundef nonnull @.str.562, ptr noundef %33)
   br label %34
 
 34:                                               ; preds = %30, %15
@@ -1460,173 +1505,177 @@ define internal fastcc noundef i32 @glusterfs_rpc_dissect_flags(ptr noundef %0, 
   ret i32 %35
 }
 
-declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @dissect_rpc_list(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_rpc_list(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_op_readdirp_entry(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #0 {
-  %6 = tail call fastcc i32 @_glusterfs_gfs_op_readdir_entry(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef 1, i32 noundef 0, i32 noundef 0)
+  %6 = tail call fastcc i32 @_glusterfs_gfs_op_readdir_entry(ptr noundef %0, i32 noundef %1, ptr noundef %3, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false)
   ret i32 %6
 }
 
-; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_glusterfs_gfs_op_readdir_entry(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal fastcc i32 @_glusterfs_gfs_op_readdir_entry(ptr noundef %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
   store ptr null, ptr %8, align 8
   %9 = load i32, ptr @ett_glusterfs_entry, align 4
-  %10 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %1, i32 noundef -1, i32 noundef %9, ptr noundef nonnull %7, ptr noundef nonnull @.str.557) #3
+  %10 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %1, i32 noundef -1, i32 noundef %9, ptr noundef nonnull %7, ptr noundef nonnull @.str.567)
   %11 = load i32, ptr @hf_glusterfs_entry_ino, align 4
-  %12 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %10, i32 noundef %11, i32 noundef %1) #3
+  %12 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %10, i32 noundef %11, i32 noundef %1)
   %13 = load i32, ptr @hf_glusterfs_entry_off, align 4
-  %14 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %10, i32 noundef %13, i32 noundef %12) #3
+  %14 = call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %10, i32 noundef %13, i32 noundef %12)
   %15 = load i32, ptr @hf_glusterfs_entry_len, align 4
-  %16 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %10, i32 noundef %15, i32 noundef %14) #3
+  %16 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %10, i32 noundef %15, i32 noundef %14)
   %17 = load i32, ptr @hf_glusterfs_entry_type, align 4
-  %18 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %10, i32 noundef %17, i32 noundef %16) #3
+  %18 = call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %10, i32 noundef %17, i32 noundef %16)
   %19 = load i32, ptr @hf_glusterfs_entry_path, align 4
-  %20 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %10, i32 noundef %19, i32 noundef %18, ptr noundef nonnull %8) #3
+  %20 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %10, i32 noundef %19, i32 noundef %18, ptr noundef nonnull %8)
   %21 = load ptr, ptr %7, align 8
   %22 = load ptr, ptr %8, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %21, ptr noundef nonnull @.str.558, ptr noundef %22) #3
-  %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %24, label %23
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %21, ptr noundef nonnull @.str.568, ptr noundef %22)
+  br i1 %3, label %23, label %24
 
 23:                                               ; preds = %6
-  %.not37 = icmp eq i32 %4, 0
-  %.not3849 = icmp eq i32 %5, 0
-  br i1 %.not37, label %.thread47, label %.thread
+  br i1 %4, label %.thread42, label %.thread
 
 24:                                               ; preds = %6
-  %.not38 = icmp eq i32 %5, 0
-  br i1 %.not38, label %34, label %29
+  br i1 %5, label %29, label %34
 
-.thread47:                                        ; preds = %23
-  %25 = load i32, ptr @hf_glusterfs_iatt, align 4
-  %26 = call i32 @glusterfs_rpc_dissect_gf_iatt(ptr noundef %10, ptr noundef %0, i32 noundef %25, i32 noundef %20)
-  br i1 %.not3849, label %34, label %.thread50
+.thread42:                                        ; preds = %23
+  %25 = load i32, ptr @hf_glusterfs_iattx, align 4
+  %26 = call fastcc i32 @glusterfs_rpc_dissect_gfx_iatt(ptr noundef %10, ptr noundef %0, i32 noundef %25, i32 noundef %20)
+  br i1 %5, label %.thread44, label %34
 
 .thread:                                          ; preds = %23
-  %27 = load i32, ptr @hf_glusterfs_iattx, align 4
-  %28 = call fastcc i32 @glusterfs_rpc_dissect_gfx_iatt(ptr noundef %10, ptr noundef %0, i32 noundef %27, i32 noundef %20)
-  br i1 %.not3849, label %34, label %.thread43
+  %27 = load i32, ptr @hf_glusterfs_iatt, align 4
+  %28 = call i32 @glusterfs_rpc_dissect_gf_iatt(ptr noundef %10, ptr noundef %0, i32 noundef %27, i32 noundef %20)
+  br i1 %5, label %.thread39, label %34
 
 29:                                               ; preds = %24
-  %.not39 = icmp eq i32 %4, 0
-  br i1 %.not39, label %.thread50, label %.thread43
+  br i1 %4, label %.thread44, label %.thread39
 
-.thread43:                                        ; preds = %.thread, %29
-  %.04246 = phi i32 [ %20, %29 ], [ %28, %.thread ]
+.thread44:                                        ; preds = %.thread42, %29
+  %.03846 = phi i32 [ %20, %29 ], [ %26, %.thread42 ]
   %30 = load i32, ptr @hf_glusterfs_dict, align 4
-  %31 = call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %10, ptr noundef %0, i32 noundef %30, i32 noundef %.04246)
+  %31 = call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %10, ptr noundef %0, i32 noundef %30, i32 noundef %.03846)
   br label %34
 
-.thread50:                                        ; preds = %.thread47, %29
-  %.04253 = phi i32 [ %20, %29 ], [ %26, %.thread47 ]
+.thread39:                                        ; preds = %.thread, %29
+  %.03841 = phi i32 [ %20, %29 ], [ %28, %.thread ]
   %32 = load i32, ptr @hf_glusterfs_dict, align 4
-  %33 = call i32 @gluster_rpc_dissect_dict(ptr noundef %10, ptr noundef %0, i32 noundef %32, i32 noundef %.04253)
+  %33 = call i32 @gluster_rpc_dissect_dict(ptr noundef %10, ptr noundef %0, i32 noundef %32, i32 noundef %.03841)
   br label %34
 
-34:                                               ; preds = %.thread47, %.thread, %.thread43, %.thread50, %24
-  %.1 = phi i32 [ %31, %.thread43 ], [ %33, %.thread50 ], [ %20, %24 ], [ %28, %.thread ], [ %26, %.thread47 ]
+34:                                               ; preds = %.thread42, %.thread, %.thread44, %.thread39, %24
+  %.1 = phi i32 [ %31, %.thread44 ], [ %33, %.thread39 ], [ %20, %24 ], [ %28, %.thread ], [ %26, %.thread42 ]
   %35 = load ptr, ptr %7, align 8
   %36 = sub i32 %.1, %1
-  call void @proto_item_set_len(ptr noundef %35, i32 noundef %36) #3
+  call void @proto_item_set_len(ptr noundef %35, i32 noundef %36)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
   ret i32 %.1
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef i32 @glusterfs_rpc_dissect_gfx_iatt(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
-  %5 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %2, ptr noundef %1, i32 noundef %3, i32 noundef -1, i32 noundef 0) #3
+  %5 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %2, ptr noundef %1, i32 noundef %3, i32 noundef -1, i32 noundef 0)
   %6 = load i32, ptr @ett_glusterfs_iatt, align 4
-  %7 = tail call ptr @proto_item_add_subtree(ptr noundef %5, i32 noundef %6) #3
+  %7 = tail call ptr @proto_item_add_subtree(ptr noundef %5, i32 noundef %6)
   %8 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %9 = tail call ptr @proto_tree_add_item(ptr noundef %7, i32 noundef %8, ptr noundef %1, i32 noundef %3, i32 noundef 16, i32 noundef 0) #3
+  %9 = tail call ptr @proto_tree_add_item(ptr noundef %7, i32 noundef %8, ptr noundef %1, i32 noundef %3, i32 noundef 16, i32 noundef 0)
   %10 = add i32 %3, 16
   %11 = load i32, ptr @hf_glusterfs_iax_flags, align 4
-  %12 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %7, i32 noundef %11, i32 noundef %10) #3
+  %12 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %7, i32 noundef %11, i32 noundef %10)
   %13 = load i32, ptr @hf_glusterfs_ia_ino, align 4
-  %14 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %7, i32 noundef %13, i32 noundef %12) #3
+  %14 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %7, i32 noundef %13, i32 noundef %12)
   %15 = load i32, ptr @hf_glusterfs_ia_dev, align 4
-  %16 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %7, i32 noundef %15, i32 noundef %14) #3
+  %16 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %7, i32 noundef %15, i32 noundef %14)
   %17 = load i32, ptr @hf_glusterfs_ia_rdev, align 4
-  %18 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %7, i32 noundef %17, i32 noundef %16) #3
+  %18 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %7, i32 noundef %17, i32 noundef %16)
   %19 = load i32, ptr @hf_glusterfs_ia_size, align 4
-  %20 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %7, i32 noundef %19, i32 noundef %18) #3
+  %20 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %7, i32 noundef %19, i32 noundef %18)
   %21 = load i32, ptr @hf_glusterfs_ia_blocks, align 4
-  %22 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %7, i32 noundef %21, i32 noundef %20) #3
+  %22 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %7, i32 noundef %21, i32 noundef %20)
   %23 = load i32, ptr @hf_glusterfs_iax_attributes, align 4
-  %24 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %7, i32 noundef %23, i32 noundef %22) #3
+  %24 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %7, i32 noundef %23, i32 noundef %22)
   %25 = load i32, ptr @hf_glusterfs_iax_attributes_mask, align 4
-  %26 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %7, i32 noundef %25, i32 noundef %24) #3
+  %26 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %7, i32 noundef %25, i32 noundef %24)
   %27 = load i32, ptr @hf_glusterfs_iax_atime, align 4
-  %28 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %7, i32 noundef %27, i32 noundef %26) #3
+  %28 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %7, i32 noundef %27, i32 noundef %26)
   %29 = load i32, ptr @hf_glusterfs_iax_mtime, align 4
-  %30 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %7, i32 noundef %29, i32 noundef %28) #3
+  %30 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %7, i32 noundef %29, i32 noundef %28)
   %31 = load i32, ptr @hf_glusterfs_iax_ctime, align 4
-  %32 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %7, i32 noundef %31, i32 noundef %30) #3
+  %32 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %7, i32 noundef %31, i32 noundef %30)
   %33 = load i32, ptr @hf_glusterfs_iax_btime, align 4
-  %34 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %7, i32 noundef %33, i32 noundef %32) #3
+  %34 = tail call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %7, i32 noundef %33, i32 noundef %32)
   %35 = load i32, ptr @hf_glusterfs_iax_atime_nsec, align 4
-  %36 = tail call i32 @dissect_rpc_uint32(ptr noundef %1, ptr noundef %7, i32 noundef %35, i32 noundef %34) #3
+  %36 = tail call i32 @dissect_rpc_uint32(ptr noundef %1, ptr noundef %7, i32 noundef %35, i32 noundef %34)
   %37 = load i32, ptr @hf_glusterfs_iax_mtime_nsec, align 4
-  %38 = tail call i32 @dissect_rpc_uint32(ptr noundef %1, ptr noundef %7, i32 noundef %37, i32 noundef %36) #3
+  %38 = tail call i32 @dissect_rpc_uint32(ptr noundef %1, ptr noundef %7, i32 noundef %37, i32 noundef %36)
   %39 = load i32, ptr @hf_glusterfs_iax_ctime_nsec, align 4
-  %40 = tail call i32 @dissect_rpc_uint32(ptr noundef %1, ptr noundef %7, i32 noundef %39, i32 noundef %38) #3
+  %40 = tail call i32 @dissect_rpc_uint32(ptr noundef %1, ptr noundef %7, i32 noundef %39, i32 noundef %38)
   %41 = load i32, ptr @hf_glusterfs_iax_btime_nsec, align 4
-  %42 = tail call i32 @dissect_rpc_uint32(ptr noundef %1, ptr noundef %7, i32 noundef %41, i32 noundef %40) #3
+  %42 = tail call i32 @dissect_rpc_uint32(ptr noundef %1, ptr noundef %7, i32 noundef %41, i32 noundef %40)
   %43 = load i32, ptr @hf_glusterfs_ia_nlink, align 4
-  %44 = tail call i32 @dissect_rpc_uint32(ptr noundef %1, ptr noundef %7, i32 noundef %43, i32 noundef %42) #3
+  %44 = tail call i32 @dissect_rpc_uint32(ptr noundef %1, ptr noundef %7, i32 noundef %43, i32 noundef %42)
   %45 = load i32, ptr @hf_glusterfs_ia_uid, align 4
-  %46 = tail call i32 @dissect_rpc_uint32(ptr noundef %1, ptr noundef %7, i32 noundef %45, i32 noundef %44) #3
+  %46 = tail call i32 @dissect_rpc_uint32(ptr noundef %1, ptr noundef %7, i32 noundef %45, i32 noundef %44)
   %47 = load i32, ptr @hf_glusterfs_ia_gid, align 4
-  %48 = tail call i32 @dissect_rpc_uint32(ptr noundef %1, ptr noundef %7, i32 noundef %47, i32 noundef %46) #3
+  %48 = tail call i32 @dissect_rpc_uint32(ptr noundef %1, ptr noundef %7, i32 noundef %47, i32 noundef %46)
   %49 = load i32, ptr @hf_glusterfs_ia_blksize, align 4
-  %50 = tail call i32 @dissect_rpc_uint32(ptr noundef %1, ptr noundef %7, i32 noundef %49, i32 noundef %48) #3
+  %50 = tail call i32 @dissect_rpc_uint32(ptr noundef %1, ptr noundef %7, i32 noundef %49, i32 noundef %48)
   %51 = load i32, ptr @hf_glusterfs_ia_mode, align 4
   %52 = load i32, ptr @ett_glusterfs_mode, align 4
-  %53 = tail call ptr @proto_tree_add_bitmask(ptr noundef %7, ptr noundef %1, i32 noundef %50, i32 noundef %51, i32 noundef %52, ptr noundef nonnull @glusterfs_rpc_dissect_mode.mode_bits, i32 noundef 0) #3
+  %53 = tail call ptr @proto_tree_add_bitmask(ptr noundef %7, ptr noundef %1, i32 noundef %50, i32 noundef %51, i32 noundef %52, ptr noundef nonnull @glusterfs_rpc_dissect_mode.mode_bits, i32 noundef 0)
   %54 = add i32 %50, 4
   %55 = sub i32 %54, %3
-  tail call void @proto_item_set_len(ptr noundef %5, i32 noundef %55) #3
+  tail call void @proto_item_set_len(ptr noundef %5, i32 noundef %55)
   ret i32 %54
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca %struct._e_guid_t, align 4
   %6 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
   %7 = icmp sgt i32 %2, -1
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %4
-  %9 = tail call ptr @proto_registrar_get_nth(i32 noundef %2) #3
+  %9 = tail call ptr @proto_registrar_get_nth(i32 noundef %2)
   %10 = load ptr, ptr %9, align 8
   br label %11
 
 11:                                               ; preds = %4, %8
   %.0138 = phi ptr [ %10, %8 ], [ @.str, %4 ]
   %12 = load i32, ptr @ett_gluster_dict, align 4
-  %13 = call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef %3, i32 noundef -1, i32 noundef %12, ptr noundef nonnull %6, ptr noundef %.0138) #3
-  %14 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %3) #3
+  %13 = call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef %3, i32 noundef -1, i32 noundef %12, ptr noundef nonnull %6, ptr noundef %.0138)
+  %14 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %3)
   %15 = load i32, ptr @hf_gluster_dict_xdr_size, align 4
-  %16 = call i32 @dissect_rpc_uint32(ptr noundef %1, ptr noundef %13, i32 noundef %15, i32 noundef %3) #3
+  %16 = call i32 @dissect_rpc_uint32(ptr noundef %1, ptr noundef %13, i32 noundef %15, i32 noundef %3)
   %17 = add i32 %16, 4
   %18 = icmp eq i32 %14, 0
   br i1 %18, label %.thread, label %21
 
 .thread:                                          ; preds = %11
   %19 = load i32, ptr @hf_gluster_num_dict_items, align 4
-  %20 = call i32 @dissect_rpc_uint32(ptr noundef %1, ptr noundef %13, i32 noundef %19, i32 noundef %17) #3
+  %20 = call i32 @dissect_rpc_uint32(ptr noundef %1, ptr noundef %13, i32 noundef %19, i32 noundef %17)
   br label %96
 
 21:                                               ; preds = %11
-  %22 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %17) #3
+  %22 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %17)
   %23 = load i32, ptr @hf_gluster_num_dict_items, align 4
-  %24 = call i32 @dissect_rpc_uint32(ptr noundef %1, ptr noundef %13, i32 noundef %23, i32 noundef %17) #3
+  %24 = call i32 @dissect_rpc_uint32(ptr noundef %1, ptr noundef %13, i32 noundef %23, i32 noundef %17)
   %.not153 = icmp eq i32 %22, 0
   br i1 %.not153, label %._crit_edge, label %.lr.ph
 
@@ -1634,13 +1683,13 @@ define internal fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %0, ptr noun
   %.0135152 = phi ptr [ %.1, %90 ], [ null, %21 ]
   %.0136151 = phi i32 [ %91, %90 ], [ %24, %21 ]
   %.0139150 = phi i32 [ %93, %90 ], [ 0, %21 ]
-  %25 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %.0136151) #3
-  %26 = call i32 @rpc_roundup(i32 noundef %25) #3
+  %25 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %.0136151)
+  %26 = call i32 @rpc_roundup(i32 noundef %25)
   %27 = add i32 %.0136151, 4
-  %28 = call ptr @wmem_packet_scope() #3
-  %29 = call ptr @tvb_get_string_enc(ptr noundef %28, ptr noundef %1, i32 noundef %27, i32 noundef %26, i32 noundef 0) #3
+  %28 = call ptr @wmem_packet_scope()
+  %29 = call ptr @tvb_get_string_enc(ptr noundef %28, ptr noundef %1, i32 noundef %27, i32 noundef %26, i32 noundef 0)
   %30 = add i32 %26, %27
-  %31 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %30) #3
+  %31 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %30)
   %32 = add i32 %30, 4
   switch i32 %31, label %90 [
     i32 2, label %33
@@ -1654,30 +1703,30 @@ define internal fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %0, ptr noun
 
 33:                                               ; preds = %.lr.ph
   %34 = load i32, ptr @hf_gluster_dict_value, align 4
-  %35 = call i64 @tvb_get_gint64(ptr noundef %1, i32 noundef %32, i32 noundef 0) #3
-  %36 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %13, i32 noundef %34, ptr noundef %1, i32 noundef %32, i32 noundef 8, ptr noundef null, ptr noundef nonnull @.str.559, ptr noundef %29, i64 noundef %35) #3
+  %35 = call i64 @tvb_get_int64(ptr noundef %1, i32 noundef %32, i32 noundef 0)
+  %36 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %13, i32 noundef %34, ptr noundef %1, i32 noundef %32, i32 noundef 8, ptr noundef null, ptr noundef nonnull @.str.569, ptr noundef %29, i64 noundef %35)
   br label %90
 
 37:                                               ; preds = %.lr.ph
   %38 = load i32, ptr @hf_gluster_dict_value, align 4
-  %39 = call i64 @tvb_get_guint64(ptr noundef %1, i32 noundef %32, i32 noundef 0) #3
-  %40 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %13, i32 noundef %38, ptr noundef %1, i32 noundef %32, i32 noundef 8, ptr noundef null, ptr noundef nonnull @.str.560, ptr noundef %29, i64 noundef %39) #3
+  %39 = call i64 @tvb_get_uint64(ptr noundef %1, i32 noundef %32, i32 noundef 0)
+  %40 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %13, i32 noundef %38, ptr noundef %1, i32 noundef %32, i32 noundef 8, ptr noundef null, ptr noundef nonnull @.str.570, ptr noundef %29, i64 noundef %39)
   br label %90
 
 41:                                               ; preds = %.lr.ph
   %42 = load i32, ptr @hf_gluster_dict_value, align 4
-  %43 = call double @tvb_get_ieee_double(ptr noundef %1, i32 noundef %32, i32 noundef 0) #3
-  %44 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %13, i32 noundef %42, ptr noundef %1, i32 noundef %32, i32 noundef 8, ptr noundef null, ptr noundef nonnull @.str.561, ptr noundef %29, double noundef %43) #3
+  %43 = call double @tvb_get_ieee_double(ptr noundef %1, i32 noundef %32, i32 noundef 0)
+  %44 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %13, i32 noundef %42, ptr noundef %1, i32 noundef %32, i32 noundef 8, ptr noundef null, ptr noundef nonnull @.str.571, ptr noundef %29, double noundef %43)
   br label %90
 
 45:                                               ; preds = %.lr.ph
-  %46 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %32) #3
-  %47 = call i32 @rpc_roundup(i32 noundef %46) #3
+  %46 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %32)
+  %47 = call i32 @rpc_roundup(i32 noundef %46)
   %48 = add i32 %30, 8
-  %49 = call ptr @wmem_packet_scope() #3
-  %50 = call ptr @tvb_get_string_enc(ptr noundef %49, ptr noundef %1, i32 noundef %48, i32 noundef %47, i32 noundef 0) #3
+  %49 = call ptr @wmem_packet_scope()
+  %50 = call ptr @tvb_get_string_enc(ptr noundef %49, ptr noundef %1, i32 noundef %48, i32 noundef %47, i32 noundef 0)
   %51 = load i32, ptr @hf_gluster_dict_value, align 4
-  %52 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %13, i32 noundef %51, ptr noundef %1, i32 noundef %48, i32 noundef %47, ptr noundef %50, ptr noundef nonnull @.str.8, ptr noundef %29, ptr noundef %50) #3
+  %52 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %13, i32 noundef %51, ptr noundef %1, i32 noundef %48, i32 noundef %47, ptr noundef %50, ptr noundef nonnull @.str.8, ptr noundef %29, ptr noundef %50)
   br label %90
 
 53:                                               ; preds = %.lr.ph
@@ -1686,15 +1735,15 @@ define internal fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %0, ptr noun
   br label %90
 
 56:                                               ; preds = %.lr.ph
-  call void @tvb_get_ntohguid(ptr noundef %1, i32 noundef %32, ptr noundef nonnull %5) #3
-  %57 = call ptr @wmem_packet_scope() #3
-  %58 = call ptr @guid_to_str(ptr noundef %57, ptr noundef nonnull %5) #3
+  call void @tvb_get_ntohguid(ptr noundef %1, i32 noundef %32, ptr noundef nonnull %5)
+  %57 = call ptr @wmem_packet_scope()
+  %58 = call ptr @guid_to_str(ptr noundef %57, ptr noundef nonnull %5)
   %59 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %60 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_guid_format(ptr noundef %13, i32 noundef %59, ptr noundef %1, i32 noundef %32, i32 noundef 16, ptr noundef nonnull %5, ptr noundef nonnull @.str.8, ptr noundef %29, ptr noundef %58) #3
+  %60 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_guid_format(ptr noundef %13, i32 noundef %59, ptr noundef %1, i32 noundef %32, i32 noundef 16, ptr noundef nonnull %5, ptr noundef nonnull @.str.8, ptr noundef %29, ptr noundef %58)
   br label %90
 
 61:                                               ; preds = %.lr.ph
-  %62 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %32) #3
+  %62 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %32)
   %63 = add i32 %30, 8
   switch i32 %62, label %85 [
     i32 16, label %64
@@ -1702,48 +1751,48 @@ define internal fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %0, ptr noun
   ]
 
 64:                                               ; preds = %61
-  %65 = call i32 @strncmp(ptr noundef nonnull dereferenceable(9) @.str.5, ptr noundef nonnull dereferenceable(1) %29, i64 noundef 8) #4
+  %65 = call i32 @strncmp(ptr noundef nonnull dereferenceable(9) @.str.5, ptr noundef %29, i64 noundef 8) #5
   %.not = icmp eq i32 %65, 0
   br i1 %.not, label %70, label %66
 
 66:                                               ; preds = %64
-  %67 = call i32 @strncmp(ptr noundef nonnull dereferenceable(15) @.str.6, ptr noundef nonnull dereferenceable(1) %29, i64 noundef 14) #4
+  %67 = call i32 @strncmp(ptr noundef nonnull dereferenceable(15) @.str.6, ptr noundef %29, i64 noundef 14) #5
   %.not146 = icmp eq i32 %67, 0
   br i1 %.not146, label %70, label %68
 
 68:                                               ; preds = %66
-  %69 = call i32 @strncmp(ptr noundef nonnull dereferenceable(16) @.str.7, ptr noundef nonnull dereferenceable(1) %29, i64 noundef 15) #4
+  %69 = call i32 @strncmp(ptr noundef nonnull dereferenceable(16) @.str.7, ptr noundef %29, i64 noundef 15) #5
   %.not147 = icmp eq i32 %69, 0
   br i1 %.not147, label %70, label %85
 
 70:                                               ; preds = %68, %66, %64
-  call void @tvb_get_ntohguid(ptr noundef %1, i32 noundef %63, ptr noundef nonnull %5) #3
-  %71 = call ptr @wmem_packet_scope() #3
-  %72 = call ptr @guid_to_str(ptr noundef %71, ptr noundef nonnull %5) #3
+  call void @tvb_get_ntohguid(ptr noundef %1, i32 noundef %63, ptr noundef nonnull %5)
+  %71 = call ptr @wmem_packet_scope()
+  %72 = call ptr @guid_to_str(ptr noundef %71, ptr noundef nonnull %5)
   %73 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %74 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_guid_format(ptr noundef %13, i32 noundef %73, ptr noundef %1, i32 noundef %63, i32 noundef 16, ptr noundef nonnull %5, ptr noundef nonnull @.str.8, ptr noundef nonnull %29, ptr noundef %72) #3
+  %74 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_guid_format(ptr noundef %13, i32 noundef %73, ptr noundef %1, i32 noundef %63, i32 noundef 16, ptr noundef nonnull %5, ptr noundef nonnull @.str.8, ptr noundef %29, ptr noundef %72)
   br label %90
 
 75:                                               ; preds = %61
-  %76 = call i32 @strncmp(ptr noundef nonnull dereferenceable(13) @.str.9, ptr noundef nonnull dereferenceable(1) %29, i64 noundef 12) #4
+  %76 = call i32 @strncmp(ptr noundef nonnull dereferenceable(13) @.str.9, ptr noundef %29, i64 noundef 12) #5
   %.not148 = icmp eq i32 %76, 0
   br i1 %.not148, label %77, label %85
 
 77:                                               ; preds = %75
   %78 = load i32, ptr @hf_gluster_trusted_afr_key, align 4
-  %79 = call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %63) #3
+  %79 = call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %63)
   %80 = add i32 %30, 12
-  %81 = call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %80) #3
+  %81 = call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %80)
   %82 = add i32 %30, 16
-  %83 = call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %82) #3
-  %84 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %13, i32 noundef %78, ptr noundef %1, i32 noundef %63, i32 noundef 12, ptr noundef null, ptr noundef nonnull @.str.10, ptr noundef nonnull %29, i32 noundef %79, i32 noundef %81, i32 noundef %83) #3
+  %83 = call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %82)
+  %84 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %13, i32 noundef %78, ptr noundef %1, i32 noundef %63, i32 noundef 12, ptr noundef null, ptr noundef nonnull @.str.10, ptr noundef %29, i32 noundef %79, i32 noundef %81, i32 noundef %83)
   br label %90
 
 85:                                               ; preds = %68, %61, %75
-  %86 = call ptr @wmem_packet_scope() #3
-  %87 = call ptr @tvb_get_string_enc(ptr noundef %86, ptr noundef %1, i32 noundef %63, i32 noundef %62, i32 noundef 0) #3
+  %86 = call ptr @wmem_packet_scope()
+  %87 = call ptr @tvb_get_string_enc(ptr noundef %86, ptr noundef %1, i32 noundef %63, i32 noundef %62, i32 noundef 0)
   %88 = load i32, ptr @hf_gluster_dict_value, align 4
-  %89 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %13, i32 noundef %88, ptr noundef %1, i32 noundef %63, i32 noundef %62, ptr noundef %87, ptr noundef nonnull @.str.8, ptr noundef %29, ptr noundef %87) #3
+  %89 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %13, i32 noundef %88, ptr noundef %1, i32 noundef %63, i32 noundef %62, ptr noundef %87, ptr noundef nonnull @.str.8, ptr noundef %29, ptr noundef %87)
   br label %90
 
 90:                                               ; preds = %.lr.ph, %37, %45, %56, %70, %85, %77, %53, %41, %33
@@ -1752,47 +1801,52 @@ define internal fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %0, ptr noun
   %.1 = phi ptr [ %36, %33 ], [ %40, %37 ], [ %44, %41 ], [ %52, %45 ], [ %.0135152, %53 ], [ %60, %56 ], [ %89, %85 ], [ %84, %77 ], [ %74, %70 ], [ %.0135152, %.lr.ph ]
   %91 = add i32 %.1137, %.0140
   %92 = sub i32 %91, %27
-  call void @proto_item_set_len(ptr noundef %.1, i32 noundef %92) #3
+  call void @proto_item_set_len(ptr noundef %.1, i32 noundef %92)
   %93 = add nuw i32 %.0139150, 1
   %exitcond.not = icmp eq i32 %93, %22
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %90, %21
   %.0136.lcssa = phi i32 [ %24, %21 ], [ %91, %90 ]
   %94 = load ptr, ptr %6, align 8
   %95 = sub i32 %.0136.lcssa, %3
-  call void @proto_item_set_len(ptr noundef %94, i32 noundef %95) #3
+  call void @proto_item_set_len(ptr noundef %94, i32 noundef %95)
   br label %96
 
 96:                                               ; preds = %.thread, %._crit_edge
   %.0 = phi i32 [ %.0136.lcssa, %._crit_edge ], [ %20, %.thread ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #4
   ret i32 %.0
 }
 
-declare i64 @tvb_get_gint64(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i64 @tvb_get_int64(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i64 @tvb_get_guint64(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i64 @tvb_get_uint64(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare double @tvb_get_ieee_double(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare double @tvb_get_ieee_double(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_stat_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_dict, align 4
   %8 = tail call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %7, i32 noundef 16)
   ret i32 %8
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_stat_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
-  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
-  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
+  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0)
+  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6)
   %8 = load i32, ptr @hf_gluster_op_errno, align 4
-  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7) #3
-  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10) #3
+  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7)
+  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10)
   %11 = add i32 %6, 4
   %12 = load i32, ptr @hf_glusterfs_iatt, align 4
   %13 = tail call i32 @glusterfs_rpc_dissect_gf_iatt(ptr noundef %2, ptr noundef %0, i32 noundef %12, i32 noundef %11)
@@ -1801,66 +1855,66 @@ define internal i32 @glusterfs_gfs3_3_op_stat_reply(ptr noundef %0, ptr readnone
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_readlink_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_size, align 4
-  %8 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_dict, align 4
   %10 = tail call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %9, i32 noundef %8)
   ret i32 %10
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_readlink_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
-  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
-  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
+  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0)
+  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6)
   %8 = load i32, ptr @hf_gluster_op_errno, align 4
-  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7) #3
-  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10) #3
+  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7)
+  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10)
   %11 = add i32 %6, 4
   %12 = load i32, ptr @hf_glusterfs_iatt, align 4
   %13 = tail call i32 @glusterfs_rpc_dissect_gf_iatt(ptr noundef %2, ptr noundef %0, i32 noundef %12, i32 noundef %11)
   %14 = load i32, ptr @hf_glusterfs_path, align 4
-  %15 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %14, i32 noundef %13, ptr noundef null) #3
+  %15 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %14, i32 noundef %13, ptr noundef null)
   %16 = load i32, ptr @hf_glusterfs_dict, align 4
   %17 = tail call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %16, i32 noundef %15)
   ret i32 %17
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_mknod_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_pargfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_offset, align 4
-  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_mode, align 4
   %10 = load i32, ptr @ett_glusterfs_mode, align 4
-  %11 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef nonnull @glusterfs_rpc_dissect_mode.mode_bits, i32 noundef 0) #3
+  %11 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef nonnull @glusterfs_rpc_dissect_mode.mode_bits, i32 noundef 0)
   %12 = add i32 %8, 4
   %13 = load i32, ptr @hf_glusterfs_umask, align 4
   %14 = load i32, ptr @ett_glusterfs_mode, align 4
-  %15 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef %12, i32 noundef %13, i32 noundef %14, ptr noundef nonnull @glusterfs_rpc_dissect_mode.mode_bits, i32 noundef 0) #3
+  %15 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef %12, i32 noundef %13, i32 noundef %14, ptr noundef nonnull @glusterfs_rpc_dissect_mode.mode_bits, i32 noundef 0)
   %16 = add i32 %8, 8
   %17 = load i32, ptr @hf_glusterfs_bname, align 4
-  %18 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef %16, ptr noundef null) #3
+  %18 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef %16, ptr noundef null)
   %19 = load i32, ptr @hf_glusterfs_dict, align 4
   %20 = tail call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %19, i32 noundef %18)
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_mknod_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
-  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
-  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
+  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0)
+  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6)
   %8 = load i32, ptr @hf_gluster_op_errno, align 4
-  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7) #3
-  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10) #3
+  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7)
+  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10)
   %11 = add i32 %6, 4
   %12 = load i32, ptr @hf_glusterfs_iatt, align 4
   %13 = tail call i32 @glusterfs_rpc_dissect_gf_iatt(ptr noundef %2, ptr noundef %0, i32 noundef %12, i32 noundef %11)
@@ -1873,53 +1927,55 @@ define internal i32 @glusterfs_gfs3_3_op_mknod_reply(ptr noundef %0, ptr readnon
   ret i32 %19
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_mkdir_call(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
   store ptr null, ptr %5, align 8
   %6 = load i32, ptr @hf_glusterfs_pargfid, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %8 = load i32, ptr @hf_glusterfs_mode, align 4
   %9 = load i32, ptr @ett_glusterfs_mode, align 4
-  %10 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef 16, i32 noundef %8, i32 noundef %9, ptr noundef nonnull @glusterfs_rpc_dissect_mode.mode_bits, i32 noundef 0) #3
+  %10 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef 16, i32 noundef %8, i32 noundef %9, ptr noundef nonnull @glusterfs_rpc_dissect_mode.mode_bits, i32 noundef 0)
   %11 = load i32, ptr @hf_glusterfs_umask, align 4
   %12 = load i32, ptr @ett_glusterfs_mode, align 4
-  %13 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef 20, i32 noundef %11, i32 noundef %12, ptr noundef nonnull @glusterfs_rpc_dissect_mode.mode_bits, i32 noundef 0) #3
+  %13 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef 20, i32 noundef %11, i32 noundef %12, ptr noundef nonnull @glusterfs_rpc_dissect_mode.mode_bits, i32 noundef 0)
   %14 = load i32, ptr @hf_glusterfs_bname, align 4
-  %15 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %14, i32 noundef 24, ptr noundef nonnull %5) #3
+  %15 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %14, i32 noundef 24, ptr noundef nonnull %5)
   %16 = load i32, ptr @hf_glusterfs_dict, align 4
   %17 = call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %16, i32 noundef %15)
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %5, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %19, i32 noundef 25, ptr noundef nonnull @.str.562, ptr noundef %20) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %19, i32 noundef 25, ptr noundef nonnull @.str.573, ptr noundef %20)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
   ret i32 %17
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_unlink_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_pargfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_bname, align 4
-  %8 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16, ptr noundef null) #3
-  %9 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %8) #3
+  %8 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16, ptr noundef null)
+  %9 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %8)
   %10 = load i32, ptr @hf_glusterfs_xflags, align 4
-  %11 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef %8, i32 noundef 4, i32 noundef %9, ptr noundef nonnull @.str.563, i32 noundef %9) #3
+  %11 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef %8, i32 noundef 4, i32 noundef %9, ptr noundef nonnull @.str.574, i32 noundef %9)
   %12 = add i32 %8, 4
   %13 = load i32, ptr @hf_glusterfs_dict, align 4
   %14 = tail call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %13, i32 noundef %12)
   ret i32 %14
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_unlink_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
-  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
-  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
+  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0)
+  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6)
   %8 = load i32, ptr @hf_gluster_op_errno, align 4
-  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7) #3
-  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10) #3
+  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7)
+  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10)
   %11 = add i32 %6, 4
   %12 = load i32, ptr @hf_glusterfs_preparent_iatt, align 4
   %13 = tail call i32 @glusterfs_rpc_dissect_gf_iatt(ptr noundef %2, ptr noundef %0, i32 noundef %12, i32 noundef %11)
@@ -1930,200 +1986,204 @@ define internal i32 @glusterfs_gfs3_3_op_unlink_reply(ptr noundef %0, ptr readno
   ret i32 %17
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_rmdir_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_pargfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
-  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 16) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
+  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 16)
   %8 = load i32, ptr @hf_glusterfs_xflags, align 4
-  %9 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef %7, ptr noundef nonnull @.str.563, i32 noundef %7) #3
+  %9 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef %7, ptr noundef nonnull @.str.574, i32 noundef %7)
   %10 = load i32, ptr @hf_glusterfs_bname, align 4
-  %11 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %10, i32 noundef 20, ptr noundef null) #3
+  %11 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %10, i32 noundef 20, ptr noundef null)
   %12 = load i32, ptr @hf_glusterfs_dict, align 4
   %13 = tail call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %12, i32 noundef %11)
   ret i32 %13
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_symlink_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_pargfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_bname, align 4
-  %8 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16, ptr noundef null) #3
+  %8 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16, ptr noundef null)
   %9 = load i32, ptr @hf_glusterfs_umask, align 4
   %10 = load i32, ptr @ett_glusterfs_mode, align 4
-  %11 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef nonnull @glusterfs_rpc_dissect_mode.mode_bits, i32 noundef 0) #3
+  %11 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef nonnull @glusterfs_rpc_dissect_mode.mode_bits, i32 noundef 0)
   %12 = add i32 %8, 4
   %13 = load i32, ptr @hf_glusterfs_linkname, align 4
-  %14 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %13, i32 noundef %12, ptr noundef null) #3
+  %14 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %13, i32 noundef %12, ptr noundef null)
   %15 = load i32, ptr @hf_glusterfs_dict, align 4
   %16 = tail call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %15, i32 noundef %14)
   ret i32 %16
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_rename_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_oldgfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_newgfid, align 4
-  %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 16, i32 noundef 16, i32 noundef 0) #3
+  %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 16, i32 noundef 16, i32 noundef 0)
   %9 = load i32, ptr @hf_glusterfs_oldbname, align 4
-  %10 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef 32, ptr noundef null) #3
+  %10 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef 32, ptr noundef null)
   %11 = load i32, ptr @hf_glusterfs_newbname, align 4
-  %12 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10, ptr noundef null) #3
+  %12 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10, ptr noundef null)
   %13 = load i32, ptr @hf_glusterfs_dict, align 4
   %14 = tail call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %13, i32 noundef %12)
   ret i32 %14
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_rename_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
   %7 = load i32, ptr @hf_gluster_op_ret, align 4
-  %8 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 0) #3
-  %9 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %8) #3
+  %8 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 0)
+  %9 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %8)
   %10 = load i32, ptr @hf_gluster_op_errno, align 4
-  %11 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef %8, i32 noundef 4, i32 noundef %9) #3
-  %12 = tail call ptr @val_to_str_ext_const(i32 noundef %9, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef nonnull @.str.11, ptr noundef %12) #3
+  %11 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef %8, i32 noundef 4, i32 noundef %9)
+  %12 = tail call ptr @val_to_str_ext_const(i32 noundef %9, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef nonnull @.str.11, ptr noundef %12)
   %13 = add i32 %8, 4
   %14 = load i32, ptr @hf_glusterfs_iatt, align 4
   %15 = tail call i32 @glusterfs_rpc_dissect_gf_iatt(ptr noundef %2, ptr noundef %0, i32 noundef %14, i32 noundef %13)
   %16 = load i32, ptr @ett_glusterfs_parent_iatt, align 4
-  %17 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %15, i32 noundef -1, i32 noundef %16, ptr noundef nonnull %5, ptr noundef nonnull @.str.564) #3
+  %17 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %15, i32 noundef -1, i32 noundef %16, ptr noundef nonnull %5, ptr noundef nonnull @.str.575)
   %18 = load i32, ptr @hf_glusterfs_preparent_iatt, align 4
   %19 = call i32 @glusterfs_rpc_dissect_gf_iatt(ptr noundef %17, ptr noundef %0, i32 noundef %18, i32 noundef %15)
   %20 = load i32, ptr @hf_glusterfs_postparent_iatt, align 4
   %21 = call i32 @glusterfs_rpc_dissect_gf_iatt(ptr noundef %17, ptr noundef %0, i32 noundef %20, i32 noundef %19)
   %22 = load ptr, ptr %5, align 8
   %23 = sub i32 %21, %15
-  call void @proto_item_set_len(ptr noundef %22, i32 noundef %23) #3
+  call void @proto_item_set_len(ptr noundef %22, i32 noundef %23)
   %24 = load i32, ptr @ett_glusterfs_parent_iatt, align 4
-  %25 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %21, i32 noundef -1, i32 noundef %24, ptr noundef nonnull %6, ptr noundef nonnull @.str.565) #3
+  %25 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %21, i32 noundef -1, i32 noundef %24, ptr noundef nonnull %6, ptr noundef nonnull @.str.576)
   %26 = load i32, ptr @hf_glusterfs_preparent_iatt, align 4
   %27 = call i32 @glusterfs_rpc_dissect_gf_iatt(ptr noundef %25, ptr noundef %0, i32 noundef %26, i32 noundef %21)
   %28 = load i32, ptr @hf_glusterfs_postparent_iatt, align 4
   %29 = call i32 @glusterfs_rpc_dissect_gf_iatt(ptr noundef %25, ptr noundef %0, i32 noundef %28, i32 noundef %27)
   %30 = load ptr, ptr %6, align 8
   %31 = sub i32 %29, %21
-  call void @proto_item_set_len(ptr noundef %30, i32 noundef %31) #3
+  call void @proto_item_set_len(ptr noundef %30, i32 noundef %31)
   %32 = load i32, ptr @hf_glusterfs_dict, align 4
   %33 = call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %32, i32 noundef %29)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_link_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_oldgfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_newgfid, align 4
-  %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 16, i32 noundef 16, i32 noundef 0) #3
+  %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 16, i32 noundef 16, i32 noundef 0)
   %9 = load i32, ptr @hf_glusterfs_newbname, align 4
-  %10 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef 32, ptr noundef null) #3
+  %10 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef 32, ptr noundef null)
   %11 = load i32, ptr @hf_glusterfs_dict, align 4
   %12 = tail call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %11, i32 noundef %10)
   ret i32 %12
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_truncate_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_offset, align 4
-  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_dict, align 4
   %10 = tail call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %9, i32 noundef %8)
   ret i32 %10
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_open_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = tail call fastcc i32 @glusterfs_rpc_dissect_flags(ptr noundef %2, ptr noundef %0, i32 noundef 16)
   %8 = load i32, ptr @hf_glusterfs_dict, align 4
   %9 = tail call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %8, i32 noundef %7)
   ret i32 %9
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_open_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
-  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
-  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
+  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0)
+  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6)
   %8 = load i32, ptr @hf_gluster_op_errno, align 4
-  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7) #3
-  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10) #3
+  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7)
+  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10)
   %11 = add i32 %6, 4
   %12 = load i32, ptr @hf_glusterfs_fd, align 4
-  %13 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %12, i32 noundef %11) #3
+  %13 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %12, i32 noundef %11)
   %14 = load i32, ptr @hf_glusterfs_dict, align 4
   %15 = tail call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %14, i32 noundef %13)
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_read_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
-  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_offset, align 4
-  %10 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8) #3
+  %10 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8)
   %11 = load i32, ptr @hf_glusterfs_size, align 4
-  %12 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10) #3
+  %12 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10)
   %13 = tail call fastcc i32 @glusterfs_rpc_dissect_flags(ptr noundef %2, ptr noundef %0, i32 noundef %12)
   %14 = load i32, ptr @hf_glusterfs_dict, align 4
   %15 = tail call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %14, i32 noundef %13)
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_read_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
-  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
-  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
+  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0)
+  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6)
   %8 = load i32, ptr @hf_gluster_op_errno, align 4
-  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7) #3
-  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10) #3
+  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7)
+  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10)
   %11 = add i32 %6, 4
   %12 = load i32, ptr @hf_glusterfs_iatt, align 4
   %13 = tail call i32 @glusterfs_rpc_dissect_gf_iatt(ptr noundef %2, ptr noundef %0, i32 noundef %12, i32 noundef %11)
   %14 = load i32, ptr @hf_glusterfs_size, align 4
-  %15 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %14, i32 noundef %13) #3
+  %15 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %14, i32 noundef %13)
   %16 = load i32, ptr @hf_glusterfs_dict, align 4
   %17 = tail call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %16, i32 noundef %15)
   ret i32 %17
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_write_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
-  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_offset, align 4
-  %10 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8) #3
+  %10 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8)
   %11 = load i32, ptr @hf_glusterfs_size, align 4
-  %12 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10) #3
+  %12 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10)
   %13 = tail call fastcc i32 @glusterfs_rpc_dissect_flags(ptr noundef %2, ptr noundef %0, i32 noundef %12)
   %14 = load i32, ptr @hf_glusterfs_dict, align 4
   %15 = tail call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %14, i32 noundef %13)
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_setattr_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
-  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
-  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
+  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0)
+  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6)
   %8 = load i32, ptr @hf_gluster_op_errno, align 4
-  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7) #3
-  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10) #3
+  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7)
+  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10)
   %11 = add i32 %6, 4
   %12 = load i32, ptr @hf_glusterfs_preop_iatt, align 4
   %13 = tail call i32 @glusterfs_rpc_dissect_gf_iatt(ptr noundef %2, ptr noundef %0, i32 noundef %12, i32 noundef %11)
@@ -2134,24 +2194,24 @@ define internal i32 @glusterfs_gfs3_3_op_setattr_reply(ptr noundef %0, ptr readn
   ret i32 %17
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_statfs_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_dict, align 4
   %8 = tail call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %7, i32 noundef 16)
   ret i32 %8
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_statfs_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
-  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
-  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
+  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0)
+  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6)
   %8 = load i32, ptr @hf_gluster_op_errno, align 4
-  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7) #3
-  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10) #3
+  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7)
+  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10)
   %11 = add i32 %6, 4
   %12 = tail call fastcc i32 @glusterfs_rpc_dissect_statfs(ptr noundef %2, ptr noundef %0, i32 noundef %11)
   %13 = load i32, ptr @hf_glusterfs_dict, align 4
@@ -2159,36 +2219,36 @@ define internal i32 @glusterfs_gfs3_3_op_statfs_reply(ptr noundef %0, ptr readno
   ret i32 %14
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_flush_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
-  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_dict, align 4
   %10 = tail call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %9, i32 noundef %8)
   ret i32 %10
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_fsync_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
-  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_fsync_flags, align 4
   %10 = load i32, ptr @ett_glusterfs_fsync_flags, align 4
-  %11 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef nonnull @glusterfs_gfs3_3_op_fsync_call.flag_bits, i32 noundef 0) #3
+  %11 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef nonnull @glusterfs_gfs3_3_op_fsync_call.flag_bits, i32 noundef 0)
   %12 = add i32 %8, 4
   %13 = load i32, ptr @hf_glusterfs_dict, align 4
   %14 = tail call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %13, i32 noundef %12)
   ret i32 %14
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_setxattr_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = tail call fastcc i32 @glusterfs_rpc_dissect_flags(ptr noundef %2, ptr noundef %0, i32 noundef 16)
   %8 = load i32, ptr @hf_glusterfs_dict, align 4
   %9 = tail call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %8, i32 noundef %7)
@@ -2197,28 +2257,28 @@ define internal i32 @glusterfs_gfs3_3_op_setxattr_call(ptr noundef %0, ptr readn
   ret i32 %11
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_getxattr_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_namelen, align 4
-  %8 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_name, align 4
-  %10 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8, ptr noundef null) #3
+  %10 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8, ptr noundef null)
   %11 = load i32, ptr @hf_glusterfs_dict, align 4
   %12 = tail call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %11, i32 noundef %10)
   ret i32 %12
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_getxattr_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
-  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
-  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
+  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0)
+  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6)
   %8 = load i32, ptr @hf_gluster_op_errno, align 4
-  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7) #3
-  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10) #3
+  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7)
+  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10)
   %11 = add i32 %6, 4
   %12 = load i32, ptr @hf_glusterfs_dict, align 4
   %13 = tail call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %12, i32 noundef %11)
@@ -2227,94 +2287,96 @@ define internal i32 @glusterfs_gfs3_3_op_getxattr_reply(ptr noundef %0, ptr read
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_removexattr_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_name, align 4
-  %8 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16, ptr noundef null) #3
+  %8 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16, ptr noundef null)
   %9 = load i32, ptr @hf_glusterfs_dict, align 4
   %10 = tail call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %9, i32 noundef %8)
   ret i32 %10
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_opendir_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_dict, align 4
   %8 = tail call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %7, i32 noundef 16)
   ret i32 %8
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_opendir_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
-  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
-  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
+  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0)
+  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6)
   %8 = load i32, ptr @hf_gluster_op_errno, align 4
-  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7) #3
-  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10) #3
+  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7)
+  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10)
   %11 = add i32 %6, 4
   %12 = load i32, ptr @hf_glusterfs_fd, align 4
-  %13 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %12, i32 noundef %11) #3
+  %13 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %12, i32 noundef %11)
   %14 = load i32, ptr @hf_glusterfs_dict, align 4
   %15 = tail call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %14, i32 noundef %13)
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_access_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_mask, align 4
-  %8 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_dict, align 4
   %10 = tail call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %9, i32 noundef %8)
   ret i32 %10
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_create_call(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
   store ptr null, ptr %5, align 8
   %6 = load i32, ptr @hf_glusterfs_pargfid, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %8 = tail call fastcc i32 @glusterfs_rpc_dissect_flags(ptr noundef %2, ptr noundef %0, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_mode, align 4
   %10 = load i32, ptr @ett_glusterfs_mode, align 4
-  %11 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef nonnull @glusterfs_rpc_dissect_mode.mode_bits, i32 noundef 0) #3
+  %11 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef nonnull @glusterfs_rpc_dissect_mode.mode_bits, i32 noundef 0)
   %12 = add i32 %8, 4
   %13 = load i32, ptr @hf_glusterfs_umask, align 4
   %14 = load i32, ptr @ett_glusterfs_mode, align 4
-  %15 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef %12, i32 noundef %13, i32 noundef %14, ptr noundef nonnull @glusterfs_rpc_dissect_mode.mode_bits, i32 noundef 0) #3
+  %15 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef %12, i32 noundef %13, i32 noundef %14, ptr noundef nonnull @glusterfs_rpc_dissect_mode.mode_bits, i32 noundef 0)
   %16 = add i32 %8, 8
   %17 = load i32, ptr @hf_glusterfs_bname, align 4
-  %18 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef %16, ptr noundef nonnull %5) #3
+  %18 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef %16, ptr noundef nonnull %5)
   %19 = load i32, ptr @hf_glusterfs_dict, align 4
   %20 = call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %19, i32 noundef %18)
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %5, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %22, i32 noundef 25, ptr noundef nonnull @.str.562, ptr noundef %23) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %22, i32 noundef 25, ptr noundef nonnull @.str.573, ptr noundef %23)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_create_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
-  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
-  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
+  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0)
+  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6)
   %8 = load i32, ptr @hf_gluster_op_errno, align 4
-  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7) #3
-  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10) #3
+  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7)
+  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10)
   %11 = add i32 %6, 4
   %12 = load i32, ptr @hf_glusterfs_iatt, align 4
   %13 = tail call i32 @glusterfs_rpc_dissect_gf_iatt(ptr noundef %2, ptr noundef %0, i32 noundef %12, i32 noundef %11)
   %14 = load i32, ptr @hf_glusterfs_fd, align 4
-  %15 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %14, i32 noundef %13) #3
+  %15 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %14, i32 noundef %13)
   %16 = load i32, ptr @hf_glusterfs_preparent_iatt, align 4
   %17 = tail call i32 @glusterfs_rpc_dissect_gf_iatt(ptr noundef %2, ptr noundef %0, i32 noundef %16, i32 noundef %15)
   %18 = load i32, ptr @hf_glusterfs_postparent_iatt, align 4
@@ -2324,39 +2386,39 @@ define internal i32 @glusterfs_gfs3_3_op_create_reply(ptr noundef %0, ptr readno
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_ftruncate_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
-  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_offset, align 4
-  %10 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8) #3
+  %10 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8)
   %11 = load i32, ptr @hf_glusterfs_dict, align 4
   %12 = tail call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %11, i32 noundef %10)
   ret i32 %12
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_fstat_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
-  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_dict, align 4
   %10 = tail call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %9, i32 noundef %8)
   ret i32 %10
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_fstat_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
-  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
-  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
+  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0)
+  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6)
   %8 = load i32, ptr @hf_gluster_op_errno, align 4
-  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7) #3
-  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10) #3
+  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7)
+  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10)
   %11 = add i32 %6, 4
   %12 = load i32, ptr @hf_glusterfs_iatt, align 4
   %13 = tail call i32 @glusterfs_rpc_dissect_gf_iatt(ptr noundef %2, ptr noundef %0, i32 noundef %12, i32 noundef %11)
@@ -2365,31 +2427,31 @@ define internal i32 @glusterfs_gfs3_3_op_fstat_reply(ptr noundef %0, ptr readnon
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_lk_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
-  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_cmd, align 4
-  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8) #3
+  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8)
   %11 = load i32, ptr @hf_glusterfs_type, align 4
-  %12 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10) #3
+  %12 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10)
   %13 = tail call fastcc i32 @glusterfs_rpc_dissect_gf_2_flock(ptr noundef %2, ptr noundef %0, i32 noundef %12)
   %14 = load i32, ptr @hf_glusterfs_dict, align 4
   %15 = tail call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %14, i32 noundef %13)
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_lk_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
-  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
-  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
+  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0)
+  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6)
   %8 = load i32, ptr @hf_gluster_op_errno, align 4
-  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7) #3
-  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10) #3
+  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7)
+  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10)
   %11 = add i32 %6, 4
   %12 = tail call fastcc i32 @glusterfs_rpc_dissect_gf_2_flock(ptr noundef %2, ptr noundef %0, i32 noundef %11)
   %13 = load i32, ptr @hf_glusterfs_dict, align 4
@@ -2397,18 +2459,19 @@ define internal i32 @glusterfs_gfs3_3_op_lk_reply(ptr noundef %0, ptr readnone c
   ret i32 %14
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_lookup_call(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
   store ptr null, ptr %5, align 8
   %6 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %8 = load i32, ptr @hf_glusterfs_pargfid, align 4
-  %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 16, i32 noundef 16, i32 noundef 0) #3
+  %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 16, i32 noundef 16, i32 noundef 0)
   %10 = tail call fastcc i32 @glusterfs_rpc_dissect_flags(ptr noundef %2, ptr noundef %0, i32 noundef 32)
-  %11 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %10) #3
+  %11 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %10)
   %12 = load i32, ptr @hf_glusterfs_bname, align 4
-  %13 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %12, i32 noundef %10, ptr noundef nonnull %5) #3
+  %13 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %12, i32 noundef %10, ptr noundef nonnull %5)
   %14 = load i32, ptr @hf_glusterfs_dict, align 4
   %15 = call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %14, i32 noundef %13)
   %16 = icmp eq i32 %11, 0
@@ -2417,40 +2480,41 @@ define internal i32 @glusterfs_gfs3_3_op_lookup_call(ptr noundef %0, ptr noundef
   br i1 %16, label %19, label %20
 
 19:                                               ; preds = %4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %18, i32 noundef 25, ptr noundef nonnull @.str.566) #3
+  call void @col_append_str(ptr noundef %18, i32 noundef 25, ptr noundef nonnull @.str.577)
   br label %22
 
 20:                                               ; preds = %4
   %21 = load ptr, ptr %5, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %18, i32 noundef 25, ptr noundef nonnull @.str.562, ptr noundef %21) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %18, i32 noundef 25, ptr noundef nonnull @.str.573, ptr noundef %21)
   br label %22
 
 22:                                               ; preds = %20, %19
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_readdir_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
-  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_offset, align 4
-  %10 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8) #3
+  %10 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8)
   %11 = load i32, ptr @hf_glusterfs_size, align 4
-  %12 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10) #3
+  %12 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10)
   %13 = load i32, ptr @hf_glusterfs_dict, align 4
   %14 = tail call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %13, i32 noundef %12)
   ret i32 %14
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_readdir_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_entries, align 4
-  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
-  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
+  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0)
+  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6)
   %8 = load i32, ptr @hf_gluster_op_errno, align 4
-  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7) #3
+  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7)
   switch i32 %7, label %_glusterfs_gfs3_common_readdir_reply.exit [
     i32 0, label %.sink.split.i
     i32 2, label %10
@@ -2460,96 +2524,96 @@ define internal i32 @glusterfs_gfs3_3_op_readdir_reply(ptr noundef %0, ptr nound
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %10, %4
-  %.str.556.sink.i = phi ptr [ @.str.556, %10 ], [ @.str.555, %4 ]
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull %.str.556.sink.i) #3
+  %.str.566.sink.i = phi ptr [ @.str.566, %10 ], [ @.str.565, %4 ]
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull %.str.566.sink.i)
   br label %_glusterfs_gfs3_common_readdir_reply.exit
 
 _glusterfs_gfs3_common_readdir_reply.exit:        ; preds = %4, %.sink.split.i
   %11 = add i32 %6, 4
-  %12 = tail call i32 @dissect_rpc_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %11, ptr noundef nonnull @glusterfs_gfs3_3_op_readdir_entry, ptr noundef null) #3
+  %12 = tail call i32 @dissect_rpc_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %11, ptr noundef nonnull @glusterfs_gfs3_3_op_readdir_entry, ptr noundef null)
   %13 = load i32, ptr @hf_glusterfs_dict, align 4
   %14 = tail call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %13, i32 noundef %12)
   ret i32 %14
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_inodelk_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_cmd, align 4
-  %8 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_type, align 4
-  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8) #3
+  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8)
   %11 = tail call fastcc i32 @glusterfs_rpc_dissect_gf_2_flock(ptr noundef %2, ptr noundef %0, i32 noundef %10)
   %12 = load i32, ptr @hf_glusterfs_volume, align 4
-  %13 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %12, i32 noundef %11, ptr noundef null) #3
+  %13 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %12, i32 noundef %11, ptr noundef null)
   %14 = load i32, ptr @hf_glusterfs_dict, align 4
   %15 = tail call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %14, i32 noundef %13)
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_finodelk_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
-  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_cmd, align 4
-  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8) #3
+  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8)
   %11 = load i32, ptr @hf_glusterfs_type, align 4
-  %12 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10) #3
+  %12 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10)
   %13 = tail call fastcc i32 @glusterfs_rpc_dissect_gf_2_flock(ptr noundef %2, ptr noundef %0, i32 noundef %12)
   %14 = load i32, ptr @hf_glusterfs_volume, align 4
-  %15 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %14, i32 noundef %13, ptr noundef null) #3
+  %15 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %14, i32 noundef %13, ptr noundef null)
   %16 = load i32, ptr @hf_glusterfs_dict, align 4
   %17 = tail call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %16, i32 noundef %15)
   ret i32 %17
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_entrylk_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_cmd, align 4
-  %8 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_type, align 4
-  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8) #3
+  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8)
   %11 = load i32, ptr @hf_glusterfs_entrylk_namelen, align 4
-  %12 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10) #3
+  %12 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10)
   %13 = load i32, ptr @hf_glusterfs_name, align 4
-  %14 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %13, i32 noundef %12, ptr noundef null) #3
+  %14 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %13, i32 noundef %12, ptr noundef null)
   %15 = load i32, ptr @hf_glusterfs_volume, align 4
-  %16 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %14, ptr noundef null) #3
+  %16 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %14, ptr noundef null)
   %17 = load i32, ptr @hf_glusterfs_dict, align 4
   %18 = tail call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %17, i32 noundef %16)
   ret i32 %18
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_fentrylk_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
-  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_cmd, align 4
-  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8) #3
+  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8)
   %11 = load i32, ptr @hf_glusterfs_type, align 4
-  %12 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10) #3
+  %12 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10)
   %13 = load i32, ptr @hf_glusterfs_entrylk_namelen, align 4
-  %14 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %13, i32 noundef %12) #3
+  %14 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %13, i32 noundef %12)
   %15 = load i32, ptr @hf_glusterfs_name, align 4
-  %16 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %14, ptr noundef null) #3
+  %16 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %14, ptr noundef null)
   %17 = load i32, ptr @hf_glusterfs_volume, align 4
-  %18 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef %16, ptr noundef null) #3
+  %18 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef %16, ptr noundef null)
   %19 = load i32, ptr @hf_glusterfs_dict, align 4
   %20 = tail call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %19, i32 noundef %18)
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_xattrop_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = tail call fastcc i32 @glusterfs_rpc_dissect_flags(ptr noundef %2, ptr noundef %0, i32 noundef 16)
   %8 = load i32, ptr @hf_glusterfs_dict, align 4
   %9 = tail call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %8, i32 noundef %7)
@@ -2558,15 +2622,15 @@ define internal i32 @glusterfs_gfs3_3_op_xattrop_call(ptr noundef %0, ptr readno
   ret i32 %11
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_xattrop_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
-  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
-  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
+  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0)
+  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6)
   %8 = load i32, ptr @hf_gluster_op_errno, align 4
-  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7) #3
-  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10) #3
+  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7)
+  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10)
   %11 = add i32 %6, 4
   %12 = load i32, ptr @hf_glusterfs_dict, align 4
   %13 = tail call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %12, i32 noundef %11)
@@ -2575,13 +2639,13 @@ define internal i32 @glusterfs_gfs3_3_op_xattrop_reply(ptr noundef %0, ptr readn
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_fxattrop_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = tail call fastcc i32 @glusterfs_rpc_dissect_flags(ptr noundef %2, ptr noundef %0, i32 noundef 16)
   %8 = load i32, ptr @hf_glusterfs_fd, align 4
-  %9 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %8, i32 noundef %7) #3
+  %9 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %8, i32 noundef %7)
   %10 = load i32, ptr @hf_glusterfs_dict, align 4
   %11 = tail call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %10, i32 noundef %9)
   %12 = load i32, ptr @hf_glusterfs_dict, align 4
@@ -2589,27 +2653,27 @@ define internal i32 @glusterfs_gfs3_3_op_fxattrop_call(ptr noundef %0, ptr readn
   ret i32 %13
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_fgetxattr_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
-  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_namelen, align 4
-  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8) #3
+  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8)
   %11 = load i32, ptr @hf_glusterfs_name, align 4
-  %12 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10, ptr noundef null) #3
+  %12 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10, ptr noundef null)
   %13 = load i32, ptr @hf_glusterfs_dict, align 4
   %14 = tail call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %13, i32 noundef %12)
   ret i32 %14
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @gluter_gfs3_3_op_fsetxattr_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
-  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = tail call fastcc i32 @glusterfs_rpc_dissect_flags(ptr noundef %2, ptr noundef %0, i32 noundef %8)
   %10 = load i32, ptr @hf_glusterfs_dict, align 4
   %11 = tail call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %10, i32 noundef %9)
@@ -2618,43 +2682,43 @@ define internal i32 @gluter_gfs3_3_op_fsetxattr_call(ptr noundef %0, ptr readnon
   ret i32 %13
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_setattr_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_iatt, align 4
   %8 = tail call i32 @glusterfs_rpc_dissect_gf_iatt(ptr noundef %2, ptr noundef %0, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_setattr_valid, align 4
   %10 = load i32, ptr @ett_glusterfs_setattr_valid, align 4
-  %11 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef nonnull @glusterfs_rpc_dissect_setattr.flag_bits, i32 noundef 0) #3
+  %11 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef nonnull @glusterfs_rpc_dissect_setattr.flag_bits, i32 noundef 0)
   %12 = add i32 %8, 4
   %13 = load i32, ptr @hf_glusterfs_dict, align 4
   %14 = tail call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %13, i32 noundef %12)
   ret i32 %14
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_readdirp_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
-  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_offset, align 4
-  %10 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8) #3
+  %10 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8)
   %11 = load i32, ptr @hf_glusterfs_size, align 4
-  %12 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10) #3
+  %12 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10)
   %13 = load i32, ptr @hf_glusterfs_dict, align 4
   %14 = tail call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %13, i32 noundef %12)
   ret i32 %14
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_readdirp_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_entries, align 4
-  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
-  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
+  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0)
+  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6)
   %8 = load i32, ptr @hf_gluster_op_errno, align 4
-  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7) #3
+  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7)
   switch i32 %7, label %_glusterfs_gfs3_common_readdir_reply.exit [
     i32 0, label %.sink.split.i
     i32 2, label %10
@@ -2664,174 +2728,181 @@ define internal i32 @glusterfs_gfs3_3_op_readdirp_reply(ptr noundef %0, ptr noun
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %10, %4
-  %.str.556.sink.i = phi ptr [ @.str.556, %10 ], [ @.str.555, %4 ]
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull %.str.556.sink.i) #3
+  %.str.566.sink.i = phi ptr [ @.str.566, %10 ], [ @.str.565, %4 ]
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull %.str.566.sink.i)
   br label %_glusterfs_gfs3_common_readdir_reply.exit
 
 _glusterfs_gfs3_common_readdir_reply.exit:        ; preds = %4, %.sink.split.i
   %11 = add i32 %6, 4
-  %12 = tail call i32 @dissect_rpc_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %11, ptr noundef nonnull @glusterfs_gfs3_3_op_readdirp_entry, ptr noundef null) #3
+  %12 = tail call i32 @dissect_rpc_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %11, ptr noundef nonnull @glusterfs_gfs3_3_op_readdirp_entry, ptr noundef null)
   %13 = load i32, ptr @hf_glusterfs_dict, align 4
   %14 = tail call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %13, i32 noundef %12)
   ret i32 %14
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_release_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
-  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_dict, align 4
   %10 = tail call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %9, i32 noundef %8)
   ret i32 %10
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_releasedir_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
-  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_dict, align 4
   %10 = tail call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %9, i32 noundef %8)
   ret i32 %10
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_fremovexattr_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
-  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_name, align 4
-  %10 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8, ptr noundef null) #3
+  %10 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8, ptr noundef null)
   %11 = load i32, ptr @hf_glusterfs_dict, align 4
   %12 = tail call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %11, i32 noundef %10)
   ret i32 %12
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_fallocate_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
-  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = tail call fastcc i32 @glusterfs_rpc_dissect_flags(ptr noundef %2, ptr noundef %0, i32 noundef %8)
   %10 = load i32, ptr @hf_glusterfs_offset, align 4
-  %11 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %10, i32 noundef %9) #3
+  %11 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %10, i32 noundef %9)
   %12 = load i32, ptr @hf_glusterfs_size, align 4
-  %13 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %12, i32 noundef %11) #3
+  %13 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %12, i32 noundef %11)
   %14 = load i32, ptr @hf_glusterfs_dict, align 4
   %15 = tail call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %14, i32 noundef %13)
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_zerofill_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
-  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_offset, align 4
-  %10 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8) #3
+  %10 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8)
   %11 = load i32, ptr @hf_glusterfs_size64, align 4
-  %12 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10) #3
+  %12 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10)
   ret i32 %12
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_seek_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
-  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_offset, align 4
-  %10 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8) #3
+  %10 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8)
   %11 = load i32, ptr @hf_glusterfs_whence, align 4
-  %12 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10) #3
+  %12 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10)
   %13 = load i32, ptr @hf_glusterfs_dict, align 4
   %14 = tail call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %13, i32 noundef %12)
   ret i32 %14
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_seek_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
-  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
-  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
+  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0)
+  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6)
   %8 = load i32, ptr @hf_gluster_op_errno, align 4
-  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7) #3
-  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10) #3
+  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7)
+  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10)
   %11 = add i32 %6, 4
   %12 = load i32, ptr @hf_glusterfs_offset, align 4
-  %13 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %12, i32 noundef %11) #3
+  %13 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %12, i32 noundef %11)
   %14 = load i32, ptr @hf_glusterfs_dict, align 4
   %15 = tail call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %14, i32 noundef %13)
   ret i32 %15
 }
 
-declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef i32 @glusterfs_rpc_dissect_gf_2_flock(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
   %5 = load i32, ptr @ett_glusterfs_flock, align 4
-  %6 = call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef -1, i32 noundef %5, ptr noundef nonnull %4, ptr noundef nonnull @.str.554) #3
+  %6 = call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef -1, i32 noundef %5, ptr noundef nonnull %4, ptr noundef nonnull @.str.564)
   %7 = load i32, ptr @hf_glusterfs_flock_type, align 4
-  %8 = call i32 @dissect_rpc_uint32(ptr noundef %1, ptr noundef %6, i32 noundef %7, i32 noundef %2) #3
+  %8 = call i32 @dissect_rpc_uint32(ptr noundef %1, ptr noundef %6, i32 noundef %7, i32 noundef %2)
   %9 = load i32, ptr @hf_glusterfs_flock_whence, align 4
-  %10 = call i32 @dissect_rpc_uint32(ptr noundef %1, ptr noundef %6, i32 noundef %9, i32 noundef %8) #3
+  %10 = call i32 @dissect_rpc_uint32(ptr noundef %1, ptr noundef %6, i32 noundef %9, i32 noundef %8)
   %11 = load i32, ptr @hf_glusterfs_flock_start, align 4
-  %12 = call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %6, i32 noundef %11, i32 noundef %10) #3
+  %12 = call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %6, i32 noundef %11, i32 noundef %10)
   %13 = load i32, ptr @hf_glusterfs_flock_len, align 4
-  %14 = call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %6, i32 noundef %13, i32 noundef %12) #3
+  %14 = call i32 @dissect_rpc_uint64(ptr noundef %1, ptr noundef %6, i32 noundef %13, i32 noundef %12)
   %15 = load i32, ptr @hf_glusterfs_flock_pid, align 4
-  %16 = call i32 @dissect_rpc_uint32(ptr noundef %1, ptr noundef %6, i32 noundef %15, i32 noundef %14) #3
-  %17 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %16) #3
+  %16 = call i32 @dissect_rpc_uint32(ptr noundef %1, ptr noundef %6, i32 noundef %15, i32 noundef %14)
+  %17 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %16)
   %18 = add i32 %16, 4
   %19 = load i32, ptr @hf_glusterfs_flock_owner, align 4
-  %20 = call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %19, ptr noundef %1, i32 noundef %18, i32 noundef %17, i32 noundef 0) #3
+  %20 = call ptr @proto_tree_add_item(ptr noundef %6, i32 noundef %19, ptr noundef %1, i32 noundef %18, i32 noundef %17, i32 noundef 0)
   %21 = add i32 %18, %17
   %22 = load ptr, ptr %4, align 8
   %23 = sub i32 %21, %2
-  call void @proto_item_set_len(ptr noundef %22, i32 noundef %23) #3
+  call void @proto_item_set_len(ptr noundef %22, i32 noundef %23)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_readdir_entry(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #0 {
-  %6 = tail call fastcc i32 @_glusterfs_gfs_op_readdir_entry(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %6 = tail call fastcc i32 @_glusterfs_gfs_op_readdir_entry(ptr noundef %0, i32 noundef %1, ptr noundef %3, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false)
   ret i32 %6
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_readdirp_entry(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #0 {
-  %6 = tail call fastcc i32 @_glusterfs_gfs_op_readdir_entry(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef 1, i32 noundef 0, i32 noundef 1)
+  %6 = tail call fastcc i32 @_glusterfs_gfs_op_readdir_entry(ptr noundef %0, i32 noundef %1, ptr noundef %3, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext true)
   ret i32 %6
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_stat_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_dict, align 4
   %8 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %7, i32 noundef 16)
   ret i32 %8
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @glusterfs_gfs4_0_op_common_iatt_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
-  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
-  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
+  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0)
+  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6)
   %8 = load i32, ptr @hf_gluster_op_errno, align 4
-  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7) #3
-  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10) #3
+  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7)
+  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10)
   %11 = add i32 %6, 4
   %12 = load i32, ptr @hf_glusterfs_dict, align 4
   %13 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %12, i32 noundef %11)
@@ -2840,66 +2911,66 @@ define internal noundef i32 @glusterfs_gfs4_0_op_common_iatt_reply(ptr noundef %
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_readlink_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_size, align 4
-  %8 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_dict, align 4
   %10 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %9, i32 noundef %8)
   ret i32 %10
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_readlink_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
-  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
-  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
+  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0)
+  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6)
   %8 = load i32, ptr @hf_gluster_op_errno, align 4
-  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7) #3
-  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10) #3
+  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7)
+  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10)
   %11 = add i32 %6, 4
   %12 = load i32, ptr @hf_glusterfs_dict, align 4
   %13 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %12, i32 noundef %11)
   %14 = load i32, ptr @hf_glusterfs_iattx, align 4
   %15 = tail call fastcc i32 @glusterfs_rpc_dissect_gfx_iatt(ptr noundef %2, ptr noundef %0, i32 noundef %14, i32 noundef %13)
   %16 = load i32, ptr @hf_glusterfs_path, align 4
-  %17 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %16, i32 noundef %15, ptr noundef null) #3
+  %17 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %16, i32 noundef %15, ptr noundef null)
   ret i32 %17
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_mknod_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_pargfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_offset, align 4
-  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_mode, align 4
   %10 = load i32, ptr @ett_glusterfs_mode, align 4
-  %11 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef nonnull @glusterfs_rpc_dissect_mode.mode_bits, i32 noundef 0) #3
+  %11 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef nonnull @glusterfs_rpc_dissect_mode.mode_bits, i32 noundef 0)
   %12 = add i32 %8, 4
   %13 = load i32, ptr @hf_glusterfs_umask, align 4
   %14 = load i32, ptr @ett_glusterfs_mode, align 4
-  %15 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef %12, i32 noundef %13, i32 noundef %14, ptr noundef nonnull @glusterfs_rpc_dissect_mode.mode_bits, i32 noundef 0) #3
+  %15 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef %12, i32 noundef %13, i32 noundef %14, ptr noundef nonnull @glusterfs_rpc_dissect_mode.mode_bits, i32 noundef 0)
   %16 = add i32 %8, 8
   %17 = load i32, ptr @hf_glusterfs_bname, align 4
-  %18 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef %16, ptr noundef null) #3
+  %18 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef %16, ptr noundef null)
   %19 = load i32, ptr @hf_glusterfs_dict, align 4
   %20 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %19, i32 noundef %18)
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @glusterfs_gfs4_0_op_common_3iatt_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
-  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
-  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
+  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0)
+  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6)
   %8 = load i32, ptr @hf_gluster_op_errno, align 4
-  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7) #3
-  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10) #3
+  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7)
+  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10)
   %11 = add i32 %6, 4
   %12 = load i32, ptr @hf_glusterfs_dict, align 4
   %13 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %12, i32 noundef %11)
@@ -2912,53 +2983,55 @@ define internal noundef i32 @glusterfs_gfs4_0_op_common_3iatt_reply(ptr noundef 
   ret i32 %19
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_mkdir_call(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
   store ptr null, ptr %5, align 8
   %6 = load i32, ptr @hf_glusterfs_pargfid, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %8 = load i32, ptr @hf_glusterfs_mode, align 4
   %9 = load i32, ptr @ett_glusterfs_mode, align 4
-  %10 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef 16, i32 noundef %8, i32 noundef %9, ptr noundef nonnull @glusterfs_rpc_dissect_mode.mode_bits, i32 noundef 0) #3
+  %10 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef 16, i32 noundef %8, i32 noundef %9, ptr noundef nonnull @glusterfs_rpc_dissect_mode.mode_bits, i32 noundef 0)
   %11 = load i32, ptr @hf_glusterfs_umask, align 4
   %12 = load i32, ptr @ett_glusterfs_mode, align 4
-  %13 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef 20, i32 noundef %11, i32 noundef %12, ptr noundef nonnull @glusterfs_rpc_dissect_mode.mode_bits, i32 noundef 0) #3
+  %13 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef 20, i32 noundef %11, i32 noundef %12, ptr noundef nonnull @glusterfs_rpc_dissect_mode.mode_bits, i32 noundef 0)
   %14 = load i32, ptr @hf_glusterfs_bname, align 4
-  %15 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %14, i32 noundef 24, ptr noundef nonnull %5) #3
+  %15 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %14, i32 noundef 24, ptr noundef nonnull %5)
   %16 = load i32, ptr @hf_glusterfs_dict, align 4
   %17 = call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %16, i32 noundef %15)
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %5, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %19, i32 noundef 25, ptr noundef nonnull @.str.562, ptr noundef %20) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %19, i32 noundef 25, ptr noundef nonnull @.str.573, ptr noundef %20)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
   ret i32 %17
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_unlink_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_pargfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_bname, align 4
-  %8 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16, ptr noundef null) #3
-  %9 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %8) #3
+  %8 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16, ptr noundef null)
+  %9 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %8)
   %10 = load i32, ptr @hf_glusterfs_xflags, align 4
-  %11 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef %8, i32 noundef 4, i32 noundef %9, ptr noundef nonnull @.str.563, i32 noundef %9) #3
+  %11 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef %8, i32 noundef 4, i32 noundef %9, ptr noundef nonnull @.str.574, i32 noundef %9)
   %12 = add i32 %8, 4
   %13 = load i32, ptr @hf_glusterfs_dict, align 4
   %14 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %13, i32 noundef %12)
   ret i32 %14
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @glusterfs_gfs4_0_op_common_2parent_iatt_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
-  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
-  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
+  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0)
+  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6)
   %8 = load i32, ptr @hf_gluster_op_errno, align 4
-  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7) #3
-  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10) #3
+  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7)
+  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10)
   %11 = add i32 %6, 4
   %12 = load i32, ptr @hf_glusterfs_dict, align 4
   %13 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %12, i32 noundef %11)
@@ -2969,122 +3042,126 @@ define internal noundef i32 @glusterfs_gfs4_0_op_common_2parent_iatt_reply(ptr n
   ret i32 %17
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_rmdir_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_pargfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
-  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 16) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
+  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 16)
   %8 = load i32, ptr @hf_glusterfs_xflags, align 4
-  %9 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef %7, ptr noundef nonnull @.str.563, i32 noundef %7) #3
+  %9 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef %7, ptr noundef nonnull @.str.574, i32 noundef %7)
   %10 = load i32, ptr @hf_glusterfs_bname, align 4
-  %11 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %10, i32 noundef 20, ptr noundef null) #3
+  %11 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %10, i32 noundef 20, ptr noundef null)
   %12 = load i32, ptr @hf_glusterfs_dict, align 4
   %13 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %12, i32 noundef %11)
   ret i32 %13
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_symlink_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_pargfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_bname, align 4
-  %8 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16, ptr noundef null) #3
+  %8 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16, ptr noundef null)
   %9 = load i32, ptr @hf_glusterfs_umask, align 4
   %10 = load i32, ptr @ett_glusterfs_mode, align 4
-  %11 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef nonnull @glusterfs_rpc_dissect_mode.mode_bits, i32 noundef 0) #3
+  %11 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef nonnull @glusterfs_rpc_dissect_mode.mode_bits, i32 noundef 0)
   %12 = add i32 %8, 4
   %13 = load i32, ptr @hf_glusterfs_linkname, align 4
-  %14 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %13, i32 noundef %12, ptr noundef null) #3
+  %14 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %13, i32 noundef %12, ptr noundef null)
   %15 = load i32, ptr @hf_glusterfs_dict, align 4
   %16 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %15, i32 noundef %14)
   ret i32 %16
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_rename_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_oldgfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_newgfid, align 4
-  %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 16, i32 noundef 16, i32 noundef 0) #3
+  %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 16, i32 noundef 16, i32 noundef 0)
   %9 = load i32, ptr @hf_glusterfs_oldbname, align 4
-  %10 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef 32, ptr noundef null) #3
+  %10 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef 32, ptr noundef null)
   %11 = load i32, ptr @hf_glusterfs_newbname, align 4
-  %12 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10, ptr noundef null) #3
+  %12 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10, ptr noundef null)
   %13 = load i32, ptr @hf_glusterfs_dict, align 4
   %14 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %13, i32 noundef %12)
   ret i32 %14
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @glusterfs_gfs4_0_op_rename_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
   %7 = load i32, ptr @hf_gluster_op_ret, align 4
-  %8 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 0) #3
-  %9 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %8) #3
+  %8 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 0)
+  %9 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %8)
   %10 = load i32, ptr @hf_gluster_op_errno, align 4
-  %11 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef %8, i32 noundef 4, i32 noundef %9) #3
-  %12 = tail call ptr @val_to_str_ext_const(i32 noundef %9, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef nonnull @.str.11, ptr noundef %12) #3
+  %11 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef %8, i32 noundef 4, i32 noundef %9)
+  %12 = tail call ptr @val_to_str_ext_const(i32 noundef %9, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef nonnull @.str.11, ptr noundef %12)
   %13 = add i32 %8, 4
   %14 = load i32, ptr @hf_glusterfs_dict, align 4
   %15 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %14, i32 noundef %13)
   %16 = load i32, ptr @hf_glusterfs_iattx, align 4
   %17 = tail call fastcc i32 @glusterfs_rpc_dissect_gfx_iatt(ptr noundef %2, ptr noundef %0, i32 noundef %16, i32 noundef %15)
   %18 = load i32, ptr @ett_glusterfs_parent_iatt, align 4
-  %19 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %17, i32 noundef -1, i32 noundef %18, ptr noundef nonnull %5, ptr noundef nonnull @.str.564) #3
+  %19 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %17, i32 noundef -1, i32 noundef %18, ptr noundef nonnull %5, ptr noundef nonnull @.str.575)
   %20 = load i32, ptr @hf_glusterfs_preparent_iattx, align 4
   %21 = call fastcc i32 @glusterfs_rpc_dissect_gfx_iatt(ptr noundef %19, ptr noundef %0, i32 noundef %20, i32 noundef %17)
   %22 = load i32, ptr @hf_glusterfs_postparent_iattx, align 4
   %23 = call fastcc i32 @glusterfs_rpc_dissect_gfx_iatt(ptr noundef %19, ptr noundef %0, i32 noundef %22, i32 noundef %21)
   %24 = load ptr, ptr %5, align 8
   %25 = sub i32 %23, %17
-  call void @proto_item_set_len(ptr noundef %24, i32 noundef %25) #3
+  call void @proto_item_set_len(ptr noundef %24, i32 noundef %25)
   %26 = load i32, ptr @ett_glusterfs_parent_iatt, align 4
-  %27 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %23, i32 noundef -1, i32 noundef %26, ptr noundef nonnull %6, ptr noundef nonnull @.str.565) #3
+  %27 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %23, i32 noundef -1, i32 noundef %26, ptr noundef nonnull %6, ptr noundef nonnull @.str.576)
   %28 = load i32, ptr @hf_glusterfs_preparent_iattx, align 4
   %29 = call fastcc i32 @glusterfs_rpc_dissect_gfx_iatt(ptr noundef %27, ptr noundef %0, i32 noundef %28, i32 noundef %23)
   %30 = load i32, ptr @hf_glusterfs_postparent_iattx, align 4
   %31 = call fastcc i32 @glusterfs_rpc_dissect_gfx_iatt(ptr noundef %27, ptr noundef %0, i32 noundef %30, i32 noundef %29)
   %32 = load ptr, ptr %6, align 8
   %33 = sub i32 %31, %23
-  call void @proto_item_set_len(ptr noundef %32, i32 noundef %33) #3
+  call void @proto_item_set_len(ptr noundef %32, i32 noundef %33)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
   ret i32 %31
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_link_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_oldgfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_newgfid, align 4
-  %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 16, i32 noundef 16, i32 noundef 0) #3
+  %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 16, i32 noundef 16, i32 noundef 0)
   %9 = load i32, ptr @hf_glusterfs_newbname, align 4
-  %10 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef 32, ptr noundef null) #3
+  %10 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef 32, ptr noundef null)
   %11 = load i32, ptr @hf_glusterfs_dict, align 4
   %12 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %11, i32 noundef %10)
   ret i32 %12
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_truncate_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_offset, align 4
-  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_dict, align 4
   %10 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %9, i32 noundef %8)
   ret i32 %10
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @glusterfs_gfs4_0_op_common_2iatt_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
-  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
-  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
+  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0)
+  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6)
   %8 = load i32, ptr @hf_gluster_op_errno, align 4
-  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7) #3
-  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10) #3
+  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7)
+  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10)
   %11 = add i32 %6, 4
   %12 = load i32, ptr @hf_glusterfs_dict, align 4
   %13 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %12, i32 noundef %11)
@@ -3095,102 +3172,102 @@ define internal noundef i32 @glusterfs_gfs4_0_op_common_2iatt_reply(ptr noundef 
   ret i32 %17
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_open_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = tail call fastcc i32 @glusterfs_rpc_dissect_flags(ptr noundef %2, ptr noundef %0, i32 noundef 16)
   %8 = load i32, ptr @hf_glusterfs_dict, align 4
   %9 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %8, i32 noundef %7)
   ret i32 %9
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_open_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
-  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
-  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
+  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0)
+  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6)
   %8 = load i32, ptr @hf_gluster_op_errno, align 4
-  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7) #3
-  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10) #3
+  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7)
+  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10)
   %11 = add i32 %6, 4
   %12 = load i32, ptr @hf_glusterfs_dict, align 4
   %13 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %12, i32 noundef %11)
   %14 = load i32, ptr @hf_glusterfs_fd, align 4
-  %15 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %14, i32 noundef %13) #3
+  %15 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %14, i32 noundef %13)
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_read_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
-  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_offset, align 4
-  %10 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8) #3
+  %10 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8)
   %11 = load i32, ptr @hf_glusterfs_size, align 4
-  %12 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10) #3
+  %12 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10)
   %13 = tail call fastcc i32 @glusterfs_rpc_dissect_flags(ptr noundef %2, ptr noundef %0, i32 noundef %12)
   %14 = load i32, ptr @hf_glusterfs_dict, align 4
   %15 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %14, i32 noundef %13)
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_read_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
-  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
-  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
+  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0)
+  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6)
   %8 = load i32, ptr @hf_gluster_op_errno, align 4
-  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7) #3
-  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10) #3
+  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7)
+  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10)
   %11 = add i32 %6, 4
   %12 = load i32, ptr @hf_glusterfs_iattx, align 4
   %13 = tail call fastcc i32 @glusterfs_rpc_dissect_gfx_iatt(ptr noundef %2, ptr noundef %0, i32 noundef %12, i32 noundef %11)
   %14 = load i32, ptr @hf_glusterfs_size, align 4
-  %15 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %14, i32 noundef %13) #3
+  %15 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %14, i32 noundef %13)
   %16 = load i32, ptr @hf_glusterfs_dict, align 4
   %17 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %16, i32 noundef %15)
   ret i32 %17
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_write_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
-  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_offset, align 4
-  %10 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8) #3
+  %10 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8)
   %11 = load i32, ptr @hf_glusterfs_size, align 4
-  %12 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10) #3
+  %12 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10)
   %13 = tail call fastcc i32 @glusterfs_rpc_dissect_flags(ptr noundef %2, ptr noundef %0, i32 noundef %12)
   %14 = load i32, ptr @hf_glusterfs_dict, align 4
   %15 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %14, i32 noundef %13)
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_statfs_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_dict, align 4
   %8 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %7, i32 noundef 16)
   ret i32 %8
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_statfs_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
-  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
-  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
+  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0)
+  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6)
   %8 = load i32, ptr @hf_gluster_op_errno, align 4
-  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7) #3
-  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10) #3
+  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7)
+  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10)
   %11 = add i32 %6, 4
   %12 = load i32, ptr @hf_glusterfs_dict, align 4
   %13 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %12, i32 noundef %11)
@@ -3198,51 +3275,51 @@ define internal i32 @glusterfs_gfs4_0_op_statfs_reply(ptr noundef %0, ptr readno
   ret i32 %14
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_flush_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
-  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_dict, align 4
   %10 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %9, i32 noundef %8)
   ret i32 %10
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_common_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
-  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
-  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
+  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0)
+  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6)
   %8 = load i32, ptr @hf_gluster_op_errno, align 4
-  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7) #3
-  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10) #3
+  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7)
+  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10)
   %11 = add i32 %6, 4
   %12 = load i32, ptr @hf_glusterfs_dict, align 4
   %13 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %12, i32 noundef %11)
   ret i32 %13
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_fsync_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
-  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_fsync_flags, align 4
   %10 = load i32, ptr @ett_glusterfs_fsync_flags, align 4
-  %11 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef nonnull @glusterfs_gfs4_0_op_fsync_call.flag_bits, i32 noundef 0) #3
+  %11 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef nonnull @glusterfs_gfs4_0_op_fsync_call.flag_bits, i32 noundef 0)
   %12 = add i32 %8, 4
   %13 = load i32, ptr @hf_glusterfs_dict, align 4
   %14 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %13, i32 noundef %12)
   ret i32 %14
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_setxattr_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = tail call fastcc i32 @glusterfs_rpc_dissect_flags(ptr noundef %2, ptr noundef %0, i32 noundef 16)
   %8 = load i32, ptr @hf_glusterfs_dict, align 4
   %9 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %8, i32 noundef %7)
@@ -3251,28 +3328,28 @@ define internal i32 @glusterfs_gfs4_0_op_setxattr_call(ptr noundef %0, ptr readn
   ret i32 %11
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_getxattr_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_namelen, align 4
-  %8 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_name, align 4
-  %10 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8, ptr noundef null) #3
+  %10 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8, ptr noundef null)
   %11 = load i32, ptr @hf_glusterfs_dict, align 4
   %12 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %11, i32 noundef %10)
   ret i32 %12
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @glusterfs_gfs4_0_op_common_dict_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
-  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
-  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
+  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0)
+  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6)
   %8 = load i32, ptr @hf_gluster_op_errno, align 4
-  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7) #3
-  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10) #3
+  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7)
+  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10)
   %11 = add i32 %6, 4
   %12 = load i32, ptr @hf_glusterfs_dict, align 4
   %13 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %12, i32 noundef %11)
@@ -3285,79 +3362,81 @@ define internal noundef i32 @glusterfs_gfs4_0_op_common_dict_reply(ptr noundef %
   ret i32 %19
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_removexattr_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_name, align 4
-  %8 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16, ptr noundef null) #3
+  %8 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16, ptr noundef null)
   %9 = load i32, ptr @hf_glusterfs_dict, align 4
   %10 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %9, i32 noundef %8)
   ret i32 %10
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_opendir_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_dict, align 4
   %8 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %7, i32 noundef 16)
   ret i32 %8
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_access_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_mask, align 4
-  %8 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_dict, align 4
   %10 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %9, i32 noundef %8)
   ret i32 %10
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_create_call(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
   store ptr null, ptr %5, align 8
   %6 = load i32, ptr @hf_glusterfs_pargfid, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %8 = tail call fastcc i32 @glusterfs_rpc_dissect_flags(ptr noundef %2, ptr noundef %0, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_mode, align 4
   %10 = load i32, ptr @ett_glusterfs_mode, align 4
-  %11 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef nonnull @glusterfs_rpc_dissect_mode.mode_bits, i32 noundef 0) #3
+  %11 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef nonnull @glusterfs_rpc_dissect_mode.mode_bits, i32 noundef 0)
   %12 = add i32 %8, 4
   %13 = load i32, ptr @hf_glusterfs_umask, align 4
   %14 = load i32, ptr @ett_glusterfs_mode, align 4
-  %15 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef %12, i32 noundef %13, i32 noundef %14, ptr noundef nonnull @glusterfs_rpc_dissect_mode.mode_bits, i32 noundef 0) #3
+  %15 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef %12, i32 noundef %13, i32 noundef %14, ptr noundef nonnull @glusterfs_rpc_dissect_mode.mode_bits, i32 noundef 0)
   %16 = add i32 %8, 8
   %17 = load i32, ptr @hf_glusterfs_bname, align 4
-  %18 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef %16, ptr noundef nonnull %5) #3
+  %18 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef %16, ptr noundef nonnull %5)
   %19 = load i32, ptr @hf_glusterfs_dict, align 4
   %20 = call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %19, i32 noundef %18)
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %5, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %22, i32 noundef 25, ptr noundef nonnull @.str.562, ptr noundef %23) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %22, i32 noundef 25, ptr noundef nonnull @.str.573, ptr noundef %23)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @glusterfs_gfs4_0_op_create_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
-  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
-  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
+  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0)
+  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6)
   %8 = load i32, ptr @hf_gluster_op_errno, align 4
-  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7) #3
-  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10) #3
+  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7)
+  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10)
   %11 = add i32 %6, 4
   %12 = load i32, ptr @hf_glusterfs_dict, align 4
   %13 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %12, i32 noundef %11)
   %14 = load i32, ptr @hf_glusterfs_iattx, align 4
   %15 = tail call fastcc i32 @glusterfs_rpc_dissect_gfx_iatt(ptr noundef %2, ptr noundef %0, i32 noundef %14, i32 noundef %13)
   %16 = load i32, ptr @hf_glusterfs_fd, align 4
-  %17 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %16, i32 noundef %15) #3
+  %17 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %16, i32 noundef %15)
   %18 = load i32, ptr @hf_glusterfs_preparent_iattx, align 4
   %19 = tail call fastcc i32 @glusterfs_rpc_dissect_gfx_iatt(ptr noundef %2, ptr noundef %0, i32 noundef %18, i32 noundef %17)
   %20 = load i32, ptr @hf_glusterfs_postparent_iattx, align 4
@@ -3365,55 +3444,55 @@ define internal noundef i32 @glusterfs_gfs4_0_op_create_reply(ptr noundef %0, pt
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_ftruncate_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
-  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_offset, align 4
-  %10 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8) #3
+  %10 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8)
   %11 = load i32, ptr @hf_glusterfs_dict, align 4
   %12 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %11, i32 noundef %10)
   ret i32 %12
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_fstat_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
-  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_dict, align 4
   %10 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %9, i32 noundef %8)
   ret i32 %10
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_lk_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
-  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_cmd, align 4
-  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8) #3
+  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8)
   %11 = load i32, ptr @hf_glusterfs_type, align 4
-  %12 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10) #3
+  %12 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10)
   %13 = tail call fastcc i32 @glusterfs_rpc_dissect_gf_2_flock(ptr noundef %2, ptr noundef %0, i32 noundef %12)
   %14 = load i32, ptr @hf_glusterfs_dict, align 4
   %15 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %14, i32 noundef %13)
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @glusterfs_gfs4_0_op_lk_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
-  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
-  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
+  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0)
+  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6)
   %8 = load i32, ptr @hf_gluster_op_errno, align 4
-  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7) #3
-  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10) #3
+  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7)
+  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10)
   %11 = add i32 %6, 4
   %12 = load i32, ptr @hf_glusterfs_dict, align 4
   %13 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %12, i32 noundef %11)
@@ -3421,18 +3500,19 @@ define internal noundef i32 @glusterfs_gfs4_0_op_lk_reply(ptr noundef %0, ptr re
   ret i32 %14
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_lookup_call(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
   store ptr null, ptr %5, align 8
   %6 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %8 = load i32, ptr @hf_glusterfs_pargfid, align 4
-  %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 16, i32 noundef 16, i32 noundef 0) #3
+  %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 16, i32 noundef 16, i32 noundef 0)
   %10 = tail call fastcc i32 @glusterfs_rpc_dissect_flags(ptr noundef %2, ptr noundef %0, i32 noundef 32)
-  %11 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %10) #3
+  %11 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %10)
   %12 = load i32, ptr @hf_glusterfs_bname, align 4
-  %13 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %12, i32 noundef %10, ptr noundef nonnull %5) #3
+  %13 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %12, i32 noundef %10, ptr noundef nonnull %5)
   %14 = load i32, ptr @hf_glusterfs_dict, align 4
   %15 = call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %14, i32 noundef %13)
   %16 = icmp eq i32 %11, 0
@@ -3441,40 +3521,41 @@ define internal i32 @glusterfs_gfs4_0_op_lookup_call(ptr noundef %0, ptr noundef
   br i1 %16, label %19, label %20
 
 19:                                               ; preds = %4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %18, i32 noundef 25, ptr noundef nonnull @.str.566) #3
+  call void @col_append_str(ptr noundef %18, i32 noundef 25, ptr noundef nonnull @.str.577)
   br label %22
 
 20:                                               ; preds = %4
   %21 = load ptr, ptr %5, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %18, i32 noundef 25, ptr noundef nonnull @.str.562, ptr noundef %21) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %18, i32 noundef 25, ptr noundef nonnull @.str.573, ptr noundef %21)
   br label %22
 
 22:                                               ; preds = %20, %19
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_readdir_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
-  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_offset, align 4
-  %10 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8) #3
+  %10 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8)
   %11 = load i32, ptr @hf_glusterfs_size, align 4
-  %12 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10) #3
+  %12 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10)
   %13 = load i32, ptr @hf_glusterfs_dict, align 4
   %14 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %13, i32 noundef %12)
   ret i32 %14
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_readdir_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_entries, align 4
-  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
-  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
+  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0)
+  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6)
   %8 = load i32, ptr @hf_gluster_op_errno, align 4
-  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7) #3
+  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7)
   switch i32 %7, label %_glusterfs_gfs3_common_readdir_reply.exit [
     i32 0, label %.sink.split.i
     i32 2, label %10
@@ -3484,96 +3565,96 @@ define internal i32 @glusterfs_gfs4_0_op_readdir_reply(ptr noundef %0, ptr nound
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %10, %4
-  %.str.556.sink.i = phi ptr [ @.str.556, %10 ], [ @.str.555, %4 ]
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull %.str.556.sink.i) #3
+  %.str.566.sink.i = phi ptr [ @.str.566, %10 ], [ @.str.565, %4 ]
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull %.str.566.sink.i)
   br label %_glusterfs_gfs3_common_readdir_reply.exit
 
 _glusterfs_gfs3_common_readdir_reply.exit:        ; preds = %4, %.sink.split.i
   %11 = add i32 %6, 4
   %12 = load i32, ptr @hf_glusterfs_dict, align 4
   %13 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %12, i32 noundef %11)
-  %14 = tail call i32 @dissect_rpc_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %13, ptr noundef nonnull @glusterfs_gfs4_0_op_readdir_entry, ptr noundef null) #3
+  %14 = tail call i32 @dissect_rpc_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %13, ptr noundef nonnull @glusterfs_gfs4_0_op_readdir_entry, ptr noundef null)
   ret i32 %14
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_inodelk_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_cmd, align 4
-  %8 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_type, align 4
-  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8) #3
+  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8)
   %11 = tail call fastcc i32 @glusterfs_rpc_dissect_gf_2_flock(ptr noundef %2, ptr noundef %0, i32 noundef %10)
   %12 = load i32, ptr @hf_glusterfs_volume, align 4
-  %13 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %12, i32 noundef %11, ptr noundef null) #3
+  %13 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %12, i32 noundef %11, ptr noundef null)
   %14 = load i32, ptr @hf_glusterfs_dict, align 4
   %15 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %14, i32 noundef %13)
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_finodelk_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
-  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_cmd, align 4
-  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8) #3
+  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8)
   %11 = load i32, ptr @hf_glusterfs_type, align 4
-  %12 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10) #3
+  %12 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10)
   %13 = tail call fastcc i32 @glusterfs_rpc_dissect_gf_2_flock(ptr noundef %2, ptr noundef %0, i32 noundef %12)
   %14 = load i32, ptr @hf_glusterfs_volume, align 4
-  %15 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %14, i32 noundef %13, ptr noundef null) #3
+  %15 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %14, i32 noundef %13, ptr noundef null)
   %16 = load i32, ptr @hf_glusterfs_dict, align 4
   %17 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %16, i32 noundef %15)
   ret i32 %17
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_entrylk_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_cmd, align 4
-  %8 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_type, align 4
-  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8) #3
+  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8)
   %11 = load i32, ptr @hf_glusterfs_entrylk_namelen, align 4
-  %12 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10) #3
+  %12 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10)
   %13 = load i32, ptr @hf_glusterfs_name, align 4
-  %14 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %13, i32 noundef %12, ptr noundef null) #3
+  %14 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %13, i32 noundef %12, ptr noundef null)
   %15 = load i32, ptr @hf_glusterfs_volume, align 4
-  %16 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %14, ptr noundef null) #3
+  %16 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %14, ptr noundef null)
   %17 = load i32, ptr @hf_glusterfs_dict, align 4
   %18 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %17, i32 noundef %16)
   ret i32 %18
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_fentrylk_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
-  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_cmd, align 4
-  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8) #3
+  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8)
   %11 = load i32, ptr @hf_glusterfs_type, align 4
-  %12 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10) #3
+  %12 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10)
   %13 = load i32, ptr @hf_glusterfs_entrylk_namelen, align 4
-  %14 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %13, i32 noundef %12) #3
+  %14 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %13, i32 noundef %12)
   %15 = load i32, ptr @hf_glusterfs_name, align 4
-  %16 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %14, ptr noundef null) #3
+  %16 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %15, i32 noundef %14, ptr noundef null)
   %17 = load i32, ptr @hf_glusterfs_volume, align 4
-  %18 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef %16, ptr noundef null) #3
+  %18 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef %16, ptr noundef null)
   %19 = load i32, ptr @hf_glusterfs_dict, align 4
   %20 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %19, i32 noundef %18)
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_xattrop_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = tail call fastcc i32 @glusterfs_rpc_dissect_flags(ptr noundef %2, ptr noundef %0, i32 noundef 16)
   %8 = load i32, ptr @hf_glusterfs_dict, align 4
   %9 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %8, i32 noundef %7)
@@ -3582,13 +3663,13 @@ define internal i32 @glusterfs_gfs4_0_op_xattrop_call(ptr noundef %0, ptr readno
   ret i32 %11
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_fxattrop_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = tail call fastcc i32 @glusterfs_rpc_dissect_flags(ptr noundef %2, ptr noundef %0, i32 noundef 16)
   %8 = load i32, ptr @hf_glusterfs_fd, align 4
-  %9 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %8, i32 noundef %7) #3
+  %9 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %8, i32 noundef %7)
   %10 = load i32, ptr @hf_glusterfs_dict, align 4
   %11 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %10, i32 noundef %9)
   %12 = load i32, ptr @hf_glusterfs_dict, align 4
@@ -3596,27 +3677,27 @@ define internal i32 @glusterfs_gfs4_0_op_fxattrop_call(ptr noundef %0, ptr readn
   ret i32 %13
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_fgetxattr_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
-  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_namelen, align 4
-  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8) #3
+  %10 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8)
   %11 = load i32, ptr @hf_glusterfs_name, align 4
-  %12 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10, ptr noundef null) #3
+  %12 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10, ptr noundef null)
   %13 = load i32, ptr @hf_glusterfs_dict, align 4
   %14 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %13, i32 noundef %12)
   ret i32 %14
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @gluter_gfs4_0_op_fsetxattr_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
-  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = tail call fastcc i32 @glusterfs_rpc_dissect_flags(ptr noundef %2, ptr noundef %0, i32 noundef %8)
   %10 = load i32, ptr @hf_glusterfs_dict, align 4
   %11 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %10, i32 noundef %9)
@@ -3625,60 +3706,60 @@ define internal i32 @gluter_gfs4_0_op_fsetxattr_call(ptr noundef %0, ptr readnon
   ret i32 %13
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_setattr_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_iattx, align 4
   %8 = tail call fastcc i32 @glusterfs_rpc_dissect_gfx_iatt(ptr noundef %2, ptr noundef %0, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_setattr_valid, align 4
   %10 = load i32, ptr @ett_glusterfs_setattr_valid, align 4
-  %11 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef nonnull @glusterfs_rpc_dissect_setattr.flag_bits, i32 noundef 0) #3
+  %11 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef nonnull @glusterfs_rpc_dissect_setattr.flag_bits, i32 noundef 0)
   %12 = add i32 %8, 4
   %13 = load i32, ptr @hf_glusterfs_dict, align 4
   %14 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %13, i32 noundef %12)
   ret i32 %14
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_fsetattr_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
-  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_iattx, align 4
   %10 = tail call fastcc i32 @glusterfs_rpc_dissect_gfx_iatt(ptr noundef %2, ptr noundef %0, i32 noundef %9, i32 noundef %8)
   %11 = load i32, ptr @hf_glusterfs_setattr_valid, align 4
   %12 = load i32, ptr @ett_glusterfs_setattr_valid, align 4
-  %13 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef %10, i32 noundef %11, i32 noundef %12, ptr noundef nonnull @glusterfs_rpc_dissect_setattr.flag_bits, i32 noundef 0) #3
+  %13 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef %10, i32 noundef %11, i32 noundef %12, ptr noundef nonnull @glusterfs_rpc_dissect_setattr.flag_bits, i32 noundef 0)
   %14 = add i32 %10, 4
   %15 = load i32, ptr @hf_glusterfs_dict, align 4
   %16 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %15, i32 noundef %14)
   ret i32 %16
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_readdirp_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
-  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_offset, align 4
-  %10 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8) #3
+  %10 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8)
   %11 = load i32, ptr @hf_glusterfs_size, align 4
-  %12 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10) #3
+  %12 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10)
   %13 = load i32, ptr @hf_glusterfs_dict, align 4
   %14 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %13, i32 noundef %12)
   ret i32 %14
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_readdirp_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_entries, align 4
-  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
-  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
+  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0)
+  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6)
   %8 = load i32, ptr @hf_gluster_op_errno, align 4
-  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7) #3
+  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7)
   switch i32 %7, label %_glusterfs_gfs3_common_readdir_reply.exit [
     i32 0, label %.sink.split.i
     i32 2, label %10
@@ -3688,138 +3769,141 @@ define internal i32 @glusterfs_gfs4_0_op_readdirp_reply(ptr noundef %0, ptr noun
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %10, %4
-  %.str.556.sink.i = phi ptr [ @.str.556, %10 ], [ @.str.555, %4 ]
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull %.str.556.sink.i) #3
+  %.str.566.sink.i = phi ptr [ @.str.566, %10 ], [ @.str.565, %4 ]
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull %.str.566.sink.i)
   br label %_glusterfs_gfs3_common_readdir_reply.exit
 
 _glusterfs_gfs3_common_readdir_reply.exit:        ; preds = %4, %.sink.split.i
   %11 = add i32 %6, 4
   %12 = load i32, ptr @hf_glusterfs_dict, align 4
   %13 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %12, i32 noundef %11)
-  %14 = tail call i32 @dissect_rpc_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %13, ptr noundef nonnull @glusterfs_gfs4_0_op_readdirp_entry, ptr noundef null) #3
+  %14 = tail call i32 @dissect_rpc_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %13, ptr noundef nonnull @glusterfs_gfs4_0_op_readdirp_entry, ptr noundef null)
   ret i32 %14
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_release_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
-  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_dict, align 4
   %10 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %9, i32 noundef %8)
   ret i32 %10
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_releasedir_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
-  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_dict, align 4
   %10 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %9, i32 noundef %8)
   ret i32 %10
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_fremovexattr_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
-  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_name, align 4
-  %10 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8, ptr noundef null) #3
+  %10 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8, ptr noundef null)
   %11 = load i32, ptr @hf_glusterfs_dict, align 4
   %12 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %11, i32 noundef %10)
   ret i32 %12
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_fallocate_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
-  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = tail call fastcc i32 @glusterfs_rpc_dissect_flags(ptr noundef %2, ptr noundef %0, i32 noundef %8)
   %10 = load i32, ptr @hf_glusterfs_offset, align 4
-  %11 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %10, i32 noundef %9) #3
+  %11 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %10, i32 noundef %9)
   %12 = load i32, ptr @hf_glusterfs_size, align 4
-  %13 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %12, i32 noundef %11) #3
+  %13 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %12, i32 noundef %11)
   %14 = load i32, ptr @hf_glusterfs_dict, align 4
   %15 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %14, i32 noundef %13)
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_zerofill_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
-  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_offset, align 4
-  %10 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8) #3
+  %10 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8)
   %11 = load i32, ptr @hf_glusterfs_size64, align 4
-  %12 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10) #3
+  %12 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10)
   ret i32 %12
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_seek_call(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %7 = load i32, ptr @hf_glusterfs_fd, align 4
-  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16) #3
+  %8 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %7, i32 noundef 16)
   %9 = load i32, ptr @hf_glusterfs_offset, align 4
-  %10 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8) #3
+  %10 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %8)
   %11 = load i32, ptr @hf_glusterfs_whence, align 4
-  %12 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10) #3
+  %12 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %11, i32 noundef %10)
   %13 = load i32, ptr @hf_glusterfs_dict, align 4
   %14 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %13, i32 noundef %12)
   ret i32 %14
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_seek_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_gluster_op_ret, align 4
-  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
-  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #3
+  %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0)
+  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6)
   %8 = load i32, ptr @hf_gluster_op_errno, align 4
-  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7) #3
-  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10) #3
+  %9 = tail call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %7)
+  %10 = tail call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @glusterfs_error_codes_ext, ptr noundef nonnull @.str.12)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.11, ptr noundef %10)
   %11 = add i32 %6, 4
   %12 = load i32, ptr @hf_glusterfs_dict, align 4
   %13 = tail call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %12, i32 noundef %11)
   %14 = load i32, ptr @hf_glusterfs_offset, align 4
-  %15 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %14, i32 noundef %13) #3
+  %15 = tail call i32 @dissect_rpc_uint64(ptr noundef %0, ptr noundef %2, i32 noundef %14, i32 noundef %13)
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_readdir_entry(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #0 {
-  %6 = tail call fastcc i32 @_glusterfs_gfs_op_readdir_entry(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+  %6 = tail call fastcc i32 @_glusterfs_gfs_op_readdir_entry(ptr noundef %0, i32 noundef %1, ptr noundef %3, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext false)
   ret i32 %6
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_readdirp_entry(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #0 {
-  %6 = tail call fastcc i32 @_glusterfs_gfs_op_readdir_entry(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef 1, i32 noundef 1, i32 noundef 1)
+  %6 = tail call fastcc i32 @_glusterfs_gfs_op_readdir_entry(ptr noundef %0, i32 noundef %1, ptr noundef %3, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext true)
   ret i32 %6
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind }
-attributes #4 = { nounwind willreturn memory(read) }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
+attributes #5 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}

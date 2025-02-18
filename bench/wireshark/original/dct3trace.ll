@@ -1,10 +1,9 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.file_type_subtype_info = type { ptr, ptr, ptr, ptr, i32, i64, ptr, ptr, ptr, ptr }
 %struct.supported_block_type = type { i32, i32, i64, ptr }
-%struct.wtap = type { ptr, ptr, i32, i32, i32, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr }
-%struct.wtap_rec = type { i32, i32, i32, %struct.nstime_t, i32, %struct.nstime_t, i32, %union.anon, ptr, i32, %struct.Buffer }
+%struct.wtap = type { ptr, ptr, i8, i32, i32, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr }
+%struct.wtap_rec = type { i32, i32, i32, %struct.nstime_t, i32, %struct.nstime_t, i8, %union.anon, ptr, i8, %struct.Buffer, %struct.Buffer }
 %struct.nstime_t = type { i64, i32 }
 %union.anon = type { %struct.wtap_packet_header }
 %struct.wtap_packet_header = type { i32, i32, i32, i32, %union.wtap_pseudo_header }
@@ -14,12 +13,11 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.erf_ehdr = type { i64 }
 %union.anon.1 = type { i32 }
 %struct.Buffer = type { ptr, i64, i64, i64 }
-%struct.gsm_um_phdr = type { i32, i8, i8, i16, i32, i8, i16 }
+%struct.gsm_um_phdr = type { i8, i8, i8, i16, i32, i8, i16 }
 
 @dct3trace_magic_line1 = internal constant [22 x i8] c"<?xml version=\221.0\22?>\00", align 16
 @dct3trace_magic_line2 = internal constant [7 x i8] c"<dump>\00", align 1
 @dct3trace_file_type_subtype = internal global i32 -1, align 4
-@dct3trace_info = internal constant %struct.file_type_subtype_info { ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr null, i32 0, i64 1, ptr @dct3trace_blocks_supported, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [10 x i8] c"DCT3TRACE\00", align 1
 @dct3trace_magic_end = internal constant [8 x i8] c"</dump>\00", align 1
 @dct3trace_magic_record_end = internal constant [6 x i8] c"</l1>\00", align 1
@@ -46,8 +44,9 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.19 = private unnamed_addr constant [10 x i8] c"dct3trace\00", align 1
 @.str.20 = private unnamed_addr constant [4 x i8] c"xml\00", align 1
 @dct3trace_blocks_supported = internal constant [1 x %struct.supported_block_type] [%struct.supported_block_type { i32 5, i32 2, i64 0, ptr null }], align 16
+@dct3trace_info = internal constant { ptr, ptr, ptr, ptr, i8, [7 x i8], i64, ptr, ptr, ptr, ptr } { ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr null, i8 0, [7 x i8] zeroinitializer, i64 1, ptr @dct3trace_blocks_supported, ptr null, ptr null, ptr null }, align 8
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dct3trace_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
@@ -55,185 +54,197 @@ define hidden i32 @dct3trace_open(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %7 = alloca ptr, align 8
   %8 = alloca [64 x i8], align 16
   %9 = alloca [64 x i8], align 16
+  %10 = alloca i32, align 4
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
-  %10 = getelementptr inbounds [64 x i8], ptr %8, i64 0, i64 0
-  %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds %struct.wtap, ptr %11, i32 0, i32 0
-  %13 = load ptr, ptr %12, align 8
-  %14 = call ptr @file_gets(ptr noundef %10, i32 noundef 64, ptr noundef %13)
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %23, label %16
+  call void @llvm.lifetime.start.p0(i64 64, ptr %8) #9
+  call void @llvm.lifetime.start.p0(i64 64, ptr %9) #9
+  %11 = getelementptr inbounds [64 x i8], ptr %8, i64 0, i64 0
+  %12 = load ptr, ptr %5, align 8
+  %13 = getelementptr inbounds nuw %struct.wtap, ptr %12, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8
+  %15 = call ptr @file_gets(ptr noundef %11, i32 noundef 64, ptr noundef %14)
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %24, label %17
 
-16:                                               ; preds = %3
-  %17 = getelementptr inbounds [64 x i8], ptr %9, i64 0, i64 0
-  %18 = load ptr, ptr %5, align 8
-  %19 = getelementptr inbounds %struct.wtap, ptr %18, i32 0, i32 0
-  %20 = load ptr, ptr %19, align 8
-  %21 = call ptr @file_gets(ptr noundef %17, i32 noundef 64, ptr noundef %20)
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %23, label %39
+17:                                               ; preds = %3
+  %18 = getelementptr inbounds [64 x i8], ptr %9, i64 0, i64 0
+  %19 = load ptr, ptr %5, align 8
+  %20 = getelementptr inbounds nuw %struct.wtap, ptr %19, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8
+  %22 = call ptr @file_gets(ptr noundef %18, i32 noundef 64, ptr noundef %21)
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %24, label %40
 
-23:                                               ; preds = %16, %3
-  %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds %struct.wtap, ptr %24, i32 0, i32 0
-  %26 = load ptr, ptr %25, align 8
-  %27 = load ptr, ptr %7, align 8
-  %28 = call i32 @file_error(ptr noundef %26, ptr noundef %27)
-  %29 = load ptr, ptr %6, align 8
-  store i32 %28, ptr %29, align 4
+24:                                               ; preds = %17, %3
+  %25 = load ptr, ptr %5, align 8
+  %26 = getelementptr inbounds nuw %struct.wtap, ptr %25, i32 0, i32 0
+  %27 = load ptr, ptr %26, align 8
+  %28 = load ptr, ptr %7, align 8
+  %29 = call i32 @file_error(ptr noundef %27, ptr noundef %28)
   %30 = load ptr, ptr %6, align 8
-  %31 = load i32, ptr %30, align 4
-  %32 = icmp ne i32 %31, 0
-  br i1 %32, label %33, label %38
+  store i32 %29, ptr %30, align 4
+  %31 = load ptr, ptr %6, align 8
+  %32 = load i32, ptr %31, align 4
+  %33 = icmp ne i32 %32, 0
+  br i1 %33, label %34, label %39
 
-33:                                               ; preds = %23
-  %34 = load ptr, ptr %6, align 8
-  %35 = load i32, ptr %34, align 4
-  %36 = icmp ne i32 %35, -12
-  br i1 %36, label %37, label %38
+34:                                               ; preds = %24
+  %35 = load ptr, ptr %6, align 8
+  %36 = load i32, ptr %35, align 4
+  %37 = icmp ne i32 %36, -12
+  br i1 %37, label %38, label %39
 
-37:                                               ; preds = %33
+38:                                               ; preds = %34
   store i32 -1, ptr %4, align 4
-  br label %63
+  store i32 1, ptr %10, align 4
+  br label %64
 
-38:                                               ; preds = %33, %23
+39:                                               ; preds = %34, %24
   store i32 0, ptr %4, align 4
-  br label %63
+  store i32 1, ptr %10, align 4
+  br label %64
 
-39:                                               ; preds = %16
-  %40 = getelementptr inbounds [64 x i8], ptr %8, i64 0, i64 0
-  %41 = call i32 @strncmp(ptr noundef @dct3trace_magic_line1, ptr noundef %40, i64 noundef 21) #6
-  %42 = icmp ne i32 %41, 0
-  br i1 %42, label %47, label %43
+40:                                               ; preds = %17
+  %41 = getelementptr inbounds [64 x i8], ptr %8, i64 0, i64 0
+  %42 = call i32 @strncmp(ptr noundef @dct3trace_magic_line1, ptr noundef %41, i64 noundef 21) #10
+  %43 = icmp ne i32 %42, 0
+  br i1 %43, label %48, label %44
 
-43:                                               ; preds = %39
-  %44 = getelementptr inbounds [64 x i8], ptr %9, i64 0, i64 0
-  %45 = call i32 @strncmp(ptr noundef @dct3trace_magic_line2, ptr noundef %44, i64 noundef 6) #6
-  %46 = icmp ne i32 %45, 0
-  br i1 %46, label %47, label %48
+44:                                               ; preds = %40
+  %45 = getelementptr inbounds [64 x i8], ptr %9, i64 0, i64 0
+  %46 = call i32 @strncmp(ptr noundef @dct3trace_magic_line2, ptr noundef %45, i64 noundef 6) #10
+  %47 = icmp ne i32 %46, 0
+  br i1 %47, label %48, label %49
 
-47:                                               ; preds = %43, %39
+48:                                               ; preds = %44, %40
   store i32 0, ptr %4, align 4
-  br label %63
+  store i32 1, ptr %10, align 4
+  br label %64
 
-48:                                               ; preds = %43
-  %49 = load ptr, ptr %5, align 8
-  %50 = getelementptr inbounds %struct.wtap, ptr %49, i32 0, i32 19
-  store i32 116, ptr %50, align 8
-  %51 = load i32, ptr @dct3trace_file_type_subtype, align 4
-  %52 = load ptr, ptr %5, align 8
-  %53 = getelementptr inbounds %struct.wtap, ptr %52, i32 0, i32 3
-  store i32 %51, ptr %53, align 4
-  %54 = load ptr, ptr %5, align 8
-  %55 = getelementptr inbounds %struct.wtap, ptr %54, i32 0, i32 4
-  store i32 0, ptr %55, align 8
-  %56 = load ptr, ptr %5, align 8
-  %57 = getelementptr inbounds %struct.wtap, ptr %56, i32 0, i32 15
-  store ptr @dct3trace_read, ptr %57, align 8
-  %58 = load ptr, ptr %5, align 8
-  %59 = getelementptr inbounds %struct.wtap, ptr %58, i32 0, i32 16
-  store ptr @dct3trace_seek_read, ptr %59, align 8
-  %60 = load ptr, ptr %5, align 8
-  %61 = getelementptr inbounds %struct.wtap, ptr %60, i32 0, i32 20
-  store i32 0, ptr %61, align 4
-  %62 = load ptr, ptr %5, align 8
-  call void @wtap_add_generated_idb(ptr noundef %62)
+49:                                               ; preds = %44
+  %50 = load ptr, ptr %5, align 8
+  %51 = getelementptr inbounds nuw %struct.wtap, ptr %50, i32 0, i32 19
+  store i32 116, ptr %51, align 8
+  %52 = load i32, ptr @dct3trace_file_type_subtype, align 4
+  %53 = load ptr, ptr %5, align 8
+  %54 = getelementptr inbounds nuw %struct.wtap, ptr %53, i32 0, i32 3
+  store i32 %52, ptr %54, align 4
+  %55 = load ptr, ptr %5, align 8
+  %56 = getelementptr inbounds nuw %struct.wtap, ptr %55, i32 0, i32 4
+  store i32 0, ptr %56, align 8
+  %57 = load ptr, ptr %5, align 8
+  %58 = getelementptr inbounds nuw %struct.wtap, ptr %57, i32 0, i32 15
+  store ptr @dct3trace_read, ptr %58, align 8
+  %59 = load ptr, ptr %5, align 8
+  %60 = getelementptr inbounds nuw %struct.wtap, ptr %59, i32 0, i32 16
+  store ptr @dct3trace_seek_read, ptr %60, align 8
+  %61 = load ptr, ptr %5, align 8
+  %62 = getelementptr inbounds nuw %struct.wtap, ptr %61, i32 0, i32 20
+  store i32 0, ptr %62, align 4
+  %63 = load ptr, ptr %5, align 8
+  call void @wtap_add_generated_idb(ptr noundef %63)
   store i32 1, ptr %4, align 4
-  br label %63
+  store i32 1, ptr %10, align 4
+  br label %64
 
-63:                                               ; preds = %48, %47, %38, %37
-  %64 = load i32, ptr %4, align 4
-  ret i32 %64
+64:                                               ; preds = %49, %48, %39, %38
+  call void @llvm.lifetime.end.p0(i64 64, ptr %9) #9
+  call void @llvm.lifetime.end.p0(i64 64, ptr %8) #9
+  %65 = load i32, ptr %4, align 4
+  ret i32 %65
 }
 
-declare ptr @file_gets(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare i32 @file_error(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @file_gets(ptr noundef, i32 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strncmp(ptr noundef, ptr noundef, i64 noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare i32 @file_error(ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dct3trace_read(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid willreturn memory(read)
+declare i32 @strncmp(ptr noundef, ptr noundef, i64 noundef) #3
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @dct3trace_read(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+  %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr %6, align 8
+  %12 = getelementptr inbounds nuw %struct.wtap, ptr %11, i32 0, i32 0
+  %13 = load ptr, ptr %12, align 8
+  %14 = call i64 @file_tell(ptr noundef %13)
+  %15 = load ptr, ptr %10, align 8
+  store i64 %14, ptr %15, align 8
+  %16 = load ptr, ptr %6, align 8
+  %17 = getelementptr inbounds nuw %struct.wtap, ptr %16, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8
+  %19 = load ptr, ptr %7, align 8
+  %20 = load ptr, ptr %8, align 8
+  %21 = load ptr, ptr %9, align 8
+  %22 = call zeroext i1 @dct3trace_get_packet(ptr noundef %18, ptr noundef %19, ptr noundef %20, ptr noundef %21)
+  ret i1 %22
+}
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @dct3trace_seek_read(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+  %6 = alloca i1, align 1
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
-  %12 = alloca ptr, align 8
   store ptr %0, ptr %7, align 8
-  store ptr %1, ptr %8, align 8
+  store i64 %1, ptr %8, align 8
   store ptr %2, ptr %9, align 8
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
-  store ptr %5, ptr %12, align 8
-  %13 = load ptr, ptr %7, align 8
-  %14 = getelementptr inbounds %struct.wtap, ptr %13, i32 0, i32 0
-  %15 = load ptr, ptr %14, align 8
-  %16 = call i64 @file_tell(ptr noundef %15)
-  %17 = load ptr, ptr %12, align 8
-  store i64 %16, ptr %17, align 8
-  %18 = load ptr, ptr %7, align 8
-  %19 = getelementptr inbounds %struct.wtap, ptr %18, i32 0, i32 0
-  %20 = load ptr, ptr %19, align 8
-  %21 = load ptr, ptr %8, align 8
-  %22 = load ptr, ptr %9, align 8
-  %23 = load ptr, ptr %10, align 8
-  %24 = load ptr, ptr %11, align 8
-  %25 = call i32 @dct3trace_get_packet(ptr noundef %20, ptr noundef %21, ptr noundef %22, ptr noundef %23, ptr noundef %24)
-  ret i32 %25
+  %12 = load ptr, ptr %7, align 8
+  %13 = getelementptr inbounds nuw %struct.wtap, ptr %12, i32 0, i32 1
+  %14 = load ptr, ptr %13, align 8
+  %15 = load i64, ptr %8, align 8
+  %16 = load ptr, ptr %10, align 8
+  %17 = call i64 @file_seek(ptr noundef %14, i64 noundef %15, i32 noundef 0, ptr noundef %16)
+  %18 = icmp eq i64 %17, -1
+  br i1 %18, label %19, label %20
+
+19:                                               ; preds = %5
+  store i1 false, ptr %6, align 1
+  br label %28
+
+20:                                               ; preds = %5
+  %21 = load ptr, ptr %7, align 8
+  %22 = getelementptr inbounds nuw %struct.wtap, ptr %21, i32 0, i32 1
+  %23 = load ptr, ptr %22, align 8
+  %24 = load ptr, ptr %9, align 8
+  %25 = load ptr, ptr %10, align 8
+  %26 = load ptr, ptr %11, align 8
+  %27 = call zeroext i1 @dct3trace_get_packet(ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26)
+  store i1 %27, ptr %6, align 1
+  br label %28
+
+28:                                               ; preds = %20, %19
+  %29 = load i1, ptr %6, align 1
+  ret i1 %29
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dct3trace_seek_read(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = alloca i32, align 4
-  %8 = alloca ptr, align 8
-  %9 = alloca i64, align 8
-  %10 = alloca ptr, align 8
-  %11 = alloca ptr, align 8
-  %12 = alloca ptr, align 8
-  %13 = alloca ptr, align 8
-  store ptr %0, ptr %8, align 8
-  store i64 %1, ptr %9, align 8
-  store ptr %2, ptr %10, align 8
-  store ptr %3, ptr %11, align 8
-  store ptr %4, ptr %12, align 8
-  store ptr %5, ptr %13, align 8
-  %14 = load ptr, ptr %8, align 8
-  %15 = getelementptr inbounds %struct.wtap, ptr %14, i32 0, i32 1
-  %16 = load ptr, ptr %15, align 8
-  %17 = load i64, ptr %9, align 8
-  %18 = load ptr, ptr %12, align 8
-  %19 = call i64 @file_seek(ptr noundef %16, i64 noundef %17, i32 noundef 0, ptr noundef %18)
-  %20 = icmp eq i64 %19, -1
-  br i1 %20, label %21, label %22
+; Function Attrs: null_pointer_is_valid
+declare void @wtap_add_generated_idb(ptr noundef) #2
 
-21:                                               ; preds = %6
-  store i32 0, ptr %7, align 4
-  br label %31
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-22:                                               ; preds = %6
-  %23 = load ptr, ptr %8, align 8
-  %24 = getelementptr inbounds %struct.wtap, ptr %23, i32 0, i32 1
-  %25 = load ptr, ptr %24, align 8
-  %26 = load ptr, ptr %10, align 8
-  %27 = load ptr, ptr %11, align 8
-  %28 = load ptr, ptr %12, align 8
-  %29 = load ptr, ptr %13, align 8
-  %30 = call i32 @dct3trace_get_packet(ptr noundef %25, ptr noundef %26, ptr noundef %27, ptr noundef %28, ptr noundef %29)
-  store i32 %30, ptr %7, align 4
-  br label %31
-
-31:                                               ; preds = %22, %21
-  %32 = load i32, ptr %7, align 4
-  ret i32 %32
-}
-
-declare void @wtap_add_generated_idb(ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @register_dct3trace() #0 {
   %1 = call i32 @wtap_register_file_type_subtype(ptr noundef @dct3trace_info)
   store i32 %1, ptr @dct3trace_file_type_subtype, align 4
@@ -242,527 +253,565 @@ define hidden void @register_dct3trace() #0 {
   ret void
 }
 
-declare i32 @wtap_register_file_type_subtype(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @wtap_register_file_type_subtype(ptr noundef) #2
 
-declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 noundef) #2
 
-declare i64 @file_tell(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i64 @file_tell(ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dct3trace_get_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
-  %6 = alloca i32, align 4
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @dct3trace_get_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i1, align 1
+  %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  %10 = alloca ptr, align 8
-  %11 = alloca ptr, align 8
-  %12 = alloca [1024 x i8], align 16
-  %13 = alloca [23 x i8], align 16
-  %14 = alloca ptr, align 8
+  %10 = alloca [1024 x i8], align 16
+  %11 = alloca [23 x i8], align 16
+  %12 = alloca ptr, align 8
+  %13 = alloca i8, align 1
+  %14 = alloca i32, align 4
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
-  %18 = alloca i32, align 4
-  %19 = alloca ptr, align 8
-  %20 = alloca i32, align 4
-  %21 = alloca ptr, align 8
-  store ptr %0, ptr %7, align 8
-  store ptr %1, ptr %8, align 8
-  store ptr %2, ptr %9, align 8
-  store ptr %3, ptr %10, align 8
-  store ptr %4, ptr %11, align 8
-  store i32 0, ptr %15, align 4
-  store i32 0, ptr %16, align 4
-  %22 = getelementptr [23 x i8], ptr %13, i64 0, i64 0
-  store ptr %22, ptr %14, align 8
-  br label %23
+  %18 = alloca ptr, align 8
+  %19 = alloca i32, align 4
+  %20 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 1024, ptr %10) #9
+  call void @llvm.lifetime.start.p0(i64 23, ptr %11) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #9
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #9
+  store i8 0, ptr %13, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #9
+  store i32 0, ptr %14, align 4
+  %21 = getelementptr [23 x i8], ptr %11, i64 0, i64 0
+  store ptr %21, ptr %12, align 8
+  br label %22
 
-23:                                               ; preds = %307, %246, %5
-  %24 = getelementptr inbounds [1024 x i8], ptr %12, i64 0, i64 0
-  %25 = load ptr, ptr %7, align 8
-  %26 = call ptr @file_gets(ptr noundef %24, i32 noundef 1024, ptr noundef %25)
-  %27 = icmp ne ptr %26, null
-  br i1 %27, label %28, label %308
+22:                                               ; preds = %296, %290, %4
+  %23 = getelementptr inbounds [1024 x i8], ptr %10, i64 0, i64 0
+  %24 = load ptr, ptr %6, align 8
+  %25 = call ptr @file_gets(ptr noundef %23, i32 noundef 1024, ptr noundef %24)
+  %26 = icmp ne ptr %25, null
+  br i1 %26, label %27, label %297
 
-28:                                               ; preds = %23
-  %29 = getelementptr inbounds [1024 x i8], ptr %12, i64 0, i64 0
-  %30 = call i32 @memcmp(ptr noundef @dct3trace_magic_end, ptr noundef %29, i64 noundef 7) #6
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %34
+27:                                               ; preds = %22
+  %28 = getelementptr inbounds [1024 x i8], ptr %10, i64 0, i64 0
+  %29 = call i32 @memcmp(ptr noundef @dct3trace_magic_end, ptr noundef %28, i64 noundef 7) #10
+  %30 = icmp eq i32 %29, 0
+  br i1 %30, label %31, label %33
 
-32:                                               ; preds = %28
-  %33 = load ptr, ptr %10, align 8
-  store i32 0, ptr %33, align 4
-  store i32 0, ptr %6, align 4
-  br label %319
+31:                                               ; preds = %27
+  %32 = load ptr, ptr %8, align 8
+  store i32 0, ptr %32, align 4
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %15, align 4
+  br label %308
 
-34:                                               ; preds = %28
-  %35 = getelementptr inbounds [1024 x i8], ptr %12, i64 0, i64 0
-  %36 = call i32 @memcmp(ptr noundef @dct3trace_magic_record_end, ptr noundef %35, i64 noundef 5) #6
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %87
+33:                                               ; preds = %27
+  %34 = getelementptr inbounds [1024 x i8], ptr %10, i64 0, i64 0
+  %35 = call i32 @memcmp(ptr noundef @dct3trace_magic_record_end, ptr noundef %34, i64 noundef 5) #10
+  %36 = icmp eq i32 %35, 0
+  br i1 %36, label %37, label %75
 
-38:                                               ; preds = %34
-  %39 = load i32, ptr %15, align 4
-  %40 = icmp ne i32 %39, 0
-  br i1 %40, label %41, label %83
+37:                                               ; preds = %33
+  %38 = load i8, ptr %13, align 1, !range !6, !noundef !7
+  %39 = trunc i8 %38 to i1
+  br i1 %39, label %40, label %71
 
-41:                                               ; preds = %38
-  %42 = load ptr, ptr %8, align 8
-  %43 = getelementptr inbounds %struct.wtap_rec, ptr %42, i32 0, i32 0
-  store i32 0, ptr %43, align 8
-  %44 = call ptr @wtap_block_create(i32 noundef 5)
-  %45 = load ptr, ptr %8, align 8
-  %46 = getelementptr inbounds %struct.wtap_rec, ptr %45, i32 0, i32 8
-  store ptr %44, ptr %46, align 8
-  %47 = load ptr, ptr %8, align 8
-  %48 = getelementptr inbounds %struct.wtap_rec, ptr %47, i32 0, i32 1
-  store i32 0, ptr %48, align 4
-  %49 = load ptr, ptr %8, align 8
-  %50 = getelementptr inbounds %struct.wtap_rec, ptr %49, i32 0, i32 3
-  %51 = getelementptr inbounds %struct.nstime_t, ptr %50, i32 0, i32 0
-  store i64 0, ptr %51, align 8
-  %52 = load ptr, ptr %8, align 8
-  %53 = getelementptr inbounds %struct.wtap_rec, ptr %52, i32 0, i32 3
-  %54 = getelementptr inbounds %struct.nstime_t, ptr %53, i32 0, i32 1
-  store i32 0, ptr %54, align 8
-  %55 = load i32, ptr %16, align 4
-  %56 = load ptr, ptr %8, align 8
-  %57 = getelementptr inbounds %struct.wtap_rec, ptr %56, i32 0, i32 7
-  %58 = getelementptr inbounds %struct.wtap_packet_header, ptr %57, i32 0, i32 0
-  store i32 %55, ptr %58, align 8
-  %59 = load i32, ptr %16, align 4
-  %60 = load ptr, ptr %8, align 8
-  %61 = getelementptr inbounds %struct.wtap_rec, ptr %60, i32 0, i32 7
-  %62 = getelementptr inbounds %struct.wtap_packet_header, ptr %61, i32 0, i32 1
-  store i32 %59, ptr %62, align 4
-  %63 = load ptr, ptr %10, align 8
-  store i32 0, ptr %63, align 4
-  %64 = load ptr, ptr %9, align 8
-  %65 = load ptr, ptr %8, align 8
-  %66 = getelementptr inbounds %struct.wtap_rec, ptr %65, i32 0, i32 7
-  %67 = getelementptr inbounds %struct.wtap_packet_header, ptr %66, i32 0, i32 0
-  %68 = load i32, ptr %67, align 8
-  %69 = zext i32 %68 to i64
-  call void @ws_buffer_assure_space(ptr noundef %64, i64 noundef %69)
-  %70 = load ptr, ptr %9, align 8
-  %71 = getelementptr inbounds %struct.Buffer, ptr %70, i32 0, i32 0
-  %72 = load ptr, ptr %71, align 8
-  %73 = load ptr, ptr %9, align 8
-  %74 = getelementptr inbounds %struct.Buffer, ptr %73, i32 0, i32 2
-  %75 = load i64, ptr %74, align 8
-  %76 = getelementptr i8, ptr %72, i64 %75
-  %77 = getelementptr inbounds [23 x i8], ptr %13, i64 0, i64 0
-  %78 = load ptr, ptr %8, align 8
-  %79 = getelementptr inbounds %struct.wtap_rec, ptr %78, i32 0, i32 7
-  %80 = getelementptr inbounds %struct.wtap_packet_header, ptr %79, i32 0, i32 0
-  %81 = load i32, ptr %80, align 8
-  %82 = zext i32 %81 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %76, ptr align 16 %77, i64 %82, i1 false)
-  store i32 1, ptr %6, align 4
-  br label %319
+40:                                               ; preds = %37
+  %41 = load ptr, ptr %7, align 8
+  %42 = getelementptr inbounds nuw %struct.wtap_rec, ptr %41, i32 0, i32 0
+  store i32 0, ptr %42, align 8
+  %43 = call ptr @wtap_block_create(i32 noundef 5)
+  %44 = load ptr, ptr %7, align 8
+  %45 = getelementptr inbounds nuw %struct.wtap_rec, ptr %44, i32 0, i32 8
+  store ptr %43, ptr %45, align 8
+  %46 = load ptr, ptr %7, align 8
+  %47 = getelementptr inbounds nuw %struct.wtap_rec, ptr %46, i32 0, i32 1
+  store i32 0, ptr %47, align 4
+  %48 = load ptr, ptr %7, align 8
+  %49 = getelementptr inbounds nuw %struct.wtap_rec, ptr %48, i32 0, i32 3
+  %50 = getelementptr inbounds nuw %struct.nstime_t, ptr %49, i32 0, i32 0
+  store i64 0, ptr %50, align 8
+  %51 = load ptr, ptr %7, align 8
+  %52 = getelementptr inbounds nuw %struct.wtap_rec, ptr %51, i32 0, i32 3
+  %53 = getelementptr inbounds nuw %struct.nstime_t, ptr %52, i32 0, i32 1
+  store i32 0, ptr %53, align 8
+  %54 = load i32, ptr %14, align 4
+  %55 = load ptr, ptr %7, align 8
+  %56 = getelementptr inbounds nuw %struct.wtap_rec, ptr %55, i32 0, i32 7
+  %57 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %56, i32 0, i32 0
+  store i32 %54, ptr %57, align 8
+  %58 = load i32, ptr %14, align 4
+  %59 = load ptr, ptr %7, align 8
+  %60 = getelementptr inbounds nuw %struct.wtap_rec, ptr %59, i32 0, i32 7
+  %61 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %60, i32 0, i32 1
+  store i32 %58, ptr %61, align 4
+  %62 = load ptr, ptr %8, align 8
+  store i32 0, ptr %62, align 4
+  %63 = load ptr, ptr %7, align 8
+  %64 = getelementptr inbounds nuw %struct.wtap_rec, ptr %63, i32 0, i32 11
+  %65 = getelementptr inbounds [23 x i8], ptr %11, i64 0, i64 0
+  %66 = load ptr, ptr %7, align 8
+  %67 = getelementptr inbounds nuw %struct.wtap_rec, ptr %66, i32 0, i32 7
+  %68 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %67, i32 0, i32 0
+  %69 = load i32, ptr %68, align 8
+  %70 = zext i32 %69 to i64
+  call void @ws_buffer_append(ptr noundef %64, ptr noundef %65, i64 noundef %70)
+  store i1 true, ptr %5, align 1
+  store i32 1, ptr %15, align 4
+  br label %308
 
-83:                                               ; preds = %38
-  %84 = load ptr, ptr %10, align 8
-  store i32 -13, ptr %84, align 4
-  %85 = call noalias ptr @g_strdup(ptr noundef @.str.1)
-  %86 = load ptr, ptr %11, align 8
-  store ptr %85, ptr %86, align 8
-  store i32 0, ptr %6, align 4
-  br label %319
+71:                                               ; preds = %37
+  %72 = load ptr, ptr %8, align 8
+  store i32 -13, ptr %72, align 4
+  %73 = call noalias ptr @g_strdup(ptr noundef @.str.1)
+  %74 = load ptr, ptr %9, align 8
+  store ptr %73, ptr %74, align 8
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %15, align 4
+  br label %308
 
-87:                                               ; preds = %34
-  %88 = getelementptr inbounds [1024 x i8], ptr %12, i64 0, i64 0
-  %89 = call i32 @memcmp(ptr noundef @dct3trace_magic_record_start, ptr noundef %88, i64 noundef 4) #6
-  %90 = icmp eq i32 %89, 0
-  br i1 %90, label %91, label %234
+75:                                               ; preds = %33
+  %76 = getelementptr inbounds [1024 x i8], ptr %10, i64 0, i64 0
+  %77 = call i32 @memcmp(ptr noundef @dct3trace_magic_record_start, ptr noundef %76, i64 noundef 4) #10
+  %78 = icmp eq i32 %77, 0
+  br i1 %78, label %79, label %219
 
-91:                                               ; preds = %87
-  %92 = getelementptr inbounds [1024 x i8], ptr %12, i64 0, i64 0
-  %93 = call ptr @strstr(ptr noundef %92, ptr noundef @.str.2) #6
-  %94 = icmp ne ptr %93, null
-  %95 = xor i1 %94, true
-  %96 = zext i1 %95 to i32
-  %97 = load ptr, ptr %8, align 8
-  %98 = getelementptr inbounds %struct.wtap_rec, ptr %97, i32 0, i32 7
-  %99 = getelementptr inbounds %struct.wtap_packet_header, ptr %98, i32 0, i32 4
-  %100 = getelementptr inbounds %struct.gsm_um_phdr, ptr %99, i32 0, i32 0
-  store i32 %96, ptr %100, align 8
-  %101 = getelementptr inbounds [1024 x i8], ptr %12, i64 0, i64 0
-  %102 = load ptr, ptr %10, align 8
-  %103 = load ptr, ptr %11, align 8
-  %104 = call i32 @xml_get_int(ptr noundef %17, ptr noundef %101, ptr noundef @.str.3, ptr noundef %102, ptr noundef %103)
-  %105 = icmp ne i32 %104, 0
+79:                                               ; preds = %75
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #9
+  %80 = getelementptr inbounds [1024 x i8], ptr %10, i64 0, i64 0
+  %81 = call ptr @strstr(ptr noundef %80, ptr noundef @.str.2) #10
+  %82 = icmp ne ptr %81, null
+  %83 = xor i1 %82, true
+  %84 = load ptr, ptr %7, align 8
+  %85 = getelementptr inbounds nuw %struct.wtap_rec, ptr %84, i32 0, i32 7
+  %86 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %85, i32 0, i32 4
+  %87 = getelementptr inbounds nuw %struct.gsm_um_phdr, ptr %86, i32 0, i32 0
+  %88 = zext i1 %83 to i8
+  store i8 %88, ptr %87, align 8
+  %89 = getelementptr inbounds [1024 x i8], ptr %10, i64 0, i64 0
+  %90 = load ptr, ptr %8, align 8
+  %91 = load ptr, ptr %9, align 8
+  %92 = call zeroext i1 @xml_get_int(ptr noundef %16, ptr noundef %89, ptr noundef @.str.3, ptr noundef %90, ptr noundef %91)
+  br i1 %92, label %94, label %93
+
+93:                                               ; preds = %79
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %15, align 4
+  br label %216
+
+94:                                               ; preds = %79
+  %95 = load ptr, ptr %7, align 8
+  %96 = getelementptr inbounds nuw %struct.wtap_rec, ptr %95, i32 0, i32 7
+  %97 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %96, i32 0, i32 4
+  %98 = getelementptr inbounds nuw %struct.gsm_um_phdr, ptr %97, i32 0, i32 0
+  %99 = load i8, ptr %98, align 8, !range !6, !noundef !7
+  %100 = trunc i8 %99 to i1
+  br i1 %100, label %161, label %101
+
+101:                                              ; preds = %94
+  %102 = getelementptr inbounds [1024 x i8], ptr %10, i64 0, i64 0
+  %103 = load ptr, ptr %8, align 8
+  %104 = load ptr, ptr %9, align 8
+  %105 = call zeroext i1 @xml_get_int(ptr noundef %17, ptr noundef %102, ptr noundef @.str.4, ptr noundef %103, ptr noundef %104)
   br i1 %105, label %107, label %106
 
-106:                                              ; preds = %91
-  store i32 0, ptr %6, align 4
-  br label %319
+106:                                              ; preds = %101
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %15, align 4
+  br label %216
 
-107:                                              ; preds = %91
-  %108 = load ptr, ptr %8, align 8
-  %109 = getelementptr inbounds %struct.wtap_rec, ptr %108, i32 0, i32 7
-  %110 = getelementptr inbounds %struct.wtap_packet_header, ptr %109, i32 0, i32 4
-  %111 = getelementptr inbounds %struct.gsm_um_phdr, ptr %110, i32 0, i32 0
-  %112 = load i32, ptr %111, align 8
-  %113 = icmp ne i32 %112, 0
-  br i1 %113, label %179, label %114
+107:                                              ; preds = %101
+  %108 = load i32, ptr %17, align 4
+  %109 = trunc i32 %108 to i16
+  %110 = load ptr, ptr %7, align 8
+  %111 = getelementptr inbounds nuw %struct.wtap_rec, ptr %110, i32 0, i32 7
+  %112 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %111, i32 0, i32 4
+  %113 = getelementptr inbounds nuw %struct.gsm_um_phdr, ptr %112, i32 0, i32 3
+  store i16 %109, ptr %113, align 4
+  %114 = getelementptr inbounds [1024 x i8], ptr %10, i64 0, i64 0
+  %115 = load ptr, ptr %8, align 8
+  %116 = load ptr, ptr %9, align 8
+  %117 = call zeroext i1 @xml_get_int(ptr noundef %17, ptr noundef %114, ptr noundef @.str.5, ptr noundef %115, ptr noundef %116)
+  br i1 %117, label %119, label %118
 
-114:                                              ; preds = %107
-  %115 = getelementptr inbounds [1024 x i8], ptr %12, i64 0, i64 0
-  %116 = load ptr, ptr %10, align 8
-  %117 = load ptr, ptr %11, align 8
-  %118 = call i32 @xml_get_int(ptr noundef %18, ptr noundef %115, ptr noundef @.str.4, ptr noundef %116, ptr noundef %117)
-  %119 = icmp ne i32 %118, 0
-  br i1 %119, label %121, label %120
+118:                                              ; preds = %107
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %15, align 4
+  br label %216
 
-120:                                              ; preds = %114
-  store i32 0, ptr %6, align 4
-  br label %319
+119:                                              ; preds = %107
+  %120 = load i32, ptr %17, align 4
+  %121 = load ptr, ptr %7, align 8
+  %122 = getelementptr inbounds nuw %struct.wtap_rec, ptr %121, i32 0, i32 7
+  %123 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %122, i32 0, i32 4
+  %124 = getelementptr inbounds nuw %struct.gsm_um_phdr, ptr %123, i32 0, i32 4
+  store i32 %120, ptr %124, align 8
+  %125 = getelementptr inbounds [1024 x i8], ptr %10, i64 0, i64 0
+  %126 = load ptr, ptr %8, align 8
+  %127 = load ptr, ptr %9, align 8
+  %128 = call zeroext i1 @xml_get_int(ptr noundef %17, ptr noundef %125, ptr noundef @.str.6, ptr noundef %126, ptr noundef %127)
+  br i1 %128, label %130, label %129
 
-121:                                              ; preds = %114
-  %122 = load i32, ptr %18, align 4
-  %123 = trunc i32 %122 to i16
-  %124 = load ptr, ptr %8, align 8
-  %125 = getelementptr inbounds %struct.wtap_rec, ptr %124, i32 0, i32 7
-  %126 = getelementptr inbounds %struct.wtap_packet_header, ptr %125, i32 0, i32 4
-  %127 = getelementptr inbounds %struct.gsm_um_phdr, ptr %126, i32 0, i32 3
-  store i16 %123, ptr %127, align 2
-  %128 = getelementptr inbounds [1024 x i8], ptr %12, i64 0, i64 0
-  %129 = load ptr, ptr %10, align 8
-  %130 = load ptr, ptr %11, align 8
-  %131 = call i32 @xml_get_int(ptr noundef %18, ptr noundef %128, ptr noundef @.str.5, ptr noundef %129, ptr noundef %130)
-  %132 = icmp ne i32 %131, 0
-  br i1 %132, label %134, label %133
+129:                                              ; preds = %119
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %15, align 4
+  br label %216
 
-133:                                              ; preds = %121
-  store i32 0, ptr %6, align 4
-  br label %319
+130:                                              ; preds = %119
+  %131 = load i32, ptr %17, align 4
+  %132 = trunc i32 %131 to i8
+  %133 = load ptr, ptr %7, align 8
+  %134 = getelementptr inbounds nuw %struct.wtap_rec, ptr %133, i32 0, i32 7
+  %135 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %134, i32 0, i32 4
+  %136 = getelementptr inbounds nuw %struct.gsm_um_phdr, ptr %135, i32 0, i32 2
+  store i8 %132, ptr %136, align 2
+  %137 = getelementptr inbounds [1024 x i8], ptr %10, i64 0, i64 0
+  %138 = load ptr, ptr %8, align 8
+  %139 = load ptr, ptr %9, align 8
+  %140 = call zeroext i1 @xml_get_int(ptr noundef %17, ptr noundef %137, ptr noundef @.str.7, ptr noundef %138, ptr noundef %139)
+  br i1 %140, label %142, label %141
 
-134:                                              ; preds = %121
-  %135 = load i32, ptr %18, align 4
-  %136 = load ptr, ptr %8, align 8
-  %137 = getelementptr inbounds %struct.wtap_rec, ptr %136, i32 0, i32 7
-  %138 = getelementptr inbounds %struct.wtap_packet_header, ptr %137, i32 0, i32 4
-  %139 = getelementptr inbounds %struct.gsm_um_phdr, ptr %138, i32 0, i32 4
-  store i32 %135, ptr %139, align 8
-  %140 = getelementptr inbounds [1024 x i8], ptr %12, i64 0, i64 0
-  %141 = load ptr, ptr %10, align 8
-  %142 = load ptr, ptr %11, align 8
-  %143 = call i32 @xml_get_int(ptr noundef %18, ptr noundef %140, ptr noundef @.str.6, ptr noundef %141, ptr noundef %142)
-  %144 = icmp ne i32 %143, 0
-  br i1 %144, label %146, label %145
+141:                                              ; preds = %130
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %15, align 4
+  br label %216
 
-145:                                              ; preds = %134
-  store i32 0, ptr %6, align 4
-  br label %319
+142:                                              ; preds = %130
+  %143 = load i32, ptr %17, align 4
+  %144 = trunc i32 %143 to i8
+  %145 = load ptr, ptr %7, align 8
+  %146 = getelementptr inbounds nuw %struct.wtap_rec, ptr %145, i32 0, i32 7
+  %147 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %146, i32 0, i32 4
+  %148 = getelementptr inbounds nuw %struct.gsm_um_phdr, ptr %147, i32 0, i32 5
+  store i8 %144, ptr %148, align 4
+  %149 = getelementptr inbounds [1024 x i8], ptr %10, i64 0, i64 0
+  %150 = load ptr, ptr %8, align 8
+  %151 = load ptr, ptr %9, align 8
+  %152 = call zeroext i1 @xml_get_int(ptr noundef %17, ptr noundef %149, ptr noundef @.str.8, ptr noundef %150, ptr noundef %151)
+  br i1 %152, label %154, label %153
 
-146:                                              ; preds = %134
-  %147 = load i32, ptr %18, align 4
-  %148 = trunc i32 %147 to i8
-  %149 = load ptr, ptr %8, align 8
-  %150 = getelementptr inbounds %struct.wtap_rec, ptr %149, i32 0, i32 7
-  %151 = getelementptr inbounds %struct.wtap_packet_header, ptr %150, i32 0, i32 4
-  %152 = getelementptr inbounds %struct.gsm_um_phdr, ptr %151, i32 0, i32 2
-  store i8 %148, ptr %152, align 1
-  %153 = getelementptr inbounds [1024 x i8], ptr %12, i64 0, i64 0
-  %154 = load ptr, ptr %10, align 8
-  %155 = load ptr, ptr %11, align 8
-  %156 = call i32 @xml_get_int(ptr noundef %18, ptr noundef %153, ptr noundef @.str.7, ptr noundef %154, ptr noundef %155)
-  %157 = icmp ne i32 %156, 0
-  br i1 %157, label %159, label %158
+153:                                              ; preds = %142
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %15, align 4
+  br label %216
 
-158:                                              ; preds = %146
-  store i32 0, ptr %6, align 4
-  br label %319
+154:                                              ; preds = %142
+  %155 = load i32, ptr %17, align 4
+  %156 = trunc i32 %155 to i16
+  %157 = load ptr, ptr %7, align 8
+  %158 = getelementptr inbounds nuw %struct.wtap_rec, ptr %157, i32 0, i32 7
+  %159 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %158, i32 0, i32 4
+  %160 = getelementptr inbounds nuw %struct.gsm_um_phdr, ptr %159, i32 0, i32 6
+  store i16 %156, ptr %160, align 2
+  br label %161
 
-159:                                              ; preds = %146
-  %160 = load i32, ptr %18, align 4
-  %161 = trunc i32 %160 to i8
-  %162 = load ptr, ptr %8, align 8
-  %163 = getelementptr inbounds %struct.wtap_rec, ptr %162, i32 0, i32 7
-  %164 = getelementptr inbounds %struct.wtap_packet_header, ptr %163, i32 0, i32 4
-  %165 = getelementptr inbounds %struct.gsm_um_phdr, ptr %164, i32 0, i32 5
-  store i8 %161, ptr %165, align 4
-  %166 = getelementptr inbounds [1024 x i8], ptr %12, i64 0, i64 0
-  %167 = load ptr, ptr %10, align 8
-  %168 = load ptr, ptr %11, align 8
-  %169 = call i32 @xml_get_int(ptr noundef %18, ptr noundef %166, ptr noundef @.str.8, ptr noundef %167, ptr noundef %168)
-  %170 = icmp ne i32 %169, 0
-  br i1 %170, label %172, label %171
-
-171:                                              ; preds = %159
-  store i32 0, ptr %6, align 4
-  br label %319
-
-172:                                              ; preds = %159
-  %173 = load i32, ptr %18, align 4
-  %174 = trunc i32 %173 to i16
-  %175 = load ptr, ptr %8, align 8
-  %176 = getelementptr inbounds %struct.wtap_rec, ptr %175, i32 0, i32 7
-  %177 = getelementptr inbounds %struct.wtap_packet_header, ptr %176, i32 0, i32 4
-  %178 = getelementptr inbounds %struct.gsm_um_phdr, ptr %177, i32 0, i32 6
-  store i16 %174, ptr %178, align 2
-  br label %179
-
-179:                                              ; preds = %172, %107
-  %180 = load i32, ptr %17, align 4
-  switch i32 %180, label %206 [
-    i32 128, label %181
-    i32 112, label %186
-    i32 176, label %191
-    i32 96, label %196
-    i32 80, label %201
+161:                                              ; preds = %154, %94
+  %162 = load i32, ptr %16, align 4
+  switch i32 %162, label %188 [
+    i32 128, label %163
+    i32 112, label %168
+    i32 176, label %173
+    i32 96, label %178
+    i32 80, label %183
   ]
 
-181:                                              ; preds = %179
-  %182 = load ptr, ptr %8, align 8
-  %183 = getelementptr inbounds %struct.wtap_rec, ptr %182, i32 0, i32 7
-  %184 = getelementptr inbounds %struct.wtap_packet_header, ptr %183, i32 0, i32 4
-  %185 = getelementptr inbounds %struct.gsm_um_phdr, ptr %184, i32 0, i32 1
-  store i8 2, ptr %185, align 4
-  br label %211
+163:                                              ; preds = %161
+  %164 = load ptr, ptr %7, align 8
+  %165 = getelementptr inbounds nuw %struct.wtap_rec, ptr %164, i32 0, i32 7
+  %166 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %165, i32 0, i32 4
+  %167 = getelementptr inbounds nuw %struct.gsm_um_phdr, ptr %166, i32 0, i32 1
+  store i8 2, ptr %167, align 1
+  br label %193
 
-186:                                              ; preds = %179
-  %187 = load ptr, ptr %8, align 8
-  %188 = getelementptr inbounds %struct.wtap_rec, ptr %187, i32 0, i32 7
-  %189 = getelementptr inbounds %struct.wtap_packet_header, ptr %188, i32 0, i32 4
-  %190 = getelementptr inbounds %struct.gsm_um_phdr, ptr %189, i32 0, i32 1
-  store i8 3, ptr %190, align 4
-  br label %211
+168:                                              ; preds = %161
+  %169 = load ptr, ptr %7, align 8
+  %170 = getelementptr inbounds nuw %struct.wtap_rec, ptr %169, i32 0, i32 7
+  %171 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %170, i32 0, i32 4
+  %172 = getelementptr inbounds nuw %struct.gsm_um_phdr, ptr %171, i32 0, i32 1
+  store i8 3, ptr %172, align 1
+  br label %193
 
-191:                                              ; preds = %179
-  %192 = load ptr, ptr %8, align 8
-  %193 = getelementptr inbounds %struct.wtap_rec, ptr %192, i32 0, i32 7
-  %194 = getelementptr inbounds %struct.wtap_packet_header, ptr %193, i32 0, i32 4
-  %195 = getelementptr inbounds %struct.gsm_um_phdr, ptr %194, i32 0, i32 1
-  store i8 4, ptr %195, align 4
-  br label %211
+173:                                              ; preds = %161
+  %174 = load ptr, ptr %7, align 8
+  %175 = getelementptr inbounds nuw %struct.wtap_rec, ptr %174, i32 0, i32 7
+  %176 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %175, i32 0, i32 4
+  %177 = getelementptr inbounds nuw %struct.gsm_um_phdr, ptr %176, i32 0, i32 1
+  store i8 4, ptr %177, align 1
+  br label %193
 
-196:                                              ; preds = %179
-  %197 = load ptr, ptr %8, align 8
-  %198 = getelementptr inbounds %struct.wtap_rec, ptr %197, i32 0, i32 7
-  %199 = getelementptr inbounds %struct.wtap_packet_header, ptr %198, i32 0, i32 4
-  %200 = getelementptr inbounds %struct.gsm_um_phdr, ptr %199, i32 0, i32 1
-  store i8 5, ptr %200, align 4
-  br label %211
+178:                                              ; preds = %161
+  %179 = load ptr, ptr %7, align 8
+  %180 = getelementptr inbounds nuw %struct.wtap_rec, ptr %179, i32 0, i32 7
+  %181 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %180, i32 0, i32 4
+  %182 = getelementptr inbounds nuw %struct.gsm_um_phdr, ptr %181, i32 0, i32 1
+  store i8 5, ptr %182, align 1
+  br label %193
 
-201:                                              ; preds = %179
-  %202 = load ptr, ptr %8, align 8
-  %203 = getelementptr inbounds %struct.wtap_rec, ptr %202, i32 0, i32 7
-  %204 = getelementptr inbounds %struct.wtap_packet_header, ptr %203, i32 0, i32 4
-  %205 = getelementptr inbounds %struct.gsm_um_phdr, ptr %204, i32 0, i32 1
-  store i8 1, ptr %205, align 4
-  br label %211
+183:                                              ; preds = %161
+  %184 = load ptr, ptr %7, align 8
+  %185 = getelementptr inbounds nuw %struct.wtap_rec, ptr %184, i32 0, i32 7
+  %186 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %185, i32 0, i32 4
+  %187 = getelementptr inbounds nuw %struct.gsm_um_phdr, ptr %186, i32 0, i32 1
+  store i8 1, ptr %187, align 1
+  br label %193
 
-206:                                              ; preds = %179
+188:                                              ; preds = %161
+  %189 = load ptr, ptr %7, align 8
+  %190 = getelementptr inbounds nuw %struct.wtap_rec, ptr %189, i32 0, i32 7
+  %191 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %190, i32 0, i32 4
+  %192 = getelementptr inbounds nuw %struct.gsm_um_phdr, ptr %191, i32 0, i32 1
+  store i8 0, ptr %192, align 1
+  br label %193
+
+193:                                              ; preds = %188, %183, %178, %173, %168, %163
+  %194 = getelementptr inbounds [1024 x i8], ptr %10, i64 0, i64 0
+  %195 = call ptr @strstr(ptr noundef %194, ptr noundef @.str.9) #10
+  store ptr %195, ptr %18, align 8
+  %196 = load ptr, ptr %18, align 8
+  %197 = icmp ne ptr %196, null
+  br i1 %197, label %198, label %215
+
+198:                                              ; preds = %193
+  store i8 1, ptr %13, align 1
+  %199 = load ptr, ptr %12, align 8
+  %200 = getelementptr [23 x i8], ptr %11, i64 0, i64 23
+  %201 = load ptr, ptr %18, align 8
+  %202 = getelementptr i8, ptr %201, i64 6
+  %203 = call i32 @hex2bin(ptr noundef %199, ptr noundef %200, ptr noundef %202)
+  store i32 %203, ptr %14, align 4
+  %204 = load i32, ptr %14, align 4
+  %205 = icmp eq i32 %204, -1
+  br i1 %205, label %206, label %214
+
+206:                                              ; preds = %198
   %207 = load ptr, ptr %8, align 8
-  %208 = getelementptr inbounds %struct.wtap_rec, ptr %207, i32 0, i32 7
-  %209 = getelementptr inbounds %struct.wtap_packet_header, ptr %208, i32 0, i32 4
-  %210 = getelementptr inbounds %struct.gsm_um_phdr, ptr %209, i32 0, i32 1
-  store i8 0, ptr %210, align 4
-  br label %211
-
-211:                                              ; preds = %206, %201, %196, %191, %186, %181
-  %212 = getelementptr inbounds [1024 x i8], ptr %12, i64 0, i64 0
-  %213 = call ptr @strstr(ptr noundef %212, ptr noundef @.str.9) #6
-  store ptr %213, ptr %19, align 8
-  %214 = load ptr, ptr %19, align 8
-  %215 = icmp ne ptr %214, null
-  br i1 %215, label %216, label %233
-
-216:                                              ; preds = %211
+  store i32 -13, ptr %207, align 4
+  %208 = load ptr, ptr %7, align 8
+  %209 = getelementptr inbounds nuw %struct.wtap_rec, ptr %208, i32 0, i32 7
+  %210 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %209, i32 0, i32 0
+  %211 = load i32, ptr %210, align 8
+  %212 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.10, i32 noundef %211)
+  %213 = load ptr, ptr %9, align 8
+  store ptr %212, ptr %213, align 8
+  store i1 false, ptr %5, align 1
   store i32 1, ptr %15, align 4
-  %217 = load ptr, ptr %14, align 8
-  %218 = getelementptr [23 x i8], ptr %13, i64 0, i64 23
-  %219 = load ptr, ptr %19, align 8
-  %220 = getelementptr i8, ptr %219, i64 6
-  %221 = call i32 @hex2bin(ptr noundef %217, ptr noundef %218, ptr noundef %220)
-  store i32 %221, ptr %16, align 4
-  %222 = load i32, ptr %16, align 4
-  %223 = icmp eq i32 %222, -1
-  br i1 %223, label %224, label %232
+  br label %216
 
-224:                                              ; preds = %216
-  %225 = load ptr, ptr %10, align 8
-  store i32 -13, ptr %225, align 4
-  %226 = load ptr, ptr %8, align 8
-  %227 = getelementptr inbounds %struct.wtap_rec, ptr %226, i32 0, i32 7
-  %228 = getelementptr inbounds %struct.wtap_packet_header, ptr %227, i32 0, i32 0
-  %229 = load i32, ptr %228, align 8
-  %230 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.10, i32 noundef %229)
-  %231 = load ptr, ptr %11, align 8
-  store ptr %230, ptr %231, align 8
-  store i32 0, ptr %6, align 4
-  br label %319
+214:                                              ; preds = %198
+  br label %215
 
-232:                                              ; preds = %216
-  br label %233
+215:                                              ; preds = %214, %193
+  store i32 0, ptr %15, align 4
+  br label %216
 
-233:                                              ; preds = %232, %211
-  br label %305
+216:                                              ; preds = %215, %206, %153, %141, %129, %118, %106, %93
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #9
+  %217 = load i32, ptr %15, align 4
+  switch i32 %217, label %308 [
+    i32 0, label %218
+  ]
 
-234:                                              ; preds = %87
-  %235 = load i32, ptr %15, align 4
-  %236 = icmp ne i32 %235, 0
-  br i1 %236, label %304, label %237
+218:                                              ; preds = %216
+  br label %294
 
-237:                                              ; preds = %234
-  %238 = getelementptr inbounds [1024 x i8], ptr %12, i64 0, i64 0
-  %239 = call i32 @memcmp(ptr noundef @dct3trace_magic_l2_start, ptr noundef %238, i64 noundef 4) #6
-  %240 = icmp eq i32 %239, 0
-  br i1 %240, label %241, label %304
+219:                                              ; preds = %75
+  %220 = load i8, ptr %13, align 1, !range !6, !noundef !7
+  %221 = trunc i8 %220 to i1
+  br i1 %221, label %293, label %222
 
-241:                                              ; preds = %237
-  %242 = getelementptr inbounds [1024 x i8], ptr %12, i64 0, i64 0
-  %243 = call ptr @strstr(ptr noundef %242, ptr noundef @.str.9) #6
-  store ptr %243, ptr %21, align 8
-  %244 = load ptr, ptr %21, align 8
-  %245 = icmp ne ptr %244, null
-  br i1 %245, label %247, label %246
+222:                                              ; preds = %219
+  %223 = getelementptr inbounds [1024 x i8], ptr %10, i64 0, i64 0
+  %224 = call i32 @memcmp(ptr noundef @dct3trace_magic_l2_start, ptr noundef %223, i64 noundef 4) #10
+  %225 = icmp eq i32 %224, 0
+  br i1 %225, label %226, label %293
 
-246:                                              ; preds = %241
-  br label %23, !llvm.loop !4
+226:                                              ; preds = %222
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #9
+  %227 = getelementptr inbounds [1024 x i8], ptr %10, i64 0, i64 0
+  %228 = call ptr @strstr(ptr noundef %227, ptr noundef @.str.9) #10
+  store ptr %228, ptr %20, align 8
+  %229 = load ptr, ptr %20, align 8
+  %230 = icmp ne ptr %229, null
+  br i1 %230, label %232, label %231
 
-247:                                              ; preds = %241
+231:                                              ; preds = %226
+  store i32 2, ptr %15, align 4
+  br label %290, !llvm.loop !8
+
+232:                                              ; preds = %226
+  store i8 1, ptr %13, align 1
+  %233 = load ptr, ptr %7, align 8
+  %234 = getelementptr inbounds nuw %struct.wtap_rec, ptr %233, i32 0, i32 7
+  %235 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %234, i32 0, i32 4
+  %236 = getelementptr inbounds nuw %struct.gsm_um_phdr, ptr %235, i32 0, i32 1
+  %237 = load i8, ptr %236, align 1
+  %238 = zext i8 %237 to i32
+  %239 = icmp eq i32 %238, 3
+  br i1 %239, label %256, label %240
+
+240:                                              ; preds = %232
+  %241 = load ptr, ptr %7, align 8
+  %242 = getelementptr inbounds nuw %struct.wtap_rec, ptr %241, i32 0, i32 7
+  %243 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %242, i32 0, i32 4
+  %244 = getelementptr inbounds nuw %struct.gsm_um_phdr, ptr %243, i32 0, i32 1
+  %245 = load i8, ptr %244, align 1
+  %246 = zext i8 %245 to i32
+  %247 = icmp eq i32 %246, 4
+  br i1 %247, label %256, label %248
+
+248:                                              ; preds = %240
+  %249 = load ptr, ptr %7, align 8
+  %250 = getelementptr inbounds nuw %struct.wtap_rec, ptr %249, i32 0, i32 7
+  %251 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %250, i32 0, i32 4
+  %252 = getelementptr inbounds nuw %struct.gsm_um_phdr, ptr %251, i32 0, i32 1
+  %253 = load i8, ptr %252, align 1
+  %254 = zext i8 %253 to i32
+  %255 = icmp eq i32 %254, 2
+  br i1 %255, label %256, label %259
+
+256:                                              ; preds = %248, %240, %232
+  %257 = load ptr, ptr %12, align 8
+  %258 = call ptr @memset.inline(ptr noundef %257, i32 noundef 1, i64 noundef 2) #9
+  store i32 3, ptr %14, align 4
+  br label %260
+
+259:                                              ; preds = %248
+  store i32 1, ptr %14, align 4
+  br label %260
+
+260:                                              ; preds = %259, %256
+  %261 = load i32, ptr %14, align 4
+  %262 = load ptr, ptr %12, align 8
+  %263 = sext i32 %261 to i64
+  %264 = getelementptr i8, ptr %262, i64 %263
+  store ptr %264, ptr %12, align 8
+  %265 = load ptr, ptr %12, align 8
+  %266 = getelementptr [23 x i8], ptr %11, i64 0, i64 23
+  %267 = load ptr, ptr %20, align 8
+  %268 = getelementptr i8, ptr %267, i64 6
+  %269 = call i32 @hex2bin(ptr noundef %265, ptr noundef %266, ptr noundef %268)
+  store i32 %269, ptr %19, align 4
+  %270 = load i32, ptr %19, align 4
+  %271 = icmp eq i32 %270, -1
+  br i1 %271, label %272, label %280
+
+272:                                              ; preds = %260
+  %273 = load ptr, ptr %8, align 8
+  store i32 -13, ptr %273, align 4
+  %274 = load ptr, ptr %7, align 8
+  %275 = getelementptr inbounds nuw %struct.wtap_rec, ptr %274, i32 0, i32 7
+  %276 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %275, i32 0, i32 0
+  %277 = load i32, ptr %276, align 8
+  %278 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.10, i32 noundef %277)
+  %279 = load ptr, ptr %9, align 8
+  store ptr %278, ptr %279, align 8
+  store i1 false, ptr %5, align 1
   store i32 1, ptr %15, align 4
-  %248 = load ptr, ptr %8, align 8
-  %249 = getelementptr inbounds %struct.wtap_rec, ptr %248, i32 0, i32 7
-  %250 = getelementptr inbounds %struct.wtap_packet_header, ptr %249, i32 0, i32 4
-  %251 = getelementptr inbounds %struct.gsm_um_phdr, ptr %250, i32 0, i32 1
-  %252 = load i8, ptr %251, align 4
-  %253 = zext i8 %252 to i32
-  %254 = icmp eq i32 %253, 3
-  br i1 %254, label %271, label %255
+  br label %290
 
-255:                                              ; preds = %247
-  %256 = load ptr, ptr %8, align 8
-  %257 = getelementptr inbounds %struct.wtap_rec, ptr %256, i32 0, i32 7
-  %258 = getelementptr inbounds %struct.wtap_packet_header, ptr %257, i32 0, i32 4
-  %259 = getelementptr inbounds %struct.gsm_um_phdr, ptr %258, i32 0, i32 1
-  %260 = load i8, ptr %259, align 4
-  %261 = zext i8 %260 to i32
-  %262 = icmp eq i32 %261, 4
-  br i1 %262, label %271, label %263
+280:                                              ; preds = %260
+  %281 = load i32, ptr %19, align 4
+  %282 = load i32, ptr %14, align 4
+  %283 = add i32 %282, %281
+  store i32 %283, ptr %14, align 4
+  %284 = load i32, ptr %19, align 4
+  %285 = shl i32 %284, 2
+  %286 = or i32 %285, 1
+  %287 = trunc i32 %286 to i8
+  %288 = load ptr, ptr %12, align 8
+  %289 = getelementptr i8, ptr %288, i64 -1
+  store i8 %287, ptr %289, align 1
+  store i32 0, ptr %15, align 4
+  br label %290
 
-263:                                              ; preds = %255
-  %264 = load ptr, ptr %8, align 8
-  %265 = getelementptr inbounds %struct.wtap_rec, ptr %264, i32 0, i32 7
-  %266 = getelementptr inbounds %struct.wtap_packet_header, ptr %265, i32 0, i32 4
-  %267 = getelementptr inbounds %struct.gsm_um_phdr, ptr %266, i32 0, i32 1
-  %268 = load i8, ptr %267, align 4
-  %269 = zext i8 %268 to i32
-  %270 = icmp eq i32 %269, 2
-  br i1 %270, label %271, label %273
+290:                                              ; preds = %280, %272, %231
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #9
+  %291 = load i32, ptr %15, align 4
+  switch i32 %291, label %308 [
+    i32 0, label %292
+    i32 2, label %22
+  ]
 
-271:                                              ; preds = %263, %255, %247
-  %272 = load ptr, ptr %14, align 8
-  call void @llvm.memset.p0.i64(ptr align 1 %272, i8 1, i64 2, i1 false)
-  store i32 3, ptr %16, align 4
-  br label %274
+292:                                              ; preds = %290
+  br label %293
 
-273:                                              ; preds = %263
-  store i32 1, ptr %16, align 4
-  br label %274
+293:                                              ; preds = %292, %222, %219
+  br label %294
 
-274:                                              ; preds = %273, %271
-  %275 = load i32, ptr %16, align 4
-  %276 = load ptr, ptr %14, align 8
-  %277 = sext i32 %275 to i64
-  %278 = getelementptr i8, ptr %276, i64 %277
-  store ptr %278, ptr %14, align 8
-  %279 = load ptr, ptr %14, align 8
-  %280 = getelementptr [23 x i8], ptr %13, i64 0, i64 23
-  %281 = load ptr, ptr %21, align 8
-  %282 = getelementptr i8, ptr %281, i64 6
-  %283 = call i32 @hex2bin(ptr noundef %279, ptr noundef %280, ptr noundef %282)
-  store i32 %283, ptr %20, align 4
-  %284 = load i32, ptr %20, align 4
-  %285 = icmp eq i32 %284, -1
-  br i1 %285, label %286, label %294
+294:                                              ; preds = %293, %218
+  br label %295
 
-286:                                              ; preds = %274
-  %287 = load ptr, ptr %10, align 8
-  store i32 -13, ptr %287, align 4
-  %288 = load ptr, ptr %8, align 8
-  %289 = getelementptr inbounds %struct.wtap_rec, ptr %288, i32 0, i32 7
-  %290 = getelementptr inbounds %struct.wtap_packet_header, ptr %289, i32 0, i32 0
-  %291 = load i32, ptr %290, align 8
-  %292 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.10, i32 noundef %291)
-  %293 = load ptr, ptr %11, align 8
-  store ptr %292, ptr %293, align 8
-  store i32 0, ptr %6, align 4
-  br label %319
+295:                                              ; preds = %294
+  br label %296
 
-294:                                              ; preds = %274
-  %295 = load i32, ptr %20, align 4
-  %296 = load i32, ptr %16, align 4
-  %297 = add i32 %296, %295
-  store i32 %297, ptr %16, align 4
-  %298 = load i32, ptr %20, align 4
-  %299 = shl i32 %298, 2
-  %300 = or i32 %299, 1
-  %301 = trunc i32 %300 to i8
-  %302 = load ptr, ptr %14, align 8
-  %303 = getelementptr i8, ptr %302, i64 -1
-  store i8 %301, ptr %303, align 1
-  br label %304
+296:                                              ; preds = %295
+  br label %22, !llvm.loop !8
 
-304:                                              ; preds = %294, %237, %234
-  br label %305
+297:                                              ; preds = %22
+  %298 = load ptr, ptr %6, align 8
+  %299 = load ptr, ptr %9, align 8
+  %300 = call i32 @file_error(ptr noundef %298, ptr noundef %299)
+  %301 = load ptr, ptr %8, align 8
+  store i32 %300, ptr %301, align 4
+  %302 = load ptr, ptr %8, align 8
+  %303 = load i32, ptr %302, align 4
+  %304 = icmp eq i32 %303, 0
+  br i1 %304, label %305, label %307
 
-305:                                              ; preds = %304, %233
-  br label %306
-
-306:                                              ; preds = %305
+305:                                              ; preds = %297
+  %306 = load ptr, ptr %8, align 8
+  store i32 -12, ptr %306, align 4
   br label %307
 
-307:                                              ; preds = %306
-  br label %23, !llvm.loop !4
+307:                                              ; preds = %305, %297
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %15, align 4
+  br label %308
 
-308:                                              ; preds = %23
-  %309 = load ptr, ptr %7, align 8
-  %310 = load ptr, ptr %11, align 8
-  %311 = call i32 @file_error(ptr noundef %309, ptr noundef %310)
-  %312 = load ptr, ptr %10, align 8
-  store i32 %311, ptr %312, align 4
-  %313 = load ptr, ptr %10, align 8
-  %314 = load i32, ptr %313, align 4
-  %315 = icmp eq i32 %314, 0
-  br i1 %315, label %316, label %318
-
-316:                                              ; preds = %308
-  %317 = load ptr, ptr %10, align 8
-  store i32 -12, ptr %317, align 4
-  br label %318
-
-318:                                              ; preds = %316, %308
-  store i32 0, ptr %6, align 4
-  br label %319
-
-319:                                              ; preds = %318, %286, %224, %171, %158, %145, %133, %120, %106, %83, %41, %32
-  %320 = load i32, ptr %6, align 4
-  ret i32 %320
+308:                                              ; preds = %307, %290, %216, %71, %40, %31
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #9
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #9
+  call void @llvm.lifetime.end.p0(i64 23, ptr %11) #9
+  call void @llvm.lifetime.end.p0(i64 1024, ptr %10) #9
+  %309 = load i1, ptr %5, align 1
+  ret i1 %309
 }
 
-; Function Attrs: nounwind willreturn memory(read)
-declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #2
+; Function Attrs: nounwind null_pointer_is_valid willreturn memory(read)
+declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #3
 
-declare ptr @wtap_block_create(i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @wtap_block_create(i32 noundef) #2
 
-declare void @ws_buffer_assure_space(ptr noundef, i64 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @ws_buffer_append(ptr noundef, ptr noundef, i64 noundef) #2
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @g_strdup(ptr noundef) #2
 
-declare noalias ptr @g_strdup(ptr noundef) #1
+; Function Attrs: nounwind null_pointer_is_valid willreturn memory(read)
+declare ptr @strstr(ptr noundef, ptr noundef) #3
 
-; Function Attrs: nounwind willreturn memory(read)
-declare ptr @strstr(ptr noundef, ptr noundef) #2
-
-; Function Attrs: nounwind uwtable
-define internal i32 @xml_get_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
-  %6 = alloca i32, align 4
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @xml_get_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+  %6 = alloca i1, align 1
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -773,183 +822,201 @@ define internal i32 @xml_get_int(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %14 = alloca ptr, align 8
   %15 = alloca ptr, align 8
   %16 = alloca [32 x i8], align 16
+  %17 = alloca i32, align 4
   store ptr %0, ptr %7, align 8
   store ptr %1, ptr %8, align 8
   store ptr %2, ptr %9, align 8
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
-  %17 = load ptr, ptr %8, align 8
-  %18 = load ptr, ptr %9, align 8
-  %19 = call ptr @strstr(ptr noundef %17, ptr noundef %18) #6
-  store ptr %19, ptr %12, align 8
-  %20 = load ptr, ptr %12, align 8
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %22, label %27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #9
+  call void @llvm.lifetime.start.p0(i64 32, ptr %16) #9
+  %18 = load ptr, ptr %8, align 8
+  %19 = load ptr, ptr %9, align 8
+  %20 = call ptr @strstr(ptr noundef %18, ptr noundef %19) #10
+  store ptr %20, ptr %12, align 8
+  %21 = load ptr, ptr %12, align 8
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %23, label %28
 
-22:                                               ; preds = %5
-  %23 = load ptr, ptr %10, align 8
-  store i32 -13, ptr %23, align 4
-  %24 = load ptr, ptr %9, align 8
-  %25 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.11, ptr noundef %24)
-  %26 = load ptr, ptr %11, align 8
-  store ptr %25, ptr %26, align 8
-  store i32 0, ptr %6, align 4
-  br label %118
+23:                                               ; preds = %5
+  %24 = load ptr, ptr %10, align 8
+  store i32 -13, ptr %24, align 4
+  %25 = load ptr, ptr %9, align 8
+  %26 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.11, ptr noundef %25)
+  %27 = load ptr, ptr %11, align 8
+  store ptr %26, ptr %27, align 8
+  store i1 false, ptr %6, align 1
+  store i32 1, ptr %17, align 4
+  br label %120
 
-27:                                               ; preds = %5
-  %28 = load ptr, ptr %12, align 8
-  %29 = call ptr @strchr(ptr noundef %28, i32 noundef 34) #6
-  store ptr %29, ptr %14, align 8
-  %30 = load ptr, ptr %14, align 8
-  %31 = icmp eq ptr %30, null
-  br i1 %31, label %32, label %37
+28:                                               ; preds = %5
+  %29 = load ptr, ptr %12, align 8
+  %30 = call ptr @strchr(ptr noundef %29, i32 noundef 34) #10
+  store ptr %30, ptr %14, align 8
+  %31 = load ptr, ptr %14, align 8
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %33, label %38
 
-32:                                               ; preds = %27
-  %33 = load ptr, ptr %10, align 8
-  store i32 -13, ptr %33, align 4
-  %34 = load ptr, ptr %9, align 8
-  %35 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.12, ptr noundef %34)
-  %36 = load ptr, ptr %11, align 8
-  store ptr %35, ptr %36, align 8
-  store i32 0, ptr %6, align 4
-  br label %118
+33:                                               ; preds = %28
+  %34 = load ptr, ptr %10, align 8
+  store i32 -13, ptr %34, align 4
+  %35 = load ptr, ptr %9, align 8
+  %36 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.12, ptr noundef %35)
+  %37 = load ptr, ptr %11, align 8
+  store ptr %36, ptr %37, align 8
+  store i1 false, ptr %6, align 1
+  store i32 1, ptr %17, align 4
+  br label %120
 
-37:                                               ; preds = %27
-  %38 = load ptr, ptr %14, align 8
-  %39 = getelementptr i8, ptr %38, i32 1
-  store ptr %39, ptr %14, align 8
-  %40 = load ptr, ptr %14, align 8
-  %41 = call ptr @strchr(ptr noundef %40, i32 noundef 34) #6
-  store ptr %41, ptr %15, align 8
-  %42 = load ptr, ptr %15, align 8
-  %43 = icmp eq ptr %42, null
-  br i1 %43, label %44, label %49
+38:                                               ; preds = %28
+  %39 = load ptr, ptr %14, align 8
+  %40 = getelementptr i8, ptr %39, i32 1
+  store ptr %40, ptr %14, align 8
+  %41 = load ptr, ptr %14, align 8
+  %42 = call ptr @strchr(ptr noundef %41, i32 noundef 34) #10
+  store ptr %42, ptr %15, align 8
+  %43 = load ptr, ptr %15, align 8
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %45, label %50
 
-44:                                               ; preds = %37
-  %45 = load ptr, ptr %10, align 8
-  store i32 -13, ptr %45, align 4
-  %46 = load ptr, ptr %9, align 8
-  %47 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.13, ptr noundef %46)
-  %48 = load ptr, ptr %11, align 8
-  store ptr %47, ptr %48, align 8
-  store i32 0, ptr %6, align 4
-  br label %118
+45:                                               ; preds = %38
+  %46 = load ptr, ptr %10, align 8
+  store i32 -13, ptr %46, align 4
+  %47 = load ptr, ptr %9, align 8
+  %48 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.13, ptr noundef %47)
+  %49 = load ptr, ptr %11, align 8
+  store ptr %48, ptr %49, align 8
+  store i1 false, ptr %6, align 1
+  store i32 1, ptr %17, align 4
+  br label %120
 
-49:                                               ; preds = %37
-  %50 = load ptr, ptr %15, align 8
-  %51 = load ptr, ptr %14, align 8
-  %52 = ptrtoint ptr %50 to i64
+50:                                               ; preds = %38
+  %51 = load ptr, ptr %15, align 8
+  %52 = load ptr, ptr %14, align 8
   %53 = ptrtoint ptr %51 to i64
-  %54 = sub i64 %52, %53
-  %55 = icmp sgt i64 %54, 31
-  br i1 %55, label %56, label %61
+  %54 = ptrtoint ptr %52 to i64
+  %55 = sub i64 %53, %54
+  %56 = icmp sgt i64 %55, 31
+  br i1 %56, label %57, label %62
 
-56:                                               ; preds = %49
-  %57 = load ptr, ptr %10, align 8
-  store i32 -13, ptr %57, align 4
-  %58 = load ptr, ptr %9, align 8
-  %59 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.14, ptr noundef %58)
-  %60 = load ptr, ptr %11, align 8
-  store ptr %59, ptr %60, align 8
-  store i32 0, ptr %6, align 4
-  br label %118
+57:                                               ; preds = %50
+  %58 = load ptr, ptr %10, align 8
+  store i32 -13, ptr %58, align 4
+  %59 = load ptr, ptr %9, align 8
+  %60 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.14, ptr noundef %59)
+  %61 = load ptr, ptr %11, align 8
+  store ptr %60, ptr %61, align 8
+  store i1 false, ptr %6, align 1
+  store i32 1, ptr %17, align 4
+  br label %120
 
-61:                                               ; preds = %49
-  %62 = getelementptr inbounds [32 x i8], ptr %16, i64 0, i64 0
-  %63 = load ptr, ptr %14, align 8
-  %64 = load ptr, ptr %15, align 8
-  %65 = load ptr, ptr %14, align 8
-  %66 = ptrtoint ptr %64 to i64
+62:                                               ; preds = %50
+  %63 = getelementptr inbounds [32 x i8], ptr %16, i64 0, i64 0
+  %64 = load ptr, ptr %14, align 8
+  %65 = load ptr, ptr %15, align 8
+  %66 = load ptr, ptr %14, align 8
   %67 = ptrtoint ptr %65 to i64
-  %68 = sub i64 %66, %67
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %62, ptr align 1 %63, i64 %68, i1 false)
-  %69 = load ptr, ptr %15, align 8
-  %70 = load ptr, ptr %14, align 8
-  %71 = ptrtoint ptr %69 to i64
-  %72 = ptrtoint ptr %70 to i64
-  %73 = sub i64 %71, %72
-  %74 = getelementptr [32 x i8], ptr %16, i64 0, i64 %73
-  store i8 0, ptr %74, align 1
-  %75 = getelementptr inbounds [32 x i8], ptr %16, i64 0, i64 0
-  %76 = load ptr, ptr %7, align 8
-  %77 = call zeroext i1 @ws_strtoi32(ptr noundef %75, ptr noundef %13, ptr noundef %76)
-  br i1 %77, label %106, label %78
+  %68 = ptrtoint ptr %66 to i64
+  %69 = sub i64 %67, %68
+  %70 = call ptr @memcpy.inline(ptr noundef %63, ptr noundef %64, i64 noundef %69) #9
+  %71 = load ptr, ptr %15, align 8
+  %72 = load ptr, ptr %14, align 8
+  %73 = ptrtoint ptr %71 to i64
+  %74 = ptrtoint ptr %72 to i64
+  %75 = sub i64 %73, %74
+  %76 = getelementptr [32 x i8], ptr %16, i64 0, i64 %75
+  store i8 0, ptr %76, align 1
+  %77 = getelementptr inbounds [32 x i8], ptr %16, i64 0, i64 0
+  %78 = load ptr, ptr %7, align 8
+  %79 = call zeroext i1 @ws_strtoi32(ptr noundef %77, ptr noundef %13, ptr noundef %78)
+  br i1 %79, label %108, label %80
 
-78:                                               ; preds = %61
-  %79 = load ptr, ptr %10, align 8
-  store i32 -13, ptr %79, align 4
-  %80 = call ptr @__errno_location() #7
-  %81 = load i32, ptr %80, align 4
-  %82 = icmp eq i32 %81, 34
-  br i1 %82, label %83, label %100
+80:                                               ; preds = %62
+  %81 = load ptr, ptr %10, align 8
+  store i32 -13, ptr %81, align 4
+  %82 = call ptr @__errno_location() #11
+  %83 = load i32, ptr %82, align 4
+  %84 = icmp eq i32 %83, 34
+  br i1 %84, label %85, label %102
 
-83:                                               ; preds = %78
-  %84 = load ptr, ptr %7, align 8
-  %85 = load i32, ptr %84, align 4
-  %86 = icmp slt i32 %85, 0
-  br i1 %86, label %87, label %93
+85:                                               ; preds = %80
+  %86 = load ptr, ptr %7, align 8
+  %87 = load i32, ptr %86, align 4
+  %88 = icmp slt i32 %87, 0
+  br i1 %88, label %89, label %95
 
-87:                                               ; preds = %83
-  %88 = load ptr, ptr %9, align 8
-  %89 = load ptr, ptr %7, align 8
-  %90 = load i32, ptr %89, align 4
-  %91 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.15, ptr noundef %88, i32 noundef %90)
-  %92 = load ptr, ptr %11, align 8
-  store ptr %91, ptr %92, align 8
-  br label %99
+89:                                               ; preds = %85
+  %90 = load ptr, ptr %9, align 8
+  %91 = load ptr, ptr %7, align 8
+  %92 = load i32, ptr %91, align 4
+  %93 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.15, ptr noundef %90, i32 noundef %92)
+  %94 = load ptr, ptr %11, align 8
+  store ptr %93, ptr %94, align 8
+  br label %101
 
-93:                                               ; preds = %83
-  %94 = load ptr, ptr %9, align 8
-  %95 = load ptr, ptr %7, align 8
-  %96 = load i32, ptr %95, align 4
-  %97 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.16, ptr noundef %94, i32 noundef %96)
-  %98 = load ptr, ptr %11, align 8
-  store ptr %97, ptr %98, align 8
-  br label %99
+95:                                               ; preds = %85
+  %96 = load ptr, ptr %9, align 8
+  %97 = load ptr, ptr %7, align 8
+  %98 = load i32, ptr %97, align 4
+  %99 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.16, ptr noundef %96, i32 noundef %98)
+  %100 = load ptr, ptr %11, align 8
+  store ptr %99, ptr %100, align 8
+  br label %101
 
-99:                                               ; preds = %93, %87
-  br label %105
+101:                                              ; preds = %95, %89
+  br label %107
 
-100:                                              ; preds = %78
-  %101 = load ptr, ptr %9, align 8
-  %102 = getelementptr inbounds [32 x i8], ptr %16, i64 0, i64 0
-  %103 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.17, ptr noundef %101, ptr noundef %102)
-  %104 = load ptr, ptr %11, align 8
-  store ptr %103, ptr %104, align 8
-  br label %105
+102:                                              ; preds = %80
+  %103 = load ptr, ptr %9, align 8
+  %104 = getelementptr inbounds [32 x i8], ptr %16, i64 0, i64 0
+  %105 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.17, ptr noundef %103, ptr noundef %104)
+  %106 = load ptr, ptr %11, align 8
+  store ptr %105, ptr %106, align 8
+  br label %107
 
-105:                                              ; preds = %100, %99
-  store i32 0, ptr %6, align 4
-  br label %118
+107:                                              ; preds = %102, %101
+  store i1 false, ptr %6, align 1
+  store i32 1, ptr %17, align 4
+  br label %120
 
-106:                                              ; preds = %61
-  %107 = load ptr, ptr %13, align 8
-  %108 = load i8, ptr %107, align 1
-  %109 = sext i8 %108 to i32
-  %110 = icmp ne i32 %109, 0
-  br i1 %110, label %111, label %117
+108:                                              ; preds = %62
+  %109 = load ptr, ptr %13, align 8
+  %110 = load i8, ptr %109, align 1
+  %111 = sext i8 %110 to i32
+  %112 = icmp ne i32 %111, 0
+  br i1 %112, label %113, label %119
 
-111:                                              ; preds = %106
-  %112 = load ptr, ptr %10, align 8
-  store i32 -13, ptr %112, align 4
-  %113 = load ptr, ptr %9, align 8
-  %114 = getelementptr inbounds [32 x i8], ptr %16, i64 0, i64 0
-  %115 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.17, ptr noundef %113, ptr noundef %114)
-  %116 = load ptr, ptr %11, align 8
-  store ptr %115, ptr %116, align 8
-  store i32 0, ptr %6, align 4
-  br label %118
+113:                                              ; preds = %108
+  %114 = load ptr, ptr %10, align 8
+  store i32 -13, ptr %114, align 4
+  %115 = load ptr, ptr %9, align 8
+  %116 = getelementptr inbounds [32 x i8], ptr %16, i64 0, i64 0
+  %117 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.17, ptr noundef %115, ptr noundef %116)
+  %118 = load ptr, ptr %11, align 8
+  store ptr %117, ptr %118, align 8
+  store i1 false, ptr %6, align 1
+  store i32 1, ptr %17, align 4
+  br label %120
 
-117:                                              ; preds = %106
-  store i32 1, ptr %6, align 4
-  br label %118
+119:                                              ; preds = %108
+  store i1 true, ptr %6, align 1
+  store i32 1, ptr %17, align 4
+  br label %120
 
-118:                                              ; preds = %117, %111, %105, %56, %44, %32, %22
-  %119 = load i32, ptr %6, align 4
-  ret i32 %119
+120:                                              ; preds = %119, %113, %107, %57, %45, %33, %23
+  call void @llvm.lifetime.end.p0(i64 32, ptr %16) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #9
+  %121 = load i1, ptr %6, align 1
+  ret i1 %121
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @hex2bin(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
@@ -958,116 +1025,164 @@ define internal i32 @hex2bin(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
-  %11 = load ptr, ptr %5, align 8
-  store ptr %11, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #9
+  %12 = load ptr, ptr %5, align 8
+  store ptr %12, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #9
   store i32 0, ptr %9, align 4
-  br label %12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #9
+  br label %13
 
-12:                                               ; preds = %49, %23, %3
-  %13 = load ptr, ptr %7, align 8
-  %14 = load i8, ptr %13, align 1
-  %15 = sext i8 %14 to i32
-  %16 = icmp ne i32 %15, 0
-  br i1 %16, label %17, label %52
+13:                                               ; preds = %50, %24, %3
+  %14 = load ptr, ptr %7, align 8
+  %15 = load i8, ptr %14, align 1
+  %16 = sext i8 %15 to i32
+  %17 = icmp ne i32 %16, 0
+  br i1 %17, label %18, label %53
 
-17:                                               ; preds = %12
-  %18 = load ptr, ptr %7, align 8
-  %19 = load i8, ptr %18, align 1
-  %20 = call i32 @hc2b(i8 noundef zeroext %19)
-  store i32 %20, ptr %10, align 4
-  %21 = load i32, ptr %10, align 4
-  %22 = icmp slt i32 %21, 0
-  br i1 %22, label %23, label %26
+18:                                               ; preds = %13
+  %19 = load ptr, ptr %7, align 8
+  %20 = load i8, ptr %19, align 1
+  %21 = call i32 @hc2b(i8 noundef zeroext %20)
+  store i32 %21, ptr %10, align 4
+  %22 = load i32, ptr %10, align 4
+  %23 = icmp slt i32 %22, 0
+  br i1 %23, label %24, label %27
 
-23:                                               ; preds = %17
-  %24 = load ptr, ptr %7, align 8
-  %25 = getelementptr i8, ptr %24, i32 1
-  store ptr %25, ptr %7, align 8
-  br label %12, !llvm.loop !6
+24:                                               ; preds = %18
+  %25 = load ptr, ptr %7, align 8
+  %26 = getelementptr i8, ptr %25, i32 1
+  store ptr %26, ptr %7, align 8
+  br label %13, !llvm.loop !10
 
-26:                                               ; preds = %17
-  %27 = load ptr, ptr %5, align 8
-  %28 = load ptr, ptr %6, align 8
-  %29 = icmp eq ptr %27, %28
-  br i1 %29, label %30, label %31
+27:                                               ; preds = %18
+  %28 = load ptr, ptr %5, align 8
+  %29 = load ptr, ptr %6, align 8
+  %30 = icmp eq ptr %28, %29
+  br i1 %30, label %31, label %32
 
-30:                                               ; preds = %26
+31:                                               ; preds = %27
   store i32 -1, ptr %4, align 4
-  br label %59
+  store i32 1, ptr %11, align 4
+  br label %60
 
-31:                                               ; preds = %26
-  %32 = load i32, ptr %9, align 4
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %34, label %39
+32:                                               ; preds = %27
+  %33 = load i32, ptr %9, align 4
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %35, label %40
 
-34:                                               ; preds = %31
-  %35 = load i32, ptr %10, align 4
-  %36 = shl i32 %35, 4
-  %37 = trunc i32 %36 to i8
-  %38 = load ptr, ptr %5, align 8
-  store i8 %37, ptr %38, align 1
+35:                                               ; preds = %32
+  %36 = load i32, ptr %10, align 4
+  %37 = shl i32 %36, 4
+  %38 = trunc i32 %37 to i8
+  %39 = load ptr, ptr %5, align 8
+  store i8 %38, ptr %39, align 1
   store i32 1, ptr %9, align 4
-  br label %49
+  br label %50
 
-39:                                               ; preds = %31
-  %40 = load i32, ptr %10, align 4
-  %41 = and i32 %40, 15
-  %42 = load ptr, ptr %5, align 8
-  %43 = load i8, ptr %42, align 1
-  %44 = zext i8 %43 to i32
-  %45 = or i32 %44, %41
-  %46 = trunc i32 %45 to i8
-  store i8 %46, ptr %42, align 1
+40:                                               ; preds = %32
+  %41 = load i32, ptr %10, align 4
+  %42 = and i32 %41, 15
+  %43 = load ptr, ptr %5, align 8
+  %44 = load i8, ptr %43, align 1
+  %45 = zext i8 %44 to i32
+  %46 = or i32 %45, %42
+  %47 = trunc i32 %46 to i8
+  store i8 %47, ptr %43, align 1
   store i32 0, ptr %9, align 4
-  %47 = load ptr, ptr %5, align 8
-  %48 = getelementptr i8, ptr %47, i32 1
-  store ptr %48, ptr %5, align 8
-  br label %49
+  %48 = load ptr, ptr %5, align 8
+  %49 = getelementptr i8, ptr %48, i32 1
+  store ptr %49, ptr %5, align 8
+  br label %50
 
-49:                                               ; preds = %39, %34
-  %50 = load ptr, ptr %7, align 8
-  %51 = getelementptr i8, ptr %50, i32 1
-  store ptr %51, ptr %7, align 8
-  br label %12, !llvm.loop !6
+50:                                               ; preds = %40, %35
+  %51 = load ptr, ptr %7, align 8
+  %52 = getelementptr i8, ptr %51, i32 1
+  store ptr %52, ptr %7, align 8
+  br label %13, !llvm.loop !10
 
-52:                                               ; preds = %12
-  %53 = load ptr, ptr %5, align 8
-  %54 = load ptr, ptr %8, align 8
-  %55 = ptrtoint ptr %53 to i64
+53:                                               ; preds = %13
+  %54 = load ptr, ptr %5, align 8
+  %55 = load ptr, ptr %8, align 8
   %56 = ptrtoint ptr %54 to i64
-  %57 = sub i64 %55, %56
-  %58 = trunc i64 %57 to i32
-  store i32 %58, ptr %4, align 4
-  br label %59
+  %57 = ptrtoint ptr %55 to i64
+  %58 = sub i64 %56, %57
+  %59 = trunc i64 %58 to i32
+  store i32 %59, ptr %4, align 4
+  store i32 1, ptr %11, align 4
+  br label %60
 
-59:                                               ; preds = %52, %30
-  %60 = load i32, ptr %4, align 4
-  ret i32 %60
+60:                                               ; preds = %53, %31
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #9
+  %61 = load i32, ptr %4, align 4
+  ret i32 %61
 }
 
-declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) #2
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+; Function Attrs: alwaysinline nounwind
+define internal ptr @memset.inline(ptr %0, i32 %1, i64 %2) #4 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i32, ptr %5, align 4
+  %9 = load i64, ptr %6, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = call i64 @llvm.objectsize.i64.p0(ptr %10, i1 false, i1 true, i1 true)
+  %12 = call ptr @__memset_chk(ptr noundef %7, i32 noundef %8, i64 noundef %9, i64 noundef %11) #9
+  ret ptr %12
+}
 
-; Function Attrs: nounwind willreturn memory(read)
-declare ptr @strchr(ptr noundef, i32 noundef) #2
+; Function Attrs: nounwind null_pointer_is_valid willreturn memory(read)
+declare ptr @strchr(ptr noundef, i32 noundef) #3
 
-declare zeroext i1 @ws_strtoi32(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: alwaysinline nounwind
+define internal ptr @memcpy.inline(ptr noalias %0, ptr noalias %1, i64 %2) #4 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load i64, ptr %6, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = call i64 @llvm.objectsize.i64.p0(ptr %10, i1 false, i1 true, i1 true)
+  %12 = call ptr @__memcpy_chk(ptr noundef %7, ptr noundef %8, i64 noundef %9, i64 noundef %11) #9
+  ret ptr %12
+}
 
-; Function Attrs: nounwind willreturn memory(none)
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @ws_strtoi32(ptr noundef, ptr noundef, ptr noundef) #2
+
+; Function Attrs: nounwind null_pointer_is_valid willreturn memory(none)
 declare ptr @__errno_location() #5
 
-; Function Attrs: nounwind uwtable
-define internal i32 @hc2b(i8 noundef zeroext %0) #0 {
+; Function Attrs: nounwind null_pointer_is_valid
+declare ptr @__memcpy_chk(ptr noundef, ptr noundef, i64 noundef, i64 noundef) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.objectsize.i64.p0(ptr, i1 immarg, i1 immarg, i1 immarg) #7
+
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @hc2b(i8 noundef zeroext %0) #8 {
   %2 = alloca i32, align 4
   %3 = alloca i8, align 1
   store i8 %0, ptr %3, align 1
   %4 = load i8, ptr %3, align 1
-  %5 = call signext i8 @g_ascii_tolower(i8 noundef signext %4) #7
+  %5 = call signext i8 @g_ascii_tolower(i8 noundef signext %4) #11
   store i8 %5, ptr %3, align 1
   %6 = load i8, ptr %3, align 1
   %7 = zext i8 %6 to i32
@@ -1116,26 +1231,38 @@ define internal i32 @hc2b(i8 noundef zeroext %0) #0 {
   ret i32 %32
 }
 
-; Function Attrs: nounwind willreturn memory(none)
+; Function Attrs: nounwind null_pointer_is_valid willreturn memory(none)
 declare signext i8 @g_ascii_tolower(i8 noundef signext) #5
 
-declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: nounwind null_pointer_is_valid
+declare ptr @__memset_chk(ptr noundef, i32 noundef, i64 noundef, i64 noundef) #6
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind willreturn memory(read) }
-attributes #7 = { nounwind willreturn memory(none) }
+; Function Attrs: null_pointer_is_valid
+declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) #2
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind null_pointer_is_valid willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { alwaysinline nounwind "min-legal-vector-width"="0" }
+attributes #5 = { nounwind null_pointer_is_valid willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind }
+attributes #10 = { nounwind willreturn memory(read) }
+attributes #11 = { nounwind willreturn memory(none) }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}

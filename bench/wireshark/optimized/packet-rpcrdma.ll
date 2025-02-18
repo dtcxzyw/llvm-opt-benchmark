@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
 %struct.reassembly_table = type { ptr, ptr, ptr, ptr, ptr }
 %struct.reassembly_table_functions = type { ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.except_id_t = type { i64, i64 }
@@ -18,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
 %struct.__sigset_t = type { [16 x i64] }
 
-@g_rpcrdma_reduced = internal unnamed_addr global i1 false, align 4
+@g_rpcrdma_reduced = internal unnamed_addr global i1 false, align 1
 @gp_rdma_write_offsets = internal unnamed_addr global ptr null, align 8
 @proto_register_rpcordma.hf = internal global [28 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_rpcordma_xid, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rpcordma_vers, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rpcordma_flow_control, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rpcordma_message_type, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 7, i32 1, ptr @rpcordma_message_type, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rpcordma_reads_count, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rpcordma_writes_count, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rpcordma_reply_count, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rpcordma_rdma_handle, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rpcordma_rdma_length, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rpcordma_rdma_offset, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rpcordma_position, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rpcordma_segment_count, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rpcordma_rdma_align, %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rpcordma_rdma_thresh, %struct._header_field_info { ptr @.str.26, ptr @.str.27, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rpcordma_errcode, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 7, i32 1, ptr @rpcordma_err, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rpcordma_vers_low, %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rpcordma_vers_high, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rpcordma_fragments, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rpcordma_fragment, %struct._header_field_info { ptr @.str.36, ptr @.str.37, i32 35, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rpcordma_fragment_overlap, %struct._header_field_info { ptr @.str.38, ptr @.str.39, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rpcordma_fragment_overlap_conflicts, %struct._header_field_info { ptr @.str.40, ptr @.str.41, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rpcordma_fragment_multiple_tails, %struct._header_field_info { ptr @.str.42, ptr @.str.43, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rpcordma_fragment_too_long_fragment, %struct._header_field_info { ptr @.str.44, ptr @.str.45, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rpcordma_fragment_error, %struct._header_field_info { ptr @.str.46, ptr @.str.47, i32 35, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rpcordma_fragment_count, %struct._header_field_info { ptr @.str.48, ptr @.str.49, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rpcordma_reassembled_in, %struct._header_field_info { ptr @.str.50, ptr @.str.51, i32 35, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rpcordma_reassembled_length, %struct._header_field_info { ptr @.str.52, ptr @.str.53, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rpcordma_reassembled_data, %struct._header_field_info { ptr @.str.54, ptr @.str.55, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_rpcordma_xid = internal global i32 0, align 4
@@ -33,7 +32,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_rpcordma_message_type = internal global i32 0, align 4
 @.str.6 = private unnamed_addr constant [13 x i8] c"Message Type\00", align 1
 @.str.7 = private unnamed_addr constant [18 x i8] c"rpcordma.msg_type\00", align 1
-@rpcordma_message_type = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.77 }, %struct._value_string { i32 1, ptr @.str.78 }, %struct._value_string { i32 2, ptr @.str.79 }, %struct._value_string { i32 3, ptr @.str.80 }, %struct._value_string { i32 4, ptr @.str.81 }, %struct._value_string zeroinitializer], align 16
 @hf_rpcordma_reads_count = internal global i32 0, align 4
 @.str.8 = private unnamed_addr constant [10 x i8] c"Read list\00", align 1
 @.str.9 = private unnamed_addr constant [21 x i8] c"rpcordma.reads_count\00", align 1
@@ -67,7 +65,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_rpcordma_errcode = internal global i32 0, align 4
 @.str.28 = private unnamed_addr constant [11 x i8] c"Error code\00", align 1
 @.str.29 = private unnamed_addr constant [17 x i8] c"rpcordma.errcode\00", align 1
-@rpcordma_err = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.82 }, %struct._value_string { i32 2, ptr @.str.83 }, %struct._value_string zeroinitializer], align 16
 @hf_rpcordma_vers_low = internal global i32 0, align 4
 @.str.30 = private unnamed_addr constant [12 x i8] c"Version low\00", align 1
 @.str.31 = private unnamed_addr constant [18 x i8] c"rpcordma.vers_low\00", align 1
@@ -149,81 +146,91 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.79 = private unnamed_addr constant [10 x i8] c"RDMA_MSGP\00", align 1
 @.str.80 = private unnamed_addr constant [10 x i8] c"RDMA_DONE\00", align 1
 @.str.81 = private unnamed_addr constant [11 x i8] c"RDMA_ERROR\00", align 1
-@.str.82 = private unnamed_addr constant [9 x i8] c"ERR_VERS\00", align 1
-@.str.83 = private unnamed_addr constant [10 x i8] c"ERR_CHUNK\00", align 1
-@.str.84 = private unnamed_addr constant [12 x i8] c"%s XID 0x%x\00", align 1
-@.str.85 = private unnamed_addr constant [13 x i8] c"Unknown (%d)\00", align 1
-@g_needs_reassembly = internal unnamed_addr global i1 false, align 4
+@rpcordma_message_type = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.77 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.78 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.79 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.80 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.81 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.83 = private unnamed_addr constant [9 x i8] c"ERR_VERS\00", align 1
+@.str.84 = private unnamed_addr constant [10 x i8] c"ERR_CHUNK\00", align 1
+@rpcordma_err = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.83 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.84 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.86 = private unnamed_addr constant [12 x i8] c"%s XID 0x%x\00", align 1
+@.str.87 = private unnamed_addr constant [13 x i8] c"Unknown (%d)\00", align 1
+@g_needs_reassembly = internal unnamed_addr global i1 false, align 1
 @dissect_rpcrdma.catch_spec = internal constant [1 x %struct.except_id_t] [%struct.except_id_t { i64 1, i64 0 }], align 16
-@.str.86 = private unnamed_addr constant [22 x i8] c"Read list (count: %u)\00", align 1
-@.str.87 = private unnamed_addr constant [26 x i8] c"Read chunk: (position %u)\00", align 1
-@.str.88 = private unnamed_addr constant [23 x i8] c"Write list (count: %u)\00", align 1
-@.str.89 = private unnamed_addr constant [27 x i8] c"Write chunk (%u segment%s)\00", align 1
-@.str.90 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
-@.str.91 = private unnamed_addr constant [2 x i8] c"s\00", align 1
-@.str.92 = private unnamed_addr constant [16 x i8] c"RDMA segment %u\00", align 1
-@.str.93 = private unnamed_addr constant [24 x i8] c"Reply chunk (count: %u)\00", align 1
-@.str.94 = private unnamed_addr constant [29 x i8] c"Reassembled RPCoRDMA Message\00", align 1
-@rpcordma_frag_items = internal constant %struct._fragment_items { ptr @ett_rpcordma_fragment, ptr @ett_rpcordma_fragments, ptr @hf_rpcordma_fragments, ptr @hf_rpcordma_fragment, ptr @hf_rpcordma_fragment_overlap, ptr @hf_rpcordma_fragment_overlap_conflicts, ptr @hf_rpcordma_fragment_multiple_tails, ptr @hf_rpcordma_fragment_too_long_fragment, ptr @hf_rpcordma_fragment_error, ptr @hf_rpcordma_fragment_count, ptr @hf_rpcordma_reassembled_in, ptr @hf_rpcordma_reassembled_length, ptr @hf_rpcordma_reassembled_data, ptr @.str.95 }, align 8
-@.str.95 = private unnamed_addr constant [19 x i8] c"RPCoRDMA fragments\00", align 1
+@.str.88 = private unnamed_addr constant [22 x i8] c"Read list (count: %u)\00", align 1
+@.str.89 = private unnamed_addr constant [26 x i8] c"Read chunk: (position %u)\00", align 1
+@.str.90 = private unnamed_addr constant [23 x i8] c"Write list (count: %u)\00", align 1
+@.str.91 = private unnamed_addr constant [27 x i8] c"Write chunk (%u segment%s)\00", align 1
+@.str.92 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@.str.93 = private unnamed_addr constant [2 x i8] c"s\00", align 1
+@.str.94 = private unnamed_addr constant [16 x i8] c"RDMA segment %u\00", align 1
+@.str.95 = private unnamed_addr constant [24 x i8] c"Reply chunk (count: %u)\00", align 1
+@.str.96 = private unnamed_addr constant [29 x i8] c"Reassembled RPCoRDMA Message\00", align 1
+@rpcordma_frag_items = internal constant %struct._fragment_items { ptr @ett_rpcordma_fragment, ptr @ett_rpcordma_fragments, ptr @hf_rpcordma_fragments, ptr @hf_rpcordma_fragment, ptr @hf_rpcordma_fragment_overlap, ptr @hf_rpcordma_fragment_overlap_conflicts, ptr @hf_rpcordma_fragment_multiple_tails, ptr @hf_rpcordma_fragment_too_long_fragment, ptr @hf_rpcordma_fragment_error, ptr @hf_rpcordma_fragment_count, ptr @hf_rpcordma_reassembled_in, ptr @hf_rpcordma_reassembled_length, ptr @hf_rpcordma_reassembled_data, ptr @.str.97 }, align 8
+@.str.97 = private unnamed_addr constant [19 x i8] c"RPCoRDMA fragments\00", align 1
 @get_msg_id.msg_id = internal unnamed_addr global i32 0, align 4
 @gp_infiniband_info = internal unnamed_addr global ptr null, align 8
 @gp_rdmap_info = internal unnamed_addr global ptr null, align 8
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @rpcrdma_is_reduced() local_unnamed_addr #0 {
-  %.b = load i1, ptr @g_rpcrdma_reduced, align 4
-  %1 = zext i1 %.b to i32
-  ret i32 %1
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+define hidden zeroext i1 @rpcrdma_is_reduced() local_unnamed_addr #0 {
+  %.b1 = load i1, ptr @g_rpcrdma_reduced, align 1
+  ret i1 %.b1
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @rpcrdma_insert_offset(i32 noundef %0) local_unnamed_addr #1 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
   %3 = load ptr, ptr @gp_rdma_write_offsets, align 8
-  call void @wmem_array_append(ptr noundef %3, ptr noundef nonnull %2, i32 noundef 1) #9
+  call void @wmem_array_append(ptr noundef %3, ptr noundef nonnull %2, i32 noundef 1)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @wmem_array_append(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_rpcordma() local_unnamed_addr #1 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.58) #9
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.58)
   store i32 %1, ptr @proto_rpcordma, align 4
-  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_rpcordma.hf, i32 noundef 28) #9
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_rpcordma.ett, i32 noundef 10) #9
-  tail call void @reassembly_table_register(ptr noundef nonnull @rpcordma_reassembly_table, ptr noundef nonnull @addresses_ports_reassembly_table_functions) #9
+  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_rpcordma.hf, i32 noundef 28)
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_rpcordma.ett, i32 noundef 10)
+  tail call void @reassembly_table_register(ptr noundef nonnull @rpcordma_reassembly_table, ptr noundef nonnull @addresses_ports_reassembly_table_functions)
   %2 = load i32, ptr @proto_rpcordma, align 4
-  %3 = tail call ptr @register_dissector(ptr noundef nonnull @.str.58, ptr noundef nonnull @dissect_rpcrdma, i32 noundef %2) #9
+  %3 = tail call ptr @register_dissector(ptr noundef nonnull @.str.58, ptr noundef nonnull @dissect_rpcrdma, i32 noundef %2)
   store ptr %3, ptr @rpcordma_handle, align 8
   %4 = load i32, ptr @proto_rpcordma, align 4
-  %5 = tail call ptr @prefs_register_protocol_obsolete(i32 noundef %4) #9
-  tail call void @prefs_register_obsolete_preference(ptr noundef %5, ptr noundef nonnull @.str.59) #9
-  tail call void @prefs_register_obsolete_preference(ptr noundef %5, ptr noundef nonnull @.str.60) #9
-  tail call void @prefs_register_obsolete_preference(ptr noundef %5, ptr noundef nonnull @.str.61) #9
-  tail call void @prefs_register_obsolete_preference(ptr noundef %5, ptr noundef nonnull @.str.62) #9
-  tail call void @prefs_register_obsolete_preference(ptr noundef %5, ptr noundef nonnull @.str.63) #9
-  tail call void @prefs_register_obsolete_preference(ptr noundef %5, ptr noundef nonnull @.str.64) #9
-  tail call void @prefs_register_obsolete_preference(ptr noundef %5, ptr noundef nonnull @.str.65) #9
-  tail call void @prefs_register_obsolete_preference(ptr noundef %5, ptr noundef nonnull @.str.66) #9
-  tail call void @prefs_register_obsolete_preference(ptr noundef %5, ptr noundef nonnull @.str.67) #9
-  tail call void @prefs_register_obsolete_preference(ptr noundef %5, ptr noundef nonnull @.str.68) #9
+  %5 = tail call ptr @prefs_register_protocol_obsolete(i32 noundef %4)
+  tail call void @prefs_register_obsolete_preference(ptr noundef %5, ptr noundef nonnull @.str.59)
+  tail call void @prefs_register_obsolete_preference(ptr noundef %5, ptr noundef nonnull @.str.60)
+  tail call void @prefs_register_obsolete_preference(ptr noundef %5, ptr noundef nonnull @.str.61)
+  tail call void @prefs_register_obsolete_preference(ptr noundef %5, ptr noundef nonnull @.str.62)
+  tail call void @prefs_register_obsolete_preference(ptr noundef %5, ptr noundef nonnull @.str.63)
+  tail call void @prefs_register_obsolete_preference(ptr noundef %5, ptr noundef nonnull @.str.64)
+  tail call void @prefs_register_obsolete_preference(ptr noundef %5, ptr noundef nonnull @.str.65)
+  tail call void @prefs_register_obsolete_preference(ptr noundef %5, ptr noundef nonnull @.str.66)
+  tail call void @prefs_register_obsolete_preference(ptr noundef %5, ptr noundef nonnull @.str.67)
+  tail call void @prefs_register_obsolete_preference(ptr noundef %5, ptr noundef nonnull @.str.68)
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #2
 
+; Function Attrs: null_pointer_is_valid
 declare void @reassembly_table_register(ptr noundef, ptr noundef) local_unnamed_addr #2
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_rpcrdma(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct.rdma_lists_t, align 8
@@ -231,96 +238,104 @@ define internal i32 @dissect_rpcrdma(ptr noundef %0, ptr noundef %1, ptr noundef
   %8 = alloca i32, align 4
   %9 = alloca %struct.except_stacknode, align 8
   %10 = alloca %struct.except_catch, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
-  %11 = call i32 @tvb_captured_length(ptr noundef %0) #9
+  %11 = call i32 @tvb_captured_length(ptr noundef %0)
   %12 = icmp ult i32 %11, 16
-  br i1 %12, label %156, label %13
+  br i1 %12, label %157, label %13
 
 13:                                               ; preds = %4
-  %14 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 4) #9
-  %.not = icmp eq i32 %14, 1
-  br i1 %.not, label %15, label %156
+  %14 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 4)
+  %.not147 = icmp eq i32 %14, 1
+  br i1 %.not147, label %15, label %157
 
 15:                                               ; preds = %13
-  %16 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #9
-  %17 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 12) #9
+  %16 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0)
+  %17 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 12)
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
-  call void @col_set_str(ptr noundef %19, i32 noundef 34, ptr noundef nonnull @.str.57) #9
+  call void @col_set_str(ptr noundef %19, i32 noundef 35, ptr noundef nonnull @.str.57)
   %20 = load ptr, ptr %18, align 8
-  %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @rpcordma_message_type, ptr noundef nonnull @.str.85) #9
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.84, ptr noundef %21, i32 noundef %16) #9
+  %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @rpcordma_message_type, ptr noundef nonnull @.str.87)
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.86, ptr noundef %21, i32 noundef %16)
   %22 = load i32, ptr @proto_rpcordma, align 4
-  %23 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %22, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #9
+  %23 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %22, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %24 = load i32, ptr @ett_rpcordma, align 4
-  %25 = call ptr @proto_item_add_subtree(ptr noundef %23, i32 noundef %24) #9
+  %25 = call ptr @proto_item_add_subtree(ptr noundef %23, i32 noundef %24)
   %26 = load i32, ptr @hf_rpcordma_xid, align 4
-  %27 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %26, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #9
+  %27 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %26, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0)
   %28 = load i32, ptr @hf_rpcordma_vers, align 4
-  %29 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %28, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #9
+  %29 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %28, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0)
   %30 = load i32, ptr @hf_rpcordma_flow_control, align 4
-  %31 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %30, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0) #9
+  %31 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %30, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0)
   %32 = load i32, ptr @hf_rpcordma_message_type, align 4
-  %33 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %32, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef 0) #9
-  switch i32 %17, label %155 [
+  %33 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %32, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef 0)
+  switch i32 %17, label %156 [
     i32 0, label %34
-    i32 1, label %113
-    i32 2, label %134
-    i32 4, label %143
+    i32 1, label %114
+    i32 2, label %135
+    i32 4, label %144
   ]
 
 34:                                               ; preds = %15
-  %35 = call fastcc i32 @parse_rdma_header(ptr noundef %0, i32 noundef 16, ptr noundef %25, ptr noundef %6)
-  call void @proto_item_set_len(ptr noundef %23, i32 noundef %35) #9
-  %36 = call fastcc ptr @get_reassembled_data(ptr noundef %0, i32 noundef %35, ptr noundef nonnull %1, ptr noundef %2)
-  %.not151 = icmp eq ptr %36, null
-  br i1 %.not151, label %40, label %37
+  %35 = call fastcc i32 @parse_rdma_header(ptr noundef %0, i32 noundef 16, ptr noundef %25, ptr noundef nonnull %6)
+  call void @proto_item_set_len(ptr noundef %23, i32 noundef %35)
+  %36 = call fastcc ptr @get_reassembled_data(ptr noundef %0, i32 noundef %35, ptr noundef %1, ptr noundef %2)
+  %.not150 = icmp eq ptr %36, null
+  br i1 %.not150, label %40, label %37
 
 37:                                               ; preds = %34
   %38 = load ptr, ptr @rpc_handler, align 8
-  %39 = call i32 @call_dissector(ptr noundef %38, ptr noundef nonnull %36, ptr noundef nonnull %1, ptr noundef %2) #9
-  br label %156
+  %39 = call i32 @call_dissector(ptr noundef %38, ptr noundef nonnull %36, ptr noundef %1, ptr noundef %2)
+  br label %157
 
 40:                                               ; preds = %34
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 50
-  %44 = load i16, ptr %43, align 2
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 57
+  %44 = load i16, ptr %43, align 1
   %45 = and i16 %44, 8
-  %46 = icmp eq i16 %45, 0
-  %.b = load i1, ptr @g_needs_reassembly, align 4
-  %or.cond = select i1 %46, i1 true, i1 %.b
+  %.not151 = icmp eq i16 %45, 0
+  br i1 %.not151, label %49, label %46
+
+46:                                               ; preds = %40
+  %.b152 = load i1, ptr @g_needs_reassembly, align 1
   %47 = load ptr, ptr %6, align 8
   %48 = icmp eq ptr %47, null
-  %or.cond4.not = select i1 %or.cond, i1 true, i1 %48
-  br i1 %or.cond4.not, label %49, label %156
+  %or.cond.not = select i1 %.b152, i1 true, i1 %48
+  br i1 %or.cond.not, label %49, label %157
 
-49:                                               ; preds = %40
-  %50 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %35) #9
+49:                                               ; preds = %46, %40
+  %50 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %35)
   store volatile ptr %50, ptr %5, align 8
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %52 = load ptr, ptr %51, align 8
-  %53 = call fastcc i32 @get_rdma_list_size(ptr noundef %52, ptr noundef nonnull %1)
-  %.not153 = icmp eq i32 %53, 0
-  br i1 %.not153, label %.critedge, label %54
+  %53 = call fastcc i32 @get_rdma_list_size(ptr noundef %52, ptr noundef %1)
+  %.not = icmp eq i32 %53, 0
+  br i1 %.not, label %.critedge, label %54
 
 54:                                               ; preds = %49
   %55 = load ptr, ptr %41, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 50
-  %57 = load i16, ptr %56, align 2
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 57
+  %57 = load i16, ptr %56, align 1
   %58 = and i16 %57, 8
   %.not154 = icmp eq i16 %58, 0
   br i1 %.not154, label %59, label %88
 
 59:                                               ; preds = %54
-  %60 = call ptr @wmem_packet_scope() #9
-  %61 = call noalias ptr @wmem_array_new(ptr noundef %60, i64 noundef 4) #9
+  %60 = call ptr @wmem_packet_scope()
+  %61 = call noalias ptr @wmem_array_new(ptr noundef %60, i64 noundef 4)
   store ptr %61, ptr @gp_rdma_write_offsets, align 8
-  call void @register_frame_end_routine(ptr noundef nonnull %1, ptr noundef nonnull @reset_write_offsets) #9
+  call void @register_frame_end_routine(ptr noundef %1, ptr noundef nonnull @reset_write_offsets)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   store volatile i32 0, ptr %8, align 4
-  call void @except_setup_try(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull @dissect_rpcrdma.catch_spec, i64 noundef 1) #9
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #11
+  call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %10) #11
+  call void @except_setup_try(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull @dissect_rpcrdma.catch_spec, i64 noundef 1)
   %62 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  %63 = call i32 @_setjmp(ptr noundef nonnull %62) #10
+  %63 = call i32 @_setjmp(ptr noundef nonnull %62) #12
   %.not155 = icmp eq i32 %63, 0
   %64 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.sink = select i1 %.not155, ptr null, ptr %64
@@ -331,242 +346,256 @@ define internal i32 @dissect_rpcrdma(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not156, label %68, label %66
 
 66:                                               ; preds = %59
-  %.0..0..0..0.5 = load volatile i32, ptr %8, align 4
-  %67 = or i32 %.0..0..0..0.5, 2
+  %.0..0..0..0.3 = load volatile i32, ptr %8, align 4
+  %67 = or i32 %.0..0..0..0.3, 2
   store volatile i32 %67, ptr %8, align 4
   br label %68
 
 68:                                               ; preds = %66, %59
-  %.0..0..0..0.6 = load volatile i32, ptr %8, align 4
-  %69 = and i32 %.0..0..0..0.6, -2
+  %.0..0..0..0.4 = load volatile i32, ptr %8, align 4
+  %69 = and i32 %.0..0..0..0.4, -2
   store volatile i32 %69, ptr %8, align 4
-  %.0..0..0..0.7 = load volatile i32, ptr %8, align 4
-  %70 = icmp eq i32 %.0..0..0..0.7, 0
+  %.0..0..0..0.5 = load volatile i32, ptr %8, align 4
+  %70 = icmp eq i32 %.0..0..0..0.5, 0
   br i1 %70, label %71, label %76
 
 71:                                               ; preds = %68
-  %.0..0..0..0.11 = load volatile ptr, ptr %7, align 8
-  %72 = icmp eq ptr %.0..0..0..0.11, null
+  %.0..0..0..0.9 = load volatile ptr, ptr %7, align 8
+  %72 = icmp eq ptr %.0..0..0..0.9, null
   br i1 %72, label %73, label %76
 
 73:                                               ; preds = %71
-  store i1 true, ptr @g_rpcrdma_reduced, align 4
+  store i1 true, ptr @g_rpcrdma_reduced, align 1
   %74 = load ptr, ptr @rpc_handler, align 8
-  %.0..0..0..0.76 = load volatile ptr, ptr %5, align 8
-  %75 = call i32 @call_dissector(ptr noundef %74, ptr noundef %.0..0..0..0.76, ptr noundef nonnull %1, ptr noundef %2) #9
+  %.0..0..0..0.74 = load volatile ptr, ptr %5, align 8
+  %75 = call i32 @call_dissector(ptr noundef %74, ptr noundef %.0..0..0..0.74, ptr noundef %1, ptr noundef %2)
   br label %76
 
 76:                                               ; preds = %73, %71, %68
-  %.0..0..0..0.8 = load volatile i32, ptr %8, align 4
-  %77 = and i32 %.0..0..0..0.8, 4
+  %.0..0..0..0.6 = load volatile i32, ptr %8, align 4
+  %77 = and i32 %.0..0..0..0.6, 4
   %.not157 = icmp eq i32 %77, 0
   br i1 %.not157, label %78, label %80
 
 78:                                               ; preds = %76
-  %.0..0..0..0.9 = load volatile i32, ptr %8, align 4
-  %79 = or i32 %.0..0..0..0.9, 4
+  %.0..0..0..0.7 = load volatile i32, ptr %8, align 4
+  %79 = or i32 %.0..0..0..0.7, 4
   store volatile i32 %79, ptr %8, align 4
-  store i1 false, ptr @g_rpcrdma_reduced, align 4
+  store i1 false, ptr @g_rpcrdma_reduced, align 1
   br label %80
 
 80:                                               ; preds = %78, %76
-  %.0..0..0..0.10 = load volatile i32, ptr %8, align 4
-  %81 = and i32 %.0..0..0..0.10, 1
+  %.0..0..0..0.8 = load volatile i32, ptr %8, align 4
+  %81 = and i32 %.0..0..0..0.8, 1
   %.not158 = icmp eq i32 %81, 0
   br i1 %.not158, label %82, label %84
 
 82:                                               ; preds = %80
-  %.0..0..0..0.12 = load volatile ptr, ptr %7, align 8
-  %.not159 = icmp eq ptr %.0..0..0..0.12, null
+  %.0..0..0..0.10 = load volatile ptr, ptr %7, align 8
+  %.not159 = icmp eq ptr %.0..0..0..0.10, null
   br i1 %.not159, label %84, label %83
 
 83:                                               ; preds = %82
-  %.0..0..0..0.13 = load volatile ptr, ptr %7, align 8
-  call void @except_rethrow(ptr noundef %.0..0..0..0.13) #11
+  %.0..0..0..0.11 = load volatile ptr, ptr %7, align 8
+  call void @except_rethrow(ptr noundef %.0..0..0..0.11) #13
   unreachable
 
 84:                                               ; preds = %82, %80
   %85 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %86 = load volatile ptr, ptr %85, align 8
-  call void @except_free(ptr noundef %86) #9
-  %87 = call ptr @except_pop() #9
+  call void @except_free(ptr noundef %86)
+  %87 = call ptr @except_pop()
+  call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %10) #11
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %.critedge
 
 88:                                               ; preds = %54
-  %89 = call ptr @wmem_file_scope() #9
+  %89 = call ptr @wmem_file_scope()
   %90 = load i32, ptr @proto_rpcordma, align 4
-  %91 = call ptr @p_get_proto_data(ptr noundef %89, ptr noundef nonnull %1, i32 noundef %90, i32 noundef 0) #9
+  %91 = call ptr @p_get_proto_data(ptr noundef %89, ptr noundef %1, i32 noundef %90, i32 noundef 0)
   %.not161 = icmp eq ptr %91, null
   br i1 %.not161, label %.critedge, label %92
 
 92:                                               ; preds = %88
   %93 = load ptr, ptr %41, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 50
-  %95 = load i16, ptr %94, align 2
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 57
+  %95 = load i16, ptr %94, align 1
   %96 = and i16 %95, 8
   %97 = and i16 %95, -9
-  store i16 %97, ptr %94, align 2
+  store i16 %97, ptr %94, align 1
   %98 = load i32, ptr %91, align 4
-  %99 = call fastcc ptr @end_reassembly(i32 noundef %98, ptr noundef null, ptr noundef nonnull %1)
+  %99 = call fastcc ptr @end_reassembly(i32 noundef %98, ptr noundef null, ptr noundef %1)
   %100 = load ptr, ptr %41, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 50
-  %102 = load i16, ptr %101, align 2
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 57
+  %102 = load i16, ptr %101, align 1
   %103 = and i16 %102, -9
   %104 = or disjoint i16 %103, %96
-  store i16 %104, ptr %101, align 2
+  store i16 %104, ptr %101, align 1
   br label %.critedge
 
 .critedge:                                        ; preds = %49, %92, %88, %84
-  %.0..0..0..0.77 = load volatile ptr, ptr %5, align 8
-  %105 = call fastcc ptr @process_rdma_lists(ptr noundef %.0..0..0..0.77, i32 noundef 0, ptr noundef %6, ptr noundef nonnull %1, ptr noundef %2)
+  %.0..0..0..0.75 = load volatile ptr, ptr %5, align 8
+  %105 = call fastcc ptr @process_rdma_lists(ptr noundef %.0..0..0..0.75, i32 noundef 0, ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2)
   store ptr null, ptr @gp_rdma_write_offsets, align 8
-  br i1 %48, label %108, label %106
+  %106 = load ptr, ptr %6, align 8
+  %.not162 = icmp eq ptr %106, null
+  br i1 %.not162, label %109, label %107
 
-106:                                              ; preds = %.critedge
-  %.0..0..0..0.78 = load volatile ptr, ptr %5, align 8
-  %107 = call i32 @call_data_dissector(ptr noundef %.0..0..0..0.78, ptr noundef nonnull %1, ptr noundef %2) #9
-  br label %155
-
-108:                                              ; preds = %.critedge
-  %.not163 = icmp eq ptr %105, null
-  br i1 %.not163, label %110, label %109
-
-109:                                              ; preds = %108
-  store volatile ptr %105, ptr %5, align 8
-  br label %110
-
-110:                                              ; preds = %108, %109
-  %111 = load ptr, ptr @rpc_handler, align 8
-  %.0..0..0..0.79 = load volatile ptr, ptr %5, align 8
-  %112 = call i32 @call_dissector(ptr noundef %111, ptr noundef %.0..0..0..0.79, ptr noundef nonnull %1, ptr noundef %2) #9
+107:                                              ; preds = %.critedge
+  %.0..0..0..0.76 = load volatile ptr, ptr %5, align 8
+  %108 = call i32 @call_data_dissector(ptr noundef %.0..0..0..0.76, ptr noundef %1, ptr noundef %2)
   br label %156
 
-113:                                              ; preds = %15
-  %114 = call fastcc i32 @parse_rdma_header(ptr noundef %0, i32 noundef 16, ptr noundef %25, ptr noundef %6)
-  %115 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 50
-  %118 = load i16, ptr %117, align 2
-  %119 = and i16 %118, 8
-  %.not149 = icmp eq i16 %119, 0
-  %120 = call fastcc ptr @get_reassembled_data(ptr noundef %0, i32 noundef %114, ptr noundef nonnull %1, ptr noundef %2)
-  %.not.i = icmp eq ptr %120, null
-  %or.cond164 = select i1 %.not149, i1 %.not.i, i1 false
-  br i1 %or.cond164, label %121, label %process_rdma_lists.exit
+109:                                              ; preds = %.critedge
+  %.not163 = icmp eq ptr %105, null
+  br i1 %.not163, label %111, label %110
 
-121:                                              ; preds = %113
-  %122 = load ptr, ptr %6, align 8
-  %123 = call fastcc ptr @process_rdma_list(ptr noundef %0, i32 noundef %114, ptr noundef %122, ptr noundef nonnull %1, ptr noundef %2)
-  %124 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %125 = load ptr, ptr %124, align 8
-  %126 = call fastcc ptr @process_rdma_list(ptr noundef %0, i32 noundef %114, ptr noundef %125, ptr noundef nonnull %1, ptr noundef %2)
-  %127 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %128 = load ptr, ptr %127, align 8
-  %129 = call fastcc ptr @process_rdma_list(ptr noundef %0, i32 noundef %114, ptr noundef %128, ptr noundef nonnull %1, ptr noundef %2)
-  %.not29.i = icmp eq ptr %126, null
-  %.not30.i = icmp eq ptr %129, null
-  %130 = select i1 %.not29.i, ptr %129, ptr null
-  %spec.select.i = select i1 %.not30.i, ptr %126, ptr %130
+110:                                              ; preds = %109
+  store volatile ptr %105, ptr %5, align 8
+  br label %111
+
+111:                                              ; preds = %109, %110
+  %112 = load ptr, ptr @rpc_handler, align 8
+  %.0..0..0..0.77 = load volatile ptr, ptr %5, align 8
+  %113 = call i32 @call_dissector(ptr noundef %112, ptr noundef %.0..0..0..0.77, ptr noundef %1, ptr noundef %2)
+  br label %157
+
+114:                                              ; preds = %15
+  %115 = call fastcc i32 @parse_rdma_header(ptr noundef %0, i32 noundef 16, ptr noundef %25, ptr noundef nonnull %6)
+  %116 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %117 = load ptr, ptr %116, align 8
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 57
+  %119 = load i16, ptr %118, align 1
+  %120 = and i16 %119, 8
+  %.not148 = icmp eq i16 %120, 0
+  %121 = call fastcc ptr @get_reassembled_data(ptr noundef %0, i32 noundef %115, ptr noundef %1, ptr noundef %2)
+  %.not.i = icmp eq ptr %121, null
+  %or.cond = select i1 %.not148, i1 %.not.i, i1 false
+  br i1 %or.cond, label %122, label %process_rdma_lists.exit
+
+122:                                              ; preds = %114
+  %123 = load ptr, ptr %6, align 8
+  %124 = call fastcc ptr @process_rdma_list(ptr noundef %0, i32 noundef %115, ptr noundef %123, ptr noundef %1, ptr noundef %2)
+  %125 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %126 = load ptr, ptr %125, align 8
+  %127 = call fastcc ptr @process_rdma_list(ptr noundef %0, i32 noundef %115, ptr noundef %126, ptr noundef %1, ptr noundef %2)
+  %128 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %129 = load ptr, ptr %128, align 8
+  %130 = call fastcc ptr @process_rdma_list(ptr noundef %0, i32 noundef %115, ptr noundef %129, ptr noundef %1, ptr noundef %2)
+  %.not29.i = icmp eq ptr %127, null
+  %.not30.i = icmp eq ptr %130, null
+  %131 = select i1 %.not29.i, ptr %130, ptr null
+  %spec.select.i = select i1 %.not30.i, ptr %127, ptr %131
   br label %process_rdma_lists.exit
 
-process_rdma_lists.exit:                          ; preds = %121, %113
-  %.0.i.sink = phi ptr [ %120, %113 ], [ %spec.select.i, %121 ]
+process_rdma_lists.exit:                          ; preds = %122, %114
+  %.0.i.sink = phi ptr [ %121, %114 ], [ %spec.select.i, %122 ]
   store volatile ptr %.0.i.sink, ptr %5, align 8
-  %.0..0..0..0.80 = load volatile ptr, ptr %5, align 8
-  %.not150 = icmp eq ptr %.0..0..0..0.80, null
-  br i1 %.not150, label %155, label %131
+  %.0..0..0..0.78 = load volatile ptr, ptr %5, align 8
+  %.not149 = icmp eq ptr %.0..0..0..0.78, null
+  br i1 %.not149, label %156, label %132
 
-131:                                              ; preds = %process_rdma_lists.exit
-  %132 = load ptr, ptr @rpc_handler, align 8
-  %.0..0..0..0.81 = load volatile ptr, ptr %5, align 8
-  %133 = call i32 @call_dissector(ptr noundef %132, ptr noundef %.0..0..0..0.81, ptr noundef nonnull %1, ptr noundef %2) #9
-  br label %155
-
-134:                                              ; preds = %15
-  %135 = load i32, ptr @hf_rpcordma_rdma_align, align 4
-  %136 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %135, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0) #9
-  %137 = load i32, ptr @hf_rpcordma_rdma_thresh, align 4
-  %138 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %137, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
-  %139 = call fastcc i32 @parse_rdma_header(ptr noundef %0, i32 noundef 24, ptr noundef %25, ptr noundef %6)
-  call void @proto_item_set_len(ptr noundef %23, i32 noundef %139) #9
-  %140 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %139) #9
-  store volatile ptr %140, ptr %5, align 8
-  %141 = load ptr, ptr @rpc_handler, align 8
-  %.0..0..0..0.82 = load volatile ptr, ptr %5, align 8
-  %142 = call i32 @call_dissector(ptr noundef %141, ptr noundef %.0..0..0..0.82, ptr noundef nonnull %1, ptr noundef %2) #9
+132:                                              ; preds = %process_rdma_lists.exit
+  %133 = load ptr, ptr @rpc_handler, align 8
+  %.0..0..0..0.79 = load volatile ptr, ptr %5, align 8
+  %134 = call i32 @call_dissector(ptr noundef %133, ptr noundef %.0..0..0..0.79, ptr noundef %1, ptr noundef %2)
   br label %156
 
-143:                                              ; preds = %15
-  %144 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 16) #9
-  %145 = load i32, ptr @hf_rpcordma_errcode, align 4
-  %146 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %145, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0) #9
-  switch i32 %144, label %152 [
-    i32 1, label %147
-    i32 2, label %155
+135:                                              ; preds = %15
+  %136 = load i32, ptr @hf_rpcordma_rdma_align, align 4
+  %137 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %136, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0)
+  %138 = load i32, ptr @hf_rpcordma_rdma_thresh, align 4
+  %139 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %138, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef 0)
+  %140 = call fastcc i32 @parse_rdma_header(ptr noundef %0, i32 noundef 24, ptr noundef %25, ptr noundef nonnull %6)
+  call void @proto_item_set_len(ptr noundef %23, i32 noundef %140)
+  %141 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %140)
+  store volatile ptr %141, ptr %5, align 8
+  %142 = load ptr, ptr @rpc_handler, align 8
+  %.0..0..0..0.80 = load volatile ptr, ptr %5, align 8
+  %143 = call i32 @call_dissector(ptr noundef %142, ptr noundef %.0..0..0..0.80, ptr noundef %1, ptr noundef %2)
+  br label %157
+
+144:                                              ; preds = %15
+  %145 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 16)
+  %146 = load i32, ptr @hf_rpcordma_errcode, align 4
+  %147 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %146, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0)
+  switch i32 %145, label %153 [
+    i32 1, label %148
+    i32 2, label %156
   ]
 
-147:                                              ; preds = %143
-  %148 = load i32, ptr @hf_rpcordma_vers_low, align 4
-  %149 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %148, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef 0) #9
-  %150 = load i32, ptr @hf_rpcordma_vers_high, align 4
-  %151 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %150, ptr noundef %0, i32 noundef 24, i32 noundef 4, i32 noundef 0) #9
-  br label %155
-
-152:                                              ; preds = %143
-  call void @proto_item_set_len(ptr noundef %23, i32 noundef 20) #9
-  %153 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 20) #9
-  store volatile ptr %153, ptr %5, align 8
-  %.0..0..0..0.83 = load volatile ptr, ptr %5, align 8
-  %154 = call i32 @call_data_dissector(ptr noundef %.0..0..0..0.83, ptr noundef nonnull %1, ptr noundef %2) #9
+148:                                              ; preds = %144
+  %149 = load i32, ptr @hf_rpcordma_vers_low, align 4
+  %150 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %149, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef 0)
+  %151 = load i32, ptr @hf_rpcordma_vers_high, align 4
+  %152 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %151, ptr noundef %0, i32 noundef 24, i32 noundef 4, i32 noundef 0)
   br label %156
 
-155:                                              ; preds = %147, %143, %process_rdma_lists.exit, %131, %106, %15
-  %.0145 = phi i32 [ 16, %15 ], [ 20, %143 ], [ 28, %147 ], [ %114, %131 ], [ %114, %process_rdma_lists.exit ], [ %35, %106 ]
-  call void @proto_item_set_len(ptr noundef %23, i32 noundef %.0145) #9
-  br label %156
+153:                                              ; preds = %144
+  call void @proto_item_set_len(ptr noundef %23, i32 noundef 20)
+  %154 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 20)
+  store volatile ptr %154, ptr %5, align 8
+  %.0..0..0..0.81 = load volatile ptr, ptr %5, align 8
+  %155 = call i32 @call_data_dissector(ptr noundef %.0..0..0..0.81, ptr noundef %1, ptr noundef %2)
+  br label %157
 
-156:                                              ; preds = %40, %13, %4, %155, %152, %134, %110, %37
-  %.0 = phi i32 [ %.0145, %155 ], [ %154, %152 ], [ %142, %134 ], [ %39, %37 ], [ %112, %110 ], [ 0, %4 ], [ 0, %13 ], [ 0, %40 ]
+156:                                              ; preds = %144, %148, %process_rdma_lists.exit, %132, %107, %15
+  %.0143 = phi i32 [ 16, %15 ], [ 20, %144 ], [ 28, %148 ], [ %115, %132 ], [ %115, %process_rdma_lists.exit ], [ %35, %107 ]
+  call void @proto_item_set_len(ptr noundef %23, i32 noundef %.0143)
+  br label %157
+
+157:                                              ; preds = %46, %13, %4, %156, %153, %135, %111, %37
+  %.0 = phi i32 [ %.0143, %156 ], [ %155, %153 ], [ %143, %135 ], [ %39, %37 ], [ %113, %111 ], [ 0, %4 ], [ 0, %13 ], [ 0, %46 ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   ret i32 %.0
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @prefs_register_protocol_obsolete(i32 noundef) local_unnamed_addr #2
 
+; Function Attrs: null_pointer_is_valid
 declare void @prefs_register_obsolete_preference(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_rpcordma() local_unnamed_addr #1 {
   %1 = load i32, ptr @proto_rpcordma, align 4
-  tail call void @heur_dissector_add(ptr noundef nonnull @.str.69, ptr noundef nonnull @dissect_rpcrdma_ib_heur, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.71, i32 noundef %1, i32 noundef 1) #9
+  tail call void @heur_dissector_add(ptr noundef nonnull @.str.69, ptr noundef nonnull @dissect_rpcrdma_ib_heur, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.71, i32 noundef %1, i32 noundef 1)
   %2 = load ptr, ptr @rpcordma_handle, align 8
-  tail call void @dissector_add_for_decode_as(ptr noundef nonnull @.str.72, ptr noundef %2) #9
+  tail call void @dissector_add_for_decode_as(ptr noundef nonnull @.str.72, ptr noundef %2)
   %3 = load i32, ptr @proto_rpcordma, align 4
-  tail call void @heur_dissector_add(ptr noundef nonnull @.str.73, ptr noundef nonnull @dissect_rpcrdma_iwarp_heur, ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.75, i32 noundef %3, i32 noundef 1) #9
+  tail call void @heur_dissector_add(ptr noundef nonnull @.str.73, ptr noundef nonnull @dissect_rpcrdma_iwarp_heur, ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.75, i32 noundef %3, i32 noundef 1)
   %4 = load i32, ptr @proto_rpcordma, align 4
-  %5 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.76, i32 noundef %4) #9
+  %5 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.76, i32 noundef %4)
   store ptr %5, ptr @rpc_handler, align 8
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_rpcrdma_ib_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
-  store i1 false, ptr @g_rpcrdma_reduced, align 4
-  store i1 true, ptr @g_needs_reassembly, align 4
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @dissect_rpcrdma_ib_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
+  store i1 false, ptr @g_rpcrdma_reduced, align 1
+  store i1 true, ptr @g_needs_reassembly, align 1
   store ptr null, ptr @gp_rdmap_info, align 8
   store ptr %3, ptr @gp_infiniband_info, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %add_request_info.exit65, label %5
+  br i1 %.not, label %add_request_info.exit64, label %5
 
 5:                                                ; preds = %4
   %6 = tail call fastcc ptr @get_rdma_conv_info(ptr noundef %1)
   %7 = load ptr, ptr @gp_infiniband_info, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i8, ptr %8, align 8
-  switch i8 %9, label %add_request_info.exit65 [
-    i8 4, label %108
-    i8 23, label %108
+  switch i8 %9, label %add_request_info.exit64 [
+    i8 4, label %110
+    i8 23, label %110
     i8 0, label %10
     i8 1, label %10
     i8 2, label %12
@@ -586,31 +615,31 @@ define internal i32 @dissect_rpcrdma_ib_heur(ptr noundef %0, ptr noundef %1, ptr
 
 10:                                               ; preds = %5, %5
   %11 = tail call fastcc ptr @add_send_fragment(ptr noundef %6, ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  br label %add_request_info.exit65
+  br label %add_request_info.exit64
 
 12:                                               ; preds = %5, %5
   %13 = tail call fastcc ptr @add_send_fragment(ptr noundef %6, ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  br label %108
+  br label %110
 
 14:                                               ; preds = %5, %5
-  %15 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
+  %15 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %17 = load i32, ptr %16, align 8
   %..i = tail call i32 @llvm.umax.i32(i32 %17, i32 %15)
   store i32 %..i, ptr %16, align 8
-  %18 = tail call fastcc ptr @add_ib_fragment(ptr noundef %0, ptr noundef %6, i32 noundef 1, ptr noundef %1, ptr noundef %2)
-  br label %add_request_info.exit65
+  %18 = tail call fastcc ptr @add_ib_fragment(ptr noundef %0, ptr noundef %6, i1 noundef zeroext true, ptr noundef %1, ptr noundef %2)
+  br label %add_request_info.exit64
 
 19:                                               ; preds = %5
-  %20 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
+  %20 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %22 = load i32, ptr %21, align 8
-  %..i59 = tail call i32 @llvm.umax.i32(i32 %22, i32 %20)
-  store i32 %..i59, ptr %21, align 8
+  %..i58 = tail call i32 @llvm.umax.i32(i32 %22, i32 %20)
+  store i32 %..i58, ptr %21, align 8
   %23 = getelementptr i8, ptr %1, i64 80
   %.val = load ptr, ptr %23, align 8
-  %24 = getelementptr i8, ptr %.val, i64 50
-  %.val.val = load i16, ptr %24, align 2
+  %24 = getelementptr i8, ptr %.val, i64 57
+  %.val.val = load i16, ptr %24, align 1
   %25 = and i16 %.val.val, 8
   %.not.i = icmp eq i16 %25, 0
   br i1 %.not.i, label %26, label %add_request_info.exit
@@ -622,7 +651,7 @@ define internal i32 @dissect_rpcrdma_ib_heur(ptr noundef %0, ptr noundef %1, ptr
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %31 = load i64, ptr %30, align 8
   %.val.i = load ptr, ptr %6, align 8
-  %32 = tail call ptr @wmem_tree_lookup32(ptr noundef %.val.i, i32 noundef %29) #9
+  %32 = tail call ptr @wmem_tree_lookup32(ptr noundef %.val.i, i32 noundef %29)
   %.not.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i, label %add_request_info.exit, label %33
 
@@ -641,8 +670,8 @@ define internal i32 @dissect_rpcrdma_ib_heur(ptr noundef %0, ptr noundef %1, ptr
   br i1 %41, label %find_segment_info.exit.i, label %add_request_info.exit
 
 find_segment_info.exit.i:                         ; preds = %36
-  %42 = tail call ptr @wmem_file_scope() #9
-  %43 = tail call noalias ptr @wmem_alloc(ptr noundef %42, i64 noundef 24) #9
+  %42 = tail call ptr @wmem_file_scope()
+  %43 = tail call noalias dereferenceable_or_null(24) ptr @wmem_alloc(ptr noundef %42, i64 noundef 24) #14
   %44 = load ptr, ptr @gp_infiniband_info, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 28
   %46 = load i32, ptr %45, align 4
@@ -659,37 +688,37 @@ find_segment_info.exit.i:                         ; preds = %36
   store ptr %32, ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %55 = load ptr, ptr %54, align 8
-  tail call void @wmem_tree_insert32(ptr noundef %55, i32 noundef %46, ptr noundef nonnull %43) #9
+  tail call void @wmem_tree_insert32(ptr noundef %55, i32 noundef %46, ptr noundef %43)
   br label %add_request_info.exit
 
 add_request_info.exit:                            ; preds = %find_segment_info.exit.i, %36, %33, %26, %19, %5, %5, %5
-  %56 = tail call fastcc ptr @add_ib_fragment(ptr noundef %0, ptr noundef %6, i32 noundef 0, ptr noundef %1, ptr noundef %2)
-  br label %add_request_info.exit65
+  %56 = tail call fastcc ptr @add_ib_fragment(ptr noundef %0, ptr noundef %6, i1 noundef zeroext false, ptr noundef %1, ptr noundef %2)
+  br label %add_request_info.exit64
 
 57:                                               ; preds = %5
   %58 = getelementptr i8, ptr %1, i64 80
-  %.val58 = load ptr, ptr %58, align 8
-  %59 = getelementptr i8, ptr %.val58, i64 50
-  %.val58.val = load i16, ptr %59, align 2
-  %60 = and i16 %.val58.val, 8
-  %.not.i60 = icmp eq i16 %60, 0
-  br i1 %.not.i60, label %61, label %add_request_info.exit65
+  %.val57 = load ptr, ptr %58, align 8
+  %59 = getelementptr i8, ptr %.val57, i64 57
+  %.val57.val = load i16, ptr %59, align 1
+  %60 = and i16 %.val57.val, 8
+  %.not.i59 = icmp eq i16 %60, 0
+  br i1 %.not.i59, label %61, label %add_request_info.exit64
 
 61:                                               ; preds = %57
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %63 = load i32, ptr %62, align 4
   %64 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %65 = load i64, ptr %64, align 8
-  %.val.i61 = load ptr, ptr %6, align 8
-  %66 = tail call ptr @wmem_tree_lookup32(ptr noundef %.val.i61, i32 noundef %63) #9
-  %.not.i.i62 = icmp eq ptr %66, null
-  br i1 %.not.i.i62, label %add_request_info.exit65, label %67
+  %.val.i60 = load ptr, ptr %6, align 8
+  %66 = tail call ptr @wmem_tree_lookup32(ptr noundef %.val.i60, i32 noundef %63)
+  %.not.i.i61 = icmp eq ptr %66, null
+  br i1 %.not.i.i61, label %add_request_info.exit64, label %67
 
 67:                                               ; preds = %61
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %69 = load i64, ptr %68, align 8
-  %.not12.i.i63 = icmp ult i64 %65, %69
-  br i1 %.not12.i.i63, label %add_request_info.exit65, label %70
+  %.not12.i.i62 = icmp ult i64 %65, %69
+  br i1 %.not12.i.i62, label %add_request_info.exit64, label %70
 
 70:                                               ; preds = %67
   %71 = getelementptr inbounds nuw i8, ptr %66, i64 32
@@ -697,11 +726,11 @@ add_request_info.exit:                            ; preds = %find_segment_info.e
   %73 = zext i32 %72 to i64
   %74 = add i64 %69, %73
   %75 = icmp ult i64 %65, %74
-  br i1 %75, label %find_segment_info.exit.i64, label %add_request_info.exit65
+  br i1 %75, label %find_segment_info.exit.i63, label %add_request_info.exit64
 
-find_segment_info.exit.i64:                       ; preds = %70
-  %76 = tail call ptr @wmem_file_scope() #9
-  %77 = tail call noalias ptr @wmem_alloc(ptr noundef %76, i64 noundef 24) #9
+find_segment_info.exit.i63:                       ; preds = %70
+  %76 = tail call ptr @wmem_file_scope()
+  %77 = tail call noalias dereferenceable_or_null(24) ptr @wmem_alloc(ptr noundef %76, i64 noundef 24) #14
   %78 = load ptr, ptr @gp_infiniband_info, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 28
   %80 = load i32, ptr %79, align 4
@@ -718,174 +747,182 @@ find_segment_info.exit.i64:                       ; preds = %70
   store ptr %66, ptr %87, align 8
   %88 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %89 = load ptr, ptr %88, align 8
-  tail call void @wmem_tree_insert32(ptr noundef %89, i32 noundef %80, ptr noundef nonnull %77) #9
-  br label %add_request_info.exit65
+  tail call void @wmem_tree_insert32(ptr noundef %89, i32 noundef %80, ptr noundef %77)
+  br label %add_request_info.exit64
 
 90:                                               ; preds = %5
-  %91 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
+  %91 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %92 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %93 = load i32, ptr %92, align 8
-  %..i66 = tail call i32 @llvm.umax.i32(i32 %93, i32 %91)
-  store i32 %..i66, ptr %92, align 8
+  %..i65 = tail call i32 @llvm.umax.i32(i32 %93, i32 %91)
+  store i32 %..i65, ptr %92, align 8
   br label %.thread
 
 .thread:                                          ; preds = %5, %90
-  %94 = tail call fastcc ptr @add_ib_fragment(ptr noundef %0, ptr noundef %6, i32 noundef 0, ptr noundef %1, ptr noundef %2)
+  %94 = tail call fastcc ptr @add_ib_fragment(ptr noundef %0, ptr noundef %6, i1 noundef zeroext false, ptr noundef %1, ptr noundef %2)
   br label %105
 
 95:                                               ; preds = %5, %5
-  %96 = tail call fastcc ptr @add_ib_fragment(ptr noundef %0, ptr noundef %6, i32 noundef 0, ptr noundef %1, ptr noundef %2)
-  %.not71 = icmp eq ptr %96, null
-  br i1 %.not71, label %97, label %.thread72
+  %96 = tail call fastcc ptr @add_ib_fragment(ptr noundef %0, ptr noundef %6, i1 noundef zeroext false, ptr noundef %1, ptr noundef %2)
+  %.not54.not = icmp eq ptr %96, null
+  br i1 %.not54.not, label %97, label %105
 
 97:                                               ; preds = %95
   %98 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %99 = load ptr, ptr %98, align 8
   %.not55 = icmp eq ptr %99, null
-  br i1 %.not55, label %add_request_info.exit65, label %100
+  br i1 %.not55, label %add_request_info.exit64, label %100
 
 100:                                              ; preds = %97
   %101 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %102 = load i32, ptr %101, align 8
-  %103 = tail call fastcc ptr @end_reassembly(i32 noundef %102, ptr noundef nonnull %6, ptr noundef %1)
+  %103 = tail call fastcc ptr @end_reassembly(i32 noundef %102, ptr noundef %6, ptr noundef %1)
   %104 = tail call fastcc ptr @get_reassembled_data(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2)
   br label %105
 
-105:                                              ; preds = %.thread, %100
-  %.051 = phi ptr [ %104, %100 ], [ %94, %.thread ]
-  %.not56 = icmp eq ptr %.051, null
-  br i1 %.not56, label %add_request_info.exit65, label %.thread72
+105:                                              ; preds = %.thread, %95, %100
+  %.050 = phi ptr [ %96, %95 ], [ %104, %100 ], [ %94, %.thread ]
+  %.not56 = icmp eq ptr %.050, null
+  br i1 %.not56, label %add_request_info.exit64, label %106
 
-.thread72:                                        ; preds = %95, %105
-  %.05175 = phi ptr [ %.051, %105 ], [ %96, %95 ]
-  %106 = load ptr, ptr @rpc_handler, align 8
-  %107 = tail call i32 @call_dissector(ptr noundef %106, ptr noundef nonnull %.05175, ptr noundef %1, ptr noundef %2) #9
-  br label %add_request_info.exit65
+106:                                              ; preds = %105
+  %107 = load ptr, ptr @rpc_handler, align 8
+  %108 = tail call i32 @call_dissector(ptr noundef %107, ptr noundef nonnull %.050, ptr noundef %1, ptr noundef %2)
+  %109 = icmp ne i32 %108, 0
+  br label %add_request_info.exit64
 
-108:                                              ; preds = %5, %5, %12
-  %.052 = phi ptr [ %13, %12 ], [ %0, %5 ], [ %0, %5 ]
-  %109 = tail call fastcc i32 @packet_is_rpcordma(ptr noundef %.052)
-  %.not57 = icmp eq i32 %109, 0
-  br i1 %.not57, label %add_request_info.exit65, label %110
+110:                                              ; preds = %5, %5, %12
+  %.051 = phi ptr [ %13, %12 ], [ %0, %5 ], [ %0, %5 ]
+  %111 = tail call fastcc zeroext i1 @packet_is_rpcordma(ptr noundef %.051)
+  br i1 %111, label %112, label %add_request_info.exit64
 
-110:                                              ; preds = %108
-  %111 = tail call i32 @dissect_rpcrdma(ptr noundef %.052, ptr noundef %1, ptr noundef %2, ptr poison)
-  br label %add_request_info.exit65
+112:                                              ; preds = %110
+  %113 = tail call i32 @dissect_rpcrdma(ptr noundef %.051, ptr noundef %1, ptr noundef %2, ptr poison)
+  br label %add_request_info.exit64
 
-add_request_info.exit65:                          ; preds = %97, %find_segment_info.exit.i64, %70, %67, %61, %57, %108, %5, %105, %4, %110, %.thread72, %add_request_info.exit, %14, %10
-  %.0 = phi i32 [ %107, %.thread72 ], [ 0, %add_request_info.exit ], [ 0, %14 ], [ 1, %110 ], [ 0, %10 ], [ 0, %4 ], [ 0, %105 ], [ 0, %5 ], [ 0, %108 ], [ 0, %57 ], [ 0, %61 ], [ 0, %67 ], [ 0, %70 ], [ 0, %find_segment_info.exit.i64 ], [ 0, %97 ]
-  ret i32 %.0
+add_request_info.exit64:                          ; preds = %97, %find_segment_info.exit.i63, %70, %67, %61, %57, %110, %5, %105, %4, %112, %106, %add_request_info.exit, %14, %10
+  %.0 = phi i1 [ %109, %106 ], [ false, %add_request_info.exit ], [ false, %14 ], [ true, %112 ], [ false, %10 ], [ false, %4 ], [ false, %105 ], [ false, %5 ], [ false, %110 ], [ false, %57 ], [ false, %61 ], [ false, %67 ], [ false, %70 ], [ false, %find_segment_info.exit.i63 ], [ false, %97 ]
+  ret i1 %.0
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_for_decode_as(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_rpcrdma_iwarp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
-  store i1 false, ptr @g_rpcrdma_reduced, align 4
-  store i1 true, ptr @g_needs_reassembly, align 4
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @dissect_rpcrdma_iwarp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
+  store i1 false, ptr @g_rpcrdma_reduced, align 1
+  store i1 true, ptr @g_needs_reassembly, align 1
   store ptr null, ptr @gp_infiniband_info, align 8
   store ptr %3, ptr @gp_rdmap_info, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %43, label %5
+  br i1 %.not, label %45, label %5
 
 5:                                                ; preds = %4
   %6 = tail call fastcc ptr @get_rdma_conv_info(ptr noundef %1)
   %7 = load ptr, ptr @gp_rdmap_info, align 8
   %8 = load i8, ptr %7, align 8
-  switch i8 %8, label %43 [
+  switch i8 %8, label %45 [
     i8 3, label %9
     i8 4, label %9
-    i8 0, label %14
-    i8 1, label %16
-    i8 2, label %34
+    i8 0, label %15
+    i8 1, label %17
+    i8 2, label %35
   ]
 
 9:                                                ; preds = %5, %5
   %10 = tail call fastcc ptr @add_send_fragment(ptr noundef %6, ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %11 = load ptr, ptr @gp_rdmap_info, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %13 = load i32, ptr %12, align 4
-  %.not30 = icmp eq i32 %13, 0
-  br i1 %.not30, label %43, label %39
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1
+  %13 = load i8, ptr %12, align 1, !range !6, !noundef !7
+  %14 = trunc nuw i8 %13 to i1
+  br i1 %14, label %41, label %45
 
-14:                                               ; preds = %5
-  %15 = tail call fastcc ptr @add_iwarp_fragment(ptr noundef %0, ptr noundef %6, ptr noundef %1, ptr noundef %2)
-  br label %43
+15:                                               ; preds = %5
+  %16 = tail call fastcc ptr @add_iwarp_fragment(ptr noundef %0, ptr noundef %6, ptr noundef %1, ptr noundef %2)
+  br label %45
 
-16:                                               ; preds = %5
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 50
-  %20 = load i16, ptr %19, align 2
-  %21 = and i16 %20, 8
-  %.not28 = icmp eq i16 %21, 0
-  br i1 %.not28, label %22, label %43
+17:                                               ; preds = %5
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 57
+  %21 = load i16, ptr %20, align 1
+  %22 = and i16 %21, 8
+  %.not29 = icmp eq i16 %22, 0
+  br i1 %.not29, label %23, label %45
 
-22:                                               ; preds = %16
-  %23 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %24 = load ptr, ptr %23, align 8
-  %.not29 = icmp eq ptr %24, null
-  br i1 %.not29, label %43, label %25
+23:                                               ; preds = %17
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %25 = load ptr, ptr %24, align 8
+  %.not30 = icmp eq ptr %25, null
+  br i1 %.not30, label %45, label %26
 
-25:                                               ; preds = %22
-  %26 = tail call ptr @wmem_file_scope() #9
-  %27 = tail call noalias ptr @wmem_alloc(ptr noundef %26, i64 noundef 40) #9
-  %28 = load ptr, ptr @gp_rdmap_info, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  %30 = load ptr, ptr %29, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %30, i64 40, i1 false)
-  %31 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %32 = load ptr, ptr %31, align 8
-  %33 = load i32, ptr %30, align 8
-  tail call void @wmem_tree_insert32(ptr noundef %32, i32 noundef %33, ptr noundef nonnull %27) #9
-  br label %43
+26:                                               ; preds = %23
+  %27 = tail call ptr @wmem_file_scope()
+  %28 = tail call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %27, i64 noundef 40) #14
+  %29 = load ptr, ptr @gp_rdmap_info, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
+  %31 = load ptr, ptr %30, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(40) %28, ptr noundef align 1 dereferenceable(40) %31, i64 noundef 40, i1 noundef false) #11
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %33 = load ptr, ptr %32, align 8
+  %34 = load i32, ptr %31, align 8
+  tail call void @wmem_tree_insert32(ptr noundef %33, i32 noundef %34, ptr noundef %28)
+  br label %45
 
-34:                                               ; preds = %5
-  %35 = tail call fastcc ptr @add_iwarp_fragment(ptr noundef %0, ptr noundef %6, ptr noundef %1, ptr noundef %2)
-  %.not27 = icmp eq ptr %35, null
-  br i1 %.not27, label %43, label %36
+35:                                               ; preds = %5
+  %36 = tail call fastcc ptr @add_iwarp_fragment(ptr noundef %0, ptr noundef %6, ptr noundef %1, ptr noundef %2)
+  %.not28 = icmp eq ptr %36, null
+  br i1 %.not28, label %45, label %37
 
-36:                                               ; preds = %34
-  %37 = load ptr, ptr @rpc_handler, align 8
-  %38 = tail call i32 @call_dissector(ptr noundef %37, ptr noundef nonnull %35, ptr noundef %1, ptr noundef %2) #9
-  br label %43
+37:                                               ; preds = %35
+  %38 = load ptr, ptr @rpc_handler, align 8
+  %39 = tail call i32 @call_dissector(ptr noundef %38, ptr noundef nonnull %36, ptr noundef %1, ptr noundef %2)
+  %40 = icmp ne i32 %39, 0
+  br label %45
 
-39:                                               ; preds = %9
-  %40 = tail call fastcc i32 @packet_is_rpcordma(ptr noundef %10)
-  %.not31 = icmp eq i32 %40, 0
-  br i1 %.not31, label %43, label %41
+41:                                               ; preds = %9
+  %42 = tail call fastcc zeroext i1 @packet_is_rpcordma(ptr noundef %10)
+  br i1 %42, label %43, label %45
 
-41:                                               ; preds = %39
-  %42 = tail call i32 @dissect_rpcrdma(ptr noundef %10, ptr noundef %1, ptr noundef %2, ptr poison)
-  br label %43
+43:                                               ; preds = %41
+  %44 = tail call i32 @dissect_rpcrdma(ptr noundef %10, ptr noundef %1, ptr noundef %2, ptr poison)
+  br label %45
 
-43:                                               ; preds = %39, %5, %34, %16, %22, %25, %9, %4, %41, %36, %14
-  %.0 = phi i32 [ %38, %36 ], [ 0, %14 ], [ 1, %41 ], [ 0, %4 ], [ 0, %9 ], [ 0, %25 ], [ 0, %22 ], [ 0, %16 ], [ 0, %34 ], [ 0, %5 ], [ 0, %39 ]
-  ret i32 %.0
+45:                                               ; preds = %41, %5, %35, %17, %23, %26, %9, %4, %43, %37, %15
+  %.0 = phi i1 [ %40, %37 ], [ false, %15 ], [ true, %43 ], [ false, %4 ], [ false, %9 ], [ false, %26 ], [ false, %23 ], [ false, %17 ], [ false, %35 ], [ false, %5 ], [ false, %41 ]
+  ret i1 %.0
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #2
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_rdma_header(ptr noundef %0, i32 noundef range(i32 16, 25) %1, ptr noundef %2, ptr noundef nonnull captures(none) %3) unnamed_addr #1 {
-  %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef range(i32 16, 25) %1) #9
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal fastcc i32 @parse_rdma_header(ptr noundef %0, i32 noundef range(i32 16, 25) %1, ptr noundef %2, ptr noundef captures(none) %3) unnamed_addr #1 {
+  %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef range(i32 16, 25) %1)
   %.not7.i.i = icmp eq i32 %5, 0
   br i1 %.not7.i.i, label %get_read_list_chunk_count.exit.i, label %.lr.ph.i.i
 
@@ -894,220 +931,225 @@ define internal fastcc i32 @parse_rdma_header(ptr noundef %0, i32 noundef range(
   %.068.i.i = phi i32 [ %7, %.lr.ph.i.i ], [ %1, %4 ]
   %6 = add i32 %.09.i.i, 1
   %7 = add i32 %.068.i.i, 24
-  %8 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %7) #9
+  %8 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %7)
   %.not.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i, label %get_read_list_chunk_count.exit.i, label %.lr.ph.i.i
 
 get_read_list_chunk_count.exit.i:                 ; preds = %.lr.ph.i.i, %4
   %.0.lcssa.i.i = phi i32 [ 0, %4 ], [ %6, %.lr.ph.i.i ]
   %9 = load i32, ptr @hf_rpcordma_reads_count, align 4
-  %10 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef range(i32 16, 25) %1, i32 noundef 0, i32 noundef %.0.lcssa.i.i, ptr noundef nonnull @.str.86, i32 noundef %.0.lcssa.i.i) #9
+  %10 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef range(i32 16, 25) %1, i32 noundef 0, i32 noundef %.0.lcssa.i.i, ptr noundef nonnull @.str.88, i32 noundef %.0.lcssa.i.i)
   %11 = load i32, ptr @ett_rpcordma_read_list, align 4
-  %12 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %11) #9
-  %13 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef range(i32 16, 25) %1) #9
+  %12 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %11)
+  %13 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef range(i32 16, 25) %1)
   %14 = add nuw nsw i32 %1, 4
   %.not25.i = icmp eq i32 %13, 0
   br i1 %.not25.i, label %dissect_rpcrdma_read_list.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %get_read_list_chunk_count.exit.i, %dissect_rpcrdma_read_chunk.exit.i
-  %15 = phi i32 [ %63, %dissect_rpcrdma_read_chunk.exit.i ], [ %14, %get_read_list_chunk_count.exit.i ]
-  %.026.i = phi i32 [ %61, %dissect_rpcrdma_read_chunk.exit.i ], [ %1, %get_read_list_chunk_count.exit.i ]
+  %15 = phi i32 [ %65, %dissect_rpcrdma_read_chunk.exit.i ], [ %14, %get_read_list_chunk_count.exit.i ]
+  %.026.i = phi i32 [ %63, %dissect_rpcrdma_read_chunk.exit.i ], [ %1, %get_read_list_chunk_count.exit.i ]
   %16 = load ptr, ptr %3, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %.lr.ph.i
-  %19 = tail call ptr @wmem_packet_scope() #9
-  %20 = tail call noalias ptr @wmem_array_new(ptr noundef %19, i64 noundef 16) #9
+  %19 = tail call ptr @wmem_packet_scope()
+  %20 = tail call noalias ptr @wmem_array_new(ptr noundef %19, i64 noundef 16)
   store ptr %20, ptr %3, align 8
   br label %21
 
 21:                                               ; preds = %18, %.lr.ph.i
   %22 = phi ptr [ %20, %18 ], [ %16, %.lr.ph.i ]
-  %23 = tail call ptr @wmem_packet_scope() #9
-  %24 = tail call noalias ptr @wmem_alloc(ptr noundef %23, i64 noundef 24) #9
-  %25 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %15) #9
+  %23 = tail call ptr @wmem_packet_scope()
+  %24 = tail call noalias dereferenceable_or_null(24) ptr @wmem_alloc(ptr noundef %23, i64 noundef 24) #14
+  %25 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %15)
   store i32 %25, ptr %24, align 8
   %26 = load i32, ptr @ett_rpcordma_read_chunk, align 4
-  %27 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %12, ptr noundef %0, i32 noundef %15, i32 noundef 20, i32 noundef %26, ptr noundef null, ptr noundef nonnull @.str.87, i32 noundef %25) #9
+  %27 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %12, ptr noundef %0, i32 noundef %15, i32 noundef 20, i32 noundef %26, ptr noundef null, ptr noundef nonnull @.str.89, i32 noundef %25)
   %28 = load i32, ptr @hf_rpcordma_position, align 4
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %28, ptr noundef %0, i32 noundef %15, i32 noundef 4, i32 noundef 0) #9
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %28, ptr noundef %0, i32 noundef %15, i32 noundef 4, i32 noundef 0)
   %30 = add i32 %.026.i, 8
   %31 = load i32, ptr @hf_rpcordma_rdma_handle, align 4
   %32 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  %33 = tail call ptr @proto_tree_add_item_ret_uint(ptr noundef %27, i32 noundef %31, ptr noundef %0, i32 noundef %30, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %32) #9
+  %33 = tail call ptr @proto_tree_add_item_ret_uint(ptr noundef %27, i32 noundef %31, ptr noundef %0, i32 noundef %30, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %32)
   %34 = add i32 %.026.i, 12
   %35 = load i32, ptr @hf_rpcordma_rdma_length, align 4
   %36 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %37 = tail call ptr @proto_tree_add_item_ret_uint(ptr noundef %27, i32 noundef %35, ptr noundef %0, i32 noundef %34, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %36) #9
+  %37 = tail call ptr @proto_tree_add_item_ret_uint(ptr noundef %27, i32 noundef %35, ptr noundef %0, i32 noundef %34, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %36)
   %38 = add i32 %.026.i, 16
   %39 = load i32, ptr @hf_rpcordma_rdma_offset, align 4
   %40 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %41 = tail call ptr @proto_tree_add_item_ret_uint64(ptr noundef %27, i32 noundef %39, ptr noundef %0, i32 noundef %38, i32 noundef 8, i32 noundef 0, ptr noundef nonnull %40) #9
-  %42 = tail call i32 @wmem_array_get_count(ptr noundef %22) #9
+  %41 = tail call ptr @proto_tree_add_item_ret_uint64(ptr noundef %27, i32 noundef %39, ptr noundef %0, i32 noundef %38, i32 noundef 8, i32 noundef 0, ptr noundef nonnull %40)
+  %42 = tail call i32 @wmem_array_get_count(ptr noundef %22)
   %.not.i.i.i = icmp eq i32 %42, 0
-  br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
+  br i1 %.not.i.i.i, label %.thread.i.i.i, label %.lr.ph.i.i.i
 
 43:                                               ; preds = %.lr.ph.i.i.i
   %44 = add nuw i32 %.01416.i.i.i, 1
-  %45 = tail call i32 @wmem_array_get_count(ptr noundef %22) #9
+  %45 = tail call i32 @wmem_array_get_count(ptr noundef %22)
   %46 = icmp ult i32 %44, %45
-  br i1 %46, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !4
+  br i1 %46, label %.lr.ph.i.i.i, label %.thread.i.i.i, !llvm.loop !8
 
 .lr.ph.i.i.i:                                     ; preds = %21, %43
   %.01416.i.i.i = phi i32 [ %44, %43 ], [ 0, %21 ]
-  %47 = tail call ptr @wmem_array_index(ptr noundef %22, i32 noundef %.01416.i.i.i) #9
+  %47 = tail call ptr @wmem_array_index(ptr noundef %22, i32 noundef %.01416.i.i.i)
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load ptr, ptr %48, align 8
-  %50 = tail call ptr @wmem_array_index(ptr noundef %49, i32 noundef 0) #9
+  %50 = tail call ptr @wmem_array_index(ptr noundef %49, i32 noundef 0)
   %51 = load i32, ptr %50, align 8
   %52 = load i32, ptr %24, align 8
   %53 = icmp eq i32 %51, %52
-  br i1 %53, label %dissect_rpcrdma_read_chunk.exit.i, label %43
+  br i1 %53, label %54, label %43
 
-._crit_edge.i.i.i:                                ; preds = %43, %21
-  %54 = tail call ptr @wmem_packet_scope() #9
-  %55 = tail call noalias ptr @wmem_alloc(ptr noundef %54, i64 noundef 16) #9
-  store i32 0, ptr %55, align 8
-  %56 = tail call ptr @wmem_packet_scope() #9
-  %57 = tail call noalias ptr @wmem_array_new(ptr noundef %56, i64 noundef 24) #9
-  %58 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  store ptr %57, ptr %58, align 8
-  tail call void @wmem_array_append(ptr noundef %22, ptr noundef nonnull %55, i32 noundef 1) #9
+54:                                               ; preds = %.lr.ph.i.i.i
+  %55 = icmp eq ptr %47, null
+  br i1 %55, label %.thread.i.i.i, label %dissect_rpcrdma_read_chunk.exit.i
+
+.thread.i.i.i:                                    ; preds = %43, %54, %21
+  %56 = tail call ptr @wmem_packet_scope()
+  %57 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %56, i64 noundef 16) #14
+  store i32 0, ptr %57, align 8
+  %58 = tail call ptr @wmem_packet_scope()
+  %59 = tail call noalias ptr @wmem_array_new(ptr noundef %58, i64 noundef 24)
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  store ptr %59, ptr %60, align 8
+  tail call void @wmem_array_append(ptr noundef %22, ptr noundef %57, i32 noundef 1)
   br label %dissect_rpcrdma_read_chunk.exit.i
 
-dissect_rpcrdma_read_chunk.exit.i:                ; preds = %.lr.ph.i.i.i, %._crit_edge.i.i.i
-  %.2.i.i.i = phi ptr [ %55, %._crit_edge.i.i.i ], [ %47, %.lr.ph.i.i.i ]
-  %59 = getelementptr inbounds nuw i8, ptr %.2.i.i.i, i64 8
-  %60 = load ptr, ptr %59, align 8
-  tail call void @wmem_array_append(ptr noundef %60, ptr noundef nonnull %24, i32 noundef 1) #9
-  %61 = add i32 %.026.i, 24
-  %62 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %61) #9
-  %63 = add i32 %.026.i, 28
-  %.not.i = icmp eq i32 %62, 0
+dissect_rpcrdma_read_chunk.exit.i:                ; preds = %.thread.i.i.i, %54
+  %.2.i.i.i = phi ptr [ %57, %.thread.i.i.i ], [ %47, %54 ]
+  %61 = getelementptr inbounds nuw i8, ptr %.2.i.i.i, i64 8
+  %62 = load ptr, ptr %61, align 8
+  tail call void @wmem_array_append(ptr noundef %62, ptr noundef %24, i32 noundef 1)
+  %63 = add i32 %.026.i, 24
+  %64 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %63)
+  %65 = add i32 %.026.i, 28
+  %.not.i = icmp eq i32 %64, 0
   br i1 %.not.i, label %dissect_rpcrdma_read_list.exit, label %.lr.ph.i
 
 dissect_rpcrdma_read_list.exit:                   ; preds = %dissect_rpcrdma_read_chunk.exit.i, %get_read_list_chunk_count.exit.i
-  %.lcssa23.i = phi i32 [ %14, %get_read_list_chunk_count.exit.i ], [ %63, %dissect_rpcrdma_read_chunk.exit.i ]
-  %64 = sub i32 %.lcssa23.i, %1
-  tail call void @proto_item_set_len(ptr noundef %10, i32 noundef %64) #9
-  %65 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.lcssa23.i) #9
-  %.not12.i.i = icmp eq i32 %65, 0
+  %.lcssa23.i = phi i32 [ %14, %get_read_list_chunk_count.exit.i ], [ %65, %dissect_rpcrdma_read_chunk.exit.i ]
+  %66 = sub i32 %.lcssa23.i, %1
+  tail call void @proto_item_set_len(ptr noundef %10, i32 noundef %66)
+  %67 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.lcssa23.i)
+  %.not12.i.i = icmp eq i32 %67, 0
   br i1 %.not12.i.i, label %get_write_list_chunk_count.exit.i, label %.lr.ph.i.i11
 
 .lr.ph.i.i11:                                     ; preds = %dissect_rpcrdma_read_list.exit, %.lr.ph.i.i11
-  %.014.i.i = phi i32 [ %73, %.lr.ph.i.i11 ], [ %.lcssa23.i, %dissect_rpcrdma_read_list.exit ]
-  %.01013.i.i = phi i32 [ %72, %.lr.ph.i.i11 ], [ 0, %dissect_rpcrdma_read_list.exit ]
-  %66 = add i32 %.014.i.i, 4
-  %67 = add i32 %.014.i.i, 8
-  %68 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %67) #9
-  %69 = lshr i32 %68, 4
-  %70 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %66) #9
-  %spec.select.i.i.i = tail call i32 @llvm.umin.i32(i32 %70, i32 %69)
-  %71 = shl nuw i32 %spec.select.i.i.i, 4
-  %72 = add i32 %.01013.i.i, 1
-  %73 = add i32 %71, %67
-  %74 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %73) #9
-  %.not.i.i12 = icmp eq i32 %74, 0
+  %.014.i.i = phi i32 [ %75, %.lr.ph.i.i11 ], [ %.lcssa23.i, %dissect_rpcrdma_read_list.exit ]
+  %.01013.i.i = phi i32 [ %74, %.lr.ph.i.i11 ], [ 0, %dissect_rpcrdma_read_list.exit ]
+  %68 = add i32 %.014.i.i, 4
+  %69 = add i32 %.014.i.i, 8
+  %70 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %69)
+  %71 = lshr i32 %70, 4
+  %72 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %68)
+  %spec.select.i.i.i = tail call i32 @llvm.umin.i32(i32 %72, i32 %71)
+  %73 = shl nuw i32 %spec.select.i.i.i, 4
+  %74 = add i32 %.01013.i.i, 1
+  %75 = add i32 %73, %69
+  %76 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %75)
+  %.not.i.i12 = icmp eq i32 %76, 0
   br i1 %.not.i.i12, label %get_write_list_chunk_count.exit.i, label %.lr.ph.i.i11
 
 get_write_list_chunk_count.exit.i:                ; preds = %.lr.ph.i.i11, %dissect_rpcrdma_read_list.exit
-  %.010.lcssa.i.i = phi i32 [ 0, %dissect_rpcrdma_read_list.exit ], [ %72, %.lr.ph.i.i11 ]
-  %75 = load i32, ptr @hf_rpcordma_writes_count, align 4
-  %76 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %75, ptr noundef %0, i32 noundef %.lcssa23.i, i32 noundef 0, i32 noundef %.010.lcssa.i.i, ptr noundef nonnull @.str.88, i32 noundef %.010.lcssa.i.i) #9
-  %77 = load i32, ptr @ett_rpcordma_write_list, align 4
-  %78 = tail call ptr @proto_item_add_subtree(ptr noundef %76, i32 noundef %77) #9
-  %79 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.lcssa23.i) #9
-  %80 = add i32 %.lcssa23.i, 4
-  %.not23.i = icmp eq i32 %79, 0
+  %.010.lcssa.i.i = phi i32 [ 0, %dissect_rpcrdma_read_list.exit ], [ %74, %.lr.ph.i.i11 ]
+  %77 = load i32, ptr @hf_rpcordma_writes_count, align 4
+  %78 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %77, ptr noundef %0, i32 noundef %.lcssa23.i, i32 noundef 0, i32 noundef %.010.lcssa.i.i, ptr noundef nonnull @.str.90, i32 noundef %.010.lcssa.i.i)
+  %79 = load i32, ptr @ett_rpcordma_write_list, align 4
+  %80 = tail call ptr @proto_item_add_subtree(ptr noundef %78, i32 noundef %79)
+  %81 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.lcssa23.i)
+  %82 = add i32 %.lcssa23.i, 4
+  %.not23.i = icmp eq i32 %81, 0
   br i1 %.not23.i, label %dissect_rpcrdma_write_list.exit, label %.lr.ph.i13
 
 .lr.ph.i13:                                       ; preds = %get_write_list_chunk_count.exit.i
-  %81 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  br label %82
+  %83 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  br label %84
 
-82:                                               ; preds = %89, %.lr.ph.i13
-  %83 = phi i32 [ %80, %.lr.ph.i13 ], [ %93, %89 ]
-  %84 = load ptr, ptr %81, align 8
-  %85 = icmp eq ptr %84, null
-  br i1 %85, label %86, label %89
+84:                                               ; preds = %91, %.lr.ph.i13
+  %85 = phi i32 [ %82, %.lr.ph.i13 ], [ %95, %91 ]
+  %86 = load ptr, ptr %83, align 8
+  %87 = icmp eq ptr %86, null
+  br i1 %87, label %88, label %91
 
-86:                                               ; preds = %82
-  %87 = tail call ptr @wmem_packet_scope() #9
-  %88 = tail call noalias ptr @wmem_array_new(ptr noundef %87, i64 noundef 16) #9
-  store ptr %88, ptr %81, align 8
-  br label %89
+88:                                               ; preds = %84
+  %89 = tail call ptr @wmem_packet_scope()
+  %90 = tail call noalias ptr @wmem_array_new(ptr noundef %89, i64 noundef 16)
+  store ptr %90, ptr %83, align 8
+  br label %91
 
-89:                                               ; preds = %86, %82
-  %90 = phi ptr [ %88, %86 ], [ %84, %82 ]
-  %91 = tail call fastcc i32 @dissect_rpcrdma_write_chunk(ptr noundef %78, ptr noundef %0, i32 noundef %83, i32 noundef 1, ptr noundef %90)
-  %92 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %91) #9
-  %93 = add i32 %91, 4
-  %.not.i14 = icmp eq i32 %92, 0
-  br i1 %.not.i14, label %dissect_rpcrdma_write_list.exit, label %82
+91:                                               ; preds = %88, %84
+  %92 = phi ptr [ %90, %88 ], [ %86, %84 ]
+  %93 = tail call fastcc i32 @dissect_rpcrdma_write_chunk(ptr noundef %80, ptr noundef %0, i32 noundef %85, i32 noundef 1, ptr noundef %92)
+  %94 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %93)
+  %95 = add i32 %93, 4
+  %.not.i14 = icmp eq i32 %94, 0
+  br i1 %.not.i14, label %dissect_rpcrdma_write_list.exit, label %84
 
-dissect_rpcrdma_write_list.exit:                  ; preds = %89, %get_write_list_chunk_count.exit.i
-  %.lcssa.i = phi i32 [ %80, %get_write_list_chunk_count.exit.i ], [ %93, %89 ]
-  %94 = sub i32 %.lcssa.i, %.lcssa23.i
-  tail call void @proto_item_set_len(ptr noundef %76, i32 noundef %94) #9
-  %95 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.lcssa.i) #9
-  %.not.i.i15 = icmp ne i32 %95, 0
-  %96 = zext i1 %.not.i.i15 to i32
-  %97 = load i32, ptr @hf_rpcordma_reply_count, align 4
-  %98 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %97, ptr noundef %0, i32 noundef %.lcssa.i, i32 noundef 4, i32 noundef %96, ptr noundef nonnull @.str.93, i32 noundef %96) #9
-  %99 = load i32, ptr @ett_rpcordma_reply_chunk, align 4
-  %100 = tail call ptr @proto_item_add_subtree(ptr noundef %98, i32 noundef %99) #9
-  %101 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.lcssa.i) #9
-  %102 = add i32 %.lcssa.i, 4
-  %.not.i16 = icmp eq i32 %101, 0
-  br i1 %.not.i16, label %dissect_rpcrdma_reply_chunk.exit, label %103
+dissect_rpcrdma_write_list.exit:                  ; preds = %91, %get_write_list_chunk_count.exit.i
+  %.lcssa.i = phi i32 [ %82, %get_write_list_chunk_count.exit.i ], [ %95, %91 ]
+  %96 = sub i32 %.lcssa.i, %.lcssa23.i
+  tail call void @proto_item_set_len(ptr noundef %78, i32 noundef %96)
+  %97 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.lcssa.i)
+  %.not.i.i15 = icmp ne i32 %97, 0
+  %98 = zext i1 %.not.i.i15 to i32
+  %99 = load i32, ptr @hf_rpcordma_reply_count, align 4
+  %100 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %99, ptr noundef %0, i32 noundef %.lcssa.i, i32 noundef 4, i32 noundef %98, ptr noundef nonnull @.str.95, i32 noundef %98)
+  %101 = load i32, ptr @ett_rpcordma_reply_chunk, align 4
+  %102 = tail call ptr @proto_item_add_subtree(ptr noundef %100, i32 noundef %101)
+  %103 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.lcssa.i)
+  %104 = add i32 %.lcssa.i, 4
+  %.not.i16 = icmp eq i32 %103, 0
+  br i1 %.not.i16, label %dissect_rpcrdma_reply_chunk.exit, label %105
 
-103:                                              ; preds = %dissect_rpcrdma_write_list.exit
-  %104 = tail call ptr @wmem_packet_scope() #9
-  %105 = tail call noalias ptr @wmem_array_new(ptr noundef %104, i64 noundef 16) #9
-  %106 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %105, ptr %106, align 8
-  %107 = tail call fastcc i32 @dissect_rpcrdma_write_chunk(ptr noundef %100, ptr noundef %0, i32 noundef %102, i32 noundef 2, ptr noundef %105)
-  %108 = sub i32 %107, %.lcssa.i
-  tail call void @proto_item_set_len(ptr noundef %98, i32 noundef %108) #9
+105:                                              ; preds = %dissect_rpcrdma_write_list.exit
+  %106 = tail call ptr @wmem_packet_scope()
+  %107 = tail call noalias ptr @wmem_array_new(ptr noundef %106, i64 noundef 16)
+  %108 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %107, ptr %108, align 8
+  %109 = tail call fastcc i32 @dissect_rpcrdma_write_chunk(ptr noundef %102, ptr noundef %0, i32 noundef %104, i32 noundef 2, ptr noundef %107)
+  %110 = sub i32 %109, %.lcssa.i
+  tail call void @proto_item_set_len(ptr noundef %100, i32 noundef %110)
   br label %dissect_rpcrdma_reply_chunk.exit
 
-dissect_rpcrdma_reply_chunk.exit:                 ; preds = %dissect_rpcrdma_write_list.exit, %103
-  %.0.i = phi i32 [ %107, %103 ], [ %102, %dissect_rpcrdma_write_list.exit ]
+dissect_rpcrdma_reply_chunk.exit:                 ; preds = %dissect_rpcrdma_write_list.exit, %105
+  %.0.i = phi i32 [ %109, %105 ], [ %104, %dissect_rpcrdma_write_list.exit ]
   ret i32 %.0.i
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc ptr @get_reassembled_data(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 {
-  %.b = load i1, ptr @g_needs_reassembly, align 4
-  br i1 %.b, label %5, label %15
+  %.b11 = load i1, ptr @g_needs_reassembly, align 1
+  br i1 %.b11, label %5, label %15
 
 5:                                                ; preds = %4
-  %6 = tail call ptr @wmem_file_scope() #9
+  %6 = tail call ptr @wmem_file_scope()
   %7 = load i32, ptr @proto_rpcordma, align 4
-  %8 = tail call ptr @p_get_proto_data(ptr noundef %6, ptr noundef %2, i32 noundef %7, i32 noundef 0) #9
+  %8 = tail call ptr @p_get_proto_data(ptr noundef %6, ptr noundef %2, i32 noundef %7, i32 noundef 0)
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %get_reassembled_id.exit.thread, label %get_reassembled_id.exit
 
 get_reassembled_id.exit:                          ; preds = %5
   %9 = load i32, ptr %8, align 4
-  %10 = tail call ptr @fragment_get_reassembled_id(ptr noundef nonnull @rpcordma_reassembly_table, ptr noundef %2, i32 noundef %9) #9
+  %10 = tail call ptr @fragment_get_reassembled_id(ptr noundef nonnull @rpcordma_reassembly_table, ptr noundef %2, i32 noundef %9)
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %get_reassembled_id.exit.thread, label %.thread
 
 get_reassembled_id.exit.thread:                   ; preds = %5, %get_reassembled_id.exit
-  %11 = tail call ptr @wmem_file_scope() #9
+  %11 = tail call ptr @wmem_file_scope()
   %12 = load i32, ptr @proto_rpcordma, align 4
-  %13 = tail call ptr @p_get_proto_data(ptr noundef %11, ptr noundef %2, i32 noundef %12, i32 noundef 1) #9
-  %.not11 = icmp eq ptr %13, null
-  br i1 %.not11, label %15, label %.thread
+  %13 = tail call ptr @p_get_proto_data(ptr noundef %11, ptr noundef %2, i32 noundef %12, i32 noundef 1)
+  %.not12 = icmp eq ptr %13, null
+  br i1 %.not12, label %15, label %.thread
 
 .thread:                                          ; preds = %get_reassembled_id.exit, %get_reassembled_id.exit.thread
-  %.016 = phi ptr [ %13, %get_reassembled_id.exit.thread ], [ %10, %get_reassembled_id.exit ]
-  %14 = tail call ptr @process_reassembled_data(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.94, ptr noundef nonnull %.016, ptr noundef nonnull @rpcordma_frag_items, ptr noundef null, ptr noundef %3) #9
-  store i1 false, ptr @g_needs_reassembly, align 4
+  %.017 = phi ptr [ %13, %get_reassembled_id.exit.thread ], [ %10, %get_reassembled_id.exit ]
+  %14 = tail call ptr @process_reassembled_data(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.96, ptr noundef nonnull %.017, ptr noundef nonnull @rpcordma_frag_items, ptr noundef null, ptr noundef %3)
+  store i1 false, ptr @g_needs_reassembly, align 1
   br label %15
 
 15:                                               ; preds = %get_reassembled_id.exit.thread, %.thread, %4
@@ -1115,19 +1157,21 @@ get_reassembled_id.exit.thread:                   ; preds = %5, %get_reassembled
   ret ptr %.09
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @get_rdma_list_size(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call ptr @wmem_file_scope() #9
+  %4 = tail call ptr @wmem_file_scope()
   %5 = load i32, ptr @proto_rpcordma, align 4
-  %6 = tail call ptr @p_get_proto_data(ptr noundef %4, ptr noundef %1, i32 noundef %5, i32 noundef 2) #9
+  %6 = tail call ptr @p_get_proto_data(ptr noundef %4, ptr noundef %1, i32 noundef %5, i32 noundef 2)
   %.not33 = icmp eq ptr %6, null
   br i1 %.not33, label %9, label %7
 
@@ -1137,17 +1181,17 @@ define internal fastcc i32 @get_rdma_list_size(ptr noundef %0, ptr noundef %1) u
 
 9:                                                ; preds = %3
   %10 = tail call fastcc ptr @get_rdma_conv_info(ptr noundef %1)
-  %11 = tail call i32 @wmem_array_get_count(ptr noundef nonnull %0) #9
+  %11 = tail call i32 @wmem_array_get_count(ptr noundef nonnull %0)
   %.not48 = icmp eq i32 %11, 0
   br i1 %.not48, label %.thread, label %.lr.ph45
 
 .lr.ph45:                                         ; preds = %9, %._crit_edge
   %.02743 = phi i32 [ %39, %._crit_edge ], [ 0, %9 ]
   %.142 = phi i32 [ %.2.lcssa, %._crit_edge ], [ 0, %9 ]
-  %12 = tail call ptr @wmem_array_index(ptr noundef nonnull %0, i32 noundef %.02743) #9
+  %12 = tail call ptr @wmem_array_index(ptr noundef nonnull %0, i32 noundef %.02743)
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call i32 @wmem_array_get_count(ptr noundef %14) #9
+  %15 = tail call i32 @wmem_array_get_count(ptr noundef %14)
   %.not49 = icmp eq i32 %15, 0
   br i1 %.not49, label %._crit_edge, label %.lr.ph
 
@@ -1155,13 +1199,13 @@ define internal fastcc i32 @get_rdma_list_size(ptr noundef %0, ptr noundef %1) u
   %.02841 = phi i32 [ %35, %find_segment_info.exit.thread ], [ 0, %.lr.ph45 ]
   %.240 = phi i32 [ %.3, %find_segment_info.exit.thread ], [ %.142, %.lr.ph45 ]
   %16 = load ptr, ptr %13, align 8
-  %17 = tail call ptr @wmem_array_index(ptr noundef %16, i32 noundef %.02841) #9
+  %17 = tail call ptr @wmem_array_index(ptr noundef %16, i32 noundef %.02841)
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %21 = load i64, ptr %20, align 8
   %.val = load ptr, ptr %10, align 8
-  %22 = tail call ptr @wmem_tree_lookup32(ptr noundef %.val, i32 noundef %19) #9
+  %22 = tail call ptr @wmem_tree_lookup32(ptr noundef %.val, i32 noundef %19)
   %.not.i = icmp eq ptr %22, null
   br i1 %.not.i, label %find_segment_info.exit.thread, label %23
 
@@ -1189,28 +1233,28 @@ find_segment_info.exit.thread:                    ; preds = %26, %23, %.lr.ph, %
   %.3 = phi i32 [ %34, %find_segment_info.exit ], [ %.240, %.lr.ph ], [ %.240, %23 ], [ %.240, %26 ]
   %35 = add nuw i32 %.02841, 1
   %36 = load ptr, ptr %13, align 8
-  %37 = tail call i32 @wmem_array_get_count(ptr noundef %36) #9
+  %37 = tail call i32 @wmem_array_get_count(ptr noundef %36)
   %38 = icmp ult i32 %35, %37
-  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !6
+  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %find_segment_info.exit.thread, %.lr.ph45
   %.2.lcssa = phi i32 [ %.142, %.lr.ph45 ], [ %.3, %find_segment_info.exit.thread ]
   %39 = add nuw i32 %.02743, 1
-  %40 = tail call i32 @wmem_array_get_count(ptr noundef nonnull %0) #9
+  %40 = tail call i32 @wmem_array_get_count(ptr noundef nonnull %0)
   %41 = icmp ult i32 %39, %40
-  br i1 %41, label %.lr.ph45, label %._crit_edge46, !llvm.loop !7
+  br i1 %41, label %.lr.ph45, label %._crit_edge46, !llvm.loop !11
 
 ._crit_edge46:                                    ; preds = %._crit_edge
   %.not34 = icmp eq i32 %.2.lcssa, 0
   br i1 %.not34, label %.thread, label %42
 
 42:                                               ; preds = %._crit_edge46
-  %43 = tail call ptr @wmem_file_scope() #9
-  %44 = tail call noalias ptr @wmem_alloc(ptr noundef %43, i64 noundef 4) #9
+  %43 = tail call ptr @wmem_file_scope()
+  %44 = tail call noalias dereferenceable_or_null(4) ptr @wmem_alloc(ptr noundef %43, i64 noundef 4) #14
   store i32 %.2.lcssa, ptr %44, align 4
-  %45 = tail call ptr @wmem_file_scope() #9
+  %45 = tail call ptr @wmem_file_scope()
   %46 = load i32, ptr @proto_rpcordma, align 4
-  tail call void @p_add_proto_data(ptr noundef %45, ptr noundef %1, i32 noundef %46, i32 noundef 2, ptr noundef nonnull %44) #9
+  tail call void @p_add_proto_data(ptr noundef %45, ptr noundef %1, i32 noundef %46, i32 noundef 2, ptr noundef %44)
   br label %.thread
 
 .thread:                                          ; preds = %9, %2, %._crit_edge46, %42, %7
@@ -1218,56 +1262,64 @@ find_segment_info.exit.thread:                    ; preds = %26, %23, %.lr.ph, %
   ret i32 %.0
 }
 
+; Function Attrs: null_pointer_is_valid
 declare noalias ptr @wmem_array_new(ptr noundef, i64 noundef) local_unnamed_addr #2
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_packet_scope() local_unnamed_addr #2
 
+; Function Attrs: null_pointer_is_valid
 declare void @register_frame_end_routine(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal void @reset_write_offsets() #4 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+define internal void @reset_write_offsets() #5 {
   store ptr null, ptr @gp_rdma_write_offsets, align 8
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @except_setup_try(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind returns_twice
-declare i32 @_setjmp(ptr noundef) local_unnamed_addr #5
+; Function Attrs: nounwind null_pointer_is_valid returns_twice
+declare i32 @_setjmp(ptr noundef) local_unnamed_addr #6
 
-; Function Attrs: noreturn
-declare void @except_rethrow(ptr noundef) local_unnamed_addr #6
+; Function Attrs: noreturn null_pointer_is_valid
+declare void @except_rethrow(ptr noundef) local_unnamed_addr #7
 
+; Function Attrs: null_pointer_is_valid
 declare void @except_free(ptr noundef) local_unnamed_addr #2
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @except_pop() local_unnamed_addr #2
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_file_scope() local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc ptr @end_reassembly(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %is_reassembly_done.exit.thread12, label %4
+  br i1 %.not, label %23, label %4
 
 4:                                                ; preds = %3
   %5 = getelementptr i8, ptr %1, i64 16
   %.val = load ptr, ptr %5, align 8
-  %6 = tail call ptr @wmem_tree_lookup32(ptr noundef %.val, i32 noundef %0) #9
+  %6 = tail call ptr @wmem_tree_lookup32(ptr noundef %.val, i32 noundef %0)
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %set_fragment_head.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call ptr @wmem_list_head(ptr noundef nonnull %6) #9
-  %.not3111.not.i = icmp eq ptr %8, null
-  br i1 %.not3111.not.i, label %set_fragment_head.exit, label %.lr.ph.i
+  %8 = tail call ptr @wmem_list_head(ptr noundef nonnull %6)
+  %.not3110.not.i = icmp eq ptr %8, null
+  br i1 %.not3110.not.i, label %set_fragment_head.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %7, %15
-  %.12414.i = phi i32 [ %18, %15 ], [ 0, %7 ]
-  %.02513.i = phi ptr [ %20, %15 ], [ %8, %7 ]
-  %.12712.i = phi i32 [ %19, %15 ], [ 0, %7 ]
-  %9 = tail call ptr @wmem_list_frame_data(ptr noundef nonnull %.02513.i) #9
+  %.12413.i = phi i32 [ %18, %15 ], [ 0, %7 ]
+  %.02512.i = phi ptr [ %20, %15 ], [ %8, %7 ]
+  %.12711.i = phi i32 [ %19, %15 ], [ 0, %7 ]
+  %9 = tail call ptr @wmem_list_frame_data(ptr noundef nonnull %.02512.i)
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 36
   %11 = load i32, ptr %10, align 4
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 32
@@ -1278,43 +1330,44 @@ define internal fastcc ptr @end_reassembly(i32 noundef %0, ptr noundef readonly 
 15:                                               ; preds = %.lr.ph.i
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %17 = load i32, ptr %16, align 8
-  %18 = add i32 %13, %.12414.i
-  %19 = add i32 %11, %.12712.i
-  %20 = tail call ptr @wmem_list_frame_next(ptr noundef nonnull %.02513.i) #9
+  %18 = add i32 %13, %.12413.i
+  %19 = add i32 %11, %.12711.i
+  %20 = tail call ptr @wmem_list_frame_next(ptr noundef nonnull %.02512.i)
   %.not31.i = icmp eq ptr %20, null
-  br i1 %.not31.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not31.i, label %is_reassembly_done.exit, label %.lr.ph.i, !llvm.loop !12
 
-._crit_edge.i:                                    ; preds = %15
-  %21 = icmp eq i32 %17, 0
-  %.not15 = icmp ult i32 %19, %18
-  %or.cond = select i1 %21, i1 %.not15, i1 false
-  br i1 %or.cond, label %set_fragment_head.exit, label %is_reassembly_done.exit.thread12
+is_reassembly_done.exit:                          ; preds = %15
+  %.fr.i = freeze i32 %17
+  %21 = icmp ne i32 %.fr.i, 0
+  %22 = icmp uge i32 %19, %18
+  %spec.select.i = select i1 %21, i1 true, i1 %22
+  br i1 %spec.select.i, label %23, label %set_fragment_head.exit
 
-is_reassembly_done.exit.thread12:                 ; preds = %._crit_edge.i, %3
-  %22 = tail call ptr @fragment_end_seq_next(ptr noundef nonnull @rpcordma_reassembly_table, ptr noundef %2, i32 noundef %0, ptr noundef null) #9
-  %.not.i9 = icmp eq ptr %22, null
-  br i1 %.not.i9, label %set_fragment_head.exit, label %23
+23:                                               ; preds = %is_reassembly_done.exit, %3
+  %24 = tail call ptr @fragment_end_seq_next(ptr noundef nonnull @rpcordma_reassembly_table, ptr noundef %2, i32 noundef %0, ptr noundef null)
+  %.not.i8 = icmp eq ptr %24, null
+  br i1 %.not.i8, label %set_fragment_head.exit, label %25
 
-23:                                               ; preds = %is_reassembly_done.exit.thread12
-  %24 = tail call ptr @wmem_file_scope() #9
-  %25 = load i32, ptr @proto_rpcordma, align 4
-  %26 = tail call ptr @p_get_proto_data(ptr noundef %24, ptr noundef %2, i32 noundef %25, i32 noundef 1) #9
-  %.not5.i = icmp eq ptr %22, %26
-  br i1 %.not5.i, label %set_fragment_head.exit, label %27
+25:                                               ; preds = %23
+  %26 = tail call ptr @wmem_file_scope()
+  %27 = load i32, ptr @proto_rpcordma, align 4
+  %28 = tail call ptr @p_get_proto_data(ptr noundef %26, ptr noundef %2, i32 noundef %27, i32 noundef 1)
+  %.not5.i = icmp eq ptr %24, %28
+  br i1 %.not5.i, label %set_fragment_head.exit, label %29
 
-27:                                               ; preds = %23
-  %28 = tail call ptr @wmem_file_scope() #9
-  %29 = load i32, ptr @proto_rpcordma, align 4
-  tail call void @p_add_proto_data(ptr noundef %28, ptr noundef %2, i32 noundef %29, i32 noundef 1, ptr noundef nonnull %22) #9
+29:                                               ; preds = %25
+  %30 = tail call ptr @wmem_file_scope()
+  %31 = load i32, ptr @proto_rpcordma, align 4
+  tail call void @p_add_proto_data(ptr noundef %30, ptr noundef %2, i32 noundef %31, i32 noundef 1, ptr noundef nonnull %24)
   br label %set_fragment_head.exit
 
-set_fragment_head.exit:                           ; preds = %.lr.ph.i, %._crit_edge.i, %7, %4, %27, %23, %is_reassembly_done.exit.thread12
-  %.0 = phi ptr [ null, %is_reassembly_done.exit.thread12 ], [ %22, %23 ], [ %22, %27 ], [ null, %4 ], [ null, %7 ], [ null, %._crit_edge.i ], [ null, %.lr.ph.i ]
+set_fragment_head.exit:                           ; preds = %.lr.ph.i, %7, %4, %29, %25, %23, %is_reassembly_done.exit
+  %.0 = phi ptr [ null, %is_reassembly_done.exit ], [ null, %23 ], [ %24, %25 ], [ %24, %29 ], [ null, %4 ], [ null, %7 ], [ null, %.lr.ph.i ]
   ret ptr %.0
 }
 
-; Function Attrs: nounwind uwtable
-define internal fastcc ptr @process_rdma_lists(ptr noundef %0, i32 noundef %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #1 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal fastcc ptr @process_rdma_lists(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #1 {
   %6 = tail call fastcc ptr @get_reassembled_data(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef %4)
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %17
@@ -1339,46 +1392,54 @@ define internal fastcc ptr @process_rdma_lists(ptr noundef %0, i32 noundef %1, p
   ret ptr %.0
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid allocsize(1)
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #8
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item_ret_uint64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @wmem_array_get_count(ptr noundef) local_unnamed_addr #2
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_array_index(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_rpcrdma_write_chunk(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 1, 3) %3, ptr noundef %4) unnamed_addr #1 {
   %6 = add i32 %2, 4
-  %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %6) #9
+  %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %6)
   %8 = lshr i32 %7, 4
-  %9 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %2) #9
+  %9 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %2)
   %spec.select.i = tail call i32 @llvm.umin.i32(i32 %9, i32 %8)
   %10 = shl nuw i32 %spec.select.i, 4
   %11 = or disjoint i32 %10, 4
-  %12 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %2) #9
+  %12 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %2)
   %13 = load i32, ptr @ett_rpcordma_write_chunk, align 4
   %14 = icmp eq i32 %12, 1
-  %15 = select i1 %14, ptr @.str.90, ptr @.str.91
-  %16 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %11, i32 noundef %13, ptr noundef null, ptr noundef nonnull @.str.89, i32 noundef %12, ptr noundef nonnull %15) #9
+  %15 = select i1 %14, ptr @.str.92, ptr @.str.93
+  %16 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %11, i32 noundef %13, ptr noundef null, ptr noundef nonnull @.str.91, i32 noundef %12, ptr noundef nonnull %15)
   %17 = load i32, ptr @hf_rpcordma_segment_count, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %17, ptr noundef %1, i32 noundef %2, i32 noundef 4, i32 noundef 0) #9
-  %19 = tail call ptr @wmem_packet_scope() #9
-  %20 = tail call noalias ptr @wmem_alloc(ptr noundef %19, i64 noundef 16) #9
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %17, ptr noundef %1, i32 noundef %2, i32 noundef 4, i32 noundef 0)
+  %19 = tail call ptr @wmem_packet_scope()
+  %20 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %19, i64 noundef 16) #14
   store i32 %3, ptr %20, align 8
-  %21 = tail call ptr @wmem_packet_scope() #9
-  %22 = tail call noalias ptr @wmem_array_new(ptr noundef %21, i64 noundef 24) #9
+  %21 = tail call ptr @wmem_packet_scope()
+  %22 = tail call noalias ptr @wmem_array_new(ptr noundef %21, i64 noundef 24)
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %22, ptr %23, align 8
-  tail call void @wmem_array_append(ptr noundef %4, ptr noundef nonnull %20, i32 noundef 1) #9
+  tail call void @wmem_array_append(ptr noundef %4, ptr noundef %20, i32 noundef 1)
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1386,71 +1447,74 @@ define internal fastcc i32 @dissect_rpcrdma_write_chunk(ptr noundef %0, ptr noun
   %.029 = phi i32 [ %40, %.lr.ph ], [ %6, %5 ]
   %.02728 = phi i32 [ %41, %.lr.ph ], [ 0, %5 ]
   %24 = load ptr, ptr %23, align 8
-  %25 = tail call ptr @wmem_packet_scope() #9
-  %26 = tail call noalias ptr @wmem_alloc(ptr noundef %25, i64 noundef 24) #9
+  %25 = tail call ptr @wmem_packet_scope()
+  %26 = tail call noalias dereferenceable_or_null(24) ptr @wmem_alloc(ptr noundef %25, i64 noundef 24) #14
   store i32 0, ptr %26, align 8
   %27 = load i32, ptr @ett_rpcordma_segment, align 4
-  %28 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %16, ptr noundef %1, i32 noundef %.029, i32 noundef 16, i32 noundef %27, ptr noundef null, ptr noundef nonnull @.str.92, i32 noundef %.02728) #9
+  %28 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %16, ptr noundef %1, i32 noundef %.029, i32 noundef 16, i32 noundef %27, ptr noundef null, ptr noundef nonnull @.str.94, i32 noundef %.02728)
   %29 = load i32, ptr @hf_rpcordma_rdma_handle, align 4
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 4
-  %31 = tail call ptr @proto_tree_add_item_ret_uint(ptr noundef %28, i32 noundef %29, ptr noundef %1, i32 noundef %.029, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %30) #9
+  %31 = tail call ptr @proto_tree_add_item_ret_uint(ptr noundef %28, i32 noundef %29, ptr noundef %1, i32 noundef %.029, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %30)
   %32 = add i32 %.029, 4
   %33 = load i32, ptr @hf_rpcordma_rdma_length, align 4
   %34 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %35 = tail call ptr @proto_tree_add_item_ret_uint(ptr noundef %28, i32 noundef %33, ptr noundef %1, i32 noundef %32, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %34) #9
+  %35 = tail call ptr @proto_tree_add_item_ret_uint(ptr noundef %28, i32 noundef %33, ptr noundef %1, i32 noundef %32, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %34)
   %36 = add i32 %.029, 8
   %37 = load i32, ptr @hf_rpcordma_rdma_offset, align 4
   %38 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %39 = tail call ptr @proto_tree_add_item_ret_uint64(ptr noundef %28, i32 noundef %37, ptr noundef %1, i32 noundef %36, i32 noundef 8, i32 noundef 0, ptr noundef nonnull %38) #9
-  tail call void @wmem_array_append(ptr noundef %24, ptr noundef nonnull %26, i32 noundef 1) #9
+  %39 = tail call ptr @proto_tree_add_item_ret_uint64(ptr noundef %28, i32 noundef %37, ptr noundef %1, i32 noundef %36, i32 noundef 8, i32 noundef 0, ptr noundef nonnull %38)
+  tail call void @wmem_array_append(ptr noundef %24, ptr noundef %26, i32 noundef 1)
   %40 = add i32 %.029, 16
   %41 = add nuw i32 %.02728, 1
   %exitcond.not = icmp eq i32 %41, %12
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.0.lcssa = phi i32 [ %6, %5 ], [ %40, %.lr.ph ]
   ret i32 %.0.lcssa
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @process_reassembled_data(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @fragment_get_reassembled_id(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc ptr @get_rdma_conv_info(ptr noundef %0) unnamed_addr #1 {
-  %2 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %0) #9
+  %2 = tail call ptr @find_or_create_conversation(ptr noundef %0)
   %3 = load i32, ptr @proto_rpcordma, align 4
-  %4 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %2, i32 noundef %3) #9
+  %4 = tail call ptr @conversation_get_proto_data(ptr noundef %2, i32 noundef %3)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %29
 
 6:                                                ; preds = %1
-  %7 = tail call ptr @wmem_file_scope() #9
-  %8 = tail call noalias ptr @wmem_alloc(ptr noundef %7, i64 noundef 64) #9
-  %9 = tail call ptr @wmem_file_scope() #9
-  %10 = tail call noalias ptr @wmem_tree_new(ptr noundef %9) #9
+  %7 = tail call ptr @wmem_file_scope()
+  %8 = tail call noalias dereferenceable_or_null(64) ptr @wmem_alloc(ptr noundef %7, i64 noundef 64) #14
+  %9 = tail call ptr @wmem_file_scope()
+  %10 = tail call noalias ptr @wmem_tree_new(ptr noundef %9)
   store ptr %10, ptr %8, align 8
-  %11 = tail call ptr @wmem_file_scope() #9
-  %12 = tail call noalias ptr @wmem_tree_new(ptr noundef %11) #9
+  %11 = tail call ptr @wmem_file_scope()
+  %12 = tail call noalias ptr @wmem_tree_new(ptr noundef %11)
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %12, ptr %13, align 8
-  %14 = tail call ptr @wmem_file_scope() #9
-  %15 = tail call noalias ptr @wmem_tree_new(ptr noundef %14) #9
+  %14 = tail call ptr @wmem_file_scope()
+  %15 = tail call noalias ptr @wmem_tree_new(ptr noundef %14)
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %15, ptr %16, align 8
-  %17 = tail call ptr @wmem_file_scope() #9
-  %18 = tail call noalias ptr @wmem_tree_new(ptr noundef %17) #9
+  %17 = tail call ptr @wmem_file_scope()
+  %18 = tail call noalias ptr @wmem_tree_new(ptr noundef %17)
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %18, ptr %19, align 8
-  %20 = tail call ptr @wmem_file_scope() #9
-  %21 = tail call noalias ptr @wmem_tree_new(ptr noundef %20) #9
+  %20 = tail call ptr @wmem_file_scope()
+  %21 = tail call noalias ptr @wmem_tree_new(ptr noundef %20)
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr %21, ptr %22, align 8
-  %23 = tail call ptr @wmem_file_scope() #9
-  %24 = tail call noalias ptr @wmem_tree_new(ptr noundef %23) #9
+  %23 = tail call ptr @wmem_file_scope()
+  %24 = tail call noalias ptr @wmem_tree_new(ptr noundef %23)
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %24, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 48
@@ -1458,7 +1522,7 @@ define internal fastcc ptr @get_rdma_conv_info(ptr noundef %0) unnamed_addr #1 {
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store i32 1, ptr %27, align 8
   %28 = load i32, ptr @proto_rpcordma, align 4
-  tail call void @conversation_add_proto_data(ptr noundef nonnull %2, i32 noundef %28, ptr noundef nonnull %8) #9
+  tail call void @conversation_add_proto_data(ptr noundef %2, i32 noundef %28, ptr noundef %8)
   br label %29
 
 29:                                               ; preds = %6, %1
@@ -1466,96 +1530,106 @@ define internal fastcc ptr @get_rdma_conv_info(ptr noundef %0) unnamed_addr #1 {
   ret ptr %.0
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @p_add_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare nonnull ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr #2
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) local_unnamed_addr #2
 
+; Function Attrs: null_pointer_is_valid
 declare noalias ptr @wmem_tree_new(ptr noundef) local_unnamed_addr #2
 
+; Function Attrs: null_pointer_is_valid
 declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_tree_lookup32(ptr noundef, i32 noundef) local_unnamed_addr #2
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @fragment_end_seq_next(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_list_head(ptr noundef) local_unnamed_addr #2
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_list_frame_data(ptr noundef) local_unnamed_addr #2
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_list_frame_next(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc ptr @process_rdma_list(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #1 {
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %155, label %6
+  br i1 %.not, label %152, label %6
 
 6:                                                ; preds = %5
   %7 = tail call fastcc ptr @get_rdma_conv_info(ptr noundef %3)
-  %8 = tail call i32 @wmem_array_get_count(ptr noundef nonnull %2) #9
-  %.not200 = icmp eq i32 %8, 0
-  br i1 %.not200, label %._crit_edge192, label %.lr.ph191
+  %8 = tail call i32 @wmem_array_get_count(ptr noundef nonnull %2)
+  %.not198 = icmp eq i32 %8, 0
+  br i1 %.not198, label %._crit_edge190, label %.lr.ph189
 
-.lr.ph191:                                        ; preds = %6
+.lr.ph189:                                        ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %10
 
-10:                                               ; preds = %.lr.ph191, %112
-  %.0122189 = phi ptr [ null, %.lr.ph191 ], [ %.1.lcssa, %112 ]
-  %.0123188 = phi i32 [ 0, %.lr.ph191 ], [ %.1124.lcssa, %112 ]
-  %.0126187 = phi ptr [ null, %.lr.ph191 ], [ %.1127.lcssa, %112 ]
-  %.0130186 = phi ptr [ %0, %.lr.ph191 ], [ %.2132, %112 ]
-  %.0133185 = phi i32 [ %1, %.lr.ph191 ], [ %.2135, %112 ]
-  %.0137184 = phi i32 [ 0, %.lr.ph191 ], [ %113, %112 ]
-  %.0140183 = phi i32 [ 0, %.lr.ph191 ], [ %90, %112 ]
-  %.0141182 = phi i32 [ 0, %.lr.ph191 ], [ %.2143, %112 ]
-  %.0144181 = phi i32 [ 0, %.lr.ph191 ], [ %.1145, %112 ]
-  %.0146180 = phi i32 [ 0, %.lr.ph191 ], [ %.1147, %112 ]
-  %.0148179 = phi i32 [ 0, %.lr.ph191 ], [ %.2150.lcssa, %112 ]
-  %.0152178 = phi i32 [ 0, %.lr.ph191 ], [ %.1153.lcssa, %112 ]
-  %11 = tail call ptr @wmem_array_index(ptr noundef nonnull %2, i32 noundef %.0137184) #9
+10:                                               ; preds = %.lr.ph189, %112
+  %.0120187 = phi ptr [ null, %.lr.ph189 ], [ %.1.lcssa, %112 ]
+  %.0121186 = phi i1 [ false, %.lr.ph189 ], [ %.1122.lcssa, %112 ]
+  %.0124185 = phi ptr [ null, %.lr.ph189 ], [ %.1125.lcssa, %112 ]
+  %.0128184 = phi ptr [ %0, %.lr.ph189 ], [ %.2130, %112 ]
+  %.0131183 = phi i32 [ %1, %.lr.ph189 ], [ %.2133, %112 ]
+  %.0135182 = phi i32 [ 0, %.lr.ph189 ], [ %113, %112 ]
+  %.0138181 = phi i32 [ 0, %.lr.ph189 ], [ %90, %112 ]
+  %.0139180 = phi i32 [ 0, %.lr.ph189 ], [ %.2141, %112 ]
+  %.0142179 = phi i32 [ 0, %.lr.ph189 ], [ %.1143, %112 ]
+  %.0144178 = phi i32 [ 0, %.lr.ph189 ], [ %.1145, %112 ]
+  %.0146177 = phi i32 [ 0, %.lr.ph189 ], [ %.2148.lcssa, %112 ]
+  %.0150176 = phi i32 [ 0, %.lr.ph189 ], [ %.1151.lcssa, %112 ]
+  %11 = tail call ptr @wmem_array_index(ptr noundef nonnull %2, i32 noundef %.0135182)
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 0, ptr %12, align 4
   %13 = load i32, ptr %11, align 8
   %14 = icmp eq i32 %13, 1
   %15 = load ptr, ptr @gp_rdma_write_offsets, align 8
   %16 = icmp ne ptr %15, null
-  %or.cond7 = select i1 %14, i1 %16, i1 false
-  br i1 %or.cond7, label %17, label %28
+  %or.cond5 = select i1 %14, i1 %16, i1 false
+  br i1 %or.cond5, label %17, label %28
 
 17:                                               ; preds = %10
-  %18 = tail call i32 @wmem_array_get_count(ptr noundef nonnull %15) #9
-  %19 = tail call i32 @wmem_array_get_count(ptr noundef nonnull %2) #9
+  %18 = tail call i32 @wmem_array_get_count(ptr noundef nonnull %15)
+  %19 = tail call i32 @wmem_array_get_count(ptr noundef nonnull %2)
   %20 = icmp eq i32 %18, %19
   br i1 %20, label %21, label %28
 
 21:                                               ; preds = %17
   %22 = load ptr, ptr @gp_rdma_write_offsets, align 8
-  %23 = tail call ptr @wmem_array_index(ptr noundef %22, i32 noundef %.0137184) #9
-  %24 = tail call i32 @tvb_reported_length_remaining(ptr noundef %.0130186, i32 noundef %.0133185) #9
+  %23 = tail call ptr @wmem_array_index(ptr noundef %22, i32 noundef %.0135182)
+  %24 = tail call i32 @tvb_reported_length_remaining(ptr noundef %.0128184, i32 noundef %.0131183)
   %25 = load i32, ptr %23, align 4
-  %26 = add i32 %24, %.0140183
+  %26 = add i32 %24, %.0138181
   %27 = sub i32 %26, %25
   br label %28
 
 28:                                               ; preds = %17, %21, %10
-  %.1149 = phi i32 [ %27, %21 ], [ %.0148179, %17 ], [ %.0148179, %10 ]
-  %.1139 = phi ptr [ %23, %21 ], [ null, %17 ], [ null, %10 ]
+  %.1147 = phi i32 [ %27, %21 ], [ %.0146177, %17 ], [ %.0146177, %10 ]
+  %.1137 = phi ptr [ %23, %21 ], [ null, %17 ], [ null, %10 ]
   %29 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %30 = load ptr, ptr %29, align 8
-  %31 = tail call i32 @wmem_array_get_count(ptr noundef %30) #9
-  %.not201 = icmp eq i32 %31, 0
-  br i1 %.not201, label %._crit_edge, label %.lr.ph
+  %31 = tail call i32 @wmem_array_get_count(ptr noundef %30)
+  %.not199 = icmp eq i32 %31, 0
+  br i1 %.not199, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %28, %81
-  %.1173 = phi ptr [ %.2, %81 ], [ %.0122189, %28 ]
-  %.1124172 = phi i32 [ %.2125, %81 ], [ %.0123188, %28 ]
-  %.2150171 = phi i32 [ %.3151, %81 ], [ %.1149, %28 ]
-  %.1153170 = phi i32 [ %.2154, %81 ], [ %.0152178, %28 ]
-  %.0156169 = phi i32 [ %85, %81 ], [ 0, %28 ]
+  %.1171 = phi ptr [ %.2, %81 ], [ %.0120187, %28 ]
+  %.1122170 = phi i1 [ %.2123, %81 ], [ %.0121186, %28 ]
+  %.2148169 = phi i32 [ %.3149, %81 ], [ %.1147, %28 ]
+  %.1151168 = phi i32 [ %.2152, %81 ], [ %.0150176, %28 ]
+  %.0154167 = phi i32 [ %85, %81 ], [ 0, %28 ]
   %32 = load ptr, ptr %29, align 8
-  %33 = tail call ptr @wmem_array_index(ptr noundef %32, i32 noundef %.0156169) #9
+  %33 = tail call ptr @wmem_array_index(ptr noundef %32, i32 noundef %.0154167)
   %34 = load i32, ptr %11, align 8
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %38
@@ -1565,13 +1639,13 @@ define internal fastcc ptr @process_rdma_list(ptr noundef %0, i32 noundef %1, pt
   br label %38
 
 38:                                               ; preds = %36, %.lr.ph
-  %.3151 = phi i32 [ %37, %36 ], [ %.2150171, %.lr.ph ]
+  %.3149 = phi i32 [ %37, %36 ], [ %.2148169, %.lr.ph ]
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %40 = load i32, ptr %39, align 4
   %41 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %42 = load i64, ptr %41, align 8
   %.val = load ptr, ptr %7, align 8
-  %43 = tail call ptr @wmem_tree_lookup32(ptr noundef %.val, i32 noundef %40) #9
+  %43 = tail call ptr @wmem_tree_lookup32(ptr noundef %.val, i32 noundef %40)
   %.not.i = icmp eq ptr %43, null
   br i1 %.not.i, label %55, label %44
 
@@ -1596,7 +1670,7 @@ find_segment_info.exit:                           ; preds = %47
   br label %81
 
 55:                                               ; preds = %38, %44, %47
-  %56 = icmp eq i32 %.1153170, 0
+  %56 = icmp eq i32 %.1151168, 0
   br i1 %56, label %57, label %63
 
 57:                                               ; preds = %55
@@ -1604,17 +1678,17 @@ find_segment_info.exit:                           ; preds = %47
   %59 = add i32 %58, 1
   %spec.select.i = tail call i32 @llvm.umax.i32(i32 %59, i32 1)
   store i32 %spec.select.i, ptr @get_msg_id.msg_id, align 4
-  %60 = tail call ptr @wmem_file_scope() #9
-  %61 = tail call noalias ptr @wmem_list_new(ptr noundef %60) #9
+  %60 = tail call ptr @wmem_file_scope()
+  %61 = tail call noalias ptr @wmem_list_new(ptr noundef %60)
   %62 = load ptr, ptr %9, align 8
-  tail call void @wmem_tree_insert32(ptr noundef %62, i32 noundef %spec.select.i, ptr noundef %61) #9
+  tail call void @wmem_tree_insert32(ptr noundef %62, i32 noundef %spec.select.i, ptr noundef %61)
   br label %63
 
 63:                                               ; preds = %57, %55
-  %.3155 = phi i32 [ %spec.select.i, %57 ], [ %.1153170, %55 ]
-  %.3 = phi ptr [ %61, %57 ], [ %.1173, %55 ]
-  %64 = tail call ptr @wmem_file_scope() #9
-  %65 = tail call noalias ptr @wmem_alloc(ptr noundef %64, i64 noundef 40) #9
+  %.3153 = phi i32 [ %spec.select.i, %57 ], [ %.1151168, %55 ]
+  %.3 = phi ptr [ %61, %57 ], [ %.1171, %55 ]
+  %64 = tail call ptr @wmem_file_scope()
+  %65 = tail call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %64, i64 noundef 40) #14
   %66 = load i32, ptr %39, align 4
   store i32 %66, ptr %65, align 8
   %67 = getelementptr inbounds nuw i8, ptr %33, i64 8
@@ -1625,7 +1699,7 @@ find_segment_info.exit:                           ; preds = %47
   %71 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store i64 %70, ptr %71, align 8
   %72 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  store i32 %.3155, ptr %72, align 8
+  store i32 %.3153, ptr %72, align 8
   %73 = load i32, ptr %12, align 4
   %74 = getelementptr inbounds nuw i8, ptr %65, i64 20
   store i32 %73, ptr %74, align 4
@@ -1633,181 +1707,185 @@ find_segment_info.exit:                           ; preds = %47
   %76 = getelementptr inbounds nuw i8, ptr %65, i64 24
   store i32 %75, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %65, i64 28
-  store i32 %.3151, ptr %77, align 4
+  store i32 %.3149, ptr %77, align 4
   %78 = getelementptr inbounds nuw i8, ptr %65, i64 36
   store i32 0, ptr %78, align 4
   %79 = load ptr, ptr %7, align 8
   %80 = load i32, ptr %39, align 4
-  tail call void @wmem_tree_insert32(ptr noundef %79, i32 noundef %80, ptr noundef nonnull %65) #9
-  tail call void @wmem_list_append(ptr noundef %.3, ptr noundef nonnull %65) #9
+  tail call void @wmem_tree_insert32(ptr noundef %79, i32 noundef %80, ptr noundef %65)
+  tail call void @wmem_list_append(ptr noundef %.3, ptr noundef %65)
   %.pre = load i32, ptr %67, align 8
   br label %81
 
 81:                                               ; preds = %63, %find_segment_info.exit
   %82 = phi i32 [ %54, %find_segment_info.exit ], [ %.pre, %63 ]
-  %.2154 = phi i32 [ %.1153170, %find_segment_info.exit ], [ %.3155, %63 ]
-  %.2128 = phi ptr [ %43, %find_segment_info.exit ], [ %65, %63 ]
-  %.2125 = phi i32 [ %.1124172, %find_segment_info.exit ], [ 1, %63 ]
-  %.2 = phi ptr [ %.1173, %find_segment_info.exit ], [ %.3, %63 ]
+  %.2152 = phi i32 [ %.1151168, %find_segment_info.exit ], [ %.3153, %63 ]
+  %.2126 = phi ptr [ %43, %find_segment_info.exit ], [ %65, %63 ]
+  %.2123 = phi i1 [ %.1122170, %find_segment_info.exit ], [ true, %63 ]
+  %.2 = phi ptr [ %.1171, %find_segment_info.exit ], [ %.3, %63 ]
   %83 = load i32, ptr %12, align 4
   %84 = add i32 %83, %82
   store i32 %84, ptr %12, align 4
-  %85 = add nuw i32 %.0156169, 1
+  %85 = add nuw i32 %.0154167, 1
   %86 = load ptr, ptr %29, align 8
-  %87 = tail call i32 @wmem_array_get_count(ptr noundef %86) #9
+  %87 = tail call i32 @wmem_array_get_count(ptr noundef %86)
   %88 = icmp ult i32 %85, %87
-  br i1 %88, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %88, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %81, %28
-  %.1153.lcssa = phi i32 [ %.0152178, %28 ], [ %.2154, %81 ]
-  %.2150.lcssa = phi i32 [ %.1149, %28 ], [ %.3151, %81 ]
-  %.1127.lcssa = phi ptr [ %.0126187, %28 ], [ %.2128, %81 ]
-  %.1124.lcssa = phi i32 [ %.0123188, %28 ], [ %.2125, %81 ]
-  %.1.lcssa = phi ptr [ %.0122189, %28 ], [ %.2, %81 ]
+  %.1151.lcssa = phi i32 [ %.0150176, %28 ], [ %.2152, %81 ]
+  %.2148.lcssa = phi i32 [ %.1147, %28 ], [ %.3149, %81 ]
+  %.1125.lcssa = phi ptr [ %.0124185, %28 ], [ %.2126, %81 ]
+  %.1122.lcssa = phi i1 [ %.0121186, %28 ], [ %.2123, %81 ]
+  %.1.lcssa = phi ptr [ %.0120187, %28 ], [ %.2, %81 ]
   %89 = load i32, ptr %12, align 4
-  %90 = add i32 %89, %.0140183
+  %90 = add i32 %89, %.0138181
   %91 = load i32, ptr %11, align 8
   %92 = icmp eq i32 %91, 0
-  %93 = icmp ne ptr %.1139, null
+  %93 = icmp ne ptr %.1137, null
   %or.cond = select i1 %92, i1 true, i1 %93
   br i1 %or.cond, label %94, label %112
 
 94:                                               ; preds = %._crit_edge
-  %95 = add i32 %.0144181, %.0146180
-  %96 = sub i32 %.2150.lcssa, %95
-  %.not164 = icmp eq i32 %.2150.lcssa, %95
-  br i1 %.not164, label %110, label %97
+  %95 = add i32 %.0142179, %.0144178
+  %96 = sub i32 %.2148.lcssa, %95
+  %.not162 = icmp eq i32 %.2148.lcssa, %95
+  br i1 %.not162, label %110, label %97
 
 97:                                               ; preds = %94
-  %98 = tail call i32 @tvb_captured_length_remaining(ptr noundef %.0130186, i32 noundef %.0133185) #9
+  %98 = tail call i32 @tvb_captured_length_remaining(ptr noundef %.0128184, i32 noundef %.0131183)
   %99 = icmp sgt i32 %98, 0
-  %100 = icmp ne ptr %.1127.lcssa, null
+  %100 = icmp ne ptr %.1125.lcssa, null
   %or.cond3 = select i1 %99, i1 %100, i1 false
   br i1 %or.cond3, label %101, label %110
 
 101:                                              ; preds = %97
-  %102 = tail call ptr @tvb_new_subset_length(ptr noundef %.0130186, i32 noundef %.0133185, i32 noundef %96) #9
-  %103 = getelementptr inbounds nuw i8, ptr %.1127.lcssa, i64 16
+  %102 = tail call ptr @tvb_new_subset_length(ptr noundef %.0128184, i32 noundef %.0131183, i32 noundef %96)
+  %103 = getelementptr inbounds nuw i8, ptr %.1125.lcssa, i64 16
   %104 = load i32, ptr %103, align 8
-  %105 = tail call fastcc ptr @add_fragment(ptr noundef %102, i32 noundef 0, i32 noundef %104, i32 noundef %.0141182, i32 noundef 1, ptr noundef %7, ptr noundef %3, ptr noundef %4)
+  %105 = tail call fastcc ptr @add_fragment(ptr noundef %102, i32 noundef 0, i32 noundef %104, i32 noundef %.0139180, i1 noundef zeroext true, ptr noundef %7, ptr noundef %3, ptr noundef %4)
   %106 = load i32, ptr %12, align 4
-  %107 = add i32 %106, %.0141182
-  %108 = add i32 %96, %.0133185
-  %109 = tail call ptr @tvb_new_subset_remaining(ptr noundef %.0130186, i32 noundef %108) #9
+  %107 = add i32 %106, %.0139180
+  %108 = add i32 %96, %.0131183
+  %109 = tail call ptr @tvb_new_subset_remaining(ptr noundef %.0128184, i32 noundef %108)
   br label %110
 
 110:                                              ; preds = %101, %97, %94
-  %.1142 = phi i32 [ %107, %101 ], [ %.0141182, %97 ], [ %.0141182, %94 ]
-  %.1134 = phi i32 [ 0, %101 ], [ %.0133185, %97 ], [ %.0133185, %94 ]
-  %.1131 = phi ptr [ %109, %101 ], [ %.0130186, %97 ], [ %.0130186, %94 ]
+  %.1140 = phi i32 [ %107, %101 ], [ %.0139180, %97 ], [ %.0139180, %94 ]
+  %.1132 = phi i32 [ 0, %101 ], [ %.0131183, %97 ], [ %.0131183, %94 ]
+  %.1129 = phi ptr [ %109, %101 ], [ %.0128184, %97 ], [ %.0128184, %94 ]
   %111 = load i32, ptr %12, align 4
   br label %112
 
 112:                                              ; preds = %110, %._crit_edge
-  %.1147 = phi i32 [ %.2150.lcssa, %110 ], [ %.0146180, %._crit_edge ]
-  %.1145 = phi i32 [ %111, %110 ], [ %.0144181, %._crit_edge ]
-  %.2143 = phi i32 [ %.1142, %110 ], [ %.0141182, %._crit_edge ]
-  %.2135 = phi i32 [ %.1134, %110 ], [ %.0133185, %._crit_edge ]
-  %.2132 = phi ptr [ %.1131, %110 ], [ %.0130186, %._crit_edge ]
-  %113 = add nuw i32 %.0137184, 1
-  %114 = tail call i32 @wmem_array_get_count(ptr noundef nonnull %2) #9
+  %.1145 = phi i32 [ %.2148.lcssa, %110 ], [ %.0144178, %._crit_edge ]
+  %.1143 = phi i32 [ %111, %110 ], [ %.0142179, %._crit_edge ]
+  %.2141 = phi i32 [ %.1140, %110 ], [ %.0139180, %._crit_edge ]
+  %.2133 = phi i32 [ %.1132, %110 ], [ %.0131183, %._crit_edge ]
+  %.2130 = phi ptr [ %.1129, %110 ], [ %.0128184, %._crit_edge ]
+  %113 = add nuw i32 %.0135182, 1
+  %114 = tail call i32 @wmem_array_get_count(ptr noundef nonnull %2)
   %115 = icmp ult i32 %113, %114
-  br i1 %115, label %10, label %._crit_edge192.loopexit, !llvm.loop !11
+  br i1 %115, label %10, label %._crit_edge190.loopexit, !llvm.loop !15
 
-._crit_edge192.loopexit:                          ; preds = %112
-  %116 = icmp ne i32 %.1124.lcssa, 0
-  %117 = icmp eq ptr %.1139, null
-  br label %._crit_edge192
+._crit_edge190.loopexit:                          ; preds = %112
+  %116 = icmp eq ptr %.1137, null
+  br label %._crit_edge190
 
-._crit_edge192:                                   ; preds = %._crit_edge192.loopexit, %6
-  %.0141.lcssa = phi i32 [ 0, %6 ], [ %.2143, %._crit_edge192.loopexit ]
-  %.0138.lcssa = phi i1 [ true, %6 ], [ %117, %._crit_edge192.loopexit ]
-  %.0133.lcssa = phi i32 [ %1, %6 ], [ %.2135, %._crit_edge192.loopexit ]
-  %.0130.lcssa = phi ptr [ %0, %6 ], [ %.2132, %._crit_edge192.loopexit ]
-  %.0129.lcssa = phi ptr [ null, %6 ], [ %11, %._crit_edge192.loopexit ]
-  %.0126.lcssa = phi ptr [ null, %6 ], [ %.1127.lcssa, %._crit_edge192.loopexit ]
-  %.0123.lcssa = phi i1 [ false, %6 ], [ %116, %._crit_edge192.loopexit ]
-  %118 = tail call ptr @wmem_file_scope() #9
-  %119 = load i32, ptr @proto_rpcordma, align 4
-  %120 = tail call ptr @p_get_proto_data(ptr noundef %118, ptr noundef %3, i32 noundef %119, i32 noundef 1) #9
-  %121 = icmp ne ptr %120, null
-  %122 = icmp eq ptr %.0126.lcssa, null
-  %or.cond166 = select i1 %121, i1 true, i1 %122
-  br i1 %or.cond166, label %155, label %123
+._crit_edge190:                                   ; preds = %._crit_edge190.loopexit, %6
+  %.0139.lcssa = phi i32 [ 0, %6 ], [ %.2141, %._crit_edge190.loopexit ]
+  %.0136.lcssa = phi i1 [ true, %6 ], [ %116, %._crit_edge190.loopexit ]
+  %.0131.lcssa = phi i32 [ %1, %6 ], [ %.2133, %._crit_edge190.loopexit ]
+  %.0128.lcssa = phi ptr [ %0, %6 ], [ %.2130, %._crit_edge190.loopexit ]
+  %.0127.lcssa = phi ptr [ null, %6 ], [ %11, %._crit_edge190.loopexit ]
+  %.0124.lcssa = phi ptr [ null, %6 ], [ %.1125.lcssa, %._crit_edge190.loopexit ]
+  %.0121.lcssa = phi i1 [ false, %6 ], [ %.1122.lcssa, %._crit_edge190.loopexit ]
+  %117 = tail call ptr @wmem_file_scope()
+  %118 = load i32, ptr @proto_rpcordma, align 4
+  %119 = tail call ptr @p_get_proto_data(ptr noundef %117, ptr noundef %3, i32 noundef %118, i32 noundef 1)
+  %120 = icmp ne ptr %119, null
+  %121 = icmp eq ptr %.0124.lcssa, null
+  %or.cond164 = select i1 %120, i1 true, i1 %121
+  br i1 %or.cond164, label %152, label %122
 
-123:                                              ; preds = %._crit_edge192
-  %124 = load i32, ptr %.0129.lcssa, align 8
-  %125 = icmp ne i32 %124, 2
-  %or.cond5 = select i1 %125, i1 true, i1 %.0123.lcssa
-  br i1 %or.cond5, label %139, label %126
+122:                                              ; preds = %._crit_edge190
+  %123 = load i32, ptr %.0127.lcssa, align 8
+  switch i32 %123, label %.thread [
+    i32 2, label %124
+    i32 0, label %138
+  ]
 
-126:                                              ; preds = %123
-  %127 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %128 = load ptr, ptr %127, align 8
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 50
-  %130 = load i16, ptr %129, align 2
-  %131 = and i16 %130, 8
-  %.not161 = icmp eq i16 %131, 0
-  br i1 %.not161, label %132, label %.thread
+124:                                              ; preds = %122
+  br i1 %.0121.lcssa, label %.thread, label %125
 
-132:                                              ; preds = %126
-  %133 = getelementptr inbounds nuw i8, ptr %.0129.lcssa, i64 4
-  %134 = load i32, ptr %133, align 4
-  %.not162 = icmp eq i32 %134, 0
-  br i1 %.not162, label %.thread, label %135
+125:                                              ; preds = %124
+  %126 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  %127 = load ptr, ptr %126, align 8
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 57
+  %129 = load i16, ptr %128, align 1
+  %130 = and i16 %129, 8
+  %.not159 = icmp eq i16 %130, 0
+  br i1 %.not159, label %131, label %.thread
 
-135:                                              ; preds = %132
-  %136 = getelementptr inbounds nuw i8, ptr %.0126.lcssa, i64 16
-  %137 = load i32, ptr %136, align 8
-  %138 = tail call fastcc ptr @add_fragment(ptr noundef %.0130.lcssa, i32 noundef %.0133.lcssa, i32 noundef %137, i32 noundef 0, i32 noundef 0, ptr noundef %7, ptr noundef nonnull %3, ptr noundef %4)
-  br label %155
+131:                                              ; preds = %125
+  %132 = getelementptr inbounds nuw i8, ptr %.0127.lcssa, i64 4
+  %133 = load i32, ptr %132, align 4
+  %.not160 = icmp eq i32 %133, 0
+  br i1 %.not160, label %.thread, label %134
 
-139:                                              ; preds = %123
-  %140 = icmp eq i32 %124, 0
+134:                                              ; preds = %131
+  %135 = getelementptr inbounds nuw i8, ptr %.0124.lcssa, i64 16
+  %136 = load i32, ptr %135, align 8
+  %137 = tail call fastcc ptr @add_fragment(ptr noundef %.0128.lcssa, i32 noundef %.0131.lcssa, i32 noundef %136, i32 noundef 0, i1 noundef zeroext false, ptr noundef %7, ptr noundef %3, ptr noundef %4)
+  br label %152
+
+138:                                              ; preds = %122
+  %139 = tail call i32 @tvb_captured_length_remaining(ptr noundef %.0128.lcssa, i32 noundef %.0131.lcssa)
+  %140 = icmp sgt i32 %139, 0
   br i1 %140, label %141, label %.thread
 
-141:                                              ; preds = %139
-  %142 = tail call i32 @tvb_captured_length_remaining(ptr noundef %.0130.lcssa, i32 noundef %.0133.lcssa) #9
-  %143 = icmp sgt i32 %142, 0
-  br i1 %143, label %144, label %.thread
+141:                                              ; preds = %138
+  %142 = getelementptr inbounds nuw i8, ptr %.0124.lcssa, i64 16
+  %143 = load i32, ptr %142, align 8
+  %144 = tail call fastcc ptr @add_fragment(ptr noundef %.0128.lcssa, i32 noundef %.0131.lcssa, i32 noundef %143, i32 noundef %.0139.lcssa, i1 noundef zeroext true, ptr noundef %7, ptr noundef %3, ptr noundef %4)
+  br label %152
 
-144:                                              ; preds = %141
-  %145 = getelementptr inbounds nuw i8, ptr %.0126.lcssa, i64 16
-  %146 = load i32, ptr %145, align 8
-  %147 = tail call fastcc ptr @add_fragment(ptr noundef %.0130.lcssa, i32 noundef %.0133.lcssa, i32 noundef %146, i32 noundef %.0141.lcssa, i32 noundef 1, ptr noundef %7, ptr noundef %3, ptr noundef %4)
-  br label %155
+.thread:                                          ; preds = %122, %124, %125, %131, %138
+  br i1 %.0136.lcssa, label %152, label %145
 
-.thread:                                          ; preds = %126, %132, %141, %139
-  br i1 %.0138.lcssa, label %155, label %148
+145:                                              ; preds = %.thread
+  %146 = tail call i32 @tvb_reported_length_remaining(ptr noundef %.0128.lcssa, i32 noundef %.0131.lcssa)
+  %147 = icmp sgt i32 %146, 0
+  br i1 %147, label %148, label %152
 
-148:                                              ; preds = %.thread
-  %149 = tail call i32 @tvb_reported_length_remaining(ptr noundef %.0130.lcssa, i32 noundef %.0133.lcssa) #9
-  %150 = icmp sgt i32 %149, 0
-  br i1 %150, label %151, label %155
+148:                                              ; preds = %145
+  %149 = getelementptr inbounds nuw i8, ptr %.0124.lcssa, i64 16
+  %150 = load i32, ptr %149, align 8
+  %151 = tail call fastcc ptr @add_fragment(ptr noundef %.0128.lcssa, i32 noundef %.0131.lcssa, i32 noundef %150, i32 noundef %.0139.lcssa, i1 noundef zeroext true, ptr noundef %7, ptr noundef %3, ptr noundef %4)
+  br label %152
 
-151:                                              ; preds = %148
-  %152 = getelementptr inbounds nuw i8, ptr %.0126.lcssa, i64 16
-  %153 = load i32, ptr %152, align 8
-  %154 = tail call fastcc ptr @add_fragment(ptr noundef %.0130.lcssa, i32 noundef %.0133.lcssa, i32 noundef %153, i32 noundef %.0141.lcssa, i32 noundef 1, ptr noundef %7, ptr noundef %3, ptr noundef %4)
-  br label %155
-
-155:                                              ; preds = %5, %144, %151, %148, %.thread, %135, %._crit_edge192
-  %.0 = phi ptr [ null, %144 ], [ %154, %151 ], [ null, %148 ], [ null, %.thread ], [ %138, %135 ], [ null, %._crit_edge192 ], [ null, %5 ]
+152:                                              ; preds = %5, %141, %148, %145, %.thread, %134, %._crit_edge190
+  %.0 = phi ptr [ null, %141 ], [ %151, %148 ], [ null, %145 ], [ null, %.thread ], [ %137, %134 ], [ null, %._crit_edge190 ], [ null, %5 ]
   ret ptr %.0
 }
 
+; Function Attrs: null_pointer_is_valid
 declare noalias ptr @wmem_list_new(ptr noundef) local_unnamed_addr #2
 
+; Function Attrs: null_pointer_is_valid
 declare void @wmem_tree_insert32(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
+; Function Attrs: null_pointer_is_valid
 declare void @wmem_list_append(ptr noundef, ptr noundef) local_unnamed_addr #2
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
-define internal fastcc ptr @add_fragment(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4, ptr noundef captures(address_is_null) %5, ptr noundef %6, ptr noundef %7) unnamed_addr #1 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal fastcc ptr @add_fragment(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef captures(address_is_null) %5, ptr noundef %6, ptr noundef %7) unnamed_addr #1 {
   %9 = load ptr, ptr @gp_infiniband_info, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %14, label %10
@@ -1820,95 +1898,96 @@ define internal fastcc ptr @add_fragment(ptr noundef %0, i32 noundef %1, i32 nou
 
 14:                                               ; preds = %10, %8
   %.0 = phi i32 [ %13, %10 ], [ 0, %8 ]
-  %15 = tail call ptr @wmem_file_scope() #9
+  %15 = tail call ptr @wmem_file_scope()
   %16 = load i32, ptr @proto_rpcordma, align 4
-  %17 = tail call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %6, i32 noundef %16, i32 noundef 1) #9
+  %17 = tail call ptr @p_get_proto_data(ptr noundef %15, ptr noundef %6, i32 noundef %16, i32 noundef 1)
   %18 = icmp eq ptr %17, null
   %19 = icmp sgt i32 %3, -1
-  %or.cond5 = and i1 %19, %18
-  br i1 %or.cond5, label %20, label %set_fragment_head.exit
+  %or.cond3 = and i1 %19, %18
+  br i1 %or.cond3, label %20, label %set_fragment_head.exit
 
 20:                                               ; preds = %14
-  %21 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %1) #9
-  %22 = or i32 %21, %4
-  %or.cond.not = icmp eq i32 %22, 0
-  br i1 %or.cond.not, label %46, label %23
+  %21 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %1)
+  %.not51 = icmp ne i32 %21, 0
+  %brmerge = or i1 %4, %.not51
+  br i1 %brmerge, label %22, label %45
 
-23:                                               ; preds = %20
-  %24 = icmp ne i32 %.0, 0
-  %25 = icmp ne ptr %5, null
-  %or.cond3 = and i1 %25, %24
-  br i1 %or.cond3, label %26, label %40
+22:                                               ; preds = %20
+  %23 = icmp ne i32 %.0, 0
+  %24 = icmp ne ptr %5, null
+  %or.cond = and i1 %24, %23
+  br i1 %or.cond, label %25, label %39
 
-26:                                               ; preds = %23
-  %27 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %28 = load ptr, ptr %27, align 8
-  %.not54 = icmp eq ptr %28, null
-  br i1 %.not54, label %40, label %29
+25:                                               ; preds = %22
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %27 = load ptr, ptr %26, align 8
+  %.not53 = icmp eq ptr %27, null
+  br i1 %.not53, label %39, label %28
 
-29:                                               ; preds = %26
-  %30 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  %31 = load i32, ptr %30, align 8
-  %32 = icmp eq i32 %31, 0
-  br i1 %32, label %33, label %40
+28:                                               ; preds = %25
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  %30 = load i32, ptr %29, align 8
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %32, label %39
 
-33:                                               ; preds = %29
-  %34 = getelementptr inbounds nuw i8, ptr %28, i64 28
-  %35 = load i32, ptr %34, align 4
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %37, label %40
+32:                                               ; preds = %28
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 28
+  %34 = load i32, ptr %33, align 4
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %36, label %39
 
-37:                                               ; preds = %33
-  %38 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1) #9
-  %39 = sub i32 %38, %.0
-  %spec.select = tail call i32 @llvm.umin.i32(i32 %39, i32 %21)
-  br label %40
+36:                                               ; preds = %32
+  %37 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1)
+  %38 = sub i32 %37, %.0
+  %spec.select = tail call i32 @llvm.umin.i32(i32 %38, i32 %21)
+  br label %39
 
-40:                                               ; preds = %37, %33, %29, %26, %23
-  %.044 = phi i32 [ %21, %33 ], [ %21, %29 ], [ %21, %26 ], [ %21, %23 ], [ %spec.select, %37 ]
-  %41 = tail call ptr @fragment_add_seq_check(ptr noundef nonnull @rpcordma_reassembly_table, ptr noundef %0, i32 noundef %1, ptr noundef %6, i32 noundef %2, ptr noundef null, i32 noundef %3, i32 noundef %.044, i32 noundef %4) #9
-  %42 = tail call ptr @wmem_file_scope() #9
-  %43 = tail call noalias ptr @wmem_alloc(ptr noundef %42, i64 noundef 4) #9
-  store i32 %2, ptr %43, align 4
-  %44 = tail call ptr @wmem_file_scope() #9
-  %45 = load i32, ptr @proto_rpcordma, align 4
-  tail call void @p_add_proto_data(ptr noundef %44, ptr noundef %6, i32 noundef %45, i32 noundef 0, ptr noundef nonnull %43) #9
-  br label %49
+39:                                               ; preds = %36, %32, %28, %25, %22
+  %.042 = phi i32 [ %21, %32 ], [ %21, %28 ], [ %21, %25 ], [ %21, %22 ], [ %spec.select, %36 ]
+  %40 = tail call ptr @fragment_add_seq_check(ptr noundef nonnull @rpcordma_reassembly_table, ptr noundef %0, i32 noundef %1, ptr noundef %6, i32 noundef %2, ptr noundef null, i32 noundef %3, i32 noundef %.042, i1 noundef zeroext %4)
+  %41 = tail call ptr @wmem_file_scope()
+  %42 = tail call noalias dereferenceable_or_null(4) ptr @wmem_alloc(ptr noundef %41, i64 noundef 4) #14
+  store i32 %2, ptr %42, align 4
+  %43 = tail call ptr @wmem_file_scope()
+  %44 = load i32, ptr @proto_rpcordma, align 4
+  tail call void @p_add_proto_data(ptr noundef %43, ptr noundef %6, i32 noundef %44, i32 noundef 0, ptr noundef %42)
+  br label %48
 
-46:                                               ; preds = %20
-  %.not53 = icmp eq ptr %5, null
-  br i1 %.not53, label %set_fragment_head.exit, label %47
+45:                                               ; preds = %20
+  %.not52 = icmp eq ptr %5, null
+  br i1 %.not52, label %set_fragment_head.exit, label %46
 
-47:                                               ; preds = %46
-  %48 = tail call fastcc ptr @end_reassembly(i32 noundef %2, ptr noundef nonnull %5, ptr noundef %6)
-  br label %49
+46:                                               ; preds = %45
+  %47 = tail call fastcc ptr @end_reassembly(i32 noundef %2, ptr noundef nonnull %5, ptr noundef %6)
+  br label %48
 
-49:                                               ; preds = %47, %40
-  %.043 = phi ptr [ %41, %40 ], [ %48, %47 ]
-  %.not.i = icmp eq ptr %.043, null
-  br i1 %.not.i, label %set_fragment_head.exit, label %50
+48:                                               ; preds = %46, %39
+  %.041 = phi ptr [ %40, %39 ], [ %47, %46 ]
+  %.not.i = icmp eq ptr %.041, null
+  br i1 %.not.i, label %set_fragment_head.exit, label %49
 
-50:                                               ; preds = %49
-  %51 = tail call ptr @wmem_file_scope() #9
-  %52 = load i32, ptr @proto_rpcordma, align 4
-  %53 = tail call ptr @p_get_proto_data(ptr noundef %51, ptr noundef %6, i32 noundef %52, i32 noundef 1) #9
-  %.not5.i = icmp eq ptr %.043, %53
-  br i1 %.not5.i, label %set_fragment_head.exit, label %54
+49:                                               ; preds = %48
+  %50 = tail call ptr @wmem_file_scope()
+  %51 = load i32, ptr @proto_rpcordma, align 4
+  %52 = tail call ptr @p_get_proto_data(ptr noundef %50, ptr noundef %6, i32 noundef %51, i32 noundef 1)
+  %.not5.i = icmp eq ptr %.041, %52
+  br i1 %.not5.i, label %set_fragment_head.exit, label %53
 
-54:                                               ; preds = %50
-  %55 = tail call ptr @wmem_file_scope() #9
-  %56 = load i32, ptr @proto_rpcordma, align 4
-  tail call void @p_add_proto_data(ptr noundef %55, ptr noundef %6, i32 noundef %56, i32 noundef 1, ptr noundef nonnull %.043) #9
+53:                                               ; preds = %49
+  %54 = tail call ptr @wmem_file_scope()
+  %55 = load i32, ptr @proto_rpcordma, align 4
+  tail call void @p_add_proto_data(ptr noundef %54, ptr noundef %6, i32 noundef %55, i32 noundef 1, ptr noundef nonnull %.041)
   br label %set_fragment_head.exit
 
-set_fragment_head.exit:                           ; preds = %46, %54, %50, %49, %14
-  %57 = tail call fastcc ptr @get_reassembled_data(ptr noundef %0, i32 noundef 0, ptr noundef %6, ptr noundef %7)
-  ret ptr %57
+set_fragment_head.exit:                           ; preds = %45, %53, %49, %48, %14
+  %56 = tail call fastcc ptr @get_reassembled_data(ptr noundef %0, i32 noundef 0, ptr noundef %6, ptr noundef %7)
+  ret ptr %56
 }
 
-declare ptr @fragment_add_seq_check(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @fragment_add_seq_check(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc ptr @add_send_fragment(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = load ptr, ptr @gp_infiniband_info, align 8
   %.not = icmp eq ptr %5, null
@@ -1922,231 +2001,229 @@ define internal fastcc ptr @add_send_fragment(ptr noundef captures(address_is_nu
   %11 = icmp eq i8 %8, 2
   %12 = icmp eq i8 %8, 22
   %narrow = or i1 %11, %12
-  br label %24
+  br label %26
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr @gp_rdmap_info, align 8
-  %.not70 = icmp eq ptr %14, null
-  br i1 %.not70, label %24, label %15
+  %.not66 = icmp eq ptr %14, null
+  br i1 %.not66, label %26, label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %17 = load i32, ptr %16, align 4
-  %.not71 = icmp eq i32 %17, 0
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %19 = load i32, ptr %18, align 8
-  br i1 %.not71, label %.thread86, label %22
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 1
+  %17 = load i8, ptr %16, align 1, !range !6, !noundef !7
+  %18 = trunc nuw i8 %17 to i1
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %20 = load i32, ptr %19, align 8
+  br i1 %18, label %24, label %21
 
-.thread86:                                        ; preds = %15
-  %20 = icmp eq i32 %19, 0
-  %21 = icmp ne i32 %19, 0
-  br label %24
+21:                                               ; preds = %15
+  %22 = icmp eq i32 %20, 0
+  %23 = icmp ne i32 %20, 0
+  br label %26
 
-22:                                               ; preds = %15
-  %23 = icmp ne i32 %19, 0
-  br label %24
+24:                                               ; preds = %15
+  %25 = icmp ne i32 %20, 0
+  br label %26
 
-24:                                               ; preds = %.thread86, %22, %13, %6
-  %.057 = phi i1 [ %9, %6 ], [ false, %13 ], [ false, %22 ], [ %20, %.thread86 ]
-  %.056 = phi i1 [ %10, %6 ], [ false, %13 ], [ false, %22 ], [ %21, %.thread86 ]
-  %.055.shrunk = phi i1 [ %narrow, %6 ], [ false, %13 ], [ %23, %22 ], [ false, %.thread86 ]
-  %or.cond = select i1 %.057, i1 true, i1 %.056
-  %or.cond3 = select i1 %or.cond, i1 true, i1 %.055.shrunk
-  br i1 %or.cond3, label %25, label %113
+26:                                               ; preds = %21, %24, %13, %6
+  %.053 = phi i1 [ %9, %6 ], [ false, %13 ], [ false, %24 ], [ %22, %21 ]
+  %.052 = phi i1 [ %10, %6 ], [ false, %13 ], [ false, %24 ], [ %23, %21 ]
+  %.051.shrunk = phi i1 [ %narrow, %6 ], [ false, %13 ], [ %25, %24 ], [ false, %21 ]
+  %brmerge = select i1 %.053, i1 true, i1 %.052
+  %brmerge88 = select i1 %brmerge, i1 true, i1 %.051.shrunk
+  br i1 %brmerge88, label %27, label %115
 
-25:                                               ; preds = %24
-  %26 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 50
-  %29 = load i16, ptr %28, align 2
-  %30 = and i16 %29, 8
-  %.not74 = icmp eq i16 %30, 0
-  br i1 %.not74, label %33, label %31
+27:                                               ; preds = %26
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 57
+  %31 = load i16, ptr %30, align 1
+  %32 = and i16 %31, 8
+  %.not67 = icmp eq i16 %32, 0
+  br i1 %.not67, label %35, label %33
 
-31:                                               ; preds = %25
-  %32 = tail call fastcc ptr @get_reassembled_data(ptr noundef %1, i32 noundef 0, ptr noundef nonnull %2, ptr noundef %3)
-  br label %113
+33:                                               ; preds = %27
+  %34 = tail call fastcc ptr @get_reassembled_data(ptr noundef %1, i32 noundef 0, ptr noundef %2, ptr noundef %3)
+  br label %115
 
-33:                                               ; preds = %25
-  br i1 %.057, label %34, label %55
+35:                                               ; preds = %27
+  br i1 %.053, label %36, label %57
 
-34:                                               ; preds = %33
-  %35 = tail call ptr @wmem_file_scope() #9
-  %36 = tail call noalias ptr @wmem_alloc(ptr noundef %35, i64 noundef 12) #9
-  %37 = load i32, ptr @get_msg_id.msg_id, align 4
-  %38 = add i32 %37, 1
-  %spec.select.i = tail call i32 @llvm.umax.i32(i32 %38, i32 1)
+36:                                               ; preds = %35
+  %37 = tail call ptr @wmem_file_scope()
+  %38 = tail call noalias dereferenceable_or_null(12) ptr @wmem_alloc(ptr noundef %37, i64 noundef 12) #14
+  %39 = load i32, ptr @get_msg_id.msg_id, align 4
+  %40 = add i32 %39, 1
+  %spec.select.i = tail call i32 @llvm.umax.i32(i32 %40, i32 1)
   store i32 %spec.select.i, ptr @get_msg_id.msg_id, align 4
-  store i32 %spec.select.i, ptr %36, align 4
-  %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store i32 0, ptr %39, align 4
-  %40 = load ptr, ptr @gp_infiniband_info, align 8
-  %.not77 = icmp eq ptr %40, null
-  br i1 %.not77, label %47, label %41
+  store i32 %spec.select.i, ptr %38, align 4
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  store i32 0, ptr %41, align 4
+  %42 = load ptr, ptr @gp_infiniband_info, align 8
+  %.not70 = icmp eq ptr %42, null
+  br i1 %.not70, label %49, label %43
 
-41:                                               ; preds = %34
-  %42 = getelementptr inbounds nuw i8, ptr %40, i64 28
-  %43 = load i32, ptr %42, align 4
-  %44 = getelementptr inbounds nuw i8, ptr %36, i64 4
-  store i32 %43, ptr %44, align 4
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %46 = load ptr, ptr %45, align 8
-  tail call void @wmem_tree_insert32(ptr noundef %46, i32 noundef %43, ptr noundef nonnull %36) #9
-  br label %.thread87
+43:                                               ; preds = %36
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 28
+  %45 = load i32, ptr %44, align 4
+  %46 = getelementptr inbounds nuw i8, ptr %38, i64 4
+  store i32 %45, ptr %46, align 4
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %48 = load ptr, ptr %47, align 8
+  tail call void @wmem_tree_insert32(ptr noundef %48, i32 noundef %45, ptr noundef %38)
+  br label %72
 
-47:                                               ; preds = %34
-  %48 = load ptr, ptr @gp_rdmap_info, align 8
-  %.not78 = icmp eq ptr %48, null
-  br i1 %.not78, label %.thread87, label %49
+49:                                               ; preds = %36
+  %50 = load ptr, ptr @gp_rdmap_info, align 8
+  %.not71 = icmp eq ptr %50, null
+  br i1 %.not71, label %72, label %51
 
-49:                                               ; preds = %47
-  %50 = getelementptr inbounds nuw i8, ptr %36, i64 4
-  store i32 0, ptr %50, align 4
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %48, i64 20
-  %54 = load i32, ptr %53, align 4
-  tail call void @wmem_tree_insert32(ptr noundef %52, i32 noundef %54, ptr noundef nonnull %36) #9
-  br label %.thread87
+51:                                               ; preds = %49
+  %52 = getelementptr inbounds nuw i8, ptr %38, i64 4
+  store i32 0, ptr %52, align 4
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 12
+  %56 = load i32, ptr %55, align 4
+  tail call void @wmem_tree_insert32(ptr noundef %54, i32 noundef %56, ptr noundef %38)
+  br label %72
 
-55:                                               ; preds = %33
-  br i1 %.not, label %62, label %56
+57:                                               ; preds = %35
+  br i1 %.not, label %64, label %58
 
-56:                                               ; preds = %55
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  %60 = load i32, ptr %59, align 4
-  %61 = tail call ptr @wmem_tree_lookup32_le(ptr noundef %58, i32 noundef %60) #9
-  br label %70
+58:                                               ; preds = %57
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %5, i64 28
+  %62 = load i32, ptr %61, align 4
+  %63 = tail call ptr @wmem_tree_lookup32_le(ptr noundef %60, i32 noundef %62)
+  br label %72
 
-62:                                               ; preds = %55
-  %63 = load ptr, ptr @gp_rdmap_info, align 8
-  %.not76 = icmp eq ptr %63, null
-  br i1 %.not76, label %.thread96, label %64
+64:                                               ; preds = %57
+  %65 = load ptr, ptr @gp_rdmap_info, align 8
+  %.not69 = icmp eq ptr %65, null
+  br i1 %.not69, label %.thread83, label %66
 
-64:                                               ; preds = %62
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %63, i64 20
-  %68 = load i32, ptr %67, align 4
-  %69 = tail call ptr @wmem_tree_lookup32(ptr noundef %66, i32 noundef %68) #9
-  br label %70
+66:                                               ; preds = %64
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %68 = load ptr, ptr %67, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %65, i64 12
+  %70 = load i32, ptr %69, align 4
+  %71 = tail call ptr @wmem_tree_lookup32(ptr noundef %68, i32 noundef %70)
+  br label %72
 
-70:                                               ; preds = %56, %64
-  %.0 = phi ptr [ %61, %56 ], [ %69, %64 ]
-  %.not79 = icmp eq ptr %.0, null
-  br i1 %.not79, label %.thread96, label %.thread87
+72:                                               ; preds = %58, %66, %43, %51, %49
+  %.0 = phi ptr [ %38, %43 ], [ %38, %51 ], [ %38, %49 ], [ %63, %58 ], [ %71, %66 ]
+  %.not72 = icmp eq ptr %.0, null
+  br i1 %.not72, label %.thread83, label %73
 
-.thread87:                                        ; preds = %47, %49, %41, %70
-  %.090 = phi ptr [ %.0, %70 ], [ %36, %41 ], [ %36, %49 ], [ %36, %47 ]
-  %71 = tail call i32 @tvb_reported_length(ptr noundef %1) #9
-  %72 = getelementptr inbounds nuw i8, ptr %.090, i64 8
-  %73 = load i32, ptr %72, align 4
-  %74 = add i32 %73, %71
-  store i32 %74, ptr %72, align 4
-  %75 = load i32, ptr %.090, align 4
-  %76 = load ptr, ptr @gp_infiniband_info, align 8
-  %.not80 = icmp eq ptr %76, null
-  br i1 %.not80, label %83, label %77
+73:                                               ; preds = %72
+  %74 = tail call i32 @tvb_reported_length(ptr noundef %1)
+  %75 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %76 = load i32, ptr %75, align 4
+  %77 = add i32 %76, %74
+  store i32 %77, ptr %75, align 4
+  %78 = load i32, ptr %.0, align 4
+  %79 = load ptr, ptr @gp_infiniband_info, align 8
+  %.not73 = icmp eq ptr %79, null
+  br i1 %.not73, label %86, label %80
 
-77:                                               ; preds = %.thread87
-  %78 = getelementptr inbounds nuw i8, ptr %76, i64 28
-  %79 = load i32, ptr %78, align 4
-  %80 = getelementptr inbounds nuw i8, ptr %.090, i64 4
-  %81 = load i32, ptr %80, align 4
-  %82 = sub i32 %79, %81
-  br label %88
+80:                                               ; preds = %73
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 28
+  %82 = load i32, ptr %81, align 4
+  %83 = getelementptr inbounds nuw i8, ptr %.0, i64 4
+  %84 = load i32, ptr %83, align 4
+  %85 = sub i32 %82, %84
+  br label %91
 
-83:                                               ; preds = %.thread87
-  %84 = load ptr, ptr @gp_rdmap_info, align 8
-  %.not81 = icmp eq ptr %84, null
-  br i1 %.not81, label %.thread96, label %85
+86:                                               ; preds = %73
+  %87 = load ptr, ptr @gp_rdmap_info, align 8
+  %.not74 = icmp eq ptr %87, null
+  br i1 %.not74, label %.thread83, label %88
 
-85:                                               ; preds = %83
-  %86 = getelementptr inbounds nuw i8, ptr %84, i64 24
-  %87 = load i32, ptr %86, align 8
-  br label %88
+88:                                               ; preds = %86
+  %89 = getelementptr inbounds nuw i8, ptr %87, i64 16
+  %90 = load i32, ptr %89, align 8
+  br label %91
 
-88:                                               ; preds = %77, %85
-  %.059 = phi i32 [ %82, %77 ], [ %87, %85 ]
-  %89 = icmp ne i32 %75, 0
-  %90 = icmp sgt i32 %.059, -1
-  %or.cond5 = select i1 %89, i1 %90, i1 false
-  br i1 %or.cond5, label %91, label %.thread96
+91:                                               ; preds = %80, %88
+  %.055 = phi i32 [ %85, %80 ], [ %90, %88 ]
+  %92 = icmp ne i32 %78, 0
+  %93 = icmp sgt i32 %.055, -1
+  %or.cond = select i1 %92, i1 %93, i1 false
+  br i1 %or.cond, label %94, label %.thread83
 
-91:                                               ; preds = %88
-  %92 = xor i1 %.055.shrunk, true
-  %93 = zext i1 %92 to i32
-  %94 = tail call fastcc ptr @add_fragment(ptr noundef %1, i32 noundef 0, i32 noundef %75, i32 noundef %.059, i32 noundef %93, ptr noundef %0, ptr noundef nonnull %2, ptr noundef %3)
-  %95 = icmp eq ptr %94, null
-  %or.cond7.not84 = select i1 %.055.shrunk, i1 %95, i1 false
-  %96 = load ptr, ptr @gp_rdmap_info, align 8
-  %97 = icmp ne ptr %96, null
-  %or.cond9 = select i1 %or.cond7.not84, i1 %97, i1 false
-  br i1 %or.cond9, label %98, label %.thread96
+94:                                               ; preds = %91
+  %95 = xor i1 %.051.shrunk, true
+  %96 = tail call fastcc ptr @add_fragment(ptr noundef %1, i32 noundef 0, i32 noundef %78, i32 noundef %.055, i1 noundef zeroext %95, ptr noundef %0, ptr noundef %2, ptr noundef %3)
+  %97 = icmp eq ptr %96, null
+  %or.cond3.not76 = select i1 %.051.shrunk, i1 %97, i1 false
+  %98 = load ptr, ptr @gp_rdmap_info, align 8
+  %99 = icmp ne ptr %98, null
+  %or.cond5 = select i1 %or.cond3.not76, i1 %99, i1 false
+  br i1 %or.cond5, label %100, label %.thread83
 
-98:                                               ; preds = %91
-  %99 = load i32, ptr %72, align 4
-  %100 = tail call i32 @tvb_reported_length(ptr noundef %1) #9
-  %101 = add i32 %100, %.059
-  %102 = icmp eq i32 %99, %101
-  br i1 %102, label %103, label %.thread96
+100:                                              ; preds = %94
+  %101 = load i32, ptr %75, align 4
+  %102 = tail call i32 @tvb_reported_length(ptr noundef %1)
+  %103 = add i32 %102, %.055
+  %104 = icmp eq i32 %101, %103
+  br i1 %104, label %105, label %.thread83
 
-103:                                              ; preds = %98
-  %104 = tail call ptr @fragment_end_seq_next(ptr noundef nonnull @rpcordma_reassembly_table, ptr noundef nonnull %2, i32 noundef %75, ptr noundef null) #9
-  %.not.i9.i = icmp eq ptr %104, null
-  br i1 %.not.i9.i, label %end_reassembly.exit, label %105
+105:                                              ; preds = %100
+  %106 = tail call ptr @fragment_end_seq_next(ptr noundef nonnull @rpcordma_reassembly_table, ptr noundef %2, i32 noundef %78, ptr noundef null)
+  %.not.i8.i = icmp eq ptr %106, null
+  br i1 %.not.i8.i, label %end_reassembly.exit, label %107
 
-105:                                              ; preds = %103
-  %106 = tail call ptr @wmem_file_scope() #9
-  %107 = load i32, ptr @proto_rpcordma, align 4
-  %108 = tail call ptr @p_get_proto_data(ptr noundef %106, ptr noundef nonnull %2, i32 noundef %107, i32 noundef 1) #9
-  %.not5.i.i = icmp eq ptr %104, %108
-  br i1 %.not5.i.i, label %end_reassembly.exit, label %109
+107:                                              ; preds = %105
+  %108 = tail call ptr @wmem_file_scope()
+  %109 = load i32, ptr @proto_rpcordma, align 4
+  %110 = tail call ptr @p_get_proto_data(ptr noundef %108, ptr noundef %2, i32 noundef %109, i32 noundef 1)
+  %.not5.i.i = icmp eq ptr %106, %110
+  br i1 %.not5.i.i, label %end_reassembly.exit, label %111
 
-109:                                              ; preds = %105
-  %110 = tail call ptr @wmem_file_scope() #9
-  %111 = load i32, ptr @proto_rpcordma, align 4
-  tail call void @p_add_proto_data(ptr noundef %110, ptr noundef nonnull %2, i32 noundef %111, i32 noundef 1, ptr noundef nonnull %104) #9
+111:                                              ; preds = %107
+  %112 = tail call ptr @wmem_file_scope()
+  %113 = load i32, ptr @proto_rpcordma, align 4
+  tail call void @p_add_proto_data(ptr noundef %112, ptr noundef %2, i32 noundef %113, i32 noundef 1, ptr noundef nonnull %106)
   br label %end_reassembly.exit
 
-end_reassembly.exit:                              ; preds = %103, %105, %109
-  %112 = tail call fastcc ptr @get_reassembled_data(ptr noundef %1, i32 noundef 0, ptr noundef nonnull %2, ptr noundef %3)
-  br label %.thread96
+end_reassembly.exit:                              ; preds = %105, %107, %111
+  %114 = tail call fastcc ptr @get_reassembled_data(ptr noundef %1, i32 noundef 0, ptr noundef %2, ptr noundef %3)
+  br label %.thread83
 
-.thread96:                                        ; preds = %62, %83, %70, %91, %end_reassembly.exit, %98, %88
-  %.058 = phi ptr [ %112, %end_reassembly.exit ], [ null, %98 ], [ %94, %91 ], [ null, %88 ], [ null, %70 ], [ null, %83 ], [ null, %62 ]
-  %.not85 = icmp eq ptr %.058, null
-  %..058 = select i1 %.not85, ptr %1, ptr %.058
-  br label %113
+.thread83:                                        ; preds = %64, %86, %72, %94, %end_reassembly.exit, %100, %91
+  %.054 = phi ptr [ %114, %end_reassembly.exit ], [ null, %100 ], [ %96, %94 ], [ null, %91 ], [ null, %72 ], [ null, %86 ], [ null, %64 ]
+  %.not77 = icmp eq ptr %.054, null
+  %..054 = select i1 %.not77, ptr %1, ptr %.054
+  br label %115
 
-113:                                              ; preds = %.thread96, %24, %31
-  %.061 = phi ptr [ %32, %31 ], [ %1, %24 ], [ %..058, %.thread96 ]
-  ret ptr %.061
+115:                                              ; preds = %26, %.thread83, %33
+  %.057 = phi ptr [ %34, %33 ], [ %..054, %.thread83 ], [ %1, %26 ]
+  ret ptr %.057
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
-define internal fastcc ptr @add_ib_fragment(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef range(i32 0, 2) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #1 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal fastcc ptr @add_ib_fragment(ptr noundef %0, ptr noundef captures(address_is_null) %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4) unnamed_addr #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %7 = load i32, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 50
-  %11 = load i16, ptr %10, align 2
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 57
+  %11 = load i16, ptr %10, align 1
   %12 = and i16 %11, 8
   %.not = icmp eq i16 %12, 0
   br i1 %.not, label %15, label %13
 
 13:                                               ; preds = %5
-  %14 = tail call fastcc ptr @get_reassembled_data(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %3, ptr noundef %4)
+  %14 = tail call fastcc ptr @get_reassembled_data(ptr noundef %0, i32 noundef 0, ptr noundef %3, ptr noundef %4)
   br label %.thread
 
 15:                                               ; preds = %5
-  %.not47 = icmp eq i32 %2, 0
-  br i1 %.not47, label %35, label %16
+  br i1 %2, label %16, label %35
 
 16:                                               ; preds = %15
   %17 = load ptr, ptr @gp_infiniband_info, align 8
@@ -2155,7 +2232,7 @@ define internal fastcc ptr @add_ib_fragment(ptr noundef %0, ptr noundef captures
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %21 = load i64, ptr %20, align 8
   %.val = load ptr, ptr %1, align 8
-  %22 = tail call ptr @wmem_tree_lookup32(ptr noundef %.val, i32 noundef %19) #9
+  %22 = tail call ptr @wmem_tree_lookup32(ptr noundef %.val, i32 noundef %19)
   %.not.i = icmp eq ptr %22, null
   br i1 %.not.i, label %32, label %23
 
@@ -2190,9 +2267,9 @@ find_segment_info.exit:                           ; preds = %26, %32
   %39 = load ptr, ptr @gp_infiniband_info, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 28
   %41 = load i32, ptr %40, align 4
-  %42 = tail call ptr @wmem_tree_lookup32_le(ptr noundef %38, i32 noundef %41) #9
-  %.not48 = icmp eq ptr %42, null
-  br i1 %.not48, label %.thread, label %43
+  %42 = tail call ptr @wmem_tree_lookup32_le(ptr noundef %38, i32 noundef %41)
+  %.not47 = icmp eq ptr %42, null
+  br i1 %.not47, label %.thread, label %43
 
 43:                                               ; preds = %35
   %44 = load ptr, ptr @gp_infiniband_info, align 8
@@ -2204,8 +2281,8 @@ find_segment_info.exit:                           ; preds = %26, %32
   %50 = load i32, ptr %49, align 4
   %51 = udiv i32 %50, %7
   %52 = urem i32 %50, %7
-  %.not49 = icmp ne i32 %52, 0
-  %53 = zext i1 %.not49 to i32
+  %.not48 = icmp ne i32 %52, 0
+  %53 = zext i1 %.not48 to i32
   %54 = add i32 %51, %53
   %55 = icmp ult i32 %48, %54
   br i1 %55, label %56, label %.thread
@@ -2221,14 +2298,14 @@ find_segment_info.exit:                           ; preds = %26, %32
   %.043 = phi i32 [ 1, %find_segment_info.exit ], [ %60, %56 ]
   %.042 = phi ptr [ %.0.i, %find_segment_info.exit ], [ %58, %56 ]
   %.0.in = phi ptr [ %34, %find_segment_info.exit ], [ %59, %56 ]
-  %.not50 = icmp eq ptr %.042, null
-  br i1 %.not50, label %.thread, label %62
+  %.not49 = icmp eq ptr %.042, null
+  br i1 %.not49, label %.thread, label %62
 
 62:                                               ; preds = %61
   %.0 = load i64, ptr %.0.in, align 8
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr %.042, ptr %63, align 8
-  %64 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
+  %64 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %65 = getelementptr inbounds nuw i8, ptr %.042, i64 36
   %66 = load i32, ptr %65, align 4
   %67 = add i32 %66, %64
@@ -2239,8 +2316,8 @@ find_segment_info.exit:                           ; preds = %26, %32
   %71 = zext i32 %7 to i64
   %72 = udiv i64 %70, %71
   %73 = urem i64 %70, %71
-  %.not51 = icmp ne i64 %73, 0
-  %74 = zext i1 %.not51 to i64
+  %.not50 = icmp ne i64 %73, 0
+  %74 = zext i1 %.not50 to i64
   %75 = add i64 %72, %74
   %76 = trunc i64 %75 to i32
   %77 = getelementptr inbounds nuw i8, ptr %.042, i64 16
@@ -2249,7 +2326,7 @@ find_segment_info.exit:                           ; preds = %26, %32
   %80 = load i32, ptr %79, align 4
   %81 = add i32 %.043, %80
   %82 = add i32 %81, %76
-  %83 = tail call fastcc ptr @add_fragment(ptr noundef %0, i32 noundef 0, i32 noundef %78, i32 noundef %82, i32 noundef 1, ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef %4)
+  %83 = tail call fastcc ptr @add_fragment(ptr noundef %0, i32 noundef 0, i32 noundef %78, i32 noundef %82, i1 noundef zeroext true, ptr noundef %1, ptr noundef %3, ptr noundef %4)
   br label %.thread
 
 .thread:                                          ; preds = %35, %43, %61, %62, %13
@@ -2257,11 +2334,11 @@ find_segment_info.exit:                           ; preds = %26, %32
   ret ptr %.041
 }
 
-; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @packet_is_rpcordma(ptr noundef %0) unnamed_addr #1 {
-  %2 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
-  %3 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #9
-  %4 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 12) #9
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal fastcc noundef zeroext i1 @packet_is_rpcordma(ptr noundef %0) unnamed_addr #1 {
+  %2 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %3 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0)
+  %4 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 12)
   %5 = icmp ult i32 %2, 16
   br i1 %5, label %26, label %6
 
@@ -2288,7 +2365,7 @@ define internal fastcc range(i32 0, 2) i32 @packet_is_rpcordma(ptr noundef %0) u
 
 13:                                               ; preds = %9
   %14 = add i32 %10, 16
-  %15 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %14) #9
+  %15 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %14)
   %.not36 = icmp eq i32 %3, %15
   br i1 %.not36, label %25, label %26
 
@@ -2306,7 +2383,7 @@ define internal fastcc range(i32 0, 2) i32 @packet_is_rpcordma(ptr noundef %0) u
 
 22:                                               ; preds = %18
   %23 = add i32 %19, 24
-  %24 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %23) #9
+  %24 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %23)
   %.not34 = icmp eq i32 %3, %24
   br i1 %.not34, label %25, label %26
 
@@ -2314,19 +2391,20 @@ define internal fastcc range(i32 0, 2) i32 @packet_is_rpcordma(ptr noundef %0) u
   br label %26
 
 26:                                               ; preds = %6, %22, %18, %16, %13, %9, %7, %1, %25
-  %.0 = phi i32 [ 1, %25 ], [ 0, %1 ], [ 0, %7 ], [ 0, %9 ], [ 0, %13 ], [ 0, %16 ], [ 0, %18 ], [ 0, %22 ], [ 0, %6 ]
-  ret i32 %.0
+  %.0 = phi i1 [ true, %25 ], [ false, %1 ], [ false, %7 ], [ false, %9 ], [ false, %13 ], [ false, %16 ], [ false, %18 ], [ false, %22 ], [ false, %6 ]
+  ret i1 %.0
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_tree_lookup32_le(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @get_chunk_lists_size(ptr noundef %0, i32 noundef range(i32 28, 0) %1, i32 noundef range(i32 16, 25) %2) unnamed_addr #1 {
   br label %4
 
 4:                                                ; preds = %9, %3
   %.012.i = phi i32 [ %2, %3 ], [ %10, %9 ]
-  %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.012.i) #9
+  %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.012.i)
   %6 = add i32 %.012.i, 4
   %7 = icmp ugt i32 %6, %1
   br i1 %7, label %get_read_list_size.exit.thread, label %8
@@ -2345,14 +2423,14 @@ get_read_list_size.exit:                          ; preds = %8
   br i1 %.not, label %get_read_list_size.exit.thread, label %12
 
 12:                                               ; preds = %get_read_list_size.exit
-  %13 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6) #9
+  %13 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %6)
   %14 = add i32 %.012.i, 8
   %15 = icmp ugt i32 %14, %1
   br i1 %15, label %get_read_list_size.exit.thread, label %.lr.ph.i
 
 16:                                               ; preds = %23
   %17 = add i32 %29, %21
-  %18 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %17) #9
+  %18 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %17)
   %19 = add i32 %17, 4
   %20 = icmp ugt i32 %19, %1
   br i1 %20, label %get_read_list_size.exit.thread, label %.lr.ph.i
@@ -2366,9 +2444,9 @@ get_read_list_size.exit:                          ; preds = %8
 
 23:                                               ; preds = %.lr.ph.i
   %24 = add i32 %.01621.i, 8
-  %25 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %24) #9
+  %25 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %24)
   %26 = lshr i32 %25, 4
-  %27 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %21) #9
+  %27 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %21)
   %spec.select.i.i = tail call i32 @llvm.umin.i32(i32 %27, i32 %26)
   %28 = shl nuw i32 %spec.select.i.i, 4
   %29 = or disjoint i32 %28, 4
@@ -2381,7 +2459,7 @@ get_write_list_size.exit:                         ; preds = %.lr.ph.i
   br i1 %.not24, label %get_read_list_size.exit.thread, label %32
 
 32:                                               ; preds = %get_write_list_size.exit
-  %33 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %21) #9
+  %33 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %21)
   %34 = add i32 %21, 4
   %35 = icmp ugt i32 %34, %1
   br i1 %35, label %get_read_list_size.exit.thread, label %36
@@ -2392,9 +2470,9 @@ get_write_list_size.exit:                         ; preds = %.lr.ph.i
 
 37:                                               ; preds = %36
   %38 = add i32 %21, 8
-  %39 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %38) #9
+  %39 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %38)
   %40 = lshr i32 %39, 4
-  %41 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %34) #9
+  %41 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %34)
   %spec.select.i.i29 = tail call i32 @llvm.umin.i32(i32 %41, i32 %40)
   %42 = shl nuw i32 %spec.select.i.i29, 4
   %43 = add i32 %42, %38
@@ -2413,222 +2491,231 @@ get_read_list_size.exit.thread:                   ; preds = %9, %4, %16, %23, %g
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc ptr @add_iwarp_fragment(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 50
-  %8 = load i16, ptr %7, align 2
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 57
+  %8 = load i16, ptr %7, align 1
   %9 = and i16 %8, 8
-  %.not = icmp eq i16 %9, 0
-  br i1 %.not, label %10, label %find_segment_info.exit.thread.sink.split
+  %.not75 = icmp eq i16 %9, 0
+  br i1 %.not75, label %10, label %find_segment_info.exit.thread.sink.split
 
 10:                                               ; preds = %4
   %11 = load ptr, ptr @gp_rdmap_info, align 8
   %12 = load i8, ptr %11, align 8
   %13 = icmp ne i8 %12, 2
-  br i1 %13, label %30, label %14
+  br i1 %13, label %31, label %14
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %18 = load i32, ptr %17, align 8
-  %19 = tail call ptr @wmem_tree_lookup32(ptr noundef %16, i32 noundef %18) #9
-  %.not77 = icmp eq ptr %19, null
-  br i1 %.not77, label %find_segment_info.exit.thread, label %20
+  %19 = tail call ptr @wmem_tree_lookup32(ptr noundef %16, i32 noundef %18)
+  %.not76 = icmp eq ptr %19, null
+  br i1 %.not76, label %find_segment_info.exit.thread, label %20
 
 20:                                               ; preds = %14
-  %21 = load ptr, ptr @gp_rdmap_info, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %25 = load i64, ptr %24, align 8
-  %26 = sub i64 %23, %25
-  %27 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %28 = load i64, ptr %27, align 8
-  %29 = add i64 %26, %28
-  br label %33
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %22 = load ptr, ptr @gp_rdmap_info, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %24 = load i64, ptr %23, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %26 = load i64, ptr %25, align 8
+  %27 = sub i64 %24, %26
+  %28 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %29 = load i64, ptr %28, align 8
+  %30 = add i64 %27, %29
+  br label %35
 
-30:                                               ; preds = %10
-  %31 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %32 = load i64, ptr %31, align 8
-  br label %33
+31:                                               ; preds = %10
+  %32 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %34 = load i64, ptr %33, align 8
+  br label %35
 
-33:                                               ; preds = %20, %30
-  %.pn = phi ptr [ %19, %20 ], [ %11, %30 ]
-  %.072 = phi i64 [ %29, %20 ], [ %32, %30 ]
-  %.073.in = getelementptr inbounds nuw i8, ptr %.pn, i64 16
-  %.073 = load i32, ptr %.073.in, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store ptr null, ptr %34, align 8
+35:                                               ; preds = %20, %31
+  %.069.in = phi ptr [ %21, %20 ], [ %32, %31 ]
+  %.068 = phi i64 [ %30, %20 ], [ %34, %31 ]
+  %.069 = load i32, ptr %.069.in, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  store ptr null, ptr %36, align 8
   %.val = load ptr, ptr %1, align 8
-  %35 = tail call ptr @wmem_tree_lookup32(ptr noundef %.val, i32 noundef %.073) #9
-  %.not.i = icmp eq ptr %35, null
-  br i1 %.not.i, label %find_segment_info.exit.thread, label %36
+  %37 = tail call ptr @wmem_tree_lookup32(ptr noundef %.val, i32 noundef %.069)
+  %.not.i = icmp eq ptr %37, null
+  br i1 %.not.i, label %find_segment_info.exit.thread, label %38
 
-36:                                               ; preds = %33
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %38 = load i64, ptr %37, align 8
-  %.not12.i = icmp ult i64 %.072, %38
-  br i1 %.not12.i, label %find_segment_info.exit.thread, label %39
+38:                                               ; preds = %35
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %40 = load i64, ptr %39, align 8
+  %.not12.i = icmp ult i64 %.068, %40
+  br i1 %.not12.i, label %find_segment_info.exit.thread, label %41
 
-39:                                               ; preds = %36
-  %40 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  %41 = load i32, ptr %40, align 8
-  %42 = zext i32 %41 to i64
-  %43 = add i64 %38, %42
-  %44 = icmp ult i64 %.072, %43
-  br i1 %44, label %find_segment_info.exit, label %find_segment_info.exit.thread
+41:                                               ; preds = %38
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 32
+  %43 = load i32, ptr %42, align 8
+  %44 = zext i32 %43 to i64
+  %45 = add i64 %40, %44
+  %46 = icmp ult i64 %.068, %45
+  br i1 %46, label %find_segment_info.exit, label %find_segment_info.exit.thread
 
-find_segment_info.exit:                           ; preds = %39
-  %45 = sub i64 %.072, %38
-  %46 = trunc i64 %45 to i32
-  %47 = getelementptr inbounds nuw i8, ptr %35, i64 20
-  %48 = load i32, ptr %47, align 4
-  %49 = add i32 %48, %46
-  %50 = add i32 %49, 1
-  store ptr %35, ptr %34, align 8
-  %51 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 0) #9
-  %52 = getelementptr inbounds nuw i8, ptr %35, i64 36
-  %53 = load i32, ptr %52, align 4
-  %54 = add i32 %53, %51
-  store i32 %54, ptr %52, align 4
-  %55 = load ptr, ptr @gp_rdmap_info, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
-  %57 = load i32, ptr %56, align 4
-  %.not79 = icmp eq i32 %57, 0
-  br i1 %.not79, label %75, label %58
+find_segment_info.exit:                           ; preds = %41
+  %47 = sub i64 %.068, %40
+  %48 = trunc i64 %47 to i32
+  %49 = getelementptr inbounds nuw i8, ptr %37, i64 20
+  %50 = load i32, ptr %49, align 4
+  %51 = add i32 %50, %48
+  %52 = add i32 %51, 1
+  store ptr %37, ptr %36, align 8
+  %53 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 0)
+  %54 = getelementptr inbounds nuw i8, ptr %37, i64 36
+  %55 = load i32, ptr %54, align 4
+  %56 = add i32 %55, %53
+  store i32 %56, ptr %54, align 4
+  %57 = load ptr, ptr @gp_rdmap_info, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 1
+  %59 = load i8, ptr %58, align 1, !range !6, !noundef !7
+  %60 = trunc nuw i8 %59 to i1
+  br i1 %60, label %61, label %78
 
-58:                                               ; preds = %find_segment_info.exit
-  %59 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %62 = load i32, ptr %61, align 8
-  %63 = tail call ptr @wmem_tree_lookup32(ptr noundef %60, i32 noundef %62) #9
-  %.not80 = icmp eq ptr %63, null
-  br i1 %.not80, label %.loopexit, label %64
+61:                                               ; preds = %find_segment_info.exit
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %65 = load i32, ptr %64, align 8
+  %66 = tail call ptr @wmem_tree_lookup32(ptr noundef %63, i32 noundef %65)
+  %.not78 = icmp eq ptr %66, null
+  br i1 %.not78, label %.loopexit, label %67
 
-64:                                               ; preds = %58
-  %65 = tail call ptr @wmem_list_head(ptr noundef nonnull %63) #9
-  %.not8191 = icmp eq ptr %65, null
-  br i1 %.not8191, label %.loopexit, label %.lr.ph
+67:                                               ; preds = %61
+  %68 = tail call ptr @wmem_list_head(ptr noundef nonnull %66)
+  %.not7992 = icmp eq ptr %68, null
+  br i1 %.not7992, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %64, %.lr.ph
-  %.294 = phi i32 [ %69, %.lr.ph ], [ 0, %64 ]
-  %.06793 = phi ptr [ %73, %.lr.ph ], [ %65, %64 ]
-  %.27092 = phi i32 [ %72, %.lr.ph ], [ 0, %64 ]
-  %66 = tail call ptr @wmem_list_frame_data(ptr noundef nonnull %.06793) #9
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 32
-  %68 = load i32, ptr %67, align 8
-  %69 = add i32 %68, %.294
-  %70 = getelementptr inbounds nuw i8, ptr %66, i64 36
-  %71 = load i32, ptr %70, align 4
-  %72 = add i32 %71, %.27092
-  %73 = tail call ptr @wmem_list_frame_next(ptr noundef nonnull %.06793) #9
-  %.not81 = icmp eq ptr %73, null
-  br i1 %.not81, label %.loopexit, label %.lr.ph, !llvm.loop !12
+.lr.ph:                                           ; preds = %67, %.lr.ph
+  %.295 = phi i32 [ %72, %.lr.ph ], [ 0, %67 ]
+  %.06394 = phi ptr [ %76, %.lr.ph ], [ %68, %67 ]
+  %.26693 = phi i32 [ %75, %.lr.ph ], [ 0, %67 ]
+  %69 = tail call ptr @wmem_list_frame_data(ptr noundef nonnull %.06394)
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 32
+  %71 = load i32, ptr %70, align 8
+  %72 = add i32 %71, %.295
+  %73 = getelementptr inbounds nuw i8, ptr %69, i64 36
+  %74 = load i32, ptr %73, align 4
+  %75 = add i32 %74, %.26693
+  %76 = tail call ptr @wmem_list_frame_next(ptr noundef nonnull %.06394)
+  %.not79 = icmp eq ptr %76, null
+  br i1 %.not79, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
-.loopexit:                                        ; preds = %.lr.ph, %64, %58
-  %.169 = phi i32 [ 0, %58 ], [ 0, %64 ], [ %72, %.lr.ph ]
-  %.1 = phi i32 [ 0, %58 ], [ 0, %64 ], [ %69, %.lr.ph ]
-  %74 = icmp ne i32 %.169, %.1
-  %or.cond83 = select i1 %13, i1 true, i1 %74
-  br label %75
+.loopexit:                                        ; preds = %.lr.ph, %67, %61
+  %.165 = phi i32 [ 0, %61 ], [ 0, %67 ], [ %75, %.lr.ph ]
+  %.1 = phi i32 [ 0, %61 ], [ 0, %67 ], [ %72, %.lr.ph ]
+  %77 = icmp ne i32 %.165, %.1
+  %or.cond.not91 = select i1 %13, i1 true, i1 %77
+  br label %78
 
-75:                                               ; preds = %.loopexit, %find_segment_info.exit
-  %76 = phi i1 [ true, %find_segment_info.exit ], [ %or.cond83, %.loopexit ]
-  %.068 = phi i32 [ 0, %find_segment_info.exit ], [ %.169, %.loopexit ]
-  %.066 = phi i32 [ 0, %find_segment_info.exit ], [ %.1, %.loopexit ]
-  %77 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %78 = load i32, ptr %77, align 8
-  %79 = tail call fastcc ptr @add_fragment(ptr noundef %0, i32 noundef 0, i32 noundef %78, i32 noundef %50, i32 noundef 1, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
-  %80 = icmp ne ptr %79, null
-  %or.cond = or i1 %76, %80
-  br i1 %or.cond, label %81, label %87
+78:                                               ; preds = %.loopexit, %find_segment_info.exit
+  %.067 = phi i1 [ true, %find_segment_info.exit ], [ %or.cond.not91, %.loopexit ]
+  %.064 = phi i32 [ 0, %find_segment_info.exit ], [ %.165, %.loopexit ]
+  %.062 = phi i32 [ 0, %find_segment_info.exit ], [ %.1, %.loopexit ]
+  %79 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %80 = load i32, ptr %79, align 8
+  %81 = tail call fastcc ptr @add_fragment(ptr noundef %0, i32 noundef 0, i32 noundef %80, i32 noundef %52, i1 noundef zeroext true, ptr noundef %1, ptr noundef %2, ptr noundef %3)
+  %.not81 = icmp ne ptr %81, null
+  %brmerge = or i1 %.067, %.not81
+  br i1 %brmerge, label %82, label %88
 
-81:                                               ; preds = %75
-  %82 = load ptr, ptr @gp_rdmap_info, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 4
-  %84 = load i32, ptr %83, align 4
-  %85 = icmp ne i32 %84, 0
-  %or.cond3.not90 = and i1 %13, %85
-  %86 = icmp eq i32 %.068, %.066
-  %or.cond84 = select i1 %or.cond3.not90, i1 %86, i1 false
-  br i1 %or.cond84, label %87, label %find_segment_info.exit.thread
+82:                                               ; preds = %78
+  %83 = load ptr, ptr @gp_rdmap_info, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 1
+  %85 = load i8, ptr %84, align 1, !range !6, !noundef !7
+  %86 = trunc nuw i8 %85 to i1
+  %or.cond.not = and i1 %13, %86
+  %87 = icmp eq i32 %.064, %.062
+  %or.cond83 = select i1 %or.cond.not, i1 %87, i1 false
+  br i1 %or.cond83, label %88, label %find_segment_info.exit.thread
 
-87:                                               ; preds = %81, %75
-  %88 = load i32, ptr %77, align 8
-  %89 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #9
-  %90 = sub i32 0, %89
-  %91 = and i32 %90, 3
-  %.not.i85 = icmp eq i32 %91, 0
-  br i1 %.not.i85, label %add_iwarp_padding.exit, label %92
+88:                                               ; preds = %82, %78
+  %89 = load i32, ptr %79, align 8
+  %90 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
+  %91 = sub i32 0, %90
+  %92 = and i32 %91, 3
+  %.not.i86 = icmp eq i32 %92, 0
+  br i1 %.not.i86, label %add_iwarp_padding.exit, label %93
 
-92:                                               ; preds = %87
-  %93 = add i32 %49, 2
-  %94 = getelementptr inbounds nuw i8, ptr %2, i64 408
-  %95 = load ptr, ptr %94, align 8
-  %96 = zext nneg i32 %91 to i64
-  %97 = tail call noalias ptr @wmem_alloc(ptr noundef %95, i64 noundef %96) #9
-  tail call void @llvm.memset.p0.i64(ptr align 1 %97, i8 0, i64 %96, i1 false)
-  %98 = tail call ptr @tvb_new_real_data(ptr noundef %97, i32 noundef %91, i32 noundef %91) #9
-  %99 = tail call ptr @fragment_add_seq_check(ptr noundef nonnull @rpcordma_reassembly_table, ptr noundef %98, i32 noundef 0, ptr noundef %2, i32 noundef %88, ptr noundef null, i32 noundef %93, i32 noundef %91, i32 noundef 1) #9
+93:                                               ; preds = %88
+  %94 = add i32 %51, 2
+  %95 = getelementptr inbounds nuw i8, ptr %2, i64 408
+  %96 = load ptr, ptr %95, align 8
+  %97 = zext nneg i32 %92 to i64
+  %98 = tail call noalias ptr @wmem_alloc(ptr noundef %96, i64 noundef %97) #14
+  tail call void @llvm.memset.p0.i64(ptr noundef align 1 %98, i8 noundef 0, i64 noundef range(i64 1, 4) %97, i1 noundef false) #11
+  %99 = tail call ptr @tvb_new_real_data(ptr noundef %98, i32 noundef %92, i32 noundef %92)
+  %100 = tail call ptr @fragment_add_seq_check(ptr noundef nonnull @rpcordma_reassembly_table, ptr noundef %99, i32 noundef 0, ptr noundef %2, i32 noundef %89, ptr noundef null, i32 noundef %94, i32 noundef %92, i1 noundef zeroext true)
   br label %add_iwarp_padding.exit
 
-add_iwarp_padding.exit:                           ; preds = %92, %87
-  br i1 %or.cond, label %find_segment_info.exit.thread, label %100
+add_iwarp_padding.exit:                           ; preds = %93, %88
+  br i1 %brmerge, label %find_segment_info.exit.thread, label %101
 
-100:                                              ; preds = %add_iwarp_padding.exit
-  %101 = load i32, ptr %77, align 8
-  %102 = tail call fastcc ptr @end_reassembly(i32 noundef %101, ptr noundef nonnull %1, ptr noundef %2)
+101:                                              ; preds = %add_iwarp_padding.exit
+  %102 = load i32, ptr %79, align 8
+  %103 = tail call fastcc ptr @end_reassembly(i32 noundef %102, ptr noundef %1, ptr noundef %2)
   br label %find_segment_info.exit.thread.sink.split
 
-find_segment_info.exit.thread.sink.split:         ; preds = %4, %100
-  %103 = tail call fastcc ptr @get_reassembled_data(ptr noundef %0, i32 noundef 0, ptr noundef %2, ptr noundef %3)
+find_segment_info.exit.thread.sink.split:         ; preds = %4, %101
+  %104 = tail call fastcc ptr @get_reassembled_data(ptr noundef %0, i32 noundef 0, ptr noundef %2, ptr noundef %3)
   br label %find_segment_info.exit.thread
 
-find_segment_info.exit.thread:                    ; preds = %find_segment_info.exit.thread.sink.split, %81, %39, %36, %33, %add_iwarp_padding.exit, %14
-  %.065 = phi ptr [ null, %14 ], [ %79, %add_iwarp_padding.exit ], [ null, %33 ], [ null, %36 ], [ null, %39 ], [ %79, %81 ], [ %103, %find_segment_info.exit.thread.sink.split ]
-  ret ptr %.065
+find_segment_info.exit.thread:                    ; preds = %find_segment_info.exit.thread.sink.split, %82, %41, %38, %35, %add_iwarp_padding.exit, %14
+  %.061 = phi ptr [ null, %14 ], [ %81, %add_iwarp_padding.exit ], [ null, %35 ], [ null, %38 ], [ null, %41 ], [ %81, %82 ], [ %104, %find_segment_info.exit.thread.sink.split ]
+  ret ptr %.061
 }
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
-
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_new_real_data(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #8
+declare i32 @llvm.umin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #8
+declare i32 @llvm.umax.i32(i32, i32) #9
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind returns_twice "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind returns_twice }
-attributes #11 = { noreturn nounwind }
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+attributes #0 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind null_pointer_is_valid returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nounwind }
+attributes #12 = { nounwind returns_twice }
+attributes #13 = { noreturn }
+attributes #14 = { allocsize(1) }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}

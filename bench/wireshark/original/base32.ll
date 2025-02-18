@@ -4,7 +4,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ws_base32_decode.kChars = internal global ptr @.str, align 8
 @.str = private unnamed_addr constant [33 x i8] c"0123456789bcdfghjklmnpqrstuvwxyz\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
 define i32 @ws_base32_decode(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -15,144 +15,166 @@ define i32 @ws_base32_decode(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store i32 %1, ptr %7, align 4
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #2
   store i32 0, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #2
   store i32 0, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #2
   store i32 0, ptr %12, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #2
   store i32 0, ptr %13, align 4
-  br label %14
+  br label %15
 
-14:                                               ; preds = %56, %4
-  %15 = load i32, ptr %11, align 4
-  %16 = load i32, ptr %9, align 4
-  %17 = icmp ult i32 %15, %16
-  br i1 %17, label %18, label %57
+15:                                               ; preds = %57, %4
+  %16 = load i32, ptr %11, align 4
+  %17 = load i32, ptr %9, align 4
+  %18 = icmp ult i32 %16, %17
+  br i1 %18, label %19, label %58
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %8, align 8
-  %20 = load i32, ptr %11, align 4
-  %21 = add i32 %20, 1
-  store i32 %21, ptr %11, align 4
-  %22 = zext i32 %20 to i64
-  %23 = getelementptr i8, ptr %19, i64 %22
-  %24 = load i8, ptr %23, align 1
-  %25 = zext i8 %24 to i32
-  %26 = load i32, ptr %13, align 4
-  %27 = shl i32 %25, %26
-  %28 = load i32, ptr %12, align 4
-  %29 = or i32 %28, %27
-  store i32 %29, ptr %12, align 4
-  %30 = load i32, ptr %13, align 4
-  %31 = add i32 %30, 8
-  store i32 %31, ptr %13, align 4
-  br label %32
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %8, align 8
+  %21 = load i32, ptr %11, align 4
+  %22 = add i32 %21, 1
+  store i32 %22, ptr %11, align 4
+  %23 = zext i32 %21 to i64
+  %24 = getelementptr i8, ptr %20, i64 %23
+  %25 = load i8, ptr %24, align 1
+  %26 = zext i8 %25 to i32
+  %27 = load i32, ptr %13, align 4
+  %28 = shl i32 %26, %27
+  %29 = load i32, ptr %12, align 4
+  %30 = or i32 %29, %28
+  store i32 %30, ptr %12, align 4
+  %31 = load i32, ptr %13, align 4
+  %32 = add i32 %31, 8
+  store i32 %32, ptr %13, align 4
+  br label %33
 
-32:                                               ; preds = %40, %18
-  %33 = load i32, ptr %13, align 4
-  %34 = icmp uge i32 %33, 5
-  br i1 %34, label %35, label %56
+33:                                               ; preds = %41, %19
+  %34 = load i32, ptr %13, align 4
+  %35 = icmp uge i32 %34, 5
+  br i1 %35, label %36, label %57
 
-35:                                               ; preds = %32
-  %36 = load i32, ptr %10, align 4
-  %37 = load i32, ptr %7, align 4
-  %38 = icmp uge i32 %36, %37
-  br i1 %38, label %39, label %40
+36:                                               ; preds = %33
+  %37 = load i32, ptr %10, align 4
+  %38 = load i32, ptr %7, align 4
+  %39 = icmp uge i32 %37, %38
+  br i1 %39, label %40, label %41
 
-39:                                               ; preds = %35
+40:                                               ; preds = %36
   store i32 -2, ptr %5, align 4
-  br label %88
+  store i32 1, ptr %14, align 4
+  br label %89
 
-40:                                               ; preds = %35
-  %41 = load ptr, ptr @ws_base32_decode.kChars, align 8
-  %42 = load i32, ptr %12, align 4
-  %43 = and i32 %42, 31
-  %44 = zext i32 %43 to i64
-  %45 = getelementptr i8, ptr %41, i64 %44
-  %46 = load i8, ptr %45, align 1
-  %47 = load ptr, ptr %6, align 8
-  %48 = load i32, ptr %10, align 4
-  %49 = add i32 %48, 1
-  store i32 %49, ptr %10, align 4
-  %50 = zext i32 %48 to i64
-  %51 = getelementptr i8, ptr %47, i64 %50
-  store i8 %46, ptr %51, align 1
-  %52 = load i32, ptr %13, align 4
-  %53 = sub i32 %52, 5
-  store i32 %53, ptr %13, align 4
-  %54 = load i32, ptr %12, align 4
-  %55 = lshr i32 %54, 5
-  store i32 %55, ptr %12, align 4
-  br label %32, !llvm.loop !4
+41:                                               ; preds = %36
+  %42 = load ptr, ptr @ws_base32_decode.kChars, align 8
+  %43 = load i32, ptr %12, align 4
+  %44 = and i32 %43, 31
+  %45 = zext i32 %44 to i64
+  %46 = getelementptr i8, ptr %42, i64 %45
+  %47 = load i8, ptr %46, align 1
+  %48 = load ptr, ptr %6, align 8
+  %49 = load i32, ptr %10, align 4
+  %50 = add i32 %49, 1
+  store i32 %50, ptr %10, align 4
+  %51 = zext i32 %49 to i64
+  %52 = getelementptr i8, ptr %48, i64 %51
+  store i8 %47, ptr %52, align 1
+  %53 = load i32, ptr %13, align 4
+  %54 = sub i32 %53, 5
+  store i32 %54, ptr %13, align 4
+  %55 = load i32, ptr %12, align 4
+  %56 = lshr i32 %55, 5
+  store i32 %56, ptr %12, align 4
+  br label %33, !llvm.loop !6
 
-56:                                               ; preds = %32
-  br label %14, !llvm.loop !6
+57:                                               ; preds = %33
+  br label %15, !llvm.loop !8
 
-57:                                               ; preds = %14
-  %58 = load i32, ptr %13, align 4
-  %59 = icmp ne i32 %58, 0
-  br i1 %59, label %60, label %77
+58:                                               ; preds = %15
+  %59 = load i32, ptr %13, align 4
+  %60 = icmp ne i32 %59, 0
+  br i1 %60, label %61, label %78
 
-60:                                               ; preds = %57
-  %61 = load i32, ptr %10, align 4
-  %62 = load i32, ptr %7, align 4
-  %63 = icmp uge i32 %61, %62
-  br i1 %63, label %64, label %65
+61:                                               ; preds = %58
+  %62 = load i32, ptr %10, align 4
+  %63 = load i32, ptr %7, align 4
+  %64 = icmp uge i32 %62, %63
+  br i1 %64, label %65, label %66
 
-64:                                               ; preds = %60
+65:                                               ; preds = %61
   store i32 -2, ptr %5, align 4
-  br label %88
+  store i32 1, ptr %14, align 4
+  br label %89
 
-65:                                               ; preds = %60
-  %66 = load ptr, ptr @ws_base32_decode.kChars, align 8
-  %67 = load i32, ptr %12, align 4
-  %68 = and i32 %67, 31
-  %69 = zext i32 %68 to i64
-  %70 = getelementptr i8, ptr %66, i64 %69
-  %71 = load i8, ptr %70, align 1
-  %72 = load ptr, ptr %6, align 8
-  %73 = load i32, ptr %10, align 4
-  %74 = add i32 %73, 1
-  store i32 %74, ptr %10, align 4
-  %75 = zext i32 %73 to i64
-  %76 = getelementptr i8, ptr %72, i64 %75
-  store i8 %71, ptr %76, align 1
-  br label %77
+66:                                               ; preds = %61
+  %67 = load ptr, ptr @ws_base32_decode.kChars, align 8
+  %68 = load i32, ptr %12, align 4
+  %69 = and i32 %68, 31
+  %70 = zext i32 %69 to i64
+  %71 = getelementptr i8, ptr %67, i64 %70
+  %72 = load i8, ptr %71, align 1
+  %73 = load ptr, ptr %6, align 8
+  %74 = load i32, ptr %10, align 4
+  %75 = add i32 %74, 1
+  store i32 %75, ptr %10, align 4
+  %76 = zext i32 %74 to i64
+  %77 = getelementptr i8, ptr %73, i64 %76
+  store i8 %72, ptr %77, align 1
+  br label %78
 
-77:                                               ; preds = %65, %57
-  %78 = load i32, ptr %10, align 4
-  %79 = load i32, ptr %7, align 4
-  %80 = icmp ult i32 %78, %79
-  br i1 %80, label %81, label %86
+78:                                               ; preds = %66, %58
+  %79 = load i32, ptr %10, align 4
+  %80 = load i32, ptr %7, align 4
+  %81 = icmp ult i32 %79, %80
+  br i1 %81, label %82, label %87
 
-81:                                               ; preds = %77
-  %82 = load ptr, ptr %6, align 8
-  %83 = load i32, ptr %10, align 4
-  %84 = zext i32 %83 to i64
-  %85 = getelementptr i8, ptr %82, i64 %84
-  store i8 0, ptr %85, align 1
-  br label %86
+82:                                               ; preds = %78
+  %83 = load ptr, ptr %6, align 8
+  %84 = load i32, ptr %10, align 4
+  %85 = zext i32 %84 to i64
+  %86 = getelementptr i8, ptr %83, i64 %85
+  store i8 0, ptr %86, align 1
+  br label %87
 
-86:                                               ; preds = %81, %77
-  %87 = load i32, ptr %10, align 4
-  store i32 %87, ptr %5, align 4
-  br label %88
+87:                                               ; preds = %82, %78
+  %88 = load i32, ptr %10, align 4
+  store i32 %88, ptr %5, align 4
+  store i32 1, ptr %14, align 4
+  br label %89
 
-88:                                               ; preds = %86, %64, %39
-  %89 = load i32, ptr %5, align 4
-  ret i32 %89
+89:                                               ; preds = %87, %65, %40
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #2
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #2
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #2
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #2
+  %90 = load i32, ptr %5, align 4
+  ret i32 %90
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+attributes #0 = { nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}

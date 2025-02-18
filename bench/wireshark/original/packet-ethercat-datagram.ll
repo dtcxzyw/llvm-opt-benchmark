@@ -3,20 +3,19 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
 %struct.true_false_string = type { ptr, ptr }
-%struct.ecat_esc_reg_info = type { i16, i16, i16, ptr, ptr, ptr, ptr }
 %struct._EcParser = type { i8, i8, %union.EcParserAddrUnion, i16, i16 }
 %union.EcParserAddrUnion = type { i32 }
 %struct.TETHERCAT_MBOX_HEADER = type { i16, i16, %union.tMbxHeaderControlUnion }
 %union.tMbxHeaderControlUnion = type { i16 }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon.0, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon.0, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon.0 = type { i8, [3 x i8] }
 %struct.anon = type { i16, i16 }
-%struct._proto_node = type { ptr, ptr, ptr, ptr, ptr, ptr }
+%struct._proto_node = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.field_info = type { ptr, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, i32, i32 }
+%struct.ecat_esc_reg_info = type { i16, i16, i16, ptr, ptr, ptr, ptr }
 
 @proto_register_ecat.hf = internal global [469 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_ecat_sub, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_sub_data, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_data, i64 4), %struct._header_field_info { ptr @.str.2, ptr @.str.4, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_data, i64 8), %struct._header_field_info { ptr @.str.2, ptr @.str.5, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_data, i64 12), %struct._header_field_info { ptr @.str.2, ptr @.str.6, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_data, i64 16), %struct._header_field_info { ptr @.str.2, ptr @.str.7, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_data, i64 20), %struct._header_field_info { ptr @.str.2, ptr @.str.8, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_data, i64 24), %struct._header_field_info { ptr @.str.2, ptr @.str.9, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_data, i64 28), %struct._header_field_info { ptr @.str.2, ptr @.str.10, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_data, i64 32), %struct._header_field_info { ptr @.str.2, ptr @.str.11, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_data, i64 36), %struct._header_field_info { ptr @.str.2, ptr @.str.12, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_data, %struct._header_field_info { ptr @.str.2, ptr @.str.13, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_cnt, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 5, i32 1, ptr null, i64 0, ptr @.str.16, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_sub_cnt, %struct._header_field_info { ptr @.str.14, ptr @.str.17, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_cnt, i64 4), %struct._header_field_info { ptr @.str.14, ptr @.str.18, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_cnt, i64 8), %struct._header_field_info { ptr @.str.14, ptr @.str.19, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_cnt, i64 12), %struct._header_field_info { ptr @.str.14, ptr @.str.20, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_cnt, i64 16), %struct._header_field_info { ptr @.str.14, ptr @.str.21, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_cnt, i64 20), %struct._header_field_info { ptr @.str.14, ptr @.str.22, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_cnt, i64 24), %struct._header_field_info { ptr @.str.14, ptr @.str.23, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_cnt, i64 28), %struct._header_field_info { ptr @.str.14, ptr @.str.24, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_cnt, i64 32), %struct._header_field_info { ptr @.str.14, ptr @.str.25, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_cnt, i64 36), %struct._header_field_info { ptr @.str.14, ptr @.str.26, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_cmd, %struct._header_field_info { ptr @.str.27, ptr @.str.28, i32 4, i32 2, ptr @EcCmdShort, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_sub_cmd, %struct._header_field_info { ptr @.str.27, ptr @.str.29, i32 4, i32 2, ptr @EcCmdShort, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_cmd, i64 4), %struct._header_field_info { ptr @.str.27, ptr @.str.30, i32 4, i32 2, ptr @EcCmdShort, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_cmd, i64 8), %struct._header_field_info { ptr @.str.27, ptr @.str.31, i32 4, i32 2, ptr @EcCmdShort, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_cmd, i64 12), %struct._header_field_info { ptr @.str.27, ptr @.str.32, i32 4, i32 2, ptr @EcCmdShort, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_cmd, i64 16), %struct._header_field_info { ptr @.str.27, ptr @.str.33, i32 4, i32 2, ptr @EcCmdShort, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_cmd, i64 20), %struct._header_field_info { ptr @.str.27, ptr @.str.34, i32 4, i32 2, ptr @EcCmdShort, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_cmd, i64 24), %struct._header_field_info { ptr @.str.27, ptr @.str.35, i32 4, i32 2, ptr @EcCmdShort, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_cmd, i64 28), %struct._header_field_info { ptr @.str.27, ptr @.str.36, i32 4, i32 2, ptr @EcCmdShort, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_cmd, i64 32), %struct._header_field_info { ptr @.str.27, ptr @.str.37, i32 4, i32 2, ptr @EcCmdShort, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_cmd, i64 36), %struct._header_field_info { ptr @.str.27, ptr @.str.38, i32 4, i32 2, ptr @EcCmdShort, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_idx, %struct._header_field_info { ptr @.str.39, ptr @.str.40, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_sub_idx, %struct._header_field_info { ptr @.str.39, ptr @.str.41, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_idx, i64 4), %struct._header_field_info { ptr @.str.39, ptr @.str.42, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_idx, i64 8), %struct._header_field_info { ptr @.str.39, ptr @.str.43, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_idx, i64 12), %struct._header_field_info { ptr @.str.39, ptr @.str.44, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_idx, i64 16), %struct._header_field_info { ptr @.str.39, ptr @.str.45, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_idx, i64 20), %struct._header_field_info { ptr @.str.39, ptr @.str.46, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_idx, i64 24), %struct._header_field_info { ptr @.str.39, ptr @.str.47, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_idx, i64 28), %struct._header_field_info { ptr @.str.39, ptr @.str.48, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_idx, i64 32), %struct._header_field_info { ptr @.str.39, ptr @.str.49, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_idx, i64 36), %struct._header_field_info { ptr @.str.39, ptr @.str.50, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_adp, %struct._header_field_info { ptr @.str.51, ptr @.str.52, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_sub_adp, %struct._header_field_info { ptr @.str.51, ptr @.str.53, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_adp, i64 4), %struct._header_field_info { ptr @.str.51, ptr @.str.54, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_adp, i64 8), %struct._header_field_info { ptr @.str.51, ptr @.str.55, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_adp, i64 12), %struct._header_field_info { ptr @.str.51, ptr @.str.56, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_adp, i64 16), %struct._header_field_info { ptr @.str.51, ptr @.str.57, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_adp, i64 20), %struct._header_field_info { ptr @.str.51, ptr @.str.58, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_adp, i64 24), %struct._header_field_info { ptr @.str.51, ptr @.str.59, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_adp, i64 28), %struct._header_field_info { ptr @.str.51, ptr @.str.60, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_adp, i64 32), %struct._header_field_info { ptr @.str.51, ptr @.str.61, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_adp, i64 36), %struct._header_field_info { ptr @.str.51, ptr @.str.62, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_ado, %struct._header_field_info { ptr @.str.63, ptr @.str.64, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_sub_ado, %struct._header_field_info { ptr @.str.63, ptr @.str.65, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_ado, i64 4), %struct._header_field_info { ptr @.str.63, ptr @.str.66, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_ado, i64 8), %struct._header_field_info { ptr @.str.63, ptr @.str.67, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_ado, i64 12), %struct._header_field_info { ptr @.str.63, ptr @.str.68, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_ado, i64 16), %struct._header_field_info { ptr @.str.63, ptr @.str.69, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_ado, i64 20), %struct._header_field_info { ptr @.str.63, ptr @.str.70, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_ado, i64 24), %struct._header_field_info { ptr @.str.63, ptr @.str.71, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_ado, i64 28), %struct._header_field_info { ptr @.str.63, ptr @.str.72, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_ado, i64 32), %struct._header_field_info { ptr @.str.63, ptr @.str.73, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_ado, i64 36), %struct._header_field_info { ptr @.str.63, ptr @.str.74, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_lad, %struct._header_field_info { ptr @.str.75, ptr @.str.76, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_sub_lad, %struct._header_field_info { ptr @.str.75, ptr @.str.77, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_lad, i64 4), %struct._header_field_info { ptr @.str.75, ptr @.str.78, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_lad, i64 8), %struct._header_field_info { ptr @.str.75, ptr @.str.79, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_lad, i64 12), %struct._header_field_info { ptr @.str.75, ptr @.str.80, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_lad, i64 16), %struct._header_field_info { ptr @.str.75, ptr @.str.81, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_lad, i64 20), %struct._header_field_info { ptr @.str.75, ptr @.str.82, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_lad, i64 24), %struct._header_field_info { ptr @.str.75, ptr @.str.83, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_lad, i64 28), %struct._header_field_info { ptr @.str.75, ptr @.str.84, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_lad, i64 32), %struct._header_field_info { ptr @.str.75, ptr @.str.85, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_lad, i64 36), %struct._header_field_info { ptr @.str.75, ptr @.str.86, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_int, %struct._header_field_info { ptr @.str.87, ptr @.str.88, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_dc_diff_da, %struct._header_field_info { ptr @.str.89, ptr @.str.90, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_dc_diff_bd, %struct._header_field_info { ptr @.str.91, ptr @.str.92, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_dc_diff_cb, %struct._header_field_info { ptr @.str.93, ptr @.str.94, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_dc_diff_cd, %struct._header_field_info { ptr @.str.95, ptr @.str.96, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_dc_diff_ba, %struct._header_field_info { ptr @.str.97, ptr @.str.98, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_dc_diff_ca, %struct._header_field_info { ptr @.str.99, ptr @.str.100, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_sub_dc_diff_da, %struct._header_field_info { ptr @.str.89, ptr @.str.101, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_da, i64 4), %struct._header_field_info { ptr @.str.89, ptr @.str.102, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_da, i64 8), %struct._header_field_info { ptr @.str.89, ptr @.str.103, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_da, i64 12), %struct._header_field_info { ptr @.str.89, ptr @.str.104, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_da, i64 16), %struct._header_field_info { ptr @.str.89, ptr @.str.105, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_da, i64 20), %struct._header_field_info { ptr @.str.89, ptr @.str.106, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_da, i64 24), %struct._header_field_info { ptr @.str.89, ptr @.str.107, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_da, i64 28), %struct._header_field_info { ptr @.str.89, ptr @.str.108, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_da, i64 32), %struct._header_field_info { ptr @.str.89, ptr @.str.109, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_da, i64 36), %struct._header_field_info { ptr @.str.89, ptr @.str.110, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_sub_dc_diff_bd, %struct._header_field_info { ptr @.str.111, ptr @.str.112, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_bd, i64 4), %struct._header_field_info { ptr @.str.111, ptr @.str.113, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_bd, i64 8), %struct._header_field_info { ptr @.str.111, ptr @.str.114, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_bd, i64 12), %struct._header_field_info { ptr @.str.111, ptr @.str.115, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_bd, i64 16), %struct._header_field_info { ptr @.str.111, ptr @.str.116, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_bd, i64 20), %struct._header_field_info { ptr @.str.111, ptr @.str.117, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_bd, i64 24), %struct._header_field_info { ptr @.str.111, ptr @.str.118, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_bd, i64 28), %struct._header_field_info { ptr @.str.111, ptr @.str.119, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_bd, i64 32), %struct._header_field_info { ptr @.str.111, ptr @.str.120, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_bd, i64 36), %struct._header_field_info { ptr @.str.91, ptr @.str.121, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_sub_dc_diff_cb, %struct._header_field_info { ptr @.str.93, ptr @.str.122, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_cb, i64 4), %struct._header_field_info { ptr @.str.93, ptr @.str.123, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_cb, i64 8), %struct._header_field_info { ptr @.str.93, ptr @.str.124, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_cb, i64 12), %struct._header_field_info { ptr @.str.93, ptr @.str.125, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_cb, i64 16), %struct._header_field_info { ptr @.str.93, ptr @.str.126, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_cb, i64 20), %struct._header_field_info { ptr @.str.93, ptr @.str.127, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_cb, i64 24), %struct._header_field_info { ptr @.str.93, ptr @.str.128, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_cb, i64 28), %struct._header_field_info { ptr @.str.93, ptr @.str.129, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_cb, i64 32), %struct._header_field_info { ptr @.str.93, ptr @.str.130, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_cb, i64 36), %struct._header_field_info { ptr @.str.93, ptr @.str.131, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_sub_dc_diff_cd, %struct._header_field_info { ptr @.str.95, ptr @.str.132, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_cd, i64 4), %struct._header_field_info { ptr @.str.95, ptr @.str.133, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_cd, i64 8), %struct._header_field_info { ptr @.str.95, ptr @.str.134, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_cd, i64 12), %struct._header_field_info { ptr @.str.95, ptr @.str.135, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_cd, i64 16), %struct._header_field_info { ptr @.str.95, ptr @.str.136, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_cd, i64 20), %struct._header_field_info { ptr @.str.95, ptr @.str.137, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_cd, i64 24), %struct._header_field_info { ptr @.str.95, ptr @.str.138, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_cd, i64 28), %struct._header_field_info { ptr @.str.95, ptr @.str.139, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_cd, i64 32), %struct._header_field_info { ptr @.str.95, ptr @.str.140, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_cd, i64 36), %struct._header_field_info { ptr @.str.95, ptr @.str.141, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_sub_dc_diff_ba, %struct._header_field_info { ptr @.str.97, ptr @.str.142, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_ba, i64 4), %struct._header_field_info { ptr @.str.97, ptr @.str.143, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_ba, i64 8), %struct._header_field_info { ptr @.str.97, ptr @.str.144, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_ba, i64 12), %struct._header_field_info { ptr @.str.97, ptr @.str.145, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_ba, i64 16), %struct._header_field_info { ptr @.str.97, ptr @.str.146, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_ba, i64 20), %struct._header_field_info { ptr @.str.97, ptr @.str.147, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_ba, i64 24), %struct._header_field_info { ptr @.str.97, ptr @.str.148, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_ba, i64 28), %struct._header_field_info { ptr @.str.97, ptr @.str.149, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_ba, i64 32), %struct._header_field_info { ptr @.str.97, ptr @.str.150, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_ba, i64 36), %struct._header_field_info { ptr @.str.97, ptr @.str.151, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_sub_dc_diff_ca, %struct._header_field_info { ptr @.str.99, ptr @.str.152, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_ca, i64 4), %struct._header_field_info { ptr @.str.99, ptr @.str.153, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_ca, i64 8), %struct._header_field_info { ptr @.str.99, ptr @.str.154, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_ca, i64 12), %struct._header_field_info { ptr @.str.99, ptr @.str.155, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_ca, i64 16), %struct._header_field_info { ptr @.str.99, ptr @.str.156, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_ca, i64 20), %struct._header_field_info { ptr @.str.99, ptr @.str.157, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_ca, i64 24), %struct._header_field_info { ptr @.str.99, ptr @.str.158, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_ca, i64 28), %struct._header_field_info { ptr @.str.99, ptr @.str.159, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_ca, i64 32), %struct._header_field_info { ptr @.str.99, ptr @.str.160, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr getelementptr (i8, ptr @hf_ecat_sub_dc_diff_ca, i64 36), %struct._header_field_info { ptr @.str.99, ptr @.str.161, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_length_len, %struct._header_field_info { ptr @.str.162, ptr @.str.163, i32 5, i32 1, ptr null, i64 2047, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_length_r, %struct._header_field_info { ptr @.str.164, ptr @.str.165, i32 5, i32 1, ptr @ecat_subframe_reserved_vals, i64 14336, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_length_c, %struct._header_field_info { ptr @.str.166, ptr @.str.167, i32 2, i32 16, ptr @tfs_ecat_subframe_circulating_vals, i64 16384, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_length_m, %struct._header_field_info { ptr @.str.168, ptr @.str.169, i32 2, i32 16, ptr @tfs_ecat_subframe_more_vals, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_padding, %struct._header_field_info { ptr @.str.170, ptr @.str.171, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_revision, %struct._header_field_info { ptr @.str.172, ptr @.str.173, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_esc_type, %struct._header_field_info { ptr @.str.174, ptr @.str.175, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_esc_build, %struct._header_field_info { ptr @.str.176, ptr @.str.177, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_esc_fmmucnt, %struct._header_field_info { ptr @.str.178, ptr @.str.179, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_esc_smcnt, %struct._header_field_info { ptr @.str.180, ptr @.str.181, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_esc_ports, %struct._header_field_info { ptr @.str.182, ptr @.str.183, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_esc_dpram, %struct._header_field_info { ptr @.str.184, ptr @.str.185, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_esc_features, %struct._header_field_info { ptr @.str.186, ptr @.str.187, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_esc_features_fmmurestrict, %struct._header_field_info { ptr @.str.188, ptr @.str.189, i32 2, i32 16, ptr @tfs_local_true_false, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_esc_features_smaddrrestrict, %struct._header_field_info { ptr @.str.190, ptr @.str.191, i32 2, i32 16, ptr @tfs_local_true_false, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_esc_features_dcsupport, %struct._header_field_info { ptr @.str.192, ptr @.str.193, i32 2, i32 16, ptr @tfs_local_true_false, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_esc_features_dc64support, %struct._header_field_info { ptr @.str.194, ptr @.str.195, i32 2, i32 16, ptr @tfs_local_true_false, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_esc_features_ebuslowjitter, %struct._header_field_info { ptr @.str.196, ptr @.str.197, i32 2, i32 16, ptr @tfs_local_true_false, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_esc_features_ebusextlinkdetect, %struct._header_field_info { ptr @.str.198, ptr @.str.199, i32 2, i32 16, ptr @tfs_local_true_false, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_esc_features_miiextlinkdetect, %struct._header_field_info { ptr @.str.200, ptr @.str.201, i32 2, i32 16, ptr @tfs_local_true_false, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_esc_features_crcext, %struct._header_field_info { ptr @.str.202, ptr @.str.203, i32 2, i32 16, ptr @tfs_local_true_false, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_physaddr, %struct._header_field_info { ptr @.str.204, ptr @.str.205, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_physaddr2, %struct._header_field_info { ptr @.str.206, ptr @.str.207, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dlctrl1, %struct._header_field_info { ptr @.str.208, ptr @.str.209, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dlctrl1_killnonecat, %struct._header_field_info { ptr @.str.210, ptr @.str.211, i32 2, i32 8, ptr @tfs_local_true_false, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dlctrl1_port0extlinkdetect, %struct._header_field_info { ptr @.str.212, ptr @.str.213, i32 2, i32 8, ptr @tfs_local_disabled_enabled, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dlctrl1_port1extlinkdetect, %struct._header_field_info { ptr @.str.214, ptr @.str.215, i32 2, i32 8, ptr @tfs_local_disabled_enabled, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dlctrl1_port2extlinkdetect, %struct._header_field_info { ptr @.str.216, ptr @.str.217, i32 2, i32 8, ptr @tfs_local_disabled_enabled, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dlctrl1_port3extlinkdetect, %struct._header_field_info { ptr @.str.218, ptr @.str.219, i32 2, i32 8, ptr @tfs_local_disabled_enabled, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dlctrl2, %struct._header_field_info { ptr @.str.220, ptr @.str.221, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dlctrl2_port0, %struct._header_field_info { ptr @.str.222, ptr @.str.223, i32 4, i32 2, ptr @vals_esc_reg_101, i64 3, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dlctrl2_port1, %struct._header_field_info { ptr @.str.224, ptr @.str.225, i32 4, i32 2, ptr @vals_esc_reg_101, i64 12, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dlctrl2_port2, %struct._header_field_info { ptr @.str.226, ptr @.str.227, i32 4, i32 2, ptr @vals_esc_reg_101, i64 48, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dlctrl2_port3, %struct._header_field_info { ptr @.str.228, ptr @.str.229, i32 4, i32 2, ptr @vals_esc_reg_101, i64 192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dlctrl3, %struct._header_field_info { ptr @.str.230, ptr @.str.231, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dlctrl3_fifosize, %struct._header_field_info { ptr @.str.232, ptr @.str.233, i32 4, i32 2, ptr null, i64 7, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dlctrl3_lowebusjit, %struct._header_field_info { ptr @.str.234, ptr @.str.235, i32 2, i32 8, ptr @tfs_local_disabled_enabled, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dlctrl4, %struct._header_field_info { ptr @.str.236, ptr @.str.237, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dlctrl4_2ndaddress, %struct._header_field_info { ptr @.str.238, ptr @.str.239, i32 2, i32 8, ptr @tfs_local_disabled_enabled, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dlstatus1, %struct._header_field_info { ptr @.str.240, ptr @.str.241, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dlstatus1_operation, %struct._header_field_info { ptr @.str.242, ptr @.str.243, i32 2, i32 8, ptr @tfs_local_true_false, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dlstatus1_pdiwatchdog, %struct._header_field_info { ptr @.str.244, ptr @.str.245, i32 2, i32 8, ptr @tfs_esc_reg_watchdog, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dlstatus1_enhlinkdetect, %struct._header_field_info { ptr @.str.246, ptr @.str.247, i32 2, i32 8, ptr @tfs_local_disabled_enabled, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dlstatus1_physlink_port0, %struct._header_field_info { ptr @.str.248, ptr @.str.249, i32 2, i32 8, ptr @tfs_local_true_false, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dlstatus1_physlink_port1, %struct._header_field_info { ptr @.str.250, ptr @.str.251, i32 2, i32 8, ptr @tfs_local_true_false, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dlstatus1_physlink_port2, %struct._header_field_info { ptr @.str.252, ptr @.str.253, i32 2, i32 8, ptr @tfs_local_true_false, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dlstatus1_physlink_port3, %struct._header_field_info { ptr @.str.254, ptr @.str.255, i32 2, i32 8, ptr @tfs_local_true_false, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dlstatus2, %struct._header_field_info { ptr @.str.256, ptr @.str.257, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dlstatus2_port0, %struct._header_field_info { ptr @.str.222, ptr @.str.258, i32 4, i32 2, ptr @vals_esc_reg_111, i64 3, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dlstatus2_port1, %struct._header_field_info { ptr @.str.224, ptr @.str.259, i32 4, i32 2, ptr @vals_esc_reg_111, i64 12, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dlstatus2_port2, %struct._header_field_info { ptr @.str.226, ptr @.str.260, i32 4, i32 2, ptr @vals_esc_reg_111, i64 48, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dlstatus2_port3, %struct._header_field_info { ptr @.str.228, ptr @.str.261, i32 4, i32 2, ptr @vals_esc_reg_111, i64 192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_regprotect, %struct._header_field_info { ptr @.str.262, ptr @.str.263, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_accessprotect, %struct._header_field_info { ptr @.str.264, ptr @.str.265, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_resetecat, %struct._header_field_info { ptr @.str.266, ptr @.str.267, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_resetpdi, %struct._header_field_info { ptr @.str.268, ptr @.str.269, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_regphysrwoffs, %struct._header_field_info { ptr @.str.270, ptr @.str.271, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_alctrl, %struct._header_field_info { ptr @.str.272, ptr @.str.273, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_alctrl_ctrl, %struct._header_field_info { ptr @.str.274, ptr @.str.275, i32 5, i32 2, ptr @vals_esc_reg_120, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_alctrl_errack, %struct._header_field_info { ptr @.str.276, ptr @.str.277, i32 2, i32 16, ptr @tfs_local_true_false, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_alctrl_id, %struct._header_field_info { ptr @.str.278, ptr @.str.279, i32 2, i32 16, ptr @tfs_local_true_false, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_alstatus, %struct._header_field_info { ptr @.str.280, ptr @.str.281, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_alstatus_status, %struct._header_field_info { ptr @.str.282, ptr @.str.283, i32 5, i32 2, ptr @vals_esc_reg_120, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_alstatus_err, %struct._header_field_info { ptr @.str.284, ptr @.str.285, i32 2, i32 16, ptr @tfs_local_true_false, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_alstatus_id, %struct._header_field_info { ptr @.str.278, ptr @.str.286, i32 2, i32 16, ptr @tfs_local_true_false, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_alstatuscode, %struct._header_field_info { ptr @.str.287, ptr @.str.288, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_pdictrl1, %struct._header_field_info { ptr @.str.289, ptr @.str.290, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_pdictrl1_pdi, %struct._header_field_info { ptr @.str.291, ptr @.str.292, i32 4, i32 2, ptr @vals_esc_reg_140, i64 255, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_pdictrl2, %struct._header_field_info { ptr @.str.293, ptr @.str.294, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_pdictrl2_devemul, %struct._header_field_info { ptr @.str.295, ptr @.str.296, i32 2, i32 8, ptr @tfs_local_true_false, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_pdictrl2_enhlnkdetect, %struct._header_field_info { ptr @.str.297, ptr @.str.298, i32 2, i32 8, ptr @tfs_local_disable_enable, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_pdictrl2_dcsyncout, %struct._header_field_info { ptr @.str.299, ptr @.str.300, i32 2, i32 8, ptr @tfs_local_disable_enable, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_pdictrl2_dcsyncin, %struct._header_field_info { ptr @.str.301, ptr @.str.302, i32 2, i32 8, ptr @tfs_local_disable_enable, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_pdictrl2_enhlnkdetect0, %struct._header_field_info { ptr @.str.303, ptr @.str.304, i32 2, i32 8, ptr @tfs_local_disable_enable, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_pdictrl2_enhlnkdetect1, %struct._header_field_info { ptr @.str.305, ptr @.str.306, i32 2, i32 8, ptr @tfs_local_disable_enable, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_pdictrl2_enhlnkdetect2, %struct._header_field_info { ptr @.str.307, ptr @.str.308, i32 2, i32 8, ptr @tfs_local_disable_enable, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_pdictrl2_enhlnkdetect3, %struct._header_field_info { ptr @.str.309, ptr @.str.310, i32 2, i32 8, ptr @tfs_local_disable_enable, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_ecat_mask, %struct._header_field_info { ptr @.str.311, ptr @.str.312, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_ecat_mask_latchevt, %struct._header_field_info { ptr @.str.313, ptr @.str.314, i32 2, i32 16, ptr @tfs_local_true_false, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_ecat_mask_escstatevt, %struct._header_field_info { ptr @.str.315, ptr @.str.316, i32 2, i32 16, ptr @tfs_local_true_false, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_ecat_mask_alstatevt, %struct._header_field_info { ptr @.str.317, ptr @.str.318, i32 2, i32 16, ptr @tfs_local_true_false, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_ecat_mask_sm0irq, %struct._header_field_info { ptr @.str.319, ptr @.str.320, i32 2, i32 16, ptr @tfs_local_true_false, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_ecat_mask_sm1irq, %struct._header_field_info { ptr @.str.321, ptr @.str.322, i32 2, i32 16, ptr @tfs_local_true_false, i64 512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_ecat_mask_sm2irq, %struct._header_field_info { ptr @.str.323, ptr @.str.324, i32 2, i32 16, ptr @tfs_local_true_false, i64 1024, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_ecat_mask_sm3irq, %struct._header_field_info { ptr @.str.325, ptr @.str.326, i32 2, i32 16, ptr @tfs_local_true_false, i64 2048, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_ecat_mask_sm4irq, %struct._header_field_info { ptr @.str.327, ptr @.str.328, i32 2, i32 16, ptr @tfs_local_true_false, i64 4096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_ecat_mask_sm5irq, %struct._header_field_info { ptr @.str.329, ptr @.str.330, i32 2, i32 16, ptr @tfs_local_true_false, i64 8192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_ecat_mask_sm6irq, %struct._header_field_info { ptr @.str.331, ptr @.str.332, i32 2, i32 16, ptr @tfs_local_true_false, i64 16384, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_ecat_mask_sm7irq, %struct._header_field_info { ptr @.str.333, ptr @.str.334, i32 2, i32 16, ptr @tfs_local_true_false, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_pdiL, %struct._header_field_info { ptr @.str.335, ptr @.str.336, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_pdiL_alctrl, %struct._header_field_info { ptr @.str.337, ptr @.str.338, i32 2, i32 16, ptr @tfs_local_true_false, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_pdiL_latchin, %struct._header_field_info { ptr @.str.339, ptr @.str.340, i32 2, i32 16, ptr @tfs_local_true_false, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_pdiL_sync0, %struct._header_field_info { ptr @.str.341, ptr @.str.342, i32 2, i32 16, ptr @tfs_local_true_false, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_pdiL_sync1, %struct._header_field_info { ptr @.str.343, ptr @.str.344, i32 2, i32 16, ptr @tfs_local_true_false, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_pdiL_smchg, %struct._header_field_info { ptr @.str.345, ptr @.str.346, i32 2, i32 16, ptr @tfs_local_true_false, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_pdiL_eepromcmdpen, %struct._header_field_info { ptr @.str.347, ptr @.str.348, i32 2, i32 16, ptr @tfs_local_true_false, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_pdiL_sm0, %struct._header_field_info { ptr @.str.349, ptr @.str.350, i32 2, i32 16, ptr @tfs_local_true_false, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_pdiL_sm1, %struct._header_field_info { ptr @.str.351, ptr @.str.352, i32 2, i32 16, ptr @tfs_local_true_false, i64 512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_pdiL_sm2, %struct._header_field_info { ptr @.str.353, ptr @.str.354, i32 2, i32 16, ptr @tfs_local_true_false, i64 1024, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_pdiL_sm3, %struct._header_field_info { ptr @.str.355, ptr @.str.356, i32 2, i32 16, ptr @tfs_local_true_false, i64 2048, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_pdiL_sm4, %struct._header_field_info { ptr @.str.357, ptr @.str.358, i32 2, i32 16, ptr @tfs_local_true_false, i64 4096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_pdiL_sm5, %struct._header_field_info { ptr @.str.359, ptr @.str.360, i32 2, i32 16, ptr @tfs_local_true_false, i64 8192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_pdiL_sm6, %struct._header_field_info { ptr @.str.361, ptr @.str.362, i32 2, i32 16, ptr @tfs_local_true_false, i64 16384, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_pdiL_sm7, %struct._header_field_info { ptr @.str.363, ptr @.str.364, i32 2, i32 16, ptr @tfs_local_true_false, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_pdiH, %struct._header_field_info { ptr @.str.365, ptr @.str.366, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_ecat, %struct._header_field_info { ptr @.str.367, ptr @.str.368, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_ecat_latchevt, %struct._header_field_info { ptr @.str.313, ptr @.str.369, i32 2, i32 16, ptr @tfs_local_true_false, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_ecat_escstatevt, %struct._header_field_info { ptr @.str.315, ptr @.str.370, i32 2, i32 16, ptr @tfs_local_true_false, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_ecat_alstatevt, %struct._header_field_info { ptr @.str.317, ptr @.str.371, i32 2, i32 16, ptr @tfs_local_true_false, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_ecat_sm0irq, %struct._header_field_info { ptr @.str.319, ptr @.str.372, i32 2, i32 16, ptr @tfs_local_true_false, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_ecat_sm1irq, %struct._header_field_info { ptr @.str.321, ptr @.str.373, i32 2, i32 16, ptr @tfs_local_true_false, i64 512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_ecat_sm2irq, %struct._header_field_info { ptr @.str.323, ptr @.str.374, i32 2, i32 16, ptr @tfs_local_true_false, i64 1024, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_ecat_sm3irq, %struct._header_field_info { ptr @.str.325, ptr @.str.375, i32 2, i32 16, ptr @tfs_local_true_false, i64 2048, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_ecat_sm4irq, %struct._header_field_info { ptr @.str.327, ptr @.str.376, i32 2, i32 16, ptr @tfs_local_true_false, i64 4096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_ecat_sm5irq, %struct._header_field_info { ptr @.str.329, ptr @.str.377, i32 2, i32 16, ptr @tfs_local_true_false, i64 8192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_ecat_sm6irq, %struct._header_field_info { ptr @.str.331, ptr @.str.378, i32 2, i32 16, ptr @tfs_local_true_false, i64 16384, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_ecat_sm7irq, %struct._header_field_info { ptr @.str.333, ptr @.str.379, i32 2, i32 16, ptr @tfs_local_true_false, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_pdi1, %struct._header_field_info { ptr @.str.380, ptr @.str.381, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_pdi1_alctrl, %struct._header_field_info { ptr @.str.337, ptr @.str.382, i32 2, i32 16, ptr @tfs_local_true_false, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_pdi1_latchin, %struct._header_field_info { ptr @.str.339, ptr @.str.383, i32 2, i32 16, ptr @tfs_local_true_false, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_pdi1_sync0, %struct._header_field_info { ptr @.str.341, ptr @.str.384, i32 2, i32 16, ptr @tfs_local_true_false, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_pdi1_sync1, %struct._header_field_info { ptr @.str.343, ptr @.str.385, i32 2, i32 16, ptr @tfs_local_true_false, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_pdi1_smchg, %struct._header_field_info { ptr @.str.345, ptr @.str.386, i32 2, i32 16, ptr @tfs_local_true_false, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_pdi1_eepromcmdpen, %struct._header_field_info { ptr @.str.347, ptr @.str.387, i32 2, i32 16, ptr @tfs_local_true_false, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_pdi1_sm0, %struct._header_field_info { ptr @.str.349, ptr @.str.388, i32 2, i32 16, ptr @tfs_local_true_false, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_pdi1_sm1, %struct._header_field_info { ptr @.str.351, ptr @.str.389, i32 2, i32 16, ptr @tfs_local_true_false, i64 512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_pdi1_sm2, %struct._header_field_info { ptr @.str.353, ptr @.str.390, i32 2, i32 16, ptr @tfs_local_true_false, i64 1024, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_pdi1_sm3, %struct._header_field_info { ptr @.str.355, ptr @.str.391, i32 2, i32 16, ptr @tfs_local_true_false, i64 2048, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_pdi1_sm4, %struct._header_field_info { ptr @.str.357, ptr @.str.392, i32 2, i32 16, ptr @tfs_local_true_false, i64 4096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_pdi1_sm5, %struct._header_field_info { ptr @.str.359, ptr @.str.393, i32 2, i32 16, ptr @tfs_local_true_false, i64 8192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_pdi1_sm6, %struct._header_field_info { ptr @.str.361, ptr @.str.394, i32 2, i32 16, ptr @tfs_local_true_false, i64 16384, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_pdi1_sm7, %struct._header_field_info { ptr @.str.363, ptr @.str.395, i32 2, i32 16, ptr @tfs_local_true_false, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_pdi2, %struct._header_field_info { ptr @.str.396, ptr @.str.397, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_crc0, %struct._header_field_info { ptr @.str.398, ptr @.str.399, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_crc1, %struct._header_field_info { ptr @.str.400, ptr @.str.401, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_crc2, %struct._header_field_info { ptr @.str.402, ptr @.str.403, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_crc3, %struct._header_field_info { ptr @.str.404, ptr @.str.405, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_crc0_frame, %struct._header_field_info { ptr @.str.406, ptr @.str.407, i32 5, i32 2, ptr null, i64 255, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_crc0_rx, %struct._header_field_info { ptr @.str.408, ptr @.str.409, i32 5, i32 2, ptr null, i64 65280, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_crc1_frame, %struct._header_field_info { ptr @.str.406, ptr @.str.410, i32 5, i32 2, ptr null, i64 255, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_crc1_rx, %struct._header_field_info { ptr @.str.408, ptr @.str.411, i32 5, i32 2, ptr null, i64 65280, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_crc2_frame, %struct._header_field_info { ptr @.str.406, ptr @.str.412, i32 5, i32 2, ptr null, i64 255, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_crc2_rx, %struct._header_field_info { ptr @.str.408, ptr @.str.413, i32 5, i32 2, ptr null, i64 65280, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_crc3_frame, %struct._header_field_info { ptr @.str.406, ptr @.str.414, i32 5, i32 2, ptr null, i64 255, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_crc3_rx, %struct._header_field_info { ptr @.str.408, ptr @.str.415, i32 5, i32 2, ptr null, i64 65280, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_crc_fwd0, %struct._header_field_info { ptr @.str.416, ptr @.str.417, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_crc_fwd1, %struct._header_field_info { ptr @.str.418, ptr @.str.419, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_crc_fwd2, %struct._header_field_info { ptr @.str.420, ptr @.str.421, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_crc_fwd3, %struct._header_field_info { ptr @.str.422, ptr @.str.423, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_processuniterr, %struct._header_field_info { ptr @.str.424, ptr @.str.425, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_pdierr, %struct._header_field_info { ptr @.str.426, ptr @.str.427, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_linklost0, %struct._header_field_info { ptr @.str.428, ptr @.str.429, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_linklost1, %struct._header_field_info { ptr @.str.430, ptr @.str.431, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_linklost2, %struct._header_field_info { ptr @.str.432, ptr @.str.433, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_linklost3, %struct._header_field_info { ptr @.str.434, ptr @.str.435, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_wd_divisor, %struct._header_field_info { ptr @.str.436, ptr @.str.437, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_wd_timepdi, %struct._header_field_info { ptr @.str.438, ptr @.str.439, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_wd_timesm, %struct._header_field_info { ptr @.str.440, ptr @.str.441, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_wd_status, %struct._header_field_info { ptr @.str.442, ptr @.str.443, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_wd_status_pdwatchdog, %struct._header_field_info { ptr @.str.444, ptr @.str.445, i32 2, i32 8, ptr @tfs_esc_reg_watchdog, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_wd_cntsm, %struct._header_field_info { ptr @.str.446, ptr @.str.447, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_wd_cntpdi, %struct._header_field_info { ptr @.str.448, ptr @.str.449, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_eeprom_assign, %struct._header_field_info { ptr @.str.450, ptr @.str.451, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_eeprom_assign_ctrl, %struct._header_field_info { ptr @.str.452, ptr @.str.453, i32 2, i32 8, ptr @tfs_esc_reg_500_0, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_eeprom_assign_pdiaccess, %struct._header_field_info { ptr @.str.454, ptr @.str.455, i32 2, i32 8, ptr @tfs_esc_reg_500_1, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_eeprom_assign_status, %struct._header_field_info { ptr @.str.456, ptr @.str.457, i32 2, i32 8, ptr @tfs_esc_reg_500_0, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_ctrlstat, %struct._header_field_info { ptr @.str.458, ptr @.str.459, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_ctrlstat_wraccess, %struct._header_field_info { ptr @.str.460, ptr @.str.461, i32 2, i32 16, ptr @tfs_local_true_false, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_ctrlstat_eepromemul, %struct._header_field_info { ptr @.str.462, ptr @.str.463, i32 2, i32 16, ptr @tfs_esc_reg_502_5, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_ctrlstat_8bacc, %struct._header_field_info { ptr @.str.464, ptr @.str.465, i32 2, i32 16, ptr @tfs_local_true_false, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_ctrlstat_2bacc, %struct._header_field_info { ptr @.str.466, ptr @.str.467, i32 2, i32 16, ptr @tfs_local_true_false, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_ctrlstat_rdacc, %struct._header_field_info { ptr @.str.468, ptr @.str.469, i32 2, i32 16, ptr @tfs_local_true_false, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_ctrlstat_wracc, %struct._header_field_info { ptr @.str.460, ptr @.str.470, i32 2, i32 16, ptr @tfs_local_true_false, i64 512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_ctrlstat_reloadacc, %struct._header_field_info { ptr @.str.471, ptr @.str.472, i32 2, i32 16, ptr @tfs_local_true_false, i64 1024, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_ctrlstat_crcerr, %struct._header_field_info { ptr @.str.473, ptr @.str.474, i32 2, i32 16, ptr @tfs_local_true_false, i64 2048, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_ctrlstat_lderr, %struct._header_field_info { ptr @.str.475, ptr @.str.476, i32 2, i32 16, ptr @tfs_local_true_false, i64 4096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_ctrlstat_cmderr, %struct._header_field_info { ptr @.str.477, ptr @.str.478, i32 2, i32 16, ptr @tfs_local_true_false, i64 8192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_ctrlstat_wrerr, %struct._header_field_info { ptr @.str.479, ptr @.str.480, i32 2, i32 16, ptr @tfs_local_true_false, i64 16384, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_ctrlstat_busy, %struct._header_field_info { ptr @.str.481, ptr @.str.482, i32 2, i32 16, ptr @tfs_local_true_false, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_addrl, %struct._header_field_info { ptr @.str.483, ptr @.str.484, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_addrh, %struct._header_field_info { ptr @.str.485, ptr @.str.486, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_data0, %struct._header_field_info { ptr @.str.487, ptr @.str.488, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_data1, %struct._header_field_info { ptr @.str.489, ptr @.str.490, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_data2, %struct._header_field_info { ptr @.str.491, ptr @.str.492, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_data3, %struct._header_field_info { ptr @.str.493, ptr @.str.494, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_mio_ctrlstat, %struct._header_field_info { ptr @.str.495, ptr @.str.496, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_mio_ctrlstat_wracc1, %struct._header_field_info { ptr @.str.460, ptr @.str.497, i32 2, i32 16, ptr @tfs_local_true_false, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_mio_ctrlstat_offsphy, %struct._header_field_info { ptr @.str.498, ptr @.str.499, i32 5, i32 2, ptr null, i64 143, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_mio_ctrlstat_rdacc, %struct._header_field_info { ptr @.str.468, ptr @.str.500, i32 2, i32 16, ptr @tfs_local_true_false, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_mio_ctrlstat_wracc2, %struct._header_field_info { ptr @.str.460, ptr @.str.501, i32 2, i32 16, ptr @tfs_local_true_false, i64 512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_mio_ctrlstat_wrerr, %struct._header_field_info { ptr @.str.479, ptr @.str.502, i32 2, i32 16, ptr @tfs_local_true_false, i64 16384, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_mio_ctrlstat_busy, %struct._header_field_info { ptr @.str.481, ptr @.str.503, i32 2, i32 16, ptr @tfs_local_true_false, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_mio_addr, %struct._header_field_info { ptr @.str.504, ptr @.str.505, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_mio_addr_phyaddr, %struct._header_field_info { ptr @.str.506, ptr @.str.507, i32 5, i32 2, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_mio_addr_mioaddr, %struct._header_field_info { ptr @.str.508, ptr @.str.509, i32 5, i32 2, ptr null, i64 3840, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_mio_data, %struct._header_field_info { ptr @.str.510, ptr @.str.511, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_mio_access, %struct._header_field_info { ptr @.str.512, ptr @.str.513, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_mio_access_ecatacc, %struct._header_field_info { ptr @.str.514, ptr @.str.515, i32 2, i32 16, ptr @tfs_local_true_false, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_mio_access_pdiacc, %struct._header_field_info { ptr @.str.516, ptr @.str.517, i32 2, i32 16, ptr @tfs_local_true_false, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_mio_access_forcereset, %struct._header_field_info { ptr @.str.518, ptr @.str.519, i32 2, i32 16, ptr @tfs_local_true_false, i64 512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_mio_status0, %struct._header_field_info { ptr @.str.520, ptr @.str.521, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_mio_status0_physlink, %struct._header_field_info { ptr @.str.522, ptr @.str.523, i32 2, i32 8, ptr @tfs_local_true_false, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_mio_status0_link, %struct._header_field_info { ptr @.str.524, ptr @.str.525, i32 2, i32 8, ptr @tfs_local_true_false, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_mio_status0_linkstatuserr, %struct._header_field_info { ptr @.str.526, ptr @.str.527, i32 2, i32 8, ptr @tfs_local_true_false, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_mio_status0_readerr, %struct._header_field_info { ptr @.str.528, ptr @.str.529, i32 2, i32 8, ptr @tfs_local_true_false, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_mio_status0_linkpartnererr, %struct._header_field_info { ptr @.str.530, ptr @.str.531, i32 2, i32 8, ptr @tfs_local_true_false, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_mio_status0_phycfgupdated, %struct._header_field_info { ptr @.str.532, ptr @.str.533, i32 2, i32 8, ptr @tfs_local_true_false, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_mio_status1, %struct._header_field_info { ptr @.str.534, ptr @.str.535, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_mio_status1_physlink, %struct._header_field_info { ptr @.str.522, ptr @.str.536, i32 2, i32 8, ptr @tfs_local_true_false, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_mio_status1_link, %struct._header_field_info { ptr @.str.524, ptr @.str.537, i32 2, i32 8, ptr @tfs_local_true_false, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_mio_status1_linkstatuserr, %struct._header_field_info { ptr @.str.526, ptr @.str.538, i32 2, i32 8, ptr @tfs_local_true_false, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_mio_status1_readerr, %struct._header_field_info { ptr @.str.528, ptr @.str.539, i32 2, i32 8, ptr @tfs_local_true_false, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_mio_status1_linkpartnererr, %struct._header_field_info { ptr @.str.530, ptr @.str.540, i32 2, i32 8, ptr @tfs_local_true_false, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_mio_status1_phycfgupdated, %struct._header_field_info { ptr @.str.532, ptr @.str.541, i32 2, i32 8, ptr @tfs_local_true_false, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_mio_status2, %struct._header_field_info { ptr @.str.542, ptr @.str.543, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_mio_status2_physlink, %struct._header_field_info { ptr @.str.522, ptr @.str.544, i32 2, i32 8, ptr @tfs_local_true_false, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_mio_status2_link, %struct._header_field_info { ptr @.str.524, ptr @.str.545, i32 2, i32 8, ptr @tfs_local_true_false, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_mio_status2_linkstatuserr, %struct._header_field_info { ptr @.str.526, ptr @.str.546, i32 2, i32 8, ptr @tfs_local_true_false, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_mio_status2_readerr, %struct._header_field_info { ptr @.str.528, ptr @.str.547, i32 2, i32 8, ptr @tfs_local_true_false, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_mio_status2_linkpartnererr, %struct._header_field_info { ptr @.str.530, ptr @.str.548, i32 2, i32 8, ptr @tfs_local_true_false, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_mio_status2_phycfgupdated, %struct._header_field_info { ptr @.str.532, ptr @.str.549, i32 2, i32 8, ptr @tfs_local_true_false, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_mio_status3, %struct._header_field_info { ptr @.str.550, ptr @.str.551, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_mio_status3_physlink, %struct._header_field_info { ptr @.str.522, ptr @.str.552, i32 2, i32 8, ptr @tfs_local_true_false, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_mio_status3_link, %struct._header_field_info { ptr @.str.524, ptr @.str.553, i32 2, i32 8, ptr @tfs_local_true_false, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_mio_status3_linkstatuserr, %struct._header_field_info { ptr @.str.526, ptr @.str.554, i32 2, i32 8, ptr @tfs_local_true_false, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_mio_status3_readerr, %struct._header_field_info { ptr @.str.528, ptr @.str.555, i32 2, i32 8, ptr @tfs_local_true_false, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_mio_status3_linkpartnererr, %struct._header_field_info { ptr @.str.530, ptr @.str.556, i32 2, i32 8, ptr @tfs_local_true_false, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_mio_status3_phycfgupdated, %struct._header_field_info { ptr @.str.532, ptr @.str.557, i32 2, i32 8, ptr @tfs_local_true_false, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_fmmu, %struct._header_field_info { ptr @.str.558, ptr @.str.559, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_fmmu_lstart, %struct._header_field_info { ptr @.str.560, ptr @.str.561, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_fmmu_llen, %struct._header_field_info { ptr @.str.562, ptr @.str.563, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_fmmu_lstartbit, %struct._header_field_info { ptr @.str.564, ptr @.str.565, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_fmmu_lendbit, %struct._header_field_info { ptr @.str.566, ptr @.str.567, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_fmmu_pstart, %struct._header_field_info { ptr @.str.568, ptr @.str.569, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_fmmu_pstartbit, %struct._header_field_info { ptr @.str.570, ptr @.str.571, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_fmmu_type, %struct._header_field_info { ptr @.str.572, ptr @.str.573, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_fmmu_typeread, %struct._header_field_info { ptr @.str.572, ptr @.str.574, i32 2, i32 8, ptr @tfs_ecat_fmmu_typeread, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_fmmu_typewrite, %struct._header_field_info { ptr @.str.572, ptr @.str.575, i32 2, i32 8, ptr @tfs_ecat_fmmu_typewrite, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_fmmu_activate, %struct._header_field_info { ptr @.str.576, ptr @.str.577, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_fmmu_activate0, %struct._header_field_info { ptr @.str.558, ptr @.str.578, i32 2, i32 8, ptr @tfs_ecat_fmmu_activate, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_syncman, %struct._header_field_info { ptr @.str.579, ptr @.str.580, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_syncman_start, %struct._header_field_info { ptr @.str.581, ptr @.str.582, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_syncman_len, %struct._header_field_info { ptr @.str.583, ptr @.str.584, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_syncman_ctrlstatus, %struct._header_field_info { ptr @.str.585, ptr @.str.586, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_syncman_pmode, %struct._header_field_info { ptr @.str.587, ptr @.str.588, i32 5, i32 2, ptr @vals_esc_reg_8041, i64 3, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_syncman_access, %struct._header_field_info { ptr @.str.589, ptr @.str.590, i32 5, i32 2, ptr @vals_esc_reg_8042, i64 12, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_syncman_irq_ecat, %struct._header_field_info { ptr @.str.591, ptr @.str.592, i32 2, i32 16, ptr @tfs_local_true_false, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_syncman_irq_pdi, %struct._header_field_info { ptr @.str.593, ptr @.str.594, i32 2, i32 16, ptr @tfs_local_true_false, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_syncman_wdt, %struct._header_field_info { ptr @.str.595, ptr @.str.596, i32 2, i32 16, ptr @tfs_local_true_false, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_syncman_irq_write, %struct._header_field_info { ptr @.str.597, ptr @.str.598, i32 2, i32 16, ptr @tfs_local_true_false, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_syncman_irq_read, %struct._header_field_info { ptr @.str.599, ptr @.str.600, i32 2, i32 16, ptr @tfs_local_true_false, i64 512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_syncman_1bufstate, %struct._header_field_info { ptr @.str.601, ptr @.str.602, i32 2, i32 16, ptr @tfs_esc_reg_8051, i64 2048, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_syncman_3bufstate, %struct._header_field_info { ptr @.str.603, ptr @.str.604, i32 5, i32 2, ptr @vals_esc_reg_8052, i64 12288, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_syncman_sm_enable, %struct._header_field_info { ptr @.str.605, ptr @.str.606, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_syncman_enable, %struct._header_field_info { ptr @.str.607, ptr @.str.608, i32 2, i32 16, ptr @tfs_local_true_false, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_syncman_repeatreq, %struct._header_field_info { ptr @.str.609, ptr @.str.610, i32 2, i32 16, ptr @tfs_local_true_false, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_syncman_latchsmchg_ecat, %struct._header_field_info { ptr @.str.611, ptr @.str.612, i32 2, i32 16, ptr @tfs_local_true_false, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_syncman_latchsmchg_pdi, %struct._header_field_info { ptr @.str.613, ptr @.str.614, i32 2, i32 16, ptr @tfs_local_true_false, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_syncman_deactivate, %struct._header_field_info { ptr @.str.615, ptr @.str.616, i32 2, i32 16, ptr @tfs_local_true_false, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_syncman_repeatack, %struct._header_field_info { ptr @.str.617, ptr @.str.618, i32 2, i32 16, ptr @tfs_local_true_false, i64 512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_recv0, %struct._header_field_info { ptr @.str.619, ptr @.str.620, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_recv1, %struct._header_field_info { ptr @.str.621, ptr @.str.622, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_recv2, %struct._header_field_info { ptr @.str.623, ptr @.str.624, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_recv3, %struct._header_field_info { ptr @.str.625, ptr @.str.626, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_systime, %struct._header_field_info { ptr @.str.627, ptr @.str.628, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_systimeL, %struct._header_field_info { ptr @.str.629, ptr @.str.630, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_systimeH, %struct._header_field_info { ptr @.str.631, ptr @.str.632, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_recvtime64, %struct._header_field_info { ptr @.str.633, ptr @.str.634, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_systimeoffs, %struct._header_field_info { ptr @.str.635, ptr @.str.636, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_systimeoffsl, %struct._header_field_info { ptr @.str.637, ptr @.str.638, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_systimeoffsh, %struct._header_field_info { ptr @.str.639, ptr @.str.640, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_systimedelay, %struct._header_field_info { ptr @.str.641, ptr @.str.642, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_ctrlerr, %struct._header_field_info { ptr @.str.643, ptr @.str.644, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_speedstart, %struct._header_field_info { ptr @.str.645, ptr @.str.646, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_speeddiff, %struct._header_field_info { ptr @.str.647, ptr @.str.648, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_fltdepth_systimediff, %struct._header_field_info { ptr @.str.649, ptr @.str.650, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_fltdepth_speedcnt, %struct._header_field_info { ptr @.str.651, ptr @.str.652, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_cycunitctrl, %struct._header_field_info { ptr @.str.653, ptr @.str.654, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_cycunitctrl_access_cyclic, %struct._header_field_info { ptr @.str.655, ptr @.str.656, i32 2, i32 8, ptr @tfs_esc_reg_9801, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_cycunitctrl_access_latch0, %struct._header_field_info { ptr @.str.657, ptr @.str.658, i32 2, i32 8, ptr @tfs_esc_reg_9801, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_cycunitctrl_access_latch1, %struct._header_field_info { ptr @.str.659, ptr @.str.660, i32 2, i32 8, ptr @tfs_esc_reg_9801, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_activation, %struct._header_field_info { ptr @.str.661, ptr @.str.662, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_activation_enablecyclic, %struct._header_field_info { ptr @.str.663, ptr @.str.664, i32 2, i32 8, ptr @tfs_local_true_false, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_activation_gen_sync0, %struct._header_field_info { ptr @.str.665, ptr @.str.666, i32 2, i32 8, ptr @tfs_local_true_false, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_activation_gen_sync1, %struct._header_field_info { ptr @.str.667, ptr @.str.668, i32 2, i32 8, ptr @tfs_local_true_false, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_activation_autoactivation, %struct._header_field_info { ptr @.str.669, ptr @.str.670, i32 2, i32 8, ptr @tfs_local_true_false, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_activation_stimeext, %struct._header_field_info { ptr @.str.671, ptr @.str.672, i32 2, i32 8, ptr @tfs_local_true_false, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_activation_stimecheck, %struct._header_field_info { ptr @.str.673, ptr @.str.674, i32 2, i32 8, ptr @tfs_local_true_false, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_activation_hlfrange, %struct._header_field_info { ptr @.str.675, ptr @.str.676, i32 2, i32 8, ptr @tfs_local_true_false, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_activation_dblrange, %struct._header_field_info { ptr @.str.677, ptr @.str.678, i32 2, i32 8, ptr @tfs_local_true_false, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_cycimpuls, %struct._header_field_info { ptr @.str.679, ptr @.str.680, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_activationstat, %struct._header_field_info { ptr @.str.681, ptr @.str.682, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_activationstat_sync0pend, %struct._header_field_info { ptr @.str.683, ptr @.str.684, i32 2, i32 8, ptr @tfs_local_true_false, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_activationstat_sync1pend, %struct._header_field_info { ptr @.str.685, ptr @.str.686, i32 2, i32 8, ptr @tfs_local_true_false, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_activationstat_stimeoutofrange, %struct._header_field_info { ptr @.str.687, ptr @.str.688, i32 2, i32 8, ptr @tfs_local_true_false, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_sync0_status, %struct._header_field_info { ptr @.str.689, ptr @.str.690, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_sync0_status_triggered, %struct._header_field_info { ptr @.str.691, ptr @.str.692, i32 2, i32 8, ptr @tfs_local_true_false, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_sync1_status, %struct._header_field_info { ptr @.str.693, ptr @.str.694, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_sync1_status_triggered, %struct._header_field_info { ptr @.str.691, ptr @.str.695, i32 2, i32 8, ptr @tfs_local_true_false, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_starttime0, %struct._header_field_info { ptr @.str.696, ptr @.str.697, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_starttime1, %struct._header_field_info { ptr @.str.698, ptr @.str.699, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_cyctime0, %struct._header_field_info { ptr @.str.700, ptr @.str.701, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_cyctime1, %struct._header_field_info { ptr @.str.702, ptr @.str.703, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_latch0_ctrl, %struct._header_field_info { ptr @.str.704, ptr @.str.705, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_latch0_ctrl_pos, %struct._header_field_info { ptr @.str.706, ptr @.str.707, i32 2, i32 8, ptr @tfs_esc_reg_9A8E1, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_latch0_ctrl_neg, %struct._header_field_info { ptr @.str.708, ptr @.str.709, i32 2, i32 8, ptr @tfs_esc_reg_9A8E1, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_latch1_ctrl, %struct._header_field_info { ptr @.str.710, ptr @.str.711, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_latch1_ctrl_pos, %struct._header_field_info { ptr @.str.706, ptr @.str.712, i32 2, i32 8, ptr @tfs_esc_reg_9A8E1, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_latch1_ctrl_neg, %struct._header_field_info { ptr @.str.708, ptr @.str.713, i32 2, i32 8, ptr @tfs_esc_reg_9A8E1, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_latch0_status, %struct._header_field_info { ptr @.str.714, ptr @.str.715, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_latch0_status_eventpos, %struct._header_field_info { ptr @.str.716, ptr @.str.717, i32 2, i32 8, ptr @tfs_local_true_false, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_latch0_status_eventneg, %struct._header_field_info { ptr @.str.718, ptr @.str.719, i32 2, i32 8, ptr @tfs_local_true_false, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_latch0_status_pinstate, %struct._header_field_info { ptr @.str.720, ptr @.str.721, i32 2, i32 8, ptr @tfs_local_true_false, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_latch1_status, %struct._header_field_info { ptr @.str.722, ptr @.str.723, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_latch1_status_eventpos, %struct._header_field_info { ptr @.str.716, ptr @.str.724, i32 2, i32 8, ptr @tfs_local_true_false, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_latch1_status_eventneg, %struct._header_field_info { ptr @.str.718, ptr @.str.725, i32 2, i32 8, ptr @tfs_local_true_false, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_latch1_status_pinstate, %struct._header_field_info { ptr @.str.720, ptr @.str.726, i32 2, i32 8, ptr @tfs_local_true_false, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_latch0_pos, %struct._header_field_info { ptr @.str.727, ptr @.str.728, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_latch0_neg, %struct._header_field_info { ptr @.str.729, ptr @.str.730, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_latch1_pos, %struct._header_field_info { ptr @.str.731, ptr @.str.732, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_latch1_neg, %struct._header_field_info { ptr @.str.733, ptr @.str.734, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_rcvsyncmanchg, %struct._header_field_info { ptr @.str.735, ptr @.str.736, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_pdismstart, %struct._header_field_info { ptr @.str.737, ptr @.str.738, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ecat_reg_dc_pdismchg, %struct._header_field_info { ptr @.str.739, ptr @.str.740, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_ecat_sub = internal global i32 0, align 4
@@ -54,7 +53,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_ecat_cmd = internal global i32 0, align 4
 @.str.27 = private unnamed_addr constant [8 x i8] c"Command\00", align 1
 @.str.28 = private unnamed_addr constant [9 x i8] c"ecat.cmd\00", align 1
-@EcCmdShort = internal constant [17 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.747 }, %struct._value_string { i32 1, ptr @.str.748 }, %struct._value_string { i32 2, ptr @.str.749 }, %struct._value_string { i32 3, ptr @.str.750 }, %struct._value_string { i32 4, ptr @.str.751 }, %struct._value_string { i32 5, ptr @.str.752 }, %struct._value_string { i32 6, ptr @.str.753 }, %struct._value_string { i32 7, ptr @.str.754 }, %struct._value_string { i32 8, ptr @.str.755 }, %struct._value_string { i32 9, ptr @.str.756 }, %struct._value_string { i32 10, ptr @.str.757 }, %struct._value_string { i32 11, ptr @.str.758 }, %struct._value_string { i32 12, ptr @.str.759 }, %struct._value_string { i32 13, ptr @.str.760 }, %struct._value_string { i32 14, ptr @.str.761 }, %struct._value_string { i32 255, ptr @.str.762 }, %struct._value_string zeroinitializer], align 16
 @hf_ecat_sub_cmd = internal global [10 x i32] zeroinitializer, align 16
 @.str.29 = private unnamed_addr constant [14 x i8] c"ecat.sub1.cmd\00", align 1
 @.str.30 = private unnamed_addr constant [14 x i8] c"ecat.sub2.cmd\00", align 1
@@ -216,15 +214,14 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_ecat_length_r = internal global i32 0, align 4
 @.str.164 = private unnamed_addr constant [9 x i8] c"Reserved\00", align 1
 @.str.165 = private unnamed_addr constant [23 x i8] c"ecat.subframe.reserved\00", align 1
-@ecat_subframe_reserved_vals = internal constant [2 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.763 }, %struct._value_string zeroinitializer], align 16
 @hf_ecat_length_c = internal global i32 0, align 4
 @.str.166 = private unnamed_addr constant [11 x i8] c"Round trip\00", align 1
 @.str.167 = private unnamed_addr constant [26 x i8] c"ecat.subframe.circulating\00", align 1
-@tfs_ecat_subframe_circulating_vals = internal constant %struct.true_false_string { ptr @.str.764, ptr @.str.765 }, align 8
+@tfs_ecat_subframe_circulating_vals = internal constant %struct.true_false_string { ptr @.str.766, ptr @.str.767 }, align 8
 @hf_ecat_length_m = internal global i32 0, align 4
 @.str.168 = private unnamed_addr constant [15 x i8] c"Last indicator\00", align 1
 @.str.169 = private unnamed_addr constant [19 x i8] c"ecat.subframe.more\00", align 1
-@tfs_ecat_subframe_more_vals = internal constant %struct.true_false_string { ptr @.str.766, ptr @.str.767 }, align 8
+@tfs_ecat_subframe_more_vals = internal constant %struct.true_false_string { ptr @.str.768, ptr @.str.769 }, align 8
 @hf_ecat_padding = internal global i32 0, align 4
 @.str.170 = private unnamed_addr constant [10 x i8] c"Pad bytes\00", align 1
 @.str.171 = private unnamed_addr constant [24 x i8] c"ecat.subframe.pad_bytes\00", align 1
@@ -255,7 +252,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_ecat_reg_esc_features_fmmurestrict = internal global i32 0, align 4
 @.str.188 = private unnamed_addr constant [26 x i8] c"FMMU bytewise restriction\00", align 1
 @.str.189 = private unnamed_addr constant [31 x i8] c"ecat.reg.features.fmmurestrict\00", align 1
-@tfs_local_true_false = internal constant %struct.true_false_string { ptr @.str.768, ptr @.str.769 }, align 8
+@tfs_local_true_false = internal constant %struct.true_false_string { ptr @.str.770, ptr @.str.771 }, align 8
 @hf_ecat_reg_esc_features_smaddrrestrict = internal global i32 0, align 4
 @.str.190 = private unnamed_addr constant [26 x i8] c"SM addressing restriction\00", align 1
 @.str.191 = private unnamed_addr constant [33 x i8] c"ecat.reg.features.smaddrrestrict\00", align 1
@@ -292,7 +289,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_ecat_reg_dlctrl1_port0extlinkdetect = internal global i32 0, align 4
 @.str.212 = private unnamed_addr constant [27 x i8] c"Port 0 ext. link detection\00", align 1
 @.str.213 = private unnamed_addr constant [36 x i8] c"ecat.reg.dlctrl1.port0extlinkdetect\00", align 1
-@tfs_local_disabled_enabled = internal constant %struct.true_false_string { ptr @.str.770, ptr @.str.771 }, align 8
+@tfs_local_disabled_enabled = internal constant %struct.true_false_string { ptr @.str.772, ptr @.str.773 }, align 8
 @hf_ecat_reg_dlctrl1_port1extlinkdetect = internal global i32 0, align 4
 @.str.214 = private unnamed_addr constant [27 x i8] c"Port 1 ext. link detection\00", align 1
 @.str.215 = private unnamed_addr constant [36 x i8] c"ecat.reg.dlctrl1.port1extlinkdetect\00", align 1
@@ -308,7 +305,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_ecat_reg_dlctrl2_port0 = internal global i32 0, align 4
 @.str.222 = private unnamed_addr constant [7 x i8] c"Port 0\00", align 1
 @.str.223 = private unnamed_addr constant [23 x i8] c"ecat.reg.dlcrtl2.port0\00", align 1
-@vals_esc_reg_101 = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.772 }, %struct._value_string { i32 1, ptr @.str.773 }, %struct._value_string { i32 2, ptr @.str.774 }, %struct._value_string { i32 3, ptr @.str.775 }, %struct._value_string zeroinitializer], align 16
 @hf_ecat_reg_dlctrl2_port1 = internal global i32 0, align 4
 @.str.224 = private unnamed_addr constant [7 x i8] c"Port 1\00", align 1
 @.str.225 = private unnamed_addr constant [23 x i8] c"ecat.reg.dlcrtl2.port1\00", align 1
@@ -342,7 +338,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_ecat_reg_dlstatus1_pdiwatchdog = internal global i32 0, align 4
 @.str.244 = private unnamed_addr constant [13 x i8] c"PDI watchdog\00", align 1
 @.str.245 = private unnamed_addr constant [31 x i8] c"ecat.reg.dlstatus1.pdiwatchdog\00", align 1
-@tfs_esc_reg_watchdog = internal constant %struct.true_false_string { ptr @.str.776, ptr @.str.777 }, align 8
+@tfs_esc_reg_watchdog = internal constant %struct.true_false_string { ptr @.str.779, ptr @.str.780 }, align 8
 @hf_ecat_reg_dlstatus1_enhlinkdetect = internal global i32 0, align 4
 @.str.246 = private unnamed_addr constant [20 x i8] c"Enh. Link Detection\00", align 1
 @.str.247 = private unnamed_addr constant [33 x i8] c"ecat.reg.dlstatus1.enhlinkdetect\00", align 1
@@ -363,7 +359,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.257 = private unnamed_addr constant [19 x i8] c"ecat.reg.dlstatus2\00", align 1
 @hf_ecat_reg_dlstatus2_port0 = internal global i32 0, align 4
 @.str.258 = private unnamed_addr constant [25 x i8] c"ecat.reg.dlstatus2.port0\00", align 1
-@vals_esc_reg_111 = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.778 }, %struct._value_string { i32 1, ptr @.str.779 }, %struct._value_string { i32 2, ptr @.str.780 }, %struct._value_string { i32 3, ptr @.str.781 }, %struct._value_string zeroinitializer], align 16
 @hf_ecat_reg_dlstatus2_port1 = internal global i32 0, align 4
 @.str.259 = private unnamed_addr constant [25 x i8] c"ecat.reg.dlstatus2.port1\00", align 1
 @hf_ecat_reg_dlstatus2_port2 = internal global i32 0, align 4
@@ -391,7 +386,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_ecat_reg_alctrl_ctrl = internal global i32 0, align 4
 @.str.274 = private unnamed_addr constant [8 x i8] c"Al Ctrl\00", align 1
 @.str.275 = private unnamed_addr constant [21 x i8] c"ecat.reg.alctrl.ctrl\00", align 1
-@vals_esc_reg_120 = internal constant [6 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.782 }, %struct._value_string { i32 2, ptr @.str.783 }, %struct._value_string { i32 3, ptr @.str.784 }, %struct._value_string { i32 4, ptr @.str.785 }, %struct._value_string { i32 8, ptr @.str.786 }, %struct._value_string zeroinitializer], align 16
 @hf_ecat_reg_alctrl_errack = internal global i32 0, align 4
 @.str.276 = private unnamed_addr constant [10 x i8] c"Error Ack\00", align 1
 @.str.277 = private unnamed_addr constant [23 x i8] c"ecat.reg.alctrl.errack\00", align 1
@@ -418,7 +412,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_ecat_reg_pdictrl1_pdi = internal global i32 0, align 4
 @.str.291 = private unnamed_addr constant [4 x i8] c"PDI\00", align 1
 @.str.292 = private unnamed_addr constant [22 x i8] c"ecat.reg.pdictrl1.pdi\00", align 1
-@vals_esc_reg_140 = internal constant [18 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.787 }, %struct._value_string { i32 1, ptr @.str.788 }, %struct._value_string { i32 2, ptr @.str.789 }, %struct._value_string { i32 3, ptr @.str.790 }, %struct._value_string { i32 4, ptr @.str.791 }, %struct._value_string { i32 5, ptr @.str.792 }, %struct._value_string { i32 7, ptr @.str.793 }, %struct._value_string { i32 8, ptr @.str.794 }, %struct._value_string { i32 9, ptr @.str.795 }, %struct._value_string { i32 10, ptr @.str.796 }, %struct._value_string { i32 11, ptr @.str.797 }, %struct._value_string { i32 16, ptr @.str.798 }, %struct._value_string { i32 17, ptr @.str.799 }, %struct._value_string { i32 18, ptr @.str.800 }, %struct._value_string { i32 19, ptr @.str.801 }, %struct._value_string { i32 20, ptr @.str.802 }, %struct._value_string { i32 128, ptr @.str.803 }, %struct._value_string zeroinitializer], align 16
 @hf_ecat_reg_pdictrl2 = internal global i32 0, align 4
 @.str.293 = private unnamed_addr constant [17 x i8] c"PDI Ctrl (0x141)\00", align 1
 @.str.294 = private unnamed_addr constant [18 x i8] c"ecat.reg.pdictrl2\00", align 1
@@ -428,7 +421,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_ecat_reg_pdictrl2_enhlnkdetect = internal global i32 0, align 4
 @.str.297 = private unnamed_addr constant [24 x i8] c"Enhanced link detection\00", align 1
 @.str.298 = private unnamed_addr constant [31 x i8] c"ecat.reg.pdictrl2.enhlnkdetect\00", align 1
-@tfs_local_disable_enable = internal constant %struct.true_false_string { ptr @.str.607, ptr @.str.804 }, align 8
+@tfs_local_disable_enable = internal constant %struct.true_false_string { ptr @.str.607, ptr @.str.810 }, align 8
 @hf_ecat_reg_pdictrl2_dcsyncout = internal global i32 0, align 4
 @.str.299 = private unnamed_addr constant [19 x i8] c"Enable DC sync out\00", align 1
 @.str.300 = private unnamed_addr constant [28 x i8] c"ecat.reg.pdictrl2.dcsyncout\00", align 1
@@ -677,11 +670,11 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_ecat_reg_eeprom_assign_ctrl = internal global i32 0, align 4
 @.str.452 = private unnamed_addr constant [19 x i8] c"EEPROM access ctrl\00", align 1
 @.str.453 = private unnamed_addr constant [28 x i8] c"ecat.reg.eeprom.assign.ctrl\00", align 1
-@tfs_esc_reg_500_0 = internal constant %struct.true_false_string { ptr @.str.805, ptr @.str.742 }, align 8
+@tfs_esc_reg_500_0 = internal constant %struct.true_false_string { ptr @.str.811, ptr @.str.742 }, align 8
 @hf_ecat_reg_eeprom_assign_pdiaccess = internal global i32 0, align 4
 @.str.454 = private unnamed_addr constant [17 x i8] c"Reset PDI access\00", align 1
 @.str.455 = private unnamed_addr constant [33 x i8] c"ecat.reg.eeprom.assign.pdiaccess\00", align 1
-@tfs_esc_reg_500_1 = internal constant %struct.true_false_string { ptr @.str.806, ptr @.str.807 }, align 8
+@tfs_esc_reg_500_1 = internal constant %struct.true_false_string { ptr @.str.812, ptr @.str.813 }, align 8
 @hf_ecat_reg_eeprom_assign_status = internal global i32 0, align 4
 @.str.456 = private unnamed_addr constant [21 x i8] c"EEPROM access status\00", align 1
 @.str.457 = private unnamed_addr constant [30 x i8] c"ecat.reg.eeprom.assign.status\00", align 1
@@ -694,7 +687,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_ecat_reg_ctrlstat_eepromemul = internal global i32 0, align 4
 @.str.462 = private unnamed_addr constant [17 x i8] c"EEPROM emulation\00", align 1
 @.str.463 = private unnamed_addr constant [29 x i8] c"ecat.reg.ctrlstat.eepromemul\00", align 1
-@tfs_esc_reg_502_5 = internal constant %struct.true_false_string { ptr @.str.808, ptr @.str.809 }, align 8
+@tfs_esc_reg_502_5 = internal constant %struct.true_false_string { ptr @.str.814, ptr @.str.815 }, align 8
 @hf_ecat_reg_ctrlstat_8bacc = internal global i32 0, align 4
 @.str.464 = private unnamed_addr constant [14 x i8] c"8 byte access\00", align 1
 @.str.465 = private unnamed_addr constant [24 x i8] c"ecat.reg.ctrlstat.8bacc\00", align 1
@@ -874,16 +867,16 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.573 = private unnamed_addr constant [15 x i8] c"ecat.fmmu.type\00", align 1
 @hf_ecat_reg_fmmu_typeread = internal global i32 0, align 4
 @.str.574 = private unnamed_addr constant [19 x i8] c"ecat.fmmu.typeread\00", align 1
-@tfs_ecat_fmmu_typeread = internal constant %struct.true_false_string { ptr @.str.810, ptr @.str.811 }, align 8
+@tfs_ecat_fmmu_typeread = internal constant %struct.true_false_string { ptr @.str.816, ptr @.str.817 }, align 8
 @hf_ecat_reg_fmmu_typewrite = internal global i32 0, align 4
 @.str.575 = private unnamed_addr constant [20 x i8] c"ecat.fmmu.typewrite\00", align 1
-@tfs_ecat_fmmu_typewrite = internal constant %struct.true_false_string { ptr @.str.812, ptr @.str.813 }, align 8
+@tfs_ecat_fmmu_typewrite = internal constant %struct.true_false_string { ptr @.str.818, ptr @.str.819 }, align 8
 @hf_ecat_reg_fmmu_activate = internal global i32 0, align 4
 @.str.576 = private unnamed_addr constant [9 x i8] c"Activate\00", align 1
 @.str.577 = private unnamed_addr constant [19 x i8] c"ecat.fmmu.activate\00", align 1
 @hf_ecat_reg_fmmu_activate0 = internal global i32 0, align 4
 @.str.578 = private unnamed_addr constant [20 x i8] c"ecat.fmmu.activate0\00", align 1
-@tfs_ecat_fmmu_activate = internal constant %struct.true_false_string { ptr @.str.814, ptr @.str.815 }, align 8
+@tfs_ecat_fmmu_activate = internal constant %struct.true_false_string { ptr @.str.820, ptr @.str.821 }, align 8
 @hf_ecat_reg_syncman = internal global i32 0, align 4
 @.str.579 = private unnamed_addr constant [12 x i8] c"SyncManager\00", align 1
 @.str.580 = private unnamed_addr constant [13 x i8] c"ecat.syncman\00", align 1
@@ -899,11 +892,9 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_ecat_reg_syncman_pmode = internal global i32 0, align 4
 @.str.587 = private unnamed_addr constant [7 x i8] c"OpMode\00", align 1
 @.str.588 = private unnamed_addr constant [20 x i8] c"ecat.syncman.opmode\00", align 1
-@vals_esc_reg_8041 = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.816 }, %struct._value_string { i32 2, ptr @.str.817 }, %struct._value_string { i32 3, ptr @.str.818 }, %struct._value_string zeroinitializer], align 16
 @hf_ecat_reg_syncman_access = internal global i32 0, align 4
 @.str.589 = private unnamed_addr constant [7 x i8] c"Access\00", align 1
 @.str.590 = private unnamed_addr constant [20 x i8] c"ecat.syncman.access\00", align 1
-@vals_esc_reg_8042 = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.819 }, %struct._value_string { i32 1, ptr @.str.820 }, %struct._value_string zeroinitializer], align 16
 @hf_ecat_reg_syncman_irq_ecat = internal global i32 0, align 4
 @.str.591 = private unnamed_addr constant [9 x i8] c"ECAT IRQ\00", align 1
 @.str.592 = private unnamed_addr constant [22 x i8] c"ecat.syncman.irq.ecat\00", align 1
@@ -922,11 +913,10 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_ecat_reg_syncman_1bufstate = internal global i32 0, align 4
 @.str.601 = private unnamed_addr constant [15 x i8] c"1 buffer state\00", align 1
 @.str.602 = private unnamed_addr constant [23 x i8] c"ecat.syncman.1bufstate\00", align 1
-@tfs_esc_reg_8051 = internal constant %struct.true_false_string { ptr @.str.821, ptr @.str.819 }, align 8
+@tfs_esc_reg_8051 = internal constant %struct.true_false_string { ptr @.str.829, ptr @.str.826 }, align 8
 @hf_ecat_reg_syncman_3bufstate = internal global i32 0, align 4
 @.str.603 = private unnamed_addr constant [15 x i8] c"3 buffer state\00", align 1
 @.str.604 = private unnamed_addr constant [23 x i8] c"ecat.syncman.3bufstate\00", align 1
-@vals_esc_reg_8052 = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.822 }, %struct._value_string { i32 1, ptr @.str.823 }, %struct._value_string { i32 2, ptr @.str.824 }, %struct._value_string { i32 3, ptr @.str.825 }, %struct._value_string zeroinitializer], align 16
 @hf_ecat_reg_syncman_sm_enable = internal global i32 0, align 4
 @.str.605 = private unnamed_addr constant [10 x i8] c"SM Enable\00", align 1
 @.str.606 = private unnamed_addr constant [22 x i8] c"ecat.syncman.smenable\00", align 1
@@ -1083,7 +1073,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_ecat_reg_dc_latch0_ctrl_pos = internal global i32 0, align 4
 @.str.706 = private unnamed_addr constant [4 x i8] c"pos\00", align 1
 @.str.707 = private unnamed_addr constant [28 x i8] c"ecat.reg.dc.latch0.ctrl.pos\00", align 1
-@tfs_esc_reg_9A8E1 = internal constant %struct.true_false_string { ptr @.str.826, ptr @.str.827 }, align 8
+@tfs_esc_reg_9A8E1 = internal constant %struct.true_false_string { ptr @.str.835, ptr @.str.836 }, align 8
 @hf_ecat_reg_dc_latch0_ctrl_neg = internal global i32 0, align 4
 @.str.708 = private unnamed_addr constant [4 x i8] c"neg\00", align 1
 @.str.709 = private unnamed_addr constant [28 x i8] c"ecat.reg.dc.latch0.ctrl.neg\00", align 1
@@ -1211,109 +1201,117 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.760 = private unnamed_addr constant [5 x i8] c"ARMW\00", align 1
 @.str.761 = private unnamed_addr constant [5 x i8] c"FRMW\00", align 1
 @.str.762 = private unnamed_addr constant [4 x i8] c"EXT\00", align 1
-@.str.763 = private unnamed_addr constant [6 x i8] c"Valid\00", align 1
-@.str.764 = private unnamed_addr constant [26 x i8] c"Frame has circulated once\00", align 1
-@.str.765 = private unnamed_addr constant [25 x i8] c"Frame is not circulating\00", align 1
-@.str.766 = private unnamed_addr constant [36 x i8] c"More EtherCAT datagrams will follow\00", align 1
-@.str.767 = private unnamed_addr constant [23 x i8] c"Last EtherCAT datagram\00", align 1
-@.str.768 = private unnamed_addr constant [5 x i8] c"True\00", align 1
-@.str.769 = private unnamed_addr constant [6 x i8] c"False\00", align 1
-@.str.770 = private unnamed_addr constant [8 x i8] c"Enabled\00", align 1
-@.str.771 = private unnamed_addr constant [9 x i8] c"Disabled\00", align 1
-@.str.772 = private unnamed_addr constant [10 x i8] c"Auto loop\00", align 1
-@.str.773 = private unnamed_addr constant [16 x i8] c"Auto close only\00", align 1
-@.str.774 = private unnamed_addr constant [10 x i8] c"Loop open\00", align 1
-@.str.775 = private unnamed_addr constant [12 x i8] c"Loop closed\00", align 1
-@.str.776 = private unnamed_addr constant [5 x i8] c"Okay\00", align 1
-@.str.777 = private unnamed_addr constant [8 x i8] c"Run out\00", align 1
-@.str.778 = private unnamed_addr constant [19 x i8] c"Loop open, no link\00", align 1
-@.str.779 = private unnamed_addr constant [21 x i8] c"Loop closed, no link\00", align 1
-@.str.780 = private unnamed_addr constant [21 x i8] c"Loop open, with link\00", align 1
-@.str.781 = private unnamed_addr constant [23 x i8] c"Loop closed, with link\00", align 1
-@.str.782 = private unnamed_addr constant [5 x i8] c"INIT\00", align 1
-@.str.783 = private unnamed_addr constant [6 x i8] c"PREOP\00", align 1
-@.str.784 = private unnamed_addr constant [10 x i8] c"BOOTSTRAP\00", align 1
-@.str.785 = private unnamed_addr constant [7 x i8] c"SAFEOP\00", align 1
-@.str.786 = private unnamed_addr constant [3 x i8] c"OP\00", align 1
-@.str.787 = private unnamed_addr constant [5 x i8] c"None\00", align 1
-@.str.788 = private unnamed_addr constant [17 x i8] c"4 bit dig. input\00", align 1
-@.str.789 = private unnamed_addr constant [18 x i8] c"4 bit dig. output\00", align 1
-@.str.790 = private unnamed_addr constant [21 x i8] c"2 bit dig. in/output\00", align 1
-@.str.791 = private unnamed_addr constant [15 x i8] c"dig. in/output\00", align 1
-@.str.792 = private unnamed_addr constant [10 x i8] c"SPI slave\00", align 1
-@.str.793 = private unnamed_addr constant [16 x i8] c"EtherCAT bridge\00", align 1
-@.str.794 = private unnamed_addr constant [18 x i8] c"16 bit uC (async)\00", align 1
-@.str.795 = private unnamed_addr constant [17 x i8] c"8 bit uC (async)\00", align 1
-@.str.796 = private unnamed_addr constant [17 x i8] c"16 bit uC (sync)\00", align 1
-@.str.797 = private unnamed_addr constant [16 x i8] c"8 bit uC (sync)\00", align 1
-@.str.798 = private unnamed_addr constant [24 x i8] c"32/0 bit dig. in/output\00", align 1
-@.str.799 = private unnamed_addr constant [24 x i8] c"24/8 bit dig. in/output\00", align 1
-@.str.800 = private unnamed_addr constant [25 x i8] c"16/16 bit dig. in/output\00", align 1
-@.str.801 = private unnamed_addr constant [24 x i8] c"8/24 bit dig. in/output\00", align 1
-@.str.802 = private unnamed_addr constant [24 x i8] c"0/32 bit dig. in/output\00", align 1
-@.str.803 = private unnamed_addr constant [12 x i8] c"On chip bus\00", align 1
-@.str.804 = private unnamed_addr constant [8 x i8] c"Disable\00", align 1
-@.str.805 = private unnamed_addr constant [9 x i8] c"Local uC\00", align 1
-@.str.806 = private unnamed_addr constant [21 x i8] c"Reset Bit 501.0 to 0\00", align 1
-@.str.807 = private unnamed_addr constant [24 x i8] c"Do not change Bit 501.0\00", align 1
-@.str.808 = private unnamed_addr constant [20 x i8] c"PDI emulates EEPROM\00", align 1
-@.str.809 = private unnamed_addr constant [17 x i8] c"Normal operation\00", align 1
-@.str.810 = private unnamed_addr constant [12 x i8] c"Read in use\00", align 1
-@.str.811 = private unnamed_addr constant [12 x i8] c"Read ignore\00", align 1
-@.str.812 = private unnamed_addr constant [13 x i8] c"Write in use\00", align 1
-@.str.813 = private unnamed_addr constant [13 x i8] c"Write ignore\00", align 1
-@.str.814 = private unnamed_addr constant [10 x i8] c"activated\00", align 1
-@.str.815 = private unnamed_addr constant [12 x i8] c"deactivated\00", align 1
-@.str.816 = private unnamed_addr constant [9 x i8] c"3 buffer\00", align 1
-@.str.817 = private unnamed_addr constant [9 x i8] c"1 buffer\00", align 1
-@.str.818 = private unnamed_addr constant [16 x i8] c"1 buffer direct\00", align 1
-@.str.819 = private unnamed_addr constant [5 x i8] c"Read\00", align 1
-@.str.820 = private unnamed_addr constant [6 x i8] c"Write\00", align 1
-@.str.821 = private unnamed_addr constant [8 x i8] c"Written\00", align 1
-@.str.822 = private unnamed_addr constant [10 x i8] c"1. buffer\00", align 1
-@.str.823 = private unnamed_addr constant [10 x i8] c"2. buffer\00", align 1
-@.str.824 = private unnamed_addr constant [10 x i8] c"3. buffer\00", align 1
-@.str.825 = private unnamed_addr constant [16 x i8] c"blocked (start)\00", align 1
-@.str.826 = private unnamed_addr constant [13 x i8] c"Single event\00", align 1
-@.str.827 = private unnamed_addr constant [11 x i8] c"Continuous\00", align 1
-@.str.828 = private unnamed_addr constant [5 x i8] c": %s\00", align 1
-@.str.829 = private unnamed_addr constant [7 x i8] c"Header\00", align 1
-@.str.830 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
-@.str.831 = private unnamed_addr constant [33 x i8] c"Length     : %d (0x%x) - %s - %s\00", align 1
-@.str.832 = private unnamed_addr constant [10 x i8] c"Roundtrip\00", align 1
-@.str.833 = private unnamed_addr constant [13 x i8] c"No Roundtrip\00", align 1
-@.str.834 = private unnamed_addr constant [16 x i8] c"More Follows...\00", align 1
-@.str.835 = private unnamed_addr constant [17 x i8] c"Last Sub Command\00", align 1
-@.str.836 = private unnamed_addr constant [3 x i8] c"Dc\00", align 1
-@.str.837 = private unnamed_addr constant [42 x i8] c"'%s': Len: %d, Adp 0x%x, Ado 0x%x, Wc %d \00", align 1
-@.str.838 = private unnamed_addr constant [37 x i8] c"%d Cmds, '%s': len %d, '%s': len %d \00", align 1
-@.str.839 = private unnamed_addr constant [50 x i8] c"%d Cmds, '%s': len %d, '%s': len %d, '%s': len %d\00", align 1
-@.str.840 = private unnamed_addr constant [64 x i8] c"%d Cmds, '%s': len %d, '%s': len %d, '%s': len %d, '%s': len %d\00", align 1
-@.str.841 = private unnamed_addr constant [29 x i8] c"%d Cmds, SumLen %d, '%s'... \00", align 1
-@.str.842 = private unnamed_addr constant [14 x i8] c"<UNKNOWN: %d>\00", align 1
-@.str.843 = private unnamed_addr constant [71 x i8] c"EtherCAT datagram: Cmd: '%s' (%d), Len: %d, Adp 0x%x, Ado 0x%x, Cnt %d\00", align 1
-@.str.844 = private unnamed_addr constant [62 x i8] c"EtherCAT datagram: Cmd: '%s' (%d), Len: %d, Addr 0x%x, Cnt %d\00", align 1
-@.str.845 = private unnamed_addr constant [44 x i8] c"EtherCAT datagram: Cmd: 'EXT' (%d), Len: %d\00", align 1
-@.str.846 = private unnamed_addr constant [48 x i8] c"EtherCAT datagram: Cmd: 'Unknown' (%d), Len: %d\00", align 1
-@EcCmdLong = internal constant [17 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.849 }, %struct._value_string { i32 1, ptr @.str.850 }, %struct._value_string { i32 2, ptr @.str.851 }, %struct._value_string { i32 3, ptr @.str.852 }, %struct._value_string { i32 4, ptr @.str.853 }, %struct._value_string { i32 5, ptr @.str.854 }, %struct._value_string { i32 6, ptr @.str.855 }, %struct._value_string { i32 7, ptr @.str.856 }, %struct._value_string { i32 8, ptr @.str.857 }, %struct._value_string { i32 9, ptr @.str.858 }, %struct._value_string { i32 10, ptr @.str.859 }, %struct._value_string { i32 11, ptr @.str.860 }, %struct._value_string { i32 12, ptr @.str.861 }, %struct._value_string { i32 13, ptr @.str.862 }, %struct._value_string { i32 14, ptr @.str.863 }, %struct._value_string { i32 255, ptr @.str.762 }, %struct._value_string zeroinitializer], align 16
-@.str.847 = private unnamed_addr constant [21 x i8] c"Cmd        : %d (%s)\00", align 1
-@.str.848 = private unnamed_addr constant [34 x i8] c"Cmd        : %d (Unknown command)\00", align 1
-@.str.849 = private unnamed_addr constant [13 x i8] c"No operation\00", align 1
-@.str.850 = private unnamed_addr constant [29 x i8] c"Auto Increment Physical Read\00", align 1
-@.str.851 = private unnamed_addr constant [30 x i8] c"Auto Increment Physical Write\00", align 1
-@.str.852 = private unnamed_addr constant [34 x i8] c"Auto Increment Physical ReadWrite\00", align 1
-@.str.853 = private unnamed_addr constant [33 x i8] c"Configured address Physical Read\00", align 1
-@.str.854 = private unnamed_addr constant [34 x i8] c"Configured address Physical Write\00", align 1
-@.str.855 = private unnamed_addr constant [38 x i8] c"Configured address Physical ReadWrite\00", align 1
-@.str.856 = private unnamed_addr constant [15 x i8] c"Broadcast Read\00", align 1
-@.str.857 = private unnamed_addr constant [16 x i8] c"Broadcast Write\00", align 1
-@.str.858 = private unnamed_addr constant [20 x i8] c"Broadcast ReadWrite\00", align 1
-@.str.859 = private unnamed_addr constant [13 x i8] c"Logical Read\00", align 1
-@.str.860 = private unnamed_addr constant [14 x i8] c"Logical Write\00", align 1
-@.str.861 = private unnamed_addr constant [18 x i8] c"Logical ReadWrite\00", align 1
-@.str.862 = private unnamed_addr constant [44 x i8] c"Auto Increment Physical Read Multiple Write\00", align 1
-@.str.863 = private unnamed_addr constant [48 x i8] c"Configured Address Physical Read Multiple Write\00", align 1
-@ecat_esc_registers = internal global [108 x %struct.ecat_esc_reg_info] [%struct.ecat_esc_reg_info { i16 0, i16 1, i16 1, ptr @hf_ecat_reg_revision, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 1, i16 1, i16 1, ptr @hf_ecat_reg_esc_type, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 2, i16 2, i16 1, ptr @hf_ecat_reg_esc_build, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 4, i16 1, i16 1, ptr @hf_ecat_reg_esc_fmmucnt, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 5, i16 1, i16 1, ptr @hf_ecat_reg_esc_smcnt, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 6, i16 1, i16 1, ptr @hf_ecat_reg_esc_ports, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 7, i16 1, i16 1, ptr @hf_ecat_reg_esc_dpram, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 8, i16 2, i16 1, ptr @hf_ecat_reg_esc_features, ptr @ecat_esc_reg_8, ptr @ett_ecat_reg_esc_features, ptr null }, %struct.ecat_esc_reg_info { i16 16, i16 2, i16 1, ptr @hf_ecat_reg_physaddr, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 18, i16 2, i16 1, ptr @hf_ecat_reg_physaddr2, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 32, i16 2, i16 1, ptr @hf_ecat_reg_regprotect, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 48, i16 2, i16 1, ptr @hf_ecat_reg_accessprotect, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 64, i16 1, i16 1, ptr @hf_ecat_reg_resetecat, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 65, i16 1, i16 1, ptr @hf_ecat_reg_resetpdi, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 256, i16 1, i16 1, ptr @hf_ecat_reg_dlctrl1, ptr @ecat_esc_reg_100, ptr @ett_ecat_reg_dlctrl1, ptr null }, %struct.ecat_esc_reg_info { i16 257, i16 1, i16 1, ptr @hf_ecat_reg_dlctrl2, ptr @ecat_esc_reg_101, ptr @ett_ecat_reg_dlctrl2, ptr null }, %struct.ecat_esc_reg_info { i16 258, i16 1, i16 1, ptr @hf_ecat_reg_dlctrl3, ptr @ecat_esc_reg_102, ptr @ett_ecat_reg_dlctrl3, ptr null }, %struct.ecat_esc_reg_info { i16 259, i16 1, i16 1, ptr @hf_ecat_reg_dlctrl4, ptr @ecat_esc_reg_103, ptr @ett_ecat_reg_dlctrl4, ptr null }, %struct.ecat_esc_reg_info { i16 264, i16 2, i16 1, ptr @hf_ecat_reg_regphysrwoffs, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 272, i16 1, i16 1, ptr @hf_ecat_reg_dlstatus1, ptr @ecat_esc_reg_110, ptr @ett_ecat_reg_dlstatus1, ptr null }, %struct.ecat_esc_reg_info { i16 273, i16 1, i16 1, ptr @hf_ecat_reg_dlstatus2, ptr @ecat_esc_reg_111, ptr @ett_ecat_reg_dlstatus2, ptr null }, %struct.ecat_esc_reg_info { i16 288, i16 2, i16 1, ptr @hf_ecat_reg_alctrl, ptr @ecat_esc_reg_120, ptr @ett_ecat_reg_alctrl, ptr null }, %struct.ecat_esc_reg_info { i16 304, i16 2, i16 1, ptr @hf_ecat_reg_alstatus, ptr @ecat_esc_reg_130, ptr @ett_ecat_reg_alstatus, ptr null }, %struct.ecat_esc_reg_info { i16 308, i16 2, i16 1, ptr @hf_ecat_reg_alstatuscode, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 320, i16 1, i16 1, ptr @hf_ecat_reg_pdictrl1, ptr @ecat_esc_reg_140, ptr @ett_ecat_reg_pdictrl1, ptr null }, %struct.ecat_esc_reg_info { i16 321, i16 1, i16 1, ptr @hf_ecat_reg_pdictrl2, ptr @ecat_esc_reg_141, ptr @ett_ecat_reg_pdictrl2, ptr null }, %struct.ecat_esc_reg_info { i16 512, i16 2, i16 1, ptr @hf_ecat_reg_ecat_mask, ptr @ecat_esc_reg_200, ptr @ett_ecat_reg_ecat_mask, ptr null }, %struct.ecat_esc_reg_info { i16 516, i16 2, i16 1, ptr @hf_ecat_reg_pdiL, ptr @ecat_esc_reg_204, ptr @ett_ecat_reg_pdiL, ptr null }, %struct.ecat_esc_reg_info { i16 518, i16 2, i16 1, ptr @hf_ecat_reg_pdiH, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 528, i16 2, i16 1, ptr @hf_ecat_reg_ecat, ptr @ecat_esc_reg_210, ptr @ett_ecat_reg_ecat, ptr null }, %struct.ecat_esc_reg_info { i16 544, i16 2, i16 1, ptr @hf_ecat_reg_pdi1, ptr @ecat_esc_reg_220, ptr @ett_ecat_reg_pdi1, ptr null }, %struct.ecat_esc_reg_info { i16 546, i16 2, i16 1, ptr @hf_ecat_reg_pdi2, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 768, i16 2, i16 1, ptr @hf_ecat_reg_crc0, ptr @ecat_esc_reg_300, ptr @ett_ecat_reg_crc0, ptr null }, %struct.ecat_esc_reg_info { i16 770, i16 2, i16 1, ptr @hf_ecat_reg_crc1, ptr @ecat_esc_reg_302, ptr @ett_ecat_reg_crc1, ptr null }, %struct.ecat_esc_reg_info { i16 772, i16 2, i16 1, ptr @hf_ecat_reg_crc2, ptr @ecat_esc_reg_304, ptr @ett_ecat_reg_crc2, ptr null }, %struct.ecat_esc_reg_info { i16 774, i16 2, i16 1, ptr @hf_ecat_reg_crc3, ptr @ecat_esc_reg_306, ptr @ett_ecat_reg_crc3, ptr null }, %struct.ecat_esc_reg_info { i16 776, i16 1, i16 1, ptr @hf_ecat_reg_crc_fwd0, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 777, i16 1, i16 1, ptr @hf_ecat_reg_crc_fwd1, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 778, i16 1, i16 1, ptr @hf_ecat_reg_crc_fwd2, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 779, i16 1, i16 1, ptr @hf_ecat_reg_crc_fwd3, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 780, i16 1, i16 1, ptr @hf_ecat_reg_processuniterr, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 781, i16 1, i16 1, ptr @hf_ecat_reg_pdierr, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 784, i16 1, i16 1, ptr @hf_ecat_reg_linklost0, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 785, i16 1, i16 1, ptr @hf_ecat_reg_linklost1, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 786, i16 1, i16 1, ptr @hf_ecat_reg_linklost2, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 787, i16 1, i16 1, ptr @hf_ecat_reg_linklost3, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 1024, i16 2, i16 1, ptr @hf_ecat_reg_wd_divisor, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 1040, i16 2, i16 1, ptr @hf_ecat_reg_wd_timepdi, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 1056, i16 2, i16 1, ptr @hf_ecat_reg_wd_timesm, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 1088, i16 1, i16 1, ptr @hf_ecat_reg_wd_status, ptr @ecat_esc_reg_440, ptr @ett_ecat_reg_wd_status, ptr null }, %struct.ecat_esc_reg_info { i16 1090, i16 1, i16 1, ptr @hf_ecat_reg_wd_cntsm, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 1091, i16 1, i16 1, ptr @hf_ecat_reg_wd_cntpdi, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 1280, i16 2, i16 1, ptr @hf_ecat_reg_eeprom_assign, ptr @ecat_esc_reg_500, ptr @ett_ecat_reg_eeprom_assign, ptr null }, %struct.ecat_esc_reg_info { i16 1282, i16 2, i16 1, ptr @hf_ecat_reg_ctrlstat, ptr @ecat_esc_reg_502, ptr @ett_ecat_reg_ctrlstat, ptr null }, %struct.ecat_esc_reg_info { i16 1284, i16 2, i16 1, ptr @hf_ecat_reg_addrl, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 1286, i16 2, i16 1, ptr @hf_ecat_reg_addrh, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 1288, i16 2, i16 1, ptr @hf_ecat_reg_data0, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 1290, i16 2, i16 1, ptr @hf_ecat_reg_data1, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 1292, i16 2, i16 1, ptr @hf_ecat_reg_data2, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 1294, i16 2, i16 1, ptr @hf_ecat_reg_data3, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 1296, i16 2, i16 1, ptr @hf_ecat_reg_mio_ctrlstat, ptr @ecat_esc_reg_510, ptr @ett_ecat_reg_mio_ctrlstat, ptr null }, %struct.ecat_esc_reg_info { i16 1298, i16 2, i16 1, ptr @hf_ecat_reg_mio_addr, ptr @ecat_esc_reg_512, ptr @ett_ecat_mio_addr, ptr null }, %struct.ecat_esc_reg_info { i16 1300, i16 2, i16 1, ptr @hf_ecat_reg_mio_data, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 1302, i16 2, i16 1, ptr @hf_ecat_reg_mio_access, ptr @ecat_esc_reg_516, ptr @ett_ecat_mio_access, ptr null }, %struct.ecat_esc_reg_info { i16 1304, i16 1, i16 1, ptr @hf_ecat_reg_mio_status0, ptr @ecat_esc_reg_518, ptr @ett_ecat_mio_status0, ptr null }, %struct.ecat_esc_reg_info { i16 1305, i16 1, i16 1, ptr @hf_ecat_reg_mio_status1, ptr @ecat_esc_reg_519, ptr @ett_ecat_mio_status1, ptr null }, %struct.ecat_esc_reg_info { i16 1306, i16 1, i16 1, ptr @hf_ecat_reg_mio_status2, ptr @ecat_esc_reg_51A, ptr @ett_ecat_mio_status2, ptr null }, %struct.ecat_esc_reg_info { i16 1307, i16 1, i16 1, ptr @hf_ecat_reg_mio_status3, ptr @ecat_esc_reg_51B, ptr @ett_ecat_mio_status3, ptr null }, %struct.ecat_esc_reg_info { i16 1536, i16 16, i16 16, ptr @hf_ecat_reg_fmmu, ptr null, ptr null, ptr @ecat_reg_600 }, %struct.ecat_esc_reg_info { i16 2048, i16 8, i16 8, ptr @hf_ecat_reg_syncman, ptr null, ptr null, ptr @ecat_reg_800 }, %struct.ecat_esc_reg_info { i16 2304, i16 4, i16 1, ptr @hf_ecat_reg_dc_recv0, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 2308, i16 4, i16 1, ptr @hf_ecat_reg_dc_recv1, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 2312, i16 4, i16 1, ptr @hf_ecat_reg_dc_recv2, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 2316, i16 4, i16 1, ptr @hf_ecat_reg_dc_recv3, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 2320, i16 8, i16 1, ptr @hf_ecat_reg_dc_systime, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 2320, i16 4, i16 1, ptr @hf_ecat_reg_dc_systimeL, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 2324, i16 4, i16 1, ptr @hf_ecat_reg_dc_systimeH, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 2328, i16 8, i16 1, ptr @hf_ecat_reg_dc_recvtime64, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 2336, i16 8, i16 1, ptr @hf_ecat_reg_dc_systimeoffs, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 2336, i16 4, i16 1, ptr @hf_ecat_reg_dc_systimeoffsl, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 2340, i16 4, i16 1, ptr @hf_ecat_reg_dc_systimeoffsh, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 2344, i16 4, i16 1, ptr @hf_ecat_reg_dc_systimedelay, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 2348, i16 4, i16 1, ptr @hf_ecat_reg_dc_ctrlerr, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 2352, i16 2, i16 1, ptr @hf_ecat_reg_dc_speedstart, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 2354, i16 2, i16 1, ptr @hf_ecat_reg_dc_speeddiff, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 2356, i16 1, i16 1, ptr @hf_ecat_reg_dc_fltdepth_systimediff, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 2357, i16 1, i16 1, ptr @hf_ecat_reg_dc_fltdepth_speedcnt, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 2432, i16 1, i16 1, ptr @hf_ecat_reg_dc_cycunitctrl, ptr @ecat_esc_reg_980, ptr @ett_ecat_reg_dc_cycunitctrl, ptr null }, %struct.ecat_esc_reg_info { i16 2433, i16 1, i16 1, ptr @hf_ecat_reg_dc_activation, ptr @ecat_esc_reg_981, ptr @ett_ecat_dc_activation, ptr null }, %struct.ecat_esc_reg_info { i16 2434, i16 2, i16 1, ptr @hf_ecat_reg_dc_cycimpuls, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 2436, i16 1, i16 1, ptr @hf_ecat_reg_dc_activationstat, ptr @ecat_esc_reg_984, ptr @ett_ecat_dc_activationstat, ptr null }, %struct.ecat_esc_reg_info { i16 2446, i16 1, i16 1, ptr @hf_ecat_reg_dc_sync0_status, ptr @ecat_esc_reg_98e, ptr @ett_ecat_dc_sync0_status, ptr null }, %struct.ecat_esc_reg_info { i16 2447, i16 1, i16 1, ptr @hf_ecat_reg_dc_sync1_status, ptr @ecat_esc_reg_98f, ptr @ett_ecat_dc_sync1_status, ptr null }, %struct.ecat_esc_reg_info { i16 2448, i16 8, i16 1, ptr @hf_ecat_reg_dc_starttime0, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 2456, i16 8, i16 1, ptr @hf_ecat_reg_dc_starttime1, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 2464, i16 4, i16 1, ptr @hf_ecat_reg_dc_cyctime0, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 2468, i16 4, i16 1, ptr @hf_ecat_reg_dc_cyctime1, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 2472, i16 1, i16 1, ptr @hf_ecat_reg_dc_latch0_ctrl, ptr @ecat_esc_reg_9a8, ptr @ett_ecat_dc_latch0_ctrl, ptr null }, %struct.ecat_esc_reg_info { i16 2473, i16 1, i16 1, ptr @hf_ecat_reg_dc_latch1_ctrl, ptr @ecat_esc_reg_9a9, ptr @ett_ecat_dc_latch1_ctrl, ptr null }, %struct.ecat_esc_reg_info { i16 2478, i16 1, i16 1, ptr @hf_ecat_reg_dc_latch0_status, ptr @ecat_esc_reg_9ae, ptr @ett_ecat_dc_latch0_status, ptr null }, %struct.ecat_esc_reg_info { i16 2479, i16 1, i16 1, ptr @hf_ecat_reg_dc_latch1_status, ptr @ecat_esc_reg_9af, ptr @ett_ecat_dc_latch1_status, ptr null }, %struct.ecat_esc_reg_info { i16 2480, i16 8, i16 1, ptr @hf_ecat_reg_dc_latch0_pos, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 2488, i16 8, i16 1, ptr @hf_ecat_reg_dc_latch0_neg, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 2496, i16 8, i16 1, ptr @hf_ecat_reg_dc_latch1_pos, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 2504, i16 8, i16 1, ptr @hf_ecat_reg_dc_latch1_neg, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 2544, i16 4, i16 1, ptr @hf_ecat_reg_dc_rcvsyncmanchg, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 2552, i16 4, i16 1, ptr @hf_ecat_reg_dc_pdismstart, ptr null, ptr null, ptr null }, %struct.ecat_esc_reg_info { i16 2556, i16 4, i16 1, ptr @hf_ecat_reg_dc_pdismchg, ptr null, ptr null, ptr null }], align 16
+@EcCmdShort = internal constant [17 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.747 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.748 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.749 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.750 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.751 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.752 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.753 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.754 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.755 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.756 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.757 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.758 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.759 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.760 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.761 }, { i32, [4 x i8], ptr } { i32 255, [4 x i8] zeroinitializer, ptr @.str.762 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.764 = private unnamed_addr constant [6 x i8] c"Valid\00", align 1
+@ecat_subframe_reserved_vals = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.764 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.766 = private unnamed_addr constant [26 x i8] c"Frame has circulated once\00", align 1
+@.str.767 = private unnamed_addr constant [25 x i8] c"Frame is not circulating\00", align 1
+@.str.768 = private unnamed_addr constant [36 x i8] c"More EtherCAT datagrams will follow\00", align 1
+@.str.769 = private unnamed_addr constant [23 x i8] c"Last EtherCAT datagram\00", align 1
+@.str.770 = private unnamed_addr constant [5 x i8] c"True\00", align 1
+@.str.771 = private unnamed_addr constant [6 x i8] c"False\00", align 1
+@.str.772 = private unnamed_addr constant [8 x i8] c"Enabled\00", align 1
+@.str.773 = private unnamed_addr constant [9 x i8] c"Disabled\00", align 1
+@.str.774 = private unnamed_addr constant [10 x i8] c"Auto loop\00", align 1
+@.str.775 = private unnamed_addr constant [16 x i8] c"Auto close only\00", align 1
+@.str.776 = private unnamed_addr constant [10 x i8] c"Loop open\00", align 1
+@.str.777 = private unnamed_addr constant [12 x i8] c"Loop closed\00", align 1
+@vals_esc_reg_101 = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.774 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.775 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.776 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.777 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.779 = private unnamed_addr constant [5 x i8] c"Okay\00", align 1
+@.str.780 = private unnamed_addr constant [8 x i8] c"Run out\00", align 1
+@.str.781 = private unnamed_addr constant [19 x i8] c"Loop open, no link\00", align 1
+@.str.782 = private unnamed_addr constant [21 x i8] c"Loop closed, no link\00", align 1
+@.str.783 = private unnamed_addr constant [21 x i8] c"Loop open, with link\00", align 1
+@.str.784 = private unnamed_addr constant [23 x i8] c"Loop closed, with link\00", align 1
+@vals_esc_reg_111 = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.781 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.782 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.783 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.784 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.786 = private unnamed_addr constant [5 x i8] c"INIT\00", align 1
+@.str.787 = private unnamed_addr constant [6 x i8] c"PREOP\00", align 1
+@.str.788 = private unnamed_addr constant [10 x i8] c"BOOTSTRAP\00", align 1
+@.str.789 = private unnamed_addr constant [7 x i8] c"SAFEOP\00", align 1
+@.str.790 = private unnamed_addr constant [3 x i8] c"OP\00", align 1
+@vals_esc_reg_120 = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.786 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.787 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.788 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.789 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.790 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.792 = private unnamed_addr constant [5 x i8] c"None\00", align 1
+@.str.793 = private unnamed_addr constant [17 x i8] c"4 bit dig. input\00", align 1
+@.str.794 = private unnamed_addr constant [18 x i8] c"4 bit dig. output\00", align 1
+@.str.795 = private unnamed_addr constant [21 x i8] c"2 bit dig. in/output\00", align 1
+@.str.796 = private unnamed_addr constant [15 x i8] c"dig. in/output\00", align 1
+@.str.797 = private unnamed_addr constant [10 x i8] c"SPI slave\00", align 1
+@.str.798 = private unnamed_addr constant [16 x i8] c"EtherCAT bridge\00", align 1
+@.str.799 = private unnamed_addr constant [18 x i8] c"16 bit uC (async)\00", align 1
+@.str.800 = private unnamed_addr constant [17 x i8] c"8 bit uC (async)\00", align 1
+@.str.801 = private unnamed_addr constant [17 x i8] c"16 bit uC (sync)\00", align 1
+@.str.802 = private unnamed_addr constant [16 x i8] c"8 bit uC (sync)\00", align 1
+@.str.803 = private unnamed_addr constant [24 x i8] c"32/0 bit dig. in/output\00", align 1
+@.str.804 = private unnamed_addr constant [24 x i8] c"24/8 bit dig. in/output\00", align 1
+@.str.805 = private unnamed_addr constant [25 x i8] c"16/16 bit dig. in/output\00", align 1
+@.str.806 = private unnamed_addr constant [24 x i8] c"8/24 bit dig. in/output\00", align 1
+@.str.807 = private unnamed_addr constant [24 x i8] c"0/32 bit dig. in/output\00", align 1
+@.str.808 = private unnamed_addr constant [12 x i8] c"On chip bus\00", align 1
+@vals_esc_reg_140 = internal constant [18 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.792 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.793 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.794 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.795 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.796 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.797 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.798 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.799 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.800 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.801 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.802 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.803 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.804 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.805 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.806 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.807 }, { i32, [4 x i8], ptr } { i32 128, [4 x i8] zeroinitializer, ptr @.str.808 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.810 = private unnamed_addr constant [8 x i8] c"Disable\00", align 1
+@.str.811 = private unnamed_addr constant [9 x i8] c"Local uC\00", align 1
+@.str.812 = private unnamed_addr constant [21 x i8] c"Reset Bit 501.0 to 0\00", align 1
+@.str.813 = private unnamed_addr constant [24 x i8] c"Do not change Bit 501.0\00", align 1
+@.str.814 = private unnamed_addr constant [20 x i8] c"PDI emulates EEPROM\00", align 1
+@.str.815 = private unnamed_addr constant [17 x i8] c"Normal operation\00", align 1
+@.str.816 = private unnamed_addr constant [12 x i8] c"Read in use\00", align 1
+@.str.817 = private unnamed_addr constant [12 x i8] c"Read ignore\00", align 1
+@.str.818 = private unnamed_addr constant [13 x i8] c"Write in use\00", align 1
+@.str.819 = private unnamed_addr constant [13 x i8] c"Write ignore\00", align 1
+@.str.820 = private unnamed_addr constant [10 x i8] c"activated\00", align 1
+@.str.821 = private unnamed_addr constant [12 x i8] c"deactivated\00", align 1
+@.str.822 = private unnamed_addr constant [9 x i8] c"3 buffer\00", align 1
+@.str.823 = private unnamed_addr constant [9 x i8] c"1 buffer\00", align 1
+@.str.824 = private unnamed_addr constant [16 x i8] c"1 buffer direct\00", align 1
+@vals_esc_reg_8041 = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.822 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.823 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.824 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.826 = private unnamed_addr constant [5 x i8] c"Read\00", align 1
+@.str.827 = private unnamed_addr constant [6 x i8] c"Write\00", align 1
+@vals_esc_reg_8042 = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.826 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.827 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.829 = private unnamed_addr constant [8 x i8] c"Written\00", align 1
+@.str.830 = private unnamed_addr constant [10 x i8] c"1. buffer\00", align 1
+@.str.831 = private unnamed_addr constant [10 x i8] c"2. buffer\00", align 1
+@.str.832 = private unnamed_addr constant [10 x i8] c"3. buffer\00", align 1
+@.str.833 = private unnamed_addr constant [16 x i8] c"blocked (start)\00", align 1
+@vals_esc_reg_8052 = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.830 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.831 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.832 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.833 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.835 = private unnamed_addr constant [13 x i8] c"Single event\00", align 1
+@.str.836 = private unnamed_addr constant [11 x i8] c"Continuous\00", align 1
+@.str.837 = private unnamed_addr constant [5 x i8] c": %s\00", align 1
+@.str.838 = private unnamed_addr constant [7 x i8] c"Header\00", align 1
+@.str.839 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
+@.str.840 = private unnamed_addr constant [33 x i8] c"Length     : %d (0x%x) - %s - %s\00", align 1
+@.str.841 = private unnamed_addr constant [10 x i8] c"Roundtrip\00", align 1
+@.str.842 = private unnamed_addr constant [13 x i8] c"No Roundtrip\00", align 1
+@.str.843 = private unnamed_addr constant [16 x i8] c"More Follows...\00", align 1
+@.str.844 = private unnamed_addr constant [17 x i8] c"Last Sub Command\00", align 1
+@.str.845 = private unnamed_addr constant [3 x i8] c"Dc\00", align 1
+@.str.846 = private unnamed_addr constant [42 x i8] c"'%s': Len: %d, Adp 0x%x, Ado 0x%x, Wc %d \00", align 1
+@.str.847 = private unnamed_addr constant [37 x i8] c"%d Cmds, '%s': len %d, '%s': len %d \00", align 1
+@.str.848 = private unnamed_addr constant [50 x i8] c"%d Cmds, '%s': len %d, '%s': len %d, '%s': len %d\00", align 1
+@.str.849 = private unnamed_addr constant [64 x i8] c"%d Cmds, '%s': len %d, '%s': len %d, '%s': len %d, '%s': len %d\00", align 1
+@.str.850 = private unnamed_addr constant [29 x i8] c"%d Cmds, SumLen %d, '%s'... \00", align 1
+@.str.851 = private unnamed_addr constant [14 x i8] c"<UNKNOWN: %d>\00", align 1
+@.str.852 = private unnamed_addr constant [71 x i8] c"EtherCAT datagram: Cmd: '%s' (%d), Len: %d, Adp 0x%x, Ado 0x%x, Cnt %d\00", align 1
+@.str.853 = private unnamed_addr constant [62 x i8] c"EtherCAT datagram: Cmd: '%s' (%d), Len: %d, Addr 0x%x, Cnt %d\00", align 1
+@.str.854 = private unnamed_addr constant [44 x i8] c"EtherCAT datagram: Cmd: 'EXT' (%d), Len: %d\00", align 1
+@.str.855 = private unnamed_addr constant [48 x i8] c"EtherCAT datagram: Cmd: 'Unknown' (%d), Len: %d\00", align 1
+@.str.856 = private unnamed_addr constant [21 x i8] c"Cmd        : %d (%s)\00", align 1
+@.str.857 = private unnamed_addr constant [34 x i8] c"Cmd        : %d (Unknown command)\00", align 1
+@.str.858 = private unnamed_addr constant [13 x i8] c"No operation\00", align 1
+@.str.859 = private unnamed_addr constant [29 x i8] c"Auto Increment Physical Read\00", align 1
+@.str.860 = private unnamed_addr constant [30 x i8] c"Auto Increment Physical Write\00", align 1
+@.str.861 = private unnamed_addr constant [34 x i8] c"Auto Increment Physical ReadWrite\00", align 1
+@.str.862 = private unnamed_addr constant [33 x i8] c"Configured address Physical Read\00", align 1
+@.str.863 = private unnamed_addr constant [34 x i8] c"Configured address Physical Write\00", align 1
+@.str.864 = private unnamed_addr constant [38 x i8] c"Configured address Physical ReadWrite\00", align 1
+@.str.865 = private unnamed_addr constant [15 x i8] c"Broadcast Read\00", align 1
+@.str.866 = private unnamed_addr constant [16 x i8] c"Broadcast Write\00", align 1
+@.str.867 = private unnamed_addr constant [20 x i8] c"Broadcast ReadWrite\00", align 1
+@.str.868 = private unnamed_addr constant [13 x i8] c"Logical Read\00", align 1
+@.str.869 = private unnamed_addr constant [14 x i8] c"Logical Write\00", align 1
+@.str.870 = private unnamed_addr constant [18 x i8] c"Logical ReadWrite\00", align 1
+@.str.871 = private unnamed_addr constant [44 x i8] c"Auto Increment Physical Read Multiple Write\00", align 1
+@.str.872 = private unnamed_addr constant [48 x i8] c"Configured Address Physical Read Multiple Write\00", align 1
+@EcCmdLong = internal constant [17 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.858 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.859 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.860 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.861 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.862 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.863 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.864 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.865 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.866 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.867 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.868 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.869 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.870 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.871 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.872 }, { i32, [4 x i8], ptr } { i32 255, [4 x i8] zeroinitializer, ptr @.str.762 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
 @ecat_esc_reg_8 = internal constant [9 x ptr] [ptr @hf_ecat_reg_esc_features_fmmurestrict, ptr @hf_ecat_reg_esc_features_smaddrrestrict, ptr @hf_ecat_reg_esc_features_dcsupport, ptr @hf_ecat_reg_esc_features_dc64support, ptr @hf_ecat_reg_esc_features_ebuslowjitter, ptr @hf_ecat_reg_esc_features_ebusextlinkdetect, ptr @hf_ecat_reg_esc_features_miiextlinkdetect, ptr @hf_ecat_reg_esc_features_crcext, ptr null], align 16
 @ecat_esc_reg_100 = internal constant [6 x ptr] [ptr @hf_ecat_reg_dlctrl1_killnonecat, ptr @hf_ecat_reg_dlctrl1_port0extlinkdetect, ptr @hf_ecat_reg_dlctrl1_port1extlinkdetect, ptr @hf_ecat_reg_dlctrl1_port2extlinkdetect, ptr @hf_ecat_reg_dlctrl1_port3extlinkdetect, ptr null], align 16
 @ecat_esc_reg_101 = internal constant [5 x ptr] [ptr @hf_ecat_reg_dlctrl2_port0, ptr @hf_ecat_reg_dlctrl2_port1, ptr @hf_ecat_reg_dlctrl2_port2, ptr @hf_ecat_reg_dlctrl2_port3, ptr null], align 16
@@ -1352,10 +1350,11 @@ target triple = "x86_64-pc-linux-gnu"
 @ecat_esc_reg_9a9 = internal constant [3 x ptr] [ptr @hf_ecat_reg_dc_latch1_ctrl_pos, ptr @hf_ecat_reg_dc_latch1_ctrl_neg, ptr null], align 16
 @ecat_esc_reg_9ae = internal constant [4 x ptr] [ptr @hf_ecat_reg_dc_latch0_status_eventpos, ptr @hf_ecat_reg_dc_latch0_status_eventneg, ptr @hf_ecat_reg_dc_latch0_status_pinstate, ptr null], align 16
 @ecat_esc_reg_9af = internal constant [4 x ptr] [ptr @hf_ecat_reg_dc_latch1_status_eventpos, ptr @hf_ecat_reg_dc_latch1_status_eventneg, ptr @hf_ecat_reg_dc_latch1_status_pinstate, ptr null], align 16
+@ecat_esc_registers = internal global [108 x { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr }] [{ i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 0, i16 1, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_revision, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 1, i16 1, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_esc_type, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 2, i16 2, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_esc_build, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 4, i16 1, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_esc_fmmucnt, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 5, i16 1, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_esc_smcnt, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 6, i16 1, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_esc_ports, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 7, i16 1, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_esc_dpram, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 8, i16 2, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_esc_features, ptr @ecat_esc_reg_8, ptr @ett_ecat_reg_esc_features, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 16, i16 2, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_physaddr, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 18, i16 2, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_physaddr2, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 32, i16 2, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_regprotect, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 48, i16 2, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_accessprotect, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 64, i16 1, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_resetecat, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 65, i16 1, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_resetpdi, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 256, i16 1, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_dlctrl1, ptr @ecat_esc_reg_100, ptr @ett_ecat_reg_dlctrl1, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 257, i16 1, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_dlctrl2, ptr @ecat_esc_reg_101, ptr @ett_ecat_reg_dlctrl2, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 258, i16 1, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_dlctrl3, ptr @ecat_esc_reg_102, ptr @ett_ecat_reg_dlctrl3, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 259, i16 1, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_dlctrl4, ptr @ecat_esc_reg_103, ptr @ett_ecat_reg_dlctrl4, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 264, i16 2, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_regphysrwoffs, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 272, i16 1, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_dlstatus1, ptr @ecat_esc_reg_110, ptr @ett_ecat_reg_dlstatus1, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 273, i16 1, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_dlstatus2, ptr @ecat_esc_reg_111, ptr @ett_ecat_reg_dlstatus2, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 288, i16 2, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_alctrl, ptr @ecat_esc_reg_120, ptr @ett_ecat_reg_alctrl, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 304, i16 2, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_alstatus, ptr @ecat_esc_reg_130, ptr @ett_ecat_reg_alstatus, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 308, i16 2, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_alstatuscode, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 320, i16 1, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_pdictrl1, ptr @ecat_esc_reg_140, ptr @ett_ecat_reg_pdictrl1, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 321, i16 1, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_pdictrl2, ptr @ecat_esc_reg_141, ptr @ett_ecat_reg_pdictrl2, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 512, i16 2, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_ecat_mask, ptr @ecat_esc_reg_200, ptr @ett_ecat_reg_ecat_mask, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 516, i16 2, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_pdiL, ptr @ecat_esc_reg_204, ptr @ett_ecat_reg_pdiL, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 518, i16 2, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_pdiH, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 528, i16 2, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_ecat, ptr @ecat_esc_reg_210, ptr @ett_ecat_reg_ecat, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 544, i16 2, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_pdi1, ptr @ecat_esc_reg_220, ptr @ett_ecat_reg_pdi1, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 546, i16 2, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_pdi2, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 768, i16 2, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_crc0, ptr @ecat_esc_reg_300, ptr @ett_ecat_reg_crc0, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 770, i16 2, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_crc1, ptr @ecat_esc_reg_302, ptr @ett_ecat_reg_crc1, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 772, i16 2, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_crc2, ptr @ecat_esc_reg_304, ptr @ett_ecat_reg_crc2, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 774, i16 2, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_crc3, ptr @ecat_esc_reg_306, ptr @ett_ecat_reg_crc3, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 776, i16 1, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_crc_fwd0, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 777, i16 1, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_crc_fwd1, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 778, i16 1, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_crc_fwd2, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 779, i16 1, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_crc_fwd3, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 780, i16 1, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_processuniterr, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 781, i16 1, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_pdierr, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 784, i16 1, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_linklost0, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 785, i16 1, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_linklost1, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 786, i16 1, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_linklost2, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 787, i16 1, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_linklost3, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 1024, i16 2, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_wd_divisor, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 1040, i16 2, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_wd_timepdi, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 1056, i16 2, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_wd_timesm, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 1088, i16 1, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_wd_status, ptr @ecat_esc_reg_440, ptr @ett_ecat_reg_wd_status, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 1090, i16 1, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_wd_cntsm, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 1091, i16 1, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_wd_cntpdi, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 1280, i16 2, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_eeprom_assign, ptr @ecat_esc_reg_500, ptr @ett_ecat_reg_eeprom_assign, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 1282, i16 2, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_ctrlstat, ptr @ecat_esc_reg_502, ptr @ett_ecat_reg_ctrlstat, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 1284, i16 2, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_addrl, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 1286, i16 2, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_addrh, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 1288, i16 2, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_data0, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 1290, i16 2, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_data1, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 1292, i16 2, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_data2, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 1294, i16 2, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_data3, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 1296, i16 2, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_mio_ctrlstat, ptr @ecat_esc_reg_510, ptr @ett_ecat_reg_mio_ctrlstat, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 1298, i16 2, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_mio_addr, ptr @ecat_esc_reg_512, ptr @ett_ecat_mio_addr, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 1300, i16 2, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_mio_data, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 1302, i16 2, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_mio_access, ptr @ecat_esc_reg_516, ptr @ett_ecat_mio_access, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 1304, i16 1, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_mio_status0, ptr @ecat_esc_reg_518, ptr @ett_ecat_mio_status0, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 1305, i16 1, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_mio_status1, ptr @ecat_esc_reg_519, ptr @ett_ecat_mio_status1, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 1306, i16 1, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_mio_status2, ptr @ecat_esc_reg_51A, ptr @ett_ecat_mio_status2, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 1307, i16 1, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_mio_status3, ptr @ecat_esc_reg_51B, ptr @ett_ecat_mio_status3, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 1536, i16 16, i16 16, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_fmmu, ptr null, ptr null, ptr @ecat_reg_600 }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 2048, i16 8, i16 8, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_syncman, ptr null, ptr null, ptr @ecat_reg_800 }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 2304, i16 4, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_dc_recv0, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 2308, i16 4, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_dc_recv1, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 2312, i16 4, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_dc_recv2, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 2316, i16 4, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_dc_recv3, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 2320, i16 8, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_dc_systime, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 2320, i16 4, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_dc_systimeL, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 2324, i16 4, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_dc_systimeH, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 2328, i16 8, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_dc_recvtime64, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 2336, i16 8, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_dc_systimeoffs, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 2336, i16 4, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_dc_systimeoffsl, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 2340, i16 4, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_dc_systimeoffsh, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 2344, i16 4, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_dc_systimedelay, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 2348, i16 4, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_dc_ctrlerr, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 2352, i16 2, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_dc_speedstart, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 2354, i16 2, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_dc_speeddiff, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 2356, i16 1, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_dc_fltdepth_systimediff, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 2357, i16 1, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_dc_fltdepth_speedcnt, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 2432, i16 1, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_dc_cycunitctrl, ptr @ecat_esc_reg_980, ptr @ett_ecat_reg_dc_cycunitctrl, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 2433, i16 1, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_dc_activation, ptr @ecat_esc_reg_981, ptr @ett_ecat_dc_activation, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 2434, i16 2, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_dc_cycimpuls, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 2436, i16 1, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_dc_activationstat, ptr @ecat_esc_reg_984, ptr @ett_ecat_dc_activationstat, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 2446, i16 1, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_dc_sync0_status, ptr @ecat_esc_reg_98e, ptr @ett_ecat_dc_sync0_status, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 2447, i16 1, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_dc_sync1_status, ptr @ecat_esc_reg_98f, ptr @ett_ecat_dc_sync1_status, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 2448, i16 8, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_dc_starttime0, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 2456, i16 8, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_dc_starttime1, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 2464, i16 4, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_dc_cyctime0, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 2468, i16 4, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_dc_cyctime1, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 2472, i16 1, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_dc_latch0_ctrl, ptr @ecat_esc_reg_9a8, ptr @ett_ecat_dc_latch0_ctrl, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 2473, i16 1, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_dc_latch1_ctrl, ptr @ecat_esc_reg_9a9, ptr @ett_ecat_dc_latch1_ctrl, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 2478, i16 1, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_dc_latch0_status, ptr @ecat_esc_reg_9ae, ptr @ett_ecat_dc_latch0_status, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 2479, i16 1, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_dc_latch1_status, ptr @ecat_esc_reg_9af, ptr @ett_ecat_dc_latch1_status, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 2480, i16 8, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_dc_latch0_pos, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 2488, i16 8, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_dc_latch0_neg, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 2496, i16 8, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_dc_latch1_pos, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 2504, i16 8, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_dc_latch1_neg, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 2544, i16 4, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_dc_rcvsyncmanchg, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 2552, i16 4, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_dc_pdismstart, ptr null, ptr null, ptr null }, { i16, i16, i16, [2 x i8], ptr, ptr, ptr, ptr } { i16 2556, i16 4, i16 1, [2 x i8] zeroinitializer, ptr @hf_ecat_reg_dc_pdismchg, ptr null, ptr null, ptr null }], align 16
 @ecat_reg_800.reg4 = internal constant [10 x ptr] [ptr @hf_ecat_reg_syncman_pmode, ptr @hf_ecat_reg_syncman_access, ptr @hf_ecat_reg_syncman_irq_ecat, ptr @hf_ecat_reg_syncman_irq_pdi, ptr @hf_ecat_reg_syncman_wdt, ptr @hf_ecat_reg_syncman_irq_write, ptr @hf_ecat_reg_syncman_irq_read, ptr @hf_ecat_reg_syncman_1bufstate, ptr @hf_ecat_reg_syncman_3bufstate, ptr null], align 16
 @ecat_reg_800.reg6 = internal constant [7 x ptr] [ptr @hf_ecat_reg_syncman_enable, ptr @hf_ecat_reg_syncman_repeatreq, ptr @hf_ecat_reg_syncman_latchsmchg_ecat, ptr @hf_ecat_reg_syncman_latchsmchg_pdi, ptr @hf_ecat_reg_syncman_deactivate, ptr @hf_ecat_reg_syncman_repeatack, ptr null], align 16
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_ecat() #0 {
   %1 = call i32 @proto_register_protocol(ptr noundef @.str.741, ptr noundef @.str.742, ptr noundef @.str.743)
   store i32 %1, ptr @proto_ecat_datagram, align 4
@@ -1371,15 +1370,19 @@ define hidden void @proto_register_ecat() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ecat_datagram(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1416,22 +1419,35 @@ define internal i32 @dissect_ecat_datagram(ptr noundef %0, ptr noundef %1, ptr n
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
   store ptr null, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #6
   store ptr null, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #6
   store i32 0, ptr %13, align 4
+  call void @llvm.lifetime.start.p0(i64 200, ptr %14) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #6
   store i32 199, ptr %15, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #6
   store i32 0, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #6
   store i32 0, ptr %17, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #6
   %36 = load ptr, ptr %5, align 8
   %37 = call i32 @tvb_captured_length(ptr noundef %36)
   store i32 %37, ptr %18, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #6
   store i32 0, ptr %19, align 4
+  call void @llvm.lifetime.start.p0(i64 12, ptr %20) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #6
   %38 = load ptr, ptr %6, align 8
-  %39 = getelementptr inbounds %struct._packet_info, ptr %38, i32 0, i32 1
+  %39 = getelementptr inbounds nuw %struct._packet_info, ptr %38, i32 0, i32 1
   %40 = load ptr, ptr %39, align 8
-  call void @col_set_str(ptr noundef %40, i32 noundef 34, ptr noundef @.str.742)
+  call void @col_set_str(ptr noundef %40, i32 noundef 35, ptr noundef @.str.742)
   %41 = load ptr, ptr %6, align 8
-  %42 = getelementptr inbounds %struct._packet_info, ptr %41, i32 0, i32 1
+  %42 = getelementptr inbounds nuw %struct._packet_info, ptr %41, i32 0, i32 1
   %43 = load ptr, ptr %42, align 8
   call void @col_clear(ptr noundef %43, i32 noundef 25)
   br label %44
@@ -1454,7 +1470,7 @@ define internal i32 @dissect_ecat_datagram(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %54, label %55, label %61
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds %struct._EcParser, ptr %20, i32 0, i32 3
+  %56 = getelementptr inbounds nuw %struct._EcParser, ptr %20, i32 0, i32 3
   %57 = load i16, ptr %56, align 4
   %58 = zext i16 %57 to i32
   %59 = and i32 %58, 32768
@@ -1463,7 +1479,7 @@ define internal i32 @dissect_ecat_datagram(ptr noundef %0, ptr noundef %1, ptr n
 
 61:                                               ; preds = %55, %51
   %62 = phi i1 [ false, %51 ], [ %60, %55 ]
-  br i1 %62, label %44, label %63, !llvm.loop !4
+  br i1 %62, label %44, label %63, !llvm.loop !6
 
 63:                                               ; preds = %61
   %64 = load i32, ptr %18, align 4
@@ -1477,7 +1493,7 @@ define internal i32 @dissect_ecat_datagram(ptr noundef %0, ptr noundef %1, ptr n
   %71 = load i32, ptr %15, align 4
   call void @EcSummaryFormater(i32 noundef %67, ptr noundef %68, i32 noundef %69, ptr noundef %70, i32 noundef %71)
   %72 = load ptr, ptr %6, align 8
-  %73 = getelementptr inbounds %struct._packet_info, ptr %72, i32 0, i32 1
+  %73 = getelementptr inbounds nuw %struct._packet_info, ptr %72, i32 0, i32 1
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds [200 x i8], ptr %14, i64 0, i64 0
   call void @col_append_str(ptr noundef %74, i32 noundef 25, ptr noundef %75)
@@ -1497,16 +1513,25 @@ define internal i32 @dissect_ecat_datagram(ptr noundef %0, ptr noundef %1, ptr n
   store ptr %85, ptr %12, align 8
   %86 = load ptr, ptr %10, align 8
   %87 = getelementptr inbounds [200 x i8], ptr %14, i64 0, i64 0
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %86, ptr noundef @.str.828, ptr noundef %87)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %86, ptr noundef @.str.837, ptr noundef %87)
   br label %88
 
 88:                                               ; preds = %78, %63
   br label %89
 
-89:                                               ; preds = %715, %88
+89:                                               ; preds = %714, %88
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #6
   store ptr null, ptr %22, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #6
   store ptr null, ptr %23, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #6
   store ptr null, ptr %24, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %26) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %27) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %28) #6
+  call void @llvm.lifetime.start.p0(i64 2, ptr %29) #6
+  call void @llvm.lifetime.start.p0(i64 6, ptr %30) #6
   %90 = load i32, ptr %13, align 4
   store i32 %90, ptr %27, align 4
   %91 = load ptr, ptr %5, align 8
@@ -1515,7 +1540,7 @@ define internal i32 @dissect_ecat_datagram(ptr noundef %0, ptr noundef %1, ptr n
   %93 = call zeroext i16 @get_cmd_len(ptr noundef %20)
   %94 = zext i16 %93 to i32
   store i32 %94, ptr %26, align 4
-  %95 = getelementptr inbounds %struct._EcParser, ptr %20, i32 0, i32 3
+  %95 = getelementptr inbounds nuw %struct._EcParser, ptr %20, i32 0, i32 3
   %96 = load i16, ptr %95, align 4
   %97 = zext i16 %96 to i32
   %98 = and i32 %97, 2047
@@ -1546,9 +1571,9 @@ define internal i32 @dissect_ecat_datagram(ptr noundef %0, ptr noundef %1, ptr n
   %117 = load ptr, ptr %5, align 8
   %118 = load i32, ptr %13, align 4
   %119 = load i32, ptr @ett_ecat_header, align 4
-  %120 = call ptr @proto_tree_add_subtree(ptr noundef %116, ptr noundef %117, i32 noundef %118, i32 noundef 10, i32 noundef %119, ptr noundef null, ptr noundef @.str.829)
+  %120 = call ptr @proto_tree_add_subtree(ptr noundef %116, ptr noundef %117, i32 noundef %118, i32 noundef 10, i32 noundef %119, ptr noundef null, ptr noundef @.str.838)
   store ptr %120, ptr %23, align 8
-  %121 = getelementptr inbounds %struct._EcParser, ptr %20, i32 0, i32 0
+  %121 = getelementptr inbounds nuw %struct._EcParser, ptr %20, i32 0, i32 0
   %122 = load i8, ptr %121, align 4
   %123 = getelementptr inbounds [200 x i8], ptr %14, i64 0, i64 0
   %124 = load i32, ptr %15, align 4
@@ -1561,7 +1586,7 @@ define internal i32 @dissect_ecat_datagram(ptr noundef %0, ptr noundef %1, ptr n
   store ptr %129, ptr %11, align 8
   %130 = load ptr, ptr %11, align 8
   %131 = getelementptr inbounds [200 x i8], ptr %14, i64 0, i64 0
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %130, ptr noundef @.str.830, ptr noundef %131)
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %130, ptr noundef @.str.839, ptr noundef %131)
   %132 = load i32, ptr %17, align 4
   %133 = icmp ult i32 %132, 10
   br i1 %133, label %134, label %144
@@ -1611,7 +1636,7 @@ define internal i32 @dissect_ecat_datagram(ptr noundef %0, ptr noundef %1, ptr n
   %165 = load i32, ptr %27, align 4
   %166 = add i32 %165, 1
   store i32 %166, ptr %27, align 4
-  %167 = getelementptr inbounds %struct._EcParser, ptr %20, i32 0, i32 0
+  %167 = getelementptr inbounds nuw %struct._EcParser, ptr %20, i32 0, i32 0
   %168 = load i8, ptr %167, align 4
   %169 = zext i8 %168 to i32
   switch i32 %169, label %191 [
@@ -1708,25 +1733,26 @@ define internal i32 @dissect_ecat_datagram(ptr noundef %0, ptr noundef %1, ptr n
   br label %232
 
 232:                                              ; preds = %229, %188
+  call void @llvm.lifetime.start.p0(i64 8, ptr %31) #6
   %233 = load ptr, ptr %23, align 8
   %234 = load ptr, ptr %5, align 8
   %235 = load i32, ptr %27, align 4
   %236 = load i32, ptr @ett_ecat_length, align 4
   %237 = load i32, ptr %28, align 4
   %238 = load i32, ptr %28, align 4
-  %239 = getelementptr inbounds %struct._EcParser, ptr %20, i32 0, i32 3
+  %239 = getelementptr inbounds nuw %struct._EcParser, ptr %20, i32 0, i32 3
   %240 = load i16, ptr %239, align 4
   %241 = zext i16 %240 to i32
   %242 = and i32 %241, 16384
   %243 = icmp ne i32 %242, 0
-  %244 = select i1 %243, ptr @.str.832, ptr @.str.833
-  %245 = getelementptr inbounds %struct._EcParser, ptr %20, i32 0, i32 3
+  %244 = select i1 %243, ptr @.str.841, ptr @.str.842
+  %245 = getelementptr inbounds nuw %struct._EcParser, ptr %20, i32 0, i32 3
   %246 = load i16, ptr %245, align 4
   %247 = zext i16 %246 to i32
   %248 = and i32 %247, 32768
   %249 = icmp ne i32 %248, 0
-  %250 = select i1 %249, ptr @.str.834, ptr @.str.835
-  %251 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %233, ptr noundef %234, i32 noundef %235, i32 noundef 2, i32 noundef %236, ptr noundef null, ptr noundef @.str.831, i32 noundef %237, i32 noundef %238, ptr noundef %244, ptr noundef %250)
+  %250 = select i1 %249, ptr @.str.843, ptr @.str.844
+  %251 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %233, ptr noundef %234, i32 noundef %235, i32 noundef 2, i32 noundef %236, ptr noundef null, ptr noundef @.str.840, i32 noundef %237, i32 noundef %238, ptr noundef %244, ptr noundef %250)
   store ptr %251, ptr %31, align 8
   %252 = load ptr, ptr %31, align 8
   %253 = load i32, ptr @hf_ecat_length_len, align 4
@@ -1751,6 +1777,7 @@ define internal i32 @dissect_ecat_datagram(ptr noundef %0, ptr noundef %1, ptr n
   %272 = load i32, ptr %27, align 4
   %273 = add i32 %272, 2
   store i32 %273, ptr %27, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %31) #6
   %274 = load ptr, ptr %23, align 8
   %275 = load i32, ptr @hf_ecat_int, align 4
   %276 = load ptr, ptr %5, align 8
@@ -1768,29 +1795,29 @@ define internal i32 @dissect_ecat_datagram(ptr noundef %0, ptr noundef %1, ptr n
   br label %284
 
 284:                                              ; preds = %281, %232
-  %285 = getelementptr inbounds %struct._EcParser, ptr %20, i32 0, i32 0
+  %285 = getelementptr inbounds nuw %struct._EcParser, ptr %20, i32 0, i32 0
   %286 = load i8, ptr %285, align 4
   %287 = zext i8 %286 to i32
   %288 = icmp eq i32 %287, 1
   br i1 %288, label %294, label %289
 
 289:                                              ; preds = %284
-  %290 = getelementptr inbounds %struct._EcParser, ptr %20, i32 0, i32 0
+  %290 = getelementptr inbounds nuw %struct._EcParser, ptr %20, i32 0, i32 0
   %291 = load i8, ptr %290, align 4
   %292 = zext i8 %291 to i32
   %293 = icmp eq i32 %292, 4
   br i1 %293, label %294, label %541
 
 294:                                              ; preds = %289, %284
-  %295 = getelementptr inbounds %struct._EcParser, ptr %20, i32 0, i32 2
-  %296 = getelementptr inbounds %struct.anon, ptr %295, i32 0, i32 1
+  %295 = getelementptr inbounds nuw %struct._EcParser, ptr %20, i32 0, i32 2
+  %296 = getelementptr inbounds nuw %struct.anon, ptr %295, i32 0, i32 1
   %297 = load i16, ptr %296, align 2
   %298 = zext i16 %297 to i32
   %299 = icmp eq i32 %298, 2304
   br i1 %299, label %300, label %541
 
 300:                                              ; preds = %294
-  %301 = getelementptr inbounds %struct._EcParser, ptr %20, i32 0, i32 3
+  %301 = getelementptr inbounds nuw %struct._EcParser, ptr %20, i32 0, i32 3
   %302 = load i16, ptr %301, align 4
   %303 = zext i16 %302 to i32
   %304 = icmp sge i32 %303, 16
@@ -1803,6 +1830,7 @@ define internal i32 @dissect_ecat_datagram(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %308, label %309, label %541
 
 309:                                              ; preds = %305
+  call void @llvm.lifetime.start.p0(i64 16, ptr %32) #6
   %310 = getelementptr inbounds [4 x i32], ptr %32, i64 0, i64 0
   %311 = load ptr, ptr %5, align 8
   %312 = load i32, ptr %27, align 4
@@ -1812,7 +1840,7 @@ define internal i32 @dissect_ecat_datagram(ptr noundef %0, ptr noundef %1, ptr n
   %315 = load i32, ptr %27, align 4
   %316 = load i32, ptr %28, align 4
   %317 = load i32, ptr @ett_ecat_dc, align 4
-  %318 = call ptr @proto_tree_add_subtree(ptr noundef %313, ptr noundef %314, i32 noundef %315, i32 noundef %316, i32 noundef %317, ptr noundef null, ptr noundef @.str.836)
+  %318 = call ptr @proto_tree_add_subtree(ptr noundef %313, ptr noundef %314, i32 noundef %315, i32 noundef %316, i32 noundef %317, ptr noundef null, ptr noundef @.str.845)
   store ptr %318, ptr %24, align 8
   %319 = load ptr, ptr %6, align 8
   %320 = load ptr, ptr %24, align 8
@@ -2106,7 +2134,8 @@ define internal i32 @dissect_ecat_datagram(ptr noundef %0, ptr noundef %1, ptr n
   br label %540
 
 540:                                              ; preds = %539, %505
-  br label %671
+  call void @llvm.lifetime.end.p0(i64 16, ptr %32) #6
+  br label %670
 
 541:                                              ; preds = %305, %300, %294, %289
   %542 = load ptr, ptr %6, align 8
@@ -2117,12 +2146,14 @@ define internal i32 @dissect_ecat_datagram(ptr noundef %0, ptr noundef %1, ptr n
   %547 = load i16, ptr %29, align 2
   %548 = call i32 @dissect_esc_register(ptr noundef %542, ptr noundef %543, ptr noundef %544, i32 noundef %545, i32 noundef %546, ptr noundef %20, i16 noundef zeroext %547)
   %549 = icmp ne i32 %548, 0
-  br i1 %549, label %550, label %670
+  br i1 %549, label %550, label %669
 
 550:                                              ; preds = %541
+  call void @llvm.lifetime.start.p0(i64 4, ptr %33) #6
   %551 = load i32, ptr %13, align 4
   %552 = add i32 %551, 10
   store i32 %552, ptr %33, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %34) #6
   %553 = load i32, ptr %28, align 4
   store i32 %553, ptr %34, align 4
   %554 = load i32, ptr %28, align 4
@@ -2130,42 +2161,42 @@ define internal i32 @dissect_ecat_datagram(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %555, label %556, label %637
 
 556:                                              ; preds = %550
-  %557 = getelementptr inbounds %struct._EcParser, ptr %20, i32 0, i32 0
+  %557 = getelementptr inbounds nuw %struct._EcParser, ptr %20, i32 0, i32 0
   %558 = load i8, ptr %557, align 4
   %559 = zext i8 %558 to i32
   %560 = icmp eq i32 %559, 5
   br i1 %560, label %590, label %561
 
 561:                                              ; preds = %556
-  %562 = getelementptr inbounds %struct._EcParser, ptr %20, i32 0, i32 0
+  %562 = getelementptr inbounds nuw %struct._EcParser, ptr %20, i32 0, i32 0
   %563 = load i8, ptr %562, align 4
   %564 = zext i8 %563 to i32
   %565 = icmp eq i32 %564, 2
   br i1 %565, label %590, label %566
 
 566:                                              ; preds = %561
-  %567 = getelementptr inbounds %struct._EcParser, ptr %20, i32 0, i32 0
+  %567 = getelementptr inbounds nuw %struct._EcParser, ptr %20, i32 0, i32 0
   %568 = load i8, ptr %567, align 4
   %569 = zext i8 %568 to i32
   %570 = icmp eq i32 %569, 3
   br i1 %570, label %590, label %571
 
 571:                                              ; preds = %566
-  %572 = getelementptr inbounds %struct._EcParser, ptr %20, i32 0, i32 0
+  %572 = getelementptr inbounds nuw %struct._EcParser, ptr %20, i32 0, i32 0
   %573 = load i8, ptr %572, align 4
   %574 = zext i8 %573 to i32
   %575 = icmp eq i32 %574, 6
   br i1 %575, label %590, label %576
 
 576:                                              ; preds = %571
-  %577 = getelementptr inbounds %struct._EcParser, ptr %20, i32 0, i32 0
+  %577 = getelementptr inbounds nuw %struct._EcParser, ptr %20, i32 0, i32 0
   %578 = load i8, ptr %577, align 4
   %579 = zext i8 %578 to i32
   %580 = icmp eq i32 %579, 4
   br i1 %580, label %586, label %581
 
 581:                                              ; preds = %576
-  %582 = getelementptr inbounds %struct._EcParser, ptr %20, i32 0, i32 0
+  %582 = getelementptr inbounds nuw %struct._EcParser, ptr %20, i32 0, i32 0
   %583 = load i8, ptr %582, align 4
   %584 = zext i8 %583 to i32
   %585 = icmp eq i32 %584, 1
@@ -2178,8 +2209,8 @@ define internal i32 @dissect_ecat_datagram(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %589, label %590, label %637
 
 590:                                              ; preds = %586, %571, %566, %561, %556
-  %591 = getelementptr inbounds %struct._EcParser, ptr %20, i32 0, i32 2
-  %592 = getelementptr inbounds %struct.anon, ptr %591, i32 0, i32 1
+  %591 = getelementptr inbounds nuw %struct._EcParser, ptr %20, i32 0, i32 2
+  %592 = getelementptr inbounds nuw %struct.anon, ptr %591, i32 0, i32 1
   %593 = load i16, ptr %592, align 2
   %594 = zext i16 %593 to i32
   %595 = icmp sge i32 %594, 4096
@@ -2189,7 +2220,7 @@ define internal i32 @dissect_ecat_datagram(ptr noundef %0, ptr noundef %1, ptr n
   %597 = load ptr, ptr %5, align 8
   %598 = load i32, ptr %33, align 4
   call void @init_mbx_header(ptr noundef %30, ptr noundef %597, i32 noundef %598)
-  %599 = getelementptr inbounds %struct.TETHERCAT_MBOX_HEADER, ptr %30, i32 0, i32 2
+  %599 = getelementptr inbounds nuw %struct.TETHERCAT_MBOX_HEADER, ptr %30, i32 0, i32 2
   %600 = load i16, ptr %599, align 2
   %601 = lshr i16 %600, 8
   %602 = and i16 %601, 15
@@ -2203,14 +2234,15 @@ define internal i32 @dissect_ecat_datagram(ptr noundef %0, ptr noundef %1, ptr n
   ]
 
 604:                                              ; preds = %596, %596, %596, %596, %596
-  %605 = getelementptr inbounds %struct.TETHERCAT_MBOX_HEADER, ptr %30, i32 0, i32 0
+  %605 = getelementptr inbounds nuw %struct.TETHERCAT_MBOX_HEADER, ptr %30, i32 0, i32 0
   %606 = load i16, ptr %605, align 2
   %607 = zext i16 %606 to i32
   %608 = icmp sle i32 %607, 1500
   br i1 %608, label %609, label %635
 
 609:                                              ; preds = %604
-  %610 = getelementptr inbounds %struct.TETHERCAT_MBOX_HEADER, ptr %30, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 4, ptr %35) #6
+  %610 = getelementptr inbounds nuw %struct.TETHERCAT_MBOX_HEADER, ptr %30, i32 0, i32 0
   %611 = load i16, ptr %610, align 2
   %612 = zext i16 %611 to i32
   %613 = add i32 %612, 6
@@ -2244,157 +2276,182 @@ define internal i32 @dissect_ecat_datagram(ptr noundef %0, ptr noundef %1, ptr n
   %633 = load i32, ptr %34, align 4
   %634 = sub i32 %633, %632
   store i32 %634, ptr %34, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %35) #6
   br label %635
 
 635:                                              ; preds = %619, %604
   br label %636
 
-636:                                              ; preds = %635, %596
+636:                                              ; preds = %596, %635
   br label %637
 
 637:                                              ; preds = %636, %590, %586, %581, %550
   %638 = load i32, ptr %34, align 4
   %639 = icmp ugt i32 %638, 0
-  br i1 %639, label %640, label %669
+  br i1 %639, label %640, label %668
 
 640:                                              ; preds = %637
   %641 = load ptr, ptr @heur_subdissector_list, align 8
   %642 = load ptr, ptr %5, align 8
   %643 = load ptr, ptr %6, align 8
   %644 = load ptr, ptr %22, align 8
-  %645 = call i32 @dissector_try_heuristic(ptr noundef %641, ptr noundef %642, ptr noundef %643, ptr noundef %644, ptr noundef %21, ptr noundef null)
-  %646 = icmp ne i32 %645, 0
-  br i1 %646, label %654, label %647
+  %645 = call zeroext i1 @dissector_try_heuristic(ptr noundef %641, ptr noundef %642, ptr noundef %643, ptr noundef %644, ptr noundef %21, ptr noundef null)
+  br i1 %645, label %653, label %646
 
-647:                                              ; preds = %640
-  %648 = load ptr, ptr %22, align 8
-  %649 = load i32, ptr @hf_ecat_data, align 4
-  %650 = load ptr, ptr %5, align 8
-  %651 = load i32, ptr %33, align 4
-  %652 = load i32, ptr %34, align 4
-  %653 = call ptr @proto_tree_add_item(ptr noundef %648, i32 noundef %649, ptr noundef %650, i32 noundef %651, i32 noundef %652, i32 noundef 0)
-  br label %654
+646:                                              ; preds = %640
+  %647 = load ptr, ptr %22, align 8
+  %648 = load i32, ptr @hf_ecat_data, align 4
+  %649 = load ptr, ptr %5, align 8
+  %650 = load i32, ptr %33, align 4
+  %651 = load i32, ptr %34, align 4
+  %652 = call ptr @proto_tree_add_item(ptr noundef %647, i32 noundef %648, ptr noundef %649, i32 noundef %650, i32 noundef %651, i32 noundef 0)
+  br label %653
 
-654:                                              ; preds = %647, %640
-  %655 = load i32, ptr %17, align 4
-  %656 = icmp ult i32 %655, 10
-  br i1 %656, label %657, label %668
+653:                                              ; preds = %646, %640
+  %654 = load i32, ptr %17, align 4
+  %655 = icmp ult i32 %654, 10
+  br i1 %655, label %656, label %667
 
-657:                                              ; preds = %654
-  %658 = load ptr, ptr %22, align 8
-  %659 = load i32, ptr %17, align 4
-  %660 = zext i32 %659 to i64
-  %661 = getelementptr [10 x i32], ptr @hf_ecat_sub_data, i64 0, i64 %660
-  %662 = load i32, ptr %661, align 4
-  %663 = load ptr, ptr %5, align 8
-  %664 = load i32, ptr %33, align 4
-  %665 = load i32, ptr %34, align 4
-  %666 = call ptr @proto_tree_add_item(ptr noundef %658, i32 noundef %662, ptr noundef %663, i32 noundef %664, i32 noundef %665, i32 noundef 0)
-  store ptr %666, ptr %11, align 8
-  %667 = load ptr, ptr %11, align 8
-  call void @proto_item_set_hidden(ptr noundef %667)
+656:                                              ; preds = %653
+  %657 = load ptr, ptr %22, align 8
+  %658 = load i32, ptr %17, align 4
+  %659 = zext i32 %658 to i64
+  %660 = getelementptr [10 x i32], ptr @hf_ecat_sub_data, i64 0, i64 %659
+  %661 = load i32, ptr %660, align 4
+  %662 = load ptr, ptr %5, align 8
+  %663 = load i32, ptr %33, align 4
+  %664 = load i32, ptr %34, align 4
+  %665 = call ptr @proto_tree_add_item(ptr noundef %657, i32 noundef %661, ptr noundef %662, i32 noundef %663, i32 noundef %664, i32 noundef 0)
+  store ptr %665, ptr %11, align 8
+  %666 = load ptr, ptr %11, align 8
+  call void @proto_item_set_hidden(ptr noundef %666)
+  br label %667
+
+667:                                              ; preds = %656, %653
   br label %668
 
-668:                                              ; preds = %657, %654
+668:                                              ; preds = %667, %637
+  call void @llvm.lifetime.end.p0(i64 4, ptr %34) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %33) #6
   br label %669
 
-669:                                              ; preds = %668, %637
+669:                                              ; preds = %668, %541
   br label %670
 
-670:                                              ; preds = %669, %541
-  br label %671
+670:                                              ; preds = %669, %540
+  %671 = load ptr, ptr %7, align 8
+  %672 = icmp ne ptr %671, null
+  br i1 %672, label %673, label %698
 
-671:                                              ; preds = %670, %540
-  %672 = load ptr, ptr %7, align 8
-  %673 = icmp ne ptr %672, null
-  br i1 %673, label %674, label %699
+673:                                              ; preds = %670
+  %674 = load ptr, ptr %22, align 8
+  %675 = load i32, ptr @hf_ecat_cnt, align 4
+  %676 = load ptr, ptr %5, align 8
+  %677 = load i32, ptr %13, align 4
+  %678 = add i32 %677, 10
+  %679 = load i32, ptr %28, align 4
+  %680 = add i32 %678, %679
+  %681 = call ptr @proto_tree_add_item(ptr noundef %674, i32 noundef %675, ptr noundef %676, i32 noundef %680, i32 noundef 2, i32 noundef -2147483648)
+  %682 = load i32, ptr %17, align 4
+  %683 = icmp ult i32 %682, 10
+  br i1 %683, label %684, label %697
 
-674:                                              ; preds = %671
-  %675 = load ptr, ptr %22, align 8
-  %676 = load i32, ptr @hf_ecat_cnt, align 4
-  %677 = load ptr, ptr %5, align 8
-  %678 = load i32, ptr %13, align 4
-  %679 = add i32 %678, 10
-  %680 = load i32, ptr %28, align 4
-  %681 = add i32 %679, %680
-  %682 = call ptr @proto_tree_add_item(ptr noundef %675, i32 noundef %676, ptr noundef %677, i32 noundef %681, i32 noundef 2, i32 noundef -2147483648)
-  %683 = load i32, ptr %17, align 4
-  %684 = icmp ult i32 %683, 10
-  br i1 %684, label %685, label %698
+684:                                              ; preds = %673
+  %685 = load ptr, ptr %22, align 8
+  %686 = load i32, ptr %17, align 4
+  %687 = zext i32 %686 to i64
+  %688 = getelementptr [10 x i32], ptr @hf_ecat_sub_cnt, i64 0, i64 %687
+  %689 = load i32, ptr %688, align 4
+  %690 = load ptr, ptr %5, align 8
+  %691 = load i32, ptr %13, align 4
+  %692 = add i32 %691, 10
+  %693 = load i32, ptr %28, align 4
+  %694 = add i32 %692, %693
+  %695 = call ptr @proto_tree_add_item(ptr noundef %685, i32 noundef %689, ptr noundef %690, i32 noundef %694, i32 noundef 2, i32 noundef -2147483648)
+  store ptr %695, ptr %11, align 8
+  %696 = load ptr, ptr %11, align 8
+  call void @proto_item_set_hidden(ptr noundef %696)
+  br label %697
 
-685:                                              ; preds = %674
-  %686 = load ptr, ptr %22, align 8
-  %687 = load i32, ptr %17, align 4
-  %688 = zext i32 %687 to i64
-  %689 = getelementptr [10 x i32], ptr @hf_ecat_sub_cnt, i64 0, i64 %688
-  %690 = load i32, ptr %689, align 4
-  %691 = load ptr, ptr %5, align 8
-  %692 = load i32, ptr %13, align 4
-  %693 = add i32 %692, 10
-  %694 = load i32, ptr %28, align 4
-  %695 = add i32 %693, %694
-  %696 = call ptr @proto_tree_add_item(ptr noundef %686, i32 noundef %690, ptr noundef %691, i32 noundef %695, i32 noundef 2, i32 noundef -2147483648)
-  store ptr %696, ptr %11, align 8
-  %697 = load ptr, ptr %11, align 8
-  call void @proto_item_set_hidden(ptr noundef %697)
+697:                                              ; preds = %684, %673
   br label %698
 
-698:                                              ; preds = %685, %674
-  br label %699
+698:                                              ; preds = %697, %670
+  %699 = load i32, ptr %26, align 4
+  %700 = load i32, ptr %13, align 4
+  %701 = add i32 %700, %699
+  store i32 %701, ptr %13, align 4
+  %702 = load i32, ptr %17, align 4
+  %703 = add i32 %702, 1
+  store i32 %703, ptr %17, align 4
+  call void @llvm.lifetime.end.p0(i64 6, ptr %30) #6
+  call void @llvm.lifetime.end.p0(i64 2, ptr %29) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %28) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %27) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #6
+  br label %704
 
-699:                                              ; preds = %698, %671
-  %700 = load i32, ptr %26, align 4
-  %701 = load i32, ptr %13, align 4
-  %702 = add i32 %701, %700
-  store i32 %702, ptr %13, align 4
-  %703 = load i32, ptr %17, align 4
-  %704 = add i32 %703, 1
-  store i32 %704, ptr %17, align 4
-  br label %705
+704:                                              ; preds = %698
+  %705 = load i32, ptr %13, align 4
+  %706 = load i32, ptr %18, align 4
+  %707 = icmp ult i32 %705, %706
+  br i1 %707, label %708, label %714
 
-705:                                              ; preds = %699
-  %706 = load i32, ptr %13, align 4
-  %707 = load i32, ptr %18, align 4
-  %708 = icmp ult i32 %706, %707
-  br i1 %708, label %709, label %715
+708:                                              ; preds = %704
+  %709 = getelementptr inbounds nuw %struct._EcParser, ptr %20, i32 0, i32 3
+  %710 = load i16, ptr %709, align 4
+  %711 = zext i16 %710 to i32
+  %712 = and i32 %711, 32768
+  %713 = icmp ne i32 %712, 0
+  br label %714
 
-709:                                              ; preds = %705
-  %710 = getelementptr inbounds %struct._EcParser, ptr %20, i32 0, i32 3
-  %711 = load i16, ptr %710, align 4
-  %712 = zext i16 %711 to i32
-  %713 = and i32 %712, 32768
-  %714 = icmp ne i32 %713, 0
-  br label %715
+714:                                              ; preds = %708, %704
+  %715 = phi i1 [ false, %704 ], [ %713, %708 ]
+  br i1 %715, label %89, label %716, !llvm.loop !8
 
-715:                                              ; preds = %709, %705
-  %716 = phi i1 [ false, %705 ], [ %714, %709 ]
-  br i1 %716, label %89, label %717, !llvm.loop !6
+716:                                              ; preds = %714
+  %717 = load i32, ptr %19, align 4
+  %718 = icmp ugt i32 %717, 0
+  br i1 %718, label %719, label %728
 
-717:                                              ; preds = %715
-  %718 = load i32, ptr %19, align 4
-  %719 = icmp ugt i32 %718, 0
-  br i1 %719, label %720, label %729
+719:                                              ; preds = %716
+  %720 = load ptr, ptr %7, align 8
+  %721 = load i32, ptr @hf_ecat_padding, align 4
+  %722 = load ptr, ptr %5, align 8
+  %723 = load i32, ptr %13, align 4
+  %724 = load ptr, ptr %5, align 8
+  %725 = load i32, ptr %13, align 4
+  %726 = call i32 @tvb_captured_length_remaining(ptr noundef %724, i32 noundef %725)
+  %727 = call ptr @proto_tree_add_item(ptr noundef %720, i32 noundef %721, ptr noundef %722, i32 noundef %723, i32 noundef %726, i32 noundef 0)
+  br label %728
 
-720:                                              ; preds = %717
-  %721 = load ptr, ptr %7, align 8
-  %722 = load i32, ptr @hf_ecat_padding, align 4
-  %723 = load ptr, ptr %5, align 8
-  %724 = load i32, ptr %13, align 4
-  %725 = load ptr, ptr %5, align 8
-  %726 = load i32, ptr %13, align 4
-  %727 = call i32 @tvb_captured_length_remaining(ptr noundef %725, i32 noundef %726)
-  %728 = call ptr @proto_tree_add_item(ptr noundef %721, i32 noundef %722, ptr noundef %723, i32 noundef %724, i32 noundef %727, i32 noundef 0)
-  br label %729
-
-729:                                              ; preds = %720, %717
-  %730 = load ptr, ptr %5, align 8
-  %731 = call i32 @tvb_captured_length(ptr noundef %730)
-  ret i32 %731
+728:                                              ; preds = %719, %716
+  %729 = load ptr, ptr %5, align 8
+  %730 = call i32 @tvb_captured_length(ptr noundef %729)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #6
+  call void @llvm.lifetime.end.p0(i64 12, ptr %20) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 200, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  ret i32 %730
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_heur_dissector_list_with_description(ptr noundef, ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_ecat() #0 {
   %1 = load ptr, ptr @ecat_handle, align 8
   call void @dissector_add_uint(ptr noundef @.str.745, i32 noundef 1, ptr noundef %1)
@@ -2404,17 +2461,25 @@ define hidden void @proto_reg_handoff_ecat() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_clear(ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @init_EcParserHDR(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -2426,24 +2491,24 @@ define internal void @init_EcParserHDR(ptr noundef %0, ptr noundef %1, i32 nound
   %8 = load i32, ptr %6, align 4
   %9 = add i32 %8, 1
   store i32 %9, ptr %6, align 4
-  %10 = call zeroext i8 @tvb_get_guint8(ptr noundef %7, i32 noundef %8)
+  %10 = call zeroext i8 @tvb_get_uint8(ptr noundef %7, i32 noundef %8)
   %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %struct._EcParser, ptr %11, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %struct._EcParser, ptr %11, i32 0, i32 0
   store i8 %10, ptr %12, align 4
   %13 = load ptr, ptr %5, align 8
   %14 = load i32, ptr %6, align 4
   %15 = add i32 %14, 1
   store i32 %15, ptr %6, align 4
-  %16 = call zeroext i8 @tvb_get_guint8(ptr noundef %13, i32 noundef %14)
+  %16 = call zeroext i8 @tvb_get_uint8(ptr noundef %13, i32 noundef %14)
   %17 = load ptr, ptr %4, align 8
-  %18 = getelementptr inbounds %struct._EcParser, ptr %17, i32 0, i32 1
+  %18 = getelementptr inbounds nuw %struct._EcParser, ptr %17, i32 0, i32 1
   store i8 %16, ptr %18, align 1
   %19 = load ptr, ptr %5, align 8
   %20 = load i32, ptr %6, align 4
   %21 = call zeroext i16 @tvb_get_letohs(ptr noundef %19, i32 noundef %20)
   %22 = load ptr, ptr %4, align 8
-  %23 = getelementptr inbounds %struct._EcParser, ptr %22, i32 0, i32 2
-  %24 = getelementptr inbounds %struct.anon, ptr %23, i32 0, i32 0
+  %23 = getelementptr inbounds nuw %struct._EcParser, ptr %22, i32 0, i32 2
+  %24 = getelementptr inbounds nuw %struct.anon, ptr %23, i32 0, i32 0
   store i16 %21, ptr %24, align 4
   %25 = load i32, ptr %6, align 4
   %26 = add i32 %25, 2
@@ -2452,8 +2517,8 @@ define internal void @init_EcParserHDR(ptr noundef %0, ptr noundef %1, i32 nound
   %28 = load i32, ptr %6, align 4
   %29 = call zeroext i16 @tvb_get_letohs(ptr noundef %27, i32 noundef %28)
   %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds %struct._EcParser, ptr %30, i32 0, i32 2
-  %32 = getelementptr inbounds %struct.anon, ptr %31, i32 0, i32 1
+  %31 = getelementptr inbounds nuw %struct._EcParser, ptr %30, i32 0, i32 2
+  %32 = getelementptr inbounds nuw %struct.anon, ptr %31, i32 0, i32 1
   store i16 %29, ptr %32, align 2
   %33 = load i32, ptr %6, align 4
   %34 = add i32 %33, 2
@@ -2462,7 +2527,7 @@ define internal void @init_EcParserHDR(ptr noundef %0, ptr noundef %1, i32 nound
   %36 = load i32, ptr %6, align 4
   %37 = call zeroext i16 @tvb_get_letohs(ptr noundef %35, i32 noundef %36)
   %38 = load ptr, ptr %4, align 8
-  %39 = getelementptr inbounds %struct._EcParser, ptr %38, i32 0, i32 3
+  %39 = getelementptr inbounds nuw %struct._EcParser, ptr %38, i32 0, i32 3
   store i16 %37, ptr %39, align 4
   %40 = load i32, ptr %6, align 4
   %41 = add i32 %40, 2
@@ -2471,17 +2536,17 @@ define internal void @init_EcParserHDR(ptr noundef %0, ptr noundef %1, i32 nound
   %43 = load i32, ptr %6, align 4
   %44 = call zeroext i16 @tvb_get_letohs(ptr noundef %42, i32 noundef %43)
   %45 = load ptr, ptr %4, align 8
-  %46 = getelementptr inbounds %struct._EcParser, ptr %45, i32 0, i32 4
+  %46 = getelementptr inbounds nuw %struct._EcParser, ptr %45, i32 0, i32 4
   store i16 %44, ptr %46, align 2
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i16 @get_cmd_len(ptr noundef %0) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal zeroext i16 @get_cmd_len(ptr noundef %0) #3 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct._EcParser, ptr %3, i32 0, i32 3
+  %4 = getelementptr inbounds nuw %struct._EcParser, ptr %3, i32 0, i32 3
   %5 = load i16, ptr %4, align 4
   %6 = zext i16 %5 to i32
   %7 = and i32 %6, 2047
@@ -2491,7 +2556,7 @@ define internal zeroext i16 @get_cmd_len(ptr noundef %0) #0 {
   ret i16 %10
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @EcSummaryFormater(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -2506,267 +2571,317 @@ define internal void @EcSummaryFormater(i32 noundef %0, ptr noundef %1, i32 noun
   %16 = alloca %struct._EcParser, align 4
   %17 = alloca i32, align 4
   %18 = alloca ptr, align 8
-  %19 = alloca i16, align 2
+  %19 = alloca i32, align 4
   %20 = alloca i16, align 2
+  %21 = alloca i16, align 2
   store i32 %0, ptr %6, align 4
   store ptr %1, ptr %7, align 8
   store i32 %2, ptr %8, align 4
   store ptr %3, ptr %9, align 8
   store i32 %4, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #6
   store i32 0, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
   store i32 0, ptr %12, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #6
+  call void @llvm.lifetime.start.p0(i64 16, ptr %14) #6
+  call void @llvm.lifetime.start.p0(i64 12, ptr %15) #6
+  call void @llvm.lifetime.start.p0(i64 12, ptr %16) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #6
   store i32 0, ptr %17, align 4
-  %21 = load ptr, ptr %7, align 8
-  %22 = load i32, ptr %8, align 4
-  call void @init_EcParserHDR(ptr noundef %15, ptr noundef %21, i32 noundef %22)
-  br label %23
+  %22 = load ptr, ptr %7, align 8
+  %23 = load i32, ptr %8, align 4
+  call void @init_EcParserHDR(ptr noundef %15, ptr noundef %22, i32 noundef %23)
+  br label %24
 
-23:                                               ; preds = %71, %5
-  %24 = load i32, ptr %17, align 4
-  %25 = load i32, ptr %6, align 4
-  %26 = icmp ult i32 %24, %25
-  br i1 %26, label %27, label %77
+24:                                               ; preds = %80, %5
+  %25 = load i32, ptr %17, align 4
+  %26 = load i32, ptr %6, align 4
+  %27 = icmp ult i32 %25, %26
+  br i1 %27, label %28, label %81
 
-27:                                               ; preds = %23
-  %28 = load i32, ptr %11, align 4
-  %29 = icmp ugt i32 %28, 0
-  br i1 %29, label %30, label %35
+28:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #6
+  %29 = load i32, ptr %11, align 4
+  %30 = icmp ugt i32 %29, 0
+  br i1 %30, label %31, label %36
 
-30:                                               ; preds = %27
-  %31 = load ptr, ptr %7, align 8
-  %32 = load i32, ptr %8, align 4
-  %33 = load i32, ptr %17, align 4
-  %34 = add i32 %32, %33
-  call void @init_EcParserHDR(ptr noundef %16, ptr noundef %31, i32 noundef %34)
+31:                                               ; preds = %28
+  %32 = load ptr, ptr %7, align 8
+  %33 = load i32, ptr %8, align 4
+  %34 = load i32, ptr %17, align 4
+  %35 = add i32 %33, %34
+  call void @init_EcParserHDR(ptr noundef %16, ptr noundef %32, i32 noundef %35)
   store ptr %16, ptr %18, align 8
-  br label %36
+  br label %37
 
-35:                                               ; preds = %27
+36:                                               ; preds = %28
   store ptr %15, ptr %18, align 8
-  br label %36
+  br label %37
 
-36:                                               ; preds = %35, %30
-  %37 = load i32, ptr %11, align 4
-  %38 = icmp ult i32 %37, 4
-  br i1 %38, label %39, label %54
+37:                                               ; preds = %36, %31
+  %38 = load i32, ptr %11, align 4
+  %39 = icmp ult i32 %38, 4
+  br i1 %39, label %40, label %55
 
-39:                                               ; preds = %36
-  %40 = load ptr, ptr %18, align 8
-  %41 = getelementptr inbounds %struct._EcParser, ptr %40, i32 0, i32 0
-  %42 = load i8, ptr %41, align 4
-  %43 = load i32, ptr %11, align 4
-  %44 = zext i32 %43 to i64
-  %45 = getelementptr [4 x i8], ptr %13, i64 0, i64 %44
-  store i8 %42, ptr %45, align 1
-  %46 = load ptr, ptr %18, align 8
-  %47 = getelementptr inbounds %struct._EcParser, ptr %46, i32 0, i32 3
-  %48 = load i16, ptr %47, align 4
-  %49 = zext i16 %48 to i32
-  %50 = and i32 %49, 2047
-  %51 = load i32, ptr %11, align 4
-  %52 = zext i32 %51 to i64
-  %53 = getelementptr [4 x i32], ptr %14, i64 0, i64 %52
-  store i32 %50, ptr %53, align 4
-  br label %54
+40:                                               ; preds = %37
+  %41 = load ptr, ptr %18, align 8
+  %42 = getelementptr inbounds nuw %struct._EcParser, ptr %41, i32 0, i32 0
+  %43 = load i8, ptr %42, align 4
+  %44 = load i32, ptr %11, align 4
+  %45 = zext i32 %44 to i64
+  %46 = getelementptr [4 x i8], ptr %13, i64 0, i64 %45
+  store i8 %43, ptr %46, align 1
+  %47 = load ptr, ptr %18, align 8
+  %48 = getelementptr inbounds nuw %struct._EcParser, ptr %47, i32 0, i32 3
+  %49 = load i16, ptr %48, align 4
+  %50 = zext i16 %49 to i32
+  %51 = and i32 %50, 2047
+  %52 = load i32, ptr %11, align 4
+  %53 = zext i32 %52 to i64
+  %54 = getelementptr [4 x i32], ptr %14, i64 0, i64 %53
+  store i32 %51, ptr %54, align 4
+  br label %55
 
-54:                                               ; preds = %39, %36
-  %55 = load i32, ptr %11, align 4
-  %56 = add i32 %55, 1
-  store i32 %56, ptr %11, align 4
-  %57 = load ptr, ptr %18, align 8
-  %58 = getelementptr inbounds %struct._EcParser, ptr %57, i32 0, i32 3
-  %59 = load i16, ptr %58, align 4
-  %60 = zext i16 %59 to i32
-  %61 = and i32 %60, 2047
-  %62 = load i32, ptr %12, align 4
-  %63 = add i32 %62, %61
-  store i32 %63, ptr %12, align 4
-  %64 = load ptr, ptr %18, align 8
-  %65 = getelementptr inbounds %struct._EcParser, ptr %64, i32 0, i32 3
-  %66 = load i16, ptr %65, align 4
-  %67 = zext i16 %66 to i32
-  %68 = and i32 %67, 32768
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %70, label %71
+55:                                               ; preds = %40, %37
+  %56 = load i32, ptr %11, align 4
+  %57 = add i32 %56, 1
+  store i32 %57, ptr %11, align 4
+  %58 = load ptr, ptr %18, align 8
+  %59 = getelementptr inbounds nuw %struct._EcParser, ptr %58, i32 0, i32 3
+  %60 = load i16, ptr %59, align 4
+  %61 = zext i16 %60 to i32
+  %62 = and i32 %61, 2047
+  %63 = load i32, ptr %12, align 4
+  %64 = add i32 %63, %62
+  store i32 %64, ptr %12, align 4
+  %65 = load ptr, ptr %18, align 8
+  %66 = getelementptr inbounds nuw %struct._EcParser, ptr %65, i32 0, i32 3
+  %67 = load i16, ptr %66, align 4
+  %68 = zext i16 %67 to i32
+  %69 = and i32 %68, 32768
+  %70 = icmp eq i32 %69, 0
+  br i1 %70, label %71, label %72
 
-70:                                               ; preds = %54
-  br label %77
+71:                                               ; preds = %55
+  store i32 3, ptr %19, align 4
+  br label %78
 
-71:                                               ; preds = %54
-  %72 = load ptr, ptr %18, align 8
-  %73 = call zeroext i16 @get_cmd_len(ptr noundef %72)
-  %74 = zext i16 %73 to i32
-  %75 = load i32, ptr %17, align 4
-  %76 = add i32 %75, %74
-  store i32 %76, ptr %17, align 4
-  br label %23, !llvm.loop !7
+72:                                               ; preds = %55
+  %73 = load ptr, ptr %18, align 8
+  %74 = call zeroext i16 @get_cmd_len(ptr noundef %73)
+  %75 = zext i16 %74 to i32
+  %76 = load i32, ptr %17, align 4
+  %77 = add i32 %76, %75
+  store i32 %77, ptr %17, align 4
+  store i32 0, ptr %19, align 4
+  br label %78
 
-77:                                               ; preds = %70, %23
-  %78 = load i32, ptr %11, align 4
-  %79 = icmp eq i32 %78, 1
-  br i1 %79, label %80, label %109
+78:                                               ; preds = %72, %71
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #6
+  %79 = load i32, ptr %19, align 4
+  switch i32 %79, label %219 [
+    i32 0, label %80
+    i32 3, label %81
+  ]
 
-80:                                               ; preds = %77
-  %81 = getelementptr inbounds %struct._EcParser, ptr %15, i32 0, i32 3
-  %82 = load i16, ptr %81, align 4
-  %83 = zext i16 %82 to i32
-  %84 = and i32 %83, 2047
-  %85 = trunc i32 %84 to i16
-  store i16 %85, ptr %19, align 2
-  %86 = load ptr, ptr %7, align 8
-  %87 = load i32, ptr %8, align 4
-  %88 = call zeroext i16 @get_wc(ptr noundef %15, ptr noundef %86, i32 noundef %87)
-  store i16 %88, ptr %20, align 2
-  %89 = load ptr, ptr %9, align 8
-  %90 = load i32, ptr %10, align 4
-  %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds %struct._EcParser, ptr %15, i32 0, i32 0
-  %93 = load i8, ptr %92, align 4
-  %94 = zext i8 %93 to i32
-  %95 = call ptr @convertEcCmdToText(i32 noundef %94, ptr noundef @EcCmdShort)
-  %96 = load i16, ptr %19, align 2
-  %97 = zext i16 %96 to i32
-  %98 = getelementptr inbounds %struct._EcParser, ptr %15, i32 0, i32 2
-  %99 = getelementptr inbounds %struct.anon, ptr %98, i32 0, i32 0
-  %100 = load i16, ptr %99, align 4
-  %101 = zext i16 %100 to i32
-  %102 = getelementptr inbounds %struct._EcParser, ptr %15, i32 0, i32 2
-  %103 = getelementptr inbounds %struct.anon, ptr %102, i32 0, i32 1
-  %104 = load i16, ptr %103, align 2
-  %105 = zext i16 %104 to i32
-  %106 = load i16, ptr %20, align 2
+80:                                               ; preds = %78
+  br label %24, !llvm.loop !9
+
+81:                                               ; preds = %78, %24
+  %82 = load i32, ptr %11, align 4
+  %83 = icmp eq i32 %82, 1
+  br i1 %83, label %84, label %115
+
+84:                                               ; preds = %81
+  call void @llvm.lifetime.start.p0(i64 2, ptr %20) #6
+  %85 = getelementptr inbounds nuw %struct._EcParser, ptr %15, i32 0, i32 3
+  %86 = load i16, ptr %85, align 4
+  %87 = zext i16 %86 to i32
+  %88 = and i32 %87, 2047
+  %89 = trunc i32 %88 to i16
+  store i16 %89, ptr %20, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %21) #6
+  %90 = load ptr, ptr %7, align 8
+  %91 = load i32, ptr %8, align 4
+  %92 = call zeroext i16 @get_wc(ptr noundef %15, ptr noundef %90, i32 noundef %91)
+  store i16 %92, ptr %21, align 2
+  %93 = load ptr, ptr %9, align 8
+  %94 = load i32, ptr %10, align 4
+  %95 = sext i32 %94 to i64
+  %96 = load ptr, ptr %9, align 8
+  %97 = call i64 @llvm.objectsize.i64.p0(ptr %96, i1 false, i1 true, i1 true)
+  %98 = getelementptr inbounds nuw %struct._EcParser, ptr %15, i32 0, i32 0
+  %99 = load i8, ptr %98, align 4
+  %100 = zext i8 %99 to i32
+  %101 = call ptr @convertEcCmdToText(i32 noundef %100, ptr noundef @EcCmdShort)
+  %102 = load i16, ptr %20, align 2
+  %103 = zext i16 %102 to i32
+  %104 = getelementptr inbounds nuw %struct._EcParser, ptr %15, i32 0, i32 2
+  %105 = getelementptr inbounds nuw %struct.anon, ptr %104, i32 0, i32 0
+  %106 = load i16, ptr %105, align 4
   %107 = zext i16 %106 to i32
-  %108 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %89, i64 noundef %91, ptr noundef @.str.837, ptr noundef %95, i32 noundef %97, i32 noundef %101, i32 noundef %105, i32 noundef %107) #3
-  br label %204
+  %108 = getelementptr inbounds nuw %struct._EcParser, ptr %15, i32 0, i32 2
+  %109 = getelementptr inbounds nuw %struct.anon, ptr %108, i32 0, i32 1
+  %110 = load i16, ptr %109, align 2
+  %111 = zext i16 %110 to i32
+  %112 = load i16, ptr %21, align 2
+  %113 = zext i16 %112 to i32
+  %114 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %93, i64 noundef %95, i32 noundef 2, i64 noundef %97, ptr noundef @.str.846, ptr noundef %101, i32 noundef %103, i32 noundef %107, i32 noundef %111, i32 noundef %113)
+  call void @llvm.lifetime.end.p0(i64 2, ptr %21) #6
+  call void @llvm.lifetime.end.p0(i64 2, ptr %20) #6
+  br label %218
 
-109:                                              ; preds = %77
-  %110 = load i32, ptr %11, align 4
-  %111 = icmp eq i32 %110, 2
-  br i1 %111, label %112, label %130
-
-112:                                              ; preds = %109
-  %113 = load ptr, ptr %9, align 8
-  %114 = load i32, ptr %10, align 4
-  %115 = sext i32 %114 to i64
+115:                                              ; preds = %81
   %116 = load i32, ptr %11, align 4
-  %117 = getelementptr [4 x i8], ptr %13, i64 0, i64 0
-  %118 = load i8, ptr %117, align 1
-  %119 = zext i8 %118 to i32
-  %120 = call ptr @convertEcCmdToText(i32 noundef %119, ptr noundef @EcCmdShort)
-  %121 = getelementptr [4 x i32], ptr %14, i64 0, i64 0
-  %122 = load i32, ptr %121, align 16
-  %123 = getelementptr [4 x i8], ptr %13, i64 0, i64 1
-  %124 = load i8, ptr %123, align 1
-  %125 = zext i8 %124 to i32
-  %126 = call ptr @convertEcCmdToText(i32 noundef %125, ptr noundef @EcCmdShort)
-  %127 = getelementptr [4 x i32], ptr %14, i64 0, i64 1
-  %128 = load i32, ptr %127, align 4
-  %129 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %113, i64 noundef %115, ptr noundef @.str.838, i32 noundef %116, ptr noundef %120, i32 noundef %122, ptr noundef %126, i32 noundef %128) #3
-  br label %203
+  %117 = icmp eq i32 %116, 2
+  br i1 %117, label %118, label %138
 
-130:                                              ; preds = %109
-  %131 = load i32, ptr %11, align 4
-  %132 = icmp eq i32 %131, 3
-  br i1 %132, label %133, label %157
+118:                                              ; preds = %115
+  %119 = load ptr, ptr %9, align 8
+  %120 = load i32, ptr %10, align 4
+  %121 = sext i32 %120 to i64
+  %122 = load ptr, ptr %9, align 8
+  %123 = call i64 @llvm.objectsize.i64.p0(ptr %122, i1 false, i1 true, i1 true)
+  %124 = load i32, ptr %11, align 4
+  %125 = getelementptr [4 x i8], ptr %13, i64 0, i64 0
+  %126 = load i8, ptr %125, align 1
+  %127 = zext i8 %126 to i32
+  %128 = call ptr @convertEcCmdToText(i32 noundef %127, ptr noundef @EcCmdShort)
+  %129 = getelementptr [4 x i32], ptr %14, i64 0, i64 0
+  %130 = load i32, ptr %129, align 16
+  %131 = getelementptr [4 x i8], ptr %13, i64 0, i64 1
+  %132 = load i8, ptr %131, align 1
+  %133 = zext i8 %132 to i32
+  %134 = call ptr @convertEcCmdToText(i32 noundef %133, ptr noundef @EcCmdShort)
+  %135 = getelementptr [4 x i32], ptr %14, i64 0, i64 1
+  %136 = load i32, ptr %135, align 4
+  %137 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %119, i64 noundef %121, i32 noundef 2, i64 noundef %123, ptr noundef @.str.847, i32 noundef %124, ptr noundef %128, i32 noundef %130, ptr noundef %134, i32 noundef %136)
+  br label %217
 
-133:                                              ; preds = %130
-  %134 = load ptr, ptr %9, align 8
-  %135 = load i32, ptr %10, align 4
-  %136 = sext i32 %135 to i64
-  %137 = load i32, ptr %11, align 4
-  %138 = getelementptr [4 x i8], ptr %13, i64 0, i64 0
-  %139 = load i8, ptr %138, align 1
-  %140 = zext i8 %139 to i32
-  %141 = call ptr @convertEcCmdToText(i32 noundef %140, ptr noundef @EcCmdShort)
-  %142 = getelementptr [4 x i32], ptr %14, i64 0, i64 0
-  %143 = load i32, ptr %142, align 16
-  %144 = getelementptr [4 x i8], ptr %13, i64 0, i64 1
-  %145 = load i8, ptr %144, align 1
-  %146 = zext i8 %145 to i32
-  %147 = call ptr @convertEcCmdToText(i32 noundef %146, ptr noundef @EcCmdShort)
-  %148 = getelementptr [4 x i32], ptr %14, i64 0, i64 1
-  %149 = load i32, ptr %148, align 4
-  %150 = getelementptr [4 x i8], ptr %13, i64 0, i64 2
-  %151 = load i8, ptr %150, align 1
-  %152 = zext i8 %151 to i32
-  %153 = call ptr @convertEcCmdToText(i32 noundef %152, ptr noundef @EcCmdShort)
-  %154 = getelementptr [4 x i32], ptr %14, i64 0, i64 2
-  %155 = load i32, ptr %154, align 8
-  %156 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %134, i64 noundef %136, ptr noundef @.str.839, i32 noundef %137, ptr noundef %141, i32 noundef %143, ptr noundef %147, i32 noundef %149, ptr noundef %153, i32 noundef %155) #3
-  br label %202
+138:                                              ; preds = %115
+  %139 = load i32, ptr %11, align 4
+  %140 = icmp eq i32 %139, 3
+  br i1 %140, label %141, label %167
 
-157:                                              ; preds = %130
-  %158 = load i32, ptr %11, align 4
-  %159 = icmp eq i32 %158, 4
-  br i1 %159, label %160, label %190
+141:                                              ; preds = %138
+  %142 = load ptr, ptr %9, align 8
+  %143 = load i32, ptr %10, align 4
+  %144 = sext i32 %143 to i64
+  %145 = load ptr, ptr %9, align 8
+  %146 = call i64 @llvm.objectsize.i64.p0(ptr %145, i1 false, i1 true, i1 true)
+  %147 = load i32, ptr %11, align 4
+  %148 = getelementptr [4 x i8], ptr %13, i64 0, i64 0
+  %149 = load i8, ptr %148, align 1
+  %150 = zext i8 %149 to i32
+  %151 = call ptr @convertEcCmdToText(i32 noundef %150, ptr noundef @EcCmdShort)
+  %152 = getelementptr [4 x i32], ptr %14, i64 0, i64 0
+  %153 = load i32, ptr %152, align 16
+  %154 = getelementptr [4 x i8], ptr %13, i64 0, i64 1
+  %155 = load i8, ptr %154, align 1
+  %156 = zext i8 %155 to i32
+  %157 = call ptr @convertEcCmdToText(i32 noundef %156, ptr noundef @EcCmdShort)
+  %158 = getelementptr [4 x i32], ptr %14, i64 0, i64 1
+  %159 = load i32, ptr %158, align 4
+  %160 = getelementptr [4 x i8], ptr %13, i64 0, i64 2
+  %161 = load i8, ptr %160, align 1
+  %162 = zext i8 %161 to i32
+  %163 = call ptr @convertEcCmdToText(i32 noundef %162, ptr noundef @EcCmdShort)
+  %164 = getelementptr [4 x i32], ptr %14, i64 0, i64 2
+  %165 = load i32, ptr %164, align 8
+  %166 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %142, i64 noundef %144, i32 noundef 2, i64 noundef %146, ptr noundef @.str.848, i32 noundef %147, ptr noundef %151, i32 noundef %153, ptr noundef %157, i32 noundef %159, ptr noundef %163, i32 noundef %165)
+  br label %216
 
-160:                                              ; preds = %157
-  %161 = load ptr, ptr %9, align 8
-  %162 = load i32, ptr %10, align 4
-  %163 = sext i32 %162 to i64
-  %164 = load i32, ptr %11, align 4
-  %165 = getelementptr [4 x i8], ptr %13, i64 0, i64 0
-  %166 = load i8, ptr %165, align 1
-  %167 = zext i8 %166 to i32
-  %168 = call ptr @convertEcCmdToText(i32 noundef %167, ptr noundef @EcCmdShort)
-  %169 = getelementptr [4 x i32], ptr %14, i64 0, i64 0
-  %170 = load i32, ptr %169, align 16
-  %171 = getelementptr [4 x i8], ptr %13, i64 0, i64 1
-  %172 = load i8, ptr %171, align 1
-  %173 = zext i8 %172 to i32
-  %174 = call ptr @convertEcCmdToText(i32 noundef %173, ptr noundef @EcCmdShort)
-  %175 = getelementptr [4 x i32], ptr %14, i64 0, i64 1
-  %176 = load i32, ptr %175, align 4
-  %177 = getelementptr [4 x i8], ptr %13, i64 0, i64 2
+167:                                              ; preds = %138
+  %168 = load i32, ptr %11, align 4
+  %169 = icmp eq i32 %168, 4
+  br i1 %169, label %170, label %202
+
+170:                                              ; preds = %167
+  %171 = load ptr, ptr %9, align 8
+  %172 = load i32, ptr %10, align 4
+  %173 = sext i32 %172 to i64
+  %174 = load ptr, ptr %9, align 8
+  %175 = call i64 @llvm.objectsize.i64.p0(ptr %174, i1 false, i1 true, i1 true)
+  %176 = load i32, ptr %11, align 4
+  %177 = getelementptr [4 x i8], ptr %13, i64 0, i64 0
   %178 = load i8, ptr %177, align 1
   %179 = zext i8 %178 to i32
   %180 = call ptr @convertEcCmdToText(i32 noundef %179, ptr noundef @EcCmdShort)
-  %181 = getelementptr [4 x i32], ptr %14, i64 0, i64 2
-  %182 = load i32, ptr %181, align 8
-  %183 = getelementptr [4 x i8], ptr %13, i64 0, i64 3
+  %181 = getelementptr [4 x i32], ptr %14, i64 0, i64 0
+  %182 = load i32, ptr %181, align 16
+  %183 = getelementptr [4 x i8], ptr %13, i64 0, i64 1
   %184 = load i8, ptr %183, align 1
   %185 = zext i8 %184 to i32
   %186 = call ptr @convertEcCmdToText(i32 noundef %185, ptr noundef @EcCmdShort)
-  %187 = getelementptr [4 x i32], ptr %14, i64 0, i64 3
+  %187 = getelementptr [4 x i32], ptr %14, i64 0, i64 1
   %188 = load i32, ptr %187, align 4
-  %189 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %161, i64 noundef %163, ptr noundef @.str.840, i32 noundef %164, ptr noundef %168, i32 noundef %170, ptr noundef %174, i32 noundef %176, ptr noundef %180, i32 noundef %182, ptr noundef %186, i32 noundef %188) #3
-  br label %201
+  %189 = getelementptr [4 x i8], ptr %13, i64 0, i64 2
+  %190 = load i8, ptr %189, align 1
+  %191 = zext i8 %190 to i32
+  %192 = call ptr @convertEcCmdToText(i32 noundef %191, ptr noundef @EcCmdShort)
+  %193 = getelementptr [4 x i32], ptr %14, i64 0, i64 2
+  %194 = load i32, ptr %193, align 8
+  %195 = getelementptr [4 x i8], ptr %13, i64 0, i64 3
+  %196 = load i8, ptr %195, align 1
+  %197 = zext i8 %196 to i32
+  %198 = call ptr @convertEcCmdToText(i32 noundef %197, ptr noundef @EcCmdShort)
+  %199 = getelementptr [4 x i32], ptr %14, i64 0, i64 3
+  %200 = load i32, ptr %199, align 4
+  %201 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %171, i64 noundef %173, i32 noundef 2, i64 noundef %175, ptr noundef @.str.849, i32 noundef %176, ptr noundef %180, i32 noundef %182, ptr noundef %186, i32 noundef %188, ptr noundef %192, i32 noundef %194, ptr noundef %198, i32 noundef %200)
+  br label %215
 
-190:                                              ; preds = %157
-  %191 = load ptr, ptr %9, align 8
-  %192 = load i32, ptr %10, align 4
-  %193 = sext i32 %192 to i64
-  %194 = load i32, ptr %11, align 4
-  %195 = load i32, ptr %12, align 4
-  %196 = getelementptr inbounds %struct._EcParser, ptr %15, i32 0, i32 0
-  %197 = load i8, ptr %196, align 4
-  %198 = zext i8 %197 to i32
-  %199 = call ptr @convertEcCmdToText(i32 noundef %198, ptr noundef @EcCmdShort)
-  %200 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %191, i64 noundef %193, ptr noundef @.str.841, i32 noundef %194, i32 noundef %195, ptr noundef %199) #3
-  br label %201
+202:                                              ; preds = %167
+  %203 = load ptr, ptr %9, align 8
+  %204 = load i32, ptr %10, align 4
+  %205 = sext i32 %204 to i64
+  %206 = load ptr, ptr %9, align 8
+  %207 = call i64 @llvm.objectsize.i64.p0(ptr %206, i1 false, i1 true, i1 true)
+  %208 = load i32, ptr %11, align 4
+  %209 = load i32, ptr %12, align 4
+  %210 = getelementptr inbounds nuw %struct._EcParser, ptr %15, i32 0, i32 0
+  %211 = load i8, ptr %210, align 4
+  %212 = zext i8 %211 to i32
+  %213 = call ptr @convertEcCmdToText(i32 noundef %212, ptr noundef @EcCmdShort)
+  %214 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %203, i64 noundef %205, i32 noundef 2, i64 noundef %207, ptr noundef @.str.850, i32 noundef %208, i32 noundef %209, ptr noundef %213)
+  br label %215
 
-201:                                              ; preds = %190, %160
-  br label %202
+215:                                              ; preds = %202, %170
+  br label %216
 
-202:                                              ; preds = %201, %133
-  br label %203
+216:                                              ; preds = %215, %141
+  br label %217
 
-203:                                              ; preds = %202, %112
-  br label %204
+217:                                              ; preds = %216, %118
+  br label %218
 
-204:                                              ; preds = %203, %80
+218:                                              ; preds = %217, %84
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #6
+  call void @llvm.lifetime.end.p0(i64 12, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 12, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 16, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #6
   ret void
+
+219:                                              ; preds = %78
+  unreachable
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal zeroext i16 @get_wc(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -2778,7 +2893,7 @@ define internal zeroext i16 @get_wc(ptr noundef %0, ptr noundef %1, i32 noundef 
   %8 = load i32, ptr %6, align 4
   %9 = add i32 %8, 10
   %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %struct._EcParser, ptr %10, i32 0, i32 3
+  %11 = getelementptr inbounds nuw %struct._EcParser, ptr %10, i32 0, i32 3
   %12 = load i16, ptr %11, align 4
   %13 = zext i16 %12 to i32
   %14 = and i32 %13, 2047
@@ -2787,7 +2902,7 @@ define internal zeroext i16 @get_wc(ptr noundef %0, ptr noundef %1, i32 noundef 
   ret i16 %16
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @EcSubFormatter(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -2800,10 +2915,13 @@ define internal void @EcSubFormatter(ptr noundef %0, i32 noundef %1, ptr noundef
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 12, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 2, ptr %10) #6
+  call void @llvm.lifetime.start.p0(i64 2, ptr %11) #6
   %12 = load ptr, ptr %5, align 8
   %13 = load i32, ptr %6, align 4
   call void @init_EcParserHDR(ptr noundef %9, ptr noundef %12, i32 noundef %13)
-  %14 = getelementptr inbounds %struct._EcParser, ptr %9, i32 0, i32 3
+  %14 = getelementptr inbounds nuw %struct._EcParser, ptr %9, i32 0, i32 3
   %15 = load i16, ptr %14, align 4
   %16 = zext i16 %15 to i32
   %17 = and i32 %16, 2047
@@ -2813,10 +2931,10 @@ define internal void @EcSubFormatter(ptr noundef %0, i32 noundef %1, ptr noundef
   %20 = load i32, ptr %6, align 4
   %21 = call zeroext i16 @get_wc(ptr noundef %9, ptr noundef %19, i32 noundef %20)
   store i16 %21, ptr %11, align 2
-  %22 = getelementptr inbounds %struct._EcParser, ptr %9, i32 0, i32 0
+  %22 = getelementptr inbounds nuw %struct._EcParser, ptr %9, i32 0, i32 0
   %23 = load i8, ptr %22, align 4
   %24 = zext i8 %23 to i32
-  switch i32 %24, label %77 [
+  switch i32 %24, label %83 [
     i32 0, label %25
     i32 1, label %25
     i32 2, label %25
@@ -2829,89 +2947,101 @@ define internal void @EcSubFormatter(ptr noundef %0, i32 noundef %1, ptr noundef
     i32 9, label %25
     i32 13, label %25
     i32 14, label %25
-    i32 10, label %49
-    i32 11, label %49
-    i32 12, label %49
-    i32 255, label %67
+    i32 10, label %51
+    i32 11, label %51
+    i32 12, label %51
+    i32 255, label %71
   ]
 
 25:                                               ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4
   %26 = load ptr, ptr %7, align 8
   %27 = load i32, ptr %8, align 4
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds %struct._EcParser, ptr %9, i32 0, i32 0
-  %30 = load i8, ptr %29, align 4
-  %31 = zext i8 %30 to i32
-  %32 = call ptr @convertEcCmdToText(i32 noundef %31, ptr noundef @EcCmdShort)
-  %33 = getelementptr inbounds %struct._EcParser, ptr %9, i32 0, i32 0
-  %34 = load i8, ptr %33, align 4
-  %35 = zext i8 %34 to i32
-  %36 = load i16, ptr %10, align 2
-  %37 = zext i16 %36 to i32
-  %38 = getelementptr inbounds %struct._EcParser, ptr %9, i32 0, i32 2
-  %39 = getelementptr inbounds %struct.anon, ptr %38, i32 0, i32 0
-  %40 = load i16, ptr %39, align 4
-  %41 = zext i16 %40 to i32
-  %42 = getelementptr inbounds %struct._EcParser, ptr %9, i32 0, i32 2
-  %43 = getelementptr inbounds %struct.anon, ptr %42, i32 0, i32 1
-  %44 = load i16, ptr %43, align 2
-  %45 = zext i16 %44 to i32
-  %46 = load i16, ptr %11, align 2
+  %29 = load ptr, ptr %7, align 8
+  %30 = call i64 @llvm.objectsize.i64.p0(ptr %29, i1 false, i1 true, i1 true)
+  %31 = getelementptr inbounds nuw %struct._EcParser, ptr %9, i32 0, i32 0
+  %32 = load i8, ptr %31, align 4
+  %33 = zext i8 %32 to i32
+  %34 = call ptr @convertEcCmdToText(i32 noundef %33, ptr noundef @EcCmdShort)
+  %35 = getelementptr inbounds nuw %struct._EcParser, ptr %9, i32 0, i32 0
+  %36 = load i8, ptr %35, align 4
+  %37 = zext i8 %36 to i32
+  %38 = load i16, ptr %10, align 2
+  %39 = zext i16 %38 to i32
+  %40 = getelementptr inbounds nuw %struct._EcParser, ptr %9, i32 0, i32 2
+  %41 = getelementptr inbounds nuw %struct.anon, ptr %40, i32 0, i32 0
+  %42 = load i16, ptr %41, align 4
+  %43 = zext i16 %42 to i32
+  %44 = getelementptr inbounds nuw %struct._EcParser, ptr %9, i32 0, i32 2
+  %45 = getelementptr inbounds nuw %struct.anon, ptr %44, i32 0, i32 1
+  %46 = load i16, ptr %45, align 2
   %47 = zext i16 %46 to i32
-  %48 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %26, i64 noundef %28, ptr noundef @.str.843, ptr noundef %32, i32 noundef %35, i32 noundef %37, i32 noundef %41, i32 noundef %45, i32 noundef %47) #3
-  br label %87
+  %48 = load i16, ptr %11, align 2
+  %49 = zext i16 %48 to i32
+  %50 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %26, i64 noundef %28, i32 noundef 2, i64 noundef %30, ptr noundef @.str.852, ptr noundef %34, i32 noundef %37, i32 noundef %39, i32 noundef %43, i32 noundef %47, i32 noundef %49)
+  br label %95
 
-49:                                               ; preds = %4, %4, %4
-  %50 = load ptr, ptr %7, align 8
-  %51 = load i32, ptr %8, align 4
-  %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds %struct._EcParser, ptr %9, i32 0, i32 0
-  %54 = load i8, ptr %53, align 4
-  %55 = zext i8 %54 to i32
-  %56 = call ptr @convertEcCmdToText(i32 noundef %55, ptr noundef @EcCmdShort)
-  %57 = getelementptr inbounds %struct._EcParser, ptr %9, i32 0, i32 0
+51:                                               ; preds = %4, %4, %4
+  %52 = load ptr, ptr %7, align 8
+  %53 = load i32, ptr %8, align 4
+  %54 = sext i32 %53 to i64
+  %55 = load ptr, ptr %7, align 8
+  %56 = call i64 @llvm.objectsize.i64.p0(ptr %55, i1 false, i1 true, i1 true)
+  %57 = getelementptr inbounds nuw %struct._EcParser, ptr %9, i32 0, i32 0
   %58 = load i8, ptr %57, align 4
   %59 = zext i8 %58 to i32
-  %60 = load i16, ptr %10, align 2
-  %61 = zext i16 %60 to i32
-  %62 = getelementptr inbounds %struct._EcParser, ptr %9, i32 0, i32 2
-  %63 = load i32, ptr %62, align 4
-  %64 = load i16, ptr %11, align 2
+  %60 = call ptr @convertEcCmdToText(i32 noundef %59, ptr noundef @EcCmdShort)
+  %61 = getelementptr inbounds nuw %struct._EcParser, ptr %9, i32 0, i32 0
+  %62 = load i8, ptr %61, align 4
+  %63 = zext i8 %62 to i32
+  %64 = load i16, ptr %10, align 2
   %65 = zext i16 %64 to i32
-  %66 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %50, i64 noundef %52, ptr noundef @.str.844, ptr noundef %56, i32 noundef %59, i32 noundef %61, i32 noundef %63, i32 noundef %65) #3
-  br label %87
+  %66 = getelementptr inbounds nuw %struct._EcParser, ptr %9, i32 0, i32 2
+  %67 = load i32, ptr %66, align 4
+  %68 = load i16, ptr %11, align 2
+  %69 = zext i16 %68 to i32
+  %70 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %52, i64 noundef %54, i32 noundef 2, i64 noundef %56, ptr noundef @.str.853, ptr noundef %60, i32 noundef %63, i32 noundef %65, i32 noundef %67, i32 noundef %69)
+  br label %95
 
-67:                                               ; preds = %4
-  %68 = load ptr, ptr %7, align 8
-  %69 = load i32, ptr %8, align 4
-  %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds %struct._EcParser, ptr %9, i32 0, i32 0
-  %72 = load i8, ptr %71, align 4
-  %73 = zext i8 %72 to i32
-  %74 = load i16, ptr %10, align 2
-  %75 = zext i16 %74 to i32
-  %76 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %68, i64 noundef %70, ptr noundef @.str.845, i32 noundef %73, i32 noundef %75) #3
-  br label %87
+71:                                               ; preds = %4
+  %72 = load ptr, ptr %7, align 8
+  %73 = load i32, ptr %8, align 4
+  %74 = sext i32 %73 to i64
+  %75 = load ptr, ptr %7, align 8
+  %76 = call i64 @llvm.objectsize.i64.p0(ptr %75, i1 false, i1 true, i1 true)
+  %77 = getelementptr inbounds nuw %struct._EcParser, ptr %9, i32 0, i32 0
+  %78 = load i8, ptr %77, align 4
+  %79 = zext i8 %78 to i32
+  %80 = load i16, ptr %10, align 2
+  %81 = zext i16 %80 to i32
+  %82 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %72, i64 noundef %74, i32 noundef 2, i64 noundef %76, ptr noundef @.str.854, i32 noundef %79, i32 noundef %81)
+  br label %95
 
-77:                                               ; preds = %4
-  %78 = load ptr, ptr %7, align 8
-  %79 = load i32, ptr %8, align 4
-  %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds %struct._EcParser, ptr %9, i32 0, i32 0
-  %82 = load i8, ptr %81, align 4
-  %83 = zext i8 %82 to i32
-  %84 = load i16, ptr %10, align 2
-  %85 = zext i16 %84 to i32
-  %86 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %78, i64 noundef %80, ptr noundef @.str.846, i32 noundef %83, i32 noundef %85) #3
-  br label %87
+83:                                               ; preds = %4
+  %84 = load ptr, ptr %7, align 8
+  %85 = load i32, ptr %8, align 4
+  %86 = sext i32 %85 to i64
+  %87 = load ptr, ptr %7, align 8
+  %88 = call i64 @llvm.objectsize.i64.p0(ptr %87, i1 false, i1 true, i1 true)
+  %89 = getelementptr inbounds nuw %struct._EcParser, ptr %9, i32 0, i32 0
+  %90 = load i8, ptr %89, align 4
+  %91 = zext i8 %90 to i32
+  %92 = load i16, ptr %10, align 2
+  %93 = zext i16 %92 to i32
+  %94 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %84, i64 noundef %86, i32 noundef 2, i64 noundef %88, ptr noundef @.str.855, i32 noundef %91, i32 noundef %93)
+  br label %95
 
-87:                                               ; preds = %77, %67, %49, %25
+95:                                               ; preds = %83, %71, %51, %25
+  call void @llvm.lifetime.end.p0(i64 2, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 2, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 12, ptr %9) #6
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @EcCmdFormatter(i8 noundef zeroext %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca i8, align 1
   %5 = alloca ptr, align 8
@@ -2921,42 +3051,51 @@ define internal void @EcCmdFormatter(i8 noundef zeroext %0, ptr noundef %1, i32 
   store i8 %0, ptr %4, align 1
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #6
   store i32 0, ptr %7, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
   %9 = load i8, ptr %4, align 1
   %10 = zext i8 %9 to i32
   %11 = call ptr @try_val_to_str_idx(i32 noundef %10, ptr noundef @EcCmdLong, ptr noundef %7)
   store ptr %11, ptr %8, align 8
   %12 = load i32, ptr %7, align 4
   %13 = icmp ne i32 %12, -1
-  br i1 %13, label %14, label %22
+  br i1 %13, label %14, label %24
 
 14:                                               ; preds = %3
   %15 = load ptr, ptr %5, align 8
   %16 = load i32, ptr %6, align 4
   %17 = sext i32 %16 to i64
-  %18 = load i8, ptr %4, align 1
-  %19 = zext i8 %18 to i32
-  %20 = load ptr, ptr %8, align 8
-  %21 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %15, i64 noundef %17, ptr noundef @.str.847, i32 noundef %19, ptr noundef %20) #3
-  br label %29
+  %18 = load ptr, ptr %5, align 8
+  %19 = call i64 @llvm.objectsize.i64.p0(ptr %18, i1 false, i1 true, i1 true)
+  %20 = load i8, ptr %4, align 1
+  %21 = zext i8 %20 to i32
+  %22 = load ptr, ptr %8, align 8
+  %23 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %15, i64 noundef %17, i32 noundef 2, i64 noundef %19, ptr noundef @.str.856, i32 noundef %21, ptr noundef %22)
+  br label %33
 
-22:                                               ; preds = %3
-  %23 = load ptr, ptr %5, align 8
-  %24 = load i32, ptr %6, align 4
-  %25 = sext i32 %24 to i64
-  %26 = load i8, ptr %4, align 1
-  %27 = zext i8 %26 to i32
-  %28 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %23, i64 noundef %25, ptr noundef @.str.848, i32 noundef %27) #3
-  br label %29
+24:                                               ; preds = %3
+  %25 = load ptr, ptr %5, align 8
+  %26 = load i32, ptr %6, align 4
+  %27 = sext i32 %26 to i64
+  %28 = load ptr, ptr %5, align 8
+  %29 = call i64 @llvm.objectsize.i64.p0(ptr %28, i1 false, i1 true, i1 true)
+  %30 = load i8, ptr %4, align 1
+  %31 = zext i8 %30 to i32
+  %32 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %25, i64 noundef %27, i32 noundef 2, i64 noundef %29, ptr noundef @.str.857, i32 noundef %31)
+  br label %33
 
-29:                                               ; preds = %22, %14
+33:                                               ; preds = %24, %14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #6
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_item_set_text(ptr noundef, ptr noundef, ...) #1
 
-; Function Attrs: nounwind uwtable
-define internal void @proto_item_set_hidden(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind null_pointer_is_valid sspstrong uwtable
+define internal void @proto_item_set_hidden(ptr noundef %0) #4 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -2968,22 +3107,22 @@ define internal void @proto_item_set_hidden(ptr noundef %0) #0 {
 
 6:                                                ; preds = %5
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct._proto_node, ptr %7, i32 0, i32 4
+  %8 = getelementptr inbounds nuw %struct._proto_node, ptr %7, i32 0, i32 5
   %9 = load ptr, ptr %8, align 8
   %10 = icmp ne ptr %9, null
   br i1 %10, label %11, label %22
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct._proto_node, ptr %12, i32 0, i32 4
+  %13 = getelementptr inbounds nuw %struct._proto_node, ptr %12, i32 0, i32 5
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds %struct.field_info, ptr %14, i32 0, i32 6
+  %15 = getelementptr inbounds nuw %struct.field_info, ptr %14, i32 0, i32 6
   %16 = load i32, ptr %15, align 4
   %17 = or i32 %16, 1
   %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds %struct._proto_node, ptr %18, i32 0, i32 4
+  %19 = getelementptr inbounds nuw %struct._proto_node, ptr %18, i32 0, i32 5
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds %struct.field_info, ptr %20, i32 0, i32 6
+  %21 = getelementptr inbounds nuw %struct.field_info, ptr %20, i32 0, i32 6
   store i32 %17, ptr %21, align 4
   br label %22
 
@@ -2997,9 +3136,13 @@ define internal void @proto_item_set_hidden(ptr noundef %0) #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @init_dc_measure(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -3008,6 +3151,7 @@ define internal void @init_dc_measure(ptr noundef %0, ptr noundef %1, i32 nounde
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #6
   store i32 0, ptr %7, align 4
   br label %8
 
@@ -3034,13 +3178,14 @@ define internal void @init_dc_measure(ptr noundef %0, ptr noundef %1, i32 nounde
   %22 = load i32, ptr %7, align 4
   %23 = add i32 %22, 1
   store i32 %23, ptr %7, align 4
-  br label %8, !llvm.loop !8
+  br label %8, !llvm.loop !10
 
 24:                                               ; preds = %8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #6
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_esc_register(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i16 noundef zeroext %6) #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -3061,7 +3206,12 @@ define internal i32 @dissect_esc_register(ptr noundef %0, ptr noundef %1, ptr no
   store i32 %4, ptr %12, align 4
   store ptr %5, ptr %13, align 8
   store i16 %6, ptr %14, align 2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #6
   store i32 -1, ptr %17, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #6
   store i32 0, ptr %19, align 4
   %20 = load i32, ptr %12, align 4
   %21 = icmp ugt i32 %20, 0
@@ -3069,7 +3219,7 @@ define internal i32 @dissect_esc_register(ptr noundef %0, ptr noundef %1, ptr no
 
 22:                                               ; preds = %7
   %23 = load ptr, ptr %13, align 8
-  %24 = getelementptr inbounds %struct._EcParser, ptr %23, i32 0, i32 0
+  %24 = getelementptr inbounds nuw %struct._EcParser, ptr %23, i32 0, i32 0
   %25 = load i8, ptr %24, align 4
   %26 = zext i8 %25 to i32
   switch i32 %26, label %207 [
@@ -3090,7 +3240,7 @@ define internal i32 @dissect_esc_register(ptr noundef %0, ptr noundef %1, ptr no
   store i32 1, ptr %19, align 4
   br label %28
 
-28:                                               ; preds = %27, %22, %22, %22, %22, %22, %22, %22, %22
+28:                                               ; preds = %22, %22, %22, %22, %22, %22, %22, %22, %27
   store i32 0, ptr %15, align 4
   br label %29
 
@@ -3102,8 +3252,8 @@ define internal i32 @dissect_esc_register(ptr noundef %0, ptr noundef %1, ptr no
 
 33:                                               ; preds = %29
   %34 = load ptr, ptr %13, align 8
-  %35 = getelementptr inbounds %struct._EcParser, ptr %34, i32 0, i32 2
-  %36 = getelementptr inbounds %struct.anon, ptr %35, i32 0, i32 1
+  %35 = getelementptr inbounds nuw %struct._EcParser, ptr %34, i32 0, i32 2
+  %36 = getelementptr inbounds nuw %struct.anon, ptr %35, i32 0, i32 1
   %37 = load i16, ptr %36, align 2
   %38 = zext i16 %37 to i32
   %39 = load i32, ptr %12, align 4
@@ -3111,7 +3261,7 @@ define internal i32 @dissect_esc_register(ptr noundef %0, ptr noundef %1, ptr no
   %41 = load i32, ptr %15, align 4
   %42 = zext i32 %41 to i64
   %43 = getelementptr [108 x %struct.ecat_esc_reg_info], ptr @ecat_esc_registers, i64 0, i64 %42
-  %44 = getelementptr inbounds %struct.ecat_esc_reg_info, ptr %43, i32 0, i32 0
+  %44 = getelementptr inbounds nuw %struct.ecat_esc_reg_info, ptr %43, i32 0, i32 0
   %45 = load i16, ptr %44, align 8
   %46 = zext i16 %45 to i32
   %47 = icmp ult i32 %40, %46
@@ -3124,7 +3274,7 @@ define internal i32 @dissect_esc_register(ptr noundef %0, ptr noundef %1, ptr no
   %50 = load i32, ptr %15, align 4
   %51 = zext i32 %50 to i64
   %52 = getelementptr [108 x %struct.ecat_esc_reg_info], ptr @ecat_esc_registers, i64 0, i64 %51
-  %53 = getelementptr inbounds %struct.ecat_esc_reg_info, ptr %52, i32 0, i32 0
+  %53 = getelementptr inbounds nuw %struct.ecat_esc_reg_info, ptr %52, i32 0, i32 0
   %54 = load i16, ptr %53, align 8
   %55 = zext i16 %54 to i32
   store i32 %55, ptr %18, align 4
@@ -3136,7 +3286,7 @@ define internal i32 @dissect_esc_register(ptr noundef %0, ptr noundef %1, ptr no
   %58 = load i32, ptr %15, align 4
   %59 = zext i32 %58 to i64
   %60 = getelementptr [108 x %struct.ecat_esc_reg_info], ptr @ecat_esc_registers, i64 0, i64 %59
-  %61 = getelementptr inbounds %struct.ecat_esc_reg_info, ptr %60, i32 0, i32 2
+  %61 = getelementptr inbounds nuw %struct.ecat_esc_reg_info, ptr %60, i32 0, i32 2
   %62 = load i16, ptr %61, align 4
   %63 = zext i16 %62 to i32
   %64 = icmp slt i32 %57, %63
@@ -3145,8 +3295,8 @@ define internal i32 @dissect_esc_register(ptr noundef %0, ptr noundef %1, ptr no
 65:                                               ; preds = %56
   %66 = load i32, ptr %18, align 4
   %67 = load ptr, ptr %13, align 8
-  %68 = getelementptr inbounds %struct._EcParser, ptr %67, i32 0, i32 2
-  %69 = getelementptr inbounds %struct.anon, ptr %68, i32 0, i32 1
+  %68 = getelementptr inbounds nuw %struct._EcParser, ptr %67, i32 0, i32 2
+  %69 = getelementptr inbounds nuw %struct.anon, ptr %68, i32 0, i32 1
   %70 = load i16, ptr %69, align 2
   %71 = zext i16 %70 to i32
   %72 = icmp sge i32 %66, %71
@@ -3157,13 +3307,13 @@ define internal i32 @dissect_esc_register(ptr noundef %0, ptr noundef %1, ptr no
   %75 = load i32, ptr %15, align 4
   %76 = zext i32 %75 to i64
   %77 = getelementptr [108 x %struct.ecat_esc_reg_info], ptr @ecat_esc_registers, i64 0, i64 %76
-  %78 = getelementptr inbounds %struct.ecat_esc_reg_info, ptr %77, i32 0, i32 1
+  %78 = getelementptr inbounds nuw %struct.ecat_esc_reg_info, ptr %77, i32 0, i32 1
   %79 = load i16, ptr %78, align 2
   %80 = zext i16 %79 to i32
   %81 = add i32 %74, %80
   %82 = load ptr, ptr %13, align 8
-  %83 = getelementptr inbounds %struct._EcParser, ptr %82, i32 0, i32 2
-  %84 = getelementptr inbounds %struct.anon, ptr %83, i32 0, i32 1
+  %83 = getelementptr inbounds nuw %struct._EcParser, ptr %82, i32 0, i32 2
+  %84 = getelementptr inbounds nuw %struct.anon, ptr %83, i32 0, i32 1
   %85 = load i16, ptr %84, align 2
   %86 = zext i16 %85 to i32
   %87 = load i32, ptr %12, align 4
@@ -3188,7 +3338,7 @@ define internal i32 @dissect_esc_register(ptr noundef %0, ptr noundef %1, ptr no
   %100 = load i32, ptr %15, align 4
   %101 = zext i32 %100 to i64
   %102 = getelementptr [108 x %struct.ecat_esc_reg_info], ptr @ecat_esc_registers, i64 0, i64 %101
-  %103 = getelementptr inbounds %struct.ecat_esc_reg_info, ptr %102, i32 0, i32 6
+  %103 = getelementptr inbounds nuw %struct.ecat_esc_reg_info, ptr %102, i32 0, i32 6
   %104 = load ptr, ptr %103, align 8
   %105 = icmp ne ptr %104, null
   br i1 %105, label %106, label %125
@@ -3197,7 +3347,7 @@ define internal i32 @dissect_esc_register(ptr noundef %0, ptr noundef %1, ptr no
   %107 = load i32, ptr %15, align 4
   %108 = zext i32 %107 to i64
   %109 = getelementptr [108 x %struct.ecat_esc_reg_info], ptr @ecat_esc_registers, i64 0, i64 %108
-  %110 = getelementptr inbounds %struct.ecat_esc_reg_info, ptr %109, i32 0, i32 6
+  %110 = getelementptr inbounds nuw %struct.ecat_esc_reg_info, ptr %109, i32 0, i32 6
   %111 = load ptr, ptr %110, align 8
   %112 = load ptr, ptr %8, align 8
   %113 = load ptr, ptr %9, align 8
@@ -3205,8 +3355,8 @@ define internal i32 @dissect_esc_register(ptr noundef %0, ptr noundef %1, ptr no
   %115 = load i32, ptr %11, align 4
   %116 = load i32, ptr %18, align 4
   %117 = load ptr, ptr %13, align 8
-  %118 = getelementptr inbounds %struct._EcParser, ptr %117, i32 0, i32 2
-  %119 = getelementptr inbounds %struct.anon, ptr %118, i32 0, i32 1
+  %118 = getelementptr inbounds nuw %struct._EcParser, ptr %117, i32 0, i32 2
+  %119 = getelementptr inbounds nuw %struct.anon, ptr %118, i32 0, i32 1
   %120 = load i16, ptr %119, align 2
   %121 = zext i16 %120 to i32
   %122 = sub i32 %116, %121
@@ -3218,7 +3368,7 @@ define internal i32 @dissect_esc_register(ptr noundef %0, ptr noundef %1, ptr no
   %126 = load i32, ptr %15, align 4
   %127 = zext i32 %126 to i64
   %128 = getelementptr [108 x %struct.ecat_esc_reg_info], ptr @ecat_esc_registers, i64 0, i64 %127
-  %129 = getelementptr inbounds %struct.ecat_esc_reg_info, ptr %128, i32 0, i32 4
+  %129 = getelementptr inbounds nuw %struct.ecat_esc_reg_info, ptr %128, i32 0, i32 4
   %130 = load ptr, ptr %129, align 8
   %131 = icmp ne ptr %130, null
   br i1 %131, label %132, label %162
@@ -3229,8 +3379,8 @@ define internal i32 @dissect_esc_register(ptr noundef %0, ptr noundef %1, ptr no
   %135 = load i32, ptr %11, align 4
   %136 = load i32, ptr %18, align 4
   %137 = load ptr, ptr %13, align 8
-  %138 = getelementptr inbounds %struct._EcParser, ptr %137, i32 0, i32 2
-  %139 = getelementptr inbounds %struct.anon, ptr %138, i32 0, i32 1
+  %138 = getelementptr inbounds nuw %struct._EcParser, ptr %137, i32 0, i32 2
+  %139 = getelementptr inbounds nuw %struct.anon, ptr %138, i32 0, i32 1
   %140 = load i16, ptr %139, align 2
   %141 = zext i16 %140 to i32
   %142 = sub i32 %136, %141
@@ -3238,19 +3388,19 @@ define internal i32 @dissect_esc_register(ptr noundef %0, ptr noundef %1, ptr no
   %144 = load i32, ptr %15, align 4
   %145 = zext i32 %144 to i64
   %146 = getelementptr [108 x %struct.ecat_esc_reg_info], ptr @ecat_esc_registers, i64 0, i64 %145
-  %147 = getelementptr inbounds %struct.ecat_esc_reg_info, ptr %146, i32 0, i32 3
+  %147 = getelementptr inbounds nuw %struct.ecat_esc_reg_info, ptr %146, i32 0, i32 3
   %148 = load ptr, ptr %147, align 8
   %149 = load i32, ptr %148, align 4
   %150 = load i32, ptr %15, align 4
   %151 = zext i32 %150 to i64
   %152 = getelementptr [108 x %struct.ecat_esc_reg_info], ptr @ecat_esc_registers, i64 0, i64 %151
-  %153 = getelementptr inbounds %struct.ecat_esc_reg_info, ptr %152, i32 0, i32 5
+  %153 = getelementptr inbounds nuw %struct.ecat_esc_reg_info, ptr %152, i32 0, i32 5
   %154 = load ptr, ptr %153, align 8
   %155 = load i32, ptr %154, align 4
   %156 = load i32, ptr %15, align 4
   %157 = zext i32 %156 to i64
   %158 = getelementptr [108 x %struct.ecat_esc_reg_info], ptr @ecat_esc_registers, i64 0, i64 %157
-  %159 = getelementptr inbounds %struct.ecat_esc_reg_info, ptr %158, i32 0, i32 4
+  %159 = getelementptr inbounds nuw %struct.ecat_esc_reg_info, ptr %158, i32 0, i32 4
   %160 = load ptr, ptr %159, align 8
   %161 = call ptr @proto_tree_add_bitmask(ptr noundef %133, ptr noundef %134, i32 noundef %143, i32 noundef %149, i32 noundef %155, ptr noundef %160, i32 noundef -2147483648)
   br label %187
@@ -3260,15 +3410,15 @@ define internal i32 @dissect_esc_register(ptr noundef %0, ptr noundef %1, ptr no
   %164 = load i32, ptr %15, align 4
   %165 = zext i32 %164 to i64
   %166 = getelementptr [108 x %struct.ecat_esc_reg_info], ptr @ecat_esc_registers, i64 0, i64 %165
-  %167 = getelementptr inbounds %struct.ecat_esc_reg_info, ptr %166, i32 0, i32 3
+  %167 = getelementptr inbounds nuw %struct.ecat_esc_reg_info, ptr %166, i32 0, i32 3
   %168 = load ptr, ptr %167, align 8
   %169 = load i32, ptr %168, align 4
   %170 = load ptr, ptr %10, align 8
   %171 = load i32, ptr %11, align 4
   %172 = load i32, ptr %18, align 4
   %173 = load ptr, ptr %13, align 8
-  %174 = getelementptr inbounds %struct._EcParser, ptr %173, i32 0, i32 2
-  %175 = getelementptr inbounds %struct.anon, ptr %174, i32 0, i32 1
+  %174 = getelementptr inbounds nuw %struct._EcParser, ptr %173, i32 0, i32 2
+  %175 = getelementptr inbounds nuw %struct.anon, ptr %174, i32 0, i32 1
   %176 = load i16, ptr %175, align 2
   %177 = zext i16 %176 to i32
   %178 = sub i32 %172, %177
@@ -3276,7 +3426,7 @@ define internal i32 @dissect_esc_register(ptr noundef %0, ptr noundef %1, ptr no
   %180 = load i32, ptr %15, align 4
   %181 = zext i32 %180 to i64
   %182 = getelementptr [108 x %struct.ecat_esc_reg_info], ptr @ecat_esc_registers, i64 0, i64 %181
-  %183 = getelementptr inbounds %struct.ecat_esc_reg_info, ptr %182, i32 0, i32 1
+  %183 = getelementptr inbounds nuw %struct.ecat_esc_reg_info, ptr %182, i32 0, i32 1
   %184 = load i16, ptr %183, align 2
   %185 = zext i16 %184 to i32
   %186 = call ptr @proto_tree_add_item(ptr noundef %163, i32 noundef %169, ptr noundef %170, i32 noundef %179, i32 noundef %185, i32 noundef -2147483648)
@@ -3296,7 +3446,7 @@ define internal i32 @dissect_esc_register(ptr noundef %0, ptr noundef %1, ptr no
   %191 = load i32, ptr %15, align 4
   %192 = zext i32 %191 to i64
   %193 = getelementptr [108 x %struct.ecat_esc_reg_info], ptr @ecat_esc_registers, i64 0, i64 %192
-  %194 = getelementptr inbounds %struct.ecat_esc_reg_info, ptr %193, i32 0, i32 1
+  %194 = getelementptr inbounds nuw %struct.ecat_esc_reg_info, ptr %193, i32 0, i32 1
   %195 = load i16, ptr %194, align 2
   %196 = zext i16 %195 to i32
   %197 = load i32, ptr %18, align 4
@@ -3308,7 +3458,7 @@ define internal i32 @dissect_esc_register(ptr noundef %0, ptr noundef %1, ptr no
   %200 = load i32, ptr %16, align 4
   %201 = add i32 %200, 1
   store i32 %201, ptr %16, align 4
-  br label %56, !llvm.loop !9
+  br label %56, !llvm.loop !11
 
 202:                                              ; preds = %56
   br label %203
@@ -3317,39 +3467,55 @@ define internal i32 @dissect_esc_register(ptr noundef %0, ptr noundef %1, ptr no
   %204 = load i32, ptr %15, align 4
   %205 = add i32 %204, 1
   store i32 %205, ptr %15, align 4
-  br label %29, !llvm.loop !10
+  br label %29, !llvm.loop !12
 
 206:                                              ; preds = %48, %29
   br label %207
 
-207:                                              ; preds = %206, %22
+207:                                              ; preds = %22, %206
   br label %208
 
 208:                                              ; preds = %207, %7
   %209 = load i32, ptr %17, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #6
   ret i32 %209
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @init_mbx_header(ptr noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @call_dissector_only(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
-declare i32 @dissector_try_heuristic(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @dissector_try_heuristic(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) #1
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind
-declare i32 @snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #2
+; Function Attrs: null_pointer_is_valid
+declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.objectsize.i64.p0(ptr, i1 immarg, i1 immarg, i1 immarg) #5
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal ptr @convertEcCmdToText(i32 noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
@@ -3357,19 +3523,23 @@ define internal ptr @convertEcCmdToText(i32 noundef %0, ptr noundef %1) #0 {
   store ptr %1, ptr %4, align 8
   %5 = load i32, ptr %3, align 4
   %6 = load ptr, ptr %4, align 8
-  %7 = call ptr @val_to_str(i32 noundef %5, ptr noundef %6, ptr noundef @.str.842)
+  %7 = call ptr @val_to_str(i32 noundef %5, ptr noundef %6, ptr noundef @.str.851)
   ret ptr %7
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @try_val_to_str_idx(i32 noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ecat_reg_600(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3381,6 +3551,8 @@ define internal i32 @ecat_reg_600(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
   %11 = load ptr, ptr %6, align 8
   %12 = load i32, ptr @hf_ecat_reg_fmmu, align 4
   %13 = load ptr, ptr %7, align 8
@@ -3467,10 +3639,12 @@ define internal i32 @ecat_reg_600(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %85 = load ptr, ptr %7, align 8
   %86 = load i32, ptr %8, align 4
   %87 = call ptr @proto_tree_add_item(ptr noundef %83, i32 noundef %84, ptr noundef %85, i32 noundef %86, i32 noundef 1, i32 noundef 0)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
   ret i32 16
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @ecat_reg_800(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3482,6 +3656,8 @@ define internal i32 @ecat_reg_800(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
   %11 = load ptr, ptr %6, align 8
   %12 = load i32, ptr @hf_ecat_reg_syncman, align 4
   %13 = load ptr, ptr %7, align 8
@@ -3523,24 +3699,31 @@ define internal i32 @ecat_reg_800(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %44 = load i32, ptr @hf_ecat_reg_syncman_sm_enable, align 4
   %45 = load i32, ptr @ett_ecat_reg_syncman_sm_enable, align 4
   %46 = call ptr @proto_tree_add_bitmask(ptr noundef %41, ptr noundef %42, i32 noundef %43, i32 noundef %44, i32 noundef %45, ptr noundef @ecat_reg_800.reg6, i32 noundef -2147483648)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
   ret i32 8
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}

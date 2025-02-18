@@ -5,7 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 @.str = private unnamed_addr constant [38 x i8] c"Range: low=%lu high=%lu max_edge=%lu\0A\00", align 1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
 define hidden zeroext i1 @wmem_itree_range_overlap(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load i64, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -25,17 +25,18 @@ define hidden zeroext i1 @wmem_itree_range_overlap(ptr noundef readonly captures
   ret i1 %12
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define noalias ptr @wmem_itree_new(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = tail call noalias ptr @wmem_tree_new(ptr noundef %0) #7
+  %2 = tail call noalias ptr @wmem_tree_new(ptr noundef %0)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr @update_edges_after_rotation, ptr %3, align 8
   ret ptr %2
 }
 
+; Function Attrs: null_pointer_is_valid
 declare noalias ptr @wmem_tree_new(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @update_edges_after_rotation(ptr noundef readonly captures(none) %0) #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -180,25 +181,26 @@ update_max_edge.exit21:                           ; preds = %tailrecurse.i18, %6
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define zeroext i1 @wmem_itree_is_empty(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = tail call zeroext i1 @wmem_tree_is_empty(ptr noundef %0) #7
+  %2 = tail call zeroext i1 @wmem_tree_is_empty(ptr noundef %0)
   ret i1 %2
 }
 
+; Function Attrs: null_pointer_is_valid
 declare zeroext i1 @wmem_tree_is_empty(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @wmem_itree_insert(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call noalias ptr @wmem_alloc(ptr noundef %6, i64 noundef 24) #7
+  %7 = tail call noalias dereferenceable_or_null(24) ptr @wmem_alloc(ptr noundef %6, i64 noundef 24) #6
   store i64 %1, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %2, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %9, align 8
-  %10 = tail call ptr @wmem_tree_insert(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %3, ptr noundef nonnull @wmem_tree_compare_ranges) #7
+  %10 = tail call ptr @wmem_tree_insert_node(ptr noundef %0, ptr noundef %7, ptr noundef %3, ptr noundef nonnull @wmem_tree_compare_ranges)
   %.not35.i = icmp eq ptr %10, null
   br i1 %.not35.i, label %update_max_edge.exit, label %.lr.ph.i
 
@@ -270,11 +272,13 @@ update_max_edge.exit:                             ; preds = %36, %tailrecurse.i,
   ret void
 }
 
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid allocsize(1)
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #4
 
-declare ptr @wmem_tree_insert(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_tree_insert_node(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
 define internal range(i32 -1, 2) i32 @wmem_tree_compare_ranges(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = load i64, ptr %0, align 8
   %4 = load i64, ptr %1, align 8
@@ -282,18 +286,19 @@ define internal range(i32 -1, 2) i32 @wmem_tree_compare_ranges(ptr noundef reado
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define noundef ptr @wmem_itree_find_intervals(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #1 {
-  %5 = tail call noalias ptr @wmem_list_new(ptr noundef %1) #7
+  %5 = tail call noalias ptr @wmem_list_new(ptr noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   tail call fastcc void @wmem_itree_find_intervals_in_subtree(ptr noundef %7, i64 %2, i64 %3, ptr noundef %5)
   ret ptr %5
 }
 
+; Function Attrs: null_pointer_is_valid
 declare noalias ptr @wmem_list_new(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @wmem_itree_find_intervals_in_subtree(ptr noundef readonly captures(address_is_null) %0, i64 %.0.val, i64 %.8.val, ptr noundef %1) unnamed_addr #1 {
   %.not3 = icmp eq ptr %0, null
   br i1 %.not3, label %._crit_edge, label %.lr.ph
@@ -321,7 +326,7 @@ wmem_itree_range_overlap.exit:                    ; preds = %8
 12:                                               ; preds = %wmem_itree_range_overlap.exit
   %13 = getelementptr inbounds nuw i8, ptr %.tr4, i64 32
   %14 = load ptr, ptr %13, align 8
-  tail call void @wmem_list_prepend(ptr noundef %1, ptr noundef %14) #7
+  tail call void @wmem_list_prepend(ptr noundef %1, ptr noundef %14)
   br label %wmem_itree_range_overlap.exit.thread
 
 wmem_itree_range_overlap.exit.thread:             ; preds = %8, %12, %wmem_itree_range_overlap.exit
@@ -337,16 +342,17 @@ wmem_itree_range_overlap.exit.thread:             ; preds = %8, %12, %wmem_itree
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @wmem_print_itree(ptr noundef %0) local_unnamed_addr #1 {
-  tail call void @wmem_print_tree(ptr noundef %0, ptr noundef nonnull @print_range, ptr noundef null) #7
+  tail call void @wmem_print_tree(ptr noundef %0, ptr noundef nonnull @print_range, ptr noundef null)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @wmem_print_tree(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nofree nounwind uwtable
-define internal void @print_range(ptr noundef readonly captures(address_is_null) %0) #4 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal void @print_range(ptr noundef readonly captures(address_is_null) %0) #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %2
 
@@ -356,36 +362,38 @@ define internal void @print_range(ptr noundef readonly captures(address_is_null)
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
-  %8 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i64 noundef %3, i64 noundef %5, i64 noundef %7)
+  %8 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str, i64 noundef %3, i64 noundef %5, i64 noundef %7)
   br label %9
 
 9:                                                ; preds = %1, %2
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @wmem_list_prepend(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #5
+; Function Attrs: null_pointer_is_valid
+declare i32 @__printf_chk(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #6
+declare i64 @llvm.umax.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ucmp.i32.i64(i64, i64) #6
+declare i32 @llvm.ucmp.i32.i64(i64, i64) #5
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { allocsize(1) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}

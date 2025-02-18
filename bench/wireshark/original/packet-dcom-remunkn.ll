@@ -4,15 +4,15 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
 %struct._e_guid_t = type { i32, i16, i16, [8 x i8] }
-%struct._dcerpc_sub_dissector = type { i16, ptr, ptr, ptr }
 %struct._value_string = type { i32, ptr }
 %struct.remunk_remqueryinterface_call_s = type { i32, ptr }
-%struct._dcerpc_info = type { ptr, i32, i64, i8, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr }
+%struct._dcerpc_info = type { ptr, i32, i64, i8, i8, i8, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, %struct.anon }
+%struct.anon = type { i8, ptr, ptr, ptr, i8 }
 %struct._dcerpc_call_value = type { %struct._e_guid_t, i16, %struct._e_guid_t, i16, i32, %struct.nstime_t, i32, i32, ptr, ptr, ptr, i32 }
 %struct.nstime_t = type { i64, i32 }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon.0, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
-%struct.anon = type { i8, [3 x i8] }
+%struct.anon.0 = type { i8, [3 x i8] }
 
 @proto_register_remunk.hf_remunk_rqi_array = internal global [8 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_remunk_opnum, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_remunk_refs, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_remunk_iids, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_remunk_qiresult, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_remunk_public_refs, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_remunk_reminterfaceref, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_remunk_interface_refs, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_remunk_private_refs, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_remunk_opnum = internal global i32 0, align 4
@@ -54,33 +54,33 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.20 = private unnamed_addr constant [17 x i8] c"IPID-IRemUnknown\00", align 1
 @uuid_remunk = internal global %struct._e_guid_t { i32 305, i16 0, i16 0, [8 x i8] c"\C0\00\00\00\00\00\00F" }, align 4
 @ver_remunk = internal global i16 0, align 2
-@remunk_dissectors = internal global [7 x %struct._dcerpc_sub_dissector] [%struct._dcerpc_sub_dissector { i16 0, ptr @.str.21, ptr null, ptr null }, %struct._dcerpc_sub_dissector { i16 1, ptr @.str.22, ptr null, ptr null }, %struct._dcerpc_sub_dissector { i16 2, ptr @.str.23, ptr null, ptr null }, %struct._dcerpc_sub_dissector { i16 3, ptr @.str.24, ptr @dissect_remunk_remqueryinterface_rqst, ptr @dissect_remunk_remqueryinterface_resp }, %struct._dcerpc_sub_dissector { i16 4, ptr @.str.25, ptr null, ptr null }, %struct._dcerpc_sub_dissector { i16 5, ptr @.str.26, ptr @dissect_remunk_remrelease_rqst, ptr @dissect_dcom_simple_resp }, %struct._dcerpc_sub_dissector zeroinitializer], align 16
 @uuid_remunk2 = internal global %struct._e_guid_t { i32 323, i16 0, i16 0, [8 x i8] c"\C0\00\00\00\00\00\00F" }, align 4
 @ver_remunk2 = internal global i16 0, align 2
-@remunk2_dissectors = internal global [8 x %struct._dcerpc_sub_dissector] [%struct._dcerpc_sub_dissector { i16 0, ptr @.str.21, ptr null, ptr null }, %struct._dcerpc_sub_dissector { i16 1, ptr @.str.22, ptr null, ptr null }, %struct._dcerpc_sub_dissector { i16 2, ptr @.str.23, ptr null, ptr null }, %struct._dcerpc_sub_dissector { i16 3, ptr @.str.24, ptr @dissect_remunk_remqueryinterface_rqst, ptr @dissect_remunk_remqueryinterface_resp }, %struct._dcerpc_sub_dissector { i16 4, ptr @.str.25, ptr null, ptr null }, %struct._dcerpc_sub_dissector { i16 5, ptr @.str.26, ptr @dissect_remunk_remrelease_rqst, ptr @dissect_dcom_simple_resp }, %struct._dcerpc_sub_dissector { i16 6, ptr @.str.38, ptr null, ptr null }, %struct._dcerpc_sub_dissector zeroinitializer], align 16
 @.str.21 = private unnamed_addr constant [15 x i8] c"QueryInterface\00", align 1
 @.str.22 = private unnamed_addr constant [7 x i8] c"AddRef\00", align 1
 @.str.23 = private unnamed_addr constant [8 x i8] c"Release\00", align 1
 @.str.24 = private unnamed_addr constant [18 x i8] c"RemQueryInterface\00", align 1
 @.str.25 = private unnamed_addr constant [10 x i8] c"RemAddRef\00", align 1
 @.str.26 = private unnamed_addr constant [11 x i8] c"RemRelease\00", align 1
+@remunk_dissectors = internal constant [7 x { i16, [6 x i8], ptr, ptr, ptr }] [{ i16, [6 x i8], ptr, ptr, ptr } { i16 0, [6 x i8] zeroinitializer, ptr @.str.21, ptr null, ptr null }, { i16, [6 x i8], ptr, ptr, ptr } { i16 1, [6 x i8] zeroinitializer, ptr @.str.22, ptr null, ptr null }, { i16, [6 x i8], ptr, ptr, ptr } { i16 2, [6 x i8] zeroinitializer, ptr @.str.23, ptr null, ptr null }, { i16, [6 x i8], ptr, ptr, ptr } { i16 3, [6 x i8] zeroinitializer, ptr @.str.24, ptr @dissect_remunk_remqueryinterface_rqst, ptr @dissect_remunk_remqueryinterface_resp }, { i16, [6 x i8], ptr, ptr, ptr } { i16 4, [6 x i8] zeroinitializer, ptr @.str.25, ptr null, ptr null }, { i16, [6 x i8], ptr, ptr, ptr } { i16 5, [6 x i8] zeroinitializer, ptr @.str.26, ptr @dissect_remunk_remrelease_rqst, ptr @dissect_dcom_simple_resp }, { i16, [6 x i8], ptr, ptr, ptr } zeroinitializer], align 16
 @hf_dcom_ipid = external global i32, align 4
 @hf_dcom_iid = external global i32, align 4
-@.str.27 = private unnamed_addr constant [9 x i8] c"[%u]: %s\00", align 1
+@.str.28 = private unnamed_addr constant [9 x i8] c"[%u]: %s\00", align 1
 @dcom_hresult_vals = external constant [0 x %struct._value_string], align 8
-@.str.28 = private unnamed_addr constant [17 x i8] c"Unknown (0x%08x)\00", align 1
-@.str.29 = private unnamed_addr constant [8 x i8] c" %s[%u]\00", align 1
-@.str.30 = private unnamed_addr constant [7 x i8] c" -> %s\00", align 1
-@.str.31 = private unnamed_addr constant [14 x i8] c" Cnt=%u Refs=\00", align 1
-@.str.32 = private unnamed_addr constant [7 x i8] c" Cnt=0\00", align 1
-@.str.33 = private unnamed_addr constant [45 x i8] c"[%u]: IPID=%s, PublicRefs=%u, PrivateRefs=%u\00", align 1
-@.str.34 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
-@.str.35 = private unnamed_addr constant [6 x i8] c"%u-%u\00", align 1
-@.str.36 = private unnamed_addr constant [7 x i8] c",%u-%u\00", align 1
-@.str.37 = private unnamed_addr constant [5 x i8] c",...\00", align 1
-@.str.38 = private unnamed_addr constant [19 x i8] c"RemQueryInterface2\00", align 1
+@.str.29 = private unnamed_addr constant [17 x i8] c"Unknown (0x%08x)\00", align 1
+@.str.30 = private unnamed_addr constant [8 x i8] c" %s[%u]\00", align 1
+@.str.31 = private unnamed_addr constant [7 x i8] c" -> %s\00", align 1
+@.str.32 = private unnamed_addr constant [14 x i8] c" Cnt=%u Refs=\00", align 1
+@.str.33 = private unnamed_addr constant [7 x i8] c" Cnt=0\00", align 1
+@.str.34 = private unnamed_addr constant [45 x i8] c"[%u]: IPID=%s, PublicRefs=%u, PrivateRefs=%u\00", align 1
+@.str.35 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@.str.36 = private unnamed_addr constant [6 x i8] c"%u-%u\00", align 1
+@.str.37 = private unnamed_addr constant [7 x i8] c",%u-%u\00", align 1
+@.str.38 = private unnamed_addr constant [5 x i8] c",...\00", align 1
+@.str.39 = private unnamed_addr constant [19 x i8] c"RemQueryInterface2\00", align 1
+@remunk2_dissectors = internal constant [8 x { i16, [6 x i8], ptr, ptr, ptr }] [{ i16, [6 x i8], ptr, ptr, ptr } { i16 0, [6 x i8] zeroinitializer, ptr @.str.21, ptr null, ptr null }, { i16, [6 x i8], ptr, ptr, ptr } { i16 1, [6 x i8] zeroinitializer, ptr @.str.22, ptr null, ptr null }, { i16, [6 x i8], ptr, ptr, ptr } { i16 2, [6 x i8] zeroinitializer, ptr @.str.23, ptr null, ptr null }, { i16, [6 x i8], ptr, ptr, ptr } { i16 3, [6 x i8] zeroinitializer, ptr @.str.24, ptr @dissect_remunk_remqueryinterface_rqst, ptr @dissect_remunk_remqueryinterface_resp }, { i16, [6 x i8], ptr, ptr, ptr } { i16 4, [6 x i8] zeroinitializer, ptr @.str.25, ptr null, ptr null }, { i16, [6 x i8], ptr, ptr, ptr } { i16 5, [6 x i8] zeroinitializer, ptr @.str.26, ptr @dissect_remunk_remrelease_rqst, ptr @dissect_dcom_simple_resp }, { i16, [6 x i8], ptr, ptr, ptr } { i16 6, [6 x i8] zeroinitializer, ptr @.str.39, ptr null, ptr null }, { i16, [6 x i8], ptr, ptr, ptr } zeroinitializer], align 16
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_remunk() #0 {
   %1 = call i32 @proto_register_protocol(ptr noundef @.str.16, ptr noundef @.str.16, ptr noundef @.str.17)
   store i32 %1, ptr @proto_remunk, align 4
@@ -92,13 +92,16 @@ define hidden void @proto_register_remunk() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_remunk() #0 {
   call void @guids_add_guid(ptr noundef @ipid_remunk, ptr noundef @.str.20)
   %1 = load i32, ptr @proto_remunk, align 4
@@ -114,11 +117,13 @@ define hidden void @proto_reg_handoff_remunk() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @guids_add_guid(ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @dcerpc_init_uuid(i32 noundef, i32 noundef, ptr noundef, i16 noundef zeroext, ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_remunk_remqueryinterface_rqst(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -139,6 +144,13 @@ define internal i32 @dissect_remunk_remqueryinterface_rqst(ptr noundef %0, i32 n
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %13) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #6
+  call void @llvm.lifetime.start.p0(i64 2, ptr %15) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #6
+  call void @llvm.lifetime.start.p0(i64 16, ptr %18) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #6
   %20 = load ptr, ptr %7, align 8
   %21 = load i32, ptr %8, align 4
   %22 = load ptr, ptr %9, align 8
@@ -192,22 +204,22 @@ define internal i32 @dissect_remunk_remqueryinterface_rqst(ptr noundef %0, i32 n
   %63 = zext i32 %62 to i64
   %64 = mul i64 %63, 16
   %65 = add i64 16, %64
-  %66 = call noalias ptr @wmem_alloc0(ptr noundef %61, i64 noundef %65)
+  %66 = call noalias ptr @wmem_alloc0(ptr noundef %61, i64 noundef %65) #7
   store ptr %66, ptr %19, align 8
   %67 = load i32, ptr %16, align 4
   %68 = load ptr, ptr %19, align 8
-  %69 = getelementptr inbounds %struct.remunk_remqueryinterface_call_s, ptr %68, i32 0, i32 0
+  %69 = getelementptr inbounds nuw %struct.remunk_remqueryinterface_call_s, ptr %68, i32 0, i32 0
   store i32 %67, ptr %69, align 8
   %70 = load ptr, ptr %19, align 8
   %71 = getelementptr %struct.remunk_remqueryinterface_call_s, ptr %70, i64 1
   %72 = load ptr, ptr %19, align 8
-  %73 = getelementptr inbounds %struct.remunk_remqueryinterface_call_s, ptr %72, i32 0, i32 1
+  %73 = getelementptr inbounds nuw %struct.remunk_remqueryinterface_call_s, ptr %72, i32 0, i32 1
   store ptr %71, ptr %73, align 8
   %74 = load ptr, ptr %19, align 8
   %75 = load ptr, ptr %11, align 8
-  %76 = getelementptr inbounds %struct._dcerpc_info, ptr %75, i32 0, i32 14
+  %76 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %75, i32 0, i32 14
   %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds %struct._dcerpc_call_value, ptr %77, i32 0, i32 9
+  %78 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %77, i32 0, i32 9
   store ptr %74, ptr %78, align 8
   br label %80
 
@@ -244,7 +256,7 @@ define internal i32 @dissect_remunk_remqueryinterface_rqst(ptr noundef %0, i32 n
 
 98:                                               ; preds = %85
   %99 = load ptr, ptr %19, align 8
-  %100 = getelementptr inbounds %struct.remunk_remqueryinterface_call_s, ptr %99, i32 0, i32 1
+  %100 = getelementptr inbounds nuw %struct.remunk_remqueryinterface_call_s, ptr %99, i32 0, i32 1
   %101 = load ptr, ptr %100, align 8
   %102 = load i32, ptr %17, align 4
   %103 = zext i32 %102 to i64
@@ -259,14 +271,21 @@ define internal i32 @dissect_remunk_remqueryinterface_rqst(ptr noundef %0, i32 n
   %107 = load i32, ptr %17, align 4
   %108 = add i32 %107, 1
   store i32 %108, ptr %17, align 4
-  br label %81, !llvm.loop !4
+  br label %81, !llvm.loop !6
 
 109:                                              ; preds = %81
   %110 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #6
+  call void @llvm.lifetime.end.p0(i64 16, ptr %18) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 2, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 16, ptr %13) #6
   ret i32 %110
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_remunk_remqueryinterface_resp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -293,13 +312,26 @@ define internal i32 @dissect_remunk_remqueryinterface_resp(ptr noundef %0, i32 n
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #6
+  call void @llvm.lifetime.start.p0(i64 16, ptr %20) #6
+  call void @llvm.lifetime.start.p0(i64 16, ptr %21) #6
   call void @llvm.memset.p0.i64(ptr align 4 %21, i8 0, i64 16, i1 false)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #6
   %26 = load ptr, ptr %11, align 8
-  %27 = getelementptr inbounds %struct._dcerpc_info, ptr %26, i32 0, i32 14
+  %27 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %26, i32 0, i32 14
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds %struct._dcerpc_call_value, ptr %28, i32 0, i32 9
+  %29 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %28, i32 0, i32 9
   %30 = load ptr, ptr %29, align 8
   store ptr %30, ptr %22, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #6
+  call void @llvm.lifetime.start.p0(i64 16, ptr %25) #6
   %31 = load ptr, ptr %7, align 8
   %32 = load i32, ptr %8, align 4
   %33 = load ptr, ptr %9, align 8
@@ -371,14 +403,14 @@ define internal i32 @dissect_remunk_remqueryinterface_resp(ptr noundef %0, i32 n
 83:                                               ; preds = %56
   %84 = load i32, ptr %15, align 4
   %85 = load ptr, ptr %22, align 8
-  %86 = getelementptr inbounds %struct.remunk_remqueryinterface_call_s, ptr %85, i32 0, i32 0
+  %86 = getelementptr inbounds nuw %struct.remunk_remqueryinterface_call_s, ptr %85, i32 0, i32 0
   %87 = load i32, ptr %86, align 8
   %88 = icmp ule i32 %84, %87
   br i1 %88, label %89, label %97
 
 89:                                               ; preds = %83
   %90 = load ptr, ptr %22, align 8
-  %91 = getelementptr inbounds %struct.remunk_remqueryinterface_call_s, ptr %90, i32 0, i32 1
+  %91 = getelementptr inbounds nuw %struct.remunk_remqueryinterface_call_s, ptr %90, i32 0, i32 1
   %92 = load ptr, ptr %91, align 8
   %93 = load i32, ptr %15, align 4
   %94 = sub i32 %93, 1
@@ -401,8 +433,8 @@ define internal i32 @dissect_remunk_remqueryinterface_resp(ptr noundef %0, i32 n
   %105 = call i32 @dissect_dcom_STDOBJREF(ptr noundef %99, i32 noundef %100, ptr noundef %101, ptr noundef %102, ptr noundef %103, ptr noundef %104, i32 noundef 0, ptr noundef %23, ptr noundef %24, ptr noundef %25)
   store i32 %105, ptr %8, align 4
   %106 = load ptr, ptr %9, align 8
-  %107 = getelementptr inbounds %struct._packet_info, ptr %106, i32 0, i32 14
-  %108 = getelementptr inbounds %struct._address, ptr %107, i32 0, i32 0
+  %107 = getelementptr inbounds nuw %struct._packet_info, ptr %106, i32 0, i32 14
+  %108 = getelementptr inbounds nuw %struct._address, ptr %107, i32 0, i32 0
   %109 = load i32, ptr %108, align 8
   %110 = icmp eq i32 %109, 2
   br i1 %110, label %111, label %118
@@ -410,7 +442,7 @@ define internal i32 @dissect_remunk_remqueryinterface_resp(ptr noundef %0, i32 n
 111:                                              ; preds = %98
   %112 = load ptr, ptr %9, align 8
   %113 = load ptr, ptr %9, align 8
-  %114 = getelementptr inbounds %struct._packet_info, ptr %113, i32 0, i32 14
+  %114 = getelementptr inbounds nuw %struct._packet_info, ptr %113, i32 0, i32 14
   %115 = load i64, ptr %23, align 8
   %116 = load i64, ptr %24, align 8
   %117 = call ptr @dcom_interface_new(ptr noundef %112, ptr noundef %114, ptr noundef %20, i64 noundef %115, i64 noundef %116, ptr noundef %25)
@@ -420,24 +452,24 @@ define internal i32 @dissect_remunk_remqueryinterface_resp(ptr noundef %0, i32 n
   %119 = load ptr, ptr %16, align 8
   %120 = load i32, ptr %15, align 4
   %121 = load i32, ptr %18, align 4
-  %122 = call ptr @val_to_str(i32 noundef %121, ptr noundef @dcom_hresult_vals, ptr noundef @.str.28)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %119, ptr noundef @.str.27, i32 noundef %120, ptr noundef %122)
+  %122 = call ptr @val_to_str(i32 noundef %121, ptr noundef @dcom_hresult_vals, ptr noundef @.str.29)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %119, ptr noundef @.str.28, i32 noundef %120, ptr noundef %122)
   %123 = load ptr, ptr %16, align 8
   %124 = load i32, ptr %8, align 4
   %125 = load i32, ptr %19, align 4
   %126 = sub i32 %124, %125
   call void @proto_item_set_len(ptr noundef %123, i32 noundef %126)
   %127 = load ptr, ptr %9, align 8
-  %128 = getelementptr inbounds %struct._packet_info, ptr %127, i32 0, i32 1
+  %128 = getelementptr inbounds nuw %struct._packet_info, ptr %127, i32 0, i32 1
   %129 = load ptr, ptr %128, align 8
   %130 = load i32, ptr %18, align 4
-  %131 = call ptr @val_to_str(i32 noundef %130, ptr noundef @dcom_hresult_vals, ptr noundef @.str.28)
+  %131 = call ptr @val_to_str(i32 noundef %130, ptr noundef @dcom_hresult_vals, ptr noundef @.str.29)
   %132 = load i32, ptr %15, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %129, i32 noundef 25, ptr noundef @.str.29, ptr noundef %131, i32 noundef %132)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %129, i32 noundef 25, ptr noundef @.str.30, ptr noundef %131, i32 noundef %132)
   %133 = load i32, ptr %15, align 4
   %134 = add i32 %133, 1
   store i32 %134, ptr %15, align 4
-  br label %52, !llvm.loop !6
+  br label %52, !llvm.loop !8
 
 135:                                              ; preds = %52
   %136 = load ptr, ptr %7, align 8
@@ -449,16 +481,29 @@ define internal i32 @dissect_remunk_remqueryinterface_resp(ptr noundef %0, i32 n
   %142 = call i32 @dissect_dcom_HRESULT(ptr noundef %136, i32 noundef %137, ptr noundef %138, ptr noundef %139, ptr noundef %140, ptr noundef %141, ptr noundef %18)
   store i32 %142, ptr %8, align 4
   %143 = load ptr, ptr %9, align 8
-  %144 = getelementptr inbounds %struct._packet_info, ptr %143, i32 0, i32 1
+  %144 = getelementptr inbounds nuw %struct._packet_info, ptr %143, i32 0, i32 1
   %145 = load ptr, ptr %144, align 8
   %146 = load i32, ptr %18, align 4
-  %147 = call ptr @val_to_str(i32 noundef %146, ptr noundef @dcom_hresult_vals, ptr noundef @.str.28)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %145, i32 noundef 25, ptr noundef @.str.30, ptr noundef %147)
+  %147 = call ptr @val_to_str(i32 noundef %146, ptr noundef @dcom_hresult_vals, ptr noundef @.str.29)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %145, i32 noundef 25, ptr noundef @.str.31, ptr noundef %147)
   %148 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %25) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #6
+  call void @llvm.lifetime.end.p0(i64 16, ptr %21) #6
+  call void @llvm.lifetime.end.p0(i64 16, ptr %20) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #6
   ret i32 %148
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_remunk_remrelease_rqst(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -482,6 +527,16 @@ define internal i32 @dissect_remunk_remrelease_rqst(ptr noundef %0, i32 noundef 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #6
+  call void @llvm.lifetime.start.p0(i64 16, ptr %16) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #6
   %23 = load ptr, ptr %7, align 8
   %24 = load i32, ptr %8, align 4
   %25 = load ptr, ptr %9, align 8
@@ -513,17 +568,17 @@ define internal i32 @dissect_remunk_remrelease_rqst(ptr noundef %0, i32 noundef 
 
 47:                                               ; preds = %6
   %48 = load ptr, ptr %9, align 8
-  %49 = getelementptr inbounds %struct._packet_info, ptr %48, i32 0, i32 1
+  %49 = getelementptr inbounds nuw %struct._packet_info, ptr %48, i32 0, i32 1
   %50 = load ptr, ptr %49, align 8
   %51 = load i32, ptr %14, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %50, i32 noundef 25, ptr noundef @.str.31, i32 noundef %51)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %50, i32 noundef 25, ptr noundef @.str.32, i32 noundef %51)
   br label %56
 
 52:                                               ; preds = %6
   %53 = load ptr, ptr %9, align 8
-  %54 = getelementptr inbounds %struct._packet_info, ptr %53, i32 0, i32 1
+  %54 = getelementptr inbounds nuw %struct._packet_info, ptr %53, i32 0, i32 1
   %55 = load ptr, ptr %54, align 8
-  call void @col_append_str(ptr noundef %55, i32 noundef 25, ptr noundef @.str.32)
+  call void @col_append_str(ptr noundef %55, i32 noundef 25, ptr noundef @.str.33)
   br label %56
 
 56:                                               ; preds = %52, %47
@@ -580,24 +635,24 @@ define internal i32 @dissect_remunk_remrelease_rqst(ptr noundef %0, i32 noundef 
   %95 = load ptr, ptr %20, align 8
   %96 = load i32, ptr %15, align 4
   %97 = load ptr, ptr %9, align 8
-  %98 = getelementptr inbounds %struct._packet_info, ptr %97, i32 0, i32 50
+  %98 = getelementptr inbounds nuw %struct._packet_info, ptr %97, i32 0, i32 51
   %99 = load ptr, ptr %98, align 8
   %100 = call ptr @guids_resolve_guid_to_str(ptr noundef %16, ptr noundef %99)
   %101 = load i32, ptr %17, align 4
   %102 = load i32, ptr %18, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %95, ptr noundef @.str.33, i32 noundef %96, ptr noundef %100, i32 noundef %101, i32 noundef %102)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %95, ptr noundef @.str.34, i32 noundef %96, ptr noundef %100, i32 noundef %101, i32 noundef %102)
   %103 = load ptr, ptr %20, align 8
   %104 = load i32, ptr %8, align 4
   %105 = load i32, ptr %22, align 4
   %106 = sub i32 %104, %105
   call void @proto_item_set_len(ptr noundef %103, i32 noundef %106)
-  store ptr @.str.34, ptr %19, align 8
+  store ptr @.str.35, ptr %19, align 8
   %107 = load i32, ptr %15, align 4
   %108 = icmp eq i32 %107, 1
   br i1 %108, label %109, label %110
 
 109:                                              ; preds = %61
-  store ptr @.str.35, ptr %19, align 8
+  store ptr @.str.36, ptr %19, align 8
   br label %120
 
 110:                                              ; preds = %61
@@ -606,7 +661,7 @@ define internal i32 @dissect_remunk_remrelease_rqst(ptr noundef %0, i32 noundef 
   br i1 %112, label %113, label %114
 
 113:                                              ; preds = %110
-  store ptr @.str.36, ptr %19, align 8
+  store ptr @.str.37, ptr %19, align 8
   br label %119
 
 114:                                              ; preds = %110
@@ -615,7 +670,7 @@ define internal i32 @dissect_remunk_remrelease_rqst(ptr noundef %0, i32 noundef 
   br i1 %116, label %117, label %118
 
 117:                                              ; preds = %114
-  store ptr @.str.37, ptr %19, align 8
+  store ptr @.str.38, ptr %19, align 8
   br label %118
 
 118:                                              ; preds = %117, %114
@@ -626,7 +681,7 @@ define internal i32 @dissect_remunk_remrelease_rqst(ptr noundef %0, i32 noundef 
 
 120:                                              ; preds = %119, %109
   %121 = load ptr, ptr %9, align 8
-  %122 = getelementptr inbounds %struct._packet_info, ptr %121, i32 0, i32 1
+  %122 = getelementptr inbounds nuw %struct._packet_info, ptr %121, i32 0, i32 1
   %123 = load ptr, ptr %122, align 8
   %124 = load ptr, ptr %19, align 8
   %125 = load i32, ptr %17, align 4
@@ -635,75 +690,119 @@ define internal i32 @dissect_remunk_remrelease_rqst(ptr noundef %0, i32 noundef 
   %127 = load i32, ptr %15, align 4
   %128 = add i32 %127, 1
   store i32 %128, ptr %15, align 4
-  br label %57, !llvm.loop !7
+  br label %57, !llvm.loop !9
 
 129:                                              ; preds = %57
   %130 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #6
+  call void @llvm.lifetime.end.p0(i64 16, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #6
   ret i32 %130
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_dcom_simple_resp(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_dcom_this(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_dcom_UUID(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_ndr_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_ndr_uint16(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_dcom_dcerpc_array_size(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
-declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) #1
+; Function Attrs: null_pointer_is_valid allocsize(1)
+declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) #3
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_file_scope() #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_dcom_append_UUID(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_dcom_that(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_dcom_dcerpc_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_dcom_HRESULT(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_dcom_STDOBJREF(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @dcom_interface_new(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_item_set_len(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @guids_resolve_guid_to_str(ptr noundef, ptr noundef) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nounwind }
+attributes #7 = { allocsize(1) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

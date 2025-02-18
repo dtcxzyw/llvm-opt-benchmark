@@ -5,10 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
-%struct._value_string = type { i32, ptr }
 
 @.str = private unnamed_addr constant [9 x i8] c"tcp.port\00", align 1
 @netrix_handle = internal unnamed_addr global ptr null, align 8
@@ -107,7 +104,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.59 = private unnamed_addr constant [34 x i8] c"netrix.searchconversiontables.key\00", align 1
 @hf_netrix_search_conversiontables_table_type = internal global i32 0, align 4
 @.str.60 = private unnamed_addr constant [36 x i8] c"netrix.searchconversiontables.table\00", align 1
-@proto_register_netrix.ei = internal global [2 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_netrix_unexpected_header, %struct.expert_field_info { ptr @.str.61, i32 117440512, i32 6291456, ptr @.str.62, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_netrix_unexpected_record, %struct.expert_field_info { ptr @.str.63, i32 117440512, i32 6291456, ptr @.str.64, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_netrix.ei = internal global [2 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_netrix_unexpected_header, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.61, i32 117440512, i32 6291456, ptr @.str.62, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_netrix_unexpected_record, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.63, i32 117440512, i32 6291456, ptr @.str.64, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_netrix_unexpected_header = internal global %struct.expert_field zeroinitializer, align 4
 @.str.61 = private unnamed_addr constant [25 x i8] c"netrix.unexpected.header\00", align 1
 @.str.62 = private unnamed_addr constant [18 x i8] c"Unexpected header\00", align 1
@@ -142,7 +139,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.78 = private unnamed_addr constant [21 x i8] c"Unexpected header %d\00", align 1
 @.str.79 = private unnamed_addr constant [3 x i8] c"%d\00", align 1
 @.str.80 = private unnamed_addr constant [4 x i8] c"%s:\00", align 1
-@netrix_headertypenames = internal constant [9 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.3 }, %struct._value_string { i32 10, ptr @.str.95 }, %struct._value_string { i32 15, ptr @.str.96 }, %struct._value_string { i32 35, ptr @.str.97 }, %struct._value_string { i32 35999, ptr @.str.98 }, %struct._value_string { i32 36, ptr @.str.99 }, %struct._value_string { i32 36999, ptr @.str.100 }, %struct._value_string { i32 105, ptr @.str.101 }, %struct._value_string zeroinitializer], align 16
 @.str.81 = private unnamed_addr constant [13 x i8] c"Unknown (%d)\00", align 1
 @.str.82 = private unnamed_addr constant [17 x i8] c" Computername=%s\00", align 1
 @.str.83 = private unnamed_addr constant [15 x i8] c" IP Address=%s\00", align 1
@@ -164,115 +160,130 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.99 = private unnamed_addr constant [24 x i8] c"Search Conversiontables\00", align 1
 @.str.100 = private unnamed_addr constant [37 x i8] c"Search Conversiontables - No Results\00", align 1
 @.str.101 = private unnamed_addr constant [11 x i8] c"Bosch Call\00", align 1
+@netrix_headertypenames = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.3 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.95 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.96 }, { i32, [4 x i8], ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.97 }, { i32, [4 x i8], ptr } { i32 35999, [4 x i8] zeroinitializer, ptr @.str.98 }, { i32, [4 x i8], ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.99 }, { i32, [4 x i8], ptr } { i32 36999, [4 x i8] zeroinitializer, ptr @.str.100 }, { i32, [4 x i8], ptr } { i32 105, [4 x i8] zeroinitializer, ptr @.str.101 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_netrix() local_unnamed_addr #0 {
   %1 = load ptr, ptr @netrix_handle, align 8
-  tail call void @dissector_add_for_decode_as(ptr noundef nonnull @.str, ptr noundef %1) #2
+  tail call void @dissector_add_for_decode_as(ptr noundef nonnull @.str, ptr noundef %1)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_for_decode_as(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_netrix() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.67) #2
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.67)
   store i32 %1, ptr @proto_netrix, align 4
-  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_netrix.hf, i32 noundef 34) #2
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_netrix.ett, i32 noundef 10) #2
+  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_netrix.hf, i32 noundef 34)
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_netrix.ett, i32 noundef 10)
   %2 = load i32, ptr @proto_netrix, align 4
-  %3 = tail call ptr @expert_register_protocol(i32 noundef %2) #2
-  tail call void @expert_register_field_array(ptr noundef %3, ptr noundef nonnull @proto_register_netrix.ei, i32 noundef 2) #2
+  %3 = tail call ptr @expert_register_protocol(i32 noundef %2)
+  tail call void @expert_register_field_array(ptr noundef %3, ptr noundef nonnull @proto_register_netrix.ei, i32 noundef 2)
   %4 = load i32, ptr @proto_netrix, align 4
-  %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.67, ptr noundef nonnull @dissect_netrix, i32 noundef %4) #2
+  %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.67, ptr noundef nonnull @dissect_netrix, i32 noundef %4)
   store ptr %5, ptr @netrix_handle, align 8
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_netrix(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #2
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #3
+  %9 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %10 = icmp eq i8 %9, 6
   br i1 %10, label %11, label %25
 
 11:                                               ; preds = %4
-  %12 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
+  %12 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %13 = icmp eq i32 %12, 1
   br i1 %13, label %14, label %25
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
-  tail call void @col_set_str(ptr noundef %16, i32 noundef 34, ptr noundef nonnull @.str.66) #2
+  tail call void @col_set_str(ptr noundef %16, i32 noundef 35, ptr noundef nonnull @.str.66)
   %17 = load ptr, ptr %15, align 8
-  tail call void @col_clear(ptr noundef %17, i32 noundef 25) #2
+  tail call void @col_clear(ptr noundef %17, i32 noundef 25)
   %18 = load i32, ptr @proto_netrix, align 4
-  %19 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %18, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
+  %19 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %18, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %20 = load i32, ptr @ett_netrix, align 4
-  %21 = tail call ptr @proto_item_add_subtree(ptr noundef %19, i32 noundef %20) #2
+  %21 = tail call ptr @proto_item_add_subtree(ptr noundef %19, i32 noundef %20)
   %22 = load ptr, ptr %15, align 8
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %22, i32 noundef 25, ptr noundef nonnull @.str.21) #2
+  tail call void @col_set_str(ptr noundef %22, i32 noundef 25, ptr noundef nonnull @.str.21)
   %23 = load i32, ptr @hf_netrix_ack_type, align 4
-  %24 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %23, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #2
+  %24 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %23, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   br label %270
 
 25:                                               ; preds = %11, %4
-  %26 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #2
+  %26 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %.not = icmp eq i8 %26, 1
   br i1 %.not, label %27, label %270
 
 27:                                               ; preds = %25
-  %28 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
-  %29 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
+  %28 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  %29 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %30 = icmp eq i32 %28, %29
   br i1 %30, label %31, label %39
 
 31:                                               ; preds = %27
-  %32 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
+  %32 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %33 = add i32 %32, -1
-  %34 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %33) #2
+  %34 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %33)
   %.not333 = icmp eq i8 %34, 3
   br i1 %.not333, label %39, label %35
 
 35:                                               ; preds = %31
-  %36 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
+  %36 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %37 = add i32 %36, -1
-  %38 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %37) #2
+  %38 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %37)
   %.not334 = icmp eq i8 %38, 4
   br i1 %.not334, label %39, label %270
 
 39:                                               ; preds = %35, %31, %27
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = load ptr, ptr %40, align 8
-  tail call void @col_set_str(ptr noundef %41, i32 noundef 34, ptr noundef nonnull @.str.66) #2
+  tail call void @col_set_str(ptr noundef %41, i32 noundef 35, ptr noundef nonnull @.str.66)
   %42 = load ptr, ptr %40, align 8
-  tail call void @col_clear(ptr noundef %42, i32 noundef 25) #2
+  tail call void @col_clear(ptr noundef %42, i32 noundef 25)
   %43 = load i32, ptr @proto_netrix, align 4
-  %44 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %43, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
+  %44 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %43, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %45 = load i32, ptr @ett_netrix, align 4
-  %46 = tail call ptr @proto_item_add_subtree(ptr noundef %44, i32 noundef %45) #2
-  %47 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef 1, i32 noundef -1, i8 noundef zeroext 2) #2
+  %46 = tail call ptr @proto_item_add_subtree(ptr noundef %44, i32 noundef %45)
+  %47 = tail call i32 @tvb_find_uint8(ptr noundef %0, i32 noundef 1, i32 noundef -1, i8 noundef zeroext 2)
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %49 = load ptr, ptr %48, align 8
   %50 = add i32 %47, -1
-  %51 = tail call ptr @tvb_get_string_enc(ptr noundef %49, ptr noundef %0, i32 noundef 1, i32 noundef %50, i32 noundef 0) #2
-  %52 = call zeroext i1 @ws_strtoi32(ptr noundef %51, ptr noundef null, ptr noundef nonnull %5) #2
+  %51 = tail call ptr @tvb_get_string_enc(ptr noundef %49, ptr noundef %0, i32 noundef 1, i32 noundef %50, i32 noundef 0)
+  %52 = call zeroext i1 @ws_strtoi32(ptr noundef %51, ptr noundef null, ptr noundef nonnull %5)
   br i1 %52, label %53, label %270
 
 53:                                               ; preds = %39
@@ -291,65 +302,65 @@ define internal i32 @dissect_netrix(ptr noundef %0, ptr noundef %1, ptr noundef 
 55:                                               ; preds = %53
   %56 = load i32, ptr @ett_netrix_systeminfo, align 4
   %57 = load i32, ptr @hf_netrix_header_systeminfo_type, align 4
-  %58 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %57, ptr noundef %0, i32 noundef 1, i32 noundef %50, i32 noundef 0) #2
+  %58 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %57, ptr noundef %0, i32 noundef 1, i32 noundef %50, i32 noundef 0)
   %59 = load ptr, ptr %40, align 8
-  call void @col_set_str(ptr noundef %59, i32 noundef 25, ptr noundef nonnull @.str.68) #2
+  call void @col_set_str(ptr noundef %59, i32 noundef 25, ptr noundef nonnull @.str.68)
   br label %122
 
 60:                                               ; preds = %53
   %61 = load i32, ptr @ett_netrix_groupcall, align 4
   %62 = load i32, ptr @hf_netrix_header_groupcall_type, align 4
-  %63 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %62, ptr noundef %0, i32 noundef 1, i32 noundef %50, i32 noundef 0) #2
+  %63 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %62, ptr noundef %0, i32 noundef 1, i32 noundef %50, i32 noundef 0)
   %64 = load ptr, ptr %40, align 8
-  call void @col_set_str(ptr noundef %64, i32 noundef 25, ptr noundef nonnull @.str.69) #2
+  call void @col_set_str(ptr noundef %64, i32 noundef 25, ptr noundef nonnull @.str.69)
   br label %122
 
 65:                                               ; preds = %53
   %66 = load i32, ptr @ett_netrix_profilecall, align 4
   %67 = load i32, ptr @hf_netrix_header_profilecall_type, align 4
-  %68 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %67, ptr noundef %0, i32 noundef 1, i32 noundef %50, i32 noundef 0) #2
+  %68 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %67, ptr noundef %0, i32 noundef 1, i32 noundef %50, i32 noundef 0)
   %69 = load ptr, ptr %40, align 8
-  call void @col_set_str(ptr noundef %69, i32 noundef 25, ptr noundef nonnull @.str.70) #2
+  call void @col_set_str(ptr noundef %69, i32 noundef 25, ptr noundef nonnull @.str.70)
   br label %122
 
 70:                                               ; preds = %53
   %71 = load i32, ptr @ett_netrix_get_conversiontable, align 4
   %72 = load i32, ptr @hf_netrix_header_get_conversiontable_type, align 4
-  %73 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %72, ptr noundef %0, i32 noundef 1, i32 noundef %50, i32 noundef 0) #2
+  %73 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %72, ptr noundef %0, i32 noundef 1, i32 noundef %50, i32 noundef 0)
   %74 = load ptr, ptr %40, align 8
-  call void @col_set_str(ptr noundef %74, i32 noundef 25, ptr noundef nonnull @.str.71) #2
+  call void @col_set_str(ptr noundef %74, i32 noundef 25, ptr noundef nonnull @.str.71)
   br label %122
 
 75:                                               ; preds = %53
   %76 = load i32, ptr @ett_netrix_get_conversiontable_result, align 4
   %77 = load i32, ptr @hf_netrix_header_get_conversiontable_none_type, align 4
-  %78 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %77, ptr noundef %0, i32 noundef 1, i32 noundef %50, i32 noundef 0) #2
+  %78 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %77, ptr noundef %0, i32 noundef 1, i32 noundef %50, i32 noundef 0)
   %79 = load ptr, ptr %40, align 8
-  call void @col_set_str(ptr noundef %79, i32 noundef 25, ptr noundef nonnull @.str.72) #2
+  call void @col_set_str(ptr noundef %79, i32 noundef 25, ptr noundef nonnull @.str.72)
   br label %122
 
 80:                                               ; preds = %53
   %81 = load i32, ptr @ett_netrix_search_conversiontables, align 4
   %82 = load i32, ptr @hf_netrix_header_search_conversiontables_type, align 4
-  %83 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %82, ptr noundef %0, i32 noundef 1, i32 noundef %50, i32 noundef 0) #2
+  %83 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %82, ptr noundef %0, i32 noundef 1, i32 noundef %50, i32 noundef 0)
   %84 = load ptr, ptr %40, align 8
-  call void @col_set_str(ptr noundef %84, i32 noundef 25, ptr noundef nonnull @.str.73) #2
+  call void @col_set_str(ptr noundef %84, i32 noundef 25, ptr noundef nonnull @.str.73)
   br label %122
 
 85:                                               ; preds = %53
   %86 = load i32, ptr @ett_netrix_search_conversiontables_result, align 4
   %87 = load i32, ptr @hf_netrix_header_search_conversiontables_none_type, align 4
-  %88 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %87, ptr noundef %0, i32 noundef 1, i32 noundef %50, i32 noundef 0) #2
+  %88 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %87, ptr noundef %0, i32 noundef 1, i32 noundef %50, i32 noundef 0)
   %89 = load ptr, ptr %40, align 8
-  call void @col_set_str(ptr noundef %89, i32 noundef 25, ptr noundef nonnull @.str.74) #2
+  call void @col_set_str(ptr noundef %89, i32 noundef 25, ptr noundef nonnull @.str.74)
   br label %122
 
 90:                                               ; preds = %53
   %91 = load i32, ptr @ett_netrix_boschcall, align 4
   %92 = load i32, ptr @hf_netrix_header_boschcall_type, align 4
-  %93 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %92, ptr noundef %0, i32 noundef 1, i32 noundef %50, i32 noundef 0) #2
+  %93 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %92, ptr noundef %0, i32 noundef 1, i32 noundef %50, i32 noundef 0)
   %94 = load ptr, ptr %40, align 8
-  call void @col_set_str(ptr noundef %94, i32 noundef 25, ptr noundef nonnull @.str.75) #2
+  call void @col_set_str(ptr noundef %94, i32 noundef 25, ptr noundef nonnull @.str.75)
   br label %122
 
 95:                                               ; preds = %53
@@ -360,11 +371,11 @@ define internal i32 @dissect_netrix(ptr noundef %0, ptr noundef %1, ptr noundef 
 97:                                               ; preds = %95
   %98 = load i32, ptr @ett_netrix_get_conversiontable_result, align 4
   %99 = load i32, ptr @hf_netrix_header_get_conversiontable_result_type, align 4
-  %100 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %99, ptr noundef %0, i32 noundef 1, i32 noundef %50, i32 noundef 0) #2
+  %100 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %99, ptr noundef %0, i32 noundef 1, i32 noundef %50, i32 noundef 0)
   %101 = load ptr, ptr %40, align 8
   %102 = load i32, ptr %5, align 4
   %103 = add i32 %102, -35000
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %101, i32 noundef 25, ptr noundef nonnull @.str.76, i32 noundef %103) #2
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %101, i32 noundef 25, ptr noundef nonnull @.str.76, i32 noundef %103)
   br label %122
 
 104:                                              ; preds = %95
@@ -375,46 +386,46 @@ define internal i32 @dissect_netrix(ptr noundef %0, ptr noundef %1, ptr noundef 
 106:                                              ; preds = %104
   %107 = load i32, ptr @ett_netrix_search_conversiontables_result, align 4
   %108 = load i32, ptr @hf_netrix_header_get_conversiontable_result_type, align 4
-  %109 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %108, ptr noundef %0, i32 noundef 1, i32 noundef %50, i32 noundef 0) #2
+  %109 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %108, ptr noundef %0, i32 noundef 1, i32 noundef %50, i32 noundef 0)
   %110 = load ptr, ptr %40, align 8
   %111 = load i32, ptr %5, align 4
   %112 = add i32 %111, -36000
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %110, i32 noundef 25, ptr noundef nonnull @.str.77, i32 noundef %112) #2
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %110, i32 noundef 25, ptr noundef nonnull @.str.77, i32 noundef %112)
   br label %122
 
 113:                                              ; preds = %104
-  %114 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %46, ptr noundef nonnull %1, ptr noundef nonnull @ei_netrix_unexpected_header, ptr noundef %0, i32 noundef 1, i32 noundef %50, ptr noundef nonnull @.str.78, i32 noundef %54) #2
+  %114 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %46, ptr noundef %1, ptr noundef nonnull @ei_netrix_unexpected_header, ptr noundef %0, i32 noundef 1, i32 noundef %50, ptr noundef nonnull @.str.78, i32 noundef %54)
   %115 = load i32, ptr @ett_netrix_unknown, align 4
   %116 = load i32, ptr @hf_netrix_header_type, align 4
   %117 = load i32, ptr %5, align 4
-  %118 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %46, i32 noundef %116, ptr noundef %0, i32 noundef 1, i32 noundef %50, i32 noundef %117, ptr noundef nonnull @.str.79, i32 noundef %117) #2
+  %118 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %46, i32 noundef %116, ptr noundef %0, i32 noundef 1, i32 noundef %50, i32 noundef %117, ptr noundef nonnull @.str.79, i32 noundef %117)
   %119 = load ptr, ptr %40, align 8
   %120 = load i32, ptr %5, align 4
-  %121 = call ptr @val_to_str(i32 noundef %120, ptr noundef nonnull @netrix_headertypenames, ptr noundef nonnull @.str.81) #2
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %119, i32 noundef 25, ptr noundef nonnull @.str.80, ptr noundef %121) #2
+  %121 = call ptr @val_to_str(i32 noundef %120, ptr noundef nonnull @netrix_headertypenames, ptr noundef nonnull @.str.81)
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %119, i32 noundef 25, ptr noundef nonnull @.str.80, ptr noundef %121)
   br label %122
 
 122:                                              ; preds = %97, %113, %106, %90, %85, %80, %75, %70, %65, %60, %55
   %.0329 = phi ptr [ %100, %97 ], [ %109, %106 ], [ %118, %113 ], [ %93, %90 ], [ %88, %85 ], [ %83, %80 ], [ %78, %75 ], [ %73, %70 ], [ %68, %65 ], [ %63, %60 ], [ %58, %55 ]
   %.0328 = phi i32 [ %98, %97 ], [ %107, %106 ], [ %115, %113 ], [ %91, %90 ], [ %86, %85 ], [ %81, %80 ], [ %76, %75 ], [ %71, %70 ], [ %66, %65 ], [ %61, %60 ], [ %56, %55 ]
-  %123 = call ptr @proto_item_add_subtree(ptr noundef %.0329, i32 noundef %.0328) #2
+  %123 = call ptr @proto_item_add_subtree(ptr noundef %.0329, i32 noundef %.0328)
   %.0330336 = add i32 %47, 1
-  %124 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0330336) #2
+  %124 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0330336)
   %.not335337 = icmp eq i8 %124, 3
   br i1 %.not335337, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %122, %267
   %.0330338 = phi i32 [ %.0330, %267 ], [ %.0330336, %122 ]
-  %125 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.0330338, i32 noundef -1, i8 noundef zeroext 31) #2
+  %125 = call i32 @tvb_find_uint8(ptr noundef %0, i32 noundef %.0330338, i32 noundef -1, i8 noundef zeroext 31)
   %126 = load ptr, ptr %48, align 8
   %127 = sub i32 %125, %.0330338
-  %128 = call ptr @tvb_get_string_enc(ptr noundef %126, ptr noundef %0, i32 noundef %.0330338, i32 noundef %127, i32 noundef 0) #2
-  %129 = call zeroext i1 @ws_strtoi32(ptr noundef %128, ptr noundef null, ptr noundef nonnull %6) #2
+  %128 = call ptr @tvb_get_string_enc(ptr noundef %126, ptr noundef %0, i32 noundef %.0330338, i32 noundef %127, i32 noundef 0)
+  %129 = call zeroext i1 @ws_strtoi32(ptr noundef %128, ptr noundef null, ptr noundef nonnull %6)
   %130 = add i32 %125, 1
-  %131 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %130, i32 noundef -1, i8 noundef zeroext 30) #2
+  %131 = call i32 @tvb_find_uint8(ptr noundef %0, i32 noundef %130, i32 noundef -1, i8 noundef zeroext 30)
   %132 = load ptr, ptr %48, align 8
   %133 = sub i32 %131, %130
-  %134 = call ptr @tvb_get_string_enc(ptr noundef %132, ptr noundef %0, i32 noundef %130, i32 noundef %133, i32 noundef 0) #2
+  %134 = call ptr @tvb_get_string_enc(ptr noundef %132, ptr noundef %0, i32 noundef %130, i32 noundef %133, i32 noundef 0)
   %135 = load i32, ptr %5, align 4
   switch i32 %135, label %241 [
     i32 1, label %136
@@ -435,33 +446,33 @@ define internal i32 @dissect_netrix(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 138:                                              ; preds = %136
   %139 = load i32, ptr @hf_netrix_systeminfo_computername_type, align 4
-  %140 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %139, ptr noundef %0, i32 noundef %130, i32 noundef %133, i32 noundef 0) #2
+  %140 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %139, ptr noundef %0, i32 noundef %130, i32 noundef %133, i32 noundef 0)
   %141 = load ptr, ptr %40, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %141, i32 noundef 25, ptr noundef nonnull @.str.82, ptr noundef %134) #2
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %141, i32 noundef 25, ptr noundef nonnull @.str.82, ptr noundef %134)
   br label %267
 
 142:                                              ; preds = %136
   %143 = load i32, ptr @hf_netrix_systeminfo_ipaddress_type, align 4
-  %144 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %143, ptr noundef %0, i32 noundef %130, i32 noundef %133, i32 noundef 0) #2
+  %144 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %143, ptr noundef %0, i32 noundef %130, i32 noundef %133, i32 noundef 0)
   %145 = load ptr, ptr %40, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %145, i32 noundef 25, ptr noundef nonnull @.str.83, ptr noundef %134) #2
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %145, i32 noundef 25, ptr noundef nonnull @.str.83, ptr noundef %134)
   br label %267
 
 146:                                              ; preds = %136
   %147 = load i32, ptr @hf_netrix_systeminfo_version_type, align 4
-  %148 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %147, ptr noundef %0, i32 noundef %130, i32 noundef %133, i32 noundef 0) #2
+  %148 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %147, ptr noundef %0, i32 noundef %130, i32 noundef %133, i32 noundef 0)
   %149 = load ptr, ptr %40, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %149, i32 noundef 25, ptr noundef nonnull @.str.84, ptr noundef %134) #2
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %149, i32 noundef 25, ptr noundef nonnull @.str.84, ptr noundef %134)
   br label %267
 
 150:                                              ; preds = %136
   %151 = load i32, ptr @hf_netrix_systeminfo_beep_type, align 4
-  %152 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %151, ptr noundef %0, i32 noundef %130, i32 noundef %133, i32 noundef 0) #2
+  %152 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %151, ptr noundef %0, i32 noundef %130, i32 noundef %133, i32 noundef 0)
   br label %267
 
 153:                                              ; preds = %136
   %154 = sub i32 %131, %.0330338
-  %155 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %123, ptr noundef nonnull %1, ptr noundef nonnull @ei_netrix_unexpected_record, ptr noundef %0, i32 noundef %.0330338, i32 noundef %154, ptr noundef nonnull @.str.85, i32 noundef %137, ptr noundef %134) #2
+  %155 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %123, ptr noundef %1, ptr noundef nonnull @ei_netrix_unexpected_record, ptr noundef %0, i32 noundef %.0330338, i32 noundef %154, ptr noundef nonnull @.str.85, i32 noundef %137, ptr noundef %134)
   br label %267
 
 156:                                              ; preds = %.lr.ph
@@ -477,57 +488,57 @@ define internal i32 @dissect_netrix(ptr noundef %0, ptr noundef %1, ptr noundef 
   ]
 
 158:                                              ; preds = %156
-  %159 = call zeroext i1 @ws_strtoi32(ptr noundef %134, ptr noundef null, ptr noundef nonnull %7) #2
+  %159 = call zeroext i1 @ws_strtoi32(ptr noundef %134, ptr noundef null, ptr noundef nonnull %7)
   %160 = load i32, ptr @hf_netrix_groupcall_groupnumber_type, align 4
   %161 = sub i32 %131, %.0330338
   %162 = load i32, ptr %7, align 4
-  %163 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %123, i32 noundef %160, ptr noundef %0, i32 noundef %.0330338, i32 noundef %161, i32 noundef %162, ptr noundef nonnull @.str.79, i32 noundef %162) #2
+  %163 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %123, i32 noundef %160, ptr noundef %0, i32 noundef %.0330338, i32 noundef %161, i32 noundef %162, ptr noundef nonnull @.str.79, i32 noundef %162)
   %164 = load ptr, ptr %40, align 8
   %165 = load i32, ptr %7, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %164, i32 noundef 25, ptr noundef nonnull @.str.86, i32 noundef %165) #2
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %164, i32 noundef 25, ptr noundef nonnull @.str.86, i32 noundef %165)
   br label %267
 
 166:                                              ; preds = %156
   %167 = load i32, ptr @hf_netrix_groupcall_type_type, align 4
-  %168 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %167, ptr noundef %0, i32 noundef %130, i32 noundef %133, i32 noundef 0) #2
+  %168 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %167, ptr noundef %0, i32 noundef %130, i32 noundef %133, i32 noundef 0)
   %169 = load ptr, ptr %40, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %169, i32 noundef 25, ptr noundef nonnull @.str.87, ptr noundef %134) #2
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %169, i32 noundef 25, ptr noundef nonnull @.str.87, ptr noundef %134)
   br label %267
 
 170:                                              ; preds = %156
   %171 = load i32, ptr @hf_netrix_groupcall_addition_type, align 4
-  %172 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %171, ptr noundef %0, i32 noundef %130, i32 noundef %133, i32 noundef 0) #2
+  %172 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %171, ptr noundef %0, i32 noundef %130, i32 noundef %133, i32 noundef 0)
   br label %267
 
 173:                                              ; preds = %156
   %174 = load i32, ptr @hf_netrix_groupcall_idboschloc_type, align 4
-  %175 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %174, ptr noundef %0, i32 noundef %130, i32 noundef %133, i32 noundef 0) #2
+  %175 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %174, ptr noundef %0, i32 noundef %130, i32 noundef %133, i32 noundef 0)
   br label %267
 
 176:                                              ; preds = %156
   %177 = load i32, ptr @hf_netrix_groupcall_name_type, align 4
-  %178 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %177, ptr noundef %0, i32 noundef %130, i32 noundef %133, i32 noundef 0) #2
+  %178 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %177, ptr noundef %0, i32 noundef %130, i32 noundef %133, i32 noundef 0)
   %179 = load ptr, ptr %40, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %179, i32 noundef 25, ptr noundef nonnull @.str.88, ptr noundef %134) #2
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %179, i32 noundef 25, ptr noundef nonnull @.str.88, ptr noundef %134)
   br label %267
 
 180:                                              ; preds = %156
   %181 = load i32, ptr @hf_netrix_groupcall_room_type, align 4
-  %182 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %181, ptr noundef %0, i32 noundef %130, i32 noundef %133, i32 noundef 0) #2
+  %182 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %181, ptr noundef %0, i32 noundef %130, i32 noundef %133, i32 noundef 0)
   %183 = load ptr, ptr %40, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %183, i32 noundef 25, ptr noundef nonnull @.str.89, ptr noundef %134) #2
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %183, i32 noundef 25, ptr noundef nonnull @.str.89, ptr noundef %134)
   br label %267
 
 184:                                              ; preds = %156
   %185 = load i32, ptr @hf_netrix_groupcall_location_type, align 4
-  %186 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %185, ptr noundef %0, i32 noundef %130, i32 noundef %133, i32 noundef 0) #2
+  %186 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %185, ptr noundef %0, i32 noundef %130, i32 noundef %133, i32 noundef 0)
   %187 = load ptr, ptr %40, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %187, i32 noundef 25, ptr noundef nonnull @.str.90, ptr noundef %134) #2
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %187, i32 noundef 25, ptr noundef nonnull @.str.90, ptr noundef %134)
   br label %267
 
 188:                                              ; preds = %156
   %189 = sub i32 %131, %.0330338
-  %190 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %123, ptr noundef nonnull %1, ptr noundef nonnull @ei_netrix_unexpected_record, ptr noundef %0, i32 noundef %.0330338, i32 noundef %189, ptr noundef nonnull @.str.85, i32 noundef %157, ptr noundef %134) #2
+  %190 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %123, ptr noundef %1, ptr noundef nonnull @ei_netrix_unexpected_record, ptr noundef %0, i32 noundef %.0330338, i32 noundef %189, ptr noundef nonnull @.str.85, i32 noundef %157, ptr noundef %134)
   br label %267
 
 191:                                              ; preds = %.lr.ph
@@ -543,57 +554,57 @@ define internal i32 @dissect_netrix(ptr noundef %0, ptr noundef %1, ptr noundef 
   ]
 
 193:                                              ; preds = %191
-  %194 = call zeroext i1 @ws_strtoi32(ptr noundef %134, ptr noundef null, ptr noundef nonnull %8) #2
+  %194 = call zeroext i1 @ws_strtoi32(ptr noundef %134, ptr noundef null, ptr noundef nonnull %8)
   %195 = load i32, ptr @hf_netrix_profilecall_groupnumber_type, align 4
   %196 = sub i32 %131, %.0330338
   %197 = load i32, ptr %8, align 4
-  %198 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %123, i32 noundef %195, ptr noundef %0, i32 noundef %.0330338, i32 noundef %196, i32 noundef %197, ptr noundef nonnull @.str.79, i32 noundef %197) #2
+  %198 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %123, i32 noundef %195, ptr noundef %0, i32 noundef %.0330338, i32 noundef %196, i32 noundef %197, ptr noundef nonnull @.str.79, i32 noundef %197)
   %199 = load ptr, ptr %40, align 8
   %200 = load i32, ptr %8, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %199, i32 noundef 25, ptr noundef nonnull @.str.91, i32 noundef %200) #2
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %199, i32 noundef 25, ptr noundef nonnull @.str.91, i32 noundef %200)
   br label %267
 
 201:                                              ; preds = %191
   %202 = load i32, ptr @hf_netrix_profilecall_type_type, align 4
-  %203 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %202, ptr noundef %0, i32 noundef %130, i32 noundef %133, i32 noundef 0) #2
+  %203 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %202, ptr noundef %0, i32 noundef %130, i32 noundef %133, i32 noundef 0)
   %204 = load ptr, ptr %40, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %204, i32 noundef 25, ptr noundef nonnull @.str.87, ptr noundef %134) #2
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %204, i32 noundef 25, ptr noundef nonnull @.str.87, ptr noundef %134)
   br label %267
 
 205:                                              ; preds = %191
   %206 = load i32, ptr @hf_netrix_profilecall_addition_type, align 4
-  %207 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %206, ptr noundef %0, i32 noundef %130, i32 noundef %133, i32 noundef 0) #2
+  %207 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %206, ptr noundef %0, i32 noundef %130, i32 noundef %133, i32 noundef 0)
   br label %267
 
 208:                                              ; preds = %191
   %209 = load i32, ptr @hf_netrix_profilecall_idboschloc_type, align 4
-  %210 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %209, ptr noundef %0, i32 noundef %130, i32 noundef %133, i32 noundef 0) #2
+  %210 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %209, ptr noundef %0, i32 noundef %130, i32 noundef %133, i32 noundef 0)
   br label %267
 
 211:                                              ; preds = %191
   %212 = load i32, ptr @hf_netrix_profilecall_name_type, align 4
-  %213 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %212, ptr noundef %0, i32 noundef %130, i32 noundef %133, i32 noundef 0) #2
+  %213 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %212, ptr noundef %0, i32 noundef %130, i32 noundef %133, i32 noundef 0)
   %214 = load ptr, ptr %40, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %214, i32 noundef 25, ptr noundef nonnull @.str.88, ptr noundef %134) #2
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %214, i32 noundef 25, ptr noundef nonnull @.str.88, ptr noundef %134)
   br label %267
 
 215:                                              ; preds = %191
   %216 = load i32, ptr @hf_netrix_profilecall_room_type, align 4
-  %217 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %216, ptr noundef %0, i32 noundef %130, i32 noundef %133, i32 noundef 0) #2
+  %217 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %216, ptr noundef %0, i32 noundef %130, i32 noundef %133, i32 noundef 0)
   %218 = load ptr, ptr %40, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %218, i32 noundef 25, ptr noundef nonnull @.str.89, ptr noundef %134) #2
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %218, i32 noundef 25, ptr noundef nonnull @.str.89, ptr noundef %134)
   br label %267
 
 219:                                              ; preds = %191
   %220 = load i32, ptr @hf_netrix_profilecall_location_type, align 4
-  %221 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %220, ptr noundef %0, i32 noundef %130, i32 noundef %133, i32 noundef 0) #2
+  %221 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %220, ptr noundef %0, i32 noundef %130, i32 noundef %133, i32 noundef 0)
   %222 = load ptr, ptr %40, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %222, i32 noundef 25, ptr noundef nonnull @.str.90, ptr noundef %134) #2
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %222, i32 noundef 25, ptr noundef nonnull @.str.90, ptr noundef %134)
   br label %267
 
 223:                                              ; preds = %191
   %224 = sub i32 %131, %.0330338
-  %225 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %123, ptr noundef nonnull %1, ptr noundef nonnull @ei_netrix_unexpected_record, ptr noundef %0, i32 noundef %.0330338, i32 noundef %224, ptr noundef nonnull @.str.85, i32 noundef %192, ptr noundef %134) #2
+  %225 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %123, ptr noundef %1, ptr noundef nonnull @ei_netrix_unexpected_record, ptr noundef %0, i32 noundef %.0330338, i32 noundef %224, ptr noundef nonnull @.str.85, i32 noundef %192, ptr noundef %134)
   br label %267
 
 226:                                              ; preds = %.lr.ph
@@ -603,9 +614,9 @@ define internal i32 @dissect_netrix(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 228:                                              ; preds = %226
   %229 = load i32, ptr @hf_netrix_get_conversiontable_table_type, align 4
-  %230 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %229, ptr noundef %0, i32 noundef %130, i32 noundef %133, i32 noundef 0) #2
+  %230 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %229, ptr noundef %0, i32 noundef %130, i32 noundef %133, i32 noundef 0)
   %231 = load ptr, ptr %40, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %231, i32 noundef 25, ptr noundef nonnull @.str.92, ptr noundef %134) #2
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %231, i32 noundef 25, ptr noundef nonnull @.str.92, ptr noundef %134)
   br label %267
 
 232:                                              ; preds = %.lr.ph
@@ -615,14 +626,14 @@ define internal i32 @dissect_netrix(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 234:                                              ; preds = %232
   %235 = load i32, ptr @hf_netrix_search_conversiontables_key_type, align 4
-  %236 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %235, ptr noundef %0, i32 noundef %130, i32 noundef %133, i32 noundef 0) #2
+  %236 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %235, ptr noundef %0, i32 noundef %130, i32 noundef %133, i32 noundef 0)
   %237 = load ptr, ptr %40, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %237, i32 noundef 25, ptr noundef nonnull @.str.93, ptr noundef %134) #2
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %237, i32 noundef 25, ptr noundef nonnull @.str.93, ptr noundef %134)
   br label %267
 
 238:                                              ; preds = %232
   %239 = sub i32 %131, %.0330338
-  %240 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %123, ptr noundef nonnull %1, ptr noundef nonnull @ei_netrix_unexpected_record, ptr noundef %0, i32 noundef %.0330338, i32 noundef %239, ptr noundef nonnull @.str.85, i32 noundef %233, ptr noundef %134) #2
+  %240 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %123, ptr noundef %1, ptr noundef nonnull @ei_netrix_unexpected_record, ptr noundef %0, i32 noundef %.0330338, i32 noundef %239, ptr noundef nonnull @.str.85, i32 noundef %233, ptr noundef %134)
   br label %267
 
 241:                                              ; preds = %.lr.ph
@@ -639,21 +650,21 @@ define internal i32 @dissect_netrix(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 245:                                              ; preds = %243
   %246 = load i32, ptr @hf_netrix_get_conversiontable_key_type, align 4
-  %247 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %246, ptr noundef %0, i32 noundef %130, i32 noundef %133, i32 noundef 0) #2
+  %247 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %246, ptr noundef %0, i32 noundef %130, i32 noundef %133, i32 noundef 0)
   %248 = load ptr, ptr %40, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %248, i32 noundef 25, ptr noundef nonnull @.str.93, ptr noundef %134) #2
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %248, i32 noundef 25, ptr noundef nonnull @.str.93, ptr noundef %134)
   br label %267
 
 249:                                              ; preds = %243
   %250 = load i32, ptr @hf_netrix_get_conversiontable_value_type, align 4
-  %251 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %250, ptr noundef %0, i32 noundef %130, i32 noundef %133, i32 noundef 0) #2
+  %251 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %250, ptr noundef %0, i32 noundef %130, i32 noundef %133, i32 noundef 0)
   %252 = load ptr, ptr %40, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %252, i32 noundef 25, ptr noundef nonnull @.str.94, ptr noundef %134) #2
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %252, i32 noundef 25, ptr noundef nonnull @.str.94, ptr noundef %134)
   br label %267
 
 253:                                              ; preds = %243
   %254 = sub i32 %131, %.0330338
-  %255 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %123, ptr noundef nonnull %1, ptr noundef nonnull @ei_netrix_unexpected_record, ptr noundef %0, i32 noundef %.0330338, i32 noundef %254, ptr noundef nonnull @.str.85, i32 noundef %244, ptr noundef %134) #2
+  %255 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %123, ptr noundef %1, ptr noundef nonnull @ei_netrix_unexpected_record, ptr noundef %0, i32 noundef %.0330338, i32 noundef %254, ptr noundef nonnull @.str.85, i32 noundef %244, ptr noundef %134)
   br label %267
 
 256:                                              ; preds = %241
@@ -668,70 +679,95 @@ define internal i32 @dissect_netrix(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 260:                                              ; preds = %258
   %261 = load i32, ptr @hf_netrix_search_conversiontables_table_type, align 4
-  %262 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %261, ptr noundef %0, i32 noundef %130, i32 noundef %133, i32 noundef 0) #2
+  %262 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %261, ptr noundef %0, i32 noundef %130, i32 noundef %133, i32 noundef 0)
   %263 = load ptr, ptr %40, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %263, i32 noundef 25, ptr noundef nonnull @.str.92, ptr noundef %134) #2
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %263, i32 noundef 25, ptr noundef nonnull @.str.92, ptr noundef %134)
   br label %267
 
 264:                                              ; preds = %258
   %265 = sub i32 %131, %.0330338
-  %266 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %123, ptr noundef nonnull %1, ptr noundef nonnull @ei_netrix_unexpected_record, ptr noundef %0, i32 noundef %.0330338, i32 noundef %265, ptr noundef nonnull @.str.85, i32 noundef %259, ptr noundef %134) #2
+  %266 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %123, ptr noundef %1, ptr noundef nonnull @ei_netrix_unexpected_record, ptr noundef %0, i32 noundef %.0330338, i32 noundef %265, ptr noundef nonnull @.str.85, i32 noundef %259, ptr noundef %134)
   br label %267
 
 267:                                              ; preds = %253, %249, %245, %260, %264, %256, %234, %238, %228, %226, %193, %201, %205, %208, %211, %215, %219, %223, %158, %166, %170, %173, %176, %180, %184, %188, %138, %142, %146, %150, %153
   %.0330 = add i32 %131, 1
-  %268 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0330) #2
+  %268 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0330)
   %.not335 = icmp eq i8 %268, 3
-  br i1 %.not335, label %._crit_edge, label %.lr.ph, !llvm.loop !4
+  br i1 %.not335, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %267, %122
-  %269 = call i32 @tvb_captured_length(ptr noundef %0) #2
+  %269 = call i32 @tvb_captured_length(ptr noundef %0)
   br label %270
 
 270:                                              ; preds = %39, %35, %25, %._crit_edge, %14
   %.0 = phi i32 [ 1, %14 ], [ %269, %._crit_edge ], [ 0, %25 ], [ 0, %35 ], [ 0, %39 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
   ret i32 %.0
 }
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
-
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
-declare i32 @tvb_find_guint8(ptr noundef, i32 noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_find_uint8(ptr noundef, i32 noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare zeroext i1 @ws_strtoi32(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
+declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}

@@ -3,9 +3,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
 %struct.true_false_string = type { ptr, ptr }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
@@ -14,43 +13,34 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_nbifom_param_id_ul = internal global i32 0, align 4
 @.str = private unnamed_addr constant [21 x i8] c"Parameter identifier\00", align 1
 @.str.1 = private unnamed_addr constant [16 x i8] c"nbifom.param_id\00", align 1
-@nbifom_param_id_ue_to_nw_vals = internal constant [10 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.81 }, %struct._value_string { i32 1, ptr @.str.18 }, %struct._value_string { i32 2, ptr @.str.4 }, %struct._value_string { i32 3, ptr @.str.6 }, %struct._value_string { i32 4, ptr @.str.82 }, %struct._value_string { i32 5, ptr @.str.83 }, %struct._value_string { i32 6, ptr @.str.81 }, %struct._value_string { i32 7, ptr @.str.84 }, %struct._value_string { i32 8, ptr @.str.85 }, %struct._value_string zeroinitializer], align 16
 @hf_nbifom_param_id_dl = internal global i32 0, align 4
-@nbifom_param_id_nw_to_ue_vals = internal constant [10 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.81 }, %struct._value_string { i32 1, ptr @.str.18 }, %struct._value_string { i32 2, ptr @.str.4 }, %struct._value_string { i32 3, ptr @.str.6 }, %struct._value_string { i32 4, ptr @.str.82 }, %struct._value_string { i32 5, ptr @.str.81 }, %struct._value_string { i32 6, ptr @.str.8 }, %struct._value_string { i32 7, ptr @.str.81 }, %struct._value_string { i32 8, ptr @.str.81 }, %struct._value_string zeroinitializer], align 16
 @hf_nbifom_param_contents_len = internal global i32 0, align 4
 @.str.2 = private unnamed_addr constant [29 x i8] c"Length of parameter contents\00", align 1
 @.str.3 = private unnamed_addr constant [26 x i8] c"nbifom.param_contents.len\00", align 1
 @hf_nbifom_param_contents_dflt_access = internal global i32 0, align 4
 @.str.4 = private unnamed_addr constant [22 x i8] c"NBIFOM default access\00", align 1
 @.str.5 = private unnamed_addr constant [34 x i8] c"nbifom.param_contents.dflt_access\00", align 1
-@nbifom_dflt_access_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.86 }, %struct._value_string { i32 2, ptr @.str.87 }, %struct._value_string zeroinitializer], align 16
 @hf_nbifom_param_contents_status = internal global i32 0, align 4
 @.str.6 = private unnamed_addr constant [14 x i8] c"NBIFOM status\00", align 1
 @.str.7 = private unnamed_addr constant [29 x i8] c"nbifom.param_contents.status\00", align 1
-@nbifom_status_vals = internal constant [10 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.88 }, %struct._value_string { i32 26, ptr @.str.89 }, %struct._value_string { i32 34, ptr @.str.90 }, %struct._value_string { i32 37, ptr @.str.91 }, %struct._value_string { i32 57, ptr @.str.92 }, %struct._value_string { i32 58, ptr @.str.93 }, %struct._value_string { i32 63, ptr @.str.94 }, %struct._value_string { i32 111, ptr @.str.95 }, %struct._value_string { i32 130, ptr @.str.96 }, %struct._value_string zeroinitializer], align 16
 @hf_nbifom_param_contents_ran_rules_handling = internal global i32 0, align 4
 @.str.8 = private unnamed_addr constant [26 x i8] c"NBIFOM RAN rules handling\00", align 1
 @.str.9 = private unnamed_addr constant [41 x i8] c"nbifom.param_contents.ran_rules_handling\00", align 1
-@nbifom_ran_rules_handling_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.97 }, %struct._value_string { i32 2, ptr @.str.98 }, %struct._value_string zeroinitializer], align 16
 @hf_nbifom_param_contents_ran_rules_status = internal global i32 0, align 4
 @.str.10 = private unnamed_addr constant [24 x i8] c"NBIFOM RAN rules status\00", align 1
 @.str.11 = private unnamed_addr constant [39 x i8] c"nbifom.param_contents.ran_rules_status\00", align 1
-@nbifom_ran_rules_status_vals = internal constant [4 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.99 }, %struct._value_string { i32 2, ptr @.str.100 }, %struct._value_string { i32 3, ptr @.str.101 }, %struct._value_string zeroinitializer], align 16
 @hf_nbifom_param_contents_access_use_ind_spare = internal global i32 0, align 4
 @.str.12 = private unnamed_addr constant [6 x i8] c"Spare\00", align 1
 @.str.13 = private unnamed_addr constant [43 x i8] c"nbifom.param_contents.access_use_ind.spare\00", align 1
 @hf_nbifom_param_contents_access_use_ind_wlan_access_usable_val = internal global i32 0, align 4
 @.str.14 = private unnamed_addr constant [25 x i8] c"WLAN access usable value\00", align 1
 @.str.15 = private unnamed_addr constant [60 x i8] c"nbifom.param_contents.access_use_ind.wlan_access_usable_val\00", align 1
-@nbifom_wlan_access_usable_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.102 }, %struct._value_string { i32 1, ptr @.str.103 }, %struct._value_string { i32 2, ptr @.str.104 }, %struct._value_string { i32 3, ptr @.str.105 }, %struct._value_string zeroinitializer], align 16
 @hf_nbifom_param_contents_access_use_ind_3gpp_access_usable_val = internal global i32 0, align 4
 @.str.16 = private unnamed_addr constant [25 x i8] c"3GPP access usable value\00", align 1
 @.str.17 = private unnamed_addr constant [60 x i8] c"nbifom.param_contents.access_use_ind.3gpp_access_usable_val\00", align 1
-@nbifom_3gpp_access_usable_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.106 }, %struct._value_string { i32 1, ptr @.str.107 }, %struct._value_string { i32 2, ptr @.str.108 }, %struct._value_string { i32 3, ptr @.str.105 }, %struct._value_string zeroinitializer], align 16
 @hf_nbifom_param_contents_mode = internal global i32 0, align 4
 @.str.18 = private unnamed_addr constant [12 x i8] c"NBIFOM mode\00", align 1
 @.str.19 = private unnamed_addr constant [27 x i8] c"nbifom.param_contents.mode\00", align 1
-@nbifom_mode_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.109 }, %struct._value_string { i32 2, ptr @.str.110 }, %struct._value_string zeroinitializer], align 16
 @hf_nbifom_param_contents_rem_bytes = internal global i32 0, align 4
 @.str.20 = private unnamed_addr constant [29 x i8] c"Remaining parameter contents\00", align 1
 @.str.21 = private unnamed_addr constant [32 x i8] c"nbifom.param_contents.rem_bytes\00", align 1
@@ -63,13 +53,11 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_nbifom_routing_rule_routing_access = internal global i32 0, align 4
 @.str.26 = private unnamed_addr constant [15 x i8] c"Routing access\00", align 1
 @.str.27 = private unnamed_addr constant [35 x i8] c"nbifom.routing_rule.routing_access\00", align 1
-@nbifom_routing_access_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.86 }, %struct._value_string { i32 2, ptr @.str.87 }, %struct._value_string zeroinitializer], align 16
 @hf_nbifom_routing_rule_spare = internal global i32 0, align 4
 @.str.28 = private unnamed_addr constant [26 x i8] c"nbifom.routing_rule.spare\00", align 1
 @hf_nbifom_routing_rule_op_code = internal global i32 0, align 4
 @.str.29 = private unnamed_addr constant [15 x i8] c"Operation code\00", align 1
 @.str.30 = private unnamed_addr constant [28 x i8] c"nbifom.routing_rule.op_code\00", align 1
-@nbifom_op_code_vals = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.12 }, %struct._value_string { i32 1, ptr @.str.111 }, %struct._value_string { i32 2, ptr @.str.112 }, %struct._value_string { i32 3, ptr @.str.113 }, %struct._value_string { i32 4, ptr @.str.105 }, %struct._value_string zeroinitializer], align 16
 @hf_nbifom_routing_rule_prio = internal global i32 0, align 4
 @.str.31 = private unnamed_addr constant [22 x i8] c"Routing rule priority\00", align 1
 @.str.32 = private unnamed_addr constant [25 x i8] c"nbifom.routing_rule.prio\00", align 1
@@ -150,7 +138,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.76 = private unnamed_addr constant [24 x i8] c"nbifom.routing_rule.tos\00", align 1
 @hf_nbifom_routing_rule_flow_label = internal global i32 0, align 4
 @.str.77 = private unnamed_addr constant [31 x i8] c"nbifom.routing_rule.flow_label\00", align 1
-@proto_register_nbifom.nbifom_subtrees = internal global [4 x ptr] [ptr @ett_nbifom, ptr @ett_nbifom_param_contents, ptr @ett_nbifom_routing_rule, ptr @ett_nbifom_routing_rule_flags], align 16
+@proto_register_nbifom.nbifom_ett = internal global [4 x ptr] [ptr @ett_nbifom, ptr @ett_nbifom_param_contents, ptr @ett_nbifom_routing_rule, ptr @ett_nbifom_routing_rule_flags], align 16
 @ett_nbifom = internal global i32 0, align 4
 @ett_nbifom_param_contents = internal global i32 0, align 4
 @ett_nbifom_routing_rule = internal global i32 0, align 4
@@ -164,61 +152,76 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.83 = private unnamed_addr constant [23 x i8] c"NBIFOM IP flow mapping\00", align 1
 @.str.84 = private unnamed_addr constant [29 x i8] c"NBIFOM access stratum status\00", align 1
 @.str.85 = private unnamed_addr constant [35 x i8] c"NBIFOM access usability indication\00", align 1
-@.str.86 = private unnamed_addr constant [12 x i8] c"3GPP access\00", align 1
-@.str.87 = private unnamed_addr constant [16 x i8] c"Non-3GPP access\00", align 1
-@.str.88 = private unnamed_addr constant [9 x i8] c"Accepted\00", align 1
-@.str.89 = private unnamed_addr constant [23 x i8] c"Insufficient resources\00", align 1
-@.str.90 = private unnamed_addr constant [40 x i8] c"Service option temporarily out of order\00", align 1
-@.str.91 = private unnamed_addr constant [40 x i8] c"Requested service option not subscribed\00", align 1
-@.str.92 = private unnamed_addr constant [51 x i8] c"Incorrect indication in the routing rule operation\00", align 1
-@.str.93 = private unnamed_addr constant [41 x i8] c"Unknown information in IP flow filter(s)\00", align 1
-@.str.94 = private unnamed_addr constant [30 x i8] c"Request rejected, unspecified\00", align 1
-@.str.95 = private unnamed_addr constant [28 x i8] c"Protocol error, unspecified\00", align 1
-@.str.96 = private unnamed_addr constant [35 x i8] c"Unknown routing access information\00", align 1
-@.str.97 = private unnamed_addr constant [40 x i8] c"RAN rules handling parameter is not set\00", align 1
-@.str.98 = private unnamed_addr constant [36 x i8] c"RAN rules handling parameter is set\00", align 1
-@.str.99 = private unnamed_addr constant [14 x i8] c"No indication\00", align 1
-@.str.100 = private unnamed_addr constant [34 x i8] c"Move-traffic-from-WLAN indication\00", align 1
-@.str.101 = private unnamed_addr constant [32 x i8] c"Move-traffic-to-WLAN indication\00", align 1
-@.str.102 = private unnamed_addr constant [38 x i8] c"No change in usability of WLAN access\00", align 1
-@.str.103 = private unnamed_addr constant [27 x i8] c"WLAN access becomes usable\00", align 1
-@.str.104 = private unnamed_addr constant [29 x i8] c"WLAN access becomes unusable\00", align 1
-@.str.105 = private unnamed_addr constant [9 x i8] c"Reserved\00", align 1
-@.str.106 = private unnamed_addr constant [38 x i8] c"No change in usability of 3GPP access\00", align 1
-@.str.107 = private unnamed_addr constant [27 x i8] c"3GPP access becomes usable\00", align 1
-@.str.108 = private unnamed_addr constant [29 x i8] c"3GPP access becomes unusable\00", align 1
-@.str.109 = private unnamed_addr constant [25 x i8] c"UE-initiated NBIFOM mode\00", align 1
-@.str.110 = private unnamed_addr constant [30 x i8] c"Network-initiated NBIFOM mode\00", align 1
-@.str.111 = private unnamed_addr constant [20 x i8] c"Create routing rule\00", align 1
-@.str.112 = private unnamed_addr constant [20 x i8] c"Delete routing rule\00", align 1
-@.str.113 = private unnamed_addr constant [30 x i8] c"Replace existing routing rule\00", align 1
-@.str.114 = private unnamed_addr constant [2 x i8] c"/\00", align 1
+@nbifom_param_id_ue_to_nw_vals = internal constant [10 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.81 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.18 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.4 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.6 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.82 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.83 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.81 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.84 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.85 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@nbifom_param_id_nw_to_ue_vals = internal constant [10 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.81 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.18 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.4 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.6 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.82 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.81 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.8 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.81 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.81 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.88 = private unnamed_addr constant [12 x i8] c"3GPP access\00", align 1
+@.str.89 = private unnamed_addr constant [16 x i8] c"Non-3GPP access\00", align 1
+@nbifom_dflt_access_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.88 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.89 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.91 = private unnamed_addr constant [9 x i8] c"Accepted\00", align 1
+@.str.92 = private unnamed_addr constant [23 x i8] c"Insufficient resources\00", align 1
+@.str.93 = private unnamed_addr constant [40 x i8] c"Service option temporarily out of order\00", align 1
+@.str.94 = private unnamed_addr constant [40 x i8] c"Requested service option not subscribed\00", align 1
+@.str.95 = private unnamed_addr constant [51 x i8] c"Incorrect indication in the routing rule operation\00", align 1
+@.str.96 = private unnamed_addr constant [41 x i8] c"Unknown information in IP flow filter(s)\00", align 1
+@.str.97 = private unnamed_addr constant [30 x i8] c"Request rejected, unspecified\00", align 1
+@.str.98 = private unnamed_addr constant [28 x i8] c"Protocol error, unspecified\00", align 1
+@.str.99 = private unnamed_addr constant [35 x i8] c"Unknown routing access information\00", align 1
+@nbifom_status_vals = internal constant [10 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.91 }, { i32, [4 x i8], ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.92 }, { i32, [4 x i8], ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.93 }, { i32, [4 x i8], ptr } { i32 37, [4 x i8] zeroinitializer, ptr @.str.94 }, { i32, [4 x i8], ptr } { i32 57, [4 x i8] zeroinitializer, ptr @.str.95 }, { i32, [4 x i8], ptr } { i32 58, [4 x i8] zeroinitializer, ptr @.str.96 }, { i32, [4 x i8], ptr } { i32 63, [4 x i8] zeroinitializer, ptr @.str.97 }, { i32, [4 x i8], ptr } { i32 111, [4 x i8] zeroinitializer, ptr @.str.98 }, { i32, [4 x i8], ptr } { i32 130, [4 x i8] zeroinitializer, ptr @.str.99 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.101 = private unnamed_addr constant [40 x i8] c"RAN rules handling parameter is not set\00", align 1
+@.str.102 = private unnamed_addr constant [36 x i8] c"RAN rules handling parameter is set\00", align 1
+@nbifom_ran_rules_handling_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.101 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.102 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.104 = private unnamed_addr constant [14 x i8] c"No indication\00", align 1
+@.str.105 = private unnamed_addr constant [34 x i8] c"Move-traffic-from-WLAN indication\00", align 1
+@.str.106 = private unnamed_addr constant [32 x i8] c"Move-traffic-to-WLAN indication\00", align 1
+@nbifom_ran_rules_status_vals = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.104 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.105 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.106 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.108 = private unnamed_addr constant [38 x i8] c"No change in usability of WLAN access\00", align 1
+@.str.109 = private unnamed_addr constant [27 x i8] c"WLAN access becomes usable\00", align 1
+@.str.110 = private unnamed_addr constant [29 x i8] c"WLAN access becomes unusable\00", align 1
+@.str.111 = private unnamed_addr constant [9 x i8] c"Reserved\00", align 1
+@nbifom_wlan_access_usable_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.108 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.109 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.110 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.111 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.113 = private unnamed_addr constant [38 x i8] c"No change in usability of 3GPP access\00", align 1
+@.str.114 = private unnamed_addr constant [27 x i8] c"3GPP access becomes usable\00", align 1
+@.str.115 = private unnamed_addr constant [29 x i8] c"3GPP access becomes unusable\00", align 1
+@nbifom_3gpp_access_usable_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.113 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.114 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.115 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.111 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.117 = private unnamed_addr constant [25 x i8] c"UE-initiated NBIFOM mode\00", align 1
+@.str.118 = private unnamed_addr constant [30 x i8] c"Network-initiated NBIFOM mode\00", align 1
+@nbifom_mode_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.117 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.118 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@nbifom_routing_access_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.88 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.89 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.121 = private unnamed_addr constant [20 x i8] c"Create routing rule\00", align 1
+@.str.122 = private unnamed_addr constant [20 x i8] c"Delete routing rule\00", align 1
+@.str.123 = private unnamed_addr constant [30 x i8] c"Replace existing routing rule\00", align 1
+@nbifom_op_code_vals = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.12 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.121 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.122 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.123 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.111 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.125 = private unnamed_addr constant [2 x i8] c"/\00", align 1
 @dissect_nbifom.flags = internal constant [4 x ptr] [ptr @hf_nbifom_param_contents_access_use_ind_spare, ptr @hf_nbifom_param_contents_access_use_ind_wlan_access_usable_val, ptr @hf_nbifom_param_contents_access_use_ind_3gpp_access_usable_val, ptr null], align 16
 @dissect_nbifom_routing_rules.flags1 = internal constant [4 x ptr] [ptr @hf_nbifom_routing_rule_routing_access, ptr @hf_nbifom_routing_rule_spare, ptr @hf_nbifom_routing_rule_op_code, ptr null], align 16
 @dissect_nbifom_routing_rules.flags2 = internal constant [17 x ptr] [ptr @hf_nbifom_routing_rule_flags_prot_type_nxt_hdr, ptr @hf_nbifom_routing_rule_flags_ipsec_spi, ptr @hf_nbifom_routing_rule_flags_dst_addr_prefix_len, ptr @hf_nbifom_routing_rule_flags_src_addr_prefix_len, ptr @hf_nbifom_routing_rule_flags_dst_ipv6_addr, ptr @hf_nbifom_routing_rule_flags_src_ipv6_addr, ptr @hf_nbifom_routing_rule_flags_dst_ipv4_addr, ptr @hf_nbifom_routing_rule_flags_src_ipv4_addr, ptr @hf_nbifom_routing_rule_flags_spare_bits0xc0, ptr @hf_nbifom_routing_rule_flags_flow_label, ptr @hf_nbifom_routing_rule_flags_tos, ptr @hf_nbifom_routing_rule_flags_end_dst_port_range, ptr @hf_nbifom_routing_rule_flags_start_dst_port_range, ptr @hf_nbifom_routing_rule_flags_end_src_port_range, ptr @hf_nbifom_routing_rule_flags_start_src_port_range, ptr @hf_nbifom_routing_rule_flags_spare_bits0xffff, ptr null], align 16
-@.str.115 = private unnamed_addr constant [16 x i8] c"Routing Rule %u\00", align 1
+@.str.126 = private unnamed_addr constant [16 x i8] c"Routing Rule %u\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_nbifom() #0 {
   %1 = call i32 @proto_register_protocol(ptr noundef @.str.78, ptr noundef @.str.79, ptr noundef @.str.80)
   store i32 %1, ptr @proto_nbifom, align 4
   %2 = load i32, ptr @proto_nbifom, align 4
   call void @proto_register_field_array(i32 noundef %2, ptr noundef @proto_register_nbifom.hf, i32 noundef 49)
-  call void @proto_register_subtree_array(ptr noundef @proto_register_nbifom.nbifom_subtrees, i32 noundef 4)
+  call void @proto_register_subtree_array(ptr noundef @proto_register_nbifom.nbifom_ett, i32 noundef 4)
   %3 = load i32, ptr @proto_nbifom, align 4
   %4 = call ptr @register_dissector(ptr noundef @.str.80, ptr noundef @dissect_nbifom, i32 noundef %3)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_nbifom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -237,12 +240,21 @@ define internal i32 @dissect_nbifom(ptr noundef %0, ptr noundef %1, ptr noundef 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
   %18 = load ptr, ptr %5, align 8
   %19 = call i32 @tvb_reported_length(ptr noundef %18)
   store i32 %19, ptr %12, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
   store i32 0, ptr %13, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #3
   %20 = load ptr, ptr %6, align 8
-  %21 = getelementptr inbounds %struct._packet_info, ptr %20, i32 0, i32 45
+  %21 = getelementptr inbounds nuw %struct._packet_info, ptr %20, i32 0, i32 46
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %26
@@ -259,9 +271,9 @@ define internal i32 @dissect_nbifom(ptr noundef %0, ptr noundef %1, ptr noundef 
   %29 = phi i32 [ %25, %24 ], [ %27, %26 ]
   store i32 %29, ptr %17, align 4
   %30 = load ptr, ptr %6, align 8
-  %31 = getelementptr inbounds %struct._packet_info, ptr %30, i32 0, i32 1
+  %31 = getelementptr inbounds nuw %struct._packet_info, ptr %30, i32 0, i32 1
   %32 = load ptr, ptr %31, align 8
-  call void @col_append_sep_str(ptr noundef %32, i32 noundef 34, ptr noundef @.str.114, ptr noundef @.str.79)
+  call void @col_append_sep_str(ptr noundef %32, i32 noundef 35, ptr noundef @.str.125, ptr noundef @.str.79)
   %33 = load ptr, ptr %7, align 8
   %34 = load i32, ptr @proto_nbifom, align 4
   %35 = load ptr, ptr %5, align 8
@@ -350,7 +362,7 @@ define internal i32 @dissect_nbifom(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 88:                                               ; preds = %44
   %89 = load ptr, ptr %6, align 8
-  %90 = getelementptr inbounds %struct._packet_info, ptr %89, i32 0, i32 45
+  %90 = getelementptr inbounds nuw %struct._packet_info, ptr %89, i32 0, i32 46
   %91 = load i32, ptr %90, align 8
   %92 = icmp eq i32 %91, 1
   br i1 %92, label %93, label %94
@@ -361,7 +373,7 @@ define internal i32 @dissect_nbifom(ptr noundef %0, ptr noundef %1, ptr noundef 
 94:                                               ; preds = %88
   br label %95
 
-95:                                               ; preds = %94, %44
+95:                                               ; preds = %44, %94
   %96 = load ptr, ptr %5, align 8
   %97 = load ptr, ptr %6, align 8
   %98 = load ptr, ptr %11, align 8
@@ -376,7 +388,7 @@ define internal i32 @dissect_nbifom(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 104:                                              ; preds = %44
   %105 = load ptr, ptr %6, align 8
-  %106 = getelementptr inbounds %struct._packet_info, ptr %105, i32 0, i32 45
+  %106 = getelementptr inbounds nuw %struct._packet_info, ptr %105, i32 0, i32 46
   %107 = load i32, ptr %106, align 8
   %108 = icmp eq i32 %107, 1
   br i1 %108, label %109, label %117
@@ -397,7 +409,7 @@ define internal i32 @dissect_nbifom(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 118:                                              ; preds = %44
   %119 = load ptr, ptr %6, align 8
-  %120 = getelementptr inbounds %struct._packet_info, ptr %119, i32 0, i32 45
+  %120 = getelementptr inbounds nuw %struct._packet_info, ptr %119, i32 0, i32 46
   %121 = load i32, ptr %120, align 8
   %122 = icmp eq i32 %121, 0
   br i1 %122, label %123, label %131
@@ -418,7 +430,7 @@ define internal i32 @dissect_nbifom(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 132:                                              ; preds = %44
   %133 = load ptr, ptr %6, align 8
-  %134 = getelementptr inbounds %struct._packet_info, ptr %133, i32 0, i32 45
+  %134 = getelementptr inbounds nuw %struct._packet_info, ptr %133, i32 0, i32 46
   %135 = load i32, ptr %134, align 8
   %136 = icmp eq i32 %135, 0
   br i1 %136, label %137, label %143
@@ -465,25 +477,42 @@ define internal i32 @dissect_nbifom(ptr noundef %0, ptr noundef %1, ptr noundef 
   %164 = load i32, ptr %16, align 4
   %165 = add i32 %163, %164
   store i32 %165, ptr %13, align 4
-  br label %40, !llvm.loop !4
+  br label %40, !llvm.loop !6
 
 166:                                              ; preds = %40
   %167 = load ptr, ptr %5, align 8
   %168 = call i32 @tvb_captured_length(ptr noundef %167)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
   ret i32 %168
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_append_sep_str(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_nbifom_routing_rules(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -501,9 +530,15 @@ define internal void @dissect_nbifom_routing_rules(ptr noundef %0, ptr noundef %
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i32 %4, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
   %17 = load i32, ptr %9, align 4
   store i32 %17, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
   store i32 0, ptr %12, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #3
   br label %18
 
 18:                                               ; preds = %236, %5
@@ -522,7 +557,7 @@ define internal void @dissect_nbifom_routing_rules(ptr noundef %0, ptr noundef %
   %29 = load i32, ptr %12, align 4
   %30 = add i32 %29, 1
   store i32 %30, ptr %12, align 4
-  %31 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %25, ptr noundef %26, i32 noundef %27, i32 noundef -1, i32 noundef %28, ptr noundef %14, ptr noundef @.str.115, i32 noundef %30)
+  %31 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %25, ptr noundef %26, i32 noundef %27, i32 noundef -1, i32 noundef %28, ptr noundef %14, ptr noundef @.str.126, i32 noundef %30)
   store ptr %31, ptr %15, align 8
   %32 = load ptr, ptr %15, align 8
   %33 = load i32, ptr @hf_nbifom_routing_rule_len, align 4
@@ -806,31 +841,49 @@ define internal void @dissect_nbifom_routing_rules(ptr noundef %0, ptr noundef %
   br label %236
 
 236:                                              ; preds = %228, %224
-  br label %18, !llvm.loop !6
+  br label %18, !llvm.loop !8
 
 237:                                              ; preds = %18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_tree_add_bitmask_list(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_item_set_len(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}

@@ -3,9 +3,9 @@ source_filename = "bench/wireshark/original/ws_mempbrk.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-; Function Attrs: nounwind uwtable
-define void @ws_mempbrk_compile(ptr noundef initializes((0, 256)) %0, ptr noundef %1) local_unnamed_addr #0 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %0, i8 0, i64 256, i1 false)
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define void @ws_mempbrk_compile(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+  tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(256) %0, i8 noundef 0, i64 noundef 256, i1 noundef false) #4
   %3 = load i8, ptr %1, align 1
   %.not9 = icmp eq i8 %3, 0
   br i1 %.not9, label %._crit_edge, label %.lr.ph
@@ -19,20 +19,18 @@ define void @ws_mempbrk_compile(ptr noundef initializes((0, 256)) %0, ptr nounde
   %7 = getelementptr i8, ptr %.010, i64 1
   %8 = load i8, ptr %7, align 1
   %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  tail call void @ws_mempbrk_sse42_compile(ptr noundef nonnull %0, ptr noundef nonnull %1) #4
+  tail call void @ws_mempbrk_sse42_compile(ptr noundef %0, ptr noundef %1)
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
+; Function Attrs: null_pointer_is_valid
+declare void @ws_mempbrk_sse42_compile(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @ws_mempbrk_sse42_compile(ptr noundef, ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef ptr @ws_mempbrk_portable_exec(ptr noundef readonly captures(address, ret: address, provenance) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #3 {
+; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(argmem: readwrite) uwtable
+define hidden noundef ptr @ws_mempbrk_portable_exec(ptr noundef readonly captures(address, ret: address, provenance) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #2 {
   %5 = getelementptr i8, ptr %0, i64 %1
   %6 = icmp ult ptr %0, %5
   br i1 %6, label %.lr.ph, label %.loopexit
@@ -57,26 +55,26 @@ define hidden noundef ptr @ws_mempbrk_portable_exec(ptr noundef readonly capture
 13:                                               ; preds = %.lr.ph
   %14 = getelementptr i8, ptr %.01115, i64 1
   %exitcond.not = icmp eq ptr %14, %5
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 .loopexit:                                        ; preds = %13, %4, %11, %12
   %.0 = phi ptr [ %.01115, %12 ], [ %.01115, %11 ], [ null, %4 ], [ null, %13 ]
   ret ptr %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define ptr @ws_mempbrk_exec(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp ugt i64 %1, 15
   br i1 %5, label %6, label %12
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 256
-  %8 = load i8, ptr %7, align 16
-  %9 = trunc i8 %8 to i1
+  %8 = load i8, ptr %7, align 16, !range !9, !noundef !10
+  %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %6
-  %11 = tail call ptr @ws_mempbrk_sse42_exec(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %2, ptr noundef %3) #4
+  %11 = tail call ptr @ws_mempbrk_sse42_exec(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3)
   br label %ws_mempbrk_portable_exec.exit
 
 12:                                               ; preds = %6, %4
@@ -104,17 +102,18 @@ define ptr @ws_mempbrk_exec(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr 
 21:                                               ; preds = %.lr.ph.i
   %22 = getelementptr i8, ptr %.01115.i, i64 1
   %exitcond.not.i = icmp eq ptr %22, %13
-  br i1 %exitcond.not.i, label %ws_mempbrk_portable_exec.exit, label %.lr.ph.i, !llvm.loop !6
+  br i1 %exitcond.not.i, label %ws_mempbrk_portable_exec.exit, label %.lr.ph.i, !llvm.loop !8
 
 ws_mempbrk_portable_exec.exit:                    ; preds = %21, %20, %19, %12, %10
   %.0 = phi ptr [ %11, %10 ], [ %.01115.i, %20 ], [ %.01115.i, %19 ], [ null, %12 ], [ null, %21 ]
   ret ptr %.0
 }
 
-declare ptr @ws_mempbrk_sse42_exec(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @ws_mempbrk_sse42_exec(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @ws_memrpbrk_exec(ptr noundef readonly captures(address, ret: address, provenance) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #3 {
+; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(argmem: readwrite) uwtable
+define noundef ptr @ws_memrpbrk_exec(ptr noundef readonly captures(address, ret: address, provenance) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #2 {
   %5 = getelementptr i8, ptr %0, i64 %1
   br label %6
 
@@ -130,7 +129,7 @@ define noundef ptr @ws_memrpbrk_exec(ptr noundef readonly captures(address, ret:
   %12 = getelementptr [256 x i8], ptr %2, i64 0, i64 %11
   %13 = load i8, ptr %12, align 1
   %.not = icmp eq i8 %13, 0
-  br i1 %.not, label %6, label %14, !llvm.loop !7
+  br i1 %.not, label %6, label %14, !llvm.loop !11
 
 14:                                               ; preds = %8
   %.not12 = icmp eq ptr %3, null
@@ -145,19 +144,26 @@ define noundef ptr @ws_memrpbrk_exec(ptr noundef readonly captures(address, ret:
   ret ptr %.010
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !7}

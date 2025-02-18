@@ -4,8 +4,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
 %struct._value_string_ext = type { ptr, i32, i32, ptr, ptr }
-%struct._value_string = type { i32, ptr }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
@@ -33,11 +32,9 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_njack_tlv_snmpwrite = internal global i32 0, align 4
 @.str.12 = private unnamed_addr constant [17 x i8] c"TlvTypeSnmpwrite\00", align 1
 @.str.13 = private unnamed_addr constant [20 x i8] c"njack.tlv.snmpwrite\00", align 1
-@njack_snmpwrite = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.89 }, %struct._value_string { i32 1, ptr @.str.90 }, %struct._value_string zeroinitializer], align 16
 @hf_njack_tlv_dhcpcontrol = internal global i32 0, align 4
 @.str.14 = private unnamed_addr constant [19 x i8] c"TlvTypeDhcpControl\00", align 1
 @.str.15 = private unnamed_addr constant [22 x i8] c"njack.tlv.dhcpcontrol\00", align 1
-@njack_dhcpcontrol = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.89 }, %struct._value_string { i32 1, ptr @.str.90 }, %struct._value_string zeroinitializer], align 16
 @hf_njack_tlv_devicemac = internal global i32 0, align 4
 @.str.16 = private unnamed_addr constant [17 x i8] c"TlvTypeDeviceMAC\00", align 1
 @.str.17 = private unnamed_addr constant [20 x i8] c"njack.tlv.devicemac\00", align 1
@@ -50,27 +47,21 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_njack_tlv_scheduling = internal global i32 0, align 4
 @.str.22 = private unnamed_addr constant [18 x i8] c"TlvTypeScheduling\00", align 1
 @.str.23 = private unnamed_addr constant [21 x i8] c"njack.tlv.scheduling\00", align 1
-@njack_scheduling = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.91 }, %struct._value_string { i32 1, ptr @.str.92 }, %struct._value_string zeroinitializer], align 16
 @hf_njack_tlv_addtagscheme = internal global i32 0, align 4
 @.str.24 = private unnamed_addr constant [16 x i8] c"TlvAddTagScheme\00", align 1
 @.str.25 = private unnamed_addr constant [23 x i8] c"njack.tlv.addtagscheme\00", align 1
-@njack_addtagscheme = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.93 }, %struct._value_string { i32 1, ptr @.str.94 }, %struct._value_string zeroinitializer], align 16
 @hf_njack_tlv_portingressmode = internal global i32 0, align 4
 @.str.26 = private unnamed_addr constant [23 x i8] c"TlvTypePortingressmode\00", align 1
 @.str.27 = private unnamed_addr constant [26 x i8] c"njack.tlv.portingressmode\00", align 1
-@njack_portingressmode = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.95 }, %struct._value_string { i32 1, ptr @.str.96 }, %struct._value_string zeroinitializer], align 16
 @hf_njack_tlv_maxframesize = internal global i32 0, align 4
 @.str.28 = private unnamed_addr constant [20 x i8] c"TlvTypeMaxframesize\00", align 1
 @.str.29 = private unnamed_addr constant [23 x i8] c"njack.tlv.maxframesize\00", align 1
-@njack_maxframesize = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.97 }, %struct._value_string { i32 1, ptr @.str.98 }, %struct._value_string zeroinitializer], align 16
 @hf_njack_tlv_countermode = internal global i32 0, align 4
 @.str.30 = private unnamed_addr constant [19 x i8] c"TlvTypeCountermode\00", align 1
 @.str.31 = private unnamed_addr constant [22 x i8] c"njack.tlv.countermode\00", align 1
-@njack_countermode = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.99 }, %struct._value_string { i32 1, ptr @.str.100 }, %struct._value_string zeroinitializer], align 16
 @hf_njack_tlv_powerforwarding = internal global i32 0, align 4
 @.str.32 = private unnamed_addr constant [23 x i8] c"TlvTypePowerforwarding\00", align 1
 @.str.33 = private unnamed_addr constant [26 x i8] c"njack.tlv.powerforwarding\00", align 1
-@njack_powerforwarding = internal constant [4 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.101 }, %struct._value_string { i32 2, ptr @.str.102 }, %struct._value_string { i32 3, ptr @.str.103 }, %struct._value_string zeroinitializer], align 16
 @hf_njack_set_length = internal global i32 0, align 4
 @.str.34 = private unnamed_addr constant [10 x i8] c"SetLength\00", align 1
 @.str.35 = private unnamed_addr constant [17 x i8] c"njack.set.length\00", align 1
@@ -83,7 +74,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_njack_setresult = internal global i32 0, align 4
 @.str.40 = private unnamed_addr constant [10 x i8] c"SetResult\00", align 1
 @.str.41 = private unnamed_addr constant [16 x i8] c"njack.setresult\00", align 1
-@njack_setresult_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.104 }, %struct._value_string { i32 253, ptr @.str.105 }, %struct._value_string zeroinitializer], align 16
 @hf_njack_getresp_unknown1 = internal global i32 0, align 4
 @.str.42 = private unnamed_addr constant [9 x i8] c"Unknown1\00", align 1
 @.str.43 = private unnamed_addr constant [23 x i8] c"njack.getresp.unknown1\00", align 1
@@ -103,7 +93,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.52 = private unnamed_addr constant [4 x i8] c"tcp\00", align 1
 @.str.53 = private unnamed_addr constant [15 x i8] c"NJACK over TCP\00", align 1
 @.str.54 = private unnamed_addr constant [10 x i8] c"njack_tcp\00", align 1
-@njack_cmd_vals = internal constant [34 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.56 }, %struct._value_string { i32 1, ptr @.str.57 }, %struct._value_string { i32 2, ptr @.str.58 }, %struct._value_string { i32 3, ptr @.str.59 }, %struct._value_string { i32 4, ptr @.str.60 }, %struct._value_string { i32 5, ptr @.str.61 }, %struct._value_string { i32 6, ptr @.str.62 }, %struct._value_string { i32 10, ptr @.str.63 }, %struct._value_string { i32 11, ptr @.str.64 }, %struct._value_string { i32 12, ptr @.str.65 }, %struct._value_string { i32 13, ptr @.str.66 }, %struct._value_string { i32 14, ptr @.str.67 }, %struct._value_string { i32 15, ptr @.str.68 }, %struct._value_string { i32 19, ptr @.str.69 }, %struct._value_string { i32 20, ptr @.str.70 }, %struct._value_string { i32 21, ptr @.str.71 }, %struct._value_string { i32 22, ptr @.str.72 }, %struct._value_string { i32 25, ptr @.str.73 }, %struct._value_string { i32 26, ptr @.str.74 }, %struct._value_string { i32 27, ptr @.str.75 }, %struct._value_string { i32 28, ptr @.str.76 }, %struct._value_string { i32 30, ptr @.str.77 }, %struct._value_string { i32 31, ptr @.str.78 }, %struct._value_string { i32 32, ptr @.str.79 }, %struct._value_string { i32 35, ptr @.str.80 }, %struct._value_string { i32 38, ptr @.str.81 }, %struct._value_string { i32 39, ptr @.str.82 }, %struct._value_string { i32 40, ptr @.str.83 }, %struct._value_string { i32 41, ptr @.str.84 }, %struct._value_string { i32 42, ptr @.str.85 }, %struct._value_string { i32 43, ptr @.str.86 }, %struct._value_string { i32 99, ptr @.str.87 }, %struct._value_string { i32 255, ptr @.str.88 }, %struct._value_string zeroinitializer], align 16
 @.str.55 = private unnamed_addr constant [15 x i8] c"njack_cmd_vals\00", align 1
 @.str.56 = private unnamed_addr constant [20 x i8] c"Start of Parameters\00", align 1
 @.str.57 = private unnamed_addr constant [12 x i8] c"MAC address\00", align 1
@@ -138,41 +127,51 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.86 = private unnamed_addr constant [10 x i8] c"Serial no\00", align 1
 @.str.87 = private unnamed_addr constant [19 x i8] c"Get all parameters\00", align 1
 @.str.88 = private unnamed_addr constant [14 x i8] c"End of packet\00", align 1
-@.str.89 = private unnamed_addr constant [8 x i8] c"Disable\00", align 1
-@.str.90 = private unnamed_addr constant [7 x i8] c"Enable\00", align 1
-@.str.91 = private unnamed_addr constant [14 x i8] c"Weighted fair\00", align 1
-@.str.92 = private unnamed_addr constant [16 x i8] c"Strict priority\00", align 1
-@.str.93 = private unnamed_addr constant [30 x i8] c"Frames transmitted unmodified\00", align 1
-@.str.94 = private unnamed_addr constant [26 x i8] c"Add tag to untagged frame\00", align 1
-@.str.95 = private unnamed_addr constant [19 x i8] c"Receive unmodified\00", align 1
-@.str.96 = private unnamed_addr constant [22 x i8] c"Remove tag if present\00", align 1
-@.str.97 = private unnamed_addr constant [27 x i8] c"1522 tagged, 1518 untagged\00", align 1
-@.str.98 = private unnamed_addr constant [5 x i8] c"1535\00", align 1
-@.str.99 = private unnamed_addr constant [25 x i8] c"Count Rx, Tx Good frames\00", align 1
-@.str.100 = private unnamed_addr constant [25 x i8] c"RX errors, TX collisions\00", align 1
-@.str.101 = private unnamed_addr constant [4 x i8] c"OFF\00", align 1
-@.str.102 = private unnamed_addr constant [3 x i8] c"ON\00", align 1
-@.str.103 = private unnamed_addr constant [8 x i8] c"802.3af\00", align 1
-@.str.104 = private unnamed_addr constant [8 x i8] c"Success\00", align 1
-@.str.105 = private unnamed_addr constant [9 x i8] c"Failauth\00", align 1
-@.str.106 = private unnamed_addr constant [6 x i8] c"NJ200\00", align 1
-@njack_type_vals = internal constant [10 x %struct._value_string] [%struct._value_string { i32 7, ptr @.str.110 }, %struct._value_string { i32 8, ptr @.str.111 }, %struct._value_string { i32 1, ptr @.str.112 }, %struct._value_string { i32 2, ptr @.str.113 }, %struct._value_string { i32 11, ptr @.str.114 }, %struct._value_string { i32 12, ptr @.str.115 }, %struct._value_string { i32 13, ptr @.str.116 }, %struct._value_string { i32 16, ptr @.str.117 }, %struct._value_string { i32 17, ptr @.str.118 }, %struct._value_string zeroinitializer], align 16
-@.str.107 = private unnamed_addr constant [12 x i8] c"Type 0x%02x\00", align 1
-@.str.108 = private unnamed_addr constant [5 x i8] c": %s\00", align 1
-@.str.109 = private unnamed_addr constant [9 x i8] c"[0x%02x]\00", align 1
-@.str.110 = private unnamed_addr constant [4 x i8] c"Set\00", align 1
-@.str.111 = private unnamed_addr constant [11 x i8] c"Set result\00", align 1
-@.str.112 = private unnamed_addr constant [18 x i8] c"Query (discovery)\00", align 1
-@.str.113 = private unnamed_addr constant [15 x i8] c"Query response\00", align 1
-@.str.114 = private unnamed_addr constant [4 x i8] c"Get\00", align 1
-@.str.115 = private unnamed_addr constant [13 x i8] c"Get response\00", align 1
-@.str.116 = private unnamed_addr constant [12 x i8] c"DHCP info??\00", align 1
-@.str.117 = private unnamed_addr constant [17 x i8] c"Clear counters??\00", align 1
-@.str.118 = private unnamed_addr constant [26 x i8] c"Clear counters response??\00", align 1
-@.str.119 = private unnamed_addr constant [19 x i8] c"T %02x, L %02x: %s\00", align 1
-@.str.120 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
+@njack_cmd_vals = internal constant [34 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.56 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.57 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.58 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.59 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.60 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.61 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.62 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.63 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.64 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.65 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.66 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.67 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.68 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.69 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.70 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.71 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.72 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.73 }, { i32, [4 x i8], ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.74 }, { i32, [4 x i8], ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.75 }, { i32, [4 x i8], ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.76 }, { i32, [4 x i8], ptr } { i32 30, [4 x i8] zeroinitializer, ptr @.str.77 }, { i32, [4 x i8], ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.78 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.79 }, { i32, [4 x i8], ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.80 }, { i32, [4 x i8], ptr } { i32 38, [4 x i8] zeroinitializer, ptr @.str.81 }, { i32, [4 x i8], ptr } { i32 39, [4 x i8] zeroinitializer, ptr @.str.82 }, { i32, [4 x i8], ptr } { i32 40, [4 x i8] zeroinitializer, ptr @.str.83 }, { i32, [4 x i8], ptr } { i32 41, [4 x i8] zeroinitializer, ptr @.str.84 }, { i32, [4 x i8], ptr } { i32 42, [4 x i8] zeroinitializer, ptr @.str.85 }, { i32, [4 x i8], ptr } { i32 43, [4 x i8] zeroinitializer, ptr @.str.86 }, { i32, [4 x i8], ptr } { i32 99, [4 x i8] zeroinitializer, ptr @.str.87 }, { i32, [4 x i8], ptr } { i32 255, [4 x i8] zeroinitializer, ptr @.str.88 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.90 = private unnamed_addr constant [8 x i8] c"Disable\00", align 1
+@.str.91 = private unnamed_addr constant [7 x i8] c"Enable\00", align 1
+@njack_snmpwrite = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.90 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.91 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@njack_dhcpcontrol = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.90 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.91 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.94 = private unnamed_addr constant [14 x i8] c"Weighted fair\00", align 1
+@.str.95 = private unnamed_addr constant [16 x i8] c"Strict priority\00", align 1
+@njack_scheduling = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.94 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.95 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.97 = private unnamed_addr constant [30 x i8] c"Frames transmitted unmodified\00", align 1
+@.str.98 = private unnamed_addr constant [26 x i8] c"Add tag to untagged frame\00", align 1
+@njack_addtagscheme = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.97 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.98 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.100 = private unnamed_addr constant [19 x i8] c"Receive unmodified\00", align 1
+@.str.101 = private unnamed_addr constant [22 x i8] c"Remove tag if present\00", align 1
+@njack_portingressmode = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.100 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.101 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.103 = private unnamed_addr constant [27 x i8] c"1522 tagged, 1518 untagged\00", align 1
+@.str.104 = private unnamed_addr constant [5 x i8] c"1535\00", align 1
+@njack_maxframesize = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.103 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.104 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.106 = private unnamed_addr constant [25 x i8] c"Count Rx, Tx Good frames\00", align 1
+@.str.107 = private unnamed_addr constant [25 x i8] c"RX errors, TX collisions\00", align 1
+@njack_countermode = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.106 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.107 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.109 = private unnamed_addr constant [4 x i8] c"OFF\00", align 1
+@.str.110 = private unnamed_addr constant [3 x i8] c"ON\00", align 1
+@.str.111 = private unnamed_addr constant [8 x i8] c"802.3af\00", align 1
+@njack_powerforwarding = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.109 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.110 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.111 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.113 = private unnamed_addr constant [8 x i8] c"Success\00", align 1
+@.str.114 = private unnamed_addr constant [9 x i8] c"Failauth\00", align 1
+@njack_setresult_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.113 }, { i32, [4 x i8], ptr } { i32 253, [4 x i8] zeroinitializer, ptr @.str.114 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.116 = private unnamed_addr constant [6 x i8] c"NJ200\00", align 1
+@.str.117 = private unnamed_addr constant [12 x i8] c"Type 0x%02x\00", align 1
+@.str.118 = private unnamed_addr constant [5 x i8] c": %s\00", align 1
+@.str.119 = private unnamed_addr constant [9 x i8] c"[0x%02x]\00", align 1
+@.str.120 = private unnamed_addr constant [4 x i8] c"Set\00", align 1
+@.str.121 = private unnamed_addr constant [11 x i8] c"Set result\00", align 1
+@.str.122 = private unnamed_addr constant [18 x i8] c"Query (discovery)\00", align 1
+@.str.123 = private unnamed_addr constant [15 x i8] c"Query response\00", align 1
+@.str.124 = private unnamed_addr constant [4 x i8] c"Get\00", align 1
+@.str.125 = private unnamed_addr constant [13 x i8] c"Get response\00", align 1
+@.str.126 = private unnamed_addr constant [12 x i8] c"DHCP info??\00", align 1
+@.str.127 = private unnamed_addr constant [17 x i8] c"Clear counters??\00", align 1
+@.str.128 = private unnamed_addr constant [26 x i8] c"Clear counters response??\00", align 1
+@njack_type_vals = internal constant [10 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.120 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.121 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.122 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.123 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.124 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.125 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.126 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.127 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.128 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.130 = private unnamed_addr constant [19 x i8] c"T %02x, L %02x: %s\00", align 1
+@.str.131 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_njack() #0 {
   %1 = call i32 @proto_register_protocol(ptr noundef @.str.44, ptr noundef @.str.45, ptr noundef @.str.46)
   store i32 %1, ptr @proto_njack, align 4
@@ -185,15 +184,19 @@ define hidden void @proto_register_njack() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_njack_static(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -205,28 +208,27 @@ define internal i32 @dissect_njack_static(ptr noundef %0, ptr noundef %1, ptr no
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = call i32 @test_njack(ptr noundef %10)
-  %12 = icmp ne i32 %11, 0
-  br i1 %12, label %14, label %13
+  %11 = call zeroext i1 @test_njack(ptr noundef %10)
+  br i1 %11, label %13, label %12
+
+12:                                               ; preds = %4
+  store i32 0, ptr %5, align 4
+  br label %18
 
 13:                                               ; preds = %4
-  store i32 0, ptr %5, align 4
-  br label %19
+  %14 = load ptr, ptr %6, align 8
+  %15 = load ptr, ptr %7, align 8
+  %16 = load ptr, ptr %8, align 8
+  %17 = call i32 @dissect_njack(ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef null)
+  store i32 %17, ptr %5, align 4
+  br label %18
 
-14:                                               ; preds = %4
-  %15 = load ptr, ptr %6, align 8
-  %16 = load ptr, ptr %7, align 8
-  %17 = load ptr, ptr %8, align 8
-  %18 = call i32 @dissect_njack(ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef null)
-  store i32 %18, ptr %5, align 4
-  br label %19
-
-19:                                               ; preds = %14, %13
-  %20 = load i32, ptr %5, align 4
-  ret i32 %20
+18:                                               ; preds = %13, %12
+  %19 = load i32, ptr %5, align 4
+  ret i32 %19
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_njack() #0 {
   %1 = load ptr, ptr @njack_handle, align 8
   call void @dissector_add_uint_range_with_preference(ptr noundef @.str.47, ptr noundef @.str.48, ptr noundef %1)
@@ -237,13 +239,15 @@ define hidden void @proto_reg_handoff_njack() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint_range_with_preference(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_njack_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = alloca i32, align 4
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @dissect_njack_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i1, align 1
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -253,32 +257,33 @@ define internal i32 @dissect_njack_heur(ptr noundef %0, ptr noundef %1, ptr noun
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = call i32 @test_njack(ptr noundef %10)
-  %12 = icmp ne i32 %11, 0
-  br i1 %12, label %14, label %13
+  %11 = call zeroext i1 @test_njack(ptr noundef %10)
+  br i1 %11, label %13, label %12
+
+12:                                               ; preds = %4
+  store i1 false, ptr %5, align 1
+  br label %19
 
 13:                                               ; preds = %4
-  store i32 0, ptr %5, align 4
+  %14 = load ptr, ptr %6, align 8
+  %15 = load ptr, ptr %7, align 8
+  %16 = load ptr, ptr %8, align 8
+  %17 = load ptr, ptr %9, align 8
+  %18 = call i32 @dissect_njack(ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17)
+  store i1 true, ptr %5, align 1
   br label %19
 
-14:                                               ; preds = %4
-  %15 = load ptr, ptr %6, align 8
-  %16 = load ptr, ptr %7, align 8
-  %17 = load ptr, ptr %8, align 8
-  %18 = call i32 @dissect_njack(ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef null)
-  store i32 1, ptr %5, align 4
-  br label %19
-
-19:                                               ; preds = %14, %13
-  %20 = load i32, ptr %5, align 4
-  ret i32 %20
+19:                                               ; preds = %13, %12
+  %20 = load i1, ptr %5, align 1
+  ret i1 %20
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
-define internal i32 @test_njack(ptr noundef %0) #0 {
-  %2 = alloca i32, align 4
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @test_njack(ptr noundef %0) #0 {
+  %2 = alloca i1, align 1
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
@@ -288,24 +293,24 @@ define internal i32 @test_njack(ptr noundef %0) #0 {
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %3, align 8
-  %9 = call i32 @tvb_strncaseeql(ptr noundef %8, i32 noundef 0, ptr noundef @.str.106, i64 noundef 5)
+  %9 = call i32 @tvb_strncaseeql(ptr noundef %8, i32 noundef 0, ptr noundef @.str.116, i64 noundef 5)
   %10 = icmp ne i32 %9, 0
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %7, %1
-  store i32 0, ptr %2, align 4
+  store i1 false, ptr %2, align 1
   br label %13
 
 12:                                               ; preds = %7
-  store i32 1, ptr %2, align 4
+  store i1 true, ptr %2, align 1
   br label %13
 
 13:                                               ; preds = %12, %11
-  %14 = load i32, ptr %2, align 4
-  ret i32 %14
+  %14 = load i1, ptr %2, align 1
+  ret i1 %14
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_njack(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -321,20 +326,26 @@ define internal i32 @dissect_njack(ptr noundef %0, ptr noundef %1, ptr noundef %
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
   store i32 0, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #3
   %15 = load ptr, ptr %5, align 8
-  %16 = call zeroext i8 @tvb_get_guint8(ptr noundef %15, i32 noundef 5)
+  %16 = call zeroext i8 @tvb_get_uint8(ptr noundef %15, i32 noundef 5)
   store i8 %16, ptr %12, align 1
   %17 = load ptr, ptr %6, align 8
-  %18 = getelementptr inbounds %struct._packet_info, ptr %17, i32 0, i32 1
+  %18 = getelementptr inbounds nuw %struct._packet_info, ptr %17, i32 0, i32 1
   %19 = load ptr, ptr %18, align 8
-  call void @col_set_str(ptr noundef %19, i32 noundef 34, ptr noundef @.str.45)
+  call void @col_set_str(ptr noundef %19, i32 noundef 35, ptr noundef @.str.45)
   %20 = load ptr, ptr %6, align 8
-  %21 = getelementptr inbounds %struct._packet_info, ptr %20, i32 0, i32 1
+  %21 = getelementptr inbounds nuw %struct._packet_info, ptr %20, i32 0, i32 1
   %22 = load ptr, ptr %21, align 8
   %23 = load i8, ptr %12, align 1
   %24 = zext i8 %23 to i32
-  %25 = call ptr @val_to_str(i32 noundef %24, ptr noundef @njack_type_vals, ptr noundef @.str.107)
+  %25 = call ptr @val_to_str(i32 noundef %24, ptr noundef @njack_type_vals, ptr noundef @.str.117)
   call void @col_add_str(ptr noundef %22, i32 noundef 25, ptr noundef %25)
   %26 = load ptr, ptr %7, align 8
   %27 = load i32, ptr @proto_njack, align 4
@@ -408,7 +419,7 @@ define internal i32 @dissect_njack(ptr noundef %0, ptr noundef %1, ptr noundef %
 76:                                               ; preds = %4
   %77 = load ptr, ptr %5, align 8
   %78 = load i32, ptr %11, align 4
-  %79 = call zeroext i8 @tvb_get_guint8(ptr noundef %77, i32 noundef %78)
+  %79 = call zeroext i8 @tvb_get_uint8(ptr noundef %77, i32 noundef %78)
   store i8 %79, ptr %13, align 1
   %80 = load ptr, ptr %10, align 8
   %81 = load i32, ptr @hf_njack_setresult, align 4
@@ -419,12 +430,12 @@ define internal i32 @dissect_njack(ptr noundef %0, ptr noundef %1, ptr noundef %
   %86 = add i32 %85, 1
   store i32 %86, ptr %11, align 4
   %87 = load ptr, ptr %6, align 8
-  %88 = getelementptr inbounds %struct._packet_info, ptr %87, i32 0, i32 1
+  %88 = getelementptr inbounds nuw %struct._packet_info, ptr %87, i32 0, i32 1
   %89 = load ptr, ptr %88, align 8
   %90 = load i8, ptr %13, align 1
   %91 = zext i8 %90 to i32
-  %92 = call ptr @val_to_str(i32 noundef %91, ptr noundef @njack_setresult_vals, ptr noundef @.str.109)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %89, i32 noundef 25, ptr noundef @.str.108, ptr noundef %92)
+  %92 = call ptr @val_to_str(i32 noundef %91, ptr noundef @njack_setresult_vals, ptr noundef @.str.119)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %89, i32 noundef 25, ptr noundef @.str.118, ptr noundef %92)
   br label %128
 
 93:                                               ; preds = %4
@@ -454,7 +465,7 @@ define internal i32 @dissect_njack(ptr noundef %0, ptr noundef %1, ptr noundef %
 110:                                              ; preds = %4
   br label %111
 
-111:                                              ; preds = %110, %4
+111:                                              ; preds = %4, %110
   %112 = load ptr, ptr %5, align 8
   %113 = load i32, ptr %11, align 4
   %114 = call i32 @tvb_reported_length_remaining(ptr noundef %112, i32 noundef %113)
@@ -481,26 +492,43 @@ define internal i32 @dissect_njack(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 128:                                              ; preds = %127, %98, %93, %76, %50
   %129 = load i32, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
   ret i32 %129
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_strncaseeql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) #1
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #1
+
+; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -511,12 +539,15 @@ define internal i32 @dissect_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef %2
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
   br label %10
 
-10:                                               ; preds = %205, %29, %3
+10:                                               ; preds = %204, %29, %3
   %11 = load ptr, ptr %4, align 8
   %12 = load i32, ptr %6, align 4
-  %13 = call zeroext i8 @tvb_get_guint8(ptr noundef %11, i32 noundef %12)
+  %13 = call zeroext i8 @tvb_get_uint8(ptr noundef %11, i32 noundef %12)
   store i8 %13, ptr %7, align 1
   %14 = load i8, ptr %7, align 1
   %15 = zext i8 %14 to i32
@@ -532,7 +563,7 @@ define internal i32 @dissect_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %23 = load i32, ptr %6, align 4
   %24 = add i32 %23, 1
   store i32 %24, ptr %6, align 4
-  br label %206
+  br label %205
 
 25:                                               ; preds = %10
   %26 = load i8, ptr %7, align 1
@@ -555,7 +586,7 @@ define internal i32 @dissect_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %38 = load ptr, ptr %4, align 8
   %39 = load i32, ptr %6, align 4
   %40 = add i32 %39, 1
-  %41 = call zeroext i8 @tvb_get_guint8(ptr noundef %38, i32 noundef %40)
+  %41 = call zeroext i8 @tvb_get_uint8(ptr noundef %38, i32 noundef %40)
   store i8 %41, ptr %8, align 1
   %42 = load ptr, ptr %5, align 8
   %43 = load ptr, ptr %4, align 8
@@ -570,8 +601,8 @@ define internal i32 @dissect_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %52 = zext i8 %51 to i32
   %53 = load i8, ptr %7, align 1
   %54 = zext i8 %53 to i32
-  %55 = call ptr @val_to_str_ext_const(i32 noundef %54, ptr noundef @njack_cmd_vals_ext, ptr noundef @.str.120)
-  %56 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %42, ptr noundef %43, i32 noundef %44, i32 noundef %47, i32 noundef %48, ptr noundef null, ptr noundef @.str.119, i32 noundef %50, i32 noundef %52, ptr noundef %55)
+  %55 = call ptr @val_to_str_ext_const(i32 noundef %54, ptr noundef @njack_cmd_vals_ext, ptr noundef @.str.131)
+  %56 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %42, ptr noundef %43, i32 noundef %44, i32 noundef %47, i32 noundef %48, ptr noundef null, ptr noundef @.str.130, i32 noundef %50, i32 noundef %52, ptr noundef %55)
   store ptr %56, ptr %9, align 8
   %57 = load ptr, ptr %9, align 8
   %58 = load i32, ptr @hf_njack_tlv_type, align 4
@@ -591,237 +622,244 @@ define internal i32 @dissect_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef %2
   store i32 %70, ptr %6, align 4
   %71 = load i8, ptr %7, align 1
   %72 = zext i8 %71 to i32
-  switch i32 %72, label %188 [
-    i32 0, label %73
-    i32 6, label %74
-    i32 10, label %82
-    i32 11, label %90
-    i32 12, label %98
-    i32 5, label %106
-    i32 26, label %114
-    i32 30, label %122
-    i32 31, label %130
-    i32 1, label %138
-    i32 15, label %146
-    i32 2, label %154
-    i32 3, label %154
-    i32 4, label %154
-    i32 32, label %154
-    i32 13, label %162
-    i32 14, label %162
-    i32 25, label %162
-    i32 27, label %162
-    i32 28, label %162
-    i32 37, label %162
-    i32 42, label %162
-    i32 43, label %162
-    i32 19, label %174
-    i32 20, label %174
-    i32 21, label %174
-    i32 22, label %174
+  switch i32 %72, label %187 [
+    i32 0, label %204
+    i32 6, label %73
+    i32 10, label %81
+    i32 11, label %89
+    i32 12, label %97
+    i32 5, label %105
+    i32 26, label %113
+    i32 30, label %121
+    i32 31, label %129
+    i32 1, label %137
+    i32 15, label %145
+    i32 2, label %153
+    i32 3, label %153
+    i32 4, label %153
+    i32 32, label %153
+    i32 13, label %161
+    i32 14, label %161
+    i32 25, label %161
+    i32 27, label %161
+    i32 28, label %161
+    i32 37, label %161
+    i32 42, label %161
+    i32 43, label %161
+    i32 19, label %173
+    i32 20, label %173
+    i32 21, label %173
+    i32 22, label %173
   ]
 
 73:                                               ; preds = %37
-  br label %205
-
-74:                                               ; preds = %37
-  %75 = load ptr, ptr %9, align 8
-  %76 = load i32, ptr @hf_njack_tlv_countermode, align 4
-  %77 = load ptr, ptr %4, align 8
-  %78 = load i32, ptr %6, align 4
-  %79 = call ptr @proto_tree_add_item(ptr noundef %75, i32 noundef %76, ptr noundef %77, i32 noundef %78, i32 noundef 1, i32 noundef 0)
-  %80 = load i32, ptr %6, align 4
-  %81 = add i32 %80, 1
-  store i32 %81, ptr %6, align 4
-  br label %205
-
-82:                                               ; preds = %37
-  %83 = load ptr, ptr %9, align 8
-  %84 = load i32, ptr @hf_njack_tlv_scheduling, align 4
-  %85 = load ptr, ptr %4, align 8
-  %86 = load i32, ptr %6, align 4
-  %87 = call ptr @proto_tree_add_item(ptr noundef %83, i32 noundef %84, ptr noundef %85, i32 noundef %86, i32 noundef 1, i32 noundef 0)
-  %88 = load i32, ptr %6, align 4
-  %89 = add i32 %88, 1
-  store i32 %89, ptr %6, align 4
-  br label %205
-
-90:                                               ; preds = %37
-  %91 = load ptr, ptr %9, align 8
-  %92 = load i32, ptr @hf_njack_tlv_addtagscheme, align 4
-  %93 = load ptr, ptr %4, align 8
-  %94 = load i32, ptr %6, align 4
-  %95 = call ptr @proto_tree_add_item(ptr noundef %91, i32 noundef %92, ptr noundef %93, i32 noundef %94, i32 noundef 1, i32 noundef 0)
-  %96 = load i32, ptr %6, align 4
-  %97 = add i32 %96, 1
-  store i32 %97, ptr %6, align 4
-  br label %205
-
-98:                                               ; preds = %37
-  %99 = load ptr, ptr %9, align 8
-  %100 = load i32, ptr @hf_njack_tlv_portingressmode, align 4
-  %101 = load ptr, ptr %4, align 8
-  %102 = load i32, ptr %6, align 4
-  %103 = call ptr @proto_tree_add_item(ptr noundef %99, i32 noundef %100, ptr noundef %101, i32 noundef %102, i32 noundef 1, i32 noundef 0)
-  %104 = load i32, ptr %6, align 4
-  %105 = add i32 %104, 1
-  store i32 %105, ptr %6, align 4
-  br label %205
-
-106:                                              ; preds = %37
-  %107 = load ptr, ptr %9, align 8
-  %108 = load i32, ptr @hf_njack_tlv_maxframesize, align 4
-  %109 = load ptr, ptr %4, align 8
-  %110 = load i32, ptr %6, align 4
-  %111 = call ptr @proto_tree_add_item(ptr noundef %107, i32 noundef %108, ptr noundef %109, i32 noundef %110, i32 noundef 1, i32 noundef 0)
-  %112 = load i32, ptr %6, align 4
-  %113 = add i32 %112, 1
-  store i32 %113, ptr %6, align 4
-  br label %205
-
-114:                                              ; preds = %37
-  %115 = load ptr, ptr %9, align 8
-  %116 = load i32, ptr @hf_njack_tlv_snmpwrite, align 4
-  %117 = load ptr, ptr %4, align 8
-  %118 = load i32, ptr %6, align 4
-  %119 = call ptr @proto_tree_add_item(ptr noundef %115, i32 noundef %116, ptr noundef %117, i32 noundef %118, i32 noundef 1, i32 noundef 0)
-  %120 = load i32, ptr %6, align 4
-  %121 = add i32 %120, 1
-  store i32 %121, ptr %6, align 4
-  br label %205
-
-122:                                              ; preds = %37
-  %123 = load ptr, ptr %9, align 8
-  %124 = load i32, ptr @hf_njack_tlv_powerforwarding, align 4
-  %125 = load ptr, ptr %4, align 8
-  %126 = load i32, ptr %6, align 4
-  %127 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %124, ptr noundef %125, i32 noundef %126, i32 noundef 1, i32 noundef 0)
-  %128 = load i32, ptr %6, align 4
-  %129 = add i32 %128, 1
-  store i32 %129, ptr %6, align 4
-  br label %205
-
-130:                                              ; preds = %37
-  %131 = load ptr, ptr %9, align 8
-  %132 = load i32, ptr @hf_njack_tlv_dhcpcontrol, align 4
-  %133 = load ptr, ptr %4, align 8
-  %134 = load i32, ptr %6, align 4
-  %135 = call ptr @proto_tree_add_item(ptr noundef %131, i32 noundef %132, ptr noundef %133, i32 noundef %134, i32 noundef 1, i32 noundef 0)
-  %136 = load i32, ptr %6, align 4
-  %137 = add i32 %136, 1
-  store i32 %137, ptr %6, align 4
-  br label %205
-
-138:                                              ; preds = %37
-  %139 = load ptr, ptr %9, align 8
-  %140 = load i32, ptr @hf_njack_tlv_devicemac, align 4
-  %141 = load ptr, ptr %4, align 8
-  %142 = load i32, ptr %6, align 4
-  %143 = call ptr @proto_tree_add_item(ptr noundef %139, i32 noundef %140, ptr noundef %141, i32 noundef %142, i32 noundef 6, i32 noundef 0)
-  %144 = load i32, ptr %6, align 4
-  %145 = add i32 %144, 6
-  store i32 %145, ptr %6, align 4
-  br label %205
-
-146:                                              ; preds = %37
-  %147 = load ptr, ptr %9, align 8
-  %148 = load i32, ptr @hf_njack_tlv_version, align 4
-  %149 = load ptr, ptr %4, align 8
-  %150 = load i32, ptr %6, align 4
-  %151 = call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %148, ptr noundef %149, i32 noundef %150, i32 noundef 4, i32 noundef -2147483648)
-  %152 = load i32, ptr %6, align 4
-  %153 = add i32 %152, 4
-  store i32 %153, ptr %6, align 4
-  br label %205
-
-154:                                              ; preds = %37, %37, %37, %37
-  %155 = load ptr, ptr %9, align 8
-  %156 = load i32, ptr @hf_njack_tlv_typeip, align 4
-  %157 = load ptr, ptr %4, align 8
-  %158 = load i32, ptr %6, align 4
-  %159 = call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %156, ptr noundef %157, i32 noundef %158, i32 noundef 4, i32 noundef 0)
-  %160 = load i32, ptr %6, align 4
-  %161 = add i32 %160, 4
-  store i32 %161, ptr %6, align 4
-  br label %205
-
-162:                                              ; preds = %37, %37, %37, %37, %37, %37, %37, %37
-  %163 = load ptr, ptr %9, align 8
-  %164 = load i32, ptr @hf_njack_tlv_typestring, align 4
-  %165 = load ptr, ptr %4, align 8
-  %166 = load i32, ptr %6, align 4
-  %167 = load i8, ptr %8, align 1
-  %168 = zext i8 %167 to i32
-  %169 = call ptr @proto_tree_add_item(ptr noundef %163, i32 noundef %164, ptr noundef %165, i32 noundef %166, i32 noundef %168, i32 noundef 0)
-  %170 = load i8, ptr %8, align 1
-  %171 = zext i8 %170 to i32
-  %172 = load i32, ptr %6, align 4
-  %173 = add i32 %172, %171
-  store i32 %173, ptr %6, align 4
-  br label %205
-
-174:                                              ; preds = %37, %37, %37, %37
-  %175 = load i8, ptr %8, align 1
-  %176 = zext i8 %175 to i32
-  %177 = icmp eq i32 %176, 8
-  br i1 %177, label %178, label %183
-
-178:                                              ; preds = %174
-  %179 = load ptr, ptr %4, align 8
-  %180 = load ptr, ptr %9, align 8
-  %181 = load i32, ptr %6, align 4
-  %182 = call i32 @dissect_portsettings(ptr noundef %179, ptr noundef %180, i32 noundef %181)
-  br label %183
-
-183:                                              ; preds = %178, %174
-  %184 = load i8, ptr %8, align 1
-  %185 = zext i8 %184 to i32
-  %186 = load i32, ptr %6, align 4
-  %187 = add i32 %186, %185
-  store i32 %187, ptr %6, align 4
-  br label %205
-
-188:                                              ; preds = %37
-  %189 = load i8, ptr %8, align 1
-  %190 = zext i8 %189 to i32
-  %191 = icmp ne i32 %190, 0
-  br i1 %191, label %192, label %204
-
-192:                                              ; preds = %188
-  %193 = load ptr, ptr %9, align 8
-  %194 = load i32, ptr @hf_njack_tlv_data, align 4
-  %195 = load ptr, ptr %4, align 8
-  %196 = load i32, ptr %6, align 4
-  %197 = load i8, ptr %8, align 1
-  %198 = zext i8 %197 to i32
-  %199 = call ptr @proto_tree_add_item(ptr noundef %193, i32 noundef %194, ptr noundef %195, i32 noundef %196, i32 noundef %198, i32 noundef 0)
-  %200 = load i8, ptr %8, align 1
-  %201 = zext i8 %200 to i32
-  %202 = load i32, ptr %6, align 4
-  %203 = add i32 %202, %201
-  store i32 %203, ptr %6, align 4
+  %74 = load ptr, ptr %9, align 8
+  %75 = load i32, ptr @hf_njack_tlv_countermode, align 4
+  %76 = load ptr, ptr %4, align 8
+  %77 = load i32, ptr %6, align 4
+  %78 = call ptr @proto_tree_add_item(ptr noundef %74, i32 noundef %75, ptr noundef %76, i32 noundef %77, i32 noundef 1, i32 noundef 0)
+  %79 = load i32, ptr %6, align 4
+  %80 = add i32 %79, 1
+  store i32 %80, ptr %6, align 4
   br label %204
 
-204:                                              ; preds = %192, %188
-  br label %205
+81:                                               ; preds = %37
+  %82 = load ptr, ptr %9, align 8
+  %83 = load i32, ptr @hf_njack_tlv_scheduling, align 4
+  %84 = load ptr, ptr %4, align 8
+  %85 = load i32, ptr %6, align 4
+  %86 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %83, ptr noundef %84, i32 noundef %85, i32 noundef 1, i32 noundef 0)
+  %87 = load i32, ptr %6, align 4
+  %88 = add i32 %87, 1
+  store i32 %88, ptr %6, align 4
+  br label %204
 
-205:                                              ; preds = %204, %183, %162, %154, %146, %138, %130, %122, %114, %106, %98, %90, %82, %74, %73
+89:                                               ; preds = %37
+  %90 = load ptr, ptr %9, align 8
+  %91 = load i32, ptr @hf_njack_tlv_addtagscheme, align 4
+  %92 = load ptr, ptr %4, align 8
+  %93 = load i32, ptr %6, align 4
+  %94 = call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %91, ptr noundef %92, i32 noundef %93, i32 noundef 1, i32 noundef 0)
+  %95 = load i32, ptr %6, align 4
+  %96 = add i32 %95, 1
+  store i32 %96, ptr %6, align 4
+  br label %204
+
+97:                                               ; preds = %37
+  %98 = load ptr, ptr %9, align 8
+  %99 = load i32, ptr @hf_njack_tlv_portingressmode, align 4
+  %100 = load ptr, ptr %4, align 8
+  %101 = load i32, ptr %6, align 4
+  %102 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %99, ptr noundef %100, i32 noundef %101, i32 noundef 1, i32 noundef 0)
+  %103 = load i32, ptr %6, align 4
+  %104 = add i32 %103, 1
+  store i32 %104, ptr %6, align 4
+  br label %204
+
+105:                                              ; preds = %37
+  %106 = load ptr, ptr %9, align 8
+  %107 = load i32, ptr @hf_njack_tlv_maxframesize, align 4
+  %108 = load ptr, ptr %4, align 8
+  %109 = load i32, ptr %6, align 4
+  %110 = call ptr @proto_tree_add_item(ptr noundef %106, i32 noundef %107, ptr noundef %108, i32 noundef %109, i32 noundef 1, i32 noundef 0)
+  %111 = load i32, ptr %6, align 4
+  %112 = add i32 %111, 1
+  store i32 %112, ptr %6, align 4
+  br label %204
+
+113:                                              ; preds = %37
+  %114 = load ptr, ptr %9, align 8
+  %115 = load i32, ptr @hf_njack_tlv_snmpwrite, align 4
+  %116 = load ptr, ptr %4, align 8
+  %117 = load i32, ptr %6, align 4
+  %118 = call ptr @proto_tree_add_item(ptr noundef %114, i32 noundef %115, ptr noundef %116, i32 noundef %117, i32 noundef 1, i32 noundef 0)
+  %119 = load i32, ptr %6, align 4
+  %120 = add i32 %119, 1
+  store i32 %120, ptr %6, align 4
+  br label %204
+
+121:                                              ; preds = %37
+  %122 = load ptr, ptr %9, align 8
+  %123 = load i32, ptr @hf_njack_tlv_powerforwarding, align 4
+  %124 = load ptr, ptr %4, align 8
+  %125 = load i32, ptr %6, align 4
+  %126 = call ptr @proto_tree_add_item(ptr noundef %122, i32 noundef %123, ptr noundef %124, i32 noundef %125, i32 noundef 1, i32 noundef 0)
+  %127 = load i32, ptr %6, align 4
+  %128 = add i32 %127, 1
+  store i32 %128, ptr %6, align 4
+  br label %204
+
+129:                                              ; preds = %37
+  %130 = load ptr, ptr %9, align 8
+  %131 = load i32, ptr @hf_njack_tlv_dhcpcontrol, align 4
+  %132 = load ptr, ptr %4, align 8
+  %133 = load i32, ptr %6, align 4
+  %134 = call ptr @proto_tree_add_item(ptr noundef %130, i32 noundef %131, ptr noundef %132, i32 noundef %133, i32 noundef 1, i32 noundef 0)
+  %135 = load i32, ptr %6, align 4
+  %136 = add i32 %135, 1
+  store i32 %136, ptr %6, align 4
+  br label %204
+
+137:                                              ; preds = %37
+  %138 = load ptr, ptr %9, align 8
+  %139 = load i32, ptr @hf_njack_tlv_devicemac, align 4
+  %140 = load ptr, ptr %4, align 8
+  %141 = load i32, ptr %6, align 4
+  %142 = call ptr @proto_tree_add_item(ptr noundef %138, i32 noundef %139, ptr noundef %140, i32 noundef %141, i32 noundef 6, i32 noundef 0)
+  %143 = load i32, ptr %6, align 4
+  %144 = add i32 %143, 6
+  store i32 %144, ptr %6, align 4
+  br label %204
+
+145:                                              ; preds = %37
+  %146 = load ptr, ptr %9, align 8
+  %147 = load i32, ptr @hf_njack_tlv_version, align 4
+  %148 = load ptr, ptr %4, align 8
+  %149 = load i32, ptr %6, align 4
+  %150 = call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %147, ptr noundef %148, i32 noundef %149, i32 noundef 4, i32 noundef -2147483648)
+  %151 = load i32, ptr %6, align 4
+  %152 = add i32 %151, 4
+  store i32 %152, ptr %6, align 4
+  br label %204
+
+153:                                              ; preds = %37, %37, %37, %37
+  %154 = load ptr, ptr %9, align 8
+  %155 = load i32, ptr @hf_njack_tlv_typeip, align 4
+  %156 = load ptr, ptr %4, align 8
+  %157 = load i32, ptr %6, align 4
+  %158 = call ptr @proto_tree_add_item(ptr noundef %154, i32 noundef %155, ptr noundef %156, i32 noundef %157, i32 noundef 4, i32 noundef 0)
+  %159 = load i32, ptr %6, align 4
+  %160 = add i32 %159, 4
+  store i32 %160, ptr %6, align 4
+  br label %204
+
+161:                                              ; preds = %37, %37, %37, %37, %37, %37, %37, %37
+  %162 = load ptr, ptr %9, align 8
+  %163 = load i32, ptr @hf_njack_tlv_typestring, align 4
+  %164 = load ptr, ptr %4, align 8
+  %165 = load i32, ptr %6, align 4
+  %166 = load i8, ptr %8, align 1
+  %167 = zext i8 %166 to i32
+  %168 = call ptr @proto_tree_add_item(ptr noundef %162, i32 noundef %163, ptr noundef %164, i32 noundef %165, i32 noundef %167, i32 noundef 0)
+  %169 = load i8, ptr %8, align 1
+  %170 = zext i8 %169 to i32
+  %171 = load i32, ptr %6, align 4
+  %172 = add i32 %171, %170
+  store i32 %172, ptr %6, align 4
+  br label %204
+
+173:                                              ; preds = %37, %37, %37, %37
+  %174 = load i8, ptr %8, align 1
+  %175 = zext i8 %174 to i32
+  %176 = icmp eq i32 %175, 8
+  br i1 %176, label %177, label %182
+
+177:                                              ; preds = %173
+  %178 = load ptr, ptr %4, align 8
+  %179 = load ptr, ptr %9, align 8
+  %180 = load i32, ptr %6, align 4
+  %181 = call i32 @dissect_portsettings(ptr noundef %178, ptr noundef %179, i32 noundef %180)
+  br label %182
+
+182:                                              ; preds = %177, %173
+  %183 = load i8, ptr %8, align 1
+  %184 = zext i8 %183 to i32
+  %185 = load i32, ptr %6, align 4
+  %186 = add i32 %185, %184
+  store i32 %186, ptr %6, align 4
+  br label %204
+
+187:                                              ; preds = %37
+  %188 = load i8, ptr %8, align 1
+  %189 = zext i8 %188 to i32
+  %190 = icmp ne i32 %189, 0
+  br i1 %190, label %191, label %203
+
+191:                                              ; preds = %187
+  %192 = load ptr, ptr %9, align 8
+  %193 = load i32, ptr @hf_njack_tlv_data, align 4
+  %194 = load ptr, ptr %4, align 8
+  %195 = load i32, ptr %6, align 4
+  %196 = load i8, ptr %8, align 1
+  %197 = zext i8 %196 to i32
+  %198 = call ptr @proto_tree_add_item(ptr noundef %192, i32 noundef %193, ptr noundef %194, i32 noundef %195, i32 noundef %197, i32 noundef 0)
+  %199 = load i8, ptr %8, align 1
+  %200 = zext i8 %199 to i32
+  %201 = load i32, ptr %6, align 4
+  %202 = add i32 %201, %200
+  store i32 %202, ptr %6, align 4
+  br label %203
+
+203:                                              ; preds = %191, %187
+  br label %204
+
+204:                                              ; preds = %203, %182, %161, %153, %145, %37, %137, %129, %121, %113, %105, %97, %89, %81, %73
   br label %10
 
-206:                                              ; preds = %17
-  %207 = load i32, ptr %6, align 4
-  ret i32 %207
+205:                                              ; preds = %17
+  %206 = load i32, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #3
+  ret i32 %206
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str_ext_const(i32 noundef, ptr noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_portsettings(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -838,12 +876,16 @@ define internal i32 @dissect_portsettings(ptr noundef %0, ptr noundef %1, i32 no
   ret i32 %12
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}

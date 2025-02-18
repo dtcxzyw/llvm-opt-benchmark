@@ -1,18 +1,19 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct._value_string = type { i32, ptr }
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
 %struct.true_false_string = type { ptr, ptr }
+%struct._value_string_ext = type { ptr, i32, i32, ptr, ptr }
 %struct._e_guid_t = type { i32, i16, i16, [8 x i8] }
-%struct._dcerpc_sub_dissector = type { i16, ptr, ptr, ptr }
-%struct._dcerpc_info = type { ptr, i32, i64, i8, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr }
+%struct._value_string = type { i32, ptr }
+%struct._dcerpc_info = type { ptr, i32, i64, i8, i8, i8, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, %struct.anon }
+%struct.anon = type { i8, ptr, ptr, ptr, i8 }
 %struct._dcerpc_call_value = type { %struct._e_guid_t, i16, %struct._e_guid_t, i16, i32, %struct.nstime_t, i32, i32, ptr, ptr, ptr, i32 }
 %struct.nstime_t = type { i64, i32 }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon.0, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
-%struct.anon = type { i8, [3 x i8] }
+%struct.anon.0 = type { i8, [3 x i8] }
 
 @.str = private unnamed_addr constant [32 x i8] c"FRSRPC_CO_STATUS_CO_ENTERED_LOG\00", align 1
 @.str.1 = private unnamed_addr constant [40 x i8] c"FRSRPC_CO_STATUS_ALLOC_STAGING_LOCAL_CO\00", align 1
@@ -36,7 +37,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.19 = private unnamed_addr constant [41 x i8] c"FRSRPC_CO_STATUS_DB_STATE_UPDATE_STARTED\00", align 1
 @.str.20 = private unnamed_addr constant [43 x i8] c"FRSRPC_CO_STATUS_DB_STATE_UPDATE_COMPLETED\00", align 1
 @.str.21 = private unnamed_addr constant [28 x i8] c"FRSRPC_CO_STATUS_CO_ABORTED\00", align 1
-@frsrpc_frsrpc_CommPktCoCmdStatus_vals = hidden constant [23 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str }, %struct._value_string { i32 1, ptr @.str.1 }, %struct._value_string { i32 2, ptr @.str.2 }, %struct._value_string { i32 3, ptr @.str.3 }, %struct._value_string { i32 4, ptr @.str.4 }, %struct._value_string { i32 5, ptr @.str.5 }, %struct._value_string { i32 6, ptr @.str.6 }, %struct._value_string { i32 7, ptr @.str.7 }, %struct._value_string { i32 8, ptr @.str.8 }, %struct._value_string { i32 9, ptr @.str.9 }, %struct._value_string { i32 10, ptr @.str.10 }, %struct._value_string { i32 11, ptr @.str.11 }, %struct._value_string { i32 12, ptr @.str.12 }, %struct._value_string { i32 13, ptr @.str.13 }, %struct._value_string { i32 14, ptr @.str.14 }, %struct._value_string { i32 15, ptr @.str.15 }, %struct._value_string { i32 19, ptr @.str.16 }, %struct._value_string { i32 20, ptr @.str.17 }, %struct._value_string { i32 21, ptr @.str.18 }, %struct._value_string { i32 22, ptr @.str.19 }, %struct._value_string { i32 23, ptr @.str.20 }, %struct._value_string { i32 24, ptr @.str.21 }, %struct._value_string zeroinitializer], align 16
+@frsrpc_frsrpc_CommPktCoCmdStatus_vals = hidden constant [23 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.2 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.3 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.4 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.5 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.6 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.7 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.8 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.9 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.10 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.11 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.12 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.13 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.14 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.15 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.16 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.17 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.18 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.19 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.21 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
 @.str.22 = private unnamed_addr constant [31 x i8] c"FRSRPC_CO_LOCATION_FILE_CREATE\00", align 1
 @.str.23 = private unnamed_addr constant [30 x i8] c"FRSRPC_CO_LOCATION_DIR_CREATE\00", align 1
 @.str.24 = private unnamed_addr constant [31 x i8] c"FRSRPC_CO_LOCATION_FILE_DELETE\00", align 1
@@ -53,14 +54,14 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.35 = private unnamed_addr constant [31 x i8] c"FRSRPC_CO_LOCATION_DIR_MOVEDIR\00", align 1
 @.str.36 = private unnamed_addr constant [31 x i8] c"FRSRPC_CO_LOCATION_FILE_NO_CMD\00", align 1
 @.str.37 = private unnamed_addr constant [30 x i8] c"FRSRPC_CO_LOCATION_DIR_NO_CMD\00", align 1
-@frsrpc_frsrpc_CommPktCoCmdLocationCmd_vals = hidden constant [17 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.22 }, %struct._value_string { i32 1, ptr @.str.23 }, %struct._value_string { i32 2, ptr @.str.24 }, %struct._value_string { i32 3, ptr @.str.25 }, %struct._value_string { i32 4, ptr @.str.26 }, %struct._value_string { i32 5, ptr @.str.27 }, %struct._value_string { i32 6, ptr @.str.28 }, %struct._value_string { i32 7, ptr @.str.29 }, %struct._value_string { i32 8, ptr @.str.30 }, %struct._value_string { i32 9, ptr @.str.31 }, %struct._value_string { i32 10, ptr @.str.32 }, %struct._value_string { i32 11, ptr @.str.33 }, %struct._value_string { i32 12, ptr @.str.34 }, %struct._value_string { i32 13, ptr @.str.35 }, %struct._value_string { i32 14, ptr @.str.36 }, %struct._value_string { i32 15, ptr @.str.37 }, %struct._value_string zeroinitializer], align 16
+@frsrpc_frsrpc_CommPktCoCmdLocationCmd_vals = hidden constant [17 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.22 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.23 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.24 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.25 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.26 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.27 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.28 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.29 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.30 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.31 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.32 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.33 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.34 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.35 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.36 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.37 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
 @.str.38 = private unnamed_addr constant [33 x i8] c"FRSRPC_DATA_EXTENSION_TERMINATOR\00", align 1
 @.str.39 = private unnamed_addr constant [35 x i8] c"FRSRPC_DATA_EXTENSION_MD5_CHECKSUM\00", align 1
 @.str.40 = private unnamed_addr constant [36 x i8] c"FRSRPC_DATA_EXTENSION_RETRY_TIMEOUT\00", align 1
-@frsrpc_frsrpc_CommPktDataExtensionType_vals = hidden constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.38 }, %struct._value_string { i32 1, ptr @.str.39 }, %struct._value_string { i32 2, ptr @.str.40 }, %struct._value_string zeroinitializer], align 16
+@frsrpc_frsrpc_CommPktDataExtensionType_vals = hidden constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.38 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.39 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.40 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
 @.str.41 = private unnamed_addr constant [41 x i8] c"FRSRPC_CO_RECORD_EXTENSION_VERSION_WIN2K\00", align 1
 @.str.42 = private unnamed_addr constant [37 x i8] c"FRSRPC_CO_RECORD_EXTENSION_VERSION_1\00", align 1
-@frsrpc_frsrpc_CommPktCoRecordExtensionMajor_vals = hidden constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.41 }, %struct._value_string { i32 1, ptr @.str.42 }, %struct._value_string zeroinitializer], align 16
+@frsrpc_frsrpc_CommPktCoRecordExtensionMajor_vals = hidden constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.41 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.42 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
 @.str.43 = private unnamed_addr constant [25 x i8] c"FRSRPC_COMMAND_REMOTE_CO\00", align 1
 @.str.44 = private unnamed_addr constant [31 x i8] c"FRSRPC_COMMAND_RECEIVING_STATE\00", align 1
 @.str.45 = private unnamed_addr constant [30 x i8] c"FRSRPC_COMMAND_REMOTE_CO_DONE\00", align 1
@@ -73,7 +74,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.52 = private unnamed_addr constant [29 x i8] c"FRSRPC_COMMAND_UNJOIN_REMOTE\00", align 1
 @.str.53 = private unnamed_addr constant [26 x i8] c"FRSRPC_COMMAND_WJOIN_DONE\00", align 1
 @.str.54 = private unnamed_addr constant [26 x i8] c"FRSRPC_COMMAND_SEND_STAGE\00", align 1
-@frsrpc_frsrpc_CommPktCommand_vals = hidden constant [13 x %struct._value_string] [%struct._value_string { i32 536, ptr @.str.43 }, %struct._value_string { i32 568, ptr @.str.44 }, %struct._value_string { i32 592, ptr @.str.45 }, %struct._value_string { i32 582, ptr @.str.46 }, %struct._value_string { i32 580, ptr @.str.47 }, %struct._value_string { i32 289, ptr @.str.48 }, %struct._value_string { i32 290, ptr @.str.49 }, %struct._value_string { i32 304, ptr @.str.50 }, %struct._value_string { i32 296, ptr @.str.51 }, %struct._value_string { i32 328, ptr @.str.52 }, %struct._value_string { i32 310, ptr @.str.53 }, %struct._value_string { i32 552, ptr @.str.54 }, %struct._value_string zeroinitializer], align 16
+@frsrpc_frsrpc_CommPktCommand_vals = hidden constant [13 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 536, [4 x i8] zeroinitializer, ptr @.str.43 }, { i32, [4 x i8], ptr } { i32 568, [4 x i8] zeroinitializer, ptr @.str.44 }, { i32, [4 x i8], ptr } { i32 592, [4 x i8] zeroinitializer, ptr @.str.45 }, { i32, [4 x i8], ptr } { i32 582, [4 x i8] zeroinitializer, ptr @.str.46 }, { i32, [4 x i8], ptr } { i32 580, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 289, [4 x i8] zeroinitializer, ptr @.str.48 }, { i32, [4 x i8], ptr } { i32 290, [4 x i8] zeroinitializer, ptr @.str.49 }, { i32, [4 x i8], ptr } { i32 304, [4 x i8] zeroinitializer, ptr @.str.50 }, { i32, [4 x i8], ptr } { i32 296, [4 x i8] zeroinitializer, ptr @.str.51 }, { i32, [4 x i8], ptr } { i32 328, [4 x i8] zeroinitializer, ptr @.str.52 }, { i32, [4 x i8], ptr } { i32 310, [4 x i8] zeroinitializer, ptr @.str.53 }, { i32, [4 x i8], ptr } { i32 552, [4 x i8] zeroinitializer, ptr @.str.54 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
 @.str.55 = private unnamed_addr constant [26 x i8] c"FRSRPC_COMM_PKT_CHUNK_BOP\00", align 1
 @.str.56 = private unnamed_addr constant [30 x i8] c"FRSRPC_COMM_PKT_CHUNK_COMMAND\00", align 1
 @.str.57 = private unnamed_addr constant [25 x i8] c"FRSRPC_COMM_PKT_CHUNK_TO\00", align 1
@@ -95,11 +96,11 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.73 = private unnamed_addr constant [41 x i8] c"FRSRPC_COMM_PKT_CHUNK_CO_SEQUENCE_NUMBER\00", align 1
 @.str.74 = private unnamed_addr constant [32 x i8] c"FRSRPC_COMM_PKT_CHUNK_REMOTE_CO\00", align 1
 @.str.75 = private unnamed_addr constant [35 x i8] c"FRSRPC_COMM_PKT_CHUNK_CO_EXT_WIN2K\00", align 1
-@.str.76 = private unnamed_addr constant [37 x i8] c"FRSRPC_COMM_PKT_CHUNK_CO_EXTENTION_2\00", align 1
+@.str.76 = private unnamed_addr constant [37 x i8] c"FRSRPC_COMM_PKT_CHUNK_CO_EXTENSION_2\00", align 1
 @.str.77 = private unnamed_addr constant [26 x i8] c"FRSRPC_COMM_PKT_CHUNK_EOP\00", align 1
-@frsrpc_frsrpc_CommPktChunkType_vals = hidden constant [24 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.55 }, %struct._value_string { i32 2, ptr @.str.56 }, %struct._value_string { i32 3, ptr @.str.57 }, %struct._value_string { i32 4, ptr @.str.58 }, %struct._value_string { i32 5, ptr @.str.59 }, %struct._value_string { i32 8, ptr @.str.60 }, %struct._value_string { i32 6, ptr @.str.61 }, %struct._value_string { i32 18, ptr @.str.62 }, %struct._value_string { i32 7, ptr @.str.63 }, %struct._value_string { i32 17, ptr @.str.64 }, %struct._value_string { i32 20, ptr @.str.65 }, %struct._value_string { i32 24, ptr @.str.66 }, %struct._value_string { i32 9, ptr @.str.67 }, %struct._value_string { i32 10, ptr @.str.68 }, %struct._value_string { i32 11, ptr @.str.69 }, %struct._value_string { i32 12, ptr @.str.70 }, %struct._value_string { i32 14, ptr @.str.71 }, %struct._value_string { i32 15, ptr @.str.72 }, %struct._value_string { i32 16, ptr @.str.73 }, %struct._value_string { i32 13, ptr @.str.74 }, %struct._value_string { i32 22, ptr @.str.75 }, %struct._value_string { i32 23, ptr @.str.76 }, %struct._value_string { i32 19, ptr @.str.77 }, %struct._value_string zeroinitializer], align 16
+@frsrpc_frsrpc_CommPktChunkType_vals = hidden constant [24 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.55 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.56 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.57 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.58 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.59 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.60 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.61 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.62 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.63 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.64 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.65 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.66 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.67 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.68 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.69 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.70 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.71 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.72 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.73 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.74 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.75 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.76 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.77 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
 @.str.78 = private unnamed_addr constant [24 x i8] c"FRSRPC_COMM_PKT_MAJOR_0\00", align 1
-@frsrpc_frsrpc_CommPktMajor_vals = hidden constant [2 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.78 }, %struct._value_string zeroinitializer], align 16
+@frsrpc_frsrpc_CommPktMajor_vals = hidden constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.78 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
 @.str.79 = private unnamed_addr constant [24 x i8] c"FRSRPC_COMM_PKT_MINOR_0\00", align 1
 @.str.80 = private unnamed_addr constant [24 x i8] c"FRSRPC_COMM_PKT_MINOR_1\00", align 1
 @.str.81 = private unnamed_addr constant [24 x i8] c"FRSRPC_COMM_PKT_MINOR_2\00", align 1
@@ -110,314 +111,314 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.86 = private unnamed_addr constant [24 x i8] c"FRSRPC_COMM_PKT_MINOR_7\00", align 1
 @.str.87 = private unnamed_addr constant [24 x i8] c"FRSRPC_COMM_PKT_MINOR_8\00", align 1
 @.str.88 = private unnamed_addr constant [24 x i8] c"FRSRPC_COMM_PKT_MINOR_9\00", align 1
-@frsrpc_frsrpc_CommPktMinor_vals = hidden constant [11 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.79 }, %struct._value_string { i32 1, ptr @.str.80 }, %struct._value_string { i32 2, ptr @.str.81 }, %struct._value_string { i32 3, ptr @.str.82 }, %struct._value_string { i32 4, ptr @.str.83 }, %struct._value_string { i32 5, ptr @.str.84 }, %struct._value_string { i32 6, ptr @.str.85 }, %struct._value_string { i32 7, ptr @.str.86 }, %struct._value_string { i32 8, ptr @.str.87 }, %struct._value_string { i32 9, ptr @.str.88 }, %struct._value_string zeroinitializer], align 16
+@frsrpc_frsrpc_CommPktMinor_vals = hidden constant [11 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.79 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.80 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.81 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.82 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.83 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.84 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.85 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.86 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.87 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.88 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
 @.str.89 = private unnamed_addr constant [44 x i8] c"FRSRPC_PARENT_AUTH_LEVEL_ENCRYPTED_KERBEROS\00", align 1
 @.str.90 = private unnamed_addr constant [43 x i8] c"FRSRPC_PARENT_AUTH_LEVEL_NO_AUTHENTICATION\00", align 1
-@frsrpc_frsrpc_PartnerAuthLevel_vals = hidden constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.89 }, %struct._value_string { i32 1, ptr @.str.90 }, %struct._value_string zeroinitializer], align 16
-@ett_frsrpc_frsrpc_CommPktChunk = internal global i32 -1, align 4
+@frsrpc_frsrpc_PartnerAuthLevel_vals = hidden constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.89 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.90 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@ett_frsrpc_frsrpc_CommPktChunk = internal global i32 0, align 4
 @.str.91 = private unnamed_addr constant [12 x i8] c", type = %s\00", align 1
 @.str.92 = private unnamed_addr constant [14 x i8] c",command = %s\00", align 1
-@ett_frsrpc_frsrpc_CommPktChunkGuidName = internal global i32 -1, align 4
-@ett_frsrpc_frsrpc_CommPktGSVN = internal global i32 -1, align 4
+@ett_frsrpc_frsrpc_CommPktChunkGuidName = internal global i32 0, align 4
+@ett_frsrpc_frsrpc_CommPktGSVN = internal global i32 0, align 4
 @frsrpc_dissect_bitmap_CommPktCoCmdFlags.frsrpc_frsrpc_CommPktCoCmdFlags_fields = internal constant [19 x ptr] [ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_ABORT_CO, ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_VV_ACTIVATED, ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_CONTENT_CMD, ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_LOCATION_CMD, ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_ONLIST, ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_LOCALCO, ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_RETRY, ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_OUT_OF_ORDER, ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_NEW_FILE, ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_CONTROL, ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_DIRECTED_CO, ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_VVJOIN_TO_ORIG, ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_SKIP_ORIG_REC_C, ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_MOVEIN_GEN, ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_MORPH_GEN_HEAD, ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_JUST_OID_RESET, ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_COMPRESSED_STAGE, ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_SKIP_VV_UPDATE, ptr null], align 16
-@hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_ABORT_CO = internal global i32 -1, align 4
-@hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_VV_ACTIVATED = internal global i32 -1, align 4
-@hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_CONTENT_CMD = internal global i32 -1, align 4
-@hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_LOCATION_CMD = internal global i32 -1, align 4
-@hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_ONLIST = internal global i32 -1, align 4
-@hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_LOCALCO = internal global i32 -1, align 4
-@hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_RETRY = internal global i32 -1, align 4
-@hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_OUT_OF_ORDER = internal global i32 -1, align 4
-@hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_NEW_FILE = internal global i32 -1, align 4
-@hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_CONTROL = internal global i32 -1, align 4
-@hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_DIRECTED_CO = internal global i32 -1, align 4
-@hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_VVJOIN_TO_ORIG = internal global i32 -1, align 4
-@hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_SKIP_ORIG_REC_C = internal global i32 -1, align 4
-@hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_MOVEIN_GEN = internal global i32 -1, align 4
-@hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_MORPH_GEN_HEAD = internal global i32 -1, align 4
-@hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_JUST_OID_RESET = internal global i32 -1, align 4
-@hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_COMPRESSED_STAGE = internal global i32 -1, align 4
-@hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_SKIP_VV_UPDATE = internal global i32 -1, align 4
-@ett_frsrpc_frsrpc_CommPktCoCmdFlags = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_ABORT_CO = internal global i32 0, align 4
+@hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_VV_ACTIVATED = internal global i32 0, align 4
+@hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_CONTENT_CMD = internal global i32 0, align 4
+@hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_LOCATION_CMD = internal global i32 0, align 4
+@hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_ONLIST = internal global i32 0, align 4
+@hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_LOCALCO = internal global i32 0, align 4
+@hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_RETRY = internal global i32 0, align 4
+@hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_OUT_OF_ORDER = internal global i32 0, align 4
+@hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_NEW_FILE = internal global i32 0, align 4
+@hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_CONTROL = internal global i32 0, align 4
+@hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_DIRECTED_CO = internal global i32 0, align 4
+@hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_VVJOIN_TO_ORIG = internal global i32 0, align 4
+@hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_SKIP_ORIG_REC_C = internal global i32 0, align 4
+@hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_MOVEIN_GEN = internal global i32 0, align 4
+@hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_MORPH_GEN_HEAD = internal global i32 0, align 4
+@hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_JUST_OID_RESET = internal global i32 0, align 4
+@hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_COMPRESSED_STAGE = internal global i32 0, align 4
+@hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_SKIP_VV_UPDATE = internal global i32 0, align 4
+@ett_frsrpc_frsrpc_CommPktCoCmdFlags = internal global i32 0, align 4
 @.str.93 = private unnamed_addr constant [18 x i8] c": (No values set)\00", align 1
 @.str.94 = private unnamed_addr constant [26 x i8] c"Unknown bitmap value 0x%x\00", align 1
 @frsrpc_dissect_bitmap_CommPktCoCmdIFlags.frsrpc_frsrpc_CommPktCoCmdIFlags_fields = internal constant [4 x ptr] [ptr @hf_frsrpc_frsrpc_CommPktCoCmdIFlags_FRSRPC_CO_IFLAG_VVRETIRE_EXEC, ptr @hf_frsrpc_frsrpc_CommPktCoCmdIFlags_FRSRPC_CO_IFLAG_CO_ABORT, ptr @hf_frsrpc_frsrpc_CommPktCoCmdIFlags_FRSRPC_CO_IFLAG_DIR_ENUM_PENDING, ptr null], align 16
-@hf_frsrpc_frsrpc_CommPktCoCmdIFlags_FRSRPC_CO_IFLAG_VVRETIRE_EXEC = internal global i32 -1, align 4
-@hf_frsrpc_frsrpc_CommPktCoCmdIFlags_FRSRPC_CO_IFLAG_CO_ABORT = internal global i32 -1, align 4
-@hf_frsrpc_frsrpc_CommPktCoCmdIFlags_FRSRPC_CO_IFLAG_DIR_ENUM_PENDING = internal global i32 -1, align 4
-@ett_frsrpc_frsrpc_CommPktCoCmdIFlags = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktCoCmdIFlags_FRSRPC_CO_IFLAG_VVRETIRE_EXEC = internal global i32 0, align 4
+@hf_frsrpc_frsrpc_CommPktCoCmdIFlags_FRSRPC_CO_IFLAG_CO_ABORT = internal global i32 0, align 4
+@hf_frsrpc_frsrpc_CommPktCoCmdIFlags_FRSRPC_CO_IFLAG_DIR_ENUM_PENDING = internal global i32 0, align 4
+@ett_frsrpc_frsrpc_CommPktCoCmdIFlags = internal global i32 0, align 4
 @frsrpc_dissect_bitmap_CommPktCoCmdContentCmd.frsrpc_frsrpc_CommPktCoCmdContentCmd_fields = internal constant [15 x ptr] [ptr @hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_DATA_OVERWRITE, ptr @hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_DATA_EXTEND, ptr @hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_DATA_TRUNCATION, ptr @hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_NAMED_DATA_OVERWRITE, ptr @hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_NAMED_DATA_EXTEND, ptr @hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_NAMED_DATA_TRUNCATION, ptr @hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_FILE_CREATE, ptr @hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_FILE_DELETE, ptr @hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_EA_CHANGE, ptr @hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_SECURITY_CHANGE, ptr @hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_OLD_NAME, ptr @hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_NEW_NAME, ptr @hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_BASIC_INFO_CHANGE, ptr @hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_COMPRESSION_CHANGE, ptr null], align 16
-@hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_DATA_OVERWRITE = internal global i32 -1, align 4
-@hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_DATA_EXTEND = internal global i32 -1, align 4
-@hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_DATA_TRUNCATION = internal global i32 -1, align 4
-@hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_NAMED_DATA_OVERWRITE = internal global i32 -1, align 4
-@hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_NAMED_DATA_EXTEND = internal global i32 -1, align 4
-@hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_NAMED_DATA_TRUNCATION = internal global i32 -1, align 4
-@hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_FILE_CREATE = internal global i32 -1, align 4
-@hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_FILE_DELETE = internal global i32 -1, align 4
-@hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_EA_CHANGE = internal global i32 -1, align 4
-@hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_SECURITY_CHANGE = internal global i32 -1, align 4
-@hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_OLD_NAME = internal global i32 -1, align 4
-@hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_NEW_NAME = internal global i32 -1, align 4
-@hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_BASIC_INFO_CHANGE = internal global i32 -1, align 4
-@hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_COMPRESSION_CHANGE = internal global i32 -1, align 4
-@ett_frsrpc_frsrpc_CommPktCoCmdContentCmd = internal global i32 -1, align 4
-@ett_frsrpc_frsrpc_CommPktChangeOrderCommand = internal global i32 -1, align 4
-@ett_frsrpc_frsrpc_CommPktDataExtensionChecksum = internal global i32 -1, align 4
-@ett_frsrpc_frsrpc_CommPktDataExtensionRetryTimeout = internal global i32 -1, align 4
-@ett_frsrpc_frsrpc_CommPktCoRecordExtensionWin2k = internal global i32 -1, align 4
-@ett_frsrpc_frsrpc_CommPktChangeOrderRecordExtension = internal global i32 -1, align 4
-@ett_frsrpc_frsrpc_FrsSendCommPktReq = internal global i32 -1, align 4
-@proto_register_dcerpc_frsrpc.hf = internal global [176 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_CommPktChunk, %struct._header_field_info { ptr @.str.95, ptr @.str.96, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_CommPktChangeOrderCommand_file_name, %struct._header_field_info { ptr @.str.97, ptr @.str.98, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_ack_version, %struct._header_field_info { ptr @.str.99, ptr @.str.100, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_change_order_guid, %struct._header_field_info { ptr @.str.101, ptr @.str.102, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_connection_guid, %struct._header_field_info { ptr @.str.103, ptr @.str.104, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_content_cmd, %struct._header_field_info { ptr @.str.105, ptr @.str.106, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_event_time, %struct._header_field_info { ptr @.str.107, ptr @.str.108, i32 24, i32 18, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_extension, %struct._header_field_info { ptr @.str.109, ptr @.str.110, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_file_attributes, %struct._header_field_info { ptr @.str.111, ptr @.str.112, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_file_guid, %struct._header_field_info { ptr @.str.113, ptr @.str.114, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_file_name, %struct._header_field_info { ptr @.str.97, ptr @.str.115, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_file_name_length, %struct._header_field_info { ptr @.str.116, ptr @.str.117, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_file_offset, %struct._header_field_info { ptr @.str.118, ptr @.str.119, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_file_size, %struct._header_field_info { ptr @.str.120, ptr @.str.121, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_file_usn, %struct._header_field_info { ptr @.str.122, ptr @.str.123, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_file_version_number, %struct._header_field_info { ptr @.str.124, ptr @.str.125, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_flags, %struct._header_field_info { ptr @.str.126, ptr @.str.127, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_frs_vsn, %struct._header_field_info { ptr @.str.128, ptr @.str.129, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_iflags, %struct._header_field_info { ptr @.str.130, ptr @.str.131, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_jrnl_first_usn, %struct._header_field_info { ptr @.str.132, ptr @.str.133, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_jrnl_usn, %struct._header_field_info { ptr @.str.134, ptr @.str.135, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_location_cmd, %struct._header_field_info { ptr @.str.136, ptr @.str.137, i32 7, i32 1, ptr @frsrpc_frsrpc_CommPktCoCmdLocationCmd_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_new_parent_guid, %struct._header_field_info { ptr @.str.138, ptr @.str.139, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_new_replica_num, %struct._header_field_info { ptr @.str.140, ptr @.str.141, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_not_used, %struct._header_field_info { ptr @.str.142, ptr @.str.143, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_old_parent_guid, %struct._header_field_info { ptr @.str.144, ptr @.str.145, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_original_replica_num, %struct._header_field_info { ptr @.str.146, ptr @.str.147, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_originator_guid, %struct._header_field_info { ptr @.str.148, ptr @.str.149, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_padding1, %struct._header_field_info { ptr @.str.150, ptr @.str.151, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_padding2, %struct._header_field_info { ptr @.str.152, ptr @.str.153, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_padding3, %struct._header_field_info { ptr @.str.154, ptr @.str.155, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_padding4, %struct._header_field_info { ptr @.str.156, ptr @.str.157, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_partern_ack_sequence_number, %struct._header_field_info { ptr @.str.158, ptr @.str.159, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_sequence_number, %struct._header_field_info { ptr @.str.160, ptr @.str.161, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_spare1guid_p1, %struct._header_field_info { ptr @.str.162, ptr @.str.163, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_spare1guid_p2, %struct._header_field_info { ptr @.str.164, ptr @.str.165, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_spare1wcs, %struct._header_field_info { ptr @.str.166, ptr @.str.167, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_spare2bin, %struct._header_field_info { ptr @.str.168, ptr @.str.169, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_spare2guid_p1, %struct._header_field_info { ptr @.str.170, ptr @.str.171, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_spare2ul1, %struct._header_field_info { ptr @.str.172, ptr @.str.173, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_spare2wcs, %struct._header_field_info { ptr @.str.174, ptr @.str.175, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_spare3guid_p2, %struct._header_field_info { ptr @.str.176, ptr @.str.177, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_status, %struct._header_field_info { ptr @.str.178, ptr @.str.179, i32 7, i32 1, ptr @frsrpc_frsrpc_CommPktCoCmdStatus_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderRecordExtension_data_checksum, %struct._header_field_info { ptr @.str.180, ptr @.str.181, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderRecordExtension_data_retry_timeout, %struct._header_field_info { ptr @.str.182, ptr @.str.183, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderRecordExtension_field_size, %struct._header_field_info { ptr @.str.184, ptr @.str.185, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderRecordExtension_major, %struct._header_field_info { ptr @.str.186, ptr @.str.187, i32 7, i32 1, ptr @frsrpc_frsrpc_CommPktCoRecordExtensionMajor_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderRecordExtension_not_used, %struct._header_field_info { ptr @.str.142, ptr @.str.188, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderRecordExtension_offset0, %struct._header_field_info { ptr @.str.189, ptr @.str.190, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderRecordExtension_offset1, %struct._header_field_info { ptr @.str.191, ptr @.str.192, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderRecordExtension_offset_count, %struct._header_field_info { ptr @.str.193, ptr @.str.194, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderRecordExtension_offset_last, %struct._header_field_info { ptr @.str.195, ptr @.str.196, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_blob, %struct._header_field_info { ptr @.str.197, ptr @.str.198, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_block, %struct._header_field_info { ptr @.str.199, ptr @.str.200, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_block_size, %struct._header_field_info { ptr @.str.201, ptr @.str.202, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_bop, %struct._header_field_info { ptr @.str.203, ptr @.str.204, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_bopend, %struct._header_field_info { ptr @.str.205, ptr @.str.206, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_co_ext_win2k, %struct._header_field_info { ptr @.str.207, ptr @.str.208, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_co_ext_win2k_, %struct._header_field_info { ptr @.str.209, ptr @.str.210, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_co_extension2, %struct._header_field_info { ptr @.str.211, ptr @.str.212, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_co_guid, %struct._header_field_info { ptr @.str.213, ptr @.str.214, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_co_guid_, %struct._header_field_info { ptr @.str.209, ptr @.str.210, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_co_sequnence_number, %struct._header_field_info { ptr @.str.215, ptr @.str.216, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_command, %struct._header_field_info { ptr @.str.217, ptr @.str.218, i32 7, i32 1, ptr @frsrpc_frsrpc_CommPktCommand_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_compression_guid, %struct._header_field_info { ptr @.str.219, ptr @.str.220, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_connection, %struct._header_field_info { ptr @.str.221, ptr @.str.222, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_file_offset, %struct._header_field_info { ptr @.str.118, ptr @.str.223, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_file_size, %struct._header_field_info { ptr @.str.120, ptr @.str.224, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_from, %struct._header_field_info { ptr @.str.225, ptr @.str.226, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_gvsn, %struct._header_field_info { ptr @.str.227, ptr @.str.228, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_gvsn_, %struct._header_field_info { ptr @.str.209, ptr @.str.210, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_join_guid, %struct._header_field_info { ptr @.str.229, ptr @.str.230, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_join_guid_, %struct._header_field_info { ptr @.str.209, ptr @.str.210, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_join_time, %struct._header_field_info { ptr @.str.231, ptr @.str.232, i32 24, i32 18, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_join_time_, %struct._header_field_info { ptr @.str.209, ptr @.str.210, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_last_join_time, %struct._header_field_info { ptr @.str.233, ptr @.str.234, i32 24, i32 18, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_remote_co, %struct._header_field_info { ptr @.str.235, ptr @.str.236, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_remote_co_, %struct._header_field_info { ptr @.str.209, ptr @.str.210, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_replica, %struct._header_field_info { ptr @.str.237, ptr @.str.238, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_replica_version_guid, %struct._header_field_info { ptr @.str.239, ptr @.str.240, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_replica_version_guid_, %struct._header_field_info { ptr @.str.209, ptr @.str.210, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_to, %struct._header_field_info { ptr @.str.241, ptr @.str.242, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_vvector, %struct._header_field_info { ptr @.str.243, ptr @.str.244, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_vvector_, %struct._header_field_info { ptr @.str.209, ptr @.str.210, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkGuidName_guid, %struct._header_field_info { ptr @.str.245, ptr @.str.246, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkGuidName_guid_, %struct._header_field_info { ptr @.str.209, ptr @.str.247, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkGuidName_name, %struct._header_field_info { ptr @.str.248, ptr @.str.249, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkGuidName_name_, %struct._header_field_info { ptr @.str.209, ptr @.str.247, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunk_data, %struct._header_field_info { ptr @.str.250, ptr @.str.251, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunk_data_, %struct._header_field_info { ptr @.str.209, ptr @.str.252, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunk_type, %struct._header_field_info { ptr @.str.253, ptr @.str.254, i32 7, i32 1, ptr @frsrpc_frsrpc_CommPktChunkType_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_BASIC_INFO_CHANGE, %struct._header_field_info { ptr @.str.255, ptr @.str.256, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_BASIC_INFO_CHANGE_tfs, i64 16384, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_COMPRESSION_CHANGE, %struct._header_field_info { ptr @.str.257, ptr @.str.258, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_COMPRESSION_CHANGE_tfs, i64 131072, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_DATA_EXTEND, %struct._header_field_info { ptr @.str.259, ptr @.str.260, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_DATA_EXTEND_tfs, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_DATA_OVERWRITE, %struct._header_field_info { ptr @.str.261, ptr @.str.262, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_DATA_OVERWRITE_tfs, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_DATA_TRUNCATION, %struct._header_field_info { ptr @.str.263, ptr @.str.264, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_DATA_TRUNCATION_tfs, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_EA_CHANGE, %struct._header_field_info { ptr @.str.265, ptr @.str.266, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_EA_CHANGE_tfs, i64 1024, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_FILE_CREATE, %struct._header_field_info { ptr @.str.267, ptr @.str.268, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_FILE_CREATE_tfs, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_FILE_DELETE, %struct._header_field_info { ptr @.str.269, ptr @.str.270, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_FILE_DELETE_tfs, i64 512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_NAMED_DATA_EXTEND, %struct._header_field_info { ptr @.str.271, ptr @.str.272, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_NAMED_DATA_EXTEND_tfs, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_NAMED_DATA_OVERWRITE, %struct._header_field_info { ptr @.str.273, ptr @.str.274, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_NAMED_DATA_OVERWRITE_tfs, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_NAMED_DATA_TRUNCATION, %struct._header_field_info { ptr @.str.275, ptr @.str.276, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_NAMED_DATA_TRUNCATION_tfs, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_NEW_NAME, %struct._header_field_info { ptr @.str.277, ptr @.str.278, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_NEW_NAME_tfs, i64 8192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_OLD_NAME, %struct._header_field_info { ptr @.str.279, ptr @.str.280, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_OLD_NAME_tfs, i64 4096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_SECURITY_CHANGE, %struct._header_field_info { ptr @.str.281, ptr @.str.282, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_SECURITY_CHANGE_tfs, i64 2048, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_ABORT_CO, %struct._header_field_info { ptr @.str.283, ptr @.str.284, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_ABORT_CO_tfs, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_COMPRESSED_STAGE, %struct._header_field_info { ptr @.str.285, ptr @.str.286, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_COMPRESSED_STAGE_tfs, i64 16777216, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_CONTENT_CMD, %struct._header_field_info { ptr @.str.287, ptr @.str.288, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_CONTENT_CMD_tfs, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_CONTROL, %struct._header_field_info { ptr @.str.289, ptr @.str.290, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_CONTROL_tfs, i64 4096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_DIRECTED_CO, %struct._header_field_info { ptr @.str.291, ptr @.str.292, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_DIRECTED_CO_tfs, i64 8192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_JUST_OID_RESET, %struct._header_field_info { ptr @.str.293, ptr @.str.294, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_JUST_OID_RESET_tfs, i64 8388608, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_LOCALCO, %struct._header_field_info { ptr @.str.295, ptr @.str.296, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_LOCALCO_tfs, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_LOCATION_CMD, %struct._header_field_info { ptr @.str.297, ptr @.str.298, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_LOCATION_CMD_tfs, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_MORPH_GEN_HEAD, %struct._header_field_info { ptr @.str.299, ptr @.str.300, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_MORPH_GEN_HEAD_tfs, i64 4194304, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_MOVEIN_GEN, %struct._header_field_info { ptr @.str.301, ptr @.str.302, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_MOVEIN_GEN_tfs, i64 2097152, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_NEW_FILE, %struct._header_field_info { ptr @.str.303, ptr @.str.304, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_NEW_FILE_tfs, i64 1024, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_ONLIST, %struct._header_field_info { ptr @.str.305, ptr @.str.306, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_ONLIST_tfs, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_OUT_OF_ORDER, %struct._header_field_info { ptr @.str.307, ptr @.str.308, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_OUT_OF_ORDER_tfs, i64 512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_RETRY, %struct._header_field_info { ptr @.str.309, ptr @.str.310, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_RETRY_tfs, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_SKIP_ORIG_REC_C, %struct._header_field_info { ptr @.str.311, ptr @.str.312, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_SKIP_ORIG_REC_C_tfs, i64 1048576, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_SKIP_VV_UPDATE, %struct._header_field_info { ptr @.str.313, ptr @.str.314, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_SKIP_VV_UPDATE_tfs, i64 33554432, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_VVJOIN_TO_ORIG, %struct._header_field_info { ptr @.str.315, ptr @.str.316, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_VVJOIN_TO_ORIG_tfs, i64 262144, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_VV_ACTIVATED, %struct._header_field_info { ptr @.str.317, ptr @.str.318, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_VV_ACTIVATED_tfs, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdIFlags_FRSRPC_CO_IFLAG_CO_ABORT, %struct._header_field_info { ptr @.str.319, ptr @.str.320, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdIFlags_FRSRPC_CO_IFLAG_CO_ABORT_tfs, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdIFlags_FRSRPC_CO_IFLAG_DIR_ENUM_PENDING, %struct._header_field_info { ptr @.str.321, ptr @.str.322, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdIFlags_FRSRPC_CO_IFLAG_DIR_ENUM_PENDING_tfs, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdIFlags_FRSRPC_CO_IFLAG_VVRETIRE_EXEC, %struct._header_field_info { ptr @.str.323, ptr @.str.324, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdIFlags_FRSRPC_CO_IFLAG_VVRETIRE_EXEC_tfs, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoRecordExtensionWin2k_data_checksum, %struct._header_field_info { ptr @.str.180, ptr @.str.325, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoRecordExtensionWin2k_field_size, %struct._header_field_info { ptr @.str.184, ptr @.str.326, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoRecordExtensionWin2k_major, %struct._header_field_info { ptr @.str.186, ptr @.str.327, i32 7, i32 1, ptr @frsrpc_frsrpc_CommPktCoRecordExtensionMajor_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoRecordExtensionWin2k_offset, %struct._header_field_info { ptr @.str.328, ptr @.str.329, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoRecordExtensionWin2k_offset_count, %struct._header_field_info { ptr @.str.193, ptr @.str.330, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoRecordExtensionWin2k_offset_last, %struct._header_field_info { ptr @.str.195, ptr @.str.331, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktDataExtensionChecksum_data, %struct._header_field_info { ptr @.str.250, ptr @.str.332, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktDataExtensionChecksum_prefix_size, %struct._header_field_info { ptr @.str.333, ptr @.str.334, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktDataExtensionChecksum_prefix_type, %struct._header_field_info { ptr @.str.335, ptr @.str.336, i32 7, i32 1, ptr @frsrpc_frsrpc_CommPktDataExtensionType_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktDataExtensionRetryTimeout_count, %struct._header_field_info { ptr @.str.337, ptr @.str.338, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktDataExtensionRetryTimeout_first_try_time, %struct._header_field_info { ptr @.str.339, ptr @.str.340, i32 24, i32 18, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktDataExtensionRetryTimeout_not_used, %struct._header_field_info { ptr @.str.142, ptr @.str.341, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktDataExtensionRetryTimeout_prefix_size, %struct._header_field_info { ptr @.str.333, ptr @.str.342, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktDataExtensionRetryTimeout_prefix_type, %struct._header_field_info { ptr @.str.335, ptr @.str.343, i32 7, i32 1, ptr @frsrpc_frsrpc_CommPktDataExtensionType_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktGSVN_guid, %struct._header_field_info { ptr @.str.245, ptr @.str.344, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktGSVN_vsn, %struct._header_field_info { ptr @.str.345, ptr @.str.346, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsSendCommPktReq_cs_id, %struct._header_field_info { ptr @.str.347, ptr @.str.348, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsSendCommPktReq_ctr, %struct._header_field_info { ptr @.str.349, ptr @.str.350, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsSendCommPktReq_ctr_, %struct._header_field_info { ptr @.str.209, ptr @.str.351, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsSendCommPktReq_data_handle, %struct._header_field_info { ptr @.str.352, ptr @.str.353, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsSendCommPktReq_data_name, %struct._header_field_info { ptr @.str.354, ptr @.str.355, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsSendCommPktReq_major, %struct._header_field_info { ptr @.str.186, ptr @.str.356, i32 7, i32 1, ptr @frsrpc_frsrpc_CommPktMajor_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsSendCommPktReq_memory_len, %struct._header_field_info { ptr @.str.357, ptr @.str.358, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsSendCommPktReq_minor, %struct._header_field_info { ptr @.str.359, ptr @.str.360, i32 7, i32 1, ptr @frsrpc_frsrpc_CommPktMinor_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsSendCommPktReq_pkt_len, %struct._header_field_info { ptr @.str.361, ptr @.str.362, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsSendCommPktReq_upk_len, %struct._header_field_info { ptr @.str.363, ptr @.str.364, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsSendCommPkt_req, %struct._header_field_info { ptr @.str.365, ptr @.str.366, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent___ndr_guid_size, %struct._header_field_info { ptr @.str.367, ptr @.str.368, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent_connection_guid, %struct._header_field_info { ptr @.str.103, ptr @.str.369, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent_connection_guid_, %struct._header_field_info { ptr @.str.209, ptr @.str.370, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent_connection_name, %struct._header_field_info { ptr @.str.371, ptr @.str.372, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent_parent_account, %struct._header_field_info { ptr @.str.373, ptr @.str.374, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent_parent_guid, %struct._header_field_info { ptr @.str.375, ptr @.str.376, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent_parent_guid_, %struct._header_field_info { ptr @.str.209, ptr @.str.370, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent_parent_password, %struct._header_field_info { ptr @.str.377, ptr @.str.378, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent_partner_auth_level, %struct._header_field_info { ptr @.str.379, ptr @.str.380, i32 7, i32 1, ptr @frsrpc_frsrpc_PartnerAuthLevel_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent_partner_guid, %struct._header_field_info { ptr @.str.381, ptr @.str.382, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent_partner_guid_, %struct._header_field_info { ptr @.str.209, ptr @.str.370, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent_partner_name, %struct._header_field_info { ptr @.str.383, ptr @.str.384, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent_partner_princ_name, %struct._header_field_info { ptr @.str.385, ptr @.str.386, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent_replica_set_name, %struct._header_field_info { ptr @.str.387, ptr @.str.388, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent_replica_set_type, %struct._header_field_info { ptr @.str.389, ptr @.str.390, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsVerifyPromotionParent___ndr_guid_size, %struct._header_field_info { ptr @.str.367, ptr @.str.391, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsVerifyPromotionParent_parent_account, %struct._header_field_info { ptr @.str.373, ptr @.str.392, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsVerifyPromotionParent_parent_password, %struct._header_field_info { ptr @.str.377, ptr @.str.393, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsVerifyPromotionParent_partner_auth_level, %struct._header_field_info { ptr @.str.379, ptr @.str.394, i32 7, i32 1, ptr @frsrpc_frsrpc_PartnerAuthLevel_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsVerifyPromotionParent_replica_set_name, %struct._header_field_info { ptr @.str.387, ptr @.str.395, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsVerifyPromotionParent_replica_set_type, %struct._header_field_info { ptr @.str.389, ptr @.str.396, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_opnum, %struct._header_field_info { ptr @.str.397, ptr @.str.398, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_werror, %struct._header_field_info { ptr @.str.399, ptr @.str.400, i32 7, i32 2, ptr @WERR_errors, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
-@hf_CommPktChunk = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_DATA_OVERWRITE = internal global i32 0, align 4
+@hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_DATA_EXTEND = internal global i32 0, align 4
+@hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_DATA_TRUNCATION = internal global i32 0, align 4
+@hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_NAMED_DATA_OVERWRITE = internal global i32 0, align 4
+@hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_NAMED_DATA_EXTEND = internal global i32 0, align 4
+@hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_NAMED_DATA_TRUNCATION = internal global i32 0, align 4
+@hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_FILE_CREATE = internal global i32 0, align 4
+@hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_FILE_DELETE = internal global i32 0, align 4
+@hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_EA_CHANGE = internal global i32 0, align 4
+@hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_SECURITY_CHANGE = internal global i32 0, align 4
+@hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_OLD_NAME = internal global i32 0, align 4
+@hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_NEW_NAME = internal global i32 0, align 4
+@hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_BASIC_INFO_CHANGE = internal global i32 0, align 4
+@hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_COMPRESSION_CHANGE = internal global i32 0, align 4
+@ett_frsrpc_frsrpc_CommPktCoCmdContentCmd = internal global i32 0, align 4
+@ett_frsrpc_frsrpc_CommPktChangeOrderCommand = internal global i32 0, align 4
+@ett_frsrpc_frsrpc_CommPktDataExtensionChecksum = internal global i32 0, align 4
+@ett_frsrpc_frsrpc_CommPktDataExtensionRetryTimeout = internal global i32 0, align 4
+@ett_frsrpc_frsrpc_CommPktCoRecordExtensionWin2k = internal global i32 0, align 4
+@ett_frsrpc_frsrpc_CommPktChangeOrderRecordExtension = internal global i32 0, align 4
+@ett_frsrpc_frsrpc_FrsSendCommPktReq = internal global i32 0, align 4
+@proto_register_dcerpc_frsrpc.hf = internal global [176 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_CommPktChunk, %struct._header_field_info { ptr @.str.95, ptr @.str.96, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_CommPktChangeOrderCommand_file_name, %struct._header_field_info { ptr @.str.97, ptr @.str.98, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_ack_version, %struct._header_field_info { ptr @.str.99, ptr @.str.100, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_change_order_guid, %struct._header_field_info { ptr @.str.101, ptr @.str.102, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_connection_guid, %struct._header_field_info { ptr @.str.103, ptr @.str.104, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_content_cmd, %struct._header_field_info { ptr @.str.105, ptr @.str.106, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_event_time, %struct._header_field_info { ptr @.str.107, ptr @.str.108, i32 24, i32 18, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_extension, %struct._header_field_info { ptr @.str.109, ptr @.str.110, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_file_attributes, %struct._header_field_info { ptr @.str.111, ptr @.str.112, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_file_guid, %struct._header_field_info { ptr @.str.113, ptr @.str.114, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_file_name, %struct._header_field_info { ptr @.str.97, ptr @.str.115, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_file_name_length, %struct._header_field_info { ptr @.str.116, ptr @.str.117, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_file_offset, %struct._header_field_info { ptr @.str.118, ptr @.str.119, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_file_size, %struct._header_field_info { ptr @.str.120, ptr @.str.121, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_file_usn, %struct._header_field_info { ptr @.str.122, ptr @.str.123, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_file_version_number, %struct._header_field_info { ptr @.str.124, ptr @.str.125, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_flags, %struct._header_field_info { ptr @.str.126, ptr @.str.127, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_frs_vsn, %struct._header_field_info { ptr @.str.128, ptr @.str.129, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_iflags, %struct._header_field_info { ptr @.str.130, ptr @.str.131, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_jrnl_first_usn, %struct._header_field_info { ptr @.str.132, ptr @.str.133, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_jrnl_usn, %struct._header_field_info { ptr @.str.134, ptr @.str.135, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_location_cmd, %struct._header_field_info { ptr @.str.136, ptr @.str.137, i32 7, i32 2, ptr @frsrpc_frsrpc_CommPktCoCmdLocationCmd_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_new_parent_guid, %struct._header_field_info { ptr @.str.138, ptr @.str.139, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_new_replica_num, %struct._header_field_info { ptr @.str.140, ptr @.str.141, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_not_used, %struct._header_field_info { ptr @.str.142, ptr @.str.143, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_old_parent_guid, %struct._header_field_info { ptr @.str.144, ptr @.str.145, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_original_replica_num, %struct._header_field_info { ptr @.str.146, ptr @.str.147, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_originator_guid, %struct._header_field_info { ptr @.str.148, ptr @.str.149, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_padding1, %struct._header_field_info { ptr @.str.150, ptr @.str.151, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_padding2, %struct._header_field_info { ptr @.str.152, ptr @.str.153, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_padding3, %struct._header_field_info { ptr @.str.154, ptr @.str.155, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_padding4, %struct._header_field_info { ptr @.str.156, ptr @.str.157, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_partern_ack_sequence_number, %struct._header_field_info { ptr @.str.158, ptr @.str.159, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_sequence_number, %struct._header_field_info { ptr @.str.160, ptr @.str.161, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_spare1guid_p1, %struct._header_field_info { ptr @.str.162, ptr @.str.163, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_spare1guid_p2, %struct._header_field_info { ptr @.str.164, ptr @.str.165, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_spare1wcs, %struct._header_field_info { ptr @.str.166, ptr @.str.167, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_spare2bin, %struct._header_field_info { ptr @.str.168, ptr @.str.169, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_spare2guid_p1, %struct._header_field_info { ptr @.str.170, ptr @.str.171, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_spare2ul1, %struct._header_field_info { ptr @.str.172, ptr @.str.173, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_spare2wcs, %struct._header_field_info { ptr @.str.174, ptr @.str.175, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_spare3guid_p2, %struct._header_field_info { ptr @.str.176, ptr @.str.177, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderCommand_status, %struct._header_field_info { ptr @.str.178, ptr @.str.179, i32 7, i32 2, ptr @frsrpc_frsrpc_CommPktCoCmdStatus_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderRecordExtension_data_checksum, %struct._header_field_info { ptr @.str.180, ptr @.str.181, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderRecordExtension_data_retry_timeout, %struct._header_field_info { ptr @.str.182, ptr @.str.183, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderRecordExtension_field_size, %struct._header_field_info { ptr @.str.184, ptr @.str.185, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderRecordExtension_major, %struct._header_field_info { ptr @.str.186, ptr @.str.187, i32 7, i32 2, ptr @frsrpc_frsrpc_CommPktCoRecordExtensionMajor_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderRecordExtension_not_used, %struct._header_field_info { ptr @.str.142, ptr @.str.188, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderRecordExtension_offset0, %struct._header_field_info { ptr @.str.189, ptr @.str.190, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderRecordExtension_offset1, %struct._header_field_info { ptr @.str.191, ptr @.str.192, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderRecordExtension_offset_count, %struct._header_field_info { ptr @.str.193, ptr @.str.194, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChangeOrderRecordExtension_offset_last, %struct._header_field_info { ptr @.str.195, ptr @.str.196, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_blob, %struct._header_field_info { ptr @.str.197, ptr @.str.198, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_block, %struct._header_field_info { ptr @.str.199, ptr @.str.200, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_block_size, %struct._header_field_info { ptr @.str.201, ptr @.str.202, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_bop, %struct._header_field_info { ptr @.str.203, ptr @.str.204, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_bopend, %struct._header_field_info { ptr @.str.205, ptr @.str.206, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_co_ext_win2k, %struct._header_field_info { ptr @.str.207, ptr @.str.208, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_co_ext_win2k_, %struct._header_field_info { ptr @.str.209, ptr @.str.210, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_co_extension2, %struct._header_field_info { ptr @.str.211, ptr @.str.212, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_co_guid, %struct._header_field_info { ptr @.str.213, ptr @.str.214, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_co_guid_, %struct._header_field_info { ptr @.str.209, ptr @.str.210, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_co_sequence_number, %struct._header_field_info { ptr @.str.215, ptr @.str.216, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_command, %struct._header_field_info { ptr @.str.217, ptr @.str.218, i32 7, i32 2, ptr @frsrpc_frsrpc_CommPktCommand_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_compression_guid, %struct._header_field_info { ptr @.str.219, ptr @.str.220, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_connection, %struct._header_field_info { ptr @.str.221, ptr @.str.222, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_file_offset, %struct._header_field_info { ptr @.str.118, ptr @.str.223, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_file_size, %struct._header_field_info { ptr @.str.120, ptr @.str.224, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_from, %struct._header_field_info { ptr @.str.225, ptr @.str.226, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_gvsn, %struct._header_field_info { ptr @.str.227, ptr @.str.228, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_gvsn_, %struct._header_field_info { ptr @.str.209, ptr @.str.210, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_join_guid, %struct._header_field_info { ptr @.str.229, ptr @.str.230, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_join_guid_, %struct._header_field_info { ptr @.str.209, ptr @.str.210, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_join_time, %struct._header_field_info { ptr @.str.231, ptr @.str.232, i32 24, i32 18, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_join_time_, %struct._header_field_info { ptr @.str.209, ptr @.str.210, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_last_join_time, %struct._header_field_info { ptr @.str.233, ptr @.str.234, i32 24, i32 18, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_remote_co, %struct._header_field_info { ptr @.str.235, ptr @.str.236, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_remote_co_, %struct._header_field_info { ptr @.str.209, ptr @.str.210, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_replica, %struct._header_field_info { ptr @.str.237, ptr @.str.238, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_replica_version_guid, %struct._header_field_info { ptr @.str.239, ptr @.str.240, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_replica_version_guid_, %struct._header_field_info { ptr @.str.209, ptr @.str.210, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_to, %struct._header_field_info { ptr @.str.241, ptr @.str.242, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_vvector, %struct._header_field_info { ptr @.str.243, ptr @.str.244, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkData_vvector_, %struct._header_field_info { ptr @.str.209, ptr @.str.210, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkGuidName_guid, %struct._header_field_info { ptr @.str.245, ptr @.str.246, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkGuidName_guid_, %struct._header_field_info { ptr @.str.209, ptr @.str.247, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkGuidName_name, %struct._header_field_info { ptr @.str.248, ptr @.str.249, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunkGuidName_name_, %struct._header_field_info { ptr @.str.209, ptr @.str.247, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunk_data, %struct._header_field_info { ptr @.str.250, ptr @.str.251, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunk_data_, %struct._header_field_info { ptr @.str.209, ptr @.str.252, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktChunk_type, %struct._header_field_info { ptr @.str.253, ptr @.str.254, i32 7, i32 2, ptr @frsrpc_frsrpc_CommPktChunkType_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_BASIC_INFO_CHANGE, %struct._header_field_info { ptr @.str.255, ptr @.str.256, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_BASIC_INFO_CHANGE_tfs, i64 16384, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_COMPRESSION_CHANGE, %struct._header_field_info { ptr @.str.257, ptr @.str.258, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_COMPRESSION_CHANGE_tfs, i64 131072, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_DATA_EXTEND, %struct._header_field_info { ptr @.str.259, ptr @.str.260, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_DATA_EXTEND_tfs, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_DATA_OVERWRITE, %struct._header_field_info { ptr @.str.261, ptr @.str.262, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_DATA_OVERWRITE_tfs, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_DATA_TRUNCATION, %struct._header_field_info { ptr @.str.263, ptr @.str.264, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_DATA_TRUNCATION_tfs, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_EA_CHANGE, %struct._header_field_info { ptr @.str.265, ptr @.str.266, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_EA_CHANGE_tfs, i64 1024, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_FILE_CREATE, %struct._header_field_info { ptr @.str.267, ptr @.str.268, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_FILE_CREATE_tfs, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_FILE_DELETE, %struct._header_field_info { ptr @.str.269, ptr @.str.270, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_FILE_DELETE_tfs, i64 512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_NAMED_DATA_EXTEND, %struct._header_field_info { ptr @.str.271, ptr @.str.272, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_NAMED_DATA_EXTEND_tfs, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_NAMED_DATA_OVERWRITE, %struct._header_field_info { ptr @.str.273, ptr @.str.274, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_NAMED_DATA_OVERWRITE_tfs, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_NAMED_DATA_TRUNCATION, %struct._header_field_info { ptr @.str.275, ptr @.str.276, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_NAMED_DATA_TRUNCATION_tfs, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_NEW_NAME, %struct._header_field_info { ptr @.str.277, ptr @.str.278, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_NEW_NAME_tfs, i64 8192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_OLD_NAME, %struct._header_field_info { ptr @.str.279, ptr @.str.280, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_OLD_NAME_tfs, i64 4096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_SECURITY_CHANGE, %struct._header_field_info { ptr @.str.281, ptr @.str.282, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdContentCmd_FRSRPC_CONTENT_REASON_SECURITY_CHANGE_tfs, i64 2048, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_ABORT_CO, %struct._header_field_info { ptr @.str.283, ptr @.str.284, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_ABORT_CO_tfs, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_COMPRESSED_STAGE, %struct._header_field_info { ptr @.str.285, ptr @.str.286, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_COMPRESSED_STAGE_tfs, i64 16777216, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_CONTENT_CMD, %struct._header_field_info { ptr @.str.287, ptr @.str.288, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_CONTENT_CMD_tfs, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_CONTROL, %struct._header_field_info { ptr @.str.289, ptr @.str.290, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_CONTROL_tfs, i64 4096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_DIRECTED_CO, %struct._header_field_info { ptr @.str.291, ptr @.str.292, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_DIRECTED_CO_tfs, i64 8192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_JUST_OID_RESET, %struct._header_field_info { ptr @.str.293, ptr @.str.294, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_JUST_OID_RESET_tfs, i64 8388608, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_LOCALCO, %struct._header_field_info { ptr @.str.295, ptr @.str.296, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_LOCALCO_tfs, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_LOCATION_CMD, %struct._header_field_info { ptr @.str.297, ptr @.str.298, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_LOCATION_CMD_tfs, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_MORPH_GEN_HEAD, %struct._header_field_info { ptr @.str.299, ptr @.str.300, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_MORPH_GEN_HEAD_tfs, i64 4194304, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_MOVEIN_GEN, %struct._header_field_info { ptr @.str.301, ptr @.str.302, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_MOVEIN_GEN_tfs, i64 2097152, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_NEW_FILE, %struct._header_field_info { ptr @.str.303, ptr @.str.304, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_NEW_FILE_tfs, i64 1024, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_ONLIST, %struct._header_field_info { ptr @.str.305, ptr @.str.306, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_ONLIST_tfs, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_OUT_OF_ORDER, %struct._header_field_info { ptr @.str.307, ptr @.str.308, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_OUT_OF_ORDER_tfs, i64 512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_RETRY, %struct._header_field_info { ptr @.str.309, ptr @.str.310, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_RETRY_tfs, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_SKIP_ORIG_REC_C, %struct._header_field_info { ptr @.str.311, ptr @.str.312, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_SKIP_ORIG_REC_C_tfs, i64 1048576, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_SKIP_VV_UPDATE, %struct._header_field_info { ptr @.str.313, ptr @.str.314, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_SKIP_VV_UPDATE_tfs, i64 33554432, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_VVJOIN_TO_ORIG, %struct._header_field_info { ptr @.str.315, ptr @.str.316, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_VVJOIN_TO_ORIG_tfs, i64 262144, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_VV_ACTIVATED, %struct._header_field_info { ptr @.str.317, ptr @.str.318, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdFlags_FRSRPC_CO_FLAG_VV_ACTIVATED_tfs, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdIFlags_FRSRPC_CO_IFLAG_CO_ABORT, %struct._header_field_info { ptr @.str.319, ptr @.str.320, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdIFlags_FRSRPC_CO_IFLAG_CO_ABORT_tfs, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdIFlags_FRSRPC_CO_IFLAG_DIR_ENUM_PENDING, %struct._header_field_info { ptr @.str.321, ptr @.str.322, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdIFlags_FRSRPC_CO_IFLAG_DIR_ENUM_PENDING_tfs, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoCmdIFlags_FRSRPC_CO_IFLAG_VVRETIRE_EXEC, %struct._header_field_info { ptr @.str.323, ptr @.str.324, i32 2, i32 32, ptr @frsrpc_CommPktCoCmdIFlags_FRSRPC_CO_IFLAG_VVRETIRE_EXEC_tfs, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoRecordExtensionWin2k_data_checksum, %struct._header_field_info { ptr @.str.180, ptr @.str.325, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoRecordExtensionWin2k_field_size, %struct._header_field_info { ptr @.str.184, ptr @.str.326, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoRecordExtensionWin2k_major, %struct._header_field_info { ptr @.str.186, ptr @.str.327, i32 7, i32 2, ptr @frsrpc_frsrpc_CommPktCoRecordExtensionMajor_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoRecordExtensionWin2k_offset, %struct._header_field_info { ptr @.str.328, ptr @.str.329, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoRecordExtensionWin2k_offset_count, %struct._header_field_info { ptr @.str.193, ptr @.str.330, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktCoRecordExtensionWin2k_offset_last, %struct._header_field_info { ptr @.str.195, ptr @.str.331, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktDataExtensionChecksum_data, %struct._header_field_info { ptr @.str.250, ptr @.str.332, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktDataExtensionChecksum_prefix_size, %struct._header_field_info { ptr @.str.333, ptr @.str.334, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktDataExtensionChecksum_prefix_type, %struct._header_field_info { ptr @.str.335, ptr @.str.336, i32 7, i32 2, ptr @frsrpc_frsrpc_CommPktDataExtensionType_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktDataExtensionRetryTimeout_count, %struct._header_field_info { ptr @.str.337, ptr @.str.338, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktDataExtensionRetryTimeout_first_try_time, %struct._header_field_info { ptr @.str.339, ptr @.str.340, i32 24, i32 18, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktDataExtensionRetryTimeout_not_used, %struct._header_field_info { ptr @.str.142, ptr @.str.341, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktDataExtensionRetryTimeout_prefix_size, %struct._header_field_info { ptr @.str.333, ptr @.str.342, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktDataExtensionRetryTimeout_prefix_type, %struct._header_field_info { ptr @.str.335, ptr @.str.343, i32 7, i32 2, ptr @frsrpc_frsrpc_CommPktDataExtensionType_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktGSVN_guid, %struct._header_field_info { ptr @.str.245, ptr @.str.344, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_CommPktGSVN_vsn, %struct._header_field_info { ptr @.str.345, ptr @.str.346, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsSendCommPktReq_cs_id, %struct._header_field_info { ptr @.str.347, ptr @.str.348, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsSendCommPktReq_ctr, %struct._header_field_info { ptr @.str.349, ptr @.str.350, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsSendCommPktReq_ctr_, %struct._header_field_info { ptr @.str.209, ptr @.str.351, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsSendCommPktReq_data_handle, %struct._header_field_info { ptr @.str.352, ptr @.str.353, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsSendCommPktReq_data_name, %struct._header_field_info { ptr @.str.354, ptr @.str.355, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsSendCommPktReq_major, %struct._header_field_info { ptr @.str.186, ptr @.str.356, i32 7, i32 1, ptr @frsrpc_frsrpc_CommPktMajor_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsSendCommPktReq_memory_len, %struct._header_field_info { ptr @.str.357, ptr @.str.358, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsSendCommPktReq_minor, %struct._header_field_info { ptr @.str.359, ptr @.str.360, i32 7, i32 1, ptr @frsrpc_frsrpc_CommPktMinor_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsSendCommPktReq_pkt_len, %struct._header_field_info { ptr @.str.361, ptr @.str.362, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsSendCommPktReq_upk_len, %struct._header_field_info { ptr @.str.363, ptr @.str.364, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsSendCommPkt_req, %struct._header_field_info { ptr @.str.365, ptr @.str.366, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent___ndr_guid_size, %struct._header_field_info { ptr @.str.367, ptr @.str.368, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent_connection_guid, %struct._header_field_info { ptr @.str.103, ptr @.str.369, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent_connection_guid_, %struct._header_field_info { ptr @.str.209, ptr @.str.370, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent_connection_name, %struct._header_field_info { ptr @.str.371, ptr @.str.372, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent_parent_account, %struct._header_field_info { ptr @.str.373, ptr @.str.374, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent_parent_guid, %struct._header_field_info { ptr @.str.375, ptr @.str.376, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent_parent_guid_, %struct._header_field_info { ptr @.str.209, ptr @.str.370, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent_parent_password, %struct._header_field_info { ptr @.str.377, ptr @.str.378, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent_partner_auth_level, %struct._header_field_info { ptr @.str.379, ptr @.str.380, i32 7, i32 2, ptr @frsrpc_frsrpc_PartnerAuthLevel_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent_partner_guid, %struct._header_field_info { ptr @.str.381, ptr @.str.382, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent_partner_guid_, %struct._header_field_info { ptr @.str.209, ptr @.str.370, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent_partner_name, %struct._header_field_info { ptr @.str.383, ptr @.str.384, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent_partner_princ_name, %struct._header_field_info { ptr @.str.385, ptr @.str.386, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent_replica_set_name, %struct._header_field_info { ptr @.str.387, ptr @.str.388, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent_replica_set_type, %struct._header_field_info { ptr @.str.389, ptr @.str.390, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsVerifyPromotionParent___ndr_guid_size, %struct._header_field_info { ptr @.str.367, ptr @.str.391, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsVerifyPromotionParent_parent_account, %struct._header_field_info { ptr @.str.373, ptr @.str.392, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsVerifyPromotionParent_parent_password, %struct._header_field_info { ptr @.str.377, ptr @.str.393, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsVerifyPromotionParent_partner_auth_level, %struct._header_field_info { ptr @.str.379, ptr @.str.394, i32 7, i32 2, ptr @frsrpc_frsrpc_PartnerAuthLevel_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsVerifyPromotionParent_replica_set_name, %struct._header_field_info { ptr @.str.387, ptr @.str.395, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_frsrpc_FrsVerifyPromotionParent_replica_set_type, %struct._header_field_info { ptr @.str.389, ptr @.str.396, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_opnum, %struct._header_field_info { ptr @.str.397, ptr @.str.398, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_frsrpc_werror, %struct._header_field_info { ptr @.str.399, ptr @.str.400, i32 7, i32 514, ptr @WERR_errors_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
+@hf_CommPktChunk = internal global i32 0, align 4
 @.str.95 = private unnamed_addr constant [6 x i8] c"Chunk\00", align 1
 @.str.96 = private unnamed_addr constant [23 x i8] c"frsrpc.chunk.ctr.chunk\00", align 1
-@hf_frsrpc_CommPktChangeOrderCommand_file_name = internal global i32 -1, align 4
+@hf_frsrpc_CommPktChangeOrderCommand_file_name = internal global i32 0, align 4
 @.str.97 = private unnamed_addr constant [10 x i8] c"File Name\00", align 1
 @.str.98 = private unnamed_addr constant [43 x i8] c"frsrpc.CommPktChangeOrderCommand.file_name\00", align 1
-@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_ack_version = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_ack_version = internal global i32 0, align 4
 @.str.99 = private unnamed_addr constant [12 x i8] c"Ack Version\00", align 1
 @.str.100 = private unnamed_addr constant [52 x i8] c"frsrpc.frsrpc_CommPktChangeOrderCommand.ack_version\00", align 1
-@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_change_order_guid = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_change_order_guid = internal global i32 0, align 4
 @.str.101 = private unnamed_addr constant [18 x i8] c"Change Order Guid\00", align 1
 @.str.102 = private unnamed_addr constant [58 x i8] c"frsrpc.frsrpc_CommPktChangeOrderCommand.change_order_guid\00", align 1
-@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_connection_guid = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_connection_guid = internal global i32 0, align 4
 @.str.103 = private unnamed_addr constant [16 x i8] c"Connection Guid\00", align 1
 @.str.104 = private unnamed_addr constant [56 x i8] c"frsrpc.frsrpc_CommPktChangeOrderCommand.connection_guid\00", align 1
-@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_content_cmd = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_content_cmd = internal global i32 0, align 4
 @.str.105 = private unnamed_addr constant [12 x i8] c"Content Cmd\00", align 1
 @.str.106 = private unnamed_addr constant [52 x i8] c"frsrpc.frsrpc_CommPktChangeOrderCommand.content_cmd\00", align 1
-@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_event_time = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_event_time = internal global i32 0, align 4
 @.str.107 = private unnamed_addr constant [11 x i8] c"Event Time\00", align 1
 @.str.108 = private unnamed_addr constant [51 x i8] c"frsrpc.frsrpc_CommPktChangeOrderCommand.event_time\00", align 1
-@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_extension = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_extension = internal global i32 0, align 4
 @.str.109 = private unnamed_addr constant [10 x i8] c"Extension\00", align 1
 @.str.110 = private unnamed_addr constant [50 x i8] c"frsrpc.frsrpc_CommPktChangeOrderCommand.extension\00", align 1
-@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_file_attributes = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_file_attributes = internal global i32 0, align 4
 @.str.111 = private unnamed_addr constant [16 x i8] c"File Attributes\00", align 1
 @.str.112 = private unnamed_addr constant [56 x i8] c"frsrpc.frsrpc_CommPktChangeOrderCommand.file_attributes\00", align 1
-@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_file_guid = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_file_guid = internal global i32 0, align 4
 @.str.113 = private unnamed_addr constant [10 x i8] c"File Guid\00", align 1
 @.str.114 = private unnamed_addr constant [50 x i8] c"frsrpc.frsrpc_CommPktChangeOrderCommand.file_guid\00", align 1
-@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_file_name = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_file_name = internal global i32 0, align 4
 @.str.115 = private unnamed_addr constant [50 x i8] c"frsrpc.frsrpc_CommPktChangeOrderCommand.file_name\00", align 1
-@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_file_name_length = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_file_name_length = internal global i32 0, align 4
 @.str.116 = private unnamed_addr constant [17 x i8] c"File Name Length\00", align 1
 @.str.117 = private unnamed_addr constant [57 x i8] c"frsrpc.frsrpc_CommPktChangeOrderCommand.file_name_length\00", align 1
-@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_file_offset = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_file_offset = internal global i32 0, align 4
 @.str.118 = private unnamed_addr constant [12 x i8] c"File Offset\00", align 1
 @.str.119 = private unnamed_addr constant [52 x i8] c"frsrpc.frsrpc_CommPktChangeOrderCommand.file_offset\00", align 1
-@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_file_size = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_file_size = internal global i32 0, align 4
 @.str.120 = private unnamed_addr constant [10 x i8] c"File Size\00", align 1
 @.str.121 = private unnamed_addr constant [50 x i8] c"frsrpc.frsrpc_CommPktChangeOrderCommand.file_size\00", align 1
-@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_file_usn = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_file_usn = internal global i32 0, align 4
 @.str.122 = private unnamed_addr constant [9 x i8] c"File Usn\00", align 1
 @.str.123 = private unnamed_addr constant [49 x i8] c"frsrpc.frsrpc_CommPktChangeOrderCommand.file_usn\00", align 1
-@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_file_version_number = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_file_version_number = internal global i32 0, align 4
 @.str.124 = private unnamed_addr constant [20 x i8] c"File Version Number\00", align 1
 @.str.125 = private unnamed_addr constant [60 x i8] c"frsrpc.frsrpc_CommPktChangeOrderCommand.file_version_number\00", align 1
-@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_flags = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_flags = internal global i32 0, align 4
 @.str.126 = private unnamed_addr constant [6 x i8] c"Flags\00", align 1
 @.str.127 = private unnamed_addr constant [46 x i8] c"frsrpc.frsrpc_CommPktChangeOrderCommand.flags\00", align 1
-@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_frs_vsn = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_frs_vsn = internal global i32 0, align 4
 @.str.128 = private unnamed_addr constant [8 x i8] c"Frs Vsn\00", align 1
 @.str.129 = private unnamed_addr constant [48 x i8] c"frsrpc.frsrpc_CommPktChangeOrderCommand.frs_vsn\00", align 1
-@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_iflags = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_iflags = internal global i32 0, align 4
 @.str.130 = private unnamed_addr constant [7 x i8] c"Iflags\00", align 1
 @.str.131 = private unnamed_addr constant [47 x i8] c"frsrpc.frsrpc_CommPktChangeOrderCommand.iflags\00", align 1
-@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_jrnl_first_usn = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_jrnl_first_usn = internal global i32 0, align 4
 @.str.132 = private unnamed_addr constant [15 x i8] c"Jrnl First Usn\00", align 1
 @.str.133 = private unnamed_addr constant [55 x i8] c"frsrpc.frsrpc_CommPktChangeOrderCommand.jrnl_first_usn\00", align 1
-@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_jrnl_usn = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_jrnl_usn = internal global i32 0, align 4
 @.str.134 = private unnamed_addr constant [9 x i8] c"Jrnl Usn\00", align 1
 @.str.135 = private unnamed_addr constant [49 x i8] c"frsrpc.frsrpc_CommPktChangeOrderCommand.jrnl_usn\00", align 1
-@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_location_cmd = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_location_cmd = internal global i32 0, align 4
 @.str.136 = private unnamed_addr constant [13 x i8] c"Location Cmd\00", align 1
 @.str.137 = private unnamed_addr constant [53 x i8] c"frsrpc.frsrpc_CommPktChangeOrderCommand.location_cmd\00", align 1
-@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_new_parent_guid = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_new_parent_guid = internal global i32 0, align 4
 @.str.138 = private unnamed_addr constant [16 x i8] c"New Parent Guid\00", align 1
 @.str.139 = private unnamed_addr constant [56 x i8] c"frsrpc.frsrpc_CommPktChangeOrderCommand.new_parent_guid\00", align 1
-@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_new_replica_num = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_new_replica_num = internal global i32 0, align 4
 @.str.140 = private unnamed_addr constant [16 x i8] c"New Replica Num\00", align 1
 @.str.141 = private unnamed_addr constant [56 x i8] c"frsrpc.frsrpc_CommPktChangeOrderCommand.new_replica_num\00", align 1
-@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_not_used = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_not_used = internal global i32 0, align 4
 @.str.142 = private unnamed_addr constant [9 x i8] c"Not Used\00", align 1
 @.str.143 = private unnamed_addr constant [49 x i8] c"frsrpc.frsrpc_CommPktChangeOrderCommand.not_used\00", align 1
-@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_old_parent_guid = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_old_parent_guid = internal global i32 0, align 4
 @.str.144 = private unnamed_addr constant [16 x i8] c"Old Parent Guid\00", align 1
 @.str.145 = private unnamed_addr constant [56 x i8] c"frsrpc.frsrpc_CommPktChangeOrderCommand.old_parent_guid\00", align 1
-@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_original_replica_num = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_original_replica_num = internal global i32 0, align 4
 @.str.146 = private unnamed_addr constant [21 x i8] c"Original Replica Num\00", align 1
 @.str.147 = private unnamed_addr constant [61 x i8] c"frsrpc.frsrpc_CommPktChangeOrderCommand.original_replica_num\00", align 1
-@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_originator_guid = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_originator_guid = internal global i32 0, align 4
 @.str.148 = private unnamed_addr constant [16 x i8] c"Originator Guid\00", align 1
 @.str.149 = private unnamed_addr constant [56 x i8] c"frsrpc.frsrpc_CommPktChangeOrderCommand.originator_guid\00", align 1
-@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_padding1 = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_padding1 = internal global i32 0, align 4
 @.str.150 = private unnamed_addr constant [9 x i8] c"Padding1\00", align 1
 @.str.151 = private unnamed_addr constant [49 x i8] c"frsrpc.frsrpc_CommPktChangeOrderCommand.padding1\00", align 1
-@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_padding2 = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_padding2 = internal global i32 0, align 4
 @.str.152 = private unnamed_addr constant [9 x i8] c"Padding2\00", align 1
 @.str.153 = private unnamed_addr constant [49 x i8] c"frsrpc.frsrpc_CommPktChangeOrderCommand.padding2\00", align 1
-@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_padding3 = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_padding3 = internal global i32 0, align 4
 @.str.154 = private unnamed_addr constant [9 x i8] c"Padding3\00", align 1
 @.str.155 = private unnamed_addr constant [49 x i8] c"frsrpc.frsrpc_CommPktChangeOrderCommand.padding3\00", align 1
-@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_padding4 = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_padding4 = internal global i32 0, align 4
 @.str.156 = private unnamed_addr constant [9 x i8] c"Padding4\00", align 1
 @.str.157 = private unnamed_addr constant [49 x i8] c"frsrpc.frsrpc_CommPktChangeOrderCommand.padding4\00", align 1
-@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_partern_ack_sequence_number = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_partern_ack_sequence_number = internal global i32 0, align 4
 @.str.158 = private unnamed_addr constant [28 x i8] c"Partern Ack Sequence Number\00", align 1
 @.str.159 = private unnamed_addr constant [68 x i8] c"frsrpc.frsrpc_CommPktChangeOrderCommand.partern_ack_sequence_number\00", align 1
-@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_sequence_number = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_sequence_number = internal global i32 0, align 4
 @.str.160 = private unnamed_addr constant [16 x i8] c"Sequence Number\00", align 1
 @.str.161 = private unnamed_addr constant [56 x i8] c"frsrpc.frsrpc_CommPktChangeOrderCommand.sequence_number\00", align 1
-@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_spare1guid_p1 = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_spare1guid_p1 = internal global i32 0, align 4
 @.str.162 = private unnamed_addr constant [14 x i8] c"Spare1guid P1\00", align 1
 @.str.163 = private unnamed_addr constant [54 x i8] c"frsrpc.frsrpc_CommPktChangeOrderCommand.spare1guid_p1\00", align 1
-@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_spare1guid_p2 = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_spare1guid_p2 = internal global i32 0, align 4
 @.str.164 = private unnamed_addr constant [14 x i8] c"Spare1guid P2\00", align 1
 @.str.165 = private unnamed_addr constant [54 x i8] c"frsrpc.frsrpc_CommPktChangeOrderCommand.spare1guid_p2\00", align 1
-@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_spare1wcs = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_spare1wcs = internal global i32 0, align 4
 @.str.166 = private unnamed_addr constant [10 x i8] c"Spare1wcs\00", align 1
 @.str.167 = private unnamed_addr constant [50 x i8] c"frsrpc.frsrpc_CommPktChangeOrderCommand.spare1wcs\00", align 1
-@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_spare2bin = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_spare2bin = internal global i32 0, align 4
 @.str.168 = private unnamed_addr constant [10 x i8] c"Spare2bin\00", align 1
 @.str.169 = private unnamed_addr constant [50 x i8] c"frsrpc.frsrpc_CommPktChangeOrderCommand.spare2bin\00", align 1
-@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_spare2guid_p1 = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_spare2guid_p1 = internal global i32 0, align 4
 @.str.170 = private unnamed_addr constant [14 x i8] c"Spare2guid P1\00", align 1
 @.str.171 = private unnamed_addr constant [54 x i8] c"frsrpc.frsrpc_CommPktChangeOrderCommand.spare2guid_p1\00", align 1
-@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_spare2ul1 = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_spare2ul1 = internal global i32 0, align 4
 @.str.172 = private unnamed_addr constant [10 x i8] c"Spare2ul1\00", align 1
 @.str.173 = private unnamed_addr constant [50 x i8] c"frsrpc.frsrpc_CommPktChangeOrderCommand.spare2ul1\00", align 1
-@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_spare2wcs = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_spare2wcs = internal global i32 0, align 4
 @.str.174 = private unnamed_addr constant [10 x i8] c"Spare2wcs\00", align 1
 @.str.175 = private unnamed_addr constant [50 x i8] c"frsrpc.frsrpc_CommPktChangeOrderCommand.spare2wcs\00", align 1
-@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_spare3guid_p2 = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_spare3guid_p2 = internal global i32 0, align 4
 @.str.176 = private unnamed_addr constant [14 x i8] c"Spare3guid P2\00", align 1
 @.str.177 = private unnamed_addr constant [54 x i8] c"frsrpc.frsrpc_CommPktChangeOrderCommand.spare3guid_p2\00", align 1
-@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_status = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChangeOrderCommand_status = internal global i32 0, align 4
 @.str.178 = private unnamed_addr constant [7 x i8] c"Status\00", align 1
 @.str.179 = private unnamed_addr constant [47 x i8] c"frsrpc.frsrpc_CommPktChangeOrderCommand.status\00", align 1
-@hf_frsrpc_frsrpc_CommPktChangeOrderRecordExtension_data_checksum = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChangeOrderRecordExtension_data_checksum = internal global i32 0, align 4
 @.str.180 = private unnamed_addr constant [14 x i8] c"Data Checksum\00", align 1
 @.str.181 = private unnamed_addr constant [62 x i8] c"frsrpc.frsrpc_CommPktChangeOrderRecordExtension.data_checksum\00", align 1
-@hf_frsrpc_frsrpc_CommPktChangeOrderRecordExtension_data_retry_timeout = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChangeOrderRecordExtension_data_retry_timeout = internal global i32 0, align 4
 @.str.182 = private unnamed_addr constant [19 x i8] c"Data Retry Timeout\00", align 1
 @.str.183 = private unnamed_addr constant [67 x i8] c"frsrpc.frsrpc_CommPktChangeOrderRecordExtension.data_retry_timeout\00", align 1
-@hf_frsrpc_frsrpc_CommPktChangeOrderRecordExtension_field_size = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChangeOrderRecordExtension_field_size = internal global i32 0, align 4
 @.str.184 = private unnamed_addr constant [11 x i8] c"Field Size\00", align 1
 @.str.185 = private unnamed_addr constant [59 x i8] c"frsrpc.frsrpc_CommPktChangeOrderRecordExtension.field_size\00", align 1
-@hf_frsrpc_frsrpc_CommPktChangeOrderRecordExtension_major = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChangeOrderRecordExtension_major = internal global i32 0, align 4
 @.str.186 = private unnamed_addr constant [6 x i8] c"Major\00", align 1
 @.str.187 = private unnamed_addr constant [54 x i8] c"frsrpc.frsrpc_CommPktChangeOrderRecordExtension.major\00", align 1
-@hf_frsrpc_frsrpc_CommPktChangeOrderRecordExtension_not_used = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChangeOrderRecordExtension_not_used = internal global i32 0, align 4
 @.str.188 = private unnamed_addr constant [57 x i8] c"frsrpc.frsrpc_CommPktChangeOrderRecordExtension.not_used\00", align 1
-@hf_frsrpc_frsrpc_CommPktChangeOrderRecordExtension_offset0 = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChangeOrderRecordExtension_offset0 = internal global i32 0, align 4
 @.str.189 = private unnamed_addr constant [8 x i8] c"Offset0\00", align 1
 @.str.190 = private unnamed_addr constant [56 x i8] c"frsrpc.frsrpc_CommPktChangeOrderRecordExtension.offset0\00", align 1
-@hf_frsrpc_frsrpc_CommPktChangeOrderRecordExtension_offset1 = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChangeOrderRecordExtension_offset1 = internal global i32 0, align 4
 @.str.191 = private unnamed_addr constant [8 x i8] c"Offset1\00", align 1
 @.str.192 = private unnamed_addr constant [56 x i8] c"frsrpc.frsrpc_CommPktChangeOrderRecordExtension.offset1\00", align 1
-@hf_frsrpc_frsrpc_CommPktChangeOrderRecordExtension_offset_count = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChangeOrderRecordExtension_offset_count = internal global i32 0, align 4
 @.str.193 = private unnamed_addr constant [13 x i8] c"Offset Count\00", align 1
 @.str.194 = private unnamed_addr constant [61 x i8] c"frsrpc.frsrpc_CommPktChangeOrderRecordExtension.offset_count\00", align 1
-@hf_frsrpc_frsrpc_CommPktChangeOrderRecordExtension_offset_last = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChangeOrderRecordExtension_offset_last = internal global i32 0, align 4
 @.str.195 = private unnamed_addr constant [12 x i8] c"Offset Last\00", align 1
 @.str.196 = private unnamed_addr constant [60 x i8] c"frsrpc.frsrpc_CommPktChangeOrderRecordExtension.offset_last\00", align 1
-@hf_frsrpc_frsrpc_CommPktChunkData_blob = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChunkData_blob = internal global i32 0, align 4
 @.str.197 = private unnamed_addr constant [5 x i8] c"Blob\00", align 1
 @.str.198 = private unnamed_addr constant [36 x i8] c"frsrpc.frsrpc_CommPktChunkData.blob\00", align 1
-@hf_frsrpc_frsrpc_CommPktChunkData_block = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChunkData_block = internal global i32 0, align 4
 @.str.199 = private unnamed_addr constant [6 x i8] c"Block\00", align 1
 @.str.200 = private unnamed_addr constant [37 x i8] c"frsrpc.frsrpc_CommPktChunkData.block\00", align 1
-@hf_frsrpc_frsrpc_CommPktChunkData_block_size = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChunkData_block_size = internal global i32 0, align 4
 @.str.201 = private unnamed_addr constant [11 x i8] c"Block Size\00", align 1
 @.str.202 = private unnamed_addr constant [42 x i8] c"frsrpc.frsrpc_CommPktChunkData.block_size\00", align 1
-@hf_frsrpc_frsrpc_CommPktChunkData_bop = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChunkData_bop = internal global i32 0, align 4
 @.str.203 = private unnamed_addr constant [4 x i8] c"Bop\00", align 1
 @.str.204 = private unnamed_addr constant [35 x i8] c"frsrpc.frsrpc_CommPktChunkData.bop\00", align 1
-@hf_frsrpc_frsrpc_CommPktChunkData_bopend = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChunkData_bopend = internal global i32 0, align 4
 @.str.205 = private unnamed_addr constant [7 x i8] c"Bopend\00", align 1
 @.str.206 = private unnamed_addr constant [38 x i8] c"frsrpc.frsrpc_CommPktChunkData.bopend\00", align 1
-@hf_frsrpc_frsrpc_CommPktChunkData_co_ext_win2k = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChunkData_co_ext_win2k = internal global i32 0, align 4
 @.str.207 = private unnamed_addr constant [13 x i8] c"Co Ext Win2k\00", align 1
 @.str.208 = private unnamed_addr constant [44 x i8] c"frsrpc.frsrpc_CommPktChunkData.co_ext_win2k\00", align 1
-@hf_frsrpc_frsrpc_CommPktChunkData_co_ext_win2k_ = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChunkData_co_ext_win2k_ = internal global i32 0, align 4
 @.str.209 = private unnamed_addr constant [18 x i8] c"Subcontext length\00", align 1
 @.str.210 = private unnamed_addr constant [42 x i8] c"frsrpc.frsrpc_CommPktChunkData.subcontext\00", align 1
-@hf_frsrpc_frsrpc_CommPktChunkData_co_extension2 = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChunkData_co_extension2 = internal global i32 0, align 4
 @.str.211 = private unnamed_addr constant [14 x i8] c"Co Extension2\00", align 1
 @.str.212 = private unnamed_addr constant [45 x i8] c"frsrpc.frsrpc_CommPktChunkData.co_extension2\00", align 1
-@hf_frsrpc_frsrpc_CommPktChunkData_co_guid = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChunkData_co_guid = internal global i32 0, align 4
 @.str.213 = private unnamed_addr constant [8 x i8] c"Co Guid\00", align 1
 @.str.214 = private unnamed_addr constant [39 x i8] c"frsrpc.frsrpc_CommPktChunkData.co_guid\00", align 1
-@hf_frsrpc_frsrpc_CommPktChunkData_co_guid_ = internal global i32 -1, align 4
-@hf_frsrpc_frsrpc_CommPktChunkData_co_sequnence_number = internal global i32 -1, align 4
-@.str.215 = private unnamed_addr constant [20 x i8] c"Co Sequnence Number\00", align 1
-@.str.216 = private unnamed_addr constant [51 x i8] c"frsrpc.frsrpc_CommPktChunkData.co_sequnence_number\00", align 1
-@hf_frsrpc_frsrpc_CommPktChunkData_command = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChunkData_co_guid_ = internal global i32 0, align 4
+@hf_frsrpc_frsrpc_CommPktChunkData_co_sequence_number = internal global i32 0, align 4
+@.str.215 = private unnamed_addr constant [19 x i8] c"Co Sequence Number\00", align 1
+@.str.216 = private unnamed_addr constant [50 x i8] c"frsrpc.frsrpc_CommPktChunkData.co_sequence_number\00", align 1
+@hf_frsrpc_frsrpc_CommPktChunkData_command = internal global i32 0, align 4
 @.str.217 = private unnamed_addr constant [8 x i8] c"Command\00", align 1
 @.str.218 = private unnamed_addr constant [39 x i8] c"frsrpc.frsrpc_CommPktChunkData.command\00", align 1
-@hf_frsrpc_frsrpc_CommPktChunkData_compression_guid = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChunkData_compression_guid = internal global i32 0, align 4
 @.str.219 = private unnamed_addr constant [17 x i8] c"Compression Guid\00", align 1
 @.str.220 = private unnamed_addr constant [48 x i8] c"frsrpc.frsrpc_CommPktChunkData.compression_guid\00", align 1
-@hf_frsrpc_frsrpc_CommPktChunkData_connection = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChunkData_connection = internal global i32 0, align 4
 @.str.221 = private unnamed_addr constant [11 x i8] c"Connection\00", align 1
 @.str.222 = private unnamed_addr constant [42 x i8] c"frsrpc.frsrpc_CommPktChunkData.connection\00", align 1
-@hf_frsrpc_frsrpc_CommPktChunkData_file_offset = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChunkData_file_offset = internal global i32 0, align 4
 @.str.223 = private unnamed_addr constant [43 x i8] c"frsrpc.frsrpc_CommPktChunkData.file_offset\00", align 1
-@hf_frsrpc_frsrpc_CommPktChunkData_file_size = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChunkData_file_size = internal global i32 0, align 4
 @.str.224 = private unnamed_addr constant [41 x i8] c"frsrpc.frsrpc_CommPktChunkData.file_size\00", align 1
-@hf_frsrpc_frsrpc_CommPktChunkData_from = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChunkData_from = internal global i32 0, align 4
 @.str.225 = private unnamed_addr constant [5 x i8] c"From\00", align 1
 @.str.226 = private unnamed_addr constant [36 x i8] c"frsrpc.frsrpc_CommPktChunkData.from\00", align 1
-@hf_frsrpc_frsrpc_CommPktChunkData_gvsn = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChunkData_gvsn = internal global i32 0, align 4
 @.str.227 = private unnamed_addr constant [5 x i8] c"Gvsn\00", align 1
 @.str.228 = private unnamed_addr constant [36 x i8] c"frsrpc.frsrpc_CommPktChunkData.gvsn\00", align 1
-@hf_frsrpc_frsrpc_CommPktChunkData_gvsn_ = internal global i32 -1, align 4
-@hf_frsrpc_frsrpc_CommPktChunkData_join_guid = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChunkData_gvsn_ = internal global i32 0, align 4
+@hf_frsrpc_frsrpc_CommPktChunkData_join_guid = internal global i32 0, align 4
 @.str.229 = private unnamed_addr constant [10 x i8] c"Join Guid\00", align 1
 @.str.230 = private unnamed_addr constant [41 x i8] c"frsrpc.frsrpc_CommPktChunkData.join_guid\00", align 1
-@hf_frsrpc_frsrpc_CommPktChunkData_join_guid_ = internal global i32 -1, align 4
-@hf_frsrpc_frsrpc_CommPktChunkData_join_time = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChunkData_join_guid_ = internal global i32 0, align 4
+@hf_frsrpc_frsrpc_CommPktChunkData_join_time = internal global i32 0, align 4
 @.str.231 = private unnamed_addr constant [10 x i8] c"Join Time\00", align 1
 @.str.232 = private unnamed_addr constant [41 x i8] c"frsrpc.frsrpc_CommPktChunkData.join_time\00", align 1
-@hf_frsrpc_frsrpc_CommPktChunkData_join_time_ = internal global i32 -1, align 4
-@hf_frsrpc_frsrpc_CommPktChunkData_last_join_time = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChunkData_join_time_ = internal global i32 0, align 4
+@hf_frsrpc_frsrpc_CommPktChunkData_last_join_time = internal global i32 0, align 4
 @.str.233 = private unnamed_addr constant [15 x i8] c"Last Join Time\00", align 1
 @.str.234 = private unnamed_addr constant [46 x i8] c"frsrpc.frsrpc_CommPktChunkData.last_join_time\00", align 1
-@hf_frsrpc_frsrpc_CommPktChunkData_remote_co = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChunkData_remote_co = internal global i32 0, align 4
 @.str.235 = private unnamed_addr constant [10 x i8] c"Remote Co\00", align 1
 @.str.236 = private unnamed_addr constant [41 x i8] c"frsrpc.frsrpc_CommPktChunkData.remote_co\00", align 1
-@hf_frsrpc_frsrpc_CommPktChunkData_remote_co_ = internal global i32 -1, align 4
-@hf_frsrpc_frsrpc_CommPktChunkData_replica = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChunkData_remote_co_ = internal global i32 0, align 4
+@hf_frsrpc_frsrpc_CommPktChunkData_replica = internal global i32 0, align 4
 @.str.237 = private unnamed_addr constant [8 x i8] c"Replica\00", align 1
 @.str.238 = private unnamed_addr constant [39 x i8] c"frsrpc.frsrpc_CommPktChunkData.replica\00", align 1
-@hf_frsrpc_frsrpc_CommPktChunkData_replica_version_guid = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChunkData_replica_version_guid = internal global i32 0, align 4
 @.str.239 = private unnamed_addr constant [21 x i8] c"Replica Version Guid\00", align 1
 @.str.240 = private unnamed_addr constant [52 x i8] c"frsrpc.frsrpc_CommPktChunkData.replica_version_guid\00", align 1
-@hf_frsrpc_frsrpc_CommPktChunkData_replica_version_guid_ = internal global i32 -1, align 4
-@hf_frsrpc_frsrpc_CommPktChunkData_to = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChunkData_replica_version_guid_ = internal global i32 0, align 4
+@hf_frsrpc_frsrpc_CommPktChunkData_to = internal global i32 0, align 4
 @.str.241 = private unnamed_addr constant [3 x i8] c"To\00", align 1
 @.str.242 = private unnamed_addr constant [34 x i8] c"frsrpc.frsrpc_CommPktChunkData.to\00", align 1
-@hf_frsrpc_frsrpc_CommPktChunkData_vvector = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChunkData_vvector = internal global i32 0, align 4
 @.str.243 = private unnamed_addr constant [8 x i8] c"Vvector\00", align 1
 @.str.244 = private unnamed_addr constant [39 x i8] c"frsrpc.frsrpc_CommPktChunkData.vvector\00", align 1
-@hf_frsrpc_frsrpc_CommPktChunkData_vvector_ = internal global i32 -1, align 4
-@hf_frsrpc_frsrpc_CommPktChunkGuidName_guid = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChunkData_vvector_ = internal global i32 0, align 4
+@hf_frsrpc_frsrpc_CommPktChunkGuidName_guid = internal global i32 0, align 4
 @.str.245 = private unnamed_addr constant [5 x i8] c"Guid\00", align 1
 @.str.246 = private unnamed_addr constant [40 x i8] c"frsrpc.frsrpc_CommPktChunkGuidName.guid\00", align 1
-@hf_frsrpc_frsrpc_CommPktChunkGuidName_guid_ = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChunkGuidName_guid_ = internal global i32 0, align 4
 @.str.247 = private unnamed_addr constant [46 x i8] c"frsrpc.frsrpc_CommPktChunkGuidName.subcontext\00", align 1
-@hf_frsrpc_frsrpc_CommPktChunkGuidName_name = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChunkGuidName_name = internal global i32 0, align 4
 @.str.248 = private unnamed_addr constant [5 x i8] c"Name\00", align 1
 @.str.249 = private unnamed_addr constant [40 x i8] c"frsrpc.frsrpc_CommPktChunkGuidName.name\00", align 1
-@hf_frsrpc_frsrpc_CommPktChunkGuidName_name_ = internal global i32 -1, align 4
-@hf_frsrpc_frsrpc_CommPktChunk_data = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChunkGuidName_name_ = internal global i32 0, align 4
+@hf_frsrpc_frsrpc_CommPktChunk_data = internal global i32 0, align 4
 @.str.250 = private unnamed_addr constant [5 x i8] c"Data\00", align 1
 @.str.251 = private unnamed_addr constant [32 x i8] c"frsrpc.frsrpc_CommPktChunk.data\00", align 1
-@hf_frsrpc_frsrpc_CommPktChunk_data_ = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChunk_data_ = internal global i32 0, align 4
 @.str.252 = private unnamed_addr constant [38 x i8] c"frsrpc.frsrpc_CommPktChunk.subcontext\00", align 1
-@hf_frsrpc_frsrpc_CommPktChunk_type = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktChunk_type = internal global i32 0, align 4
 @.str.253 = private unnamed_addr constant [5 x i8] c"Type\00", align 1
 @.str.254 = private unnamed_addr constant [32 x i8] c"frsrpc.frsrpc_CommPktChunk.type\00", align 1
 @.str.255 = private unnamed_addr constant [40 x i8] c"FRSRPC CONTENT REASON BASIC INFO CHANGE\00", align 1
@@ -525,144 +526,143 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.323 = private unnamed_addr constant [30 x i8] c"FRSRPC CO IFLAG VVRETIRE EXEC\00", align 1
 @.str.324 = private unnamed_addr constant [63 x i8] c"frsrpc.frsrpc_CommPktCoCmdIFlags.FRSRPC_CO_IFLAG_VVRETIRE_EXEC\00", align 1
 @frsrpc_CommPktCoCmdIFlags_FRSRPC_CO_IFLAG_VVRETIRE_EXEC_tfs = internal constant %struct.true_false_string { ptr @.str.477, ptr @.str.478 }, align 8
-@hf_frsrpc_frsrpc_CommPktCoRecordExtensionWin2k_data_checksum = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktCoRecordExtensionWin2k_data_checksum = internal global i32 0, align 4
 @.str.325 = private unnamed_addr constant [58 x i8] c"frsrpc.frsrpc_CommPktCoRecordExtensionWin2k.data_checksum\00", align 1
-@hf_frsrpc_frsrpc_CommPktCoRecordExtensionWin2k_field_size = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktCoRecordExtensionWin2k_field_size = internal global i32 0, align 4
 @.str.326 = private unnamed_addr constant [55 x i8] c"frsrpc.frsrpc_CommPktCoRecordExtensionWin2k.field_size\00", align 1
-@hf_frsrpc_frsrpc_CommPktCoRecordExtensionWin2k_major = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktCoRecordExtensionWin2k_major = internal global i32 0, align 4
 @.str.327 = private unnamed_addr constant [50 x i8] c"frsrpc.frsrpc_CommPktCoRecordExtensionWin2k.major\00", align 1
-@hf_frsrpc_frsrpc_CommPktCoRecordExtensionWin2k_offset = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktCoRecordExtensionWin2k_offset = internal global i32 0, align 4
 @.str.328 = private unnamed_addr constant [7 x i8] c"Offset\00", align 1
 @.str.329 = private unnamed_addr constant [51 x i8] c"frsrpc.frsrpc_CommPktCoRecordExtensionWin2k.offset\00", align 1
-@hf_frsrpc_frsrpc_CommPktCoRecordExtensionWin2k_offset_count = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktCoRecordExtensionWin2k_offset_count = internal global i32 0, align 4
 @.str.330 = private unnamed_addr constant [57 x i8] c"frsrpc.frsrpc_CommPktCoRecordExtensionWin2k.offset_count\00", align 1
-@hf_frsrpc_frsrpc_CommPktCoRecordExtensionWin2k_offset_last = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktCoRecordExtensionWin2k_offset_last = internal global i32 0, align 4
 @.str.331 = private unnamed_addr constant [56 x i8] c"frsrpc.frsrpc_CommPktCoRecordExtensionWin2k.offset_last\00", align 1
-@hf_frsrpc_frsrpc_CommPktDataExtensionChecksum_data = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktDataExtensionChecksum_data = internal global i32 0, align 4
 @.str.332 = private unnamed_addr constant [48 x i8] c"frsrpc.frsrpc_CommPktDataExtensionChecksum.data\00", align 1
-@hf_frsrpc_frsrpc_CommPktDataExtensionChecksum_prefix_size = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktDataExtensionChecksum_prefix_size = internal global i32 0, align 4
 @.str.333 = private unnamed_addr constant [12 x i8] c"Prefix Size\00", align 1
 @.str.334 = private unnamed_addr constant [55 x i8] c"frsrpc.frsrpc_CommPktDataExtensionChecksum.prefix_size\00", align 1
-@hf_frsrpc_frsrpc_CommPktDataExtensionChecksum_prefix_type = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktDataExtensionChecksum_prefix_type = internal global i32 0, align 4
 @.str.335 = private unnamed_addr constant [12 x i8] c"Prefix Type\00", align 1
 @.str.336 = private unnamed_addr constant [55 x i8] c"frsrpc.frsrpc_CommPktDataExtensionChecksum.prefix_type\00", align 1
-@hf_frsrpc_frsrpc_CommPktDataExtensionRetryTimeout_count = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktDataExtensionRetryTimeout_count = internal global i32 0, align 4
 @.str.337 = private unnamed_addr constant [6 x i8] c"Count\00", align 1
 @.str.338 = private unnamed_addr constant [53 x i8] c"frsrpc.frsrpc_CommPktDataExtensionRetryTimeout.count\00", align 1
-@hf_frsrpc_frsrpc_CommPktDataExtensionRetryTimeout_first_try_time = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktDataExtensionRetryTimeout_first_try_time = internal global i32 0, align 4
 @.str.339 = private unnamed_addr constant [15 x i8] c"First Try Time\00", align 1
 @.str.340 = private unnamed_addr constant [62 x i8] c"frsrpc.frsrpc_CommPktDataExtensionRetryTimeout.first_try_time\00", align 1
-@hf_frsrpc_frsrpc_CommPktDataExtensionRetryTimeout_not_used = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktDataExtensionRetryTimeout_not_used = internal global i32 0, align 4
 @.str.341 = private unnamed_addr constant [56 x i8] c"frsrpc.frsrpc_CommPktDataExtensionRetryTimeout.not_used\00", align 1
-@hf_frsrpc_frsrpc_CommPktDataExtensionRetryTimeout_prefix_size = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktDataExtensionRetryTimeout_prefix_size = internal global i32 0, align 4
 @.str.342 = private unnamed_addr constant [59 x i8] c"frsrpc.frsrpc_CommPktDataExtensionRetryTimeout.prefix_size\00", align 1
-@hf_frsrpc_frsrpc_CommPktDataExtensionRetryTimeout_prefix_type = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktDataExtensionRetryTimeout_prefix_type = internal global i32 0, align 4
 @.str.343 = private unnamed_addr constant [59 x i8] c"frsrpc.frsrpc_CommPktDataExtensionRetryTimeout.prefix_type\00", align 1
-@hf_frsrpc_frsrpc_CommPktGSVN_guid = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktGSVN_guid = internal global i32 0, align 4
 @.str.344 = private unnamed_addr constant [31 x i8] c"frsrpc.frsrpc_CommPktGSVN.guid\00", align 1
-@hf_frsrpc_frsrpc_CommPktGSVN_vsn = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_CommPktGSVN_vsn = internal global i32 0, align 4
 @.str.345 = private unnamed_addr constant [4 x i8] c"Vsn\00", align 1
 @.str.346 = private unnamed_addr constant [30 x i8] c"frsrpc.frsrpc_CommPktGSVN.vsn\00", align 1
-@hf_frsrpc_frsrpc_FrsSendCommPktReq_cs_id = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_FrsSendCommPktReq_cs_id = internal global i32 0, align 4
 @.str.347 = private unnamed_addr constant [6 x i8] c"Cs Id\00", align 1
 @.str.348 = private unnamed_addr constant [38 x i8] c"frsrpc.frsrpc_FrsSendCommPktReq.cs_id\00", align 1
-@hf_frsrpc_frsrpc_FrsSendCommPktReq_ctr = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_FrsSendCommPktReq_ctr = internal global i32 0, align 4
 @.str.349 = private unnamed_addr constant [4 x i8] c"Ctr\00", align 1
 @.str.350 = private unnamed_addr constant [36 x i8] c"frsrpc.frsrpc_FrsSendCommPktReq.ctr\00", align 1
-@hf_frsrpc_frsrpc_FrsSendCommPktReq_ctr_ = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_FrsSendCommPktReq_ctr_ = internal global i32 0, align 4
 @.str.351 = private unnamed_addr constant [43 x i8] c"frsrpc.frsrpc_FrsSendCommPktReq.subcontext\00", align 1
-@hf_frsrpc_frsrpc_FrsSendCommPktReq_data_handle = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_FrsSendCommPktReq_data_handle = internal global i32 0, align 4
 @.str.352 = private unnamed_addr constant [12 x i8] c"Data Handle\00", align 1
 @.str.353 = private unnamed_addr constant [44 x i8] c"frsrpc.frsrpc_FrsSendCommPktReq.data_handle\00", align 1
-@hf_frsrpc_frsrpc_FrsSendCommPktReq_data_name = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_FrsSendCommPktReq_data_name = internal global i32 0, align 4
 @.str.354 = private unnamed_addr constant [10 x i8] c"Data Name\00", align 1
 @.str.355 = private unnamed_addr constant [42 x i8] c"frsrpc.frsrpc_FrsSendCommPktReq.data_name\00", align 1
-@hf_frsrpc_frsrpc_FrsSendCommPktReq_major = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_FrsSendCommPktReq_major = internal global i32 0, align 4
 @.str.356 = private unnamed_addr constant [38 x i8] c"frsrpc.frsrpc_FrsSendCommPktReq.major\00", align 1
-@hf_frsrpc_frsrpc_FrsSendCommPktReq_memory_len = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_FrsSendCommPktReq_memory_len = internal global i32 0, align 4
 @.str.357 = private unnamed_addr constant [11 x i8] c"Memory Len\00", align 1
 @.str.358 = private unnamed_addr constant [43 x i8] c"frsrpc.frsrpc_FrsSendCommPktReq.memory_len\00", align 1
-@hf_frsrpc_frsrpc_FrsSendCommPktReq_minor = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_FrsSendCommPktReq_minor = internal global i32 0, align 4
 @.str.359 = private unnamed_addr constant [6 x i8] c"Minor\00", align 1
 @.str.360 = private unnamed_addr constant [38 x i8] c"frsrpc.frsrpc_FrsSendCommPktReq.minor\00", align 1
-@hf_frsrpc_frsrpc_FrsSendCommPktReq_pkt_len = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_FrsSendCommPktReq_pkt_len = internal global i32 0, align 4
 @.str.361 = private unnamed_addr constant [8 x i8] c"Pkt Len\00", align 1
 @.str.362 = private unnamed_addr constant [40 x i8] c"frsrpc.frsrpc_FrsSendCommPktReq.pkt_len\00", align 1
-@hf_frsrpc_frsrpc_FrsSendCommPktReq_upk_len = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_FrsSendCommPktReq_upk_len = internal global i32 0, align 4
 @.str.363 = private unnamed_addr constant [8 x i8] c"Upk Len\00", align 1
 @.str.364 = private unnamed_addr constant [40 x i8] c"frsrpc.frsrpc_FrsSendCommPktReq.upk_len\00", align 1
-@hf_frsrpc_frsrpc_FrsSendCommPkt_req = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_FrsSendCommPkt_req = internal global i32 0, align 4
 @.str.365 = private unnamed_addr constant [4 x i8] c"Req\00", align 1
 @.str.366 = private unnamed_addr constant [33 x i8] c"frsrpc.frsrpc_FrsSendCommPkt.req\00", align 1
-@hf_frsrpc_frsrpc_FrsStartPromotionParent___ndr_guid_size = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_FrsStartPromotionParent___ndr_guid_size = internal global i32 0, align 4
 @.str.367 = private unnamed_addr constant [14 x i8] c"Ndr Guid Size\00", align 1
 @.str.368 = private unnamed_addr constant [54 x i8] c"frsrpc.frsrpc_FrsStartPromotionParent.__ndr_guid_size\00", align 1
-@hf_frsrpc_frsrpc_FrsStartPromotionParent_connection_guid = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_FrsStartPromotionParent_connection_guid = internal global i32 0, align 4
 @.str.369 = private unnamed_addr constant [54 x i8] c"frsrpc.frsrpc_FrsStartPromotionParent.connection_guid\00", align 1
-@hf_frsrpc_frsrpc_FrsStartPromotionParent_connection_guid_ = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_FrsStartPromotionParent_connection_guid_ = internal global i32 0, align 4
 @.str.370 = private unnamed_addr constant [49 x i8] c"frsrpc.frsrpc_FrsStartPromotionParent.subcontext\00", align 1
-@hf_frsrpc_frsrpc_FrsStartPromotionParent_connection_name = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_FrsStartPromotionParent_connection_name = internal global i32 0, align 4
 @.str.371 = private unnamed_addr constant [16 x i8] c"Connection Name\00", align 1
 @.str.372 = private unnamed_addr constant [54 x i8] c"frsrpc.frsrpc_FrsStartPromotionParent.connection_name\00", align 1
-@hf_frsrpc_frsrpc_FrsStartPromotionParent_parent_account = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_FrsStartPromotionParent_parent_account = internal global i32 0, align 4
 @.str.373 = private unnamed_addr constant [15 x i8] c"Parent Account\00", align 1
 @.str.374 = private unnamed_addr constant [53 x i8] c"frsrpc.frsrpc_FrsStartPromotionParent.parent_account\00", align 1
-@hf_frsrpc_frsrpc_FrsStartPromotionParent_parent_guid = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_FrsStartPromotionParent_parent_guid = internal global i32 0, align 4
 @.str.375 = private unnamed_addr constant [12 x i8] c"Parent Guid\00", align 1
 @.str.376 = private unnamed_addr constant [50 x i8] c"frsrpc.frsrpc_FrsStartPromotionParent.parent_guid\00", align 1
-@hf_frsrpc_frsrpc_FrsStartPromotionParent_parent_guid_ = internal global i32 -1, align 4
-@hf_frsrpc_frsrpc_FrsStartPromotionParent_parent_password = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_FrsStartPromotionParent_parent_guid_ = internal global i32 0, align 4
+@hf_frsrpc_frsrpc_FrsStartPromotionParent_parent_password = internal global i32 0, align 4
 @.str.377 = private unnamed_addr constant [16 x i8] c"Parent Password\00", align 1
 @.str.378 = private unnamed_addr constant [54 x i8] c"frsrpc.frsrpc_FrsStartPromotionParent.parent_password\00", align 1
-@hf_frsrpc_frsrpc_FrsStartPromotionParent_partner_auth_level = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_FrsStartPromotionParent_partner_auth_level = internal global i32 0, align 4
 @.str.379 = private unnamed_addr constant [19 x i8] c"Partner Auth Level\00", align 1
 @.str.380 = private unnamed_addr constant [57 x i8] c"frsrpc.frsrpc_FrsStartPromotionParent.partner_auth_level\00", align 1
-@hf_frsrpc_frsrpc_FrsStartPromotionParent_partner_guid = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_FrsStartPromotionParent_partner_guid = internal global i32 0, align 4
 @.str.381 = private unnamed_addr constant [13 x i8] c"Partner Guid\00", align 1
 @.str.382 = private unnamed_addr constant [51 x i8] c"frsrpc.frsrpc_FrsStartPromotionParent.partner_guid\00", align 1
-@hf_frsrpc_frsrpc_FrsStartPromotionParent_partner_guid_ = internal global i32 -1, align 4
-@hf_frsrpc_frsrpc_FrsStartPromotionParent_partner_name = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_FrsStartPromotionParent_partner_guid_ = internal global i32 0, align 4
+@hf_frsrpc_frsrpc_FrsStartPromotionParent_partner_name = internal global i32 0, align 4
 @.str.383 = private unnamed_addr constant [13 x i8] c"Partner Name\00", align 1
 @.str.384 = private unnamed_addr constant [51 x i8] c"frsrpc.frsrpc_FrsStartPromotionParent.partner_name\00", align 1
-@hf_frsrpc_frsrpc_FrsStartPromotionParent_partner_princ_name = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_FrsStartPromotionParent_partner_princ_name = internal global i32 0, align 4
 @.str.385 = private unnamed_addr constant [19 x i8] c"Partner Princ Name\00", align 1
 @.str.386 = private unnamed_addr constant [57 x i8] c"frsrpc.frsrpc_FrsStartPromotionParent.partner_princ_name\00", align 1
-@hf_frsrpc_frsrpc_FrsStartPromotionParent_replica_set_name = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_FrsStartPromotionParent_replica_set_name = internal global i32 0, align 4
 @.str.387 = private unnamed_addr constant [17 x i8] c"Replica Set Name\00", align 1
 @.str.388 = private unnamed_addr constant [55 x i8] c"frsrpc.frsrpc_FrsStartPromotionParent.replica_set_name\00", align 1
-@hf_frsrpc_frsrpc_FrsStartPromotionParent_replica_set_type = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_FrsStartPromotionParent_replica_set_type = internal global i32 0, align 4
 @.str.389 = private unnamed_addr constant [17 x i8] c"Replica Set Type\00", align 1
 @.str.390 = private unnamed_addr constant [55 x i8] c"frsrpc.frsrpc_FrsStartPromotionParent.replica_set_type\00", align 1
-@hf_frsrpc_frsrpc_FrsVerifyPromotionParent___ndr_guid_size = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_FrsVerifyPromotionParent___ndr_guid_size = internal global i32 0, align 4
 @.str.391 = private unnamed_addr constant [55 x i8] c"frsrpc.frsrpc_FrsVerifyPromotionParent.__ndr_guid_size\00", align 1
-@hf_frsrpc_frsrpc_FrsVerifyPromotionParent_parent_account = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_FrsVerifyPromotionParent_parent_account = internal global i32 0, align 4
 @.str.392 = private unnamed_addr constant [54 x i8] c"frsrpc.frsrpc_FrsVerifyPromotionParent.parent_account\00", align 1
-@hf_frsrpc_frsrpc_FrsVerifyPromotionParent_parent_password = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_FrsVerifyPromotionParent_parent_password = internal global i32 0, align 4
 @.str.393 = private unnamed_addr constant [55 x i8] c"frsrpc.frsrpc_FrsVerifyPromotionParent.parent_password\00", align 1
-@hf_frsrpc_frsrpc_FrsVerifyPromotionParent_partner_auth_level = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_FrsVerifyPromotionParent_partner_auth_level = internal global i32 0, align 4
 @.str.394 = private unnamed_addr constant [58 x i8] c"frsrpc.frsrpc_FrsVerifyPromotionParent.partner_auth_level\00", align 1
-@hf_frsrpc_frsrpc_FrsVerifyPromotionParent_replica_set_name = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_FrsVerifyPromotionParent_replica_set_name = internal global i32 0, align 4
 @.str.395 = private unnamed_addr constant [56 x i8] c"frsrpc.frsrpc_FrsVerifyPromotionParent.replica_set_name\00", align 1
-@hf_frsrpc_frsrpc_FrsVerifyPromotionParent_replica_set_type = internal global i32 -1, align 4
+@hf_frsrpc_frsrpc_FrsVerifyPromotionParent_replica_set_type = internal global i32 0, align 4
 @.str.396 = private unnamed_addr constant [56 x i8] c"frsrpc.frsrpc_FrsVerifyPromotionParent.replica_set_type\00", align 1
-@hf_frsrpc_opnum = internal global i32 -1, align 4
+@hf_frsrpc_opnum = internal global i32 0, align 4
 @.str.397 = private unnamed_addr constant [10 x i8] c"Operation\00", align 1
 @.str.398 = private unnamed_addr constant [13 x i8] c"frsrpc.opnum\00", align 1
-@hf_frsrpc_werror = internal global i32 -1, align 4
+@hf_frsrpc_werror = internal global i32 0, align 4
 @.str.399 = private unnamed_addr constant [14 x i8] c"Windows Error\00", align 1
 @.str.400 = private unnamed_addr constant [14 x i8] c"frsrpc.werror\00", align 1
-@WERR_errors = external constant [0 x %struct._value_string], align 8
+@WERR_errors_ext = external global %struct._value_string_ext, align 8
 @proto_register_dcerpc_frsrpc.ett = internal global [15 x ptr] [ptr @ett_ChunkCtr, ptr @ett_dcerpc_frsrpc, ptr @ett_frsrpc_frsrpc_CommPktChunkGuidName, ptr @ett_frsrpc_frsrpc_CommPktGSVN, ptr @ett_frsrpc_frsrpc_CommPktCoCmdFlags, ptr @ett_frsrpc_frsrpc_CommPktCoCmdIFlags, ptr @ett_frsrpc_frsrpc_CommPktCoCmdContentCmd, ptr @ett_frsrpc_frsrpc_CommPktChangeOrderCommand, ptr @ett_frsrpc_frsrpc_CommPktDataExtensionChecksum, ptr @ett_frsrpc_frsrpc_CommPktDataExtensionRetryTimeout, ptr @ett_frsrpc_frsrpc_CommPktCoRecordExtensionWin2k, ptr @ett_frsrpc_frsrpc_CommPktChangeOrderRecordExtension, ptr @ett_frsrpc_frsrpc_CommPktChunkData, ptr @ett_frsrpc_frsrpc_CommPktChunk, ptr @ett_frsrpc_frsrpc_FrsSendCommPktReq], align 16
-@ett_ChunkCtr = internal global i32 -1, align 4
-@ett_dcerpc_frsrpc = internal global i32 -1, align 4
-@ett_frsrpc_frsrpc_CommPktChunkData = internal global i32 -1, align 4
+@ett_ChunkCtr = internal global i32 0, align 4
+@ett_dcerpc_frsrpc = internal global i32 0, align 4
+@ett_frsrpc_frsrpc_CommPktChunkData = internal global i32 0, align 4
 @.str.401 = private unnamed_addr constant [25 x i8] c"File Replication Service\00", align 1
 @.str.402 = private unnamed_addr constant [7 x i8] c"FRSRPC\00", align 1
 @.str.403 = private unnamed_addr constant [7 x i8] c"frsrpc\00", align 1
-@proto_dcerpc_frsrpc = internal global i32 -1, align 4
+@proto_dcerpc_frsrpc = internal global i32 0, align 4
 @uuid_dcerpc_frsrpc = internal global %struct._e_guid_t { i32 -171157068, i16 16996, i16 4122, [8 x i8] c"\8CY\08\00+/\84&" }, align 4
 @ver_dcerpc_frsrpc = internal global i16 1, align 2
-@frsrpc_dissectors = internal global [12 x %struct._dcerpc_sub_dissector] [%struct._dcerpc_sub_dissector { i16 0, ptr @.str.479, ptr @frsrpc_dissect_FrsSendCommPkt_request, ptr @frsrpc_dissect_FrsSendCommPkt_response }, %struct._dcerpc_sub_dissector { i16 1, ptr @.str.480, ptr @frsrpc_dissect_FrsVerifyPromotionParent_request, ptr @frsrpc_dissect_FrsVerifyPromotionParent_response }, %struct._dcerpc_sub_dissector { i16 2, ptr @.str.481, ptr @frsrpc_dissect_FrsStartPromotionParent_request, ptr @frsrpc_dissect_FrsStartPromotionParent_response }, %struct._dcerpc_sub_dissector { i16 3, ptr @.str.482, ptr @frsrpc_dissect_FrsNOP_request, ptr @frsrpc_dissect_FrsNOP_response }, %struct._dcerpc_sub_dissector { i16 4, ptr @.str.483, ptr @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_request, ptr @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_response }, %struct._dcerpc_sub_dissector { i16 5, ptr @.str.484, ptr @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_5_request, ptr @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_5_response }, %struct._dcerpc_sub_dissector { i16 6, ptr @.str.485, ptr @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_6_request, ptr @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_6_response }, %struct._dcerpc_sub_dissector { i16 7, ptr @.str.486, ptr @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_7_request, ptr @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_7_response }, %struct._dcerpc_sub_dissector { i16 8, ptr @.str.487, ptr @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_8_request, ptr @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_8_response }, %struct._dcerpc_sub_dissector { i16 9, ptr @.str.488, ptr @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_9_request, ptr @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_9_response }, %struct._dcerpc_sub_dissector { i16 10, ptr @.str.489, ptr @frsrpc_dissect_FRSRPC_VERIFY_PROMOTION_PARENT_EX_request, ptr @frsrpc_dissect_FRSRPC_VERIFY_PROMOTION_PARENT_EX_response }, %struct._dcerpc_sub_dissector zeroinitializer], align 16
 @.str.404 = private unnamed_addr constant [29 x i8] c"%s:%u: failed assertion \22%s\22\00", align 1
 @.str.405 = private unnamed_addr constant [39 x i8] c"epan/dissectors/packet-dcerpc-frsrpc.c\00", align 1
 @.str.406 = private unnamed_addr constant [23 x i8] c"soffset - offset < 261\00", align 1
@@ -749,21 +749,22 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.487 = private unnamed_addr constant [25 x i8] c"FRSRPC_BACKUP_COMPLETE_8\00", align 1
 @.str.488 = private unnamed_addr constant [25 x i8] c"FRSRPC_BACKUP_COMPLETE_9\00", align 1
 @.str.489 = private unnamed_addr constant [34 x i8] c"FRSRPC_VERIFY_PROMOTION_PARENT_EX\00", align 1
-@.str.490 = private unnamed_addr constant [12 x i8] c", Error: %s\00", align 1
-@.str.491 = private unnamed_addr constant [25 x i8] c"Unknown DOS error 0x%08x\00", align 1
-@.str.492 = private unnamed_addr constant [35 x i8] c"Pointer to Parent Account (uint16)\00", align 1
-@.str.493 = private unnamed_addr constant [5 x i8] c": %s\00", align 1
-@.str.494 = private unnamed_addr constant [36 x i8] c"Pointer to Parent Password (uint16)\00", align 1
-@.str.495 = private unnamed_addr constant [37 x i8] c"Pointer to Replica Set Name (uint16)\00", align 1
-@.str.496 = private unnamed_addr constant [37 x i8] c"Pointer to Replica Set Type (uint16)\00", align 1
-@.str.497 = private unnamed_addr constant [36 x i8] c"Pointer to Connection Name (uint16)\00", align 1
-@.str.498 = private unnamed_addr constant [33 x i8] c"Pointer to Partner Name (uint16)\00", align 1
-@.str.499 = private unnamed_addr constant [39 x i8] c"Pointer to Partner Princ Name (uint16)\00", align 1
-@.str.500 = private unnamed_addr constant [34 x i8] c"Pointer to Connection Guid (GUID)\00", align 1
-@.str.501 = private unnamed_addr constant [31 x i8] c"Pointer to Partner Guid (GUID)\00", align 1
-@.str.502 = private unnamed_addr constant [30 x i8] c"Pointer to Parent Guid (GUID)\00", align 1
+@frsrpc_dissectors = internal constant [12 x { i16, [6 x i8], ptr, ptr, ptr }] [{ i16, [6 x i8], ptr, ptr, ptr } { i16 0, [6 x i8] zeroinitializer, ptr @.str.479, ptr @frsrpc_dissect_FrsSendCommPkt_request, ptr @frsrpc_dissect_FrsSendCommPkt_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 1, [6 x i8] zeroinitializer, ptr @.str.480, ptr @frsrpc_dissect_FrsVerifyPromotionParent_request, ptr @frsrpc_dissect_FrsVerifyPromotionParent_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 2, [6 x i8] zeroinitializer, ptr @.str.481, ptr @frsrpc_dissect_FrsStartPromotionParent_request, ptr @frsrpc_dissect_FrsStartPromotionParent_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 3, [6 x i8] zeroinitializer, ptr @.str.482, ptr @frsrpc_dissect_FrsNOP_request, ptr @frsrpc_dissect_FrsNOP_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 4, [6 x i8] zeroinitializer, ptr @.str.483, ptr @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_request, ptr @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 5, [6 x i8] zeroinitializer, ptr @.str.484, ptr @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_5_request, ptr @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_5_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 6, [6 x i8] zeroinitializer, ptr @.str.485, ptr @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_6_request, ptr @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_6_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 7, [6 x i8] zeroinitializer, ptr @.str.486, ptr @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_7_request, ptr @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_7_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 8, [6 x i8] zeroinitializer, ptr @.str.487, ptr @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_8_request, ptr @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_8_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 9, [6 x i8] zeroinitializer, ptr @.str.488, ptr @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_9_request, ptr @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_9_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 10, [6 x i8] zeroinitializer, ptr @.str.489, ptr @frsrpc_dissect_FRSRPC_VERIFY_PROMOTION_PARENT_EX_request, ptr @frsrpc_dissect_FRSRPC_VERIFY_PROMOTION_PARENT_EX_response }, { i16, [6 x i8], ptr, ptr, ptr } zeroinitializer], align 16
+@.str.491 = private unnamed_addr constant [12 x i8] c", Error: %s\00", align 1
+@.str.492 = private unnamed_addr constant [25 x i8] c"Unknown DOS error 0x%08x\00", align 1
+@.str.493 = private unnamed_addr constant [35 x i8] c"Pointer to Parent Account (uint16)\00", align 1
+@.str.494 = private unnamed_addr constant [5 x i8] c": %s\00", align 1
+@.str.495 = private unnamed_addr constant [36 x i8] c"Pointer to Parent Password (uint16)\00", align 1
+@.str.496 = private unnamed_addr constant [37 x i8] c"Pointer to Replica Set Name (uint16)\00", align 1
+@.str.497 = private unnamed_addr constant [37 x i8] c"Pointer to Replica Set Type (uint16)\00", align 1
+@.str.498 = private unnamed_addr constant [36 x i8] c"Pointer to Connection Name (uint16)\00", align 1
+@.str.499 = private unnamed_addr constant [33 x i8] c"Pointer to Partner Name (uint16)\00", align 1
+@.str.500 = private unnamed_addr constant [39 x i8] c"Pointer to Partner Princ Name (uint16)\00", align 1
+@.str.501 = private unnamed_addr constant [34 x i8] c"Pointer to Connection Guid (GUID)\00", align 1
+@.str.502 = private unnamed_addr constant [31 x i8] c"Pointer to Partner Guid (GUID)\00", align 1
+@.str.503 = private unnamed_addr constant [30 x i8] c"Pointer to Parent Guid (GUID)\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @frsrpc_dissect_struct_CommPktChunk(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -787,11 +788,17 @@ define hidden i32 @frsrpc_dissect_struct_CommPktChunk(ptr noundef %0, i32 nounde
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #5
   store i32 0, ptr %17, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #5
   store i32 0, ptr %18, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #5
   store ptr null, ptr %19, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #5
   store ptr null, ptr %20, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #5
   store ptr null, ptr %21, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #5
   %23 = load i32, ptr %10, align 4
   store i32 %23, ptr %22, align 4
   %24 = load ptr, ptr %12, align 8
@@ -803,7 +810,7 @@ define hidden i32 @frsrpc_dissect_struct_CommPktChunk(ptr noundef %0, i32 nounde
   %28 = load i32, ptr %15, align 4
   %29 = load ptr, ptr %9, align 8
   %30 = load i32, ptr %10, align 4
-  %31 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %28, ptr noundef %29, i32 noundef %30, i32 noundef -1, i32 noundef 1)
+  %31 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %28, ptr noundef %29, i32 noundef %30, i32 noundef -1, i32 noundef 0)
   store ptr %31, ptr %20, align 8
   %32 = load ptr, ptr %20, align 8
   %33 = load i32, ptr @ett_frsrpc_frsrpc_CommPktChunk, align 4
@@ -835,7 +842,7 @@ define hidden i32 @frsrpc_dissect_struct_CommPktChunk(ptr noundef %0, i32 nounde
   %51 = load i32, ptr %18, align 4
   %52 = sext i32 %51 to i64
   %53 = getelementptr [24 x %struct._value_string], ptr @frsrpc_frsrpc_CommPktChunkType_vals, i64 0, i64 %52
-  %54 = getelementptr inbounds %struct._value_string, ptr %53, i32 0, i32 1
+  %54 = getelementptr inbounds nuw %struct._value_string, ptr %53, i32 0, i32 1
   %55 = load ptr, ptr %54, align 8
   %56 = icmp ne ptr %55, null
   br i1 %56, label %57, label %75
@@ -844,7 +851,7 @@ define hidden i32 @frsrpc_dissect_struct_CommPktChunk(ptr noundef %0, i32 nounde
   %58 = load i32, ptr %18, align 4
   %59 = sext i32 %58 to i64
   %60 = getelementptr [24 x %struct._value_string], ptr @frsrpc_frsrpc_CommPktChunkType_vals, i64 0, i64 %59
-  %61 = getelementptr inbounds %struct._value_string, ptr %60, i32 0, i32 0
+  %61 = getelementptr inbounds nuw %struct._value_string, ptr %60, i32 0, i32 0
   %62 = load i32, ptr %61, align 16
   %63 = load i32, ptr %17, align 4
   %64 = icmp eq i32 %62, %63
@@ -854,7 +861,7 @@ define hidden i32 @frsrpc_dissect_struct_CommPktChunk(ptr noundef %0, i32 nounde
   %66 = load i32, ptr %18, align 4
   %67 = sext i32 %66 to i64
   %68 = getelementptr [24 x %struct._value_string], ptr @frsrpc_frsrpc_CommPktChunkType_vals, i64 0, i64 %67
-  %69 = getelementptr inbounds %struct._value_string, ptr %68, i32 0, i32 1
+  %69 = getelementptr inbounds nuw %struct._value_string, ptr %68, i32 0, i32 1
   %70 = load ptr, ptr %69, align 8
   store ptr %70, ptr %19, align 8
   br label %71
@@ -866,7 +873,7 @@ define hidden i32 @frsrpc_dissect_struct_CommPktChunk(ptr noundef %0, i32 nounde
   %73 = load i32, ptr %18, align 4
   %74 = add i32 %73, 1
   store i32 %74, ptr %18, align 4
-  br label %50, !llvm.loop !4
+  br label %50, !llvm.loop !6
 
 75:                                               ; preds = %50
   %76 = load ptr, ptr %19, align 8
@@ -886,9 +893,9 @@ define hidden i32 @frsrpc_dissect_struct_CommPktChunk(ptr noundef %0, i32 nounde
   %85 = sub i32 %83, %84
   call void @proto_item_set_len(ptr noundef %82, i32 noundef %85)
   %86 = load ptr, ptr %13, align 8
-  %87 = getelementptr inbounds %struct._dcerpc_info, ptr %86, i32 0, i32 14
+  %87 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %86, i32 0, i32 14
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds %struct._dcerpc_call_value, ptr %88, i32 0, i32 11
+  %89 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %88, i32 0, i32 11
   %90 = load i32, ptr %89, align 8
   %91 = and i32 %90, 1
   %92 = icmp ne i32 %91, 0
@@ -896,9 +903,9 @@ define hidden i32 @frsrpc_dissect_struct_CommPktChunk(ptr noundef %0, i32 nounde
 
 93:                                               ; preds = %81
   %94 = load ptr, ptr %13, align 8
-  %95 = getelementptr inbounds %struct._dcerpc_info, ptr %94, i32 0, i32 14
+  %95 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %94, i32 0, i32 14
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds %struct._dcerpc_call_value, ptr %96, i32 0, i32 11
+  %97 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %96, i32 0, i32 11
   %98 = load i32, ptr %97, align 8
   %99 = and i32 %98, 1
   %100 = icmp ne i32 %99, 0
@@ -906,9 +913,9 @@ define hidden i32 @frsrpc_dissect_struct_CommPktChunk(ptr noundef %0, i32 nounde
 
 101:                                              ; preds = %93
   %102 = load ptr, ptr %13, align 8
-  %103 = getelementptr inbounds %struct._dcerpc_info, ptr %102, i32 0, i32 4
-  %104 = load i32, ptr %103, align 4
-  %105 = icmp ne i32 %104, 0
+  %103 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %102, i32 0, i32 4
+  %104 = load i8, ptr %103, align 1, !range !8, !noundef !9
+  %105 = trunc i8 %104 to i1
   br i1 %105, label %115, label %106
 
 106:                                              ; preds = %101
@@ -932,9 +939,9 @@ define hidden i32 @frsrpc_dissect_struct_CommPktChunk(ptr noundef %0, i32 nounde
 
 116:                                              ; preds = %93
   %117 = load ptr, ptr %13, align 8
-  %118 = getelementptr inbounds %struct._dcerpc_info, ptr %117, i32 0, i32 4
-  %119 = load i32, ptr %118, align 4
-  %120 = icmp ne i32 %119, 0
+  %118 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %117, i32 0, i32 4
+  %119 = load i8, ptr %118, align 1, !range !8, !noundef !9
+  %120 = trunc i8 %119 to i1
   br i1 %120, label %130, label %121
 
 121:                                              ; preds = %116
@@ -961,14 +968,25 @@ define hidden i32 @frsrpc_dissect_struct_CommPktChunk(ptr noundef %0, i32 nounde
 
 132:                                              ; preds = %131, %81
   %133 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #5
   ret i32 %133
 }
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChunk_type(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
@@ -998,7 +1016,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChunk_type(ptr noundef %0, i3
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChunk_data(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
@@ -1018,73 +1036,88 @@ define internal i32 @frsrpc_dissect_element_CommPktChunk_data(ptr noundef %0, i3
   store ptr %4, ptr %12, align 8
   store ptr %5, ptr %13, align 8
   store ptr %6, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #5
   %19 = load ptr, ptr %12, align 8
-  %20 = getelementptr inbounds %struct._dcerpc_info, ptr %19, i32 0, i32 4
-  %21 = load i32, ptr %20, align 4
-  store i32 %21, ptr %16, align 4
-  %22 = load i32, ptr %16, align 4
-  %23 = icmp ne i32 %22, 0
-  br i1 %23, label %65, label %24
+  %20 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %19, i32 0, i32 4
+  %21 = load i8, ptr %20, align 1, !range !8, !noundef !9
+  %22 = trunc i8 %21 to i1
+  %23 = zext i1 %22 to i32
+  store i32 %23, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #5
+  %24 = load i32, ptr %16, align 4
+  %25 = icmp ne i32 %24, 0
+  br i1 %25, label %67, label %26
 
-24:                                               ; preds = %7
-  %25 = load ptr, ptr %12, align 8
-  %26 = getelementptr inbounds %struct._dcerpc_info, ptr %25, i32 0, i32 14
-  %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds %struct._dcerpc_call_value, ptr %27, i32 0, i32 11
-  %29 = load i32, ptr %28, align 8
-  store i32 %29, ptr %18, align 4
-  %30 = load ptr, ptr %8, align 8
-  %31 = load i32, ptr %9, align 4
-  %32 = load ptr, ptr %10, align 8
-  %33 = load ptr, ptr %11, align 8
-  %34 = load ptr, ptr %12, align 8
-  %35 = load ptr, ptr %13, align 8
-  %36 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunk_data_, align 4
-  %37 = call i32 @dissect_ndr_uint3264(ptr noundef %30, i32 noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, i32 noundef %36, ptr noundef %15)
-  store i32 %37, ptr %9, align 4
-  %38 = load ptr, ptr %12, align 8
-  %39 = getelementptr inbounds %struct._dcerpc_info, ptr %38, i32 0, i32 14
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds %struct._dcerpc_call_value, ptr %40, i32 0, i32 11
-  %42 = load i32, ptr %41, align 8
-  %43 = and i32 %42, -2
-  store i32 %43, ptr %41, align 8
-  %44 = load ptr, ptr %8, align 8
-  %45 = load i32, ptr %9, align 4
-  %46 = load i64, ptr %15, align 8
-  %47 = trunc i64 %46 to i32
-  %48 = call ptr @tvb_new_subset_length_caplen(ptr noundef %44, i32 noundef %45, i32 noundef %47, i32 noundef -1)
-  store ptr %48, ptr %17, align 8
-  %49 = load ptr, ptr %17, align 8
-  %50 = load ptr, ptr %10, align 8
-  %51 = load ptr, ptr %11, align 8
-  %52 = load ptr, ptr %12, align 8
-  %53 = load ptr, ptr %13, align 8
-  %54 = load ptr, ptr %14, align 8
-  %55 = call i32 @frsrpc_dissect_element_CommPktChunk_data_(ptr noundef %49, i32 noundef 0, ptr noundef %50, ptr noundef %51, ptr noundef %52, ptr noundef %53, ptr noundef %54)
-  %56 = load i64, ptr %15, align 8
-  %57 = trunc i64 %56 to i32
-  %58 = load i32, ptr %9, align 4
-  %59 = add i32 %58, %57
-  store i32 %59, ptr %9, align 4
-  %60 = load i32, ptr %18, align 4
-  %61 = load ptr, ptr %12, align 8
-  %62 = getelementptr inbounds %struct._dcerpc_info, ptr %61, i32 0, i32 14
-  %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds %struct._dcerpc_call_value, ptr %63, i32 0, i32 11
-  store i32 %60, ptr %64, align 8
-  br label %65
+26:                                               ; preds = %7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #5
+  %27 = load ptr, ptr %12, align 8
+  %28 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %27, i32 0, i32 14
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %29, i32 0, i32 11
+  %31 = load i32, ptr %30, align 8
+  store i32 %31, ptr %18, align 4
+  %32 = load ptr, ptr %8, align 8
+  %33 = load i32, ptr %9, align 4
+  %34 = load ptr, ptr %10, align 8
+  %35 = load ptr, ptr %11, align 8
+  %36 = load ptr, ptr %12, align 8
+  %37 = load ptr, ptr %13, align 8
+  %38 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunk_data_, align 4
+  %39 = call i32 @dissect_ndr_uint3264(ptr noundef %32, i32 noundef %33, ptr noundef %34, ptr noundef %35, ptr noundef %36, ptr noundef %37, i32 noundef %38, ptr noundef %15)
+  store i32 %39, ptr %9, align 4
+  %40 = load ptr, ptr %12, align 8
+  %41 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %40, i32 0, i32 14
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %42, i32 0, i32 11
+  %44 = load i32, ptr %43, align 8
+  %45 = and i32 %44, -2
+  store i32 %45, ptr %43, align 8
+  %46 = load ptr, ptr %8, align 8
+  %47 = load i32, ptr %9, align 4
+  %48 = load i64, ptr %15, align 8
+  %49 = trunc i64 %48 to i32
+  %50 = call ptr @tvb_new_subset_length_caplen(ptr noundef %46, i32 noundef %47, i32 noundef %49, i32 noundef -1)
+  store ptr %50, ptr %17, align 8
+  %51 = load ptr, ptr %17, align 8
+  %52 = load ptr, ptr %10, align 8
+  %53 = load ptr, ptr %11, align 8
+  %54 = load ptr, ptr %12, align 8
+  %55 = load ptr, ptr %13, align 8
+  %56 = load ptr, ptr %14, align 8
+  %57 = call i32 @frsrpc_dissect_element_CommPktChunk_data_(ptr noundef %51, i32 noundef 0, ptr noundef %52, ptr noundef %53, ptr noundef %54, ptr noundef %55, ptr noundef %56)
+  %58 = load i64, ptr %15, align 8
+  %59 = trunc i64 %58 to i32
+  %60 = load i32, ptr %9, align 4
+  %61 = add i32 %60, %59
+  store i32 %61, ptr %9, align 4
+  %62 = load i32, ptr %18, align 4
+  %63 = load ptr, ptr %12, align 8
+  %64 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %63, i32 0, i32 14
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %65, i32 0, i32 11
+  store i32 %62, ptr %66, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #5
+  br label %67
 
-65:                                               ; preds = %24, %7
-  %66 = load i32, ptr %9, align 4
-  ret i32 %66
+67:                                               ; preds = %26, %7
+  %68 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #5
+  ret i32 %68
 }
 
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #2
 
-declare void @proto_item_set_len(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_set_len(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @frsrpc_dissect_enum_CommPktCommand(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -1105,8 +1138,11 @@ define hidden i32 @frsrpc_dissect_enum_CommPktCommand(ptr noundef %0, i32 nounde
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store ptr %7, ptr %16, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #5
   store i32 0, ptr %17, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #5
   store i32 0, ptr %18, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #5
   store ptr null, ptr %19, align 8
   %20 = load ptr, ptr %16, align 8
   %21 = icmp ne ptr %20, null
@@ -1135,7 +1171,7 @@ define hidden i32 @frsrpc_dissect_enum_CommPktCommand(ptr noundef %0, i32 nounde
   %35 = load i32, ptr %18, align 4
   %36 = sext i32 %35 to i64
   %37 = getelementptr [13 x %struct._value_string], ptr @frsrpc_frsrpc_CommPktCommand_vals, i64 0, i64 %36
-  %38 = getelementptr inbounds %struct._value_string, ptr %37, i32 0, i32 1
+  %38 = getelementptr inbounds nuw %struct._value_string, ptr %37, i32 0, i32 1
   %39 = load ptr, ptr %38, align 8
   %40 = icmp ne ptr %39, null
   br i1 %40, label %41, label %59
@@ -1144,7 +1180,7 @@ define hidden i32 @frsrpc_dissect_enum_CommPktCommand(ptr noundef %0, i32 nounde
   %42 = load i32, ptr %18, align 4
   %43 = sext i32 %42 to i64
   %44 = getelementptr [13 x %struct._value_string], ptr @frsrpc_frsrpc_CommPktCommand_vals, i64 0, i64 %43
-  %45 = getelementptr inbounds %struct._value_string, ptr %44, i32 0, i32 0
+  %45 = getelementptr inbounds nuw %struct._value_string, ptr %44, i32 0, i32 0
   %46 = load i32, ptr %45, align 16
   %47 = load i32, ptr %17, align 4
   %48 = icmp eq i32 %46, %47
@@ -1154,7 +1190,7 @@ define hidden i32 @frsrpc_dissect_enum_CommPktCommand(ptr noundef %0, i32 nounde
   %50 = load i32, ptr %18, align 4
   %51 = sext i32 %50 to i64
   %52 = getelementptr [13 x %struct._value_string], ptr @frsrpc_frsrpc_CommPktCommand_vals, i64 0, i64 %51
-  %53 = getelementptr inbounds %struct._value_string, ptr %52, i32 0, i32 1
+  %53 = getelementptr inbounds nuw %struct._value_string, ptr %52, i32 0, i32 1
   %54 = load ptr, ptr %53, align 8
   store ptr %54, ptr %19, align 8
   br label %55
@@ -1166,7 +1202,7 @@ define hidden i32 @frsrpc_dissect_enum_CommPktCommand(ptr noundef %0, i32 nounde
   %57 = load i32, ptr %18, align 4
   %58 = add i32 %57, 1
   store i32 %58, ptr %18, align 4
-  br label %34, !llvm.loop !6
+  br label %34, !llvm.loop !10
 
 59:                                               ; preds = %34
   %60 = load ptr, ptr %19, align 8
@@ -1175,7 +1211,7 @@ define hidden i32 @frsrpc_dissect_enum_CommPktCommand(ptr noundef %0, i32 nounde
 
 62:                                               ; preds = %59
   %63 = load ptr, ptr %11, align 8
-  %64 = getelementptr inbounds %struct._packet_info, ptr %63, i32 0, i32 1
+  %64 = getelementptr inbounds nuw %struct._packet_info, ptr %63, i32 0, i32 1
   %65 = load ptr, ptr %64, align 8
   %66 = load ptr, ptr %19, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %65, i32 noundef 25, ptr noundef @.str.92, ptr noundef %66)
@@ -1194,14 +1230,19 @@ define hidden i32 @frsrpc_dissect_enum_CommPktCommand(ptr noundef %0, i32 nounde
 
 73:                                               ; preds = %70, %67
   %74 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #5
   ret i32 %74
 }
 
-declare i32 @dissect_ndr_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
-declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @frsrpc_dissect_struct_CommPktChunkGuidName(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -1222,8 +1263,11 @@ define hidden i32 @frsrpc_dissect_struct_CommPktChunkGuidName(ptr noundef %0, i3
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #5
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #5
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #5
   %20 = load i32, ptr %10, align 4
   store i32 %20, ptr %19, align 4
   %21 = load ptr, ptr %12, align 8
@@ -1266,10 +1310,13 @@ define hidden i32 @frsrpc_dissect_struct_CommPktChunkGuidName(ptr noundef %0, i3
   %50 = sub i32 %48, %49
   call void @proto_item_set_len(ptr noundef %47, i32 noundef %50)
   %51 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #5
   ret i32 %51
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChunkGuidName_guid(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1287,68 +1334,78 @@ define internal i32 @frsrpc_dissect_element_CommPktChunkGuidName_guid(ptr nounde
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
   %17 = load ptr, ptr %11, align 8
-  %18 = getelementptr inbounds %struct._dcerpc_info, ptr %17, i32 0, i32 4
-  %19 = load i32, ptr %18, align 4
-  store i32 %19, ptr %14, align 4
-  %20 = load i32, ptr %14, align 4
-  %21 = icmp ne i32 %20, 0
-  br i1 %21, label %62, label %22
+  %18 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %17, i32 0, i32 4
+  %19 = load i8, ptr %18, align 1, !range !8, !noundef !9
+  %20 = trunc i8 %19 to i1
+  %21 = zext i1 %20 to i32
+  store i32 %21, ptr %14, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #5
+  %22 = load i32, ptr %14, align 4
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %64, label %24
 
-22:                                               ; preds = %6
-  %23 = load ptr, ptr %11, align 8
-  %24 = getelementptr inbounds %struct._dcerpc_info, ptr %23, i32 0, i32 14
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds %struct._dcerpc_call_value, ptr %25, i32 0, i32 11
-  %27 = load i32, ptr %26, align 8
-  store i32 %27, ptr %16, align 4
-  %28 = load ptr, ptr %7, align 8
-  %29 = load i32, ptr %8, align 4
-  %30 = load ptr, ptr %9, align 8
-  %31 = load ptr, ptr %10, align 8
-  %32 = load ptr, ptr %11, align 8
-  %33 = load ptr, ptr %12, align 8
-  %34 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkGuidName_guid_, align 4
-  %35 = call i32 @dissect_ndr_uint3264(ptr noundef %28, i32 noundef %29, ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, i32 noundef %34, ptr noundef %13)
-  store i32 %35, ptr %8, align 4
-  %36 = load ptr, ptr %11, align 8
-  %37 = getelementptr inbounds %struct._dcerpc_info, ptr %36, i32 0, i32 14
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds %struct._dcerpc_call_value, ptr %38, i32 0, i32 11
-  %40 = load i32, ptr %39, align 8
-  %41 = and i32 %40, -2
-  store i32 %41, ptr %39, align 8
-  %42 = load ptr, ptr %7, align 8
-  %43 = load i32, ptr %8, align 4
-  %44 = load i64, ptr %13, align 8
-  %45 = trunc i64 %44 to i32
-  %46 = call ptr @tvb_new_subset_length_caplen(ptr noundef %42, i32 noundef %43, i32 noundef %45, i32 noundef -1)
-  store ptr %46, ptr %15, align 8
-  %47 = load ptr, ptr %15, align 8
-  %48 = load ptr, ptr %9, align 8
-  %49 = load ptr, ptr %10, align 8
-  %50 = load ptr, ptr %11, align 8
-  %51 = load ptr, ptr %12, align 8
-  %52 = call i32 @frsrpc_dissect_element_CommPktChunkGuidName_guid_(ptr noundef %47, i32 noundef 0, ptr noundef %48, ptr noundef %49, ptr noundef %50, ptr noundef %51)
-  %53 = load i64, ptr %13, align 8
-  %54 = trunc i64 %53 to i32
-  %55 = load i32, ptr %8, align 4
-  %56 = add i32 %55, %54
-  store i32 %56, ptr %8, align 4
-  %57 = load i32, ptr %16, align 4
-  %58 = load ptr, ptr %11, align 8
-  %59 = getelementptr inbounds %struct._dcerpc_info, ptr %58, i32 0, i32 14
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds %struct._dcerpc_call_value, ptr %60, i32 0, i32 11
-  store i32 %57, ptr %61, align 8
-  br label %62
+24:                                               ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #5
+  %25 = load ptr, ptr %11, align 8
+  %26 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %25, i32 0, i32 14
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %27, i32 0, i32 11
+  %29 = load i32, ptr %28, align 8
+  store i32 %29, ptr %16, align 4
+  %30 = load ptr, ptr %7, align 8
+  %31 = load i32, ptr %8, align 4
+  %32 = load ptr, ptr %9, align 8
+  %33 = load ptr, ptr %10, align 8
+  %34 = load ptr, ptr %11, align 8
+  %35 = load ptr, ptr %12, align 8
+  %36 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkGuidName_guid_, align 4
+  %37 = call i32 @dissect_ndr_uint3264(ptr noundef %30, i32 noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, i32 noundef %36, ptr noundef %13)
+  store i32 %37, ptr %8, align 4
+  %38 = load ptr, ptr %11, align 8
+  %39 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %38, i32 0, i32 14
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %40, i32 0, i32 11
+  %42 = load i32, ptr %41, align 8
+  %43 = and i32 %42, -2
+  store i32 %43, ptr %41, align 8
+  %44 = load ptr, ptr %7, align 8
+  %45 = load i32, ptr %8, align 4
+  %46 = load i64, ptr %13, align 8
+  %47 = trunc i64 %46 to i32
+  %48 = call ptr @tvb_new_subset_length_caplen(ptr noundef %44, i32 noundef %45, i32 noundef %47, i32 noundef -1)
+  store ptr %48, ptr %15, align 8
+  %49 = load ptr, ptr %15, align 8
+  %50 = load ptr, ptr %9, align 8
+  %51 = load ptr, ptr %10, align 8
+  %52 = load ptr, ptr %11, align 8
+  %53 = load ptr, ptr %12, align 8
+  %54 = call i32 @frsrpc_dissect_element_CommPktChunkGuidName_guid_(ptr noundef %49, i32 noundef 0, ptr noundef %50, ptr noundef %51, ptr noundef %52, ptr noundef %53)
+  %55 = load i64, ptr %13, align 8
+  %56 = trunc i64 %55 to i32
+  %57 = load i32, ptr %8, align 4
+  %58 = add i32 %57, %56
+  store i32 %58, ptr %8, align 4
+  %59 = load i32, ptr %16, align 4
+  %60 = load ptr, ptr %11, align 8
+  %61 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %60, i32 0, i32 14
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %62, i32 0, i32 11
+  store i32 %59, ptr %63, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #5
+  br label %64
 
-62:                                               ; preds = %22, %6
-  %63 = load i32, ptr %8, align 4
-  ret i32 %63
+64:                                               ; preds = %24, %6
+  %65 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  ret i32 %65
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChunkGuidName_name(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1366,68 +1423,78 @@ define internal i32 @frsrpc_dissect_element_CommPktChunkGuidName_name(ptr nounde
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
   %17 = load ptr, ptr %11, align 8
-  %18 = getelementptr inbounds %struct._dcerpc_info, ptr %17, i32 0, i32 4
-  %19 = load i32, ptr %18, align 4
-  store i32 %19, ptr %14, align 4
-  %20 = load i32, ptr %14, align 4
-  %21 = icmp ne i32 %20, 0
-  br i1 %21, label %62, label %22
+  %18 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %17, i32 0, i32 4
+  %19 = load i8, ptr %18, align 1, !range !8, !noundef !9
+  %20 = trunc i8 %19 to i1
+  %21 = zext i1 %20 to i32
+  store i32 %21, ptr %14, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #5
+  %22 = load i32, ptr %14, align 4
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %64, label %24
 
-22:                                               ; preds = %6
-  %23 = load ptr, ptr %11, align 8
-  %24 = getelementptr inbounds %struct._dcerpc_info, ptr %23, i32 0, i32 14
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds %struct._dcerpc_call_value, ptr %25, i32 0, i32 11
-  %27 = load i32, ptr %26, align 8
-  store i32 %27, ptr %16, align 4
-  %28 = load ptr, ptr %7, align 8
-  %29 = load i32, ptr %8, align 4
-  %30 = load ptr, ptr %9, align 8
-  %31 = load ptr, ptr %10, align 8
-  %32 = load ptr, ptr %11, align 8
-  %33 = load ptr, ptr %12, align 8
-  %34 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkGuidName_name_, align 4
-  %35 = call i32 @dissect_ndr_uint3264(ptr noundef %28, i32 noundef %29, ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, i32 noundef %34, ptr noundef %13)
-  store i32 %35, ptr %8, align 4
-  %36 = load ptr, ptr %11, align 8
-  %37 = getelementptr inbounds %struct._dcerpc_info, ptr %36, i32 0, i32 14
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds %struct._dcerpc_call_value, ptr %38, i32 0, i32 11
-  %40 = load i32, ptr %39, align 8
-  %41 = and i32 %40, -2
-  store i32 %41, ptr %39, align 8
-  %42 = load ptr, ptr %7, align 8
-  %43 = load i32, ptr %8, align 4
-  %44 = load i64, ptr %13, align 8
-  %45 = trunc i64 %44 to i32
-  %46 = call ptr @tvb_new_subset_length_caplen(ptr noundef %42, i32 noundef %43, i32 noundef %45, i32 noundef -1)
-  store ptr %46, ptr %15, align 8
-  %47 = load ptr, ptr %15, align 8
-  %48 = load ptr, ptr %9, align 8
-  %49 = load ptr, ptr %10, align 8
-  %50 = load ptr, ptr %11, align 8
-  %51 = load ptr, ptr %12, align 8
-  %52 = call i32 @frsrpc_dissect_element_CommPktChunkGuidName_name_(ptr noundef %47, i32 noundef 0, ptr noundef %48, ptr noundef %49, ptr noundef %50, ptr noundef %51)
-  %53 = load i64, ptr %13, align 8
-  %54 = trunc i64 %53 to i32
-  %55 = load i32, ptr %8, align 4
-  %56 = add i32 %55, %54
-  store i32 %56, ptr %8, align 4
-  %57 = load i32, ptr %16, align 4
-  %58 = load ptr, ptr %11, align 8
-  %59 = getelementptr inbounds %struct._dcerpc_info, ptr %58, i32 0, i32 14
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds %struct._dcerpc_call_value, ptr %60, i32 0, i32 11
-  store i32 %57, ptr %61, align 8
-  br label %62
+24:                                               ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #5
+  %25 = load ptr, ptr %11, align 8
+  %26 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %25, i32 0, i32 14
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %27, i32 0, i32 11
+  %29 = load i32, ptr %28, align 8
+  store i32 %29, ptr %16, align 4
+  %30 = load ptr, ptr %7, align 8
+  %31 = load i32, ptr %8, align 4
+  %32 = load ptr, ptr %9, align 8
+  %33 = load ptr, ptr %10, align 8
+  %34 = load ptr, ptr %11, align 8
+  %35 = load ptr, ptr %12, align 8
+  %36 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkGuidName_name_, align 4
+  %37 = call i32 @dissect_ndr_uint3264(ptr noundef %30, i32 noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, i32 noundef %36, ptr noundef %13)
+  store i32 %37, ptr %8, align 4
+  %38 = load ptr, ptr %11, align 8
+  %39 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %38, i32 0, i32 14
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %40, i32 0, i32 11
+  %42 = load i32, ptr %41, align 8
+  %43 = and i32 %42, -2
+  store i32 %43, ptr %41, align 8
+  %44 = load ptr, ptr %7, align 8
+  %45 = load i32, ptr %8, align 4
+  %46 = load i64, ptr %13, align 8
+  %47 = trunc i64 %46 to i32
+  %48 = call ptr @tvb_new_subset_length_caplen(ptr noundef %44, i32 noundef %45, i32 noundef %47, i32 noundef -1)
+  store ptr %48, ptr %15, align 8
+  %49 = load ptr, ptr %15, align 8
+  %50 = load ptr, ptr %9, align 8
+  %51 = load ptr, ptr %10, align 8
+  %52 = load ptr, ptr %11, align 8
+  %53 = load ptr, ptr %12, align 8
+  %54 = call i32 @frsrpc_dissect_element_CommPktChunkGuidName_name_(ptr noundef %49, i32 noundef 0, ptr noundef %50, ptr noundef %51, ptr noundef %52, ptr noundef %53)
+  %55 = load i64, ptr %13, align 8
+  %56 = trunc i64 %55 to i32
+  %57 = load i32, ptr %8, align 4
+  %58 = add i32 %57, %56
+  store i32 %58, ptr %8, align 4
+  %59 = load i32, ptr %16, align 4
+  %60 = load ptr, ptr %11, align 8
+  %61 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %60, i32 0, i32 14
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %62, i32 0, i32 11
+  store i32 %59, ptr %63, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #5
+  br label %64
 
-62:                                               ; preds = %22, %6
-  %63 = load i32, ptr %8, align 4
-  ret i32 %63
+64:                                               ; preds = %24, %6
+  %65 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  ret i32 %65
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @frsrpc_dissect_struct_CommPktGSVN(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -1448,12 +1515,15 @@ define hidden i32 @frsrpc_dissect_struct_CommPktGSVN(ptr noundef %0, i32 noundef
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #5
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #5
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #5
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 4
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp ne i32 %22, 0
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 4
+  %22 = load i8, ptr %21, align 1, !range !8, !noundef !9
+  %23 = trunc i8 %22 to i1
   br i1 %23, label %33, label %24
 
 24:                                               ; preds = %8
@@ -1515,9 +1585,9 @@ define hidden i32 @frsrpc_dissect_struct_CommPktGSVN(ptr noundef %0, i32 noundef
   %64 = sub i32 %62, %63
   call void @proto_item_set_len(ptr noundef %61, i32 noundef %64)
   %65 = load ptr, ptr %13, align 8
-  %66 = getelementptr inbounds %struct._dcerpc_info, ptr %65, i32 0, i32 14
+  %66 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %65, i32 0, i32 14
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds %struct._dcerpc_call_value, ptr %67, i32 0, i32 11
+  %68 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %67, i32 0, i32 11
   %69 = load i32, ptr %68, align 8
   %70 = and i32 %69, 1
   %71 = icmp ne i32 %70, 0
@@ -1525,9 +1595,9 @@ define hidden i32 @frsrpc_dissect_struct_CommPktGSVN(ptr noundef %0, i32 noundef
 
 72:                                               ; preds = %46
   %73 = load ptr, ptr %13, align 8
-  %74 = getelementptr inbounds %struct._dcerpc_info, ptr %73, i32 0, i32 4
-  %75 = load i32, ptr %74, align 4
-  %76 = icmp ne i32 %75, 0
+  %74 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %73, i32 0, i32 4
+  %75 = load i8, ptr %74, align 1, !range !8, !noundef !9
+  %76 = trunc i8 %75 to i1
   br i1 %76, label %86, label %77
 
 77:                                               ; preds = %72
@@ -1551,10 +1621,13 @@ define hidden i32 @frsrpc_dissect_struct_CommPktGSVN(ptr noundef %0, i32 noundef
 
 87:                                               ; preds = %86, %46
   %88 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #5
   ret i32 %88
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktGSVN_vsn(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1581,7 +1654,7 @@ define internal i32 @frsrpc_dissect_element_CommPktGSVN_vsn(ptr noundef %0, i32 
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktGSVN_guid(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1608,7 +1681,7 @@ define internal i32 @frsrpc_dissect_element_CommPktGSVN_guid(ptr noundef %0, i32
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @frsrpc_dissect_bitmap_CommPktCoCmdFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -1628,10 +1701,12 @@ define hidden i32 @frsrpc_dissect_bitmap_CommPktCoCmdFlags(ptr noundef %0, i32 n
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #5
   %19 = load ptr, ptr %13, align 8
-  %20 = getelementptr inbounds %struct._dcerpc_info, ptr %19, i32 0, i32 4
-  %21 = load i32, ptr %20, align 4
-  %22 = icmp ne i32 %21, 0
+  %20 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %19, i32 0, i32 4
+  %21 = load i8, ptr %20, align 1, !range !8, !noundef !9
+  %22 = trunc i8 %21 to i1
   br i1 %22, label %32, label %23
 
 23:                                               ; preds = %8
@@ -1699,12 +1774,15 @@ define hidden i32 @frsrpc_dissect_bitmap_CommPktCoCmdFlags(ptr noundef %0, i32 n
 
 66:                                               ; preds = %61, %57
   %67 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #5
   ret i32 %67
 }
 
-declare ptr @proto_tree_add_bitmask_with_flags(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_bitmask_with_flags(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @frsrpc_dissect_bitmap_CommPktCoCmdIFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -1724,10 +1802,12 @@ define hidden i32 @frsrpc_dissect_bitmap_CommPktCoCmdIFlags(ptr noundef %0, i32 
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #5
   %19 = load ptr, ptr %13, align 8
-  %20 = getelementptr inbounds %struct._dcerpc_info, ptr %19, i32 0, i32 4
-  %21 = load i32, ptr %20, align 4
-  %22 = icmp ne i32 %21, 0
+  %20 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %19, i32 0, i32 4
+  %21 = load i8, ptr %20, align 1, !range !8, !noundef !9
+  %22 = trunc i8 %21 to i1
   br i1 %22, label %32, label %23
 
 23:                                               ; preds = %8
@@ -1795,10 +1875,12 @@ define hidden i32 @frsrpc_dissect_bitmap_CommPktCoCmdIFlags(ptr noundef %0, i32 
 
 66:                                               ; preds = %61, %57
   %67 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #5
   ret i32 %67
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @frsrpc_dissect_enum_CommPktCoCmdStatus(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -1817,6 +1899,7 @@ define hidden i32 @frsrpc_dissect_enum_CommPktCoCmdStatus(ptr noundef %0, i32 no
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store ptr %7, ptr %16, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #5
   store i32 0, ptr %17, align 4
   %18 = load ptr, ptr %16, align 8
   %19 = icmp ne ptr %18, null
@@ -1850,10 +1933,11 @@ define hidden i32 @frsrpc_dissect_enum_CommPktCoCmdStatus(ptr noundef %0, i32 no
 
 37:                                               ; preds = %34, %23
   %38 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #5
   ret i32 %38
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @frsrpc_dissect_bitmap_CommPktCoCmdContentCmd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -1873,10 +1957,12 @@ define hidden i32 @frsrpc_dissect_bitmap_CommPktCoCmdContentCmd(ptr noundef %0, 
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #5
   %19 = load ptr, ptr %13, align 8
-  %20 = getelementptr inbounds %struct._dcerpc_info, ptr %19, i32 0, i32 4
-  %21 = load i32, ptr %20, align 4
-  %22 = icmp ne i32 %21, 0
+  %20 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %19, i32 0, i32 4
+  %21 = load i8, ptr %20, align 1, !range !8, !noundef !9
+  %22 = trunc i8 %21 to i1
   br i1 %22, label %32, label %23
 
 23:                                               ; preds = %8
@@ -1944,10 +2030,12 @@ define hidden i32 @frsrpc_dissect_bitmap_CommPktCoCmdContentCmd(ptr noundef %0, 
 
 66:                                               ; preds = %61, %57
   %67 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #5
   ret i32 %67
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @frsrpc_dissect_enum_CommPktCoCmdLocationCmd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -1966,6 +2054,7 @@ define hidden i32 @frsrpc_dissect_enum_CommPktCoCmdLocationCmd(ptr noundef %0, i
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store ptr %7, ptr %16, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #5
   store i32 0, ptr %17, align 4
   %18 = load ptr, ptr %16, align 8
   %19 = icmp ne ptr %18, null
@@ -1999,10 +2088,11 @@ define hidden i32 @frsrpc_dissect_enum_CommPktCoCmdLocationCmd(ptr noundef %0, i
 
 37:                                               ; preds = %34, %23
   %38 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #5
   ret i32 %38
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @frsrpc_dissect_struct_CommPktChangeOrderCommand(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -2023,12 +2113,15 @@ define hidden i32 @frsrpc_dissect_struct_CommPktChangeOrderCommand(ptr noundef %
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #5
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #5
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #5
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 4
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp ne i32 %22, 0
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 4
+  %22 = load i8, ptr %21, align 1, !range !8, !noundef !9
+  %23 = trunc i8 %22 to i1
   br i1 %23, label %33, label %24
 
 24:                                               ; preds = %8
@@ -2402,9 +2495,9 @@ define hidden i32 @frsrpc_dissect_struct_CommPktChangeOrderCommand(ptr noundef %
   %337 = sub i32 %335, %336
   call void @proto_item_set_len(ptr noundef %334, i32 noundef %337)
   %338 = load ptr, ptr %13, align 8
-  %339 = getelementptr inbounds %struct._dcerpc_info, ptr %338, i32 0, i32 14
+  %339 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %338, i32 0, i32 14
   %340 = load ptr, ptr %339, align 8
-  %341 = getelementptr inbounds %struct._dcerpc_call_value, ptr %340, i32 0, i32 11
+  %341 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %340, i32 0, i32 11
   %342 = load i32, ptr %341, align 8
   %343 = and i32 %342, 1
   %344 = icmp ne i32 %343, 0
@@ -2412,9 +2505,9 @@ define hidden i32 @frsrpc_dissect_struct_CommPktChangeOrderCommand(ptr noundef %
 
 345:                                              ; preds = %46
   %346 = load ptr, ptr %13, align 8
-  %347 = getelementptr inbounds %struct._dcerpc_info, ptr %346, i32 0, i32 4
-  %348 = load i32, ptr %347, align 4
-  %349 = icmp ne i32 %348, 0
+  %347 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %346, i32 0, i32 4
+  %348 = load i8, ptr %347, align 1, !range !8, !noundef !9
+  %349 = trunc i8 %348 to i1
   br i1 %349, label %359, label %350
 
 350:                                              ; preds = %345
@@ -2438,10 +2531,13 @@ define hidden i32 @frsrpc_dissect_struct_CommPktChangeOrderCommand(ptr noundef %
 
 360:                                              ; preds = %359, %46
   %361 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #5
   ret i32 %361
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_sequence_number(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2468,7 +2564,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_sequence_n
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_flags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2495,7 +2591,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_flags(ptr 
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_iflags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2522,7 +2618,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_iflags(ptr
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_status(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2549,7 +2645,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_status(ptr
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_content_cmd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2576,7 +2672,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_content_cm
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_location_cmd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2603,7 +2699,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_location_c
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_file_attributes(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2630,7 +2726,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_file_attri
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_file_version_number(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2657,7 +2753,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_file_versi
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_partern_ack_sequence_number(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2684,7 +2780,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_partern_ac
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_not_used(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2711,7 +2807,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_not_used(p
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_file_size(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2738,7 +2834,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_file_size(
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_file_offset(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2765,7 +2861,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_file_offse
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_frs_vsn(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2792,7 +2888,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_frs_vsn(pt
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_file_usn(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2819,7 +2915,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_file_usn(p
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_jrnl_usn(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2846,7 +2942,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_jrnl_usn(p
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_jrnl_first_usn(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2873,7 +2969,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_jrnl_first
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_original_replica_num(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2900,7 +2996,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_original_r
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_new_replica_num(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2927,7 +3023,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_new_replic
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_change_order_guid(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2954,7 +3050,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_change_ord
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_originator_guid(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2981,7 +3077,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_originator
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_file_guid(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3008,7 +3104,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_file_guid(
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_old_parent_guid(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3035,7 +3131,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_old_parent
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_new_parent_guid(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3062,7 +3158,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_new_parent
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_connection_guid(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3089,7 +3185,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_connection
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_ack_version(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3116,7 +3212,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_ack_versio
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_spare2ul1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3143,7 +3239,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_spare2ul1(
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_spare1guid_p1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3170,7 +3266,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_spare1guid
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_spare1guid_p2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3197,7 +3293,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_spare1guid
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_spare2guid_p1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3224,7 +3320,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_spare2guid
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_spare3guid_p2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3251,7 +3347,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_spare3guid
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_spare1wcs(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3278,7 +3374,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_spare1wcs(
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_spare2wcs(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3305,7 +3401,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_spare2wcs(
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_extension(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3332,7 +3428,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_extension(
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_spare2bin(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3359,7 +3455,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_spare2bin(
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_event_time(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3386,7 +3482,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_event_time
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_file_name_length(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3413,7 +3509,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_file_name_
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_file_name(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3429,51 +3525,57 @@ define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_file_name(
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
   %15 = load ptr, ptr %11, align 8
-  %16 = getelementptr inbounds %struct._dcerpc_info, ptr %15, i32 0, i32 4
-  %17 = load i32, ptr %16, align 4
-  store i32 %17, ptr %13, align 4
-  %18 = load i32, ptr %13, align 4
-  %19 = icmp ne i32 %18, 0
-  br i1 %19, label %38, label %20
+  %16 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %15, i32 0, i32 4
+  %17 = load i8, ptr %16, align 1, !range !8, !noundef !9
+  %18 = trunc i8 %17 to i1
+  %19 = zext i1 %18 to i32
+  store i32 %19, ptr %13, align 4
+  %20 = load i32, ptr %13, align 4
+  %21 = icmp ne i32 %20, 0
+  br i1 %21, label %40, label %22
 
-20:                                               ; preds = %6
-  %21 = load ptr, ptr %7, align 8
-  %22 = load i32, ptr %8, align 4
-  %23 = load ptr, ptr %9, align 8
-  %24 = load ptr, ptr %10, align 8
-  %25 = load ptr, ptr %12, align 8
-  %26 = load i32, ptr @hf_frsrpc_CommPktChangeOrderCommand_file_name, align 4
-  %27 = call i32 @dissect_null_term_wstring(ptr noundef %21, i32 noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, i32 noundef %26, i32 noundef 0)
-  store i32 %27, ptr %14, align 4
-  %28 = load i32, ptr %14, align 4
-  %29 = load i32, ptr %8, align 4
-  %30 = sub i32 %28, %29
-  %31 = icmp ult i32 %30, 261
-  br i1 %31, label %32, label %33
+22:                                               ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
+  %23 = load ptr, ptr %7, align 8
+  %24 = load i32, ptr %8, align 4
+  %25 = load ptr, ptr %9, align 8
+  %26 = load ptr, ptr %10, align 8
+  %27 = load ptr, ptr %12, align 8
+  %28 = load i32, ptr @hf_frsrpc_CommPktChangeOrderCommand_file_name, align 4
+  %29 = call i32 @dissect_null_term_wstring(ptr noundef %23, i32 noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %27, i32 noundef %28, i32 noundef 0)
+  store i32 %29, ptr %14, align 4
+  %30 = load i32, ptr %14, align 4
+  %31 = load i32, ptr %8, align 4
+  %32 = sub i32 %30, %31
+  %33 = icmp ult i32 %32, 261
+  br i1 %33, label %34, label %35
 
-32:                                               ; preds = %20
-  br label %35
+34:                                               ; preds = %22
+  br label %37
 
-33:                                               ; preds = %20
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.404, ptr noundef @.str.405, i32 noundef 647, ptr noundef @.str.406) #3
+35:                                               ; preds = %22
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.404, ptr noundef @.str.405, i32 noundef 648, ptr noundef @.str.406) #6
   unreachable
 
-34:                                               ; No predecessors!
-  br label %35
+36:                                               ; No predecessors!
+  br label %37
 
-35:                                               ; preds = %34, %32
-  %36 = load i32, ptr %8, align 4
-  %37 = add i32 %36, 261
-  store i32 %37, ptr %8, align 4
-  br label %38
+37:                                               ; preds = %36, %34
+  %38 = load i32, ptr %8, align 4
+  %39 = add i32 %38, 261
+  store i32 %39, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  br label %40
 
-38:                                               ; preds = %35, %6
-  %39 = load i32, ptr %8, align 4
-  ret i32 %39
+40:                                               ; preds = %37, %6
+  %41 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  ret i32 %41
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_padding1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3500,7 +3602,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_padding1(p
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_padding2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3527,7 +3629,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_padding2(p
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_padding3(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3554,7 +3656,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_padding3(p
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_padding4(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3581,7 +3683,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChangeOrderCommand_padding4(p
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @frsrpc_dissect_enum_CommPktDataExtensionType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -3600,6 +3702,7 @@ define hidden i32 @frsrpc_dissect_enum_CommPktDataExtensionType(ptr noundef %0, 
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store ptr %7, ptr %16, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #5
   store i32 0, ptr %17, align 4
   %18 = load ptr, ptr %16, align 8
   %19 = icmp ne ptr %18, null
@@ -3633,10 +3736,11 @@ define hidden i32 @frsrpc_dissect_enum_CommPktDataExtensionType(ptr noundef %0, 
 
 37:                                               ; preds = %34, %23
   %38 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #5
   ret i32 %38
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @frsrpc_dissect_struct_CommPktDataExtensionChecksum(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -3657,12 +3761,15 @@ define hidden i32 @frsrpc_dissect_struct_CommPktDataExtensionChecksum(ptr nounde
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #5
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #5
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #5
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 4
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp ne i32 %22, 0
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 4
+  %22 = load i8, ptr %21, align 1, !range !8, !noundef !9
+  %23 = trunc i8 %22 to i1
   br i1 %23, label %33, label %24
 
 24:                                               ; preds = %8
@@ -3732,9 +3839,9 @@ define hidden i32 @frsrpc_dissect_struct_CommPktDataExtensionChecksum(ptr nounde
   %71 = sub i32 %69, %70
   call void @proto_item_set_len(ptr noundef %68, i32 noundef %71)
   %72 = load ptr, ptr %13, align 8
-  %73 = getelementptr inbounds %struct._dcerpc_info, ptr %72, i32 0, i32 14
+  %73 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %72, i32 0, i32 14
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds %struct._dcerpc_call_value, ptr %74, i32 0, i32 11
+  %75 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %74, i32 0, i32 11
   %76 = load i32, ptr %75, align 8
   %77 = and i32 %76, 1
   %78 = icmp ne i32 %77, 0
@@ -3742,9 +3849,9 @@ define hidden i32 @frsrpc_dissect_struct_CommPktDataExtensionChecksum(ptr nounde
 
 79:                                               ; preds = %46
   %80 = load ptr, ptr %13, align 8
-  %81 = getelementptr inbounds %struct._dcerpc_info, ptr %80, i32 0, i32 4
-  %82 = load i32, ptr %81, align 4
-  %83 = icmp ne i32 %82, 0
+  %81 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %80, i32 0, i32 4
+  %82 = load i8, ptr %81, align 1, !range !8, !noundef !9
+  %83 = trunc i8 %82 to i1
   br i1 %83, label %93, label %84
 
 84:                                               ; preds = %79
@@ -3768,10 +3875,13 @@ define hidden i32 @frsrpc_dissect_struct_CommPktDataExtensionChecksum(ptr nounde
 
 94:                                               ; preds = %93, %46
   %95 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #5
   ret i32 %95
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktDataExtensionChecksum_prefix_size(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3798,7 +3908,7 @@ define internal i32 @frsrpc_dissect_element_CommPktDataExtensionChecksum_prefix_
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktDataExtensionChecksum_prefix_type(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3825,7 +3935,7 @@ define internal i32 @frsrpc_dissect_element_CommPktDataExtensionChecksum_prefix_
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktDataExtensionChecksum_data(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3840,6 +3950,7 @@ define internal i32 @frsrpc_dissect_element_CommPktDataExtensionChecksum_data(pt
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
   store i32 0, ptr %13, align 4
   br label %14
 
@@ -3863,14 +3974,15 @@ define internal i32 @frsrpc_dissect_element_CommPktDataExtensionChecksum_data(pt
   %26 = load i32, ptr %13, align 4
   %27 = add i32 %26, 1
   store i32 %27, ptr %13, align 4
-  br label %14, !llvm.loop !7
+  br label %14, !llvm.loop !11
 
 28:                                               ; preds = %14
   %29 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
   ret i32 %29
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @frsrpc_dissect_struct_CommPktDataExtensionRetryTimeout(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -3891,12 +4003,15 @@ define hidden i32 @frsrpc_dissect_struct_CommPktDataExtensionRetryTimeout(ptr no
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #5
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #5
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #5
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 4
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp ne i32 %22, 0
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 4
+  %22 = load i8, ptr %21, align 1, !range !8, !noundef !9
+  %23 = trunc i8 %22 to i1
   br i1 %23, label %33, label %24
 
 24:                                               ; preds = %8
@@ -3982,9 +4097,9 @@ define hidden i32 @frsrpc_dissect_struct_CommPktDataExtensionRetryTimeout(ptr no
   %85 = sub i32 %83, %84
   call void @proto_item_set_len(ptr noundef %82, i32 noundef %85)
   %86 = load ptr, ptr %13, align 8
-  %87 = getelementptr inbounds %struct._dcerpc_info, ptr %86, i32 0, i32 14
+  %87 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %86, i32 0, i32 14
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds %struct._dcerpc_call_value, ptr %88, i32 0, i32 11
+  %89 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %88, i32 0, i32 11
   %90 = load i32, ptr %89, align 8
   %91 = and i32 %90, 1
   %92 = icmp ne i32 %91, 0
@@ -3992,9 +4107,9 @@ define hidden i32 @frsrpc_dissect_struct_CommPktDataExtensionRetryTimeout(ptr no
 
 93:                                               ; preds = %46
   %94 = load ptr, ptr %13, align 8
-  %95 = getelementptr inbounds %struct._dcerpc_info, ptr %94, i32 0, i32 4
-  %96 = load i32, ptr %95, align 4
-  %97 = icmp ne i32 %96, 0
+  %95 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %94, i32 0, i32 4
+  %96 = load i8, ptr %95, align 1, !range !8, !noundef !9
+  %97 = trunc i8 %96 to i1
   br i1 %97, label %107, label %98
 
 98:                                               ; preds = %93
@@ -4018,10 +4133,13 @@ define hidden i32 @frsrpc_dissect_struct_CommPktDataExtensionRetryTimeout(ptr no
 
 108:                                              ; preds = %107, %46
   %109 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #5
   ret i32 %109
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktDataExtensionRetryTimeout_prefix_size(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4048,7 +4166,7 @@ define internal i32 @frsrpc_dissect_element_CommPktDataExtensionRetryTimeout_pre
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktDataExtensionRetryTimeout_prefix_type(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4075,7 +4193,7 @@ define internal i32 @frsrpc_dissect_element_CommPktDataExtensionRetryTimeout_pre
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktDataExtensionRetryTimeout_count(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4102,7 +4220,7 @@ define internal i32 @frsrpc_dissect_element_CommPktDataExtensionRetryTimeout_cou
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktDataExtensionRetryTimeout_not_used(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4129,7 +4247,7 @@ define internal i32 @frsrpc_dissect_element_CommPktDataExtensionRetryTimeout_not
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktDataExtensionRetryTimeout_first_try_time(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4156,7 +4274,7 @@ define internal i32 @frsrpc_dissect_element_CommPktDataExtensionRetryTimeout_fir
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @frsrpc_dissect_enum_CommPktCoRecordExtensionMajor(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -4175,6 +4293,7 @@ define hidden i32 @frsrpc_dissect_enum_CommPktCoRecordExtensionMajor(ptr noundef
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store ptr %7, ptr %16, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #5
   store i32 0, ptr %17, align 4
   %18 = load ptr, ptr %16, align 8
   %19 = icmp ne ptr %18, null
@@ -4208,12 +4327,14 @@ define hidden i32 @frsrpc_dissect_enum_CommPktCoRecordExtensionMajor(ptr noundef
 
 37:                                               ; preds = %34, %23
   %38 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #5
   ret i32 %38
 }
 
-declare i32 @dissect_ndr_uint1632(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_uint1632(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @frsrpc_dissect_struct_CommPktCoRecordExtensionWin2k(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -4234,12 +4355,15 @@ define hidden i32 @frsrpc_dissect_struct_CommPktCoRecordExtensionWin2k(ptr nound
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #5
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #5
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #5
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 4
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp ne i32 %22, 0
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 4
+  %22 = load i8, ptr %21, align 1, !range !8, !noundef !9
+  %23 = trunc i8 %22 to i1
   br i1 %23, label %33, label %24
 
 24:                                               ; preds = %8
@@ -4333,9 +4457,9 @@ define hidden i32 @frsrpc_dissect_struct_CommPktCoRecordExtensionWin2k(ptr nound
   %92 = sub i32 %90, %91
   call void @proto_item_set_len(ptr noundef %89, i32 noundef %92)
   %93 = load ptr, ptr %13, align 8
-  %94 = getelementptr inbounds %struct._dcerpc_info, ptr %93, i32 0, i32 14
+  %94 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %93, i32 0, i32 14
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds %struct._dcerpc_call_value, ptr %95, i32 0, i32 11
+  %96 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %95, i32 0, i32 11
   %97 = load i32, ptr %96, align 8
   %98 = and i32 %97, 1
   %99 = icmp ne i32 %98, 0
@@ -4343,9 +4467,9 @@ define hidden i32 @frsrpc_dissect_struct_CommPktCoRecordExtensionWin2k(ptr nound
 
 100:                                              ; preds = %46
   %101 = load ptr, ptr %13, align 8
-  %102 = getelementptr inbounds %struct._dcerpc_info, ptr %101, i32 0, i32 4
-  %103 = load i32, ptr %102, align 4
-  %104 = icmp ne i32 %103, 0
+  %102 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %101, i32 0, i32 4
+  %103 = load i8, ptr %102, align 1, !range !8, !noundef !9
+  %104 = trunc i8 %103 to i1
   br i1 %104, label %114, label %105
 
 105:                                              ; preds = %100
@@ -4369,10 +4493,13 @@ define hidden i32 @frsrpc_dissect_struct_CommPktCoRecordExtensionWin2k(ptr nound
 
 115:                                              ; preds = %114, %46
   %116 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #5
   ret i32 %116
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktCoRecordExtensionWin2k_field_size(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4399,7 +4526,7 @@ define internal i32 @frsrpc_dissect_element_CommPktCoRecordExtensionWin2k_field_
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktCoRecordExtensionWin2k_major(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4426,7 +4553,7 @@ define internal i32 @frsrpc_dissect_element_CommPktCoRecordExtensionWin2k_major(
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktCoRecordExtensionWin2k_offset_count(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4453,7 +4580,7 @@ define internal i32 @frsrpc_dissect_element_CommPktCoRecordExtensionWin2k_offset
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktCoRecordExtensionWin2k_offset(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4480,7 +4607,7 @@ define internal i32 @frsrpc_dissect_element_CommPktCoRecordExtensionWin2k_offset
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktCoRecordExtensionWin2k_offset_last(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4507,7 +4634,7 @@ define internal i32 @frsrpc_dissect_element_CommPktCoRecordExtensionWin2k_offset
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktCoRecordExtensionWin2k_data_checksum(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4534,7 +4661,7 @@ define internal i32 @frsrpc_dissect_element_CommPktCoRecordExtensionWin2k_data_c
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @frsrpc_dissect_struct_CommPktChangeOrderRecordExtension(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -4555,12 +4682,15 @@ define hidden i32 @frsrpc_dissect_struct_CommPktChangeOrderRecordExtension(ptr n
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #5
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #5
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #5
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 4
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp ne i32 %22, 0
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 4
+  %22 = load i8, ptr %21, align 1, !range !8, !noundef !9
+  %23 = trunc i8 %22 to i1
   br i1 %23, label %33, label %24
 
 24:                                               ; preds = %8
@@ -4678,9 +4808,9 @@ define hidden i32 @frsrpc_dissect_struct_CommPktChangeOrderRecordExtension(ptr n
   %113 = sub i32 %111, %112
   call void @proto_item_set_len(ptr noundef %110, i32 noundef %113)
   %114 = load ptr, ptr %13, align 8
-  %115 = getelementptr inbounds %struct._dcerpc_info, ptr %114, i32 0, i32 14
+  %115 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %114, i32 0, i32 14
   %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds %struct._dcerpc_call_value, ptr %116, i32 0, i32 11
+  %117 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %116, i32 0, i32 11
   %118 = load i32, ptr %117, align 8
   %119 = and i32 %118, 1
   %120 = icmp ne i32 %119, 0
@@ -4688,9 +4818,9 @@ define hidden i32 @frsrpc_dissect_struct_CommPktChangeOrderRecordExtension(ptr n
 
 121:                                              ; preds = %46
   %122 = load ptr, ptr %13, align 8
-  %123 = getelementptr inbounds %struct._dcerpc_info, ptr %122, i32 0, i32 4
-  %124 = load i32, ptr %123, align 4
-  %125 = icmp ne i32 %124, 0
+  %123 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %122, i32 0, i32 4
+  %124 = load i8, ptr %123, align 1, !range !8, !noundef !9
+  %125 = trunc i8 %124 to i1
   br i1 %125, label %135, label %126
 
 126:                                              ; preds = %121
@@ -4714,10 +4844,13 @@ define hidden i32 @frsrpc_dissect_struct_CommPktChangeOrderRecordExtension(ptr n
 
 136:                                              ; preds = %135, %46
   %137 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #5
   ret i32 %137
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChangeOrderRecordExtension_field_size(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4744,7 +4877,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChangeOrderRecordExtension_fi
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChangeOrderRecordExtension_major(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4771,7 +4904,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChangeOrderRecordExtension_ma
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChangeOrderRecordExtension_offset_count(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4798,7 +4931,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChangeOrderRecordExtension_of
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChangeOrderRecordExtension_offset0(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4825,7 +4958,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChangeOrderRecordExtension_of
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChangeOrderRecordExtension_offset1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4852,7 +4985,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChangeOrderRecordExtension_of
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChangeOrderRecordExtension_offset_last(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4879,7 +5012,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChangeOrderRecordExtension_of
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChangeOrderRecordExtension_not_used(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4906,7 +5039,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChangeOrderRecordExtension_no
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChangeOrderRecordExtension_data_checksum(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4933,7 +5066,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChangeOrderRecordExtension_da
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChangeOrderRecordExtension_data_retry_timeout(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4960,7 +5093,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChangeOrderRecordExtension_da
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @frsrpc_dissect_enum_CommPktChunkType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -4979,6 +5112,7 @@ define hidden i32 @frsrpc_dissect_enum_CommPktChunkType(ptr noundef %0, i32 noun
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store ptr %7, ptr %16, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #5
   store i32 0, ptr %17, align 4
   %18 = load ptr, ptr %16, align 8
   %19 = icmp ne ptr %18, null
@@ -5012,10 +5146,11 @@ define hidden i32 @frsrpc_dissect_enum_CommPktChunkType(ptr noundef %0, i32 noun
 
 37:                                               ; preds = %34, %23
   %38 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #5
   ret i32 %38
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @frsrpc_dissect_enum_CommPktMajor(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -5034,6 +5169,7 @@ define hidden i32 @frsrpc_dissect_enum_CommPktMajor(ptr noundef %0, i32 noundef 
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store ptr %7, ptr %16, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #5
   store i32 0, ptr %17, align 4
   %18 = load ptr, ptr %16, align 8
   %19 = icmp ne ptr %18, null
@@ -5067,10 +5203,11 @@ define hidden i32 @frsrpc_dissect_enum_CommPktMajor(ptr noundef %0, i32 noundef 
 
 37:                                               ; preds = %34, %23
   %38 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #5
   ret i32 %38
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @frsrpc_dissect_enum_CommPktMinor(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -5089,6 +5226,7 @@ define hidden i32 @frsrpc_dissect_enum_CommPktMinor(ptr noundef %0, i32 noundef 
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store ptr %7, ptr %16, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #5
   store i32 0, ptr %17, align 4
   %18 = load ptr, ptr %16, align 8
   %19 = icmp ne ptr %18, null
@@ -5122,10 +5260,11 @@ define hidden i32 @frsrpc_dissect_enum_CommPktMinor(ptr noundef %0, i32 noundef 
 
 37:                                               ; preds = %34, %23
   %38 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #5
   ret i32 %38
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @frsrpc_dissect_struct_FrsSendCommPktReq(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -5146,12 +5285,15 @@ define hidden i32 @frsrpc_dissect_struct_FrsSendCommPktReq(ptr noundef %0, i32 n
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #5
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #5
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #5
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 14
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 14
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds %struct._dcerpc_call_value, ptr %22, i32 0, i32 11
+  %23 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %22, i32 0, i32 11
   %24 = load i32, ptr %23, align 8
   %25 = and i32 %24, 1
   %26 = icmp ne i32 %25, 0
@@ -5159,9 +5301,9 @@ define hidden i32 @frsrpc_dissect_struct_FrsSendCommPktReq(ptr noundef %0, i32 n
 
 27:                                               ; preds = %8
   %28 = load ptr, ptr %13, align 8
-  %29 = getelementptr inbounds %struct._dcerpc_info, ptr %28, i32 0, i32 4
-  %30 = load i32, ptr %29, align 4
-  %31 = icmp ne i32 %30, 0
+  %29 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %28, i32 0, i32 4
+  %30 = load i8, ptr %29, align 1, !range !8, !noundef !9
+  %31 = trunc i8 %30 to i1
   br i1 %31, label %41, label %32
 
 32:                                               ; preds = %27
@@ -5185,9 +5327,9 @@ define hidden i32 @frsrpc_dissect_struct_FrsSendCommPktReq(ptr noundef %0, i32 n
 
 42:                                               ; preds = %8
   %43 = load ptr, ptr %13, align 8
-  %44 = getelementptr inbounds %struct._dcerpc_info, ptr %43, i32 0, i32 4
-  %45 = load i32, ptr %44, align 4
-  %46 = icmp ne i32 %45, 0
+  %44 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %43, i32 0, i32 4
+  %45 = load i8, ptr %44, align 1, !range !8, !noundef !9
+  %46 = trunc i8 %45 to i1
   br i1 %46, label %56, label %47
 
 47:                                               ; preds = %42
@@ -5308,9 +5450,9 @@ define hidden i32 @frsrpc_dissect_struct_FrsSendCommPktReq(ptr noundef %0, i32 n
   %137 = sub i32 %135, %136
   call void @proto_item_set_len(ptr noundef %134, i32 noundef %137)
   %138 = load ptr, ptr %13, align 8
-  %139 = getelementptr inbounds %struct._dcerpc_info, ptr %138, i32 0, i32 14
+  %139 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %138, i32 0, i32 14
   %140 = load ptr, ptr %139, align 8
-  %141 = getelementptr inbounds %struct._dcerpc_call_value, ptr %140, i32 0, i32 11
+  %141 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %140, i32 0, i32 11
   %142 = load i32, ptr %141, align 8
   %143 = and i32 %142, 1
   %144 = icmp ne i32 %143, 0
@@ -5318,9 +5460,9 @@ define hidden i32 @frsrpc_dissect_struct_FrsSendCommPktReq(ptr noundef %0, i32 n
 
 145:                                              ; preds = %70
   %146 = load ptr, ptr %13, align 8
-  %147 = getelementptr inbounds %struct._dcerpc_info, ptr %146, i32 0, i32 14
+  %147 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %146, i32 0, i32 14
   %148 = load ptr, ptr %147, align 8
-  %149 = getelementptr inbounds %struct._dcerpc_call_value, ptr %148, i32 0, i32 11
+  %149 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %148, i32 0, i32 11
   %150 = load i32, ptr %149, align 8
   %151 = and i32 %150, 1
   %152 = icmp ne i32 %151, 0
@@ -5328,9 +5470,9 @@ define hidden i32 @frsrpc_dissect_struct_FrsSendCommPktReq(ptr noundef %0, i32 n
 
 153:                                              ; preds = %145
   %154 = load ptr, ptr %13, align 8
-  %155 = getelementptr inbounds %struct._dcerpc_info, ptr %154, i32 0, i32 4
-  %156 = load i32, ptr %155, align 4
-  %157 = icmp ne i32 %156, 0
+  %155 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %154, i32 0, i32 4
+  %156 = load i8, ptr %155, align 1, !range !8, !noundef !9
+  %157 = trunc i8 %156 to i1
   br i1 %157, label %167, label %158
 
 158:                                              ; preds = %153
@@ -5354,9 +5496,9 @@ define hidden i32 @frsrpc_dissect_struct_FrsSendCommPktReq(ptr noundef %0, i32 n
 
 168:                                              ; preds = %145
   %169 = load ptr, ptr %13, align 8
-  %170 = getelementptr inbounds %struct._dcerpc_info, ptr %169, i32 0, i32 4
-  %171 = load i32, ptr %170, align 4
-  %172 = icmp ne i32 %171, 0
+  %170 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %169, i32 0, i32 4
+  %171 = load i8, ptr %170, align 1, !range !8, !noundef !9
+  %172 = trunc i8 %171 to i1
   br i1 %172, label %182, label %173
 
 173:                                              ; preds = %168
@@ -5383,10 +5525,13 @@ define hidden i32 @frsrpc_dissect_struct_FrsSendCommPktReq(ptr noundef %0, i32 n
 
 184:                                              ; preds = %183, %70
   %185 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #5
   ret i32 %185
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_FrsSendCommPktReq_major(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5413,7 +5558,7 @@ define internal i32 @frsrpc_dissect_element_FrsSendCommPktReq_major(ptr noundef 
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_FrsSendCommPktReq_minor(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5440,7 +5585,7 @@ define internal i32 @frsrpc_dissect_element_FrsSendCommPktReq_minor(ptr noundef 
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_FrsSendCommPktReq_cs_id(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5467,7 +5612,7 @@ define internal i32 @frsrpc_dissect_element_FrsSendCommPktReq_cs_id(ptr noundef 
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_FrsSendCommPktReq_memory_len(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5494,7 +5639,7 @@ define internal i32 @frsrpc_dissect_element_FrsSendCommPktReq_memory_len(ptr nou
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_FrsSendCommPktReq_pkt_len(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5521,7 +5666,7 @@ define internal i32 @frsrpc_dissect_element_FrsSendCommPktReq_pkt_len(ptr nounde
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_FrsSendCommPktReq_upk_len(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5548,7 +5693,7 @@ define internal i32 @frsrpc_dissect_element_FrsSendCommPktReq_upk_len(ptr nounde
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_FrsSendCommPktReq_ctr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5575,7 +5720,7 @@ define internal i32 @frsrpc_dissect_element_FrsSendCommPktReq_ctr(ptr noundef %0
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_FrsSendCommPktReq_data_name(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5602,7 +5747,7 @@ define internal i32 @frsrpc_dissect_element_FrsSendCommPktReq_data_name(ptr noun
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_FrsSendCommPktReq_data_handle(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5629,7 +5774,7 @@ define internal i32 @frsrpc_dissect_element_FrsSendCommPktReq_data_handle(ptr no
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @frsrpc_dissect_enum_PartnerAuthLevel(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -5648,6 +5793,7 @@ define hidden i32 @frsrpc_dissect_enum_PartnerAuthLevel(ptr noundef %0, i32 noun
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store ptr %7, ptr %16, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #5
   store i32 0, ptr %17, align 4
   %18 = load ptr, ptr %16, align 8
   %19 = icmp ne ptr %18, null
@@ -5681,10 +5827,11 @@ define hidden i32 @frsrpc_dissect_enum_PartnerAuthLevel(ptr noundef %0, i32 noun
 
 37:                                               ; preds = %34, %23
   %38 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #5
   ret i32 %38
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_dcerpc_frsrpc() #0 {
   %1 = call i32 @proto_register_protocol(ptr noundef @.str.401, ptr noundef @.str.402, ptr noundef @.str.403)
   store i32 %1, ptr @proto_dcerpc_frsrpc, align 4
@@ -5694,13 +5841,16 @@ define hidden void @proto_register_dcerpc_frsrpc() #0 {
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_dcerpc_frsrpc() #0 {
   %1 = load i32, ptr @proto_dcerpc_frsrpc, align 4
   %2 = load i32, ptr @ett_dcerpc_frsrpc, align 4
@@ -5710,13 +5860,16 @@ define hidden void @proto_reg_handoff_dcerpc_frsrpc() #0 {
   ret void
 }
 
-declare void @dcerpc_init_uuid(i32 noundef, i32 noundef, ptr noundef, i16 noundef zeroext, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dcerpc_init_uuid(i32 noundef, i32 noundef, ptr noundef, i16 noundef zeroext, ptr noundef, i32 noundef) #2
 
-declare i32 @dissect_ndr_uint3264(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_uint3264(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @tvb_new_subset_length_caplen(ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_subset_length_caplen(ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChunkGuidName_guid_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5743,9 +5896,10 @@ define internal i32 @frsrpc_dissect_element_CommPktChunkGuidName_guid_(ptr nound
   ret i32 %21
 }
 
-declare i32 @dissect_ndr_uuid_t(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_uuid_t(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChunkGuidName_name_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5771,22 +5925,28 @@ define internal i32 @frsrpc_dissect_element_CommPktChunkGuidName_name_(ptr nound
   ret i32 %20
 }
 
-declare i32 @dissect_null_term_wstring(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_null_term_wstring(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-declare i32 @dissect_ndr_uint64(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_uint64(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
-declare i32 @PIDL_dissect_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @PIDL_dissect_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-declare i32 @dissect_ndr_nt_NTTIME(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_nt_NTTIME(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
 
-declare i32 @PIDL_dissect_uint16(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @PIDL_dissect_uint16(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: noreturn
-declare void @proto_report_dissector_bug(ptr noundef, ...) #2
+; Function Attrs: noreturn null_pointer_is_valid
+declare void @proto_report_dissector_bug(ptr noundef, ...) #3
 
-declare i32 @PIDL_dissect_uint8(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @PIDL_dissect_uint8(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktDataExtensionChecksum_data_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5813,7 +5973,7 @@ define internal i32 @frsrpc_dissect_element_CommPktDataExtensionChecksum_data_(p
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChunk_data_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
@@ -5844,7 +6004,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChunk_data_(ptr noundef %0, i
   ret i32 %25
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_CommPktChunkData(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -5866,8 +6026,12 @@ define internal i32 @frsrpc_dissect_CommPktChunkData(ptr noundef %0, i32 noundef
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #5
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #5
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #5
   %21 = load i32, ptr %16, align 4
   store i32 %21, ptr %20, align 4
   %22 = load i32, ptr %10, align 4
@@ -6129,7 +6293,7 @@ define internal i32 @frsrpc_dissect_CommPktChunkData(ptr noundef %0, i32 noundef
   %189 = load ptr, ptr %18, align 8
   %190 = load ptr, ptr %13, align 8
   %191 = load ptr, ptr %14, align 8
-  %192 = call i32 @frsrpc_dissect_element_CommPktChunkData_co_sequnence_number(ptr noundef %186, i32 noundef %187, ptr noundef %188, ptr noundef %189, ptr noundef %190, ptr noundef %191)
+  %192 = call i32 @frsrpc_dissect_element_CommPktChunkData_co_sequence_number(ptr noundef %186, i32 noundef %187, ptr noundef %188, ptr noundef %189, ptr noundef %190, ptr noundef %191)
   store i32 %192, ptr %10, align 4
   br label %225
 
@@ -6184,12 +6348,17 @@ define internal i32 @frsrpc_dissect_CommPktChunkData(ptr noundef %0, i32 noundef
   %229 = sub i32 %227, %228
   call void @proto_item_set_len(ptr noundef %226, i32 noundef %229)
   %230 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #5
   ret i32 %230
 }
 
-declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChunkData_blob(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6216,7 +6385,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChunkData_blob(ptr noundef %0
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChunkData_bop(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6243,7 +6412,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChunkData_bop(ptr noundef %0,
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChunkData_command(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6270,7 +6439,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChunkData_command(ptr noundef
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChunkData_to(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6297,7 +6466,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChunkData_to(ptr noundef %0, 
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChunkData_from(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6324,7 +6493,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChunkData_from(ptr noundef %0
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChunkData_replica(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6351,7 +6520,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChunkData_replica(ptr noundef
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChunkData_connection(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6378,7 +6547,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChunkData_connection(ptr noun
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChunkData_join_guid(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6396,68 +6565,78 @@ define internal i32 @frsrpc_dissect_element_CommPktChunkData_join_guid(ptr nound
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
   %17 = load ptr, ptr %11, align 8
-  %18 = getelementptr inbounds %struct._dcerpc_info, ptr %17, i32 0, i32 4
-  %19 = load i32, ptr %18, align 4
-  store i32 %19, ptr %14, align 4
-  %20 = load i32, ptr %14, align 4
-  %21 = icmp ne i32 %20, 0
-  br i1 %21, label %62, label %22
+  %18 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %17, i32 0, i32 4
+  %19 = load i8, ptr %18, align 1, !range !8, !noundef !9
+  %20 = trunc i8 %19 to i1
+  %21 = zext i1 %20 to i32
+  store i32 %21, ptr %14, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #5
+  %22 = load i32, ptr %14, align 4
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %64, label %24
 
-22:                                               ; preds = %6
-  %23 = load ptr, ptr %11, align 8
-  %24 = getelementptr inbounds %struct._dcerpc_info, ptr %23, i32 0, i32 14
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds %struct._dcerpc_call_value, ptr %25, i32 0, i32 11
-  %27 = load i32, ptr %26, align 8
-  store i32 %27, ptr %16, align 4
-  %28 = load ptr, ptr %7, align 8
-  %29 = load i32, ptr %8, align 4
-  %30 = load ptr, ptr %9, align 8
-  %31 = load ptr, ptr %10, align 8
-  %32 = load ptr, ptr %11, align 8
-  %33 = load ptr, ptr %12, align 8
-  %34 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_join_guid_, align 4
-  %35 = call i32 @dissect_ndr_uint3264(ptr noundef %28, i32 noundef %29, ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, i32 noundef %34, ptr noundef %13)
-  store i32 %35, ptr %8, align 4
-  %36 = load ptr, ptr %11, align 8
-  %37 = getelementptr inbounds %struct._dcerpc_info, ptr %36, i32 0, i32 14
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds %struct._dcerpc_call_value, ptr %38, i32 0, i32 11
-  %40 = load i32, ptr %39, align 8
-  %41 = and i32 %40, -2
-  store i32 %41, ptr %39, align 8
-  %42 = load ptr, ptr %7, align 8
-  %43 = load i32, ptr %8, align 4
-  %44 = load i64, ptr %13, align 8
-  %45 = trunc i64 %44 to i32
-  %46 = call ptr @tvb_new_subset_length_caplen(ptr noundef %42, i32 noundef %43, i32 noundef %45, i32 noundef -1)
-  store ptr %46, ptr %15, align 8
-  %47 = load ptr, ptr %15, align 8
-  %48 = load ptr, ptr %9, align 8
-  %49 = load ptr, ptr %10, align 8
-  %50 = load ptr, ptr %11, align 8
-  %51 = load ptr, ptr %12, align 8
-  %52 = call i32 @frsrpc_dissect_element_CommPktChunkData_join_guid_(ptr noundef %47, i32 noundef 0, ptr noundef %48, ptr noundef %49, ptr noundef %50, ptr noundef %51)
-  %53 = load i64, ptr %13, align 8
-  %54 = trunc i64 %53 to i32
-  %55 = load i32, ptr %8, align 4
-  %56 = add i32 %55, %54
-  store i32 %56, ptr %8, align 4
-  %57 = load i32, ptr %16, align 4
-  %58 = load ptr, ptr %11, align 8
-  %59 = getelementptr inbounds %struct._dcerpc_info, ptr %58, i32 0, i32 14
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds %struct._dcerpc_call_value, ptr %60, i32 0, i32 11
-  store i32 %57, ptr %61, align 8
-  br label %62
+24:                                               ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #5
+  %25 = load ptr, ptr %11, align 8
+  %26 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %25, i32 0, i32 14
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %27, i32 0, i32 11
+  %29 = load i32, ptr %28, align 8
+  store i32 %29, ptr %16, align 4
+  %30 = load ptr, ptr %7, align 8
+  %31 = load i32, ptr %8, align 4
+  %32 = load ptr, ptr %9, align 8
+  %33 = load ptr, ptr %10, align 8
+  %34 = load ptr, ptr %11, align 8
+  %35 = load ptr, ptr %12, align 8
+  %36 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_join_guid_, align 4
+  %37 = call i32 @dissect_ndr_uint3264(ptr noundef %30, i32 noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, i32 noundef %36, ptr noundef %13)
+  store i32 %37, ptr %8, align 4
+  %38 = load ptr, ptr %11, align 8
+  %39 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %38, i32 0, i32 14
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %40, i32 0, i32 11
+  %42 = load i32, ptr %41, align 8
+  %43 = and i32 %42, -2
+  store i32 %43, ptr %41, align 8
+  %44 = load ptr, ptr %7, align 8
+  %45 = load i32, ptr %8, align 4
+  %46 = load i64, ptr %13, align 8
+  %47 = trunc i64 %46 to i32
+  %48 = call ptr @tvb_new_subset_length_caplen(ptr noundef %44, i32 noundef %45, i32 noundef %47, i32 noundef -1)
+  store ptr %48, ptr %15, align 8
+  %49 = load ptr, ptr %15, align 8
+  %50 = load ptr, ptr %9, align 8
+  %51 = load ptr, ptr %10, align 8
+  %52 = load ptr, ptr %11, align 8
+  %53 = load ptr, ptr %12, align 8
+  %54 = call i32 @frsrpc_dissect_element_CommPktChunkData_join_guid_(ptr noundef %49, i32 noundef 0, ptr noundef %50, ptr noundef %51, ptr noundef %52, ptr noundef %53)
+  %55 = load i64, ptr %13, align 8
+  %56 = trunc i64 %55 to i32
+  %57 = load i32, ptr %8, align 4
+  %58 = add i32 %57, %56
+  store i32 %58, ptr %8, align 4
+  %59 = load i32, ptr %16, align 4
+  %60 = load ptr, ptr %11, align 8
+  %61 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %60, i32 0, i32 14
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %62, i32 0, i32 11
+  store i32 %59, ptr %63, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #5
+  br label %64
 
-62:                                               ; preds = %22, %6
-  %63 = load i32, ptr %8, align 4
-  ret i32 %63
+64:                                               ; preds = %24, %6
+  %65 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  ret i32 %65
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChunkData_last_join_time(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6484,7 +6663,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChunkData_last_join_time(ptr 
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChunkData_vvector(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6502,68 +6681,78 @@ define internal i32 @frsrpc_dissect_element_CommPktChunkData_vvector(ptr noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
   %17 = load ptr, ptr %11, align 8
-  %18 = getelementptr inbounds %struct._dcerpc_info, ptr %17, i32 0, i32 4
-  %19 = load i32, ptr %18, align 4
-  store i32 %19, ptr %14, align 4
-  %20 = load i32, ptr %14, align 4
-  %21 = icmp ne i32 %20, 0
-  br i1 %21, label %62, label %22
+  %18 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %17, i32 0, i32 4
+  %19 = load i8, ptr %18, align 1, !range !8, !noundef !9
+  %20 = trunc i8 %19 to i1
+  %21 = zext i1 %20 to i32
+  store i32 %21, ptr %14, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #5
+  %22 = load i32, ptr %14, align 4
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %64, label %24
 
-22:                                               ; preds = %6
-  %23 = load ptr, ptr %11, align 8
-  %24 = getelementptr inbounds %struct._dcerpc_info, ptr %23, i32 0, i32 14
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds %struct._dcerpc_call_value, ptr %25, i32 0, i32 11
-  %27 = load i32, ptr %26, align 8
-  store i32 %27, ptr %16, align 4
-  %28 = load ptr, ptr %7, align 8
-  %29 = load i32, ptr %8, align 4
-  %30 = load ptr, ptr %9, align 8
-  %31 = load ptr, ptr %10, align 8
-  %32 = load ptr, ptr %11, align 8
-  %33 = load ptr, ptr %12, align 8
-  %34 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_vvector_, align 4
-  %35 = call i32 @dissect_ndr_uint3264(ptr noundef %28, i32 noundef %29, ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, i32 noundef %34, ptr noundef %13)
-  store i32 %35, ptr %8, align 4
-  %36 = load ptr, ptr %11, align 8
-  %37 = getelementptr inbounds %struct._dcerpc_info, ptr %36, i32 0, i32 14
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds %struct._dcerpc_call_value, ptr %38, i32 0, i32 11
-  %40 = load i32, ptr %39, align 8
-  %41 = and i32 %40, -2
-  store i32 %41, ptr %39, align 8
-  %42 = load ptr, ptr %7, align 8
-  %43 = load i32, ptr %8, align 4
-  %44 = load i64, ptr %13, align 8
-  %45 = trunc i64 %44 to i32
-  %46 = call ptr @tvb_new_subset_length_caplen(ptr noundef %42, i32 noundef %43, i32 noundef %45, i32 noundef -1)
-  store ptr %46, ptr %15, align 8
-  %47 = load ptr, ptr %15, align 8
-  %48 = load ptr, ptr %9, align 8
-  %49 = load ptr, ptr %10, align 8
-  %50 = load ptr, ptr %11, align 8
-  %51 = load ptr, ptr %12, align 8
-  %52 = call i32 @frsrpc_dissect_element_CommPktChunkData_vvector_(ptr noundef %47, i32 noundef 0, ptr noundef %48, ptr noundef %49, ptr noundef %50, ptr noundef %51)
-  %53 = load i64, ptr %13, align 8
-  %54 = trunc i64 %53 to i32
-  %55 = load i32, ptr %8, align 4
-  %56 = add i32 %55, %54
-  store i32 %56, ptr %8, align 4
-  %57 = load i32, ptr %16, align 4
-  %58 = load ptr, ptr %11, align 8
-  %59 = getelementptr inbounds %struct._dcerpc_info, ptr %58, i32 0, i32 14
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds %struct._dcerpc_call_value, ptr %60, i32 0, i32 11
-  store i32 %57, ptr %61, align 8
-  br label %62
+24:                                               ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #5
+  %25 = load ptr, ptr %11, align 8
+  %26 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %25, i32 0, i32 14
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %27, i32 0, i32 11
+  %29 = load i32, ptr %28, align 8
+  store i32 %29, ptr %16, align 4
+  %30 = load ptr, ptr %7, align 8
+  %31 = load i32, ptr %8, align 4
+  %32 = load ptr, ptr %9, align 8
+  %33 = load ptr, ptr %10, align 8
+  %34 = load ptr, ptr %11, align 8
+  %35 = load ptr, ptr %12, align 8
+  %36 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_vvector_, align 4
+  %37 = call i32 @dissect_ndr_uint3264(ptr noundef %30, i32 noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, i32 noundef %36, ptr noundef %13)
+  store i32 %37, ptr %8, align 4
+  %38 = load ptr, ptr %11, align 8
+  %39 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %38, i32 0, i32 14
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %40, i32 0, i32 11
+  %42 = load i32, ptr %41, align 8
+  %43 = and i32 %42, -2
+  store i32 %43, ptr %41, align 8
+  %44 = load ptr, ptr %7, align 8
+  %45 = load i32, ptr %8, align 4
+  %46 = load i64, ptr %13, align 8
+  %47 = trunc i64 %46 to i32
+  %48 = call ptr @tvb_new_subset_length_caplen(ptr noundef %44, i32 noundef %45, i32 noundef %47, i32 noundef -1)
+  store ptr %48, ptr %15, align 8
+  %49 = load ptr, ptr %15, align 8
+  %50 = load ptr, ptr %9, align 8
+  %51 = load ptr, ptr %10, align 8
+  %52 = load ptr, ptr %11, align 8
+  %53 = load ptr, ptr %12, align 8
+  %54 = call i32 @frsrpc_dissect_element_CommPktChunkData_vvector_(ptr noundef %49, i32 noundef 0, ptr noundef %50, ptr noundef %51, ptr noundef %52, ptr noundef %53)
+  %55 = load i64, ptr %13, align 8
+  %56 = trunc i64 %55 to i32
+  %57 = load i32, ptr %8, align 4
+  %58 = add i32 %57, %56
+  store i32 %58, ptr %8, align 4
+  %59 = load i32, ptr %16, align 4
+  %60 = load ptr, ptr %11, align 8
+  %61 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %60, i32 0, i32 14
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %62, i32 0, i32 11
+  store i32 %59, ptr %63, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #5
+  br label %64
 
-62:                                               ; preds = %22, %6
-  %63 = load i32, ptr %8, align 4
-  ret i32 %63
+64:                                               ; preds = %24, %6
+  %65 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  ret i32 %65
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChunkData_join_time(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6581,68 +6770,78 @@ define internal i32 @frsrpc_dissect_element_CommPktChunkData_join_time(ptr nound
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
   %17 = load ptr, ptr %11, align 8
-  %18 = getelementptr inbounds %struct._dcerpc_info, ptr %17, i32 0, i32 4
-  %19 = load i32, ptr %18, align 4
-  store i32 %19, ptr %14, align 4
-  %20 = load i32, ptr %14, align 4
-  %21 = icmp ne i32 %20, 0
-  br i1 %21, label %62, label %22
+  %18 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %17, i32 0, i32 4
+  %19 = load i8, ptr %18, align 1, !range !8, !noundef !9
+  %20 = trunc i8 %19 to i1
+  %21 = zext i1 %20 to i32
+  store i32 %21, ptr %14, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #5
+  %22 = load i32, ptr %14, align 4
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %64, label %24
 
-22:                                               ; preds = %6
-  %23 = load ptr, ptr %11, align 8
-  %24 = getelementptr inbounds %struct._dcerpc_info, ptr %23, i32 0, i32 14
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds %struct._dcerpc_call_value, ptr %25, i32 0, i32 11
-  %27 = load i32, ptr %26, align 8
-  store i32 %27, ptr %16, align 4
-  %28 = load ptr, ptr %7, align 8
-  %29 = load i32, ptr %8, align 4
-  %30 = load ptr, ptr %9, align 8
-  %31 = load ptr, ptr %10, align 8
-  %32 = load ptr, ptr %11, align 8
-  %33 = load ptr, ptr %12, align 8
-  %34 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_join_time_, align 4
-  %35 = call i32 @dissect_ndr_uint3264(ptr noundef %28, i32 noundef %29, ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, i32 noundef %34, ptr noundef %13)
-  store i32 %35, ptr %8, align 4
-  %36 = load ptr, ptr %11, align 8
-  %37 = getelementptr inbounds %struct._dcerpc_info, ptr %36, i32 0, i32 14
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds %struct._dcerpc_call_value, ptr %38, i32 0, i32 11
-  %40 = load i32, ptr %39, align 8
-  %41 = and i32 %40, -2
-  store i32 %41, ptr %39, align 8
-  %42 = load ptr, ptr %7, align 8
-  %43 = load i32, ptr %8, align 4
-  %44 = load i64, ptr %13, align 8
-  %45 = trunc i64 %44 to i32
-  %46 = call ptr @tvb_new_subset_length_caplen(ptr noundef %42, i32 noundef %43, i32 noundef %45, i32 noundef -1)
-  store ptr %46, ptr %15, align 8
-  %47 = load ptr, ptr %15, align 8
-  %48 = load ptr, ptr %9, align 8
-  %49 = load ptr, ptr %10, align 8
-  %50 = load ptr, ptr %11, align 8
-  %51 = load ptr, ptr %12, align 8
-  %52 = call i32 @frsrpc_dissect_element_CommPktChunkData_join_time_(ptr noundef %47, i32 noundef 0, ptr noundef %48, ptr noundef %49, ptr noundef %50, ptr noundef %51)
-  %53 = load i64, ptr %13, align 8
-  %54 = trunc i64 %53 to i32
-  %55 = load i32, ptr %8, align 4
-  %56 = add i32 %55, %54
-  store i32 %56, ptr %8, align 4
-  %57 = load i32, ptr %16, align 4
-  %58 = load ptr, ptr %11, align 8
-  %59 = getelementptr inbounds %struct._dcerpc_info, ptr %58, i32 0, i32 14
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds %struct._dcerpc_call_value, ptr %60, i32 0, i32 11
-  store i32 %57, ptr %61, align 8
-  br label %62
+24:                                               ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #5
+  %25 = load ptr, ptr %11, align 8
+  %26 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %25, i32 0, i32 14
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %27, i32 0, i32 11
+  %29 = load i32, ptr %28, align 8
+  store i32 %29, ptr %16, align 4
+  %30 = load ptr, ptr %7, align 8
+  %31 = load i32, ptr %8, align 4
+  %32 = load ptr, ptr %9, align 8
+  %33 = load ptr, ptr %10, align 8
+  %34 = load ptr, ptr %11, align 8
+  %35 = load ptr, ptr %12, align 8
+  %36 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_join_time_, align 4
+  %37 = call i32 @dissect_ndr_uint3264(ptr noundef %30, i32 noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, i32 noundef %36, ptr noundef %13)
+  store i32 %37, ptr %8, align 4
+  %38 = load ptr, ptr %11, align 8
+  %39 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %38, i32 0, i32 14
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %40, i32 0, i32 11
+  %42 = load i32, ptr %41, align 8
+  %43 = and i32 %42, -2
+  store i32 %43, ptr %41, align 8
+  %44 = load ptr, ptr %7, align 8
+  %45 = load i32, ptr %8, align 4
+  %46 = load i64, ptr %13, align 8
+  %47 = trunc i64 %46 to i32
+  %48 = call ptr @tvb_new_subset_length_caplen(ptr noundef %44, i32 noundef %45, i32 noundef %47, i32 noundef -1)
+  store ptr %48, ptr %15, align 8
+  %49 = load ptr, ptr %15, align 8
+  %50 = load ptr, ptr %9, align 8
+  %51 = load ptr, ptr %10, align 8
+  %52 = load ptr, ptr %11, align 8
+  %53 = load ptr, ptr %12, align 8
+  %54 = call i32 @frsrpc_dissect_element_CommPktChunkData_join_time_(ptr noundef %49, i32 noundef 0, ptr noundef %50, ptr noundef %51, ptr noundef %52, ptr noundef %53)
+  %55 = load i64, ptr %13, align 8
+  %56 = trunc i64 %55 to i32
+  %57 = load i32, ptr %8, align 4
+  %58 = add i32 %57, %56
+  store i32 %58, ptr %8, align 4
+  %59 = load i32, ptr %16, align 4
+  %60 = load ptr, ptr %11, align 8
+  %61 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %60, i32 0, i32 14
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %62, i32 0, i32 11
+  store i32 %59, ptr %63, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #5
+  br label %64
 
-62:                                               ; preds = %22, %6
-  %63 = load i32, ptr %8, align 4
-  ret i32 %63
+64:                                               ; preds = %24, %6
+  %65 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  ret i32 %65
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChunkData_replica_version_guid(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6660,68 +6859,78 @@ define internal i32 @frsrpc_dissect_element_CommPktChunkData_replica_version_gui
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
   %17 = load ptr, ptr %11, align 8
-  %18 = getelementptr inbounds %struct._dcerpc_info, ptr %17, i32 0, i32 4
-  %19 = load i32, ptr %18, align 4
-  store i32 %19, ptr %14, align 4
-  %20 = load i32, ptr %14, align 4
-  %21 = icmp ne i32 %20, 0
-  br i1 %21, label %62, label %22
+  %18 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %17, i32 0, i32 4
+  %19 = load i8, ptr %18, align 1, !range !8, !noundef !9
+  %20 = trunc i8 %19 to i1
+  %21 = zext i1 %20 to i32
+  store i32 %21, ptr %14, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #5
+  %22 = load i32, ptr %14, align 4
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %64, label %24
 
-22:                                               ; preds = %6
-  %23 = load ptr, ptr %11, align 8
-  %24 = getelementptr inbounds %struct._dcerpc_info, ptr %23, i32 0, i32 14
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds %struct._dcerpc_call_value, ptr %25, i32 0, i32 11
-  %27 = load i32, ptr %26, align 8
-  store i32 %27, ptr %16, align 4
-  %28 = load ptr, ptr %7, align 8
-  %29 = load i32, ptr %8, align 4
-  %30 = load ptr, ptr %9, align 8
-  %31 = load ptr, ptr %10, align 8
-  %32 = load ptr, ptr %11, align 8
-  %33 = load ptr, ptr %12, align 8
-  %34 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_replica_version_guid_, align 4
-  %35 = call i32 @dissect_ndr_uint3264(ptr noundef %28, i32 noundef %29, ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, i32 noundef %34, ptr noundef %13)
-  store i32 %35, ptr %8, align 4
-  %36 = load ptr, ptr %11, align 8
-  %37 = getelementptr inbounds %struct._dcerpc_info, ptr %36, i32 0, i32 14
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds %struct._dcerpc_call_value, ptr %38, i32 0, i32 11
-  %40 = load i32, ptr %39, align 8
-  %41 = and i32 %40, -2
-  store i32 %41, ptr %39, align 8
-  %42 = load ptr, ptr %7, align 8
-  %43 = load i32, ptr %8, align 4
-  %44 = load i64, ptr %13, align 8
-  %45 = trunc i64 %44 to i32
-  %46 = call ptr @tvb_new_subset_length_caplen(ptr noundef %42, i32 noundef %43, i32 noundef %45, i32 noundef -1)
-  store ptr %46, ptr %15, align 8
-  %47 = load ptr, ptr %15, align 8
-  %48 = load ptr, ptr %9, align 8
-  %49 = load ptr, ptr %10, align 8
-  %50 = load ptr, ptr %11, align 8
-  %51 = load ptr, ptr %12, align 8
-  %52 = call i32 @frsrpc_dissect_element_CommPktChunkData_replica_version_guid_(ptr noundef %47, i32 noundef 0, ptr noundef %48, ptr noundef %49, ptr noundef %50, ptr noundef %51)
-  %53 = load i64, ptr %13, align 8
-  %54 = trunc i64 %53 to i32
-  %55 = load i32, ptr %8, align 4
-  %56 = add i32 %55, %54
-  store i32 %56, ptr %8, align 4
-  %57 = load i32, ptr %16, align 4
-  %58 = load ptr, ptr %11, align 8
-  %59 = getelementptr inbounds %struct._dcerpc_info, ptr %58, i32 0, i32 14
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds %struct._dcerpc_call_value, ptr %60, i32 0, i32 11
-  store i32 %57, ptr %61, align 8
-  br label %62
+24:                                               ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #5
+  %25 = load ptr, ptr %11, align 8
+  %26 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %25, i32 0, i32 14
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %27, i32 0, i32 11
+  %29 = load i32, ptr %28, align 8
+  store i32 %29, ptr %16, align 4
+  %30 = load ptr, ptr %7, align 8
+  %31 = load i32, ptr %8, align 4
+  %32 = load ptr, ptr %9, align 8
+  %33 = load ptr, ptr %10, align 8
+  %34 = load ptr, ptr %11, align 8
+  %35 = load ptr, ptr %12, align 8
+  %36 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_replica_version_guid_, align 4
+  %37 = call i32 @dissect_ndr_uint3264(ptr noundef %30, i32 noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, i32 noundef %36, ptr noundef %13)
+  store i32 %37, ptr %8, align 4
+  %38 = load ptr, ptr %11, align 8
+  %39 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %38, i32 0, i32 14
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %40, i32 0, i32 11
+  %42 = load i32, ptr %41, align 8
+  %43 = and i32 %42, -2
+  store i32 %43, ptr %41, align 8
+  %44 = load ptr, ptr %7, align 8
+  %45 = load i32, ptr %8, align 4
+  %46 = load i64, ptr %13, align 8
+  %47 = trunc i64 %46 to i32
+  %48 = call ptr @tvb_new_subset_length_caplen(ptr noundef %44, i32 noundef %45, i32 noundef %47, i32 noundef -1)
+  store ptr %48, ptr %15, align 8
+  %49 = load ptr, ptr %15, align 8
+  %50 = load ptr, ptr %9, align 8
+  %51 = load ptr, ptr %10, align 8
+  %52 = load ptr, ptr %11, align 8
+  %53 = load ptr, ptr %12, align 8
+  %54 = call i32 @frsrpc_dissect_element_CommPktChunkData_replica_version_guid_(ptr noundef %49, i32 noundef 0, ptr noundef %50, ptr noundef %51, ptr noundef %52, ptr noundef %53)
+  %55 = load i64, ptr %13, align 8
+  %56 = trunc i64 %55 to i32
+  %57 = load i32, ptr %8, align 4
+  %58 = add i32 %57, %56
+  store i32 %58, ptr %8, align 4
+  %59 = load i32, ptr %16, align 4
+  %60 = load ptr, ptr %11, align 8
+  %61 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %60, i32 0, i32 14
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %62, i32 0, i32 11
+  store i32 %59, ptr %63, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #5
+  br label %64
 
-62:                                               ; preds = %22, %6
-  %63 = load i32, ptr %8, align 4
-  ret i32 %63
+64:                                               ; preds = %24, %6
+  %65 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  ret i32 %65
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChunkData_compression_guid(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6748,7 +6957,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChunkData_compression_guid(pt
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChunkData_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6775,7 +6984,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChunkData_block(ptr noundef %
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChunkData_block_size(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6802,7 +7011,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChunkData_block_size(ptr noun
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChunkData_file_size(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6829,7 +7038,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChunkData_file_size(ptr nound
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChunkData_file_offset(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6856,7 +7065,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChunkData_file_offset(ptr nou
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChunkData_gvsn(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6874,68 +7083,78 @@ define internal i32 @frsrpc_dissect_element_CommPktChunkData_gvsn(ptr noundef %0
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
   %17 = load ptr, ptr %11, align 8
-  %18 = getelementptr inbounds %struct._dcerpc_info, ptr %17, i32 0, i32 4
-  %19 = load i32, ptr %18, align 4
-  store i32 %19, ptr %14, align 4
-  %20 = load i32, ptr %14, align 4
-  %21 = icmp ne i32 %20, 0
-  br i1 %21, label %62, label %22
+  %18 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %17, i32 0, i32 4
+  %19 = load i8, ptr %18, align 1, !range !8, !noundef !9
+  %20 = trunc i8 %19 to i1
+  %21 = zext i1 %20 to i32
+  store i32 %21, ptr %14, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #5
+  %22 = load i32, ptr %14, align 4
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %64, label %24
 
-22:                                               ; preds = %6
-  %23 = load ptr, ptr %11, align 8
-  %24 = getelementptr inbounds %struct._dcerpc_info, ptr %23, i32 0, i32 14
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds %struct._dcerpc_call_value, ptr %25, i32 0, i32 11
-  %27 = load i32, ptr %26, align 8
-  store i32 %27, ptr %16, align 4
-  %28 = load ptr, ptr %7, align 8
-  %29 = load i32, ptr %8, align 4
-  %30 = load ptr, ptr %9, align 8
-  %31 = load ptr, ptr %10, align 8
-  %32 = load ptr, ptr %11, align 8
-  %33 = load ptr, ptr %12, align 8
-  %34 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_gvsn_, align 4
-  %35 = call i32 @dissect_ndr_uint3264(ptr noundef %28, i32 noundef %29, ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, i32 noundef %34, ptr noundef %13)
-  store i32 %35, ptr %8, align 4
-  %36 = load ptr, ptr %11, align 8
-  %37 = getelementptr inbounds %struct._dcerpc_info, ptr %36, i32 0, i32 14
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds %struct._dcerpc_call_value, ptr %38, i32 0, i32 11
-  %40 = load i32, ptr %39, align 8
-  %41 = and i32 %40, -2
-  store i32 %41, ptr %39, align 8
-  %42 = load ptr, ptr %7, align 8
-  %43 = load i32, ptr %8, align 4
-  %44 = load i64, ptr %13, align 8
-  %45 = trunc i64 %44 to i32
-  %46 = call ptr @tvb_new_subset_length_caplen(ptr noundef %42, i32 noundef %43, i32 noundef %45, i32 noundef -1)
-  store ptr %46, ptr %15, align 8
-  %47 = load ptr, ptr %15, align 8
-  %48 = load ptr, ptr %9, align 8
-  %49 = load ptr, ptr %10, align 8
-  %50 = load ptr, ptr %11, align 8
-  %51 = load ptr, ptr %12, align 8
-  %52 = call i32 @frsrpc_dissect_element_CommPktChunkData_gvsn_(ptr noundef %47, i32 noundef 0, ptr noundef %48, ptr noundef %49, ptr noundef %50, ptr noundef %51)
-  %53 = load i64, ptr %13, align 8
-  %54 = trunc i64 %53 to i32
-  %55 = load i32, ptr %8, align 4
-  %56 = add i32 %55, %54
-  store i32 %56, ptr %8, align 4
-  %57 = load i32, ptr %16, align 4
-  %58 = load ptr, ptr %11, align 8
-  %59 = getelementptr inbounds %struct._dcerpc_info, ptr %58, i32 0, i32 14
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds %struct._dcerpc_call_value, ptr %60, i32 0, i32 11
-  store i32 %57, ptr %61, align 8
-  br label %62
+24:                                               ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #5
+  %25 = load ptr, ptr %11, align 8
+  %26 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %25, i32 0, i32 14
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %27, i32 0, i32 11
+  %29 = load i32, ptr %28, align 8
+  store i32 %29, ptr %16, align 4
+  %30 = load ptr, ptr %7, align 8
+  %31 = load i32, ptr %8, align 4
+  %32 = load ptr, ptr %9, align 8
+  %33 = load ptr, ptr %10, align 8
+  %34 = load ptr, ptr %11, align 8
+  %35 = load ptr, ptr %12, align 8
+  %36 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_gvsn_, align 4
+  %37 = call i32 @dissect_ndr_uint3264(ptr noundef %30, i32 noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, i32 noundef %36, ptr noundef %13)
+  store i32 %37, ptr %8, align 4
+  %38 = load ptr, ptr %11, align 8
+  %39 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %38, i32 0, i32 14
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %40, i32 0, i32 11
+  %42 = load i32, ptr %41, align 8
+  %43 = and i32 %42, -2
+  store i32 %43, ptr %41, align 8
+  %44 = load ptr, ptr %7, align 8
+  %45 = load i32, ptr %8, align 4
+  %46 = load i64, ptr %13, align 8
+  %47 = trunc i64 %46 to i32
+  %48 = call ptr @tvb_new_subset_length_caplen(ptr noundef %44, i32 noundef %45, i32 noundef %47, i32 noundef -1)
+  store ptr %48, ptr %15, align 8
+  %49 = load ptr, ptr %15, align 8
+  %50 = load ptr, ptr %9, align 8
+  %51 = load ptr, ptr %10, align 8
+  %52 = load ptr, ptr %11, align 8
+  %53 = load ptr, ptr %12, align 8
+  %54 = call i32 @frsrpc_dissect_element_CommPktChunkData_gvsn_(ptr noundef %49, i32 noundef 0, ptr noundef %50, ptr noundef %51, ptr noundef %52, ptr noundef %53)
+  %55 = load i64, ptr %13, align 8
+  %56 = trunc i64 %55 to i32
+  %57 = load i32, ptr %8, align 4
+  %58 = add i32 %57, %56
+  store i32 %58, ptr %8, align 4
+  %59 = load i32, ptr %16, align 4
+  %60 = load ptr, ptr %11, align 8
+  %61 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %60, i32 0, i32 14
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %62, i32 0, i32 11
+  store i32 %59, ptr %63, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #5
+  br label %64
 
-62:                                               ; preds = %22, %6
-  %63 = load i32, ptr %8, align 4
-  ret i32 %63
+64:                                               ; preds = %24, %6
+  %65 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  ret i32 %65
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChunkData_co_guid(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6953,69 +7172,79 @@ define internal i32 @frsrpc_dissect_element_CommPktChunkData_co_guid(ptr noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
   %17 = load ptr, ptr %11, align 8
-  %18 = getelementptr inbounds %struct._dcerpc_info, ptr %17, i32 0, i32 4
-  %19 = load i32, ptr %18, align 4
-  store i32 %19, ptr %14, align 4
-  %20 = load i32, ptr %14, align 4
-  %21 = icmp ne i32 %20, 0
-  br i1 %21, label %62, label %22
+  %18 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %17, i32 0, i32 4
+  %19 = load i8, ptr %18, align 1, !range !8, !noundef !9
+  %20 = trunc i8 %19 to i1
+  %21 = zext i1 %20 to i32
+  store i32 %21, ptr %14, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #5
+  %22 = load i32, ptr %14, align 4
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %64, label %24
 
-22:                                               ; preds = %6
-  %23 = load ptr, ptr %11, align 8
-  %24 = getelementptr inbounds %struct._dcerpc_info, ptr %23, i32 0, i32 14
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds %struct._dcerpc_call_value, ptr %25, i32 0, i32 11
-  %27 = load i32, ptr %26, align 8
-  store i32 %27, ptr %16, align 4
-  %28 = load ptr, ptr %7, align 8
-  %29 = load i32, ptr %8, align 4
-  %30 = load ptr, ptr %9, align 8
-  %31 = load ptr, ptr %10, align 8
-  %32 = load ptr, ptr %11, align 8
-  %33 = load ptr, ptr %12, align 8
-  %34 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_co_guid_, align 4
-  %35 = call i32 @dissect_ndr_uint3264(ptr noundef %28, i32 noundef %29, ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, i32 noundef %34, ptr noundef %13)
-  store i32 %35, ptr %8, align 4
-  %36 = load ptr, ptr %11, align 8
-  %37 = getelementptr inbounds %struct._dcerpc_info, ptr %36, i32 0, i32 14
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds %struct._dcerpc_call_value, ptr %38, i32 0, i32 11
-  %40 = load i32, ptr %39, align 8
-  %41 = and i32 %40, -2
-  store i32 %41, ptr %39, align 8
-  %42 = load ptr, ptr %7, align 8
-  %43 = load i32, ptr %8, align 4
-  %44 = load i64, ptr %13, align 8
-  %45 = trunc i64 %44 to i32
-  %46 = call ptr @tvb_new_subset_length_caplen(ptr noundef %42, i32 noundef %43, i32 noundef %45, i32 noundef -1)
-  store ptr %46, ptr %15, align 8
-  %47 = load ptr, ptr %15, align 8
-  %48 = load ptr, ptr %9, align 8
-  %49 = load ptr, ptr %10, align 8
-  %50 = load ptr, ptr %11, align 8
-  %51 = load ptr, ptr %12, align 8
-  %52 = call i32 @frsrpc_dissect_element_CommPktChunkData_co_guid_(ptr noundef %47, i32 noundef 0, ptr noundef %48, ptr noundef %49, ptr noundef %50, ptr noundef %51)
-  %53 = load i64, ptr %13, align 8
-  %54 = trunc i64 %53 to i32
-  %55 = load i32, ptr %8, align 4
-  %56 = add i32 %55, %54
-  store i32 %56, ptr %8, align 4
-  %57 = load i32, ptr %16, align 4
-  %58 = load ptr, ptr %11, align 8
-  %59 = getelementptr inbounds %struct._dcerpc_info, ptr %58, i32 0, i32 14
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds %struct._dcerpc_call_value, ptr %60, i32 0, i32 11
-  store i32 %57, ptr %61, align 8
-  br label %62
+24:                                               ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #5
+  %25 = load ptr, ptr %11, align 8
+  %26 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %25, i32 0, i32 14
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %27, i32 0, i32 11
+  %29 = load i32, ptr %28, align 8
+  store i32 %29, ptr %16, align 4
+  %30 = load ptr, ptr %7, align 8
+  %31 = load i32, ptr %8, align 4
+  %32 = load ptr, ptr %9, align 8
+  %33 = load ptr, ptr %10, align 8
+  %34 = load ptr, ptr %11, align 8
+  %35 = load ptr, ptr %12, align 8
+  %36 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_co_guid_, align 4
+  %37 = call i32 @dissect_ndr_uint3264(ptr noundef %30, i32 noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, i32 noundef %36, ptr noundef %13)
+  store i32 %37, ptr %8, align 4
+  %38 = load ptr, ptr %11, align 8
+  %39 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %38, i32 0, i32 14
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %40, i32 0, i32 11
+  %42 = load i32, ptr %41, align 8
+  %43 = and i32 %42, -2
+  store i32 %43, ptr %41, align 8
+  %44 = load ptr, ptr %7, align 8
+  %45 = load i32, ptr %8, align 4
+  %46 = load i64, ptr %13, align 8
+  %47 = trunc i64 %46 to i32
+  %48 = call ptr @tvb_new_subset_length_caplen(ptr noundef %44, i32 noundef %45, i32 noundef %47, i32 noundef -1)
+  store ptr %48, ptr %15, align 8
+  %49 = load ptr, ptr %15, align 8
+  %50 = load ptr, ptr %9, align 8
+  %51 = load ptr, ptr %10, align 8
+  %52 = load ptr, ptr %11, align 8
+  %53 = load ptr, ptr %12, align 8
+  %54 = call i32 @frsrpc_dissect_element_CommPktChunkData_co_guid_(ptr noundef %49, i32 noundef 0, ptr noundef %50, ptr noundef %51, ptr noundef %52, ptr noundef %53)
+  %55 = load i64, ptr %13, align 8
+  %56 = trunc i64 %55 to i32
+  %57 = load i32, ptr %8, align 4
+  %58 = add i32 %57, %56
+  store i32 %58, ptr %8, align 4
+  %59 = load i32, ptr %16, align 4
+  %60 = load ptr, ptr %11, align 8
+  %61 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %60, i32 0, i32 14
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %62, i32 0, i32 11
+  store i32 %59, ptr %63, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #5
+  br label %64
 
-62:                                               ; preds = %22, %6
-  %63 = load i32, ptr %8, align 4
-  ret i32 %63
+64:                                               ; preds = %24, %6
+  %65 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  ret i32 %65
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @frsrpc_dissect_element_CommPktChunkData_co_sequnence_number(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @frsrpc_dissect_element_CommPktChunkData_co_sequence_number(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -7034,14 +7263,14 @@ define internal i32 @frsrpc_dissect_element_CommPktChunkData_co_sequnence_number
   %16 = load ptr, ptr %10, align 8
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
-  %19 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_co_sequnence_number, align 4
+  %19 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_co_sequence_number, align 4
   %20 = call i32 @PIDL_dissect_uint32(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, i32 noundef %19, i32 noundef 0)
   store i32 %20, ptr %8, align 4
   %21 = load i32, ptr %8, align 4
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChunkData_remote_co(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7059,68 +7288,78 @@ define internal i32 @frsrpc_dissect_element_CommPktChunkData_remote_co(ptr nound
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
   %17 = load ptr, ptr %11, align 8
-  %18 = getelementptr inbounds %struct._dcerpc_info, ptr %17, i32 0, i32 4
-  %19 = load i32, ptr %18, align 4
-  store i32 %19, ptr %14, align 4
-  %20 = load i32, ptr %14, align 4
-  %21 = icmp ne i32 %20, 0
-  br i1 %21, label %62, label %22
+  %18 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %17, i32 0, i32 4
+  %19 = load i8, ptr %18, align 1, !range !8, !noundef !9
+  %20 = trunc i8 %19 to i1
+  %21 = zext i1 %20 to i32
+  store i32 %21, ptr %14, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #5
+  %22 = load i32, ptr %14, align 4
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %64, label %24
 
-22:                                               ; preds = %6
-  %23 = load ptr, ptr %11, align 8
-  %24 = getelementptr inbounds %struct._dcerpc_info, ptr %23, i32 0, i32 14
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds %struct._dcerpc_call_value, ptr %25, i32 0, i32 11
-  %27 = load i32, ptr %26, align 8
-  store i32 %27, ptr %16, align 4
-  %28 = load ptr, ptr %7, align 8
-  %29 = load i32, ptr %8, align 4
-  %30 = load ptr, ptr %9, align 8
-  %31 = load ptr, ptr %10, align 8
-  %32 = load ptr, ptr %11, align 8
-  %33 = load ptr, ptr %12, align 8
-  %34 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_remote_co_, align 4
-  %35 = call i32 @dissect_ndr_uint3264(ptr noundef %28, i32 noundef %29, ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, i32 noundef %34, ptr noundef %13)
-  store i32 %35, ptr %8, align 4
-  %36 = load ptr, ptr %11, align 8
-  %37 = getelementptr inbounds %struct._dcerpc_info, ptr %36, i32 0, i32 14
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds %struct._dcerpc_call_value, ptr %38, i32 0, i32 11
-  %40 = load i32, ptr %39, align 8
-  %41 = and i32 %40, -2
-  store i32 %41, ptr %39, align 8
-  %42 = load ptr, ptr %7, align 8
-  %43 = load i32, ptr %8, align 4
-  %44 = load i64, ptr %13, align 8
-  %45 = trunc i64 %44 to i32
-  %46 = call ptr @tvb_new_subset_length_caplen(ptr noundef %42, i32 noundef %43, i32 noundef %45, i32 noundef -1)
-  store ptr %46, ptr %15, align 8
-  %47 = load ptr, ptr %15, align 8
-  %48 = load ptr, ptr %9, align 8
-  %49 = load ptr, ptr %10, align 8
-  %50 = load ptr, ptr %11, align 8
-  %51 = load ptr, ptr %12, align 8
-  %52 = call i32 @frsrpc_dissect_element_CommPktChunkData_remote_co_(ptr noundef %47, i32 noundef 0, ptr noundef %48, ptr noundef %49, ptr noundef %50, ptr noundef %51)
-  %53 = load i64, ptr %13, align 8
-  %54 = trunc i64 %53 to i32
-  %55 = load i32, ptr %8, align 4
-  %56 = add i32 %55, %54
-  store i32 %56, ptr %8, align 4
-  %57 = load i32, ptr %16, align 4
-  %58 = load ptr, ptr %11, align 8
-  %59 = getelementptr inbounds %struct._dcerpc_info, ptr %58, i32 0, i32 14
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds %struct._dcerpc_call_value, ptr %60, i32 0, i32 11
-  store i32 %57, ptr %61, align 8
-  br label %62
+24:                                               ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #5
+  %25 = load ptr, ptr %11, align 8
+  %26 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %25, i32 0, i32 14
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %27, i32 0, i32 11
+  %29 = load i32, ptr %28, align 8
+  store i32 %29, ptr %16, align 4
+  %30 = load ptr, ptr %7, align 8
+  %31 = load i32, ptr %8, align 4
+  %32 = load ptr, ptr %9, align 8
+  %33 = load ptr, ptr %10, align 8
+  %34 = load ptr, ptr %11, align 8
+  %35 = load ptr, ptr %12, align 8
+  %36 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_remote_co_, align 4
+  %37 = call i32 @dissect_ndr_uint3264(ptr noundef %30, i32 noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, i32 noundef %36, ptr noundef %13)
+  store i32 %37, ptr %8, align 4
+  %38 = load ptr, ptr %11, align 8
+  %39 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %38, i32 0, i32 14
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %40, i32 0, i32 11
+  %42 = load i32, ptr %41, align 8
+  %43 = and i32 %42, -2
+  store i32 %43, ptr %41, align 8
+  %44 = load ptr, ptr %7, align 8
+  %45 = load i32, ptr %8, align 4
+  %46 = load i64, ptr %13, align 8
+  %47 = trunc i64 %46 to i32
+  %48 = call ptr @tvb_new_subset_length_caplen(ptr noundef %44, i32 noundef %45, i32 noundef %47, i32 noundef -1)
+  store ptr %48, ptr %15, align 8
+  %49 = load ptr, ptr %15, align 8
+  %50 = load ptr, ptr %9, align 8
+  %51 = load ptr, ptr %10, align 8
+  %52 = load ptr, ptr %11, align 8
+  %53 = load ptr, ptr %12, align 8
+  %54 = call i32 @frsrpc_dissect_element_CommPktChunkData_remote_co_(ptr noundef %49, i32 noundef 0, ptr noundef %50, ptr noundef %51, ptr noundef %52, ptr noundef %53)
+  %55 = load i64, ptr %13, align 8
+  %56 = trunc i64 %55 to i32
+  %57 = load i32, ptr %8, align 4
+  %58 = add i32 %57, %56
+  store i32 %58, ptr %8, align 4
+  %59 = load i32, ptr %16, align 4
+  %60 = load ptr, ptr %11, align 8
+  %61 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %60, i32 0, i32 14
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %62, i32 0, i32 11
+  store i32 %59, ptr %63, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #5
+  br label %64
 
-62:                                               ; preds = %22, %6
-  %63 = load i32, ptr %8, align 4
-  ret i32 %63
+64:                                               ; preds = %24, %6
+  %65 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  ret i32 %65
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChunkData_co_ext_win2k(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7138,68 +7377,78 @@ define internal i32 @frsrpc_dissect_element_CommPktChunkData_co_ext_win2k(ptr no
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
   %17 = load ptr, ptr %11, align 8
-  %18 = getelementptr inbounds %struct._dcerpc_info, ptr %17, i32 0, i32 4
-  %19 = load i32, ptr %18, align 4
-  store i32 %19, ptr %14, align 4
-  %20 = load i32, ptr %14, align 4
-  %21 = icmp ne i32 %20, 0
-  br i1 %21, label %62, label %22
+  %18 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %17, i32 0, i32 4
+  %19 = load i8, ptr %18, align 1, !range !8, !noundef !9
+  %20 = trunc i8 %19 to i1
+  %21 = zext i1 %20 to i32
+  store i32 %21, ptr %14, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #5
+  %22 = load i32, ptr %14, align 4
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %64, label %24
 
-22:                                               ; preds = %6
-  %23 = load ptr, ptr %11, align 8
-  %24 = getelementptr inbounds %struct._dcerpc_info, ptr %23, i32 0, i32 14
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds %struct._dcerpc_call_value, ptr %25, i32 0, i32 11
-  %27 = load i32, ptr %26, align 8
-  store i32 %27, ptr %16, align 4
-  %28 = load ptr, ptr %7, align 8
-  %29 = load i32, ptr %8, align 4
-  %30 = load ptr, ptr %9, align 8
-  %31 = load ptr, ptr %10, align 8
-  %32 = load ptr, ptr %11, align 8
-  %33 = load ptr, ptr %12, align 8
-  %34 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_co_ext_win2k_, align 4
-  %35 = call i32 @dissect_ndr_uint3264(ptr noundef %28, i32 noundef %29, ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, i32 noundef %34, ptr noundef %13)
-  store i32 %35, ptr %8, align 4
-  %36 = load ptr, ptr %11, align 8
-  %37 = getelementptr inbounds %struct._dcerpc_info, ptr %36, i32 0, i32 14
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds %struct._dcerpc_call_value, ptr %38, i32 0, i32 11
-  %40 = load i32, ptr %39, align 8
-  %41 = and i32 %40, -2
-  store i32 %41, ptr %39, align 8
-  %42 = load ptr, ptr %7, align 8
-  %43 = load i32, ptr %8, align 4
-  %44 = load i64, ptr %13, align 8
-  %45 = trunc i64 %44 to i32
-  %46 = call ptr @tvb_new_subset_length_caplen(ptr noundef %42, i32 noundef %43, i32 noundef %45, i32 noundef -1)
-  store ptr %46, ptr %15, align 8
-  %47 = load ptr, ptr %15, align 8
-  %48 = load ptr, ptr %9, align 8
-  %49 = load ptr, ptr %10, align 8
-  %50 = load ptr, ptr %11, align 8
-  %51 = load ptr, ptr %12, align 8
-  %52 = call i32 @frsrpc_dissect_element_CommPktChunkData_co_ext_win2k_(ptr noundef %47, i32 noundef 0, ptr noundef %48, ptr noundef %49, ptr noundef %50, ptr noundef %51)
-  %53 = load i64, ptr %13, align 8
-  %54 = trunc i64 %53 to i32
-  %55 = load i32, ptr %8, align 4
-  %56 = add i32 %55, %54
-  store i32 %56, ptr %8, align 4
-  %57 = load i32, ptr %16, align 4
-  %58 = load ptr, ptr %11, align 8
-  %59 = getelementptr inbounds %struct._dcerpc_info, ptr %58, i32 0, i32 14
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds %struct._dcerpc_call_value, ptr %60, i32 0, i32 11
-  store i32 %57, ptr %61, align 8
-  br label %62
+24:                                               ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #5
+  %25 = load ptr, ptr %11, align 8
+  %26 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %25, i32 0, i32 14
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %27, i32 0, i32 11
+  %29 = load i32, ptr %28, align 8
+  store i32 %29, ptr %16, align 4
+  %30 = load ptr, ptr %7, align 8
+  %31 = load i32, ptr %8, align 4
+  %32 = load ptr, ptr %9, align 8
+  %33 = load ptr, ptr %10, align 8
+  %34 = load ptr, ptr %11, align 8
+  %35 = load ptr, ptr %12, align 8
+  %36 = load i32, ptr @hf_frsrpc_frsrpc_CommPktChunkData_co_ext_win2k_, align 4
+  %37 = call i32 @dissect_ndr_uint3264(ptr noundef %30, i32 noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, i32 noundef %36, ptr noundef %13)
+  store i32 %37, ptr %8, align 4
+  %38 = load ptr, ptr %11, align 8
+  %39 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %38, i32 0, i32 14
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %40, i32 0, i32 11
+  %42 = load i32, ptr %41, align 8
+  %43 = and i32 %42, -2
+  store i32 %43, ptr %41, align 8
+  %44 = load ptr, ptr %7, align 8
+  %45 = load i32, ptr %8, align 4
+  %46 = load i64, ptr %13, align 8
+  %47 = trunc i64 %46 to i32
+  %48 = call ptr @tvb_new_subset_length_caplen(ptr noundef %44, i32 noundef %45, i32 noundef %47, i32 noundef -1)
+  store ptr %48, ptr %15, align 8
+  %49 = load ptr, ptr %15, align 8
+  %50 = load ptr, ptr %9, align 8
+  %51 = load ptr, ptr %10, align 8
+  %52 = load ptr, ptr %11, align 8
+  %53 = load ptr, ptr %12, align 8
+  %54 = call i32 @frsrpc_dissect_element_CommPktChunkData_co_ext_win2k_(ptr noundef %49, i32 noundef 0, ptr noundef %50, ptr noundef %51, ptr noundef %52, ptr noundef %53)
+  %55 = load i64, ptr %13, align 8
+  %56 = trunc i64 %55 to i32
+  %57 = load i32, ptr %8, align 4
+  %58 = add i32 %57, %56
+  store i32 %58, ptr %8, align 4
+  %59 = load i32, ptr %16, align 4
+  %60 = load ptr, ptr %11, align 8
+  %61 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %60, i32 0, i32 14
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %62, i32 0, i32 11
+  store i32 %59, ptr %63, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #5
+  br label %64
 
-62:                                               ; preds = %22, %6
-  %63 = load i32, ptr %8, align 4
-  ret i32 %63
+64:                                               ; preds = %24, %6
+  %65 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  ret i32 %65
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChunkData_co_extension2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7226,7 +7475,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChunkData_co_extension2(ptr n
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChunkData_bopend(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7253,9 +7502,10 @@ define internal i32 @frsrpc_dissect_element_CommPktChunkData_bopend(ptr noundef 
   ret i32 %21
 }
 
-declare i32 @dissect_ndr_datablob(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_datablob(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChunkData_join_guid_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7282,7 +7532,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChunkData_join_guid_(ptr noun
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChunkData_vvector_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7309,7 +7559,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChunkData_vvector_(ptr nounde
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChunkData_join_time_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7336,7 +7586,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChunkData_join_time_(ptr noun
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChunkData_replica_version_guid_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7363,7 +7613,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChunkData_replica_version_gui
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChunkData_gvsn_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7390,7 +7640,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChunkData_gvsn_(ptr noundef %
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChunkData_co_guid_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7417,7 +7667,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChunkData_co_guid_(ptr nounde
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChunkData_remote_co_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7444,7 +7694,7 @@ define internal i32 @frsrpc_dissect_element_CommPktChunkData_remote_co_(ptr noun
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_CommPktChunkData_co_ext_win2k_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7471,9 +7721,10 @@ define internal i32 @frsrpc_dissect_element_CommPktChunkData_co_ext_win2k_(ptr n
   ret i32 %21
 }
 
-declare i32 @dissect_ndr_embedded_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_embedded_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_FrsSendCommPktReq_ctr_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7491,68 +7742,78 @@ define internal i32 @frsrpc_dissect_element_FrsSendCommPktReq_ctr_(ptr noundef %
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
   %17 = load ptr, ptr %11, align 8
-  %18 = getelementptr inbounds %struct._dcerpc_info, ptr %17, i32 0, i32 4
-  %19 = load i32, ptr %18, align 4
-  store i32 %19, ptr %14, align 4
-  %20 = load i32, ptr %14, align 4
-  %21 = icmp ne i32 %20, 0
-  br i1 %21, label %62, label %22
+  %18 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %17, i32 0, i32 4
+  %19 = load i8, ptr %18, align 1, !range !8, !noundef !9
+  %20 = trunc i8 %19 to i1
+  %21 = zext i1 %20 to i32
+  store i32 %21, ptr %14, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #5
+  %22 = load i32, ptr %14, align 4
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %64, label %24
 
-22:                                               ; preds = %6
-  %23 = load ptr, ptr %11, align 8
-  %24 = getelementptr inbounds %struct._dcerpc_info, ptr %23, i32 0, i32 14
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds %struct._dcerpc_call_value, ptr %25, i32 0, i32 11
-  %27 = load i32, ptr %26, align 8
-  store i32 %27, ptr %16, align 4
-  %28 = load ptr, ptr %7, align 8
-  %29 = load i32, ptr %8, align 4
-  %30 = load ptr, ptr %9, align 8
-  %31 = load ptr, ptr %10, align 8
-  %32 = load ptr, ptr %11, align 8
-  %33 = load ptr, ptr %12, align 8
-  %34 = load i32, ptr @hf_frsrpc_frsrpc_FrsSendCommPktReq_ctr_, align 4
-  %35 = call i32 @dissect_ndr_uint3264(ptr noundef %28, i32 noundef %29, ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, i32 noundef %34, ptr noundef %13)
-  store i32 %35, ptr %8, align 4
-  %36 = load ptr, ptr %11, align 8
-  %37 = getelementptr inbounds %struct._dcerpc_info, ptr %36, i32 0, i32 14
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds %struct._dcerpc_call_value, ptr %38, i32 0, i32 11
-  %40 = load i32, ptr %39, align 8
-  %41 = and i32 %40, -2
-  store i32 %41, ptr %39, align 8
-  %42 = load ptr, ptr %7, align 8
-  %43 = load i32, ptr %8, align 4
-  %44 = load i64, ptr %13, align 8
-  %45 = trunc i64 %44 to i32
-  %46 = call ptr @tvb_new_subset_length_caplen(ptr noundef %42, i32 noundef %43, i32 noundef %45, i32 noundef -1)
-  store ptr %46, ptr %15, align 8
-  %47 = load ptr, ptr %15, align 8
-  %48 = load ptr, ptr %9, align 8
-  %49 = load ptr, ptr %10, align 8
-  %50 = load ptr, ptr %11, align 8
-  %51 = load ptr, ptr %12, align 8
-  %52 = call i32 @frsrpc_dissect_element_FrsSendCommPktReq_ctr__(ptr noundef %47, i32 noundef 0, ptr noundef %48, ptr noundef %49, ptr noundef %50, ptr noundef %51)
-  %53 = load i64, ptr %13, align 8
-  %54 = trunc i64 %53 to i32
-  %55 = load i32, ptr %8, align 4
-  %56 = add i32 %55, %54
-  store i32 %56, ptr %8, align 4
-  %57 = load i32, ptr %16, align 4
-  %58 = load ptr, ptr %11, align 8
-  %59 = getelementptr inbounds %struct._dcerpc_info, ptr %58, i32 0, i32 14
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds %struct._dcerpc_call_value, ptr %60, i32 0, i32 11
-  store i32 %57, ptr %61, align 8
-  br label %62
+24:                                               ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #5
+  %25 = load ptr, ptr %11, align 8
+  %26 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %25, i32 0, i32 14
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %27, i32 0, i32 11
+  %29 = load i32, ptr %28, align 8
+  store i32 %29, ptr %16, align 4
+  %30 = load ptr, ptr %7, align 8
+  %31 = load i32, ptr %8, align 4
+  %32 = load ptr, ptr %9, align 8
+  %33 = load ptr, ptr %10, align 8
+  %34 = load ptr, ptr %11, align 8
+  %35 = load ptr, ptr %12, align 8
+  %36 = load i32, ptr @hf_frsrpc_frsrpc_FrsSendCommPktReq_ctr_, align 4
+  %37 = call i32 @dissect_ndr_uint3264(ptr noundef %30, i32 noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, i32 noundef %36, ptr noundef %13)
+  store i32 %37, ptr %8, align 4
+  %38 = load ptr, ptr %11, align 8
+  %39 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %38, i32 0, i32 14
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %40, i32 0, i32 11
+  %42 = load i32, ptr %41, align 8
+  %43 = and i32 %42, -2
+  store i32 %43, ptr %41, align 8
+  %44 = load ptr, ptr %7, align 8
+  %45 = load i32, ptr %8, align 4
+  %46 = load i64, ptr %13, align 8
+  %47 = trunc i64 %46 to i32
+  %48 = call ptr @tvb_new_subset_length_caplen(ptr noundef %44, i32 noundef %45, i32 noundef %47, i32 noundef -1)
+  store ptr %48, ptr %15, align 8
+  %49 = load ptr, ptr %15, align 8
+  %50 = load ptr, ptr %9, align 8
+  %51 = load ptr, ptr %10, align 8
+  %52 = load ptr, ptr %11, align 8
+  %53 = load ptr, ptr %12, align 8
+  %54 = call i32 @frsrpc_dissect_element_FrsSendCommPktReq_ctr__(ptr noundef %49, i32 noundef 0, ptr noundef %50, ptr noundef %51, ptr noundef %52, ptr noundef %53)
+  %55 = load i64, ptr %13, align 8
+  %56 = trunc i64 %55 to i32
+  %57 = load i32, ptr %8, align 4
+  %58 = add i32 %57, %56
+  store i32 %58, ptr %8, align 4
+  %59 = load i32, ptr %16, align 4
+  %60 = load ptr, ptr %11, align 8
+  %61 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %60, i32 0, i32 14
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %62, i32 0, i32 11
+  store i32 %59, ptr %63, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #5
+  br label %64
 
-62:                                               ; preds = %22, %6
-  %63 = load i32, ptr %8, align 4
-  ret i32 %63
+64:                                               ; preds = %24, %6
+  %65 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  ret i32 %65
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_FrsSendCommPktReq_ctr__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7579,7 +7840,7 @@ define internal i32 @frsrpc_dissect_element_FrsSendCommPktReq_ctr__(ptr noundef 
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_struct_frsrpc_CommPktChunkCtr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -7601,71 +7862,84 @@ define internal i32 @frsrpc_dissect_struct_frsrpc_CommPktChunkCtr(ptr noundef %0
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #5
   %21 = load ptr, ptr %9, align 8
   %22 = load i32, ptr %10, align 4
   %23 = call i32 @tvb_reported_length_remaining(ptr noundef %21, i32 noundef %22)
   store i32 %23, ptr %17, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #5
   %24 = load ptr, ptr %13, align 8
-  %25 = getelementptr inbounds %struct._dcerpc_info, ptr %24, i32 0, i32 5
-  %26 = load i32, ptr %25, align 8
-  store i32 %26, ptr %18, align 4
-  %27 = load i32, ptr %17, align 4
-  %28 = icmp ugt i32 %27, 0
-  br i1 %28, label %29, label %60
+  %25 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %24, i32 0, i32 5
+  %26 = load i8, ptr %25, align 2, !range !8, !noundef !9
+  %27 = trunc i8 %26 to i1
+  %28 = zext i1 %27 to i32
+  store i32 %28, ptr %18, align 4
+  %29 = load i32, ptr %17, align 4
+  %30 = icmp ugt i32 %29, 0
+  br i1 %30, label %31, label %64
 
-29:                                               ; preds = %8
-  %30 = load ptr, ptr %12, align 8
-  %31 = load i32, ptr %15, align 4
-  %32 = load ptr, ptr %9, align 8
-  %33 = load i32, ptr %10, align 4
-  %34 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %31, ptr noundef %32, i32 noundef %33, i32 noundef -1, i32 noundef 1)
-  store ptr %34, ptr %19, align 8
-  %35 = load ptr, ptr %19, align 8
-  %36 = load i32, ptr @ett_ChunkCtr, align 4
-  %37 = call ptr @proto_item_add_subtree(ptr noundef %35, i32 noundef %36)
-  store ptr %37, ptr %20, align 8
-  %38 = load ptr, ptr %13, align 8
-  %39 = getelementptr inbounds %struct._dcerpc_info, ptr %38, i32 0, i32 5
-  store i32 1, ptr %39, align 8
-  br label %40
+31:                                               ; preds = %8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #5
+  %32 = load ptr, ptr %12, align 8
+  %33 = load i32, ptr %15, align 4
+  %34 = load ptr, ptr %9, align 8
+  %35 = load i32, ptr %10, align 4
+  %36 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %33, ptr noundef %34, i32 noundef %35, i32 noundef -1, i32 noundef 0)
+  store ptr %36, ptr %19, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #5
+  %37 = load ptr, ptr %19, align 8
+  %38 = load i32, ptr @ett_ChunkCtr, align 4
+  %39 = call ptr @proto_item_add_subtree(ptr noundef %37, i32 noundef %38)
+  store ptr %39, ptr %20, align 8
+  %40 = load ptr, ptr %13, align 8
+  %41 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %40, i32 0, i32 5
+  store i8 1, ptr %41, align 2
+  br label %42
 
-40:                                               ; preds = %43, %29
-  %41 = load i32, ptr %17, align 4
-  %42 = icmp ugt i32 %41, 0
-  br i1 %42, label %43, label %56
+42:                                               ; preds = %45, %31
+  %43 = load i32, ptr %17, align 4
+  %44 = icmp ugt i32 %43, 0
+  br i1 %44, label %45, label %58
 
-43:                                               ; preds = %40
-  %44 = load ptr, ptr %9, align 8
-  %45 = load i32, ptr %10, align 4
-  %46 = load ptr, ptr %11, align 8
-  %47 = load ptr, ptr %20, align 8
-  %48 = load ptr, ptr %13, align 8
-  %49 = load ptr, ptr %14, align 8
-  %50 = load i32, ptr @hf_CommPktChunk, align 4
-  %51 = load i32, ptr %16, align 4
-  %52 = call i32 @frsrpc_dissect_struct_CommPktChunk(ptr noundef %44, i32 noundef %45, ptr noundef %46, ptr noundef %47, ptr noundef %48, ptr noundef %49, i32 noundef %50, i32 noundef %51)
-  store i32 %52, ptr %10, align 4
-  %53 = load ptr, ptr %9, align 8
-  %54 = load i32, ptr %10, align 4
-  %55 = call i32 @tvb_reported_length_remaining(ptr noundef %53, i32 noundef %54)
-  store i32 %55, ptr %17, align 4
-  br label %40, !llvm.loop !8
+45:                                               ; preds = %42
+  %46 = load ptr, ptr %9, align 8
+  %47 = load i32, ptr %10, align 4
+  %48 = load ptr, ptr %11, align 8
+  %49 = load ptr, ptr %20, align 8
+  %50 = load ptr, ptr %13, align 8
+  %51 = load ptr, ptr %14, align 8
+  %52 = load i32, ptr @hf_CommPktChunk, align 4
+  %53 = load i32, ptr %16, align 4
+  %54 = call i32 @frsrpc_dissect_struct_CommPktChunk(ptr noundef %46, i32 noundef %47, ptr noundef %48, ptr noundef %49, ptr noundef %50, ptr noundef %51, i32 noundef %52, i32 noundef %53)
+  store i32 %54, ptr %10, align 4
+  %55 = load ptr, ptr %9, align 8
+  %56 = load i32, ptr %10, align 4
+  %57 = call i32 @tvb_reported_length_remaining(ptr noundef %55, i32 noundef %56)
+  store i32 %57, ptr %17, align 4
+  br label %42, !llvm.loop !12
 
-56:                                               ; preds = %40
-  %57 = load i32, ptr %18, align 4
-  %58 = load ptr, ptr %13, align 8
-  %59 = getelementptr inbounds %struct._dcerpc_info, ptr %58, i32 0, i32 5
-  store i32 %57, ptr %59, align 8
-  br label %60
+58:                                               ; preds = %42
+  %59 = load i32, ptr %18, align 4
+  %60 = icmp ne i32 %59, 0
+  %61 = load ptr, ptr %13, align 8
+  %62 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %61, i32 0, i32 5
+  %63 = zext i1 %60 to i8
+  store i8 %63, ptr %62, align 2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #5
+  br label %64
 
-60:                                               ; preds = %56, %8
-  %61 = load i32, ptr %10, align 4
-  ret i32 %61
+64:                                               ; preds = %58, %8
+  %65 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #5
+  ret i32 %65
 }
 
-declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_FrsSendCommPkt_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7680,7 +7954,7 @@ define internal i32 @frsrpc_dissect_FrsSendCommPkt_request(ptr noundef %0, i32 n
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.479, ptr %14, align 8
   %15 = load ptr, ptr %7, align 8
   %16 = load i32, ptr %8, align 4
@@ -7701,7 +7975,7 @@ define internal i32 @frsrpc_dissect_FrsSendCommPkt_request(ptr noundef %0, i32 n
   ret i32 %28
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_FrsSendCommPkt_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7716,8 +7990,9 @@ define internal i32 @frsrpc_dissect_FrsSendCommPkt_response(ptr noundef %0, i32 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.479, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -7734,19 +8009,20 @@ define internal i32 @frsrpc_dissect_FrsSendCommPkt_response(ptr noundef %0, i32 
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @WERR_errors, ptr noundef @.str.491)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.490, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @WERR_errors_ext, ptr noundef @.str.492)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.491, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_FrsVerifyPromotionParent_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7761,7 +8037,7 @@ define internal i32 @frsrpc_dissect_FrsVerifyPromotionParent_request(ptr noundef
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.480, ptr %14, align 8
   %15 = load ptr, ptr %7, align 8
   %16 = load i32, ptr %8, align 4
@@ -7857,7 +8133,7 @@ define internal i32 @frsrpc_dissect_FrsVerifyPromotionParent_request(ptr noundef
   ret i32 %93
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_FrsVerifyPromotionParent_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7872,8 +8148,9 @@ define internal i32 @frsrpc_dissect_FrsVerifyPromotionParent_response(ptr nounde
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.480, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -7890,19 +8167,20 @@ define internal i32 @frsrpc_dissect_FrsVerifyPromotionParent_response(ptr nounde
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @WERR_errors, ptr noundef @.str.491)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.490, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @WERR_errors_ext, ptr noundef @.str.492)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.491, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_FrsStartPromotionParent_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7917,7 +8195,7 @@ define internal i32 @frsrpc_dissect_FrsStartPromotionParent_request(ptr noundef 
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.481, ptr %14, align 8
   %15 = load ptr, ptr %7, align 8
   %16 = load i32, ptr %8, align 4
@@ -8103,7 +8381,7 @@ define internal i32 @frsrpc_dissect_FrsStartPromotionParent_request(ptr noundef 
   ret i32 %171
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_FrsStartPromotionParent_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -8118,8 +8396,9 @@ define internal i32 @frsrpc_dissect_FrsStartPromotionParent_response(ptr noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.481, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -8151,20 +8430,21 @@ define internal i32 @frsrpc_dissect_FrsStartPromotionParent_response(ptr noundef
 
 39:                                               ; preds = %6
   %40 = load ptr, ptr %9, align 8
-  %41 = getelementptr inbounds %struct._packet_info, ptr %40, i32 0, i32 1
+  %41 = getelementptr inbounds nuw %struct._packet_info, ptr %40, i32 0, i32 1
   %42 = load ptr, ptr %41, align 8
   %43 = load i32, ptr %13, align 4
-  %44 = call ptr @val_to_str(i32 noundef %43, ptr noundef @WERR_errors, ptr noundef @.str.491)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %42, i32 noundef 25, ptr noundef @.str.490, ptr noundef %44)
+  %44 = call ptr @val_to_str_ext(i32 noundef %43, ptr noundef @WERR_errors_ext, ptr noundef @.str.492)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %42, i32 noundef 25, ptr noundef @.str.491, ptr noundef %44)
   br label %45
 
 45:                                               ; preds = %39, %6
   %46 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
   ret i32 %46
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @frsrpc_dissect_FrsNOP_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @frsrpc_dissect_FrsNOP_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #4 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -8178,13 +8458,13 @@ define internal i32 @frsrpc_dissect_FrsNOP_request(ptr noundef %0, i32 noundef %
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.482, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_FrsNOP_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -8199,8 +8479,9 @@ define internal i32 @frsrpc_dissect_FrsNOP_response(ptr noundef %0, i32 noundef 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.482, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -8217,20 +8498,21 @@ define internal i32 @frsrpc_dissect_FrsNOP_response(ptr noundef %0, i32 noundef 
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @WERR_errors, ptr noundef @.str.491)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.490, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @WERR_errors_ext, ptr noundef @.str.492)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.491, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #4 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -8244,14 +8526,14 @@ define internal i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_request(ptr noundef %
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.483, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #4 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -8265,14 +8547,14 @@ define internal i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_response(ptr noundef 
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.483, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_5_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_5_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #4 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -8286,14 +8568,14 @@ define internal i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_5_request(ptr noundef
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.484, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_5_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_5_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #4 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -8307,14 +8589,14 @@ define internal i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_5_response(ptr nounde
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.484, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_6_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_6_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #4 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -8328,14 +8610,14 @@ define internal i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_6_request(ptr noundef
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.485, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_6_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_6_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #4 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -8349,14 +8631,14 @@ define internal i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_6_response(ptr nounde
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.485, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_7_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_7_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #4 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -8370,14 +8652,14 @@ define internal i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_7_request(ptr noundef
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.486, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_7_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_7_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #4 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -8391,14 +8673,14 @@ define internal i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_7_response(ptr nounde
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.486, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_8_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_8_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #4 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -8412,14 +8694,14 @@ define internal i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_8_request(ptr noundef
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.487, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_8_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_8_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #4 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -8433,14 +8715,14 @@ define internal i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_8_response(ptr nounde
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.487, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_9_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_9_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #4 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -8454,14 +8736,14 @@ define internal i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_9_request(ptr noundef
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.488, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_9_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_9_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #4 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -8475,14 +8757,14 @@ define internal i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_9_response(ptr nounde
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.488, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @frsrpc_dissect_FRSRPC_VERIFY_PROMOTION_PARENT_EX_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @frsrpc_dissect_FRSRPC_VERIFY_PROMOTION_PARENT_EX_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #4 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -8496,14 +8778,14 @@ define internal i32 @frsrpc_dissect_FRSRPC_VERIFY_PROMOTION_PARENT_EX_request(pt
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.489, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @frsrpc_dissect_FRSRPC_VERIFY_PROMOTION_PARENT_EX_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @frsrpc_dissect_FRSRPC_VERIFY_PROMOTION_PARENT_EX_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #4 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -8517,13 +8799,13 @@ define internal i32 @frsrpc_dissect_FRSRPC_VERIFY_PROMOTION_PARENT_EX_response(p
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.489, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_FrsSendCommPkt_req(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -8550,11 +8832,13 @@ define internal i32 @frsrpc_dissect_element_FrsSendCommPkt_req(ptr noundef %0, i
   ret i32 %21
 }
 
-declare i32 @dissect_deferred_pointers(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_deferred_pointers(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_FrsVerifyPromotionParent_parent_account(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -8575,13 +8859,13 @@ define internal i32 @frsrpc_dissect_element_FrsVerifyPromotionParent_parent_acco
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = load i32, ptr @hf_frsrpc_frsrpc_FrsVerifyPromotionParent_parent_account, align 4
-  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @frsrpc_dissect_element_FrsVerifyPromotionParent_parent_account_, i32 noundef 2, ptr noundef @.str.492, i32 noundef %19)
+  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @frsrpc_dissect_element_FrsVerifyPromotionParent_parent_account_, i32 noundef 2, ptr noundef @.str.493, i32 noundef %19)
   store i32 %20, ptr %8, align 4
   %21 = load i32, ptr %8, align 4
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_FrsVerifyPromotionParent_parent_password(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -8602,13 +8886,13 @@ define internal i32 @frsrpc_dissect_element_FrsVerifyPromotionParent_parent_pass
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = load i32, ptr @hf_frsrpc_frsrpc_FrsVerifyPromotionParent_parent_password, align 4
-  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @frsrpc_dissect_element_FrsVerifyPromotionParent_parent_password_, i32 noundef 2, ptr noundef @.str.494, i32 noundef %19)
+  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @frsrpc_dissect_element_FrsVerifyPromotionParent_parent_password_, i32 noundef 2, ptr noundef @.str.495, i32 noundef %19)
   store i32 %20, ptr %8, align 4
   %21 = load i32, ptr %8, align 4
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_FrsVerifyPromotionParent_replica_set_name(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -8629,13 +8913,13 @@ define internal i32 @frsrpc_dissect_element_FrsVerifyPromotionParent_replica_set
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = load i32, ptr @hf_frsrpc_frsrpc_FrsVerifyPromotionParent_replica_set_name, align 4
-  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @frsrpc_dissect_element_FrsVerifyPromotionParent_replica_set_name_, i32 noundef 2, ptr noundef @.str.495, i32 noundef %19)
+  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @frsrpc_dissect_element_FrsVerifyPromotionParent_replica_set_name_, i32 noundef 2, ptr noundef @.str.496, i32 noundef %19)
   store i32 %20, ptr %8, align 4
   %21 = load i32, ptr %8, align 4
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_FrsVerifyPromotionParent_replica_set_type(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -8656,13 +8940,13 @@ define internal i32 @frsrpc_dissect_element_FrsVerifyPromotionParent_replica_set
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = load i32, ptr @hf_frsrpc_frsrpc_FrsVerifyPromotionParent_replica_set_type, align 4
-  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @frsrpc_dissect_element_FrsVerifyPromotionParent_replica_set_type_, i32 noundef 2, ptr noundef @.str.496, i32 noundef %19)
+  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @frsrpc_dissect_element_FrsVerifyPromotionParent_replica_set_type_, i32 noundef 2, ptr noundef @.str.497, i32 noundef %19)
   store i32 %20, ptr %8, align 4
   %21 = load i32, ptr %8, align 4
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_FrsVerifyPromotionParent_partner_auth_level(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -8689,7 +8973,7 @@ define internal i32 @frsrpc_dissect_element_FrsVerifyPromotionParent_partner_aut
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_FrsVerifyPromotionParent___ndr_guid_size(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -8716,9 +9000,10 @@ define internal i32 @frsrpc_dissect_element_FrsVerifyPromotionParent___ndr_guid_
   ret i32 %21
 }
 
-declare i32 @dissect_ndr_toplevel_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_toplevel_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_FrsVerifyPromotionParent_parent_account_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -8733,6 +9018,7 @@ define internal i32 @frsrpc_dissect_element_FrsVerifyPromotionParent_parent_acco
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
   %16 = load ptr, ptr %9, align 8
@@ -8740,18 +9026,20 @@ define internal i32 @frsrpc_dissect_element_FrsVerifyPromotionParent_parent_acco
   %18 = load ptr, ptr %11, align 8
   %19 = load ptr, ptr %12, align 8
   %20 = load i32, ptr @hf_frsrpc_frsrpc_FrsVerifyPromotionParent_parent_account, align 4
-  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i32 noundef 0, ptr noundef %13)
+  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i1 noundef zeroext false, ptr noundef %13)
   store i32 %21, ptr %8, align 4
   %22 = load ptr, ptr %10, align 8
   %23 = load ptr, ptr %13, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.493, ptr noundef %23)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.494, ptr noundef %23)
   %24 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
   ret i32 %24
 }
 
-declare i32 @dissect_ndr_cvstring(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_cvstring(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_FrsVerifyPromotionParent_parent_password_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -8766,6 +9054,7 @@ define internal i32 @frsrpc_dissect_element_FrsVerifyPromotionParent_parent_pass
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
   %16 = load ptr, ptr %9, align 8
@@ -8773,16 +9062,17 @@ define internal i32 @frsrpc_dissect_element_FrsVerifyPromotionParent_parent_pass
   %18 = load ptr, ptr %11, align 8
   %19 = load ptr, ptr %12, align 8
   %20 = load i32, ptr @hf_frsrpc_frsrpc_FrsVerifyPromotionParent_parent_password, align 4
-  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i32 noundef 0, ptr noundef %13)
+  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i1 noundef zeroext false, ptr noundef %13)
   store i32 %21, ptr %8, align 4
   %22 = load ptr, ptr %10, align 8
   %23 = load ptr, ptr %13, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.493, ptr noundef %23)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.494, ptr noundef %23)
   %24 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_FrsVerifyPromotionParent_replica_set_name_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -8797,6 +9087,7 @@ define internal i32 @frsrpc_dissect_element_FrsVerifyPromotionParent_replica_set
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
   %16 = load ptr, ptr %9, align 8
@@ -8804,16 +9095,17 @@ define internal i32 @frsrpc_dissect_element_FrsVerifyPromotionParent_replica_set
   %18 = load ptr, ptr %11, align 8
   %19 = load ptr, ptr %12, align 8
   %20 = load i32, ptr @hf_frsrpc_frsrpc_FrsVerifyPromotionParent_replica_set_name, align 4
-  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i32 noundef 0, ptr noundef %13)
+  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i1 noundef zeroext false, ptr noundef %13)
   store i32 %21, ptr %8, align 4
   %22 = load ptr, ptr %10, align 8
   %23 = load ptr, ptr %13, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.493, ptr noundef %23)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.494, ptr noundef %23)
   %24 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_FrsVerifyPromotionParent_replica_set_type_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -8828,6 +9120,7 @@ define internal i32 @frsrpc_dissect_element_FrsVerifyPromotionParent_replica_set
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
   %16 = load ptr, ptr %9, align 8
@@ -8835,16 +9128,17 @@ define internal i32 @frsrpc_dissect_element_FrsVerifyPromotionParent_replica_set
   %18 = load ptr, ptr %11, align 8
   %19 = load ptr, ptr %12, align 8
   %20 = load i32, ptr @hf_frsrpc_frsrpc_FrsVerifyPromotionParent_replica_set_type, align 4
-  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i32 noundef 0, ptr noundef %13)
+  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i1 noundef zeroext false, ptr noundef %13)
   store i32 %21, ptr %8, align 4
   %22 = load ptr, ptr %10, align 8
   %23 = load ptr, ptr %13, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.493, ptr noundef %23)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.494, ptr noundef %23)
   %24 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_parent_account(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -8865,13 +9159,13 @@ define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_parent_accou
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = load i32, ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent_parent_account, align 4
-  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @frsrpc_dissect_element_FrsStartPromotionParent_parent_account_, i32 noundef 2, ptr noundef @.str.492, i32 noundef %19)
+  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @frsrpc_dissect_element_FrsStartPromotionParent_parent_account_, i32 noundef 2, ptr noundef @.str.493, i32 noundef %19)
   store i32 %20, ptr %8, align 4
   %21 = load i32, ptr %8, align 4
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_parent_password(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -8892,13 +9186,13 @@ define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_parent_passw
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = load i32, ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent_parent_password, align 4
-  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @frsrpc_dissect_element_FrsStartPromotionParent_parent_password_, i32 noundef 2, ptr noundef @.str.494, i32 noundef %19)
+  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @frsrpc_dissect_element_FrsStartPromotionParent_parent_password_, i32 noundef 2, ptr noundef @.str.495, i32 noundef %19)
   store i32 %20, ptr %8, align 4
   %21 = load i32, ptr %8, align 4
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_replica_set_name(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -8919,13 +9213,13 @@ define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_replica_set_
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = load i32, ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent_replica_set_name, align 4
-  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @frsrpc_dissect_element_FrsStartPromotionParent_replica_set_name_, i32 noundef 2, ptr noundef @.str.495, i32 noundef %19)
+  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @frsrpc_dissect_element_FrsStartPromotionParent_replica_set_name_, i32 noundef 2, ptr noundef @.str.496, i32 noundef %19)
   store i32 %20, ptr %8, align 4
   %21 = load i32, ptr %8, align 4
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_replica_set_type(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -8946,13 +9240,13 @@ define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_replica_set_
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = load i32, ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent_replica_set_type, align 4
-  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @frsrpc_dissect_element_FrsStartPromotionParent_replica_set_type_, i32 noundef 2, ptr noundef @.str.496, i32 noundef %19)
+  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @frsrpc_dissect_element_FrsStartPromotionParent_replica_set_type_, i32 noundef 2, ptr noundef @.str.497, i32 noundef %19)
   store i32 %20, ptr %8, align 4
   %21 = load i32, ptr %8, align 4
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_connection_name(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -8973,13 +9267,13 @@ define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_connection_n
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = load i32, ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent_connection_name, align 4
-  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @frsrpc_dissect_element_FrsStartPromotionParent_connection_name_, i32 noundef 2, ptr noundef @.str.497, i32 noundef %19)
+  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @frsrpc_dissect_element_FrsStartPromotionParent_connection_name_, i32 noundef 2, ptr noundef @.str.498, i32 noundef %19)
   store i32 %20, ptr %8, align 4
   %21 = load i32, ptr %8, align 4
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_partner_name(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -9000,13 +9294,13 @@ define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_partner_name
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = load i32, ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent_partner_name, align 4
-  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @frsrpc_dissect_element_FrsStartPromotionParent_partner_name_, i32 noundef 2, ptr noundef @.str.498, i32 noundef %19)
+  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @frsrpc_dissect_element_FrsStartPromotionParent_partner_name_, i32 noundef 2, ptr noundef @.str.499, i32 noundef %19)
   store i32 %20, ptr %8, align 4
   %21 = load i32, ptr %8, align 4
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_partner_princ_name(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -9027,13 +9321,13 @@ define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_partner_prin
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = load i32, ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent_partner_princ_name, align 4
-  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @frsrpc_dissect_element_FrsStartPromotionParent_partner_princ_name_, i32 noundef 2, ptr noundef @.str.499, i32 noundef %19)
+  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @frsrpc_dissect_element_FrsStartPromotionParent_partner_princ_name_, i32 noundef 2, ptr noundef @.str.500, i32 noundef %19)
   store i32 %20, ptr %8, align 4
   %21 = load i32, ptr %8, align 4
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_partner_auth_level(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -9060,7 +9354,7 @@ define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_partner_auth
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent___ndr_guid_size(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -9087,7 +9381,7 @@ define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent___ndr_guid_s
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_connection_guid(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -9108,13 +9402,13 @@ define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_connection_g
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = load i32, ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent_connection_guid, align 4
-  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @frsrpc_dissect_element_FrsStartPromotionParent_connection_guid_, i32 noundef 2, ptr noundef @.str.500, i32 noundef %19)
+  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @frsrpc_dissect_element_FrsStartPromotionParent_connection_guid_, i32 noundef 2, ptr noundef @.str.501, i32 noundef %19)
   store i32 %20, ptr %8, align 4
   %21 = load i32, ptr %8, align 4
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_partner_guid(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -9135,13 +9429,13 @@ define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_partner_guid
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = load i32, ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent_partner_guid, align 4
-  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @frsrpc_dissect_element_FrsStartPromotionParent_partner_guid_, i32 noundef 2, ptr noundef @.str.501, i32 noundef %19)
+  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @frsrpc_dissect_element_FrsStartPromotionParent_partner_guid_, i32 noundef 2, ptr noundef @.str.502, i32 noundef %19)
   store i32 %20, ptr %8, align 4
   %21 = load i32, ptr %8, align 4
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_parent_guid(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -9162,13 +9456,13 @@ define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_parent_guid(
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = load i32, ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent_parent_guid, align 4
-  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @frsrpc_dissect_element_FrsStartPromotionParent_parent_guid_, i32 noundef 2, ptr noundef @.str.502, i32 noundef %19)
+  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @frsrpc_dissect_element_FrsStartPromotionParent_parent_guid_, i32 noundef 2, ptr noundef @.str.503, i32 noundef %19)
   store i32 %20, ptr %8, align 4
   %21 = load i32, ptr %8, align 4
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_parent_account_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -9183,6 +9477,7 @@ define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_parent_accou
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
   %16 = load ptr, ptr %9, align 8
@@ -9190,16 +9485,17 @@ define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_parent_accou
   %18 = load ptr, ptr %11, align 8
   %19 = load ptr, ptr %12, align 8
   %20 = load i32, ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent_parent_account, align 4
-  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i32 noundef 0, ptr noundef %13)
+  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i1 noundef zeroext false, ptr noundef %13)
   store i32 %21, ptr %8, align 4
   %22 = load ptr, ptr %10, align 8
   %23 = load ptr, ptr %13, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.493, ptr noundef %23)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.494, ptr noundef %23)
   %24 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_parent_password_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -9214,6 +9510,7 @@ define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_parent_passw
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
   %16 = load ptr, ptr %9, align 8
@@ -9221,16 +9518,17 @@ define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_parent_passw
   %18 = load ptr, ptr %11, align 8
   %19 = load ptr, ptr %12, align 8
   %20 = load i32, ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent_parent_password, align 4
-  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i32 noundef 0, ptr noundef %13)
+  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i1 noundef zeroext false, ptr noundef %13)
   store i32 %21, ptr %8, align 4
   %22 = load ptr, ptr %10, align 8
   %23 = load ptr, ptr %13, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.493, ptr noundef %23)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.494, ptr noundef %23)
   %24 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_replica_set_name_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -9245,6 +9543,7 @@ define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_replica_set_
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
   %16 = load ptr, ptr %9, align 8
@@ -9252,16 +9551,17 @@ define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_replica_set_
   %18 = load ptr, ptr %11, align 8
   %19 = load ptr, ptr %12, align 8
   %20 = load i32, ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent_replica_set_name, align 4
-  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i32 noundef 0, ptr noundef %13)
+  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i1 noundef zeroext false, ptr noundef %13)
   store i32 %21, ptr %8, align 4
   %22 = load ptr, ptr %10, align 8
   %23 = load ptr, ptr %13, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.493, ptr noundef %23)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.494, ptr noundef %23)
   %24 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_replica_set_type_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -9276,6 +9576,7 @@ define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_replica_set_
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
   %16 = load ptr, ptr %9, align 8
@@ -9283,16 +9584,17 @@ define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_replica_set_
   %18 = load ptr, ptr %11, align 8
   %19 = load ptr, ptr %12, align 8
   %20 = load i32, ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent_replica_set_type, align 4
-  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i32 noundef 0, ptr noundef %13)
+  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i1 noundef zeroext false, ptr noundef %13)
   store i32 %21, ptr %8, align 4
   %22 = load ptr, ptr %10, align 8
   %23 = load ptr, ptr %13, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.493, ptr noundef %23)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.494, ptr noundef %23)
   %24 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_connection_name_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -9307,6 +9609,7 @@ define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_connection_n
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
   %16 = load ptr, ptr %9, align 8
@@ -9314,16 +9617,17 @@ define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_connection_n
   %18 = load ptr, ptr %11, align 8
   %19 = load ptr, ptr %12, align 8
   %20 = load i32, ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent_connection_name, align 4
-  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i32 noundef 0, ptr noundef %13)
+  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i1 noundef zeroext false, ptr noundef %13)
   store i32 %21, ptr %8, align 4
   %22 = load ptr, ptr %10, align 8
   %23 = load ptr, ptr %13, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.493, ptr noundef %23)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.494, ptr noundef %23)
   %24 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_partner_name_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -9338,6 +9642,7 @@ define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_partner_name
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
   %16 = load ptr, ptr %9, align 8
@@ -9345,16 +9650,17 @@ define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_partner_name
   %18 = load ptr, ptr %11, align 8
   %19 = load ptr, ptr %12, align 8
   %20 = load i32, ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent_partner_name, align 4
-  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i32 noundef 0, ptr noundef %13)
+  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i1 noundef zeroext false, ptr noundef %13)
   store i32 %21, ptr %8, align 4
   %22 = load ptr, ptr %10, align 8
   %23 = load ptr, ptr %13, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.493, ptr noundef %23)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.494, ptr noundef %23)
   %24 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_partner_princ_name_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -9369,6 +9675,7 @@ define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_partner_prin
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
   %16 = load ptr, ptr %9, align 8
@@ -9376,16 +9683,17 @@ define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_partner_prin
   %18 = load ptr, ptr %11, align 8
   %19 = load ptr, ptr %12, align 8
   %20 = load i32, ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent_partner_princ_name, align 4
-  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i32 noundef 0, ptr noundef %13)
+  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i1 noundef zeroext false, ptr noundef %13)
   store i32 %21, ptr %8, align 4
   %22 = load ptr, ptr %10, align 8
   %23 = load ptr, ptr %13, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.493, ptr noundef %23)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.494, ptr noundef %23)
   %24 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_connection_guid_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -9403,68 +9711,78 @@ define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_connection_g
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
   %17 = load ptr, ptr %11, align 8
-  %18 = getelementptr inbounds %struct._dcerpc_info, ptr %17, i32 0, i32 4
-  %19 = load i32, ptr %18, align 4
-  store i32 %19, ptr %14, align 4
-  %20 = load i32, ptr %14, align 4
-  %21 = icmp ne i32 %20, 0
-  br i1 %21, label %62, label %22
+  %18 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %17, i32 0, i32 4
+  %19 = load i8, ptr %18, align 1, !range !8, !noundef !9
+  %20 = trunc i8 %19 to i1
+  %21 = zext i1 %20 to i32
+  store i32 %21, ptr %14, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #5
+  %22 = load i32, ptr %14, align 4
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %64, label %24
 
-22:                                               ; preds = %6
-  %23 = load ptr, ptr %11, align 8
-  %24 = getelementptr inbounds %struct._dcerpc_info, ptr %23, i32 0, i32 14
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds %struct._dcerpc_call_value, ptr %25, i32 0, i32 11
-  %27 = load i32, ptr %26, align 8
-  store i32 %27, ptr %16, align 4
-  %28 = load ptr, ptr %7, align 8
-  %29 = load i32, ptr %8, align 4
-  %30 = load ptr, ptr %9, align 8
-  %31 = load ptr, ptr %10, align 8
-  %32 = load ptr, ptr %11, align 8
-  %33 = load ptr, ptr %12, align 8
-  %34 = load i32, ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent_connection_guid_, align 4
-  %35 = call i32 @dissect_ndr_uint3264(ptr noundef %28, i32 noundef %29, ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, i32 noundef %34, ptr noundef %13)
-  store i32 %35, ptr %8, align 4
-  %36 = load ptr, ptr %11, align 8
-  %37 = getelementptr inbounds %struct._dcerpc_info, ptr %36, i32 0, i32 14
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds %struct._dcerpc_call_value, ptr %38, i32 0, i32 11
-  %40 = load i32, ptr %39, align 8
-  %41 = and i32 %40, -2
-  store i32 %41, ptr %39, align 8
-  %42 = load ptr, ptr %7, align 8
-  %43 = load i32, ptr %8, align 4
-  %44 = load i64, ptr %13, align 8
-  %45 = trunc i64 %44 to i32
-  %46 = call ptr @tvb_new_subset_length_caplen(ptr noundef %42, i32 noundef %43, i32 noundef %45, i32 noundef -1)
-  store ptr %46, ptr %15, align 8
-  %47 = load ptr, ptr %15, align 8
-  %48 = load ptr, ptr %9, align 8
-  %49 = load ptr, ptr %10, align 8
-  %50 = load ptr, ptr %11, align 8
-  %51 = load ptr, ptr %12, align 8
-  %52 = call i32 @frsrpc_dissect_element_FrsStartPromotionParent_connection_guid__(ptr noundef %47, i32 noundef 0, ptr noundef %48, ptr noundef %49, ptr noundef %50, ptr noundef %51)
-  %53 = load i64, ptr %13, align 8
-  %54 = trunc i64 %53 to i32
-  %55 = load i32, ptr %8, align 4
-  %56 = add i32 %55, %54
-  store i32 %56, ptr %8, align 4
-  %57 = load i32, ptr %16, align 4
-  %58 = load ptr, ptr %11, align 8
-  %59 = getelementptr inbounds %struct._dcerpc_info, ptr %58, i32 0, i32 14
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds %struct._dcerpc_call_value, ptr %60, i32 0, i32 11
-  store i32 %57, ptr %61, align 8
-  br label %62
+24:                                               ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #5
+  %25 = load ptr, ptr %11, align 8
+  %26 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %25, i32 0, i32 14
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %27, i32 0, i32 11
+  %29 = load i32, ptr %28, align 8
+  store i32 %29, ptr %16, align 4
+  %30 = load ptr, ptr %7, align 8
+  %31 = load i32, ptr %8, align 4
+  %32 = load ptr, ptr %9, align 8
+  %33 = load ptr, ptr %10, align 8
+  %34 = load ptr, ptr %11, align 8
+  %35 = load ptr, ptr %12, align 8
+  %36 = load i32, ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent_connection_guid_, align 4
+  %37 = call i32 @dissect_ndr_uint3264(ptr noundef %30, i32 noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, i32 noundef %36, ptr noundef %13)
+  store i32 %37, ptr %8, align 4
+  %38 = load ptr, ptr %11, align 8
+  %39 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %38, i32 0, i32 14
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %40, i32 0, i32 11
+  %42 = load i32, ptr %41, align 8
+  %43 = and i32 %42, -2
+  store i32 %43, ptr %41, align 8
+  %44 = load ptr, ptr %7, align 8
+  %45 = load i32, ptr %8, align 4
+  %46 = load i64, ptr %13, align 8
+  %47 = trunc i64 %46 to i32
+  %48 = call ptr @tvb_new_subset_length_caplen(ptr noundef %44, i32 noundef %45, i32 noundef %47, i32 noundef -1)
+  store ptr %48, ptr %15, align 8
+  %49 = load ptr, ptr %15, align 8
+  %50 = load ptr, ptr %9, align 8
+  %51 = load ptr, ptr %10, align 8
+  %52 = load ptr, ptr %11, align 8
+  %53 = load ptr, ptr %12, align 8
+  %54 = call i32 @frsrpc_dissect_element_FrsStartPromotionParent_connection_guid__(ptr noundef %49, i32 noundef 0, ptr noundef %50, ptr noundef %51, ptr noundef %52, ptr noundef %53)
+  %55 = load i64, ptr %13, align 8
+  %56 = trunc i64 %55 to i32
+  %57 = load i32, ptr %8, align 4
+  %58 = add i32 %57, %56
+  store i32 %58, ptr %8, align 4
+  %59 = load i32, ptr %16, align 4
+  %60 = load ptr, ptr %11, align 8
+  %61 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %60, i32 0, i32 14
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %62, i32 0, i32 11
+  store i32 %59, ptr %63, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #5
+  br label %64
 
-62:                                               ; preds = %22, %6
-  %63 = load i32, ptr %8, align 4
-  ret i32 %63
+64:                                               ; preds = %24, %6
+  %65 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  ret i32 %65
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_connection_guid__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -9491,7 +9809,7 @@ define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_connection_g
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_partner_guid_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -9509,68 +9827,78 @@ define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_partner_guid
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
   %17 = load ptr, ptr %11, align 8
-  %18 = getelementptr inbounds %struct._dcerpc_info, ptr %17, i32 0, i32 4
-  %19 = load i32, ptr %18, align 4
-  store i32 %19, ptr %14, align 4
-  %20 = load i32, ptr %14, align 4
-  %21 = icmp ne i32 %20, 0
-  br i1 %21, label %62, label %22
+  %18 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %17, i32 0, i32 4
+  %19 = load i8, ptr %18, align 1, !range !8, !noundef !9
+  %20 = trunc i8 %19 to i1
+  %21 = zext i1 %20 to i32
+  store i32 %21, ptr %14, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #5
+  %22 = load i32, ptr %14, align 4
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %64, label %24
 
-22:                                               ; preds = %6
-  %23 = load ptr, ptr %11, align 8
-  %24 = getelementptr inbounds %struct._dcerpc_info, ptr %23, i32 0, i32 14
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds %struct._dcerpc_call_value, ptr %25, i32 0, i32 11
-  %27 = load i32, ptr %26, align 8
-  store i32 %27, ptr %16, align 4
-  %28 = load ptr, ptr %7, align 8
-  %29 = load i32, ptr %8, align 4
-  %30 = load ptr, ptr %9, align 8
-  %31 = load ptr, ptr %10, align 8
-  %32 = load ptr, ptr %11, align 8
-  %33 = load ptr, ptr %12, align 8
-  %34 = load i32, ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent_partner_guid_, align 4
-  %35 = call i32 @dissect_ndr_uint3264(ptr noundef %28, i32 noundef %29, ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, i32 noundef %34, ptr noundef %13)
-  store i32 %35, ptr %8, align 4
-  %36 = load ptr, ptr %11, align 8
-  %37 = getelementptr inbounds %struct._dcerpc_info, ptr %36, i32 0, i32 14
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds %struct._dcerpc_call_value, ptr %38, i32 0, i32 11
-  %40 = load i32, ptr %39, align 8
-  %41 = and i32 %40, -2
-  store i32 %41, ptr %39, align 8
-  %42 = load ptr, ptr %7, align 8
-  %43 = load i32, ptr %8, align 4
-  %44 = load i64, ptr %13, align 8
-  %45 = trunc i64 %44 to i32
-  %46 = call ptr @tvb_new_subset_length_caplen(ptr noundef %42, i32 noundef %43, i32 noundef %45, i32 noundef -1)
-  store ptr %46, ptr %15, align 8
-  %47 = load ptr, ptr %15, align 8
-  %48 = load ptr, ptr %9, align 8
-  %49 = load ptr, ptr %10, align 8
-  %50 = load ptr, ptr %11, align 8
-  %51 = load ptr, ptr %12, align 8
-  %52 = call i32 @frsrpc_dissect_element_FrsStartPromotionParent_partner_guid__(ptr noundef %47, i32 noundef 0, ptr noundef %48, ptr noundef %49, ptr noundef %50, ptr noundef %51)
-  %53 = load i64, ptr %13, align 8
-  %54 = trunc i64 %53 to i32
-  %55 = load i32, ptr %8, align 4
-  %56 = add i32 %55, %54
-  store i32 %56, ptr %8, align 4
-  %57 = load i32, ptr %16, align 4
-  %58 = load ptr, ptr %11, align 8
-  %59 = getelementptr inbounds %struct._dcerpc_info, ptr %58, i32 0, i32 14
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds %struct._dcerpc_call_value, ptr %60, i32 0, i32 11
-  store i32 %57, ptr %61, align 8
-  br label %62
+24:                                               ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #5
+  %25 = load ptr, ptr %11, align 8
+  %26 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %25, i32 0, i32 14
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %27, i32 0, i32 11
+  %29 = load i32, ptr %28, align 8
+  store i32 %29, ptr %16, align 4
+  %30 = load ptr, ptr %7, align 8
+  %31 = load i32, ptr %8, align 4
+  %32 = load ptr, ptr %9, align 8
+  %33 = load ptr, ptr %10, align 8
+  %34 = load ptr, ptr %11, align 8
+  %35 = load ptr, ptr %12, align 8
+  %36 = load i32, ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent_partner_guid_, align 4
+  %37 = call i32 @dissect_ndr_uint3264(ptr noundef %30, i32 noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, i32 noundef %36, ptr noundef %13)
+  store i32 %37, ptr %8, align 4
+  %38 = load ptr, ptr %11, align 8
+  %39 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %38, i32 0, i32 14
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %40, i32 0, i32 11
+  %42 = load i32, ptr %41, align 8
+  %43 = and i32 %42, -2
+  store i32 %43, ptr %41, align 8
+  %44 = load ptr, ptr %7, align 8
+  %45 = load i32, ptr %8, align 4
+  %46 = load i64, ptr %13, align 8
+  %47 = trunc i64 %46 to i32
+  %48 = call ptr @tvb_new_subset_length_caplen(ptr noundef %44, i32 noundef %45, i32 noundef %47, i32 noundef -1)
+  store ptr %48, ptr %15, align 8
+  %49 = load ptr, ptr %15, align 8
+  %50 = load ptr, ptr %9, align 8
+  %51 = load ptr, ptr %10, align 8
+  %52 = load ptr, ptr %11, align 8
+  %53 = load ptr, ptr %12, align 8
+  %54 = call i32 @frsrpc_dissect_element_FrsStartPromotionParent_partner_guid__(ptr noundef %49, i32 noundef 0, ptr noundef %50, ptr noundef %51, ptr noundef %52, ptr noundef %53)
+  %55 = load i64, ptr %13, align 8
+  %56 = trunc i64 %55 to i32
+  %57 = load i32, ptr %8, align 4
+  %58 = add i32 %57, %56
+  store i32 %58, ptr %8, align 4
+  %59 = load i32, ptr %16, align 4
+  %60 = load ptr, ptr %11, align 8
+  %61 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %60, i32 0, i32 14
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %62, i32 0, i32 11
+  store i32 %59, ptr %63, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #5
+  br label %64
 
-62:                                               ; preds = %22, %6
-  %63 = load i32, ptr %8, align 4
-  ret i32 %63
+64:                                               ; preds = %24, %6
+  %65 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  ret i32 %65
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_partner_guid__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -9597,7 +9925,7 @@ define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_partner_guid
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_parent_guid_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -9615,68 +9943,78 @@ define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_parent_guid_
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
   %17 = load ptr, ptr %11, align 8
-  %18 = getelementptr inbounds %struct._dcerpc_info, ptr %17, i32 0, i32 4
-  %19 = load i32, ptr %18, align 4
-  store i32 %19, ptr %14, align 4
-  %20 = load i32, ptr %14, align 4
-  %21 = icmp ne i32 %20, 0
-  br i1 %21, label %62, label %22
+  %18 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %17, i32 0, i32 4
+  %19 = load i8, ptr %18, align 1, !range !8, !noundef !9
+  %20 = trunc i8 %19 to i1
+  %21 = zext i1 %20 to i32
+  store i32 %21, ptr %14, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #5
+  %22 = load i32, ptr %14, align 4
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %64, label %24
 
-22:                                               ; preds = %6
-  %23 = load ptr, ptr %11, align 8
-  %24 = getelementptr inbounds %struct._dcerpc_info, ptr %23, i32 0, i32 14
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds %struct._dcerpc_call_value, ptr %25, i32 0, i32 11
-  %27 = load i32, ptr %26, align 8
-  store i32 %27, ptr %16, align 4
-  %28 = load ptr, ptr %7, align 8
-  %29 = load i32, ptr %8, align 4
-  %30 = load ptr, ptr %9, align 8
-  %31 = load ptr, ptr %10, align 8
-  %32 = load ptr, ptr %11, align 8
-  %33 = load ptr, ptr %12, align 8
-  %34 = load i32, ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent_parent_guid_, align 4
-  %35 = call i32 @dissect_ndr_uint3264(ptr noundef %28, i32 noundef %29, ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, i32 noundef %34, ptr noundef %13)
-  store i32 %35, ptr %8, align 4
-  %36 = load ptr, ptr %11, align 8
-  %37 = getelementptr inbounds %struct._dcerpc_info, ptr %36, i32 0, i32 14
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds %struct._dcerpc_call_value, ptr %38, i32 0, i32 11
-  %40 = load i32, ptr %39, align 8
-  %41 = and i32 %40, -2
-  store i32 %41, ptr %39, align 8
-  %42 = load ptr, ptr %7, align 8
-  %43 = load i32, ptr %8, align 4
-  %44 = load i64, ptr %13, align 8
-  %45 = trunc i64 %44 to i32
-  %46 = call ptr @tvb_new_subset_length_caplen(ptr noundef %42, i32 noundef %43, i32 noundef %45, i32 noundef -1)
-  store ptr %46, ptr %15, align 8
-  %47 = load ptr, ptr %15, align 8
-  %48 = load ptr, ptr %9, align 8
-  %49 = load ptr, ptr %10, align 8
-  %50 = load ptr, ptr %11, align 8
-  %51 = load ptr, ptr %12, align 8
-  %52 = call i32 @frsrpc_dissect_element_FrsStartPromotionParent_parent_guid__(ptr noundef %47, i32 noundef 0, ptr noundef %48, ptr noundef %49, ptr noundef %50, ptr noundef %51)
-  %53 = load i64, ptr %13, align 8
-  %54 = trunc i64 %53 to i32
-  %55 = load i32, ptr %8, align 4
-  %56 = add i32 %55, %54
-  store i32 %56, ptr %8, align 4
-  %57 = load i32, ptr %16, align 4
-  %58 = load ptr, ptr %11, align 8
-  %59 = getelementptr inbounds %struct._dcerpc_info, ptr %58, i32 0, i32 14
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds %struct._dcerpc_call_value, ptr %60, i32 0, i32 11
-  store i32 %57, ptr %61, align 8
-  br label %62
+24:                                               ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #5
+  %25 = load ptr, ptr %11, align 8
+  %26 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %25, i32 0, i32 14
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %27, i32 0, i32 11
+  %29 = load i32, ptr %28, align 8
+  store i32 %29, ptr %16, align 4
+  %30 = load ptr, ptr %7, align 8
+  %31 = load i32, ptr %8, align 4
+  %32 = load ptr, ptr %9, align 8
+  %33 = load ptr, ptr %10, align 8
+  %34 = load ptr, ptr %11, align 8
+  %35 = load ptr, ptr %12, align 8
+  %36 = load i32, ptr @hf_frsrpc_frsrpc_FrsStartPromotionParent_parent_guid_, align 4
+  %37 = call i32 @dissect_ndr_uint3264(ptr noundef %30, i32 noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, i32 noundef %36, ptr noundef %13)
+  store i32 %37, ptr %8, align 4
+  %38 = load ptr, ptr %11, align 8
+  %39 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %38, i32 0, i32 14
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %40, i32 0, i32 11
+  %42 = load i32, ptr %41, align 8
+  %43 = and i32 %42, -2
+  store i32 %43, ptr %41, align 8
+  %44 = load ptr, ptr %7, align 8
+  %45 = load i32, ptr %8, align 4
+  %46 = load i64, ptr %13, align 8
+  %47 = trunc i64 %46 to i32
+  %48 = call ptr @tvb_new_subset_length_caplen(ptr noundef %44, i32 noundef %45, i32 noundef %47, i32 noundef -1)
+  store ptr %48, ptr %15, align 8
+  %49 = load ptr, ptr %15, align 8
+  %50 = load ptr, ptr %9, align 8
+  %51 = load ptr, ptr %10, align 8
+  %52 = load ptr, ptr %11, align 8
+  %53 = load ptr, ptr %12, align 8
+  %54 = call i32 @frsrpc_dissect_element_FrsStartPromotionParent_parent_guid__(ptr noundef %49, i32 noundef 0, ptr noundef %50, ptr noundef %51, ptr noundef %52, ptr noundef %53)
+  %55 = load i64, ptr %13, align 8
+  %56 = trunc i64 %55 to i32
+  %57 = load i32, ptr %8, align 4
+  %58 = add i32 %57, %56
+  store i32 %58, ptr %8, align 4
+  %59 = load i32, ptr %16, align 4
+  %60 = load ptr, ptr %11, align 8
+  %61 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %60, i32 0, i32 14
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %62, i32 0, i32 11
+  store i32 %59, ptr %63, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #5
+  br label %64
 
-62:                                               ; preds = %22, %6
-  %63 = load i32, ptr %8, align 4
-  ret i32 %63
+64:                                               ; preds = %24, %6
+  %65 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  ret i32 %65
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_parent_guid__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -9703,19 +10041,26 @@ define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_parent_guid_
   ret i32 %21
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
+attributes #6 = { noreturn }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}

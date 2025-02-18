@@ -4,7 +4,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
 %struct._value_string = type { i32, ptr }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
@@ -16,7 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_mactelnet_type = internal global i32 0, align 4
 @.str.2 = private unnamed_addr constant [5 x i8] c"Type\00", align 1
 @.str.3 = private unnamed_addr constant [15 x i8] c"mactelnet.type\00", align 1
-@packettypenames = internal constant [7 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.44 }, %struct._value_string { i32 1, ptr @.str.45 }, %struct._value_string { i32 2, ptr @.str.46 }, %struct._value_string { i32 4, ptr @.str.47 }, %struct._value_string { i32 5, ptr @.str.48 }, %struct._value_string { i32 255, ptr @.str.49 }, %struct._value_string zeroinitializer], align 16
 @.str.4 = private unnamed_addr constant [12 x i8] c"Packet Type\00", align 1
 @hf_mactelnet_protocolver = internal global i32 0, align 4
 @.str.5 = private unnamed_addr constant [17 x i8] c"Protocol Version\00", align 1
@@ -34,7 +33,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_mactelnet_client_type = internal global i32 0, align 4
 @.str.14 = private unnamed_addr constant [12 x i8] c"Client Type\00", align 1
 @.str.15 = private unnamed_addr constant [22 x i8] c"mactelnet.client_type\00", align 1
-@clienttypenames = internal constant [3 x %struct._value_string] [%struct._value_string { i32 21, ptr @.str.50 }, %struct._value_string { i32 3984, ptr @.str.51 }, %struct._value_string zeroinitializer], align 16
 @hf_mactelnet_databytes = internal global i32 0, align 4
 @.str.16 = private unnamed_addr constant [19 x i8] c"Session Data Bytes\00", align 1
 @.str.17 = private unnamed_addr constant [24 x i8] c"mactelnet.session_bytes\00", align 1
@@ -42,7 +40,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_mactelnet_datatype = internal global i32 0, align 4
 @.str.19 = private unnamed_addr constant [17 x i8] c"Data Packet Type\00", align 1
 @.str.20 = private unnamed_addr constant [20 x i8] c"mactelnet.data_type\00", align 1
-@controlpackettypenames = internal constant [9 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.52 }, %struct._value_string { i32 1, ptr @.str.53 }, %struct._value_string { i32 2, ptr @.str.54 }, %struct._value_string { i32 3, ptr @.str.32 }, %struct._value_string { i32 4, ptr @.str.55 }, %struct._value_string { i32 5, ptr @.str.56 }, %struct._value_string { i32 6, ptr @.str.57 }, %struct._value_string { i32 9, ptr @.str.58 }, %struct._value_string zeroinitializer], align 16
 @hf_mactelnet_control = internal global i32 0, align 4
 @.str.21 = private unnamed_addr constant [15 x i8] c"Control Packet\00", align 1
 @.str.22 = private unnamed_addr constant [18 x i8] c"mactelnet.control\00", align 1
@@ -84,21 +81,24 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.47 = private unnamed_addr constant [13 x i8] c"Ping request\00", align 1
 @.str.48 = private unnamed_addr constant [14 x i8] c"Ping response\00", align 1
 @.str.49 = private unnamed_addr constant [12 x i8] c"End session\00", align 1
-@.str.50 = private unnamed_addr constant [11 x i8] c"MAC Telnet\00", align 1
-@.str.51 = private unnamed_addr constant [7 x i8] c"Winbox\00", align 1
-@.str.52 = private unnamed_addr constant [21 x i8] c"Begin authentication\00", align 1
-@.str.53 = private unnamed_addr constant [15 x i8] c"Encryption key\00", align 1
-@.str.54 = private unnamed_addr constant [9 x i8] c"Password\00", align 1
-@.str.55 = private unnamed_addr constant [14 x i8] c"Terminal type\00", align 1
-@.str.56 = private unnamed_addr constant [15 x i8] c"Terminal width\00", align 1
-@.str.57 = private unnamed_addr constant [16 x i8] c"Terminal height\00", align 1
-@.str.58 = private unnamed_addr constant [19 x i8] c"End authentication\00", align 1
-@.str.59 = private unnamed_addr constant [31 x i8] c"%s > %s Direction: %s Type: %s\00", align 1
-@.str.60 = private unnamed_addr constant [15 x i8] c"Client->Server\00", align 1
-@.str.61 = private unnamed_addr constant [15 x i8] c"Server->Client\00", align 1
-@.str.62 = private unnamed_addr constant [20 x i8] c"Unknown Type:0x%02x\00", align 1
+@packettypenames = internal constant [7 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.44 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.45 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.46 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.48 }, { i32, [4 x i8], ptr } { i32 255, [4 x i8] zeroinitializer, ptr @.str.49 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.51 = private unnamed_addr constant [11 x i8] c"MAC Telnet\00", align 1
+@.str.52 = private unnamed_addr constant [7 x i8] c"Winbox\00", align 1
+@clienttypenames = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.51 }, { i32, [4 x i8], ptr } { i32 3984, [4 x i8] zeroinitializer, ptr @.str.52 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.54 = private unnamed_addr constant [21 x i8] c"Begin authentication\00", align 1
+@.str.55 = private unnamed_addr constant [15 x i8] c"Encryption key\00", align 1
+@.str.56 = private unnamed_addr constant [9 x i8] c"Password\00", align 1
+@.str.57 = private unnamed_addr constant [14 x i8] c"Terminal type\00", align 1
+@.str.58 = private unnamed_addr constant [15 x i8] c"Terminal width\00", align 1
+@.str.59 = private unnamed_addr constant [16 x i8] c"Terminal height\00", align 1
+@.str.60 = private unnamed_addr constant [19 x i8] c"End authentication\00", align 1
+@controlpackettypenames = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.54 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.55 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.56 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.32 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.57 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.58 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.59 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.60 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.62 = private unnamed_addr constant [31 x i8] c"%s > %s Direction: %s Type: %s\00", align 1
+@.str.63 = private unnamed_addr constant [15 x i8] c"Client->Server\00", align 1
+@.str.64 = private unnamed_addr constant [15 x i8] c"Server->Client\00", align 1
+@.str.65 = private unnamed_addr constant [20 x i8] c"Unknown Type:0x%02x\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_mactelnet() #0 {
   %1 = call i32 @proto_register_protocol(ptr noundef @.str.40, ptr noundef @.str.41, ptr noundef @.str.42)
   store i32 %1, ptr @proto_mactelnet, align 4
@@ -110,11 +110,13 @@ define hidden void @proto_register_mactelnet() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mactelnet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -131,455 +133,473 @@ define internal i32 @dissect_mactelnet(ptr noundef %0, ptr noundef %1, ptr nound
   %17 = alloca i16, align 2
   %18 = alloca i32, align 4
   %19 = alloca i32, align 4
-  %20 = alloca i8, align 1
-  %21 = alloca i32, align 4
-  %22 = alloca ptr, align 8
+  %20 = alloca i32, align 4
+  %21 = alloca i8, align 1
+  %22 = alloca i32, align 4
   %23 = alloca ptr, align 8
+  %24 = alloca ptr, align 8
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #3
   store i32 -1, ptr %14, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #3
   store i32 -1, ptr %15, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #3
   store i32 -1, ptr %16, align 4
-  %24 = load ptr, ptr %6, align 8
-  %25 = call i32 @tvb_captured_length(ptr noundef %24)
-  %26 = icmp ult i32 %25, 18
-  br i1 %26, label %27, label %28
-
-27:                                               ; preds = %4
-  store i32 0, ptr %5, align 4
-  br label %346
+  call void @llvm.lifetime.start.p0(i64 2, ptr %17) #3
+  %25 = load ptr, ptr %6, align 8
+  %26 = call i32 @tvb_captured_length(ptr noundef %25)
+  %27 = icmp ult i32 %26, 18
+  br i1 %27, label %28, label %29
 
 28:                                               ; preds = %4
-  %29 = load ptr, ptr %6, align 8
-  %30 = call zeroext i8 @tvb_get_guint8(ptr noundef %29, i32 noundef 1)
-  %31 = zext i8 %30 to i16
-  store i16 %31, ptr %17, align 2
-  %32 = load i16, ptr %17, align 2
-  %33 = zext i16 %32 to i32
-  %34 = icmp eq i32 %33, 4
-  br i1 %34, label %39, label %35
-
-35:                                               ; preds = %28
-  %36 = load i16, ptr %17, align 2
-  %37 = zext i16 %36 to i32
-  %38 = icmp eq i32 %37, 5
-  br i1 %38, label %39, label %40
-
-39:                                               ; preds = %35, %28
-  store i32 1, ptr %14, align 4
-  br label %76
-
-40:                                               ; preds = %35
-  store i32 0, ptr %18, align 4
-  br label %41
-
-41:                                               ; preds = %72, %40
-  %42 = load i32, ptr %18, align 4
-  %43 = sext i32 %42 to i64
-  %44 = getelementptr [3 x %struct._value_string], ptr @clienttypenames, i64 0, i64 %43
-  %45 = getelementptr inbounds %struct._value_string, ptr %44, i32 0, i32 1
-  %46 = load ptr, ptr %45, align 8
-  %47 = icmp ne ptr %46, null
-  br i1 %47, label %48, label %75
-
-48:                                               ; preds = %41
-  %49 = load ptr, ptr %6, align 8
-  %50 = call zeroext i16 @tvb_get_ntohs(ptr noundef %49, i32 noundef 14)
-  %51 = zext i16 %50 to i32
-  %52 = load i32, ptr %18, align 4
-  %53 = sext i32 %52 to i64
-  %54 = getelementptr [3 x %struct._value_string], ptr @clienttypenames, i64 0, i64 %53
-  %55 = getelementptr inbounds %struct._value_string, ptr %54, i32 0, i32 0
-  %56 = load i32, ptr %55, align 16
-  %57 = icmp eq i32 %51, %56
-  br i1 %57, label %58, label %60
-
-58:                                               ; preds = %48
-  %59 = load i32, ptr %18, align 4
-  store i32 %59, ptr %16, align 4
-  br label %75
-
-60:                                               ; preds = %48
-  %61 = load ptr, ptr %6, align 8
-  %62 = call zeroext i16 @tvb_get_ntohs(ptr noundef %61, i32 noundef 16)
-  %63 = zext i16 %62 to i32
-  %64 = load i32, ptr %18, align 4
-  %65 = sext i32 %64 to i64
-  %66 = getelementptr [3 x %struct._value_string], ptr @clienttypenames, i64 0, i64 %65
-  %67 = getelementptr inbounds %struct._value_string, ptr %66, i32 0, i32 0
-  %68 = load i32, ptr %67, align 16
-  %69 = icmp eq i32 %63, %68
-  br i1 %69, label %70, label %72
-
-70:                                               ; preds = %60
-  %71 = load i32, ptr %18, align 4
-  store i32 %71, ptr %15, align 4
-  br label %75
-
-72:                                               ; preds = %60
-  %73 = load i32, ptr %18, align 4
-  %74 = add i32 %73, 1
-  store i32 %74, ptr %18, align 4
-  br label %41, !llvm.loop !4
-
-75:                                               ; preds = %70, %58, %41
-  br label %76
-
-76:                                               ; preds = %75, %39
-  %77 = load i32, ptr %14, align 4
-  %78 = icmp slt i32 %77, 0
-  br i1 %78, label %79, label %86
-
-79:                                               ; preds = %76
-  %80 = load i32, ptr %15, align 4
-  %81 = icmp slt i32 %80, 0
-  br i1 %81, label %82, label %86
-
-82:                                               ; preds = %79
-  %83 = load i32, ptr %16, align 4
-  %84 = icmp slt i32 %83, 0
-  br i1 %84, label %85, label %86
-
-85:                                               ; preds = %82
   store i32 0, ptr %5, align 4
-  br label %346
+  store i32 1, ptr %18, align 4
+  br label %349
 
-86:                                               ; preds = %82, %79, %76
-  %87 = load ptr, ptr %7, align 8
-  %88 = getelementptr inbounds %struct._packet_info, ptr %87, i32 0, i32 1
-  %89 = load ptr, ptr %88, align 8
-  call void @col_set_str(ptr noundef %89, i32 noundef 34, ptr noundef @.str.41)
-  %90 = load ptr, ptr %7, align 8
-  %91 = getelementptr inbounds %struct._packet_info, ptr %90, i32 0, i32 1
-  %92 = load ptr, ptr %91, align 8
-  %93 = load ptr, ptr %7, align 8
-  %94 = getelementptr inbounds %struct._packet_info, ptr %93, i32 0, i32 50
-  %95 = load ptr, ptr %94, align 8
-  %96 = load ptr, ptr %6, align 8
-  %97 = call ptr @tvb_address_to_str(ptr noundef %95, ptr noundef %96, i32 noundef 1, i32 noundef 2)
-  %98 = load ptr, ptr %7, align 8
-  %99 = getelementptr inbounds %struct._packet_info, ptr %98, i32 0, i32 50
-  %100 = load ptr, ptr %99, align 8
-  %101 = load ptr, ptr %6, align 8
-  %102 = call ptr @tvb_address_to_str(ptr noundef %100, ptr noundef %101, i32 noundef 1, i32 noundef 8)
-  %103 = load i32, ptr %15, align 4
-  %104 = icmp sge i32 %103, 0
-  br i1 %104, label %109, label %105
+29:                                               ; preds = %4
+  %30 = load ptr, ptr %6, align 8
+  %31 = call zeroext i8 @tvb_get_uint8(ptr noundef %30, i32 noundef 1)
+  %32 = zext i8 %31 to i16
+  store i16 %32, ptr %17, align 2
+  %33 = load i16, ptr %17, align 2
+  %34 = zext i16 %33 to i32
+  %35 = icmp eq i32 %34, 4
+  br i1 %35, label %40, label %36
 
-105:                                              ; preds = %86
-  %106 = load i16, ptr %17, align 2
-  %107 = zext i16 %106 to i32
-  %108 = icmp eq i32 %107, 4
-  br label %109
+36:                                               ; preds = %29
+  %37 = load i16, ptr %17, align 2
+  %38 = zext i16 %37 to i32
+  %39 = icmp eq i32 %38, 5
+  br i1 %39, label %40, label %41
 
-109:                                              ; preds = %105, %86
-  %110 = phi i1 [ true, %86 ], [ %108, %105 ]
-  %111 = select i1 %110, ptr @.str.60, ptr @.str.61
-  %112 = load i16, ptr %17, align 2
-  %113 = zext i16 %112 to i32
-  %114 = call ptr @val_to_str(i32 noundef %113, ptr noundef @packettypenames, ptr noundef @.str.62)
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %92, i32 noundef 25, ptr noundef @.str.59, ptr noundef %97, ptr noundef %102, ptr noundef %111, ptr noundef %114)
-  %115 = load ptr, ptr %8, align 8
-  %116 = icmp ne ptr %115, null
-  br i1 %116, label %117, label %343
+40:                                               ; preds = %36, %29
+  store i32 1, ptr %14, align 4
+  br label %77
 
-117:                                              ; preds = %109
+41:                                               ; preds = %36
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #3
   store i32 0, ptr %19, align 4
-  %118 = load ptr, ptr %8, align 8
-  %119 = load i32, ptr @proto_mactelnet, align 4
-  %120 = load ptr, ptr %6, align 8
-  %121 = call ptr @proto_tree_add_item(ptr noundef %118, i32 noundef %119, ptr noundef %120, i32 noundef 0, i32 noundef -1, i32 noundef 0)
-  store ptr %121, ptr %10, align 8
-  %122 = load ptr, ptr %10, align 8
-  %123 = load i32, ptr @ett_mactelnet, align 4
-  %124 = call ptr @proto_item_add_subtree(ptr noundef %122, i32 noundef %123)
-  store ptr %124, ptr %11, align 8
-  %125 = load ptr, ptr %11, align 8
-  %126 = load i32, ptr @hf_mactelnet_protocolver, align 4
-  %127 = load ptr, ptr %6, align 8
-  %128 = load i32, ptr %19, align 4
-  %129 = call ptr @proto_tree_add_item(ptr noundef %125, i32 noundef %126, ptr noundef %127, i32 noundef %128, i32 noundef 1, i32 noundef 0)
-  %130 = load i32, ptr %19, align 4
-  %131 = add i32 %130, 1
-  store i32 %131, ptr %19, align 4
-  %132 = load ptr, ptr %11, align 8
-  %133 = load i32, ptr @hf_mactelnet_type, align 4
-  %134 = load ptr, ptr %6, align 8
-  %135 = load i32, ptr %19, align 4
-  %136 = call ptr @proto_tree_add_item(ptr noundef %132, i32 noundef %133, ptr noundef %134, i32 noundef %135, i32 noundef 1, i32 noundef 0)
-  %137 = load i32, ptr %19, align 4
-  %138 = add i32 %137, 1
-  store i32 %138, ptr %19, align 4
-  %139 = load ptr, ptr %11, align 8
-  %140 = load i32, ptr @hf_mactelnet_source_mac, align 4
-  %141 = load ptr, ptr %6, align 8
-  %142 = load i32, ptr %19, align 4
-  %143 = call ptr @proto_tree_add_item(ptr noundef %139, i32 noundef %140, ptr noundef %141, i32 noundef %142, i32 noundef 6, i32 noundef 0)
-  %144 = load i32, ptr %19, align 4
-  %145 = add i32 %144, 6
-  store i32 %145, ptr %19, align 4
-  %146 = load ptr, ptr %11, align 8
-  %147 = load i32, ptr @hf_mactelnet_destination_mac, align 4
-  %148 = load ptr, ptr %6, align 8
-  %149 = load i32, ptr %19, align 4
-  %150 = call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %147, ptr noundef %148, i32 noundef %149, i32 noundef 6, i32 noundef 0)
-  %151 = load i32, ptr %19, align 4
-  %152 = add i32 %151, 6
-  store i32 %152, ptr %19, align 4
-  %153 = load i32, ptr %16, align 4
-  %154 = icmp sge i32 %153, 0
-  br i1 %154, label %155, label %172
+  br label %42
 
-155:                                              ; preds = %117
-  %156 = load ptr, ptr %11, align 8
-  %157 = load i32, ptr @hf_mactelnet_session_id, align 4
-  %158 = load ptr, ptr %6, align 8
-  %159 = load i32, ptr %19, align 4
-  %160 = add i32 %159, 2
-  %161 = call ptr @proto_tree_add_item(ptr noundef %156, i32 noundef %157, ptr noundef %158, i32 noundef %160, i32 noundef 2, i32 noundef 0)
-  %162 = load i32, ptr %19, align 4
-  %163 = add i32 %162, 2
-  store i32 %163, ptr %19, align 4
-  %164 = load ptr, ptr %11, align 8
-  %165 = load i32, ptr @hf_mactelnet_client_type, align 4
-  %166 = load ptr, ptr %6, align 8
-  %167 = load i32, ptr %19, align 4
-  %168 = sub i32 %167, 2
-  %169 = call ptr @proto_tree_add_item(ptr noundef %164, i32 noundef %165, ptr noundef %166, i32 noundef %168, i32 noundef 2, i32 noundef 0)
-  %170 = load i32, ptr %19, align 4
-  %171 = add i32 %170, 2
-  store i32 %171, ptr %19, align 4
+42:                                               ; preds = %73, %41
+  %43 = load i32, ptr %19, align 4
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr [3 x %struct._value_string], ptr @clienttypenames, i64 0, i64 %44
+  %46 = getelementptr inbounds nuw %struct._value_string, ptr %45, i32 0, i32 1
+  %47 = load ptr, ptr %46, align 8
+  %48 = icmp ne ptr %47, null
+  br i1 %48, label %49, label %76
+
+49:                                               ; preds = %42
+  %50 = load ptr, ptr %6, align 8
+  %51 = call zeroext i16 @tvb_get_ntohs(ptr noundef %50, i32 noundef 14)
+  %52 = zext i16 %51 to i32
+  %53 = load i32, ptr %19, align 4
+  %54 = sext i32 %53 to i64
+  %55 = getelementptr [3 x %struct._value_string], ptr @clienttypenames, i64 0, i64 %54
+  %56 = getelementptr inbounds nuw %struct._value_string, ptr %55, i32 0, i32 0
+  %57 = load i32, ptr %56, align 16
+  %58 = icmp eq i32 %52, %57
+  br i1 %58, label %59, label %61
+
+59:                                               ; preds = %49
+  %60 = load i32, ptr %19, align 4
+  store i32 %60, ptr %16, align 4
+  br label %76
+
+61:                                               ; preds = %49
+  %62 = load ptr, ptr %6, align 8
+  %63 = call zeroext i16 @tvb_get_ntohs(ptr noundef %62, i32 noundef 16)
+  %64 = zext i16 %63 to i32
+  %65 = load i32, ptr %19, align 4
+  %66 = sext i32 %65 to i64
+  %67 = getelementptr [3 x %struct._value_string], ptr @clienttypenames, i64 0, i64 %66
+  %68 = getelementptr inbounds nuw %struct._value_string, ptr %67, i32 0, i32 0
+  %69 = load i32, ptr %68, align 16
+  %70 = icmp eq i32 %64, %69
+  br i1 %70, label %71, label %73
+
+71:                                               ; preds = %61
+  %72 = load i32, ptr %19, align 4
+  store i32 %72, ptr %15, align 4
+  br label %76
+
+73:                                               ; preds = %61
+  %74 = load i32, ptr %19, align 4
+  %75 = add i32 %74, 1
+  store i32 %75, ptr %19, align 4
+  br label %42, !llvm.loop !6
+
+76:                                               ; preds = %71, %59, %42
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #3
+  br label %77
+
+77:                                               ; preds = %76, %40
+  %78 = load i32, ptr %14, align 4
+  %79 = icmp slt i32 %78, 0
+  br i1 %79, label %80, label %87
+
+80:                                               ; preds = %77
+  %81 = load i32, ptr %15, align 4
+  %82 = icmp slt i32 %81, 0
+  br i1 %82, label %83, label %87
+
+83:                                               ; preds = %80
+  %84 = load i32, ptr %16, align 4
+  %85 = icmp slt i32 %84, 0
+  br i1 %85, label %86, label %87
+
+86:                                               ; preds = %83
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %18, align 4
+  br label %349
+
+87:                                               ; preds = %83, %80, %77
+  %88 = load ptr, ptr %7, align 8
+  %89 = getelementptr inbounds nuw %struct._packet_info, ptr %88, i32 0, i32 1
+  %90 = load ptr, ptr %89, align 8
+  call void @col_set_str(ptr noundef %90, i32 noundef 35, ptr noundef @.str.41)
+  %91 = load ptr, ptr %7, align 8
+  %92 = getelementptr inbounds nuw %struct._packet_info, ptr %91, i32 0, i32 1
+  %93 = load ptr, ptr %92, align 8
+  %94 = load ptr, ptr %7, align 8
+  %95 = getelementptr inbounds nuw %struct._packet_info, ptr %94, i32 0, i32 51
+  %96 = load ptr, ptr %95, align 8
+  %97 = load ptr, ptr %6, align 8
+  %98 = call ptr @tvb_address_to_str(ptr noundef %96, ptr noundef %97, i32 noundef 1, i32 noundef 2)
+  %99 = load ptr, ptr %7, align 8
+  %100 = getelementptr inbounds nuw %struct._packet_info, ptr %99, i32 0, i32 51
+  %101 = load ptr, ptr %100, align 8
+  %102 = load ptr, ptr %6, align 8
+  %103 = call ptr @tvb_address_to_str(ptr noundef %101, ptr noundef %102, i32 noundef 1, i32 noundef 8)
+  %104 = load i32, ptr %15, align 4
+  %105 = icmp sge i32 %104, 0
+  br i1 %105, label %110, label %106
+
+106:                                              ; preds = %87
+  %107 = load i16, ptr %17, align 2
+  %108 = zext i16 %107 to i32
+  %109 = icmp eq i32 %108, 4
+  br label %110
+
+110:                                              ; preds = %106, %87
+  %111 = phi i1 [ true, %87 ], [ %109, %106 ]
+  %112 = select i1 %111, ptr @.str.63, ptr @.str.64
+  %113 = load i16, ptr %17, align 2
+  %114 = zext i16 %113 to i32
+  %115 = call ptr @val_to_str(i32 noundef %114, ptr noundef @packettypenames, ptr noundef @.str.65)
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %93, i32 noundef 25, ptr noundef @.str.62, ptr noundef %98, ptr noundef %103, ptr noundef %112, ptr noundef %115)
+  %116 = load ptr, ptr %8, align 8
+  %117 = icmp ne ptr %116, null
+  br i1 %117, label %118, label %346
+
+118:                                              ; preds = %110
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #3
+  store i32 0, ptr %20, align 4
+  %119 = load ptr, ptr %8, align 8
+  %120 = load i32, ptr @proto_mactelnet, align 4
+  %121 = load ptr, ptr %6, align 8
+  %122 = call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %120, ptr noundef %121, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  store ptr %122, ptr %10, align 8
+  %123 = load ptr, ptr %10, align 8
+  %124 = load i32, ptr @ett_mactelnet, align 4
+  %125 = call ptr @proto_item_add_subtree(ptr noundef %123, i32 noundef %124)
+  store ptr %125, ptr %11, align 8
+  %126 = load ptr, ptr %11, align 8
+  %127 = load i32, ptr @hf_mactelnet_protocolver, align 4
+  %128 = load ptr, ptr %6, align 8
+  %129 = load i32, ptr %20, align 4
+  %130 = call ptr @proto_tree_add_item(ptr noundef %126, i32 noundef %127, ptr noundef %128, i32 noundef %129, i32 noundef 1, i32 noundef 0)
+  %131 = load i32, ptr %20, align 4
+  %132 = add i32 %131, 1
+  store i32 %132, ptr %20, align 4
+  %133 = load ptr, ptr %11, align 8
+  %134 = load i32, ptr @hf_mactelnet_type, align 4
+  %135 = load ptr, ptr %6, align 8
+  %136 = load i32, ptr %20, align 4
+  %137 = call ptr @proto_tree_add_item(ptr noundef %133, i32 noundef %134, ptr noundef %135, i32 noundef %136, i32 noundef 1, i32 noundef 0)
+  %138 = load i32, ptr %20, align 4
+  %139 = add i32 %138, 1
+  store i32 %139, ptr %20, align 4
+  %140 = load ptr, ptr %11, align 8
+  %141 = load i32, ptr @hf_mactelnet_source_mac, align 4
+  %142 = load ptr, ptr %6, align 8
+  %143 = load i32, ptr %20, align 4
+  %144 = call ptr @proto_tree_add_item(ptr noundef %140, i32 noundef %141, ptr noundef %142, i32 noundef %143, i32 noundef 6, i32 noundef 0)
+  %145 = load i32, ptr %20, align 4
+  %146 = add i32 %145, 6
+  store i32 %146, ptr %20, align 4
+  %147 = load ptr, ptr %11, align 8
+  %148 = load i32, ptr @hf_mactelnet_destination_mac, align 4
+  %149 = load ptr, ptr %6, align 8
+  %150 = load i32, ptr %20, align 4
+  %151 = call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %148, ptr noundef %149, i32 noundef %150, i32 noundef 6, i32 noundef 0)
+  %152 = load i32, ptr %20, align 4
+  %153 = add i32 %152, 6
+  store i32 %153, ptr %20, align 4
+  %154 = load i32, ptr %16, align 4
+  %155 = icmp sge i32 %154, 0
+  br i1 %155, label %156, label %173
+
+156:                                              ; preds = %118
+  %157 = load ptr, ptr %11, align 8
+  %158 = load i32, ptr @hf_mactelnet_session_id, align 4
+  %159 = load ptr, ptr %6, align 8
+  %160 = load i32, ptr %20, align 4
+  %161 = add i32 %160, 2
+  %162 = call ptr @proto_tree_add_item(ptr noundef %157, i32 noundef %158, ptr noundef %159, i32 noundef %161, i32 noundef 2, i32 noundef 0)
+  %163 = load i32, ptr %20, align 4
+  %164 = add i32 %163, 2
+  store i32 %164, ptr %20, align 4
+  %165 = load ptr, ptr %11, align 8
+  %166 = load i32, ptr @hf_mactelnet_client_type, align 4
+  %167 = load ptr, ptr %6, align 8
+  %168 = load i32, ptr %20, align 4
+  %169 = sub i32 %168, 2
+  %170 = call ptr @proto_tree_add_item(ptr noundef %165, i32 noundef %166, ptr noundef %167, i32 noundef %169, i32 noundef 2, i32 noundef 0)
+  %171 = load i32, ptr %20, align 4
+  %172 = add i32 %171, 2
+  store i32 %172, ptr %20, align 4
+  br label %199
+
+173:                                              ; preds = %118
+  %174 = load i32, ptr %15, align 4
+  %175 = icmp sge i32 %174, 0
+  br i1 %175, label %176, label %191
+
+176:                                              ; preds = %173
+  %177 = load ptr, ptr %11, align 8
+  %178 = load i32, ptr @hf_mactelnet_session_id, align 4
+  %179 = load ptr, ptr %6, align 8
+  %180 = load i32, ptr %20, align 4
+  %181 = call ptr @proto_tree_add_item(ptr noundef %177, i32 noundef %178, ptr noundef %179, i32 noundef %180, i32 noundef 2, i32 noundef 0)
+  %182 = load i32, ptr %20, align 4
+  %183 = add i32 %182, 2
+  store i32 %183, ptr %20, align 4
+  %184 = load ptr, ptr %11, align 8
+  %185 = load i32, ptr @hf_mactelnet_client_type, align 4
+  %186 = load ptr, ptr %6, align 8
+  %187 = load i32, ptr %20, align 4
+  %188 = call ptr @proto_tree_add_item(ptr noundef %184, i32 noundef %185, ptr noundef %186, i32 noundef %187, i32 noundef 2, i32 noundef 0)
+  %189 = load i32, ptr %20, align 4
+  %190 = add i32 %189, 2
+  store i32 %190, ptr %20, align 4
   br label %198
 
-172:                                              ; preds = %117
-  %173 = load i32, ptr %15, align 4
-  %174 = icmp sge i32 %173, 0
-  br i1 %174, label %175, label %190
+191:                                              ; preds = %173
+  %192 = load i32, ptr %14, align 4
+  %193 = icmp sge i32 %192, 0
+  br i1 %193, label %194, label %197
 
-175:                                              ; preds = %172
-  %176 = load ptr, ptr %11, align 8
-  %177 = load i32, ptr @hf_mactelnet_session_id, align 4
-  %178 = load ptr, ptr %6, align 8
-  %179 = load i32, ptr %19, align 4
-  %180 = call ptr @proto_tree_add_item(ptr noundef %176, i32 noundef %177, ptr noundef %178, i32 noundef %179, i32 noundef 2, i32 noundef 0)
-  %181 = load i32, ptr %19, align 4
-  %182 = add i32 %181, 2
-  store i32 %182, ptr %19, align 4
-  %183 = load ptr, ptr %11, align 8
-  %184 = load i32, ptr @hf_mactelnet_client_type, align 4
-  %185 = load ptr, ptr %6, align 8
-  %186 = load i32, ptr %19, align 4
-  %187 = call ptr @proto_tree_add_item(ptr noundef %183, i32 noundef %184, ptr noundef %185, i32 noundef %186, i32 noundef 2, i32 noundef 0)
-  %188 = load i32, ptr %19, align 4
-  %189 = add i32 %188, 2
-  store i32 %189, ptr %19, align 4
+194:                                              ; preds = %191
+  %195 = load i32, ptr %20, align 4
+  %196 = add i32 %195, 4
+  store i32 %196, ptr %20, align 4
   br label %197
 
-190:                                              ; preds = %172
-  %191 = load i32, ptr %14, align 4
-  %192 = icmp sge i32 %191, 0
-  br i1 %192, label %193, label %196
-
-193:                                              ; preds = %190
-  %194 = load i32, ptr %19, align 4
-  %195 = add i32 %194, 4
-  store i32 %195, ptr %19, align 4
-  br label %196
-
-196:                                              ; preds = %193, %190
-  br label %197
-
-197:                                              ; preds = %196, %175
+197:                                              ; preds = %194, %191
   br label %198
 
-198:                                              ; preds = %197, %155
-  %199 = load i32, ptr %14, align 4
-  %200 = icmp slt i32 %199, 0
-  br i1 %200, label %201, label %209
+198:                                              ; preds = %197, %176
+  br label %199
 
-201:                                              ; preds = %198
-  %202 = load ptr, ptr %11, align 8
-  %203 = load i32, ptr @hf_mactelnet_databytes, align 4
-  %204 = load ptr, ptr %6, align 8
-  %205 = load i32, ptr %19, align 4
-  %206 = call ptr @proto_tree_add_item(ptr noundef %202, i32 noundef %203, ptr noundef %204, i32 noundef %205, i32 noundef 4, i32 noundef 0)
-  %207 = load i32, ptr %19, align 4
-  %208 = add i32 %207, 4
-  store i32 %208, ptr %19, align 4
-  br label %209
+199:                                              ; preds = %198, %156
+  %200 = load i32, ptr %14, align 4
+  %201 = icmp slt i32 %200, 0
+  br i1 %201, label %202, label %210
 
-209:                                              ; preds = %201, %198
-  %210 = load i16, ptr %17, align 2
-  %211 = zext i16 %210 to i32
-  %212 = icmp eq i32 %211, 1
-  br i1 %212, label %213, label %325
+202:                                              ; preds = %199
+  %203 = load ptr, ptr %11, align 8
+  %204 = load i32, ptr @hf_mactelnet_databytes, align 4
+  %205 = load ptr, ptr %6, align 8
+  %206 = load i32, ptr %20, align 4
+  %207 = call ptr @proto_tree_add_item(ptr noundef %203, i32 noundef %204, ptr noundef %205, i32 noundef %206, i32 noundef 4, i32 noundef 0)
+  %208 = load i32, ptr %20, align 4
+  %209 = add i32 %208, 4
+  store i32 %209, ptr %20, align 4
+  br label %210
 
-213:                                              ; preds = %209
-  br label %214
+210:                                              ; preds = %202, %199
+  %211 = load i16, ptr %17, align 2
+  %212 = zext i16 %211 to i32
+  %213 = icmp eq i32 %212, 1
+  br i1 %213, label %214, label %325
 
-214:                                              ; preds = %323, %213
-  %215 = load ptr, ptr %6, align 8
-  %216 = load i32, ptr %19, align 4
-  %217 = call i32 @tvb_reported_length_remaining(ptr noundef %215, i32 noundef %216)
-  %218 = icmp sgt i32 %217, 0
-  br i1 %218, label %219, label %324
+214:                                              ; preds = %210
+  br label %215
 
-219:                                              ; preds = %214
-  %220 = load ptr, ptr %6, align 8
-  %221 = load i32, ptr %19, align 4
-  %222 = call i32 @tvb_reported_length_remaining(ptr noundef %220, i32 noundef %221)
-  %223 = icmp sgt i32 %222, 4
-  br i1 %223, label %224, label %315
+215:                                              ; preds = %323, %214
+  %216 = load ptr, ptr %6, align 8
+  %217 = load i32, ptr %20, align 4
+  %218 = call i32 @tvb_reported_length_remaining(ptr noundef %216, i32 noundef %217)
+  %219 = icmp sgt i32 %218, 0
+  br i1 %219, label %220, label %324
 
-224:                                              ; preds = %219
-  %225 = load ptr, ptr %6, align 8
-  %226 = load i32, ptr %19, align 4
-  %227 = call i32 @tvb_get_ntohl(ptr noundef %225, i32 noundef %226)
-  %228 = icmp eq i32 %227, 1446253311
-  br i1 %228, label %229, label %315
+220:                                              ; preds = %215
+  %221 = load ptr, ptr %6, align 8
+  %222 = load i32, ptr %20, align 4
+  %223 = call i32 @tvb_reported_length_remaining(ptr noundef %221, i32 noundef %222)
+  %224 = icmp sgt i32 %223, 4
+  br i1 %224, label %225, label %315
 
-229:                                              ; preds = %224
-  %230 = load ptr, ptr %11, align 8
-  %231 = load i32, ptr @hf_mactelnet_control, align 4
-  %232 = load ptr, ptr %6, align 8
-  %233 = load i32, ptr %19, align 4
-  %234 = call ptr @proto_tree_add_item(ptr noundef %230, i32 noundef %231, ptr noundef %232, i32 noundef %233, i32 noundef -1, i32 noundef 0)
-  store ptr %234, ptr %12, align 8
-  %235 = load ptr, ptr %12, align 8
-  %236 = load i32, ptr @ett_mactelnet, align 4
-  %237 = call ptr @proto_item_add_subtree(ptr noundef %235, i32 noundef %236)
-  store ptr %237, ptr %13, align 8
-  %238 = load ptr, ptr %13, align 8
-  %239 = load i32, ptr @hf_mactelnet_control_packet, align 4
-  %240 = load ptr, ptr %6, align 8
-  %241 = load i32, ptr %19, align 4
-  %242 = call ptr @proto_tree_add_item(ptr noundef %238, i32 noundef %239, ptr noundef %240, i32 noundef %241, i32 noundef 4, i32 noundef 0)
-  %243 = load i32, ptr %19, align 4
-  %244 = add i32 %243, 4
-  store i32 %244, ptr %19, align 4
-  %245 = load ptr, ptr %6, align 8
-  %246 = load i32, ptr %19, align 4
-  %247 = call zeroext i8 @tvb_get_guint8(ptr noundef %245, i32 noundef %246)
-  store i8 %247, ptr %20, align 1
-  %248 = load ptr, ptr %13, align 8
-  %249 = load i32, ptr @hf_mactelnet_datatype, align 4
-  %250 = load ptr, ptr %6, align 8
-  %251 = load i32, ptr %19, align 4
-  %252 = call ptr @proto_tree_add_item(ptr noundef %248, i32 noundef %249, ptr noundef %250, i32 noundef %251, i32 noundef 1, i32 noundef 0)
-  %253 = load i32, ptr %19, align 4
-  %254 = add i32 %253, 1
-  store i32 %254, ptr %19, align 4
-  %255 = load ptr, ptr %6, align 8
-  %256 = load i32, ptr %19, align 4
-  %257 = call i32 @tvb_get_ntohl(ptr noundef %255, i32 noundef %256)
-  store i32 %257, ptr %21, align 4
-  %258 = load ptr, ptr %13, align 8
-  %259 = load i32, ptr @hf_mactelnet_control_length, align 4
-  %260 = load ptr, ptr %6, align 8
-  %261 = load i32, ptr %19, align 4
-  %262 = call ptr @proto_tree_add_item(ptr noundef %258, i32 noundef %259, ptr noundef %260, i32 noundef %261, i32 noundef 4, i32 noundef 0)
-  %263 = load i32, ptr %19, align 4
-  %264 = add i32 %263, 4
-  store i32 %264, ptr %19, align 4
-  %265 = load i8, ptr %20, align 1
-  %266 = zext i8 %265 to i32
-  switch i32 %266, label %308 [
-    i32 1, label %267
-    i32 2, label %274
-    i32 3, label %281
-    i32 4, label %288
-    i32 5, label %295
-    i32 6, label %301
-    i32 9, label %307
+225:                                              ; preds = %220
+  %226 = load ptr, ptr %6, align 8
+  %227 = load i32, ptr %20, align 4
+  %228 = call i32 @tvb_get_ntohl(ptr noundef %226, i32 noundef %227)
+  %229 = icmp eq i32 %228, 1446253311
+  br i1 %229, label %230, label %315
+
+230:                                              ; preds = %225
+  call void @llvm.lifetime.start.p0(i64 1, ptr %21) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #3
+  %231 = load ptr, ptr %11, align 8
+  %232 = load i32, ptr @hf_mactelnet_control, align 4
+  %233 = load ptr, ptr %6, align 8
+  %234 = load i32, ptr %20, align 4
+  %235 = call ptr @proto_tree_add_item(ptr noundef %231, i32 noundef %232, ptr noundef %233, i32 noundef %234, i32 noundef -1, i32 noundef 0)
+  store ptr %235, ptr %12, align 8
+  %236 = load ptr, ptr %12, align 8
+  %237 = load i32, ptr @ett_mactelnet, align 4
+  %238 = call ptr @proto_item_add_subtree(ptr noundef %236, i32 noundef %237)
+  store ptr %238, ptr %13, align 8
+  %239 = load ptr, ptr %13, align 8
+  %240 = load i32, ptr @hf_mactelnet_control_packet, align 4
+  %241 = load ptr, ptr %6, align 8
+  %242 = load i32, ptr %20, align 4
+  %243 = call ptr @proto_tree_add_item(ptr noundef %239, i32 noundef %240, ptr noundef %241, i32 noundef %242, i32 noundef 4, i32 noundef 0)
+  %244 = load i32, ptr %20, align 4
+  %245 = add i32 %244, 4
+  store i32 %245, ptr %20, align 4
+  %246 = load ptr, ptr %6, align 8
+  %247 = load i32, ptr %20, align 4
+  %248 = call zeroext i8 @tvb_get_uint8(ptr noundef %246, i32 noundef %247)
+  store i8 %248, ptr %21, align 1
+  %249 = load ptr, ptr %13, align 8
+  %250 = load i32, ptr @hf_mactelnet_datatype, align 4
+  %251 = load ptr, ptr %6, align 8
+  %252 = load i32, ptr %20, align 4
+  %253 = call ptr @proto_tree_add_item(ptr noundef %249, i32 noundef %250, ptr noundef %251, i32 noundef %252, i32 noundef 1, i32 noundef 0)
+  %254 = load i32, ptr %20, align 4
+  %255 = add i32 %254, 1
+  store i32 %255, ptr %20, align 4
+  %256 = load ptr, ptr %6, align 8
+  %257 = load i32, ptr %20, align 4
+  %258 = call i32 @tvb_get_ntohl(ptr noundef %256, i32 noundef %257)
+  store i32 %258, ptr %22, align 4
+  %259 = load ptr, ptr %13, align 8
+  %260 = load i32, ptr @hf_mactelnet_control_length, align 4
+  %261 = load ptr, ptr %6, align 8
+  %262 = load i32, ptr %20, align 4
+  %263 = call ptr @proto_tree_add_item(ptr noundef %259, i32 noundef %260, ptr noundef %261, i32 noundef %262, i32 noundef 4, i32 noundef 0)
+  %264 = load i32, ptr %20, align 4
+  %265 = add i32 %264, 4
+  store i32 %265, ptr %20, align 4
+  %266 = load i8, ptr %21, align 1
+  %267 = zext i8 %266 to i32
+  switch i32 %267, label %308 [
+    i32 1, label %268
+    i32 2, label %275
+    i32 3, label %282
+    i32 4, label %289
+    i32 5, label %296
+    i32 6, label %302
+    i32 9, label %308
   ]
 
-267:                                              ; preds = %229
-  %268 = load ptr, ptr %13, align 8
-  %269 = load i32, ptr @hf_mactelnet_control_encryption_key, align 4
-  %270 = load ptr, ptr %6, align 8
-  %271 = load i32, ptr %19, align 4
-  %272 = load i32, ptr %21, align 4
-  %273 = call ptr @proto_tree_add_item(ptr noundef %268, i32 noundef %269, ptr noundef %270, i32 noundef %271, i32 noundef %272, i32 noundef 0)
+268:                                              ; preds = %230
+  %269 = load ptr, ptr %13, align 8
+  %270 = load i32, ptr @hf_mactelnet_control_encryption_key, align 4
+  %271 = load ptr, ptr %6, align 8
+  %272 = load i32, ptr %20, align 4
+  %273 = load i32, ptr %22, align 4
+  %274 = call ptr @proto_tree_add_item(ptr noundef %269, i32 noundef %270, ptr noundef %271, i32 noundef %272, i32 noundef %273, i32 noundef 0)
   br label %308
 
-274:                                              ; preds = %229
-  %275 = load ptr, ptr %13, align 8
-  %276 = load i32, ptr @hf_mactelnet_control_password, align 4
-  %277 = load ptr, ptr %6, align 8
-  %278 = load i32, ptr %19, align 4
-  %279 = load i32, ptr %21, align 4
-  %280 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %276, ptr noundef %277, i32 noundef %278, i32 noundef %279, i32 noundef 0)
+275:                                              ; preds = %230
+  %276 = load ptr, ptr %13, align 8
+  %277 = load i32, ptr @hf_mactelnet_control_password, align 4
+  %278 = load ptr, ptr %6, align 8
+  %279 = load i32, ptr %20, align 4
+  %280 = load i32, ptr %22, align 4
+  %281 = call ptr @proto_tree_add_item(ptr noundef %276, i32 noundef %277, ptr noundef %278, i32 noundef %279, i32 noundef %280, i32 noundef 0)
   br label %308
 
-281:                                              ; preds = %229
-  %282 = load ptr, ptr %13, align 8
-  %283 = load i32, ptr @hf_mactelnet_control_username, align 4
-  %284 = load ptr, ptr %6, align 8
-  %285 = load i32, ptr %19, align 4
-  %286 = load i32, ptr %21, align 4
-  %287 = call ptr @proto_tree_add_item(ptr noundef %282, i32 noundef %283, ptr noundef %284, i32 noundef %285, i32 noundef %286, i32 noundef 0)
+282:                                              ; preds = %230
+  %283 = load ptr, ptr %13, align 8
+  %284 = load i32, ptr @hf_mactelnet_control_username, align 4
+  %285 = load ptr, ptr %6, align 8
+  %286 = load i32, ptr %20, align 4
+  %287 = load i32, ptr %22, align 4
+  %288 = call ptr @proto_tree_add_item(ptr noundef %283, i32 noundef %284, ptr noundef %285, i32 noundef %286, i32 noundef %287, i32 noundef 0)
   br label %308
 
-288:                                              ; preds = %229
-  %289 = load ptr, ptr %13, align 8
-  %290 = load i32, ptr @hf_mactelnet_control_terminal, align 4
-  %291 = load ptr, ptr %6, align 8
-  %292 = load i32, ptr %19, align 4
-  %293 = load i32, ptr %21, align 4
-  %294 = call ptr @proto_tree_add_item(ptr noundef %289, i32 noundef %290, ptr noundef %291, i32 noundef %292, i32 noundef %293, i32 noundef 0)
+289:                                              ; preds = %230
+  %290 = load ptr, ptr %13, align 8
+  %291 = load i32, ptr @hf_mactelnet_control_terminal, align 4
+  %292 = load ptr, ptr %6, align 8
+  %293 = load i32, ptr %20, align 4
+  %294 = load i32, ptr %22, align 4
+  %295 = call ptr @proto_tree_add_item(ptr noundef %290, i32 noundef %291, ptr noundef %292, i32 noundef %293, i32 noundef %294, i32 noundef 0)
   br label %308
 
-295:                                              ; preds = %229
-  %296 = load ptr, ptr %13, align 8
-  %297 = load i32, ptr @hf_mactelnet_control_width, align 4
-  %298 = load ptr, ptr %6, align 8
-  %299 = load i32, ptr %19, align 4
-  %300 = call ptr @proto_tree_add_item(ptr noundef %296, i32 noundef %297, ptr noundef %298, i32 noundef %299, i32 noundef 2, i32 noundef -2147483648)
+296:                                              ; preds = %230
+  %297 = load ptr, ptr %13, align 8
+  %298 = load i32, ptr @hf_mactelnet_control_width, align 4
+  %299 = load ptr, ptr %6, align 8
+  %300 = load i32, ptr %20, align 4
+  %301 = call ptr @proto_tree_add_item(ptr noundef %297, i32 noundef %298, ptr noundef %299, i32 noundef %300, i32 noundef 2, i32 noundef -2147483648)
   br label %308
 
-301:                                              ; preds = %229
-  %302 = load ptr, ptr %13, align 8
-  %303 = load i32, ptr @hf_mactelnet_control_height, align 4
-  %304 = load ptr, ptr %6, align 8
-  %305 = load i32, ptr %19, align 4
-  %306 = call ptr @proto_tree_add_item(ptr noundef %302, i32 noundef %303, ptr noundef %304, i32 noundef %305, i32 noundef 2, i32 noundef -2147483648)
+302:                                              ; preds = %230
+  %303 = load ptr, ptr %13, align 8
+  %304 = load i32, ptr @hf_mactelnet_control_height, align 4
+  %305 = load ptr, ptr %6, align 8
+  %306 = load i32, ptr %20, align 4
+  %307 = call ptr @proto_tree_add_item(ptr noundef %303, i32 noundef %304, ptr noundef %305, i32 noundef %306, i32 noundef 2, i32 noundef -2147483648)
   br label %308
 
-307:                                              ; preds = %229
-  br label %308
-
-308:                                              ; preds = %307, %301, %295, %288, %281, %274, %267, %229
+308:                                              ; preds = %230, %230, %302, %296, %289, %282, %275, %268
   %309 = load ptr, ptr %12, align 8
-  %310 = load i32, ptr %21, align 4
+  %310 = load i32, ptr %22, align 4
   %311 = add i32 %310, 9
   call void @proto_item_set_len(ptr noundef %309, i32 noundef %311)
-  %312 = load i32, ptr %21, align 4
-  %313 = load i32, ptr %19, align 4
+  %312 = load i32, ptr %22, align 4
+  %313 = load i32, ptr %20, align 4
   %314 = add i32 %313, %312
-  store i32 %314, ptr %19, align 4
+  store i32 %314, ptr %20, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %21) #3
   br label %323
 
-315:                                              ; preds = %224, %219
+315:                                              ; preds = %225, %220
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #3
   %316 = load ptr, ptr %6, align 8
-  %317 = load i32, ptr %19, align 4
+  %317 = load i32, ptr %20, align 4
   %318 = call ptr @tvb_new_subset_remaining(ptr noundef %316, i32 noundef %317)
-  store ptr %318, ptr %22, align 8
-  %319 = load ptr, ptr %22, align 8
+  store ptr %318, ptr %23, align 8
+  %319 = load ptr, ptr %23, align 8
   %320 = load ptr, ptr %7, align 8
   %321 = load ptr, ptr %11, align 8
   %322 = call i32 @call_data_dissector(ptr noundef %319, ptr noundef %320, ptr noundef %321)
   store i32 %322, ptr %5, align 4
-  br label %346
+  store i32 1, ptr %18, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #3
+  br label %343
 
 323:                                              ; preds = %308
-  br label %214, !llvm.loop !6
+  br label %215, !llvm.loop !8
 
-324:                                              ; preds = %214
+324:                                              ; preds = %215
   br label %342
 
-325:                                              ; preds = %209
+325:                                              ; preds = %210
   %326 = load i16, ptr %17, align 2
   %327 = zext i16 %326 to i32
   %328 = icmp eq i32 %327, 4
@@ -592,88 +612,140 @@ define internal i32 @dissect_mactelnet(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %332, label %333, label %341
 
 333:                                              ; preds = %329, %325
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #3
   %334 = load ptr, ptr %6, align 8
-  %335 = load i32, ptr %19, align 4
+  %335 = load i32, ptr %20, align 4
   %336 = call ptr @tvb_new_subset_remaining(ptr noundef %334, i32 noundef %335)
-  store ptr %336, ptr %23, align 8
-  %337 = load ptr, ptr %23, align 8
+  store ptr %336, ptr %24, align 8
+  %337 = load ptr, ptr %24, align 8
   %338 = load ptr, ptr %7, align 8
   %339 = load ptr, ptr %11, align 8
   %340 = call i32 @call_data_dissector(ptr noundef %337, ptr noundef %338, ptr noundef %339)
   store i32 %340, ptr %5, align 4
-  br label %346
+  store i32 1, ptr %18, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #3
+  br label %343
 
 341:                                              ; preds = %329
   br label %342
 
 342:                                              ; preds = %341, %324
+  store i32 0, ptr %18, align 4
   br label %343
 
-343:                                              ; preds = %342, %109
-  %344 = load ptr, ptr %6, align 8
-  %345 = call i32 @tvb_reported_length(ptr noundef %344)
-  store i32 %345, ptr %5, align 4
+343:                                              ; preds = %342, %333, %315
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #3
+  %344 = load i32, ptr %18, align 4
+  switch i32 %344, label %349 [
+    i32 0, label %345
+  ]
+
+345:                                              ; preds = %343
   br label %346
 
-346:                                              ; preds = %343, %333, %315, %85, %27
-  %347 = load i32, ptr %5, align 4
-  ret i32 %347
+346:                                              ; preds = %345, %110
+  %347 = load ptr, ptr %6, align 8
+  %348 = call i32 @tvb_reported_length(ptr noundef %347)
+  store i32 %348, ptr %5, align 4
+  store i32 1, ptr %18, align 4
+  br label %349
+
+349:                                              ; preds = %346, %343, %86, %28
+  call void @llvm.lifetime.end.p0(i64 2, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  %350 = load i32, ptr %5, align 4
+  ret i32 %350
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_mactelnet() #0 {
   %1 = call ptr @find_dissector(ptr noundef @.str.42)
   call void @dissector_add_uint_with_preference(ptr noundef @.str.43, i32 noundef 20561, ptr noundef %1)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @find_dissector(ptr noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) #1
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_address_to_str(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_item_set_len(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length(ptr noundef) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}

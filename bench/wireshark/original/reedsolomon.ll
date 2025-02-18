@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @Gg = internal global [49 x i32] zeroinitializer, align 16
 @Alpha_to = internal global [256 x i32] zeroinitializer, align 16
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @encode_rs(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -17,6 +17,9 @@ define hidden i32 @encode_rs(ptr noundef %0, ptr noundef %1) #0 {
   %8 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
   %9 = load i32, ptr @RS_init, align 4
   %10 = icmp ne i32 %9, 0
   br i1 %10, label %12, label %11
@@ -26,6 +29,7 @@ define hidden i32 @encode_rs(ptr noundef %0, ptr noundef %1) #0 {
   br label %12
 
 12:                                               ; preds = %11, %2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #3
   store i32 47, ptr %8, align 4
   br label %13
 
@@ -46,9 +50,10 @@ define hidden i32 @encode_rs(ptr noundef %0, ptr noundef %1) #0 {
   %22 = load i32, ptr %8, align 4
   %23 = add i32 %22, -1
   store i32 %23, ptr %8, align 4
-  br label %13, !llvm.loop !4
+  br label %13, !llvm.loop !6
 
 24:                                               ; preds = %13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #3
   store i32 206, ptr %5, align 4
   br label %25
 
@@ -152,7 +157,7 @@ define hidden i32 @encode_rs(ptr noundef %0, ptr noundef %1) #0 {
   %102 = load i32, ptr %6, align 4
   %103 = add i32 %102, -1
   store i32 %103, ptr %6, align 4
-  br label %48, !llvm.loop !6
+  br label %48, !llvm.loop !8
 
 104:                                              ; preds = %48
   %105 = load i32, ptr @Gg, align 16
@@ -199,7 +204,7 @@ define hidden i32 @encode_rs(ptr noundef %0, ptr noundef %1) #0 {
   %135 = load i32, ptr %6, align 4
   %136 = add i32 %135, -1
   store i32 %136, ptr %6, align 4
-  br label %116, !llvm.loop !7
+  br label %116, !llvm.loop !9
 
 137:                                              ; preds = %116
   %138 = load ptr, ptr %4, align 8
@@ -214,13 +219,19 @@ define hidden i32 @encode_rs(ptr noundef %0, ptr noundef %1) #0 {
   %142 = load i32, ptr %5, align 4
   %143 = add i32 %142, -1
   store i32 %143, ptr %5, align 4
-  br label %25, !llvm.loop !8
+  br label %25, !llvm.loop !10
 
 144:                                              ; preds = %25
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #3
   ret i32 0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @init_rs() #0 {
   call void @generate_gf()
   call void @gen_poly()
@@ -228,8 +239,11 @@ define internal void @init_rs() #0 {
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @modnn(i32 noundef %0) #0 {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @modnn(i32 noundef %0) #2 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
   br label %3
@@ -249,14 +263,14 @@ define internal i32 @modnn(i32 noundef %0) #0 {
   %12 = and i32 %11, 255
   %13 = add i32 %10, %12
   store i32 %13, ptr %2, align 4
-  br label %3, !llvm.loop !9
+  br label %3, !llvm.loop !11
 
 14:                                               ; preds = %3
   %15 = load i32, ptr %2, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @eras_dec_rs(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -293,6 +307,30 @@ define hidden i32 @eras_dec_rs(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #3
+  call void @llvm.lifetime.start.p0(i64 196, ptr %21) #3
+  call void @llvm.lifetime.start.p0(i64 196, ptr %22) #3
+  call void @llvm.lifetime.start.p0(i64 196, ptr %23) #3
+  call void @llvm.lifetime.start.p0(i64 196, ptr %24) #3
+  call void @llvm.lifetime.start.p0(i64 196, ptr %25) #3
+  call void @llvm.lifetime.start.p0(i64 192, ptr %26) #3
+  call void @llvm.lifetime.start.p0(i64 196, ptr %27) #3
+  call void @llvm.lifetime.start.p0(i64 192, ptr %28) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %29) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %30) #3
   %36 = load i32, ptr @RS_init, align 4
   %37 = icmp ne i32 %36, 0
   br i1 %37, label %39, label %38
@@ -325,7 +363,7 @@ define hidden i32 @eras_dec_rs(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   %52 = load i32, ptr %10, align 4
   %53 = add i32 %52, 1
   store i32 %53, ptr %10, align 4
-  br label %40, !llvm.loop !10
+  br label %40, !llvm.loop !12
 
 54:                                               ; preds = %40
   store i32 1, ptr %11, align 4
@@ -394,7 +432,7 @@ define hidden i32 @eras_dec_rs(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   %100 = load i32, ptr %10, align 4
   %101 = add i32 %100, 1
   store i32 %101, ptr %10, align 4
-  br label %78, !llvm.loop !11
+  br label %78, !llvm.loop !13
 
 102:                                              ; preds = %78
   br label %103
@@ -403,7 +441,7 @@ define hidden i32 @eras_dec_rs(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   %104 = load i32, ptr %11, align 4
   %105 = add i32 %104, 1
   store i32 %105, ptr %11, align 4
-  br label %55, !llvm.loop !12
+  br label %55, !llvm.loop !14
 
 106:                                              ; preds = %55
   store i32 0, ptr %29, align 4
@@ -440,7 +478,7 @@ define hidden i32 @eras_dec_rs(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   %128 = load i32, ptr %10, align 4
   %129 = add i32 %128, 1
   store i32 %129, ptr %10, align 4
-  br label %107, !llvm.loop !13
+  br label %107, !llvm.loop !15
 
 130:                                              ; preds = %107
   %131 = load i32, ptr %29, align 4
@@ -452,6 +490,7 @@ define hidden i32 @eras_dec_rs(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   br label %754
 
 134:                                              ; preds = %130
+  call void @llvm.lifetime.start.p0(i64 4, ptr %31) #3
   store i32 47, ptr %31, align 4
   br label %135
 
@@ -472,9 +511,10 @@ define hidden i32 @eras_dec_rs(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   %144 = load i32, ptr %31, align 4
   %145 = add i32 %144, -1
   store i32 %145, ptr %31, align 4
-  br label %135, !llvm.loop !14
+  br label %135, !llvm.loop !16
 
 146:                                              ; preds = %135
+  call void @llvm.lifetime.end.p0(i64 4, ptr %31) #3
   %147 = getelementptr [49 x i32], ptr %21, i64 0, i64 0
   store i32 1, ptr %147, align 16
   %148 = load i32, ptr %6, align 4
@@ -559,7 +599,7 @@ define hidden i32 @eras_dec_rs(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   %205 = load i32, ptr %11, align 4
   %206 = add i32 %205, -1
   store i32 %206, ptr %11, align 4
-  br label %176, !llvm.loop !15
+  br label %176, !llvm.loop !17
 
 207:                                              ; preds = %176
   br label %208
@@ -568,7 +608,7 @@ define hidden i32 @eras_dec_rs(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   %209 = load i32, ptr %10, align 4
   %210 = add i32 %209, 1
   store i32 %210, ptr %10, align 4
-  br label %161, !llvm.loop !16
+  br label %161, !llvm.loop !18
 
 211:                                              ; preds = %161
   br label %212
@@ -600,7 +640,7 @@ define hidden i32 @eras_dec_rs(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   %228 = load i32, ptr %10, align 4
   %229 = add i32 %228, 1
   store i32 %229, ptr %10, align 4
-  br label %213, !llvm.loop !17
+  br label %213, !llvm.loop !19
 
 230:                                              ; preds = %213
   %231 = load i32, ptr %6, align 4
@@ -676,7 +716,7 @@ define hidden i32 @eras_dec_rs(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   %279 = load i32, ptr %10, align 4
   %280 = add i32 %279, 1
   store i32 %280, ptr %10, align 4
-  br label %238, !llvm.loop !18
+  br label %238, !llvm.loop !20
 
 281:                                              ; preds = %238
   %282 = load i32, ptr %20, align 4
@@ -689,6 +729,7 @@ define hidden i32 @eras_dec_rs(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   br i1 %287, label %288, label %306
 
 288:                                              ; preds = %281
+  call void @llvm.lifetime.start.p0(i64 4, ptr %32) #3
   store i32 47, ptr %32, align 4
   br label %289
 
@@ -713,9 +754,10 @@ define hidden i32 @eras_dec_rs(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   %302 = load i32, ptr %32, align 4
   %303 = add i32 %302, -1
   store i32 %303, ptr %32, align 4
-  br label %289, !llvm.loop !19
+  br label %289, !llvm.loop !21
 
 304:                                              ; preds = %289
+  call void @llvm.lifetime.end.p0(i64 4, ptr %32) #3
   %305 = getelementptr [49 x i32], ptr %23, i64 0, i64 0
   store i32 255, ptr %305, align 16
   br label %433
@@ -785,7 +827,7 @@ define hidden i32 @eras_dec_rs(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   %352 = load i32, ptr %10, align 4
   %353 = add i32 %352, 1
   store i32 %353, ptr %10, align 4
-  br label %310, !llvm.loop !20
+  br label %310, !llvm.loop !22
 
 354:                                              ; preds = %310
   %355 = load i32, ptr %8, align 4
@@ -849,12 +891,13 @@ define hidden i32 @eras_dec_rs(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   %396 = load i32, ptr %10, align 4
   %397 = add i32 %396, 1
   store i32 %397, ptr %10, align 4
-  br label %368, !llvm.loop !21
+  br label %368, !llvm.loop !23
 
 398:                                              ; preds = %368
   br label %417
 
 399:                                              ; preds = %354
+  call void @llvm.lifetime.start.p0(i64 4, ptr %33) #3
   store i32 47, ptr %33, align 4
   br label %400
 
@@ -879,14 +922,16 @@ define hidden i32 @eras_dec_rs(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   %413 = load i32, ptr %33, align 4
   %414 = add i32 %413, -1
   store i32 %414, ptr %33, align 4
-  br label %400, !llvm.loop !22
+  br label %400, !llvm.loop !24
 
 415:                                              ; preds = %400
+  call void @llvm.lifetime.end.p0(i64 4, ptr %33) #3
   %416 = getelementptr [49 x i32], ptr %23, i64 0, i64 0
   store i32 255, ptr %416, align 16
   br label %417
 
 417:                                              ; preds = %415, %398
+  call void @llvm.lifetime.start.p0(i64 4, ptr %34) #3
   store i32 48, ptr %34, align 4
   br label %418
 
@@ -910,13 +955,14 @@ define hidden i32 @eras_dec_rs(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   %430 = load i32, ptr %34, align 4
   %431 = add i32 %430, -1
   store i32 %431, ptr %34, align 4
-  br label %418, !llvm.loop !23
+  br label %418, !llvm.loop !25
 
 432:                                              ; preds = %418
+  call void @llvm.lifetime.end.p0(i64 4, ptr %34) #3
   br label %433
 
 433:                                              ; preds = %432, %304
-  br label %233, !llvm.loop !24
+  br label %233, !llvm.loop !26
 
 434:                                              ; preds = %233
   store i32 0, ptr %7, align 4
@@ -959,9 +1005,10 @@ define hidden i32 @eras_dec_rs(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   %458 = load i32, ptr %10, align 4
   %459 = add i32 %458, 1
   store i32 %459, ptr %10, align 4
-  br label %435, !llvm.loop !25
+  br label %435, !llvm.loop !27
 
 460:                                              ; preds = %435
+  call void @llvm.lifetime.start.p0(i64 4, ptr %35) #3
   store i32 47, ptr %35, align 4
   br label %461
 
@@ -987,9 +1034,10 @@ define hidden i32 @eras_dec_rs(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   %475 = load i32, ptr %35, align 4
   %476 = add i32 %475, -1
   store i32 %476, ptr %35, align 4
-  br label %461, !llvm.loop !26
+  br label %461, !llvm.loop !28
 
 477:                                              ; preds = %461
+  call void @llvm.lifetime.end.p0(i64 4, ptr %35) #3
   store i32 0, ptr %30, align 4
   store i32 1, ptr %10, align 4
   store i32 254, ptr %13, align 4
@@ -1050,7 +1098,7 @@ define hidden i32 @eras_dec_rs(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   %514 = load i32, ptr %11, align 4
   %515 = add i32 %514, -1
   store i32 %515, ptr %11, align 4
-  br label %483, !llvm.loop !27
+  br label %483, !llvm.loop !29
 
 516:                                              ; preds = %483
   %517 = load i32, ptr %15, align 4
@@ -1093,7 +1141,7 @@ define hidden i32 @eras_dec_rs(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   %540 = sub i32 %539, 1
   %541 = call i32 @modnn(i32 noundef %540)
   store i32 %541, ptr %13, align 4
-  br label %478, !llvm.loop !28
+  br label %478, !llvm.loop !30
 
 542:                                              ; preds = %533, %478
   %543 = load i32, ptr %7, align 4
@@ -1188,7 +1236,7 @@ define hidden i32 @eras_dec_rs(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   %600 = load i32, ptr %11, align 4
   %601 = add i32 %600, -1
   store i32 %601, ptr %11, align 4
-  br label %561, !llvm.loop !29
+  br label %561, !llvm.loop !31
 
 602:                                              ; preds = %561
   %603 = load i32, ptr %16, align 4
@@ -1215,7 +1263,7 @@ define hidden i32 @eras_dec_rs(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   %616 = load i32, ptr %10, align 4
   %617 = add i32 %616, 1
   store i32 %617, ptr %10, align 4
-  br label %548, !llvm.loop !30
+  br label %548, !llvm.loop !32
 
 618:                                              ; preds = %548
   %619 = getelementptr [49 x i32], ptr %25, i64 0, i64 48
@@ -1277,7 +1325,7 @@ define hidden i32 @eras_dec_rs(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   %656 = load i32, ptr %10, align 4
   %657 = add i32 %656, -1
   store i32 %657, ptr %10, align 4
-  br label %627, !llvm.loop !31
+  br label %627, !llvm.loop !33
 
 658:                                              ; preds = %627
   %659 = load i32, ptr %11, align 4
@@ -1352,7 +1400,7 @@ define hidden i32 @eras_dec_rs(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   %708 = load i32, ptr %10, align 4
   %709 = sub i32 %708, 2
   store i32 %709, ptr %10, align 4
-  br label %677, !llvm.loop !32
+  br label %677, !llvm.loop !34
 
 710:                                              ; preds = %677
   %711 = load i32, ptr %19, align 4
@@ -1410,7 +1458,7 @@ define hidden i32 @eras_dec_rs(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   %751 = load i32, ptr %11, align 4
   %752 = add i32 %751, -1
   store i32 %752, ptr %11, align 4
-  br label %622, !llvm.loop !33
+  br label %622, !llvm.loop !35
 
 753:                                              ; preds = %622
   br label %754
@@ -1455,159 +1503,183 @@ define hidden i32 @eras_dec_rs(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   %777 = load i32, ptr %10, align 4
   %778 = add i32 %777, 1
   store i32 %778, ptr %10, align 4
-  br label %758, !llvm.loop !34
+  br label %758, !llvm.loop !36
 
 779:                                              ; preds = %758
   br label %780
 
 780:                                              ; preds = %779, %754
   %781 = load i32, ptr %30, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %30) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %29) #3
+  call void @llvm.lifetime.end.p0(i64 192, ptr %28) #3
+  call void @llvm.lifetime.end.p0(i64 196, ptr %27) #3
+  call void @llvm.lifetime.end.p0(i64 192, ptr %26) #3
+  call void @llvm.lifetime.end.p0(i64 196, ptr %25) #3
+  call void @llvm.lifetime.end.p0(i64 196, ptr %24) #3
+  call void @llvm.lifetime.end.p0(i64 196, ptr %23) #3
+  call void @llvm.lifetime.end.p0(i64 196, ptr %22) #3
+  call void @llvm.lifetime.end.p0(i64 196, ptr %21) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
   ret i32 %781
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @generate_gf() #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal void @generate_gf() #2 {
   %1 = alloca i32, align 4
   %2 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %1) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %2) #3
   store i32 1, ptr %2, align 4
-  %3 = getelementptr inbounds [256 x i32], ptr @Alpha_to, i64 0, i64 8
-  store i32 0, ptr %3, align 16
+  store i32 0, ptr getelementptr ([256 x i32], ptr @Alpha_to, i64 0, i64 8), align 16
   store i32 0, ptr %1, align 4
-  br label %4
+  br label %3
 
-4:                                                ; preds = %33, %0
-  %5 = load i32, ptr %1, align 4
-  %6 = icmp slt i32 %5, 8
-  br i1 %6, label %7, label %36
+3:                                                ; preds = %30, %0
+  %4 = load i32, ptr %1, align 4
+  %5 = icmp slt i32 %4, 8
+  br i1 %5, label %6, label %33
 
-7:                                                ; preds = %4
-  %8 = load i32, ptr %2, align 4
-  %9 = load i32, ptr %1, align 4
-  %10 = sext i32 %9 to i64
-  %11 = getelementptr [256 x i32], ptr @Alpha_to, i64 0, i64 %10
-  store i32 %8, ptr %11, align 4
+6:                                                ; preds = %3
+  %7 = load i32, ptr %2, align 4
+  %8 = load i32, ptr %1, align 4
+  %9 = sext i32 %8 to i64
+  %10 = getelementptr [256 x i32], ptr @Alpha_to, i64 0, i64 %9
+  store i32 %7, ptr %10, align 4
+  %11 = load i32, ptr %1, align 4
   %12 = load i32, ptr %1, align 4
-  %13 = load i32, ptr %1, align 4
-  %14 = sext i32 %13 to i64
-  %15 = getelementptr [256 x i32], ptr @Alpha_to, i64 0, i64 %14
-  %16 = load i32, ptr %15, align 4
-  %17 = sext i32 %16 to i64
-  %18 = getelementptr [256 x i32], ptr @Index_of, i64 0, i64 %17
-  store i32 %12, ptr %18, align 4
-  %19 = load i32, ptr %1, align 4
-  %20 = sext i32 %19 to i64
-  %21 = getelementptr [9 x i32], ptr @Pp, i64 0, i64 %20
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp ne i32 %22, 0
-  br i1 %23, label %24, label %30
+  %13 = sext i32 %12 to i64
+  %14 = getelementptr [256 x i32], ptr @Alpha_to, i64 0, i64 %13
+  %15 = load i32, ptr %14, align 4
+  %16 = sext i32 %15 to i64
+  %17 = getelementptr [256 x i32], ptr @Index_of, i64 0, i64 %16
+  store i32 %11, ptr %17, align 4
+  %18 = load i32, ptr %1, align 4
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr [9 x i32], ptr @Pp, i64 0, i64 %19
+  %21 = load i32, ptr %20, align 4
+  %22 = icmp ne i32 %21, 0
+  br i1 %22, label %23, label %27
 
-24:                                               ; preds = %7
-  %25 = load i32, ptr %2, align 4
-  %26 = getelementptr inbounds [256 x i32], ptr @Alpha_to, i64 0, i64 8
-  %27 = load i32, ptr %26, align 16
-  %28 = xor i32 %27, %25
-  %29 = getelementptr inbounds [256 x i32], ptr @Alpha_to, i64 0, i64 8
-  store i32 %28, ptr %29, align 16
+23:                                               ; preds = %6
+  %24 = load i32, ptr %2, align 4
+  %25 = load i32, ptr getelementptr ([256 x i32], ptr @Alpha_to, i64 0, i64 8), align 16
+  %26 = xor i32 %25, %24
+  store i32 %26, ptr getelementptr ([256 x i32], ptr @Alpha_to, i64 0, i64 8), align 16
+  br label %27
+
+27:                                               ; preds = %23, %6
+  %28 = load i32, ptr %2, align 4
+  %29 = shl i32 %28, 1
+  store i32 %29, ptr %2, align 4
   br label %30
 
-30:                                               ; preds = %24, %7
-  %31 = load i32, ptr %2, align 4
-  %32 = shl i32 %31, 1
-  store i32 %32, ptr %2, align 4
-  br label %33
+30:                                               ; preds = %27
+  %31 = load i32, ptr %1, align 4
+  %32 = add i32 %31, 1
+  store i32 %32, ptr %1, align 4
+  br label %3, !llvm.loop !37
 
-33:                                               ; preds = %30
-  %34 = load i32, ptr %1, align 4
-  %35 = add i32 %34, 1
-  store i32 %35, ptr %1, align 4
-  br label %4, !llvm.loop !35
-
-36:                                               ; preds = %4
-  %37 = getelementptr inbounds [256 x i32], ptr @Alpha_to, i64 0, i64 8
-  %38 = load i32, ptr %37, align 16
-  %39 = sext i32 %38 to i64
-  %40 = getelementptr [256 x i32], ptr @Index_of, i64 0, i64 %39
-  store i32 8, ptr %40, align 4
-  %41 = load i32, ptr %2, align 4
-  %42 = ashr i32 %41, 1
-  store i32 %42, ptr %2, align 4
+33:                                               ; preds = %3
+  %34 = load i32, ptr getelementptr ([256 x i32], ptr @Alpha_to, i64 0, i64 8), align 16
+  %35 = sext i32 %34 to i64
+  %36 = getelementptr [256 x i32], ptr @Index_of, i64 0, i64 %35
+  store i32 8, ptr %36, align 4
+  %37 = load i32, ptr %2, align 4
+  %38 = ashr i32 %37, 1
+  store i32 %38, ptr %2, align 4
   store i32 9, ptr %1, align 4
-  br label %43
+  br label %39
 
-43:                                               ; preds = %87, %36
-  %44 = load i32, ptr %1, align 4
-  %45 = icmp slt i32 %44, 255
-  br i1 %45, label %46, label %90
+39:                                               ; preds = %82, %33
+  %40 = load i32, ptr %1, align 4
+  %41 = icmp slt i32 %40, 255
+  br i1 %41, label %42, label %85
 
-46:                                               ; preds = %43
-  %47 = load i32, ptr %1, align 4
-  %48 = sub i32 %47, 1
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr [256 x i32], ptr @Alpha_to, i64 0, i64 %49
-  %51 = load i32, ptr %50, align 4
-  %52 = load i32, ptr %2, align 4
-  %53 = icmp sge i32 %51, %52
-  br i1 %53, label %54, label %69
+42:                                               ; preds = %39
+  %43 = load i32, ptr %1, align 4
+  %44 = sub i32 %43, 1
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr [256 x i32], ptr @Alpha_to, i64 0, i64 %45
+  %47 = load i32, ptr %46, align 4
+  %48 = load i32, ptr %2, align 4
+  %49 = icmp sge i32 %47, %48
+  br i1 %49, label %50, label %64
 
-54:                                               ; preds = %46
-  %55 = getelementptr inbounds [256 x i32], ptr @Alpha_to, i64 0, i64 8
-  %56 = load i32, ptr %55, align 16
-  %57 = load i32, ptr %1, align 4
-  %58 = sub i32 %57, 1
-  %59 = sext i32 %58 to i64
-  %60 = getelementptr [256 x i32], ptr @Alpha_to, i64 0, i64 %59
-  %61 = load i32, ptr %60, align 4
-  %62 = load i32, ptr %2, align 4
-  %63 = xor i32 %61, %62
-  %64 = shl i32 %63, 1
-  %65 = xor i32 %56, %64
-  %66 = load i32, ptr %1, align 4
+50:                                               ; preds = %42
+  %51 = load i32, ptr getelementptr ([256 x i32], ptr @Alpha_to, i64 0, i64 8), align 16
+  %52 = load i32, ptr %1, align 4
+  %53 = sub i32 %52, 1
+  %54 = sext i32 %53 to i64
+  %55 = getelementptr [256 x i32], ptr @Alpha_to, i64 0, i64 %54
+  %56 = load i32, ptr %55, align 4
+  %57 = load i32, ptr %2, align 4
+  %58 = xor i32 %56, %57
+  %59 = shl i32 %58, 1
+  %60 = xor i32 %51, %59
+  %61 = load i32, ptr %1, align 4
+  %62 = sext i32 %61 to i64
+  %63 = getelementptr [256 x i32], ptr @Alpha_to, i64 0, i64 %62
+  store i32 %60, ptr %63, align 4
+  br label %74
+
+64:                                               ; preds = %42
+  %65 = load i32, ptr %1, align 4
+  %66 = sub i32 %65, 1
   %67 = sext i32 %66 to i64
   %68 = getelementptr [256 x i32], ptr @Alpha_to, i64 0, i64 %67
-  store i32 %65, ptr %68, align 4
-  br label %79
-
-69:                                               ; preds = %46
-  %70 = load i32, ptr %1, align 4
-  %71 = sub i32 %70, 1
+  %69 = load i32, ptr %68, align 4
+  %70 = shl i32 %69, 1
+  %71 = load i32, ptr %1, align 4
   %72 = sext i32 %71 to i64
   %73 = getelementptr [256 x i32], ptr @Alpha_to, i64 0, i64 %72
-  %74 = load i32, ptr %73, align 4
-  %75 = shl i32 %74, 1
+  store i32 %70, ptr %73, align 4
+  br label %74
+
+74:                                               ; preds = %64, %50
+  %75 = load i32, ptr %1, align 4
   %76 = load i32, ptr %1, align 4
   %77 = sext i32 %76 to i64
   %78 = getelementptr [256 x i32], ptr @Alpha_to, i64 0, i64 %77
-  store i32 %75, ptr %78, align 4
-  br label %79
+  %79 = load i32, ptr %78, align 4
+  %80 = sext i32 %79 to i64
+  %81 = getelementptr [256 x i32], ptr @Index_of, i64 0, i64 %80
+  store i32 %75, ptr %81, align 4
+  br label %82
 
-79:                                               ; preds = %69, %54
-  %80 = load i32, ptr %1, align 4
-  %81 = load i32, ptr %1, align 4
-  %82 = sext i32 %81 to i64
-  %83 = getelementptr [256 x i32], ptr @Alpha_to, i64 0, i64 %82
-  %84 = load i32, ptr %83, align 4
-  %85 = sext i32 %84 to i64
-  %86 = getelementptr [256 x i32], ptr @Index_of, i64 0, i64 %85
-  store i32 %80, ptr %86, align 4
-  br label %87
+82:                                               ; preds = %74
+  %83 = load i32, ptr %1, align 4
+  %84 = add i32 %83, 1
+  store i32 %84, ptr %1, align 4
+  br label %39, !llvm.loop !38
 
-87:                                               ; preds = %79
-  %88 = load i32, ptr %1, align 4
-  %89 = add i32 %88, 1
-  store i32 %89, ptr %1, align 4
-  br label %43, !llvm.loop !36
-
-90:                                               ; preds = %43
+85:                                               ; preds = %39
   store i32 255, ptr @Index_of, align 16
-  %91 = getelementptr inbounds [256 x i32], ptr @Alpha_to, i64 0, i64 255
-  store i32 0, ptr %91, align 4
+  store i32 0, ptr getelementptr ([256 x i32], ptr @Alpha_to, i64 0, i64 255), align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %2) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %1) #3
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @gen_poly() #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal void @gen_poly() #2 {
   %1 = alloca i32, align 4
   %2 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %1) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %2) #3
   store i32 1, ptr @Gg, align 16
   store i32 0, ptr %1, align 4
   br label %3
@@ -1687,7 +1759,7 @@ define internal void @gen_poly() #0 {
   %57 = load i32, ptr %2, align 4
   %58 = add i32 %57, -1
   store i32 %58, ptr %2, align 4
-  br label %12, !llvm.loop !37
+  br label %12, !llvm.loop !39
 
 59:                                               ; preds = %12
   %60 = load i32, ptr @Gg, align 16
@@ -1709,7 +1781,7 @@ define internal void @gen_poly() #0 {
   %73 = load i32, ptr %1, align 4
   %74 = add i32 %73, 1
   store i32 %74, ptr %1, align 4
-  br label %3, !llvm.loop !38
+  br label %3, !llvm.loop !40
 
 75:                                               ; preds = %3
   store i32 0, ptr %1, align 4
@@ -1738,53 +1810,60 @@ define internal void @gen_poly() #0 {
   %91 = load i32, ptr %1, align 4
   %92 = add i32 %91, 1
   store i32 %92, ptr %1, align 4
-  br label %76, !llvm.loop !39
+  br label %76, !llvm.loop !41
 
 93:                                               ; preds = %76
+  call void @llvm.lifetime.end.p0(i64 4, ptr %2) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %1) #3
   ret void
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}
-!32 = distinct !{!32, !5}
-!33 = distinct !{!33, !5}
-!34 = distinct !{!34, !5}
-!35 = distinct !{!35, !5}
-!36 = distinct !{!36, !5}
-!37 = distinct !{!37, !5}
-!38 = distinct !{!38, !5}
-!39 = distinct !{!39, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}
+!29 = distinct !{!29, !7}
+!30 = distinct !{!30, !7}
+!31 = distinct !{!31, !7}
+!32 = distinct !{!32, !7}
+!33 = distinct !{!33, !7}
+!34 = distinct !{!34, !7}
+!35 = distinct !{!35, !7}
+!36 = distinct !{!36, !7}
+!37 = distinct !{!37, !7}
+!38 = distinct !{!38, !7}
+!39 = distinct !{!39, !7}
+!40 = distinct !{!40, !7}
+!41 = distinct !{!41, !7}

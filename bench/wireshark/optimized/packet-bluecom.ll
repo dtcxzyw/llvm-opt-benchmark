@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
 %struct.except_id_t = type { i64, i64 }
 %struct.except_stacknode = type { ptr, i32, %union.anon }
 %union.anon = type { ptr }
@@ -45,7 +44,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_bcp_hdr_cmd = internal global i32 0, align 4
 @.str.18 = private unnamed_addr constant [4 x i8] c"Cmd\00", align 1
 @.str.19 = private unnamed_addr constant [16 x i8] c"bluecom.hdr.cmd\00", align 1
-@bcp_cmds = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.92 }, %struct._value_string { i32 1, ptr @.str.93 }, %struct._value_string { i32 2, ptr @.str.94 }, %struct._value_string { i32 3, ptr @.str.95 }, %struct._value_string { i32 4, ptr @.str.96 }, %struct._value_string zeroinitializer], align 16
 @hf_bcp_hdr_slavestate = internal global i32 0, align 4
 @.str.20 = private unnamed_addr constant [11 x i8] c"SlaveState\00", align 1
 @.str.21 = private unnamed_addr constant [23 x i8] c"bluecom.hdr.slavestate\00", align 1
@@ -175,51 +173,56 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.94 = private unnamed_addr constant [9 x i8] c"IDENTIFY\00", align 1
 @.str.95 = private unnamed_addr constant [7 x i8] c"SEARCH\00", align 1
 @.str.96 = private unnamed_addr constant [8 x i8] c"CONNECT\00", align 1
-@.str.97 = private unnamed_addr constant [6 x i8] c"CMD: \00", align 1
-@.str.98 = private unnamed_addr constant [21 x i8] c"segcode=%u blocks=%u\00", align 1
-@.str.99 = private unnamed_addr constant [17 x i8] c", %s (%u) len=%u\00", align 1
-@.str.100 = private unnamed_addr constant [8 x i8] c"UNKNOWN\00", align 1
+@bcp_cmds = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.92 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.93 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.94 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.95 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.96 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.98 = private unnamed_addr constant [6 x i8] c"CMD: \00", align 1
+@.str.99 = private unnamed_addr constant [21 x i8] c"segcode=%u blocks=%u\00", align 1
+@.str.100 = private unnamed_addr constant [17 x i8] c", %s (%u) len=%u\00", align 1
+@.str.101 = private unnamed_addr constant [8 x i8] c"UNKNOWN\00", align 1
 @dissect_bluecom.catch_spec = internal constant [1 x %struct.except_id_t] [%struct.except_id_t { i64 1, i64 0 }], align 16
-@.str.101 = private unnamed_addr constant [9 x i8] c"Request \00", align 1
-@.str.102 = private unnamed_addr constant [10 x i8] c"Response \00", align 1
-@.str.103 = private unnamed_addr constant [44 x i8] c"BCP Protocol Header: BlockNb=%d, SegCode=%d\00", align 1
-@.str.104 = private unnamed_addr constant [43 x i8] c"BCP Block Header (%u): Cmd=%s (%u), Len=%u\00", align 1
-@.str.105 = private unnamed_addr constant [27 x i8] c"BCP Sync Data: Identify=%s\00", align 1
-@.str.106 = private unnamed_addr constant [5 x i8] c"True\00", align 1
-@.str.107 = private unnamed_addr constant [6 x i8] c"False\00", align 1
-@.str.108 = private unnamed_addr constant [41 x i8] c"BCP Identify Request: Name=%s, IpAddr=%s\00", align 1
-@.str.109 = private unnamed_addr constant [50 x i8] c"BCP Search Request: IpAddrFirst=%s, IpAddrLast=%s\00", align 1
-@.str.110 = private unnamed_addr constant [28 x i8] c"BCP Search Request: Name=%s\00", align 1
-@.str.111 = private unnamed_addr constant [37 x i8] c"BCP Search Request: Unknown AddrType\00", align 1
-@.str.112 = private unnamed_addr constant [32 x i8] c"Unknown Address Data (%u bytes)\00", align 1
-@.str.113 = private unnamed_addr constant [49 x i8] c"BCP Search Response: Name=%s, IpAddr=%s Error=%d\00", align 1
-@.str.114 = private unnamed_addr constant [39 x i8] c"BCP Connect Request: Name=%s IpAddr=%s\00", align 1
-@.str.115 = private unnamed_addr constant [31 x i8] c"BCP Connect Response: Error=%d\00", align 1
+@.str.102 = private unnamed_addr constant [9 x i8] c"Request \00", align 1
+@.str.103 = private unnamed_addr constant [10 x i8] c"Response \00", align 1
+@.str.104 = private unnamed_addr constant [44 x i8] c"BCP Protocol Header: BlockNb=%d, SegCode=%d\00", align 1
+@.str.105 = private unnamed_addr constant [43 x i8] c"BCP Block Header (%u): Cmd=%s (%u), Len=%u\00", align 1
+@.str.106 = private unnamed_addr constant [27 x i8] c"BCP Sync Data: Identify=%s\00", align 1
+@.str.107 = private unnamed_addr constant [5 x i8] c"True\00", align 1
+@.str.108 = private unnamed_addr constant [6 x i8] c"False\00", align 1
+@.str.109 = private unnamed_addr constant [41 x i8] c"BCP Identify Request: Name=%s, IpAddr=%s\00", align 1
+@.str.110 = private unnamed_addr constant [50 x i8] c"BCP Search Request: IpAddrFirst=%s, IpAddrLast=%s\00", align 1
+@.str.111 = private unnamed_addr constant [28 x i8] c"BCP Search Request: Name=%s\00", align 1
+@.str.112 = private unnamed_addr constant [37 x i8] c"BCP Search Request: Unknown AddrType\00", align 1
+@.str.113 = private unnamed_addr constant [32 x i8] c"Unknown Address Data (%u bytes)\00", align 1
+@.str.114 = private unnamed_addr constant [49 x i8] c"BCP Search Response: Name=%s, IpAddr=%s Error=%d\00", align 1
+@.str.115 = private unnamed_addr constant [39 x i8] c"BCP Connect Request: Name=%s IpAddr=%s\00", align 1
+@.str.116 = private unnamed_addr constant [31 x i8] c"BCP Connect Response: Error=%d\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_bluecom() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.88) #4
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.88)
   store i32 %1, ptr @proto_bcp, align 4
-  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_bluecom.hf_bcp, i32 noundef 54) #4
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_bluecom.ett, i32 noundef 4) #4
+  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_bluecom.hf_bcp, i32 noundef 54)
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_bluecom.ett, i32 noundef 4)
   %2 = load i32, ptr @proto_bcp, align 4
-  %3 = tail call ptr @register_dissector(ptr noundef nonnull @.str.88, ptr noundef nonnull @dissect_bluecom, i32 noundef %2) #4
+  %3 = tail call ptr @register_dissector(ptr noundef nonnull @.str.88, ptr noundef nonnull @dissect_bluecom, i32 noundef %2)
   store ptr %3, ptr @bcp_handle, align 8
   %4 = load i32, ptr @proto_bcp, align 4
-  %5 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.90, i32 noundef %4, i32 noundef 4, i32 noundef 1) #4
+  %5 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.90, i32 noundef %4, i32 noundef 4, i32 noundef 1)
   store ptr %5, ptr @bcp_subdissector_table, align 8
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_bluecom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -227,45 +230,47 @@ define internal i32 @dissect_bluecom(ptr noundef %0, ptr noundef %1, ptr noundef
   %8 = alloca i32, align 4
   %9 = alloca %struct.except_stacknode, align 8
   %10 = alloca %struct.except_catch, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store volatile i32 0, ptr %6, align 4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
-  call void @col_set_str(ptr noundef %12, i32 noundef 34, ptr noundef nonnull @.str.88) #4
+  call void @col_set_str(ptr noundef %12, i32 noundef 35, ptr noundef nonnull @.str.88)
   %13 = load ptr, ptr %11, align 8
-  call void @col_set_str(ptr noundef %13, i32 noundef 25, ptr noundef nonnull @.str.97) #4
+  call void @col_set_str(ptr noundef %13, i32 noundef 25, ptr noundef nonnull @.str.98)
   %14 = load i32, ptr @proto_bcp, align 4
-  %15 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
+  %15 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %16 = load i32, ptr @ett_bcp, align 4
-  %17 = call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #4
+  %17 = call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16)
   %.0..0..0..0.32 = load volatile i32, ptr %6, align 4
   %18 = add i32 %.0..0..0..0.32, 2
-  %19 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %18) #4
+  %19 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %18)
   %20 = add i32 %.0..0..0..0.32, 3
-  %21 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %20) #4
+  %21 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %20)
   %22 = zext i8 %21 to i32
   %23 = add i32 %.0..0..0..0.32, 4
-  %24 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %23) #4
+  %24 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %23)
   %25 = zext i16 %24 to i32
   %26 = load i32, ptr @ett_bcp_header, align 4
-  %27 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %17, ptr noundef %0, i32 noundef 0, i32 noundef 10, i32 noundef %26, ptr noundef null, ptr noundef nonnull @.str.103, i32 noundef %22, i32 noundef %25) #4
+  %27 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %17, ptr noundef %0, i32 noundef 0, i32 noundef 10, i32 noundef %26, ptr noundef null, ptr noundef nonnull @.str.104, i32 noundef %22, i32 noundef %25)
   %28 = load i32, ptr @hf_bcp_hdr_version, align 4
-  %29 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %28, ptr noundef %0, i32 noundef %.0..0..0..0.32, i32 noundef 1, i32 noundef 0) #4
+  %29 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %28, ptr noundef %0, i32 noundef %.0..0..0..0.32, i32 noundef 1, i32 noundef 0)
   %30 = add i32 %.0..0..0..0.32, 1
   %31 = load i32, ptr @hf_bcp_hdr_format, align 4
-  %32 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %31, ptr noundef %0, i32 noundef %30, i32 noundef 1, i32 noundef 0) #4
+  %32 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %31, ptr noundef %0, i32 noundef %30, i32 noundef 1, i32 noundef 0)
   %33 = load i32, ptr @hf_bcp_hdr_protflags, align 4
-  %34 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %33, ptr noundef %0, i32 noundef %18, i32 noundef 1, i32 noundef 0) #4
+  %34 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %33, ptr noundef %0, i32 noundef %18, i32 noundef 1, i32 noundef 0)
   %35 = load i32, ptr @hf_bcp_hdr_blocknb, align 4
-  %36 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %35, ptr noundef %0, i32 noundef %20, i32 noundef 1, i32 noundef 0) #4
+  %36 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %35, ptr noundef %0, i32 noundef %20, i32 noundef 1, i32 noundef 0)
   %37 = load i32, ptr @hf_bcp_hdr_segcode, align 4
-  %38 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %37, ptr noundef %0, i32 noundef %23, i32 noundef 2, i32 noundef 0) #4
+  %38 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %37, ptr noundef %0, i32 noundef %23, i32 noundef 2, i32 noundef 0)
   %39 = add i32 %.0..0..0..0.32, 6
   %40 = load i32, ptr @hf_bcp_hdr_auth, align 4
-  %41 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %40, ptr noundef %0, i32 noundef %39, i32 noundef 4, i32 noundef 0) #4
+  %41 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %40, ptr noundef %0, i32 noundef %39, i32 noundef 4, i32 noundef 0)
   %42 = add i32 %.0..0..0..0.32, 10
   store volatile i32 %42, ptr %6, align 4
   %43 = load ptr, ptr %11, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %43, i32 noundef 25, ptr noundef nonnull @.str.98, i32 noundef %25, i32 noundef %22) #4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %43, i32 noundef 25, ptr noundef nonnull @.str.99, i32 noundef %25, i32 noundef %22)
   store volatile i32 0, ptr %5, align 4
   %.0..0..0..0.3783 = load volatile i32, ptr %5, align 4
   %44 = icmp ult i32 %.0..0..0..0.3783, %22
@@ -277,7 +282,7 @@ define internal i32 @dissect_bluecom(ptr noundef %0, ptr noundef %1, ptr noundef
   %47 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %48 = and i32 %45, 1
   %.not57 = icmp eq i32 %48, 0
-  %49 = select i1 %.not57, ptr @.str.102, ptr @.str.101
+  %49 = select i1 %.not57, ptr @.str.103, ptr @.str.102
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %51 = and i32 %45, 2
   %.not66.i = icmp eq i32 %51, 0
@@ -288,47 +293,51 @@ define internal i32 @dissect_bluecom(ptr noundef %0, ptr noundef %1, ptr noundef
   %.0..0..0..0.33 = load volatile i32, ptr %6, align 4
   %.0..0..0..0.38 = load volatile i32, ptr %5, align 4
   %54 = add i32 %.0..0..0..0.33, 6
-  %55 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %54) #4
+  %55 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %54)
   %56 = zext i8 %55 to i32
   %57 = add i32 %.0..0..0..0.33, 12
-  %58 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %57) #4
+  %58 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %57)
   %59 = zext i16 %58 to i32
   %60 = load i32, ptr @ett_bcp_blockheader, align 4
-  %61 = call ptr @val_to_str_const(i32 noundef %56, ptr noundef nonnull @bcp_cmds, ptr noundef nonnull @.str.100) #4
-  %62 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %17, ptr noundef %0, i32 noundef %.0..0..0..0.33, i32 noundef 24, i32 noundef %60, ptr noundef null, ptr noundef nonnull @.str.104, i32 noundef %.0..0..0..0.38, ptr noundef %61, i32 noundef %56, i32 noundef %59) #4
+  %61 = call ptr @val_to_str_const(i32 noundef %56, ptr noundef nonnull @bcp_cmds, ptr noundef nonnull @.str.101)
+  %62 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %17, ptr noundef %0, i32 noundef %.0..0..0..0.33, i32 noundef 24, i32 noundef %60, ptr noundef null, ptr noundef nonnull @.str.105, i32 noundef %.0..0..0..0.38, ptr noundef %61, i32 noundef %56, i32 noundef %59)
   %63 = load i32, ptr @hf_bcp_hdr_sourceid, align 4
-  %64 = call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %63, ptr noundef %0, i32 noundef %.0..0..0..0.33, i32 noundef 2, i32 noundef 0) #4
+  %64 = call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %63, ptr noundef %0, i32 noundef %.0..0..0..0.33, i32 noundef 2, i32 noundef 0)
   %65 = add i32 %.0..0..0..0.33, 2
   %66 = load i32, ptr @hf_bcp_hdr_destid, align 4
-  %67 = call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %66, ptr noundef %0, i32 noundef %65, i32 noundef 2, i32 noundef 0) #4
+  %67 = call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %66, ptr noundef %0, i32 noundef %65, i32 noundef 2, i32 noundef 0)
   %68 = add i32 %.0..0..0..0.33, 4
   %69 = load i32, ptr @hf_bcp_hdr_transid, align 4
-  %70 = call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %69, ptr noundef %0, i32 noundef %68, i32 noundef 2, i32 noundef 0) #4
+  %70 = call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %69, ptr noundef %0, i32 noundef %68, i32 noundef 2, i32 noundef 0)
   %71 = load i32, ptr @hf_bcp_hdr_cmd, align 4
-  %72 = call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %71, ptr noundef %0, i32 noundef %54, i32 noundef 1, i32 noundef 0) #4
+  %72 = call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %71, ptr noundef %0, i32 noundef %54, i32 noundef 1, i32 noundef 0)
   %73 = add i32 %.0..0..0..0.33, 7
   %74 = load i32, ptr @hf_bcp_hdr_slavestate, align 4
-  %75 = call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %74, ptr noundef %0, i32 noundef %73, i32 noundef 1, i32 noundef 0) #4
+  %75 = call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %74, ptr noundef %0, i32 noundef %73, i32 noundef 1, i32 noundef 0)
   %76 = add i32 %.0..0..0..0.33, 8
   %77 = load i32, ptr @hf_bcp_hdr_blockflags, align 4
-  %78 = call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %77, ptr noundef %0, i32 noundef %76, i32 noundef 1, i32 noundef 0) #4
+  %78 = call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %77, ptr noundef %0, i32 noundef %76, i32 noundef 1, i32 noundef 0)
   %79 = load i32, ptr @hf_bcp_hdr_len, align 4
-  %80 = call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %79, ptr noundef %0, i32 noundef %57, i32 noundef 2, i32 noundef 0) #4
+  %80 = call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %79, ptr noundef %0, i32 noundef %57, i32 noundef 2, i32 noundef 0)
   %81 = add i32 %.0..0..0..0.33, 14
   %82 = load i32, ptr @hf_bcp_hdr_fragoffset, align 4
-  %83 = call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %82, ptr noundef %0, i32 noundef %81, i32 noundef 2, i32 noundef 0) #4
+  %83 = call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %82, ptr noundef %0, i32 noundef %81, i32 noundef 2, i32 noundef 0)
   %84 = add i32 %.0..0..0..0.33, 16
   %85 = load i32, ptr @hf_bcp_hdr_timestamp, align 4
-  %86 = call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %85, ptr noundef %0, i32 noundef %84, i32 noundef 8, i32 noundef 0) #4
+  %86 = call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %85, ptr noundef %0, i32 noundef %84, i32 noundef 8, i32 noundef 0)
   %87 = add i32 %.0..0..0..0.33, 24
   store volatile i32 %87, ptr %6, align 4
-  %88 = call ptr @val_to_str_const(i32 noundef %56, ptr noundef nonnull @bcp_cmds, ptr noundef nonnull @.str.100) #4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %15, ptr noundef nonnull @.str.99, ptr noundef %88, i32 noundef %56, i32 noundef %59) #4
+  %88 = call ptr @val_to_str_const(i32 noundef %56, ptr noundef nonnull @bcp_cmds, ptr noundef nonnull @.str.101)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %15, ptr noundef nonnull @.str.100, ptr noundef %88, i32 noundef %56, i32 noundef %59)
   %.0..0..0..0.34 = load volatile i32, ptr %6, align 4
-  %89 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.0..0..0..0.34, i32 noundef %59) #4
+  %89 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.0..0..0..0.34, i32 noundef %59)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   store volatile i32 0, ptr %8, align 4
-  call void @except_setup_try(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull @dissect_bluecom.catch_spec, i64 noundef 1) #4
-  %90 = call i32 @_setjmp(ptr noundef nonnull %46) #5
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %10) #5
+  call void @except_setup_try(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull @dissect_bluecom.catch_spec, i64 noundef 1)
+  %90 = call i32 @_setjmp(ptr noundef nonnull %46) #6
   %.not = icmp eq i32 %90, 0
   %. = select i1 %.not, ptr null, ptr %47
   store volatile ptr %., ptr %7, align 8
@@ -365,66 +374,66 @@ define internal i32 @dissect_bluecom(ptr noundef %0, ptr noundef %1, ptr noundef
   ]
 
 100:                                              ; preds = %99
-  %101 = call i32 @tvb_reported_length(ptr noundef %89) #4
+  %101 = call i32 @tvb_reported_length(ptr noundef %89)
   %102 = load i32, ptr @ett_bcp_data, align 4
-  %103 = call zeroext i8 @tvb_get_guint8(ptr noundef %89, i32 noundef 9) #4
+  %103 = call zeroext i8 @tvb_get_uint8(ptr noundef %89, i32 noundef 9)
   %.not.i = icmp eq i8 %103, 0
-  %104 = select i1 %.not.i, ptr @.str.107, ptr @.str.106
-  %105 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %17, ptr noundef %89, i32 noundef 0, i32 noundef %101, i32 noundef %102, ptr noundef null, ptr noundef nonnull @.str.105, ptr noundef nonnull %104) #4
+  %104 = select i1 %.not.i, ptr @.str.108, ptr @.str.107
+  %105 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %17, ptr noundef %89, i32 noundef 0, i32 noundef %101, i32 noundef %102, ptr noundef null, ptr noundef nonnull @.str.106, ptr noundef nonnull %104)
   %106 = load i32, ptr @hf_bcp_sync_starttime, align 4
-  %107 = call ptr @proto_tree_add_item(ptr noundef %105, i32 noundef %106, ptr noundef %89, i32 noundef 0, i32 noundef 4, i32 noundef 0) #4
+  %107 = call ptr @proto_tree_add_item(ptr noundef %105, i32 noundef %106, ptr noundef %89, i32 noundef 0, i32 noundef 4, i32 noundef 0)
   %108 = load i32, ptr @hf_bcp_sync_cycletime, align 4
-  %109 = call ptr @proto_tree_add_item(ptr noundef %105, i32 noundef %108, ptr noundef %89, i32 noundef 4, i32 noundef 4, i32 noundef 0) #4
+  %109 = call ptr @proto_tree_add_item(ptr noundef %105, i32 noundef %108, ptr noundef %89, i32 noundef 4, i32 noundef 4, i32 noundef 0)
   %110 = load i32, ptr @hf_bcp_sync_dataratio, align 4
-  %111 = call ptr @proto_tree_add_item(ptr noundef %105, i32 noundef %110, ptr noundef %89, i32 noundef 8, i32 noundef 1, i32 noundef 0) #4
+  %111 = call ptr @proto_tree_add_item(ptr noundef %105, i32 noundef %110, ptr noundef %89, i32 noundef 8, i32 noundef 1, i32 noundef 0)
   %112 = load i32, ptr @hf_bcp_sync_identify, align 4
-  %113 = call ptr @proto_tree_add_item(ptr noundef %105, i32 noundef %112, ptr noundef %89, i32 noundef 9, i32 noundef 1, i32 noundef 0) #4
+  %113 = call ptr @proto_tree_add_item(ptr noundef %105, i32 noundef %112, ptr noundef %89, i32 noundef 9, i32 noundef 1, i32 noundef 0)
   %114 = load i32, ptr @hf_bcp_sync_vlantag, align 4
-  %115 = call ptr @proto_tree_add_item(ptr noundef %105, i32 noundef %114, ptr noundef %89, i32 noundef 10, i32 noundef 2, i32 noundef 0) #4
+  %115 = call ptr @proto_tree_add_item(ptr noundef %105, i32 noundef %114, ptr noundef %89, i32 noundef 10, i32 noundef 2, i32 noundef 0)
   %.not37.i = icmp eq i32 %101, 12
   br i1 %.not37.i, label %dissect_bcp_sync_data.exit, label %116
 
 116:                                              ; preds = %100
   %117 = load i32, ptr @hf_bcp_sync_ethaddr, align 4
-  %118 = call ptr @proto_tree_add_item(ptr noundef %105, i32 noundef %117, ptr noundef %89, i32 noundef 12, i32 noundef 6, i32 noundef 0) #4
+  %118 = call ptr @proto_tree_add_item(ptr noundef %105, i32 noundef %117, ptr noundef %89, i32 noundef 12, i32 noundef 6, i32 noundef 0)
   %119 = load i32, ptr @hf_bcp_sync_ethaddr2, align 4
-  %120 = call ptr @proto_tree_add_item(ptr noundef %105, i32 noundef %119, ptr noundef %89, i32 noundef 18, i32 noundef 6, i32 noundef 0) #4
+  %120 = call ptr @proto_tree_add_item(ptr noundef %105, i32 noundef %119, ptr noundef %89, i32 noundef 18, i32 noundef 6, i32 noundef 0)
   br label %dissect_bcp_sync_data.exit
 
 121:                                              ; preds = %99
-  %122 = call i32 @tvb_reported_length(ptr noundef %89) #4
+  %122 = call i32 @tvb_reported_length(ptr noundef %89)
   %123 = load i32, ptr @ett_bcp_data, align 4
   %124 = load ptr, ptr %50, align 8
-  %125 = call ptr @tvb_get_string_enc(ptr noundef %124, ptr noundef %89, i32 noundef 12, i32 noundef 32, i32 noundef 0) #4
+  %125 = call ptr @tvb_get_string_enc(ptr noundef %124, ptr noundef %89, i32 noundef 12, i32 noundef 32, i32 noundef 0)
   %126 = load ptr, ptr %50, align 8
-  %127 = call ptr @tvb_address_to_str(ptr noundef %126, ptr noundef %89, i32 noundef 2, i32 noundef 8) #4
-  %128 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %17, ptr noundef %89, i32 noundef 0, i32 noundef %122, i32 noundef %123, ptr noundef null, ptr noundef nonnull @.str.108, ptr noundef %125, ptr noundef %127) #4
+  %127 = call ptr @tvb_address_to_str(ptr noundef %126, ptr noundef %89, i32 noundef 2, i32 noundef 8)
+  %128 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %17, ptr noundef %89, i32 noundef 0, i32 noundef %122, i32 noundef %123, ptr noundef null, ptr noundef nonnull @.str.109, ptr noundef %125, ptr noundef %127)
   %129 = load i32, ptr @hf_bcp_identify_error, align 4
-  %130 = call ptr @proto_tree_add_item(ptr noundef %128, i32 noundef %129, ptr noundef %89, i32 noundef 0, i32 noundef 4, i32 noundef 0) #4
+  %130 = call ptr @proto_tree_add_item(ptr noundef %128, i32 noundef %129, ptr noundef %89, i32 noundef 0, i32 noundef 4, i32 noundef 0)
   %131 = load i32, ptr @hf_bcp_identify_starttime, align 4
-  %132 = call ptr @proto_tree_add_item(ptr noundef %128, i32 noundef %131, ptr noundef %89, i32 noundef 4, i32 noundef 4, i32 noundef 0) #4
+  %132 = call ptr @proto_tree_add_item(ptr noundef %128, i32 noundef %131, ptr noundef %89, i32 noundef 4, i32 noundef 4, i32 noundef 0)
   %133 = load i32, ptr @hf_bcp_identify_ipaddr, align 4
-  %134 = call ptr @proto_tree_add_item(ptr noundef %128, i32 noundef %133, ptr noundef %89, i32 noundef 8, i32 noundef 4, i32 noundef 0) #4
+  %134 = call ptr @proto_tree_add_item(ptr noundef %128, i32 noundef %133, ptr noundef %89, i32 noundef 8, i32 noundef 4, i32 noundef 0)
   %135 = load i32, ptr @hf_bcp_identify_name, align 4
-  %136 = call ptr @proto_tree_add_item(ptr noundef %128, i32 noundef %135, ptr noundef %89, i32 noundef 12, i32 noundef 32, i32 noundef 0) #4
+  %136 = call ptr @proto_tree_add_item(ptr noundef %128, i32 noundef %135, ptr noundef %89, i32 noundef 12, i32 noundef 32, i32 noundef 0)
   %137 = load i32, ptr @hf_bcp_identify_ethaddr, align 4
-  %138 = call ptr @proto_tree_add_item(ptr noundef %128, i32 noundef %137, ptr noundef %89, i32 noundef 44, i32 noundef 6, i32 noundef 0) #4
+  %138 = call ptr @proto_tree_add_item(ptr noundef %128, i32 noundef %137, ptr noundef %89, i32 noundef 44, i32 noundef 6, i32 noundef 0)
   %.not.i62 = icmp eq i32 %122, 50
   br i1 %.not.i62, label %dissect_bcp_sync_data.exit, label %139
 
 139:                                              ; preds = %121
   %140 = load i32, ptr @hf_bcp_identify_ethaddr2, align 4
-  %141 = call ptr @proto_tree_add_item(ptr noundef %128, i32 noundef %140, ptr noundef %89, i32 noundef 50, i32 noundef 6, i32 noundef 0) #4
+  %141 = call ptr @proto_tree_add_item(ptr noundef %128, i32 noundef %140, ptr noundef %89, i32 noundef 50, i32 noundef 6, i32 noundef 0)
   br label %dissect_bcp_sync_data.exit
 
 142:                                              ; preds = %99
   %143 = load ptr, ptr %11, align 8
-  call void @col_append_str(ptr noundef %143, i32 noundef 25, ptr noundef nonnull %49) #4
-  %144 = call i32 @tvb_reported_length(ptr noundef %89) #4
+  call void @col_append_str(ptr noundef %143, i32 noundef 25, ptr noundef nonnull %49)
+  %144 = call i32 @tvb_reported_length(ptr noundef %89)
   br i1 %.not57, label %178, label %145
 
 145:                                              ; preds = %142
-  %146 = call i32 @tvb_get_ntohl(ptr noundef %89, i32 noundef 0) #4
+  %146 = call i32 @tvb_get_ntohl(ptr noundef %89, i32 noundef 0)
   %147 = load i32, ptr @ett_bcp_data, align 4
   switch i32 %146, label %170 [
     i32 2, label %.thread.i
@@ -433,40 +442,40 @@ define internal i32 @dissect_bluecom(ptr noundef %0, ptr noundef %1, ptr noundef
 
 .thread.i:                                        ; preds = %145
   %148 = load ptr, ptr %50, align 8
-  %149 = call ptr @tvb_address_to_str(ptr noundef %148, ptr noundef %89, i32 noundef 2, i32 noundef 8) #4
+  %149 = call ptr @tvb_address_to_str(ptr noundef %148, ptr noundef %89, i32 noundef 2, i32 noundef 8)
   %150 = load ptr, ptr %50, align 8
-  %151 = call ptr @tvb_address_to_str(ptr noundef %150, ptr noundef %89, i32 noundef 2, i32 noundef 12) #4
-  %152 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %17, ptr noundef %89, i32 noundef 0, i32 noundef %144, i32 noundef %147, ptr noundef null, ptr noundef nonnull @.str.109, ptr noundef %149, ptr noundef %151) #4
+  %151 = call ptr @tvb_address_to_str(ptr noundef %150, ptr noundef %89, i32 noundef 2, i32 noundef 12)
+  %152 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %17, ptr noundef %89, i32 noundef 0, i32 noundef %144, i32 noundef %147, ptr noundef null, ptr noundef nonnull @.str.110, ptr noundef %149, ptr noundef %151)
   %153 = load i32, ptr @hf_bcp_searchreq_addrtype, align 4
-  %154 = call ptr @proto_tree_add_item(ptr noundef %152, i32 noundef %153, ptr noundef %89, i32 noundef 0, i32 noundef 4, i32 noundef 0) #4
+  %154 = call ptr @proto_tree_add_item(ptr noundef %152, i32 noundef %153, ptr noundef %89, i32 noundef 0, i32 noundef 4, i32 noundef 0)
   %155 = load i32, ptr @hf_bcp_searchreq_reserved, align 4
-  %156 = call ptr @proto_tree_add_item(ptr noundef %152, i32 noundef %155, ptr noundef %89, i32 noundef 4, i32 noundef 4, i32 noundef 0) #4
+  %156 = call ptr @proto_tree_add_item(ptr noundef %152, i32 noundef %155, ptr noundef %89, i32 noundef 4, i32 noundef 4, i32 noundef 0)
   %157 = load i32, ptr @hf_bcp_searchreq_ipaddrfirst, align 4
-  %158 = call ptr @proto_tree_add_item(ptr noundef %152, i32 noundef %157, ptr noundef %89, i32 noundef 8, i32 noundef 4, i32 noundef 0) #4
+  %158 = call ptr @proto_tree_add_item(ptr noundef %152, i32 noundef %157, ptr noundef %89, i32 noundef 8, i32 noundef 4, i32 noundef 0)
   %159 = load i32, ptr @hf_bcp_searchreq_ipaddrlast, align 4
-  %160 = call ptr @proto_tree_add_item(ptr noundef %152, i32 noundef %159, ptr noundef %89, i32 noundef 12, i32 noundef 4, i32 noundef 0) #4
+  %160 = call ptr @proto_tree_add_item(ptr noundef %152, i32 noundef %159, ptr noundef %89, i32 noundef 12, i32 noundef 4, i32 noundef 0)
   br label %178
 
 .thread100.i:                                     ; preds = %145
   %161 = load ptr, ptr %50, align 8
-  %162 = call ptr @tvb_get_string_enc(ptr noundef %161, ptr noundef %89, i32 noundef 8, i32 noundef 32, i32 noundef 0) #4
-  %163 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %17, ptr noundef %89, i32 noundef 0, i32 noundef %144, i32 noundef %147, ptr noundef null, ptr noundef nonnull @.str.110, ptr noundef %162) #4
+  %162 = call ptr @tvb_get_string_enc(ptr noundef %161, ptr noundef %89, i32 noundef 8, i32 noundef 32, i32 noundef 0)
+  %163 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %17, ptr noundef %89, i32 noundef 0, i32 noundef %144, i32 noundef %147, ptr noundef null, ptr noundef nonnull @.str.111, ptr noundef %162)
   %164 = load i32, ptr @hf_bcp_searchreq_addrtype, align 4
-  %165 = call ptr @proto_tree_add_item(ptr noundef %163, i32 noundef %164, ptr noundef %89, i32 noundef 0, i32 noundef 4, i32 noundef 0) #4
+  %165 = call ptr @proto_tree_add_item(ptr noundef %163, i32 noundef %164, ptr noundef %89, i32 noundef 0, i32 noundef 4, i32 noundef 0)
   %166 = load i32, ptr @hf_bcp_searchreq_reserved, align 4
-  %167 = call ptr @proto_tree_add_item(ptr noundef %163, i32 noundef %166, ptr noundef %89, i32 noundef 4, i32 noundef 4, i32 noundef 0) #4
+  %167 = call ptr @proto_tree_add_item(ptr noundef %163, i32 noundef %166, ptr noundef %89, i32 noundef 4, i32 noundef 4, i32 noundef 0)
   %168 = load i32, ptr @hf_bcp_searchreq_name, align 4
-  %169 = call ptr @proto_tree_add_item(ptr noundef %163, i32 noundef %168, ptr noundef %89, i32 noundef 8, i32 noundef 32, i32 noundef 0) #4
+  %169 = call ptr @proto_tree_add_item(ptr noundef %163, i32 noundef %168, ptr noundef %89, i32 noundef 8, i32 noundef 32, i32 noundef 0)
   br label %178
 
 170:                                              ; preds = %145
-  %171 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %17, ptr noundef %89, i32 noundef 0, i32 noundef %144, i32 noundef %147, ptr noundef null, ptr noundef nonnull @.str.111) #4
+  %171 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %17, ptr noundef %89, i32 noundef 0, i32 noundef %144, i32 noundef %147, ptr noundef null, ptr noundef nonnull @.str.112)
   %172 = load i32, ptr @hf_bcp_searchreq_addrtype, align 4
-  %173 = call ptr @proto_tree_add_item(ptr noundef %171, i32 noundef %172, ptr noundef %89, i32 noundef 0, i32 noundef 4, i32 noundef 0) #4
+  %173 = call ptr @proto_tree_add_item(ptr noundef %171, i32 noundef %172, ptr noundef %89, i32 noundef 0, i32 noundef 4, i32 noundef 0)
   %174 = load i32, ptr @hf_bcp_searchreq_reserved, align 4
-  %175 = call ptr @proto_tree_add_item(ptr noundef %171, i32 noundef %174, ptr noundef %89, i32 noundef 4, i32 noundef 4, i32 noundef 0) #4
+  %175 = call ptr @proto_tree_add_item(ptr noundef %171, i32 noundef %174, ptr noundef %89, i32 noundef 4, i32 noundef 4, i32 noundef 0)
   %176 = load i32, ptr @hf_bcp_searchreq_addrdata, align 4
-  %177 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %171, i32 noundef %176, ptr noundef %89, i32 noundef 8, i32 noundef 32, ptr noundef null, ptr noundef nonnull @.str.112, i32 noundef 32) #4
+  %177 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %171, i32 noundef %176, ptr noundef %89, i32 noundef 8, i32 noundef 32, ptr noundef null, ptr noundef nonnull @.str.113, i32 noundef 32)
   br label %178
 
 178:                                              ; preds = %170, %.thread100.i, %.thread.i, %142
@@ -477,72 +486,72 @@ define internal i32 @dissect_bluecom(ptr noundef %0, ptr noundef %1, ptr noundef
   %180 = load i32, ptr @ett_bcp_data, align 4
   %181 = load ptr, ptr %50, align 8
   %182 = or disjoint i32 %.095.i, 16
-  %183 = call ptr @tvb_get_string_enc(ptr noundef %181, ptr noundef %89, i32 noundef %182, i32 noundef 32, i32 noundef 0) #4
+  %183 = call ptr @tvb_get_string_enc(ptr noundef %181, ptr noundef %89, i32 noundef %182, i32 noundef 32, i32 noundef 0)
   %184 = load ptr, ptr %50, align 8
   %185 = add nuw nsw i32 %.095.i, 12
-  %186 = call ptr @tvb_address_to_str(ptr noundef %184, ptr noundef %89, i32 noundef 2, i32 noundef %185) #4
-  %187 = call i32 @tvb_get_letohl(ptr noundef %89, i32 noundef %.095.i) #4
-  %188 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %17, ptr noundef %89, i32 noundef %.095.i, i32 noundef %144, i32 noundef %180, ptr noundef null, ptr noundef nonnull @.str.113, ptr noundef %183, ptr noundef %186, i32 noundef %187) #4
+  %186 = call ptr @tvb_address_to_str(ptr noundef %184, ptr noundef %89, i32 noundef 2, i32 noundef %185)
+  %187 = call i32 @tvb_get_letohl(ptr noundef %89, i32 noundef %.095.i)
+  %188 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %17, ptr noundef %89, i32 noundef %.095.i, i32 noundef %144, i32 noundef %180, ptr noundef null, ptr noundef nonnull @.str.114, ptr noundef %183, ptr noundef %186, i32 noundef %187)
   %189 = load i32, ptr @hf_bcp_searchrsp_error, align 4
-  %190 = call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %189, ptr noundef %89, i32 noundef %.095.i, i32 noundef 4, i32 noundef 0) #4
+  %190 = call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %189, ptr noundef %89, i32 noundef %.095.i, i32 noundef 4, i32 noundef 0)
   %191 = or disjoint i32 %.095.i, 4
   %192 = load i32, ptr @hf_bcp_searchrsp_starttime, align 4
-  %193 = call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %192, ptr noundef %89, i32 noundef %191, i32 noundef 4, i32 noundef 0) #4
+  %193 = call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %192, ptr noundef %89, i32 noundef %191, i32 noundef 4, i32 noundef 0)
   %194 = add nuw nsw i32 %.095.i, 8
   %195 = load i32, ptr @hf_bcp_searchrsp_lenin, align 4
-  %196 = call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %195, ptr noundef %89, i32 noundef %194, i32 noundef 2, i32 noundef 0) #4
+  %196 = call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %195, ptr noundef %89, i32 noundef %194, i32 noundef 2, i32 noundef 0)
   %197 = add nuw nsw i32 %.095.i, 10
   %198 = load i32, ptr @hf_bcp_searchrsp_lenout, align 4
-  %199 = call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %198, ptr noundef %89, i32 noundef %197, i32 noundef 2, i32 noundef 0) #4
+  %199 = call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %198, ptr noundef %89, i32 noundef %197, i32 noundef 2, i32 noundef 0)
   %200 = load i32, ptr @hf_bcp_searchrsp_ipaddr, align 4
-  %201 = call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %200, ptr noundef %89, i32 noundef %185, i32 noundef 4, i32 noundef 0) #4
+  %201 = call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %200, ptr noundef %89, i32 noundef %185, i32 noundef 4, i32 noundef 0)
   %202 = load i32, ptr @hf_bcp_searchrsp_name, align 4
-  %203 = call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %202, ptr noundef %89, i32 noundef %182, i32 noundef 32, i32 noundef 0) #4
+  %203 = call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %202, ptr noundef %89, i32 noundef %182, i32 noundef 32, i32 noundef 0)
   %204 = add nuw nsw i32 %.095.i, 48
   %205 = load i32, ptr @hf_bcp_searchrsp_ethaddr, align 4
-  %206 = call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %205, ptr noundef %89, i32 noundef %204, i32 noundef 6, i32 noundef 0) #4
+  %206 = call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %205, ptr noundef %89, i32 noundef %204, i32 noundef 6, i32 noundef 0)
   %207 = add nuw nsw i32 %.095.i, 54
   %.not97.i = icmp eq i32 %144, %207
   br i1 %.not97.i, label %dissect_bcp_sync_data.exit, label %208
 
 208:                                              ; preds = %179
   %209 = load i32, ptr @hf_bcp_searchrsp_ethaddr2, align 4
-  %210 = call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %209, ptr noundef %89, i32 noundef %207, i32 noundef 6, i32 noundef 0) #4
+  %210 = call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %209, ptr noundef %89, i32 noundef %207, i32 noundef 6, i32 noundef 0)
   br label %dissect_bcp_sync_data.exit
 
 211:                                              ; preds = %99
   %212 = load ptr, ptr %11, align 8
-  call void @col_append_str(ptr noundef %212, i32 noundef 25, ptr noundef nonnull %49) #4
-  %213 = call i32 @tvb_reported_length(ptr noundef %89) #4
+  call void @col_append_str(ptr noundef %212, i32 noundef 25, ptr noundef nonnull %49)
+  %213 = call i32 @tvb_reported_length(ptr noundef %89)
   br i1 %.not57, label %238, label %214
 
 214:                                              ; preds = %211
   %215 = load i32, ptr @ett_bcp_data, align 4
   %216 = load ptr, ptr %50, align 8
-  %217 = call ptr @tvb_get_string_enc(ptr noundef %216, ptr noundef %89, i32 noundef 16, i32 noundef 32, i32 noundef 0) #4
+  %217 = call ptr @tvb_get_string_enc(ptr noundef %216, ptr noundef %89, i32 noundef 16, i32 noundef 32, i32 noundef 0)
   %218 = load ptr, ptr %50, align 8
-  %219 = call ptr @tvb_address_to_str(ptr noundef %218, ptr noundef %89, i32 noundef 2, i32 noundef 12) #4
-  %220 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %17, ptr noundef %89, i32 noundef 0, i32 noundef %213, i32 noundef %215, ptr noundef null, ptr noundef nonnull @.str.114, ptr noundef %217, ptr noundef %219) #4
+  %219 = call ptr @tvb_address_to_str(ptr noundef %218, ptr noundef %89, i32 noundef 2, i32 noundef 12)
+  %220 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %17, ptr noundef %89, i32 noundef 0, i32 noundef %213, i32 noundef %215, ptr noundef null, ptr noundef nonnull @.str.115, ptr noundef %217, ptr noundef %219)
   %221 = load i32, ptr @hf_bcp_connectreq_lenin, align 4
-  %222 = call ptr @proto_tree_add_item(ptr noundef %220, i32 noundef %221, ptr noundef %89, i32 noundef 0, i32 noundef 2, i32 noundef 0) #4
+  %222 = call ptr @proto_tree_add_item(ptr noundef %220, i32 noundef %221, ptr noundef %89, i32 noundef 0, i32 noundef 2, i32 noundef 0)
   %223 = load i32, ptr @hf_bcp_connectreq_lenout, align 4
-  %224 = call ptr @proto_tree_add_item(ptr noundef %220, i32 noundef %223, ptr noundef %89, i32 noundef 2, i32 noundef 2, i32 noundef 0) #4
+  %224 = call ptr @proto_tree_add_item(ptr noundef %220, i32 noundef %223, ptr noundef %89, i32 noundef 2, i32 noundef 2, i32 noundef 0)
   %225 = load i32, ptr @hf_bcp_connectreq_cycletime, align 4
-  %226 = call ptr @proto_tree_add_item(ptr noundef %220, i32 noundef %225, ptr noundef %89, i32 noundef 4, i32 noundef 4, i32 noundef 0) #4
+  %226 = call ptr @proto_tree_add_item(ptr noundef %220, i32 noundef %225, ptr noundef %89, i32 noundef 4, i32 noundef 4, i32 noundef 0)
   %227 = load i32, ptr @hf_bcp_connectreq_offlinefactor, align 4
-  %228 = call ptr @proto_tree_add_item(ptr noundef %220, i32 noundef %227, ptr noundef %89, i32 noundef 8, i32 noundef 2, i32 noundef 0) #4
+  %228 = call ptr @proto_tree_add_item(ptr noundef %220, i32 noundef %227, ptr noundef %89, i32 noundef 8, i32 noundef 2, i32 noundef 0)
   %229 = load i32, ptr @hf_bcp_connectreq_ipaddr, align 4
-  %230 = call ptr @proto_tree_add_item(ptr noundef %220, i32 noundef %229, ptr noundef %89, i32 noundef 12, i32 noundef 4, i32 noundef 0) #4
+  %230 = call ptr @proto_tree_add_item(ptr noundef %220, i32 noundef %229, ptr noundef %89, i32 noundef 12, i32 noundef 4, i32 noundef 0)
   %231 = load i32, ptr @hf_bcp_connectreq_name, align 4
-  %232 = call ptr @proto_tree_add_item(ptr noundef %220, i32 noundef %231, ptr noundef %89, i32 noundef 16, i32 noundef 32, i32 noundef 0) #4
+  %232 = call ptr @proto_tree_add_item(ptr noundef %220, i32 noundef %231, ptr noundef %89, i32 noundef 16, i32 noundef 32, i32 noundef 0)
   %233 = load i32, ptr @hf_bcp_connectreq_ethaddr, align 4
-  %234 = call ptr @proto_tree_add_item(ptr noundef %220, i32 noundef %233, ptr noundef %89, i32 noundef 48, i32 noundef 6, i32 noundef 0) #4
+  %234 = call ptr @proto_tree_add_item(ptr noundef %220, i32 noundef %233, ptr noundef %89, i32 noundef 48, i32 noundef 6, i32 noundef 0)
   %.not65.i = icmp eq i32 %213, 54
   br i1 %.not65.i, label %238, label %235
 
 235:                                              ; preds = %214
   %236 = load i32, ptr @hf_bcp_connectreq_ethaddr2, align 4
-  %237 = call ptr @proto_tree_add_item(ptr noundef %220, i32 noundef %236, ptr noundef %89, i32 noundef 54, i32 noundef 6, i32 noundef 0) #4
+  %237 = call ptr @proto_tree_add_item(ptr noundef %220, i32 noundef %236, ptr noundef %89, i32 noundef 54, i32 noundef 6, i32 noundef 0)
   br label %238
 
 238:                                              ; preds = %235, %214, %211
@@ -551,31 +560,31 @@ define internal i32 @dissect_bluecom(ptr noundef %0, ptr noundef %1, ptr noundef
 
 239:                                              ; preds = %238
   %240 = load i32, ptr @ett_bcp_data, align 4
-  %241 = call i32 @tvb_get_ntohl(ptr noundef %89, i32 noundef %.0.i) #4
-  %242 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %17, ptr noundef %89, i32 noundef %.0.i, i32 noundef %213, i32 noundef %240, ptr noundef null, ptr noundef nonnull @.str.115, i32 noundef %241) #4
+  %241 = call i32 @tvb_get_ntohl(ptr noundef %89, i32 noundef %.0.i)
+  %242 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %17, ptr noundef %89, i32 noundef %.0.i, i32 noundef %213, i32 noundef %240, ptr noundef null, ptr noundef nonnull @.str.116, i32 noundef %241)
   %243 = load i32, ptr @hf_bcp_connectrsp_error, align 4
-  %244 = call ptr @proto_tree_add_item(ptr noundef %242, i32 noundef %243, ptr noundef %89, i32 noundef %.0.i, i32 noundef 4, i32 noundef 0) #4
+  %244 = call ptr @proto_tree_add_item(ptr noundef %242, i32 noundef %243, ptr noundef %89, i32 noundef %.0.i, i32 noundef 4, i32 noundef 0)
   %245 = add nuw nsw i32 %.0.i, 4
   %246 = load i32, ptr @hf_bcp_connectrsp_lenin, align 4
-  %247 = call ptr @proto_tree_add_item(ptr noundef %242, i32 noundef %246, ptr noundef %89, i32 noundef %245, i32 noundef 2, i32 noundef 0) #4
+  %247 = call ptr @proto_tree_add_item(ptr noundef %242, i32 noundef %246, ptr noundef %89, i32 noundef %245, i32 noundef 2, i32 noundef 0)
   %248 = add nuw nsw i32 %.0.i, 6
   %249 = load i32, ptr @hf_bcp_connectrsp_lenout, align 4
-  %250 = call ptr @proto_tree_add_item(ptr noundef %242, i32 noundef %249, ptr noundef %89, i32 noundef %248, i32 noundef 2, i32 noundef 0) #4
+  %250 = call ptr @proto_tree_add_item(ptr noundef %242, i32 noundef %249, ptr noundef %89, i32 noundef %248, i32 noundef 2, i32 noundef 0)
   br label %dissect_bcp_sync_data.exit
 
 251:                                              ; preds = %99
   %252 = load ptr, ptr @bcp_subdissector_table, align 8
-  %253 = call ptr @dissector_get_uint_handle(ptr noundef %252, i32 noundef %25) #4
+  %253 = call ptr @dissector_get_uint_handle(ptr noundef %252, i32 noundef %25)
   %.not.i65 = icmp eq ptr %253, null
   br i1 %.not.i65, label %256, label %254
 
 254:                                              ; preds = %251
-  %255 = call i32 @call_dissector(ptr noundef nonnull %253, ptr noundef %89, ptr noundef %1, ptr noundef %17) #4
+  %255 = call i32 @call_dissector(ptr noundef nonnull %253, ptr noundef %89, ptr noundef %1, ptr noundef %17)
   br label %dissect_bcp_sync_data.exit
 
 256:                                              ; preds = %251
   %257 = load i32, ptr @hf_bcp_userdata, align 4
-  %258 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %257, ptr noundef %89, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
+  %258 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %257, ptr noundef %89, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   br label %dissect_bcp_sync_data.exit
 
 dissect_bcp_sync_data.exit:                       ; preds = %256, %254, %239, %238, %208, %179, %178, %139, %121, %116, %100, %97, %94
@@ -626,7 +635,7 @@ dissect_bcp_sync_data.exit:                       ; preds = %256, %254, %239, %2
   %.0..0..0..0.14 = load volatile ptr, ptr %7, align 8
   %281 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.14, i64 16
   %282 = load volatile ptr, ptr %281, align 8
-  call void @show_exception(ptr noundef %89, ptr noundef %1, ptr noundef %2, i64 noundef %280, ptr noundef %282) #4
+  call void @show_exception(ptr noundef %89, ptr noundef %1, ptr noundef %2, i64 noundef %280, ptr noundef %282)
   br label %283
 
 283:                                              ; preds = %277, %273, %260, %dissect_bcp_sync_data.exit
@@ -642,13 +651,17 @@ dissect_bcp_sync_data.exit:                       ; preds = %256, %254, %239, %2
 
 286:                                              ; preds = %285
   %.0..0..0..0.16 = load volatile ptr, ptr %7, align 8
-  call void @except_rethrow(ptr noundef %.0..0..0..0.16) #6
+  call void @except_rethrow(ptr noundef %.0..0..0..0.16) #7
   unreachable
 
 287:                                              ; preds = %285, %283
   %288 = load volatile ptr, ptr %52, align 8
-  call void @except_free(ptr noundef %288) #4
-  %289 = call ptr @except_pop() #4
+  call void @except_free(ptr noundef %288)
+  %289 = call ptr @except_pop()
+  call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %10) #5
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %.0..0..0..0.35 = load volatile i32, ptr %6, align 4
   %290 = add i32 %.0..0..0..0.35, %59
   store volatile i32 %290, ptr %6, align 4
@@ -657,89 +670,125 @@ dissect_bcp_sync_data.exit:                       ; preds = %256, %254, %239, %2
   store volatile i32 %291, ptr %5, align 4
   %.0..0..0..0.37 = load volatile i32, ptr %5, align 4
   %292 = icmp ult i32 %.0..0..0..0.37, %22
-  br i1 %292, label %53, label %._crit_edge, !llvm.loop !4
+  br i1 %292, label %53, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %287, %4
   %.0..0..0..0.36 = load volatile i32, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   ret i32 %.0..0..0..0.36
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector_table(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_bluecom() local_unnamed_addr #0 {
   %1 = load ptr, ptr @bcp_handle, align 8
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.91, i32 noundef 35117, ptr noundef %1) #4
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.91, i32 noundef 35117, ptr noundef %1)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @except_setup_try(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind returns_twice
-declare i32 @_setjmp(ptr noundef) local_unnamed_addr #2
+; Function Attrs: nounwind null_pointer_is_valid returns_twice
+declare i32 @_setjmp(ptr noundef) local_unnamed_addr #3
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @show_exception(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: noreturn
-declare void @except_rethrow(ptr noundef) local_unnamed_addr #3
+; Function Attrs: noreturn null_pointer_is_valid
+declare void @except_rethrow(ptr noundef) local_unnamed_addr #4
 
+; Function Attrs: null_pointer_is_valid
 declare void @except_free(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @except_pop() local_unnamed_addr #1
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_address_to_str(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_bytes_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @dissector_get_uint_handle(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind returns_twice "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
-attributes #5 = { nounwind returns_twice }
-attributes #6 = { noreturn nounwind }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind null_pointer_is_valid returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
+attributes #6 = { nounwind returns_twice }
+attributes #7 = { noreturn }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}

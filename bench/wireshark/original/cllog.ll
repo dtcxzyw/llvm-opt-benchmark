@@ -2,15 +2,14 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.headerLineParseMapping_t = type { ptr, ptr }
-%struct.file_type_subtype_info = type { ptr, ptr, ptr, ptr, i32, i64, ptr, ptr, ptr, ptr }
 %struct.supported_block_type = type { i32, i32, i64, ptr }
 %struct.supported_option_type = type { i32, i32 }
 %struct.cLLog_private = type { i32, i32, [5 x i8], [5 x i8], [20 x i8], i32, i32, %struct.cCLLog_timeStamp_t, [20 x i8], i8, i8, i8, i8, i8, i8, i32, i32, i32, [7 x ptr], %struct.cCLLog_timeStamp_t }
 %struct.cCLLog_timeStamp_t = type { i64, i16 }
-%struct.wtap = type { ptr, ptr, i32, i32, i32, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr }
+%struct.wtap = type { ptr, ptr, i8, i32, i32, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 %struct.cCLLog_message_t = type { %struct.cCLLog_timeStamp_t, i32, i32, i32, i8, [8 x i8] }
-%struct.wtap_rec = type { i32, i32, i32, %struct.nstime_t, i32, %struct.nstime_t, i32, %union.anon, ptr, i32, %struct.Buffer }
+%struct.wtap_rec = type { i32, i32, i32, %struct.nstime_t, i32, %struct.nstime_t, i8, %union.anon, ptr, i8, %struct.Buffer, %struct.Buffer }
 %struct.nstime_t = type { i64, i32 }
 %union.anon = type { %struct.wtap_packet_header }
 %struct.wtap_packet_header = type { i32, i32, i32, i32, %union.wtap_pseudo_header }
@@ -23,7 +22,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 @headerLineParseMapping = internal constant [16 x %struct.headerLineParseMapping_t] [%struct.headerLineParseMapping_t { ptr @.str, ptr @parseLogFileHeaderLine_type }, %struct.headerLineParseMapping_t { ptr @.str.1, ptr @parseLogFileHeaderLine_hwrev }, %struct.headerLineParseMapping_t { ptr @.str.2, ptr @parseLogFileHeaderLine_fwrev }, %struct.headerLineParseMapping_t { ptr @.str.3, ptr @parseLogFileHeaderLine_id }, %struct.headerLineParseMapping_t { ptr @.str.4, ptr @parseLogFileHeaderLine_sessionNo }, %struct.headerLineParseMapping_t { ptr @.str.5, ptr @parseLogFileHeaderLine_splitNo }, %struct.headerLineParseMapping_t { ptr @.str.6, ptr @parseLogFileHeaderLine_time }, %struct.headerLineParseMapping_t { ptr @.str.7, ptr @parseLogFileHeaderLine_valueSeparator }, %struct.headerLineParseMapping_t { ptr @.str.8, ptr @parseLogFileHeaderLine_timeFormat }, %struct.headerLineParseMapping_t { ptr @.str.9, ptr @parseLogFileHeaderLine_timeSeparator }, %struct.headerLineParseMapping_t { ptr @.str.10, ptr @parseLogFileHeaderLine_timeSeparatorMs }, %struct.headerLineParseMapping_t { ptr @.str.11, ptr @parseLogFileHeaderLine_dateSeparator }, %struct.headerLineParseMapping_t { ptr @.str.12, ptr @parseLogFileHeaderLine_timeAndDateSeparator }, %struct.headerLineParseMapping_t { ptr @.str.13, ptr @parseLogFileHeaderLine_bitRate }, %struct.headerLineParseMapping_t { ptr @.str.14, ptr @parseLogFileHeaderLine_silentMode }, %struct.headerLineParseMapping_t { ptr @.str.15, ptr @parseLogFileHeaderLine_cyclicMode }], align 16
 @cllog_file_type_subtype = internal global i32 -1, align 4
-@cllog_info = internal constant %struct.file_type_subtype_info { ptr @.str.53, ptr @.str.54, ptr @.str.55, ptr null, i32 0, i64 1, ptr @cllog_blocks_supported, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [14 x i8] c"Logger type: \00", align 1
 @.str.1 = private unnamed_addr constant [9 x i8] c"HW rev: \00", align 1
 @.str.2 = private unnamed_addr constant [9 x i8] c"FW rev: \00", align 1
@@ -41,51 +39,58 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.14 = private unnamed_addr constant [14 x i8] c"Silent mode: \00", align 1
 @.str.15 = private unnamed_addr constant [14 x i8] c"Cyclic mode: \00", align 1
 @.str.16 = private unnamed_addr constant [14 x i8] c"CANLogger1000\00", align 1
-@.str.17 = private unnamed_addr constant [14 x i8] c"CANLogger2000\00", align 1
-@.str.18 = private unnamed_addr constant [14 x i8] c"CANLogger3000\00", align 1
-@.str.19 = private unnamed_addr constant [38 x i8] c"cllog: logger type value is not valid\00", align 1
-@.str.20 = private unnamed_addr constant [18 x i8] c"hardware revision\00", align 1
-@.str.21 = private unnamed_addr constant [22 x i8] c"cllog: %s is too long\00", align 1
-@.str.22 = private unnamed_addr constant [18 x i8] c"firmware revision\00", align 1
-@.str.23 = private unnamed_addr constant [3 x i8] c"ID\00", align 1
-@.str.24 = private unnamed_addr constant [15 x i8] c"session number\00", align 1
-@.str.25 = private unnamed_addr constant [29 x i8] c"cllog: %s value is not valid\00", align 1
-@.str.26 = private unnamed_addr constant [13 x i8] c"split number\00", align 1
-@.str.27 = private unnamed_addr constant [20 x i8] c"%4u%2u%2uT%2u%2u%2u\00", align 1
-@.str.28 = private unnamed_addr constant [24 x i8] c"cllog: time is too long\00", align 1
-@.str.29 = private unnamed_addr constant [6 x i8] c"value\00", align 1
+@.str.17 = private unnamed_addr constant [7 x i8] c"CL1000\00", align 1
+@.str.18 = private unnamed_addr constant [14 x i8] c"CANLogger2000\00", align 1
+@.str.19 = private unnamed_addr constant [7 x i8] c"CL2000\00", align 1
+@.str.20 = private unnamed_addr constant [14 x i8] c"CANLogger3000\00", align 1
+@.str.21 = private unnamed_addr constant [7 x i8] c"CL3000\00", align 1
+@.str.22 = private unnamed_addr constant [38 x i8] c"cllog: logger type value is not valid\00", align 1
+@.str.23 = private unnamed_addr constant [18 x i8] c"hardware revision\00", align 1
+@.str.24 = private unnamed_addr constant [22 x i8] c"cllog: %s is too long\00", align 1
+@.str.25 = private unnamed_addr constant [18 x i8] c"firmware revision\00", align 1
+@.str.26 = private unnamed_addr constant [3 x i8] c"ID\00", align 1
+@.str.27 = private unnamed_addr constant [15 x i8] c"session number\00", align 1
+@.str.28 = private unnamed_addr constant [29 x i8] c"cllog: %s value is not valid\00", align 1
+@.str.29 = private unnamed_addr constant [13 x i8] c"split number\00", align 1
+@.str.30 = private unnamed_addr constant [20 x i8] c"%4u%2u%2uT%2u%2u%2u\00", align 1
+@.str.31 = private unnamed_addr constant [24 x i8] c"cllog: time is too long\00", align 1
+@.str.32 = private unnamed_addr constant [6 x i8] c"value\00", align 1
 @g_ascii_table = external constant ptr, align 8
-@.str.30 = private unnamed_addr constant [33 x i8] c"cllog: %s separator is not valid\00", align 1
-@.str.31 = private unnamed_addr constant [38 x i8] c"cllog: time format value is not valid\00", align 1
-@.str.32 = private unnamed_addr constant [5 x i8] c"time\00", align 1
-@.str.33 = private unnamed_addr constant [17 x i8] c"time millisecond\00", align 1
-@.str.34 = private unnamed_addr constant [5 x i8] c"date\00", align 1
-@.str.35 = private unnamed_addr constant [14 x i8] c"date and time\00", align 1
-@.str.36 = private unnamed_addr constant [9 x i8] c"bit rate\00", align 1
-@.str.37 = private unnamed_addr constant [12 x i8] c"silent mode\00", align 1
-@.str.38 = private unnamed_addr constant [5 x i8] c"true\00", align 1
-@.str.39 = private unnamed_addr constant [6 x i8] c"false\00", align 1
-@.str.40 = private unnamed_addr constant [10 x i8] c"Timestamp\00", align 1
-@.str.41 = private unnamed_addr constant [5 x i8] c"Lost\00", align 1
-@.str.42 = private unnamed_addr constant [5 x i8] c"Type\00", align 1
-@.str.43 = private unnamed_addr constant [7 x i8] c"Length\00", align 1
-@.str.44 = private unnamed_addr constant [5 x i8] c"Data\00", align 1
-@.str.45 = private unnamed_addr constant [30 x i8] c"cllog: time stamp is too long\00", align 1
-@.str.46 = private unnamed_addr constant [34 x i8] c"cllog: header time stamp too long\00", align 1
+@.str.33 = private unnamed_addr constant [33 x i8] c"cllog: %s separator is not valid\00", align 1
+@.str.34 = private unnamed_addr constant [38 x i8] c"cllog: time format value is not valid\00", align 1
+@.str.35 = private unnamed_addr constant [5 x i8] c"time\00", align 1
+@.str.36 = private unnamed_addr constant [17 x i8] c"time millisecond\00", align 1
+@.str.37 = private unnamed_addr constant [5 x i8] c"date\00", align 1
+@.str.38 = private unnamed_addr constant [14 x i8] c"date and time\00", align 1
+@.str.39 = private unnamed_addr constant [9 x i8] c"bit rate\00", align 1
+@.str.40 = private unnamed_addr constant [12 x i8] c"silent mode\00", align 1
+@.str.41 = private unnamed_addr constant [5 x i8] c"true\00", align 1
+@.str.42 = private unnamed_addr constant [6 x i8] c"false\00", align 1
+@.str.43 = private unnamed_addr constant [10 x i8] c"Timestamp\00", align 1
+@.str.44 = private unnamed_addr constant [5 x i8] c"Lost\00", align 1
+@.str.45 = private unnamed_addr constant [5 x i8] c"Type\00", align 1
+@.str.46 = private unnamed_addr constant [7 x i8] c"Length\00", align 1
+@.str.47 = private unnamed_addr constant [5 x i8] c"Data\00", align 1
+@.str.48 = private unnamed_addr constant [30 x i8] c"cllog: time stamp is too long\00", align 1
+@.str.49 = private unnamed_addr constant [34 x i8] c"cllog: header time stamp too long\00", align 1
+@.str.50 = private unnamed_addr constant [40 x i8] c"cllog: time stamp incorrectly formatted\00", align 1
+@.str.51 = private unnamed_addr constant [47 x i8] c"cllog: header time stamp incorrectly formatted\00", align 1
 @__const.parseFieldTS.timeStampStringFull = private unnamed_addr constant [18 x i8] c"19700101000000000\00", align 16
-@.str.47 = private unnamed_addr constant [22 x i8] c"%4u%2u%2u%2u%2u%2u%3u\00", align 1
-@.str.48 = private unnamed_addr constant [44 x i8] c"cllog: lost packet count value is not valid\00", align 1
-@.str.49 = private unnamed_addr constant [28 x i8] c"cllog: unknown message type\00", align 1
-@.str.50 = private unnamed_addr constant [29 x i8] c"cllog: ID value is not valid\00", align 1
-@.str.51 = private unnamed_addr constant [33 x i8] c"cllog: length value is not valid\00", align 1
-@.str.52 = private unnamed_addr constant [38 x i8] c"cllog: packet byte value is not valid\00", align 1
-@.str.53 = private unnamed_addr constant [31 x i8] c"CSS Electronics CLX000 CAN log\00", align 1
-@.str.54 = private unnamed_addr constant [6 x i8] c"cllog\00", align 1
-@.str.55 = private unnamed_addr constant [4 x i8] c"txt\00", align 1
+@.str.52 = private unnamed_addr constant [22 x i8] c"%4u%2u%2u%2u%2u%2u%3d\00", align 1
+@.str.53 = private unnamed_addr constant [44 x i8] c"cllog: lost packet count value is not valid\00", align 1
+@.str.54 = private unnamed_addr constant [28 x i8] c"cllog: unknown message type\00", align 1
+@.str.55 = private unnamed_addr constant [29 x i8] c"cllog: ID value is not valid\00", align 1
+@.str.56 = private unnamed_addr constant [33 x i8] c"cllog: length value is not valid\00", align 1
+@.str.57 = private unnamed_addr constant [44 x i8] c"cllog: length value %u > maximum length %zu\00", align 1
+@.str.58 = private unnamed_addr constant [45 x i8] c"cllog: packet byte value 0x%02x is not valid\00", align 1
+@.str.59 = private unnamed_addr constant [31 x i8] c"CSS Electronics CLX000 CAN log\00", align 1
+@.str.60 = private unnamed_addr constant [6 x i8] c"cllog\00", align 1
+@.str.61 = private unnamed_addr constant [4 x i8] c"txt\00", align 1
 @cllog_blocks_supported = internal constant [1 x %struct.supported_block_type] [%struct.supported_block_type { i32 5, i32 2, i64 1, ptr @packet_block_options_supported }], align 16
+@cllog_info = internal constant { ptr, ptr, ptr, ptr, i8, [7 x i8], i64, ptr, ptr, ptr, ptr } { ptr @.str.59, ptr @.str.60, ptr @.str.61, ptr null, i8 0, [7 x i8] zeroinitializer, i64 1, ptr @cllog_blocks_supported, ptr null, ptr null, ptr null }, align 8
 @packet_block_options_supported = internal constant [1 x %struct.supported_option_type] [%struct.supported_option_type { i32 2, i32 1 }], align 4
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @cllog_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
@@ -94,341 +99,508 @@ define hidden i32 @cllog_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0
   %8 = alloca ptr, align 8
   %9 = alloca [200 x i8], align 16
   %10 = alloca ptr, align 8
-  %11 = alloca i32, align 4
-  %12 = alloca ptr, align 8
-  %13 = alloca i64, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca ptr, align 8
   %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca ptr, align 8
+  %18 = alloca i64, align 8
+  %19 = alloca ptr, align 8
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
-  %15 = call noalias ptr @g_malloc0_n(i64 noundef 1, i64 noundef 176) #7
-  store ptr %15, ptr %8, align 8
-  %16 = load ptr, ptr %8, align 8
-  %17 = getelementptr inbounds %struct.cLLog_private, ptr %16, i32 0, i32 1
-  store i32 0, ptr %17, align 4
-  %18 = load ptr, ptr %8, align 8
-  %19 = getelementptr inbounds %struct.cLLog_private, ptr %18, i32 0, i32 2
-  %20 = getelementptr [5 x i8], ptr %19, i64 0, i64 0
-  store i8 0, ptr %20, align 8
-  %21 = load ptr, ptr %8, align 8
-  %22 = getelementptr inbounds %struct.cLLog_private, ptr %21, i32 0, i32 3
-  %23 = getelementptr [5 x i8], ptr %22, i64 0, i64 0
-  store i8 0, ptr %23, align 1
-  %24 = load ptr, ptr %8, align 8
-  %25 = getelementptr inbounds %struct.cLLog_private, ptr %24, i32 0, i32 4
-  %26 = getelementptr [20 x i8], ptr %25, i64 0, i64 0
-  store i8 0, ptr %26, align 2
-  %27 = load ptr, ptr %8, align 8
-  %28 = getelementptr inbounds %struct.cLLog_private, ptr %27, i32 0, i32 5
-  store i32 0, ptr %28, align 8
-  %29 = load ptr, ptr %8, align 8
-  %30 = getelementptr inbounds %struct.cLLog_private, ptr %29, i32 0, i32 6
-  store i32 0, ptr %30, align 4
-  %31 = load ptr, ptr %8, align 8
-  %32 = getelementptr inbounds %struct.cLLog_private, ptr %31, i32 0, i32 7
-  %33 = getelementptr inbounds %struct.cCLLog_timeStamp_t, ptr %32, i32 0, i32 0
-  store i64 0, ptr %33, align 8
-  %34 = load ptr, ptr %8, align 8
-  %35 = getelementptr inbounds %struct.cLLog_private, ptr %34, i32 0, i32 7
-  %36 = getelementptr inbounds %struct.cCLLog_timeStamp_t, ptr %35, i32 0, i32 1
-  store i16 0, ptr %36, align 8
-  %37 = load ptr, ptr %8, align 8
-  %38 = getelementptr inbounds %struct.cLLog_private, ptr %37, i32 0, i32 8
-  %39 = getelementptr [20 x i8], ptr %38, i64 0, i64 0
-  store i8 0, ptr %39, align 8
-  %40 = load ptr, ptr %8, align 8
-  %41 = getelementptr inbounds %struct.cLLog_private, ptr %40, i32 0, i32 9
-  store i8 0, ptr %41, align 4
-  %42 = load ptr, ptr %8, align 8
-  %43 = getelementptr inbounds %struct.cLLog_private, ptr %42, i32 0, i32 10
-  store i8 0, ptr %43, align 1
-  %44 = load ptr, ptr %8, align 8
-  %45 = getelementptr inbounds %struct.cLLog_private, ptr %44, i32 0, i32 11
-  store i8 0, ptr %45, align 2
-  %46 = load ptr, ptr %8, align 8
-  %47 = getelementptr inbounds %struct.cLLog_private, ptr %46, i32 0, i32 12
-  store i8 0, ptr %47, align 1
-  %48 = load ptr, ptr %8, align 8
-  %49 = getelementptr inbounds %struct.cLLog_private, ptr %48, i32 0, i32 13
-  store i8 0, ptr %49, align 8
-  %50 = load ptr, ptr %8, align 8
-  %51 = getelementptr inbounds %struct.cLLog_private, ptr %50, i32 0, i32 14
-  store i8 0, ptr %51, align 1
-  %52 = load ptr, ptr %8, align 8
-  %53 = getelementptr inbounds %struct.cLLog_private, ptr %52, i32 0, i32 15
-  store i32 0, ptr %53, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #13
+  call void @llvm.lifetime.start.p0(i64 200, ptr %9) #13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #13
+  store i64 1, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #13
+  store i64 176, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #13
+  %20 = load i64, ptr %12, align 8
+  %21 = icmp eq i64 %20, 1
+  br i1 %21, label %22, label %25
+
+22:                                               ; preds = %3
+  %23 = load i64, ptr %11, align 8
+  %24 = call noalias ptr @g_malloc0(i64 noundef %23) #14
+  store ptr %24, ptr %13, align 8
+  br label %46
+
+25:                                               ; preds = %3
+  %26 = load i64, ptr %11, align 8
+  %27 = call i1 @llvm.is.constant.i64(i64 %26)
+  br i1 %27, label %28, label %41
+
+28:                                               ; preds = %25
+  %29 = load i64, ptr %12, align 8
+  %30 = icmp eq i64 %29, 0
+  br i1 %30, label %36, label %31
+
+31:                                               ; preds = %28
+  %32 = load i64, ptr %11, align 8
+  %33 = load i64, ptr %12, align 8
+  %34 = udiv i64 -1, %33
+  %35 = icmp ule i64 %32, %34
+  br i1 %35, label %36, label %41
+
+36:                                               ; preds = %31, %28
+  %37 = load i64, ptr %11, align 8
+  %38 = load i64, ptr %12, align 8
+  %39 = mul i64 %37, %38
+  %40 = call noalias ptr @g_malloc0(i64 noundef %39) #14
+  store ptr %40, ptr %13, align 8
+  br label %45
+
+41:                                               ; preds = %31, %25
+  %42 = load i64, ptr %11, align 8
+  %43 = load i64, ptr %12, align 8
+  %44 = call noalias ptr @g_malloc0_n(i64 noundef %42, i64 noundef %43) #15
+  store ptr %44, ptr %13, align 8
+  br label %45
+
+45:                                               ; preds = %41, %36
+  br label %46
+
+46:                                               ; preds = %45, %22
+  %47 = load ptr, ptr %13, align 8
+  store ptr %47, ptr %14, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #13
+  %48 = load ptr, ptr %14, align 8
+  store ptr %48, ptr %8, align 8
+  %49 = load ptr, ptr %8, align 8
+  %50 = getelementptr inbounds nuw %struct.cLLog_private, ptr %49, i32 0, i32 1
+  store i32 0, ptr %50, align 4
+  %51 = load ptr, ptr %8, align 8
+  %52 = getelementptr inbounds nuw %struct.cLLog_private, ptr %51, i32 0, i32 2
+  %53 = getelementptr [5 x i8], ptr %52, i64 0, i64 0
+  store i8 0, ptr %53, align 8
   %54 = load ptr, ptr %8, align 8
-  %55 = getelementptr inbounds %struct.cLLog_private, ptr %54, i32 0, i32 16
-  store i32 0, ptr %55, align 8
-  %56 = load ptr, ptr %8, align 8
-  %57 = getelementptr inbounds %struct.cLLog_private, ptr %56, i32 0, i32 17
-  store i32 0, ptr %57, align 4
-  %58 = load ptr, ptr %8, align 8
-  %59 = getelementptr inbounds %struct.cLLog_private, ptr %58, i32 0, i32 18
-  %60 = getelementptr inbounds [7 x ptr], ptr %59, i64 0, i64 0
-  call void @llvm.memset.p0.i64(ptr align 8 %60, i8 0, i64 56, i1 false)
-  br label %61
-
-61:                                               ; preds = %179, %111, %3
-  %62 = getelementptr inbounds [200 x i8], ptr %9, i64 0, i64 0
-  %63 = load ptr, ptr %5, align 8
-  %64 = getelementptr inbounds %struct.wtap, ptr %63, i32 0, i32 0
-  %65 = load ptr, ptr %64, align 8
-  %66 = call ptr @file_gets(ptr noundef %62, i32 noundef 200, ptr noundef %65)
-  %67 = icmp ne ptr %66, null
-  br i1 %67, label %68, label %180
-
-68:                                               ; preds = %61
-  %69 = load ptr, ptr %6, align 8
-  %70 = load i32, ptr %69, align 4
-  %71 = icmp ne i32 %70, 0
-  br i1 %71, label %72, label %80
-
-72:                                               ; preds = %68
-  %73 = load ptr, ptr %6, align 8
-  %74 = load i32, ptr %73, align 4
-  %75 = icmp ne i32 %74, -12
-  br i1 %75, label %76, label %78
-
-76:                                               ; preds = %72
+  %55 = getelementptr inbounds nuw %struct.cLLog_private, ptr %54, i32 0, i32 3
+  %56 = getelementptr [5 x i8], ptr %55, i64 0, i64 0
+  store i8 0, ptr %56, align 1
+  %57 = load ptr, ptr %8, align 8
+  %58 = getelementptr inbounds nuw %struct.cLLog_private, ptr %57, i32 0, i32 4
+  %59 = getelementptr [20 x i8], ptr %58, i64 0, i64 0
+  store i8 0, ptr %59, align 2
+  %60 = load ptr, ptr %8, align 8
+  %61 = getelementptr inbounds nuw %struct.cLLog_private, ptr %60, i32 0, i32 5
+  store i32 0, ptr %61, align 8
+  %62 = load ptr, ptr %8, align 8
+  %63 = getelementptr inbounds nuw %struct.cLLog_private, ptr %62, i32 0, i32 6
+  store i32 0, ptr %63, align 4
+  %64 = load ptr, ptr %8, align 8
+  %65 = getelementptr inbounds nuw %struct.cLLog_private, ptr %64, i32 0, i32 7
+  %66 = getelementptr inbounds nuw %struct.cCLLog_timeStamp_t, ptr %65, i32 0, i32 0
+  store i64 0, ptr %66, align 8
+  %67 = load ptr, ptr %8, align 8
+  %68 = getelementptr inbounds nuw %struct.cLLog_private, ptr %67, i32 0, i32 7
+  %69 = getelementptr inbounds nuw %struct.cCLLog_timeStamp_t, ptr %68, i32 0, i32 1
+  store i16 0, ptr %69, align 8
+  %70 = load ptr, ptr %8, align 8
+  %71 = getelementptr inbounds nuw %struct.cLLog_private, ptr %70, i32 0, i32 8
+  %72 = getelementptr [20 x i8], ptr %71, i64 0, i64 0
+  store i8 0, ptr %72, align 8
+  %73 = load ptr, ptr %8, align 8
+  %74 = getelementptr inbounds nuw %struct.cLLog_private, ptr %73, i32 0, i32 9
+  store i8 0, ptr %74, align 4
+  %75 = load ptr, ptr %8, align 8
+  %76 = getelementptr inbounds nuw %struct.cLLog_private, ptr %75, i32 0, i32 10
+  store i8 0, ptr %76, align 1
   %77 = load ptr, ptr %8, align 8
-  call void @g_free(ptr noundef %77)
-  store i32 0, ptr %4, align 4
-  br label %203
-
-78:                                               ; preds = %72
+  %78 = getelementptr inbounds nuw %struct.cLLog_private, ptr %77, i32 0, i32 11
+  store i8 0, ptr %78, align 2
   %79 = load ptr, ptr %8, align 8
-  call void @g_free(ptr noundef %79)
-  store i32 -1, ptr %4, align 4
-  br label %203
+  %80 = getelementptr inbounds nuw %struct.cLLog_private, ptr %79, i32 0, i32 12
+  store i8 0, ptr %80, align 1
+  %81 = load ptr, ptr %8, align 8
+  %82 = getelementptr inbounds nuw %struct.cLLog_private, ptr %81, i32 0, i32 13
+  store i8 0, ptr %82, align 8
+  %83 = load ptr, ptr %8, align 8
+  %84 = getelementptr inbounds nuw %struct.cLLog_private, ptr %83, i32 0, i32 14
+  store i8 0, ptr %84, align 1
+  %85 = load ptr, ptr %8, align 8
+  %86 = getelementptr inbounds nuw %struct.cLLog_private, ptr %85, i32 0, i32 15
+  store i32 0, ptr %86, align 4
+  %87 = load ptr, ptr %8, align 8
+  %88 = getelementptr inbounds nuw %struct.cLLog_private, ptr %87, i32 0, i32 16
+  store i32 0, ptr %88, align 8
+  %89 = load ptr, ptr %8, align 8
+  %90 = getelementptr inbounds nuw %struct.cLLog_private, ptr %89, i32 0, i32 17
+  store i32 0, ptr %90, align 4
+  %91 = load ptr, ptr %8, align 8
+  %92 = getelementptr inbounds nuw %struct.cLLog_private, ptr %91, i32 0, i32 18
+  %93 = getelementptr inbounds [7 x ptr], ptr %92, i64 0, i64 0
+  %94 = call ptr @memset.inline(ptr noundef %93, i32 noundef 0, i64 noundef 56) #13
+  br label %95
 
-80:                                               ; preds = %68
-  %81 = getelementptr inbounds [200 x i8], ptr %9, i64 0, i64 0
-  store ptr %81, ptr %10, align 8
-  %82 = load ptr, ptr %10, align 8
-  %83 = getelementptr i8, ptr %82, i64 0
-  %84 = load i8, ptr %83, align 1
-  %85 = sext i8 %84 to i32
-  %86 = icmp ne i32 %85, 35
-  br i1 %86, label %87, label %88
+95:                                               ; preds = %215, %133, %46
+  %96 = getelementptr inbounds [200 x i8], ptr %9, i64 0, i64 0
+  %97 = load ptr, ptr %5, align 8
+  %98 = getelementptr inbounds nuw %struct.wtap, ptr %97, i32 0, i32 0
+  %99 = load ptr, ptr %98, align 8
+  %100 = call ptr @file_gets(ptr noundef %96, i32 noundef 200, ptr noundef %99)
+  store ptr %100, ptr %10, align 8
+  %101 = icmp ne ptr %100, null
+  br i1 %101, label %102, label %108
 
-87:                                               ; preds = %80
-  br label %180
+102:                                              ; preds = %95
+  %103 = load ptr, ptr %10, align 8
+  %104 = getelementptr i8, ptr %103, i64 0
+  %105 = load i8, ptr %104, align 1
+  %106 = sext i8 %105 to i32
+  %107 = icmp eq i32 %106, 35
+  br label %108
 
-88:                                               ; preds = %80
-  %89 = load ptr, ptr %10, align 8
-  %90 = getelementptr i8, ptr %89, i32 1
-  store ptr %90, ptr %10, align 8
-  br label %91
+108:                                              ; preds = %102, %95
+  %109 = phi i1 [ false, %95 ], [ %107, %102 ]
+  br i1 %109, label %110, label %216
 
-91:                                               ; preds = %103, %88
-  %92 = load ptr, ptr %10, align 8
-  %93 = load i8, ptr %92, align 1
-  %94 = sext i8 %93 to i32
-  %95 = icmp eq i32 %94, 32
-  br i1 %95, label %101, label %96
-
-96:                                               ; preds = %91
-  %97 = load ptr, ptr %10, align 8
-  %98 = load i8, ptr %97, align 1
-  %99 = sext i8 %98 to i32
-  %100 = icmp eq i32 %99, 9
-  br label %101
-
-101:                                              ; preds = %96, %91
-  %102 = phi i1 [ true, %91 ], [ %100, %96 ]
-  br i1 %102, label %103, label %106
-
-103:                                              ; preds = %101
-  %104 = load ptr, ptr %10, align 8
-  %105 = getelementptr i8, ptr %104, i32 1
-  store ptr %105, ptr %10, align 8
-  br label %91, !llvm.loop !4
-
-106:                                              ; preds = %101
-  %107 = load ptr, ptr %10, align 8
-  %108 = load i8, ptr %107, align 1
-  %109 = sext i8 %108 to i32
-  %110 = icmp eq i32 %109, 0
-  br i1 %110, label %111, label %112
-
-111:                                              ; preds = %106
-  br label %61, !llvm.loop !6
-
-112:                                              ; preds = %106
-  store i32 0, ptr %11, align 4
+110:                                              ; preds = %108
+  %111 = load ptr, ptr %10, align 8
+  %112 = getelementptr i8, ptr %111, i32 1
+  store ptr %112, ptr %10, align 8
   br label %113
 
-113:                                              ; preds = %176, %112
-  %114 = load i32, ptr %11, align 4
-  %115 = zext i32 %114 to i64
-  %116 = icmp ult i64 %115, 16
-  br i1 %116, label %117, label %179
+113:                                              ; preds = %125, %110
+  %114 = load ptr, ptr %10, align 8
+  %115 = load i8, ptr %114, align 1
+  %116 = sext i8 %115 to i32
+  %117 = icmp eq i32 %116, 32
+  br i1 %117, label %123, label %118
 
-117:                                              ; preds = %113
-  %118 = load i32, ptr %11, align 4
-  %119 = zext i32 %118 to i64
-  %120 = getelementptr [16 x %struct.headerLineParseMapping_t], ptr @headerLineParseMapping, i64 0, i64 %119
-  store ptr %120, ptr %12, align 8
-  %121 = load ptr, ptr %12, align 8
-  %122 = getelementptr inbounds %struct.headerLineParseMapping_t, ptr %121, i32 0, i32 0
-  %123 = load ptr, ptr %122, align 8
-  %124 = call i64 @strlen(ptr noundef %123) #8
-  store i64 %124, ptr %13, align 8
-  %125 = load ptr, ptr %10, align 8
-  %126 = load ptr, ptr %12, align 8
-  %127 = getelementptr inbounds %struct.headerLineParseMapping_t, ptr %126, i32 0, i32 0
-  %128 = load ptr, ptr %127, align 8
-  %129 = load i64, ptr %13, align 8
-  %130 = call i32 @strncmp(ptr noundef %125, ptr noundef %128, i64 noundef %129) #8
-  %131 = icmp eq i32 %130, 0
-  br i1 %131, label %132, label %175
+118:                                              ; preds = %113
+  %119 = load ptr, ptr %10, align 8
+  %120 = load i8, ptr %119, align 1
+  %121 = sext i8 %120 to i32
+  %122 = icmp eq i32 %121, 9
+  br label %123
 
-132:                                              ; preds = %117
-  %133 = load ptr, ptr %12, align 8
-  %134 = getelementptr inbounds %struct.headerLineParseMapping_t, ptr %133, i32 0, i32 1
-  %135 = load ptr, ptr %134, align 8
-  %136 = icmp ne ptr %135, null
-  br i1 %136, label %137, label %175
+123:                                              ; preds = %118, %113
+  %124 = phi i1 [ true, %113 ], [ %122, %118 ]
+  br i1 %124, label %125, label %128
 
-137:                                              ; preds = %132
-  %138 = load i64, ptr %13, align 8
-  %139 = load ptr, ptr %10, align 8
-  %140 = getelementptr i8, ptr %139, i64 %138
-  store ptr %140, ptr %10, align 8
-  %141 = load ptr, ptr %10, align 8
-  store ptr %141, ptr %14, align 8
-  br label %142
+125:                                              ; preds = %123
+  %126 = load ptr, ptr %10, align 8
+  %127 = getelementptr i8, ptr %126, i32 1
+  store ptr %127, ptr %10, align 8
+  br label %113, !llvm.loop !6
 
-142:                                              ; preds = %160, %137
-  %143 = load ptr, ptr %14, align 8
-  %144 = load i8, ptr %143, align 1
-  %145 = sext i8 %144 to i32
-  %146 = icmp eq i32 %145, 10
-  br i1 %146, label %157, label %147
+128:                                              ; preds = %123
+  %129 = load ptr, ptr %10, align 8
+  %130 = load i8, ptr %129, align 1
+  %131 = sext i8 %130 to i32
+  %132 = icmp eq i32 %131, 0
+  br i1 %132, label %133, label %134
 
-147:                                              ; preds = %142
-  %148 = load ptr, ptr %14, align 8
-  %149 = load i8, ptr %148, align 1
-  %150 = sext i8 %149 to i32
-  %151 = icmp eq i32 %150, 13
-  br i1 %151, label %157, label %152
+133:                                              ; preds = %128
+  br label %95, !llvm.loop !8
 
-152:                                              ; preds = %147
-  %153 = load ptr, ptr %14, align 8
-  %154 = load i8, ptr %153, align 1
-  %155 = sext i8 %154 to i32
-  %156 = icmp eq i32 %155, 0
-  br i1 %156, label %157, label %159
+134:                                              ; preds = %128
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #13
+  store i32 0, ptr %15, align 4
+  br label %135
 
-157:                                              ; preds = %152, %147, %142
-  %158 = load ptr, ptr %14, align 8
-  store i8 0, ptr %158, align 1
-  br label %163
+135:                                              ; preds = %210, %134
+  %136 = load i32, ptr %15, align 4
+  %137 = zext i32 %136 to i64
+  %138 = icmp ult i64 %137, 16
+  br i1 %138, label %140, label %139
 
-159:                                              ; preds = %152
-  br label %160
+139:                                              ; preds = %135
+  store i32 6, ptr %16, align 4
+  br label %213
 
-160:                                              ; preds = %159
-  %161 = load ptr, ptr %14, align 8
-  %162 = getelementptr i8, ptr %161, i32 1
-  store ptr %162, ptr %14, align 8
-  br label %142
+140:                                              ; preds = %135
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #13
+  %141 = load i32, ptr %15, align 4
+  %142 = zext i32 %141 to i64
+  %143 = getelementptr [16 x %struct.headerLineParseMapping_t], ptr @headerLineParseMapping, i64 0, i64 %142
+  store ptr %143, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #13
+  %144 = load ptr, ptr %17, align 8
+  %145 = getelementptr inbounds nuw %struct.headerLineParseMapping_t, ptr %144, i32 0, i32 0
+  %146 = load ptr, ptr %145, align 8
+  %147 = call i64 @strlen(ptr noundef %146) #16
+  store i64 %147, ptr %18, align 8
+  %148 = load ptr, ptr %10, align 8
+  %149 = load ptr, ptr %17, align 8
+  %150 = getelementptr inbounds nuw %struct.headerLineParseMapping_t, ptr %149, i32 0, i32 0
+  %151 = load ptr, ptr %150, align 8
+  %152 = load i64, ptr %18, align 8
+  %153 = call i32 @strncmp(ptr noundef %148, ptr noundef %151, i64 noundef %152) #16
+  %154 = icmp eq i32 %153, 0
+  br i1 %154, label %155, label %206
 
-163:                                              ; preds = %157
-  %164 = load ptr, ptr %12, align 8
-  %165 = getelementptr inbounds %struct.headerLineParseMapping_t, ptr %164, i32 0, i32 1
-  %166 = load ptr, ptr %165, align 8
-  %167 = load ptr, ptr %8, align 8
-  %168 = load ptr, ptr %10, align 8
-  %169 = load ptr, ptr %6, align 8
-  %170 = load ptr, ptr %7, align 8
-  %171 = call zeroext i1 %166(ptr noundef %167, ptr noundef %168, ptr noundef %169, ptr noundef %170)
-  br i1 %171, label %174, label %172
+155:                                              ; preds = %140
+  %156 = load ptr, ptr %17, align 8
+  %157 = getelementptr inbounds nuw %struct.headerLineParseMapping_t, ptr %156, i32 0, i32 1
+  %158 = load ptr, ptr %157, align 8
+  %159 = icmp ne ptr %158, null
+  br i1 %159, label %160, label %206
 
-172:                                              ; preds = %163
-  %173 = load ptr, ptr %8, align 8
-  call void @g_free(ptr noundef %173)
-  store i32 -1, ptr %4, align 4
-  br label %203
+160:                                              ; preds = %155
+  %161 = load i64, ptr %18, align 8
+  %162 = load ptr, ptr %10, align 8
+  %163 = getelementptr i8, ptr %162, i64 %161
+  store ptr %163, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #13
+  %164 = load ptr, ptr %10, align 8
+  store ptr %164, ptr %19, align 8
+  br label %165
 
-174:                                              ; preds = %163
-  br label %175
+165:                                              ; preds = %183, %160
+  %166 = load ptr, ptr %19, align 8
+  %167 = load i8, ptr %166, align 1
+  %168 = sext i8 %167 to i32
+  %169 = icmp eq i32 %168, 10
+  br i1 %169, label %180, label %170
 
-175:                                              ; preds = %174, %132, %117
-  br label %176
+170:                                              ; preds = %165
+  %171 = load ptr, ptr %19, align 8
+  %172 = load i8, ptr %171, align 1
+  %173 = sext i8 %172 to i32
+  %174 = icmp eq i32 %173, 13
+  br i1 %174, label %180, label %175
 
-176:                                              ; preds = %175
-  %177 = load i32, ptr %11, align 4
-  %178 = add i32 %177, 1
-  store i32 %178, ptr %11, align 4
-  br label %113, !llvm.loop !7
+175:                                              ; preds = %170
+  %176 = load ptr, ptr %19, align 8
+  %177 = load i8, ptr %176, align 1
+  %178 = sext i8 %177 to i32
+  %179 = icmp eq i32 %178, 0
+  br i1 %179, label %180, label %182
 
-179:                                              ; preds = %113
-  br label %61, !llvm.loop !6
+180:                                              ; preds = %175, %170, %165
+  %181 = load ptr, ptr %19, align 8
+  store i8 0, ptr %181, align 1
+  store i32 9, ptr %16, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #13
+  br label %186
 
-180:                                              ; preds = %87, %61
-  %181 = load ptr, ptr %8, align 8
-  %182 = getelementptr inbounds [200 x i8], ptr %9, i64 0, i64 0
-  %183 = call zeroext i1 @parseColumnHeaderFields(ptr noundef %181, ptr noundef %182)
-  br i1 %183, label %186, label %184
+182:                                              ; preds = %175
+  br label %183
 
-184:                                              ; preds = %180
-  %185 = load ptr, ptr %8, align 8
-  call void @g_free(ptr noundef %185)
-  store i32 0, ptr %4, align 4
-  br label %203
+183:                                              ; preds = %182
+  %184 = load ptr, ptr %19, align 8
+  %185 = getelementptr i8, ptr %184, i32 1
+  store ptr %185, ptr %19, align 8
+  br label %165
 
 186:                                              ; preds = %180
-  %187 = load ptr, ptr %8, align 8
-  %188 = load ptr, ptr %5, align 8
-  %189 = getelementptr inbounds %struct.wtap, ptr %188, i32 0, i32 13
-  store ptr %187, ptr %189, align 8
-  %190 = load i32, ptr @cllog_file_type_subtype, align 4
-  %191 = load ptr, ptr %5, align 8
-  %192 = getelementptr inbounds %struct.wtap, ptr %191, i32 0, i32 3
-  store i32 %190, ptr %192, align 4
-  %193 = load ptr, ptr %5, align 8
-  %194 = getelementptr inbounds %struct.wtap, ptr %193, i32 0, i32 19
-  store i32 125, ptr %194, align 8
-  %195 = load ptr, ptr %5, align 8
-  %196 = getelementptr inbounds %struct.wtap, ptr %195, i32 0, i32 4
-  store i32 0, ptr %196, align 8
-  %197 = load ptr, ptr %5, align 8
-  %198 = getelementptr inbounds %struct.wtap, ptr %197, i32 0, i32 15
-  store ptr @cllog_read, ptr %198, align 8
-  %199 = load ptr, ptr %5, align 8
-  %200 = getelementptr inbounds %struct.wtap, ptr %199, i32 0, i32 16
-  store ptr @cllog_seek_read, ptr %200, align 8
-  %201 = load ptr, ptr %5, align 8
-  %202 = getelementptr inbounds %struct.wtap, ptr %201, i32 0, i32 20
-  store i32 3, ptr %202, align 4
-  store i32 1, ptr %4, align 4
-  br label %203
+  %187 = load ptr, ptr %17, align 8
+  %188 = getelementptr inbounds nuw %struct.headerLineParseMapping_t, ptr %187, i32 0, i32 1
+  %189 = load ptr, ptr %188, align 8
+  %190 = load ptr, ptr %8, align 8
+  %191 = load ptr, ptr %10, align 8
+  %192 = load ptr, ptr %6, align 8
+  %193 = load ptr, ptr %7, align 8
+  %194 = call zeroext i1 %189(ptr noundef %190, ptr noundef %191, ptr noundef %192, ptr noundef %193)
+  br i1 %194, label %205, label %195
 
-203:                                              ; preds = %186, %184, %172, %78, %76
-  %204 = load i32, ptr %4, align 4
-  ret i32 %204
+195:                                              ; preds = %186
+  %196 = load ptr, ptr %8, align 8
+  call void @g_free(ptr noundef %196)
+  %197 = load ptr, ptr %6, align 8
+  %198 = load i32, ptr %197, align 4
+  %199 = icmp eq i32 %198, -13
+  br i1 %199, label %200, label %204
+
+200:                                              ; preds = %195
+  %201 = load ptr, ptr %7, align 8
+  %202 = load ptr, ptr %201, align 8
+  call void @wmem_free(ptr noundef null, ptr noundef %202)
+  %203 = load ptr, ptr %7, align 8
+  store ptr null, ptr %203, align 8
+  br label %204
+
+204:                                              ; preds = %200, %195
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %16, align 4
+  br label %207
+
+205:                                              ; preds = %186
+  br label %206
+
+206:                                              ; preds = %205, %155, %140
+  store i32 0, ptr %16, align 4
+  br label %207
+
+207:                                              ; preds = %206, %204
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #13
+  %208 = load i32, ptr %16, align 4
+  switch i32 %208, label %213 [
+    i32 0, label %209
+  ]
+
+209:                                              ; preds = %207
+  br label %210
+
+210:                                              ; preds = %209
+  %211 = load i32, ptr %15, align 4
+  %212 = add i32 %211, 1
+  store i32 %212, ptr %15, align 4
+  br label %135, !llvm.loop !9
+
+213:                                              ; preds = %207, %139
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #13
+  %214 = load i32, ptr %16, align 4
+  switch i32 %214, label %262 [
+    i32 6, label %215
+  ]
+
+215:                                              ; preds = %213
+  br label %95, !llvm.loop !8
+
+216:                                              ; preds = %108
+  %217 = load ptr, ptr %10, align 8
+  %218 = icmp eq ptr %217, null
+  br i1 %218, label %219, label %238
+
+219:                                              ; preds = %216
+  %220 = load ptr, ptr %5, align 8
+  %221 = getelementptr inbounds nuw %struct.wtap, ptr %220, i32 0, i32 0
+  %222 = load ptr, ptr %221, align 8
+  %223 = load ptr, ptr %7, align 8
+  %224 = call i32 @file_error(ptr noundef %222, ptr noundef %223)
+  %225 = load ptr, ptr %6, align 8
+  store i32 %224, ptr %225, align 4
+  %226 = load ptr, ptr %6, align 8
+  %227 = load i32, ptr %226, align 4
+  %228 = icmp ne i32 %227, 0
+  br i1 %228, label %229, label %237
+
+229:                                              ; preds = %219
+  %230 = load ptr, ptr %6, align 8
+  %231 = load i32, ptr %230, align 4
+  %232 = icmp eq i32 %231, -12
+  br i1 %232, label %233, label %235
+
+233:                                              ; preds = %229
+  %234 = load ptr, ptr %8, align 8
+  call void @g_free(ptr noundef %234)
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %16, align 4
+  br label %262
+
+235:                                              ; preds = %229
+  %236 = load ptr, ptr %8, align 8
+  call void @g_free(ptr noundef %236)
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %16, align 4
+  br label %262
+
+237:                                              ; preds = %219
+  br label %245
+
+238:                                              ; preds = %216
+  %239 = load ptr, ptr %8, align 8
+  %240 = load ptr, ptr %10, align 8
+  %241 = call zeroext i1 @parseColumnHeaderFields(ptr noundef %239, ptr noundef %240)
+  br i1 %241, label %244, label %242
+
+242:                                              ; preds = %238
+  %243 = load ptr, ptr %8, align 8
+  call void @g_free(ptr noundef %243)
+  store i32 0, ptr %4, align 4
+  store i32 1, ptr %16, align 4
+  br label %262
+
+244:                                              ; preds = %238
+  br label %245
+
+245:                                              ; preds = %244, %237
+  %246 = load ptr, ptr %8, align 8
+  %247 = load ptr, ptr %5, align 8
+  %248 = getelementptr inbounds nuw %struct.wtap, ptr %247, i32 0, i32 13
+  store ptr %246, ptr %248, align 8
+  %249 = load i32, ptr @cllog_file_type_subtype, align 4
+  %250 = load ptr, ptr %5, align 8
+  %251 = getelementptr inbounds nuw %struct.wtap, ptr %250, i32 0, i32 3
+  store i32 %249, ptr %251, align 4
+  %252 = load ptr, ptr %5, align 8
+  %253 = getelementptr inbounds nuw %struct.wtap, ptr %252, i32 0, i32 19
+  store i32 125, ptr %253, align 8
+  %254 = load ptr, ptr %5, align 8
+  %255 = getelementptr inbounds nuw %struct.wtap, ptr %254, i32 0, i32 4
+  store i32 0, ptr %255, align 8
+  %256 = load ptr, ptr %5, align 8
+  %257 = getelementptr inbounds nuw %struct.wtap, ptr %256, i32 0, i32 15
+  store ptr @cllog_read, ptr %257, align 8
+  %258 = load ptr, ptr %5, align 8
+  %259 = getelementptr inbounds nuw %struct.wtap, ptr %258, i32 0, i32 16
+  store ptr @cllog_seek_read, ptr %259, align 8
+  %260 = load ptr, ptr %5, align 8
+  %261 = getelementptr inbounds nuw %struct.wtap, ptr %260, i32 0, i32 20
+  store i32 3, ptr %261, align 4
+  store i32 1, ptr %4, align 4
+  store i32 1, ptr %16, align 4
+  br label %262
+
+262:                                              ; preds = %245, %242, %235, %233, %213
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #13
+  call void @llvm.lifetime.end.p0(i64 200, ptr %9) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #13
+  %263 = load i32, ptr %4, align 4
+  ret i32 %263
 }
 
-; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+; Function Attrs: null_pointer_is_valid allocsize(0)
+declare noalias ptr @g_malloc0(i64 noundef) #2
 
-declare ptr @file_gets(ptr noundef, i32 noundef, ptr noundef) #3
+; Function Attrs: convergent nocallback nofree nosync nounwind willreturn memory(none)
+declare i1 @llvm.is.constant.i64(i64) #3
 
-declare void @g_free(ptr noundef) #3
+; Function Attrs: null_pointer_is_valid allocsize(0,1)
+declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) #4
 
-; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #4
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strncmp(ptr noundef, ptr noundef, i64 noundef) #4
+; Function Attrs: alwaysinline nounwind
+define internal ptr @memset.inline(ptr %0, i32 %1, i64 %2) #5 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i32, ptr %5, align 4
+  %9 = load i64, ptr %6, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = call i64 @llvm.objectsize.i64.p0(ptr %10, i1 false, i1 true, i1 true)
+  %12 = call ptr @__memset_chk(ptr noundef %7, i32 noundef %8, i64 noundef %9, i64 noundef %11) #13
+  ret ptr %12
+}
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @parseColumnHeaderFields(ptr noundef %0, ptr noundef %1) #0 {
+; Function Attrs: null_pointer_is_valid
+declare ptr @file_gets(ptr noundef, i32 noundef, ptr noundef) #6
+
+; Function Attrs: nounwind null_pointer_is_valid willreturn memory(read)
+declare i64 @strlen(ptr noundef) #7
+
+; Function Attrs: nounwind null_pointer_is_valid willreturn memory(read)
+declare i32 @strncmp(ptr noundef, ptr noundef, i64 noundef) #7
+
+; Function Attrs: null_pointer_is_valid
+declare void @g_free(ptr noundef) #6
+
+; Function Attrs: null_pointer_is_valid
+declare void @wmem_free(ptr noundef, ptr noundef) #6
+
+; Function Attrs: null_pointer_is_valid
+declare i32 @file_error(ptr noundef, ptr noundef) #6
+
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @parseColumnHeaderFields(ptr noundef %0, ptr noundef %1) #8 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i8, align 1
@@ -438,14 +610,18 @@ define internal zeroext i1 @parseColumnHeaderFields(ptr noundef %0, ptr noundef 
   %9 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #13
   store i8 0, ptr %5, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #13
   %10 = load ptr, ptr %4, align 8
   store ptr %10, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #13
   store i8 0, ptr %7, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #13
   store i8 0, ptr %8, align 1
   br label %11
 
-11:                                               ; preds = %97, %2
+11:                                               ; preds = %102, %2
   %12 = load i8, ptr %7, align 1
   %13 = zext i8 %12 to i32
   %14 = icmp slt i32 %13, 7
@@ -459,231 +635,249 @@ define internal zeroext i1 @parseColumnHeaderFields(ptr noundef %0, ptr noundef 
 
 19:                                               ; preds = %15, %11
   %20 = phi i1 [ false, %11 ], [ %18, %15 ]
-  br i1 %20, label %21, label %100
+  br i1 %20, label %22, label %21
 
 21:                                               ; preds = %19
-  %22 = load ptr, ptr %6, align 8
-  %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds %struct.cLLog_private, ptr %23, i32 0, i32 9
-  %25 = load i8, ptr %24, align 4
-  %26 = sext i8 %25 to i32
-  %27 = call ptr @strchr(ptr noundef %22, i32 noundef %26) #8
-  store ptr %27, ptr %9, align 8
-  %28 = load ptr, ptr %9, align 8
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %30, label %33
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #13
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #13
+  br label %105
 
-30:                                               ; preds = %21
-  %31 = load ptr, ptr %6, align 8
-  %32 = call ptr @strchr(ptr noundef %31, i32 noundef 10) #8
-  store ptr %32, ptr %9, align 8
+22:                                               ; preds = %19
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #13
+  %23 = load ptr, ptr %6, align 8
+  %24 = load ptr, ptr %3, align 8
+  %25 = getelementptr inbounds nuw %struct.cLLog_private, ptr %24, i32 0, i32 9
+  %26 = load i8, ptr %25, align 4
+  %27 = sext i8 %26 to i32
+  %28 = call ptr @strchr(ptr noundef %23, i32 noundef %27) #16
+  store ptr %28, ptr %9, align 8
+  %29 = load ptr, ptr %9, align 8
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %31, label %34
+
+31:                                               ; preds = %22
+  %32 = load ptr, ptr %6, align 8
+  %33 = call ptr @strchr(ptr noundef %32, i32 noundef 10) #16
+  store ptr %33, ptr %9, align 8
   store i8 1, ptr %8, align 1
-  br label %33
+  br label %34
 
-33:                                               ; preds = %30, %21
-  %34 = load ptr, ptr %9, align 8
-  store i8 0, ptr %34, align 1
-  %35 = load ptr, ptr %6, align 8
-  %36 = call i32 @strcmp(ptr noundef %35, ptr noundef @.str.40) #8
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %44
+34:                                               ; preds = %31, %22
+  %35 = load ptr, ptr %9, align 8
+  %36 = icmp ne ptr %35, null
+  br i1 %36, label %37, label %39
 
-38:                                               ; preds = %33
-  %39 = load ptr, ptr %3, align 8
-  %40 = getelementptr inbounds %struct.cLLog_private, ptr %39, i32 0, i32 18
-  %41 = load i8, ptr %7, align 1
-  %42 = zext i8 %41 to i64
-  %43 = getelementptr [7 x ptr], ptr %40, i64 0, i64 %42
-  store ptr @parseFieldTS, ptr %43, align 8
+37:                                               ; preds = %34
+  %38 = load ptr, ptr %9, align 8
+  store i8 0, ptr %38, align 1
+  br label %39
+
+39:                                               ; preds = %37, %34
+  %40 = load ptr, ptr %6, align 8
+  %41 = call i32 @strcmp(ptr noundef %40, ptr noundef @.str.43) #16
+  %42 = icmp eq i32 %41, 0
+  br i1 %42, label %43, label %49
+
+43:                                               ; preds = %39
+  %44 = load ptr, ptr %3, align 8
+  %45 = getelementptr inbounds nuw %struct.cLLog_private, ptr %44, i32 0, i32 18
+  %46 = load i8, ptr %7, align 1
+  %47 = zext i8 %46 to i64
+  %48 = getelementptr [7 x ptr], ptr %45, i64 0, i64 %47
+  store ptr @parseFieldTS, ptr %48, align 8
   store i8 1, ptr %5, align 1
-  br label %44
+  br label %49
 
-44:                                               ; preds = %38, %33
-  %45 = load ptr, ptr %6, align 8
-  %46 = call i32 @strcmp(ptr noundef %45, ptr noundef @.str.41) #8
-  %47 = icmp eq i32 %46, 0
-  br i1 %47, label %48, label %54
+49:                                               ; preds = %43, %39
+  %50 = load ptr, ptr %6, align 8
+  %51 = call i32 @strcmp(ptr noundef %50, ptr noundef @.str.44) #16
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %53, label %59
 
-48:                                               ; preds = %44
-  %49 = load ptr, ptr %3, align 8
-  %50 = getelementptr inbounds %struct.cLLog_private, ptr %49, i32 0, i32 18
-  %51 = load i8, ptr %7, align 1
-  %52 = zext i8 %51 to i64
-  %53 = getelementptr [7 x ptr], ptr %50, i64 0, i64 %52
-  store ptr @parseFieldLost, ptr %53, align 8
+53:                                               ; preds = %49
+  %54 = load ptr, ptr %3, align 8
+  %55 = getelementptr inbounds nuw %struct.cLLog_private, ptr %54, i32 0, i32 18
+  %56 = load i8, ptr %7, align 1
+  %57 = zext i8 %56 to i64
+  %58 = getelementptr [7 x ptr], ptr %55, i64 0, i64 %57
+  store ptr @parseFieldLost, ptr %58, align 8
   store i8 1, ptr %5, align 1
-  br label %54
+  br label %59
 
-54:                                               ; preds = %48, %44
-  %55 = load ptr, ptr %6, align 8
-  %56 = call i32 @strcmp(ptr noundef %55, ptr noundef @.str.42) #8
-  %57 = icmp eq i32 %56, 0
-  br i1 %57, label %58, label %64
+59:                                               ; preds = %53, %49
+  %60 = load ptr, ptr %6, align 8
+  %61 = call i32 @strcmp(ptr noundef %60, ptr noundef @.str.45) #16
+  %62 = icmp eq i32 %61, 0
+  br i1 %62, label %63, label %69
 
-58:                                               ; preds = %54
-  %59 = load ptr, ptr %3, align 8
-  %60 = getelementptr inbounds %struct.cLLog_private, ptr %59, i32 0, i32 18
-  %61 = load i8, ptr %7, align 1
-  %62 = zext i8 %61 to i64
-  %63 = getelementptr [7 x ptr], ptr %60, i64 0, i64 %62
-  store ptr @parseFieldMsgType, ptr %63, align 8
+63:                                               ; preds = %59
+  %64 = load ptr, ptr %3, align 8
+  %65 = getelementptr inbounds nuw %struct.cLLog_private, ptr %64, i32 0, i32 18
+  %66 = load i8, ptr %7, align 1
+  %67 = zext i8 %66 to i64
+  %68 = getelementptr [7 x ptr], ptr %65, i64 0, i64 %67
+  store ptr @parseFieldMsgType, ptr %68, align 8
   store i8 1, ptr %5, align 1
-  br label %64
+  br label %69
 
-64:                                               ; preds = %58, %54
-  %65 = load ptr, ptr %6, align 8
-  %66 = call i32 @strcmp(ptr noundef %65, ptr noundef @.str.23) #8
-  %67 = icmp eq i32 %66, 0
-  br i1 %67, label %68, label %74
+69:                                               ; preds = %63, %59
+  %70 = load ptr, ptr %6, align 8
+  %71 = call i32 @strcmp(ptr noundef %70, ptr noundef @.str.26) #16
+  %72 = icmp eq i32 %71, 0
+  br i1 %72, label %73, label %79
 
-68:                                               ; preds = %64
-  %69 = load ptr, ptr %3, align 8
-  %70 = getelementptr inbounds %struct.cLLog_private, ptr %69, i32 0, i32 18
-  %71 = load i8, ptr %7, align 1
-  %72 = zext i8 %71 to i64
-  %73 = getelementptr [7 x ptr], ptr %70, i64 0, i64 %72
-  store ptr @parseFieldID, ptr %73, align 8
+73:                                               ; preds = %69
+  %74 = load ptr, ptr %3, align 8
+  %75 = getelementptr inbounds nuw %struct.cLLog_private, ptr %74, i32 0, i32 18
+  %76 = load i8, ptr %7, align 1
+  %77 = zext i8 %76 to i64
+  %78 = getelementptr [7 x ptr], ptr %75, i64 0, i64 %77
+  store ptr @parseFieldID, ptr %78, align 8
   store i8 1, ptr %5, align 1
-  br label %74
+  br label %79
 
-74:                                               ; preds = %68, %64
-  %75 = load ptr, ptr %6, align 8
-  %76 = call i32 @strcmp(ptr noundef %75, ptr noundef @.str.43) #8
-  %77 = icmp eq i32 %76, 0
-  br i1 %77, label %78, label %84
+79:                                               ; preds = %73, %69
+  %80 = load ptr, ptr %6, align 8
+  %81 = call i32 @strcmp(ptr noundef %80, ptr noundef @.str.46) #16
+  %82 = icmp eq i32 %81, 0
+  br i1 %82, label %83, label %89
 
-78:                                               ; preds = %74
-  %79 = load ptr, ptr %3, align 8
-  %80 = getelementptr inbounds %struct.cLLog_private, ptr %79, i32 0, i32 18
-  %81 = load i8, ptr %7, align 1
-  %82 = zext i8 %81 to i64
-  %83 = getelementptr [7 x ptr], ptr %80, i64 0, i64 %82
-  store ptr @parseFieldLength, ptr %83, align 8
+83:                                               ; preds = %79
+  %84 = load ptr, ptr %3, align 8
+  %85 = getelementptr inbounds nuw %struct.cLLog_private, ptr %84, i32 0, i32 18
+  %86 = load i8, ptr %7, align 1
+  %87 = zext i8 %86 to i64
+  %88 = getelementptr [7 x ptr], ptr %85, i64 0, i64 %87
+  store ptr @parseFieldLength, ptr %88, align 8
   store i8 1, ptr %5, align 1
-  br label %84
+  br label %89
 
-84:                                               ; preds = %78, %74
-  %85 = load ptr, ptr %6, align 8
-  %86 = call i32 @strcmp(ptr noundef %85, ptr noundef @.str.44) #8
-  %87 = icmp eq i32 %86, 0
-  br i1 %87, label %88, label %94
+89:                                               ; preds = %83, %79
+  %90 = load ptr, ptr %6, align 8
+  %91 = call i32 @strcmp(ptr noundef %90, ptr noundef @.str.47) #16
+  %92 = icmp eq i32 %91, 0
+  br i1 %92, label %93, label %99
 
-88:                                               ; preds = %84
-  %89 = load ptr, ptr %3, align 8
-  %90 = getelementptr inbounds %struct.cLLog_private, ptr %89, i32 0, i32 18
-  %91 = load i8, ptr %7, align 1
-  %92 = zext i8 %91 to i64
-  %93 = getelementptr [7 x ptr], ptr %90, i64 0, i64 %92
-  store ptr @parseFieldData, ptr %93, align 8
+93:                                               ; preds = %89
+  %94 = load ptr, ptr %3, align 8
+  %95 = getelementptr inbounds nuw %struct.cLLog_private, ptr %94, i32 0, i32 18
+  %96 = load i8, ptr %7, align 1
+  %97 = zext i8 %96 to i64
+  %98 = getelementptr [7 x ptr], ptr %95, i64 0, i64 %97
+  store ptr @parseFieldData, ptr %98, align 8
   store i8 1, ptr %5, align 1
-  br label %94
+  br label %99
 
-94:                                               ; preds = %88, %84
-  %95 = load ptr, ptr %9, align 8
-  %96 = getelementptr i8, ptr %95, i64 1
-  store ptr %96, ptr %6, align 8
-  br label %97
+99:                                               ; preds = %93, %89
+  %100 = load ptr, ptr %9, align 8
+  %101 = getelementptr i8, ptr %100, i64 1
+  store ptr %101, ptr %6, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #13
+  br label %102
 
-97:                                               ; preds = %94
-  %98 = load i8, ptr %7, align 1
-  %99 = add i8 %98, 1
-  store i8 %99, ptr %7, align 1
-  br label %11, !llvm.loop !8
+102:                                              ; preds = %99
+  %103 = load i8, ptr %7, align 1
+  %104 = add i8 %103, 1
+  store i8 %104, ptr %7, align 1
+  br label %11, !llvm.loop !10
 
-100:                                              ; preds = %19
-  %101 = load i8, ptr %5, align 1
-  %102 = trunc i8 %101 to i1
-  ret i1 %102
+105:                                              ; preds = %21
+  %106 = load i8, ptr %5, align 1, !range !11, !noundef !12
+  %107 = trunc i8 %106 to i1
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #13
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #13
+  ret i1 %107
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @cllog_read(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @cllog_read(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+  %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr %6, align 8
+  %12 = getelementptr inbounds nuw %struct.wtap, ptr %11, i32 0, i32 0
+  %13 = load ptr, ptr %12, align 8
+  %14 = call i64 @file_tell(ptr noundef %13)
+  %15 = load ptr, ptr %10, align 8
+  store i64 %14, ptr %15, align 8
+  %16 = load ptr, ptr %6, align 8
+  %17 = load ptr, ptr %6, align 8
+  %18 = getelementptr inbounds nuw %struct.wtap, ptr %17, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8
+  %20 = load ptr, ptr %7, align 8
+  %21 = load ptr, ptr %8, align 8
+  %22 = load ptr, ptr %9, align 8
+  %23 = call zeroext i1 @cllog_read_common(ptr noundef %16, ptr noundef %19, ptr noundef %20, ptr noundef %21, ptr noundef %22)
+  ret i1 %23
+}
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @cllog_seek_read(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+  %6 = alloca i1, align 1
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
-  %12 = alloca ptr, align 8
   store ptr %0, ptr %7, align 8
-  store ptr %1, ptr %8, align 8
+  store i64 %1, ptr %8, align 8
   store ptr %2, ptr %9, align 8
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
-  store ptr %5, ptr %12, align 8
-  %13 = load ptr, ptr %7, align 8
-  %14 = getelementptr inbounds %struct.wtap, ptr %13, i32 0, i32 0
-  %15 = load ptr, ptr %14, align 8
-  %16 = call i64 @file_tell(ptr noundef %15)
-  %17 = load ptr, ptr %12, align 8
-  store i64 %16, ptr %17, align 8
-  %18 = load ptr, ptr %7, align 8
-  %19 = load ptr, ptr %7, align 8
-  %20 = getelementptr inbounds %struct.wtap, ptr %19, i32 0, i32 0
-  %21 = load ptr, ptr %20, align 8
-  %22 = load ptr, ptr %8, align 8
-  %23 = load ptr, ptr %9, align 8
-  %24 = load ptr, ptr %10, align 8
-  %25 = load ptr, ptr %11, align 8
-  %26 = call i32 @cllog_read_common(ptr noundef %18, ptr noundef %21, ptr noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25)
-  ret i32 %26
+  %12 = load ptr, ptr %7, align 8
+  %13 = getelementptr inbounds nuw %struct.wtap, ptr %12, i32 0, i32 1
+  %14 = load ptr, ptr %13, align 8
+  %15 = load i64, ptr %8, align 8
+  %16 = load ptr, ptr %10, align 8
+  %17 = call i64 @file_seek(ptr noundef %14, i64 noundef %15, i32 noundef 0, ptr noundef %16)
+  %18 = icmp eq i64 %17, -1
+  br i1 %18, label %19, label %20
+
+19:                                               ; preds = %5
+  store i1 false, ptr %6, align 1
+  br label %29
+
+20:                                               ; preds = %5
+  %21 = load ptr, ptr %7, align 8
+  %22 = load ptr, ptr %7, align 8
+  %23 = getelementptr inbounds nuw %struct.wtap, ptr %22, i32 0, i32 1
+  %24 = load ptr, ptr %23, align 8
+  %25 = load ptr, ptr %9, align 8
+  %26 = load ptr, ptr %10, align 8
+  %27 = load ptr, ptr %11, align 8
+  %28 = call zeroext i1 @cllog_read_common(ptr noundef %21, ptr noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %27)
+  store i1 %28, ptr %6, align 1
+  br label %29
+
+29:                                               ; preds = %20, %19
+  %30 = load i1, ptr %6, align 1
+  ret i1 %30
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @cllog_seek_read(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = alloca i32, align 4
-  %8 = alloca ptr, align 8
-  %9 = alloca i64, align 8
-  %10 = alloca ptr, align 8
-  %11 = alloca ptr, align 8
-  %12 = alloca ptr, align 8
-  %13 = alloca ptr, align 8
-  store ptr %0, ptr %8, align 8
-  store i64 %1, ptr %9, align 8
-  store ptr %2, ptr %10, align 8
-  store ptr %3, ptr %11, align 8
-  store ptr %4, ptr %12, align 8
-  store ptr %5, ptr %13, align 8
-  %14 = load ptr, ptr %8, align 8
-  %15 = getelementptr inbounds %struct.wtap, ptr %14, i32 0, i32 1
-  %16 = load ptr, ptr %15, align 8
-  %17 = load i64, ptr %9, align 8
-  %18 = load ptr, ptr %12, align 8
-  %19 = call i64 @file_seek(ptr noundef %16, i64 noundef %17, i32 noundef 0, ptr noundef %18)
-  %20 = icmp eq i64 %19, -1
-  br i1 %20, label %21, label %22
-
-21:                                               ; preds = %6
-  store i32 0, ptr %7, align 4
-  br label %32
-
-22:                                               ; preds = %6
-  %23 = load ptr, ptr %8, align 8
-  %24 = load ptr, ptr %8, align 8
-  %25 = getelementptr inbounds %struct.wtap, ptr %24, i32 0, i32 1
-  %26 = load ptr, ptr %25, align 8
-  %27 = load ptr, ptr %10, align 8
-  %28 = load ptr, ptr %11, align 8
-  %29 = load ptr, ptr %12, align 8
-  %30 = load ptr, ptr %13, align 8
-  %31 = call i32 @cllog_read_common(ptr noundef %23, ptr noundef %26, ptr noundef %27, ptr noundef %28, ptr noundef %29, ptr noundef %30)
-  store i32 %31, ptr %7, align 4
-  br label %32
-
-32:                                               ; preds = %22, %21
-  %33 = load i32, ptr %7, align 4
-  ret i32 %33
-}
-
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @register_canlogger() #0 {
   %1 = call i32 @wtap_register_file_type_subtype(ptr noundef @cllog_info)
   store i32 %1, ptr @cllog_file_type_subtype, align 4
   ret void
 }
 
-declare i32 @wtap_register_file_type_subtype(ptr noundef) #3
+; Function Attrs: null_pointer_is_valid
+declare i32 @wtap_register_file_type_subtype(ptr noundef) #6
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind null_pointer_is_valid
+declare ptr @__memset_chk(ptr noundef, i32 noundef, i64 noundef, i64 noundef) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.objectsize.i64.p0(ptr, i1 immarg, i1 immarg, i1 immarg) #10
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal zeroext i1 @parseLogFileHeaderLine_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i1, align 1
   %6 = alloca ptr, align 8
@@ -695,65 +889,83 @@ define internal zeroext i1 @parseLogFileHeaderLine_type(ptr noundef %0, ptr noun
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   %10 = load ptr, ptr %7, align 8
-  %11 = call i32 @strcmp(ptr noundef %10, ptr noundef @.str.16) #8
+  %11 = call i32 @strcmp(ptr noundef %10, ptr noundef @.str.16) #16
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %16
+  br i1 %12, label %17, label %13
 
 13:                                               ; preds = %4
-  %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds %struct.cLLog_private, ptr %14, i32 0, i32 1
-  store i32 0, ptr %15, align 4
-  br label %36
+  %14 = load ptr, ptr %7, align 8
+  %15 = call i32 @strcmp(ptr noundef %14, ptr noundef @.str.17) #16
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %17, label %20
 
-16:                                               ; preds = %4
-  %17 = load ptr, ptr %7, align 8
-  %18 = call i32 @strcmp(ptr noundef %17, ptr noundef @.str.17) #8
-  %19 = icmp eq i32 %18, 0
-  br i1 %19, label %20, label %23
+17:                                               ; preds = %13, %4
+  %18 = load ptr, ptr %6, align 8
+  %19 = getelementptr inbounds nuw %struct.cLLog_private, ptr %18, i32 0, i32 1
+  store i32 0, ptr %19, align 4
+  br label %48
 
-20:                                               ; preds = %16
-  %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds %struct.cLLog_private, ptr %21, i32 0, i32 1
-  store i32 1, ptr %22, align 4
-  br label %35
+20:                                               ; preds = %13
+  %21 = load ptr, ptr %7, align 8
+  %22 = call i32 @strcmp(ptr noundef %21, ptr noundef @.str.18) #16
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %28, label %24
 
-23:                                               ; preds = %16
-  %24 = load ptr, ptr %7, align 8
-  %25 = call i32 @strcmp(ptr noundef %24, ptr noundef @.str.18) #8
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %27, label %30
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %7, align 8
+  %26 = call i32 @strcmp(ptr noundef %25, ptr noundef @.str.19) #16
+  %27 = icmp eq i32 %26, 0
+  br i1 %27, label %28, label %31
 
-27:                                               ; preds = %23
-  %28 = load ptr, ptr %6, align 8
-  %29 = getelementptr inbounds %struct.cLLog_private, ptr %28, i32 0, i32 1
-  store i32 2, ptr %29, align 4
-  br label %34
+28:                                               ; preds = %24, %20
+  %29 = load ptr, ptr %6, align 8
+  %30 = getelementptr inbounds nuw %struct.cLLog_private, ptr %29, i32 0, i32 1
+  store i32 1, ptr %30, align 4
+  br label %47
 
-30:                                               ; preds = %23
-  %31 = load ptr, ptr %8, align 8
-  store i32 -13, ptr %31, align 4
-  %32 = call noalias ptr @g_strdup(ptr noundef @.str.19)
-  %33 = load ptr, ptr %9, align 8
-  store ptr %32, ptr %33, align 8
+31:                                               ; preds = %24
+  %32 = load ptr, ptr %7, align 8
+  %33 = call i32 @strcmp(ptr noundef %32, ptr noundef @.str.20) #16
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %39, label %35
+
+35:                                               ; preds = %31
+  %36 = load ptr, ptr %7, align 8
+  %37 = call i32 @strcmp(ptr noundef %36, ptr noundef @.str.21) #16
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %39, label %42
+
+39:                                               ; preds = %35, %31
+  %40 = load ptr, ptr %6, align 8
+  %41 = getelementptr inbounds nuw %struct.cLLog_private, ptr %40, i32 0, i32 1
+  store i32 2, ptr %41, align 4
+  br label %46
+
+42:                                               ; preds = %35
+  %43 = load ptr, ptr %8, align 8
+  store i32 -13, ptr %43, align 4
+  %44 = call noalias ptr @g_strdup(ptr noundef @.str.22)
+  %45 = load ptr, ptr %9, align 8
+  store ptr %44, ptr %45, align 8
   store i1 false, ptr %5, align 1
-  br label %37
+  br label %49
 
-34:                                               ; preds = %27
-  br label %35
+46:                                               ; preds = %39
+  br label %47
 
-35:                                               ; preds = %34, %20
-  br label %36
+47:                                               ; preds = %46, %28
+  br label %48
 
-36:                                               ; preds = %35, %13
+48:                                               ; preds = %47, %17
   store i1 true, ptr %5, align 1
-  br label %37
+  br label %49
 
-37:                                               ; preds = %36, %30
-  %38 = load i1, ptr %5, align 1
-  ret i1 %38
+49:                                               ; preds = %48, %42
+  %50 = load i1, ptr %5, align 1
+  ret i1 %50
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal zeroext i1 @parseLogFileHeaderLine_hwrev(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -765,15 +977,15 @@ define internal zeroext i1 @parseLogFileHeaderLine_hwrev(ptr noundef %0, ptr nou
   store ptr %3, ptr %8, align 8
   %9 = load ptr, ptr %6, align 8
   %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds %struct.cLLog_private, ptr %10, i32 0, i32 2
+  %11 = getelementptr inbounds nuw %struct.cLLog_private, ptr %10, i32 0, i32 2
   %12 = getelementptr inbounds [5 x i8], ptr %11, i64 0, i64 0
   %13 = load ptr, ptr %7, align 8
   %14 = load ptr, ptr %8, align 8
-  %15 = call zeroext i1 @parseString(ptr noundef %9, ptr noundef %12, i64 noundef 5, ptr noundef @.str.20, ptr noundef %13, ptr noundef %14)
+  %15 = call zeroext i1 @parseString(ptr noundef %9, ptr noundef %12, i64 noundef 5, ptr noundef @.str.23, ptr noundef %13, ptr noundef %14)
   ret i1 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal zeroext i1 @parseLogFileHeaderLine_fwrev(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -785,15 +997,15 @@ define internal zeroext i1 @parseLogFileHeaderLine_fwrev(ptr noundef %0, ptr nou
   store ptr %3, ptr %8, align 8
   %9 = load ptr, ptr %6, align 8
   %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds %struct.cLLog_private, ptr %10, i32 0, i32 3
+  %11 = getelementptr inbounds nuw %struct.cLLog_private, ptr %10, i32 0, i32 3
   %12 = getelementptr inbounds [5 x i8], ptr %11, i64 0, i64 0
   %13 = load ptr, ptr %7, align 8
   %14 = load ptr, ptr %8, align 8
-  %15 = call zeroext i1 @parseString(ptr noundef %9, ptr noundef %12, i64 noundef 5, ptr noundef @.str.22, ptr noundef %13, ptr noundef %14)
+  %15 = call zeroext i1 @parseString(ptr noundef %9, ptr noundef %12, i64 noundef 5, ptr noundef @.str.25, ptr noundef %13, ptr noundef %14)
   ret i1 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal zeroext i1 @parseLogFileHeaderLine_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -805,15 +1017,15 @@ define internal zeroext i1 @parseLogFileHeaderLine_id(ptr noundef %0, ptr nounde
   store ptr %3, ptr %8, align 8
   %9 = load ptr, ptr %6, align 8
   %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds %struct.cLLog_private, ptr %10, i32 0, i32 4
+  %11 = getelementptr inbounds nuw %struct.cLLog_private, ptr %10, i32 0, i32 4
   %12 = getelementptr inbounds [20 x i8], ptr %11, i64 0, i64 0
   %13 = load ptr, ptr %7, align 8
   %14 = load ptr, ptr %8, align 8
-  %15 = call zeroext i1 @parseString(ptr noundef %9, ptr noundef %12, i64 noundef 20, ptr noundef @.str.23, ptr noundef %13, ptr noundef %14)
+  %15 = call zeroext i1 @parseString(ptr noundef %9, ptr noundef %12, i64 noundef 20, ptr noundef @.str.26, ptr noundef %13, ptr noundef %14)
   ret i1 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal zeroext i1 @parseLogFileHeaderLine_sessionNo(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -825,14 +1037,14 @@ define internal zeroext i1 @parseLogFileHeaderLine_sessionNo(ptr noundef %0, ptr
   store ptr %3, ptr %8, align 8
   %9 = load ptr, ptr %6, align 8
   %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds %struct.cLLog_private, ptr %10, i32 0, i32 5
+  %11 = getelementptr inbounds nuw %struct.cLLog_private, ptr %10, i32 0, i32 5
   %12 = load ptr, ptr %7, align 8
   %13 = load ptr, ptr %8, align 8
-  %14 = call zeroext i1 @parseUnsigned(ptr noundef %9, ptr noundef %11, ptr noundef @.str.24, ptr noundef %12, ptr noundef %13)
+  %14 = call zeroext i1 @parseUnsigned(ptr noundef %9, ptr noundef %11, ptr noundef @.str.27, ptr noundef %12, ptr noundef %13)
   ret i1 %14
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal zeroext i1 @parseLogFileHeaderLine_splitNo(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -844,14 +1056,14 @@ define internal zeroext i1 @parseLogFileHeaderLine_splitNo(ptr noundef %0, ptr n
   store ptr %3, ptr %8, align 8
   %9 = load ptr, ptr %6, align 8
   %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds %struct.cLLog_private, ptr %10, i32 0, i32 6
+  %11 = getelementptr inbounds nuw %struct.cLLog_private, ptr %10, i32 0, i32 6
   %12 = load ptr, ptr %7, align 8
   %13 = load ptr, ptr %8, align 8
-  %14 = call zeroext i1 @parseUnsigned(ptr noundef %9, ptr noundef %11, ptr noundef @.str.26, ptr noundef %12, ptr noundef %13)
+  %14 = call zeroext i1 @parseUnsigned(ptr noundef %9, ptr noundef %11, ptr noundef @.str.29, ptr noundef %12, ptr noundef %13)
   ret i1 %14
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal zeroext i1 @parseLogFileHeaderLine_time(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i1, align 1
   %6 = alloca ptr, align 8
@@ -859,62 +1071,67 @@ define internal zeroext i1 @parseLogFileHeaderLine_time(ptr noundef %0, ptr noun
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca %struct.tm, align 8
+  %11 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
-  call void @llvm.memset.p0.i64(ptr align 8 %10, i8 0, i64 56, i1 false)
-  %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds %struct.tm, ptr %10, i32 0, i32 5
-  %13 = getelementptr inbounds %struct.tm, ptr %10, i32 0, i32 4
-  %14 = getelementptr inbounds %struct.tm, ptr %10, i32 0, i32 3
-  %15 = getelementptr inbounds %struct.tm, ptr %10, i32 0, i32 2
-  %16 = getelementptr inbounds %struct.tm, ptr %10, i32 0, i32 1
-  %17 = getelementptr inbounds %struct.tm, ptr %10, i32 0, i32 0
-  %18 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %11, ptr noundef @.str.27, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17) #9
-  %19 = getelementptr inbounds %struct.tm, ptr %10, i32 0, i32 4
-  %20 = load i32, ptr %19, align 8
-  %21 = sub i32 %20, 1
-  store i32 %21, ptr %19, align 8
-  %22 = getelementptr inbounds %struct.tm, ptr %10, i32 0, i32 5
-  %23 = load i32, ptr %22, align 4
-  %24 = sub i32 %23, 1900
-  store i32 %24, ptr %22, align 4
-  %25 = call i64 @mktime(ptr noundef %10) #9
-  %26 = load ptr, ptr %6, align 8
-  %27 = getelementptr inbounds %struct.cLLog_private, ptr %26, i32 0, i32 7
-  %28 = getelementptr inbounds %struct.cCLLog_timeStamp_t, ptr %27, i32 0, i32 0
-  store i64 %25, ptr %28, align 8
-  %29 = load ptr, ptr %6, align 8
-  %30 = getelementptr inbounds %struct.cLLog_private, ptr %29, i32 0, i32 7
-  %31 = getelementptr inbounds %struct.cCLLog_timeStamp_t, ptr %30, i32 0, i32 1
-  store i16 0, ptr %31, align 8
-  %32 = load ptr, ptr %6, align 8
-  %33 = getelementptr inbounds %struct.cLLog_private, ptr %32, i32 0, i32 8
-  %34 = getelementptr inbounds [20 x i8], ptr %33, i64 0, i64 0
-  %35 = load ptr, ptr %7, align 8
-  %36 = call zeroext i1 @checked_strcpy(ptr noundef %34, i64 noundef 20, ptr noundef %35)
-  br i1 %36, label %41, label %37
+  call void @llvm.lifetime.start.p0(i64 56, ptr %10) #13
+  %12 = call ptr @memset.inline(ptr noundef %10, i32 noundef 0, i64 noundef 56) #13
+  %13 = load ptr, ptr %7, align 8
+  %14 = getelementptr inbounds nuw %struct.tm, ptr %10, i32 0, i32 5
+  %15 = getelementptr inbounds nuw %struct.tm, ptr %10, i32 0, i32 4
+  %16 = getelementptr inbounds nuw %struct.tm, ptr %10, i32 0, i32 3
+  %17 = getelementptr inbounds nuw %struct.tm, ptr %10, i32 0, i32 2
+  %18 = getelementptr inbounds nuw %struct.tm, ptr %10, i32 0, i32 1
+  %19 = getelementptr inbounds nuw %struct.tm, ptr %10, i32 0, i32 0
+  %20 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %13, ptr noundef @.str.30, ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19) #13
+  %21 = getelementptr inbounds nuw %struct.tm, ptr %10, i32 0, i32 4
+  %22 = load i32, ptr %21, align 8
+  %23 = sub i32 %22, 1
+  store i32 %23, ptr %21, align 8
+  %24 = getelementptr inbounds nuw %struct.tm, ptr %10, i32 0, i32 5
+  %25 = load i32, ptr %24, align 4
+  %26 = sub i32 %25, 1900
+  store i32 %26, ptr %24, align 4
+  %27 = call i64 @mktime(ptr noundef %10) #13
+  %28 = load ptr, ptr %6, align 8
+  %29 = getelementptr inbounds nuw %struct.cLLog_private, ptr %28, i32 0, i32 7
+  %30 = getelementptr inbounds nuw %struct.cCLLog_timeStamp_t, ptr %29, i32 0, i32 0
+  store i64 %27, ptr %30, align 8
+  %31 = load ptr, ptr %6, align 8
+  %32 = getelementptr inbounds nuw %struct.cLLog_private, ptr %31, i32 0, i32 7
+  %33 = getelementptr inbounds nuw %struct.cCLLog_timeStamp_t, ptr %32, i32 0, i32 1
+  store i16 0, ptr %33, align 8
+  %34 = load ptr, ptr %6, align 8
+  %35 = getelementptr inbounds nuw %struct.cLLog_private, ptr %34, i32 0, i32 8
+  %36 = getelementptr inbounds [20 x i8], ptr %35, i64 0, i64 0
+  %37 = load ptr, ptr %7, align 8
+  %38 = call zeroext i1 @checked_strcpy(ptr noundef %36, i64 noundef 20, ptr noundef %37)
+  br i1 %38, label %43, label %39
 
-37:                                               ; preds = %4
-  %38 = load ptr, ptr %8, align 8
-  store i32 -13, ptr %38, align 4
-  %39 = call noalias ptr @g_strdup(ptr noundef @.str.28)
-  %40 = load ptr, ptr %9, align 8
-  store ptr %39, ptr %40, align 8
+39:                                               ; preds = %4
+  %40 = load ptr, ptr %8, align 8
+  store i32 -13, ptr %40, align 4
+  %41 = call noalias ptr @g_strdup(ptr noundef @.str.31)
+  %42 = load ptr, ptr %9, align 8
+  store ptr %41, ptr %42, align 8
   store i1 false, ptr %5, align 1
-  br label %42
+  store i32 1, ptr %11, align 4
+  br label %44
 
-41:                                               ; preds = %4
+43:                                               ; preds = %4
   store i1 true, ptr %5, align 1
-  br label %42
+  store i32 1, ptr %11, align 4
+  br label %44
 
-42:                                               ; preds = %41, %37
-  %43 = load i1, ptr %5, align 1
-  ret i1 %43
+44:                                               ; preds = %43, %39
+  call void @llvm.lifetime.end.p0(i64 56, ptr %10) #13
+  %45 = load i1, ptr %5, align 1
+  ret i1 %45
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal zeroext i1 @parseLogFileHeaderLine_valueSeparator(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -926,14 +1143,14 @@ define internal zeroext i1 @parseLogFileHeaderLine_valueSeparator(ptr noundef %0
   store ptr %3, ptr %8, align 8
   %9 = load ptr, ptr %6, align 8
   %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds %struct.cLLog_private, ptr %10, i32 0, i32 9
+  %11 = getelementptr inbounds nuw %struct.cLLog_private, ptr %10, i32 0, i32 9
   %12 = load ptr, ptr %7, align 8
   %13 = load ptr, ptr %8, align 8
-  %14 = call zeroext i1 @parseSeparator(ptr noundef %9, ptr noundef %11, ptr noundef @.str.29, ptr noundef %12, ptr noundef %13)
+  %14 = call zeroext i1 @parseSeparator(ptr noundef %9, ptr noundef %11, ptr noundef @.str.32, ptr noundef %12, ptr noundef %13)
   ret i1 %14
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal zeroext i1 @parseLogFileHeaderLine_timeFormat(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i1, align 1
   %6 = alloca ptr, align 8
@@ -941,52 +1158,58 @@ define internal zeroext i1 @parseLogFileHeaderLine_timeFormat(ptr noundef %0, pt
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
-  %11 = load ptr, ptr %7, align 8
-  %12 = call zeroext i1 @ws_strtou32(ptr noundef %11, ptr noundef null, ptr noundef %10)
-  br i1 %12, label %17, label %13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #13
+  %12 = load ptr, ptr %7, align 8
+  %13 = call zeroext i1 @ws_strtou32(ptr noundef %12, ptr noundef null, ptr noundef %10)
+  br i1 %13, label %18, label %14
 
-13:                                               ; preds = %4
-  %14 = load ptr, ptr %8, align 8
-  store i32 -13, ptr %14, align 4
-  %15 = call noalias ptr @g_strdup(ptr noundef @.str.31)
-  %16 = load ptr, ptr %9, align 8
-  store ptr %15, ptr %16, align 8
+14:                                               ; preds = %4
+  %15 = load ptr, ptr %8, align 8
+  store i32 -13, ptr %15, align 4
+  %16 = call noalias ptr @g_strdup(ptr noundef @.str.34)
+  %17 = load ptr, ptr %9, align 8
+  store ptr %16, ptr %17, align 8
   store i1 false, ptr %5, align 1
-  br label %29
+  store i32 1, ptr %11, align 4
+  br label %30
 
-17:                                               ; preds = %4
-  %18 = load i32, ptr %10, align 4
-  %19 = icmp ugt i32 %18, 6
-  br i1 %19, label %20, label %24
+18:                                               ; preds = %4
+  %19 = load i32, ptr %10, align 4
+  %20 = icmp ugt i32 %19, 6
+  br i1 %20, label %21, label %25
 
-20:                                               ; preds = %17
-  %21 = load ptr, ptr %8, align 8
-  store i32 -13, ptr %21, align 4
-  %22 = call noalias ptr @g_strdup(ptr noundef @.str.31)
-  %23 = load ptr, ptr %9, align 8
-  store ptr %22, ptr %23, align 8
+21:                                               ; preds = %18
+  %22 = load ptr, ptr %8, align 8
+  store i32 -13, ptr %22, align 4
+  %23 = call noalias ptr @g_strdup(ptr noundef @.str.34)
+  %24 = load ptr, ptr %9, align 8
+  store ptr %23, ptr %24, align 8
   store i1 false, ptr %5, align 1
-  br label %29
+  store i32 1, ptr %11, align 4
+  br label %30
 
-24:                                               ; preds = %17
-  %25 = load i32, ptr %10, align 4
-  %26 = trunc i32 %25 to i8
-  %27 = load ptr, ptr %6, align 8
-  %28 = getelementptr inbounds %struct.cLLog_private, ptr %27, i32 0, i32 10
-  store i8 %26, ptr %28, align 1
+25:                                               ; preds = %18
+  %26 = load i32, ptr %10, align 4
+  %27 = trunc i32 %26 to i8
+  %28 = load ptr, ptr %6, align 8
+  %29 = getelementptr inbounds nuw %struct.cLLog_private, ptr %28, i32 0, i32 10
+  store i8 %27, ptr %29, align 1
   store i1 true, ptr %5, align 1
-  br label %29
+  store i32 1, ptr %11, align 4
+  br label %30
 
-29:                                               ; preds = %24, %20, %13
-  %30 = load i1, ptr %5, align 1
-  ret i1 %30
+30:                                               ; preds = %25, %21, %14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #13
+  %31 = load i1, ptr %5, align 1
+  ret i1 %31
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal zeroext i1 @parseLogFileHeaderLine_timeSeparator(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -998,14 +1221,14 @@ define internal zeroext i1 @parseLogFileHeaderLine_timeSeparator(ptr noundef %0,
   store ptr %3, ptr %8, align 8
   %9 = load ptr, ptr %6, align 8
   %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds %struct.cLLog_private, ptr %10, i32 0, i32 11
+  %11 = getelementptr inbounds nuw %struct.cLLog_private, ptr %10, i32 0, i32 11
   %12 = load ptr, ptr %7, align 8
   %13 = load ptr, ptr %8, align 8
-  %14 = call zeroext i1 @parseSeparator(ptr noundef %9, ptr noundef %11, ptr noundef @.str.32, ptr noundef %12, ptr noundef %13)
+  %14 = call zeroext i1 @parseSeparator(ptr noundef %9, ptr noundef %11, ptr noundef @.str.35, ptr noundef %12, ptr noundef %13)
   ret i1 %14
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal zeroext i1 @parseLogFileHeaderLine_timeSeparatorMs(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1017,14 +1240,14 @@ define internal zeroext i1 @parseLogFileHeaderLine_timeSeparatorMs(ptr noundef %
   store ptr %3, ptr %8, align 8
   %9 = load ptr, ptr %6, align 8
   %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds %struct.cLLog_private, ptr %10, i32 0, i32 12
+  %11 = getelementptr inbounds nuw %struct.cLLog_private, ptr %10, i32 0, i32 12
   %12 = load ptr, ptr %7, align 8
   %13 = load ptr, ptr %8, align 8
-  %14 = call zeroext i1 @parseSeparator(ptr noundef %9, ptr noundef %11, ptr noundef @.str.33, ptr noundef %12, ptr noundef %13)
+  %14 = call zeroext i1 @parseSeparator(ptr noundef %9, ptr noundef %11, ptr noundef @.str.36, ptr noundef %12, ptr noundef %13)
   ret i1 %14
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal zeroext i1 @parseLogFileHeaderLine_dateSeparator(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1036,14 +1259,14 @@ define internal zeroext i1 @parseLogFileHeaderLine_dateSeparator(ptr noundef %0,
   store ptr %3, ptr %8, align 8
   %9 = load ptr, ptr %6, align 8
   %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds %struct.cLLog_private, ptr %10, i32 0, i32 13
+  %11 = getelementptr inbounds nuw %struct.cLLog_private, ptr %10, i32 0, i32 13
   %12 = load ptr, ptr %7, align 8
   %13 = load ptr, ptr %8, align 8
-  %14 = call zeroext i1 @parseSeparator(ptr noundef %9, ptr noundef %11, ptr noundef @.str.34, ptr noundef %12, ptr noundef %13)
+  %14 = call zeroext i1 @parseSeparator(ptr noundef %9, ptr noundef %11, ptr noundef @.str.37, ptr noundef %12, ptr noundef %13)
   ret i1 %14
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal zeroext i1 @parseLogFileHeaderLine_timeAndDateSeparator(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1055,14 +1278,14 @@ define internal zeroext i1 @parseLogFileHeaderLine_timeAndDateSeparator(ptr noun
   store ptr %3, ptr %8, align 8
   %9 = load ptr, ptr %6, align 8
   %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds %struct.cLLog_private, ptr %10, i32 0, i32 14
+  %11 = getelementptr inbounds nuw %struct.cLLog_private, ptr %10, i32 0, i32 14
   %12 = load ptr, ptr %7, align 8
   %13 = load ptr, ptr %8, align 8
-  %14 = call zeroext i1 @parseSeparator(ptr noundef %9, ptr noundef %11, ptr noundef @.str.35, ptr noundef %12, ptr noundef %13)
+  %14 = call zeroext i1 @parseSeparator(ptr noundef %9, ptr noundef %11, ptr noundef @.str.38, ptr noundef %12, ptr noundef %13)
   ret i1 %14
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal zeroext i1 @parseLogFileHeaderLine_bitRate(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1074,14 +1297,14 @@ define internal zeroext i1 @parseLogFileHeaderLine_bitRate(ptr noundef %0, ptr n
   store ptr %3, ptr %8, align 8
   %9 = load ptr, ptr %6, align 8
   %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds %struct.cLLog_private, ptr %10, i32 0, i32 15
+  %11 = getelementptr inbounds nuw %struct.cLLog_private, ptr %10, i32 0, i32 15
   %12 = load ptr, ptr %7, align 8
   %13 = load ptr, ptr %8, align 8
-  %14 = call zeroext i1 @parseUnsigned(ptr noundef %9, ptr noundef %11, ptr noundef @.str.36, ptr noundef %12, ptr noundef %13)
+  %14 = call zeroext i1 @parseUnsigned(ptr noundef %9, ptr noundef %11, ptr noundef @.str.39, ptr noundef %12, ptr noundef %13)
   ret i1 %14
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal zeroext i1 @parseLogFileHeaderLine_silentMode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i1, align 1
   %6 = alloca ptr, align 8
@@ -1089,47 +1312,52 @@ define internal zeroext i1 @parseLogFileHeaderLine_silentMode(ptr noundef %0, pt
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca i8, align 1
+  %11 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
-  %11 = load ptr, ptr %7, align 8
-  %12 = load ptr, ptr %8, align 8
-  %13 = load ptr, ptr %9, align 8
-  %14 = call zeroext i1 @parseBoolean(ptr noundef %11, ptr noundef %10, ptr noundef @.str.37, ptr noundef %12, ptr noundef %13)
-  br i1 %14, label %16, label %15
-
-15:                                               ; preds = %4
-  store i1 false, ptr %5, align 1
-  br label %26
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #13
+  %12 = load ptr, ptr %7, align 8
+  %13 = load ptr, ptr %8, align 8
+  %14 = load ptr, ptr %9, align 8
+  %15 = call zeroext i1 @parseBoolean(ptr noundef %12, ptr noundef %10, ptr noundef @.str.40, ptr noundef %13, ptr noundef %14)
+  br i1 %15, label %17, label %16
 
 16:                                               ; preds = %4
-  %17 = load i8, ptr %10, align 1
-  %18 = trunc i8 %17 to i1
-  br i1 %18, label %19, label %22
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %11, align 4
+  br label %27
 
-19:                                               ; preds = %16
-  %20 = load ptr, ptr %6, align 8
-  %21 = getelementptr inbounds %struct.cLLog_private, ptr %20, i32 0, i32 16
-  store i32 1, ptr %21, align 8
-  br label %25
+17:                                               ; preds = %4
+  %18 = load i8, ptr %10, align 1, !range !11, !noundef !12
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %20, label %23
 
-22:                                               ; preds = %16
-  %23 = load ptr, ptr %6, align 8
-  %24 = getelementptr inbounds %struct.cLLog_private, ptr %23, i32 0, i32 16
-  store i32 0, ptr %24, align 8
-  br label %25
-
-25:                                               ; preds = %22, %19
-  store i1 true, ptr %5, align 1
+20:                                               ; preds = %17
+  %21 = load ptr, ptr %6, align 8
+  %22 = getelementptr inbounds nuw %struct.cLLog_private, ptr %21, i32 0, i32 16
+  store i32 1, ptr %22, align 8
   br label %26
 
-26:                                               ; preds = %25, %15
-  %27 = load i1, ptr %5, align 1
-  ret i1 %27
+23:                                               ; preds = %17
+  %24 = load ptr, ptr %6, align 8
+  %25 = getelementptr inbounds nuw %struct.cLLog_private, ptr %24, i32 0, i32 16
+  store i32 0, ptr %25, align 8
+  br label %26
+
+26:                                               ; preds = %23, %20
+  store i1 true, ptr %5, align 1
+  store i32 1, ptr %11, align 4
+  br label %27
+
+27:                                               ; preds = %26, %16
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #13
+  %28 = load i1, ptr %5, align 1
+  ret i1 %28
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal zeroext i1 @parseLogFileHeaderLine_cyclicMode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i1, align 1
   %6 = alloca ptr, align 8
@@ -1137,52 +1365,58 @@ define internal zeroext i1 @parseLogFileHeaderLine_cyclicMode(ptr noundef %0, pt
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca i8, align 1
+  %11 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
-  %11 = load ptr, ptr %7, align 8
-  %12 = load ptr, ptr %8, align 8
-  %13 = load ptr, ptr %9, align 8
-  %14 = call zeroext i1 @parseBoolean(ptr noundef %11, ptr noundef %10, ptr noundef @.str.37, ptr noundef %12, ptr noundef %13)
-  br i1 %14, label %16, label %15
-
-15:                                               ; preds = %4
-  store i1 false, ptr %5, align 1
-  br label %26
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #13
+  %12 = load ptr, ptr %7, align 8
+  %13 = load ptr, ptr %8, align 8
+  %14 = load ptr, ptr %9, align 8
+  %15 = call zeroext i1 @parseBoolean(ptr noundef %12, ptr noundef %10, ptr noundef @.str.40, ptr noundef %13, ptr noundef %14)
+  br i1 %15, label %17, label %16
 
 16:                                               ; preds = %4
-  %17 = load i8, ptr %10, align 1
-  %18 = trunc i8 %17 to i1
-  br i1 %18, label %19, label %22
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %11, align 4
+  br label %27
 
-19:                                               ; preds = %16
-  %20 = load ptr, ptr %6, align 8
-  %21 = getelementptr inbounds %struct.cLLog_private, ptr %20, i32 0, i32 17
-  store i32 1, ptr %21, align 4
-  br label %25
+17:                                               ; preds = %4
+  %18 = load i8, ptr %10, align 1, !range !11, !noundef !12
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %20, label %23
 
-22:                                               ; preds = %16
-  %23 = load ptr, ptr %6, align 8
-  %24 = getelementptr inbounds %struct.cLLog_private, ptr %23, i32 0, i32 17
-  store i32 0, ptr %24, align 4
-  br label %25
-
-25:                                               ; preds = %22, %19
-  store i1 true, ptr %5, align 1
+20:                                               ; preds = %17
+  %21 = load ptr, ptr %6, align 8
+  %22 = getelementptr inbounds nuw %struct.cLLog_private, ptr %21, i32 0, i32 17
+  store i32 1, ptr %22, align 4
   br label %26
 
-26:                                               ; preds = %25, %15
-  %27 = load i1, ptr %5, align 1
-  ret i1 %27
+23:                                               ; preds = %17
+  %24 = load ptr, ptr %6, align 8
+  %25 = getelementptr inbounds nuw %struct.cLLog_private, ptr %24, i32 0, i32 17
+  store i32 0, ptr %25, align 4
+  br label %26
+
+26:                                               ; preds = %23, %20
+  store i1 true, ptr %5, align 1
+  store i32 1, ptr %11, align 4
+  br label %27
+
+27:                                               ; preds = %26, %16
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #13
+  %28 = load i1, ptr %5, align 1
+  ret i1 %28
 }
 
-; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #4
+; Function Attrs: nounwind null_pointer_is_valid willreturn memory(read)
+declare i32 @strcmp(ptr noundef, ptr noundef) #7
 
-declare noalias ptr @g_strdup(ptr noundef) #3
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @g_strdup(ptr noundef) #6
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal zeroext i1 @parseString(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i1, align 1
   %8 = alloca ptr, align 8
@@ -1207,7 +1441,7 @@ define internal zeroext i1 @parseString(ptr noundef %0, ptr noundef %1, i64 noun
   %19 = load ptr, ptr %12, align 8
   store i32 -13, ptr %19, align 4
   %20 = load ptr, ptr %11, align 8
-  %21 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.21, ptr noundef %20)
+  %21 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.24, ptr noundef %20)
   %22 = load ptr, ptr %13, align 8
   store ptr %21, ptr %22, align 8
   store i1 false, ptr %7, align 1
@@ -1222,48 +1456,71 @@ define internal zeroext i1 @parseString(ptr noundef %0, ptr noundef %1, i64 noun
   ret i1 %25
 }
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i1 @checked_strcpy(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @checked_strcpy(ptr noundef %0, i64 noundef %1, ptr noundef %2) #8 {
   %4 = alloca i1, align 1
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i64, align 8
+  %9 = alloca i32, align 4
   store ptr %0, ptr %5, align 8
   store i64 %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
-  %9 = load ptr, ptr %7, align 8
-  %10 = call i64 @strlen(ptr noundef %9) #8
-  %11 = add i64 %10, 1
-  store i64 %11, ptr %8, align 8
-  %12 = load i64, ptr %8, align 8
-  %13 = load i64, ptr %6, align 8
-  %14 = icmp ugt i64 %12, %13
-  br i1 %14, label %15, label %16
-
-15:                                               ; preds = %3
-  store i1 false, ptr %4, align 1
-  br label %20
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #13
+  %10 = load ptr, ptr %7, align 8
+  %11 = call i64 @strlen(ptr noundef %10) #16
+  %12 = add i64 %11, 1
+  store i64 %12, ptr %8, align 8
+  %13 = load i64, ptr %8, align 8
+  %14 = load i64, ptr %6, align 8
+  %15 = icmp ugt i64 %13, %14
+  br i1 %15, label %16, label %17
 
 16:                                               ; preds = %3
-  %17 = load ptr, ptr %5, align 8
-  %18 = load ptr, ptr %7, align 8
-  %19 = load i64, ptr %8, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %17, ptr align 1 %18, i64 %19, i1 false)
-  store i1 true, ptr %4, align 1
-  br label %20
+  store i1 false, ptr %4, align 1
+  store i32 1, ptr %9, align 4
+  br label %22
 
-20:                                               ; preds = %16, %15
-  %21 = load i1, ptr %4, align 1
-  ret i1 %21
+17:                                               ; preds = %3
+  %18 = load ptr, ptr %5, align 8
+  %19 = load ptr, ptr %7, align 8
+  %20 = load i64, ptr %8, align 8
+  %21 = call ptr @memcpy.inline(ptr noundef %18, ptr noundef %19, i64 noundef %20) #13
+  store i1 true, ptr %4, align 1
+  store i32 1, ptr %9, align 4
+  br label %22
+
+22:                                               ; preds = %17, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #13
+  %23 = load i1, ptr %4, align 1
+  ret i1 %23
 }
 
-declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) #3
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) #6
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+; Function Attrs: alwaysinline nounwind
+define internal ptr @memcpy.inline(ptr noalias %0, ptr noalias %1, i64 %2) #5 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load i64, ptr %6, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = call i64 @llvm.objectsize.i64.p0(ptr %10, i1 false, i1 true, i1 true)
+  %12 = call ptr @__memcpy_chk(ptr noundef %7, ptr noundef %8, i64 noundef %9, i64 noundef %11) #13
+  ret ptr %12
+}
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind null_pointer_is_valid
+declare ptr @__memcpy_chk(ptr noundef, ptr noundef, i64 noundef, i64 noundef) #9
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal zeroext i1 @parseUnsigned(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca i1, align 1
   %7 = alloca ptr, align 8
@@ -1272,46 +1529,52 @@ define internal zeroext i1 @parseUnsigned(ptr noundef %0, ptr noundef %1, ptr no
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
   store ptr %0, ptr %7, align 8
   store ptr %1, ptr %8, align 8
   store ptr %2, ptr %9, align 8
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
-  %13 = load ptr, ptr %7, align 8
-  %14 = call zeroext i1 @ws_strtou32(ptr noundef %13, ptr noundef null, ptr noundef %12)
-  br i1 %14, label %20, label %15
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #13
+  %14 = load ptr, ptr %7, align 8
+  %15 = call zeroext i1 @ws_strtou32(ptr noundef %14, ptr noundef null, ptr noundef %12)
+  br i1 %15, label %21, label %16
 
-15:                                               ; preds = %5
-  %16 = load ptr, ptr %10, align 8
-  store i32 -13, ptr %16, align 4
-  %17 = load ptr, ptr %9, align 8
-  %18 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.25, ptr noundef %17)
-  %19 = load ptr, ptr %11, align 8
-  store ptr %18, ptr %19, align 8
+16:                                               ; preds = %5
+  %17 = load ptr, ptr %10, align 8
+  store i32 -13, ptr %17, align 4
+  %18 = load ptr, ptr %9, align 8
+  %19 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.28, ptr noundef %18)
+  %20 = load ptr, ptr %11, align 8
+  store ptr %19, ptr %20, align 8
   store i1 false, ptr %6, align 1
-  br label %23
+  store i32 1, ptr %13, align 4
+  br label %24
 
-20:                                               ; preds = %5
-  %21 = load i32, ptr %12, align 4
-  %22 = load ptr, ptr %8, align 8
-  store i32 %21, ptr %22, align 4
+21:                                               ; preds = %5
+  %22 = load i32, ptr %12, align 4
+  %23 = load ptr, ptr %8, align 8
+  store i32 %22, ptr %23, align 4
   store i1 true, ptr %6, align 1
-  br label %23
+  store i32 1, ptr %13, align 4
+  br label %24
 
-23:                                               ; preds = %20, %15
-  %24 = load i1, ptr %6, align 1
-  ret i1 %24
+24:                                               ; preds = %21, %16
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #13
+  %25 = load i1, ptr %6, align 1
+  ret i1 %25
 }
 
-declare zeroext i1 @ws_strtou32(ptr noundef, ptr noundef, ptr noundef) #3
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @ws_strtou32(ptr noundef, ptr noundef, ptr noundef) #6
 
-; Function Attrs: nounwind
-declare i32 @__isoc99_sscanf(ptr noundef, ptr noundef, ...) #6
+; Function Attrs: nounwind null_pointer_is_valid
+declare i32 @__isoc99_sscanf(ptr noundef, ptr noundef, ...) #9
 
-; Function Attrs: nounwind
-declare i64 @mktime(ptr noundef) #6
+; Function Attrs: nounwind null_pointer_is_valid
+declare i64 @mktime(ptr noundef) #9
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal zeroext i1 @parseSeparator(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca i1, align 1
   %7 = alloca ptr, align 8
@@ -1320,76 +1583,81 @@ define internal zeroext i1 @parseSeparator(ptr noundef %0, ptr noundef %1, ptr n
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca i8, align 1
+  %13 = alloca i32, align 4
   store ptr %0, ptr %7, align 8
   store ptr %1, ptr %8, align 8
   store ptr %2, ptr %9, align 8
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #13
   store i8 0, ptr %12, align 1
-  %13 = load ptr, ptr %7, align 8
-  %14 = call i64 @strlen(ptr noundef %13) #8
-  %15 = icmp eq i64 %14, 3
-  br i1 %15, label %16, label %48
+  %14 = load ptr, ptr %7, align 8
+  %15 = call i64 @strlen(ptr noundef %14) #16
+  %16 = icmp eq i64 %15, 3
+  br i1 %16, label %17, label %49
 
-16:                                               ; preds = %5
-  %17 = load ptr, ptr %7, align 8
-  %18 = getelementptr i8, ptr %17, i64 0
-  %19 = load i8, ptr %18, align 1
-  %20 = sext i8 %19 to i32
-  %21 = icmp ne i32 %20, 34
-  br i1 %21, label %39, label %22
+17:                                               ; preds = %5
+  %18 = load ptr, ptr %7, align 8
+  %19 = getelementptr i8, ptr %18, i64 0
+  %20 = load i8, ptr %19, align 1
+  %21 = sext i8 %20 to i32
+  %22 = icmp ne i32 %21, 34
+  br i1 %22, label %40, label %23
 
-22:                                               ; preds = %16
-  %23 = load ptr, ptr @g_ascii_table, align 8
-  %24 = load ptr, ptr %7, align 8
-  %25 = getelementptr i8, ptr %24, i64 1
-  %26 = load i8, ptr %25, align 1
-  %27 = zext i8 %26 to i64
-  %28 = getelementptr i16, ptr %23, i64 %27
-  %29 = load i16, ptr %28, align 2
-  %30 = zext i16 %29 to i32
-  %31 = and i32 %30, 64
-  %32 = icmp ne i32 %31, 0
-  br i1 %32, label %33, label %39
+23:                                               ; preds = %17
+  %24 = load ptr, ptr @g_ascii_table, align 8
+  %25 = load ptr, ptr %7, align 8
+  %26 = getelementptr i8, ptr %25, i64 1
+  %27 = load i8, ptr %26, align 1
+  %28 = zext i8 %27 to i64
+  %29 = getelementptr i16, ptr %24, i64 %28
+  %30 = load i16, ptr %29, align 2
+  %31 = zext i16 %30 to i32
+  %32 = and i32 %31, 64
+  %33 = icmp ne i32 %32, 0
+  br i1 %33, label %34, label %40
 
-33:                                               ; preds = %22
-  %34 = load ptr, ptr %7, align 8
-  %35 = getelementptr i8, ptr %34, i64 2
-  %36 = load i8, ptr %35, align 1
-  %37 = sext i8 %36 to i32
-  %38 = icmp ne i32 %37, 34
-  br i1 %38, label %39, label %44
+34:                                               ; preds = %23
+  %35 = load ptr, ptr %7, align 8
+  %36 = getelementptr i8, ptr %35, i64 2
+  %37 = load i8, ptr %36, align 1
+  %38 = sext i8 %37 to i32
+  %39 = icmp ne i32 %38, 34
+  br i1 %39, label %40, label %45
 
-39:                                               ; preds = %33, %22, %16
-  %40 = load ptr, ptr %10, align 8
-  store i32 -13, ptr %40, align 4
-  %41 = load ptr, ptr %9, align 8
-  %42 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.30, ptr noundef %41)
-  %43 = load ptr, ptr %11, align 8
-  store ptr %42, ptr %43, align 8
+40:                                               ; preds = %34, %23, %17
+  %41 = load ptr, ptr %10, align 8
+  store i32 -13, ptr %41, align 4
+  %42 = load ptr, ptr %9, align 8
+  %43 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.33, ptr noundef %42)
+  %44 = load ptr, ptr %11, align 8
+  store ptr %43, ptr %44, align 8
   store i1 false, ptr %6, align 1
-  br label %51
+  store i32 1, ptr %13, align 4
+  br label %52
 
-44:                                               ; preds = %33
-  %45 = load ptr, ptr %7, align 8
-  %46 = getelementptr i8, ptr %45, i64 1
-  %47 = load i8, ptr %46, align 1
-  store i8 %47, ptr %12, align 1
-  br label %48
+45:                                               ; preds = %34
+  %46 = load ptr, ptr %7, align 8
+  %47 = getelementptr i8, ptr %46, i64 1
+  %48 = load i8, ptr %47, align 1
+  store i8 %48, ptr %12, align 1
+  br label %49
 
-48:                                               ; preds = %44, %5
-  %49 = load i8, ptr %12, align 1
-  %50 = load ptr, ptr %8, align 8
-  store i8 %49, ptr %50, align 1
+49:                                               ; preds = %45, %5
+  %50 = load i8, ptr %12, align 1
+  %51 = load ptr, ptr %8, align 8
+  store i8 %50, ptr %51, align 1
   store i1 true, ptr %6, align 1
-  br label %51
+  store i32 1, ptr %13, align 4
+  br label %52
 
-51:                                               ; preds = %48, %39
-  %52 = load i1, ptr %6, align 1
-  ret i1 %52
+52:                                               ; preds = %49, %40
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #13
+  %53 = load i1, ptr %6, align 1
+  ret i1 %53
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal zeroext i1 @parseBoolean(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca i1, align 1
   %7 = alloca ptr, align 8
@@ -1403,7 +1671,7 @@ define internal zeroext i1 @parseBoolean(ptr noundef %0, ptr noundef %1, ptr nou
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   %12 = load ptr, ptr %7, align 8
-  %13 = call i32 @strcmp(ptr noundef %12, ptr noundef @.str.38) #8
+  %13 = call i32 @strcmp(ptr noundef %12, ptr noundef @.str.41) #16
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %17
 
@@ -1414,7 +1682,7 @@ define internal zeroext i1 @parseBoolean(ptr noundef %0, ptr noundef %1, ptr nou
 
 17:                                               ; preds = %5
   %18 = load ptr, ptr %7, align 8
-  %19 = call i32 @strcmp(ptr noundef %18, ptr noundef @.str.39) #8
+  %19 = call i32 @strcmp(ptr noundef %18, ptr noundef @.str.42) #16
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %23
 
@@ -1427,7 +1695,7 @@ define internal zeroext i1 @parseBoolean(ptr noundef %0, ptr noundef %1, ptr nou
   %24 = load ptr, ptr %10, align 8
   store i32 -13, ptr %24, align 4
   %25 = load ptr, ptr %9, align 8
-  %26 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.25, ptr noundef %25)
+  %26 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.28, ptr noundef %25)
   %27 = load ptr, ptr %11, align 8
   store ptr %26, ptr %27, align 8
   store i1 false, ptr %6, align 1
@@ -1445,10 +1713,10 @@ define internal zeroext i1 @parseBoolean(ptr noundef %0, ptr noundef %1, ptr nou
   ret i1 %31
 }
 
-; Function Attrs: nounwind willreturn memory(read)
-declare ptr @strchr(ptr noundef, i32 noundef) #4
+; Function Attrs: nounwind null_pointer_is_valid willreturn memory(read)
+declare ptr @strchr(ptr noundef, i32 noundef) #7
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal zeroext i1 @parseFieldTS(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca i1, align 1
   %7 = alloca ptr, align 8
@@ -1459,144 +1727,203 @@ define internal zeroext i1 @parseFieldTS(ptr noundef %0, ptr noundef %1, ptr nou
   %12 = alloca %struct.tm, align 8
   %13 = alloca i32, align 4
   %14 = alloca [24 x i8], align 16
-  %15 = alloca [24 x i8], align 16
-  %16 = alloca i8, align 1
+  %15 = alloca i32, align 4
+  %16 = alloca [24 x i8], align 16
   %17 = alloca i8, align 1
-  %18 = alloca [18 x i8], align 16
+  %18 = alloca i8, align 1
+  %19 = alloca [18 x i8], align 16
   store ptr %0, ptr %7, align 8
   store ptr %1, ptr %8, align 8
   store ptr %2, ptr %9, align 8
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
-  %19 = getelementptr inbounds [24 x i8], ptr %14, i64 0, i64 0
-  %20 = load ptr, ptr %8, align 8
-  %21 = call zeroext i1 @checked_strcpy(ptr noundef %19, i64 noundef 24, ptr noundef %20)
-  br i1 %21, label %26, label %22
+  call void @llvm.lifetime.start.p0(i64 56, ptr %12) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #13
+  call void @llvm.lifetime.start.p0(i64 24, ptr %14) #13
+  %20 = getelementptr inbounds [24 x i8], ptr %14, i64 0, i64 0
+  %21 = load ptr, ptr %8, align 8
+  %22 = call zeroext i1 @checked_strcpy(ptr noundef %20, i64 noundef 24, ptr noundef %21)
+  br i1 %22, label %27, label %23
 
-22:                                               ; preds = %5
-  %23 = load ptr, ptr %10, align 8
-  store i32 -13, ptr %23, align 4
-  %24 = call noalias ptr @g_strdup(ptr noundef @.str.45)
-  %25 = load ptr, ptr %11, align 8
-  store ptr %24, ptr %25, align 8
+23:                                               ; preds = %5
+  %24 = load ptr, ptr %10, align 8
+  store i32 -13, ptr %24, align 4
+  %25 = call noalias ptr @g_strdup(ptr noundef @.str.48)
+  %26 = load ptr, ptr %11, align 8
+  store ptr %25, ptr %26, align 8
   store i1 false, ptr %6, align 1
-  br label %106
+  store i32 1, ptr %15, align 4
+  br label %129
 
-26:                                               ; preds = %5
-  %27 = getelementptr inbounds [24 x i8], ptr %15, i64 0, i64 0
-  %28 = load ptr, ptr %7, align 8
-  %29 = getelementptr inbounds %struct.cLLog_private, ptr %28, i32 0, i32 8
-  %30 = getelementptr inbounds [20 x i8], ptr %29, i64 0, i64 0
-  %31 = call zeroext i1 @checked_strcpy(ptr noundef %27, i64 noundef 24, ptr noundef %30)
-  br i1 %31, label %36, label %32
+27:                                               ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 24, ptr %16) #13
+  %28 = getelementptr inbounds [24 x i8], ptr %16, i64 0, i64 0
+  %29 = load ptr, ptr %7, align 8
+  %30 = getelementptr inbounds nuw %struct.cLLog_private, ptr %29, i32 0, i32 8
+  %31 = getelementptr inbounds [20 x i8], ptr %30, i64 0, i64 0
+  %32 = call zeroext i1 @checked_strcpy(ptr noundef %28, i64 noundef 24, ptr noundef %31)
+  br i1 %32, label %37, label %33
 
-32:                                               ; preds = %26
-  %33 = load ptr, ptr %10, align 8
-  store i32 -13, ptr %33, align 4
-  %34 = call noalias ptr @g_strdup(ptr noundef @.str.46)
-  %35 = load ptr, ptr %11, align 8
-  store ptr %34, ptr %35, align 8
+33:                                               ; preds = %27
+  %34 = load ptr, ptr %10, align 8
+  store i32 -13, ptr %34, align 4
+  %35 = call noalias ptr @g_strdup(ptr noundef @.str.49)
+  %36 = load ptr, ptr %11, align 8
+  store ptr %35, ptr %36, align 8
   store i1 false, ptr %6, align 1
-  br label %106
+  store i32 1, ptr %15, align 4
+  br label %128
 
-36:                                               ; preds = %26
-  %37 = load ptr, ptr %7, align 8
-  %38 = getelementptr inbounds [24 x i8], ptr %14, i64 0, i64 0
-  %39 = call zeroext i8 @stripTimeStamp(ptr noundef %37, ptr noundef %38)
-  store i8 %39, ptr %16, align 1
-  %40 = load ptr, ptr %7, align 8
-  %41 = getelementptr inbounds [24 x i8], ptr %15, i64 0, i64 0
-  %42 = call zeroext i8 @stripTimeStamp(ptr noundef %40, ptr noundef %41)
-  store i8 %42, ptr %17, align 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %18, ptr align 16 @__const.parseFieldTS.timeStampStringFull, i64 18, i1 false)
-  %43 = getelementptr inbounds [18 x i8], ptr %18, i64 0, i64 0
-  %44 = getelementptr inbounds [24 x i8], ptr %15, i64 0, i64 0
-  %45 = load i8, ptr %17, align 1
-  %46 = zext i8 %45 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %43, ptr align 16 %44, i64 %46, i1 false)
-  %47 = load i8, ptr %16, align 1
-  %48 = zext i8 %47 to i64
-  %49 = sub i64 17, %48
-  %50 = getelementptr [18 x i8], ptr %18, i64 0, i64 %49
-  %51 = getelementptr inbounds [24 x i8], ptr %14, i64 0, i64 0
-  %52 = load i8, ptr %16, align 1
+37:                                               ; preds = %27
+  call void @llvm.lifetime.start.p0(i64 1, ptr %17) #13
+  %38 = load ptr, ptr %7, align 8
+  %39 = getelementptr inbounds [24 x i8], ptr %14, i64 0, i64 0
+  %40 = call zeroext i8 @stripTimeStamp(ptr noundef %38, ptr noundef %39)
+  store i8 %40, ptr %17, align 1
+  %41 = load i8, ptr %17, align 1
+  %42 = zext i8 %41 to i64
+  %43 = icmp ugt i64 %42, 17
+  br i1 %43, label %44, label %48
+
+44:                                               ; preds = %37
+  %45 = load ptr, ptr %10, align 8
+  store i32 -13, ptr %45, align 4
+  %46 = call noalias ptr @g_strdup(ptr noundef @.str.50)
+  %47 = load ptr, ptr %11, align 8
+  store ptr %46, ptr %47, align 8
+  store i1 false, ptr %6, align 1
+  store i32 1, ptr %15, align 4
+  br label %127
+
+48:                                               ; preds = %37
+  call void @llvm.lifetime.start.p0(i64 1, ptr %18) #13
+  %49 = load ptr, ptr %7, align 8
+  %50 = getelementptr inbounds [24 x i8], ptr %16, i64 0, i64 0
+  %51 = call zeroext i8 @stripTimeStamp(ptr noundef %49, ptr noundef %50)
+  store i8 %51, ptr %18, align 1
+  %52 = load i8, ptr %18, align 1
   %53 = zext i8 %52 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %50, ptr align 16 %51, i64 %53, i1 false)
-  %54 = getelementptr [18 x i8], ptr %18, i64 0, i64 17
-  store i8 0, ptr %54, align 1
-  call void @llvm.memset.p0.i64(ptr align 8 %12, i8 0, i64 56, i1 false)
-  %55 = getelementptr inbounds [18 x i8], ptr %18, i64 0, i64 0
-  %56 = getelementptr inbounds %struct.tm, ptr %12, i32 0, i32 5
-  %57 = getelementptr inbounds %struct.tm, ptr %12, i32 0, i32 4
-  %58 = getelementptr inbounds %struct.tm, ptr %12, i32 0, i32 3
-  %59 = getelementptr inbounds %struct.tm, ptr %12, i32 0, i32 2
-  %60 = getelementptr inbounds %struct.tm, ptr %12, i32 0, i32 1
-  %61 = getelementptr inbounds %struct.tm, ptr %12, i32 0, i32 0
-  %62 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %55, ptr noundef @.str.47, ptr noundef %56, ptr noundef %57, ptr noundef %58, ptr noundef %59, ptr noundef %60, ptr noundef %61, ptr noundef %13) #9
-  %63 = getelementptr inbounds %struct.tm, ptr %12, i32 0, i32 4
-  %64 = load i32, ptr %63, align 8
-  %65 = sub i32 %64, 1
-  store i32 %65, ptr %63, align 8
-  %66 = getelementptr inbounds %struct.tm, ptr %12, i32 0, i32 5
-  %67 = load i32, ptr %66, align 4
-  %68 = sub i32 %67, 1900
-  store i32 %68, ptr %66, align 4
-  %69 = call i64 @mktime(ptr noundef %12) #9
-  %70 = load ptr, ptr %9, align 8
-  %71 = getelementptr inbounds %struct.cCLLog_message_t, ptr %70, i32 0, i32 0
-  %72 = getelementptr inbounds %struct.cCLLog_timeStamp_t, ptr %71, i32 0, i32 0
-  store i64 %69, ptr %72, align 8
-  %73 = load i32, ptr %13, align 4
-  %74 = trunc i32 %73 to i16
-  %75 = load ptr, ptr %9, align 8
-  %76 = getelementptr inbounds %struct.cCLLog_message_t, ptr %75, i32 0, i32 0
-  %77 = getelementptr inbounds %struct.cCLLog_timeStamp_t, ptr %76, i32 0, i32 1
-  store i16 %74, ptr %77, align 8
-  %78 = load ptr, ptr %7, align 8
-  %79 = getelementptr inbounds %struct.cLLog_private, ptr %78, i32 0, i32 19
-  %80 = getelementptr inbounds %struct.cCLLog_timeStamp_t, ptr %79, i32 0, i32 0
-  %81 = load i64, ptr %80, align 8
-  %82 = icmp eq i64 %81, 0
-  br i1 %82, label %83, label %105
+  %54 = icmp ugt i64 %53, 17
+  br i1 %54, label %55, label %59
 
-83:                                               ; preds = %36
-  %84 = load ptr, ptr %7, align 8
-  %85 = getelementptr inbounds %struct.cLLog_private, ptr %84, i32 0, i32 19
-  %86 = getelementptr inbounds %struct.cCLLog_timeStamp_t, ptr %85, i32 0, i32 1
-  %87 = load i16, ptr %86, align 8
-  %88 = zext i16 %87 to i32
-  %89 = icmp eq i32 %88, 0
-  br i1 %89, label %90, label %105
+55:                                               ; preds = %48
+  %56 = load ptr, ptr %10, align 8
+  store i32 -13, ptr %56, align 4
+  %57 = call noalias ptr @g_strdup(ptr noundef @.str.51)
+  %58 = load ptr, ptr %11, align 8
+  store ptr %57, ptr %58, align 8
+  store i1 false, ptr %6, align 1
+  store i32 1, ptr %15, align 4
+  br label %126
 
-90:                                               ; preds = %83
-  %91 = load ptr, ptr %9, align 8
-  %92 = getelementptr inbounds %struct.cCLLog_message_t, ptr %91, i32 0, i32 0
-  %93 = getelementptr inbounds %struct.cCLLog_timeStamp_t, ptr %92, i32 0, i32 0
-  %94 = load i64, ptr %93, align 8
-  %95 = load ptr, ptr %7, align 8
-  %96 = getelementptr inbounds %struct.cLLog_private, ptr %95, i32 0, i32 19
-  %97 = getelementptr inbounds %struct.cCLLog_timeStamp_t, ptr %96, i32 0, i32 0
-  store i64 %94, ptr %97, align 8
-  %98 = load ptr, ptr %9, align 8
-  %99 = getelementptr inbounds %struct.cCLLog_message_t, ptr %98, i32 0, i32 0
-  %100 = getelementptr inbounds %struct.cCLLog_timeStamp_t, ptr %99, i32 0, i32 1
-  %101 = load i16, ptr %100, align 8
-  %102 = load ptr, ptr %7, align 8
-  %103 = getelementptr inbounds %struct.cLLog_private, ptr %102, i32 0, i32 19
-  %104 = getelementptr inbounds %struct.cCLLog_timeStamp_t, ptr %103, i32 0, i32 1
-  store i16 %101, ptr %104, align 8
-  br label %105
+59:                                               ; preds = %48
+  call void @llvm.lifetime.start.p0(i64 18, ptr %19) #13
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %19, ptr align 16 @__const.parseFieldTS.timeStampStringFull, i64 18, i1 false)
+  %60 = getelementptr inbounds [18 x i8], ptr %19, i64 0, i64 0
+  %61 = getelementptr inbounds [24 x i8], ptr %16, i64 0, i64 0
+  %62 = load i8, ptr %18, align 1
+  %63 = zext i8 %62 to i64
+  %64 = call ptr @memcpy.inline(ptr noundef %60, ptr noundef %61, i64 noundef %63) #13
+  %65 = load i8, ptr %17, align 1
+  %66 = zext i8 %65 to i64
+  %67 = sub i64 17, %66
+  %68 = getelementptr [18 x i8], ptr %19, i64 0, i64 %67
+  %69 = getelementptr inbounds [24 x i8], ptr %14, i64 0, i64 0
+  %70 = load i8, ptr %17, align 1
+  %71 = zext i8 %70 to i64
+  %72 = call ptr @memcpy.inline(ptr noundef %68, ptr noundef %69, i64 noundef %71) #13
+  %73 = getelementptr [18 x i8], ptr %19, i64 0, i64 17
+  store i8 0, ptr %73, align 1
+  %74 = call ptr @memset.inline(ptr noundef %12, i32 noundef 0, i64 noundef 56) #13
+  %75 = getelementptr inbounds [18 x i8], ptr %19, i64 0, i64 0
+  %76 = getelementptr inbounds nuw %struct.tm, ptr %12, i32 0, i32 5
+  %77 = getelementptr inbounds nuw %struct.tm, ptr %12, i32 0, i32 4
+  %78 = getelementptr inbounds nuw %struct.tm, ptr %12, i32 0, i32 3
+  %79 = getelementptr inbounds nuw %struct.tm, ptr %12, i32 0, i32 2
+  %80 = getelementptr inbounds nuw %struct.tm, ptr %12, i32 0, i32 1
+  %81 = getelementptr inbounds nuw %struct.tm, ptr %12, i32 0, i32 0
+  %82 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %75, ptr noundef @.str.52, ptr noundef %76, ptr noundef %77, ptr noundef %78, ptr noundef %79, ptr noundef %80, ptr noundef %81, ptr noundef %13) #13
+  %83 = getelementptr inbounds nuw %struct.tm, ptr %12, i32 0, i32 4
+  %84 = load i32, ptr %83, align 8
+  %85 = sub i32 %84, 1
+  store i32 %85, ptr %83, align 8
+  %86 = getelementptr inbounds nuw %struct.tm, ptr %12, i32 0, i32 5
+  %87 = load i32, ptr %86, align 4
+  %88 = sub i32 %87, 1900
+  store i32 %88, ptr %86, align 4
+  %89 = call i64 @mktime(ptr noundef %12) #13
+  %90 = load ptr, ptr %9, align 8
+  %91 = getelementptr inbounds nuw %struct.cCLLog_message_t, ptr %90, i32 0, i32 0
+  %92 = getelementptr inbounds nuw %struct.cCLLog_timeStamp_t, ptr %91, i32 0, i32 0
+  store i64 %89, ptr %92, align 8
+  %93 = load i32, ptr %13, align 4
+  %94 = trunc i32 %93 to i16
+  %95 = load ptr, ptr %9, align 8
+  %96 = getelementptr inbounds nuw %struct.cCLLog_message_t, ptr %95, i32 0, i32 0
+  %97 = getelementptr inbounds nuw %struct.cCLLog_timeStamp_t, ptr %96, i32 0, i32 1
+  store i16 %94, ptr %97, align 8
+  %98 = load ptr, ptr %7, align 8
+  %99 = getelementptr inbounds nuw %struct.cLLog_private, ptr %98, i32 0, i32 19
+  %100 = getelementptr inbounds nuw %struct.cCLLog_timeStamp_t, ptr %99, i32 0, i32 0
+  %101 = load i64, ptr %100, align 8
+  %102 = icmp eq i64 %101, 0
+  br i1 %102, label %103, label %125
 
-105:                                              ; preds = %90, %83, %36
+103:                                              ; preds = %59
+  %104 = load ptr, ptr %7, align 8
+  %105 = getelementptr inbounds nuw %struct.cLLog_private, ptr %104, i32 0, i32 19
+  %106 = getelementptr inbounds nuw %struct.cCLLog_timeStamp_t, ptr %105, i32 0, i32 1
+  %107 = load i16, ptr %106, align 8
+  %108 = zext i16 %107 to i32
+  %109 = icmp eq i32 %108, 0
+  br i1 %109, label %110, label %125
+
+110:                                              ; preds = %103
+  %111 = load ptr, ptr %9, align 8
+  %112 = getelementptr inbounds nuw %struct.cCLLog_message_t, ptr %111, i32 0, i32 0
+  %113 = getelementptr inbounds nuw %struct.cCLLog_timeStamp_t, ptr %112, i32 0, i32 0
+  %114 = load i64, ptr %113, align 8
+  %115 = load ptr, ptr %7, align 8
+  %116 = getelementptr inbounds nuw %struct.cLLog_private, ptr %115, i32 0, i32 19
+  %117 = getelementptr inbounds nuw %struct.cCLLog_timeStamp_t, ptr %116, i32 0, i32 0
+  store i64 %114, ptr %117, align 8
+  %118 = load ptr, ptr %9, align 8
+  %119 = getelementptr inbounds nuw %struct.cCLLog_message_t, ptr %118, i32 0, i32 0
+  %120 = getelementptr inbounds nuw %struct.cCLLog_timeStamp_t, ptr %119, i32 0, i32 1
+  %121 = load i16, ptr %120, align 8
+  %122 = load ptr, ptr %7, align 8
+  %123 = getelementptr inbounds nuw %struct.cLLog_private, ptr %122, i32 0, i32 19
+  %124 = getelementptr inbounds nuw %struct.cCLLog_timeStamp_t, ptr %123, i32 0, i32 1
+  store i16 %121, ptr %124, align 8
+  br label %125
+
+125:                                              ; preds = %110, %103, %59
   store i1 true, ptr %6, align 1
-  br label %106
+  store i32 1, ptr %15, align 4
+  call void @llvm.lifetime.end.p0(i64 18, ptr %19) #13
+  br label %126
 
-106:                                              ; preds = %105, %32, %22
-  %107 = load i1, ptr %6, align 1
-  ret i1 %107
+126:                                              ; preds = %125, %55
+  call void @llvm.lifetime.end.p0(i64 1, ptr %18) #13
+  br label %127
+
+127:                                              ; preds = %126, %44
+  call void @llvm.lifetime.end.p0(i64 1, ptr %17) #13
+  br label %128
+
+128:                                              ; preds = %127, %33
+  call void @llvm.lifetime.end.p0(i64 24, ptr %16) #13
+  br label %129
+
+129:                                              ; preds = %128, %23
+  call void @llvm.lifetime.end.p0(i64 24, ptr %14) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #13
+  call void @llvm.lifetime.end.p0(i64 56, ptr %12) #13
+  %130 = load i1, ptr %6, align 1
+  ret i1 %130
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal zeroext i1 @parseFieldLost(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca i1, align 1
   %7 = alloca ptr, align 8
@@ -1605,38 +1932,43 @@ define internal zeroext i1 @parseFieldLost(ptr noundef %0, ptr noundef %1, ptr n
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
   store ptr %0, ptr %7, align 8
   store ptr %1, ptr %8, align 8
   store ptr %2, ptr %9, align 8
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
-  %13 = load ptr, ptr %8, align 8
-  %14 = call zeroext i1 @ws_strtou32(ptr noundef %13, ptr noundef null, ptr noundef %12)
-  br i1 %14, label %19, label %15
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #13
+  %14 = load ptr, ptr %8, align 8
+  %15 = call zeroext i1 @ws_strtou32(ptr noundef %14, ptr noundef null, ptr noundef %12)
+  br i1 %15, label %20, label %16
 
-15:                                               ; preds = %5
-  %16 = load ptr, ptr %10, align 8
-  store i32 -13, ptr %16, align 4
-  %17 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef @.str.48)
-  %18 = load ptr, ptr %11, align 8
-  store ptr %17, ptr %18, align 8
+16:                                               ; preds = %5
+  %17 = load ptr, ptr %10, align 8
+  store i32 -13, ptr %17, align 4
+  %18 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef @.str.53)
+  %19 = load ptr, ptr %11, align 8
+  store ptr %18, ptr %19, align 8
   store i1 false, ptr %6, align 1
-  br label %23
+  store i32 1, ptr %13, align 4
+  br label %24
 
-19:                                               ; preds = %5
-  %20 = load i32, ptr %12, align 4
-  %21 = load ptr, ptr %9, align 8
-  %22 = getelementptr inbounds %struct.cCLLog_message_t, ptr %21, i32 0, i32 1
-  store i32 %20, ptr %22, align 8
+20:                                               ; preds = %5
+  %21 = load i32, ptr %12, align 4
+  %22 = load ptr, ptr %9, align 8
+  %23 = getelementptr inbounds nuw %struct.cCLLog_message_t, ptr %22, i32 0, i32 1
+  store i32 %21, ptr %23, align 8
   store i1 true, ptr %6, align 1
-  br label %23
+  store i32 1, ptr %13, align 4
+  br label %24
 
-23:                                               ; preds = %19, %15
-  %24 = load i1, ptr %6, align 1
-  ret i1 %24
+24:                                               ; preds = %20, %16
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #13
+  %25 = load i1, ptr %6, align 1
+  ret i1 %25
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal zeroext i1 @parseFieldMsgType(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca i1, align 1
   %7 = alloca ptr, align 8
@@ -1662,28 +1994,28 @@ define internal zeroext i1 @parseFieldMsgType(ptr noundef %0, ptr noundef %1, pt
 
 16:                                               ; preds = %5
   %17 = load ptr, ptr %9, align 8
-  %18 = getelementptr inbounds %struct.cCLLog_message_t, ptr %17, i32 0, i32 2
+  %18 = getelementptr inbounds nuw %struct.cCLLog_message_t, ptr %17, i32 0, i32 2
   store i32 0, ptr %18, align 4
   store i1 true, ptr %6, align 1
   br label %32
 
 19:                                               ; preds = %5
   %20 = load ptr, ptr %9, align 8
-  %21 = getelementptr inbounds %struct.cCLLog_message_t, ptr %20, i32 0, i32 2
+  %21 = getelementptr inbounds nuw %struct.cCLLog_message_t, ptr %20, i32 0, i32 2
   store i32 1, ptr %21, align 4
   store i1 true, ptr %6, align 1
   br label %32
 
 22:                                               ; preds = %5
   %23 = load ptr, ptr %9, align 8
-  %24 = getelementptr inbounds %struct.cCLLog_message_t, ptr %23, i32 0, i32 2
+  %24 = getelementptr inbounds nuw %struct.cCLLog_message_t, ptr %23, i32 0, i32 2
   store i32 7, ptr %24, align 4
   store i1 true, ptr %6, align 1
   br label %32
 
 25:                                               ; preds = %5
   %26 = load ptr, ptr %9, align 8
-  %27 = getelementptr inbounds %struct.cCLLog_message_t, ptr %26, i32 0, i32 2
+  %27 = getelementptr inbounds nuw %struct.cCLLog_message_t, ptr %26, i32 0, i32 2
   store i32 8, ptr %27, align 4
   store i1 true, ptr %6, align 1
   br label %32
@@ -1691,7 +2023,7 @@ define internal zeroext i1 @parseFieldMsgType(ptr noundef %0, ptr noundef %1, pt
 28:                                               ; preds = %5
   %29 = load ptr, ptr %10, align 8
   store i32 -13, ptr %29, align 4
-  %30 = call noalias ptr @g_strdup(ptr noundef @.str.49)
+  %30 = call noalias ptr @g_strdup(ptr noundef @.str.54)
   %31 = load ptr, ptr %11, align 8
   store ptr %30, ptr %31, align 8
   store i1 false, ptr %6, align 1
@@ -1702,7 +2034,7 @@ define internal zeroext i1 @parseFieldMsgType(ptr noundef %0, ptr noundef %1, pt
   ret i1 %33
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal zeroext i1 @parseFieldID(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca i1, align 1
   %7 = alloca ptr, align 8
@@ -1711,38 +2043,43 @@ define internal zeroext i1 @parseFieldID(ptr noundef %0, ptr noundef %1, ptr nou
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
   store ptr %0, ptr %7, align 8
   store ptr %1, ptr %8, align 8
   store ptr %2, ptr %9, align 8
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
-  %13 = load ptr, ptr %8, align 8
-  %14 = call zeroext i1 @ws_hexstrtou32(ptr noundef %13, ptr noundef null, ptr noundef %12)
-  br i1 %14, label %19, label %15
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #13
+  %14 = load ptr, ptr %8, align 8
+  %15 = call zeroext i1 @ws_hexstrtou32(ptr noundef %14, ptr noundef null, ptr noundef %12)
+  br i1 %15, label %20, label %16
 
-15:                                               ; preds = %5
-  %16 = load ptr, ptr %10, align 8
-  store i32 -13, ptr %16, align 4
-  %17 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef @.str.50)
-  %18 = load ptr, ptr %11, align 8
-  store ptr %17, ptr %18, align 8
+16:                                               ; preds = %5
+  %17 = load ptr, ptr %10, align 8
+  store i32 -13, ptr %17, align 4
+  %18 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef @.str.55)
+  %19 = load ptr, ptr %11, align 8
+  store ptr %18, ptr %19, align 8
   store i1 false, ptr %6, align 1
-  br label %23
+  store i32 1, ptr %13, align 4
+  br label %24
 
-19:                                               ; preds = %5
-  %20 = load i32, ptr %12, align 4
-  %21 = load ptr, ptr %9, align 8
-  %22 = getelementptr inbounds %struct.cCLLog_message_t, ptr %21, i32 0, i32 3
-  store i32 %20, ptr %22, align 8
+20:                                               ; preds = %5
+  %21 = load i32, ptr %12, align 4
+  %22 = load ptr, ptr %9, align 8
+  %23 = getelementptr inbounds nuw %struct.cCLLog_message_t, ptr %22, i32 0, i32 3
+  store i32 %21, ptr %23, align 8
   store i1 true, ptr %6, align 1
-  br label %23
+  store i32 1, ptr %13, align 4
+  br label %24
 
-23:                                               ; preds = %19, %15
-  %24 = load i1, ptr %6, align 1
-  ret i1 %24
+24:                                               ; preds = %20, %16
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #13
+  %25 = load i1, ptr %6, align 1
+  ret i1 %25
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal zeroext i1 @parseFieldLength(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca i1, align 1
   %7 = alloca ptr, align 8
@@ -1751,39 +2088,61 @@ define internal zeroext i1 @parseFieldLength(ptr noundef %0, ptr noundef %1, ptr
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
   store ptr %0, ptr %7, align 8
   store ptr %1, ptr %8, align 8
   store ptr %2, ptr %9, align 8
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
-  %13 = load ptr, ptr %8, align 8
-  %14 = call zeroext i1 @ws_strtou32(ptr noundef %13, ptr noundef null, ptr noundef %12)
-  br i1 %14, label %19, label %15
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #13
+  %14 = load ptr, ptr %8, align 8
+  %15 = call zeroext i1 @ws_strtou32(ptr noundef %14, ptr noundef null, ptr noundef %12)
+  br i1 %15, label %20, label %16
 
-15:                                               ; preds = %5
-  %16 = load ptr, ptr %10, align 8
-  store i32 -13, ptr %16, align 4
-  %17 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef @.str.51)
-  %18 = load ptr, ptr %11, align 8
-  store ptr %17, ptr %18, align 8
+16:                                               ; preds = %5
+  %17 = load ptr, ptr %10, align 8
+  store i32 -13, ptr %17, align 4
+  %18 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef @.str.56)
+  %19 = load ptr, ptr %11, align 8
+  store ptr %18, ptr %19, align 8
   store i1 false, ptr %6, align 1
-  br label %24
+  store i32 1, ptr %13, align 4
+  br label %34
 
-19:                                               ; preds = %5
-  %20 = load i32, ptr %12, align 4
-  %21 = trunc i32 %20 to i8
-  %22 = load ptr, ptr %9, align 8
-  %23 = getelementptr inbounds %struct.cCLLog_message_t, ptr %22, i32 0, i32 4
-  store i8 %21, ptr %23, align 4
+20:                                               ; preds = %5
+  %21 = load i32, ptr %12, align 4
+  %22 = zext i32 %21 to i64
+  %23 = icmp ugt i64 %22, 8
+  br i1 %23, label %24, label %29
+
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %10, align 8
+  store i32 -13, ptr %25, align 4
+  %26 = load i32, ptr %12, align 4
+  %27 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef @.str.57, i32 noundef %26, i64 noundef 8)
+  %28 = load ptr, ptr %11, align 8
+  store ptr %27, ptr %28, align 8
+  store i1 false, ptr %6, align 1
+  store i32 1, ptr %13, align 4
+  br label %34
+
+29:                                               ; preds = %20
+  %30 = load i32, ptr %12, align 4
+  %31 = trunc i32 %30 to i8
+  %32 = load ptr, ptr %9, align 8
+  %33 = getelementptr inbounds nuw %struct.cCLLog_message_t, ptr %32, i32 0, i32 4
+  store i8 %31, ptr %33, align 4
   store i1 true, ptr %6, align 1
-  br label %24
+  store i32 1, ptr %13, align 4
+  br label %34
 
-24:                                               ; preds = %19, %15
-  %25 = load i1, ptr %6, align 1
-  ret i1 %25
+34:                                               ; preds = %29, %24, %16
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #13
+  %35 = load i1, ptr %6, align 1
+  ret i1 %35
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal zeroext i1 @parseFieldData(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca i1, align 1
   %7 = alloca ptr, align 8
@@ -1793,500 +2152,572 @@ define internal zeroext i1 @parseFieldData(ptr noundef %0, ptr noundef %1, ptr n
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
   %13 = alloca i32, align 4
-  %14 = alloca i32, align 4
-  %15 = alloca i8, align 1
+  %14 = alloca i8, align 1
+  %15 = alloca i32, align 4
   store ptr %0, ptr %7, align 8
   store ptr %1, ptr %8, align 8
   store ptr %2, ptr %9, align 8
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #13
   %16 = load ptr, ptr %8, align 8
   store ptr %16, ptr %12, align 8
   %17 = load ptr, ptr %9, align 8
-  %18 = getelementptr inbounds %struct.cCLLog_message_t, ptr %17, i32 0, i32 4
+  %18 = getelementptr inbounds nuw %struct.cCLLog_message_t, ptr %17, i32 0, i32 4
   store i8 0, ptr %18, align 4
-  store i32 0, ptr %13, align 4
   br label %19
 
-19:                                               ; preds = %80, %5
-  %20 = load i32, ptr %13, align 4
-  %21 = icmp ult i32 %20, 8
-  br i1 %21, label %22, label %83
+19:                                               ; preds = %95, %5
+  %20 = load ptr, ptr %9, align 8
+  %21 = getelementptr inbounds nuw %struct.cCLLog_message_t, ptr %20, i32 0, i32 4
+  %22 = load i8, ptr %21, align 4
+  %23 = zext i8 %22 to i64
+  %24 = icmp ult i64 %23, 8
+  br i1 %24, label %25, label %96
 
-22:                                               ; preds = %19
-  %23 = load ptr, ptr %12, align 8
-  %24 = load i8, ptr %23, align 1
-  %25 = sext i8 %24 to i32
-  %26 = icmp eq i32 %25, 10
-  br i1 %26, label %32, label %27
+25:                                               ; preds = %19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #13
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #13
+  %26 = load ptr, ptr %12, align 8
+  %27 = load i8, ptr %26, align 1
+  %28 = sext i8 %27 to i32
+  %29 = icmp eq i32 %28, 10
+  br i1 %29, label %40, label %30
 
-27:                                               ; preds = %22
-  %28 = load ptr, ptr %12, align 8
-  %29 = load i8, ptr %28, align 1
-  %30 = sext i8 %29 to i32
-  %31 = icmp eq i32 %30, 13
-  br i1 %31, label %32, label %33
+30:                                               ; preds = %25
+  %31 = load ptr, ptr %12, align 8
+  %32 = load i8, ptr %31, align 1
+  %33 = sext i8 %32 to i32
+  %34 = icmp eq i32 %33, 13
+  br i1 %34, label %40, label %35
 
-32:                                               ; preds = %27, %22
-  br label %83
+35:                                               ; preds = %30
+  %36 = load ptr, ptr %12, align 8
+  %37 = load i8, ptr %36, align 1
+  %38 = sext i8 %37 to i32
+  %39 = icmp eq i32 %38, 0
+  br i1 %39, label %40, label %41
 
-33:                                               ; preds = %27
-  %34 = load ptr, ptr %12, align 8
-  %35 = load i8, ptr %34, align 1
-  %36 = call i32 @ws_xton(i8 noundef signext %35)
-  store i32 %36, ptr %14, align 4
-  %37 = load i32, ptr %14, align 4
-  %38 = icmp slt i32 %37, 0
-  br i1 %38, label %39, label %43
+40:                                               ; preds = %35, %30, %25
+  store i32 3, ptr %15, align 4
+  br label %93
 
-39:                                               ; preds = %33
-  %40 = load ptr, ptr %10, align 8
-  store i32 -13, ptr %40, align 4
-  %41 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef @.str.52)
-  %42 = load ptr, ptr %11, align 8
-  store ptr %41, ptr %42, align 8
-  store i1 false, ptr %6, align 1
-  br label %84
+41:                                               ; preds = %35
+  %42 = load ptr, ptr %12, align 8
+  %43 = load i8, ptr %42, align 1
+  %44 = call i32 @ws_xton(i8 noundef signext %43)
+  store i32 %44, ptr %13, align 4
+  %45 = load i32, ptr %13, align 4
+  %46 = icmp slt i32 %45, 0
+  br i1 %46, label %47, label %54
 
-43:                                               ; preds = %33
-  %44 = load i32, ptr %14, align 4
-  %45 = trunc i32 %44 to i8
-  %46 = zext i8 %45 to i32
-  %47 = shl i32 %46, 4
-  %48 = trunc i32 %47 to i8
-  store i8 %48, ptr %15, align 1
+47:                                               ; preds = %41
+  %48 = load ptr, ptr %10, align 8
+  store i32 -13, ptr %48, align 4
   %49 = load ptr, ptr %12, align 8
-  %50 = getelementptr i8, ptr %49, i32 1
-  store ptr %50, ptr %12, align 8
-  %51 = load ptr, ptr %12, align 8
-  %52 = load i8, ptr %51, align 1
-  %53 = call i32 @ws_xton(i8 noundef signext %52)
-  store i32 %53, ptr %14, align 4
-  %54 = load i32, ptr %14, align 4
-  %55 = icmp slt i32 %54, 0
-  br i1 %55, label %56, label %60
-
-56:                                               ; preds = %43
-  %57 = load ptr, ptr %10, align 8
-  store i32 -13, ptr %57, align 4
-  %58 = call noalias ptr @g_strdup(ptr noundef @.str.52)
-  %59 = load ptr, ptr %11, align 8
-  store ptr %58, ptr %59, align 8
+  %50 = load i8, ptr %49, align 1
+  %51 = sext i8 %50 to i32
+  %52 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef @.str.58, i32 noundef %51)
+  %53 = load ptr, ptr %11, align 8
+  store ptr %52, ptr %53, align 8
   store i1 false, ptr %6, align 1
-  br label %84
+  store i32 1, ptr %15, align 4
+  br label %93
 
-60:                                               ; preds = %43
-  %61 = load i8, ptr %15, align 1
-  %62 = zext i8 %61 to i32
-  %63 = load i32, ptr %14, align 4
-  %64 = trunc i32 %63 to i8
-  %65 = zext i8 %64 to i32
-  %66 = or i32 %62, %65
-  %67 = trunc i32 %66 to i8
-  store i8 %67, ptr %15, align 1
-  %68 = load ptr, ptr %12, align 8
-  %69 = getelementptr i8, ptr %68, i32 1
-  store ptr %69, ptr %12, align 8
-  %70 = load i8, ptr %15, align 1
-  %71 = load ptr, ptr %9, align 8
-  %72 = getelementptr inbounds %struct.cCLLog_message_t, ptr %71, i32 0, i32 5
-  %73 = load i32, ptr %13, align 4
-  %74 = zext i32 %73 to i64
-  %75 = getelementptr [8 x i8], ptr %72, i64 0, i64 %74
-  store i8 %70, ptr %75, align 1
-  %76 = load ptr, ptr %9, align 8
-  %77 = getelementptr inbounds %struct.cCLLog_message_t, ptr %76, i32 0, i32 4
-  %78 = load i8, ptr %77, align 4
-  %79 = add i8 %78, 1
-  store i8 %79, ptr %77, align 4
-  br label %80
+54:                                               ; preds = %41
+  %55 = load i32, ptr %13, align 4
+  %56 = trunc i32 %55 to i8
+  %57 = zext i8 %56 to i32
+  %58 = shl i32 %57, 4
+  %59 = trunc i32 %58 to i8
+  store i8 %59, ptr %14, align 1
+  %60 = load ptr, ptr %12, align 8
+  %61 = getelementptr i8, ptr %60, i32 1
+  store ptr %61, ptr %12, align 8
+  %62 = load ptr, ptr %12, align 8
+  %63 = load i8, ptr %62, align 1
+  %64 = call i32 @ws_xton(i8 noundef signext %63)
+  store i32 %64, ptr %13, align 4
+  %65 = load i32, ptr %13, align 4
+  %66 = icmp slt i32 %65, 0
+  br i1 %66, label %67, label %74
 
-80:                                               ; preds = %60
-  %81 = load i32, ptr %13, align 4
-  %82 = add i32 %81, 1
-  store i32 %82, ptr %13, align 4
-  br label %19, !llvm.loop !9
+67:                                               ; preds = %54
+  %68 = load ptr, ptr %10, align 8
+  store i32 -13, ptr %68, align 4
+  %69 = load ptr, ptr %12, align 8
+  %70 = load i8, ptr %69, align 1
+  %71 = sext i8 %70 to i32
+  %72 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef @.str.58, i32 noundef %71)
+  %73 = load ptr, ptr %11, align 8
+  store ptr %72, ptr %73, align 8
+  store i1 false, ptr %6, align 1
+  store i32 1, ptr %15, align 4
+  br label %93
 
-83:                                               ; preds = %32, %19
+74:                                               ; preds = %54
+  %75 = load i8, ptr %14, align 1
+  %76 = zext i8 %75 to i32
+  %77 = load i32, ptr %13, align 4
+  %78 = trunc i32 %77 to i8
+  %79 = zext i8 %78 to i32
+  %80 = or i32 %76, %79
+  %81 = trunc i32 %80 to i8
+  store i8 %81, ptr %14, align 1
+  %82 = load ptr, ptr %12, align 8
+  %83 = getelementptr i8, ptr %82, i32 1
+  store ptr %83, ptr %12, align 8
+  %84 = load i8, ptr %14, align 1
+  %85 = load ptr, ptr %9, align 8
+  %86 = getelementptr inbounds nuw %struct.cCLLog_message_t, ptr %85, i32 0, i32 5
+  %87 = load ptr, ptr %9, align 8
+  %88 = getelementptr inbounds nuw %struct.cCLLog_message_t, ptr %87, i32 0, i32 4
+  %89 = load i8, ptr %88, align 4
+  %90 = add i8 %89, 1
+  store i8 %90, ptr %88, align 4
+  %91 = zext i8 %89 to i64
+  %92 = getelementptr [8 x i8], ptr %86, i64 0, i64 %91
+  store i8 %84, ptr %92, align 1
+  store i32 0, ptr %15, align 4
+  br label %93
+
+93:                                               ; preds = %74, %67, %47, %40
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #13
+  %94 = load i32, ptr %15, align 4
+  switch i32 %94, label %97 [
+    i32 0, label %95
+    i32 3, label %96
+  ]
+
+95:                                               ; preds = %93
+  br label %19, !llvm.loop !13
+
+96:                                               ; preds = %93, %19
   store i1 true, ptr %6, align 1
-  br label %84
+  store i32 1, ptr %15, align 4
+  br label %97
 
-84:                                               ; preds = %83, %56, %39
-  %85 = load i1, ptr %6, align 1
-  ret i1 %85
+97:                                               ; preds = %96, %93
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #13
+  %98 = load i1, ptr %6, align 1
+  ret i1 %98
 }
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i8 @stripTimeStamp(ptr noundef %0, ptr noundef %1) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal zeroext i8 @stripTimeStamp(ptr noundef %0, ptr noundef %1) #8 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i8, align 1
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
-  %8 = alloca i8, align 1
+  %8 = alloca i32, align 4
+  %9 = alloca i8, align 1
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #13
   store i8 0, ptr %5, align 1
-  %9 = load ptr, ptr %4, align 8
-  %10 = call i64 @strlen(ptr noundef %9) #8
-  store i64 %10, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #13
+  %10 = load ptr, ptr %4, align 8
+  %11 = call i64 @strlen(ptr noundef %10) #16
+  store i64 %11, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #13
   store i64 0, ptr %7, align 8
-  br label %11
+  br label %12
 
-11:                                               ; preds = %71, %2
-  %12 = load i64, ptr %7, align 8
-  %13 = load i64, ptr %6, align 8
-  %14 = icmp ult i64 %12, %13
-  br i1 %14, label %15, label %74
+12:                                               ; preds = %76, %2
+  %13 = load i64, ptr %7, align 8
+  %14 = load i64, ptr %6, align 8
+  %15 = icmp ult i64 %13, %14
+  br i1 %15, label %17, label %16
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %4, align 8
-  %17 = load i64, ptr %7, align 8
-  %18 = getelementptr i8, ptr %16, i64 %17
-  %19 = load i8, ptr %18, align 1
-  store i8 %19, ptr %8, align 1
-  %20 = load i8, ptr %8, align 1
-  %21 = sext i8 %20 to i32
-  %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds %struct.cLLog_private, ptr %22, i32 0, i32 9
-  %24 = load i8, ptr %23, align 4
-  %25 = sext i8 %24 to i32
-  %26 = icmp eq i32 %21, %25
-  br i1 %26, label %27, label %28
+16:                                               ; preds = %12
+  store i32 2, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #13
+  br label %79
 
-27:                                               ; preds = %15
-  br label %71
+17:                                               ; preds = %12
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #13
+  %18 = load ptr, ptr %4, align 8
+  %19 = load i64, ptr %7, align 8
+  %20 = getelementptr i8, ptr %18, i64 %19
+  %21 = load i8, ptr %20, align 1
+  store i8 %21, ptr %9, align 1
+  %22 = load i8, ptr %9, align 1
+  %23 = sext i8 %22 to i32
+  %24 = load ptr, ptr %3, align 8
+  %25 = getelementptr inbounds nuw %struct.cLLog_private, ptr %24, i32 0, i32 9
+  %26 = load i8, ptr %25, align 4
+  %27 = sext i8 %26 to i32
+  %28 = icmp eq i32 %23, %27
+  br i1 %28, label %29, label %30
 
-28:                                               ; preds = %15
-  %29 = load i8, ptr %8, align 1
-  %30 = sext i8 %29 to i32
-  %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds %struct.cLLog_private, ptr %31, i32 0, i32 11
-  %33 = load i8, ptr %32, align 2
-  %34 = sext i8 %33 to i32
-  %35 = icmp eq i32 %30, %34
-  br i1 %35, label %36, label %37
+29:                                               ; preds = %17
+  store i32 4, ptr %8, align 4
+  br label %73
 
-36:                                               ; preds = %28
-  br label %71
+30:                                               ; preds = %17
+  %31 = load i8, ptr %9, align 1
+  %32 = sext i8 %31 to i32
+  %33 = load ptr, ptr %3, align 8
+  %34 = getelementptr inbounds nuw %struct.cLLog_private, ptr %33, i32 0, i32 11
+  %35 = load i8, ptr %34, align 2
+  %36 = sext i8 %35 to i32
+  %37 = icmp eq i32 %32, %36
+  br i1 %37, label %38, label %39
 
-37:                                               ; preds = %28
-  %38 = load i8, ptr %8, align 1
-  %39 = sext i8 %38 to i32
-  %40 = load ptr, ptr %3, align 8
-  %41 = getelementptr inbounds %struct.cLLog_private, ptr %40, i32 0, i32 12
-  %42 = load i8, ptr %41, align 1
-  %43 = sext i8 %42 to i32
-  %44 = icmp eq i32 %39, %43
-  br i1 %44, label %45, label %46
+38:                                               ; preds = %30
+  store i32 4, ptr %8, align 4
+  br label %73
 
-45:                                               ; preds = %37
-  br label %71
+39:                                               ; preds = %30
+  %40 = load i8, ptr %9, align 1
+  %41 = sext i8 %40 to i32
+  %42 = load ptr, ptr %3, align 8
+  %43 = getelementptr inbounds nuw %struct.cLLog_private, ptr %42, i32 0, i32 12
+  %44 = load i8, ptr %43, align 1
+  %45 = sext i8 %44 to i32
+  %46 = icmp eq i32 %41, %45
+  br i1 %46, label %47, label %48
 
-46:                                               ; preds = %37
-  %47 = load i8, ptr %8, align 1
-  %48 = sext i8 %47 to i32
-  %49 = load ptr, ptr %3, align 8
-  %50 = getelementptr inbounds %struct.cLLog_private, ptr %49, i32 0, i32 13
-  %51 = load i8, ptr %50, align 8
-  %52 = sext i8 %51 to i32
-  %53 = icmp eq i32 %48, %52
-  br i1 %53, label %54, label %55
+47:                                               ; preds = %39
+  store i32 4, ptr %8, align 4
+  br label %73
 
-54:                                               ; preds = %46
-  br label %71
+48:                                               ; preds = %39
+  %49 = load i8, ptr %9, align 1
+  %50 = sext i8 %49 to i32
+  %51 = load ptr, ptr %3, align 8
+  %52 = getelementptr inbounds nuw %struct.cLLog_private, ptr %51, i32 0, i32 13
+  %53 = load i8, ptr %52, align 8
+  %54 = sext i8 %53 to i32
+  %55 = icmp eq i32 %50, %54
+  br i1 %55, label %56, label %57
 
-55:                                               ; preds = %46
-  %56 = load i8, ptr %8, align 1
-  %57 = sext i8 %56 to i32
-  %58 = load ptr, ptr %3, align 8
-  %59 = getelementptr inbounds %struct.cLLog_private, ptr %58, i32 0, i32 14
-  %60 = load i8, ptr %59, align 1
-  %61 = sext i8 %60 to i32
-  %62 = icmp eq i32 %57, %61
-  br i1 %62, label %63, label %64
+56:                                               ; preds = %48
+  store i32 4, ptr %8, align 4
+  br label %73
 
-63:                                               ; preds = %55
-  br label %71
+57:                                               ; preds = %48
+  %58 = load i8, ptr %9, align 1
+  %59 = sext i8 %58 to i32
+  %60 = load ptr, ptr %3, align 8
+  %61 = getelementptr inbounds nuw %struct.cLLog_private, ptr %60, i32 0, i32 14
+  %62 = load i8, ptr %61, align 1
+  %63 = sext i8 %62 to i32
+  %64 = icmp eq i32 %59, %63
+  br i1 %64, label %65, label %66
 
-64:                                               ; preds = %55
-  %65 = load i8, ptr %8, align 1
-  %66 = load ptr, ptr %4, align 8
-  %67 = load i8, ptr %5, align 1
-  %68 = add i8 %67, 1
-  store i8 %68, ptr %5, align 1
-  %69 = zext i8 %67 to i64
-  %70 = getelementptr i8, ptr %66, i64 %69
-  store i8 %65, ptr %70, align 1
-  br label %71
+65:                                               ; preds = %57
+  store i32 4, ptr %8, align 4
+  br label %73
 
-71:                                               ; preds = %64, %63, %54, %45, %36, %27
-  %72 = load i64, ptr %7, align 8
-  %73 = add i64 %72, 1
-  store i64 %73, ptr %7, align 8
-  br label %11, !llvm.loop !10
+66:                                               ; preds = %57
+  %67 = load i8, ptr %9, align 1
+  %68 = load ptr, ptr %4, align 8
+  %69 = load i8, ptr %5, align 1
+  %70 = add i8 %69, 1
+  store i8 %70, ptr %5, align 1
+  %71 = zext i8 %69 to i64
+  %72 = getelementptr i8, ptr %68, i64 %71
+  store i8 %67, ptr %72, align 1
+  store i32 0, ptr %8, align 4
+  br label %73
 
-74:                                               ; preds = %11
-  %75 = load ptr, ptr %4, align 8
-  %76 = load i8, ptr %5, align 1
-  %77 = zext i8 %76 to i64
-  %78 = getelementptr i8, ptr %75, i64 %77
-  store i8 0, ptr %78, align 1
-  %79 = load i8, ptr %5, align 1
-  ret i8 %79
+73:                                               ; preds = %66, %65, %56, %47, %38, %29
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #13
+  %74 = load i32, ptr %8, align 4
+  switch i32 %74, label %85 [
+    i32 0, label %75
+    i32 4, label %76
+  ]
+
+75:                                               ; preds = %73
+  br label %76
+
+76:                                               ; preds = %75, %73
+  %77 = load i64, ptr %7, align 8
+  %78 = add i64 %77, 1
+  store i64 %78, ptr %7, align 8
+  br label %12, !llvm.loop !14
+
+79:                                               ; preds = %16
+  %80 = load ptr, ptr %4, align 8
+  %81 = load i8, ptr %5, align 1
+  %82 = zext i8 %81 to i64
+  %83 = getelementptr i8, ptr %80, i64 %82
+  store i8 0, ptr %83, align 1
+  %84 = load i8, ptr %5, align 1
+  store i32 1, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #13
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #13
+  ret i8 %84
+
+85:                                               ; preds = %73
+  unreachable
 }
 
-declare noalias ptr @g_strdup_printf(ptr noundef, ...) #3
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
-declare zeroext i1 @ws_hexstrtou32(ptr noundef, ptr noundef, ptr noundef) #3
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @g_strdup_printf(ptr noundef, ...) #6
 
-declare i32 @ws_xton(i8 noundef signext) #3
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @ws_hexstrtou32(ptr noundef, ptr noundef, ptr noundef) #6
 
-declare i64 @file_tell(ptr noundef) #3
+; Function Attrs: null_pointer_is_valid
+declare i32 @ws_xton(i8 noundef signext) #6
 
-; Function Attrs: nounwind uwtable
-define internal i32 @cllog_read_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = alloca i32, align 4
+; Function Attrs: null_pointer_is_valid
+declare i64 @file_tell(ptr noundef) #6
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @cllog_read_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+  %6 = alloca i1, align 1
+  %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
-  %13 = alloca ptr, align 8
-  %14 = alloca ptr, align 8
-  %15 = alloca [200 x i8], align 16
-  %16 = alloca %struct.cCLLog_message_t, align 8
-  %17 = alloca ptr, align 8
-  store ptr %0, ptr %8, align 8
-  store ptr %1, ptr %9, align 8
-  store ptr %2, ptr %10, align 8
-  store ptr %3, ptr %11, align 8
-  store ptr %4, ptr %12, align 8
-  store ptr %5, ptr %13, align 8
-  %18 = load ptr, ptr %8, align 8
-  %19 = getelementptr inbounds %struct.wtap, ptr %18, i32 0, i32 13
-  %20 = load ptr, ptr %19, align 8
-  store ptr %20, ptr %14, align 8
-  %21 = getelementptr inbounds [200 x i8], ptr %15, i64 0, i64 0
-  %22 = load ptr, ptr %9, align 8
-  %23 = call ptr @file_gets(ptr noundef %21, i32 noundef 200, ptr noundef %22)
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %25, label %32
+  %13 = alloca [200 x i8], align 16
+  %14 = alloca %struct.cCLLog_message_t, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #13
+  %17 = load ptr, ptr %7, align 8
+  %18 = getelementptr inbounds nuw %struct.wtap, ptr %17, i32 0, i32 13
+  %19 = load ptr, ptr %18, align 8
+  store ptr %19, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 200, ptr %13) #13
+  call void @llvm.lifetime.start.p0(i64 40, ptr %14) #13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #13
+  %20 = getelementptr inbounds [200 x i8], ptr %13, i64 0, i64 0
+  %21 = load ptr, ptr %8, align 8
+  %22 = call ptr @file_gets(ptr noundef %20, i32 noundef 200, ptr noundef %21)
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %24, label %29
 
-25:                                               ; preds = %6
-  %26 = load ptr, ptr %8, align 8
-  %27 = getelementptr inbounds %struct.wtap, ptr %26, i32 0, i32 0
-  %28 = load ptr, ptr %27, align 8
-  %29 = load ptr, ptr %13, align 8
-  %30 = call i32 @file_error(ptr noundef %28, ptr noundef %29)
+24:                                               ; preds = %5
+  %25 = load ptr, ptr %8, align 8
+  %26 = load ptr, ptr %11, align 8
+  %27 = call i32 @file_error(ptr noundef %25, ptr noundef %26)
+  %28 = load ptr, ptr %10, align 8
+  store i32 %27, ptr %28, align 4
+  store i1 false, ptr %6, align 1
+  store i32 1, ptr %16, align 4
+  br label %173
+
+29:                                               ; preds = %5
+  %30 = call ptr @memset.inline(ptr noundef %14, i32 noundef 0, i64 noundef 40) #13
   %31 = load ptr, ptr %12, align 8
-  store i32 %30, ptr %31, align 4
-  store i32 0, ptr %7, align 4
-  br label %177
+  %32 = getelementptr inbounds [200 x i8], ptr %13, i64 0, i64 0
+  %33 = load ptr, ptr %10, align 8
+  %34 = load ptr, ptr %11, align 8
+  %35 = call zeroext i1 @parseLogLine(ptr noundef %31, ptr noundef %32, ptr noundef %14, ptr noundef %33, ptr noundef %34)
+  br i1 %35, label %37, label %36
 
-32:                                               ; preds = %6
-  call void @llvm.memset.p0.i64(ptr align 8 %16, i8 0, i64 40, i1 false)
-  %33 = load ptr, ptr %14, align 8
-  %34 = getelementptr inbounds [200 x i8], ptr %15, i64 0, i64 0
-  %35 = load ptr, ptr %12, align 8
-  %36 = load ptr, ptr %13, align 8
-  %37 = call zeroext i1 @parseLogLine(ptr noundef %33, ptr noundef %34, ptr noundef %16, ptr noundef %35, ptr noundef %36)
-  br i1 %37, label %39, label %38
+36:                                               ; preds = %29
+  store i1 false, ptr %6, align 1
+  store i32 1, ptr %16, align 4
+  br label %173
 
-38:                                               ; preds = %32
-  store i32 0, ptr %7, align 4
-  br label %177
+37:                                               ; preds = %29
+  %38 = load ptr, ptr %9, align 8
+  %39 = getelementptr inbounds nuw %struct.wtap_rec, ptr %38, i32 0, i32 0
+  store i32 0, ptr %39, align 8
+  %40 = call ptr @wtap_block_create(i32 noundef 5)
+  %41 = load ptr, ptr %9, align 8
+  %42 = getelementptr inbounds nuw %struct.wtap_rec, ptr %41, i32 0, i32 8
+  store ptr %40, ptr %42, align 8
+  %43 = load ptr, ptr %9, align 8
+  %44 = getelementptr inbounds nuw %struct.wtap_rec, ptr %43, i32 0, i32 1
+  store i32 1, ptr %44, align 4
+  %45 = getelementptr inbounds nuw %struct.cCLLog_message_t, ptr %14, i32 0, i32 0
+  %46 = getelementptr inbounds nuw %struct.cCLLog_timeStamp_t, ptr %45, i32 0, i32 0
+  %47 = load i64, ptr %46, align 8
+  %48 = load ptr, ptr %9, align 8
+  %49 = getelementptr inbounds nuw %struct.wtap_rec, ptr %48, i32 0, i32 3
+  %50 = getelementptr inbounds nuw %struct.nstime_t, ptr %49, i32 0, i32 0
+  store i64 %47, ptr %50, align 8
+  %51 = getelementptr inbounds nuw %struct.cCLLog_message_t, ptr %14, i32 0, i32 0
+  %52 = getelementptr inbounds nuw %struct.cCLLog_timeStamp_t, ptr %51, i32 0, i32 1
+  %53 = load i16, ptr %52, align 8
+  %54 = zext i16 %53 to i32
+  %55 = mul i32 %54, 1000
+  %56 = mul i32 %55, 1000
+  %57 = load ptr, ptr %9, align 8
+  %58 = getelementptr inbounds nuw %struct.wtap_rec, ptr %57, i32 0, i32 3
+  %59 = getelementptr inbounds nuw %struct.nstime_t, ptr %58, i32 0, i32 1
+  store i32 %56, ptr %59, align 8
+  %60 = getelementptr inbounds nuw %struct.cCLLog_message_t, ptr %14, i32 0, i32 4
+  %61 = load i8, ptr %60, align 4
+  %62 = zext i8 %61 to i32
+  %63 = add i32 8, %62
+  %64 = load ptr, ptr %9, align 8
+  %65 = getelementptr inbounds nuw %struct.wtap_rec, ptr %64, i32 0, i32 7
+  %66 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %65, i32 0, i32 0
+  store i32 %63, ptr %66, align 8
+  %67 = getelementptr inbounds nuw %struct.cCLLog_message_t, ptr %14, i32 0, i32 4
+  %68 = load i8, ptr %67, align 4
+  %69 = zext i8 %68 to i32
+  %70 = add i32 8, %69
+  %71 = load ptr, ptr %9, align 8
+  %72 = getelementptr inbounds nuw %struct.wtap_rec, ptr %71, i32 0, i32 7
+  %73 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %72, i32 0, i32 1
+  store i32 %70, ptr %73, align 4
+  %74 = getelementptr inbounds nuw %struct.cCLLog_message_t, ptr %14, i32 0, i32 2
+  %75 = load i32, ptr %74, align 4
+  %76 = icmp eq i32 %75, 7
+  br i1 %76, label %81, label %77
 
-39:                                               ; preds = %32
-  %40 = load ptr, ptr %10, align 8
-  %41 = getelementptr inbounds %struct.wtap_rec, ptr %40, i32 0, i32 0
-  store i32 0, ptr %41, align 8
-  %42 = call ptr @wtap_block_create(i32 noundef 5)
-  %43 = load ptr, ptr %10, align 8
-  %44 = getelementptr inbounds %struct.wtap_rec, ptr %43, i32 0, i32 8
-  store ptr %42, ptr %44, align 8
-  %45 = load ptr, ptr %10, align 8
-  %46 = getelementptr inbounds %struct.wtap_rec, ptr %45, i32 0, i32 1
-  store i32 1, ptr %46, align 4
-  %47 = getelementptr inbounds %struct.cCLLog_message_t, ptr %16, i32 0, i32 0
-  %48 = getelementptr inbounds %struct.cCLLog_timeStamp_t, ptr %47, i32 0, i32 0
-  %49 = load i64, ptr %48, align 8
-  %50 = load ptr, ptr %10, align 8
-  %51 = getelementptr inbounds %struct.wtap_rec, ptr %50, i32 0, i32 3
-  %52 = getelementptr inbounds %struct.nstime_t, ptr %51, i32 0, i32 0
-  store i64 %49, ptr %52, align 8
-  %53 = getelementptr inbounds %struct.cCLLog_message_t, ptr %16, i32 0, i32 0
-  %54 = getelementptr inbounds %struct.cCLLog_timeStamp_t, ptr %53, i32 0, i32 1
-  %55 = load i16, ptr %54, align 8
-  %56 = zext i16 %55 to i32
-  %57 = mul i32 %56, 1000
-  %58 = mul i32 %57, 1000
-  %59 = load ptr, ptr %10, align 8
-  %60 = getelementptr inbounds %struct.wtap_rec, ptr %59, i32 0, i32 3
-  %61 = getelementptr inbounds %struct.nstime_t, ptr %60, i32 0, i32 1
-  store i32 %58, ptr %61, align 8
-  %62 = getelementptr inbounds %struct.cCLLog_message_t, ptr %16, i32 0, i32 4
-  %63 = load i8, ptr %62, align 4
-  %64 = zext i8 %63 to i32
-  %65 = add i32 8, %64
-  %66 = load ptr, ptr %10, align 8
-  %67 = getelementptr inbounds %struct.wtap_rec, ptr %66, i32 0, i32 7
-  %68 = getelementptr inbounds %struct.wtap_packet_header, ptr %67, i32 0, i32 0
-  store i32 %65, ptr %68, align 8
-  %69 = getelementptr inbounds %struct.cCLLog_message_t, ptr %16, i32 0, i32 4
-  %70 = load i8, ptr %69, align 4
-  %71 = zext i8 %70 to i32
-  %72 = add i32 8, %71
-  %73 = load ptr, ptr %10, align 8
-  %74 = getelementptr inbounds %struct.wtap_rec, ptr %73, i32 0, i32 7
-  %75 = getelementptr inbounds %struct.wtap_packet_header, ptr %74, i32 0, i32 1
-  store i32 %72, ptr %75, align 4
-  %76 = getelementptr inbounds %struct.cCLLog_message_t, ptr %16, i32 0, i32 2
-  %77 = load i32, ptr %76, align 4
-  %78 = icmp eq i32 %77, 7
-  br i1 %78, label %83, label %79
+77:                                               ; preds = %37
+  %78 = getelementptr inbounds nuw %struct.cCLLog_message_t, ptr %14, i32 0, i32 2
+  %79 = load i32, ptr %78, align 4
+  %80 = icmp eq i32 %79, 8
+  br i1 %80, label %81, label %86
 
-79:                                               ; preds = %39
-  %80 = getelementptr inbounds %struct.cCLLog_message_t, ptr %16, i32 0, i32 2
-  %81 = load i32, ptr %80, align 4
-  %82 = icmp eq i32 %81, 8
-  br i1 %82, label %83, label %88
+81:                                               ; preds = %77, %37
+  %82 = load ptr, ptr %9, align 8
+  %83 = getelementptr inbounds nuw %struct.wtap_rec, ptr %82, i32 0, i32 8
+  %84 = load ptr, ptr %83, align 8
+  %85 = call i32 @wtap_block_add_uint32_option(ptr noundef %84, i32 noundef 2, i32 noundef 2)
+  br label %100
 
-83:                                               ; preds = %79, %39
-  %84 = load ptr, ptr %10, align 8
-  %85 = getelementptr inbounds %struct.wtap_rec, ptr %84, i32 0, i32 8
-  %86 = load ptr, ptr %85, align 8
-  %87 = call i32 @wtap_block_add_uint32_option(ptr noundef %86, i32 noundef 2, i32 noundef 2)
-  br label %102
+86:                                               ; preds = %77
+  %87 = getelementptr inbounds nuw %struct.cCLLog_message_t, ptr %14, i32 0, i32 2
+  %88 = load i32, ptr %87, align 4
+  %89 = icmp eq i32 %88, 0
+  br i1 %89, label %94, label %90
 
-88:                                               ; preds = %79
-  %89 = getelementptr inbounds %struct.cCLLog_message_t, ptr %16, i32 0, i32 2
-  %90 = load i32, ptr %89, align 4
-  %91 = icmp eq i32 %90, 0
-  br i1 %91, label %96, label %92
+90:                                               ; preds = %86
+  %91 = getelementptr inbounds nuw %struct.cCLLog_message_t, ptr %14, i32 0, i32 2
+  %92 = load i32, ptr %91, align 4
+  %93 = icmp eq i32 %92, 1
+  br i1 %93, label %94, label %99
 
-92:                                               ; preds = %88
-  %93 = getelementptr inbounds %struct.cCLLog_message_t, ptr %16, i32 0, i32 2
-  %94 = load i32, ptr %93, align 4
-  %95 = icmp eq i32 %94, 1
-  br i1 %95, label %96, label %101
+94:                                               ; preds = %90, %86
+  %95 = load ptr, ptr %9, align 8
+  %96 = getelementptr inbounds nuw %struct.wtap_rec, ptr %95, i32 0, i32 8
+  %97 = load ptr, ptr %96, align 8
+  %98 = call i32 @wtap_block_add_uint32_option(ptr noundef %97, i32 noundef 2, i32 noundef 1)
+  br label %99
 
-96:                                               ; preds = %92, %88
-  %97 = load ptr, ptr %10, align 8
-  %98 = getelementptr inbounds %struct.wtap_rec, ptr %97, i32 0, i32 8
-  %99 = load ptr, ptr %98, align 8
-  %100 = call i32 @wtap_block_add_uint32_option(ptr noundef %99, i32 noundef 2, i32 noundef 1)
-  br label %101
+99:                                               ; preds = %94, %90
+  br label %100
 
-101:                                              ; preds = %96, %92
-  br label %102
+100:                                              ; preds = %99, %81
+  %101 = load ptr, ptr %9, align 8
+  %102 = getelementptr inbounds nuw %struct.wtap_rec, ptr %101, i32 0, i32 11
+  %103 = load ptr, ptr %9, align 8
+  %104 = getelementptr inbounds nuw %struct.wtap_rec, ptr %103, i32 0, i32 7
+  %105 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %104, i32 0, i32 0
+  %106 = load i32, ptr %105, align 8
+  %107 = zext i32 %106 to i64
+  call void @ws_buffer_assure_space(ptr noundef %102, i64 noundef %107)
+  %108 = load ptr, ptr %9, align 8
+  %109 = getelementptr inbounds nuw %struct.wtap_rec, ptr %108, i32 0, i32 11
+  %110 = call ptr @ws_buffer_start_ptr(ptr noundef %109)
+  store ptr %110, ptr %15, align 8
+  %111 = getelementptr inbounds nuw %struct.cCLLog_message_t, ptr %14, i32 0, i32 3
+  %112 = load i32, ptr %111, align 8
+  %113 = lshr i32 %112, 24
+  %114 = trunc i32 %113 to i8
+  %115 = load ptr, ptr %15, align 8
+  %116 = getelementptr i8, ptr %115, i64 0
+  store i8 %114, ptr %116, align 1
+  %117 = getelementptr inbounds nuw %struct.cCLLog_message_t, ptr %14, i32 0, i32 3
+  %118 = load i32, ptr %117, align 8
+  %119 = lshr i32 %118, 16
+  %120 = trunc i32 %119 to i8
+  %121 = load ptr, ptr %15, align 8
+  %122 = getelementptr i8, ptr %121, i64 1
+  store i8 %120, ptr %122, align 1
+  %123 = getelementptr inbounds nuw %struct.cCLLog_message_t, ptr %14, i32 0, i32 3
+  %124 = load i32, ptr %123, align 8
+  %125 = lshr i32 %124, 8
+  %126 = trunc i32 %125 to i8
+  %127 = load ptr, ptr %15, align 8
+  %128 = getelementptr i8, ptr %127, i64 2
+  store i8 %126, ptr %128, align 1
+  %129 = getelementptr inbounds nuw %struct.cCLLog_message_t, ptr %14, i32 0, i32 3
+  %130 = load i32, ptr %129, align 8
+  %131 = lshr i32 %130, 0
+  %132 = trunc i32 %131 to i8
+  %133 = load ptr, ptr %15, align 8
+  %134 = getelementptr i8, ptr %133, i64 3
+  store i8 %132, ptr %134, align 1
+  %135 = getelementptr inbounds nuw %struct.cCLLog_message_t, ptr %14, i32 0, i32 4
+  %136 = load i8, ptr %135, align 4
+  %137 = load ptr, ptr %15, align 8
+  %138 = getelementptr i8, ptr %137, i64 4
+  store i8 %136, ptr %138, align 1
+  %139 = load ptr, ptr %15, align 8
+  %140 = getelementptr i8, ptr %139, i64 5
+  store i8 0, ptr %140, align 1
+  %141 = load ptr, ptr %15, align 8
+  %142 = getelementptr i8, ptr %141, i64 6
+  store i8 0, ptr %142, align 1
+  %143 = load ptr, ptr %15, align 8
+  %144 = getelementptr i8, ptr %143, i64 7
+  store i8 0, ptr %144, align 1
+  %145 = getelementptr inbounds nuw %struct.cCLLog_message_t, ptr %14, i32 0, i32 2
+  %146 = load i32, ptr %145, align 4
+  %147 = icmp eq i32 %146, 8
+  br i1 %147, label %157, label %148
 
-102:                                              ; preds = %101, %83
-  %103 = load ptr, ptr %11, align 8
-  %104 = load ptr, ptr %10, align 8
-  %105 = getelementptr inbounds %struct.wtap_rec, ptr %104, i32 0, i32 7
-  %106 = getelementptr inbounds %struct.wtap_packet_header, ptr %105, i32 0, i32 0
-  %107 = load i32, ptr %106, align 8
-  %108 = zext i32 %107 to i64
-  call void @ws_buffer_assure_space(ptr noundef %103, i64 noundef %108)
-  %109 = load ptr, ptr %11, align 8
-  %110 = getelementptr inbounds %struct.Buffer, ptr %109, i32 0, i32 0
-  %111 = load ptr, ptr %110, align 8
-  %112 = load ptr, ptr %11, align 8
-  %113 = getelementptr inbounds %struct.Buffer, ptr %112, i32 0, i32 2
-  %114 = load i64, ptr %113, align 8
-  %115 = getelementptr i8, ptr %111, i64 %114
-  store ptr %115, ptr %17, align 8
-  %116 = getelementptr inbounds %struct.cCLLog_message_t, ptr %16, i32 0, i32 3
-  %117 = load i32, ptr %116, align 8
-  %118 = lshr i32 %117, 24
-  %119 = trunc i32 %118 to i8
-  %120 = load ptr, ptr %17, align 8
-  %121 = getelementptr i8, ptr %120, i64 0
-  store i8 %119, ptr %121, align 1
-  %122 = getelementptr inbounds %struct.cCLLog_message_t, ptr %16, i32 0, i32 3
-  %123 = load i32, ptr %122, align 8
-  %124 = lshr i32 %123, 16
-  %125 = trunc i32 %124 to i8
-  %126 = load ptr, ptr %17, align 8
-  %127 = getelementptr i8, ptr %126, i64 1
-  store i8 %125, ptr %127, align 1
-  %128 = getelementptr inbounds %struct.cCLLog_message_t, ptr %16, i32 0, i32 3
-  %129 = load i32, ptr %128, align 8
-  %130 = lshr i32 %129, 8
-  %131 = trunc i32 %130 to i8
-  %132 = load ptr, ptr %17, align 8
-  %133 = getelementptr i8, ptr %132, i64 2
-  store i8 %131, ptr %133, align 1
-  %134 = getelementptr inbounds %struct.cCLLog_message_t, ptr %16, i32 0, i32 3
-  %135 = load i32, ptr %134, align 8
-  %136 = lshr i32 %135, 0
-  %137 = trunc i32 %136 to i8
-  %138 = load ptr, ptr %17, align 8
-  %139 = getelementptr i8, ptr %138, i64 3
-  store i8 %137, ptr %139, align 1
-  %140 = getelementptr inbounds %struct.cCLLog_message_t, ptr %16, i32 0, i32 4
-  %141 = load i8, ptr %140, align 4
-  %142 = load ptr, ptr %17, align 8
-  %143 = getelementptr i8, ptr %142, i64 4
-  store i8 %141, ptr %143, align 1
-  %144 = load ptr, ptr %17, align 8
-  %145 = getelementptr i8, ptr %144, i64 5
-  store i8 0, ptr %145, align 1
-  %146 = load ptr, ptr %17, align 8
-  %147 = getelementptr i8, ptr %146, i64 6
-  store i8 0, ptr %147, align 1
-  %148 = load ptr, ptr %17, align 8
-  %149 = getelementptr i8, ptr %148, i64 7
-  store i8 0, ptr %149, align 1
-  %150 = getelementptr inbounds %struct.cCLLog_message_t, ptr %16, i32 0, i32 2
-  %151 = load i32, ptr %150, align 4
-  %152 = icmp eq i32 %151, 8
-  br i1 %152, label %162, label %153
+148:                                              ; preds = %100
+  %149 = getelementptr inbounds nuw %struct.cCLLog_message_t, ptr %14, i32 0, i32 2
+  %150 = load i32, ptr %149, align 4
+  %151 = icmp eq i32 %150, 1
+  br i1 %151, label %157, label %152
 
-153:                                              ; preds = %102
-  %154 = getelementptr inbounds %struct.cCLLog_message_t, ptr %16, i32 0, i32 2
-  %155 = load i32, ptr %154, align 4
-  %156 = icmp eq i32 %155, 1
-  br i1 %156, label %162, label %157
+152:                                              ; preds = %148
+  %153 = getelementptr inbounds nuw %struct.cCLLog_message_t, ptr %14, i32 0, i32 3
+  %154 = load i32, ptr %153, align 8
+  %155 = and i32 %154, 536870911
+  %156 = icmp ugt i32 %155, 2047
+  br i1 %156, label %157, label %164
 
-157:                                              ; preds = %153
-  %158 = getelementptr inbounds %struct.cCLLog_message_t, ptr %16, i32 0, i32 3
-  %159 = load i32, ptr %158, align 8
-  %160 = and i32 %159, 536870911
-  %161 = icmp ugt i32 %160, 2047
-  br i1 %161, label %162, label %169
+157:                                              ; preds = %152, %148, %100
+  %158 = load ptr, ptr %15, align 8
+  %159 = getelementptr i8, ptr %158, i64 0
+  %160 = load i8, ptr %159, align 1
+  %161 = zext i8 %160 to i32
+  %162 = or i32 %161, 128
+  %163 = trunc i32 %162 to i8
+  store i8 %163, ptr %159, align 1
+  br label %164
 
-162:                                              ; preds = %157, %153, %102
-  %163 = load ptr, ptr %17, align 8
-  %164 = getelementptr i8, ptr %163, i64 0
-  %165 = load i8, ptr %164, align 1
-  %166 = zext i8 %165 to i32
-  %167 = or i32 %166, 128
-  %168 = trunc i32 %167 to i8
-  store i8 %168, ptr %164, align 1
-  br label %169
+164:                                              ; preds = %157, %152
+  %165 = load ptr, ptr %15, align 8
+  %166 = getelementptr i8, ptr %165, i64 8
+  %167 = getelementptr inbounds nuw %struct.cCLLog_message_t, ptr %14, i32 0, i32 5
+  %168 = getelementptr inbounds [8 x i8], ptr %167, i64 0, i64 0
+  %169 = getelementptr inbounds nuw %struct.cCLLog_message_t, ptr %14, i32 0, i32 4
+  %170 = load i8, ptr %169, align 4
+  %171 = zext i8 %170 to i64
+  %172 = call ptr @memcpy.inline(ptr noundef %166, ptr noundef %168, i64 noundef %171) #13
+  store i1 true, ptr %6, align 1
+  store i32 1, ptr %16, align 4
+  br label %173
 
-169:                                              ; preds = %162, %157
-  %170 = load ptr, ptr %17, align 8
-  %171 = getelementptr i8, ptr %170, i64 8
-  %172 = getelementptr inbounds %struct.cCLLog_message_t, ptr %16, i32 0, i32 5
-  %173 = getelementptr inbounds [8 x i8], ptr %172, i64 0, i64 0
-  %174 = getelementptr inbounds %struct.cCLLog_message_t, ptr %16, i32 0, i32 4
-  %175 = load i8, ptr %174, align 4
-  %176 = zext i8 %175 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %171, ptr align 1 %173, i64 %176, i1 false)
-  store i32 1, ptr %7, align 4
-  br label %177
-
-177:                                              ; preds = %169, %38, %25
-  %178 = load i32, ptr %7, align 4
-  ret i32 %178
+173:                                              ; preds = %164, %36, %24
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #13
+  call void @llvm.lifetime.end.p0(i64 40, ptr %14) #13
+  call void @llvm.lifetime.end.p0(i64 200, ptr %13) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #13
+  %174 = load i1, ptr %6, align 1
+  ret i1 %174
 }
 
-declare i32 @file_error(ptr noundef, ptr noundef) #3
-
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal zeroext i1 @parseLogLine(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca i1, align 1
   %7 = alloca ptr, align 8
@@ -2297,136 +2728,204 @@ define internal zeroext i1 @parseLogLine(ptr noundef %0, ptr noundef %1, ptr nou
   %12 = alloca ptr, align 8
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
-  %15 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca ptr, align 8
   store ptr %0, ptr %7, align 8
   store ptr %1, ptr %8, align 8
   store ptr %2, ptr %9, align 8
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
-  %16 = load ptr, ptr %8, align 8
-  store ptr %16, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #13
+  %17 = load ptr, ptr %8, align 8
+  store ptr %17, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #13
   store i32 0, ptr %13, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #13
   store i32 0, ptr %14, align 4
-  br label %17
+  br label %18
 
-17:                                               ; preds = %64, %5
-  %18 = load i32, ptr %13, align 4
-  %19 = icmp ult i32 %18, 7
-  br i1 %19, label %20, label %23
+18:                                               ; preds = %73, %5
+  %19 = load i32, ptr %13, align 4
+  %20 = icmp ult i32 %19, 7
+  br i1 %20, label %21, label %24
 
-20:                                               ; preds = %17
-  %21 = load i32, ptr %14, align 4
-  %22 = icmp eq i32 %21, 0
-  br label %23
+21:                                               ; preds = %18
+  %22 = load i32, ptr %14, align 4
+  %23 = icmp eq i32 %22, 0
+  br label %24
 
-23:                                               ; preds = %20, %17
-  %24 = phi i1 [ false, %17 ], [ %22, %20 ]
-  br i1 %24, label %25, label %67
+24:                                               ; preds = %21, %18
+  %25 = phi i1 [ false, %18 ], [ %23, %21 ]
+  br i1 %25, label %27, label %26
 
-25:                                               ; preds = %23
-  %26 = load ptr, ptr %12, align 8
-  %27 = load ptr, ptr %7, align 8
-  %28 = getelementptr inbounds %struct.cLLog_private, ptr %27, i32 0, i32 9
-  %29 = load i8, ptr %28, align 4
-  %30 = sext i8 %29 to i32
-  %31 = call ptr @strchr(ptr noundef %26, i32 noundef %30) #8
-  store ptr %31, ptr %15, align 8
-  %32 = load ptr, ptr %15, align 8
-  %33 = icmp eq ptr %32, null
-  br i1 %33, label %34, label %37
+26:                                               ; preds = %24
+  store i32 2, ptr %15, align 4
+  br label %76
 
-34:                                               ; preds = %25
-  %35 = load ptr, ptr %12, align 8
-  %36 = call ptr @strchr(ptr noundef %35, i32 noundef 10) #8
-  store ptr %36, ptr %15, align 8
+27:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #13
+  %28 = load ptr, ptr %12, align 8
+  %29 = load ptr, ptr %7, align 8
+  %30 = getelementptr inbounds nuw %struct.cLLog_private, ptr %29, i32 0, i32 9
+  %31 = load i8, ptr %30, align 4
+  %32 = sext i8 %31 to i32
+  %33 = call ptr @strchr(ptr noundef %28, i32 noundef %32) #16
+  store ptr %33, ptr %16, align 8
+  %34 = load ptr, ptr %16, align 8
+  %35 = icmp eq ptr %34, null
+  br i1 %35, label %36, label %39
+
+36:                                               ; preds = %27
+  %37 = load ptr, ptr %12, align 8
+  %38 = call ptr @strchr(ptr noundef %37, i32 noundef 10) #16
+  store ptr %38, ptr %16, align 8
   store i32 1, ptr %14, align 4
-  br label %37
+  br label %39
 
-37:                                               ; preds = %34, %25
-  %38 = load ptr, ptr %15, align 8
-  store i8 0, ptr %38, align 1
-  %39 = load ptr, ptr %7, align 8
-  %40 = getelementptr inbounds %struct.cLLog_private, ptr %39, i32 0, i32 18
-  %41 = load i32, ptr %13, align 4
-  %42 = zext i32 %41 to i64
-  %43 = getelementptr [7 x ptr], ptr %40, i64 0, i64 %42
-  %44 = load ptr, ptr %43, align 8
-  %45 = icmp ne ptr %44, null
-  br i1 %45, label %46, label %61
+39:                                               ; preds = %36, %27
+  %40 = load ptr, ptr %16, align 8
+  %41 = icmp ne ptr %40, null
+  br i1 %41, label %42, label %44
 
-46:                                               ; preds = %37
-  %47 = load ptr, ptr %7, align 8
-  %48 = getelementptr inbounds %struct.cLLog_private, ptr %47, i32 0, i32 18
-  %49 = load i32, ptr %13, align 4
-  %50 = zext i32 %49 to i64
-  %51 = getelementptr [7 x ptr], ptr %48, i64 0, i64 %50
-  %52 = load ptr, ptr %51, align 8
+42:                                               ; preds = %39
+  %43 = load ptr, ptr %16, align 8
+  store i8 0, ptr %43, align 1
+  br label %44
+
+44:                                               ; preds = %42, %39
+  %45 = load ptr, ptr %7, align 8
+  %46 = getelementptr inbounds nuw %struct.cLLog_private, ptr %45, i32 0, i32 18
+  %47 = load i32, ptr %13, align 4
+  %48 = zext i32 %47 to i64
+  %49 = getelementptr [7 x ptr], ptr %46, i64 0, i64 %48
+  %50 = load ptr, ptr %49, align 8
+  %51 = icmp ne ptr %50, null
+  br i1 %51, label %52, label %67
+
+52:                                               ; preds = %44
   %53 = load ptr, ptr %7, align 8
-  %54 = load ptr, ptr %12, align 8
-  %55 = load ptr, ptr %9, align 8
-  %56 = load ptr, ptr %10, align 8
-  %57 = load ptr, ptr %11, align 8
-  %58 = call zeroext i1 %52(ptr noundef %53, ptr noundef %54, ptr noundef %55, ptr noundef %56, ptr noundef %57)
-  br i1 %58, label %60, label %59
+  %54 = getelementptr inbounds nuw %struct.cLLog_private, ptr %53, i32 0, i32 18
+  %55 = load i32, ptr %13, align 4
+  %56 = zext i32 %55 to i64
+  %57 = getelementptr [7 x ptr], ptr %54, i64 0, i64 %56
+  %58 = load ptr, ptr %57, align 8
+  %59 = load ptr, ptr %7, align 8
+  %60 = load ptr, ptr %12, align 8
+  %61 = load ptr, ptr %9, align 8
+  %62 = load ptr, ptr %10, align 8
+  %63 = load ptr, ptr %11, align 8
+  %64 = call zeroext i1 %58(ptr noundef %59, ptr noundef %60, ptr noundef %61, ptr noundef %62, ptr noundef %63)
+  br i1 %64, label %66, label %65
 
-59:                                               ; preds = %46
+65:                                               ; preds = %52
   store i1 false, ptr %6, align 1
-  br label %68
+  store i32 1, ptr %15, align 4
+  br label %70
 
-60:                                               ; preds = %46
-  br label %61
+66:                                               ; preds = %52
+  br label %67
 
-61:                                               ; preds = %60, %37
-  %62 = load ptr, ptr %15, align 8
-  %63 = getelementptr i8, ptr %62, i64 1
-  store ptr %63, ptr %12, align 8
-  br label %64
+67:                                               ; preds = %66, %44
+  %68 = load ptr, ptr %16, align 8
+  %69 = getelementptr i8, ptr %68, i64 1
+  store ptr %69, ptr %12, align 8
+  store i32 0, ptr %15, align 4
+  br label %70
 
-64:                                               ; preds = %61
-  %65 = load i32, ptr %13, align 4
-  %66 = add i32 %65, 1
-  store i32 %66, ptr %13, align 4
-  br label %17, !llvm.loop !11
+70:                                               ; preds = %67, %65
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #13
+  %71 = load i32, ptr %15, align 4
+  switch i32 %71, label %76 [
+    i32 0, label %72
+  ]
 
-67:                                               ; preds = %23
+72:                                               ; preds = %70
+  br label %73
+
+73:                                               ; preds = %72
+  %74 = load i32, ptr %13, align 4
+  %75 = add i32 %74, 1
+  store i32 %75, ptr %13, align 4
+  br label %18, !llvm.loop !15
+
+76:                                               ; preds = %70, %26
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #13
+  %77 = load i32, ptr %15, align 4
+  switch i32 %77, label %79 [
+    i32 2, label %78
+  ]
+
+78:                                               ; preds = %76
   store i1 true, ptr %6, align 1
-  br label %68
+  store i32 1, ptr %15, align 4
+  br label %79
 
-68:                                               ; preds = %67, %59
-  %69 = load i1, ptr %6, align 1
-  ret i1 %69
+79:                                               ; preds = %78, %76
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #13
+  %80 = load i1, ptr %6, align 1
+  ret i1 %80
 }
 
-declare ptr @wtap_block_create(i32 noundef) #3
+; Function Attrs: null_pointer_is_valid
+declare ptr @wtap_block_create(i32 noundef) #6
 
-declare i32 @wtap_block_add_uint32_option(ptr noundef, i32 noundef, i32 noundef) #3
+; Function Attrs: null_pointer_is_valid
+declare i32 @wtap_block_add_uint32_option(ptr noundef, i32 noundef, i32 noundef) #6
 
-declare void @ws_buffer_assure_space(ptr noundef, i64 noundef) #3
+; Function Attrs: null_pointer_is_valid
+declare void @ws_buffer_assure_space(ptr noundef, i64 noundef) #6
 
-declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) #3
+; Function Attrs: inlinehint nounwind null_pointer_is_valid sspstrong uwtable
+define internal ptr @ws_buffer_start_ptr(ptr noundef %0) #12 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct.Buffer, ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %2, align 8
+  %7 = getelementptr inbounds nuw %struct.Buffer, ptr %6, i32 0, i32 2
+  %8 = load i64, ptr %7, align 8
+  %9 = getelementptr i8, ptr %5, i64 %8
+  ret ptr %9
+}
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { allocsize(0,1) }
-attributes #8 = { nounwind willreturn memory(read) }
-attributes #9 = { nounwind }
+; Function Attrs: null_pointer_is_valid
+declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) #6
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #4 = { null_pointer_is_valid allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { alwaysinline nounwind "min-legal-vector-width"="0" }
+attributes #6 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind null_pointer_is_valid willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { inlinehint nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nounwind }
+attributes #14 = { allocsize(0) }
+attributes #15 = { allocsize(0,1) }
+attributes #16 = { nounwind willreturn memory(read) }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = !{i8 0, i8 2}
+!12 = !{}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}

@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [37 x i8] c"Unexpected end of filter expression.\00", align 1
 @.str.4 = private unnamed_addr constant [37 x i8] c"\22%s\22 was unexpected in this context.\00", align 1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
 define hidden void @DfilterInit(ptr noundef initializes((8, 12)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %2, align 8
@@ -36,9 +36,15 @@ define hidden void @DfilterInit(ptr noundef initializes((8, 12)) %0) local_unnam
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define hidden ptr @DfilterAlloc(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
-  %2 = tail call ptr %0(i64 noundef 1632) #5
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define hidden ptr @DfilterAlloc(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+  %2 = tail call ptr %0(i64 noundef 1632)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %9, label %3
 
@@ -59,8 +65,8 @@ define hidden ptr @DfilterAlloc(ptr noundef readonly captures(none) %0) local_un
   ret ptr %2
 }
 
-; Function Attrs: nounwind uwtable
-define hidden void @DfilterFinalize(ptr noundef captures(address) %0) local_unnamed_addr #1 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define hidden void @DfilterFinalize(ptr noundef captures(address) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %0, align 8
   %4 = icmp ugt ptr %3, %2
@@ -76,14 +82,14 @@ define hidden void @DfilterFinalize(ptr noundef captures(address) %0) local_unna
   tail call fastcc void @yy_destructor(i8 noundef zeroext %8, ptr noundef nonnull %9)
   %10 = load ptr, ptr %0, align 8
   %11 = icmp ugt ptr %10, %2
-  br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !4
+  br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define hidden void @DfilterFree(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define hidden void @DfilterFree(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %15, label %4
 
@@ -103,23 +109,24 @@ define hidden void @DfilterFree(ptr noundef %0, ptr noundef readonly captures(no
   tail call fastcc void @yy_destructor(i8 noundef zeroext %11, ptr noundef nonnull %12)
   %13 = load ptr, ptr %0, align 8
   %14 = icmp ugt ptr %13, %5
-  br i1 %14, label %.lr.ph.i, label %DfilterFinalize.exit, !llvm.loop !4
+  br i1 %14, label %.lr.ph.i, label %DfilterFinalize.exit, !llvm.loop !6
 
 DfilterFinalize.exit:                             ; preds = %.lr.ph.i, %4
-  tail call void %1(ptr noundef nonnull %0) #5
+  tail call void %1(ptr noundef nonnull %0)
   br label %15
 
 15:                                               ; preds = %2, %DfilterFinalize.exit
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define hidden void @Dfilter(ptr noundef captures(address) initializes((16, 24)) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define hidden void @Dfilter(ptr noundef captures(address) initializes((16, 24)) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca %union.YYMINORTYPE, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %3, ptr %10, align 8
   %11 = icmp eq i32 %1, 0
@@ -131,13 +138,13 @@ define hidden void @Dfilter(ptr noundef captures(address) initializes((16, 24)) 
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1624
   br label %17
 
-17:                                               ; preds = %yy_reduce.exit, %4
-  %.0 = phi i8 [ %13, %4 ], [ %575, %yy_reduce.exit ]
-  %18 = icmp ugt i8 %.0, 60
+17:                                               ; preds = %568, %4
+  %.037 = phi i8 [ %13, %4 ], [ %585, %568 ]
+  %18 = icmp ugt i8 %.037, 60
   br i1 %18, label %yy_find_shift_action.exit, label %19
 
 19:                                               ; preds = %17
-  %20 = zext nneg i8 %.0 to i64
+  %20 = zext nneg i8 %.037 to i64
   %21 = getelementptr [61 x i16], ptr @yy_shift_ofst, i64 0, i64 %20
   %22 = load i16, ptr %21, align 2
   %23 = zext i16 %22 to i64
@@ -158,1128 +165,1217 @@ define hidden void @Dfilter(ptr noundef captures(address) initializes((16, 24)) 
   br label %yy_find_shift_action.exit
 
 yy_find_shift_action.exit:                        ; preds = %17, %27, %30
-  %.0.i = phi i8 [ %29, %27 ], [ %32, %30 ], [ %.0, %17 ]
+  %.0.i = phi i8 [ %29, %27 ], [ %32, %30 ], [ %.037, %17 ]
   %33 = icmp ugt i8 %.0.i, -74
-  br i1 %33, label %34, label %578
+  br i1 %33, label %34, label %588
 
 34:                                               ; preds = %yy_find_shift_action.exit
   %35 = zext i8 %.0.i to i32
   %36 = add nsw i32 %35, -183
   %37 = icmp eq i32 %36, 1
-  br i1 %37, label %38, label %54
+  br i1 %37, label %38, label %63
 
 38:                                               ; preds = %34
   %39 = load ptr, ptr %0, align 8
   %40 = load ptr, ptr %16, align 8
   %.not = icmp ult ptr %39, %40
+  %41 = load ptr, ptr %10, align 8
   br i1 %.not, label %.thread, label %43
 
 .thread:                                          ; preds = %38
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  %41 = load ptr, ptr %10, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store ptr null, ptr %42, align 8
-  br label %yy_reduce.exit
+  br label %568
 
 43:                                               ; preds = %38
-  %44 = load ptr, ptr %10, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %46 = icmp ugt ptr %39, %45
-  br i1 %46, label %.lr.ph.i, label %yyStackOverflow.exit
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %45 = icmp ugt ptr %39, %44
+  br i1 %45, label %.lr.ph.i, label %.thread57
 
-.lr.ph.i:                                         ; preds = %43, %.lr.ph.i
-  %47 = phi ptr [ %52, %.lr.ph.i ], [ %39, %43 ]
-  %48 = getelementptr i8, ptr %47, i64 -16
-  store ptr %48, ptr %0, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %47, i64 1
-  %50 = load i8, ptr %49, align 1
-  %51 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  call fastcc void @yy_destructor(i8 noundef zeroext %50, ptr noundef nonnull %51)
-  %52 = load ptr, ptr %0, align 8
-  %53 = icmp ugt ptr %52, %45
-  br i1 %53, label %.lr.ph.i, label %yyStackOverflow.exit, !llvm.loop !6
-
-yyStackOverflow.exit:                             ; preds = %.lr.ph.i, %43
-  store ptr %44, ptr %10, align 8
-  br label %636
-
-54:                                               ; preds = %34
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  %55 = load ptr, ptr %10, align 8
-  %56 = load ptr, ptr %0, align 8
-  switch i8 %.0.i, label %yy_reduce.exit [
-    i8 -73, label %57
-    i8 -27, label %348
-    i8 -6, label %551
-    i8 -7, label %547
-    i8 -8, label %532
-    i8 -9, label %515
-    i8 -10, label %495
-    i8 -11, label %479
-    i8 -12, label %466
-    i8 -13, label %454
-    i8 -14, label %446
-    i8 -15, label %442
-    i8 -16, label %433
-    i8 -17, label %428
-    i8 -18, label %421
-    i8 -19, label %414
-    i8 -21, label %403
-    i8 -22, label %394
-    i8 -69, label %61
-    i8 -68, label %70
-    i8 -67, label %79
-    i8 -66, label %101
-    i8 -65, label %108
-    i8 -36, label %108
-    i8 -23, label %385
-    i8 -24, label %376
-    i8 -26, label %357
-    i8 -56, label %117
-    i8 -55, label %143
-    i8 -53, label %176
-    i8 -52, label %195
-    i8 -51, label %228
-    i8 -44, label %257
-    i8 -43, label %263
-    i8 -42, label %270
-    i8 -41, label %279
-    i8 -40, label %288
-    i8 -39, label %297
-    i8 -38, label %306
-    i8 -37, label %315
-    i8 -35, label %324
-    i8 -34, label %327
-    i8 -33, label %330
-    i8 -32, label %333
-    i8 -31, label %336
-    i8 -30, label %339
-    i8 -29, label %342
-    i8 -28, label %345
+.lr.ph.i:                                         ; preds = %43, %yy_destructor.exit
+  %46 = phi ptr [ %61, %yy_destructor.exit ], [ %39, %43 ]
+  %47 = getelementptr i8, ptr %46, i64 -16
+  store ptr %47, ptr %0, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 1
+  %49 = load i8, ptr %48, align 1
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  switch i8 %49, label %yy_destructor.exit [
+    i8 1, label %51
+    i8 2, label %51
+    i8 3, label %51
+    i8 4, label %51
+    i8 5, label %51
+    i8 6, label %51
+    i8 7, label %51
+    i8 8, label %51
+    i8 9, label %51
+    i8 10, label %51
+    i8 11, label %51
+    i8 12, label %51
+    i8 13, label %51
+    i8 14, label %51
+    i8 15, label %51
+    i8 16, label %51
+    i8 17, label %51
+    i8 18, label %51
+    i8 19, label %51
+    i8 20, label %51
+    i8 21, label %51
+    i8 22, label %51
+    i8 23, label %51
+    i8 24, label %51
+    i8 25, label %51
+    i8 26, label %51
+    i8 27, label %51
+    i8 28, label %51
+    i8 29, label %51
+    i8 30, label %51
+    i8 31, label %51
+    i8 32, label %51
+    i8 33, label %51
+    i8 34, label %51
+    i8 35, label %51
+    i8 36, label %51
+    i8 37, label %51
+    i8 38, label %51
+    i8 39, label %51
+    i8 40, label %51
+    i8 41, label %51
+    i8 42, label %51
+    i8 43, label %51
+    i8 44, label %51
+    i8 45, label %51
+    i8 50, label %53
+    i8 51, label %53
+    i8 52, label %53
+    i8 53, label %53
+    i8 54, label %53
+    i8 55, label %53
+    i8 56, label %53
+    i8 57, label %53
+    i8 58, label %53
+    i8 59, label %53
+    i8 60, label %53
+    i8 61, label %53
+    i8 62, label %53
+    i8 63, label %53
+    i8 64, label %53
+    i8 65, label %53
+    i8 46, label %55
+    i8 47, label %57
+    i8 48, label %59
+    i8 49, label %59
   ]
 
-57:                                               ; preds = %54
-  %58 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  store ptr %59, ptr %60, align 8
-  br label %yy_reduce.exit
+51:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
+  %52 = load ptr, ptr %50, align 8
+  call void @stnode_free(ptr noundef %52)
+  br label %yy_destructor.exit
 
-61:                                               ; preds = %54
-  %62 = getelementptr i8, ptr %56, i64 -8
-  %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr i8, ptr %56, i64 -24
-  %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %67 = load ptr, ptr %66, align 8
-  call void @sttype_oper_set2(ptr noundef %63, i32 noundef 2, ptr noundef %65, ptr noundef %67) #5
-  %68 = load ptr, ptr %64, align 8
-  %69 = load ptr, ptr %66, align 8
-  call void @stnode_merge_location(ptr noundef %63, ptr noundef %68, ptr noundef %69) #5
-  store ptr %63, ptr %64, align 8
-  br label %yy_reduce.exit
+53:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
+  %54 = load ptr, ptr %50, align 8
+  call void @stnode_free(ptr noundef %54)
+  br label %yy_destructor.exit
 
-70:                                               ; preds = %54
-  %71 = getelementptr i8, ptr %56, i64 -8
+55:                                               ; preds = %.lr.ph.i
+  %56 = load ptr, ptr %50, align 8
+  call void @drange_node_free_list(ptr noundef %56)
+  br label %yy_destructor.exit
+
+57:                                               ; preds = %.lr.ph.i
+  %58 = load ptr, ptr %50, align 8
+  call void @st_funcparams_free(ptr noundef %58)
+  br label %yy_destructor.exit
+
+59:                                               ; preds = %.lr.ph.i, %.lr.ph.i
+  %60 = load ptr, ptr %50, align 8
+  call void @set_nodelist_free(ptr noundef %60)
+  br label %yy_destructor.exit
+
+yy_destructor.exit:                               ; preds = %.lr.ph.i, %51, %53, %55, %57, %59
+  %61 = load ptr, ptr %0, align 8
+  %62 = icmp ugt ptr %61, %44
+  br i1 %62, label %.lr.ph.i, label %.thread57, !llvm.loop !8
+
+.thread57:                                        ; preds = %yy_destructor.exit, %43
+  store ptr %41, ptr %10, align 8
+  br label %646
+
+63:                                               ; preds = %34
+  %64 = load ptr, ptr %10, align 8
+  %65 = load ptr, ptr %0, align 8
+  switch i8 %.0.i, label %568 [
+    i8 -73, label %66
+    i8 -27, label %357
+    i8 -6, label %560
+    i8 -7, label %556
+    i8 -8, label %541
+    i8 -9, label %524
+    i8 -10, label %504
+    i8 -11, label %488
+    i8 -12, label %475
+    i8 -13, label %463
+    i8 -14, label %455
+    i8 -15, label %451
+    i8 -16, label %442
+    i8 -17, label %437
+    i8 -18, label %430
+    i8 -19, label %423
+    i8 -21, label %412
+    i8 -22, label %403
+    i8 -69, label %70
+    i8 -68, label %79
+    i8 -67, label %88
+    i8 -66, label %110
+    i8 -65, label %117
+    i8 -36, label %117
+    i8 -23, label %394
+    i8 -24, label %385
+    i8 -26, label %366
+    i8 -56, label %126
+    i8 -55, label %152
+    i8 -53, label %185
+    i8 -52, label %204
+    i8 -51, label %237
+    i8 -44, label %266
+    i8 -43, label %272
+    i8 -42, label %279
+    i8 -41, label %288
+    i8 -40, label %297
+    i8 -39, label %306
+    i8 -38, label %315
+    i8 -37, label %324
+    i8 -35, label %333
+    i8 -34, label %336
+    i8 -33, label %339
+    i8 -32, label %342
+    i8 -31, label %345
+    i8 -30, label %348
+    i8 -29, label %351
+    i8 -28, label %354
+  ]
+
+66:                                               ; preds = %63
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %68 = load ptr, ptr %67, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %64, i64 16
+  store ptr %68, ptr %69, align 8
+  br label %568
+
+70:                                               ; preds = %63
+  %71 = getelementptr i8, ptr %65, i64 -8
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr i8, ptr %56, i64 -24
+  %73 = getelementptr i8, ptr %65, i64 -24
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %76 = load ptr, ptr %75, align 8
-  call void @sttype_oper_set2(ptr noundef %72, i32 noundef 3, ptr noundef %74, ptr noundef %76) #5
+  call void @sttype_oper_set2(ptr noundef %72, i32 noundef 2, ptr noundef %74, ptr noundef %76)
   %77 = load ptr, ptr %73, align 8
   %78 = load ptr, ptr %75, align 8
-  call void @stnode_merge_location(ptr noundef %72, ptr noundef %77, ptr noundef %78) #5
+  call void @stnode_merge_location(ptr noundef %72, ptr noundef %77, ptr noundef %78)
   store ptr %72, ptr %73, align 8
-  br label %yy_reduce.exit
+  br label %568
 
-79:                                               ; preds = %54
-  %80 = load i64, ptr @loc_empty, align 8
-  %81 = load i64, ptr getelementptr inbounds nuw (i8, ptr @loc_empty, i64 8), align 8
-  %82 = call ptr @stnode_new(i32 noundef 1, ptr noundef null, ptr noundef null, i64 %80, i64 %81) #5
-  %83 = getelementptr i8, ptr %56, i64 -24
-  %84 = load ptr, ptr %83, align 8
-  %85 = call ptr @stnode_dup(ptr noundef %84) #5
-  %86 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %87 = load ptr, ptr %86, align 8
-  %88 = call ptr @stnode_dup(ptr noundef %87) #5
-  call void @sttype_oper_set2(ptr noundef %82, i32 noundef 3, ptr noundef %85, ptr noundef %88) #5
+79:                                               ; preds = %63
+  %80 = getelementptr i8, ptr %65, i64 -8
+  %81 = load ptr, ptr %80, align 8
+  %82 = getelementptr i8, ptr %65, i64 -24
+  %83 = load ptr, ptr %82, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %85 = load ptr, ptr %84, align 8
+  call void @sttype_oper_set2(ptr noundef %81, i32 noundef 3, ptr noundef %83, ptr noundef %85)
+  %86 = load ptr, ptr %82, align 8
+  %87 = load ptr, ptr %84, align 8
+  call void @stnode_merge_location(ptr noundef %81, ptr noundef %86, ptr noundef %87)
+  store ptr %81, ptr %82, align 8
+  br label %568
+
+88:                                               ; preds = %63
   %89 = load i64, ptr @loc_empty, align 8
   %90 = load i64, ptr getelementptr inbounds nuw (i8, ptr @loc_empty, i64 8), align 8
-  %91 = call ptr @stnode_new(i32 noundef 1, ptr noundef null, ptr noundef null, i64 %89, i64 %90) #5
-  %92 = load ptr, ptr %83, align 8
-  %93 = load ptr, ptr %86, align 8
-  call void @sttype_oper_set2(ptr noundef %91, i32 noundef 2, ptr noundef %92, ptr noundef %93) #5
-  %94 = load i64, ptr @loc_empty, align 8
-  %95 = load i64, ptr getelementptr inbounds nuw (i8, ptr @loc_empty, i64 8), align 8
-  %96 = call ptr @stnode_new(i32 noundef 1, ptr noundef null, ptr noundef null, i64 %94, i64 %95) #5
-  call void @sttype_oper_set1(ptr noundef %96, i32 noundef 1, ptr noundef %91) #5
-  %97 = getelementptr i8, ptr %56, i64 -8
-  %98 = load ptr, ptr %97, align 8
-  call void @sttype_oper_set2(ptr noundef %98, i32 noundef 2, ptr noundef %82, ptr noundef %96) #5
-  %99 = load ptr, ptr %83, align 8
-  %100 = load ptr, ptr %86, align 8
-  call void @stnode_merge_location(ptr noundef %98, ptr noundef %99, ptr noundef %100) #5
-  store ptr %98, ptr %83, align 8
-  br label %yy_reduce.exit
+  %91 = call ptr @stnode_new(i32 noundef 1, ptr noundef null, ptr noundef null, i64 %89, i64 %90)
+  %92 = getelementptr i8, ptr %65, i64 -24
+  %93 = load ptr, ptr %92, align 8
+  %94 = call ptr @stnode_dup(ptr noundef %93)
+  %95 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %96 = load ptr, ptr %95, align 8
+  %97 = call ptr @stnode_dup(ptr noundef %96)
+  call void @sttype_oper_set2(ptr noundef %91, i32 noundef 3, ptr noundef %94, ptr noundef %97)
+  %98 = load i64, ptr @loc_empty, align 8
+  %99 = load i64, ptr getelementptr inbounds nuw (i8, ptr @loc_empty, i64 8), align 8
+  %100 = call ptr @stnode_new(i32 noundef 1, ptr noundef null, ptr noundef null, i64 %98, i64 %99)
+  %101 = load ptr, ptr %92, align 8
+  %102 = load ptr, ptr %95, align 8
+  call void @sttype_oper_set2(ptr noundef %100, i32 noundef 2, ptr noundef %101, ptr noundef %102)
+  %103 = load i64, ptr @loc_empty, align 8
+  %104 = load i64, ptr getelementptr inbounds nuw (i8, ptr @loc_empty, i64 8), align 8
+  %105 = call ptr @stnode_new(i32 noundef 1, ptr noundef null, ptr noundef null, i64 %103, i64 %104)
+  call void @sttype_oper_set1(ptr noundef %105, i32 noundef 1, ptr noundef %100)
+  %106 = getelementptr i8, ptr %65, i64 -8
+  %107 = load ptr, ptr %106, align 8
+  call void @sttype_oper_set2(ptr noundef %107, i32 noundef 2, ptr noundef %91, ptr noundef %105)
+  %108 = load ptr, ptr %92, align 8
+  %109 = load ptr, ptr %95, align 8
+  call void @stnode_merge_location(ptr noundef %107, ptr noundef %108, ptr noundef %109)
+  store ptr %107, ptr %92, align 8
+  br label %568
 
-101:                                              ; preds = %54
-  %102 = getelementptr i8, ptr %56, i64 -8
-  %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %105 = load ptr, ptr %104, align 8
-  call void @sttype_oper_set1(ptr noundef %103, i32 noundef 1, ptr noundef %105) #5
-  %106 = load ptr, ptr %102, align 8
-  %107 = load ptr, ptr %104, align 8
-  call void @stnode_merge_location(ptr noundef %103, ptr noundef %106, ptr noundef %107) #5
-  store ptr %103, ptr %102, align 8
-  br label %yy_reduce.exit
-
-108:                                              ; preds = %54, %54
-  %109 = getelementptr i8, ptr %56, i64 -8
-  %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr i8, ptr %56, i64 -24
+110:                                              ; preds = %63
+  %111 = getelementptr i8, ptr %65, i64 -8
   %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %114 = load ptr, ptr %113, align 8
-  call void @stnode_merge_location(ptr noundef %110, ptr noundef %112, ptr noundef %114) #5
+  call void @sttype_oper_set1(ptr noundef %112, i32 noundef 1, ptr noundef %114)
   %115 = load ptr, ptr %111, align 8
-  call void @stnode_free(ptr noundef %115) #5
   %116 = load ptr, ptr %113, align 8
-  call void @stnode_free(ptr noundef %116) #5
-  store ptr %110, ptr %111, align 8
-  br label %yy_reduce.exit
+  call void @stnode_merge_location(ptr noundef %112, ptr noundef %115, ptr noundef %116)
+  store ptr %112, ptr %111, align 8
+  br label %568
 
-117:                                              ; preds = %54
-  %118 = getelementptr i8, ptr %56, i64 -56
+117:                                              ; preds = %63, %63
+  %118 = getelementptr i8, ptr %65, i64 -8
   %119 = load ptr, ptr %118, align 8
-  %120 = call i32 @stnode_type_id(ptr noundef %119) #5
-  %.not.i52 = icmp eq i32 %120, 2
-  br i1 %.not.i52, label %121, label %resolve_unparsed.exit53
+  %120 = getelementptr i8, ptr %65, i64 -24
+  %121 = load ptr, ptr %120, align 8
+  %122 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %123 = load ptr, ptr %122, align 8
+  call void @stnode_merge_location(ptr noundef %119, ptr noundef %121, ptr noundef %123)
+  %124 = load ptr, ptr %120, align 8
+  call void @stnode_free(ptr noundef %124)
+  %125 = load ptr, ptr %122, align 8
+  call void @stnode_free(ptr noundef %125)
+  store ptr %119, ptr %120, align 8
+  br label %568
 
-121:                                              ; preds = %117
-  %122 = call ptr @stnode_token(ptr noundef %119) #5
-  %123 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %124 = load ptr, ptr %123, align 8
-  %125 = call ptr @dfilter_resolve_unparsed(ptr noundef %122, ptr noundef %124) #5
-  %126 = icmp eq ptr %125, null
-  br i1 %126, label %127, label %131
+126:                                              ; preds = %63
+  %127 = getelementptr i8, ptr %65, i64 -56
+  %128 = load ptr, ptr %127, align 8
+  %129 = call i32 @stnode_type_id(ptr noundef %128)
+  %.not.i55 = icmp eq i32 %129, 2
+  br i1 %.not.i55, label %130, label %resolve_unparsed.exit56
 
-127:                                              ; preds = %121
-  %128 = call { i64, i64 } @stnode_location(ptr noundef %119) #5
-  %129 = extractvalue { i64, i64 } %128, 0
-  %130 = extractvalue { i64, i64 } %128, 1
-  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef nonnull %55, i32 noundef -1, i64 %129, i64 %130, ptr noundef nonnull @.str.1, ptr noundef %122) #5
-  br label %131
-
-131:                                              ; preds = %127, %121
-  call void @stnode_replace(ptr noundef %119, i32 noundef 8, ptr noundef %125) #5
-  br label %resolve_unparsed.exit53
-
-resolve_unparsed.exit53:                          ; preds = %117, %131
-  %132 = getelementptr i8, ptr %56, i64 -8
+130:                                              ; preds = %126
+  %131 = call ptr @stnode_token(ptr noundef %128)
+  %132 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %133 = load ptr, ptr %132, align 8
-  call void @sttype_field_set_range(ptr noundef %119, ptr noundef %133) #5
-  %134 = load ptr, ptr %132, align 8
-  call void @g_slist_free(ptr noundef %134) #5
-  %135 = load ptr, ptr %118, align 8
-  %136 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %137 = load ptr, ptr %136, align 8
-  call void @stnode_merge_location(ptr noundef %119, ptr noundef %135, ptr noundef %137) #5
-  %138 = load ptr, ptr %136, align 8
-  call void @stnode_free(ptr noundef %138) #5
-  %139 = getelementptr i8, ptr %56, i64 -40
-  %140 = load ptr, ptr %139, align 8
-  call void @stnode_free(ptr noundef %140) #5
-  %141 = getelementptr i8, ptr %56, i64 -24
+  %134 = call ptr @dfilter_resolve_unparsed(ptr noundef %131, ptr noundef %133)
+  %135 = icmp eq ptr %134, null
+  br i1 %135, label %136, label %140
+
+136:                                              ; preds = %130
+  %137 = call { i64, i64 } @stnode_location(ptr noundef %128)
+  %138 = extractvalue { i64, i64 } %137, 0
+  %139 = extractvalue { i64, i64 } %137, 1
+  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %64, i32 noundef -1, i64 %138, i64 %139, ptr noundef nonnull @.str.1, ptr noundef %131)
+  br label %140
+
+140:                                              ; preds = %136, %130
+  call void @stnode_replace(ptr noundef %128, i32 noundef 8, ptr noundef %134)
+  br label %resolve_unparsed.exit56
+
+resolve_unparsed.exit56:                          ; preds = %126, %140
+  %141 = getelementptr i8, ptr %65, i64 -8
   %142 = load ptr, ptr %141, align 8
-  call void @stnode_free(ptr noundef %142) #5
-  store ptr %119, ptr %118, align 8
-  br label %yy_reduce.exit
+  call void @sttype_field_set_range(ptr noundef %128, ptr noundef %142)
+  %143 = load ptr, ptr %141, align 8
+  call void @g_slist_free(ptr noundef %143)
+  %144 = load ptr, ptr %127, align 8
+  %145 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %146 = load ptr, ptr %145, align 8
+  call void @stnode_merge_location(ptr noundef %128, ptr noundef %144, ptr noundef %146)
+  %147 = load ptr, ptr %145, align 8
+  call void @stnode_free(ptr noundef %147)
+  %148 = getelementptr i8, ptr %65, i64 -40
+  %149 = load ptr, ptr %148, align 8
+  call void @stnode_free(ptr noundef %149)
+  %150 = getelementptr i8, ptr %65, i64 -24
+  %151 = load ptr, ptr %150, align 8
+  call void @stnode_free(ptr noundef %151)
+  store ptr %128, ptr %127, align 8
+  br label %568
 
-143:                                              ; preds = %54
-  %144 = getelementptr i8, ptr %56, i64 -24
-  %145 = load ptr, ptr %144, align 8
-  %146 = call i32 @stnode_type_id(ptr noundef %145) #5
-  %.not.i50 = icmp eq i32 %146, 2
-  br i1 %.not.i50, label %147, label %resolve_unparsed.exit51
+152:                                              ; preds = %63
+  %153 = getelementptr i8, ptr %65, i64 -24
+  %154 = load ptr, ptr %153, align 8
+  %155 = call i32 @stnode_type_id(ptr noundef %154)
+  %.not.i53 = icmp eq i32 %155, 2
+  br i1 %.not.i53, label %156, label %resolve_unparsed.exit54
 
-147:                                              ; preds = %143
-  %148 = call ptr @stnode_token(ptr noundef %145) #5
-  %149 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %150 = load ptr, ptr %149, align 8
-  %151 = call ptr @dfilter_resolve_unparsed(ptr noundef %148, ptr noundef %150) #5
-  %152 = icmp eq ptr %151, null
-  br i1 %152, label %153, label %157
-
-153:                                              ; preds = %147
-  %154 = call { i64, i64 } @stnode_location(ptr noundef %145) #5
-  %155 = extractvalue { i64, i64 } %154, 0
-  %156 = extractvalue { i64, i64 } %154, 1
-  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef nonnull %55, i32 noundef -1, i64 %155, i64 %156, ptr noundef nonnull @.str.1, ptr noundef %148) #5
-  br label %157
-
-157:                                              ; preds = %153, %147
-  call void @stnode_replace(ptr noundef %145, i32 noundef 8, ptr noundef %151) #5
-  br label %resolve_unparsed.exit51
-
-resolve_unparsed.exit51:                          ; preds = %143, %157
-  store ptr null, ptr %5, align 8
-  %158 = getelementptr inbounds nuw i8, ptr %56, i64 8
+156:                                              ; preds = %152
+  %157 = call ptr @stnode_token(ptr noundef %154)
+  %158 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %159 = load ptr, ptr %158, align 8
-  %160 = call ptr @stnode_token(ptr noundef %159) #5
-  %161 = call ptr @drange_node_from_str(ptr noundef %160, ptr noundef nonnull %5) #5
-  %162 = load ptr, ptr %5, align 8
-  %.not409.i = icmp eq ptr %162, null
-  br i1 %.not409.i, label %170, label %163
+  %160 = call ptr @dfilter_resolve_unparsed(ptr noundef %157, ptr noundef %159)
+  %161 = icmp eq ptr %160, null
+  br i1 %161, label %162, label %166
 
-163:                                              ; preds = %resolve_unparsed.exit51
-  %164 = load ptr, ptr %158, align 8
-  %165 = call { i64, i64 } @stnode_location(ptr noundef %164) #5
-  %166 = extractvalue { i64, i64 } %165, 0
-  %167 = extractvalue { i64, i64 } %165, 1
-  %168 = load ptr, ptr %5, align 8
-  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %55, i32 noundef -1, i64 %166, i64 %167, ptr noundef nonnull @.str, ptr noundef %168) #5
-  %169 = load ptr, ptr %5, align 8
-  call void @g_free(ptr noundef %169) #5
-  br label %170
+162:                                              ; preds = %156
+  %163 = call { i64, i64 } @stnode_location(ptr noundef %154)
+  %164 = extractvalue { i64, i64 } %163, 0
+  %165 = extractvalue { i64, i64 } %163, 1
+  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %64, i32 noundef -1, i64 %164, i64 %165, ptr noundef nonnull @.str.1, ptr noundef %157)
+  br label %166
 
-170:                                              ; preds = %163, %resolve_unparsed.exit51
-  call void @sttype_field_set_range1(ptr noundef %145, ptr noundef %161) #5
-  %171 = load ptr, ptr %144, align 8
-  %172 = load ptr, ptr %158, align 8
-  call void @stnode_merge_location(ptr noundef %145, ptr noundef %171, ptr noundef %172) #5
-  %173 = load ptr, ptr %158, align 8
-  call void @stnode_free(ptr noundef %173) #5
-  %174 = getelementptr i8, ptr %56, i64 -8
-  %175 = load ptr, ptr %174, align 8
-  call void @stnode_free(ptr noundef %175) #5
-  store ptr %145, ptr %144, align 8
-  br label %yy_reduce.exit
+166:                                              ; preds = %162, %156
+  call void @stnode_replace(ptr noundef %154, i32 noundef 8, ptr noundef %160)
+  br label %resolve_unparsed.exit54
 
-176:                                              ; preds = %54
-  %177 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %178 = load ptr, ptr %177, align 8
-  %179 = call i32 @stnode_type_id(ptr noundef %178) #5
-  %.not.i48 = icmp eq i32 %179, 2
-  br i1 %.not.i48, label %180, label %resolve_unparsed.exit49
+resolve_unparsed.exit54:                          ; preds = %152, %166
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  store ptr null, ptr %5, align 8
+  %167 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %168 = load ptr, ptr %167, align 8
+  %169 = call ptr @stnode_token(ptr noundef %168)
+  %170 = call ptr @drange_node_from_str(ptr noundef %169, ptr noundef nonnull %5)
+  %171 = load ptr, ptr %5, align 8
+  %.not409.i = icmp eq ptr %171, null
+  br i1 %.not409.i, label %179, label %172
 
-180:                                              ; preds = %176
-  %181 = call ptr @stnode_token(ptr noundef %178) #5
-  %182 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %183 = load ptr, ptr %182, align 8
-  %184 = call ptr @dfilter_resolve_unparsed(ptr noundef %181, ptr noundef %183) #5
-  %185 = icmp eq ptr %184, null
-  br i1 %185, label %186, label %190
+172:                                              ; preds = %resolve_unparsed.exit54
+  %173 = load ptr, ptr %167, align 8
+  %174 = call { i64, i64 } @stnode_location(ptr noundef %173)
+  %175 = extractvalue { i64, i64 } %174, 0
+  %176 = extractvalue { i64, i64 } %174, 1
+  %177 = load ptr, ptr %5, align 8
+  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %64, i32 noundef -1, i64 %175, i64 %176, ptr noundef nonnull @.str, ptr noundef %177)
+  %178 = load ptr, ptr %5, align 8
+  call void @g_free(ptr noundef %178)
+  br label %179
 
-186:                                              ; preds = %180
-  %187 = call { i64, i64 } @stnode_location(ptr noundef %178) #5
-  %188 = extractvalue { i64, i64 } %187, 0
-  %189 = extractvalue { i64, i64 } %187, 1
-  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef nonnull %55, i32 noundef -1, i64 %188, i64 %189, ptr noundef nonnull @.str.1, ptr noundef %181) #5
-  br label %190
+179:                                              ; preds = %172, %resolve_unparsed.exit54
+  call void @sttype_field_set_range1(ptr noundef %154, ptr noundef %170)
+  %180 = load ptr, ptr %153, align 8
+  %181 = load ptr, ptr %167, align 8
+  call void @stnode_merge_location(ptr noundef %154, ptr noundef %180, ptr noundef %181)
+  %182 = load ptr, ptr %167, align 8
+  call void @stnode_free(ptr noundef %182)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  %183 = getelementptr i8, ptr %65, i64 -8
+  %184 = load ptr, ptr %183, align 8
+  call void @stnode_free(ptr noundef %184)
+  store ptr %154, ptr %153, align 8
+  br label %568
 
-190:                                              ; preds = %186, %180
-  call void @stnode_replace(ptr noundef %178, i32 noundef 8, ptr noundef %184) #5
-  br label %resolve_unparsed.exit49
+185:                                              ; preds = %63
+  %186 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %187 = load ptr, ptr %186, align 8
+  %188 = call i32 @stnode_type_id(ptr noundef %187)
+  %.not.i51 = icmp eq i32 %188, 2
+  br i1 %.not.i51, label %189, label %resolve_unparsed.exit52
 
-resolve_unparsed.exit49:                          ; preds = %176, %190
-  call void @sttype_field_set_raw(ptr noundef %178, i1 noundef zeroext true) #5
-  %191 = getelementptr i8, ptr %56, i64 -8
+189:                                              ; preds = %185
+  %190 = call ptr @stnode_token(ptr noundef %187)
+  %191 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %192 = load ptr, ptr %191, align 8
-  %193 = load ptr, ptr %177, align 8
-  call void @stnode_merge_location(ptr noundef %178, ptr noundef %192, ptr noundef %193) #5
-  %194 = load ptr, ptr %191, align 8
-  call void @stnode_free(ptr noundef %194) #5
-  store ptr %178, ptr %191, align 8
-  br label %yy_reduce.exit
+  %193 = call ptr @dfilter_resolve_unparsed(ptr noundef %190, ptr noundef %192)
+  %194 = icmp eq ptr %193, null
+  br i1 %194, label %195, label %199
 
-195:                                              ; preds = %54
-  %196 = getelementptr i8, ptr %56, i64 -8
-  %197 = load ptr, ptr %196, align 8
-  %198 = call i32 @stnode_type_id(ptr noundef %197) #5
-  %.not.i46 = icmp eq i32 %198, 2
-  br i1 %.not.i46, label %199, label %resolve_unparsed.exit47
+195:                                              ; preds = %189
+  %196 = call { i64, i64 } @stnode_location(ptr noundef %187)
+  %197 = extractvalue { i64, i64 } %196, 0
+  %198 = extractvalue { i64, i64 } %196, 1
+  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %64, i32 noundef -1, i64 %197, i64 %198, ptr noundef nonnull @.str.1, ptr noundef %190)
+  br label %199
 
-199:                                              ; preds = %195
-  %200 = call ptr @stnode_token(ptr noundef %197) #5
-  %201 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %202 = load ptr, ptr %201, align 8
-  %203 = call ptr @dfilter_resolve_unparsed(ptr noundef %200, ptr noundef %202) #5
-  %204 = icmp eq ptr %203, null
-  br i1 %204, label %205, label %209
+199:                                              ; preds = %195, %189
+  call void @stnode_replace(ptr noundef %187, i32 noundef 8, ptr noundef %193)
+  br label %resolve_unparsed.exit52
 
-205:                                              ; preds = %199
-  %206 = call { i64, i64 } @stnode_location(ptr noundef %197) #5
-  %207 = extractvalue { i64, i64 } %206, 0
-  %208 = extractvalue { i64, i64 } %206, 1
-  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef nonnull %55, i32 noundef -1, i64 %207, i64 %208, ptr noundef nonnull @.str.1, ptr noundef %200) #5
-  br label %209
+resolve_unparsed.exit52:                          ; preds = %185, %199
+  call void @sttype_field_set_raw(ptr noundef %187, i1 noundef zeroext true)
+  %200 = getelementptr i8, ptr %65, i64 -8
+  %201 = load ptr, ptr %200, align 8
+  %202 = load ptr, ptr %186, align 8
+  call void @stnode_merge_location(ptr noundef %187, ptr noundef %201, ptr noundef %202)
+  %203 = load ptr, ptr %200, align 8
+  call void @stnode_free(ptr noundef %203)
+  store ptr %187, ptr %200, align 8
+  br label %568
 
-209:                                              ; preds = %205, %199
-  call void @stnode_replace(ptr noundef %197, i32 noundef 8, ptr noundef %203) #5
-  br label %resolve_unparsed.exit47
+204:                                              ; preds = %63
+  %205 = getelementptr i8, ptr %65, i64 -8
+  %206 = load ptr, ptr %205, align 8
+  %207 = call i32 @stnode_type_id(ptr noundef %206)
+  %.not.i49 = icmp eq i32 %207, 2
+  br i1 %.not.i49, label %208, label %resolve_unparsed.exit50
 
-resolve_unparsed.exit47:                          ; preds = %195, %209
-  store ptr %197, ptr %196, align 8
-  %210 = call ptr @sttype_field_hfinfo(ptr noundef %197) #5
-  %211 = call ptr @stnode_token(ptr noundef %197) #5
-  %212 = call noalias ptr @g_strdup(ptr noundef %211) #5
-  %213 = call { i64, i64 } @stnode_location(ptr noundef %197) #5
-  %214 = extractvalue { i64, i64 } %213, 0
-  %215 = extractvalue { i64, i64 } %213, 1
-  %216 = call ptr @stnode_new(i32 noundef 4, ptr noundef %210, ptr noundef %212, i64 %214, i64 %215) #5
-  %217 = call ptr @sttype_field_drange_steal(ptr noundef %197) #5
-  call void @sttype_field_set_drange(ptr noundef %216, ptr noundef %217) #5
-  %218 = call zeroext i1 @sttype_field_raw(ptr noundef %197) #5
-  call void @sttype_field_set_raw(ptr noundef %216, i1 noundef zeroext %218) #5
-  %219 = getelementptr i8, ptr %56, i64 -40
-  %220 = load ptr, ptr %219, align 8
-  %221 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %222 = load ptr, ptr %221, align 8
-  call void @stnode_merge_location(ptr noundef %216, ptr noundef %220, ptr noundef %222) #5
-  %223 = load ptr, ptr %196, align 8
-  call void @stnode_free(ptr noundef %223) #5
-  %224 = load ptr, ptr %219, align 8
-  call void @stnode_free(ptr noundef %224) #5
-  %225 = load ptr, ptr %221, align 8
-  call void @stnode_free(ptr noundef %225) #5
-  %226 = getelementptr i8, ptr %56, i64 -24
-  %227 = load ptr, ptr %226, align 8
-  call void @stnode_free(ptr noundef %227) #5
-  store ptr %216, ptr %219, align 8
-  br label %yy_reduce.exit
+208:                                              ; preds = %204
+  %209 = call ptr @stnode_token(ptr noundef %206)
+  %210 = getelementptr inbounds nuw i8, ptr %64, i64 24
+  %211 = load ptr, ptr %210, align 8
+  %212 = call ptr @dfilter_resolve_unparsed(ptr noundef %209, ptr noundef %211)
+  %213 = icmp eq ptr %212, null
+  br i1 %213, label %214, label %218
 
-228:                                              ; preds = %54
-  %229 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %230 = load ptr, ptr %229, align 8
-  %231 = call i32 @stnode_type_id(ptr noundef %230) #5
-  %.not.i45 = icmp eq i32 %231, 2
-  br i1 %.not.i45, label %232, label %resolve_unparsed.exit
+214:                                              ; preds = %208
+  %215 = call { i64, i64 } @stnode_location(ptr noundef %206)
+  %216 = extractvalue { i64, i64 } %215, 0
+  %217 = extractvalue { i64, i64 } %215, 1
+  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %64, i32 noundef -1, i64 %216, i64 %217, ptr noundef nonnull @.str.1, ptr noundef %209)
+  br label %218
 
-232:                                              ; preds = %228
-  %233 = call ptr @stnode_token(ptr noundef %230) #5
-  %234 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %235 = load ptr, ptr %234, align 8
-  %236 = call ptr @dfilter_resolve_unparsed(ptr noundef %233, ptr noundef %235) #5
-  %237 = icmp eq ptr %236, null
-  br i1 %237, label %238, label %242
+218:                                              ; preds = %214, %208
+  call void @stnode_replace(ptr noundef %206, i32 noundef 8, ptr noundef %212)
+  br label %resolve_unparsed.exit50
 
-238:                                              ; preds = %232
-  %239 = call { i64, i64 } @stnode_location(ptr noundef %230) #5
-  %240 = extractvalue { i64, i64 } %239, 0
-  %241 = extractvalue { i64, i64 } %239, 1
-  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef nonnull %55, i32 noundef -1, i64 %240, i64 %241, ptr noundef nonnull @.str.1, ptr noundef %233) #5
-  br label %242
+resolve_unparsed.exit50:                          ; preds = %204, %218
+  store ptr %206, ptr %205, align 8
+  %219 = call ptr @sttype_field_hfinfo(ptr noundef %206)
+  %220 = call ptr @stnode_token(ptr noundef %206)
+  %221 = call noalias ptr @g_strdup(ptr noundef %220)
+  %222 = call { i64, i64 } @stnode_location(ptr noundef %206)
+  %223 = extractvalue { i64, i64 } %222, 0
+  %224 = extractvalue { i64, i64 } %222, 1
+  %225 = call ptr @stnode_new(i32 noundef 4, ptr noundef %219, ptr noundef %221, i64 %223, i64 %224)
+  %226 = call ptr @sttype_field_drange_steal(ptr noundef %206)
+  call void @sttype_field_set_drange(ptr noundef %225, ptr noundef %226)
+  %227 = call zeroext i1 @sttype_field_raw(ptr noundef %206)
+  call void @sttype_field_set_raw(ptr noundef %225, i1 noundef zeroext %227)
+  %228 = getelementptr i8, ptr %65, i64 -40
+  %229 = load ptr, ptr %228, align 8
+  %230 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %231 = load ptr, ptr %230, align 8
+  call void @stnode_merge_location(ptr noundef %225, ptr noundef %229, ptr noundef %231)
+  %232 = load ptr, ptr %205, align 8
+  call void @stnode_free(ptr noundef %232)
+  %233 = load ptr, ptr %228, align 8
+  call void @stnode_free(ptr noundef %233)
+  %234 = load ptr, ptr %230, align 8
+  call void @stnode_free(ptr noundef %234)
+  %235 = getelementptr i8, ptr %65, i64 -24
+  %236 = load ptr, ptr %235, align 8
+  call void @stnode_free(ptr noundef %236)
+  store ptr %225, ptr %228, align 8
+  br label %568
 
-242:                                              ; preds = %238, %232
-  call void @stnode_replace(ptr noundef %230, i32 noundef 8, ptr noundef %236) #5
+237:                                              ; preds = %63
+  %238 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %239 = load ptr, ptr %238, align 8
+  %240 = call i32 @stnode_type_id(ptr noundef %239)
+  %.not.i48 = icmp eq i32 %240, 2
+  br i1 %.not.i48, label %241, label %resolve_unparsed.exit
+
+241:                                              ; preds = %237
+  %242 = call ptr @stnode_token(ptr noundef %239)
+  %243 = getelementptr inbounds nuw i8, ptr %64, i64 24
+  %244 = load ptr, ptr %243, align 8
+  %245 = call ptr @dfilter_resolve_unparsed(ptr noundef %242, ptr noundef %244)
+  %246 = icmp eq ptr %245, null
+  br i1 %246, label %247, label %251
+
+247:                                              ; preds = %241
+  %248 = call { i64, i64 } @stnode_location(ptr noundef %239)
+  %249 = extractvalue { i64, i64 } %248, 0
+  %250 = extractvalue { i64, i64 } %248, 1
+  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %64, i32 noundef -1, i64 %249, i64 %250, ptr noundef nonnull @.str.1, ptr noundef %242)
+  br label %251
+
+251:                                              ; preds = %247, %241
+  call void @stnode_replace(ptr noundef %239, i32 noundef 8, ptr noundef %245)
   br label %resolve_unparsed.exit
 
-resolve_unparsed.exit:                            ; preds = %228, %242
-  store ptr %230, ptr %229, align 8
-  %243 = call ptr @sttype_field_hfinfo(ptr noundef %230) #5
-  %244 = call ptr @stnode_token(ptr noundef %230) #5
-  %245 = call noalias ptr @g_strdup(ptr noundef %244) #5
-  %246 = call { i64, i64 } @stnode_location(ptr noundef %230) #5
-  %247 = extractvalue { i64, i64 } %246, 0
-  %248 = extractvalue { i64, i64 } %246, 1
-  %249 = call ptr @stnode_new(i32 noundef 4, ptr noundef %243, ptr noundef %245, i64 %247, i64 %248) #5
-  %250 = call ptr @sttype_field_drange_steal(ptr noundef %230) #5
-  call void @sttype_field_set_drange(ptr noundef %249, ptr noundef %250) #5
-  %251 = call zeroext i1 @sttype_field_raw(ptr noundef %230) #5
-  call void @sttype_field_set_raw(ptr noundef %249, i1 noundef zeroext %251) #5
-  %252 = getelementptr i8, ptr %56, i64 -8
-  %253 = load ptr, ptr %252, align 8
-  %254 = load ptr, ptr %229, align 8
-  call void @stnode_merge_location(ptr noundef %249, ptr noundef %253, ptr noundef %254) #5
-  %255 = load ptr, ptr %229, align 8
-  call void @stnode_free(ptr noundef %255) #5
-  %256 = load ptr, ptr %252, align 8
-  call void @stnode_free(ptr noundef %256) #5
-  store ptr %249, ptr %252, align 8
-  br label %yy_reduce.exit
+resolve_unparsed.exit:                            ; preds = %237, %251
+  store ptr %239, ptr %238, align 8
+  %252 = call ptr @sttype_field_hfinfo(ptr noundef %239)
+  %253 = call ptr @stnode_token(ptr noundef %239)
+  %254 = call noalias ptr @g_strdup(ptr noundef %253)
+  %255 = call { i64, i64 } @stnode_location(ptr noundef %239)
+  %256 = extractvalue { i64, i64 } %255, 0
+  %257 = extractvalue { i64, i64 } %255, 1
+  %258 = call ptr @stnode_new(i32 noundef 4, ptr noundef %252, ptr noundef %254, i64 %256, i64 %257)
+  %259 = call ptr @sttype_field_drange_steal(ptr noundef %239)
+  call void @sttype_field_set_drange(ptr noundef %258, ptr noundef %259)
+  %260 = call zeroext i1 @sttype_field_raw(ptr noundef %239)
+  call void @sttype_field_set_raw(ptr noundef %258, i1 noundef zeroext %260)
+  %261 = getelementptr i8, ptr %65, i64 -8
+  %262 = load ptr, ptr %261, align 8
+  %263 = load ptr, ptr %238, align 8
+  call void @stnode_merge_location(ptr noundef %258, ptr noundef %262, ptr noundef %263)
+  %264 = load ptr, ptr %238, align 8
+  call void @stnode_free(ptr noundef %264)
+  %265 = load ptr, ptr %261, align 8
+  call void @stnode_free(ptr noundef %265)
+  store ptr %258, ptr %261, align 8
+  br label %568
 
-257:                                              ; preds = %54
-  %258 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %259 = load ptr, ptr %258, align 8
-  %260 = getelementptr i8, ptr %56, i64 -8
-  %261 = load ptr, ptr %260, align 8
-  call void @stnode_merge_location(ptr noundef %259, ptr noundef %261, ptr noundef %259) #5
-  %262 = load ptr, ptr %260, align 8
-  call void @stnode_free(ptr noundef %262) #5
-  store ptr %259, ptr %260, align 8
-  br label %yy_reduce.exit
+266:                                              ; preds = %63
+  %267 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %268 = load ptr, ptr %267, align 8
+  %269 = getelementptr i8, ptr %65, i64 -8
+  %270 = load ptr, ptr %269, align 8
+  call void @stnode_merge_location(ptr noundef %268, ptr noundef %270, ptr noundef %268)
+  %271 = load ptr, ptr %269, align 8
+  call void @stnode_free(ptr noundef %271)
+  store ptr %268, ptr %269, align 8
+  br label %568
 
-263:                                              ; preds = %54
-  %264 = getelementptr i8, ptr %56, i64 -8
-  %265 = load ptr, ptr %264, align 8
-  %266 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %267 = load ptr, ptr %266, align 8
-  call void @sttype_oper_set1(ptr noundef %265, i32 noundef 17, ptr noundef %267) #5
-  %268 = load ptr, ptr %264, align 8
-  %269 = load ptr, ptr %266, align 8
-  call void @stnode_merge_location(ptr noundef %265, ptr noundef %268, ptr noundef %269) #5
-  store ptr %265, ptr %264, align 8
-  br label %yy_reduce.exit
-
-270:                                              ; preds = %54
-  %271 = getelementptr i8, ptr %56, i64 -8
-  %272 = load ptr, ptr %271, align 8
-  %273 = getelementptr i8, ptr %56, i64 -24
+272:                                              ; preds = %63
+  %273 = getelementptr i8, ptr %65, i64 -8
   %274 = load ptr, ptr %273, align 8
-  %275 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %275 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %276 = load ptr, ptr %275, align 8
-  call void @sttype_oper_set2(ptr noundef %272, i32 noundef 16, ptr noundef %274, ptr noundef %276) #5
+  call void @sttype_oper_set1(ptr noundef %274, i32 noundef 17, ptr noundef %276)
   %277 = load ptr, ptr %273, align 8
   %278 = load ptr, ptr %275, align 8
-  call void @stnode_merge_location(ptr noundef %272, ptr noundef %277, ptr noundef %278) #5
-  store ptr %272, ptr %273, align 8
-  br label %yy_reduce.exit
+  call void @stnode_merge_location(ptr noundef %274, ptr noundef %277, ptr noundef %278)
+  store ptr %274, ptr %273, align 8
+  br label %568
 
-279:                                              ; preds = %54
-  %280 = getelementptr i8, ptr %56, i64 -8
+279:                                              ; preds = %63
+  %280 = getelementptr i8, ptr %65, i64 -8
   %281 = load ptr, ptr %280, align 8
-  %282 = getelementptr i8, ptr %56, i64 -24
+  %282 = getelementptr i8, ptr %65, i64 -24
   %283 = load ptr, ptr %282, align 8
-  %284 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %284 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %285 = load ptr, ptr %284, align 8
-  call void @sttype_oper_set2(ptr noundef %281, i32 noundef 18, ptr noundef %283, ptr noundef %285) #5
+  call void @sttype_oper_set2(ptr noundef %281, i32 noundef 16, ptr noundef %283, ptr noundef %285)
   %286 = load ptr, ptr %282, align 8
   %287 = load ptr, ptr %284, align 8
-  call void @stnode_merge_location(ptr noundef %281, ptr noundef %286, ptr noundef %287) #5
+  call void @stnode_merge_location(ptr noundef %281, ptr noundef %286, ptr noundef %287)
   store ptr %281, ptr %282, align 8
-  br label %yy_reduce.exit
+  br label %568
 
-288:                                              ; preds = %54
-  %289 = getelementptr i8, ptr %56, i64 -8
+288:                                              ; preds = %63
+  %289 = getelementptr i8, ptr %65, i64 -8
   %290 = load ptr, ptr %289, align 8
-  %291 = getelementptr i8, ptr %56, i64 -24
+  %291 = getelementptr i8, ptr %65, i64 -24
   %292 = load ptr, ptr %291, align 8
-  %293 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %293 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %294 = load ptr, ptr %293, align 8
-  call void @sttype_oper_set2(ptr noundef %290, i32 noundef 19, ptr noundef %292, ptr noundef %294) #5
+  call void @sttype_oper_set2(ptr noundef %290, i32 noundef 18, ptr noundef %292, ptr noundef %294)
   %295 = load ptr, ptr %291, align 8
   %296 = load ptr, ptr %293, align 8
-  call void @stnode_merge_location(ptr noundef %290, ptr noundef %295, ptr noundef %296) #5
+  call void @stnode_merge_location(ptr noundef %290, ptr noundef %295, ptr noundef %296)
   store ptr %290, ptr %291, align 8
-  br label %yy_reduce.exit
+  br label %568
 
-297:                                              ; preds = %54
-  %298 = getelementptr i8, ptr %56, i64 -8
+297:                                              ; preds = %63
+  %298 = getelementptr i8, ptr %65, i64 -8
   %299 = load ptr, ptr %298, align 8
-  %300 = getelementptr i8, ptr %56, i64 -24
+  %300 = getelementptr i8, ptr %65, i64 -24
   %301 = load ptr, ptr %300, align 8
-  %302 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %302 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %303 = load ptr, ptr %302, align 8
-  call void @sttype_oper_set2(ptr noundef %299, i32 noundef 20, ptr noundef %301, ptr noundef %303) #5
+  call void @sttype_oper_set2(ptr noundef %299, i32 noundef 19, ptr noundef %301, ptr noundef %303)
   %304 = load ptr, ptr %300, align 8
   %305 = load ptr, ptr %302, align 8
-  call void @stnode_merge_location(ptr noundef %299, ptr noundef %304, ptr noundef %305) #5
+  call void @stnode_merge_location(ptr noundef %299, ptr noundef %304, ptr noundef %305)
   store ptr %299, ptr %300, align 8
-  br label %yy_reduce.exit
+  br label %568
 
-306:                                              ; preds = %54
-  %307 = getelementptr i8, ptr %56, i64 -8
+306:                                              ; preds = %63
+  %307 = getelementptr i8, ptr %65, i64 -8
   %308 = load ptr, ptr %307, align 8
-  %309 = getelementptr i8, ptr %56, i64 -24
+  %309 = getelementptr i8, ptr %65, i64 -24
   %310 = load ptr, ptr %309, align 8
-  %311 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %311 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %312 = load ptr, ptr %311, align 8
-  call void @sttype_oper_set2(ptr noundef %308, i32 noundef 21, ptr noundef %310, ptr noundef %312) #5
+  call void @sttype_oper_set2(ptr noundef %308, i32 noundef 20, ptr noundef %310, ptr noundef %312)
   %313 = load ptr, ptr %309, align 8
   %314 = load ptr, ptr %311, align 8
-  call void @stnode_merge_location(ptr noundef %308, ptr noundef %313, ptr noundef %314) #5
+  call void @stnode_merge_location(ptr noundef %308, ptr noundef %313, ptr noundef %314)
   store ptr %308, ptr %309, align 8
-  br label %yy_reduce.exit
+  br label %568
 
-315:                                              ; preds = %54
-  %316 = getelementptr i8, ptr %56, i64 -8
+315:                                              ; preds = %63
+  %316 = getelementptr i8, ptr %65, i64 -8
   %317 = load ptr, ptr %316, align 8
-  %318 = getelementptr i8, ptr %56, i64 -24
+  %318 = getelementptr i8, ptr %65, i64 -24
   %319 = load ptr, ptr %318, align 8
-  %320 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %320 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %321 = load ptr, ptr %320, align 8
-  call void @sttype_oper_set2(ptr noundef %317, i32 noundef 22, ptr noundef %319, ptr noundef %321) #5
+  call void @sttype_oper_set2(ptr noundef %317, i32 noundef 21, ptr noundef %319, ptr noundef %321)
   %322 = load ptr, ptr %318, align 8
   %323 = load ptr, ptr %320, align 8
-  call void @stnode_merge_location(ptr noundef %317, ptr noundef %322, ptr noundef %323) #5
+  call void @stnode_merge_location(ptr noundef %317, ptr noundef %322, ptr noundef %323)
   store ptr %317, ptr %318, align 8
-  br label %yy_reduce.exit
+  br label %568
 
-324:                                              ; preds = %54
-  %325 = getelementptr inbounds nuw i8, ptr %56, i64 8
+324:                                              ; preds = %63
+  %325 = getelementptr i8, ptr %65, i64 -8
   %326 = load ptr, ptr %325, align 8
-  call void @sttype_oper_set_op(ptr noundef %326, i32 noundef 4) #5
-  store ptr %326, ptr %325, align 8
-  br label %yy_reduce.exit
+  %327 = getelementptr i8, ptr %65, i64 -24
+  %328 = load ptr, ptr %327, align 8
+  %329 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %330 = load ptr, ptr %329, align 8
+  call void @sttype_oper_set2(ptr noundef %326, i32 noundef 22, ptr noundef %328, ptr noundef %330)
+  %331 = load ptr, ptr %327, align 8
+  %332 = load ptr, ptr %329, align 8
+  call void @stnode_merge_location(ptr noundef %326, ptr noundef %331, ptr noundef %332)
+  store ptr %326, ptr %327, align 8
+  br label %568
 
-327:                                              ; preds = %54
-  %328 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %329 = load ptr, ptr %328, align 8
-  call void @sttype_oper_set_op(ptr noundef %329, i32 noundef 5) #5
-  store ptr %329, ptr %328, align 8
-  br label %yy_reduce.exit
-
-330:                                              ; preds = %54
-  %331 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %332 = load ptr, ptr %331, align 8
-  call void @sttype_oper_set_op(ptr noundef %332, i32 noundef 6) #5
-  store ptr %332, ptr %331, align 8
-  br label %yy_reduce.exit
-
-333:                                              ; preds = %54
-  %334 = getelementptr inbounds nuw i8, ptr %56, i64 8
+333:                                              ; preds = %63
+  %334 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %335 = load ptr, ptr %334, align 8
-  call void @sttype_oper_set_op(ptr noundef %335, i32 noundef 7) #5
+  call void @sttype_oper_set_op(ptr noundef %335, i32 noundef 4)
   store ptr %335, ptr %334, align 8
-  br label %yy_reduce.exit
+  br label %568
 
-336:                                              ; preds = %54
-  %337 = getelementptr inbounds nuw i8, ptr %56, i64 8
+336:                                              ; preds = %63
+  %337 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %338 = load ptr, ptr %337, align 8
-  call void @sttype_oper_set_op(ptr noundef %338, i32 noundef 8) #5
+  call void @sttype_oper_set_op(ptr noundef %338, i32 noundef 5)
   store ptr %338, ptr %337, align 8
-  br label %yy_reduce.exit
+  br label %568
 
-339:                                              ; preds = %54
-  %340 = getelementptr inbounds nuw i8, ptr %56, i64 8
+339:                                              ; preds = %63
+  %340 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %341 = load ptr, ptr %340, align 8
-  call void @sttype_oper_set_op(ptr noundef %341, i32 noundef 9) #5
+  call void @sttype_oper_set_op(ptr noundef %341, i32 noundef 6)
   store ptr %341, ptr %340, align 8
-  br label %yy_reduce.exit
+  br label %568
 
-342:                                              ; preds = %54
-  %343 = getelementptr inbounds nuw i8, ptr %56, i64 8
+342:                                              ; preds = %63
+  %343 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %344 = load ptr, ptr %343, align 8
-  call void @sttype_oper_set_op(ptr noundef %344, i32 noundef 10) #5
+  call void @sttype_oper_set_op(ptr noundef %344, i32 noundef 7)
   store ptr %344, ptr %343, align 8
-  br label %yy_reduce.exit
+  br label %568
 
-345:                                              ; preds = %54
-  %346 = getelementptr inbounds nuw i8, ptr %56, i64 8
+345:                                              ; preds = %63
+  %346 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %347 = load ptr, ptr %346, align 8
-  call void @sttype_oper_set_op(ptr noundef %347, i32 noundef 11) #5
+  call void @sttype_oper_set_op(ptr noundef %347, i32 noundef 8)
   store ptr %347, ptr %346, align 8
-  br label %yy_reduce.exit
+  br label %568
 
-348:                                              ; preds = %54
-  %349 = getelementptr i8, ptr %56, i64 -8
+348:                                              ; preds = %63
+  %349 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %350 = load ptr, ptr %349, align 8
-  %351 = getelementptr i8, ptr %56, i64 -24
-  %352 = load ptr, ptr %351, align 8
-  %353 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %354 = load ptr, ptr %353, align 8
-  call void @sttype_oper_set2_args(ptr noundef %350, ptr noundef %352, ptr noundef %354) #5
-  %355 = load ptr, ptr %351, align 8
-  %356 = load ptr, ptr %353, align 8
-  call void @stnode_merge_location(ptr noundef %350, ptr noundef %355, ptr noundef %356) #5
-  store ptr %350, ptr %351, align 8
-  br label %yy_reduce.exit
+  call void @sttype_oper_set_op(ptr noundef %350, i32 noundef 9)
+  store ptr %350, ptr %349, align 8
+  br label %568
 
-357:                                              ; preds = %54
-  %358 = getelementptr inbounds nuw i8, ptr %56, i64 8
+351:                                              ; preds = %63
+  %352 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %353 = load ptr, ptr %352, align 8
+  call void @sttype_oper_set_op(ptr noundef %353, i32 noundef 10)
+  store ptr %353, ptr %352, align 8
+  br label %568
+
+354:                                              ; preds = %63
+  %355 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %356 = load ptr, ptr %355, align 8
+  call void @sttype_oper_set_op(ptr noundef %356, i32 noundef 11)
+  store ptr %356, ptr %355, align 8
+  br label %568
+
+357:                                              ; preds = %63
+  %358 = getelementptr i8, ptr %65, i64 -8
   %359 = load ptr, ptr %358, align 8
-  store ptr %359, ptr %6, align 8
-  %360 = call i32 @stnode_type_id(ptr noundef %359) #5
-  %361 = icmp eq i32 %360, 1
-  br i1 %361, label %.lr.ph.i37, label %._crit_edge.i
+  %360 = getelementptr i8, ptr %65, i64 -24
+  %361 = load ptr, ptr %360, align 8
+  %362 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %363 = load ptr, ptr %362, align 8
+  call void @sttype_oper_set2_args(ptr noundef %359, ptr noundef %361, ptr noundef %363)
+  %364 = load ptr, ptr %360, align 8
+  %365 = load ptr, ptr %362, align 8
+  call void @stnode_merge_location(ptr noundef %359, ptr noundef %364, ptr noundef %365)
+  store ptr %359, ptr %360, align 8
+  br label %568
 
-.lr.ph.i37:                                       ; preds = %357, %.lr.ph.i37
-  %362 = load ptr, ptr %6, align 8
-  call void @sttype_oper_get(ptr noundef %362, ptr noundef null, ptr noundef nonnull %6, ptr noundef null) #5
-  %363 = load ptr, ptr %6, align 8
-  %364 = call i32 @stnode_type_id(ptr noundef %363) #5
-  %365 = icmp eq i32 %364, 1
-  br i1 %365, label %.lr.ph.i37, label %._crit_edge.loopexit.i, !llvm.loop !7
+366:                                              ; preds = %63
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  %367 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %368 = load ptr, ptr %367, align 8
+  store ptr %368, ptr %6, align 8
+  %369 = call i32 @stnode_type_id(ptr noundef %368)
+  %370 = icmp eq i32 %369, 1
+  br i1 %370, label %.lr.ph.i40, label %._crit_edge.i
 
-._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i37
+.lr.ph.i40:                                       ; preds = %366, %.lr.ph.i40
+  %371 = load ptr, ptr %6, align 8
+  call void @sttype_oper_get(ptr noundef %371, ptr noundef null, ptr noundef nonnull %6, ptr noundef null)
+  %372 = load ptr, ptr %6, align 8
+  %373 = call i32 @stnode_type_id(ptr noundef %372)
+  %374 = icmp eq i32 %373, 1
+  br i1 %374, label %.lr.ph.i40, label %._crit_edge.loopexit.i, !llvm.loop !9
+
+._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i40
   %.pre.i = load ptr, ptr %6, align 8
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %357
-  %366 = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ %359, %357 ]
-  %367 = getelementptr i8, ptr %56, i64 -8
-  %368 = load ptr, ptr %367, align 8
-  %369 = getelementptr i8, ptr %56, i64 -24
-  %370 = load ptr, ptr %369, align 8
-  %371 = call ptr @stnode_dup(ptr noundef %366) #5
-  call void @sttype_oper_set2_args(ptr noundef %368, ptr noundef %370, ptr noundef %371) #5
-  %372 = call ptr @stnode_new_empty(i32 noundef 1) #5
-  %373 = load ptr, ptr %358, align 8
-  call void @sttype_oper_set2(ptr noundef %372, i32 noundef 2, ptr noundef %368, ptr noundef %373) #5
-  %374 = load ptr, ptr %369, align 8
-  %375 = load ptr, ptr %358, align 8
-  call void @stnode_merge_location(ptr noundef %372, ptr noundef %374, ptr noundef %375) #5
-  store ptr %372, ptr %369, align 8
-  br label %yy_reduce.exit
+._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %366
+  %375 = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ %368, %366 ]
+  %376 = getelementptr i8, ptr %65, i64 -8
+  %377 = load ptr, ptr %376, align 8
+  %378 = getelementptr i8, ptr %65, i64 -24
+  %379 = load ptr, ptr %378, align 8
+  %380 = call ptr @stnode_dup(ptr noundef %375)
+  call void @sttype_oper_set2_args(ptr noundef %377, ptr noundef %379, ptr noundef %380)
+  %381 = call ptr @stnode_new_empty(i32 noundef 1)
+  %382 = load ptr, ptr %367, align 8
+  call void @sttype_oper_set2(ptr noundef %381, i32 noundef 2, ptr noundef %377, ptr noundef %382)
+  %383 = load ptr, ptr %378, align 8
+  %384 = load ptr, ptr %367, align 8
+  call void @stnode_merge_location(ptr noundef %381, ptr noundef %383, ptr noundef %384)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
+  store ptr %381, ptr %378, align 8
+  br label %568
 
-376:                                              ; preds = %54
-  %377 = getelementptr i8, ptr %56, i64 -8
-  %378 = load ptr, ptr %377, align 8
-  %379 = getelementptr i8, ptr %56, i64 -24
-  %380 = load ptr, ptr %379, align 8
-  %381 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %382 = load ptr, ptr %381, align 8
-  call void @sttype_oper_set2(ptr noundef %378, i32 noundef 12, ptr noundef %380, ptr noundef %382) #5
-  %383 = load ptr, ptr %379, align 8
-  %384 = load ptr, ptr %381, align 8
-  call void @stnode_merge_location(ptr noundef %378, ptr noundef %383, ptr noundef %384) #5
-  store ptr %378, ptr %379, align 8
-  br label %yy_reduce.exit
-
-385:                                              ; preds = %54
-  %386 = getelementptr i8, ptr %56, i64 -8
+385:                                              ; preds = %63
+  %386 = getelementptr i8, ptr %65, i64 -8
   %387 = load ptr, ptr %386, align 8
-  %388 = getelementptr i8, ptr %56, i64 -24
+  %388 = getelementptr i8, ptr %65, i64 -24
   %389 = load ptr, ptr %388, align 8
-  %390 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %390 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %391 = load ptr, ptr %390, align 8
-  call void @sttype_oper_set2(ptr noundef %387, i32 noundef 13, ptr noundef %389, ptr noundef %391) #5
+  call void @sttype_oper_set2(ptr noundef %387, i32 noundef 12, ptr noundef %389, ptr noundef %391)
   %392 = load ptr, ptr %388, align 8
   %393 = load ptr, ptr %390, align 8
-  call void @stnode_merge_location(ptr noundef %387, ptr noundef %392, ptr noundef %393) #5
+  call void @stnode_merge_location(ptr noundef %387, ptr noundef %392, ptr noundef %393)
   store ptr %387, ptr %388, align 8
-  br label %yy_reduce.exit
+  br label %568
 
-394:                                              ; preds = %54
-  %395 = getelementptr i8, ptr %56, i64 -8
+394:                                              ; preds = %63
+  %395 = getelementptr i8, ptr %65, i64 -8
   %396 = load ptr, ptr %395, align 8
-  %397 = getelementptr i8, ptr %56, i64 -24
+  %397 = getelementptr i8, ptr %65, i64 -24
   %398 = load ptr, ptr %397, align 8
-  %399 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %399 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %400 = load ptr, ptr %399, align 8
-  call void @sttype_oper_set2(ptr noundef %396, i32 noundef 14, ptr noundef %398, ptr noundef %400) #5
+  call void @sttype_oper_set2(ptr noundef %396, i32 noundef 13, ptr noundef %398, ptr noundef %400)
   %401 = load ptr, ptr %397, align 8
   %402 = load ptr, ptr %399, align 8
-  call void @stnode_merge_location(ptr noundef %396, ptr noundef %401, ptr noundef %402) #5
+  call void @stnode_merge_location(ptr noundef %396, ptr noundef %401, ptr noundef %402)
   store ptr %396, ptr %397, align 8
-  br label %yy_reduce.exit
+  br label %568
 
-403:                                              ; preds = %54
-  %404 = getelementptr i8, ptr %56, i64 -8
+403:                                              ; preds = %63
+  %404 = getelementptr i8, ptr %65, i64 -8
   %405 = load ptr, ptr %404, align 8
-  %406 = getelementptr i8, ptr %56, i64 -40
+  %406 = getelementptr i8, ptr %65, i64 -24
   %407 = load ptr, ptr %406, align 8
-  %408 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %408 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %409 = load ptr, ptr %408, align 8
-  call void @sttype_oper_set2(ptr noundef %405, i32 noundef 15, ptr noundef %407, ptr noundef %409) #5
+  call void @sttype_oper_set2(ptr noundef %405, i32 noundef 14, ptr noundef %407, ptr noundef %409)
   %410 = load ptr, ptr %406, align 8
   %411 = load ptr, ptr %408, align 8
-  call void @stnode_merge_location(ptr noundef %405, ptr noundef %410, ptr noundef %411) #5
-  %412 = getelementptr i8, ptr %56, i64 -24
-  %413 = load ptr, ptr %412, align 8
-  call void @stnode_free(ptr noundef %413) #5
+  call void @stnode_merge_location(ptr noundef %405, ptr noundef %410, ptr noundef %411)
   store ptr %405, ptr %406, align 8
-  br label %yy_reduce.exit
+  br label %568
 
-414:                                              ; preds = %54
-  %415 = getelementptr inbounds nuw i8, ptr %56, i64 8
+412:                                              ; preds = %63
+  %413 = getelementptr i8, ptr %65, i64 -8
+  %414 = load ptr, ptr %413, align 8
+  %415 = getelementptr i8, ptr %65, i64 -40
   %416 = load ptr, ptr %415, align 8
-  call void @sttype_test_set_match(ptr noundef %416, i32 noundef 1) #5
-  %417 = getelementptr i8, ptr %56, i64 -8
+  %417 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %418 = load ptr, ptr %417, align 8
+  call void @sttype_oper_set2(ptr noundef %414, i32 noundef 15, ptr noundef %416, ptr noundef %418)
   %419 = load ptr, ptr %415, align 8
-  call void @stnode_merge_location(ptr noundef %416, ptr noundef %418, ptr noundef %419) #5
   %420 = load ptr, ptr %417, align 8
-  call void @stnode_free(ptr noundef %420) #5
-  store ptr %416, ptr %417, align 8
-  br label %yy_reduce.exit
+  call void @stnode_merge_location(ptr noundef %414, ptr noundef %419, ptr noundef %420)
+  %421 = getelementptr i8, ptr %65, i64 -24
+  %422 = load ptr, ptr %421, align 8
+  call void @stnode_free(ptr noundef %422)
+  store ptr %414, ptr %415, align 8
+  br label %568
 
-421:                                              ; preds = %54
-  %422 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %423 = load ptr, ptr %422, align 8
-  call void @sttype_test_set_match(ptr noundef %423, i32 noundef 2) #5
-  %424 = getelementptr i8, ptr %56, i64 -8
+423:                                              ; preds = %63
+  %424 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %425 = load ptr, ptr %424, align 8
-  %426 = load ptr, ptr %422, align 8
-  call void @stnode_merge_location(ptr noundef %423, ptr noundef %425, ptr noundef %426) #5
-  %427 = load ptr, ptr %424, align 8
-  call void @stnode_free(ptr noundef %427) #5
-  store ptr %423, ptr %424, align 8
-  br label %yy_reduce.exit
+  call void @sttype_test_set_match(ptr noundef %425, i32 noundef 1)
+  %426 = getelementptr i8, ptr %65, i64 -8
+  %427 = load ptr, ptr %426, align 8
+  %428 = load ptr, ptr %424, align 8
+  call void @stnode_merge_location(ptr noundef %425, ptr noundef %427, ptr noundef %428)
+  %429 = load ptr, ptr %426, align 8
+  call void @stnode_free(ptr noundef %429)
+  store ptr %425, ptr %426, align 8
+  br label %568
 
-428:                                              ; preds = %54
-  %429 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %430 = load ptr, ptr %429, align 8
-  %431 = call ptr @g_slist_append(ptr noundef null, ptr noundef %430) #5
-  %432 = call ptr @g_slist_append(ptr noundef %431, ptr noundef null) #5
-  store ptr %432, ptr %429, align 8
-  br label %yy_reduce.exit
+430:                                              ; preds = %63
+  %431 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %432 = load ptr, ptr %431, align 8
+  call void @sttype_test_set_match(ptr noundef %432, i32 noundef 2)
+  %433 = getelementptr i8, ptr %65, i64 -8
+  %434 = load ptr, ptr %433, align 8
+  %435 = load ptr, ptr %431, align 8
+  call void @stnode_merge_location(ptr noundef %432, ptr noundef %434, ptr noundef %435)
+  %436 = load ptr, ptr %433, align 8
+  call void @stnode_free(ptr noundef %436)
+  store ptr %432, ptr %433, align 8
+  br label %568
 
-433:                                              ; preds = %54
-  %434 = getelementptr i8, ptr %56, i64 -24
-  %435 = load ptr, ptr %434, align 8
-  %436 = call ptr @g_slist_append(ptr noundef null, ptr noundef %435) #5
-  %437 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %438 = load ptr, ptr %437, align 8
-  %439 = call ptr @g_slist_append(ptr noundef %436, ptr noundef %438) #5
-  %440 = getelementptr i8, ptr %56, i64 -8
-  %441 = load ptr, ptr %440, align 8
-  call void @stnode_free(ptr noundef %441) #5
-  store ptr %439, ptr %434, align 8
-  br label %yy_reduce.exit
+437:                                              ; preds = %63
+  %438 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %439 = load ptr, ptr %438, align 8
+  %440 = call ptr @g_slist_append(ptr noundef null, ptr noundef %439)
+  %441 = call ptr @g_slist_append(ptr noundef %440, ptr noundef null)
+  store ptr %441, ptr %438, align 8
+  br label %568
 
-442:                                              ; preds = %54
-  %443 = getelementptr inbounds nuw i8, ptr %56, i64 8
+442:                                              ; preds = %63
+  %443 = getelementptr i8, ptr %65, i64 -24
   %444 = load ptr, ptr %443, align 8
-  %445 = call ptr @g_slist_concat(ptr noundef null, ptr noundef %444) #5
-  store ptr %445, ptr %443, align 8
-  br label %yy_reduce.exit
-
-446:                                              ; preds = %54
-  %447 = getelementptr i8, ptr %56, i64 -24
-  %448 = load ptr, ptr %447, align 8
-  %449 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %445 = call ptr @g_slist_append(ptr noundef null, ptr noundef %444)
+  %446 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %447 = load ptr, ptr %446, align 8
+  %448 = call ptr @g_slist_append(ptr noundef %445, ptr noundef %447)
+  %449 = getelementptr i8, ptr %65, i64 -8
   %450 = load ptr, ptr %449, align 8
-  %451 = call ptr @g_slist_concat(ptr noundef %448, ptr noundef %450) #5
-  %452 = getelementptr i8, ptr %56, i64 -8
+  call void @stnode_free(ptr noundef %450)
+  store ptr %448, ptr %443, align 8
+  br label %568
+
+451:                                              ; preds = %63
+  %452 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %453 = load ptr, ptr %452, align 8
-  call void @stnode_free(ptr noundef %453) #5
-  store ptr %451, ptr %447, align 8
-  br label %yy_reduce.exit
+  %454 = call ptr @g_slist_concat(ptr noundef null, ptr noundef %453)
+  store ptr %454, ptr %452, align 8
+  br label %568
 
-454:                                              ; preds = %54
-  %455 = getelementptr i8, ptr %56, i64 -8
-  %456 = load ptr, ptr %455, align 8
-  %457 = load i64, ptr @loc_empty, align 8
-  %458 = load i64, ptr getelementptr inbounds nuw (i8, ptr @loc_empty, i64 8), align 8
-  %459 = call ptr @stnode_new(i32 noundef 12, ptr noundef %456, ptr noundef null, i64 %457, i64 %458) #5
-  %460 = getelementptr i8, ptr %56, i64 -24
-  %461 = load ptr, ptr %460, align 8
-  %462 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %463 = load ptr, ptr %462, align 8
-  call void @stnode_merge_location(ptr noundef %459, ptr noundef %461, ptr noundef %463) #5
-  %464 = load ptr, ptr %460, align 8
-  call void @stnode_free(ptr noundef %464) #5
-  %465 = load ptr, ptr %462, align 8
-  call void @stnode_free(ptr noundef %465) #5
-  store ptr %459, ptr %460, align 8
-  br label %yy_reduce.exit
+455:                                              ; preds = %63
+  %456 = getelementptr i8, ptr %65, i64 -24
+  %457 = load ptr, ptr %456, align 8
+  %458 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %459 = load ptr, ptr %458, align 8
+  %460 = call ptr @g_slist_concat(ptr noundef %457, ptr noundef %459)
+  %461 = getelementptr i8, ptr %65, i64 -8
+  %462 = load ptr, ptr %461, align 8
+  call void @stnode_free(ptr noundef %462)
+  store ptr %460, ptr %456, align 8
+  br label %568
 
-466:                                              ; preds = %54
-  %467 = load i64, ptr @loc_empty, align 8
-  %468 = load i64, ptr getelementptr inbounds nuw (i8, ptr @loc_empty, i64 8), align 8
-  %469 = call ptr @stnode_new(i32 noundef 10, ptr noundef null, ptr noundef null, i64 %467, i64 %468) #5
-  %470 = getelementptr i8, ptr %56, i64 -40
-  %471 = load ptr, ptr %470, align 8
-  %472 = getelementptr i8, ptr %56, i64 -8
-  %473 = load ptr, ptr %472, align 8
-  call void @sttype_slice_set(ptr noundef %469, ptr noundef %471, ptr noundef %473) #5
-  %474 = load ptr, ptr %472, align 8
-  call void @g_slist_free(ptr noundef %474) #5
-  %475 = getelementptr i8, ptr %56, i64 -24
-  %476 = load ptr, ptr %475, align 8
-  call void @stnode_free(ptr noundef %476) #5
-  %477 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %478 = load ptr, ptr %477, align 8
-  call void @stnode_free(ptr noundef %478) #5
-  store ptr %469, ptr %470, align 8
-  br label %yy_reduce.exit
+463:                                              ; preds = %63
+  %464 = getelementptr i8, ptr %65, i64 -8
+  %465 = load ptr, ptr %464, align 8
+  %466 = load i64, ptr @loc_empty, align 8
+  %467 = load i64, ptr getelementptr inbounds nuw (i8, ptr @loc_empty, i64 8), align 8
+  %468 = call ptr @stnode_new(i32 noundef 12, ptr noundef %465, ptr noundef null, i64 %466, i64 %467)
+  %469 = getelementptr i8, ptr %65, i64 -24
+  %470 = load ptr, ptr %469, align 8
+  %471 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %472 = load ptr, ptr %471, align 8
+  call void @stnode_merge_location(ptr noundef %468, ptr noundef %470, ptr noundef %472)
+  %473 = load ptr, ptr %469, align 8
+  call void @stnode_free(ptr noundef %473)
+  %474 = load ptr, ptr %471, align 8
+  call void @stnode_free(ptr noundef %474)
+  store ptr %468, ptr %469, align 8
+  br label %568
 
-479:                                              ; preds = %54
+475:                                              ; preds = %63
+  %476 = load i64, ptr @loc_empty, align 8
+  %477 = load i64, ptr getelementptr inbounds nuw (i8, ptr @loc_empty, i64 8), align 8
+  %478 = call ptr @stnode_new(i32 noundef 10, ptr noundef null, ptr noundef null, i64 %476, i64 %477)
+  %479 = getelementptr i8, ptr %65, i64 -40
+  %480 = load ptr, ptr %479, align 8
+  %481 = getelementptr i8, ptr %65, i64 -8
+  %482 = load ptr, ptr %481, align 8
+  call void @sttype_slice_set(ptr noundef %478, ptr noundef %480, ptr noundef %482)
+  %483 = load ptr, ptr %481, align 8
+  call void @g_slist_free(ptr noundef %483)
+  %484 = getelementptr i8, ptr %65, i64 -24
+  %485 = load ptr, ptr %484, align 8
+  call void @stnode_free(ptr noundef %485)
+  %486 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %487 = load ptr, ptr %486, align 8
+  call void @stnode_free(ptr noundef %487)
+  store ptr %478, ptr %479, align 8
+  br label %568
+
+488:                                              ; preds = %63
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
   store ptr null, ptr %7, align 8
-  %480 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %481 = load ptr, ptr %480, align 8
-  %482 = call ptr @stnode_token(ptr noundef %481) #5
-  %483 = call ptr @drange_node_from_str(ptr noundef %482, ptr noundef nonnull %7) #5
-  %484 = load ptr, ptr %7, align 8
-  %.not408.i = icmp eq ptr %484, null
-  br i1 %.not408.i, label %492, label %485
+  %489 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %490 = load ptr, ptr %489, align 8
+  %491 = call ptr @stnode_token(ptr noundef %490)
+  %492 = call ptr @drange_node_from_str(ptr noundef %491, ptr noundef nonnull %7)
+  %493 = load ptr, ptr %7, align 8
+  %.not408.i = icmp eq ptr %493, null
+  br i1 %.not408.i, label %501, label %494
 
-485:                                              ; preds = %479
-  %486 = load ptr, ptr %480, align 8
-  %487 = call { i64, i64 } @stnode_location(ptr noundef %486) #5
-  %488 = extractvalue { i64, i64 } %487, 0
-  %489 = extractvalue { i64, i64 } %487, 1
-  %490 = load ptr, ptr %7, align 8
-  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %55, i32 noundef -1, i64 %488, i64 %489, ptr noundef nonnull @.str, ptr noundef %490) #5
-  %491 = load ptr, ptr %7, align 8
-  call void @g_free(ptr noundef %491) #5
-  br label %492
+494:                                              ; preds = %488
+  %495 = load ptr, ptr %489, align 8
+  %496 = call { i64, i64 } @stnode_location(ptr noundef %495)
+  %497 = extractvalue { i64, i64 } %496, 0
+  %498 = extractvalue { i64, i64 } %496, 1
+  %499 = load ptr, ptr %7, align 8
+  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %64, i32 noundef -1, i64 %497, i64 %498, ptr noundef nonnull @.str, ptr noundef %499)
+  %500 = load ptr, ptr %7, align 8
+  call void @g_free(ptr noundef %500)
+  br label %501
 
-492:                                              ; preds = %485, %479
-  %493 = call ptr @g_slist_append(ptr noundef null, ptr noundef %483) #5
-  %494 = load ptr, ptr %480, align 8
-  call void @stnode_free(ptr noundef %494) #5
-  store ptr %493, ptr %480, align 8
-  br label %yy_reduce.exit
+501:                                              ; preds = %494, %488
+  %502 = call ptr @g_slist_append(ptr noundef null, ptr noundef %492)
+  %503 = load ptr, ptr %489, align 8
+  call void @stnode_free(ptr noundef %503)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  store ptr %502, ptr %489, align 8
+  br label %568
 
-495:                                              ; preds = %54
+504:                                              ; preds = %63
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #5
   store ptr null, ptr %8, align 8
-  %496 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %497 = load ptr, ptr %496, align 8
-  %498 = call ptr @stnode_token(ptr noundef %497) #5
-  %499 = call ptr @drange_node_from_str(ptr noundef %498, ptr noundef nonnull %8) #5
-  %500 = load ptr, ptr %8, align 8
-  %.not.i38 = icmp eq ptr %500, null
-  br i1 %.not.i38, label %508, label %501
+  %505 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %506 = load ptr, ptr %505, align 8
+  %507 = call ptr @stnode_token(ptr noundef %506)
+  %508 = call ptr @drange_node_from_str(ptr noundef %507, ptr noundef nonnull %8)
+  %509 = load ptr, ptr %8, align 8
+  %.not.i41 = icmp eq ptr %509, null
+  br i1 %.not.i41, label %517, label %510
 
-501:                                              ; preds = %495
-  %502 = load ptr, ptr %496, align 8
-  %503 = call { i64, i64 } @stnode_location(ptr noundef %502) #5
-  %504 = extractvalue { i64, i64 } %503, 0
-  %505 = extractvalue { i64, i64 } %503, 1
-  %506 = load ptr, ptr %8, align 8
-  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %55, i32 noundef -1, i64 %504, i64 %505, ptr noundef nonnull @.str, ptr noundef %506) #5
-  %507 = load ptr, ptr %8, align 8
-  call void @g_free(ptr noundef %507) #5
-  br label %508
+510:                                              ; preds = %504
+  %511 = load ptr, ptr %505, align 8
+  %512 = call { i64, i64 } @stnode_location(ptr noundef %511)
+  %513 = extractvalue { i64, i64 } %512, 0
+  %514 = extractvalue { i64, i64 } %512, 1
+  %515 = load ptr, ptr %8, align 8
+  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %64, i32 noundef -1, i64 %513, i64 %514, ptr noundef nonnull @.str, ptr noundef %515)
+  %516 = load ptr, ptr %8, align 8
+  call void @g_free(ptr noundef %516)
+  br label %517
 
-508:                                              ; preds = %501, %495
-  %509 = getelementptr i8, ptr %56, i64 -24
-  %510 = load ptr, ptr %509, align 8
-  %511 = call ptr @g_slist_append(ptr noundef %510, ptr noundef %499) #5
-  %512 = load ptr, ptr %496, align 8
-  call void @stnode_free(ptr noundef %512) #5
-  %513 = getelementptr i8, ptr %56, i64 -8
-  %514 = load ptr, ptr %513, align 8
-  call void @stnode_free(ptr noundef %514) #5
-  store ptr %511, ptr %509, align 8
-  br label %yy_reduce.exit
+517:                                              ; preds = %510, %504
+  %518 = getelementptr i8, ptr %65, i64 -24
+  %519 = load ptr, ptr %518, align 8
+  %520 = call ptr @g_slist_append(ptr noundef %519, ptr noundef %508)
+  %521 = load ptr, ptr %505, align 8
+  call void @stnode_free(ptr noundef %521)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #5
+  %522 = getelementptr i8, ptr %65, i64 -8
+  %523 = load ptr, ptr %522, align 8
+  call void @stnode_free(ptr noundef %523)
+  store ptr %520, ptr %518, align 8
+  br label %568
 
-515:                                              ; preds = %54
-  %516 = getelementptr i8, ptr %56, i64 -40
-  %517 = load ptr, ptr %516, align 8
-  %518 = call ptr @stnode_token(ptr noundef %517) #5
-  %519 = call ptr @df_func_lookup(ptr noundef %518) #5
-  %.not.i43 = icmp eq ptr %519, null
-  br i1 %.not.i43, label %520, label %new_function.exit44
+524:                                              ; preds = %63
+  %525 = getelementptr i8, ptr %65, i64 -40
+  %526 = load ptr, ptr %525, align 8
+  %527 = call ptr @stnode_token(ptr noundef %526)
+  %528 = call ptr @df_func_lookup(ptr noundef %527)
+  %.not.i46 = icmp eq ptr %528, null
+  br i1 %.not.i46, label %529, label %new_function.exit47
 
-520:                                              ; preds = %515
-  %521 = call { i64, i64 } @stnode_location(ptr noundef %517) #5
-  %522 = extractvalue { i64, i64 } %521, 0
-  %523 = extractvalue { i64, i64 } %521, 1
-  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %55, i32 noundef -1, i64 %522, i64 %523, ptr noundef nonnull @.str.2, ptr noundef %518) #5
-  br label %new_function.exit44
+529:                                              ; preds = %524
+  %530 = call { i64, i64 } @stnode_location(ptr noundef %526)
+  %531 = extractvalue { i64, i64 } %530, 0
+  %532 = extractvalue { i64, i64 } %530, 1
+  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %64, i32 noundef -1, i64 %531, i64 %532, ptr noundef nonnull @.str.2, ptr noundef %527)
+  br label %new_function.exit47
 
-new_function.exit44:                              ; preds = %515, %520
-  call void @stnode_replace(ptr noundef %517, i32 noundef 11, ptr noundef %519) #5
-  %524 = getelementptr i8, ptr %56, i64 -8
-  %525 = load ptr, ptr %524, align 8
-  call void @sttype_function_set_params(ptr noundef %517, ptr noundef %525) #5
-  %526 = load ptr, ptr %516, align 8
-  %527 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %528 = load ptr, ptr %527, align 8
-  call void @stnode_merge_location(ptr noundef %517, ptr noundef %526, ptr noundef %528) #5
-  %529 = load ptr, ptr %527, align 8
-  call void @stnode_free(ptr noundef %529) #5
-  %530 = getelementptr i8, ptr %56, i64 -24
-  %531 = load ptr, ptr %530, align 8
-  call void @stnode_free(ptr noundef %531) #5
-  store ptr %517, ptr %516, align 8
-  br label %yy_reduce.exit
-
-532:                                              ; preds = %54
-  %533 = getelementptr i8, ptr %56, i64 -24
+new_function.exit47:                              ; preds = %524, %529
+  call void @stnode_replace(ptr noundef %526, i32 noundef 11, ptr noundef %528)
+  %533 = getelementptr i8, ptr %65, i64 -8
   %534 = load ptr, ptr %533, align 8
-  %535 = call ptr @stnode_token(ptr noundef %534) #5
-  %536 = call ptr @df_func_lookup(ptr noundef %535) #5
-  %.not.i42 = icmp eq ptr %536, null
-  br i1 %.not.i42, label %537, label %new_function.exit
+  call void @sttype_function_set_params(ptr noundef %526, ptr noundef %534)
+  %535 = load ptr, ptr %525, align 8
+  %536 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %537 = load ptr, ptr %536, align 8
+  call void @stnode_merge_location(ptr noundef %526, ptr noundef %535, ptr noundef %537)
+  %538 = load ptr, ptr %536, align 8
+  call void @stnode_free(ptr noundef %538)
+  %539 = getelementptr i8, ptr %65, i64 -24
+  %540 = load ptr, ptr %539, align 8
+  call void @stnode_free(ptr noundef %540)
+  store ptr %526, ptr %525, align 8
+  br label %568
 
-537:                                              ; preds = %532
-  %538 = call { i64, i64 } @stnode_location(ptr noundef %534) #5
-  %539 = extractvalue { i64, i64 } %538, 0
-  %540 = extractvalue { i64, i64 } %538, 1
-  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %55, i32 noundef -1, i64 %539, i64 %540, ptr noundef nonnull @.str.2, ptr noundef %535) #5
+541:                                              ; preds = %63
+  %542 = getelementptr i8, ptr %65, i64 -24
+  %543 = load ptr, ptr %542, align 8
+  %544 = call ptr @stnode_token(ptr noundef %543)
+  %545 = call ptr @df_func_lookup(ptr noundef %544)
+  %.not.i45 = icmp eq ptr %545, null
+  br i1 %.not.i45, label %546, label %new_function.exit
+
+546:                                              ; preds = %541
+  %547 = call { i64, i64 } @stnode_location(ptr noundef %543)
+  %548 = extractvalue { i64, i64 } %547, 0
+  %549 = extractvalue { i64, i64 } %547, 1
+  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %64, i32 noundef -1, i64 %548, i64 %549, ptr noundef nonnull @.str.2, ptr noundef %544)
   br label %new_function.exit
 
-new_function.exit:                                ; preds = %532, %537
-  call void @stnode_replace(ptr noundef %534, i32 noundef 11, ptr noundef %536) #5
-  %541 = load ptr, ptr %533, align 8
-  %542 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %543 = load ptr, ptr %542, align 8
-  call void @stnode_merge_location(ptr noundef %534, ptr noundef %541, ptr noundef %543) #5
-  %544 = load ptr, ptr %542, align 8
-  call void @stnode_free(ptr noundef %544) #5
-  %545 = getelementptr i8, ptr %56, i64 -8
-  %546 = load ptr, ptr %545, align 8
-  call void @stnode_free(ptr noundef %546) #5
-  store ptr %534, ptr %533, align 8
-  br label %yy_reduce.exit
-
-547:                                              ; preds = %54
-  %548 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %549 = load ptr, ptr %548, align 8
-  %550 = call ptr @g_slist_append(ptr noundef null, ptr noundef %549) #5
-  store ptr %550, ptr %548, align 8
-  br label %yy_reduce.exit
-
-551:                                              ; preds = %54
-  %552 = getelementptr i8, ptr %56, i64 -24
-  %553 = load ptr, ptr %552, align 8
-  %554 = getelementptr inbounds nuw i8, ptr %56, i64 8
+new_function.exit:                                ; preds = %541, %546
+  call void @stnode_replace(ptr noundef %543, i32 noundef 11, ptr noundef %545)
+  %550 = load ptr, ptr %542, align 8
+  %551 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %552 = load ptr, ptr %551, align 8
+  call void @stnode_merge_location(ptr noundef %543, ptr noundef %550, ptr noundef %552)
+  %553 = load ptr, ptr %551, align 8
+  call void @stnode_free(ptr noundef %553)
+  %554 = getelementptr i8, ptr %65, i64 -8
   %555 = load ptr, ptr %554, align 8
-  %556 = call ptr @g_slist_append(ptr noundef %553, ptr noundef %555) #5
-  %557 = getelementptr i8, ptr %56, i64 -8
-  %558 = load ptr, ptr %557, align 8
-  call void @stnode_free(ptr noundef %558) #5
-  store ptr %556, ptr %552, align 8
-  br label %yy_reduce.exit
+  call void @stnode_free(ptr noundef %555)
+  store ptr %543, ptr %542, align 8
+  br label %568
 
-yy_reduce.exit:                                   ; preds = %54, %57, %.thread, %61, %70, %79, %101, %108, %resolve_unparsed.exit53, %170, %resolve_unparsed.exit49, %resolve_unparsed.exit47, %resolve_unparsed.exit, %257, %263, %270, %279, %288, %297, %306, %315, %324, %327, %330, %333, %336, %339, %342, %345, %348, %._crit_edge.i, %376, %385, %394, %403, %414, %421, %428, %433, %442, %446, %454, %466, %492, %508, %new_function.exit44, %new_function.exit, %547, %551
-  %559 = phi ptr [ %56, %54 ], [ %56, %57 ], [ %39, %.thread ], [ %56, %61 ], [ %56, %70 ], [ %56, %79 ], [ %56, %101 ], [ %56, %108 ], [ %56, %resolve_unparsed.exit53 ], [ %56, %170 ], [ %56, %resolve_unparsed.exit49 ], [ %56, %resolve_unparsed.exit47 ], [ %56, %resolve_unparsed.exit ], [ %56, %257 ], [ %56, %263 ], [ %56, %270 ], [ %56, %279 ], [ %56, %288 ], [ %56, %297 ], [ %56, %306 ], [ %56, %315 ], [ %56, %324 ], [ %56, %327 ], [ %56, %330 ], [ %56, %333 ], [ %56, %336 ], [ %56, %339 ], [ %56, %342 ], [ %56, %345 ], [ %56, %348 ], [ %56, %._crit_edge.i ], [ %56, %376 ], [ %56, %385 ], [ %56, %394 ], [ %56, %403 ], [ %56, %414 ], [ %56, %421 ], [ %56, %428 ], [ %56, %433 ], [ %56, %442 ], [ %56, %446 ], [ %56, %454 ], [ %56, %466 ], [ %56, %492 ], [ %56, %508 ], [ %56, %new_function.exit44 ], [ %56, %new_function.exit ], [ %56, %547 ], [ %56, %551 ]
-  %560 = zext nneg i32 %36 to i64
-  %561 = getelementptr [68 x i8], ptr @yyRuleInfoLhs, i64 0, i64 %560
-  %562 = load i8, ptr %561, align 1
-  %563 = getelementptr [68 x i8], ptr @yyRuleInfoNRhs, i64 0, i64 %560
-  %564 = load i8, ptr %563, align 1
-  %565 = sext i8 %564 to i64
-  %566 = getelementptr %struct.yyStackEntry, ptr %559, i64 %565
-  %567 = load i8, ptr %566, align 8
-  %568 = zext i8 %567 to i64
-  %569 = getelementptr [35 x i16], ptr @yy_reduce_ofst, i64 0, i64 %568
-  %570 = load i16, ptr %569, align 2
-  %571 = sext i16 %570 to i64
-  %572 = zext i8 %562 to i64
-  %573 = add nsw i64 %571, %572
-  %574 = getelementptr [470 x i8], ptr @yy_action, i64 0, i64 %573
-  %575 = load i8, ptr %574, align 1
-  %576 = getelementptr i8, ptr %566, i64 16
-  store ptr %576, ptr %0, align 8
-  store i8 %575, ptr %576, align 8
-  %577 = getelementptr i8, ptr %566, i64 17
-  store i8 %562, ptr %577, align 1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+556:                                              ; preds = %63
+  %557 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %558 = load ptr, ptr %557, align 8
+  %559 = call ptr @g_slist_append(ptr noundef null, ptr noundef %558)
+  store ptr %559, ptr %557, align 8
+  br label %568
+
+560:                                              ; preds = %63
+  %561 = getelementptr i8, ptr %65, i64 -24
+  %562 = load ptr, ptr %561, align 8
+  %563 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %564 = load ptr, ptr %563, align 8
+  %565 = call ptr @g_slist_append(ptr noundef %562, ptr noundef %564)
+  %566 = getelementptr i8, ptr %65, i64 -8
+  %567 = load ptr, ptr %566, align 8
+  call void @stnode_free(ptr noundef %567)
+  store ptr %565, ptr %561, align 8
+  br label %568
+
+568:                                              ; preds = %560, %556, %new_function.exit, %new_function.exit47, %517, %501, %475, %463, %455, %451, %442, %437, %430, %423, %412, %403, %394, %385, %._crit_edge.i, %357, %354, %351, %348, %345, %342, %339, %336, %333, %324, %315, %306, %297, %288, %279, %272, %266, %resolve_unparsed.exit, %resolve_unparsed.exit50, %resolve_unparsed.exit52, %179, %resolve_unparsed.exit56, %117, %110, %88, %79, %70, %.thread, %66, %63
+  %569 = phi ptr [ %65, %63 ], [ %65, %66 ], [ %39, %.thread ], [ %65, %70 ], [ %65, %79 ], [ %65, %88 ], [ %65, %110 ], [ %65, %117 ], [ %65, %resolve_unparsed.exit56 ], [ %65, %179 ], [ %65, %resolve_unparsed.exit52 ], [ %65, %resolve_unparsed.exit50 ], [ %65, %resolve_unparsed.exit ], [ %65, %266 ], [ %65, %272 ], [ %65, %279 ], [ %65, %288 ], [ %65, %297 ], [ %65, %306 ], [ %65, %315 ], [ %65, %324 ], [ %65, %333 ], [ %65, %336 ], [ %65, %339 ], [ %65, %342 ], [ %65, %345 ], [ %65, %348 ], [ %65, %351 ], [ %65, %354 ], [ %65, %357 ], [ %65, %._crit_edge.i ], [ %65, %385 ], [ %65, %394 ], [ %65, %403 ], [ %65, %412 ], [ %65, %423 ], [ %65, %430 ], [ %65, %437 ], [ %65, %442 ], [ %65, %451 ], [ %65, %455 ], [ %65, %463 ], [ %65, %475 ], [ %65, %501 ], [ %65, %517 ], [ %65, %new_function.exit47 ], [ %65, %new_function.exit ], [ %65, %556 ], [ %65, %560 ]
+  %570 = zext nneg i32 %36 to i64
+  %571 = getelementptr [68 x i8], ptr @yyRuleInfoLhs, i64 0, i64 %570
+  %572 = load i8, ptr %571, align 1
+  %573 = getelementptr [68 x i8], ptr @yyRuleInfoNRhs, i64 0, i64 %570
+  %574 = load i8, ptr %573, align 1
+  %575 = sext i8 %574 to i64
+  %576 = getelementptr %struct.yyStackEntry, ptr %569, i64 %575
+  %577 = load i8, ptr %576, align 8
+  %578 = zext i8 %577 to i64
+  %579 = getelementptr [35 x i16], ptr @yy_reduce_ofst, i64 0, i64 %578
+  %580 = load i16, ptr %579, align 2
+  %581 = sext i16 %580 to i64
+  %582 = zext i8 %572 to i64
+  %583 = add nsw i64 %581, %582
+  %584 = getelementptr [470 x i8], ptr @yy_action, i64 0, i64 %583
+  %585 = load i8, ptr %584, align 1
+  %586 = getelementptr i8, ptr %576, i64 16
+  store ptr %586, ptr %0, align 8
+  store i8 %585, ptr %586, align 8
+  %587 = getelementptr i8, ptr %576, i64 17
+  store i8 %572, ptr %587, align 1
   br label %17
 
-578:                                              ; preds = %yy_find_shift_action.exit
-  %579 = icmp ult i8 %.0.i, -76
-  br i1 %579, label %580, label %604
+588:                                              ; preds = %yy_find_shift_action.exit
+  %589 = icmp ult i8 %.0.i, -76
+  br i1 %589, label %590, label %614
 
-580:                                              ; preds = %578
-  %581 = load ptr, ptr %0, align 8
-  %582 = getelementptr i8, ptr %581, i64 16
-  store ptr %582, ptr %0, align 8
-  %583 = load ptr, ptr %16, align 8
-  %584 = icmp ugt ptr %582, %583
-  br i1 %584, label %585, label %596
+590:                                              ; preds = %588
+  %591 = load ptr, ptr %0, align 8
+  %592 = getelementptr i8, ptr %591, i64 16
+  store ptr %592, ptr %0, align 8
+  %593 = load ptr, ptr %16, align 8
+  %594 = icmp ugt ptr %592, %593
+  br i1 %594, label %595, label %606
 
-585:                                              ; preds = %580
-  store ptr %581, ptr %0, align 8
-  %586 = load ptr, ptr %10, align 8
-  %587 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %588 = icmp ugt ptr %581, %587
-  br i1 %588, label %.lr.ph.i.i, label %yyStackOverflow.exit.i
+595:                                              ; preds = %590
+  store ptr %591, ptr %0, align 8
+  %596 = load ptr, ptr %10, align 8
+  %597 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %598 = icmp ugt ptr %591, %597
+  br i1 %598, label %.lr.ph.i.i, label %yyStackOverflow.exit.i
 
-.lr.ph.i.i:                                       ; preds = %585, %.lr.ph.i.i
-  %589 = phi ptr [ %594, %.lr.ph.i.i ], [ %581, %585 ]
-  %590 = getelementptr i8, ptr %589, i64 -16
-  store ptr %590, ptr %0, align 8
-  %591 = getelementptr inbounds nuw i8, ptr %589, i64 1
-  %592 = load i8, ptr %591, align 1
-  %593 = getelementptr inbounds nuw i8, ptr %589, i64 8
-  call fastcc void @yy_destructor(i8 noundef zeroext %592, ptr noundef nonnull %593)
-  %594 = load ptr, ptr %0, align 8
-  %595 = icmp ugt ptr %594, %587
-  br i1 %595, label %.lr.ph.i.i, label %yyStackOverflow.exit.i, !llvm.loop !6
+.lr.ph.i.i:                                       ; preds = %595, %.lr.ph.i.i
+  %599 = phi ptr [ %604, %.lr.ph.i.i ], [ %591, %595 ]
+  %600 = getelementptr i8, ptr %599, i64 -16
+  store ptr %600, ptr %0, align 8
+  %601 = getelementptr inbounds nuw i8, ptr %599, i64 1
+  %602 = load i8, ptr %601, align 1
+  %603 = getelementptr inbounds nuw i8, ptr %599, i64 8
+  call fastcc void @yy_destructor(i8 noundef zeroext %602, ptr noundef nonnull %603)
+  %604 = load ptr, ptr %0, align 8
+  %605 = icmp ugt ptr %604, %597
+  br i1 %605, label %.lr.ph.i.i, label %yyStackOverflow.exit.i, !llvm.loop !8
 
-yyStackOverflow.exit.i:                           ; preds = %.lr.ph.i.i, %585
-  store ptr %586, ptr %10, align 8
+yyStackOverflow.exit.i:                           ; preds = %.lr.ph.i.i, %595
+  store ptr %596, ptr %10, align 8
   br label %yy_shift.exit
 
-596:                                              ; preds = %580
-  %597 = icmp ugt i8 %.0.i, 60
-  %598 = add nuw i8 %.0.i, 71
-  %spec.select.i = select i1 %597, i8 %598, i8 %.0.i
-  store i8 %spec.select.i, ptr %582, align 8
-  %599 = getelementptr i8, ptr %581, i64 17
-  store i8 %14, ptr %599, align 1
-  %600 = getelementptr i8, ptr %581, i64 24
-  store ptr %2, ptr %600, align 8
+606:                                              ; preds = %590
+  %607 = icmp ugt i8 %.0.i, 60
+  %608 = add nuw i8 %.0.i, 71
+  %spec.select.i = select i1 %607, i8 %608, i8 %.0.i
+  store i8 %spec.select.i, ptr %592, align 8
+  %609 = getelementptr i8, ptr %591, i64 17
+  store i8 %14, ptr %609, align 1
+  %610 = getelementptr i8, ptr %591, i64 24
+  store ptr %2, ptr %610, align 8
   br label %yy_shift.exit
 
-yy_shift.exit:                                    ; preds = %yyStackOverflow.exit.i, %596
-  %601 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %602 = load i32, ptr %601, align 8
-  %603 = add i32 %602, -1
-  store i32 %603, ptr %601, align 8
-  br label %636
-
-604:                                              ; preds = %578
-  %605 = icmp eq i8 %.0.i, -75
-  br i1 %605, label %606, label %610
-
-606:                                              ; preds = %604
-  %607 = load ptr, ptr %0, align 8
-  %608 = getelementptr i8, ptr %607, i64 -16
-  store ptr %608, ptr %0, align 8
-  %609 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 -1, ptr %609, align 8
-  br label %636
-
-610:                                              ; preds = %604
-  store ptr %2, ptr %9, align 8
+yy_shift.exit:                                    ; preds = %yyStackOverflow.exit.i, %606
   %611 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %612 = load i32, ptr %611, align 8
-  %613 = icmp slt i32 %612, 1
-  br i1 %613, label %614, label %yy_syntax_error.exit
+  %613 = add i32 %612, -1
+  store i32 %613, ptr %611, align 8
+  br label %646
 
-614:                                              ; preds = %610
-  %615 = load ptr, ptr %10, align 8
-  %.not.i39 = icmp eq ptr %2, null
-  br i1 %.not.i39, label %616, label %619
+614:                                              ; preds = %588
+  %615 = icmp eq i8 %.0.i, -75
+  br i1 %615, label %616, label %620
 
 616:                                              ; preds = %614
-  %617 = load i64, ptr @loc_empty, align 8
-  %618 = load i64, ptr getelementptr inbounds nuw (i8, ptr @loc_empty, i64 8), align 8
-  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %615, i32 noundef -2, i64 %617, i64 %618, ptr noundef nonnull @.str.3) #5
-  br label %yy_syntax_error.exit
+  %617 = load ptr, ptr %0, align 8
+  %618 = getelementptr i8, ptr %617, i64 -16
+  store ptr %618, ptr %0, align 8
+  %619 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 -1, ptr %619, align 8
+  br label %646
 
-619:                                              ; preds = %614
-  %620 = call { i64, i64 } @stnode_location(ptr noundef nonnull %2) #5
-  %621 = extractvalue { i64, i64 } %620, 0
-  %622 = extractvalue { i64, i64 } %620, 1
-  %623 = call ptr @stnode_token(ptr noundef nonnull %2) #5
-  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %615, i32 noundef -1, i64 %621, i64 %622, ptr noundef nonnull @.str.4, ptr noundef %623) #5
-  store ptr %615, ptr %10, align 8
-  br label %yy_syntax_error.exit
+620:                                              ; preds = %614
+  store ptr %2, ptr %9, align 8
+  %621 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %622 = load i32, ptr %621, align 8
+  %623 = icmp slt i32 %622, 1
+  br i1 %623, label %624, label %yy_syntax_error.exit
 
-yy_syntax_error.exit:                             ; preds = %619, %616, %610
-  store i32 3, ptr %611, align 8
-  call fastcc void @yy_destructor(i8 noundef zeroext %14, ptr noundef nonnull %9)
-  br i1 %11, label %624, label %636
-
-624:                                              ; preds = %yy_syntax_error.exit
+624:                                              ; preds = %620
   %625 = load ptr, ptr %10, align 8
-  %626 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %627 = load ptr, ptr %0, align 8
-  %628 = icmp ugt ptr %627, %626
-  br i1 %628, label %.lr.ph.i41, label %yy_parse_failed.exit
+  %.not.i42 = icmp eq ptr %2, null
+  br i1 %.not.i42, label %626, label %629
 
-.lr.ph.i41:                                       ; preds = %624, %.lr.ph.i41
-  %629 = phi ptr [ %634, %.lr.ph.i41 ], [ %627, %624 ]
-  %630 = getelementptr i8, ptr %629, i64 -16
-  store ptr %630, ptr %0, align 8
-  %631 = getelementptr inbounds nuw i8, ptr %629, i64 1
-  %632 = load i8, ptr %631, align 1
-  %633 = getelementptr inbounds nuw i8, ptr %629, i64 8
-  call fastcc void @yy_destructor(i8 noundef zeroext %632, ptr noundef nonnull %633)
-  %634 = load ptr, ptr %0, align 8
-  %635 = icmp ugt ptr %634, %626
-  br i1 %635, label %.lr.ph.i41, label %yy_parse_failed.exit, !llvm.loop !8
+626:                                              ; preds = %624
+  %627 = load i64, ptr @loc_empty, align 8
+  %628 = load i64, ptr getelementptr inbounds nuw (i8, ptr @loc_empty, i64 8), align 8
+  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %625, i32 noundef -2, i64 %627, i64 %628, ptr noundef nonnull @.str.3)
+  br label %yy_syntax_error.exit
 
-yy_parse_failed.exit:                             ; preds = %.lr.ph.i41, %624
+629:                                              ; preds = %624
+  %630 = call { i64, i64 } @stnode_location(ptr noundef nonnull %2)
+  %631 = extractvalue { i64, i64 } %630, 0
+  %632 = extractvalue { i64, i64 } %630, 1
+  %633 = call ptr @stnode_token(ptr noundef nonnull %2)
+  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %625, i32 noundef -1, i64 %631, i64 %632, ptr noundef nonnull @.str.4, ptr noundef %633)
   store ptr %625, ptr %10, align 8
-  store i32 -1, ptr %611, align 8
-  br label %636
+  br label %yy_syntax_error.exit
 
-636:                                              ; preds = %yyStackOverflow.exit, %yy_shift.exit, %yy_parse_failed.exit, %yy_syntax_error.exit, %606
+yy_syntax_error.exit:                             ; preds = %629, %626, %620
+  store i32 3, ptr %621, align 8
+  call fastcc void @yy_destructor(i8 noundef zeroext %14, ptr noundef nonnull %9)
+  br i1 %11, label %634, label %646
+
+634:                                              ; preds = %yy_syntax_error.exit
+  %635 = load ptr, ptr %10, align 8
+  %636 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %637 = load ptr, ptr %0, align 8
+  %638 = icmp ugt ptr %637, %636
+  br i1 %638, label %.lr.ph.i44, label %yy_parse_failed.exit
+
+.lr.ph.i44:                                       ; preds = %634, %.lr.ph.i44
+  %639 = phi ptr [ %644, %.lr.ph.i44 ], [ %637, %634 ]
+  %640 = getelementptr i8, ptr %639, i64 -16
+  store ptr %640, ptr %0, align 8
+  %641 = getelementptr inbounds nuw i8, ptr %639, i64 1
+  %642 = load i8, ptr %641, align 1
+  %643 = getelementptr inbounds nuw i8, ptr %639, i64 8
+  call fastcc void @yy_destructor(i8 noundef zeroext %642, ptr noundef nonnull %643)
+  %644 = load ptr, ptr %0, align 8
+  %645 = icmp ugt ptr %644, %636
+  br i1 %645, label %.lr.ph.i44, label %yy_parse_failed.exit, !llvm.loop !10
+
+yy_parse_failed.exit:                             ; preds = %.lr.ph.i44, %634
+  store ptr %635, ptr %10, align 8
+  store i32 -1, ptr %621, align 8
+  br label %646
+
+646:                                              ; preds = %.thread57, %yy_shift.exit, %yy_parse_failed.exit, %yy_syntax_error.exit, %616
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #5
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal fastcc void @yy_destructor(i8 noundef zeroext %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal fastcc void @yy_destructor(i8 noundef zeroext %0, ptr noundef readonly captures(none) %1) unnamed_addr #2 {
   switch i8 %0, label %13 [
     i8 1, label %3
     i8 2, label %3
@@ -1350,131 +1446,163 @@ define internal fastcc void @yy_destructor(i8 noundef zeroext %0, ptr noundef re
 
 3:                                                ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2
   %4 = load ptr, ptr %1, align 8
-  tail call void @stnode_free(ptr noundef %4) #5
+  tail call void @stnode_free(ptr noundef %4)
   br label %13
 
 5:                                                ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2
   %6 = load ptr, ptr %1, align 8
-  tail call void @stnode_free(ptr noundef %6) #5
+  tail call void @stnode_free(ptr noundef %6)
   br label %13
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %1, align 8
-  tail call void @drange_node_free_list(ptr noundef %8) #5
+  tail call void @drange_node_free_list(ptr noundef %8)
   br label %13
 
 9:                                                ; preds = %2
   %10 = load ptr, ptr %1, align 8
-  tail call void @st_funcparams_free(ptr noundef %10) #5
+  tail call void @st_funcparams_free(ptr noundef %10)
   br label %13
 
 11:                                               ; preds = %2, %2
   %12 = load ptr, ptr %1, align 8
-  tail call void @set_nodelist_free(ptr noundef %12) #5
+  tail call void @set_nodelist_free(ptr noundef %12)
   br label %13
 
 13:                                               ; preds = %2, %11, %9, %7, %5, %3
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @DfilterFallback(i32 noundef %0) local_unnamed_addr #2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
+define hidden noundef i32 @DfilterFallback(i32 noundef %0) local_unnamed_addr #3 {
   ret i32 0
 }
 
-declare void @sttype_oper_set2(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+; Function Attrs: null_pointer_is_valid
+declare void @sttype_oper_set2(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @stnode_merge_location(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+; Function Attrs: null_pointer_is_valid
+declare void @stnode_merge_location(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @stnode_new(i32 noundef, ptr noundef, ptr noundef, i64, i64) local_unnamed_addr #3
+; Function Attrs: null_pointer_is_valid
+declare ptr @stnode_new(i32 noundef, ptr noundef, ptr noundef, i64, i64) local_unnamed_addr #4
 
-declare ptr @stnode_dup(ptr noundef) local_unnamed_addr #3
+; Function Attrs: null_pointer_is_valid
+declare ptr @stnode_dup(ptr noundef) local_unnamed_addr #4
 
-declare void @sttype_oper_set1(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+; Function Attrs: null_pointer_is_valid
+declare void @sttype_oper_set1(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @stnode_free(ptr noundef) local_unnamed_addr #3
+; Function Attrs: null_pointer_is_valid
+declare void @stnode_free(ptr noundef) local_unnamed_addr #4
 
-declare void @sttype_field_set_range(ptr noundef, ptr noundef) local_unnamed_addr #3
+; Function Attrs: null_pointer_is_valid
+declare void @sttype_field_set_range(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @g_slist_free(ptr noundef) local_unnamed_addr #3
+; Function Attrs: null_pointer_is_valid
+declare void @g_slist_free(ptr noundef) local_unnamed_addr #4
 
-declare ptr @drange_node_from_str(ptr noundef, ptr noundef) local_unnamed_addr #3
+; Function Attrs: null_pointer_is_valid
+declare ptr @drange_node_from_str(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @stnode_token(ptr noundef) local_unnamed_addr #3
+; Function Attrs: null_pointer_is_valid
+declare ptr @stnode_token(ptr noundef) local_unnamed_addr #4
 
-declare void @dfilter_fail(ptr noundef, i32 noundef, i64, i64, ptr noundef, ...) local_unnamed_addr #3
+; Function Attrs: null_pointer_is_valid
+declare void @dfilter_fail(ptr noundef, i32 noundef, i64, i64, ptr noundef, ...) local_unnamed_addr #4
 
-declare { i64, i64 } @stnode_location(ptr noundef) local_unnamed_addr #3
+; Function Attrs: null_pointer_is_valid
+declare { i64, i64 } @stnode_location(ptr noundef) local_unnamed_addr #4
 
-declare void @g_free(ptr noundef) local_unnamed_addr #3
+; Function Attrs: null_pointer_is_valid
+declare void @g_free(ptr noundef) local_unnamed_addr #4
 
-declare void @sttype_field_set_range1(ptr noundef, ptr noundef) local_unnamed_addr #3
+; Function Attrs: null_pointer_is_valid
+declare void @sttype_field_set_range1(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @sttype_field_set_raw(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
+; Function Attrs: null_pointer_is_valid
+declare void @sttype_field_set_raw(ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
 
-declare void @sttype_oper_set_op(ptr noundef, i32 noundef) local_unnamed_addr #3
+; Function Attrs: null_pointer_is_valid
+declare void @sttype_oper_set_op(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @sttype_oper_set2_args(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+; Function Attrs: null_pointer_is_valid
+declare void @sttype_oper_set2_args(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @stnode_type_id(ptr noundef) local_unnamed_addr #3
+; Function Attrs: null_pointer_is_valid
+declare i32 @stnode_type_id(ptr noundef) local_unnamed_addr #4
 
-declare void @sttype_oper_get(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+; Function Attrs: null_pointer_is_valid
+declare void @sttype_oper_get(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @stnode_new_empty(i32 noundef) local_unnamed_addr #3
+; Function Attrs: null_pointer_is_valid
+declare ptr @stnode_new_empty(i32 noundef) local_unnamed_addr #4
 
-declare void @sttype_test_set_match(ptr noundef, i32 noundef) local_unnamed_addr #3
+; Function Attrs: null_pointer_is_valid
+declare void @sttype_test_set_match(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare ptr @g_slist_append(ptr noundef, ptr noundef) local_unnamed_addr #3
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_slist_append(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @g_slist_concat(ptr noundef, ptr noundef) local_unnamed_addr #3
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_slist_concat(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @sttype_slice_set(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+; Function Attrs: null_pointer_is_valid
+declare void @sttype_slice_set(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @sttype_function_set_params(ptr noundef, ptr noundef) local_unnamed_addr #3
+; Function Attrs: null_pointer_is_valid
+declare void @sttype_function_set_params(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @dfilter_resolve_unparsed(ptr noundef, ptr noundef) local_unnamed_addr #3
+; Function Attrs: null_pointer_is_valid
+declare ptr @dfilter_resolve_unparsed(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @stnode_replace(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
+; Function Attrs: null_pointer_is_valid
+declare void @stnode_replace(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @sttype_field_hfinfo(ptr noundef) local_unnamed_addr #3
+; Function Attrs: null_pointer_is_valid
+declare ptr @sttype_field_hfinfo(ptr noundef) local_unnamed_addr #4
 
-declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #3
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #4
 
-declare void @sttype_field_set_drange(ptr noundef, ptr noundef) local_unnamed_addr #3
+; Function Attrs: null_pointer_is_valid
+declare void @sttype_field_set_drange(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @sttype_field_drange_steal(ptr noundef) local_unnamed_addr #3
+; Function Attrs: null_pointer_is_valid
+declare ptr @sttype_field_drange_steal(ptr noundef) local_unnamed_addr #4
 
-declare zeroext i1 @sttype_field_raw(ptr noundef) local_unnamed_addr #3
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @sttype_field_raw(ptr noundef) local_unnamed_addr #4
 
-declare ptr @df_func_lookup(ptr noundef) local_unnamed_addr #3
+; Function Attrs: null_pointer_is_valid
+declare ptr @df_func_lookup(ptr noundef) local_unnamed_addr #4
 
-declare void @drange_node_free_list(ptr noundef) local_unnamed_addr #3
+; Function Attrs: null_pointer_is_valid
+declare void @drange_node_free_list(ptr noundef) local_unnamed_addr #4
 
-declare void @st_funcparams_free(ptr noundef) local_unnamed_addr #3
+; Function Attrs: null_pointer_is_valid
+declare void @st_funcparams_free(ptr noundef) local_unnamed_addr #4
 
-declare void @set_nodelist_free(ptr noundef) local_unnamed_addr #3
+; Function Attrs: null_pointer_is_valid
+declare void @set_nodelist_free(ptr noundef) local_unnamed_addr #4
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

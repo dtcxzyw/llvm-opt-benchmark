@@ -22,8 +22,8 @@ module asm ".previous"
 
 @_ZN12AudioRoutingC1Eb23audio_routing_channel_t = unnamed_addr alias void (ptr, i1, i32), ptr @_ZN12AudioRoutingC2Eb23audio_routing_channel_t
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12AudioRoutingC2Eb23audio_routing_channel_t(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(8) initializes((0, 1), (4, 8)) %0, i1 noundef zeroext %1, i32 noundef %2) unnamed_addr #0 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
+define void @_ZN12AudioRoutingC2Eb23audio_routing_channel_t(ptr noundef writeonly align 4 captures(none) dereferenceable_or_null(8) initializes((0, 1), (4, 8)) %0, i1 noundef zeroext %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = zext i1 %1 to i8
   store i8 %4, ptr %0, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -31,10 +31,10 @@ define void @_ZN12AudioRoutingC2Eb23audio_routing_channel_t(ptr noundef nonnull 
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull ptr @_ZN12AudioRouting26formatAudioRoutingToStringEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
-  %2 = load i8, ptr %0, align 4
-  %3 = trunc i8 %2 to i1
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
+define noundef nonnull ptr @_ZN12AudioRouting26formatAudioRoutingToStringEv(ptr noundef readonly align 4 captures(none) dereferenceable_or_null(8) %0) local_unnamed_addr #1 align 2 {
+  %2 = load i8, ptr %0, align 4, !range !6, !noundef !7
+  %3 = trunc nuw i8 %2 to i1
   br i1 %3, label %9, label %4
 
 4:                                                ; preds = %1
@@ -55,18 +55,18 @@ switch.lookup:                                    ; preds = %4
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress uwtable
-define i64 @_ZN12AudioRouting14getNextChannelEb(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define i64 @_ZN12AudioRouting14getNextChannelEb(ptr noundef readonly align 4 captures(none) dereferenceable_or_null(8) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 {
   %3 = alloca %class.AudioRouting, align 8
-  %4 = load i8, ptr %0, align 4
-  %5 = trunc i8 %4 to i1
+  %4 = load i8, ptr %0, align 4, !range !6, !noundef !7
+  %5 = trunc nuw i8 %4 to i1
   br i1 %1, label %6, label %15
 
 6:                                                ; preds = %2
   br i1 %5, label %7, label %8
 
 7:                                                ; preds = %6
-  call void @_ZN12AudioRoutingC1Eb23audio_routing_channel_t(ptr noundef nonnull align 4 dereferenceable(8) %3, i1 noundef zeroext false, i32 noundef 2)
+  call void @_ZN12AudioRoutingC1Eb23audio_routing_channel_t(ptr noundef nonnull align 4 dereferenceable_or_null(8) %3, i1 noundef zeroext false, i32 noundef 2)
   br label %18
 
 8:                                                ; preds = %6
@@ -79,30 +79,30 @@ define i64 @_ZN12AudioRouting14getNextChannelEb(ptr noundef nonnull readonly ali
   ]
 
 11:                                               ; preds = %8
-  call void @_ZN12AudioRoutingC1Eb23audio_routing_channel_t(ptr noundef nonnull align 4 dereferenceable(8) %3, i1 noundef zeroext false, i32 noundef 4)
+  call void @_ZN12AudioRoutingC1Eb23audio_routing_channel_t(ptr noundef nonnull align 4 dereferenceable_or_null(8) %3, i1 noundef zeroext false, i32 noundef 4)
   br label %18
 
 12:                                               ; preds = %8
-  call void @_ZN12AudioRoutingC1Eb23audio_routing_channel_t(ptr noundef nonnull align 4 dereferenceable(8) %3, i1 noundef zeroext false, i32 noundef 3)
+  call void @_ZN12AudioRoutingC1Eb23audio_routing_channel_t(ptr noundef nonnull align 4 dereferenceable_or_null(8) %3, i1 noundef zeroext false, i32 noundef 3)
   br label %18
 
 13:                                               ; preds = %8
-  call void @_ZN12AudioRoutingC1Eb23audio_routing_channel_t(ptr noundef nonnull align 4 dereferenceable(8) %3, i1 noundef zeroext true, i32 noundef 3)
+  call void @_ZN12AudioRoutingC1Eb23audio_routing_channel_t(ptr noundef nonnull align 4 dereferenceable_or_null(8) %3, i1 noundef zeroext true, i32 noundef 3)
   br label %18
 
 14:                                               ; preds = %8
-  call void @_ZN12AudioRoutingC1Eb23audio_routing_channel_t(ptr noundef nonnull align 4 dereferenceable(8) %3, i1 noundef zeroext false, i32 noundef 2)
+  call void @_ZN12AudioRoutingC1Eb23audio_routing_channel_t(ptr noundef nonnull align 4 dereferenceable_or_null(8) %3, i1 noundef zeroext false, i32 noundef 2)
   br label %18
 
 15:                                               ; preds = %2
   br i1 %5, label %16, label %17
 
 16:                                               ; preds = %15
-  call void @_ZN12AudioRoutingC1Eb23audio_routing_channel_t(ptr noundef nonnull align 4 dereferenceable(8) %3, i1 noundef zeroext false, i32 noundef 1)
+  call void @_ZN12AudioRoutingC1Eb23audio_routing_channel_t(ptr noundef nonnull align 4 dereferenceable_or_null(8) %3, i1 noundef zeroext false, i32 noundef 1)
   br label %18
 
 17:                                               ; preds = %15
-  call void @_ZN12AudioRoutingC1Eb23audio_routing_channel_t(ptr noundef nonnull align 4 dereferenceable(8) %3, i1 noundef zeroext true, i32 noundef 1)
+  call void @_ZN12AudioRoutingC1Eb23audio_routing_channel_t(ptr noundef nonnull align 4 dereferenceable_or_null(8) %3, i1 noundef zeroext true, i32 noundef 1)
   br label %18
 
 18:                                               ; preds = %17, %16, %14, %13, %12, %11, %7
@@ -110,25 +110,25 @@ define i64 @_ZN12AudioRouting14getNextChannelEb(ptr noundef nonnull readonly ali
   ret i64 %19
 }
 
-; Function Attrs: mustprogress uwtable
-define i64 @_ZN12AudioRouting7convertEb(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define i64 @_ZN12AudioRouting7convertEb(ptr noundef readonly align 4 captures(none) dereferenceable_or_null(8) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 {
   %3 = alloca %class.AudioRouting, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
-  %6 = load i8, ptr %0, align 4
+  %6 = load i8, ptr %0, align 4, !range !6, !noundef !7
   %switch.selectcmp = icmp ne i32 %5, 0
   %switch.select = zext i1 %switch.selectcmp to i32
   %cond = icmp eq i32 %5, 1
   %spec.select = select i1 %cond, i32 4, i32 %5
   %.sink = select i1 %1, i32 %spec.select, i32 %switch.select
-  %7 = trunc i8 %6 to i1
-  call void @_ZN12AudioRoutingC1Eb23audio_routing_channel_t(ptr noundef nonnull align 4 dereferenceable(8) %3, i1 noundef zeroext %7, i32 noundef %.sink)
+  %7 = trunc nuw i8 %6 to i1
+  call void @_ZN12AudioRoutingC1Eb23audio_routing_channel_t(ptr noundef nonnull align 4 dereferenceable_or_null(8) %3, i1 noundef zeroext %7, i32 noundef %.sink)
   %8 = load i64, ptr %3, align 8
   ret i64 %8
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12AudioRouting17mergeAudioRoutingES_(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(8) initializes((0, 1)) %0, i64 %1) local_unnamed_addr #0 align 2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
+define void @_ZN12AudioRouting17mergeAudioRoutingES_(ptr noundef writeonly align 4 captures(none) dereferenceable_or_null(8) initializes((0, 1)) %0, i64 %1) local_unnamed_addr #0 align 2 {
   %3 = icmp ult i64 %1, 4294967296
   br i1 %3, label %6, label %4
 
@@ -146,13 +146,17 @@ define void @_ZN12AudioRouting17mergeAudioRoutingES_(ptr noundef nonnull writeon
   ret void
 }
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}

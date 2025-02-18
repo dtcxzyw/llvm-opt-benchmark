@@ -3,11 +3,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
 %struct.true_false_string = type { ptr, ptr }
-%struct._rpc_proc_list = type { i32, ptr, ptr }
-%struct._vsff = type { i32, ptr, ptr, ptr }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
@@ -16,11 +13,9 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_ypserv_procedure_v1 = internal global i32 0, align 4
 @.str = private unnamed_addr constant [13 x i8] c"V1 Procedure\00", align 1
 @.str.1 = private unnamed_addr constant [20 x i8] c"ypserv.procedure_v1\00", align 1
-@ypserv1_proc_vals = internal constant [12 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.39 }, %struct._value_string { i32 2, ptr @.str.40 }, %struct._value_string { i32 3, ptr @.str.41 }, %struct._value_string { i32 4, ptr @.str.42 }, %struct._value_string { i32 5, ptr @.str.43 }, %struct._value_string { i32 6, ptr @.str.44 }, %struct._value_string { i32 7, ptr @.str.45 }, %struct._value_string { i32 8, ptr @.str.46 }, %struct._value_string { i32 9, ptr @.str.47 }, %struct._value_string { i32 10, ptr @.str.48 }, %struct._value_string { i32 11, ptr @.str.49 }, %struct._value_string zeroinitializer], align 16
 @hf_ypserv_procedure_v2 = internal global i32 0, align 4
 @.str.2 = private unnamed_addr constant [13 x i8] c"V2 Procedure\00", align 1
 @.str.3 = private unnamed_addr constant [20 x i8] c"ypserv.procedure_v2\00", align 1
-@ypserv2_proc_vals = internal constant [12 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.39 }, %struct._value_string { i32 2, ptr @.str.40 }, %struct._value_string { i32 3, ptr @.str.41 }, %struct._value_string { i32 4, ptr @.str.42 }, %struct._value_string { i32 5, ptr @.str.43 }, %struct._value_string { i32 6, ptr @.str.44 }, %struct._value_string { i32 7, ptr @.str.45 }, %struct._value_string { i32 8, ptr @.str.46 }, %struct._value_string { i32 9, ptr @.str.47 }, %struct._value_string { i32 10, ptr @.str.48 }, %struct._value_string { i32 11, ptr @.str.49 }, %struct._value_string zeroinitializer], align 16
 @hf_ypserv_domain = internal global i32 0, align 4
 @.str.4 = private unnamed_addr constant [7 x i8] c"Domain\00", align 1
 @.str.5 = private unnamed_addr constant [14 x i8] c"ypserv.domain\00", align 1
@@ -62,14 +57,12 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_ypserv_status = internal global i32 0, align 4
 @.str.30 = private unnamed_addr constant [7 x i8] c"Status\00", align 1
 @.str.31 = private unnamed_addr constant [14 x i8] c"ypserv.status\00", align 1
-@ypstat = internal constant [12 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.50 }, %struct._value_string { i32 2, ptr @.str.51 }, %struct._value_string { i32 0, ptr @.str.52 }, %struct._value_string { i32 -1, ptr @.str.53 }, %struct._value_string { i32 -2, ptr @.str.54 }, %struct._value_string { i32 -3, ptr @.str.55 }, %struct._value_string { i32 -4, ptr @.str.56 }, %struct._value_string { i32 -5, ptr @.str.57 }, %struct._value_string { i32 -6, ptr @.str.58 }, %struct._value_string { i32 -7, ptr @.str.59 }, %struct._value_string { i32 -8, ptr @.str.60 }, %struct._value_string zeroinitializer], align 16
 @hf_ypserv_map_parms = internal global i32 0, align 4
 @.str.32 = private unnamed_addr constant [18 x i8] c"YP Map Parameters\00", align 1
 @.str.33 = private unnamed_addr constant [17 x i8] c"ypserv.map_parms\00", align 1
 @hf_ypserv_xfrstat = internal global i32 0, align 4
 @.str.34 = private unnamed_addr constant [8 x i8] c"Xfrstat\00", align 1
 @.str.35 = private unnamed_addr constant [15 x i8] c"ypserv.xfrstat\00", align 1
-@xfrstat = internal constant [17 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.61 }, %struct._value_string { i32 2, ptr @.str.62 }, %struct._value_string { i32 -1, ptr @.str.63 }, %struct._value_string { i32 -2, ptr @.str.64 }, %struct._value_string { i32 -3, ptr @.str.65 }, %struct._value_string { i32 -4, ptr @.str.66 }, %struct._value_string { i32 -5, ptr @.str.67 }, %struct._value_string { i32 -6, ptr @.str.68 }, %struct._value_string { i32 -7, ptr @.str.69 }, %struct._value_string { i32 -8, ptr @.str.70 }, %struct._value_string { i32 -9, ptr @.str.71 }, %struct._value_string { i32 -10, ptr @.str.72 }, %struct._value_string { i32 -11, ptr @.str.73 }, %struct._value_string { i32 -12, ptr @.str.74 }, %struct._value_string { i32 -13, ptr @.str.75 }, %struct._value_string { i32 -14, ptr @.str.76 }, %struct._value_string zeroinitializer], align 16
 @proto_register_ypserv.ett = internal global [2 x ptr] [ptr @ett_ypserv, ptr @ett_ypserv_map_parms], align 16
 @ett_ypserv = internal global i32 0, align 4
 @ett_ypserv_map_parms = internal global i32 0, align 4
@@ -77,7 +70,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.37 = private unnamed_addr constant [7 x i8] c"YPSERV\00", align 1
 @.str.38 = private unnamed_addr constant [7 x i8] c"ypserv\00", align 1
 @proto_ypserv = internal global i32 0, align 4
-@ypserv_vers_info = internal constant [2 x %struct._rpc_proc_list] [%struct._rpc_proc_list { i32 1, ptr @ypserv1_proc, ptr @hf_ypserv_procedure_v1 }, %struct._rpc_proc_list { i32 2, ptr @ypserv2_proc, ptr @hf_ypserv_procedure_v2 }], align 16
 @.str.39 = private unnamed_addr constant [7 x i8] c"DOMAIN\00", align 1
 @.str.40 = private unnamed_addr constant [14 x i8] c"DOMAIN_NONACK\00", align 1
 @.str.41 = private unnamed_addr constant [6 x i8] c"MATCH\00", align 1
@@ -89,67 +81,72 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.47 = private unnamed_addr constant [7 x i8] c"MASTER\00", align 1
 @.str.48 = private unnamed_addr constant [6 x i8] c"ORDER\00", align 1
 @.str.49 = private unnamed_addr constant [8 x i8] c"MAPLIST\00", align 1
-@.str.50 = private unnamed_addr constant [8 x i8] c"YP_TRUE\00", align 1
-@.str.51 = private unnamed_addr constant [10 x i8] c"YP_NOMORE\00", align 1
-@.str.52 = private unnamed_addr constant [9 x i8] c"YP_FALSE\00", align 1
-@.str.53 = private unnamed_addr constant [9 x i8] c"YP_NOMAP\00", align 1
-@.str.54 = private unnamed_addr constant [9 x i8] c"YP_NODOM\00", align 1
-@.str.55 = private unnamed_addr constant [9 x i8] c"YP_NOKEY\00", align 1
-@.str.56 = private unnamed_addr constant [9 x i8] c"YP_BADOP\00", align 1
-@.str.57 = private unnamed_addr constant [9 x i8] c"YP_BADDB\00", align 1
-@.str.58 = private unnamed_addr constant [9 x i8] c"YP_YPERR\00", align 1
-@.str.59 = private unnamed_addr constant [11 x i8] c"YP_BADARGS\00", align 1
-@.str.60 = private unnamed_addr constant [8 x i8] c"YP_VERS\00", align 1
-@.str.61 = private unnamed_addr constant [11 x i8] c"YPXFR_SUCC\00", align 1
-@.str.62 = private unnamed_addr constant [10 x i8] c"YPXFR_AGE\00", align 1
-@.str.63 = private unnamed_addr constant [12 x i8] c"YPXFR_NOMAP\00", align 1
-@.str.64 = private unnamed_addr constant [12 x i8] c"YPXFR_NODOM\00", align 1
-@.str.65 = private unnamed_addr constant [11 x i8] c"YPXFR_RSRC\00", align 1
-@.str.66 = private unnamed_addr constant [10 x i8] c"YPXFR_RPC\00", align 1
-@.str.67 = private unnamed_addr constant [12 x i8] c"YPXFR_MADDR\00", align 1
-@.str.68 = private unnamed_addr constant [12 x i8] c"YPXFR_YPERR\00", align 1
-@.str.69 = private unnamed_addr constant [14 x i8] c"YPXFR_BADARGS\00", align 1
-@.str.70 = private unnamed_addr constant [10 x i8] c"YPXFR_DBM\00", align 1
-@.str.71 = private unnamed_addr constant [11 x i8] c"YPXFR_FILE\00", align 1
-@.str.72 = private unnamed_addr constant [11 x i8] c"YPXFR_SKEW\00", align 1
-@.str.73 = private unnamed_addr constant [12 x i8] c"YPXFR_CLEAR\00", align 1
-@.str.74 = private unnamed_addr constant [12 x i8] c"YPXFR_FORCE\00", align 1
-@.str.75 = private unnamed_addr constant [13 x i8] c"YPXFR_XFRERR\00", align 1
-@.str.76 = private unnamed_addr constant [14 x i8] c"YPXFR_REFUSED\00", align 1
-@ypserv1_proc = internal constant [13 x %struct._vsff] [%struct._vsff { i32 0, ptr @.str.77, ptr @dissect_rpc_void, ptr @dissect_rpc_void }, %struct._vsff { i32 1, ptr @.str.39, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 2, ptr @.str.40, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 3, ptr @.str.41, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 4, ptr @.str.42, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 5, ptr @.str.43, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 6, ptr @.str.44, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 7, ptr @.str.45, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 8, ptr @.str.46, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 9, ptr @.str.47, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 10, ptr @.str.48, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 11, ptr @.str.49, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff zeroinitializer], align 16
-@ypserv2_proc = internal constant [13 x %struct._vsff] [%struct._vsff { i32 0, ptr @.str.77, ptr @dissect_rpc_void, ptr @dissect_rpc_void }, %struct._vsff { i32 1, ptr @.str.39, ptr @dissect_domain_call, ptr @dissect_domain_reply }, %struct._vsff { i32 2, ptr @.str.40, ptr @dissect_domain_nonack_call, ptr @dissect_domain_nonack_reply }, %struct._vsff { i32 3, ptr @.str.41, ptr @dissect_match_call, ptr @dissect_match_reply }, %struct._vsff { i32 4, ptr @.str.42, ptr @dissect_first_call, ptr @dissect_first_reply }, %struct._vsff { i32 5, ptr @.str.43, ptr @dissect_next_call, ptr @dissect_next_reply }, %struct._vsff { i32 6, ptr @.str.44, ptr @dissect_xfr_call, ptr @dissect_xfr_reply }, %struct._vsff { i32 7, ptr @.str.45, ptr @dissect_clear_call, ptr @dissect_clear_reply }, %struct._vsff { i32 8, ptr @.str.46, ptr @dissect_all_call, ptr @dissect_all_reply }, %struct._vsff { i32 9, ptr @.str.47, ptr @dissect_master_call, ptr @dissect_master_reply }, %struct._vsff { i32 10, ptr @.str.48, ptr @dissect_order_call, ptr @dissect_order_reply }, %struct._vsff { i32 11, ptr @.str.49, ptr @dissect_maplist_call, ptr @dissect_maplist_reply }, %struct._vsff zeroinitializer], align 16
-@.str.77 = private unnamed_addr constant [5 x i8] c"NULL\00", align 1
-@.str.78 = private unnamed_addr constant [13 x i8] c" DOMAIN call\00", align 1
-@.str.79 = private unnamed_addr constant [14 x i8] c" DOMAIN reply\00", align 1
-@.str.80 = private unnamed_addr constant [20 x i8] c" DOMAIN_NONACK call\00", align 1
-@.str.81 = private unnamed_addr constant [21 x i8] c" DOMAIN_NONACK reply\00", align 1
-@.str.82 = private unnamed_addr constant [12 x i8] c" MATCH call\00", align 1
-@.str.83 = private unnamed_addr constant [5 x i8] c" %s/\00", align 1
-@.str.84 = private unnamed_addr constant [4 x i8] c"%s/\00", align 1
-@.str.85 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
-@.str.86 = private unnamed_addr constant [13 x i8] c" MATCH reply\00", align 1
-@.str.87 = private unnamed_addr constant [4 x i8] c" %s\00", align 1
-@.str.88 = private unnamed_addr constant [17 x i8] c"Unknown error:%u\00", align 1
-@.str.89 = private unnamed_addr constant [10 x i8] c" Error:%s\00", align 1
-@.str.90 = private unnamed_addr constant [12 x i8] c" FIRST call\00", align 1
-@.str.91 = private unnamed_addr constant [13 x i8] c" FIRST reply\00", align 1
-@.str.92 = private unnamed_addr constant [11 x i8] c" NEXT call\00", align 1
-@.str.93 = private unnamed_addr constant [12 x i8] c" NEXT reply\00", align 1
-@.str.94 = private unnamed_addr constant [10 x i8] c" XFR call\00", align 1
-@.str.95 = private unnamed_addr constant [11 x i8] c" XFR reply\00", align 1
-@.str.96 = private unnamed_addr constant [12 x i8] c" CLEAR call\00", align 1
-@.str.97 = private unnamed_addr constant [13 x i8] c" CLEAR reply\00", align 1
-@.str.98 = private unnamed_addr constant [10 x i8] c" ALL call\00", align 1
-@.str.99 = private unnamed_addr constant [11 x i8] c" ALL reply\00", align 1
-@.str.100 = private unnamed_addr constant [13 x i8] c" MASTER call\00", align 1
-@.str.101 = private unnamed_addr constant [14 x i8] c" MASTER reply\00", align 1
-@.str.102 = private unnamed_addr constant [12 x i8] c" ORDER call\00", align 1
-@.str.103 = private unnamed_addr constant [13 x i8] c" ORDER reply\00", align 1
-@.str.104 = private unnamed_addr constant [8 x i8] c" 0x%08x\00", align 1
-@.str.105 = private unnamed_addr constant [14 x i8] c" MAPLIST call\00", align 1
-@.str.106 = private unnamed_addr constant [15 x i8] c" MAPLIST reply\00", align 1
+@ypserv1_proc_vals = internal constant [12 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.39 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.40 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.41 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.42 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.43 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.44 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.45 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.46 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.48 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.49 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@ypserv2_proc_vals = internal constant [12 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.39 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.40 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.41 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.42 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.43 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.44 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.45 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.46 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.48 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.49 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.52 = private unnamed_addr constant [8 x i8] c"YP_TRUE\00", align 1
+@.str.53 = private unnamed_addr constant [10 x i8] c"YP_NOMORE\00", align 1
+@.str.54 = private unnamed_addr constant [9 x i8] c"YP_FALSE\00", align 1
+@.str.55 = private unnamed_addr constant [9 x i8] c"YP_NOMAP\00", align 1
+@.str.56 = private unnamed_addr constant [9 x i8] c"YP_NODOM\00", align 1
+@.str.57 = private unnamed_addr constant [9 x i8] c"YP_NOKEY\00", align 1
+@.str.58 = private unnamed_addr constant [9 x i8] c"YP_BADOP\00", align 1
+@.str.59 = private unnamed_addr constant [9 x i8] c"YP_BADDB\00", align 1
+@.str.60 = private unnamed_addr constant [9 x i8] c"YP_YPERR\00", align 1
+@.str.61 = private unnamed_addr constant [11 x i8] c"YP_BADARGS\00", align 1
+@.str.62 = private unnamed_addr constant [8 x i8] c"YP_VERS\00", align 1
+@ypstat = internal constant [12 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.52 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.53 }, { i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.54 }, { i32, [4 x i8], ptr } { i32 -1, [4 x i8] zeroinitializer, ptr @.str.55 }, { i32, [4 x i8], ptr } { i32 -2, [4 x i8] zeroinitializer, ptr @.str.56 }, { i32, [4 x i8], ptr } { i32 -3, [4 x i8] zeroinitializer, ptr @.str.57 }, { i32, [4 x i8], ptr } { i32 -4, [4 x i8] zeroinitializer, ptr @.str.58 }, { i32, [4 x i8], ptr } { i32 -5, [4 x i8] zeroinitializer, ptr @.str.59 }, { i32, [4 x i8], ptr } { i32 -6, [4 x i8] zeroinitializer, ptr @.str.60 }, { i32, [4 x i8], ptr } { i32 -7, [4 x i8] zeroinitializer, ptr @.str.61 }, { i32, [4 x i8], ptr } { i32 -8, [4 x i8] zeroinitializer, ptr @.str.62 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.64 = private unnamed_addr constant [11 x i8] c"YPXFR_SUCC\00", align 1
+@.str.65 = private unnamed_addr constant [10 x i8] c"YPXFR_AGE\00", align 1
+@.str.66 = private unnamed_addr constant [12 x i8] c"YPXFR_NOMAP\00", align 1
+@.str.67 = private unnamed_addr constant [12 x i8] c"YPXFR_NODOM\00", align 1
+@.str.68 = private unnamed_addr constant [11 x i8] c"YPXFR_RSRC\00", align 1
+@.str.69 = private unnamed_addr constant [10 x i8] c"YPXFR_RPC\00", align 1
+@.str.70 = private unnamed_addr constant [12 x i8] c"YPXFR_MADDR\00", align 1
+@.str.71 = private unnamed_addr constant [12 x i8] c"YPXFR_YPERR\00", align 1
+@.str.72 = private unnamed_addr constant [14 x i8] c"YPXFR_BADARGS\00", align 1
+@.str.73 = private unnamed_addr constant [10 x i8] c"YPXFR_DBM\00", align 1
+@.str.74 = private unnamed_addr constant [11 x i8] c"YPXFR_FILE\00", align 1
+@.str.75 = private unnamed_addr constant [11 x i8] c"YPXFR_SKEW\00", align 1
+@.str.76 = private unnamed_addr constant [12 x i8] c"YPXFR_CLEAR\00", align 1
+@.str.77 = private unnamed_addr constant [12 x i8] c"YPXFR_FORCE\00", align 1
+@.str.78 = private unnamed_addr constant [13 x i8] c"YPXFR_XFRERR\00", align 1
+@.str.79 = private unnamed_addr constant [14 x i8] c"YPXFR_REFUSED\00", align 1
+@xfrstat = internal constant [17 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.64 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.65 }, { i32, [4 x i8], ptr } { i32 -1, [4 x i8] zeroinitializer, ptr @.str.66 }, { i32, [4 x i8], ptr } { i32 -2, [4 x i8] zeroinitializer, ptr @.str.67 }, { i32, [4 x i8], ptr } { i32 -3, [4 x i8] zeroinitializer, ptr @.str.68 }, { i32, [4 x i8], ptr } { i32 -4, [4 x i8] zeroinitializer, ptr @.str.69 }, { i32, [4 x i8], ptr } { i32 -5, [4 x i8] zeroinitializer, ptr @.str.70 }, { i32, [4 x i8], ptr } { i32 -6, [4 x i8] zeroinitializer, ptr @.str.71 }, { i32, [4 x i8], ptr } { i32 -7, [4 x i8] zeroinitializer, ptr @.str.72 }, { i32, [4 x i8], ptr } { i32 -8, [4 x i8] zeroinitializer, ptr @.str.73 }, { i32, [4 x i8], ptr } { i32 -9, [4 x i8] zeroinitializer, ptr @.str.74 }, { i32, [4 x i8], ptr } { i32 -10, [4 x i8] zeroinitializer, ptr @.str.75 }, { i32, [4 x i8], ptr } { i32 -11, [4 x i8] zeroinitializer, ptr @.str.76 }, { i32, [4 x i8], ptr } { i32 -12, [4 x i8] zeroinitializer, ptr @.str.77 }, { i32, [4 x i8], ptr } { i32 -13, [4 x i8] zeroinitializer, ptr @.str.78 }, { i32, [4 x i8], ptr } { i32 -14, [4 x i8] zeroinitializer, ptr @.str.79 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@ypserv_vers_info = internal constant [2 x { i32, [4 x i8], ptr, ptr }] [{ i32, [4 x i8], ptr, ptr } { i32 1, [4 x i8] zeroinitializer, ptr @ypserv1_proc, ptr @hf_ypserv_procedure_v1 }, { i32, [4 x i8], ptr, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @ypserv2_proc, ptr @hf_ypserv_procedure_v2 }], align 16
+@.str.82 = private unnamed_addr constant [5 x i8] c"NULL\00", align 1
+@ypserv1_proc = internal constant [13 x { i32, [4 x i8], ptr, ptr, ptr }] [{ i32, [4 x i8], ptr, ptr, ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.82, ptr @dissect_rpc_void, ptr @dissect_rpc_void }, { i32, [4 x i8], ptr, ptr, ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.39, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.40, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.41, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.42, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.43, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.44, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.45, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.46, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.47, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.48, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.49, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } zeroinitializer], align 16
+@ypserv2_proc = internal constant [13 x { i32, [4 x i8], ptr, ptr, ptr }] [{ i32, [4 x i8], ptr, ptr, ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.82, ptr @dissect_rpc_void, ptr @dissect_rpc_void }, { i32, [4 x i8], ptr, ptr, ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.39, ptr @dissect_domain_call, ptr @dissect_domain_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.40, ptr @dissect_domain_nonack_call, ptr @dissect_domain_nonack_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.41, ptr @dissect_match_call, ptr @dissect_match_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.42, ptr @dissect_first_call, ptr @dissect_first_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.43, ptr @dissect_next_call, ptr @dissect_next_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.44, ptr @dissect_xfr_call, ptr @dissect_xfr_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.45, ptr @dissect_clear_call, ptr @dissect_clear_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.46, ptr @dissect_all_call, ptr @dissect_all_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.47, ptr @dissect_master_call, ptr @dissect_master_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.48, ptr @dissect_order_call, ptr @dissect_order_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.49, ptr @dissect_maplist_call, ptr @dissect_maplist_reply }, { i32, [4 x i8], ptr, ptr, ptr } zeroinitializer], align 16
+@.str.85 = private unnamed_addr constant [13 x i8] c" DOMAIN call\00", align 1
+@.str.86 = private unnamed_addr constant [14 x i8] c" DOMAIN reply\00", align 1
+@.str.87 = private unnamed_addr constant [20 x i8] c" DOMAIN_NONACK call\00", align 1
+@.str.88 = private unnamed_addr constant [21 x i8] c" DOMAIN_NONACK reply\00", align 1
+@.str.89 = private unnamed_addr constant [12 x i8] c" MATCH call\00", align 1
+@.str.90 = private unnamed_addr constant [5 x i8] c" %s/\00", align 1
+@.str.91 = private unnamed_addr constant [4 x i8] c"%s/\00", align 1
+@.str.92 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
+@.str.93 = private unnamed_addr constant [13 x i8] c" MATCH reply\00", align 1
+@.str.94 = private unnamed_addr constant [4 x i8] c" %s\00", align 1
+@.str.95 = private unnamed_addr constant [17 x i8] c"Unknown error:%u\00", align 1
+@.str.96 = private unnamed_addr constant [10 x i8] c" Error:%s\00", align 1
+@.str.97 = private unnamed_addr constant [12 x i8] c" FIRST call\00", align 1
+@.str.98 = private unnamed_addr constant [13 x i8] c" FIRST reply\00", align 1
+@.str.99 = private unnamed_addr constant [11 x i8] c" NEXT call\00", align 1
+@.str.100 = private unnamed_addr constant [12 x i8] c" NEXT reply\00", align 1
+@.str.101 = private unnamed_addr constant [10 x i8] c" XFR call\00", align 1
+@.str.102 = private unnamed_addr constant [11 x i8] c" XFR reply\00", align 1
+@.str.103 = private unnamed_addr constant [12 x i8] c" CLEAR call\00", align 1
+@.str.104 = private unnamed_addr constant [13 x i8] c" CLEAR reply\00", align 1
+@.str.105 = private unnamed_addr constant [10 x i8] c" ALL call\00", align 1
+@.str.106 = private unnamed_addr constant [11 x i8] c" ALL reply\00", align 1
+@.str.107 = private unnamed_addr constant [13 x i8] c" MASTER call\00", align 1
+@.str.108 = private unnamed_addr constant [14 x i8] c" MASTER reply\00", align 1
+@.str.109 = private unnamed_addr constant [12 x i8] c" ORDER call\00", align 1
+@.str.110 = private unnamed_addr constant [13 x i8] c" ORDER reply\00", align 1
+@.str.111 = private unnamed_addr constant [8 x i8] c" 0x%08x\00", align 1
+@.str.112 = private unnamed_addr constant [14 x i8] c" MAPLIST call\00", align 1
+@.str.113 = private unnamed_addr constant [15 x i8] c" MAPLIST reply\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_ypserv() #0 {
   %1 = call i32 @proto_register_protocol(ptr noundef @.str.36, ptr noundef @.str.37, ptr noundef @.str.38)
   store i32 %1, ptr @proto_ypserv, align 4
@@ -159,13 +156,16 @@ define hidden void @proto_register_ypserv() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_ypserv() #0 {
   %1 = load i32, ptr @proto_ypserv, align 4
   %2 = load i32, ptr @ett_ypserv, align 4
@@ -173,13 +173,16 @@ define hidden void @proto_reg_handoff_ypserv() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @rpc_init_prog(i32 noundef, i32 noundef, i32 noundef, i64 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_rpc_void(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_rpc_unknown(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_domain_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -190,7 +193,7 @@ define internal i32 @dissect_domain_call(ptr noundef %0, ptr noundef %1, ptr nou
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
   %9 = load ptr, ptr %7, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef @.str.78)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef @.str.85)
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %7, align 8
   %12 = load i32, ptr @hf_ypserv_domain, align 4
@@ -198,7 +201,7 @@ define internal i32 @dissect_domain_call(ptr noundef %0, ptr noundef %1, ptr nou
   ret i32 %13
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_domain_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -209,9 +212,10 @@ define internal i32 @dissect_domain_reply(ptr noundef %0, ptr noundef %1, ptr no
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef @.str.79)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef @.str.86)
   %11 = load ptr, ptr %7, align 8
   %12 = load i32, ptr @hf_ypserv_servesdomain, align 4
   %13 = load ptr, ptr %5, align 8
@@ -221,10 +225,11 @@ define internal i32 @dissect_domain_reply(ptr noundef %0, ptr noundef %1, ptr no
   %17 = add i32 %16, 4
   store i32 %17, ptr %9, align 4
   %18 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %18
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_domain_nonack_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -235,7 +240,7 @@ define internal i32 @dissect_domain_nonack_call(ptr noundef %0, ptr noundef %1, 
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
   %9 = load ptr, ptr %7, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef @.str.80)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef @.str.87)
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %7, align 8
   %12 = load i32, ptr @hf_ypserv_domain, align 4
@@ -243,7 +248,7 @@ define internal i32 @dissect_domain_nonack_call(ptr noundef %0, ptr noundef %1, 
   ret i32 %13
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_domain_nonack_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -254,9 +259,10 @@ define internal i32 @dissect_domain_nonack_reply(ptr noundef %0, ptr noundef %1,
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef @.str.81)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef @.str.88)
   %11 = load ptr, ptr %7, align 8
   %12 = load i32, ptr @hf_ypserv_servesdomain, align 4
   %13 = load ptr, ptr %5, align 8
@@ -266,10 +272,11 @@ define internal i32 @dissect_domain_nonack_reply(ptr noundef %0, ptr noundef %1,
   %17 = add i32 %16, 4
   store i32 %17, ptr %9, align 4
   %18 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %18
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_match_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -281,9 +288,11 @@ define internal i32 @dissect_match_call(ptr noundef %0, ptr noundef %1, ptr noun
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %7, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef @.str.82)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef @.str.89)
   %12 = load ptr, ptr %5, align 8
   %13 = load ptr, ptr %7, align 8
   %14 = load i32, ptr @hf_ypserv_domain, align 4
@@ -291,13 +300,13 @@ define internal i32 @dissect_match_call(ptr noundef %0, ptr noundef %1, ptr noun
   %16 = call i32 @dissect_rpc_string(ptr noundef %12, ptr noundef %13, i32 noundef %14, i32 noundef %15, ptr noundef %9)
   store i32 %16, ptr %10, align 4
   %17 = load ptr, ptr %6, align 8
-  %18 = getelementptr inbounds %struct._packet_info, ptr %17, i32 0, i32 1
+  %18 = getelementptr inbounds nuw %struct._packet_info, ptr %17, i32 0, i32 1
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %9, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %19, i32 noundef 25, ptr noundef @.str.83, ptr noundef %20)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %19, i32 noundef 25, ptr noundef @.str.90, ptr noundef %20)
   %21 = load ptr, ptr %7, align 8
   %22 = load ptr, ptr %9, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %21, ptr noundef @.str.83, ptr noundef %22)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %21, ptr noundef @.str.90, ptr noundef %22)
   %23 = load ptr, ptr %5, align 8
   %24 = load ptr, ptr %7, align 8
   %25 = load i32, ptr @hf_ypserv_map, align 4
@@ -305,13 +314,13 @@ define internal i32 @dissect_match_call(ptr noundef %0, ptr noundef %1, ptr noun
   %27 = call i32 @dissect_rpc_string(ptr noundef %23, ptr noundef %24, i32 noundef %25, i32 noundef %26, ptr noundef %9)
   store i32 %27, ptr %10, align 4
   %28 = load ptr, ptr %6, align 8
-  %29 = getelementptr inbounds %struct._packet_info, ptr %28, i32 0, i32 1
+  %29 = getelementptr inbounds nuw %struct._packet_info, ptr %28, i32 0, i32 1
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %9, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %30, i32 noundef 25, ptr noundef @.str.84, ptr noundef %31)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %30, i32 noundef 25, ptr noundef @.str.91, ptr noundef %31)
   %32 = load ptr, ptr %7, align 8
   %33 = load ptr, ptr %9, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %32, ptr noundef @.str.84, ptr noundef %33)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %32, ptr noundef @.str.91, ptr noundef %33)
   %34 = load ptr, ptr %5, align 8
   %35 = load ptr, ptr %7, align 8
   %36 = load i32, ptr @hf_ypserv_key, align 4
@@ -319,18 +328,20 @@ define internal i32 @dissect_match_call(ptr noundef %0, ptr noundef %1, ptr noun
   %38 = call i32 @dissect_rpc_string(ptr noundef %34, ptr noundef %35, i32 noundef %36, i32 noundef %37, ptr noundef %9)
   store i32 %38, ptr %10, align 4
   %39 = load ptr, ptr %6, align 8
-  %40 = getelementptr inbounds %struct._packet_info, ptr %39, i32 0, i32 1
+  %40 = getelementptr inbounds nuw %struct._packet_info, ptr %39, i32 0, i32 1
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %9, align 8
   call void @col_append_str(ptr noundef %41, i32 noundef 25, ptr noundef %42)
   %43 = load ptr, ptr %7, align 8
   %44 = load ptr, ptr %9, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %43, ptr noundef @.str.85, ptr noundef %44)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %43, ptr noundef @.str.92, ptr noundef %44)
   %45 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
   ret i32 %45
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_match_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -343,9 +354,12 @@ define internal i32 @dissect_match_reply(ptr noundef %0, ptr noundef %1, ptr nou
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
   store i32 0, ptr %11, align 4
   %12 = load ptr, ptr %7, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef @.str.86)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef @.str.93)
   %13 = load ptr, ptr %5, align 8
   %14 = load i32, ptr %11, align 4
   %15 = load ptr, ptr %6, align 8
@@ -364,13 +378,13 @@ define internal i32 @dissect_match_reply(ptr noundef %0, ptr noundef %1, ptr nou
   %25 = call i32 @dissect_rpc_string(ptr noundef %21, ptr noundef %22, i32 noundef %23, i32 noundef %24, ptr noundef %10)
   store i32 %25, ptr %11, align 4
   %26 = load ptr, ptr %6, align 8
-  %27 = getelementptr inbounds %struct._packet_info, ptr %26, i32 0, i32 1
+  %27 = getelementptr inbounds nuw %struct._packet_info, ptr %26, i32 0, i32 1
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %10, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %28, i32 noundef 25, ptr noundef @.str.87, ptr noundef %29)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %28, i32 noundef 25, ptr noundef @.str.94, ptr noundef %29)
   %30 = load ptr, ptr %7, align 8
   %31 = load ptr, ptr %10, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %30, ptr noundef @.str.87, ptr noundef %31)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %30, ptr noundef @.str.94, ptr noundef %31)
   br label %38
 
 32:                                               ; preds = %4
@@ -384,10 +398,13 @@ define internal i32 @dissect_match_reply(ptr noundef %0, ptr noundef %1, ptr nou
 
 38:                                               ; preds = %32, %20
   %39 = load i32, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %39
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_first_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -398,9 +415,10 @@ define internal i32 @dissect_first_call(ptr noundef %0, ptr noundef %1, ptr noun
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef @.str.90)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef @.str.97)
   %11 = load ptr, ptr %5, align 8
   %12 = load ptr, ptr %7, align 8
   %13 = load i32, ptr @hf_ypserv_domain, align 4
@@ -414,10 +432,11 @@ define internal i32 @dissect_first_call(ptr noundef %0, ptr noundef %1, ptr noun
   %20 = call i32 @dissect_rpc_string(ptr noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef %19, ptr noundef null)
   store i32 %20, ptr %9, align 4
   %21 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_first_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -428,9 +447,10 @@ define internal i32 @dissect_first_reply(ptr noundef %0, ptr noundef %1, ptr nou
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef @.str.91)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef @.str.98)
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %9, align 4
   %13 = load ptr, ptr %6, align 8
@@ -450,10 +470,11 @@ define internal i32 @dissect_first_reply(ptr noundef %0, ptr noundef %1, ptr nou
   %25 = call i32 @dissect_rpc_string(ptr noundef %21, ptr noundef %22, i32 noundef %23, i32 noundef %24, ptr noundef null)
   store i32 %25, ptr %9, align 4
   %26 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %26
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_next_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -464,9 +485,10 @@ define internal i32 @dissect_next_call(ptr noundef %0, ptr noundef %1, ptr nound
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef @.str.92)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef @.str.99)
   %11 = load ptr, ptr %5, align 8
   %12 = load ptr, ptr %7, align 8
   %13 = load i32, ptr @hf_ypserv_domain, align 4
@@ -486,10 +508,11 @@ define internal i32 @dissect_next_call(ptr noundef %0, ptr noundef %1, ptr nound
   %25 = call i32 @dissect_rpc_string(ptr noundef %21, ptr noundef %22, i32 noundef %23, i32 noundef %24, ptr noundef null)
   store i32 %25, ptr %9, align 4
   %26 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %26
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_next_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -500,9 +523,10 @@ define internal i32 @dissect_next_reply(ptr noundef %0, ptr noundef %1, ptr noun
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef @.str.93)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef @.str.100)
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %9, align 4
   %13 = load ptr, ptr %6, align 8
@@ -522,10 +546,11 @@ define internal i32 @dissect_next_reply(ptr noundef %0, ptr noundef %1, ptr noun
   %25 = call i32 @dissect_rpc_string(ptr noundef %21, ptr noundef %22, i32 noundef %23, i32 noundef %24, ptr noundef null)
   store i32 %25, ptr %9, align 4
   %26 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %26
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_xfr_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -539,13 +564,17 @@ define internal i32 @dissect_xfr_call(ptr noundef %0, ptr noundef %1, ptr nounde
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
   store ptr null, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
   store ptr null, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
   store i32 0, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
   %13 = load i32, ptr %11, align 4
   store i32 %13, ptr %12, align 4
   %14 = load ptr, ptr %7, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef @.str.94)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef @.str.101)
   %15 = load ptr, ptr %7, align 8
   %16 = icmp ne ptr %15, null
   br i1 %16, label %17, label %30
@@ -630,10 +659,14 @@ define internal i32 @dissect_xfr_call(ptr noundef %0, ptr noundef %1, ptr nounde
 
 75:                                               ; preds = %70, %30
   %76 = load i32, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
   ret i32 %76
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_xfr_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -644,9 +677,10 @@ define internal i32 @dissect_xfr_reply(ptr noundef %0, ptr noundef %1, ptr nound
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef @.str.95)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef @.str.102)
   %11 = load ptr, ptr %7, align 8
   %12 = load i32, ptr @hf_ypserv_transid, align 4
   %13 = load ptr, ptr %5, align 8
@@ -662,10 +696,11 @@ define internal i32 @dissect_xfr_reply(ptr noundef %0, ptr noundef %1, ptr nound
   %22 = call i32 @dissect_rpc_uint32(ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21)
   store i32 %22, ptr %9, align 4
   %23 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_clear_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -676,14 +711,16 @@ define internal i32 @dissect_clear_call(ptr noundef %0, ptr noundef %1, ptr noun
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef @.str.96)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef @.str.103)
   %11 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %11
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_clear_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -694,11 +731,11 @@ define internal i32 @dissect_clear_reply(ptr noundef %0, ptr noundef %1, ptr nou
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
   %9 = load ptr, ptr %7, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef @.str.97)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef @.str.104)
   ret i32 0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_all_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -709,9 +746,10 @@ define internal i32 @dissect_all_call(ptr noundef %0, ptr noundef %1, ptr nounde
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef @.str.98)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef @.str.105)
   %11 = load ptr, ptr %5, align 8
   %12 = load ptr, ptr %7, align 8
   %13 = load i32, ptr @hf_ypserv_domain, align 4
@@ -725,10 +763,11 @@ define internal i32 @dissect_all_call(ptr noundef %0, ptr noundef %1, ptr nounde
   %20 = call i32 @dissect_rpc_string(ptr noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef %19, ptr noundef null)
   store i32 %20, ptr %9, align 4
   %21 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_all_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -740,9 +779,11 @@ define internal i32 @dissect_all_reply(ptr noundef %0, ptr noundef %1, ptr nound
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %7, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef @.str.99)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef @.str.106)
   br label %12
 
 12:                                               ; preds = %24, %4
@@ -786,10 +827,12 @@ define internal i32 @dissect_all_reply(ptr noundef %0, ptr noundef %1, ptr nound
 
 40:                                               ; preds = %23
   %41 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %41
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_master_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -800,9 +843,10 @@ define internal i32 @dissect_master_call(ptr noundef %0, ptr noundef %1, ptr nou
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef @.str.100)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef @.str.107)
   %11 = load ptr, ptr %5, align 8
   %12 = load ptr, ptr %7, align 8
   %13 = load i32, ptr @hf_ypserv_domain, align 4
@@ -816,10 +860,11 @@ define internal i32 @dissect_master_call(ptr noundef %0, ptr noundef %1, ptr nou
   %20 = call i32 @dissect_rpc_string(ptr noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef %19, ptr noundef null)
   store i32 %20, ptr %9, align 4
   %21 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_master_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -830,9 +875,10 @@ define internal i32 @dissect_master_reply(ptr noundef %0, ptr noundef %1, ptr no
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef @.str.101)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef @.str.108)
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %9, align 4
   %13 = load ptr, ptr %6, align 8
@@ -846,10 +892,11 @@ define internal i32 @dissect_master_reply(ptr noundef %0, ptr noundef %1, ptr no
   %20 = call i32 @dissect_rpc_string(ptr noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef %19, ptr noundef null)
   store i32 %20, ptr %9, align 4
   %21 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_order_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -861,9 +908,11 @@ define internal i32 @dissect_order_call(ptr noundef %0, ptr noundef %1, ptr noun
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %7, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef @.str.102)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef @.str.109)
   %12 = load ptr, ptr %5, align 8
   %13 = load ptr, ptr %7, align 8
   %14 = load i32, ptr @hf_ypserv_domain, align 4
@@ -871,13 +920,13 @@ define internal i32 @dissect_order_call(ptr noundef %0, ptr noundef %1, ptr noun
   %16 = call i32 @dissect_rpc_string(ptr noundef %12, ptr noundef %13, i32 noundef %14, i32 noundef %15, ptr noundef %9)
   store i32 %16, ptr %10, align 4
   %17 = load ptr, ptr %6, align 8
-  %18 = getelementptr inbounds %struct._packet_info, ptr %17, i32 0, i32 1
+  %18 = getelementptr inbounds nuw %struct._packet_info, ptr %17, i32 0, i32 1
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %9, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %19, i32 noundef 25, ptr noundef @.str.83, ptr noundef %20)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %19, i32 noundef 25, ptr noundef @.str.90, ptr noundef %20)
   %21 = load ptr, ptr %7, align 8
   %22 = load ptr, ptr %9, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %21, ptr noundef @.str.83, ptr noundef %22)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %21, ptr noundef @.str.90, ptr noundef %22)
   %23 = load ptr, ptr %5, align 8
   %24 = load ptr, ptr %7, align 8
   %25 = load i32, ptr @hf_ypserv_map, align 4
@@ -885,18 +934,20 @@ define internal i32 @dissect_order_call(ptr noundef %0, ptr noundef %1, ptr noun
   %27 = call i32 @dissect_rpc_string(ptr noundef %23, ptr noundef %24, i32 noundef %25, i32 noundef %26, ptr noundef %9)
   store i32 %27, ptr %10, align 4
   %28 = load ptr, ptr %6, align 8
-  %29 = getelementptr inbounds %struct._packet_info, ptr %28, i32 0, i32 1
+  %29 = getelementptr inbounds nuw %struct._packet_info, ptr %28, i32 0, i32 1
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %9, align 8
   call void @col_append_str(ptr noundef %30, i32 noundef 25, ptr noundef %31)
   %32 = load ptr, ptr %7, align 8
   %33 = load ptr, ptr %9, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %32, ptr noundef @.str.85, ptr noundef %33)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %32, ptr noundef @.str.92, ptr noundef %33)
   %34 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
   ret i32 %34
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_order_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -908,9 +959,11 @@ define internal i32 @dissect_order_reply(ptr noundef %0, ptr noundef %1, ptr nou
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %7, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef @.str.103)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef @.str.110)
   %12 = load ptr, ptr %5, align 8
   %13 = load i32, ptr %10, align 4
   %14 = load ptr, ptr %6, align 8
@@ -928,18 +981,20 @@ define internal i32 @dissect_order_reply(ptr noundef %0, ptr noundef %1, ptr nou
   %24 = call i32 @dissect_rpc_uint32(ptr noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef %23)
   store i32 %24, ptr %10, align 4
   %25 = load ptr, ptr %6, align 8
-  %26 = getelementptr inbounds %struct._packet_info, ptr %25, i32 0, i32 1
+  %26 = getelementptr inbounds nuw %struct._packet_info, ptr %25, i32 0, i32 1
   %27 = load ptr, ptr %26, align 8
   %28 = load i32, ptr %9, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %27, i32 noundef 25, ptr noundef @.str.104, i32 noundef %28)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %27, i32 noundef 25, ptr noundef @.str.111, i32 noundef %28)
   %29 = load ptr, ptr %7, align 8
   %30 = load i32, ptr %9, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %29, ptr noundef @.str.104, i32 noundef %30)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %29, ptr noundef @.str.111, i32 noundef %30)
   %31 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %31
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_maplist_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -950,7 +1005,7 @@ define internal i32 @dissect_maplist_call(ptr noundef %0, ptr noundef %1, ptr no
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
   %9 = load ptr, ptr %7, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef @.str.105)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef @.str.112)
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %7, align 8
   %12 = load i32, ptr @hf_ypserv_domain, align 4
@@ -958,7 +1013,7 @@ define internal i32 @dissect_maplist_call(ptr noundef %0, ptr noundef %1, ptr no
   ret i32 %13
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_maplist_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -969,9 +1024,10 @@ define internal i32 @dissect_maplist_reply(ptr noundef %0, ptr noundef %1, ptr n
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef @.str.106)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef @.str.113)
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %9, align 4
   %13 = load ptr, ptr %6, align 8
@@ -1000,7 +1056,7 @@ define internal i32 @dissect_maplist_reply(ptr noundef %0, ptr noundef %1, ptr n
   %30 = load i32, ptr %9, align 4
   %31 = call i32 @dissect_rpc_string(ptr noundef %27, ptr noundef %28, i32 noundef %29, i32 noundef %30, ptr noundef null)
   store i32 %31, ptr %9, align 4
-  br label %16, !llvm.loop !4
+  br label %16, !llvm.loop !6
 
 32:                                               ; preds = %16
   %33 = load ptr, ptr %5, align 8
@@ -1010,20 +1066,32 @@ define internal i32 @dissect_maplist_reply(ptr noundef %0, ptr noundef %1, ptr n
   %37 = call i32 @dissect_rpc_uint32(ptr noundef %33, ptr noundef %34, i32 noundef %35, i32 noundef %36)
   store i32 %37, ptr %9, align 4
   %38 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %38
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_rpc_string(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ypserv_status(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -1037,6 +1105,8 @@ define internal i32 @dissect_ypserv_status(ptr noundef %0, i32 noundef %1, ptr n
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   store ptr %4, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #3
   %13 = load ptr, ptr %6, align 8
   %14 = load i32, ptr %7, align 4
   %15 = call i32 @tvb_get_ntohl(ptr noundef %13, i32 noundef %14)
@@ -1064,41 +1134,52 @@ define internal i32 @dissect_ypserv_status(ptr noundef %0, i32 noundef %1, ptr n
 
 29:                                               ; preds = %21
   %30 = load i32, ptr %11, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @ypstat, ptr noundef @.str.88)
+  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @ypstat, ptr noundef @.str.95)
   store ptr %31, ptr %12, align 8
   %32 = load ptr, ptr %8, align 8
-  %33 = getelementptr inbounds %struct._packet_info, ptr %32, i32 0, i32 1
+  %33 = getelementptr inbounds nuw %struct._packet_info, ptr %32, i32 0, i32 1
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %12, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %34, i32 noundef 25, ptr noundef @.str.87, ptr noundef %35)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %34, i32 noundef 25, ptr noundef @.str.94, ptr noundef %35)
   %36 = load ptr, ptr %9, align 8
   %37 = load ptr, ptr %12, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %36, ptr noundef @.str.89, ptr noundef %37)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %36, ptr noundef @.str.96, ptr noundef %37)
   br label %38
 
 38:                                               ; preds = %29, %21
   %39 = load i32, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
   ret i32 %39
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_rpc_uint32(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_item_set_len(ptr noundef, i32 noundef) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}

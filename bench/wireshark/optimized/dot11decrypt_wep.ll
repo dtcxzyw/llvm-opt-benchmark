@@ -3,10 +3,12 @@ source_filename = "bench/wireshark/original/dot11decrypt_wep.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 0, 2) i32 @Dot11DecryptWepDecrypt(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [256 x i8], align 16
   %6 = alloca [4 x i8], align 1
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #3
   br label %7
 
 7:                                                ; preds = %4, %7
@@ -16,7 +18,7 @@ define range(i32 0, 2) i32 @Dot11DecryptWepDecrypt(ptr noundef readonly captures
   store i8 %8, ptr %9, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %.preheader68, label %7, !llvm.loop !4
+  br i1 %exitcond.not, label %.preheader68, label %7, !llvm.loop !6
 
 .preheader:                                       ; preds = %.preheader68
   %.not84 = icmp eq i64 %3, 0
@@ -39,7 +41,7 @@ define range(i32 0, 2) i32 @Dot11DecryptWepDecrypt(ptr noundef readonly captures
   store i8 %11, ptr %16, align 1
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next89, 256
-  br i1 %exitcond90.not, label %.preheader, label %.preheader68, !llvm.loop !6
+  br i1 %exitcond90.not, label %.preheader, label %.preheader68, !llvm.loop !8
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.05476 = phi ptr [ %35, %.lr.ph ], [ %2, %.preheader ]
@@ -68,14 +70,14 @@ define range(i32 0, 2) i32 @Dot11DecryptWepDecrypt(ptr noundef readonly captures
   store i8 %31, ptr %.05476, align 1
   %.060.tr = trunc i32 %.06073 to i8
   %.narrow64 = xor i8 %31, %.060.tr
-  %32 = tail call i32 @crc32_ccitt_table_lookup(i8 noundef zeroext %.narrow64) #2
+  %32 = tail call i32 @crc32_ccitt_table_lookup(i8 noundef zeroext %.narrow64)
   %33 = lshr i32 %.06073, 8
   %34 = xor i32 %32, %33
   %35 = getelementptr i8, ptr %.05476, i64 1
   %36 = add i32 %.06172, 1
   %37 = zext i32 %36 to i64
   %38 = icmp ugt i64 %3, %37
-  br i1 %38, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !7
+  br i1 %38, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %39 = xor i32 %34, -1
@@ -134,27 +136,39 @@ define range(i32 0, 2) i32 @Dot11DecryptWepDecrypt(ptr noundef readonly captures
   %68 = getelementptr i8, ptr %.183, i64 1
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %exitcond93.not = icmp eq i64 %indvars.iv.next92, 4
-  br i1 %exitcond93.not, label %69, label %50, !llvm.loop !8
+  br i1 %exitcond93.not, label %69, label %50, !llvm.loop !10
 
 69:                                               ; preds = %67, %50
   %.0 = phi i32 [ 1, %50 ], [ 0, %67 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #3
   ret i32 %.0
 }
 
-declare i32 @crc32_ccitt_table_lookup(i8 noundef zeroext) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind }
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+; Function Attrs: null_pointer_is_valid
+declare i32 @crc32_ccitt_table_lookup(i8 noundef zeroext) local_unnamed_addr #2
+
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

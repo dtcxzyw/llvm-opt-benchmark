@@ -6,11 +6,9 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.expert_field = type { i32, i32 }
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
-%struct.ieee802154_packet = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i8, i32, i32, i32, i16, i16, i16, i64, i16, i64, i32, i32, i32, i32, i8, i64, %union.anon, i8, i8, ptr }
+%struct.ieee802154_packet = type { i32, i32, i32, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i16, i16, i64, i16, i64, i32, i32, i8, i32, i8, i64, %union.anon, i8, i8, ptr }
 %union.anon = type { i64 }
+%struct._value_string = type { i32, ptr }
 
 @proto_zbee_tlv = internal unnamed_addr global i32 0, align 4
 @ei_zbee_tlv_max_recursion_depth_reached = internal global %struct.expert_field zeroinitializer, align 4
@@ -20,7 +18,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_zbee_tlv_relay_msg_type = internal global i32 0, align 4
 @.str.1 = private unnamed_addr constant [5 x i8] c"Type\00", align 1
 @.str.2 = private unnamed_addr constant [20 x i8] c"zbee_tlv.relay.type\00", align 1
-@zbee_aps_relay_tlvs = internal constant [2 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.213 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_relay_msg_length = internal global i32 0, align 4
 @.str.3 = private unnamed_addr constant [7 x i8] c"Length\00", align 1
 @.str.4 = private unnamed_addr constant [22 x i8] c"zbee_tlv.relay.length\00", align 1
@@ -29,32 +26,19 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.6 = private unnamed_addr constant [27 x i8] c"zbee_tlv.relay.joiner_ieee\00", align 1
 @hf_zbee_tlv_global_type = internal global i32 0, align 4
 @.str.7 = private unnamed_addr constant [21 x i8] c"zbee_tlv.type_global\00", align 1
-@zbee_tlv_global_types = internal constant [12 x %struct._value_string] [%struct._value_string { i32 64, ptr @.str.214 }, %struct._value_string { i32 65, ptr @.str.215 }, %struct._value_string { i32 66, ptr @.str.216 }, %struct._value_string { i32 67, ptr @.str.217 }, %struct._value_string { i32 68, ptr @.str.218 }, %struct._value_string { i32 69, ptr @.str.219 }, %struct._value_string { i32 70, ptr @.str.220 }, %struct._value_string { i32 71, ptr @.str.221 }, %struct._value_string { i32 72, ptr @.str.222 }, %struct._value_string { i32 73, ptr @.str.223 }, %struct._value_string { i32 75, ptr @.str.224 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_local_type_key_update_req_rsp = internal global i32 0, align 4
 @.str.8 = private unnamed_addr constant [20 x i8] c"zbee_tlv.type_local\00", align 1
-@zbee_tlv_local_types_key_update_req_rsp = internal constant [2 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.225 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_local_type_key_negotiation_req_rsp = internal global i32 0, align 4
-@zbee_tlv_local_types_key_negotiation_req_rsp = internal constant [2 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.226 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_local_type_get_auth_level_rsp = internal global i32 0, align 4
-@zbee_tlv_local_types_get_auth_level_rsp = internal constant [2 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.227 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_local_type_clear_all_bindings_req = internal global i32 0, align 4
-@zbee_tlv_local_types_clear_all_bindings_req = internal constant [2 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.228 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_local_type_req_security_get_auth_token = internal global i32 0, align 4
-@zbee_tlv_local_types_req_security_get_auth_token = internal constant [2 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.229 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_local_type_req_security_get_auth_level = internal global i32 0, align 4
-@zbee_tlv_local_types_req_security_get_auth_level = internal constant [2 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.230 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_local_type_req_security_decommission = internal global i32 0, align 4
-@zbee_tlv_local_types_req_security_decommission = internal constant [2 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.231 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_local_type_req_beacon_survey = internal global i32 0, align 4
-@zbee_tlv_local_types_req_beacon_survey = internal constant [2 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.232 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_local_type_rsp_beacon_survey = internal global i32 0, align 4
-@zbee_tlv_local_types_rsp_beacon_survey = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.232 }, %struct._value_string { i32 1, ptr @.str.233 }, %struct._value_string { i32 2, ptr @.str.234 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_local_type_req_challenge = internal global i32 0, align 4
-@zbee_tlv_local_types_req_challenge = internal constant [2 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.235 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_local_type_rsp_challenge = internal global i32 0, align 4
-@zbee_tlv_local_types_rsp_challenge = internal constant [2 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.236 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_local_type_rsp_set_configuration = internal global i32 0, align 4
-@zbee_tlv_local_types_rsp_set_configuration = internal constant [2 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.237 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_type = internal global i32 0, align 4
 @.str.9 = private unnamed_addr constant [13 x i8] c"Unknown Type\00", align 1
 @.str.10 = private unnamed_addr constant [14 x i8] c"zbee_tlv.type\00", align 1
@@ -189,11 +173,9 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_zbee_tlv_selected_key_negotiation_method = internal global i32 0, align 4
 @.str.96 = private unnamed_addr constant [32 x i8] c"Selected Key Negotiation Method\00", align 1
 @.str.97 = private unnamed_addr constant [41 x i8] c"zbee_tlv.selected_key_negotiation_method\00", align 1
-@zbee_tlv_selected_key_negotiation_method = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.238 }, %struct._value_string { i32 1, ptr @.str.28 }, %struct._value_string { i32 2, ptr @.str.30 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_selected_pre_shared_secret = internal global i32 0, align 4
 @.str.98 = private unnamed_addr constant [27 x i8] c"Selected Pre Shared Secret\00", align 1
 @.str.99 = private unnamed_addr constant [36 x i8] c"zbee_tlv.selected_pre_shared_secret\00", align 1
-@zbee_tlv_selected_pre_shared_secret = internal constant [7 x %struct._value_string] [%struct._value_string { i32 255, ptr @.str.239 }, %struct._value_string { i32 0, ptr @.str.34 }, %struct._value_string { i32 1, ptr @.str.240 }, %struct._value_string { i32 2, ptr @.str.241 }, %struct._value_string { i32 3, ptr @.str.40 }, %struct._value_string { i32 4, ptr @.str.42 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_device_eui64 = internal global i32 0, align 4
 @.str.100 = private unnamed_addr constant [13 x i8] c"Device EUI64\00", align 1
 @.str.101 = private unnamed_addr constant [22 x i8] c"zbee_tlv.device_eui64\00", align 1
@@ -211,21 +193,16 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_zbee_tlv_local_initial_join_method = internal global i32 0, align 4
 @.str.109 = private unnamed_addr constant [20 x i8] c"Initial Join Method\00", align 1
 @.str.110 = private unnamed_addr constant [21 x i8] c"zbee_tlv.init_method\00", align 1
-@zbee_initial_join_methods = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.242 }, %struct._value_string { i32 1, ptr @.str.243 }, %struct._value_string { i32 2, ptr @.str.244 }, %struct._value_string { i32 3, ptr @.str.245 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_local_active_lk_type = internal global i32 0, align 4
 @.str.111 = private unnamed_addr constant [21 x i8] c"Active link key type\00", align 1
 @.str.112 = private unnamed_addr constant [17 x i8] c"zbee_tlv.lk_type\00", align 1
-@zbee_active_lk_types = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.246 }, %struct._value_string { i32 1, ptr @.str.247 }, %struct._value_string { i32 2, ptr @.str.248 }, %struct._value_string { i32 3, ptr @.str.245 }, %struct._value_string { i32 4, ptr @.str.249 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_zbd_comm_tlv = internal global i32 0, align 4
 @.str.113 = private unnamed_addr constant [38 x i8] c"ZBD Commissioning Service TLV Type ID\00", align 1
 @.str.114 = private unnamed_addr constant [25 x i8] c"zbee_tlv.zbd.comm_tlv_id\00", align 1
-@zbee_tlv_zbd_comm_types = internal constant [16 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.121 }, %struct._value_string { i32 1, ptr @.str.123 }, %struct._value_string { i32 2, ptr @.str.250 }, %struct._value_string { i32 3, ptr @.str.251 }, %struct._value_string { i32 4, ptr @.str.174 }, %struct._value_string { i32 5, ptr @.str.252 }, %struct._value_string { i32 6, ptr @.str.253 }, %struct._value_string { i32 7, ptr @.str.254 }, %struct._value_string { i32 8, ptr @.str.255 }, %struct._value_string { i32 9, ptr @.str.256 }, %struct._value_string { i32 10, ptr @.str.180 }, %struct._value_string { i32 11, ptr @.str.257 }, %struct._value_string { i32 12, ptr @.str.258 }, %struct._value_string { i32 13, ptr @.str.259 }, %struct._value_string { i32 14, ptr @.str.260 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_zbd_comm_mj_cmd_tlv = internal global i32 0, align 4
 @.str.115 = private unnamed_addr constant [31 x i8] c"ZBD Manage Joiners TLV Type ID\00", align 1
 @.str.116 = private unnamed_addr constant [28 x i8] c"zbee_tlv.zbd.comm_mj_tlv_id\00", align 1
-@zbee_tlv_zbd_comm_mj_types = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.261 }, %struct._value_string { i32 1, ptr @.str.255 }, %struct._value_string { i32 2, ptr @.str.262 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_zbd_secur_tlv = internal global i32 0, align 4
-@zbee_tlv_zbd_secur_types = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.263 }, %struct._value_string { i32 1, ptr @.str.264 }, %struct._value_string { i32 2, ptr @.str.265 }, %struct._value_string { i32 3, ptr @.str.266 }, %struct._value_string { i32 4, ptr @.str.267 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_local_tunneling_npdu = internal global i32 0, align 4
 @.str.117 = private unnamed_addr constant [5 x i8] c"NPDU\00", align 1
 @.str.118 = private unnamed_addr constant [18 x i8] c"zbee_tlv.zbd.npdu\00", align 1
@@ -256,14 +233,12 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_zbee_tlv_local_comm_dev_type = internal global i32 0, align 4
 @.str.135 = private unnamed_addr constant [12 x i8] c"Device type\00", align 1
 @.str.136 = private unnamed_addr constant [27 x i8] c"zbee_tlv.zbd.comm.dev_type\00", align 1
-@zbee_tlv_local_types_dev_type_str = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.268 }, %struct._value_string { i32 1, ptr @.str.269 }, %struct._value_string { i32 2, ptr @.str.270 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_local_comm_nwk_addr = internal global i32 0, align 4
 @.str.137 = private unnamed_addr constant [16 x i8] c"Network address\00", align 1
 @.str.138 = private unnamed_addr constant [27 x i8] c"zbee_tlv.zbd.comm.nwk_addr\00", align 1
 @hf_zbee_tlv_local_comm_join_method = internal global i32 0, align 4
 @.str.139 = private unnamed_addr constant [12 x i8] c"Join method\00", align 1
 @.str.140 = private unnamed_addr constant [30 x i8] c"zbee_tlv.zbd.comm.join_method\00", align 1
-@zbee_tlv_local_types_join_method_str = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.271 }, %struct._value_string { i32 1, ptr @.str.272 }, %struct._value_string { i32 2, ptr @.str.273 }, %struct._value_string { i32 3, ptr @.str.274 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_local_comm_tc_addr = internal global i32 0, align 4
 @.str.141 = private unnamed_addr constant [11 x i8] c"TC address\00", align 1
 @.str.142 = private unnamed_addr constant [26 x i8] c"zbee_tlv.zbd.comm.tc_addr\00", align 1
@@ -279,7 +254,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_zbee_tlv_local_comm_status_code_domain = internal global i32 0, align 4
 @.str.149 = private unnamed_addr constant [7 x i8] c"Domain\00", align 1
 @.str.150 = private unnamed_addr constant [37 x i8] c"zbee_tlv.zbd.comm.status_code_domain\00", align 1
-@zbee_tlv_local_types_status_code_domain_str = internal constant [9 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.275 }, %struct._value_string { i32 1, ptr @.str.276 }, %struct._value_string { i32 2, ptr @.str.277 }, %struct._value_string { i32 3, ptr @.str.278 }, %struct._value_string { i32 4, ptr @.str.279 }, %struct._value_string { i32 5, ptr @.str.280 }, %struct._value_string { i32 6, ptr @.str.281 }, %struct._value_string { i32 7, ptr @.str.282 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_local_comm_status_code_value = internal global i32 0, align 4
 @.str.151 = private unnamed_addr constant [5 x i8] c"Code\00", align 1
 @.str.152 = private unnamed_addr constant [36 x i8] c"zbee_tlv.zbd.comm.status_code_value\00", align 1
@@ -292,7 +266,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_zbee_tlv_local_comm_mj_cmd = internal global i32 0, align 4
 @.str.157 = private unnamed_addr constant [23 x i8] c"Manage Joiners command\00", align 1
 @.str.158 = private unnamed_addr constant [37 x i8] c"zbee_tlv.zbd.comm.manage_joiners_cmd\00", align 1
-@zbee_tlv_local_types_mj_cmd_str = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.283 }, %struct._value_string { i32 1, ptr @.str.284 }, %struct._value_string { i32 2, ptr @.str.285 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_local_tunneling_npdu_flags = internal global i32 0, align 4
 @.str.159 = private unnamed_addr constant [11 x i8] c"NPDU Flags\00", align 1
 @.str.160 = private unnamed_addr constant [34 x i8] c"zbee_tlv.zbd.tunneling.npdu_flags\00", align 1
@@ -307,11 +280,9 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.166 = private unnamed_addr constant [35 x i8] c"zbee_tlv.zbd.tunneling.npdu_length\00", align 1
 @hf_zbee_tlv_local_selected_key_method = internal global i32 0, align 4
 @.str.167 = private unnamed_addr constant [30 x i8] c"zbee_tlv.zbd.secur.key_method\00", align 1
-@zbee_tlv_local_types_key_method_str = internal constant [4 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.286 }, %struct._value_string { i32 2, ptr @.str.287 }, %struct._value_string { i32 3, ptr @.str.288 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_local_selected_psk_secret = internal global i32 0, align 4
 @.str.168 = private unnamed_addr constant [20 x i8] c"Selected PSK Secret\00", align 1
 @.str.169 = private unnamed_addr constant [30 x i8] c"zbee_tlv.zbd.secur.psk_secret\00", align 1
-@zbee_tlv_local_types_psk_secret_str = internal constant [7 x %struct._value_string] [%struct._value_string { i32 255, ptr @.str.289 }, %struct._value_string { i32 0, ptr @.str.290 }, %struct._value_string { i32 1, ptr @.str.240 }, %struct._value_string { i32 2, ptr @.str.291 }, %struct._value_string { i32 3, ptr @.str.40 }, %struct._value_string { i32 4, ptr @.str.42 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_local_nwk_key_seq_num = internal global i32 0, align 4
 @.str.170 = private unnamed_addr constant [28 x i8] c"Network Key Sequence Number\00", align 1
 @.str.171 = private unnamed_addr constant [35 x i8] c"zbee_tlv.zbd.secur.nwk_key_seq_num\00", align 1
@@ -324,26 +295,21 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_zbee_tlv_local_comm_link_key_flags_unique = internal global i32 0, align 4
 @.str.176 = private unnamed_addr constant [7 x i8] c"Unique\00", align 1
 @.str.177 = private unnamed_addr constant [39 x i8] c"zbee_tlv.zbd.comm.join.link_key.unique\00", align 1
-@zbee_tlv_local_types_lnk_key_unique_str = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.292 }, %struct._value_string { i32 1, ptr @.str.176 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_local_comm_link_key_flags_provisional = internal global i32 0, align 4
 @.str.178 = private unnamed_addr constant [12 x i8] c"Provisional\00", align 1
 @.str.179 = private unnamed_addr constant [44 x i8] c"zbee_tlv.zbd.comm.join.link_key.provisional\00", align 1
-@zbee_tlv_local_types_lnk_key_provisional_str = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.293 }, %struct._value_string { i32 1, ptr @.str.178 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_local_comm_network_status_map = internal global i32 0, align 4
 @.str.180 = private unnamed_addr constant [19 x i8] c"Network Status Map\00", align 1
 @.str.181 = private unnamed_addr constant [29 x i8] c"zbee_tlv.zbd.comm.status_map\00", align 1
 @hf_zbee_tlv_local_comm_network_status_map_joined_status = internal global i32 0, align 4
 @.str.182 = private unnamed_addr constant [7 x i8] c"Joined\00", align 1
 @.str.183 = private unnamed_addr constant [43 x i8] c"zbee_tlv.zbd.comm.status_map.joined_status\00", align 1
-@zbee_tlv_local_types_joined_status_str = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.294 }, %struct._value_string { i32 1, ptr @.str.295 }, %struct._value_string { i32 2, ptr @.str.182 }, %struct._value_string { i32 3, ptr @.str.296 }, %struct._value_string { i32 4, ptr @.str.297 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_local_comm_network_status_map_open_status = internal global i32 0, align 4
 @.str.184 = private unnamed_addr constant [12 x i8] c"Open/Closed\00", align 1
 @.str.185 = private unnamed_addr constant [41 x i8] c"zbee_tlv.zbd.comm.status_map.open_status\00", align 1
-@zbee_tlv_local_types_nwk_state_str = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.199 }, %struct._value_string { i32 1, ptr @.str.198 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_tlv_network_status_map_network_type = internal global i32 0, align 4
 @.str.186 = private unnamed_addr constant [13 x i8] c"Network Type\00", align 1
 @.str.187 = private unnamed_addr constant [42 x i8] c"zbee_tlv.zbd.comm.status_map.network_type\00", align 1
-@zbee_tlv_local_types_nwk_type_str = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.201 }, %struct._value_string { i32 1, ptr @.str.200 }, %struct._value_string zeroinitializer], align 16
 @proto_register_zbee_tlv.ett = internal global [12 x ptr] [ptr @ett_zbee_aps_tlv, ptr @ett_zbee_aps_relay, ptr @ett_zbee_tlv, ptr @ett_zbee_tlv_supported_key_negotiation_methods, ptr @ett_zbee_tlv_supported_secrets, ptr @ett_zbee_tlv_router_information, ptr @ett_zbee_tlv_configuration_param, ptr @ett_zbee_tlv_capability_information, ptr @ett_zbee_tlv_zbd_tunneling_npdu, ptr @ett_zbee_tlv_zbd_tunneling_npdu_flags, ptr @ett_zbee_tlv_link_key_flags, ptr @ett_zbee_tlv_network_status_map], align 16
 @ett_zbee_aps_tlv = internal global i32 0, align 4
 @ett_zbee_aps_relay = internal global i32 0, align 4
@@ -356,7 +322,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_zbee_tlv_zbd_tunneling_npdu_flags = internal global i32 0, align 4
 @ett_zbee_tlv_link_key_flags = internal global i32 0, align 4
 @ett_zbee_tlv_network_status_map = internal global i32 0, align 4
-@proto_register_zbee_tlv.ei = internal global [1 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_zbee_tlv_max_recursion_depth_reached, %struct.expert_field_info { ptr @.str.188, i32 150994944, i32 6291456, ptr @.str.189, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_zbee_tlv.ei = internal global [1 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_zbee_tlv_max_recursion_depth_reached, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.188, i32 150994944, i32 6291456, ptr @.str.189, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @.str.188 = private unnamed_addr constant [37 x i8] c"zbee_tlv.max_recursion_depth_reached\00", align 1
 @.str.189 = private unnamed_addr constant [56 x i8] c"Maximum allowed recursion depth reached - stop decoding\00", align 1
 @.str.190 = private unnamed_addr constant [11 x i8] c"Zigbee TLV\00", align 1
@@ -402,841 +368,871 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.212 = private unnamed_addr constant [6 x i8] c"False\00", align 1
 @dissect_zbee_tlv_link_key.link_key_flags = internal constant [3 x ptr] [ptr @hf_zbee_tlv_local_comm_link_key_flags_unique, ptr @hf_zbee_tlv_local_comm_link_key_flags_provisional, ptr null], align 16
 @.str.213 = private unnamed_addr constant [18 x i8] c"Relay Message TLV\00", align 1
-@.str.214 = private unnamed_addr constant [33 x i8] c"Manufacturer Specific Global TLV\00", align 1
-@.str.215 = private unnamed_addr constant [45 x i8] c"Supported Key Negotiation Methods Global TLV\00", align 1
-@.str.216 = private unnamed_addr constant [34 x i8] c"PAN ID Conflict Report Global TLV\00", align 1
-@.str.217 = private unnamed_addr constant [23 x i8] c"Next PAN ID Global TLV\00", align 1
-@.str.218 = private unnamed_addr constant [31 x i8] c"Next Channel Change Global TLV\00", align 1
-@.str.219 = private unnamed_addr constant [22 x i8] c"Passphrase Global TLV\00", align 1
-@.str.220 = private unnamed_addr constant [30 x i8] c"Router Information Global TLV\00", align 1
-@.str.221 = private unnamed_addr constant [36 x i8] c"Fragmentation Parameters Global TLV\00", align 1
-@.str.222 = private unnamed_addr constant [32 x i8] c"Joiner Encapsulation Global TLV\00", align 1
-@.str.223 = private unnamed_addr constant [41 x i8] c"Beacon Appendix Encapsulation Global TLV\00", align 1
-@.str.224 = private unnamed_addr constant [41 x i8] c"Configuration Mode Parameters Global TLV\00", align 1
-@.str.225 = private unnamed_addr constant [43 x i8] c"Selected Key Negotiations Method Local TLV\00", align 1
-@.str.226 = private unnamed_addr constant [34 x i8] c"Curve25519 Public Point Local TLV\00", align 1
-@.str.227 = private unnamed_addr constant [32 x i8] c"Device Authentication Level TLV\00", align 1
-@.str.228 = private unnamed_addr constant [33 x i8] c"Clear All Bindings Req EUI64 TLV\00", align 1
-@.str.229 = private unnamed_addr constant [38 x i8] c"Requested Authentication Token ID TLV\00", align 1
-@.str.230 = private unnamed_addr constant [24 x i8] c"Target IEEE Address TLV\00", align 1
-@.str.231 = private unnamed_addr constant [10 x i8] c"EUI64 TLV\00", align 1
-@.str.232 = private unnamed_addr constant [32 x i8] c"Beacon Survey Configuration TLV\00", align 1
-@.str.233 = private unnamed_addr constant [26 x i8] c"Beacon Survey Results TLV\00", align 1
-@.str.234 = private unnamed_addr constant [36 x i8] c"Beacon Survey Potential Parents TLV\00", align 1
-@.str.235 = private unnamed_addr constant [40 x i8] c"APS Frame Counter Challenge Request TLV\00", align 1
-@.str.236 = private unnamed_addr constant [41 x i8] c"APS Frame Counter Challenge Response TLV\00", align 1
-@.str.237 = private unnamed_addr constant [22 x i8] c"Processing status TLV\00", align 1
-@.str.238 = private unnamed_addr constant [11 x i8] c"Zigbee 3.0\00", align 1
-@.str.239 = private unnamed_addr constant [15 x i8] c"Well Known Key\00", align 1
-@.str.240 = private unnamed_addr constant [55 x i8] c"Pre-configured link-ley derived from installation code\00", align 1
-@.str.241 = private unnamed_addr constant [26 x i8] c"Variable-length pass code\00", align 1
-@.str.242 = private unnamed_addr constant [18 x i8] c"No authentication\00", align 1
-@.str.243 = private unnamed_addr constant [17 x i8] c"Install Code Key\00", align 1
-@.str.244 = private unnamed_addr constant [26 x i8] c"Anonymous key negotiation\00", align 1
-@.str.245 = private unnamed_addr constant [31 x i8] c"Authentication Key Negotiation\00", align 1
-@.str.246 = private unnamed_addr constant [12 x i8] c"Not Updated\00", align 1
-@.str.247 = private unnamed_addr constant [19 x i8] c"Key Request Method\00", align 1
-@.str.248 = private unnamed_addr constant [33 x i8] c"Unauthentication Key Negotiation\00", align 1
-@.str.249 = private unnamed_addr constant [45 x i8] c"Application Defined Certificate Based Mutual\00", align 1
-@.str.250 = private unnamed_addr constant [16 x i8] c"Network Channel\00", align 1
-@.str.251 = private unnamed_addr constant [12 x i8] c"Network Key\00", align 1
-@.str.252 = private unnamed_addr constant [12 x i8] c"Device Type\00", align 1
-@.str.253 = private unnamed_addr constant [12 x i8] c"NWK Address\00", align 1
-@.str.254 = private unnamed_addr constant [15 x i8] c"Joining Method\00", align 1
-@.str.255 = private unnamed_addr constant [13 x i8] c"IEEE Address\00", align 1
-@.str.256 = private unnamed_addr constant [21 x i8] c"Trust Center Address\00", align 1
-@.str.257 = private unnamed_addr constant [14 x i8] c"NWK Update ID\00", align 1
-@.str.258 = private unnamed_addr constant [26 x i8] c"NWK Active Key Seq Number\00", align 1
-@.str.259 = private unnamed_addr constant [10 x i8] c"Admin Key\00", align 1
-@.str.260 = private unnamed_addr constant [12 x i8] c"Status Code\00", align 1
-@.str.261 = private unnamed_addr constant [17 x i8] c"Provisional Link\00", align 1
-@.str.262 = private unnamed_addr constant [23 x i8] c"Manage Joiners Command\00", align 1
-@.str.263 = private unnamed_addr constant [31 x i8] c"ZBD Key Negotiation Method TLV\00", align 1
-@.str.264 = private unnamed_addr constant [43 x i8] c"ZBD Key Negotiation P-256 Public Point TLV\00", align 1
-@.str.265 = private unnamed_addr constant [48 x i8] c"ZBD Key Negotiation Curve25519 Public Point TLV\00", align 1
-@.str.266 = private unnamed_addr constant [31 x i8] c"Network KeySequence Number TLV\00", align 1
-@.str.267 = private unnamed_addr constant [11 x i8] c"MacTag Tlv\00", align 1
-@.str.268 = private unnamed_addr constant [19 x i8] c"ZigBee Coordinator\00", align 1
-@.str.269 = private unnamed_addr constant [14 x i8] c"ZigBee Router\00", align 1
-@.str.270 = private unnamed_addr constant [18 x i8] c"ZigBee End Device\00", align 1
-@.str.271 = private unnamed_addr constant [16 x i8] c"MAC association\00", align 1
-@.str.272 = private unnamed_addr constant [11 x i8] c"NWK rejoin\00", align 1
-@.str.273 = private unnamed_addr constant [72 x i8] c"Out-of-band commissioning (with check for nearby IEEE 802.15.4 beacons)\00", align 1
-@.str.274 = private unnamed_addr constant [75 x i8] c"Out-of-band commissioning (without check for nearby IEEE 802.15.4 beacons)\00", align 1
-@.str.275 = private unnamed_addr constant [39 x i8] c"General domain or unspecific operation\00", align 1
-@.str.276 = private unnamed_addr constant [23 x i8] c"Form Network Operation\00", align 1
-@.str.277 = private unnamed_addr constant [23 x i8] c"Join Network Operation\00", align 1
-@.str.278 = private unnamed_addr constant [25 x i8] c"Permit Joining Operation\00", align 1
-@.str.279 = private unnamed_addr constant [24 x i8] c"Leave Network Operation\00", align 1
-@.str.280 = private unnamed_addr constant [22 x i8] c"Manage Joiners Domain\00", align 1
-@.str.281 = private unnamed_addr constant [19 x i8] c"Identify Operation\00", align 1
-@.str.282 = private unnamed_addr constant [25 x i8] c"Finding & Binding Domain\00", align 1
-@.str.283 = private unnamed_addr constant [40 x i8] c"Drop all joiners' Provisional Link Keys\00", align 1
-@.str.284 = private unnamed_addr constant [36 x i8] c"Add a joiner's Provisional Link Key\00", align 1
-@.str.285 = private unnamed_addr constant [39 x i8] c"Remove a joiner's Provisional Link Key\00", align 1
-@.str.286 = private unnamed_addr constant [25 x i8] c"Curve 25519 / AESMMO-128\00", align 1
-@.str.287 = private unnamed_addr constant [22 x i8] c"Curve 25519 / SHA-256\00", align 1
-@.str.288 = private unnamed_addr constant [16 x i8] c"P-256 / SHA-256\00", align 1
-@.str.289 = private unnamed_addr constant [15 x i8] c"Well known key\00", align 1
-@.str.290 = private unnamed_addr constant [20 x i8] c"Authorization token\00", align 1
-@.str.291 = private unnamed_addr constant [14 x i8] c"PAKE passcode\00", align 1
-@.str.292 = private unnamed_addr constant [7 x i8] c"Global\00", align 1
-@.str.293 = private unnamed_addr constant [10 x i8] c"Permanent\00", align 1
-@.str.294 = private unnamed_addr constant [11 x i8] c"No network\00", align 1
-@.str.295 = private unnamed_addr constant [8 x i8] c"Joining\00", align 1
-@.str.296 = private unnamed_addr constant [19 x i8] c"Joined (no parent)\00", align 1
-@.str.297 = private unnamed_addr constant [8 x i8] c"Leaving\00", align 1
+@zbee_aps_relay_tlvs = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.213 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.215 = private unnamed_addr constant [33 x i8] c"Manufacturer Specific Global TLV\00", align 1
+@.str.216 = private unnamed_addr constant [45 x i8] c"Supported Key Negotiation Methods Global TLV\00", align 1
+@.str.217 = private unnamed_addr constant [34 x i8] c"PAN ID Conflict Report Global TLV\00", align 1
+@.str.218 = private unnamed_addr constant [23 x i8] c"Next PAN ID Global TLV\00", align 1
+@.str.219 = private unnamed_addr constant [31 x i8] c"Next Channel Change Global TLV\00", align 1
+@.str.220 = private unnamed_addr constant [22 x i8] c"Passphrase Global TLV\00", align 1
+@.str.221 = private unnamed_addr constant [30 x i8] c"Router Information Global TLV\00", align 1
+@.str.222 = private unnamed_addr constant [36 x i8] c"Fragmentation Parameters Global TLV\00", align 1
+@.str.223 = private unnamed_addr constant [32 x i8] c"Joiner Encapsulation Global TLV\00", align 1
+@.str.224 = private unnamed_addr constant [41 x i8] c"Beacon Appendix Encapsulation Global TLV\00", align 1
+@.str.225 = private unnamed_addr constant [41 x i8] c"Configuration Mode Parameters Global TLV\00", align 1
+@zbee_tlv_global_types = internal constant [12 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 64, [4 x i8] zeroinitializer, ptr @.str.215 }, { i32, [4 x i8], ptr } { i32 65, [4 x i8] zeroinitializer, ptr @.str.216 }, { i32, [4 x i8], ptr } { i32 66, [4 x i8] zeroinitializer, ptr @.str.217 }, { i32, [4 x i8], ptr } { i32 67, [4 x i8] zeroinitializer, ptr @.str.218 }, { i32, [4 x i8], ptr } { i32 68, [4 x i8] zeroinitializer, ptr @.str.219 }, { i32, [4 x i8], ptr } { i32 69, [4 x i8] zeroinitializer, ptr @.str.220 }, { i32, [4 x i8], ptr } { i32 70, [4 x i8] zeroinitializer, ptr @.str.221 }, { i32, [4 x i8], ptr } { i32 71, [4 x i8] zeroinitializer, ptr @.str.222 }, { i32, [4 x i8], ptr } { i32 72, [4 x i8] zeroinitializer, ptr @.str.223 }, { i32, [4 x i8], ptr } { i32 73, [4 x i8] zeroinitializer, ptr @.str.224 }, { i32, [4 x i8], ptr } { i32 75, [4 x i8] zeroinitializer, ptr @.str.225 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.227 = private unnamed_addr constant [43 x i8] c"Selected Key Negotiations Method Local TLV\00", align 1
+@zbee_tlv_local_types_key_update_req_rsp = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.227 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.229 = private unnamed_addr constant [34 x i8] c"Curve25519 Public Point Local TLV\00", align 1
+@zbee_tlv_local_types_key_negotiation_req_rsp = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.229 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.231 = private unnamed_addr constant [32 x i8] c"Device Authentication Level TLV\00", align 1
+@zbee_tlv_local_types_get_auth_level_rsp = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.231 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.233 = private unnamed_addr constant [33 x i8] c"Clear All Bindings Req EUI64 TLV\00", align 1
+@zbee_tlv_local_types_clear_all_bindings_req = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.233 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.235 = private unnamed_addr constant [38 x i8] c"Requested Authentication Token ID TLV\00", align 1
+@zbee_tlv_local_types_req_security_get_auth_token = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.235 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.237 = private unnamed_addr constant [24 x i8] c"Target IEEE Address TLV\00", align 1
+@zbee_tlv_local_types_req_security_get_auth_level = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.237 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.239 = private unnamed_addr constant [10 x i8] c"EUI64 TLV\00", align 1
+@zbee_tlv_local_types_req_security_decommission = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.239 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.241 = private unnamed_addr constant [32 x i8] c"Beacon Survey Configuration TLV\00", align 1
+@zbee_tlv_local_types_req_beacon_survey = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.241 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.243 = private unnamed_addr constant [26 x i8] c"Beacon Survey Results TLV\00", align 1
+@.str.244 = private unnamed_addr constant [36 x i8] c"Beacon Survey Potential Parents TLV\00", align 1
+@zbee_tlv_local_types_rsp_beacon_survey = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.241 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.243 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.244 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.246 = private unnamed_addr constant [40 x i8] c"APS Frame Counter Challenge Request TLV\00", align 1
+@zbee_tlv_local_types_req_challenge = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.246 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.248 = private unnamed_addr constant [41 x i8] c"APS Frame Counter Challenge Response TLV\00", align 1
+@zbee_tlv_local_types_rsp_challenge = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.248 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.250 = private unnamed_addr constant [22 x i8] c"Processing status TLV\00", align 1
+@zbee_tlv_local_types_rsp_set_configuration = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.250 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.252 = private unnamed_addr constant [11 x i8] c"Zigbee 3.0\00", align 1
+@zbee_tlv_selected_key_negotiation_method = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.252 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.28 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.30 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.254 = private unnamed_addr constant [15 x i8] c"Well Known Key\00", align 1
+@.str.255 = private unnamed_addr constant [55 x i8] c"Pre-configured link-ley derived from installation code\00", align 1
+@.str.256 = private unnamed_addr constant [26 x i8] c"Variable-length pass code\00", align 1
+@zbee_tlv_selected_pre_shared_secret = internal constant [7 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 255, [4 x i8] zeroinitializer, ptr @.str.254 }, { i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.34 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.255 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.256 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.40 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.42 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.258 = private unnamed_addr constant [18 x i8] c"No authentication\00", align 1
+@.str.259 = private unnamed_addr constant [17 x i8] c"Install Code Key\00", align 1
+@.str.260 = private unnamed_addr constant [26 x i8] c"Anonymous key negotiation\00", align 1
+@.str.261 = private unnamed_addr constant [31 x i8] c"Authentication Key Negotiation\00", align 1
+@zbee_initial_join_methods = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.258 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.259 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.260 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.261 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.263 = private unnamed_addr constant [12 x i8] c"Not Updated\00", align 1
+@.str.264 = private unnamed_addr constant [19 x i8] c"Key Request Method\00", align 1
+@.str.265 = private unnamed_addr constant [33 x i8] c"Unauthentication Key Negotiation\00", align 1
+@.str.266 = private unnamed_addr constant [45 x i8] c"Application Defined Certificate Based Mutual\00", align 1
+@zbee_active_lk_types = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.263 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.264 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.265 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.261 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.266 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.268 = private unnamed_addr constant [16 x i8] c"Network Channel\00", align 1
+@.str.269 = private unnamed_addr constant [12 x i8] c"Network Key\00", align 1
+@.str.270 = private unnamed_addr constant [12 x i8] c"Device Type\00", align 1
+@.str.271 = private unnamed_addr constant [12 x i8] c"NWK Address\00", align 1
+@.str.272 = private unnamed_addr constant [15 x i8] c"Joining Method\00", align 1
+@.str.273 = private unnamed_addr constant [13 x i8] c"IEEE Address\00", align 1
+@.str.274 = private unnamed_addr constant [21 x i8] c"Trust Center Address\00", align 1
+@.str.275 = private unnamed_addr constant [14 x i8] c"NWK Update ID\00", align 1
+@.str.276 = private unnamed_addr constant [26 x i8] c"NWK Active Key Seq Number\00", align 1
+@.str.277 = private unnamed_addr constant [10 x i8] c"Admin Key\00", align 1
+@.str.278 = private unnamed_addr constant [12 x i8] c"Status Code\00", align 1
+@zbee_tlv_zbd_comm_types = internal constant [16 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.121 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.123 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.268 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.269 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.174 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.270 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.271 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.272 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.273 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.274 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.180 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.275 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.276 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.277 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.278 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.280 = private unnamed_addr constant [17 x i8] c"Provisional Link\00", align 1
+@.str.281 = private unnamed_addr constant [23 x i8] c"Manage Joiners Command\00", align 1
+@zbee_tlv_zbd_comm_mj_types = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.280 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.273 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.281 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.283 = private unnamed_addr constant [31 x i8] c"ZBD Key Negotiation Method TLV\00", align 1
+@.str.284 = private unnamed_addr constant [43 x i8] c"ZBD Key Negotiation P-256 Public Point TLV\00", align 1
+@.str.285 = private unnamed_addr constant [48 x i8] c"ZBD Key Negotiation Curve25519 Public Point TLV\00", align 1
+@.str.286 = private unnamed_addr constant [31 x i8] c"Network KeySequence Number TLV\00", align 1
+@.str.287 = private unnamed_addr constant [11 x i8] c"MacTag Tlv\00", align 1
+@zbee_tlv_zbd_secur_types = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.283 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.284 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.285 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.286 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.287 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.289 = private unnamed_addr constant [19 x i8] c"ZigBee Coordinator\00", align 1
+@.str.290 = private unnamed_addr constant [14 x i8] c"ZigBee Router\00", align 1
+@.str.291 = private unnamed_addr constant [18 x i8] c"ZigBee End Device\00", align 1
+@zbee_tlv_local_types_dev_type_str = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.289 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.290 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.291 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.293 = private unnamed_addr constant [16 x i8] c"MAC association\00", align 1
+@.str.294 = private unnamed_addr constant [11 x i8] c"NWK rejoin\00", align 1
+@.str.295 = private unnamed_addr constant [72 x i8] c"Out-of-band commissioning (with check for nearby IEEE 802.15.4 beacons)\00", align 1
+@.str.296 = private unnamed_addr constant [75 x i8] c"Out-of-band commissioning (without check for nearby IEEE 802.15.4 beacons)\00", align 1
+@zbee_tlv_local_types_join_method_str = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.293 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.294 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.295 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.296 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.298 = private unnamed_addr constant [39 x i8] c"General domain or unspecific operation\00", align 1
+@.str.299 = private unnamed_addr constant [23 x i8] c"Form Network Operation\00", align 1
+@.str.300 = private unnamed_addr constant [23 x i8] c"Join Network Operation\00", align 1
+@.str.301 = private unnamed_addr constant [25 x i8] c"Permit Joining Operation\00", align 1
+@.str.302 = private unnamed_addr constant [24 x i8] c"Leave Network Operation\00", align 1
+@.str.303 = private unnamed_addr constant [22 x i8] c"Manage Joiners Domain\00", align 1
+@.str.304 = private unnamed_addr constant [19 x i8] c"Identify Operation\00", align 1
+@.str.305 = private unnamed_addr constant [25 x i8] c"Finding & Binding Domain\00", align 1
+@zbee_tlv_local_types_status_code_domain_str = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.298 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.299 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.300 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.301 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.302 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.303 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.304 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.305 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.307 = private unnamed_addr constant [40 x i8] c"Drop all joiners' Provisional Link Keys\00", align 1
+@.str.308 = private unnamed_addr constant [36 x i8] c"Add a joiner's Provisional Link Key\00", align 1
+@.str.309 = private unnamed_addr constant [39 x i8] c"Remove a joiner's Provisional Link Key\00", align 1
+@zbee_tlv_local_types_mj_cmd_str = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.307 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.308 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.309 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.311 = private unnamed_addr constant [25 x i8] c"Curve 25519 / AESMMO-128\00", align 1
+@.str.312 = private unnamed_addr constant [22 x i8] c"Curve 25519 / SHA-256\00", align 1
+@.str.313 = private unnamed_addr constant [16 x i8] c"P-256 / SHA-256\00", align 1
+@zbee_tlv_local_types_key_method_str = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.311 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.312 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.313 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.315 = private unnamed_addr constant [15 x i8] c"Well known key\00", align 1
+@.str.316 = private unnamed_addr constant [20 x i8] c"Authorization token\00", align 1
+@.str.317 = private unnamed_addr constant [14 x i8] c"PAKE passcode\00", align 1
+@zbee_tlv_local_types_psk_secret_str = internal constant [7 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 255, [4 x i8] zeroinitializer, ptr @.str.315 }, { i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.316 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.255 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.317 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.40 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.42 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.319 = private unnamed_addr constant [7 x i8] c"Global\00", align 1
+@zbee_tlv_local_types_lnk_key_unique_str = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.319 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.176 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.321 = private unnamed_addr constant [10 x i8] c"Permanent\00", align 1
+@zbee_tlv_local_types_lnk_key_provisional_str = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.321 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.178 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.323 = private unnamed_addr constant [11 x i8] c"No network\00", align 1
+@.str.324 = private unnamed_addr constant [8 x i8] c"Joining\00", align 1
+@.str.325 = private unnamed_addr constant [19 x i8] c"Joined (no parent)\00", align 1
+@.str.326 = private unnamed_addr constant [8 x i8] c"Leaving\00", align 1
+@zbee_tlv_local_types_joined_status_str = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.323 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.324 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.182 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.325 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.326 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@zbee_tlv_local_types_nwk_state_str = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.199 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.198 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@zbee_tlv_local_types_nwk_type_str = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.201 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.200 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
 
-; Function Attrs: nounwind uwtable
-define hidden i32 @dissect_zbee_tlvs(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i8 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define hidden noundef i32 @dissect_zbee_tlvs(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i8 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
-  %10 = alloca i32, align 4
+  %10 = alloca i8, align 1
   %11 = alloca %struct.ieee802154_packet, align 8
   %12 = alloca i32, align 4
   %13 = load i32, ptr @proto_zbee_tlv, align 4
-  %14 = tail call i32 @p_get_proto_depth(ptr noundef %1, i32 noundef %13) #4
+  %14 = tail call i32 @p_get_proto_depth(ptr noundef %1, i32 noundef %13)
   %15 = add i32 %14, 1
   %16 = icmp ugt i32 %15, 4
-  br i1 %16, label %17, label %20
+  br i1 %16, label %17, label %19
 
 17:                                               ; preds = %7
-  %18 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_zbee_tlv_max_recursion_depth_reached, ptr noundef %0, i32 noundef 0, i32 noundef 0) #4
-  %19 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #4
+  %18 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_zbee_tlv_max_recursion_depth_reached, ptr noundef %0, i32 noundef 0, i32 noundef 0)
   br label %841
 
-20:                                               ; preds = %7
-  %21 = load i32, ptr @proto_zbee_tlv, align 4
-  tail call void @p_set_proto_depth(ptr noundef %1, i32 noundef %21, i32 noundef %15) #4
-  %22 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %3, i32 noundef 2) #4
-  %.not46 = icmp eq i32 %22, 0
-  br i1 %.not46, label %._crit_edge, label %.lr.ph
+19:                                               ; preds = %7
+  %20 = load i32, ptr @proto_zbee_tlv, align 4
+  tail call void @p_set_proto_depth(ptr noundef %1, i32 noundef %20, i32 noundef %15)
+  %21 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef %3, i32 noundef 2)
+  br i1 %21, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %20
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
+.lr.ph:                                           ; preds = %19
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.off.i = add i32 %6, -17
   %switch.i = icmp ult i32 %.off.i, 2
-  %24 = icmp eq i32 %6, 17
-  %25 = select i1 %24, i32 2, i32 1
-  br label %26
+  %23 = icmp eq i32 %6, 17
+  %24 = select i1 %23, i32 2, i32 1
+  br label %25
 
-26:                                               ; preds = %.lr.ph, %dissect_zbee_tlv.exit
-  %.02847 = phi i32 [ %3, %.lr.ph ], [ %.0.i, %dissect_zbee_tlv.exit ]
-  %27 = add i32 %.02847, 1
-  %28 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %27) #4
-  %29 = add i8 %28, 1
-  %30 = zext i8 %29 to i32
-  %31 = add nuw nsw i32 %30, 2
-  %32 = load i32, ptr @ett_zbee_tlv, align 4
-  %33 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %.02847, i32 noundef %31, i32 noundef %32, ptr noundef null, ptr noundef nonnull @.str) #4
-  %34 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02847) #4
-  %35 = icmp ugt i8 %34, 63
-  br i1 %35, label %36, label %124
+25:                                               ; preds = %.lr.ph, %dissect_zbee_tlv.exit
+  %.02745 = phi i32 [ %3, %.lr.ph ], [ %.0.i, %dissect_zbee_tlv.exit ]
+  %26 = add i32 %.02745, 1
+  %27 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %26)
+  %28 = add i8 %27, 1
+  %29 = zext i8 %28 to i32
+  %30 = add nuw nsw i32 %29, 2
+  %31 = load i32, ptr @ett_zbee_tlv, align 4
+  %32 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %.02745, i32 noundef %30, i32 noundef %31, ptr noundef null, ptr noundef nonnull @.str)
+  %33 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.02745)
+  %34 = icmp ugt i8 %33, 63
+  br i1 %34, label %35, label %123
 
-36:                                               ; preds = %26
-  %37 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02847) #4
-  %38 = load i32, ptr @hf_zbee_tlv_global_type, align 4
-  %39 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %38, ptr noundef %0, i32 noundef %.02847, i32 noundef 1, i32 noundef 0) #4
-  %40 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %27) #4
-  %41 = load i32, ptr @hf_zbee_tlv_length, align 4
-  %42 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %41, ptr noundef %0, i32 noundef %27, i32 noundef 1, i32 noundef 0) #4
-  %43 = add i32 %.02847, 2
-  %44 = add i8 %40, 1
-  switch i8 %37, label %111 [
-    i8 64, label %45
-    i8 65, label %54
-    i8 66, label %66
-    i8 67, label %70
-    i8 68, label %74
-    i8 69, label %78
-    i8 70, label %82
-    i8 71, label %87
-    i8 72, label %97
-    i8 73, label %99
-    i8 75, label %101
-    i8 76, label %106
+35:                                               ; preds = %25
+  %36 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.02745)
+  %37 = load i32, ptr @hf_zbee_tlv_global_type, align 4
+  %38 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %37, ptr noundef %0, i32 noundef %.02745, i32 noundef 1, i32 noundef 0)
+  %39 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %26)
+  %40 = load i32, ptr @hf_zbee_tlv_length, align 4
+  %41 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %40, ptr noundef %0, i32 noundef %26, i32 noundef 1, i32 noundef 0)
+  %42 = add i32 %.02745, 2
+  %43 = add i8 %39, 1
+  switch i8 %36, label %110 [
+    i8 64, label %44
+    i8 65, label %53
+    i8 66, label %65
+    i8 67, label %69
+    i8 68, label %73
+    i8 69, label %77
+    i8 70, label %81
+    i8 71, label %86
+    i8 72, label %96
+    i8 73, label %98
+    i8 75, label %100
+    i8 76, label %105
   ]
 
-45:                                               ; preds = %36
-  %46 = load i32, ptr @hf_zbee_tlv_manufacturer_specific, align 4
-  %47 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %46, ptr noundef %0, i32 noundef %43, i32 noundef 2, i32 noundef -2147483648) #4
-  %48 = add i32 %.02847, 4
-  %49 = load i32, ptr @hf_zbee_tlv_value, align 4
-  %50 = zext i8 %44 to i32
-  %51 = add nsw i32 %50, -2
-  %52 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %49, ptr noundef %0, i32 noundef %48, i32 noundef %51, i32 noundef 0) #4
-  %53 = add i32 %43, %50
-  br label %116
+44:                                               ; preds = %35
+  %45 = load i32, ptr @hf_zbee_tlv_manufacturer_specific, align 4
+  %46 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %45, ptr noundef %0, i32 noundef %42, i32 noundef 2, i32 noundef -2147483648)
+  %47 = add i32 %.02745, 4
+  %48 = load i32, ptr @hf_zbee_tlv_value, align 4
+  %49 = zext i8 %43 to i32
+  %50 = add nsw i32 %49, -2
+  %51 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %48, ptr noundef %0, i32 noundef %47, i32 noundef %50, i32 noundef 0)
+  %52 = add i32 %42, %49
+  br label %115
 
-54:                                               ; preds = %36
-  %55 = load i32, ptr @hf_zbee_tlv_supported_key_negotiation_methods, align 4
-  %56 = load i32, ptr @ett_zbee_tlv_supported_key_negotiation_methods, align 4
-  %57 = call ptr @proto_tree_add_bitmask(ptr noundef %33, ptr noundef %0, i32 noundef %43, i32 noundef %55, i32 noundef %56, ptr noundef nonnull @dissect_zbee_tlv_supported_key_negotiation_methods.supported_key_negotiation_methods, i32 noundef 0) #4
-  %58 = add i32 %.02847, 3
-  %59 = load i32, ptr @hf_zbee_tlv_supported_secrets, align 4
-  %60 = load i32, ptr @ett_zbee_tlv_supported_secrets, align 4
-  %61 = call ptr @proto_tree_add_bitmask(ptr noundef %33, ptr noundef %0, i32 noundef %58, i32 noundef %59, i32 noundef %60, ptr noundef nonnull @dissect_zbee_tlv_supported_key_negotiation_methods.supported_secrets, i32 noundef 0) #4
-  %62 = add i32 %.02847, 4
-  %63 = load i32, ptr @hf_zbee_tlv_device_eui64, align 4
-  %64 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %63, ptr noundef %0, i32 noundef %62, i32 noundef 8, i32 noundef -2147483648) #4
-  %65 = add i32 %.02847, 12
-  br label %116
+53:                                               ; preds = %35
+  %54 = load i32, ptr @hf_zbee_tlv_supported_key_negotiation_methods, align 4
+  %55 = load i32, ptr @ett_zbee_tlv_supported_key_negotiation_methods, align 4
+  %56 = call ptr @proto_tree_add_bitmask(ptr noundef %32, ptr noundef %0, i32 noundef %42, i32 noundef %54, i32 noundef %55, ptr noundef nonnull @dissect_zbee_tlv_supported_key_negotiation_methods.supported_key_negotiation_methods, i32 noundef 0)
+  %57 = add i32 %.02745, 3
+  %58 = load i32, ptr @hf_zbee_tlv_supported_secrets, align 4
+  %59 = load i32, ptr @ett_zbee_tlv_supported_secrets, align 4
+  %60 = call ptr @proto_tree_add_bitmask(ptr noundef %32, ptr noundef %0, i32 noundef %57, i32 noundef %58, i32 noundef %59, ptr noundef nonnull @dissect_zbee_tlv_supported_key_negotiation_methods.supported_secrets, i32 noundef 0)
+  %61 = add i32 %.02745, 4
+  %62 = load i32, ptr @hf_zbee_tlv_device_eui64, align 4
+  %63 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %62, ptr noundef %0, i32 noundef %61, i32 noundef 8, i32 noundef -2147483648)
+  %64 = add i32 %.02745, 12
+  br label %115
 
-66:                                               ; preds = %36
-  %67 = load i32, ptr @hf_zbee_tlv_panid_conflict_cnt, align 4
-  %68 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %67, ptr noundef %0, i32 noundef %43, i32 noundef 2, i32 noundef -2147483648) #4
-  %69 = add i32 %.02847, 4
-  br label %116
+65:                                               ; preds = %35
+  %66 = load i32, ptr @hf_zbee_tlv_panid_conflict_cnt, align 4
+  %67 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %66, ptr noundef %0, i32 noundef %42, i32 noundef 2, i32 noundef -2147483648)
+  %68 = add i32 %.02745, 4
+  br label %115
 
-70:                                               ; preds = %36
-  %71 = load i32, ptr @hf_zbee_tlv_next_pan_id, align 4
-  %72 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %71, ptr noundef %0, i32 noundef %43, i32 noundef 2, i32 noundef -2147483648) #4
-  %73 = add i32 %.02847, 4
-  br label %116
+69:                                               ; preds = %35
+  %70 = load i32, ptr @hf_zbee_tlv_next_pan_id, align 4
+  %71 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %70, ptr noundef %0, i32 noundef %42, i32 noundef 2, i32 noundef -2147483648)
+  %72 = add i32 %.02745, 4
+  br label %115
 
-74:                                               ; preds = %36
-  %75 = load i32, ptr @hf_zbee_tlv_next_channel_change, align 4
-  %76 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %75, ptr noundef %0, i32 noundef %43, i32 noundef 4, i32 noundef -2147483648) #4
-  %77 = add i32 %.02847, 6
-  br label %116
+73:                                               ; preds = %35
+  %74 = load i32, ptr @hf_zbee_tlv_next_channel_change, align 4
+  %75 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %74, ptr noundef %0, i32 noundef %42, i32 noundef 4, i32 noundef -2147483648)
+  %76 = add i32 %.02745, 6
+  br label %115
 
-78:                                               ; preds = %36
-  %79 = load i32, ptr @hf_zbee_tlv_passphrase, align 4
-  %80 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %79, ptr noundef %0, i32 noundef %43, i32 noundef 16, i32 noundef 0) #4
-  %81 = add i32 %.02847, 18
-  br label %116
+77:                                               ; preds = %35
+  %78 = load i32, ptr @hf_zbee_tlv_passphrase, align 4
+  %79 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %78, ptr noundef %0, i32 noundef %42, i32 noundef 16, i32 noundef 0)
+  %80 = add i32 %.02745, 18
+  br label %115
 
-82:                                               ; preds = %36
-  %83 = load i32, ptr @hf_zbee_tlv_router_information, align 4
-  %84 = load i32, ptr @ett_zbee_tlv_router_information, align 4
-  %85 = call ptr @proto_tree_add_bitmask(ptr noundef %33, ptr noundef %0, i32 noundef %43, i32 noundef %83, i32 noundef %84, ptr noundef nonnull @dissect_zbee_tlv_router_information.router_information, i32 noundef -2147483648) #4
-  %86 = add i32 %.02847, 4
-  br label %116
+81:                                               ; preds = %35
+  %82 = load i32, ptr @hf_zbee_tlv_router_information, align 4
+  %83 = load i32, ptr @ett_zbee_tlv_router_information, align 4
+  %84 = call ptr @proto_tree_add_bitmask(ptr noundef %32, ptr noundef %0, i32 noundef %42, i32 noundef %82, i32 noundef %83, ptr noundef nonnull @dissect_zbee_tlv_router_information.router_information, i32 noundef -2147483648)
+  %85 = add i32 %.02745, 4
+  br label %115
 
-87:                                               ; preds = %36
-  %88 = load i32, ptr @hf_zbee_tlv_node_id, align 4
-  %89 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %88, ptr noundef %0, i32 noundef %43, i32 noundef 2, i32 noundef -2147483648) #4
-  %90 = add i32 %.02847, 4
-  %91 = load i32, ptr @hf_zbee_tlv_frag_opt, align 4
-  %92 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %91, ptr noundef %0, i32 noundef %90, i32 noundef 1, i32 noundef 0) #4
-  %93 = add i32 %.02847, 5
-  %94 = load i32, ptr @hf_zbee_tlv_max_reassembled_buf_size, align 4
-  %95 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %94, ptr noundef %0, i32 noundef %93, i32 noundef 2, i32 noundef -2147483648) #4
-  %96 = add i32 %.02847, 7
-  br label %116
+86:                                               ; preds = %35
+  %87 = load i32, ptr @hf_zbee_tlv_node_id, align 4
+  %88 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %87, ptr noundef %0, i32 noundef %42, i32 noundef 2, i32 noundef -2147483648)
+  %89 = add i32 %.02745, 4
+  %90 = load i32, ptr @hf_zbee_tlv_frag_opt, align 4
+  %91 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %90, ptr noundef %0, i32 noundef %89, i32 noundef 1, i32 noundef 0)
+  %92 = add i32 %.02745, 5
+  %93 = load i32, ptr @hf_zbee_tlv_max_reassembled_buf_size, align 4
+  %94 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %93, ptr noundef %0, i32 noundef %92, i32 noundef 2, i32 noundef -2147483648)
+  %95 = add i32 %.02745, 7
+  br label %115
 
-97:                                               ; preds = %36
-  %98 = call i32 @dissect_zbee_tlvs(ptr noundef %0, ptr noundef %1, ptr noundef %33, i32 noundef %43, ptr noundef null, i8 noundef zeroext 0, i32 noundef 0)
-  br label %116
+96:                                               ; preds = %35
+  %97 = call i32 @dissect_zbee_tlvs(ptr noundef %0, ptr noundef %1, ptr noundef %32, i32 noundef %42, ptr noundef null, i8 noundef zeroext 0, i32 noundef 0)
+  br label %115
 
-99:                                               ; preds = %36
-  %100 = call i32 @dissect_zbee_tlvs(ptr noundef %0, ptr noundef %1, ptr noundef %33, i32 noundef %43, ptr noundef null, i8 noundef zeroext 0, i32 noundef 0)
-  br label %116
+98:                                               ; preds = %35
+  %99 = call i32 @dissect_zbee_tlvs(ptr noundef %0, ptr noundef %1, ptr noundef %32, i32 noundef %42, ptr noundef null, i8 noundef zeroext 0, i32 noundef 0)
+  br label %115
 
-101:                                              ; preds = %36
-  %102 = load i32, ptr @hf_zbee_tlv_configuration_param, align 4
-  %103 = load i32, ptr @ett_zbee_tlv_configuration_param, align 4
-  %104 = call ptr @proto_tree_add_bitmask(ptr noundef %33, ptr noundef %0, i32 noundef %43, i32 noundef %102, i32 noundef %103, ptr noundef nonnull @dissect_zbee_tlv_configuration_parameters.bitmask, i32 noundef -2147483648) #4
-  %105 = add i32 %.02847, 4
-  br label %116
+100:                                              ; preds = %35
+  %101 = load i32, ptr @hf_zbee_tlv_configuration_param, align 4
+  %102 = load i32, ptr @ett_zbee_tlv_configuration_param, align 4
+  %103 = call ptr @proto_tree_add_bitmask(ptr noundef %32, ptr noundef %0, i32 noundef %42, i32 noundef %101, i32 noundef %102, ptr noundef nonnull @dissect_zbee_tlv_configuration_parameters.bitmask, i32 noundef -2147483648)
+  %104 = add i32 %.02745, 4
+  br label %115
 
-106:                                              ; preds = %36
-  %107 = load i32, ptr @hf_zbee_tlv_dev_cap_ext_capability_information, align 4
-  %108 = load i32, ptr @ett_zbee_tlv_capability_information, align 4
-  %109 = call ptr @proto_tree_add_bitmask(ptr noundef %33, ptr noundef %0, i32 noundef %43, i32 noundef %107, i32 noundef %108, ptr noundef nonnull @dissect_zbee_tlv_dev_cap_ext.bitmask, i32 noundef -2147483648) #4
-  %110 = add i32 %.02847, 4
-  br label %116
+105:                                              ; preds = %35
+  %106 = load i32, ptr @hf_zbee_tlv_dev_cap_ext_capability_information, align 4
+  %107 = load i32, ptr @ett_zbee_tlv_capability_information, align 4
+  %108 = call ptr @proto_tree_add_bitmask(ptr noundef %32, ptr noundef %0, i32 noundef %42, i32 noundef %106, i32 noundef %107, ptr noundef nonnull @dissect_zbee_tlv_dev_cap_ext.bitmask, i32 noundef -2147483648)
+  %109 = add i32 %.02745, 4
+  br label %115
 
-111:                                              ; preds = %36
-  %112 = load i32, ptr @hf_zbee_tlv_value, align 4
-  %113 = zext i8 %44 to i32
-  %114 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %112, ptr noundef %0, i32 noundef %43, i32 noundef %113, i32 noundef 0) #4
-  %115 = add i32 %43, %113
-  br label %116
+110:                                              ; preds = %35
+  %111 = load i32, ptr @hf_zbee_tlv_value, align 4
+  %112 = zext i8 %43 to i32
+  %113 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %111, ptr noundef %0, i32 noundef %42, i32 noundef %112, i32 noundef 0)
+  %114 = add i32 %42, %112
+  br label %115
 
-116:                                              ; preds = %111, %106, %101, %99, %97, %87, %82, %78, %74, %70, %66, %54, %45
-  %.0.i36 = phi i32 [ %115, %111 ], [ %110, %106 ], [ %105, %101 ], [ %100, %99 ], [ %98, %97 ], [ %96, %87 ], [ %86, %82 ], [ %81, %78 ], [ %77, %74 ], [ %73, %70 ], [ %69, %66 ], [ %65, %54 ], [ %53, %45 ]
-  %117 = sub i32 %.0.i36, %43
-  %118 = zext i8 %44 to i32
-  %119 = icmp ult i32 %117, %118
-  br i1 %119, label %120, label %dissect_zbee_tlv.exit
+115:                                              ; preds = %110, %105, %100, %98, %96, %86, %81, %77, %73, %69, %65, %53, %44
+  %.0.i35 = phi i32 [ %114, %110 ], [ %109, %105 ], [ %104, %100 ], [ %99, %98 ], [ %97, %96 ], [ %95, %86 ], [ %85, %81 ], [ %80, %77 ], [ %76, %73 ], [ %72, %69 ], [ %68, %65 ], [ %64, %53 ], [ %52, %44 ]
+  %116 = sub i32 %.0.i35, %42
+  %117 = zext i8 %43 to i32
+  %118 = icmp ult i32 %116, %117
+  br i1 %118, label %119, label %dissect_zbee_tlv.exit
 
-120:                                              ; preds = %116
-  %121 = load i32, ptr @hf_zbee_tlv_value, align 4
-  %122 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %121, ptr noundef %0, i32 noundef %.0.i36, i32 noundef %118, i32 noundef 0) #4
-  %123 = add i32 %43, %118
+119:                                              ; preds = %115
+  %120 = load i32, ptr @hf_zbee_tlv_value, align 4
+  %121 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %120, ptr noundef %0, i32 noundef %.0.i35, i32 noundef %117, i32 noundef 0)
+  %122 = add i32 %42, %117
   br label %dissect_zbee_tlv.exit
 
-124:                                              ; preds = %26
+123:                                              ; preds = %25
   switch i8 %5, label %824 [
-    i8 3, label %125
-    i8 2, label %456
-    i8 4, label %499
+    i8 3, label %124
+    i8 2, label %455
+    i8 4, label %498
   ]
 
-125:                                              ; preds = %124
-  %126 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %27) #4
-  %127 = add i8 %126, 3
-  switch i32 %6, label %435 [
-    i32 43, label %128
-    i32 69, label %151
-    i32 32837, label %151
-    i32 32770, label %151
-    i32 64, label %175
-    i32 32832, label %175
-    i32 65, label %194
-    i32 66, label %212
-    i32 70, label %230
-    i32 32834, label %253
-    i32 60, label %277
-    i32 32828, label %303
-    i32 71, label %358
-    i32 32839, label %379
-    i32 32835, label %409
+124:                                              ; preds = %123
+  %125 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %26)
+  %126 = add i8 %125, 3
+  switch i32 %6, label %434 [
+    i32 43, label %127
+    i32 69, label %150
+    i32 32837, label %150
+    i32 32770, label %150
+    i32 64, label %174
+    i32 32832, label %174
+    i32 65, label %193
+    i32 66, label %211
+    i32 70, label %229
+    i32 32834, label %252
+    i32 60, label %276
+    i32 32828, label %302
+    i32 71, label %357
+    i32 32839, label %378
+    i32 32835, label %408
   ]
 
-128:                                              ; preds = %125
-  %129 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02847) #4
-  %130 = load i32, ptr @hf_zbee_tlv_local_type_clear_all_bindings_req, align 4
-  %131 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %130, ptr noundef %0, i32 noundef %.02847, i32 noundef 1, i32 noundef 0) #4
-  %132 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %27) #4
-  %133 = load i32, ptr @hf_zbee_tlv_length, align 4
-  %134 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %133, ptr noundef %0, i32 noundef %27, i32 noundef 1, i32 noundef 0) #4
-  %135 = add i32 %.02847, 2
-  %cond.i.i35 = icmp eq i8 %129, 0
-  br i1 %cond.i.i35, label %136, label %145
+127:                                              ; preds = %124
+  %128 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.02745)
+  %129 = load i32, ptr @hf_zbee_tlv_local_type_clear_all_bindings_req, align 4
+  %130 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %129, ptr noundef %0, i32 noundef %.02745, i32 noundef 1, i32 noundef 0)
+  %131 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %26)
+  %132 = load i32, ptr @hf_zbee_tlv_length, align 4
+  %133 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %132, ptr noundef %0, i32 noundef %26, i32 noundef 1, i32 noundef 0)
+  %134 = add i32 %.02745, 2
+  %cond.i.i34 = icmp eq i8 %128, 0
+  br i1 %cond.i.i34, label %135, label %144
 
-136:                                              ; preds = %128
-  %137 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %135) #4
-  %138 = load i32, ptr @hf_zbee_tlv_count, align 4
-  %139 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %138, ptr noundef %0, i32 noundef %135, i32 noundef 1, i32 noundef 0) #4
-  %140 = add i32 %.02847, 3
-  %.not.i.i.i.i = icmp eq i8 %137, 0
+135:                                              ; preds = %127
+  %136 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %134)
+  %137 = load i32, ptr @hf_zbee_tlv_count, align 4
+  %138 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %137, ptr noundef %0, i32 noundef %134, i32 noundef 1, i32 noundef 0)
+  %139 = add i32 %.02745, 3
+  %.not.i.i.i.i = icmp eq i8 %136, 0
   br i1 %.not.i.i.i.i, label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %136, %.lr.ph.i.i.i.i
-  %.02.i.i.i.i = phi i8 [ %144, %.lr.ph.i.i.i.i ], [ 0, %136 ]
-  %.0131.i.i.i.i = phi i32 [ %143, %.lr.ph.i.i.i.i ], [ %140, %136 ]
-  %141 = load i32, ptr @hf_zbee_tlv_device_eui64, align 4
-  %142 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %141, ptr noundef %0, i32 noundef %.0131.i.i.i.i, i32 noundef 8, i32 noundef -2147483648) #4
-  %143 = add i32 %.0131.i.i.i.i, 8
-  %144 = add nuw i8 %.02.i.i.i.i, 1
-  %exitcond.not.i.i.i.i = icmp eq i8 %144, %137
-  br i1 %exitcond.not.i.i.i.i, label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !4
+.lr.ph.i.i.i.i:                                   ; preds = %135, %.lr.ph.i.i.i.i
+  %.02.i.i.i.i = phi i8 [ %143, %.lr.ph.i.i.i.i ], [ 0, %135 ]
+  %.0131.i.i.i.i = phi i32 [ %142, %.lr.ph.i.i.i.i ], [ %139, %135 ]
+  %140 = load i32, ptr @hf_zbee_tlv_device_eui64, align 4
+  %141 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %140, ptr noundef %0, i32 noundef %.0131.i.i.i.i, i32 noundef 8, i32 noundef -2147483648)
+  %142 = add i32 %.0131.i.i.i.i, 8
+  %143 = add nuw i8 %.02.i.i.i.i, 1
+  %exitcond.not.i.i.i.i = icmp eq i8 %143, %136
+  br i1 %exitcond.not.i.i.i.i, label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !6
 
-145:                                              ; preds = %128
-  %146 = add i8 %132, 1
-  %147 = load i32, ptr @hf_zbee_tlv_value, align 4
-  %148 = zext i8 %146 to i32
-  %149 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %147, ptr noundef %0, i32 noundef %135, i32 noundef %148, i32 noundef 0) #4
-  %150 = add i32 %135, %148
+144:                                              ; preds = %127
+  %145 = add i8 %131, 1
+  %146 = load i32, ptr @hf_zbee_tlv_value, align 4
+  %147 = zext i8 %145 to i32
+  %148 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %146, ptr noundef %0, i32 noundef %134, i32 noundef %147, i32 noundef 0)
+  %149 = add i32 %134, %147
   br label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i
 
-151:                                              ; preds = %125, %125, %125
-  %152 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02847) #4
-  %153 = load i32, ptr @hf_zbee_tlv_local_type_key_update_req_rsp, align 4
-  %154 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %153, ptr noundef %0, i32 noundef %.02847, i32 noundef 1, i32 noundef 0) #4
-  %155 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %27) #4
-  %156 = load i32, ptr @hf_zbee_tlv_length, align 4
-  %157 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %156, ptr noundef %0, i32 noundef %27, i32 noundef 1, i32 noundef 0) #4
-  %158 = add i32 %.02847, 2
-  %cond.i66.i = icmp eq i8 %152, 0
-  br i1 %cond.i66.i, label %159, label %169
+150:                                              ; preds = %124, %124, %124
+  %151 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.02745)
+  %152 = load i32, ptr @hf_zbee_tlv_local_type_key_update_req_rsp, align 4
+  %153 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %152, ptr noundef %0, i32 noundef %.02745, i32 noundef 1, i32 noundef 0)
+  %154 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %26)
+  %155 = load i32, ptr @hf_zbee_tlv_length, align 4
+  %156 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %155, ptr noundef %0, i32 noundef %26, i32 noundef 1, i32 noundef 0)
+  %157 = add i32 %.02745, 2
+  %cond.i66.i = icmp eq i8 %151, 0
+  br i1 %cond.i66.i, label %158, label %168
 
-159:                                              ; preds = %151
-  %160 = load i32, ptr @hf_zbee_tlv_selected_key_negotiation_method, align 4
-  %161 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %160, ptr noundef %0, i32 noundef %158, i32 noundef 1, i32 noundef 0) #4
-  %162 = add i32 %.02847, 3
-  %163 = load i32, ptr @hf_zbee_tlv_selected_pre_shared_secret, align 4
-  %164 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %163, ptr noundef %0, i32 noundef %162, i32 noundef 1, i32 noundef 0) #4
-  %165 = add i32 %.02847, 4
-  %166 = load i32, ptr @hf_zbee_tlv_device_eui64, align 4
-  %167 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %166, ptr noundef %0, i32 noundef %165, i32 noundef 8, i32 noundef -2147483648) #4
-  %168 = add i32 %.02847, 12
+158:                                              ; preds = %150
+  %159 = load i32, ptr @hf_zbee_tlv_selected_key_negotiation_method, align 4
+  %160 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %159, ptr noundef %0, i32 noundef %157, i32 noundef 1, i32 noundef 0)
+  %161 = add i32 %.02745, 3
+  %162 = load i32, ptr @hf_zbee_tlv_selected_pre_shared_secret, align 4
+  %163 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %162, ptr noundef %0, i32 noundef %161, i32 noundef 1, i32 noundef 0)
+  %164 = add i32 %.02745, 4
+  %165 = load i32, ptr @hf_zbee_tlv_device_eui64, align 4
+  %166 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %165, ptr noundef %0, i32 noundef %164, i32 noundef 8, i32 noundef -2147483648)
+  %167 = add i32 %.02745, 12
   br label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i
 
-169:                                              ; preds = %151
-  %170 = add i8 %155, 1
-  %171 = load i32, ptr @hf_zbee_tlv_value, align 4
-  %172 = zext i8 %170 to i32
-  %173 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %171, ptr noundef %0, i32 noundef %158, i32 noundef %172, i32 noundef 0) #4
-  %174 = add i32 %158, %172
+168:                                              ; preds = %150
+  %169 = add i8 %154, 1
+  %170 = load i32, ptr @hf_zbee_tlv_value, align 4
+  %171 = zext i8 %169 to i32
+  %172 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %170, ptr noundef %0, i32 noundef %157, i32 noundef %171, i32 noundef 0)
+  %173 = add i32 %157, %171
   br label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i
 
-175:                                              ; preds = %125, %125
-  %176 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02847) #4
-  %177 = load i32, ptr @hf_zbee_tlv_local_type_key_negotiation_req_rsp, align 4
-  %178 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %177, ptr noundef %0, i32 noundef %.02847, i32 noundef 1, i32 noundef 0) #4
-  %179 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %27) #4
-  %180 = load i32, ptr @hf_zbee_tlv_length, align 4
-  %181 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %180, ptr noundef %0, i32 noundef %27, i32 noundef 1, i32 noundef 0) #4
-  %182 = add i32 %.02847, 2
-  %cond.i68.i = icmp eq i8 %176, 0
-  br i1 %cond.i68.i, label %183, label %188
+174:                                              ; preds = %124, %124
+  %175 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.02745)
+  %176 = load i32, ptr @hf_zbee_tlv_local_type_key_negotiation_req_rsp, align 4
+  %177 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %176, ptr noundef %0, i32 noundef %.02745, i32 noundef 1, i32 noundef 0)
+  %178 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %26)
+  %179 = load i32, ptr @hf_zbee_tlv_length, align 4
+  %180 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %179, ptr noundef %0, i32 noundef %26, i32 noundef 1, i32 noundef 0)
+  %181 = add i32 %.02745, 2
+  %cond.i68.i = icmp eq i8 %175, 0
+  br i1 %cond.i68.i, label %182, label %187
 
-183:                                              ; preds = %175
-  %184 = add i8 %179, -7
-  %185 = load i32, ptr @hf_zbee_tlv_device_eui64, align 4
-  %186 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %185, ptr noundef %0, i32 noundef %182, i32 noundef 8, i32 noundef -2147483648) #4
-  %187 = add i32 %.02847, 10
+182:                                              ; preds = %174
+  %183 = add i8 %178, -7
+  %184 = load i32, ptr @hf_zbee_tlv_device_eui64, align 4
+  %185 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %184, ptr noundef %0, i32 noundef %181, i32 noundef 8, i32 noundef -2147483648)
+  %186 = add i32 %.02745, 10
   br label %dissect_zdp_security_start_key_neg_local_tlv.exit.i
 
-188:                                              ; preds = %175
-  %189 = add i8 %179, 1
+187:                                              ; preds = %174
+  %188 = add i8 %178, 1
   br label %dissect_zdp_security_start_key_neg_local_tlv.exit.i
 
-dissect_zdp_security_start_key_neg_local_tlv.exit.i: ; preds = %188, %183
-  %hf_zbee_tlv_value.sink.i.i = phi ptr [ @hf_zbee_tlv_value, %188 ], [ @hf_zbee_tlv_public_point, %183 ]
-  %.sink5.i.i = phi i8 [ %189, %188 ], [ %184, %183 ]
-  %.sink3.i.i = phi i32 [ %182, %188 ], [ %187, %183 ]
-  %190 = load i32, ptr %hf_zbee_tlv_value.sink.i.i, align 4
-  %191 = zext i8 %.sink5.i.i to i32
-  %192 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %190, ptr noundef %0, i32 noundef %.sink3.i.i, i32 noundef %191, i32 noundef 0) #4
-  %193 = add i32 %.sink3.i.i, %191
+dissect_zdp_security_start_key_neg_local_tlv.exit.i: ; preds = %187, %182
+  %hf_zbee_tlv_value.sink.i.i = phi ptr [ @hf_zbee_tlv_value, %187 ], [ @hf_zbee_tlv_public_point, %182 ]
+  %.sink5.i.i = phi i8 [ %188, %187 ], [ %183, %182 ]
+  %.sink3.i.i = phi i32 [ %181, %187 ], [ %186, %182 ]
+  %189 = load i32, ptr %hf_zbee_tlv_value.sink.i.i, align 4
+  %190 = zext i8 %.sink5.i.i to i32
+  %191 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %189, ptr noundef %0, i32 noundef %.sink3.i.i, i32 noundef %190, i32 noundef 0)
+  %192 = add i32 %.sink3.i.i, %190
   br label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i
 
-194:                                              ; preds = %125
-  %195 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02847) #4
-  %196 = load i32, ptr @hf_zbee_tlv_local_type_req_security_get_auth_token, align 4
-  %197 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %196, ptr noundef %0, i32 noundef %.02847, i32 noundef 1, i32 noundef 0) #4
-  %198 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %27) #4
-  %199 = load i32, ptr @hf_zbee_tlv_length, align 4
-  %200 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %199, ptr noundef %0, i32 noundef %27, i32 noundef 1, i32 noundef 0) #4
-  %201 = add i32 %.02847, 2
-  %cond.i69.i = icmp eq i8 %195, 0
-  br i1 %cond.i69.i, label %202, label %206
+193:                                              ; preds = %124
+  %194 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.02745)
+  %195 = load i32, ptr @hf_zbee_tlv_local_type_req_security_get_auth_token, align 4
+  %196 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %195, ptr noundef %0, i32 noundef %.02745, i32 noundef 1, i32 noundef 0)
+  %197 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %26)
+  %198 = load i32, ptr @hf_zbee_tlv_length, align 4
+  %199 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %198, ptr noundef %0, i32 noundef %26, i32 noundef 1, i32 noundef 0)
+  %200 = add i32 %.02745, 2
+  %cond.i69.i = icmp eq i8 %194, 0
+  br i1 %cond.i69.i, label %201, label %205
 
-202:                                              ; preds = %194
-  %203 = load i32, ptr @hf_zbee_tlv_global_tlv_id, align 4
-  %204 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %203, ptr noundef %0, i32 noundef %201, i32 noundef 1, i32 noundef 0) #4
-  %205 = add i32 %.02847, 3
+201:                                              ; preds = %193
+  %202 = load i32, ptr @hf_zbee_tlv_global_tlv_id, align 4
+  %203 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %202, ptr noundef %0, i32 noundef %200, i32 noundef 1, i32 noundef 0)
+  %204 = add i32 %.02745, 3
   br label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i
 
-206:                                              ; preds = %194
-  %207 = add i8 %198, 1
-  %208 = load i32, ptr @hf_zbee_tlv_value, align 4
-  %209 = zext i8 %207 to i32
-  %210 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %208, ptr noundef %0, i32 noundef %201, i32 noundef %209, i32 noundef 0) #4
-  %211 = add i32 %201, %209
+205:                                              ; preds = %193
+  %206 = add i8 %197, 1
+  %207 = load i32, ptr @hf_zbee_tlv_value, align 4
+  %208 = zext i8 %206 to i32
+  %209 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %207, ptr noundef %0, i32 noundef %200, i32 noundef %208, i32 noundef 0)
+  %210 = add i32 %200, %208
   br label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i
 
-212:                                              ; preds = %125
-  %213 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02847) #4
-  %214 = load i32, ptr @hf_zbee_tlv_local_type_req_security_get_auth_level, align 4
-  %215 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %214, ptr noundef %0, i32 noundef %.02847, i32 noundef 1, i32 noundef 0) #4
-  %216 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %27) #4
-  %217 = load i32, ptr @hf_zbee_tlv_length, align 4
-  %218 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %217, ptr noundef %0, i32 noundef %27, i32 noundef 1, i32 noundef 0) #4
-  %219 = add i32 %.02847, 2
-  %cond.i71.i = icmp eq i8 %213, 0
-  br i1 %cond.i71.i, label %220, label %224
+211:                                              ; preds = %124
+  %212 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.02745)
+  %213 = load i32, ptr @hf_zbee_tlv_local_type_req_security_get_auth_level, align 4
+  %214 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %213, ptr noundef %0, i32 noundef %.02745, i32 noundef 1, i32 noundef 0)
+  %215 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %26)
+  %216 = load i32, ptr @hf_zbee_tlv_length, align 4
+  %217 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %216, ptr noundef %0, i32 noundef %26, i32 noundef 1, i32 noundef 0)
+  %218 = add i32 %.02745, 2
+  %cond.i71.i = icmp eq i8 %212, 0
+  br i1 %cond.i71.i, label %219, label %223
 
-220:                                              ; preds = %212
-  %221 = load i32, ptr @hf_zbee_tlv_local_ieee_addr, align 4
-  %222 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %221, ptr noundef %0, i32 noundef %219, i32 noundef 8, i32 noundef -2147483648) #4
-  %223 = add i32 %.02847, 10
+219:                                              ; preds = %211
+  %220 = load i32, ptr @hf_zbee_tlv_local_ieee_addr, align 4
+  %221 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %220, ptr noundef %0, i32 noundef %218, i32 noundef 8, i32 noundef -2147483648)
+  %222 = add i32 %.02745, 10
   br label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i
 
-224:                                              ; preds = %212
-  %225 = add i8 %216, 1
-  %226 = load i32, ptr @hf_zbee_tlv_value, align 4
-  %227 = zext i8 %225 to i32
-  %228 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %226, ptr noundef %0, i32 noundef %219, i32 noundef %227, i32 noundef 0) #4
-  %229 = add i32 %219, %227
+223:                                              ; preds = %211
+  %224 = add i8 %215, 1
+  %225 = load i32, ptr @hf_zbee_tlv_value, align 4
+  %226 = zext i8 %224 to i32
+  %227 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %225, ptr noundef %0, i32 noundef %218, i32 noundef %226, i32 noundef 0)
+  %228 = add i32 %218, %226
   br label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i
 
-230:                                              ; preds = %125
-  %231 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02847) #4
-  %232 = load i32, ptr @hf_zbee_tlv_local_type_req_security_decommission, align 4
-  %233 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %232, ptr noundef %0, i32 noundef %.02847, i32 noundef 1, i32 noundef 0) #4
-  %234 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %27) #4
-  %235 = load i32, ptr @hf_zbee_tlv_length, align 4
-  %236 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %235, ptr noundef %0, i32 noundef %27, i32 noundef 1, i32 noundef 0) #4
-  %237 = add i32 %.02847, 2
-  %cond.i73.i = icmp eq i8 %231, 0
-  br i1 %cond.i73.i, label %238, label %247
+229:                                              ; preds = %124
+  %230 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.02745)
+  %231 = load i32, ptr @hf_zbee_tlv_local_type_req_security_decommission, align 4
+  %232 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %231, ptr noundef %0, i32 noundef %.02745, i32 noundef 1, i32 noundef 0)
+  %233 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %26)
+  %234 = load i32, ptr @hf_zbee_tlv_length, align 4
+  %235 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %234, ptr noundef %0, i32 noundef %26, i32 noundef 1, i32 noundef 0)
+  %236 = add i32 %.02745, 2
+  %cond.i73.i = icmp eq i8 %230, 0
+  br i1 %cond.i73.i, label %237, label %246
 
-238:                                              ; preds = %230
-  %239 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %237) #4
-  %240 = load i32, ptr @hf_zbee_tlv_count, align 4
-  %241 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %240, ptr noundef %0, i32 noundef %237, i32 noundef 1, i32 noundef 0) #4
-  %242 = add i32 %.02847, 3
-  %.not.i.i.i34 = icmp eq i8 %239, 0
-  br i1 %.not.i.i.i34, label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i, label %.lr.ph.i.i.i
+237:                                              ; preds = %229
+  %238 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %236)
+  %239 = load i32, ptr @hf_zbee_tlv_count, align 4
+  %240 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %239, ptr noundef %0, i32 noundef %236, i32 noundef 1, i32 noundef 0)
+  %241 = add i32 %.02745, 3
+  %.not.i.i.i33 = icmp eq i8 %238, 0
+  br i1 %.not.i.i.i33, label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %238, %.lr.ph.i.i.i
-  %.02.i.i.i = phi i8 [ %246, %.lr.ph.i.i.i ], [ 0, %238 ]
-  %.0131.i.i.i = phi i32 [ %245, %.lr.ph.i.i.i ], [ %242, %238 ]
-  %243 = load i32, ptr @hf_zbee_tlv_device_eui64, align 4
-  %244 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %243, ptr noundef %0, i32 noundef %.0131.i.i.i, i32 noundef 8, i32 noundef -2147483648) #4
-  %245 = add i32 %.0131.i.i.i, 8
-  %246 = add nuw i8 %.02.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i8 %246, %239
-  br i1 %exitcond.not.i.i.i, label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i, label %.lr.ph.i.i.i, !llvm.loop !4
+.lr.ph.i.i.i:                                     ; preds = %237, %.lr.ph.i.i.i
+  %.02.i.i.i = phi i8 [ %245, %.lr.ph.i.i.i ], [ 0, %237 ]
+  %.0131.i.i.i = phi i32 [ %244, %.lr.ph.i.i.i ], [ %241, %237 ]
+  %242 = load i32, ptr @hf_zbee_tlv_device_eui64, align 4
+  %243 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %242, ptr noundef %0, i32 noundef %.0131.i.i.i, i32 noundef 8, i32 noundef -2147483648)
+  %244 = add i32 %.0131.i.i.i, 8
+  %245 = add nuw i8 %.02.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i8 %245, %238
+  br i1 %exitcond.not.i.i.i, label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i, label %.lr.ph.i.i.i, !llvm.loop !6
 
-247:                                              ; preds = %230
-  %248 = add i8 %234, 1
-  %249 = load i32, ptr @hf_zbee_tlv_value, align 4
-  %250 = zext i8 %248 to i32
-  %251 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %249, ptr noundef %0, i32 noundef %237, i32 noundef %250, i32 noundef 0) #4
-  %252 = add i32 %237, %250
+246:                                              ; preds = %229
+  %247 = add i8 %233, 1
+  %248 = load i32, ptr @hf_zbee_tlv_value, align 4
+  %249 = zext i8 %247 to i32
+  %250 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %248, ptr noundef %0, i32 noundef %236, i32 noundef %249, i32 noundef 0)
+  %251 = add i32 %236, %249
   br label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i
 
-253:                                              ; preds = %125
-  %254 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02847) #4
-  %255 = load i32, ptr @hf_zbee_tlv_local_type_get_auth_level_rsp, align 4
-  %256 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %255, ptr noundef %0, i32 noundef %.02847, i32 noundef 1, i32 noundef 0) #4
-  %257 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %27) #4
-  %258 = load i32, ptr @hf_zbee_tlv_length, align 4
-  %259 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %258, ptr noundef %0, i32 noundef %27, i32 noundef 1, i32 noundef 0) #4
-  %260 = add i32 %.02847, 2
-  %cond.i75.i = icmp eq i8 %254, 0
-  br i1 %cond.i75.i, label %261, label %271
+252:                                              ; preds = %124
+  %253 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.02745)
+  %254 = load i32, ptr @hf_zbee_tlv_local_type_get_auth_level_rsp, align 4
+  %255 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %254, ptr noundef %0, i32 noundef %.02745, i32 noundef 1, i32 noundef 0)
+  %256 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %26)
+  %257 = load i32, ptr @hf_zbee_tlv_length, align 4
+  %258 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %257, ptr noundef %0, i32 noundef %26, i32 noundef 1, i32 noundef 0)
+  %259 = add i32 %.02745, 2
+  %cond.i75.i = icmp eq i8 %253, 0
+  br i1 %cond.i75.i, label %260, label %270
 
-261:                                              ; preds = %253
-  %262 = load i32, ptr @hf_zbee_tlv_local_ieee_addr, align 4
-  %263 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %262, ptr noundef %0, i32 noundef %260, i32 noundef 8, i32 noundef -2147483648) #4
-  %264 = add i32 %.02847, 10
-  %265 = load i32, ptr @hf_zbee_tlv_local_initial_join_method, align 4
-  %266 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %265, ptr noundef %0, i32 noundef %264, i32 noundef 1, i32 noundef 0) #4
-  %267 = add i32 %.02847, 11
-  %268 = load i32, ptr @hf_zbee_tlv_local_active_lk_type, align 4
-  %269 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %268, ptr noundef %0, i32 noundef %267, i32 noundef 1, i32 noundef 0) #4
-  %270 = add i32 %.02847, 12
+260:                                              ; preds = %252
+  %261 = load i32, ptr @hf_zbee_tlv_local_ieee_addr, align 4
+  %262 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %261, ptr noundef %0, i32 noundef %259, i32 noundef 8, i32 noundef -2147483648)
+  %263 = add i32 %.02745, 10
+  %264 = load i32, ptr @hf_zbee_tlv_local_initial_join_method, align 4
+  %265 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %264, ptr noundef %0, i32 noundef %263, i32 noundef 1, i32 noundef 0)
+  %266 = add i32 %.02745, 11
+  %267 = load i32, ptr @hf_zbee_tlv_local_active_lk_type, align 4
+  %268 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %267, ptr noundef %0, i32 noundef %266, i32 noundef 1, i32 noundef 0)
+  %269 = add i32 %.02745, 12
   br label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i
 
-271:                                              ; preds = %253
-  %272 = add i8 %257, 1
-  %273 = load i32, ptr @hf_zbee_tlv_value, align 4
-  %274 = zext i8 %272 to i32
-  %275 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %273, ptr noundef %0, i32 noundef %260, i32 noundef %274, i32 noundef 0) #4
-  %276 = add i32 %260, %274
+270:                                              ; preds = %252
+  %271 = add i8 %256, 1
+  %272 = load i32, ptr @hf_zbee_tlv_value, align 4
+  %273 = zext i8 %271 to i32
+  %274 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %272, ptr noundef %0, i32 noundef %259, i32 noundef %273, i32 noundef 0)
+  %275 = add i32 %259, %273
   br label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i
 
-277:                                              ; preds = %125
-  %278 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02847) #4
-  %279 = load i32, ptr @hf_zbee_tlv_local_type_req_beacon_survey, align 4
-  %280 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %279, ptr noundef %0, i32 noundef %.02847, i32 noundef 1, i32 noundef 0) #4
-  %281 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %27) #4
-  %282 = load i32, ptr @hf_zbee_tlv_length, align 4
-  %283 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %282, ptr noundef %0, i32 noundef %27, i32 noundef 1, i32 noundef 0) #4
-  %284 = add i32 %.02847, 2
-  %cond.i77.i = icmp eq i8 %278, 0
-  br i1 %cond.i77.i, label %285, label %297
+276:                                              ; preds = %124
+  %277 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.02745)
+  %278 = load i32, ptr @hf_zbee_tlv_local_type_req_beacon_survey, align 4
+  %279 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %278, ptr noundef %0, i32 noundef %.02745, i32 noundef 1, i32 noundef 0)
+  %280 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %26)
+  %281 = load i32, ptr @hf_zbee_tlv_length, align 4
+  %282 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %281, ptr noundef %0, i32 noundef %26, i32 noundef 1, i32 noundef 0)
+  %283 = add i32 %.02745, 2
+  %cond.i77.i = icmp eq i8 %277, 0
+  br i1 %cond.i77.i, label %284, label %296
 
-285:                                              ; preds = %277
-  %286 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %284) #4
-  %287 = load i32, ptr @hf_zbee_zdp_beacon_survey_scan_mask_cnt, align 4
-  %288 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %287, ptr noundef %0, i32 noundef %284, i32 noundef 1, i32 noundef -2147483648) #4
-  %289 = add i32 %.02847, 3
-  %.not.i.i = icmp eq i8 %286, 0
+284:                                              ; preds = %276
+  %285 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %283)
+  %286 = load i32, ptr @hf_zbee_zdp_beacon_survey_scan_mask_cnt, align 4
+  %287 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %286, ptr noundef %0, i32 noundef %283, i32 noundef 1, i32 noundef -2147483648)
+  %288 = add i32 %.02745, 3
+  %.not.i.i = icmp eq i8 %285, 0
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %285, %.lr.ph.i.i
-  %.02.i.i = phi i8 [ %293, %.lr.ph.i.i ], [ 0, %285 ]
-  %.0371.i.i = phi i32 [ %292, %.lr.ph.i.i ], [ %289, %285 ]
-  %290 = load i32, ptr @hf_zbee_zdp_beacon_survey_scan_mask, align 4
-  %291 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %290, ptr noundef %0, i32 noundef %.0371.i.i, i32 noundef 4, i32 noundef -2147483648) #4
-  %292 = add i32 %.0371.i.i, 4
-  %293 = add nuw i8 %.02.i.i, 1
-  %exitcond.not.i.i = icmp eq i8 %293, %286
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !6
+.lr.ph.i.i:                                       ; preds = %284, %.lr.ph.i.i
+  %.02.i.i = phi i8 [ %292, %.lr.ph.i.i ], [ 0, %284 ]
+  %.0371.i.i = phi i32 [ %291, %.lr.ph.i.i ], [ %288, %284 ]
+  %289 = load i32, ptr @hf_zbee_zdp_beacon_survey_scan_mask, align 4
+  %290 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %289, ptr noundef %0, i32 noundef %.0371.i.i, i32 noundef 4, i32 noundef -2147483648)
+  %291 = add i32 %.0371.i.i, 4
+  %292 = add nuw i8 %.02.i.i, 1
+  %exitcond.not.i.i = icmp eq i8 %292, %285
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !8
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %285
-  %.037.lcssa.i.i = phi i32 [ %289, %285 ], [ %292, %.lr.ph.i.i ]
-  %294 = load i32, ptr @hf_zbee_zdp_beacon_survey_conf_mask, align 4
-  %295 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %294, ptr noundef %0, i32 noundef %.037.lcssa.i.i, i32 noundef 1, i32 noundef -2147483648) #4
-  %296 = add i32 %.037.lcssa.i.i, 1
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %284
+  %.037.lcssa.i.i = phi i32 [ %288, %284 ], [ %291, %.lr.ph.i.i ]
+  %293 = load i32, ptr @hf_zbee_zdp_beacon_survey_conf_mask, align 4
+  %294 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %293, ptr noundef %0, i32 noundef %.037.lcssa.i.i, i32 noundef 1, i32 noundef -2147483648)
+  %295 = add i32 %.037.lcssa.i.i, 1
   br label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i
 
-297:                                              ; preds = %277
-  %298 = add i8 %281, 1
-  %299 = load i32, ptr @hf_zbee_tlv_value, align 4
-  %300 = zext i8 %298 to i32
-  %301 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %299, ptr noundef %0, i32 noundef %284, i32 noundef %300, i32 noundef 0) #4
-  %302 = add i32 %284, %300
+296:                                              ; preds = %276
+  %297 = add i8 %280, 1
+  %298 = load i32, ptr @hf_zbee_tlv_value, align 4
+  %299 = zext i8 %297 to i32
+  %300 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %298, ptr noundef %0, i32 noundef %283, i32 noundef %299, i32 noundef 0)
+  %301 = add i32 %283, %299
   br label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i
 
-303:                                              ; preds = %125
-  %304 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02847) #4
-  %305 = load i32, ptr @hf_zbee_tlv_local_type_rsp_beacon_survey, align 4
-  %306 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %305, ptr noundef %0, i32 noundef %.02847, i32 noundef 1, i32 noundef 0) #4
-  %307 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %27) #4
-  %308 = load i32, ptr @hf_zbee_tlv_length, align 4
-  %309 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %308, ptr noundef %0, i32 noundef %27, i32 noundef 1, i32 noundef 0) #4
-  %310 = add i32 %.02847, 2
-  switch i8 %304, label %352 [
-    i8 0, label %311
-    i8 1, label %321
-    i8 2, label %334
+302:                                              ; preds = %124
+  %303 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.02745)
+  %304 = load i32, ptr @hf_zbee_tlv_local_type_rsp_beacon_survey, align 4
+  %305 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %304, ptr noundef %0, i32 noundef %.02745, i32 noundef 1, i32 noundef 0)
+  %306 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %26)
+  %307 = load i32, ptr @hf_zbee_tlv_length, align 4
+  %308 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %307, ptr noundef %0, i32 noundef %26, i32 noundef 1, i32 noundef 0)
+  %309 = add i32 %.02745, 2
+  switch i8 %303, label %351 [
+    i8 0, label %310
+    i8 1, label %320
+    i8 2, label %333
   ]
 
-311:                                              ; preds = %303
-  %312 = load i32, ptr @hf_zbee_zdp_beacon_survey_conf_mask, align 4
-  %313 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %312, ptr noundef %0, i32 noundef %310, i32 noundef 1, i32 noundef -2147483648) #4
-  %314 = add i32 %.02847, 3
-  %315 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %314) #4
-  %316 = load i32, ptr @hf_zbee_zdp_beacon_survey_scan_mask_cnt, align 4
-  %317 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %316, ptr noundef %0, i32 noundef %314, i32 noundef 1, i32 noundef -2147483648) #4
-  %.0572.i.i = add i32 %.02847, 4
-  %.not.i83.i = icmp eq i8 %315, 0
+310:                                              ; preds = %302
+  %311 = load i32, ptr @hf_zbee_zdp_beacon_survey_conf_mask, align 4
+  %312 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %311, ptr noundef %0, i32 noundef %309, i32 noundef 1, i32 noundef -2147483648)
+  %313 = add i32 %.02745, 3
+  %314 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %313)
+  %315 = load i32, ptr @hf_zbee_zdp_beacon_survey_scan_mask_cnt, align 4
+  %316 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %315, ptr noundef %0, i32 noundef %313, i32 noundef 1, i32 noundef -2147483648)
+  %.0572.i.i = add i32 %.02745, 4
+  %.not.i83.i = icmp eq i8 %314, 0
   br i1 %.not.i83.i, label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i, label %.lr.ph.i84.i
 
-.lr.ph.i84.i:                                     ; preds = %311, %.lr.ph.i84.i
-  %.0574.i.i = phi i32 [ %.057.i.i, %.lr.ph.i84.i ], [ %.0572.i.i, %311 ]
-  %.03.i.i = phi i8 [ %320, %.lr.ph.i84.i ], [ 0, %311 ]
-  %318 = load i32, ptr @hf_zbee_zdp_beacon_survey_scan_mask, align 4
-  %319 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %318, ptr noundef %0, i32 noundef %.0574.i.i, i32 noundef 4, i32 noundef -2147483648) #4
-  %320 = add nuw i8 %.03.i.i, 1
+.lr.ph.i84.i:                                     ; preds = %310, %.lr.ph.i84.i
+  %.0574.i.i = phi i32 [ %.057.i.i, %.lr.ph.i84.i ], [ %.0572.i.i, %310 ]
+  %.03.i.i = phi i8 [ %319, %.lr.ph.i84.i ], [ 0, %310 ]
+  %317 = load i32, ptr @hf_zbee_zdp_beacon_survey_scan_mask, align 4
+  %318 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %317, ptr noundef %0, i32 noundef %.0574.i.i, i32 noundef 4, i32 noundef -2147483648)
+  %319 = add nuw i8 %.03.i.i, 1
   %.057.i.i = add i32 %.0574.i.i, 4
-  %exitcond.not.i85.i = icmp eq i8 %320, %315
-  br i1 %exitcond.not.i85.i, label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i, label %.lr.ph.i84.i, !llvm.loop !7
+  %exitcond.not.i85.i = icmp eq i8 %319, %314
+  br i1 %exitcond.not.i85.i, label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i, label %.lr.ph.i84.i, !llvm.loop !9
 
-321:                                              ; preds = %303
-  %322 = load i32, ptr @hf_zbee_zdp_beacon_survey_total, align 4
-  %323 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %322, ptr noundef %0, i32 noundef %310, i32 noundef 1, i32 noundef -2147483648) #4
-  %324 = add i32 %.02847, 3
-  %325 = load i32, ptr @hf_zbee_zdp_beacon_survey_cur_zbn, align 4
-  %326 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %325, ptr noundef %0, i32 noundef %324, i32 noundef 1, i32 noundef -2147483648) #4
-  %327 = add i32 %.02847, 4
-  %328 = load i32, ptr @hf_zbee_zdp_beacon_survey_cur_zbn_potent_parents, align 4
-  %329 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %328, ptr noundef %0, i32 noundef %327, i32 noundef 1, i32 noundef -2147483648) #4
-  %330 = add i32 %.02847, 5
-  %331 = load i32, ptr @hf_zbee_zdp_beacon_survey_other_zbn, align 4
-  %332 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %331, ptr noundef %0, i32 noundef %330, i32 noundef 1, i32 noundef -2147483648) #4
-  %333 = add i32 %.02847, 6
+320:                                              ; preds = %302
+  %321 = load i32, ptr @hf_zbee_zdp_beacon_survey_total, align 4
+  %322 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %321, ptr noundef %0, i32 noundef %309, i32 noundef 1, i32 noundef -2147483648)
+  %323 = add i32 %.02745, 3
+  %324 = load i32, ptr @hf_zbee_zdp_beacon_survey_cur_zbn, align 4
+  %325 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %324, ptr noundef %0, i32 noundef %323, i32 noundef 1, i32 noundef -2147483648)
+  %326 = add i32 %.02745, 4
+  %327 = load i32, ptr @hf_zbee_zdp_beacon_survey_cur_zbn_potent_parents, align 4
+  %328 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %327, ptr noundef %0, i32 noundef %326, i32 noundef 1, i32 noundef -2147483648)
+  %329 = add i32 %.02745, 5
+  %330 = load i32, ptr @hf_zbee_zdp_beacon_survey_other_zbn, align 4
+  %331 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %330, ptr noundef %0, i32 noundef %329, i32 noundef 1, i32 noundef -2147483648)
+  %332 = add i32 %.02745, 6
   br label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i
 
-334:                                              ; preds = %303
-  %335 = load i32, ptr @hf_zbee_zdp_beacon_survey_current_parent, align 4
-  %336 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %335, ptr noundef %0, i32 noundef %310, i32 noundef 2, i32 noundef -2147483648) #4
-  %337 = add i32 %.02847, 4
-  %338 = load i32, ptr @hf_zbee_tlv_lqa, align 4
-  %339 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %338, ptr noundef %0, i32 noundef %337, i32 noundef 1, i32 noundef -2147483648) #4
-  %340 = add i32 %.02847, 5
-  %341 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %340) #4
-  %342 = load i32, ptr @hf_zbee_zdp_beacon_survey_cnt_parents, align 4
-  %343 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %342, ptr noundef %0, i32 noundef %340, i32 noundef 1, i32 noundef -2147483648) #4
-  %344 = add i32 %.02847, 6
-  %.not.i.i78.i = icmp eq i8 %341, 0
+333:                                              ; preds = %302
+  %334 = load i32, ptr @hf_zbee_zdp_beacon_survey_current_parent, align 4
+  %335 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %334, ptr noundef %0, i32 noundef %309, i32 noundef 2, i32 noundef -2147483648)
+  %336 = add i32 %.02745, 4
+  %337 = load i32, ptr @hf_zbee_tlv_lqa, align 4
+  %338 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %337, ptr noundef %0, i32 noundef %336, i32 noundef 1, i32 noundef -2147483648)
+  %339 = add i32 %.02745, 5
+  %340 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %339)
+  %341 = load i32, ptr @hf_zbee_zdp_beacon_survey_cnt_parents, align 4
+  %342 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %341, ptr noundef %0, i32 noundef %339, i32 noundef 1, i32 noundef -2147483648)
+  %343 = add i32 %.02745, 6
+  %.not.i.i78.i = icmp eq i8 %340, 0
   br i1 %.not.i.i78.i, label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i, label %.lr.ph.i.i79.i
 
-.lr.ph.i.i79.i:                                   ; preds = %334, %.lr.ph.i.i79.i
-  %.02.i.i80.i = phi i8 [ %351, %.lr.ph.i.i79.i ], [ 0, %334 ]
-  %.0251.i.i.i = phi i32 [ %350, %.lr.ph.i.i79.i ], [ %344, %334 ]
-  %345 = load i32, ptr @hf_zbee_zdp_beacon_survey_parent, align 4
-  %346 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %345, ptr noundef %0, i32 noundef %.0251.i.i.i, i32 noundef 2, i32 noundef -2147483648) #4
-  %347 = add i32 %.0251.i.i.i, 2
-  %348 = load i32, ptr @hf_zbee_tlv_lqa, align 4
-  %349 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %348, ptr noundef %0, i32 noundef %347, i32 noundef 1, i32 noundef -2147483648) #4
-  %350 = add i32 %.0251.i.i.i, 3
-  %351 = add nuw i8 %.02.i.i80.i, 1
-  %exitcond.not.i.i81.i = icmp eq i8 %351, %341
-  br i1 %exitcond.not.i.i81.i, label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i, label %.lr.ph.i.i79.i, !llvm.loop !8
+.lr.ph.i.i79.i:                                   ; preds = %333, %.lr.ph.i.i79.i
+  %.02.i.i80.i = phi i8 [ %350, %.lr.ph.i.i79.i ], [ 0, %333 ]
+  %.0251.i.i.i = phi i32 [ %349, %.lr.ph.i.i79.i ], [ %343, %333 ]
+  %344 = load i32, ptr @hf_zbee_zdp_beacon_survey_parent, align 4
+  %345 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %344, ptr noundef %0, i32 noundef %.0251.i.i.i, i32 noundef 2, i32 noundef -2147483648)
+  %346 = add i32 %.0251.i.i.i, 2
+  %347 = load i32, ptr @hf_zbee_tlv_lqa, align 4
+  %348 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %347, ptr noundef %0, i32 noundef %346, i32 noundef 1, i32 noundef -2147483648)
+  %349 = add i32 %.0251.i.i.i, 3
+  %350 = add nuw i8 %.02.i.i80.i, 1
+  %exitcond.not.i.i81.i = icmp eq i8 %350, %340
+  br i1 %exitcond.not.i.i81.i, label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i, label %.lr.ph.i.i79.i, !llvm.loop !10
 
-352:                                              ; preds = %303
-  %353 = add i8 %307, 1
-  %354 = load i32, ptr @hf_zbee_tlv_value, align 4
-  %355 = zext i8 %353 to i32
-  %356 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %354, ptr noundef %0, i32 noundef %310, i32 noundef %355, i32 noundef 0) #4
-  %357 = add i32 %310, %355
+351:                                              ; preds = %302
+  %352 = add i8 %306, 1
+  %353 = load i32, ptr @hf_zbee_tlv_value, align 4
+  %354 = zext i8 %352 to i32
+  %355 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %353, ptr noundef %0, i32 noundef %309, i32 noundef %354, i32 noundef 0)
+  %356 = add i32 %309, %354
   br label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i
 
-358:                                              ; preds = %125
-  %359 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02847) #4
-  %360 = load i32, ptr @hf_zbee_tlv_local_type_req_challenge, align 4
-  %361 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %360, ptr noundef %0, i32 noundef %.02847, i32 noundef 1, i32 noundef 0) #4
-  %362 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %27) #4
-  %363 = load i32, ptr @hf_zbee_tlv_length, align 4
-  %364 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %363, ptr noundef %0, i32 noundef %27, i32 noundef 1, i32 noundef 0) #4
-  %365 = add i32 %.02847, 2
-  %cond.i86.i = icmp eq i8 %359, 0
-  br i1 %cond.i86.i, label %366, label %373
+357:                                              ; preds = %124
+  %358 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.02745)
+  %359 = load i32, ptr @hf_zbee_tlv_local_type_req_challenge, align 4
+  %360 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %359, ptr noundef %0, i32 noundef %.02745, i32 noundef 1, i32 noundef 0)
+  %361 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %26)
+  %362 = load i32, ptr @hf_zbee_tlv_length, align 4
+  %363 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %362, ptr noundef %0, i32 noundef %26, i32 noundef 1, i32 noundef 0)
+  %364 = add i32 %.02745, 2
+  %cond.i86.i = icmp eq i8 %358, 0
+  br i1 %cond.i86.i, label %365, label %372
 
-366:                                              ; preds = %358
-  %367 = load i32, ptr @hf_zbee_tlv_local_ieee_addr, align 4
-  %368 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %367, ptr noundef %0, i32 noundef %365, i32 noundef 8, i32 noundef -2147483648) #4
-  %369 = add i32 %.02847, 10
-  %370 = load i32, ptr @hf_zbee_tlv_challenge_value, align 4
-  %371 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %370, ptr noundef %0, i32 noundef %369, i32 noundef 8, i32 noundef 0) #4
-  %372 = add i32 %.02847, 18
+365:                                              ; preds = %357
+  %366 = load i32, ptr @hf_zbee_tlv_local_ieee_addr, align 4
+  %367 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %366, ptr noundef %0, i32 noundef %364, i32 noundef 8, i32 noundef -2147483648)
+  %368 = add i32 %.02745, 10
+  %369 = load i32, ptr @hf_zbee_tlv_challenge_value, align 4
+  %370 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %369, ptr noundef %0, i32 noundef %368, i32 noundef 8, i32 noundef 0)
+  %371 = add i32 %.02745, 18
   br label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i
 
-373:                                              ; preds = %358
-  %374 = add i8 %362, 1
-  %375 = load i32, ptr @hf_zbee_tlv_value, align 4
-  %376 = zext i8 %374 to i32
-  %377 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %375, ptr noundef %0, i32 noundef %365, i32 noundef %376, i32 noundef 0) #4
-  %378 = add i32 %365, %376
+372:                                              ; preds = %357
+  %373 = add i8 %361, 1
+  %374 = load i32, ptr @hf_zbee_tlv_value, align 4
+  %375 = zext i8 %373 to i32
+  %376 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %374, ptr noundef %0, i32 noundef %364, i32 noundef %375, i32 noundef 0)
+  %377 = add i32 %364, %375
   br label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i
 
-379:                                              ; preds = %125
-  %380 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02847) #4
-  %381 = load i32, ptr @hf_zbee_tlv_local_type_rsp_challenge, align 4
-  %382 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %381, ptr noundef %0, i32 noundef %.02847, i32 noundef 1, i32 noundef 0) #4
-  %383 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %27) #4
-  %384 = load i32, ptr @hf_zbee_tlv_length, align 4
-  %385 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %384, ptr noundef %0, i32 noundef %27, i32 noundef 1, i32 noundef 0) #4
-  %386 = add i32 %.02847, 2
-  %cond.i88.i = icmp eq i8 %380, 0
-  br i1 %cond.i88.i, label %387, label %403
+378:                                              ; preds = %124
+  %379 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.02745)
+  %380 = load i32, ptr @hf_zbee_tlv_local_type_rsp_challenge, align 4
+  %381 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %380, ptr noundef %0, i32 noundef %.02745, i32 noundef 1, i32 noundef 0)
+  %382 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %26)
+  %383 = load i32, ptr @hf_zbee_tlv_length, align 4
+  %384 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %383, ptr noundef %0, i32 noundef %26, i32 noundef 1, i32 noundef 0)
+  %385 = add i32 %.02745, 2
+  %cond.i88.i = icmp eq i8 %379, 0
+  br i1 %cond.i88.i, label %386, label %402
 
-387:                                              ; preds = %379
-  %388 = load i32, ptr @hf_zbee_tlv_local_ieee_addr, align 4
-  %389 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %388, ptr noundef %0, i32 noundef %386, i32 noundef 8, i32 noundef -2147483648) #4
-  %390 = add i32 %.02847, 10
-  %391 = load i32, ptr @hf_zbee_tlv_challenge_value, align 4
-  %392 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %391, ptr noundef %0, i32 noundef %390, i32 noundef 8, i32 noundef 0) #4
-  %393 = add i32 %.02847, 18
-  %394 = load i32, ptr @hf_zbee_tlv_aps_frame_counter, align 4
-  %395 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %394, ptr noundef %0, i32 noundef %393, i32 noundef 4, i32 noundef -2147483648) #4
-  %396 = add i32 %.02847, 22
-  %397 = load i32, ptr @hf_zbee_tlv_challenge_counter, align 4
-  %398 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %397, ptr noundef %0, i32 noundef %396, i32 noundef 4, i32 noundef -2147483648) #4
-  %399 = add i32 %.02847, 26
-  %400 = load i32, ptr @hf_zbee_tlv_mic64, align 4
-  %401 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %400, ptr noundef %0, i32 noundef %399, i32 noundef 8, i32 noundef 0) #4
-  %402 = add i32 %.02847, 34
+386:                                              ; preds = %378
+  %387 = load i32, ptr @hf_zbee_tlv_local_ieee_addr, align 4
+  %388 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %387, ptr noundef %0, i32 noundef %385, i32 noundef 8, i32 noundef -2147483648)
+  %389 = add i32 %.02745, 10
+  %390 = load i32, ptr @hf_zbee_tlv_challenge_value, align 4
+  %391 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %390, ptr noundef %0, i32 noundef %389, i32 noundef 8, i32 noundef 0)
+  %392 = add i32 %.02745, 18
+  %393 = load i32, ptr @hf_zbee_tlv_aps_frame_counter, align 4
+  %394 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %393, ptr noundef %0, i32 noundef %392, i32 noundef 4, i32 noundef -2147483648)
+  %395 = add i32 %.02745, 22
+  %396 = load i32, ptr @hf_zbee_tlv_challenge_counter, align 4
+  %397 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %396, ptr noundef %0, i32 noundef %395, i32 noundef 4, i32 noundef -2147483648)
+  %398 = add i32 %.02745, 26
+  %399 = load i32, ptr @hf_zbee_tlv_mic64, align 4
+  %400 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %399, ptr noundef %0, i32 noundef %398, i32 noundef 8, i32 noundef 0)
+  %401 = add i32 %.02745, 34
   br label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i
 
-403:                                              ; preds = %379
-  %404 = add i8 %383, 1
-  %405 = load i32, ptr @hf_zbee_tlv_value, align 4
-  %406 = zext i8 %404 to i32
-  %407 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %405, ptr noundef %0, i32 noundef %386, i32 noundef %406, i32 noundef 0) #4
-  %408 = add i32 %386, %406
+402:                                              ; preds = %378
+  %403 = add i8 %382, 1
+  %404 = load i32, ptr @hf_zbee_tlv_value, align 4
+  %405 = zext i8 %403 to i32
+  %406 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %404, ptr noundef %0, i32 noundef %385, i32 noundef %405, i32 noundef 0)
+  %407 = add i32 %385, %405
   br label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i
 
-409:                                              ; preds = %125
-  %410 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02847) #4
-  %411 = load i32, ptr @hf_zbee_tlv_local_type_rsp_set_configuration, align 4
-  %412 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %411, ptr noundef %0, i32 noundef %.02847, i32 noundef 1, i32 noundef 0) #4
-  %413 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %27) #4
-  %414 = load i32, ptr @hf_zbee_tlv_length, align 4
-  %415 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %414, ptr noundef %0, i32 noundef %27, i32 noundef 1, i32 noundef 0) #4
-  %416 = add i32 %.02847, 2
-  %cond.i90.i = icmp eq i8 %410, 0
-  br i1 %cond.i90.i, label %417, label %429
+408:                                              ; preds = %124
+  %409 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.02745)
+  %410 = load i32, ptr @hf_zbee_tlv_local_type_rsp_set_configuration, align 4
+  %411 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %410, ptr noundef %0, i32 noundef %.02745, i32 noundef 1, i32 noundef 0)
+  %412 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %26)
+  %413 = load i32, ptr @hf_zbee_tlv_length, align 4
+  %414 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %413, ptr noundef %0, i32 noundef %26, i32 noundef 1, i32 noundef 0)
+  %415 = add i32 %.02745, 2
+  %cond.i90.i = icmp eq i8 %409, 0
+  br i1 %cond.i90.i, label %416, label %428
 
-417:                                              ; preds = %409
-  %418 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %416) #4
-  %419 = load i32, ptr @hf_zbee_tlv_local_status_count, align 4
-  %420 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %419, ptr noundef %0, i32 noundef %416, i32 noundef 1, i32 noundef 0) #4
-  %421 = add i32 %.02847, 3
-  %.not.i92.i = icmp eq i8 %418, 0
+416:                                              ; preds = %408
+  %417 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %415)
+  %418 = load i32, ptr @hf_zbee_tlv_local_status_count, align 4
+  %419 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %418, ptr noundef %0, i32 noundef %415, i32 noundef 1, i32 noundef 0)
+  %420 = add i32 %.02745, 3
+  %.not.i92.i = icmp eq i8 %417, 0
   br i1 %.not.i92.i, label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i, label %.lr.ph.i93.i
 
-.lr.ph.i93.i:                                     ; preds = %417, %.lr.ph.i93.i
-  %.02.i94.i = phi i8 [ %428, %.lr.ph.i93.i ], [ 0, %417 ]
-  %.0371.i95.i = phi i32 [ %427, %.lr.ph.i93.i ], [ %421, %417 ]
-  %422 = load i32, ptr @hf_zbee_tlv_local_type_id, align 4
-  %423 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %422, ptr noundef %0, i32 noundef %.0371.i95.i, i32 noundef 1, i32 noundef 0) #4
-  %424 = add i32 %.0371.i95.i, 1
-  %425 = load i32, ptr @hf_zbee_tlv_local_proc_status, align 4
-  %426 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %425, ptr noundef %0, i32 noundef %424, i32 noundef 1, i32 noundef 0) #4
-  %427 = add i32 %.0371.i95.i, 2
-  %428 = add nuw i8 %.02.i94.i, 1
-  %exitcond.not.i96.i = icmp eq i8 %428, %418
-  br i1 %exitcond.not.i96.i, label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i, label %.lr.ph.i93.i, !llvm.loop !9
+.lr.ph.i93.i:                                     ; preds = %416, %.lr.ph.i93.i
+  %.02.i94.i = phi i8 [ %427, %.lr.ph.i93.i ], [ 0, %416 ]
+  %.0371.i95.i = phi i32 [ %426, %.lr.ph.i93.i ], [ %420, %416 ]
+  %421 = load i32, ptr @hf_zbee_tlv_local_type_id, align 4
+  %422 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %421, ptr noundef %0, i32 noundef %.0371.i95.i, i32 noundef 1, i32 noundef 0)
+  %423 = add i32 %.0371.i95.i, 1
+  %424 = load i32, ptr @hf_zbee_tlv_local_proc_status, align 4
+  %425 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %424, ptr noundef %0, i32 noundef %423, i32 noundef 1, i32 noundef 0)
+  %426 = add i32 %.0371.i95.i, 2
+  %427 = add nuw i8 %.02.i94.i, 1
+  %exitcond.not.i96.i = icmp eq i8 %427, %417
+  br i1 %exitcond.not.i96.i, label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i, label %.lr.ph.i93.i, !llvm.loop !11
 
-429:                                              ; preds = %409
-  %430 = add i8 %413, 1
-  %431 = load i32, ptr @hf_zbee_tlv_value, align 4
-  %432 = zext i8 %430 to i32
-  %433 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %431, ptr noundef %0, i32 noundef %416, i32 noundef %432, i32 noundef 0) #4
-  %434 = add i32 %416, %432
+428:                                              ; preds = %408
+  %429 = add i8 %412, 1
+  %430 = load i32, ptr @hf_zbee_tlv_value, align 4
+  %431 = zext i8 %429 to i32
+  %432 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %430, ptr noundef %0, i32 noundef %415, i32 noundef %431, i32 noundef 0)
+  %433 = add i32 %415, %431
   br label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i
 
-435:                                              ; preds = %125
-  %436 = load i32, ptr @hf_zbee_tlv_type, align 4
-  %437 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %436, ptr noundef %0, i32 noundef %.02847, i32 noundef 1, i32 noundef 0) #4
-  %438 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %27) #4
-  %439 = load i32, ptr @hf_zbee_tlv_length, align 4
-  %440 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %439, ptr noundef %0, i32 noundef %27, i32 noundef 1, i32 noundef 0) #4
-  %441 = add i32 %.02847, 2
-  %442 = add i8 %438, 1
-  %443 = load i32, ptr @hf_zbee_tlv_value, align 4
-  %444 = zext i8 %442 to i32
-  %445 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %443, ptr noundef %0, i32 noundef %441, i32 noundef %444, i32 noundef 0) #4
-  %446 = add i32 %441, %444
+434:                                              ; preds = %124
+  %435 = load i32, ptr @hf_zbee_tlv_type, align 4
+  %436 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %435, ptr noundef %0, i32 noundef %.02745, i32 noundef 1, i32 noundef 0)
+  %437 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %26)
+  %438 = load i32, ptr @hf_zbee_tlv_length, align 4
+  %439 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %438, ptr noundef %0, i32 noundef %26, i32 noundef 1, i32 noundef 0)
+  %440 = add i32 %.02745, 2
+  %441 = add i8 %437, 1
+  %442 = load i32, ptr @hf_zbee_tlv_value, align 4
+  %443 = zext i8 %441 to i32
+  %444 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %442, ptr noundef %0, i32 noundef %440, i32 noundef %443, i32 noundef 0)
+  %445 = add i32 %440, %443
   br label %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i
 
-dissect_zdp_req_clear_all_bindings_local_tlv.exit.i: ; preds = %.lr.ph.i93.i, %.lr.ph.i.i79.i, %.lr.ph.i84.i, %.lr.ph.i.i.i, %.lr.ph.i.i.i.i, %435, %429, %417, %403, %387, %373, %366, %352, %334, %321, %311, %297, %._crit_edge.i.i, %271, %261, %247, %238, %224, %220, %206, %202, %dissect_zdp_security_start_key_neg_local_tlv.exit.i, %169, %159, %145, %136
-  %.0.i32 = phi i32 [ %446, %435 ], [ %193, %dissect_zdp_security_start_key_neg_local_tlv.exit.i ], [ %150, %145 ], [ %140, %136 ], [ %168, %159 ], [ %174, %169 ], [ %205, %202 ], [ %211, %206 ], [ %223, %220 ], [ %229, %224 ], [ %252, %247 ], [ %242, %238 ], [ %270, %261 ], [ %276, %271 ], [ %296, %._crit_edge.i.i ], [ %302, %297 ], [ %357, %352 ], [ %333, %321 ], [ %344, %334 ], [ %.0572.i.i, %311 ], [ %372, %366 ], [ %378, %373 ], [ %402, %387 ], [ %408, %403 ], [ %434, %429 ], [ %421, %417 ], [ %143, %.lr.ph.i.i.i.i ], [ %245, %.lr.ph.i.i.i ], [ %.057.i.i, %.lr.ph.i84.i ], [ %350, %.lr.ph.i.i79.i ], [ %427, %.lr.ph.i93.i ]
-  %447 = and i32 %.02847, 255
-  %448 = sub i32 %.0.i32, %447
-  %449 = zext i8 %127 to i32
-  %450 = icmp ult i32 %448, %449
-  br i1 %450, label %451, label %dissect_zbee_tlv.exit
+dissect_zdp_req_clear_all_bindings_local_tlv.exit.i: ; preds = %.lr.ph.i93.i, %.lr.ph.i.i79.i, %.lr.ph.i84.i, %.lr.ph.i.i.i, %.lr.ph.i.i.i.i, %434, %428, %416, %402, %386, %372, %365, %351, %333, %320, %310, %296, %._crit_edge.i.i, %270, %260, %246, %237, %223, %219, %205, %201, %dissect_zdp_security_start_key_neg_local_tlv.exit.i, %168, %158, %144, %135
+  %.0.i31 = phi i32 [ %445, %434 ], [ %192, %dissect_zdp_security_start_key_neg_local_tlv.exit.i ], [ %149, %144 ], [ %139, %135 ], [ %167, %158 ], [ %173, %168 ], [ %204, %201 ], [ %210, %205 ], [ %222, %219 ], [ %228, %223 ], [ %251, %246 ], [ %241, %237 ], [ %269, %260 ], [ %275, %270 ], [ %295, %._crit_edge.i.i ], [ %301, %296 ], [ %356, %351 ], [ %332, %320 ], [ %343, %333 ], [ %.0572.i.i, %310 ], [ %371, %365 ], [ %377, %372 ], [ %401, %386 ], [ %407, %402 ], [ %433, %428 ], [ %420, %416 ], [ %142, %.lr.ph.i.i.i.i ], [ %244, %.lr.ph.i.i.i ], [ %.057.i.i, %.lr.ph.i84.i ], [ %349, %.lr.ph.i.i79.i ], [ %426, %.lr.ph.i93.i ]
+  %446 = and i32 %.02745, 255
+  %447 = sub i32 %.0.i31, %446
+  %448 = zext i8 %126 to i32
+  %449 = icmp ult i32 %447, %448
+  br i1 %449, label %450, label %dissect_zbee_tlv.exit
 
-451:                                              ; preds = %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i
-  %452 = load i32, ptr @hf_zbee_tlv_value, align 4
-  %453 = add nsw i32 %449, -2
-  %454 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %452, ptr noundef %0, i32 noundef %.0.i32, i32 noundef %453, i32 noundef 0) #4
-  %455 = add nuw nsw i32 %447, %449
+450:                                              ; preds = %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i
+  %451 = load i32, ptr @hf_zbee_tlv_value, align 4
+  %452 = add nsw i32 %448, -2
+  %453 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %451, ptr noundef %0, i32 noundef %.0.i31, i32 noundef %452, i32 noundef 0)
+  %454 = add nuw nsw i32 %446, %448
   br label %dissect_zbee_tlv.exit
 
-456:                                              ; preds = %124
-  br i1 %switch.i, label %457, label %487
+455:                                              ; preds = %123
+  br i1 %switch.i, label %456, label %486
 
-457:                                              ; preds = %456
-  %458 = call ptr @wmem_file_scope() #4
-  %459 = call i32 @proto_get_id_by_filter_name(ptr noundef nonnull @.str.193) #4
-  %460 = call ptr @p_get_proto_data(ptr noundef %458, ptr noundef %1, i32 noundef %459, i32 noundef 0) #4
-  %461 = getelementptr inbounds nuw i8, ptr %460, i64 32
-  store i32 %25, ptr %461, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  %462 = call ptr @find_dissector(ptr noundef nonnull @.str.194) #4
-  store ptr %462, ptr @zigbee_aps_handle, align 8
-  %463 = load i32, ptr @hf_zbee_tlv_relay_msg_type, align 4
-  %464 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %463, ptr noundef %0, i32 noundef %.02847, i32 noundef 1, i32 noundef 0) #4
-  %465 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %27) #4
-  %466 = add i8 %465, 1
-  %467 = load i32, ptr @hf_zbee_tlv_relay_msg_length, align 4
-  %468 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %467, ptr noundef %0, i32 noundef %27, i32 noundef 1, i32 noundef 0) #4
-  %469 = add i32 %.02847, 2
-  %470 = load i32, ptr @hf_zbee_tlv_relay_msg_joiner_ieee, align 4
-  %471 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %470, ptr noundef %0, i32 noundef %469, i32 noundef 8, i32 noundef -2147483648) #4
-  %472 = call ptr @wmem_file_scope() #4
-  %473 = call i32 @proto_get_id_by_filter_name(ptr noundef nonnull @.str.193) #4
-  %474 = call ptr @p_get_proto_data(ptr noundef %472, ptr noundef %1, i32 noundef %473, i32 noundef 0) #4
-  %475 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %469) #4
-  %476 = getelementptr inbounds nuw i8, ptr %474, i64 40
-  store i64 %475, ptr %476, align 8
-  %477 = add i32 %.02847, 10
-  %478 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %477) #4
-  %479 = zext i8 %466 to i32
-  %480 = add nsw i32 %479, -8
-  %481 = load i32, ptr @ett_zbee_aps_relay, align 4
-  %482 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %33, ptr noundef %0, i32 noundef %477, i32 noundef %480, i32 noundef %481, ptr noundef nonnull %8, ptr noundef nonnull @.str.195) #4
-  %483 = load ptr, ptr @zigbee_aps_handle, align 8
-  %484 = call i32 @call_dissector_with_data(ptr noundef %483, ptr noundef %478, ptr noundef %1, ptr noundef %482, ptr noundef %4) #4
-  %485 = load ptr, ptr %23, align 8
-  call void @col_append_str(ptr noundef %485, i32 noundef 25, ptr noundef nonnull @.str.196) #4
-  %486 = call i32 @tvb_captured_length(ptr noundef %0) #4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+456:                                              ; preds = %455
+  %457 = call ptr @wmem_file_scope()
+  %458 = call i32 @proto_get_id_by_filter_name(ptr noundef nonnull @.str.193)
+  %459 = call ptr @p_get_proto_data(ptr noundef %457, ptr noundef %1, i32 noundef %458, i32 noundef 0)
+  %460 = getelementptr inbounds nuw i8, ptr %459, i64 32
+  store i32 %24, ptr %460, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
+  %461 = call ptr @find_dissector(ptr noundef nonnull @.str.194)
+  store ptr %461, ptr @zigbee_aps_handle, align 8
+  %462 = load i32, ptr @hf_zbee_tlv_relay_msg_type, align 4
+  %463 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %462, ptr noundef %0, i32 noundef %.02745, i32 noundef 1, i32 noundef 0)
+  %464 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %26)
+  %465 = add i8 %464, 1
+  %466 = load i32, ptr @hf_zbee_tlv_relay_msg_length, align 4
+  %467 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %466, ptr noundef %0, i32 noundef %26, i32 noundef 1, i32 noundef 0)
+  %468 = add i32 %.02745, 2
+  %469 = load i32, ptr @hf_zbee_tlv_relay_msg_joiner_ieee, align 4
+  %470 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %469, ptr noundef %0, i32 noundef %468, i32 noundef 8, i32 noundef -2147483648)
+  %471 = call ptr @wmem_file_scope()
+  %472 = call i32 @proto_get_id_by_filter_name(ptr noundef nonnull @.str.193)
+  %473 = call ptr @p_get_proto_data(ptr noundef %471, ptr noundef %1, i32 noundef %472, i32 noundef 0)
+  %474 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %468)
+  %475 = getelementptr inbounds nuw i8, ptr %473, i64 40
+  store i64 %474, ptr %475, align 8
+  %476 = add i32 %.02745, 10
+  %477 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %476)
+  %478 = zext i8 %465 to i32
+  %479 = add nsw i32 %478, -8
+  %480 = load i32, ptr @ett_zbee_aps_relay, align 4
+  %481 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %32, ptr noundef %0, i32 noundef %476, i32 noundef %479, i32 noundef %480, ptr noundef nonnull %8, ptr noundef nonnull @.str.195)
+  %482 = load ptr, ptr @zigbee_aps_handle, align 8
+  %483 = call i32 @call_dissector_with_data(ptr noundef %482, ptr noundef %477, ptr noundef %1, ptr noundef %481, ptr noundef %4)
+  %484 = load ptr, ptr %22, align 8
+  call void @col_append_str(ptr noundef %484, i32 noundef 25, ptr noundef nonnull @.str.196)
+  %485 = call i32 @tvb_captured_length(ptr noundef %0)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4
   br label %dissect_zbee_tlv.exit
 
-487:                                              ; preds = %456
-  %488 = load i32, ptr @hf_zbee_tlv_type, align 4
-  %489 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %488, ptr noundef %0, i32 noundef %.02847, i32 noundef 1, i32 noundef 0) #4
-  %490 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %27) #4
-  %491 = load i32, ptr @hf_zbee_tlv_length, align 4
-  %492 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %491, ptr noundef %0, i32 noundef %27, i32 noundef 1, i32 noundef 0) #4
-  %493 = add i32 %.02847, 2
-  %494 = add i8 %490, 1
-  %495 = load i32, ptr @hf_zbee_tlv_value, align 4
-  %496 = zext i8 %494 to i32
-  %497 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %495, ptr noundef %0, i32 noundef %493, i32 noundef %496, i32 noundef 0) #4
-  %498 = add i32 %493, %496
+486:                                              ; preds = %455
+  %487 = load i32, ptr @hf_zbee_tlv_type, align 4
+  %488 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %487, ptr noundef %0, i32 noundef %.02745, i32 noundef 1, i32 noundef 0)
+  %489 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %26)
+  %490 = load i32, ptr @hf_zbee_tlv_length, align 4
+  %491 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %490, ptr noundef %0, i32 noundef %26, i32 noundef 1, i32 noundef 0)
+  %492 = add i32 %.02745, 2
+  %493 = add i8 %489, 1
+  %494 = load i32, ptr @hf_zbee_tlv_value, align 4
+  %495 = zext i8 %493 to i32
+  %496 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %494, ptr noundef %0, i32 noundef %492, i32 noundef %495, i32 noundef 0)
+  %497 = add i32 %492, %495
   br label %dissect_zbee_tlv.exit
 
-499:                                              ; preds = %124
-  %500 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %27) #4
-  %501 = add i8 %500, 3
+498:                                              ; preds = %123
+  %499 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %26)
+  %500 = add i8 %499, 3
   switch i32 %6, label %803 [
-    i32 4, label %502
-    i32 8, label %583
+    i32 4, label %501
+    i32 8, label %582
     i32 5, label %622
     i32 2, label %648
     i32 0, label %708
@@ -1245,213 +1241,213 @@ dissect_zdp_req_clear_all_bindings_local_tlv.exit.i: ; preds = %.lr.ph.i93.i, %.
     i32 11, label %764
   ]
 
-502:                                              ; preds = %499
-  %503 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02847) #4
-  %504 = load i32, ptr @hf_zbee_tlv_zbd_comm_tlv, align 4
-  %505 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %504, ptr noundef %0, i32 noundef %.02847, i32 noundef 1, i32 noundef 0) #4
-  %506 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %27) #4
-  %507 = load i32, ptr @hf_zbee_tlv_length, align 4
-  %508 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %507, ptr noundef %0, i32 noundef %27, i32 noundef 1, i32 noundef 0) #4
-  %509 = add i32 %.02847, 2
-  switch i8 %503, label %577 [
-    i8 8, label %510
-    i8 10, label %514
-    i8 9, label %533
-    i8 0, label %537
-    i8 1, label %541
-    i8 2, label %545
-    i8 3, label %547
-    i8 6, label %551
-    i8 11, label %555
-    i8 12, label %559
-    i8 5, label %563
-    i8 14, label %567
+501:                                              ; preds = %498
+  %502 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.02745)
+  %503 = load i32, ptr @hf_zbee_tlv_zbd_comm_tlv, align 4
+  %504 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %503, ptr noundef %0, i32 noundef %.02745, i32 noundef 1, i32 noundef 0)
+  %505 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %26)
+  %506 = load i32, ptr @hf_zbee_tlv_length, align 4
+  %507 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %506, ptr noundef %0, i32 noundef %26, i32 noundef 1, i32 noundef 0)
+  %508 = add i32 %.02745, 2
+  switch i8 %502, label %576 [
+    i8 8, label %509
+    i8 10, label %513
+    i8 9, label %532
+    i8 0, label %536
+    i8 1, label %540
+    i8 2, label %544
+    i8 3, label %546
+    i8 6, label %550
+    i8 11, label %554
+    i8 12, label %558
+    i8 5, label %562
+    i8 14, label %566
   ]
 
-510:                                              ; preds = %502
-  %511 = load i32, ptr @hf_zbee_tlv_local_ieee_addr, align 4
-  %512 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %511, ptr noundef %0, i32 noundef %509, i32 noundef 8, i32 noundef 0) #4
-  %513 = add i32 %.02847, 10
+509:                                              ; preds = %501
+  %510 = load i32, ptr @hf_zbee_tlv_local_ieee_addr, align 4
+  %511 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %510, ptr noundef %0, i32 noundef %508, i32 noundef 8, i32 noundef 0)
+  %512 = add i32 %.02745, 10
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
-514:                                              ; preds = %502
-  %515 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %509) #4
-  %516 = load i32, ptr @hf_zbee_tlv_local_comm_network_status_map, align 4
-  %517 = load i32, ptr @ett_zbee_tlv_network_status_map, align 4
-  %518 = call ptr @proto_tree_add_bitmask(ptr noundef %33, ptr noundef %0, i32 noundef %509, i32 noundef %516, i32 noundef %517, ptr noundef nonnull @dissect_zbee_tlv_nwk_status_map.network_status_map, i32 noundef -2147483648) #4
-  %519 = zext i8 %515 to i32
-  %520 = and i32 %519, 7
-  %521 = and i32 %519, 6
-  %or.cond.i.i.i = icmp eq i32 %521, 2
-  %522 = load ptr, ptr %23, align 8
-  %523 = zext nneg i32 %520 to i64
-  %524 = getelementptr [6 x %struct._value_string], ptr @zbee_tlv_local_types_joined_status_str, i64 0, i64 %523, i32 1
-  %525 = load ptr, ptr %524, align 8
-  br i1 %or.cond.i.i.i, label %526, label %531
+513:                                              ; preds = %501
+  %514 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %508)
+  %515 = load i32, ptr @hf_zbee_tlv_local_comm_network_status_map, align 4
+  %516 = load i32, ptr @ett_zbee_tlv_network_status_map, align 4
+  %517 = call ptr @proto_tree_add_bitmask(ptr noundef %32, ptr noundef %0, i32 noundef %508, i32 noundef %515, i32 noundef %516, ptr noundef nonnull @dissect_zbee_tlv_nwk_status_map.network_status_map, i32 noundef -2147483648)
+  %518 = zext i8 %514 to i32
+  %519 = and i32 %518, 7
+  %520 = and i32 %518, 6
+  %or.cond.i.i.i = icmp eq i32 %520, 2
+  %521 = load ptr, ptr %22, align 8
+  %522 = zext nneg i32 %519 to i64
+  %523 = getelementptr [6 x %struct._value_string], ptr @zbee_tlv_local_types_joined_status_str, i64 0, i64 %522, i32 1
+  %524 = load ptr, ptr %523, align 8
+  br i1 %or.cond.i.i.i, label %525, label %530
 
-526:                                              ; preds = %514
-  %527 = and i32 %519, 8
-  %.not.i.i.i = icmp eq i32 %527, 0
-  %528 = select i1 %.not.i.i.i, ptr @.str.199, ptr @.str.198
-  %529 = and i32 %519, 16
-  %.not18.i.i.i = icmp eq i32 %529, 0
-  %530 = select i1 %.not18.i.i.i, ptr @.str.201, ptr @.str.200
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %522, i32 noundef 25, ptr noundef nonnull @.str.197, ptr noundef %525, ptr noundef nonnull %528, ptr noundef nonnull %530) #4
+525:                                              ; preds = %513
+  %526 = and i32 %518, 8
+  %.not.i.i.i = icmp eq i32 %526, 0
+  %527 = select i1 %.not.i.i.i, ptr @.str.199, ptr @.str.198
+  %528 = and i32 %518, 16
+  %.not18.i.i.i = icmp eq i32 %528, 0
+  %529 = select i1 %.not18.i.i.i, ptr @.str.201, ptr @.str.200
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %521, i32 noundef 25, ptr noundef nonnull @.str.197, ptr noundef %524, ptr noundef nonnull %527, ptr noundef nonnull %529)
   br label %dissect_zbee_tlv_nwk_status_map.exit.i.i
 
-531:                                              ; preds = %514
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %522, i32 noundef 25, ptr noundef nonnull @.str.202, ptr noundef %525) #4
+530:                                              ; preds = %513
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %521, i32 noundef 25, ptr noundef nonnull @.str.202, ptr noundef %524)
   br label %dissect_zbee_tlv_nwk_status_map.exit.i.i
 
-dissect_zbee_tlv_nwk_status_map.exit.i.i:         ; preds = %531, %526
-  %532 = add i32 %.02847, 3
+dissect_zbee_tlv_nwk_status_map.exit.i.i:         ; preds = %530, %525
+  %531 = add i32 %.02745, 3
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
-533:                                              ; preds = %502
-  %534 = load i32, ptr @hf_zbee_tlv_local_comm_tc_addr, align 4
-  %535 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %534, ptr noundef %0, i32 noundef %509, i32 noundef 8, i32 noundef 0) #4
-  %536 = add i32 %.02847, 10
+532:                                              ; preds = %501
+  %533 = load i32, ptr @hf_zbee_tlv_local_comm_tc_addr, align 4
+  %534 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %533, ptr noundef %0, i32 noundef %508, i32 noundef 8, i32 noundef 0)
+  %535 = add i32 %.02745, 10
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
-537:                                              ; preds = %502
-  %538 = load i32, ptr @hf_zbee_tlv_local_comm_ext_pan_id, align 4
-  %539 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %538, ptr noundef %0, i32 noundef %509, i32 noundef 8, i32 noundef 0) #4
-  %540 = add i32 %.02847, 10
+536:                                              ; preds = %501
+  %537 = load i32, ptr @hf_zbee_tlv_local_comm_ext_pan_id, align 4
+  %538 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %537, ptr noundef %0, i32 noundef %508, i32 noundef 8, i32 noundef 0)
+  %539 = add i32 %.02745, 10
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
-541:                                              ; preds = %502
-  %542 = load i32, ptr @hf_zbee_tlv_local_comm_short_pan_id, align 4
-  %543 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %542, ptr noundef %0, i32 noundef %509, i32 noundef 2, i32 noundef 0) #4
-  %544 = add i32 %.02847, 4
+540:                                              ; preds = %501
+  %541 = load i32, ptr @hf_zbee_tlv_local_comm_short_pan_id, align 4
+  %542 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %541, ptr noundef %0, i32 noundef %508, i32 noundef 2, i32 noundef 0)
+  %543 = add i32 %.02745, 4
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
-545:                                              ; preds = %502
-  %546 = call fastcc i32 @dissect_zbee_tlv_nwk_channel_list(ptr noundef %0, ptr noundef %33, i32 noundef %509)
+544:                                              ; preds = %501
+  %545 = call fastcc i32 @dissect_zbee_tlv_nwk_channel_list(ptr noundef %0, ptr noundef %32, i32 noundef %508)
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
-547:                                              ; preds = %502
-  %548 = load i32, ptr @hf_zbee_tlv_local_comm_nwk_key, align 4
-  %549 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %548, ptr noundef %0, i32 noundef %509, i32 noundef 16, i32 noundef 0) #4
-  %550 = add i32 %.02847, 18
+546:                                              ; preds = %501
+  %547 = load i32, ptr @hf_zbee_tlv_local_comm_nwk_key, align 4
+  %548 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %547, ptr noundef %0, i32 noundef %508, i32 noundef 16, i32 noundef 0)
+  %549 = add i32 %.02745, 18
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
-551:                                              ; preds = %502
-  %552 = load i32, ptr @hf_zbee_tlv_local_comm_nwk_addr, align 4
-  %553 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %552, ptr noundef %0, i32 noundef %509, i32 noundef 2, i32 noundef 0) #4
-  %554 = add i32 %.02847, 4
+550:                                              ; preds = %501
+  %551 = load i32, ptr @hf_zbee_tlv_local_comm_nwk_addr, align 4
+  %552 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %551, ptr noundef %0, i32 noundef %508, i32 noundef 2, i32 noundef 0)
+  %553 = add i32 %.02745, 4
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
-555:                                              ; preds = %502
-  %556 = load i32, ptr @hf_zbee_tlv_local_comm_nwk_upd_id, align 4
-  %557 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %556, ptr noundef %0, i32 noundef %509, i32 noundef 1, i32 noundef 0) #4
-  %558 = add i32 %.02847, 3
+554:                                              ; preds = %501
+  %555 = load i32, ptr @hf_zbee_tlv_local_comm_nwk_upd_id, align 4
+  %556 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %555, ptr noundef %0, i32 noundef %508, i32 noundef 1, i32 noundef 0)
+  %557 = add i32 %.02745, 3
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
-559:                                              ; preds = %502
-  %560 = load i32, ptr @hf_zbee_tlv_local_comm_key_seq_num, align 4
-  %561 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %560, ptr noundef %0, i32 noundef %509, i32 noundef 1, i32 noundef 0) #4
-  %562 = add i32 %.02847, 3
+558:                                              ; preds = %501
+  %559 = load i32, ptr @hf_zbee_tlv_local_comm_key_seq_num, align 4
+  %560 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %559, ptr noundef %0, i32 noundef %508, i32 noundef 1, i32 noundef 0)
+  %561 = add i32 %.02745, 3
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
-563:                                              ; preds = %502
-  %564 = load i32, ptr @hf_zbee_tlv_local_comm_dev_type, align 4
-  %565 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %564, ptr noundef %0, i32 noundef %509, i32 noundef 1, i32 noundef 0) #4
-  %566 = add i32 %.02847, 3
+562:                                              ; preds = %501
+  %563 = load i32, ptr @hf_zbee_tlv_local_comm_dev_type, align 4
+  %564 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %563, ptr noundef %0, i32 noundef %508, i32 noundef 1, i32 noundef 0)
+  %565 = add i32 %.02745, 3
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
-567:                                              ; preds = %502
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
-  %568 = load i32, ptr @hf_zbee_tlv_local_comm_status_code_domain, align 4
-  %569 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %568, ptr noundef %0, i32 noundef %509, i32 noundef 1, i32 noundef -2147483648) #4
-  %570 = add i32 %.02847, 3
-  %571 = load i32, ptr @hf_zbee_tlv_local_comm_status_code_value, align 4
-  %572 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %33, i32 noundef %571, ptr noundef %0, i32 noundef %570, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %12) #4
-  %573 = add i32 %.02847, 4
-  %574 = load i32, ptr %12, align 4
-  %575 = icmp eq i32 %574, 0
-  %576 = select i1 %575, ptr @.str.208, ptr @.str.209
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %572, ptr noundef nonnull @.str.202, ptr noundef nonnull %576) #4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
+566:                                              ; preds = %501
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #4
+  %567 = load i32, ptr @hf_zbee_tlv_local_comm_status_code_domain, align 4
+  %568 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %567, ptr noundef %0, i32 noundef %508, i32 noundef 1, i32 noundef -2147483648)
+  %569 = add i32 %.02745, 3
+  %570 = load i32, ptr @hf_zbee_tlv_local_comm_status_code_value, align 4
+  %571 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %32, i32 noundef %570, ptr noundef %0, i32 noundef %569, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %12)
+  %572 = add i32 %.02745, 4
+  %573 = load i32, ptr %12, align 4
+  %574 = icmp eq i32 %573, 0
+  %575 = select i1 %574, ptr @.str.208, ptr @.str.209
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %571, ptr noundef nonnull @.str.202, ptr noundef nonnull %575)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #4
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
-577:                                              ; preds = %502
-  %578 = add i8 %506, 1
-  %579 = load i32, ptr @hf_zbee_tlv_value, align 4
-  %580 = zext i8 %578 to i32
-  %581 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %579, ptr noundef %0, i32 noundef %509, i32 noundef %580, i32 noundef 0) #4
-  %582 = add i32 %509, %580
+576:                                              ; preds = %501
+  %577 = add i8 %505, 1
+  %578 = load i32, ptr @hf_zbee_tlv_value, align 4
+  %579 = zext i8 %577 to i32
+  %580 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %578, ptr noundef %0, i32 noundef %508, i32 noundef %579, i32 noundef 0)
+  %581 = add i32 %508, %579
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
-583:                                              ; preds = %499
-  %584 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02847) #4
-  %585 = load i32, ptr @hf_zbee_tlv_zbd_tunneling_npdu_msg_tlv, align 4
-  %586 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %585, ptr noundef %0, i32 noundef %.02847, i32 noundef 1, i32 noundef 0) #4
-  %587 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %27) #4
-  %588 = load i32, ptr @hf_zbee_tlv_length, align 4
-  %589 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %588, ptr noundef %0, i32 noundef %27, i32 noundef 1, i32 noundef 0) #4
-  %590 = add i32 %.02847, 2
-  %591 = add i8 %587, 1
-  %cond.i.i = icmp eq i8 %584, 0
-  br i1 %cond.i.i, label %592, label %618
+582:                                              ; preds = %498
+  %583 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.02745)
+  %584 = load i32, ptr @hf_zbee_tlv_zbd_tunneling_npdu_msg_tlv, align 4
+  %585 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %584, ptr noundef %0, i32 noundef %.02745, i32 noundef 1, i32 noundef 0)
+  %586 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %26)
+  %587 = load i32, ptr @hf_zbee_tlv_length, align 4
+  %588 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %587, ptr noundef %0, i32 noundef %26, i32 noundef 1, i32 noundef 0)
+  %589 = add i32 %.02745, 2
+  %590 = add i8 %586, 1
+  %cond.i.i = icmp eq i8 %583, 0
+  br i1 %cond.i.i, label %591, label %618
 
-592:                                              ; preds = %583
-  %593 = load ptr, ptr %23, align 8
-  call void @col_set_fence(ptr noundef %593, i32 noundef 34) #4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %11)
+591:                                              ; preds = %582
+  %592 = load ptr, ptr %22, align 8
+  call void @col_set_fence(ptr noundef %592, i32 noundef 35)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
   store i32 0, ptr %9, align 4
-  %594 = load i32, ptr @hf_zbee_tlv_local_tunneling_npdu_flags, align 4
-  %595 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %594, ptr noundef %0, i32 noundef %590, i32 noundef 1, i32 noundef -2147483648) #4
-  %596 = load i32, ptr @ett_zbee_tlv_zbd_tunneling_npdu_flags, align 4
-  %597 = call ptr @proto_item_add_subtree(ptr noundef %595, i32 noundef %596) #4
-  %598 = load i32, ptr @hf_zbee_tlv_local_tunneling_npdu_flags_security, align 4
-  %599 = call ptr @proto_tree_add_item_ret_boolean(ptr noundef %597, i32 noundef %598, ptr noundef %0, i32 noundef %590, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %10) #4
-  %600 = load i32, ptr @hf_zbee_tlv_local_tunneling_npdu_length, align 4
-  %601 = add i32 %.02847, 3
-  %602 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %33, i32 noundef %600, ptr noundef %0, i32 noundef %601, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %9) #4
-  %603 = load i32, ptr %10, align 4
-  %.not.i.i43.i = icmp eq i32 %603, 0
-  %604 = select i1 %.not.i.i43.i, ptr @.str.212, ptr @.str.211
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %595, ptr noundef nonnull @.str.210, ptr noundef nonnull %604) #4
+  %593 = load i32, ptr @hf_zbee_tlv_local_tunneling_npdu_flags, align 4
+  %594 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %593, ptr noundef %0, i32 noundef %589, i32 noundef 1, i32 noundef -2147483648)
+  %595 = load i32, ptr @ett_zbee_tlv_zbd_tunneling_npdu_flags, align 4
+  %596 = call ptr @proto_item_add_subtree(ptr noundef %594, i32 noundef %595)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #4
+  %597 = load i32, ptr @hf_zbee_tlv_local_tunneling_npdu_flags_security, align 4
+  %598 = call ptr @proto_tree_add_item_ret_boolean(ptr noundef %596, i32 noundef %597, ptr noundef %0, i32 noundef %589, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %10)
+  %599 = load i32, ptr @hf_zbee_tlv_local_tunneling_npdu_length, align 4
+  %600 = add i32 %.02745, 3
+  %601 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %32, i32 noundef %599, ptr noundef %0, i32 noundef %600, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %9)
+  %602 = load i8, ptr %10, align 1, !range !12, !noundef !13
+  %603 = trunc nuw i8 %602 to i1
+  %604 = select i1 %603, ptr @.str.211, ptr @.str.212
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %594, ptr noundef nonnull @.str.210, ptr noundef nonnull %604)
   %605 = load i32, ptr @hf_zbee_tlv_local_tunneling_npdu_flags_reserved, align 4
-  %606 = call ptr @proto_tree_add_item(ptr noundef %597, i32 noundef %605, ptr noundef %0, i32 noundef %590, i32 noundef 1, i32 noundef -2147483648) #4
+  %606 = call ptr @proto_tree_add_item(ptr noundef %596, i32 noundef %605, ptr noundef %0, i32 noundef %589, i32 noundef 1, i32 noundef -2147483648)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #4
   %607 = load i32, ptr @hf_zbee_tlv_local_tunneling_npdu, align 4
-  %608 = add i32 %.02847, 4
+  %608 = add i32 %.02745, 4
   %609 = load i32, ptr %9, align 4
-  %610 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %607, ptr noundef %0, i32 noundef %608, i32 noundef %609, i32 noundef 0) #4
+  %610 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %607, ptr noundef %0, i32 noundef %608, i32 noundef %609, i32 noundef 0)
   %611 = load i32, ptr @ett_zbee_tlv_zbd_tunneling_npdu, align 4
-  %612 = call ptr @proto_item_add_subtree(ptr noundef %610, i32 noundef %611) #4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %11, i8 0, i64 152, i1 false)
+  %612 = call ptr @proto_item_add_subtree(ptr noundef %610, i32 noundef %611)
+  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %11) #4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %11, i8 noundef 0, i64 noundef 120, i1 noundef false) #4
   %613 = load ptr, ptr @zbee_nwk_handle, align 8
   %614 = load i32, ptr %9, align 4
-  %615 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %608, i32 noundef %614) #4
-  %616 = call i32 @call_dissector_with_data(ptr noundef %613, ptr noundef %615, ptr noundef %1, ptr noundef %612, ptr noundef nonnull %11) #4
-  %617 = zext i8 %591 to i32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %11)
+  %615 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %608, i32 noundef %614)
+  %616 = call i32 @call_dissector_with_data(ptr noundef %613, ptr noundef %615, ptr noundef %1, ptr noundef %612, ptr noundef nonnull %11)
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %11) #4
+  %617 = zext i8 %590 to i32
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
   br label %dissect_zbd_msg_tunneling_local_tlv.exit.i
 
-618:                                              ; preds = %583
+618:                                              ; preds = %582
   %619 = load i32, ptr @hf_zbee_tlv_value, align 4
-  %620 = zext i8 %591 to i32
-  %621 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %619, ptr noundef %0, i32 noundef %590, i32 noundef %620, i32 noundef 0) #4
+  %620 = zext i8 %590 to i32
+  %621 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %619, ptr noundef %0, i32 noundef %589, i32 noundef %620, i32 noundef 0)
   br label %dissect_zbd_msg_tunneling_local_tlv.exit.i
 
-dissect_zbd_msg_tunneling_local_tlv.exit.i:       ; preds = %618, %592
-  %.pn.i.i = phi i32 [ %617, %592 ], [ %620, %618 ]
-  %.0.i42.i = add i32 %.pn.i.i, %590
+dissect_zbd_msg_tunneling_local_tlv.exit.i:       ; preds = %618, %591
+  %.pn.i.i = phi i32 [ %617, %591 ], [ %620, %618 ]
+  %.0.i42.i = add i32 %.pn.i.i, %589
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
-622:                                              ; preds = %499
-  %623 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02847) #4
+622:                                              ; preds = %498
+  %623 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.02745)
   %624 = load i32, ptr @hf_zbee_tlv_zbd_comm_mj_cmd_tlv, align 4
-  %625 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %624, ptr noundef %0, i32 noundef %.02847, i32 noundef 1, i32 noundef 0) #4
-  %626 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %27) #4
+  %625 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %624, ptr noundef %0, i32 noundef %.02745, i32 noundef 1, i32 noundef 0)
+  %626 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %26)
   %627 = load i32, ptr @hf_zbee_tlv_length, align 4
-  %628 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %627, ptr noundef %0, i32 noundef %27, i32 noundef 1, i32 noundef 0) #4
-  %629 = add i32 %.02847, 2
+  %628 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %627, ptr noundef %0, i32 noundef %26, i32 noundef 1, i32 noundef 0)
+  %629 = add i32 %.02745, 2
   switch i8 %623, label %642 [
     i8 2, label %630
     i8 1, label %634
@@ -1460,38 +1456,38 @@ dissect_zbd_msg_tunneling_local_tlv.exit.i:       ; preds = %618, %592
 
 630:                                              ; preds = %622
   %631 = load i32, ptr @hf_zbee_tlv_local_comm_mj_cmd, align 4
-  %632 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %631, ptr noundef %0, i32 noundef %629, i32 noundef 1, i32 noundef 0) #4
-  %633 = add i32 %.02847, 3
+  %632 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %631, ptr noundef %0, i32 noundef %629, i32 noundef 1, i32 noundef 0)
+  %633 = add i32 %.02745, 3
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
 634:                                              ; preds = %622
   %635 = load i32, ptr @hf_zbee_tlv_local_comm_mj_ieee_addr, align 4
-  %636 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %635, ptr noundef %0, i32 noundef %629, i32 noundef 8, i32 noundef 0) #4
-  %637 = add i32 %.02847, 10
+  %636 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %635, ptr noundef %0, i32 noundef %629, i32 noundef 8, i32 noundef 0)
+  %637 = add i32 %.02745, 10
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
 638:                                              ; preds = %622
   %639 = load i32, ptr @hf_zbee_tlv_local_comm_mj_prov_lnk_key, align 4
-  %640 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %639, ptr noundef %0, i32 noundef %629, i32 noundef 16, i32 noundef 0) #4
-  %641 = add i32 %.02847, 18
+  %640 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %639, ptr noundef %0, i32 noundef %629, i32 noundef 16, i32 noundef 0)
+  %641 = add i32 %.02745, 18
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
 642:                                              ; preds = %622
   %643 = add i8 %626, 1
   %644 = load i32, ptr @hf_zbee_tlv_value, align 4
   %645 = zext i8 %643 to i32
-  %646 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %644, ptr noundef %0, i32 noundef %629, i32 noundef %645, i32 noundef 0) #4
+  %646 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %644, ptr noundef %0, i32 noundef %629, i32 noundef %645, i32 noundef 0)
   %647 = add i32 %629, %645
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
-648:                                              ; preds = %499
-  %649 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02847) #4
+648:                                              ; preds = %498
+  %649 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.02745)
   %650 = load i32, ptr @hf_zbee_tlv_zbd_comm_tlv, align 4
-  %651 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %650, ptr noundef %0, i32 noundef %.02847, i32 noundef 1, i32 noundef 0) #4
-  %652 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %27) #4
+  %651 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %650, ptr noundef %0, i32 noundef %.02745, i32 noundef 1, i32 noundef 0)
+  %652 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %26)
   %653 = load i32, ptr @hf_zbee_tlv_length, align 4
-  %654 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %653, ptr noundef %0, i32 noundef %27, i32 noundef 1, i32 noundef 0) #4
-  %655 = add i32 %.02847, 2
+  %654 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %653, ptr noundef %0, i32 noundef %26, i32 noundef 1, i32 noundef 0)
+  %655 = add i32 %.02745, 2
   switch i8 %649, label %702 [
     i8 7, label %656
     i8 13, label %660
@@ -1508,88 +1504,88 @@ dissect_zbd_msg_tunneling_local_tlv.exit.i:       ; preds = %618, %592
 
 656:                                              ; preds = %648
   %657 = load i32, ptr @hf_zbee_tlv_local_comm_join_method, align 4
-  %658 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %657, ptr noundef %0, i32 noundef %655, i32 noundef 1, i32 noundef 0) #4
-  %659 = add i32 %.02847, 3
+  %658 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %657, ptr noundef %0, i32 noundef %655, i32 noundef 1, i32 noundef 0)
+  %659 = add i32 %.02745, 3
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
 660:                                              ; preds = %648
   %661 = load i32, ptr @hf_zbee_tlv_local_comm_adm_key, align 4
-  %662 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %661, ptr noundef %0, i32 noundef %655, i32 noundef 16, i32 noundef 0) #4
-  %663 = add i32 %.02847, 18
+  %662 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %661, ptr noundef %0, i32 noundef %655, i32 noundef 16, i32 noundef 0)
+  %663 = add i32 %.02745, 18
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
 664:                                              ; preds = %648
   %665 = load i32, ptr @hf_zbee_tlv_local_comm_tc_addr, align 4
-  %666 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %665, ptr noundef %0, i32 noundef %655, i32 noundef 8, i32 noundef 0) #4
-  %667 = add i32 %.02847, 10
+  %666 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %665, ptr noundef %0, i32 noundef %655, i32 noundef 8, i32 noundef 0)
+  %667 = add i32 %.02745, 10
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
 668:                                              ; preds = %648
   %669 = load i32, ptr @hf_zbee_tlv_local_comm_ext_pan_id, align 4
-  %670 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %669, ptr noundef %0, i32 noundef %655, i32 noundef 8, i32 noundef 0) #4
-  %671 = add i32 %.02847, 10
+  %670 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %669, ptr noundef %0, i32 noundef %655, i32 noundef 8, i32 noundef 0)
+  %671 = add i32 %.02745, 10
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
 672:                                              ; preds = %648
   %673 = load i32, ptr @hf_zbee_tlv_local_comm_short_pan_id, align 4
-  %674 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %673, ptr noundef %0, i32 noundef %655, i32 noundef 2, i32 noundef 0) #4
-  %675 = add i32 %.02847, 4
+  %674 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %673, ptr noundef %0, i32 noundef %655, i32 noundef 2, i32 noundef 0)
+  %675 = add i32 %.02745, 4
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
 676:                                              ; preds = %648
-  %677 = call fastcc i32 @dissect_zbee_tlv_nwk_channel_list(ptr noundef %0, ptr noundef %33, i32 noundef %655)
+  %677 = call fastcc i32 @dissect_zbee_tlv_nwk_channel_list(ptr noundef %0, ptr noundef %32, i32 noundef %655)
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
 678:                                              ; preds = %648
   %679 = load i32, ptr @hf_zbee_tlv_local_comm_nwk_key, align 4
-  %680 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %679, ptr noundef %0, i32 noundef %655, i32 noundef 16, i32 noundef 0) #4
-  %681 = add i32 %.02847, 18
+  %680 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %679, ptr noundef %0, i32 noundef %655, i32 noundef 16, i32 noundef 0)
+  %681 = add i32 %.02745, 18
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
 682:                                              ; preds = %648
   %683 = load i32, ptr @hf_zbee_tlv_local_comm_link_key_flags, align 4
   %684 = load i32, ptr @ett_zbee_tlv_link_key_flags, align 4
-  %685 = call ptr @proto_tree_add_bitmask(ptr noundef %33, ptr noundef %0, i32 noundef %655, i32 noundef %683, i32 noundef %684, ptr noundef nonnull @dissect_zbee_tlv_link_key.link_key_flags, i32 noundef 0) #4
-  %686 = add i32 %.02847, 3
+  %685 = call ptr @proto_tree_add_bitmask(ptr noundef %32, ptr noundef %0, i32 noundef %655, i32 noundef %683, i32 noundef %684, ptr noundef nonnull @dissect_zbee_tlv_link_key.link_key_flags, i32 noundef 0)
+  %686 = add i32 %.02745, 3
   %687 = load i32, ptr @hf_zbee_tlv_local_comm_link_key, align 4
-  %688 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %687, ptr noundef %0, i32 noundef %686, i32 noundef 16, i32 noundef 0) #4
-  %689 = add i32 %.02847, 19
+  %688 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %687, ptr noundef %0, i32 noundef %686, i32 noundef 16, i32 noundef 0)
+  %689 = add i32 %.02745, 19
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
 690:                                              ; preds = %648
   %691 = load i32, ptr @hf_zbee_tlv_local_comm_nwk_addr, align 4
-  %692 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %691, ptr noundef %0, i32 noundef %655, i32 noundef 2, i32 noundef 0) #4
-  %693 = add i32 %.02847, 4
+  %692 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %691, ptr noundef %0, i32 noundef %655, i32 noundef 2, i32 noundef 0)
+  %693 = add i32 %.02745, 4
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
 694:                                              ; preds = %648
   %695 = load i32, ptr @hf_zbee_tlv_local_comm_nwk_upd_id, align 4
-  %696 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %695, ptr noundef %0, i32 noundef %655, i32 noundef 1, i32 noundef 0) #4
-  %697 = add i32 %.02847, 3
+  %696 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %695, ptr noundef %0, i32 noundef %655, i32 noundef 1, i32 noundef 0)
+  %697 = add i32 %.02745, 3
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
 698:                                              ; preds = %648
   %699 = load i32, ptr @hf_zbee_tlv_local_comm_key_seq_num, align 4
-  %700 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %699, ptr noundef %0, i32 noundef %655, i32 noundef 1, i32 noundef 0) #4
-  %701 = add i32 %.02847, 3
+  %700 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %699, ptr noundef %0, i32 noundef %655, i32 noundef 1, i32 noundef 0)
+  %701 = add i32 %.02745, 3
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
 702:                                              ; preds = %648
   %703 = add i8 %652, 1
   %704 = load i32, ptr @hf_zbee_tlv_value, align 4
   %705 = zext i8 %703 to i32
-  %706 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %704, ptr noundef %0, i32 noundef %655, i32 noundef %705, i32 noundef 0) #4
+  %706 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %704, ptr noundef %0, i32 noundef %655, i32 noundef %705, i32 noundef 0)
   %707 = add i32 %655, %705
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
-708:                                              ; preds = %499
-  %709 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02847) #4
+708:                                              ; preds = %498
+  %709 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.02745)
   %710 = load i32, ptr @hf_zbee_tlv_zbd_comm_tlv, align 4
-  %711 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %710, ptr noundef %0, i32 noundef %.02847, i32 noundef 1, i32 noundef 0) #4
-  %712 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %27) #4
+  %711 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %710, ptr noundef %0, i32 noundef %.02745, i32 noundef 1, i32 noundef 0)
+  %712 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %26)
   %713 = load i32, ptr @hf_zbee_tlv_length, align 4
-  %714 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %713, ptr noundef %0, i32 noundef %27, i32 noundef 1, i32 noundef 0) #4
-  %715 = add i32 %.02847, 2
+  %714 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %713, ptr noundef %0, i32 noundef %26, i32 noundef 1, i32 noundef 0)
+  %715 = add i32 %.02745, 2
   switch i8 %709, label %758 [
     i8 13, label %716
     i8 9, label %720
@@ -1605,82 +1601,82 @@ dissect_zbd_msg_tunneling_local_tlv.exit.i:       ; preds = %618, %592
 
 716:                                              ; preds = %708
   %717 = load i32, ptr @hf_zbee_tlv_local_comm_adm_key, align 4
-  %718 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %717, ptr noundef %0, i32 noundef %715, i32 noundef 16, i32 noundef 0) #4
-  %719 = add i32 %.02847, 18
+  %718 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %717, ptr noundef %0, i32 noundef %715, i32 noundef 16, i32 noundef 0)
+  %719 = add i32 %.02745, 18
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
 720:                                              ; preds = %708
   %721 = load i32, ptr @hf_zbee_tlv_local_comm_tc_addr, align 4
-  %722 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %721, ptr noundef %0, i32 noundef %715, i32 noundef 8, i32 noundef 0) #4
-  %723 = add i32 %.02847, 10
+  %722 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %721, ptr noundef %0, i32 noundef %715, i32 noundef 8, i32 noundef 0)
+  %723 = add i32 %.02745, 10
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
 724:                                              ; preds = %708
   %725 = load i32, ptr @hf_zbee_tlv_local_comm_ext_pan_id, align 4
-  %726 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %725, ptr noundef %0, i32 noundef %715, i32 noundef 8, i32 noundef 0) #4
-  %727 = add i32 %.02847, 10
+  %726 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %725, ptr noundef %0, i32 noundef %715, i32 noundef 8, i32 noundef 0)
+  %727 = add i32 %.02745, 10
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
 728:                                              ; preds = %708
   %729 = load i32, ptr @hf_zbee_tlv_local_comm_short_pan_id, align 4
-  %730 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %729, ptr noundef %0, i32 noundef %715, i32 noundef 2, i32 noundef 0) #4
-  %731 = add i32 %.02847, 4
+  %730 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %729, ptr noundef %0, i32 noundef %715, i32 noundef 2, i32 noundef 0)
+  %731 = add i32 %.02745, 4
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
 732:                                              ; preds = %708
-  %733 = call fastcc i32 @dissect_zbee_tlv_nwk_channel_list(ptr noundef %0, ptr noundef %33, i32 noundef %715)
+  %733 = call fastcc i32 @dissect_zbee_tlv_nwk_channel_list(ptr noundef %0, ptr noundef %32, i32 noundef %715)
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
 734:                                              ; preds = %708
   %735 = load i32, ptr @hf_zbee_tlv_local_comm_nwk_key, align 4
-  %736 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %735, ptr noundef %0, i32 noundef %715, i32 noundef 16, i32 noundef 0) #4
-  %737 = add i32 %.02847, 18
+  %736 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %735, ptr noundef %0, i32 noundef %715, i32 noundef 16, i32 noundef 0)
+  %737 = add i32 %.02745, 18
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
 738:                                              ; preds = %708
   %739 = load i32, ptr @hf_zbee_tlv_local_comm_link_key_flags, align 4
   %740 = load i32, ptr @ett_zbee_tlv_link_key_flags, align 4
-  %741 = call ptr @proto_tree_add_bitmask(ptr noundef %33, ptr noundef %0, i32 noundef %715, i32 noundef %739, i32 noundef %740, ptr noundef nonnull @dissect_zbee_tlv_link_key.link_key_flags, i32 noundef 0) #4
-  %742 = add i32 %.02847, 3
+  %741 = call ptr @proto_tree_add_bitmask(ptr noundef %32, ptr noundef %0, i32 noundef %715, i32 noundef %739, i32 noundef %740, ptr noundef nonnull @dissect_zbee_tlv_link_key.link_key_flags, i32 noundef 0)
+  %742 = add i32 %.02745, 3
   %743 = load i32, ptr @hf_zbee_tlv_local_comm_link_key, align 4
-  %744 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %743, ptr noundef %0, i32 noundef %742, i32 noundef 16, i32 noundef 0) #4
-  %745 = add i32 %.02847, 19
+  %744 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %743, ptr noundef %0, i32 noundef %742, i32 noundef 16, i32 noundef 0)
+  %745 = add i32 %.02745, 19
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
 746:                                              ; preds = %708
   %747 = load i32, ptr @hf_zbee_tlv_local_comm_nwk_addr, align 4
-  %748 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %747, ptr noundef %0, i32 noundef %715, i32 noundef 2, i32 noundef 0) #4
-  %749 = add i32 %.02847, 4
+  %748 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %747, ptr noundef %0, i32 noundef %715, i32 noundef 2, i32 noundef 0)
+  %749 = add i32 %.02745, 4
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
 750:                                              ; preds = %708
   %751 = load i32, ptr @hf_zbee_tlv_local_comm_nwk_upd_id, align 4
-  %752 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %751, ptr noundef %0, i32 noundef %715, i32 noundef 1, i32 noundef 0) #4
-  %753 = add i32 %.02847, 3
+  %752 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %751, ptr noundef %0, i32 noundef %715, i32 noundef 1, i32 noundef 0)
+  %753 = add i32 %.02745, 3
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
 754:                                              ; preds = %708
   %755 = load i32, ptr @hf_zbee_tlv_local_comm_key_seq_num, align 4
-  %756 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %755, ptr noundef %0, i32 noundef %715, i32 noundef 1, i32 noundef 0) #4
-  %757 = add i32 %.02847, 3
+  %756 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %755, ptr noundef %0, i32 noundef %715, i32 noundef 1, i32 noundef 0)
+  %757 = add i32 %.02745, 3
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
 758:                                              ; preds = %708
   %759 = add i8 %712, 1
   %760 = load i32, ptr @hf_zbee_tlv_value, align 4
   %761 = zext i8 %759 to i32
-  %762 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %760, ptr noundef %0, i32 noundef %715, i32 noundef %761, i32 noundef 0) #4
+  %762 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %760, ptr noundef %0, i32 noundef %715, i32 noundef %761, i32 noundef 0)
   %763 = add i32 %715, %761
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
-764:                                              ; preds = %499, %499, %499
-  %765 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02847) #4
+764:                                              ; preds = %498, %498, %498
+  %765 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.02745)
   %766 = load i32, ptr @hf_zbee_tlv_zbd_secur_tlv, align 4
-  %767 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %766, ptr noundef %0, i32 noundef %.02847, i32 noundef 1, i32 noundef 0) #4
-  %768 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %27) #4
+  %767 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %766, ptr noundef %0, i32 noundef %.02745, i32 noundef 1, i32 noundef 0)
+  %768 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %26)
   %769 = load i32, ptr @hf_zbee_tlv_length, align 4
-  %770 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %769, ptr noundef %0, i32 noundef %27, i32 noundef 1, i32 noundef 0) #4
-  %771 = add i32 %.02847, 2
+  %770 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %769, ptr noundef %0, i32 noundef %26, i32 noundef 1, i32 noundef 0)
+  %771 = add i32 %.02745, 2
   %772 = add i8 %768, 1
   switch i8 %765, label %798 [
     i8 0, label %773
@@ -1692,348 +1688,391 @@ dissect_zbd_msg_tunneling_local_tlv.exit.i:       ; preds = %618, %592
 
 773:                                              ; preds = %764
   %774 = load i32, ptr @hf_zbee_tlv_local_selected_key_method, align 4
-  %775 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %774, ptr noundef %0, i32 noundef %771, i32 noundef 1, i32 noundef -2147483648) #4
-  %776 = add i32 %.02847, 3
+  %775 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %774, ptr noundef %0, i32 noundef %771, i32 noundef 1, i32 noundef -2147483648)
+  %776 = add i32 %.02745, 3
   %777 = load i32, ptr @hf_zbee_tlv_local_selected_psk_secret, align 4
-  %778 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %777, ptr noundef %0, i32 noundef %776, i32 noundef 1, i32 noundef -2147483648) #4
-  %779 = add i32 %.02847, 4
+  %778 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %777, ptr noundef %0, i32 noundef %776, i32 noundef 1, i32 noundef -2147483648)
+  %779 = add i32 %.02745, 4
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
 780:                                              ; preds = %764, %764
   %781 = add i8 %768, -7
   %782 = load i32, ptr @hf_zbee_tlv_device_eui64, align 4
-  %783 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %782, ptr noundef %0, i32 noundef %771, i32 noundef 8, i32 noundef -2147483648) #4
-  %784 = add i32 %.02847, 10
+  %783 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %782, ptr noundef %0, i32 noundef %771, i32 noundef 8, i32 noundef -2147483648)
+  %784 = add i32 %.02745, 10
   %785 = load i32, ptr @hf_zbee_tlv_public_point, align 4
   %786 = zext i8 %781 to i32
-  %787 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %785, ptr noundef %0, i32 noundef %784, i32 noundef %786, i32 noundef 0) #4
+  %787 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %785, ptr noundef %0, i32 noundef %784, i32 noundef %786, i32 noundef 0)
   %788 = add i32 %784, %786
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
 789:                                              ; preds = %764
   %790 = load i32, ptr @hf_zbee_tlv_local_nwk_key_seq_num, align 4
-  %791 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %790, ptr noundef %0, i32 noundef %771, i32 noundef 1, i32 noundef -2147483648) #4
-  %792 = add i32 %.02847, 3
+  %791 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %790, ptr noundef %0, i32 noundef %771, i32 noundef 1, i32 noundef -2147483648)
+  %792 = add i32 %.02745, 3
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
 793:                                              ; preds = %764
   %794 = load i32, ptr @hf_zbee_tlv_local_mac_tag, align 4
   %795 = zext i8 %772 to i32
-  %796 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %794, ptr noundef %0, i32 noundef %771, i32 noundef %795, i32 noundef 0) #4
+  %796 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %794, ptr noundef %0, i32 noundef %771, i32 noundef %795, i32 noundef 0)
   %797 = add i32 %771, %795
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
 798:                                              ; preds = %764
   %799 = load i32, ptr @hf_zbee_tlv_value, align 4
   %800 = zext i8 %772 to i32
-  %801 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %799, ptr noundef %0, i32 noundef %771, i32 noundef %800, i32 noundef 0) #4
+  %801 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %799, ptr noundef %0, i32 noundef %771, i32 noundef %800, i32 noundef 0)
   %802 = add i32 %771, %800
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
-803:                                              ; preds = %499
+803:                                              ; preds = %498
   %804 = load i32, ptr @hf_zbee_tlv_type, align 4
-  %805 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %804, ptr noundef %0, i32 noundef %.02847, i32 noundef 1, i32 noundef 0) #4
-  %806 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %27) #4
+  %805 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %804, ptr noundef %0, i32 noundef %.02745, i32 noundef 1, i32 noundef 0)
+  %806 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %26)
   %807 = load i32, ptr @hf_zbee_tlv_length, align 4
-  %808 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %807, ptr noundef %0, i32 noundef %27, i32 noundef 1, i32 noundef 0) #4
-  %809 = add i32 %.02847, 2
+  %808 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %807, ptr noundef %0, i32 noundef %26, i32 noundef 1, i32 noundef 0)
+  %809 = add i32 %.02745, 2
   %810 = add i8 %806, 1
   %811 = load i32, ptr @hf_zbee_tlv_value, align 4
   %812 = zext i8 %810 to i32
-  %813 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %811, ptr noundef %0, i32 noundef %809, i32 noundef %812, i32 noundef 0) #4
+  %813 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %811, ptr noundef %0, i32 noundef %809, i32 noundef %812, i32 noundef 0)
   %814 = add i32 %809, %812
   br label %dissect_zbd_msg_status_local_tlv.exit.i
 
-dissect_zbd_msg_status_local_tlv.exit.i:          ; preds = %803, %798, %793, %789, %780, %773, %758, %754, %750, %746, %738, %734, %732, %728, %724, %720, %716, %702, %698, %694, %690, %682, %678, %676, %672, %668, %664, %660, %656, %642, %638, %634, %630, %dissect_zbd_msg_tunneling_local_tlv.exit.i, %577, %567, %563, %559, %555, %551, %547, %545, %541, %537, %533, %dissect_zbee_tlv_nwk_status_map.exit.i.i, %510
-  %.0.i30 = phi i32 [ %814, %803 ], [ %.0.i42.i, %dissect_zbd_msg_tunneling_local_tlv.exit.i ], [ %582, %577 ], [ %573, %567 ], [ %566, %563 ], [ %562, %559 ], [ %558, %555 ], [ %554, %551 ], [ %550, %547 ], [ %546, %545 ], [ %544, %541 ], [ %540, %537 ], [ %536, %533 ], [ %532, %dissect_zbee_tlv_nwk_status_map.exit.i.i ], [ %513, %510 ], [ %647, %642 ], [ %641, %638 ], [ %637, %634 ], [ %633, %630 ], [ %707, %702 ], [ %701, %698 ], [ %697, %694 ], [ %693, %690 ], [ %689, %682 ], [ %681, %678 ], [ %677, %676 ], [ %675, %672 ], [ %671, %668 ], [ %667, %664 ], [ %663, %660 ], [ %659, %656 ], [ %763, %758 ], [ %757, %754 ], [ %753, %750 ], [ %749, %746 ], [ %745, %738 ], [ %737, %734 ], [ %733, %732 ], [ %731, %728 ], [ %727, %724 ], [ %723, %720 ], [ %719, %716 ], [ %802, %798 ], [ %797, %793 ], [ %792, %789 ], [ %788, %780 ], [ %779, %773 ]
-  %815 = and i32 %.02847, 255
-  %816 = sub i32 %.0.i30, %815
-  %817 = zext i8 %501 to i32
+dissect_zbd_msg_status_local_tlv.exit.i:          ; preds = %803, %798, %793, %789, %780, %773, %758, %754, %750, %746, %738, %734, %732, %728, %724, %720, %716, %702, %698, %694, %690, %682, %678, %676, %672, %668, %664, %660, %656, %642, %638, %634, %630, %dissect_zbd_msg_tunneling_local_tlv.exit.i, %576, %566, %562, %558, %554, %550, %546, %544, %540, %536, %532, %dissect_zbee_tlv_nwk_status_map.exit.i.i, %509
+  %.0.i29 = phi i32 [ %814, %803 ], [ %.0.i42.i, %dissect_zbd_msg_tunneling_local_tlv.exit.i ], [ %581, %576 ], [ %572, %566 ], [ %565, %562 ], [ %561, %558 ], [ %557, %554 ], [ %553, %550 ], [ %549, %546 ], [ %545, %544 ], [ %543, %540 ], [ %539, %536 ], [ %535, %532 ], [ %531, %dissect_zbee_tlv_nwk_status_map.exit.i.i ], [ %512, %509 ], [ %647, %642 ], [ %641, %638 ], [ %637, %634 ], [ %633, %630 ], [ %707, %702 ], [ %701, %698 ], [ %697, %694 ], [ %693, %690 ], [ %689, %682 ], [ %681, %678 ], [ %677, %676 ], [ %675, %672 ], [ %671, %668 ], [ %667, %664 ], [ %663, %660 ], [ %659, %656 ], [ %763, %758 ], [ %757, %754 ], [ %753, %750 ], [ %749, %746 ], [ %745, %738 ], [ %737, %734 ], [ %733, %732 ], [ %731, %728 ], [ %727, %724 ], [ %723, %720 ], [ %719, %716 ], [ %802, %798 ], [ %797, %793 ], [ %792, %789 ], [ %788, %780 ], [ %779, %773 ]
+  %815 = and i32 %.02745, 255
+  %816 = sub i32 %.0.i29, %815
+  %817 = zext i8 %500 to i32
   %818 = icmp ult i32 %816, %817
   br i1 %818, label %819, label %dissect_zbee_tlv.exit
 
 819:                                              ; preds = %dissect_zbd_msg_status_local_tlv.exit.i
   %820 = load i32, ptr @hf_zbee_tlv_value, align 4
   %821 = add nsw i32 %817, -2
-  %822 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %820, ptr noundef %0, i32 noundef %.0.i30, i32 noundef %821, i32 noundef 0) #4
+  %822 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %820, ptr noundef %0, i32 noundef %.0.i29, i32 noundef %821, i32 noundef 0)
   %823 = add nuw nsw i32 %815, %817
   br label %dissect_zbee_tlv.exit
 
-824:                                              ; preds = %124
+824:                                              ; preds = %123
   %825 = load i32, ptr @hf_zbee_tlv_type, align 4
-  %826 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %825, ptr noundef %0, i32 noundef %.02847, i32 noundef 1, i32 noundef 0) #4
-  %827 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %27) #4
+  %826 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %825, ptr noundef %0, i32 noundef %.02745, i32 noundef 1, i32 noundef 0)
+  %827 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %26)
   %828 = load i32, ptr @hf_zbee_tlv_length, align 4
-  %829 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %828, ptr noundef %0, i32 noundef %27, i32 noundef 1, i32 noundef 0) #4
-  %830 = add i32 %.02847, 2
+  %829 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %828, ptr noundef %0, i32 noundef %26, i32 noundef 1, i32 noundef 0)
+  %830 = add i32 %.02745, 2
   %831 = add i8 %827, 1
   %832 = load i32, ptr @hf_zbee_tlv_value, align 4
   %833 = zext i8 %831 to i32
-  %834 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %832, ptr noundef %0, i32 noundef %830, i32 noundef %833, i32 noundef 0) #4
+  %834 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %832, ptr noundef %0, i32 noundef %830, i32 noundef %833, i32 noundef 0)
   %835 = add i32 %830, %833
   br label %dissect_zbee_tlv.exit
 
-dissect_zbee_tlv.exit:                            ; preds = %819, %dissect_zbd_msg_status_local_tlv.exit.i, %487, %457, %451, %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i, %120, %116, %824
-  %.0.i = phi i32 [ %835, %824 ], [ %123, %120 ], [ %.0.i36, %116 ], [ %455, %451 ], [ %.0.i32, %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i ], [ %498, %487 ], [ %486, %457 ], [ %823, %819 ], [ %.0.i30, %dissect_zbd_msg_status_local_tlv.exit.i ]
-  %836 = call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.0.i, i32 noundef 2) #4
-  %.not = icmp eq i32 %836, 0
-  br i1 %.not, label %._crit_edge, label %26, !llvm.loop !10
+dissect_zbee_tlv.exit:                            ; preds = %819, %dissect_zbd_msg_status_local_tlv.exit.i, %486, %456, %450, %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i, %119, %115, %824
+  %.0.i = phi i32 [ %835, %824 ], [ %122, %119 ], [ %.0.i35, %115 ], [ %454, %450 ], [ %.0.i31, %dissect_zdp_req_clear_all_bindings_local_tlv.exit.i ], [ %497, %486 ], [ %485, %456 ], [ %823, %819 ], [ %.0.i29, %dissect_zbd_msg_status_local_tlv.exit.i ]
+  %836 = call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.0.i, i32 noundef 2)
+  br i1 %836, label %25, label %._crit_edge, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %dissect_zbee_tlv.exit, %20
-  %.028.lcssa = phi i32 [ %3, %20 ], [ %.0.i, %dissect_zbee_tlv.exit ]
+._crit_edge:                                      ; preds = %dissect_zbee_tlv.exit, %19
+  %.027.lcssa = phi i32 [ %3, %19 ], [ %.0.i, %dissect_zbee_tlv.exit ]
   %837 = load i32, ptr @proto_zbee_tlv, align 4
-  %838 = call i32 @p_get_proto_depth(ptr noundef %1, i32 noundef %837) #4
+  %838 = call i32 @p_get_proto_depth(ptr noundef %1, i32 noundef %837)
   %839 = load i32, ptr @proto_zbee_tlv, align 4
   %840 = add i32 %838, -1
-  call void @p_set_proto_depth(ptr noundef %1, i32 noundef %839, i32 noundef %840) #4
+  call void @p_set_proto_depth(ptr noundef %1, i32 noundef %839, i32 noundef %840)
   br label %841
 
 841:                                              ; preds = %._crit_edge, %17
-  %.0 = phi i32 [ %19, %17 ], [ %.028.lcssa, %._crit_edge ]
+  %.0 = phi i32 [ %3, %17 ], [ %.027.lcssa, %._crit_edge ]
   ret i32 %.0
 }
 
-declare i32 @p_get_proto_depth(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @p_get_proto_depth(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @p_set_proto_depth(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @p_set_proto_depth(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @tvb_bytes_exist(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @tvb_bytes_exist(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_zbee_tlv() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.190, ptr noundef nonnull @.str.191, ptr noundef nonnull @.str.192) #4
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.190, ptr noundef nonnull @.str.191, ptr noundef nonnull @.str.192)
   store i32 %1, ptr @proto_zbee_tlv, align 4
-  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_zbee_tlv.hf, i32 noundef 108) #4
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_zbee_tlv.ett, i32 noundef 12) #4
+  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_zbee_tlv.hf, i32 noundef 108)
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_zbee_tlv.ett, i32 noundef 12)
   %2 = load i32, ptr @proto_zbee_tlv, align 4
-  %3 = tail call ptr @expert_register_protocol(i32 noundef %2) #4
-  tail call void @expert_register_field_array(ptr noundef %3, ptr noundef nonnull @proto_register_zbee_tlv.ei, i32 noundef 1) #4
+  %3 = tail call ptr @expert_register_protocol(i32 noundef %2)
+  tail call void @expert_register_field_array(ptr noundef %3, ptr noundef nonnull @proto_register_zbee_tlv.ei, i32 noundef 1)
   %4 = load i32, ptr @proto_zbee_tlv, align 4
-  %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.192, ptr noundef nonnull @dissect_zbee_tlv_default, i32 noundef %4) #4
-  %6 = tail call ptr @find_dissector(ptr noundef nonnull @.str.193) #4
+  %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.192, ptr noundef nonnull @dissect_zbee_tlv_default, i32 noundef %4)
+  %6 = tail call ptr @find_dissector(ptr noundef nonnull @.str.193)
   store ptr %6, ptr @zbee_nwk_handle, align 8
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #2
 
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_zbee_tlv_default(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call i32 @dissect_zbee_tlvs(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef %3, i8 noundef zeroext 0, i32 noundef 0)
-  %6 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
+  %6 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %7 = icmp ult i32 %5, %6
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %4
-  %9 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %5) #4
-  %10 = tail call i32 @call_data_dissector(ptr noundef %9, ptr noundef %1, ptr noundef %2) #4
+  %9 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %5)
+  %10 = tail call i32 @call_data_dissector(ptr noundef %9, ptr noundef %1, ptr noundef %2)
   br label %11
 
 11:                                               ; preds = %8, %4
-  %12 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
+  %12 = tail call i32 @tvb_captured_length(ptr noundef %0)
   ret i32 %12
 }
 
-declare ptr @find_dissector(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @find_dissector(ptr noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @wmem_file_scope() local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_file_scope() local_unnamed_addr #2
 
-declare i32 @proto_get_id_by_filter_name(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_get_id_by_filter_name(ptr noundef) local_unnamed_addr #2
 
-declare i64 @tvb_get_letoh64(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i64 @tvb_get_letoh64(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @call_dissector_with_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @call_dissector_with_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef i32 @dissect_zbee_tlv_nwk_channel_list(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
   store i32 0, ptr %4, align 4
   %5 = load i32, ptr @hf_zbee_tlv_local_comm_channel_page_count, align 4
-  %6 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %4) #4
+  %6 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %4)
   %7 = add i32 %2, 1
   %8 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
+
+._crit_edge:                                      ; preds = %dissect_zbee_tlv_chanmask.exit, %3
+  %.09.lcssa = phi i32 [ %7, %3 ], [ %43, %dissect_zbee_tlv_chanmask.exit ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
+  ret i32 %.09.lcssa
 
 .lr.ph:                                           ; preds = %3, %dissect_zbee_tlv_chanmask.exit
   %.04 = phi i32 [ %44, %dissect_zbee_tlv_chanmask.exit ], [ 0, %3 ]
   %.093 = phi i32 [ %43, %dissect_zbee_tlv_chanmask.exit ], [ %7, %3 ]
   %9 = load i32, ptr @hf_zbee_tlv_local_comm_channel_page, align 4
   %10 = load i32, ptr @hf_zbee_tlv_local_comm_channel_mask, align 4
-  %11 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.093) #4
+  %11 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.093)
   %12 = lshr i32 %11, 27
   %13 = and i32 %12, 7
   %14 = and i32 %11, 134217727
-  %15 = call ptr @proto_tree_add_uint(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %.093, i32 noundef 4, i32 noundef %13) #4
-  %16 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %10, ptr noundef %0, i32 noundef %.093, i32 noundef 4, i32 noundef %14, ptr noundef nonnull @.str.203) #4
+  %15 = call ptr @proto_tree_add_uint(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %.093, i32 noundef 4, i32 noundef %13)
+  %16 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %10, ptr noundef %0, i32 noundef %.093, i32 noundef 4, i32 noundef %14, ptr noundef nonnull @.str.203)
   %17 = icmp eq i32 %14, 0
   br i1 %17, label %18, label %.preheader
 
 18:                                               ; preds = %.lr.ph
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.204) #4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.204)
   br label %.preheader
 
 .preheader:                                       ; preds = %18, %.lr.ph
   br label %19
 
 19:                                               ; preds = %.preheader, %22
-  %.043.i = phi i32 [ %23, %22 ], [ 0, %.preheader ]
-  %20 = shl nuw i32 1, %.043.i
+  %.044.i = phi i32 [ %23, %22 ], [ 0, %.preheader ]
+  %20 = shl nuw i32 1, %.044.i
   %21 = and i32 %20, %14
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %22, label %.loopexit.i
 
 22:                                               ; preds = %19
-  %23 = add nuw nsw i32 %.043.i, 1
+  %23 = add nuw nsw i32 %.044.i, 1
   %exitcond.not.i = icmp eq i32 %23, 32
-  br i1 %exitcond.not.i, label %dissect_zbee_tlv_chanmask.exit, label %19, !llvm.loop !11
+  br i1 %exitcond.not.i, label %dissect_zbee_tlv_chanmask.exit, label %19, !llvm.loop !15
 
 .loopexit.i:                                      ; preds = %19
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.205, i32 noundef %.043.i) #4
-  %24 = icmp samesign ult i32 %.043.i, 31
-  br i1 %24, label %.lr.ph.i.preheader, label %dissect_zbee_tlv_chanmask.exit
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.205, i32 noundef %.044.i)
+  %24 = icmp samesign ult i32 %.044.i, 31
+  br i1 %24, label %.lr.ph49.i.preheader, label %dissect_zbee_tlv_chanmask.exit
 
-.lr.ph.i.preheader:                               ; preds = %.loopexit.i
-  %25 = add nuw nsw i32 %.043.i, 1
-  br label %.lr.ph.i
+.lr.ph49.i.preheader:                             ; preds = %.loopexit.i
+  %25 = add nuw nsw i32 %.044.i, 1
+  br label %.lr.ph49.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %40
-  %.244.i = phi i32 [ %41, %40 ], [ %25, %.lr.ph.i.preheader ]
-  %26 = shl nuw i32 1, %.244.i
+.lr.ph49.i:                                       ; preds = %.lr.ph49.i.preheader, %40
+  %.248.i = phi i32 [ %41, %40 ], [ %25, %.lr.ph49.i.preheader ]
+  %26 = shl nuw i32 1, %.248.i
   %27 = and i32 %26, %14
-  %.not38.i = icmp eq i32 %27, 0
-  br i1 %.not38.i, label %40, label %28
+  %.not39.i = icmp eq i32 %27, 0
+  br i1 %.not39.i, label %40, label %28
 
-28:                                               ; preds = %.lr.ph.i
-  %29 = add i32 %.244.i, -1
+28:                                               ; preds = %.lr.ph49.i
+  %29 = add nsw i32 %.248.i, -1
   %30 = shl nuw nsw i32 1, %29
   %31 = and i32 %30, %14
-  %.not39.i = icmp eq i32 %31, 0
-  br i1 %.not39.i, label %32, label %33
+  %.not40.i = icmp eq i32 %31, 0
+  br i1 %.not40.i, label %32, label %33
 
 32:                                               ; preds = %28
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.206, i32 noundef %.244.i) #4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.206, i32 noundef %.248.i)
   br label %33
 
 33:                                               ; preds = %32, %28
-  %34 = shl i32 2, %.244.i
+  %34 = shl i32 2, %.248.i
   %35 = and i32 %34, %14
-  %.not40.i = icmp eq i32 %35, 0
-  br i1 %.not40.i, label %40, label %.preheader.i
+  %.not41.i = icmp eq i32 %35, 0
+  br i1 %.not41.i, label %40, label %.lr.ph.i
 
-.preheader.i:                                     ; preds = %33, %.preheader.i
-  %.4.i = phi i32 [ %38, %.preheader.i ], [ %.244.i, %33 ]
-  %36 = shl i32 2, %.4.i
+.lr.ph.i:                                         ; preds = %33, %38
+  %.445.i = phi i32 [ %39, %38 ], [ %.248.i, %33 ]
+  %36 = shl i32 2, %.445.i
   %37 = and i32 %36, %14
-  %.not41.i = icmp eq i32 %37, 0
-  %38 = add i32 %.4.i, 1
-  br i1 %.not41.i, label %39, label %.preheader.i, !llvm.loop !12
+  %.not42.i = icmp eq i32 %37, 0
+  br i1 %.not42.i, label %.critedge.i, label %38
 
-39:                                               ; preds = %.preheader.i
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.207, i32 noundef %.4.i) #4
+38:                                               ; preds = %.lr.ph.i
+  %39 = add i32 %.445.i, 1
+  %exitcond51.not.i = icmp eq i32 %39, 32
+  br i1 %exitcond51.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !16
+
+.critedge.i:                                      ; preds = %38, %.lr.ph.i
+  %.4.lcssa.ph.i = phi i32 [ %.445.i, %.lr.ph.i ], [ 32, %38 ]
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.207, i32 noundef %.4.lcssa.ph.i)
   br label %40
 
-40:                                               ; preds = %39, %33, %.lr.ph.i
-  %.3.i = phi i32 [ %.4.i, %39 ], [ %.244.i, %33 ], [ %.244.i, %.lr.ph.i ]
+40:                                               ; preds = %.critedge.i, %33, %.lr.ph49.i
+  %.3.i = phi i32 [ %.4.lcssa.ph.i, %.critedge.i ], [ %.248.i, %33 ], [ %.248.i, %.lr.ph49.i ]
   %41 = add i32 %.3.i, 1
-  %42 = icmp slt i32 %41, 32
-  br i1 %42, label %.lr.ph.i, label %dissect_zbee_tlv_chanmask.exit, !llvm.loop !13
+  %42 = icmp ult i32 %41, 32
+  br i1 %42, label %.lr.ph49.i, label %dissect_zbee_tlv_chanmask.exit, !llvm.loop !17
 
 dissect_zbee_tlv_chanmask.exit:                   ; preds = %22, %40, %.loopexit.i
   %43 = add i32 %.093, 4
   %44 = add nuw i32 %.04, 1
   %45 = load i32, ptr %4, align 4
   %46 = icmp ult i32 %44, %45
-  br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !14
-
-._crit_edge:                                      ; preds = %dissect_zbee_tlv_chanmask.exit, %3
-  %.09.lcssa = phi i32 [ %7, %3 ], [ %43, %dissect_zbee_tlv_chanmask.exit ]
-  ret i32 %.09.lcssa
+  br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 }
 
-declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare void @col_set_fence(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_fence(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_item_ret_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item_ret_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = !{i8 0, i8 2}
+!13 = !{}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}

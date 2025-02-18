@@ -6,8 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
 %struct._value_string = type { i32, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
 
 @proto_register_kingfisher.hf = internal global [11 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_kingfisher_version, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_kingfisher_system, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 4, i32 4, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_kingfisher_length, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 4, i32 4, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_kingfisher_from, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 5, i32 4, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_kingfisher_target, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 5, i32 4, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_kingfisher_via, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 5, i32 4, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_kingfisher_message, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_kingfisher_function, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 4, i32 1, ptr @function_code_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_kingfisher_checksum, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_kingfisher_checksum_status, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 4, i32 0, ptr @proto_checksum_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_kingfisher_message_data, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
@@ -35,7 +33,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_kingfisher_function = internal global i32 0, align 4
 @.str.14 = private unnamed_addr constant [22 x i8] c"Message Function Code\00", align 1
 @.str.15 = private unnamed_addr constant [20 x i8] c"kingfisher.function\00", align 1
-@function_code_vals = internal constant [81 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.29 }, %struct._value_string { i32 1, ptr @.str.30 }, %struct._value_string { i32 2, ptr @.str.31 }, %struct._value_string { i32 3, ptr @.str.32 }, %struct._value_string { i32 10, ptr @.str.33 }, %struct._value_string { i32 11, ptr @.str.34 }, %struct._value_string { i32 12, ptr @.str.35 }, %struct._value_string { i32 13, ptr @.str.36 }, %struct._value_string { i32 14, ptr @.str.37 }, %struct._value_string { i32 15, ptr @.str.38 }, %struct._value_string { i32 16, ptr @.str.39 }, %struct._value_string { i32 17, ptr @.str.40 }, %struct._value_string { i32 18, ptr @.str.41 }, %struct._value_string { i32 19, ptr @.str.42 }, %struct._value_string { i32 20, ptr @.str.43 }, %struct._value_string { i32 21, ptr @.str.44 }, %struct._value_string { i32 22, ptr @.str.45 }, %struct._value_string { i32 23, ptr @.str.46 }, %struct._value_string { i32 24, ptr @.str.47 }, %struct._value_string { i32 26, ptr @.str.48 }, %struct._value_string { i32 27, ptr @.str.49 }, %struct._value_string { i32 30, ptr @.str.50 }, %struct._value_string { i32 31, ptr @.str.51 }, %struct._value_string { i32 33, ptr @.str.52 }, %struct._value_string { i32 34, ptr @.str.53 }, %struct._value_string { i32 35, ptr @.str.54 }, %struct._value_string { i32 36, ptr @.str.55 }, %struct._value_string { i32 37, ptr @.str.56 }, %struct._value_string { i32 38, ptr @.str.57 }, %struct._value_string { i32 40, ptr @.str.58 }, %struct._value_string { i32 41, ptr @.str.59 }, %struct._value_string { i32 43, ptr @.str.60 }, %struct._value_string { i32 44, ptr @.str.61 }, %struct._value_string { i32 45, ptr @.str.62 }, %struct._value_string { i32 46, ptr @.str.63 }, %struct._value_string { i32 47, ptr @.str.64 }, %struct._value_string { i32 48, ptr @.str.65 }, %struct._value_string { i32 49, ptr @.str.66 }, %struct._value_string { i32 51, ptr @.str.67 }, %struct._value_string { i32 52, ptr @.str.68 }, %struct._value_string { i32 53, ptr @.str.69 }, %struct._value_string { i32 54, ptr @.str.70 }, %struct._value_string { i32 55, ptr @.str.71 }, %struct._value_string { i32 56, ptr @.str.72 }, %struct._value_string { i32 57, ptr @.str.73 }, %struct._value_string { i32 58, ptr @.str.74 }, %struct._value_string { i32 59, ptr @.str.75 }, %struct._value_string { i32 60, ptr @.str.76 }, %struct._value_string { i32 65, ptr @.str.77 }, %struct._value_string { i32 66, ptr @.str.78 }, %struct._value_string { i32 70, ptr @.str.79 }, %struct._value_string { i32 71, ptr @.str.80 }, %struct._value_string { i32 80, ptr @.str.81 }, %struct._value_string { i32 81, ptr @.str.82 }, %struct._value_string { i32 128, ptr @.str.29 }, %struct._value_string { i32 129, ptr @.str.30 }, %struct._value_string { i32 132, ptr @.str.83 }, %struct._value_string { i32 133, ptr @.str.84 }, %struct._value_string { i32 135, ptr @.str.85 }, %struct._value_string { i32 136, ptr @.str.86 }, %struct._value_string { i32 137, ptr @.str.69 }, %struct._value_string { i32 138, ptr @.str.70 }, %struct._value_string { i32 158, ptr @.str.50 }, %struct._value_string { i32 159, ptr @.str.51 }, %struct._value_string { i32 162, ptr @.str.53 }, %struct._value_string { i32 163, ptr @.str.54 }, %struct._value_string { i32 164, ptr @.str.55 }, %struct._value_string { i32 168, ptr @.str.58 }, %struct._value_string { i32 169, ptr @.str.59 }, %struct._value_string { i32 209, ptr @.str.87 }, %struct._value_string { i32 210, ptr @.str.88 }, %struct._value_string { i32 211, ptr @.str.89 }, %struct._value_string { i32 212, ptr @.str.90 }, %struct._value_string { i32 213, ptr @.str.91 }, %struct._value_string { i32 214, ptr @.str.92 }, %struct._value_string { i32 215, ptr @.str.93 }, %struct._value_string { i32 224, ptr @.str.94 }, %struct._value_string { i32 225, ptr @.str.95 }, %struct._value_string { i32 226, ptr @.str.96 }, %struct._value_string { i32 227, ptr @.str.97 }, %struct._value_string zeroinitializer], align 16
 @hf_kingfisher_checksum = internal global i32 0, align 4
 @.str.16 = private unnamed_addr constant [9 x i8] c"Checksum\00", align 1
 @.str.17 = private unnamed_addr constant [20 x i8] c"kingfisher.checksum\00", align 1
@@ -48,7 +45,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.21 = private unnamed_addr constant [24 x i8] c"kingfisher.message_data\00", align 1
 @proto_register_kingfisher.ett = internal global [1 x ptr] [ptr @ett_kingfisher], align 8
 @ett_kingfisher = internal global i32 0, align 4
-@proto_register_kingfisher.ei = internal global [1 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_kingfisher_checksum, %struct.expert_field_info { ptr @.str.22, i32 16777216, i32 8388608, ptr @.str.23, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_kingfisher.ei = internal global [1 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_kingfisher_checksum, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.22, i32 16777216, i32 8388608, ptr @.str.23, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_kingfisher_checksum = internal global %struct.expert_field zeroinitializer, align 4
 @.str.22 = private unnamed_addr constant [24 x i8] c"kingfisher.bad_checksum\00", align 1
 @.str.23 = private unnamed_addr constant [13 x i8] c"Bad checksum\00", align 1
@@ -129,92 +126,101 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.95 = private unnamed_addr constant [32 x i8] c"Send File Start Acknowledgement\00", align 1
 @.str.96 = private unnamed_addr constant [15 x i8] c"Send File Data\00", align 1
 @.str.97 = private unnamed_addr constant [31 x i8] c"Send File Data Acknowledgement\00", align 1
-@.str.98 = private unnamed_addr constant [17 x i8] c"Unknown function\00", align 1
-@.str.99 = private unnamed_addr constant [5 x i8] c"(%s)\00", align 1
-@.str.100 = private unnamed_addr constant [24 x i8] c"Kingfisher Protocol, %s\00", align 1
-@.str.101 = private unnamed_addr constant [13 x i8] c"%u > %u (%s)\00", align 1
-@.str.102 = private unnamed_addr constant [50 x i8] c"Kingfisher Protocol, From RTU: %d, Target RTU: %d\00", align 1
-@.str.103 = private unnamed_addr constant [16 x i8] c"%u (0x%02X, %s)\00", align 1
-@.str.104 = private unnamed_addr constant [9 x i8] c"Response\00", align 1
-@.str.105 = private unnamed_addr constant [8 x i8] c"Request\00", align 1
+@function_code_vals = internal constant [81 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.29 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.30 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.31 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.32 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.33 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.34 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.35 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.36 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.37 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.38 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.39 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.40 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.41 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.42 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.43 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.44 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.45 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.46 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.48 }, { i32, [4 x i8], ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.49 }, { i32, [4 x i8], ptr } { i32 30, [4 x i8] zeroinitializer, ptr @.str.50 }, { i32, [4 x i8], ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.51 }, { i32, [4 x i8], ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.52 }, { i32, [4 x i8], ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.53 }, { i32, [4 x i8], ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.54 }, { i32, [4 x i8], ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.55 }, { i32, [4 x i8], ptr } { i32 37, [4 x i8] zeroinitializer, ptr @.str.56 }, { i32, [4 x i8], ptr } { i32 38, [4 x i8] zeroinitializer, ptr @.str.57 }, { i32, [4 x i8], ptr } { i32 40, [4 x i8] zeroinitializer, ptr @.str.58 }, { i32, [4 x i8], ptr } { i32 41, [4 x i8] zeroinitializer, ptr @.str.59 }, { i32, [4 x i8], ptr } { i32 43, [4 x i8] zeroinitializer, ptr @.str.60 }, { i32, [4 x i8], ptr } { i32 44, [4 x i8] zeroinitializer, ptr @.str.61 }, { i32, [4 x i8], ptr } { i32 45, [4 x i8] zeroinitializer, ptr @.str.62 }, { i32, [4 x i8], ptr } { i32 46, [4 x i8] zeroinitializer, ptr @.str.63 }, { i32, [4 x i8], ptr } { i32 47, [4 x i8] zeroinitializer, ptr @.str.64 }, { i32, [4 x i8], ptr } { i32 48, [4 x i8] zeroinitializer, ptr @.str.65 }, { i32, [4 x i8], ptr } { i32 49, [4 x i8] zeroinitializer, ptr @.str.66 }, { i32, [4 x i8], ptr } { i32 51, [4 x i8] zeroinitializer, ptr @.str.67 }, { i32, [4 x i8], ptr } { i32 52, [4 x i8] zeroinitializer, ptr @.str.68 }, { i32, [4 x i8], ptr } { i32 53, [4 x i8] zeroinitializer, ptr @.str.69 }, { i32, [4 x i8], ptr } { i32 54, [4 x i8] zeroinitializer, ptr @.str.70 }, { i32, [4 x i8], ptr } { i32 55, [4 x i8] zeroinitializer, ptr @.str.71 }, { i32, [4 x i8], ptr } { i32 56, [4 x i8] zeroinitializer, ptr @.str.72 }, { i32, [4 x i8], ptr } { i32 57, [4 x i8] zeroinitializer, ptr @.str.73 }, { i32, [4 x i8], ptr } { i32 58, [4 x i8] zeroinitializer, ptr @.str.74 }, { i32, [4 x i8], ptr } { i32 59, [4 x i8] zeroinitializer, ptr @.str.75 }, { i32, [4 x i8], ptr } { i32 60, [4 x i8] zeroinitializer, ptr @.str.76 }, { i32, [4 x i8], ptr } { i32 65, [4 x i8] zeroinitializer, ptr @.str.77 }, { i32, [4 x i8], ptr } { i32 66, [4 x i8] zeroinitializer, ptr @.str.78 }, { i32, [4 x i8], ptr } { i32 70, [4 x i8] zeroinitializer, ptr @.str.79 }, { i32, [4 x i8], ptr } { i32 71, [4 x i8] zeroinitializer, ptr @.str.80 }, { i32, [4 x i8], ptr } { i32 80, [4 x i8] zeroinitializer, ptr @.str.81 }, { i32, [4 x i8], ptr } { i32 81, [4 x i8] zeroinitializer, ptr @.str.82 }, { i32, [4 x i8], ptr } { i32 128, [4 x i8] zeroinitializer, ptr @.str.29 }, { i32, [4 x i8], ptr } { i32 129, [4 x i8] zeroinitializer, ptr @.str.30 }, { i32, [4 x i8], ptr } { i32 132, [4 x i8] zeroinitializer, ptr @.str.83 }, { i32, [4 x i8], ptr } { i32 133, [4 x i8] zeroinitializer, ptr @.str.84 }, { i32, [4 x i8], ptr } { i32 135, [4 x i8] zeroinitializer, ptr @.str.85 }, { i32, [4 x i8], ptr } { i32 136, [4 x i8] zeroinitializer, ptr @.str.86 }, { i32, [4 x i8], ptr } { i32 137, [4 x i8] zeroinitializer, ptr @.str.69 }, { i32, [4 x i8], ptr } { i32 138, [4 x i8] zeroinitializer, ptr @.str.70 }, { i32, [4 x i8], ptr } { i32 158, [4 x i8] zeroinitializer, ptr @.str.50 }, { i32, [4 x i8], ptr } { i32 159, [4 x i8] zeroinitializer, ptr @.str.51 }, { i32, [4 x i8], ptr } { i32 162, [4 x i8] zeroinitializer, ptr @.str.53 }, { i32, [4 x i8], ptr } { i32 163, [4 x i8] zeroinitializer, ptr @.str.54 }, { i32, [4 x i8], ptr } { i32 164, [4 x i8] zeroinitializer, ptr @.str.55 }, { i32, [4 x i8], ptr } { i32 168, [4 x i8] zeroinitializer, ptr @.str.58 }, { i32, [4 x i8], ptr } { i32 169, [4 x i8] zeroinitializer, ptr @.str.59 }, { i32, [4 x i8], ptr } { i32 209, [4 x i8] zeroinitializer, ptr @.str.87 }, { i32, [4 x i8], ptr } { i32 210, [4 x i8] zeroinitializer, ptr @.str.88 }, { i32, [4 x i8], ptr } { i32 211, [4 x i8] zeroinitializer, ptr @.str.89 }, { i32, [4 x i8], ptr } { i32 212, [4 x i8] zeroinitializer, ptr @.str.90 }, { i32, [4 x i8], ptr } { i32 213, [4 x i8] zeroinitializer, ptr @.str.91 }, { i32, [4 x i8], ptr } { i32 214, [4 x i8] zeroinitializer, ptr @.str.92 }, { i32, [4 x i8], ptr } { i32 215, [4 x i8] zeroinitializer, ptr @.str.93 }, { i32, [4 x i8], ptr } { i32 224, [4 x i8] zeroinitializer, ptr @.str.94 }, { i32, [4 x i8], ptr } { i32 225, [4 x i8] zeroinitializer, ptr @.str.95 }, { i32, [4 x i8], ptr } { i32 226, [4 x i8] zeroinitializer, ptr @.str.96 }, { i32, [4 x i8], ptr } { i32 227, [4 x i8] zeroinitializer, ptr @.str.97 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.99 = private unnamed_addr constant [17 x i8] c"Unknown function\00", align 1
+@.str.100 = private unnamed_addr constant [5 x i8] c"(%s)\00", align 1
+@.str.101 = private unnamed_addr constant [24 x i8] c"Kingfisher Protocol, %s\00", align 1
+@.str.102 = private unnamed_addr constant [13 x i8] c"%u > %u (%s)\00", align 1
+@.str.103 = private unnamed_addr constant [50 x i8] c"Kingfisher Protocol, From RTU: %d, Target RTU: %d\00", align 1
+@.str.104 = private unnamed_addr constant [16 x i8] c"%u (0x%02X, %s)\00", align 1
+@.str.105 = private unnamed_addr constant [9 x i8] c"Response\00", align 1
+@.str.106 = private unnamed_addr constant [8 x i8] c"Request\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_kingfisher() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25) #2
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25)
   store i32 %1, ptr @proto_kingfisher, align 4
-  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_kingfisher.hf, i32 noundef 11) #2
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_kingfisher.ett, i32 noundef 1) #2
+  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_kingfisher.hf, i32 noundef 11)
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_kingfisher.ett, i32 noundef 1)
   %2 = load i32, ptr @proto_kingfisher, align 4
-  %3 = tail call ptr @expert_register_protocol(i32 noundef %2) #2
-  tail call void @expert_register_field_array(ptr noundef %3, ptr noundef nonnull @proto_register_kingfisher.ei, i32 noundef 1) #2
+  %3 = tail call ptr @expert_register_protocol(i32 noundef %2)
+  tail call void @expert_register_field_array(ptr noundef %3, ptr noundef nonnull @proto_register_kingfisher.ei, i32 noundef 1)
   %4 = load i32, ptr @proto_kingfisher, align 4
-  %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.25, ptr noundef nonnull @dissect_kingfisher_heur, i32 noundef %4) #2
+  %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.25, ptr noundef nonnull @dissect_kingfisher_heur, i32 noundef %4)
   store ptr %5, ptr @kingfisher_handle, align 8
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 0, 2) i32 @dissect_kingfisher_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call fastcc i32 @dissect_kingfisher(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #2
+  %7 = tail call ptr @find_or_create_conversation(ptr noundef %1)
   %8 = load ptr, ptr @kingfisher_conv_handle, align 8
-  tail call void @conversation_set_dissector(ptr noundef nonnull %7, ptr noundef %8) #2
+  tail call void @conversation_set_dissector(ptr noundef %7, ptr noundef %8)
   br label %9
 
 9:                                                ; preds = %6, %4
   ret i32 %5
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_kingfisher() local_unnamed_addr #0 {
   %1 = load ptr, ptr @kingfisher_handle, align 8
-  tail call void @dissector_add_uint_range_with_preference(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef %1) #2
+  tail call void @dissector_add_uint_range_with_preference(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef %1)
   %2 = load ptr, ptr @kingfisher_handle, align 8
-  tail call void @dissector_add_uint_range_with_preference(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.27, ptr noundef %2) #2
+  tail call void @dissector_add_uint_range_with_preference(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.27, ptr noundef %2)
   %3 = load i32, ptr @proto_kingfisher, align 4
-  %4 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_kingfisher_conv, i32 noundef %3) #2
+  %4 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_kingfisher_conv, i32 noundef %3)
   store ptr %4, ptr @kingfisher_conv_handle, align 8
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint_range_with_preference(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 0, 2) i32 @dissect_kingfisher_conv(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call fastcc i32 @dissect_kingfisher(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1)
   ret i32 %5
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc range(i32 0, 2) i32 @dissect_kingfisher(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %19, label %5
 
 5:                                                ; preds = %4
-  %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
+  %6 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %8, label %19
 
 8:                                                ; preds = %5
-  %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #2
+  %9 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   switch i8 %9, label %116 [
     i8 0, label %10
     i8 1, label %10
@@ -225,41 +231,41 @@ define internal fastcc range(i32 0, 2) i32 @dissect_kingfisher(ptr noundef %0, p
 10:                                               ; preds = %8, %8, %8, %8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
-  tail call void @col_set_str(ptr noundef %12, i32 noundef 34, ptr noundef nonnull @.str.24) #2
-  %13 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #2
+  tail call void @col_set_str(ptr noundef %12, i32 noundef 35, ptr noundef nonnull @.str.24)
+  %13 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %14 = zext i8 %13 to i32
-  %15 = tail call ptr @val_to_str_const(i32 noundef %14, ptr noundef nonnull @function_code_vals, ptr noundef nonnull @.str.98) #2
+  %15 = tail call ptr @val_to_str_const(i32 noundef %14, ptr noundef nonnull @function_code_vals, ptr noundef nonnull @.str.99)
   %16 = load ptr, ptr %11, align 8
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %16, i32 noundef 25, ptr noundef nonnull @.str.99, ptr noundef %15) #2
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %16, i32 noundef 25, ptr noundef nonnull @.str.100, ptr noundef %15)
   %17 = load i32, ptr @proto_kingfisher, align 4
-  %18 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %17, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.100, ptr noundef %15) #2
+  %18 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %17, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.101, ptr noundef %15)
   br label %116
 
 19:                                               ; preds = %5, %4
-  %20 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
+  %20 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %21 = icmp ult i32 %20, 9
   br i1 %21, label %116, label %22
 
 22:                                               ; preds = %19
-  %23 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 6) #2
+  %23 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 6)
   %24 = zext i8 %23 to i32
-  %25 = tail call ptr @try_val_to_str(i32 noundef %24, ptr noundef nonnull @function_code_vals) #2
+  %25 = tail call ptr @try_val_to_str(i32 noundef %24, ptr noundef nonnull @function_code_vals)
   %26 = icmp eq ptr %25, null
   br i1 %26, label %116, label %27
 
 27:                                               ; preds = %22
-  %28 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
+  %28 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
   %29 = zext i8 %28 to i32
   %30 = add nuw nsw i32 %29, 1
-  %31 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
+  %31 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %32 = and i32 %31, 255
-  %.not83 = icmp eq i32 %30, %32
-  br i1 %.not83, label %33, label %116
+  %.not84 = icmp eq i32 %30, %32
+  br i1 %.not84, label %33, label %116
 
 33:                                               ; preds = %27
   %34 = add nsw i32 %29, -1
-  %35 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %34) #2
-  %36 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #2
+  %35 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %34)
+  %36 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
   %37 = add i32 %36, -2
   %38 = icmp sgt i32 %37, 1
   br i1 %38, label %.lr.ph.i, label %kingfisher_checksum.exit
@@ -267,7 +273,7 @@ define internal fastcc range(i32 0, 2) i32 @dissect_kingfisher(ptr noundef %0, p
 .lr.ph.i:                                         ; preds = %33, %48
   %.025.i = phi i16 [ %.2.i, %48 ], [ 0, %33 ]
   %.02024.i = phi i32 [ %49, %48 ], [ 1, %33 ]
-  %39 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02024.i) #2
+  %39 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.02024.i)
   %40 = zext i8 %39 to i16
   br label %41
 
@@ -285,42 +291,42 @@ define internal fastcc range(i32 0, 2) i32 @dissect_kingfisher(ptr noundef %0, p
   %.118.i = shl i16 %.01722.i, 1
   %47 = add nuw nsw i32 %.01921.i, 1
   %exitcond.not.i = icmp eq i32 %47, 8
-  br i1 %exitcond.not.i, label %48, label %41, !llvm.loop !4
+  br i1 %exitcond.not.i, label %48, label %41, !llvm.loop !6
 
 48:                                               ; preds = %41
   %49 = add nuw nsw i32 %.02024.i, 1
   %exitcond26.not.i = icmp eq i32 %49, %37
-  br i1 %exitcond26.not.i, label %kingfisher_checksum.exit, label %.lr.ph.i, !llvm.loop !6
+  br i1 %exitcond26.not.i, label %kingfisher_checksum.exit, label %.lr.ph.i, !llvm.loop !8
 
 kingfisher_checksum.exit:                         ; preds = %48, %33
   %.0.lcssa.i = phi i16 [ 0, %33 ], [ %.2.i, %48 ]
   %50 = zext i16 %.0.lcssa.i to i32
-  %.not84 = icmp eq i16 %35, %.0.lcssa.i
-  br i1 %.not84, label %51, label %116
+  %.not85 = icmp eq i16 %35, %.0.lcssa.i
+  br i1 %.not85, label %51, label %116
 
 51:                                               ; preds = %kingfisher_checksum.exit
-  %.not85 = icmp slt i8 %23, 0
-  %52 = select i1 %.not85, i32 3, i32 2
-  %53 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #2
-  %54 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 5) #2
-  %55 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
+  %.not86 = icmp slt i8 %23, 0
+  %52 = select i1 %.not86, i32 3, i32 2
+  %53 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
+  %54 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 5)
+  %55 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
   %56 = zext i8 %55 to i32
-  %57 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #2
+  %57 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 3)
   %58 = zext i8 %57 to i32
-  %59 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #2
+  %59 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 4)
   %60 = zext i8 %59 to i32
-  br i1 %.not85, label %61, label %74
+  br i1 %.not86, label %61, label %74
 
 61:                                               ; preds = %51
-  %62 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 7) #2
+  %62 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 7)
   %63 = zext i8 %62 to i32
   %64 = shl nuw nsw i32 %63, 8
   %65 = or disjoint i32 %64, %56
-  %66 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 8) #2
+  %66 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 8)
   %67 = zext i8 %66 to i32
   %68 = shl nuw nsw i32 %67, 8
   %69 = or disjoint i32 %68, %58
-  %70 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 9) #2
+  %70 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 9)
   %71 = zext i8 %70 to i32
   %72 = shl nuw nsw i32 %71, 8
   %73 = or disjoint i32 %72, %60
@@ -328,56 +334,56 @@ kingfisher_checksum.exit:                         ; preds = %48, %33
 
 74:                                               ; preds = %61, %51
   %75 = phi i32 [ 11, %61 ], [ 8, %51 ]
-  %.sroa.8.0 = phi i32 [ %69, %61 ], [ %58, %51 ]
-  %.sroa.14.0 = phi i32 [ %65, %61 ], [ %56, %51 ]
-  %.sroa.20.0 = phi i32 [ %73, %61 ], [ %60, %51 ]
-  %76 = tail call ptr @val_to_str_const(i32 noundef %24, ptr noundef nonnull @function_code_vals, ptr noundef nonnull @.str.98) #2
+  %.sroa.10.0 = phi i32 [ %69, %61 ], [ %58, %51 ]
+  %.sroa.16.0 = phi i32 [ %65, %61 ], [ %56, %51 ]
+  %.sroa.22.0 = phi i32 [ %73, %61 ], [ %60, %51 ]
+  %76 = tail call ptr @val_to_str_const(i32 noundef %24, ptr noundef nonnull @function_code_vals, ptr noundef nonnull @.str.99)
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %78 = load ptr, ptr %77, align 8
-  tail call void @col_set_str(ptr noundef %78, i32 noundef 34, ptr noundef nonnull @.str.24) #2
+  tail call void @col_set_str(ptr noundef %78, i32 noundef 35, ptr noundef nonnull @.str.24)
   %79 = load ptr, ptr %77, align 8
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %79, i32 noundef 25, ptr noundef nonnull @.str.101, i32 noundef %.sroa.8.0, i32 noundef %.sroa.14.0, ptr noundef %76) #2
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %79, i32 noundef 25, ptr noundef nonnull @.str.102, i32 noundef %.sroa.10.0, i32 noundef %.sroa.16.0, ptr noundef %76)
   %80 = zext i8 %54 to i32
   %81 = and i32 %80, 15
   %82 = lshr i32 %80, 4
   %83 = or i32 %81, %82
   %84 = load i32, ptr @proto_kingfisher, align 4
-  %85 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %84, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.102, i32 noundef %.sroa.8.0, i32 noundef %.sroa.14.0) #2
+  %85 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %84, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.103, i32 noundef %.sroa.10.0, i32 noundef %.sroa.16.0)
   %86 = load i32, ptr @ett_kingfisher, align 4
-  %87 = tail call ptr @proto_item_add_subtree(ptr noundef %85, i32 noundef %86) #2
+  %87 = tail call ptr @proto_item_add_subtree(ptr noundef %85, i32 noundef %86)
   %88 = load i32, ptr @hf_kingfisher_version, align 4
-  %89 = tail call ptr @proto_tree_add_uint(ptr noundef %87, i32 noundef %88, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef %52) #2
+  %89 = tail call ptr @proto_tree_add_uint(ptr noundef %87, i32 noundef %88, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef %52)
   %90 = load i32, ptr @hf_kingfisher_system, align 4
   %91 = zext i8 %53 to i32
-  %92 = tail call ptr @proto_tree_add_uint(ptr noundef %87, i32 noundef %90, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %91) #2
+  %92 = tail call ptr @proto_tree_add_uint(ptr noundef %87, i32 noundef %90, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %91)
   %93 = load i32, ptr @hf_kingfisher_target, align 4
-  %94 = tail call ptr @proto_tree_add_uint(ptr noundef %87, i32 noundef %93, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %.sroa.14.0) #2
+  %94 = tail call ptr @proto_tree_add_uint(ptr noundef %87, i32 noundef %93, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef %.sroa.16.0)
   %95 = load i32, ptr @hf_kingfisher_length, align 4
-  %96 = tail call ptr @proto_tree_add_uint(ptr noundef %87, i32 noundef %95, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef %29) #2
+  %96 = tail call ptr @proto_tree_add_uint(ptr noundef %87, i32 noundef %95, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef %29)
   %97 = load i32, ptr @hf_kingfisher_from, align 4
-  %98 = tail call ptr @proto_tree_add_uint(ptr noundef %87, i32 noundef %97, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef %.sroa.8.0) #2
+  %98 = tail call ptr @proto_tree_add_uint(ptr noundef %87, i32 noundef %97, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef %.sroa.10.0)
   %99 = load i32, ptr @hf_kingfisher_via, align 4
-  %100 = tail call ptr @proto_tree_add_uint(ptr noundef %87, i32 noundef %99, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef %.sroa.20.0) #2
+  %100 = tail call ptr @proto_tree_add_uint(ptr noundef %87, i32 noundef %99, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef %.sroa.22.0)
   %101 = load i32, ptr @hf_kingfisher_message, align 4
-  %.not86 = icmp ult i8 %54, 16
-  %102 = select i1 %.not86, ptr @.str.105, ptr @.str.104
-  %103 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %87, i32 noundef %101, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef %80, ptr noundef nonnull @.str.103, i32 noundef %83, i32 noundef %80, ptr noundef nonnull %102) #2
+  %.not87 = icmp ult i8 %54, 16
+  %102 = select i1 %.not87, ptr @.str.106, ptr @.str.105
+  %103 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %87, i32 noundef %101, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef %80, ptr noundef nonnull @.str.104, i32 noundef %83, i32 noundef %80, ptr noundef nonnull %102)
   %104 = load i32, ptr @hf_kingfisher_function, align 4
-  %105 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %87, i32 noundef %104, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef %24, ptr noundef nonnull @.str.103, i32 noundef %24, i32 noundef %24, ptr noundef %76) #2
+  %105 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %87, i32 noundef %104, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef %24, ptr noundef nonnull @.str.104, i32 noundef %24, i32 noundef %24, ptr noundef %76)
   %106 = icmp samesign ult i32 %75, %29
   br i1 %106, label %107, label %112
 
 107:                                              ; preds = %74
   %108 = load i32, ptr @hf_kingfisher_message_data, align 4
-  %109 = select i1 %.not85, i32 10, i32 7
+  %109 = select i1 %.not86, i32 10, i32 7
   %110 = sub nuw nsw i32 %29, %75
-  %111 = tail call ptr @proto_tree_add_item(ptr noundef %87, i32 noundef %108, ptr noundef %0, i32 noundef %109, i32 noundef %110, i32 noundef 0) #2
+  %111 = tail call ptr @proto_tree_add_item(ptr noundef %87, i32 noundef %108, ptr noundef %0, i32 noundef %109, i32 noundef %110, i32 noundef 0)
   br label %112
 
 112:                                              ; preds = %107, %74
   %113 = load i32, ptr @hf_kingfisher_checksum, align 4
   %114 = load i32, ptr @hf_kingfisher_checksum_status, align 4
-  %115 = tail call ptr @proto_tree_add_checksum(ptr noundef %87, ptr noundef %0, i32 noundef %34, i32 noundef %113, i32 noundef %114, ptr noundef nonnull @ei_kingfisher_checksum, ptr noundef nonnull %1, i32 noundef %50, i32 noundef 0, i32 noundef 1) #2
+  %115 = tail call ptr @proto_tree_add_checksum(ptr noundef %87, ptr noundef %0, i32 noundef %34, i32 noundef %113, i32 noundef %114, ptr noundef nonnull @ei_kingfisher_checksum, ptr noundef %1, i32 noundef %50, i32 noundef 0, i32 noundef 1)
   br label %116
 
 116:                                              ; preds = %kingfisher_checksum.exit, %27, %22, %19, %8, %112, %10
@@ -385,50 +391,68 @@ kingfisher_checksum.exit:                         ; preds = %48, %33
   ret i32 %.0
 }
 
-declare nonnull ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @conversation_set_dissector(ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_protocol_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @try_val_to_str(i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_checksum(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}

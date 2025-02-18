@@ -3,22 +3,18 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
-%struct._proto_node = type { ptr, ptr, ptr, ptr, ptr, ptr }
+%struct._proto_node = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.field_info = type { ptr, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, i32, i32 }
 
 @proto_register_rtls.hf = internal global [62 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_rtls_message_type, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 5, i32 2, ptr @rtls_message_type_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_message_id, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_version_major, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_version_minor, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_data_length, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_ap_mac, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 29, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_padding, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_reserved, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_signature, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_as_tag_addr, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 29, i32 0, ptr null, i64 0, ptr @.str.20, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_sr_mac_address, %struct._header_field_info { ptr @.str.21, ptr @.str.22, i32 29, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_nack_flags, %struct._header_field_info { ptr @.str.23, ptr @.str.24, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_nack_flags_internal_error, %struct._header_field_info { ptr @.str.25, ptr @.str.26, i32 5, i32 2, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_nack_flags_station_not_found, %struct._header_field_info { ptr @.str.27, ptr @.str.28, i32 5, i32 2, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_nack_flags_reserved, %struct._header_field_info { ptr @.str.14, ptr @.str.29, i32 5, i32 2, ptr null, i64 252, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_tr_bssid, %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 29, i32 0, ptr null, i64 0, ptr @.str.32, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_tr_rssi, %struct._header_field_info { ptr @.str.33, ptr @.str.34, i32 4, i32 1, ptr null, i64 0, ptr @.str.35, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_tr_rssi_calculated, %struct._header_field_info { ptr @.str.36, ptr @.str.37, i32 4, i32 6, ptr @rssi_base_custom, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_tr_noise_floor, %struct._header_field_info { ptr @.str.38, ptr @.str.39, i32 4, i32 1, ptr null, i64 0, ptr @.str.40, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_tr_timestamp, %struct._header_field_info { ptr @.str.41, ptr @.str.42, i32 7, i32 1, ptr null, i64 0, ptr @.str.43, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_tr_tag_mac, %struct._header_field_info { ptr @.str.44, ptr @.str.45, i32 29, i32 0, ptr null, i64 0, ptr @.str.46, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_tr_frame_control, %struct._header_field_info { ptr @.str.47, ptr @.str.48, i32 5, i32 2, ptr null, i64 0, ptr @.str.49, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_tr_sequence, %struct._header_field_info { ptr @.str.50, ptr @.str.51, i32 5, i32 1, ptr null, i64 0, ptr @.str.52, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_tr_data_rate, %struct._header_field_info { ptr @.str.53, ptr @.str.54, i32 4, i32 1, ptr @rtls_data_rate_vals, i64 0, ptr @.str.55, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_tr_tx_power, %struct._header_field_info { ptr @.str.56, ptr @.str.57, i32 4, i32 1, ptr null, i64 0, ptr @.str.58, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_tr_channel, %struct._header_field_info { ptr @.str.59, ptr @.str.60, i32 4, i32 1, ptr null, i64 0, ptr @.str.61, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_tr_battery, %struct._header_field_info { ptr @.str.62, ptr @.str.63, i32 4, i32 1, ptr null, i64 0, ptr @.str.64, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_sr_mac, %struct._header_field_info { ptr @.str.65, ptr @.str.66, i32 29, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_sr_noise_floor, %struct._header_field_info { ptr @.str.38, ptr @.str.67, i32 4, i32 1, ptr null, i64 0, ptr @.str.68, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_sr_data_rate, %struct._header_field_info { ptr @.str.53, ptr @.str.69, i32 4, i32 1, ptr @rtls_data_rate_vals, i64 0, ptr @.str.55, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_sr_channel, %struct._header_field_info { ptr @.str.59, ptr @.str.70, i32 4, i32 1, ptr null, i64 0, ptr @.str.71, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_sr_rssi, %struct._header_field_info { ptr @.str.33, ptr @.str.72, i32 4, i32 1, ptr null, i64 0, ptr @.str.35, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_sr_rssi_calculated, %struct._header_field_info { ptr @.str.36, ptr @.str.73, i32 4, i32 6, ptr @rssi_base_custom, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_sr_type, %struct._header_field_info { ptr @.str.74, ptr @.str.75, i32 4, i32 1, ptr @rtls_sr_type_vals, i64 0, ptr @.str.76, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_sr_associated, %struct._header_field_info { ptr @.str.77, ptr @.str.78, i32 4, i32 1, ptr @rtls_sr_associated_vals, i64 0, ptr @.str.79, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_sr_radio_bssid, %struct._header_field_info { ptr @.str.80, ptr @.str.81, i32 29, i32 0, ptr null, i64 0, ptr @.str.82, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_sr_mon_bssid, %struct._header_field_info { ptr @.str.83, ptr @.str.84, i32 29, i32 0, ptr null, i64 0, ptr @.str.85, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_sr_age, %struct._header_field_info { ptr @.str.86, ptr @.str.87, i32 7, i32 1, ptr null, i64 0, ptr @.str.88, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_ser_mac, %struct._header_field_info { ptr @.str.65, ptr @.str.89, i32 29, i32 0, ptr null, i64 0, ptr @.str.90, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_ser_bssid, %struct._header_field_info { ptr @.str.30, ptr @.str.91, i32 29, i32 0, ptr null, i64 0, ptr @.str.92, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_ser_essid, %struct._header_field_info { ptr @.str.93, ptr @.str.94, i32 26, i32 0, ptr null, i64 0, ptr @.str.95, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_ser_channel, %struct._header_field_info { ptr @.str.59, ptr @.str.96, i32 4, i32 1, ptr null, i64 0, ptr @.str.97, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_ser_phy_type, %struct._header_field_info { ptr @.str.98, ptr @.str.99, i32 4, i32 1, ptr @rtls_ex_phy_type_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_ser_rssi, %struct._header_field_info { ptr @.str.33, ptr @.str.100, i32 4, i32 1, ptr null, i64 0, ptr @.str.101, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_ser_rssi_calculated, %struct._header_field_info { ptr @.str.36, ptr @.str.102, i32 4, i32 6, ptr @rssi_base_custom, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_ser_duration, %struct._header_field_info { ptr @.str.103, ptr @.str.104, i32 5, i32 1, ptr null, i64 0, ptr @.str.105, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_ser_num_packets, %struct._header_field_info { ptr @.str.106, ptr @.str.107, i32 5, i32 1, ptr null, i64 0, ptr @.str.108, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_ser_noise_floor, %struct._header_field_info { ptr @.str.38, ptr @.str.109, i32 4, i32 1, ptr null, i64 0, ptr @.str.40, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_ser_classification, %struct._header_field_info { ptr @.str.110, ptr @.str.111, i32 4, i32 1, ptr @rtls_ex_classification_vals, i64 0, ptr @.str.43, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_aer_bssid, %struct._header_field_info { ptr @.str.30, ptr @.str.112, i32 29, i32 0, ptr null, i64 0, ptr @.str.92, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_aer_essid, %struct._header_field_info { ptr @.str.93, ptr @.str.113, i32 26, i32 0, ptr null, i64 0, ptr @.str.95, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_aer_channel, %struct._header_field_info { ptr @.str.59, ptr @.str.114, i32 4, i32 1, ptr null, i64 0, ptr @.str.97, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_aer_phy_type, %struct._header_field_info { ptr @.str.98, ptr @.str.115, i32 4, i32 1, ptr @rtls_ex_phy_type_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_aer_rssi, %struct._header_field_info { ptr @.str.33, ptr @.str.116, i32 4, i32 1, ptr null, i64 0, ptr @.str.101, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_aer_rssi_calculated, %struct._header_field_info { ptr @.str.36, ptr @.str.117, i32 4, i32 6, ptr @rssi_base_custom, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_aer_duration, %struct._header_field_info { ptr @.str.103, ptr @.str.118, i32 5, i32 1, ptr null, i64 0, ptr @.str.105, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_aer_num_packets, %struct._header_field_info { ptr @.str.106, ptr @.str.119, i32 5, i32 1, ptr null, i64 0, ptr @.str.108, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_aer_noise_floor, %struct._header_field_info { ptr @.str.38, ptr @.str.120, i32 4, i32 1, ptr null, i64 0, ptr @.str.40, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_aer_classification, %struct._header_field_info { ptr @.str.110, ptr @.str.121, i32 4, i32 1, ptr @rtls_ex_classification_vals, i64 0, ptr @.str.43, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_aer_match_type, %struct._header_field_info { ptr @.str.122, ptr @.str.123, i32 4, i32 2, ptr null, i64 0, ptr @.str.124, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_aer_match_method, %struct._header_field_info { ptr @.str.125, ptr @.str.126, i32 4, i32 2, ptr null, i64 0, ptr @.str.124, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtls_cmr_messages, %struct._header_field_info { ptr @.str.127, ptr @.str.128, i32 5, i32 1, ptr null, i64 0, ptr @.str.129, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_rtls_message_type = internal global i32 0, align 4
 @.str = private unnamed_addr constant [13 x i8] c"Message Type\00", align 1
 @.str.1 = private unnamed_addr constant [18 x i8] c"rtls.message_type\00", align 1
-@rtls_message_type_vals = internal constant [12 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.136 }, %struct._value_string { i32 1, ptr @.str.137 }, %struct._value_string { i32 16, ptr @.str.138 }, %struct._value_string { i32 17, ptr @.str.139 }, %struct._value_string { i32 18, ptr @.str.140 }, %struct._value_string { i32 19, ptr @.str.141 }, %struct._value_string { i32 20, ptr @.str.142 }, %struct._value_string { i32 21, ptr @.str.143 }, %struct._value_string { i32 22, ptr @.str.144 }, %struct._value_string { i32 23, ptr @.str.145 }, %struct._value_string { i32 24, ptr @.str.146 }, %struct._value_string zeroinitializer], align 16
 @hf_rtls_message_id = internal global i32 0, align 4
 @.str.2 = private unnamed_addr constant [11 x i8] c"Message Id\00", align 1
 @.str.3 = private unnamed_addr constant [16 x i8] c"rtls.message_id\00", align 1
@@ -95,7 +91,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_rtls_tr_data_rate = internal global i32 0, align 4
 @.str.53 = private unnamed_addr constant [10 x i8] c"Data Rate\00", align 1
 @.str.54 = private unnamed_addr constant [18 x i8] c"rtls.tr.data_rate\00", align 1
-@rtls_data_rate_vals = internal constant [13 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.148 }, %struct._value_string { i32 1, ptr @.str.149 }, %struct._value_string { i32 2, ptr @.str.150 }, %struct._value_string { i32 3, ptr @.str.151 }, %struct._value_string { i32 4, ptr @.str.152 }, %struct._value_string { i32 5, ptr @.str.153 }, %struct._value_string { i32 6, ptr @.str.154 }, %struct._value_string { i32 7, ptr @.str.155 }, %struct._value_string { i32 8, ptr @.str.156 }, %struct._value_string { i32 9, ptr @.str.157 }, %struct._value_string { i32 10, ptr @.str.158 }, %struct._value_string { i32 11, ptr @.str.159 }, %struct._value_string zeroinitializer], align 16
 @.str.55 = private unnamed_addr constant [25 x i8] c"Data rate of chirp frame\00", align 1
 @hf_rtls_tr_tx_power = internal global i32 0, align 4
 @.str.56 = private unnamed_addr constant [9 x i8] c"Tx Power\00", align 1
@@ -127,12 +122,10 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_rtls_sr_type = internal global i32 0, align 4
 @.str.74 = private unnamed_addr constant [5 x i8] c"Type\00", align 1
 @.str.75 = private unnamed_addr constant [13 x i8] c"rtls.sr.type\00", align 1
-@rtls_sr_type_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.160 }, %struct._value_string { i32 2, ptr @.str.161 }, %struct._value_string zeroinitializer], align 16
 @.str.76 = private unnamed_addr constant [15 x i8] c"Type of device\00", align 1
 @hf_rtls_sr_associated = internal global i32 0, align 4
 @.str.77 = private unnamed_addr constant [11 x i8] c"Associated\00", align 1
 @.str.78 = private unnamed_addr constant [19 x i8] c"rtls.sr.associated\00", align 1
-@rtls_sr_associated_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.162 }, %struct._value_string { i32 2, ptr @.str.163 }, %struct._value_string zeroinitializer], align 16
 @.str.79 = private unnamed_addr constant [30 x i8] c"Association status of station\00", align 1
 @hf_rtls_sr_radio_bssid = internal global i32 0, align 4
 @.str.80 = private unnamed_addr constant [12 x i8] c"Radio BSSID\00", align 1
@@ -162,7 +155,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_rtls_ser_phy_type = internal global i32 0, align 4
 @.str.98 = private unnamed_addr constant [9 x i8] c"Phy type\00", align 1
 @.str.99 = private unnamed_addr constant [18 x i8] c"rtls.ser.phy_type\00", align 1
-@rtls_ex_phy_type_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.164 }, %struct._value_string { i32 2, ptr @.str.165 }, %struct._value_string { i32 3, ptr @.str.166 }, %struct._value_string { i32 4, ptr @.str.167 }, %struct._value_string zeroinitializer], align 16
 @hf_rtls_ser_rssi = internal global i32 0, align 4
 @.str.100 = private unnamed_addr constant [14 x i8] c"rtls.ser.rssi\00", align 1
 @.str.101 = private unnamed_addr constant [33 x i8] c"Average RSSI during the duration\00", align 1
@@ -181,7 +173,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_rtls_ser_classification = internal global i32 0, align 4
 @.str.110 = private unnamed_addr constant [15 x i8] c"Classification\00", align 1
 @.str.111 = private unnamed_addr constant [24 x i8] c"rtls.ser.classification\00", align 1
-@rtls_ex_classification_vals = internal constant [4 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.168 }, %struct._value_string { i32 2, ptr @.str.169 }, %struct._value_string { i32 3, ptr @.str.170 }, %struct._value_string zeroinitializer], align 16
 @hf_rtls_aer_bssid = internal global i32 0, align 4
 @.str.112 = private unnamed_addr constant [15 x i8] c"rtls.aer.bssid\00", align 1
 @hf_rtls_aer_essid = internal global i32 0, align 4
@@ -217,7 +208,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_rtls = internal global i32 0, align 4
 @ett_rtls_message = internal global i32 0, align 4
 @ett_rtls_nack_flags = internal global i32 0, align 4
-@proto_register_rtls.ei = internal global [1 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_rtls_undecoded, %struct.expert_field_info { ptr @.str.130, i32 83886080, i32 4194304, ptr @.str.131, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_rtls.ei = internal global [1 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_rtls_undecoded, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.130, i32 83886080, i32 4194304, ptr @.str.131, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_rtls_undecoded = internal global %struct.expert_field zeroinitializer, align 4
 @.str.130 = private unnamed_addr constant [15 x i8] c"rtls.undecoded\00", align 1
 @.str.131 = private unnamed_addr constant [18 x i8] c"Undecoded Payload\00", align 1
@@ -238,37 +229,44 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.144 = private unnamed_addr constant [18 x i8] c"AR_MMS_CONFIG_SET\00", align 1
 @.str.145 = private unnamed_addr constant [21 x i8] c"AR_STATION_EX_REPORT\00", align 1
 @.str.146 = private unnamed_addr constant [16 x i8] c"AR_AP_EX_REPORT\00", align 1
-@.str.147 = private unnamed_addr constant [3 x i8] c"%d\00", align 1
-@.str.148 = private unnamed_addr constant [8 x i8] c"1 Mbits\00", align 1
-@.str.149 = private unnamed_addr constant [8 x i8] c"2 Mbits\00", align 1
-@.str.150 = private unnamed_addr constant [10 x i8] c"5.5 Mbits\00", align 1
-@.str.151 = private unnamed_addr constant [8 x i8] c"6 Mbits\00", align 1
-@.str.152 = private unnamed_addr constant [8 x i8] c"9 Mbits\00", align 1
-@.str.153 = private unnamed_addr constant [9 x i8] c"11 Mbits\00", align 1
-@.str.154 = private unnamed_addr constant [9 x i8] c"12 Mbits\00", align 1
-@.str.155 = private unnamed_addr constant [9 x i8] c"18 Mbits\00", align 1
-@.str.156 = private unnamed_addr constant [9 x i8] c"24 Mbits\00", align 1
-@.str.157 = private unnamed_addr constant [9 x i8] c"36 Mbits\00", align 1
-@.str.158 = private unnamed_addr constant [9 x i8] c"48 Mbits\00", align 1
-@.str.159 = private unnamed_addr constant [9 x i8] c"54 Mbits\00", align 1
-@.str.160 = private unnamed_addr constant [15 x i8] c"AR_WLAN_CLIENT\00", align 1
-@.str.161 = private unnamed_addr constant [11 x i8] c"AR_WLAN_AP\00", align 1
-@.str.162 = private unnamed_addr constant [53 x i8] c"AR_WLAN_ASSOCIATED (All APs and Associated Stations)\00", align 1
-@.str.163 = private unnamed_addr constant [45 x i8] c"AR_WLAN_UNASSOCIATED (Unassociated Stations)\00", align 1
-@.str.164 = private unnamed_addr constant [8 x i8] c"802.11b\00", align 1
-@.str.165 = private unnamed_addr constant [8 x i8] c"802.11a\00", align 1
-@.str.166 = private unnamed_addr constant [8 x i8] c"802.11g\00", align 1
-@.str.167 = private unnamed_addr constant [9 x i8] c"802.11ag\00", align 1
-@.str.168 = private unnamed_addr constant [6 x i8] c"Valid\00", align 1
-@.str.169 = private unnamed_addr constant [12 x i8] c"interfering\00", align 1
-@.str.170 = private unnamed_addr constant [7 x i8] c"DOS'ed\00", align 1
-@.str.171 = private unnamed_addr constant [13 x i8] c"(unknown %d)\00", align 1
+@rtls_message_type_vals = internal constant [12 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.136 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.137 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.138 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.139 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.140 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.141 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.142 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.143 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.144 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.145 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.146 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.148 = private unnamed_addr constant [3 x i8] c"%d\00", align 1
+@.str.149 = private unnamed_addr constant [8 x i8] c"1 Mbits\00", align 1
+@.str.150 = private unnamed_addr constant [8 x i8] c"2 Mbits\00", align 1
+@.str.151 = private unnamed_addr constant [10 x i8] c"5.5 Mbits\00", align 1
+@.str.152 = private unnamed_addr constant [8 x i8] c"6 Mbits\00", align 1
+@.str.153 = private unnamed_addr constant [8 x i8] c"9 Mbits\00", align 1
+@.str.154 = private unnamed_addr constant [9 x i8] c"11 Mbits\00", align 1
+@.str.155 = private unnamed_addr constant [9 x i8] c"12 Mbits\00", align 1
+@.str.156 = private unnamed_addr constant [9 x i8] c"18 Mbits\00", align 1
+@.str.157 = private unnamed_addr constant [9 x i8] c"24 Mbits\00", align 1
+@.str.158 = private unnamed_addr constant [9 x i8] c"36 Mbits\00", align 1
+@.str.159 = private unnamed_addr constant [9 x i8] c"48 Mbits\00", align 1
+@.str.160 = private unnamed_addr constant [9 x i8] c"54 Mbits\00", align 1
+@rtls_data_rate_vals = internal constant [13 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.149 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.150 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.151 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.152 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.153 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.154 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.155 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.156 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.157 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.158 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.159 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.160 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.162 = private unnamed_addr constant [15 x i8] c"AR_WLAN_CLIENT\00", align 1
+@.str.163 = private unnamed_addr constant [11 x i8] c"AR_WLAN_AP\00", align 1
+@rtls_sr_type_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.162 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.163 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.165 = private unnamed_addr constant [53 x i8] c"AR_WLAN_ASSOCIATED (All APs and Associated Stations)\00", align 1
+@.str.166 = private unnamed_addr constant [45 x i8] c"AR_WLAN_UNASSOCIATED (Unassociated Stations)\00", align 1
+@rtls_sr_associated_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.165 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.166 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.168 = private unnamed_addr constant [8 x i8] c"802.11b\00", align 1
+@.str.169 = private unnamed_addr constant [8 x i8] c"802.11a\00", align 1
+@.str.170 = private unnamed_addr constant [8 x i8] c"802.11g\00", align 1
+@.str.171 = private unnamed_addr constant [9 x i8] c"802.11ag\00", align 1
+@rtls_ex_phy_type_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.168 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.169 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.170 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.171 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.173 = private unnamed_addr constant [6 x i8] c"Valid\00", align 1
+@.str.174 = private unnamed_addr constant [12 x i8] c"interfering\00", align 1
+@.str.175 = private unnamed_addr constant [7 x i8] c"DOS'ed\00", align 1
+@rtls_ex_classification_vals = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.173 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.174 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.175 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.177 = private unnamed_addr constant [13 x i8] c"(unknown %d)\00", align 1
 @rtls_nack_flags = internal constant [4 x ptr] [ptr @hf_rtls_nack_flags_internal_error, ptr @hf_rtls_nack_flags_station_not_found, ptr @hf_rtls_nack_flags_reserved, ptr null], align 16
-@.str.172 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
+@.str.178 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_rtls() #0 {
   %1 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #5
   %2 = call i32 @proto_register_protocol(ptr noundef @.str.132, ptr noundef @.str.133, ptr noundef @.str.134)
   store i32 %2, ptr @proto_rtls, align 4
   %3 = load i32, ptr @proto_rtls, align 4
@@ -282,27 +280,35 @@ define hidden void @proto_register_rtls() #0 {
   store ptr %7, ptr %1, align 8
   %8 = load ptr, ptr %1, align 8
   call void @expert_register_field_array(ptr noundef %8, ptr noundef @proto_register_rtls.ei, i32 noundef 1)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #5
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @rssi_base_custom(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
-  %6 = load i32, ptr %4, align 4
-  %7 = sub i32 %6, 256
-  %8 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %5, i64 noundef 240, ptr noundef @.str.147, i32 noundef %7) #3
+  %6 = load ptr, ptr %3, align 8
+  %7 = call i64 @llvm.objectsize.i64.p0(ptr %6, i1 false, i1 true, i1 true)
+  %8 = load i32, ptr %4, align 4
+  %9 = sub i32 %8, 256
+  %10 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %5, i64 noundef 240, i32 noundef 2, i64 noundef %7, ptr noundef @.str.148, i32 noundef %9)
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_rtls(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -313,110 +319,139 @@ define internal i32 @dissect_rtls(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %11 = alloca ptr, align 8
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #5
   store i32 0, ptr %12, align 4
-  %14 = load ptr, ptr %6, align 8
-  %15 = call i32 @tvb_reported_length(ptr noundef %14)
-  %16 = icmp ult i32 %15, 16
-  br i1 %16, label %17, label %18
-
-17:                                               ; preds = %4
-  store i32 0, ptr %5, align 4
-  br label %57
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
+  %15 = load ptr, ptr %6, align 8
+  %16 = call i32 @tvb_reported_length(ptr noundef %15)
+  %17 = icmp ult i32 %16, 36
+  br i1 %17, label %18, label %19
 
 18:                                               ; preds = %4
-  %19 = load ptr, ptr %7, align 8
-  %20 = getelementptr inbounds %struct._packet_info, ptr %19, i32 0, i32 1
-  %21 = load ptr, ptr %20, align 8
-  call void @col_set_str(ptr noundef %21, i32 noundef 34, ptr noundef @.str.133)
-  %22 = load ptr, ptr %8, align 8
-  %23 = load i32, ptr @proto_rtls, align 4
-  %24 = load ptr, ptr %6, align 8
-  %25 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %23, ptr noundef %24, i32 noundef 0, i32 noundef -1, i32 noundef 0)
-  store ptr %25, ptr %10, align 8
-  %26 = load ptr, ptr %10, align 8
-  %27 = load i32, ptr @ett_rtls, align 4
-  %28 = call ptr @proto_item_add_subtree(ptr noundef %26, i32 noundef %27)
-  store ptr %28, ptr %11, align 8
-  %29 = load ptr, ptr %6, align 8
-  %30 = load i32, ptr %12, align 4
-  %31 = call zeroext i16 @tvb_get_ntohs(ptr noundef %29, i32 noundef %30)
-  %32 = zext i16 %31 to i32
-  store i32 %32, ptr %13, align 4
-  %33 = load ptr, ptr %7, align 8
-  %34 = getelementptr inbounds %struct._packet_info, ptr %33, i32 0, i32 1
-  %35 = load ptr, ptr %34, align 8
-  %36 = load i32, ptr %13, align 4
-  %37 = call ptr @val_to_str(i32 noundef %36, ptr noundef @rtls_message_type_vals, ptr noundef @.str.171)
-  call void @col_add_str(ptr noundef %35, i32 noundef 25, ptr noundef %37)
-  %38 = load ptr, ptr %6, align 8
-  %39 = load ptr, ptr %7, align 8
-  %40 = load ptr, ptr %11, align 8
-  %41 = load i32, ptr %12, align 4
-  %42 = call i32 @dissect_rtls_header(ptr noundef %38, ptr noundef %39, ptr noundef %40, i32 noundef %41, ptr noundef null)
-  store i32 %42, ptr %12, align 4
-  %43 = load ptr, ptr %6, align 8
-  %44 = load ptr, ptr %7, align 8
-  %45 = load ptr, ptr %11, align 8
-  %46 = load i32, ptr %12, align 4
-  %47 = load i32, ptr %13, align 4
-  %48 = call i32 @dissect_rtls_message_type(ptr noundef %43, ptr noundef %44, ptr noundef %45, i32 noundef %46, i32 noundef %47)
-  store i32 %48, ptr %12, align 4
-  %49 = load ptr, ptr %11, align 8
-  %50 = load i32, ptr @hf_rtls_signature, align 4
-  %51 = load ptr, ptr %6, align 8
-  %52 = load i32, ptr %12, align 4
-  %53 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %50, ptr noundef %51, i32 noundef %52, i32 noundef 20, i32 noundef 0)
-  %54 = load i32, ptr %12, align 4
-  %55 = add i32 %54, 20
-  store i32 %55, ptr %12, align 4
-  %56 = load i32, ptr %12, align 4
-  store i32 %56, ptr %5, align 4
-  br label %57
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %14, align 4
+  br label %58
 
-57:                                               ; preds = %18, %17
-  %58 = load i32, ptr %5, align 4
-  ret i32 %58
+19:                                               ; preds = %4
+  %20 = load ptr, ptr %7, align 8
+  %21 = getelementptr inbounds nuw %struct._packet_info, ptr %20, i32 0, i32 1
+  %22 = load ptr, ptr %21, align 8
+  call void @col_set_str(ptr noundef %22, i32 noundef 35, ptr noundef @.str.133)
+  %23 = load ptr, ptr %8, align 8
+  %24 = load i32, ptr @proto_rtls, align 4
+  %25 = load ptr, ptr %6, align 8
+  %26 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %24, ptr noundef %25, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  store ptr %26, ptr %10, align 8
+  %27 = load ptr, ptr %10, align 8
+  %28 = load i32, ptr @ett_rtls, align 4
+  %29 = call ptr @proto_item_add_subtree(ptr noundef %27, i32 noundef %28)
+  store ptr %29, ptr %11, align 8
+  %30 = load ptr, ptr %6, align 8
+  %31 = load i32, ptr %12, align 4
+  %32 = call zeroext i16 @tvb_get_ntohs(ptr noundef %30, i32 noundef %31)
+  %33 = zext i16 %32 to i32
+  store i32 %33, ptr %13, align 4
+  %34 = load ptr, ptr %7, align 8
+  %35 = getelementptr inbounds nuw %struct._packet_info, ptr %34, i32 0, i32 1
+  %36 = load ptr, ptr %35, align 8
+  %37 = load i32, ptr %13, align 4
+  %38 = call ptr @val_to_str(i32 noundef %37, ptr noundef @rtls_message_type_vals, ptr noundef @.str.177)
+  call void @col_add_str(ptr noundef %36, i32 noundef 25, ptr noundef %38)
+  %39 = load ptr, ptr %6, align 8
+  %40 = load ptr, ptr %7, align 8
+  %41 = load ptr, ptr %11, align 8
+  %42 = load i32, ptr %12, align 4
+  %43 = call i32 @dissect_rtls_header(ptr noundef %39, ptr noundef %40, ptr noundef %41, i32 noundef %42, ptr noundef null)
+  store i32 %43, ptr %12, align 4
+  %44 = load ptr, ptr %6, align 8
+  %45 = load ptr, ptr %7, align 8
+  %46 = load ptr, ptr %11, align 8
+  %47 = load i32, ptr %12, align 4
+  %48 = load i32, ptr %13, align 4
+  %49 = call i32 @dissect_rtls_message_type(ptr noundef %44, ptr noundef %45, ptr noundef %46, i32 noundef %47, i32 noundef %48)
+  store i32 %49, ptr %12, align 4
+  %50 = load ptr, ptr %11, align 8
+  %51 = load i32, ptr @hf_rtls_signature, align 4
+  %52 = load ptr, ptr %6, align 8
+  %53 = load i32, ptr %12, align 4
+  %54 = call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %51, ptr noundef %52, i32 noundef %53, i32 noundef 20, i32 noundef 0)
+  %55 = load i32, ptr %12, align 4
+  %56 = add i32 %55, 20
+  store i32 %56, ptr %12, align 4
+  %57 = load i32, ptr %12, align 4
+  store i32 %57, ptr %5, align 4
+  store i32 1, ptr %14, align 4
+  br label %58
+
+58:                                               ; preds = %19, %18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  %59 = load i32, ptr %5, align 4
+  ret i32 %59
 }
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #2
 
-declare ptr @expert_register_protocol(i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_register_protocol(i32 noundef) #2
 
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_rtls() #0 {
   %1 = load ptr, ptr @rtls_handle, align 8
   call void @dissector_add_for_decode_as_with_preference(ptr noundef @.str.135, ptr noundef %1)
   ret void
 }
 
-declare void @dissector_add_for_decode_as_with_preference(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_add_for_decode_as_with_preference(ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind
-declare i32 @snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #2
+; Function Attrs: null_pointer_is_valid
+declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) #2
 
-declare i32 @tvb_reported_length(ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.objectsize.i64.p0(ptr, i1 immarg, i1 immarg, i1 immarg) #3
 
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length(ptr noundef) #2
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #2
 
-declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #2
 
-declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_rtls_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -502,7 +537,7 @@ define internal i32 @dissect_rtls_header(ptr noundef %0, ptr noundef %1, ptr nou
   ret i32 %69
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_rtls_message_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -519,6 +554,7 @@ define internal i32 @dissect_rtls_message_type(ptr noundef %0, ptr noundef %1, p
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i32 %4, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
   %16 = load i32, ptr %10, align 4
   switch i32 %16, label %454 [
     i32 0, label %17
@@ -550,7 +586,7 @@ define internal i32 @dissect_rtls_message_type(ptr noundef %0, ptr noundef %1, p
   %30 = load i32, ptr %9, align 4
   %31 = add i32 %30, 2
   store i32 %31, ptr %9, align 4
-  br label %468
+  br label %473
 
 32:                                               ; preds = %5
   %33 = load ptr, ptr %8, align 8
@@ -569,10 +605,10 @@ define internal i32 @dissect_rtls_message_type(ptr noundef %0, ptr noundef %1, p
   %45 = load i32, ptr %9, align 4
   %46 = add i32 %45, 2
   store i32 %46, ptr %9, align 4
-  br label %468
+  br label %473
 
 47:                                               ; preds = %5, %5
-  br label %468
+  br label %473
 
 48:                                               ; preds = %5
   %49 = load ptr, ptr %8, align 8
@@ -592,7 +628,7 @@ define internal i32 @dissect_rtls_message_type(ptr noundef %0, ptr noundef %1, p
   %62 = load i32, ptr %9, align 4
   %63 = add i32 %62, 2
   store i32 %63, ptr %9, align 4
-  br label %468
+  br label %473
 
 64:                                               ; preds = %5
   %65 = load ptr, ptr %8, align 8
@@ -699,7 +735,7 @@ define internal i32 @dissect_rtls_message_type(ptr noundef %0, ptr noundef %1, p
   %153 = load i32, ptr %9, align 4
   %154 = add i32 %153, 2
   store i32 %154, ptr %9, align 4
-  br label %468
+  br label %473
 
 155:                                              ; preds = %5
   %156 = load ptr, ptr %8, align 8
@@ -790,7 +826,7 @@ define internal i32 @dissect_rtls_message_type(ptr noundef %0, ptr noundef %1, p
   %230 = load i32, ptr %9, align 4
   %231 = add i32 %230, 4
   store i32 %231, ptr %9, align 4
-  br label %468
+  br label %473
 
 232:                                              ; preds = %5
   %233 = load ptr, ptr %8, align 8
@@ -889,7 +925,7 @@ define internal i32 @dissect_rtls_message_type(ptr noundef %0, ptr noundef %1, p
   %314 = load i32, ptr %9, align 4
   %315 = add i32 %314, 2
   store i32 %315, ptr %9, align 4
-  br label %468
+  br label %473
 
 316:                                              ; preds = %5
   %317 = load ptr, ptr %8, align 8
@@ -996,9 +1032,11 @@ define internal i32 @dissect_rtls_message_type(ptr noundef %0, ptr noundef %1, p
   %405 = load i32, ptr %9, align 4
   %406 = add i32 %405, 2
   store i32 %406, ptr %9, align 4
-  br label %468
+  br label %473
 
 407:                                              ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
   %408 = load ptr, ptr %8, align 8
   %409 = load i32, ptr @hf_rtls_cmr_messages, align 4
   %410 = load ptr, ptr %6, align 8
@@ -1023,6 +1061,7 @@ define internal i32 @dissect_rtls_message_type(ptr noundef %0, ptr noundef %1, p
   br i1 %424, label %425, label %453
 
 425:                                              ; preds = %422
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
   %426 = load ptr, ptr %6, align 8
   %427 = load i32, ptr %9, align 4
   %428 = call zeroext i16 @tvb_get_ntohs(ptr noundef %426, i32 noundef %427)
@@ -1033,8 +1072,8 @@ define internal i32 @dissect_rtls_message_type(ptr noundef %0, ptr noundef %1, p
   %432 = load i32, ptr %9, align 4
   %433 = load i32, ptr @ett_rtls_message, align 4
   %434 = load i32, ptr %10, align 4
-  %435 = call ptr @val_to_str(i32 noundef %434, ptr noundef @rtls_message_type_vals, ptr noundef @.str.171)
-  %436 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %430, ptr noundef %431, i32 noundef %432, i32 noundef -1, i32 noundef %433, ptr noundef null, ptr noundef @.str.172, ptr noundef %435)
+  %435 = call ptr @val_to_str(i32 noundef %434, ptr noundef @rtls_message_type_vals, ptr noundef @.str.177)
+  %436 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %430, ptr noundef %431, i32 noundef %432, i32 noundef -1, i32 noundef %433, ptr noundef null, ptr noundef @.str.178, ptr noundef %435)
   store ptr %436, ptr %13, align 8
   %437 = load ptr, ptr %6, align 8
   %438 = load ptr, ptr %7, align 8
@@ -1056,38 +1095,54 @@ define internal i32 @dissect_rtls_message_type(ptr noundef %0, ptr noundef %1, p
   %451 = load i32, ptr %12, align 4
   %452 = add i32 %451, -1
   store i32 %452, ptr %12, align 4
-  br label %422, !llvm.loop !4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  br label %422, !llvm.loop !6
 
 453:                                              ; preds = %422
-  br label %468
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #5
+  br label %473
 
 454:                                              ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
   %455 = load ptr, ptr %6, align 8
   %456 = load i32, ptr %9, align 4
   %457 = call i32 @tvb_reported_length_remaining(ptr noundef %455, i32 noundef %456)
-  %458 = sub i32 %457, 20
-  store i32 %458, ptr %15, align 4
-  %459 = load ptr, ptr %8, align 8
-  %460 = load ptr, ptr %7, align 8
-  %461 = load ptr, ptr %6, align 8
-  %462 = load i32, ptr %9, align 4
-  %463 = load i32, ptr %15, align 4
-  %464 = call ptr @proto_tree_add_expert(ptr noundef %459, ptr noundef %460, ptr noundef @ei_rtls_undecoded, ptr noundef %461, i32 noundef %462, i32 noundef %463)
-  %465 = load i32, ptr %15, align 4
-  %466 = load i32, ptr %9, align 4
-  %467 = add i32 %466, %465
-  store i32 %467, ptr %9, align 4
-  br label %468
+  store i32 %457, ptr %15, align 4
+  %458 = load i32, ptr %15, align 4
+  %459 = icmp ugt i32 %458, 20
+  br i1 %459, label %460, label %472
 
-468:                                              ; preds = %454, %453, %316, %232, %155, %64, %48, %47, %32, %17
-  %469 = load i32, ptr %9, align 4
-  ret i32 %469
+460:                                              ; preds = %454
+  %461 = load ptr, ptr %8, align 8
+  %462 = load ptr, ptr %7, align 8
+  %463 = load ptr, ptr %6, align 8
+  %464 = load i32, ptr %9, align 4
+  %465 = load i32, ptr %15, align 4
+  %466 = sub i32 %465, 20
+  %467 = call ptr @proto_tree_add_expert(ptr noundef %461, ptr noundef %462, ptr noundef @ei_rtls_undecoded, ptr noundef %463, i32 noundef %464, i32 noundef %466)
+  %468 = load i32, ptr %15, align 4
+  %469 = sub i32 %468, 20
+  %470 = load i32, ptr %9, align 4
+  %471 = add i32 %470, %469
+  store i32 %471, ptr %9, align 4
+  br label %472
+
+472:                                              ; preds = %460, %454
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
+  br label %473
+
+473:                                              ; preds = %472, %453, %316, %232, %155, %64, %48, %47, %32, %17
+  %474 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  ret i32 %474
 }
 
-declare ptr @proto_tree_add_bitmask_with_flags(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_bitmask_with_flags(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal void @proto_item_set_generated(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind null_pointer_is_valid sspstrong uwtable
+define internal void @proto_item_set_generated(ptr noundef %0) #4 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -1099,22 +1154,22 @@ define internal void @proto_item_set_generated(ptr noundef %0) #0 {
 
 6:                                                ; preds = %5
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct._proto_node, ptr %7, i32 0, i32 4
+  %8 = getelementptr inbounds nuw %struct._proto_node, ptr %7, i32 0, i32 5
   %9 = load ptr, ptr %8, align 8
   %10 = icmp ne ptr %9, null
   br i1 %10, label %11, label %22
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct._proto_node, ptr %12, i32 0, i32 4
+  %13 = getelementptr inbounds nuw %struct._proto_node, ptr %12, i32 0, i32 5
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds %struct.field_info, ptr %14, i32 0, i32 6
+  %15 = getelementptr inbounds nuw %struct.field_info, ptr %14, i32 0, i32 6
   %16 = load i32, ptr %15, align 4
   %17 = or i32 %16, 2
   %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds %struct._proto_node, ptr %18, i32 0, i32 4
+  %19 = getelementptr inbounds nuw %struct._proto_node, ptr %18, i32 0, i32 5
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds %struct.field_info, ptr %20, i32 0, i32 6
+  %21 = getelementptr inbounds nuw %struct.field_info, ptr %20, i32 0, i32 6
   store i32 %17, ptr %21, align 4
   br label %22
 
@@ -1128,26 +1183,35 @@ define internal void @proto_item_set_generated(ptr noundef %0) #0 {
   ret void
 }
 
-declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #2
 
-declare void @proto_item_set_len(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_set_len(ptr noundef, i32 noundef) #2
 
-declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { inlinehint nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}

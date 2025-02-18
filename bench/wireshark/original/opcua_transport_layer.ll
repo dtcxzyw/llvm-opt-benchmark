@@ -73,7 +73,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.42 = private unnamed_addr constant [65 x i8] c"http://opcfoundation.org/UA/SecurityPolicy#Aes128_Sha256_RsaOaep\00", align 1
 @.str.43 = private unnamed_addr constant [64 x i8] c"http://opcfoundation.org/UA/SecurityPolicy#Aes256_Sha256_RsaPss\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @registerTransportLayerTypes(i32 noundef %0) #0 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
@@ -82,9 +82,10 @@ define hidden void @registerTransportLayerTypes(i32 noundef %0) #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @parseMessageHeader(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -129,9 +130,10 @@ define hidden void @parseMessageHeader(ptr noundef %0, ptr noundef %1, ptr nound
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @parseHello(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -208,9 +210,10 @@ define hidden i32 @parseHello(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   ret i32 -1
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @parseString(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @parseAcknowledge(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -281,7 +284,7 @@ define hidden i32 @parseAcknowledge(ptr noundef %0, ptr noundef %1, ptr noundef 
   ret i32 -1
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @parseError(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -314,9 +317,10 @@ define hidden i32 @parseError(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   ret i32 -1
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @parseStatusCode(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @parseReverseHello(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -349,7 +353,7 @@ define hidden i32 @parseReverseHello(ptr noundef %0, ptr noundef %1, ptr noundef
   ret i32 -1
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @parseMessage(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -380,7 +384,7 @@ define hidden i32 @parseMessage(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   ret i32 -1
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @parseAbort(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -413,7 +417,7 @@ define hidden i32 @parseAbort(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   ret i32 -1
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @parseService(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -430,6 +434,11 @@ define hidden i32 @parseService(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   store ptr %4, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #6
   store i32 0, ptr %15, align 4
   %16 = load ptr, ptr %6, align 8
   %17 = load ptr, ptr %7, align 8
@@ -475,18 +484,33 @@ define hidden i32 @parseService(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %48 = load i32, ptr %47, align 4
   call void @proto_item_set_end(ptr noundef %45, ptr noundef %46, i32 noundef %48)
   %49 = load i32, ptr %15, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
   ret i32 %49
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @parseServiceNodeId(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_item_set_end(ptr noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @dispatchService(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @store_encryption_info(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -496,39 +520,55 @@ define hidden void @store_encryption_info(ptr noundef %0, i32 noundef %1, i8 nou
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
   store i8 %2, ptr %6, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
   %9 = load ptr, ptr %4, align 8
   %10 = call ptr @find_conversation_pinfo(ptr noundef %9, i32 noundef 0)
   store ptr %10, ptr %7, align 8
   %11 = load ptr, ptr %7, align 8
   %12 = icmp ne ptr %11, null
-  br i1 %12, label %13, label %25
+  br i1 %12, label %13, label %21
 
 13:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
   %14 = load i32, ptr %5, align 4
-  %15 = zext i32 %14 to i64
-  store i64 %15, ptr %8, align 8
-  %16 = load i8, ptr %6, align 1
-  %17 = zext i8 %16 to i64
-  %18 = shl i64 %17, 8
+  %15 = load i8, ptr %6, align 1
+  %16 = call i64 @construct_encryption_info(i32 noundef %14, i8 noundef zeroext %15)
+  store i64 %16, ptr %8, align 8
+  %17 = load ptr, ptr %7, align 8
+  %18 = load i32, ptr @proto_opcua, align 4
   %19 = load i64, ptr %8, align 8
-  %20 = or i64 %19, %18
-  store i64 %20, ptr %8, align 8
-  %21 = load ptr, ptr %7, align 8
-  %22 = load i32, ptr @proto_opcua, align 4
-  %23 = load i64, ptr %8, align 8
-  %24 = inttoptr i64 %23 to ptr
-  call void @conversation_add_proto_data(ptr noundef %21, i32 noundef %22, ptr noundef %24)
-  br label %25
+  %20 = inttoptr i64 %19 to ptr
+  call void @conversation_add_proto_data(ptr noundef %17, i32 noundef %18, ptr noundef %20)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  br label %21
 
-25:                                               ; preds = %13, %3
+21:                                               ; preds = %13, %3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @find_conversation_pinfo(ptr noundef, i32 noundef) #1
 
+; Function Attrs: inlinehint nounwind null_pointer_is_valid sspstrong uwtable
+define internal i64 @construct_encryption_info(i32 noundef %0, i8 noundef zeroext %1) #3 {
+  %3 = alloca i32, align 4
+  %4 = alloca i8, align 1
+  store i32 %0, ptr %3, align 4
+  store i8 %1, ptr %4, align 1
+  %5 = load i8, ptr %4, align 1
+  %6 = zext i8 %5 to i64
+  %7 = shl i64 %6, 8
+  %8 = load i32, ptr %3, align 4
+  %9 = zext i32 %8 to i64
+  %10 = or i64 %7, %9
+  ret i64 %10
+}
+
+; Function Attrs: null_pointer_is_valid
 declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @get_encryption_info(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -538,14 +578,16 @@ define hidden void @get_encryption_info(ptr noundef %0, ptr noundef %1, ptr noun
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
   %9 = load ptr, ptr %4, align 8
   %10 = call ptr @find_conversation_pinfo(ptr noundef %9, i32 noundef 0)
   store ptr %10, ptr %7, align 8
   %11 = load ptr, ptr %7, align 8
   %12 = icmp ne ptr %11, null
-  br i1 %12, label %13, label %38
+  br i1 %12, label %13, label %36
 
 13:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr @proto_opcua, align 4
   %16 = call ptr @conversation_get_proto_data(ptr noundef %14, i32 noundef %15)
@@ -565,31 +607,52 @@ define hidden void @get_encryption_info(ptr noundef %0, ptr noundef %1, ptr noun
   %26 = trunc i32 %25 to i8
   %27 = load ptr, ptr %6, align 8
   store i8 %26, ptr %27, align 1
-  br label %37
+  br label %35
 
 28:                                               ; preds = %13
   %29 = load i64, ptr %8, align 8
-  %30 = and i64 %29, 255
-  %31 = trunc i64 %30 to i32
-  %32 = load ptr, ptr %5, align 8
-  store i32 %31, ptr %32, align 4
-  %33 = load i64, ptr %8, align 8
-  %34 = lshr i64 %33, 8
-  %35 = trunc i64 %34 to i8
-  %36 = load ptr, ptr %6, align 8
-  store i8 %35, ptr %36, align 1
-  br label %37
+  %30 = call i32 @extract_message_mode(i64 noundef %29)
+  %31 = load ptr, ptr %5, align 8
+  store i32 %30, ptr %31, align 4
+  %32 = load i64, ptr %8, align 8
+  %33 = call zeroext i8 @extract_signature_length(i64 noundef %32)
+  %34 = load ptr, ptr %6, align 8
+  store i8 %33, ptr %34, align 1
+  br label %35
 
-37:                                               ; preds = %28, %20
-  br label %38
+35:                                               ; preds = %28, %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  br label %36
 
-38:                                               ; preds = %37, %3
+36:                                               ; preds = %35, %3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: inlinehint nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @extract_message_mode(i64 noundef %0) #3 {
+  %2 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8
+  %3 = load i64, ptr %2, align 8
+  %4 = and i64 %3, 255
+  %5 = trunc i64 %4 to i32
+  ret i32 %5
+}
+
+; Function Attrs: inlinehint nounwind null_pointer_is_valid sspstrong uwtable
+define internal zeroext i8 @extract_signature_length(i64 noundef %0) #3 {
+  %2 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8
+  %3 = load i64, ptr %2, align 8
+  %4 = lshr i64 %3, 8
+  %5 = trunc i64 %4 to i8
+  ret i8 %5
+}
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @parseOpenSecureChannel(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -606,9 +669,13 @@ define hidden i32 @parseOpenSecureChannel(ptr noundef %0, ptr noundef %1, ptr no
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   store ptr %4, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
   store ptr null, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
   store i32 0, ptr %12, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #6
   store i32 -1, ptr %13, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #6
   store i8 0, ptr %14, align 1
   %16 = load ptr, ptr %6, align 8
   %17 = load i32, ptr @hf_opcua_transport_type, align 4
@@ -680,6 +747,7 @@ define hidden i32 @parseOpenSecureChannel(ptr noundef %0, ptr noundef %1, ptr no
   br label %112
 
 75:                                               ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #6
   store i8 0, ptr %15, align 1
   store i8 1, ptr %14, align 1
   %76 = load ptr, ptr %11, align 8
@@ -752,16 +820,17 @@ define hidden i32 @parseOpenSecureChannel(ptr noundef %0, ptr noundef %1, ptr no
   %110 = load ptr, ptr %8, align 8
   %111 = load i8, ptr %15, align 1
   call void @store_encryption_info(ptr noundef %110, i32 noundef 4, i8 noundef zeroext %111)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #6
   br label %112
 
 112:                                              ; preds = %109, %73
-  %113 = load i8, ptr %14, align 1
+  %113 = load i8, ptr %14, align 1, !range !6, !noundef !7
   %114 = trunc i8 %113 to i1
   %115 = load ptr, ptr %10, align 8
-  %116 = getelementptr inbounds %struct.ua_metadata, ptr %115, i32 0, i32 0
+  %116 = getelementptr inbounds nuw %struct.ua_metadata, ptr %115, i32 0, i32 0
   %117 = zext i1 %114 to i8
   store i8 %117, ptr %116, align 1
-  %118 = load i8, ptr %14, align 1
+  %118 = load i8, ptr %14, align 1, !range !6, !noundef !7
   %119 = trunc i8 %118 to i1
   br i1 %119, label %131, label %120
 
@@ -782,59 +851,72 @@ define hidden i32 @parseOpenSecureChannel(ptr noundef %0, ptr noundef %1, ptr no
 
 131:                                              ; preds = %120, %112
   %132 = load i32, ptr %13, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
   ret i32 %132
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @parseString_ret_string_and_length(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @parseCertificate(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @parseByteString(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
-define internal i32 @opcua_string_compare(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @opcua_string_compare(ptr noundef %0, i32 noundef %1, ptr noundef %2) #4 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
   store ptr %0, ptr %5, align 8
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
-  %9 = load ptr, ptr %7, align 8
-  %10 = call i64 @strlen(ptr noundef %9) #3
-  %11 = trunc i64 %10 to i32
-  store i32 %11, ptr %8, align 4
-  %12 = load i32, ptr %6, align 4
-  %13 = load i32, ptr %8, align 4
-  %14 = icmp eq i32 %12, %13
-  br i1 %14, label %15, label %23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #6
+  %10 = load ptr, ptr %7, align 8
+  %11 = call i64 @strlen(ptr noundef %10) #7
+  %12 = trunc i64 %11 to i32
+  store i32 %12, ptr %8, align 4
+  %13 = load i32, ptr %6, align 4
+  %14 = load i32, ptr %8, align 4
+  %15 = icmp eq i32 %13, %14
+  br i1 %15, label %16, label %24
 
-15:                                               ; preds = %3
-  %16 = load ptr, ptr %5, align 8
-  %17 = load ptr, ptr %7, align 8
-  %18 = load i32, ptr %8, align 4
-  %19 = sext i32 %18 to i64
-  %20 = call i32 @memcmp(ptr noundef %16, ptr noundef %17, i64 noundef %19) #3
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %23
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %5, align 8
+  %18 = load ptr, ptr %7, align 8
+  %19 = load i32, ptr %8, align 4
+  %20 = sext i32 %19 to i64
+  %21 = call i32 @memcmp(ptr noundef %17, ptr noundef %18, i64 noundef %20) #7
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %23, label %24
 
-22:                                               ; preds = %15
+23:                                               ; preds = %16
   store i32 0, ptr %4, align 4
-  br label %24
+  store i32 1, ptr %9, align 4
+  br label %25
 
-23:                                               ; preds = %15, %3
+24:                                               ; preds = %16, %3
   store i32 -1, ptr %4, align 4
-  br label %24
+  store i32 1, ptr %9, align 4
+  br label %25
 
-24:                                               ; preds = %23, %22
-  %25 = load i32, ptr %4, align 4
-  ret i32 %25
+25:                                               ; preds = %24, %23
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #6
+  %26 = load i32, ptr %4, align 4
+  ret i32 %26
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @parseSequenceHeader(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @parseCloseSecureChannel(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -865,20 +947,28 @@ define hidden i32 @parseCloseSecureChannel(ptr noundef %0, ptr noundef %1, ptr n
   ret i32 -1
 }
 
-; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #2
+; Function Attrs: nounwind null_pointer_is_valid willreturn memory(read)
+declare i64 @strlen(ptr noundef) #5
 
-; Function Attrs: nounwind willreturn memory(read)
-declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #2
+; Function Attrs: nounwind null_pointer_is_valid willreturn memory(read)
+declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #5
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(read) }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { inlinehint nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind null_pointer_is_valid willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind }
+attributes #7 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}

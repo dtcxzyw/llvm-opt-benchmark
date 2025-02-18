@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
 
 @proto_register_cmpp.hf = internal global [47 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_cmpp_Total_Length, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 7, i32 1, ptr null, i64 0, ptr @.str.2, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cmpp_Command_Id, %struct._header_field_info { ptr @.str.3, ptr @.str.4, i32 7, i32 2, ptr @vals_command_Id, i64 0, ptr @.str.5, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cmpp_Sequence_Id, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 7, i32 1, ptr null, i64 0, ptr @.str.8, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cmpp_connect_Source_Addr, %struct._header_field_info { ptr @.str.9, ptr @.str.10, i32 26, i32 0, ptr null, i64 0, ptr @.str.11, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cmpp_connect_AuthenticatorSource, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 26, i32 0, ptr null, i64 0, ptr @.str.14, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cmpp_Version, %struct._header_field_info { ptr @.str.15, ptr @.str.16, i32 26, i32 0, ptr null, i64 0, ptr @.str.17, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cmpp_connect_Timestamp, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 26, i32 0, ptr null, i64 0, ptr @.str.20, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cmpp_connect_resp_status, %struct._header_field_info { ptr @.str.21, ptr @.str.22, i32 7, i32 1, ptr @vals_connect_resp_status, i64 0, ptr @.str.23, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cmpp_connect_resp_AuthenticatorISMG, %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 26, i32 0, ptr null, i64 0, ptr @.str.26, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cmpp_msg_id, %struct._header_field_info { ptr @.str.27, ptr @.str.28, i32 11, i32 2, ptr null, i64 0, ptr @.str.29, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cmpp_submit_pk_total, %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 4, i32 1, ptr null, i64 0, ptr @.str.32, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cmpp_submit_pk_number, %struct._header_field_info { ptr @.str.33, ptr @.str.34, i32 4, i32 1, ptr null, i64 0, ptr @.str.35, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_msg_id_timestamp, %struct._header_field_info { ptr @.str.18, ptr @.str.36, i32 26, i32 0, ptr null, i64 0, ptr @.str.37, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_msg_id_ismg_code, %struct._header_field_info { ptr @.str.38, ptr @.str.39, i32 7, i32 1, ptr null, i64 0, ptr @.str.40, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_msg_id_sequence_id, %struct._header_field_info { ptr @.str.41, ptr @.str.42, i32 5, i32 1, ptr null, i64 0, ptr @.str.43, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cmpp_submit_Registered_Delivery, %struct._header_field_info { ptr @.str.44, ptr @.str.45, i32 2, i32 0, ptr null, i64 0, ptr @.str.46, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cmpp_submit_Msg_level, %struct._header_field_info { ptr @.str.47, ptr @.str.48, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cmpp_Service_Id, %struct._header_field_info { ptr @.str.49, ptr @.str.50, i32 26, i32 0, ptr null, i64 0, ptr @.str.51, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cmpp_submit_Fee_UserType, %struct._header_field_info { ptr @.str.52, ptr @.str.53, i32 4, i32 1, ptr @vals_submit_Fee_UserType, i64 0, ptr @.str.54, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cmpp_submit_Fee_terminal_Id, %struct._header_field_info { ptr @.str.55, ptr @.str.56, i32 26, i32 0, ptr null, i64 0, ptr @.str.57, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cmpp_submit_Fee_terminal_type, %struct._header_field_info { ptr @.str.58, ptr @.str.59, i32 2, i32 0, ptr null, i64 0, ptr @.str.60, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cmpp_TP_pId, %struct._header_field_info { ptr @.str.61, ptr @.str.62, i32 4, i32 1, ptr null, i64 0, ptr @.str.63, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cmpp_TP_udhi, %struct._header_field_info { ptr @.str.64, ptr @.str.65, i32 4, i32 1, ptr null, i64 0, ptr @.str.66, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cmpp_Msg_Fmt, %struct._header_field_info { ptr @.str.67, ptr @.str.68, i32 4, i32 1, ptr @vals_Msg_Fmt, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cmpp_submit_Msg_src, %struct._header_field_info { ptr @.str.69, ptr @.str.70, i32 26, i32 0, ptr null, i64 0, ptr @.str.71, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cmpp_submit_FeeType, %struct._header_field_info { ptr @.str.72, ptr @.str.73, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cmpp_submit_FeeCode, %struct._header_field_info { ptr @.str.74, ptr @.str.75, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cmpp_submit_Valld_Time, %struct._header_field_info { ptr @.str.76, ptr @.str.77, i32 26, i32 0, ptr null, i64 0, ptr @.str.78, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cmpp_submit_At_Time, %struct._header_field_info { ptr @.str.79, ptr @.str.80, i32 26, i32 0, ptr null, i64 0, ptr @.str.81, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cmpp_submit_Src_Id, %struct._header_field_info { ptr @.str.82, ptr @.str.83, i32 26, i32 0, ptr null, i64 0, ptr @.str.84, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cmpp_submit_DestUsr_tl, %struct._header_field_info { ptr @.str.85, ptr @.str.86, i32 4, i32 1, ptr null, i64 0, ptr @.str.87, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cmpp_Dest_terminal_Id, %struct._header_field_info { ptr @.str.88, ptr @.str.89, i32 26, i32 0, ptr null, i64 0, ptr @.str.90, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cmpp_submit_Dest_terminal_type, %struct._header_field_info { ptr @.str.91, ptr @.str.92, i32 2, i32 0, ptr null, i64 0, ptr @.str.93, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cmpp_Msg_Length, %struct._header_field_info { ptr @.str.94, ptr @.str.95, i32 4, i32 1, ptr null, i64 0, ptr @.str.96, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cmpp_Msg_Content, %struct._header_field_info { ptr @.str.97, ptr @.str.98, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cmpp_LinkID, %struct._header_field_info { ptr @.str.99, ptr @.str.100, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cmpp_submit_resp_Result, %struct._header_field_info { ptr @.str.101, ptr @.str.102, i32 7, i32 1, ptr @vals_Submit_Resp_Result, i64 0, ptr @.str.103, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cmpp_deliver_Dest_Id, %struct._header_field_info { ptr @.str.104, ptr @.str.105, i32 26, i32 0, ptr null, i64 0, ptr @.str.106, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cmpp_deliver_Src_terminal_Id, %struct._header_field_info { ptr @.str.107, ptr @.str.108, i32 26, i32 0, ptr null, i64 0, ptr @.str.109, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cmpp_deliver_Src_terminal_type, %struct._header_field_info { ptr @.str.110, ptr @.str.111, i32 2, i32 0, ptr null, i64 0, ptr @.str.112, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cmpp_deliver_Registered_Delivery, %struct._header_field_info { ptr @.str.113, ptr @.str.114, i32 2, i32 0, ptr null, i64 0, ptr @.str.115, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cmpp_deliver_Report, %struct._header_field_info { ptr @.str.116, ptr @.str.117, i32 0, i32 0, ptr null, i64 0, ptr @.str.118, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cmpp_deliver_Report_Stat, %struct._header_field_info { ptr @.str.119, ptr @.str.120, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cmpp_deliver_Report_Submit_time, %struct._header_field_info { ptr @.str.121, ptr @.str.122, i32 26, i32 0, ptr null, i64 0, ptr @.str.123, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cmpp_deliver_Report_Done_time, %struct._header_field_info { ptr @.str.124, ptr @.str.125, i32 26, i32 0, ptr null, i64 0, ptr @.str.123, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cmpp_deliver_Report_SMSC_sequence, %struct._header_field_info { ptr @.str.126, ptr @.str.127, i32 7, i32 1, ptr null, i64 0, ptr @.str.128, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_cmpp_deliver_resp_Result, %struct._header_field_info { ptr @.str.101, ptr @.str.129, i32 7, i32 1, ptr @vals_Deliver_Resp_Result, i64 0, ptr @.str.130, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_cmpp_Total_Length = internal global i32 0, align 4
@@ -15,7 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_cmpp_Command_Id = internal global i32 0, align 4
 @.str.3 = private unnamed_addr constant [11 x i8] c"Command Id\00", align 1
 @.str.4 = private unnamed_addr constant [16 x i8] c"cmpp.Command_Id\00", align 1
-@vals_command_Id = internal constant [33 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.136 }, %struct._value_string { i32 -2147483647, ptr @.str.137 }, %struct._value_string { i32 2, ptr @.str.138 }, %struct._value_string { i32 -2147483646, ptr @.str.139 }, %struct._value_string { i32 4, ptr @.str.140 }, %struct._value_string { i32 -2147483644, ptr @.str.141 }, %struct._value_string { i32 5, ptr @.str.142 }, %struct._value_string { i32 -2147483643, ptr @.str.143 }, %struct._value_string { i32 6, ptr @.str.144 }, %struct._value_string { i32 -2147483642, ptr @.str.144 }, %struct._value_string { i32 7, ptr @.str.145 }, %struct._value_string { i32 -2147483641, ptr @.str.146 }, %struct._value_string { i32 8, ptr @.str.147 }, %struct._value_string { i32 -2147483640, ptr @.str.148 }, %struct._value_string { i32 9, ptr @.str.149 }, %struct._value_string { i32 -2147483639, ptr @.str.150 }, %struct._value_string { i32 16, ptr @.str.151 }, %struct._value_string { i32 17, ptr @.str.152 }, %struct._value_string { i32 18, ptr @.str.153 }, %struct._value_string { i32 19, ptr @.str.154 }, %struct._value_string { i32 20, ptr @.str.155 }, %struct._value_string { i32 21, ptr @.str.156 }, %struct._value_string { i32 22, ptr @.str.157 }, %struct._value_string { i32 23, ptr @.str.158 }, %struct._value_string { i32 -2147483632, ptr @.str.159 }, %struct._value_string { i32 -2147483631, ptr @.str.160 }, %struct._value_string { i32 -2147483630, ptr @.str.161 }, %struct._value_string { i32 -2147483629, ptr @.str.162 }, %struct._value_string { i32 -2147483628, ptr @.str.163 }, %struct._value_string { i32 -2147483627, ptr @.str.164 }, %struct._value_string { i32 -2147483626, ptr @.str.165 }, %struct._value_string { i32 -2147483625, ptr @.str.166 }, %struct._value_string zeroinitializer], align 16
 @.str.5 = private unnamed_addr constant [32 x i8] c"Command Id of the CMPP messages\00", align 1
 @hf_cmpp_Sequence_Id = internal global i32 0, align 4
 @.str.6 = private unnamed_addr constant [12 x i8] c"Sequence Id\00", align 1
@@ -40,7 +38,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_cmpp_connect_resp_status = internal global i32 0, align 4
 @.str.21 = private unnamed_addr constant [24 x i8] c"Connect Response Status\00", align 1
 @.str.22 = private unnamed_addr constant [25 x i8] c"cmpp.connect_resp.Status\00", align 1
-@vals_connect_resp_status = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.167 }, %struct._value_string { i32 1, ptr @.str.168 }, %struct._value_string { i32 2, ptr @.str.169 }, %struct._value_string { i32 3, ptr @.str.170 }, %struct._value_string { i32 4, ptr @.str.171 }, %struct._value_string zeroinitializer], align 16
 @.str.23 = private unnamed_addr constant [55 x i8] c"Response Status, Value higher then 4 means other error\00", align 1
 @hf_cmpp_connect_resp_AuthenticatorISMG = internal global i32 0, align 4
 @.str.24 = private unnamed_addr constant [25 x i8] c"SIMG Authenticate result\00", align 1
@@ -83,7 +80,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_cmpp_submit_Fee_UserType = internal global i32 0, align 4
 @.str.52 = private unnamed_addr constant [22 x i8] c"Charging Informations\00", align 1
 @.str.53 = private unnamed_addr constant [25 x i8] c"cmpp.submit.Fee_UserType\00", align 1
-@vals_submit_Fee_UserType = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.172 }, %struct._value_string { i32 1, ptr @.str.173 }, %struct._value_string { i32 2, ptr @.str.174 }, %struct._value_string { i32 3, ptr @.str.175 }, %struct._value_string zeroinitializer], align 16
 @.str.54 = private unnamed_addr constant [66 x i8] c"Charging Informations, if value is 3, this field will not be used\00", align 1
 @hf_cmpp_submit_Fee_terminal_Id = internal global i32 0, align 4
 @.str.55 = private unnamed_addr constant [16 x i8] c"Fee Terminal ID\00", align 1
@@ -104,7 +100,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_cmpp_Msg_Fmt = internal global i32 0, align 4
 @.str.67 = private unnamed_addr constant [15 x i8] c"Message Format\00", align 1
 @.str.68 = private unnamed_addr constant [13 x i8] c"cmpp.Msg_Fmt\00", align 1
-@vals_Msg_Fmt = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.176 }, %struct._value_string { i32 3, ptr @.str.177 }, %struct._value_string { i32 4, ptr @.str.178 }, %struct._value_string { i32 8, ptr @.str.179 }, %struct._value_string { i32 15, ptr @.str.180 }, %struct._value_string zeroinitializer], align 16
 @hf_cmpp_submit_Msg_src = internal global i32 0, align 4
 @.str.69 = private unnamed_addr constant [21 x i8] c"Message Source SP_Id\00", align 1
 @.str.70 = private unnamed_addr constant [20 x i8] c"cmpp.submit.Msg_src\00", align 1
@@ -152,7 +147,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_cmpp_submit_resp_Result = internal global i32 0, align 4
 @.str.101 = private unnamed_addr constant [7 x i8] c"Result\00", align 1
 @.str.102 = private unnamed_addr constant [24 x i8] c"cmpp.submit_resp.Result\00", align 1
-@vals_Submit_Resp_Result = internal constant [15 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.167 }, %struct._value_string { i32 1, ptr @.str.181 }, %struct._value_string { i32 2, ptr @.str.182 }, %struct._value_string { i32 3, ptr @.str.183 }, %struct._value_string { i32 4, ptr @.str.184 }, %struct._value_string { i32 5, ptr @.str.185 }, %struct._value_string { i32 6, ptr @.str.186 }, %struct._value_string { i32 7, ptr @.str.187 }, %struct._value_string { i32 8, ptr @.str.188 }, %struct._value_string { i32 9, ptr @.str.189 }, %struct._value_string { i32 10, ptr @.str.190 }, %struct._value_string { i32 11, ptr @.str.191 }, %struct._value_string { i32 12, ptr @.str.192 }, %struct._value_string { i32 13, ptr @.str.193 }, %struct._value_string zeroinitializer], align 16
 @.str.103 = private unnamed_addr constant [14 x i8] c"Submit Result\00", align 1
 @hf_cmpp_deliver_Dest_Id = internal global i32 0, align 4
 @.str.104 = private unnamed_addr constant [15 x i8] c"Destination ID\00", align 1
@@ -190,7 +184,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.128 = private unnamed_addr constant [16 x i8] c"Sequence number\00", align 1
 @hf_cmpp_deliver_resp_Result = internal global i32 0, align 4
 @.str.129 = private unnamed_addr constant [25 x i8] c"cmpp.deliver_resp.Result\00", align 1
-@vals_Deliver_Resp_Result = internal constant [10 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.167 }, %struct._value_string { i32 1, ptr @.str.181 }, %struct._value_string { i32 2, ptr @.str.182 }, %struct._value_string { i32 3, ptr @.str.183 }, %struct._value_string { i32 4, ptr @.str.184 }, %struct._value_string { i32 5, ptr @.str.185 }, %struct._value_string { i32 6, ptr @.str.186 }, %struct._value_string { i32 7, ptr @.str.187 }, %struct._value_string { i32 8, ptr @.str.188 }, %struct._value_string zeroinitializer], align 16
 @.str.130 = private unnamed_addr constant [15 x i8] c"Deliver Result\00", align 1
 @proto_register_cmpp.ett = internal global [3 x ptr] [ptr @ett_cmpp, ptr @ett_msg_id, ptr @ett_deliver_report], align 16
 @ett_cmpp = internal global i32 0, align 4
@@ -234,84 +227,94 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.164 = private unnamed_addr constant [31 x i8] c"CMPP_PUSH_MT_ROUTE_UPDATE_RESP\00", align 1
 @.str.165 = private unnamed_addr constant [31 x i8] c"CMPP_PUSH_MO_ROUTE_UPDATE_RESP\00", align 1
 @.str.166 = private unnamed_addr constant [23 x i8] c"CMPP_GET_MO_ROUTE_RESP\00", align 1
-@.str.167 = private unnamed_addr constant [8 x i8] c"Correct\00", align 1
-@.str.168 = private unnamed_addr constant [24 x i8] c"Message structure error\00", align 1
-@.str.169 = private unnamed_addr constant [23 x i8] c"Illegal source address\00", align 1
-@.str.170 = private unnamed_addr constant [19 x i8] c"Authenticate error\00", align 1
-@.str.171 = private unnamed_addr constant [17 x i8] c"Version too high\00", align 1
-@.str.172 = private unnamed_addr constant [28 x i8] c"Charging destination MSISDN\00", align 1
-@.str.173 = private unnamed_addr constant [23 x i8] c"Charging source MSISDN\00", align 1
-@.str.174 = private unnamed_addr constant [12 x i8] c"Charging SP\00", align 1
-@.str.175 = private unnamed_addr constant [40 x i8] c"Unuse, Charge info from Fee_terminal_Id\00", align 1
-@.str.176 = private unnamed_addr constant [6 x i8] c"ASCII\00", align 1
-@.str.177 = private unnamed_addr constant [19 x i8] c"Short message card\00", align 1
-@.str.178 = private unnamed_addr constant [12 x i8] c"Binary data\00", align 1
-@.str.179 = private unnamed_addr constant [14 x i8] c"UCS2 encoding\00", align 1
-@.str.180 = private unnamed_addr constant [12 x i8] c"GB encoding\00", align 1
-@.str.181 = private unnamed_addr constant [21 x i8] c"Message format error\00", align 1
-@.str.182 = private unnamed_addr constant [14 x i8] c"Command error\00", align 1
-@.str.183 = private unnamed_addr constant [19 x i8] c"Repeat sequence id\00", align 1
-@.str.184 = private unnamed_addr constant [25 x i8] c"Incorrect message length\00", align 1
-@.str.185 = private unnamed_addr constant [19 x i8] c"Incorrect fee code\00", align 1
-@.str.186 = private unnamed_addr constant [17 x i8] c"Message too long\00", align 1
-@.str.187 = private unnamed_addr constant [21 x i8] c"Incorrect service id\00", align 1
-@.str.188 = private unnamed_addr constant [16 x i8] c"Bandwidth error\00", align 1
-@.str.189 = private unnamed_addr constant [46 x i8] c"Gateway does not service this charging number\00", align 1
-@.str.190 = private unnamed_addr constant [17 x i8] c"Incorrect Src_Id\00", align 1
-@.str.191 = private unnamed_addr constant [18 x i8] c"Incorrect Msg_src\00", align 1
-@.str.192 = private unnamed_addr constant [26 x i8] c"Incorrect Fee_terminal_Id\00", align 1
-@.str.193 = private unnamed_addr constant [27 x i8] c"Incorrect Dest_terminal_Id\00", align 1
-@.str.194 = private unnamed_addr constant [32 x i8] c"(Unknown CMPP Operation 0x%08X)\00", align 1
-@.str.195 = private unnamed_addr constant [5 x i8] c"%s. \00", align 1
-@.str.196 = private unnamed_addr constant [9 x i8] c"MD5 Hash\00", align 1
-@.str.197 = private unnamed_addr constant [10 x i8] c"%02u.%02u\00", align 1
-@.str.198 = private unnamed_addr constant [25 x i8] c"%02u/%02u %02u:%02u:%02u\00", align 1
-@.str.199 = private unnamed_addr constant [13 x i8] c"SMS Messages\00", align 1
+@vals_command_Id = internal constant [33 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.136 }, { i32, [4 x i8], ptr } { i32 -2147483647, [4 x i8] zeroinitializer, ptr @.str.137 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.138 }, { i32, [4 x i8], ptr } { i32 -2147483646, [4 x i8] zeroinitializer, ptr @.str.139 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.140 }, { i32, [4 x i8], ptr } { i32 -2147483644, [4 x i8] zeroinitializer, ptr @.str.141 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.142 }, { i32, [4 x i8], ptr } { i32 -2147483643, [4 x i8] zeroinitializer, ptr @.str.143 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.144 }, { i32, [4 x i8], ptr } { i32 -2147483642, [4 x i8] zeroinitializer, ptr @.str.144 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.145 }, { i32, [4 x i8], ptr } { i32 -2147483641, [4 x i8] zeroinitializer, ptr @.str.146 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.147 }, { i32, [4 x i8], ptr } { i32 -2147483640, [4 x i8] zeroinitializer, ptr @.str.148 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.149 }, { i32, [4 x i8], ptr } { i32 -2147483639, [4 x i8] zeroinitializer, ptr @.str.150 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.151 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.152 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.153 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.154 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.155 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.156 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.157 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.158 }, { i32, [4 x i8], ptr } { i32 -2147483632, [4 x i8] zeroinitializer, ptr @.str.159 }, { i32, [4 x i8], ptr } { i32 -2147483631, [4 x i8] zeroinitializer, ptr @.str.160 }, { i32, [4 x i8], ptr } { i32 -2147483630, [4 x i8] zeroinitializer, ptr @.str.161 }, { i32, [4 x i8], ptr } { i32 -2147483629, [4 x i8] zeroinitializer, ptr @.str.162 }, { i32, [4 x i8], ptr } { i32 -2147483628, [4 x i8] zeroinitializer, ptr @.str.163 }, { i32, [4 x i8], ptr } { i32 -2147483627, [4 x i8] zeroinitializer, ptr @.str.164 }, { i32, [4 x i8], ptr } { i32 -2147483626, [4 x i8] zeroinitializer, ptr @.str.165 }, { i32, [4 x i8], ptr } { i32 -2147483625, [4 x i8] zeroinitializer, ptr @.str.166 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.168 = private unnamed_addr constant [8 x i8] c"Correct\00", align 1
+@.str.169 = private unnamed_addr constant [24 x i8] c"Message structure error\00", align 1
+@.str.170 = private unnamed_addr constant [23 x i8] c"Illegal source address\00", align 1
+@.str.171 = private unnamed_addr constant [19 x i8] c"Authenticate error\00", align 1
+@.str.172 = private unnamed_addr constant [17 x i8] c"Version too high\00", align 1
+@vals_connect_resp_status = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.168 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.169 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.170 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.171 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.172 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.174 = private unnamed_addr constant [28 x i8] c"Charging destination MSISDN\00", align 1
+@.str.175 = private unnamed_addr constant [23 x i8] c"Charging source MSISDN\00", align 1
+@.str.176 = private unnamed_addr constant [12 x i8] c"Charging SP\00", align 1
+@.str.177 = private unnamed_addr constant [40 x i8] c"Unuse, Charge info from Fee_terminal_Id\00", align 1
+@vals_submit_Fee_UserType = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.174 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.175 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.176 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.177 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.179 = private unnamed_addr constant [6 x i8] c"ASCII\00", align 1
+@.str.180 = private unnamed_addr constant [19 x i8] c"Short message card\00", align 1
+@.str.181 = private unnamed_addr constant [12 x i8] c"Binary data\00", align 1
+@.str.182 = private unnamed_addr constant [14 x i8] c"UCS2 encoding\00", align 1
+@.str.183 = private unnamed_addr constant [12 x i8] c"GB encoding\00", align 1
+@vals_Msg_Fmt = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.179 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.180 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.181 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.182 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.183 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.185 = private unnamed_addr constant [21 x i8] c"Message format error\00", align 1
+@.str.186 = private unnamed_addr constant [14 x i8] c"Command error\00", align 1
+@.str.187 = private unnamed_addr constant [19 x i8] c"Repeat sequence id\00", align 1
+@.str.188 = private unnamed_addr constant [25 x i8] c"Incorrect message length\00", align 1
+@.str.189 = private unnamed_addr constant [19 x i8] c"Incorrect fee code\00", align 1
+@.str.190 = private unnamed_addr constant [17 x i8] c"Message too long\00", align 1
+@.str.191 = private unnamed_addr constant [21 x i8] c"Incorrect service id\00", align 1
+@.str.192 = private unnamed_addr constant [16 x i8] c"Bandwidth error\00", align 1
+@.str.193 = private unnamed_addr constant [46 x i8] c"Gateway does not service this charging number\00", align 1
+@.str.194 = private unnamed_addr constant [17 x i8] c"Incorrect Src_Id\00", align 1
+@.str.195 = private unnamed_addr constant [18 x i8] c"Incorrect Msg_src\00", align 1
+@.str.196 = private unnamed_addr constant [26 x i8] c"Incorrect Fee_terminal_Id\00", align 1
+@.str.197 = private unnamed_addr constant [27 x i8] c"Incorrect Dest_terminal_Id\00", align 1
+@vals_Submit_Resp_Result = internal constant [15 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.168 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.185 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.186 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.187 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.188 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.189 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.190 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.191 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.192 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.193 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.194 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.195 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.196 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.197 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@vals_Deliver_Resp_Result = internal constant [10 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.168 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.185 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.186 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.187 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.188 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.189 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.190 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.191 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.192 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.200 = private unnamed_addr constant [32 x i8] c"(Unknown CMPP Operation 0x%08X)\00", align 1
+@.str.201 = private unnamed_addr constant [5 x i8] c"%s. \00", align 1
+@.str.202 = private unnamed_addr constant [9 x i8] c"MD5 Hash\00", align 1
+@.str.203 = private unnamed_addr constant [10 x i8] c"%02u.%02u\00", align 1
+@.str.204 = private unnamed_addr constant [25 x i8] c"%02u/%02u %02u:%02u:%02u\00", align 1
+@.str.205 = private unnamed_addr constant [13 x i8] c"SMS Messages\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_cmpp() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.131, ptr noundef nonnull @.str.132, ptr noundef nonnull @.str.133) #3
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.131, ptr noundef nonnull @.str.132, ptr noundef nonnull @.str.133)
   store i32 %1, ptr @proto_cmpp, align 4
-  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_cmpp.hf, i32 noundef 47) #3
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_cmpp.ett, i32 noundef 3) #3
+  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_cmpp.hf, i32 noundef 47)
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_cmpp.ett, i32 noundef 3)
   %2 = load i32, ptr @proto_cmpp, align 4
-  %3 = tail call ptr @register_dissector(ptr noundef nonnull @.str.133, ptr noundef nonnull @dissect_cmpp, i32 noundef %2) #3
+  %3 = tail call ptr @register_dissector(ptr noundef nonnull @.str.133, ptr noundef nonnull @dissect_cmpp, i32 noundef %2)
   store ptr %3, ptr @cmpp_handle, align 8
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_cmpp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
+  %5 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %6 = icmp ult i32 %5, 12
   br i1 %6, label %18, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #3
-  %9 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 4) #3
+  %8 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0)
+  %9 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 4)
   %10 = add i32 %8, -1001
   %or.cond = icmp ult i32 %10, -989
   br i1 %or.cond, label %18, label %11
 
 11:                                               ; preds = %7
-  %12 = tail call ptr @try_val_to_str(i32 noundef %9, ptr noundef nonnull @vals_command_Id) #3
+  %12 = tail call ptr @try_val_to_str(i32 noundef %9, ptr noundef nonnull @vals_command_Id)
   %13 = icmp eq ptr %12, null
   br i1 %13, label %18, label %14
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
-  tail call void @col_clear(ptr noundef %16, i32 noundef 25) #3
-  tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, i32 noundef 12, ptr noundef nonnull @get_cmpp_pdu_len, ptr noundef nonnull @dissect_cmpp_tcp_pdu, ptr noundef %3) #3
-  %17 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
+  tail call void @col_clear(ptr noundef %16, i32 noundef 25)
+  tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, i32 noundef 12, ptr noundef nonnull @get_cmpp_pdu_len, ptr noundef nonnull @dissect_cmpp_tcp_pdu, ptr noundef %3)
+  %17 = tail call i32 @tvb_reported_length(ptr noundef %0)
   br label %18
 
 18:                                               ; preds = %11, %7, %4, %14
@@ -319,72 +322,81 @@ define internal i32 @dissect_cmpp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_cmpp() local_unnamed_addr #0 {
   %1 = load ptr, ptr @cmpp_handle, align 8
-  tail call void @dissector_add_uint_range_with_preference(ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.135, ptr noundef %1) #3
+  tail call void @dissector_add_uint_range_with_preference(ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.135, ptr noundef %1)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint_range_with_preference(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @try_val_to_str(i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @get_cmpp_pdu_len(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
-  %5 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %2) #3
+  %5 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %2)
   ret i32 %5
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_cmpp_tcp_pdu(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
-  %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
+  %5 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %6 = icmp ult i32 %5, 12
   br i1 %6, label %41, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #3
-  %9 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 4) #3
-  %10 = tail call ptr @try_val_to_str(i32 noundef %9, ptr noundef nonnull @vals_command_Id) #3
+  %8 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0)
+  %9 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 4)
+  %10 = tail call ptr @try_val_to_str(i32 noundef %9, ptr noundef nonnull @vals_command_Id)
   %11 = icmp eq ptr %10, null
   br i1 %11, label %41, label %12
 
 12:                                               ; preds = %7
-  %13 = tail call ptr @val_to_str(i32 noundef %9, ptr noundef nonnull @vals_command_Id, ptr noundef nonnull @.str.194) #3
+  %13 = tail call ptr @val_to_str(i32 noundef %9, ptr noundef nonnull @vals_command_Id, ptr noundef nonnull @.str.200)
   %14 = icmp ult i32 %5, %8
   br i1 %14, label %41, label %15
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
-  tail call void @col_set_str(ptr noundef %17, i32 noundef 34, ptr noundef nonnull @.str.132) #3
+  tail call void @col_set_str(ptr noundef %17, i32 noundef 35, ptr noundef nonnull @.str.132)
   %18 = load ptr, ptr %16, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %18, i32 noundef 25, ptr noundef nonnull @.str.195, ptr noundef %13) #3
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %18, i32 noundef 25, ptr noundef nonnull @.str.201, ptr noundef %13)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %39, label %19
 
 19:                                               ; preds = %15
   %20 = load i32, ptr @proto_cmpp, align 4
-  %21 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %20, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #3
+  %21 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %20, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %22 = load i32, ptr @ett_cmpp, align 4
-  %23 = tail call ptr @proto_item_add_subtree(ptr noundef %21, i32 noundef %22) #3
+  %23 = tail call ptr @proto_item_add_subtree(ptr noundef %21, i32 noundef %22)
   %24 = load i32, ptr @hf_cmpp_Total_Length, align 4
-  %25 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #3
-  %26 = tail call ptr @proto_tree_add_uint(ptr noundef %23, i32 noundef %24, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef %25) #3
+  %25 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0)
+  %26 = tail call ptr @proto_tree_add_uint(ptr noundef %23, i32 noundef %24, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef %25)
   %27 = load i32, ptr @hf_cmpp_Command_Id, align 4
-  %28 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 4) #3
-  %29 = tail call ptr @proto_tree_add_uint(ptr noundef %23, i32 noundef %27, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef %28) #3
+  %28 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 4)
+  %29 = tail call ptr @proto_tree_add_uint(ptr noundef %23, i32 noundef %27, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef %28)
   %30 = load i32, ptr @hf_cmpp_Sequence_Id, align 4
-  %31 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 8) #3
-  %32 = tail call ptr @proto_tree_add_uint(ptr noundef %23, i32 noundef %30, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef %31) #3
+  %31 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 8)
+  %32 = tail call ptr @proto_tree_add_uint(ptr noundef %23, i32 noundef %30, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef %31)
   switch i32 %9, label %39 [
     i32 1, label %33
     i32 -2147483647, label %34
@@ -419,7 +431,7 @@ define internal i32 @dissect_cmpp_tcp_pdu(ptr noundef %0, ptr noundef readonly c
   br label %39
 
 39:                                               ; preds = %33, %34, %35, %36, %37, %38, %19, %15
-  %40 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
+  %40 = tail call i32 @tvb_reported_length(ptr noundef %0)
   br label %41
 
 41:                                               ; preds = %12, %7, %4, %39
@@ -427,39 +439,48 @@ define internal i32 @dissect_cmpp_tcp_pdu(ptr noundef %0, ptr noundef readonly c
   ret i32 %.0
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @cmpp_connect(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = load i32, ptr @hf_cmpp_connect_Source_Addr, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %5 = tail call ptr @wmem_packet_scope() #3
-  %6 = call ptr @proto_tree_add_item_ret_string(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef 12, i32 noundef 6, i32 noundef 0, ptr noundef %5, ptr noundef nonnull %3) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
+  %5 = tail call ptr @wmem_packet_scope()
+  %6 = call ptr @proto_tree_add_item_ret_string(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef 12, i32 noundef 6, i32 noundef 0, ptr noundef %5, ptr noundef nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
   %7 = load i32, ptr @hf_cmpp_connect_AuthenticatorSource, align 4
-  %8 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %7, ptr noundef %1, i32 noundef 18, i32 noundef 16, ptr noundef nonnull @.str.196) #3
+  %8 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %7, ptr noundef %1, i32 noundef 18, i32 noundef 16, ptr noundef nonnull @.str.202)
   %9 = load i32, ptr @hf_cmpp_Version, align 4
-  %10 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 34) #3
+  %10 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef 34)
   %11 = and i8 %10, 15
   %12 = lshr i8 %10, 4
-  %13 = call ptr @wmem_packet_scope() #3
+  %13 = call ptr @wmem_packet_scope()
   %14 = zext nneg i8 %12 to i32
   %15 = zext nneg i8 %11 to i32
-  %16 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %13, ptr noundef nonnull @.str.197, i32 noundef %14, i32 noundef %15) #3
-  %17 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %9, ptr noundef %1, i32 noundef 34, i32 noundef 1, ptr noundef %16) #3
+  %16 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %13, ptr noundef nonnull @.str.203, i32 noundef %14, i32 noundef %15)
+  %17 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %9, ptr noundef %1, i32 noundef 34, i32 noundef 1, ptr noundef %16)
   %18 = load i32, ptr @hf_cmpp_connect_Timestamp, align 4
-  %19 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef 35) #3
+  %19 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef 35)
   %20 = srem i32 %19, 100
   %21 = sdiv i32 %19, 100
   %22 = srem i32 %21, 100
@@ -470,32 +491,32 @@ define internal fastcc void @cmpp_connect(ptr noundef %0, ptr noundef %1) unname
   %26 = srem i16 %.lhs.trunc.i, 100
   %.sext.i = sext i16 %26 to i32
   %27 = sdiv i32 %19, 100000000
-  %28 = call ptr @wmem_packet_scope() #3
-  %29 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %28, ptr noundef nonnull @.str.198, i32 noundef %27, i32 noundef %.sext.i, i32 noundef %24, i32 noundef %22, i32 noundef %20) #3
-  %30 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %18, ptr noundef %1, i32 noundef 35, i32 noundef 4, ptr noundef %29) #3
+  %28 = call ptr @wmem_packet_scope()
+  %29 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %28, ptr noundef nonnull @.str.204, i32 noundef %27, i32 noundef %.sext.i, i32 noundef %24, i32 noundef %22, i32 noundef %20)
+  %30 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %18, ptr noundef %1, i32 noundef 35, i32 noundef 4, ptr noundef %29)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @cmpp_connect_resp(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_cmpp_connect_resp_status, align 4
-  %4 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef 12) #3
-  %5 = tail call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %3, ptr noundef %1, i32 noundef 12, i32 noundef 4, i32 noundef %4) #3
+  %4 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef 12)
+  %5 = tail call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %3, ptr noundef %1, i32 noundef 12, i32 noundef 4, i32 noundef %4)
   %6 = load i32, ptr @hf_cmpp_connect_resp_AuthenticatorISMG, align 4
-  %7 = tail call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %6, ptr noundef %1, i32 noundef 16, i32 noundef 16, ptr noundef nonnull @.str.196) #3
+  %7 = tail call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %6, ptr noundef %1, i32 noundef 16, i32 noundef 16, ptr noundef nonnull @.str.202)
   %8 = load i32, ptr @hf_cmpp_Version, align 4
-  %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 32) #3
+  %9 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef 32)
   %10 = and i8 %9, 15
   %11 = lshr i8 %9, 4
-  %12 = tail call ptr @wmem_packet_scope() #3
+  %12 = tail call ptr @wmem_packet_scope()
   %13 = zext nneg i8 %11 to i32
   %14 = zext nneg i8 %10 to i32
-  %15 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %12, ptr noundef nonnull @.str.197, i32 noundef %13, i32 noundef %14) #3
-  %16 = tail call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %8, ptr noundef %1, i32 noundef 32, i32 noundef 1, ptr noundef %15) #3
+  %15 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %12, ptr noundef nonnull @.str.203, i32 noundef %13, i32 noundef %14)
+  %16 = tail call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %8, ptr noundef %1, i32 noundef 32, i32 noundef 1, ptr noundef %15)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @cmpp_submit(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -510,135 +531,135 @@ define internal fastcc void @cmpp_submit(ptr noundef %0, ptr noundef %1) unnamed
   %13 = load i32, ptr @hf_cmpp_msg_id, align 4
   tail call fastcc void @cmpp_msg_id(ptr noundef %0, ptr noundef %1, i32 noundef %13, i32 noundef 12)
   %14 = load i32, ptr @hf_cmpp_submit_pk_total, align 4
-  %15 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 20) #3
+  %15 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef 20)
   %16 = zext i8 %15 to i32
-  %17 = tail call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %14, ptr noundef %1, i32 noundef 20, i32 noundef 1, i32 noundef %16) #3
+  %17 = tail call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %14, ptr noundef %1, i32 noundef 20, i32 noundef 1, i32 noundef %16)
   %18 = load i32, ptr @hf_cmpp_submit_pk_number, align 4
-  %19 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 21) #3
+  %19 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef 21)
   %20 = zext i8 %19 to i32
-  %21 = tail call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %18, ptr noundef %1, i32 noundef 21, i32 noundef 1, i32 noundef %20) #3
+  %21 = tail call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %18, ptr noundef %1, i32 noundef 21, i32 noundef 1, i32 noundef %20)
   %22 = load i32, ptr @hf_cmpp_submit_Registered_Delivery, align 4
-  %23 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 22) #3
+  %23 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef 22)
   %24 = sext i8 %23 to i64
-  %25 = tail call ptr @proto_tree_add_boolean(ptr noundef %0, i32 noundef %22, ptr noundef %1, i32 noundef 22, i32 noundef 1, i64 noundef %24) #3
+  %25 = tail call ptr @proto_tree_add_boolean(ptr noundef %0, i32 noundef %22, ptr noundef %1, i32 noundef 22, i32 noundef 1, i64 noundef %24)
   %26 = load i32, ptr @hf_cmpp_submit_Msg_level, align 4
-  %27 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 23) #3
+  %27 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef 23)
   %28 = zext i8 %27 to i32
-  %29 = tail call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %26, ptr noundef %1, i32 noundef 23, i32 noundef 1, i32 noundef %28) #3
+  %29 = tail call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %26, ptr noundef %1, i32 noundef 23, i32 noundef 1, i32 noundef %28)
   %30 = load i32, ptr @hf_cmpp_Service_Id, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
-  %31 = tail call ptr @wmem_packet_scope() #3
-  %32 = call ptr @proto_tree_add_item_ret_string(ptr noundef %0, i32 noundef %30, ptr noundef %1, i32 noundef 24, i32 noundef 10, i32 noundef 0, ptr noundef %31, ptr noundef nonnull %12) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #3
+  %31 = tail call ptr @wmem_packet_scope()
+  %32 = call ptr @proto_tree_add_item_ret_string(ptr noundef %0, i32 noundef %30, ptr noundef %1, i32 noundef 24, i32 noundef 10, i32 noundef 0, ptr noundef %31, ptr noundef nonnull %12)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #3
   %33 = load i32, ptr @hf_cmpp_submit_Fee_UserType, align 4
-  %34 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 34) #3
+  %34 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef 34)
   %35 = zext i8 %34 to i32
-  %36 = call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %33, ptr noundef %1, i32 noundef 34, i32 noundef 1, i32 noundef %35) #3
+  %36 = call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %33, ptr noundef %1, i32 noundef 34, i32 noundef 1, i32 noundef %35)
   %37 = load i32, ptr @hf_cmpp_submit_Fee_terminal_Id, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  %38 = call ptr @wmem_packet_scope() #3
-  %39 = call ptr @proto_tree_add_item_ret_string(ptr noundef %0, i32 noundef %37, ptr noundef %1, i32 noundef 35, i32 noundef 32, i32 noundef 0, ptr noundef %38, ptr noundef nonnull %11) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #3
+  %38 = call ptr @wmem_packet_scope()
+  %39 = call ptr @proto_tree_add_item_ret_string(ptr noundef %0, i32 noundef %37, ptr noundef %1, i32 noundef 35, i32 noundef 32, i32 noundef 0, ptr noundef %38, ptr noundef nonnull %11)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #3
   %40 = load i32, ptr @hf_cmpp_submit_Fee_terminal_type, align 4
-  %41 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 67) #3
+  %41 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef 67)
   %42 = sext i8 %41 to i64
-  %43 = call ptr @proto_tree_add_boolean(ptr noundef %0, i32 noundef %40, ptr noundef %1, i32 noundef 67, i32 noundef 1, i64 noundef %42) #3
+  %43 = call ptr @proto_tree_add_boolean(ptr noundef %0, i32 noundef %40, ptr noundef %1, i32 noundef 67, i32 noundef 1, i64 noundef %42)
   %44 = load i32, ptr @hf_cmpp_TP_pId, align 4
-  %45 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 68) #3
+  %45 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef 68)
   %46 = zext i8 %45 to i32
-  %47 = call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %44, ptr noundef %1, i32 noundef 68, i32 noundef 1, i32 noundef %46) #3
+  %47 = call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %44, ptr noundef %1, i32 noundef 68, i32 noundef 1, i32 noundef %46)
   %48 = load i32, ptr @hf_cmpp_TP_udhi, align 4
-  %49 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 69) #3
+  %49 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef 69)
   %50 = zext i8 %49 to i32
-  %51 = call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %48, ptr noundef %1, i32 noundef 69, i32 noundef 1, i32 noundef %50) #3
+  %51 = call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %48, ptr noundef %1, i32 noundef 69, i32 noundef 1, i32 noundef %50)
   %52 = load i32, ptr @hf_cmpp_Msg_Fmt, align 4
-  %53 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 70) #3
+  %53 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef 70)
   %54 = zext i8 %53 to i32
-  %55 = call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %52, ptr noundef %1, i32 noundef 70, i32 noundef 1, i32 noundef %54) #3
+  %55 = call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %52, ptr noundef %1, i32 noundef 70, i32 noundef 1, i32 noundef %54)
   %56 = load i32, ptr @hf_cmpp_submit_Msg_src, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  %57 = call ptr @wmem_packet_scope() #3
-  %58 = call ptr @proto_tree_add_item_ret_string(ptr noundef %0, i32 noundef %56, ptr noundef %1, i32 noundef 71, i32 noundef 6, i32 noundef 0, ptr noundef %57, ptr noundef nonnull %10) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #3
+  %57 = call ptr @wmem_packet_scope()
+  %58 = call ptr @proto_tree_add_item_ret_string(ptr noundef %0, i32 noundef %56, ptr noundef %1, i32 noundef 71, i32 noundef 6, i32 noundef 0, ptr noundef %57, ptr noundef nonnull %10)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #3
   %59 = load i32, ptr @hf_cmpp_submit_FeeType, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  %60 = call ptr @wmem_packet_scope() #3
-  %61 = call ptr @proto_tree_add_item_ret_string(ptr noundef %0, i32 noundef %59, ptr noundef %1, i32 noundef 77, i32 noundef 2, i32 noundef 0, ptr noundef %60, ptr noundef nonnull %9) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #3
+  %60 = call ptr @wmem_packet_scope()
+  %61 = call ptr @proto_tree_add_item_ret_string(ptr noundef %0, i32 noundef %59, ptr noundef %1, i32 noundef 77, i32 noundef 2, i32 noundef 0, ptr noundef %60, ptr noundef nonnull %9)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #3
   %62 = load i32, ptr @hf_cmpp_submit_FeeCode, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  %63 = call ptr @wmem_packet_scope() #3
-  %64 = call ptr @proto_tree_add_item_ret_string(ptr noundef %0, i32 noundef %62, ptr noundef %1, i32 noundef 79, i32 noundef 6, i32 noundef 0, ptr noundef %63, ptr noundef nonnull %8) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #3
+  %63 = call ptr @wmem_packet_scope()
+  %64 = call ptr @proto_tree_add_item_ret_string(ptr noundef %0, i32 noundef %62, ptr noundef %1, i32 noundef 79, i32 noundef 6, i32 noundef 0, ptr noundef %63, ptr noundef nonnull %8)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #3
   %65 = load i32, ptr @hf_cmpp_submit_Valld_Time, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %66 = call ptr @wmem_packet_scope() #3
-  %67 = call ptr @proto_tree_add_item_ret_string(ptr noundef %0, i32 noundef %65, ptr noundef %1, i32 noundef 85, i32 noundef 17, i32 noundef 0, ptr noundef %66, ptr noundef nonnull %7) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #3
+  %66 = call ptr @wmem_packet_scope()
+  %67 = call ptr @proto_tree_add_item_ret_string(ptr noundef %0, i32 noundef %65, ptr noundef %1, i32 noundef 85, i32 noundef 17, i32 noundef 0, ptr noundef %66, ptr noundef nonnull %7)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #3
   %68 = load i32, ptr @hf_cmpp_submit_At_Time, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %69 = call ptr @wmem_packet_scope() #3
-  %70 = call ptr @proto_tree_add_item_ret_string(ptr noundef %0, i32 noundef %68, ptr noundef %1, i32 noundef 102, i32 noundef 17, i32 noundef 0, ptr noundef %69, ptr noundef nonnull %6) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #3
+  %69 = call ptr @wmem_packet_scope()
+  %70 = call ptr @proto_tree_add_item_ret_string(ptr noundef %0, i32 noundef %68, ptr noundef %1, i32 noundef 102, i32 noundef 17, i32 noundef 0, ptr noundef %69, ptr noundef nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #3
   %71 = load i32, ptr @hf_cmpp_submit_Src_Id, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %72 = call ptr @wmem_packet_scope() #3
-  %73 = call ptr @proto_tree_add_item_ret_string(ptr noundef %0, i32 noundef %71, ptr noundef %1, i32 noundef 119, i32 noundef 17, i32 noundef 0, ptr noundef %72, ptr noundef nonnull %5) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
+  %72 = call ptr @wmem_packet_scope()
+  %73 = call ptr @proto_tree_add_item_ret_string(ptr noundef %0, i32 noundef %71, ptr noundef %1, i32 noundef 119, i32 noundef 17, i32 noundef 0, ptr noundef %72, ptr noundef nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
   %74 = load i32, ptr @hf_cmpp_submit_DestUsr_tl, align 4
-  %75 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 140) #3
+  %75 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef 140)
   %76 = zext i8 %75 to i32
-  %77 = call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %74, ptr noundef %1, i32 noundef 140, i32 noundef 1, i32 noundef %76) #3
+  %77 = call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %74, ptr noundef %1, i32 noundef 140, i32 noundef 1, i32 noundef %76)
   %.not = icmp eq i8 %75, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.0103 = phi i32 [ %81, %.lr.ph ], [ 141, %2 ]
-  %.099102 = phi i32 [ %82, %.lr.ph ], [ 0, %2 ]
+  %.0101 = phi i32 [ %81, %.lr.ph ], [ 141, %2 ]
+  %.099100 = phi i32 [ %82, %.lr.ph ], [ 0, %2 ]
   %78 = load i32, ptr @hf_cmpp_Dest_terminal_Id, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %79 = call ptr @wmem_packet_scope() #3
-  %80 = call ptr @proto_tree_add_item_ret_string(ptr noundef %0, i32 noundef %78, ptr noundef %1, i32 noundef %.0103, i32 noundef 32, i32 noundef 0, ptr noundef %79, ptr noundef nonnull %4) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %81 = add nuw nsw i32 %.0103, 32
-  %82 = add nuw nsw i32 %.099102, 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #3
+  %79 = call ptr @wmem_packet_scope()
+  %80 = call ptr @proto_tree_add_item_ret_string(ptr noundef %0, i32 noundef %78, ptr noundef %1, i32 noundef %.0101, i32 noundef 32, i32 noundef 0, ptr noundef %79, ptr noundef nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #3
+  %81 = add nuw nsw i32 %.0101, 32
+  %82 = add nuw nsw i32 %.099100, 1
   %exitcond.not = icmp eq i32 %82, %76
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi i32 [ 141, %2 ], [ %81, %.lr.ph ]
   %83 = load i32, ptr @hf_cmpp_submit_Dest_terminal_type, align 4
-  %84 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.0.lcssa) #3
+  %84 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %.0.lcssa)
   %85 = sext i8 %84 to i64
-  %86 = call ptr @proto_tree_add_boolean(ptr noundef %0, i32 noundef %83, ptr noundef %1, i32 noundef %.0.lcssa, i32 noundef 1, i64 noundef %85) #3
+  %86 = call ptr @proto_tree_add_boolean(ptr noundef %0, i32 noundef %83, ptr noundef %1, i32 noundef %.0.lcssa, i32 noundef 1, i64 noundef %85)
   %87 = add i32 %.0.lcssa, 1
   %88 = load i32, ptr @hf_cmpp_Msg_Length, align 4
-  %89 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %87) #3
+  %89 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %87)
   %90 = zext i8 %89 to i32
-  %91 = call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %88, ptr noundef %1, i32 noundef %87, i32 noundef 1, i32 noundef %90) #3
+  %91 = call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %88, ptr noundef %1, i32 noundef %87, i32 noundef 1, i32 noundef %90)
   %92 = add i32 %.0.lcssa, 2
   %93 = load i32, ptr @hf_cmpp_Msg_Content, align 4
-  %94 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %93, ptr noundef %1, i32 noundef %92, i32 noundef %90, ptr noundef nonnull @.str.199) #3
+  %94 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %93, ptr noundef %1, i32 noundef %92, i32 noundef %90, ptr noundef nonnull @.str.205)
   %95 = add i32 %92, %90
   %96 = load i32, ptr @hf_cmpp_LinkID, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %97 = call ptr @wmem_packet_scope() #3
-  %98 = call ptr @proto_tree_add_item_ret_string(ptr noundef %0, i32 noundef %96, ptr noundef %1, i32 noundef %95, i32 noundef 20, i32 noundef 0, ptr noundef %97, ptr noundef nonnull %3) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
+  %97 = call ptr @wmem_packet_scope()
+  %98 = call ptr @proto_tree_add_item_ret_string(ptr noundef %0, i32 noundef %96, ptr noundef %1, i32 noundef %95, i32 noundef 20, i32 noundef 0, ptr noundef %97, ptr noundef nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @cmpp_submit_resp(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_cmpp_msg_id, align 4
   tail call fastcc void @cmpp_msg_id(ptr noundef %0, ptr noundef %1, i32 noundef %3, i32 noundef 12)
   %4 = load i32, ptr @hf_cmpp_submit_resp_Result, align 4
-  %5 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef 20) #3
-  %6 = tail call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef 20, i32 noundef 4, i32 noundef %5) #3
+  %5 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef 20)
+  %6 = tail call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef 20, i32 noundef 4, i32 noundef %5)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @cmpp_deliver(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -651,180 +672,184 @@ define internal fastcc void @cmpp_deliver(ptr noundef %0, ptr noundef %1) unname
   %11 = load i32, ptr @hf_cmpp_msg_id, align 4
   tail call fastcc void @cmpp_msg_id(ptr noundef %0, ptr noundef %1, i32 noundef %11, i32 noundef 12)
   %12 = load i32, ptr @hf_cmpp_deliver_Dest_Id, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  %13 = tail call ptr @wmem_packet_scope() #3
-  %14 = call ptr @proto_tree_add_item_ret_string(ptr noundef %0, i32 noundef %12, ptr noundef %1, i32 noundef 20, i32 noundef 21, i32 noundef 0, ptr noundef %13, ptr noundef nonnull %10) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #3
+  %13 = tail call ptr @wmem_packet_scope()
+  %14 = call ptr @proto_tree_add_item_ret_string(ptr noundef %0, i32 noundef %12, ptr noundef %1, i32 noundef 20, i32 noundef 21, i32 noundef 0, ptr noundef %13, ptr noundef nonnull %10)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #3
   %15 = load i32, ptr @hf_cmpp_Service_Id, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  %16 = call ptr @wmem_packet_scope() #3
-  %17 = call ptr @proto_tree_add_item_ret_string(ptr noundef %0, i32 noundef %15, ptr noundef %1, i32 noundef 41, i32 noundef 10, i32 noundef 0, ptr noundef %16, ptr noundef nonnull %9) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #3
+  %16 = call ptr @wmem_packet_scope()
+  %17 = call ptr @proto_tree_add_item_ret_string(ptr noundef %0, i32 noundef %15, ptr noundef %1, i32 noundef 41, i32 noundef 10, i32 noundef 0, ptr noundef %16, ptr noundef nonnull %9)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #3
   %18 = load i32, ptr @hf_cmpp_TP_pId, align 4
-  %19 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 51) #3
+  %19 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef 51)
   %20 = zext i8 %19 to i32
-  %21 = call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %18, ptr noundef %1, i32 noundef 51, i32 noundef 1, i32 noundef %20) #3
+  %21 = call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %18, ptr noundef %1, i32 noundef 51, i32 noundef 1, i32 noundef %20)
   %22 = load i32, ptr @hf_cmpp_TP_udhi, align 4
-  %23 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 52) #3
+  %23 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef 52)
   %24 = zext i8 %23 to i32
-  %25 = call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %22, ptr noundef %1, i32 noundef 52, i32 noundef 1, i32 noundef %24) #3
+  %25 = call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %22, ptr noundef %1, i32 noundef 52, i32 noundef 1, i32 noundef %24)
   %26 = load i32, ptr @hf_cmpp_Msg_Fmt, align 4
-  %27 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 53) #3
+  %27 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef 53)
   %28 = zext i8 %27 to i32
-  %29 = call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %26, ptr noundef %1, i32 noundef 53, i32 noundef 1, i32 noundef %28) #3
+  %29 = call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %26, ptr noundef %1, i32 noundef 53, i32 noundef 1, i32 noundef %28)
   %30 = load i32, ptr @hf_cmpp_deliver_Src_terminal_Id, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  %31 = call ptr @wmem_packet_scope() #3
-  %32 = call ptr @proto_tree_add_item_ret_string(ptr noundef %0, i32 noundef %30, ptr noundef %1, i32 noundef 54, i32 noundef 32, i32 noundef 0, ptr noundef %31, ptr noundef nonnull %8) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #3
+  %31 = call ptr @wmem_packet_scope()
+  %32 = call ptr @proto_tree_add_item_ret_string(ptr noundef %0, i32 noundef %30, ptr noundef %1, i32 noundef 54, i32 noundef 32, i32 noundef 0, ptr noundef %31, ptr noundef nonnull %8)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #3
   %33 = load i32, ptr @hf_cmpp_deliver_Src_terminal_type, align 4
-  %34 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 86) #3
+  %34 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef 86)
   %35 = sext i8 %34 to i64
-  %36 = call ptr @proto_tree_add_boolean(ptr noundef %0, i32 noundef %33, ptr noundef %1, i32 noundef 86, i32 noundef 1, i64 noundef %35) #3
+  %36 = call ptr @proto_tree_add_boolean(ptr noundef %0, i32 noundef %33, ptr noundef %1, i32 noundef 86, i32 noundef 1, i64 noundef %35)
   %37 = load i32, ptr @hf_cmpp_deliver_Registered_Delivery, align 4
-  %38 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 87) #3
+  %38 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef 87)
   %39 = sext i8 %38 to i64
-  %40 = call ptr @proto_tree_add_boolean(ptr noundef %0, i32 noundef %37, ptr noundef %1, i32 noundef 87, i32 noundef 1, i64 noundef %39) #3
-  %.not = icmp eq i8 %38, 1
-  %41 = load i32, ptr @hf_cmpp_Msg_Length, align 4
-  %42 = call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 88) #3
-  %43 = zext i8 %42 to i32
-  %44 = call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %41, ptr noundef %1, i32 noundef 88, i32 noundef 1, i32 noundef %43) #3
-  br i1 %.not, label %48, label %45
+  %40 = call ptr @proto_tree_add_boolean(ptr noundef %0, i32 noundef %37, ptr noundef %1, i32 noundef 87, i32 noundef 1, i64 noundef %39)
+  %41 = icmp eq i8 %38, 1
+  %42 = load i32, ptr @hf_cmpp_Msg_Length, align 4
+  %43 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef 88)
+  %44 = zext i8 %43 to i32
+  %45 = call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %42, ptr noundef %1, i32 noundef 88, i32 noundef 1, i32 noundef %44)
+  br i1 %41, label %49, label %46
 
-45:                                               ; preds = %2
-  %46 = load i32, ptr @hf_cmpp_Msg_Content, align 4
-  %47 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %46, ptr noundef %1, i32 noundef 89, i32 noundef %43, ptr noundef nonnull @.str.199) #3
-  br label %69
+46:                                               ; preds = %2
+  %47 = load i32, ptr @hf_cmpp_Msg_Content, align 4
+  %48 = call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %47, ptr noundef %1, i32 noundef 89, i32 noundef %44, ptr noundef nonnull @.str.205)
+  br label %70
 
-48:                                               ; preds = %2
-  %49 = load i32, ptr @hf_cmpp_deliver_Report, align 4
-  %50 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %49, ptr noundef %1, i32 noundef 89, i32 noundef 71, i32 noundef 0) #3
-  %51 = load i32, ptr @ett_deliver_report, align 4
-  %52 = call ptr @proto_item_add_subtree(ptr noundef %50, i32 noundef %51) #3
-  %53 = load i32, ptr @hf_cmpp_msg_id, align 4
-  call fastcc void @cmpp_msg_id(ptr noundef %52, ptr noundef %1, i32 noundef %53, i32 noundef 89)
-  %54 = load i32, ptr @hf_cmpp_deliver_Report_Stat, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %55 = call ptr @wmem_packet_scope() #3
-  %56 = call ptr @proto_tree_add_item_ret_string(ptr noundef %52, i32 noundef %54, ptr noundef %1, i32 noundef 97, i32 noundef 7, i32 noundef 0, ptr noundef %55, ptr noundef nonnull %7) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %57 = load i32, ptr @hf_cmpp_deliver_Report_Submit_time, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %58 = call ptr @wmem_packet_scope() #3
-  %59 = call ptr @proto_tree_add_item_ret_string(ptr noundef %52, i32 noundef %57, ptr noundef %1, i32 noundef 104, i32 noundef 10, i32 noundef 0, ptr noundef %58, ptr noundef nonnull %6) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %60 = load i32, ptr @hf_cmpp_deliver_Report_Done_time, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %61 = call ptr @wmem_packet_scope() #3
-  %62 = call ptr @proto_tree_add_item_ret_string(ptr noundef %52, i32 noundef %60, ptr noundef %1, i32 noundef 114, i32 noundef 10, i32 noundef 0, ptr noundef %61, ptr noundef nonnull %5) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %63 = load i32, ptr @hf_cmpp_Dest_terminal_Id, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %64 = call ptr @wmem_packet_scope() #3
-  %65 = call ptr @proto_tree_add_item_ret_string(ptr noundef %52, i32 noundef %63, ptr noundef %1, i32 noundef 124, i32 noundef 32, i32 noundef 0, ptr noundef %64, ptr noundef nonnull %4) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %66 = load i32, ptr @hf_cmpp_deliver_Report_SMSC_sequence, align 4
-  %67 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef 156) #3
-  %68 = call ptr @proto_tree_add_uint(ptr noundef %52, i32 noundef %66, ptr noundef %1, i32 noundef 156, i32 noundef 4, i32 noundef %67) #3
-  br label %69
+49:                                               ; preds = %2
+  %50 = load i32, ptr @hf_cmpp_deliver_Report, align 4
+  %51 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %50, ptr noundef %1, i32 noundef 89, i32 noundef 71, i32 noundef 0)
+  %52 = load i32, ptr @ett_deliver_report, align 4
+  %53 = call ptr @proto_item_add_subtree(ptr noundef %51, i32 noundef %52)
+  %54 = load i32, ptr @hf_cmpp_msg_id, align 4
+  call fastcc void @cmpp_msg_id(ptr noundef %53, ptr noundef %1, i32 noundef %54, i32 noundef 89)
+  %55 = load i32, ptr @hf_cmpp_deliver_Report_Stat, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #3
+  %56 = call ptr @wmem_packet_scope()
+  %57 = call ptr @proto_tree_add_item_ret_string(ptr noundef %53, i32 noundef %55, ptr noundef %1, i32 noundef 97, i32 noundef 7, i32 noundef 0, ptr noundef %56, ptr noundef nonnull %7)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #3
+  %58 = load i32, ptr @hf_cmpp_deliver_Report_Submit_time, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #3
+  %59 = call ptr @wmem_packet_scope()
+  %60 = call ptr @proto_tree_add_item_ret_string(ptr noundef %53, i32 noundef %58, ptr noundef %1, i32 noundef 104, i32 noundef 10, i32 noundef 0, ptr noundef %59, ptr noundef nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #3
+  %61 = load i32, ptr @hf_cmpp_deliver_Report_Done_time, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
+  %62 = call ptr @wmem_packet_scope()
+  %63 = call ptr @proto_tree_add_item_ret_string(ptr noundef %53, i32 noundef %61, ptr noundef %1, i32 noundef 114, i32 noundef 10, i32 noundef 0, ptr noundef %62, ptr noundef nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
+  %64 = load i32, ptr @hf_cmpp_Dest_terminal_Id, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #3
+  %65 = call ptr @wmem_packet_scope()
+  %66 = call ptr @proto_tree_add_item_ret_string(ptr noundef %53, i32 noundef %64, ptr noundef %1, i32 noundef 124, i32 noundef 32, i32 noundef 0, ptr noundef %65, ptr noundef nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #3
+  %67 = load i32, ptr @hf_cmpp_deliver_Report_SMSC_sequence, align 4
+  %68 = call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef 156)
+  %69 = call ptr @proto_tree_add_uint(ptr noundef %53, i32 noundef %67, ptr noundef %1, i32 noundef 156, i32 noundef 4, i32 noundef %68)
+  br label %70
 
-69:                                               ; preds = %48, %45
-  %70 = add nuw nsw i32 %43, 89
-  %71 = load i32, ptr @hf_cmpp_LinkID, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %72 = call ptr @wmem_packet_scope() #3
-  %73 = call ptr @proto_tree_add_item_ret_string(ptr noundef %0, i32 noundef %71, ptr noundef %1, i32 noundef %70, i32 noundef 20, i32 noundef 0, ptr noundef %72, ptr noundef nonnull %3) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+70:                                               ; preds = %49, %46
+  %71 = add nuw nsw i32 %44, 89
+  %72 = load i32, ptr @hf_cmpp_LinkID, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
+  %73 = call ptr @wmem_packet_scope()
+  %74 = call ptr @proto_tree_add_item_ret_string(ptr noundef %0, i32 noundef %72, ptr noundef %1, i32 noundef %71, i32 noundef 20, i32 noundef 0, ptr noundef %73, ptr noundef nonnull %3)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @cmpp_deliver_resp(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_cmpp_msg_id, align 4
   tail call fastcc void @cmpp_msg_id(ptr noundef %0, ptr noundef %1, i32 noundef %3, i32 noundef 12)
   %4 = load i32, ptr @hf_cmpp_deliver_resp_Result, align 4
-  %5 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef 20) #3
-  %6 = tail call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef 20, i32 noundef 4, i32 noundef %5) #3
+  %5 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef 20)
+  %6 = tail call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef 20, i32 noundef 4, i32 noundef %5)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item_ret_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_packet_scope() local_unnamed_addr #1
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @cmpp_msg_id(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 12, 90) %3) unnamed_addr #0 {
-  %5 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %2, ptr noundef %1, i32 noundef %3, i32 noundef 8, i32 noundef 0) #3
+  %5 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %2, ptr noundef %1, i32 noundef %3, i32 noundef 8, i32 noundef 0)
   %6 = load i32, ptr @ett_msg_id, align 4
-  %7 = tail call ptr @proto_item_add_subtree(ptr noundef %5, i32 noundef %6) #3
-  %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %3) #3
+  %7 = tail call ptr @proto_item_add_subtree(ptr noundef %5, i32 noundef %6)
+  %8 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %3)
   %9 = lshr i8 %8, 4
-  %10 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %3) #3
+  %10 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %3)
   %11 = lshr i16 %10, 7
   %12 = and i16 %11, 31
   %13 = zext nneg i16 %12 to i32
   %14 = add nuw nsw i32 %3, 1
-  %15 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %14) #3
+  %15 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %14)
   %16 = lshr i8 %15, 2
   %17 = and i8 %16, 31
-  %18 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %14) #3
+  %18 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %14)
   %19 = lshr i16 %18, 4
   %20 = and i16 %19, 63
   %21 = zext nneg i16 %20 to i32
   %22 = add nuw nsw i32 %3, 2
-  %23 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %22) #3
+  %23 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %22)
   %24 = lshr i16 %23, 6
   %25 = and i16 %24, 63
   %26 = zext nneg i16 %25 to i32
-  %27 = tail call ptr @wmem_packet_scope() #3
+  %27 = tail call ptr @wmem_packet_scope()
   %28 = zext nneg i8 %9 to i32
   %29 = zext nneg i8 %17 to i32
-  %30 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %27, ptr noundef nonnull @.str.198, i32 noundef %28, i32 noundef %13, i32 noundef %29, i32 noundef %21, i32 noundef %26) #3
+  %30 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %27, ptr noundef nonnull @.str.204, i32 noundef %28, i32 noundef %13, i32 noundef %29, i32 noundef %21, i32 noundef %26)
   %31 = add nuw nsw i32 %3, 3
-  %32 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %31) #3
+  %32 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %31)
   %33 = lshr i32 %32, 16
   %34 = and i32 %33, 16383
   %35 = load i32, ptr @hf_msg_id_timestamp, align 4
-  %36 = tail call ptr @proto_tree_add_string(ptr noundef %7, i32 noundef %35, ptr noundef %1, i32 noundef %3, i32 noundef 4, ptr noundef %30) #3
+  %36 = tail call ptr @proto_tree_add_string(ptr noundef %7, i32 noundef %35, ptr noundef %1, i32 noundef %3, i32 noundef 4, ptr noundef %30)
   %37 = load i32, ptr @hf_msg_id_ismg_code, align 4
-  %38 = tail call ptr @proto_tree_add_uint(ptr noundef %7, i32 noundef %37, ptr noundef %1, i32 noundef %31, i32 noundef 3, i32 noundef %34) #3
+  %38 = tail call ptr @proto_tree_add_uint(ptr noundef %7, i32 noundef %37, ptr noundef %1, i32 noundef %31, i32 noundef 3, i32 noundef %34)
   %39 = load i32, ptr @hf_msg_id_sequence_id, align 4
   %40 = add nuw nsw i32 %3, 6
-  %41 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef range(i32 18, 96) %40) #3
+  %41 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef range(i32 18, 96) %40)
   %42 = zext i16 %41 to i32
-  %43 = tail call ptr @proto_tree_add_uint(ptr noundef %7, i32 noundef %39, ptr noundef %1, i32 noundef range(i32 18, 96) %40, i32 noundef 2, i32 noundef %42) #3
+  %43 = tail call ptr @proto_tree_add_uint(ptr noundef %7, i32 noundef %39, ptr noundef %1, i32 noundef range(i32 18, 96) %40, i32 noundef 2, i32 noundef %42)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}

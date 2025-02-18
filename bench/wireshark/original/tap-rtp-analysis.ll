@@ -2,18 +2,17 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct._key_value = type { i32, i32 }
-%struct._mimetype_and_clock = type { ptr, i32 }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
-%struct._tap_rtp_stat_t = type { i32, i32, i16, i64, i64, double, [300 x %struct._bw_history_item], i16, i16, i32, i32, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, i32, i16, i16, i32, i32, i32, i32, i16, i32, i32, i32 }
+%struct._tap_rtp_stat_t = type { i8, i32, i16, i64, i64, double, [300 x %struct._bw_history_item], i16, i16, i32, i32, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, i32, i32, i32, i32, i32, i16, i32, i32, i32 }
 %struct._bw_history_item = type { double, i32 }
-%struct._rtp_info = type { i32, i32, i32, i32, i32, i16, i32, i32, i64, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, i32, i32, ptr, i32, ptr }
+%struct._rtp_info = type { i32, i8, i8, i32, i32, i16, i32, i32, i64, i32, i32, i8, i32, i32, i8, i32, ptr, ptr, i32, i32, ptr, i8, ptr, i8 }
+%struct._mimetype_and_clock = type { ptr, i32 }
 
 @.str = private unnamed_addr constant [16 x i8] c"telephone-event\00", align 1
 @clock_map = internal constant [28 x %struct._key_value] [%struct._key_value { i32 0, i32 8000 }, %struct._key_value { i32 1, i32 8000 }, %struct._key_value { i32 2, i32 8000 }, %struct._key_value { i32 3, i32 8000 }, %struct._key_value { i32 4, i32 8000 }, %struct._key_value { i32 5, i32 8000 }, %struct._key_value { i32 6, i32 16000 }, %struct._key_value { i32 7, i32 8000 }, %struct._key_value { i32 8, i32 8000 }, %struct._key_value { i32 9, i32 8000 }, %struct._key_value { i32 10, i32 44100 }, %struct._key_value { i32 11, i32 44100 }, %struct._key_value { i32 12, i32 8000 }, %struct._key_value { i32 13, i32 8000 }, %struct._key_value { i32 14, i32 90000 }, %struct._key_value { i32 15, i32 8000 }, %struct._key_value { i32 15, i32 8000 }, %struct._key_value { i32 16, i32 11025 }, %struct._key_value { i32 17, i32 22050 }, %struct._key_value { i32 18, i32 8000 }, %struct._key_value { i32 19, i32 8000 }, %struct._key_value { i32 25, i32 90000 }, %struct._key_value { i32 26, i32 90000 }, %struct._key_value { i32 28, i32 90000 }, %struct._key_value { i32 31, i32 90000 }, %struct._key_value { i32 32, i32 90000 }, %struct._key_value { i32 33, i32 90000 }, %struct._key_value { i32 34, i32 90000 }], align 16
-@mimetype_and_clock_map = internal constant [38 x %struct._mimetype_and_clock] [%struct._mimetype_and_clock { ptr @.str.1, i32 8000 }, %struct._mimetype_and_clock { ptr @.str.2, i32 16000 }, %struct._mimetype_and_clock { ptr @.str.3, i32 90000 }, %struct._mimetype_and_clock { ptr @.str.4, i32 90000 }, %struct._mimetype_and_clock { ptr @.str.5, i32 90000 }, %struct._mimetype_and_clock { ptr @.str.6, i32 8000 }, %struct._mimetype_and_clock { ptr @.str.7, i32 8000 }, %struct._mimetype_and_clock { ptr @.str.8, i32 8000 }, %struct._mimetype_and_clock { ptr @.str.9, i32 8000 }, %struct._mimetype_and_clock { ptr @.str.10, i32 8000 }, %struct._mimetype_and_clock { ptr @.str.11, i32 8000 }, %struct._mimetype_and_clock { ptr @.str.12, i32 16000 }, %struct._mimetype_and_clock { ptr @.str.13, i32 16000 }, %struct._mimetype_and_clock { ptr @.str.14, i32 16000 }, %struct._mimetype_and_clock { ptr @.str.15, i32 16000 }, %struct._mimetype_and_clock { ptr @.str.16, i32 16000 }, %struct._mimetype_and_clock { ptr @.str.17, i32 8000 }, %struct._mimetype_and_clock { ptr @.str.18, i32 8000 }, %struct._mimetype_and_clock { ptr @.str.19, i32 8000 }, %struct._mimetype_and_clock { ptr @.str.20, i32 8000 }, %struct._mimetype_and_clock { ptr @.str.21, i32 8000 }, %struct._mimetype_and_clock { ptr @.str.22, i32 8000 }, %struct._mimetype_and_clock { ptr @.str.23, i32 8000 }, %struct._mimetype_and_clock { ptr @.str.24, i32 90000 }, %struct._mimetype_and_clock { ptr @.str.25, i32 90000 }, %struct._mimetype_and_clock { ptr @.str.26, i32 90000 }, %struct._mimetype_and_clock { ptr @.str.27, i32 90000 }, %struct._mimetype_and_clock { ptr @.str.28, i32 90000 }, %struct._mimetype_and_clock { ptr @.str.29, i32 90000 }, %struct._mimetype_and_clock { ptr @.str.30, i32 90000 }, %struct._mimetype_and_clock { ptr @.str.31, i32 48000 }, %struct._mimetype_and_clock { ptr @.str.32, i32 90000 }, %struct._mimetype_and_clock { ptr @.str.33, i32 90000 }, %struct._mimetype_and_clock { ptr @.str.34, i32 1000 }, %struct._mimetype_and_clock { ptr @.str.35, i32 8000 }, %struct._mimetype_and_clock { ptr @.str.36, i32 8000 }, %struct._mimetype_and_clock { ptr @.str.37, i32 1000 }, %struct._mimetype_and_clock { ptr @.str, i32 8000 }], align 16
 @.str.1 = private unnamed_addr constant [4 x i8] c"AMR\00", align 1
 @.str.2 = private unnamed_addr constant [7 x i8] c"AMR-WB\00", align 1
 @.str.3 = private unnamed_addr constant [6 x i8] c"BMPEG\00", align 1
@@ -51,8 +50,9 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.35 = private unnamed_addr constant [4 x i8] c"SMV\00", align 1
 @.str.36 = private unnamed_addr constant [5 x i8] c"SMV0\00", align 1
 @.str.37 = private unnamed_addr constant [5 x i8] c"t140\00", align 1
+@mimetype_and_clock_map = internal constant [38 x { ptr, i32, [4 x i8] }] [{ ptr, i32, [4 x i8] } { ptr @.str.1, i32 8000, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.2, i32 16000, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.3, i32 90000, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.4, i32 90000, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.5, i32 90000, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.6, i32 8000, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.7, i32 8000, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.8, i32 8000, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.9, i32 8000, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.10, i32 8000, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.11, i32 8000, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.12, i32 16000, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.13, i32 16000, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.14, i32 16000, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.15, i32 16000, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.16, i32 16000, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.17, i32 8000, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.18, i32 8000, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.19, i32 8000, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.20, i32 8000, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.21, i32 8000, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.22, i32 8000, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.23, i32 8000, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.24, i32 90000, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.25, i32 90000, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.26, i32 90000, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.27, i32 90000, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.28, i32 90000, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.29, i32 90000, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.30, i32 90000, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.31, i32 48000, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.32, i32 90000, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.33, i32 90000, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.34, i32 1000, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.35, i32 8000, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.36, i32 8000, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.37, i32 1000, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str, i32 8000, [4 x i8] zeroinitializer }], align 16
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @rtppacket_analyse(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -66,1484 +66,1468 @@ define hidden void @rtppacket_analyse(ptr noundef %0, ptr noundef %1, ptr nounde
   %13 = alloca double, align 8
   %14 = alloca double, align 8
   %15 = alloca i32, align 4
-  %16 = alloca i32, align 4
+  %16 = alloca i8, align 1
+  %17 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #6
   store double 0.000000e+00, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
   store double 0.000000e+00, ptr %9, align 8
-  %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds %struct._packet_info, ptr %17, i32 0, i32 5
-  %19 = call double @nstime_to_msec(ptr noundef %18)
-  store double %19, ptr %7, align 8
-  %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %20, i32 0, i32 0
-  %22 = load i32, ptr %21, align 8
-  %23 = icmp ne i32 %22, 0
-  br i1 %23, label %24, label %189
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %16) #6
+  %18 = load ptr, ptr %5, align 8
+  %19 = getelementptr inbounds nuw %struct._packet_info, ptr %18, i32 0, i32 5
+  %20 = call double @nstime_to_msec(ptr noundef %19)
+  store double %20, ptr %7, align 8
+  %21 = load ptr, ptr %4, align 8
+  %22 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %21, i32 0, i32 0
+  %23 = load i8, ptr %22, align 8, !range !6, !noundef !7
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %190
 
-24:                                               ; preds = %3
-  %25 = load ptr, ptr %6, align 8
-  %26 = getelementptr inbounds %struct._rtp_info, ptr %25, i32 0, i32 5
-  %27 = load i16, ptr %26, align 4
-  %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %28, i32 0, i32 31
-  store i16 %27, ptr %29, align 4
-  %30 = load ptr, ptr %6, align 8
-  %31 = getelementptr inbounds %struct._rtp_info, ptr %30, i32 0, i32 5
-  %32 = load i16, ptr %31, align 4
-  %33 = load ptr, ptr %4, align 8
-  %34 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %33, i32 0, i32 32
-  store i16 %32, ptr %34, align 2
-  %35 = load ptr, ptr %6, align 8
-  %36 = getelementptr inbounds %struct._rtp_info, ptr %35, i32 0, i32 5
-  %37 = load i16, ptr %36, align 4
-  %38 = load ptr, ptr %4, align 8
-  %39 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %38, i32 0, i32 2
-  store i16 %37, ptr %39, align 8
-  %40 = load double, ptr %7, align 8
-  %41 = load ptr, ptr %4, align 8
-  %42 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %41, i32 0, i32 20
-  store double %40, ptr %42, align 8
-  %43 = load ptr, ptr %6, align 8
-  %44 = getelementptr inbounds %struct._rtp_info, ptr %43, i32 0, i32 8
-  %45 = load i64, ptr %44, align 8
-  %46 = load ptr, ptr %4, align 8
-  %47 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %46, i32 0, i32 3
-  store i64 %45, ptr %47, align 8
-  %48 = load ptr, ptr %6, align 8
-  %49 = getelementptr inbounds %struct._rtp_info, ptr %48, i32 0, i32 8
-  %50 = load i64, ptr %49, align 8
-  %51 = load ptr, ptr %4, align 8
-  %52 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %51, i32 0, i32 4
-  store i64 %50, ptr %52, align 8
-  %53 = load double, ptr %7, align 8
-  %54 = load ptr, ptr %4, align 8
-  %55 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %54, i32 0, i32 19
-  store double %53, ptr %55, align 8
-  %56 = load ptr, ptr %4, align 8
-  %57 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %56, i32 0, i32 21
-  store double 0.000000e+00, ptr %57, align 8
-  %58 = load ptr, ptr %4, align 8
-  %59 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %58, i32 0, i32 22
-  store double 0.000000e+00, ptr %59, align 8
-  %60 = load ptr, ptr %6, align 8
-  %61 = getelementptr inbounds %struct._rtp_info, ptr %60, i32 0, i32 4
-  %62 = load i32, ptr %61, align 8
-  %63 = trunc i32 %62 to i16
-  %64 = load ptr, ptr %4, align 8
-  %65 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %64, i32 0, i32 37
-  store i16 %63, ptr %65, align 8
-  %66 = load ptr, ptr %6, align 8
-  %67 = getelementptr inbounds %struct._rtp_info, ptr %66, i32 0, i32 4
-  %68 = load i32, ptr %67, align 8
-  %69 = load ptr, ptr %4, align 8
-  %70 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %69, i32 0, i32 38
-  store i32 %68, ptr %70, align 4
-  %71 = load ptr, ptr %5, align 8
-  %72 = getelementptr inbounds %struct._packet_info, ptr %71, i32 0, i32 14
-  %73 = getelementptr inbounds %struct._address, ptr %72, i32 0, i32 0
-  %74 = load i32, ptr %73, align 8
-  %75 = icmp eq i32 %74, 3
-  br i1 %75, label %76, label %89
+25:                                               ; preds = %3
+  %26 = load ptr, ptr %6, align 8
+  %27 = getelementptr inbounds nuw %struct._rtp_info, ptr %26, i32 0, i32 6
+  %28 = load i32, ptr %27, align 4
+  %29 = load ptr, ptr %4, align 8
+  %30 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %29, i32 0, i32 31
+  store i32 %28, ptr %30, align 4
+  %31 = load ptr, ptr %6, align 8
+  %32 = getelementptr inbounds nuw %struct._rtp_info, ptr %31, i32 0, i32 6
+  %33 = load i32, ptr %32, align 4
+  %34 = load ptr, ptr %4, align 8
+  %35 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %34, i32 0, i32 32
+  store i32 %33, ptr %35, align 8
+  %36 = load ptr, ptr %6, align 8
+  %37 = getelementptr inbounds nuw %struct._rtp_info, ptr %36, i32 0, i32 5
+  %38 = load i16, ptr %37, align 8
+  %39 = load ptr, ptr %4, align 8
+  %40 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %39, i32 0, i32 2
+  store i16 %38, ptr %40, align 8
+  %41 = load double, ptr %7, align 8
+  %42 = load ptr, ptr %4, align 8
+  %43 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %42, i32 0, i32 20
+  store double %41, ptr %43, align 8
+  %44 = load ptr, ptr %6, align 8
+  %45 = getelementptr inbounds nuw %struct._rtp_info, ptr %44, i32 0, i32 8
+  %46 = load i64, ptr %45, align 8
+  %47 = load ptr, ptr %4, align 8
+  %48 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %47, i32 0, i32 3
+  store i64 %46, ptr %48, align 8
+  %49 = load ptr, ptr %6, align 8
+  %50 = getelementptr inbounds nuw %struct._rtp_info, ptr %49, i32 0, i32 8
+  %51 = load i64, ptr %50, align 8
+  %52 = load ptr, ptr %4, align 8
+  %53 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %52, i32 0, i32 4
+  store i64 %51, ptr %53, align 8
+  %54 = load double, ptr %7, align 8
+  %55 = load ptr, ptr %4, align 8
+  %56 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %55, i32 0, i32 19
+  store double %54, ptr %56, align 8
+  %57 = load ptr, ptr %4, align 8
+  %58 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %57, i32 0, i32 21
+  store double 0.000000e+00, ptr %58, align 8
+  %59 = load ptr, ptr %4, align 8
+  %60 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %59, i32 0, i32 22
+  store double 0.000000e+00, ptr %60, align 8
+  %61 = load ptr, ptr %6, align 8
+  %62 = getelementptr inbounds nuw %struct._rtp_info, ptr %61, i32 0, i32 4
+  %63 = load i32, ptr %62, align 4
+  %64 = trunc i32 %63 to i16
+  %65 = load ptr, ptr %4, align 8
+  %66 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %65, i32 0, i32 35
+  store i16 %64, ptr %66, align 4
+  %67 = load ptr, ptr %6, align 8
+  %68 = getelementptr inbounds nuw %struct._rtp_info, ptr %67, i32 0, i32 4
+  %69 = load i32, ptr %68, align 4
+  %70 = load ptr, ptr %4, align 8
+  %71 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %70, i32 0, i32 36
+  store i32 %69, ptr %71, align 8
+  %72 = load ptr, ptr %5, align 8
+  %73 = getelementptr inbounds nuw %struct._packet_info, ptr %72, i32 0, i32 14
+  %74 = getelementptr inbounds nuw %struct._address, ptr %73, i32 0, i32 0
+  %75 = load i32, ptr %74, align 8
+  %76 = icmp eq i32 %75, 3
+  br i1 %76, label %77, label %90
 
-76:                                               ; preds = %24
-  %77 = load ptr, ptr %6, align 8
-  %78 = getelementptr inbounds %struct._rtp_info, ptr %77, i32 0, i32 10
-  %79 = load i32, ptr %78, align 4
-  %80 = add i32 %79, 48
-  %81 = load ptr, ptr %4, align 8
-  %82 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %81, i32 0, i32 6
-  %83 = load ptr, ptr %4, align 8
-  %84 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %83, i32 0, i32 8
-  %85 = load i16, ptr %84, align 2
-  %86 = zext i16 %85 to i64
-  %87 = getelementptr [300 x %struct._bw_history_item], ptr %82, i64 0, i64 %86
-  %88 = getelementptr inbounds %struct._bw_history_item, ptr %87, i32 0, i32 1
-  store i32 %80, ptr %88, align 8
-  br label %102
+77:                                               ; preds = %25
+  %78 = load ptr, ptr %6, align 8
+  %79 = getelementptr inbounds nuw %struct._rtp_info, ptr %78, i32 0, i32 10
+  %80 = load i32, ptr %79, align 4
+  %81 = add i32 %80, 48
+  %82 = load ptr, ptr %4, align 8
+  %83 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %82, i32 0, i32 6
+  %84 = load ptr, ptr %4, align 8
+  %85 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %84, i32 0, i32 8
+  %86 = load i16, ptr %85, align 2
+  %87 = zext i16 %86 to i64
+  %88 = getelementptr [300 x %struct._bw_history_item], ptr %83, i64 0, i64 %87
+  %89 = getelementptr inbounds nuw %struct._bw_history_item, ptr %88, i32 0, i32 1
+  store i32 %81, ptr %89, align 8
+  br label %103
 
-89:                                               ; preds = %24
-  %90 = load ptr, ptr %6, align 8
-  %91 = getelementptr inbounds %struct._rtp_info, ptr %90, i32 0, i32 10
-  %92 = load i32, ptr %91, align 4
-  %93 = add i32 %92, 28
-  %94 = load ptr, ptr %4, align 8
-  %95 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %94, i32 0, i32 6
-  %96 = load ptr, ptr %4, align 8
-  %97 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %96, i32 0, i32 8
-  %98 = load i16, ptr %97, align 2
-  %99 = zext i16 %98 to i64
-  %100 = getelementptr [300 x %struct._bw_history_item], ptr %95, i64 0, i64 %99
-  %101 = getelementptr inbounds %struct._bw_history_item, ptr %100, i32 0, i32 1
-  store i32 %93, ptr %101, align 8
-  br label %102
+90:                                               ; preds = %25
+  %91 = load ptr, ptr %6, align 8
+  %92 = getelementptr inbounds nuw %struct._rtp_info, ptr %91, i32 0, i32 10
+  %93 = load i32, ptr %92, align 4
+  %94 = add i32 %93, 28
+  %95 = load ptr, ptr %4, align 8
+  %96 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %95, i32 0, i32 6
+  %97 = load ptr, ptr %4, align 8
+  %98 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %97, i32 0, i32 8
+  %99 = load i16, ptr %98, align 2
+  %100 = zext i16 %99 to i64
+  %101 = getelementptr [300 x %struct._bw_history_item], ptr %96, i64 0, i64 %100
+  %102 = getelementptr inbounds nuw %struct._bw_history_item, ptr %101, i32 0, i32 1
+  store i32 %94, ptr %102, align 8
+  br label %103
 
-102:                                              ; preds = %89, %76
-  %103 = load double, ptr %7, align 8
-  %104 = load ptr, ptr %4, align 8
-  %105 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %104, i32 0, i32 6
-  %106 = load ptr, ptr %4, align 8
-  %107 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %106, i32 0, i32 8
-  %108 = load i16, ptr %107, align 2
-  %109 = zext i16 %108 to i64
-  %110 = getelementptr [300 x %struct._bw_history_item], ptr %105, i64 0, i64 %109
-  %111 = getelementptr inbounds %struct._bw_history_item, ptr %110, i32 0, i32 0
-  store double %103, ptr %111, align 8
-  %112 = load ptr, ptr %4, align 8
-  %113 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %112, i32 0, i32 8
-  %114 = load i16, ptr %113, align 2
-  %115 = add i16 %114, 1
-  store i16 %115, ptr %113, align 2
-  %116 = load ptr, ptr %5, align 8
-  %117 = getelementptr inbounds %struct._packet_info, ptr %116, i32 0, i32 14
-  %118 = getelementptr inbounds %struct._address, ptr %117, i32 0, i32 0
-  %119 = load i32, ptr %118, align 8
-  %120 = icmp eq i32 %119, 3
-  br i1 %120, label %121, label %130
+103:                                              ; preds = %90, %77
+  %104 = load double, ptr %7, align 8
+  %105 = load ptr, ptr %4, align 8
+  %106 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %105, i32 0, i32 6
+  %107 = load ptr, ptr %4, align 8
+  %108 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %107, i32 0, i32 8
+  %109 = load i16, ptr %108, align 2
+  %110 = zext i16 %109 to i64
+  %111 = getelementptr [300 x %struct._bw_history_item], ptr %106, i64 0, i64 %110
+  %112 = getelementptr inbounds nuw %struct._bw_history_item, ptr %111, i32 0, i32 0
+  store double %104, ptr %112, align 8
+  %113 = load ptr, ptr %4, align 8
+  %114 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %113, i32 0, i32 8
+  %115 = load i16, ptr %114, align 2
+  %116 = add i16 %115, 1
+  store i16 %116, ptr %114, align 2
+  %117 = load ptr, ptr %5, align 8
+  %118 = getelementptr inbounds nuw %struct._packet_info, ptr %117, i32 0, i32 14
+  %119 = getelementptr inbounds nuw %struct._address, ptr %118, i32 0, i32 0
+  %120 = load i32, ptr %119, align 8
+  %121 = icmp eq i32 %120, 3
+  br i1 %121, label %122, label %131
 
-121:                                              ; preds = %102
-  %122 = load ptr, ptr %6, align 8
-  %123 = getelementptr inbounds %struct._rtp_info, ptr %122, i32 0, i32 10
-  %124 = load i32, ptr %123, align 4
-  %125 = add i32 %124, 48
-  %126 = load ptr, ptr %4, align 8
-  %127 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %126, i32 0, i32 9
-  %128 = load i32, ptr %127, align 4
-  %129 = add i32 %128, %125
-  store i32 %129, ptr %127, align 4
-  br label %139
+122:                                              ; preds = %103
+  %123 = load ptr, ptr %6, align 8
+  %124 = getelementptr inbounds nuw %struct._rtp_info, ptr %123, i32 0, i32 10
+  %125 = load i32, ptr %124, align 4
+  %126 = add i32 %125, 48
+  %127 = load ptr, ptr %4, align 8
+  %128 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %127, i32 0, i32 9
+  %129 = load i32, ptr %128, align 4
+  %130 = add i32 %129, %126
+  store i32 %130, ptr %128, align 4
+  br label %140
 
-130:                                              ; preds = %102
-  %131 = load ptr, ptr %6, align 8
-  %132 = getelementptr inbounds %struct._rtp_info, ptr %131, i32 0, i32 10
-  %133 = load i32, ptr %132, align 4
-  %134 = add i32 %133, 28
-  %135 = load ptr, ptr %4, align 8
-  %136 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %135, i32 0, i32 9
-  %137 = load i32, ptr %136, align 4
-  %138 = add i32 %137, %134
-  store i32 %138, ptr %136, align 4
-  br label %139
+131:                                              ; preds = %103
+  %132 = load ptr, ptr %6, align 8
+  %133 = getelementptr inbounds nuw %struct._rtp_info, ptr %132, i32 0, i32 10
+  %134 = load i32, ptr %133, align 4
+  %135 = add i32 %134, 28
+  %136 = load ptr, ptr %4, align 8
+  %137 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %136, i32 0, i32 9
+  %138 = load i32, ptr %137, align 4
+  %139 = add i32 %138, %135
+  store i32 %139, ptr %137, align 4
+  br label %140
 
-139:                                              ; preds = %130, %121
-  %140 = load ptr, ptr %4, align 8
-  %141 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %140, i32 0, i32 9
-  %142 = load i32, ptr %141, align 4
-  %143 = mul i32 %142, 8
-  %144 = uitofp i32 %143 to double
-  %145 = fdiv double %144, 1.000000e+03
-  %146 = load ptr, ptr %4, align 8
-  %147 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %146, i32 0, i32 5
-  store double %145, ptr %147, align 8
-  %148 = load ptr, ptr %4, align 8
-  %149 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %148, i32 0, i32 11
-  store double 0.000000e+00, ptr %149, align 8
-  %150 = load ptr, ptr %4, align 8
-  %151 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %150, i32 0, i32 24
-  store double 0.000000e+00, ptr %151, align 8
-  %152 = load ptr, ptr %4, align 8
-  %153 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %152, i32 0, i32 23
-  store double -1.000000e+00, ptr %153, align 8
-  %154 = load ptr, ptr %4, align 8
-  %155 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %154, i32 0, i32 25
-  store double 0.000000e+00, ptr %155, align 8
-  %156 = load ptr, ptr %4, align 8
-  %157 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %156, i32 0, i32 12
-  store double 0.000000e+00, ptr %157, align 8
-  %158 = load ptr, ptr %4, align 8
-  %159 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %158, i32 0, i32 26
-  store double -1.000000e+00, ptr %159, align 8
-  %160 = load ptr, ptr %4, align 8
-  %161 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %160, i32 0, i32 27
-  store double 0.000000e+00, ptr %161, align 8
-  %162 = load ptr, ptr %4, align 8
-  %163 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %162, i32 0, i32 13
-  store double 0.000000e+00, ptr %163, align 8
-  %164 = load ptr, ptr %4, align 8
-  %165 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %164, i32 0, i32 33
-  %166 = load i32, ptr %165, align 8
-  %167 = add i32 %166, 1
-  store i32 %167, ptr %165, align 8
-  %168 = load ptr, ptr %4, align 8
-  %169 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %168, i32 0, i32 1
-  %170 = load i32, ptr %169, align 4
-  %171 = or i32 %170, 1
-  store i32 %171, ptr %169, align 4
-  %172 = load ptr, ptr %6, align 8
-  %173 = getelementptr inbounds %struct._rtp_info, ptr %172, i32 0, i32 2
-  %174 = load i32, ptr %173, align 8
-  %175 = icmp ne i32 %174, 0
-  br i1 %175, label %176, label %181
+140:                                              ; preds = %131, %122
+  %141 = load ptr, ptr %4, align 8
+  %142 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %141, i32 0, i32 9
+  %143 = load i32, ptr %142, align 4
+  %144 = mul i32 %143, 8
+  %145 = uitofp i32 %144 to double
+  %146 = fdiv double %145, 1.000000e+03
+  %147 = load ptr, ptr %4, align 8
+  %148 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %147, i32 0, i32 5
+  store double %146, ptr %148, align 8
+  %149 = load ptr, ptr %4, align 8
+  %150 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %149, i32 0, i32 11
+  store double 0.000000e+00, ptr %150, align 8
+  %151 = load ptr, ptr %4, align 8
+  %152 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %151, i32 0, i32 24
+  store double 0.000000e+00, ptr %152, align 8
+  %153 = load ptr, ptr %4, align 8
+  %154 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %153, i32 0, i32 23
+  store double -1.000000e+00, ptr %154, align 8
+  %155 = load ptr, ptr %4, align 8
+  %156 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %155, i32 0, i32 25
+  store double 0.000000e+00, ptr %156, align 8
+  %157 = load ptr, ptr %4, align 8
+  %158 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %157, i32 0, i32 12
+  store double 0.000000e+00, ptr %158, align 8
+  %159 = load ptr, ptr %4, align 8
+  %160 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %159, i32 0, i32 26
+  store double -1.000000e+00, ptr %160, align 8
+  %161 = load ptr, ptr %4, align 8
+  %162 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %161, i32 0, i32 27
+  store double 0.000000e+00, ptr %162, align 8
+  %163 = load ptr, ptr %4, align 8
+  %164 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %163, i32 0, i32 13
+  store double 0.000000e+00, ptr %164, align 8
+  %165 = load ptr, ptr %4, align 8
+  %166 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %165, i32 0, i32 33
+  %167 = load i32, ptr %166, align 4
+  %168 = add i32 %167, 1
+  store i32 %168, ptr %166, align 4
+  %169 = load ptr, ptr %4, align 8
+  %170 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %169, i32 0, i32 1
+  %171 = load i32, ptr %170, align 4
+  %172 = or i32 %171, 1
+  store i32 %172, ptr %170, align 4
+  %173 = load ptr, ptr %6, align 8
+  %174 = getelementptr inbounds nuw %struct._rtp_info, ptr %173, i32 0, i32 2
+  %175 = load i8, ptr %174, align 1, !range !6, !noundef !7
+  %176 = trunc i8 %175 to i1
+  br i1 %176, label %177, label %182
 
-176:                                              ; preds = %139
-  %177 = load ptr, ptr %4, align 8
-  %178 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %177, i32 0, i32 1
-  %179 = load i32, ptr %178, align 4
-  %180 = or i32 %179, 2
-  store i32 %180, ptr %178, align 4
-  br label %181
+177:                                              ; preds = %140
+  %178 = load ptr, ptr %4, align 8
+  %179 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %178, i32 0, i32 1
+  %180 = load i32, ptr %179, align 4
+  %181 = or i32 %180, 2
+  store i32 %181, ptr %179, align 4
+  br label %182
 
-181:                                              ; preds = %176, %139
-  %182 = load ptr, ptr %5, align 8
-  %183 = getelementptr inbounds %struct._packet_info, ptr %182, i32 0, i32 3
-  %184 = load i32, ptr %183, align 4
-  %185 = load ptr, ptr %4, align 8
-  %186 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %185, i32 0, i32 39
-  store i32 %184, ptr %186, align 8
-  %187 = load ptr, ptr %4, align 8
-  %188 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %187, i32 0, i32 0
-  store i32 0, ptr %188, align 8
-  br label %994
+182:                                              ; preds = %177, %140
+  %183 = load ptr, ptr %5, align 8
+  %184 = getelementptr inbounds nuw %struct._packet_info, ptr %183, i32 0, i32 3
+  %185 = load i32, ptr %184, align 4
+  %186 = load ptr, ptr %4, align 8
+  %187 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %186, i32 0, i32 37
+  store i32 %185, ptr %187, align 4
+  %188 = load ptr, ptr %4, align 8
+  %189 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %188, i32 0, i32 0
+  store i8 0, ptr %189, align 8
+  store i32 1, ptr %17, align 4
+  br label %953
 
-189:                                              ; preds = %3
-  %190 = load ptr, ptr %4, align 8
-  %191 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %190, i32 0, i32 1
-  store i32 0, ptr %191, align 4
-  %192 = load ptr, ptr %4, align 8
-  %193 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %192, i32 0, i32 4
-  %194 = load i64, ptr %193, align 8
-  %195 = load ptr, ptr %6, align 8
-  %196 = getelementptr inbounds %struct._rtp_info, ptr %195, i32 0, i32 8
-  %197 = load i64, ptr %196, align 8
-  %198 = icmp ule i64 %194, %197
-  br i1 %198, label %199, label %200
+190:                                              ; preds = %3
+  %191 = load ptr, ptr %4, align 8
+  %192 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %191, i32 0, i32 1
+  store i32 0, ptr %192, align 4
+  %193 = load ptr, ptr %4, align 8
+  %194 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %193, i32 0, i32 4
+  %195 = load i64, ptr %194, align 8
+  %196 = load ptr, ptr %6, align 8
+  %197 = getelementptr inbounds nuw %struct._rtp_info, ptr %196, i32 0, i32 8
+  %198 = load i64, ptr %197, align 8
+  %199 = icmp ule i64 %195, %198
+  br i1 %199, label %200, label %201
 
-199:                                              ; preds = %189
-  store i32 1, ptr %16, align 4
-  br label %205
+200:                                              ; preds = %190
+  store i8 1, ptr %16, align 1
+  br label %206
 
-200:                                              ; preds = %189
-  store i32 0, ptr %16, align 4
-  %201 = load ptr, ptr %4, align 8
-  %202 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %201, i32 0, i32 1
-  %203 = load i32, ptr %202, align 4
-  %204 = or i32 %203, 128
-  store i32 %204, ptr %202, align 4
-  br label %205
+201:                                              ; preds = %190
+  store i8 0, ptr %16, align 1
+  %202 = load ptr, ptr %4, align 8
+  %203 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %202, i32 0, i32 1
+  %204 = load i32, ptr %203, align 4
+  %205 = or i32 %204, 128
+  store i32 %205, ptr %203, align 4
+  br label %206
 
-205:                                              ; preds = %200, %199
-  %206 = load ptr, ptr %6, align 8
-  %207 = getelementptr inbounds %struct._rtp_info, ptr %206, i32 0, i32 5
-  %208 = load i16, ptr %207, align 4
-  %209 = zext i16 %208 to i32
+206:                                              ; preds = %201, %200
+  %207 = load i8, ptr %16, align 1, !range !6, !noundef !7
+  %208 = trunc i8 %207 to i1
+  br i1 %208, label %209, label %232
+
+209:                                              ; preds = %206
   %210 = load ptr, ptr %4, align 8
-  %211 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %210, i32 0, i32 31
-  %212 = load i16, ptr %211, align 4
+  %211 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %210, i32 0, i32 2
+  %212 = load i16, ptr %211, align 8
   %213 = zext i16 %212 to i32
-  %214 = icmp slt i32 %209, %213
-  br i1 %214, label %215, label %230
+  %214 = add i32 %213, 1
+  %215 = load ptr, ptr %6, align 8
+  %216 = getelementptr inbounds nuw %struct._rtp_info, ptr %215, i32 0, i32 5
+  %217 = load i16, ptr %216, align 8
+  %218 = zext i16 %217 to i32
+  %219 = icmp eq i32 %214, %218
+  br i1 %219, label %226, label %220
 
-215:                                              ; preds = %205
-  %216 = load i32, ptr %16, align 4
-  %217 = icmp ne i32 %216, 0
-  br i1 %217, label %218, label %230
+220:                                              ; preds = %209
+  %221 = load ptr, ptr %4, align 8
+  %222 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %221, i32 0, i32 1
+  %223 = load i32, ptr %222, align 4
+  %224 = and i32 %223, 1
+  %225 = icmp ne i32 %224, 0
+  br i1 %225, label %226, label %232
 
-218:                                              ; preds = %215
-  %219 = load ptr, ptr %4, align 8
-  %220 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %219, i32 0, i32 35
-  %221 = load i32, ptr %220, align 8
-  %222 = icmp eq i32 %221, 0
-  br i1 %222, label %223, label %230
+226:                                              ; preds = %220, %209
+  %227 = load ptr, ptr %6, align 8
+  %228 = getelementptr inbounds nuw %struct._rtp_info, ptr %227, i32 0, i32 5
+  %229 = load i16, ptr %228, align 8
+  %230 = load ptr, ptr %4, align 8
+  %231 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %230, i32 0, i32 2
+  store i16 %229, ptr %231, align 8
+  br label %315
 
-223:                                              ; preds = %218
-  %224 = load ptr, ptr %4, align 8
-  %225 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %224, i32 0, i32 36
-  %226 = load i32, ptr %225, align 4
-  %227 = add i32 %226, 1
-  store i32 %227, ptr %225, align 4
-  %228 = load ptr, ptr %4, align 8
-  %229 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %228, i32 0, i32 35
-  store i32 1, ptr %229, align 8
-  br label %280
+232:                                              ; preds = %220, %206
+  %233 = load i8, ptr %16, align 1, !range !6, !noundef !7
+  %234 = trunc i8 %233 to i1
+  br i1 %234, label %235, label %253
 
-230:                                              ; preds = %218, %215, %205
-  %231 = load ptr, ptr %6, align 8
-  %232 = getelementptr inbounds %struct._rtp_info, ptr %231, i32 0, i32 5
-  %233 = load i16, ptr %232, align 4
-  %234 = zext i16 %233 to i32
-  %235 = icmp eq i32 %234, 0
-  br i1 %235, label %236, label %257
+235:                                              ; preds = %232
+  %236 = load ptr, ptr %4, align 8
+  %237 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %236, i32 0, i32 2
+  %238 = load i16, ptr %237, align 8
+  %239 = zext i16 %238 to i32
+  %240 = icmp eq i32 %239, 65535
+  br i1 %240, label %241, label %253
 
-236:                                              ; preds = %230
-  %237 = load ptr, ptr %4, align 8
-  %238 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %237, i32 0, i32 32
-  %239 = load i16, ptr %238, align 2
-  %240 = zext i16 %239 to i32
-  %241 = icmp eq i32 %240, 65535
-  br i1 %241, label %242, label %257
+241:                                              ; preds = %235
+  %242 = load ptr, ptr %6, align 8
+  %243 = getelementptr inbounds nuw %struct._rtp_info, ptr %242, i32 0, i32 5
+  %244 = load i16, ptr %243, align 8
+  %245 = zext i16 %244 to i32
+  %246 = icmp eq i32 %245, 0
+  br i1 %246, label %247, label %253
 
-242:                                              ; preds = %236
-  %243 = load i32, ptr %16, align 4
-  %244 = icmp ne i32 %243, 0
-  br i1 %244, label %245, label %257
-
-245:                                              ; preds = %242
-  %246 = load ptr, ptr %4, align 8
-  %247 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %246, i32 0, i32 35
-  %248 = load i32, ptr %247, align 8
-  %249 = icmp eq i32 %248, 0
-  br i1 %249, label %250, label %257
-
-250:                                              ; preds = %245
+247:                                              ; preds = %241
+  %248 = load ptr, ptr %6, align 8
+  %249 = getelementptr inbounds nuw %struct._rtp_info, ptr %248, i32 0, i32 5
+  %250 = load i16, ptr %249, align 8
   %251 = load ptr, ptr %4, align 8
-  %252 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %251, i32 0, i32 36
-  %253 = load i32, ptr %252, align 4
-  %254 = add i32 %253, 1
-  store i32 %254, ptr %252, align 4
-  %255 = load ptr, ptr %4, align 8
-  %256 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %255, i32 0, i32 35
-  store i32 1, ptr %256, align 8
-  br label %279
+  %252 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %251, i32 0, i32 2
+  store i16 %250, ptr %252, align 8
+  br label %314
 
-257:                                              ; preds = %245, %242, %236, %230
-  %258 = load ptr, ptr %6, align 8
-  %259 = getelementptr inbounds %struct._rtp_info, ptr %258, i32 0, i32 5
-  %260 = load i16, ptr %259, align 4
-  %261 = zext i16 %260 to i32
-  %262 = load ptr, ptr %4, align 8
-  %263 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %262, i32 0, i32 31
-  %264 = load i16, ptr %263, align 4
+253:                                              ; preds = %241, %235, %232
+  %254 = load i8, ptr %16, align 1, !range !6, !noundef !7
+  %255 = trunc i8 %254 to i1
+  br i1 %255, label %256, label %292
+
+256:                                              ; preds = %253
+  %257 = load ptr, ptr %4, align 8
+  %258 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %257, i32 0, i32 2
+  %259 = load i16, ptr %258, align 8
+  %260 = zext i16 %259 to i32
+  %261 = add i32 %260, 1
+  %262 = load ptr, ptr %6, align 8
+  %263 = getelementptr inbounds nuw %struct._rtp_info, ptr %262, i32 0, i32 5
+  %264 = load i16, ptr %263, align 8
   %265 = zext i16 %264 to i32
-  %266 = icmp sgt i32 %261, %265
-  br i1 %266, label %267, label %278
+  %266 = icmp slt i32 %261, %265
+  br i1 %266, label %278, label %267
 
-267:                                              ; preds = %257
-  %268 = load i32, ptr %16, align 4
-  %269 = icmp ne i32 %268, 0
-  br i1 %269, label %270, label %278
+267:                                              ; preds = %256
+  %268 = load ptr, ptr %4, align 8
+  %269 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %268, i32 0, i32 2
+  %270 = load i16, ptr %269, align 8
+  %271 = zext i16 %270 to i32
+  %272 = load ptr, ptr %6, align 8
+  %273 = getelementptr inbounds nuw %struct._rtp_info, ptr %272, i32 0, i32 5
+  %274 = load i16, ptr %273, align 8
+  %275 = zext i16 %274 to i32
+  %276 = sub i32 %271, %275
+  %277 = icmp sgt i32 %276, 65280
+  br i1 %277, label %278, label %292
 
-270:                                              ; preds = %267
-  %271 = load ptr, ptr %4, align 8
-  %272 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %271, i32 0, i32 35
-  %273 = load i32, ptr %272, align 8
-  %274 = icmp ne i32 %273, 0
-  br i1 %274, label %275, label %278
-
-275:                                              ; preds = %270
-  %276 = load ptr, ptr %4, align 8
-  %277 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %276, i32 0, i32 35
-  store i32 0, ptr %277, align 8
-  br label %278
-
-278:                                              ; preds = %275, %270, %267, %257
-  br label %279
-
-279:                                              ; preds = %278, %250
-  br label %280
-
-280:                                              ; preds = %279, %223
-  %281 = load i32, ptr %16, align 4
-  %282 = icmp ne i32 %281, 0
-  br i1 %282, label %283, label %306
-
-283:                                              ; preds = %280
+278:                                              ; preds = %267, %256
+  %279 = load ptr, ptr %6, align 8
+  %280 = getelementptr inbounds nuw %struct._rtp_info, ptr %279, i32 0, i32 5
+  %281 = load i16, ptr %280, align 8
+  %282 = load ptr, ptr %4, align 8
+  %283 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %282, i32 0, i32 2
+  store i16 %281, ptr %283, align 8
   %284 = load ptr, ptr %4, align 8
-  %285 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %284, i32 0, i32 2
-  %286 = load i16, ptr %285, align 8
-  %287 = zext i16 %286 to i32
-  %288 = add i32 %287, 1
-  %289 = load ptr, ptr %6, align 8
-  %290 = getelementptr inbounds %struct._rtp_info, ptr %289, i32 0, i32 5
-  %291 = load i16, ptr %290, align 4
-  %292 = zext i16 %291 to i32
-  %293 = icmp eq i32 %288, %292
-  br i1 %293, label %300, label %294
+  %285 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %284, i32 0, i32 34
+  %286 = load i32, ptr %285, align 8
+  %287 = add i32 %286, 1
+  store i32 %287, ptr %285, align 8
+  %288 = load ptr, ptr %4, align 8
+  %289 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %288, i32 0, i32 1
+  %290 = load i32, ptr %289, align 4
+  %291 = or i32 %290, 4
+  store i32 %291, ptr %289, align 4
+  br label %313
 
-294:                                              ; preds = %283
-  %295 = load ptr, ptr %4, align 8
-  %296 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %295, i32 0, i32 1
-  %297 = load i32, ptr %296, align 4
-  %298 = and i32 %297, 1
-  %299 = icmp ne i32 %298, 0
-  br i1 %299, label %300, label %306
+292:                                              ; preds = %267, %253
+  %293 = load ptr, ptr %4, align 8
+  %294 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %293, i32 0, i32 2
+  %295 = load i16, ptr %294, align 8
+  %296 = zext i16 %295 to i32
+  %297 = add i32 %296, 1
+  %298 = load ptr, ptr %6, align 8
+  %299 = getelementptr inbounds nuw %struct._rtp_info, ptr %298, i32 0, i32 5
+  %300 = load i16, ptr %299, align 8
+  %301 = zext i16 %300 to i32
+  %302 = icmp sgt i32 %297, %301
+  br i1 %302, label %303, label %312
 
-300:                                              ; preds = %294, %283
-  %301 = load ptr, ptr %6, align 8
-  %302 = getelementptr inbounds %struct._rtp_info, ptr %301, i32 0, i32 5
-  %303 = load i16, ptr %302, align 4
+303:                                              ; preds = %292
   %304 = load ptr, ptr %4, align 8
-  %305 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %304, i32 0, i32 2
-  store i16 %303, ptr %305, align 8
-  br label %389
+  %305 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %304, i32 0, i32 34
+  %306 = load i32, ptr %305, align 8
+  %307 = add i32 %306, 1
+  store i32 %307, ptr %305, align 8
+  %308 = load ptr, ptr %4, align 8
+  %309 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %308, i32 0, i32 1
+  %310 = load i32, ptr %309, align 4
+  %311 = or i32 %310, 4
+  store i32 %311, ptr %309, align 4
+  br label %312
 
-306:                                              ; preds = %294, %280
-  %307 = load i32, ptr %16, align 4
-  %308 = icmp ne i32 %307, 0
-  br i1 %308, label %309, label %327
+312:                                              ; preds = %303, %292
+  br label %313
 
-309:                                              ; preds = %306
-  %310 = load ptr, ptr %4, align 8
-  %311 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %310, i32 0, i32 2
-  %312 = load i16, ptr %311, align 8
-  %313 = zext i16 %312 to i32
-  %314 = icmp eq i32 %313, 65535
-  br i1 %314, label %315, label %327
+313:                                              ; preds = %312, %278
+  br label %314
 
-315:                                              ; preds = %309
+314:                                              ; preds = %313, %247
+  br label %315
+
+315:                                              ; preds = %314, %226
   %316 = load ptr, ptr %6, align 8
-  %317 = getelementptr inbounds %struct._rtp_info, ptr %316, i32 0, i32 5
-  %318 = load i16, ptr %317, align 4
-  %319 = zext i16 %318 to i32
-  %320 = icmp eq i32 %319, 0
-  br i1 %320, label %321, label %327
+  %317 = getelementptr inbounds nuw %struct._rtp_info, ptr %316, i32 0, i32 4
+  %318 = load i32, ptr %317, align 4
+  %319 = icmp eq i32 %318, 13
+  br i1 %319, label %325, label %320
 
-321:                                              ; preds = %315
-  %322 = load ptr, ptr %6, align 8
-  %323 = getelementptr inbounds %struct._rtp_info, ptr %322, i32 0, i32 5
-  %324 = load i16, ptr %323, align 4
-  %325 = load ptr, ptr %4, align 8
-  %326 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %325, i32 0, i32 2
-  store i16 %324, ptr %326, align 8
-  br label %388
+320:                                              ; preds = %315
+  %321 = load ptr, ptr %6, align 8
+  %322 = getelementptr inbounds nuw %struct._rtp_info, ptr %321, i32 0, i32 4
+  %323 = load i32, ptr %322, align 4
+  %324 = icmp eq i32 %323, 19
+  br i1 %324, label %325, label %330
 
-327:                                              ; preds = %315, %309, %306
-  %328 = load i32, ptr %16, align 4
-  %329 = icmp ne i32 %328, 0
-  br i1 %329, label %330, label %366
+325:                                              ; preds = %320, %315
+  %326 = load ptr, ptr %4, align 8
+  %327 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %326, i32 0, i32 1
+  %328 = load i32, ptr %327, align 4
+  %329 = or i32 %328, 16
+  store i32 %329, ptr %327, align 4
+  br label %330
 
-330:                                              ; preds = %327
+330:                                              ; preds = %325, %320
   %331 = load ptr, ptr %4, align 8
-  %332 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %331, i32 0, i32 2
-  %333 = load i16, ptr %332, align 8
+  %332 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %331, i32 0, i32 35
+  %333 = load i16, ptr %332, align 4
   %334 = zext i16 %333 to i32
-  %335 = add i32 %334, 1
-  %336 = load ptr, ptr %6, align 8
-  %337 = getelementptr inbounds %struct._rtp_info, ptr %336, i32 0, i32 5
-  %338 = load i16, ptr %337, align 4
-  %339 = zext i16 %338 to i32
-  %340 = icmp slt i32 %335, %339
-  br i1 %340, label %352, label %341
+  %335 = icmp eq i32 %334, 13
+  br i1 %335, label %342, label %336
 
-341:                                              ; preds = %330
-  %342 = load ptr, ptr %4, align 8
-  %343 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %342, i32 0, i32 2
-  %344 = load i16, ptr %343, align 8
-  %345 = zext i16 %344 to i32
-  %346 = load ptr, ptr %6, align 8
-  %347 = getelementptr inbounds %struct._rtp_info, ptr %346, i32 0, i32 5
-  %348 = load i16, ptr %347, align 4
-  %349 = zext i16 %348 to i32
-  %350 = sub i32 %345, %349
-  %351 = icmp sgt i32 %350, 65280
-  br i1 %351, label %352, label %366
+336:                                              ; preds = %330
+  %337 = load ptr, ptr %4, align 8
+  %338 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %337, i32 0, i32 35
+  %339 = load i16, ptr %338, align 4
+  %340 = zext i16 %339 to i32
+  %341 = icmp eq i32 %340, 19
+  br i1 %341, label %342, label %347
 
-352:                                              ; preds = %341, %330
-  %353 = load ptr, ptr %6, align 8
-  %354 = getelementptr inbounds %struct._rtp_info, ptr %353, i32 0, i32 5
-  %355 = load i16, ptr %354, align 4
-  %356 = load ptr, ptr %4, align 8
-  %357 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %356, i32 0, i32 2
-  store i16 %355, ptr %357, align 8
-  %358 = load ptr, ptr %4, align 8
-  %359 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %358, i32 0, i32 34
-  %360 = load i32, ptr %359, align 4
-  %361 = add i32 %360, 1
-  store i32 %361, ptr %359, align 4
-  %362 = load ptr, ptr %4, align 8
-  %363 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %362, i32 0, i32 1
+342:                                              ; preds = %336, %330
+  %343 = load ptr, ptr %4, align 8
+  %344 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %343, i32 0, i32 1
+  %345 = load i32, ptr %344, align 4
+  %346 = or i32 %345, 32
+  store i32 %346, ptr %344, align 4
+  br label %347
+
+347:                                              ; preds = %342, %336
+  %348 = load ptr, ptr %6, align 8
+  %349 = getelementptr inbounds nuw %struct._rtp_info, ptr %348, i32 0, i32 4
+  %350 = load i32, ptr %349, align 4
+  %351 = load ptr, ptr %4, align 8
+  %352 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %351, i32 0, i32 35
+  %353 = load i16, ptr %352, align 4
+  %354 = zext i16 %353 to i32
+  %355 = icmp ne i32 %350, %354
+  br i1 %355, label %356, label %361
+
+356:                                              ; preds = %347
+  %357 = load ptr, ptr %4, align 8
+  %358 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %357, i32 0, i32 1
+  %359 = load i32, ptr %358, align 4
+  %360 = or i32 %359, 8
+  store i32 %360, ptr %358, align 4
+  br label %361
+
+361:                                              ; preds = %356, %347
+  %362 = load ptr, ptr %6, align 8
+  %363 = getelementptr inbounds nuw %struct._rtp_info, ptr %362, i32 0, i32 4
   %364 = load i32, ptr %363, align 4
-  %365 = or i32 %364, 4
-  store i32 %365, ptr %363, align 4
-  br label %387
+  %365 = trunc i32 %364 to i16
+  %366 = load ptr, ptr %4, align 8
+  %367 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %366, i32 0, i32 35
+  store i16 %365, ptr %367, align 4
+  %368 = load ptr, ptr %4, align 8
+  %369 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %368, i32 0, i32 35
+  %370 = load i16, ptr %369, align 4
+  %371 = zext i16 %370 to i32
+  %372 = icmp slt i32 %371, 96
+  br i1 %372, label %373, label %379
 
-366:                                              ; preds = %341, %327
-  %367 = load ptr, ptr %4, align 8
-  %368 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %367, i32 0, i32 2
-  %369 = load i16, ptr %368, align 8
-  %370 = zext i16 %369 to i32
-  %371 = add i32 %370, 1
-  %372 = load ptr, ptr %6, align 8
-  %373 = getelementptr inbounds %struct._rtp_info, ptr %372, i32 0, i32 5
-  %374 = load i16, ptr %373, align 4
-  %375 = zext i16 %374 to i32
-  %376 = icmp sgt i32 %371, %375
-  br i1 %376, label %377, label %386
+373:                                              ; preds = %361
+  %374 = load ptr, ptr %4, align 8
+  %375 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %374, i32 0, i32 35
+  %376 = load i16, ptr %375, align 4
+  %377 = zext i16 %376 to i32
+  %378 = call i32 @get_clock_rate(i32 noundef %377)
+  store i32 %378, ptr %15, align 4
+  br label %413
 
-377:                                              ; preds = %366
-  %378 = load ptr, ptr %4, align 8
-  %379 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %378, i32 0, i32 34
-  %380 = load i32, ptr %379, align 4
-  %381 = add i32 %380, 1
-  store i32 %381, ptr %379, align 4
-  %382 = load ptr, ptr %4, align 8
-  %383 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %382, i32 0, i32 1
-  %384 = load i32, ptr %383, align 4
-  %385 = or i32 %384, 4
-  store i32 %385, ptr %383, align 4
-  br label %386
+379:                                              ; preds = %361
+  %380 = load ptr, ptr %6, align 8
+  %381 = getelementptr inbounds nuw %struct._rtp_info, ptr %380, i32 0, i32 17
+  %382 = load ptr, ptr %381, align 8
+  %383 = icmp ne ptr %382, null
+  br i1 %383, label %384, label %411
 
-386:                                              ; preds = %377, %366
-  br label %387
+384:                                              ; preds = %379
+  %385 = load ptr, ptr %6, align 8
+  %386 = getelementptr inbounds nuw %struct._rtp_info, ptr %385, i32 0, i32 17
+  %387 = load ptr, ptr %386, align 8
+  %388 = call i32 @g_ascii_strncasecmp(ptr noundef @.str, ptr noundef %387, i64 noundef 15)
+  %389 = icmp eq i32 %388, 0
+  br i1 %389, label %390, label %395
 
-387:                                              ; preds = %386, %352
-  br label %388
+390:                                              ; preds = %384
+  store i32 0, ptr %15, align 4
+  %391 = load ptr, ptr %4, align 8
+  %392 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %391, i32 0, i32 1
+  %393 = load i32, ptr %392, align 4
+  %394 = or i32 %393, 256
+  store i32 %394, ptr %392, align 4
+  br label %410
 
-388:                                              ; preds = %387, %321
-  br label %389
+395:                                              ; preds = %384
+  %396 = load ptr, ptr %6, align 8
+  %397 = getelementptr inbounds nuw %struct._rtp_info, ptr %396, i32 0, i32 18
+  %398 = load i32, ptr %397, align 8
+  %399 = icmp ne i32 %398, 0
+  br i1 %399, label %400, label %404
 
-389:                                              ; preds = %388, %300
-  %390 = load ptr, ptr %6, align 8
-  %391 = getelementptr inbounds %struct._rtp_info, ptr %390, i32 0, i32 4
-  %392 = load i32, ptr %391, align 8
-  %393 = icmp eq i32 %392, 13
-  br i1 %393, label %399, label %394
+400:                                              ; preds = %395
+  %401 = load ptr, ptr %6, align 8
+  %402 = getelementptr inbounds nuw %struct._rtp_info, ptr %401, i32 0, i32 18
+  %403 = load i32, ptr %402, align 8
+  store i32 %403, ptr %15, align 4
+  br label %409
 
-394:                                              ; preds = %389
-  %395 = load ptr, ptr %6, align 8
-  %396 = getelementptr inbounds %struct._rtp_info, ptr %395, i32 0, i32 4
-  %397 = load i32, ptr %396, align 8
-  %398 = icmp eq i32 %397, 19
-  br i1 %398, label %399, label %404
+404:                                              ; preds = %395
+  %405 = load ptr, ptr %6, align 8
+  %406 = getelementptr inbounds nuw %struct._rtp_info, ptr %405, i32 0, i32 17
+  %407 = load ptr, ptr %406, align 8
+  %408 = call i32 @get_dyn_pt_clock_rate(ptr noundef %407)
+  store i32 %408, ptr %15, align 4
+  br label %409
 
-399:                                              ; preds = %394, %389
-  %400 = load ptr, ptr %4, align 8
-  %401 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %400, i32 0, i32 1
-  %402 = load i32, ptr %401, align 4
-  %403 = or i32 %402, 16
-  store i32 %403, ptr %401, align 4
-  br label %404
+409:                                              ; preds = %404, %400
+  br label %410
 
-404:                                              ; preds = %399, %394
-  %405 = load ptr, ptr %4, align 8
-  %406 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %405, i32 0, i32 37
-  %407 = load i16, ptr %406, align 8
-  %408 = zext i16 %407 to i32
-  %409 = icmp eq i32 %408, 13
-  br i1 %409, label %416, label %410
+410:                                              ; preds = %409, %390
+  br label %412
 
-410:                                              ; preds = %404
-  %411 = load ptr, ptr %4, align 8
-  %412 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %411, i32 0, i32 37
-  %413 = load i16, ptr %412, align 8
-  %414 = zext i16 %413 to i32
-  %415 = icmp eq i32 %414, 19
-  br i1 %415, label %416, label %421
+411:                                              ; preds = %379
+  store i32 0, ptr %15, align 4
+  br label %412
 
-416:                                              ; preds = %410, %404
-  %417 = load ptr, ptr %4, align 8
-  %418 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %417, i32 0, i32 1
-  %419 = load i32, ptr %418, align 4
-  %420 = or i32 %419, 32
-  store i32 %420, ptr %418, align 4
-  br label %421
+412:                                              ; preds = %411, %410
+  br label %413
 
-421:                                              ; preds = %416, %410
-  %422 = load ptr, ptr %6, align 8
-  %423 = getelementptr inbounds %struct._rtp_info, ptr %422, i32 0, i32 4
-  %424 = load i32, ptr %423, align 8
-  %425 = load ptr, ptr %4, align 8
-  %426 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %425, i32 0, i32 37
-  %427 = load i16, ptr %426, align 8
-  %428 = zext i16 %427 to i32
-  %429 = icmp ne i32 %424, %428
-  br i1 %429, label %430, label %435
+413:                                              ; preds = %412, %373
+  %414 = load i8, ptr %16, align 1, !range !6, !noundef !7
+  %415 = trunc i8 %414 to i1
+  br i1 %415, label %417, label %416
 
-430:                                              ; preds = %421
-  %431 = load ptr, ptr %4, align 8
-  %432 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %431, i32 0, i32 1
-  %433 = load i32, ptr %432, align 4
-  %434 = or i32 %433, 8
-  store i32 %434, ptr %432, align 4
-  br label %435
+416:                                              ; preds = %413
+  br i1 true, label %417, label %550
 
-435:                                              ; preds = %430, %421
-  %436 = load ptr, ptr %6, align 8
-  %437 = getelementptr inbounds %struct._rtp_info, ptr %436, i32 0, i32 4
-  %438 = load i32, ptr %437, align 8
-  %439 = trunc i32 %438 to i16
-  %440 = load ptr, ptr %4, align 8
-  %441 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %440, i32 0, i32 37
-  store i16 %439, ptr %441, align 8
+417:                                              ; preds = %416, %413
+  %418 = load ptr, ptr %6, align 8
+  %419 = getelementptr inbounds nuw %struct._rtp_info, ptr %418, i32 0, i32 8
+  %420 = load i64, ptr %419, align 8
+  %421 = load ptr, ptr %4, align 8
+  %422 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %421, i32 0, i32 4
+  %423 = load i64, ptr %422, align 8
+  %424 = sub i64 %420, %423
+  %425 = sitofp i64 %424 to double
+  store double %425, ptr %11, align 8
+  %426 = load i32, ptr %15, align 4
+  %427 = icmp ne i32 %426, 0
+  br i1 %427, label %428, label %535
+
+428:                                              ; preds = %417
+  %429 = load i32, ptr %15, align 4
+  %430 = load ptr, ptr %4, align 8
+  %431 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %430, i32 0, i32 10
+  store i32 %429, ptr %431, align 8
+  %432 = load double, ptr %11, align 8
+  %433 = load i32, ptr %15, align 4
+  %434 = udiv i32 %433, 1000
+  %435 = uitofp i32 %434 to double
+  %436 = fdiv double %432, %435
+  store double %436, ptr %11, align 8
+  %437 = load ptr, ptr %4, align 8
+  %438 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %437, i32 0, i32 0
+  %439 = load i8, ptr %438, align 8, !range !6, !noundef !7
+  %440 = trunc i8 %439 to i1
+  br i1 %440, label %470, label %441
+
+441:                                              ; preds = %428
   %442 = load ptr, ptr %4, align 8
-  %443 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %442, i32 0, i32 37
-  %444 = load i16, ptr %443, align 8
-  %445 = zext i16 %444 to i32
-  %446 = icmp slt i32 %445, 96
-  br i1 %446, label %447, label %453
-
-447:                                              ; preds = %435
-  %448 = load ptr, ptr %4, align 8
-  %449 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %448, i32 0, i32 37
-  %450 = load i16, ptr %449, align 8
-  %451 = zext i16 %450 to i32
-  %452 = call i32 @get_clock_rate(i32 noundef %451)
-  store i32 %452, ptr %15, align 4
-  br label %487
-
-453:                                              ; preds = %435
-  %454 = load ptr, ptr %6, align 8
-  %455 = getelementptr inbounds %struct._rtp_info, ptr %454, i32 0, i32 17
-  %456 = load ptr, ptr %455, align 8
-  %457 = icmp ne ptr %456, null
-  br i1 %457, label %458, label %485
-
-458:                                              ; preds = %453
-  %459 = load ptr, ptr %6, align 8
-  %460 = getelementptr inbounds %struct._rtp_info, ptr %459, i32 0, i32 17
-  %461 = load ptr, ptr %460, align 8
-  %462 = call i32 @g_ascii_strncasecmp(ptr noundef @.str, ptr noundef %461, i64 noundef 15)
-  %463 = icmp eq i32 %462, 0
-  br i1 %463, label %464, label %469
-
-464:                                              ; preds = %458
-  store i32 0, ptr %15, align 4
+  %443 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %442, i32 0, i32 19
+  %444 = load double, ptr %443, align 8
+  %445 = load double, ptr %11, align 8
+  %446 = fadd double %444, %445
+  store double %446, ptr %13, align 8
+  %447 = load double, ptr %7, align 8
+  %448 = load double, ptr %13, align 8
+  %449 = fsub double %447, %448
+  %450 = call double @llvm.fabs.f64(double %449)
+  store double %450, ptr %9, align 8
+  %451 = load ptr, ptr %4, align 8
+  %452 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %451, i32 0, i32 12
+  %453 = load double, ptr %452, align 8
+  %454 = load double, ptr %9, align 8
+  %455 = call double @llvm.fmuladd.f64(double 1.500000e+01, double %453, double %454)
+  %456 = fdiv double %455, 1.600000e+01
+  store double %456, ptr %8, align 8
+  %457 = load double, ptr %7, align 8
+  %458 = load ptr, ptr %4, align 8
+  %459 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %458, i32 0, i32 19
+  %460 = load double, ptr %459, align 8
+  %461 = fsub double %457, %460
+  %462 = load ptr, ptr %4, align 8
+  %463 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %462, i32 0, i32 11
+  store double %461, ptr %463, align 8
+  %464 = load double, ptr %8, align 8
   %465 = load ptr, ptr %4, align 8
-  %466 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %465, i32 0, i32 1
-  %467 = load i32, ptr %466, align 4
-  %468 = or i32 %467, 256
-  store i32 %468, ptr %466, align 4
-  br label %484
+  %466 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %465, i32 0, i32 12
+  store double %464, ptr %466, align 8
+  %467 = load double, ptr %9, align 8
+  %468 = load ptr, ptr %4, align 8
+  %469 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %468, i32 0, i32 13
+  store double %467, ptr %469, align 8
+  br label %470
 
-469:                                              ; preds = %458
-  %470 = load ptr, ptr %6, align 8
-  %471 = getelementptr inbounds %struct._rtp_info, ptr %470, i32 0, i32 18
-  %472 = load i32, ptr %471, align 8
-  %473 = icmp ne i32 %472, 0
-  br i1 %473, label %474, label %478
+470:                                              ; preds = %441, %428
+  %471 = load ptr, ptr %4, align 8
+  %472 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %471, i32 0, i32 21
+  %473 = load double, ptr %472, align 8
+  %474 = load double, ptr %11, align 8
+  %475 = fadd double %473, %474
+  store double %475, ptr %10, align 8
+  %476 = load ptr, ptr %4, align 8
+  %477 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %476, i32 0, i32 22
+  %478 = load double, ptr %477, align 8
+  %479 = load ptr, ptr %4, align 8
+  %480 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %479, i32 0, i32 11
+  %481 = load double, ptr %480, align 8
+  %482 = fadd double %478, %481
+  store double %482, ptr %12, align 8
+  %483 = load double, ptr %10, align 8
+  %484 = load double, ptr %12, align 8
+  %485 = fsub double %483, %484
+  %486 = load ptr, ptr %4, align 8
+  %487 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %486, i32 0, i32 14
+  store double %485, ptr %487, align 8
+  %488 = load ptr, ptr %4, align 8
+  %489 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %488, i32 0, i32 14
+  %490 = load double, ptr %489, align 8
+  %491 = call double @llvm.fabs.f64(double %490)
+  store double %491, ptr %14, align 8
+  %492 = load double, ptr %14, align 8
+  %493 = load ptr, ptr %4, align 8
+  %494 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %493, i32 0, i32 28
+  %495 = load double, ptr %494, align 8
+  %496 = call double @llvm.fabs.f64(double %495)
+  %497 = fcmp ogt double %492, %496
+  br i1 %497, label %498, label %504
 
-474:                                              ; preds = %469
-  %475 = load ptr, ptr %6, align 8
-  %476 = getelementptr inbounds %struct._rtp_info, ptr %475, i32 0, i32 18
-  %477 = load i32, ptr %476, align 8
-  store i32 %477, ptr %15, align 4
-  br label %483
+498:                                              ; preds = %470
+  %499 = load ptr, ptr %4, align 8
+  %500 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %499, i32 0, i32 14
+  %501 = load double, ptr %500, align 8
+  %502 = load ptr, ptr %4, align 8
+  %503 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %502, i32 0, i32 28
+  store double %501, ptr %503, align 8
+  br label %504
 
-478:                                              ; preds = %469
-  %479 = load ptr, ptr %6, align 8
-  %480 = getelementptr inbounds %struct._rtp_info, ptr %479, i32 0, i32 17
-  %481 = load ptr, ptr %480, align 8
-  %482 = call i32 @get_dyn_pt_clock_rate(ptr noundef %481)
-  store i32 %482, ptr %15, align 4
-  br label %483
-
-483:                                              ; preds = %478, %474
-  br label %484
-
-484:                                              ; preds = %483, %464
-  br label %486
-
-485:                                              ; preds = %453
-  store i32 0, ptr %15, align 4
-  br label %486
-
-486:                                              ; preds = %485, %484
-  br label %487
-
-487:                                              ; preds = %486, %447
-  %488 = load i32, ptr %16, align 4
-  %489 = icmp ne i32 %488, 0
-  br i1 %489, label %491, label %490
-
-490:                                              ; preds = %487
-  br i1 false, label %624, label %491
-
-491:                                              ; preds = %490, %487
-  %492 = load ptr, ptr %6, align 8
-  %493 = getelementptr inbounds %struct._rtp_info, ptr %492, i32 0, i32 8
-  %494 = load i64, ptr %493, align 8
-  %495 = load ptr, ptr %4, align 8
-  %496 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %495, i32 0, i32 4
-  %497 = load i64, ptr %496, align 8
-  %498 = sub i64 %494, %497
-  %499 = sitofp i64 %498 to double
-  store double %499, ptr %11, align 8
-  %500 = load i32, ptr %15, align 4
-  %501 = icmp ne i32 %500, 0
-  br i1 %501, label %502, label %609
-
-502:                                              ; preds = %491
-  %503 = load i32, ptr %15, align 4
-  %504 = load ptr, ptr %4, align 8
-  %505 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %504, i32 0, i32 10
-  store i32 %503, ptr %505, align 8
-  %506 = load double, ptr %11, align 8
-  %507 = load i32, ptr %15, align 4
-  %508 = udiv i32 %507, 1000
-  %509 = uitofp i32 %508 to double
-  %510 = fdiv double %506, %509
-  store double %510, ptr %11, align 8
+504:                                              ; preds = %498, %470
+  %505 = load double, ptr %12, align 8
+  %506 = load ptr, ptr %4, align 8
+  %507 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %506, i32 0, i32 15
+  %508 = load double, ptr %507, align 8
+  %509 = call double @llvm.fmuladd.f64(double 1.000000e+00, double %505, double %508)
+  store double %509, ptr %507, align 8
+  %510 = load double, ptr %10, align 8
   %511 = load ptr, ptr %4, align 8
-  %512 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %511, i32 0, i32 0
-  %513 = load i32, ptr %512, align 8
-  %514 = icmp ne i32 %513, 0
-  br i1 %514, label %544, label %515
-
-515:                                              ; preds = %502
-  %516 = load ptr, ptr %4, align 8
-  %517 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %516, i32 0, i32 19
-  %518 = load double, ptr %517, align 8
-  %519 = load double, ptr %11, align 8
-  %520 = fadd double %518, %519
-  store double %520, ptr %13, align 8
-  %521 = load double, ptr %7, align 8
-  %522 = load double, ptr %13, align 8
-  %523 = fsub double %521, %522
-  %524 = call double @llvm.fabs.f64(double %523)
-  store double %524, ptr %9, align 8
+  %512 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %511, i32 0, i32 16
+  %513 = load double, ptr %512, align 8
+  %514 = call double @llvm.fmuladd.f64(double 1.000000e+00, double %510, double %513)
+  store double %514, ptr %512, align 8
+  %515 = load double, ptr %12, align 8
+  %516 = fmul double 1.000000e+00, %515
+  %517 = load double, ptr %12, align 8
+  %518 = load ptr, ptr %4, align 8
+  %519 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %518, i32 0, i32 17
+  %520 = load double, ptr %519, align 8
+  %521 = call double @llvm.fmuladd.f64(double %516, double %517, double %520)
+  store double %521, ptr %519, align 8
+  %522 = load double, ptr %12, align 8
+  %523 = fmul double 1.000000e+00, %522
+  %524 = load double, ptr %10, align 8
   %525 = load ptr, ptr %4, align 8
-  %526 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %525, i32 0, i32 12
+  %526 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %525, i32 0, i32 18
   %527 = load double, ptr %526, align 8
-  %528 = load double, ptr %9, align 8
-  %529 = call double @llvm.fmuladd.f64(double 1.500000e+01, double %527, double %528)
-  %530 = fdiv double %529, 1.600000e+01
-  store double %530, ptr %8, align 8
-  %531 = load double, ptr %7, align 8
-  %532 = load ptr, ptr %4, align 8
-  %533 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %532, i32 0, i32 19
-  %534 = load double, ptr %533, align 8
-  %535 = fsub double %531, %534
+  %528 = call double @llvm.fmuladd.f64(double %523, double %524, double %527)
+  store double %528, ptr %526, align 8
+  %529 = load double, ptr %10, align 8
+  %530 = load ptr, ptr %4, align 8
+  %531 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %530, i32 0, i32 21
+  store double %529, ptr %531, align 8
+  %532 = load double, ptr %12, align 8
+  %533 = load ptr, ptr %4, align 8
+  %534 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %533, i32 0, i32 22
+  store double %532, ptr %534, align 8
+  br label %549
+
+535:                                              ; preds = %417
   %536 = load ptr, ptr %4, align 8
-  %537 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %536, i32 0, i32 11
-  store double %535, ptr %537, align 8
-  %538 = load double, ptr %8, align 8
-  %539 = load ptr, ptr %4, align 8
-  %540 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %539, i32 0, i32 12
-  store double %538, ptr %540, align 8
-  %541 = load double, ptr %9, align 8
+  %537 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %536, i32 0, i32 0
+  %538 = load i8, ptr %537, align 8, !range !6, !noundef !7
+  %539 = trunc i8 %538 to i1
+  br i1 %539, label %548, label %540
+
+540:                                              ; preds = %535
+  %541 = load double, ptr %7, align 8
   %542 = load ptr, ptr %4, align 8
-  %543 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %542, i32 0, i32 13
-  store double %541, ptr %543, align 8
-  br label %544
+  %543 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %542, i32 0, i32 19
+  %544 = load double, ptr %543, align 8
+  %545 = fsub double %541, %544
+  %546 = load ptr, ptr %4, align 8
+  %547 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %546, i32 0, i32 11
+  store double %545, ptr %547, align 8
+  br label %548
 
-544:                                              ; preds = %515, %502
-  %545 = load ptr, ptr %4, align 8
-  %546 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %545, i32 0, i32 21
-  %547 = load double, ptr %546, align 8
-  %548 = load double, ptr %11, align 8
-  %549 = fadd double %547, %548
-  store double %549, ptr %10, align 8
-  %550 = load ptr, ptr %4, align 8
-  %551 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %550, i32 0, i32 22
-  %552 = load double, ptr %551, align 8
-  %553 = load ptr, ptr %4, align 8
-  %554 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %553, i32 0, i32 11
-  %555 = load double, ptr %554, align 8
-  %556 = fadd double %552, %555
-  store double %556, ptr %12, align 8
-  %557 = load double, ptr %10, align 8
-  %558 = load double, ptr %12, align 8
-  %559 = fsub double %557, %558
-  %560 = load ptr, ptr %4, align 8
-  %561 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %560, i32 0, i32 14
-  store double %559, ptr %561, align 8
-  %562 = load ptr, ptr %4, align 8
-  %563 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %562, i32 0, i32 14
-  %564 = load double, ptr %563, align 8
-  %565 = call double @llvm.fabs.f64(double %564)
-  store double %565, ptr %14, align 8
-  %566 = load double, ptr %14, align 8
-  %567 = load ptr, ptr %4, align 8
-  %568 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %567, i32 0, i32 28
-  %569 = load double, ptr %568, align 8
-  %570 = call double @llvm.fabs.f64(double %569)
-  %571 = fcmp ogt double %566, %570
-  br i1 %571, label %572, label %578
+548:                                              ; preds = %540, %535
+  br label %549
 
-572:                                              ; preds = %544
-  %573 = load ptr, ptr %4, align 8
-  %574 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %573, i32 0, i32 14
-  %575 = load double, ptr %574, align 8
+549:                                              ; preds = %548, %504
+  br label %550
+
+550:                                              ; preds = %549, %416
+  %551 = load ptr, ptr %5, align 8
+  %552 = getelementptr inbounds nuw %struct._packet_info, ptr %551, i32 0, i32 14
+  %553 = getelementptr inbounds nuw %struct._address, ptr %552, i32 0, i32 0
+  %554 = load i32, ptr %553, align 8
+  %555 = icmp eq i32 %554, 3
+  br i1 %555, label %556, label %569
+
+556:                                              ; preds = %550
+  %557 = load ptr, ptr %6, align 8
+  %558 = getelementptr inbounds nuw %struct._rtp_info, ptr %557, i32 0, i32 10
+  %559 = load i32, ptr %558, align 4
+  %560 = add i32 %559, 48
+  %561 = load ptr, ptr %4, align 8
+  %562 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %561, i32 0, i32 6
+  %563 = load ptr, ptr %4, align 8
+  %564 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %563, i32 0, i32 8
+  %565 = load i16, ptr %564, align 2
+  %566 = zext i16 %565 to i64
+  %567 = getelementptr [300 x %struct._bw_history_item], ptr %562, i64 0, i64 %566
+  %568 = getelementptr inbounds nuw %struct._bw_history_item, ptr %567, i32 0, i32 1
+  store i32 %560, ptr %568, align 8
+  br label %582
+
+569:                                              ; preds = %550
+  %570 = load ptr, ptr %6, align 8
+  %571 = getelementptr inbounds nuw %struct._rtp_info, ptr %570, i32 0, i32 10
+  %572 = load i32, ptr %571, align 4
+  %573 = add i32 %572, 28
+  %574 = load ptr, ptr %4, align 8
+  %575 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %574, i32 0, i32 6
   %576 = load ptr, ptr %4, align 8
-  %577 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %576, i32 0, i32 28
-  store double %575, ptr %577, align 8
-  br label %578
+  %577 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %576, i32 0, i32 8
+  %578 = load i16, ptr %577, align 2
+  %579 = zext i16 %578 to i64
+  %580 = getelementptr [300 x %struct._bw_history_item], ptr %575, i64 0, i64 %579
+  %581 = getelementptr inbounds nuw %struct._bw_history_item, ptr %580, i32 0, i32 1
+  store i32 %573, ptr %581, align 8
+  br label %582
 
-578:                                              ; preds = %572, %544
-  %579 = load double, ptr %12, align 8
-  %580 = load ptr, ptr %4, align 8
-  %581 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %580, i32 0, i32 15
-  %582 = load double, ptr %581, align 8
-  %583 = call double @llvm.fmuladd.f64(double 1.000000e+00, double %579, double %582)
-  store double %583, ptr %581, align 8
-  %584 = load double, ptr %10, align 8
-  %585 = load ptr, ptr %4, align 8
-  %586 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %585, i32 0, i32 16
-  %587 = load double, ptr %586, align 8
-  %588 = call double @llvm.fmuladd.f64(double 1.000000e+00, double %584, double %587)
-  store double %588, ptr %586, align 8
-  %589 = load double, ptr %12, align 8
-  %590 = fmul double 1.000000e+00, %589
-  %591 = load double, ptr %12, align 8
-  %592 = load ptr, ptr %4, align 8
-  %593 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %592, i32 0, i32 17
-  %594 = load double, ptr %593, align 8
-  %595 = call double @llvm.fmuladd.f64(double %590, double %591, double %594)
-  store double %595, ptr %593, align 8
-  %596 = load double, ptr %12, align 8
-  %597 = fmul double 1.000000e+00, %596
-  %598 = load double, ptr %10, align 8
-  %599 = load ptr, ptr %4, align 8
-  %600 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %599, i32 0, i32 18
+582:                                              ; preds = %569, %556
+  %583 = load double, ptr %7, align 8
+  %584 = load ptr, ptr %4, align 8
+  %585 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %584, i32 0, i32 6
+  %586 = load ptr, ptr %4, align 8
+  %587 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %586, i32 0, i32 8
+  %588 = load i16, ptr %587, align 2
+  %589 = zext i16 %588 to i64
+  %590 = getelementptr [300 x %struct._bw_history_item], ptr %585, i64 0, i64 %589
+  %591 = getelementptr inbounds nuw %struct._bw_history_item, ptr %590, i32 0, i32 0
+  store double %583, ptr %591, align 8
+  br label %592
+
+592:                                              ; preds = %631, %582
+  %593 = load ptr, ptr %4, align 8
+  %594 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %593, i32 0, i32 6
+  %595 = load ptr, ptr %4, align 8
+  %596 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %595, i32 0, i32 7
+  %597 = load i16, ptr %596, align 8
+  %598 = zext i16 %597 to i64
+  %599 = getelementptr [300 x %struct._bw_history_item], ptr %594, i64 0, i64 %598
+  %600 = getelementptr inbounds nuw %struct._bw_history_item, ptr %599, i32 0, i32 0
   %601 = load double, ptr %600, align 8
-  %602 = call double @llvm.fmuladd.f64(double %597, double %598, double %601)
-  store double %602, ptr %600, align 8
-  %603 = load double, ptr %10, align 8
-  %604 = load ptr, ptr %4, align 8
-  %605 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %604, i32 0, i32 21
-  store double %603, ptr %605, align 8
-  %606 = load double, ptr %12, align 8
-  %607 = load ptr, ptr %4, align 8
-  %608 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %607, i32 0, i32 22
-  store double %606, ptr %608, align 8
-  br label %623
+  %602 = fadd double %601, 1.000000e+03
+  %603 = load double, ptr %7, align 8
+  %604 = fcmp olt double %602, %603
+  br i1 %604, label %605, label %632
 
-609:                                              ; preds = %491
-  %610 = load ptr, ptr %4, align 8
-  %611 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %610, i32 0, i32 0
-  %612 = load i32, ptr %611, align 8
-  %613 = icmp ne i32 %612, 0
-  br i1 %613, label %622, label %614
+605:                                              ; preds = %592
+  %606 = load ptr, ptr %4, align 8
+  %607 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %606, i32 0, i32 6
+  %608 = load ptr, ptr %4, align 8
+  %609 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %608, i32 0, i32 7
+  %610 = load i16, ptr %609, align 8
+  %611 = zext i16 %610 to i64
+  %612 = getelementptr [300 x %struct._bw_history_item], ptr %607, i64 0, i64 %611
+  %613 = getelementptr inbounds nuw %struct._bw_history_item, ptr %612, i32 0, i32 1
+  %614 = load i32, ptr %613, align 8
+  %615 = load ptr, ptr %4, align 8
+  %616 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %615, i32 0, i32 9
+  %617 = load i32, ptr %616, align 4
+  %618 = sub i32 %617, %614
+  store i32 %618, ptr %616, align 4
+  %619 = load ptr, ptr %4, align 8
+  %620 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %619, i32 0, i32 7
+  %621 = load i16, ptr %620, align 8
+  %622 = add i16 %621, 1
+  store i16 %622, ptr %620, align 8
+  %623 = load ptr, ptr %4, align 8
+  %624 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %623, i32 0, i32 7
+  %625 = load i16, ptr %624, align 8
+  %626 = zext i16 %625 to i32
+  %627 = icmp eq i32 %626, 300
+  br i1 %627, label %628, label %631
 
-614:                                              ; preds = %609
-  %615 = load double, ptr %7, align 8
-  %616 = load ptr, ptr %4, align 8
-  %617 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %616, i32 0, i32 19
-  %618 = load double, ptr %617, align 8
-  %619 = fsub double %615, %618
-  %620 = load ptr, ptr %4, align 8
-  %621 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %620, i32 0, i32 11
-  store double %619, ptr %621, align 8
-  br label %622
+628:                                              ; preds = %605
+  %629 = load ptr, ptr %4, align 8
+  %630 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %629, i32 0, i32 7
+  store i16 0, ptr %630, align 8
+  br label %631
 
-622:                                              ; preds = %614, %609
-  br label %623
+631:                                              ; preds = %628, %605
+  br label %592, !llvm.loop !8
 
-623:                                              ; preds = %622, %578
-  br label %624
+632:                                              ; preds = %592
+  %633 = load ptr, ptr %5, align 8
+  %634 = getelementptr inbounds nuw %struct._packet_info, ptr %633, i32 0, i32 14
+  %635 = getelementptr inbounds nuw %struct._address, ptr %634, i32 0, i32 0
+  %636 = load i32, ptr %635, align 8
+  %637 = icmp eq i32 %636, 3
+  br i1 %637, label %638, label %647
 
-624:                                              ; preds = %623, %490
-  %625 = load ptr, ptr %5, align 8
-  %626 = getelementptr inbounds %struct._packet_info, ptr %625, i32 0, i32 14
-  %627 = getelementptr inbounds %struct._address, ptr %626, i32 0, i32 0
-  %628 = load i32, ptr %627, align 8
-  %629 = icmp eq i32 %628, 3
-  br i1 %629, label %630, label %643
-
-630:                                              ; preds = %624
-  %631 = load ptr, ptr %6, align 8
-  %632 = getelementptr inbounds %struct._rtp_info, ptr %631, i32 0, i32 10
-  %633 = load i32, ptr %632, align 4
-  %634 = add i32 %633, 48
-  %635 = load ptr, ptr %4, align 8
-  %636 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %635, i32 0, i32 6
-  %637 = load ptr, ptr %4, align 8
-  %638 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %637, i32 0, i32 8
-  %639 = load i16, ptr %638, align 2
-  %640 = zext i16 %639 to i64
-  %641 = getelementptr [300 x %struct._bw_history_item], ptr %636, i64 0, i64 %640
-  %642 = getelementptr inbounds %struct._bw_history_item, ptr %641, i32 0, i32 1
-  store i32 %634, ptr %642, align 8
+638:                                              ; preds = %632
+  %639 = load ptr, ptr %6, align 8
+  %640 = getelementptr inbounds nuw %struct._rtp_info, ptr %639, i32 0, i32 10
+  %641 = load i32, ptr %640, align 4
+  %642 = add i32 %641, 48
+  %643 = load ptr, ptr %4, align 8
+  %644 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %643, i32 0, i32 9
+  %645 = load i32, ptr %644, align 4
+  %646 = add i32 %645, %642
+  store i32 %646, ptr %644, align 4
   br label %656
 
-643:                                              ; preds = %624
-  %644 = load ptr, ptr %6, align 8
-  %645 = getelementptr inbounds %struct._rtp_info, ptr %644, i32 0, i32 10
-  %646 = load i32, ptr %645, align 4
-  %647 = add i32 %646, 28
-  %648 = load ptr, ptr %4, align 8
-  %649 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %648, i32 0, i32 6
-  %650 = load ptr, ptr %4, align 8
-  %651 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %650, i32 0, i32 8
-  %652 = load i16, ptr %651, align 2
-  %653 = zext i16 %652 to i64
-  %654 = getelementptr [300 x %struct._bw_history_item], ptr %649, i64 0, i64 %653
-  %655 = getelementptr inbounds %struct._bw_history_item, ptr %654, i32 0, i32 1
-  store i32 %647, ptr %655, align 8
+647:                                              ; preds = %632
+  %648 = load ptr, ptr %6, align 8
+  %649 = getelementptr inbounds nuw %struct._rtp_info, ptr %648, i32 0, i32 10
+  %650 = load i32, ptr %649, align 4
+  %651 = add i32 %650, 28
+  %652 = load ptr, ptr %4, align 8
+  %653 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %652, i32 0, i32 9
+  %654 = load i32, ptr %653, align 4
+  %655 = add i32 %654, %651
+  store i32 %655, ptr %653, align 4
   br label %656
 
-656:                                              ; preds = %643, %630
-  %657 = load double, ptr %7, align 8
-  %658 = load ptr, ptr %4, align 8
-  %659 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %658, i32 0, i32 6
-  %660 = load ptr, ptr %4, align 8
-  %661 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %660, i32 0, i32 8
-  %662 = load i16, ptr %661, align 2
-  %663 = zext i16 %662 to i64
-  %664 = getelementptr [300 x %struct._bw_history_item], ptr %659, i64 0, i64 %663
-  %665 = getelementptr inbounds %struct._bw_history_item, ptr %664, i32 0, i32 0
-  store double %657, ptr %665, align 8
-  br label %666
-
-666:                                              ; preds = %705, %656
-  %667 = load ptr, ptr %4, align 8
-  %668 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %667, i32 0, i32 6
+656:                                              ; preds = %647, %638
+  %657 = load ptr, ptr %4, align 8
+  %658 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %657, i32 0, i32 9
+  %659 = load i32, ptr %658, align 4
+  %660 = mul i32 %659, 8
+  %661 = uitofp i32 %660 to double
+  %662 = fdiv double %661, 1.000000e+03
+  %663 = load ptr, ptr %4, align 8
+  %664 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %663, i32 0, i32 5
+  store double %662, ptr %664, align 8
+  %665 = load ptr, ptr %4, align 8
+  %666 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %665, i32 0, i32 8
+  %667 = load i16, ptr %666, align 2
+  %668 = add i16 %667, 1
+  store i16 %668, ptr %666, align 2
   %669 = load ptr, ptr %4, align 8
-  %670 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %669, i32 0, i32 7
-  %671 = load i16, ptr %670, align 8
-  %672 = zext i16 %671 to i64
-  %673 = getelementptr [300 x %struct._bw_history_item], ptr %668, i64 0, i64 %672
-  %674 = getelementptr inbounds %struct._bw_history_item, ptr %673, i32 0, i32 0
-  %675 = load double, ptr %674, align 8
-  %676 = fadd double %675, 1.000000e+03
-  %677 = load double, ptr %7, align 8
-  %678 = fcmp olt double %676, %677
-  br i1 %678, label %679, label %706
+  %670 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %669, i32 0, i32 8
+  %671 = load i16, ptr %670, align 2
+  %672 = zext i16 %671 to i32
+  %673 = icmp eq i32 %672, 300
+  br i1 %673, label %674, label %677
 
-679:                                              ; preds = %666
-  %680 = load ptr, ptr %4, align 8
-  %681 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %680, i32 0, i32 6
-  %682 = load ptr, ptr %4, align 8
-  %683 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %682, i32 0, i32 7
-  %684 = load i16, ptr %683, align 8
-  %685 = zext i16 %684 to i64
-  %686 = getelementptr [300 x %struct._bw_history_item], ptr %681, i64 0, i64 %685
-  %687 = getelementptr inbounds %struct._bw_history_item, ptr %686, i32 0, i32 1
-  %688 = load i32, ptr %687, align 8
-  %689 = load ptr, ptr %4, align 8
-  %690 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %689, i32 0, i32 9
-  %691 = load i32, ptr %690, align 4
-  %692 = sub i32 %691, %688
-  store i32 %692, ptr %690, align 4
-  %693 = load ptr, ptr %4, align 8
-  %694 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %693, i32 0, i32 7
-  %695 = load i16, ptr %694, align 8
-  %696 = add i16 %695, 1
-  store i16 %696, ptr %694, align 8
-  %697 = load ptr, ptr %4, align 8
-  %698 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %697, i32 0, i32 7
-  %699 = load i16, ptr %698, align 8
-  %700 = zext i16 %699 to i32
-  %701 = icmp eq i32 %700, 300
-  br i1 %701, label %702, label %705
+674:                                              ; preds = %656
+  %675 = load ptr, ptr %4, align 8
+  %676 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %675, i32 0, i32 8
+  store i16 0, ptr %676, align 2
+  br label %677
 
-702:                                              ; preds = %679
-  %703 = load ptr, ptr %4, align 8
-  %704 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %703, i32 0, i32 7
-  store i16 0, ptr %704, align 8
-  br label %705
+677:                                              ; preds = %674, %656
+  %678 = load ptr, ptr %6, align 8
+  %679 = getelementptr inbounds nuw %struct._rtp_info, ptr %678, i32 0, i32 2
+  %680 = load i8, ptr %679, align 1, !range !6, !noundef !7
+  %681 = trunc i8 %680 to i1
+  br i1 %681, label %682, label %687
 
-705:                                              ; preds = %702, %679
-  br label %666, !llvm.loop !4
+682:                                              ; preds = %677
+  %683 = load ptr, ptr %4, align 8
+  %684 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %683, i32 0, i32 1
+  %685 = load i32, ptr %684, align 4
+  %686 = or i32 %685, 2
+  store i32 %686, ptr %684, align 4
+  br label %687
 
-706:                                              ; preds = %666
-  %707 = load ptr, ptr %5, align 8
-  %708 = getelementptr inbounds %struct._packet_info, ptr %707, i32 0, i32 14
-  %709 = getelementptr inbounds %struct._address, ptr %708, i32 0, i32 0
-  %710 = load i32, ptr %709, align 8
-  %711 = icmp eq i32 %710, 3
-  br i1 %711, label %712, label %721
+687:                                              ; preds = %682, %677
+  %688 = load ptr, ptr %4, align 8
+  %689 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %688, i32 0, i32 1
+  %690 = load i32, ptr %689, align 4
+  %691 = and i32 %690, 1
+  %692 = icmp ne i32 %691, 0
+  br i1 %692, label %843, label %693
 
-712:                                              ; preds = %706
-  %713 = load ptr, ptr %6, align 8
-  %714 = getelementptr inbounds %struct._rtp_info, ptr %713, i32 0, i32 10
-  %715 = load i32, ptr %714, align 4
-  %716 = add i32 %715, 48
-  %717 = load ptr, ptr %4, align 8
-  %718 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %717, i32 0, i32 9
-  %719 = load i32, ptr %718, align 4
-  %720 = add i32 %719, %716
-  store i32 %720, ptr %718, align 4
-  br label %730
+693:                                              ; preds = %687
+  %694 = load ptr, ptr %4, align 8
+  %695 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %694, i32 0, i32 1
+  %696 = load i32, ptr %695, align 4
+  %697 = and i32 %696, 2
+  %698 = icmp ne i32 %697, 0
+  br i1 %698, label %843, label %699
 
-721:                                              ; preds = %706
-  %722 = load ptr, ptr %6, align 8
-  %723 = getelementptr inbounds %struct._rtp_info, ptr %722, i32 0, i32 10
-  %724 = load i32, ptr %723, align 4
-  %725 = add i32 %724, 28
+699:                                              ; preds = %693
+  %700 = load ptr, ptr %4, align 8
+  %701 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %700, i32 0, i32 1
+  %702 = load i32, ptr %701, align 4
+  %703 = and i32 %702, 16
+  %704 = icmp ne i32 %703, 0
+  br i1 %704, label %843, label %705
+
+705:                                              ; preds = %699
+  %706 = load ptr, ptr %4, align 8
+  %707 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %706, i32 0, i32 1
+  %708 = load i32, ptr %707, align 4
+  %709 = and i32 %708, 128
+  %710 = icmp ne i32 %709, 0
+  br i1 %710, label %843, label %711
+
+711:                                              ; preds = %705
+  %712 = load ptr, ptr %4, align 8
+  %713 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %712, i32 0, i32 1
+  %714 = load i32, ptr %713, align 4
+  %715 = and i32 %714, 32
+  %716 = icmp ne i32 %715, 0
+  br i1 %716, label %843, label %717
+
+717:                                              ; preds = %711
+  %718 = load ptr, ptr %4, align 8
+  %719 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %718, i32 0, i32 11
+  %720 = load double, ptr %719, align 8
+  %721 = load ptr, ptr %4, align 8
+  %722 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %721, i32 0, i32 24
+  %723 = load double, ptr %722, align 8
+  %724 = fcmp ogt double %720, %723
+  br i1 %724, label %725, label %736
+
+725:                                              ; preds = %717
   %726 = load ptr, ptr %4, align 8
-  %727 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %726, i32 0, i32 9
-  %728 = load i32, ptr %727, align 4
-  %729 = add i32 %728, %725
-  store i32 %729, ptr %727, align 4
-  br label %730
-
-730:                                              ; preds = %721, %712
-  %731 = load ptr, ptr %4, align 8
-  %732 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %731, i32 0, i32 9
+  %727 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %726, i32 0, i32 11
+  %728 = load double, ptr %727, align 8
+  %729 = load ptr, ptr %4, align 8
+  %730 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %729, i32 0, i32 24
+  store double %728, ptr %730, align 8
+  %731 = load ptr, ptr %5, align 8
+  %732 = getelementptr inbounds nuw %struct._packet_info, ptr %731, i32 0, i32 3
   %733 = load i32, ptr %732, align 4
-  %734 = mul i32 %733, 8
-  %735 = uitofp i32 %734 to double
-  %736 = fdiv double %735, 1.000000e+03
+  %734 = load ptr, ptr %4, align 8
+  %735 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %734, i32 0, i32 30
+  store i32 %733, ptr %735, align 8
+  br label %736
+
+736:                                              ; preds = %725, %717
   %737 = load ptr, ptr %4, align 8
-  %738 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %737, i32 0, i32 5
-  store double %736, ptr %738, align 8
-  %739 = load ptr, ptr %4, align 8
-  %740 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %739, i32 0, i32 8
-  %741 = load i16, ptr %740, align 2
-  %742 = add i16 %741, 1
-  store i16 %742, ptr %740, align 2
-  %743 = load ptr, ptr %4, align 8
-  %744 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %743, i32 0, i32 8
-  %745 = load i16, ptr %744, align 2
-  %746 = zext i16 %745 to i32
-  %747 = icmp eq i32 %746, 300
-  br i1 %747, label %748, label %751
+  %738 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %737, i32 0, i32 23
+  %739 = load double, ptr %738, align 8
+  %740 = fcmp oeq double %739, -1.000000e+00
+  br i1 %740, label %741, label %747
 
-748:                                              ; preds = %730
-  %749 = load ptr, ptr %4, align 8
-  %750 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %749, i32 0, i32 8
-  store i16 0, ptr %750, align 2
-  br label %751
+741:                                              ; preds = %736
+  %742 = load ptr, ptr %4, align 8
+  %743 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %742, i32 0, i32 11
+  %744 = load double, ptr %743, align 8
+  %745 = load ptr, ptr %4, align 8
+  %746 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %745, i32 0, i32 23
+  store double %744, ptr %746, align 8
+  br label %762
 
-751:                                              ; preds = %748, %730
-  %752 = load ptr, ptr %6, align 8
-  %753 = getelementptr inbounds %struct._rtp_info, ptr %752, i32 0, i32 2
-  %754 = load i32, ptr %753, align 8
-  %755 = icmp ne i32 %754, 0
-  br i1 %755, label %756, label %761
+747:                                              ; preds = %736
+  %748 = load ptr, ptr %4, align 8
+  %749 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %748, i32 0, i32 11
+  %750 = load double, ptr %749, align 8
+  %751 = load ptr, ptr %4, align 8
+  %752 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %751, i32 0, i32 23
+  %753 = load double, ptr %752, align 8
+  %754 = fcmp olt double %750, %753
+  br i1 %754, label %755, label %761
 
-756:                                              ; preds = %751
-  %757 = load ptr, ptr %4, align 8
-  %758 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %757, i32 0, i32 1
-  %759 = load i32, ptr %758, align 4
-  %760 = or i32 %759, 2
-  store i32 %760, ptr %758, align 4
+755:                                              ; preds = %747
+  %756 = load ptr, ptr %4, align 8
+  %757 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %756, i32 0, i32 11
+  %758 = load double, ptr %757, align 8
+  %759 = load ptr, ptr %4, align 8
+  %760 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %759, i32 0, i32 23
+  store double %758, ptr %760, align 8
   br label %761
 
-761:                                              ; preds = %756, %751
-  %762 = load ptr, ptr %4, align 8
-  %763 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %762, i32 0, i32 1
-  %764 = load i32, ptr %763, align 4
-  %765 = and i32 %764, 1
-  %766 = icmp ne i32 %765, 0
-  br i1 %766, label %917, label %767
+761:                                              ; preds = %755, %747
+  br label %762
 
-767:                                              ; preds = %761
-  %768 = load ptr, ptr %4, align 8
-  %769 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %768, i32 0, i32 1
-  %770 = load i32, ptr %769, align 4
-  %771 = and i32 %770, 2
-  %772 = icmp ne i32 %771, 0
-  br i1 %772, label %917, label %773
-
-773:                                              ; preds = %767
-  %774 = load ptr, ptr %4, align 8
-  %775 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %774, i32 0, i32 1
-  %776 = load i32, ptr %775, align 4
-  %777 = and i32 %776, 16
-  %778 = icmp ne i32 %777, 0
-  br i1 %778, label %917, label %779
-
-779:                                              ; preds = %773
+762:                                              ; preds = %761, %741
+  %763 = load ptr, ptr %4, align 8
+  %764 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %763, i32 0, i32 25
+  %765 = load double, ptr %764, align 8
+  %766 = load ptr, ptr %4, align 8
+  %767 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %766, i32 0, i32 33
+  %768 = load i32, ptr %767, align 4
+  %769 = sub i32 %768, 1
+  %770 = uitofp i32 %769 to double
+  %771 = load ptr, ptr %4, align 8
+  %772 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %771, i32 0, i32 11
+  %773 = load double, ptr %772, align 8
+  %774 = call double @llvm.fmuladd.f64(double %765, double %770, double %773)
+  %775 = load ptr, ptr %4, align 8
+  %776 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %775, i32 0, i32 33
+  %777 = load i32, ptr %776, align 4
+  %778 = uitofp i32 %777 to double
+  %779 = fdiv double %774, %778
   %780 = load ptr, ptr %4, align 8
-  %781 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %780, i32 0, i32 1
-  %782 = load i32, ptr %781, align 4
-  %783 = and i32 %782, 128
-  %784 = icmp ne i32 %783, 0
-  br i1 %784, label %917, label %785
+  %781 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %780, i32 0, i32 25
+  store double %779, ptr %781, align 8
+  %782 = load i32, ptr %15, align 4
+  %783 = icmp ne i32 %782, 0
+  br i1 %783, label %784, label %842
 
-785:                                              ; preds = %779
-  %786 = load ptr, ptr %4, align 8
-  %787 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %786, i32 0, i32 1
-  %788 = load i32, ptr %787, align 4
-  %789 = and i32 %788, 32
-  %790 = icmp ne i32 %789, 0
-  br i1 %790, label %917, label %791
+784:                                              ; preds = %762
+  %785 = load ptr, ptr %4, align 8
+  %786 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %785, i32 0, i32 12
+  %787 = load double, ptr %786, align 8
+  %788 = load ptr, ptr %4, align 8
+  %789 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %788, i32 0, i32 27
+  %790 = load double, ptr %789, align 8
+  %791 = fcmp ogt double %787, %790
+  br i1 %791, label %792, label %798
 
-791:                                              ; preds = %785
-  %792 = load ptr, ptr %4, align 8
-  %793 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %792, i32 0, i32 11
-  %794 = load double, ptr %793, align 8
-  %795 = load ptr, ptr %4, align 8
-  %796 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %795, i32 0, i32 24
-  %797 = load double, ptr %796, align 8
-  %798 = fcmp ogt double %794, %797
-  br i1 %798, label %799, label %810
+792:                                              ; preds = %784
+  %793 = load ptr, ptr %4, align 8
+  %794 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %793, i32 0, i32 12
+  %795 = load double, ptr %794, align 8
+  %796 = load ptr, ptr %4, align 8
+  %797 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %796, i32 0, i32 27
+  store double %795, ptr %797, align 8
+  br label %798
 
-799:                                              ; preds = %791
-  %800 = load ptr, ptr %4, align 8
-  %801 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %800, i32 0, i32 11
-  %802 = load double, ptr %801, align 8
-  %803 = load ptr, ptr %4, align 8
-  %804 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %803, i32 0, i32 24
-  store double %802, ptr %804, align 8
-  %805 = load ptr, ptr %5, align 8
-  %806 = getelementptr inbounds %struct._packet_info, ptr %805, i32 0, i32 3
-  %807 = load i32, ptr %806, align 4
-  %808 = load ptr, ptr %4, align 8
-  %809 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %808, i32 0, i32 30
-  store i32 %807, ptr %809, align 8
-  br label %810
-
-810:                                              ; preds = %799, %791
-  %811 = load ptr, ptr %4, align 8
-  %812 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %811, i32 0, i32 23
-  %813 = load double, ptr %812, align 8
-  %814 = fcmp oeq double %813, -1.000000e+00
-  br i1 %814, label %815, label %821
-
-815:                                              ; preds = %810
+798:                                              ; preds = %792, %784
+  %799 = load ptr, ptr %4, align 8
+  %800 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %799, i32 0, i32 29
+  %801 = load double, ptr %800, align 8
+  %802 = load ptr, ptr %4, align 8
+  %803 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %802, i32 0, i32 33
+  %804 = load i32, ptr %803, align 4
+  %805 = sub i32 %804, 1
+  %806 = uitofp i32 %805 to double
+  %807 = load double, ptr %8, align 8
+  %808 = call double @llvm.fmuladd.f64(double %801, double %806, double %807)
+  %809 = load ptr, ptr %4, align 8
+  %810 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %809, i32 0, i32 33
+  %811 = load i32, ptr %810, align 4
+  %812 = uitofp i32 %811 to double
+  %813 = fdiv double %808, %812
+  %814 = load ptr, ptr %4, align 8
+  %815 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %814, i32 0, i32 29
+  store double %813, ptr %815, align 8
   %816 = load ptr, ptr %4, align 8
-  %817 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %816, i32 0, i32 11
+  %817 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %816, i32 0, i32 26
   %818 = load double, ptr %817, align 8
-  %819 = load ptr, ptr %4, align 8
-  %820 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %819, i32 0, i32 23
-  store double %818, ptr %820, align 8
-  br label %836
+  %819 = fcmp oeq double %818, -1.000000e+00
+  br i1 %819, label %820, label %826
 
-821:                                              ; preds = %810
-  %822 = load ptr, ptr %4, align 8
-  %823 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %822, i32 0, i32 11
-  %824 = load double, ptr %823, align 8
-  %825 = load ptr, ptr %4, align 8
-  %826 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %825, i32 0, i32 23
-  %827 = load double, ptr %826, align 8
-  %828 = fcmp olt double %824, %827
-  br i1 %828, label %829, label %835
+820:                                              ; preds = %798
+  %821 = load ptr, ptr %4, align 8
+  %822 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %821, i32 0, i32 12
+  %823 = load double, ptr %822, align 8
+  %824 = load ptr, ptr %4, align 8
+  %825 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %824, i32 0, i32 26
+  store double %823, ptr %825, align 8
+  br label %841
 
-829:                                              ; preds = %821
+826:                                              ; preds = %798
+  %827 = load ptr, ptr %4, align 8
+  %828 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %827, i32 0, i32 12
+  %829 = load double, ptr %828, align 8
   %830 = load ptr, ptr %4, align 8
-  %831 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %830, i32 0, i32 11
+  %831 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %830, i32 0, i32 26
   %832 = load double, ptr %831, align 8
-  %833 = load ptr, ptr %4, align 8
-  %834 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %833, i32 0, i32 23
-  store double %832, ptr %834, align 8
-  br label %835
+  %833 = fcmp olt double %829, %832
+  br i1 %833, label %834, label %840
 
-835:                                              ; preds = %829, %821
-  br label %836
+834:                                              ; preds = %826
+  %835 = load ptr, ptr %4, align 8
+  %836 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %835, i32 0, i32 12
+  %837 = load double, ptr %836, align 8
+  %838 = load ptr, ptr %4, align 8
+  %839 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %838, i32 0, i32 26
+  store double %837, ptr %839, align 8
+  br label %840
 
-836:                                              ; preds = %835, %815
-  %837 = load ptr, ptr %4, align 8
-  %838 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %837, i32 0, i32 25
-  %839 = load double, ptr %838, align 8
-  %840 = load ptr, ptr %4, align 8
-  %841 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %840, i32 0, i32 33
-  %842 = load i32, ptr %841, align 8
-  %843 = sub i32 %842, 1
-  %844 = uitofp i32 %843 to double
-  %845 = load ptr, ptr %4, align 8
-  %846 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %845, i32 0, i32 11
-  %847 = load double, ptr %846, align 8
-  %848 = call double @llvm.fmuladd.f64(double %839, double %844, double %847)
-  %849 = load ptr, ptr %4, align 8
-  %850 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %849, i32 0, i32 33
-  %851 = load i32, ptr %850, align 8
-  %852 = uitofp i32 %851 to double
-  %853 = fdiv double %848, %852
-  %854 = load ptr, ptr %4, align 8
-  %855 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %854, i32 0, i32 25
-  store double %853, ptr %855, align 8
-  %856 = load i32, ptr %15, align 4
-  %857 = icmp ne i32 %856, 0
-  br i1 %857, label %858, label %916
+840:                                              ; preds = %834, %826
+  br label %841
 
-858:                                              ; preds = %836
-  %859 = load ptr, ptr %4, align 8
-  %860 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %859, i32 0, i32 12
-  %861 = load double, ptr %860, align 8
-  %862 = load ptr, ptr %4, align 8
-  %863 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %862, i32 0, i32 27
-  %864 = load double, ptr %863, align 8
-  %865 = fcmp ogt double %861, %864
-  br i1 %865, label %866, label %872
+841:                                              ; preds = %840, %820
+  br label %842
 
-866:                                              ; preds = %858
-  %867 = load ptr, ptr %4, align 8
-  %868 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %867, i32 0, i32 12
-  %869 = load double, ptr %868, align 8
+842:                                              ; preds = %841, %762
+  br label %843
+
+843:                                              ; preds = %842, %711, %705, %699, %693, %687
+  %844 = load ptr, ptr %4, align 8
+  %845 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %844, i32 0, i32 1
+  %846 = load i32, ptr %845, align 4
+  %847 = and i32 %846, 1
+  %848 = icmp ne i32 %847, 0
+  br i1 %848, label %875, label %849
+
+849:                                              ; preds = %843
+  %850 = load ptr, ptr %4, align 8
+  %851 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %850, i32 0, i32 1
+  %852 = load i32, ptr %851, align 4
+  %853 = and i32 %852, 16
+  %854 = icmp ne i32 %853, 0
+  br i1 %854, label %875, label %855
+
+855:                                              ; preds = %849
+  %856 = load ptr, ptr %4, align 8
+  %857 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %856, i32 0, i32 35
+  %858 = load i16, ptr %857, align 4
+  %859 = zext i16 %858 to i32
+  %860 = load ptr, ptr %4, align 8
+  %861 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %860, i32 0, i32 36
+  %862 = load i32, ptr %861, align 8
+  %863 = icmp ne i32 %859, %862
+  br i1 %863, label %864, label %874
+
+864:                                              ; preds = %855
+  %865 = load ptr, ptr %4, align 8
+  %866 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %865, i32 0, i32 36
+  %867 = load i32, ptr %866, align 8
+  %868 = icmp ne i32 %867, -1
+  br i1 %868, label %869, label %874
+
+869:                                              ; preds = %864
   %870 = load ptr, ptr %4, align 8
-  %871 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %870, i32 0, i32 27
-  store double %869, ptr %871, align 8
-  br label %872
+  %871 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %870, i32 0, i32 1
+  %872 = load i32, ptr %871, align 4
+  %873 = or i32 %872, 64
+  store i32 %873, ptr %871, align 4
+  br label %874
 
-872:                                              ; preds = %866, %858
-  %873 = load ptr, ptr %4, align 8
-  %874 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %873, i32 0, i32 29
-  %875 = load double, ptr %874, align 8
+874:                                              ; preds = %869, %864, %855
+  br label %875
+
+875:                                              ; preds = %874, %849, %843
   %876 = load ptr, ptr %4, align 8
-  %877 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %876, i32 0, i32 33
-  %878 = load i32, ptr %877, align 8
-  %879 = sub i32 %878, 1
-  %880 = uitofp i32 %879 to double
-  %881 = load double, ptr %8, align 8
-  %882 = call double @llvm.fmuladd.f64(double %875, double %880, double %881)
-  %883 = load ptr, ptr %4, align 8
-  %884 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %883, i32 0, i32 33
-  %885 = load i32, ptr %884, align 8
-  %886 = uitofp i32 %885 to double
-  %887 = fdiv double %882, %886
-  %888 = load ptr, ptr %4, align 8
-  %889 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %888, i32 0, i32 29
-  store double %887, ptr %889, align 8
-  %890 = load ptr, ptr %4, align 8
-  %891 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %890, i32 0, i32 26
-  %892 = load double, ptr %891, align 8
-  %893 = fcmp oeq double %892, -1.000000e+00
-  br i1 %893, label %894, label %900
+  %877 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %876, i32 0, i32 1
+  %878 = load i32, ptr %877, align 4
+  %879 = and i32 %878, 16
+  %880 = icmp ne i32 %879, 0
+  br i1 %880, label %888, label %881
 
-894:                                              ; preds = %872
-  %895 = load ptr, ptr %4, align 8
-  %896 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %895, i32 0, i32 12
-  %897 = load double, ptr %896, align 8
+881:                                              ; preds = %875
+  %882 = load ptr, ptr %4, align 8
+  %883 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %882, i32 0, i32 35
+  %884 = load i16, ptr %883, align 4
+  %885 = zext i16 %884 to i32
+  %886 = load ptr, ptr %4, align 8
+  %887 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %886, i32 0, i32 36
+  store i32 %885, ptr %887, align 8
+  br label %888
+
+888:                                              ; preds = %881, %875
+  %889 = load i8, ptr %16, align 1, !range !6, !noundef !7
+  %890 = trunc i8 %889 to i1
+  br i1 %890, label %891, label %900
+
+891:                                              ; preds = %888
+  %892 = load double, ptr %7, align 8
+  %893 = load ptr, ptr %4, align 8
+  %894 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %893, i32 0, i32 19
+  store double %892, ptr %894, align 8
+  %895 = load ptr, ptr %6, align 8
+  %896 = getelementptr inbounds nuw %struct._rtp_info, ptr %895, i32 0, i32 8
+  %897 = load i64, ptr %896, align 8
   %898 = load ptr, ptr %4, align 8
-  %899 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %898, i32 0, i32 26
-  store double %897, ptr %899, align 8
-  br label %915
+  %899 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %898, i32 0, i32 4
+  store i64 %897, ptr %899, align 8
+  br label %900
 
-900:                                              ; preds = %872
-  %901 = load ptr, ptr %4, align 8
-  %902 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %901, i32 0, i32 12
-  %903 = load double, ptr %902, align 8
+900:                                              ; preds = %891, %888
+  %901 = load ptr, ptr %6, align 8
+  %902 = getelementptr inbounds nuw %struct._rtp_info, ptr %901, i32 0, i32 8
+  %903 = load i64, ptr %902, align 8
   %904 = load ptr, ptr %4, align 8
-  %905 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %904, i32 0, i32 26
-  %906 = load double, ptr %905, align 8
-  %907 = fcmp olt double %903, %906
-  br i1 %907, label %908, label %914
+  %905 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %904, i32 0, i32 3
+  store i64 %903, ptr %905, align 8
+  %906 = load ptr, ptr %4, align 8
+  %907 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %906, i32 0, i32 31
+  %908 = load i32, ptr %907, align 4
+  %909 = load ptr, ptr %6, align 8
+  %910 = getelementptr inbounds nuw %struct._rtp_info, ptr %909, i32 0, i32 6
+  %911 = load i32, ptr %910, align 4
+  %912 = icmp ult i32 %908, %911
+  br i1 %912, label %913, label %917
 
-908:                                              ; preds = %900
-  %909 = load ptr, ptr %4, align 8
-  %910 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %909, i32 0, i32 12
-  %911 = load double, ptr %910, align 8
-  %912 = load ptr, ptr %4, align 8
-  %913 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %912, i32 0, i32 26
-  store double %911, ptr %913, align 8
-  br label %914
+913:                                              ; preds = %900
+  %914 = load ptr, ptr %4, align 8
+  %915 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %914, i32 0, i32 31
+  %916 = load i32, ptr %915, align 4
+  br label %921
 
-914:                                              ; preds = %908, %900
-  br label %915
-
-915:                                              ; preds = %914, %894
-  br label %916
-
-916:                                              ; preds = %915, %836
-  br label %917
-
-917:                                              ; preds = %916, %785, %779, %773, %767, %761
-  %918 = load ptr, ptr %4, align 8
-  %919 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %918, i32 0, i32 1
+917:                                              ; preds = %900
+  %918 = load ptr, ptr %6, align 8
+  %919 = getelementptr inbounds nuw %struct._rtp_info, ptr %918, i32 0, i32 6
   %920 = load i32, ptr %919, align 4
-  %921 = and i32 %920, 1
-  %922 = icmp ne i32 %921, 0
-  br i1 %922, label %949, label %923
+  br label %921
 
-923:                                              ; preds = %917
-  %924 = load ptr, ptr %4, align 8
-  %925 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %924, i32 0, i32 1
-  %926 = load i32, ptr %925, align 4
-  %927 = and i32 %926, 16
-  %928 = icmp ne i32 %927, 0
-  br i1 %928, label %949, label %929
+921:                                              ; preds = %917, %913
+  %922 = phi i32 [ %916, %913 ], [ %920, %917 ]
+  %923 = load ptr, ptr %4, align 8
+  %924 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %923, i32 0, i32 31
+  store i32 %922, ptr %924, align 4
+  %925 = load ptr, ptr %4, align 8
+  %926 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %925, i32 0, i32 32
+  %927 = load i32, ptr %926, align 8
+  %928 = load ptr, ptr %6, align 8
+  %929 = getelementptr inbounds nuw %struct._rtp_info, ptr %928, i32 0, i32 6
+  %930 = load i32, ptr %929, align 4
+  %931 = icmp ugt i32 %927, %930
+  br i1 %931, label %932, label %936
 
-929:                                              ; preds = %923
-  %930 = load ptr, ptr %4, align 8
-  %931 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %930, i32 0, i32 37
-  %932 = load i16, ptr %931, align 8
-  %933 = zext i16 %932 to i32
-  %934 = load ptr, ptr %4, align 8
-  %935 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %934, i32 0, i32 38
-  %936 = load i32, ptr %935, align 4
-  %937 = icmp ne i32 %933, %936
-  br i1 %937, label %938, label %948
+932:                                              ; preds = %921
+  %933 = load ptr, ptr %4, align 8
+  %934 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %933, i32 0, i32 32
+  %935 = load i32, ptr %934, align 8
+  br label %940
 
-938:                                              ; preds = %929
-  %939 = load ptr, ptr %4, align 8
-  %940 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %939, i32 0, i32 38
-  %941 = load i32, ptr %940, align 4
-  %942 = icmp ne i32 %941, -1
-  br i1 %942, label %943, label %948
+936:                                              ; preds = %921
+  %937 = load ptr, ptr %6, align 8
+  %938 = getelementptr inbounds nuw %struct._rtp_info, ptr %937, i32 0, i32 6
+  %939 = load i32, ptr %938, align 4
+  br label %940
 
-943:                                              ; preds = %938
+940:                                              ; preds = %936, %932
+  %941 = phi i32 [ %935, %932 ], [ %939, %936 ]
+  %942 = load ptr, ptr %4, align 8
+  %943 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %942, i32 0, i32 32
+  store i32 %941, ptr %943, align 8
   %944 = load ptr, ptr %4, align 8
-  %945 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %944, i32 0, i32 1
+  %945 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %944, i32 0, i32 33
   %946 = load i32, ptr %945, align 4
-  %947 = or i32 %946, 64
+  %947 = add i32 %946, 1
   store i32 %947, ptr %945, align 4
-  br label %948
+  %948 = load ptr, ptr %6, align 8
+  %949 = getelementptr inbounds nuw %struct._rtp_info, ptr %948, i32 0, i32 13
+  %950 = load i32, ptr %949, align 8
+  %951 = load ptr, ptr %4, align 8
+  %952 = getelementptr inbounds nuw %struct._tap_rtp_stat_t, ptr %951, i32 0, i32 38
+  store i32 %950, ptr %952, align 8
+  store i32 1, ptr %17, align 4
+  br label %953
 
-948:                                              ; preds = %943, %938, %929
-  br label %949
-
-949:                                              ; preds = %948, %923, %917
-  %950 = load ptr, ptr %4, align 8
-  %951 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %950, i32 0, i32 1
-  %952 = load i32, ptr %951, align 4
-  %953 = and i32 %952, 16
-  %954 = icmp ne i32 %953, 0
-  br i1 %954, label %962, label %955
-
-955:                                              ; preds = %949
-  %956 = load ptr, ptr %4, align 8
-  %957 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %956, i32 0, i32 37
-  %958 = load i16, ptr %957, align 8
-  %959 = zext i16 %958 to i32
-  %960 = load ptr, ptr %4, align 8
-  %961 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %960, i32 0, i32 38
-  store i32 %959, ptr %961, align 4
-  br label %962
-
-962:                                              ; preds = %955, %949
-  %963 = load i32, ptr %16, align 4
-  %964 = icmp ne i32 %963, 0
-  br i1 %964, label %965, label %974
-
-965:                                              ; preds = %962
-  %966 = load double, ptr %7, align 8
-  %967 = load ptr, ptr %4, align 8
-  %968 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %967, i32 0, i32 19
-  store double %966, ptr %968, align 8
-  %969 = load ptr, ptr %6, align 8
-  %970 = getelementptr inbounds %struct._rtp_info, ptr %969, i32 0, i32 8
-  %971 = load i64, ptr %970, align 8
-  %972 = load ptr, ptr %4, align 8
-  %973 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %972, i32 0, i32 4
-  store i64 %971, ptr %973, align 8
-  br label %974
-
-974:                                              ; preds = %965, %962
-  %975 = load ptr, ptr %6, align 8
-  %976 = getelementptr inbounds %struct._rtp_info, ptr %975, i32 0, i32 8
-  %977 = load i64, ptr %976, align 8
-  %978 = load ptr, ptr %4, align 8
-  %979 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %978, i32 0, i32 3
-  store i64 %977, ptr %979, align 8
-  %980 = load ptr, ptr %6, align 8
-  %981 = getelementptr inbounds %struct._rtp_info, ptr %980, i32 0, i32 5
-  %982 = load i16, ptr %981, align 4
-  %983 = load ptr, ptr %4, align 8
-  %984 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %983, i32 0, i32 32
-  store i16 %982, ptr %984, align 2
-  %985 = load ptr, ptr %4, align 8
-  %986 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %985, i32 0, i32 33
-  %987 = load i32, ptr %986, align 8
-  %988 = add i32 %987, 1
-  store i32 %988, ptr %986, align 8
-  %989 = load ptr, ptr %6, align 8
-  %990 = getelementptr inbounds %struct._rtp_info, ptr %989, i32 0, i32 13
-  %991 = load i32, ptr %990, align 8
-  %992 = load ptr, ptr %4, align 8
-  %993 = getelementptr inbounds %struct._tap_rtp_stat_t, ptr %992, i32 0, i32 40
-  store i32 %991, ptr %993, align 4
-  br label %994
-
-994:                                              ; preds = %974, %181
+953:                                              ; preds = %940, %182
+  call void @llvm.lifetime.end.p0(i64 1, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
   ret void
 }
 
-declare double @nstime_to_msec(ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-; Function Attrs: nounwind uwtable
-define internal i32 @get_clock_rate(i32 noundef %0) #0 {
+; Function Attrs: null_pointer_is_valid
+declare double @nstime_to_msec(ptr noundef) #2
+
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @get_clock_rate(i32 noundef %0) #3 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca i64, align 8
+  %5 = alloca i32, align 4
   store i32 %0, ptr %3, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #6
   store i64 0, ptr %4, align 8
-  br label %5
+  br label %6
 
-5:                                                ; preds = %21, %1
-  %6 = load i64, ptr %4, align 8
-  %7 = icmp ult i64 %6, 28
-  br i1 %7, label %8, label %24
+6:                                                ; preds = %22, %1
+  %7 = load i64, ptr %4, align 8
+  %8 = icmp ult i64 %7, 28
+  br i1 %8, label %9, label %25
 
-8:                                                ; preds = %5
-  %9 = load i64, ptr %4, align 8
-  %10 = getelementptr [28 x %struct._key_value], ptr @clock_map, i64 0, i64 %9
-  %11 = getelementptr inbounds %struct._key_value, ptr %10, i32 0, i32 0
-  %12 = load i32, ptr %11, align 8
-  %13 = load i32, ptr %3, align 4
-  %14 = icmp eq i32 %12, %13
-  br i1 %14, label %15, label %20
+9:                                                ; preds = %6
+  %10 = load i64, ptr %4, align 8
+  %11 = getelementptr [28 x %struct._key_value], ptr @clock_map, i64 0, i64 %10
+  %12 = getelementptr inbounds nuw %struct._key_value, ptr %11, i32 0, i32 0
+  %13 = load i32, ptr %12, align 8
+  %14 = load i32, ptr %3, align 4
+  %15 = icmp eq i32 %13, %14
+  br i1 %15, label %16, label %21
 
-15:                                               ; preds = %8
-  %16 = load i64, ptr %4, align 8
-  %17 = getelementptr [28 x %struct._key_value], ptr @clock_map, i64 0, i64 %16
-  %18 = getelementptr inbounds %struct._key_value, ptr %17, i32 0, i32 1
-  %19 = load i32, ptr %18, align 4
-  store i32 %19, ptr %2, align 4
-  br label %25
+16:                                               ; preds = %9
+  %17 = load i64, ptr %4, align 8
+  %18 = getelementptr [28 x %struct._key_value], ptr @clock_map, i64 0, i64 %17
+  %19 = getelementptr inbounds nuw %struct._key_value, ptr %18, i32 0, i32 1
+  %20 = load i32, ptr %19, align 4
+  store i32 %20, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %26
 
-20:                                               ; preds = %8
-  br label %21
+21:                                               ; preds = %9
+  br label %22
 
-21:                                               ; preds = %20
-  %22 = load i64, ptr %4, align 8
-  %23 = add i64 %22, 1
-  store i64 %23, ptr %4, align 8
-  br label %5, !llvm.loop !6
+22:                                               ; preds = %21
+  %23 = load i64, ptr %4, align 8
+  %24 = add i64 %23, 1
+  store i64 %24, ptr %4, align 8
+  br label %6, !llvm.loop !10
 
-24:                                               ; preds = %5
+25:                                               ; preds = %6
   store i32 0, ptr %2, align 4
-  br label %25
+  store i32 1, ptr %5, align 4
+  br label %26
 
-25:                                               ; preds = %24, %15
-  %26 = load i32, ptr %2, align 4
-  ret i32 %26
+26:                                               ; preds = %25, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #6
+  %27 = load i32, ptr %2, align 4
+  ret i32 %27
 }
 
-declare i32 @g_ascii_strncasecmp(ptr noundef, ptr noundef, i64 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @g_ascii_strncasecmp(ptr noundef, ptr noundef, i64 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @get_dyn_pt_clock_rate(ptr noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #6
   store i32 37, ptr %4, align 4
-  br label %5
+  br label %6
 
-5:                                                ; preds = %30, %1
-  %6 = load i32, ptr %4, align 4
-  %7 = icmp sgt i32 %6, -1
-  br i1 %7, label %8, label %33
+6:                                                ; preds = %31, %1
+  %7 = load i32, ptr %4, align 4
+  %8 = icmp sgt i32 %7, -1
+  br i1 %8, label %9, label %34
 
-8:                                                ; preds = %5
-  %9 = load i32, ptr %4, align 4
-  %10 = sext i32 %9 to i64
-  %11 = getelementptr [38 x %struct._mimetype_and_clock], ptr @mimetype_and_clock_map, i64 0, i64 %10
-  %12 = getelementptr inbounds %struct._mimetype_and_clock, ptr %11, i32 0, i32 0
-  %13 = load ptr, ptr %12, align 16
-  %14 = load ptr, ptr %3, align 8
-  %15 = load i32, ptr %4, align 4
-  %16 = sext i32 %15 to i64
-  %17 = getelementptr [38 x %struct._mimetype_and_clock], ptr @mimetype_and_clock_map, i64 0, i64 %16
-  %18 = getelementptr inbounds %struct._mimetype_and_clock, ptr %17, i32 0, i32 0
-  %19 = load ptr, ptr %18, align 16
-  %20 = call i64 @strlen(ptr noundef %19) #4
-  %21 = call i32 @g_ascii_strncasecmp(ptr noundef %13, ptr noundef %14, i64 noundef %20)
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %29
+9:                                                ; preds = %6
+  %10 = load i32, ptr %4, align 4
+  %11 = sext i32 %10 to i64
+  %12 = getelementptr [38 x %struct._mimetype_and_clock], ptr @mimetype_and_clock_map, i64 0, i64 %11
+  %13 = getelementptr inbounds nuw %struct._mimetype_and_clock, ptr %12, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 16
+  %15 = load ptr, ptr %3, align 8
+  %16 = load i32, ptr %4, align 4
+  %17 = sext i32 %16 to i64
+  %18 = getelementptr [38 x %struct._mimetype_and_clock], ptr @mimetype_and_clock_map, i64 0, i64 %17
+  %19 = getelementptr inbounds nuw %struct._mimetype_and_clock, ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 16
+  %21 = call i64 @strlen(ptr noundef %20) #7
+  %22 = call i32 @g_ascii_strncasecmp(ptr noundef %14, ptr noundef %15, i64 noundef %21)
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %24, label %30
 
-23:                                               ; preds = %8
-  %24 = load i32, ptr %4, align 4
-  %25 = sext i32 %24 to i64
-  %26 = getelementptr [38 x %struct._mimetype_and_clock], ptr @mimetype_and_clock_map, i64 0, i64 %25
-  %27 = getelementptr inbounds %struct._mimetype_and_clock, ptr %26, i32 0, i32 1
-  %28 = load i32, ptr %27, align 8
-  store i32 %28, ptr %2, align 4
-  br label %34
+24:                                               ; preds = %9
+  %25 = load i32, ptr %4, align 4
+  %26 = sext i32 %25 to i64
+  %27 = getelementptr [38 x %struct._mimetype_and_clock], ptr @mimetype_and_clock_map, i64 0, i64 %26
+  %28 = getelementptr inbounds nuw %struct._mimetype_and_clock, ptr %27, i32 0, i32 1
+  %29 = load i32, ptr %28, align 8
+  store i32 %29, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %35
 
-29:                                               ; preds = %8
-  br label %30
+30:                                               ; preds = %9
+  br label %31
 
-30:                                               ; preds = %29
-  %31 = load i32, ptr %4, align 4
-  %32 = add i32 %31, -1
-  store i32 %32, ptr %4, align 4
-  br label %5, !llvm.loop !7
+31:                                               ; preds = %30
+  %32 = load i32, ptr %4, align 4
+  %33 = add i32 %32, -1
+  store i32 %33, ptr %4, align 4
+  br label %6, !llvm.loop !11
 
-33:                                               ; preds = %5
+34:                                               ; preds = %6
   store i32 0, ptr %2, align 4
-  br label %34
+  store i32 1, ptr %5, align 4
+  br label %35
 
-34:                                               ; preds = %33, %23
-  %35 = load i32, ptr %2, align 4
-  ret i32 %35
+35:                                               ; preds = %34, %24
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #6
+  %36 = load i32, ptr %2, align 4
+  ret i32 %36
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #2
+declare double @llvm.fabs.f64(double) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #2
+declare double @llvm.fmuladd.f64(double, double, double) #4
 
-; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #3
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind willreturn memory(read) }
+; Function Attrs: nounwind null_pointer_is_valid willreturn memory(read)
+declare i64 @strlen(ptr noundef) #5
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nounwind null_pointer_is_valid willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind }
+attributes #7 = { nounwind willreturn memory(read) }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}

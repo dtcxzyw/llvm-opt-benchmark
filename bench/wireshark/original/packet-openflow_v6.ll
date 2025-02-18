@@ -3,27 +3,24 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
 %struct._value_string_ext = type { ptr, i32, i32, ptr, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
+%struct._value_string = type { i32, ptr }
 %struct.expert_field = type { i32, i32 }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
-%struct.oxm_header = type { i32, i32, i32, i32 }
+%struct.oxm_header = type { i32, i8, i32, i32 }
 %struct.inst_header = type { i32, i32 }
 
 @proto_register_openflow_v6.hf = internal global [768 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_openflow_v6_version, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 4, i32 2, ptr @openflow_v6_version_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_type, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 4, i32 513, ptr @openflow_v6_type_values_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_xid, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_length, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_oxm_class, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 5, i32 2, ptr @openflow_v6_oxm_class_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_oxm_field, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 4, i32 1, ptr null, i64 254, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_oxm_field_basic, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 4, i32 513, ptr @openflow_v6_oxm_basic_field_values_ext, i64 254, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_oxm_hm, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_oxm_length, %struct._header_field_info { ptr @.str.6, ptr @.str.14, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_oxm_experimenter_experimenter, %struct._header_field_info { ptr @.str.15, ptr @.str.16, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_oxm_experimenter_value, %struct._header_field_info { ptr @.str.17, ptr @.str.18, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_oxm_value, %struct._header_field_info { ptr @.str.19, ptr @.str.20, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_oxm_value_etheraddr, %struct._header_field_info { ptr @.str.19, ptr @.str.21, i32 29, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_oxm_value_ethertype, %struct._header_field_info { ptr @.str.19, ptr @.str.22, i32 5, i32 2, ptr @etype_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_oxm_value_vlan_present, %struct._header_field_info { ptr @.str.23, ptr @.str.24, i32 2, i32 16, ptr null, i64 4096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_oxm_value_vlan_vid, %struct._header_field_info { ptr @.str.19, ptr @.str.25, i32 5, i32 1, ptr null, i64 4095, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_oxm_value_ipv4addr, %struct._header_field_info { ptr @.str.19, ptr @.str.26, i32 32, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_oxm_value_ipv6addr, %struct._header_field_info { ptr @.str.19, ptr @.str.27, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_oxm_value_ipproto, %struct._header_field_info { ptr @.str.19, ptr @.str.28, i32 4, i32 513, ptr @ipproto_val_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_oxm_value_uint16, %struct._header_field_info { ptr @.str.19, ptr @.str.29, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_oxm_value_uint24, %struct._header_field_info { ptr @.str.19, ptr @.str.30, i32 6, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_oxm_value_uint32, %struct._header_field_info { ptr @.str.19, ptr @.str.31, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_oxm_mask, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_oxm_mask_etheraddr, %struct._header_field_info { ptr @.str.32, ptr @.str.34, i32 29, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_oxm_mask_ipv4addr, %struct._header_field_info { ptr @.str.32, ptr @.str.35, i32 32, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_oxm_mask_ipv6addr, %struct._header_field_info { ptr @.str.32, ptr @.str.36, i32 33, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_oxm_mask_vlan, %struct._header_field_info { ptr @.str.32, ptr @.str.37, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_match_type, %struct._header_field_info { ptr @.str.2, ptr @.str.38, i32 5, i32 1, ptr @openflow_v6_match_type_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_match_length, %struct._header_field_info { ptr @.str.6, ptr @.str.39, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_match_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.41, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_action_type, %struct._header_field_info { ptr @.str.2, ptr @.str.42, i32 5, i32 1, ptr @openflow_v6_action_type_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_action_length, %struct._header_field_info { ptr @.str.6, ptr @.str.43, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_action_experimenter_experimenter, %struct._header_field_info { ptr @.str.15, ptr @.str.44, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_action_output_port, %struct._header_field_info { ptr @.str.45, ptr @.str.46, i32 7, i32 32769, ptr @openflow_v6_port_reserved_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_action_output_max_len, %struct._header_field_info { ptr @.str.47, ptr @.str.48, i32 5, i32 32769, ptr @openflow_v6_controller_max_len_reserved_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_action_output_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.49, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_action_copy_ttl_out_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.50, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_action_copy_ttl_in_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.51, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_action_set_mpls_ttl_ttl, %struct._header_field_info { ptr @.str.52, ptr @.str.53, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_action_set_mpls_ttl_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.54, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_action_dec_mpls_ttl_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.55, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_action_push_vlan_ethertype, %struct._header_field_info { ptr @.str.56, ptr @.str.57, i32 5, i32 2, ptr @etype_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_action_push_vlan_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.58, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_action_pop_vlan_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.59, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_action_push_mpls_ethertype, %struct._header_field_info { ptr @.str.56, ptr @.str.60, i32 5, i32 2, ptr @etype_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_action_push_mpls_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.61, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_action_pop_mpls_ethertype, %struct._header_field_info { ptr @.str.56, ptr @.str.62, i32 5, i32 2, ptr @etype_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_action_pop_mpls_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.63, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_action_set_queue_queue_id, %struct._header_field_info { ptr @.str.64, ptr @.str.65, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_action_group_group_id, %struct._header_field_info { ptr @.str.66, ptr @.str.67, i32 7, i32 32769, ptr @openflow_v6_port_reserved_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_action_set_nw_ttl_ttl, %struct._header_field_info { ptr @.str.52, ptr @.str.68, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_action_set_nw_ttl_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.69, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_action_dec_nw_ttl_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.70, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_action_set_field_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.71, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_action_push_pbb_ethertype, %struct._header_field_info { ptr @.str.56, ptr @.str.72, i32 5, i32 2, ptr @etype_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_action_push_pbb_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.73, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_action_pop_pbb_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.74, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_action_copy_field_n_bits, %struct._header_field_info { ptr @.str.75, ptr @.str.76, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_action_copy_field_src_offset, %struct._header_field_info { ptr @.str.77, ptr @.str.78, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_action_copy_field_dst_offset, %struct._header_field_info { ptr @.str.79, ptr @.str.80, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_action_copy_field_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.81, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_action_meter_id, %struct._header_field_info { ptr @.str.82, ptr @.str.83, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_instruction_type, %struct._header_field_info { ptr @.str.2, ptr @.str.84, i32 5, i32 1, ptr @openflow_v6_instruction_type_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_instruction_length, %struct._header_field_info { ptr @.str.6, ptr @.str.85, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_instruction_experimenter_experimenter, %struct._header_field_info { ptr @.str.15, ptr @.str.86, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_instruction_goto_table_table_id, %struct._header_field_info { ptr @.str.87, ptr @.str.88, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_instruction_goto_table_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.89, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_instruction_write_metadata_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.90, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_instruction_write_metadata_value, %struct._header_field_info { ptr @.str.19, ptr @.str.91, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_instruction_write_metadata_mask, %struct._header_field_info { ptr @.str.32, ptr @.str.92, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_instruction_actions_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.93, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_type, %struct._header_field_info { ptr @.str.2, ptr @.str.94, i32 5, i32 1, ptr @openflow_v6_port_desc_prop_type_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_length, %struct._header_field_info { ptr @.str.6, ptr @.str.95, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.96, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_current, %struct._header_field_info { ptr @.str.97, ptr @.str.98, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_current_10mb_hd, %struct._header_field_info { ptr @.str.99, ptr @.str.100, i32 2, i32 32, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_current_10mb_fd, %struct._header_field_info { ptr @.str.101, ptr @.str.102, i32 2, i32 32, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_current_100mb_hd, %struct._header_field_info { ptr @.str.103, ptr @.str.104, i32 2, i32 32, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_current_100mb_fd, %struct._header_field_info { ptr @.str.105, ptr @.str.106, i32 2, i32 32, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_current_1gb_hd, %struct._header_field_info { ptr @.str.107, ptr @.str.108, i32 2, i32 32, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_current_1gb_fd, %struct._header_field_info { ptr @.str.109, ptr @.str.110, i32 2, i32 32, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_current_10gb_fd, %struct._header_field_info { ptr @.str.111, ptr @.str.112, i32 2, i32 32, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_current_40gb_fd, %struct._header_field_info { ptr @.str.113, ptr @.str.114, i32 2, i32 32, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_current_100gb_fd, %struct._header_field_info { ptr @.str.115, ptr @.str.116, i32 2, i32 32, ptr null, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_current_1tb_fd, %struct._header_field_info { ptr @.str.117, ptr @.str.118, i32 2, i32 32, ptr null, i64 512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_current_other, %struct._header_field_info { ptr @.str.119, ptr @.str.120, i32 2, i32 32, ptr null, i64 1024, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_current_copper, %struct._header_field_info { ptr @.str.121, ptr @.str.122, i32 2, i32 32, ptr null, i64 2048, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_current_fiber, %struct._header_field_info { ptr @.str.123, ptr @.str.124, i32 2, i32 32, ptr null, i64 4096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_current_autoneg, %struct._header_field_info { ptr @.str.125, ptr @.str.126, i32 2, i32 32, ptr null, i64 8192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_current_pause, %struct._header_field_info { ptr @.str.127, ptr @.str.128, i32 2, i32 32, ptr null, i64 16384, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_current_pause_asym, %struct._header_field_info { ptr @.str.129, ptr @.str.130, i32 2, i32 32, ptr null, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_current_reserved, %struct._header_field_info { ptr @.str.131, ptr @.str.132, i32 7, i32 2, ptr null, i64 4294901760, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_advertised, %struct._header_field_info { ptr @.str.133, ptr @.str.134, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_advertised_10mb_hd, %struct._header_field_info { ptr @.str.99, ptr @.str.135, i32 2, i32 32, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_advertised_10mb_fd, %struct._header_field_info { ptr @.str.101, ptr @.str.136, i32 2, i32 32, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_advertised_100mb_hd, %struct._header_field_info { ptr @.str.103, ptr @.str.137, i32 2, i32 32, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_advertised_100mb_fd, %struct._header_field_info { ptr @.str.105, ptr @.str.138, i32 2, i32 32, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_advertised_1gb_hd, %struct._header_field_info { ptr @.str.107, ptr @.str.139, i32 2, i32 32, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_advertised_1gb_fd, %struct._header_field_info { ptr @.str.109, ptr @.str.140, i32 2, i32 32, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_advertised_10gb_fd, %struct._header_field_info { ptr @.str.111, ptr @.str.141, i32 2, i32 32, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_advertised_40gb_fd, %struct._header_field_info { ptr @.str.113, ptr @.str.142, i32 2, i32 32, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_advertised_100gb_fd, %struct._header_field_info { ptr @.str.143, ptr @.str.144, i32 2, i32 32, ptr null, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_advertised_1tb_fd, %struct._header_field_info { ptr @.str.117, ptr @.str.145, i32 2, i32 32, ptr null, i64 512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_advertised_other, %struct._header_field_info { ptr @.str.119, ptr @.str.146, i32 2, i32 32, ptr null, i64 1024, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_advertised_copper, %struct._header_field_info { ptr @.str.121, ptr @.str.147, i32 2, i32 32, ptr null, i64 2048, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_advertised_fiber, %struct._header_field_info { ptr @.str.123, ptr @.str.148, i32 2, i32 32, ptr null, i64 4096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_advertised_autoneg, %struct._header_field_info { ptr @.str.125, ptr @.str.149, i32 2, i32 32, ptr null, i64 8192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_advertised_pause, %struct._header_field_info { ptr @.str.127, ptr @.str.150, i32 2, i32 32, ptr null, i64 16384, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_advertised_pause_asym, %struct._header_field_info { ptr @.str.129, ptr @.str.151, i32 2, i32 32, ptr null, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_advertised_reserved, %struct._header_field_info { ptr @.str.131, ptr @.str.152, i32 7, i32 2, ptr null, i64 4294901760, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_supported, %struct._header_field_info { ptr @.str.153, ptr @.str.154, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_supported_10mb_hd, %struct._header_field_info { ptr @.str.99, ptr @.str.155, i32 2, i32 32, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_supported_10mb_fd, %struct._header_field_info { ptr @.str.101, ptr @.str.156, i32 2, i32 32, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_supported_100mb_hd, %struct._header_field_info { ptr @.str.103, ptr @.str.157, i32 2, i32 32, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_supported_100mb_fd, %struct._header_field_info { ptr @.str.105, ptr @.str.158, i32 2, i32 32, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_supported_1gb_hd, %struct._header_field_info { ptr @.str.107, ptr @.str.159, i32 2, i32 32, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_supported_1gb_fd, %struct._header_field_info { ptr @.str.109, ptr @.str.160, i32 2, i32 32, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_supported_10gb_fd, %struct._header_field_info { ptr @.str.111, ptr @.str.161, i32 2, i32 32, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_supported_40gb_fd, %struct._header_field_info { ptr @.str.113, ptr @.str.162, i32 2, i32 32, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_supported_100gb_fd, %struct._header_field_info { ptr @.str.143, ptr @.str.163, i32 2, i32 32, ptr null, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_supported_1tb_fd, %struct._header_field_info { ptr @.str.117, ptr @.str.164, i32 2, i32 32, ptr null, i64 512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_supported_other, %struct._header_field_info { ptr @.str.119, ptr @.str.165, i32 2, i32 32, ptr null, i64 1024, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_supported_copper, %struct._header_field_info { ptr @.str.121, ptr @.str.166, i32 2, i32 32, ptr null, i64 2048, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_supported_fiber, %struct._header_field_info { ptr @.str.123, ptr @.str.167, i32 2, i32 32, ptr null, i64 4096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_supported_autoneg, %struct._header_field_info { ptr @.str.125, ptr @.str.168, i32 2, i32 32, ptr null, i64 8192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_supported_pause, %struct._header_field_info { ptr @.str.127, ptr @.str.169, i32 2, i32 32, ptr null, i64 16384, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_supported_pause_asym, %struct._header_field_info { ptr @.str.129, ptr @.str.170, i32 2, i32 32, ptr null, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_supported_reserved, %struct._header_field_info { ptr @.str.131, ptr @.str.171, i32 7, i32 2, ptr null, i64 4294901760, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_peer, %struct._header_field_info { ptr @.str.172, ptr @.str.173, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_peer_10mb_hd, %struct._header_field_info { ptr @.str.99, ptr @.str.174, i32 2, i32 32, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_peer_10mb_fd, %struct._header_field_info { ptr @.str.101, ptr @.str.175, i32 2, i32 32, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_peer_100mb_hd, %struct._header_field_info { ptr @.str.103, ptr @.str.176, i32 2, i32 32, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_peer_100mb_fd, %struct._header_field_info { ptr @.str.105, ptr @.str.177, i32 2, i32 32, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_peer_1gb_hd, %struct._header_field_info { ptr @.str.107, ptr @.str.178, i32 2, i32 32, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_peer_1gb_fd, %struct._header_field_info { ptr @.str.109, ptr @.str.179, i32 2, i32 32, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_peer_10gb_fd, %struct._header_field_info { ptr @.str.111, ptr @.str.180, i32 2, i32 32, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_peer_40gb_fd, %struct._header_field_info { ptr @.str.113, ptr @.str.181, i32 2, i32 32, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_peer_100gb_fd, %struct._header_field_info { ptr @.str.143, ptr @.str.182, i32 2, i32 32, ptr null, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_peer_1tb_fd, %struct._header_field_info { ptr @.str.117, ptr @.str.183, i32 2, i32 32, ptr null, i64 512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_peer_other, %struct._header_field_info { ptr @.str.119, ptr @.str.184, i32 2, i32 32, ptr null, i64 1024, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_peer_copper, %struct._header_field_info { ptr @.str.121, ptr @.str.185, i32 2, i32 32, ptr null, i64 2048, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_peer_fiber, %struct._header_field_info { ptr @.str.123, ptr @.str.186, i32 2, i32 32, ptr null, i64 4096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_peer_autoneg, %struct._header_field_info { ptr @.str.125, ptr @.str.187, i32 2, i32 32, ptr null, i64 8192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_peer_pause, %struct._header_field_info { ptr @.str.127, ptr @.str.188, i32 2, i32 32, ptr null, i64 16384, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_peer_pause_asym, %struct._header_field_info { ptr @.str.129, ptr @.str.189, i32 2, i32 32, ptr null, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_peer_reserved, %struct._header_field_info { ptr @.str.131, ptr @.str.190, i32 7, i32 2, ptr null, i64 4294901760, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_curr_speed, %struct._header_field_info { ptr @.str.191, ptr @.str.192, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_ethernet_max_speed, %struct._header_field_info { ptr @.str.193, ptr @.str.194, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_optical_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.195, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_optical_supported, %struct._header_field_info { ptr @.str.153, ptr @.str.196, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_optical_supported_rx_tune, %struct._header_field_info { ptr @.str.197, ptr @.str.198, i32 7, i32 2, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_optical_supported_tx_tune, %struct._header_field_info { ptr @.str.199, ptr @.str.200, i32 7, i32 2, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_optical_supported_tx_pwr, %struct._header_field_info { ptr @.str.201, ptr @.str.202, i32 7, i32 2, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_optical_supported_use_freq, %struct._header_field_info { ptr @.str.203, ptr @.str.204, i32 7, i32 2, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_optical_tx_min_freq_lmda, %struct._header_field_info { ptr @.str.205, ptr @.str.206, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_optical_tx_max_freq_lmda, %struct._header_field_info { ptr @.str.207, ptr @.str.208, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_optical_tx_grid_freq_lmda, %struct._header_field_info { ptr @.str.209, ptr @.str.210, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_optical_rx_min_freq_lmda, %struct._header_field_info { ptr @.str.211, ptr @.str.212, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_optical_rx_max_freq_lmda, %struct._header_field_info { ptr @.str.213, ptr @.str.214, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_optical_rx_grid_freq_lmda, %struct._header_field_info { ptr @.str.215, ptr @.str.216, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_optical_tx_pwr_min, %struct._header_field_info { ptr @.str.217, ptr @.str.218, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_optical_tx_pwr_max, %struct._header_field_info { ptr @.str.219, ptr @.str.220, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_experimenter_experimenter, %struct._header_field_info { ptr @.str.15, ptr @.str.221, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_experimenter_exp_type, %struct._header_field_info { ptr @.str.222, ptr @.str.223, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_stats_prop_type, %struct._header_field_info { ptr @.str.2, ptr @.str.224, i32 5, i32 1, ptr @openflow_v6_port_stats_prop_type_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_stats_prop_length, %struct._header_field_info { ptr @.str.6, ptr @.str.225, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_stats_prop_ethernet_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.226, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_stats_prop_ethernet_rx_frame_err, %struct._header_field_info { ptr @.str.227, ptr @.str.228, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_stats_prop_ethernet_rx_over_err, %struct._header_field_info { ptr @.str.229, ptr @.str.230, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_stats_prop_ethernet_rx_crc_err, %struct._header_field_info { ptr @.str.231, ptr @.str.232, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_stats_prop_ethernet_collisions, %struct._header_field_info { ptr @.str.233, ptr @.str.234, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_stats_prop_optical_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.235, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_stats_prop_optical_flags, %struct._header_field_info { ptr @.str.236, ptr @.str.196, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_stats_prop_optical_flags_rx_tune, %struct._header_field_info { ptr @.str.237, ptr @.str.238, i32 7, i32 2, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_stats_prop_optical_flags_tx_tune, %struct._header_field_info { ptr @.str.239, ptr @.str.240, i32 7, i32 2, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_stats_prop_optical_flags_tx_pwr, %struct._header_field_info { ptr @.str.241, ptr @.str.242, i32 7, i32 2, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_stats_prop_optical_flags_rx_pwr, %struct._header_field_info { ptr @.str.243, ptr @.str.244, i32 7, i32 2, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_stats_prop_optical_flags_tx_bias, %struct._header_field_info { ptr @.str.245, ptr @.str.246, i32 7, i32 2, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_stats_prop_optical_flags_tx_temp, %struct._header_field_info { ptr @.str.247, ptr @.str.248, i32 7, i32 2, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_stats_prop_optical_tx_freq_lmda, %struct._header_field_info { ptr @.str.249, ptr @.str.250, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_stats_prop_optical_tx_offset, %struct._header_field_info { ptr @.str.251, ptr @.str.252, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_stats_prop_optical_tx_grid_span, %struct._header_field_info { ptr @.str.253, ptr @.str.254, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_stats_prop_optical_rx_freq_lmda, %struct._header_field_info { ptr @.str.255, ptr @.str.256, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_stats_prop_optical_rx_offset, %struct._header_field_info { ptr @.str.257, ptr @.str.258, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_stats_prop_optical_rx_grid_span, %struct._header_field_info { ptr @.str.259, ptr @.str.260, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_stats_prop_optical_tx_pwr, %struct._header_field_info { ptr @.str.261, ptr @.str.262, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_stats_prop_optical_rx_pwr, %struct._header_field_info { ptr @.str.263, ptr @.str.264, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_stats_prop_optical_bias_current, %struct._header_field_info { ptr @.str.265, ptr @.str.266, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_stats_prop_optical_temperature, %struct._header_field_info { ptr @.str.267, ptr @.str.268, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_stats_prop_experimenter_experimenter, %struct._header_field_info { ptr @.str.15, ptr @.str.269, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_stats_prop_experimenter_exp_type, %struct._header_field_info { ptr @.str.222, ptr @.str.270, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_port_no, %struct._header_field_info { ptr @.str.271, ptr @.str.272, i32 7, i32 32769, ptr @openflow_v6_port_reserved_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.273, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_length, %struct._header_field_info { ptr @.str.6, ptr @.str.274, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_hw_addr, %struct._header_field_info { ptr @.str.275, ptr @.str.276, i32 29, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_pad2, %struct._header_field_info { ptr @.str.277, ptr @.str.278, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_name, %struct._header_field_info { ptr @.str.279, ptr @.str.280, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_config, %struct._header_field_info { ptr @.str.281, ptr @.str.282, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_config_port_down, %struct._header_field_info { ptr @.str.283, ptr @.str.284, i32 2, i32 32, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_config_no_recv, %struct._header_field_info { ptr @.str.285, ptr @.str.286, i32 2, i32 32, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_config_no_fwd, %struct._header_field_info { ptr @.str.287, ptr @.str.288, i32 2, i32 32, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_config_no_packet_in, %struct._header_field_info { ptr @.str.289, ptr @.str.290, i32 2, i32 32, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_state, %struct._header_field_info { ptr @.str.291, ptr @.str.292, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_state_link_down, %struct._header_field_info { ptr @.str.293, ptr @.str.294, i32 2, i32 32, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_state_blocked, %struct._header_field_info { ptr @.str.295, ptr @.str.296, i32 2, i32 32, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_state_live, %struct._header_field_info { ptr @.str.297, ptr @.str.298, i32 2, i32 32, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_meter_band_type, %struct._header_field_info { ptr @.str.2, ptr @.str.299, i32 5, i32 1, ptr @openflow_v6_meter_band_type_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_meter_band_len, %struct._header_field_info { ptr @.str.6, ptr @.str.300, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_meter_band_rate, %struct._header_field_info { ptr @.str.301, ptr @.str.302, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_meter_band_burst_size, %struct._header_field_info { ptr @.str.303, ptr @.str.304, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_meter_band_drop_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.305, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_meter_band_dscp_remark_prec_level, %struct._header_field_info { ptr @.str.306, ptr @.str.307, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_meter_band_dscp_remark_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.308, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_meter_band_experimenter_experimenter, %struct._header_field_info { ptr @.str.15, ptr @.str.309, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_hello_element_type, %struct._header_field_info { ptr @.str.2, ptr @.str.310, i32 5, i32 1, ptr @openflow_v6_hello_element_type_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_hello_element_length, %struct._header_field_info { ptr @.str.6, ptr @.str.311, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_hello_element_version_bitmap, %struct._header_field_info { ptr @.str.312, ptr @.str.313, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_hello_element_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.314, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_error_type, %struct._header_field_info { ptr @.str.2, ptr @.str.315, i32 5, i32 1, ptr @openflow_v6_error_type_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_error_hello_failed_code, %struct._header_field_info { ptr @.str.316, ptr @.str.317, i32 5, i32 1, ptr @openflow_v6_error_hello_failed_code_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_error_bad_request_code, %struct._header_field_info { ptr @.str.316, ptr @.str.317, i32 5, i32 1, ptr @openflow_v6_error_bad_request_code_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_error_bad_action_code, %struct._header_field_info { ptr @.str.316, ptr @.str.317, i32 5, i32 1, ptr @openflow_v6_error_bad_action_code_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_error_bad_instruction_code, %struct._header_field_info { ptr @.str.316, ptr @.str.317, i32 5, i32 1, ptr @openflow_v6_error_bad_instruction_code_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_error_bad_match_code, %struct._header_field_info { ptr @.str.316, ptr @.str.317, i32 5, i32 1, ptr @openflow_v6_error_bad_match_code_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_error_flow_mod_failed_code, %struct._header_field_info { ptr @.str.316, ptr @.str.317, i32 5, i32 1, ptr @openflow_v6_error_flow_mod_failed_code_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_error_group_mod_failed_code, %struct._header_field_info { ptr @.str.316, ptr @.str.317, i32 5, i32 1, ptr @openflow_v6_error_group_mod_failed_code_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_error_port_mod_failed_code, %struct._header_field_info { ptr @.str.316, ptr @.str.317, i32 5, i32 1, ptr @openflow_v6_error_port_mod_failed_code_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_error_table_mod_failed_code, %struct._header_field_info { ptr @.str.316, ptr @.str.317, i32 5, i32 1, ptr @openflow_v6_error_table_mod_failed_code_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_error_queue_op_failed_code, %struct._header_field_info { ptr @.str.316, ptr @.str.317, i32 5, i32 1, ptr @openflow_v6_error_queue_op_failed_code_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_error_switch_config_failed_code, %struct._header_field_info { ptr @.str.316, ptr @.str.317, i32 5, i32 1, ptr @openflow_v6_error_switch_config_failed_code_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_error_role_request_failed_code, %struct._header_field_info { ptr @.str.316, ptr @.str.317, i32 5, i32 1, ptr @openflow_v6_error_role_request_failed_code_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_error_meter_mod_failed_code, %struct._header_field_info { ptr @.str.316, ptr @.str.317, i32 5, i32 1, ptr @openflow_v6_error_meter_mod_failed_code_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_error_table_features_failed_code, %struct._header_field_info { ptr @.str.316, ptr @.str.317, i32 5, i32 1, ptr @openflow_v6_error_table_features_failed_code_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_error_bad_property_code, %struct._header_field_info { ptr @.str.316, ptr @.str.317, i32 5, i32 1, ptr @openflow_v6_error_bad_property_code_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_error_async_config_failed_code, %struct._header_field_info { ptr @.str.316, ptr @.str.317, i32 5, i32 1, ptr @openflow_v6_error_async_config_failed_code_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_error_flow_monitor_failed_code, %struct._header_field_info { ptr @.str.316, ptr @.str.317, i32 5, i32 1, ptr @openflow_v6_error_flow_monitor_failed_code_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_error_bundle_failed_code, %struct._header_field_info { ptr @.str.316, ptr @.str.317, i32 5, i32 1, ptr @openflow_v6_error_bundle_failed_code_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_error_code, %struct._header_field_info { ptr @.str.316, ptr @.str.317, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_error_data_text, %struct._header_field_info { ptr @.str.318, ptr @.str.319, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_echo_data, %struct._header_field_info { ptr @.str.318, ptr @.str.320, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_error_data_body, %struct._header_field_info { ptr @.str.321, ptr @.str.322, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_error_experimenter, %struct._header_field_info { ptr @.str.15, ptr @.str.323, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_experimenter_experimenter, %struct._header_field_info { ptr @.str.15, ptr @.str.324, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_experimenter_exp_type, %struct._header_field_info { ptr @.str.325, ptr @.str.326, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_switch_features_datapath_id, %struct._header_field_info { ptr @.str.327, ptr @.str.328, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_switch_features_n_buffers, %struct._header_field_info { ptr @.str.329, ptr @.str.330, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_switch_features_n_tables, %struct._header_field_info { ptr @.str.331, ptr @.str.332, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_switch_features_auxiliary_id, %struct._header_field_info { ptr @.str.333, ptr @.str.334, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_switch_features_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.335, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_switch_features_capabilities, %struct._header_field_info { ptr @.str.336, ptr @.str.337, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_switch_features_capabilities_flow_stats, %struct._header_field_info { ptr @.str.338, ptr @.str.339, i32 2, i32 32, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_switch_features_capabilities_table_stats, %struct._header_field_info { ptr @.str.340, ptr @.str.341, i32 2, i32 32, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_switch_features_capabilities_port_stats, %struct._header_field_info { ptr @.str.342, ptr @.str.343, i32 2, i32 32, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_switch_features_capabilities_group_stats, %struct._header_field_info { ptr @.str.344, ptr @.str.345, i32 2, i32 32, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_switch_features_capabilities_ip_reasm, %struct._header_field_info { ptr @.str.346, ptr @.str.347, i32 2, i32 32, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_switch_features_capabilities_queue_stats, %struct._header_field_info { ptr @.str.348, ptr @.str.349, i32 2, i32 32, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_switch_features_capabilities_port_blocked, %struct._header_field_info { ptr @.str.350, ptr @.str.351, i32 2, i32 32, ptr null, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_switch_features_capabilities_bundles, %struct._header_field_info { ptr @.str.352, ptr @.str.353, i32 2, i32 32, ptr null, i64 512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_switch_features_capabilities_flow_monitoring, %struct._header_field_info { ptr @.str.354, ptr @.str.355, i32 2, i32 32, ptr null, i64 1024, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_switch_features_reserved, %struct._header_field_info { ptr @.str.131, ptr @.str.356, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_switch_config_flags, %struct._header_field_info { ptr @.str.236, ptr @.str.357, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_switch_config_flags_fragments, %struct._header_field_info { ptr @.str.358, ptr @.str.359, i32 5, i32 1, ptr @openflow_v6_switch_config_fragments_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_switch_config_miss_send_len, %struct._header_field_info { ptr @.str.360, ptr @.str.361, i32 5, i32 32769, ptr @openflow_v6_controller_max_len_reserved_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_packet_in_buffer_id, %struct._header_field_info { ptr @.str.362, ptr @.str.363, i32 7, i32 32769, ptr @openflow_v6_buffer_reserved_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_packet_in_total_len, %struct._header_field_info { ptr @.str.364, ptr @.str.365, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_packet_in_reason, %struct._header_field_info { ptr @.str.366, ptr @.str.367, i32 4, i32 1, ptr @openflow_v6_packet_in_reason_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_packet_in_table_id, %struct._header_field_info { ptr @.str.87, ptr @.str.368, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_packet_in_cookie, %struct._header_field_info { ptr @.str.369, ptr @.str.370, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_packet_in_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.371, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_removed_cookie, %struct._header_field_info { ptr @.str.369, ptr @.str.372, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_removed_priority, %struct._header_field_info { ptr @.str.373, ptr @.str.374, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_removed_reason, %struct._header_field_info { ptr @.str.366, ptr @.str.375, i32 4, i32 1, ptr @openflow_v6_flow_removed_reason_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_removed_table_id, %struct._header_field_info { ptr @.str.87, ptr @.str.376, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_removed_idle_timeout, %struct._header_field_info { ptr @.str.377, ptr @.str.378, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_removed_hard_timeout, %struct._header_field_info { ptr @.str.379, ptr @.str.380, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_status_reason, %struct._header_field_info { ptr @.str.366, ptr @.str.381, i32 4, i32 1, ptr @openflow_v6_port_status_reason_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_status_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.382, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_packet_out_buffer_id, %struct._header_field_info { ptr @.str.362, ptr @.str.383, i32 7, i32 32769, ptr @openflow_v6_buffer_reserved_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_packet_out_acts_len, %struct._header_field_info { ptr @.str.384, ptr @.str.385, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_packet_out_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.386, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flowmod_cookie, %struct._header_field_info { ptr @.str.369, ptr @.str.387, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flowmod_cookie_mask, %struct._header_field_info { ptr @.str.388, ptr @.str.389, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flowmod_table_id, %struct._header_field_info { ptr @.str.87, ptr @.str.390, i32 4, i32 32769, ptr @openflow_v6_table_reserved_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flowmod_command, %struct._header_field_info { ptr @.str.391, ptr @.str.392, i32 4, i32 1, ptr @openflow_v6_flowmod_command_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flowmod_idle_timeout, %struct._header_field_info { ptr @.str.377, ptr @.str.393, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flowmod_hard_timeout, %struct._header_field_info { ptr @.str.379, ptr @.str.394, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flowmod_priority, %struct._header_field_info { ptr @.str.373, ptr @.str.395, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flowmod_buffer_id, %struct._header_field_info { ptr @.str.362, ptr @.str.396, i32 7, i32 32769, ptr @openflow_v6_buffer_reserved_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flowmod_out_port, %struct._header_field_info { ptr @.str.397, ptr @.str.398, i32 7, i32 32769, ptr @openflow_v6_port_reserved_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flowmod_out_group, %struct._header_field_info { ptr @.str.399, ptr @.str.400, i32 7, i32 32769, ptr @openflow_v6_group_reserved_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flowmod_flags, %struct._header_field_info { ptr @.str.236, ptr @.str.401, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flowmod_flags_send_flow_rem, %struct._header_field_info { ptr @.str.402, ptr @.str.403, i32 2, i32 16, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flowmod_flags_check_overlap, %struct._header_field_info { ptr @.str.404, ptr @.str.405, i32 2, i32 16, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flowmod_flags_reset_counts, %struct._header_field_info { ptr @.str.406, ptr @.str.407, i32 2, i32 16, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flowmod_flags_no_packet_counts, %struct._header_field_info { ptr @.str.408, ptr @.str.409, i32 2, i32 16, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flowmod_flags_no_byte_counts, %struct._header_field_info { ptr @.str.410, ptr @.str.411, i32 2, i32 16, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flowmod_importance, %struct._header_field_info { ptr @.str.412, ptr @.str.413, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_bucket_length, %struct._header_field_info { ptr @.str.6, ptr @.str.414, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_bucket_weight, %struct._header_field_info { ptr @.str.415, ptr @.str.416, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_bucket_watch_port, %struct._header_field_info { ptr @.str.417, ptr @.str.418, i32 7, i32 32769, ptr @openflow_v6_port_reserved_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_bucket_watch_group, %struct._header_field_info { ptr @.str.419, ptr @.str.420, i32 7, i32 32769, ptr @openflow_v6_group_reserved_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_bucket_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.421, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_groupmod_command, %struct._header_field_info { ptr @.str.391, ptr @.str.422, i32 5, i32 1, ptr @openflow_v6_groupmod_command_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_groupmod_type, %struct._header_field_info { ptr @.str.2, ptr @.str.423, i32 4, i32 1, ptr @openflow_v6_group_type_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_groupmod_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.424, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_groupmod_group_id, %struct._header_field_info { ptr @.str.66, ptr @.str.425, i32 7, i32 32769, ptr @openflow_v6_group_reserved_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_groupmod_bucket_array_len, %struct._header_field_info { ptr @.str.426, ptr @.str.427, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_groupmod_command_bucket_id, %struct._header_field_info { ptr @.str.428, ptr @.str.429, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_portmod_prop_type, %struct._header_field_info { ptr @.str.2, ptr @.str.430, i32 5, i32 1, ptr @openflow_v6_portmod_prop_type_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_portmod_prop_length, %struct._header_field_info { ptr @.str.6, ptr @.str.431, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_portmod_prop_ethernet_advertise, %struct._header_field_info { ptr @.str.432, ptr @.str.433, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_portmod_prop_ethernet_advertise_10mb_hd, %struct._header_field_info { ptr @.str.99, ptr @.str.434, i32 2, i32 32, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_portmod_prop_ethernet_advertise_10mb_fd, %struct._header_field_info { ptr @.str.101, ptr @.str.435, i32 2, i32 32, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_portmod_prop_ethernet_advertise_100mb_hd, %struct._header_field_info { ptr @.str.103, ptr @.str.436, i32 2, i32 32, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_portmod_prop_ethernet_advertise_100mb_fd, %struct._header_field_info { ptr @.str.105, ptr @.str.437, i32 2, i32 32, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_portmod_prop_ethernet_advertise_1gb_hd, %struct._header_field_info { ptr @.str.107, ptr @.str.438, i32 2, i32 32, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_portmod_prop_ethernet_advertise_1gb_fd, %struct._header_field_info { ptr @.str.109, ptr @.str.439, i32 2, i32 32, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_portmod_prop_ethernet_advertise_10gb_fd, %struct._header_field_info { ptr @.str.111, ptr @.str.440, i32 2, i32 32, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_portmod_prop_ethernet_advertise_40gb_fd, %struct._header_field_info { ptr @.str.113, ptr @.str.441, i32 2, i32 32, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_portmod_prop_ethernet_advertise_100gb_fd, %struct._header_field_info { ptr @.str.115, ptr @.str.442, i32 2, i32 32, ptr null, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_portmod_prop_ethernet_advertise_1tb_fd, %struct._header_field_info { ptr @.str.117, ptr @.str.443, i32 2, i32 32, ptr null, i64 512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_portmod_prop_ethernet_advertise_other, %struct._header_field_info { ptr @.str.119, ptr @.str.444, i32 2, i32 32, ptr null, i64 1024, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_portmod_prop_ethernet_advertise_copper, %struct._header_field_info { ptr @.str.121, ptr @.str.445, i32 2, i32 32, ptr null, i64 2048, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_portmod_prop_ethernet_advertise_fiber, %struct._header_field_info { ptr @.str.123, ptr @.str.446, i32 2, i32 32, ptr null, i64 4096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_portmod_prop_ethernet_advertise_autoneg, %struct._header_field_info { ptr @.str.125, ptr @.str.447, i32 2, i32 32, ptr null, i64 8192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_portmod_prop_ethernet_advertise_pause, %struct._header_field_info { ptr @.str.127, ptr @.str.448, i32 2, i32 32, ptr null, i64 16384, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_portmod_prop_ethernet_advertise_pause_asym, %struct._header_field_info { ptr @.str.129, ptr @.str.449, i32 2, i32 32, ptr null, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_portmod_prop_optical_configure, %struct._header_field_info { ptr @.str.450, ptr @.str.451, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_portmod_prop_optical_configure_rx_tune, %struct._header_field_info { ptr @.str.197, ptr @.str.452, i32 7, i32 2, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_portmod_prop_optical_configure_tx_tune, %struct._header_field_info { ptr @.str.199, ptr @.str.453, i32 7, i32 2, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_portmod_prop_optical_configure_tx_pwr, %struct._header_field_info { ptr @.str.201, ptr @.str.454, i32 7, i32 2, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_portmod_prop_optical_configure_use_freq, %struct._header_field_info { ptr @.str.203, ptr @.str.455, i32 7, i32 2, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_portmod_prop_optical_freq_lmda, %struct._header_field_info { ptr @.str.456, ptr @.str.457, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_portmod_prop_optical_fl_offset, %struct._header_field_info { ptr @.str.458, ptr @.str.459, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_portmod_prop_optical_grid_span, %struct._header_field_info { ptr @.str.460, ptr @.str.461, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_portmod_prop_optical_tx_pwr, %struct._header_field_info { ptr @.str.462, ptr @.str.463, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_portmod_prop_experimenter_experimenter, %struct._header_field_info { ptr @.str.15, ptr @.str.464, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_portmod_prop_experimenter_exp_type, %struct._header_field_info { ptr @.str.222, ptr @.str.465, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_portmod_port_no, %struct._header_field_info { ptr @.str.271, ptr @.str.466, i32 7, i32 32769, ptr @openflow_v6_port_reserved_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_portmod_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.467, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_portmod_hw_addr, %struct._header_field_info { ptr @.str.275, ptr @.str.468, i32 29, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_portmod_pad2, %struct._header_field_info { ptr @.str.40, ptr @.str.469, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_portmod_config, %struct._header_field_info { ptr @.str.281, ptr @.str.470, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_portmod_config_port_down, %struct._header_field_info { ptr @.str.283, ptr @.str.471, i32 2, i32 32, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_portmod_config_no_recv, %struct._header_field_info { ptr @.str.285, ptr @.str.472, i32 2, i32 32, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_portmod_config_no_fwd, %struct._header_field_info { ptr @.str.287, ptr @.str.473, i32 2, i32 32, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_portmod_config_no_packet_in, %struct._header_field_info { ptr @.str.289, ptr @.str.474, i32 2, i32 32, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_portmod_mask, %struct._header_field_info { ptr @.str.32, ptr @.str.475, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_portmod_mask_port_down, %struct._header_field_info { ptr @.str.283, ptr @.str.476, i32 2, i32 32, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_portmod_mask_no_recv, %struct._header_field_info { ptr @.str.285, ptr @.str.477, i32 2, i32 32, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_portmod_mask_no_fwd, %struct._header_field_info { ptr @.str.287, ptr @.str.478, i32 2, i32 32, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_portmod_mask_no_packet_in, %struct._header_field_info { ptr @.str.289, ptr @.str.479, i32 2, i32 32, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_tablemod_table_id, %struct._header_field_info { ptr @.str.87, ptr @.str.480, i32 4, i32 32769, ptr @openflow_v6_table_reserved_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_tablemod_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.481, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_tablemod_config, %struct._header_field_info { ptr @.str.281, ptr @.str.482, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_tablemod_config_eviction, %struct._header_field_info { ptr @.str.483, ptr @.str.484, i32 2, i32 32, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_tablemod_config_vacancy_events, %struct._header_field_info { ptr @.str.485, ptr @.str.486, i32 2, i32 32, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_tablemod_prop_type, %struct._header_field_info { ptr @.str.2, ptr @.str.487, i32 5, i32 1, ptr @openflow_v6_tablemod_prop_type_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_tablemod_prop_length, %struct._header_field_info { ptr @.str.6, ptr @.str.488, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_tablemod_prop_eviction_flags, %struct._header_field_info { ptr @.str.236, ptr @.str.489, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_tablemod_prop_eviction_flags_other, %struct._header_field_info { ptr @.str.490, ptr @.str.491, i32 2, i32 32, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_tablemod_prop_eviction_flags_importance, %struct._header_field_info { ptr @.str.492, ptr @.str.493, i32 2, i32 32, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_tablemod_prop_eviction_flags_lifetime, %struct._header_field_info { ptr @.str.494, ptr @.str.495, i32 2, i32 32, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_tablemod_prop_vacancy_vacancy_down, %struct._header_field_info { ptr @.str.496, ptr @.str.497, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_tablemod_prop_vacancy_vacancy_up, %struct._header_field_info { ptr @.str.498, ptr @.str.499, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_tablemod_prop_vacancy_vacancy, %struct._header_field_info { ptr @.str.500, ptr @.str.501, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_tablemod_prop_vacancy_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.502, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_tablemod_prop_experimenter_experimenter, %struct._header_field_info { ptr @.str.15, ptr @.str.503, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_tablemod_prop_experimenter_exp_type, %struct._header_field_info { ptr @.str.222, ptr @.str.504, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_stats_request_table_id, %struct._header_field_info { ptr @.str.87, ptr @.str.505, i32 4, i32 32769, ptr @openflow_v6_table_reserved_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_stats_request_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.506, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_stats_request_out_port, %struct._header_field_info { ptr @.str.397, ptr @.str.507, i32 7, i32 32769, ptr @openflow_v6_port_reserved_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_stats_request_out_group, %struct._header_field_info { ptr @.str.399, ptr @.str.508, i32 7, i32 32769, ptr @openflow_v6_group_reserved_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_stats_request_pad2, %struct._header_field_info { ptr @.str.40, ptr @.str.509, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_stats_request_cookie, %struct._header_field_info { ptr @.str.369, ptr @.str.510, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_stats_request_cookie_mask, %struct._header_field_info { ptr @.str.388, ptr @.str.511, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_aggregate_stats_request_table_id, %struct._header_field_info { ptr @.str.87, ptr @.str.512, i32 4, i32 32769, ptr @openflow_v6_table_reserved_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_aggregate_stats_request_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.513, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_aggregate_stats_request_out_port, %struct._header_field_info { ptr @.str.397, ptr @.str.514, i32 7, i32 32769, ptr @openflow_v6_port_reserved_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_aggregate_stats_request_out_group, %struct._header_field_info { ptr @.str.399, ptr @.str.515, i32 7, i32 32769, ptr @openflow_v6_group_reserved_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_aggregate_stats_request_pad2, %struct._header_field_info { ptr @.str.40, ptr @.str.516, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_aggregate_stats_request_cookie, %struct._header_field_info { ptr @.str.369, ptr @.str.517, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_aggregate_stats_request_cookie_mask, %struct._header_field_info { ptr @.str.388, ptr @.str.518, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_table_feature_prop_type, %struct._header_field_info { ptr @.str.2, ptr @.str.519, i32 5, i32 1, ptr @openflow_v6_table_feature_prop_type_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_table_feature_prop_length, %struct._header_field_info { ptr @.str.6, ptr @.str.520, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_table_feature_prop_next_tables_next_table_id, %struct._header_field_info { ptr @.str.521, ptr @.str.522, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_table_feature_prop_table_sync_from_table_id, %struct._header_field_info { ptr @.str.523, ptr @.str.524, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_table_feature_prop_experimenter_experimenter, %struct._header_field_info { ptr @.str.15, ptr @.str.525, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_table_feature_prop_experimenter_exp_type, %struct._header_field_info { ptr @.str.325, ptr @.str.526, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_table_feature_prop_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.527, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_table_features_length, %struct._header_field_info { ptr @.str.6, ptr @.str.528, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_table_features_table_id, %struct._header_field_info { ptr @.str.87, ptr @.str.529, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_table_features_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.530, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_table_features_name, %struct._header_field_info { ptr @.str.279, ptr @.str.531, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_table_features_metadata_match, %struct._header_field_info { ptr @.str.532, ptr @.str.533, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_table_features_metadata_write, %struct._header_field_info { ptr @.str.534, ptr @.str.535, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_table_features_capabilities, %struct._header_field_info { ptr @.str.536, ptr @.str.537, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_table_features_capabilities_eviction, %struct._header_field_info { ptr @.str.483, ptr @.str.538, i32 7, i32 2, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_table_features_capabilities_vacancy_events, %struct._header_field_info { ptr @.str.485, ptr @.str.539, i32 7, i32 2, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_table_features_max_entries, %struct._header_field_info { ptr @.str.540, ptr @.str.541, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_stats_request_port_no, %struct._header_field_info { ptr @.str.542, ptr @.str.543, i32 7, i32 32769, ptr @openflow_v6_port_reserved_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_stats_request_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.544, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_queue_stats_request_port_no, %struct._header_field_info { ptr @.str.542, ptr @.str.545, i32 7, i32 32769, ptr @openflow_v6_port_reserved_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_queue_stats_request_queue_id, %struct._header_field_info { ptr @.str.64, ptr @.str.546, i32 7, i32 32769, ptr @openflow_v6_queue_reserved_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_stats_request_group_id, %struct._header_field_info { ptr @.str.66, ptr @.str.547, i32 7, i32 32769, ptr @openflow_v6_group_reserved_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_stats_request_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.548, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_meter_stats_request_meter_id, %struct._header_field_info { ptr @.str.549, ptr @.str.550, i32 7, i32 32769, ptr @openflow_v6_meter_id_reserved_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_meter_stats_request_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.551, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_meter_desc_request_meter_id, %struct._header_field_info { ptr @.str.549, ptr @.str.552, i32 7, i32 32769, ptr @openflow_v6_meter_id_reserved_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_meter_desc_request_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.553, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_queue_desc_request_port_no, %struct._header_field_info { ptr @.str.542, ptr @.str.554, i32 7, i32 32769, ptr @openflow_v6_port_reserved_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_queue_desc_request_queue_id, %struct._header_field_info { ptr @.str.64, ptr @.str.555, i32 7, i32 32769, ptr @openflow_v6_queue_reserved_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_monitor_request_monitor_id, %struct._header_field_info { ptr @.str.556, ptr @.str.557, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_monitor_request_out_port, %struct._header_field_info { ptr @.str.397, ptr @.str.558, i32 7, i32 32769, ptr @openflow_v6_port_reserved_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_monitor_request_out_group, %struct._header_field_info { ptr @.str.399, ptr @.str.559, i32 7, i32 32769, ptr @openflow_v6_group_reserved_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_monitor_request_flags, %struct._header_field_info { ptr @.str.236, ptr @.str.560, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_monitor_request_flags_initial, %struct._header_field_info { ptr @.str.561, ptr @.str.562, i32 5, i32 2, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_monitor_request_flags_add, %struct._header_field_info { ptr @.str.563, ptr @.str.564, i32 5, i32 2, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_monitor_request_flags_removed, %struct._header_field_info { ptr @.str.565, ptr @.str.566, i32 5, i32 2, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_monitor_request_flags_modify, %struct._header_field_info { ptr @.str.567, ptr @.str.568, i32 5, i32 2, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_monitor_request_flags_instructions, %struct._header_field_info { ptr @.str.569, ptr @.str.570, i32 5, i32 2, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_monitor_request_flags_no_abbrev, %struct._header_field_info { ptr @.str.571, ptr @.str.572, i32 5, i32 2, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_monitor_request_flags_only_own, %struct._header_field_info { ptr @.str.573, ptr @.str.574, i32 5, i32 2, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_monitor_request_table_id, %struct._header_field_info { ptr @.str.87, ptr @.str.575, i32 4, i32 32769, ptr @openflow_v6_table_reserved_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_monitor_request_command, %struct._header_field_info { ptr @.str.391, ptr @.str.576, i32 5, i32 1, ptr @openflow_v6_flow_monitor_request_command_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_multipart_request_type, %struct._header_field_info { ptr @.str.2, ptr @.str.577, i32 5, i32 1, ptr @openflow_v6_multipart_type_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_multipart_request_flags, %struct._header_field_info { ptr @.str.236, ptr @.str.578, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_multipart_request_flags_more, %struct._header_field_info { ptr @.str.579, ptr @.str.580, i32 5, i32 2, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_multipart_request_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.581, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_multipart_request_experimenter_experimenter, %struct._header_field_info { ptr @.str.15, ptr @.str.582, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_multipart_request_experimenter_exp_type, %struct._header_field_info { ptr @.str.325, ptr @.str.583, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_switch_description_mfr_desc, %struct._header_field_info { ptr @.str.584, ptr @.str.585, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_switch_description_hw_desc, %struct._header_field_info { ptr @.str.586, ptr @.str.587, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_switch_description_sw_desc, %struct._header_field_info { ptr @.str.588, ptr @.str.589, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_switch_description_serial_num, %struct._header_field_info { ptr @.str.590, ptr @.str.591, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_switch_description_dp_desc, %struct._header_field_info { ptr @.str.592, ptr @.str.593, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_desc_length, %struct._header_field_info { ptr @.str.6, ptr @.str.594, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_desc_table_id, %struct._header_field_info { ptr @.str.87, ptr @.str.595, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_desc_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.596, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_desc_priority, %struct._header_field_info { ptr @.str.373, ptr @.str.597, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_desc_idle_timeout, %struct._header_field_info { ptr @.str.377, ptr @.str.598, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_desc_hard_timeout, %struct._header_field_info { ptr @.str.379, ptr @.str.599, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_desc_flags, %struct._header_field_info { ptr @.str.236, ptr @.str.600, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_desc_flags_send_flow_rem, %struct._header_field_info { ptr @.str.402, ptr @.str.601, i32 2, i32 16, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_desc_flags_check_overlap, %struct._header_field_info { ptr @.str.404, ptr @.str.602, i32 2, i32 16, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_desc_flags_reset_counts, %struct._header_field_info { ptr @.str.406, ptr @.str.603, i32 2, i32 16, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_desc_flags_no_packet_counts, %struct._header_field_info { ptr @.str.408, ptr @.str.604, i32 2, i32 16, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_desc_flags_no_byte_counts, %struct._header_field_info { ptr @.str.410, ptr @.str.605, i32 2, i32 16, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_desc_importance, %struct._header_field_info { ptr @.str.412, ptr @.str.606, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_desc_pad2, %struct._header_field_info { ptr @.str.40, ptr @.str.607, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_desc_cookie, %struct._header_field_info { ptr @.str.369, ptr @.str.608, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_table_stats_table_id, %struct._header_field_info { ptr @.str.87, ptr @.str.609, i32 4, i32 32769, ptr @openflow_v6_table_reserved_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_table_stats_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.610, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_table_stats_active_count, %struct._header_field_info { ptr @.str.611, ptr @.str.612, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_table_stats_lookup_count, %struct._header_field_info { ptr @.str.613, ptr @.str.614, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_table_stats_match_count, %struct._header_field_info { ptr @.str.615, ptr @.str.616, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_stats_length, %struct._header_field_info { ptr @.str.6, ptr @.str.617, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_stats_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.618, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_stats_port_no, %struct._header_field_info { ptr @.str.542, ptr @.str.619, i32 7, i32 32769, ptr @openflow_v6_port_reserved_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_stats_duration_sec, %struct._header_field_info { ptr @.str.620, ptr @.str.621, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_stats_duration_nsec, %struct._header_field_info { ptr @.str.622, ptr @.str.623, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_stats_rx_packets, %struct._header_field_info { ptr @.str.624, ptr @.str.625, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_stats_tx_packets, %struct._header_field_info { ptr @.str.626, ptr @.str.627, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_stats_rx_bytes, %struct._header_field_info { ptr @.str.628, ptr @.str.629, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_stats_tx_bytes, %struct._header_field_info { ptr @.str.630, ptr @.str.631, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_stats_rx_dropped, %struct._header_field_info { ptr @.str.632, ptr @.str.633, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_stats_tx_dropped, %struct._header_field_info { ptr @.str.634, ptr @.str.635, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_stats_rx_errors, %struct._header_field_info { ptr @.str.636, ptr @.str.637, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_stats_tx_errors, %struct._header_field_info { ptr @.str.638, ptr @.str.639, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_queue_stats_length, %struct._header_field_info { ptr @.str.6, ptr @.str.640, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_queue_stats_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.641, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_queue_stats_port_no, %struct._header_field_info { ptr @.str.542, ptr @.str.642, i32 7, i32 32769, ptr @openflow_v6_port_reserved_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_queue_stats_queue_id, %struct._header_field_info { ptr @.str.64, ptr @.str.643, i32 7, i32 32769, ptr @openflow_v6_queue_reserved_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_queue_stats_tx_bytes, %struct._header_field_info { ptr @.str.630, ptr @.str.644, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_queue_stats_tx_packets, %struct._header_field_info { ptr @.str.626, ptr @.str.645, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_queue_stats_tx_errors, %struct._header_field_info { ptr @.str.638, ptr @.str.639, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_queue_stats_duration_sec, %struct._header_field_info { ptr @.str.620, ptr @.str.646, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_queue_stats_duration_nsec, %struct._header_field_info { ptr @.str.622, ptr @.str.647, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_queue_stats_prop_type, %struct._header_field_info { ptr @.str.2, ptr @.str.648, i32 5, i32 1, ptr @openflow_v6_queue_stats_prop_type_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_queue_stats_prop_length, %struct._header_field_info { ptr @.str.6, ptr @.str.649, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_queue_stats_prop_experimenter_experimenter, %struct._header_field_info { ptr @.str.15, ptr @.str.650, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_queue_stats_prop_experimenter_exp_type, %struct._header_field_info { ptr @.str.325, ptr @.str.651, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_bucket_counter_packet_count, %struct._header_field_info { ptr @.str.652, ptr @.str.653, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_bucket_counter_byte_count, %struct._header_field_info { ptr @.str.654, ptr @.str.655, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_stats_length, %struct._header_field_info { ptr @.str.6, ptr @.str.656, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_stats_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.657, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_stats_group_id, %struct._header_field_info { ptr @.str.66, ptr @.str.658, i32 7, i32 32769, ptr @openflow_v6_group_reserved_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_stats_ref_count, %struct._header_field_info { ptr @.str.659, ptr @.str.660, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_stats_pad2, %struct._header_field_info { ptr @.str.40, ptr @.str.661, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_stats_packet_count, %struct._header_field_info { ptr @.str.652, ptr @.str.662, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_stats_byte_count, %struct._header_field_info { ptr @.str.654, ptr @.str.663, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_desc_length, %struct._header_field_info { ptr @.str.6, ptr @.str.664, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_desc_type, %struct._header_field_info { ptr @.str.2, ptr @.str.665, i32 4, i32 1, ptr @openflow_v6_group_type_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_desc_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.666, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_desc_group_id, %struct._header_field_info { ptr @.str.66, ptr @.str.667, i32 7, i32 32769, ptr @openflow_v6_group_reserved_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_types, %struct._header_field_info { ptr @.str.668, ptr @.str.669, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_types_all, %struct._header_field_info { ptr @.str.670, ptr @.str.671, i32 2, i32 32, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_types_select, %struct._header_field_info { ptr @.str.672, ptr @.str.673, i32 2, i32 32, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_types_indirect, %struct._header_field_info { ptr @.str.674, ptr @.str.675, i32 2, i32 32, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_types_ff, %struct._header_field_info { ptr @.str.676, ptr @.str.677, i32 2, i32 32, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_capabilities, %struct._header_field_info { ptr @.str.536, ptr @.str.678, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_capabilities_select_weight, %struct._header_field_info { ptr @.str.679, ptr @.str.680, i32 2, i32 32, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_capabilities_select_liveness, %struct._header_field_info { ptr @.str.681, ptr @.str.682, i32 2, i32 32, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_capabilities_chaining, %struct._header_field_info { ptr @.str.683, ptr @.str.684, i32 2, i32 32, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_capabilities_chaining_checks, %struct._header_field_info { ptr @.str.685, ptr @.str.686, i32 2, i32 32, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_max_groups_all, %struct._header_field_info { ptr @.str.687, ptr @.str.688, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_max_groups_select, %struct._header_field_info { ptr @.str.689, ptr @.str.690, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_max_groups_indirect, %struct._header_field_info { ptr @.str.691, ptr @.str.692, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_max_groups_ff, %struct._header_field_info { ptr @.str.693, ptr @.str.694, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_all, %struct._header_field_info { ptr @.str.695, ptr @.str.696, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_all_output, %struct._header_field_info { ptr @.str.697, ptr @.str.698, i32 2, i32 32, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_all_copy_ttl_out, %struct._header_field_info { ptr @.str.699, ptr @.str.700, i32 2, i32 32, ptr null, i64 2048, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_all_copy_ttl_in, %struct._header_field_info { ptr @.str.701, ptr @.str.702, i32 2, i32 32, ptr null, i64 4096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_all_set_mpls_ttl, %struct._header_field_info { ptr @.str.703, ptr @.str.704, i32 2, i32 32, ptr null, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_all_dec_mpls_ttl, %struct._header_field_info { ptr @.str.705, ptr @.str.706, i32 2, i32 32, ptr null, i64 65536, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_all_push_vlan, %struct._header_field_info { ptr @.str.707, ptr @.str.708, i32 2, i32 32, ptr null, i64 131072, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_all_pop_vlan, %struct._header_field_info { ptr @.str.709, ptr @.str.710, i32 2, i32 32, ptr null, i64 262144, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_all_push_mpls, %struct._header_field_info { ptr @.str.711, ptr @.str.712, i32 2, i32 32, ptr null, i64 524288, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_all_pop_mpls, %struct._header_field_info { ptr @.str.713, ptr @.str.714, i32 2, i32 32, ptr null, i64 1048576, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_all_set_queue, %struct._header_field_info { ptr @.str.715, ptr @.str.716, i32 2, i32 32, ptr null, i64 2097152, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_all_group, %struct._header_field_info { ptr @.str.717, ptr @.str.718, i32 2, i32 32, ptr null, i64 4194304, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_all_set_nw_ttl, %struct._header_field_info { ptr @.str.719, ptr @.str.720, i32 2, i32 32, ptr null, i64 8388608, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_all_dec_nw_ttl, %struct._header_field_info { ptr @.str.721, ptr @.str.722, i32 2, i32 32, ptr null, i64 16777216, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_all_set_field, %struct._header_field_info { ptr @.str.723, ptr @.str.724, i32 2, i32 32, ptr null, i64 33554432, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_all_push_pbb, %struct._header_field_info { ptr @.str.725, ptr @.str.726, i32 2, i32 32, ptr null, i64 67108864, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_all_pop_pbb, %struct._header_field_info { ptr @.str.727, ptr @.str.728, i32 2, i32 32, ptr null, i64 134217728, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_all_copy_field, %struct._header_field_info { ptr @.str.729, ptr @.str.730, i32 2, i32 32, ptr null, i64 268435456, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_all_meter, %struct._header_field_info { ptr @.str.731, ptr @.str.732, i32 2, i32 32, ptr null, i64 536870912, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_select, %struct._header_field_info { ptr @.str.733, ptr @.str.734, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_select_output, %struct._header_field_info { ptr @.str.697, ptr @.str.735, i32 2, i32 32, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_select_copy_ttl_out, %struct._header_field_info { ptr @.str.699, ptr @.str.736, i32 2, i32 32, ptr null, i64 2048, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_select_copy_ttl_in, %struct._header_field_info { ptr @.str.701, ptr @.str.737, i32 2, i32 32, ptr null, i64 4096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_select_set_mpls_ttl, %struct._header_field_info { ptr @.str.703, ptr @.str.738, i32 2, i32 32, ptr null, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_select_dec_mpls_ttl, %struct._header_field_info { ptr @.str.705, ptr @.str.739, i32 2, i32 32, ptr null, i64 65536, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_select_push_vlan, %struct._header_field_info { ptr @.str.707, ptr @.str.740, i32 2, i32 32, ptr null, i64 131072, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_select_pop_vlan, %struct._header_field_info { ptr @.str.709, ptr @.str.741, i32 2, i32 32, ptr null, i64 262144, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_select_push_mpls, %struct._header_field_info { ptr @.str.711, ptr @.str.742, i32 2, i32 32, ptr null, i64 524288, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_select_pop_mpls, %struct._header_field_info { ptr @.str.713, ptr @.str.743, i32 2, i32 32, ptr null, i64 1048576, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_select_set_queue, %struct._header_field_info { ptr @.str.715, ptr @.str.744, i32 2, i32 32, ptr null, i64 2097152, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_select_group, %struct._header_field_info { ptr @.str.717, ptr @.str.745, i32 2, i32 32, ptr null, i64 4194304, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_select_set_nw_ttl, %struct._header_field_info { ptr @.str.719, ptr @.str.746, i32 2, i32 32, ptr null, i64 8388608, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_select_dec_nw_ttl, %struct._header_field_info { ptr @.str.721, ptr @.str.747, i32 2, i32 32, ptr null, i64 16777216, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_select_set_field, %struct._header_field_info { ptr @.str.723, ptr @.str.748, i32 2, i32 32, ptr null, i64 33554432, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_select_push_pbb, %struct._header_field_info { ptr @.str.725, ptr @.str.749, i32 2, i32 32, ptr null, i64 67108864, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_select_pop_pbb, %struct._header_field_info { ptr @.str.727, ptr @.str.750, i32 2, i32 32, ptr null, i64 134217728, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_select_copy_field, %struct._header_field_info { ptr @.str.729, ptr @.str.751, i32 2, i32 32, ptr null, i64 268435456, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_select_meter, %struct._header_field_info { ptr @.str.731, ptr @.str.752, i32 2, i32 32, ptr null, i64 536870912, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_indirect, %struct._header_field_info { ptr @.str.753, ptr @.str.754, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_indirect_output, %struct._header_field_info { ptr @.str.697, ptr @.str.755, i32 2, i32 32, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_indirect_copy_ttl_out, %struct._header_field_info { ptr @.str.699, ptr @.str.756, i32 2, i32 32, ptr null, i64 2048, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_indirect_copy_ttl_in, %struct._header_field_info { ptr @.str.701, ptr @.str.757, i32 2, i32 32, ptr null, i64 4096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_indirect_set_mpls_ttl, %struct._header_field_info { ptr @.str.703, ptr @.str.758, i32 2, i32 32, ptr null, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_indirect_dec_mpls_ttl, %struct._header_field_info { ptr @.str.705, ptr @.str.759, i32 2, i32 32, ptr null, i64 65536, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_indirect_push_vlan, %struct._header_field_info { ptr @.str.707, ptr @.str.760, i32 2, i32 32, ptr null, i64 131072, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_indirect_pop_vlan, %struct._header_field_info { ptr @.str.709, ptr @.str.761, i32 2, i32 32, ptr null, i64 262144, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_indirect_push_mpls, %struct._header_field_info { ptr @.str.711, ptr @.str.762, i32 2, i32 32, ptr null, i64 524288, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_indirect_pop_mpls, %struct._header_field_info { ptr @.str.713, ptr @.str.763, i32 2, i32 32, ptr null, i64 1048576, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_indirect_set_queue, %struct._header_field_info { ptr @.str.715, ptr @.str.764, i32 2, i32 32, ptr null, i64 2097152, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_indirect_group, %struct._header_field_info { ptr @.str.717, ptr @.str.765, i32 2, i32 32, ptr null, i64 4194304, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_indirect_set_nw_ttl, %struct._header_field_info { ptr @.str.719, ptr @.str.766, i32 2, i32 32, ptr null, i64 8388608, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_indirect_dec_nw_ttl, %struct._header_field_info { ptr @.str.721, ptr @.str.767, i32 2, i32 32, ptr null, i64 16777216, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_indirect_set_field, %struct._header_field_info { ptr @.str.723, ptr @.str.768, i32 2, i32 32, ptr null, i64 33554432, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_indirect_push_pbb, %struct._header_field_info { ptr @.str.725, ptr @.str.769, i32 2, i32 32, ptr null, i64 67108864, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_indirect_pop_pbb, %struct._header_field_info { ptr @.str.727, ptr @.str.770, i32 2, i32 32, ptr null, i64 134217728, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_indirect_copy_field, %struct._header_field_info { ptr @.str.729, ptr @.str.771, i32 2, i32 32, ptr null, i64 268435456, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_indirect_meter, %struct._header_field_info { ptr @.str.731, ptr @.str.772, i32 2, i32 32, ptr null, i64 536870912, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_ff, %struct._header_field_info { ptr @.str.773, ptr @.str.774, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_ff_output, %struct._header_field_info { ptr @.str.697, ptr @.str.775, i32 2, i32 32, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_ff_copy_ttl_out, %struct._header_field_info { ptr @.str.699, ptr @.str.776, i32 2, i32 32, ptr null, i64 2048, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_ff_copy_ttl_in, %struct._header_field_info { ptr @.str.701, ptr @.str.777, i32 2, i32 32, ptr null, i64 4096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_ff_set_mpls_ttl, %struct._header_field_info { ptr @.str.703, ptr @.str.778, i32 2, i32 32, ptr null, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_ff_dec_mpls_ttl, %struct._header_field_info { ptr @.str.705, ptr @.str.779, i32 2, i32 32, ptr null, i64 65536, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_ff_push_vlan, %struct._header_field_info { ptr @.str.707, ptr @.str.780, i32 2, i32 32, ptr null, i64 131072, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_ff_pop_vlan, %struct._header_field_info { ptr @.str.709, ptr @.str.781, i32 2, i32 32, ptr null, i64 262144, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_ff_push_mpls, %struct._header_field_info { ptr @.str.711, ptr @.str.782, i32 2, i32 32, ptr null, i64 524288, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_ff_pop_mpls, %struct._header_field_info { ptr @.str.713, ptr @.str.783, i32 2, i32 32, ptr null, i64 1048576, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_ff_set_queue, %struct._header_field_info { ptr @.str.715, ptr @.str.784, i32 2, i32 32, ptr null, i64 2097152, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_ff_group, %struct._header_field_info { ptr @.str.717, ptr @.str.785, i32 2, i32 32, ptr null, i64 4194304, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_ff_set_nw_ttl, %struct._header_field_info { ptr @.str.719, ptr @.str.786, i32 2, i32 32, ptr null, i64 8388608, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_ff_dec_nw_ttl, %struct._header_field_info { ptr @.str.721, ptr @.str.787, i32 2, i32 32, ptr null, i64 16777216, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_ff_set_field, %struct._header_field_info { ptr @.str.723, ptr @.str.788, i32 2, i32 32, ptr null, i64 33554432, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_ff_push_pbb, %struct._header_field_info { ptr @.str.725, ptr @.str.789, i32 2, i32 32, ptr null, i64 67108864, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_ff_pop_pbb, %struct._header_field_info { ptr @.str.727, ptr @.str.790, i32 2, i32 32, ptr null, i64 134217728, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_ff_copy_field, %struct._header_field_info { ptr @.str.729, ptr @.str.791, i32 2, i32 32, ptr null, i64 268435456, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_group_features_actions_ff_meter, %struct._header_field_info { ptr @.str.731, ptr @.str.792, i32 2, i32 32, ptr null, i64 536870912, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_meter_band_stats_packet_band_count, %struct._header_field_info { ptr @.str.652, ptr @.str.793, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_meter_band_stats_byte_band_count, %struct._header_field_info { ptr @.str.654, ptr @.str.794, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_meter_stats_meter_id, %struct._header_field_info { ptr @.str.549, ptr @.str.795, i32 7, i32 32769, ptr @openflow_v6_meter_id_reserved_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_meter_stats_len, %struct._header_field_info { ptr @.str.6, ptr @.str.796, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_meter_stats_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.797, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_meter_stats_flow_count, %struct._header_field_info { ptr @.str.798, ptr @.str.799, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_meter_stats_packet_in_count, %struct._header_field_info { ptr @.str.800, ptr @.str.801, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_meter_stats_byte_in_count, %struct._header_field_info { ptr @.str.802, ptr @.str.803, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_meter_stats_duration_sec, %struct._header_field_info { ptr @.str.620, ptr @.str.804, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_meter_stats_duration_nsec, %struct._header_field_info { ptr @.str.622, ptr @.str.805, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_meter_desc_len, %struct._header_field_info { ptr @.str.6, ptr @.str.806, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_meter_desc_flags, %struct._header_field_info { ptr @.str.236, ptr @.str.807, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_meter_desc_flags_kbps, %struct._header_field_info { ptr @.str.808, ptr @.str.809, i32 2, i32 32, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_meter_desc_flags_pktps, %struct._header_field_info { ptr @.str.810, ptr @.str.811, i32 2, i32 32, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_meter_desc_flags_burst, %struct._header_field_info { ptr @.str.812, ptr @.str.813, i32 2, i32 32, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_meter_desc_flags_stats, %struct._header_field_info { ptr @.str.814, ptr @.str.815, i32 2, i32 32, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_meter_desc_meter_id, %struct._header_field_info { ptr @.str.549, ptr @.str.816, i32 7, i32 32769, ptr @openflow_v6_meter_id_reserved_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_meter_features_max_meter, %struct._header_field_info { ptr @.str.817, ptr @.str.818, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_meter_features_band_types, %struct._header_field_info { ptr @.str.819, ptr @.str.820, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_meter_features_band_types_drop, %struct._header_field_info { ptr @.str.821, ptr @.str.822, i32 2, i32 32, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_meter_features_band_types_dscp_remark, %struct._header_field_info { ptr @.str.823, ptr @.str.824, i32 2, i32 32, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_meter_features_capabilities, %struct._header_field_info { ptr @.str.536, ptr @.str.825, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_meter_features_capabilities_kbps, %struct._header_field_info { ptr @.str.808, ptr @.str.826, i32 2, i32 32, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_meter_features_capabilities_pktps, %struct._header_field_info { ptr @.str.810, ptr @.str.827, i32 2, i32 32, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_meter_features_capabilities_burst, %struct._header_field_info { ptr @.str.812, ptr @.str.828, i32 2, i32 32, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_meter_features_capabilities_stats, %struct._header_field_info { ptr @.str.814, ptr @.str.829, i32 2, i32 32, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_meter_features_max_bands, %struct._header_field_info { ptr @.str.830, ptr @.str.831, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_meter_features_max_color, %struct._header_field_info { ptr @.str.832, ptr @.str.833, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_meter_features_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.834, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_update_length, %struct._header_field_info { ptr @.str.6, ptr @.str.835, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_update_event, %struct._header_field_info { ptr @.str.6, ptr @.str.836, i32 5, i32 1, ptr @openflow_v6_flow_monitor_events, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_update_full_table_id, %struct._header_field_info { ptr @.str.87, ptr @.str.837, i32 4, i32 32769, ptr @openflow_v6_table_reserved_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_update_full_reason, %struct._header_field_info { ptr @.str.366, ptr @.str.838, i32 4, i32 1, ptr @openflow_v6_flow_removed_reason_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_update_full_zero, %struct._header_field_info { ptr @.str.839, ptr @.str.840, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_update_full_idle_timeout, %struct._header_field_info { ptr @.str.377, ptr @.str.841, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_update_full_hard_timeout, %struct._header_field_info { ptr @.str.379, ptr @.str.842, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_update_full_priority, %struct._header_field_info { ptr @.str.373, ptr @.str.843, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_update_full_zeros, %struct._header_field_info { ptr @.str.844, ptr @.str.845, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_update_full_cookie, %struct._header_field_info { ptr @.str.369, ptr @.str.846, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_update_abbrev_xid, %struct._header_field_info { ptr @.str.4, ptr @.str.847, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_update_paused_zeros, %struct._header_field_info { ptr @.str.844, ptr @.str.848, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_multipart_reply_type, %struct._header_field_info { ptr @.str.2, ptr @.str.849, i32 5, i32 1, ptr @openflow_v6_multipart_type_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_multipart_reply_flags, %struct._header_field_info { ptr @.str.236, ptr @.str.850, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_multipart_reply_flags_more, %struct._header_field_info { ptr @.str.851, ptr @.str.852, i32 5, i32 2, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_multipart_reply_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.853, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_multipart_reply_experimenter_experimenter, %struct._header_field_info { ptr @.str.15, ptr @.str.854, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_multipart_reply_experimenter_exp_type, %struct._header_field_info { ptr @.str.325, ptr @.str.855, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_table_desc_length, %struct._header_field_info { ptr @.str.6, ptr @.str.856, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_table_desc_table_id, %struct._header_field_info { ptr @.str.87, ptr @.str.857, i32 4, i32 32769, ptr @openflow_v6_table_reserved_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_table_desc_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.858, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_table_desc_config, %struct._header_field_info { ptr @.str.281, ptr @.str.859, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_table_desc_config_eviction, %struct._header_field_info { ptr @.str.483, ptr @.str.860, i32 2, i32 32, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_table_desc_config_vacancy_events, %struct._header_field_info { ptr @.str.485, ptr @.str.861, i32 2, i32 32, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_queue_desc_port_no, %struct._header_field_info { ptr @.str.45, ptr @.str.862, i32 7, i32 32769, ptr @openflow_v6_port_reserved_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_queue_desc_queue_id, %struct._header_field_info { ptr @.str.64, ptr @.str.863, i32 7, i32 32769, ptr @openflow_v6_queue_reserved_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_queue_desc_len, %struct._header_field_info { ptr @.str.6, ptr @.str.864, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_queue_desc_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.865, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_queue_desc_prop_property, %struct._header_field_info { ptr @.str.866, ptr @.str.867, i32 5, i32 1, ptr @openflow_v6_queue_desc_prop_property_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_queue_desc_prop_len, %struct._header_field_info { ptr @.str.6, ptr @.str.868, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_queue_desc_prop_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.869, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_queue_desc_prop_min_rate_rate, %struct._header_field_info { ptr @.str.301, ptr @.str.870, i32 5, i32 32769, ptr @openflow_v6_queue_desc_prop_min_rate_reserved_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_queue_desc_prop_min_rate_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.871, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_queue_desc_prop_max_rate_rate, %struct._header_field_info { ptr @.str.301, ptr @.str.872, i32 5, i32 32769, ptr @openflow_v6_queue_desc_prop_max_rate_reserved_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_queue_desc_prop_max_rate_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.873, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_queue_desc_prop_experimenter_experimenter, %struct._header_field_info { ptr @.str.15, ptr @.str.874, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_queue_desc_prop_experimenter_exp_type, %struct._header_field_info { ptr @.str.875, ptr @.str.876, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_role_request_role, %struct._header_field_info { ptr @.str.877, ptr @.str.878, i32 7, i32 2, ptr @openflow_v6_controller_role_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_role_request_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.879, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_role_request_generation_id, %struct._header_field_info { ptr @.str.880, ptr @.str.881, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_role_reply_role, %struct._header_field_info { ptr @.str.877, ptr @.str.882, i32 7, i32 2, ptr @openflow_v6_controller_role_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_role_reply_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.883, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_role_reply_generation_id, %struct._header_field_info { ptr @.str.880, ptr @.str.884, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_async_config_prop_type, %struct._header_field_info { ptr @.str.2, ptr @.str.885, i32 5, i32 1, ptr @openflow_v6_async_config_prop_type_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_async_config_prop_length, %struct._header_field_info { ptr @.str.6, ptr @.str.886, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_async_config_prop_reason_packet_in_mask, %struct._header_field_info { ptr @.str.32, ptr @.str.887, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_async_config_prop_reason_packet_in_mask_table_miss, %struct._header_field_info { ptr @.str.888, ptr @.str.889, i32 2, i32 32, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_async_config_prop_reason_packet_in_mask_apply_action, %struct._header_field_info { ptr @.str.890, ptr @.str.891, i32 2, i32 32, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_async_config_prop_reason_packet_in_mask_invalid_ttl, %struct._header_field_info { ptr @.str.892, ptr @.str.893, i32 2, i32 32, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_async_config_prop_reason_packet_in_mask_action_set, %struct._header_field_info { ptr @.str.894, ptr @.str.895, i32 2, i32 32, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_async_config_prop_reason_packet_in_mask_group, %struct._header_field_info { ptr @.str.896, ptr @.str.897, i32 2, i32 32, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_async_config_prop_reason_packet_in_mask_packet_out, %struct._header_field_info { ptr @.str.898, ptr @.str.899, i32 2, i32 32, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_async_config_prop_reason_port_status_mask, %struct._header_field_info { ptr @.str.32, ptr @.str.900, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_async_config_prop_reason_port_status_mask_add, %struct._header_field_info { ptr @.str.901, ptr @.str.902, i32 2, i32 32, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_async_config_prop_reason_port_status_mask_delete, %struct._header_field_info { ptr @.str.903, ptr @.str.904, i32 2, i32 32, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_async_config_prop_reason_port_status_mask_modify, %struct._header_field_info { ptr @.str.905, ptr @.str.906, i32 2, i32 32, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_async_config_prop_reason_flow_removed_mask, %struct._header_field_info { ptr @.str.32, ptr @.str.907, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_async_config_prop_reason_flow_removed_mask_idle_timeout, %struct._header_field_info { ptr @.str.908, ptr @.str.909, i32 2, i32 32, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_async_config_prop_reason_flow_removed_mask_hard_timeout, %struct._header_field_info { ptr @.str.910, ptr @.str.911, i32 2, i32 32, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_async_config_prop_reason_flow_removed_mask_delete, %struct._header_field_info { ptr @.str.912, ptr @.str.913, i32 2, i32 32, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_async_config_prop_reason_flow_removed_mask_group_delete, %struct._header_field_info { ptr @.str.914, ptr @.str.915, i32 2, i32 32, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_async_config_prop_reason_flow_removed_mask_meter_delete, %struct._header_field_info { ptr @.str.916, ptr @.str.917, i32 2, i32 32, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_async_config_prop_reason_flow_removed_mask_eviction, %struct._header_field_info { ptr @.str.918, ptr @.str.919, i32 2, i32 32, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_async_config_prop_reason_role_status_mask, %struct._header_field_info { ptr @.str.32, ptr @.str.920, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_async_config_prop_reason_role_status_mask_master_request, %struct._header_field_info { ptr @.str.921, ptr @.str.922, i32 2, i32 32, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_async_config_prop_reason_role_status_mask_config, %struct._header_field_info { ptr @.str.923, ptr @.str.924, i32 2, i32 32, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_async_config_prop_reason_role_status_mask_experimenter, %struct._header_field_info { ptr @.str.925, ptr @.str.926, i32 2, i32 32, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_async_config_prop_reason_table_status_mask, %struct._header_field_info { ptr @.str.32, ptr @.str.927, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_async_config_prop_reason_table_status_mask_vacancy_down, %struct._header_field_info { ptr @.str.928, ptr @.str.929, i32 2, i32 32, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_async_config_prop_reason_table_status_mask_vacancy_up, %struct._header_field_info { ptr @.str.930, ptr @.str.931, i32 2, i32 32, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_async_config_prop_reason_requestforward_mask, %struct._header_field_info { ptr @.str.32, ptr @.str.932, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_async_config_prop_reason_requestforward_mask_group_mod, %struct._header_field_info { ptr @.str.933, ptr @.str.934, i32 2, i32 32, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_async_config_prop_reason_requestforward_mask_meter_mod, %struct._header_field_info { ptr @.str.935, ptr @.str.936, i32 2, i32 32, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_async_config_prop_experimenter_experimenter, %struct._header_field_info { ptr @.str.15, ptr @.str.937, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_async_config_prop_experimenter_exp_type, %struct._header_field_info { ptr @.str.875, ptr @.str.938, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_metermod_command, %struct._header_field_info { ptr @.str.391, ptr @.str.939, i32 5, i32 1, ptr @openflow_v6_metermod_command_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_metermod_flags, %struct._header_field_info { ptr @.str.236, ptr @.str.940, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_metermod_flags_kbps, %struct._header_field_info { ptr @.str.808, ptr @.str.941, i32 2, i32 32, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_metermod_flags_pktps, %struct._header_field_info { ptr @.str.810, ptr @.str.942, i32 2, i32 32, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_metermod_flags_burst, %struct._header_field_info { ptr @.str.812, ptr @.str.943, i32 2, i32 32, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_metermod_flags_stats, %struct._header_field_info { ptr @.str.814, ptr @.str.944, i32 2, i32 32, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_metermod_meter_id, %struct._header_field_info { ptr @.str.549, ptr @.str.945, i32 7, i32 32769, ptr @openflow_v6_meter_id_reserved_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_role_status_role, %struct._header_field_info { ptr @.str.877, ptr @.str.946, i32 7, i32 2, ptr @openflow_v6_controller_role_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_role_status_reason, %struct._header_field_info { ptr @.str.366, ptr @.str.947, i32 4, i32 2, ptr @openflow_v6_role_status_reason_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_role_status_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.948, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_role_status_generation_id, %struct._header_field_info { ptr @.str.880, ptr @.str.949, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_table_status_reason, %struct._header_field_info { ptr @.str.366, ptr @.str.950, i32 4, i32 2, ptr @openflow_v6_table_status_reason_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_table_status_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.951, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_bundle_control_bundle_id, %struct._header_field_info { ptr @.str.952, ptr @.str.953, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_bundle_control_type, %struct._header_field_info { ptr @.str.2, ptr @.str.954, i32 5, i32 2, ptr @openflow_v6_bundle_control_type_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_bundle_control_flags, %struct._header_field_info { ptr @.str.236, ptr @.str.955, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_bundle_control_flags_atomic, %struct._header_field_info { ptr @.str.956, ptr @.str.957, i32 2, i32 16, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_bundle_control_flags_ordered, %struct._header_field_info { ptr @.str.958, ptr @.str.959, i32 2, i32 16, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_bundle_prop_type, %struct._header_field_info { ptr @.str.2, ptr @.str.960, i32 5, i32 1, ptr @openflow_v6_bundle_prop_type_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_bundle_prop_length, %struct._header_field_info { ptr @.str.6, ptr @.str.961, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_bundle_prop_experimenter_experimenter, %struct._header_field_info { ptr @.str.15, ptr @.str.962, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_bundle_prop_experimenter_exp_type, %struct._header_field_info { ptr @.str.875, ptr @.str.963, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_bundle_add_bundle_id, %struct._header_field_info { ptr @.str.952, ptr @.str.964, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_bundle_add_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.951, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_bundle_add_flags, %struct._header_field_info { ptr @.str.236, ptr @.str.965, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_bundle_add_flags_atomic, %struct._header_field_info { ptr @.str.956, ptr @.str.966, i32 2, i32 16, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_bundle_add_flags_ordered, %struct._header_field_info { ptr @.str.958, ptr @.str.967, i32 2, i32 16, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_oxs_class, %struct._header_field_info { ptr @.str.8, ptr @.str.968, i32 5, i32 2, ptr @openflow_v6_oxs_class_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_oxs_field, %struct._header_field_info { ptr @.str.10, ptr @.str.969, i32 4, i32 1, ptr @openflow_v6_oxs_basic_field_values, i64 254, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_oxs_reserved, %struct._header_field_info { ptr @.str.131, ptr @.str.970, i32 4, i32 2, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_oxs_length, %struct._header_field_info { ptr @.str.6, ptr @.str.971, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_oxs_basic_duration_sec, %struct._header_field_info { ptr @.str.972, ptr @.str.973, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_oxs_basic_duration_nsec, %struct._header_field_info { ptr @.str.972, ptr @.str.974, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_oxs_basic_idle_sec, %struct._header_field_info { ptr @.str.975, ptr @.str.976, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_oxs_basic_idle_nsec, %struct._header_field_info { ptr @.str.975, ptr @.str.977, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_oxs_basic_flow_count, %struct._header_field_info { ptr @.str.798, ptr @.str.978, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_oxs_basic_packet_count, %struct._header_field_info { ptr @.str.652, ptr @.str.979, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_oxs_basic_byte_count, %struct._header_field_info { ptr @.str.654, ptr @.str.980, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_oxs_experimenter_experimenter, %struct._header_field_info { ptr @.str.981, ptr @.str.982, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_oxs_experimenter_value, %struct._header_field_info { ptr @.str.981, ptr @.str.983, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_stats_reserved, %struct._header_field_info { ptr @.str.131, ptr @.str.984, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_stats_length, %struct._header_field_info { ptr @.str.6, ptr @.str.985, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_stats_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.986, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_oxm_register, %struct._header_field_info { ptr @.str.987, ptr @.str.988, i32 4, i32 1, ptr null, i64 254, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_instruction_stat_trigger_flags, %struct._header_field_info { ptr @.str.236, ptr @.str.989, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_instruction_stat_triffer_flags_periodic, %struct._header_field_info { ptr @.str.236, ptr @.str.990, i32 7, i32 2, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_instruction_stat_triffer_flags_only_first, %struct._header_field_info { ptr @.str.236, ptr @.str.991, i32 7, i32 2, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_instruction_stat_triffer_flags_reserved, %struct._header_field_info { ptr @.str.236, ptr @.str.992, i32 7, i32 2, ptr null, i64 4294967292, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_controller_status_length, %struct._header_field_info { ptr @.str.6, ptr @.str.993, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_controller_status_short_id, %struct._header_field_info { ptr @.str.994, ptr @.str.995, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_controller_status_role, %struct._header_field_info { ptr @.str.877, ptr @.str.996, i32 7, i32 2, ptr @openflow_v6_controller_role_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_controller_status_reason, %struct._header_field_info { ptr @.str.366, ptr @.str.997, i32 4, i32 1, ptr @openflow_v6_controller_status_reason_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_controller_status_channel_status, %struct._header_field_info { ptr @.str.366, ptr @.str.998, i32 4, i32 1, ptr @openflow_v6_controller_status_channel_status_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_controller_status_pad, %struct._header_field_info { ptr @.str.366, ptr @.str.999, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_time_seconds, %struct._header_field_info { ptr @.str.1000, ptr @.str.1001, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_time_nanoseconds, %struct._header_field_info { ptr @.str.1002, ptr @.str.1003, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_time_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.1004, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_bundle_feature_prop_type, %struct._header_field_info { ptr @.str.2, ptr @.str.1005, i32 5, i32 2, ptr @openflow_v6_bundle_feature_prop_type_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_bundle_feature_prop_length, %struct._header_field_info { ptr @.str.6, ptr @.str.1006, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_bundle_feature_prop_time_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.1007, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_bundle_feature_prop_experimenter_experimenter, %struct._header_field_info { ptr @.str.15, ptr @.str.1008, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_bundle_feature_prop_experimenter_exp_type, %struct._header_field_info { ptr @.str.2, ptr @.str.1009, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_bundle_feature_prop_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.1007, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_controller_status_prop_type, %struct._header_field_info { ptr @.str.2, ptr @.str.1010, i32 5, i32 1, ptr @openflow_v6_controller_status_prop_type_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_controller_status_prop_length, %struct._header_field_info { ptr @.str.6, ptr @.str.1011, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_controller_status_prop_experimenter_experimenter, %struct._header_field_info { ptr @.str.15, ptr @.str.1012, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_controller_status_prop_experimenter_exp_type, %struct._header_field_info { ptr @.str.2, ptr @.str.1013, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_controller_status_prop_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.1014, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_port_desc_prop_recirculate_port_no, %struct._header_field_info { ptr @.str.1015, ptr @.str.1016, i32 7, i32 32769, ptr @openflow_v6_port_reserved_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_bundle_features_request_flags, %struct._header_field_info { ptr @.str.236, ptr @.str.1017, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_bundle_features_request_pad, %struct._header_field_info { ptr @.str.40, ptr @.str.1018, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_stats_pad2, %struct._header_field_info { ptr @.str.40, ptr @.str.1019, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_stats_reason, %struct._header_field_info { ptr @.str.366, ptr @.str.1020, i32 4, i32 1, ptr @openflow_v6_flow_stats_reason_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_stats_length, %struct._header_field_info { ptr @.str.6, ptr @.str.1021, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_stats_table_id, %struct._header_field_info { ptr @.str.87, ptr @.str.1022, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_stats_duration_sec, %struct._header_field_info { ptr @.str.620, ptr @.str.1023, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_stats_duration_nsec, %struct._header_field_info { ptr @.str.622, ptr @.str.1024, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_flow_stats_priority, %struct._header_field_info { ptr @.str.373, ptr @.str.1025, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_openflow_v6_controller_status_prop_uri, %struct._header_field_info { ptr @.str.1026, ptr @.str.1027, i32 27, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_openflow_v6_version = internal global i32 0, align 4
 @.str = private unnamed_addr constant [8 x i8] c"Version\00", align 1
 @.str.1 = private unnamed_addr constant [20 x i8] c"openflow_v6.version\00", align 1
-@openflow_v6_version_values = internal constant [2 x %struct._value_string] [%struct._value_string { i32 6, ptr @.str.1079 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_type = internal global i32 0, align 4
 @.str.2 = private unnamed_addr constant [5 x i8] c"Type\00", align 1
 @.str.3 = private unnamed_addr constant [17 x i8] c"openflow_v6.type\00", align 1
-@openflow_v6_type_values_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 34, ptr @openflow_v6_type_values, ptr @.str.1080 }, align 8
+@openflow_v6_type_values_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 34, ptr @openflow_v6_type_values, ptr @.str.1081 }, align 8
 @hf_openflow_v6_xid = internal global i32 0, align 4
 @.str.4 = private unnamed_addr constant [15 x i8] c"Transaction ID\00", align 1
 @.str.5 = private unnamed_addr constant [16 x i8] c"openflow_v6.xid\00", align 1
@@ -33,12 +30,11 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_openflow_v6_oxm_class = internal global i32 0, align 4
 @.str.8 = private unnamed_addr constant [6 x i8] c"Class\00", align 1
 @.str.9 = private unnamed_addr constant [22 x i8] c"openflow_v6.oxm.class\00", align 1
-@openflow_v6_oxm_class_values = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1115 }, %struct._value_string { i32 1, ptr @.str.1116 }, %struct._value_string { i32 32768, ptr @.str.1117 }, %struct._value_string { i32 32769, ptr @.str.1118 }, %struct._value_string { i32 65535, ptr @.str.1119 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_oxm_field = internal global i32 0, align 4
 @.str.10 = private unnamed_addr constant [6 x i8] c"Field\00", align 1
 @.str.11 = private unnamed_addr constant [22 x i8] c"openflow_v6.oxm.field\00", align 1
 @hf_openflow_v6_oxm_field_basic = internal global i32 0, align 4
-@openflow_v6_oxm_basic_field_values_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 45, ptr @openflow_v6_oxm_basic_field_values, ptr @.str.1120 }, align 8
+@openflow_v6_oxm_basic_field_values_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 45, ptr @openflow_v6_oxm_basic_field_values, ptr @.str.1123 }, align 8
 @hf_openflow_v6_oxm_hm = internal global i32 0, align 4
 @.str.12 = private unnamed_addr constant [9 x i8] c"Has mask\00", align 1
 @.str.13 = private unnamed_addr constant [19 x i8] c"openflow_v6.oxm.hm\00", align 1
@@ -89,7 +85,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.37 = private unnamed_addr constant [26 x i8] c"openflow_v6.oxm.vlan_mask\00", align 1
 @hf_openflow_v6_match_type = internal global i32 0, align 4
 @.str.38 = private unnamed_addr constant [23 x i8] c"openflow_v6.match.type\00", align 1
-@openflow_v6_match_type_values = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1166 }, %struct._value_string { i32 1, ptr @.str.1167 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_match_length = internal global i32 0, align 4
 @.str.39 = private unnamed_addr constant [25 x i8] c"openflow_v6.match.length\00", align 1
 @hf_openflow_v6_match_pad = internal global i32 0, align 4
@@ -97,7 +92,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.41 = private unnamed_addr constant [22 x i8] c"openflow_v6.match.pad\00", align 1
 @hf_openflow_v6_action_type = internal global i32 0, align 4
 @.str.42 = private unnamed_addr constant [24 x i8] c"openflow_v6.action.type\00", align 1
-@openflow_v6_action_type_values = internal constant [20 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.697 }, %struct._value_string { i32 11, ptr @.str.699 }, %struct._value_string { i32 12, ptr @.str.701 }, %struct._value_string { i32 15, ptr @.str.703 }, %struct._value_string { i32 16, ptr @.str.705 }, %struct._value_string { i32 17, ptr @.str.707 }, %struct._value_string { i32 18, ptr @.str.709 }, %struct._value_string { i32 19, ptr @.str.711 }, %struct._value_string { i32 20, ptr @.str.713 }, %struct._value_string { i32 21, ptr @.str.715 }, %struct._value_string { i32 22, ptr @.str.717 }, %struct._value_string { i32 23, ptr @.str.719 }, %struct._value_string { i32 24, ptr @.str.721 }, %struct._value_string { i32 25, ptr @.str.723 }, %struct._value_string { i32 26, ptr @.str.725 }, %struct._value_string { i32 27, ptr @.str.727 }, %struct._value_string { i32 28, ptr @.str.729 }, %struct._value_string { i32 29, ptr @.str.731 }, %struct._value_string { i32 65535, ptr @.str.1168 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_action_length = internal global i32 0, align 4
 @.str.43 = private unnamed_addr constant [26 x i8] c"openflow_v6.action.length\00", align 1
 @hf_openflow_v6_action_experimenter_experimenter = internal global i32 0, align 4
@@ -105,11 +99,9 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_openflow_v6_action_output_port = internal global i32 0, align 4
 @.str.45 = private unnamed_addr constant [5 x i8] c"Port\00", align 1
 @.str.46 = private unnamed_addr constant [31 x i8] c"openflow_v6.action.output.port\00", align 1
-@openflow_v6_port_reserved_values = internal constant [9 x %struct._value_string] [%struct._value_string { i32 -8, ptr @.str.1169 }, %struct._value_string { i32 -7, ptr @.str.1170 }, %struct._value_string { i32 -6, ptr @.str.1171 }, %struct._value_string { i32 -5, ptr @.str.1172 }, %struct._value_string { i32 -4, ptr @.str.1173 }, %struct._value_string { i32 -3, ptr @.str.1174 }, %struct._value_string { i32 -2, ptr @.str.1175 }, %struct._value_string { i32 -1, ptr @.str.1176 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_action_output_max_len = internal global i32 0, align 4
 @.str.47 = private unnamed_addr constant [11 x i8] c"Max length\00", align 1
 @.str.48 = private unnamed_addr constant [34 x i8] c"openflow_v6.action.output.max_len\00", align 1
-@openflow_v6_controller_max_len_reserved_values = internal constant [2 x %struct._value_string] [%struct._value_string { i32 65535, ptr @.str.1177 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_action_output_pad = internal global i32 0, align 4
 @.str.49 = private unnamed_addr constant [30 x i8] c"openflow_v6.action.output.pad\00", align 1
 @hf_openflow_v6_action_copy_ttl_out_pad = internal global i32 0, align 4
@@ -174,7 +166,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.83 = private unnamed_addr constant [28 x i8] c"openflow_v6.action.meter.id\00", align 1
 @hf_openflow_v6_instruction_type = internal global i32 0, align 4
 @.str.84 = private unnamed_addr constant [29 x i8] c"openflow_v6.instruction.type\00", align 1
-@openflow_v6_instruction_type_values = internal constant [9 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.1178 }, %struct._value_string { i32 2, ptr @.str.1179 }, %struct._value_string { i32 3, ptr @.str.1180 }, %struct._value_string { i32 4, ptr @.str.1181 }, %struct._value_string { i32 5, ptr @.str.1182 }, %struct._value_string { i32 6, ptr @.str.1183 }, %struct._value_string { i32 7, ptr @.str.1184 }, %struct._value_string { i32 65535, ptr @.str.1185 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_instruction_length = internal global i32 0, align 4
 @.str.85 = private unnamed_addr constant [31 x i8] c"openflow_v6.instruction.length\00", align 1
 @hf_openflow_v6_instruction_experimenter_experimenter = internal global i32 0, align 4
@@ -194,7 +185,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.93 = private unnamed_addr constant [36 x i8] c"openflow_v6.instruction.actions.pad\00", align 1
 @hf_openflow_v6_port_desc_prop_type = internal global i32 0, align 4
 @.str.94 = private unnamed_addr constant [32 x i8] c"openflow_v6.port.desc_prop.type\00", align 1
-@openflow_v6_port_desc_prop_type_values = internal constant [7 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1186 }, %struct._value_string { i32 1, ptr @.str.1187 }, %struct._value_string { i32 2, ptr @.str.1188 }, %struct._value_string { i32 3, ptr @.str.1189 }, %struct._value_string { i32 4, ptr @.str.1190 }, %struct._value_string { i32 65535, ptr @.str.1191 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_port_desc_prop_length = internal global i32 0, align 4
 @.str.95 = private unnamed_addr constant [34 x i8] c"openflow_v6.port.desc_prop.length\00", align 1
 @hf_openflow_v6_port_desc_prop_ethernet_pad = internal global i32 0, align 4
@@ -418,7 +408,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.223 = private unnamed_addr constant [49 x i8] c"openflow_v6.port_desc_prop.experimenter.exp_type\00", align 1
 @hf_openflow_v6_port_stats_prop_type = internal global i32 0, align 4
 @.str.224 = private unnamed_addr constant [33 x i8] c"openflow_v6.port.stats_prop.type\00", align 1
-@openflow_v6_port_stats_prop_type_values = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1192 }, %struct._value_string { i32 1, ptr @.str.1193 }, %struct._value_string { i32 65535, ptr @.str.1194 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_port_stats_prop_length = internal global i32 0, align 4
 @.str.225 = private unnamed_addr constant [35 x i8] c"openflow_v6.port.stats_prop.length\00", align 1
 @hf_openflow_v6_port_stats_prop_ethernet_pad = internal global i32 0, align 4
@@ -536,7 +525,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.298 = private unnamed_addr constant [28 x i8] c"openflow_v6.port.state.live\00", align 1
 @hf_openflow_v6_meter_band_type = internal global i32 0, align 4
 @.str.299 = private unnamed_addr constant [28 x i8] c"openflow_v6.meter_band.type\00", align 1
-@openflow_v6_meter_band_type_values = internal constant [4 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.821 }, %struct._value_string { i32 2, ptr @.str.823 }, %struct._value_string { i32 65535, ptr @.str.1195 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_meter_band_len = internal global i32 0, align 4
 @.str.300 = private unnamed_addr constant [30 x i8] c"openflow_v6.meter_band.length\00", align 1
 @hf_openflow_v6_meter_band_rate = internal global i32 0, align 4
@@ -556,7 +544,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.309 = private unnamed_addr constant [49 x i8] c"openflow_v6.meter_band.experimenter.experimenter\00", align 1
 @hf_openflow_v6_hello_element_type = internal global i32 0, align 4
 @.str.310 = private unnamed_addr constant [31 x i8] c"openflow_v6.hello_element.type\00", align 1
-@openflow_v6_hello_element_type_values = internal constant [2 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.1196 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_hello_element_length = internal global i32 0, align 4
 @.str.311 = private unnamed_addr constant [33 x i8] c"openflow_v6.hello_element.length\00", align 1
 @hf_openflow_v6_hello_element_version_bitmap = internal global i32 0, align 4
@@ -566,45 +553,26 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.314 = private unnamed_addr constant [30 x i8] c"openflow_v6.hello_element.pad\00", align 1
 @hf_openflow_v6_error_type = internal global i32 0, align 4
 @.str.315 = private unnamed_addr constant [23 x i8] c"openflow_v6.error.type\00", align 1
-@openflow_v6_error_type_values = internal constant [20 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1197 }, %struct._value_string { i32 1, ptr @.str.1198 }, %struct._value_string { i32 2, ptr @.str.1199 }, %struct._value_string { i32 3, ptr @.str.1200 }, %struct._value_string { i32 4, ptr @.str.1201 }, %struct._value_string { i32 5, ptr @.str.1202 }, %struct._value_string { i32 6, ptr @.str.1203 }, %struct._value_string { i32 7, ptr @.str.1204 }, %struct._value_string { i32 8, ptr @.str.1205 }, %struct._value_string { i32 9, ptr @.str.1206 }, %struct._value_string { i32 10, ptr @.str.1207 }, %struct._value_string { i32 11, ptr @.str.1208 }, %struct._value_string { i32 12, ptr @.str.1209 }, %struct._value_string { i32 13, ptr @.str.1210 }, %struct._value_string { i32 14, ptr @.str.1211 }, %struct._value_string { i32 15, ptr @.str.1212 }, %struct._value_string { i32 16, ptr @.str.1213 }, %struct._value_string { i32 17, ptr @.str.1214 }, %struct._value_string { i32 65535, ptr @.str.1215 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_error_hello_failed_code = internal global i32 0, align 4
 @.str.316 = private unnamed_addr constant [5 x i8] c"Code\00", align 1
 @.str.317 = private unnamed_addr constant [23 x i8] c"openflow_v6.error.code\00", align 1
-@openflow_v6_error_hello_failed_code_values = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1216 }, %struct._value_string { i32 1, ptr @.str.1217 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_error_bad_request_code = internal global i32 0, align 4
-@openflow_v6_error_bad_request_code_values = internal constant [17 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1218 }, %struct._value_string { i32 1, ptr @.str.1219 }, %struct._value_string { i32 2, ptr @.str.1220 }, %struct._value_string { i32 3, ptr @.str.1221 }, %struct._value_string { i32 4, ptr @.str.1222 }, %struct._value_string { i32 5, ptr @.str.1223 }, %struct._value_string { i32 6, ptr @.str.1224 }, %struct._value_string { i32 7, ptr @.str.1225 }, %struct._value_string { i32 8, ptr @.str.1226 }, %struct._value_string { i32 9, ptr @.str.1227 }, %struct._value_string { i32 10, ptr @.str.1228 }, %struct._value_string { i32 11, ptr @.str.1229 }, %struct._value_string { i32 12, ptr @.str.1230 }, %struct._value_string { i32 13, ptr @.str.1231 }, %struct._value_string { i32 14, ptr @.str.1232 }, %struct._value_string { i32 15, ptr @.str.1233 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_error_bad_action_code = internal global i32 0, align 4
-@openflow_v6_error_bad_action_code_values = internal constant [19 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1234 }, %struct._value_string { i32 1, ptr @.str.1235 }, %struct._value_string { i32 2, ptr @.str.1236 }, %struct._value_string { i32 3, ptr @.str.1237 }, %struct._value_string { i32 4, ptr @.str.1238 }, %struct._value_string { i32 5, ptr @.str.1239 }, %struct._value_string { i32 6, ptr @.str.1240 }, %struct._value_string { i32 7, ptr @.str.1241 }, %struct._value_string { i32 8, ptr @.str.1242 }, %struct._value_string { i32 9, ptr @.str.1243 }, %struct._value_string { i32 10, ptr @.str.1244 }, %struct._value_string { i32 11, ptr @.str.1245 }, %struct._value_string { i32 12, ptr @.str.1246 }, %struct._value_string { i32 13, ptr @.str.1247 }, %struct._value_string { i32 14, ptr @.str.1248 }, %struct._value_string { i32 15, ptr @.str.1249 }, %struct._value_string { i32 16, ptr @.str.1250 }, %struct._value_string { i32 17, ptr @.str.1251 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_error_bad_instruction_code = internal global i32 0, align 4
-@openflow_v6_error_bad_instruction_code_values = internal constant [11 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1252 }, %struct._value_string { i32 1, ptr @.str.1253 }, %struct._value_string { i32 2, ptr @.str.1254 }, %struct._value_string { i32 3, ptr @.str.1255 }, %struct._value_string { i32 4, ptr @.str.1256 }, %struct._value_string { i32 5, ptr @.str.1257 }, %struct._value_string { i32 6, ptr @.str.1258 }, %struct._value_string { i32 7, ptr @.str.1259 }, %struct._value_string { i32 8, ptr @.str.1260 }, %struct._value_string { i32 9, ptr @.str.1261 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_error_bad_match_code = internal global i32 0, align 4
-@openflow_v6_error_bad_match_code_values = internal constant [13 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1262 }, %struct._value_string { i32 1, ptr @.str.1263 }, %struct._value_string { i32 2, ptr @.str.1264 }, %struct._value_string { i32 3, ptr @.str.1265 }, %struct._value_string { i32 4, ptr @.str.1266 }, %struct._value_string { i32 5, ptr @.str.1267 }, %struct._value_string { i32 6, ptr @.str.1268 }, %struct._value_string { i32 7, ptr @.str.1269 }, %struct._value_string { i32 8, ptr @.str.1270 }, %struct._value_string { i32 9, ptr @.str.1271 }, %struct._value_string { i32 10, ptr @.str.1272 }, %struct._value_string { i32 11, ptr @.str.1273 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_error_flow_mod_failed_code = internal global i32 0, align 4
-@openflow_v6_error_flow_mod_failed_code_values = internal constant [11 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1274 }, %struct._value_string { i32 1, ptr @.str.1275 }, %struct._value_string { i32 2, ptr @.str.1276 }, %struct._value_string { i32 3, ptr @.str.1277 }, %struct._value_string { i32 4, ptr @.str.1278 }, %struct._value_string { i32 5, ptr @.str.1279 }, %struct._value_string { i32 6, ptr @.str.1280 }, %struct._value_string { i32 7, ptr @.str.1281 }, %struct._value_string { i32 8, ptr @.str.1282 }, %struct._value_string { i32 9, ptr @.str.1283 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_error_group_mod_failed_code = internal global i32 0, align 4
-@openflow_v6_error_group_mod_failed_code_values = internal constant [16 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1284 }, %struct._value_string { i32 1, ptr @.str.1285 }, %struct._value_string { i32 2, ptr @.str.1286 }, %struct._value_string { i32 3, ptr @.str.1287 }, %struct._value_string { i32 4, ptr @.str.1288 }, %struct._value_string { i32 5, ptr @.str.1289 }, %struct._value_string { i32 6, ptr @.str.1290 }, %struct._value_string { i32 7, ptr @.str.1291 }, %struct._value_string { i32 8, ptr @.str.1292 }, %struct._value_string { i32 9, ptr @.str.1293 }, %struct._value_string { i32 10, ptr @.str.1294 }, %struct._value_string { i32 11, ptr @.str.1295 }, %struct._value_string { i32 12, ptr @.str.1296 }, %struct._value_string { i32 13, ptr @.str.1297 }, %struct._value_string { i32 14, ptr @.str.1298 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_error_port_mod_failed_code = internal global i32 0, align 4
-@openflow_v6_error_port_mod_failed_code_values = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1299 }, %struct._value_string { i32 1, ptr @.str.1300 }, %struct._value_string { i32 2, ptr @.str.1301 }, %struct._value_string { i32 3, ptr @.str.1302 }, %struct._value_string { i32 4, ptr @.str.1303 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_error_table_mod_failed_code = internal global i32 0, align 4
-@openflow_v6_error_table_mod_failed_code_values = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1304 }, %struct._value_string { i32 1, ptr @.str.1305 }, %struct._value_string { i32 2, ptr @.str.1306 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_error_queue_op_failed_code = internal global i32 0, align 4
-@openflow_v6_error_queue_op_failed_code_values = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1307 }, %struct._value_string { i32 1, ptr @.str.1308 }, %struct._value_string { i32 2, ptr @.str.1309 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_error_switch_config_failed_code = internal global i32 0, align 4
-@openflow_v6_error_switch_config_failed_code_values = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1310 }, %struct._value_string { i32 1, ptr @.str.1311 }, %struct._value_string { i32 2, ptr @.str.1312 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_error_role_request_failed_code = internal global i32 0, align 4
-@openflow_v6_error_role_request_failed_code_values = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1313 }, %struct._value_string { i32 1, ptr @.str.1314 }, %struct._value_string { i32 2, ptr @.str.1315 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_error_meter_mod_failed_code = internal global i32 0, align 4
-@openflow_v6_error_meter_mod_failed_code_values = internal constant [13 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1316 }, %struct._value_string { i32 1, ptr @.str.1317 }, %struct._value_string { i32 2, ptr @.str.1318 }, %struct._value_string { i32 3, ptr @.str.1319 }, %struct._value_string { i32 4, ptr @.str.1320 }, %struct._value_string { i32 5, ptr @.str.1321 }, %struct._value_string { i32 6, ptr @.str.1322 }, %struct._value_string { i32 7, ptr @.str.1323 }, %struct._value_string { i32 8, ptr @.str.1324 }, %struct._value_string { i32 9, ptr @.str.1325 }, %struct._value_string { i32 10, ptr @.str.1326 }, %struct._value_string { i32 11, ptr @.str.1327 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_error_table_features_failed_code = internal global i32 0, align 4
-@openflow_v6_error_table_features_failed_code_values = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1328 }, %struct._value_string { i32 1, ptr @.str.1329 }, %struct._value_string { i32 5, ptr @.str.1330 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_error_bad_property_code = internal global i32 0, align 4
-@openflow_v6_error_bad_property_code_values = internal constant [10 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1331 }, %struct._value_string { i32 1, ptr @.str.1332 }, %struct._value_string { i32 2, ptr @.str.1333 }, %struct._value_string { i32 3, ptr @.str.1334 }, %struct._value_string { i32 4, ptr @.str.1335 }, %struct._value_string { i32 5, ptr @.str.1336 }, %struct._value_string { i32 6, ptr @.str.1337 }, %struct._value_string { i32 7, ptr @.str.1338 }, %struct._value_string { i32 8, ptr @.str.1339 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_error_async_config_failed_code = internal global i32 0, align 4
-@openflow_v6_error_async_config_failed_code_values = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1340 }, %struct._value_string { i32 1, ptr @.str.1341 }, %struct._value_string { i32 2, ptr @.str.1342 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_error_flow_monitor_failed_code = internal global i32 0, align 4
-@openflow_v6_error_flow_monitor_failed_code_values = internal constant [9 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1343 }, %struct._value_string { i32 1, ptr @.str.1344 }, %struct._value_string { i32 2, ptr @.str.1345 }, %struct._value_string { i32 3, ptr @.str.1346 }, %struct._value_string { i32 4, ptr @.str.1347 }, %struct._value_string { i32 5, ptr @.str.1348 }, %struct._value_string { i32 6, ptr @.str.1349 }, %struct._value_string { i32 7, ptr @.str.1350 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_error_bundle_failed_code = internal global i32 0, align 4
-@openflow_v6_error_bundle_failed_code_values = internal constant [17 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1351 }, %struct._value_string { i32 1, ptr @.str.1352 }, %struct._value_string { i32 2, ptr @.str.1353 }, %struct._value_string { i32 3, ptr @.str.1354 }, %struct._value_string { i32 4, ptr @.str.1355 }, %struct._value_string { i32 5, ptr @.str.1356 }, %struct._value_string { i32 6, ptr @.str.1357 }, %struct._value_string { i32 7, ptr @.str.1358 }, %struct._value_string { i32 8, ptr @.str.1359 }, %struct._value_string { i32 9, ptr @.str.1360 }, %struct._value_string { i32 10, ptr @.str.1361 }, %struct._value_string { i32 11, ptr @.str.1362 }, %struct._value_string { i32 12, ptr @.str.1363 }, %struct._value_string { i32 13, ptr @.str.1364 }, %struct._value_string { i32 14, ptr @.str.1365 }, %struct._value_string { i32 15, ptr @.str.1366 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_error_code = internal global i32 0, align 4
 @hf_openflow_v6_error_data_text = internal global i32 0, align 4
 @.str.318 = private unnamed_addr constant [5 x i8] c"Data\00", align 1
@@ -672,21 +640,18 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_openflow_v6_switch_config_flags_fragments = internal global i32 0, align 4
 @.str.358 = private unnamed_addr constant [13 x i8] c"IP Fragments\00", align 1
 @.str.359 = private unnamed_addr constant [42 x i8] c"openflow_v6.switch_config.flags.fragments\00", align 1
-@openflow_v6_switch_config_fragments_values = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1367 }, %struct._value_string { i32 1, ptr @.str.1368 }, %struct._value_string { i32 2, ptr @.str.1369 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_switch_config_miss_send_len = internal global i32 0, align 4
 @.str.360 = private unnamed_addr constant [17 x i8] c"Miss send length\00", align 1
 @.str.361 = private unnamed_addr constant [40 x i8] c"openflow_v6.switch_config.miss_send_len\00", align 1
 @hf_openflow_v6_packet_in_buffer_id = internal global i32 0, align 4
 @.str.362 = private unnamed_addr constant [10 x i8] c"Buffer ID\00", align 1
 @.str.363 = private unnamed_addr constant [32 x i8] c"openflow_v6.packet_in.buffer_id\00", align 1
-@openflow_v6_buffer_reserved_values = internal constant [2 x %struct._value_string] [%struct._value_string { i32 -1, ptr @.str.1370 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_packet_in_total_len = internal global i32 0, align 4
 @.str.364 = private unnamed_addr constant [13 x i8] c"Total length\00", align 1
 @.str.365 = private unnamed_addr constant [32 x i8] c"openflow_v6.packet_in.total_len\00", align 1
 @hf_openflow_v6_packet_in_reason = internal global i32 0, align 4
 @.str.366 = private unnamed_addr constant [7 x i8] c"Reason\00", align 1
 @.str.367 = private unnamed_addr constant [29 x i8] c"openflow_v6.packet_in.reason\00", align 1
-@openflow_v6_packet_in_reason_values = internal constant [7 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.888 }, %struct._value_string { i32 1, ptr @.str.890 }, %struct._value_string { i32 2, ptr @.str.892 }, %struct._value_string { i32 3, ptr @.str.894 }, %struct._value_string { i32 4, ptr @.str.1371 }, %struct._value_string { i32 5, ptr @.str.898 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_packet_in_table_id = internal global i32 0, align 4
 @.str.368 = private unnamed_addr constant [31 x i8] c"openflow_v6.packet_in.table_id\00", align 1
 @hf_openflow_v6_packet_in_cookie = internal global i32 0, align 4
@@ -701,7 +666,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.374 = private unnamed_addr constant [34 x i8] c"openflow_v6.flow_removed.priority\00", align 1
 @hf_openflow_v6_flow_removed_reason = internal global i32 0, align 4
 @.str.375 = private unnamed_addr constant [32 x i8] c"openflow_v6.flow_removed.reason\00", align 1
-@openflow_v6_flow_removed_reason_values = internal constant [7 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.908 }, %struct._value_string { i32 1, ptr @.str.910 }, %struct._value_string { i32 2, ptr @.str.912 }, %struct._value_string { i32 3, ptr @.str.914 }, %struct._value_string { i32 4, ptr @.str.916 }, %struct._value_string { i32 5, ptr @.str.918 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_flow_removed_table_id = internal global i32 0, align 4
 @.str.376 = private unnamed_addr constant [34 x i8] c"openflow_v6.flow_removed.table_id\00", align 1
 @hf_openflow_v6_flow_removed_idle_timeout = internal global i32 0, align 4
@@ -712,7 +676,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.380 = private unnamed_addr constant [38 x i8] c"openflow_v6.flow_removed.hard_timeout\00", align 1
 @hf_openflow_v6_port_status_reason = internal global i32 0, align 4
 @.str.381 = private unnamed_addr constant [31 x i8] c"openflow_v6.port_status.reason\00", align 1
-@openflow_v6_port_status_reason_values = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.901 }, %struct._value_string { i32 1, ptr @.str.903 }, %struct._value_string { i32 2, ptr @.str.905 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_port_status_pad = internal global i32 0, align 4
 @.str.382 = private unnamed_addr constant [28 x i8] c"openflow_v6.port_status.pad\00", align 1
 @hf_openflow_v6_packet_out_buffer_id = internal global i32 0, align 4
@@ -729,11 +692,9 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.389 = private unnamed_addr constant [32 x i8] c"openflow_v6.flowmod.cookie_mask\00", align 1
 @hf_openflow_v6_flowmod_table_id = internal global i32 0, align 4
 @.str.390 = private unnamed_addr constant [29 x i8] c"openflow_v6.flowmod.table_id\00", align 1
-@openflow_v6_table_reserved_values = internal constant [2 x %struct._value_string] [%struct._value_string { i32 255, ptr @.str.1372 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_flowmod_command = internal global i32 0, align 4
 @.str.391 = private unnamed_addr constant [8 x i8] c"Command\00", align 1
 @.str.392 = private unnamed_addr constant [28 x i8] c"openflow_v6.flowmod.command\00", align 1
-@openflow_v6_flowmod_command_values = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1373 }, %struct._value_string { i32 1, ptr @.str.1374 }, %struct._value_string { i32 2, ptr @.str.1375 }, %struct._value_string { i32 3, ptr @.str.1376 }, %struct._value_string { i32 4, ptr @.str.1377 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_flowmod_idle_timeout = internal global i32 0, align 4
 @.str.393 = private unnamed_addr constant [33 x i8] c"openflow_v6.flowmod.idle_timeout\00", align 1
 @hf_openflow_v6_flowmod_hard_timeout = internal global i32 0, align 4
@@ -748,7 +709,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_openflow_v6_flowmod_out_group = internal global i32 0, align 4
 @.str.399 = private unnamed_addr constant [10 x i8] c"Out group\00", align 1
 @.str.400 = private unnamed_addr constant [30 x i8] c"openflow_v6.flowmod.out_group\00", align 1
-@openflow_v6_group_reserved_values = internal constant [3 x %struct._value_string] [%struct._value_string { i32 -4, ptr @.str.1378 }, %struct._value_string { i32 -1, ptr @.str.1379 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_flowmod_flags = internal global i32 0, align 4
 @.str.401 = private unnamed_addr constant [26 x i8] c"openflow_v6.flowmod.flags\00", align 1
 @hf_openflow_v6_flowmod_flags_send_flow_rem = internal global i32 0, align 4
@@ -784,10 +744,8 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.421 = private unnamed_addr constant [23 x i8] c"openflow_v6.bucket.pad\00", align 1
 @hf_openflow_v6_groupmod_command = internal global i32 0, align 4
 @.str.422 = private unnamed_addr constant [29 x i8] c"openflow_v6.groupmod.command\00", align 1
-@openflow_v6_groupmod_command_values = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1380 }, %struct._value_string { i32 1, ptr @.str.1381 }, %struct._value_string { i32 2, ptr @.str.1382 }, %struct._value_string { i32 3, ptr @.str.1383 }, %struct._value_string { i32 5, ptr @.str.1384 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_groupmod_type = internal global i32 0, align 4
 @.str.423 = private unnamed_addr constant [26 x i8] c"openflow_v6.groupmod.type\00", align 1
-@openflow_v6_group_type_values = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.670 }, %struct._value_string { i32 1, ptr @.str.672 }, %struct._value_string { i32 2, ptr @.str.674 }, %struct._value_string { i32 3, ptr @.str.676 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_groupmod_pad = internal global i32 0, align 4
 @.str.424 = private unnamed_addr constant [25 x i8] c"openflow_v6.groupmod.pad\00", align 1
 @hf_openflow_v6_groupmod_group_id = internal global i32 0, align 4
@@ -800,7 +758,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.429 = private unnamed_addr constant [39 x i8] c"openflow_v6.groupmod.command_bucket_id\00", align 1
 @hf_openflow_v6_portmod_prop_type = internal global i32 0, align 4
 @.str.430 = private unnamed_addr constant [30 x i8] c"openflow_v6.portmod.prop.type\00", align 1
-@openflow_v6_portmod_prop_type_values = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1385 }, %struct._value_string { i32 1, ptr @.str.1386 }, %struct._value_string { i32 65535, ptr @.str.1387 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_portmod_prop_length = internal global i32 0, align 4
 @.str.431 = private unnamed_addr constant [32 x i8] c"openflow_v6.portmod.prop.length\00", align 1
 @hf_openflow_v6_portmod_prop_ethernet_advertise = internal global i32 0, align 4
@@ -907,7 +864,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.486 = private unnamed_addr constant [43 x i8] c"openflow_v6.tablemod.config.vacancy_events\00", align 1
 @hf_openflow_v6_tablemod_prop_type = internal global i32 0, align 4
 @.str.487 = private unnamed_addr constant [31 x i8] c"openflow_v6.tablemod_prop.type\00", align 1
-@openflow_v6_tablemod_prop_type_values = internal constant [4 x %struct._value_string] [%struct._value_string { i32 2, ptr @.str.1388 }, %struct._value_string { i32 3, ptr @.str.1389 }, %struct._value_string { i32 65535, ptr @.str.1390 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_tablemod_prop_length = internal global i32 0, align 4
 @.str.488 = private unnamed_addr constant [33 x i8] c"openflow_v6.tablemod_prop.length\00", align 1
 @hf_openflow_v6_tablemod_prop_eviction_flags = internal global i32 0, align 4
@@ -966,7 +922,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.518 = private unnamed_addr constant [48 x i8] c"openflow_v6.aggregate_stats_request.cookie_mask\00", align 1
 @hf_openflow_v6_table_feature_prop_type = internal global i32 0, align 4
 @.str.519 = private unnamed_addr constant [36 x i8] c"openflow_v6.table_feature_prop.type\00", align 1
-@openflow_v6_table_feature_prop_type_values = internal constant [25 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1391 }, %struct._value_string { i32 1, ptr @.str.1392 }, %struct._value_string { i32 2, ptr @.str.1393 }, %struct._value_string { i32 3, ptr @.str.1394 }, %struct._value_string { i32 4, ptr @.str.1395 }, %struct._value_string { i32 5, ptr @.str.1396 }, %struct._value_string { i32 6, ptr @.str.1397 }, %struct._value_string { i32 7, ptr @.str.1398 }, %struct._value_string { i32 8, ptr @.str.1399 }, %struct._value_string { i32 10, ptr @.str.1400 }, %struct._value_string { i32 12, ptr @.str.1401 }, %struct._value_string { i32 13, ptr @.str.1402 }, %struct._value_string { i32 14, ptr @.str.1403 }, %struct._value_string { i32 15, ptr @.str.1404 }, %struct._value_string { i32 65534, ptr @.str.1405 }, %struct._value_string { i32 65535, ptr @.str.1406 }, %struct._value_string { i32 16, ptr @.str.1407 }, %struct._value_string { i32 18, ptr @.str.1408 }, %struct._value_string { i32 19, ptr @.str.1409 }, %struct._value_string { i32 20, ptr @.str.1410 }, %struct._value_string { i32 21, ptr @.str.1411 }, %struct._value_string { i32 22, ptr @.str.1412 }, %struct._value_string { i32 65534, ptr @.str.1405 }, %struct._value_string { i32 65535, ptr @.str.1406 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_table_feature_prop_length = internal global i32 0, align 4
 @.str.520 = private unnamed_addr constant [38 x i8] c"openflow_v6.table_feature_prop.length\00", align 1
 @hf_openflow_v6_table_feature_prop_next_tables_next_table_id = internal global i32 0, align 4
@@ -1014,7 +969,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.545 = private unnamed_addr constant [40 x i8] c"openflow_v6.queue_stats_request.port_no\00", align 1
 @hf_openflow_v6_queue_stats_request_queue_id = internal global i32 0, align 4
 @.str.546 = private unnamed_addr constant [41 x i8] c"openflow_v6.queue_stats_request.queue_id\00", align 1
-@openflow_v6_queue_reserved_values = internal constant [2 x %struct._value_string] [%struct._value_string { i32 -1, ptr @.str.1413 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_group_stats_request_group_id = internal global i32 0, align 4
 @.str.547 = private unnamed_addr constant [41 x i8] c"openflow_v6.group_stats_request.group_id\00", align 1
 @hf_openflow_v6_group_stats_request_pad = internal global i32 0, align 4
@@ -1022,7 +976,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_openflow_v6_meter_stats_request_meter_id = internal global i32 0, align 4
 @.str.549 = private unnamed_addr constant [9 x i8] c"Meter ID\00", align 1
 @.str.550 = private unnamed_addr constant [41 x i8] c"openflow_v6.meter_stats_request.meter_id\00", align 1
-@openflow_v6_meter_id_reserved_values = internal constant [4 x %struct._value_string] [%struct._value_string { i32 -3, ptr @.str.1414 }, %struct._value_string { i32 -2, ptr @.str.1415 }, %struct._value_string { i32 -1, ptr @.str.1416 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_meter_stats_request_pad = internal global i32 0, align 4
 @.str.551 = private unnamed_addr constant [36 x i8] c"openflow_v6.meter_stats_request.pad\00", align 1
 @hf_openflow_v6_meter_desc_request_meter_id = internal global i32 0, align 4
@@ -1067,10 +1020,8 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.575 = private unnamed_addr constant [42 x i8] c"openflow_v6.flow_monitor_request.table_id\00", align 1
 @hf_openflow_v6_flow_monitor_request_command = internal global i32 0, align 4
 @.str.576 = private unnamed_addr constant [41 x i8] c"openflow_v6.flow_monitor_request.command\00", align 1
-@openflow_v6_flow_monitor_request_command_values = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1417 }, %struct._value_string { i32 1, ptr @.str.1418 }, %struct._value_string { i32 2, ptr @.str.1419 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_multipart_request_type = internal global i32 0, align 4
 @.str.577 = private unnamed_addr constant [35 x i8] c"openflow_v6.multipart_request.type\00", align 1
-@openflow_v6_multipart_type_values = internal constant [22 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1420 }, %struct._value_string { i32 1, ptr @.str.1421 }, %struct._value_string { i32 2, ptr @.str.1422 }, %struct._value_string { i32 3, ptr @.str.1423 }, %struct._value_string { i32 4, ptr @.str.1424 }, %struct._value_string { i32 5, ptr @.str.1425 }, %struct._value_string { i32 6, ptr @.str.1426 }, %struct._value_string { i32 7, ptr @.str.1427 }, %struct._value_string { i32 8, ptr @.str.1428 }, %struct._value_string { i32 9, ptr @.str.1429 }, %struct._value_string { i32 10, ptr @.str.1430 }, %struct._value_string { i32 11, ptr @.str.1431 }, %struct._value_string { i32 12, ptr @.str.1432 }, %struct._value_string { i32 13, ptr @.str.1433 }, %struct._value_string { i32 14, ptr @.str.1434 }, %struct._value_string { i32 15, ptr @.str.1435 }, %struct._value_string { i32 16, ptr @.str.1436 }, %struct._value_string { i32 17, ptr @.str.1437 }, %struct._value_string { i32 18, ptr @.str.1438 }, %struct._value_string { i32 19, ptr @.str.1439 }, %struct._value_string { i32 65535, ptr @.str.1440 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_multipart_request_flags = internal global i32 0, align 4
 @.str.578 = private unnamed_addr constant [36 x i8] c"openflow_v6.multipart_request.flags\00", align 1
 @hf_openflow_v6_multipart_request_flags_more = internal global i32 0, align 4
@@ -1195,7 +1146,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.647 = private unnamed_addr constant [38 x i8] c"openflow_v6.queue_stats.duration_nsec\00", align 1
 @hf_openflow_v6_queue_stats_prop_type = internal global i32 0, align 4
 @.str.648 = private unnamed_addr constant [34 x i8] c"openflow_v6.queue_stats_prop.type\00", align 1
-@openflow_v6_queue_stats_prop_type_values = internal constant [2 x %struct._value_string] [%struct._value_string { i32 65535, ptr @.str.1441 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_queue_stats_prop_length = internal global i32 0, align 4
 @.str.649 = private unnamed_addr constant [36 x i8] c"openflow_v6.queue_stats_prop.length\00", align 1
 @hf_openflow_v6_queue_stats_prop_experimenter_experimenter = internal global i32 0, align 4
@@ -1521,7 +1471,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.835 = private unnamed_addr constant [31 x i8] c"openflow_v6.flow_update.length\00", align 1
 @hf_openflow_v6_flow_update_event = internal global i32 0, align 4
 @.str.836 = private unnamed_addr constant [30 x i8] c"openflow_v6.flow_update.event\00", align 1
-@openflow_v6_flow_monitor_events = internal constant [8 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1442 }, %struct._value_string { i32 1, ptr @.str.1443 }, %struct._value_string { i32 2, ptr @.str.1444 }, %struct._value_string { i32 3, ptr @.str.1445 }, %struct._value_string { i32 4, ptr @.str.1446 }, %struct._value_string { i32 5, ptr @.str.1447 }, %struct._value_string { i32 6, ptr @.str.1448 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_flow_update_full_table_id = internal global i32 0, align 4
 @.str.837 = private unnamed_addr constant [38 x i8] c"openflow_v6.flow_update.full.table_id\00", align 1
 @hf_openflow_v6_flow_update_full_reason = internal global i32 0, align 4
@@ -1580,19 +1529,16 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_openflow_v6_queue_desc_prop_property = internal global i32 0, align 4
 @.str.866 = private unnamed_addr constant [9 x i8] c"Property\00", align 1
 @.str.867 = private unnamed_addr constant [37 x i8] c"openflow_v6.queue_desc_prop.property\00", align 1
-@openflow_v6_queue_desc_prop_property_values = internal constant [4 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.1449 }, %struct._value_string { i32 2, ptr @.str.1450 }, %struct._value_string { i32 65535, ptr @.str.1451 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_queue_desc_prop_len = internal global i32 0, align 4
 @.str.868 = private unnamed_addr constant [32 x i8] c"openflow_v6.queue_desc_prop.len\00", align 1
 @hf_openflow_v6_queue_desc_prop_pad = internal global i32 0, align 4
 @.str.869 = private unnamed_addr constant [32 x i8] c"openflow_v6.queue_desc_prop.pad\00", align 1
 @hf_openflow_v6_queue_desc_prop_min_rate_rate = internal global i32 0, align 4
 @.str.870 = private unnamed_addr constant [42 x i8] c"openflow_v6.queue_desc_prop.min_rate.rate\00", align 1
-@openflow_v6_queue_desc_prop_min_rate_reserved_values = internal constant [2 x %struct._value_string] [%struct._value_string { i32 65535, ptr @.str.1452 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_queue_desc_prop_min_rate_pad = internal global i32 0, align 4
 @.str.871 = private unnamed_addr constant [41 x i8] c"openflow_v6.queue_desc_prop.min_rate.pad\00", align 1
 @hf_openflow_v6_queue_desc_prop_max_rate_rate = internal global i32 0, align 4
 @.str.872 = private unnamed_addr constant [42 x i8] c"openflow_v6.queue_desc_prop.max_rate.rate\00", align 1
-@openflow_v6_queue_desc_prop_max_rate_reserved_values = internal constant [2 x %struct._value_string] [%struct._value_string { i32 65535, ptr @.str.1453 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_queue_desc_prop_max_rate_pad = internal global i32 0, align 4
 @.str.873 = private unnamed_addr constant [41 x i8] c"openflow_v6.queue_desc_prop.max_rate.pad\00", align 1
 @hf_openflow_v6_queue_desc_prop_experimenter_experimenter = internal global i32 0, align 4
@@ -1603,7 +1549,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_openflow_v6_role_request_role = internal global i32 0, align 4
 @.str.877 = private unnamed_addr constant [5 x i8] c"Role\00", align 1
 @.str.878 = private unnamed_addr constant [30 x i8] c"openflow_v6.role_request.role\00", align 1
-@openflow_v6_controller_role_values = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1454 }, %struct._value_string { i32 1, ptr @.str.1455 }, %struct._value_string { i32 2, ptr @.str.1456 }, %struct._value_string { i32 3, ptr @.str.1457 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_role_request_pad = internal global i32 0, align 4
 @.str.879 = private unnamed_addr constant [29 x i8] c"openflow_v6.role_request.pad\00", align 1
 @hf_openflow_v6_role_request_generation_id = internal global i32 0, align 4
@@ -1617,7 +1562,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.884 = private unnamed_addr constant [37 x i8] c"openflow_v6.role_reply.generation_id\00", align 1
 @hf_openflow_v6_async_config_prop_type = internal global i32 0, align 4
 @.str.885 = private unnamed_addr constant [35 x i8] c"openflow_v6.async_config_prop.type\00", align 1
-@openflow_v6_async_config_prop_type_values = internal constant [15 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1458 }, %struct._value_string { i32 1, ptr @.str.1459 }, %struct._value_string { i32 2, ptr @.str.1460 }, %struct._value_string { i32 3, ptr @.str.1461 }, %struct._value_string { i32 4, ptr @.str.1462 }, %struct._value_string { i32 5, ptr @.str.1463 }, %struct._value_string { i32 6, ptr @.str.1464 }, %struct._value_string { i32 7, ptr @.str.1465 }, %struct._value_string { i32 8, ptr @.str.1466 }, %struct._value_string { i32 9, ptr @.str.1467 }, %struct._value_string { i32 10, ptr @.str.1468 }, %struct._value_string { i32 11, ptr @.str.1469 }, %struct._value_string { i32 65534, ptr @.str.1470 }, %struct._value_string { i32 65535, ptr @.str.1471 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_async_config_prop_length = internal global i32 0, align 4
 @.str.886 = private unnamed_addr constant [37 x i8] c"openflow_v6.async_config_prop.length\00", align 1
 @hf_openflow_v6_async_config_prop_reason_packet_in_mask = internal global i32 0, align 4
@@ -1704,7 +1648,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.938 = private unnamed_addr constant [52 x i8] c"openflow_v6.async_config_prop.experimenter.exp_type\00", align 1
 @hf_openflow_v6_metermod_command = internal global i32 0, align 4
 @.str.939 = private unnamed_addr constant [29 x i8] c"openflow_v6.metermod.command\00", align 1
-@openflow_v6_metermod_command_values = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1472 }, %struct._value_string { i32 1, ptr @.str.1473 }, %struct._value_string { i32 2, ptr @.str.1474 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_metermod_flags = internal global i32 0, align 4
 @.str.940 = private unnamed_addr constant [27 x i8] c"openflow_v6.metermod.flags\00", align 1
 @hf_openflow_v6_metermod_flags_kbps = internal global i32 0, align 4
@@ -1721,14 +1664,12 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.946 = private unnamed_addr constant [29 x i8] c"openflow_v6.role_status.role\00", align 1
 @hf_openflow_v6_role_status_reason = internal global i32 0, align 4
 @.str.947 = private unnamed_addr constant [31 x i8] c"openflow_v6.role_status.reason\00", align 1
-@openflow_v6_role_status_reason_values = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.921 }, %struct._value_string { i32 1, ptr @.str.923 }, %struct._value_string { i32 2, ptr @.str.925 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_role_status_pad = internal global i32 0, align 4
 @.str.948 = private unnamed_addr constant [28 x i8] c"openflow_v6.role_status.pad\00", align 1
 @hf_openflow_v6_role_status_generation_id = internal global i32 0, align 4
 @.str.949 = private unnamed_addr constant [38 x i8] c"openflow_v6.role_status.generation_id\00", align 1
 @hf_openflow_v6_table_status_reason = internal global i32 0, align 4
 @.str.950 = private unnamed_addr constant [32 x i8] c"openflow_v6.table_status.reason\00", align 1
-@openflow_v6_table_status_reason_values = internal constant [3 x %struct._value_string] [%struct._value_string { i32 3, ptr @.str.928 }, %struct._value_string { i32 4, ptr @.str.930 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_table_status_pad = internal global i32 0, align 4
 @.str.951 = private unnamed_addr constant [29 x i8] c"openflow_v6.table_status.pad\00", align 1
 @hf_openflow_v6_bundle_control_bundle_id = internal global i32 0, align 4
@@ -1736,7 +1677,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.953 = private unnamed_addr constant [37 x i8] c"openflow_v6.bundle_control.bundle_id\00", align 1
 @hf_openflow_v6_bundle_control_type = internal global i32 0, align 4
 @.str.954 = private unnamed_addr constant [32 x i8] c"openflow_v6.bundle_control.type\00", align 1
-@openflow_v6_bundle_control_type_values = internal constant [9 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1475 }, %struct._value_string { i32 1, ptr @.str.1476 }, %struct._value_string { i32 2, ptr @.str.1477 }, %struct._value_string { i32 3, ptr @.str.1478 }, %struct._value_string { i32 4, ptr @.str.1479 }, %struct._value_string { i32 5, ptr @.str.1480 }, %struct._value_string { i32 6, ptr @.str.1481 }, %struct._value_string { i32 7, ptr @.str.1482 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_bundle_control_flags = internal global i32 0, align 4
 @.str.955 = private unnamed_addr constant [33 x i8] c"openflow_v6.bundle_control.flags\00", align 1
 @hf_openflow_v6_bundle_control_flags_atomic = internal global i32 0, align 4
@@ -1747,7 +1687,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.959 = private unnamed_addr constant [41 x i8] c"openflow_v6.bundle_control.flags.ordered\00", align 1
 @hf_openflow_v6_bundle_prop_type = internal global i32 0, align 4
 @.str.960 = private unnamed_addr constant [29 x i8] c"openflow_v6.bundle_prop.type\00", align 1
-@openflow_v6_bundle_prop_type_values = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.1483 }, %struct._value_string { i32 65535, ptr @.str.1484 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_bundle_prop_length = internal global i32 0, align 4
 @.str.961 = private unnamed_addr constant [31 x i8] c"openflow_v6.bundle_prop.length\00", align 1
 @hf_openflow_v6_bundle_prop_experimenter_experimenter = internal global i32 0, align 4
@@ -1765,10 +1704,8 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.967 = private unnamed_addr constant [37 x i8] c"openflow_v6.bundle_add.flags.ordered\00", align 1
 @hf_openflow_v6_oxs_class = internal global i32 0, align 4
 @.str.968 = private unnamed_addr constant [22 x i8] c"openflow_v6.oxs.class\00", align 1
-@openflow_v6_oxs_class_values = internal constant [3 x %struct._value_string] [%struct._value_string { i32 32770, ptr @.str.1485 }, %struct._value_string { i32 65535, ptr @.str.1486 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_oxs_field = internal global i32 0, align 4
 @.str.969 = private unnamed_addr constant [22 x i8] c"openflow_v6.oxs.field\00", align 1
-@openflow_v6_oxs_basic_field_values = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1487 }, %struct._value_string { i32 1, ptr @.str.1488 }, %struct._value_string { i32 3, ptr @.str.1489 }, %struct._value_string { i32 4, ptr @.str.1490 }, %struct._value_string { i32 5, ptr @.str.1491 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_oxs_reserved = internal global i32 0, align 4
 @.str.970 = private unnamed_addr constant [25 x i8] c"openflow_v6.oxs.reserved\00", align 1
 @hf_openflow_v6_oxs_length = internal global i32 0, align 4
@@ -1820,10 +1757,8 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.996 = private unnamed_addr constant [35 x i8] c"openflow_v6.controller_status.role\00", align 1
 @hf_openflow_v6_controller_status_reason = internal global i32 0, align 4
 @.str.997 = private unnamed_addr constant [37 x i8] c"openflow_v6.controller_status.reason\00", align 1
-@openflow_v6_controller_status_reason_values = internal constant [8 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1492 }, %struct._value_string { i32 1, ptr @.str.1493 }, %struct._value_string { i32 2, ptr @.str.1494 }, %struct._value_string { i32 3, ptr @.str.1495 }, %struct._value_string { i32 4, ptr @.str.1496 }, %struct._value_string { i32 5, ptr @.str.1497 }, %struct._value_string { i32 6, ptr @.str.1498 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_controller_status_channel_status = internal global i32 0, align 4
 @.str.998 = private unnamed_addr constant [45 x i8] c"openflow_v6.controller_status.channel_status\00", align 1
-@openflow_v6_controller_status_channel_status_values = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1499 }, %struct._value_string { i32 1, ptr @.str.1500 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_controller_status_pad = internal global i32 0, align 4
 @.str.999 = private unnamed_addr constant [34 x i8] c"openflow_v6.controller_status.pad\00", align 1
 @hf_openflow_v6_time_seconds = internal global i32 0, align 4
@@ -1836,7 +1771,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1004 = private unnamed_addr constant [21 x i8] c"openflow_v6.time.pad\00", align 1
 @hf_openflow_v6_bundle_feature_prop_type = internal global i32 0, align 4
 @.str.1005 = private unnamed_addr constant [37 x i8] c"openflow_v6.bundle_feature.prop.type\00", align 1
-@openflow_v6_bundle_feature_prop_type_values = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.1501 }, %struct._value_string { i32 65535, ptr @.str.1502 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_bundle_feature_prop_length = internal global i32 0, align 4
 @.str.1006 = private unnamed_addr constant [39 x i8] c"openflow_v6.bundle_feature.prop.length\00", align 1
 @hf_openflow_v6_bundle_feature_prop_time_pad = internal global i32 0, align 4
@@ -1848,7 +1782,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_openflow_v6_bundle_feature_prop_pad = internal global i32 0, align 4
 @hf_openflow_v6_controller_status_prop_type = internal global i32 0, align 4
 @.str.1010 = private unnamed_addr constant [40 x i8] c"openflow_v6.controller_status.prop.type\00", align 1
-@openflow_v6_controller_status_prop_type_values = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1503 }, %struct._value_string { i32 65535, ptr @.str.1504 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_controller_status_prop_length = internal global i32 0, align 4
 @.str.1011 = private unnamed_addr constant [42 x i8] c"openflow_v6.controller_status.prop.length\00", align 1
 @hf_openflow_v6_controller_status_prop_experimenter_experimenter = internal global i32 0, align 4
@@ -1868,7 +1801,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1019 = private unnamed_addr constant [28 x i8] c"openflow_v6.flow_stats.pad2\00", align 1
 @hf_openflow_v6_flow_stats_reason = internal global i32 0, align 4
 @.str.1020 = private unnamed_addr constant [30 x i8] c"openflow_v6.flow_stats.reason\00", align 1
-@openflow_v6_flow_stats_reason_values = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1505 }, %struct._value_string { i32 1, ptr @.str.1506 }, %struct._value_string zeroinitializer], align 16
 @hf_openflow_v6_flow_stats_length = internal global i32 0, align 4
 @.str.1021 = private unnamed_addr constant [30 x i8] c"openflow_v6.flow_stats.length\00", align 1
 @hf_openflow_v6_flow_stats_table_id = internal global i32 0, align 4
@@ -1968,7 +1900,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_openflow_v6_flow_desc_flags = internal global i32 0, align 4
 @ett_openflow_v6_bundle_feature_prop = internal global i32 0, align 4
 @ett_openflow_v6_controller_status_prop = internal global i32 0, align 4
-@proto_register_openflow_v6.ei = internal global [24 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_openflow_v6_oxm_undecoded, %struct.expert_field_info { ptr @.str.1028, i32 83886080, i32 4194304, ptr @.str.1029, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_openflow_v6_match_undecoded, %struct.expert_field_info { ptr @.str.1030, i32 83886080, i32 4194304, ptr @.str.1031, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_openflow_v6_action_undecoded, %struct.expert_field_info { ptr @.str.1032, i32 83886080, i32 4194304, ptr @.str.1033, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_openflow_v6_instruction_undecoded, %struct.expert_field_info { ptr @.str.1034, i32 83886080, i32 4194304, ptr @.str.1035, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_openflow_v6_port_desc_prop_undecoded, %struct.expert_field_info { ptr @.str.1036, i32 83886080, i32 4194304, ptr @.str.1037, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_openflow_v6_port_stats_prop_undecoded, %struct.expert_field_info { ptr @.str.1038, i32 83886080, i32 4194304, ptr @.str.1039, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_openflow_v6_meter_band_undecoded, %struct.expert_field_info { ptr @.str.1040, i32 83886080, i32 4194304, ptr @.str.1041, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_openflow_v6_hello_element_undecoded, %struct.expert_field_info { ptr @.str.1042, i32 83886080, i32 4194304, ptr @.str.1043, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_openflow_v6_error_undecoded, %struct.expert_field_info { ptr @.str.1044, i32 83886080, i32 4194304, ptr @.str.1045, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_openflow_v6_experimenter_undecoded, %struct.expert_field_info { ptr @.str.1046, i32 83886080, i32 4194304, ptr @.str.1047, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_openflow_v6_portmod_prop_undecoded, %struct.expert_field_info { ptr @.str.1048, i32 83886080, i32 4194304, ptr @.str.1049, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_openflow_v6_tablemod_prop_undecoded, %struct.expert_field_info { ptr @.str.1050, i32 83886080, i32 4194304, ptr @.str.1051, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_openflow_v6_table_feature_prop_undecoded, %struct.expert_field_info { ptr @.str.1052, i32 83886080, i32 4194304, ptr @.str.1053, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_openflow_v6_multipart_request_undecoded, %struct.expert_field_info { ptr @.str.1054, i32 83886080, i32 4194304, ptr @.str.1055, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_openflow_v6_queue_stats_prop_undecoded, %struct.expert_field_info { ptr @.str.1056, i32 83886080, i32 4194304, ptr @.str.1057, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_openflow_v6_flow_update_undecoded, %struct.expert_field_info { ptr @.str.1058, i32 83886080, i32 4194304, ptr @.str.1059, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_openflow_v6_multipart_reply_undecoded, %struct.expert_field_info { ptr @.str.1060, i32 83886080, i32 4194304, ptr @.str.1061, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_openflow_v6_queue_desc_prop_undecoded, %struct.expert_field_info { ptr @.str.1062, i32 83886080, i32 4194304, ptr @.str.1063, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_openflow_v6_async_config_prop_undecoded, %struct.expert_field_info { ptr @.str.1064, i32 83886080, i32 4194304, ptr @.str.1065, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_openflow_v6_bundle_prop_undecoded, %struct.expert_field_info { ptr @.str.1066, i32 83886080, i32 4194304, ptr @.str.1067, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_openflow_v6_message_undecoded, %struct.expert_field_info { ptr @.str.1068, i32 83886080, i32 4194304, ptr @.str.1069, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_openflow_v6_length_too_short, %struct.expert_field_info { ptr @.str.1070, i32 117440512, i32 8388608, ptr @.str.1071, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_openflow_v6_bundle_feature_prop_undecoded, %struct.expert_field_info { ptr @.str.1072, i32 83886080, i32 4194304, ptr @.str.1073, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_openflow_v6_controller_status_prop_undecoded, %struct.expert_field_info { ptr @.str.1074, i32 83886080, i32 4194304, ptr @.str.1075, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_openflow_v6.ei = internal global [24 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_openflow_v6_oxm_undecoded, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.1028, i32 83886080, i32 4194304, ptr @.str.1029, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_openflow_v6_match_undecoded, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.1030, i32 83886080, i32 4194304, ptr @.str.1031, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_openflow_v6_action_undecoded, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.1032, i32 83886080, i32 4194304, ptr @.str.1033, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_openflow_v6_instruction_undecoded, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.1034, i32 83886080, i32 4194304, ptr @.str.1035, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_openflow_v6_port_desc_prop_undecoded, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.1036, i32 83886080, i32 4194304, ptr @.str.1037, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_openflow_v6_port_stats_prop_undecoded, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.1038, i32 83886080, i32 4194304, ptr @.str.1039, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_openflow_v6_meter_band_undecoded, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.1040, i32 83886080, i32 4194304, ptr @.str.1041, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_openflow_v6_hello_element_undecoded, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.1042, i32 83886080, i32 4194304, ptr @.str.1043, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_openflow_v6_error_undecoded, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.1044, i32 83886080, i32 4194304, ptr @.str.1045, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_openflow_v6_experimenter_undecoded, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.1046, i32 83886080, i32 4194304, ptr @.str.1047, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_openflow_v6_portmod_prop_undecoded, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.1048, i32 83886080, i32 4194304, ptr @.str.1049, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_openflow_v6_tablemod_prop_undecoded, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.1050, i32 83886080, i32 4194304, ptr @.str.1051, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_openflow_v6_table_feature_prop_undecoded, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.1052, i32 83886080, i32 4194304, ptr @.str.1053, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_openflow_v6_multipart_request_undecoded, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.1054, i32 83886080, i32 4194304, ptr @.str.1055, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_openflow_v6_queue_stats_prop_undecoded, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.1056, i32 83886080, i32 4194304, ptr @.str.1057, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_openflow_v6_flow_update_undecoded, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.1058, i32 83886080, i32 4194304, ptr @.str.1059, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_openflow_v6_multipart_reply_undecoded, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.1060, i32 83886080, i32 4194304, ptr @.str.1061, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_openflow_v6_queue_desc_prop_undecoded, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.1062, i32 83886080, i32 4194304, ptr @.str.1063, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_openflow_v6_async_config_prop_undecoded, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.1064, i32 83886080, i32 4194304, ptr @.str.1065, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_openflow_v6_bundle_prop_undecoded, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.1066, i32 83886080, i32 4194304, ptr @.str.1067, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_openflow_v6_message_undecoded, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.1068, i32 83886080, i32 4194304, ptr @.str.1069, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_openflow_v6_length_too_short, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.1070, i32 117440512, i32 8388608, ptr @.str.1071, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_openflow_v6_bundle_feature_prop_undecoded, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.1072, i32 83886080, i32 4194304, ptr @.str.1073, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_openflow_v6_controller_status_prop_undecoded, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.1074, i32 83886080, i32 4194304, ptr @.str.1075, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_openflow_v6_oxm_undecoded = internal global %struct.expert_field zeroinitializer, align 4
 @.str.1028 = private unnamed_addr constant [26 x i8] c"openflow_v6.oxm.undecoded\00", align 1
 @.str.1029 = private unnamed_addr constant [18 x i8] c"Unknown OMX body.\00", align 1
@@ -2047,517 +1979,584 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1078 = private unnamed_addr constant [15 x i8] c"eth_withoutfcs\00", align 1
 @eth_withoutfcs_handle = internal global ptr null, align 8
 @.str.1079 = private unnamed_addr constant [4 x i8] c"1.5\00", align 1
-@openflow_v6_type_values = internal constant [35 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1081 }, %struct._value_string { i32 1, ptr @.str.1082 }, %struct._value_string { i32 2, ptr @.str.1083 }, %struct._value_string { i32 3, ptr @.str.1084 }, %struct._value_string { i32 4, ptr @.str.1085 }, %struct._value_string { i32 5, ptr @.str.1086 }, %struct._value_string { i32 6, ptr @.str.1087 }, %struct._value_string { i32 7, ptr @.str.1088 }, %struct._value_string { i32 8, ptr @.str.1089 }, %struct._value_string { i32 9, ptr @.str.1090 }, %struct._value_string { i32 10, ptr @.str.1091 }, %struct._value_string { i32 11, ptr @.str.1092 }, %struct._value_string { i32 12, ptr @.str.1093 }, %struct._value_string { i32 13, ptr @.str.1094 }, %struct._value_string { i32 14, ptr @.str.1095 }, %struct._value_string { i32 15, ptr @.str.1096 }, %struct._value_string { i32 16, ptr @.str.1097 }, %struct._value_string { i32 17, ptr @.str.1098 }, %struct._value_string { i32 18, ptr @.str.1099 }, %struct._value_string { i32 19, ptr @.str.1100 }, %struct._value_string { i32 20, ptr @.str.1101 }, %struct._value_string { i32 21, ptr @.str.1102 }, %struct._value_string { i32 24, ptr @.str.1103 }, %struct._value_string { i32 25, ptr @.str.1104 }, %struct._value_string { i32 26, ptr @.str.1105 }, %struct._value_string { i32 27, ptr @.str.1106 }, %struct._value_string { i32 28, ptr @.str.1107 }, %struct._value_string { i32 29, ptr @.str.1108 }, %struct._value_string { i32 30, ptr @.str.1109 }, %struct._value_string { i32 31, ptr @.str.1110 }, %struct._value_string { i32 32, ptr @.str.1111 }, %struct._value_string { i32 33, ptr @.str.1112 }, %struct._value_string { i32 34, ptr @.str.1113 }, %struct._value_string { i32 35, ptr @.str.1114 }, %struct._value_string zeroinitializer], align 16
-@.str.1080 = private unnamed_addr constant [24 x i8] c"openflow_v6_type_values\00", align 1
-@.str.1081 = private unnamed_addr constant [11 x i8] c"OFPT_HELLO\00", align 1
-@.str.1082 = private unnamed_addr constant [11 x i8] c"OFPT_ERROR\00", align 1
-@.str.1083 = private unnamed_addr constant [18 x i8] c"OFPT_ECHO_REQUEST\00", align 1
-@.str.1084 = private unnamed_addr constant [16 x i8] c"OFPT_ECHO_REPLY\00", align 1
-@.str.1085 = private unnamed_addr constant [18 x i8] c"OFPT_EXPERIMENTER\00", align 1
-@.str.1086 = private unnamed_addr constant [22 x i8] c"OFPT_FEATURES_REQUEST\00", align 1
-@.str.1087 = private unnamed_addr constant [20 x i8] c"OFPT_FEATURES_REPLY\00", align 1
-@.str.1088 = private unnamed_addr constant [24 x i8] c"OFPT_GET_CONFIG_REQUEST\00", align 1
-@.str.1089 = private unnamed_addr constant [22 x i8] c"OFPT_GET_CONFIG_REPLY\00", align 1
-@.str.1090 = private unnamed_addr constant [16 x i8] c"OFPT_SET_CONFIG\00", align 1
-@.str.1091 = private unnamed_addr constant [15 x i8] c"OFPT_PACKET_IN\00", align 1
-@.str.1092 = private unnamed_addr constant [18 x i8] c"OFPT_FLOW_REMOVED\00", align 1
-@.str.1093 = private unnamed_addr constant [17 x i8] c"OFPT_PORT_STATUS\00", align 1
-@.str.1094 = private unnamed_addr constant [16 x i8] c"OFPT_PACKET_OUT\00", align 1
-@.str.1095 = private unnamed_addr constant [14 x i8] c"OFPT_FLOW_MOD\00", align 1
-@.str.1096 = private unnamed_addr constant [15 x i8] c"OFPT_GROUP_MOD\00", align 1
-@.str.1097 = private unnamed_addr constant [14 x i8] c"OFPT_PORT_MOD\00", align 1
-@.str.1098 = private unnamed_addr constant [15 x i8] c"OFPT_TABLE_MOD\00", align 1
-@.str.1099 = private unnamed_addr constant [23 x i8] c"OFPT_MULTIPART_REQUEST\00", align 1
-@.str.1100 = private unnamed_addr constant [21 x i8] c"OFPT_MULTIPART_REPLY\00", align 1
-@.str.1101 = private unnamed_addr constant [21 x i8] c"OFPT_BARRIER_REQUEST\00", align 1
-@.str.1102 = private unnamed_addr constant [19 x i8] c"OFPT_BARRIER_REPLY\00", align 1
-@.str.1103 = private unnamed_addr constant [18 x i8] c"OFPT_ROLE_REQUEST\00", align 1
-@.str.1104 = private unnamed_addr constant [16 x i8] c"OFPT_ROLE_REPLY\00", align 1
-@.str.1105 = private unnamed_addr constant [23 x i8] c"OFPT_GET_ASYNC_REQUEST\00", align 1
-@.str.1106 = private unnamed_addr constant [21 x i8] c"OFPT_GET_ASYNC_REPLY\00", align 1
-@.str.1107 = private unnamed_addr constant [15 x i8] c"OFPT_SET_ASYNC\00", align 1
-@.str.1108 = private unnamed_addr constant [15 x i8] c"OFPT_METER_MOD\00", align 1
-@.str.1109 = private unnamed_addr constant [17 x i8] c"OFPT_ROLE_STATUS\00", align 1
-@.str.1110 = private unnamed_addr constant [18 x i8] c"OFPT_TABLE_STATUS\00", align 1
-@.str.1111 = private unnamed_addr constant [20 x i8] c"OFPT_REQUESTFORWARD\00", align 1
-@.str.1112 = private unnamed_addr constant [20 x i8] c"OFPT_BUNDLE_CONTROL\00", align 1
-@.str.1113 = private unnamed_addr constant [24 x i8] c"OFPT_BUNDLE_ADD_MESSAGE\00", align 1
-@.str.1114 = private unnamed_addr constant [23 x i8] c"OFPT_CONTROLLER_STATUS\00", align 1
-@.str.1115 = private unnamed_addr constant [13 x i8] c"OFPXMC_NMX_0\00", align 1
-@.str.1116 = private unnamed_addr constant [13 x i8] c"OFPXMC_NXM_1\00", align 1
-@.str.1117 = private unnamed_addr constant [22 x i8] c"OFPXMC_OPENFLOW_BASIC\00", align 1
-@.str.1118 = private unnamed_addr constant [19 x i8] c"OFPXMC_PACKET_REGS\00", align 1
-@.str.1119 = private unnamed_addr constant [20 x i8] c"OFPXMC_EXPERIMENTER\00", align 1
-@openflow_v6_oxm_basic_field_values = internal constant [46 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1121 }, %struct._value_string { i32 1, ptr @.str.1122 }, %struct._value_string { i32 2, ptr @.str.1123 }, %struct._value_string { i32 3, ptr @.str.1124 }, %struct._value_string { i32 4, ptr @.str.1125 }, %struct._value_string { i32 5, ptr @.str.1126 }, %struct._value_string { i32 6, ptr @.str.1127 }, %struct._value_string { i32 7, ptr @.str.1128 }, %struct._value_string { i32 8, ptr @.str.1129 }, %struct._value_string { i32 9, ptr @.str.1130 }, %struct._value_string { i32 10, ptr @.str.1131 }, %struct._value_string { i32 11, ptr @.str.1132 }, %struct._value_string { i32 12, ptr @.str.1133 }, %struct._value_string { i32 13, ptr @.str.1134 }, %struct._value_string { i32 14, ptr @.str.1135 }, %struct._value_string { i32 15, ptr @.str.1136 }, %struct._value_string { i32 16, ptr @.str.1137 }, %struct._value_string { i32 17, ptr @.str.1138 }, %struct._value_string { i32 18, ptr @.str.1139 }, %struct._value_string { i32 19, ptr @.str.1140 }, %struct._value_string { i32 20, ptr @.str.1141 }, %struct._value_string { i32 21, ptr @.str.1142 }, %struct._value_string { i32 22, ptr @.str.1143 }, %struct._value_string { i32 23, ptr @.str.1144 }, %struct._value_string { i32 24, ptr @.str.1145 }, %struct._value_string { i32 25, ptr @.str.1146 }, %struct._value_string { i32 26, ptr @.str.1147 }, %struct._value_string { i32 27, ptr @.str.1148 }, %struct._value_string { i32 28, ptr @.str.1149 }, %struct._value_string { i32 29, ptr @.str.1150 }, %struct._value_string { i32 30, ptr @.str.1151 }, %struct._value_string { i32 31, ptr @.str.1152 }, %struct._value_string { i32 32, ptr @.str.1153 }, %struct._value_string { i32 33, ptr @.str.1154 }, %struct._value_string { i32 34, ptr @.str.1155 }, %struct._value_string { i32 35, ptr @.str.1156 }, %struct._value_string { i32 36, ptr @.str.1157 }, %struct._value_string { i32 37, ptr @.str.1158 }, %struct._value_string { i32 38, ptr @.str.1159 }, %struct._value_string { i32 39, ptr @.str.1160 }, %struct._value_string { i32 40, ptr @.str.1161 }, %struct._value_string { i32 41, ptr @.str.1162 }, %struct._value_string { i32 42, ptr @.str.1163 }, %struct._value_string { i32 43, ptr @.str.1164 }, %struct._value_string { i32 44, ptr @.str.1165 }, %struct._value_string zeroinitializer], align 16
-@.str.1120 = private unnamed_addr constant [35 x i8] c"openflow_v6_oxm_basic_field_values\00", align 1
-@.str.1121 = private unnamed_addr constant [19 x i8] c"OFPXMT_OFB_IN_PORT\00", align 1
-@.str.1122 = private unnamed_addr constant [23 x i8] c"OFPXMT_OFB_IN_PHY_PORT\00", align 1
-@.str.1123 = private unnamed_addr constant [20 x i8] c"OFPXMT_OFB_METADATA\00", align 1
-@.str.1124 = private unnamed_addr constant [19 x i8] c"OFPXMT_OFB_ETH_DST\00", align 1
-@.str.1125 = private unnamed_addr constant [19 x i8] c"OFPXMT_OFB_ETH_SRC\00", align 1
-@.str.1126 = private unnamed_addr constant [20 x i8] c"OFPXMT_OFB_ETH_TYPE\00", align 1
-@.str.1127 = private unnamed_addr constant [20 x i8] c"OFPXMT_OFB_VLAN_VID\00", align 1
-@.str.1128 = private unnamed_addr constant [20 x i8] c"OFPXMT_OFB_VLAN_PCP\00", align 1
-@.str.1129 = private unnamed_addr constant [19 x i8] c"OFPXMT_OFB_IP_DSCP\00", align 1
-@.str.1130 = private unnamed_addr constant [18 x i8] c"OFPXMT_OFB_IP_ECN\00", align 1
-@.str.1131 = private unnamed_addr constant [20 x i8] c"OFPXMT_OFB_IP_PROTO\00", align 1
-@.str.1132 = private unnamed_addr constant [20 x i8] c"OFPXMT_OFB_IPV4_SRC\00", align 1
-@.str.1133 = private unnamed_addr constant [20 x i8] c"OFPXMT_OFB_IPV4_DST\00", align 1
-@.str.1134 = private unnamed_addr constant [19 x i8] c"OFPXMT_OFB_TCP_SRC\00", align 1
-@.str.1135 = private unnamed_addr constant [19 x i8] c"OFPXMT_OFB_TCP_DST\00", align 1
-@.str.1136 = private unnamed_addr constant [19 x i8] c"OFPXMT_OFB_UDP_SRC\00", align 1
-@.str.1137 = private unnamed_addr constant [19 x i8] c"OFPXMT_OFB_UDP_DST\00", align 1
-@.str.1138 = private unnamed_addr constant [20 x i8] c"OFPXMT_OFB_SCTP_SRC\00", align 1
-@.str.1139 = private unnamed_addr constant [20 x i8] c"OFPXMT_OFB_SCTP_DST\00", align 1
-@.str.1140 = private unnamed_addr constant [23 x i8] c"OFPXMT_OFB_ICMPV4_TYPE\00", align 1
-@.str.1141 = private unnamed_addr constant [23 x i8] c"OFPXMT_OFB_ICMPV4_CODE\00", align 1
-@.str.1142 = private unnamed_addr constant [18 x i8] c"OFPXMT_OFB_ARP_OP\00", align 1
-@.str.1143 = private unnamed_addr constant [19 x i8] c"OFPXMT_OFB_ARP_SPA\00", align 1
-@.str.1144 = private unnamed_addr constant [19 x i8] c"OFPXMT_OFB_ARP_TPA\00", align 1
-@.str.1145 = private unnamed_addr constant [19 x i8] c"OFPXMT_OFB_ARP_SHA\00", align 1
-@.str.1146 = private unnamed_addr constant [19 x i8] c"OFPXMT_OFB_ARP_THA\00", align 1
-@.str.1147 = private unnamed_addr constant [20 x i8] c"OFPXMT_OFB_IPV6_SRC\00", align 1
-@.str.1148 = private unnamed_addr constant [20 x i8] c"OFPXMT_OFB_IPV6_DST\00", align 1
-@.str.1149 = private unnamed_addr constant [23 x i8] c"OFPXMT_OFB_IPV6_FLABEL\00", align 1
-@.str.1150 = private unnamed_addr constant [23 x i8] c"OFPXMT_OFB_ICMPV6_TYPE\00", align 1
-@.str.1151 = private unnamed_addr constant [23 x i8] c"OFPXMT_OFB_ICMPV6_CODE\00", align 1
-@.str.1152 = private unnamed_addr constant [26 x i8] c"OFPXMT_OFB_IPV6_ND_TARGET\00", align 1
-@.str.1153 = private unnamed_addr constant [23 x i8] c"OFPXMT_OFB_IPV6_ND_SLL\00", align 1
-@.str.1154 = private unnamed_addr constant [23 x i8] c"OFPXMT_OFB_IPV6_ND_TLL\00", align 1
-@.str.1155 = private unnamed_addr constant [22 x i8] c"OFPXMT_OFB_MPLS_LABEL\00", align 1
-@.str.1156 = private unnamed_addr constant [19 x i8] c"OFPXMT_OFB_MPLS_TC\00", align 1
-@.str.1157 = private unnamed_addr constant [20 x i8] c"OFPXMT_OFP_MPLS_BOS\00", align 1
-@.str.1158 = private unnamed_addr constant [20 x i8] c"OFPXMT_OFB_PBB_ISID\00", align 1
-@.str.1159 = private unnamed_addr constant [21 x i8] c"OFPXMT_OFB_TUNNEL_ID\00", align 1
-@.str.1160 = private unnamed_addr constant [23 x i8] c"OFPXMT_OFB_IPV6_EXTHDR\00", align 1
-@.str.1161 = private unnamed_addr constant [11 x i8] c"UNASSIGNED\00", align 1
-@.str.1162 = private unnamed_addr constant [19 x i8] c"OFPXMT_OFB_PBB_UCA\00", align 1
-@.str.1163 = private unnamed_addr constant [21 x i8] c"OFPXMT_OFB_TCP_FLAGS\00", align 1
-@.str.1164 = private unnamed_addr constant [25 x i8] c"OFPXMT_OFB_ACTSET_OUTPUT\00", align 1
-@.str.1165 = private unnamed_addr constant [23 x i8] c"OFPXMT_OFB_PACKET_TYPE\00", align 1
-@.str.1166 = private unnamed_addr constant [15 x i8] c"OFPMT_STANDARD\00", align 1
-@.str.1167 = private unnamed_addr constant [10 x i8] c"OFPMT_OXM\00", align 1
-@.str.1168 = private unnamed_addr constant [19 x i8] c"OFPAT_EXPERIMENTER\00", align 1
-@.str.1169 = private unnamed_addr constant [13 x i8] c"OFPP_IN_PORT\00", align 1
-@.str.1170 = private unnamed_addr constant [11 x i8] c"OFPP_TABLE\00", align 1
-@.str.1171 = private unnamed_addr constant [12 x i8] c"OFPP_NORMAL\00", align 1
-@.str.1172 = private unnamed_addr constant [11 x i8] c"OFPP_FLOOD\00", align 1
-@.str.1173 = private unnamed_addr constant [9 x i8] c"OFPP_ALL\00", align 1
-@.str.1174 = private unnamed_addr constant [16 x i8] c"OFPP_CONTROLLER\00", align 1
-@.str.1175 = private unnamed_addr constant [11 x i8] c"OFPP_LOCAL\00", align 1
-@.str.1176 = private unnamed_addr constant [9 x i8] c"OFPP_ANY\00", align 1
-@.str.1177 = private unnamed_addr constant [17 x i8] c"OFPCML_NO_BUFFER\00", align 1
-@.str.1178 = private unnamed_addr constant [17 x i8] c"OFPIT_GOTO_TABLE\00", align 1
-@.str.1179 = private unnamed_addr constant [21 x i8] c"OFPIT_WRITE_METADATA\00", align 1
-@.str.1180 = private unnamed_addr constant [20 x i8] c"OFPIT_WRITE_ACTIONS\00", align 1
-@.str.1181 = private unnamed_addr constant [20 x i8] c"OFPIT_APPLY_ACTIONS\00", align 1
-@.str.1182 = private unnamed_addr constant [20 x i8] c"OFPIT_CLEAR_ACTIONS\00", align 1
-@.str.1183 = private unnamed_addr constant [25 x i8] c"OFPIT_METER (Deprecated)\00", align 1
-@.str.1184 = private unnamed_addr constant [19 x i8] c"OFPIT_STAT_TRIGGER\00", align 1
-@.str.1185 = private unnamed_addr constant [28 x i8] c"OFPIT_EXPERIMENTER = 0xFFFF\00", align 1
-@.str.1186 = private unnamed_addr constant [17 x i8] c"OFPPDPT_ETHERNET\00", align 1
-@.str.1187 = private unnamed_addr constant [16 x i8] c"OFPPDPT_OPTICAL\00", align 1
-@.str.1188 = private unnamed_addr constant [23 x i8] c"OFPPDPT_PIPELINE_INPUT\00", align 1
-@.str.1189 = private unnamed_addr constant [24 x i8] c"OFPPDPT_PIPELINE_OUTPUT\00", align 1
-@.str.1190 = private unnamed_addr constant [20 x i8] c"OFPPDPT_RECIRCULATE\00", align 1
-@.str.1191 = private unnamed_addr constant [21 x i8] c"OFPPDPT_EXPERIMENTER\00", align 1
-@.str.1192 = private unnamed_addr constant [17 x i8] c"OFPPSPT_ETHERNET\00", align 1
-@.str.1193 = private unnamed_addr constant [16 x i8] c"OFPPSPT_OPTICAL\00", align 1
-@.str.1194 = private unnamed_addr constant [21 x i8] c"OFPPSPT_EXPERIMENTER\00", align 1
-@.str.1195 = private unnamed_addr constant [20 x i8] c"OFPMBT_EXPERIMENTER\00", align 1
-@.str.1196 = private unnamed_addr constant [21 x i8] c"OFPHET_VERSIONBITMAP\00", align 1
-@.str.1197 = private unnamed_addr constant [19 x i8] c"OFPET_HELLO_FAILED\00", align 1
-@.str.1198 = private unnamed_addr constant [18 x i8] c"OFPET_BAD_REQUEST\00", align 1
-@.str.1199 = private unnamed_addr constant [17 x i8] c"OFPET_BAD_ACTION\00", align 1
-@.str.1200 = private unnamed_addr constant [22 x i8] c"OFPET_BAD_INSTRUCTION\00", align 1
-@.str.1201 = private unnamed_addr constant [16 x i8] c"OFPET_BAD_MATCH\00", align 1
-@.str.1202 = private unnamed_addr constant [22 x i8] c"OFPET_FLOW_MOD_FAILED\00", align 1
-@.str.1203 = private unnamed_addr constant [23 x i8] c"OFPET_GROUP_MOD_FAILED\00", align 1
-@.str.1204 = private unnamed_addr constant [22 x i8] c"OFPET_PORT_MOD_FAILED\00", align 1
-@.str.1205 = private unnamed_addr constant [23 x i8] c"OFPET_TABLE_MOD_FAILED\00", align 1
-@.str.1206 = private unnamed_addr constant [22 x i8] c"OFPET_QUEUE_OP_FAILED\00", align 1
-@.str.1207 = private unnamed_addr constant [27 x i8] c"OFPET_SWITCH_CONFIG_FAILED\00", align 1
-@.str.1208 = private unnamed_addr constant [26 x i8] c"OFPET_ROLE_REQUEST_FAILED\00", align 1
-@.str.1209 = private unnamed_addr constant [23 x i8] c"OFPET_METER_MOD_FAILED\00", align 1
-@.str.1210 = private unnamed_addr constant [28 x i8] c"OFPET_TABLE_FEATURES_FAILED\00", align 1
-@.str.1211 = private unnamed_addr constant [19 x i8] c"OFPET_BAD_PROPERTY\00", align 1
-@.str.1212 = private unnamed_addr constant [26 x i8] c"OFPET_ASYNC_CONFIG_FAILED\00", align 1
-@.str.1213 = private unnamed_addr constant [26 x i8] c"OFPET_FLOW_MONITOR_FAILED\00", align 1
-@.str.1214 = private unnamed_addr constant [20 x i8] c"OFPET_BUNDLE_FAILED\00", align 1
-@.str.1215 = private unnamed_addr constant [19 x i8] c"OFPET_EXPERIMENTER\00", align 1
-@.str.1216 = private unnamed_addr constant [20 x i8] c"OFPHFC_INCOMPATIBLE\00", align 1
-@.str.1217 = private unnamed_addr constant [13 x i8] c"OFPHFC_EPERM\00", align 1
-@.str.1218 = private unnamed_addr constant [19 x i8] c"OFPBRC_BAD_VERSION\00", align 1
-@.str.1219 = private unnamed_addr constant [16 x i8] c"OFPBRC_BAD_TYPE\00", align 1
-@.str.1220 = private unnamed_addr constant [21 x i8] c"OFPBRC_BAD_MULTIPART\00", align 1
-@.str.1221 = private unnamed_addr constant [24 x i8] c"OFPBRC_BAD_EXPERIMENTER\00", align 1
-@.str.1222 = private unnamed_addr constant [20 x i8] c"OFPBRC_BAD_EXP_TYPE\00", align 1
-@.str.1223 = private unnamed_addr constant [13 x i8] c"OFPBRC_EPERM\00", align 1
-@.str.1224 = private unnamed_addr constant [15 x i8] c"OFPBRC_BAD_LEN\00", align 1
-@.str.1225 = private unnamed_addr constant [20 x i8] c"OFPBRC_BUFFER_EMPTY\00", align 1
-@.str.1226 = private unnamed_addr constant [22 x i8] c"OFPBRC_BUFFER_UNKNOWN\00", align 1
-@.str.1227 = private unnamed_addr constant [20 x i8] c"OFPBRC_BAD_TABLE_ID\00", align 1
-@.str.1228 = private unnamed_addr constant [16 x i8] c"OFPBRC_IS_SLAVE\00", align 1
-@.str.1229 = private unnamed_addr constant [16 x i8] c"OFPBRC_BAD_PORT\00", align 1
-@.str.1230 = private unnamed_addr constant [18 x i8] c"OFPBRC_BAD_PACKET\00", align 1
-@.str.1231 = private unnamed_addr constant [33 x i8] c"OFPBRC_MULTIPART_BUFFER_OVERFLOW\00", align 1
-@.str.1232 = private unnamed_addr constant [33 x i8] c"OFPBRC_MULTIPART_REQUEST_TIMEOUT\00", align 1
-@.str.1233 = private unnamed_addr constant [31 x i8] c"OFPBRC_MULTIPART_REPLY_TIMEOUT\00", align 1
-@.str.1234 = private unnamed_addr constant [16 x i8] c"OFPBAC_BAD_TYPE\00", align 1
-@.str.1235 = private unnamed_addr constant [15 x i8] c"OFPBAC_BAD_LEN\00", align 1
-@.str.1236 = private unnamed_addr constant [24 x i8] c"OFPBAC_BAD_EXPERIMENTER\00", align 1
-@.str.1237 = private unnamed_addr constant [20 x i8] c"OFPBAC_BAD_EXP_TYPE\00", align 1
-@.str.1238 = private unnamed_addr constant [20 x i8] c"OFPBAC_BAD_OUT_PORT\00", align 1
-@.str.1239 = private unnamed_addr constant [20 x i8] c"OFPBAC_BAD_ARGUMENT\00", align 1
-@.str.1240 = private unnamed_addr constant [13 x i8] c"OFPBAC_EPERM\00", align 1
-@.str.1241 = private unnamed_addr constant [16 x i8] c"OFPBAC_TOO_MANY\00", align 1
-@.str.1242 = private unnamed_addr constant [17 x i8] c"OFPBAC_BAD_QUEUE\00", align 1
-@.str.1243 = private unnamed_addr constant [21 x i8] c"OFPBAC_BAD_OUT_GROUP\00", align 1
-@.str.1244 = private unnamed_addr constant [26 x i8] c"OFPBAC_MATCH_INCONSISTENT\00", align 1
-@.str.1245 = private unnamed_addr constant [25 x i8] c"OFPBAC_UNSUPPORTED_ORDER\00", align 1
-@.str.1246 = private unnamed_addr constant [15 x i8] c"OFPBAC_BAD_TAG\00", align 1
-@.str.1247 = private unnamed_addr constant [20 x i8] c"OFPBAC_BAD_SET_TYPE\00", align 1
-@.str.1248 = private unnamed_addr constant [19 x i8] c"OFPBAC_BAD_SET_LEN\00", align 1
-@.str.1249 = private unnamed_addr constant [24 x i8] c"OFPBAC_BAD_SET_ARGUMENT\00", align 1
-@.str.1250 = private unnamed_addr constant [20 x i8] c"OFPBAC_BAD_SET_MASK\00", align 1
-@.str.1251 = private unnamed_addr constant [21 x i8] c"OFPBAC_BAD_SET_METER\00", align 1
-@.str.1252 = private unnamed_addr constant [20 x i8] c"OFPBIC_UNKNOWN_INST\00", align 1
-@.str.1253 = private unnamed_addr constant [18 x i8] c"OFPBIC_UNSUP_INST\00", align 1
-@.str.1254 = private unnamed_addr constant [20 x i8] c"OFPBIC_BAD_TABLE_ID\00", align 1
-@.str.1255 = private unnamed_addr constant [22 x i8] c"OFPBIC_UNSUP_METADATA\00", align 1
-@.str.1256 = private unnamed_addr constant [27 x i8] c"OFPBIC_UNSUP_METADATA_MASK\00", align 1
-@.str.1257 = private unnamed_addr constant [24 x i8] c"OFPBIC_BAD_EXPERIMENTER\00", align 1
-@.str.1258 = private unnamed_addr constant [20 x i8] c"OFPBIC_BAD_EXP_TYPE\00", align 1
-@.str.1259 = private unnamed_addr constant [15 x i8] c"OFPBIC_BAD_LEN\00", align 1
-@.str.1260 = private unnamed_addr constant [13 x i8] c"OFPBIC_EPERM\00", align 1
-@.str.1261 = private unnamed_addr constant [16 x i8] c"OFPBIC_DUP_INST\00", align 1
-@.str.1262 = private unnamed_addr constant [16 x i8] c"OFPBMC_BAD_TYPE\00", align 1
-@.str.1263 = private unnamed_addr constant [15 x i8] c"OFPBMC_BAD_LEN\00", align 1
-@.str.1264 = private unnamed_addr constant [15 x i8] c"OFPBMC_BAD_TAG\00", align 1
-@.str.1265 = private unnamed_addr constant [24 x i8] c"OFPBMC_BAD_DL_ADDR_MASK\00", align 1
-@.str.1266 = private unnamed_addr constant [24 x i8] c"OFPBMC_BAD_NW_ADDR_MASK\00", align 1
-@.str.1267 = private unnamed_addr constant [21 x i8] c"OFPBMC_BAD_WILDCARDS\00", align 1
-@.str.1268 = private unnamed_addr constant [17 x i8] c"OFPBMC_BAD_FIELD\00", align 1
-@.str.1269 = private unnamed_addr constant [17 x i8] c"OFPBMC_BAD_VALUE\00", align 1
-@.str.1270 = private unnamed_addr constant [16 x i8] c"OFPBMC_BAD_MASK\00", align 1
-@.str.1271 = private unnamed_addr constant [18 x i8] c"OFPBMC_BAD_PREREQ\00", align 1
-@.str.1272 = private unnamed_addr constant [17 x i8] c"OFPBMC_DUP_FIELD\00", align 1
-@.str.1273 = private unnamed_addr constant [13 x i8] c"OFPBMC_EPERM\00", align 1
-@.str.1274 = private unnamed_addr constant [16 x i8] c"OFPFMFC_UNKNOWN\00", align 1
-@.str.1275 = private unnamed_addr constant [19 x i8] c"OFPFMFC_TABLE_FULL\00", align 1
-@.str.1276 = private unnamed_addr constant [21 x i8] c"OFPFMFC_BAD_TABLE_ID\00", align 1
-@.str.1277 = private unnamed_addr constant [16 x i8] c"OFPFMFC_OVERLAP\00", align 1
-@.str.1278 = private unnamed_addr constant [14 x i8] c"OFPFMFC_EPERM\00", align 1
-@.str.1279 = private unnamed_addr constant [20 x i8] c"OFPFMFC_BAD_TIMEOUT\00", align 1
-@.str.1280 = private unnamed_addr constant [20 x i8] c"OFPFMFC_BAD_COMMAND\00", align 1
-@.str.1281 = private unnamed_addr constant [18 x i8] c"OFPFMFC_BAD_FLAGS\00", align 1
-@.str.1282 = private unnamed_addr constant [18 x i8] c"OFPFMFC_CANT_SYNC\00", align 1
-@.str.1283 = private unnamed_addr constant [21 x i8] c"OFPFMFC_BAD_PRIORITY\00", align 1
-@.str.1284 = private unnamed_addr constant [21 x i8] c"OFPGMFC_GROUP_EXISTS\00", align 1
-@.str.1285 = private unnamed_addr constant [22 x i8] c"OFPGMFC_INVALID_GROUP\00", align 1
-@.str.1286 = private unnamed_addr constant [27 x i8] c"OFPGMFC_WEIGHT_UNSUPPORTED\00", align 1
-@.str.1287 = private unnamed_addr constant [22 x i8] c"OFPGMFC_OUT_OF_GROUPS\00", align 1
-@.str.1288 = private unnamed_addr constant [23 x i8] c"OFPGMFC_OUT_OF_BUCKETS\00", align 1
-@.str.1289 = private unnamed_addr constant [29 x i8] c"OFPGMFC_CHAINING_UNSUPPORTED\00", align 1
-@.str.1290 = private unnamed_addr constant [26 x i8] c"OFPGMFC_WATCH_UNSUPPORTED\00", align 1
-@.str.1291 = private unnamed_addr constant [13 x i8] c"OFPGMFC_LOOP\00", align 1
-@.str.1292 = private unnamed_addr constant [22 x i8] c"OFPGMFC_UNKNOWN_GROUP\00", align 1
-@.str.1293 = private unnamed_addr constant [22 x i8] c"OFPGMFC_CHAINED_GROUP\00", align 1
-@.str.1294 = private unnamed_addr constant [17 x i8] c"OFPGMFC_BAD_TYPE\00", align 1
-@.str.1295 = private unnamed_addr constant [20 x i8] c"OFPGMFC_BAD_COMMAND\00", align 1
-@.str.1296 = private unnamed_addr constant [19 x i8] c"OFPGMFC_BAD_BUCKET\00", align 1
-@.str.1297 = private unnamed_addr constant [18 x i8] c"OFPGMFC_BAD_WATCH\00", align 1
-@.str.1298 = private unnamed_addr constant [14 x i8] c"OFPGMFC_EPERM\00", align 1
-@.str.1299 = private unnamed_addr constant [17 x i8] c"OFPPMFC_BAD_PORT\00", align 1
-@.str.1300 = private unnamed_addr constant [20 x i8] c"OFPPMFC_BAD_HW_ADDR\00", align 1
-@.str.1301 = private unnamed_addr constant [19 x i8] c"OFPPMFC_BAD_CONFIG\00", align 1
-@.str.1302 = private unnamed_addr constant [22 x i8] c"OFPPMFC_BAD_ADVERTISE\00", align 1
-@.str.1303 = private unnamed_addr constant [14 x i8] c"OFPPMFC_EPERM\00", align 1
-@.str.1304 = private unnamed_addr constant [18 x i8] c"OFPTMFC_BAD_TABLE\00", align 1
-@.str.1305 = private unnamed_addr constant [19 x i8] c"OFPTMFC_BAD_CONFIG\00", align 1
-@.str.1306 = private unnamed_addr constant [14 x i8] c"OFPTMFC_EPERM\00", align 1
-@.str.1307 = private unnamed_addr constant [17 x i8] c"OFPQOFC_BAD_PORT\00", align 1
-@.str.1308 = private unnamed_addr constant [18 x i8] c"OFPQOFC_BAD_QUEUE\00", align 1
-@.str.1309 = private unnamed_addr constant [14 x i8] c"OFPQOFC_EPERM\00", align 1
-@.str.1310 = private unnamed_addr constant [18 x i8] c"OFPSCFC_BAD_FLAGS\00", align 1
-@.str.1311 = private unnamed_addr constant [16 x i8] c"OFPSCFC_BAD_LEN\00", align 1
-@.str.1312 = private unnamed_addr constant [14 x i8] c"OFPQCFC_EPERM\00", align 1
-@.str.1313 = private unnamed_addr constant [14 x i8] c"OFPRRFC_STALE\00", align 1
-@.str.1314 = private unnamed_addr constant [14 x i8] c"OFPRRFC_UNSUP\00", align 1
-@.str.1315 = private unnamed_addr constant [17 x i8] c"OFPRRFC_BAD_ROLE\00", align 1
-@.str.1316 = private unnamed_addr constant [16 x i8] c"OFPMMFC_UNKNOWN\00", align 1
-@.str.1317 = private unnamed_addr constant [21 x i8] c"OFPMMFC_METER_EXISTS\00", align 1
-@.str.1318 = private unnamed_addr constant [22 x i8] c"OFPMMFC_INVALID_METER\00", align 1
-@.str.1319 = private unnamed_addr constant [22 x i8] c"OFPMMFC_UNKNOWN_METER\00", align 1
-@.str.1320 = private unnamed_addr constant [20 x i8] c"OFPMMFC_BAD_COMMAND\00", align 1
-@.str.1321 = private unnamed_addr constant [18 x i8] c"OFPMMFC_BAD_FLAGS\00", align 1
-@.str.1322 = private unnamed_addr constant [17 x i8] c"OFPMMFC_BAD_RATE\00", align 1
-@.str.1323 = private unnamed_addr constant [18 x i8] c"OFPMMFC_BAD_BURST\00", align 1
-@.str.1324 = private unnamed_addr constant [17 x i8] c"OFPMMFC_BAD_BAND\00", align 1
-@.str.1325 = private unnamed_addr constant [23 x i8] c"OFPMMFC_BAD_BAND_VALUE\00", align 1
-@.str.1326 = private unnamed_addr constant [22 x i8] c"OFPMMFC_OUT_OF_METERS\00", align 1
-@.str.1327 = private unnamed_addr constant [21 x i8] c"OFPMMFC_OUT_OF_BANDS\00", align 1
-@.str.1328 = private unnamed_addr constant [18 x i8] c"OFPTFFC_BAD_TABLE\00", align 1
-@.str.1329 = private unnamed_addr constant [21 x i8] c"OFPTFFC_BAD_METADATA\00", align 1
-@.str.1330 = private unnamed_addr constant [14 x i8] c"OFPTFFC_EPERM\00", align 1
-@.str.1331 = private unnamed_addr constant [16 x i8] c"OFPBPC_BAD_TYPE\00", align 1
-@.str.1332 = private unnamed_addr constant [15 x i8] c"OFPBPC_BAD_LEN\00", align 1
-@.str.1333 = private unnamed_addr constant [17 x i8] c"OFPBPC_BAD_VALUE\00", align 1
-@.str.1334 = private unnamed_addr constant [16 x i8] c"OFPBPC_TOO_MANY\00", align 1
-@.str.1335 = private unnamed_addr constant [16 x i8] c"OFPBPC_DUP_TYPE\00", align 1
-@.str.1336 = private unnamed_addr constant [24 x i8] c"OFPBPC_BAD_EXPERIMENTER\00", align 1
-@.str.1337 = private unnamed_addr constant [20 x i8] c"OFPBPC_BAD_EXP_TYPE\00", align 1
-@.str.1338 = private unnamed_addr constant [21 x i8] c"OFPBPC_BAD_EXP_VALUE\00", align 1
-@.str.1339 = private unnamed_addr constant [13 x i8] c"OFPBPC_EPERM\00", align 1
-@.str.1340 = private unnamed_addr constant [16 x i8] c"OFPACFC_INVALID\00", align 1
-@.str.1341 = private unnamed_addr constant [20 x i8] c"OFPACFC_UNSUPPORTED\00", align 1
-@.str.1342 = private unnamed_addr constant [14 x i8] c"OFPACFC_EPERM\00", align 1
-@.str.1343 = private unnamed_addr constant [16 x i8] c"OFPMOFC_UNKNOWN\00", align 1
-@.str.1344 = private unnamed_addr constant [23 x i8] c"OFPMOFC_MONITOR_EXISTS\00", align 1
-@.str.1345 = private unnamed_addr constant [24 x i8] c"OFPMOFC_INVALID_MONITOR\00", align 1
-@.str.1346 = private unnamed_addr constant [24 x i8] c"OFPMOFC_UNKNOWN_MONITOR\00", align 1
-@.str.1347 = private unnamed_addr constant [20 x i8] c"OFPMOFC_BAD_COMMAND\00", align 1
-@.str.1348 = private unnamed_addr constant [18 x i8] c"OFPMOFC_BAD_FLAGS\00", align 1
-@.str.1349 = private unnamed_addr constant [21 x i8] c"OFPMOFC_BAD_TABLE_ID\00", align 1
-@.str.1350 = private unnamed_addr constant [16 x i8] c"OFPMOFC_BAD_OUT\00", align 1
-@.str.1351 = private unnamed_addr constant [15 x i8] c"OFPBFC_UNKNOWN\00", align 1
-@.str.1352 = private unnamed_addr constant [13 x i8] c"OFPBFC_EPERM\00", align 1
-@.str.1353 = private unnamed_addr constant [14 x i8] c"OFPBFC_BAD_ID\00", align 1
-@.str.1354 = private unnamed_addr constant [20 x i8] c"OFPBFC_BUNDLE_EXIST\00", align 1
-@.str.1355 = private unnamed_addr constant [21 x i8] c"OFPBFC_BUNDLE_CLOSED\00", align 1
-@.str.1356 = private unnamed_addr constant [22 x i8] c"OFPBFC_OUT_OF_BUNDLES\00", align 1
-@.str.1357 = private unnamed_addr constant [16 x i8] c"OFPBFC_BAD_TYPE\00", align 1
-@.str.1358 = private unnamed_addr constant [17 x i8] c"OFPBFC_BAD_FLAGS\00", align 1
-@.str.1359 = private unnamed_addr constant [19 x i8] c"OFPBFC_MSG_BAD_LEN\00", align 1
-@.str.1360 = private unnamed_addr constant [19 x i8] c"OFPBFC_MSG_BAD_XID\00", align 1
-@.str.1361 = private unnamed_addr constant [17 x i8] c"OFPBFC_MSG_UNSUP\00", align 1
-@.str.1362 = private unnamed_addr constant [20 x i8] c"OFPBFC_MSG_CONFLICT\00", align 1
-@.str.1363 = private unnamed_addr constant [20 x i8] c"OFPBFC_MSG_TOO_MANY\00", align 1
-@.str.1364 = private unnamed_addr constant [18 x i8] c"OFPBFC_MSG_FAILED\00", align 1
-@.str.1365 = private unnamed_addr constant [15 x i8] c"OFPBFC_TIMEOUT\00", align 1
-@.str.1366 = private unnamed_addr constant [26 x i8] c"OFPBFC_BUNDLE_IN_PROGRESS\00", align 1
-@.str.1367 = private unnamed_addr constant [17 x i8] c"OFPC_FRAG_NORMAL\00", align 1
-@.str.1368 = private unnamed_addr constant [15 x i8] c"OFPC_FRAG_DROP\00", align 1
-@.str.1369 = private unnamed_addr constant [16 x i8] c"OFPC_FRAG_REASM\00", align 1
-@.str.1370 = private unnamed_addr constant [14 x i8] c"OFP_NO_BUFFER\00", align 1
-@.str.1371 = private unnamed_addr constant [12 x i8] c"OFPR_GROUP \00", align 1
-@.str.1372 = private unnamed_addr constant [10 x i8] c"OFPTT_ALL\00", align 1
-@.str.1373 = private unnamed_addr constant [10 x i8] c"OFPFC_ADD\00", align 1
-@.str.1374 = private unnamed_addr constant [13 x i8] c"OFPFC_MODIFY\00", align 1
-@.str.1375 = private unnamed_addr constant [20 x i8] c"OFPFC_MODIFY_STRICT\00", align 1
-@.str.1376 = private unnamed_addr constant [13 x i8] c"OFPFC_DELETE\00", align 1
-@.str.1377 = private unnamed_addr constant [20 x i8] c"OFPFC_DELETE_STRICT\00", align 1
-@.str.1378 = private unnamed_addr constant [9 x i8] c"OFPG_ALL\00", align 1
-@.str.1379 = private unnamed_addr constant [9 x i8] c"OFPG_ANY\00", align 1
-@.str.1380 = private unnamed_addr constant [10 x i8] c"OFPGC_ADD\00", align 1
-@.str.1381 = private unnamed_addr constant [13 x i8] c"OFPGC_MODIFY\00", align 1
-@.str.1382 = private unnamed_addr constant [13 x i8] c"OFPGC_DELETE\00", align 1
-@.str.1383 = private unnamed_addr constant [20 x i8] c"OFPGC_INSERT_BUCKET\00", align 1
-@.str.1384 = private unnamed_addr constant [20 x i8] c"OFPGC_DELETE_BUCKET\00", align 1
-@.str.1385 = private unnamed_addr constant [17 x i8] c"OFPPMPT_ETHERNET\00", align 1
-@.str.1386 = private unnamed_addr constant [16 x i8] c"OFPPMPT_OPTICAL\00", align 1
-@.str.1387 = private unnamed_addr constant [21 x i8] c"OFPPMPT_EXPERIMENTER\00", align 1
-@.str.1388 = private unnamed_addr constant [17 x i8] c"OFPTMPT_EVICTION\00", align 1
-@.str.1389 = private unnamed_addr constant [16 x i8] c"OFPTMPT_VACANCY\00", align 1
-@.str.1390 = private unnamed_addr constant [21 x i8] c"OFPTMPT_EXPERIMENTER\00", align 1
-@.str.1391 = private unnamed_addr constant [21 x i8] c"OFPTFPT_INSTRUCTIONS\00", align 1
-@.str.1392 = private unnamed_addr constant [26 x i8] c"OFPTFPT_INSTRUCTIONS_MISS\00", align 1
-@.str.1393 = private unnamed_addr constant [20 x i8] c"OFPTFPT_NEXT_TABLES\00", align 1
-@.str.1394 = private unnamed_addr constant [25 x i8] c"OFPTFPT_NEXT_TABLES_MISS\00", align 1
-@.str.1395 = private unnamed_addr constant [22 x i8] c"OFPTFPT_WRITE_ACTIONS\00", align 1
-@.str.1396 = private unnamed_addr constant [27 x i8] c"OFPTFPT_WRITE_ACTIONS_MISS\00", align 1
-@.str.1397 = private unnamed_addr constant [22 x i8] c"OFPTFPT_APPLY_ACTIONS\00", align 1
-@.str.1398 = private unnamed_addr constant [27 x i8] c"OFPTFPT_APPLY_ACTIONS_MISS\00", align 1
-@.str.1399 = private unnamed_addr constant [14 x i8] c"OFPTFPT_MATCH\00", align 1
-@.str.1400 = private unnamed_addr constant [18 x i8] c"OFPTFPT_WILDCARDS\00", align 1
-@.str.1401 = private unnamed_addr constant [23 x i8] c"OFPTFPT_WRITE_SETFIELD\00", align 1
-@.str.1402 = private unnamed_addr constant [28 x i8] c"OFPTFPT_WRITE_SETFIELD_MISS\00", align 1
-@.str.1403 = private unnamed_addr constant [23 x i8] c"OFPTFPT_APPLY_SETFIELD\00", align 1
-@.str.1404 = private unnamed_addr constant [28 x i8] c"OFPTFPT_APPLY_SETFIELD_MISS\00", align 1
-@.str.1405 = private unnamed_addr constant [21 x i8] c"OFPTFPT_EXPERIMENTER\00", align 1
-@.str.1406 = private unnamed_addr constant [26 x i8] c"OFPTFPT_EXPERIMENTER_MISS\00", align 1
-@.str.1407 = private unnamed_addr constant [24 x i8] c"OFPTFPT_TABLE_SYNC_FROM\00", align 1
-@.str.1408 = private unnamed_addr constant [24 x i8] c"OFPTFPT_WRITE_COPYFIELD\00", align 1
-@.str.1409 = private unnamed_addr constant [29 x i8] c"OFPTFPT_WRITE_COPYFIELD_MISS\00", align 1
-@.str.1410 = private unnamed_addr constant [24 x i8] c"OFPTFPT_APPLY_COPYFIELD\00", align 1
-@.str.1411 = private unnamed_addr constant [29 x i8] c"OFPTFPT_APPLY_COPYFIELD_MISS\00", align 1
-@.str.1412 = private unnamed_addr constant [21 x i8] c"OFPTFPT_PACKET_TYPES\00", align 1
-@.str.1413 = private unnamed_addr constant [9 x i8] c"OFPQ_ALL\00", align 1
-@.str.1414 = private unnamed_addr constant [14 x i8] c"OFPM_SLOWPATH\00", align 1
-@.str.1415 = private unnamed_addr constant [16 x i8] c"OFPM_CONTROLLER\00", align 1
-@.str.1416 = private unnamed_addr constant [9 x i8] c"OFPM_ALL\00", align 1
-@.str.1417 = private unnamed_addr constant [11 x i8] c"OFPFMC_ADD\00", align 1
-@.str.1418 = private unnamed_addr constant [14 x i8] c"OFPFMC_MODIFY\00", align 1
-@.str.1419 = private unnamed_addr constant [14 x i8] c"OFPFMC_DELETE\00", align 1
-@.str.1420 = private unnamed_addr constant [11 x i8] c"OFPMP_DESC\00", align 1
-@.str.1421 = private unnamed_addr constant [16 x i8] c"OFPMP_FLOW_DESC\00", align 1
-@.str.1422 = private unnamed_addr constant [22 x i8] c"OFPMP_AGGREGATE_STATS\00", align 1
-@.str.1423 = private unnamed_addr constant [18 x i8] c"OFPMP_TABLE_STATS\00", align 1
-@.str.1424 = private unnamed_addr constant [17 x i8] c"OFPMP_PORT_STATS\00", align 1
-@.str.1425 = private unnamed_addr constant [18 x i8] c"OFPMP_QUEUE_STATS\00", align 1
-@.str.1426 = private unnamed_addr constant [18 x i8] c"OFPMP_GROUP_STATS\00", align 1
-@.str.1427 = private unnamed_addr constant [17 x i8] c"OFPMP_GROUP_DESC\00", align 1
-@.str.1428 = private unnamed_addr constant [21 x i8] c"OFPMP_GROUP_FEATURES\00", align 1
-@.str.1429 = private unnamed_addr constant [18 x i8] c"OFPMP_METER_STATS\00", align 1
-@.str.1430 = private unnamed_addr constant [17 x i8] c"OFPMP_METER_DESC\00", align 1
-@.str.1431 = private unnamed_addr constant [21 x i8] c"OFPMP_METER_FEATURES\00", align 1
-@.str.1432 = private unnamed_addr constant [21 x i8] c"OFPMP_TABLE_FEATURES\00", align 1
-@.str.1433 = private unnamed_addr constant [16 x i8] c"OFPMP_PORT_DESC\00", align 1
-@.str.1434 = private unnamed_addr constant [17 x i8] c"OFPMP_TABLE_DESC\00", align 1
-@.str.1435 = private unnamed_addr constant [17 x i8] c"OFPMP_QUEUE_DESC\00", align 1
-@.str.1436 = private unnamed_addr constant [19 x i8] c"OFPMP_FLOW_MONITOR\00", align 1
-@.str.1437 = private unnamed_addr constant [17 x i8] c"OFPMP_FLOW_STATS\00", align 1
-@.str.1438 = private unnamed_addr constant [24 x i8] c"OFPMP_CONTROLLER_STATUS\00", align 1
-@.str.1439 = private unnamed_addr constant [22 x i8] c"OFPMP_BUNDLE_FEATURES\00", align 1
-@.str.1440 = private unnamed_addr constant [19 x i8] c"OFPMP_EXPERIMENTER\00", align 1
-@.str.1441 = private unnamed_addr constant [21 x i8] c"OFPQSPT_EXPERIMENTER\00", align 1
-@.str.1442 = private unnamed_addr constant [15 x i8] c"OFPFME_INITIAL\00", align 1
-@.str.1443 = private unnamed_addr constant [13 x i8] c"OFPFME_ADDED\00", align 1
-@.str.1444 = private unnamed_addr constant [15 x i8] c"OFPFME_REMOVED\00", align 1
-@.str.1445 = private unnamed_addr constant [16 x i8] c"OFPFME_MODIFIED\00", align 1
-@.str.1446 = private unnamed_addr constant [14 x i8] c"OFPFME_ABBREV\00", align 1
-@.str.1447 = private unnamed_addr constant [14 x i8] c"OFPFME_PAUSED\00", align 1
-@.str.1448 = private unnamed_addr constant [15 x i8] c"OFPFME_RESUMED\00", align 1
-@.str.1449 = private unnamed_addr constant [17 x i8] c"OFPQDPT_MIN_RATE\00", align 1
-@.str.1450 = private unnamed_addr constant [17 x i8] c"OFPQDPT_MAX_RATE\00", align 1
-@.str.1451 = private unnamed_addr constant [21 x i8] c"OFPQDPT_EXPERIMENTER\00", align 1
-@.str.1452 = private unnamed_addr constant [22 x i8] c"OFPQDP_MIN_RATE_UNCFG\00", align 1
-@.str.1453 = private unnamed_addr constant [22 x i8] c"OFPQDP_MAX_RATE_UNCFG\00", align 1
-@.str.1454 = private unnamed_addr constant [20 x i8] c"OFPCR_ROLE_NOCHANGE\00", align 1
-@.str.1455 = private unnamed_addr constant [17 x i8] c"OFPCR_ROLE_EQUAL\00", align 1
-@.str.1456 = private unnamed_addr constant [18 x i8] c"OFPCR_ROLE_MASTER\00", align 1
-@.str.1457 = private unnamed_addr constant [17 x i8] c"OFPCR_ROLE_SLAVE\00", align 1
-@.str.1458 = private unnamed_addr constant [24 x i8] c"OFPACPT_PACKET_IN_SLAVE\00", align 1
-@.str.1459 = private unnamed_addr constant [25 x i8] c"OFPACPT_PACKET_IN_MASTER\00", align 1
-@.str.1460 = private unnamed_addr constant [26 x i8] c"OFPACPT_PORT_STATUS_SLAVE\00", align 1
-@.str.1461 = private unnamed_addr constant [27 x i8] c"OFPACPT_PORT_STATUS_MASTER\00", align 1
-@.str.1462 = private unnamed_addr constant [27 x i8] c"OFPACPT_FLOW_REMOVED_SLAVE\00", align 1
-@.str.1463 = private unnamed_addr constant [28 x i8] c"OFPACPT_FLOW_REMOVED_MASTER\00", align 1
-@.str.1464 = private unnamed_addr constant [26 x i8] c"OFPACPT_ROLE_STATUS_SLAVE\00", align 1
-@.str.1465 = private unnamed_addr constant [27 x i8] c"OFPACPT_ROLE_STATUS_MASTER\00", align 1
-@.str.1466 = private unnamed_addr constant [27 x i8] c"OFPACPT_TABLE_STATUS_SLAVE\00", align 1
-@.str.1467 = private unnamed_addr constant [28 x i8] c"OFPACPT_TABLE_STATUS_MASTER\00", align 1
-@.str.1468 = private unnamed_addr constant [29 x i8] c"OFPACPT_REQUESTFORWARD_SLAVE\00", align 1
-@.str.1469 = private unnamed_addr constant [30 x i8] c"OFPACPT_REQUESTFORWARD_MASTER\00", align 1
-@.str.1470 = private unnamed_addr constant [27 x i8] c"OFPACPT_EXPERIMENTER_SLAVE\00", align 1
-@.str.1471 = private unnamed_addr constant [28 x i8] c"OFPACPT_EXPERIMENTER_MASTER\00", align 1
-@.str.1472 = private unnamed_addr constant [10 x i8] c"OFPMC_ADD\00", align 1
-@.str.1473 = private unnamed_addr constant [13 x i8] c"OFPMC_MODIFY\00", align 1
-@.str.1474 = private unnamed_addr constant [13 x i8] c"OFPMC_DELETE\00", align 1
-@.str.1475 = private unnamed_addr constant [20 x i8] c"OFPBCT_OPEN_REQUEST\00", align 1
-@.str.1476 = private unnamed_addr constant [18 x i8] c"OFPBCT_OPEN_REPLY\00", align 1
-@.str.1477 = private unnamed_addr constant [21 x i8] c"OFPBCT_CLOSE_REQUEST\00", align 1
-@.str.1478 = private unnamed_addr constant [19 x i8] c"OFPBCT_CLOSE_REPLY\00", align 1
-@.str.1479 = private unnamed_addr constant [22 x i8] c"OFPBCT_COMMIT_REQUEST\00", align 1
-@.str.1480 = private unnamed_addr constant [20 x i8] c"OFPBCT_COMMIT_REPLY\00", align 1
-@.str.1481 = private unnamed_addr constant [23 x i8] c"OFPBCT_DISCARD_REQUEST\00", align 1
-@.str.1482 = private unnamed_addr constant [21 x i8] c"OFPBCT_DISCARD_REPLY\00", align 1
-@.str.1483 = private unnamed_addr constant [12 x i8] c"OFPBPT_TIME\00", align 1
-@.str.1484 = private unnamed_addr constant [20 x i8] c"OFPBPT_EXPERIMENTER\00", align 1
-@.str.1485 = private unnamed_addr constant [22 x i8] c"OFPXSC_OPENFLOW_BASIC\00", align 1
-@.str.1486 = private unnamed_addr constant [20 x i8] c"OFPXSC_EXPERIMENTER\00", align 1
-@.str.1487 = private unnamed_addr constant [20 x i8] c"OFPXST_OFB_DURATION\00", align 1
-@.str.1488 = private unnamed_addr constant [21 x i8] c"OFPXST_OFB_IDLE_TIME\00", align 1
-@.str.1489 = private unnamed_addr constant [22 x i8] c"OFPXST_OFB_FLOW_COUNT\00", align 1
-@.str.1490 = private unnamed_addr constant [24 x i8] c"OFPXST_OFB_PACKET_COUNT\00", align 1
-@.str.1491 = private unnamed_addr constant [22 x i8] c"OFPXST_OFB_BYTE_COUNT\00", align 1
-@.str.1492 = private unnamed_addr constant [15 x i8] c"OFPCSR_REQUEST\00", align 1
-@.str.1493 = private unnamed_addr constant [22 x i8] c"OFPCSR_CHANNEL_STATUS\00", align 1
-@.str.1494 = private unnamed_addr constant [12 x i8] c"OFPCSR_ROLE\00", align 1
-@.str.1495 = private unnamed_addr constant [24 x i8] c"OFPCSR_CONTROLLER_ADDED\00", align 1
-@.str.1496 = private unnamed_addr constant [26 x i8] c"OFPCSR_CONTROLLER_REMOVED\00", align 1
-@.str.1497 = private unnamed_addr constant [16 x i8] c"OFPCSR_SHORT_ID\00", align 1
-@.str.1498 = private unnamed_addr constant [20 x i8] c"OFPCSR_EXPERIMENTER\00", align 1
-@.str.1499 = private unnamed_addr constant [16 x i8] c"OFPCT_STATUS_UP\00", align 1
-@.str.1500 = private unnamed_addr constant [18 x i8] c"OFPCT_STATUS_DOWN\00", align 1
-@.str.1501 = private unnamed_addr constant [25 x i8] c"OFPTMPBF_TIME_CAPABILITY\00", align 1
-@.str.1502 = private unnamed_addr constant [22 x i8] c"OFPTMPBF_EXPERIMENTER\00", align 1
-@.str.1503 = private unnamed_addr constant [12 x i8] c"OFPCSPT_URI\00", align 1
-@.str.1504 = private unnamed_addr constant [21 x i8] c"OFPCSPT_EXPERIMENTER\00", align 1
-@.str.1505 = private unnamed_addr constant [21 x i8] c"OFPFSR_STATS_REQUEST\00", align 1
-@.str.1506 = private unnamed_addr constant [20 x i8] c"OFPFSR_STAT_TRIGGER\00", align 1
-@.str.1507 = private unnamed_addr constant [9 x i8] c"Type: %s\00", align 1
-@.str.1508 = private unnamed_addr constant [21 x i8] c"Unknown message type\00", align 1
-@.str.1509 = private unnamed_addr constant [8 x i8] c"Element\00", align 1
-@.str.1510 = private unnamed_addr constant [25 x i8] c"Experimenter error body.\00", align 1
-@.str.1511 = private unnamed_addr constant [20 x i8] c"Unknown error body.\00", align 1
-@.str.1512 = private unnamed_addr constant [19 x i8] c"Experimenter body.\00", align 1
-@.str.1513 = private unnamed_addr constant [6 x i8] c"Match\00", align 1
-@.str.1514 = private unnamed_addr constant [34 x i8] c"Standard match body (deprecated).\00", align 1
-@.str.1515 = private unnamed_addr constant [10 x i8] c"OXM field\00", align 1
-@.str.1516 = private unnamed_addr constant [6 x i8] c" (%s)\00", align 1
-@openflow_v6_header_type_namespace_values = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1520 }, %struct._value_string { i32 1, ptr @.str.1521 }, %struct._value_string { i32 2, ptr @.str.1522 }, %struct._value_string { i32 3, ptr @.str.1523 }, %struct._value_string { i32 4, ptr @.str.1524 }, %struct._value_string zeroinitializer], align 16
-@.str.1517 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
-@.str.1518 = private unnamed_addr constant [15 x i8] c"Undecoded Data\00", align 1
-@.str.1519 = private unnamed_addr constant [18 x i8] c"Unknown OXM body.\00", align 1
-@.str.1520 = private unnamed_addr constant [11 x i8] c"OFPHTN_ONF\00", align 1
-@.str.1521 = private unnamed_addr constant [17 x i8] c"OFPHTN_ETHERTYPE\00", align 1
-@.str.1522 = private unnamed_addr constant [16 x i8] c"OFPHTN_IP_PROTO\00", align 1
-@.str.1523 = private unnamed_addr constant [20 x i8] c"OFPHTN_UDP_TCP_PORT\00", align 1
-@.str.1524 = private unnamed_addr constant [19 x i8] c"OFPHTN_IPV4_OPTION\00", align 1
-@.str.1525 = private unnamed_addr constant [5 x i8] c": %s\00", align 1
-@.str.1526 = private unnamed_addr constant [20 x i8] c"Port desc. property\00", align 1
-@.str.1527 = private unnamed_addr constant [34 x i8] c"Experimenter port desc. property.\00", align 1
-@.str.1528 = private unnamed_addr constant [29 x i8] c"Unknown port desc. property.\00", align 1
-@.str.1529 = private unnamed_addr constant [14 x i8] c" Speed: %u Mb\00", align 1
-@.str.1530 = private unnamed_addr constant [7 x i8] c"Action\00", align 1
-@.str.1531 = private unnamed_addr constant [26 x i8] c"Experimenter action body.\00", align 1
-@.str.1532 = private unnamed_addr constant [12 x i8] c"Instruction\00", align 1
-@.str.1533 = private unnamed_addr constant [31 x i8] c"Experimenter instruction body.\00", align 1
-@.str.1534 = private unnamed_addr constant [7 x i8] c"Bucket\00", align 1
-@.str.1535 = private unnamed_addr constant [17 x i8] c"Portmod property\00", align 1
-@.str.1536 = private unnamed_addr constant [18 x i8] c"Tablemod property\00", align 1
-@.str.1537 = private unnamed_addr constant [34 x i8] c"Experimenter table mod. property.\00", align 1
-@.str.1538 = private unnamed_addr constant [29 x i8] c"Unknown table mod. property.\00", align 1
-@.str.1539 = private unnamed_addr constant [37 x i8] c"Experimenter multipart request body.\00", align 1
-@.str.1540 = private unnamed_addr constant [15 x i8] c"Table features\00", align 1
-@.str.1541 = private unnamed_addr constant [23 x i8] c"Table feature property\00", align 1
-@.str.1542 = private unnamed_addr constant [15 x i8] c"Instruction ID\00", align 1
-@.str.1543 = private unnamed_addr constant [10 x i8] c"Action ID\00", align 1
-@.str.1544 = private unnamed_addr constant [7 x i8] c"OXM ID\00", align 1
-@.str.1545 = private unnamed_addr constant [34 x i8] c"Experimenter table property body.\00", align 1
-@.str.1546 = private unnamed_addr constant [29 x i8] c"Unknown table property body.\00", align 1
-@.str.1547 = private unnamed_addr constant [24 x i8] c"Bundle feature property\00", align 1
-@.str.1548 = private unnamed_addr constant [35 x i8] c"Experimenter bundle property body.\00", align 1
-@.str.1549 = private unnamed_addr constant [30 x i8] c"Unknown bundle property body.\00", align 1
-@.str.1550 = private unnamed_addr constant [35 x i8] c"Experimenter multipart reply body.\00", align 1
-@.str.1551 = private unnamed_addr constant [10 x i8] c"Flow desc\00", align 1
-@.str.1552 = private unnamed_addr constant [12 x i8] c"Table stats\00", align 1
-@.str.1553 = private unnamed_addr constant [11 x i8] c"Port stats\00", align 1
-@.str.1554 = private unnamed_addr constant [21 x i8] c"Port stats. property\00", align 1
-@.str.1555 = private unnamed_addr constant [35 x i8] c"Experimenter port stats. property.\00", align 1
-@.str.1556 = private unnamed_addr constant [30 x i8] c"Unknown port stats. property.\00", align 1
-@.str.1557 = private unnamed_addr constant [12 x i8] c"Queue stats\00", align 1
-@.str.1558 = private unnamed_addr constant [21 x i8] c"Queue stats property\00", align 1
-@.str.1559 = private unnamed_addr constant [36 x i8] c"Experimenter queue stats prop body.\00", align 1
-@.str.1560 = private unnamed_addr constant [12 x i8] c"Group stats\00", align 1
-@.str.1561 = private unnamed_addr constant [15 x i8] c"Bucket counter\00", align 1
-@.str.1562 = private unnamed_addr constant [18 x i8] c"Group description\00", align 1
-@.str.1563 = private unnamed_addr constant [12 x i8] c"Meter stats\00", align 1
-@.str.1564 = private unnamed_addr constant [17 x i8] c"Meter band stats\00", align 1
-@.str.1565 = private unnamed_addr constant [11 x i8] c"Meter desc\00", align 1
-@.str.1566 = private unnamed_addr constant [11 x i8] c"Meter band\00", align 1
-@.str.1567 = private unnamed_addr constant [30 x i8] c"Experimenter meter band body.\00", align 1
-@.str.1568 = private unnamed_addr constant [11 x i8] c"Table desc\00", align 1
-@.str.1569 = private unnamed_addr constant [11 x i8] c"Queue desc\00", align 1
-@.str.1570 = private unnamed_addr constant [15 x i8] c"Queue property\00", align 1
-@.str.1571 = private unnamed_addr constant [34 x i8] c"Experimenter queue property body.\00", align 1
-@.str.1572 = private unnamed_addr constant [12 x i8] c"Flow update\00", align 1
-@.str.1573 = private unnamed_addr constant [11 x i8] c"Flow stats\00", align 1
-@.str.1574 = private unnamed_addr constant [18 x i8] c"Async config prop\00", align 1
-@.str.1575 = private unnamed_addr constant [37 x i8] c"Experimenter async config prop body.\00", align 1
-@.str.1576 = private unnamed_addr constant [32 x i8] c"Unknown async config prop body.\00", align 1
-@.str.1577 = private unnamed_addr constant [8 x i8] c"Request\00", align 1
-@.str.1578 = private unnamed_addr constant [12 x i8] c"Bundle prop\00", align 1
-@.str.1579 = private unnamed_addr constant [31 x i8] c"Experimenter bundle prop body.\00", align 1
-@.str.1580 = private unnamed_addr constant [8 x i8] c"Message\00", align 1
-@.str.1581 = private unnamed_addr constant [27 x i8] c"Controller status property\00", align 1
-@.str.1582 = private unnamed_addr constant [39 x i8] c"Experimenter controller property body.\00", align 1
-@.str.1583 = private unnamed_addr constant [34 x i8] c"Unknown controller property body.\00", align 1
+@openflow_v6_version_values = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.1079 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1081 = private unnamed_addr constant [24 x i8] c"openflow_v6_type_values\00", align 1
+@.str.1082 = private unnamed_addr constant [11 x i8] c"OFPT_HELLO\00", align 1
+@.str.1083 = private unnamed_addr constant [11 x i8] c"OFPT_ERROR\00", align 1
+@.str.1084 = private unnamed_addr constant [18 x i8] c"OFPT_ECHO_REQUEST\00", align 1
+@.str.1085 = private unnamed_addr constant [16 x i8] c"OFPT_ECHO_REPLY\00", align 1
+@.str.1086 = private unnamed_addr constant [18 x i8] c"OFPT_EXPERIMENTER\00", align 1
+@.str.1087 = private unnamed_addr constant [22 x i8] c"OFPT_FEATURES_REQUEST\00", align 1
+@.str.1088 = private unnamed_addr constant [20 x i8] c"OFPT_FEATURES_REPLY\00", align 1
+@.str.1089 = private unnamed_addr constant [24 x i8] c"OFPT_GET_CONFIG_REQUEST\00", align 1
+@.str.1090 = private unnamed_addr constant [22 x i8] c"OFPT_GET_CONFIG_REPLY\00", align 1
+@.str.1091 = private unnamed_addr constant [16 x i8] c"OFPT_SET_CONFIG\00", align 1
+@.str.1092 = private unnamed_addr constant [15 x i8] c"OFPT_PACKET_IN\00", align 1
+@.str.1093 = private unnamed_addr constant [18 x i8] c"OFPT_FLOW_REMOVED\00", align 1
+@.str.1094 = private unnamed_addr constant [17 x i8] c"OFPT_PORT_STATUS\00", align 1
+@.str.1095 = private unnamed_addr constant [16 x i8] c"OFPT_PACKET_OUT\00", align 1
+@.str.1096 = private unnamed_addr constant [14 x i8] c"OFPT_FLOW_MOD\00", align 1
+@.str.1097 = private unnamed_addr constant [15 x i8] c"OFPT_GROUP_MOD\00", align 1
+@.str.1098 = private unnamed_addr constant [14 x i8] c"OFPT_PORT_MOD\00", align 1
+@.str.1099 = private unnamed_addr constant [15 x i8] c"OFPT_TABLE_MOD\00", align 1
+@.str.1100 = private unnamed_addr constant [23 x i8] c"OFPT_MULTIPART_REQUEST\00", align 1
+@.str.1101 = private unnamed_addr constant [21 x i8] c"OFPT_MULTIPART_REPLY\00", align 1
+@.str.1102 = private unnamed_addr constant [21 x i8] c"OFPT_BARRIER_REQUEST\00", align 1
+@.str.1103 = private unnamed_addr constant [19 x i8] c"OFPT_BARRIER_REPLY\00", align 1
+@.str.1104 = private unnamed_addr constant [18 x i8] c"OFPT_ROLE_REQUEST\00", align 1
+@.str.1105 = private unnamed_addr constant [16 x i8] c"OFPT_ROLE_REPLY\00", align 1
+@.str.1106 = private unnamed_addr constant [23 x i8] c"OFPT_GET_ASYNC_REQUEST\00", align 1
+@.str.1107 = private unnamed_addr constant [21 x i8] c"OFPT_GET_ASYNC_REPLY\00", align 1
+@.str.1108 = private unnamed_addr constant [15 x i8] c"OFPT_SET_ASYNC\00", align 1
+@.str.1109 = private unnamed_addr constant [15 x i8] c"OFPT_METER_MOD\00", align 1
+@.str.1110 = private unnamed_addr constant [17 x i8] c"OFPT_ROLE_STATUS\00", align 1
+@.str.1111 = private unnamed_addr constant [18 x i8] c"OFPT_TABLE_STATUS\00", align 1
+@.str.1112 = private unnamed_addr constant [20 x i8] c"OFPT_REQUESTFORWARD\00", align 1
+@.str.1113 = private unnamed_addr constant [20 x i8] c"OFPT_BUNDLE_CONTROL\00", align 1
+@.str.1114 = private unnamed_addr constant [24 x i8] c"OFPT_BUNDLE_ADD_MESSAGE\00", align 1
+@.str.1115 = private unnamed_addr constant [23 x i8] c"OFPT_CONTROLLER_STATUS\00", align 1
+@openflow_v6_type_values = internal constant [35 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1082 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1083 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1084 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.1085 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.1086 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.1087 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.1088 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.1089 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.1090 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.1091 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.1092 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.1093 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.1094 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.1095 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.1096 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.1097 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.1098 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.1099 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.1100 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.1101 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.1102 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.1103 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.1104 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.1105 }, { i32, [4 x i8], ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.1106 }, { i32, [4 x i8], ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.1107 }, { i32, [4 x i8], ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.1108 }, { i32, [4 x i8], ptr } { i32 29, [4 x i8] zeroinitializer, ptr @.str.1109 }, { i32, [4 x i8], ptr } { i32 30, [4 x i8] zeroinitializer, ptr @.str.1110 }, { i32, [4 x i8], ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.1111 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.1112 }, { i32, [4 x i8], ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.1113 }, { i32, [4 x i8], ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.1114 }, { i32, [4 x i8], ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.1115 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1117 = private unnamed_addr constant [13 x i8] c"OFPXMC_NMX_0\00", align 1
+@.str.1118 = private unnamed_addr constant [13 x i8] c"OFPXMC_NXM_1\00", align 1
+@.str.1119 = private unnamed_addr constant [22 x i8] c"OFPXMC_OPENFLOW_BASIC\00", align 1
+@.str.1120 = private unnamed_addr constant [19 x i8] c"OFPXMC_PACKET_REGS\00", align 1
+@.str.1121 = private unnamed_addr constant [20 x i8] c"OFPXMC_EXPERIMENTER\00", align 1
+@openflow_v6_oxm_class_values = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1117 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1118 }, { i32, [4 x i8], ptr } { i32 32768, [4 x i8] zeroinitializer, ptr @.str.1119 }, { i32, [4 x i8], ptr } { i32 32769, [4 x i8] zeroinitializer, ptr @.str.1120 }, { i32, [4 x i8], ptr } { i32 65535, [4 x i8] zeroinitializer, ptr @.str.1121 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1123 = private unnamed_addr constant [35 x i8] c"openflow_v6_oxm_basic_field_values\00", align 1
+@.str.1124 = private unnamed_addr constant [19 x i8] c"OFPXMT_OFB_IN_PORT\00", align 1
+@.str.1125 = private unnamed_addr constant [23 x i8] c"OFPXMT_OFB_IN_PHY_PORT\00", align 1
+@.str.1126 = private unnamed_addr constant [20 x i8] c"OFPXMT_OFB_METADATA\00", align 1
+@.str.1127 = private unnamed_addr constant [19 x i8] c"OFPXMT_OFB_ETH_DST\00", align 1
+@.str.1128 = private unnamed_addr constant [19 x i8] c"OFPXMT_OFB_ETH_SRC\00", align 1
+@.str.1129 = private unnamed_addr constant [20 x i8] c"OFPXMT_OFB_ETH_TYPE\00", align 1
+@.str.1130 = private unnamed_addr constant [20 x i8] c"OFPXMT_OFB_VLAN_VID\00", align 1
+@.str.1131 = private unnamed_addr constant [20 x i8] c"OFPXMT_OFB_VLAN_PCP\00", align 1
+@.str.1132 = private unnamed_addr constant [19 x i8] c"OFPXMT_OFB_IP_DSCP\00", align 1
+@.str.1133 = private unnamed_addr constant [18 x i8] c"OFPXMT_OFB_IP_ECN\00", align 1
+@.str.1134 = private unnamed_addr constant [20 x i8] c"OFPXMT_OFB_IP_PROTO\00", align 1
+@.str.1135 = private unnamed_addr constant [20 x i8] c"OFPXMT_OFB_IPV4_SRC\00", align 1
+@.str.1136 = private unnamed_addr constant [20 x i8] c"OFPXMT_OFB_IPV4_DST\00", align 1
+@.str.1137 = private unnamed_addr constant [19 x i8] c"OFPXMT_OFB_TCP_SRC\00", align 1
+@.str.1138 = private unnamed_addr constant [19 x i8] c"OFPXMT_OFB_TCP_DST\00", align 1
+@.str.1139 = private unnamed_addr constant [19 x i8] c"OFPXMT_OFB_UDP_SRC\00", align 1
+@.str.1140 = private unnamed_addr constant [19 x i8] c"OFPXMT_OFB_UDP_DST\00", align 1
+@.str.1141 = private unnamed_addr constant [20 x i8] c"OFPXMT_OFB_SCTP_SRC\00", align 1
+@.str.1142 = private unnamed_addr constant [20 x i8] c"OFPXMT_OFB_SCTP_DST\00", align 1
+@.str.1143 = private unnamed_addr constant [23 x i8] c"OFPXMT_OFB_ICMPV4_TYPE\00", align 1
+@.str.1144 = private unnamed_addr constant [23 x i8] c"OFPXMT_OFB_ICMPV4_CODE\00", align 1
+@.str.1145 = private unnamed_addr constant [18 x i8] c"OFPXMT_OFB_ARP_OP\00", align 1
+@.str.1146 = private unnamed_addr constant [19 x i8] c"OFPXMT_OFB_ARP_SPA\00", align 1
+@.str.1147 = private unnamed_addr constant [19 x i8] c"OFPXMT_OFB_ARP_TPA\00", align 1
+@.str.1148 = private unnamed_addr constant [19 x i8] c"OFPXMT_OFB_ARP_SHA\00", align 1
+@.str.1149 = private unnamed_addr constant [19 x i8] c"OFPXMT_OFB_ARP_THA\00", align 1
+@.str.1150 = private unnamed_addr constant [20 x i8] c"OFPXMT_OFB_IPV6_SRC\00", align 1
+@.str.1151 = private unnamed_addr constant [20 x i8] c"OFPXMT_OFB_IPV6_DST\00", align 1
+@.str.1152 = private unnamed_addr constant [23 x i8] c"OFPXMT_OFB_IPV6_FLABEL\00", align 1
+@.str.1153 = private unnamed_addr constant [23 x i8] c"OFPXMT_OFB_ICMPV6_TYPE\00", align 1
+@.str.1154 = private unnamed_addr constant [23 x i8] c"OFPXMT_OFB_ICMPV6_CODE\00", align 1
+@.str.1155 = private unnamed_addr constant [26 x i8] c"OFPXMT_OFB_IPV6_ND_TARGET\00", align 1
+@.str.1156 = private unnamed_addr constant [23 x i8] c"OFPXMT_OFB_IPV6_ND_SLL\00", align 1
+@.str.1157 = private unnamed_addr constant [23 x i8] c"OFPXMT_OFB_IPV6_ND_TLL\00", align 1
+@.str.1158 = private unnamed_addr constant [22 x i8] c"OFPXMT_OFB_MPLS_LABEL\00", align 1
+@.str.1159 = private unnamed_addr constant [19 x i8] c"OFPXMT_OFB_MPLS_TC\00", align 1
+@.str.1160 = private unnamed_addr constant [20 x i8] c"OFPXMT_OFP_MPLS_BOS\00", align 1
+@.str.1161 = private unnamed_addr constant [20 x i8] c"OFPXMT_OFB_PBB_ISID\00", align 1
+@.str.1162 = private unnamed_addr constant [21 x i8] c"OFPXMT_OFB_TUNNEL_ID\00", align 1
+@.str.1163 = private unnamed_addr constant [23 x i8] c"OFPXMT_OFB_IPV6_EXTHDR\00", align 1
+@.str.1164 = private unnamed_addr constant [11 x i8] c"UNASSIGNED\00", align 1
+@.str.1165 = private unnamed_addr constant [19 x i8] c"OFPXMT_OFB_PBB_UCA\00", align 1
+@.str.1166 = private unnamed_addr constant [21 x i8] c"OFPXMT_OFB_TCP_FLAGS\00", align 1
+@.str.1167 = private unnamed_addr constant [25 x i8] c"OFPXMT_OFB_ACTSET_OUTPUT\00", align 1
+@.str.1168 = private unnamed_addr constant [23 x i8] c"OFPXMT_OFB_PACKET_TYPE\00", align 1
+@openflow_v6_oxm_basic_field_values = internal constant [46 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1124 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1125 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1126 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.1127 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.1128 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.1129 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.1130 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.1131 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.1132 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.1133 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.1134 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.1135 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.1136 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.1137 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.1138 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.1139 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.1140 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.1141 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.1142 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.1143 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.1144 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.1145 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.1146 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.1147 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.1148 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.1149 }, { i32, [4 x i8], ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.1150 }, { i32, [4 x i8], ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.1151 }, { i32, [4 x i8], ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.1152 }, { i32, [4 x i8], ptr } { i32 29, [4 x i8] zeroinitializer, ptr @.str.1153 }, { i32, [4 x i8], ptr } { i32 30, [4 x i8] zeroinitializer, ptr @.str.1154 }, { i32, [4 x i8], ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.1155 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.1156 }, { i32, [4 x i8], ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.1157 }, { i32, [4 x i8], ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.1158 }, { i32, [4 x i8], ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.1159 }, { i32, [4 x i8], ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.1160 }, { i32, [4 x i8], ptr } { i32 37, [4 x i8] zeroinitializer, ptr @.str.1161 }, { i32, [4 x i8], ptr } { i32 38, [4 x i8] zeroinitializer, ptr @.str.1162 }, { i32, [4 x i8], ptr } { i32 39, [4 x i8] zeroinitializer, ptr @.str.1163 }, { i32, [4 x i8], ptr } { i32 40, [4 x i8] zeroinitializer, ptr @.str.1164 }, { i32, [4 x i8], ptr } { i32 41, [4 x i8] zeroinitializer, ptr @.str.1165 }, { i32, [4 x i8], ptr } { i32 42, [4 x i8] zeroinitializer, ptr @.str.1166 }, { i32, [4 x i8], ptr } { i32 43, [4 x i8] zeroinitializer, ptr @.str.1167 }, { i32, [4 x i8], ptr } { i32 44, [4 x i8] zeroinitializer, ptr @.str.1168 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1170 = private unnamed_addr constant [15 x i8] c"OFPMT_STANDARD\00", align 1
+@.str.1171 = private unnamed_addr constant [10 x i8] c"OFPMT_OXM\00", align 1
+@openflow_v6_match_type_values = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1170 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1171 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1173 = private unnamed_addr constant [19 x i8] c"OFPAT_EXPERIMENTER\00", align 1
+@openflow_v6_action_type_values = internal constant [20 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.697 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.699 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.701 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.703 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.705 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.707 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.709 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.711 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.713 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.715 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.717 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.719 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.721 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.723 }, { i32, [4 x i8], ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.725 }, { i32, [4 x i8], ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.727 }, { i32, [4 x i8], ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.729 }, { i32, [4 x i8], ptr } { i32 29, [4 x i8] zeroinitializer, ptr @.str.731 }, { i32, [4 x i8], ptr } { i32 65535, [4 x i8] zeroinitializer, ptr @.str.1173 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1175 = private unnamed_addr constant [13 x i8] c"OFPP_IN_PORT\00", align 1
+@.str.1176 = private unnamed_addr constant [11 x i8] c"OFPP_TABLE\00", align 1
+@.str.1177 = private unnamed_addr constant [12 x i8] c"OFPP_NORMAL\00", align 1
+@.str.1178 = private unnamed_addr constant [11 x i8] c"OFPP_FLOOD\00", align 1
+@.str.1179 = private unnamed_addr constant [9 x i8] c"OFPP_ALL\00", align 1
+@.str.1180 = private unnamed_addr constant [16 x i8] c"OFPP_CONTROLLER\00", align 1
+@.str.1181 = private unnamed_addr constant [11 x i8] c"OFPP_LOCAL\00", align 1
+@.str.1182 = private unnamed_addr constant [9 x i8] c"OFPP_ANY\00", align 1
+@openflow_v6_port_reserved_values = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 -8, [4 x i8] zeroinitializer, ptr @.str.1175 }, { i32, [4 x i8], ptr } { i32 -7, [4 x i8] zeroinitializer, ptr @.str.1176 }, { i32, [4 x i8], ptr } { i32 -6, [4 x i8] zeroinitializer, ptr @.str.1177 }, { i32, [4 x i8], ptr } { i32 -5, [4 x i8] zeroinitializer, ptr @.str.1178 }, { i32, [4 x i8], ptr } { i32 -4, [4 x i8] zeroinitializer, ptr @.str.1179 }, { i32, [4 x i8], ptr } { i32 -3, [4 x i8] zeroinitializer, ptr @.str.1180 }, { i32, [4 x i8], ptr } { i32 -2, [4 x i8] zeroinitializer, ptr @.str.1181 }, { i32, [4 x i8], ptr } { i32 -1, [4 x i8] zeroinitializer, ptr @.str.1182 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1184 = private unnamed_addr constant [17 x i8] c"OFPCML_NO_BUFFER\00", align 1
+@openflow_v6_controller_max_len_reserved_values = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 65535, [4 x i8] zeroinitializer, ptr @.str.1184 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1186 = private unnamed_addr constant [17 x i8] c"OFPIT_GOTO_TABLE\00", align 1
+@.str.1187 = private unnamed_addr constant [21 x i8] c"OFPIT_WRITE_METADATA\00", align 1
+@.str.1188 = private unnamed_addr constant [20 x i8] c"OFPIT_WRITE_ACTIONS\00", align 1
+@.str.1189 = private unnamed_addr constant [20 x i8] c"OFPIT_APPLY_ACTIONS\00", align 1
+@.str.1190 = private unnamed_addr constant [20 x i8] c"OFPIT_CLEAR_ACTIONS\00", align 1
+@.str.1191 = private unnamed_addr constant [25 x i8] c"OFPIT_METER (Deprecated)\00", align 1
+@.str.1192 = private unnamed_addr constant [19 x i8] c"OFPIT_STAT_TRIGGER\00", align 1
+@.str.1193 = private unnamed_addr constant [28 x i8] c"OFPIT_EXPERIMENTER = 0xFFFF\00", align 1
+@openflow_v6_instruction_type_values = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1186 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1187 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.1188 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.1189 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.1190 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.1191 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.1192 }, { i32, [4 x i8], ptr } { i32 65535, [4 x i8] zeroinitializer, ptr @.str.1193 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1195 = private unnamed_addr constant [17 x i8] c"OFPPDPT_ETHERNET\00", align 1
+@.str.1196 = private unnamed_addr constant [16 x i8] c"OFPPDPT_OPTICAL\00", align 1
+@.str.1197 = private unnamed_addr constant [23 x i8] c"OFPPDPT_PIPELINE_INPUT\00", align 1
+@.str.1198 = private unnamed_addr constant [24 x i8] c"OFPPDPT_PIPELINE_OUTPUT\00", align 1
+@.str.1199 = private unnamed_addr constant [20 x i8] c"OFPPDPT_RECIRCULATE\00", align 1
+@.str.1200 = private unnamed_addr constant [21 x i8] c"OFPPDPT_EXPERIMENTER\00", align 1
+@openflow_v6_port_desc_prop_type_values = internal constant [7 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1195 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1196 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1197 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.1198 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.1199 }, { i32, [4 x i8], ptr } { i32 65535, [4 x i8] zeroinitializer, ptr @.str.1200 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1202 = private unnamed_addr constant [17 x i8] c"OFPPSPT_ETHERNET\00", align 1
+@.str.1203 = private unnamed_addr constant [16 x i8] c"OFPPSPT_OPTICAL\00", align 1
+@.str.1204 = private unnamed_addr constant [21 x i8] c"OFPPSPT_EXPERIMENTER\00", align 1
+@openflow_v6_port_stats_prop_type_values = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1202 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1203 }, { i32, [4 x i8], ptr } { i32 65535, [4 x i8] zeroinitializer, ptr @.str.1204 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1206 = private unnamed_addr constant [20 x i8] c"OFPMBT_EXPERIMENTER\00", align 1
+@openflow_v6_meter_band_type_values = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.821 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.823 }, { i32, [4 x i8], ptr } { i32 65535, [4 x i8] zeroinitializer, ptr @.str.1206 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1208 = private unnamed_addr constant [21 x i8] c"OFPHET_VERSIONBITMAP\00", align 1
+@openflow_v6_hello_element_type_values = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1208 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1210 = private unnamed_addr constant [19 x i8] c"OFPET_HELLO_FAILED\00", align 1
+@.str.1211 = private unnamed_addr constant [18 x i8] c"OFPET_BAD_REQUEST\00", align 1
+@.str.1212 = private unnamed_addr constant [17 x i8] c"OFPET_BAD_ACTION\00", align 1
+@.str.1213 = private unnamed_addr constant [22 x i8] c"OFPET_BAD_INSTRUCTION\00", align 1
+@.str.1214 = private unnamed_addr constant [16 x i8] c"OFPET_BAD_MATCH\00", align 1
+@.str.1215 = private unnamed_addr constant [22 x i8] c"OFPET_FLOW_MOD_FAILED\00", align 1
+@.str.1216 = private unnamed_addr constant [23 x i8] c"OFPET_GROUP_MOD_FAILED\00", align 1
+@.str.1217 = private unnamed_addr constant [22 x i8] c"OFPET_PORT_MOD_FAILED\00", align 1
+@.str.1218 = private unnamed_addr constant [23 x i8] c"OFPET_TABLE_MOD_FAILED\00", align 1
+@.str.1219 = private unnamed_addr constant [22 x i8] c"OFPET_QUEUE_OP_FAILED\00", align 1
+@.str.1220 = private unnamed_addr constant [27 x i8] c"OFPET_SWITCH_CONFIG_FAILED\00", align 1
+@.str.1221 = private unnamed_addr constant [26 x i8] c"OFPET_ROLE_REQUEST_FAILED\00", align 1
+@.str.1222 = private unnamed_addr constant [23 x i8] c"OFPET_METER_MOD_FAILED\00", align 1
+@.str.1223 = private unnamed_addr constant [28 x i8] c"OFPET_TABLE_FEATURES_FAILED\00", align 1
+@.str.1224 = private unnamed_addr constant [19 x i8] c"OFPET_BAD_PROPERTY\00", align 1
+@.str.1225 = private unnamed_addr constant [26 x i8] c"OFPET_ASYNC_CONFIG_FAILED\00", align 1
+@.str.1226 = private unnamed_addr constant [26 x i8] c"OFPET_FLOW_MONITOR_FAILED\00", align 1
+@.str.1227 = private unnamed_addr constant [20 x i8] c"OFPET_BUNDLE_FAILED\00", align 1
+@.str.1228 = private unnamed_addr constant [19 x i8] c"OFPET_EXPERIMENTER\00", align 1
+@openflow_v6_error_type_values = internal constant [20 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1210 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1211 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1212 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.1213 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.1214 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.1215 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.1216 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.1217 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.1218 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.1219 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.1220 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.1221 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.1222 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.1223 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.1224 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.1225 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.1226 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.1227 }, { i32, [4 x i8], ptr } { i32 65535, [4 x i8] zeroinitializer, ptr @.str.1228 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1230 = private unnamed_addr constant [20 x i8] c"OFPHFC_INCOMPATIBLE\00", align 1
+@.str.1231 = private unnamed_addr constant [13 x i8] c"OFPHFC_EPERM\00", align 1
+@openflow_v6_error_hello_failed_code_values = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1230 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1231 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1233 = private unnamed_addr constant [19 x i8] c"OFPBRC_BAD_VERSION\00", align 1
+@.str.1234 = private unnamed_addr constant [16 x i8] c"OFPBRC_BAD_TYPE\00", align 1
+@.str.1235 = private unnamed_addr constant [21 x i8] c"OFPBRC_BAD_MULTIPART\00", align 1
+@.str.1236 = private unnamed_addr constant [24 x i8] c"OFPBRC_BAD_EXPERIMENTER\00", align 1
+@.str.1237 = private unnamed_addr constant [20 x i8] c"OFPBRC_BAD_EXP_TYPE\00", align 1
+@.str.1238 = private unnamed_addr constant [13 x i8] c"OFPBRC_EPERM\00", align 1
+@.str.1239 = private unnamed_addr constant [15 x i8] c"OFPBRC_BAD_LEN\00", align 1
+@.str.1240 = private unnamed_addr constant [20 x i8] c"OFPBRC_BUFFER_EMPTY\00", align 1
+@.str.1241 = private unnamed_addr constant [22 x i8] c"OFPBRC_BUFFER_UNKNOWN\00", align 1
+@.str.1242 = private unnamed_addr constant [20 x i8] c"OFPBRC_BAD_TABLE_ID\00", align 1
+@.str.1243 = private unnamed_addr constant [16 x i8] c"OFPBRC_IS_SLAVE\00", align 1
+@.str.1244 = private unnamed_addr constant [16 x i8] c"OFPBRC_BAD_PORT\00", align 1
+@.str.1245 = private unnamed_addr constant [18 x i8] c"OFPBRC_BAD_PACKET\00", align 1
+@.str.1246 = private unnamed_addr constant [33 x i8] c"OFPBRC_MULTIPART_BUFFER_OVERFLOW\00", align 1
+@.str.1247 = private unnamed_addr constant [33 x i8] c"OFPBRC_MULTIPART_REQUEST_TIMEOUT\00", align 1
+@.str.1248 = private unnamed_addr constant [31 x i8] c"OFPBRC_MULTIPART_REPLY_TIMEOUT\00", align 1
+@openflow_v6_error_bad_request_code_values = internal constant [17 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1233 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1234 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1235 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.1236 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.1237 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.1238 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.1239 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.1240 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.1241 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.1242 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.1243 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.1244 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.1245 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.1246 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.1247 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.1248 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1250 = private unnamed_addr constant [16 x i8] c"OFPBAC_BAD_TYPE\00", align 1
+@.str.1251 = private unnamed_addr constant [15 x i8] c"OFPBAC_BAD_LEN\00", align 1
+@.str.1252 = private unnamed_addr constant [24 x i8] c"OFPBAC_BAD_EXPERIMENTER\00", align 1
+@.str.1253 = private unnamed_addr constant [20 x i8] c"OFPBAC_BAD_EXP_TYPE\00", align 1
+@.str.1254 = private unnamed_addr constant [20 x i8] c"OFPBAC_BAD_OUT_PORT\00", align 1
+@.str.1255 = private unnamed_addr constant [20 x i8] c"OFPBAC_BAD_ARGUMENT\00", align 1
+@.str.1256 = private unnamed_addr constant [13 x i8] c"OFPBAC_EPERM\00", align 1
+@.str.1257 = private unnamed_addr constant [16 x i8] c"OFPBAC_TOO_MANY\00", align 1
+@.str.1258 = private unnamed_addr constant [17 x i8] c"OFPBAC_BAD_QUEUE\00", align 1
+@.str.1259 = private unnamed_addr constant [21 x i8] c"OFPBAC_BAD_OUT_GROUP\00", align 1
+@.str.1260 = private unnamed_addr constant [26 x i8] c"OFPBAC_MATCH_INCONSISTENT\00", align 1
+@.str.1261 = private unnamed_addr constant [25 x i8] c"OFPBAC_UNSUPPORTED_ORDER\00", align 1
+@.str.1262 = private unnamed_addr constant [15 x i8] c"OFPBAC_BAD_TAG\00", align 1
+@.str.1263 = private unnamed_addr constant [20 x i8] c"OFPBAC_BAD_SET_TYPE\00", align 1
+@.str.1264 = private unnamed_addr constant [19 x i8] c"OFPBAC_BAD_SET_LEN\00", align 1
+@.str.1265 = private unnamed_addr constant [24 x i8] c"OFPBAC_BAD_SET_ARGUMENT\00", align 1
+@.str.1266 = private unnamed_addr constant [20 x i8] c"OFPBAC_BAD_SET_MASK\00", align 1
+@.str.1267 = private unnamed_addr constant [21 x i8] c"OFPBAC_BAD_SET_METER\00", align 1
+@openflow_v6_error_bad_action_code_values = internal constant [19 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1250 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1251 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1252 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.1253 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.1254 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.1255 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.1256 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.1257 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.1258 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.1259 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.1260 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.1261 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.1262 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.1263 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.1264 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.1265 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.1266 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.1267 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1269 = private unnamed_addr constant [20 x i8] c"OFPBIC_UNKNOWN_INST\00", align 1
+@.str.1270 = private unnamed_addr constant [18 x i8] c"OFPBIC_UNSUP_INST\00", align 1
+@.str.1271 = private unnamed_addr constant [20 x i8] c"OFPBIC_BAD_TABLE_ID\00", align 1
+@.str.1272 = private unnamed_addr constant [22 x i8] c"OFPBIC_UNSUP_METADATA\00", align 1
+@.str.1273 = private unnamed_addr constant [27 x i8] c"OFPBIC_UNSUP_METADATA_MASK\00", align 1
+@.str.1274 = private unnamed_addr constant [24 x i8] c"OFPBIC_BAD_EXPERIMENTER\00", align 1
+@.str.1275 = private unnamed_addr constant [20 x i8] c"OFPBIC_BAD_EXP_TYPE\00", align 1
+@.str.1276 = private unnamed_addr constant [15 x i8] c"OFPBIC_BAD_LEN\00", align 1
+@.str.1277 = private unnamed_addr constant [13 x i8] c"OFPBIC_EPERM\00", align 1
+@.str.1278 = private unnamed_addr constant [16 x i8] c"OFPBIC_DUP_INST\00", align 1
+@openflow_v6_error_bad_instruction_code_values = internal constant [11 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1269 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1270 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1271 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.1272 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.1273 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.1274 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.1275 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.1276 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.1277 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.1278 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1280 = private unnamed_addr constant [16 x i8] c"OFPBMC_BAD_TYPE\00", align 1
+@.str.1281 = private unnamed_addr constant [15 x i8] c"OFPBMC_BAD_LEN\00", align 1
+@.str.1282 = private unnamed_addr constant [15 x i8] c"OFPBMC_BAD_TAG\00", align 1
+@.str.1283 = private unnamed_addr constant [24 x i8] c"OFPBMC_BAD_DL_ADDR_MASK\00", align 1
+@.str.1284 = private unnamed_addr constant [24 x i8] c"OFPBMC_BAD_NW_ADDR_MASK\00", align 1
+@.str.1285 = private unnamed_addr constant [21 x i8] c"OFPBMC_BAD_WILDCARDS\00", align 1
+@.str.1286 = private unnamed_addr constant [17 x i8] c"OFPBMC_BAD_FIELD\00", align 1
+@.str.1287 = private unnamed_addr constant [17 x i8] c"OFPBMC_BAD_VALUE\00", align 1
+@.str.1288 = private unnamed_addr constant [16 x i8] c"OFPBMC_BAD_MASK\00", align 1
+@.str.1289 = private unnamed_addr constant [18 x i8] c"OFPBMC_BAD_PREREQ\00", align 1
+@.str.1290 = private unnamed_addr constant [17 x i8] c"OFPBMC_DUP_FIELD\00", align 1
+@.str.1291 = private unnamed_addr constant [13 x i8] c"OFPBMC_EPERM\00", align 1
+@openflow_v6_error_bad_match_code_values = internal constant [13 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1280 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1281 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1282 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.1283 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.1284 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.1285 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.1286 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.1287 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.1288 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.1289 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.1290 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.1291 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1293 = private unnamed_addr constant [16 x i8] c"OFPFMFC_UNKNOWN\00", align 1
+@.str.1294 = private unnamed_addr constant [19 x i8] c"OFPFMFC_TABLE_FULL\00", align 1
+@.str.1295 = private unnamed_addr constant [21 x i8] c"OFPFMFC_BAD_TABLE_ID\00", align 1
+@.str.1296 = private unnamed_addr constant [16 x i8] c"OFPFMFC_OVERLAP\00", align 1
+@.str.1297 = private unnamed_addr constant [14 x i8] c"OFPFMFC_EPERM\00", align 1
+@.str.1298 = private unnamed_addr constant [20 x i8] c"OFPFMFC_BAD_TIMEOUT\00", align 1
+@.str.1299 = private unnamed_addr constant [20 x i8] c"OFPFMFC_BAD_COMMAND\00", align 1
+@.str.1300 = private unnamed_addr constant [18 x i8] c"OFPFMFC_BAD_FLAGS\00", align 1
+@.str.1301 = private unnamed_addr constant [18 x i8] c"OFPFMFC_CANT_SYNC\00", align 1
+@.str.1302 = private unnamed_addr constant [21 x i8] c"OFPFMFC_BAD_PRIORITY\00", align 1
+@openflow_v6_error_flow_mod_failed_code_values = internal constant [11 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1293 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1294 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1295 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.1296 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.1297 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.1298 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.1299 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.1300 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.1301 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.1302 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1304 = private unnamed_addr constant [21 x i8] c"OFPGMFC_GROUP_EXISTS\00", align 1
+@.str.1305 = private unnamed_addr constant [22 x i8] c"OFPGMFC_INVALID_GROUP\00", align 1
+@.str.1306 = private unnamed_addr constant [27 x i8] c"OFPGMFC_WEIGHT_UNSUPPORTED\00", align 1
+@.str.1307 = private unnamed_addr constant [22 x i8] c"OFPGMFC_OUT_OF_GROUPS\00", align 1
+@.str.1308 = private unnamed_addr constant [23 x i8] c"OFPGMFC_OUT_OF_BUCKETS\00", align 1
+@.str.1309 = private unnamed_addr constant [29 x i8] c"OFPGMFC_CHAINING_UNSUPPORTED\00", align 1
+@.str.1310 = private unnamed_addr constant [26 x i8] c"OFPGMFC_WATCH_UNSUPPORTED\00", align 1
+@.str.1311 = private unnamed_addr constant [13 x i8] c"OFPGMFC_LOOP\00", align 1
+@.str.1312 = private unnamed_addr constant [22 x i8] c"OFPGMFC_UNKNOWN_GROUP\00", align 1
+@.str.1313 = private unnamed_addr constant [22 x i8] c"OFPGMFC_CHAINED_GROUP\00", align 1
+@.str.1314 = private unnamed_addr constant [17 x i8] c"OFPGMFC_BAD_TYPE\00", align 1
+@.str.1315 = private unnamed_addr constant [20 x i8] c"OFPGMFC_BAD_COMMAND\00", align 1
+@.str.1316 = private unnamed_addr constant [19 x i8] c"OFPGMFC_BAD_BUCKET\00", align 1
+@.str.1317 = private unnamed_addr constant [18 x i8] c"OFPGMFC_BAD_WATCH\00", align 1
+@.str.1318 = private unnamed_addr constant [14 x i8] c"OFPGMFC_EPERM\00", align 1
+@openflow_v6_error_group_mod_failed_code_values = internal constant [16 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1304 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1305 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1306 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.1307 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.1308 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.1309 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.1310 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.1311 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.1312 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.1313 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.1314 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.1315 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.1316 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.1317 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.1318 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1320 = private unnamed_addr constant [17 x i8] c"OFPPMFC_BAD_PORT\00", align 1
+@.str.1321 = private unnamed_addr constant [20 x i8] c"OFPPMFC_BAD_HW_ADDR\00", align 1
+@.str.1322 = private unnamed_addr constant [19 x i8] c"OFPPMFC_BAD_CONFIG\00", align 1
+@.str.1323 = private unnamed_addr constant [22 x i8] c"OFPPMFC_BAD_ADVERTISE\00", align 1
+@.str.1324 = private unnamed_addr constant [14 x i8] c"OFPPMFC_EPERM\00", align 1
+@openflow_v6_error_port_mod_failed_code_values = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1320 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1321 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1322 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.1323 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.1324 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1326 = private unnamed_addr constant [18 x i8] c"OFPTMFC_BAD_TABLE\00", align 1
+@.str.1327 = private unnamed_addr constant [19 x i8] c"OFPTMFC_BAD_CONFIG\00", align 1
+@.str.1328 = private unnamed_addr constant [14 x i8] c"OFPTMFC_EPERM\00", align 1
+@openflow_v6_error_table_mod_failed_code_values = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1326 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1327 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1328 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1330 = private unnamed_addr constant [17 x i8] c"OFPQOFC_BAD_PORT\00", align 1
+@.str.1331 = private unnamed_addr constant [18 x i8] c"OFPQOFC_BAD_QUEUE\00", align 1
+@.str.1332 = private unnamed_addr constant [14 x i8] c"OFPQOFC_EPERM\00", align 1
+@openflow_v6_error_queue_op_failed_code_values = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1330 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1331 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1332 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1334 = private unnamed_addr constant [18 x i8] c"OFPSCFC_BAD_FLAGS\00", align 1
+@.str.1335 = private unnamed_addr constant [16 x i8] c"OFPSCFC_BAD_LEN\00", align 1
+@.str.1336 = private unnamed_addr constant [14 x i8] c"OFPQCFC_EPERM\00", align 1
+@openflow_v6_error_switch_config_failed_code_values = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1334 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1335 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1336 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1338 = private unnamed_addr constant [14 x i8] c"OFPRRFC_STALE\00", align 1
+@.str.1339 = private unnamed_addr constant [14 x i8] c"OFPRRFC_UNSUP\00", align 1
+@.str.1340 = private unnamed_addr constant [17 x i8] c"OFPRRFC_BAD_ROLE\00", align 1
+@openflow_v6_error_role_request_failed_code_values = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1338 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1339 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1340 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1342 = private unnamed_addr constant [16 x i8] c"OFPMMFC_UNKNOWN\00", align 1
+@.str.1343 = private unnamed_addr constant [21 x i8] c"OFPMMFC_METER_EXISTS\00", align 1
+@.str.1344 = private unnamed_addr constant [22 x i8] c"OFPMMFC_INVALID_METER\00", align 1
+@.str.1345 = private unnamed_addr constant [22 x i8] c"OFPMMFC_UNKNOWN_METER\00", align 1
+@.str.1346 = private unnamed_addr constant [20 x i8] c"OFPMMFC_BAD_COMMAND\00", align 1
+@.str.1347 = private unnamed_addr constant [18 x i8] c"OFPMMFC_BAD_FLAGS\00", align 1
+@.str.1348 = private unnamed_addr constant [17 x i8] c"OFPMMFC_BAD_RATE\00", align 1
+@.str.1349 = private unnamed_addr constant [18 x i8] c"OFPMMFC_BAD_BURST\00", align 1
+@.str.1350 = private unnamed_addr constant [17 x i8] c"OFPMMFC_BAD_BAND\00", align 1
+@.str.1351 = private unnamed_addr constant [23 x i8] c"OFPMMFC_BAD_BAND_VALUE\00", align 1
+@.str.1352 = private unnamed_addr constant [22 x i8] c"OFPMMFC_OUT_OF_METERS\00", align 1
+@.str.1353 = private unnamed_addr constant [21 x i8] c"OFPMMFC_OUT_OF_BANDS\00", align 1
+@openflow_v6_error_meter_mod_failed_code_values = internal constant [13 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1342 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1343 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1344 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.1345 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.1346 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.1347 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.1348 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.1349 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.1350 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.1351 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.1352 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.1353 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1355 = private unnamed_addr constant [18 x i8] c"OFPTFFC_BAD_TABLE\00", align 1
+@.str.1356 = private unnamed_addr constant [21 x i8] c"OFPTFFC_BAD_METADATA\00", align 1
+@.str.1357 = private unnamed_addr constant [14 x i8] c"OFPTFFC_EPERM\00", align 1
+@openflow_v6_error_table_features_failed_code_values = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1355 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1356 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.1357 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1359 = private unnamed_addr constant [16 x i8] c"OFPBPC_BAD_TYPE\00", align 1
+@.str.1360 = private unnamed_addr constant [15 x i8] c"OFPBPC_BAD_LEN\00", align 1
+@.str.1361 = private unnamed_addr constant [17 x i8] c"OFPBPC_BAD_VALUE\00", align 1
+@.str.1362 = private unnamed_addr constant [16 x i8] c"OFPBPC_TOO_MANY\00", align 1
+@.str.1363 = private unnamed_addr constant [16 x i8] c"OFPBPC_DUP_TYPE\00", align 1
+@.str.1364 = private unnamed_addr constant [24 x i8] c"OFPBPC_BAD_EXPERIMENTER\00", align 1
+@.str.1365 = private unnamed_addr constant [20 x i8] c"OFPBPC_BAD_EXP_TYPE\00", align 1
+@.str.1366 = private unnamed_addr constant [21 x i8] c"OFPBPC_BAD_EXP_VALUE\00", align 1
+@.str.1367 = private unnamed_addr constant [13 x i8] c"OFPBPC_EPERM\00", align 1
+@openflow_v6_error_bad_property_code_values = internal constant [10 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1359 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1360 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1361 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.1362 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.1363 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.1364 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.1365 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.1366 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.1367 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1369 = private unnamed_addr constant [16 x i8] c"OFPACFC_INVALID\00", align 1
+@.str.1370 = private unnamed_addr constant [20 x i8] c"OFPACFC_UNSUPPORTED\00", align 1
+@.str.1371 = private unnamed_addr constant [14 x i8] c"OFPACFC_EPERM\00", align 1
+@openflow_v6_error_async_config_failed_code_values = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1369 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1370 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1371 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1373 = private unnamed_addr constant [16 x i8] c"OFPMOFC_UNKNOWN\00", align 1
+@.str.1374 = private unnamed_addr constant [23 x i8] c"OFPMOFC_MONITOR_EXISTS\00", align 1
+@.str.1375 = private unnamed_addr constant [24 x i8] c"OFPMOFC_INVALID_MONITOR\00", align 1
+@.str.1376 = private unnamed_addr constant [24 x i8] c"OFPMOFC_UNKNOWN_MONITOR\00", align 1
+@.str.1377 = private unnamed_addr constant [20 x i8] c"OFPMOFC_BAD_COMMAND\00", align 1
+@.str.1378 = private unnamed_addr constant [18 x i8] c"OFPMOFC_BAD_FLAGS\00", align 1
+@.str.1379 = private unnamed_addr constant [21 x i8] c"OFPMOFC_BAD_TABLE_ID\00", align 1
+@.str.1380 = private unnamed_addr constant [16 x i8] c"OFPMOFC_BAD_OUT\00", align 1
+@openflow_v6_error_flow_monitor_failed_code_values = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1373 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1374 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1375 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.1376 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.1377 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.1378 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.1379 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.1380 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1382 = private unnamed_addr constant [15 x i8] c"OFPBFC_UNKNOWN\00", align 1
+@.str.1383 = private unnamed_addr constant [13 x i8] c"OFPBFC_EPERM\00", align 1
+@.str.1384 = private unnamed_addr constant [14 x i8] c"OFPBFC_BAD_ID\00", align 1
+@.str.1385 = private unnamed_addr constant [20 x i8] c"OFPBFC_BUNDLE_EXIST\00", align 1
+@.str.1386 = private unnamed_addr constant [21 x i8] c"OFPBFC_BUNDLE_CLOSED\00", align 1
+@.str.1387 = private unnamed_addr constant [22 x i8] c"OFPBFC_OUT_OF_BUNDLES\00", align 1
+@.str.1388 = private unnamed_addr constant [16 x i8] c"OFPBFC_BAD_TYPE\00", align 1
+@.str.1389 = private unnamed_addr constant [17 x i8] c"OFPBFC_BAD_FLAGS\00", align 1
+@.str.1390 = private unnamed_addr constant [19 x i8] c"OFPBFC_MSG_BAD_LEN\00", align 1
+@.str.1391 = private unnamed_addr constant [19 x i8] c"OFPBFC_MSG_BAD_XID\00", align 1
+@.str.1392 = private unnamed_addr constant [17 x i8] c"OFPBFC_MSG_UNSUP\00", align 1
+@.str.1393 = private unnamed_addr constant [20 x i8] c"OFPBFC_MSG_CONFLICT\00", align 1
+@.str.1394 = private unnamed_addr constant [20 x i8] c"OFPBFC_MSG_TOO_MANY\00", align 1
+@.str.1395 = private unnamed_addr constant [18 x i8] c"OFPBFC_MSG_FAILED\00", align 1
+@.str.1396 = private unnamed_addr constant [15 x i8] c"OFPBFC_TIMEOUT\00", align 1
+@.str.1397 = private unnamed_addr constant [26 x i8] c"OFPBFC_BUNDLE_IN_PROGRESS\00", align 1
+@openflow_v6_error_bundle_failed_code_values = internal constant [17 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1382 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1383 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1384 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.1385 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.1386 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.1387 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.1388 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.1389 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.1390 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.1391 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.1392 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.1393 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.1394 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.1395 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.1396 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.1397 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1399 = private unnamed_addr constant [17 x i8] c"OFPC_FRAG_NORMAL\00", align 1
+@.str.1400 = private unnamed_addr constant [15 x i8] c"OFPC_FRAG_DROP\00", align 1
+@.str.1401 = private unnamed_addr constant [16 x i8] c"OFPC_FRAG_REASM\00", align 1
+@openflow_v6_switch_config_fragments_values = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1399 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1400 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1401 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1403 = private unnamed_addr constant [14 x i8] c"OFP_NO_BUFFER\00", align 1
+@openflow_v6_buffer_reserved_values = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 -1, [4 x i8] zeroinitializer, ptr @.str.1403 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1405 = private unnamed_addr constant [12 x i8] c"OFPR_GROUP \00", align 1
+@openflow_v6_packet_in_reason_values = internal constant [7 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.888 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.890 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.892 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.894 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.1405 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.898 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@openflow_v6_flow_removed_reason_values = internal constant [7 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.908 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.910 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.912 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.914 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.916 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.918 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@openflow_v6_port_status_reason_values = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.901 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.903 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.905 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1409 = private unnamed_addr constant [10 x i8] c"OFPTT_ALL\00", align 1
+@openflow_v6_table_reserved_values = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 255, [4 x i8] zeroinitializer, ptr @.str.1409 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1411 = private unnamed_addr constant [10 x i8] c"OFPFC_ADD\00", align 1
+@.str.1412 = private unnamed_addr constant [13 x i8] c"OFPFC_MODIFY\00", align 1
+@.str.1413 = private unnamed_addr constant [20 x i8] c"OFPFC_MODIFY_STRICT\00", align 1
+@.str.1414 = private unnamed_addr constant [13 x i8] c"OFPFC_DELETE\00", align 1
+@.str.1415 = private unnamed_addr constant [20 x i8] c"OFPFC_DELETE_STRICT\00", align 1
+@openflow_v6_flowmod_command_values = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1411 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1412 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1413 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.1414 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.1415 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1417 = private unnamed_addr constant [9 x i8] c"OFPG_ALL\00", align 1
+@.str.1418 = private unnamed_addr constant [9 x i8] c"OFPG_ANY\00", align 1
+@openflow_v6_group_reserved_values = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 -4, [4 x i8] zeroinitializer, ptr @.str.1417 }, { i32, [4 x i8], ptr } { i32 -1, [4 x i8] zeroinitializer, ptr @.str.1418 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1420 = private unnamed_addr constant [10 x i8] c"OFPGC_ADD\00", align 1
+@.str.1421 = private unnamed_addr constant [13 x i8] c"OFPGC_MODIFY\00", align 1
+@.str.1422 = private unnamed_addr constant [13 x i8] c"OFPGC_DELETE\00", align 1
+@.str.1423 = private unnamed_addr constant [20 x i8] c"OFPGC_INSERT_BUCKET\00", align 1
+@.str.1424 = private unnamed_addr constant [20 x i8] c"OFPGC_DELETE_BUCKET\00", align 1
+@openflow_v6_groupmod_command_values = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1420 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1421 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1422 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.1423 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.1424 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@openflow_v6_group_type_values = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.670 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.672 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.674 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.676 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1427 = private unnamed_addr constant [17 x i8] c"OFPPMPT_ETHERNET\00", align 1
+@.str.1428 = private unnamed_addr constant [16 x i8] c"OFPPMPT_OPTICAL\00", align 1
+@.str.1429 = private unnamed_addr constant [21 x i8] c"OFPPMPT_EXPERIMENTER\00", align 1
+@openflow_v6_portmod_prop_type_values = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1427 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1428 }, { i32, [4 x i8], ptr } { i32 65535, [4 x i8] zeroinitializer, ptr @.str.1429 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1431 = private unnamed_addr constant [17 x i8] c"OFPTMPT_EVICTION\00", align 1
+@.str.1432 = private unnamed_addr constant [16 x i8] c"OFPTMPT_VACANCY\00", align 1
+@.str.1433 = private unnamed_addr constant [21 x i8] c"OFPTMPT_EXPERIMENTER\00", align 1
+@openflow_v6_tablemod_prop_type_values = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1431 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.1432 }, { i32, [4 x i8], ptr } { i32 65535, [4 x i8] zeroinitializer, ptr @.str.1433 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1435 = private unnamed_addr constant [21 x i8] c"OFPTFPT_INSTRUCTIONS\00", align 1
+@.str.1436 = private unnamed_addr constant [26 x i8] c"OFPTFPT_INSTRUCTIONS_MISS\00", align 1
+@.str.1437 = private unnamed_addr constant [20 x i8] c"OFPTFPT_NEXT_TABLES\00", align 1
+@.str.1438 = private unnamed_addr constant [25 x i8] c"OFPTFPT_NEXT_TABLES_MISS\00", align 1
+@.str.1439 = private unnamed_addr constant [22 x i8] c"OFPTFPT_WRITE_ACTIONS\00", align 1
+@.str.1440 = private unnamed_addr constant [27 x i8] c"OFPTFPT_WRITE_ACTIONS_MISS\00", align 1
+@.str.1441 = private unnamed_addr constant [22 x i8] c"OFPTFPT_APPLY_ACTIONS\00", align 1
+@.str.1442 = private unnamed_addr constant [27 x i8] c"OFPTFPT_APPLY_ACTIONS_MISS\00", align 1
+@.str.1443 = private unnamed_addr constant [14 x i8] c"OFPTFPT_MATCH\00", align 1
+@.str.1444 = private unnamed_addr constant [18 x i8] c"OFPTFPT_WILDCARDS\00", align 1
+@.str.1445 = private unnamed_addr constant [23 x i8] c"OFPTFPT_WRITE_SETFIELD\00", align 1
+@.str.1446 = private unnamed_addr constant [28 x i8] c"OFPTFPT_WRITE_SETFIELD_MISS\00", align 1
+@.str.1447 = private unnamed_addr constant [23 x i8] c"OFPTFPT_APPLY_SETFIELD\00", align 1
+@.str.1448 = private unnamed_addr constant [28 x i8] c"OFPTFPT_APPLY_SETFIELD_MISS\00", align 1
+@.str.1449 = private unnamed_addr constant [21 x i8] c"OFPTFPT_EXPERIMENTER\00", align 1
+@.str.1450 = private unnamed_addr constant [26 x i8] c"OFPTFPT_EXPERIMENTER_MISS\00", align 1
+@.str.1451 = private unnamed_addr constant [24 x i8] c"OFPTFPT_TABLE_SYNC_FROM\00", align 1
+@.str.1452 = private unnamed_addr constant [24 x i8] c"OFPTFPT_WRITE_COPYFIELD\00", align 1
+@.str.1453 = private unnamed_addr constant [29 x i8] c"OFPTFPT_WRITE_COPYFIELD_MISS\00", align 1
+@.str.1454 = private unnamed_addr constant [24 x i8] c"OFPTFPT_APPLY_COPYFIELD\00", align 1
+@.str.1455 = private unnamed_addr constant [29 x i8] c"OFPTFPT_APPLY_COPYFIELD_MISS\00", align 1
+@.str.1456 = private unnamed_addr constant [21 x i8] c"OFPTFPT_PACKET_TYPES\00", align 1
+@openflow_v6_table_feature_prop_type_values = internal constant [23 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1435 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1436 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1437 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.1438 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.1439 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.1440 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.1441 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.1442 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.1443 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.1444 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.1445 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.1446 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.1447 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.1448 }, { i32, [4 x i8], ptr } { i32 65534, [4 x i8] zeroinitializer, ptr @.str.1449 }, { i32, [4 x i8], ptr } { i32 65535, [4 x i8] zeroinitializer, ptr @.str.1450 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.1451 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.1452 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.1453 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.1454 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.1455 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.1456 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1458 = private unnamed_addr constant [9 x i8] c"OFPQ_ALL\00", align 1
+@openflow_v6_queue_reserved_values = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 -1, [4 x i8] zeroinitializer, ptr @.str.1458 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1460 = private unnamed_addr constant [14 x i8] c"OFPM_SLOWPATH\00", align 1
+@.str.1461 = private unnamed_addr constant [16 x i8] c"OFPM_CONTROLLER\00", align 1
+@.str.1462 = private unnamed_addr constant [9 x i8] c"OFPM_ALL\00", align 1
+@openflow_v6_meter_id_reserved_values = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 -3, [4 x i8] zeroinitializer, ptr @.str.1460 }, { i32, [4 x i8], ptr } { i32 -2, [4 x i8] zeroinitializer, ptr @.str.1461 }, { i32, [4 x i8], ptr } { i32 -1, [4 x i8] zeroinitializer, ptr @.str.1462 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1464 = private unnamed_addr constant [11 x i8] c"OFPFMC_ADD\00", align 1
+@.str.1465 = private unnamed_addr constant [14 x i8] c"OFPFMC_MODIFY\00", align 1
+@.str.1466 = private unnamed_addr constant [14 x i8] c"OFPFMC_DELETE\00", align 1
+@openflow_v6_flow_monitor_request_command_values = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1464 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1465 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1466 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1468 = private unnamed_addr constant [11 x i8] c"OFPMP_DESC\00", align 1
+@.str.1469 = private unnamed_addr constant [16 x i8] c"OFPMP_FLOW_DESC\00", align 1
+@.str.1470 = private unnamed_addr constant [22 x i8] c"OFPMP_AGGREGATE_STATS\00", align 1
+@.str.1471 = private unnamed_addr constant [18 x i8] c"OFPMP_TABLE_STATS\00", align 1
+@.str.1472 = private unnamed_addr constant [17 x i8] c"OFPMP_PORT_STATS\00", align 1
+@.str.1473 = private unnamed_addr constant [18 x i8] c"OFPMP_QUEUE_STATS\00", align 1
+@.str.1474 = private unnamed_addr constant [18 x i8] c"OFPMP_GROUP_STATS\00", align 1
+@.str.1475 = private unnamed_addr constant [17 x i8] c"OFPMP_GROUP_DESC\00", align 1
+@.str.1476 = private unnamed_addr constant [21 x i8] c"OFPMP_GROUP_FEATURES\00", align 1
+@.str.1477 = private unnamed_addr constant [18 x i8] c"OFPMP_METER_STATS\00", align 1
+@.str.1478 = private unnamed_addr constant [17 x i8] c"OFPMP_METER_DESC\00", align 1
+@.str.1479 = private unnamed_addr constant [21 x i8] c"OFPMP_METER_FEATURES\00", align 1
+@.str.1480 = private unnamed_addr constant [21 x i8] c"OFPMP_TABLE_FEATURES\00", align 1
+@.str.1481 = private unnamed_addr constant [16 x i8] c"OFPMP_PORT_DESC\00", align 1
+@.str.1482 = private unnamed_addr constant [17 x i8] c"OFPMP_TABLE_DESC\00", align 1
+@.str.1483 = private unnamed_addr constant [17 x i8] c"OFPMP_QUEUE_DESC\00", align 1
+@.str.1484 = private unnamed_addr constant [19 x i8] c"OFPMP_FLOW_MONITOR\00", align 1
+@.str.1485 = private unnamed_addr constant [17 x i8] c"OFPMP_FLOW_STATS\00", align 1
+@.str.1486 = private unnamed_addr constant [24 x i8] c"OFPMP_CONTROLLER_STATUS\00", align 1
+@.str.1487 = private unnamed_addr constant [22 x i8] c"OFPMP_BUNDLE_FEATURES\00", align 1
+@.str.1488 = private unnamed_addr constant [19 x i8] c"OFPMP_EXPERIMENTER\00", align 1
+@openflow_v6_multipart_type_values = internal constant [22 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1468 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1469 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1470 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.1471 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.1472 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.1473 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.1474 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.1475 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.1476 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.1477 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.1478 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.1479 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.1480 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.1481 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.1482 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.1483 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.1484 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.1485 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.1486 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.1487 }, { i32, [4 x i8], ptr } { i32 65535, [4 x i8] zeroinitializer, ptr @.str.1488 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1490 = private unnamed_addr constant [21 x i8] c"OFPQSPT_EXPERIMENTER\00", align 1
+@openflow_v6_queue_stats_prop_type_values = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 65535, [4 x i8] zeroinitializer, ptr @.str.1490 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1492 = private unnamed_addr constant [15 x i8] c"OFPFME_INITIAL\00", align 1
+@.str.1493 = private unnamed_addr constant [13 x i8] c"OFPFME_ADDED\00", align 1
+@.str.1494 = private unnamed_addr constant [15 x i8] c"OFPFME_REMOVED\00", align 1
+@.str.1495 = private unnamed_addr constant [16 x i8] c"OFPFME_MODIFIED\00", align 1
+@.str.1496 = private unnamed_addr constant [14 x i8] c"OFPFME_ABBREV\00", align 1
+@.str.1497 = private unnamed_addr constant [14 x i8] c"OFPFME_PAUSED\00", align 1
+@.str.1498 = private unnamed_addr constant [15 x i8] c"OFPFME_RESUMED\00", align 1
+@openflow_v6_flow_monitor_events = internal constant [8 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1492 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1493 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1494 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.1495 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.1496 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.1497 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.1498 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1500 = private unnamed_addr constant [17 x i8] c"OFPQDPT_MIN_RATE\00", align 1
+@.str.1501 = private unnamed_addr constant [17 x i8] c"OFPQDPT_MAX_RATE\00", align 1
+@.str.1502 = private unnamed_addr constant [21 x i8] c"OFPQDPT_EXPERIMENTER\00", align 1
+@openflow_v6_queue_desc_prop_property_values = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1500 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1501 }, { i32, [4 x i8], ptr } { i32 65535, [4 x i8] zeroinitializer, ptr @.str.1502 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1504 = private unnamed_addr constant [22 x i8] c"OFPQDP_MIN_RATE_UNCFG\00", align 1
+@openflow_v6_queue_desc_prop_min_rate_reserved_values = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 65535, [4 x i8] zeroinitializer, ptr @.str.1504 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1506 = private unnamed_addr constant [22 x i8] c"OFPQDP_MAX_RATE_UNCFG\00", align 1
+@openflow_v6_queue_desc_prop_max_rate_reserved_values = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 65535, [4 x i8] zeroinitializer, ptr @.str.1506 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1508 = private unnamed_addr constant [20 x i8] c"OFPCR_ROLE_NOCHANGE\00", align 1
+@.str.1509 = private unnamed_addr constant [17 x i8] c"OFPCR_ROLE_EQUAL\00", align 1
+@.str.1510 = private unnamed_addr constant [18 x i8] c"OFPCR_ROLE_MASTER\00", align 1
+@.str.1511 = private unnamed_addr constant [17 x i8] c"OFPCR_ROLE_SLAVE\00", align 1
+@openflow_v6_controller_role_values = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1508 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1509 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1510 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.1511 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1513 = private unnamed_addr constant [24 x i8] c"OFPACPT_PACKET_IN_SLAVE\00", align 1
+@.str.1514 = private unnamed_addr constant [25 x i8] c"OFPACPT_PACKET_IN_MASTER\00", align 1
+@.str.1515 = private unnamed_addr constant [26 x i8] c"OFPACPT_PORT_STATUS_SLAVE\00", align 1
+@.str.1516 = private unnamed_addr constant [27 x i8] c"OFPACPT_PORT_STATUS_MASTER\00", align 1
+@.str.1517 = private unnamed_addr constant [27 x i8] c"OFPACPT_FLOW_REMOVED_SLAVE\00", align 1
+@.str.1518 = private unnamed_addr constant [28 x i8] c"OFPACPT_FLOW_REMOVED_MASTER\00", align 1
+@.str.1519 = private unnamed_addr constant [26 x i8] c"OFPACPT_ROLE_STATUS_SLAVE\00", align 1
+@.str.1520 = private unnamed_addr constant [27 x i8] c"OFPACPT_ROLE_STATUS_MASTER\00", align 1
+@.str.1521 = private unnamed_addr constant [27 x i8] c"OFPACPT_TABLE_STATUS_SLAVE\00", align 1
+@.str.1522 = private unnamed_addr constant [28 x i8] c"OFPACPT_TABLE_STATUS_MASTER\00", align 1
+@.str.1523 = private unnamed_addr constant [29 x i8] c"OFPACPT_REQUESTFORWARD_SLAVE\00", align 1
+@.str.1524 = private unnamed_addr constant [30 x i8] c"OFPACPT_REQUESTFORWARD_MASTER\00", align 1
+@.str.1525 = private unnamed_addr constant [27 x i8] c"OFPACPT_EXPERIMENTER_SLAVE\00", align 1
+@.str.1526 = private unnamed_addr constant [28 x i8] c"OFPACPT_EXPERIMENTER_MASTER\00", align 1
+@openflow_v6_async_config_prop_type_values = internal constant [15 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1513 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1514 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1515 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.1516 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.1517 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.1518 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.1519 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.1520 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.1521 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.1522 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.1523 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.1524 }, { i32, [4 x i8], ptr } { i32 65534, [4 x i8] zeroinitializer, ptr @.str.1525 }, { i32, [4 x i8], ptr } { i32 65535, [4 x i8] zeroinitializer, ptr @.str.1526 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1528 = private unnamed_addr constant [10 x i8] c"OFPMC_ADD\00", align 1
+@.str.1529 = private unnamed_addr constant [13 x i8] c"OFPMC_MODIFY\00", align 1
+@.str.1530 = private unnamed_addr constant [13 x i8] c"OFPMC_DELETE\00", align 1
+@openflow_v6_metermod_command_values = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1528 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1529 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1530 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@openflow_v6_role_status_reason_values = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.921 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.923 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.925 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@openflow_v6_table_status_reason_values = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.928 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.930 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1534 = private unnamed_addr constant [20 x i8] c"OFPBCT_OPEN_REQUEST\00", align 1
+@.str.1535 = private unnamed_addr constant [18 x i8] c"OFPBCT_OPEN_REPLY\00", align 1
+@.str.1536 = private unnamed_addr constant [21 x i8] c"OFPBCT_CLOSE_REQUEST\00", align 1
+@.str.1537 = private unnamed_addr constant [19 x i8] c"OFPBCT_CLOSE_REPLY\00", align 1
+@.str.1538 = private unnamed_addr constant [22 x i8] c"OFPBCT_COMMIT_REQUEST\00", align 1
+@.str.1539 = private unnamed_addr constant [20 x i8] c"OFPBCT_COMMIT_REPLY\00", align 1
+@.str.1540 = private unnamed_addr constant [23 x i8] c"OFPBCT_DISCARD_REQUEST\00", align 1
+@.str.1541 = private unnamed_addr constant [21 x i8] c"OFPBCT_DISCARD_REPLY\00", align 1
+@openflow_v6_bundle_control_type_values = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1534 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1535 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1536 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.1537 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.1538 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.1539 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.1540 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.1541 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1543 = private unnamed_addr constant [12 x i8] c"OFPBPT_TIME\00", align 1
+@.str.1544 = private unnamed_addr constant [20 x i8] c"OFPBPT_EXPERIMENTER\00", align 1
+@openflow_v6_bundle_prop_type_values = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1543 }, { i32, [4 x i8], ptr } { i32 65535, [4 x i8] zeroinitializer, ptr @.str.1544 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1546 = private unnamed_addr constant [22 x i8] c"OFPXSC_OPENFLOW_BASIC\00", align 1
+@.str.1547 = private unnamed_addr constant [20 x i8] c"OFPXSC_EXPERIMENTER\00", align 1
+@openflow_v6_oxs_class_values = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 32770, [4 x i8] zeroinitializer, ptr @.str.1546 }, { i32, [4 x i8], ptr } { i32 65535, [4 x i8] zeroinitializer, ptr @.str.1547 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1549 = private unnamed_addr constant [20 x i8] c"OFPXST_OFB_DURATION\00", align 1
+@.str.1550 = private unnamed_addr constant [21 x i8] c"OFPXST_OFB_IDLE_TIME\00", align 1
+@.str.1551 = private unnamed_addr constant [22 x i8] c"OFPXST_OFB_FLOW_COUNT\00", align 1
+@.str.1552 = private unnamed_addr constant [24 x i8] c"OFPXST_OFB_PACKET_COUNT\00", align 1
+@.str.1553 = private unnamed_addr constant [22 x i8] c"OFPXST_OFB_BYTE_COUNT\00", align 1
+@openflow_v6_oxs_basic_field_values = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1549 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1550 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.1551 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.1552 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.1553 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1555 = private unnamed_addr constant [15 x i8] c"OFPCSR_REQUEST\00", align 1
+@.str.1556 = private unnamed_addr constant [22 x i8] c"OFPCSR_CHANNEL_STATUS\00", align 1
+@.str.1557 = private unnamed_addr constant [12 x i8] c"OFPCSR_ROLE\00", align 1
+@.str.1558 = private unnamed_addr constant [24 x i8] c"OFPCSR_CONTROLLER_ADDED\00", align 1
+@.str.1559 = private unnamed_addr constant [26 x i8] c"OFPCSR_CONTROLLER_REMOVED\00", align 1
+@.str.1560 = private unnamed_addr constant [16 x i8] c"OFPCSR_SHORT_ID\00", align 1
+@.str.1561 = private unnamed_addr constant [20 x i8] c"OFPCSR_EXPERIMENTER\00", align 1
+@openflow_v6_controller_status_reason_values = internal constant [8 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1555 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1556 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1557 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.1558 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.1559 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.1560 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.1561 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1563 = private unnamed_addr constant [16 x i8] c"OFPCT_STATUS_UP\00", align 1
+@.str.1564 = private unnamed_addr constant [18 x i8] c"OFPCT_STATUS_DOWN\00", align 1
+@openflow_v6_controller_status_channel_status_values = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1563 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1564 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1566 = private unnamed_addr constant [25 x i8] c"OFPTMPBF_TIME_CAPABILITY\00", align 1
+@.str.1567 = private unnamed_addr constant [22 x i8] c"OFPTMPBF_EXPERIMENTER\00", align 1
+@openflow_v6_bundle_feature_prop_type_values = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1566 }, { i32, [4 x i8], ptr } { i32 65535, [4 x i8] zeroinitializer, ptr @.str.1567 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1569 = private unnamed_addr constant [12 x i8] c"OFPCSPT_URI\00", align 1
+@.str.1570 = private unnamed_addr constant [21 x i8] c"OFPCSPT_EXPERIMENTER\00", align 1
+@openflow_v6_controller_status_prop_type_values = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1569 }, { i32, [4 x i8], ptr } { i32 65535, [4 x i8] zeroinitializer, ptr @.str.1570 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1572 = private unnamed_addr constant [21 x i8] c"OFPFSR_STATS_REQUEST\00", align 1
+@.str.1573 = private unnamed_addr constant [20 x i8] c"OFPFSR_STAT_TRIGGER\00", align 1
+@openflow_v6_flow_stats_reason_values = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1572 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1573 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1575 = private unnamed_addr constant [9 x i8] c"Type: %s\00", align 1
+@.str.1576 = private unnamed_addr constant [21 x i8] c"Unknown message type\00", align 1
+@.str.1577 = private unnamed_addr constant [8 x i8] c"Element\00", align 1
+@.str.1578 = private unnamed_addr constant [25 x i8] c"Experimenter error body.\00", align 1
+@.str.1579 = private unnamed_addr constant [20 x i8] c"Unknown error body.\00", align 1
+@.str.1580 = private unnamed_addr constant [19 x i8] c"Experimenter body.\00", align 1
+@.str.1581 = private unnamed_addr constant [6 x i8] c"Match\00", align 1
+@.str.1582 = private unnamed_addr constant [34 x i8] c"Standard match body (deprecated).\00", align 1
+@.str.1583 = private unnamed_addr constant [10 x i8] c"OXM field\00", align 1
+@.str.1584 = private unnamed_addr constant [6 x i8] c" (%s)\00", align 1
+@.str.1585 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
+@.str.1586 = private unnamed_addr constant [15 x i8] c"Undecoded Data\00", align 1
+@.str.1587 = private unnamed_addr constant [18 x i8] c"Unknown OXM body.\00", align 1
+@.str.1588 = private unnamed_addr constant [11 x i8] c"OFPHTN_ONF\00", align 1
+@.str.1589 = private unnamed_addr constant [17 x i8] c"OFPHTN_ETHERTYPE\00", align 1
+@.str.1590 = private unnamed_addr constant [16 x i8] c"OFPHTN_IP_PROTO\00", align 1
+@.str.1591 = private unnamed_addr constant [20 x i8] c"OFPHTN_UDP_TCP_PORT\00", align 1
+@.str.1592 = private unnamed_addr constant [19 x i8] c"OFPHTN_IPV4_OPTION\00", align 1
+@openflow_v6_header_type_namespace_values = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1588 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1589 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1590 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.1591 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.1592 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1594 = private unnamed_addr constant [5 x i8] c": %s\00", align 1
+@.str.1595 = private unnamed_addr constant [20 x i8] c"Port desc. property\00", align 1
+@.str.1596 = private unnamed_addr constant [34 x i8] c"Experimenter port desc. property.\00", align 1
+@.str.1597 = private unnamed_addr constant [29 x i8] c"Unknown port desc. property.\00", align 1
+@.str.1598 = private unnamed_addr constant [14 x i8] c" Speed: %u Mb\00", align 1
+@.str.1599 = private unnamed_addr constant [7 x i8] c"Action\00", align 1
+@.str.1600 = private unnamed_addr constant [26 x i8] c"Experimenter action body.\00", align 1
+@.str.1601 = private unnamed_addr constant [12 x i8] c"Instruction\00", align 1
+@.str.1602 = private unnamed_addr constant [31 x i8] c"Experimenter instruction body.\00", align 1
+@.str.1603 = private unnamed_addr constant [7 x i8] c"Bucket\00", align 1
+@.str.1604 = private unnamed_addr constant [17 x i8] c"Portmod property\00", align 1
+@.str.1605 = private unnamed_addr constant [18 x i8] c"Tablemod property\00", align 1
+@.str.1606 = private unnamed_addr constant [34 x i8] c"Experimenter table mod. property.\00", align 1
+@.str.1607 = private unnamed_addr constant [29 x i8] c"Unknown table mod. property.\00", align 1
+@.str.1608 = private unnamed_addr constant [37 x i8] c"Experimenter multipart request body.\00", align 1
+@.str.1609 = private unnamed_addr constant [15 x i8] c"Table features\00", align 1
+@.str.1610 = private unnamed_addr constant [23 x i8] c"Table feature property\00", align 1
+@.str.1611 = private unnamed_addr constant [15 x i8] c"Instruction ID\00", align 1
+@.str.1612 = private unnamed_addr constant [10 x i8] c"Action ID\00", align 1
+@.str.1613 = private unnamed_addr constant [7 x i8] c"OXM ID\00", align 1
+@.str.1614 = private unnamed_addr constant [34 x i8] c"Experimenter table property body.\00", align 1
+@.str.1615 = private unnamed_addr constant [29 x i8] c"Unknown table property body.\00", align 1
+@.str.1616 = private unnamed_addr constant [24 x i8] c"Bundle feature property\00", align 1
+@.str.1617 = private unnamed_addr constant [35 x i8] c"Experimenter bundle property body.\00", align 1
+@.str.1618 = private unnamed_addr constant [30 x i8] c"Unknown bundle property body.\00", align 1
+@.str.1619 = private unnamed_addr constant [35 x i8] c"Experimenter multipart reply body.\00", align 1
+@.str.1620 = private unnamed_addr constant [10 x i8] c"Flow desc\00", align 1
+@.str.1621 = private unnamed_addr constant [12 x i8] c"Table stats\00", align 1
+@.str.1622 = private unnamed_addr constant [11 x i8] c"Port stats\00", align 1
+@.str.1623 = private unnamed_addr constant [21 x i8] c"Port stats. property\00", align 1
+@.str.1624 = private unnamed_addr constant [35 x i8] c"Experimenter port stats. property.\00", align 1
+@.str.1625 = private unnamed_addr constant [30 x i8] c"Unknown port stats. property.\00", align 1
+@.str.1626 = private unnamed_addr constant [12 x i8] c"Queue stats\00", align 1
+@.str.1627 = private unnamed_addr constant [21 x i8] c"Queue stats property\00", align 1
+@.str.1628 = private unnamed_addr constant [36 x i8] c"Experimenter queue stats prop body.\00", align 1
+@.str.1629 = private unnamed_addr constant [12 x i8] c"Group stats\00", align 1
+@.str.1630 = private unnamed_addr constant [15 x i8] c"Bucket counter\00", align 1
+@.str.1631 = private unnamed_addr constant [18 x i8] c"Group description\00", align 1
+@.str.1632 = private unnamed_addr constant [12 x i8] c"Meter stats\00", align 1
+@.str.1633 = private unnamed_addr constant [17 x i8] c"Meter band stats\00", align 1
+@.str.1634 = private unnamed_addr constant [11 x i8] c"Meter desc\00", align 1
+@.str.1635 = private unnamed_addr constant [11 x i8] c"Meter band\00", align 1
+@.str.1636 = private unnamed_addr constant [30 x i8] c"Experimenter meter band body.\00", align 1
+@.str.1637 = private unnamed_addr constant [11 x i8] c"Table desc\00", align 1
+@.str.1638 = private unnamed_addr constant [11 x i8] c"Queue desc\00", align 1
+@.str.1639 = private unnamed_addr constant [15 x i8] c"Queue property\00", align 1
+@.str.1640 = private unnamed_addr constant [34 x i8] c"Experimenter queue property body.\00", align 1
+@.str.1641 = private unnamed_addr constant [12 x i8] c"Flow update\00", align 1
+@.str.1642 = private unnamed_addr constant [11 x i8] c"Flow stats\00", align 1
+@.str.1643 = private unnamed_addr constant [18 x i8] c"Async config prop\00", align 1
+@.str.1644 = private unnamed_addr constant [37 x i8] c"Experimenter async config prop body.\00", align 1
+@.str.1645 = private unnamed_addr constant [32 x i8] c"Unknown async config prop body.\00", align 1
+@.str.1646 = private unnamed_addr constant [8 x i8] c"Request\00", align 1
+@.str.1647 = private unnamed_addr constant [12 x i8] c"Bundle prop\00", align 1
+@.str.1648 = private unnamed_addr constant [31 x i8] c"Experimenter bundle prop body.\00", align 1
+@.str.1649 = private unnamed_addr constant [8 x i8] c"Message\00", align 1
+@.str.1650 = private unnamed_addr constant [27 x i8] c"Controller status property\00", align 1
+@.str.1651 = private unnamed_addr constant [39 x i8] c"Experimenter controller property body.\00", align 1
+@.str.1652 = private unnamed_addr constant [34 x i8] c"Unknown controller property body.\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_openflow_v6() #0 {
   %1 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #5
   %2 = call i32 @proto_register_protocol(ptr noundef @.str.1076, ptr noundef @.str.1077, ptr noundef @.str.1077)
   store i32 %2, ptr @proto_openflow_v6, align 4
   %3 = load i32, ptr @proto_openflow_v6, align 4
@@ -2570,14 +2569,20 @@ define hidden void @proto_register_openflow_v6() #0 {
   store ptr %7, ptr %1, align 8
   %8 = load ptr, ptr %1, align 8
   call void @expert_register_field_array(ptr noundef %8, ptr noundef @proto_register_openflow_v6.ei, i32 noundef 24)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #5
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openflow_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2590,16 +2595,19 @@ define internal i32 @dissect_openflow_v6(ptr noundef %0, ptr noundef %1, ptr nou
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #5
   %12 = load ptr, ptr %5, align 8
-  %13 = call zeroext i8 @tvb_get_guint8(ptr noundef %12, i32 noundef 1)
+  %13 = call zeroext i8 @tvb_get_uint8(ptr noundef %12, i32 noundef 1)
   store i8 %13, ptr %11, align 1
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds %struct._packet_info, ptr %14, i32 0, i32 1
+  %15 = getelementptr inbounds nuw %struct._packet_info, ptr %14, i32 0, i32 1
   %16 = load ptr, ptr %15, align 8
   %17 = load i8, ptr %11, align 1
   %18 = zext i8 %17 to i32
-  %19 = call ptr @val_to_str_ext_const(i32 noundef %18, ptr noundef @openflow_v6_type_values_ext, ptr noundef @.str.1508)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %16, i32 noundef 25, ptr noundef @.str.1507, ptr noundef %19)
+  %19 = call ptr @val_to_str_ext_const(i32 noundef %18, ptr noundef @openflow_v6_type_values_ext, ptr noundef @.str.1576)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %16, i32 noundef 25, ptr noundef @.str.1575, ptr noundef %19)
   %20 = load ptr, ptr %7, align 8
   %21 = load i32, ptr @proto_openflow_v6, align 4
   %22 = load ptr, ptr %5, align 8
@@ -2615,18 +2623,28 @@ define internal i32 @dissect_openflow_v6(ptr noundef %0, ptr noundef %1, ptr nou
   %30 = call i32 @dissect_openflow_message_v6(ptr noundef %27, ptr noundef %28, ptr noundef %29, i32 noundef 0)
   %31 = load ptr, ptr %5, align 8
   %32 = call i32 @tvb_reported_length(ptr noundef %31)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
   ret i32 %32
 }
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #2
 
-declare ptr @expert_register_protocol(i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_register_protocol(i32 noundef) #2
 
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_openflow_v6() #0 {
   %1 = load i32, ptr @proto_openflow_v6, align 4
   %2 = call ptr @find_dissector_add_dependency(ptr noundef @.str.1078, i32 noundef %1)
@@ -2634,21 +2652,28 @@ define hidden void @proto_reg_handoff_openflow_v6() #0 {
   ret void
 }
 
-declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) #2
 
-declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #2
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #2
 
-declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #2
 
-declare ptr @val_to_str_ext_const(i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str_ext_const(i32 noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openflow_message_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2661,10 +2686,13 @@ define internal i32 @dissect_openflow_message_v6(ptr noundef %0, ptr noundef %1,
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 2, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
   %12 = load ptr, ptr %5, align 8
   %13 = load i32, ptr %8, align 4
   %14 = add i32 %13, 1
-  %15 = call zeroext i8 @tvb_get_guint8(ptr noundef %12, i32 noundef %14)
+  %15 = call zeroext i8 @tvb_get_uint8(ptr noundef %12, i32 noundef %14)
   store i8 %15, ptr %9, align 1
   %16 = load ptr, ptr %5, align 8
   %17 = load i32, ptr %8, align 4
@@ -2685,41 +2713,41 @@ define internal i32 @dissect_openflow_message_v6(ptr noundef %0, ptr noundef %1,
   store i32 %29, ptr %8, align 4
   %30 = load i8, ptr %9, align 1
   %31 = zext i8 %30 to i32
-  switch i32 %31, label %193 [
+  switch i32 %31, label %190 [
     i32 0, label %32
     i32 1, label %38
     i32 2, label %44
     i32 3, label %44
     i32 4, label %50
-    i32 5, label %56
-    i32 6, label %57
-    i32 7, label %63
-    i32 8, label %64
-    i32 9, label %64
-    i32 10, label %70
-    i32 11, label %76
-    i32 12, label %82
-    i32 13, label %88
-    i32 14, label %94
-    i32 15, label %100
-    i32 16, label %106
-    i32 17, label %112
-    i32 18, label %118
-    i32 19, label %124
-    i32 20, label %130
-    i32 21, label %130
-    i32 24, label %131
-    i32 25, label %137
-    i32 26, label %143
-    i32 27, label %144
-    i32 28, label %144
-    i32 29, label %150
-    i32 30, label %156
-    i32 31, label %162
-    i32 32, label %168
-    i32 33, label %174
-    i32 34, label %180
-    i32 35, label %186
+    i32 5, label %204
+    i32 6, label %56
+    i32 7, label %204
+    i32 8, label %62
+    i32 9, label %62
+    i32 10, label %68
+    i32 11, label %74
+    i32 12, label %80
+    i32 13, label %86
+    i32 14, label %92
+    i32 15, label %98
+    i32 16, label %104
+    i32 17, label %110
+    i32 18, label %116
+    i32 19, label %122
+    i32 20, label %128
+    i32 21, label %128
+    i32 24, label %129
+    i32 25, label %135
+    i32 26, label %204
+    i32 27, label %141
+    i32 28, label %141
+    i32 29, label %147
+    i32 30, label %153
+    i32 31, label %159
+    i32 32, label %165
+    i32 33, label %171
+    i32 34, label %177
+    i32 35, label %183
   ]
 
 32:                                               ; preds = %4
@@ -2729,7 +2757,7 @@ define internal i32 @dissect_openflow_message_v6(ptr noundef %0, ptr noundef %1,
   %36 = load i32, ptr %8, align 4
   %37 = load i16, ptr %10, align 2
   call void @dissect_openflow_hello_v6(ptr noundef %33, ptr noundef %34, ptr noundef %35, i32 noundef %36, i16 noundef zeroext %37)
-  br label %207
+  br label %204
 
 38:                                               ; preds = %4
   %39 = load ptr, ptr %5, align 8
@@ -2738,7 +2766,7 @@ define internal i32 @dissect_openflow_message_v6(ptr noundef %0, ptr noundef %1,
   %42 = load i32, ptr %8, align 4
   %43 = load i16, ptr %10, align 2
   call void @dissect_openflow_error_v6(ptr noundef %39, ptr noundef %40, ptr noundef %41, i32 noundef %42, i16 noundef zeroext %43)
-  br label %207
+  br label %204
 
 44:                                               ; preds = %4, %4
   %45 = load ptr, ptr %5, align 8
@@ -2747,7 +2775,7 @@ define internal i32 @dissect_openflow_message_v6(ptr noundef %0, ptr noundef %1,
   %48 = load i32, ptr %8, align 4
   %49 = load i16, ptr %10, align 2
   call void @dissect_openflow_echo_v6(ptr noundef %45, ptr noundef %46, ptr noundef %47, i32 noundef %48, i16 noundef zeroext %49)
-  br label %207
+  br label %204
 
 50:                                               ; preds = %4
   %51 = load ptr, ptr %5, align 8
@@ -2756,248 +2784,244 @@ define internal i32 @dissect_openflow_message_v6(ptr noundef %0, ptr noundef %1,
   %54 = load i32, ptr %8, align 4
   %55 = load i16, ptr %10, align 2
   call void @dissect_openflow_experimenter_v6(ptr noundef %51, ptr noundef %52, ptr noundef %53, i32 noundef %54, i16 noundef zeroext %55)
-  br label %207
+  br label %204
 
 56:                                               ; preds = %4
-  br label %207
+  %57 = load ptr, ptr %5, align 8
+  %58 = load ptr, ptr %6, align 8
+  %59 = load ptr, ptr %7, align 8
+  %60 = load i32, ptr %8, align 4
+  %61 = load i16, ptr %10, align 2
+  call void @dissect_openflow_switch_features_v6(ptr noundef %57, ptr noundef %58, ptr noundef %59, i32 noundef %60, i16 noundef zeroext %61)
+  br label %204
 
-57:                                               ; preds = %4
-  %58 = load ptr, ptr %5, align 8
-  %59 = load ptr, ptr %6, align 8
-  %60 = load ptr, ptr %7, align 8
-  %61 = load i32, ptr %8, align 4
-  %62 = load i16, ptr %10, align 2
-  call void @dissect_openflow_switch_features_v6(ptr noundef %58, ptr noundef %59, ptr noundef %60, i32 noundef %61, i16 noundef zeroext %62)
-  br label %207
+62:                                               ; preds = %4, %4
+  %63 = load ptr, ptr %5, align 8
+  %64 = load ptr, ptr %6, align 8
+  %65 = load ptr, ptr %7, align 8
+  %66 = load i32, ptr %8, align 4
+  %67 = load i16, ptr %10, align 2
+  call void @dissect_openflow_switch_config_v6(ptr noundef %63, ptr noundef %64, ptr noundef %65, i32 noundef %66, i16 noundef zeroext %67)
+  br label %204
 
-63:                                               ; preds = %4
-  br label %207
+68:                                               ; preds = %4
+  %69 = load ptr, ptr %5, align 8
+  %70 = load ptr, ptr %6, align 8
+  %71 = load ptr, ptr %7, align 8
+  %72 = load i32, ptr %8, align 4
+  %73 = load i16, ptr %10, align 2
+  call void @dissect_openflow_packet_in_v6(ptr noundef %69, ptr noundef %70, ptr noundef %71, i32 noundef %72, i16 noundef zeroext %73)
+  br label %204
 
-64:                                               ; preds = %4, %4
-  %65 = load ptr, ptr %5, align 8
-  %66 = load ptr, ptr %6, align 8
-  %67 = load ptr, ptr %7, align 8
-  %68 = load i32, ptr %8, align 4
-  %69 = load i16, ptr %10, align 2
-  call void @dissect_openflow_switch_config_v6(ptr noundef %65, ptr noundef %66, ptr noundef %67, i32 noundef %68, i16 noundef zeroext %69)
-  br label %207
+74:                                               ; preds = %4
+  %75 = load ptr, ptr %5, align 8
+  %76 = load ptr, ptr %6, align 8
+  %77 = load ptr, ptr %7, align 8
+  %78 = load i32, ptr %8, align 4
+  %79 = load i16, ptr %10, align 2
+  call void @dissect_openflow_flow_removed_v6(ptr noundef %75, ptr noundef %76, ptr noundef %77, i32 noundef %78, i16 noundef zeroext %79)
+  br label %204
 
-70:                                               ; preds = %4
-  %71 = load ptr, ptr %5, align 8
-  %72 = load ptr, ptr %6, align 8
-  %73 = load ptr, ptr %7, align 8
-  %74 = load i32, ptr %8, align 4
-  %75 = load i16, ptr %10, align 2
-  call void @dissect_openflow_packet_in_v6(ptr noundef %71, ptr noundef %72, ptr noundef %73, i32 noundef %74, i16 noundef zeroext %75)
-  br label %207
+80:                                               ; preds = %4
+  %81 = load ptr, ptr %5, align 8
+  %82 = load ptr, ptr %6, align 8
+  %83 = load ptr, ptr %7, align 8
+  %84 = load i32, ptr %8, align 4
+  %85 = load i16, ptr %10, align 2
+  call void @dissect_openflow_port_status_v6(ptr noundef %81, ptr noundef %82, ptr noundef %83, i32 noundef %84, i16 noundef zeroext %85)
+  br label %204
 
-76:                                               ; preds = %4
-  %77 = load ptr, ptr %5, align 8
-  %78 = load ptr, ptr %6, align 8
-  %79 = load ptr, ptr %7, align 8
-  %80 = load i32, ptr %8, align 4
-  %81 = load i16, ptr %10, align 2
-  call void @dissect_openflow_flow_removed_v6(ptr noundef %77, ptr noundef %78, ptr noundef %79, i32 noundef %80, i16 noundef zeroext %81)
-  br label %207
+86:                                               ; preds = %4
+  %87 = load ptr, ptr %5, align 8
+  %88 = load ptr, ptr %6, align 8
+  %89 = load ptr, ptr %7, align 8
+  %90 = load i32, ptr %8, align 4
+  %91 = load i16, ptr %10, align 2
+  call void @dissect_openflow_packet_out_v6(ptr noundef %87, ptr noundef %88, ptr noundef %89, i32 noundef %90, i16 noundef zeroext %91)
+  br label %204
 
-82:                                               ; preds = %4
-  %83 = load ptr, ptr %5, align 8
-  %84 = load ptr, ptr %6, align 8
-  %85 = load ptr, ptr %7, align 8
-  %86 = load i32, ptr %8, align 4
-  %87 = load i16, ptr %10, align 2
-  call void @dissect_openflow_port_status_v6(ptr noundef %83, ptr noundef %84, ptr noundef %85, i32 noundef %86, i16 noundef zeroext %87)
-  br label %207
+92:                                               ; preds = %4
+  %93 = load ptr, ptr %5, align 8
+  %94 = load ptr, ptr %6, align 8
+  %95 = load ptr, ptr %7, align 8
+  %96 = load i32, ptr %8, align 4
+  %97 = load i16, ptr %10, align 2
+  call void @dissect_openflow_flowmod_v6(ptr noundef %93, ptr noundef %94, ptr noundef %95, i32 noundef %96, i16 noundef zeroext %97)
+  br label %204
 
-88:                                               ; preds = %4
-  %89 = load ptr, ptr %5, align 8
-  %90 = load ptr, ptr %6, align 8
-  %91 = load ptr, ptr %7, align 8
-  %92 = load i32, ptr %8, align 4
-  %93 = load i16, ptr %10, align 2
-  call void @dissect_openflow_packet_out_v6(ptr noundef %89, ptr noundef %90, ptr noundef %91, i32 noundef %92, i16 noundef zeroext %93)
-  br label %207
+98:                                               ; preds = %4
+  %99 = load ptr, ptr %5, align 8
+  %100 = load ptr, ptr %6, align 8
+  %101 = load ptr, ptr %7, align 8
+  %102 = load i32, ptr %8, align 4
+  %103 = load i16, ptr %10, align 2
+  call void @dissect_openflow_groupmod_v6(ptr noundef %99, ptr noundef %100, ptr noundef %101, i32 noundef %102, i16 noundef zeroext %103)
+  br label %204
 
-94:                                               ; preds = %4
-  %95 = load ptr, ptr %5, align 8
-  %96 = load ptr, ptr %6, align 8
-  %97 = load ptr, ptr %7, align 8
-  %98 = load i32, ptr %8, align 4
-  %99 = load i16, ptr %10, align 2
-  call void @dissect_openflow_flowmod_v6(ptr noundef %95, ptr noundef %96, ptr noundef %97, i32 noundef %98, i16 noundef zeroext %99)
-  br label %207
+104:                                              ; preds = %4
+  %105 = load ptr, ptr %5, align 8
+  %106 = load ptr, ptr %6, align 8
+  %107 = load ptr, ptr %7, align 8
+  %108 = load i32, ptr %8, align 4
+  %109 = load i16, ptr %10, align 2
+  call void @dissect_openflow_portmod_v6(ptr noundef %105, ptr noundef %106, ptr noundef %107, i32 noundef %108, i16 noundef zeroext %109)
+  br label %204
 
-100:                                              ; preds = %4
-  %101 = load ptr, ptr %5, align 8
-  %102 = load ptr, ptr %6, align 8
-  %103 = load ptr, ptr %7, align 8
-  %104 = load i32, ptr %8, align 4
-  %105 = load i16, ptr %10, align 2
-  call void @dissect_openflow_groupmod_v6(ptr noundef %101, ptr noundef %102, ptr noundef %103, i32 noundef %104, i16 noundef zeroext %105)
-  br label %207
+110:                                              ; preds = %4
+  %111 = load ptr, ptr %5, align 8
+  %112 = load ptr, ptr %6, align 8
+  %113 = load ptr, ptr %7, align 8
+  %114 = load i32, ptr %8, align 4
+  %115 = load i16, ptr %10, align 2
+  call void @dissect_openflow_tablemod_v6(ptr noundef %111, ptr noundef %112, ptr noundef %113, i32 noundef %114, i16 noundef zeroext %115)
+  br label %204
 
-106:                                              ; preds = %4
-  %107 = load ptr, ptr %5, align 8
-  %108 = load ptr, ptr %6, align 8
-  %109 = load ptr, ptr %7, align 8
-  %110 = load i32, ptr %8, align 4
-  %111 = load i16, ptr %10, align 2
-  call void @dissect_openflow_portmod_v6(ptr noundef %107, ptr noundef %108, ptr noundef %109, i32 noundef %110, i16 noundef zeroext %111)
-  br label %207
+116:                                              ; preds = %4
+  %117 = load ptr, ptr %5, align 8
+  %118 = load ptr, ptr %6, align 8
+  %119 = load ptr, ptr %7, align 8
+  %120 = load i32, ptr %8, align 4
+  %121 = load i16, ptr %10, align 2
+  call void @dissect_openflow_multipart_request_v6(ptr noundef %117, ptr noundef %118, ptr noundef %119, i32 noundef %120, i16 noundef zeroext %121)
+  br label %204
 
-112:                                              ; preds = %4
-  %113 = load ptr, ptr %5, align 8
-  %114 = load ptr, ptr %6, align 8
-  %115 = load ptr, ptr %7, align 8
-  %116 = load i32, ptr %8, align 4
-  %117 = load i16, ptr %10, align 2
-  call void @dissect_openflow_tablemod_v6(ptr noundef %113, ptr noundef %114, ptr noundef %115, i32 noundef %116, i16 noundef zeroext %117)
-  br label %207
+122:                                              ; preds = %4
+  %123 = load ptr, ptr %5, align 8
+  %124 = load ptr, ptr %6, align 8
+  %125 = load ptr, ptr %7, align 8
+  %126 = load i32, ptr %8, align 4
+  %127 = load i16, ptr %10, align 2
+  call void @dissect_openflow_multipart_reply_v6(ptr noundef %123, ptr noundef %124, ptr noundef %125, i32 noundef %126, i16 noundef zeroext %127)
+  br label %204
 
-118:                                              ; preds = %4
-  %119 = load ptr, ptr %5, align 8
-  %120 = load ptr, ptr %6, align 8
-  %121 = load ptr, ptr %7, align 8
-  %122 = load i32, ptr %8, align 4
-  %123 = load i16, ptr %10, align 2
-  call void @dissect_openflow_multipart_request_v6(ptr noundef %119, ptr noundef %120, ptr noundef %121, i32 noundef %122, i16 noundef zeroext %123)
-  br label %207
+128:                                              ; preds = %4, %4
+  br label %204
 
-124:                                              ; preds = %4
-  %125 = load ptr, ptr %5, align 8
-  %126 = load ptr, ptr %6, align 8
-  %127 = load ptr, ptr %7, align 8
-  %128 = load i32, ptr %8, align 4
-  %129 = load i16, ptr %10, align 2
-  call void @dissect_openflow_multipart_reply_v6(ptr noundef %125, ptr noundef %126, ptr noundef %127, i32 noundef %128, i16 noundef zeroext %129)
-  br label %207
+129:                                              ; preds = %4
+  %130 = load ptr, ptr %5, align 8
+  %131 = load ptr, ptr %6, align 8
+  %132 = load ptr, ptr %7, align 8
+  %133 = load i32, ptr %8, align 4
+  %134 = load i16, ptr %10, align 2
+  call void @dissect_openflow_role_request_v6(ptr noundef %130, ptr noundef %131, ptr noundef %132, i32 noundef %133, i16 noundef zeroext %134)
+  br label %204
 
-130:                                              ; preds = %4, %4
-  br label %207
+135:                                              ; preds = %4
+  %136 = load ptr, ptr %5, align 8
+  %137 = load ptr, ptr %6, align 8
+  %138 = load ptr, ptr %7, align 8
+  %139 = load i32, ptr %8, align 4
+  %140 = load i16, ptr %10, align 2
+  call void @dissect_openflow_role_reply_v6(ptr noundef %136, ptr noundef %137, ptr noundef %138, i32 noundef %139, i16 noundef zeroext %140)
+  br label %204
 
-131:                                              ; preds = %4
-  %132 = load ptr, ptr %5, align 8
-  %133 = load ptr, ptr %6, align 8
-  %134 = load ptr, ptr %7, align 8
-  %135 = load i32, ptr %8, align 4
-  %136 = load i16, ptr %10, align 2
-  call void @dissect_openflow_role_request_v6(ptr noundef %132, ptr noundef %133, ptr noundef %134, i32 noundef %135, i16 noundef zeroext %136)
-  br label %207
+141:                                              ; preds = %4, %4
+  %142 = load ptr, ptr %5, align 8
+  %143 = load ptr, ptr %6, align 8
+  %144 = load ptr, ptr %7, align 8
+  %145 = load i32, ptr %8, align 4
+  %146 = load i16, ptr %10, align 2
+  call void @dissect_openflow_async_config_v6(ptr noundef %142, ptr noundef %143, ptr noundef %144, i32 noundef %145, i16 noundef zeroext %146)
+  br label %204
 
-137:                                              ; preds = %4
-  %138 = load ptr, ptr %5, align 8
-  %139 = load ptr, ptr %6, align 8
-  %140 = load ptr, ptr %7, align 8
-  %141 = load i32, ptr %8, align 4
-  %142 = load i16, ptr %10, align 2
-  call void @dissect_openflow_role_reply_v6(ptr noundef %138, ptr noundef %139, ptr noundef %140, i32 noundef %141, i16 noundef zeroext %142)
-  br label %207
+147:                                              ; preds = %4
+  %148 = load ptr, ptr %5, align 8
+  %149 = load ptr, ptr %6, align 8
+  %150 = load ptr, ptr %7, align 8
+  %151 = load i32, ptr %8, align 4
+  %152 = load i16, ptr %10, align 2
+  call void @dissect_openflow_metermod_v6(ptr noundef %148, ptr noundef %149, ptr noundef %150, i32 noundef %151, i16 noundef zeroext %152)
+  br label %204
 
-143:                                              ; preds = %4
-  br label %207
+153:                                              ; preds = %4
+  %154 = load ptr, ptr %5, align 8
+  %155 = load ptr, ptr %6, align 8
+  %156 = load ptr, ptr %7, align 8
+  %157 = load i32, ptr %8, align 4
+  %158 = load i16, ptr %10, align 2
+  call void @dissect_openflow_role_status_v6(ptr noundef %154, ptr noundef %155, ptr noundef %156, i32 noundef %157, i16 noundef zeroext %158)
+  br label %204
 
-144:                                              ; preds = %4, %4
-  %145 = load ptr, ptr %5, align 8
-  %146 = load ptr, ptr %6, align 8
-  %147 = load ptr, ptr %7, align 8
-  %148 = load i32, ptr %8, align 4
-  %149 = load i16, ptr %10, align 2
-  call void @dissect_openflow_async_config_v6(ptr noundef %145, ptr noundef %146, ptr noundef %147, i32 noundef %148, i16 noundef zeroext %149)
-  br label %207
+159:                                              ; preds = %4
+  %160 = load ptr, ptr %5, align 8
+  %161 = load ptr, ptr %6, align 8
+  %162 = load ptr, ptr %7, align 8
+  %163 = load i32, ptr %8, align 4
+  %164 = load i16, ptr %10, align 2
+  call void @dissect_openflow_table_status_v6(ptr noundef %160, ptr noundef %161, ptr noundef %162, i32 noundef %163, i16 noundef zeroext %164)
+  br label %204
 
-150:                                              ; preds = %4
-  %151 = load ptr, ptr %5, align 8
-  %152 = load ptr, ptr %6, align 8
-  %153 = load ptr, ptr %7, align 8
-  %154 = load i32, ptr %8, align 4
-  %155 = load i16, ptr %10, align 2
-  call void @dissect_openflow_metermod_v6(ptr noundef %151, ptr noundef %152, ptr noundef %153, i32 noundef %154, i16 noundef zeroext %155)
-  br label %207
+165:                                              ; preds = %4
+  %166 = load ptr, ptr %5, align 8
+  %167 = load ptr, ptr %6, align 8
+  %168 = load ptr, ptr %7, align 8
+  %169 = load i32, ptr %8, align 4
+  %170 = load i16, ptr %10, align 2
+  call void @dissect_openflow_requestforward_v6(ptr noundef %166, ptr noundef %167, ptr noundef %168, i32 noundef %169, i16 noundef zeroext %170)
+  br label %204
 
-156:                                              ; preds = %4
-  %157 = load ptr, ptr %5, align 8
-  %158 = load ptr, ptr %6, align 8
-  %159 = load ptr, ptr %7, align 8
-  %160 = load i32, ptr %8, align 4
-  %161 = load i16, ptr %10, align 2
-  call void @dissect_openflow_role_status_v6(ptr noundef %157, ptr noundef %158, ptr noundef %159, i32 noundef %160, i16 noundef zeroext %161)
-  br label %207
+171:                                              ; preds = %4
+  %172 = load ptr, ptr %5, align 8
+  %173 = load ptr, ptr %6, align 8
+  %174 = load ptr, ptr %7, align 8
+  %175 = load i32, ptr %8, align 4
+  %176 = load i16, ptr %10, align 2
+  call void @dissect_openflow_bundle_control_v6(ptr noundef %172, ptr noundef %173, ptr noundef %174, i32 noundef %175, i16 noundef zeroext %176)
+  br label %204
 
-162:                                              ; preds = %4
-  %163 = load ptr, ptr %5, align 8
-  %164 = load ptr, ptr %6, align 8
-  %165 = load ptr, ptr %7, align 8
-  %166 = load i32, ptr %8, align 4
-  %167 = load i16, ptr %10, align 2
-  call void @dissect_openflow_table_status_v6(ptr noundef %163, ptr noundef %164, ptr noundef %165, i32 noundef %166, i16 noundef zeroext %167)
-  br label %207
+177:                                              ; preds = %4
+  %178 = load ptr, ptr %5, align 8
+  %179 = load ptr, ptr %6, align 8
+  %180 = load ptr, ptr %7, align 8
+  %181 = load i32, ptr %8, align 4
+  %182 = load i16, ptr %10, align 2
+  call void @dissect_openflow_bundle_add_v6(ptr noundef %178, ptr noundef %179, ptr noundef %180, i32 noundef %181, i16 noundef zeroext %182)
+  br label %204
 
-168:                                              ; preds = %4
-  %169 = load ptr, ptr %5, align 8
-  %170 = load ptr, ptr %6, align 8
-  %171 = load ptr, ptr %7, align 8
-  %172 = load i32, ptr %8, align 4
-  %173 = load i16, ptr %10, align 2
-  call void @dissect_openflow_requestforward_v6(ptr noundef %169, ptr noundef %170, ptr noundef %171, i32 noundef %172, i16 noundef zeroext %173)
-  br label %207
+183:                                              ; preds = %4
+  %184 = load ptr, ptr %5, align 8
+  %185 = load ptr, ptr %6, align 8
+  %186 = load ptr, ptr %7, align 8
+  %187 = load i32, ptr %8, align 4
+  %188 = load i16, ptr %10, align 2
+  %189 = call i32 @dissect_openflow_controller_status_v6(ptr noundef %184, ptr noundef %185, ptr noundef %186, i32 noundef %187, i16 noundef zeroext %188)
+  br label %204
 
-174:                                              ; preds = %4
-  %175 = load ptr, ptr %5, align 8
-  %176 = load ptr, ptr %6, align 8
-  %177 = load ptr, ptr %7, align 8
-  %178 = load i32, ptr %8, align 4
-  %179 = load i16, ptr %10, align 2
-  call void @dissect_openflow_bundle_control_v6(ptr noundef %175, ptr noundef %176, ptr noundef %177, i32 noundef %178, i16 noundef zeroext %179)
-  br label %207
-
-180:                                              ; preds = %4
-  %181 = load ptr, ptr %5, align 8
-  %182 = load ptr, ptr %6, align 8
-  %183 = load ptr, ptr %7, align 8
-  %184 = load i32, ptr %8, align 4
-  %185 = load i16, ptr %10, align 2
-  call void @dissect_openflow_bundle_add_v6(ptr noundef %181, ptr noundef %182, ptr noundef %183, i32 noundef %184, i16 noundef zeroext %185)
-  br label %207
-
-186:                                              ; preds = %4
-  %187 = load ptr, ptr %5, align 8
-  %188 = load ptr, ptr %6, align 8
-  %189 = load ptr, ptr %7, align 8
-  %190 = load i32, ptr %8, align 4
+190:                                              ; preds = %4
   %191 = load i16, ptr %10, align 2
-  %192 = call i32 @dissect_openflow_controller_status_v6(ptr noundef %187, ptr noundef %188, ptr noundef %189, i32 noundef %190, i16 noundef zeroext %191)
-  br label %207
+  %192 = zext i16 %191 to i32
+  %193 = icmp sgt i32 %192, 8
+  br i1 %193, label %194, label %203
 
-193:                                              ; preds = %4
-  %194 = load i16, ptr %10, align 2
-  %195 = zext i16 %194 to i32
-  %196 = icmp sgt i32 %195, 8
-  br i1 %196, label %197, label %206
+194:                                              ; preds = %190
+  %195 = load ptr, ptr %7, align 8
+  %196 = load ptr, ptr %6, align 8
+  %197 = load ptr, ptr %5, align 8
+  %198 = load i32, ptr %8, align 4
+  %199 = load i16, ptr %10, align 2
+  %200 = zext i16 %199 to i32
+  %201 = sub i32 %200, 8
+  %202 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %195, ptr noundef %196, ptr noundef @ei_openflow_v6_message_undecoded, ptr noundef %197, i32 noundef %198, i32 noundef %201, ptr noundef @.str.1069)
+  br label %203
 
-197:                                              ; preds = %193
-  %198 = load ptr, ptr %7, align 8
-  %199 = load ptr, ptr %6, align 8
-  %200 = load ptr, ptr %5, align 8
-  %201 = load i32, ptr %8, align 4
-  %202 = load i16, ptr %10, align 2
-  %203 = zext i16 %202 to i32
-  %204 = sub i32 %203, 8
-  %205 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %198, ptr noundef %199, ptr noundef @ei_openflow_v6_message_undecoded, ptr noundef %200, i32 noundef %201, i32 noundef %204, ptr noundef @.str.1069)
-  br label %206
+203:                                              ; preds = %194, %190
+  br label %204
 
-206:                                              ; preds = %197, %193
-  br label %207
-
-207:                                              ; preds = %206, %186, %180, %174, %168, %162, %156, %150, %144, %143, %137, %131, %130, %124, %118, %112, %106, %100, %94, %88, %82, %76, %70, %64, %63, %57, %56, %50, %44, %38, %32
-  %208 = load i32, ptr %11, align 4
-  ret i32 %208
+204:                                              ; preds = %203, %183, %177, %4, %4, %4, %171, %165, %159, %153, %147, %141, %135, %129, %128, %122, %116, %110, %104, %98, %92, %86, %80, %74, %68, %62, %56, %50, %44, %38, %32
+  %205 = load i32, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 2, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #5
+  ret i32 %205
 }
 
-declare i32 @tvb_reported_length(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length(ptr noundef) #2
 
-declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openflow_header_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -3045,7 +3069,7 @@ define internal i32 @dissect_openflow_header_v6(ptr noundef %0, ptr noundef %1, 
   ret i32 %39
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_openflow_hello_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -3074,13 +3098,13 @@ define internal void @dissect_openflow_hello_v6(ptr noundef %0, ptr noundef %1, 
   %21 = load i16, ptr %10, align 2
   %22 = call i32 @dissect_openflow_hello_element_v6(ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i16 noundef zeroext %21)
   store i32 %22, ptr %9, align 4
-  br label %11, !llvm.loop !4
+  br label %11, !llvm.loop !6
 
 23:                                               ; preds = %11
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_openflow_error_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -3090,12 +3114,15 @@ define internal void @dissect_openflow_error_v6(ptr noundef %0, ptr noundef %1, 
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
   %13 = alloca i32, align 4
-  %14 = alloca i32, align 4
+  %14 = alloca i8, align 1
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
   %15 = load ptr, ptr %8, align 8
   %16 = load i32, ptr @hf_openflow_v6_error_type, align 4
   %17 = load ptr, ptr %6, align 8
@@ -3274,7 +3301,7 @@ define internal void @dissect_openflow_error_v6(ptr noundef %0, ptr noundef %1, 
 131:                                              ; preds = %5
   br label %132
 
-132:                                              ; preds = %131, %5
+132:                                              ; preds = %5, %131
   %133 = load ptr, ptr %8, align 8
   %134 = load i32, ptr @hf_openflow_v6_error_code, align 4
   %135 = load ptr, ptr %6, align 8
@@ -3287,7 +3314,7 @@ define internal void @dissect_openflow_error_v6(ptr noundef %0, ptr noundef %1, 
   %140 = add i32 %139, 2
   store i32 %140, ptr %9, align 4
   %141 = load i32, ptr %13, align 4
-  switch i32 %141, label %208 [
+  switch i32 %141, label %212 [
     i32 0, label %142
     i32 1, label %151
     i32 2, label %151
@@ -3302,7 +3329,7 @@ define internal void @dissect_openflow_error_v6(ptr noundef %0, ptr noundef %1, 
     i32 11, label %151
     i32 12, label %151
     i32 13, label %151
-    i32 65535, label %192
+    i32 65535, label %196
   ]
 
 142:                                              ; preds = %138
@@ -3314,9 +3341,10 @@ define internal void @dissect_openflow_error_v6(ptr noundef %0, ptr noundef %1, 
   %148 = zext i16 %147 to i32
   %149 = sub i32 %148, 12
   %150 = call ptr @proto_tree_add_item(ptr noundef %143, i32 noundef %144, ptr noundef %145, i32 noundef %146, i32 noundef %149, i32 noundef 0)
-  br label %217
+  br label %221
 
 151:                                              ; preds = %138, %138, %138, %138, %138, %138, %138, %138, %138, %138, %138, %138, %138
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #5
   %152 = load ptr, ptr %8, align 8
   %153 = load i32, ptr @hf_openflow_v6_error_data_body, align 4
   %154 = load ptr, ptr %6, align 8
@@ -3331,76 +3359,84 @@ define internal void @dissect_openflow_error_v6(ptr noundef %0, ptr noundef %1, 
   %162 = call ptr @proto_item_add_subtree(ptr noundef %160, i32 noundef %161)
   store ptr %162, ptr %11, align 8
   %163 = load ptr, ptr %7, align 8
-  %164 = getelementptr inbounds %struct._packet_info, ptr %163, i32 0, i32 21
+  %164 = getelementptr inbounds nuw %struct._packet_info, ptr %163, i32 0, i32 22
   %165 = load i8, ptr %164, align 4
   %166 = and i8 %165, 1
   %167 = zext i8 %166 to i32
-  store i32 %167, ptr %14, align 4
-  %168 = load ptr, ptr %7, align 8
-  %169 = getelementptr inbounds %struct._packet_info, ptr %168, i32 0, i32 21
-  %170 = load i8, ptr %169, align 4
-  %171 = and i8 %170, -2
-  %172 = or i8 %171, 1
-  store i8 %172, ptr %169, align 4
-  %173 = load ptr, ptr %7, align 8
-  %174 = getelementptr inbounds %struct._packet_info, ptr %173, i32 0, i32 1
-  %175 = load ptr, ptr %174, align 8
-  call void @col_set_writable(ptr noundef %175, i32 noundef -1, i32 noundef 0)
-  %176 = load ptr, ptr %6, align 8
-  %177 = load ptr, ptr %7, align 8
-  %178 = load ptr, ptr %11, align 8
-  %179 = load i32, ptr %9, align 4
-  %180 = call i32 @dissect_openflow_message_v6(ptr noundef %176, ptr noundef %177, ptr noundef %178, i32 noundef %179)
-  %181 = load i32, ptr %14, align 4
-  %182 = load ptr, ptr %7, align 8
-  %183 = getelementptr inbounds %struct._packet_info, ptr %182, i32 0, i32 21
-  %184 = trunc i32 %181 to i8
-  %185 = load i8, ptr %183, align 4
-  %186 = and i8 %184, 1
-  %187 = and i8 %185, -2
-  %188 = or i8 %187, %186
-  store i8 %188, ptr %183, align 4
-  %189 = load ptr, ptr %7, align 8
-  %190 = getelementptr inbounds %struct._packet_info, ptr %189, i32 0, i32 1
-  %191 = load ptr, ptr %190, align 8
-  call void @col_set_writable(ptr noundef %191, i32 noundef -1, i32 noundef 1)
-  br label %217
+  %168 = icmp ne i32 %167, 0
+  %169 = zext i1 %168 to i8
+  store i8 %169, ptr %14, align 1
+  %170 = load ptr, ptr %7, align 8
+  %171 = getelementptr inbounds nuw %struct._packet_info, ptr %170, i32 0, i32 22
+  %172 = load i8, ptr %171, align 4
+  %173 = and i8 %172, -2
+  %174 = or i8 %173, 1
+  store i8 %174, ptr %171, align 4
+  %175 = load ptr, ptr %7, align 8
+  %176 = getelementptr inbounds nuw %struct._packet_info, ptr %175, i32 0, i32 1
+  %177 = load ptr, ptr %176, align 8
+  call void @col_set_writable(ptr noundef %177, i32 noundef -1, i1 noundef zeroext false)
+  %178 = load ptr, ptr %6, align 8
+  %179 = load ptr, ptr %7, align 8
+  %180 = load ptr, ptr %11, align 8
+  %181 = load i32, ptr %9, align 4
+  %182 = call i32 @dissect_openflow_message_v6(ptr noundef %178, ptr noundef %179, ptr noundef %180, i32 noundef %181)
+  %183 = load i8, ptr %14, align 1, !range !8, !noundef !9
+  %184 = trunc i8 %183 to i1
+  %185 = zext i1 %184 to i32
+  %186 = load ptr, ptr %7, align 8
+  %187 = getelementptr inbounds nuw %struct._packet_info, ptr %186, i32 0, i32 22
+  %188 = trunc i32 %185 to i8
+  %189 = load i8, ptr %187, align 4
+  %190 = and i8 %188, 1
+  %191 = and i8 %189, -2
+  %192 = or i8 %191, %190
+  store i8 %192, ptr %187, align 4
+  %193 = load ptr, ptr %7, align 8
+  %194 = getelementptr inbounds nuw %struct._packet_info, ptr %193, i32 0, i32 1
+  %195 = load ptr, ptr %194, align 8
+  call void @col_set_writable(ptr noundef %195, i32 noundef -1, i1 noundef zeroext true)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #5
+  br label %221
 
-192:                                              ; preds = %138
-  %193 = load ptr, ptr %8, align 8
-  %194 = load i32, ptr @hf_openflow_v6_error_experimenter, align 4
-  %195 = load ptr, ptr %6, align 8
-  %196 = load i32, ptr %9, align 4
-  %197 = call ptr @proto_tree_add_item(ptr noundef %193, i32 noundef %194, ptr noundef %195, i32 noundef %196, i32 noundef 4, i32 noundef 0)
-  %198 = load i32, ptr %9, align 4
-  %199 = add i32 %198, 4
-  store i32 %199, ptr %9, align 4
-  %200 = load ptr, ptr %8, align 8
-  %201 = load ptr, ptr %7, align 8
-  %202 = load ptr, ptr %6, align 8
-  %203 = load i32, ptr %9, align 4
-  %204 = load i16, ptr %10, align 2
-  %205 = zext i16 %204 to i32
-  %206 = sub i32 %205, 16
-  %207 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %200, ptr noundef %201, ptr noundef @ei_openflow_v6_error_undecoded, ptr noundef %202, i32 noundef %203, i32 noundef %206, ptr noundef @.str.1510)
-  br label %217
+196:                                              ; preds = %138
+  %197 = load ptr, ptr %8, align 8
+  %198 = load i32, ptr @hf_openflow_v6_error_experimenter, align 4
+  %199 = load ptr, ptr %6, align 8
+  %200 = load i32, ptr %9, align 4
+  %201 = call ptr @proto_tree_add_item(ptr noundef %197, i32 noundef %198, ptr noundef %199, i32 noundef %200, i32 noundef 4, i32 noundef 0)
+  %202 = load i32, ptr %9, align 4
+  %203 = add i32 %202, 4
+  store i32 %203, ptr %9, align 4
+  %204 = load ptr, ptr %8, align 8
+  %205 = load ptr, ptr %7, align 8
+  %206 = load ptr, ptr %6, align 8
+  %207 = load i32, ptr %9, align 4
+  %208 = load i16, ptr %10, align 2
+  %209 = zext i16 %208 to i32
+  %210 = sub i32 %209, 16
+  %211 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %204, ptr noundef %205, ptr noundef @ei_openflow_v6_error_undecoded, ptr noundef %206, i32 noundef %207, i32 noundef %210, ptr noundef @.str.1578)
+  br label %221
 
-208:                                              ; preds = %138
-  %209 = load ptr, ptr %8, align 8
-  %210 = load ptr, ptr %7, align 8
-  %211 = load ptr, ptr %6, align 8
-  %212 = load i32, ptr %9, align 4
-  %213 = load i16, ptr %10, align 2
-  %214 = zext i16 %213 to i32
-  %215 = sub i32 %214, 12
-  %216 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %209, ptr noundef %210, ptr noundef @ei_openflow_v6_error_undecoded, ptr noundef %211, i32 noundef %212, i32 noundef %215, ptr noundef @.str.1511)
-  br label %217
+212:                                              ; preds = %138
+  %213 = load ptr, ptr %8, align 8
+  %214 = load ptr, ptr %7, align 8
+  %215 = load ptr, ptr %6, align 8
+  %216 = load i32, ptr %9, align 4
+  %217 = load i16, ptr %10, align 2
+  %218 = zext i16 %217 to i32
+  %219 = sub i32 %218, 12
+  %220 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %213, ptr noundef %214, ptr noundef @ei_openflow_v6_error_undecoded, ptr noundef %215, i32 noundef %216, i32 noundef %219, ptr noundef @.str.1579)
+  br label %221
 
-217:                                              ; preds = %208, %192, %151, %142
+221:                                              ; preds = %212, %196, %151, %142
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_openflow_echo_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -3434,7 +3470,7 @@ define internal void @dissect_openflow_echo_v6(ptr noundef %0, ptr noundef %1, p
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_openflow_experimenter_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -3476,14 +3512,14 @@ define internal void @dissect_openflow_experimenter_v6(ptr noundef %0, ptr nound
   %34 = load i16, ptr %10, align 2
   %35 = zext i16 %34 to i32
   %36 = sub i32 %35, 16
-  %37 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %30, ptr noundef %31, ptr noundef @ei_openflow_v6_experimenter_undecoded, ptr noundef %32, i32 noundef %33, i32 noundef %36, ptr noundef @.str.1512)
+  %37 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %30, ptr noundef %31, ptr noundef @ei_openflow_v6_experimenter_undecoded, ptr noundef %32, i32 noundef %33, i32 noundef %36, ptr noundef @.str.1580)
   br label %38
 
 38:                                               ; preds = %29, %5
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_openflow_switch_features_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -3497,6 +3533,8 @@ define internal void @dissect_openflow_switch_features_v6(ptr noundef %0, ptr no
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
   %13 = load ptr, ptr %8, align 8
   %14 = load i32, ptr @hf_openflow_v6_switch_features_datapath_id, align 4
   %15 = load ptr, ptr %6, align 8
@@ -3600,10 +3638,12 @@ define internal void @dissect_openflow_switch_features_v6(ptr noundef %0, ptr no
   %105 = load ptr, ptr %6, align 8
   %106 = load i32, ptr %9, align 4
   %107 = call ptr @proto_tree_add_item(ptr noundef %103, i32 noundef %104, ptr noundef %105, i32 noundef %106, i32 noundef 4, i32 noundef 0)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_openflow_switch_config_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -3617,6 +3657,8 @@ define internal void @dissect_openflow_switch_config_v6(ptr noundef %0, ptr noun
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
   %13 = load ptr, ptr %8, align 8
   %14 = load i32, ptr @hf_openflow_v6_switch_config_flags, align 4
   %15 = load ptr, ptr %6, align 8
@@ -3642,10 +3684,12 @@ define internal void @dissect_openflow_switch_config_v6(ptr noundef %0, ptr noun
   %32 = load ptr, ptr %6, align 8
   %33 = load i32, ptr %9, align 4
   %34 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %31, ptr noundef %32, i32 noundef %33, i32 noundef 2, i32 noundef 0)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_openflow_packet_in_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -3654,8 +3698,8 @@ define internal void @dissect_openflow_packet_in_v6(ptr noundef %0, ptr noundef 
   %10 = alloca i16, align 2
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
-  %13 = alloca i32, align 4
-  %14 = alloca i32, align 4
+  %13 = alloca i8, align 1
+  %14 = alloca i8, align 1
   %15 = alloca %struct._address, align 8
   %16 = alloca %struct._address, align 8
   %17 = alloca %struct._address, align 8
@@ -3667,6 +3711,16 @@ define internal void @dissect_openflow_packet_in_v6(ptr noundef %0, ptr noundef 
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 24, ptr %15) #5
+  call void @llvm.lifetime.start.p0(i64 24, ptr %16) #5
+  call void @llvm.lifetime.start.p0(i64 24, ptr %17) #5
+  call void @llvm.lifetime.start.p0(i64 24, ptr %18) #5
+  call void @llvm.lifetime.start.p0(i64 24, ptr %19) #5
+  call void @llvm.lifetime.start.p0(i64 24, ptr %20) #5
   %21 = load ptr, ptr %8, align 8
   %22 = load i32, ptr @hf_openflow_v6_packet_in_buffer_id, align 4
   %23 = load ptr, ptr %6, align 8
@@ -3726,7 +3780,7 @@ define internal void @dissect_openflow_packet_in_v6(ptr noundef %0, ptr noundef 
   %70 = load i16, ptr %10, align 2
   %71 = zext i16 %70 to i32
   %72 = icmp slt i32 %69, %71
-  br i1 %72, label %73, label %143
+  br i1 %72, label %73, label %149
 
 73:                                               ; preds = %5
   %74 = load ptr, ptr %8, align 8
@@ -3740,90 +3794,106 @@ define internal void @dissect_openflow_packet_in_v6(ptr noundef %0, ptr noundef 
   %82 = call ptr @proto_tree_add_subtree(ptr noundef %74, ptr noundef %75, i32 noundef %76, i32 noundef %80, i32 noundef %81, ptr noundef null, ptr noundef @.str.318)
   store ptr %82, ptr %11, align 8
   %83 = load ptr, ptr %7, align 8
-  %84 = getelementptr inbounds %struct._packet_info, ptr %83, i32 0, i32 1
+  %84 = getelementptr inbounds nuw %struct._packet_info, ptr %83, i32 0, i32 1
   %85 = load ptr, ptr %84, align 8
-  %86 = call i32 @col_get_writable(ptr noundef %85, i32 noundef -1)
-  store i32 %86, ptr %13, align 4
-  %87 = load ptr, ptr %7, align 8
-  %88 = getelementptr inbounds %struct._packet_info, ptr %87, i32 0, i32 21
-  %89 = load i8, ptr %88, align 4
-  %90 = and i8 %89, 1
-  %91 = zext i8 %90 to i32
-  store i32 %91, ptr %14, align 4
-  %92 = load ptr, ptr %7, align 8
-  %93 = getelementptr inbounds %struct._packet_info, ptr %92, i32 0, i32 12
-  call void @copy_address_shallow(ptr noundef %15, ptr noundef %93)
-  %94 = load ptr, ptr %7, align 8
-  %95 = getelementptr inbounds %struct._packet_info, ptr %94, i32 0, i32 13
-  call void @copy_address_shallow(ptr noundef %16, ptr noundef %95)
-  %96 = load ptr, ptr %7, align 8
-  %97 = getelementptr inbounds %struct._packet_info, ptr %96, i32 0, i32 14
-  call void @copy_address_shallow(ptr noundef %17, ptr noundef %97)
-  %98 = load ptr, ptr %7, align 8
-  %99 = getelementptr inbounds %struct._packet_info, ptr %98, i32 0, i32 15
-  call void @copy_address_shallow(ptr noundef %18, ptr noundef %99)
-  %100 = load ptr, ptr %7, align 8
-  %101 = getelementptr inbounds %struct._packet_info, ptr %100, i32 0, i32 16
-  call void @copy_address_shallow(ptr noundef %19, ptr noundef %101)
-  %102 = load ptr, ptr %7, align 8
-  %103 = getelementptr inbounds %struct._packet_info, ptr %102, i32 0, i32 17
-  call void @copy_address_shallow(ptr noundef %20, ptr noundef %103)
-  %104 = load ptr, ptr %7, align 8
-  %105 = getelementptr inbounds %struct._packet_info, ptr %104, i32 0, i32 1
-  %106 = load ptr, ptr %105, align 8
-  call void @col_set_writable(ptr noundef %106, i32 noundef -1, i32 noundef 0)
-  %107 = load ptr, ptr %6, align 8
-  %108 = load i32, ptr %9, align 4
-  %109 = load i16, ptr %10, align 2
-  %110 = zext i16 %109 to i32
+  %86 = call zeroext i1 @col_get_writable(ptr noundef %85, i32 noundef -1)
+  %87 = zext i1 %86 to i8
+  store i8 %87, ptr %13, align 1
+  %88 = load ptr, ptr %7, align 8
+  %89 = getelementptr inbounds nuw %struct._packet_info, ptr %88, i32 0, i32 22
+  %90 = load i8, ptr %89, align 4
+  %91 = and i8 %90, 1
+  %92 = zext i8 %91 to i32
+  %93 = icmp ne i32 %92, 0
+  %94 = zext i1 %93 to i8
+  store i8 %94, ptr %14, align 1
+  %95 = load ptr, ptr %7, align 8
+  %96 = getelementptr inbounds nuw %struct._packet_info, ptr %95, i32 0, i32 12
+  call void @copy_address_shallow(ptr noundef %15, ptr noundef %96)
+  %97 = load ptr, ptr %7, align 8
+  %98 = getelementptr inbounds nuw %struct._packet_info, ptr %97, i32 0, i32 13
+  call void @copy_address_shallow(ptr noundef %16, ptr noundef %98)
+  %99 = load ptr, ptr %7, align 8
+  %100 = getelementptr inbounds nuw %struct._packet_info, ptr %99, i32 0, i32 14
+  call void @copy_address_shallow(ptr noundef %17, ptr noundef %100)
+  %101 = load ptr, ptr %7, align 8
+  %102 = getelementptr inbounds nuw %struct._packet_info, ptr %101, i32 0, i32 15
+  call void @copy_address_shallow(ptr noundef %18, ptr noundef %102)
+  %103 = load ptr, ptr %7, align 8
+  %104 = getelementptr inbounds nuw %struct._packet_info, ptr %103, i32 0, i32 16
+  call void @copy_address_shallow(ptr noundef %19, ptr noundef %104)
+  %105 = load ptr, ptr %7, align 8
+  %106 = getelementptr inbounds nuw %struct._packet_info, ptr %105, i32 0, i32 17
+  call void @copy_address_shallow(ptr noundef %20, ptr noundef %106)
+  %107 = load ptr, ptr %7, align 8
+  %108 = getelementptr inbounds nuw %struct._packet_info, ptr %107, i32 0, i32 1
+  %109 = load ptr, ptr %108, align 8
+  call void @col_set_writable(ptr noundef %109, i32 noundef -1, i1 noundef zeroext false)
+  %110 = load ptr, ptr %6, align 8
   %111 = load i32, ptr %9, align 4
-  %112 = sub i32 %110, %111
-  %113 = call ptr @tvb_new_subset_length(ptr noundef %107, i32 noundef %108, i32 noundef %112)
-  store ptr %113, ptr %12, align 8
-  %114 = load ptr, ptr @eth_withoutfcs_handle, align 8
-  %115 = load ptr, ptr %12, align 8
-  %116 = load ptr, ptr %7, align 8
-  %117 = load ptr, ptr %11, align 8
-  %118 = call i32 @call_dissector(ptr noundef %114, ptr noundef %115, ptr noundef %116, ptr noundef %117)
+  %112 = load i16, ptr %10, align 2
+  %113 = zext i16 %112 to i32
+  %114 = load i32, ptr %9, align 4
+  %115 = sub i32 %113, %114
+  %116 = call ptr @tvb_new_subset_length(ptr noundef %110, i32 noundef %111, i32 noundef %115)
+  store ptr %116, ptr %12, align 8
+  %117 = load ptr, ptr @eth_withoutfcs_handle, align 8
+  %118 = load ptr, ptr %12, align 8
   %119 = load ptr, ptr %7, align 8
-  %120 = getelementptr inbounds %struct._packet_info, ptr %119, i32 0, i32 1
-  %121 = load ptr, ptr %120, align 8
-  %122 = load i32, ptr %13, align 4
-  call void @col_set_writable(ptr noundef %121, i32 noundef -1, i32 noundef %122)
-  %123 = load i32, ptr %14, align 4
-  %124 = load ptr, ptr %7, align 8
-  %125 = getelementptr inbounds %struct._packet_info, ptr %124, i32 0, i32 21
-  %126 = trunc i32 %123 to i8
-  %127 = load i8, ptr %125, align 4
-  %128 = and i8 %126, 1
-  %129 = and i8 %127, -2
-  %130 = or i8 %129, %128
-  store i8 %130, ptr %125, align 4
-  %131 = load ptr, ptr %7, align 8
-  %132 = getelementptr inbounds %struct._packet_info, ptr %131, i32 0, i32 12
-  call void @copy_address_shallow(ptr noundef %132, ptr noundef %15)
-  %133 = load ptr, ptr %7, align 8
-  %134 = getelementptr inbounds %struct._packet_info, ptr %133, i32 0, i32 13
-  call void @copy_address_shallow(ptr noundef %134, ptr noundef %16)
-  %135 = load ptr, ptr %7, align 8
-  %136 = getelementptr inbounds %struct._packet_info, ptr %135, i32 0, i32 14
-  call void @copy_address_shallow(ptr noundef %136, ptr noundef %17)
+  %120 = load ptr, ptr %11, align 8
+  %121 = call i32 @call_dissector(ptr noundef %117, ptr noundef %118, ptr noundef %119, ptr noundef %120)
+  %122 = load ptr, ptr %7, align 8
+  %123 = getelementptr inbounds nuw %struct._packet_info, ptr %122, i32 0, i32 1
+  %124 = load ptr, ptr %123, align 8
+  %125 = load i8, ptr %13, align 1, !range !8, !noundef !9
+  %126 = trunc i8 %125 to i1
+  call void @col_set_writable(ptr noundef %124, i32 noundef -1, i1 noundef zeroext %126)
+  %127 = load i8, ptr %14, align 1, !range !8, !noundef !9
+  %128 = trunc i8 %127 to i1
+  %129 = zext i1 %128 to i32
+  %130 = load ptr, ptr %7, align 8
+  %131 = getelementptr inbounds nuw %struct._packet_info, ptr %130, i32 0, i32 22
+  %132 = trunc i32 %129 to i8
+  %133 = load i8, ptr %131, align 4
+  %134 = and i8 %132, 1
+  %135 = and i8 %133, -2
+  %136 = or i8 %135, %134
+  store i8 %136, ptr %131, align 4
   %137 = load ptr, ptr %7, align 8
-  %138 = getelementptr inbounds %struct._packet_info, ptr %137, i32 0, i32 15
-  call void @copy_address_shallow(ptr noundef %138, ptr noundef %18)
+  %138 = getelementptr inbounds nuw %struct._packet_info, ptr %137, i32 0, i32 12
+  call void @copy_address_shallow(ptr noundef %138, ptr noundef %15)
   %139 = load ptr, ptr %7, align 8
-  %140 = getelementptr inbounds %struct._packet_info, ptr %139, i32 0, i32 16
-  call void @copy_address_shallow(ptr noundef %140, ptr noundef %19)
+  %140 = getelementptr inbounds nuw %struct._packet_info, ptr %139, i32 0, i32 13
+  call void @copy_address_shallow(ptr noundef %140, ptr noundef %16)
   %141 = load ptr, ptr %7, align 8
-  %142 = getelementptr inbounds %struct._packet_info, ptr %141, i32 0, i32 17
-  call void @copy_address_shallow(ptr noundef %142, ptr noundef %20)
-  br label %143
+  %142 = getelementptr inbounds nuw %struct._packet_info, ptr %141, i32 0, i32 14
+  call void @copy_address_shallow(ptr noundef %142, ptr noundef %17)
+  %143 = load ptr, ptr %7, align 8
+  %144 = getelementptr inbounds nuw %struct._packet_info, ptr %143, i32 0, i32 15
+  call void @copy_address_shallow(ptr noundef %144, ptr noundef %18)
+  %145 = load ptr, ptr %7, align 8
+  %146 = getelementptr inbounds nuw %struct._packet_info, ptr %145, i32 0, i32 16
+  call void @copy_address_shallow(ptr noundef %146, ptr noundef %19)
+  %147 = load ptr, ptr %7, align 8
+  %148 = getelementptr inbounds nuw %struct._packet_info, ptr %147, i32 0, i32 17
+  call void @copy_address_shallow(ptr noundef %148, ptr noundef %20)
+  br label %149
 
-143:                                              ; preds = %73, %5
+149:                                              ; preds = %73, %5
+  call void @llvm.lifetime.end.p0(i64 24, ptr %20) #5
+  call void @llvm.lifetime.end.p0(i64 24, ptr %19) #5
+  call void @llvm.lifetime.end.p0(i64 24, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 24, ptr %17) #5
+  call void @llvm.lifetime.end.p0(i64 24, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 24, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_openflow_flow_removed_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -3899,7 +3969,7 @@ define internal void @dissect_openflow_flow_removed_v6(ptr noundef %0, ptr nound
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_openflow_port_status_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -3936,7 +4006,7 @@ define internal void @dissect_openflow_port_status_v6(ptr noundef %0, ptr nounde
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_openflow_packet_out_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -3947,8 +4017,8 @@ define internal void @dissect_openflow_packet_out_v6(ptr noundef %0, ptr noundef
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
   %14 = alloca ptr, align 8
-  %15 = alloca i32, align 4
-  %16 = alloca i32, align 4
+  %15 = alloca i8, align 1
+  %16 = alloca i8, align 1
   %17 = alloca %struct._address, align 8
   %18 = alloca %struct._address, align 8
   %19 = alloca %struct._address, align 8
@@ -3960,6 +4030,18 @@ define internal void @dissect_openflow_packet_out_v6(ptr noundef %0, ptr noundef
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #5
+  call void @llvm.lifetime.start.p0(i64 1, ptr %16) #5
+  call void @llvm.lifetime.start.p0(i64 24, ptr %17) #5
+  call void @llvm.lifetime.start.p0(i64 24, ptr %18) #5
+  call void @llvm.lifetime.start.p0(i64 24, ptr %19) #5
+  call void @llvm.lifetime.start.p0(i64 24, ptr %20) #5
+  call void @llvm.lifetime.start.p0(i64 24, ptr %21) #5
+  call void @llvm.lifetime.start.p0(i64 24, ptr %22) #5
   %23 = load ptr, ptr %8, align 8
   %24 = load i32, ptr @hf_openflow_v6_packet_out_buffer_id, align 4
   %25 = load ptr, ptr %6, align 8
@@ -4011,14 +4093,14 @@ define internal void @dissect_openflow_packet_out_v6(ptr noundef %0, ptr noundef
   %62 = load i16, ptr %10, align 2
   %63 = call i32 @dissect_openflow_action_v6(ptr noundef %58, ptr noundef %59, ptr noundef %60, i32 noundef %61, i16 noundef zeroext %62)
   store i32 %63, ptr %9, align 4
-  br label %53, !llvm.loop !6
+  br label %53, !llvm.loop !10
 
 64:                                               ; preds = %53
   %65 = load i32, ptr %9, align 4
   %66 = load i16, ptr %10, align 2
   %67 = zext i16 %66 to i32
   %68 = icmp slt i32 %65, %67
-  br i1 %68, label %69, label %139
+  br i1 %68, label %69, label %145
 
 69:                                               ; preds = %64
   %70 = load ptr, ptr %8, align 8
@@ -4032,90 +4114,108 @@ define internal void @dissect_openflow_packet_out_v6(ptr noundef %0, ptr noundef
   %78 = call ptr @proto_tree_add_subtree(ptr noundef %70, ptr noundef %71, i32 noundef %72, i32 noundef %76, i32 noundef %77, ptr noundef null, ptr noundef @.str.318)
   store ptr %78, ptr %11, align 8
   %79 = load ptr, ptr %7, align 8
-  %80 = getelementptr inbounds %struct._packet_info, ptr %79, i32 0, i32 1
+  %80 = getelementptr inbounds nuw %struct._packet_info, ptr %79, i32 0, i32 1
   %81 = load ptr, ptr %80, align 8
-  %82 = call i32 @col_get_writable(ptr noundef %81, i32 noundef -1)
-  store i32 %82, ptr %15, align 4
-  %83 = load ptr, ptr %7, align 8
-  %84 = getelementptr inbounds %struct._packet_info, ptr %83, i32 0, i32 21
-  %85 = load i8, ptr %84, align 4
-  %86 = and i8 %85, 1
-  %87 = zext i8 %86 to i32
-  store i32 %87, ptr %16, align 4
-  %88 = load ptr, ptr %7, align 8
-  %89 = getelementptr inbounds %struct._packet_info, ptr %88, i32 0, i32 12
-  call void @copy_address_shallow(ptr noundef %17, ptr noundef %89)
-  %90 = load ptr, ptr %7, align 8
-  %91 = getelementptr inbounds %struct._packet_info, ptr %90, i32 0, i32 13
-  call void @copy_address_shallow(ptr noundef %18, ptr noundef %91)
-  %92 = load ptr, ptr %7, align 8
-  %93 = getelementptr inbounds %struct._packet_info, ptr %92, i32 0, i32 14
-  call void @copy_address_shallow(ptr noundef %19, ptr noundef %93)
-  %94 = load ptr, ptr %7, align 8
-  %95 = getelementptr inbounds %struct._packet_info, ptr %94, i32 0, i32 15
-  call void @copy_address_shallow(ptr noundef %20, ptr noundef %95)
-  %96 = load ptr, ptr %7, align 8
-  %97 = getelementptr inbounds %struct._packet_info, ptr %96, i32 0, i32 16
-  call void @copy_address_shallow(ptr noundef %21, ptr noundef %97)
-  %98 = load ptr, ptr %7, align 8
-  %99 = getelementptr inbounds %struct._packet_info, ptr %98, i32 0, i32 17
-  call void @copy_address_shallow(ptr noundef %22, ptr noundef %99)
-  %100 = load ptr, ptr %7, align 8
-  %101 = getelementptr inbounds %struct._packet_info, ptr %100, i32 0, i32 1
-  %102 = load ptr, ptr %101, align 8
-  call void @col_set_writable(ptr noundef %102, i32 noundef -1, i32 noundef 0)
-  %103 = load ptr, ptr %6, align 8
-  %104 = load i32, ptr %9, align 4
-  %105 = load i16, ptr %10, align 2
-  %106 = zext i16 %105 to i32
+  %82 = call zeroext i1 @col_get_writable(ptr noundef %81, i32 noundef -1)
+  %83 = zext i1 %82 to i8
+  store i8 %83, ptr %15, align 1
+  %84 = load ptr, ptr %7, align 8
+  %85 = getelementptr inbounds nuw %struct._packet_info, ptr %84, i32 0, i32 22
+  %86 = load i8, ptr %85, align 4
+  %87 = and i8 %86, 1
+  %88 = zext i8 %87 to i32
+  %89 = icmp ne i32 %88, 0
+  %90 = zext i1 %89 to i8
+  store i8 %90, ptr %16, align 1
+  %91 = load ptr, ptr %7, align 8
+  %92 = getelementptr inbounds nuw %struct._packet_info, ptr %91, i32 0, i32 12
+  call void @copy_address_shallow(ptr noundef %17, ptr noundef %92)
+  %93 = load ptr, ptr %7, align 8
+  %94 = getelementptr inbounds nuw %struct._packet_info, ptr %93, i32 0, i32 13
+  call void @copy_address_shallow(ptr noundef %18, ptr noundef %94)
+  %95 = load ptr, ptr %7, align 8
+  %96 = getelementptr inbounds nuw %struct._packet_info, ptr %95, i32 0, i32 14
+  call void @copy_address_shallow(ptr noundef %19, ptr noundef %96)
+  %97 = load ptr, ptr %7, align 8
+  %98 = getelementptr inbounds nuw %struct._packet_info, ptr %97, i32 0, i32 15
+  call void @copy_address_shallow(ptr noundef %20, ptr noundef %98)
+  %99 = load ptr, ptr %7, align 8
+  %100 = getelementptr inbounds nuw %struct._packet_info, ptr %99, i32 0, i32 16
+  call void @copy_address_shallow(ptr noundef %21, ptr noundef %100)
+  %101 = load ptr, ptr %7, align 8
+  %102 = getelementptr inbounds nuw %struct._packet_info, ptr %101, i32 0, i32 17
+  call void @copy_address_shallow(ptr noundef %22, ptr noundef %102)
+  %103 = load ptr, ptr %7, align 8
+  %104 = getelementptr inbounds nuw %struct._packet_info, ptr %103, i32 0, i32 1
+  %105 = load ptr, ptr %104, align 8
+  call void @col_set_writable(ptr noundef %105, i32 noundef -1, i1 noundef zeroext false)
+  %106 = load ptr, ptr %6, align 8
   %107 = load i32, ptr %9, align 4
-  %108 = sub i32 %106, %107
-  %109 = call ptr @tvb_new_subset_length(ptr noundef %103, i32 noundef %104, i32 noundef %108)
-  store ptr %109, ptr %14, align 8
-  %110 = load ptr, ptr @eth_withoutfcs_handle, align 8
-  %111 = load ptr, ptr %14, align 8
-  %112 = load ptr, ptr %7, align 8
-  %113 = load ptr, ptr %11, align 8
-  %114 = call i32 @call_dissector(ptr noundef %110, ptr noundef %111, ptr noundef %112, ptr noundef %113)
+  %108 = load i16, ptr %10, align 2
+  %109 = zext i16 %108 to i32
+  %110 = load i32, ptr %9, align 4
+  %111 = sub i32 %109, %110
+  %112 = call ptr @tvb_new_subset_length(ptr noundef %106, i32 noundef %107, i32 noundef %111)
+  store ptr %112, ptr %14, align 8
+  %113 = load ptr, ptr @eth_withoutfcs_handle, align 8
+  %114 = load ptr, ptr %14, align 8
   %115 = load ptr, ptr %7, align 8
-  %116 = getelementptr inbounds %struct._packet_info, ptr %115, i32 0, i32 1
-  %117 = load ptr, ptr %116, align 8
-  %118 = load i32, ptr %15, align 4
-  call void @col_set_writable(ptr noundef %117, i32 noundef -1, i32 noundef %118)
-  %119 = load i32, ptr %16, align 4
-  %120 = load ptr, ptr %7, align 8
-  %121 = getelementptr inbounds %struct._packet_info, ptr %120, i32 0, i32 21
-  %122 = trunc i32 %119 to i8
-  %123 = load i8, ptr %121, align 4
-  %124 = and i8 %122, 1
-  %125 = and i8 %123, -2
-  %126 = or i8 %125, %124
-  store i8 %126, ptr %121, align 4
-  %127 = load ptr, ptr %7, align 8
-  %128 = getelementptr inbounds %struct._packet_info, ptr %127, i32 0, i32 12
-  call void @copy_address_shallow(ptr noundef %128, ptr noundef %17)
-  %129 = load ptr, ptr %7, align 8
-  %130 = getelementptr inbounds %struct._packet_info, ptr %129, i32 0, i32 13
-  call void @copy_address_shallow(ptr noundef %130, ptr noundef %18)
-  %131 = load ptr, ptr %7, align 8
-  %132 = getelementptr inbounds %struct._packet_info, ptr %131, i32 0, i32 14
-  call void @copy_address_shallow(ptr noundef %132, ptr noundef %19)
+  %116 = load ptr, ptr %11, align 8
+  %117 = call i32 @call_dissector(ptr noundef %113, ptr noundef %114, ptr noundef %115, ptr noundef %116)
+  %118 = load ptr, ptr %7, align 8
+  %119 = getelementptr inbounds nuw %struct._packet_info, ptr %118, i32 0, i32 1
+  %120 = load ptr, ptr %119, align 8
+  %121 = load i8, ptr %15, align 1, !range !8, !noundef !9
+  %122 = trunc i8 %121 to i1
+  call void @col_set_writable(ptr noundef %120, i32 noundef -1, i1 noundef zeroext %122)
+  %123 = load i8, ptr %16, align 1, !range !8, !noundef !9
+  %124 = trunc i8 %123 to i1
+  %125 = zext i1 %124 to i32
+  %126 = load ptr, ptr %7, align 8
+  %127 = getelementptr inbounds nuw %struct._packet_info, ptr %126, i32 0, i32 22
+  %128 = trunc i32 %125 to i8
+  %129 = load i8, ptr %127, align 4
+  %130 = and i8 %128, 1
+  %131 = and i8 %129, -2
+  %132 = or i8 %131, %130
+  store i8 %132, ptr %127, align 4
   %133 = load ptr, ptr %7, align 8
-  %134 = getelementptr inbounds %struct._packet_info, ptr %133, i32 0, i32 15
-  call void @copy_address_shallow(ptr noundef %134, ptr noundef %20)
+  %134 = getelementptr inbounds nuw %struct._packet_info, ptr %133, i32 0, i32 12
+  call void @copy_address_shallow(ptr noundef %134, ptr noundef %17)
   %135 = load ptr, ptr %7, align 8
-  %136 = getelementptr inbounds %struct._packet_info, ptr %135, i32 0, i32 16
-  call void @copy_address_shallow(ptr noundef %136, ptr noundef %21)
+  %136 = getelementptr inbounds nuw %struct._packet_info, ptr %135, i32 0, i32 13
+  call void @copy_address_shallow(ptr noundef %136, ptr noundef %18)
   %137 = load ptr, ptr %7, align 8
-  %138 = getelementptr inbounds %struct._packet_info, ptr %137, i32 0, i32 17
-  call void @copy_address_shallow(ptr noundef %138, ptr noundef %22)
-  br label %139
+  %138 = getelementptr inbounds nuw %struct._packet_info, ptr %137, i32 0, i32 14
+  call void @copy_address_shallow(ptr noundef %138, ptr noundef %19)
+  %139 = load ptr, ptr %7, align 8
+  %140 = getelementptr inbounds nuw %struct._packet_info, ptr %139, i32 0, i32 15
+  call void @copy_address_shallow(ptr noundef %140, ptr noundef %20)
+  %141 = load ptr, ptr %7, align 8
+  %142 = getelementptr inbounds nuw %struct._packet_info, ptr %141, i32 0, i32 16
+  call void @copy_address_shallow(ptr noundef %142, ptr noundef %21)
+  %143 = load ptr, ptr %7, align 8
+  %144 = getelementptr inbounds nuw %struct._packet_info, ptr %143, i32 0, i32 17
+  call void @copy_address_shallow(ptr noundef %144, ptr noundef %22)
+  br label %145
 
-139:                                              ; preds = %69, %64
+145:                                              ; preds = %69, %64
+  call void @llvm.lifetime.end.p0(i64 24, ptr %22) #5
+  call void @llvm.lifetime.end.p0(i64 24, ptr %21) #5
+  call void @llvm.lifetime.end.p0(i64 24, ptr %20) #5
+  call void @llvm.lifetime.end.p0(i64 24, ptr %19) #5
+  call void @llvm.lifetime.end.p0(i64 24, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 24, ptr %17) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_openflow_flowmod_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -4129,6 +4229,8 @@ define internal void @dissect_openflow_flowmod_v6(ptr noundef %0, ptr noundef %1
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
   %13 = load ptr, ptr %8, align 8
   %14 = load i32, ptr @hf_openflow_v6_flowmod_cookie, align 4
   %15 = load ptr, ptr %6, align 8
@@ -4279,13 +4381,15 @@ define internal void @dissect_openflow_flowmod_v6(ptr noundef %0, ptr noundef %1
   %141 = load i16, ptr %10, align 2
   %142 = call i32 @dissect_openflow_instruction_v6(ptr noundef %137, ptr noundef %138, ptr noundef %139, i32 noundef %140, i16 noundef zeroext %141)
   store i32 %142, ptr %9, align 4
-  br label %131, !llvm.loop !7
+  br label %131, !llvm.loop !11
 
 143:                                              ; preds = %131
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_openflow_groupmod_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -4370,13 +4474,13 @@ define internal void @dissect_openflow_groupmod_v6(ptr noundef %0, ptr noundef %
   %70 = load i16, ptr %10, align 2
   %71 = call i32 @dissect_openflow_bucket_v6(ptr noundef %66, ptr noundef %67, ptr noundef %68, i32 noundef %69, i16 noundef zeroext %70)
   store i32 %71, ptr %9, align 4
-  br label %60, !llvm.loop !8
+  br label %60, !llvm.loop !12
 
 72:                                               ; preds = %60
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_openflow_portmod_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -4391,6 +4495,9 @@ define internal void @dissect_openflow_portmod_v6(ptr noundef %0, ptr noundef %1
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
   %14 = load ptr, ptr %8, align 8
   %15 = load i32, ptr @hf_openflow_v6_portmod_port_no, align 4
   %16 = load ptr, ptr %6, align 8
@@ -4506,13 +4613,16 @@ define internal void @dissect_openflow_portmod_v6(ptr noundef %0, ptr noundef %1
   %112 = load i16, ptr %10, align 2
   %113 = call i32 @dissect_openflow_portmod_prop_v6(ptr noundef %108, ptr noundef %109, ptr noundef %110, i32 noundef %111, i16 noundef zeroext %112)
   store i32 %113, ptr %9, align 4
-  br label %102, !llvm.loop !9
+  br label %102, !llvm.loop !13
 
 114:                                              ; preds = %102
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_openflow_tablemod_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -4527,6 +4637,9 @@ define internal void @dissect_openflow_tablemod_v6(ptr noundef %0, ptr noundef %
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
   %14 = load ptr, ptr %8, align 8
   %15 = load i32, ptr @hf_openflow_v6_tablemod_table_id, align 4
   %16 = load ptr, ptr %6, align 8
@@ -4594,13 +4707,16 @@ define internal void @dissect_openflow_tablemod_v6(ptr noundef %0, ptr noundef %
   br label %66
 
 65:                                               ; preds = %53
-  br label %48, !llvm.loop !10
+  br label %48, !llvm.loop !14
 
 66:                                               ; preds = %64, %48
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_openflow_multipart_request_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -4615,6 +4731,9 @@ define internal void @dissect_openflow_multipart_request_v6(ptr noundef %0, ptr 
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
   %14 = load ptr, ptr %8, align 8
   %15 = load i32, ptr @hf_openflow_v6_multipart_request_type, align 4
   %16 = load ptr, ptr %6, align 8
@@ -4650,231 +4769,210 @@ define internal void @dissect_openflow_multipart_request_v6(ptr noundef %0, ptr 
   %42 = add i32 %41, 4
   store i32 %42, ptr %9, align 4
   %43 = load i32, ptr %13, align 4
-  switch i32 %43, label %162 [
-    i32 0, label %44
-    i32 1, label %45
-    i32 2, label %51
-    i32 3, label %57
-    i32 4, label %58
-    i32 5, label %64
-    i32 6, label %70
-    i32 7, label %76
-    i32 8, label %77
-    i32 9, label %78
-    i32 10, label %84
-    i32 11, label %90
-    i32 12, label %91
-    i32 13, label %105
-    i32 14, label %106
-    i32 15, label %107
-    i32 16, label %113
-    i32 17, label %119
-    i32 18, label %125
-    i32 19, label %126
-    i32 65535, label %132
+  switch i32 %43, label %154 [
+    i32 0, label %164
+    i32 1, label %44
+    i32 2, label %50
+    i32 3, label %164
+    i32 4, label %56
+    i32 5, label %62
+    i32 6, label %68
+    i32 7, label %164
+    i32 8, label %164
+    i32 9, label %74
+    i32 10, label %80
+    i32 11, label %164
+    i32 12, label %86
+    i32 13, label %164
+    i32 14, label %164
+    i32 15, label %100
+    i32 16, label %106
+    i32 17, label %112
+    i32 18, label %164
+    i32 19, label %118
+    i32 65535, label %124
   ]
 
 44:                                               ; preds = %5
-  br label %172
+  %45 = load ptr, ptr %6, align 8
+  %46 = load ptr, ptr %7, align 8
+  %47 = load ptr, ptr %8, align 8
+  %48 = load i32, ptr %9, align 4
+  %49 = load i16, ptr %10, align 2
+  call void @dissect_openflow_flow_stats_request_v6(ptr noundef %45, ptr noundef %46, ptr noundef %47, i32 noundef %48, i16 noundef zeroext %49)
+  br label %164
 
-45:                                               ; preds = %5
-  %46 = load ptr, ptr %6, align 8
-  %47 = load ptr, ptr %7, align 8
-  %48 = load ptr, ptr %8, align 8
-  %49 = load i32, ptr %9, align 4
-  %50 = load i16, ptr %10, align 2
-  call void @dissect_openflow_flow_stats_request_v6(ptr noundef %46, ptr noundef %47, ptr noundef %48, i32 noundef %49, i16 noundef zeroext %50)
-  br label %172
+50:                                               ; preds = %5
+  %51 = load ptr, ptr %6, align 8
+  %52 = load ptr, ptr %7, align 8
+  %53 = load ptr, ptr %8, align 8
+  %54 = load i32, ptr %9, align 4
+  %55 = load i16, ptr %10, align 2
+  call void @dissect_openflow_aggregate_stats_request_v6(ptr noundef %51, ptr noundef %52, ptr noundef %53, i32 noundef %54, i16 noundef zeroext %55)
+  br label %164
 
-51:                                               ; preds = %5
-  %52 = load ptr, ptr %6, align 8
-  %53 = load ptr, ptr %7, align 8
-  %54 = load ptr, ptr %8, align 8
-  %55 = load i32, ptr %9, align 4
-  %56 = load i16, ptr %10, align 2
-  call void @dissect_openflow_aggregate_stats_request_v6(ptr noundef %52, ptr noundef %53, ptr noundef %54, i32 noundef %55, i16 noundef zeroext %56)
-  br label %172
+56:                                               ; preds = %5
+  %57 = load ptr, ptr %6, align 8
+  %58 = load ptr, ptr %7, align 8
+  %59 = load ptr, ptr %8, align 8
+  %60 = load i32, ptr %9, align 4
+  %61 = load i16, ptr %10, align 2
+  call void @dissect_openflow_port_stats_request_v6(ptr noundef %57, ptr noundef %58, ptr noundef %59, i32 noundef %60, i16 noundef zeroext %61)
+  br label %164
 
-57:                                               ; preds = %5
-  br label %172
+62:                                               ; preds = %5
+  %63 = load ptr, ptr %6, align 8
+  %64 = load ptr, ptr %7, align 8
+  %65 = load ptr, ptr %8, align 8
+  %66 = load i32, ptr %9, align 4
+  %67 = load i16, ptr %10, align 2
+  call void @dissect_openflow_queue_stats_request_v6(ptr noundef %63, ptr noundef %64, ptr noundef %65, i32 noundef %66, i16 noundef zeroext %67)
+  br label %164
 
-58:                                               ; preds = %5
-  %59 = load ptr, ptr %6, align 8
-  %60 = load ptr, ptr %7, align 8
-  %61 = load ptr, ptr %8, align 8
-  %62 = load i32, ptr %9, align 4
-  %63 = load i16, ptr %10, align 2
-  call void @dissect_openflow_port_stats_request_v6(ptr noundef %59, ptr noundef %60, ptr noundef %61, i32 noundef %62, i16 noundef zeroext %63)
-  br label %172
+68:                                               ; preds = %5
+  %69 = load ptr, ptr %6, align 8
+  %70 = load ptr, ptr %7, align 8
+  %71 = load ptr, ptr %8, align 8
+  %72 = load i32, ptr %9, align 4
+  %73 = load i16, ptr %10, align 2
+  call void @dissect_openflow_group_stats_request_v6(ptr noundef %69, ptr noundef %70, ptr noundef %71, i32 noundef %72, i16 noundef zeroext %73)
+  br label %164
 
-64:                                               ; preds = %5
-  %65 = load ptr, ptr %6, align 8
-  %66 = load ptr, ptr %7, align 8
-  %67 = load ptr, ptr %8, align 8
-  %68 = load i32, ptr %9, align 4
-  %69 = load i16, ptr %10, align 2
-  call void @dissect_openflow_queue_stats_request_v6(ptr noundef %65, ptr noundef %66, ptr noundef %67, i32 noundef %68, i16 noundef zeroext %69)
-  br label %172
+74:                                               ; preds = %5
+  %75 = load ptr, ptr %6, align 8
+  %76 = load ptr, ptr %7, align 8
+  %77 = load ptr, ptr %8, align 8
+  %78 = load i32, ptr %9, align 4
+  %79 = load i16, ptr %10, align 2
+  call void @dissect_openflow_meter_stats_request_v6(ptr noundef %75, ptr noundef %76, ptr noundef %77, i32 noundef %78, i16 noundef zeroext %79)
+  br label %164
 
-70:                                               ; preds = %5
-  %71 = load ptr, ptr %6, align 8
-  %72 = load ptr, ptr %7, align 8
-  %73 = load ptr, ptr %8, align 8
-  %74 = load i32, ptr %9, align 4
-  %75 = load i16, ptr %10, align 2
-  call void @dissect_openflow_group_stats_request_v6(ptr noundef %71, ptr noundef %72, ptr noundef %73, i32 noundef %74, i16 noundef zeroext %75)
-  br label %172
+80:                                               ; preds = %5
+  %81 = load ptr, ptr %6, align 8
+  %82 = load ptr, ptr %7, align 8
+  %83 = load ptr, ptr %8, align 8
+  %84 = load i32, ptr %9, align 4
+  %85 = load i16, ptr %10, align 2
+  call void @dissect_openflow_meter_desc_request_v6(ptr noundef %81, ptr noundef %82, ptr noundef %83, i32 noundef %84, i16 noundef zeroext %85)
+  br label %164
 
-76:                                               ; preds = %5
-  br label %172
+86:                                               ; preds = %5
+  br label %87
 
-77:                                               ; preds = %5
-  br label %172
-
-78:                                               ; preds = %5
-  %79 = load ptr, ptr %6, align 8
-  %80 = load ptr, ptr %7, align 8
-  %81 = load ptr, ptr %8, align 8
-  %82 = load i32, ptr %9, align 4
-  %83 = load i16, ptr %10, align 2
-  call void @dissect_openflow_meter_stats_request_v6(ptr noundef %79, ptr noundef %80, ptr noundef %81, i32 noundef %82, i16 noundef zeroext %83)
-  br label %172
-
-84:                                               ; preds = %5
-  %85 = load ptr, ptr %6, align 8
-  %86 = load ptr, ptr %7, align 8
-  %87 = load ptr, ptr %8, align 8
+87:                                               ; preds = %92, %86
   %88 = load i32, ptr %9, align 4
   %89 = load i16, ptr %10, align 2
-  call void @dissect_openflow_meter_desc_request_v6(ptr noundef %85, ptr noundef %86, ptr noundef %87, i32 noundef %88, i16 noundef zeroext %89)
-  br label %172
+  %90 = zext i16 %89 to i32
+  %91 = icmp slt i32 %88, %90
+  br i1 %91, label %92, label %99
 
-90:                                               ; preds = %5
-  br label %172
+92:                                               ; preds = %87
+  %93 = load ptr, ptr %6, align 8
+  %94 = load ptr, ptr %7, align 8
+  %95 = load ptr, ptr %8, align 8
+  %96 = load i32, ptr %9, align 4
+  %97 = load i16, ptr %10, align 2
+  %98 = call i32 @dissect_openflow_table_features_v6(ptr noundef %93, ptr noundef %94, ptr noundef %95, i32 noundef %96, i16 noundef zeroext %97)
+  store i32 %98, ptr %9, align 4
+  br label %87, !llvm.loop !15
 
-91:                                               ; preds = %5
-  br label %92
+99:                                               ; preds = %87
+  br label %164
 
-92:                                               ; preds = %97, %91
-  %93 = load i32, ptr %9, align 4
-  %94 = load i16, ptr %10, align 2
-  %95 = zext i16 %94 to i32
-  %96 = icmp slt i32 %93, %95
-  br i1 %96, label %97, label %104
-
-97:                                               ; preds = %92
-  %98 = load ptr, ptr %6, align 8
-  %99 = load ptr, ptr %7, align 8
-  %100 = load ptr, ptr %8, align 8
-  %101 = load i32, ptr %9, align 4
-  %102 = load i16, ptr %10, align 2
-  %103 = call i32 @dissect_openflow_table_features_v6(ptr noundef %98, ptr noundef %99, ptr noundef %100, i32 noundef %101, i16 noundef zeroext %102)
-  store i32 %103, ptr %9, align 4
-  br label %92, !llvm.loop !11
-
-104:                                              ; preds = %92
-  br label %172
-
-105:                                              ; preds = %5
-  br label %172
+100:                                              ; preds = %5
+  %101 = load ptr, ptr %6, align 8
+  %102 = load ptr, ptr %7, align 8
+  %103 = load ptr, ptr %8, align 8
+  %104 = load i32, ptr %9, align 4
+  %105 = load i16, ptr %10, align 2
+  call void @dissect_openflow_queue_desc_request_v6(ptr noundef %101, ptr noundef %102, ptr noundef %103, i32 noundef %104, i16 noundef zeroext %105)
+  br label %164
 
 106:                                              ; preds = %5
-  br label %172
+  %107 = load ptr, ptr %6, align 8
+  %108 = load ptr, ptr %7, align 8
+  %109 = load ptr, ptr %8, align 8
+  %110 = load i32, ptr %9, align 4
+  %111 = load i16, ptr %10, align 2
+  call void @dissect_openflow_flow_monitor_request_v6(ptr noundef %107, ptr noundef %108, ptr noundef %109, i32 noundef %110, i16 noundef zeroext %111)
+  br label %164
 
-107:                                              ; preds = %5
-  %108 = load ptr, ptr %6, align 8
-  %109 = load ptr, ptr %7, align 8
-  %110 = load ptr, ptr %8, align 8
-  %111 = load i32, ptr %9, align 4
-  %112 = load i16, ptr %10, align 2
-  call void @dissect_openflow_queue_desc_request_v6(ptr noundef %108, ptr noundef %109, ptr noundef %110, i32 noundef %111, i16 noundef zeroext %112)
-  br label %172
+112:                                              ; preds = %5
+  %113 = load ptr, ptr %6, align 8
+  %114 = load ptr, ptr %7, align 8
+  %115 = load ptr, ptr %8, align 8
+  %116 = load i32, ptr %9, align 4
+  %117 = load i16, ptr %10, align 2
+  call void @dissect_openflow_flow_stats_request_v6(ptr noundef %113, ptr noundef %114, ptr noundef %115, i32 noundef %116, i16 noundef zeroext %117)
+  br label %164
 
-113:                                              ; preds = %5
-  %114 = load ptr, ptr %6, align 8
-  %115 = load ptr, ptr %7, align 8
-  %116 = load ptr, ptr %8, align 8
-  %117 = load i32, ptr %9, align 4
-  %118 = load i16, ptr %10, align 2
-  call void @dissect_openflow_flow_monitor_request_v6(ptr noundef %114, ptr noundef %115, ptr noundef %116, i32 noundef %117, i16 noundef zeroext %118)
-  br label %172
+118:                                              ; preds = %5
+  %119 = load ptr, ptr %6, align 8
+  %120 = load ptr, ptr %7, align 8
+  %121 = load ptr, ptr %8, align 8
+  %122 = load i32, ptr %9, align 4
+  %123 = load i16, ptr %10, align 2
+  call void @dissect_openflow_bundle_features_request_v6(ptr noundef %119, ptr noundef %120, ptr noundef %121, i32 noundef %122, i16 noundef zeroext %123)
+  br label %164
 
-119:                                              ; preds = %5
-  %120 = load ptr, ptr %6, align 8
-  %121 = load ptr, ptr %7, align 8
-  %122 = load ptr, ptr %8, align 8
-  %123 = load i32, ptr %9, align 4
-  %124 = load i16, ptr %10, align 2
-  call void @dissect_openflow_flow_stats_request_v6(ptr noundef %120, ptr noundef %121, ptr noundef %122, i32 noundef %123, i16 noundef zeroext %124)
-  br label %172
-
-125:                                              ; preds = %5
-  br label %172
-
-126:                                              ; preds = %5
+124:                                              ; preds = %5
+  %125 = load ptr, ptr %8, align 8
+  %126 = load i32, ptr @hf_openflow_v6_multipart_request_experimenter_experimenter, align 4
   %127 = load ptr, ptr %6, align 8
-  %128 = load ptr, ptr %7, align 8
-  %129 = load ptr, ptr %8, align 8
+  %128 = load i32, ptr %9, align 4
+  %129 = call ptr @proto_tree_add_item(ptr noundef %125, i32 noundef %126, ptr noundef %127, i32 noundef %128, i32 noundef 4, i32 noundef 0)
   %130 = load i32, ptr %9, align 4
-  %131 = load i16, ptr %10, align 2
-  call void @dissect_openflow_bundle_features_request_v6(ptr noundef %127, ptr noundef %128, ptr noundef %129, i32 noundef %130, i16 noundef zeroext %131)
-  br label %172
+  %131 = add i32 %130, 4
+  store i32 %131, ptr %9, align 4
+  %132 = load ptr, ptr %8, align 8
+  %133 = load i32, ptr @hf_openflow_v6_multipart_request_experimenter_exp_type, align 4
+  %134 = load ptr, ptr %6, align 8
+  %135 = load i32, ptr %9, align 4
+  %136 = call ptr @proto_tree_add_item(ptr noundef %132, i32 noundef %133, ptr noundef %134, i32 noundef %135, i32 noundef 4, i32 noundef 0)
+  %137 = load i32, ptr %9, align 4
+  %138 = add i32 %137, 4
+  store i32 %138, ptr %9, align 4
+  %139 = load i32, ptr %9, align 4
+  %140 = load i16, ptr %10, align 2
+  %141 = zext i16 %140 to i32
+  %142 = icmp slt i32 %139, %141
+  br i1 %142, label %143, label %153
 
-132:                                              ; preds = %5
-  %133 = load ptr, ptr %8, align 8
-  %134 = load i32, ptr @hf_openflow_v6_multipart_request_experimenter_experimenter, align 4
-  %135 = load ptr, ptr %6, align 8
-  %136 = load i32, ptr %9, align 4
-  %137 = call ptr @proto_tree_add_item(ptr noundef %133, i32 noundef %134, ptr noundef %135, i32 noundef %136, i32 noundef 4, i32 noundef 0)
-  %138 = load i32, ptr %9, align 4
-  %139 = add i32 %138, 4
-  store i32 %139, ptr %9, align 4
-  %140 = load ptr, ptr %8, align 8
-  %141 = load i32, ptr @hf_openflow_v6_multipart_request_experimenter_exp_type, align 4
-  %142 = load ptr, ptr %6, align 8
-  %143 = load i32, ptr %9, align 4
-  %144 = call ptr @proto_tree_add_item(ptr noundef %140, i32 noundef %141, ptr noundef %142, i32 noundef %143, i32 noundef 4, i32 noundef 0)
-  %145 = load i32, ptr %9, align 4
-  %146 = add i32 %145, 4
-  store i32 %146, ptr %9, align 4
+143:                                              ; preds = %124
+  %144 = load ptr, ptr %8, align 8
+  %145 = load ptr, ptr %7, align 8
+  %146 = load ptr, ptr %6, align 8
   %147 = load i32, ptr %9, align 4
   %148 = load i16, ptr %10, align 2
   %149 = zext i16 %148 to i32
-  %150 = icmp slt i32 %147, %149
-  br i1 %150, label %151, label %161
+  %150 = load i32, ptr %9, align 4
+  %151 = sub i32 %149, %150
+  %152 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %144, ptr noundef %145, ptr noundef @ei_openflow_v6_multipart_request_undecoded, ptr noundef %146, i32 noundef %147, i32 noundef %151, ptr noundef @.str.1608)
+  br label %153
 
-151:                                              ; preds = %132
-  %152 = load ptr, ptr %8, align 8
-  %153 = load ptr, ptr %7, align 8
-  %154 = load ptr, ptr %6, align 8
-  %155 = load i32, ptr %9, align 4
-  %156 = load i16, ptr %10, align 2
-  %157 = zext i16 %156 to i32
+153:                                              ; preds = %143, %124
+  br label %164
+
+154:                                              ; preds = %5
+  %155 = load ptr, ptr %8, align 8
+  %156 = load ptr, ptr %7, align 8
+  %157 = load ptr, ptr %6, align 8
   %158 = load i32, ptr %9, align 4
-  %159 = sub i32 %157, %158
-  %160 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %152, ptr noundef %153, ptr noundef @ei_openflow_v6_multipart_request_undecoded, ptr noundef %154, i32 noundef %155, i32 noundef %159, ptr noundef @.str.1539)
-  br label %161
+  %159 = load i16, ptr %10, align 2
+  %160 = zext i16 %159 to i32
+  %161 = load i32, ptr %9, align 4
+  %162 = sub i32 %160, %161
+  %163 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %155, ptr noundef %156, ptr noundef @ei_openflow_v6_multipart_request_undecoded, ptr noundef %157, i32 noundef %158, i32 noundef %162, ptr noundef @.str.1055)
+  br label %164
 
-161:                                              ; preds = %151, %132
-  br label %172
-
-162:                                              ; preds = %5
-  %163 = load ptr, ptr %8, align 8
-  %164 = load ptr, ptr %7, align 8
-  %165 = load ptr, ptr %6, align 8
-  %166 = load i32, ptr %9, align 4
-  %167 = load i16, ptr %10, align 2
-  %168 = zext i16 %167 to i32
-  %169 = load i32, ptr %9, align 4
-  %170 = sub i32 %168, %169
-  %171 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %163, ptr noundef %164, ptr noundef @ei_openflow_v6_multipart_request_undecoded, ptr noundef %165, i32 noundef %166, i32 noundef %170, ptr noundef @.str.1055)
-  br label %172
-
-172:                                              ; preds = %162, %161, %126, %125, %119, %113, %107, %106, %105, %104, %90, %84, %78, %77, %76, %70, %64, %58, %57, %51, %45, %44
+164:                                              ; preds = %154, %153, %118, %5, %112, %106, %100, %5, %5, %99, %5, %80, %5, %5, %5, %5, %74, %68, %62, %56, %50, %44
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_openflow_multipart_reply_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -4889,6 +4987,9 @@ define internal void @dissect_openflow_multipart_reply_v6(ptr noundef %0, ptr no
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
   %14 = load ptr, ptr %8, align 8
   %15 = load i32, ptr @hf_openflow_v6_multipart_reply_type, align 4
   %16 = load ptr, ptr %6, align 8
@@ -4992,7 +5093,7 @@ define internal void @dissect_openflow_multipart_reply_v6(ptr noundef %0, ptr no
   %74 = load i16, ptr %10, align 2
   %75 = call i32 @dissect_openflow_table_stats_v6(ptr noundef %70, ptr noundef %71, ptr noundef %72, i32 noundef %73, i16 noundef zeroext %74)
   store i32 %75, ptr %9, align 4
-  br label %64, !llvm.loop !12
+  br label %64, !llvm.loop !16
 
 76:                                               ; preds = %64
   br label %296
@@ -5015,7 +5116,7 @@ define internal void @dissect_openflow_multipart_reply_v6(ptr noundef %0, ptr no
   %88 = load i16, ptr %10, align 2
   %89 = call i32 @dissect_openflow_port_stats_v6(ptr noundef %84, ptr noundef %85, ptr noundef %86, i32 noundef %87, i16 noundef zeroext %88)
   store i32 %89, ptr %9, align 4
-  br label %78, !llvm.loop !13
+  br label %78, !llvm.loop !17
 
 90:                                               ; preds = %78
   br label %296
@@ -5038,7 +5139,7 @@ define internal void @dissect_openflow_multipart_reply_v6(ptr noundef %0, ptr no
   %102 = load i16, ptr %10, align 2
   %103 = call i32 @dissect_openflow_queue_stats_v6(ptr noundef %98, ptr noundef %99, ptr noundef %100, i32 noundef %101, i16 noundef zeroext %102)
   store i32 %103, ptr %9, align 4
-  br label %92, !llvm.loop !14
+  br label %92, !llvm.loop !18
 
 104:                                              ; preds = %92
   br label %296
@@ -5061,7 +5162,7 @@ define internal void @dissect_openflow_multipart_reply_v6(ptr noundef %0, ptr no
   %116 = load i16, ptr %10, align 2
   %117 = call i32 @dissect_openflow_group_stats_v6(ptr noundef %112, ptr noundef %113, ptr noundef %114, i32 noundef %115, i16 noundef zeroext %116)
   store i32 %117, ptr %9, align 4
-  br label %106, !llvm.loop !15
+  br label %106, !llvm.loop !19
 
 118:                                              ; preds = %106
   br label %296
@@ -5084,7 +5185,7 @@ define internal void @dissect_openflow_multipart_reply_v6(ptr noundef %0, ptr no
   %130 = load i16, ptr %10, align 2
   %131 = call i32 @dissect_openflow_group_desc_v6(ptr noundef %126, ptr noundef %127, ptr noundef %128, i32 noundef %129, i16 noundef zeroext %130)
   store i32 %131, ptr %9, align 4
-  br label %120, !llvm.loop !16
+  br label %120, !llvm.loop !20
 
 132:                                              ; preds = %120
   br label %296
@@ -5116,7 +5217,7 @@ define internal void @dissect_openflow_multipart_reply_v6(ptr noundef %0, ptr no
   %150 = load i16, ptr %10, align 2
   %151 = call i32 @dissect_openflow_meter_stats_v6(ptr noundef %146, ptr noundef %147, ptr noundef %148, i32 noundef %149, i16 noundef zeroext %150)
   store i32 %151, ptr %9, align 4
-  br label %140, !llvm.loop !17
+  br label %140, !llvm.loop !21
 
 152:                                              ; preds = %140
   br label %296
@@ -5139,7 +5240,7 @@ define internal void @dissect_openflow_multipart_reply_v6(ptr noundef %0, ptr no
   %164 = load i16, ptr %10, align 2
   %165 = call i32 @dissect_openflow_meter_desc_v6(ptr noundef %160, ptr noundef %161, ptr noundef %162, i32 noundef %163, i16 noundef zeroext %164)
   store i32 %165, ptr %9, align 4
-  br label %154, !llvm.loop !18
+  br label %154, !llvm.loop !22
 
 166:                                              ; preds = %154
   br label %296
@@ -5171,7 +5272,7 @@ define internal void @dissect_openflow_multipart_reply_v6(ptr noundef %0, ptr no
   %184 = load i16, ptr %10, align 2
   %185 = call i32 @dissect_openflow_table_features_v6(ptr noundef %180, ptr noundef %181, ptr noundef %182, i32 noundef %183, i16 noundef zeroext %184)
   store i32 %185, ptr %9, align 4
-  br label %174, !llvm.loop !19
+  br label %174, !llvm.loop !23
 
 186:                                              ; preds = %174
   br label %296
@@ -5194,7 +5295,7 @@ define internal void @dissect_openflow_multipart_reply_v6(ptr noundef %0, ptr no
   %198 = load i16, ptr %10, align 2
   %199 = call i32 @dissect_openflow_port_v6(ptr noundef %194, ptr noundef %195, ptr noundef %196, i32 noundef %197, i16 noundef zeroext %198)
   store i32 %199, ptr %9, align 4
-  br label %188, !llvm.loop !20
+  br label %188, !llvm.loop !24
 
 200:                                              ; preds = %188
   br label %296
@@ -5217,7 +5318,7 @@ define internal void @dissect_openflow_multipart_reply_v6(ptr noundef %0, ptr no
   %212 = load i16, ptr %10, align 2
   %213 = call i32 @dissect_openflow_table_desc_v6(ptr noundef %208, ptr noundef %209, ptr noundef %210, i32 noundef %211, i16 noundef zeroext %212)
   store i32 %213, ptr %9, align 4
-  br label %202, !llvm.loop !21
+  br label %202, !llvm.loop !25
 
 214:                                              ; preds = %202
   br label %296
@@ -5240,7 +5341,7 @@ define internal void @dissect_openflow_multipart_reply_v6(ptr noundef %0, ptr no
   %226 = load i16, ptr %10, align 2
   %227 = call i32 @dissect_openflow_queue_desc_v6(ptr noundef %222, ptr noundef %223, ptr noundef %224, i32 noundef %225, i16 noundef zeroext %226)
   store i32 %227, ptr %9, align 4
-  br label %216, !llvm.loop !22
+  br label %216, !llvm.loop !26
 
 228:                                              ; preds = %216
   br label %296
@@ -5263,7 +5364,7 @@ define internal void @dissect_openflow_multipart_reply_v6(ptr noundef %0, ptr no
   %240 = load i16, ptr %10, align 2
   %241 = call i32 @dissect_openflow_flow_update_v6(ptr noundef %236, ptr noundef %237, ptr noundef %238, i32 noundef %239, i16 noundef zeroext %240)
   store i32 %241, ptr %9, align 4
-  br label %230, !llvm.loop !23
+  br label %230, !llvm.loop !27
 
 242:                                              ; preds = %230
   br label %296
@@ -5286,7 +5387,7 @@ define internal void @dissect_openflow_multipart_reply_v6(ptr noundef %0, ptr no
   %254 = load i16, ptr %10, align 2
   %255 = call i32 @dissect_openflow_flow_stats_v6(ptr noundef %250, ptr noundef %251, ptr noundef %252, i32 noundef %253, i16 noundef zeroext %254)
   store i32 %255, ptr %9, align 4
-  br label %244, !llvm.loop !24
+  br label %244, !llvm.loop !28
 
 256:                                              ; preds = %244
   br label %296
@@ -5324,7 +5425,7 @@ define internal void @dissect_openflow_multipart_reply_v6(ptr noundef %0, ptr no
   %283 = load i16, ptr %10, align 2
   %284 = zext i16 %283 to i32
   %285 = sub i32 %284, 16
-  %286 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %279, ptr noundef %280, ptr noundef @ei_openflow_v6_multipart_reply_undecoded, ptr noundef %281, i32 noundef %282, i32 noundef %285, ptr noundef @.str.1550)
+  %286 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %279, ptr noundef %280, ptr noundef @ei_openflow_v6_multipart_reply_undecoded, ptr noundef %281, i32 noundef %282, i32 noundef %285, ptr noundef @.str.1619)
   br label %296
 
 287:                                              ; preds = %5
@@ -5339,10 +5440,13 @@ define internal void @dissect_openflow_multipart_reply_v6(ptr noundef %0, ptr no
   br label %296
 
 296:                                              ; preds = %287, %264, %257, %256, %242, %228, %214, %200, %186, %167, %166, %152, %133, %132, %118, %104, %90, %76, %57, %50, %44
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_openflow_role_request_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -5378,7 +5482,7 @@ define internal void @dissect_openflow_role_request_v6(ptr noundef %0, ptr nound
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_openflow_role_reply_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -5414,7 +5518,7 @@ define internal void @dissect_openflow_role_reply_v6(ptr noundef %0, ptr noundef
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_openflow_async_config_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -5443,13 +5547,13 @@ define internal void @dissect_openflow_async_config_v6(ptr noundef %0, ptr nound
   %21 = load i16, ptr %10, align 2
   %22 = call i32 @dissect_openflow_async_config_prop_v6(ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef %20, i16 noundef zeroext %21)
   store i32 %22, ptr %9, align 4
-  br label %11, !llvm.loop !25
+  br label %11, !llvm.loop !29
 
 23:                                               ; preds = %11
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_openflow_metermod_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -5463,6 +5567,8 @@ define internal void @dissect_openflow_metermod_v6(ptr noundef %0, ptr noundef %
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
   %13 = load ptr, ptr %8, align 8
   %14 = load i32, ptr @hf_openflow_v6_metermod_command, align 4
   %15 = load ptr, ptr %6, align 8
@@ -5529,13 +5635,15 @@ define internal void @dissect_openflow_metermod_v6(ptr noundef %0, ptr noundef %
   %67 = load i16, ptr %10, align 2
   %68 = call i32 @dissect_openflow_meter_band_v6(ptr noundef %63, ptr noundef %64, ptr noundef %65, i32 noundef %66, i16 noundef zeroext %67)
   store i32 %68, ptr %9, align 4
-  br label %57, !llvm.loop !26
+  br label %57, !llvm.loop !30
 
 69:                                               ; preds = %57
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_openflow_role_status_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -5579,7 +5687,7 @@ define internal void @dissect_openflow_role_status_v6(ptr noundef %0, ptr nounde
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_openflow_table_status_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -5616,7 +5724,7 @@ define internal void @dissect_openflow_table_status_v6(ptr noundef %0, ptr nound
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_openflow_requestforward_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -5631,11 +5739,14 @@ define internal void @dissect_openflow_requestforward_v6(ptr noundef %0, ptr nou
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #5
   %14 = load ptr, ptr %8, align 8
   %15 = load ptr, ptr %6, align 8
   %16 = load i32, ptr %9, align 4
   %17 = load i32, ptr @ett_openflow_v6_requestforward_request, align 4
-  %18 = call ptr @proto_tree_add_subtree(ptr noundef %14, ptr noundef %15, i32 noundef %16, i32 noundef -1, i32 noundef %17, ptr noundef %11, ptr noundef @.str.1577)
+  %18 = call ptr @proto_tree_add_subtree(ptr noundef %14, ptr noundef %15, i32 noundef %16, i32 noundef -1, i32 noundef %17, ptr noundef %11, ptr noundef @.str.1646)
   store ptr %18, ptr %12, align 8
   %19 = load i32, ptr %9, align 4
   %20 = trunc i32 %19 to i16
@@ -5652,10 +5763,13 @@ define internal void @dissect_openflow_requestforward_v6(ptr noundef %0, ptr nou
   %29 = zext i16 %28 to i32
   %30 = sub i32 %27, %29
   call void @proto_item_set_len(ptr noundef %26, i32 noundef %30)
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_openflow_bundle_control_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -5669,6 +5783,8 @@ define internal void @dissect_openflow_bundle_control_v6(ptr noundef %0, ptr nou
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
   %13 = load ptr, ptr %8, align 8
   %14 = load i32, ptr @hf_openflow_v6_bundle_control_bundle_id, align 4
   %15 = load ptr, ptr %6, align 8
@@ -5725,13 +5841,15 @@ define internal void @dissect_openflow_bundle_control_v6(ptr noundef %0, ptr nou
   %57 = load i16, ptr %10, align 2
   %58 = call i32 @dissect_openflow_bundle_prop_v6(ptr noundef %53, ptr noundef %54, ptr noundef %55, i32 noundef %56, i16 noundef zeroext %57)
   store i32 %58, ptr %9, align 4
-  br label %47, !llvm.loop !27
+  br label %47, !llvm.loop !31
 
 59:                                               ; preds = %47
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_openflow_bundle_add_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -5747,6 +5865,10 @@ define internal void @dissect_openflow_bundle_add_v6(ptr noundef %0, ptr noundef
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 2, ptr %14) #5
   %15 = load ptr, ptr %8, align 8
   %16 = load i32, ptr @hf_openflow_v6_bundle_add_bundle_id, align 4
   %17 = load ptr, ptr %6, align 8
@@ -5790,7 +5912,7 @@ define internal void @dissect_openflow_bundle_add_v6(ptr noundef %0, ptr noundef
   %50 = load ptr, ptr %6, align 8
   %51 = load i32, ptr %9, align 4
   %52 = load i32, ptr @ett_openflow_v6_bundle_add_message, align 4
-  %53 = call ptr @proto_tree_add_subtree(ptr noundef %49, ptr noundef %50, i32 noundef %51, i32 noundef -1, i32 noundef %52, ptr noundef %11, ptr noundef @.str.1580)
+  %53 = call ptr @proto_tree_add_subtree(ptr noundef %49, ptr noundef %50, i32 noundef %51, i32 noundef -1, i32 noundef %52, ptr noundef %11, ptr noundef @.str.1649)
   store ptr %53, ptr %13, align 8
   %54 = load i32, ptr %9, align 4
   %55 = trunc i32 %54 to i16
@@ -5824,13 +5946,17 @@ define internal void @dissect_openflow_bundle_add_v6(ptr noundef %0, ptr noundef
   %76 = load i16, ptr %10, align 2
   %77 = call i32 @dissect_openflow_bundle_prop_v6(ptr noundef %72, ptr noundef %73, ptr noundef %74, i32 noundef %75, i16 noundef zeroext %76)
   store i32 %77, ptr %9, align 4
-  br label %66, !llvm.loop !28
+  br label %66, !llvm.loop !32
 
 78:                                               ; preds = %66
+  call void @llvm.lifetime.end.p0(i64 2, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openflow_controller_status_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -5900,9 +6026,10 @@ define internal i32 @dissect_openflow_controller_status_v6(ptr noundef %0, ptr n
   ret i32 %59
 }
 
-declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openflow_hello_element_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -5918,6 +6045,10 @@ define internal i32 @dissect_openflow_hello_element_v6(ptr noundef %0, ptr nound
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 2, ptr %14) #5
   %15 = load ptr, ptr %8, align 8
   %16 = load ptr, ptr %6, align 8
   %17 = load i32, ptr %9, align 4
@@ -5926,7 +6057,7 @@ define internal i32 @dissect_openflow_hello_element_v6(ptr noundef %0, ptr nound
   %20 = load i32, ptr %9, align 4
   %21 = sub i32 %19, %20
   %22 = load i32, ptr @ett_openflow_v6_hello_element, align 4
-  %23 = call ptr @proto_tree_add_subtree(ptr noundef %15, ptr noundef %16, i32 noundef %17, i32 noundef %21, i32 noundef %22, ptr noundef null, ptr noundef @.str.1509)
+  %23 = call ptr @proto_tree_add_subtree(ptr noundef %15, ptr noundef %16, i32 noundef %17, i32 noundef %21, i32 noundef %22, ptr noundef null, ptr noundef @.str.1577)
   store ptr %23, ptr %11, align 8
   %24 = load ptr, ptr %11, align 8
   %25 = load i32, ptr @hf_openflow_v6_hello_element_type, align 4
@@ -6030,18 +6161,26 @@ define internal i32 @dissect_openflow_hello_element_v6(ptr noundef %0, ptr nound
 
 100:                                              ; preds = %88, %84
   %101 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret i32 %101
 }
 
-declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #2
 
-declare void @col_set_writable(ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_writable(ptr noundef, i32 noundef, i1 noundef zeroext) #2
 
-declare ptr @proto_tree_add_bits_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_bits_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openflow_match_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -6055,199 +6194,219 @@ define internal i32 @dissect_openflow_match_v6(ptr noundef %0, ptr noundef %1, p
   %15 = alloca i16, align 2
   %16 = alloca i32, align 4
   %17 = alloca i16, align 2
+  %18 = alloca i32, align 4
   store ptr %0, ptr %7, align 8
   store ptr %1, ptr %8, align 8
   store ptr %2, ptr %9, align 8
   store i32 %3, ptr %10, align 4
   store i16 %4, ptr %11, align 2
-  %18 = load ptr, ptr %9, align 8
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr %10, align 4
-  %21 = load i32, ptr @ett_openflow_v6_match, align 4
-  %22 = call ptr @proto_tree_add_subtree(ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef -1, i32 noundef %21, ptr noundef %12, ptr noundef @.str.1513)
-  store ptr %22, ptr %13, align 8
-  %23 = load ptr, ptr %13, align 8
-  %24 = load i32, ptr @hf_openflow_v6_match_type, align 4
-  %25 = load ptr, ptr %7, align 8
-  %26 = load i32, ptr %10, align 4
-  %27 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %23, i32 noundef %24, ptr noundef %25, i32 noundef %26, i32 noundef 2, i32 noundef 0, ptr noundef %14)
-  %28 = load i32, ptr %10, align 4
-  %29 = add i32 %28, 2
-  store i32 %29, ptr %10, align 4
-  %30 = load ptr, ptr %7, align 8
-  %31 = load i32, ptr %10, align 4
-  %32 = call zeroext i16 @tvb_get_ntohs(ptr noundef %30, i32 noundef %31)
-  store i16 %32, ptr %15, align 2
-  %33 = load i16, ptr %15, align 2
-  %34 = zext i16 %33 to i32
-  %35 = add i32 %34, 7
-  %36 = sdiv i32 %35, 8
-  %37 = mul i32 %36, 8
-  %38 = load i16, ptr %15, align 2
-  %39 = zext i16 %38 to i32
-  %40 = sub i32 %37, %39
-  %41 = trunc i32 %40 to i16
-  store i16 %41, ptr %17, align 2
-  %42 = load ptr, ptr %12, align 8
-  %43 = load i16, ptr %15, align 2
-  %44 = zext i16 %43 to i32
-  %45 = load i16, ptr %17, align 2
-  %46 = zext i16 %45 to i32
-  %47 = add i32 %44, %46
-  call void @proto_item_set_len(ptr noundef %42, i32 noundef %47)
-  %48 = load ptr, ptr %13, align 8
-  %49 = load i32, ptr @hf_openflow_v6_match_length, align 4
-  %50 = load ptr, ptr %7, align 8
-  %51 = load i32, ptr %10, align 4
-  %52 = call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %49, ptr noundef %50, i32 noundef %51, i32 noundef 2, i32 noundef 0)
-  store ptr %52, ptr %12, align 8
-  %53 = load i32, ptr %10, align 4
-  %54 = add i32 %53, 2
-  store i32 %54, ptr %10, align 4
-  %55 = load i16, ptr %15, align 2
-  %56 = zext i16 %55 to i32
-  %57 = icmp slt i32 %56, 4
-  br i1 %57, label %58, label %63
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 2, ptr %15) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #5
+  call void @llvm.lifetime.start.p0(i64 2, ptr %17) #5
+  %19 = load ptr, ptr %9, align 8
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr %10, align 4
+  %22 = load i32, ptr @ett_openflow_v6_match, align 4
+  %23 = call ptr @proto_tree_add_subtree(ptr noundef %19, ptr noundef %20, i32 noundef %21, i32 noundef -1, i32 noundef %22, ptr noundef %12, ptr noundef @.str.1581)
+  store ptr %23, ptr %13, align 8
+  %24 = load ptr, ptr %13, align 8
+  %25 = load i32, ptr @hf_openflow_v6_match_type, align 4
+  %26 = load ptr, ptr %7, align 8
+  %27 = load i32, ptr %10, align 4
+  %28 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %24, i32 noundef %25, ptr noundef %26, i32 noundef %27, i32 noundef 2, i32 noundef 0, ptr noundef %14)
+  %29 = load i32, ptr %10, align 4
+  %30 = add i32 %29, 2
+  store i32 %30, ptr %10, align 4
+  %31 = load ptr, ptr %7, align 8
+  %32 = load i32, ptr %10, align 4
+  %33 = call zeroext i16 @tvb_get_ntohs(ptr noundef %31, i32 noundef %32)
+  store i16 %33, ptr %15, align 2
+  %34 = load i16, ptr %15, align 2
+  %35 = zext i16 %34 to i32
+  %36 = add i32 %35, 7
+  %37 = sdiv i32 %36, 8
+  %38 = mul i32 %37, 8
+  %39 = load i16, ptr %15, align 2
+  %40 = zext i16 %39 to i32
+  %41 = sub i32 %38, %40
+  %42 = trunc i32 %41 to i16
+  store i16 %42, ptr %17, align 2
+  %43 = load ptr, ptr %12, align 8
+  %44 = load i16, ptr %15, align 2
+  %45 = zext i16 %44 to i32
+  %46 = load i16, ptr %17, align 2
+  %47 = zext i16 %46 to i32
+  %48 = add i32 %45, %47
+  call void @proto_item_set_len(ptr noundef %43, i32 noundef %48)
+  %49 = load ptr, ptr %13, align 8
+  %50 = load i32, ptr @hf_openflow_v6_match_length, align 4
+  %51 = load ptr, ptr %7, align 8
+  %52 = load i32, ptr %10, align 4
+  %53 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %50, ptr noundef %51, i32 noundef %52, i32 noundef 2, i32 noundef 0)
+  store ptr %53, ptr %12, align 8
+  %54 = load i32, ptr %10, align 4
+  %55 = add i32 %54, 2
+  store i32 %55, ptr %10, align 4
+  %56 = load i16, ptr %15, align 2
+  %57 = zext i16 %56 to i32
+  %58 = icmp slt i32 %57, 4
+  br i1 %58, label %59, label %64
 
-58:                                               ; preds = %5
-  %59 = load ptr, ptr %8, align 8
-  %60 = load ptr, ptr %12, align 8
-  %61 = call ptr @expert_add_info(ptr noundef %59, ptr noundef %60, ptr noundef @ei_openflow_v6_length_too_short)
-  %62 = load i32, ptr %10, align 4
-  store i32 %62, ptr %6, align 4
-  br label %129
+59:                                               ; preds = %5
+  %60 = load ptr, ptr %8, align 8
+  %61 = load ptr, ptr %12, align 8
+  %62 = call ptr @expert_add_info(ptr noundef %60, ptr noundef %61, ptr noundef @ei_openflow_v6_length_too_short)
+  %63 = load i32, ptr %10, align 4
+  store i32 %63, ptr %6, align 4
+  store i32 1, ptr %18, align 4
+  br label %130
 
-63:                                               ; preds = %5
-  %64 = load i32, ptr %14, align 4
-  switch i32 %64, label %97 [
-    i32 0, label %65
-    i32 1, label %79
+64:                                               ; preds = %5
+  %65 = load i32, ptr %14, align 4
+  switch i32 %65, label %98 [
+    i32 0, label %66
+    i32 1, label %80
   ]
 
-65:                                               ; preds = %63
-  %66 = load ptr, ptr %13, align 8
-  %67 = load ptr, ptr %8, align 8
-  %68 = load ptr, ptr %7, align 8
-  %69 = load i32, ptr %10, align 4
-  %70 = load i16, ptr %15, align 2
-  %71 = zext i16 %70 to i32
-  %72 = sub i32 %71, 4
-  %73 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %66, ptr noundef %67, ptr noundef @ei_openflow_v6_match_undecoded, ptr noundef %68, i32 noundef %69, i32 noundef %72, ptr noundef @.str.1514)
-  %74 = load i16, ptr %15, align 2
-  %75 = zext i16 %74 to i32
-  %76 = sub i32 %75, 4
-  %77 = load i32, ptr %10, align 4
-  %78 = add i32 %77, %76
-  store i32 %78, ptr %10, align 4
-  br label %111
+66:                                               ; preds = %64
+  %67 = load ptr, ptr %13, align 8
+  %68 = load ptr, ptr %8, align 8
+  %69 = load ptr, ptr %7, align 8
+  %70 = load i32, ptr %10, align 4
+  %71 = load i16, ptr %15, align 2
+  %72 = zext i16 %71 to i32
+  %73 = sub i32 %72, 4
+  %74 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %67, ptr noundef %68, ptr noundef @ei_openflow_v6_match_undecoded, ptr noundef %69, i32 noundef %70, i32 noundef %73, ptr noundef @.str.1582)
+  %75 = load i16, ptr %15, align 2
+  %76 = zext i16 %75 to i32
+  %77 = sub i32 %76, 4
+  %78 = load i32, ptr %10, align 4
+  %79 = add i32 %78, %77
+  store i32 %79, ptr %10, align 4
+  br label %112
 
-79:                                               ; preds = %63
-  %80 = load i32, ptr %10, align 4
-  %81 = load i16, ptr %15, align 2
-  %82 = zext i16 %81 to i32
-  %83 = add i32 %80, %82
-  %84 = sub i32 %83, 4
-  store i32 %84, ptr %16, align 4
-  br label %85
+80:                                               ; preds = %64
+  %81 = load i32, ptr %10, align 4
+  %82 = load i16, ptr %15, align 2
+  %83 = zext i16 %82 to i32
+  %84 = add i32 %81, %83
+  %85 = sub i32 %84, 4
+  store i32 %85, ptr %16, align 4
+  br label %86
 
-85:                                               ; preds = %89, %79
-  %86 = load i32, ptr %10, align 4
-  %87 = load i32, ptr %16, align 4
-  %88 = icmp slt i32 %86, %87
-  br i1 %88, label %89, label %96
+86:                                               ; preds = %90, %80
+  %87 = load i32, ptr %10, align 4
+  %88 = load i32, ptr %16, align 4
+  %89 = icmp slt i32 %87, %88
+  br i1 %89, label %90, label %97
 
-89:                                               ; preds = %85
-  %90 = load ptr, ptr %7, align 8
-  %91 = load ptr, ptr %8, align 8
-  %92 = load ptr, ptr %13, align 8
-  %93 = load i32, ptr %10, align 4
-  %94 = load i16, ptr %11, align 2
-  %95 = call i32 @dissect_openflow_oxm_v6(ptr noundef %90, ptr noundef %91, ptr noundef %92, i32 noundef %93, i16 noundef zeroext %94)
-  store i32 %95, ptr %10, align 4
-  br label %85, !llvm.loop !29
+90:                                               ; preds = %86
+  %91 = load ptr, ptr %7, align 8
+  %92 = load ptr, ptr %8, align 8
+  %93 = load ptr, ptr %13, align 8
+  %94 = load i32, ptr %10, align 4
+  %95 = load i16, ptr %11, align 2
+  %96 = call i32 @dissect_openflow_oxm_v6(ptr noundef %91, ptr noundef %92, ptr noundef %93, i32 noundef %94, i16 noundef zeroext %95)
+  store i32 %96, ptr %10, align 4
+  br label %86, !llvm.loop !33
 
-96:                                               ; preds = %85
-  br label %111
+97:                                               ; preds = %86
+  br label %112
 
-97:                                               ; preds = %63
-  %98 = load ptr, ptr %13, align 8
-  %99 = load ptr, ptr %8, align 8
-  %100 = load ptr, ptr %7, align 8
-  %101 = load i32, ptr %10, align 4
-  %102 = load i16, ptr %15, align 2
-  %103 = zext i16 %102 to i32
-  %104 = sub i32 %103, 4
-  %105 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %98, ptr noundef %99, ptr noundef @ei_openflow_v6_match_undecoded, ptr noundef %100, i32 noundef %101, i32 noundef %104, ptr noundef @.str.1031)
-  %106 = load i16, ptr %15, align 2
-  %107 = zext i16 %106 to i32
-  %108 = sub i32 %107, 4
-  %109 = load i32, ptr %10, align 4
-  %110 = add i32 %109, %108
-  store i32 %110, ptr %10, align 4
-  br label %111
+98:                                               ; preds = %64
+  %99 = load ptr, ptr %13, align 8
+  %100 = load ptr, ptr %8, align 8
+  %101 = load ptr, ptr %7, align 8
+  %102 = load i32, ptr %10, align 4
+  %103 = load i16, ptr %15, align 2
+  %104 = zext i16 %103 to i32
+  %105 = sub i32 %104, 4
+  %106 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %99, ptr noundef %100, ptr noundef @ei_openflow_v6_match_undecoded, ptr noundef %101, i32 noundef %102, i32 noundef %105, ptr noundef @.str.1031)
+  %107 = load i16, ptr %15, align 2
+  %108 = zext i16 %107 to i32
+  %109 = sub i32 %108, 4
+  %110 = load i32, ptr %10, align 4
+  %111 = add i32 %110, %109
+  store i32 %111, ptr %10, align 4
+  br label %112
 
-111:                                              ; preds = %97, %96, %65
-  %112 = load i16, ptr %17, align 2
-  %113 = zext i16 %112 to i32
-  %114 = icmp sgt i32 %113, 0
-  br i1 %114, label %115, label %127
+112:                                              ; preds = %98, %97, %66
+  %113 = load i16, ptr %17, align 2
+  %114 = zext i16 %113 to i32
+  %115 = icmp sgt i32 %114, 0
+  br i1 %115, label %116, label %128
 
-115:                                              ; preds = %111
-  %116 = load ptr, ptr %13, align 8
-  %117 = load i32, ptr @hf_openflow_v6_match_pad, align 4
-  %118 = load ptr, ptr %7, align 8
-  %119 = load i32, ptr %10, align 4
-  %120 = load i16, ptr %17, align 2
-  %121 = zext i16 %120 to i32
-  %122 = call ptr @proto_tree_add_item(ptr noundef %116, i32 noundef %117, ptr noundef %118, i32 noundef %119, i32 noundef %121, i32 noundef 0)
-  %123 = load i16, ptr %17, align 2
-  %124 = zext i16 %123 to i32
-  %125 = load i32, ptr %10, align 4
-  %126 = add i32 %125, %124
-  store i32 %126, ptr %10, align 4
-  br label %127
+116:                                              ; preds = %112
+  %117 = load ptr, ptr %13, align 8
+  %118 = load i32, ptr @hf_openflow_v6_match_pad, align 4
+  %119 = load ptr, ptr %7, align 8
+  %120 = load i32, ptr %10, align 4
+  %121 = load i16, ptr %17, align 2
+  %122 = zext i16 %121 to i32
+  %123 = call ptr @proto_tree_add_item(ptr noundef %117, i32 noundef %118, ptr noundef %119, i32 noundef %120, i32 noundef %122, i32 noundef 0)
+  %124 = load i16, ptr %17, align 2
+  %125 = zext i16 %124 to i32
+  %126 = load i32, ptr %10, align 4
+  %127 = add i32 %126, %125
+  store i32 %127, ptr %10, align 4
+  br label %128
 
-127:                                              ; preds = %115, %111
-  %128 = load i32, ptr %10, align 4
-  store i32 %128, ptr %6, align 4
-  br label %129
+128:                                              ; preds = %116, %112
+  %129 = load i32, ptr %10, align 4
+  store i32 %129, ptr %6, align 4
+  store i32 1, ptr %18, align 4
+  br label %130
 
-129:                                              ; preds = %127, %58
-  %130 = load i32, ptr %6, align 4
-  ret i32 %130
+130:                                              ; preds = %128, %59
+  call void @llvm.lifetime.end.p0(i64 2, ptr %17) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 2, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  %131 = load i32, ptr %6, align 4
+  ret i32 %131
 }
 
-declare i32 @col_get_writable(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @col_get_writable(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal void @copy_address_shallow(ptr noundef %0, ptr noundef %1) #0 {
+; Function Attrs: inlinehint null_pointer_is_valid sspstrong uwtable
+define internal void @copy_address_shallow(ptr noundef %0, ptr noundef %1) #3 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %struct._address, ptr %6, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %struct._address, ptr %6, i32 0, i32 0
   %8 = load i32, ptr %7, align 8
   %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %struct._address, ptr %9, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %struct._address, ptr %9, i32 0, i32 1
   %11 = load i32, ptr %10, align 4
   %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %struct._address, ptr %12, i32 0, i32 2
+  %13 = getelementptr inbounds nuw %struct._address, ptr %12, i32 0, i32 2
   %14 = load ptr, ptr %13, align 8
   call void @set_address(ptr noundef %5, i32 noundef %8, i32 noundef %11, ptr noundef %14)
   ret void
 }
 
-declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) #2
 
-declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @proto_item_set_len(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_set_len(ptr noundef, i32 noundef) #2
 
-declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openflow_oxm_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -6265,21 +6424,27 @@ define internal i32 @dissect_openflow_oxm_v6(ptr noundef %0, ptr noundef %1, ptr
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 2, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #5
   %17 = load ptr, ptr %6, align 8
   %18 = load i32, ptr %9, align 4
   %19 = add i32 %18, 3
-  %20 = call zeroext i8 @tvb_get_guint8(ptr noundef %17, i32 noundef %19)
+  %20 = call zeroext i8 @tvb_get_uint8(ptr noundef %17, i32 noundef %19)
   %21 = zext i8 %20 to i32
-  %22 = getelementptr inbounds %struct.oxm_header, ptr %13, i32 0, i32 3
+  %22 = getelementptr inbounds nuw %struct.oxm_header, ptr %13, i32 0, i32 3
   store i32 %21, ptr %22, align 4
   %23 = load ptr, ptr %8, align 8
   %24 = load ptr, ptr %6, align 8
   %25 = load i32, ptr %9, align 4
-  %26 = getelementptr inbounds %struct.oxm_header, ptr %13, i32 0, i32 3
+  %26 = getelementptr inbounds nuw %struct.oxm_header, ptr %13, i32 0, i32 3
   %27 = load i32, ptr %26, align 4
   %28 = add i32 %27, 4
   %29 = load i32, ptr @ett_openflow_v6_oxm, align 4
-  %30 = call ptr @proto_tree_add_subtree(ptr noundef %23, ptr noundef %24, i32 noundef %25, i32 noundef %28, i32 noundef %29, ptr noundef null, ptr noundef @.str.1515)
+  %30 = call ptr @proto_tree_add_subtree(ptr noundef %23, ptr noundef %24, i32 noundef %25, i32 noundef %28, i32 noundef %29, ptr noundef null, ptr noundef @.str.1583)
   store ptr %30, ptr %11, align 8
   %31 = load ptr, ptr %6, align 8
   %32 = load ptr, ptr %7, align 8
@@ -6290,461 +6455,471 @@ define internal i32 @dissect_openflow_oxm_v6(ptr noundef %0, ptr noundef %1, ptr
   store i32 %36, ptr %9, align 4
   %37 = load i32, ptr %9, align 4
   %38 = add i32 %37, 4
-  %39 = getelementptr inbounds %struct.oxm_header, ptr %13, i32 0, i32 3
+  %39 = getelementptr inbounds nuw %struct.oxm_header, ptr %13, i32 0, i32 3
   %40 = load i32, ptr %39, align 4
   %41 = add i32 %38, %40
   %42 = trunc i32 %41 to i16
   store i16 %42, ptr %12, align 2
-  %43 = getelementptr inbounds %struct.oxm_header, ptr %13, i32 0, i32 1
-  %44 = load i32, ptr %43, align 4
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %46, label %49
+  %43 = getelementptr inbounds nuw %struct.oxm_header, ptr %13, i32 0, i32 1
+  %44 = load i8, ptr %43, align 4, !range !8, !noundef !9
+  %45 = trunc i8 %44 to i1
+  %46 = zext i1 %45 to i32
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %48, label %51
 
-46:                                               ; preds = %5
-  %47 = getelementptr inbounds %struct.oxm_header, ptr %13, i32 0, i32 3
-  %48 = load i32, ptr %47, align 4
-  br label %53
+48:                                               ; preds = %5
+  %49 = getelementptr inbounds nuw %struct.oxm_header, ptr %13, i32 0, i32 3
+  %50 = load i32, ptr %49, align 4
+  br label %55
 
-49:                                               ; preds = %5
-  %50 = getelementptr inbounds %struct.oxm_header, ptr %13, i32 0, i32 3
-  %51 = load i32, ptr %50, align 4
-  %52 = udiv i32 %51, 2
-  br label %53
+51:                                               ; preds = %5
+  %52 = getelementptr inbounds nuw %struct.oxm_header, ptr %13, i32 0, i32 3
+  %53 = load i32, ptr %52, align 4
+  %54 = udiv i32 %53, 2
+  br label %55
 
-53:                                               ; preds = %49, %46
-  %54 = phi i32 [ %48, %46 ], [ %52, %49 ]
-  %55 = trunc i32 %54 to i8
-  store i8 %55, ptr %14, align 1
-  %56 = getelementptr inbounds %struct.oxm_header, ptr %13, i32 0, i32 0
-  %57 = load i32, ptr %56, align 4
-  %58 = icmp eq i32 %57, 32768
-  br i1 %58, label %59, label %278
+55:                                               ; preds = %51, %48
+  %56 = phi i32 [ %50, %48 ], [ %54, %51 ]
+  %57 = trunc i32 %56 to i8
+  store i8 %57, ptr %14, align 1
+  %58 = getelementptr inbounds nuw %struct.oxm_header, ptr %13, i32 0, i32 0
+  %59 = load i32, ptr %58, align 4
+  %60 = icmp eq i32 %59, 32768
+  br i1 %60, label %61, label %282
 
-59:                                               ; preds = %53
-  %60 = getelementptr inbounds %struct.oxm_header, ptr %13, i32 0, i32 2
-  %61 = load i32, ptr %60, align 4
-  switch i32 %61, label %223 [
-    i32 0, label %62
-    i32 1, label %62
-    i32 43, label %62
-    i32 3, label %70
-    i32 4, label %70
-    i32 24, label %70
-    i32 25, label %70
-    i32 32, label %70
-    i32 33, label %70
-    i32 5, label %90
-    i32 6, label %98
-    i32 10, label %123
-    i32 11, label %131
-    i32 12, label %131
-    i32 22, label %131
-    i32 23, label %131
-    i32 13, label %151
-    i32 14, label %151
-    i32 15, label %151
-    i32 16, label %151
-    i32 17, label %151
-    i32 18, label %151
-    i32 26, label %159
-    i32 27, label %159
-    i32 34, label %179
-    i32 44, label %205
+61:                                               ; preds = %55
+  %62 = getelementptr inbounds nuw %struct.oxm_header, ptr %13, i32 0, i32 2
+  %63 = load i32, ptr %62, align 4
+  switch i32 %63, label %225 [
+    i32 0, label %64
+    i32 1, label %64
+    i32 43, label %64
+    i32 3, label %72
+    i32 4, label %72
+    i32 24, label %72
+    i32 25, label %72
+    i32 32, label %72
+    i32 33, label %72
+    i32 5, label %92
+    i32 6, label %100
+    i32 10, label %125
+    i32 11, label %133
+    i32 12, label %133
+    i32 22, label %133
+    i32 23, label %133
+    i32 13, label %153
+    i32 14, label %153
+    i32 15, label %153
+    i32 16, label %153
+    i32 17, label %153
+    i32 18, label %153
+    i32 26, label %161
+    i32 27, label %161
+    i32 34, label %181
+    i32 44, label %207
   ]
 
-62:                                               ; preds = %59, %59, %59
-  %63 = load ptr, ptr %11, align 8
-  %64 = load i32, ptr @hf_openflow_v6_oxm_value_uint32, align 4
-  %65 = load ptr, ptr %6, align 8
-  %66 = load i32, ptr %9, align 4
-  %67 = call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %64, ptr noundef %65, i32 noundef %66, i32 noundef 4, i32 noundef 0)
+64:                                               ; preds = %61, %61, %61
+  %65 = load ptr, ptr %11, align 8
+  %66 = load i32, ptr @hf_openflow_v6_oxm_value_uint32, align 4
+  %67 = load ptr, ptr %6, align 8
   %68 = load i32, ptr %9, align 4
-  %69 = add i32 %68, 4
-  store i32 %69, ptr %9, align 4
-  br label %260
+  %69 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %66, ptr noundef %67, i32 noundef %68, i32 noundef 4, i32 noundef 0)
+  %70 = load i32, ptr %9, align 4
+  %71 = add i32 %70, 4
+  store i32 %71, ptr %9, align 4
+  br label %264
 
-70:                                               ; preds = %59, %59, %59, %59, %59, %59
-  %71 = load ptr, ptr %11, align 8
-  %72 = load i32, ptr @hf_openflow_v6_oxm_value_etheraddr, align 4
-  %73 = load ptr, ptr %6, align 8
-  %74 = load i32, ptr %9, align 4
-  %75 = call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %72, ptr noundef %73, i32 noundef %74, i32 noundef 6, i32 noundef 0)
+72:                                               ; preds = %61, %61, %61, %61, %61, %61
+  %73 = load ptr, ptr %11, align 8
+  %74 = load i32, ptr @hf_openflow_v6_oxm_value_etheraddr, align 4
+  %75 = load ptr, ptr %6, align 8
   %76 = load i32, ptr %9, align 4
-  %77 = add i32 %76, 6
-  store i32 %77, ptr %9, align 4
-  %78 = getelementptr inbounds %struct.oxm_header, ptr %13, i32 0, i32 1
-  %79 = load i32, ptr %78, align 4
-  %80 = icmp ne i32 %79, 0
-  br i1 %80, label %81, label %89
+  %77 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %74, ptr noundef %75, i32 noundef %76, i32 noundef 6, i32 noundef 0)
+  %78 = load i32, ptr %9, align 4
+  %79 = add i32 %78, 6
+  store i32 %79, ptr %9, align 4
+  %80 = getelementptr inbounds nuw %struct.oxm_header, ptr %13, i32 0, i32 1
+  %81 = load i8, ptr %80, align 4, !range !8, !noundef !9
+  %82 = trunc i8 %81 to i1
+  br i1 %82, label %83, label %91
 
-81:                                               ; preds = %70
-  %82 = load ptr, ptr %11, align 8
-  %83 = load i32, ptr @hf_openflow_v6_oxm_mask_etheraddr, align 4
-  %84 = load ptr, ptr %6, align 8
-  %85 = load i32, ptr %9, align 4
-  %86 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %83, ptr noundef %84, i32 noundef %85, i32 noundef 6, i32 noundef 0)
+83:                                               ; preds = %72
+  %84 = load ptr, ptr %11, align 8
+  %85 = load i32, ptr @hf_openflow_v6_oxm_mask_etheraddr, align 4
+  %86 = load ptr, ptr %6, align 8
   %87 = load i32, ptr %9, align 4
-  %88 = add i32 %87, 6
-  store i32 %88, ptr %9, align 4
-  br label %89
+  %88 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %85, ptr noundef %86, i32 noundef %87, i32 noundef 6, i32 noundef 0)
+  %89 = load i32, ptr %9, align 4
+  %90 = add i32 %89, 6
+  store i32 %90, ptr %9, align 4
+  br label %91
 
-89:                                               ; preds = %81, %70
-  br label %260
+91:                                               ; preds = %83, %72
+  br label %264
 
-90:                                               ; preds = %59
-  %91 = load ptr, ptr %11, align 8
-  %92 = load i32, ptr @hf_openflow_v6_oxm_value_ethertype, align 4
-  %93 = load ptr, ptr %6, align 8
-  %94 = load i32, ptr %9, align 4
-  %95 = call ptr @proto_tree_add_item(ptr noundef %91, i32 noundef %92, ptr noundef %93, i32 noundef %94, i32 noundef 2, i32 noundef 0)
+92:                                               ; preds = %61
+  %93 = load ptr, ptr %11, align 8
+  %94 = load i32, ptr @hf_openflow_v6_oxm_value_ethertype, align 4
+  %95 = load ptr, ptr %6, align 8
   %96 = load i32, ptr %9, align 4
-  %97 = add i32 %96, 2
-  store i32 %97, ptr %9, align 4
-  br label %260
+  %97 = call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %94, ptr noundef %95, i32 noundef %96, i32 noundef 2, i32 noundef 0)
+  %98 = load i32, ptr %9, align 4
+  %99 = add i32 %98, 2
+  store i32 %99, ptr %9, align 4
+  br label %264
 
-98:                                               ; preds = %59
-  %99 = load ptr, ptr %11, align 8
-  %100 = load i32, ptr @hf_openflow_v6_oxm_value_vlan_present, align 4
-  %101 = load ptr, ptr %6, align 8
-  %102 = load i32, ptr %9, align 4
-  %103 = call ptr @proto_tree_add_item(ptr noundef %99, i32 noundef %100, ptr noundef %101, i32 noundef %102, i32 noundef 2, i32 noundef 0)
-  %104 = load ptr, ptr %11, align 8
-  %105 = load i32, ptr @hf_openflow_v6_oxm_value_vlan_vid, align 4
-  %106 = load ptr, ptr %6, align 8
-  %107 = load i32, ptr %9, align 4
-  %108 = call ptr @proto_tree_add_item(ptr noundef %104, i32 noundef %105, ptr noundef %106, i32 noundef %107, i32 noundef 2, i32 noundef 0)
+100:                                              ; preds = %61
+  %101 = load ptr, ptr %11, align 8
+  %102 = load i32, ptr @hf_openflow_v6_oxm_value_vlan_present, align 4
+  %103 = load ptr, ptr %6, align 8
+  %104 = load i32, ptr %9, align 4
+  %105 = call ptr @proto_tree_add_item(ptr noundef %101, i32 noundef %102, ptr noundef %103, i32 noundef %104, i32 noundef 2, i32 noundef 0)
+  %106 = load ptr, ptr %11, align 8
+  %107 = load i32, ptr @hf_openflow_v6_oxm_value_vlan_vid, align 4
+  %108 = load ptr, ptr %6, align 8
   %109 = load i32, ptr %9, align 4
-  %110 = add i32 %109, 2
-  store i32 %110, ptr %9, align 4
-  %111 = getelementptr inbounds %struct.oxm_header, ptr %13, i32 0, i32 1
-  %112 = load i32, ptr %111, align 4
-  %113 = icmp ne i32 %112, 0
-  br i1 %113, label %114, label %122
+  %110 = call ptr @proto_tree_add_item(ptr noundef %106, i32 noundef %107, ptr noundef %108, i32 noundef %109, i32 noundef 2, i32 noundef 0)
+  %111 = load i32, ptr %9, align 4
+  %112 = add i32 %111, 2
+  store i32 %112, ptr %9, align 4
+  %113 = getelementptr inbounds nuw %struct.oxm_header, ptr %13, i32 0, i32 1
+  %114 = load i8, ptr %113, align 4, !range !8, !noundef !9
+  %115 = trunc i8 %114 to i1
+  br i1 %115, label %116, label %124
 
-114:                                              ; preds = %98
-  %115 = load ptr, ptr %11, align 8
-  %116 = load i32, ptr @hf_openflow_v6_oxm_mask_vlan, align 4
-  %117 = load ptr, ptr %6, align 8
-  %118 = load i32, ptr %9, align 4
-  %119 = call ptr @proto_tree_add_item(ptr noundef %115, i32 noundef %116, ptr noundef %117, i32 noundef %118, i32 noundef 2, i32 noundef 0)
+116:                                              ; preds = %100
+  %117 = load ptr, ptr %11, align 8
+  %118 = load i32, ptr @hf_openflow_v6_oxm_mask_vlan, align 4
+  %119 = load ptr, ptr %6, align 8
   %120 = load i32, ptr %9, align 4
-  %121 = add i32 %120, 2
-  store i32 %121, ptr %9, align 4
-  br label %122
+  %121 = call ptr @proto_tree_add_item(ptr noundef %117, i32 noundef %118, ptr noundef %119, i32 noundef %120, i32 noundef 2, i32 noundef 0)
+  %122 = load i32, ptr %9, align 4
+  %123 = add i32 %122, 2
+  store i32 %123, ptr %9, align 4
+  br label %124
 
-122:                                              ; preds = %114, %98
-  br label %260
+124:                                              ; preds = %116, %100
+  br label %264
 
-123:                                              ; preds = %59
-  %124 = load ptr, ptr %11, align 8
-  %125 = load i32, ptr @hf_openflow_v6_oxm_value_ipproto, align 4
-  %126 = load ptr, ptr %6, align 8
-  %127 = load i32, ptr %9, align 4
-  %128 = call ptr @proto_tree_add_item(ptr noundef %124, i32 noundef %125, ptr noundef %126, i32 noundef %127, i32 noundef 1, i32 noundef 0)
+125:                                              ; preds = %61
+  %126 = load ptr, ptr %11, align 8
+  %127 = load i32, ptr @hf_openflow_v6_oxm_value_ipproto, align 4
+  %128 = load ptr, ptr %6, align 8
   %129 = load i32, ptr %9, align 4
-  %130 = add i32 %129, 1
-  store i32 %130, ptr %9, align 4
-  br label %260
+  %130 = call ptr @proto_tree_add_item(ptr noundef %126, i32 noundef %127, ptr noundef %128, i32 noundef %129, i32 noundef 1, i32 noundef 0)
+  %131 = load i32, ptr %9, align 4
+  %132 = add i32 %131, 1
+  store i32 %132, ptr %9, align 4
+  br label %264
 
-131:                                              ; preds = %59, %59, %59, %59
-  %132 = load ptr, ptr %11, align 8
-  %133 = load i32, ptr @hf_openflow_v6_oxm_value_ipv4addr, align 4
-  %134 = load ptr, ptr %6, align 8
-  %135 = load i32, ptr %9, align 4
-  %136 = call ptr @proto_tree_add_item(ptr noundef %132, i32 noundef %133, ptr noundef %134, i32 noundef %135, i32 noundef 4, i32 noundef 0)
+133:                                              ; preds = %61, %61, %61, %61
+  %134 = load ptr, ptr %11, align 8
+  %135 = load i32, ptr @hf_openflow_v6_oxm_value_ipv4addr, align 4
+  %136 = load ptr, ptr %6, align 8
   %137 = load i32, ptr %9, align 4
-  %138 = add i32 %137, 4
-  store i32 %138, ptr %9, align 4
-  %139 = getelementptr inbounds %struct.oxm_header, ptr %13, i32 0, i32 1
-  %140 = load i32, ptr %139, align 4
-  %141 = icmp ne i32 %140, 0
-  br i1 %141, label %142, label %150
+  %138 = call ptr @proto_tree_add_item(ptr noundef %134, i32 noundef %135, ptr noundef %136, i32 noundef %137, i32 noundef 4, i32 noundef 0)
+  %139 = load i32, ptr %9, align 4
+  %140 = add i32 %139, 4
+  store i32 %140, ptr %9, align 4
+  %141 = getelementptr inbounds nuw %struct.oxm_header, ptr %13, i32 0, i32 1
+  %142 = load i8, ptr %141, align 4, !range !8, !noundef !9
+  %143 = trunc i8 %142 to i1
+  br i1 %143, label %144, label %152
 
-142:                                              ; preds = %131
-  %143 = load ptr, ptr %11, align 8
-  %144 = load i32, ptr @hf_openflow_v6_oxm_mask_ipv4addr, align 4
-  %145 = load ptr, ptr %6, align 8
-  %146 = load i32, ptr %9, align 4
-  %147 = call ptr @proto_tree_add_item(ptr noundef %143, i32 noundef %144, ptr noundef %145, i32 noundef %146, i32 noundef 4, i32 noundef 0)
+144:                                              ; preds = %133
+  %145 = load ptr, ptr %11, align 8
+  %146 = load i32, ptr @hf_openflow_v6_oxm_mask_ipv4addr, align 4
+  %147 = load ptr, ptr %6, align 8
   %148 = load i32, ptr %9, align 4
-  %149 = add i32 %148, 4
-  store i32 %149, ptr %9, align 4
-  br label %150
+  %149 = call ptr @proto_tree_add_item(ptr noundef %145, i32 noundef %146, ptr noundef %147, i32 noundef %148, i32 noundef 4, i32 noundef 0)
+  %150 = load i32, ptr %9, align 4
+  %151 = add i32 %150, 4
+  store i32 %151, ptr %9, align 4
+  br label %152
 
-150:                                              ; preds = %142, %131
-  br label %260
+152:                                              ; preds = %144, %133
+  br label %264
 
-151:                                              ; preds = %59, %59, %59, %59, %59, %59
-  %152 = load ptr, ptr %11, align 8
-  %153 = load i32, ptr @hf_openflow_v6_oxm_value_uint16, align 4
-  %154 = load ptr, ptr %6, align 8
-  %155 = load i32, ptr %9, align 4
-  %156 = call ptr @proto_tree_add_item(ptr noundef %152, i32 noundef %153, ptr noundef %154, i32 noundef %155, i32 noundef 2, i32 noundef 0)
+153:                                              ; preds = %61, %61, %61, %61, %61, %61
+  %154 = load ptr, ptr %11, align 8
+  %155 = load i32, ptr @hf_openflow_v6_oxm_value_uint16, align 4
+  %156 = load ptr, ptr %6, align 8
   %157 = load i32, ptr %9, align 4
-  %158 = add i32 %157, 2
-  store i32 %158, ptr %9, align 4
-  br label %260
+  %158 = call ptr @proto_tree_add_item(ptr noundef %154, i32 noundef %155, ptr noundef %156, i32 noundef %157, i32 noundef 2, i32 noundef 0)
+  %159 = load i32, ptr %9, align 4
+  %160 = add i32 %159, 2
+  store i32 %160, ptr %9, align 4
+  br label %264
 
-159:                                              ; preds = %59, %59
-  %160 = load ptr, ptr %11, align 8
-  %161 = load i32, ptr @hf_openflow_v6_oxm_value_ipv6addr, align 4
-  %162 = load ptr, ptr %6, align 8
-  %163 = load i32, ptr %9, align 4
-  %164 = call ptr @proto_tree_add_item(ptr noundef %160, i32 noundef %161, ptr noundef %162, i32 noundef %163, i32 noundef 16, i32 noundef 0)
+161:                                              ; preds = %61, %61
+  %162 = load ptr, ptr %11, align 8
+  %163 = load i32, ptr @hf_openflow_v6_oxm_value_ipv6addr, align 4
+  %164 = load ptr, ptr %6, align 8
   %165 = load i32, ptr %9, align 4
-  %166 = add i32 %165, 16
-  store i32 %166, ptr %9, align 4
-  %167 = getelementptr inbounds %struct.oxm_header, ptr %13, i32 0, i32 1
-  %168 = load i32, ptr %167, align 4
-  %169 = icmp ne i32 %168, 0
-  br i1 %169, label %170, label %178
+  %166 = call ptr @proto_tree_add_item(ptr noundef %162, i32 noundef %163, ptr noundef %164, i32 noundef %165, i32 noundef 16, i32 noundef 0)
+  %167 = load i32, ptr %9, align 4
+  %168 = add i32 %167, 16
+  store i32 %168, ptr %9, align 4
+  %169 = getelementptr inbounds nuw %struct.oxm_header, ptr %13, i32 0, i32 1
+  %170 = load i8, ptr %169, align 4, !range !8, !noundef !9
+  %171 = trunc i8 %170 to i1
+  br i1 %171, label %172, label %180
 
-170:                                              ; preds = %159
-  %171 = load ptr, ptr %11, align 8
-  %172 = load i32, ptr @hf_openflow_v6_oxm_mask_ipv6addr, align 4
-  %173 = load ptr, ptr %6, align 8
-  %174 = load i32, ptr %9, align 4
-  %175 = call ptr @proto_tree_add_item(ptr noundef %171, i32 noundef %172, ptr noundef %173, i32 noundef %174, i32 noundef 16, i32 noundef 0)
+172:                                              ; preds = %161
+  %173 = load ptr, ptr %11, align 8
+  %174 = load i32, ptr @hf_openflow_v6_oxm_mask_ipv6addr, align 4
+  %175 = load ptr, ptr %6, align 8
   %176 = load i32, ptr %9, align 4
-  %177 = add i32 %176, 16
-  store i32 %177, ptr %9, align 4
-  br label %178
+  %177 = call ptr @proto_tree_add_item(ptr noundef %173, i32 noundef %174, ptr noundef %175, i32 noundef %176, i32 noundef 16, i32 noundef 0)
+  %178 = load i32, ptr %9, align 4
+  %179 = add i32 %178, 16
+  store i32 %179, ptr %9, align 4
+  br label %180
 
-178:                                              ; preds = %170, %159
-  br label %260
+180:                                              ; preds = %172, %161
+  br label %264
 
-179:                                              ; preds = %59
-  %180 = load i8, ptr %14, align 1
-  %181 = zext i8 %180 to i32
-  %182 = icmp eq i32 %181, 3
-  br i1 %182, label %183, label %191
+181:                                              ; preds = %61
+  %182 = load i8, ptr %14, align 1
+  %183 = zext i8 %182 to i32
+  %184 = icmp eq i32 %183, 3
+  br i1 %184, label %185, label %193
 
-183:                                              ; preds = %179
-  %184 = load ptr, ptr %11, align 8
-  %185 = load i32, ptr @hf_openflow_v6_oxm_value_uint24, align 4
-  %186 = load ptr, ptr %6, align 8
-  %187 = load i32, ptr %9, align 4
-  %188 = call ptr @proto_tree_add_item(ptr noundef %184, i32 noundef %185, ptr noundef %186, i32 noundef %187, i32 noundef 3, i32 noundef 0)
+185:                                              ; preds = %181
+  %186 = load ptr, ptr %11, align 8
+  %187 = load i32, ptr @hf_openflow_v6_oxm_value_uint24, align 4
+  %188 = load ptr, ptr %6, align 8
   %189 = load i32, ptr %9, align 4
-  %190 = add i32 %189, 3
-  store i32 %190, ptr %9, align 4
-  br label %204
+  %190 = call ptr @proto_tree_add_item(ptr noundef %186, i32 noundef %187, ptr noundef %188, i32 noundef %189, i32 noundef 3, i32 noundef 0)
+  %191 = load i32, ptr %9, align 4
+  %192 = add i32 %191, 3
+  store i32 %192, ptr %9, align 4
+  br label %206
 
-191:                                              ; preds = %179
-  %192 = load i8, ptr %14, align 1
-  %193 = zext i8 %192 to i32
-  %194 = icmp eq i32 %193, 4
-  br i1 %194, label %195, label %203
+193:                                              ; preds = %181
+  %194 = load i8, ptr %14, align 1
+  %195 = zext i8 %194 to i32
+  %196 = icmp eq i32 %195, 4
+  br i1 %196, label %197, label %205
 
-195:                                              ; preds = %191
-  %196 = load ptr, ptr %11, align 8
-  %197 = load i32, ptr @hf_openflow_v6_oxm_value_uint32, align 4
-  %198 = load ptr, ptr %6, align 8
-  %199 = load i32, ptr %9, align 4
-  %200 = call ptr @proto_tree_add_item(ptr noundef %196, i32 noundef %197, ptr noundef %198, i32 noundef %199, i32 noundef 4, i32 noundef 0)
+197:                                              ; preds = %193
+  %198 = load ptr, ptr %11, align 8
+  %199 = load i32, ptr @hf_openflow_v6_oxm_value_uint32, align 4
+  %200 = load ptr, ptr %6, align 8
   %201 = load i32, ptr %9, align 4
-  %202 = add i32 %201, 4
-  store i32 %202, ptr %9, align 4
-  br label %203
+  %202 = call ptr @proto_tree_add_item(ptr noundef %198, i32 noundef %199, ptr noundef %200, i32 noundef %201, i32 noundef 4, i32 noundef 0)
+  %203 = load i32, ptr %9, align 4
+  %204 = add i32 %203, 4
+  store i32 %204, ptr %9, align 4
+  br label %205
 
-203:                                              ; preds = %195, %191
-  br label %204
+205:                                              ; preds = %197, %193
+  br label %206
 
-204:                                              ; preds = %203, %183
-  br label %260
+206:                                              ; preds = %205, %185
+  br label %264
 
-205:                                              ; preds = %59
-  %206 = load ptr, ptr %11, align 8
-  %207 = load i32, ptr @hf_openflow_v6_oxm_value_uint16, align 4
-  %208 = load ptr, ptr %6, align 8
-  %209 = load i32, ptr %9, align 4
-  %210 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %206, i32 noundef %207, ptr noundef %208, i32 noundef %209, i32 noundef 2, i32 noundef 0, ptr noundef %15)
-  store ptr %210, ptr %16, align 8
-  %211 = load ptr, ptr %16, align 8
-  %212 = load i32, ptr %15, align 4
-  %213 = call ptr @val_to_str_const(i32 noundef %212, ptr noundef @openflow_v6_header_type_namespace_values, ptr noundef @.str.1517)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %211, ptr noundef @.str.1516, ptr noundef %213)
-  %214 = load i32, ptr %9, align 4
-  %215 = add i32 %214, 2
-  store i32 %215, ptr %9, align 4
-  %216 = load ptr, ptr %11, align 8
-  %217 = load i32, ptr @hf_openflow_v6_oxm_value_uint16, align 4
-  %218 = load ptr, ptr %6, align 8
-  %219 = load i32, ptr %9, align 4
-  %220 = call ptr @proto_tree_add_item(ptr noundef %216, i32 noundef %217, ptr noundef %218, i32 noundef %219, i32 noundef 2, i32 noundef 0)
+207:                                              ; preds = %61
+  %208 = load ptr, ptr %11, align 8
+  %209 = load i32, ptr @hf_openflow_v6_oxm_value_uint16, align 4
+  %210 = load ptr, ptr %6, align 8
+  %211 = load i32, ptr %9, align 4
+  %212 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %208, i32 noundef %209, ptr noundef %210, i32 noundef %211, i32 noundef 2, i32 noundef 0, ptr noundef %15)
+  store ptr %212, ptr %16, align 8
+  %213 = load ptr, ptr %16, align 8
+  %214 = load i32, ptr %15, align 4
+  %215 = call ptr @val_to_str_const(i32 noundef %214, ptr noundef @openflow_v6_header_type_namespace_values, ptr noundef @.str.1585)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %213, ptr noundef @.str.1584, ptr noundef %215)
+  %216 = load i32, ptr %9, align 4
+  %217 = add i32 %216, 2
+  store i32 %217, ptr %9, align 4
+  %218 = load ptr, ptr %11, align 8
+  %219 = load i32, ptr @hf_openflow_v6_oxm_value_uint16, align 4
+  %220 = load ptr, ptr %6, align 8
   %221 = load i32, ptr %9, align 4
-  %222 = add i32 %221, 2
-  store i32 %222, ptr %9, align 4
-  br label %260
+  %222 = call ptr @proto_tree_add_item(ptr noundef %218, i32 noundef %219, ptr noundef %220, i32 noundef %221, i32 noundef 2, i32 noundef 0)
+  %223 = load i32, ptr %9, align 4
+  %224 = add i32 %223, 2
+  store i32 %224, ptr %9, align 4
+  br label %264
 
-223:                                              ; preds = %59
-  %224 = load i8, ptr %14, align 1
-  %225 = zext i8 %224 to i32
-  %226 = icmp sgt i32 %225, 0
-  br i1 %226, label %227, label %239
+225:                                              ; preds = %61
+  %226 = load i8, ptr %14, align 1
+  %227 = zext i8 %226 to i32
+  %228 = icmp sgt i32 %227, 0
+  br i1 %228, label %229, label %241
 
-227:                                              ; preds = %223
-  %228 = load ptr, ptr %11, align 8
-  %229 = load i32, ptr @hf_openflow_v6_oxm_value, align 4
-  %230 = load ptr, ptr %6, align 8
-  %231 = load i32, ptr %9, align 4
-  %232 = load i8, ptr %14, align 1
-  %233 = zext i8 %232 to i32
-  %234 = call ptr @proto_tree_add_item(ptr noundef %228, i32 noundef %229, ptr noundef %230, i32 noundef %231, i32 noundef %233, i32 noundef 0)
-  %235 = load i8, ptr %14, align 1
-  %236 = zext i8 %235 to i32
-  %237 = load i32, ptr %9, align 4
-  %238 = add i32 %237, %236
-  store i32 %238, ptr %9, align 4
-  br label %239
+229:                                              ; preds = %225
+  %230 = load ptr, ptr %11, align 8
+  %231 = load i32, ptr @hf_openflow_v6_oxm_value, align 4
+  %232 = load ptr, ptr %6, align 8
+  %233 = load i32, ptr %9, align 4
+  %234 = load i8, ptr %14, align 1
+  %235 = zext i8 %234 to i32
+  %236 = call ptr @proto_tree_add_item(ptr noundef %230, i32 noundef %231, ptr noundef %232, i32 noundef %233, i32 noundef %235, i32 noundef 0)
+  %237 = load i8, ptr %14, align 1
+  %238 = zext i8 %237 to i32
+  %239 = load i32, ptr %9, align 4
+  %240 = add i32 %239, %238
+  store i32 %240, ptr %9, align 4
+  br label %241
 
-239:                                              ; preds = %227, %223
-  %240 = load i8, ptr %14, align 1
-  %241 = zext i8 %240 to i32
-  %242 = icmp sgt i32 %241, 0
-  br i1 %242, label %243, label %259
+241:                                              ; preds = %229, %225
+  %242 = load i8, ptr %14, align 1
+  %243 = zext i8 %242 to i32
+  %244 = icmp sgt i32 %243, 0
+  br i1 %244, label %245, label %263
 
-243:                                              ; preds = %239
-  %244 = getelementptr inbounds %struct.oxm_header, ptr %13, i32 0, i32 1
-  %245 = load i32, ptr %244, align 4
-  %246 = icmp ne i32 %245, 0
-  br i1 %246, label %247, label %259
+245:                                              ; preds = %241
+  %246 = getelementptr inbounds nuw %struct.oxm_header, ptr %13, i32 0, i32 1
+  %247 = load i8, ptr %246, align 4, !range !8, !noundef !9
+  %248 = trunc i8 %247 to i1
+  %249 = zext i1 %248 to i32
+  %250 = icmp ne i32 %249, 0
+  br i1 %250, label %251, label %263
 
-247:                                              ; preds = %243
-  %248 = load ptr, ptr %11, align 8
-  %249 = load i32, ptr @hf_openflow_v6_oxm_mask, align 4
-  %250 = load ptr, ptr %6, align 8
-  %251 = load i32, ptr %9, align 4
-  %252 = load i8, ptr %14, align 1
-  %253 = zext i8 %252 to i32
-  %254 = call ptr @proto_tree_add_item(ptr noundef %248, i32 noundef %249, ptr noundef %250, i32 noundef %251, i32 noundef %253, i32 noundef 0)
-  %255 = load i8, ptr %14, align 1
-  %256 = zext i8 %255 to i32
-  %257 = load i32, ptr %9, align 4
-  %258 = add i32 %257, %256
-  store i32 %258, ptr %9, align 4
-  br label %259
+251:                                              ; preds = %245
+  %252 = load ptr, ptr %11, align 8
+  %253 = load i32, ptr @hf_openflow_v6_oxm_mask, align 4
+  %254 = load ptr, ptr %6, align 8
+  %255 = load i32, ptr %9, align 4
+  %256 = load i8, ptr %14, align 1
+  %257 = zext i8 %256 to i32
+  %258 = call ptr @proto_tree_add_item(ptr noundef %252, i32 noundef %253, ptr noundef %254, i32 noundef %255, i32 noundef %257, i32 noundef 0)
+  %259 = load i8, ptr %14, align 1
+  %260 = zext i8 %259 to i32
+  %261 = load i32, ptr %9, align 4
+  %262 = add i32 %261, %260
+  store i32 %262, ptr %9, align 4
+  br label %263
 
-259:                                              ; preds = %247, %243, %239
-  br label %260
+263:                                              ; preds = %251, %245, %241
+  br label %264
 
-260:                                              ; preds = %259, %205, %204, %178, %151, %150, %123, %122, %90, %89, %62
-  %261 = load i16, ptr %12, align 2
-  %262 = zext i16 %261 to i32
-  %263 = load i32, ptr %9, align 4
-  %264 = icmp sgt i32 %262, %263
-  br i1 %264, label %265, label %277
+264:                                              ; preds = %263, %207, %206, %180, %153, %152, %125, %124, %92, %91, %64
+  %265 = load i16, ptr %12, align 2
+  %266 = zext i16 %265 to i32
+  %267 = load i32, ptr %9, align 4
+  %268 = icmp sgt i32 %266, %267
+  br i1 %268, label %269, label %281
 
-265:                                              ; preds = %260
-  %266 = load ptr, ptr %11, align 8
-  %267 = load ptr, ptr %7, align 8
-  %268 = load ptr, ptr %6, align 8
-  %269 = load i32, ptr %9, align 4
-  %270 = load i16, ptr %12, align 2
-  %271 = zext i16 %270 to i32
-  %272 = load i32, ptr %9, align 4
-  %273 = sub i32 %271, %272
-  %274 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %266, ptr noundef %267, ptr noundef @ei_openflow_v6_oxm_undecoded, ptr noundef %268, i32 noundef %269, i32 noundef %273, ptr noundef @.str.1518)
-  %275 = load i16, ptr %12, align 2
-  %276 = zext i16 %275 to i32
-  store i32 %276, ptr %9, align 4
-  br label %277
+269:                                              ; preds = %264
+  %270 = load ptr, ptr %11, align 8
+  %271 = load ptr, ptr %7, align 8
+  %272 = load ptr, ptr %6, align 8
+  %273 = load i32, ptr %9, align 4
+  %274 = load i16, ptr %12, align 2
+  %275 = zext i16 %274 to i32
+  %276 = load i32, ptr %9, align 4
+  %277 = sub i32 %275, %276
+  %278 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %270, ptr noundef %271, ptr noundef @ei_openflow_v6_oxm_undecoded, ptr noundef %272, i32 noundef %273, i32 noundef %277, ptr noundef @.str.1586)
+  %279 = load i16, ptr %12, align 2
+  %280 = zext i16 %279 to i32
+  store i32 %280, ptr %9, align 4
+  br label %281
 
-277:                                              ; preds = %265, %260
-  br label %341
+281:                                              ; preds = %269, %264
+  br label %345
 
-278:                                              ; preds = %53
-  %279 = getelementptr inbounds %struct.oxm_header, ptr %13, i32 0, i32 0
-  %280 = load i32, ptr %279, align 4
-  %281 = icmp eq i32 %280, 32769
-  br i1 %281, label %282, label %302
+282:                                              ; preds = %55
+  %283 = getelementptr inbounds nuw %struct.oxm_header, ptr %13, i32 0, i32 0
+  %284 = load i32, ptr %283, align 4
+  %285 = icmp eq i32 %284, 32769
+  br i1 %285, label %286, label %306
 
-282:                                              ; preds = %278
-  %283 = load ptr, ptr %11, align 8
-  %284 = load i32, ptr @hf_openflow_v6_oxm_value, align 4
-  %285 = load ptr, ptr %6, align 8
-  %286 = load i32, ptr %9, align 4
-  %287 = call ptr @proto_tree_add_item(ptr noundef %283, i32 noundef %284, ptr noundef %285, i32 noundef %286, i32 noundef 8, i32 noundef 0)
-  %288 = load i32, ptr %9, align 4
-  %289 = add i32 %288, 8
-  store i32 %289, ptr %9, align 4
-  %290 = getelementptr inbounds %struct.oxm_header, ptr %13, i32 0, i32 1
-  %291 = load i32, ptr %290, align 4
-  %292 = icmp ne i32 %291, 0
-  br i1 %292, label %293, label %301
+286:                                              ; preds = %282
+  %287 = load ptr, ptr %11, align 8
+  %288 = load i32, ptr @hf_openflow_v6_oxm_value, align 4
+  %289 = load ptr, ptr %6, align 8
+  %290 = load i32, ptr %9, align 4
+  %291 = call ptr @proto_tree_add_item(ptr noundef %287, i32 noundef %288, ptr noundef %289, i32 noundef %290, i32 noundef 8, i32 noundef 0)
+  %292 = load i32, ptr %9, align 4
+  %293 = add i32 %292, 8
+  store i32 %293, ptr %9, align 4
+  %294 = getelementptr inbounds nuw %struct.oxm_header, ptr %13, i32 0, i32 1
+  %295 = load i8, ptr %294, align 4, !range !8, !noundef !9
+  %296 = trunc i8 %295 to i1
+  br i1 %296, label %297, label %305
 
-293:                                              ; preds = %282
-  %294 = load ptr, ptr %11, align 8
-  %295 = load i32, ptr @hf_openflow_v6_oxm_mask, align 4
-  %296 = load ptr, ptr %6, align 8
-  %297 = load i32, ptr %9, align 4
-  %298 = call ptr @proto_tree_add_item(ptr noundef %294, i32 noundef %295, ptr noundef %296, i32 noundef %297, i32 noundef 8, i32 noundef 0)
-  %299 = load i32, ptr %9, align 4
-  %300 = add i32 %299, 8
-  store i32 %300, ptr %9, align 4
-  br label %301
+297:                                              ; preds = %286
+  %298 = load ptr, ptr %11, align 8
+  %299 = load i32, ptr @hf_openflow_v6_oxm_mask, align 4
+  %300 = load ptr, ptr %6, align 8
+  %301 = load i32, ptr %9, align 4
+  %302 = call ptr @proto_tree_add_item(ptr noundef %298, i32 noundef %299, ptr noundef %300, i32 noundef %301, i32 noundef 8, i32 noundef 0)
+  %303 = load i32, ptr %9, align 4
+  %304 = add i32 %303, 8
+  store i32 %304, ptr %9, align 4
+  br label %305
 
-301:                                              ; preds = %293, %282
-  br label %340
+305:                                              ; preds = %297, %286
+  br label %344
 
-302:                                              ; preds = %278
-  %303 = getelementptr inbounds %struct.oxm_header, ptr %13, i32 0, i32 0
-  %304 = load i32, ptr %303, align 4
-  %305 = icmp eq i32 %304, 65535
-  br i1 %305, label %306, label %327
+306:                                              ; preds = %282
+  %307 = getelementptr inbounds nuw %struct.oxm_header, ptr %13, i32 0, i32 0
+  %308 = load i32, ptr %307, align 4
+  %309 = icmp eq i32 %308, 65535
+  br i1 %309, label %310, label %331
 
-306:                                              ; preds = %302
-  %307 = load ptr, ptr %11, align 8
-  %308 = load i32, ptr @hf_openflow_v6_oxm_experimenter_experimenter, align 4
-  %309 = load ptr, ptr %6, align 8
-  %310 = load i32, ptr %9, align 4
-  %311 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %308, ptr noundef %309, i32 noundef %310, i32 noundef 4, i32 noundef 0)
-  %312 = load i32, ptr %9, align 4
-  %313 = add i32 %312, 4
-  store i32 %313, ptr %9, align 4
-  %314 = load ptr, ptr %11, align 8
-  %315 = load i32, ptr @hf_openflow_v6_oxm_experimenter_value, align 4
-  %316 = load ptr, ptr %6, align 8
-  %317 = load i32, ptr %9, align 4
-  %318 = getelementptr inbounds %struct.oxm_header, ptr %13, i32 0, i32 3
-  %319 = load i32, ptr %318, align 4
-  %320 = sub i32 %319, 4
-  %321 = call ptr @proto_tree_add_item(ptr noundef %314, i32 noundef %315, ptr noundef %316, i32 noundef %317, i32 noundef %320, i32 noundef 0)
-  %322 = getelementptr inbounds %struct.oxm_header, ptr %13, i32 0, i32 3
+310:                                              ; preds = %306
+  %311 = load ptr, ptr %11, align 8
+  %312 = load i32, ptr @hf_openflow_v6_oxm_experimenter_experimenter, align 4
+  %313 = load ptr, ptr %6, align 8
+  %314 = load i32, ptr %9, align 4
+  %315 = call ptr @proto_tree_add_item(ptr noundef %311, i32 noundef %312, ptr noundef %313, i32 noundef %314, i32 noundef 4, i32 noundef 0)
+  %316 = load i32, ptr %9, align 4
+  %317 = add i32 %316, 4
+  store i32 %317, ptr %9, align 4
+  %318 = load ptr, ptr %11, align 8
+  %319 = load i32, ptr @hf_openflow_v6_oxm_experimenter_value, align 4
+  %320 = load ptr, ptr %6, align 8
+  %321 = load i32, ptr %9, align 4
+  %322 = getelementptr inbounds nuw %struct.oxm_header, ptr %13, i32 0, i32 3
   %323 = load i32, ptr %322, align 4
   %324 = sub i32 %323, 4
-  %325 = load i32, ptr %9, align 4
-  %326 = add i32 %325, %324
-  store i32 %326, ptr %9, align 4
-  br label %339
+  %325 = call ptr @proto_tree_add_item(ptr noundef %318, i32 noundef %319, ptr noundef %320, i32 noundef %321, i32 noundef %324, i32 noundef 0)
+  %326 = getelementptr inbounds nuw %struct.oxm_header, ptr %13, i32 0, i32 3
+  %327 = load i32, ptr %326, align 4
+  %328 = sub i32 %327, 4
+  %329 = load i32, ptr %9, align 4
+  %330 = add i32 %329, %328
+  store i32 %330, ptr %9, align 4
+  br label %343
 
-327:                                              ; preds = %302
-  %328 = load ptr, ptr %11, align 8
-  %329 = load ptr, ptr %7, align 8
-  %330 = load ptr, ptr %6, align 8
-  %331 = load i32, ptr %9, align 4
-  %332 = getelementptr inbounds %struct.oxm_header, ptr %13, i32 0, i32 3
-  %333 = load i32, ptr %332, align 4
-  %334 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %328, ptr noundef %329, ptr noundef @ei_openflow_v6_oxm_undecoded, ptr noundef %330, i32 noundef %331, i32 noundef %333, ptr noundef @.str.1519)
-  %335 = getelementptr inbounds %struct.oxm_header, ptr %13, i32 0, i32 3
-  %336 = load i32, ptr %335, align 4
-  %337 = load i32, ptr %9, align 4
-  %338 = add i32 %337, %336
-  store i32 %338, ptr %9, align 4
-  br label %339
+331:                                              ; preds = %306
+  %332 = load ptr, ptr %11, align 8
+  %333 = load ptr, ptr %7, align 8
+  %334 = load ptr, ptr %6, align 8
+  %335 = load i32, ptr %9, align 4
+  %336 = getelementptr inbounds nuw %struct.oxm_header, ptr %13, i32 0, i32 3
+  %337 = load i32, ptr %336, align 4
+  %338 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %332, ptr noundef %333, ptr noundef @ei_openflow_v6_oxm_undecoded, ptr noundef %334, i32 noundef %335, i32 noundef %337, ptr noundef @.str.1587)
+  %339 = getelementptr inbounds nuw %struct.oxm_header, ptr %13, i32 0, i32 3
+  %340 = load i32, ptr %339, align 4
+  %341 = load i32, ptr %9, align 4
+  %342 = add i32 %341, %340
+  store i32 %342, ptr %9, align 4
+  br label %343
 
-339:                                              ; preds = %327, %306
-  br label %340
+343:                                              ; preds = %331, %310
+  br label %344
 
-340:                                              ; preds = %339, %301
-  br label %341
+344:                                              ; preds = %343, %305
+  br label %345
 
-341:                                              ; preds = %340, %277
-  %342 = load i32, ptr %9, align 4
-  ret i32 %342
+345:                                              ; preds = %344, %281
+  %346 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 2, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  ret i32 %346
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openflow_oxm_header_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -6753,7 +6928,7 @@ define internal i32 @dissect_openflow_oxm_header_v6(ptr noundef %0, ptr noundef 
   %11 = alloca i16, align 2
   %12 = alloca ptr, align 8
   %13 = alloca i32, align 4
-  %14 = alloca i32, align 4
+  %14 = alloca i8, align 1
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   store ptr %0, ptr %7, align 8
@@ -6762,6 +6937,10 @@ define internal i32 @dissect_openflow_oxm_header_v6(ptr noundef %0, ptr noundef 
   store i32 %3, ptr %10, align 4
   store i16 %4, ptr %11, align 2
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #5
   %17 = load ptr, ptr %9, align 8
   %18 = load i32, ptr @hf_openflow_v6_oxm_class, align 4
   %19 = load ptr, ptr %7, align 8
@@ -6820,40 +6999,49 @@ define internal i32 @dissect_openflow_oxm_header_v6(ptr noundef %0, ptr noundef 
   store i32 %58, ptr %10, align 4
   %59 = load ptr, ptr %12, align 8
   %60 = icmp ne ptr %59, null
-  br i1 %60, label %61, label %74
+  br i1 %60, label %61, label %76
 
 61:                                               ; preds = %44
   %62 = load i32, ptr %13, align 4
   %63 = load ptr, ptr %12, align 8
-  %64 = getelementptr inbounds %struct.oxm_header, ptr %63, i32 0, i32 0
+  %64 = getelementptr inbounds nuw %struct.oxm_header, ptr %63, i32 0, i32 0
   store i32 %62, ptr %64, align 4
-  %65 = load i32, ptr %14, align 4
-  %66 = load ptr, ptr %12, align 8
-  %67 = getelementptr inbounds %struct.oxm_header, ptr %66, i32 0, i32 1
-  store i32 %65, ptr %67, align 4
-  %68 = load i32, ptr %15, align 4
-  %69 = load ptr, ptr %12, align 8
-  %70 = getelementptr inbounds %struct.oxm_header, ptr %69, i32 0, i32 2
-  store i32 %68, ptr %70, align 4
-  %71 = load i32, ptr %16, align 4
-  %72 = load ptr, ptr %12, align 8
-  %73 = getelementptr inbounds %struct.oxm_header, ptr %72, i32 0, i32 3
-  store i32 %71, ptr %73, align 4
-  br label %74
+  %65 = load i8, ptr %14, align 1, !range !8, !noundef !9
+  %66 = trunc i8 %65 to i1
+  %67 = load ptr, ptr %12, align 8
+  %68 = getelementptr inbounds nuw %struct.oxm_header, ptr %67, i32 0, i32 1
+  %69 = zext i1 %66 to i8
+  store i8 %69, ptr %68, align 4
+  %70 = load i32, ptr %15, align 4
+  %71 = load ptr, ptr %12, align 8
+  %72 = getelementptr inbounds nuw %struct.oxm_header, ptr %71, i32 0, i32 2
+  store i32 %70, ptr %72, align 4
+  %73 = load i32, ptr %16, align 4
+  %74 = load ptr, ptr %12, align 8
+  %75 = getelementptr inbounds nuw %struct.oxm_header, ptr %74, i32 0, i32 3
+  store i32 %73, ptr %75, align 4
+  br label %76
 
-74:                                               ; preds = %61, %44
-  %75 = load i32, ptr %10, align 4
-  ret i32 %75
+76:                                               ; preds = %61, %44
+  %77 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  ret i32 %77
 }
 
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #2
 
-declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @proto_tree_add_item_ret_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item_ret_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal void @set_address(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+; Function Attrs: inlinehint nounwind null_pointer_is_valid sspstrong uwtable
+define internal void @set_address(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #4 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -6893,23 +7081,23 @@ define internal void @set_address(ptr noundef %0, i32 noundef %1, i32 noundef %2
 19:                                               ; preds = %18, %13
   %20 = load i32, ptr %6, align 4
   %21 = load ptr, ptr %5, align 8
-  %22 = getelementptr inbounds %struct._address, ptr %21, i32 0, i32 0
+  %22 = getelementptr inbounds nuw %struct._address, ptr %21, i32 0, i32 0
   store i32 %20, ptr %22, align 8
   %23 = load i32, ptr %7, align 4
   %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds %struct._address, ptr %24, i32 0, i32 1
+  %25 = getelementptr inbounds nuw %struct._address, ptr %24, i32 0, i32 1
   store i32 %23, ptr %25, align 4
   %26 = load ptr, ptr %8, align 8
   %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %struct._address, ptr %27, i32 0, i32 2
+  %28 = getelementptr inbounds nuw %struct._address, ptr %27, i32 0, i32 2
   store ptr %26, ptr %28, align 8
   %29 = load ptr, ptr %5, align 8
-  %30 = getelementptr inbounds %struct._address, ptr %29, i32 0, i32 3
+  %30 = getelementptr inbounds nuw %struct._address, ptr %29, i32 0, i32 3
   store ptr null, ptr %30, align 8
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openflow_stats_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -6921,110 +7109,121 @@ define internal i32 @dissect_openflow_stats_v6(ptr noundef %0, ptr noundef %1, p
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
   store ptr %0, ptr %7, align 8
   store ptr %1, ptr %8, align 8
   store ptr %2, ptr %9, align 8
   store i32 %3, ptr %10, align 4
   store i16 %4, ptr %11, align 2
-  %16 = load ptr, ptr %9, align 8
-  %17 = load i32, ptr @hf_openflow_v6_stats_reserved, align 4
-  %18 = load ptr, ptr %7, align 8
-  %19 = load i32, ptr %10, align 4
-  %20 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %17, ptr noundef %18, i32 noundef %19, i32 noundef 2, i32 noundef 0)
-  %21 = load ptr, ptr %9, align 8
-  %22 = load i32, ptr @hf_openflow_v6_stats_length, align 4
-  %23 = load ptr, ptr %7, align 8
-  %24 = load i32, ptr %10, align 4
-  %25 = add i32 %24, 2
-  %26 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %21, i32 noundef %22, ptr noundef %23, i32 noundef %25, i32 noundef 2, i32 noundef 0, ptr noundef %13)
-  store ptr %26, ptr %12, align 8
-  %27 = load i32, ptr %10, align 4
-  %28 = load i32, ptr %13, align 4
-  %29 = add i32 %27, %28
-  store i32 %29, ptr %14, align 4
-  %30 = load i32, ptr %10, align 4
-  %31 = add i32 %30, 4
-  store i32 %31, ptr %10, align 4
-  %32 = load i32, ptr %13, align 4
-  %33 = icmp ult i32 %32, 4
-  br i1 %33, label %34, label %39
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
+  %17 = load ptr, ptr %9, align 8
+  %18 = load i32, ptr @hf_openflow_v6_stats_reserved, align 4
+  %19 = load ptr, ptr %7, align 8
+  %20 = load i32, ptr %10, align 4
+  %21 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef 2, i32 noundef 0)
+  %22 = load ptr, ptr %9, align 8
+  %23 = load i32, ptr @hf_openflow_v6_stats_length, align 4
+  %24 = load ptr, ptr %7, align 8
+  %25 = load i32, ptr %10, align 4
+  %26 = add i32 %25, 2
+  %27 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %22, i32 noundef %23, ptr noundef %24, i32 noundef %26, i32 noundef 2, i32 noundef 0, ptr noundef %13)
+  store ptr %27, ptr %12, align 8
+  %28 = load i32, ptr %10, align 4
+  %29 = load i32, ptr %13, align 4
+  %30 = add i32 %28, %29
+  store i32 %30, ptr %14, align 4
+  %31 = load i32, ptr %10, align 4
+  %32 = add i32 %31, 4
+  store i32 %32, ptr %10, align 4
+  %33 = load i32, ptr %13, align 4
+  %34 = icmp ult i32 %33, 4
+  br i1 %34, label %35, label %40
 
-34:                                               ; preds = %5
-  %35 = load ptr, ptr %8, align 8
-  %36 = load ptr, ptr %12, align 8
-  %37 = call ptr @expert_add_info(ptr noundef %35, ptr noundef %36, ptr noundef @ei_openflow_v6_length_too_short)
-  %38 = load i32, ptr %10, align 4
-  store i32 %38, ptr %6, align 4
-  br label %80
+35:                                               ; preds = %5
+  %36 = load ptr, ptr %8, align 8
+  %37 = load ptr, ptr %12, align 8
+  %38 = call ptr @expert_add_info(ptr noundef %36, ptr noundef %37, ptr noundef @ei_openflow_v6_length_too_short)
+  %39 = load i32, ptr %10, align 4
+  store i32 %39, ptr %6, align 4
+  store i32 1, ptr %16, align 4
+  br label %81
 
-39:                                               ; preds = %5
-  br label %40
+40:                                               ; preds = %5
+  br label %41
 
-40:                                               ; preds = %44, %39
-  %41 = load i32, ptr %10, align 4
-  %42 = load i32, ptr %14, align 4
-  %43 = icmp slt i32 %41, %42
-  br i1 %43, label %44, label %54
+41:                                               ; preds = %45, %40
+  %42 = load i32, ptr %10, align 4
+  %43 = load i32, ptr %14, align 4
+  %44 = icmp slt i32 %42, %43
+  br i1 %44, label %45, label %55
 
-44:                                               ; preds = %40
-  %45 = load ptr, ptr %7, align 8
-  %46 = load ptr, ptr %8, align 8
-  %47 = load ptr, ptr %9, align 8
-  %48 = load i32, ptr %10, align 4
-  %49 = load i32, ptr %14, align 4
-  %50 = load i32, ptr %10, align 4
-  %51 = sub i32 %49, %50
-  %52 = trunc i32 %51 to i16
-  %53 = call i32 @dissect_openflow_v6_oxs(ptr noundef %45, ptr noundef %46, ptr noundef %47, i32 noundef %48, i16 noundef zeroext %52)
-  store i32 %53, ptr %10, align 4
-  br label %40, !llvm.loop !30
+45:                                               ; preds = %41
+  %46 = load ptr, ptr %7, align 8
+  %47 = load ptr, ptr %8, align 8
+  %48 = load ptr, ptr %9, align 8
+  %49 = load i32, ptr %10, align 4
+  %50 = load i32, ptr %14, align 4
+  %51 = load i32, ptr %10, align 4
+  %52 = sub i32 %50, %51
+  %53 = trunc i32 %52 to i16
+  %54 = call i32 @dissect_openflow_v6_oxs(ptr noundef %46, ptr noundef %47, ptr noundef %48, i32 noundef %49, i16 noundef zeroext %53)
+  store i32 %54, ptr %10, align 4
+  br label %41, !llvm.loop !34
 
-54:                                               ; preds = %40
-  %55 = load i32, ptr %10, align 4
-  %56 = load i32, ptr %14, align 4
-  %57 = icmp sgt i32 %55, %56
-  br i1 %57, label %58, label %60
+55:                                               ; preds = %41
+  %56 = load i32, ptr %10, align 4
+  %57 = load i32, ptr %14, align 4
+  %58 = icmp sgt i32 %56, %57
+  br i1 %58, label %59, label %61
 
-58:                                               ; preds = %54
-  %59 = load i32, ptr %14, align 4
-  store i32 %59, ptr %10, align 4
-  br label %60
+59:                                               ; preds = %55
+  %60 = load i32, ptr %14, align 4
+  store i32 %60, ptr %10, align 4
+  br label %61
 
-60:                                               ; preds = %58, %54
-  %61 = load i32, ptr %13, align 4
-  %62 = add i32 %61, 7
-  %63 = and i32 %62, -8
-  %64 = load i32, ptr %13, align 4
-  %65 = sub i32 %63, %64
-  store i32 %65, ptr %15, align 4
-  %66 = load i32, ptr %15, align 4
-  %67 = icmp ne i32 %66, 0
-  br i1 %67, label %68, label %78
+61:                                               ; preds = %59, %55
+  %62 = load i32, ptr %13, align 4
+  %63 = add i32 %62, 7
+  %64 = and i32 %63, -8
+  %65 = load i32, ptr %13, align 4
+  %66 = sub i32 %64, %65
+  store i32 %66, ptr %15, align 4
+  %67 = load i32, ptr %15, align 4
+  %68 = icmp ne i32 %67, 0
+  br i1 %68, label %69, label %79
 
-68:                                               ; preds = %60
-  %69 = load ptr, ptr %9, align 8
-  %70 = load i32, ptr @hf_openflow_v6_stats_pad, align 4
-  %71 = load ptr, ptr %7, align 8
-  %72 = load i32, ptr %14, align 4
-  %73 = load i32, ptr %15, align 4
-  %74 = call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %70, ptr noundef %71, i32 noundef %72, i32 noundef %73, i32 noundef 0)
-  %75 = load i32, ptr %15, align 4
-  %76 = load i32, ptr %10, align 4
-  %77 = add i32 %76, %75
-  store i32 %77, ptr %10, align 4
-  br label %78
+69:                                               ; preds = %61
+  %70 = load ptr, ptr %9, align 8
+  %71 = load i32, ptr @hf_openflow_v6_stats_pad, align 4
+  %72 = load ptr, ptr %7, align 8
+  %73 = load i32, ptr %14, align 4
+  %74 = load i32, ptr %15, align 4
+  %75 = call ptr @proto_tree_add_item(ptr noundef %70, i32 noundef %71, ptr noundef %72, i32 noundef %73, i32 noundef %74, i32 noundef 0)
+  %76 = load i32, ptr %15, align 4
+  %77 = load i32, ptr %10, align 4
+  %78 = add i32 %77, %76
+  store i32 %78, ptr %10, align 4
+  br label %79
 
-78:                                               ; preds = %68, %60
-  %79 = load i32, ptr %10, align 4
-  store i32 %79, ptr %6, align 4
-  br label %80
+79:                                               ; preds = %69, %61
+  %80 = load i32, ptr %10, align 4
+  store i32 %80, ptr %6, align 4
+  store i32 1, ptr %16, align 4
+  br label %81
 
-80:                                               ; preds = %78, %34
-  %81 = load i32, ptr %6, align 4
-  ret i32 %81
+81:                                               ; preds = %79, %35
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  %82 = load i32, ptr %6, align 4
+  ret i32 %82
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openflow_v6_oxs(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -7039,6 +7238,9 @@ define internal i32 @dissect_openflow_v6_oxs(ptr noundef %0, ptr noundef %1, ptr
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
   %14 = load ptr, ptr %8, align 8
   %15 = load i32, ptr @hf_openflow_v6_oxs_class, align 4
   %16 = load ptr, ptr %6, align 8
@@ -7134,7 +7336,7 @@ define internal i32 @dissect_openflow_v6_oxs(ptr noundef %0, ptr noundef %1, ptr
   %85 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %82, ptr noundef %83, i32 noundef %84, i32 noundef 8, i32 noundef 0)
   br label %86
 
-86:                                               ; preds = %80, %74, %68, %56, %44, %42
+86:                                               ; preds = %42, %80, %74, %68, %56, %44
   br label %105
 
 87:                                               ; preds = %5
@@ -7167,10 +7369,13 @@ define internal i32 @dissect_openflow_v6_oxs(ptr noundef %0, ptr noundef %1, ptr
   %108 = add i32 %107, %106
   store i32 %108, ptr %9, align 4
   %109 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
   ret i32 %109
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openflow_port_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -7188,6 +7393,12 @@ define internal i32 @dissect_openflow_port_v6(ptr noundef %0, ptr noundef %1, pt
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.start.p0(i64 2, ptr %16) #5
   %17 = load ptr, ptr %8, align 8
   %18 = load ptr, ptr %6, align 8
   %19 = load i32, ptr %9, align 4
@@ -7231,12 +7442,12 @@ define internal i32 @dissect_openflow_port_v6(ptr noundef %0, ptr noundef %1, pt
   %52 = call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %49, ptr noundef %50, i32 noundef %51, i32 noundef 6, i32 noundef 0)
   %53 = load ptr, ptr %12, align 8
   %54 = load ptr, ptr %7, align 8
-  %55 = getelementptr inbounds %struct._packet_info, ptr %54, i32 0, i32 50
+  %55 = getelementptr inbounds nuw %struct._packet_info, ptr %54, i32 0, i32 51
   %56 = load ptr, ptr %55, align 8
   %57 = load ptr, ptr %6, align 8
   %58 = load i32, ptr %9, align 4
   %59 = call ptr @tvb_address_to_str(ptr noundef %56, ptr noundef %57, i32 noundef 1, i32 noundef %58)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %53, ptr noundef @.str.1525, ptr noundef %59)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %53, ptr noundef @.str.1594, ptr noundef %59)
   %60 = load i32, ptr %9, align 4
   %61 = add i32 %60, 6
   store i32 %61, ptr %9, align 4
@@ -7255,12 +7466,12 @@ define internal i32 @dissect_openflow_port_v6(ptr noundef %0, ptr noundef %1, pt
   %73 = call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %70, ptr noundef %71, i32 noundef %72, i32 noundef 16, i32 noundef 0)
   %74 = load ptr, ptr %12, align 8
   %75 = load ptr, ptr %7, align 8
-  %76 = getelementptr inbounds %struct._packet_info, ptr %75, i32 0, i32 50
+  %76 = getelementptr inbounds nuw %struct._packet_info, ptr %75, i32 0, i32 51
   %77 = load ptr, ptr %76, align 8
   %78 = load ptr, ptr %6, align 8
   %79 = load i32, ptr %9, align 4
   %80 = call ptr @tvb_get_string_enc(ptr noundef %77, ptr noundef %78, i32 noundef %79, i32 noundef 6, i32 noundef 0)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %74, ptr noundef @.str.1516, ptr noundef %80)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %74, ptr noundef @.str.1584, ptr noundef %80)
   %81 = load i32, ptr %9, align 4
   %82 = add i32 %81, 16
   store i32 %82, ptr %9, align 4
@@ -7342,18 +7553,26 @@ define internal i32 @dissect_openflow_port_v6(ptr noundef %0, ptr noundef %1, pt
   %148 = load i16, ptr %10, align 2
   %149 = call i32 @dissect_openflow_port_desc_prop_v6(ptr noundef %144, ptr noundef %145, ptr noundef %146, i32 noundef %147, i16 noundef zeroext %148)
   store i32 %149, ptr %9, align 4
-  br label %138, !llvm.loop !31
+  br label %138, !llvm.loop !35
 
 150:                                              ; preds = %138
   %151 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret i32 %151
 }
 
-declare ptr @tvb_address_to_str(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_address_to_str(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openflow_port_desc_prop_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -7370,11 +7589,16 @@ define internal i32 @dissect_openflow_port_desc_prop_v6(ptr noundef %0, ptr noun
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
   %16 = load ptr, ptr %8, align 8
   %17 = load ptr, ptr %6, align 8
   %18 = load i32, ptr %9, align 4
   %19 = load i32, ptr @ett_openflow_v6_port_desc_prop, align 4
-  %20 = call ptr @proto_tree_add_subtree(ptr noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef -1, i32 noundef %19, ptr noundef null, ptr noundef @.str.1526)
+  %20 = call ptr @proto_tree_add_subtree(ptr noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef -1, i32 noundef %19, ptr noundef null, ptr noundef @.str.1595)
   store ptr %20, ptr %11, align 8
   %21 = load ptr, ptr %11, align 8
   %22 = load i32, ptr @hf_openflow_v6_port_desc_prop_type, align 4
@@ -7445,7 +7669,7 @@ define internal i32 @dissect_openflow_port_desc_prop_v6(ptr noundef %0, ptr noun
   %64 = load i16, ptr %10, align 2
   %65 = call i32 @dissect_openflow_oxm_v6(ptr noundef %60, ptr noundef %61, ptr noundef %62, i32 noundef %63, i16 noundef zeroext %64)
   store i32 %65, ptr %9, align 4
-  br label %55, !llvm.loop !32
+  br label %55, !llvm.loop !36
 
 66:                                               ; preds = %55
   %67 = load i32, ptr %14, align 4
@@ -7481,7 +7705,7 @@ define internal i32 @dissect_openflow_port_desc_prop_v6(ptr noundef %0, ptr noun
   %89 = load i32, ptr %9, align 4
   %90 = add i32 %89, 4
   store i32 %90, ptr %9, align 4
-  br label %79, !llvm.loop !33
+  br label %79, !llvm.loop !37
 
 91:                                               ; preds = %79
   %92 = load i32, ptr %14, align 4
@@ -7531,7 +7755,7 @@ define internal i32 @dissect_openflow_port_desc_prop_v6(ptr noundef %0, ptr noun
   %126 = load i32, ptr %9, align 4
   %127 = load i32, ptr %14, align 4
   %128 = sub i32 %127, 12
-  %129 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %123, ptr noundef %124, ptr noundef @ei_openflow_v6_port_desc_prop_undecoded, ptr noundef %125, i32 noundef %126, i32 noundef %128, ptr noundef @.str.1527)
+  %129 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %123, ptr noundef %124, ptr noundef @ei_openflow_v6_port_desc_prop_undecoded, ptr noundef %125, i32 noundef %126, i32 noundef %128, ptr noundef @.str.1596)
   %130 = load i32, ptr %14, align 4
   %131 = sub i32 %130, 12
   %132 = load i32, ptr %9, align 4
@@ -7560,7 +7784,7 @@ define internal i32 @dissect_openflow_port_desc_prop_v6(ptr noundef %0, ptr noun
   %147 = load i32, ptr %9, align 4
   %148 = load i32, ptr %14, align 4
   %149 = sub i32 %148, 4
-  %150 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %144, ptr noundef %145, ptr noundef @ei_openflow_v6_port_desc_prop_undecoded, ptr noundef %146, i32 noundef %147, i32 noundef %149, ptr noundef @.str.1528)
+  %150 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %144, ptr noundef %145, ptr noundef @ei_openflow_v6_port_desc_prop_undecoded, ptr noundef %146, i32 noundef %147, i32 noundef %149, ptr noundef @.str.1597)
   %151 = load i32, ptr %14, align 4
   %152 = sub i32 %151, 4
   %153 = load i32, ptr %9, align 4
@@ -7570,10 +7794,15 @@ define internal i32 @dissect_openflow_port_desc_prop_v6(ptr noundef %0, ptr noun
 
 155:                                              ; preds = %143, %137, %108, %102, %91, %66, %43, %36
   %156 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret i32 %156
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openflow_port_desc_prop_ethernet_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -7590,6 +7819,11 @@ define internal i32 @dissect_openflow_port_desc_prop_ethernet_v6(ptr noundef %0,
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #5
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr @hf_openflow_v6_port_desc_prop_ethernet_pad, align 4
   %18 = load ptr, ptr %6, align 8
@@ -8000,7 +8234,7 @@ define internal i32 @dissect_openflow_port_desc_prop_ethernet_v6(ptr noundef %0,
   %410 = load i32, ptr %9, align 4
   %411 = call i32 @tvb_get_ntohl(ptr noundef %409, i32 noundef %410)
   %412 = udiv i32 %411, 1000
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %408, ptr noundef @.str.1529, i32 noundef %412)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %408, ptr noundef @.str.1598, i32 noundef %412)
   %413 = load i32, ptr %9, align 4
   %414 = add i32 %413, 4
   store i32 %414, ptr %9, align 4
@@ -8013,10 +8247,15 @@ define internal i32 @dissect_openflow_port_desc_prop_ethernet_v6(ptr noundef %0,
   %421 = add i32 %420, 4
   store i32 %421, ptr %9, align 4
   %422 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret i32 %422
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openflow_port_desc_prop_optical_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -8030,6 +8269,8 @@ define internal i32 @dissect_openflow_port_desc_prop_optical_v6(ptr noundef %0, 
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
   %13 = load ptr, ptr %8, align 8
   %14 = load i32, ptr @hf_openflow_v6_port_desc_prop_optical_pad, align 4
   %15 = load ptr, ptr %6, align 8
@@ -8136,12 +8377,15 @@ define internal i32 @dissect_openflow_port_desc_prop_optical_v6(ptr noundef %0, 
   %105 = add i32 %104, 2
   store i32 %105, ptr %9, align 4
   %106 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret i32 %106
 }
 
-declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openflow_action_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -8157,6 +8401,10 @@ define internal i32 @dissect_openflow_action_v6(ptr noundef %0, ptr noundef %1, 
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 2, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
   %15 = load ptr, ptr %6, align 8
   %16 = load i32, ptr %9, align 4
   %17 = call zeroext i16 @tvb_get_ntohs(ptr noundef %15, i32 noundef %16)
@@ -8177,7 +8425,7 @@ define internal i32 @dissect_openflow_action_v6(ptr noundef %0, ptr noundef %1, 
   %29 = load i16, ptr %13, align 2
   %30 = zext i16 %29 to i32
   %31 = load i32, ptr @ett_openflow_v6_action, align 4
-  %32 = call ptr @proto_tree_add_subtree(ptr noundef %26, ptr noundef %27, i32 noundef %28, i32 noundef %30, i32 noundef %31, ptr noundef null, ptr noundef @.str.1530)
+  %32 = call ptr @proto_tree_add_subtree(ptr noundef %26, ptr noundef %27, i32 noundef %28, i32 noundef %30, i32 noundef %31, ptr noundef null, ptr noundef @.str.1599)
   store ptr %32, ptr %11, align 8
   %33 = load ptr, ptr %6, align 8
   %34 = load ptr, ptr %7, align 8
@@ -8522,7 +8770,7 @@ define internal i32 @dissect_openflow_action_v6(ptr noundef %0, ptr noundef %1, 
   %280 = load i16, ptr %13, align 2
   %281 = zext i16 %280 to i32
   %282 = sub i32 %281, 8
-  %283 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %276, ptr noundef %277, ptr noundef @ei_openflow_v6_action_undecoded, ptr noundef %278, i32 noundef %279, i32 noundef %282, ptr noundef @.str.1531)
+  %283 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %276, ptr noundef %277, ptr noundef @ei_openflow_v6_action_undecoded, ptr noundef %278, i32 noundef %279, i32 noundef %282, ptr noundef @.str.1600)
   %284 = load i16, ptr %13, align 2
   %285 = zext i16 %284 to i32
   %286 = sub i32 %285, 8
@@ -8550,10 +8798,14 @@ define internal i32 @dissect_openflow_action_v6(ptr noundef %0, ptr noundef %1, 
 
 303:                                              ; preds = %289, %275, %267, %238, %230, %215, %214, %186, %171, %163, %155, %140, %125, %117, %102, %94, %79, %71, %63, %41
   %304 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 2, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret i32 %304
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openflow_action_header_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -8566,6 +8818,7 @@ define internal i32 @dissect_openflow_action_header_v6(ptr noundef %0, ptr nound
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
   %12 = load ptr, ptr %8, align 8
   %13 = load i32, ptr @hf_openflow_v6_action_type, align 4
   %14 = load ptr, ptr %6, align 8
@@ -8599,10 +8852,11 @@ define internal i32 @dissect_openflow_action_header_v6(ptr noundef %0, ptr nound
 
 36:                                               ; preds = %28, %5
   %37 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
   ret i32 %37
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openflow_instruction_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -8619,11 +8873,16 @@ define internal i32 @dissect_openflow_instruction_v6(ptr noundef %0, ptr noundef
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
   %16 = load ptr, ptr %8, align 8
   %17 = load ptr, ptr %6, align 8
   %18 = load i32, ptr %9, align 4
   %19 = load i32, ptr @ett_openflow_v6_instruction, align 4
-  %20 = call ptr @proto_tree_add_subtree(ptr noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef -1, i32 noundef %19, ptr noundef %11, ptr noundef @.str.1532)
+  %20 = call ptr @proto_tree_add_subtree(ptr noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef -1, i32 noundef %19, ptr noundef %11, ptr noundef @.str.1601)
   store ptr %20, ptr %12, align 8
   %21 = load ptr, ptr %6, align 8
   %22 = load ptr, ptr %7, align 8
@@ -8633,27 +8892,27 @@ define internal i32 @dissect_openflow_instruction_v6(ptr noundef %0, ptr noundef
   %26 = call i32 @dissect_openflow_instruction_header_v6(ptr noundef %21, ptr noundef %22, ptr noundef %23, i32 noundef %24, i16 noundef zeroext %25, ptr noundef %14)
   store i32 %26, ptr %9, align 4
   %27 = load ptr, ptr %11, align 8
-  %28 = getelementptr inbounds %struct.inst_header, ptr %14, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct.inst_header, ptr %14, i32 0, i32 1
   %29 = load i32, ptr %28, align 4
   call void @proto_item_set_len(ptr noundef %27, i32 noundef %29)
-  %30 = getelementptr inbounds %struct.inst_header, ptr %14, i32 0, i32 1
+  %30 = getelementptr inbounds nuw %struct.inst_header, ptr %14, i32 0, i32 1
   %31 = load i32, ptr %30, align 4
   %32 = icmp ult i32 %31, 8
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %5
-  %34 = getelementptr inbounds %struct.inst_header, ptr %14, i32 0, i32 1
+  %34 = getelementptr inbounds nuw %struct.inst_header, ptr %14, i32 0, i32 1
   store i32 8, ptr %34, align 4
   br label %35
 
 35:                                               ; preds = %33, %5
   %36 = load i32, ptr %9, align 4
-  %37 = getelementptr inbounds %struct.inst_header, ptr %14, i32 0, i32 1
+  %37 = getelementptr inbounds nuw %struct.inst_header, ptr %14, i32 0, i32 1
   %38 = load i32, ptr %37, align 4
   %39 = add i32 %36, %38
   %40 = sub i32 %39, 4
   store i32 %40, ptr %15, align 4
-  %41 = getelementptr inbounds %struct.inst_header, ptr %14, i32 0, i32 0
+  %41 = getelementptr inbounds nuw %struct.inst_header, ptr %14, i32 0, i32 0
   %42 = load i32, ptr %41, align 4
   switch i32 %42, label %152 [
     i32 1, label %43
@@ -8736,7 +8995,7 @@ define internal i32 @dissect_openflow_instruction_v6(ptr noundef %0, ptr noundef
   %97 = load i16, ptr %10, align 2
   %98 = call i32 @dissect_openflow_action_v6(ptr noundef %93, ptr noundef %94, ptr noundef %95, i32 noundef %96, i16 noundef zeroext %97)
   store i32 %98, ptr %9, align 4
-  br label %88, !llvm.loop !34
+  br label %88, !llvm.loop !38
 
 99:                                               ; preds = %88
   br label %166
@@ -8786,7 +9045,7 @@ define internal i32 @dissect_openflow_instruction_v6(ptr noundef %0, ptr noundef
   %135 = load i16, ptr %10, align 2
   %136 = call i32 @dissect_openflow_stats_v6(ptr noundef %131, ptr noundef %132, ptr noundef %133, i32 noundef %134, i16 noundef zeroext %135)
   store i32 %136, ptr %9, align 4
-  br label %126, !llvm.loop !35
+  br label %126, !llvm.loop !39
 
 137:                                              ; preds = %126
   br label %166
@@ -8796,11 +9055,11 @@ define internal i32 @dissect_openflow_instruction_v6(ptr noundef %0, ptr noundef
   %140 = load ptr, ptr %7, align 8
   %141 = load ptr, ptr %6, align 8
   %142 = load i32, ptr %9, align 4
-  %143 = getelementptr inbounds %struct.inst_header, ptr %14, i32 0, i32 1
+  %143 = getelementptr inbounds nuw %struct.inst_header, ptr %14, i32 0, i32 1
   %144 = load i32, ptr %143, align 4
   %145 = sub i32 %144, 8
-  %146 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %139, ptr noundef %140, ptr noundef @ei_openflow_v6_instruction_undecoded, ptr noundef %141, i32 noundef %142, i32 noundef %145, ptr noundef @.str.1533)
-  %147 = getelementptr inbounds %struct.inst_header, ptr %14, i32 0, i32 1
+  %146 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %139, ptr noundef %140, ptr noundef @ei_openflow_v6_instruction_undecoded, ptr noundef %141, i32 noundef %142, i32 noundef %145, ptr noundef @.str.1602)
+  %147 = getelementptr inbounds nuw %struct.inst_header, ptr %14, i32 0, i32 1
   %148 = load i32, ptr %147, align 4
   %149 = sub i32 %148, 8
   %150 = load i32, ptr %9, align 4
@@ -8813,11 +9072,11 @@ define internal i32 @dissect_openflow_instruction_v6(ptr noundef %0, ptr noundef
   %154 = load ptr, ptr %7, align 8
   %155 = load ptr, ptr %6, align 8
   %156 = load i32, ptr %9, align 4
-  %157 = getelementptr inbounds %struct.inst_header, ptr %14, i32 0, i32 1
+  %157 = getelementptr inbounds nuw %struct.inst_header, ptr %14, i32 0, i32 1
   %158 = load i32, ptr %157, align 4
   %159 = sub i32 %158, 4
   %160 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %153, ptr noundef %154, ptr noundef @ei_openflow_v6_instruction_undecoded, ptr noundef %155, i32 noundef %156, i32 noundef %159, ptr noundef @.str.1035)
-  %161 = getelementptr inbounds %struct.inst_header, ptr %14, i32 0, i32 1
+  %161 = getelementptr inbounds nuw %struct.inst_header, ptr %14, i32 0, i32 1
   %162 = load i32, ptr %161, align 4
   %163 = sub i32 %162, 4
   %164 = load i32, ptr %9, align 4
@@ -8827,10 +9086,15 @@ define internal i32 @dissect_openflow_instruction_v6(ptr noundef %0, ptr noundef
 
 166:                                              ; preds = %152, %138, %137, %99, %58, %43
   %167 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret i32 %167
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openflow_instruction_header_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -8846,6 +9110,8 @@ define internal i32 @dissect_openflow_instruction_header_v6(ptr noundef %0, ptr 
   store i32 %3, ptr %10, align 4
   store i16 %4, ptr %11, align 2
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
   %15 = load ptr, ptr %9, align 8
   %16 = load i32, ptr @hf_openflow_v6_instruction_type, align 4
   %17 = load ptr, ptr %7, align 8
@@ -8885,20 +9151,22 @@ define internal i32 @dissect_openflow_instruction_header_v6(ptr noundef %0, ptr 
 42:                                               ; preds = %39
   %43 = load i32, ptr %13, align 4
   %44 = load ptr, ptr %12, align 8
-  %45 = getelementptr inbounds %struct.inst_header, ptr %44, i32 0, i32 0
+  %45 = getelementptr inbounds nuw %struct.inst_header, ptr %44, i32 0, i32 0
   store i32 %43, ptr %45, align 4
   %46 = load i32, ptr %14, align 4
   %47 = load ptr, ptr %12, align 8
-  %48 = getelementptr inbounds %struct.inst_header, ptr %47, i32 0, i32 1
+  %48 = getelementptr inbounds nuw %struct.inst_header, ptr %47, i32 0, i32 1
   store i32 %46, ptr %48, align 4
   br label %49
 
 49:                                               ; preds = %42, %39
   %50 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
   ret i32 %50
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openflow_bucket_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -8914,11 +9182,15 @@ define internal i32 @dissect_openflow_bucket_v6(ptr noundef %0, ptr noundef %1, 
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
   %15 = load ptr, ptr %8, align 8
   %16 = load ptr, ptr %6, align 8
   %17 = load i32, ptr %9, align 4
   %18 = load i32, ptr @ett_openflow_v6_bucket, align 4
-  %19 = call ptr @proto_tree_add_subtree(ptr noundef %15, ptr noundef %16, i32 noundef %17, i32 noundef -1, i32 noundef %18, ptr noundef %11, ptr noundef @.str.1534)
+  %19 = call ptr @proto_tree_add_subtree(ptr noundef %15, ptr noundef %16, i32 noundef %17, i32 noundef -1, i32 noundef %18, ptr noundef %11, ptr noundef @.str.1603)
   store ptr %19, ptr %12, align 8
   %20 = load ptr, ptr %6, align 8
   %21 = load i32, ptr %9, align 4
@@ -9000,14 +9272,18 @@ define internal i32 @dissect_openflow_bucket_v6(ptr noundef %0, ptr noundef %1, 
   %80 = load i16, ptr %10, align 2
   %81 = call i32 @dissect_openflow_action_v6(ptr noundef %76, ptr noundef %77, ptr noundef %78, i32 noundef %79, i16 noundef zeroext %80)
   store i32 %81, ptr %9, align 4
-  br label %71, !llvm.loop !36
+  br label %71, !llvm.loop !40
 
 82:                                               ; preds = %71
   %83 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret i32 %83
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openflow_portmod_prop_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -9024,11 +9300,16 @@ define internal i32 @dissect_openflow_portmod_prop_v6(ptr noundef %0, ptr nounde
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
   %16 = load ptr, ptr %8, align 8
   %17 = load ptr, ptr %6, align 8
   %18 = load i32, ptr %9, align 4
   %19 = load i32, ptr @ett_openflow_v6_portmod_prop, align 4
-  %20 = call ptr @proto_tree_add_subtree(ptr noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef -1, i32 noundef %19, ptr noundef %13, ptr noundef @.str.1535)
+  %20 = call ptr @proto_tree_add_subtree(ptr noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef -1, i32 noundef %19, ptr noundef %13, ptr noundef @.str.1604)
   store ptr %20, ptr %11, align 8
   %21 = load ptr, ptr %11, align 8
   %22 = load i32, ptr @hf_openflow_v6_portmod_prop_type, align 4
@@ -9114,7 +9395,7 @@ define internal i32 @dissect_openflow_portmod_prop_v6(ptr noundef %0, ptr nounde
   %79 = load i32, ptr %9, align 4
   %80 = load i32, ptr %15, align 4
   %81 = sub i32 %80, 12
-  %82 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %76, ptr noundef %77, ptr noundef @ei_openflow_v6_portmod_prop_undecoded, ptr noundef %78, i32 noundef %79, i32 noundef %81, ptr noundef @.str.1527)
+  %82 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %76, ptr noundef %77, ptr noundef @ei_openflow_v6_portmod_prop_undecoded, ptr noundef %78, i32 noundef %79, i32 noundef %81, ptr noundef @.str.1596)
   %83 = load i32, ptr %15, align 4
   %84 = sub i32 %83, 12
   %85 = load i32, ptr %9, align 4
@@ -9143,7 +9424,7 @@ define internal i32 @dissect_openflow_portmod_prop_v6(ptr noundef %0, ptr nounde
   %100 = load i32, ptr %9, align 4
   %101 = load i32, ptr %15, align 4
   %102 = sub i32 %101, 4
-  %103 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %97, ptr noundef %98, ptr noundef @ei_openflow_v6_portmod_prop_undecoded, ptr noundef %99, i32 noundef %100, i32 noundef %102, ptr noundef @.str.1528)
+  %103 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %97, ptr noundef %98, ptr noundef @ei_openflow_v6_portmod_prop_undecoded, ptr noundef %99, i32 noundef %100, i32 noundef %102, ptr noundef @.str.1597)
   %104 = load i32, ptr %15, align 4
   %105 = sub i32 %104, 4
   %106 = load i32, ptr %9, align 4
@@ -9153,10 +9434,15 @@ define internal i32 @dissect_openflow_portmod_prop_v6(ptr noundef %0, ptr nounde
 
 108:                                              ; preds = %96, %90, %61, %55, %45, %38
   %109 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret i32 %109
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openflow_portmod_prop_ethernet_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -9170,6 +9456,8 @@ define internal i32 @dissect_openflow_portmod_prop_ethernet_v6(ptr noundef %0, p
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
   %13 = load ptr, ptr %8, align 8
   %14 = load i32, ptr @hf_openflow_v6_portmod_prop_ethernet_advertise, align 4
   %15 = load ptr, ptr %6, align 8
@@ -9264,10 +9552,12 @@ define internal i32 @dissect_openflow_portmod_prop_ethernet_v6(ptr noundef %0, p
   %102 = add i32 %101, 4
   store i32 %102, ptr %9, align 4
   %103 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret i32 %103
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openflow_portmod_prop_optical_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -9281,6 +9571,8 @@ define internal i32 @dissect_openflow_portmod_prop_optical_v6(ptr noundef %0, pt
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
   %13 = load ptr, ptr %8, align 8
   %14 = load i32, ptr @hf_openflow_v6_portmod_prop_optical_configure, align 4
   %15 = load ptr, ptr %6, align 8
@@ -9347,10 +9639,12 @@ define internal i32 @dissect_openflow_portmod_prop_optical_v6(ptr noundef %0, pt
   %70 = add i32 %69, 4
   store i32 %70, ptr %9, align 4
   %71 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret i32 %71
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openflow_tablemod_prop_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -9368,6 +9662,12 @@ define internal i32 @dissect_openflow_tablemod_prop_v6(ptr noundef %0, ptr nound
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #5
   %17 = load ptr, ptr %6, align 8
   %18 = load i32, ptr %9, align 4
   %19 = add i32 %18, 2
@@ -9378,7 +9678,7 @@ define internal i32 @dissect_openflow_tablemod_prop_v6(ptr noundef %0, ptr nound
   %23 = load ptr, ptr %6, align 8
   %24 = load i32, ptr %9, align 4
   %25 = load i32, ptr @ett_openflow_v6_tablemod_prop, align 4
-  %26 = call ptr @proto_tree_add_subtree(ptr noundef %22, ptr noundef %23, i32 noundef %24, i32 noundef -1, i32 noundef %25, ptr noundef %11, ptr noundef @.str.1536)
+  %26 = call ptr @proto_tree_add_subtree(ptr noundef %22, ptr noundef %23, i32 noundef %24, i32 noundef -1, i32 noundef %25, ptr noundef %11, ptr noundef @.str.1605)
   store ptr %26, ptr %13, align 8
   %27 = load ptr, ptr %13, align 8
   %28 = load i32, ptr @hf_openflow_v6_tablemod_prop_type, align 4
@@ -9510,7 +9810,7 @@ define internal i32 @dissect_openflow_tablemod_prop_v6(ptr noundef %0, ptr nound
   %126 = load i32, ptr %9, align 4
   %127 = load i32, ptr %16, align 4
   %128 = sub i32 %127, 12
-  %129 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %123, ptr noundef %124, ptr noundef @ei_openflow_v6_tablemod_prop_undecoded, ptr noundef %125, i32 noundef %126, i32 noundef %128, ptr noundef @.str.1537)
+  %129 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %123, ptr noundef %124, ptr noundef @ei_openflow_v6_tablemod_prop_undecoded, ptr noundef %125, i32 noundef %126, i32 noundef %128, ptr noundef @.str.1606)
   %130 = load i32, ptr %16, align 4
   %131 = sub i32 %130, 12
   %132 = load i32, ptr %9, align 4
@@ -9539,7 +9839,7 @@ define internal i32 @dissect_openflow_tablemod_prop_v6(ptr noundef %0, ptr nound
   %147 = load i32, ptr %9, align 4
   %148 = load i32, ptr %16, align 4
   %149 = sub i32 %148, 4
-  %150 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %144, ptr noundef %145, ptr noundef @ei_openflow_v6_tablemod_prop_undecoded, ptr noundef %146, i32 noundef %147, i32 noundef %149, ptr noundef @.str.1538)
+  %150 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %144, ptr noundef %145, ptr noundef @ei_openflow_v6_tablemod_prop_undecoded, ptr noundef %146, i32 noundef %147, i32 noundef %149, ptr noundef @.str.1607)
   %151 = load i32, ptr %16, align 4
   %152 = sub i32 %151, 4
   %153 = load i32, ptr %9, align 4
@@ -9549,10 +9849,16 @@ define internal i32 @dissect_openflow_tablemod_prop_v6(ptr noundef %0, ptr nound
 
 155:                                              ; preds = %143, %137, %108, %102, %70, %44
   %156 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret i32 %156
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_openflow_flow_stats_request_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -9629,7 +9935,7 @@ define internal void @dissect_openflow_flow_stats_request_v6(ptr noundef %0, ptr
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_openflow_aggregate_stats_request_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -9706,7 +10012,7 @@ define internal void @dissect_openflow_aggregate_stats_request_v6(ptr noundef %0
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_openflow_port_stats_request_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -9734,7 +10040,7 @@ define internal void @dissect_openflow_port_stats_request_v6(ptr noundef %0, ptr
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_openflow_queue_stats_request_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -9762,7 +10068,7 @@ define internal void @dissect_openflow_queue_stats_request_v6(ptr noundef %0, pt
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_openflow_group_stats_request_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -9790,7 +10096,7 @@ define internal void @dissect_openflow_group_stats_request_v6(ptr noundef %0, pt
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_openflow_meter_stats_request_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -9818,7 +10124,7 @@ define internal void @dissect_openflow_meter_stats_request_v6(ptr noundef %0, pt
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_openflow_meter_desc_request_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -9846,7 +10152,7 @@ define internal void @dissect_openflow_meter_desc_request_v6(ptr noundef %0, ptr
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openflow_table_features_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -9863,11 +10169,16 @@ define internal i32 @dissect_openflow_table_features_v6(ptr noundef %0, ptr noun
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
   %16 = load ptr, ptr %8, align 8
   %17 = load ptr, ptr %6, align 8
   %18 = load i32, ptr %9, align 4
   %19 = load i32, ptr @ett_openflow_v6_table_features, align 4
-  %20 = call ptr @proto_tree_add_subtree(ptr noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef -1, i32 noundef %19, ptr noundef %11, ptr noundef @.str.1540)
+  %20 = call ptr @proto_tree_add_subtree(ptr noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef -1, i32 noundef %19, ptr noundef %11, ptr noundef @.str.1609)
   store ptr %20, ptr %12, align 8
   %21 = load ptr, ptr %12, align 8
   %22 = load i32, ptr @hf_openflow_v6_table_features_length, align 4
@@ -9971,14 +10282,19 @@ define internal i32 @dissect_openflow_table_features_v6(ptr noundef %0, ptr noun
   %104 = load i16, ptr %10, align 2
   %105 = call i32 @dissect_openflow_table_feature_prop_v6(ptr noundef %100, ptr noundef %101, ptr noundef %102, i32 noundef %103, i16 noundef zeroext %104)
   store i32 %105, ptr %9, align 4
-  br label %95, !llvm.loop !37
+  br label %95, !llvm.loop !41
 
 106:                                              ; preds = %95
   %107 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret i32 %107
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_openflow_queue_desc_request_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -10006,7 +10322,7 @@ define internal void @dissect_openflow_queue_desc_request_v6(ptr noundef %0, ptr
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_openflow_flow_monitor_request_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -10020,6 +10336,8 @@ define internal void @dissect_openflow_flow_monitor_request_v6(ptr noundef %0, p
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
   %13 = load ptr, ptr %8, align 8
   %14 = load i32, ptr @hf_openflow_v6_flow_monitor_request_monitor_id, align 4
   %15 = load ptr, ptr %6, align 8
@@ -10114,10 +10432,12 @@ define internal void @dissect_openflow_flow_monitor_request_v6(ptr noundef %0, p
   %96 = load i32, ptr %9, align 4
   %97 = load i16, ptr %10, align 2
   %98 = call i32 @dissect_openflow_match_v6(ptr noundef %93, ptr noundef %94, ptr noundef %95, i32 noundef %96, i16 noundef zeroext %97)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_openflow_bundle_features_request_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -10162,13 +10482,13 @@ define internal void @dissect_openflow_bundle_features_request_v6(ptr noundef %0
   %35 = load i16, ptr %10, align 2
   %36 = call i32 @dissect_openflow_bundle_feature_prop_v6(ptr noundef %31, ptr noundef %32, ptr noundef %33, i32 noundef %34, i16 noundef zeroext %35)
   store i32 %36, ptr %9, align 4
-  br label %25, !llvm.loop !38
+  br label %25, !llvm.loop !42
 
 37:                                               ; preds = %25
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openflow_table_feature_prop_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -10188,11 +10508,19 @@ define internal i32 @dissect_openflow_table_feature_prop_v6(ptr noundef %0, ptr 
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.start.p0(i64 2, ptr %16) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #5
+  call void @llvm.lifetime.start.p0(i64 2, ptr %18) #5
   %19 = load ptr, ptr %8, align 8
   %20 = load ptr, ptr %6, align 8
   %21 = load i32, ptr %9, align 4
   %22 = load i32, ptr @ett_openflow_v6_table_feature_prop, align 4
-  %23 = call ptr @proto_tree_add_subtree(ptr noundef %19, ptr noundef %20, i32 noundef %21, i32 noundef -1, i32 noundef %22, ptr noundef %11, ptr noundef @.str.1541)
+  %23 = call ptr @proto_tree_add_subtree(ptr noundef %19, ptr noundef %20, i32 noundef %21, i32 noundef -1, i32 noundef %22, ptr noundef %11, ptr noundef @.str.1610)
   store ptr %23, ptr %12, align 8
   %24 = load ptr, ptr %12, align 8
   %25 = load i32, ptr @hf_openflow_v6_table_feature_prop_type, align 4
@@ -10270,7 +10598,7 @@ define internal i32 @dissect_openflow_table_feature_prop_v6(ptr noundef %0, ptr 
   %58 = load ptr, ptr %6, align 8
   %59 = load i32, ptr %9, align 4
   %60 = load i32, ptr @ett_openflow_v6_table_feature_prop_instruction_id, align 4
-  %61 = call ptr @proto_tree_add_subtree(ptr noundef %57, ptr noundef %58, i32 noundef %59, i32 noundef -1, i32 noundef %60, ptr noundef %11, ptr noundef @.str.1542)
+  %61 = call ptr @proto_tree_add_subtree(ptr noundef %57, ptr noundef %58, i32 noundef %59, i32 noundef -1, i32 noundef %60, ptr noundef %11, ptr noundef @.str.1611)
   store ptr %61, ptr %13, align 8
   %62 = load ptr, ptr %6, align 8
   %63 = load ptr, ptr %7, align 8
@@ -10285,7 +10613,7 @@ define internal i32 @dissect_openflow_table_feature_prop_v6(ptr noundef %0, ptr 
   %71 = zext i16 %70 to i32
   %72 = sub i32 %69, %71
   call void @proto_item_set_len(ptr noundef %68, i32 noundef %72)
-  br label %50, !llvm.loop !39
+  br label %50, !llvm.loop !43
 
 73:                                               ; preds = %50
   br label %211
@@ -10308,7 +10636,7 @@ define internal i32 @dissect_openflow_table_feature_prop_v6(ptr noundef %0, ptr 
   %85 = load i32, ptr %9, align 4
   %86 = add i32 %85, 1
   store i32 %86, ptr %9, align 4
-  br label %75, !llvm.loop !40
+  br label %75, !llvm.loop !44
 
 87:                                               ; preds = %75
   br label %211
@@ -10330,7 +10658,7 @@ define internal i32 @dissect_openflow_table_feature_prop_v6(ptr noundef %0, ptr 
   %97 = load ptr, ptr %6, align 8
   %98 = load i32, ptr %9, align 4
   %99 = load i32, ptr @ett_openflow_v6_table_feature_prop_action_id, align 4
-  %100 = call ptr @proto_tree_add_subtree(ptr noundef %96, ptr noundef %97, i32 noundef %98, i32 noundef -1, i32 noundef %99, ptr noundef %11, ptr noundef @.str.1543)
+  %100 = call ptr @proto_tree_add_subtree(ptr noundef %96, ptr noundef %97, i32 noundef %98, i32 noundef -1, i32 noundef %99, ptr noundef %11, ptr noundef @.str.1612)
   store ptr %100, ptr %13, align 8
   %101 = load ptr, ptr %6, align 8
   %102 = load ptr, ptr %7, align 8
@@ -10345,7 +10673,7 @@ define internal i32 @dissect_openflow_table_feature_prop_v6(ptr noundef %0, ptr 
   %110 = zext i16 %109 to i32
   %111 = sub i32 %108, %110
   call void @proto_item_set_len(ptr noundef %107, i32 noundef %111)
-  br label %89, !llvm.loop !41
+  br label %89, !llvm.loop !45
 
 112:                                              ; preds = %89
   br label %211
@@ -10367,7 +10695,7 @@ define internal i32 @dissect_openflow_table_feature_prop_v6(ptr noundef %0, ptr 
   %122 = load ptr, ptr %6, align 8
   %123 = load i32, ptr %9, align 4
   %124 = load i32, ptr @ett_openflow_v6_table_feature_prop_oxm_id, align 4
-  %125 = call ptr @proto_tree_add_subtree(ptr noundef %121, ptr noundef %122, i32 noundef %123, i32 noundef -1, i32 noundef %124, ptr noundef %11, ptr noundef @.str.1544)
+  %125 = call ptr @proto_tree_add_subtree(ptr noundef %121, ptr noundef %122, i32 noundef %123, i32 noundef -1, i32 noundef %124, ptr noundef %11, ptr noundef @.str.1613)
   store ptr %125, ptr %13, align 8
   %126 = load ptr, ptr %6, align 8
   %127 = load ptr, ptr %7, align 8
@@ -10382,7 +10710,7 @@ define internal i32 @dissect_openflow_table_feature_prop_v6(ptr noundef %0, ptr 
   %135 = zext i16 %134 to i32
   %136 = sub i32 %133, %135
   call void @proto_item_set_len(ptr noundef %132, i32 noundef %136)
-  br label %114, !llvm.loop !42
+  br label %114, !llvm.loop !46
 
 137:                                              ; preds = %114
   br label %211
@@ -10405,7 +10733,7 @@ define internal i32 @dissect_openflow_table_feature_prop_v6(ptr noundef %0, ptr 
   %149 = load i32, ptr %9, align 4
   %150 = add i32 %149, 1
   store i32 %150, ptr %9, align 4
-  br label %139, !llvm.loop !43
+  br label %139, !llvm.loop !47
 
 151:                                              ; preds = %139
   br label %211
@@ -10427,7 +10755,7 @@ define internal i32 @dissect_openflow_table_feature_prop_v6(ptr noundef %0, ptr 
   %161 = load ptr, ptr %6, align 8
   %162 = load i32, ptr %9, align 4
   %163 = load i32, ptr @ett_openflow_v6_table_feature_prop_oxm_id, align 4
-  %164 = call ptr @proto_tree_add_subtree(ptr noundef %160, ptr noundef %161, i32 noundef %162, i32 noundef -1, i32 noundef %163, ptr noundef %11, ptr noundef @.str.1544)
+  %164 = call ptr @proto_tree_add_subtree(ptr noundef %160, ptr noundef %161, i32 noundef %162, i32 noundef -1, i32 noundef %163, ptr noundef %11, ptr noundef @.str.1613)
   store ptr %164, ptr %13, align 8
   %165 = load ptr, ptr %6, align 8
   %166 = load ptr, ptr %7, align 8
@@ -10442,7 +10770,7 @@ define internal i32 @dissect_openflow_table_feature_prop_v6(ptr noundef %0, ptr 
   %174 = zext i16 %173 to i32
   %175 = sub i32 %172, %174
   call void @proto_item_set_len(ptr noundef %171, i32 noundef %175)
-  br label %153, !llvm.loop !44
+  br label %153, !llvm.loop !48
 
 176:                                              ; preds = %153
   br label %211
@@ -10471,7 +10799,7 @@ define internal i32 @dissect_openflow_table_feature_prop_v6(ptr noundef %0, ptr 
   %196 = load i32, ptr %17, align 4
   %197 = load i32, ptr %9, align 4
   %198 = sub i32 %196, %197
-  %199 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %192, ptr noundef %193, ptr noundef @ei_openflow_v6_table_feature_prop_undecoded, ptr noundef %194, i32 noundef %195, i32 noundef %198, ptr noundef @.str.1545)
+  %199 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %192, ptr noundef %193, ptr noundef @ei_openflow_v6_table_feature_prop_undecoded, ptr noundef %194, i32 noundef %195, i32 noundef %198, ptr noundef @.str.1614)
   %200 = load i32, ptr %17, align 4
   store i32 %200, ptr %9, align 4
   br label %211
@@ -10484,7 +10812,7 @@ define internal i32 @dissect_openflow_table_feature_prop_v6(ptr noundef %0, ptr 
   %206 = load i32, ptr %17, align 4
   %207 = load i32, ptr %9, align 4
   %208 = sub i32 %206, %207
-  %209 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %202, ptr noundef %203, ptr noundef @ei_openflow_v6_table_feature_prop_undecoded, ptr noundef %204, i32 noundef %205, i32 noundef %208, ptr noundef @.str.1546)
+  %209 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %202, ptr noundef %203, ptr noundef @ei_openflow_v6_table_feature_prop_undecoded, ptr noundef %204, i32 noundef %205, i32 noundef %208, ptr noundef @.str.1615)
   %210 = load i32, ptr %17, align 4
   store i32 %210, ptr %9, align 4
   br label %211
@@ -10520,10 +10848,18 @@ define internal i32 @dissect_openflow_table_feature_prop_v6(ptr noundef %0, ptr 
 
 234:                                              ; preds = %222, %211
   %235 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #5
+  call void @llvm.lifetime.end.p0(i64 2, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret i32 %235
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openflow_bundle_feature_prop_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -10541,11 +10877,17 @@ define internal i32 @dissect_openflow_bundle_feature_prop_v6(ptr noundef %0, ptr
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.start.p0(i64 2, ptr %16) #5
   %17 = load ptr, ptr %8, align 8
   %18 = load ptr, ptr %6, align 8
   %19 = load i32, ptr %9, align 4
   %20 = load i32, ptr @ett_openflow_v6_bundle_feature_prop, align 4
-  %21 = call ptr @proto_tree_add_subtree(ptr noundef %17, ptr noundef %18, i32 noundef %19, i32 noundef -1, i32 noundef %20, ptr noundef %11, ptr noundef @.str.1547)
+  %21 = call ptr @proto_tree_add_subtree(ptr noundef %17, ptr noundef %18, i32 noundef %19, i32 noundef -1, i32 noundef %20, ptr noundef %11, ptr noundef @.str.1616)
   store ptr %21, ptr %12, align 8
   %22 = load ptr, ptr %12, align 8
   %23 = load i32, ptr @hf_openflow_v6_bundle_feature_prop_type, align 4
@@ -10649,7 +10991,7 @@ define internal i32 @dissect_openflow_bundle_feature_prop_v6(ptr noundef %0, ptr
   %98 = load i32, ptr %15, align 4
   %99 = load i32, ptr %9, align 4
   %100 = sub i32 %98, %99
-  %101 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %94, ptr noundef %95, ptr noundef @ei_openflow_v6_bundle_feature_prop_undecoded, ptr noundef %96, i32 noundef %97, i32 noundef %100, ptr noundef @.str.1548)
+  %101 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %94, ptr noundef %95, ptr noundef @ei_openflow_v6_bundle_feature_prop_undecoded, ptr noundef %96, i32 noundef %97, i32 noundef %100, ptr noundef @.str.1617)
   %102 = load i32, ptr %15, align 4
   store i32 %102, ptr %9, align 4
   br label %113
@@ -10662,7 +11004,7 @@ define internal i32 @dissect_openflow_bundle_feature_prop_v6(ptr noundef %0, ptr
   %108 = load i32, ptr %15, align 4
   %109 = load i32, ptr %9, align 4
   %110 = sub i32 %108, %109
-  %111 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %104, ptr noundef %105, ptr noundef @ei_openflow_v6_bundle_feature_prop_undecoded, ptr noundef %106, i32 noundef %107, i32 noundef %110, ptr noundef @.str.1549)
+  %111 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %104, ptr noundef %105, ptr noundef @ei_openflow_v6_bundle_feature_prop_undecoded, ptr noundef %106, i32 noundef %107, i32 noundef %110, ptr noundef @.str.1618)
   %112 = load i32, ptr %15, align 4
   store i32 %112, ptr %9, align 4
   br label %113
@@ -10698,10 +11040,16 @@ define internal i32 @dissect_openflow_bundle_feature_prop_v6(ptr noundef %0, ptr
 
 136:                                              ; preds = %124, %113
   %137 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret i32 %137
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openflow_time_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -10741,7 +11089,7 @@ define internal i32 @dissect_openflow_time_v6(ptr noundef %0, ptr noundef %1, pt
   ret i32 %32
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_openflow_switch_description_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -10793,7 +11141,7 @@ define internal void @dissect_openflow_switch_description_v6(ptr noundef %0, ptr
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openflow_flow_desc_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -10806,194 +11154,207 @@ define internal i32 @dissect_openflow_flow_desc_v6(ptr noundef %0, ptr noundef %
   %14 = alloca ptr, align 8
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
   store ptr %0, ptr %7, align 8
   store ptr %1, ptr %8, align 8
   store ptr %2, ptr %9, align 8
   store i32 %3, ptr %10, align 4
   store i16 %4, ptr %11, align 2
-  %17 = load ptr, ptr %9, align 8
-  %18 = load ptr, ptr %7, align 8
-  %19 = load i32, ptr %10, align 4
-  %20 = load i32, ptr @ett_openflow_v6_flow_desc, align 4
-  %21 = call ptr @proto_tree_add_subtree(ptr noundef %17, ptr noundef %18, i32 noundef %19, i32 noundef -1, i32 noundef %20, ptr noundef %12, ptr noundef @.str.1551)
-  store ptr %21, ptr %13, align 8
-  %22 = load ptr, ptr %13, align 8
-  %23 = load i32, ptr @hf_openflow_v6_flow_desc_length, align 4
-  %24 = load ptr, ptr %7, align 8
-  %25 = load i32, ptr %10, align 4
-  %26 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %22, i32 noundef %23, ptr noundef %24, i32 noundef %25, i32 noundef 2, i32 noundef 0, ptr noundef %15)
-  %27 = load i32, ptr %10, align 4
-  %28 = load i32, ptr %15, align 4
-  %29 = add i32 %27, %28
-  store i32 %29, ptr %16, align 4
-  %30 = load ptr, ptr %12, align 8
-  %31 = load i32, ptr %15, align 4
-  call void @proto_item_set_len(ptr noundef %30, i32 noundef %31)
-  %32 = load i32, ptr %10, align 4
-  %33 = add i32 %32, 2
-  store i32 %33, ptr %10, align 4
-  %34 = load ptr, ptr %13, align 8
-  %35 = load i32, ptr @hf_openflow_v6_flow_desc_pad2, align 4
-  %36 = load ptr, ptr %7, align 8
-  %37 = load i32, ptr %10, align 4
-  %38 = call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %35, ptr noundef %36, i32 noundef %37, i32 noundef 2, i32 noundef 0)
-  %39 = load i32, ptr %10, align 4
-  %40 = add i32 %39, 2
-  store i32 %40, ptr %10, align 4
-  %41 = load ptr, ptr %13, align 8
-  %42 = load i32, ptr @hf_openflow_v6_flow_desc_table_id, align 4
-  %43 = load ptr, ptr %7, align 8
-  %44 = load i32, ptr %10, align 4
-  %45 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %42, ptr noundef %43, i32 noundef %44, i32 noundef 1, i32 noundef 0)
-  %46 = load i32, ptr %10, align 4
-  %47 = add i32 %46, 1
-  store i32 %47, ptr %10, align 4
-  %48 = load ptr, ptr %13, align 8
-  %49 = load i32, ptr @hf_openflow_v6_flow_desc_pad, align 4
-  %50 = load ptr, ptr %7, align 8
-  %51 = load i32, ptr %10, align 4
-  %52 = call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %49, ptr noundef %50, i32 noundef %51, i32 noundef 1, i32 noundef 0)
-  %53 = load i32, ptr %10, align 4
-  %54 = add i32 %53, 1
-  store i32 %54, ptr %10, align 4
-  %55 = load ptr, ptr %13, align 8
-  %56 = load i32, ptr @hf_openflow_v6_flow_desc_priority, align 4
-  %57 = load ptr, ptr %7, align 8
-  %58 = load i32, ptr %10, align 4
-  %59 = call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %56, ptr noundef %57, i32 noundef %58, i32 noundef 2, i32 noundef 0)
-  %60 = load i32, ptr %10, align 4
-  %61 = add i32 %60, 2
-  store i32 %61, ptr %10, align 4
-  %62 = load ptr, ptr %13, align 8
-  %63 = load i32, ptr @hf_openflow_v6_flow_desc_idle_timeout, align 4
-  %64 = load ptr, ptr %7, align 8
-  %65 = load i32, ptr %10, align 4
-  %66 = call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %63, ptr noundef %64, i32 noundef %65, i32 noundef 2, i32 noundef 0)
-  %67 = load i32, ptr %10, align 4
-  %68 = add i32 %67, 2
-  store i32 %68, ptr %10, align 4
-  %69 = load ptr, ptr %13, align 8
-  %70 = load i32, ptr @hf_openflow_v6_flow_desc_hard_timeout, align 4
-  %71 = load ptr, ptr %7, align 8
-  %72 = load i32, ptr %10, align 4
-  %73 = call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %70, ptr noundef %71, i32 noundef %72, i32 noundef 2, i32 noundef 0)
-  %74 = load i32, ptr %10, align 4
-  %75 = add i32 %74, 2
-  store i32 %75, ptr %10, align 4
-  %76 = load ptr, ptr %13, align 8
-  %77 = load i32, ptr @hf_openflow_v6_flow_desc_flags, align 4
-  %78 = load ptr, ptr %7, align 8
-  %79 = load i32, ptr %10, align 4
-  %80 = call ptr @proto_tree_add_item(ptr noundef %76, i32 noundef %77, ptr noundef %78, i32 noundef %79, i32 noundef 2, i32 noundef 0)
-  store ptr %80, ptr %12, align 8
-  %81 = load ptr, ptr %12, align 8
-  %82 = load i32, ptr @ett_openflow_v6_flow_desc_flags, align 4
-  %83 = call ptr @proto_item_add_subtree(ptr noundef %81, i32 noundef %82)
-  store ptr %83, ptr %14, align 8
-  %84 = load ptr, ptr %14, align 8
-  %85 = load i32, ptr @hf_openflow_v6_flow_desc_flags_send_flow_rem, align 4
-  %86 = load ptr, ptr %7, align 8
-  %87 = load i32, ptr %10, align 4
-  %88 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %85, ptr noundef %86, i32 noundef %87, i32 noundef 2, i32 noundef 0)
-  %89 = load ptr, ptr %14, align 8
-  %90 = load i32, ptr @hf_openflow_v6_flow_desc_flags_check_overlap, align 4
-  %91 = load ptr, ptr %7, align 8
-  %92 = load i32, ptr %10, align 4
-  %93 = call ptr @proto_tree_add_item(ptr noundef %89, i32 noundef %90, ptr noundef %91, i32 noundef %92, i32 noundef 2, i32 noundef 0)
-  %94 = load ptr, ptr %14, align 8
-  %95 = load i32, ptr @hf_openflow_v6_flow_desc_flags_reset_counts, align 4
-  %96 = load ptr, ptr %7, align 8
-  %97 = load i32, ptr %10, align 4
-  %98 = call ptr @proto_tree_add_item(ptr noundef %94, i32 noundef %95, ptr noundef %96, i32 noundef %97, i32 noundef 2, i32 noundef 0)
-  %99 = load ptr, ptr %14, align 8
-  %100 = load i32, ptr @hf_openflow_v6_flow_desc_flags_no_packet_counts, align 4
-  %101 = load ptr, ptr %7, align 8
-  %102 = load i32, ptr %10, align 4
-  %103 = call ptr @proto_tree_add_item(ptr noundef %99, i32 noundef %100, ptr noundef %101, i32 noundef %102, i32 noundef 2, i32 noundef 0)
-  %104 = load ptr, ptr %14, align 8
-  %105 = load i32, ptr @hf_openflow_v6_flow_desc_flags_no_byte_counts, align 4
-  %106 = load ptr, ptr %7, align 8
-  %107 = load i32, ptr %10, align 4
-  %108 = call ptr @proto_tree_add_item(ptr noundef %104, i32 noundef %105, ptr noundef %106, i32 noundef %107, i32 noundef 2, i32 noundef 0)
-  %109 = load i32, ptr %10, align 4
-  %110 = add i32 %109, 2
-  store i32 %110, ptr %10, align 4
-  %111 = load ptr, ptr %13, align 8
-  %112 = load i32, ptr @hf_openflow_v6_flow_desc_importance, align 4
-  %113 = load ptr, ptr %7, align 8
-  %114 = load i32, ptr %10, align 4
-  %115 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %112, ptr noundef %113, i32 noundef %114, i32 noundef 2, i32 noundef 0)
-  %116 = load i32, ptr %10, align 4
-  %117 = add i32 %116, 2
-  store i32 %117, ptr %10, align 4
-  %118 = load ptr, ptr %13, align 8
-  %119 = load i32, ptr @hf_openflow_v6_flow_desc_cookie, align 4
-  %120 = load ptr, ptr %7, align 8
-  %121 = load i32, ptr %10, align 4
-  %122 = call ptr @proto_tree_add_item(ptr noundef %118, i32 noundef %119, ptr noundef %120, i32 noundef %121, i32 noundef 8, i32 noundef 0)
-  %123 = load i32, ptr %10, align 4
-  %124 = add i32 %123, 8
-  store i32 %124, ptr %10, align 4
-  %125 = load ptr, ptr %7, align 8
-  %126 = load ptr, ptr %8, align 8
-  %127 = load ptr, ptr %13, align 8
-  %128 = load i32, ptr %10, align 4
-  %129 = load i16, ptr %11, align 2
-  %130 = call i32 @dissect_openflow_match_v6(ptr noundef %125, ptr noundef %126, ptr noundef %127, i32 noundef %128, i16 noundef zeroext %129)
-  store i32 %130, ptr %10, align 4
-  %131 = load ptr, ptr %7, align 8
-  %132 = load ptr, ptr %8, align 8
-  %133 = load ptr, ptr %13, align 8
-  %134 = load i32, ptr %10, align 4
-  %135 = load i16, ptr %11, align 2
-  %136 = call i32 @dissect_openflow_stats_v6(ptr noundef %131, ptr noundef %132, ptr noundef %133, i32 noundef %134, i16 noundef zeroext %135)
-  store i32 %136, ptr %10, align 4
-  br label %137
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #5
+  %18 = load ptr, ptr %9, align 8
+  %19 = load ptr, ptr %7, align 8
+  %20 = load i32, ptr %10, align 4
+  %21 = load i32, ptr @ett_openflow_v6_flow_desc, align 4
+  %22 = call ptr @proto_tree_add_subtree(ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef -1, i32 noundef %21, ptr noundef %12, ptr noundef @.str.1620)
+  store ptr %22, ptr %13, align 8
+  %23 = load ptr, ptr %13, align 8
+  %24 = load i32, ptr @hf_openflow_v6_flow_desc_length, align 4
+  %25 = load ptr, ptr %7, align 8
+  %26 = load i32, ptr %10, align 4
+  %27 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %23, i32 noundef %24, ptr noundef %25, i32 noundef %26, i32 noundef 2, i32 noundef 0, ptr noundef %15)
+  %28 = load i32, ptr %10, align 4
+  %29 = load i32, ptr %15, align 4
+  %30 = add i32 %28, %29
+  store i32 %30, ptr %16, align 4
+  %31 = load ptr, ptr %12, align 8
+  %32 = load i32, ptr %15, align 4
+  call void @proto_item_set_len(ptr noundef %31, i32 noundef %32)
+  %33 = load i32, ptr %10, align 4
+  %34 = add i32 %33, 2
+  store i32 %34, ptr %10, align 4
+  %35 = load ptr, ptr %13, align 8
+  %36 = load i32, ptr @hf_openflow_v6_flow_desc_pad2, align 4
+  %37 = load ptr, ptr %7, align 8
+  %38 = load i32, ptr %10, align 4
+  %39 = call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %36, ptr noundef %37, i32 noundef %38, i32 noundef 2, i32 noundef 0)
+  %40 = load i32, ptr %10, align 4
+  %41 = add i32 %40, 2
+  store i32 %41, ptr %10, align 4
+  %42 = load ptr, ptr %13, align 8
+  %43 = load i32, ptr @hf_openflow_v6_flow_desc_table_id, align 4
+  %44 = load ptr, ptr %7, align 8
+  %45 = load i32, ptr %10, align 4
+  %46 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %43, ptr noundef %44, i32 noundef %45, i32 noundef 1, i32 noundef 0)
+  %47 = load i32, ptr %10, align 4
+  %48 = add i32 %47, 1
+  store i32 %48, ptr %10, align 4
+  %49 = load ptr, ptr %13, align 8
+  %50 = load i32, ptr @hf_openflow_v6_flow_desc_pad, align 4
+  %51 = load ptr, ptr %7, align 8
+  %52 = load i32, ptr %10, align 4
+  %53 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %50, ptr noundef %51, i32 noundef %52, i32 noundef 1, i32 noundef 0)
+  %54 = load i32, ptr %10, align 4
+  %55 = add i32 %54, 1
+  store i32 %55, ptr %10, align 4
+  %56 = load ptr, ptr %13, align 8
+  %57 = load i32, ptr @hf_openflow_v6_flow_desc_priority, align 4
+  %58 = load ptr, ptr %7, align 8
+  %59 = load i32, ptr %10, align 4
+  %60 = call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %57, ptr noundef %58, i32 noundef %59, i32 noundef 2, i32 noundef 0)
+  %61 = load i32, ptr %10, align 4
+  %62 = add i32 %61, 2
+  store i32 %62, ptr %10, align 4
+  %63 = load ptr, ptr %13, align 8
+  %64 = load i32, ptr @hf_openflow_v6_flow_desc_idle_timeout, align 4
+  %65 = load ptr, ptr %7, align 8
+  %66 = load i32, ptr %10, align 4
+  %67 = call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %64, ptr noundef %65, i32 noundef %66, i32 noundef 2, i32 noundef 0)
+  %68 = load i32, ptr %10, align 4
+  %69 = add i32 %68, 2
+  store i32 %69, ptr %10, align 4
+  %70 = load ptr, ptr %13, align 8
+  %71 = load i32, ptr @hf_openflow_v6_flow_desc_hard_timeout, align 4
+  %72 = load ptr, ptr %7, align 8
+  %73 = load i32, ptr %10, align 4
+  %74 = call ptr @proto_tree_add_item(ptr noundef %70, i32 noundef %71, ptr noundef %72, i32 noundef %73, i32 noundef 2, i32 noundef 0)
+  %75 = load i32, ptr %10, align 4
+  %76 = add i32 %75, 2
+  store i32 %76, ptr %10, align 4
+  %77 = load ptr, ptr %13, align 8
+  %78 = load i32, ptr @hf_openflow_v6_flow_desc_flags, align 4
+  %79 = load ptr, ptr %7, align 8
+  %80 = load i32, ptr %10, align 4
+  %81 = call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %78, ptr noundef %79, i32 noundef %80, i32 noundef 2, i32 noundef 0)
+  store ptr %81, ptr %12, align 8
+  %82 = load ptr, ptr %12, align 8
+  %83 = load i32, ptr @ett_openflow_v6_flow_desc_flags, align 4
+  %84 = call ptr @proto_item_add_subtree(ptr noundef %82, i32 noundef %83)
+  store ptr %84, ptr %14, align 8
+  %85 = load ptr, ptr %14, align 8
+  %86 = load i32, ptr @hf_openflow_v6_flow_desc_flags_send_flow_rem, align 4
+  %87 = load ptr, ptr %7, align 8
+  %88 = load i32, ptr %10, align 4
+  %89 = call ptr @proto_tree_add_item(ptr noundef %85, i32 noundef %86, ptr noundef %87, i32 noundef %88, i32 noundef 2, i32 noundef 0)
+  %90 = load ptr, ptr %14, align 8
+  %91 = load i32, ptr @hf_openflow_v6_flow_desc_flags_check_overlap, align 4
+  %92 = load ptr, ptr %7, align 8
+  %93 = load i32, ptr %10, align 4
+  %94 = call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %91, ptr noundef %92, i32 noundef %93, i32 noundef 2, i32 noundef 0)
+  %95 = load ptr, ptr %14, align 8
+  %96 = load i32, ptr @hf_openflow_v6_flow_desc_flags_reset_counts, align 4
+  %97 = load ptr, ptr %7, align 8
+  %98 = load i32, ptr %10, align 4
+  %99 = call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %96, ptr noundef %97, i32 noundef %98, i32 noundef 2, i32 noundef 0)
+  %100 = load ptr, ptr %14, align 8
+  %101 = load i32, ptr @hf_openflow_v6_flow_desc_flags_no_packet_counts, align 4
+  %102 = load ptr, ptr %7, align 8
+  %103 = load i32, ptr %10, align 4
+  %104 = call ptr @proto_tree_add_item(ptr noundef %100, i32 noundef %101, ptr noundef %102, i32 noundef %103, i32 noundef 2, i32 noundef 0)
+  %105 = load ptr, ptr %14, align 8
+  %106 = load i32, ptr @hf_openflow_v6_flow_desc_flags_no_byte_counts, align 4
+  %107 = load ptr, ptr %7, align 8
+  %108 = load i32, ptr %10, align 4
+  %109 = call ptr @proto_tree_add_item(ptr noundef %105, i32 noundef %106, ptr noundef %107, i32 noundef %108, i32 noundef 2, i32 noundef 0)
+  %110 = load i32, ptr %10, align 4
+  %111 = add i32 %110, 2
+  store i32 %111, ptr %10, align 4
+  %112 = load ptr, ptr %13, align 8
+  %113 = load i32, ptr @hf_openflow_v6_flow_desc_importance, align 4
+  %114 = load ptr, ptr %7, align 8
+  %115 = load i32, ptr %10, align 4
+  %116 = call ptr @proto_tree_add_item(ptr noundef %112, i32 noundef %113, ptr noundef %114, i32 noundef %115, i32 noundef 2, i32 noundef 0)
+  %117 = load i32, ptr %10, align 4
+  %118 = add i32 %117, 2
+  store i32 %118, ptr %10, align 4
+  %119 = load ptr, ptr %13, align 8
+  %120 = load i32, ptr @hf_openflow_v6_flow_desc_cookie, align 4
+  %121 = load ptr, ptr %7, align 8
+  %122 = load i32, ptr %10, align 4
+  %123 = call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %120, ptr noundef %121, i32 noundef %122, i32 noundef 8, i32 noundef 0)
+  %124 = load i32, ptr %10, align 4
+  %125 = add i32 %124, 8
+  store i32 %125, ptr %10, align 4
+  %126 = load ptr, ptr %7, align 8
+  %127 = load ptr, ptr %8, align 8
+  %128 = load ptr, ptr %13, align 8
+  %129 = load i32, ptr %10, align 4
+  %130 = load i16, ptr %11, align 2
+  %131 = call i32 @dissect_openflow_match_v6(ptr noundef %126, ptr noundef %127, ptr noundef %128, i32 noundef %129, i16 noundef zeroext %130)
+  store i32 %131, ptr %10, align 4
+  %132 = load ptr, ptr %7, align 8
+  %133 = load ptr, ptr %8, align 8
+  %134 = load ptr, ptr %13, align 8
+  %135 = load i32, ptr %10, align 4
+  %136 = load i16, ptr %11, align 2
+  %137 = call i32 @dissect_openflow_stats_v6(ptr noundef %132, ptr noundef %133, ptr noundef %134, i32 noundef %135, i16 noundef zeroext %136)
+  store i32 %137, ptr %10, align 4
+  br label %138
 
-137:                                              ; preds = %141, %5
-  %138 = load i32, ptr %10, align 4
-  %139 = load i32, ptr %16, align 4
-  %140 = icmp slt i32 %138, %139
-  br i1 %140, label %141, label %148
+138:                                              ; preds = %142, %5
+  %139 = load i32, ptr %10, align 4
+  %140 = load i32, ptr %16, align 4
+  %141 = icmp slt i32 %139, %140
+  br i1 %141, label %142, label %149
 
-141:                                              ; preds = %137
-  %142 = load ptr, ptr %7, align 8
-  %143 = load ptr, ptr %8, align 8
-  %144 = load ptr, ptr %13, align 8
-  %145 = load i32, ptr %10, align 4
-  %146 = load i16, ptr %11, align 2
-  %147 = call i32 @dissect_openflow_instruction_v6(ptr noundef %142, ptr noundef %143, ptr noundef %144, i32 noundef %145, i16 noundef zeroext %146)
-  store i32 %147, ptr %10, align 4
-  br label %137, !llvm.loop !45
+142:                                              ; preds = %138
+  %143 = load ptr, ptr %7, align 8
+  %144 = load ptr, ptr %8, align 8
+  %145 = load ptr, ptr %13, align 8
+  %146 = load i32, ptr %10, align 4
+  %147 = load i16, ptr %11, align 2
+  %148 = call i32 @dissect_openflow_instruction_v6(ptr noundef %143, ptr noundef %144, ptr noundef %145, i32 noundef %146, i16 noundef zeroext %147)
+  store i32 %148, ptr %10, align 4
+  br label %138, !llvm.loop !49
 
-148:                                              ; preds = %137
-  %149 = load i32, ptr %16, align 4
-  %150 = load i16, ptr %11, align 2
-  %151 = zext i16 %150 to i32
-  %152 = icmp slt i32 %149, %151
-  br i1 %152, label %153, label %160
+149:                                              ; preds = %138
+  %150 = load i32, ptr %16, align 4
+  %151 = load i16, ptr %11, align 2
+  %152 = zext i16 %151 to i32
+  %153 = icmp slt i32 %150, %152
+  br i1 %153, label %154, label %161
 
-153:                                              ; preds = %148
-  %154 = load ptr, ptr %7, align 8
-  %155 = load ptr, ptr %8, align 8
-  %156 = load ptr, ptr %9, align 8
-  %157 = load i32, ptr %10, align 4
-  %158 = load i16, ptr %11, align 2
-  %159 = call i32 @dissect_openflow_flow_desc_v6(ptr noundef %154, ptr noundef %155, ptr noundef %156, i32 noundef %157, i16 noundef zeroext %158)
-  store i32 %159, ptr %6, align 4
-  br label %162
+154:                                              ; preds = %149
+  %155 = load ptr, ptr %7, align 8
+  %156 = load ptr, ptr %8, align 8
+  %157 = load ptr, ptr %9, align 8
+  %158 = load i32, ptr %10, align 4
+  %159 = load i16, ptr %11, align 2
+  %160 = call i32 @dissect_openflow_flow_desc_v6(ptr noundef %155, ptr noundef %156, ptr noundef %157, i32 noundef %158, i16 noundef zeroext %159)
+  store i32 %160, ptr %6, align 4
+  store i32 1, ptr %17, align 4
+  br label %163
 
-160:                                              ; preds = %148
-  %161 = load i32, ptr %10, align 4
-  store i32 %161, ptr %6, align 4
-  br label %162
+161:                                              ; preds = %149
+  %162 = load i32, ptr %10, align 4
+  store i32 %162, ptr %6, align 4
+  store i32 1, ptr %17, align 4
+  br label %163
 
-162:                                              ; preds = %160, %153
-  %163 = load i32, ptr %6, align 4
-  ret i32 %163
+163:                                              ; preds = %161, %154
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  %164 = load i32, ptr %6, align 4
+  ret i32 %164
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_openflow_aggregate_stats_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -11014,7 +11375,7 @@ define internal void @dissect_openflow_aggregate_stats_v6(ptr noundef %0, ptr no
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openflow_table_stats_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -11027,11 +11388,12 @@ define internal i32 @dissect_openflow_table_stats_v6(ptr noundef %0, ptr noundef
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
   %12 = load ptr, ptr %8, align 8
   %13 = load ptr, ptr %6, align 8
   %14 = load i32, ptr %9, align 4
   %15 = load i32, ptr @ett_openflow_v6_table_stats, align 4
-  %16 = call ptr @proto_tree_add_subtree(ptr noundef %12, ptr noundef %13, i32 noundef %14, i32 noundef 24, i32 noundef %15, ptr noundef null, ptr noundef @.str.1552)
+  %16 = call ptr @proto_tree_add_subtree(ptr noundef %12, ptr noundef %13, i32 noundef %14, i32 noundef 24, i32 noundef %15, ptr noundef null, ptr noundef @.str.1621)
   store ptr %16, ptr %11, align 8
   %17 = load ptr, ptr %11, align 8
   %18 = load i32, ptr @hf_openflow_v6_table_stats_table_id, align 4
@@ -11074,10 +11436,11 @@ define internal i32 @dissect_openflow_table_stats_v6(ptr noundef %0, ptr noundef
   %51 = add i32 %50, 8
   store i32 %51, ptr %9, align 4
   %52 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret i32 %52
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openflow_port_stats_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -11092,11 +11455,14 @@ define internal i32 @dissect_openflow_port_stats_v6(ptr noundef %0, ptr noundef 
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #5
   %14 = load ptr, ptr %8, align 8
   %15 = load ptr, ptr %6, align 8
   %16 = load i32, ptr %9, align 4
   %17 = load i32, ptr @ett_openflow_v6_port_stats, align 4
-  %18 = call ptr @proto_tree_add_subtree(ptr noundef %14, ptr noundef %15, i32 noundef %16, i32 noundef 112, i32 noundef %17, ptr noundef null, ptr noundef @.str.1553)
+  %18 = call ptr @proto_tree_add_subtree(ptr noundef %14, ptr noundef %15, i32 noundef %16, i32 noundef 112, i32 noundef %17, ptr noundef null, ptr noundef @.str.1622)
   store ptr %18, ptr %11, align 8
   %19 = load ptr, ptr %11, align 8
   %20 = load i32, ptr @hf_openflow_v6_port_stats_length, align 4
@@ -11225,14 +11591,17 @@ define internal i32 @dissect_openflow_port_stats_v6(ptr noundef %0, ptr noundef 
   %125 = load i16, ptr %10, align 2
   %126 = call i32 @dissect_openflow_port_stats_prop_v6(ptr noundef %121, ptr noundef %122, ptr noundef %123, i32 noundef %124, i16 noundef zeroext %125)
   store i32 %126, ptr %9, align 4
-  br label %115, !llvm.loop !46
+  br label %115, !llvm.loop !50
 
 127:                                              ; preds = %115
   %128 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret i32 %128
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openflow_queue_stats_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -11247,6 +11616,9 @@ define internal i32 @dissect_openflow_queue_stats_v6(ptr noundef %0, ptr noundef
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 2, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
   %14 = load ptr, ptr %6, align 8
   %15 = load i32, ptr %9, align 4
   %16 = call zeroext i16 @tvb_get_ntohs(ptr noundef %14, i32 noundef %15)
@@ -11262,7 +11634,7 @@ define internal i32 @dissect_openflow_queue_stats_v6(ptr noundef %0, ptr noundef
   %24 = load i16, ptr %12, align 2
   %25 = zext i16 %24 to i32
   %26 = load i32, ptr @ett_openflow_v6_queue_stats, align 4
-  %27 = call ptr @proto_tree_add_subtree(ptr noundef %21, ptr noundef %22, i32 noundef %23, i32 noundef %25, i32 noundef %26, ptr noundef null, ptr noundef @.str.1557)
+  %27 = call ptr @proto_tree_add_subtree(ptr noundef %21, ptr noundef %22, i32 noundef %23, i32 noundef %25, i32 noundef %26, ptr noundef null, ptr noundef @.str.1626)
   store ptr %27, ptr %11, align 8
   %28 = load ptr, ptr %11, align 8
   %29 = load i32, ptr @hf_openflow_v6_queue_stats_length, align 4
@@ -11352,14 +11724,17 @@ define internal i32 @dissect_openflow_queue_stats_v6(ptr noundef %0, ptr noundef
   %100 = load i16, ptr %10, align 2
   %101 = call i32 @dissect_openflow_queue_stats_prop_v6(ptr noundef %96, ptr noundef %97, ptr noundef %98, i32 noundef %99, i16 noundef zeroext %100)
   store i32 %101, ptr %9, align 4
-  br label %91, !llvm.loop !47
+  br label %91, !llvm.loop !51
 
 102:                                              ; preds = %91
   %103 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 2, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret i32 %103
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openflow_group_stats_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -11375,11 +11750,15 @@ define internal i32 @dissect_openflow_group_stats_v6(ptr noundef %0, ptr noundef
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
   %15 = load ptr, ptr %8, align 8
   %16 = load ptr, ptr %6, align 8
   %17 = load i32, ptr %9, align 4
   %18 = load i32, ptr @ett_openflow_v6_group_stats, align 4
-  %19 = call ptr @proto_tree_add_subtree(ptr noundef %15, ptr noundef %16, i32 noundef %17, i32 noundef -1, i32 noundef %18, ptr noundef %11, ptr noundef @.str.1560)
+  %19 = call ptr @proto_tree_add_subtree(ptr noundef %15, ptr noundef %16, i32 noundef %17, i32 noundef -1, i32 noundef %18, ptr noundef %11, ptr noundef @.str.1629)
   store ptr %19, ptr %12, align 8
   %20 = load ptr, ptr %6, align 8
   %21 = load i32, ptr %9, align 4
@@ -11482,14 +11861,18 @@ define internal i32 @dissect_openflow_group_stats_v6(ptr noundef %0, ptr noundef
   %102 = load i16, ptr %10, align 2
   %103 = call i32 @dissect_openflow_bucket_counter_v6(ptr noundef %98, ptr noundef %99, ptr noundef %100, i32 noundef %101, i16 noundef zeroext %102)
   store i32 %103, ptr %9, align 4
-  br label %93, !llvm.loop !48
+  br label %93, !llvm.loop !52
 
 104:                                              ; preds = %93
   %105 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret i32 %105
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openflow_group_desc_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -11505,11 +11888,15 @@ define internal i32 @dissect_openflow_group_desc_v6(ptr noundef %0, ptr noundef 
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
   %15 = load ptr, ptr %8, align 8
   %16 = load ptr, ptr %6, align 8
   %17 = load i32, ptr %9, align 4
   %18 = load i32, ptr @ett_openflow_v6_group_desc, align 4
-  %19 = call ptr @proto_tree_add_subtree(ptr noundef %15, ptr noundef %16, i32 noundef %17, i32 noundef -1, i32 noundef %18, ptr noundef %11, ptr noundef @.str.1562)
+  %19 = call ptr @proto_tree_add_subtree(ptr noundef %15, ptr noundef %16, i32 noundef %17, i32 noundef -1, i32 noundef %18, ptr noundef %11, ptr noundef @.str.1631)
   store ptr %19, ptr %12, align 8
   %20 = load ptr, ptr %6, align 8
   %21 = load i32, ptr %9, align 4
@@ -11572,14 +11959,18 @@ define internal i32 @dissect_openflow_group_desc_v6(ptr noundef %0, ptr noundef 
   %67 = load i16, ptr %10, align 2
   %68 = call i32 @dissect_openflow_bucket_v6(ptr noundef %63, ptr noundef %64, ptr noundef %65, i32 noundef %66, i16 noundef zeroext %67)
   store i32 %68, ptr %9, align 4
-  br label %58, !llvm.loop !49
+  br label %58, !llvm.loop !53
 
 69:                                               ; preds = %58
   %70 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret i32 %70
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_openflow_group_features_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -11595,6 +11986,10 @@ define internal void @dissect_openflow_group_features_v6(ptr noundef %0, ptr nou
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
   %15 = load ptr, ptr %8, align 8
   %16 = load i32, ptr @hf_openflow_v6_group_features_types, align 4
   %17 = load ptr, ptr %6, align 8
@@ -12102,10 +12497,14 @@ define internal void @dissect_openflow_group_features_v6(ptr noundef %0, ptr nou
   %498 = load ptr, ptr %6, align 8
   %499 = load i32, ptr %9, align 4
   %500 = call ptr @proto_tree_add_item(ptr noundef %496, i32 noundef %497, ptr noundef %498, i32 noundef %499, i32 noundef 4, i32 noundef 0)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openflow_meter_stats_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -12121,11 +12520,15 @@ define internal i32 @dissect_openflow_meter_stats_v6(ptr noundef %0, ptr noundef
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 2, ptr %14) #5
   %15 = load ptr, ptr %8, align 8
   %16 = load ptr, ptr %6, align 8
   %17 = load i32, ptr %9, align 4
   %18 = load i32, ptr @ett_openflow_v6_meter_stats, align 4
-  %19 = call ptr @proto_tree_add_subtree(ptr noundef %15, ptr noundef %16, i32 noundef %17, i32 noundef -1, i32 noundef %18, ptr noundef %11, ptr noundef @.str.1563)
+  %19 = call ptr @proto_tree_add_subtree(ptr noundef %15, ptr noundef %16, i32 noundef %17, i32 noundef -1, i32 noundef %18, ptr noundef %11, ptr noundef @.str.1632)
   store ptr %19, ptr %12, align 8
   %20 = load ptr, ptr %12, align 8
   %21 = load i32, ptr @hf_openflow_v6_meter_stats_meter_id, align 4
@@ -12223,14 +12626,18 @@ define internal i32 @dissect_openflow_meter_stats_v6(ptr noundef %0, ptr noundef
   %98 = load i16, ptr %10, align 2
   %99 = call i32 @dissect_openflow_meter_band_stats_v6(ptr noundef %94, ptr noundef %95, ptr noundef %96, i32 noundef %97, i16 noundef zeroext %98)
   store i32 %99, ptr %9, align 4
-  br label %88, !llvm.loop !50
+  br label %88, !llvm.loop !54
 
 100:                                              ; preds = %88
   %101 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret i32 %101
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openflow_meter_desc_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -12247,11 +12654,16 @@ define internal i32 @dissect_openflow_meter_desc_v6(ptr noundef %0, ptr noundef 
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 2, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
   %16 = load ptr, ptr %8, align 8
   %17 = load ptr, ptr %6, align 8
   %18 = load i32, ptr %9, align 4
   %19 = load i32, ptr @ett_openflow_v6_meter_desc, align 4
-  %20 = call ptr @proto_tree_add_subtree(ptr noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef -1, i32 noundef %19, ptr noundef %11, ptr noundef @.str.1565)
+  %20 = call ptr @proto_tree_add_subtree(ptr noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef -1, i32 noundef %19, ptr noundef %11, ptr noundef @.str.1634)
   store ptr %20, ptr %12, align 8
   %21 = load ptr, ptr %6, align 8
   %22 = load i32, ptr %9, align 4
@@ -12331,14 +12743,19 @@ define internal i32 @dissect_openflow_meter_desc_v6(ptr noundef %0, ptr noundef 
   %84 = load i16, ptr %10, align 2
   %85 = call i32 @dissect_openflow_meter_band_v6(ptr noundef %80, ptr noundef %81, ptr noundef %82, i32 noundef %83, i16 noundef zeroext %84)
   store i32 %85, ptr %9, align 4
-  br label %75, !llvm.loop !51
+  br label %75, !llvm.loop !55
 
 86:                                               ; preds = %75
   %87 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 2, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret i32 %87
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_openflow_meter_features_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -12353,6 +12770,9 @@ define internal void @dissect_openflow_meter_features_v6(ptr noundef %0, ptr nou
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
   %14 = load ptr, ptr %8, align 8
   %15 = load i32, ptr @hf_openflow_v6_meter_features_max_meter, align 4
   %16 = load ptr, ptr %6, align 8
@@ -12438,10 +12858,13 @@ define internal void @dissect_openflow_meter_features_v6(ptr noundef %0, ptr nou
   %87 = load ptr, ptr %6, align 8
   %88 = load i32, ptr %9, align 4
   %89 = call ptr @proto_tree_add_item(ptr noundef %85, i32 noundef %86, ptr noundef %87, i32 noundef %88, i32 noundef 2, i32 noundef 0)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openflow_table_desc_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -12458,11 +12881,16 @@ define internal i32 @dissect_openflow_table_desc_v6(ptr noundef %0, ptr noundef 
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
   %16 = load ptr, ptr %8, align 8
   %17 = load ptr, ptr %6, align 8
   %18 = load i32, ptr %9, align 4
   %19 = load i32, ptr @ett_openflow_v6_table_desc, align 4
-  %20 = call ptr @proto_tree_add_subtree(ptr noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef -1, i32 noundef %19, ptr noundef %11, ptr noundef @.str.1568)
+  %20 = call ptr @proto_tree_add_subtree(ptr noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef -1, i32 noundef %19, ptr noundef %11, ptr noundef @.str.1637)
   store ptr %20, ptr %12, align 8
   %21 = load ptr, ptr %12, align 8
   %22 = load i32, ptr @hf_openflow_v6_table_desc_length, align 4
@@ -12534,14 +12962,19 @@ define internal i32 @dissect_openflow_table_desc_v6(ptr noundef %0, ptr noundef 
   %76 = load i16, ptr %10, align 2
   %77 = call i32 @dissect_openflow_tablemod_prop_v6(ptr noundef %72, ptr noundef %73, ptr noundef %74, i32 noundef %75, i16 noundef zeroext %76)
   store i32 %77, ptr %9, align 4
-  br label %67, !llvm.loop !52
+  br label %67, !llvm.loop !56
 
 78:                                               ; preds = %67
   %79 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret i32 %79
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openflow_queue_desc_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -12556,6 +12989,9 @@ define internal i32 @dissect_openflow_queue_desc_v6(ptr noundef %0, ptr noundef 
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 2, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
   %14 = load ptr, ptr %6, align 8
   %15 = load i32, ptr %9, align 4
   %16 = add i32 %15, 8
@@ -12572,7 +13008,7 @@ define internal i32 @dissect_openflow_queue_desc_v6(ptr noundef %0, ptr noundef 
   %25 = load i16, ptr %12, align 2
   %26 = zext i16 %25 to i32
   %27 = load i32, ptr @ett_openflow_v6_queue_desc, align 4
-  %28 = call ptr @proto_tree_add_subtree(ptr noundef %22, ptr noundef %23, i32 noundef %24, i32 noundef %26, i32 noundef %27, ptr noundef null, ptr noundef @.str.1569)
+  %28 = call ptr @proto_tree_add_subtree(ptr noundef %22, ptr noundef %23, i32 noundef %24, i32 noundef %26, i32 noundef %27, ptr noundef null, ptr noundef @.str.1638)
   store ptr %28, ptr %11, align 8
   %29 = load ptr, ptr %8, align 8
   %30 = load i32, ptr @hf_openflow_v6_queue_desc_port_no, align 4
@@ -12619,14 +13055,17 @@ define internal i32 @dissect_openflow_queue_desc_v6(ptr noundef %0, ptr noundef 
   %64 = load i16, ptr %10, align 2
   %65 = call i32 @dissect_openflow_queue_desc_prop_v6(ptr noundef %60, ptr noundef %61, ptr noundef %62, i32 noundef %63, i16 noundef zeroext %64)
   store i32 %65, ptr %9, align 4
-  br label %55, !llvm.loop !53
+  br label %55, !llvm.loop !57
 
 66:                                               ; preds = %55
   %67 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 2, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret i32 %67
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openflow_flow_update_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -12639,214 +13078,227 @@ define internal i32 @dissect_openflow_flow_update_v6(ptr noundef %0, ptr noundef
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
   %16 = alloca ptr, align 8
+  %17 = alloca i32, align 4
   store ptr %0, ptr %7, align 8
   store ptr %1, ptr %8, align 8
   store ptr %2, ptr %9, align 8
   store i32 %3, ptr %10, align 4
   store i16 %4, ptr %11, align 2
-  %17 = load ptr, ptr %9, align 8
-  %18 = load ptr, ptr %7, align 8
-  %19 = load i32, ptr %10, align 4
-  %20 = load i32, ptr @ett_openflow_v6_flow_update, align 4
-  %21 = call ptr @proto_tree_add_subtree(ptr noundef %17, ptr noundef %18, i32 noundef %19, i32 noundef -1, i32 noundef %20, ptr noundef %16, ptr noundef @.str.1572)
-  store ptr %21, ptr %12, align 8
-  %22 = load ptr, ptr %12, align 8
-  %23 = load i32, ptr @hf_openflow_v6_flow_update_length, align 4
-  %24 = load ptr, ptr %7, align 8
-  %25 = load i32, ptr %10, align 4
-  %26 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %22, i32 noundef %23, ptr noundef %24, i32 noundef %25, i32 noundef 2, i32 noundef 0, ptr noundef %13)
-  %27 = load i32, ptr %10, align 4
-  %28 = load i32, ptr %13, align 4
-  %29 = add i32 %27, %28
-  store i32 %29, ptr %15, align 4
-  %30 = load ptr, ptr %16, align 8
-  %31 = load i32, ptr %13, align 4
-  call void @proto_item_set_len(ptr noundef %30, i32 noundef %31)
-  %32 = load i32, ptr %10, align 4
-  %33 = add i32 %32, 2
-  store i32 %33, ptr %10, align 4
-  %34 = load ptr, ptr %12, align 8
-  %35 = load i32, ptr @hf_openflow_v6_flow_update_event, align 4
-  %36 = load ptr, ptr %7, align 8
-  %37 = load i32, ptr %10, align 4
-  %38 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %34, i32 noundef %35, ptr noundef %36, i32 noundef %37, i32 noundef 2, i32 noundef 0, ptr noundef %14)
-  store ptr %38, ptr %16, align 8
-  %39 = load i32, ptr %10, align 4
-  %40 = add i32 %39, 2
-  store i32 %40, ptr %10, align 4
-  %41 = load i32, ptr %13, align 4
-  %42 = icmp ult i32 %41, 4
-  br i1 %42, label %43, label %48
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #5
+  %18 = load ptr, ptr %9, align 8
+  %19 = load ptr, ptr %7, align 8
+  %20 = load i32, ptr %10, align 4
+  %21 = load i32, ptr @ett_openflow_v6_flow_update, align 4
+  %22 = call ptr @proto_tree_add_subtree(ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef -1, i32 noundef %21, ptr noundef %16, ptr noundef @.str.1641)
+  store ptr %22, ptr %12, align 8
+  %23 = load ptr, ptr %12, align 8
+  %24 = load i32, ptr @hf_openflow_v6_flow_update_length, align 4
+  %25 = load ptr, ptr %7, align 8
+  %26 = load i32, ptr %10, align 4
+  %27 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %23, i32 noundef %24, ptr noundef %25, i32 noundef %26, i32 noundef 2, i32 noundef 0, ptr noundef %13)
+  %28 = load i32, ptr %10, align 4
+  %29 = load i32, ptr %13, align 4
+  %30 = add i32 %28, %29
+  store i32 %30, ptr %15, align 4
+  %31 = load ptr, ptr %16, align 8
+  %32 = load i32, ptr %13, align 4
+  call void @proto_item_set_len(ptr noundef %31, i32 noundef %32)
+  %33 = load i32, ptr %10, align 4
+  %34 = add i32 %33, 2
+  store i32 %34, ptr %10, align 4
+  %35 = load ptr, ptr %12, align 8
+  %36 = load i32, ptr @hf_openflow_v6_flow_update_event, align 4
+  %37 = load ptr, ptr %7, align 8
+  %38 = load i32, ptr %10, align 4
+  %39 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %35, i32 noundef %36, ptr noundef %37, i32 noundef %38, i32 noundef 2, i32 noundef 0, ptr noundef %14)
+  store ptr %39, ptr %16, align 8
+  %40 = load i32, ptr %10, align 4
+  %41 = add i32 %40, 2
+  store i32 %41, ptr %10, align 4
+  %42 = load i32, ptr %13, align 4
+  %43 = icmp ult i32 %42, 4
+  br i1 %43, label %44, label %49
 
-43:                                               ; preds = %5
-  %44 = load ptr, ptr %8, align 8
-  %45 = load ptr, ptr %16, align 8
-  %46 = call ptr @expert_add_info(ptr noundef %44, ptr noundef %45, ptr noundef @ei_openflow_v6_length_too_short)
-  %47 = load i32, ptr %10, align 4
-  store i32 %47, ptr %6, align 4
-  br label %158
+44:                                               ; preds = %5
+  %45 = load ptr, ptr %8, align 8
+  %46 = load ptr, ptr %16, align 8
+  %47 = call ptr @expert_add_info(ptr noundef %45, ptr noundef %46, ptr noundef @ei_openflow_v6_length_too_short)
+  %48 = load i32, ptr %10, align 4
+  store i32 %48, ptr %6, align 4
+  store i32 1, ptr %17, align 4
+  br label %159
 
-48:                                               ; preds = %5
-  %49 = load i32, ptr %14, align 4
-  switch i32 %49, label %144 [
-    i32 0, label %50
-    i32 1, label %50
-    i32 2, label %50
-    i32 3, label %50
-    i32 4, label %128
-    i32 5, label %136
-    i32 6, label %136
+49:                                               ; preds = %5
+  %50 = load i32, ptr %14, align 4
+  switch i32 %50, label %145 [
+    i32 0, label %51
+    i32 1, label %51
+    i32 2, label %51
+    i32 3, label %51
+    i32 4, label %129
+    i32 5, label %137
+    i32 6, label %137
   ]
 
-50:                                               ; preds = %48, %48, %48, %48
-  %51 = load ptr, ptr %12, align 8
-  %52 = load i32, ptr @hf_openflow_v6_flow_update_full_table_id, align 4
-  %53 = load ptr, ptr %7, align 8
-  %54 = load i32, ptr %10, align 4
-  %55 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %52, ptr noundef %53, i32 noundef %54, i32 noundef 1, i32 noundef 0)
-  %56 = load i32, ptr %10, align 4
-  %57 = add i32 %56, 1
-  store i32 %57, ptr %10, align 4
-  %58 = load i32, ptr %14, align 4
-  %59 = icmp eq i32 %58, 2
-  br i1 %59, label %60, label %66
+51:                                               ; preds = %49, %49, %49, %49
+  %52 = load ptr, ptr %12, align 8
+  %53 = load i32, ptr @hf_openflow_v6_flow_update_full_table_id, align 4
+  %54 = load ptr, ptr %7, align 8
+  %55 = load i32, ptr %10, align 4
+  %56 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %53, ptr noundef %54, i32 noundef %55, i32 noundef 1, i32 noundef 0)
+  %57 = load i32, ptr %10, align 4
+  %58 = add i32 %57, 1
+  store i32 %58, ptr %10, align 4
+  %59 = load i32, ptr %14, align 4
+  %60 = icmp eq i32 %59, 2
+  br i1 %60, label %61, label %67
 
-60:                                               ; preds = %50
-  %61 = load ptr, ptr %12, align 8
-  %62 = load i32, ptr @hf_openflow_v6_flow_update_full_reason, align 4
-  %63 = load ptr, ptr %7, align 8
-  %64 = load i32, ptr %10, align 4
-  %65 = call ptr @proto_tree_add_item(ptr noundef %61, i32 noundef %62, ptr noundef %63, i32 noundef %64, i32 noundef 1, i32 noundef 0)
-  br label %72
+61:                                               ; preds = %51
+  %62 = load ptr, ptr %12, align 8
+  %63 = load i32, ptr @hf_openflow_v6_flow_update_full_reason, align 4
+  %64 = load ptr, ptr %7, align 8
+  %65 = load i32, ptr %10, align 4
+  %66 = call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %63, ptr noundef %64, i32 noundef %65, i32 noundef 1, i32 noundef 0)
+  br label %73
 
-66:                                               ; preds = %50
-  %67 = load ptr, ptr %12, align 8
-  %68 = load i32, ptr @hf_openflow_v6_flow_update_full_zero, align 4
-  %69 = load ptr, ptr %7, align 8
-  %70 = load i32, ptr %10, align 4
-  %71 = call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %68, ptr noundef %69, i32 noundef %70, i32 noundef 1, i32 noundef 0)
-  br label %72
+67:                                               ; preds = %51
+  %68 = load ptr, ptr %12, align 8
+  %69 = load i32, ptr @hf_openflow_v6_flow_update_full_zero, align 4
+  %70 = load ptr, ptr %7, align 8
+  %71 = load i32, ptr %10, align 4
+  %72 = call ptr @proto_tree_add_item(ptr noundef %68, i32 noundef %69, ptr noundef %70, i32 noundef %71, i32 noundef 1, i32 noundef 0)
+  br label %73
 
-72:                                               ; preds = %66, %60
-  %73 = load i32, ptr %10, align 4
-  %74 = add i32 %73, 1
-  store i32 %74, ptr %10, align 4
-  %75 = load ptr, ptr %12, align 8
-  %76 = load i32, ptr @hf_openflow_v6_flow_update_full_idle_timeout, align 4
-  %77 = load ptr, ptr %7, align 8
-  %78 = load i32, ptr %10, align 4
-  %79 = call ptr @proto_tree_add_item(ptr noundef %75, i32 noundef %76, ptr noundef %77, i32 noundef %78, i32 noundef 2, i32 noundef 0)
-  %80 = load i32, ptr %10, align 4
-  %81 = add i32 %80, 2
-  store i32 %81, ptr %10, align 4
-  %82 = load ptr, ptr %12, align 8
-  %83 = load i32, ptr @hf_openflow_v6_flow_update_full_hard_timeout, align 4
-  %84 = load ptr, ptr %7, align 8
-  %85 = load i32, ptr %10, align 4
-  %86 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %83, ptr noundef %84, i32 noundef %85, i32 noundef 2, i32 noundef 0)
-  %87 = load i32, ptr %10, align 4
-  %88 = add i32 %87, 2
-  store i32 %88, ptr %10, align 4
-  %89 = load ptr, ptr %12, align 8
-  %90 = load i32, ptr @hf_openflow_v6_flow_update_full_priority, align 4
-  %91 = load ptr, ptr %7, align 8
-  %92 = load i32, ptr %10, align 4
-  %93 = call ptr @proto_tree_add_item(ptr noundef %89, i32 noundef %90, ptr noundef %91, i32 noundef %92, i32 noundef 2, i32 noundef 0)
-  %94 = load i32, ptr %10, align 4
-  %95 = add i32 %94, 2
-  store i32 %95, ptr %10, align 4
-  %96 = load ptr, ptr %12, align 8
-  %97 = load i32, ptr @hf_openflow_v6_flow_update_full_zeros, align 4
-  %98 = load ptr, ptr %7, align 8
-  %99 = load i32, ptr %10, align 4
-  %100 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %97, ptr noundef %98, i32 noundef %99, i32 noundef 4, i32 noundef 0)
-  %101 = load i32, ptr %10, align 4
-  %102 = add i32 %101, 4
-  store i32 %102, ptr %10, align 4
-  %103 = load ptr, ptr %12, align 8
-  %104 = load i32, ptr @hf_openflow_v6_flow_update_full_cookie, align 4
-  %105 = load ptr, ptr %7, align 8
-  %106 = load i32, ptr %10, align 4
-  %107 = call ptr @proto_tree_add_item(ptr noundef %103, i32 noundef %104, ptr noundef %105, i32 noundef %106, i32 noundef 8, i32 noundef 0)
-  %108 = load i32, ptr %10, align 4
-  %109 = add i32 %108, 8
-  store i32 %109, ptr %10, align 4
-  %110 = load ptr, ptr %7, align 8
-  %111 = load ptr, ptr %8, align 8
-  %112 = load ptr, ptr %12, align 8
-  %113 = load i32, ptr %10, align 4
-  %114 = load i16, ptr %11, align 2
-  %115 = call i32 @dissect_openflow_match_v6(ptr noundef %110, ptr noundef %111, ptr noundef %112, i32 noundef %113, i16 noundef zeroext %114)
-  store i32 %115, ptr %10, align 4
-  br label %116
+73:                                               ; preds = %67, %61
+  %74 = load i32, ptr %10, align 4
+  %75 = add i32 %74, 1
+  store i32 %75, ptr %10, align 4
+  %76 = load ptr, ptr %12, align 8
+  %77 = load i32, ptr @hf_openflow_v6_flow_update_full_idle_timeout, align 4
+  %78 = load ptr, ptr %7, align 8
+  %79 = load i32, ptr %10, align 4
+  %80 = call ptr @proto_tree_add_item(ptr noundef %76, i32 noundef %77, ptr noundef %78, i32 noundef %79, i32 noundef 2, i32 noundef 0)
+  %81 = load i32, ptr %10, align 4
+  %82 = add i32 %81, 2
+  store i32 %82, ptr %10, align 4
+  %83 = load ptr, ptr %12, align 8
+  %84 = load i32, ptr @hf_openflow_v6_flow_update_full_hard_timeout, align 4
+  %85 = load ptr, ptr %7, align 8
+  %86 = load i32, ptr %10, align 4
+  %87 = call ptr @proto_tree_add_item(ptr noundef %83, i32 noundef %84, ptr noundef %85, i32 noundef %86, i32 noundef 2, i32 noundef 0)
+  %88 = load i32, ptr %10, align 4
+  %89 = add i32 %88, 2
+  store i32 %89, ptr %10, align 4
+  %90 = load ptr, ptr %12, align 8
+  %91 = load i32, ptr @hf_openflow_v6_flow_update_full_priority, align 4
+  %92 = load ptr, ptr %7, align 8
+  %93 = load i32, ptr %10, align 4
+  %94 = call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %91, ptr noundef %92, i32 noundef %93, i32 noundef 2, i32 noundef 0)
+  %95 = load i32, ptr %10, align 4
+  %96 = add i32 %95, 2
+  store i32 %96, ptr %10, align 4
+  %97 = load ptr, ptr %12, align 8
+  %98 = load i32, ptr @hf_openflow_v6_flow_update_full_zeros, align 4
+  %99 = load ptr, ptr %7, align 8
+  %100 = load i32, ptr %10, align 4
+  %101 = call ptr @proto_tree_add_item(ptr noundef %97, i32 noundef %98, ptr noundef %99, i32 noundef %100, i32 noundef 4, i32 noundef 0)
+  %102 = load i32, ptr %10, align 4
+  %103 = add i32 %102, 4
+  store i32 %103, ptr %10, align 4
+  %104 = load ptr, ptr %12, align 8
+  %105 = load i32, ptr @hf_openflow_v6_flow_update_full_cookie, align 4
+  %106 = load ptr, ptr %7, align 8
+  %107 = load i32, ptr %10, align 4
+  %108 = call ptr @proto_tree_add_item(ptr noundef %104, i32 noundef %105, ptr noundef %106, i32 noundef %107, i32 noundef 8, i32 noundef 0)
+  %109 = load i32, ptr %10, align 4
+  %110 = add i32 %109, 8
+  store i32 %110, ptr %10, align 4
+  %111 = load ptr, ptr %7, align 8
+  %112 = load ptr, ptr %8, align 8
+  %113 = load ptr, ptr %12, align 8
+  %114 = load i32, ptr %10, align 4
+  %115 = load i16, ptr %11, align 2
+  %116 = call i32 @dissect_openflow_match_v6(ptr noundef %111, ptr noundef %112, ptr noundef %113, i32 noundef %114, i16 noundef zeroext %115)
+  store i32 %116, ptr %10, align 4
+  br label %117
 
-116:                                              ; preds = %120, %72
-  %117 = load i32, ptr %10, align 4
-  %118 = load i32, ptr %15, align 4
-  %119 = icmp slt i32 %117, %118
-  br i1 %119, label %120, label %127
+117:                                              ; preds = %121, %73
+  %118 = load i32, ptr %10, align 4
+  %119 = load i32, ptr %15, align 4
+  %120 = icmp slt i32 %118, %119
+  br i1 %120, label %121, label %128
 
-120:                                              ; preds = %116
-  %121 = load ptr, ptr %7, align 8
-  %122 = load ptr, ptr %8, align 8
-  %123 = load ptr, ptr %12, align 8
-  %124 = load i32, ptr %10, align 4
-  %125 = load i16, ptr %11, align 2
-  %126 = call i32 @dissect_openflow_instruction_v6(ptr noundef %121, ptr noundef %122, ptr noundef %123, i32 noundef %124, i16 noundef zeroext %125)
-  store i32 %126, ptr %10, align 4
-  br label %116, !llvm.loop !54
+121:                                              ; preds = %117
+  %122 = load ptr, ptr %7, align 8
+  %123 = load ptr, ptr %8, align 8
+  %124 = load ptr, ptr %12, align 8
+  %125 = load i32, ptr %10, align 4
+  %126 = load i16, ptr %11, align 2
+  %127 = call i32 @dissect_openflow_instruction_v6(ptr noundef %122, ptr noundef %123, ptr noundef %124, i32 noundef %125, i16 noundef zeroext %126)
+  store i32 %127, ptr %10, align 4
+  br label %117, !llvm.loop !58
 
-127:                                              ; preds = %116
-  br label %156
+128:                                              ; preds = %117
+  br label %157
 
-128:                                              ; preds = %48
-  %129 = load ptr, ptr %12, align 8
-  %130 = load i32, ptr @hf_openflow_v6_flow_update_abbrev_xid, align 4
-  %131 = load ptr, ptr %7, align 8
-  %132 = load i32, ptr %10, align 4
-  %133 = call ptr @proto_tree_add_item(ptr noundef %129, i32 noundef %130, ptr noundef %131, i32 noundef %132, i32 noundef 4, i32 noundef 0)
-  %134 = load i32, ptr %10, align 4
-  %135 = add i32 %134, 4
-  store i32 %135, ptr %10, align 4
-  br label %156
+129:                                              ; preds = %49
+  %130 = load ptr, ptr %12, align 8
+  %131 = load i32, ptr @hf_openflow_v6_flow_update_abbrev_xid, align 4
+  %132 = load ptr, ptr %7, align 8
+  %133 = load i32, ptr %10, align 4
+  %134 = call ptr @proto_tree_add_item(ptr noundef %130, i32 noundef %131, ptr noundef %132, i32 noundef %133, i32 noundef 4, i32 noundef 0)
+  %135 = load i32, ptr %10, align 4
+  %136 = add i32 %135, 4
+  store i32 %136, ptr %10, align 4
+  br label %157
 
-136:                                              ; preds = %48, %48
-  %137 = load ptr, ptr %12, align 8
-  %138 = load i32, ptr @hf_openflow_v6_flow_update_paused_zeros, align 4
-  %139 = load ptr, ptr %7, align 8
-  %140 = load i32, ptr %10, align 4
-  %141 = call ptr @proto_tree_add_item(ptr noundef %137, i32 noundef %138, ptr noundef %139, i32 noundef %140, i32 noundef 4, i32 noundef 0)
-  %142 = load i32, ptr %10, align 4
-  %143 = add i32 %142, 4
-  store i32 %143, ptr %10, align 4
-  br label %156
+137:                                              ; preds = %49, %49
+  %138 = load ptr, ptr %12, align 8
+  %139 = load i32, ptr @hf_openflow_v6_flow_update_paused_zeros, align 4
+  %140 = load ptr, ptr %7, align 8
+  %141 = load i32, ptr %10, align 4
+  %142 = call ptr @proto_tree_add_item(ptr noundef %138, i32 noundef %139, ptr noundef %140, i32 noundef %141, i32 noundef 4, i32 noundef 0)
+  %143 = load i32, ptr %10, align 4
+  %144 = add i32 %143, 4
+  store i32 %144, ptr %10, align 4
+  br label %157
 
-144:                                              ; preds = %48
-  %145 = load ptr, ptr %12, align 8
-  %146 = load ptr, ptr %8, align 8
-  %147 = load ptr, ptr %7, align 8
-  %148 = load i32, ptr %10, align 4
-  %149 = load i32, ptr %13, align 4
-  %150 = sub i32 %149, 4
-  %151 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %145, ptr noundef %146, ptr noundef @ei_openflow_v6_flow_update_undecoded, ptr noundef %147, i32 noundef %148, i32 noundef %150, ptr noundef @.str.1059)
-  %152 = load i32, ptr %13, align 4
-  %153 = sub i32 %152, 4
-  %154 = load i32, ptr %10, align 4
-  %155 = add i32 %154, %153
-  store i32 %155, ptr %10, align 4
-  br label %156
+145:                                              ; preds = %49
+  %146 = load ptr, ptr %12, align 8
+  %147 = load ptr, ptr %8, align 8
+  %148 = load ptr, ptr %7, align 8
+  %149 = load i32, ptr %10, align 4
+  %150 = load i32, ptr %13, align 4
+  %151 = sub i32 %150, 4
+  %152 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %146, ptr noundef %147, ptr noundef @ei_openflow_v6_flow_update_undecoded, ptr noundef %148, i32 noundef %149, i32 noundef %151, ptr noundef @.str.1059)
+  %153 = load i32, ptr %13, align 4
+  %154 = sub i32 %153, 4
+  %155 = load i32, ptr %10, align 4
+  %156 = add i32 %155, %154
+  store i32 %156, ptr %10, align 4
+  br label %157
 
-156:                                              ; preds = %144, %136, %128, %127
-  %157 = load i32, ptr %10, align 4
-  store i32 %157, ptr %6, align 4
-  br label %158
+157:                                              ; preds = %145, %137, %129, %128
+  %158 = load i32, ptr %10, align 4
+  store i32 %158, ptr %6, align 4
+  store i32 1, ptr %17, align 4
+  br label %159
 
-158:                                              ; preds = %156, %43
-  %159 = load i32, ptr %6, align 4
-  ret i32 %159
+159:                                              ; preds = %157, %44
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  %160 = load i32, ptr %6, align 4
+  ret i32 %160
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openflow_flow_stats_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -12861,11 +13313,14 @@ define internal i32 @dissect_openflow_flow_stats_v6(ptr noundef %0, ptr noundef 
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
   %14 = load ptr, ptr %8, align 8
   %15 = load ptr, ptr %6, align 8
   %16 = load i32, ptr %9, align 4
   %17 = load i32, ptr @ett_openflow_v6_flow_stats, align 4
-  %18 = call ptr @proto_tree_add_subtree(ptr noundef %14, ptr noundef %15, i32 noundef %16, i32 noundef -1, i32 noundef %17, ptr noundef %11, ptr noundef @.str.1573)
+  %18 = call ptr @proto_tree_add_subtree(ptr noundef %14, ptr noundef %15, i32 noundef %16, i32 noundef -1, i32 noundef %17, ptr noundef %11, ptr noundef @.str.1642)
   store ptr %18, ptr %12, align 8
   %19 = load ptr, ptr %12, align 8
   %20 = load i32, ptr @hf_openflow_v6_flow_stats_length, align 4
@@ -12925,10 +13380,13 @@ define internal i32 @dissect_openflow_flow_stats_v6(ptr noundef %0, ptr noundef 
   %67 = call i32 @dissect_openflow_stats_v6(ptr noundef %62, ptr noundef %63, ptr noundef %64, i32 noundef %65, i16 noundef zeroext %66)
   store i32 %67, ptr %9, align 4
   %68 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret i32 %68
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openflow_port_stats_prop_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -12945,11 +13403,16 @@ define internal i32 @dissect_openflow_port_stats_prop_v6(ptr noundef %0, ptr nou
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
   %16 = load ptr, ptr %8, align 8
   %17 = load ptr, ptr %6, align 8
   %18 = load i32, ptr %9, align 4
   %19 = load i32, ptr @ett_openflow_v6_port_stats_prop, align 4
-  %20 = call ptr @proto_tree_add_subtree(ptr noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef -1, i32 noundef %19, ptr noundef %12, ptr noundef @.str.1554)
+  %20 = call ptr @proto_tree_add_subtree(ptr noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef -1, i32 noundef %19, ptr noundef %12, ptr noundef @.str.1623)
   store ptr %20, ptr %11, align 8
   %21 = load ptr, ptr %11, align 8
   %22 = load i32, ptr @hf_openflow_v6_port_stats_prop_type, align 4
@@ -13035,7 +13498,7 @@ define internal i32 @dissect_openflow_port_stats_prop_v6(ptr noundef %0, ptr nou
   %79 = load i32, ptr %9, align 4
   %80 = load i32, ptr %15, align 4
   %81 = sub i32 %80, 12
-  %82 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %76, ptr noundef %77, ptr noundef @ei_openflow_v6_port_stats_prop_undecoded, ptr noundef %78, i32 noundef %79, i32 noundef %81, ptr noundef @.str.1555)
+  %82 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %76, ptr noundef %77, ptr noundef @ei_openflow_v6_port_stats_prop_undecoded, ptr noundef %78, i32 noundef %79, i32 noundef %81, ptr noundef @.str.1624)
   %83 = load i32, ptr %15, align 4
   %84 = sub i32 %83, 12
   %85 = load i32, ptr %9, align 4
@@ -13064,7 +13527,7 @@ define internal i32 @dissect_openflow_port_stats_prop_v6(ptr noundef %0, ptr nou
   %100 = load i32, ptr %9, align 4
   %101 = load i32, ptr %15, align 4
   %102 = sub i32 %101, 4
-  %103 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %97, ptr noundef %98, ptr noundef @ei_openflow_v6_port_stats_prop_undecoded, ptr noundef %99, i32 noundef %100, i32 noundef %102, ptr noundef @.str.1556)
+  %103 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %97, ptr noundef %98, ptr noundef @ei_openflow_v6_port_stats_prop_undecoded, ptr noundef %99, i32 noundef %100, i32 noundef %102, ptr noundef @.str.1625)
   %104 = load i32, ptr %15, align 4
   %105 = sub i32 %104, 4
   %106 = load i32, ptr %9, align 4
@@ -13074,10 +13537,15 @@ define internal i32 @dissect_openflow_port_stats_prop_v6(ptr noundef %0, ptr nou
 
 108:                                              ; preds = %96, %90, %61, %55, %45, %38
   %109 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret i32 %109
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openflow_port_stats_prop_ethernet_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -13133,7 +13601,7 @@ define internal i32 @dissect_openflow_port_stats_prop_ethernet_v6(ptr noundef %0
   ret i32 %46
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openflow_port_stats_prop_optical_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -13147,6 +13615,8 @@ define internal i32 @dissect_openflow_port_stats_prop_optical_v6(ptr noundef %0,
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
   %13 = load ptr, ptr %8, align 8
   %14 = load i32, ptr @hf_openflow_v6_port_stats_prop_optical_pad, align 4
   %15 = load ptr, ptr %6, align 8
@@ -13279,10 +13749,12 @@ define internal i32 @dissect_openflow_port_stats_prop_optical_v6(ptr noundef %0,
   %129 = add i32 %128, 2
   store i32 %129, ptr %9, align 4
   %130 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret i32 %130
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openflow_queue_stats_prop_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -13298,6 +13770,10 @@ define internal i32 @dissect_openflow_queue_stats_prop_v6(ptr noundef %0, ptr no
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 2, ptr %14) #5
   %15 = load ptr, ptr %6, align 8
   %16 = load i32, ptr %9, align 4
   %17 = add i32 %16, 2
@@ -13309,7 +13785,7 @@ define internal i32 @dissect_openflow_queue_stats_prop_v6(ptr noundef %0, ptr no
   %22 = load i16, ptr %14, align 2
   %23 = zext i16 %22 to i32
   %24 = load i32, ptr @ett_openflow_v6_queue_stats_prop, align 4
-  %25 = call ptr @proto_tree_add_subtree(ptr noundef %19, ptr noundef %20, i32 noundef %21, i32 noundef %23, i32 noundef %24, ptr noundef null, ptr noundef @.str.1558)
+  %25 = call ptr @proto_tree_add_subtree(ptr noundef %19, ptr noundef %20, i32 noundef %21, i32 noundef %23, i32 noundef %24, ptr noundef null, ptr noundef @.str.1627)
   store ptr %25, ptr %11, align 8
   %26 = load ptr, ptr %11, align 8
   %27 = load i32, ptr @hf_openflow_v6_queue_stats_prop_type, align 4
@@ -13372,7 +13848,7 @@ define internal i32 @dissect_openflow_queue_stats_prop_v6(ptr noundef %0, ptr no
   %70 = load i16, ptr %10, align 2
   %71 = zext i16 %70 to i32
   %72 = sub i32 %71, 12
-  %73 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %66, ptr noundef %67, ptr noundef @ei_openflow_v6_queue_stats_prop_undecoded, ptr noundef %68, i32 noundef %69, i32 noundef %72, ptr noundef @.str.1559)
+  %73 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %66, ptr noundef %67, ptr noundef @ei_openflow_v6_queue_stats_prop_undecoded, ptr noundef %68, i32 noundef %69, i32 noundef %72, ptr noundef @.str.1628)
   %74 = load i16, ptr %14, align 2
   %75 = zext i16 %74 to i32
   %76 = sub i32 %75, 12
@@ -13415,10 +13891,14 @@ define internal i32 @dissect_openflow_queue_stats_prop_v6(ptr noundef %0, ptr no
 
 103:                                              ; preds = %89, %83, %51, %45
   %104 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret i32 %104
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openflow_bucket_counter_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -13431,11 +13911,12 @@ define internal i32 @dissect_openflow_bucket_counter_v6(ptr noundef %0, ptr noun
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
   %12 = load ptr, ptr %8, align 8
   %13 = load ptr, ptr %6, align 8
   %14 = load i32, ptr %9, align 4
   %15 = load i32, ptr @ett_openflow_v6_bucket_counter, align 4
-  %16 = call ptr @proto_tree_add_subtree(ptr noundef %12, ptr noundef %13, i32 noundef %14, i32 noundef 16, i32 noundef %15, ptr noundef null, ptr noundef @.str.1561)
+  %16 = call ptr @proto_tree_add_subtree(ptr noundef %12, ptr noundef %13, i32 noundef %14, i32 noundef 16, i32 noundef %15, ptr noundef null, ptr noundef @.str.1630)
   store ptr %16, ptr %11, align 8
   %17 = load ptr, ptr %11, align 8
   %18 = load i32, ptr @hf_openflow_v6_bucket_counter_packet_count, align 4
@@ -13454,10 +13935,11 @@ define internal i32 @dissect_openflow_bucket_counter_v6(ptr noundef %0, ptr noun
   %30 = add i32 %29, 8
   store i32 %30, ptr %9, align 4
   %31 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret i32 %31
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openflow_meter_band_stats_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -13470,11 +13952,12 @@ define internal i32 @dissect_openflow_meter_band_stats_v6(ptr noundef %0, ptr no
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
   %12 = load ptr, ptr %8, align 8
   %13 = load ptr, ptr %6, align 8
   %14 = load i32, ptr %9, align 4
   %15 = load i32, ptr @ett_openflow_v6_meter_band_stats, align 4
-  %16 = call ptr @proto_tree_add_subtree(ptr noundef %12, ptr noundef %13, i32 noundef %14, i32 noundef 16, i32 noundef %15, ptr noundef null, ptr noundef @.str.1564)
+  %16 = call ptr @proto_tree_add_subtree(ptr noundef %12, ptr noundef %13, i32 noundef %14, i32 noundef 16, i32 noundef %15, ptr noundef null, ptr noundef @.str.1633)
   store ptr %16, ptr %11, align 8
   %17 = load ptr, ptr %11, align 8
   %18 = load i32, ptr @hf_openflow_v6_meter_band_stats_packet_band_count, align 4
@@ -13493,10 +13976,11 @@ define internal i32 @dissect_openflow_meter_band_stats_v6(ptr noundef %0, ptr no
   %30 = add i32 %29, 8
   store i32 %30, ptr %9, align 4
   %31 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret i32 %31
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openflow_meter_band_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -13508,166 +13992,177 @@ define internal i32 @dissect_openflow_meter_band_v6(ptr noundef %0, ptr noundef 
   %13 = alloca ptr, align 8
   %14 = alloca i32, align 4
   %15 = alloca i16, align 2
+  %16 = alloca i32, align 4
   store ptr %0, ptr %7, align 8
   store ptr %1, ptr %8, align 8
   store ptr %2, ptr %9, align 8
   store i32 %3, ptr %10, align 4
   store i16 %4, ptr %11, align 2
-  %16 = load ptr, ptr %9, align 8
-  %17 = load ptr, ptr %7, align 8
-  %18 = load i32, ptr %10, align 4
-  %19 = load i32, ptr @ett_openflow_v6_meter_band, align 4
-  %20 = call ptr @proto_tree_add_subtree(ptr noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef -1, i32 noundef %19, ptr noundef %12, ptr noundef @.str.1566)
-  store ptr %20, ptr %13, align 8
-  %21 = load ptr, ptr %13, align 8
-  %22 = load i32, ptr @hf_openflow_v6_meter_band_type, align 4
-  %23 = load ptr, ptr %7, align 8
-  %24 = load i32, ptr %10, align 4
-  %25 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %21, i32 noundef %22, ptr noundef %23, i32 noundef %24, i32 noundef 2, i32 noundef 0, ptr noundef %14)
-  %26 = load i32, ptr %10, align 4
-  %27 = add i32 %26, 2
-  store i32 %27, ptr %10, align 4
-  %28 = load ptr, ptr %7, align 8
-  %29 = load i32, ptr %10, align 4
-  %30 = call zeroext i16 @tvb_get_ntohs(ptr noundef %28, i32 noundef %29)
-  store i16 %30, ptr %15, align 2
-  %31 = load ptr, ptr %12, align 8
-  %32 = load i16, ptr %15, align 2
-  %33 = zext i16 %32 to i32
-  call void @proto_item_set_len(ptr noundef %31, i32 noundef %33)
-  %34 = load ptr, ptr %13, align 8
-  %35 = load i32, ptr @hf_openflow_v6_meter_band_len, align 4
-  %36 = load ptr, ptr %7, align 8
-  %37 = load i32, ptr %10, align 4
-  %38 = call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %35, ptr noundef %36, i32 noundef %37, i32 noundef 2, i32 noundef 0)
-  store ptr %38, ptr %12, align 8
-  %39 = load i32, ptr %10, align 4
-  %40 = add i32 %39, 2
-  store i32 %40, ptr %10, align 4
-  %41 = load ptr, ptr %13, align 8
-  %42 = load i32, ptr @hf_openflow_v6_meter_band_rate, align 4
-  %43 = load ptr, ptr %7, align 8
-  %44 = load i32, ptr %10, align 4
-  %45 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %42, ptr noundef %43, i32 noundef %44, i32 noundef 4, i32 noundef 0)
-  %46 = load i32, ptr %10, align 4
-  %47 = add i32 %46, 4
-  store i32 %47, ptr %10, align 4
-  %48 = load ptr, ptr %13, align 8
-  %49 = load i32, ptr @hf_openflow_v6_meter_band_burst_size, align 4
-  %50 = load ptr, ptr %7, align 8
-  %51 = load i32, ptr %10, align 4
-  %52 = call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %49, ptr noundef %50, i32 noundef %51, i32 noundef 4, i32 noundef 0)
-  %53 = load i32, ptr %10, align 4
-  %54 = add i32 %53, 4
-  store i32 %54, ptr %10, align 4
-  %55 = load i16, ptr %15, align 2
-  %56 = zext i16 %55 to i32
-  %57 = icmp slt i32 %56, 12
-  br i1 %57, label %58, label %63
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 2, ptr %15) #5
+  %17 = load ptr, ptr %9, align 8
+  %18 = load ptr, ptr %7, align 8
+  %19 = load i32, ptr %10, align 4
+  %20 = load i32, ptr @ett_openflow_v6_meter_band, align 4
+  %21 = call ptr @proto_tree_add_subtree(ptr noundef %17, ptr noundef %18, i32 noundef %19, i32 noundef -1, i32 noundef %20, ptr noundef %12, ptr noundef @.str.1635)
+  store ptr %21, ptr %13, align 8
+  %22 = load ptr, ptr %13, align 8
+  %23 = load i32, ptr @hf_openflow_v6_meter_band_type, align 4
+  %24 = load ptr, ptr %7, align 8
+  %25 = load i32, ptr %10, align 4
+  %26 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %22, i32 noundef %23, ptr noundef %24, i32 noundef %25, i32 noundef 2, i32 noundef 0, ptr noundef %14)
+  %27 = load i32, ptr %10, align 4
+  %28 = add i32 %27, 2
+  store i32 %28, ptr %10, align 4
+  %29 = load ptr, ptr %7, align 8
+  %30 = load i32, ptr %10, align 4
+  %31 = call zeroext i16 @tvb_get_ntohs(ptr noundef %29, i32 noundef %30)
+  store i16 %31, ptr %15, align 2
+  %32 = load ptr, ptr %12, align 8
+  %33 = load i16, ptr %15, align 2
+  %34 = zext i16 %33 to i32
+  call void @proto_item_set_len(ptr noundef %32, i32 noundef %34)
+  %35 = load ptr, ptr %13, align 8
+  %36 = load i32, ptr @hf_openflow_v6_meter_band_len, align 4
+  %37 = load ptr, ptr %7, align 8
+  %38 = load i32, ptr %10, align 4
+  %39 = call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %36, ptr noundef %37, i32 noundef %38, i32 noundef 2, i32 noundef 0)
+  store ptr %39, ptr %12, align 8
+  %40 = load i32, ptr %10, align 4
+  %41 = add i32 %40, 2
+  store i32 %41, ptr %10, align 4
+  %42 = load ptr, ptr %13, align 8
+  %43 = load i32, ptr @hf_openflow_v6_meter_band_rate, align 4
+  %44 = load ptr, ptr %7, align 8
+  %45 = load i32, ptr %10, align 4
+  %46 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %43, ptr noundef %44, i32 noundef %45, i32 noundef 4, i32 noundef 0)
+  %47 = load i32, ptr %10, align 4
+  %48 = add i32 %47, 4
+  store i32 %48, ptr %10, align 4
+  %49 = load ptr, ptr %13, align 8
+  %50 = load i32, ptr @hf_openflow_v6_meter_band_burst_size, align 4
+  %51 = load ptr, ptr %7, align 8
+  %52 = load i32, ptr %10, align 4
+  %53 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %50, ptr noundef %51, i32 noundef %52, i32 noundef 4, i32 noundef 0)
+  %54 = load i32, ptr %10, align 4
+  %55 = add i32 %54, 4
+  store i32 %55, ptr %10, align 4
+  %56 = load i16, ptr %15, align 2
+  %57 = zext i16 %56 to i32
+  %58 = icmp slt i32 %57, 12
+  br i1 %58, label %59, label %64
 
-58:                                               ; preds = %5
-  %59 = load ptr, ptr %8, align 8
-  %60 = load ptr, ptr %12, align 8
-  %61 = call ptr @expert_add_info(ptr noundef %59, ptr noundef %60, ptr noundef @ei_openflow_v6_length_too_short)
-  %62 = load i32, ptr %10, align 4
-  store i32 %62, ptr %6, align 4
-  br label %129
+59:                                               ; preds = %5
+  %60 = load ptr, ptr %8, align 8
+  %61 = load ptr, ptr %12, align 8
+  %62 = call ptr @expert_add_info(ptr noundef %60, ptr noundef %61, ptr noundef @ei_openflow_v6_length_too_short)
+  %63 = load i32, ptr %10, align 4
+  store i32 %63, ptr %6, align 4
+  store i32 1, ptr %16, align 4
+  br label %130
 
-63:                                               ; preds = %5
-  %64 = load i32, ptr %14, align 4
-  switch i32 %64, label %111 [
-    i32 1, label %65
-    i32 2, label %73
-    i32 65535, label %88
+64:                                               ; preds = %5
+  %65 = load i32, ptr %14, align 4
+  switch i32 %65, label %112 [
+    i32 1, label %66
+    i32 2, label %74
+    i32 65535, label %89
   ]
 
-65:                                               ; preds = %63
-  %66 = load ptr, ptr %13, align 8
-  %67 = load i32, ptr @hf_openflow_v6_meter_band_drop_pad, align 4
-  %68 = load ptr, ptr %7, align 8
-  %69 = load i32, ptr %10, align 4
-  %70 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %67, ptr noundef %68, i32 noundef %69, i32 noundef 4, i32 noundef 0)
-  %71 = load i32, ptr %10, align 4
-  %72 = add i32 %71, 4
-  store i32 %72, ptr %10, align 4
-  br label %127
+66:                                               ; preds = %64
+  %67 = load ptr, ptr %13, align 8
+  %68 = load i32, ptr @hf_openflow_v6_meter_band_drop_pad, align 4
+  %69 = load ptr, ptr %7, align 8
+  %70 = load i32, ptr %10, align 4
+  %71 = call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %68, ptr noundef %69, i32 noundef %70, i32 noundef 4, i32 noundef 0)
+  %72 = load i32, ptr %10, align 4
+  %73 = add i32 %72, 4
+  store i32 %73, ptr %10, align 4
+  br label %128
 
-73:                                               ; preds = %63
-  %74 = load ptr, ptr %13, align 8
-  %75 = load i32, ptr @hf_openflow_v6_meter_band_dscp_remark_prec_level, align 4
-  %76 = load ptr, ptr %7, align 8
-  %77 = load i32, ptr %10, align 4
-  %78 = call ptr @proto_tree_add_item(ptr noundef %74, i32 noundef %75, ptr noundef %76, i32 noundef %77, i32 noundef 1, i32 noundef 0)
-  %79 = load i32, ptr %10, align 4
-  %80 = add i32 %79, 1
-  store i32 %80, ptr %10, align 4
-  %81 = load ptr, ptr %13, align 8
-  %82 = load i32, ptr @hf_openflow_v6_meter_band_dscp_remark_pad, align 4
-  %83 = load ptr, ptr %7, align 8
-  %84 = load i32, ptr %10, align 4
-  %85 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %82, ptr noundef %83, i32 noundef %84, i32 noundef 3, i32 noundef 0)
-  %86 = load i32, ptr %10, align 4
-  %87 = add i32 %86, 3
-  store i32 %87, ptr %10, align 4
-  br label %127
+74:                                               ; preds = %64
+  %75 = load ptr, ptr %13, align 8
+  %76 = load i32, ptr @hf_openflow_v6_meter_band_dscp_remark_prec_level, align 4
+  %77 = load ptr, ptr %7, align 8
+  %78 = load i32, ptr %10, align 4
+  %79 = call ptr @proto_tree_add_item(ptr noundef %75, i32 noundef %76, ptr noundef %77, i32 noundef %78, i32 noundef 1, i32 noundef 0)
+  %80 = load i32, ptr %10, align 4
+  %81 = add i32 %80, 1
+  store i32 %81, ptr %10, align 4
+  %82 = load ptr, ptr %13, align 8
+  %83 = load i32, ptr @hf_openflow_v6_meter_band_dscp_remark_pad, align 4
+  %84 = load ptr, ptr %7, align 8
+  %85 = load i32, ptr %10, align 4
+  %86 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %83, ptr noundef %84, i32 noundef %85, i32 noundef 3, i32 noundef 0)
+  %87 = load i32, ptr %10, align 4
+  %88 = add i32 %87, 3
+  store i32 %88, ptr %10, align 4
+  br label %128
 
-88:                                               ; preds = %63
-  %89 = load ptr, ptr %13, align 8
-  %90 = load i32, ptr @hf_openflow_v6_meter_band_experimenter_experimenter, align 4
-  %91 = load ptr, ptr %7, align 8
-  %92 = load i32, ptr %10, align 4
-  %93 = call ptr @proto_tree_add_item(ptr noundef %89, i32 noundef %90, ptr noundef %91, i32 noundef %92, i32 noundef 4, i32 noundef 0)
-  %94 = load i32, ptr %10, align 4
-  %95 = add i32 %94, 4
-  store i32 %95, ptr %10, align 4
-  %96 = load ptr, ptr %13, align 8
-  %97 = load ptr, ptr %8, align 8
-  %98 = load ptr, ptr %7, align 8
-  %99 = load i32, ptr %10, align 4
+89:                                               ; preds = %64
+  %90 = load ptr, ptr %13, align 8
+  %91 = load i32, ptr @hf_openflow_v6_meter_band_experimenter_experimenter, align 4
+  %92 = load ptr, ptr %7, align 8
+  %93 = load i32, ptr %10, align 4
+  %94 = call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %91, ptr noundef %92, i32 noundef %93, i32 noundef 4, i32 noundef 0)
+  %95 = load i32, ptr %10, align 4
+  %96 = add i32 %95, 4
+  store i32 %96, ptr %10, align 4
+  %97 = load ptr, ptr %13, align 8
+  %98 = load ptr, ptr %8, align 8
+  %99 = load ptr, ptr %7, align 8
   %100 = load i32, ptr %10, align 4
-  %101 = sub i32 %100, 16
-  %102 = load i16, ptr %15, align 2
-  %103 = zext i16 %102 to i32
-  %104 = add i32 %101, %103
-  %105 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %96, ptr noundef %97, ptr noundef @ei_openflow_v6_meter_band_undecoded, ptr noundef %98, i32 noundef %99, i32 noundef %104, ptr noundef @.str.1567)
-  %106 = load i16, ptr %15, align 2
-  %107 = zext i16 %106 to i32
-  %108 = sub i32 %107, 16
-  %109 = load i32, ptr %10, align 4
-  %110 = add i32 %109, %108
-  store i32 %110, ptr %10, align 4
-  br label %127
+  %101 = load i32, ptr %10, align 4
+  %102 = sub i32 %101, 16
+  %103 = load i16, ptr %15, align 2
+  %104 = zext i16 %103 to i32
+  %105 = add i32 %102, %104
+  %106 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %97, ptr noundef %98, ptr noundef @ei_openflow_v6_meter_band_undecoded, ptr noundef %99, i32 noundef %100, i32 noundef %105, ptr noundef @.str.1636)
+  %107 = load i16, ptr %15, align 2
+  %108 = zext i16 %107 to i32
+  %109 = sub i32 %108, 16
+  %110 = load i32, ptr %10, align 4
+  %111 = add i32 %110, %109
+  store i32 %111, ptr %10, align 4
+  br label %128
 
-111:                                              ; preds = %63
-  %112 = load ptr, ptr %13, align 8
-  %113 = load ptr, ptr %8, align 8
-  %114 = load ptr, ptr %7, align 8
-  %115 = load i32, ptr %10, align 4
+112:                                              ; preds = %64
+  %113 = load ptr, ptr %13, align 8
+  %114 = load ptr, ptr %8, align 8
+  %115 = load ptr, ptr %7, align 8
   %116 = load i32, ptr %10, align 4
-  %117 = sub i32 %116, 12
-  %118 = load i16, ptr %15, align 2
-  %119 = zext i16 %118 to i32
-  %120 = add i32 %117, %119
-  %121 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %112, ptr noundef %113, ptr noundef @ei_openflow_v6_meter_band_undecoded, ptr noundef %114, i32 noundef %115, i32 noundef %120, ptr noundef @.str.1041)
-  %122 = load i16, ptr %15, align 2
-  %123 = zext i16 %122 to i32
-  %124 = sub i32 %123, 12
-  %125 = load i32, ptr %10, align 4
-  %126 = add i32 %125, %124
-  store i32 %126, ptr %10, align 4
-  br label %127
+  %117 = load i32, ptr %10, align 4
+  %118 = sub i32 %117, 12
+  %119 = load i16, ptr %15, align 2
+  %120 = zext i16 %119 to i32
+  %121 = add i32 %118, %120
+  %122 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %113, ptr noundef %114, ptr noundef @ei_openflow_v6_meter_band_undecoded, ptr noundef %115, i32 noundef %116, i32 noundef %121, ptr noundef @.str.1041)
+  %123 = load i16, ptr %15, align 2
+  %124 = zext i16 %123 to i32
+  %125 = sub i32 %124, 12
+  %126 = load i32, ptr %10, align 4
+  %127 = add i32 %126, %125
+  store i32 %127, ptr %10, align 4
+  br label %128
 
-127:                                              ; preds = %111, %88, %73, %65
-  %128 = load i32, ptr %10, align 4
-  store i32 %128, ptr %6, align 4
-  br label %129
+128:                                              ; preds = %112, %89, %74, %66
+  %129 = load i32, ptr %10, align 4
+  store i32 %129, ptr %6, align 4
+  store i32 1, ptr %16, align 4
+  br label %130
 
-129:                                              ; preds = %127, %58
-  %130 = load i32, ptr %6, align 4
-  ret i32 %130
+130:                                              ; preds = %128, %59
+  call void @llvm.lifetime.end.p0(i64 2, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  %131 = load i32, ptr %6, align 4
+  ret i32 %131
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openflow_queue_desc_prop_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -13679,200 +14174,211 @@ define internal i32 @dissect_openflow_queue_desc_prop_v6(ptr noundef %0, ptr nou
   %13 = alloca ptr, align 8
   %14 = alloca i32, align 4
   %15 = alloca i16, align 2
+  %16 = alloca i32, align 4
   store ptr %0, ptr %7, align 8
   store ptr %1, ptr %8, align 8
   store ptr %2, ptr %9, align 8
   store i32 %3, ptr %10, align 4
   store i16 %4, ptr %11, align 2
-  %16 = load ptr, ptr %9, align 8
-  %17 = load ptr, ptr %7, align 8
-  %18 = load i32, ptr %10, align 4
-  %19 = load i32, ptr @ett_openflow_v6_queue_desc_prop, align 4
-  %20 = call ptr @proto_tree_add_subtree(ptr noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef -1, i32 noundef %19, ptr noundef %12, ptr noundef @.str.1570)
-  store ptr %20, ptr %13, align 8
-  %21 = load ptr, ptr %13, align 8
-  %22 = load i32, ptr @hf_openflow_v6_queue_desc_prop_property, align 4
-  %23 = load ptr, ptr %7, align 8
-  %24 = load i32, ptr %10, align 4
-  %25 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %21, i32 noundef %22, ptr noundef %23, i32 noundef %24, i32 noundef 2, i32 noundef 0, ptr noundef %14)
-  %26 = load i32, ptr %10, align 4
-  %27 = add i32 %26, 2
-  store i32 %27, ptr %10, align 4
-  %28 = load ptr, ptr %7, align 8
-  %29 = load i32, ptr %10, align 4
-  %30 = call zeroext i16 @tvb_get_ntohs(ptr noundef %28, i32 noundef %29)
-  store i16 %30, ptr %15, align 2
-  %31 = load ptr, ptr %12, align 8
-  %32 = load i16, ptr %15, align 2
-  %33 = zext i16 %32 to i32
-  call void @proto_item_set_len(ptr noundef %31, i32 noundef %33)
-  %34 = load ptr, ptr %13, align 8
-  %35 = load i32, ptr @hf_openflow_v6_queue_desc_prop_len, align 4
-  %36 = load ptr, ptr %7, align 8
-  %37 = load i32, ptr %10, align 4
-  %38 = call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %35, ptr noundef %36, i32 noundef %37, i32 noundef 2, i32 noundef 0)
-  store ptr %38, ptr %12, align 8
-  %39 = load i32, ptr %10, align 4
-  %40 = add i32 %39, 2
-  store i32 %40, ptr %10, align 4
-  %41 = load ptr, ptr %13, align 8
-  %42 = load i32, ptr @hf_openflow_v6_queue_desc_prop_pad, align 4
-  %43 = load ptr, ptr %7, align 8
-  %44 = load i32, ptr %10, align 4
-  %45 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %42, ptr noundef %43, i32 noundef %44, i32 noundef 4, i32 noundef 0)
-  %46 = load i32, ptr %10, align 4
-  %47 = add i32 %46, 4
-  store i32 %47, ptr %10, align 4
-  %48 = load i16, ptr %15, align 2
-  %49 = zext i16 %48 to i32
-  %50 = icmp slt i32 %49, 8
-  br i1 %50, label %51, label %56
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 2, ptr %15) #5
+  %17 = load ptr, ptr %9, align 8
+  %18 = load ptr, ptr %7, align 8
+  %19 = load i32, ptr %10, align 4
+  %20 = load i32, ptr @ett_openflow_v6_queue_desc_prop, align 4
+  %21 = call ptr @proto_tree_add_subtree(ptr noundef %17, ptr noundef %18, i32 noundef %19, i32 noundef -1, i32 noundef %20, ptr noundef %12, ptr noundef @.str.1639)
+  store ptr %21, ptr %13, align 8
+  %22 = load ptr, ptr %13, align 8
+  %23 = load i32, ptr @hf_openflow_v6_queue_desc_prop_property, align 4
+  %24 = load ptr, ptr %7, align 8
+  %25 = load i32, ptr %10, align 4
+  %26 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %22, i32 noundef %23, ptr noundef %24, i32 noundef %25, i32 noundef 2, i32 noundef 0, ptr noundef %14)
+  %27 = load i32, ptr %10, align 4
+  %28 = add i32 %27, 2
+  store i32 %28, ptr %10, align 4
+  %29 = load ptr, ptr %7, align 8
+  %30 = load i32, ptr %10, align 4
+  %31 = call zeroext i16 @tvb_get_ntohs(ptr noundef %29, i32 noundef %30)
+  store i16 %31, ptr %15, align 2
+  %32 = load ptr, ptr %12, align 8
+  %33 = load i16, ptr %15, align 2
+  %34 = zext i16 %33 to i32
+  call void @proto_item_set_len(ptr noundef %32, i32 noundef %34)
+  %35 = load ptr, ptr %13, align 8
+  %36 = load i32, ptr @hf_openflow_v6_queue_desc_prop_len, align 4
+  %37 = load ptr, ptr %7, align 8
+  %38 = load i32, ptr %10, align 4
+  %39 = call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %36, ptr noundef %37, i32 noundef %38, i32 noundef 2, i32 noundef 0)
+  store ptr %39, ptr %12, align 8
+  %40 = load i32, ptr %10, align 4
+  %41 = add i32 %40, 2
+  store i32 %41, ptr %10, align 4
+  %42 = load ptr, ptr %13, align 8
+  %43 = load i32, ptr @hf_openflow_v6_queue_desc_prop_pad, align 4
+  %44 = load ptr, ptr %7, align 8
+  %45 = load i32, ptr %10, align 4
+  %46 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %43, ptr noundef %44, i32 noundef %45, i32 noundef 4, i32 noundef 0)
+  %47 = load i32, ptr %10, align 4
+  %48 = add i32 %47, 4
+  store i32 %48, ptr %10, align 4
+  %49 = load i16, ptr %15, align 2
+  %50 = zext i16 %49 to i32
+  %51 = icmp slt i32 %50, 8
+  br i1 %51, label %52, label %57
 
-51:                                               ; preds = %5
-  %52 = load ptr, ptr %8, align 8
-  %53 = load ptr, ptr %12, align 8
-  %54 = call ptr @expert_add_info(ptr noundef %52, ptr noundef %53, ptr noundef @ei_openflow_v6_length_too_short)
-  %55 = load i32, ptr %10, align 4
-  store i32 %55, ptr %6, align 4
-  br label %152
+52:                                               ; preds = %5
+  %53 = load ptr, ptr %8, align 8
+  %54 = load ptr, ptr %12, align 8
+  %55 = call ptr @expert_add_info(ptr noundef %53, ptr noundef %54, ptr noundef @ei_openflow_v6_length_too_short)
+  %56 = load i32, ptr %10, align 4
+  store i32 %56, ptr %6, align 4
+  store i32 1, ptr %16, align 4
+  br label %153
 
-56:                                               ; preds = %5
-  %57 = load i32, ptr %14, align 4
-  switch i32 %57, label %126 [
-    i32 1, label %58
-    i32 2, label %73
-    i32 65535, label %88
+57:                                               ; preds = %5
+  %58 = load i32, ptr %14, align 4
+  switch i32 %58, label %127 [
+    i32 1, label %59
+    i32 2, label %74
+    i32 65535, label %89
   ]
 
-58:                                               ; preds = %56
-  %59 = load ptr, ptr %13, align 8
-  %60 = load i32, ptr @hf_openflow_v6_queue_desc_prop_min_rate_rate, align 4
-  %61 = load ptr, ptr %7, align 8
-  %62 = load i32, ptr %10, align 4
-  %63 = call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %60, ptr noundef %61, i32 noundef %62, i32 noundef 2, i32 noundef 0)
-  %64 = load i32, ptr %10, align 4
-  %65 = add i32 %64, 2
-  store i32 %65, ptr %10, align 4
-  %66 = load ptr, ptr %13, align 8
-  %67 = load i32, ptr @hf_openflow_v6_queue_desc_prop_min_rate_pad, align 4
-  %68 = load ptr, ptr %7, align 8
-  %69 = load i32, ptr %10, align 4
-  %70 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %67, ptr noundef %68, i32 noundef %69, i32 noundef 6, i32 noundef 0)
-  %71 = load i32, ptr %10, align 4
-  %72 = add i32 %71, 6
-  store i32 %72, ptr %10, align 4
-  br label %150
+59:                                               ; preds = %57
+  %60 = load ptr, ptr %13, align 8
+  %61 = load i32, ptr @hf_openflow_v6_queue_desc_prop_min_rate_rate, align 4
+  %62 = load ptr, ptr %7, align 8
+  %63 = load i32, ptr %10, align 4
+  %64 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %61, ptr noundef %62, i32 noundef %63, i32 noundef 2, i32 noundef 0)
+  %65 = load i32, ptr %10, align 4
+  %66 = add i32 %65, 2
+  store i32 %66, ptr %10, align 4
+  %67 = load ptr, ptr %13, align 8
+  %68 = load i32, ptr @hf_openflow_v6_queue_desc_prop_min_rate_pad, align 4
+  %69 = load ptr, ptr %7, align 8
+  %70 = load i32, ptr %10, align 4
+  %71 = call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %68, ptr noundef %69, i32 noundef %70, i32 noundef 6, i32 noundef 0)
+  %72 = load i32, ptr %10, align 4
+  %73 = add i32 %72, 6
+  store i32 %73, ptr %10, align 4
+  br label %151
 
-73:                                               ; preds = %56
-  %74 = load ptr, ptr %13, align 8
-  %75 = load i32, ptr @hf_openflow_v6_queue_desc_prop_max_rate_rate, align 4
-  %76 = load ptr, ptr %7, align 8
-  %77 = load i32, ptr %10, align 4
-  %78 = call ptr @proto_tree_add_item(ptr noundef %74, i32 noundef %75, ptr noundef %76, i32 noundef %77, i32 noundef 2, i32 noundef 0)
-  %79 = load i32, ptr %10, align 4
-  %80 = add i32 %79, 2
-  store i32 %80, ptr %10, align 4
-  %81 = load ptr, ptr %13, align 8
-  %82 = load i32, ptr @hf_openflow_v6_queue_desc_prop_max_rate_pad, align 4
-  %83 = load ptr, ptr %7, align 8
-  %84 = load i32, ptr %10, align 4
-  %85 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %82, ptr noundef %83, i32 noundef %84, i32 noundef 6, i32 noundef 0)
-  %86 = load i32, ptr %10, align 4
-  %87 = add i32 %86, 6
-  store i32 %87, ptr %10, align 4
-  br label %150
+74:                                               ; preds = %57
+  %75 = load ptr, ptr %13, align 8
+  %76 = load i32, ptr @hf_openflow_v6_queue_desc_prop_max_rate_rate, align 4
+  %77 = load ptr, ptr %7, align 8
+  %78 = load i32, ptr %10, align 4
+  %79 = call ptr @proto_tree_add_item(ptr noundef %75, i32 noundef %76, ptr noundef %77, i32 noundef %78, i32 noundef 2, i32 noundef 0)
+  %80 = load i32, ptr %10, align 4
+  %81 = add i32 %80, 2
+  store i32 %81, ptr %10, align 4
+  %82 = load ptr, ptr %13, align 8
+  %83 = load i32, ptr @hf_openflow_v6_queue_desc_prop_max_rate_pad, align 4
+  %84 = load ptr, ptr %7, align 8
+  %85 = load i32, ptr %10, align 4
+  %86 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %83, ptr noundef %84, i32 noundef %85, i32 noundef 6, i32 noundef 0)
+  %87 = load i32, ptr %10, align 4
+  %88 = add i32 %87, 6
+  store i32 %88, ptr %10, align 4
+  br label %151
 
-88:                                               ; preds = %56
-  %89 = load i16, ptr %15, align 2
-  %90 = zext i16 %89 to i32
-  %91 = icmp sle i32 %90, 16
-  br i1 %91, label %92, label %98
+89:                                               ; preds = %57
+  %90 = load i16, ptr %15, align 2
+  %91 = zext i16 %90 to i32
+  %92 = icmp sle i32 %91, 16
+  br i1 %92, label %93, label %99
 
-92:                                               ; preds = %88
-  %93 = load ptr, ptr %8, align 8
-  %94 = load ptr, ptr %12, align 8
-  %95 = call ptr @expert_add_info(ptr noundef %93, ptr noundef %94, ptr noundef @ei_openflow_v6_length_too_short)
-  %96 = load i16, ptr %11, align 2
-  %97 = zext i16 %96 to i32
-  store i32 %97, ptr %10, align 4
-  br label %150
+93:                                               ; preds = %89
+  %94 = load ptr, ptr %8, align 8
+  %95 = load ptr, ptr %12, align 8
+  %96 = call ptr @expert_add_info(ptr noundef %94, ptr noundef %95, ptr noundef @ei_openflow_v6_length_too_short)
+  %97 = load i16, ptr %11, align 2
+  %98 = zext i16 %97 to i32
+  store i32 %98, ptr %10, align 4
+  br label %151
 
-98:                                               ; preds = %88
-  %99 = load ptr, ptr %13, align 8
-  %100 = load i32, ptr @hf_openflow_v6_queue_desc_prop_experimenter_experimenter, align 4
-  %101 = load ptr, ptr %7, align 8
-  %102 = load i32, ptr %10, align 4
-  %103 = call ptr @proto_tree_add_item(ptr noundef %99, i32 noundef %100, ptr noundef %101, i32 noundef %102, i32 noundef 4, i32 noundef 0)
-  %104 = load i32, ptr %10, align 4
-  %105 = add i32 %104, 4
-  store i32 %105, ptr %10, align 4
-  %106 = load ptr, ptr %13, align 8
-  %107 = load i32, ptr @hf_openflow_v6_queue_desc_prop_experimenter_exp_type, align 4
-  %108 = load ptr, ptr %7, align 8
-  %109 = load i32, ptr %10, align 4
-  %110 = call ptr @proto_tree_add_item(ptr noundef %106, i32 noundef %107, ptr noundef %108, i32 noundef %109, i32 noundef 4, i32 noundef 0)
-  %111 = load i32, ptr %10, align 4
-  %112 = add i32 %111, 4
-  store i32 %112, ptr %10, align 4
-  %113 = load ptr, ptr %13, align 8
-  %114 = load ptr, ptr %8, align 8
-  %115 = load ptr, ptr %7, align 8
-  %116 = load i32, ptr %10, align 4
-  %117 = load i16, ptr %15, align 2
-  %118 = zext i16 %117 to i32
-  %119 = sub i32 %118, 16
-  %120 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %113, ptr noundef %114, ptr noundef @ei_openflow_v6_queue_desc_prop_undecoded, ptr noundef %115, i32 noundef %116, i32 noundef %119, ptr noundef @.str.1571)
-  %121 = load i16, ptr %15, align 2
-  %122 = zext i16 %121 to i32
-  %123 = sub i32 %122, 16
-  %124 = load i32, ptr %10, align 4
-  %125 = add i32 %124, %123
-  store i32 %125, ptr %10, align 4
-  br label %150
+99:                                               ; preds = %89
+  %100 = load ptr, ptr %13, align 8
+  %101 = load i32, ptr @hf_openflow_v6_queue_desc_prop_experimenter_experimenter, align 4
+  %102 = load ptr, ptr %7, align 8
+  %103 = load i32, ptr %10, align 4
+  %104 = call ptr @proto_tree_add_item(ptr noundef %100, i32 noundef %101, ptr noundef %102, i32 noundef %103, i32 noundef 4, i32 noundef 0)
+  %105 = load i32, ptr %10, align 4
+  %106 = add i32 %105, 4
+  store i32 %106, ptr %10, align 4
+  %107 = load ptr, ptr %13, align 8
+  %108 = load i32, ptr @hf_openflow_v6_queue_desc_prop_experimenter_exp_type, align 4
+  %109 = load ptr, ptr %7, align 8
+  %110 = load i32, ptr %10, align 4
+  %111 = call ptr @proto_tree_add_item(ptr noundef %107, i32 noundef %108, ptr noundef %109, i32 noundef %110, i32 noundef 4, i32 noundef 0)
+  %112 = load i32, ptr %10, align 4
+  %113 = add i32 %112, 4
+  store i32 %113, ptr %10, align 4
+  %114 = load ptr, ptr %13, align 8
+  %115 = load ptr, ptr %8, align 8
+  %116 = load ptr, ptr %7, align 8
+  %117 = load i32, ptr %10, align 4
+  %118 = load i16, ptr %15, align 2
+  %119 = zext i16 %118 to i32
+  %120 = sub i32 %119, 16
+  %121 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %114, ptr noundef %115, ptr noundef @ei_openflow_v6_queue_desc_prop_undecoded, ptr noundef %116, i32 noundef %117, i32 noundef %120, ptr noundef @.str.1640)
+  %122 = load i16, ptr %15, align 2
+  %123 = zext i16 %122 to i32
+  %124 = sub i32 %123, 16
+  %125 = load i32, ptr %10, align 4
+  %126 = add i32 %125, %124
+  store i32 %126, ptr %10, align 4
+  br label %151
 
-126:                                              ; preds = %56
-  %127 = load i16, ptr %15, align 2
-  %128 = zext i16 %127 to i32
-  %129 = icmp sle i32 %128, 8
-  br i1 %129, label %130, label %136
+127:                                              ; preds = %57
+  %128 = load i16, ptr %15, align 2
+  %129 = zext i16 %128 to i32
+  %130 = icmp sle i32 %129, 8
+  br i1 %130, label %131, label %137
 
-130:                                              ; preds = %126
-  %131 = load ptr, ptr %8, align 8
-  %132 = load ptr, ptr %12, align 8
-  %133 = call ptr @expert_add_info(ptr noundef %131, ptr noundef %132, ptr noundef @ei_openflow_v6_length_too_short)
-  %134 = load i16, ptr %11, align 2
-  %135 = zext i16 %134 to i32
-  store i32 %135, ptr %10, align 4
-  br label %150
+131:                                              ; preds = %127
+  %132 = load ptr, ptr %8, align 8
+  %133 = load ptr, ptr %12, align 8
+  %134 = call ptr @expert_add_info(ptr noundef %132, ptr noundef %133, ptr noundef @ei_openflow_v6_length_too_short)
+  %135 = load i16, ptr %11, align 2
+  %136 = zext i16 %135 to i32
+  store i32 %136, ptr %10, align 4
+  br label %151
 
-136:                                              ; preds = %126
-  %137 = load ptr, ptr %13, align 8
-  %138 = load ptr, ptr %8, align 8
-  %139 = load ptr, ptr %7, align 8
-  %140 = load i32, ptr %10, align 4
-  %141 = load i16, ptr %15, align 2
-  %142 = zext i16 %141 to i32
-  %143 = sub i32 %142, 8
-  %144 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %137, ptr noundef %138, ptr noundef @ei_openflow_v6_queue_desc_prop_undecoded, ptr noundef %139, i32 noundef %140, i32 noundef %143, ptr noundef @.str.1063)
-  %145 = load i16, ptr %15, align 2
-  %146 = zext i16 %145 to i32
-  %147 = sub i32 %146, 8
-  %148 = load i32, ptr %10, align 4
-  %149 = add i32 %148, %147
-  store i32 %149, ptr %10, align 4
-  br label %150
+137:                                              ; preds = %127
+  %138 = load ptr, ptr %13, align 8
+  %139 = load ptr, ptr %8, align 8
+  %140 = load ptr, ptr %7, align 8
+  %141 = load i32, ptr %10, align 4
+  %142 = load i16, ptr %15, align 2
+  %143 = zext i16 %142 to i32
+  %144 = sub i32 %143, 8
+  %145 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %138, ptr noundef %139, ptr noundef @ei_openflow_v6_queue_desc_prop_undecoded, ptr noundef %140, i32 noundef %141, i32 noundef %144, ptr noundef @.str.1063)
+  %146 = load i16, ptr %15, align 2
+  %147 = zext i16 %146 to i32
+  %148 = sub i32 %147, 8
+  %149 = load i32, ptr %10, align 4
+  %150 = add i32 %149, %148
+  store i32 %150, ptr %10, align 4
+  br label %151
 
-150:                                              ; preds = %136, %130, %98, %92, %73, %58
-  %151 = load i32, ptr %10, align 4
-  store i32 %151, ptr %6, align 4
-  br label %152
+151:                                              ; preds = %137, %131, %99, %93, %74, %59
+  %152 = load i32, ptr %10, align 4
+  store i32 %152, ptr %6, align 4
+  store i32 1, ptr %16, align 4
+  br label %153
 
-152:                                              ; preds = %150, %51
-  %153 = load i32, ptr %6, align 4
-  ret i32 %153
+153:                                              ; preds = %151, %52
+  call void @llvm.lifetime.end.p0(i64 2, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  %154 = load i32, ptr %6, align 4
+  ret i32 %154
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openflow_async_config_prop_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -13895,11 +14401,22 @@ define internal i32 @dissect_openflow_async_config_prop_v6(ptr noundef %0, ptr n
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #5
   %22 = load ptr, ptr %8, align 8
   %23 = load ptr, ptr %6, align 8
   %24 = load i32, ptr %9, align 4
   %25 = load i32, ptr @ett_openflow_v6_async_config_prop, align 4
-  %26 = call ptr @proto_tree_add_subtree(ptr noundef %22, ptr noundef %23, i32 noundef %24, i32 noundef -1, i32 noundef %25, ptr noundef %11, ptr noundef @.str.1574)
+  %26 = call ptr @proto_tree_add_subtree(ptr noundef %22, ptr noundef %23, i32 noundef %24, i32 noundef -1, i32 noundef %25, ptr noundef %11, ptr noundef @.str.1643)
   store ptr %26, ptr %13, align 8
   %27 = load ptr, ptr %13, align 8
   %28 = load i32, ptr @hf_openflow_v6_async_config_prop_type, align 4
@@ -14182,7 +14699,7 @@ define internal i32 @dissect_openflow_async_config_prop_v6(ptr noundef %0, ptr n
   %247 = load i32, ptr %9, align 4
   %248 = load i32, ptr %21, align 4
   %249 = sub i32 %248, 12
-  %250 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %244, ptr noundef %245, ptr noundef @ei_openflow_v6_async_config_prop_undecoded, ptr noundef %246, i32 noundef %247, i32 noundef %249, ptr noundef @.str.1575)
+  %250 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %244, ptr noundef %245, ptr noundef @ei_openflow_v6_async_config_prop_undecoded, ptr noundef %246, i32 noundef %247, i32 noundef %249, ptr noundef @.str.1644)
   %251 = load i32, ptr %21, align 4
   %252 = sub i32 %251, 12
   %253 = load i32, ptr %9, align 4
@@ -14211,7 +14728,7 @@ define internal i32 @dissect_openflow_async_config_prop_v6(ptr noundef %0, ptr n
   %268 = load i32, ptr %9, align 4
   %269 = load i32, ptr %21, align 4
   %270 = sub i32 %269, 4
-  %271 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %265, ptr noundef %266, ptr noundef @ei_openflow_v6_async_config_prop_undecoded, ptr noundef %267, i32 noundef %268, i32 noundef %270, ptr noundef @.str.1576)
+  %271 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %265, ptr noundef %266, ptr noundef @ei_openflow_v6_async_config_prop_undecoded, ptr noundef %267, i32 noundef %268, i32 noundef %270, ptr noundef @.str.1645)
   %272 = load i32, ptr %21, align 4
   %273 = sub i32 %272, 4
   %274 = load i32, ptr %9, align 4
@@ -14221,10 +14738,21 @@ define internal i32 @dissect_openflow_async_config_prop_v6(ptr noundef %0, ptr n
 
 276:                                              ; preds = %264, %258, %229, %223, %199, %178, %152, %111, %85, %44
   %277 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret i32 %277
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openflow_bundle_prop_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -14241,11 +14769,16 @@ define internal i32 @dissect_openflow_bundle_prop_v6(ptr noundef %0, ptr noundef
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
   %16 = load ptr, ptr %8, align 8
   %17 = load ptr, ptr %6, align 8
   %18 = load i32, ptr %9, align 4
   %19 = load i32, ptr @ett_openflow_v6_bundle_prop, align 4
-  %20 = call ptr @proto_tree_add_subtree(ptr noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef -1, i32 noundef %19, ptr noundef %13, ptr noundef @.str.1578)
+  %20 = call ptr @proto_tree_add_subtree(ptr noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef -1, i32 noundef %19, ptr noundef %13, ptr noundef @.str.1647)
   store ptr %20, ptr %11, align 8
   %21 = load ptr, ptr %11, align 8
   %22 = load i32, ptr @hf_openflow_v6_bundle_prop_type, align 4
@@ -14324,7 +14857,7 @@ define internal i32 @dissect_openflow_bundle_prop_v6(ptr noundef %0, ptr noundef
   %76 = load i32, ptr %9, align 4
   %77 = load i32, ptr %15, align 4
   %78 = sub i32 %77, 12
-  %79 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %73, ptr noundef %74, ptr noundef @ei_openflow_v6_bundle_prop_undecoded, ptr noundef %75, i32 noundef %76, i32 noundef %78, ptr noundef @.str.1579)
+  %79 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %73, ptr noundef %74, ptr noundef @ei_openflow_v6_bundle_prop_undecoded, ptr noundef %75, i32 noundef %76, i32 noundef %78, ptr noundef @.str.1648)
   %80 = load i32, ptr %15, align 4
   %81 = sub i32 %80, 12
   %82 = load i32, ptr %9, align 4
@@ -14363,10 +14896,15 @@ define internal i32 @dissect_openflow_bundle_prop_v6(ptr noundef %0, ptr noundef
 
 105:                                              ; preds = %93, %87, %58, %52, %38
   %106 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret i32 %106
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openflow_controller_status_prop_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -14384,11 +14922,17 @@ define internal i32 @dissect_openflow_controller_status_prop_v6(ptr noundef %0, 
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.start.p0(i64 2, ptr %16) #5
   %17 = load ptr, ptr %8, align 8
   %18 = load ptr, ptr %6, align 8
   %19 = load i32, ptr %9, align 4
   %20 = load i32, ptr @ett_openflow_v6_controller_status_prop, align 4
-  %21 = call ptr @proto_tree_add_subtree(ptr noundef %17, ptr noundef %18, i32 noundef %19, i32 noundef -1, i32 noundef %20, ptr noundef %11, ptr noundef @.str.1581)
+  %21 = call ptr @proto_tree_add_subtree(ptr noundef %17, ptr noundef %18, i32 noundef %19, i32 noundef -1, i32 noundef %20, ptr noundef %11, ptr noundef @.str.1650)
   store ptr %21, ptr %12, align 8
   %22 = load ptr, ptr %12, align 8
   %23 = load i32, ptr @hf_openflow_v6_controller_status_prop_type, align 4
@@ -14467,7 +15011,7 @@ define internal i32 @dissect_openflow_controller_status_prop_v6(ptr noundef %0, 
   %77 = load i32, ptr %15, align 4
   %78 = load i32, ptr %9, align 4
   %79 = sub i32 %77, %78
-  %80 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %73, ptr noundef %74, ptr noundef @ei_openflow_v6_controller_status_prop_undecoded, ptr noundef %75, i32 noundef %76, i32 noundef %79, ptr noundef @.str.1582)
+  %80 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %73, ptr noundef %74, ptr noundef @ei_openflow_v6_controller_status_prop_undecoded, ptr noundef %75, i32 noundef %76, i32 noundef %79, ptr noundef @.str.1651)
   %81 = load i32, ptr %15, align 4
   store i32 %81, ptr %9, align 4
   br label %92
@@ -14480,7 +15024,7 @@ define internal i32 @dissect_openflow_controller_status_prop_v6(ptr noundef %0, 
   %87 = load i32, ptr %15, align 4
   %88 = load i32, ptr %9, align 4
   %89 = sub i32 %87, %88
-  %90 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %83, ptr noundef %84, ptr noundef @ei_openflow_v6_controller_status_prop_undecoded, ptr noundef %85, i32 noundef %86, i32 noundef %89, ptr noundef @.str.1583)
+  %90 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %83, ptr noundef %84, ptr noundef @ei_openflow_v6_controller_status_prop_undecoded, ptr noundef %85, i32 noundef %86, i32 noundef %89, ptr noundef @.str.1652)
   %91 = load i32, ptr %15, align 4
   store i32 %91, ptr %9, align 4
   br label %92
@@ -14516,66 +15060,80 @@ define internal i32 @dissect_openflow_controller_status_prop_v6(ptr noundef %0, 
 
 115:                                              ; preds = %103, %92
   %116 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret i32 %116
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}
-!32 = distinct !{!32, !5}
-!33 = distinct !{!33, !5}
-!34 = distinct !{!34, !5}
-!35 = distinct !{!35, !5}
-!36 = distinct !{!36, !5}
-!37 = distinct !{!37, !5}
-!38 = distinct !{!38, !5}
-!39 = distinct !{!39, !5}
-!40 = distinct !{!40, !5}
-!41 = distinct !{!41, !5}
-!42 = distinct !{!42, !5}
-!43 = distinct !{!43, !5}
-!44 = distinct !{!44, !5}
-!45 = distinct !{!45, !5}
-!46 = distinct !{!46, !5}
-!47 = distinct !{!47, !5}
-!48 = distinct !{!48, !5}
-!49 = distinct !{!49, !5}
-!50 = distinct !{!50, !5}
-!51 = distinct !{!51, !5}
-!52 = distinct !{!52, !5}
-!53 = distinct !{!53, !5}
-!54 = distinct !{!54, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}
+!29 = distinct !{!29, !7}
+!30 = distinct !{!30, !7}
+!31 = distinct !{!31, !7}
+!32 = distinct !{!32, !7}
+!33 = distinct !{!33, !7}
+!34 = distinct !{!34, !7}
+!35 = distinct !{!35, !7}
+!36 = distinct !{!36, !7}
+!37 = distinct !{!37, !7}
+!38 = distinct !{!38, !7}
+!39 = distinct !{!39, !7}
+!40 = distinct !{!40, !7}
+!41 = distinct !{!41, !7}
+!42 = distinct !{!42, !7}
+!43 = distinct !{!43, !7}
+!44 = distinct !{!44, !7}
+!45 = distinct !{!45, !7}
+!46 = distinct !{!46, !7}
+!47 = distinct !{!47, !7}
+!48 = distinct !{!48, !7}
+!49 = distinct !{!49, !7}
+!50 = distinct !{!50, !7}
+!51 = distinct !{!51, !7}
+!52 = distinct !{!52, !7}
+!53 = distinct !{!53, !7}
+!54 = distinct !{!54, !7}
+!55 = distinct !{!55, !7}
+!56 = distinct !{!56, !7}
+!57 = distinct !{!57, !7}
+!58 = distinct !{!58, !7}

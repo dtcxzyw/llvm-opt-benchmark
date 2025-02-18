@@ -3,7 +3,7 @@ source_filename = "bench/wireshark/original/util.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct._e_prefs = type { ptr, i32, %struct.color_t, %struct.color_t, %struct.color_t, %struct.color_t, %struct.color_t, %struct.color_t, %struct.color_t, i32, i32, ptr, %struct.color_t, %struct.color_t, i32, %struct.color_t, %struct.color_t, i32, %struct.color_t, %struct.color_t, %struct.color_t, %struct.color_t, ptr, ptr, i32, i32, i32, i32, i32, i32, ptr, i32, ptr, i32, i32, i32, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
+%struct._e_prefs = type { ptr, i32, %struct.color_t, %struct.color_t, %struct.color_t, %struct.color_t, %struct.color_t, %struct.color_t, %struct.color_t, i8, i32, ptr, i32, %struct.color_t, %struct.color_t, i32, %struct.color_t, %struct.color_t, i32, %struct.color_t, %struct.color_t, %struct.color_t, %struct.color_t, ptr, ptr, i8, i8, i8, i32, i32, i32, ptr, i32, ptr, i8, i8, i8, ptr, ptr, ptr, i32, i32, i32, i32, i8, i32, i32, i32, i32, i32, ptr, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i8, i8, i8, i32, i8, i8, i8, ptr, i32, i8, i8, i32, i8, i8, i8, i32, i8, i32, i8, i8, i8, i32, i32, i32, ptr, i8, i8, i8, i8, i8, i8, i32, i32, i8, i8, i8, i8, i32, i32, i32, i32, i8, i8, i32, i8, i8, i32, i32, i8, i8, i8, i32, i8, i8, i8 }
 %struct.color_t = type { i16, i16, i16 }
 
 @.str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.get_open_dialog_initial_dir = private unnamed_addr constant [28 x i8] c"get_open_dialog_initial_dir\00", align 1
 @.str.15 = private unnamed_addr constant [31 x i8] c"assertion \22not reached\22 failed\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden ptr @get_args_as_string(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp slt i32 %2, %0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge.thread
@@ -42,20 +42,20 @@ define hidden ptr @get_args_as_string(i32 noundef %0, ptr noundef readonly captu
   %.02326 = phi i32 [ 0, %.lr.ph.preheader ], [ %11, %.lr.ph ]
   %6 = getelementptr ptr, ptr %1, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #9
+  %8 = tail call i64 @strlen(ptr noundef %7) #10
   %9 = trunc i64 %8 to i32
   %10 = add i32 %.02326, 1
   %11 = add i32 %10, %9
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %._crit_edge.thread, label %14
 
 ._crit_edge.thread:                               ; preds = %3, %._crit_edge
-  %13 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str) #10
+  %13 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str)
   br label %.loopexit
 
 14:                                               ; preds = %._crit_edge
@@ -65,18 +65,18 @@ define hidden ptr @get_args_as_string(i32 noundef %0, ptr noundef readonly captu
   %17 = sext i32 %2 to i64
   %18 = getelementptr ptr, ptr %1, i64 %17
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call i64 @g_strlcat(ptr noundef nonnull %16, ptr noundef %19, i64 noundef %15) #10
+  %20 = tail call i64 @g_strlcat(ptr noundef %16, ptr noundef %19, i64 noundef %15)
   %21 = add i32 %2, 1
   %22 = icmp eq i32 %21, %0
   br i1 %22, label %.loopexit, label %.lr.ph29
 
 .lr.ph29:                                         ; preds = %14, %.lr.ph29
   %23 = phi i32 [ %29, %.lr.ph29 ], [ %21, %14 ]
-  %24 = tail call i64 @g_strlcat(ptr noundef nonnull %16, ptr noundef nonnull @.str.1, i64 noundef %15) #10
+  %24 = tail call i64 @g_strlcat(ptr noundef %16, ptr noundef nonnull @.str.1, i64 noundef %15)
   %25 = sext i32 %23 to i64
   %26 = getelementptr ptr, ptr %1, i64 %25
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call i64 @g_strlcat(ptr noundef nonnull %16, ptr noundef %27, i64 noundef %15) #10
+  %28 = tail call i64 @g_strlcat(ptr noundef %16, ptr noundef %27, i64 noundef %15)
   %29 = add i32 %23, 1
   %30 = icmp eq i32 %29, %0
   br i1 %30, label %.loopexit, label %.lr.ph29
@@ -86,17 +86,19 @@ define hidden ptr @get_args_as_string(i32 noundef %0, ptr noundef readonly captu
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: allocsize(0)
+; Function Attrs: null_pointer_is_valid allocsize(0)
 declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #3
 
+; Function Attrs: null_pointer_is_valid
 declare i64 @g_strlcat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: readwrite) uwtable
 define hidden void @compute_timestamp_diff(ptr noundef captures(none) initializes((0, 4)) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #4 {
   %7 = icmp eq i32 %2, %4
   br i1 %7, label %8, label %10
@@ -153,36 +155,36 @@ define hidden void @compute_timestamp_diff(ptr noundef captures(none) initialize
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden ptr @get_conn_cfilter() local_unnamed_addr #0 {
   %1 = load ptr, ptr @get_conn_cfilter.filter_str, align 8
   %2 = icmp eq ptr %1, null
   br i1 %2, label %3, label %5
 
 3:                                                ; preds = %0
-  %4 = tail call ptr @g_string_new(ptr noundef nonnull @.str) #10
+  %4 = tail call ptr @g_string_new(ptr noundef nonnull @.str)
   store ptr %4, ptr @get_conn_cfilter.filter_str, align 8
   br label %5
 
 5:                                                ; preds = %3, %0
-  %6 = tail call ptr @getenv(ptr noundef nonnull @.str.2) #10
+  %6 = tail call ptr @getenv(ptr noundef nonnull @.str.2) #12
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %29, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call ptr @g_strsplit(ptr noundef nonnull %6, ptr noundef nonnull @.str.1, i32 noundef 4) #10
-  %9 = tail call i32 @g_strv_length(ptr noundef %8) #10
+  %8 = tail call ptr @g_strsplit(ptr noundef nonnull %6, ptr noundef nonnull @.str.1, i32 noundef 4)
+  %9 = tail call i32 @g_strv_length(ptr noundef %8)
   %10 = icmp eq i32 %9, 4
   br i1 %10, label %11, label %28
 
 11:                                               ; preds = %7
   %12 = load ptr, ptr %8, align 8
-  %13 = tail call noalias ptr @g_strdup(ptr noundef %12) #10
+  %13 = tail call noalias ptr @g_strdup(ptr noundef %12)
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %sanitize_filter_ip.exit, label %14
 
 14:                                               ; preds = %11
-  %15 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %13, i32 noundef 37) #9
+  %15 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %13, i32 noundef 37) #10
   %.not9.i = icmp eq ptr %15, null
   br i1 %.not9.i, label %sanitize_filter_ip.exit, label %16
 
@@ -193,12 +195,12 @@ define hidden ptr @get_conn_cfilter() local_unnamed_addr #0 {
 sanitize_filter_ip.exit:                          ; preds = %11, %14, %16
   %17 = getelementptr i8, ptr %8, i64 16
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call noalias ptr @g_strdup(ptr noundef %18) #10
+  %19 = tail call noalias ptr @g_strdup(ptr noundef %18)
   %.not.i98 = icmp eq ptr %19, null
   br i1 %.not.i98, label %sanitize_filter_ip.exit100, label %20
 
 20:                                               ; preds = %sanitize_filter_ip.exit
-  %21 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %19, i32 noundef 37) #9
+  %21 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %19, i32 noundef 37) #10
   %.not9.i99 = icmp eq ptr %21, null
   br i1 %.not9.i99, label %sanitize_filter_ip.exit100, label %22
 
@@ -212,35 +214,35 @@ sanitize_filter_ip.exit100:                       ; preds = %sanitize_filter_ip.
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr i8, ptr %8, i64 24
   %27 = load ptr, ptr %26, align 8
-  tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %23, ptr noundef nonnull @.str.3, ptr noundef %25, ptr noundef %13, ptr noundef %27, ptr noundef %19) #10
-  tail call void @g_free(ptr noundef %13) #10
-  tail call void @g_free(ptr noundef %19) #10
+  tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %23, ptr noundef nonnull @.str.3, ptr noundef %25, ptr noundef %13, ptr noundef %27, ptr noundef %19)
+  tail call void @g_free(ptr noundef %13)
+  tail call void @g_free(ptr noundef %19)
   br label %28
 
 28:                                               ; preds = %sanitize_filter_ip.exit100, %7
-  tail call void @g_strfreev(ptr noundef %8) #10
-  br label %118
+  tail call void @g_strfreev(ptr noundef %8)
+  br label %121
 
 29:                                               ; preds = %5
-  %30 = tail call ptr @getenv(ptr noundef nonnull @.str.4) #10
+  %30 = tail call ptr @getenv(ptr noundef nonnull @.str.4) #12
   %.not84 = icmp eq ptr %30, null
   br i1 %.not84, label %47, label %31
 
 31:                                               ; preds = %29
-  %32 = tail call ptr @g_strsplit(ptr noundef nonnull %30, ptr noundef nonnull @.str.1, i32 noundef 3) #10
-  %33 = tail call i32 @g_strv_length(ptr noundef %32) #10
+  %32 = tail call ptr @g_strsplit(ptr noundef nonnull %30, ptr noundef nonnull @.str.1, i32 noundef 3)
+  %33 = tail call i32 @g_strv_length(ptr noundef %32)
   %34 = icmp eq i32 %33, 3
   br i1 %34, label %35, label %46
 
 35:                                               ; preds = %31
   %36 = getelementptr i8, ptr %32, i64 16
   %37 = load ptr, ptr %36, align 8
-  %38 = tail call noalias ptr @g_strdup(ptr noundef %37) #10
+  %38 = tail call noalias ptr @g_strdup(ptr noundef %37)
   %.not.i101 = icmp eq ptr %38, null
   br i1 %.not.i101, label %sanitize_filter_ip.exit103, label %39
 
 39:                                               ; preds = %35
-  %40 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %38, i32 noundef 37) #9
+  %40 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %38, i32 noundef 37) #10
   %.not9.i102 = icmp eq ptr %40, null
   br i1 %.not9.i102, label %sanitize_filter_ip.exit103, label %41
 
@@ -253,26 +255,26 @@ sanitize_filter_ip.exit103:                       ; preds = %35, %39, %41
   %43 = getelementptr i8, ptr %32, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = load ptr, ptr %32, align 8
-  tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %42, ptr noundef nonnull @.str.5, ptr noundef %44, ptr noundef %45, ptr noundef %38) #10
-  tail call void @g_free(ptr noundef %38) #10
+  tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %42, ptr noundef nonnull @.str.5, ptr noundef %44, ptr noundef %45, ptr noundef %38)
+  tail call void @g_free(ptr noundef %38)
   br label %46
 
 46:                                               ; preds = %sanitize_filter_ip.exit103, %31
-  tail call void @g_strfreev(ptr noundef %32) #10
-  br label %118
+  tail call void @g_strfreev(ptr noundef %32)
+  br label %121
 
 47:                                               ; preds = %29
-  %48 = tail call ptr @getenv(ptr noundef nonnull @.str.6) #10
+  %48 = tail call ptr @getenv(ptr noundef nonnull @.str.6) #12
   %.not85 = icmp eq ptr %48, null
   br i1 %.not85, label %63, label %49
 
 49:                                               ; preds = %47
-  %50 = tail call i32 @g_ascii_strcasecmp(ptr noundef nonnull %48, ptr noundef nonnull @.str.7) #10
+  %50 = tail call i32 @g_ascii_strcasecmp(ptr noundef nonnull %48, ptr noundef nonnull @.str.7)
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %.thread, label %52
 
 52:                                               ; preds = %49
-  %53 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %48, ptr noundef nonnull dereferenceable(10) @.str.8) #9
+  %53 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %48, ptr noundef nonnull dereferenceable(10) @.str.8) #10
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %.thread, label %55
 
@@ -282,12 +284,12 @@ sanitize_filter_ip.exit103:                       ; preds = %35, %39, %41
   br i1 %56, label %.thread, label %57
 
 57:                                               ; preds = %55
-  %58 = tail call noalias ptr @g_strdup(ptr noundef nonnull %48) #10
+  %58 = tail call noalias ptr @g_strdup(ptr noundef nonnull %48)
   %.not.i104 = icmp eq ptr %58, null
   br i1 %.not.i104, label %sanitize_filter_ip.exit106, label %59
 
 59:                                               ; preds = %57
-  %60 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %58, i32 noundef 37) #9
+  %60 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %58, i32 noundef 37) #10
   %.not9.i105 = icmp eq ptr %60, null
   br i1 %.not9.i105, label %sanitize_filter_ip.exit106, label %61
 
@@ -297,12 +299,12 @@ sanitize_filter_ip.exit103:                       ; preds = %35, %39, %41
 
 sanitize_filter_ip.exit106:                       ; preds = %57, %59, %61
   %62 = load ptr, ptr @get_conn_cfilter.filter_str, align 8
-  tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %62, ptr noundef nonnull @.str.9, ptr noundef %58) #10
-  tail call void @g_free(ptr noundef %58) #10
-  br label %118
+  tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %62, ptr noundef nonnull @.str.9, ptr noundef %58)
+  tail call void @g_free(ptr noundef %58)
+  br label %121
 
 63:                                               ; preds = %47
-  %64 = tail call ptr @getenv(ptr noundef nonnull @.str.10) #10
+  %64 = tail call ptr @getenv(ptr noundef nonnull @.str.10) #12
   %.not86 = icmp eq ptr %64, null
   br i1 %.not86, label %.thread, label %.preheader
 
@@ -317,13 +319,13 @@ sanitize_filter_ip.exit106:                       ; preds = %57, %59, %61
 
 66:                                               ; preds = %.preheader
   %67 = getelementptr i8, ptr %.073, i64 1
-  br label %.preheader, !llvm.loop !6
+  br label %.preheader, !llvm.loop !8
 
 68:                                               ; preds = %.preheader, %.preheader
   %.not90 = icmp eq ptr %.073, %64
   %.not91 = icmp eq i8 %65, 58
   %or.cond = or i1 %.not90, %.not91
-  br i1 %or.cond, label %77, label %69
+  br i1 %or.cond, label %78, label %69
 
 69:                                               ; preds = %68
   %70 = ptrtoint ptr %.073 to i64
@@ -333,157 +335,165 @@ sanitize_filter_ip.exit106:                       ; preds = %57, %59, %61
   br i1 %.not92, label %73, label %.thread
 
 73:                                               ; preds = %69
-  %74 = tail call i32 @g_ascii_strncasecmp(ptr noundef nonnull %64, ptr noundef nonnull @.str.11, i64 noundef 3) #10
+  %74 = tail call i32 @g_ascii_strncasecmp(ptr noundef nonnull %64, ptr noundef nonnull @.str.11, i64 noundef 3)
   %.not93 = icmp eq i32 %74, 0
   br i1 %.not93, label %75, label %.thread
 
 75:                                               ; preds = %73
   %76 = getelementptr i8, ptr %.073, i64 1
-  br label %77
-
-77:                                               ; preds = %68, %75
-  %.1 = phi ptr [ %76, %75 ], [ %64, %68 ]
+  %77 = icmp eq ptr %.073, null
   br label %78
 
-78:                                               ; preds = %81, %77
-  %.074 = phi ptr [ null, %77 ], [ %.175, %81 ]
-  %.2 = phi ptr [ %.1, %77 ], [ %82, %81 ]
-  %79 = load i8, ptr %.2, align 1
-  switch i8 %79, label %81 [
-    i8 0, label %83
-    i8 58, label %80
+78:                                               ; preds = %68, %75
+  %.1 = phi ptr [ %76, %75 ], [ %64, %68 ]
+  %.072 = phi i1 [ %77, %75 ], [ true, %68 ]
+  br label %79
+
+79:                                               ; preds = %82, %78
+  %.074 = phi ptr [ null, %78 ], [ %.175, %82 ]
+  %.2 = phi ptr [ %.1, %78 ], [ %83, %82 ]
+  %80 = load i8, ptr %.2, align 1
+  switch i8 %80, label %82 [
+    i8 0, label %84
+    i8 58, label %81
   ]
 
-80:                                               ; preds = %78
-  br label %81
+81:                                               ; preds = %79
+  br label %82
 
-81:                                               ; preds = %78, %80
-  %.175 = phi ptr [ %.2, %80 ], [ %.074, %78 ]
-  %82 = getelementptr i8, ptr %.2, i64 1
-  br label %78, !llvm.loop !7
+82:                                               ; preds = %79, %81
+  %.175 = phi ptr [ %.2, %81 ], [ %.074, %79 ]
+  %83 = getelementptr i8, ptr %.2, i64 1
+  br label %79, !llvm.loop !9
 
-83:                                               ; preds = %78
-  %84 = icmp eq ptr %.074, null
+84:                                               ; preds = %79
+  %85 = icmp eq ptr %.074, null
   %.not95 = icmp eq ptr %.1, %.074
-  %or.cond107 = or i1 %84, %.not95
-  br i1 %or.cond107, label %.thread, label %85
+  %or.cond107 = or i1 %85, %.not95
+  br i1 %or.cond107, label %.thread, label %86
 
-85:                                               ; preds = %83
-  %86 = getelementptr i8, ptr %.074, i64 -1
-  %87 = load i8, ptr %86, align 1
-  %88 = icmp eq i8 %87, 58
-  br i1 %88, label %89, label %94
+86:                                               ; preds = %84
+  %87 = getelementptr i8, ptr %.074, i64 -1
+  %88 = load i8, ptr %87, align 1
+  %89 = icmp eq i8 %88, 58
+  br i1 %89, label %90, label %95
 
-89:                                               ; preds = %85
-  %90 = icmp eq ptr %86, %.1
-  br i1 %90, label %.thread, label %91
+90:                                               ; preds = %86
+  %91 = icmp eq ptr %87, %.1
+  br i1 %91, label %.thread, label %92
 
-91:                                               ; preds = %89
-  %92 = getelementptr i8, ptr %.074, i64 -2
-  %93 = load i8, ptr %92, align 1
-  %.not96.not = icmp eq i8 %93, 58
-  br i1 %.not96.not, label %94, label %.thread
+92:                                               ; preds = %90
+  %93 = getelementptr i8, ptr %.074, i64 -2
+  %94 = load i8, ptr %93, align 1
+  %.not96.not = icmp eq i8 %94, 58
+  br i1 %.not96.not, label %95, label %.thread
 
-94:                                               ; preds = %85, %91
-  %95 = ptrtoint ptr %.1 to i64
-  %96 = ptrtoint ptr %.074 to i64
-  %97 = sub i64 %96, %95
-  %98 = add i64 %97, 1
-  %99 = tail call noalias ptr @g_malloc(i64 noundef %98) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %99, ptr align 1 %.1, i64 %97, i1 false)
-  %100 = getelementptr i8, ptr %99, i64 %97
-  store i8 0, ptr %100, align 1
-  br i1 %or.cond, label %101, label %116
+95:                                               ; preds = %86, %92
+  %96 = ptrtoint ptr %.1 to i64
+  %97 = ptrtoint ptr %.074 to i64
+  %98 = sub i64 %97, %96
+  %99 = add i64 %98, 1
+  %100 = tail call noalias ptr @g_malloc(i64 noundef %99) #11
+  %101 = icmp ne i64 %99, -1
+  tail call void @llvm.assume(i1 %101)
+  %102 = tail call ptr @__memcpy_chk(ptr noundef %100, ptr noundef %.1, i64 noundef range(i64 1, 0) %98, i64 noundef %99) #12, !alias.scope !10
+  %103 = getelementptr i8, ptr %100, i64 %98
+  store i8 0, ptr %103, align 1
+  br i1 %.072, label %104, label %119
 
-101:                                              ; preds = %94
-  %102 = tail call i32 @g_ascii_strcasecmp(ptr noundef nonnull %99, ptr noundef nonnull @.str.7) #10
-  %103 = icmp eq i32 %102, 0
-  br i1 %103, label %107, label %104
-
-104:                                              ; preds = %101
-  %105 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %99, ptr noundef nonnull dereferenceable(10) @.str.8) #9
+104:                                              ; preds = %95
+  %105 = tail call i32 @g_ascii_strcasecmp(ptr noundef %100, ptr noundef nonnull @.str.7)
   %106 = icmp eq i32 %105, 0
-  br i1 %106, label %107, label %108
+  br i1 %106, label %110, label %107
 
-107:                                              ; preds = %104, %101
-  tail call void @g_free(ptr noundef nonnull %99) #10
+107:                                              ; preds = %104
+  %108 = tail call i32 @strcmp(ptr noundef %100, ptr noundef nonnull dereferenceable(10) @.str.8) #10
+  %109 = icmp eq i32 %108, 0
+  br i1 %109, label %110, label %111
+
+110:                                              ; preds = %107, %104
+  tail call void @g_free(ptr noundef %100)
   br label %.thread
 
-108:                                              ; preds = %104
-  %109 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %99, ptr noundef nonnull dereferenceable(5) @.str.12) #9
-  %110 = icmp eq i32 %109, 0
-  br i1 %110, label %111, label %112
+111:                                              ; preds = %107
+  %112 = tail call i32 @strcmp(ptr noundef %100, ptr noundef nonnull dereferenceable(5) @.str.12) #10
+  %113 = icmp eq i32 %112, 0
+  br i1 %113, label %114, label %115
 
-111:                                              ; preds = %108
-  tail call void @g_free(ptr noundef nonnull %99) #10
+114:                                              ; preds = %111
+  tail call void @g_free(ptr noundef %100)
   br label %.thread
 
-112:                                              ; preds = %108
-  %113 = load i8, ptr %99, align 1
-  %114 = icmp eq i8 %113, 47
-  br i1 %114, label %115, label %116
+115:                                              ; preds = %111
+  %116 = load i8, ptr %100, align 1
+  %117 = icmp eq i8 %116, 47
+  br i1 %117, label %118, label %119
 
-115:                                              ; preds = %112
-  tail call void @g_free(ptr noundef nonnull %99) #10
+118:                                              ; preds = %115
+  tail call void @g_free(ptr noundef %100)
   br label %.thread
 
-116:                                              ; preds = %112, %94
-  %117 = load ptr, ptr @get_conn_cfilter.filter_str, align 8
-  tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %117, ptr noundef nonnull @.str.9, ptr noundef nonnull %99) #10
-  tail call void @g_free(ptr noundef nonnull %99) #10
-  br label %118
+119:                                              ; preds = %115, %95
+  %120 = load ptr, ptr @get_conn_cfilter.filter_str, align 8
+  tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %120, ptr noundef nonnull @.str.9, ptr noundef %100)
+  tail call void @g_free(ptr noundef %100)
+  br label %121
 
-118:                                              ; preds = %46, %116, %sanitize_filter_ip.exit106, %28
-  %119 = load ptr, ptr @get_conn_cfilter.filter_str, align 8
-  %120 = load ptr, ptr %119, align 8
+121:                                              ; preds = %46, %119, %sanitize_filter_ip.exit106, %28
+  %122 = load ptr, ptr @get_conn_cfilter.filter_str, align 8
+  %123 = load ptr, ptr %122, align 8
   br label %.thread
 
-.thread:                                          ; preds = %.preheader, %63, %89, %91, %83, %69, %73, %49, %52, %55, %118, %115, %111, %107
-  %.0 = phi ptr [ %120, %118 ], [ @.str, %107 ], [ @.str, %111 ], [ @.str, %115 ], [ @.str, %55 ], [ @.str, %52 ], [ @.str, %49 ], [ @.str, %73 ], [ @.str, %69 ], [ @.str, %83 ], [ @.str, %91 ], [ @.str, %89 ], [ @.str, %63 ], [ @.str, %.preheader ]
+.thread:                                          ; preds = %.preheader, %63, %90, %92, %84, %69, %73, %49, %52, %55, %121, %118, %114, %110
+  %.0 = phi ptr [ %123, %121 ], [ @.str, %110 ], [ @.str, %114 ], [ @.str, %118 ], [ @.str, %55 ], [ @.str, %52 ], [ @.str, %49 ], [ @.str, %73 ], [ @.str, %69 ], [ @.str, %84 ], [ @.str, %92 ], [ @.str, %90 ], [ @.str, %63 ], [ @.str, %.preheader ]
   ret ptr %.0
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @g_string_new(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nofree nounwind memory(read)
+; Function Attrs: nofree nounwind null_pointer_is_valid memory(read)
 declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #5
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @g_strsplit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @g_strv_length(ptr noundef) local_unnamed_addr #2
 
+; Function Attrs: null_pointer_is_valid
 declare void @g_string_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
+; Function Attrs: null_pointer_is_valid
 declare void @g_free(ptr noundef) local_unnamed_addr #2
 
+; Function Attrs: null_pointer_is_valid
 declare void @g_strfreev(ptr noundef) local_unnamed_addr #2
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @g_ascii_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @g_ascii_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
-
-; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @display_is_remote() local_unnamed_addr #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define hidden zeroext i1 @display_is_remote() local_unnamed_addr #0 {
   %1 = tail call ptr @get_conn_cfilter()
   %char0 = load i8, ptr %1, align 1
   %2 = icmp ne i8 %char0, 0
-  %3 = zext i1 %2 to i32
-  ret i32 %3
+  ret i1 %2
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden ptr @get_last_open_dir() local_unnamed_addr #7 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
+define hidden ptr @get_last_open_dir() local_unnamed_addr #6 {
   %1 = load ptr, ptr @last_open_dir, align 8
   ret ptr %1
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @set_last_open_dir(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %2
@@ -494,7 +504,7 @@ define hidden void @set_last_open_dir(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not8, label %14, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #9
+  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #10
   %6 = getelementptr i8, ptr %0, i64 %5
   %7 = getelementptr i8, ptr %6, i64 -1
   %8 = load i8, ptr %7, align 1
@@ -502,84 +512,111 @@ define hidden void @set_last_open_dir(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %4
-  %11 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef nonnull %0, ptr noundef null) #10
+  %11 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef nonnull %0, ptr noundef null)
   br label %14
 
 12:                                               ; preds = %4
-  %13 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef nonnull %0, ptr noundef nonnull @.str.13, ptr noundef null) #10
+  %13 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef nonnull %0, ptr noundef nonnull @.str.13, ptr noundef null)
   br label %14
 
 14:                                               ; preds = %1, %2, %10, %12
   %.0 = phi ptr [ %11, %10 ], [ %13, %12 ], [ null, %2 ], [ null, %1 ]
   %15 = load ptr, ptr @last_open_dir, align 8
-  tail call void @g_free(ptr noundef %15) #10
+  tail call void @g_free(ptr noundef %15)
   store ptr %.0, ptr @last_open_dir, align 8
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare noalias ptr @g_strconcat(ptr noundef, ...) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden ptr @get_open_dialog_initial_dir() local_unnamed_addr #0 {
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 164), align 4
-  switch i32 %1, label %8 [
+  switch i32 %1, label %14 [
     i32 0, label %2
-    i32 1, label %5
+    i32 1, label %7
+    i32 2, label %12
   ]
 
 2:                                                ; preds = %0
   %3 = load ptr, ptr @last_open_dir, align 8
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %.sink.split, label %10
+  br i1 %4, label %5, label %15
 
-5:                                                ; preds = %0
-  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 168), align 8
-  %7 = load i8, ptr %6, align 1
-  %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %.sink.split, label %10
+5:                                                ; preds = %2
+  %6 = tail call ptr @get_persdatafile_dir()
+  br label %15
 
-8:                                                ; preds = %0
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.14, i64 noundef 409, ptr noundef nonnull @__func__.get_open_dialog_initial_dir, ptr noundef nonnull @.str.15) #12
+7:                                                ; preds = %0
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 168), align 8
+  %9 = load i8, ptr %8, align 1
+  %.not = icmp eq i8 %9, 0
+  br i1 %.not, label %10, label %15
+
+10:                                               ; preds = %7
+  %11 = tail call ptr @get_persdatafile_dir()
+  br label %15
+
+12:                                               ; preds = %0
+  %13 = tail call ptr @get_current_working_dir()
+  br label %15
+
+14:                                               ; preds = %0
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.14, i64 noundef 413, ptr noundef nonnull @__func__.get_open_dialog_initial_dir, ptr noundef nonnull @.str.15) #13
   unreachable
 
-.sink.split:                                      ; preds = %5, %2
-  %9 = tail call ptr @get_persdatafile_dir() #10
-  br label %10
-
-10:                                               ; preds = %.sink.split, %5, %2
-  %.0 = phi ptr [ %3, %2 ], [ %6, %5 ], [ %9, %.sink.split ]
+15:                                               ; preds = %7, %10, %2, %5, %12
+  %.0 = phi ptr [ %13, %12 ], [ %11, %10 ], [ %6, %5 ], [ %3, %2 ], [ %8, %7 ]
   ret ptr %.0
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @get_persdatafile_dir() local_unnamed_addr #2
 
-; Function Attrs: noreturn
-declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #8
+; Function Attrs: null_pointer_is_valid
+declare ptr @get_current_working_dir() local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+; Function Attrs: noreturn null_pointer_is_valid
+declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #7
+
+; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind willreturn memory(read) }
-attributes #10 = { nounwind }
-attributes #11 = { nounwind allocsize(0) }
-attributes #12 = { noreturn nounwind }
+; Function Attrs: nofree nounwind null_pointer_is_valid memory(argmem: readwrite)
+declare ptr @__memcpy_chk(ptr noalias noundef writeonly, ptr noalias noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #8
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #9
+
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree nounwind null_pointer_is_valid memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree nounwind null_pointer_is_valid memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #10 = { nounwind willreturn memory(read) }
+attributes #11 = { allocsize(0) }
+attributes #12 = { nounwind }
+attributes #13 = { noreturn }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = !{!11, !13}
+!11 = distinct !{!11, !12, !"memcpy.inline: argument 0"}
+!12 = distinct !{!12, !"memcpy.inline"}
+!13 = distinct !{!13, !12, !"memcpy.inline: argument 1"}

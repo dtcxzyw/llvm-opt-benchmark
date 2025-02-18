@@ -5,10 +5,8 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._value_string = type { i32, ptr }
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
-%struct.tagStationInfo = type { ptr, ptr, i16, i16, i16, i16, i16, i16, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct.tagStationInfo = type { ptr, ptr, i16, i16, i16, i16, i16, i16, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
@@ -27,92 +25,55 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_pn_malformed = internal global i32 0, align 4
 @hf_pn_padding = internal global i32 0, align 4
 @.str.4 = private unnamed_addr constant [17 x i8] c"Padding: %u byte\00", align 1
-@pn_io_error_code2 = internal constant [2 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.41 }, %struct._value_string zeroinitializer], align 16
 @hf_pn_io_status = internal global i32 0, align 4
 @ett_pn_io_status = internal global i32 0, align 4
 @hf_pn_io_error_code = internal global i32 0, align 4
 @hf_pn_io_error_decode = internal global i32 0, align 4
 @hf_pn_io_error_code1_pniorw = internal global i32 0, align 4
-@pn_io_error_code1_pniorw = internal constant [49 x %struct._value_string] [%struct._value_string { i32 160, ptr @.str.42 }, %struct._value_string { i32 161, ptr @.str.43 }, %struct._value_string { i32 162, ptr @.str.44 }, %struct._value_string { i32 163, ptr @.str.45 }, %struct._value_string { i32 164, ptr @.str.45 }, %struct._value_string { i32 165, ptr @.str.45 }, %struct._value_string { i32 166, ptr @.str.45 }, %struct._value_string { i32 167, ptr @.str.46 }, %struct._value_string { i32 168, ptr @.str.47 }, %struct._value_string { i32 169, ptr @.str.48 }, %struct._value_string { i32 170, ptr @.str.49 }, %struct._value_string { i32 171, ptr @.str.50 }, %struct._value_string { i32 172, ptr @.str.51 }, %struct._value_string { i32 173, ptr @.str.52 }, %struct._value_string { i32 174, ptr @.str.53 }, %struct._value_string { i32 175, ptr @.str.54 }, %struct._value_string { i32 176, ptr @.str.55 }, %struct._value_string { i32 177, ptr @.str.56 }, %struct._value_string { i32 178, ptr @.str.57 }, %struct._value_string { i32 179, ptr @.str.58 }, %struct._value_string { i32 180, ptr @.str.59 }, %struct._value_string { i32 181, ptr @.str.60 }, %struct._value_string { i32 182, ptr @.str.61 }, %struct._value_string { i32 183, ptr @.str.62 }, %struct._value_string { i32 184, ptr @.str.63 }, %struct._value_string { i32 185, ptr @.str.64 }, %struct._value_string { i32 186, ptr @.str.65 }, %struct._value_string { i32 187, ptr @.str.66 }, %struct._value_string { i32 188, ptr @.str.67 }, %struct._value_string { i32 189, ptr @.str.68 }, %struct._value_string { i32 190, ptr @.str.69 }, %struct._value_string { i32 191, ptr @.str.70 }, %struct._value_string { i32 192, ptr @.str.71 }, %struct._value_string { i32 193, ptr @.str.72 }, %struct._value_string { i32 194, ptr @.str.73 }, %struct._value_string { i32 195, ptr @.str.74 }, %struct._value_string { i32 196, ptr @.str.75 }, %struct._value_string { i32 197, ptr @.str.75 }, %struct._value_string { i32 198, ptr @.str.75 }, %struct._value_string { i32 199, ptr @.str.75 }, %struct._value_string { i32 200, ptr @.str.76 }, %struct._value_string { i32 201, ptr @.str.77 }, %struct._value_string { i32 202, ptr @.str.78 }, %struct._value_string { i32 203, ptr @.str.79 }, %struct._value_string { i32 204, ptr @.str.80 }, %struct._value_string { i32 205, ptr @.str.81 }, %struct._value_string { i32 206, ptr @.str.82 }, %struct._value_string { i32 207, ptr @.str.83 }, %struct._value_string zeroinitializer], align 16
 @hf_pn_io_error_code2_pniorw = internal global i32 0, align 4
 @pn_io_error_code2_pniorw = internal constant [1 x %struct._value_string] zeroinitializer, align 16
 @hf_pn_io_error_code1_pnio = internal global i32 0, align 4
-@pn_io_error_code1_pnio = internal constant [79 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.84 }, %struct._value_string { i32 1, ptr @.str.85 }, %struct._value_string { i32 2, ptr @.str.86 }, %struct._value_string { i32 3, ptr @.str.87 }, %struct._value_string { i32 4, ptr @.str.88 }, %struct._value_string { i32 5, ptr @.str.89 }, %struct._value_string { i32 6, ptr @.str.90 }, %struct._value_string { i32 7, ptr @.str.91 }, %struct._value_string { i32 8, ptr @.str.92 }, %struct._value_string { i32 9, ptr @.str.93 }, %struct._value_string { i32 10, ptr @.str.94 }, %struct._value_string { i32 11, ptr @.str.95 }, %struct._value_string { i32 12, ptr @.str.96 }, %struct._value_string { i32 13, ptr @.str.97 }, %struct._value_string { i32 20, ptr @.str.98 }, %struct._value_string { i32 21, ptr @.str.99 }, %struct._value_string { i32 22, ptr @.str.100 }, %struct._value_string { i32 23, ptr @.str.101 }, %struct._value_string { i32 24, ptr @.str.102 }, %struct._value_string { i32 25, ptr @.str.103 }, %struct._value_string { i32 40, ptr @.str.104 }, %struct._value_string { i32 50, ptr @.str.105 }, %struct._value_string { i32 51, ptr @.str.106 }, %struct._value_string { i32 52, ptr @.str.107 }, %struct._value_string { i32 53, ptr @.str.108 }, %struct._value_string { i32 54, ptr @.str.109 }, %struct._value_string { i32 55, ptr @.str.110 }, %struct._value_string { i32 56, ptr @.str.111 }, %struct._value_string { i32 60, ptr @.str.112 }, %struct._value_string { i32 61, ptr @.str.113 }, %struct._value_string { i32 62, ptr @.str.114 }, %struct._value_string { i32 63, ptr @.str.115 }, %struct._value_string { i32 64, ptr @.str.116 }, %struct._value_string { i32 65, ptr @.str.117 }, %struct._value_string { i32 66, ptr @.str.118 }, %struct._value_string { i32 67, ptr @.str.119 }, %struct._value_string { i32 68, ptr @.str.120 }, %struct._value_string { i32 69, ptr @.str.121 }, %struct._value_string { i32 70, ptr @.str.122 }, %struct._value_string { i32 71, ptr @.str.123 }, %struct._value_string { i32 72, ptr @.str.124 }, %struct._value_string { i32 73, ptr @.str.125 }, %struct._value_string { i32 74, ptr @.str.126 }, %struct._value_string { i32 75, ptr @.str.127 }, %struct._value_string { i32 76, ptr @.str.128 }, %struct._value_string { i32 77, ptr @.str.129 }, %struct._value_string { i32 78, ptr @.str.130 }, %struct._value_string { i32 79, ptr @.str.131 }, %struct._value_string { i32 80, ptr @.str.132 }, %struct._value_string { i32 100, ptr @.str.133 }, %struct._value_string { i32 101, ptr @.str.134 }, %struct._value_string { i32 102, ptr @.str.135 }, %struct._value_string { i32 103, ptr @.str.136 }, %struct._value_string { i32 104, ptr @.str.137 }, %struct._value_string { i32 105, ptr @.str.138 }, %struct._value_string { i32 106, ptr @.str.139 }, %struct._value_string { i32 107, ptr @.str.140 }, %struct._value_string { i32 108, ptr @.str.141 }, %struct._value_string { i32 109, ptr @.str.142 }, %struct._value_string { i32 110, ptr @.str.143 }, %struct._value_string { i32 111, ptr @.str.144 }, %struct._value_string { i32 112, ptr @.str.145 }, %struct._value_string { i32 113, ptr @.str.146 }, %struct._value_string { i32 114, ptr @.str.147 }, %struct._value_string { i32 115, ptr @.str.148 }, %struct._value_string { i32 116, ptr @.str.149 }, %struct._value_string { i32 200, ptr @.str.150 }, %struct._value_string { i32 202, ptr @.str.151 }, %struct._value_string { i32 204, ptr @.str.152 }, %struct._value_string { i32 205, ptr @.str.153 }, %struct._value_string { i32 206, ptr @.str.154 }, %struct._value_string { i32 208, ptr @.str.155 }, %struct._value_string { i32 209, ptr @.str.156 }, %struct._value_string { i32 210, ptr @.str.157 }, %struct._value_string { i32 211, ptr @.str.158 }, %struct._value_string { i32 212, ptr @.str.159 }, %struct._value_string { i32 253, ptr @.str.160 }, %struct._value_string { i32 255, ptr @.str.161 }, %struct._value_string zeroinitializer], align 16
 @hf_pn_io_error_code2_pnio_1 = internal global i32 0, align 4
-@pn_io_error_code2_pnio_1 = internal constant [14 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.162 }, %struct._value_string { i32 1, ptr @.str.163 }, %struct._value_string { i32 2, ptr @.str.164 }, %struct._value_string { i32 3, ptr @.str.165 }, %struct._value_string { i32 4, ptr @.str.166 }, %struct._value_string { i32 5, ptr @.str.167 }, %struct._value_string { i32 7, ptr @.str.168 }, %struct._value_string { i32 8, ptr @.str.169 }, %struct._value_string { i32 9, ptr @.str.170 }, %struct._value_string { i32 10, ptr @.str.171 }, %struct._value_string { i32 11, ptr @.str.172 }, %struct._value_string { i32 12, ptr @.str.173 }, %struct._value_string { i32 13, ptr @.str.174 }, %struct._value_string zeroinitializer], align 16
 @hf_pn_io_error_code2_pnio_2 = internal global i32 0, align 4
-@pn_io_error_code2_pnio_2 = internal constant [29 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.162 }, %struct._value_string { i32 1, ptr @.str.163 }, %struct._value_string { i32 2, ptr @.str.164 }, %struct._value_string { i32 3, ptr @.str.165 }, %struct._value_string { i32 4, ptr @.str.175 }, %struct._value_string { i32 5, ptr @.str.176 }, %struct._value_string { i32 6, ptr @.str.177 }, %struct._value_string { i32 7, ptr @.str.178 }, %struct._value_string { i32 8, ptr @.str.179 }, %struct._value_string { i32 9, ptr @.str.180 }, %struct._value_string { i32 10, ptr @.str.181 }, %struct._value_string { i32 11, ptr @.str.182 }, %struct._value_string { i32 12, ptr @.str.183 }, %struct._value_string { i32 14, ptr @.str.184 }, %struct._value_string { i32 15, ptr @.str.185 }, %struct._value_string { i32 16, ptr @.str.186 }, %struct._value_string { i32 17, ptr @.str.187 }, %struct._value_string { i32 18, ptr @.str.188 }, %struct._value_string { i32 19, ptr @.str.189 }, %struct._value_string { i32 20, ptr @.str.190 }, %struct._value_string { i32 21, ptr @.str.191 }, %struct._value_string { i32 22, ptr @.str.192 }, %struct._value_string { i32 23, ptr @.str.193 }, %struct._value_string { i32 24, ptr @.str.194 }, %struct._value_string { i32 25, ptr @.str.195 }, %struct._value_string { i32 26, ptr @.str.192 }, %struct._value_string { i32 27, ptr @.str.193 }, %struct._value_string { i32 28, ptr @.str.196 }, %struct._value_string zeroinitializer], align 16
 @hf_pn_io_error_code2_pnio_3 = internal global i32 0, align 4
-@pn_io_error_code2_pnio_3 = internal constant [17 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.162 }, %struct._value_string { i32 1, ptr @.str.163 }, %struct._value_string { i32 2, ptr @.str.164 }, %struct._value_string { i32 3, ptr @.str.165 }, %struct._value_string { i32 4, ptr @.str.189 }, %struct._value_string { i32 5, ptr @.str.190 }, %struct._value_string { i32 6, ptr @.str.192 }, %struct._value_string { i32 7, ptr @.str.197 }, %struct._value_string { i32 8, ptr @.str.198 }, %struct._value_string { i32 9, ptr @.str.199 }, %struct._value_string { i32 10, ptr @.str.193 }, %struct._value_string { i32 12, ptr @.str.200 }, %struct._value_string { i32 13, ptr @.str.201 }, %struct._value_string { i32 14, ptr @.str.202 }, %struct._value_string { i32 15, ptr @.str.203 }, %struct._value_string { i32 16, ptr @.str.204 }, %struct._value_string zeroinitializer], align 16
 @hf_pn_io_error_code2_pnio_4 = internal global i32 0, align 4
-@pn_io_error_code2_pnio_4 = internal constant [13 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.162 }, %struct._value_string { i32 1, ptr @.str.163 }, %struct._value_string { i32 2, ptr @.str.164 }, %struct._value_string { i32 3, ptr @.str.165 }, %struct._value_string { i32 4, ptr @.str.205 }, %struct._value_string { i32 5, ptr @.str.177 }, %struct._value_string { i32 6, ptr @.str.206 }, %struct._value_string { i32 7, ptr @.str.207 }, %struct._value_string { i32 8, ptr @.str.208 }, %struct._value_string { i32 10, ptr @.str.209 }, %struct._value_string { i32 11, ptr @.str.210 }, %struct._value_string { i32 12, ptr @.str.211 }, %struct._value_string zeroinitializer], align 16
 @hf_pn_io_error_code2_pnio_5 = internal global i32 0, align 4
-@pn_io_error_code2_pnio_5 = internal constant [8 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.162 }, %struct._value_string { i32 1, ptr @.str.163 }, %struct._value_string { i32 2, ptr @.str.164 }, %struct._value_string { i32 3, ptr @.str.165 }, %struct._value_string { i32 6, ptr @.str.171 }, %struct._value_string { i32 7, ptr @.str.173 }, %struct._value_string { i32 8, ptr @.str.212 }, %struct._value_string zeroinitializer], align 16
 @hf_pn_io_error_code2_pnio_6 = internal global i32 0, align 4
-@pn_io_error_code2_pnio_6 = internal constant [10 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.162 }, %struct._value_string { i32 1, ptr @.str.163 }, %struct._value_string { i32 2, ptr @.str.164 }, %struct._value_string { i32 3, ptr @.str.165 }, %struct._value_string { i32 4, ptr @.str.176 }, %struct._value_string { i32 5, ptr @.str.213 }, %struct._value_string { i32 6, ptr @.str.214 }, %struct._value_string { i32 7, ptr @.str.173 }, %struct._value_string { i32 8, ptr @.str.215 }, %struct._value_string zeroinitializer], align 16
 @hf_pn_io_error_code2_pnio_7 = internal global i32 0, align 4
-@pn_io_error_code2_pnio_7 = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.162 }, %struct._value_string { i32 1, ptr @.str.163 }, %struct._value_string { i32 2, ptr @.str.164 }, %struct._value_string { i32 3, ptr @.str.165 }, %struct._value_string { i32 4, ptr @.str.216 }, %struct._value_string zeroinitializer], align 16
 @hf_pn_io_error_code2_pnio_8 = internal global i32 0, align 4
-@pn_io_error_code2_pnio_8 = internal constant [13 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.162 }, %struct._value_string { i32 1, ptr @.str.163 }, %struct._value_string { i32 2, ptr @.str.164 }, %struct._value_string { i32 3, ptr @.str.165 }, %struct._value_string { i32 5, ptr @.str.167 }, %struct._value_string { i32 6, ptr @.str.190 }, %struct._value_string { i32 7, ptr @.str.192 }, %struct._value_string { i32 8, ptr @.str.193 }, %struct._value_string { i32 9, ptr @.str.217 }, %struct._value_string { i32 10, ptr @.str.218 }, %struct._value_string { i32 11, ptr @.str.219 }, %struct._value_string { i32 12, ptr @.str.220 }, %struct._value_string zeroinitializer], align 16
 @hf_pn_io_error_code2_pnio_13 = internal global i32 0, align 4
-@pn_io_error_code2_pnio_13 = internal constant [7 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.162 }, %struct._value_string { i32 1, ptr @.str.163 }, %struct._value_string { i32 2, ptr @.str.164 }, %struct._value_string { i32 3, ptr @.str.165 }, %struct._value_string { i32 4, ptr @.str.217 }, %struct._value_string { i32 5, ptr @.str.221 }, %struct._value_string zeroinitializer], align 16
 @hf_pn_io_error_code2_pnio_20 = internal global i32 0, align 4
-@pn_io_error_code2_pnio_20 = internal constant [10 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.162 }, %struct._value_string { i32 1, ptr @.str.163 }, %struct._value_string { i32 2, ptr @.str.164 }, %struct._value_string { i32 3, ptr @.str.165 }, %struct._value_string { i32 4, ptr @.str.217 }, %struct._value_string { i32 6, ptr @.str.222 }, %struct._value_string { i32 7, ptr @.str.217 }, %struct._value_string { i32 8, ptr @.str.223 }, %struct._value_string { i32 9, ptr @.str.224 }, %struct._value_string zeroinitializer], align 16
 @hf_pn_io_error_code2_pnio_21 = internal global i32 0, align 4
-@pn_io_error_code2_pnio_21 = internal constant [10 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.162 }, %struct._value_string { i32 1, ptr @.str.163 }, %struct._value_string { i32 2, ptr @.str.164 }, %struct._value_string { i32 3, ptr @.str.165 }, %struct._value_string { i32 4, ptr @.str.217 }, %struct._value_string { i32 6, ptr @.str.222 }, %struct._value_string { i32 7, ptr @.str.225 }, %struct._value_string { i32 8, ptr @.str.223 }, %struct._value_string { i32 9, ptr @.str.224 }, %struct._value_string zeroinitializer], align 16
 @hf_pn_io_error_code2_pnio_22 = internal global i32 0, align 4
-@pn_io_error_code2_pnio_22 = internal constant [10 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.162 }, %struct._value_string { i32 1, ptr @.str.163 }, %struct._value_string { i32 2, ptr @.str.164 }, %struct._value_string { i32 3, ptr @.str.165 }, %struct._value_string { i32 4, ptr @.str.217 }, %struct._value_string { i32 6, ptr @.str.222 }, %struct._value_string { i32 7, ptr @.str.217 }, %struct._value_string { i32 8, ptr @.str.223 }, %struct._value_string { i32 9, ptr @.str.224 }, %struct._value_string zeroinitializer], align 16
 @hf_pn_io_error_code2_pnio_23 = internal global i32 0, align 4
-@pn_io_error_code2_pnio_23 = internal constant [10 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.162 }, %struct._value_string { i32 1, ptr @.str.163 }, %struct._value_string { i32 2, ptr @.str.164 }, %struct._value_string { i32 3, ptr @.str.165 }, %struct._value_string { i32 4, ptr @.str.217 }, %struct._value_string { i32 6, ptr @.str.222 }, %struct._value_string { i32 7, ptr @.str.225 }, %struct._value_string { i32 8, ptr @.str.223 }, %struct._value_string { i32 9, ptr @.str.224 }, %struct._value_string zeroinitializer], align 16
 @hf_pn_io_error_code2_pnio_40 = internal global i32 0, align 4
-@pn_io_error_code2_pnio_40 = internal constant [10 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.162 }, %struct._value_string { i32 1, ptr @.str.163 }, %struct._value_string { i32 2, ptr @.str.164 }, %struct._value_string { i32 3, ptr @.str.165 }, %struct._value_string { i32 4, ptr @.str.217 }, %struct._value_string { i32 6, ptr @.str.222 }, %struct._value_string { i32 7, ptr @.str.217 }, %struct._value_string { i32 8, ptr @.str.223 }, %struct._value_string { i32 9, ptr @.str.224 }, %struct._value_string zeroinitializer], align 16
 @hf_pn_io_error_code2_pnio_60 = internal global i32 0, align 4
-@pn_io_error_code2_pnio_60 = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.226 }, %struct._value_string { i32 1, ptr @.str.227 }, %struct._value_string { i32 2, ptr @.str.228 }, %struct._value_string zeroinitializer], align 16
 @hf_pn_io_error_code2_pnio_61 = internal global i32 0, align 4
-@pn_io_error_code2_pnio_61 = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.229 }, %struct._value_string { i32 1, ptr @.str.230 }, %struct._value_string zeroinitializer], align 16
 @hf_pn_io_error_code2_pnio_62 = internal global i32 0, align 4
-@pn_io_error_code2_pnio_62 = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.229 }, %struct._value_string { i32 1, ptr @.str.231 }, %struct._value_string { i32 2, ptr @.str.232 }, %struct._value_string zeroinitializer], align 16
 @hf_pn_io_error_code2_pnio_63 = internal global i32 0, align 4
-@pn_io_error_code2_pnio_63 = internal constant [8 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.233 }, %struct._value_string { i32 1, ptr @.str.234 }, %struct._value_string { i32 2, ptr @.str.235 }, %struct._value_string { i32 3, ptr @.str.236 }, %struct._value_string { i32 4, ptr @.str.237 }, %struct._value_string { i32 5, ptr @.str.238 }, %struct._value_string { i32 6, ptr @.str.239 }, %struct._value_string zeroinitializer], align 16
 @hf_pn_io_error_code2_pnio_64 = internal global i32 0, align 4
-@pn_io_error_code2_pnio_64 = internal constant [14 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.240 }, %struct._value_string { i32 1, ptr @.str.241 }, %struct._value_string { i32 2, ptr @.str.242 }, %struct._value_string { i32 3, ptr @.str.243 }, %struct._value_string { i32 4, ptr @.str.244 }, %struct._value_string { i32 5, ptr @.str.245 }, %struct._value_string { i32 6, ptr @.str.246 }, %struct._value_string { i32 7, ptr @.str.247 }, %struct._value_string { i32 8, ptr @.str.248 }, %struct._value_string { i32 9, ptr @.str.249 }, %struct._value_string { i32 10, ptr @.str.250 }, %struct._value_string { i32 11, ptr @.str.251 }, %struct._value_string { i32 12, ptr @.str.252 }, %struct._value_string zeroinitializer], align 16
 @hf_pn_io_error_code2_pnio_65 = internal global i32 0, align 4
-@pn_io_error_code2_pnio_65 = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.253 }, %struct._value_string { i32 1, ptr @.str.254 }, %struct._value_string zeroinitializer], align 16
 @hf_pn_io_error_code2_pnio_66 = internal global i32 0, align 4
-@pn_io_error_code2_pnio_66 = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.253 }, %struct._value_string { i32 1, ptr @.str.255 }, %struct._value_string zeroinitializer], align 16
 @hf_pn_io_error_code2_pnio_70 = internal global i32 0, align 4
-@pn_io_error_code2_pnio_70 = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.253 }, %struct._value_string { i32 1, ptr @.str.256 }, %struct._value_string zeroinitializer], align 16
 @hf_pn_io_error_code2_pnio_71 = internal global i32 0, align 4
-@pn_io_error_code2_pnio_71 = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.253 }, %struct._value_string { i32 1, ptr @.str.256 }, %struct._value_string { i32 2, ptr @.str.231 }, %struct._value_string zeroinitializer], align 16
 @hf_pn_io_error_code2_pnio_72 = internal global i32 0, align 4
-@pn_io_error_code2_pnio_72 = internal constant [2 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.253 }, %struct._value_string zeroinitializer], align 16
 @hf_pn_io_error_code2_pnio_73 = internal global i32 0, align 4
-@pn_io_error_code2_pnio_73 = internal constant [2 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.253 }, %struct._value_string zeroinitializer], align 16
 @hf_pn_io_error_code2_pnio_74 = internal global i32 0, align 4
-@pn_io_error_code2_pnio_74 = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.253 }, %struct._value_string { i32 1, ptr @.str.257 }, %struct._value_string { i32 2, ptr @.str.231 }, %struct._value_string zeroinitializer], align 16
 @hf_pn_io_error_code2_pnio_75 = internal global i32 0, align 4
-@pn_io_error_code2_pnio_75 = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.253 }, %struct._value_string { i32 1, ptr @.str.257 }, %struct._value_string zeroinitializer], align 16
 @hf_pn_io_error_code2_pnio_76 = internal global i32 0, align 4
-@pn_io_error_code2_pnio_76 = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.253 }, %struct._value_string { i32 1, ptr @.str.257 }, %struct._value_string zeroinitializer], align 16
 @hf_pn_io_error_code2_pnio_77 = internal global i32 0, align 4
-@pn_io_error_code2_pnio_77 = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.253 }, %struct._value_string { i32 1, ptr @.str.257 }, %struct._value_string zeroinitializer], align 16
 @hf_pn_io_error_code2_pnio_253 = internal global i32 0, align 4
-@pn_io_error_code2_pnio_253 = internal constant [47 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.258 }, %struct._value_string { i32 1, ptr @.str.259 }, %struct._value_string { i32 2, ptr @.str.260 }, %struct._value_string { i32 3, ptr @.str.261 }, %struct._value_string { i32 4, ptr @.str.262 }, %struct._value_string { i32 5, ptr @.str.263 }, %struct._value_string { i32 6, ptr @.str.264 }, %struct._value_string { i32 7, ptr @.str.265 }, %struct._value_string { i32 8, ptr @.str.266 }, %struct._value_string { i32 9, ptr @.str.267 }, %struct._value_string { i32 10, ptr @.str.268 }, %struct._value_string { i32 11, ptr @.str.269 }, %struct._value_string { i32 12, ptr @.str.270 }, %struct._value_string { i32 13, ptr @.str.271 }, %struct._value_string { i32 14, ptr @.str.272 }, %struct._value_string { i32 15, ptr @.str.273 }, %struct._value_string { i32 16, ptr @.str.274 }, %struct._value_string { i32 17, ptr @.str.275 }, %struct._value_string { i32 18, ptr @.str.276 }, %struct._value_string { i32 19, ptr @.str.277 }, %struct._value_string { i32 20, ptr @.str.278 }, %struct._value_string { i32 21, ptr @.str.279 }, %struct._value_string { i32 22, ptr @.str.280 }, %struct._value_string { i32 23, ptr @.str.281 }, %struct._value_string { i32 24, ptr @.str.282 }, %struct._value_string { i32 25, ptr @.str.283 }, %struct._value_string { i32 26, ptr @.str.284 }, %struct._value_string { i32 27, ptr @.str.285 }, %struct._value_string { i32 28, ptr @.str.286 }, %struct._value_string { i32 29, ptr @.str.287 }, %struct._value_string { i32 30, ptr @.str.288 }, %struct._value_string { i32 31, ptr @.str.289 }, %struct._value_string { i32 32, ptr @.str.290 }, %struct._value_string { i32 33, ptr @.str.291 }, %struct._value_string { i32 34, ptr @.str.292 }, %struct._value_string { i32 35, ptr @.str.293 }, %struct._value_string { i32 36, ptr @.str.294 }, %struct._value_string { i32 37, ptr @.str.295 }, %struct._value_string { i32 38, ptr @.str.296 }, %struct._value_string { i32 39, ptr @.str.297 }, %struct._value_string { i32 40, ptr @.str.298 }, %struct._value_string { i32 41, ptr @.str.299 }, %struct._value_string { i32 42, ptr @.str.300 }, %struct._value_string { i32 43, ptr @.str.301 }, %struct._value_string { i32 44, ptr @.str.302 }, %struct._value_string { i32 45, ptr @.str.303 }, %struct._value_string zeroinitializer], align 16
 @hf_pn_io_error_code2_pnio_255 = internal global i32 0, align 4
-@pn_io_error_code2_pnio_255 = internal constant [2 x %struct._value_string] [%struct._value_string { i32 255, ptr @.str.304 }, %struct._value_string zeroinitializer], align 16
 @hf_pn_io_error_code2 = internal global i32 0, align 4
 @ei_pn_io_error_code1 = internal global %struct.expert_field zeroinitializer, align 4
 @.str.5 = private unnamed_addr constant [48 x i8] c"Unknown ErrorCode1 0x%x (for ErrorDecode==PNIO)\00", align 1
 @hf_pn_io_error_code1 = internal global i32 0, align 4
 @.str.6 = private unnamed_addr constant [25 x i8] c"Unknown ErrorDecode 0x%x\00", align 1
-@pn_io_error_code1 = internal constant [2 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.41 }, %struct._value_string zeroinitializer], align 16
 @ei_pn_io_error_code2 = internal global %struct.expert_field zeroinitializer, align 4
 @.str.7 = private unnamed_addr constant [5 x i8] c": OK\00", align 1
 @.str.8 = private unnamed_addr constant [5 x i8] c", OK\00", align 1
 @.str.9 = private unnamed_addr constant [32 x i8] c": Error: \22%s\22, \22%s\22, \22%s\22, \22%s\22\00", align 1
-@pn_io_error_code = internal constant [10 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.41 }, %struct._value_string { i32 129, ptr @.str.305 }, %struct._value_string { i32 207, ptr @.str.306 }, %struct._value_string { i32 218, ptr @.str.307 }, %struct._value_string { i32 219, ptr @.str.308 }, %struct._value_string { i32 220, ptr @.str.309 }, %struct._value_string { i32 221, ptr @.str.310 }, %struct._value_string { i32 222, ptr @.str.311 }, %struct._value_string { i32 223, ptr @.str.312 }, %struct._value_string zeroinitializer], align 16
 @.str.10 = private unnamed_addr constant [7 x i8] c"(0x%x)\00", align 1
-@pn_io_error_decode = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.41 }, %struct._value_string { i32 128, ptr @.str.313 }, %struct._value_string { i32 129, ptr @.str.305 }, %struct._value_string zeroinitializer], align 16
 @.str.11 = private unnamed_addr constant [32 x i8] c", Error: \22%s\22, \22%s\22, \22%s\22, \22%s\22\00", align 1
 @.str.12 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
 @aruuid_frame_setup_list = external global ptr, align 8
@@ -142,7 +103,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.34 = private unnamed_addr constant [18 x i8] c"pn_io.error_code2\00", align 1
 @.str.35 = private unnamed_addr constant [41 x i8] c"ErrorCode2 for PNIORW is user specified!\00", align 1
 @init_pn.ett = internal global [1 x ptr] [ptr @ett_pn_io_status], align 8
-@init_pn.ei = internal global [3 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_pn_undecoded_data, %struct.expert_field_info { ptr @.str.36, i32 83886080, i32 6291456, ptr @.str.15, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_pn_io_error_code1, %struct.expert_field_info { ptr @.str.37, i32 83886080, i32 6291456, ptr @.str.38, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_pn_io_error_code2, %struct.expert_field_info { ptr @.str.39, i32 83886080, i32 6291456, ptr @.str.40, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@init_pn.ei = internal global [3 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_pn_undecoded_data, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.36, i32 83886080, i32 6291456, ptr @.str.15, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_pn_io_error_code1, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.37, i32 83886080, i32 6291456, ptr @.str.38, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_pn_io_error_code2, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.39, i32 83886080, i32 6291456, ptr @.str.40, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @.str.36 = private unnamed_addr constant [18 x i8] c"pn.undecoded_data\00", align 1
 @.str.37 = private unnamed_addr constant [25 x i8] c"pn_io.error_code1.expert\00", align 1
 @.str.38 = private unnamed_addr constant [19 x i8] c"Unknown ErrorCode1\00", align 1
@@ -151,316 +112,355 @@ target triple = "x86_64-pc-linux-gnu"
 @__const.pn_fgets.XML_COMMENT_START = private unnamed_addr constant [5 x i8] c"<!--\00", align 1
 @__const.pn_fgets.XML_COMMENT_END = private unnamed_addr constant [4 x i8] c"-->\00", align 1
 @.str.41 = private unnamed_addr constant [3 x i8] c"OK\00", align 1
-@.str.42 = private unnamed_addr constant [24 x i8] c"application: read error\00", align 1
-@.str.43 = private unnamed_addr constant [25 x i8] c"application: write error\00", align 1
-@.str.44 = private unnamed_addr constant [28 x i8] c"application: module failure\00", align 1
-@.str.45 = private unnamed_addr constant [27 x i8] c"application: not specified\00", align 1
-@.str.46 = private unnamed_addr constant [18 x i8] c"application: busy\00", align 1
-@.str.47 = private unnamed_addr constant [30 x i8] c"application: version conflict\00", align 1
-@.str.48 = private unnamed_addr constant [35 x i8] c"application: feature not supported\00", align 1
-@.str.49 = private unnamed_addr constant [29 x i8] c"application: User specific 1\00", align 1
-@.str.50 = private unnamed_addr constant [29 x i8] c"application: User specific 2\00", align 1
-@.str.51 = private unnamed_addr constant [29 x i8] c"application: User specific 3\00", align 1
-@.str.52 = private unnamed_addr constant [29 x i8] c"application: User specific 4\00", align 1
-@.str.53 = private unnamed_addr constant [29 x i8] c"application: User specific 5\00", align 1
-@.str.54 = private unnamed_addr constant [29 x i8] c"application: User specific 6\00", align 1
-@.str.55 = private unnamed_addr constant [22 x i8] c"access: invalid index\00", align 1
-@.str.56 = private unnamed_addr constant [27 x i8] c"access: write length error\00", align 1
-@.str.57 = private unnamed_addr constant [29 x i8] c"access: invalid slot/subslot\00", align 1
-@.str.58 = private unnamed_addr constant [22 x i8] c"access: type conflict\00", align 1
-@.str.59 = private unnamed_addr constant [21 x i8] c"access: invalid area\00", align 1
-@.str.60 = private unnamed_addr constant [23 x i8] c"access: state conflict\00", align 1
-@.str.61 = private unnamed_addr constant [22 x i8] c"access: access denied\00", align 1
-@.str.62 = private unnamed_addr constant [22 x i8] c"access: invalid range\00", align 1
-@.str.63 = private unnamed_addr constant [26 x i8] c"access: invalid parameter\00", align 1
-@.str.64 = private unnamed_addr constant [21 x i8] c"access: invalid type\00", align 1
-@.str.65 = private unnamed_addr constant [15 x i8] c"access: backup\00", align 1
-@.str.66 = private unnamed_addr constant [24 x i8] c"access: User specific 7\00", align 1
-@.str.67 = private unnamed_addr constant [24 x i8] c"access: User specific 8\00", align 1
-@.str.68 = private unnamed_addr constant [24 x i8] c"access: User specific 9\00", align 1
-@.str.69 = private unnamed_addr constant [25 x i8] c"access: User specific 10\00", align 1
-@.str.70 = private unnamed_addr constant [25 x i8] c"access: User specific 11\00", align 1
-@.str.71 = private unnamed_addr constant [34 x i8] c"resource: read constrain conflict\00", align 1
-@.str.72 = private unnamed_addr constant [35 x i8] c"resource: write constrain conflict\00", align 1
-@.str.73 = private unnamed_addr constant [24 x i8] c"resource: resource busy\00", align 1
-@.str.74 = private unnamed_addr constant [31 x i8] c"resource: resource unavailable\00", align 1
-@.str.75 = private unnamed_addr constant [24 x i8] c"resource: not specified\00", align 1
-@.str.76 = private unnamed_addr constant [27 x i8] c"resource: User specific 12\00", align 1
-@.str.77 = private unnamed_addr constant [27 x i8] c"resource: User specific 13\00", align 1
-@.str.78 = private unnamed_addr constant [27 x i8] c"resource: User specific 14\00", align 1
-@.str.79 = private unnamed_addr constant [27 x i8] c"resource: User specific 15\00", align 1
-@.str.80 = private unnamed_addr constant [27 x i8] c"resource: User specific 16\00", align 1
-@.str.81 = private unnamed_addr constant [27 x i8] c"resource: User specific 17\00", align 1
-@.str.82 = private unnamed_addr constant [27 x i8] c"resource: User specific 18\00", align 1
-@.str.83 = private unnamed_addr constant [27 x i8] c"resource: User specific 19\00", align 1
-@.str.84 = private unnamed_addr constant [9 x i8] c"Reserved\00", align 1
-@.str.85 = private unnamed_addr constant [27 x i8] c"Connect: Faulty ARBlockReq\00", align 1
-@.str.86 = private unnamed_addr constant [29 x i8] c"Connect: Faulty IOCRBlockReq\00", align 1
-@.str.87 = private unnamed_addr constant [42 x i8] c"Connect: Faulty ExpectedSubmoduleBlockReq\00", align 1
-@.str.88 = private unnamed_addr constant [32 x i8] c"Connect: Faulty AlarmCRBlockReq\00", align 1
-@.str.89 = private unnamed_addr constant [34 x i8] c"Connect: Faulty PrmServerBlockReq\00", align 1
-@.str.90 = private unnamed_addr constant [28 x i8] c"Connect: Faulty MCRBlockReq\00", align 1
-@.str.91 = private unnamed_addr constant [30 x i8] c"Connect: Faulty ARRPCBlockReq\00", align 1
-@.str.92 = private unnamed_addr constant [33 x i8] c"Read/Write Record: Faulty Record\00", align 1
-@.str.93 = private unnamed_addr constant [28 x i8] c"Connect: Faulty IRInfoBlock\00", align 1
-@.str.94 = private unnamed_addr constant [28 x i8] c"Connect: Faulty SRInfoBlock\00", align 1
-@.str.95 = private unnamed_addr constant [27 x i8] c"Connect: Faulty ARFSUBlock\00", align 1
-@.str.96 = private unnamed_addr constant [33 x i8] c"Connect: Faulty ARVendorBlockReq\00", align 1
-@.str.97 = private unnamed_addr constant [28 x i8] c"Connect: Faulty RSInfoBlock\00", align 1
-@.str.98 = private unnamed_addr constant [39 x i8] c"IODControl: Faulty ControlBlockConnect\00", align 1
-@.str.99 = private unnamed_addr constant [36 x i8] c"IODControl: Faulty ControlBlockPlug\00", align 1
-@.str.100 = private unnamed_addr constant [53 x i8] c"IOXControl: Faulty ControlBlock after a connect est.\00", align 1
-@.str.101 = private unnamed_addr constant [45 x i8] c"IOXControl: Faulty ControlBlock a plug alarm\00", align 1
-@.str.102 = private unnamed_addr constant [40 x i8] c"IOXControl: Faulty ControlBlockPrmBegin\00", align 1
-@.str.103 = private unnamed_addr constant [38 x i8] c"IOXControl: Faulty SubmoduleListBlock\00", align 1
-@.str.104 = private unnamed_addr constant [29 x i8] c"Release: Faulty ReleaseBlock\00", align 1
-@.str.105 = private unnamed_addr constant [28 x i8] c"Response: Faulty ARBlockRes\00", align 1
-@.str.106 = private unnamed_addr constant [30 x i8] c"Response: Faulty IOCRBlockRes\00", align 1
-@.str.107 = private unnamed_addr constant [33 x i8] c"Response: Faulty AlarmCRBlockRes\00", align 1
-@.str.108 = private unnamed_addr constant [32 x i8] c"Response: Faulty ModuleDifflock\00", align 1
-@.str.109 = private unnamed_addr constant [31 x i8] c"Response: Faulty ARRPCBlockRes\00", align 1
-@.str.110 = private unnamed_addr constant [34 x i8] c"Response: Faulty ARServerBlockRes\00", align 1
-@.str.111 = private unnamed_addr constant [34 x i8] c"Response: Faulty ARVendorBlockRes\00", align 1
-@.str.112 = private unnamed_addr constant [21 x i8] c"AlarmAck Error Codes\00", align 1
-@.str.113 = private unnamed_addr constant [6 x i8] c"CMDEV\00", align 1
-@.str.114 = private unnamed_addr constant [6 x i8] c"CMCTL\00", align 1
-@.str.115 = private unnamed_addr constant [8 x i8] c"CTLDINA\00", align 1
-@.str.116 = private unnamed_addr constant [6 x i8] c"CMRPC\00", align 1
-@.str.117 = private unnamed_addr constant [6 x i8] c"ALPMI\00", align 1
-@.str.118 = private unnamed_addr constant [6 x i8] c"ALPMR\00", align 1
-@.str.119 = private unnamed_addr constant [5 x i8] c"LMPM\00", align 1
-@.str.120 = private unnamed_addr constant [4 x i8] c"MAC\00", align 1
-@.str.121 = private unnamed_addr constant [4 x i8] c"RPC\00", align 1
-@.str.122 = private unnamed_addr constant [5 x i8] c"APMR\00", align 1
-@.str.123 = private unnamed_addr constant [5 x i8] c"APMS\00", align 1
-@.str.124 = private unnamed_addr constant [4 x i8] c"CPM\00", align 1
-@.str.125 = private unnamed_addr constant [4 x i8] c"PPM\00", align 1
-@.str.126 = private unnamed_addr constant [7 x i8] c"DCPUCS\00", align 1
-@.str.127 = private unnamed_addr constant [7 x i8] c"DCPUCR\00", align 1
-@.str.128 = private unnamed_addr constant [7 x i8] c"DCPMCS\00", align 1
-@.str.129 = private unnamed_addr constant [7 x i8] c"DCPMCR\00", align 1
-@.str.130 = private unnamed_addr constant [5 x i8] c"FSPM\00", align 1
-@.str.131 = private unnamed_addr constant [4 x i8] c"RSI\00", align 1
-@.str.132 = private unnamed_addr constant [5 x i8] c"RSIR\00", align 1
-@.str.133 = private unnamed_addr constant [6 x i8] c"CTLSM\00", align 1
-@.str.134 = private unnamed_addr constant [7 x i8] c"CTLRDI\00", align 1
-@.str.135 = private unnamed_addr constant [7 x i8] c"CTLRDR\00", align 1
-@.str.136 = private unnamed_addr constant [7 x i8] c"CTLWRI\00", align 1
-@.str.137 = private unnamed_addr constant [7 x i8] c"CTLWRR\00", align 1
-@.str.138 = private unnamed_addr constant [6 x i8] c"CTLIO\00", align 1
-@.str.139 = private unnamed_addr constant [6 x i8] c"CTLSU\00", align 1
-@.str.140 = private unnamed_addr constant [7 x i8] c"CTLRPC\00", align 1
-@.str.141 = private unnamed_addr constant [6 x i8] c"CTLBE\00", align 1
-@.str.142 = private unnamed_addr constant [7 x i8] c"CTLSRL\00", align 1
-@.str.143 = private unnamed_addr constant [4 x i8] c"NME\00", align 1
-@.str.144 = private unnamed_addr constant [4 x i8] c"TDE\00", align 1
-@.str.145 = private unnamed_addr constant [4 x i8] c"PCE\00", align 1
-@.str.146 = private unnamed_addr constant [4 x i8] c"NCE\00", align 1
-@.str.147 = private unnamed_addr constant [4 x i8] c"NUE\00", align 1
-@.str.148 = private unnamed_addr constant [5 x i8] c"BNME\00", align 1
-@.str.149 = private unnamed_addr constant [7 x i8] c"CTLSAM\00", align 1
-@.str.150 = private unnamed_addr constant [5 x i8] c"CMSM\00", align 1
-@.str.151 = private unnamed_addr constant [6 x i8] c"CMRDR\00", align 1
-@.str.152 = private unnamed_addr constant [6 x i8] c"CMWRR\00", align 1
-@.str.153 = private unnamed_addr constant [5 x i8] c"CMIO\00", align 1
-@.str.154 = private unnamed_addr constant [5 x i8] c"CMSU\00", align 1
-@.str.155 = private unnamed_addr constant [6 x i8] c"CMINA\00", align 1
-@.str.156 = private unnamed_addr constant [6 x i8] c"CMPBE\00", align 1
-@.str.157 = private unnamed_addr constant [6 x i8] c"CMSRL\00", align 1
-@.str.158 = private unnamed_addr constant [6 x i8] c"CMDMC\00", align 1
-@.str.159 = private unnamed_addr constant [6 x i8] c"CMSAM\00", align 1
-@.str.160 = private unnamed_addr constant [21 x i8] c"RTA_ERR_CLS_PROTOCOL\00", align 1
-@.str.161 = private unnamed_addr constant [14 x i8] c"User specific\00", align 1
-@.str.162 = private unnamed_addr constant [29 x i8] c"Error in Parameter BlockType\00", align 1
-@.str.163 = private unnamed_addr constant [31 x i8] c"Error in Parameter BlockLength\00", align 1
-@.str.164 = private unnamed_addr constant [36 x i8] c"Error in Parameter BlockVersionHigh\00", align 1
-@.str.165 = private unnamed_addr constant [35 x i8] c"Error in Parameter BlockVersionLow\00", align 1
-@.str.166 = private unnamed_addr constant [26 x i8] c"Error in Parameter ARType\00", align 1
-@.str.167 = private unnamed_addr constant [26 x i8] c"Error in Parameter ARUUID\00", align 1
-@.str.168 = private unnamed_addr constant [41 x i8] c"Error in Parameter CMInitiatorMACAddress\00", align 1
-@.str.169 = private unnamed_addr constant [41 x i8] c"Error in Parameter CMInitiatorObjectUUID\00", align 1
-@.str.170 = private unnamed_addr constant [32 x i8] c"Error in Parameter ARProperties\00", align 1
-@.str.171 = private unnamed_addr constant [52 x i8] c"Error in Parameter CMInitiatorActivityTimeoutFactor\00", align 1
-@.str.172 = private unnamed_addr constant [38 x i8] c"Error in Parameter InitiatorUDPRTPort\00", align 1
-@.str.173 = private unnamed_addr constant [37 x i8] c"Error in Parameter StationNameLength\00", align 1
-@.str.174 = private unnamed_addr constant [42 x i8] c"Error in Parameter CMInitiatorStationName\00", align 1
-@.str.175 = private unnamed_addr constant [28 x i8] c"Error in Parameter IOCRType\00", align 1
-@.str.176 = private unnamed_addr constant [33 x i8] c"Error in Parameter IOCRReference\00", align 1
-@.str.177 = private unnamed_addr constant [22 x i8] c"Error in Parameter LT\00", align 1
-@.str.178 = private unnamed_addr constant [34 x i8] c"Error in Parameter IOCRProperties\00", align 1
-@.str.179 = private unnamed_addr constant [30 x i8] c"Error in Parameter DataLength\00", align 1
-@.str.180 = private unnamed_addr constant [27 x i8] c"Error in Parameter FrameID\00", align 1
-@.str.181 = private unnamed_addr constant [35 x i8] c"Error in Parameter SendClockFactor\00", align 1
-@.str.182 = private unnamed_addr constant [34 x i8] c"Error in Parameter ReductionRatio\00", align 1
-@.str.183 = private unnamed_addr constant [25 x i8] c"Error in Parameter Phase\00", align 1
-@.str.184 = private unnamed_addr constant [35 x i8] c"Error in Parameter FrameSendOffset\00", align 1
-@.str.185 = private unnamed_addr constant [34 x i8] c"Error in Parameter WatchdogFactor\00", align 1
-@.str.186 = private unnamed_addr constant [34 x i8] c"Error in Parameter DataHoldFactor\00", align 1
-@.str.187 = private unnamed_addr constant [33 x i8] c"Error in Parameter IOCRTagHeader\00", align 1
-@.str.188 = private unnamed_addr constant [43 x i8] c"Error in Parameter IOCRMulticastMacAddress\00", align 1
-@.str.189 = private unnamed_addr constant [31 x i8] c"Error in Parameter NumberOfAPI\00", align 1
-@.str.190 = private unnamed_addr constant [23 x i8] c"Error in Parameter API\00", align 1
-@.str.191 = private unnamed_addr constant [41 x i8] c"Error in Parameter NumberOfIODataObjects\00", align 1
-@.str.192 = private unnamed_addr constant [30 x i8] c"Error in Parameter SlotNumber\00", align 1
-@.str.193 = private unnamed_addr constant [33 x i8] c"Error in Parameter SubslotNumber\00", align 1
-@.str.194 = private unnamed_addr constant [43 x i8] c"Error in Parameter IODataObjectFrameOffset\00", align 1
-@.str.195 = private unnamed_addr constant [32 x i8] c"Error in Parameter NumberOfIOCS\00", align 1
-@.str.196 = private unnamed_addr constant [35 x i8] c"Error in Parameter IOCSFrameOffset\00", align 1
-@.str.197 = private unnamed_addr constant [37 x i8] c"Error in Parameter ModuleIdentNumber\00", align 1
-@.str.198 = private unnamed_addr constant [36 x i8] c"Error in Parameter ModuleProperties\00", align 1
-@.str.199 = private unnamed_addr constant [38 x i8] c"Error in Parameter NumberOfSubmodules\00", align 1
-@.str.200 = private unnamed_addr constant [39 x i8] c"Error in Parameter SubmoduleProperties\00", align 1
-@.str.201 = private unnamed_addr constant [35 x i8] c"Error in Parameter DataDescription\00", align 1
-@.str.202 = private unnamed_addr constant [39 x i8] c"Error in Parameter SubmoduleDataLength\00", align 1
-@.str.203 = private unnamed_addr constant [30 x i8] c"Error in Parameter LengthIOPS\00", align 1
-@.str.204 = private unnamed_addr constant [30 x i8] c"Error in Parameter LengthIOCS\00", align 1
-@.str.205 = private unnamed_addr constant [31 x i8] c"Error in Parameter AlarmCRType\00", align 1
-@.str.206 = private unnamed_addr constant [37 x i8] c"Error in Parameter AlarmCRProperties\00", align 1
-@.str.207 = private unnamed_addr constant [36 x i8] c"Error in Parameter RTATimeoutFactor\00", align 1
-@.str.208 = private unnamed_addr constant [30 x i8] c"Error in Parameter RTARetries\00", align 1
-@.str.209 = private unnamed_addr constant [38 x i8] c"Error in Parameter MaxAlarmDataLength\00", align 1
-@.str.210 = private unnamed_addr constant [40 x i8] c"Error in Parameter AlarmCRTagHeaderHigh\00", align 1
-@.str.211 = private unnamed_addr constant [39 x i8] c"Error in Parameter AlarmCRTagHeaderLow\00", align 1
-@.str.212 = private unnamed_addr constant [46 x i8] c"Error in Parameter ParameterServerStationName\00", align 1
-@.str.213 = private unnamed_addr constant [47 x i8] c"Error in Parameter AddressResolutionProperties\00", align 1
-@.str.214 = private unnamed_addr constant [36 x i8] c"Error in Parameter MCITimeoutFactor\00", align 1
-@.str.215 = private unnamed_addr constant [39 x i8] c"Error in Parameter ProviderStationName\00", align 1
-@.str.216 = private unnamed_addr constant [42 x i8] c"Error in Parameter InitiatorRPCServerPort\00", align 1
-@.str.217 = private unnamed_addr constant [27 x i8] c"Error in Parameter Padding\00", align 1
-@.str.218 = private unnamed_addr constant [25 x i8] c"Error in Parameter Index\00", align 1
-@.str.219 = private unnamed_addr constant [36 x i8] c"Error in Parameter RecordDataLength\00", align 1
-@.str.220 = private unnamed_addr constant [32 x i8] c"Error in Parameter TargetARUUID\00", align 1
-@.str.221 = private unnamed_addr constant [32 x i8] c"Error in Parameter RSProperties\00", align 1
-@.str.222 = private unnamed_addr constant [30 x i8] c"Error in Parameter SessionKey\00", align 1
-@.str.223 = private unnamed_addr constant [34 x i8] c"Error in Parameter ControlCommand\00", align 1
-@.str.224 = private unnamed_addr constant [42 x i8] c"Error in Parameter ControlBlockProperties\00", align 1
-@.str.225 = private unnamed_addr constant [39 x i8] c"Error in Parameter AlarmSequenceNumber\00", align 1
-@.str.226 = private unnamed_addr constant [25 x i8] c"Alarm Type Not Supported\00", align 1
-@.str.227 = private unnamed_addr constant [22 x i8] c"Wrong Submodule State\00", align 1
-@.str.228 = private unnamed_addr constant [36 x i8] c"IOCARSR Backup - Alarm not executed\00", align 1
-@.str.229 = private unnamed_addr constant [15 x i8] c"State Conflict\00", align 1
-@.str.230 = private unnamed_addr constant [10 x i8] c"Resources\00", align 1
-@.str.231 = private unnamed_addr constant [8 x i8] c"Timeout\00", align 1
-@.str.232 = private unnamed_addr constant [13 x i8] c"No data send\00", align 1
-@.str.233 = private unnamed_addr constant [14 x i8] c"No DCP active\00", align 1
-@.str.234 = private unnamed_addr constant [28 x i8] c"DNS Unknown_RealStationName\00", align 1
-@.str.235 = private unnamed_addr constant [23 x i8] c"DCP No_RealStationName\00", align 1
-@.str.236 = private unnamed_addr constant [29 x i8] c"DCP Multiple_RealStationName\00", align 1
-@.str.237 = private unnamed_addr constant [19 x i8] c"DCP No_StationName\00", align 1
-@.str.238 = private unnamed_addr constant [11 x i8] c"No_IP_Addr\00", align 1
-@.str.239 = private unnamed_addr constant [14 x i8] c"DCP_Set_Error\00", align 1
-@.str.240 = private unnamed_addr constant [19 x i8] c"ArgsLength invalid\00", align 1
-@.str.241 = private unnamed_addr constant [15 x i8] c"Unknown Blocks\00", align 1
-@.str.242 = private unnamed_addr constant [13 x i8] c"IOCR Missing\00", align 1
-@.str.243 = private unnamed_addr constant [25 x i8] c"Wrong AlarmCRBlock count\00", align 1
-@.str.244 = private unnamed_addr constant [20 x i8] c"Out of AR Resources\00", align 1
-@.str.245 = private unnamed_addr constant [16 x i8] c"AR UUID unknown\00", align 1
-@.str.246 = private unnamed_addr constant [15 x i8] c"State conflict\00", align 1
-@.str.247 = private unnamed_addr constant [45 x i8] c"Out of Provider, Consumer or Alarm Resources\00", align 1
-@.str.248 = private unnamed_addr constant [14 x i8] c"Out of Memory\00", align 1
-@.str.249 = private unnamed_addr constant [19 x i8] c"Pdev already owned\00", align 1
-@.str.250 = private unnamed_addr constant [53 x i8] c"ARset State conflict during connection establishment\00", align 1
-@.str.251 = private unnamed_addr constant [57 x i8] c"ARset Parameter conflict during connection establishment\00", align 1
-@.str.252 = private unnamed_addr constant [32 x i8] c"Pdev, port(s) without interface\00", align 1
-@.str.253 = private unnamed_addr constant [14 x i8] c"Invalid State\00", align 1
-@.str.254 = private unnamed_addr constant [14 x i8] c"Wrong ACK-PDU\00", align 1
-@.str.255 = private unnamed_addr constant [23 x i8] c"Wrong Notification PDU\00", align 1
-@.str.256 = private unnamed_addr constant [20 x i8] c"LMPM signaled error\00", align 1
-@.str.257 = private unnamed_addr constant [23 x i8] c"LMPM signaled an error\00", align 1
-@.str.258 = private unnamed_addr constant [9 x i8] c"reserved\00", align 1
-@.str.259 = private unnamed_addr constant [75 x i8] c"Error within the coordination of sequence numbers (RTA_ERR_CODE_SEQ) error\00", align 1
-@.str.260 = private unnamed_addr constant [32 x i8] c"Instance closed (RTA_ERR_ABORT)\00", align 1
-@.str.261 = private unnamed_addr constant [33 x i8] c"AR out of memory (RTA_ERR_ABORT)\00", align 1
-@.str.262 = private unnamed_addr constant [51 x i8] c"AR add provider or consumer failed (RTA_ERR_ABORT)\00", align 1
-@.str.263 = private unnamed_addr constant [44 x i8] c"AR consumer DHT/WDT expired (RTA_ERR_ABORT)\00", align 1
-@.str.264 = private unnamed_addr constant [31 x i8] c"AR cmi timeout (RTA_ERR_ABORT)\00", align 1
-@.str.265 = private unnamed_addr constant [37 x i8] c"AR alarm-open failed (RTA_ERR_ABORT)\00", align 1
-@.str.266 = private unnamed_addr constant [37 x i8] c"AR alarm-send.cnf(-) (RTA_ERR_ABORT)\00", align 1
-@.str.267 = private unnamed_addr constant [41 x i8] c"AR alarm-ack-send.cnf(-) (RTA_ERR_ABORT)\00", align 1
-@.str.268 = private unnamed_addr constant [39 x i8] c"AR alarm data too long (RTA_ERR_ABORT)\00", align 1
-@.str.269 = private unnamed_addr constant [34 x i8] c"AR alarm.ind(err) (RTA_ERR_ABORT)\00", align 1
-@.str.270 = private unnamed_addr constant [42 x i8] c"AR rpc-client call.cnf(-) (RTA_ERR_ABORT)\00", align 1
-@.str.271 = private unnamed_addr constant [29 x i8] c"AR abort.req (RTA_ERR_ABORT)\00", align 1
-@.str.272 = private unnamed_addr constant [42 x i8] c"AR re-run aborts existing (RTA_ERR_ABORT)\00", align 1
-@.str.273 = private unnamed_addr constant [40 x i8] c"AR release.ind received (RTA_ERR_ABORT)\00", align 1
-@.str.274 = private unnamed_addr constant [38 x i8] c"AR device deactivated (RTA_ERR_ABORT)\00", align 1
-@.str.275 = private unnamed_addr constant [27 x i8] c"AR removed (RTA_ERR_ABORT)\00", align 1
-@.str.276 = private unnamed_addr constant [38 x i8] c"AR protocol violation (RTA_ERR_ABORT)\00", align 1
-@.str.277 = private unnamed_addr constant [41 x i8] c"AR name resolution error (RTA_ERR_ABORT)\00", align 1
-@.str.278 = private unnamed_addr constant [34 x i8] c"AR RPC-Bind error (RTA_ERR_ABORT)\00", align 1
-@.str.279 = private unnamed_addr constant [37 x i8] c"AR RPC-Connect error (RTA_ERR_ABORT)\00", align 1
-@.str.280 = private unnamed_addr constant [34 x i8] c"AR RPC-Read error (RTA_ERR_ABORT)\00", align 1
-@.str.281 = private unnamed_addr constant [35 x i8] c"AR RPC-Write error (RTA_ERR_ABORT)\00", align 1
-@.str.282 = private unnamed_addr constant [37 x i8] c"AR RPC-Control error (RTA_ERR_ABORT)\00", align 1
-@.str.283 = private unnamed_addr constant [81 x i8] c"AR forbidden pull or plug after check.rsp and before in-data.ind (RTA_ERR_ABORT)\00", align 1
-@.str.284 = private unnamed_addr constant [30 x i8] c"AR AP removed (RTA_ERR_ABORT)\00", align 1
-@.str.285 = private unnamed_addr constant [29 x i8] c"AR link down (RTA_ERR_ABORT)\00", align 1
-@.str.286 = private unnamed_addr constant [60 x i8] c"AR could not register multicast-mac address (RTA_ERR_ABORT)\00", align 1
-@.str.287 = private unnamed_addr constant [61 x i8] c"not synchronized (cannot start companion-ar) (RTA_ERR_ABORT)\00", align 1
-@.str.288 = private unnamed_addr constant [59 x i8] c"wrong topology (cannot start companion-ar) (RTA_ERR_ABORT)\00", align 1
-@.str.289 = private unnamed_addr constant [42 x i8] c"dcp, station-name changed (RTA_ERR_ABORT)\00", align 1
-@.str.290 = private unnamed_addr constant [47 x i8] c"dcp, reset to factory-settings (RTA_ERR_ABORT)\00", align 1
-@.str.291 = private unnamed_addr constant [88 x i8] c"cannot start companion-AR because a 0x8ipp submodule in the first AR... (RTA_ERR_ABORT)\00", align 1
-@.str.292 = private unnamed_addr constant [37 x i8] c"no irdata record yet (RTA_ERR_ABORT)\00", align 1
-@.str.293 = private unnamed_addr constant [23 x i8] c"PDEV (RTA_ERROR_ABORT)\00", align 1
-@.str.294 = private unnamed_addr constant [64 x i8] c"PDEV, no port offers required speed/duplexity (RTA_ERROR_ABORT)\00", align 1
-@.str.295 = private unnamed_addr constant [102 x i8] c"IP-Suite [of the IOC] changed by means of DCP_Set(IPParameter) or local engineering (RTA_ERROR_ABORT)\00", align 1
-@.str.296 = private unnamed_addr constant [22 x i8] c"IOCARSR, RDHT expired\00", align 1
-@.str.297 = private unnamed_addr constant [43 x i8] c"IOCARSR, Pdev, parameterization impossible\00", align 1
-@.str.298 = private unnamed_addr constant [41 x i8] c"Remote application ready timeout expired\00", align 1
-@.str.299 = private unnamed_addr constant [74 x i8] c"IOCARSR, Redundant interface list or access to the peripherals impossible\00", align 1
-@.str.300 = private unnamed_addr constant [22 x i8] c"IOCARSR, MTOT expired\00", align 1
-@.str.301 = private unnamed_addr constant [31 x i8] c"IOCARSR, AR protocol violation\00", align 1
-@.str.302 = private unnamed_addr constant [48 x i8] c"PDEV, plug port without CombinedObjectContainer\00", align 1
-@.str.303 = private unnamed_addr constant [31 x i8] c"NME, no or wrong configuration\00", align 1
-@.str.304 = private unnamed_addr constant [11 x i8] c"User abort\00", align 1
-@.str.305 = private unnamed_addr constant [5 x i8] c"PNIO\00", align 1
-@.str.306 = private unnamed_addr constant [10 x i8] c"RTA error\00", align 1
-@.str.307 = private unnamed_addr constant [9 x i8] c"AlarmAck\00", align 1
-@.str.308 = private unnamed_addr constant [14 x i8] c"IODConnectRes\00", align 1
-@.str.309 = private unnamed_addr constant [14 x i8] c"IODReleaseRes\00", align 1
-@.str.310 = private unnamed_addr constant [14 x i8] c"IODControlRes\00", align 1
-@.str.311 = private unnamed_addr constant [11 x i8] c"IODReadRes\00", align 1
-@.str.312 = private unnamed_addr constant [12 x i8] c"IODWriteRes\00", align 1
-@.str.313 = private unnamed_addr constant [7 x i8] c"PNIORW\00", align 1
+@pn_io_error_code2 = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.41 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.43 = private unnamed_addr constant [24 x i8] c"application: read error\00", align 1
+@.str.44 = private unnamed_addr constant [25 x i8] c"application: write error\00", align 1
+@.str.45 = private unnamed_addr constant [28 x i8] c"application: module failure\00", align 1
+@.str.46 = private unnamed_addr constant [27 x i8] c"application: not specified\00", align 1
+@.str.47 = private unnamed_addr constant [18 x i8] c"application: busy\00", align 1
+@.str.48 = private unnamed_addr constant [30 x i8] c"application: version conflict\00", align 1
+@.str.49 = private unnamed_addr constant [35 x i8] c"application: feature not supported\00", align 1
+@.str.50 = private unnamed_addr constant [29 x i8] c"application: User specific 1\00", align 1
+@.str.51 = private unnamed_addr constant [29 x i8] c"application: User specific 2\00", align 1
+@.str.52 = private unnamed_addr constant [29 x i8] c"application: User specific 3\00", align 1
+@.str.53 = private unnamed_addr constant [29 x i8] c"application: User specific 4\00", align 1
+@.str.54 = private unnamed_addr constant [29 x i8] c"application: User specific 5\00", align 1
+@.str.55 = private unnamed_addr constant [29 x i8] c"application: User specific 6\00", align 1
+@.str.56 = private unnamed_addr constant [22 x i8] c"access: invalid index\00", align 1
+@.str.57 = private unnamed_addr constant [27 x i8] c"access: write length error\00", align 1
+@.str.58 = private unnamed_addr constant [29 x i8] c"access: invalid slot/subslot\00", align 1
+@.str.59 = private unnamed_addr constant [22 x i8] c"access: type conflict\00", align 1
+@.str.60 = private unnamed_addr constant [21 x i8] c"access: invalid area\00", align 1
+@.str.61 = private unnamed_addr constant [23 x i8] c"access: state conflict\00", align 1
+@.str.62 = private unnamed_addr constant [22 x i8] c"access: access denied\00", align 1
+@.str.63 = private unnamed_addr constant [22 x i8] c"access: invalid range\00", align 1
+@.str.64 = private unnamed_addr constant [26 x i8] c"access: invalid parameter\00", align 1
+@.str.65 = private unnamed_addr constant [21 x i8] c"access: invalid type\00", align 1
+@.str.66 = private unnamed_addr constant [15 x i8] c"access: backup\00", align 1
+@.str.67 = private unnamed_addr constant [24 x i8] c"access: User specific 7\00", align 1
+@.str.68 = private unnamed_addr constant [24 x i8] c"access: User specific 8\00", align 1
+@.str.69 = private unnamed_addr constant [24 x i8] c"access: User specific 9\00", align 1
+@.str.70 = private unnamed_addr constant [25 x i8] c"access: User specific 10\00", align 1
+@.str.71 = private unnamed_addr constant [25 x i8] c"access: User specific 11\00", align 1
+@.str.72 = private unnamed_addr constant [34 x i8] c"resource: read constrain conflict\00", align 1
+@.str.73 = private unnamed_addr constant [35 x i8] c"resource: write constrain conflict\00", align 1
+@.str.74 = private unnamed_addr constant [24 x i8] c"resource: resource busy\00", align 1
+@.str.75 = private unnamed_addr constant [31 x i8] c"resource: resource unavailable\00", align 1
+@.str.76 = private unnamed_addr constant [24 x i8] c"resource: not specified\00", align 1
+@.str.77 = private unnamed_addr constant [27 x i8] c"resource: User specific 12\00", align 1
+@.str.78 = private unnamed_addr constant [27 x i8] c"resource: User specific 13\00", align 1
+@.str.79 = private unnamed_addr constant [27 x i8] c"resource: User specific 14\00", align 1
+@.str.80 = private unnamed_addr constant [27 x i8] c"resource: User specific 15\00", align 1
+@.str.81 = private unnamed_addr constant [27 x i8] c"resource: User specific 16\00", align 1
+@.str.82 = private unnamed_addr constant [27 x i8] c"resource: User specific 17\00", align 1
+@.str.83 = private unnamed_addr constant [27 x i8] c"resource: User specific 18\00", align 1
+@.str.84 = private unnamed_addr constant [27 x i8] c"resource: User specific 19\00", align 1
+@pn_io_error_code1_pniorw = internal constant [49 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 160, [4 x i8] zeroinitializer, ptr @.str.43 }, { i32, [4 x i8], ptr } { i32 161, [4 x i8] zeroinitializer, ptr @.str.44 }, { i32, [4 x i8], ptr } { i32 162, [4 x i8] zeroinitializer, ptr @.str.45 }, { i32, [4 x i8], ptr } { i32 163, [4 x i8] zeroinitializer, ptr @.str.46 }, { i32, [4 x i8], ptr } { i32 164, [4 x i8] zeroinitializer, ptr @.str.46 }, { i32, [4 x i8], ptr } { i32 165, [4 x i8] zeroinitializer, ptr @.str.46 }, { i32, [4 x i8], ptr } { i32 166, [4 x i8] zeroinitializer, ptr @.str.46 }, { i32, [4 x i8], ptr } { i32 167, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 168, [4 x i8] zeroinitializer, ptr @.str.48 }, { i32, [4 x i8], ptr } { i32 169, [4 x i8] zeroinitializer, ptr @.str.49 }, { i32, [4 x i8], ptr } { i32 170, [4 x i8] zeroinitializer, ptr @.str.50 }, { i32, [4 x i8], ptr } { i32 171, [4 x i8] zeroinitializer, ptr @.str.51 }, { i32, [4 x i8], ptr } { i32 172, [4 x i8] zeroinitializer, ptr @.str.52 }, { i32, [4 x i8], ptr } { i32 173, [4 x i8] zeroinitializer, ptr @.str.53 }, { i32, [4 x i8], ptr } { i32 174, [4 x i8] zeroinitializer, ptr @.str.54 }, { i32, [4 x i8], ptr } { i32 175, [4 x i8] zeroinitializer, ptr @.str.55 }, { i32, [4 x i8], ptr } { i32 176, [4 x i8] zeroinitializer, ptr @.str.56 }, { i32, [4 x i8], ptr } { i32 177, [4 x i8] zeroinitializer, ptr @.str.57 }, { i32, [4 x i8], ptr } { i32 178, [4 x i8] zeroinitializer, ptr @.str.58 }, { i32, [4 x i8], ptr } { i32 179, [4 x i8] zeroinitializer, ptr @.str.59 }, { i32, [4 x i8], ptr } { i32 180, [4 x i8] zeroinitializer, ptr @.str.60 }, { i32, [4 x i8], ptr } { i32 181, [4 x i8] zeroinitializer, ptr @.str.61 }, { i32, [4 x i8], ptr } { i32 182, [4 x i8] zeroinitializer, ptr @.str.62 }, { i32, [4 x i8], ptr } { i32 183, [4 x i8] zeroinitializer, ptr @.str.63 }, { i32, [4 x i8], ptr } { i32 184, [4 x i8] zeroinitializer, ptr @.str.64 }, { i32, [4 x i8], ptr } { i32 185, [4 x i8] zeroinitializer, ptr @.str.65 }, { i32, [4 x i8], ptr } { i32 186, [4 x i8] zeroinitializer, ptr @.str.66 }, { i32, [4 x i8], ptr } { i32 187, [4 x i8] zeroinitializer, ptr @.str.67 }, { i32, [4 x i8], ptr } { i32 188, [4 x i8] zeroinitializer, ptr @.str.68 }, { i32, [4 x i8], ptr } { i32 189, [4 x i8] zeroinitializer, ptr @.str.69 }, { i32, [4 x i8], ptr } { i32 190, [4 x i8] zeroinitializer, ptr @.str.70 }, { i32, [4 x i8], ptr } { i32 191, [4 x i8] zeroinitializer, ptr @.str.71 }, { i32, [4 x i8], ptr } { i32 192, [4 x i8] zeroinitializer, ptr @.str.72 }, { i32, [4 x i8], ptr } { i32 193, [4 x i8] zeroinitializer, ptr @.str.73 }, { i32, [4 x i8], ptr } { i32 194, [4 x i8] zeroinitializer, ptr @.str.74 }, { i32, [4 x i8], ptr } { i32 195, [4 x i8] zeroinitializer, ptr @.str.75 }, { i32, [4 x i8], ptr } { i32 196, [4 x i8] zeroinitializer, ptr @.str.76 }, { i32, [4 x i8], ptr } { i32 197, [4 x i8] zeroinitializer, ptr @.str.76 }, { i32, [4 x i8], ptr } { i32 198, [4 x i8] zeroinitializer, ptr @.str.76 }, { i32, [4 x i8], ptr } { i32 199, [4 x i8] zeroinitializer, ptr @.str.76 }, { i32, [4 x i8], ptr } { i32 200, [4 x i8] zeroinitializer, ptr @.str.77 }, { i32, [4 x i8], ptr } { i32 201, [4 x i8] zeroinitializer, ptr @.str.78 }, { i32, [4 x i8], ptr } { i32 202, [4 x i8] zeroinitializer, ptr @.str.79 }, { i32, [4 x i8], ptr } { i32 203, [4 x i8] zeroinitializer, ptr @.str.80 }, { i32, [4 x i8], ptr } { i32 204, [4 x i8] zeroinitializer, ptr @.str.81 }, { i32, [4 x i8], ptr } { i32 205, [4 x i8] zeroinitializer, ptr @.str.82 }, { i32, [4 x i8], ptr } { i32 206, [4 x i8] zeroinitializer, ptr @.str.83 }, { i32, [4 x i8], ptr } { i32 207, [4 x i8] zeroinitializer, ptr @.str.84 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.86 = private unnamed_addr constant [9 x i8] c"Reserved\00", align 1
+@.str.87 = private unnamed_addr constant [27 x i8] c"Connect: Faulty ARBlockReq\00", align 1
+@.str.88 = private unnamed_addr constant [29 x i8] c"Connect: Faulty IOCRBlockReq\00", align 1
+@.str.89 = private unnamed_addr constant [42 x i8] c"Connect: Faulty ExpectedSubmoduleBlockReq\00", align 1
+@.str.90 = private unnamed_addr constant [32 x i8] c"Connect: Faulty AlarmCRBlockReq\00", align 1
+@.str.91 = private unnamed_addr constant [34 x i8] c"Connect: Faulty PrmServerBlockReq\00", align 1
+@.str.92 = private unnamed_addr constant [28 x i8] c"Connect: Faulty MCRBlockReq\00", align 1
+@.str.93 = private unnamed_addr constant [30 x i8] c"Connect: Faulty ARRPCBlockReq\00", align 1
+@.str.94 = private unnamed_addr constant [33 x i8] c"Read/Write Record: Faulty Record\00", align 1
+@.str.95 = private unnamed_addr constant [28 x i8] c"Connect: Faulty IRInfoBlock\00", align 1
+@.str.96 = private unnamed_addr constant [28 x i8] c"Connect: Faulty SRInfoBlock\00", align 1
+@.str.97 = private unnamed_addr constant [27 x i8] c"Connect: Faulty ARFSUBlock\00", align 1
+@.str.98 = private unnamed_addr constant [33 x i8] c"Connect: Faulty ARVendorBlockReq\00", align 1
+@.str.99 = private unnamed_addr constant [28 x i8] c"Connect: Faulty RSInfoBlock\00", align 1
+@.str.100 = private unnamed_addr constant [39 x i8] c"IODControl: Faulty ControlBlockConnect\00", align 1
+@.str.101 = private unnamed_addr constant [36 x i8] c"IODControl: Faulty ControlBlockPlug\00", align 1
+@.str.102 = private unnamed_addr constant [53 x i8] c"IOXControl: Faulty ControlBlock after a connect est.\00", align 1
+@.str.103 = private unnamed_addr constant [45 x i8] c"IOXControl: Faulty ControlBlock a plug alarm\00", align 1
+@.str.104 = private unnamed_addr constant [40 x i8] c"IOXControl: Faulty ControlBlockPrmBegin\00", align 1
+@.str.105 = private unnamed_addr constant [38 x i8] c"IOXControl: Faulty SubmoduleListBlock\00", align 1
+@.str.106 = private unnamed_addr constant [29 x i8] c"Release: Faulty ReleaseBlock\00", align 1
+@.str.107 = private unnamed_addr constant [28 x i8] c"Response: Faulty ARBlockRes\00", align 1
+@.str.108 = private unnamed_addr constant [30 x i8] c"Response: Faulty IOCRBlockRes\00", align 1
+@.str.109 = private unnamed_addr constant [33 x i8] c"Response: Faulty AlarmCRBlockRes\00", align 1
+@.str.110 = private unnamed_addr constant [32 x i8] c"Response: Faulty ModuleDifflock\00", align 1
+@.str.111 = private unnamed_addr constant [31 x i8] c"Response: Faulty ARRPCBlockRes\00", align 1
+@.str.112 = private unnamed_addr constant [34 x i8] c"Response: Faulty ARServerBlockRes\00", align 1
+@.str.113 = private unnamed_addr constant [34 x i8] c"Response: Faulty ARVendorBlockRes\00", align 1
+@.str.114 = private unnamed_addr constant [21 x i8] c"AlarmAck Error Codes\00", align 1
+@.str.115 = private unnamed_addr constant [6 x i8] c"CMDEV\00", align 1
+@.str.116 = private unnamed_addr constant [6 x i8] c"CMCTL\00", align 1
+@.str.117 = private unnamed_addr constant [8 x i8] c"CTLDINA\00", align 1
+@.str.118 = private unnamed_addr constant [6 x i8] c"CMRPC\00", align 1
+@.str.119 = private unnamed_addr constant [6 x i8] c"ALPMI\00", align 1
+@.str.120 = private unnamed_addr constant [6 x i8] c"ALPMR\00", align 1
+@.str.121 = private unnamed_addr constant [5 x i8] c"LMPM\00", align 1
+@.str.122 = private unnamed_addr constant [4 x i8] c"MAC\00", align 1
+@.str.123 = private unnamed_addr constant [4 x i8] c"RPC\00", align 1
+@.str.124 = private unnamed_addr constant [5 x i8] c"APMR\00", align 1
+@.str.125 = private unnamed_addr constant [5 x i8] c"APMS\00", align 1
+@.str.126 = private unnamed_addr constant [4 x i8] c"CPM\00", align 1
+@.str.127 = private unnamed_addr constant [4 x i8] c"PPM\00", align 1
+@.str.128 = private unnamed_addr constant [7 x i8] c"DCPUCS\00", align 1
+@.str.129 = private unnamed_addr constant [7 x i8] c"DCPUCR\00", align 1
+@.str.130 = private unnamed_addr constant [7 x i8] c"DCPMCS\00", align 1
+@.str.131 = private unnamed_addr constant [7 x i8] c"DCPMCR\00", align 1
+@.str.132 = private unnamed_addr constant [5 x i8] c"FSPM\00", align 1
+@.str.133 = private unnamed_addr constant [4 x i8] c"RSI\00", align 1
+@.str.134 = private unnamed_addr constant [5 x i8] c"RSIR\00", align 1
+@.str.135 = private unnamed_addr constant [6 x i8] c"CTLSM\00", align 1
+@.str.136 = private unnamed_addr constant [7 x i8] c"CTLRDI\00", align 1
+@.str.137 = private unnamed_addr constant [7 x i8] c"CTLRDR\00", align 1
+@.str.138 = private unnamed_addr constant [7 x i8] c"CTLWRI\00", align 1
+@.str.139 = private unnamed_addr constant [7 x i8] c"CTLWRR\00", align 1
+@.str.140 = private unnamed_addr constant [6 x i8] c"CTLIO\00", align 1
+@.str.141 = private unnamed_addr constant [6 x i8] c"CTLSU\00", align 1
+@.str.142 = private unnamed_addr constant [7 x i8] c"CTLRPC\00", align 1
+@.str.143 = private unnamed_addr constant [6 x i8] c"CTLBE\00", align 1
+@.str.144 = private unnamed_addr constant [7 x i8] c"CTLSRL\00", align 1
+@.str.145 = private unnamed_addr constant [4 x i8] c"NME\00", align 1
+@.str.146 = private unnamed_addr constant [4 x i8] c"TDE\00", align 1
+@.str.147 = private unnamed_addr constant [4 x i8] c"PCE\00", align 1
+@.str.148 = private unnamed_addr constant [4 x i8] c"NCE\00", align 1
+@.str.149 = private unnamed_addr constant [4 x i8] c"NUE\00", align 1
+@.str.150 = private unnamed_addr constant [5 x i8] c"BNME\00", align 1
+@.str.151 = private unnamed_addr constant [7 x i8] c"CTLSAM\00", align 1
+@.str.152 = private unnamed_addr constant [5 x i8] c"CMSM\00", align 1
+@.str.153 = private unnamed_addr constant [6 x i8] c"CMRDR\00", align 1
+@.str.154 = private unnamed_addr constant [6 x i8] c"CMWRR\00", align 1
+@.str.155 = private unnamed_addr constant [5 x i8] c"CMIO\00", align 1
+@.str.156 = private unnamed_addr constant [5 x i8] c"CMSU\00", align 1
+@.str.157 = private unnamed_addr constant [6 x i8] c"CMINA\00", align 1
+@.str.158 = private unnamed_addr constant [6 x i8] c"CMPBE\00", align 1
+@.str.159 = private unnamed_addr constant [6 x i8] c"CMSRL\00", align 1
+@.str.160 = private unnamed_addr constant [6 x i8] c"CMDMC\00", align 1
+@.str.161 = private unnamed_addr constant [6 x i8] c"CMSAM\00", align 1
+@.str.162 = private unnamed_addr constant [21 x i8] c"RTA_ERR_CLS_PROTOCOL\00", align 1
+@.str.163 = private unnamed_addr constant [14 x i8] c"User specific\00", align 1
+@pn_io_error_code1_pnio = internal constant [79 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.86 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.87 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.88 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.89 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.90 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.91 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.92 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.93 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.94 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.95 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.96 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.97 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.98 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.99 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.100 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.101 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.102 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.103 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.104 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.105 }, { i32, [4 x i8], ptr } { i32 40, [4 x i8] zeroinitializer, ptr @.str.106 }, { i32, [4 x i8], ptr } { i32 50, [4 x i8] zeroinitializer, ptr @.str.107 }, { i32, [4 x i8], ptr } { i32 51, [4 x i8] zeroinitializer, ptr @.str.108 }, { i32, [4 x i8], ptr } { i32 52, [4 x i8] zeroinitializer, ptr @.str.109 }, { i32, [4 x i8], ptr } { i32 53, [4 x i8] zeroinitializer, ptr @.str.110 }, { i32, [4 x i8], ptr } { i32 54, [4 x i8] zeroinitializer, ptr @.str.111 }, { i32, [4 x i8], ptr } { i32 55, [4 x i8] zeroinitializer, ptr @.str.112 }, { i32, [4 x i8], ptr } { i32 56, [4 x i8] zeroinitializer, ptr @.str.113 }, { i32, [4 x i8], ptr } { i32 60, [4 x i8] zeroinitializer, ptr @.str.114 }, { i32, [4 x i8], ptr } { i32 61, [4 x i8] zeroinitializer, ptr @.str.115 }, { i32, [4 x i8], ptr } { i32 62, [4 x i8] zeroinitializer, ptr @.str.116 }, { i32, [4 x i8], ptr } { i32 63, [4 x i8] zeroinitializer, ptr @.str.117 }, { i32, [4 x i8], ptr } { i32 64, [4 x i8] zeroinitializer, ptr @.str.118 }, { i32, [4 x i8], ptr } { i32 65, [4 x i8] zeroinitializer, ptr @.str.119 }, { i32, [4 x i8], ptr } { i32 66, [4 x i8] zeroinitializer, ptr @.str.120 }, { i32, [4 x i8], ptr } { i32 67, [4 x i8] zeroinitializer, ptr @.str.121 }, { i32, [4 x i8], ptr } { i32 68, [4 x i8] zeroinitializer, ptr @.str.122 }, { i32, [4 x i8], ptr } { i32 69, [4 x i8] zeroinitializer, ptr @.str.123 }, { i32, [4 x i8], ptr } { i32 70, [4 x i8] zeroinitializer, ptr @.str.124 }, { i32, [4 x i8], ptr } { i32 71, [4 x i8] zeroinitializer, ptr @.str.125 }, { i32, [4 x i8], ptr } { i32 72, [4 x i8] zeroinitializer, ptr @.str.126 }, { i32, [4 x i8], ptr } { i32 73, [4 x i8] zeroinitializer, ptr @.str.127 }, { i32, [4 x i8], ptr } { i32 74, [4 x i8] zeroinitializer, ptr @.str.128 }, { i32, [4 x i8], ptr } { i32 75, [4 x i8] zeroinitializer, ptr @.str.129 }, { i32, [4 x i8], ptr } { i32 76, [4 x i8] zeroinitializer, ptr @.str.130 }, { i32, [4 x i8], ptr } { i32 77, [4 x i8] zeroinitializer, ptr @.str.131 }, { i32, [4 x i8], ptr } { i32 78, [4 x i8] zeroinitializer, ptr @.str.132 }, { i32, [4 x i8], ptr } { i32 79, [4 x i8] zeroinitializer, ptr @.str.133 }, { i32, [4 x i8], ptr } { i32 80, [4 x i8] zeroinitializer, ptr @.str.134 }, { i32, [4 x i8], ptr } { i32 100, [4 x i8] zeroinitializer, ptr @.str.135 }, { i32, [4 x i8], ptr } { i32 101, [4 x i8] zeroinitializer, ptr @.str.136 }, { i32, [4 x i8], ptr } { i32 102, [4 x i8] zeroinitializer, ptr @.str.137 }, { i32, [4 x i8], ptr } { i32 103, [4 x i8] zeroinitializer, ptr @.str.138 }, { i32, [4 x i8], ptr } { i32 104, [4 x i8] zeroinitializer, ptr @.str.139 }, { i32, [4 x i8], ptr } { i32 105, [4 x i8] zeroinitializer, ptr @.str.140 }, { i32, [4 x i8], ptr } { i32 106, [4 x i8] zeroinitializer, ptr @.str.141 }, { i32, [4 x i8], ptr } { i32 107, [4 x i8] zeroinitializer, ptr @.str.142 }, { i32, [4 x i8], ptr } { i32 108, [4 x i8] zeroinitializer, ptr @.str.143 }, { i32, [4 x i8], ptr } { i32 109, [4 x i8] zeroinitializer, ptr @.str.144 }, { i32, [4 x i8], ptr } { i32 110, [4 x i8] zeroinitializer, ptr @.str.145 }, { i32, [4 x i8], ptr } { i32 111, [4 x i8] zeroinitializer, ptr @.str.146 }, { i32, [4 x i8], ptr } { i32 112, [4 x i8] zeroinitializer, ptr @.str.147 }, { i32, [4 x i8], ptr } { i32 113, [4 x i8] zeroinitializer, ptr @.str.148 }, { i32, [4 x i8], ptr } { i32 114, [4 x i8] zeroinitializer, ptr @.str.149 }, { i32, [4 x i8], ptr } { i32 115, [4 x i8] zeroinitializer, ptr @.str.150 }, { i32, [4 x i8], ptr } { i32 116, [4 x i8] zeroinitializer, ptr @.str.151 }, { i32, [4 x i8], ptr } { i32 200, [4 x i8] zeroinitializer, ptr @.str.152 }, { i32, [4 x i8], ptr } { i32 202, [4 x i8] zeroinitializer, ptr @.str.153 }, { i32, [4 x i8], ptr } { i32 204, [4 x i8] zeroinitializer, ptr @.str.154 }, { i32, [4 x i8], ptr } { i32 205, [4 x i8] zeroinitializer, ptr @.str.155 }, { i32, [4 x i8], ptr } { i32 206, [4 x i8] zeroinitializer, ptr @.str.156 }, { i32, [4 x i8], ptr } { i32 208, [4 x i8] zeroinitializer, ptr @.str.157 }, { i32, [4 x i8], ptr } { i32 209, [4 x i8] zeroinitializer, ptr @.str.158 }, { i32, [4 x i8], ptr } { i32 210, [4 x i8] zeroinitializer, ptr @.str.159 }, { i32, [4 x i8], ptr } { i32 211, [4 x i8] zeroinitializer, ptr @.str.160 }, { i32, [4 x i8], ptr } { i32 212, [4 x i8] zeroinitializer, ptr @.str.161 }, { i32, [4 x i8], ptr } { i32 253, [4 x i8] zeroinitializer, ptr @.str.162 }, { i32, [4 x i8], ptr } { i32 255, [4 x i8] zeroinitializer, ptr @.str.163 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.165 = private unnamed_addr constant [29 x i8] c"Error in Parameter BlockType\00", align 1
+@.str.166 = private unnamed_addr constant [31 x i8] c"Error in Parameter BlockLength\00", align 1
+@.str.167 = private unnamed_addr constant [36 x i8] c"Error in Parameter BlockVersionHigh\00", align 1
+@.str.168 = private unnamed_addr constant [35 x i8] c"Error in Parameter BlockVersionLow\00", align 1
+@.str.169 = private unnamed_addr constant [26 x i8] c"Error in Parameter ARType\00", align 1
+@.str.170 = private unnamed_addr constant [26 x i8] c"Error in Parameter ARUUID\00", align 1
+@.str.171 = private unnamed_addr constant [41 x i8] c"Error in Parameter CMInitiatorMACAddress\00", align 1
+@.str.172 = private unnamed_addr constant [41 x i8] c"Error in Parameter CMInitiatorObjectUUID\00", align 1
+@.str.173 = private unnamed_addr constant [32 x i8] c"Error in Parameter ARProperties\00", align 1
+@.str.174 = private unnamed_addr constant [52 x i8] c"Error in Parameter CMInitiatorActivityTimeoutFactor\00", align 1
+@.str.175 = private unnamed_addr constant [38 x i8] c"Error in Parameter InitiatorUDPRTPort\00", align 1
+@.str.176 = private unnamed_addr constant [37 x i8] c"Error in Parameter StationNameLength\00", align 1
+@.str.177 = private unnamed_addr constant [42 x i8] c"Error in Parameter CMInitiatorStationName\00", align 1
+@pn_io_error_code2_pnio_1 = internal constant [14 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.165 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.166 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.167 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.168 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.169 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.170 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.171 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.172 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.173 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.174 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.175 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.176 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.177 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.179 = private unnamed_addr constant [28 x i8] c"Error in Parameter IOCRType\00", align 1
+@.str.180 = private unnamed_addr constant [33 x i8] c"Error in Parameter IOCRReference\00", align 1
+@.str.181 = private unnamed_addr constant [22 x i8] c"Error in Parameter LT\00", align 1
+@.str.182 = private unnamed_addr constant [34 x i8] c"Error in Parameter IOCRProperties\00", align 1
+@.str.183 = private unnamed_addr constant [30 x i8] c"Error in Parameter DataLength\00", align 1
+@.str.184 = private unnamed_addr constant [27 x i8] c"Error in Parameter FrameID\00", align 1
+@.str.185 = private unnamed_addr constant [35 x i8] c"Error in Parameter SendClockFactor\00", align 1
+@.str.186 = private unnamed_addr constant [34 x i8] c"Error in Parameter ReductionRatio\00", align 1
+@.str.187 = private unnamed_addr constant [25 x i8] c"Error in Parameter Phase\00", align 1
+@.str.188 = private unnamed_addr constant [35 x i8] c"Error in Parameter FrameSendOffset\00", align 1
+@.str.189 = private unnamed_addr constant [34 x i8] c"Error in Parameter WatchdogFactor\00", align 1
+@.str.190 = private unnamed_addr constant [34 x i8] c"Error in Parameter DataHoldFactor\00", align 1
+@.str.191 = private unnamed_addr constant [33 x i8] c"Error in Parameter IOCRTagHeader\00", align 1
+@.str.192 = private unnamed_addr constant [43 x i8] c"Error in Parameter IOCRMulticastMacAddress\00", align 1
+@.str.193 = private unnamed_addr constant [31 x i8] c"Error in Parameter NumberOfAPI\00", align 1
+@.str.194 = private unnamed_addr constant [23 x i8] c"Error in Parameter API\00", align 1
+@.str.195 = private unnamed_addr constant [41 x i8] c"Error in Parameter NumberOfIODataObjects\00", align 1
+@.str.196 = private unnamed_addr constant [30 x i8] c"Error in Parameter SlotNumber\00", align 1
+@.str.197 = private unnamed_addr constant [33 x i8] c"Error in Parameter SubslotNumber\00", align 1
+@.str.198 = private unnamed_addr constant [43 x i8] c"Error in Parameter IODataObjectFrameOffset\00", align 1
+@.str.199 = private unnamed_addr constant [32 x i8] c"Error in Parameter NumberOfIOCS\00", align 1
+@.str.200 = private unnamed_addr constant [35 x i8] c"Error in Parameter IOCSFrameOffset\00", align 1
+@pn_io_error_code2_pnio_2 = internal constant [29 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.165 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.166 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.167 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.168 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.179 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.180 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.181 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.182 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.183 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.184 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.185 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.186 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.187 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.188 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.189 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.190 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.191 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.192 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.193 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.194 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.195 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.196 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.197 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.198 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.199 }, { i32, [4 x i8], ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.196 }, { i32, [4 x i8], ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.197 }, { i32, [4 x i8], ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.200 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.202 = private unnamed_addr constant [37 x i8] c"Error in Parameter ModuleIdentNumber\00", align 1
+@.str.203 = private unnamed_addr constant [36 x i8] c"Error in Parameter ModuleProperties\00", align 1
+@.str.204 = private unnamed_addr constant [38 x i8] c"Error in Parameter NumberOfSubmodules\00", align 1
+@.str.205 = private unnamed_addr constant [39 x i8] c"Error in Parameter SubmoduleProperties\00", align 1
+@.str.206 = private unnamed_addr constant [35 x i8] c"Error in Parameter DataDescription\00", align 1
+@.str.207 = private unnamed_addr constant [39 x i8] c"Error in Parameter SubmoduleDataLength\00", align 1
+@.str.208 = private unnamed_addr constant [30 x i8] c"Error in Parameter LengthIOPS\00", align 1
+@.str.209 = private unnamed_addr constant [30 x i8] c"Error in Parameter LengthIOCS\00", align 1
+@pn_io_error_code2_pnio_3 = internal constant [17 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.165 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.166 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.167 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.168 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.193 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.194 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.196 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.202 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.203 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.204 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.197 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.205 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.206 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.207 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.208 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.209 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.211 = private unnamed_addr constant [31 x i8] c"Error in Parameter AlarmCRType\00", align 1
+@.str.212 = private unnamed_addr constant [37 x i8] c"Error in Parameter AlarmCRProperties\00", align 1
+@.str.213 = private unnamed_addr constant [36 x i8] c"Error in Parameter RTATimeoutFactor\00", align 1
+@.str.214 = private unnamed_addr constant [30 x i8] c"Error in Parameter RTARetries\00", align 1
+@.str.215 = private unnamed_addr constant [38 x i8] c"Error in Parameter MaxAlarmDataLength\00", align 1
+@.str.216 = private unnamed_addr constant [40 x i8] c"Error in Parameter AlarmCRTagHeaderHigh\00", align 1
+@.str.217 = private unnamed_addr constant [39 x i8] c"Error in Parameter AlarmCRTagHeaderLow\00", align 1
+@pn_io_error_code2_pnio_4 = internal constant [13 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.165 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.166 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.167 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.168 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.211 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.181 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.212 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.213 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.214 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.215 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.216 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.217 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.219 = private unnamed_addr constant [46 x i8] c"Error in Parameter ParameterServerStationName\00", align 1
+@pn_io_error_code2_pnio_5 = internal constant [8 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.165 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.166 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.167 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.168 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.174 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.176 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.219 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.221 = private unnamed_addr constant [47 x i8] c"Error in Parameter AddressResolutionProperties\00", align 1
+@.str.222 = private unnamed_addr constant [36 x i8] c"Error in Parameter MCITimeoutFactor\00", align 1
+@.str.223 = private unnamed_addr constant [39 x i8] c"Error in Parameter ProviderStationName\00", align 1
+@pn_io_error_code2_pnio_6 = internal constant [10 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.165 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.166 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.167 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.168 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.180 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.221 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.222 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.176 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.223 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.225 = private unnamed_addr constant [42 x i8] c"Error in Parameter InitiatorRPCServerPort\00", align 1
+@pn_io_error_code2_pnio_7 = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.165 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.166 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.167 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.168 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.225 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.227 = private unnamed_addr constant [27 x i8] c"Error in Parameter Padding\00", align 1
+@.str.228 = private unnamed_addr constant [25 x i8] c"Error in Parameter Index\00", align 1
+@.str.229 = private unnamed_addr constant [36 x i8] c"Error in Parameter RecordDataLength\00", align 1
+@.str.230 = private unnamed_addr constant [32 x i8] c"Error in Parameter TargetARUUID\00", align 1
+@pn_io_error_code2_pnio_8 = internal constant [13 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.165 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.166 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.167 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.168 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.170 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.194 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.196 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.197 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.227 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.228 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.229 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.230 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.232 = private unnamed_addr constant [32 x i8] c"Error in Parameter RSProperties\00", align 1
+@pn_io_error_code2_pnio_13 = internal constant [7 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.165 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.166 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.167 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.168 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.227 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.232 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.234 = private unnamed_addr constant [30 x i8] c"Error in Parameter SessionKey\00", align 1
+@.str.235 = private unnamed_addr constant [34 x i8] c"Error in Parameter ControlCommand\00", align 1
+@.str.236 = private unnamed_addr constant [42 x i8] c"Error in Parameter ControlBlockProperties\00", align 1
+@pn_io_error_code2_pnio_20 = internal constant [10 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.165 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.166 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.167 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.168 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.227 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.234 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.227 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.235 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.236 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.238 = private unnamed_addr constant [39 x i8] c"Error in Parameter AlarmSequenceNumber\00", align 1
+@pn_io_error_code2_pnio_21 = internal constant [10 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.165 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.166 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.167 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.168 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.227 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.234 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.238 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.235 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.236 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@pn_io_error_code2_pnio_22 = internal constant [10 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.165 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.166 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.167 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.168 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.227 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.234 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.227 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.235 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.236 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@pn_io_error_code2_pnio_23 = internal constant [10 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.165 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.166 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.167 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.168 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.227 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.234 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.238 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.235 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.236 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@pn_io_error_code2_pnio_40 = internal constant [10 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.165 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.166 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.167 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.168 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.227 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.234 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.227 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.235 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.236 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.243 = private unnamed_addr constant [25 x i8] c"Alarm Type Not Supported\00", align 1
+@.str.244 = private unnamed_addr constant [22 x i8] c"Wrong Submodule State\00", align 1
+@.str.245 = private unnamed_addr constant [36 x i8] c"IOCARSR Backup - Alarm not executed\00", align 1
+@pn_io_error_code2_pnio_60 = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.243 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.244 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.245 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.247 = private unnamed_addr constant [15 x i8] c"State Conflict\00", align 1
+@.str.248 = private unnamed_addr constant [10 x i8] c"Resources\00", align 1
+@pn_io_error_code2_pnio_61 = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.247 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.248 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.250 = private unnamed_addr constant [8 x i8] c"Timeout\00", align 1
+@.str.251 = private unnamed_addr constant [13 x i8] c"No data send\00", align 1
+@pn_io_error_code2_pnio_62 = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.247 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.250 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.251 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.253 = private unnamed_addr constant [14 x i8] c"No DCP active\00", align 1
+@.str.254 = private unnamed_addr constant [28 x i8] c"DNS Unknown_RealStationName\00", align 1
+@.str.255 = private unnamed_addr constant [23 x i8] c"DCP No_RealStationName\00", align 1
+@.str.256 = private unnamed_addr constant [29 x i8] c"DCP Multiple_RealStationName\00", align 1
+@.str.257 = private unnamed_addr constant [19 x i8] c"DCP No_StationName\00", align 1
+@.str.258 = private unnamed_addr constant [11 x i8] c"No_IP_Addr\00", align 1
+@.str.259 = private unnamed_addr constant [14 x i8] c"DCP_Set_Error\00", align 1
+@pn_io_error_code2_pnio_63 = internal constant [8 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.253 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.254 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.255 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.256 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.257 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.258 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.259 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.261 = private unnamed_addr constant [19 x i8] c"ArgsLength invalid\00", align 1
+@.str.262 = private unnamed_addr constant [15 x i8] c"Unknown Blocks\00", align 1
+@.str.263 = private unnamed_addr constant [13 x i8] c"IOCR Missing\00", align 1
+@.str.264 = private unnamed_addr constant [25 x i8] c"Wrong AlarmCRBlock count\00", align 1
+@.str.265 = private unnamed_addr constant [20 x i8] c"Out of AR Resources\00", align 1
+@.str.266 = private unnamed_addr constant [16 x i8] c"AR UUID unknown\00", align 1
+@.str.267 = private unnamed_addr constant [15 x i8] c"State conflict\00", align 1
+@.str.268 = private unnamed_addr constant [45 x i8] c"Out of Provider, Consumer or Alarm Resources\00", align 1
+@.str.269 = private unnamed_addr constant [14 x i8] c"Out of Memory\00", align 1
+@.str.270 = private unnamed_addr constant [19 x i8] c"Pdev already owned\00", align 1
+@.str.271 = private unnamed_addr constant [53 x i8] c"ARset State conflict during connection establishment\00", align 1
+@.str.272 = private unnamed_addr constant [57 x i8] c"ARset Parameter conflict during connection establishment\00", align 1
+@.str.273 = private unnamed_addr constant [32 x i8] c"Pdev, port(s) without interface\00", align 1
+@pn_io_error_code2_pnio_64 = internal constant [14 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.261 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.262 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.263 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.264 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.265 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.266 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.267 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.268 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.269 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.270 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.271 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.272 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.273 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.275 = private unnamed_addr constant [14 x i8] c"Invalid State\00", align 1
+@.str.276 = private unnamed_addr constant [14 x i8] c"Wrong ACK-PDU\00", align 1
+@pn_io_error_code2_pnio_65 = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.275 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.276 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.278 = private unnamed_addr constant [23 x i8] c"Wrong Notification PDU\00", align 1
+@pn_io_error_code2_pnio_66 = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.275 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.278 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.280 = private unnamed_addr constant [20 x i8] c"LMPM signaled error\00", align 1
+@pn_io_error_code2_pnio_70 = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.275 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.280 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@pn_io_error_code2_pnio_71 = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.275 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.280 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.250 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@pn_io_error_code2_pnio_72 = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.275 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@pn_io_error_code2_pnio_73 = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.275 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.285 = private unnamed_addr constant [23 x i8] c"LMPM signaled an error\00", align 1
+@pn_io_error_code2_pnio_74 = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.275 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.285 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.250 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@pn_io_error_code2_pnio_75 = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.275 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.285 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@pn_io_error_code2_pnio_76 = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.275 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.285 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@pn_io_error_code2_pnio_77 = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.275 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.285 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.290 = private unnamed_addr constant [9 x i8] c"reserved\00", align 1
+@.str.291 = private unnamed_addr constant [75 x i8] c"Error within the coordination of sequence numbers (RTA_ERR_CODE_SEQ) error\00", align 1
+@.str.292 = private unnamed_addr constant [32 x i8] c"Instance closed (RTA_ERR_ABORT)\00", align 1
+@.str.293 = private unnamed_addr constant [33 x i8] c"AR out of memory (RTA_ERR_ABORT)\00", align 1
+@.str.294 = private unnamed_addr constant [51 x i8] c"AR add provider or consumer failed (RTA_ERR_ABORT)\00", align 1
+@.str.295 = private unnamed_addr constant [44 x i8] c"AR consumer DHT/WDT expired (RTA_ERR_ABORT)\00", align 1
+@.str.296 = private unnamed_addr constant [31 x i8] c"AR cmi timeout (RTA_ERR_ABORT)\00", align 1
+@.str.297 = private unnamed_addr constant [37 x i8] c"AR alarm-open failed (RTA_ERR_ABORT)\00", align 1
+@.str.298 = private unnamed_addr constant [37 x i8] c"AR alarm-send.cnf(-) (RTA_ERR_ABORT)\00", align 1
+@.str.299 = private unnamed_addr constant [41 x i8] c"AR alarm-ack-send.cnf(-) (RTA_ERR_ABORT)\00", align 1
+@.str.300 = private unnamed_addr constant [39 x i8] c"AR alarm data too long (RTA_ERR_ABORT)\00", align 1
+@.str.301 = private unnamed_addr constant [34 x i8] c"AR alarm.ind(err) (RTA_ERR_ABORT)\00", align 1
+@.str.302 = private unnamed_addr constant [42 x i8] c"AR rpc-client call.cnf(-) (RTA_ERR_ABORT)\00", align 1
+@.str.303 = private unnamed_addr constant [29 x i8] c"AR abort.req (RTA_ERR_ABORT)\00", align 1
+@.str.304 = private unnamed_addr constant [42 x i8] c"AR re-run aborts existing (RTA_ERR_ABORT)\00", align 1
+@.str.305 = private unnamed_addr constant [40 x i8] c"AR release.ind received (RTA_ERR_ABORT)\00", align 1
+@.str.306 = private unnamed_addr constant [38 x i8] c"AR device deactivated (RTA_ERR_ABORT)\00", align 1
+@.str.307 = private unnamed_addr constant [27 x i8] c"AR removed (RTA_ERR_ABORT)\00", align 1
+@.str.308 = private unnamed_addr constant [38 x i8] c"AR protocol violation (RTA_ERR_ABORT)\00", align 1
+@.str.309 = private unnamed_addr constant [41 x i8] c"AR name resolution error (RTA_ERR_ABORT)\00", align 1
+@.str.310 = private unnamed_addr constant [34 x i8] c"AR RPC-Bind error (RTA_ERR_ABORT)\00", align 1
+@.str.311 = private unnamed_addr constant [37 x i8] c"AR RPC-Connect error (RTA_ERR_ABORT)\00", align 1
+@.str.312 = private unnamed_addr constant [34 x i8] c"AR RPC-Read error (RTA_ERR_ABORT)\00", align 1
+@.str.313 = private unnamed_addr constant [35 x i8] c"AR RPC-Write error (RTA_ERR_ABORT)\00", align 1
+@.str.314 = private unnamed_addr constant [37 x i8] c"AR RPC-Control error (RTA_ERR_ABORT)\00", align 1
+@.str.315 = private unnamed_addr constant [81 x i8] c"AR forbidden pull or plug after check.rsp and before in-data.ind (RTA_ERR_ABORT)\00", align 1
+@.str.316 = private unnamed_addr constant [30 x i8] c"AR AP removed (RTA_ERR_ABORT)\00", align 1
+@.str.317 = private unnamed_addr constant [29 x i8] c"AR link down (RTA_ERR_ABORT)\00", align 1
+@.str.318 = private unnamed_addr constant [60 x i8] c"AR could not register multicast-mac address (RTA_ERR_ABORT)\00", align 1
+@.str.319 = private unnamed_addr constant [61 x i8] c"not synchronized (cannot start companion-ar) (RTA_ERR_ABORT)\00", align 1
+@.str.320 = private unnamed_addr constant [59 x i8] c"wrong topology (cannot start companion-ar) (RTA_ERR_ABORT)\00", align 1
+@.str.321 = private unnamed_addr constant [42 x i8] c"dcp, station-name changed (RTA_ERR_ABORT)\00", align 1
+@.str.322 = private unnamed_addr constant [47 x i8] c"dcp, reset to factory-settings (RTA_ERR_ABORT)\00", align 1
+@.str.323 = private unnamed_addr constant [88 x i8] c"cannot start companion-AR because a 0x8ipp submodule in the first AR... (RTA_ERR_ABORT)\00", align 1
+@.str.324 = private unnamed_addr constant [37 x i8] c"no irdata record yet (RTA_ERR_ABORT)\00", align 1
+@.str.325 = private unnamed_addr constant [23 x i8] c"PDEV (RTA_ERROR_ABORT)\00", align 1
+@.str.326 = private unnamed_addr constant [64 x i8] c"PDEV, no port offers required speed/duplexity (RTA_ERROR_ABORT)\00", align 1
+@.str.327 = private unnamed_addr constant [102 x i8] c"IP-Suite [of the IOC] changed by means of DCP_Set(IPParameter) or local engineering (RTA_ERROR_ABORT)\00", align 1
+@.str.328 = private unnamed_addr constant [22 x i8] c"IOCARSR, RDHT expired\00", align 1
+@.str.329 = private unnamed_addr constant [43 x i8] c"IOCARSR, Pdev, parameterization impossible\00", align 1
+@.str.330 = private unnamed_addr constant [41 x i8] c"Remote application ready timeout expired\00", align 1
+@.str.331 = private unnamed_addr constant [74 x i8] c"IOCARSR, Redundant interface list or access to the peripherals impossible\00", align 1
+@.str.332 = private unnamed_addr constant [22 x i8] c"IOCARSR, MTOT expired\00", align 1
+@.str.333 = private unnamed_addr constant [31 x i8] c"IOCARSR, AR protocol violation\00", align 1
+@.str.334 = private unnamed_addr constant [48 x i8] c"PDEV, plug port without CombinedObjectContainer\00", align 1
+@.str.335 = private unnamed_addr constant [31 x i8] c"NME, no or wrong configuration\00", align 1
+@pn_io_error_code2_pnio_253 = internal constant [47 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.290 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.291 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.292 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.293 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.294 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.295 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.296 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.297 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.298 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.299 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.300 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.301 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.302 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.303 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.304 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.305 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.306 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.307 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.308 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.309 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.310 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.311 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.312 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.313 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.314 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.315 }, { i32, [4 x i8], ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.316 }, { i32, [4 x i8], ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.317 }, { i32, [4 x i8], ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.318 }, { i32, [4 x i8], ptr } { i32 29, [4 x i8] zeroinitializer, ptr @.str.319 }, { i32, [4 x i8], ptr } { i32 30, [4 x i8] zeroinitializer, ptr @.str.320 }, { i32, [4 x i8], ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.321 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.322 }, { i32, [4 x i8], ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.323 }, { i32, [4 x i8], ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.324 }, { i32, [4 x i8], ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.325 }, { i32, [4 x i8], ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.326 }, { i32, [4 x i8], ptr } { i32 37, [4 x i8] zeroinitializer, ptr @.str.327 }, { i32, [4 x i8], ptr } { i32 38, [4 x i8] zeroinitializer, ptr @.str.328 }, { i32, [4 x i8], ptr } { i32 39, [4 x i8] zeroinitializer, ptr @.str.329 }, { i32, [4 x i8], ptr } { i32 40, [4 x i8] zeroinitializer, ptr @.str.330 }, { i32, [4 x i8], ptr } { i32 41, [4 x i8] zeroinitializer, ptr @.str.331 }, { i32, [4 x i8], ptr } { i32 42, [4 x i8] zeroinitializer, ptr @.str.332 }, { i32, [4 x i8], ptr } { i32 43, [4 x i8] zeroinitializer, ptr @.str.333 }, { i32, [4 x i8], ptr } { i32 44, [4 x i8] zeroinitializer, ptr @.str.334 }, { i32, [4 x i8], ptr } { i32 45, [4 x i8] zeroinitializer, ptr @.str.335 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.337 = private unnamed_addr constant [11 x i8] c"User abort\00", align 1
+@pn_io_error_code2_pnio_255 = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 255, [4 x i8] zeroinitializer, ptr @.str.337 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@pn_io_error_code1 = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.41 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.340 = private unnamed_addr constant [5 x i8] c"PNIO\00", align 1
+@.str.341 = private unnamed_addr constant [10 x i8] c"RTA error\00", align 1
+@.str.342 = private unnamed_addr constant [9 x i8] c"AlarmAck\00", align 1
+@.str.343 = private unnamed_addr constant [14 x i8] c"IODConnectRes\00", align 1
+@.str.344 = private unnamed_addr constant [14 x i8] c"IODReleaseRes\00", align 1
+@.str.345 = private unnamed_addr constant [14 x i8] c"IODControlRes\00", align 1
+@.str.346 = private unnamed_addr constant [11 x i8] c"IODReadRes\00", align 1
+@.str.347 = private unnamed_addr constant [12 x i8] c"IODWriteRes\00", align 1
+@pn_io_error_code = internal constant [10 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.41 }, { i32, [4 x i8], ptr } { i32 129, [4 x i8] zeroinitializer, ptr @.str.340 }, { i32, [4 x i8], ptr } { i32 207, [4 x i8] zeroinitializer, ptr @.str.341 }, { i32, [4 x i8], ptr } { i32 218, [4 x i8] zeroinitializer, ptr @.str.342 }, { i32, [4 x i8], ptr } { i32 219, [4 x i8] zeroinitializer, ptr @.str.343 }, { i32, [4 x i8], ptr } { i32 220, [4 x i8] zeroinitializer, ptr @.str.344 }, { i32, [4 x i8], ptr } { i32 221, [4 x i8] zeroinitializer, ptr @.str.345 }, { i32, [4 x i8], ptr } { i32 222, [4 x i8] zeroinitializer, ptr @.str.346 }, { i32, [4 x i8], ptr } { i32 223, [4 x i8] zeroinitializer, ptr @.str.347 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.349 = private unnamed_addr constant [7 x i8] c"PNIORW\00", align 1
+@pn_io_error_decode = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.41 }, { i32, [4 x i8], ptr } { i32 128, [4 x i8] zeroinitializer, ptr @.str.349 }, { i32, [4 x i8], ptr } { i32 129, [4 x i8] zeroinitializer, ptr @.str.340 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @init_pnio_rtc1_station(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = call ptr @wmem_file_scope()
   %4 = call noalias ptr @wmem_list_new(ptr noundef %3)
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %struct.tagStationInfo, ptr %5, i32 0, i32 11
+  %6 = getelementptr inbounds nuw %struct.tagStationInfo, ptr %5, i32 0, i32 11
   store ptr %4, ptr %6, align 8
   %7 = call ptr @wmem_file_scope()
   %8 = call noalias ptr @wmem_list_new(ptr noundef %7)
   %9 = load ptr, ptr %2, align 8
-  %10 = getelementptr inbounds %struct.tagStationInfo, ptr %9, i32 0, i32 12
+  %10 = getelementptr inbounds nuw %struct.tagStationInfo, ptr %9, i32 0, i32 12
   store ptr %8, ptr %10, align 8
   %11 = call ptr @wmem_file_scope()
   %12 = call noalias ptr @wmem_list_new(ptr noundef %11)
   %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds %struct.tagStationInfo, ptr %13, i32 0, i32 13
+  %14 = getelementptr inbounds nuw %struct.tagStationInfo, ptr %13, i32 0, i32 13
   store ptr %12, ptr %14, align 8
   %15 = call ptr @wmem_file_scope()
   %16 = call noalias ptr @wmem_list_new(ptr noundef %15)
   %17 = load ptr, ptr %2, align 8
-  %18 = getelementptr inbounds %struct.tagStationInfo, ptr %17, i32 0, i32 14
+  %18 = getelementptr inbounds nuw %struct.tagStationInfo, ptr %17, i32 0, i32 14
   store ptr %16, ptr %18, align 8
   %19 = call ptr @wmem_file_scope()
   %20 = call noalias ptr @wmem_list_new(ptr noundef %19)
   %21 = load ptr, ptr %2, align 8
-  %22 = getelementptr inbounds %struct.tagStationInfo, ptr %21, i32 0, i32 15
+  %22 = getelementptr inbounds nuw %struct.tagStationInfo, ptr %21, i32 0, i32 15
   store ptr %20, ptr %22, align 8
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare noalias ptr @wmem_list_new(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_file_scope() #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dissect_pn_uint8(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -475,9 +475,10 @@ define hidden i32 @dissect_pn_uint8(ptr noundef %0, i32 noundef %1, ptr noundef 
   store ptr %3, ptr %10, align 8
   store i32 %4, ptr %11, align 4
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #10
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
-  %16 = call zeroext i8 @tvb_get_guint8(ptr noundef %14, i32 noundef %15)
+  %16 = call zeroext i8 @tvb_get_uint8(ptr noundef %14, i32 noundef %15)
   store i8 %16, ptr %13, align 1
   %17 = load ptr, ptr %10, align 8
   %18 = load i32, ptr %11, align 4
@@ -499,14 +500,23 @@ define hidden i32 @dissect_pn_uint8(ptr noundef %0, i32 noundef %1, ptr noundef 
 29:                                               ; preds = %26, %6
   %30 = load i32, ptr %8, align 4
   %31 = add i32 %30, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #10
   ret i32 %31
 }
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #1
+
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dissect_pn_uint16_ret_item(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) #0 {
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
@@ -524,6 +534,8 @@ define hidden i32 @dissect_pn_uint16_ret_item(ptr noundef %0, i32 noundef %1, pt
   store i32 %4, ptr %12, align 4
   store ptr %5, ptr %13, align 8
   store ptr %6, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %15) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #10
   store ptr null, ptr %16, align 8
   %17 = load ptr, ptr %8, align 8
   %18 = load i32, ptr %9, align 4
@@ -561,12 +573,15 @@ define hidden i32 @dissect_pn_uint16_ret_item(ptr noundef %0, i32 noundef %1, pt
 38:                                               ; preds = %35, %32
   %39 = load i32, ptr %9, align 4
   %40 = add i32 %39, 2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #10
+  call void @llvm.lifetime.end.p0(i64 2, ptr %15) #10
   ret i32 %40
 }
 
+; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dissect_pn_uint16(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -581,6 +596,7 @@ define hidden i32 @dissect_pn_uint16(ptr noundef %0, i32 noundef %1, ptr noundef
   store ptr %3, ptr %10, align 8
   store i32 %4, ptr %11, align 4
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #10
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
   %16 = call zeroext i16 @tvb_get_ntohs(ptr noundef %14, i32 noundef %15)
@@ -605,10 +621,11 @@ define hidden i32 @dissect_pn_uint16(ptr noundef %0, i32 noundef %1, ptr noundef
 29:                                               ; preds = %26, %6
   %30 = load i32, ptr %8, align 4
   %31 = add i32 %30, 2
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #10
   ret i32 %31
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dissect_pn_int16(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -623,6 +640,7 @@ define hidden i32 @dissect_pn_int16(ptr noundef %0, i32 noundef %1, ptr noundef 
   store ptr %3, ptr %10, align 8
   store i32 %4, ptr %11, align 4
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #10
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
   %16 = call zeroext i16 @tvb_get_ntohs(ptr noundef %14, i32 noundef %15)
@@ -647,12 +665,14 @@ define hidden i32 @dissect_pn_int16(ptr noundef %0, i32 noundef %1, ptr noundef 
 29:                                               ; preds = %26, %6
   %30 = load i32, ptr %8, align 4
   %31 = add i32 %30, 2
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #10
   ret i32 %31
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_int(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dissect_pn_oid(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -667,6 +687,7 @@ define hidden i32 @dissect_pn_oid(ptr noundef %0, i32 noundef %1, ptr noundef %2
   store ptr %3, ptr %10, align 8
   store i32 %4, ptr %11, align 4
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #10
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
   %16 = call i32 @tvb_get_ntoh24(ptr noundef %14, i32 noundef %15)
@@ -690,12 +711,14 @@ define hidden i32 @dissect_pn_oid(ptr noundef %0, i32 noundef %1, ptr noundef %2
 28:                                               ; preds = %25, %6
   %29 = load i32, ptr %8, align 4
   %30 = add i32 %29, 3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #10
   ret i32 %30
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_get_ntoh24(ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dissect_pn_mac(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -710,6 +733,7 @@ define hidden i32 @dissect_pn_mac(ptr noundef %0, i32 noundef %1, ptr noundef %2
   store ptr %3, ptr %10, align 8
   store i32 %4, ptr %11, align 4
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 6, ptr %13) #10
   %14 = load ptr, ptr %7, align 8
   %15 = getelementptr inbounds [6 x i8], ptr %13, i64 0, i64 0
   %16 = load i32, ptr %8, align 4
@@ -722,28 +746,45 @@ define hidden i32 @dissect_pn_mac(ptr noundef %0, i32 noundef %1, ptr noundef %2
   %23 = call ptr @proto_tree_add_ether(ptr noundef %18, i32 noundef %19, ptr noundef %20, i32 noundef %21, i32 noundef 6, ptr noundef %22)
   %24 = load ptr, ptr %12, align 8
   %25 = icmp ne ptr %24, null
-  br i1 %25, label %26, label %29
+  br i1 %25, label %26, label %30
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %12, align 8
   %28 = getelementptr inbounds [6 x i8], ptr %13, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %27, ptr align 1 %28, i64 6, i1 false)
-  br label %29
+  %29 = call ptr @memcpy.inline(ptr noundef %27, ptr noundef %28, i64 noundef 6) #10
+  br label %30
 
-29:                                               ; preds = %26, %6
-  %30 = load i32, ptr %8, align 4
-  %31 = add i32 %30, 6
-  ret i32 %31
+30:                                               ; preds = %26, %6
+  %31 = load i32, ptr %8, align 4
+  %32 = add i32 %31, 6
+  call void @llvm.lifetime.end.p0(i64 6, ptr %13) #10
+  ret i32 %32
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_memcpy(ptr noundef, ptr noundef, i32 noundef, i64 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_ether(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+; Function Attrs: alwaysinline nounwind
+define internal ptr @memcpy.inline(ptr noalias %0, ptr noalias %1, i64 %2) #3 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load i64, ptr %6, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = call i64 @llvm.objectsize.i64.p0(ptr %10, i1 false, i1 true, i1 true)
+  %12 = call ptr @__memcpy_chk(ptr noundef %7, ptr noundef %8, i64 noundef %9, i64 noundef %11) #10
+  ret ptr %12
+}
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dissect_pn_ipv4(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -758,6 +799,7 @@ define hidden i32 @dissect_pn_ipv4(ptr noundef %0, i32 noundef %1, ptr noundef %
   store ptr %3, ptr %10, align 8
   store i32 %4, ptr %11, align 4
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #10
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
   %16 = call i32 @tvb_get_ipv4(ptr noundef %14, i32 noundef %15)
@@ -781,14 +823,17 @@ define hidden i32 @dissect_pn_ipv4(ptr noundef %0, i32 noundef %1, ptr noundef %
 28:                                               ; preds = %25, %6
   %29 = load i32, ptr %8, align 4
   %30 = add i32 %29, 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #10
   ret i32 %30
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_get_ipv4(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_ipv4(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dissect_pn_uuid(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -803,6 +848,7 @@ define hidden i32 @dissect_pn_uuid(ptr noundef %0, i32 noundef %1, ptr noundef %
   store ptr %3, ptr %10, align 8
   store i32 %4, ptr %11, align 4
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #10
   call void @llvm.memset.p0.i64(ptr align 1 %13, i8 0, i64 2, i1 false)
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -814,15 +860,17 @@ define hidden i32 @dissect_pn_uuid(ptr noundef %0, i32 noundef %1, ptr noundef %
   %21 = call i32 @dissect_dcerpc_uuid_t(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, i32 noundef %19, ptr noundef %20)
   store i32 %21, ptr %8, align 4
   %22 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #10
   ret i32 %22
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_dcerpc_uuid_t(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dissect_pn_undecoded(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -835,6 +883,7 @@ define hidden i32 @dissect_pn_undecoded(ptr noundef %0, i32 noundef %1, ptr noun
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   store i32 %4, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #10
   %12 = load ptr, ptr %9, align 8
   %13 = load i32, ptr @hf_pn_undecoded_data, align 4
   %14 = load ptr, ptr %6, align 8
@@ -850,14 +899,17 @@ define hidden i32 @dissect_pn_undecoded(ptr noundef %0, i32 noundef %1, ptr noun
   %23 = load i32, ptr %7, align 4
   %24 = load i32, ptr %10, align 4
   %25 = add i32 %23, %24
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
   ret i32 %25
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_string_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dissect_pn_user_data_bytes(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -900,9 +952,10 @@ define hidden i32 @dissect_pn_user_data_bytes(ptr noundef %0, i32 noundef %1, pt
   ret i32 %32
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dissect_pn_user_data(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -938,7 +991,7 @@ define hidden i32 @dissect_pn_user_data(ptr noundef %0, i32 noundef %1, ptr noun
   ret i32 %27
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dissect_pn_malformed(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -960,7 +1013,7 @@ define hidden i32 @dissect_pn_malformed(ptr noundef %0, i32 noundef %1, ptr noun
   ret i32 %17
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dissect_pn_padding(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -985,7 +1038,7 @@ define hidden i32 @dissect_pn_padding(ptr noundef %0, i32 noundef %1, ptr nounde
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dissect_pn_align4(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -996,6 +1049,7 @@ define hidden i32 @dissect_pn_align4(ptr noundef %0, i32 noundef %1, ptr noundef
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #10
   store i32 0, ptr %9, align 4
   %10 = load i32, ptr %6, align 4
   %11 = srem i32 %10, 4
@@ -1020,10 +1074,11 @@ define hidden i32 @dissect_pn_align4(ptr noundef %0, i32 noundef %1, ptr noundef
   %25 = load i32, ptr %6, align 4
   %26 = load i32, ptr %9, align 4
   %27 = add i32 %25, %26
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #10
   ret i32 %27
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dissect_PNIO_status(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -1045,6 +1100,14 @@ define hidden i32 @dissect_PNIO_status(ptr noundef %0, i32 noundef %1, ptr nound
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   store ptr %4, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #10
   %21 = load ptr, ptr %10, align 8
   %22 = getelementptr i8, ptr %21, i64 0
   %23 = load i8, ptr %22, align 1
@@ -1053,6 +1116,8 @@ define hidden i32 @dissect_PNIO_status(ptr noundef %0, i32 noundef %1, ptr nound
   %26 = icmp ne i32 %25, 0
   %27 = select i1 %26, i32 3, i32 0
   store i32 %27, ptr %18, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #10
   store ptr @pn_io_error_code2, ptr %20, align 8
   %28 = load ptr, ptr %9, align 8
   %29 = load i32, ptr @hf_pn_io_status, align 4
@@ -1704,7 +1769,7 @@ define hidden i32 @dissect_PNIO_status(ptr noundef %0, i32 noundef %1, ptr nound
   %511 = load ptr, ptr %15, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %511, ptr noundef @.str.7)
   %512 = load ptr, ptr %8, align 8
-  %513 = getelementptr inbounds %struct._packet_info, ptr %512, i32 0, i32 1
+  %513 = getelementptr inbounds nuw %struct._packet_info, ptr %512, i32 0, i32 1
   %514 = load ptr, ptr %513, align 8
   call void @col_append_str(ptr noundef %514, i32 noundef 25, ptr noundef @.str.8)
   br label %548
@@ -1727,7 +1792,7 @@ define hidden i32 @dissect_PNIO_status(ptr noundef %0, i32 noundef %1, ptr nound
   %530 = call ptr @val_to_str(i32 noundef %528, ptr noundef %529, ptr noundef @.str.10)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %516, ptr noundef @.str.9, ptr noundef %519, ptr noundef %522, ptr noundef %526, ptr noundef %530)
   %531 = load ptr, ptr %8, align 8
-  %532 = getelementptr inbounds %struct._packet_info, ptr %531, i32 0, i32 1
+  %532 = getelementptr inbounds nuw %struct._packet_info, ptr %531, i32 0, i32 1
   %533 = load ptr, ptr %532, align 8
   %534 = load i8, ptr %11, align 1
   %535 = zext i8 %534 to i32
@@ -1753,24 +1818,41 @@ define hidden i32 @dissect_PNIO_status(ptr noundef %0, i32 noundef %1, ptr nound
   %552 = sub i32 %550, %551
   call void @proto_item_set_len(ptr noundef %549, i32 noundef %552)
   %553 = load i32, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #10
   ret i32 %553
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_dcerpc_uint8(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_item_set_len(ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @pn_append_info(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -1779,7 +1861,7 @@ define hidden void @pn_append_info(ptr noundef %0, ptr noundef %1, ptr noundef %
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %struct._packet_info, ptr %7, i32 0, i32 1
+  %8 = getelementptr inbounds nuw %struct._packet_info, ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %6, align 8
   call void @col_append_str(ptr noundef %9, i32 noundef 25, ptr noundef %10)
@@ -1789,51 +1871,60 @@ define hidden void @pn_append_info(ptr noundef %0, ptr noundef %1, ptr noundef %
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @pn_init_append_aruuid_frame_setup_list(i64 %0, i64 %1, i32 noundef %2) #0 {
   %4 = alloca %struct._e_guid_t, align 4
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
-  %7 = getelementptr inbounds { i64, i64 }, ptr %4, i32 0, i32 0
+  %7 = getelementptr inbounds nuw { i64, i64 }, ptr %4, i32 0, i32 0
   store i64 %0, ptr %7, align 4
-  %8 = getelementptr inbounds { i64, i64 }, ptr %4, i32 0, i32 1
+  %8 = getelementptr inbounds nuw { i64, i64 }, ptr %4, i32 0, i32 1
   store i64 %1, ptr %8, align 4
   store i32 %2, ptr %5, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
   %9 = call ptr @wmem_file_scope()
-  %10 = call noalias ptr @wmem_alloc0(ptr noundef %9, i64 noundef 28)
+  %10 = call noalias ptr @wmem_alloc0(ptr noundef %9, i64 noundef 28) #11
   store ptr %10, ptr %6, align 8
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds %struct.tagARUUIDFrame, ptr %11, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %struct.tagARUUIDFrame, ptr %11, i32 0, i32 0
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %12, ptr align 4 %4, i64 16, i1 false)
   %13 = load i32, ptr %5, align 4
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds %struct.tagARUUIDFrame, ptr %14, i32 0, i32 1
+  %15 = getelementptr inbounds nuw %struct.tagARUUIDFrame, ptr %14, i32 0, i32 1
   store i32 %13, ptr %15, align 4
   %16 = load ptr, ptr %6, align 8
-  %17 = getelementptr inbounds %struct.tagARUUIDFrame, ptr %16, i32 0, i32 2
+  %17 = getelementptr inbounds nuw %struct.tagARUUIDFrame, ptr %16, i32 0, i32 2
   store i32 0, ptr %17, align 4
   %18 = load ptr, ptr %6, align 8
-  %19 = getelementptr inbounds %struct.tagARUUIDFrame, ptr %18, i32 0, i32 4
+  %19 = getelementptr inbounds nuw %struct.tagARUUIDFrame, ptr %18, i32 0, i32 4
   store i16 0, ptr %19, align 2
   %20 = load ptr, ptr %6, align 8
-  %21 = getelementptr inbounds %struct.tagARUUIDFrame, ptr %20, i32 0, i32 3
+  %21 = getelementptr inbounds nuw %struct.tagARUUIDFrame, ptr %20, i32 0, i32 3
   store i16 0, ptr %21, align 4
   %22 = load ptr, ptr @aruuid_frame_setup_list, align 8
   %23 = load ptr, ptr %6, align 8
   call void @wmem_list_append(ptr noundef %22, ptr noundef %23)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
   ret void
 }
 
-declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) #1
+; Function Attrs: null_pointer_is_valid allocsize(1)
+declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) #5
 
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+
+; Function Attrs: null_pointer_is_valid
 declare void @wmem_list_append(ptr noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden ptr @pn_find_aruuid_frame_setup(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #10
   store ptr null, ptr %4, align 8
   %5 = load ptr, ptr @aruuid_frame_setup_list, align 8
   %6 = icmp ne ptr %5, null
@@ -1855,10 +1946,10 @@ define hidden ptr @pn_find_aruuid_frame_setup(ptr noundef %0) #0 {
   %15 = call ptr @wmem_list_frame_data(ptr noundef %14)
   store ptr %15, ptr %4, align 8
   %16 = load ptr, ptr %4, align 8
-  %17 = getelementptr inbounds %struct.tagARUUIDFrame, ptr %16, i32 0, i32 1
+  %17 = getelementptr inbounds nuw %struct.tagARUUIDFrame, ptr %16, i32 0, i32 1
   %18 = load i32, ptr %17, align 4
   %19 = load ptr, ptr %2, align 8
-  %20 = getelementptr inbounds %struct._packet_info, ptr %19, i32 0, i32 3
+  %20 = getelementptr inbounds nuw %struct._packet_info, ptr %19, i32 0, i32 3
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %18, %21
   br i1 %22, label %23, label %24
@@ -1873,29 +1964,35 @@ define hidden ptr @pn_find_aruuid_frame_setup(ptr noundef %0) #0 {
   %26 = load ptr, ptr %3, align 8
   %27 = call ptr @wmem_list_frame_next(ptr noundef %26)
   store ptr %27, ptr %3, align 8
-  br label %10, !llvm.loop !4
+  br label %10, !llvm.loop !6
 
 28:                                               ; preds = %23, %10
   br label %29
 
 29:                                               ; preds = %28, %1
   %30 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
   ret ptr %30
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_list_head(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_list_frame_data(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_list_frame_next(ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @pn_find_dcp_station_info(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
   store ptr null, ptr %5, align 8
   %6 = load ptr, ptr %4, align 8
   %7 = load i32, ptr @proto_pn_dcp, align 4
@@ -1907,37 +2004,37 @@ define hidden void @pn_find_dcp_station_info(ptr noundef %0, ptr noundef %1) #0 
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds %struct.tagStationInfo, ptr %12, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %struct.tagStationInfo, ptr %12, i32 0, i32 0
   %14 = load ptr, ptr %13, align 8
   %15 = icmp ne ptr %14, null
   br i1 %15, label %16, label %39
 
 16:                                               ; preds = %11
   %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.tagStationInfo, ptr %17, i32 0, i32 0
+  %18 = getelementptr inbounds nuw %struct.tagStationInfo, ptr %17, i32 0, i32 0
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %30, label %21
 
 21:                                               ; preds = %16
   %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %struct.tagStationInfo, ptr %22, i32 0, i32 0
+  %23 = getelementptr inbounds nuw %struct.tagStationInfo, ptr %22, i32 0, i32 0
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %3, align 8
-  %26 = getelementptr inbounds %struct.tagStationInfo, ptr %25, i32 0, i32 0
+  %26 = getelementptr inbounds nuw %struct.tagStationInfo, ptr %25, i32 0, i32 0
   %27 = load ptr, ptr %26, align 8
-  %28 = call i32 @strcmp(ptr noundef %24, ptr noundef %27) #5
+  %28 = call i32 @strcmp(ptr noundef %24, ptr noundef %27) #12
   %29 = icmp ne i32 %28, 0
   br i1 %29, label %30, label %38
 
 30:                                               ; preds = %21, %16
   %31 = call ptr @wmem_file_scope()
   %32 = load ptr, ptr %5, align 8
-  %33 = getelementptr inbounds %struct.tagStationInfo, ptr %32, i32 0, i32 0
+  %33 = getelementptr inbounds nuw %struct.tagStationInfo, ptr %32, i32 0, i32 0
   %34 = load ptr, ptr %33, align 8
   %35 = call noalias ptr @wmem_strdup(ptr noundef %31, ptr noundef %34)
   %36 = load ptr, ptr %3, align 8
-  %37 = getelementptr inbounds %struct.tagStationInfo, ptr %36, i32 0, i32 0
+  %37 = getelementptr inbounds nuw %struct.tagStationInfo, ptr %36, i32 0, i32 0
   store ptr %35, ptr %37, align 8
   br label %38
 
@@ -1946,37 +2043,37 @@ define hidden void @pn_find_dcp_station_info(ptr noundef %0, ptr noundef %1) #0 
 
 39:                                               ; preds = %38, %11
   %40 = load ptr, ptr %5, align 8
-  %41 = getelementptr inbounds %struct.tagStationInfo, ptr %40, i32 0, i32 1
+  %41 = getelementptr inbounds nuw %struct.tagStationInfo, ptr %40, i32 0, i32 1
   %42 = load ptr, ptr %41, align 8
   %43 = icmp ne ptr %42, null
   br i1 %43, label %44, label %67
 
 44:                                               ; preds = %39
   %45 = load ptr, ptr %3, align 8
-  %46 = getelementptr inbounds %struct.tagStationInfo, ptr %45, i32 0, i32 1
+  %46 = getelementptr inbounds nuw %struct.tagStationInfo, ptr %45, i32 0, i32 1
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %47, null
   br i1 %48, label %58, label %49
 
 49:                                               ; preds = %44
   %50 = load ptr, ptr %5, align 8
-  %51 = getelementptr inbounds %struct.tagStationInfo, ptr %50, i32 0, i32 1
+  %51 = getelementptr inbounds nuw %struct.tagStationInfo, ptr %50, i32 0, i32 1
   %52 = load ptr, ptr %51, align 8
   %53 = load ptr, ptr %3, align 8
-  %54 = getelementptr inbounds %struct.tagStationInfo, ptr %53, i32 0, i32 1
+  %54 = getelementptr inbounds nuw %struct.tagStationInfo, ptr %53, i32 0, i32 1
   %55 = load ptr, ptr %54, align 8
-  %56 = call i32 @strcmp(ptr noundef %52, ptr noundef %55) #5
+  %56 = call i32 @strcmp(ptr noundef %52, ptr noundef %55) #12
   %57 = icmp ne i32 %56, 0
   br i1 %57, label %58, label %66
 
 58:                                               ; preds = %49, %44
   %59 = call ptr @wmem_file_scope()
   %60 = load ptr, ptr %5, align 8
-  %61 = getelementptr inbounds %struct.tagStationInfo, ptr %60, i32 0, i32 1
+  %61 = getelementptr inbounds nuw %struct.tagStationInfo, ptr %60, i32 0, i32 1
   %62 = load ptr, ptr %61, align 8
   %63 = call noalias ptr @wmem_strdup(ptr noundef %59, ptr noundef %62)
   %64 = load ptr, ptr %3, align 8
-  %65 = getelementptr inbounds %struct.tagStationInfo, ptr %64, i32 0, i32 1
+  %65 = getelementptr inbounds nuw %struct.tagStationInfo, ptr %64, i32 0, i32 1
   store ptr %63, ptr %65, align 8
   br label %66
 
@@ -1985,11 +2082,11 @@ define hidden void @pn_find_dcp_station_info(ptr noundef %0, ptr noundef %1) #0 
 
 67:                                               ; preds = %66, %39
   %68 = load ptr, ptr %5, align 8
-  %69 = getelementptr inbounds %struct.tagStationInfo, ptr %68, i32 0, i32 2
+  %69 = getelementptr inbounds nuw %struct.tagStationInfo, ptr %68, i32 0, i32 2
   %70 = load i16, ptr %69, align 8
   %71 = zext i16 %70 to i32
   %72 = load ptr, ptr %3, align 8
-  %73 = getelementptr inbounds %struct.tagStationInfo, ptr %72, i32 0, i32 2
+  %73 = getelementptr inbounds nuw %struct.tagStationInfo, ptr %72, i32 0, i32 2
   %74 = load i16, ptr %73, align 8
   %75 = zext i16 %74 to i32
   %76 = icmp ne i32 %71, %75
@@ -1997,11 +2094,11 @@ define hidden void @pn_find_dcp_station_info(ptr noundef %0, ptr noundef %1) #0 
 
 77:                                               ; preds = %67
   %78 = load ptr, ptr %5, align 8
-  %79 = getelementptr inbounds %struct.tagStationInfo, ptr %78, i32 0, i32 3
+  %79 = getelementptr inbounds nuw %struct.tagStationInfo, ptr %78, i32 0, i32 3
   %80 = load i16, ptr %79, align 2
   %81 = zext i16 %80 to i32
   %82 = load ptr, ptr %3, align 8
-  %83 = getelementptr inbounds %struct.tagStationInfo, ptr %82, i32 0, i32 3
+  %83 = getelementptr inbounds nuw %struct.tagStationInfo, ptr %82, i32 0, i32 3
   %84 = load i16, ptr %83, align 2
   %85 = zext i16 %84 to i32
   %86 = icmp ne i32 %81, %85
@@ -2009,16 +2106,16 @@ define hidden void @pn_find_dcp_station_info(ptr noundef %0, ptr noundef %1) #0 
 
 87:                                               ; preds = %77, %67
   %88 = load ptr, ptr %5, align 8
-  %89 = getelementptr inbounds %struct.tagStationInfo, ptr %88, i32 0, i32 2
+  %89 = getelementptr inbounds nuw %struct.tagStationInfo, ptr %88, i32 0, i32 2
   %90 = load i16, ptr %89, align 8
   %91 = load ptr, ptr %3, align 8
-  %92 = getelementptr inbounds %struct.tagStationInfo, ptr %91, i32 0, i32 2
+  %92 = getelementptr inbounds nuw %struct.tagStationInfo, ptr %91, i32 0, i32 2
   store i16 %90, ptr %92, align 8
   %93 = load ptr, ptr %5, align 8
-  %94 = getelementptr inbounds %struct.tagStationInfo, ptr %93, i32 0, i32 3
+  %94 = getelementptr inbounds nuw %struct.tagStationInfo, ptr %93, i32 0, i32 3
   %95 = load i16, ptr %94, align 2
   %96 = load ptr, ptr %3, align 8
-  %97 = getelementptr inbounds %struct.tagStationInfo, ptr %96, i32 0, i32 3
+  %97 = getelementptr inbounds nuw %struct.tagStationInfo, ptr %96, i32 0, i32 3
   store i16 %95, ptr %97, align 2
   br label %98
 
@@ -2026,21 +2123,25 @@ define hidden void @pn_find_dcp_station_info(ptr noundef %0, ptr noundef %1) #0 
   br label %99
 
 99:                                               ; preds = %98, %2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #4
+; Function Attrs: nounwind null_pointer_is_valid willreturn memory(read)
+declare i32 @strcmp(ptr noundef, ptr noundef) #7
 
+; Function Attrs: null_pointer_is_valid
 declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @init_pn(i32 noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
   store i32 %0, ptr %2, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
   %4 = load i32, ptr %2, align 4
   call void @proto_register_field_array(i32 noundef %4, ptr noundef @init_pn.hf, i32 noundef 45)
   call void @proto_register_subtree_array(ptr noundef @init_pn.ett, i32 noundef 1)
@@ -2049,18 +2150,23 @@ define hidden void @init_pn(i32 noundef %0) #0 {
   store ptr %6, ptr %3, align 8
   %7 = load ptr, ptr %3, align 8
   call void @expert_register_field_array(ptr noundef %7, ptr noundef @init_pn.ei, i32 noundef 3)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @expert_register_protocol(i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden ptr @pn_fgets(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2070,195 +2176,249 @@ define hidden ptr @pn_fgets(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr 
   %10 = alloca [5 x i8], align 1
   %11 = alloca [4 x i8], align 1
   %12 = alloca ptr, align 8
-  %13 = alloca ptr, align 8
+  %13 = alloca i32, align 4
   %14 = alloca ptr, align 8
-  %15 = alloca i64, align 8
+  %15 = alloca ptr, align 8
   %16 = alloca i64, align 8
-  %17 = alloca ptr, align 8
+  %17 = alloca i64, align 8
   %18 = alloca ptr, align 8
   %19 = alloca ptr, align 8
   %20 = alloca ptr, align 8
-  %21 = alloca i64, align 8
+  %21 = alloca ptr, align 8
+  %22 = alloca i64, align 8
   store ptr %0, ptr %6, align 8
   store i32 %1, ptr %7, align 4
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 5, ptr %10) #10
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %10, ptr align 1 @__const.pn_fgets.XML_COMMENT_START, i64 5, i1 false)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #10
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr align 1 @__const.pn_fgets.XML_COMMENT_END, i64 4, i1 false)
-  %22 = load ptr, ptr %6, align 8
-  %23 = load i32, ptr %7, align 4
-  %24 = load ptr, ptr %8, align 8
-  %25 = call ptr @fgets(ptr noundef %22, i32 noundef %23, ptr noundef %24)
-  store ptr %25, ptr %12, align 8
-  %26 = load ptr, ptr %12, align 8
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %28, label %30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #10
+  %23 = load ptr, ptr %6, align 8
+  %24 = load i32, ptr %7, align 4
+  %25 = load ptr, ptr %8, align 8
+  %26 = call ptr @fgets(ptr noundef %23, i32 noundef %24, ptr noundef %25)
+  store ptr %26, ptr %12, align 8
+  %27 = load ptr, ptr %12, align 8
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %29, label %31
 
-28:                                               ; preds = %4
-  %29 = load ptr, ptr %12, align 8
-  store ptr %29, ptr %5, align 8
-  br label %109
+29:                                               ; preds = %4
+  %30 = load ptr, ptr %12, align 8
+  store ptr %30, ptr %5, align 8
+  store i32 1, ptr %13, align 4
+  br label %112
 
-30:                                               ; preds = %4
-  %31 = load ptr, ptr %6, align 8
-  %32 = getelementptr inbounds [5 x i8], ptr %10, i64 0, i64 0
-  %33 = call ptr @strstr(ptr noundef %31, ptr noundef %32) #5
-  store ptr %33, ptr %13, align 8
-  %34 = load ptr, ptr %13, align 8
-  %35 = getelementptr i8, ptr %34, i64 5
-  %36 = getelementptr i8, ptr %35, i64 -1
-  store ptr %36, ptr %14, align 8
-  %37 = load ptr, ptr %13, align 8
-  %38 = icmp eq ptr %37, null
-  br i1 %38, label %39, label %41
+31:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #10
+  %32 = load ptr, ptr %6, align 8
+  %33 = getelementptr inbounds [5 x i8], ptr %10, i64 0, i64 0
+  %34 = call ptr @strstr(ptr noundef %32, ptr noundef %33) #12
+  store ptr %34, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #10
+  %35 = load ptr, ptr %14, align 8
+  %36 = getelementptr i8, ptr %35, i64 5
+  %37 = getelementptr i8, ptr %36, i64 -1
+  store ptr %37, ptr %15, align 8
+  %38 = load ptr, ptr %14, align 8
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %40, label %42
 
-39:                                               ; preds = %30
-  %40 = load ptr, ptr %12, align 8
-  store ptr %40, ptr %5, align 8
-  br label %109
+40:                                               ; preds = %31
+  %41 = load ptr, ptr %12, align 8
+  store ptr %41, ptr %5, align 8
+  store i32 1, ptr %13, align 4
+  br label %111
 
-41:                                               ; preds = %30
-  %42 = load ptr, ptr %13, align 8
-  store i8 0, ptr %42, align 1
-  %43 = load ptr, ptr %13, align 8
-  %44 = load ptr, ptr %6, align 8
-  %45 = ptrtoint ptr %43 to i64
+42:                                               ; preds = %31
+  %43 = load ptr, ptr %14, align 8
+  store i8 0, ptr %43, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #10
+  %44 = load ptr, ptr %14, align 8
+  %45 = load ptr, ptr %6, align 8
   %46 = ptrtoint ptr %44 to i64
-  %47 = sub i64 %45, %46
-  store i64 %47, ptr %15, align 8
-  %48 = load i32, ptr %7, align 4
-  %49 = sext i32 %48 to i64
-  %50 = load i64, ptr %15, align 8
-  %51 = sub i64 %49, %50
-  store i64 %51, ptr %16, align 8
-  %52 = load ptr, ptr %14, align 8
-  %53 = getelementptr inbounds [4 x i8], ptr %11, i64 0, i64 0
-  %54 = call ptr @strstr(ptr noundef %52, ptr noundef %53) #5
-  store ptr %54, ptr %17, align 8
-  %55 = load ptr, ptr %17, align 8
-  %56 = icmp eq ptr %55, null
-  br i1 %56, label %57, label %81
+  %47 = ptrtoint ptr %45 to i64
+  %48 = sub i64 %46, %47
+  store i64 %48, ptr %16, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #10
+  %49 = load i32, ptr %7, align 4
+  %50 = sext i32 %49 to i64
+  %51 = load i64, ptr %16, align 8
+  %52 = sub i64 %50, %51
+  store i64 %52, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #10
+  %53 = load ptr, ptr %15, align 8
+  %54 = getelementptr inbounds [4 x i8], ptr %11, i64 0, i64 0
+  %55 = call ptr @strstr(ptr noundef %53, ptr noundef %54) #12
+  store ptr %55, ptr %18, align 8
+  %56 = load ptr, ptr %18, align 8
+  %57 = icmp eq ptr %56, null
+  br i1 %57, label %58, label %82
 
-57:                                               ; preds = %41
-  %58 = load ptr, ptr %9, align 8
-  %59 = call noalias ptr @wmem_alloc(ptr noundef %58, i64 noundef 1024)
-  store ptr %59, ptr %18, align 8
-  %60 = load ptr, ptr %18, align 8
+58:                                               ; preds = %42
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #10
+  %59 = load ptr, ptr %9, align 8
+  %60 = call noalias ptr @wmem_alloc(ptr noundef %59, i64 noundef 1024) #11
   store ptr %60, ptr %19, align 8
-  br label %61
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #10
+  %61 = load ptr, ptr %19, align 8
+  store ptr %61, ptr %20, align 8
+  br label %62
 
-61:                                               ; preds = %76, %57
-  %62 = load ptr, ptr %17, align 8
-  %63 = icmp eq ptr %62, null
-  br i1 %63, label %64, label %67
+62:                                               ; preds = %77, %58
+  %63 = load ptr, ptr %18, align 8
+  %64 = icmp eq ptr %63, null
+  br i1 %64, label %65, label %68
 
-64:                                               ; preds = %61
-  %65 = load ptr, ptr %19, align 8
-  %66 = icmp ne ptr %65, null
-  br label %67
+65:                                               ; preds = %62
+  %66 = load ptr, ptr %20, align 8
+  %67 = icmp ne ptr %66, null
+  br label %68
 
-67:                                               ; preds = %64, %61
-  %68 = phi i1 [ false, %61 ], [ %66, %64 ]
-  br i1 %68, label %69, label %80
+68:                                               ; preds = %65, %62
+  %69 = phi i1 [ false, %62 ], [ %67, %65 ]
+  br i1 %69, label %70, label %81
 
-69:                                               ; preds = %67
-  %70 = load ptr, ptr %18, align 8
-  %71 = load ptr, ptr %8, align 8
-  %72 = call ptr @fgets(ptr noundef %70, i32 noundef 1024, ptr noundef %71)
-  store ptr %72, ptr %19, align 8
-  %73 = load ptr, ptr %19, align 8
-  %74 = icmp eq ptr %73, null
-  br i1 %74, label %75, label %76
+70:                                               ; preds = %68
+  %71 = load ptr, ptr %19, align 8
+  %72 = load ptr, ptr %8, align 8
+  %73 = call ptr @fgets(ptr noundef %71, i32 noundef 1024, ptr noundef %72)
+  store ptr %73, ptr %20, align 8
+  %74 = load ptr, ptr %20, align 8
+  %75 = icmp eq ptr %74, null
+  br i1 %75, label %76, label %77
 
-75:                                               ; preds = %69
-  br label %80
-
-76:                                               ; preds = %69
-  %77 = load ptr, ptr %19, align 8
-  %78 = getelementptr inbounds [4 x i8], ptr %11, i64 0, i64 0
-  %79 = call ptr @strstr(ptr noundef %77, ptr noundef %78) #5
-  store ptr %79, ptr %17, align 8
-  br label %61, !llvm.loop !6
-
-80:                                               ; preds = %75, %67
+76:                                               ; preds = %70
   br label %81
 
-81:                                               ; preds = %80, %41
-  %82 = load ptr, ptr %17, align 8
-  %83 = icmp eq ptr %82, null
-  br i1 %83, label %84, label %86
+77:                                               ; preds = %70
+  %78 = load ptr, ptr %20, align 8
+  %79 = getelementptr inbounds [4 x i8], ptr %11, i64 0, i64 0
+  %80 = call ptr @strstr(ptr noundef %78, ptr noundef %79) #12
+  store ptr %80, ptr %18, align 8
+  br label %62, !llvm.loop !8
 
-84:                                               ; preds = %81
-  %85 = load ptr, ptr %12, align 8
-  store ptr %85, ptr %5, align 8
-  br label %109
+81:                                               ; preds = %76, %68
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #10
+  br label %82
 
-86:                                               ; preds = %81
-  %87 = load ptr, ptr %17, align 8
-  %88 = getelementptr i8, ptr %87, i64 4
-  %89 = getelementptr i8, ptr %88, i64 -1
-  store ptr %89, ptr %20, align 8
-  %90 = load ptr, ptr %20, align 8
-  %91 = call i64 @strlen(ptr noundef %90) #5
-  %92 = add i64 %91, 1
-  store i64 %92, ptr %21, align 8
-  %93 = load i64, ptr %21, align 8
-  %94 = load i64, ptr %16, align 8
-  %95 = icmp ult i64 %93, %94
-  br i1 %95, label %96, label %102
+82:                                               ; preds = %81, %42
+  %83 = load ptr, ptr %18, align 8
+  %84 = icmp eq ptr %83, null
+  br i1 %84, label %85, label %87
 
-96:                                               ; preds = %86
-  %97 = load ptr, ptr %6, align 8
-  %98 = load ptr, ptr %20, align 8
-  %99 = load i32, ptr %7, align 4
-  %100 = sext i32 %99 to i64
-  %101 = call i64 @g_strlcat(ptr noundef %97, ptr noundef %98, i64 noundef %100)
-  br label %107
+85:                                               ; preds = %82
+  %86 = load ptr, ptr %12, align 8
+  store ptr %86, ptr %5, align 8
+  store i32 1, ptr %13, align 4
+  br label %110
 
-102:                                              ; preds = %86
-  %103 = load ptr, ptr %8, align 8
-  %104 = load i64, ptr %21, align 8
-  %105 = sub i64 0, %104
-  %106 = call i32 @fseek(ptr noundef %103, i64 noundef %105, i32 noundef 1)
-  br label %107
+87:                                               ; preds = %82
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #10
+  %88 = load ptr, ptr %18, align 8
+  %89 = getelementptr i8, ptr %88, i64 4
+  %90 = getelementptr i8, ptr %89, i64 -1
+  store ptr %90, ptr %21, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #10
+  %91 = load ptr, ptr %21, align 8
+  %92 = call i64 @strlen(ptr noundef %91) #12
+  %93 = add i64 %92, 1
+  store i64 %93, ptr %22, align 8
+  %94 = load i64, ptr %22, align 8
+  %95 = load i64, ptr %17, align 8
+  %96 = icmp ult i64 %94, %95
+  br i1 %96, label %97, label %103
 
-107:                                              ; preds = %102, %96
-  %108 = load ptr, ptr %12, align 8
-  store ptr %108, ptr %5, align 8
-  br label %109
+97:                                               ; preds = %87
+  %98 = load ptr, ptr %6, align 8
+  %99 = load ptr, ptr %21, align 8
+  %100 = load i32, ptr %7, align 4
+  %101 = sext i32 %100 to i64
+  %102 = call i64 @g_strlcat(ptr noundef %98, ptr noundef %99, i64 noundef %101)
+  br label %108
 
-109:                                              ; preds = %107, %84, %39, %28
-  %110 = load ptr, ptr %5, align 8
-  ret ptr %110
+103:                                              ; preds = %87
+  %104 = load ptr, ptr %8, align 8
+  %105 = load i64, ptr %22, align 8
+  %106 = sub i64 0, %105
+  %107 = call i32 @fseek(ptr noundef %104, i64 noundef %106, i32 noundef 1)
+  br label %108
+
+108:                                              ; preds = %103, %97
+  %109 = load ptr, ptr %12, align 8
+  store ptr %109, ptr %5, align 8
+  store i32 1, ptr %13, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #10
+  br label %110
+
+110:                                              ; preds = %108, %85
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #10
+  br label %111
+
+111:                                              ; preds = %110, %40
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #10
+  br label %112
+
+112:                                              ; preds = %111, %29
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 5, ptr %10) #10
+  %113 = load ptr, ptr %5, align 8
+  ret ptr %113
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @fgets(ptr noundef, i32 noundef, ptr noundef) #1
 
-; Function Attrs: nounwind willreturn memory(read)
-declare ptr @strstr(ptr noundef, ptr noundef) #4
+; Function Attrs: nounwind null_pointer_is_valid willreturn memory(read)
+declare ptr @strstr(ptr noundef, ptr noundef) #7
 
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) #1
+; Function Attrs: null_pointer_is_valid allocsize(1)
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) #5
 
-; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #4
+; Function Attrs: nounwind null_pointer_is_valid willreturn memory(read)
+declare i64 @strlen(ptr noundef) #7
 
+; Function Attrs: null_pointer_is_valid
 declare i64 @g_strlcat(ptr noundef, ptr noundef, i64 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @fseek(ptr noundef, i64 noundef, i32 noundef) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind willreturn memory(read) }
+; Function Attrs: nounwind null_pointer_is_valid
+declare ptr @__memcpy_chk(ptr noundef, ptr noundef, i64 noundef, i64 noundef) #8
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.objectsize.i64.p0(ptr, i1 immarg, i1 immarg, i1 immarg) #9
+
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { alwaysinline nounwind "min-legal-vector-width"="0" }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nounwind null_pointer_is_valid willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
+attributes #11 = { allocsize(1) }
+attributes #12 = { nounwind willreturn memory(read) }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}

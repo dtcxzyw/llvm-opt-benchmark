@@ -3,16 +3,12 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
 
 @proto_register_docsis_vsif.hf = internal global [40 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_docsis_vsif_vendorid, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 6, i32 2, ptr @vendorid_vals, i64 0, ptr @.str.2, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_docsis_vsif_vendor_unknown, %struct._header_field_info { ptr @.str.3, ptr @.str.4, i32 30, i32 0, ptr null, i64 0, ptr @.str.5, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_docsis_vsif_cisco_numphones, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_docsis_vsif_cisco_ipprec_val, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_docsis_vsif_cisco_ipprec_bw, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_docsis_vsif_cisco_config_file, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_docsis_vsif_gex_loadbal_policy_id, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 7, i32 1, ptr null, i64 0, ptr @.str.16, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_docsis_vsif_gex_loadbal_priority, %struct._header_field_info { ptr @.str.17, ptr @.str.18, i32 7, i32 1, ptr null, i64 0, ptr @.str.19, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_docsis_vsif_gex_loadbal_group_id, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 7, i32 1, ptr null, i64 0, ptr @.str.22, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_docsis_vsif_gex_ranging_class_id_extension, %struct._header_field_info { ptr @.str.23, ptr @.str.24, i32 7, i32 1, ptr null, i64 0, ptr @.str.25, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_docsis_vsif_gex_l2vpn_encoding, %struct._header_field_info { ptr @.str.26, ptr @.str.27, i32 30, i32 0, ptr null, i64 0, ptr @.str.28, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_docsis_vsif_gex_ecm, %struct._header_field_info { ptr @.str.29, ptr @.str.30, i32 30, i32 0, ptr null, i64 0, ptr @.str.31, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_docsis_vsif_gex_ecm_extended_cmts_mic_hmac_type, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 4, i32 1, ptr @hmac_vals, i64 0, ptr @.str.34, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_docsis_vsif_gex_ecm_extended_cmts_mic_bitmap, %struct._header_field_info { ptr @.str.35, ptr @.str.36, i32 30, i32 0, ptr null, i64 0, ptr @.str.37, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_docsis_vsif_gex_ecm_explicit_extended_cmts_mic_digest_subtype, %struct._header_field_info { ptr @.str.38, ptr @.str.39, i32 30, i32 0, ptr null, i64 0, ptr @.str.40, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_docsis_vsif_gex_sav, %struct._header_field_info { ptr @.str.41, ptr @.str.42, i32 30, i32 0, ptr null, i64 0, ptr @.str.43, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_docsis_vsif_gex_sav_group_name, %struct._header_field_info { ptr @.str.44, ptr @.str.45, i32 26, i32 0, ptr null, i64 0, ptr @.str.46, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_docsis_vsif_gex_sav_static_prefix_rule, %struct._header_field_info { ptr @.str.47, ptr @.str.48, i32 30, i32 0, ptr null, i64 0, ptr @.str.49, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_docsis_vsif_gex_sav_static_prefix_addressv4, %struct._header_field_info { ptr @.str.50, ptr @.str.51, i32 32, i32 0, ptr null, i64 0, ptr @.str.52, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_docsis_vsif_gex_sav_static_prefix_addressv6, %struct._header_field_info { ptr @.str.50, ptr @.str.53, i32 33, i32 0, ptr null, i64 0, ptr @.str.52, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_docsis_vsif_gex_sav_static_prefix_length, %struct._header_field_info { ptr @.str.54, ptr @.str.55, i32 4, i32 1, ptr null, i64 0, ptr @.str.56, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_docsis_vsif_gex_cmam, %struct._header_field_info { ptr @.str.57, ptr @.str.58, i32 30, i32 0, ptr null, i64 0, ptr @.str.59, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_docsis_vsif_gex_cmam_cm_required_downstream_attribute_mask, %struct._header_field_info { ptr @.str.60, ptr @.str.61, i32 30, i32 0, ptr null, i64 0, ptr @.str.62, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_docsis_vsif_gex_cmam_cm_forbidden_downstream_attribute_mask, %struct._header_field_info { ptr @.str.63, ptr @.str.64, i32 30, i32 0, ptr null, i64 0, ptr @.str.65, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_docsis_vsif_gex_cmam_cm_required_upstream_attribute_mask, %struct._header_field_info { ptr @.str.66, ptr @.str.67, i32 30, i32 0, ptr null, i64 0, ptr @.str.68, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_docsis_vsif_gex_cmam_cm_forbidden_upstream_attribute_mask, %struct._header_field_info { ptr @.str.69, ptr @.str.70, i32 30, i32 0, ptr null, i64 0, ptr @.str.71, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_docsis_vsif_gex_imja, %struct._header_field_info { ptr @.str.72, ptr @.str.73, i32 30, i32 0, ptr null, i64 0, ptr @.str.74, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_docsis_vsif_gex_imja_ip_multicast_profile_name, %struct._header_field_info { ptr @.str.75, ptr @.str.76, i32 26, i32 0, ptr null, i64 0, ptr @.str.77, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_docsis_vsif_gex_imja_ssr, %struct._header_field_info { ptr @.str.78, ptr @.str.79, i32 30, i32 0, ptr null, i64 0, ptr @.str.80, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_docsis_vsif_gex_imja_ssr_rule_priority, %struct._header_field_info { ptr @.str.81, ptr @.str.82, i32 4, i32 1, ptr null, i64 0, ptr @.str.83, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_docsis_vsif_gex_imja_ssr_authorization_action, %struct._header_field_info { ptr @.str.84, ptr @.str.85, i32 4, i32 1, ptr @authorization_action_vals, i64 0, ptr @.str.83, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_docsis_vsif_gex_imja_ssr_source_prefix_addressv4, %struct._header_field_info { ptr @.str.86, ptr @.str.87, i32 32, i32 0, ptr null, i64 0, ptr @.str.88, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_docsis_vsif_gex_imja_ssr_source_prefix_addressv6, %struct._header_field_info { ptr @.str.86, ptr @.str.89, i32 33, i32 0, ptr null, i64 0, ptr @.str.88, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_docsis_vsif_gex_imja_ssr_source_prefix_length, %struct._header_field_info { ptr @.str.90, ptr @.str.91, i32 4, i32 1, ptr null, i64 0, ptr @.str.92, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_docsis_vsif_gex_imja_ssr_group_prefix_addressv4, %struct._header_field_info { ptr @.str.93, ptr @.str.94, i32 32, i32 0, ptr null, i64 0, ptr @.str.95, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_docsis_vsif_gex_imja_ssr_group_prefix_addressv6, %struct._header_field_info { ptr @.str.93, ptr @.str.96, i32 33, i32 0, ptr null, i64 0, ptr @.str.95, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_docsis_vsif_gex_imja_ssr_group_prefix_length, %struct._header_field_info { ptr @.str.97, ptr @.str.98, i32 4, i32 1, ptr null, i64 0, ptr @.str.99, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_docsis_vsif_gex_imja_maximum_multicast_sessions, %struct._header_field_info { ptr @.str.100, ptr @.str.101, i32 5, i32 1, ptr null, i64 0, ptr @.str.102, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_docsis_vsif_gex_service_type_identifier, %struct._header_field_info { ptr @.str.103, ptr @.str.104, i32 26, i32 0, ptr null, i64 0, ptr @.str.105, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_docsis_vsif_tlv_unknown, %struct._header_field_info { ptr @.str.106, ptr @.str.4, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_docsis_vsif_vendorid = internal global i32 0, align 4
 @.str = private unnamed_addr constant [10 x i8] c"Vendor ID\00", align 1
 @.str.1 = private unnamed_addr constant [21 x i8] c"docsis_vsif.vendorid\00", align 1
-@vendorid_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 12, ptr @.str.114 }, %struct._value_string { i32 16777215, ptr @.str.115 }, %struct._value_string zeroinitializer], align 16
 @.str.2 = private unnamed_addr constant [18 x i8] c"Vendor Identifier\00", align 1
 @hf_docsis_vsif_vendor_unknown = internal global i32 0, align 4
 @.str.3 = private unnamed_addr constant [15 x i8] c"VSIF Encodings\00", align 1
@@ -57,7 +53,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_docsis_vsif_gex_ecm_extended_cmts_mic_hmac_type = internal global i32 0, align 4
 @.str.32 = private unnamed_addr constant [32 x i8] c"..1 Extended CMTS MIC Hmac type\00", align 1
 @.str.33 = private unnamed_addr constant [44 x i8] c"docsis_vsif.gex.extended_cmts_mic_hmac_type\00", align 1
-@hmac_vals = internal constant [4 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.116 }, %struct._value_string { i32 2, ptr @.str.117 }, %struct._value_string { i32 43, ptr @.str.118 }, %struct._value_string zeroinitializer], align 16
 @.str.34 = private unnamed_addr constant [60 x i8] c"General Extension Information - Extended CMTS MIC Hmac type\00", align 1
 @hf_docsis_vsif_gex_ecm_extended_cmts_mic_bitmap = internal global i32 0, align 4
 @.str.35 = private unnamed_addr constant [29 x i8] c"..2 Extended CMTS MIC Bitmap\00", align 1
@@ -128,7 +123,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_docsis_vsif_gex_imja_ssr_authorization_action = internal global i32 0, align 4
 @.str.84 = private unnamed_addr constant [26 x i8] c"...2 Authorization Action\00", align 1
 @.str.85 = private unnamed_addr constant [51 x i8] c"docsis_vsif.gex.imja.imja_ssr_authorization_action\00", align 1
-@authorization_action_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.119 }, %struct._value_string { i32 1, ptr @.str.120 }, %struct._value_string zeroinitializer], align 16
 @hf_docsis_vsif_gex_imja_ssr_source_prefix_addressv4 = internal global i32 0, align 4
 @.str.86 = private unnamed_addr constant [27 x i8] c"...3 Source Prefix Address\00", align 1
 @.str.87 = private unnamed_addr constant [53 x i8] c"docsis_vsif.gex.imja.imja_ssr_source_prefix_address4\00", align 1
@@ -168,7 +162,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_docsis_vsif_gex_cmam = internal global i32 0, align 4
 @ett_docsis_vsif_gex_imja = internal global i32 0, align 4
 @ett_docsis_vsif_gex_imja_ssr = internal global i32 0, align 4
-@proto_register_docsis_vsif.ei = internal global [2 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_docsis_vsif_tlvlen_bad, %struct.expert_field_info { ptr @.str.107, i32 117440512, i32 8388608, ptr @.str.108, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_docsis_vsif_tlvtype_unknown, %struct.expert_field_info { ptr @.str.109, i32 150994944, i32 6291456, ptr @.str.110, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_docsis_vsif.ei = internal global [2 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_docsis_vsif_tlvlen_bad, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.107, i32 117440512, i32 8388608, ptr @.str.108, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_docsis_vsif_tlvtype_unknown, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.109, i32 150994944, i32 6291456, ptr @.str.110, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_docsis_vsif_tlvlen_bad = internal global %struct.expert_field zeroinitializer, align 4
 @.str.107 = private unnamed_addr constant [22 x i8] c"docsis_vsif.tlvlenbad\00", align 1
 @.str.108 = private unnamed_addr constant [15 x i8] c"Bad TLV length\00", align 1
@@ -181,21 +175,25 @@ target triple = "x86_64-pc-linux-gnu"
 @proto_docsis_vsif = internal global i32 0, align 4
 @.str.114 = private unnamed_addr constant [20 x i8] c"Cisco Systems, Inc.\00", align 1
 @.str.115 = private unnamed_addr constant [30 x i8] c"General Extension Information\00", align 1
-@.str.116 = private unnamed_addr constant [20 x i8] c"MD5 HMAC [RFC 2104]\00", align 1
-@.str.117 = private unnamed_addr constant [36 x i8] c"MMH16-sigma-n HMAC [DOCSIS SECv3.0]\00", align 1
-@.str.118 = private unnamed_addr constant [16 x i8] c"Vendor Specific\00", align 1
-@.str.119 = private unnamed_addr constant [7 x i8] c"permit\00", align 1
-@.str.120 = private unnamed_addr constant [5 x i8] c"deny\00", align 1
-@.str.121 = private unnamed_addr constant [16 x i8] c"Unknown TLV: %u\00", align 1
-@.str.122 = private unnamed_addr constant [21 x i8] c"Wrong TLV length: %u\00", align 1
-@.str.123 = private unnamed_addr constant [9 x i8] c" (Cisco)\00", align 1
-@.str.124 = private unnamed_addr constant [33 x i8] c" (General Extension Information)\00", align 1
-@.str.125 = private unnamed_addr constant [11 x i8] c" (Unknown)\00", align 1
-@.str.126 = private unnamed_addr constant [14 x i8] c"IP Precedence\00", align 1
+@vendorid_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.114 }, { i32, [4 x i8], ptr } { i32 16777215, [4 x i8] zeroinitializer, ptr @.str.115 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.117 = private unnamed_addr constant [20 x i8] c"MD5 HMAC [RFC 2104]\00", align 1
+@.str.118 = private unnamed_addr constant [36 x i8] c"MMH16-sigma-n HMAC [DOCSIS SECv3.0]\00", align 1
+@.str.119 = private unnamed_addr constant [16 x i8] c"Vendor Specific\00", align 1
+@hmac_vals = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.117 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.118 }, { i32, [4 x i8], ptr } { i32 43, [4 x i8] zeroinitializer, ptr @.str.119 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.121 = private unnamed_addr constant [7 x i8] c"permit\00", align 1
+@.str.122 = private unnamed_addr constant [5 x i8] c"deny\00", align 1
+@authorization_action_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.121 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.122 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.124 = private unnamed_addr constant [16 x i8] c"Unknown TLV: %u\00", align 1
+@.str.125 = private unnamed_addr constant [21 x i8] c"Wrong TLV length: %u\00", align 1
+@.str.126 = private unnamed_addr constant [9 x i8] c" (Cisco)\00", align 1
+@.str.127 = private unnamed_addr constant [33 x i8] c" (General Extension Information)\00", align 1
+@.str.128 = private unnamed_addr constant [11 x i8] c" (Unknown)\00", align 1
+@.str.129 = private unnamed_addr constant [14 x i8] c"IP Precedence\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_docsis_vsif() #0 {
   %1 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #4
   %2 = call i32 @proto_register_protocol(ptr noundef @.str.111, ptr noundef @.str.112, ptr noundef @.str.113)
   store i32 %2, ptr @proto_docsis_vsif, align 4
   %3 = load i32, ptr @proto_docsis_vsif, align 4
@@ -208,22 +206,32 @@ define hidden void @proto_register_docsis_vsif() #0 {
   call void @expert_register_field_array(ptr noundef %6, ptr noundef @proto_register_docsis_vsif.ei, i32 noundef 2)
   %7 = load i32, ptr @proto_docsis_vsif, align 4
   %8 = call ptr @register_dissector(ptr noundef @.str.113, ptr noundef @dissect_vsif, i32 noundef %7)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #4
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #2
 
-declare ptr @expert_register_protocol(i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #2
 
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_register_protocol(i32 noundef) #2
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_vsif(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -239,6 +247,12 @@ define internal i32 @dissect_vsif(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #4
   %15 = load ptr, ptr %5, align 8
   %16 = call i32 @tvb_reported_length_remaining(ptr noundef %15, i32 noundef 0)
   store i32 %16, ptr %14, align 4
@@ -256,7 +270,7 @@ define internal i32 @dissect_vsif(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %26 = load ptr, ptr %5, align 8
   %27 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %24, i32 noundef %25, ptr noundef %26, i32 noundef 2, i32 noundef 3, i32 noundef 0, ptr noundef %13)
   %28 = load ptr, ptr %5, align 8
-  %29 = call zeroext i8 @tvb_get_guint8(ptr noundef %28, i32 noundef 0)
+  %29 = call zeroext i8 @tvb_get_uint8(ptr noundef %28, i32 noundef 0)
   store i8 %29, ptr %11, align 1
   %30 = load i8, ptr %11, align 1
   %31 = zext i8 %30 to i32
@@ -268,12 +282,12 @@ define internal i32 @dissect_vsif(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %35 = load ptr, ptr %9, align 8
   %36 = load i8, ptr %11, align 1
   %37 = zext i8 %36 to i32
-  %38 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %34, ptr noundef %35, ptr noundef @ei_docsis_vsif_tlvtype_unknown, ptr noundef @.str.121, i32 noundef %37)
+  %38 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %34, ptr noundef %35, ptr noundef @ei_docsis_vsif_tlvtype_unknown, ptr noundef @.str.124, i32 noundef %37)
   br label %39
 
 39:                                               ; preds = %33, %4
   %40 = load ptr, ptr %5, align 8
-  %41 = call zeroext i8 @tvb_get_guint8(ptr noundef %40, i32 noundef 1)
+  %41 = call zeroext i8 @tvb_get_uint8(ptr noundef %40, i32 noundef 1)
   store i8 %41, ptr %12, align 1
   %42 = load i8, ptr %12, align 1
   %43 = zext i8 %42 to i32
@@ -285,7 +299,7 @@ define internal i32 @dissect_vsif(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %47 = load ptr, ptr %9, align 8
   %48 = load i8, ptr %12, align 1
   %49 = zext i8 %48 to i32
-  %50 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %46, ptr noundef %47, ptr noundef @ei_docsis_vsif_tlvlen_bad, ptr noundef @.str.122, i32 noundef %49)
+  %50 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %46, ptr noundef %47, ptr noundef @ei_docsis_vsif_tlvlen_bad, ptr noundef @.str.125, i32 noundef %49)
   br label %51
 
 51:                                               ; preds = %45, %39
@@ -297,7 +311,7 @@ define internal i32 @dissect_vsif(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 53:                                               ; preds = %51
   %54 = load ptr, ptr %9, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %54, ptr noundef @.str.123)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %54, ptr noundef @.str.126)
   %55 = load ptr, ptr %5, align 8
   %56 = load ptr, ptr %6, align 8
   %57 = load ptr, ptr %10, align 8
@@ -307,7 +321,7 @@ define internal i32 @dissect_vsif(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 59:                                               ; preds = %51
   %60 = load ptr, ptr %9, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %60, ptr noundef @.str.124)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %60, ptr noundef @.str.127)
   %61 = load ptr, ptr %5, align 8
   %62 = load ptr, ptr %6, align 8
   %63 = load ptr, ptr %10, align 8
@@ -317,7 +331,7 @@ define internal i32 @dissect_vsif(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 65:                                               ; preds = %51
   %66 = load ptr, ptr %9, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %66, ptr noundef @.str.125)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %66, ptr noundef @.str.128)
   %67 = load ptr, ptr %10, align 8
   %68 = load i32, ptr @hf_docsis_vsif_vendor_unknown, align 4
   %69 = load ptr, ptr %5, align 8
@@ -327,29 +341,45 @@ define internal i32 @dissect_vsif(ptr noundef %0, ptr noundef %1, ptr noundef %2
 71:                                               ; preds = %65, %59, %53
   %72 = load ptr, ptr %5, align 8
   %73 = call i32 @tvb_captured_length(ptr noundef %72)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
   ret i32 %73
 }
 
-; Function Attrs: nounwind uwtable
-define hidden void @proto_reg_handoff_docsis_vsif() #0 {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define hidden void @proto_reg_handoff_docsis_vsif() #3 {
   ret void
 }
 
-declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_protocol_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_protocol_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) #2
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #2
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #2
 
-declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) #2
 
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_cisco(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -365,7 +395,13 @@ define internal void @dissect_cisco(ptr noundef %0, ptr noundef %1, ptr noundef 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
   store i32 5, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #4
   br label %15
 
 15:                                               ; preds = %123, %4
@@ -379,13 +415,13 @@ define internal void @dissect_cisco(ptr noundef %0, ptr noundef %1, ptr noundef 
   %21 = load i32, ptr %9, align 4
   %22 = add i32 %21, 1
   store i32 %22, ptr %9, align 4
-  %23 = call zeroext i8 @tvb_get_guint8(ptr noundef %20, i32 noundef %21)
+  %23 = call zeroext i8 @tvb_get_uint8(ptr noundef %20, i32 noundef %21)
   store i8 %23, ptr %10, align 1
   %24 = load ptr, ptr %5, align 8
   %25 = load i32, ptr %9, align 4
   %26 = add i32 %25, 1
   store i32 %26, ptr %9, align 4
-  %27 = call zeroext i8 @tvb_get_guint8(ptr noundef %24, i32 noundef %25)
+  %27 = call zeroext i8 @tvb_get_uint8(ptr noundef %24, i32 noundef %25)
   store i8 %27, ptr %11, align 1
   %28 = load i8, ptr %10, align 1
   %29 = zext i8 %28 to i32
@@ -412,7 +448,7 @@ define internal void @dissect_cisco(ptr noundef %0, ptr noundef %1, ptr noundef 
   %42 = load i8, ptr %11, align 1
   %43 = zext i8 %42 to i32
   %44 = load i32, ptr @ett_docsis_vsif_ipprec, align 4
-  %45 = call ptr @proto_tree_add_subtree(ptr noundef %39, ptr noundef %40, i32 noundef %41, i32 noundef %43, i32 noundef %44, ptr noundef %13, ptr noundef @.str.126)
+  %45 = call ptr @proto_tree_add_subtree(ptr noundef %39, ptr noundef %40, i32 noundef %41, i32 noundef %43, i32 noundef %44, ptr noundef %13, ptr noundef @.str.129)
   store ptr %45, ptr %12, align 8
   %46 = load i32, ptr %9, align 4
   %47 = load i8, ptr %11, align 1
@@ -432,13 +468,13 @@ define internal void @dissect_cisco(ptr noundef %0, ptr noundef %1, ptr noundef 
   %56 = load i32, ptr %9, align 4
   %57 = add i32 %56, 1
   store i32 %57, ptr %9, align 4
-  %58 = call zeroext i8 @tvb_get_guint8(ptr noundef %55, i32 noundef %56)
+  %58 = call zeroext i8 @tvb_get_uint8(ptr noundef %55, i32 noundef %56)
   store i8 %58, ptr %10, align 1
   %59 = load ptr, ptr %5, align 8
   %60 = load i32, ptr %9, align 4
   %61 = add i32 %60, 1
   store i32 %61, ptr %9, align 4
-  %62 = call zeroext i8 @tvb_get_guint8(ptr noundef %59, i32 noundef %60)
+  %62 = call zeroext i8 @tvb_get_uint8(ptr noundef %59, i32 noundef %60)
   store i8 %62, ptr %11, align 1
   %63 = load i8, ptr %10, align 1
   %64 = zext i8 %63 to i32
@@ -468,7 +504,7 @@ define internal void @dissect_cisco(ptr noundef %0, ptr noundef %1, ptr noundef 
   %79 = load ptr, ptr %13, align 8
   %80 = load i8, ptr %11, align 1
   %81 = zext i8 %80 to i32
-  %82 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %78, ptr noundef %79, ptr noundef @ei_docsis_vsif_tlvlen_bad, ptr noundef @.str.122, i32 noundef %81)
+  %82 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %78, ptr noundef %79, ptr noundef @ei_docsis_vsif_tlvlen_bad, ptr noundef @.str.125, i32 noundef %81)
   br label %83
 
 83:                                               ; preds = %77, %69
@@ -495,7 +531,7 @@ define internal void @dissect_cisco(ptr noundef %0, ptr noundef %1, ptr noundef 
   %98 = load ptr, ptr %13, align 8
   %99 = load i8, ptr %11, align 1
   %100 = zext i8 %99 to i32
-  %101 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %97, ptr noundef %98, ptr noundef @ei_docsis_vsif_tlvlen_bad, ptr noundef @.str.122, i32 noundef %100)
+  %101 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %97, ptr noundef %98, ptr noundef @ei_docsis_vsif_tlvlen_bad, ptr noundef @.str.125, i32 noundef %100)
   br label %102
 
 102:                                              ; preds = %96, %88
@@ -506,7 +542,7 @@ define internal void @dissect_cisco(ptr noundef %0, ptr noundef %1, ptr noundef 
   %105 = load ptr, ptr %13, align 8
   %106 = load i8, ptr %10, align 1
   %107 = zext i8 %106 to i32
-  %108 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %104, ptr noundef %105, ptr noundef @ei_docsis_vsif_tlvtype_unknown, ptr noundef @.str.121, i32 noundef %107)
+  %108 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %104, ptr noundef %105, ptr noundef @ei_docsis_vsif_tlvtype_unknown, ptr noundef @.str.124, i32 noundef %107)
   br label %109
 
 109:                                              ; preds = %103, %102, %83
@@ -515,7 +551,7 @@ define internal void @dissect_cisco(ptr noundef %0, ptr noundef %1, ptr noundef 
   %112 = load i32, ptr %9, align 4
   %113 = add i32 %112, %111
   store i32 %113, ptr %9, align 4
-  br label %50, !llvm.loop !4
+  br label %50, !llvm.loop !6
 
 114:                                              ; preds = %50
   br label %123
@@ -530,19 +566,25 @@ define internal void @dissect_cisco(ptr noundef %0, ptr noundef %1, ptr noundef 
   %122 = call ptr @proto_tree_add_item(ptr noundef %116, i32 noundef %117, ptr noundef %118, i32 noundef %119, i32 noundef %121, i32 noundef 0)
   br label %123
 
-123:                                              ; preds = %115, %114, %30, %19
+123:                                              ; preds = %115, %19, %114, %30
   %124 = load i8, ptr %11, align 1
   %125 = zext i8 %124 to i32
   %126 = load i32, ptr %9, align 4
   %127 = add i32 %126, %125
   store i32 %127, ptr %9, align 4
-  br label %15, !llvm.loop !6
+  br label %15, !llvm.loop !8
 
 128:                                              ; preds = %15
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_general_extension_information(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -555,7 +597,10 @@ define internal void @dissect_general_extension_information(ptr noundef %0, ptr 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
   store i32 5, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #4
   br label %12
 
 12:                                               ; preds = %110, %4
@@ -569,13 +614,13 @@ define internal void @dissect_general_extension_information(ptr noundef %0, ptr 
   %18 = load i32, ptr %9, align 4
   %19 = add i32 %18, 1
   store i32 %19, ptr %9, align 4
-  %20 = call zeroext i8 @tvb_get_guint8(ptr noundef %17, i32 noundef %18)
+  %20 = call zeroext i8 @tvb_get_uint8(ptr noundef %17, i32 noundef %18)
   store i8 %20, ptr %10, align 1
   %21 = load ptr, ptr %5, align 8
   %22 = load i32, ptr %9, align 4
   %23 = add i32 %22, 1
   store i32 %23, ptr %9, align 4
-  %24 = call zeroext i8 @tvb_get_guint8(ptr noundef %21, i32 noundef %22)
+  %24 = call zeroext i8 @tvb_get_uint8(ptr noundef %21, i32 noundef %22)
   store i8 %24, ptr %11, align 1
   %25 = load i8, ptr %10, align 1
   %26 = zext i8 %25 to i32
@@ -707,19 +752,25 @@ define internal void @dissect_general_extension_information(ptr noundef %0, ptr 
   %113 = load i32, ptr %9, align 4
   %114 = add i32 %113, %112
   store i32 %114, ptr %9, align 4
-  br label %12, !llvm.loop !7
+  br label %12, !llvm.loop !9
 
 115:                                              ; preds = %12
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret void
 }
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare i32 @tvb_captured_length(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length(ptr noundef) #2
 
-declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_extended_cmts_mic(ptr noundef %0, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -734,6 +785,11 @@ define internal void @dissect_extended_cmts_mic(ptr noundef %0, ptr noundef %1, 
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store i16 %3, ptr %8, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load i32, ptr %7, align 4
   store i32 %14, ptr %13, align 4
   %15 = load ptr, ptr %6, align 8
@@ -764,13 +820,13 @@ define internal void @dissect_extended_cmts_mic(ptr noundef %0, ptr noundef %1, 
   %34 = load i32, ptr %13, align 4
   %35 = add i32 %34, 1
   store i32 %35, ptr %13, align 4
-  %36 = call zeroext i8 @tvb_get_guint8(ptr noundef %33, i32 noundef %34)
+  %36 = call zeroext i8 @tvb_get_uint8(ptr noundef %33, i32 noundef %34)
   store i8 %36, ptr %11, align 1
   %37 = load ptr, ptr %5, align 8
   %38 = load i32, ptr %13, align 4
   %39 = add i32 %38, 1
   store i32 %39, ptr %13, align 4
-  %40 = call zeroext i8 @tvb_get_guint8(ptr noundef %37, i32 noundef %38)
+  %40 = call zeroext i8 @tvb_get_uint8(ptr noundef %37, i32 noundef %38)
   store i8 %40, ptr %12, align 1
   %41 = load i8, ptr %11, align 1
   %42 = zext i8 %41 to i32
@@ -826,13 +882,18 @@ define internal void @dissect_extended_cmts_mic(ptr noundef %0, ptr noundef %1, 
   %78 = load i32, ptr %13, align 4
   %79 = add i32 %78, %77
   store i32 %79, ptr %13, align 4
-  br label %25, !llvm.loop !8
+  br label %25, !llvm.loop !10
 
 80:                                               ; preds = %25
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_sav(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -849,6 +910,11 @@ define internal void @dissect_sav(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #4
   %16 = load i32, ptr %9, align 4
   store i32 %16, ptr %15, align 4
   %17 = load ptr, ptr %8, align 8
@@ -879,13 +945,13 @@ define internal void @dissect_sav(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %36 = load i32, ptr %15, align 4
   %37 = add i32 %36, 1
   store i32 %37, ptr %15, align 4
-  %38 = call zeroext i8 @tvb_get_guint8(ptr noundef %35, i32 noundef %36)
+  %38 = call zeroext i8 @tvb_get_uint8(ptr noundef %35, i32 noundef %36)
   store i8 %38, ptr %13, align 1
   %39 = load ptr, ptr %6, align 8
   %40 = load i32, ptr %15, align 4
   %41 = add i32 %40, 1
   store i32 %41, ptr %15, align 4
-  %42 = call zeroext i8 @tvb_get_guint8(ptr noundef %39, i32 noundef %40)
+  %42 = call zeroext i8 @tvb_get_uint8(ptr noundef %39, i32 noundef %40)
   store i8 %42, ptr %14, align 1
   %43 = load i8, ptr %13, align 1
   %44 = zext i8 %43 to i32
@@ -930,13 +996,18 @@ define internal void @dissect_sav(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %71 = load i32, ptr %15, align 4
   %72 = add i32 %71, %70
   store i32 %72, ptr %15, align 4
-  br label %27, !llvm.loop !9
+  br label %27, !llvm.loop !11
 
 73:                                               ; preds = %27
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_cable_modem_attribute_masks(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -953,6 +1024,11 @@ define internal void @dissect_cable_modem_attribute_masks(ptr noundef %0, ptr no
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #4
   %16 = load i32, ptr %9, align 4
   store i32 %16, ptr %15, align 4
   %17 = load ptr, ptr %8, align 8
@@ -983,13 +1059,13 @@ define internal void @dissect_cable_modem_attribute_masks(ptr noundef %0, ptr no
   %36 = load i32, ptr %15, align 4
   %37 = add i32 %36, 1
   store i32 %37, ptr %15, align 4
-  %38 = call zeroext i8 @tvb_get_guint8(ptr noundef %35, i32 noundef %36)
+  %38 = call zeroext i8 @tvb_get_uint8(ptr noundef %35, i32 noundef %36)
   store i8 %38, ptr %13, align 1
   %39 = load ptr, ptr %6, align 8
   %40 = load i32, ptr %15, align 4
   %41 = add i32 %40, 1
   store i32 %41, ptr %15, align 4
-  %42 = call zeroext i8 @tvb_get_guint8(ptr noundef %39, i32 noundef %40)
+  %42 = call zeroext i8 @tvb_get_uint8(ptr noundef %39, i32 noundef %40)
   store i8 %42, ptr %14, align 1
   %43 = load i8, ptr %13, align 1
   %44 = zext i8 %43 to i32
@@ -1011,7 +1087,7 @@ define internal void @dissect_cable_modem_attribute_masks(ptr noundef %0, ptr no
   %51 = load ptr, ptr %11, align 8
   %52 = load i8, ptr %14, align 1
   %53 = zext i8 %52 to i32
-  %54 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %50, ptr noundef %51, ptr noundef @ei_docsis_vsif_tlvlen_bad, ptr noundef @.str.122, i32 noundef %53)
+  %54 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %50, ptr noundef %51, ptr noundef @ei_docsis_vsif_tlvlen_bad, ptr noundef @.str.125, i32 noundef %53)
   br label %55
 
 55:                                               ; preds = %49, %45
@@ -1035,7 +1111,7 @@ define internal void @dissect_cable_modem_attribute_masks(ptr noundef %0, ptr no
   %69 = load ptr, ptr %11, align 8
   %70 = load i8, ptr %14, align 1
   %71 = zext i8 %70 to i32
-  %72 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %68, ptr noundef %69, ptr noundef @ei_docsis_vsif_tlvlen_bad, ptr noundef @.str.122, i32 noundef %71)
+  %72 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %68, ptr noundef %69, ptr noundef @ei_docsis_vsif_tlvlen_bad, ptr noundef @.str.125, i32 noundef %71)
   br label %73
 
 73:                                               ; preds = %67, %63
@@ -1059,7 +1135,7 @@ define internal void @dissect_cable_modem_attribute_masks(ptr noundef %0, ptr no
   %87 = load ptr, ptr %11, align 8
   %88 = load i8, ptr %14, align 1
   %89 = zext i8 %88 to i32
-  %90 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %86, ptr noundef %87, ptr noundef @ei_docsis_vsif_tlvlen_bad, ptr noundef @.str.122, i32 noundef %89)
+  %90 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %86, ptr noundef %87, ptr noundef @ei_docsis_vsif_tlvlen_bad, ptr noundef @.str.125, i32 noundef %89)
   br label %91
 
 91:                                               ; preds = %85, %81
@@ -1083,7 +1159,7 @@ define internal void @dissect_cable_modem_attribute_masks(ptr noundef %0, ptr no
   %105 = load ptr, ptr %11, align 8
   %106 = load i8, ptr %14, align 1
   %107 = zext i8 %106 to i32
-  %108 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %104, ptr noundef %105, ptr noundef @ei_docsis_vsif_tlvlen_bad, ptr noundef @.str.122, i32 noundef %107)
+  %108 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %104, ptr noundef %105, ptr noundef @ei_docsis_vsif_tlvlen_bad, ptr noundef @.str.125, i32 noundef %107)
   br label %109
 
 109:                                              ; preds = %103, %99
@@ -1112,13 +1188,18 @@ define internal void @dissect_cable_modem_attribute_masks(ptr noundef %0, ptr no
   %128 = load i32, ptr %15, align 4
   %129 = add i32 %128, %127
   store i32 %129, ptr %15, align 4
-  br label %27, !llvm.loop !10
+  br label %27, !llvm.loop !12
 
 130:                                              ; preds = %27
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_ip_multicast_join_authorization(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -1135,6 +1216,11 @@ define internal void @dissect_ip_multicast_join_authorization(ptr noundef %0, pt
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #4
   %16 = load i32, ptr %9, align 4
   store i32 %16, ptr %15, align 4
   %17 = load ptr, ptr %8, align 8
@@ -1165,13 +1251,13 @@ define internal void @dissect_ip_multicast_join_authorization(ptr noundef %0, pt
   %36 = load i32, ptr %15, align 4
   %37 = add i32 %36, 1
   store i32 %37, ptr %15, align 4
-  %38 = call zeroext i8 @tvb_get_guint8(ptr noundef %35, i32 noundef %36)
+  %38 = call zeroext i8 @tvb_get_uint8(ptr noundef %35, i32 noundef %36)
   store i8 %38, ptr %13, align 1
   %39 = load ptr, ptr %6, align 8
   %40 = load i32, ptr %15, align 4
   %41 = add i32 %40, 1
   store i32 %41, ptr %15, align 4
-  %42 = call zeroext i8 @tvb_get_guint8(ptr noundef %39, i32 noundef %40)
+  %42 = call zeroext i8 @tvb_get_uint8(ptr noundef %39, i32 noundef %40)
   store i8 %42, ptr %14, align 1
   %43 = load i8, ptr %13, align 1
   %44 = zext i8 %43 to i32
@@ -1198,7 +1284,7 @@ define internal void @dissect_ip_multicast_join_authorization(ptr noundef %0, pt
   %55 = load ptr, ptr %11, align 8
   %56 = load i8, ptr %14, align 1
   %57 = zext i8 %56 to i32
-  %58 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %54, ptr noundef %55, ptr noundef @ei_docsis_vsif_tlvlen_bad, ptr noundef @.str.122, i32 noundef %57)
+  %58 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %54, ptr noundef %55, ptr noundef @ei_docsis_vsif_tlvlen_bad, ptr noundef @.str.125, i32 noundef %57)
   br label %59
 
 59:                                               ; preds = %53, %49
@@ -1232,7 +1318,7 @@ define internal void @dissect_ip_multicast_join_authorization(ptr noundef %0, pt
   %80 = load ptr, ptr %11, align 8
   %81 = load i8, ptr %14, align 1
   %82 = zext i8 %81 to i32
-  %83 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %79, ptr noundef %80, ptr noundef @ei_docsis_vsif_tlvlen_bad, ptr noundef @.str.122, i32 noundef %82)
+  %83 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %79, ptr noundef %80, ptr noundef @ei_docsis_vsif_tlvlen_bad, ptr noundef @.str.125, i32 noundef %82)
   br label %84
 
 84:                                               ; preds = %78, %74
@@ -1261,13 +1347,18 @@ define internal void @dissect_ip_multicast_join_authorization(ptr noundef %0, pt
   %103 = load i32, ptr %15, align 4
   %104 = add i32 %103, %102
   store i32 %104, ptr %15, align 4
-  br label %27, !llvm.loop !11
+  br label %27, !llvm.loop !13
 
 105:                                              ; preds = %27
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_sav_static_prefix_rule(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -1284,6 +1375,11 @@ define internal void @dissect_sav_static_prefix_rule(ptr noundef %0, ptr noundef
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #4
   %16 = load i32, ptr %9, align 4
   store i32 %16, ptr %15, align 4
   %17 = load ptr, ptr %8, align 8
@@ -1314,13 +1410,13 @@ define internal void @dissect_sav_static_prefix_rule(ptr noundef %0, ptr noundef
   %36 = load i32, ptr %15, align 4
   %37 = add i32 %36, 1
   store i32 %37, ptr %15, align 4
-  %38 = call zeroext i8 @tvb_get_guint8(ptr noundef %35, i32 noundef %36)
+  %38 = call zeroext i8 @tvb_get_uint8(ptr noundef %35, i32 noundef %36)
   store i8 %38, ptr %13, align 1
   %39 = load ptr, ptr %6, align 8
   %40 = load i32, ptr %15, align 4
   %41 = add i32 %40, 1
   store i32 %41, ptr %15, align 4
-  %42 = call zeroext i8 @tvb_get_guint8(ptr noundef %39, i32 noundef %40)
+  %42 = call zeroext i8 @tvb_get_uint8(ptr noundef %39, i32 noundef %40)
   store i8 %42, ptr %14, align 1
   %43 = load i8, ptr %13, align 1
   %44 = zext i8 %43 to i32
@@ -1366,7 +1462,7 @@ define internal void @dissect_sav_static_prefix_rule(ptr noundef %0, ptr noundef
   %71 = load ptr, ptr %11, align 8
   %72 = load i8, ptr %14, align 1
   %73 = zext i8 %72 to i32
-  %74 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %70, ptr noundef %71, ptr noundef @ei_docsis_vsif_tlvlen_bad, ptr noundef @.str.122, i32 noundef %73)
+  %74 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %70, ptr noundef %71, ptr noundef @ei_docsis_vsif_tlvlen_bad, ptr noundef @.str.125, i32 noundef %73)
   br label %75
 
 75:                                               ; preds = %69, %61
@@ -1396,7 +1492,7 @@ define internal void @dissect_sav_static_prefix_rule(ptr noundef %0, ptr noundef
   %91 = load ptr, ptr %11, align 8
   %92 = load i8, ptr %14, align 1
   %93 = zext i8 %92 to i32
-  %94 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %90, ptr noundef %91, ptr noundef @ei_docsis_vsif_tlvlen_bad, ptr noundef @.str.122, i32 noundef %93)
+  %94 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %90, ptr noundef %91, ptr noundef @ei_docsis_vsif_tlvlen_bad, ptr noundef @.str.125, i32 noundef %93)
   br label %95
 
 95:                                               ; preds = %89, %81
@@ -1418,13 +1514,18 @@ define internal void @dissect_sav_static_prefix_rule(ptr noundef %0, ptr noundef
   %107 = load i32, ptr %15, align 4
   %108 = add i32 %107, %106
   store i32 %108, ptr %15, align 4
-  br label %27, !llvm.loop !12
+  br label %27, !llvm.loop !14
 
 109:                                              ; preds = %27
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_ip_multicast_join_authorization_static_session_rule(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -1441,6 +1542,11 @@ define internal void @dissect_ip_multicast_join_authorization_static_session_rul
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #4
   %16 = load i32, ptr %9, align 4
   store i32 %16, ptr %15, align 4
   %17 = load ptr, ptr %8, align 8
@@ -1471,13 +1577,13 @@ define internal void @dissect_ip_multicast_join_authorization_static_session_rul
   %36 = load i32, ptr %15, align 4
   %37 = add i32 %36, 1
   store i32 %37, ptr %15, align 4
-  %38 = call zeroext i8 @tvb_get_guint8(ptr noundef %35, i32 noundef %36)
+  %38 = call zeroext i8 @tvb_get_uint8(ptr noundef %35, i32 noundef %36)
   store i8 %38, ptr %13, align 1
   %39 = load ptr, ptr %6, align 8
   %40 = load i32, ptr %15, align 4
   %41 = add i32 %40, 1
   store i32 %41, ptr %15, align 4
-  %42 = call zeroext i8 @tvb_get_guint8(ptr noundef %39, i32 noundef %40)
+  %42 = call zeroext i8 @tvb_get_uint8(ptr noundef %39, i32 noundef %40)
   store i8 %42, ptr %14, align 1
   %43 = load i8, ptr %13, align 1
   %44 = zext i8 %43 to i32
@@ -1501,7 +1607,7 @@ define internal void @dissect_ip_multicast_join_authorization_static_session_rul
   %51 = load ptr, ptr %11, align 8
   %52 = load i8, ptr %14, align 1
   %53 = zext i8 %52 to i32
-  %54 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %50, ptr noundef %51, ptr noundef @ei_docsis_vsif_tlvlen_bad, ptr noundef @.str.122, i32 noundef %53)
+  %54 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %50, ptr noundef %51, ptr noundef @ei_docsis_vsif_tlvlen_bad, ptr noundef @.str.125, i32 noundef %53)
   br label %55
 
 55:                                               ; preds = %49, %45
@@ -1525,7 +1631,7 @@ define internal void @dissect_ip_multicast_join_authorization_static_session_rul
   %69 = load ptr, ptr %11, align 8
   %70 = load i8, ptr %14, align 1
   %71 = zext i8 %70 to i32
-  %72 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %68, ptr noundef %69, ptr noundef @ei_docsis_vsif_tlvlen_bad, ptr noundef @.str.122, i32 noundef %71)
+  %72 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %68, ptr noundef %69, ptr noundef @ei_docsis_vsif_tlvlen_bad, ptr noundef @.str.125, i32 noundef %71)
   br label %73
 
 73:                                               ; preds = %67, %63
@@ -1575,7 +1681,7 @@ define internal void @dissect_ip_multicast_join_authorization_static_session_rul
   %107 = load ptr, ptr %11, align 8
   %108 = load i8, ptr %14, align 1
   %109 = zext i8 %108 to i32
-  %110 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %106, ptr noundef %107, ptr noundef @ei_docsis_vsif_tlvlen_bad, ptr noundef @.str.122, i32 noundef %109)
+  %110 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %106, ptr noundef %107, ptr noundef @ei_docsis_vsif_tlvlen_bad, ptr noundef @.str.125, i32 noundef %109)
   br label %111
 
 111:                                              ; preds = %105, %97
@@ -1595,7 +1701,7 @@ define internal void @dissect_ip_multicast_join_authorization_static_session_rul
   %119 = load ptr, ptr %11, align 8
   %120 = load i8, ptr %14, align 1
   %121 = zext i8 %120 to i32
-  %122 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %118, ptr noundef %119, ptr noundef @ei_docsis_vsif_tlvlen_bad, ptr noundef @.str.122, i32 noundef %121)
+  %122 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %118, ptr noundef %119, ptr noundef @ei_docsis_vsif_tlvlen_bad, ptr noundef @.str.125, i32 noundef %121)
   br label %123
 
 123:                                              ; preds = %117, %113
@@ -1645,7 +1751,7 @@ define internal void @dissect_ip_multicast_join_authorization_static_session_rul
   %157 = load ptr, ptr %11, align 8
   %158 = load i8, ptr %14, align 1
   %159 = zext i8 %158 to i32
-  %160 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %156, ptr noundef %157, ptr noundef @ei_docsis_vsif_tlvlen_bad, ptr noundef @.str.122, i32 noundef %159)
+  %160 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %156, ptr noundef %157, ptr noundef @ei_docsis_vsif_tlvlen_bad, ptr noundef @.str.125, i32 noundef %159)
   br label %161
 
 161:                                              ; preds = %155, %147
@@ -1665,7 +1771,7 @@ define internal void @dissect_ip_multicast_join_authorization_static_session_rul
   %169 = load ptr, ptr %11, align 8
   %170 = load i8, ptr %14, align 1
   %171 = zext i8 %170 to i32
-  %172 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %168, ptr noundef %169, ptr noundef @ei_docsis_vsif_tlvlen_bad, ptr noundef @.str.122, i32 noundef %171)
+  %172 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %168, ptr noundef %169, ptr noundef @ei_docsis_vsif_tlvlen_bad, ptr noundef @.str.125, i32 noundef %171)
   br label %173
 
 173:                                              ; preds = %167, %163
@@ -1694,28 +1800,38 @@ define internal void @dissect_ip_multicast_join_authorization_static_session_rul
   %192 = load i32, ptr %15, align 4
   %193 = add i32 %192, %191
   store i32 %193, ptr %15, align 4
-  br label %27, !llvm.loop !13
+  br label %27, !llvm.loop !15
 
 194:                                              ; preds = %27
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #4
   ret void
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}

@@ -3,15 +3,12 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
-%struct._proto_node = type { ptr, ptr, ptr, ptr, ptr, ptr }
+%struct._proto_node = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.field_info = type { ptr, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, i32, i32 }
 
 @proto_register_slsk.hf = internal global [79 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_slsk_integer, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_string, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 28, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_byte, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_message_length, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_message_code, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 7, i32 1, ptr null, i64 0, ptr @.str.10, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_embedded_message_type, %struct._header_field_info { ptr @.str.11, ptr @.str.12, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_client_ip, %struct._header_field_info { ptr @.str.13, ptr @.str.14, i32 32, i32 0, ptr null, i64 0, ptr @.str.15, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_directory_name, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 28, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_username, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 28, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_password, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 28, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_version, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_login_successful, %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 4, i32 1, ptr @slsk_yes_no, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_login_message, %struct._header_field_info { ptr @.str.26, ptr @.str.27, i32 28, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_port, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_ip, %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 32, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_user_exists, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 4, i32 1, ptr @slsk_yes_no, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_status_code, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 7, i32 1, ptr @slsk_status_codes, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_room, %struct._header_field_info { ptr @.str.36, ptr @.str.37, i32 28, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_chat_message, %struct._header_field_info { ptr @.str.38, ptr @.str.39, i32 28, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_users_in_room, %struct._header_field_info { ptr @.str.40, ptr @.str.41, i32 15, i32 1, ptr null, i64 0, ptr @.str.42, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_token, %struct._header_field_info { ptr @.str.43, ptr @.str.44, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_connection_type, %struct._header_field_info { ptr @.str.45, ptr @.str.46, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_chat_message_id, %struct._header_field_info { ptr @.str.47, ptr @.str.48, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_timestamp, %struct._header_field_info { ptr @.str.49, ptr @.str.50, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_search_text, %struct._header_field_info { ptr @.str.51, ptr @.str.52, i32 28, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_folder_count, %struct._header_field_info { ptr @.str.53, ptr @.str.54, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_file_count, %struct._header_field_info { ptr @.str.55, ptr @.str.56, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_average_speed, %struct._header_field_info { ptr @.str.57, ptr @.str.58, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_download_number, %struct._header_field_info { ptr @.str.59, ptr @.str.60, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_files, %struct._header_field_info { ptr @.str.61, ptr @.str.62, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_directories, %struct._header_field_info { ptr @.str.63, ptr @.str.64, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_slotsfull, %struct._header_field_info { ptr @.str.65, ptr @.str.66, i32 7, i32 1, ptr null, i64 0, ptr @.str.67, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_place_in_queue, %struct._header_field_info { ptr @.str.68, ptr @.str.69, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_number_of_rooms, %struct._header_field_info { ptr @.str.70, ptr @.str.71, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_filename, %struct._header_field_info { ptr @.str.72, ptr @.str.73, i32 28, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_filename_ext, %struct._header_field_info { ptr @.str.74, ptr @.str.75, i32 28, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_directory, %struct._header_field_info { ptr @.str.76, ptr @.str.77, i32 28, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_size, %struct._header_field_info { ptr @.str.78, ptr @.str.79, i32 7, i32 1, ptr null, i64 0, ptr @.str.80, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_code, %struct._header_field_info { ptr @.str.81, ptr @.str.82, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_number_of_users, %struct._header_field_info { ptr @.str.83, ptr @.str.84, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_number_of_days, %struct._header_field_info { ptr @.str.85, ptr @.str.86, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_transfer_direction, %struct._header_field_info { ptr @.str.87, ptr @.str.88, i32 15, i32 1, ptr @slsk_transfer_direction, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_user_description, %struct._header_field_info { ptr @.str.89, ptr @.str.90, i32 28, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_picture_exists, %struct._header_field_info { ptr @.str.91, ptr @.str.92, i32 4, i32 1, ptr @slsk_yes_no, i64 0, ptr @.str.93, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_picture, %struct._header_field_info { ptr @.str.94, ptr @.str.95, i32 28, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_total_uploads, %struct._header_field_info { ptr @.str.96, ptr @.str.97, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_queued_uploads, %struct._header_field_info { ptr @.str.98, ptr @.str.99, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_slots_available, %struct._header_field_info { ptr @.str.100, ptr @.str.101, i32 4, i32 1, ptr @slsk_yes_no, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_allowed, %struct._header_field_info { ptr @.str.102, ptr @.str.103, i32 4, i32 1, ptr @slsk_yes_no, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_compr_packet, %struct._header_field_info { ptr @.str.104, ptr @.str.105, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_parent_min_speed, %struct._header_field_info { ptr @.str.106, ptr @.str.107, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_parent_speed_connection_ratio, %struct._header_field_info { ptr @.str.108, ptr @.str.109, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_seconds_parent_inactivity_before_disconnect, %struct._header_field_info { ptr @.str.110, ptr @.str.111, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_seconds_server_inactivity_before_disconnect, %struct._header_field_info { ptr @.str.112, ptr @.str.113, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_nodes_in_cache_before_disconnect, %struct._header_field_info { ptr @.str.114, ptr @.str.115, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_seconds_before_ping_children, %struct._header_field_info { ptr @.str.116, ptr @.str.117, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_recommendation, %struct._header_field_info { ptr @.str.118, ptr @.str.119, i32 28, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_user, %struct._header_field_info { ptr @.str.120, ptr @.str.121, i32 28, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_ranking, %struct._header_field_info { ptr @.str.122, ptr @.str.123, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_compressed_packet_length, %struct._header_field_info { ptr @.str.124, ptr @.str.125, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_uncompressed_packet_length, %struct._header_field_info { ptr @.str.126, ptr @.str.127, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_num_directories, %struct._header_field_info { ptr @.str.128, ptr @.str.129, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_upload_speed, %struct._header_field_info { ptr @.str.130, ptr @.str.131, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_in_queue, %struct._header_field_info { ptr @.str.132, ptr @.str.133, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_num_slotsfull_records, %struct._header_field_info { ptr @.str.134, ptr @.str.135, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_num_recommendations, %struct._header_field_info { ptr @.str.136, ptr @.str.137, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_num_files, %struct._header_field_info { ptr @.str.138, ptr @.str.139, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_num_strings, %struct._header_field_info { ptr @.str.140, ptr @.str.141, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_file_code, %struct._header_field_info { ptr @.str.81, ptr @.str.142, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_file_size1, %struct._header_field_info { ptr @.str.143, ptr @.str.144, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_file_size2, %struct._header_field_info { ptr @.str.145, ptr @.str.146, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_file_num_attributes, %struct._header_field_info { ptr @.str.147, ptr @.str.148, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_file_attribute_type, %struct._header_field_info { ptr @.str.149, ptr @.str.150, i32 7, i32 1, ptr @slsk_attr_type, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_file_attribute_value, %struct._header_field_info { ptr @.str.151, ptr @.str.152, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_free_upload_slots, %struct._header_field_info { ptr @.str.153, ptr @.str.154, i32 7, i32 1, ptr @slsk_yes_no, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_bytes, %struct._header_field_info { ptr @.str.155, ptr @.str.156, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_same_recommendation, %struct._header_field_info { ptr @.str.157, ptr @.str.158, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_number_of_priv_users, %struct._header_field_info { ptr @.str.159, ptr @.str.160, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_slsk_num_parent_address, %struct._header_field_info { ptr @.str.161, ptr @.str.162, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
@@ -53,7 +50,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_slsk_login_successful = internal global i32 0, align 4
 @.str.24 = private unnamed_addr constant [17 x i8] c"Login successful\00", align 1
 @.str.25 = private unnamed_addr constant [22 x i8] c"slsk.login.successful\00", align 1
-@slsk_yes_no = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.180 }, %struct._value_string { i32 1, ptr @.str.181 }, %struct._value_string zeroinitializer], align 16
 @hf_slsk_login_message = internal global i32 0, align 4
 @.str.26 = private unnamed_addr constant [14 x i8] c"Login Message\00", align 1
 @.str.27 = private unnamed_addr constant [19 x i8] c"slsk.login.message\00", align 1
@@ -69,7 +65,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_slsk_status_code = internal global i32 0, align 4
 @.str.34 = private unnamed_addr constant [12 x i8] c"Status Code\00", align 1
 @.str.35 = private unnamed_addr constant [17 x i8] c"slsk.status.code\00", align 1
-@slsk_status_codes = internal constant [5 x %struct._value_string] [%struct._value_string { i32 -1, ptr @.str.182 }, %struct._value_string { i32 0, ptr @.str.183 }, %struct._value_string { i32 1, ptr @.str.184 }, %struct._value_string { i32 2, ptr @.str.185 }, %struct._value_string zeroinitializer], align 16
 @hf_slsk_room = internal global i32 0, align 4
 @.str.36 = private unnamed_addr constant [5 x i8] c"Room\00", align 1
 @.str.37 = private unnamed_addr constant [10 x i8] c"slsk.room\00", align 1
@@ -148,7 +143,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_slsk_transfer_direction = internal global i32 0, align 4
 @.str.87 = private unnamed_addr constant [19 x i8] c"Transfer Direction\00", align 1
 @.str.88 = private unnamed_addr constant [24 x i8] c"slsk.transfer.direction\00", align 1
-@slsk_transfer_direction = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.186 }, %struct._value_string { i32 1, ptr @.str.187 }, %struct._value_string zeroinitializer], align 16
 @hf_slsk_user_description = internal global i32 0, align 4
 @.str.89 = private unnamed_addr constant [17 x i8] c"User Description\00", align 1
 @.str.90 = private unnamed_addr constant [22 x i8] c"slsk.user.description\00", align 1
@@ -242,7 +236,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_slsk_file_attribute_type = internal global i32 0, align 4
 @.str.149 = private unnamed_addr constant [20 x i8] c"File attribute type\00", align 1
 @.str.150 = private unnamed_addr constant [25 x i8] c"slsk.file_attribute_type\00", align 1
-@slsk_attr_type = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.188 }, %struct._value_string { i32 1, ptr @.str.189 }, %struct._value_string { i32 2, ptr @.str.190 }, %struct._value_string zeroinitializer], align 16
 @hf_slsk_file_attribute_value = internal global i32 0, align 4
 @.str.151 = private unnamed_addr constant [21 x i8] c"File attribute value\00", align 1
 @.str.152 = private unnamed_addr constant [26 x i8] c"slsk.file_attribute_value\00", align 1
@@ -271,7 +264,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_slsk_recommendation = internal global i32 0, align 4
 @ett_slsk_room = internal global i32 0, align 4
 @ett_slsk_string = internal global i32 0, align 4
-@proto_register_slsk.ei = internal global [3 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_slsk_unknown_data, %struct.expert_field_info { ptr @.str.163, i32 83886080, i32 6291456, ptr @.str.164, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_slsk_zlib_decompression_failed, %struct.expert_field_info { ptr @.str.165, i32 150994944, i32 6291456, ptr @.str.166, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_slsk_decompression_failed, %struct.expert_field_info { ptr @.str.167, i32 150994944, i32 6291456, ptr @.str.168, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_slsk.ei = internal global [3 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_slsk_unknown_data, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.163, i32 83886080, i32 6291456, ptr @.str.164, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_slsk_zlib_decompression_failed, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.165, i32 150994944, i32 6291456, ptr @.str.166, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_slsk_decompression_failed, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.167, i32 150994944, i32 6291456, ptr @.str.168, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_slsk_unknown_data = internal global %struct.expert_field zeroinitializer, align 4
 @.str.163 = private unnamed_addr constant [18 x i8] c"slsk.unknown_data\00", align 1
 @.str.164 = private unnamed_addr constant [31 x i8] c"Unknown Data (not interpreted)\00", align 1
@@ -289,239 +282,245 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.172 = private unnamed_addr constant [10 x i8] c"desegment\00", align 1
 @.str.173 = private unnamed_addr constant [60 x i8] c"Reassemble SoulSeek messages spanning multiple TCP segments\00", align 1
 @.str.174 = private unnamed_addr constant [209 x i8] c"Whether the SoulSeek dissector should reassemble messages spanning multiple TCP segments. To use this option, you must also enable \22Allow subdissectors to reassemble TCP streams\22 in the TCP protocol settings.\00", align 1
-@slsk_desegment = internal global i32 1, align 4
+@slsk_desegment = internal global i8 1, align 1
 @.str.175 = private unnamed_addr constant [11 x i8] c"decompress\00", align 1
 @.str.176 = private unnamed_addr constant [60 x i8] c"Decompress zlib compressed packets inside SoulSeek messages\00", align 1
 @.str.177 = private unnamed_addr constant [93 x i8] c"Whether the SoulSeek dissector should decompress all zlib compressed packets inside messages\00", align 1
-@slsk_decompress = internal global i32 1, align 4
+@slsk_decompress = internal global i8 1, align 1
 @.str.178 = private unnamed_addr constant [9 x i8] c"tcp.port\00", align 1
 @.str.179 = private unnamed_addr constant [15 x i8] c"2234,2240,5534\00", align 1
 @.str.180 = private unnamed_addr constant [3 x i8] c"No\00", align 1
 @.str.181 = private unnamed_addr constant [4 x i8] c"Yes\00", align 1
-@.str.182 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
-@.str.183 = private unnamed_addr constant [8 x i8] c"Offline\00", align 1
-@.str.184 = private unnamed_addr constant [5 x i8] c"Away\00", align 1
-@.str.185 = private unnamed_addr constant [7 x i8] c"Online\00", align 1
-@.str.186 = private unnamed_addr constant [9 x i8] c"Download\00", align 1
-@.str.187 = private unnamed_addr constant [7 x i8] c"Upload\00", align 1
-@.str.188 = private unnamed_addr constant [8 x i8] c"Bitrate\00", align 1
-@.str.189 = private unnamed_addr constant [7 x i8] c"Length\00", align 1
-@.str.190 = private unnamed_addr constant [4 x i8] c"VBR\00", align 1
-@.str.191 = private unnamed_addr constant [17 x i8] c"SoulSeek Message\00", align 1
-@.str.192 = private unnamed_addr constant [5 x i8] c": %s\00", align 1
-@.str.193 = private unnamed_addr constant [5 x i8] c"issi\00", align 1
-@.str.194 = private unnamed_addr constant [19 x i8] c"Login (Code: %02d)\00", align 1
-@.str.195 = private unnamed_addr constant [4 x i8] c"ibs\00", align 1
-@.str.196 = private unnamed_addr constant [5 x i8] c"ibsi\00", align 1
-@.str.197 = private unnamed_addr constant [25 x i8] c"Login Reply (Code: %02d)\00", align 1
-@.str.198 = private unnamed_addr constant [3 x i8] c"ii\00", align 1
-@.str.199 = private unnamed_addr constant [27 x i8] c"Set Wait Port (Code: %02d)\00", align 1
-@.str.200 = private unnamed_addr constant [5 x i8] c"isii\00", align 1
-@.str.201 = private unnamed_addr constant [36 x i8] c"Get Peer Address Reply (Code: %02d)\00", align 1
-@.str.202 = private unnamed_addr constant [3 x i8] c"is\00", align 1
-@.str.203 = private unnamed_addr constant [30 x i8] c"Get Peer Address (Code: %02d)\00", align 1
-@.str.204 = private unnamed_addr constant [2 x i8] c"i\00", align 1
-@.str.205 = private unnamed_addr constant [34 x i8] c"Get Shared File List (Code: %02d)\00", align 1
-@.str.206 = private unnamed_addr constant [4 x i8] c"isb\00", align 1
-@.str.207 = private unnamed_addr constant [31 x i8] c"User Exists Reply (Code: %02d)\00", align 1
-@.str.208 = private unnamed_addr constant [33 x i8] c"User Exists Request (Code: %02d)\00", align 1
-@.str.209 = private unnamed_addr constant [3 x i8] c"i*\00", align 1
-@.str.210 = private unnamed_addr constant [30 x i8] c"Shared File List (Code: %02d)\00", align 1
-@.str.211 = private unnamed_addr constant [27 x i8] c"Uncompressed SoulSeek data\00", align 1
-@.str.212 = private unnamed_addr constant [4 x i8] c"si*\00", align 1
-@.str.213 = private unnamed_addr constant [14 x i8] c"Directory #%d\00", align 1
-@.str.214 = private unnamed_addr constant [8 x i8] c"bsiisi*\00", align 1
-@.str.215 = private unnamed_addr constant [9 x i8] c"File #%d\00", align 1
-@.str.216 = private unnamed_addr constant [4 x i8] c"ii*\00", align 1
-@.str.217 = private unnamed_addr constant [14 x i8] c"Attribute #%d\00", align 1
-@.str.218 = private unnamed_addr constant [4 x i8] c"isi\00", align 1
-@.str.219 = private unnamed_addr constant [35 x i8] c"Get User Status Reply (Code: %02d)\00", align 1
-@.str.220 = private unnamed_addr constant [29 x i8] c"Get User Status (Code: %02d)\00", align 1
-@.str.221 = private unnamed_addr constant [32 x i8] c"File Search Result (Code: %02d)\00", align 1
-@.str.222 = private unnamed_addr constant [5 x i8] c"sii*\00", align 1
-@.str.223 = private unnamed_addr constant [5 x i8] c"isss\00", align 1
-@.str.224 = private unnamed_addr constant [26 x i8] c"Say ChatRoom (Code: %02d)\00", align 1
-@.str.225 = private unnamed_addr constant [4 x i8] c"iss\00", align 1
-@.str.226 = private unnamed_addr constant [27 x i8] c"Join/Add Room (Code: %02d)\00", align 1
-@.str.227 = private unnamed_addr constant [5 x i8] c"isi*\00", align 1
-@.str.228 = private unnamed_addr constant [33 x i8] c"Join Room User List (Code: %02d)\00", align 1
-@.str.229 = private unnamed_addr constant [3 x i8] c"s*\00", align 1
-@.str.230 = private unnamed_addr constant [7 x i8] c"iiiii*\00", align 1
-@.str.231 = private unnamed_addr constant [9 x i8] c"User #%d\00", align 1
-@.str.232 = private unnamed_addr constant [24 x i8] c"Leave Room (Code: %02d)\00", align 1
-@.str.233 = private unnamed_addr constant [31 x i8] c"User Info Request (Code: %02d)\00", align 1
-@.str.234 = private unnamed_addr constant [11 x i8] c"issiiiiiii\00", align 1
-@.str.235 = private unnamed_addr constant [30 x i8] c"User Joined Room (Code: %02d)\00", align 1
-@.str.236 = private unnamed_addr constant [7 x i8] c"isbiib\00", align 1
-@.str.237 = private unnamed_addr constant [8 x i8] c"isbsiib\00", align 1
-@.str.238 = private unnamed_addr constant [29 x i8] c"User Info Reply (Code: %02d)\00", align 1
-@.str.239 = private unnamed_addr constant [28 x i8] c"User Left Room (Code: %02d)\00", align 1
-@.str.240 = private unnamed_addr constant [5 x i8] c"iiss\00", align 1
-@.str.241 = private unnamed_addr constant [29 x i8] c"Connect To Peer (Code: %02d)\00", align 1
-@.str.242 = private unnamed_addr constant [14 x i8] c"%s (Char: %s)\00", align 1
-@.str.243 = private unnamed_addr constant [7 x i8] c"issiii\00", align 1
-@.str.244 = private unnamed_addr constant [31 x i8] c"Message User Send (Code: %02d)\00", align 1
-@.str.245 = private unnamed_addr constant [6 x i8] c"iiiss\00", align 1
-@.str.246 = private unnamed_addr constant [34 x i8] c"Message User Receive (Code: %02d)\00", align 1
-@.str.247 = private unnamed_addr constant [38 x i8] c"Message User Receive Ack (Code: %02d)\00", align 1
-@.str.248 = private unnamed_addr constant [4 x i8] c"iis\00", align 1
-@.str.249 = private unnamed_addr constant [25 x i8] c"File Search (Code: %02d)\00", align 1
-@.str.250 = private unnamed_addr constant [24 x i8] c"Set Status (Code: %02d)\00", align 1
-@.str.251 = private unnamed_addr constant [18 x i8] c"Ping (Code: %02d)\00", align 1
-@.str.252 = private unnamed_addr constant [33 x i8] c"Update Upload Speed (Code: %02d)\00", align 1
-@.str.253 = private unnamed_addr constant [4 x i8] c"iii\00", align 1
-@.str.254 = private unnamed_addr constant [36 x i8] c"Shared Files & Folders (Code: %02d)\00", align 1
-@.str.255 = private unnamed_addr constant [8 x i8] c"isiiiii\00", align 1
-@.str.256 = private unnamed_addr constant [34 x i8] c"Get User Stats Reply (Code: %02d)\00", align 1
-@.str.257 = private unnamed_addr constant [28 x i8] c"Get User Stats (Code: %02d)\00", align 1
-@.str.258 = private unnamed_addr constant [37 x i8] c"Folder Contents Request (Code: %02d)\00", align 1
-@.str.259 = private unnamed_addr constant [38 x i8] c"Folder Contents Response (Code: %02d)\00", align 1
-@.str.260 = private unnamed_addr constant [30 x i8] c"Queued Downloads (Code: %02d)\00", align 1
-@.str.261 = private unnamed_addr constant [5 x i8] c"iiis\00", align 1
-@.str.262 = private unnamed_addr constant [7 x i8] c"iiisii\00", align 1
-@.str.263 = private unnamed_addr constant [30 x i8] c"Transfer Request (Code: %02d)\00", align 1
-@.str.264 = private unnamed_addr constant [5 x i8] c"iibs\00", align 1
-@.str.265 = private unnamed_addr constant [6 x i8] c"iibii\00", align 1
-@.str.266 = private unnamed_addr constant [4 x i8] c"iib\00", align 1
-@.str.267 = private unnamed_addr constant [31 x i8] c"Transfer Response (Code: %02d)\00", align 1
-@.str.268 = private unnamed_addr constant [30 x i8] c"Placehold Upload (Code: %02d)\00", align 1
-@.str.269 = private unnamed_addr constant [26 x i8] c"Queue Upload (Code: %02d)\00", align 1
-@.str.270 = private unnamed_addr constant [28 x i8] c"Place In Queue (Code: %02d)\00", align 1
-@.str.271 = private unnamed_addr constant [27 x i8] c"Upload Failed (Code: %02d)\00", align 1
-@.str.272 = private unnamed_addr constant [37 x i8] c"Make Own Recommendation (Code: %02d)\00", align 1
-@.str.273 = private unnamed_addr constant [39 x i8] c"Remove Own Recommendation (Code: %02d)\00", align 1
-@.str.274 = private unnamed_addr constant [26 x i8] c"Queue Failed (Code: %02d)\00", align 1
-@.str.275 = private unnamed_addr constant [56 x i8] c"Add Things I like / Place In Queue Request (Code: %02d)\00", align 1
-@.str.276 = private unnamed_addr constant [34 x i8] c"Remove Things I like (Code: %02d)\00", align 1
-@.str.277 = private unnamed_addr constant [33 x i8] c"Get Recommendations (Code: %02d)\00", align 1
-@.str.278 = private unnamed_addr constant [39 x i8] c"Get Recommendations Reply (Code: %02d)\00", align 1
-@.str.279 = private unnamed_addr constant [19 x i8] c"Recommendation #%d\00", align 1
-@.str.280 = private unnamed_addr constant [21 x i8] c"Type 55 (Code: %02d)\00", align 1
-@.str.281 = private unnamed_addr constant [33 x i8] c"Get Global Rankings (Code: %02d)\00", align 1
-@.str.282 = private unnamed_addr constant [39 x i8] c"Get Global Rankings Reply (Code: %02d)\00", align 1
-@.str.283 = private unnamed_addr constant [38 x i8] c"Get User Recommendations (Code: %02d)\00", align 1
-@.str.284 = private unnamed_addr constant [44 x i8] c"Get User Recommendations Reply (Code: %02d)\00", align 1
-@.str.285 = private unnamed_addr constant [27 x i8] c"Admin Command (Code: %02d)\00", align 1
-@.str.286 = private unnamed_addr constant [11 x i8] c"String #%d\00", align 1
-@.str.287 = private unnamed_addr constant [36 x i8] c"Place In Line Response (Code: %02d)\00", align 1
-@.str.288 = private unnamed_addr constant [24 x i8] c"Room Added (Code: %02d)\00", align 1
-@.str.289 = private unnamed_addr constant [26 x i8] c"Room Removed (Code: %02d)\00", align 1
-@.str.290 = private unnamed_addr constant [31 x i8] c"Room List Request (Code: %02d)\00", align 1
-@.str.291 = private unnamed_addr constant [23 x i8] c"Room List (Code: %02d)\00", align 1
-@.str.292 = private unnamed_addr constant [9 x i8] c"Room #%d\00", align 1
-@.str.293 = private unnamed_addr constant [9 x i8] c"isissiii\00", align 1
-@.str.294 = private unnamed_addr constant [31 x i8] c"Exact File Search (Code: %02d)\00", align 1
-@.str.295 = private unnamed_addr constant [9 x i8] c"iissiiib\00", align 1
-@.str.296 = private unnamed_addr constant [27 x i8] c"Admin Message (Code: %02d)\00", align 1
-@.str.297 = private unnamed_addr constant [38 x i8] c"Global User List Request (Code: %02d)\00", align 1
-@.str.298 = private unnamed_addr constant [30 x i8] c"Global User List (Code: %02d)\00", align 1
-@.str.299 = private unnamed_addr constant [8 x i8] c"isiiiis\00", align 1
-@.str.300 = private unnamed_addr constant [30 x i8] c"Tunneled Message (Code: %02d)\00", align 1
-@.str.301 = private unnamed_addr constant [42 x i8] c"Privileged User List Request (Code: %02d)\00", align 1
-@.str.302 = private unnamed_addr constant [34 x i8] c"Privileged User List (Code: %02d)\00", align 1
-@.str.303 = private unnamed_addr constant [3 x i8] c"ib\00", align 1
-@.str.304 = private unnamed_addr constant [29 x i8] c"Get Parent List (Code: %02d)\00", align 1
-@.str.305 = private unnamed_addr constant [21 x i8] c"Type 73 (Code: %02d)\00", align 1
-@.str.306 = private unnamed_addr constant [30 x i8] c"Parent Min Speed (Code: %02d)\00", align 1
-@.str.307 = private unnamed_addr constant [43 x i8] c"Parent Speed Connection Ratio (Code: %02d)\00", align 1
-@.str.308 = private unnamed_addr constant [49 x i8] c"Parent Inactivity Before Disconnect (Code: %02d)\00", align 1
-@.str.309 = private unnamed_addr constant [49 x i8] c"Server Inactivity Before Disconnect (Code: %02d)\00", align 1
-@.str.310 = private unnamed_addr constant [46 x i8] c"Nodes In Cache Before Disconnect (Code: %02d)\00", align 1
-@.str.311 = private unnamed_addr constant [42 x i8] c"Seconds Before Ping Children (Code: %02d)\00", align 1
-@.str.312 = private unnamed_addr constant [31 x i8] c"Add To Privileged (Code: %02d)\00", align 1
-@.str.313 = private unnamed_addr constant [30 x i8] c"Check Privileges (Code: %02d)\00", align 1
-@.str.314 = private unnamed_addr constant [36 x i8] c"Check Privileges Reply (Code: %02d)\00", align 1
-@.str.315 = private unnamed_addr constant [7 x i8] c"ibisis\00", align 1
-@.str.316 = private unnamed_addr constant [30 x i8] c"Embedded Message (Code: %02d)\00", align 1
-@.str.317 = private unnamed_addr constant [30 x i8] c"Distributed Search (Byte: %d)\00", align 1
-@.str.318 = private unnamed_addr constant [27 x i8] c"Become Parent (Code: %02d)\00", align 1
-@.str.319 = private unnamed_addr constant [37 x i8] c"Random Parent Addresses (Code: %02d)\00", align 1
-@.str.320 = private unnamed_addr constant [33 x i8] c"Send Wishlist Entry (Code: %02d)\00", align 1
-@.str.321 = private unnamed_addr constant [22 x i8] c"Type 104 (Code: %02d)\00", align 1
-@.str.322 = private unnamed_addr constant [31 x i8] c"Get Similar Users (Code: %02d)\00", align 1
-@.str.323 = private unnamed_addr constant [37 x i8] c"Get Similar Users Reply (Code: %02d)\00", align 1
-@.str.324 = private unnamed_addr constant [42 x i8] c"Get Recommendations for Item (Code: %02d)\00", align 1
-@.str.325 = private unnamed_addr constant [48 x i8] c"Get Recommendations for Item Reply (Code: %02d)\00", align 1
-@.str.326 = private unnamed_addr constant [40 x i8] c"Get Similar Users for Item (Code: %02d)\00", align 1
-@.str.327 = private unnamed_addr constant [46 x i8] c"Get Similar Users for Item Reply (Code: %02d)\00", align 1
-@.str.328 = private unnamed_addr constant [35 x i8] c"Can't Connect To Peer (Code: %02d)\00", align 1
-@.str.329 = private unnamed_addr constant [6 x i8] c"bisis\00", align 1
-@.str.330 = private unnamed_addr constant [5 x i8] c"bssi\00", align 1
-@.str.331 = private unnamed_addr constant [21 x i8] c"Peer Init (Byte: %d)\00", align 1
-@.str.332 = private unnamed_addr constant [3 x i8] c"bi\00", align 1
-@.str.333 = private unnamed_addr constant [21 x i8] c"Pierce Fw (Byte: %d)\00", align 1
-@.str.334 = private unnamed_addr constant [21 x i8] c"Unknown (Code: %02d)\00", align 1
-@slsk_tcp_msgs = internal constant [65 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.338 }, %struct._value_string { i32 2, ptr @.str.339 }, %struct._value_string { i32 3, ptr @.str.340 }, %struct._value_string { i32 4, ptr @.str.341 }, %struct._value_string { i32 5, ptr @.str.342 }, %struct._value_string { i32 7, ptr @.str.343 }, %struct._value_string { i32 9, ptr @.str.344 }, %struct._value_string { i32 13, ptr @.str.345 }, %struct._value_string { i32 14, ptr @.str.346 }, %struct._value_string { i32 15, ptr @.str.347 }, %struct._value_string { i32 16, ptr @.str.348 }, %struct._value_string { i32 17, ptr @.str.349 }, %struct._value_string { i32 18, ptr @.str.350 }, %struct._value_string { i32 22, ptr @.str.351 }, %struct._value_string { i32 23, ptr @.str.352 }, %struct._value_string { i32 26, ptr @.str.353 }, %struct._value_string { i32 28, ptr @.str.354 }, %struct._value_string { i32 32, ptr @.str.355 }, %struct._value_string { i32 34, ptr @.str.356 }, %struct._value_string { i32 35, ptr @.str.357 }, %struct._value_string { i32 36, ptr @.str.358 }, %struct._value_string { i32 37, ptr @.str.359 }, %struct._value_string { i32 40, ptr @.str.360 }, %struct._value_string { i32 41, ptr @.str.361 }, %struct._value_string { i32 42, ptr @.str.362 }, %struct._value_string { i32 43, ptr @.str.363 }, %struct._value_string { i32 44, ptr @.str.364 }, %struct._value_string { i32 46, ptr @.str.365 }, %struct._value_string { i32 50, ptr @.str.366 }, %struct._value_string { i32 51, ptr @.str.367 }, %struct._value_string { i32 52, ptr @.str.368 }, %struct._value_string { i32 54, ptr @.str.369 }, %struct._value_string { i32 55, ptr @.str.370 }, %struct._value_string { i32 56, ptr @.str.371 }, %struct._value_string { i32 57, ptr @.str.372 }, %struct._value_string { i32 58, ptr @.str.373 }, %struct._value_string { i32 60, ptr @.str.374 }, %struct._value_string { i32 62, ptr @.str.375 }, %struct._value_string { i32 63, ptr @.str.376 }, %struct._value_string { i32 64, ptr @.str.377 }, %struct._value_string { i32 65, ptr @.str.378 }, %struct._value_string { i32 66, ptr @.str.379 }, %struct._value_string { i32 67, ptr @.str.380 }, %struct._value_string { i32 68, ptr @.str.381 }, %struct._value_string { i32 69, ptr @.str.382 }, %struct._value_string { i32 71, ptr @.str.383 }, %struct._value_string { i32 73, ptr @.str.384 }, %struct._value_string { i32 83, ptr @.str.106 }, %struct._value_string { i32 84, ptr @.str.108 }, %struct._value_string { i32 86, ptr @.str.385 }, %struct._value_string { i32 87, ptr @.str.386 }, %struct._value_string { i32 88, ptr @.str.114 }, %struct._value_string { i32 90, ptr @.str.116 }, %struct._value_string { i32 91, ptr @.str.387 }, %struct._value_string { i32 92, ptr @.str.388 }, %struct._value_string { i32 93, ptr @.str.389 }, %struct._value_string { i32 100, ptr @.str.390 }, %struct._value_string { i32 102, ptr @.str.391 }, %struct._value_string { i32 103, ptr @.str.392 }, %struct._value_string { i32 104, ptr @.str.393 }, %struct._value_string { i32 110, ptr @.str.394 }, %struct._value_string { i32 111, ptr @.str.395 }, %struct._value_string { i32 112, ptr @.str.396 }, %struct._value_string { i32 1001, ptr @.str.397 }, %struct._value_string zeroinitializer], align 16
-@.str.335 = private unnamed_addr constant [19 x i8] c"Distributed Search\00", align 1
-@.str.336 = private unnamed_addr constant [10 x i8] c"Peer Init\00", align 1
-@.str.337 = private unnamed_addr constant [10 x i8] c"Pierce Fw\00", align 1
-@.str.338 = private unnamed_addr constant [6 x i8] c"Login\00", align 1
-@.str.339 = private unnamed_addr constant [14 x i8] c"Set Wait Port\00", align 1
-@.str.340 = private unnamed_addr constant [17 x i8] c"Get Peer Address\00", align 1
-@.str.341 = private unnamed_addr constant [21 x i8] c"Get Shared File List\00", align 1
-@.str.342 = private unnamed_addr constant [31 x i8] c"User Exists / Shared File List\00", align 1
-@.str.343 = private unnamed_addr constant [16 x i8] c"Get User Status\00", align 1
-@.str.344 = private unnamed_addr constant [19 x i8] c"File Search Result\00", align 1
-@.str.345 = private unnamed_addr constant [13 x i8] c"Say ChatRoom\00", align 1
-@.str.346 = private unnamed_addr constant [10 x i8] c"Join Room\00", align 1
-@.str.347 = private unnamed_addr constant [31 x i8] c"Leave Room / User Info Request\00", align 1
-@.str.348 = private unnamed_addr constant [35 x i8] c"User Joined Room / User Info Reply\00", align 1
-@.str.349 = private unnamed_addr constant [15 x i8] c"User Left Room\00", align 1
-@.str.350 = private unnamed_addr constant [16 x i8] c"Connect To Peer\00", align 1
-@.str.351 = private unnamed_addr constant [13 x i8] c"Message User\00", align 1
-@.str.352 = private unnamed_addr constant [17 x i8] c"Message User Ack\00", align 1
-@.str.353 = private unnamed_addr constant [12 x i8] c"File Search\00", align 1
-@.str.354 = private unnamed_addr constant [11 x i8] c"Set Status\00", align 1
-@.str.355 = private unnamed_addr constant [5 x i8] c"Ping\00", align 1
-@.str.356 = private unnamed_addr constant [20 x i8] c"Update Upload Speed\00", align 1
-@.str.357 = private unnamed_addr constant [23 x i8] c"Shared Files & Folders\00", align 1
-@.str.358 = private unnamed_addr constant [41 x i8] c"Get User Stats / Folder Contents Request\00", align 1
-@.str.359 = private unnamed_addr constant [25 x i8] c"Folder Contents Response\00", align 1
-@.str.360 = private unnamed_addr constant [36 x i8] c"Queued Downloads / Transfer Request\00", align 1
-@.str.361 = private unnamed_addr constant [18 x i8] c"Transfer Response\00", align 1
-@.str.362 = private unnamed_addr constant [17 x i8] c"Placehold Upload\00", align 1
-@.str.363 = private unnamed_addr constant [13 x i8] c"Queue Upload\00", align 1
-@.str.364 = private unnamed_addr constant [15 x i8] c"Place In Queue\00", align 1
-@.str.365 = private unnamed_addr constant [14 x i8] c"Upload Failed\00", align 1
-@.str.366 = private unnamed_addr constant [34 x i8] c"Queue Failed / Own Recommendation\00", align 1
-@.str.367 = private unnamed_addr constant [43 x i8] c"Add Things I like / Place In Queue Request\00", align 1
-@.str.368 = private unnamed_addr constant [21 x i8] c"Remove Things I like\00", align 1
-@.str.369 = private unnamed_addr constant [20 x i8] c"Get Recommendations\00", align 1
-@.str.370 = private unnamed_addr constant [8 x i8] c"Type 55\00", align 1
-@.str.371 = private unnamed_addr constant [20 x i8] c"Get Global Rankings\00", align 1
-@.str.372 = private unnamed_addr constant [25 x i8] c"Get User Recommendations\00", align 1
-@.str.373 = private unnamed_addr constant [14 x i8] c"Admin Command\00", align 1
-@.str.374 = private unnamed_addr constant [23 x i8] c"Place In Line Response\00", align 1
-@.str.375 = private unnamed_addr constant [11 x i8] c"Room Added\00", align 1
-@.str.376 = private unnamed_addr constant [13 x i8] c"Room Removed\00", align 1
-@.str.377 = private unnamed_addr constant [10 x i8] c"Room List\00", align 1
-@.str.378 = private unnamed_addr constant [18 x i8] c"Exact File Search\00", align 1
-@.str.379 = private unnamed_addr constant [14 x i8] c"Admin Message\00", align 1
-@.str.380 = private unnamed_addr constant [17 x i8] c"Global User List\00", align 1
-@.str.381 = private unnamed_addr constant [17 x i8] c"Tunneled Message\00", align 1
-@.str.382 = private unnamed_addr constant [21 x i8] c"Privileged User List\00", align 1
-@.str.383 = private unnamed_addr constant [16 x i8] c"Get Parent List\00", align 1
-@.str.384 = private unnamed_addr constant [8 x i8] c"Type 73\00", align 1
-@.str.385 = private unnamed_addr constant [36 x i8] c"Parent Inactivity Before Disconnect\00", align 1
-@.str.386 = private unnamed_addr constant [36 x i8] c"Server Inactivity Before Disconnect\00", align 1
-@.str.387 = private unnamed_addr constant [18 x i8] c"Add To Privileged\00", align 1
-@.str.388 = private unnamed_addr constant [17 x i8] c"Check Privileges\00", align 1
-@.str.389 = private unnamed_addr constant [17 x i8] c"Embedded Message\00", align 1
-@.str.390 = private unnamed_addr constant [14 x i8] c"Become Parent\00", align 1
-@.str.391 = private unnamed_addr constant [24 x i8] c"Random Parent Addresses\00", align 1
-@.str.392 = private unnamed_addr constant [20 x i8] c"Send Wishlist Entry\00", align 1
-@.str.393 = private unnamed_addr constant [9 x i8] c"Type 104\00", align 1
-@.str.394 = private unnamed_addr constant [18 x i8] c"Get Similar Users\00", align 1
-@.str.395 = private unnamed_addr constant [29 x i8] c"Get Recommendations for Item\00", align 1
-@.str.396 = private unnamed_addr constant [27 x i8] c"Get Similar Users for Item\00", align 1
-@.str.397 = private unnamed_addr constant [22 x i8] c"Can't Connect To Peer\00", align 1
-@.str.398 = private unnamed_addr constant [16 x i8] c"Peer Connection\00", align 1
-@.str.399 = private unnamed_addr constant [14 x i8] c"File Transfer\00", align 1
+@slsk_yes_no = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.180 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.181 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.183 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
+@.str.184 = private unnamed_addr constant [8 x i8] c"Offline\00", align 1
+@.str.185 = private unnamed_addr constant [5 x i8] c"Away\00", align 1
+@.str.186 = private unnamed_addr constant [7 x i8] c"Online\00", align 1
+@slsk_status_codes = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 -1, [4 x i8] zeroinitializer, ptr @.str.183 }, { i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.184 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.185 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.186 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.188 = private unnamed_addr constant [9 x i8] c"Download\00", align 1
+@.str.189 = private unnamed_addr constant [7 x i8] c"Upload\00", align 1
+@slsk_transfer_direction = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.188 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.189 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.191 = private unnamed_addr constant [8 x i8] c"Bitrate\00", align 1
+@.str.192 = private unnamed_addr constant [7 x i8] c"Length\00", align 1
+@.str.193 = private unnamed_addr constant [4 x i8] c"VBR\00", align 1
+@slsk_attr_type = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.191 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.192 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.193 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.195 = private unnamed_addr constant [17 x i8] c"SoulSeek Message\00", align 1
+@.str.196 = private unnamed_addr constant [5 x i8] c": %s\00", align 1
+@.str.197 = private unnamed_addr constant [5 x i8] c"issi\00", align 1
+@.str.198 = private unnamed_addr constant [19 x i8] c"Login (Code: %02d)\00", align 1
+@.str.199 = private unnamed_addr constant [4 x i8] c"ibs\00", align 1
+@.str.200 = private unnamed_addr constant [5 x i8] c"ibsi\00", align 1
+@.str.201 = private unnamed_addr constant [25 x i8] c"Login Reply (Code: %02d)\00", align 1
+@.str.202 = private unnamed_addr constant [3 x i8] c"ii\00", align 1
+@.str.203 = private unnamed_addr constant [27 x i8] c"Set Wait Port (Code: %02d)\00", align 1
+@.str.204 = private unnamed_addr constant [5 x i8] c"isii\00", align 1
+@.str.205 = private unnamed_addr constant [36 x i8] c"Get Peer Address Reply (Code: %02d)\00", align 1
+@.str.206 = private unnamed_addr constant [3 x i8] c"is\00", align 1
+@.str.207 = private unnamed_addr constant [30 x i8] c"Get Peer Address (Code: %02d)\00", align 1
+@.str.208 = private unnamed_addr constant [2 x i8] c"i\00", align 1
+@.str.209 = private unnamed_addr constant [34 x i8] c"Get Shared File List (Code: %02d)\00", align 1
+@.str.210 = private unnamed_addr constant [4 x i8] c"isb\00", align 1
+@.str.211 = private unnamed_addr constant [31 x i8] c"User Exists Reply (Code: %02d)\00", align 1
+@.str.212 = private unnamed_addr constant [33 x i8] c"User Exists Request (Code: %02d)\00", align 1
+@.str.213 = private unnamed_addr constant [3 x i8] c"i*\00", align 1
+@.str.214 = private unnamed_addr constant [30 x i8] c"Shared File List (Code: %02d)\00", align 1
+@.str.215 = private unnamed_addr constant [27 x i8] c"Uncompressed SoulSeek data\00", align 1
+@.str.216 = private unnamed_addr constant [4 x i8] c"si*\00", align 1
+@.str.217 = private unnamed_addr constant [14 x i8] c"Directory #%d\00", align 1
+@.str.218 = private unnamed_addr constant [8 x i8] c"bsiisi*\00", align 1
+@.str.219 = private unnamed_addr constant [9 x i8] c"File #%d\00", align 1
+@.str.220 = private unnamed_addr constant [4 x i8] c"ii*\00", align 1
+@.str.221 = private unnamed_addr constant [14 x i8] c"Attribute #%d\00", align 1
+@.str.222 = private unnamed_addr constant [4 x i8] c"isi\00", align 1
+@.str.223 = private unnamed_addr constant [35 x i8] c"Get User Status Reply (Code: %02d)\00", align 1
+@.str.224 = private unnamed_addr constant [29 x i8] c"Get User Status (Code: %02d)\00", align 1
+@.str.225 = private unnamed_addr constant [32 x i8] c"File Search Result (Code: %02d)\00", align 1
+@.str.226 = private unnamed_addr constant [5 x i8] c"sii*\00", align 1
+@.str.227 = private unnamed_addr constant [5 x i8] c"isss\00", align 1
+@.str.228 = private unnamed_addr constant [26 x i8] c"Say ChatRoom (Code: %02d)\00", align 1
+@.str.229 = private unnamed_addr constant [4 x i8] c"iss\00", align 1
+@.str.230 = private unnamed_addr constant [27 x i8] c"Join/Add Room (Code: %02d)\00", align 1
+@.str.231 = private unnamed_addr constant [5 x i8] c"isi*\00", align 1
+@.str.232 = private unnamed_addr constant [33 x i8] c"Join Room User List (Code: %02d)\00", align 1
+@.str.233 = private unnamed_addr constant [3 x i8] c"s*\00", align 1
+@.str.234 = private unnamed_addr constant [7 x i8] c"iiiii*\00", align 1
+@.str.235 = private unnamed_addr constant [9 x i8] c"User #%d\00", align 1
+@.str.236 = private unnamed_addr constant [24 x i8] c"Leave Room (Code: %02d)\00", align 1
+@.str.237 = private unnamed_addr constant [31 x i8] c"User Info Request (Code: %02d)\00", align 1
+@.str.238 = private unnamed_addr constant [11 x i8] c"issiiiiiii\00", align 1
+@.str.239 = private unnamed_addr constant [30 x i8] c"User Joined Room (Code: %02d)\00", align 1
+@.str.240 = private unnamed_addr constant [7 x i8] c"isbiib\00", align 1
+@.str.241 = private unnamed_addr constant [8 x i8] c"isbsiib\00", align 1
+@.str.242 = private unnamed_addr constant [29 x i8] c"User Info Reply (Code: %02d)\00", align 1
+@.str.243 = private unnamed_addr constant [28 x i8] c"User Left Room (Code: %02d)\00", align 1
+@.str.244 = private unnamed_addr constant [5 x i8] c"iiss\00", align 1
+@.str.245 = private unnamed_addr constant [29 x i8] c"Connect To Peer (Code: %02d)\00", align 1
+@.str.246 = private unnamed_addr constant [14 x i8] c"%s (Char: %s)\00", align 1
+@.str.247 = private unnamed_addr constant [7 x i8] c"issiii\00", align 1
+@.str.248 = private unnamed_addr constant [31 x i8] c"Message User Send (Code: %02d)\00", align 1
+@.str.249 = private unnamed_addr constant [6 x i8] c"iiiss\00", align 1
+@.str.250 = private unnamed_addr constant [34 x i8] c"Message User Receive (Code: %02d)\00", align 1
+@.str.251 = private unnamed_addr constant [38 x i8] c"Message User Receive Ack (Code: %02d)\00", align 1
+@.str.252 = private unnamed_addr constant [4 x i8] c"iis\00", align 1
+@.str.253 = private unnamed_addr constant [25 x i8] c"File Search (Code: %02d)\00", align 1
+@.str.254 = private unnamed_addr constant [24 x i8] c"Set Status (Code: %02d)\00", align 1
+@.str.255 = private unnamed_addr constant [18 x i8] c"Ping (Code: %02d)\00", align 1
+@.str.256 = private unnamed_addr constant [33 x i8] c"Update Upload Speed (Code: %02d)\00", align 1
+@.str.257 = private unnamed_addr constant [4 x i8] c"iii\00", align 1
+@.str.258 = private unnamed_addr constant [36 x i8] c"Shared Files & Folders (Code: %02d)\00", align 1
+@.str.259 = private unnamed_addr constant [8 x i8] c"isiiiii\00", align 1
+@.str.260 = private unnamed_addr constant [34 x i8] c"Get User Stats Reply (Code: %02d)\00", align 1
+@.str.261 = private unnamed_addr constant [28 x i8] c"Get User Stats (Code: %02d)\00", align 1
+@.str.262 = private unnamed_addr constant [37 x i8] c"Folder Contents Request (Code: %02d)\00", align 1
+@.str.263 = private unnamed_addr constant [38 x i8] c"Folder Contents Response (Code: %02d)\00", align 1
+@.str.264 = private unnamed_addr constant [30 x i8] c"Queued Downloads (Code: %02d)\00", align 1
+@.str.265 = private unnamed_addr constant [5 x i8] c"iiis\00", align 1
+@.str.266 = private unnamed_addr constant [7 x i8] c"iiisii\00", align 1
+@.str.267 = private unnamed_addr constant [30 x i8] c"Transfer Request (Code: %02d)\00", align 1
+@.str.268 = private unnamed_addr constant [5 x i8] c"iibs\00", align 1
+@.str.269 = private unnamed_addr constant [6 x i8] c"iibii\00", align 1
+@.str.270 = private unnamed_addr constant [4 x i8] c"iib\00", align 1
+@.str.271 = private unnamed_addr constant [31 x i8] c"Transfer Response (Code: %02d)\00", align 1
+@.str.272 = private unnamed_addr constant [30 x i8] c"Placehold Upload (Code: %02d)\00", align 1
+@.str.273 = private unnamed_addr constant [26 x i8] c"Queue Upload (Code: %02d)\00", align 1
+@.str.274 = private unnamed_addr constant [28 x i8] c"Place In Queue (Code: %02d)\00", align 1
+@.str.275 = private unnamed_addr constant [27 x i8] c"Upload Failed (Code: %02d)\00", align 1
+@.str.276 = private unnamed_addr constant [37 x i8] c"Make Own Recommendation (Code: %02d)\00", align 1
+@.str.277 = private unnamed_addr constant [39 x i8] c"Remove Own Recommendation (Code: %02d)\00", align 1
+@.str.278 = private unnamed_addr constant [26 x i8] c"Queue Failed (Code: %02d)\00", align 1
+@.str.279 = private unnamed_addr constant [56 x i8] c"Add Things I like / Place In Queue Request (Code: %02d)\00", align 1
+@.str.280 = private unnamed_addr constant [34 x i8] c"Remove Things I like (Code: %02d)\00", align 1
+@.str.281 = private unnamed_addr constant [33 x i8] c"Get Recommendations (Code: %02d)\00", align 1
+@.str.282 = private unnamed_addr constant [39 x i8] c"Get Recommendations Reply (Code: %02d)\00", align 1
+@.str.283 = private unnamed_addr constant [19 x i8] c"Recommendation #%d\00", align 1
+@.str.284 = private unnamed_addr constant [21 x i8] c"Type 55 (Code: %02d)\00", align 1
+@.str.285 = private unnamed_addr constant [33 x i8] c"Get Global Rankings (Code: %02d)\00", align 1
+@.str.286 = private unnamed_addr constant [39 x i8] c"Get Global Rankings Reply (Code: %02d)\00", align 1
+@.str.287 = private unnamed_addr constant [38 x i8] c"Get User Recommendations (Code: %02d)\00", align 1
+@.str.288 = private unnamed_addr constant [44 x i8] c"Get User Recommendations Reply (Code: %02d)\00", align 1
+@.str.289 = private unnamed_addr constant [27 x i8] c"Admin Command (Code: %02d)\00", align 1
+@.str.290 = private unnamed_addr constant [11 x i8] c"String #%d\00", align 1
+@.str.291 = private unnamed_addr constant [36 x i8] c"Place In Line Response (Code: %02d)\00", align 1
+@.str.292 = private unnamed_addr constant [24 x i8] c"Room Added (Code: %02d)\00", align 1
+@.str.293 = private unnamed_addr constant [26 x i8] c"Room Removed (Code: %02d)\00", align 1
+@.str.294 = private unnamed_addr constant [31 x i8] c"Room List Request (Code: %02d)\00", align 1
+@.str.295 = private unnamed_addr constant [23 x i8] c"Room List (Code: %02d)\00", align 1
+@.str.296 = private unnamed_addr constant [9 x i8] c"Room #%d\00", align 1
+@.str.297 = private unnamed_addr constant [9 x i8] c"isissiii\00", align 1
+@.str.298 = private unnamed_addr constant [31 x i8] c"Exact File Search (Code: %02d)\00", align 1
+@.str.299 = private unnamed_addr constant [9 x i8] c"iissiiib\00", align 1
+@.str.300 = private unnamed_addr constant [27 x i8] c"Admin Message (Code: %02d)\00", align 1
+@.str.301 = private unnamed_addr constant [38 x i8] c"Global User List Request (Code: %02d)\00", align 1
+@.str.302 = private unnamed_addr constant [30 x i8] c"Global User List (Code: %02d)\00", align 1
+@.str.303 = private unnamed_addr constant [8 x i8] c"isiiiis\00", align 1
+@.str.304 = private unnamed_addr constant [30 x i8] c"Tunneled Message (Code: %02d)\00", align 1
+@.str.305 = private unnamed_addr constant [42 x i8] c"Privileged User List Request (Code: %02d)\00", align 1
+@.str.306 = private unnamed_addr constant [34 x i8] c"Privileged User List (Code: %02d)\00", align 1
+@.str.307 = private unnamed_addr constant [3 x i8] c"ib\00", align 1
+@.str.308 = private unnamed_addr constant [29 x i8] c"Get Parent List (Code: %02d)\00", align 1
+@.str.309 = private unnamed_addr constant [21 x i8] c"Type 73 (Code: %02d)\00", align 1
+@.str.310 = private unnamed_addr constant [30 x i8] c"Parent Min Speed (Code: %02d)\00", align 1
+@.str.311 = private unnamed_addr constant [43 x i8] c"Parent Speed Connection Ratio (Code: %02d)\00", align 1
+@.str.312 = private unnamed_addr constant [49 x i8] c"Parent Inactivity Before Disconnect (Code: %02d)\00", align 1
+@.str.313 = private unnamed_addr constant [49 x i8] c"Server Inactivity Before Disconnect (Code: %02d)\00", align 1
+@.str.314 = private unnamed_addr constant [46 x i8] c"Nodes In Cache Before Disconnect (Code: %02d)\00", align 1
+@.str.315 = private unnamed_addr constant [42 x i8] c"Seconds Before Ping Children (Code: %02d)\00", align 1
+@.str.316 = private unnamed_addr constant [31 x i8] c"Add To Privileged (Code: %02d)\00", align 1
+@.str.317 = private unnamed_addr constant [30 x i8] c"Check Privileges (Code: %02d)\00", align 1
+@.str.318 = private unnamed_addr constant [36 x i8] c"Check Privileges Reply (Code: %02d)\00", align 1
+@.str.319 = private unnamed_addr constant [7 x i8] c"ibisis\00", align 1
+@.str.320 = private unnamed_addr constant [30 x i8] c"Embedded Message (Code: %02d)\00", align 1
+@.str.321 = private unnamed_addr constant [30 x i8] c"Distributed Search (Byte: %d)\00", align 1
+@.str.322 = private unnamed_addr constant [27 x i8] c"Become Parent (Code: %02d)\00", align 1
+@.str.323 = private unnamed_addr constant [37 x i8] c"Random Parent Addresses (Code: %02d)\00", align 1
+@.str.324 = private unnamed_addr constant [33 x i8] c"Send Wishlist Entry (Code: %02d)\00", align 1
+@.str.325 = private unnamed_addr constant [22 x i8] c"Type 104 (Code: %02d)\00", align 1
+@.str.326 = private unnamed_addr constant [31 x i8] c"Get Similar Users (Code: %02d)\00", align 1
+@.str.327 = private unnamed_addr constant [37 x i8] c"Get Similar Users Reply (Code: %02d)\00", align 1
+@.str.328 = private unnamed_addr constant [42 x i8] c"Get Recommendations for Item (Code: %02d)\00", align 1
+@.str.329 = private unnamed_addr constant [48 x i8] c"Get Recommendations for Item Reply (Code: %02d)\00", align 1
+@.str.330 = private unnamed_addr constant [40 x i8] c"Get Similar Users for Item (Code: %02d)\00", align 1
+@.str.331 = private unnamed_addr constant [46 x i8] c"Get Similar Users for Item Reply (Code: %02d)\00", align 1
+@.str.332 = private unnamed_addr constant [35 x i8] c"Can't Connect To Peer (Code: %02d)\00", align 1
+@.str.333 = private unnamed_addr constant [6 x i8] c"bisis\00", align 1
+@.str.334 = private unnamed_addr constant [5 x i8] c"bssi\00", align 1
+@.str.335 = private unnamed_addr constant [21 x i8] c"Peer Init (Byte: %d)\00", align 1
+@.str.336 = private unnamed_addr constant [3 x i8] c"bi\00", align 1
+@.str.337 = private unnamed_addr constant [21 x i8] c"Pierce Fw (Byte: %d)\00", align 1
+@.str.338 = private unnamed_addr constant [21 x i8] c"Unknown (Code: %02d)\00", align 1
+@.str.339 = private unnamed_addr constant [19 x i8] c"Distributed Search\00", align 1
+@.str.340 = private unnamed_addr constant [10 x i8] c"Peer Init\00", align 1
+@.str.341 = private unnamed_addr constant [10 x i8] c"Pierce Fw\00", align 1
+@.str.342 = private unnamed_addr constant [6 x i8] c"Login\00", align 1
+@.str.343 = private unnamed_addr constant [14 x i8] c"Set Wait Port\00", align 1
+@.str.344 = private unnamed_addr constant [17 x i8] c"Get Peer Address\00", align 1
+@.str.345 = private unnamed_addr constant [21 x i8] c"Get Shared File List\00", align 1
+@.str.346 = private unnamed_addr constant [31 x i8] c"User Exists / Shared File List\00", align 1
+@.str.347 = private unnamed_addr constant [16 x i8] c"Get User Status\00", align 1
+@.str.348 = private unnamed_addr constant [19 x i8] c"File Search Result\00", align 1
+@.str.349 = private unnamed_addr constant [13 x i8] c"Say ChatRoom\00", align 1
+@.str.350 = private unnamed_addr constant [10 x i8] c"Join Room\00", align 1
+@.str.351 = private unnamed_addr constant [31 x i8] c"Leave Room / User Info Request\00", align 1
+@.str.352 = private unnamed_addr constant [35 x i8] c"User Joined Room / User Info Reply\00", align 1
+@.str.353 = private unnamed_addr constant [15 x i8] c"User Left Room\00", align 1
+@.str.354 = private unnamed_addr constant [16 x i8] c"Connect To Peer\00", align 1
+@.str.355 = private unnamed_addr constant [13 x i8] c"Message User\00", align 1
+@.str.356 = private unnamed_addr constant [17 x i8] c"Message User Ack\00", align 1
+@.str.357 = private unnamed_addr constant [12 x i8] c"File Search\00", align 1
+@.str.358 = private unnamed_addr constant [11 x i8] c"Set Status\00", align 1
+@.str.359 = private unnamed_addr constant [5 x i8] c"Ping\00", align 1
+@.str.360 = private unnamed_addr constant [20 x i8] c"Update Upload Speed\00", align 1
+@.str.361 = private unnamed_addr constant [23 x i8] c"Shared Files & Folders\00", align 1
+@.str.362 = private unnamed_addr constant [41 x i8] c"Get User Stats / Folder Contents Request\00", align 1
+@.str.363 = private unnamed_addr constant [25 x i8] c"Folder Contents Response\00", align 1
+@.str.364 = private unnamed_addr constant [36 x i8] c"Queued Downloads / Transfer Request\00", align 1
+@.str.365 = private unnamed_addr constant [18 x i8] c"Transfer Response\00", align 1
+@.str.366 = private unnamed_addr constant [17 x i8] c"Placehold Upload\00", align 1
+@.str.367 = private unnamed_addr constant [13 x i8] c"Queue Upload\00", align 1
+@.str.368 = private unnamed_addr constant [15 x i8] c"Place In Queue\00", align 1
+@.str.369 = private unnamed_addr constant [14 x i8] c"Upload Failed\00", align 1
+@.str.370 = private unnamed_addr constant [34 x i8] c"Queue Failed / Own Recommendation\00", align 1
+@.str.371 = private unnamed_addr constant [43 x i8] c"Add Things I like / Place In Queue Request\00", align 1
+@.str.372 = private unnamed_addr constant [21 x i8] c"Remove Things I like\00", align 1
+@.str.373 = private unnamed_addr constant [20 x i8] c"Get Recommendations\00", align 1
+@.str.374 = private unnamed_addr constant [8 x i8] c"Type 55\00", align 1
+@.str.375 = private unnamed_addr constant [20 x i8] c"Get Global Rankings\00", align 1
+@.str.376 = private unnamed_addr constant [25 x i8] c"Get User Recommendations\00", align 1
+@.str.377 = private unnamed_addr constant [14 x i8] c"Admin Command\00", align 1
+@.str.378 = private unnamed_addr constant [23 x i8] c"Place In Line Response\00", align 1
+@.str.379 = private unnamed_addr constant [11 x i8] c"Room Added\00", align 1
+@.str.380 = private unnamed_addr constant [13 x i8] c"Room Removed\00", align 1
+@.str.381 = private unnamed_addr constant [10 x i8] c"Room List\00", align 1
+@.str.382 = private unnamed_addr constant [18 x i8] c"Exact File Search\00", align 1
+@.str.383 = private unnamed_addr constant [14 x i8] c"Admin Message\00", align 1
+@.str.384 = private unnamed_addr constant [17 x i8] c"Global User List\00", align 1
+@.str.385 = private unnamed_addr constant [17 x i8] c"Tunneled Message\00", align 1
+@.str.386 = private unnamed_addr constant [21 x i8] c"Privileged User List\00", align 1
+@.str.387 = private unnamed_addr constant [16 x i8] c"Get Parent List\00", align 1
+@.str.388 = private unnamed_addr constant [8 x i8] c"Type 73\00", align 1
+@.str.389 = private unnamed_addr constant [36 x i8] c"Parent Inactivity Before Disconnect\00", align 1
+@.str.390 = private unnamed_addr constant [36 x i8] c"Server Inactivity Before Disconnect\00", align 1
+@.str.391 = private unnamed_addr constant [18 x i8] c"Add To Privileged\00", align 1
+@.str.392 = private unnamed_addr constant [17 x i8] c"Check Privileges\00", align 1
+@.str.393 = private unnamed_addr constant [17 x i8] c"Embedded Message\00", align 1
+@.str.394 = private unnamed_addr constant [14 x i8] c"Become Parent\00", align 1
+@.str.395 = private unnamed_addr constant [24 x i8] c"Random Parent Addresses\00", align 1
+@.str.396 = private unnamed_addr constant [20 x i8] c"Send Wishlist Entry\00", align 1
+@.str.397 = private unnamed_addr constant [9 x i8] c"Type 104\00", align 1
+@.str.398 = private unnamed_addr constant [18 x i8] c"Get Similar Users\00", align 1
+@.str.399 = private unnamed_addr constant [29 x i8] c"Get Recommendations for Item\00", align 1
+@.str.400 = private unnamed_addr constant [27 x i8] c"Get Similar Users for Item\00", align 1
+@.str.401 = private unnamed_addr constant [22 x i8] c"Can't Connect To Peer\00", align 1
+@slsk_tcp_msgs = internal constant [65 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.342 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.343 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.344 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.345 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.346 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.347 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.348 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.349 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.350 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.351 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.352 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.353 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.354 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.355 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.356 }, { i32, [4 x i8], ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.357 }, { i32, [4 x i8], ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.358 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.359 }, { i32, [4 x i8], ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.360 }, { i32, [4 x i8], ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.361 }, { i32, [4 x i8], ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.362 }, { i32, [4 x i8], ptr } { i32 37, [4 x i8] zeroinitializer, ptr @.str.363 }, { i32, [4 x i8], ptr } { i32 40, [4 x i8] zeroinitializer, ptr @.str.364 }, { i32, [4 x i8], ptr } { i32 41, [4 x i8] zeroinitializer, ptr @.str.365 }, { i32, [4 x i8], ptr } { i32 42, [4 x i8] zeroinitializer, ptr @.str.366 }, { i32, [4 x i8], ptr } { i32 43, [4 x i8] zeroinitializer, ptr @.str.367 }, { i32, [4 x i8], ptr } { i32 44, [4 x i8] zeroinitializer, ptr @.str.368 }, { i32, [4 x i8], ptr } { i32 46, [4 x i8] zeroinitializer, ptr @.str.369 }, { i32, [4 x i8], ptr } { i32 50, [4 x i8] zeroinitializer, ptr @.str.370 }, { i32, [4 x i8], ptr } { i32 51, [4 x i8] zeroinitializer, ptr @.str.371 }, { i32, [4 x i8], ptr } { i32 52, [4 x i8] zeroinitializer, ptr @.str.372 }, { i32, [4 x i8], ptr } { i32 54, [4 x i8] zeroinitializer, ptr @.str.373 }, { i32, [4 x i8], ptr } { i32 55, [4 x i8] zeroinitializer, ptr @.str.374 }, { i32, [4 x i8], ptr } { i32 56, [4 x i8] zeroinitializer, ptr @.str.375 }, { i32, [4 x i8], ptr } { i32 57, [4 x i8] zeroinitializer, ptr @.str.376 }, { i32, [4 x i8], ptr } { i32 58, [4 x i8] zeroinitializer, ptr @.str.377 }, { i32, [4 x i8], ptr } { i32 60, [4 x i8] zeroinitializer, ptr @.str.378 }, { i32, [4 x i8], ptr } { i32 62, [4 x i8] zeroinitializer, ptr @.str.379 }, { i32, [4 x i8], ptr } { i32 63, [4 x i8] zeroinitializer, ptr @.str.380 }, { i32, [4 x i8], ptr } { i32 64, [4 x i8] zeroinitializer, ptr @.str.381 }, { i32, [4 x i8], ptr } { i32 65, [4 x i8] zeroinitializer, ptr @.str.382 }, { i32, [4 x i8], ptr } { i32 66, [4 x i8] zeroinitializer, ptr @.str.383 }, { i32, [4 x i8], ptr } { i32 67, [4 x i8] zeroinitializer, ptr @.str.384 }, { i32, [4 x i8], ptr } { i32 68, [4 x i8] zeroinitializer, ptr @.str.385 }, { i32, [4 x i8], ptr } { i32 69, [4 x i8] zeroinitializer, ptr @.str.386 }, { i32, [4 x i8], ptr } { i32 71, [4 x i8] zeroinitializer, ptr @.str.387 }, { i32, [4 x i8], ptr } { i32 73, [4 x i8] zeroinitializer, ptr @.str.388 }, { i32, [4 x i8], ptr } { i32 83, [4 x i8] zeroinitializer, ptr @.str.106 }, { i32, [4 x i8], ptr } { i32 84, [4 x i8] zeroinitializer, ptr @.str.108 }, { i32, [4 x i8], ptr } { i32 86, [4 x i8] zeroinitializer, ptr @.str.389 }, { i32, [4 x i8], ptr } { i32 87, [4 x i8] zeroinitializer, ptr @.str.390 }, { i32, [4 x i8], ptr } { i32 88, [4 x i8] zeroinitializer, ptr @.str.114 }, { i32, [4 x i8], ptr } { i32 90, [4 x i8] zeroinitializer, ptr @.str.116 }, { i32, [4 x i8], ptr } { i32 91, [4 x i8] zeroinitializer, ptr @.str.391 }, { i32, [4 x i8], ptr } { i32 92, [4 x i8] zeroinitializer, ptr @.str.392 }, { i32, [4 x i8], ptr } { i32 93, [4 x i8] zeroinitializer, ptr @.str.393 }, { i32, [4 x i8], ptr } { i32 100, [4 x i8] zeroinitializer, ptr @.str.394 }, { i32, [4 x i8], ptr } { i32 102, [4 x i8] zeroinitializer, ptr @.str.395 }, { i32, [4 x i8], ptr } { i32 103, [4 x i8] zeroinitializer, ptr @.str.396 }, { i32, [4 x i8], ptr } { i32 104, [4 x i8] zeroinitializer, ptr @.str.397 }, { i32, [4 x i8], ptr } { i32 110, [4 x i8] zeroinitializer, ptr @.str.398 }, { i32, [4 x i8], ptr } { i32 111, [4 x i8] zeroinitializer, ptr @.str.399 }, { i32, [4 x i8], ptr } { i32 112, [4 x i8] zeroinitializer, ptr @.str.400 }, { i32, [4 x i8], ptr } { i32 1001, [4 x i8] zeroinitializer, ptr @.str.401 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.403 = private unnamed_addr constant [16 x i8] c"Peer Connection\00", align 1
+@.str.404 = private unnamed_addr constant [14 x i8] c"File Transfer\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_slsk() #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #6
   %3 = call i32 @proto_register_protocol(ptr noundef @.str.169, ptr noundef @.str.170, ptr noundef @.str.171)
   store i32 %3, ptr @proto_slsk, align 4
   %4 = load i32, ptr @proto_slsk, align 4
@@ -542,22 +541,33 @@ define hidden void @proto_register_slsk() #0 {
   call void @prefs_register_bool_preference(ptr noundef %12, ptr noundef @.str.172, ptr noundef @.str.173, ptr noundef @.str.174, ptr noundef @slsk_desegment)
   %13 = load ptr, ptr %1, align 8
   call void @prefs_register_bool_preference(ptr noundef %13, ptr noundef @.str.175, ptr noundef @.str.176, ptr noundef @.str.177, ptr noundef @slsk_decompress)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #6
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #2
 
-declare ptr @expert_register_protocol(i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #2
 
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_register_protocol(i32 noundef) #2
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_slsk(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -570,30 +580,38 @@ define internal i32 @dissect_slsk(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %9 = load ptr, ptr %5, align 8
   %10 = load ptr, ptr %6, align 8
   %11 = load ptr, ptr %7, align 8
-  %12 = load i32, ptr @slsk_desegment, align 4
-  %13 = load ptr, ptr %8, align 8
-  call void @tcp_dissect_pdus(ptr noundef %9, ptr noundef %10, ptr noundef %11, i32 noundef %12, i32 noundef 4, ptr noundef @get_slsk_pdu_len, ptr noundef @dissect_slsk_pdu, ptr noundef %13)
-  %14 = load ptr, ptr %5, align 8
-  %15 = call i32 @tvb_captured_length(ptr noundef %14)
-  ret i32 %15
+  %12 = load i8, ptr @slsk_desegment, align 1, !range !6, !noundef !7
+  %13 = trunc i8 %12 to i1
+  %14 = load ptr, ptr %8, align 8
+  call void @tcp_dissect_pdus(ptr noundef %9, ptr noundef %10, ptr noundef %11, i1 noundef zeroext %13, i32 noundef 4, ptr noundef @get_slsk_pdu_len, ptr noundef @dissect_slsk_pdu, ptr noundef %14)
+  %15 = load ptr, ptr %5, align 8
+  %16 = call i32 @tvb_captured_length(ptr noundef %15)
+  ret i32 %16
 }
 
-declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) #2
 
-declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_slsk() #0 {
   %1 = load ptr, ptr @slsk_handle, align 8
   call void @dissector_add_uint_range_with_preference(ptr noundef @.str.178, ptr noundef @.str.179, ptr noundef %1)
   ret void
 }
 
-declare void @dissector_add_uint_range_with_preference(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_add_uint_range_with_preference(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @get_slsk_pdu_len(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -604,6 +622,7 @@ define internal i32 @get_slsk_pdu_len(ptr noundef %0, ptr noundef %1, i32 nounde
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
   %10 = load ptr, ptr %6, align 8
   %11 = load i32, ptr %7, align 4
   %12 = call i32 @tvb_get_letohl(ptr noundef %10, i32 noundef %11)
@@ -612,10 +631,11 @@ define internal i32 @get_slsk_pdu_len(ptr noundef %0, ptr noundef %1, i32 nounde
   %14 = add i32 %13, 4
   store i32 %14, ptr %9, align 4
   %15 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_slsk_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -662,2804 +682,2847 @@ define internal i32 @dissect_slsk_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #6
   store i32 0, ptr %17, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %25) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %26) #6
   store i32 0, ptr %26, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %27) #6
   store i32 0, ptr %27, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %28) #6
   store i32 0, ptr %28, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %29) #6
   store i32 0, ptr %29, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %30) #6
   store i32 0, ptr %30, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %31) #6
   store i32 0, ptr %31, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %32) #6
   store i32 0, ptr %32, align 4
   %46 = load ptr, ptr %6, align 8
-  %47 = getelementptr inbounds %struct._packet_info, ptr %46, i32 0, i32 1
+  %47 = getelementptr inbounds nuw %struct._packet_info, ptr %46, i32 0, i32 1
   %48 = load ptr, ptr %47, align 8
-  call void @col_set_str(ptr noundef %48, i32 noundef 34, ptr noundef @.str.171)
+  call void @col_set_str(ptr noundef %48, i32 noundef 35, ptr noundef @.str.171)
   %49 = load ptr, ptr %6, align 8
-  %50 = getelementptr inbounds %struct._packet_info, ptr %49, i32 0, i32 1
+  %50 = getelementptr inbounds nuw %struct._packet_info, ptr %49, i32 0, i32 1
   %51 = load ptr, ptr %50, align 8
-  call void @col_set_str(ptr noundef %51, i32 noundef 25, ptr noundef @.str.191)
+  call void @col_set_str(ptr noundef %51, i32 noundef 25, ptr noundef @.str.195)
   %52 = load ptr, ptr %6, align 8
-  %53 = getelementptr inbounds %struct._packet_info, ptr %52, i32 0, i32 1
+  %53 = getelementptr inbounds nuw %struct._packet_info, ptr %52, i32 0, i32 1
   %54 = load ptr, ptr %53, align 8
   %55 = load ptr, ptr %5, align 8
-  %56 = call ptr @get_message_type(ptr noundef %55)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %54, i32 noundef 25, ptr noundef @.str.192, ptr noundef %56)
-  %57 = load ptr, ptr %7, align 8
-  %58 = load i32, ptr @proto_slsk, align 4
-  %59 = load ptr, ptr %5, align 8
-  %60 = call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %58, ptr noundef %59, i32 noundef 0, i32 noundef -1, i32 noundef 0)
-  store ptr %60, ptr %9, align 8
-  %61 = load ptr, ptr %9, align 8
-  %62 = load i32, ptr @ett_slsk, align 4
-  %63 = call ptr @proto_item_add_subtree(ptr noundef %61, i32 noundef %62)
-  store ptr %63, ptr %13, align 8
-  %64 = load ptr, ptr %13, align 8
-  %65 = load i32, ptr @hf_slsk_message_length, align 4
-  %66 = load ptr, ptr %5, align 8
-  %67 = load i32, ptr %17, align 4
-  %68 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %64, i32 noundef %65, ptr noundef %66, i32 noundef %67, i32 noundef 4, i32 noundef -2147483648, ptr noundef %20)
-  store ptr %68, ptr %10, align 8
-  %69 = load i32, ptr %17, align 4
-  %70 = add i32 %69, 4
-  store i32 %70, ptr %17, align 4
-  %71 = load ptr, ptr %5, align 8
-  %72 = load i32, ptr %17, align 4
-  %73 = call i32 @tvb_get_letohl(ptr noundef %71, i32 noundef %72)
-  store i32 %73, ptr %21, align 4
-  %74 = load i32, ptr %21, align 4
-  switch i32 %74, label %4459 [
-    i32 1, label %75
-    i32 2, label %165
-    i32 3, label %188
-    i32 4, label %250
-    i32 5, label %266
-    i32 7, label %575
-    i32 9, label %630
-    i32 13, label %882
-    i32 14, label %954
-    i32 15, label %1211
-    i32 16, label %1251
-    i32 17, label %1405
-    i32 18, label %1437
-    i32 22, label %1577
-    i32 23, label %1655
-    i32 26, label %1678
-    i32 28, label %1709
-    i32 32, label %1732
-    i32 34, label %1748
-    i32 35, label %1779
-    i32 36, label %1809
-    i32 37, label %1923
-    i32 40, label %2192
-    i32 41, label %2284
-    i32 42, label %2361
-    i32 43, label %2385
-    i32 44, label %2409
-    i32 46, label %2440
-    i32 50, label %2464
-    i32 51, label %2551
-    i32 52, label %2575
-    i32 54, label %2599
-    i32 55, label %2688
-    i32 56, label %2704
-    i32 57, label %2793
-    i32 58, label %2891
-    i32 60, label %2965
-    i32 62, label %3003
-    i32 63, label %3027
-    i32 64, label %3051
-    i32 65, label %3176
-    i32 66, label %3276
-    i32 67, label %3300
-    i32 68, label %3542
-    i32 69, label %3602
-    i32 71, label %3672
-    i32 73, label %3695
-    i32 83, label %3718
-    i32 84, label %3741
-    i32 86, label %3764
-    i32 87, label %3787
-    i32 88, label %3810
-    i32 90, label %3833
-    i32 91, label %3856
-    i32 92, label %3880
-    i32 93, label %3919
-    i32 100, label %3980
-    i32 102, label %4003
-    i32 103, label %4071
-    i32 104, label %4102
-    i32 110, label %4125
-    i32 111, label %4214
-    i32 112, label %4319
-    i32 1001, label %4405
+  %56 = load ptr, ptr %6, align 8
+  %57 = call ptr @get_message_type(ptr noundef %55, ptr noundef %56)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %54, i32 noundef 25, ptr noundef @.str.196, ptr noundef %57)
+  %58 = load ptr, ptr %7, align 8
+  %59 = load i32, ptr @proto_slsk, align 4
+  %60 = load ptr, ptr %5, align 8
+  %61 = call ptr @proto_tree_add_item(ptr noundef %58, i32 noundef %59, ptr noundef %60, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  store ptr %61, ptr %9, align 8
+  %62 = load ptr, ptr %9, align 8
+  %63 = load i32, ptr @ett_slsk, align 4
+  %64 = call ptr @proto_item_add_subtree(ptr noundef %62, i32 noundef %63)
+  store ptr %64, ptr %13, align 8
+  %65 = load ptr, ptr %13, align 8
+  %66 = load i32, ptr @hf_slsk_message_length, align 4
+  %67 = load ptr, ptr %5, align 8
+  %68 = load i32, ptr %17, align 4
+  %69 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %65, i32 noundef %66, ptr noundef %67, i32 noundef %68, i32 noundef 4, i32 noundef -2147483648, ptr noundef %20)
+  store ptr %69, ptr %10, align 8
+  %70 = load i32, ptr %17, align 4
+  %71 = add i32 %70, 4
+  store i32 %71, ptr %17, align 4
+  %72 = load ptr, ptr %5, align 8
+  %73 = load i32, ptr %17, align 4
+  %74 = call i32 @tvb_get_letohl(ptr noundef %72, i32 noundef %73)
+  store i32 %74, ptr %21, align 4
+  %75 = load i32, ptr %21, align 4
+  switch i32 %75, label %4466 [
+    i32 1, label %76
+    i32 2, label %166
+    i32 3, label %189
+    i32 4, label %251
+    i32 5, label %267
+    i32 7, label %578
+    i32 9, label %633
+    i32 13, label %887
+    i32 14, label %959
+    i32 15, label %1216
+    i32 16, label %1256
+    i32 17, label %1410
+    i32 18, label %1442
+    i32 22, label %1582
+    i32 23, label %1660
+    i32 26, label %1683
+    i32 28, label %1714
+    i32 32, label %1737
+    i32 34, label %1753
+    i32 35, label %1784
+    i32 36, label %1814
+    i32 37, label %1928
+    i32 40, label %2199
+    i32 41, label %2291
+    i32 42, label %2368
+    i32 43, label %2392
+    i32 44, label %2416
+    i32 46, label %2447
+    i32 50, label %2471
+    i32 51, label %2558
+    i32 52, label %2582
+    i32 54, label %2606
+    i32 55, label %2695
+    i32 56, label %2711
+    i32 57, label %2800
+    i32 58, label %2898
+    i32 60, label %2972
+    i32 62, label %3010
+    i32 63, label %3034
+    i32 64, label %3058
+    i32 65, label %3183
+    i32 66, label %3283
+    i32 67, label %3307
+    i32 68, label %3549
+    i32 69, label %3609
+    i32 71, label %3679
+    i32 73, label %3702
+    i32 83, label %3725
+    i32 84, label %3748
+    i32 86, label %3771
+    i32 87, label %3794
+    i32 88, label %3817
+    i32 90, label %3840
+    i32 91, label %3863
+    i32 92, label %3887
+    i32 93, label %3926
+    i32 100, label %3987
+    i32 102, label %4010
+    i32 103, label %4078
+    i32 104, label %4109
+    i32 110, label %4132
+    i32 111, label %4221
+    i32 112, label %4326
+    i32 1001, label %4412
   ]
 
-75:                                               ; preds = %4
-  %76 = load ptr, ptr %5, align 8
-  %77 = load i32, ptr %17, align 4
-  %78 = call i32 @check_slsk_format(ptr noundef %76, i32 noundef %77, ptr noundef @.str.193)
-  %79 = icmp ne i32 %78, 0
-  br i1 %79, label %80, label %113
+76:                                               ; preds = %4
+  %77 = load ptr, ptr %5, align 8
+  %78 = load ptr, ptr %6, align 8
+  %79 = load i32, ptr %17, align 4
+  %80 = call zeroext i1 @check_slsk_format(ptr noundef %77, ptr noundef %78, i32 noundef %79, ptr noundef @.str.197)
+  br i1 %80, label %81, label %114
 
-80:                                               ; preds = %75
-  %81 = load ptr, ptr %13, align 8
-  %82 = load i32, ptr @hf_slsk_message_code, align 4
-  %83 = load ptr, ptr %5, align 8
-  %84 = load i32, ptr %17, align 4
-  %85 = load i32, ptr %21, align 4
+81:                                               ; preds = %76
+  %82 = load ptr, ptr %13, align 8
+  %83 = load i32, ptr @hf_slsk_message_code, align 4
+  %84 = load ptr, ptr %5, align 8
+  %85 = load i32, ptr %17, align 4
   %86 = load i32, ptr %21, align 4
-  %87 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %81, i32 noundef %82, ptr noundef %83, i32 noundef %84, i32 noundef 4, i32 noundef %85, ptr noundef @.str.194, i32 noundef %86)
-  %88 = load i32, ptr %17, align 4
-  %89 = add i32 %88, 4
-  store i32 %89, ptr %17, align 4
-  %90 = load ptr, ptr %13, align 8
-  %91 = load i32, ptr @hf_slsk_username, align 4
-  %92 = load ptr, ptr %5, align 8
-  %93 = load i32, ptr %17, align 4
-  %94 = call ptr @proto_tree_add_item_ret_length(ptr noundef %90, i32 noundef %91, ptr noundef %92, i32 noundef %93, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %95 = load i32, ptr %23, align 4
-  %96 = load i32, ptr %17, align 4
-  %97 = add i32 %96, %95
-  store i32 %97, ptr %17, align 4
-  %98 = load ptr, ptr %13, align 8
-  %99 = load i32, ptr @hf_slsk_password, align 4
-  %100 = load ptr, ptr %5, align 8
-  %101 = load i32, ptr %17, align 4
-  %102 = call ptr @proto_tree_add_item_ret_length(ptr noundef %98, i32 noundef %99, ptr noundef %100, i32 noundef %101, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %103 = load i32, ptr %23, align 4
-  %104 = load i32, ptr %17, align 4
-  %105 = add i32 %104, %103
-  store i32 %105, ptr %17, align 4
-  %106 = load ptr, ptr %13, align 8
-  %107 = load i32, ptr @hf_slsk_version, align 4
-  %108 = load ptr, ptr %5, align 8
-  %109 = load i32, ptr %17, align 4
-  %110 = call ptr @proto_tree_add_item(ptr noundef %106, i32 noundef %107, ptr noundef %108, i32 noundef %109, i32 noundef 4, i32 noundef -2147483648)
-  %111 = load i32, ptr %17, align 4
-  %112 = add i32 %111, 4
-  store i32 %112, ptr %17, align 4
-  br label %164
+  %87 = load i32, ptr %21, align 4
+  %88 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %82, i32 noundef %83, ptr noundef %84, i32 noundef %85, i32 noundef 4, i32 noundef %86, ptr noundef @.str.198, i32 noundef %87)
+  %89 = load i32, ptr %17, align 4
+  %90 = add i32 %89, 4
+  store i32 %90, ptr %17, align 4
+  %91 = load ptr, ptr %13, align 8
+  %92 = load i32, ptr @hf_slsk_username, align 4
+  %93 = load ptr, ptr %5, align 8
+  %94 = load i32, ptr %17, align 4
+  %95 = call ptr @proto_tree_add_item_ret_length(ptr noundef %91, i32 noundef %92, ptr noundef %93, i32 noundef %94, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %96 = load i32, ptr %23, align 4
+  %97 = load i32, ptr %17, align 4
+  %98 = add i32 %97, %96
+  store i32 %98, ptr %17, align 4
+  %99 = load ptr, ptr %13, align 8
+  %100 = load i32, ptr @hf_slsk_password, align 4
+  %101 = load ptr, ptr %5, align 8
+  %102 = load i32, ptr %17, align 4
+  %103 = call ptr @proto_tree_add_item_ret_length(ptr noundef %99, i32 noundef %100, ptr noundef %101, i32 noundef %102, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %104 = load i32, ptr %23, align 4
+  %105 = load i32, ptr %17, align 4
+  %106 = add i32 %105, %104
+  store i32 %106, ptr %17, align 4
+  %107 = load ptr, ptr %13, align 8
+  %108 = load i32, ptr @hf_slsk_version, align 4
+  %109 = load ptr, ptr %5, align 8
+  %110 = load i32, ptr %17, align 4
+  %111 = call ptr @proto_tree_add_item(ptr noundef %107, i32 noundef %108, ptr noundef %109, i32 noundef %110, i32 noundef 4, i32 noundef -2147483648)
+  %112 = load i32, ptr %17, align 4
+  %113 = add i32 %112, 4
+  store i32 %113, ptr %17, align 4
+  br label %165
 
-113:                                              ; preds = %75
-  %114 = load ptr, ptr %5, align 8
-  %115 = load i32, ptr %17, align 4
-  %116 = call i32 @check_slsk_format(ptr noundef %114, i32 noundef %115, ptr noundef @.str.195)
-  %117 = icmp ne i32 %116, 0
-  br i1 %117, label %123, label %118
+114:                                              ; preds = %76
+  %115 = load ptr, ptr %5, align 8
+  %116 = load ptr, ptr %6, align 8
+  %117 = load i32, ptr %17, align 4
+  %118 = call zeroext i1 @check_slsk_format(ptr noundef %115, ptr noundef %116, i32 noundef %117, ptr noundef @.str.199)
+  br i1 %118, label %124, label %119
 
-118:                                              ; preds = %113
-  %119 = load ptr, ptr %5, align 8
-  %120 = load i32, ptr %17, align 4
-  %121 = call i32 @check_slsk_format(ptr noundef %119, i32 noundef %120, ptr noundef @.str.196)
-  %122 = icmp ne i32 %121, 0
-  br i1 %122, label %123, label %163
+119:                                              ; preds = %114
+  %120 = load ptr, ptr %5, align 8
+  %121 = load ptr, ptr %6, align 8
+  %122 = load i32, ptr %17, align 4
+  %123 = call zeroext i1 @check_slsk_format(ptr noundef %120, ptr noundef %121, i32 noundef %122, ptr noundef @.str.200)
+  br i1 %123, label %124, label %164
 
-123:                                              ; preds = %118, %113
-  %124 = load ptr, ptr %13, align 8
-  %125 = load i32, ptr @hf_slsk_message_code, align 4
-  %126 = load ptr, ptr %5, align 8
-  %127 = load i32, ptr %17, align 4
-  %128 = load i32, ptr %21, align 4
+124:                                              ; preds = %119, %114
+  %125 = load ptr, ptr %13, align 8
+  %126 = load i32, ptr @hf_slsk_message_code, align 4
+  %127 = load ptr, ptr %5, align 8
+  %128 = load i32, ptr %17, align 4
   %129 = load i32, ptr %21, align 4
-  %130 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %124, i32 noundef %125, ptr noundef %126, i32 noundef %127, i32 noundef 4, i32 noundef %128, ptr noundef @.str.197, i32 noundef %129)
-  %131 = load i32, ptr %17, align 4
-  %132 = add i32 %131, 4
-  store i32 %132, ptr %17, align 4
-  %133 = load ptr, ptr %5, align 8
-  %134 = load i32, ptr %17, align 4
-  %135 = call zeroext i8 @tvb_get_guint8(ptr noundef %133, i32 noundef %134)
-  %136 = zext i8 %135 to i32
-  store i32 %136, ptr %18, align 4
-  %137 = load ptr, ptr %13, align 8
-  %138 = load i32, ptr @hf_slsk_login_successful, align 4
-  %139 = load ptr, ptr %5, align 8
-  %140 = load i32, ptr %17, align 4
-  %141 = call ptr @proto_tree_add_item(ptr noundef %137, i32 noundef %138, ptr noundef %139, i32 noundef %140, i32 noundef 1, i32 noundef 0)
-  %142 = load i32, ptr %17, align 4
-  %143 = add i32 %142, 1
-  store i32 %143, ptr %17, align 4
-  %144 = load ptr, ptr %13, align 8
-  %145 = load i32, ptr @hf_slsk_login_message, align 4
-  %146 = load ptr, ptr %5, align 8
-  %147 = load i32, ptr %17, align 4
-  %148 = call ptr @proto_tree_add_item_ret_length(ptr noundef %144, i32 noundef %145, ptr noundef %146, i32 noundef %147, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %149 = load i32, ptr %23, align 4
-  %150 = load i32, ptr %17, align 4
-  %151 = add i32 %150, %149
-  store i32 %151, ptr %17, align 4
-  %152 = load i32, ptr %18, align 4
-  %153 = icmp eq i32 %152, 1
-  br i1 %153, label %154, label %162
+  %130 = load i32, ptr %21, align 4
+  %131 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %125, i32 noundef %126, ptr noundef %127, i32 noundef %128, i32 noundef 4, i32 noundef %129, ptr noundef @.str.201, i32 noundef %130)
+  %132 = load i32, ptr %17, align 4
+  %133 = add i32 %132, 4
+  store i32 %133, ptr %17, align 4
+  %134 = load ptr, ptr %5, align 8
+  %135 = load i32, ptr %17, align 4
+  %136 = call zeroext i8 @tvb_get_uint8(ptr noundef %134, i32 noundef %135)
+  %137 = zext i8 %136 to i32
+  store i32 %137, ptr %18, align 4
+  %138 = load ptr, ptr %13, align 8
+  %139 = load i32, ptr @hf_slsk_login_successful, align 4
+  %140 = load ptr, ptr %5, align 8
+  %141 = load i32, ptr %17, align 4
+  %142 = call ptr @proto_tree_add_item(ptr noundef %138, i32 noundef %139, ptr noundef %140, i32 noundef %141, i32 noundef 1, i32 noundef 0)
+  %143 = load i32, ptr %17, align 4
+  %144 = add i32 %143, 1
+  store i32 %144, ptr %17, align 4
+  %145 = load ptr, ptr %13, align 8
+  %146 = load i32, ptr @hf_slsk_login_message, align 4
+  %147 = load ptr, ptr %5, align 8
+  %148 = load i32, ptr %17, align 4
+  %149 = call ptr @proto_tree_add_item_ret_length(ptr noundef %145, i32 noundef %146, ptr noundef %147, i32 noundef %148, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %150 = load i32, ptr %23, align 4
+  %151 = load i32, ptr %17, align 4
+  %152 = add i32 %151, %150
+  store i32 %152, ptr %17, align 4
+  %153 = load i32, ptr %18, align 4
+  %154 = icmp eq i32 %153, 1
+  br i1 %154, label %155, label %163
 
-154:                                              ; preds = %123
-  %155 = load ptr, ptr %13, align 8
-  %156 = load i32, ptr @hf_slsk_client_ip, align 4
-  %157 = load ptr, ptr %5, align 8
-  %158 = load i32, ptr %17, align 4
-  %159 = call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %156, ptr noundef %157, i32 noundef %158, i32 noundef 4, i32 noundef 0)
-  %160 = load i32, ptr %17, align 4
-  %161 = add i32 %160, 4
-  store i32 %161, ptr %17, align 4
-  br label %162
-
-162:                                              ; preds = %154, %123
+155:                                              ; preds = %124
+  %156 = load ptr, ptr %13, align 8
+  %157 = load i32, ptr @hf_slsk_client_ip, align 4
+  %158 = load ptr, ptr %5, align 8
+  %159 = load i32, ptr %17, align 4
+  %160 = call ptr @proto_tree_add_item(ptr noundef %156, i32 noundef %157, ptr noundef %158, i32 noundef %159, i32 noundef 4, i32 noundef 0)
+  %161 = load i32, ptr %17, align 4
+  %162 = add i32 %161, 4
+  store i32 %162, ptr %17, align 4
   br label %163
 
-163:                                              ; preds = %162, %118
+163:                                              ; preds = %155, %124
   br label %164
 
-164:                                              ; preds = %163, %80
-  br label %4619
+164:                                              ; preds = %163, %119
+  br label %165
 
-165:                                              ; preds = %4
-  %166 = load ptr, ptr %5, align 8
-  %167 = load i32, ptr %17, align 4
-  %168 = call i32 @check_slsk_format(ptr noundef %166, i32 noundef %167, ptr noundef @.str.198)
-  %169 = icmp ne i32 %168, 0
-  br i1 %169, label %170, label %187
+165:                                              ; preds = %164, %81
+  br label %4626
 
-170:                                              ; preds = %165
-  %171 = load ptr, ptr %13, align 8
-  %172 = load i32, ptr @hf_slsk_message_code, align 4
-  %173 = load ptr, ptr %5, align 8
-  %174 = load i32, ptr %17, align 4
-  %175 = load i32, ptr %21, align 4
+166:                                              ; preds = %4
+  %167 = load ptr, ptr %5, align 8
+  %168 = load ptr, ptr %6, align 8
+  %169 = load i32, ptr %17, align 4
+  %170 = call zeroext i1 @check_slsk_format(ptr noundef %167, ptr noundef %168, i32 noundef %169, ptr noundef @.str.202)
+  br i1 %170, label %171, label %188
+
+171:                                              ; preds = %166
+  %172 = load ptr, ptr %13, align 8
+  %173 = load i32, ptr @hf_slsk_message_code, align 4
+  %174 = load ptr, ptr %5, align 8
+  %175 = load i32, ptr %17, align 4
   %176 = load i32, ptr %21, align 4
-  %177 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %171, i32 noundef %172, ptr noundef %173, i32 noundef %174, i32 noundef 4, i32 noundef %175, ptr noundef @.str.199, i32 noundef %176)
-  %178 = load i32, ptr %17, align 4
-  %179 = add i32 %178, 4
-  store i32 %179, ptr %17, align 4
-  %180 = load ptr, ptr %13, align 8
-  %181 = load i32, ptr @hf_slsk_port, align 4
-  %182 = load ptr, ptr %5, align 8
-  %183 = load i32, ptr %17, align 4
-  %184 = call ptr @proto_tree_add_item(ptr noundef %180, i32 noundef %181, ptr noundef %182, i32 noundef %183, i32 noundef 4, i32 noundef -2147483648)
-  %185 = load i32, ptr %17, align 4
-  %186 = add i32 %185, 4
-  store i32 %186, ptr %17, align 4
-  br label %187
+  %177 = load i32, ptr %21, align 4
+  %178 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %172, i32 noundef %173, ptr noundef %174, i32 noundef %175, i32 noundef 4, i32 noundef %176, ptr noundef @.str.203, i32 noundef %177)
+  %179 = load i32, ptr %17, align 4
+  %180 = add i32 %179, 4
+  store i32 %180, ptr %17, align 4
+  %181 = load ptr, ptr %13, align 8
+  %182 = load i32, ptr @hf_slsk_port, align 4
+  %183 = load ptr, ptr %5, align 8
+  %184 = load i32, ptr %17, align 4
+  %185 = call ptr @proto_tree_add_item(ptr noundef %181, i32 noundef %182, ptr noundef %183, i32 noundef %184, i32 noundef 4, i32 noundef -2147483648)
+  %186 = load i32, ptr %17, align 4
+  %187 = add i32 %186, 4
+  store i32 %187, ptr %17, align 4
+  br label %188
 
-187:                                              ; preds = %170, %165
-  br label %4619
+188:                                              ; preds = %171, %166
+  br label %4626
 
-188:                                              ; preds = %4
-  %189 = load ptr, ptr %5, align 8
-  %190 = load i32, ptr %17, align 4
-  %191 = call i32 @check_slsk_format(ptr noundef %189, i32 noundef %190, ptr noundef @.str.200)
-  %192 = icmp ne i32 %191, 0
-  br i1 %192, label %193, label %225
+189:                                              ; preds = %4
+  %190 = load ptr, ptr %5, align 8
+  %191 = load ptr, ptr %6, align 8
+  %192 = load i32, ptr %17, align 4
+  %193 = call zeroext i1 @check_slsk_format(ptr noundef %190, ptr noundef %191, i32 noundef %192, ptr noundef @.str.204)
+  br i1 %193, label %194, label %226
 
-193:                                              ; preds = %188
-  %194 = load ptr, ptr %13, align 8
-  %195 = load i32, ptr @hf_slsk_message_code, align 4
-  %196 = load ptr, ptr %5, align 8
-  %197 = load i32, ptr %17, align 4
-  %198 = load i32, ptr %21, align 4
+194:                                              ; preds = %189
+  %195 = load ptr, ptr %13, align 8
+  %196 = load i32, ptr @hf_slsk_message_code, align 4
+  %197 = load ptr, ptr %5, align 8
+  %198 = load i32, ptr %17, align 4
   %199 = load i32, ptr %21, align 4
-  %200 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %194, i32 noundef %195, ptr noundef %196, i32 noundef %197, i32 noundef 4, i32 noundef %198, ptr noundef @.str.201, i32 noundef %199)
-  %201 = load i32, ptr %17, align 4
-  %202 = add i32 %201, 4
-  store i32 %202, ptr %17, align 4
-  %203 = load ptr, ptr %13, align 8
-  %204 = load i32, ptr @hf_slsk_username, align 4
-  %205 = load ptr, ptr %5, align 8
-  %206 = load i32, ptr %17, align 4
-  %207 = call ptr @proto_tree_add_item_ret_length(ptr noundef %203, i32 noundef %204, ptr noundef %205, i32 noundef %206, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %208 = load i32, ptr %23, align 4
-  %209 = load i32, ptr %17, align 4
-  %210 = add i32 %209, %208
-  store i32 %210, ptr %17, align 4
-  %211 = load ptr, ptr %13, align 8
-  %212 = load i32, ptr @hf_slsk_ip, align 4
-  %213 = load ptr, ptr %5, align 8
-  %214 = load i32, ptr %17, align 4
-  %215 = call ptr @proto_tree_add_item(ptr noundef %211, i32 noundef %212, ptr noundef %213, i32 noundef %214, i32 noundef 4, i32 noundef 0)
-  %216 = load i32, ptr %17, align 4
-  %217 = add i32 %216, 4
-  store i32 %217, ptr %17, align 4
-  %218 = load ptr, ptr %13, align 8
-  %219 = load i32, ptr @hf_slsk_port, align 4
-  %220 = load ptr, ptr %5, align 8
-  %221 = load i32, ptr %17, align 4
-  %222 = call ptr @proto_tree_add_item(ptr noundef %218, i32 noundef %219, ptr noundef %220, i32 noundef %221, i32 noundef 4, i32 noundef -2147483648)
-  %223 = load i32, ptr %17, align 4
-  %224 = add i32 %223, 4
-  store i32 %224, ptr %17, align 4
-  br label %249
+  %200 = load i32, ptr %21, align 4
+  %201 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %195, i32 noundef %196, ptr noundef %197, i32 noundef %198, i32 noundef 4, i32 noundef %199, ptr noundef @.str.205, i32 noundef %200)
+  %202 = load i32, ptr %17, align 4
+  %203 = add i32 %202, 4
+  store i32 %203, ptr %17, align 4
+  %204 = load ptr, ptr %13, align 8
+  %205 = load i32, ptr @hf_slsk_username, align 4
+  %206 = load ptr, ptr %5, align 8
+  %207 = load i32, ptr %17, align 4
+  %208 = call ptr @proto_tree_add_item_ret_length(ptr noundef %204, i32 noundef %205, ptr noundef %206, i32 noundef %207, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %209 = load i32, ptr %23, align 4
+  %210 = load i32, ptr %17, align 4
+  %211 = add i32 %210, %209
+  store i32 %211, ptr %17, align 4
+  %212 = load ptr, ptr %13, align 8
+  %213 = load i32, ptr @hf_slsk_ip, align 4
+  %214 = load ptr, ptr %5, align 8
+  %215 = load i32, ptr %17, align 4
+  %216 = call ptr @proto_tree_add_item(ptr noundef %212, i32 noundef %213, ptr noundef %214, i32 noundef %215, i32 noundef 4, i32 noundef 0)
+  %217 = load i32, ptr %17, align 4
+  %218 = add i32 %217, 4
+  store i32 %218, ptr %17, align 4
+  %219 = load ptr, ptr %13, align 8
+  %220 = load i32, ptr @hf_slsk_port, align 4
+  %221 = load ptr, ptr %5, align 8
+  %222 = load i32, ptr %17, align 4
+  %223 = call ptr @proto_tree_add_item(ptr noundef %219, i32 noundef %220, ptr noundef %221, i32 noundef %222, i32 noundef 4, i32 noundef -2147483648)
+  %224 = load i32, ptr %17, align 4
+  %225 = add i32 %224, 4
+  store i32 %225, ptr %17, align 4
+  br label %250
 
-225:                                              ; preds = %188
-  %226 = load ptr, ptr %5, align 8
-  %227 = load i32, ptr %17, align 4
-  %228 = call i32 @check_slsk_format(ptr noundef %226, i32 noundef %227, ptr noundef @.str.202)
-  %229 = icmp ne i32 %228, 0
-  br i1 %229, label %230, label %248
+226:                                              ; preds = %189
+  %227 = load ptr, ptr %5, align 8
+  %228 = load ptr, ptr %6, align 8
+  %229 = load i32, ptr %17, align 4
+  %230 = call zeroext i1 @check_slsk_format(ptr noundef %227, ptr noundef %228, i32 noundef %229, ptr noundef @.str.206)
+  br i1 %230, label %231, label %249
 
-230:                                              ; preds = %225
-  %231 = load ptr, ptr %13, align 8
-  %232 = load i32, ptr @hf_slsk_message_code, align 4
-  %233 = load ptr, ptr %5, align 8
-  %234 = load i32, ptr %17, align 4
-  %235 = load i32, ptr %21, align 4
+231:                                              ; preds = %226
+  %232 = load ptr, ptr %13, align 8
+  %233 = load i32, ptr @hf_slsk_message_code, align 4
+  %234 = load ptr, ptr %5, align 8
+  %235 = load i32, ptr %17, align 4
   %236 = load i32, ptr %21, align 4
-  %237 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %231, i32 noundef %232, ptr noundef %233, i32 noundef %234, i32 noundef 4, i32 noundef %235, ptr noundef @.str.203, i32 noundef %236)
-  %238 = load i32, ptr %17, align 4
-  %239 = add i32 %238, 4
-  store i32 %239, ptr %17, align 4
-  %240 = load ptr, ptr %13, align 8
-  %241 = load i32, ptr @hf_slsk_username, align 4
-  %242 = load ptr, ptr %5, align 8
-  %243 = load i32, ptr %17, align 4
-  %244 = call ptr @proto_tree_add_item_ret_length(ptr noundef %240, i32 noundef %241, ptr noundef %242, i32 noundef %243, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %245 = load i32, ptr %23, align 4
-  %246 = load i32, ptr %17, align 4
-  %247 = add i32 %246, %245
-  store i32 %247, ptr %17, align 4
-  br label %248
-
-248:                                              ; preds = %230, %225
+  %237 = load i32, ptr %21, align 4
+  %238 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %232, i32 noundef %233, ptr noundef %234, i32 noundef %235, i32 noundef 4, i32 noundef %236, ptr noundef @.str.207, i32 noundef %237)
+  %239 = load i32, ptr %17, align 4
+  %240 = add i32 %239, 4
+  store i32 %240, ptr %17, align 4
+  %241 = load ptr, ptr %13, align 8
+  %242 = load i32, ptr @hf_slsk_username, align 4
+  %243 = load ptr, ptr %5, align 8
+  %244 = load i32, ptr %17, align 4
+  %245 = call ptr @proto_tree_add_item_ret_length(ptr noundef %241, i32 noundef %242, ptr noundef %243, i32 noundef %244, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %246 = load i32, ptr %23, align 4
+  %247 = load i32, ptr %17, align 4
+  %248 = add i32 %247, %246
+  store i32 %248, ptr %17, align 4
   br label %249
 
-249:                                              ; preds = %248, %193
-  br label %4619
+249:                                              ; preds = %231, %226
+  br label %250
 
-250:                                              ; preds = %4
-  %251 = load ptr, ptr %5, align 8
-  %252 = load i32, ptr %17, align 4
-  %253 = call i32 @check_slsk_format(ptr noundef %251, i32 noundef %252, ptr noundef @.str.204)
-  %254 = icmp ne i32 %253, 0
-  br i1 %254, label %255, label %265
+250:                                              ; preds = %249, %194
+  br label %4626
 
-255:                                              ; preds = %250
-  %256 = load ptr, ptr %13, align 8
-  %257 = load i32, ptr @hf_slsk_message_code, align 4
-  %258 = load ptr, ptr %5, align 8
-  %259 = load i32, ptr %17, align 4
-  %260 = load i32, ptr %21, align 4
+251:                                              ; preds = %4
+  %252 = load ptr, ptr %5, align 8
+  %253 = load ptr, ptr %6, align 8
+  %254 = load i32, ptr %17, align 4
+  %255 = call zeroext i1 @check_slsk_format(ptr noundef %252, ptr noundef %253, i32 noundef %254, ptr noundef @.str.208)
+  br i1 %255, label %256, label %266
+
+256:                                              ; preds = %251
+  %257 = load ptr, ptr %13, align 8
+  %258 = load i32, ptr @hf_slsk_message_code, align 4
+  %259 = load ptr, ptr %5, align 8
+  %260 = load i32, ptr %17, align 4
   %261 = load i32, ptr %21, align 4
-  %262 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %256, i32 noundef %257, ptr noundef %258, i32 noundef %259, i32 noundef 4, i32 noundef %260, ptr noundef @.str.205, i32 noundef %261)
-  %263 = load i32, ptr %17, align 4
-  %264 = add i32 %263, 4
-  store i32 %264, ptr %17, align 4
-  br label %265
+  %262 = load i32, ptr %21, align 4
+  %263 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %257, i32 noundef %258, ptr noundef %259, i32 noundef %260, i32 noundef 4, i32 noundef %261, ptr noundef @.str.209, i32 noundef %262)
+  %264 = load i32, ptr %17, align 4
+  %265 = add i32 %264, 4
+  store i32 %265, ptr %17, align 4
+  br label %266
 
-265:                                              ; preds = %255, %250
-  br label %4619
+266:                                              ; preds = %256, %251
+  br label %4626
 
-266:                                              ; preds = %4
-  %267 = load ptr, ptr %5, align 8
-  %268 = load i32, ptr %17, align 4
-  %269 = call i32 @check_slsk_format(ptr noundef %267, i32 noundef %268, ptr noundef @.str.206)
-  %270 = icmp ne i32 %269, 0
-  br i1 %270, label %271, label %296
+267:                                              ; preds = %4
+  %268 = load ptr, ptr %5, align 8
+  %269 = load ptr, ptr %6, align 8
+  %270 = load i32, ptr %17, align 4
+  %271 = call zeroext i1 @check_slsk_format(ptr noundef %268, ptr noundef %269, i32 noundef %270, ptr noundef @.str.210)
+  br i1 %271, label %272, label %297
 
-271:                                              ; preds = %266
-  %272 = load ptr, ptr %13, align 8
-  %273 = load i32, ptr @hf_slsk_message_code, align 4
-  %274 = load ptr, ptr %5, align 8
-  %275 = load i32, ptr %17, align 4
-  %276 = load i32, ptr %21, align 4
+272:                                              ; preds = %267
+  %273 = load ptr, ptr %13, align 8
+  %274 = load i32, ptr @hf_slsk_message_code, align 4
+  %275 = load ptr, ptr %5, align 8
+  %276 = load i32, ptr %17, align 4
   %277 = load i32, ptr %21, align 4
-  %278 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %272, i32 noundef %273, ptr noundef %274, i32 noundef %275, i32 noundef 4, i32 noundef %276, ptr noundef @.str.207, i32 noundef %277)
-  %279 = load i32, ptr %17, align 4
-  %280 = add i32 %279, 4
-  store i32 %280, ptr %17, align 4
-  %281 = load ptr, ptr %13, align 8
-  %282 = load i32, ptr @hf_slsk_username, align 4
-  %283 = load ptr, ptr %5, align 8
-  %284 = load i32, ptr %17, align 4
-  %285 = call ptr @proto_tree_add_item_ret_length(ptr noundef %281, i32 noundef %282, ptr noundef %283, i32 noundef %284, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %286 = load i32, ptr %23, align 4
-  %287 = load i32, ptr %17, align 4
-  %288 = add i32 %287, %286
-  store i32 %288, ptr %17, align 4
-  %289 = load ptr, ptr %13, align 8
-  %290 = load i32, ptr @hf_slsk_user_exists, align 4
-  %291 = load ptr, ptr %5, align 8
-  %292 = load i32, ptr %17, align 4
-  %293 = call ptr @proto_tree_add_item(ptr noundef %289, i32 noundef %290, ptr noundef %291, i32 noundef %292, i32 noundef 1, i32 noundef 0)
-  %294 = load i32, ptr %17, align 4
-  %295 = add i32 %294, 1
-  store i32 %295, ptr %17, align 4
-  br label %574
+  %278 = load i32, ptr %21, align 4
+  %279 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %273, i32 noundef %274, ptr noundef %275, i32 noundef %276, i32 noundef 4, i32 noundef %277, ptr noundef @.str.211, i32 noundef %278)
+  %280 = load i32, ptr %17, align 4
+  %281 = add i32 %280, 4
+  store i32 %281, ptr %17, align 4
+  %282 = load ptr, ptr %13, align 8
+  %283 = load i32, ptr @hf_slsk_username, align 4
+  %284 = load ptr, ptr %5, align 8
+  %285 = load i32, ptr %17, align 4
+  %286 = call ptr @proto_tree_add_item_ret_length(ptr noundef %282, i32 noundef %283, ptr noundef %284, i32 noundef %285, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %287 = load i32, ptr %23, align 4
+  %288 = load i32, ptr %17, align 4
+  %289 = add i32 %288, %287
+  store i32 %289, ptr %17, align 4
+  %290 = load ptr, ptr %13, align 8
+  %291 = load i32, ptr @hf_slsk_user_exists, align 4
+  %292 = load ptr, ptr %5, align 8
+  %293 = load i32, ptr %17, align 4
+  %294 = call ptr @proto_tree_add_item(ptr noundef %290, i32 noundef %291, ptr noundef %292, i32 noundef %293, i32 noundef 1, i32 noundef 0)
+  %295 = load i32, ptr %17, align 4
+  %296 = add i32 %295, 1
+  store i32 %296, ptr %17, align 4
+  br label %577
 
-296:                                              ; preds = %266
-  %297 = load ptr, ptr %5, align 8
-  %298 = load i32, ptr %17, align 4
-  %299 = call i32 @check_slsk_format(ptr noundef %297, i32 noundef %298, ptr noundef @.str.202)
-  %300 = icmp ne i32 %299, 0
-  br i1 %300, label %301, label %319
+297:                                              ; preds = %267
+  %298 = load ptr, ptr %5, align 8
+  %299 = load ptr, ptr %6, align 8
+  %300 = load i32, ptr %17, align 4
+  %301 = call zeroext i1 @check_slsk_format(ptr noundef %298, ptr noundef %299, i32 noundef %300, ptr noundef @.str.206)
+  br i1 %301, label %302, label %320
 
-301:                                              ; preds = %296
-  %302 = load ptr, ptr %13, align 8
-  %303 = load i32, ptr @hf_slsk_message_code, align 4
-  %304 = load ptr, ptr %5, align 8
-  %305 = load i32, ptr %17, align 4
-  %306 = load i32, ptr %21, align 4
+302:                                              ; preds = %297
+  %303 = load ptr, ptr %13, align 8
+  %304 = load i32, ptr @hf_slsk_message_code, align 4
+  %305 = load ptr, ptr %5, align 8
+  %306 = load i32, ptr %17, align 4
   %307 = load i32, ptr %21, align 4
-  %308 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %302, i32 noundef %303, ptr noundef %304, i32 noundef %305, i32 noundef 4, i32 noundef %306, ptr noundef @.str.208, i32 noundef %307)
-  %309 = load i32, ptr %17, align 4
-  %310 = add i32 %309, 4
-  store i32 %310, ptr %17, align 4
-  %311 = load ptr, ptr %13, align 8
-  %312 = load i32, ptr @hf_slsk_username, align 4
-  %313 = load ptr, ptr %5, align 8
-  %314 = load i32, ptr %17, align 4
-  %315 = call ptr @proto_tree_add_item_ret_length(ptr noundef %311, i32 noundef %312, ptr noundef %313, i32 noundef %314, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %316 = load i32, ptr %23, align 4
-  %317 = load i32, ptr %17, align 4
-  %318 = add i32 %317, %316
-  store i32 %318, ptr %17, align 4
-  br label %573
+  %308 = load i32, ptr %21, align 4
+  %309 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %303, i32 noundef %304, ptr noundef %305, i32 noundef %306, i32 noundef 4, i32 noundef %307, ptr noundef @.str.212, i32 noundef %308)
+  %310 = load i32, ptr %17, align 4
+  %311 = add i32 %310, 4
+  store i32 %311, ptr %17, align 4
+  %312 = load ptr, ptr %13, align 8
+  %313 = load i32, ptr @hf_slsk_username, align 4
+  %314 = load ptr, ptr %5, align 8
+  %315 = load i32, ptr %17, align 4
+  %316 = call ptr @proto_tree_add_item_ret_length(ptr noundef %312, i32 noundef %313, ptr noundef %314, i32 noundef %315, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %317 = load i32, ptr %23, align 4
+  %318 = load i32, ptr %17, align 4
+  %319 = add i32 %318, %317
+  store i32 %319, ptr %17, align 4
+  br label %576
 
-319:                                              ; preds = %296
-  %320 = load ptr, ptr %5, align 8
-  %321 = load i32, ptr %17, align 4
-  %322 = call i32 @check_slsk_format(ptr noundef %320, i32 noundef %321, ptr noundef @.str.209)
-  %323 = icmp ne i32 %322, 0
-  br i1 %323, label %324, label %572
+320:                                              ; preds = %297
+  %321 = load ptr, ptr %5, align 8
+  %322 = load ptr, ptr %6, align 8
+  %323 = load i32, ptr %17, align 4
+  %324 = call zeroext i1 @check_slsk_format(ptr noundef %321, ptr noundef %322, i32 noundef %323, ptr noundef @.str.213)
+  br i1 %324, label %325, label %575
 
-324:                                              ; preds = %319
-  %325 = load ptr, ptr %13, align 8
-  %326 = load i32, ptr @hf_slsk_message_code, align 4
-  %327 = load ptr, ptr %5, align 8
-  %328 = load i32, ptr %17, align 4
-  %329 = load i32, ptr %21, align 4
+325:                                              ; preds = %320
+  %326 = load ptr, ptr %13, align 8
+  %327 = load i32, ptr @hf_slsk_message_code, align 4
+  %328 = load ptr, ptr %5, align 8
+  %329 = load i32, ptr %17, align 4
   %330 = load i32, ptr %21, align 4
-  %331 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %325, i32 noundef %326, ptr noundef %327, i32 noundef %328, i32 noundef 4, i32 noundef %329, ptr noundef @.str.210, i32 noundef %330)
-  %332 = load i32, ptr %17, align 4
-  %333 = add i32 %332, 4
-  store i32 %333, ptr %17, align 4
-  %334 = load ptr, ptr %5, align 8
-  %335 = load i32, ptr %17, align 4
-  %336 = call i32 @tvb_captured_length_remaining(ptr noundef %334, i32 noundef %335)
-  store i32 %336, ptr %26, align 4
-  %337 = load i32, ptr @slsk_decompress, align 4
-  %338 = icmp eq i32 %337, 1
-  br i1 %338, label %339, label %552
+  %331 = load i32, ptr %21, align 4
+  %332 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %326, i32 noundef %327, ptr noundef %328, i32 noundef %329, i32 noundef 4, i32 noundef %330, ptr noundef @.str.214, i32 noundef %331)
+  %333 = load i32, ptr %17, align 4
+  %334 = add i32 %333, 4
+  store i32 %334, ptr %17, align 4
+  %335 = load ptr, ptr %5, align 8
+  %336 = load i32, ptr %17, align 4
+  %337 = call i32 @tvb_captured_length_remaining(ptr noundef %335, i32 noundef %336)
+  store i32 %337, ptr %26, align 4
+  %338 = load i8, ptr @slsk_decompress, align 1, !range !6, !noundef !7
+  %339 = trunc i8 %338 to i1
+  %340 = zext i1 %339 to i32
+  %341 = icmp eq i32 %340, 1
+  br i1 %341, label %342, label %555
 
-339:                                              ; preds = %324
-  %340 = load ptr, ptr %5, align 8
-  %341 = load ptr, ptr %5, align 8
-  %342 = load i32, ptr %17, align 4
-  %343 = load i32, ptr %26, align 4
-  %344 = call ptr @tvb_child_uncompress(ptr noundef %340, ptr noundef %341, i32 noundef %342, i32 noundef %343)
-  store ptr %344, ptr %33, align 8
-  %345 = load ptr, ptr %33, align 8
-  %346 = icmp eq ptr %345, null
-  br i1 %346, label %347, label %358
+342:                                              ; preds = %325
+  call void @llvm.lifetime.start.p0(i64 8, ptr %33) #6
+  %343 = load ptr, ptr %5, align 8
+  %344 = load ptr, ptr %5, align 8
+  %345 = load i32, ptr %17, align 4
+  %346 = load i32, ptr %26, align 4
+  %347 = call ptr @tvb_child_uncompress_zlib(ptr noundef %343, ptr noundef %344, i32 noundef %345, i32 noundef %346)
+  store ptr %347, ptr %33, align 8
+  %348 = load ptr, ptr %33, align 8
+  %349 = icmp eq ptr %348, null
+  br i1 %349, label %350, label %361
 
-347:                                              ; preds = %339
-  %348 = load ptr, ptr %13, align 8
-  %349 = load ptr, ptr %6, align 8
-  %350 = load ptr, ptr %5, align 8
-  %351 = load i32, ptr %17, align 4
-  %352 = call ptr @proto_tree_add_expert(ptr noundef %348, ptr noundef %349, ptr noundef @ei_slsk_zlib_decompression_failed, ptr noundef %350, i32 noundef %351, i32 noundef -1)
+350:                                              ; preds = %342
+  %351 = load ptr, ptr %13, align 8
+  %352 = load ptr, ptr %6, align 8
   %353 = load ptr, ptr %5, align 8
   %354 = load i32, ptr %17, align 4
-  %355 = call i32 @tvb_captured_length_remaining(ptr noundef %353, i32 noundef %354)
-  %356 = load i32, ptr %17, align 4
-  %357 = add i32 %356, %355
-  store i32 %357, ptr %17, align 4
-  br label %551
+  %355 = call ptr @proto_tree_add_expert(ptr noundef %351, ptr noundef %352, ptr noundef @ei_slsk_zlib_decompression_failed, ptr noundef %353, i32 noundef %354, i32 noundef -1)
+  %356 = load ptr, ptr %5, align 8
+  %357 = load i32, ptr %17, align 4
+  %358 = call i32 @tvb_captured_length_remaining(ptr noundef %356, i32 noundef %357)
+  %359 = load i32, ptr %17, align 4
+  %360 = add i32 %359, %358
+  store i32 %360, ptr %17, align 4
+  br label %554
 
-358:                                              ; preds = %339
-  %359 = load ptr, ptr %13, align 8
-  %360 = load i32, ptr @hf_slsk_compr_packet, align 4
-  %361 = load ptr, ptr %5, align 8
-  %362 = load i32, ptr %17, align 4
-  %363 = call ptr @proto_tree_add_item(ptr noundef %359, i32 noundef %360, ptr noundef %361, i32 noundef %362, i32 noundef -1, i32 noundef 0)
-  store ptr %363, ptr %34, align 8
-  %364 = load ptr, ptr %34, align 8
-  %365 = load i32, ptr @ett_slsk_compr_packet, align 4
-  %366 = call ptr @proto_item_add_subtree(ptr noundef %364, i32 noundef %365)
-  store ptr %366, ptr %35, align 8
+361:                                              ; preds = %342
+  call void @llvm.lifetime.start.p0(i64 8, ptr %34) #6
+  %362 = load ptr, ptr %13, align 8
+  %363 = load i32, ptr @hf_slsk_compr_packet, align 4
+  %364 = load ptr, ptr %5, align 8
+  %365 = load i32, ptr %17, align 4
+  %366 = call ptr @proto_tree_add_item(ptr noundef %362, i32 noundef %363, ptr noundef %364, i32 noundef %365, i32 noundef -1, i32 noundef 0)
+  store ptr %366, ptr %34, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %35) #6
   %367 = load ptr, ptr %34, align 8
-  call void @proto_item_set_generated(ptr noundef %367)
-  %368 = load ptr, ptr %13, align 8
-  %369 = load i32, ptr @hf_slsk_compressed_packet_length, align 4
-  %370 = load ptr, ptr %5, align 8
-  %371 = load i32, ptr %17, align 4
-  %372 = load i32, ptr %26, align 4
-  %373 = call ptr @proto_tree_add_uint(ptr noundef %368, i32 noundef %369, ptr noundef %370, i32 noundef %371, i32 noundef 0, i32 noundef %372)
-  store ptr %373, ptr %9, align 8
-  %374 = load ptr, ptr %9, align 8
-  call void @proto_item_set_generated(ptr noundef %374)
-  %375 = load ptr, ptr %33, align 8
-  %376 = call i32 @tvb_reported_length_remaining(ptr noundef %375, i32 noundef 0)
-  store i32 %376, ptr %27, align 4
-  %377 = load ptr, ptr %13, align 8
-  %378 = load i32, ptr @hf_slsk_uncompressed_packet_length, align 4
-  %379 = load ptr, ptr %5, align 8
-  %380 = load i32, ptr %17, align 4
-  %381 = load i32, ptr %27, align 4
-  %382 = call ptr @proto_tree_add_uint(ptr noundef %377, i32 noundef %378, ptr noundef %379, i32 noundef %380, i32 noundef 0, i32 noundef %381)
-  store ptr %382, ptr %9, align 8
-  %383 = load ptr, ptr %9, align 8
-  call void @proto_item_set_generated(ptr noundef %383)
-  %384 = load ptr, ptr %6, align 8
-  %385 = load ptr, ptr %33, align 8
-  call void @add_new_data_source(ptr noundef %384, ptr noundef %385, ptr noundef @.str.211)
+  %368 = load i32, ptr @ett_slsk_compr_packet, align 4
+  %369 = call ptr @proto_item_add_subtree(ptr noundef %367, i32 noundef %368)
+  store ptr %369, ptr %35, align 8
+  %370 = load ptr, ptr %34, align 8
+  call void @proto_item_set_generated(ptr noundef %370)
+  %371 = load ptr, ptr %13, align 8
+  %372 = load i32, ptr @hf_slsk_compressed_packet_length, align 4
+  %373 = load ptr, ptr %5, align 8
+  %374 = load i32, ptr %17, align 4
+  %375 = load i32, ptr %26, align 4
+  %376 = call ptr @proto_tree_add_uint(ptr noundef %371, i32 noundef %372, ptr noundef %373, i32 noundef %374, i32 noundef 0, i32 noundef %375)
+  store ptr %376, ptr %9, align 8
+  %377 = load ptr, ptr %9, align 8
+  call void @proto_item_set_generated(ptr noundef %377)
+  %378 = load ptr, ptr %33, align 8
+  %379 = call i32 @tvb_reported_length_remaining(ptr noundef %378, i32 noundef 0)
+  store i32 %379, ptr %27, align 4
+  %380 = load ptr, ptr %13, align 8
+  %381 = load i32, ptr @hf_slsk_uncompressed_packet_length, align 4
+  %382 = load ptr, ptr %5, align 8
+  %383 = load i32, ptr %17, align 4
+  %384 = load i32, ptr %27, align 4
+  %385 = call ptr @proto_tree_add_uint(ptr noundef %380, i32 noundef %381, ptr noundef %382, i32 noundef %383, i32 noundef 0, i32 noundef %384)
+  store ptr %385, ptr %9, align 8
+  %386 = load ptr, ptr %9, align 8
+  call void @proto_item_set_generated(ptr noundef %386)
+  %387 = load ptr, ptr %6, align 8
+  %388 = load ptr, ptr %33, align 8
+  call void @add_new_data_source(ptr noundef %387, ptr noundef %388, ptr noundef @.str.215)
   store i32 0, ptr %28, align 4
-  %386 = load ptr, ptr %33, align 8
-  %387 = load i32, ptr %28, align 4
-  %388 = call i32 @check_slsk_format(ptr noundef %386, i32 noundef %387, ptr noundef @.str.209)
-  %389 = icmp ne i32 %388, 0
-  br i1 %389, label %390, label %550
+  %389 = load ptr, ptr %33, align 8
+  %390 = load ptr, ptr %6, align 8
+  %391 = load i32, ptr %28, align 4
+  %392 = call zeroext i1 @check_slsk_format(ptr noundef %389, ptr noundef %390, i32 noundef %391, ptr noundef @.str.213)
+  br i1 %392, label %393, label %553
 
-390:                                              ; preds = %358
-  %391 = load ptr, ptr %35, align 8
-  %392 = load i32, ptr @hf_slsk_num_directories, align 4
-  %393 = load ptr, ptr %33, align 8
-  %394 = load i32, ptr %28, align 4
-  %395 = call ptr @proto_tree_add_item_ret_int(ptr noundef %391, i32 noundef %392, ptr noundef %393, i32 noundef %394, i32 noundef 4, i32 noundef -2147483648, ptr noundef %19)
-  %396 = load i32, ptr %28, align 4
-  %397 = add i32 %396, 4
-  store i32 %397, ptr %28, align 4
+393:                                              ; preds = %361
+  %394 = load ptr, ptr %35, align 8
+  %395 = load i32, ptr @hf_slsk_num_directories, align 4
+  %396 = load ptr, ptr %33, align 8
+  %397 = load i32, ptr %28, align 4
+  %398 = call ptr @proto_tree_add_item_ret_int(ptr noundef %394, i32 noundef %395, ptr noundef %396, i32 noundef %397, i32 noundef 4, i32 noundef -2147483648, ptr noundef %19)
+  %399 = load i32, ptr %28, align 4
+  %400 = add i32 %399, 4
+  store i32 %400, ptr %28, align 4
   store i32 0, ptr %18, align 4
-  br label %398
+  br label %401
 
-398:                                              ; preds = %546, %390
-  %399 = load i32, ptr %18, align 4
-  %400 = load i32, ptr %19, align 4
-  %401 = icmp slt i32 %399, %400
-  br i1 %401, label %402, label %549
+401:                                              ; preds = %549, %393
+  %402 = load i32, ptr %18, align 4
+  %403 = load i32, ptr %19, align 4
+  %404 = icmp slt i32 %402, %403
+  br i1 %404, label %405, label %552
 
-402:                                              ; preds = %398
-  %403 = load ptr, ptr %33, align 8
-  %404 = load i32, ptr %28, align 4
-  %405 = call i32 @check_slsk_format(ptr noundef %403, i32 noundef %404, ptr noundef @.str.212)
-  %406 = icmp ne i32 %405, 0
-  br i1 %406, label %407, label %544
-
-407:                                              ; preds = %402
+405:                                              ; preds = %401
+  %406 = load ptr, ptr %33, align 8
+  %407 = load ptr, ptr %6, align 8
   %408 = load i32, ptr %28, align 4
-  store i32 %408, ptr %24, align 4
-  %409 = load ptr, ptr %35, align 8
-  %410 = load ptr, ptr %33, align 8
+  %409 = call zeroext i1 @check_slsk_format(ptr noundef %406, ptr noundef %407, i32 noundef %408, ptr noundef @.str.216)
+  br i1 %409, label %410, label %547
+
+410:                                              ; preds = %405
   %411 = load i32, ptr %28, align 4
-  %412 = load i32, ptr @ett_slsk_directory, align 4
-  %413 = load i32, ptr %18, align 4
-  %414 = add i32 %413, 1
-  %415 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %409, ptr noundef %410, i32 noundef %411, i32 noundef 1, i32 noundef %412, ptr noundef %11, ptr noundef @.str.213, i32 noundef %414)
-  store ptr %415, ptr %14, align 8
-  %416 = load ptr, ptr %14, align 8
-  %417 = load i32, ptr @hf_slsk_directory_name, align 4
-  %418 = load ptr, ptr %33, align 8
-  %419 = load i32, ptr %28, align 4
-  %420 = call ptr @proto_tree_add_item_ret_length(ptr noundef %416, i32 noundef %417, ptr noundef %418, i32 noundef %419, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %421 = load i32, ptr %23, align 4
+  store i32 %411, ptr %24, align 4
+  %412 = load ptr, ptr %35, align 8
+  %413 = load ptr, ptr %33, align 8
+  %414 = load i32, ptr %28, align 4
+  %415 = load i32, ptr @ett_slsk_directory, align 4
+  %416 = load i32, ptr %18, align 4
+  %417 = add i32 %416, 1
+  %418 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %412, ptr noundef %413, i32 noundef %414, i32 noundef 1, i32 noundef %415, ptr noundef %11, ptr noundef @.str.217, i32 noundef %417)
+  store ptr %418, ptr %14, align 8
+  %419 = load ptr, ptr %14, align 8
+  %420 = load i32, ptr @hf_slsk_directory_name, align 4
+  %421 = load ptr, ptr %33, align 8
   %422 = load i32, ptr %28, align 4
-  %423 = add i32 %422, %421
-  store i32 %423, ptr %28, align 4
-  %424 = load ptr, ptr %14, align 8
-  %425 = load i32, ptr @hf_slsk_num_files, align 4
-  %426 = load ptr, ptr %33, align 8
-  %427 = load i32, ptr %28, align 4
-  %428 = call ptr @proto_tree_add_item_ret_int(ptr noundef %424, i32 noundef %425, ptr noundef %426, i32 noundef %427, i32 noundef 4, i32 noundef -2147483648, ptr noundef %30)
-  %429 = load i32, ptr %28, align 4
-  %430 = add i32 %429, 4
-  store i32 %430, ptr %28, align 4
+  %423 = call ptr @proto_tree_add_item_ret_length(ptr noundef %419, i32 noundef %420, ptr noundef %421, i32 noundef %422, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %424 = load i32, ptr %23, align 4
+  %425 = load i32, ptr %28, align 4
+  %426 = add i32 %425, %424
+  store i32 %426, ptr %28, align 4
+  %427 = load ptr, ptr %14, align 8
+  %428 = load i32, ptr @hf_slsk_num_files, align 4
+  %429 = load ptr, ptr %33, align 8
+  %430 = load i32, ptr %28, align 4
+  %431 = call ptr @proto_tree_add_item_ret_int(ptr noundef %427, i32 noundef %428, ptr noundef %429, i32 noundef %430, i32 noundef 4, i32 noundef -2147483648, ptr noundef %30)
+  %432 = load i32, ptr %28, align 4
+  %433 = add i32 %432, 4
+  store i32 %433, ptr %28, align 4
   store i32 0, ptr %29, align 4
-  br label %431
+  br label %434
 
-431:                                              ; preds = %536, %407
-  %432 = load i32, ptr %29, align 4
-  %433 = load i32, ptr %30, align 4
-  %434 = icmp slt i32 %432, %433
-  br i1 %434, label %435, label %539
+434:                                              ; preds = %539, %410
+  %435 = load i32, ptr %29, align 4
+  %436 = load i32, ptr %30, align 4
+  %437 = icmp slt i32 %435, %436
+  br i1 %437, label %438, label %542
 
-435:                                              ; preds = %431
-  %436 = load ptr, ptr %33, align 8
-  %437 = load i32, ptr %28, align 4
-  %438 = call i32 @check_slsk_format(ptr noundef %436, i32 noundef %437, ptr noundef @.str.214)
-  %439 = icmp ne i32 %438, 0
-  br i1 %439, label %440, label %534
-
-440:                                              ; preds = %435
+438:                                              ; preds = %434
+  %439 = load ptr, ptr %33, align 8
+  %440 = load ptr, ptr %6, align 8
   %441 = load i32, ptr %28, align 4
-  store i32 %441, ptr %25, align 4
-  %442 = load ptr, ptr %14, align 8
-  %443 = load ptr, ptr %33, align 8
+  %442 = call zeroext i1 @check_slsk_format(ptr noundef %439, ptr noundef %440, i32 noundef %441, ptr noundef @.str.218)
+  br i1 %442, label %443, label %537
+
+443:                                              ; preds = %438
   %444 = load i32, ptr %28, align 4
-  %445 = load i32, ptr @ett_slsk_file, align 4
-  %446 = load i32, ptr %29, align 4
-  %447 = add i32 %446, 1
-  %448 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %442, ptr noundef %443, i32 noundef %444, i32 noundef 1, i32 noundef %445, ptr noundef %12, ptr noundef @.str.215, i32 noundef %447)
-  store ptr %448, ptr %15, align 8
-  %449 = load ptr, ptr %15, align 8
-  %450 = load i32, ptr @hf_slsk_file_code, align 4
-  %451 = load ptr, ptr %33, align 8
-  %452 = load i32, ptr %28, align 4
-  %453 = call ptr @proto_tree_add_item(ptr noundef %449, i32 noundef %450, ptr noundef %451, i32 noundef %452, i32 noundef 1, i32 noundef 0)
-  %454 = load i32, ptr %28, align 4
-  %455 = add i32 %454, 1
-  store i32 %455, ptr %28, align 4
-  %456 = load ptr, ptr %15, align 8
-  %457 = load i32, ptr @hf_slsk_filename, align 4
-  %458 = load ptr, ptr %33, align 8
-  %459 = load i32, ptr %28, align 4
-  %460 = call ptr @proto_tree_add_item_ret_length(ptr noundef %456, i32 noundef %457, ptr noundef %458, i32 noundef %459, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %461 = load i32, ptr %23, align 4
+  store i32 %444, ptr %25, align 4
+  %445 = load ptr, ptr %14, align 8
+  %446 = load ptr, ptr %33, align 8
+  %447 = load i32, ptr %28, align 4
+  %448 = load i32, ptr @ett_slsk_file, align 4
+  %449 = load i32, ptr %29, align 4
+  %450 = add i32 %449, 1
+  %451 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %445, ptr noundef %446, i32 noundef %447, i32 noundef 1, i32 noundef %448, ptr noundef %12, ptr noundef @.str.219, i32 noundef %450)
+  store ptr %451, ptr %15, align 8
+  %452 = load ptr, ptr %15, align 8
+  %453 = load i32, ptr @hf_slsk_file_code, align 4
+  %454 = load ptr, ptr %33, align 8
+  %455 = load i32, ptr %28, align 4
+  %456 = call ptr @proto_tree_add_item(ptr noundef %452, i32 noundef %453, ptr noundef %454, i32 noundef %455, i32 noundef 1, i32 noundef 0)
+  %457 = load i32, ptr %28, align 4
+  %458 = add i32 %457, 1
+  store i32 %458, ptr %28, align 4
+  %459 = load ptr, ptr %15, align 8
+  %460 = load i32, ptr @hf_slsk_filename, align 4
+  %461 = load ptr, ptr %33, align 8
   %462 = load i32, ptr %28, align 4
-  %463 = add i32 %462, %461
-  store i32 %463, ptr %28, align 4
-  %464 = load ptr, ptr %15, align 8
-  %465 = load i32, ptr @hf_slsk_file_size1, align 4
-  %466 = load ptr, ptr %33, align 8
-  %467 = load i32, ptr %28, align 4
-  %468 = call ptr @proto_tree_add_item(ptr noundef %464, i32 noundef %465, ptr noundef %466, i32 noundef %467, i32 noundef 4, i32 noundef -2147483648)
-  %469 = load i32, ptr %28, align 4
-  %470 = add i32 %469, 4
-  store i32 %470, ptr %28, align 4
-  %471 = load ptr, ptr %15, align 8
-  %472 = load i32, ptr @hf_slsk_file_size2, align 4
-  %473 = load ptr, ptr %33, align 8
-  %474 = load i32, ptr %28, align 4
-  %475 = call ptr @proto_tree_add_item(ptr noundef %471, i32 noundef %472, ptr noundef %473, i32 noundef %474, i32 noundef 4, i32 noundef -2147483648)
-  %476 = load i32, ptr %28, align 4
-  %477 = add i32 %476, 4
-  store i32 %477, ptr %28, align 4
-  %478 = load ptr, ptr %15, align 8
-  %479 = load i32, ptr @hf_slsk_filename_ext, align 4
-  %480 = load ptr, ptr %33, align 8
-  %481 = load i32, ptr %28, align 4
-  %482 = call ptr @proto_tree_add_item_ret_length(ptr noundef %478, i32 noundef %479, ptr noundef %480, i32 noundef %481, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %483 = load i32, ptr %23, align 4
+  %463 = call ptr @proto_tree_add_item_ret_length(ptr noundef %459, i32 noundef %460, ptr noundef %461, i32 noundef %462, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %464 = load i32, ptr %23, align 4
+  %465 = load i32, ptr %28, align 4
+  %466 = add i32 %465, %464
+  store i32 %466, ptr %28, align 4
+  %467 = load ptr, ptr %15, align 8
+  %468 = load i32, ptr @hf_slsk_file_size1, align 4
+  %469 = load ptr, ptr %33, align 8
+  %470 = load i32, ptr %28, align 4
+  %471 = call ptr @proto_tree_add_item(ptr noundef %467, i32 noundef %468, ptr noundef %469, i32 noundef %470, i32 noundef 4, i32 noundef -2147483648)
+  %472 = load i32, ptr %28, align 4
+  %473 = add i32 %472, 4
+  store i32 %473, ptr %28, align 4
+  %474 = load ptr, ptr %15, align 8
+  %475 = load i32, ptr @hf_slsk_file_size2, align 4
+  %476 = load ptr, ptr %33, align 8
+  %477 = load i32, ptr %28, align 4
+  %478 = call ptr @proto_tree_add_item(ptr noundef %474, i32 noundef %475, ptr noundef %476, i32 noundef %477, i32 noundef 4, i32 noundef -2147483648)
+  %479 = load i32, ptr %28, align 4
+  %480 = add i32 %479, 4
+  store i32 %480, ptr %28, align 4
+  %481 = load ptr, ptr %15, align 8
+  %482 = load i32, ptr @hf_slsk_filename_ext, align 4
+  %483 = load ptr, ptr %33, align 8
   %484 = load i32, ptr %28, align 4
-  %485 = add i32 %484, %483
-  store i32 %485, ptr %28, align 4
-  %486 = load ptr, ptr %15, align 8
-  %487 = load i32, ptr @hf_slsk_file_num_attributes, align 4
-  %488 = load ptr, ptr %33, align 8
-  %489 = load i32, ptr %28, align 4
-  %490 = call ptr @proto_tree_add_item_ret_int(ptr noundef %486, i32 noundef %487, ptr noundef %488, i32 noundef %489, i32 noundef 4, i32 noundef -2147483648, ptr noundef %32)
-  %491 = load i32, ptr %28, align 4
-  %492 = add i32 %491, 4
-  store i32 %492, ptr %28, align 4
+  %485 = call ptr @proto_tree_add_item_ret_length(ptr noundef %481, i32 noundef %482, ptr noundef %483, i32 noundef %484, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %486 = load i32, ptr %23, align 4
+  %487 = load i32, ptr %28, align 4
+  %488 = add i32 %487, %486
+  store i32 %488, ptr %28, align 4
+  %489 = load ptr, ptr %15, align 8
+  %490 = load i32, ptr @hf_slsk_file_num_attributes, align 4
+  %491 = load ptr, ptr %33, align 8
+  %492 = load i32, ptr %28, align 4
+  %493 = call ptr @proto_tree_add_item_ret_int(ptr noundef %489, i32 noundef %490, ptr noundef %491, i32 noundef %492, i32 noundef 4, i32 noundef -2147483648, ptr noundef %32)
+  %494 = load i32, ptr %28, align 4
+  %495 = add i32 %494, 4
+  store i32 %495, ptr %28, align 4
   store i32 0, ptr %31, align 4
-  br label %493
+  br label %496
 
-493:                                              ; preds = %526, %440
-  %494 = load i32, ptr %31, align 4
-  %495 = load i32, ptr %32, align 4
-  %496 = icmp slt i32 %494, %495
-  br i1 %496, label %497, label %529
+496:                                              ; preds = %529, %443
+  %497 = load i32, ptr %31, align 4
+  %498 = load i32, ptr %32, align 4
+  %499 = icmp slt i32 %497, %498
+  br i1 %499, label %500, label %532
 
-497:                                              ; preds = %493
-  %498 = load ptr, ptr %33, align 8
-  %499 = load i32, ptr %28, align 4
-  %500 = call i32 @check_slsk_format(ptr noundef %498, i32 noundef %499, ptr noundef @.str.216)
-  %501 = icmp ne i32 %500, 0
-  br i1 %501, label %502, label %524
+500:                                              ; preds = %496
+  %501 = load ptr, ptr %33, align 8
+  %502 = load ptr, ptr %6, align 8
+  %503 = load i32, ptr %28, align 4
+  %504 = call zeroext i1 @check_slsk_format(ptr noundef %501, ptr noundef %502, i32 noundef %503, ptr noundef @.str.220)
+  br i1 %504, label %505, label %527
 
-502:                                              ; preds = %497
-  %503 = load ptr, ptr %15, align 8
-  %504 = load ptr, ptr %33, align 8
-  %505 = load i32, ptr %28, align 4
-  %506 = load i32, ptr @ett_slsk_file_attribute, align 4
-  %507 = load i32, ptr %31, align 4
-  %508 = add i32 %507, 1
-  %509 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %503, ptr noundef %504, i32 noundef %505, i32 noundef 8, i32 noundef %506, ptr noundef null, ptr noundef @.str.217, i32 noundef %508)
-  store ptr %509, ptr %16, align 8
-  %510 = load ptr, ptr %16, align 8
-  %511 = load i32, ptr @hf_slsk_file_attribute_type, align 4
-  %512 = load ptr, ptr %33, align 8
-  %513 = load i32, ptr %28, align 4
-  %514 = call ptr @proto_tree_add_item(ptr noundef %510, i32 noundef %511, ptr noundef %512, i32 noundef %513, i32 noundef 4, i32 noundef -2147483648)
-  %515 = load i32, ptr %28, align 4
-  %516 = add i32 %515, 4
-  store i32 %516, ptr %28, align 4
-  %517 = load ptr, ptr %16, align 8
-  %518 = load i32, ptr @hf_slsk_file_attribute_value, align 4
-  %519 = load ptr, ptr %33, align 8
-  %520 = load i32, ptr %28, align 4
-  %521 = call ptr @proto_tree_add_item(ptr noundef %517, i32 noundef %518, ptr noundef %519, i32 noundef %520, i32 noundef 4, i32 noundef -2147483648)
-  %522 = load i32, ptr %28, align 4
-  %523 = add i32 %522, 4
-  store i32 %523, ptr %28, align 4
-  br label %525
+505:                                              ; preds = %500
+  %506 = load ptr, ptr %15, align 8
+  %507 = load ptr, ptr %33, align 8
+  %508 = load i32, ptr %28, align 4
+  %509 = load i32, ptr @ett_slsk_file_attribute, align 4
+  %510 = load i32, ptr %31, align 4
+  %511 = add i32 %510, 1
+  %512 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %506, ptr noundef %507, i32 noundef %508, i32 noundef 8, i32 noundef %509, ptr noundef null, ptr noundef @.str.221, i32 noundef %511)
+  store ptr %512, ptr %16, align 8
+  %513 = load ptr, ptr %16, align 8
+  %514 = load i32, ptr @hf_slsk_file_attribute_type, align 4
+  %515 = load ptr, ptr %33, align 8
+  %516 = load i32, ptr %28, align 4
+  %517 = call ptr @proto_tree_add_item(ptr noundef %513, i32 noundef %514, ptr noundef %515, i32 noundef %516, i32 noundef 4, i32 noundef -2147483648)
+  %518 = load i32, ptr %28, align 4
+  %519 = add i32 %518, 4
+  store i32 %519, ptr %28, align 4
+  %520 = load ptr, ptr %16, align 8
+  %521 = load i32, ptr @hf_slsk_file_attribute_value, align 4
+  %522 = load ptr, ptr %33, align 8
+  %523 = load i32, ptr %28, align 4
+  %524 = call ptr @proto_tree_add_item(ptr noundef %520, i32 noundef %521, ptr noundef %522, i32 noundef %523, i32 noundef 4, i32 noundef -2147483648)
+  %525 = load i32, ptr %28, align 4
+  %526 = add i32 %525, 4
+  store i32 %526, ptr %28, align 4
+  br label %528
 
-524:                                              ; preds = %497
+527:                                              ; preds = %500
+  br label %532
+
+528:                                              ; preds = %505
   br label %529
 
-525:                                              ; preds = %502
-  br label %526
+529:                                              ; preds = %528
+  %530 = load i32, ptr %31, align 4
+  %531 = add i32 %530, 1
+  store i32 %531, ptr %31, align 4
+  br label %496, !llvm.loop !8
 
-526:                                              ; preds = %525
-  %527 = load i32, ptr %31, align 4
-  %528 = add i32 %527, 1
-  store i32 %528, ptr %31, align 4
-  br label %493, !llvm.loop !4
+532:                                              ; preds = %527, %496
+  %533 = load ptr, ptr %12, align 8
+  %534 = load i32, ptr %28, align 4
+  %535 = load i32, ptr %25, align 4
+  %536 = sub i32 %534, %535
+  call void @proto_item_set_len(ptr noundef %533, i32 noundef %536)
+  br label %538
 
-529:                                              ; preds = %524, %493
-  %530 = load ptr, ptr %12, align 8
-  %531 = load i32, ptr %28, align 4
-  %532 = load i32, ptr %25, align 4
-  %533 = sub i32 %531, %532
-  call void @proto_item_set_len(ptr noundef %530, i32 noundef %533)
-  br label %535
+537:                                              ; preds = %438
+  br label %542
 
-534:                                              ; preds = %435
+538:                                              ; preds = %532
   br label %539
 
-535:                                              ; preds = %529
-  br label %536
+539:                                              ; preds = %538
+  %540 = load i32, ptr %29, align 4
+  %541 = add i32 %540, 1
+  store i32 %541, ptr %29, align 4
+  br label %434, !llvm.loop !10
 
-536:                                              ; preds = %535
-  %537 = load i32, ptr %29, align 4
-  %538 = add i32 %537, 1
-  store i32 %538, ptr %29, align 4
-  br label %431, !llvm.loop !6
+542:                                              ; preds = %537, %434
+  %543 = load ptr, ptr %11, align 8
+  %544 = load i32, ptr %28, align 4
+  %545 = load i32, ptr %24, align 4
+  %546 = sub i32 %544, %545
+  call void @proto_item_set_len(ptr noundef %543, i32 noundef %546)
+  br label %548
 
-539:                                              ; preds = %534, %431
-  %540 = load ptr, ptr %11, align 8
-  %541 = load i32, ptr %28, align 4
-  %542 = load i32, ptr %24, align 4
-  %543 = sub i32 %541, %542
-  call void @proto_item_set_len(ptr noundef %540, i32 noundef %543)
-  br label %545
+547:                                              ; preds = %405
+  br label %552
 
-544:                                              ; preds = %402
+548:                                              ; preds = %542
   br label %549
 
-545:                                              ; preds = %539
-  br label %546
+549:                                              ; preds = %548
+  %550 = load i32, ptr %18, align 4
+  %551 = add i32 %550, 1
+  store i32 %551, ptr %18, align 4
+  br label %401, !llvm.loop !11
 
-546:                                              ; preds = %545
-  %547 = load i32, ptr %18, align 4
-  %548 = add i32 %547, 1
-  store i32 %548, ptr %18, align 4
-  br label %398, !llvm.loop !7
+552:                                              ; preds = %547, %401
+  br label %553
 
-549:                                              ; preds = %544, %398
-  br label %550
+553:                                              ; preds = %552, %361
+  call void @llvm.lifetime.end.p0(i64 8, ptr %35) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %34) #6
+  br label %554
 
-550:                                              ; preds = %549, %358
-  br label %551
-
-551:                                              ; preds = %550, %347
-  br label %571
-
-552:                                              ; preds = %324
-  %553 = load ptr, ptr %13, align 8
-  %554 = load i32, ptr @hf_slsk_compr_packet, align 4
-  %555 = load ptr, ptr %5, align 8
-  %556 = load i32, ptr %17, align 4
-  %557 = call ptr @proto_tree_add_item(ptr noundef %553, i32 noundef %554, ptr noundef %555, i32 noundef %556, i32 noundef -1, i32 noundef 0)
-  store ptr %557, ptr %9, align 8
-  %558 = load ptr, ptr %9, align 8
-  call void @proto_item_set_generated(ptr noundef %558)
-  %559 = load ptr, ptr %13, align 8
-  %560 = load i32, ptr @hf_slsk_compressed_packet_length, align 4
-  %561 = load ptr, ptr %5, align 8
-  %562 = load i32, ptr %17, align 4
-  %563 = load i32, ptr %26, align 4
-  %564 = call ptr @proto_tree_add_uint(ptr noundef %559, i32 noundef %560, ptr noundef %561, i32 noundef %562, i32 noundef 0, i32 noundef %563)
-  store ptr %564, ptr %9, align 8
-  %565 = load ptr, ptr %9, align 8
-  call void @proto_item_set_generated(ptr noundef %565)
-  %566 = load ptr, ptr %5, align 8
-  %567 = load i32, ptr %17, align 4
-  %568 = call i32 @tvb_captured_length_remaining(ptr noundef %566, i32 noundef %567)
-  %569 = load i32, ptr %17, align 4
-  %570 = add i32 %569, %568
-  store i32 %570, ptr %17, align 4
-  br label %571
-
-571:                                              ; preds = %552, %551
-  br label %572
-
-572:                                              ; preds = %571, %319
-  br label %573
-
-573:                                              ; preds = %572, %301
+554:                                              ; preds = %553, %350
+  call void @llvm.lifetime.end.p0(i64 8, ptr %33) #6
   br label %574
 
-574:                                              ; preds = %573, %271
-  br label %4619
+555:                                              ; preds = %325
+  %556 = load ptr, ptr %13, align 8
+  %557 = load i32, ptr @hf_slsk_compr_packet, align 4
+  %558 = load ptr, ptr %5, align 8
+  %559 = load i32, ptr %17, align 4
+  %560 = call ptr @proto_tree_add_item(ptr noundef %556, i32 noundef %557, ptr noundef %558, i32 noundef %559, i32 noundef -1, i32 noundef 0)
+  store ptr %560, ptr %9, align 8
+  %561 = load ptr, ptr %9, align 8
+  call void @proto_item_set_generated(ptr noundef %561)
+  %562 = load ptr, ptr %13, align 8
+  %563 = load i32, ptr @hf_slsk_compressed_packet_length, align 4
+  %564 = load ptr, ptr %5, align 8
+  %565 = load i32, ptr %17, align 4
+  %566 = load i32, ptr %26, align 4
+  %567 = call ptr @proto_tree_add_uint(ptr noundef %562, i32 noundef %563, ptr noundef %564, i32 noundef %565, i32 noundef 0, i32 noundef %566)
+  store ptr %567, ptr %9, align 8
+  %568 = load ptr, ptr %9, align 8
+  call void @proto_item_set_generated(ptr noundef %568)
+  %569 = load ptr, ptr %5, align 8
+  %570 = load i32, ptr %17, align 4
+  %571 = call i32 @tvb_captured_length_remaining(ptr noundef %569, i32 noundef %570)
+  %572 = load i32, ptr %17, align 4
+  %573 = add i32 %572, %571
+  store i32 %573, ptr %17, align 4
+  br label %574
 
-575:                                              ; preds = %4
-  %576 = load ptr, ptr %5, align 8
-  %577 = load i32, ptr %17, align 4
-  %578 = call i32 @check_slsk_format(ptr noundef %576, i32 noundef %577, ptr noundef @.str.218)
-  %579 = icmp ne i32 %578, 0
-  br i1 %579, label %580, label %605
+574:                                              ; preds = %555, %554
+  br label %575
 
-580:                                              ; preds = %575
-  %581 = load ptr, ptr %13, align 8
-  %582 = load i32, ptr @hf_slsk_message_code, align 4
-  %583 = load ptr, ptr %5, align 8
-  %584 = load i32, ptr %17, align 4
-  %585 = load i32, ptr %21, align 4
-  %586 = load i32, ptr %21, align 4
-  %587 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %581, i32 noundef %582, ptr noundef %583, i32 noundef %584, i32 noundef 4, i32 noundef %585, ptr noundef @.str.219, i32 noundef %586)
-  %588 = load i32, ptr %17, align 4
-  %589 = add i32 %588, 4
-  store i32 %589, ptr %17, align 4
-  %590 = load ptr, ptr %13, align 8
-  %591 = load i32, ptr @hf_slsk_username, align 4
-  %592 = load ptr, ptr %5, align 8
-  %593 = load i32, ptr %17, align 4
-  %594 = call ptr @proto_tree_add_item_ret_length(ptr noundef %590, i32 noundef %591, ptr noundef %592, i32 noundef %593, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %595 = load i32, ptr %23, align 4
+575:                                              ; preds = %574, %320
+  br label %576
+
+576:                                              ; preds = %575, %302
+  br label %577
+
+577:                                              ; preds = %576, %272
+  br label %4626
+
+578:                                              ; preds = %4
+  %579 = load ptr, ptr %5, align 8
+  %580 = load ptr, ptr %6, align 8
+  %581 = load i32, ptr %17, align 4
+  %582 = call zeroext i1 @check_slsk_format(ptr noundef %579, ptr noundef %580, i32 noundef %581, ptr noundef @.str.222)
+  br i1 %582, label %583, label %608
+
+583:                                              ; preds = %578
+  %584 = load ptr, ptr %13, align 8
+  %585 = load i32, ptr @hf_slsk_message_code, align 4
+  %586 = load ptr, ptr %5, align 8
+  %587 = load i32, ptr %17, align 4
+  %588 = load i32, ptr %21, align 4
+  %589 = load i32, ptr %21, align 4
+  %590 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %584, i32 noundef %585, ptr noundef %586, i32 noundef %587, i32 noundef 4, i32 noundef %588, ptr noundef @.str.223, i32 noundef %589)
+  %591 = load i32, ptr %17, align 4
+  %592 = add i32 %591, 4
+  store i32 %592, ptr %17, align 4
+  %593 = load ptr, ptr %13, align 8
+  %594 = load i32, ptr @hf_slsk_username, align 4
+  %595 = load ptr, ptr %5, align 8
   %596 = load i32, ptr %17, align 4
-  %597 = add i32 %596, %595
-  store i32 %597, ptr %17, align 4
-  %598 = load ptr, ptr %13, align 8
-  %599 = load i32, ptr @hf_slsk_status_code, align 4
-  %600 = load ptr, ptr %5, align 8
-  %601 = load i32, ptr %17, align 4
-  %602 = call ptr @proto_tree_add_item(ptr noundef %598, i32 noundef %599, ptr noundef %600, i32 noundef %601, i32 noundef 4, i32 noundef -2147483648)
-  %603 = load i32, ptr %17, align 4
-  %604 = add i32 %603, 4
-  store i32 %604, ptr %17, align 4
-  br label %629
+  %597 = call ptr @proto_tree_add_item_ret_length(ptr noundef %593, i32 noundef %594, ptr noundef %595, i32 noundef %596, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %598 = load i32, ptr %23, align 4
+  %599 = load i32, ptr %17, align 4
+  %600 = add i32 %599, %598
+  store i32 %600, ptr %17, align 4
+  %601 = load ptr, ptr %13, align 8
+  %602 = load i32, ptr @hf_slsk_status_code, align 4
+  %603 = load ptr, ptr %5, align 8
+  %604 = load i32, ptr %17, align 4
+  %605 = call ptr @proto_tree_add_item(ptr noundef %601, i32 noundef %602, ptr noundef %603, i32 noundef %604, i32 noundef 4, i32 noundef -2147483648)
+  %606 = load i32, ptr %17, align 4
+  %607 = add i32 %606, 4
+  store i32 %607, ptr %17, align 4
+  br label %632
 
-605:                                              ; preds = %575
-  %606 = load ptr, ptr %5, align 8
-  %607 = load i32, ptr %17, align 4
-  %608 = call i32 @check_slsk_format(ptr noundef %606, i32 noundef %607, ptr noundef @.str.202)
-  %609 = icmp ne i32 %608, 0
-  br i1 %609, label %610, label %628
+608:                                              ; preds = %578
+  %609 = load ptr, ptr %5, align 8
+  %610 = load ptr, ptr %6, align 8
+  %611 = load i32, ptr %17, align 4
+  %612 = call zeroext i1 @check_slsk_format(ptr noundef %609, ptr noundef %610, i32 noundef %611, ptr noundef @.str.206)
+  br i1 %612, label %613, label %631
 
-610:                                              ; preds = %605
-  %611 = load ptr, ptr %13, align 8
-  %612 = load i32, ptr @hf_slsk_message_code, align 4
-  %613 = load ptr, ptr %5, align 8
-  %614 = load i32, ptr %17, align 4
-  %615 = load i32, ptr %21, align 4
-  %616 = load i32, ptr %21, align 4
-  %617 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %611, i32 noundef %612, ptr noundef %613, i32 noundef %614, i32 noundef 4, i32 noundef %615, ptr noundef @.str.220, i32 noundef %616)
-  %618 = load i32, ptr %17, align 4
-  %619 = add i32 %618, 4
-  store i32 %619, ptr %17, align 4
-  %620 = load ptr, ptr %13, align 8
-  %621 = load i32, ptr @hf_slsk_username, align 4
-  %622 = load ptr, ptr %5, align 8
-  %623 = load i32, ptr %17, align 4
-  %624 = call ptr @proto_tree_add_item_ret_length(ptr noundef %620, i32 noundef %621, ptr noundef %622, i32 noundef %623, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %625 = load i32, ptr %23, align 4
+613:                                              ; preds = %608
+  %614 = load ptr, ptr %13, align 8
+  %615 = load i32, ptr @hf_slsk_message_code, align 4
+  %616 = load ptr, ptr %5, align 8
+  %617 = load i32, ptr %17, align 4
+  %618 = load i32, ptr %21, align 4
+  %619 = load i32, ptr %21, align 4
+  %620 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %614, i32 noundef %615, ptr noundef %616, i32 noundef %617, i32 noundef 4, i32 noundef %618, ptr noundef @.str.224, i32 noundef %619)
+  %621 = load i32, ptr %17, align 4
+  %622 = add i32 %621, 4
+  store i32 %622, ptr %17, align 4
+  %623 = load ptr, ptr %13, align 8
+  %624 = load i32, ptr @hf_slsk_username, align 4
+  %625 = load ptr, ptr %5, align 8
   %626 = load i32, ptr %17, align 4
-  %627 = add i32 %626, %625
-  store i32 %627, ptr %17, align 4
-  br label %628
+  %627 = call ptr @proto_tree_add_item_ret_length(ptr noundef %623, i32 noundef %624, ptr noundef %625, i32 noundef %626, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %628 = load i32, ptr %23, align 4
+  %629 = load i32, ptr %17, align 4
+  %630 = add i32 %629, %628
+  store i32 %630, ptr %17, align 4
+  br label %631
 
-628:                                              ; preds = %610, %605
-  br label %629
+631:                                              ; preds = %613, %608
+  br label %632
 
-629:                                              ; preds = %628, %580
-  br label %4619
+632:                                              ; preds = %631, %583
+  br label %4626
 
-630:                                              ; preds = %4
-  %631 = load ptr, ptr %5, align 8
-  %632 = load i32, ptr %17, align 4
-  %633 = call i32 @check_slsk_format(ptr noundef %631, i32 noundef %632, ptr noundef @.str.209)
-  %634 = icmp ne i32 %633, 0
-  br i1 %634, label %635, label %881
+633:                                              ; preds = %4
+  %634 = load ptr, ptr %5, align 8
+  %635 = load ptr, ptr %6, align 8
+  %636 = load i32, ptr %17, align 4
+  %637 = call zeroext i1 @check_slsk_format(ptr noundef %634, ptr noundef %635, i32 noundef %636, ptr noundef @.str.213)
+  br i1 %637, label %638, label %886
 
-635:                                              ; preds = %630
-  %636 = load ptr, ptr %13, align 8
-  %637 = load i32, ptr @hf_slsk_message_code, align 4
-  %638 = load ptr, ptr %5, align 8
-  %639 = load i32, ptr %17, align 4
-  %640 = load i32, ptr %21, align 4
-  %641 = load i32, ptr %21, align 4
-  %642 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %636, i32 noundef %637, ptr noundef %638, i32 noundef %639, i32 noundef 4, i32 noundef %640, ptr noundef @.str.221, i32 noundef %641)
-  %643 = load i32, ptr %17, align 4
-  %644 = add i32 %643, 4
-  store i32 %644, ptr %17, align 4
-  %645 = load ptr, ptr %5, align 8
+638:                                              ; preds = %633
+  %639 = load ptr, ptr %13, align 8
+  %640 = load i32, ptr @hf_slsk_message_code, align 4
+  %641 = load ptr, ptr %5, align 8
+  %642 = load i32, ptr %17, align 4
+  %643 = load i32, ptr %21, align 4
+  %644 = load i32, ptr %21, align 4
+  %645 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %639, i32 noundef %640, ptr noundef %641, i32 noundef %642, i32 noundef 4, i32 noundef %643, ptr noundef @.str.225, i32 noundef %644)
   %646 = load i32, ptr %17, align 4
-  %647 = call i32 @tvb_captured_length_remaining(ptr noundef %645, i32 noundef %646)
-  store i32 %647, ptr %26, align 4
-  %648 = load i32, ptr @slsk_decompress, align 4
-  %649 = icmp eq i32 %648, 1
-  br i1 %649, label %650, label %861
+  %647 = add i32 %646, 4
+  store i32 %647, ptr %17, align 4
+  %648 = load ptr, ptr %5, align 8
+  %649 = load i32, ptr %17, align 4
+  %650 = call i32 @tvb_captured_length_remaining(ptr noundef %648, i32 noundef %649)
+  store i32 %650, ptr %26, align 4
+  %651 = load i8, ptr @slsk_decompress, align 1, !range !6, !noundef !7
+  %652 = trunc i8 %651 to i1
+  %653 = zext i1 %652 to i32
+  %654 = icmp eq i32 %653, 1
+  br i1 %654, label %655, label %866
 
-650:                                              ; preds = %635
-  %651 = load ptr, ptr %5, align 8
-  %652 = load ptr, ptr %5, align 8
-  %653 = load i32, ptr %17, align 4
-  %654 = load i32, ptr %26, align 4
-  %655 = call ptr @tvb_child_uncompress(ptr noundef %651, ptr noundef %652, i32 noundef %653, i32 noundef %654)
-  store ptr %655, ptr %36, align 8
-  %656 = load ptr, ptr %36, align 8
-  %657 = icmp eq ptr %656, null
-  br i1 %657, label %658, label %676
+655:                                              ; preds = %638
+  call void @llvm.lifetime.start.p0(i64 8, ptr %36) #6
+  %656 = load ptr, ptr %5, align 8
+  %657 = load ptr, ptr %5, align 8
+  %658 = load i32, ptr %17, align 4
+  %659 = load i32, ptr %26, align 4
+  %660 = call ptr @tvb_child_uncompress_zlib(ptr noundef %656, ptr noundef %657, i32 noundef %658, i32 noundef %659)
+  store ptr %660, ptr %36, align 8
+  %661 = load ptr, ptr %36, align 8
+  %662 = icmp eq ptr %661, null
+  br i1 %662, label %663, label %681
 
-658:                                              ; preds = %650
-  %659 = load ptr, ptr %13, align 8
-  %660 = load i32, ptr @hf_slsk_compr_packet, align 4
-  %661 = load ptr, ptr %5, align 8
-  %662 = load i32, ptr %17, align 4
-  %663 = load ptr, ptr %5, align 8
-  %664 = load i32, ptr %17, align 4
-  %665 = call i32 @tvb_captured_length_remaining(ptr noundef %663, i32 noundef %664)
-  %666 = call ptr @proto_tree_add_item(ptr noundef %659, i32 noundef %660, ptr noundef %661, i32 noundef %662, i32 noundef %665, i32 noundef 0)
-  store ptr %666, ptr %9, align 8
-  %667 = load ptr, ptr %9, align 8
-  call void @proto_item_set_generated(ptr noundef %667)
+663:                                              ; preds = %655
+  %664 = load ptr, ptr %13, align 8
+  %665 = load i32, ptr @hf_slsk_compr_packet, align 4
+  %666 = load ptr, ptr %5, align 8
+  %667 = load i32, ptr %17, align 4
   %668 = load ptr, ptr %5, align 8
   %669 = load i32, ptr %17, align 4
   %670 = call i32 @tvb_captured_length_remaining(ptr noundef %668, i32 noundef %669)
-  %671 = load i32, ptr %17, align 4
-  %672 = add i32 %671, %670
-  store i32 %672, ptr %17, align 4
-  %673 = load ptr, ptr %6, align 8
-  %674 = load ptr, ptr %9, align 8
-  %675 = call ptr @expert_add_info(ptr noundef %673, ptr noundef %674, ptr noundef @ei_slsk_decompression_failed)
-  br label %860
+  %671 = call ptr @proto_tree_add_item(ptr noundef %664, i32 noundef %665, ptr noundef %666, i32 noundef %667, i32 noundef %670, i32 noundef 0)
+  store ptr %671, ptr %9, align 8
+  %672 = load ptr, ptr %9, align 8
+  call void @proto_item_set_generated(ptr noundef %672)
+  %673 = load ptr, ptr %5, align 8
+  %674 = load i32, ptr %17, align 4
+  %675 = call i32 @tvb_captured_length_remaining(ptr noundef %673, i32 noundef %674)
+  %676 = load i32, ptr %17, align 4
+  %677 = add i32 %676, %675
+  store i32 %677, ptr %17, align 4
+  %678 = load ptr, ptr %6, align 8
+  %679 = load ptr, ptr %9, align 8
+  %680 = call ptr @expert_add_info(ptr noundef %678, ptr noundef %679, ptr noundef @ei_slsk_decompression_failed)
+  br label %865
 
-676:                                              ; preds = %650
-  %677 = load ptr, ptr %13, align 8
-  %678 = load i32, ptr @hf_slsk_compr_packet, align 4
-  %679 = load ptr, ptr %5, align 8
-  %680 = load i32, ptr %17, align 4
-  %681 = call ptr @proto_tree_add_item(ptr noundef %677, i32 noundef %678, ptr noundef %679, i32 noundef %680, i32 noundef -1, i32 noundef 0)
-  store ptr %681, ptr %37, align 8
-  %682 = load ptr, ptr %37, align 8
-  %683 = load i32, ptr @ett_slsk_compr_packet, align 4
-  %684 = call ptr @proto_item_add_subtree(ptr noundef %682, i32 noundef %683)
-  store ptr %684, ptr %38, align 8
-  %685 = load ptr, ptr %37, align 8
-  call void @proto_item_set_generated(ptr noundef %685)
-  %686 = load ptr, ptr %13, align 8
-  %687 = load i32, ptr @hf_slsk_compressed_packet_length, align 4
-  %688 = load ptr, ptr %5, align 8
-  %689 = load i32, ptr %17, align 4
-  %690 = load i32, ptr %26, align 4
-  %691 = call ptr @proto_tree_add_uint(ptr noundef %686, i32 noundef %687, ptr noundef %688, i32 noundef %689, i32 noundef 0, i32 noundef %690)
-  store ptr %691, ptr %9, align 8
-  %692 = load ptr, ptr %9, align 8
-  call void @proto_item_set_generated(ptr noundef %692)
-  %693 = load ptr, ptr %36, align 8
-  %694 = call i32 @tvb_captured_length_remaining(ptr noundef %693, i32 noundef 0)
-  store i32 %694, ptr %27, align 4
-  %695 = load ptr, ptr %13, align 8
-  %696 = load i32, ptr @hf_slsk_uncompressed_packet_length, align 4
-  %697 = load ptr, ptr %5, align 8
-  %698 = load i32, ptr %17, align 4
-  %699 = load i32, ptr %27, align 4
-  %700 = call ptr @proto_tree_add_uint(ptr noundef %695, i32 noundef %696, ptr noundef %697, i32 noundef %698, i32 noundef 0, i32 noundef %699)
-  store ptr %700, ptr %9, align 8
-  %701 = load ptr, ptr %9, align 8
-  call void @proto_item_set_generated(ptr noundef %701)
-  %702 = load ptr, ptr %6, align 8
-  %703 = load ptr, ptr %36, align 8
-  call void @add_new_data_source(ptr noundef %702, ptr noundef %703, ptr noundef @.str.211)
+681:                                              ; preds = %655
+  call void @llvm.lifetime.start.p0(i64 8, ptr %37) #6
+  %682 = load ptr, ptr %13, align 8
+  %683 = load i32, ptr @hf_slsk_compr_packet, align 4
+  %684 = load ptr, ptr %5, align 8
+  %685 = load i32, ptr %17, align 4
+  %686 = call ptr @proto_tree_add_item(ptr noundef %682, i32 noundef %683, ptr noundef %684, i32 noundef %685, i32 noundef -1, i32 noundef 0)
+  store ptr %686, ptr %37, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %38) #6
+  %687 = load ptr, ptr %37, align 8
+  %688 = load i32, ptr @ett_slsk_compr_packet, align 4
+  %689 = call ptr @proto_item_add_subtree(ptr noundef %687, i32 noundef %688)
+  store ptr %689, ptr %38, align 8
+  %690 = load ptr, ptr %37, align 8
+  call void @proto_item_set_generated(ptr noundef %690)
+  %691 = load ptr, ptr %13, align 8
+  %692 = load i32, ptr @hf_slsk_compressed_packet_length, align 4
+  %693 = load ptr, ptr %5, align 8
+  %694 = load i32, ptr %17, align 4
+  %695 = load i32, ptr %26, align 4
+  %696 = call ptr @proto_tree_add_uint(ptr noundef %691, i32 noundef %692, ptr noundef %693, i32 noundef %694, i32 noundef 0, i32 noundef %695)
+  store ptr %696, ptr %9, align 8
+  %697 = load ptr, ptr %9, align 8
+  call void @proto_item_set_generated(ptr noundef %697)
+  %698 = load ptr, ptr %36, align 8
+  %699 = call i32 @tvb_captured_length_remaining(ptr noundef %698, i32 noundef 0)
+  store i32 %699, ptr %27, align 4
+  %700 = load ptr, ptr %13, align 8
+  %701 = load i32, ptr @hf_slsk_uncompressed_packet_length, align 4
+  %702 = load ptr, ptr %5, align 8
+  %703 = load i32, ptr %17, align 4
+  %704 = load i32, ptr %27, align 4
+  %705 = call ptr @proto_tree_add_uint(ptr noundef %700, i32 noundef %701, ptr noundef %702, i32 noundef %703, i32 noundef 0, i32 noundef %704)
+  store ptr %705, ptr %9, align 8
+  %706 = load ptr, ptr %9, align 8
+  call void @proto_item_set_generated(ptr noundef %706)
+  %707 = load ptr, ptr %6, align 8
+  %708 = load ptr, ptr %36, align 8
+  call void @add_new_data_source(ptr noundef %707, ptr noundef %708, ptr noundef @.str.215)
   store i32 0, ptr %28, align 4
-  %704 = load ptr, ptr %36, align 8
-  %705 = load i32, ptr %28, align 4
-  %706 = call i32 @check_slsk_format(ptr noundef %704, i32 noundef %705, ptr noundef @.str.222)
-  %707 = icmp ne i32 %706, 0
-  br i1 %707, label %708, label %859
+  %709 = load ptr, ptr %36, align 8
+  %710 = load ptr, ptr %6, align 8
+  %711 = load i32, ptr %28, align 4
+  %712 = call zeroext i1 @check_slsk_format(ptr noundef %709, ptr noundef %710, i32 noundef %711, ptr noundef @.str.226)
+  br i1 %712, label %713, label %864
 
-708:                                              ; preds = %676
-  %709 = load ptr, ptr %38, align 8
-  %710 = load i32, ptr @hf_slsk_username, align 4
-  %711 = load ptr, ptr %36, align 8
-  %712 = load i32, ptr %28, align 4
-  %713 = call ptr @proto_tree_add_item_ret_length(ptr noundef %709, i32 noundef %710, ptr noundef %711, i32 noundef %712, i32 noundef 4, i32 noundef 0, ptr noundef %23)
-  %714 = load i32, ptr %23, align 4
-  %715 = load i32, ptr %28, align 4
-  %716 = add i32 %715, %714
-  store i32 %716, ptr %28, align 4
-  %717 = load ptr, ptr %38, align 8
-  %718 = load i32, ptr @hf_slsk_token, align 4
-  %719 = load ptr, ptr %36, align 8
+713:                                              ; preds = %681
+  %714 = load ptr, ptr %38, align 8
+  %715 = load i32, ptr @hf_slsk_username, align 4
+  %716 = load ptr, ptr %36, align 8
+  %717 = load i32, ptr %28, align 4
+  %718 = call ptr @proto_tree_add_item_ret_length(ptr noundef %714, i32 noundef %715, ptr noundef %716, i32 noundef %717, i32 noundef 4, i32 noundef 0, ptr noundef %23)
+  %719 = load i32, ptr %23, align 4
   %720 = load i32, ptr %28, align 4
-  %721 = call ptr @proto_tree_add_item(ptr noundef %717, i32 noundef %718, ptr noundef %719, i32 noundef %720, i32 noundef 4, i32 noundef -2147483648)
-  %722 = load i32, ptr %28, align 4
-  %723 = add i32 %722, 4
-  store i32 %723, ptr %28, align 4
-  %724 = load ptr, ptr %38, align 8
-  %725 = load i32, ptr @hf_slsk_num_files, align 4
-  %726 = load ptr, ptr %36, align 8
+  %721 = add i32 %720, %719
+  store i32 %721, ptr %28, align 4
+  %722 = load ptr, ptr %38, align 8
+  %723 = load i32, ptr @hf_slsk_token, align 4
+  %724 = load ptr, ptr %36, align 8
+  %725 = load i32, ptr %28, align 4
+  %726 = call ptr @proto_tree_add_item(ptr noundef %722, i32 noundef %723, ptr noundef %724, i32 noundef %725, i32 noundef 4, i32 noundef -2147483648)
   %727 = load i32, ptr %28, align 4
-  %728 = call ptr @proto_tree_add_item_ret_int(ptr noundef %724, i32 noundef %725, ptr noundef %726, i32 noundef %727, i32 noundef 4, i32 noundef -2147483648, ptr noundef %19)
-  %729 = load i32, ptr %28, align 4
-  %730 = add i32 %729, 4
-  store i32 %730, ptr %28, align 4
+  %728 = add i32 %727, 4
+  store i32 %728, ptr %28, align 4
+  %729 = load ptr, ptr %38, align 8
+  %730 = load i32, ptr @hf_slsk_num_files, align 4
+  %731 = load ptr, ptr %36, align 8
+  %732 = load i32, ptr %28, align 4
+  %733 = call ptr @proto_tree_add_item_ret_int(ptr noundef %729, i32 noundef %730, ptr noundef %731, i32 noundef %732, i32 noundef 4, i32 noundef -2147483648, ptr noundef %19)
+  %734 = load i32, ptr %28, align 4
+  %735 = add i32 %734, 4
+  store i32 %735, ptr %28, align 4
   store i32 0, ptr %18, align 4
-  br label %731
+  br label %736
 
-731:                                              ; preds = %836, %708
-  %732 = load i32, ptr %18, align 4
-  %733 = load i32, ptr %19, align 4
-  %734 = icmp slt i32 %732, %733
-  br i1 %734, label %735, label %839
+736:                                              ; preds = %841, %713
+  %737 = load i32, ptr %18, align 4
+  %738 = load i32, ptr %19, align 4
+  %739 = icmp slt i32 %737, %738
+  br i1 %739, label %740, label %844
 
-735:                                              ; preds = %731
-  %736 = load ptr, ptr %36, align 8
-  %737 = load i32, ptr %28, align 4
-  %738 = call i32 @check_slsk_format(ptr noundef %736, i32 noundef %737, ptr noundef @.str.214)
-  %739 = icmp ne i32 %738, 0
-  br i1 %739, label %740, label %834
+740:                                              ; preds = %736
+  %741 = load ptr, ptr %36, align 8
+  %742 = load ptr, ptr %6, align 8
+  %743 = load i32, ptr %28, align 4
+  %744 = call zeroext i1 @check_slsk_format(ptr noundef %741, ptr noundef %742, i32 noundef %743, ptr noundef @.str.218)
+  br i1 %744, label %745, label %839
 
-740:                                              ; preds = %735
-  %741 = load i32, ptr %28, align 4
-  store i32 %741, ptr %25, align 4
-  %742 = load ptr, ptr %38, align 8
-  %743 = load ptr, ptr %36, align 8
-  %744 = load i32, ptr %28, align 4
-  %745 = load i32, ptr @ett_slsk_file, align 4
-  %746 = load i32, ptr %18, align 4
-  %747 = add i32 %746, 1
-  %748 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %742, ptr noundef %743, i32 noundef %744, i32 noundef 1, i32 noundef %745, ptr noundef %12, ptr noundef @.str.215, i32 noundef %747)
-  store ptr %748, ptr %15, align 8
-  %749 = load ptr, ptr %15, align 8
-  %750 = load i32, ptr @hf_slsk_file_code, align 4
-  %751 = load ptr, ptr %36, align 8
-  %752 = load i32, ptr %28, align 4
-  %753 = call ptr @proto_tree_add_item(ptr noundef %749, i32 noundef %750, ptr noundef %751, i32 noundef %752, i32 noundef 1, i32 noundef 0)
-  %754 = load i32, ptr %28, align 4
-  %755 = add i32 %754, 1
-  store i32 %755, ptr %28, align 4
-  %756 = load ptr, ptr %15, align 8
-  %757 = load i32, ptr @hf_slsk_filename, align 4
-  %758 = load ptr, ptr %36, align 8
+745:                                              ; preds = %740
+  %746 = load i32, ptr %28, align 4
+  store i32 %746, ptr %25, align 4
+  %747 = load ptr, ptr %38, align 8
+  %748 = load ptr, ptr %36, align 8
+  %749 = load i32, ptr %28, align 4
+  %750 = load i32, ptr @ett_slsk_file, align 4
+  %751 = load i32, ptr %18, align 4
+  %752 = add i32 %751, 1
+  %753 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %747, ptr noundef %748, i32 noundef %749, i32 noundef 1, i32 noundef %750, ptr noundef %12, ptr noundef @.str.219, i32 noundef %752)
+  store ptr %753, ptr %15, align 8
+  %754 = load ptr, ptr %15, align 8
+  %755 = load i32, ptr @hf_slsk_file_code, align 4
+  %756 = load ptr, ptr %36, align 8
+  %757 = load i32, ptr %28, align 4
+  %758 = call ptr @proto_tree_add_item(ptr noundef %754, i32 noundef %755, ptr noundef %756, i32 noundef %757, i32 noundef 1, i32 noundef 0)
   %759 = load i32, ptr %28, align 4
-  %760 = call ptr @proto_tree_add_item_ret_length(ptr noundef %756, i32 noundef %757, ptr noundef %758, i32 noundef %759, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %761 = load i32, ptr %23, align 4
-  %762 = load i32, ptr %28, align 4
-  %763 = add i32 %762, %761
-  store i32 %763, ptr %28, align 4
-  %764 = load ptr, ptr %15, align 8
-  %765 = load i32, ptr @hf_slsk_file_size1, align 4
-  %766 = load ptr, ptr %36, align 8
+  %760 = add i32 %759, 1
+  store i32 %760, ptr %28, align 4
+  %761 = load ptr, ptr %15, align 8
+  %762 = load i32, ptr @hf_slsk_filename, align 4
+  %763 = load ptr, ptr %36, align 8
+  %764 = load i32, ptr %28, align 4
+  %765 = call ptr @proto_tree_add_item_ret_length(ptr noundef %761, i32 noundef %762, ptr noundef %763, i32 noundef %764, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %766 = load i32, ptr %23, align 4
   %767 = load i32, ptr %28, align 4
-  %768 = call ptr @proto_tree_add_item(ptr noundef %764, i32 noundef %765, ptr noundef %766, i32 noundef %767, i32 noundef 4, i32 noundef -2147483648)
-  %769 = load i32, ptr %28, align 4
-  %770 = add i32 %769, 4
-  store i32 %770, ptr %28, align 4
-  %771 = load ptr, ptr %15, align 8
-  %772 = load i32, ptr @hf_slsk_file_size2, align 4
-  %773 = load ptr, ptr %36, align 8
+  %768 = add i32 %767, %766
+  store i32 %768, ptr %28, align 4
+  %769 = load ptr, ptr %15, align 8
+  %770 = load i32, ptr @hf_slsk_file_size1, align 4
+  %771 = load ptr, ptr %36, align 8
+  %772 = load i32, ptr %28, align 4
+  %773 = call ptr @proto_tree_add_item(ptr noundef %769, i32 noundef %770, ptr noundef %771, i32 noundef %772, i32 noundef 4, i32 noundef -2147483648)
   %774 = load i32, ptr %28, align 4
-  %775 = call ptr @proto_tree_add_item(ptr noundef %771, i32 noundef %772, ptr noundef %773, i32 noundef %774, i32 noundef 4, i32 noundef -2147483648)
-  %776 = load i32, ptr %28, align 4
-  %777 = add i32 %776, 4
-  store i32 %777, ptr %28, align 4
-  %778 = load ptr, ptr %15, align 8
-  %779 = load i32, ptr @hf_slsk_filename_ext, align 4
-  %780 = load ptr, ptr %36, align 8
+  %775 = add i32 %774, 4
+  store i32 %775, ptr %28, align 4
+  %776 = load ptr, ptr %15, align 8
+  %777 = load i32, ptr @hf_slsk_file_size2, align 4
+  %778 = load ptr, ptr %36, align 8
+  %779 = load i32, ptr %28, align 4
+  %780 = call ptr @proto_tree_add_item(ptr noundef %776, i32 noundef %777, ptr noundef %778, i32 noundef %779, i32 noundef 4, i32 noundef -2147483648)
   %781 = load i32, ptr %28, align 4
-  %782 = call ptr @proto_tree_add_item_ret_length(ptr noundef %778, i32 noundef %779, ptr noundef %780, i32 noundef %781, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %783 = load i32, ptr %23, align 4
-  %784 = load i32, ptr %28, align 4
-  %785 = add i32 %784, %783
-  store i32 %785, ptr %28, align 4
-  %786 = load ptr, ptr %15, align 8
-  %787 = load i32, ptr @hf_slsk_file_num_attributes, align 4
-  %788 = load ptr, ptr %36, align 8
+  %782 = add i32 %781, 4
+  store i32 %782, ptr %28, align 4
+  %783 = load ptr, ptr %15, align 8
+  %784 = load i32, ptr @hf_slsk_filename_ext, align 4
+  %785 = load ptr, ptr %36, align 8
+  %786 = load i32, ptr %28, align 4
+  %787 = call ptr @proto_tree_add_item_ret_length(ptr noundef %783, i32 noundef %784, ptr noundef %785, i32 noundef %786, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %788 = load i32, ptr %23, align 4
   %789 = load i32, ptr %28, align 4
-  %790 = call ptr @proto_tree_add_item_ret_int(ptr noundef %786, i32 noundef %787, ptr noundef %788, i32 noundef %789, i32 noundef 4, i32 noundef -2147483648, ptr noundef %30)
-  %791 = load i32, ptr %28, align 4
-  %792 = add i32 %791, 4
-  store i32 %792, ptr %28, align 4
+  %790 = add i32 %789, %788
+  store i32 %790, ptr %28, align 4
+  %791 = load ptr, ptr %15, align 8
+  %792 = load i32, ptr @hf_slsk_file_num_attributes, align 4
+  %793 = load ptr, ptr %36, align 8
+  %794 = load i32, ptr %28, align 4
+  %795 = call ptr @proto_tree_add_item_ret_int(ptr noundef %791, i32 noundef %792, ptr noundef %793, i32 noundef %794, i32 noundef 4, i32 noundef -2147483648, ptr noundef %30)
+  %796 = load i32, ptr %28, align 4
+  %797 = add i32 %796, 4
+  store i32 %797, ptr %28, align 4
   store i32 0, ptr %29, align 4
-  br label %793
+  br label %798
 
-793:                                              ; preds = %826, %740
-  %794 = load i32, ptr %29, align 4
-  %795 = load i32, ptr %30, align 4
-  %796 = icmp slt i32 %794, %795
-  br i1 %796, label %797, label %829
+798:                                              ; preds = %831, %745
+  %799 = load i32, ptr %29, align 4
+  %800 = load i32, ptr %30, align 4
+  %801 = icmp slt i32 %799, %800
+  br i1 %801, label %802, label %834
 
-797:                                              ; preds = %793
-  %798 = load ptr, ptr %36, align 8
-  %799 = load i32, ptr %28, align 4
-  %800 = call i32 @check_slsk_format(ptr noundef %798, i32 noundef %799, ptr noundef @.str.216)
-  %801 = icmp ne i32 %800, 0
-  br i1 %801, label %802, label %824
-
-802:                                              ; preds = %797
-  %803 = load ptr, ptr %15, align 8
-  %804 = load ptr, ptr %36, align 8
+802:                                              ; preds = %798
+  %803 = load ptr, ptr %36, align 8
+  %804 = load ptr, ptr %6, align 8
   %805 = load i32, ptr %28, align 4
-  %806 = load i32, ptr @ett_slsk_file_attribute, align 4
-  %807 = load i32, ptr %29, align 4
-  %808 = add i32 %807, 1
-  %809 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %803, ptr noundef %804, i32 noundef %805, i32 noundef 8, i32 noundef %806, ptr noundef null, ptr noundef @.str.217, i32 noundef %808)
-  store ptr %809, ptr %16, align 8
-  %810 = load ptr, ptr %16, align 8
-  %811 = load i32, ptr @hf_slsk_file_attribute_type, align 4
-  %812 = load ptr, ptr %36, align 8
-  %813 = load i32, ptr %28, align 4
-  %814 = call ptr @proto_tree_add_item(ptr noundef %810, i32 noundef %811, ptr noundef %812, i32 noundef %813, i32 noundef 4, i32 noundef -2147483648)
-  %815 = load i32, ptr %28, align 4
-  %816 = add i32 %815, 4
-  store i32 %816, ptr %28, align 4
-  %817 = load ptr, ptr %16, align 8
-  %818 = load i32, ptr @hf_slsk_file_attribute_value, align 4
-  %819 = load ptr, ptr %36, align 8
+  %806 = call zeroext i1 @check_slsk_format(ptr noundef %803, ptr noundef %804, i32 noundef %805, ptr noundef @.str.220)
+  br i1 %806, label %807, label %829
+
+807:                                              ; preds = %802
+  %808 = load ptr, ptr %15, align 8
+  %809 = load ptr, ptr %36, align 8
+  %810 = load i32, ptr %28, align 4
+  %811 = load i32, ptr @ett_slsk_file_attribute, align 4
+  %812 = load i32, ptr %29, align 4
+  %813 = add i32 %812, 1
+  %814 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %808, ptr noundef %809, i32 noundef %810, i32 noundef 8, i32 noundef %811, ptr noundef null, ptr noundef @.str.221, i32 noundef %813)
+  store ptr %814, ptr %16, align 8
+  %815 = load ptr, ptr %16, align 8
+  %816 = load i32, ptr @hf_slsk_file_attribute_type, align 4
+  %817 = load ptr, ptr %36, align 8
+  %818 = load i32, ptr %28, align 4
+  %819 = call ptr @proto_tree_add_item(ptr noundef %815, i32 noundef %816, ptr noundef %817, i32 noundef %818, i32 noundef 4, i32 noundef -2147483648)
   %820 = load i32, ptr %28, align 4
-  %821 = call ptr @proto_tree_add_item(ptr noundef %817, i32 noundef %818, ptr noundef %819, i32 noundef %820, i32 noundef 4, i32 noundef -2147483648)
-  %822 = load i32, ptr %28, align 4
-  %823 = add i32 %822, 4
-  store i32 %823, ptr %28, align 4
-  br label %825
+  %821 = add i32 %820, 4
+  store i32 %821, ptr %28, align 4
+  %822 = load ptr, ptr %16, align 8
+  %823 = load i32, ptr @hf_slsk_file_attribute_value, align 4
+  %824 = load ptr, ptr %36, align 8
+  %825 = load i32, ptr %28, align 4
+  %826 = call ptr @proto_tree_add_item(ptr noundef %822, i32 noundef %823, ptr noundef %824, i32 noundef %825, i32 noundef 4, i32 noundef -2147483648)
+  %827 = load i32, ptr %28, align 4
+  %828 = add i32 %827, 4
+  store i32 %828, ptr %28, align 4
+  br label %830
 
-824:                                              ; preds = %797
-  br label %829
+829:                                              ; preds = %802
+  br label %834
 
-825:                                              ; preds = %802
-  br label %826
+830:                                              ; preds = %807
+  br label %831
 
-826:                                              ; preds = %825
-  %827 = load i32, ptr %29, align 4
-  %828 = add i32 %827, 1
-  store i32 %828, ptr %29, align 4
-  br label %793, !llvm.loop !8
+831:                                              ; preds = %830
+  %832 = load i32, ptr %29, align 4
+  %833 = add i32 %832, 1
+  store i32 %833, ptr %29, align 4
+  br label %798, !llvm.loop !12
 
-829:                                              ; preds = %824, %793
-  %830 = load ptr, ptr %12, align 8
-  %831 = load i32, ptr %28, align 4
-  %832 = load i32, ptr %25, align 4
-  %833 = sub i32 %831, %832
-  call void @proto_item_set_len(ptr noundef %830, i32 noundef %833)
-  br label %835
+834:                                              ; preds = %829, %798
+  %835 = load ptr, ptr %12, align 8
+  %836 = load i32, ptr %28, align 4
+  %837 = load i32, ptr %25, align 4
+  %838 = sub i32 %836, %837
+  call void @proto_item_set_len(ptr noundef %835, i32 noundef %838)
+  br label %840
 
-834:                                              ; preds = %735
-  br label %839
+839:                                              ; preds = %740
+  br label %844
 
-835:                                              ; preds = %829
-  br label %836
+840:                                              ; preds = %834
+  br label %841
 
-836:                                              ; preds = %835
-  %837 = load i32, ptr %18, align 4
-  %838 = add i32 %837, 1
-  store i32 %838, ptr %18, align 4
-  br label %731, !llvm.loop !9
+841:                                              ; preds = %840
+  %842 = load i32, ptr %18, align 4
+  %843 = add i32 %842, 1
+  store i32 %843, ptr %18, align 4
+  br label %736, !llvm.loop !13
 
-839:                                              ; preds = %834, %731
-  %840 = load ptr, ptr %38, align 8
-  %841 = load i32, ptr @hf_slsk_free_upload_slots, align 4
-  %842 = load ptr, ptr %36, align 8
-  %843 = load i32, ptr %28, align 4
-  %844 = call ptr @proto_tree_add_item(ptr noundef %840, i32 noundef %841, ptr noundef %842, i32 noundef %843, i32 noundef 1, i32 noundef -2147483648)
-  %845 = load i32, ptr %28, align 4
-  %846 = add i32 %845, 1
-  store i32 %846, ptr %28, align 4
-  %847 = load ptr, ptr %38, align 8
-  %848 = load i32, ptr @hf_slsk_upload_speed, align 4
-  %849 = load ptr, ptr %36, align 8
+844:                                              ; preds = %839, %736
+  %845 = load ptr, ptr %38, align 8
+  %846 = load i32, ptr @hf_slsk_free_upload_slots, align 4
+  %847 = load ptr, ptr %36, align 8
+  %848 = load i32, ptr %28, align 4
+  %849 = call ptr @proto_tree_add_item(ptr noundef %845, i32 noundef %846, ptr noundef %847, i32 noundef %848, i32 noundef 1, i32 noundef -2147483648)
   %850 = load i32, ptr %28, align 4
-  %851 = call ptr @proto_tree_add_item(ptr noundef %847, i32 noundef %848, ptr noundef %849, i32 noundef %850, i32 noundef 4, i32 noundef -2147483648)
-  %852 = load i32, ptr %28, align 4
-  %853 = add i32 %852, 4
-  store i32 %853, ptr %28, align 4
-  %854 = load ptr, ptr %38, align 8
-  %855 = load i32, ptr @hf_slsk_in_queue, align 4
-  %856 = load ptr, ptr %36, align 8
+  %851 = add i32 %850, 1
+  store i32 %851, ptr %28, align 4
+  %852 = load ptr, ptr %38, align 8
+  %853 = load i32, ptr @hf_slsk_upload_speed, align 4
+  %854 = load ptr, ptr %36, align 8
+  %855 = load i32, ptr %28, align 4
+  %856 = call ptr @proto_tree_add_item(ptr noundef %852, i32 noundef %853, ptr noundef %854, i32 noundef %855, i32 noundef 4, i32 noundef -2147483648)
   %857 = load i32, ptr %28, align 4
-  %858 = call ptr @proto_tree_add_item(ptr noundef %854, i32 noundef %855, ptr noundef %856, i32 noundef %857, i32 noundef 4, i32 noundef -2147483648)
-  br label %859
+  %858 = add i32 %857, 4
+  store i32 %858, ptr %28, align 4
+  %859 = load ptr, ptr %38, align 8
+  %860 = load i32, ptr @hf_slsk_in_queue, align 4
+  %861 = load ptr, ptr %36, align 8
+  %862 = load i32, ptr %28, align 4
+  %863 = call ptr @proto_tree_add_item(ptr noundef %859, i32 noundef %860, ptr noundef %861, i32 noundef %862, i32 noundef 4, i32 noundef -2147483648)
+  br label %864
 
-859:                                              ; preds = %839, %676
-  br label %860
+864:                                              ; preds = %844, %681
+  call void @llvm.lifetime.end.p0(i64 8, ptr %38) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %37) #6
+  br label %865
 
-860:                                              ; preds = %859, %658
-  br label %880
+865:                                              ; preds = %864, %663
+  call void @llvm.lifetime.end.p0(i64 8, ptr %36) #6
+  br label %885
 
-861:                                              ; preds = %635
-  %862 = load ptr, ptr %13, align 8
-  %863 = load i32, ptr @hf_slsk_compr_packet, align 4
-  %864 = load ptr, ptr %5, align 8
-  %865 = load i32, ptr %17, align 4
-  %866 = call ptr @proto_tree_add_item(ptr noundef %862, i32 noundef %863, ptr noundef %864, i32 noundef %865, i32 noundef -1, i32 noundef 0)
-  store ptr %866, ptr %9, align 8
-  %867 = load ptr, ptr %9, align 8
-  call void @proto_item_set_generated(ptr noundef %867)
-  %868 = load ptr, ptr %13, align 8
-  %869 = load i32, ptr @hf_slsk_compressed_packet_length, align 4
-  %870 = load ptr, ptr %5, align 8
-  %871 = load i32, ptr %17, align 4
-  %872 = load i32, ptr %26, align 4
-  %873 = call ptr @proto_tree_add_uint(ptr noundef %868, i32 noundef %869, ptr noundef %870, i32 noundef %871, i32 noundef 0, i32 noundef %872)
-  store ptr %873, ptr %9, align 8
-  %874 = load ptr, ptr %9, align 8
-  call void @proto_item_set_generated(ptr noundef %874)
+866:                                              ; preds = %638
+  %867 = load ptr, ptr %13, align 8
+  %868 = load i32, ptr @hf_slsk_compr_packet, align 4
+  %869 = load ptr, ptr %5, align 8
+  %870 = load i32, ptr %17, align 4
+  %871 = call ptr @proto_tree_add_item(ptr noundef %867, i32 noundef %868, ptr noundef %869, i32 noundef %870, i32 noundef -1, i32 noundef 0)
+  store ptr %871, ptr %9, align 8
+  %872 = load ptr, ptr %9, align 8
+  call void @proto_item_set_generated(ptr noundef %872)
+  %873 = load ptr, ptr %13, align 8
+  %874 = load i32, ptr @hf_slsk_compressed_packet_length, align 4
   %875 = load ptr, ptr %5, align 8
   %876 = load i32, ptr %17, align 4
-  %877 = call i32 @tvb_captured_length_remaining(ptr noundef %875, i32 noundef %876)
-  %878 = load i32, ptr %17, align 4
-  %879 = add i32 %878, %877
-  store i32 %879, ptr %17, align 4
-  br label %880
+  %877 = load i32, ptr %26, align 4
+  %878 = call ptr @proto_tree_add_uint(ptr noundef %873, i32 noundef %874, ptr noundef %875, i32 noundef %876, i32 noundef 0, i32 noundef %877)
+  store ptr %878, ptr %9, align 8
+  %879 = load ptr, ptr %9, align 8
+  call void @proto_item_set_generated(ptr noundef %879)
+  %880 = load ptr, ptr %5, align 8
+  %881 = load i32, ptr %17, align 4
+  %882 = call i32 @tvb_captured_length_remaining(ptr noundef %880, i32 noundef %881)
+  %883 = load i32, ptr %17, align 4
+  %884 = add i32 %883, %882
+  store i32 %884, ptr %17, align 4
+  br label %885
 
-880:                                              ; preds = %861, %860
-  br label %881
+885:                                              ; preds = %866, %865
+  br label %886
 
-881:                                              ; preds = %880, %630
-  br label %4619
+886:                                              ; preds = %885, %633
+  br label %4626
 
-882:                                              ; preds = %4
-  %883 = load ptr, ptr %5, align 8
-  %884 = load i32, ptr %17, align 4
-  %885 = call i32 @check_slsk_format(ptr noundef %883, i32 noundef %884, ptr noundef @.str.223)
-  %886 = icmp ne i32 %885, 0
-  br i1 %886, label %887, label %921
+887:                                              ; preds = %4
+  %888 = load ptr, ptr %5, align 8
+  %889 = load ptr, ptr %6, align 8
+  %890 = load i32, ptr %17, align 4
+  %891 = call zeroext i1 @check_slsk_format(ptr noundef %888, ptr noundef %889, i32 noundef %890, ptr noundef @.str.227)
+  br i1 %891, label %892, label %926
 
-887:                                              ; preds = %882
-  %888 = load ptr, ptr %13, align 8
-  %889 = load i32, ptr @hf_slsk_message_code, align 4
-  %890 = load ptr, ptr %5, align 8
-  %891 = load i32, ptr %17, align 4
-  %892 = load i32, ptr %21, align 4
-  %893 = load i32, ptr %21, align 4
-  %894 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %888, i32 noundef %889, ptr noundef %890, i32 noundef %891, i32 noundef 4, i32 noundef %892, ptr noundef @.str.224, i32 noundef %893)
-  %895 = load i32, ptr %17, align 4
-  %896 = add i32 %895, 4
-  store i32 %896, ptr %17, align 4
-  %897 = load ptr, ptr %13, align 8
-  %898 = load i32, ptr @hf_slsk_room, align 4
-  %899 = load ptr, ptr %5, align 8
+892:                                              ; preds = %887
+  %893 = load ptr, ptr %13, align 8
+  %894 = load i32, ptr @hf_slsk_message_code, align 4
+  %895 = load ptr, ptr %5, align 8
+  %896 = load i32, ptr %17, align 4
+  %897 = load i32, ptr %21, align 4
+  %898 = load i32, ptr %21, align 4
+  %899 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %893, i32 noundef %894, ptr noundef %895, i32 noundef %896, i32 noundef 4, i32 noundef %897, ptr noundef @.str.228, i32 noundef %898)
   %900 = load i32, ptr %17, align 4
-  %901 = call ptr @proto_tree_add_item_ret_length(ptr noundef %897, i32 noundef %898, ptr noundef %899, i32 noundef %900, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %902 = load i32, ptr %23, align 4
-  %903 = load i32, ptr %17, align 4
-  %904 = add i32 %903, %902
-  store i32 %904, ptr %17, align 4
-  %905 = load ptr, ptr %13, align 8
-  %906 = load i32, ptr @hf_slsk_username, align 4
-  %907 = load ptr, ptr %5, align 8
+  %901 = add i32 %900, 4
+  store i32 %901, ptr %17, align 4
+  %902 = load ptr, ptr %13, align 8
+  %903 = load i32, ptr @hf_slsk_room, align 4
+  %904 = load ptr, ptr %5, align 8
+  %905 = load i32, ptr %17, align 4
+  %906 = call ptr @proto_tree_add_item_ret_length(ptr noundef %902, i32 noundef %903, ptr noundef %904, i32 noundef %905, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %907 = load i32, ptr %23, align 4
   %908 = load i32, ptr %17, align 4
-  %909 = call ptr @proto_tree_add_item_ret_length(ptr noundef %905, i32 noundef %906, ptr noundef %907, i32 noundef %908, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %910 = load i32, ptr %23, align 4
-  %911 = load i32, ptr %17, align 4
-  %912 = add i32 %911, %910
-  store i32 %912, ptr %17, align 4
-  %913 = load ptr, ptr %13, align 8
-  %914 = load i32, ptr @hf_slsk_chat_message, align 4
-  %915 = load ptr, ptr %5, align 8
+  %909 = add i32 %908, %907
+  store i32 %909, ptr %17, align 4
+  %910 = load ptr, ptr %13, align 8
+  %911 = load i32, ptr @hf_slsk_username, align 4
+  %912 = load ptr, ptr %5, align 8
+  %913 = load i32, ptr %17, align 4
+  %914 = call ptr @proto_tree_add_item_ret_length(ptr noundef %910, i32 noundef %911, ptr noundef %912, i32 noundef %913, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %915 = load i32, ptr %23, align 4
   %916 = load i32, ptr %17, align 4
-  %917 = call ptr @proto_tree_add_item_ret_length(ptr noundef %913, i32 noundef %914, ptr noundef %915, i32 noundef %916, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %918 = load i32, ptr %23, align 4
-  %919 = load i32, ptr %17, align 4
-  %920 = add i32 %919, %918
-  store i32 %920, ptr %17, align 4
-  br label %953
+  %917 = add i32 %916, %915
+  store i32 %917, ptr %17, align 4
+  %918 = load ptr, ptr %13, align 8
+  %919 = load i32, ptr @hf_slsk_chat_message, align 4
+  %920 = load ptr, ptr %5, align 8
+  %921 = load i32, ptr %17, align 4
+  %922 = call ptr @proto_tree_add_item_ret_length(ptr noundef %918, i32 noundef %919, ptr noundef %920, i32 noundef %921, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %923 = load i32, ptr %23, align 4
+  %924 = load i32, ptr %17, align 4
+  %925 = add i32 %924, %923
+  store i32 %925, ptr %17, align 4
+  br label %958
 
-921:                                              ; preds = %882
-  %922 = load ptr, ptr %5, align 8
-  %923 = load i32, ptr %17, align 4
-  %924 = call i32 @check_slsk_format(ptr noundef %922, i32 noundef %923, ptr noundef @.str.225)
-  %925 = icmp ne i32 %924, 0
-  br i1 %925, label %926, label %952
+926:                                              ; preds = %887
+  %927 = load ptr, ptr %5, align 8
+  %928 = load ptr, ptr %6, align 8
+  %929 = load i32, ptr %17, align 4
+  %930 = call zeroext i1 @check_slsk_format(ptr noundef %927, ptr noundef %928, i32 noundef %929, ptr noundef @.str.229)
+  br i1 %930, label %931, label %957
 
-926:                                              ; preds = %921
-  %927 = load ptr, ptr %13, align 8
-  %928 = load i32, ptr @hf_slsk_message_code, align 4
-  %929 = load ptr, ptr %5, align 8
-  %930 = load i32, ptr %17, align 4
-  %931 = load i32, ptr %21, align 4
-  %932 = load i32, ptr %21, align 4
-  %933 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %927, i32 noundef %928, ptr noundef %929, i32 noundef %930, i32 noundef 4, i32 noundef %931, ptr noundef @.str.224, i32 noundef %932)
-  %934 = load i32, ptr %17, align 4
-  %935 = add i32 %934, 4
-  store i32 %935, ptr %17, align 4
-  %936 = load ptr, ptr %13, align 8
-  %937 = load i32, ptr @hf_slsk_room, align 4
-  %938 = load ptr, ptr %5, align 8
+931:                                              ; preds = %926
+  %932 = load ptr, ptr %13, align 8
+  %933 = load i32, ptr @hf_slsk_message_code, align 4
+  %934 = load ptr, ptr %5, align 8
+  %935 = load i32, ptr %17, align 4
+  %936 = load i32, ptr %21, align 4
+  %937 = load i32, ptr %21, align 4
+  %938 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %932, i32 noundef %933, ptr noundef %934, i32 noundef %935, i32 noundef 4, i32 noundef %936, ptr noundef @.str.228, i32 noundef %937)
   %939 = load i32, ptr %17, align 4
-  %940 = call ptr @proto_tree_add_item_ret_length(ptr noundef %936, i32 noundef %937, ptr noundef %938, i32 noundef %939, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %941 = load i32, ptr %23, align 4
-  %942 = load i32, ptr %17, align 4
-  %943 = add i32 %942, %941
-  store i32 %943, ptr %17, align 4
-  %944 = load ptr, ptr %13, align 8
-  %945 = load i32, ptr @hf_slsk_chat_message, align 4
-  %946 = load ptr, ptr %5, align 8
+  %940 = add i32 %939, 4
+  store i32 %940, ptr %17, align 4
+  %941 = load ptr, ptr %13, align 8
+  %942 = load i32, ptr @hf_slsk_room, align 4
+  %943 = load ptr, ptr %5, align 8
+  %944 = load i32, ptr %17, align 4
+  %945 = call ptr @proto_tree_add_item_ret_length(ptr noundef %941, i32 noundef %942, ptr noundef %943, i32 noundef %944, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %946 = load i32, ptr %23, align 4
   %947 = load i32, ptr %17, align 4
-  %948 = call ptr @proto_tree_add_item_ret_length(ptr noundef %944, i32 noundef %945, ptr noundef %946, i32 noundef %947, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %949 = load i32, ptr %23, align 4
-  %950 = load i32, ptr %17, align 4
-  %951 = add i32 %950, %949
-  store i32 %951, ptr %17, align 4
-  br label %952
+  %948 = add i32 %947, %946
+  store i32 %948, ptr %17, align 4
+  %949 = load ptr, ptr %13, align 8
+  %950 = load i32, ptr @hf_slsk_chat_message, align 4
+  %951 = load ptr, ptr %5, align 8
+  %952 = load i32, ptr %17, align 4
+  %953 = call ptr @proto_tree_add_item_ret_length(ptr noundef %949, i32 noundef %950, ptr noundef %951, i32 noundef %952, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %954 = load i32, ptr %23, align 4
+  %955 = load i32, ptr %17, align 4
+  %956 = add i32 %955, %954
+  store i32 %956, ptr %17, align 4
+  br label %957
 
-952:                                              ; preds = %926, %921
-  br label %953
+957:                                              ; preds = %931, %926
+  br label %958
 
-953:                                              ; preds = %952, %887
-  br label %4619
+958:                                              ; preds = %957, %892
+  br label %4626
 
-954:                                              ; preds = %4
-  %955 = load ptr, ptr %5, align 8
-  %956 = load i32, ptr %17, align 4
-  %957 = call i32 @check_slsk_format(ptr noundef %955, i32 noundef %956, ptr noundef @.str.202)
-  %958 = icmp ne i32 %957, 0
-  br i1 %958, label %959, label %977
+959:                                              ; preds = %4
+  %960 = load ptr, ptr %5, align 8
+  %961 = load ptr, ptr %6, align 8
+  %962 = load i32, ptr %17, align 4
+  %963 = call zeroext i1 @check_slsk_format(ptr noundef %960, ptr noundef %961, i32 noundef %962, ptr noundef @.str.206)
+  br i1 %963, label %964, label %982
 
-959:                                              ; preds = %954
-  %960 = load ptr, ptr %13, align 8
-  %961 = load i32, ptr @hf_slsk_message_code, align 4
-  %962 = load ptr, ptr %5, align 8
-  %963 = load i32, ptr %17, align 4
-  %964 = load i32, ptr %21, align 4
-  %965 = load i32, ptr %21, align 4
-  %966 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %960, i32 noundef %961, ptr noundef %962, i32 noundef %963, i32 noundef 4, i32 noundef %964, ptr noundef @.str.226, i32 noundef %965)
-  %967 = load i32, ptr %17, align 4
-  %968 = add i32 %967, 4
-  store i32 %968, ptr %17, align 4
-  %969 = load ptr, ptr %13, align 8
-  %970 = load i32, ptr @hf_slsk_room, align 4
-  %971 = load ptr, ptr %5, align 8
+964:                                              ; preds = %959
+  %965 = load ptr, ptr %13, align 8
+  %966 = load i32, ptr @hf_slsk_message_code, align 4
+  %967 = load ptr, ptr %5, align 8
+  %968 = load i32, ptr %17, align 4
+  %969 = load i32, ptr %21, align 4
+  %970 = load i32, ptr %21, align 4
+  %971 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %965, i32 noundef %966, ptr noundef %967, i32 noundef %968, i32 noundef 4, i32 noundef %969, ptr noundef @.str.230, i32 noundef %970)
   %972 = load i32, ptr %17, align 4
-  %973 = call ptr @proto_tree_add_item_ret_length(ptr noundef %969, i32 noundef %970, ptr noundef %971, i32 noundef %972, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %974 = load i32, ptr %23, align 4
-  %975 = load i32, ptr %17, align 4
-  %976 = add i32 %975, %974
-  store i32 %976, ptr %17, align 4
-  br label %1210
+  %973 = add i32 %972, 4
+  store i32 %973, ptr %17, align 4
+  %974 = load ptr, ptr %13, align 8
+  %975 = load i32, ptr @hf_slsk_room, align 4
+  %976 = load ptr, ptr %5, align 8
+  %977 = load i32, ptr %17, align 4
+  %978 = call ptr @proto_tree_add_item_ret_length(ptr noundef %974, i32 noundef %975, ptr noundef %976, i32 noundef %977, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %979 = load i32, ptr %23, align 4
+  %980 = load i32, ptr %17, align 4
+  %981 = add i32 %980, %979
+  store i32 %981, ptr %17, align 4
+  br label %1215
 
-977:                                              ; preds = %954
-  %978 = load ptr, ptr %5, align 8
-  %979 = load i32, ptr %17, align 4
-  %980 = call i32 @check_slsk_format(ptr noundef %978, i32 noundef %979, ptr noundef @.str.227)
-  %981 = icmp ne i32 %980, 0
-  br i1 %981, label %982, label %1209
+982:                                              ; preds = %959
+  %983 = load ptr, ptr %5, align 8
+  %984 = load ptr, ptr %6, align 8
+  %985 = load i32, ptr %17, align 4
+  %986 = call zeroext i1 @check_slsk_format(ptr noundef %983, ptr noundef %984, i32 noundef %985, ptr noundef @.str.231)
+  br i1 %986, label %987, label %1214
 
-982:                                              ; preds = %977
-  %983 = load ptr, ptr %13, align 8
-  %984 = load i32, ptr @hf_slsk_message_code, align 4
-  %985 = load ptr, ptr %5, align 8
-  %986 = load i32, ptr %17, align 4
-  %987 = load i32, ptr %21, align 4
-  %988 = load i32, ptr %21, align 4
-  %989 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %983, i32 noundef %984, ptr noundef %985, i32 noundef %986, i32 noundef 4, i32 noundef %987, ptr noundef @.str.228, i32 noundef %988)
-  %990 = load i32, ptr %17, align 4
-  %991 = add i32 %990, 4
-  store i32 %991, ptr %17, align 4
-  %992 = load ptr, ptr %13, align 8
-  %993 = load i32, ptr @hf_slsk_room, align 4
-  %994 = load ptr, ptr %5, align 8
+987:                                              ; preds = %982
+  %988 = load ptr, ptr %13, align 8
+  %989 = load i32, ptr @hf_slsk_message_code, align 4
+  %990 = load ptr, ptr %5, align 8
+  %991 = load i32, ptr %17, align 4
+  %992 = load i32, ptr %21, align 4
+  %993 = load i32, ptr %21, align 4
+  %994 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %988, i32 noundef %989, ptr noundef %990, i32 noundef %991, i32 noundef 4, i32 noundef %992, ptr noundef @.str.232, i32 noundef %993)
   %995 = load i32, ptr %17, align 4
-  %996 = call ptr @proto_tree_add_item_ret_length(ptr noundef %992, i32 noundef %993, ptr noundef %994, i32 noundef %995, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %997 = load i32, ptr %23, align 4
-  %998 = load i32, ptr %17, align 4
-  %999 = add i32 %998, %997
-  store i32 %999, ptr %17, align 4
-  %1000 = load ptr, ptr %13, align 8
-  %1001 = load i32, ptr @hf_slsk_users_in_room, align 4
-  %1002 = load ptr, ptr %5, align 8
+  %996 = add i32 %995, 4
+  store i32 %996, ptr %17, align 4
+  %997 = load ptr, ptr %13, align 8
+  %998 = load i32, ptr @hf_slsk_room, align 4
+  %999 = load ptr, ptr %5, align 8
+  %1000 = load i32, ptr %17, align 4
+  %1001 = call ptr @proto_tree_add_item_ret_length(ptr noundef %997, i32 noundef %998, ptr noundef %999, i32 noundef %1000, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %1002 = load i32, ptr %23, align 4
   %1003 = load i32, ptr %17, align 4
-  %1004 = call ptr @proto_tree_add_item_ret_int(ptr noundef %1000, i32 noundef %1001, ptr noundef %1002, i32 noundef %1003, i32 noundef 4, i32 noundef -2147483648, ptr noundef %19)
-  %1005 = load i32, ptr %17, align 4
-  %1006 = add i32 %1005, 4
-  store i32 %1006, ptr %17, align 4
-  %1007 = load i32, ptr %19, align 4
-  %1008 = load ptr, ptr %5, align 8
-  %1009 = load i32, ptr %17, align 4
-  %1010 = call i32 @tvb_reported_length_remaining(ptr noundef %1008, i32 noundef %1009)
-  %1011 = icmp sgt i32 %1007, %1010
-  br i1 %1011, label %1012, label %1013
+  %1004 = add i32 %1003, %1002
+  store i32 %1004, ptr %17, align 4
+  %1005 = load ptr, ptr %13, align 8
+  %1006 = load i32, ptr @hf_slsk_users_in_room, align 4
+  %1007 = load ptr, ptr %5, align 8
+  %1008 = load i32, ptr %17, align 4
+  %1009 = call ptr @proto_tree_add_item_ret_int(ptr noundef %1005, i32 noundef %1006, ptr noundef %1007, i32 noundef %1008, i32 noundef 4, i32 noundef -2147483648, ptr noundef %19)
+  %1010 = load i32, ptr %17, align 4
+  %1011 = add i32 %1010, 4
+  store i32 %1011, ptr %17, align 4
+  %1012 = load i32, ptr %19, align 4
+  %1013 = load ptr, ptr %5, align 8
+  %1014 = load i32, ptr %17, align 4
+  %1015 = call i32 @tvb_reported_length_remaining(ptr noundef %1013, i32 noundef %1014)
+  %1016 = icmp sgt i32 %1012, %1015
+  br i1 %1016, label %1017, label %1018
 
-1012:                                             ; preds = %982
-  br label %4619
+1017:                                             ; preds = %987
+  br label %4626
 
-1013:                                             ; preds = %982
+1018:                                             ; preds = %987
   store i32 0, ptr %18, align 4
-  br label %1014
+  br label %1019
 
-1014:                                             ; preds = %1034, %1013
-  %1015 = load i32, ptr %18, align 4
-  %1016 = load i32, ptr %19, align 4
-  %1017 = icmp slt i32 %1015, %1016
-  br i1 %1017, label %1018, label %1037
+1019:                                             ; preds = %1039, %1018
+  %1020 = load i32, ptr %18, align 4
+  %1021 = load i32, ptr %19, align 4
+  %1022 = icmp slt i32 %1020, %1021
+  br i1 %1022, label %1023, label %1042
 
-1018:                                             ; preds = %1014
-  %1019 = load ptr, ptr %5, align 8
-  %1020 = load i32, ptr %17, align 4
-  %1021 = call i32 @check_slsk_format(ptr noundef %1019, i32 noundef %1020, ptr noundef @.str.229)
-  %1022 = icmp ne i32 %1021, 0
-  br i1 %1022, label %1023, label %1032
+1023:                                             ; preds = %1019
+  %1024 = load ptr, ptr %5, align 8
+  %1025 = load ptr, ptr %6, align 8
+  %1026 = load i32, ptr %17, align 4
+  %1027 = call zeroext i1 @check_slsk_format(ptr noundef %1024, ptr noundef %1025, i32 noundef %1026, ptr noundef @.str.233)
+  br i1 %1027, label %1028, label %1037
 
-1023:                                             ; preds = %1018
-  %1024 = load ptr, ptr %13, align 8
-  %1025 = load i32, ptr @hf_slsk_user, align 4
-  %1026 = load ptr, ptr %5, align 8
-  %1027 = load i32, ptr %17, align 4
-  %1028 = call ptr @proto_tree_add_item_ret_length(ptr noundef %1024, i32 noundef %1025, ptr noundef %1026, i32 noundef %1027, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %1029 = load i32, ptr %23, align 4
-  %1030 = load i32, ptr %17, align 4
-  %1031 = add i32 %1030, %1029
-  store i32 %1031, ptr %17, align 4
-  br label %1033
+1028:                                             ; preds = %1023
+  %1029 = load ptr, ptr %13, align 8
+  %1030 = load i32, ptr @hf_slsk_user, align 4
+  %1031 = load ptr, ptr %5, align 8
+  %1032 = load i32, ptr %17, align 4
+  %1033 = call ptr @proto_tree_add_item_ret_length(ptr noundef %1029, i32 noundef %1030, ptr noundef %1031, i32 noundef %1032, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %1034 = load i32, ptr %23, align 4
+  %1035 = load i32, ptr %17, align 4
+  %1036 = add i32 %1035, %1034
+  store i32 %1036, ptr %17, align 4
+  br label %1038
 
-1032:                                             ; preds = %1018
-  br label %1037
+1037:                                             ; preds = %1023
+  br label %1042
 
-1033:                                             ; preds = %1023
-  br label %1034
+1038:                                             ; preds = %1028
+  br label %1039
 
-1034:                                             ; preds = %1033
-  %1035 = load i32, ptr %18, align 4
-  %1036 = add i32 %1035, 1
-  store i32 %1036, ptr %18, align 4
-  br label %1014, !llvm.loop !10
+1039:                                             ; preds = %1038
+  %1040 = load i32, ptr %18, align 4
+  %1041 = add i32 %1040, 1
+  store i32 %1041, ptr %18, align 4
+  br label %1019, !llvm.loop !14
 
-1037:                                             ; preds = %1032, %1014
-  %1038 = load ptr, ptr %5, align 8
-  %1039 = load i32, ptr %17, align 4
-  %1040 = call i32 @check_slsk_format(ptr noundef %1038, i32 noundef %1039, ptr noundef @.str.209)
-  %1041 = icmp ne i32 %1040, 0
-  br i1 %1041, label %1042, label %1080
+1042:                                             ; preds = %1037, %1019
+  %1043 = load ptr, ptr %5, align 8
+  %1044 = load ptr, ptr %6, align 8
+  %1045 = load i32, ptr %17, align 4
+  %1046 = call zeroext i1 @check_slsk_format(ptr noundef %1043, ptr noundef %1044, i32 noundef %1045, ptr noundef @.str.213)
+  br i1 %1046, label %1047, label %1085
 
-1042:                                             ; preds = %1037
-  %1043 = load ptr, ptr %13, align 8
-  %1044 = load i32, ptr @hf_slsk_users_in_room, align 4
-  %1045 = load ptr, ptr %5, align 8
-  %1046 = load i32, ptr %17, align 4
-  %1047 = call ptr @proto_tree_add_item_ret_int(ptr noundef %1043, i32 noundef %1044, ptr noundef %1045, i32 noundef %1046, i32 noundef 4, i32 noundef -2147483648, ptr noundef %19)
-  %1048 = load i32, ptr %17, align 4
-  %1049 = add i32 %1048, 4
-  store i32 %1049, ptr %17, align 4
-  %1050 = load i32, ptr %19, align 4
-  %1051 = load ptr, ptr %5, align 8
-  %1052 = load i32, ptr %17, align 4
-  %1053 = call i32 @tvb_reported_length_remaining(ptr noundef %1051, i32 noundef %1052)
-  %1054 = icmp sgt i32 %1050, %1053
-  br i1 %1054, label %1055, label %1056
+1047:                                             ; preds = %1042
+  %1048 = load ptr, ptr %13, align 8
+  %1049 = load i32, ptr @hf_slsk_users_in_room, align 4
+  %1050 = load ptr, ptr %5, align 8
+  %1051 = load i32, ptr %17, align 4
+  %1052 = call ptr @proto_tree_add_item_ret_int(ptr noundef %1048, i32 noundef %1049, ptr noundef %1050, i32 noundef %1051, i32 noundef 4, i32 noundef -2147483648, ptr noundef %19)
+  %1053 = load i32, ptr %17, align 4
+  %1054 = add i32 %1053, 4
+  store i32 %1054, ptr %17, align 4
+  %1055 = load i32, ptr %19, align 4
+  %1056 = load ptr, ptr %5, align 8
+  %1057 = load i32, ptr %17, align 4
+  %1058 = call i32 @tvb_reported_length_remaining(ptr noundef %1056, i32 noundef %1057)
+  %1059 = icmp sgt i32 %1055, %1058
+  br i1 %1059, label %1060, label %1061
 
-1055:                                             ; preds = %1042
-  br label %4619
+1060:                                             ; preds = %1047
+  br label %4626
 
-1056:                                             ; preds = %1042
+1061:                                             ; preds = %1047
   store i32 0, ptr %18, align 4
-  br label %1057
+  br label %1062
 
-1057:                                             ; preds = %1076, %1056
-  %1058 = load i32, ptr %18, align 4
-  %1059 = load i32, ptr %19, align 4
-  %1060 = icmp slt i32 %1058, %1059
-  br i1 %1060, label %1061, label %1079
+1062:                                             ; preds = %1081, %1061
+  %1063 = load i32, ptr %18, align 4
+  %1064 = load i32, ptr %19, align 4
+  %1065 = icmp slt i32 %1063, %1064
+  br i1 %1065, label %1066, label %1084
 
-1061:                                             ; preds = %1057
-  %1062 = load ptr, ptr %5, align 8
-  %1063 = load i32, ptr %17, align 4
-  %1064 = call i32 @check_slsk_format(ptr noundef %1062, i32 noundef %1063, ptr noundef @.str.209)
-  %1065 = icmp ne i32 %1064, 0
-  br i1 %1065, label %1066, label %1074
+1066:                                             ; preds = %1062
+  %1067 = load ptr, ptr %5, align 8
+  %1068 = load ptr, ptr %6, align 8
+  %1069 = load i32, ptr %17, align 4
+  %1070 = call zeroext i1 @check_slsk_format(ptr noundef %1067, ptr noundef %1068, i32 noundef %1069, ptr noundef @.str.213)
+  br i1 %1070, label %1071, label %1079
 
-1066:                                             ; preds = %1061
-  %1067 = load ptr, ptr %13, align 8
-  %1068 = load i32, ptr @hf_slsk_status_code, align 4
-  %1069 = load ptr, ptr %5, align 8
-  %1070 = load i32, ptr %17, align 4
-  %1071 = call ptr @proto_tree_add_item(ptr noundef %1067, i32 noundef %1068, ptr noundef %1069, i32 noundef %1070, i32 noundef 4, i32 noundef -2147483648)
-  %1072 = load i32, ptr %17, align 4
-  %1073 = add i32 %1072, 4
-  store i32 %1073, ptr %17, align 4
-  br label %1075
-
-1074:                                             ; preds = %1061
-  br label %1079
-
-1075:                                             ; preds = %1066
-  br label %1076
-
-1076:                                             ; preds = %1075
-  %1077 = load i32, ptr %18, align 4
-  %1078 = add i32 %1077, 1
-  store i32 %1078, ptr %18, align 4
-  br label %1057, !llvm.loop !11
-
-1079:                                             ; preds = %1074, %1057
+1071:                                             ; preds = %1066
+  %1072 = load ptr, ptr %13, align 8
+  %1073 = load i32, ptr @hf_slsk_status_code, align 4
+  %1074 = load ptr, ptr %5, align 8
+  %1075 = load i32, ptr %17, align 4
+  %1076 = call ptr @proto_tree_add_item(ptr noundef %1072, i32 noundef %1073, ptr noundef %1074, i32 noundef %1075, i32 noundef 4, i32 noundef -2147483648)
+  %1077 = load i32, ptr %17, align 4
+  %1078 = add i32 %1077, 4
+  store i32 %1078, ptr %17, align 4
   br label %1080
 
-1080:                                             ; preds = %1079, %1037
-  %1081 = load ptr, ptr %5, align 8
-  %1082 = load i32, ptr %17, align 4
-  %1083 = call i32 @check_slsk_format(ptr noundef %1081, i32 noundef %1082, ptr noundef @.str.209)
-  %1084 = icmp ne i32 %1083, 0
-  br i1 %1084, label %1085, label %1158
+1079:                                             ; preds = %1066
+  br label %1084
 
-1085:                                             ; preds = %1080
-  %1086 = load ptr, ptr %13, align 8
-  %1087 = load i32, ptr @hf_slsk_users_in_room, align 4
-  %1088 = load ptr, ptr %5, align 8
-  %1089 = load i32, ptr %17, align 4
-  %1090 = call ptr @proto_tree_add_item_ret_int(ptr noundef %1086, i32 noundef %1087, ptr noundef %1088, i32 noundef %1089, i32 noundef 4, i32 noundef -2147483648, ptr noundef %19)
-  %1091 = load i32, ptr %17, align 4
-  %1092 = add i32 %1091, 4
-  store i32 %1092, ptr %17, align 4
-  %1093 = load i32, ptr %19, align 4
-  %1094 = load ptr, ptr %5, align 8
-  %1095 = load i32, ptr %17, align 4
-  %1096 = call i32 @tvb_reported_length_remaining(ptr noundef %1094, i32 noundef %1095)
-  %1097 = icmp sgt i32 %1093, %1096
-  br i1 %1097, label %1098, label %1099
+1080:                                             ; preds = %1071
+  br label %1081
 
-1098:                                             ; preds = %1085
-  br label %4619
+1081:                                             ; preds = %1080
+  %1082 = load i32, ptr %18, align 4
+  %1083 = add i32 %1082, 1
+  store i32 %1083, ptr %18, align 4
+  br label %1062, !llvm.loop !15
 
-1099:                                             ; preds = %1085
+1084:                                             ; preds = %1079, %1062
+  br label %1085
+
+1085:                                             ; preds = %1084, %1042
+  %1086 = load ptr, ptr %5, align 8
+  %1087 = load ptr, ptr %6, align 8
+  %1088 = load i32, ptr %17, align 4
+  %1089 = call zeroext i1 @check_slsk_format(ptr noundef %1086, ptr noundef %1087, i32 noundef %1088, ptr noundef @.str.213)
+  br i1 %1089, label %1090, label %1163
+
+1090:                                             ; preds = %1085
+  %1091 = load ptr, ptr %13, align 8
+  %1092 = load i32, ptr @hf_slsk_users_in_room, align 4
+  %1093 = load ptr, ptr %5, align 8
+  %1094 = load i32, ptr %17, align 4
+  %1095 = call ptr @proto_tree_add_item_ret_int(ptr noundef %1091, i32 noundef %1092, ptr noundef %1093, i32 noundef %1094, i32 noundef 4, i32 noundef -2147483648, ptr noundef %19)
+  %1096 = load i32, ptr %17, align 4
+  %1097 = add i32 %1096, 4
+  store i32 %1097, ptr %17, align 4
+  %1098 = load i32, ptr %19, align 4
+  %1099 = load ptr, ptr %5, align 8
+  %1100 = load i32, ptr %17, align 4
+  %1101 = call i32 @tvb_reported_length_remaining(ptr noundef %1099, i32 noundef %1100)
+  %1102 = icmp sgt i32 %1098, %1101
+  br i1 %1102, label %1103, label %1104
+
+1103:                                             ; preds = %1090
+  br label %4626
+
+1104:                                             ; preds = %1090
   store i32 0, ptr %18, align 4
-  br label %1100
+  br label %1105
 
-1100:                                             ; preds = %1154, %1099
-  %1101 = load i32, ptr %18, align 4
-  %1102 = load i32, ptr %19, align 4
-  %1103 = icmp slt i32 %1101, %1102
-  br i1 %1103, label %1104, label %1157
+1105:                                             ; preds = %1159, %1104
+  %1106 = load i32, ptr %18, align 4
+  %1107 = load i32, ptr %19, align 4
+  %1108 = icmp slt i32 %1106, %1107
+  br i1 %1108, label %1109, label %1162
 
-1104:                                             ; preds = %1100
-  %1105 = load ptr, ptr %5, align 8
-  %1106 = load i32, ptr %17, align 4
-  %1107 = call i32 @check_slsk_format(ptr noundef %1105, i32 noundef %1106, ptr noundef @.str.230)
-  %1108 = icmp ne i32 %1107, 0
-  br i1 %1108, label %1109, label %1152
-
-1109:                                             ; preds = %1104
-  %1110 = load ptr, ptr %13, align 8
-  %1111 = load ptr, ptr %5, align 8
+1109:                                             ; preds = %1105
+  %1110 = load ptr, ptr %5, align 8
+  %1111 = load ptr, ptr %6, align 8
   %1112 = load i32, ptr %17, align 4
-  %1113 = load i32, ptr @ett_slsk_user, align 4
-  %1114 = load i32, ptr %18, align 4
-  %1115 = add i32 %1114, 1
-  %1116 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1110, ptr noundef %1111, i32 noundef %1112, i32 noundef 20, i32 noundef %1113, ptr noundef null, ptr noundef @.str.231, i32 noundef %1115)
-  store ptr %1116, ptr %14, align 8
-  %1117 = load ptr, ptr %14, align 8
-  %1118 = load i32, ptr @hf_slsk_average_speed, align 4
-  %1119 = load ptr, ptr %5, align 8
-  %1120 = load i32, ptr %17, align 4
-  %1121 = call ptr @proto_tree_add_item(ptr noundef %1117, i32 noundef %1118, ptr noundef %1119, i32 noundef %1120, i32 noundef 4, i32 noundef -2147483648)
-  %1122 = load i32, ptr %17, align 4
-  %1123 = add i32 %1122, 4
-  store i32 %1123, ptr %17, align 4
-  %1124 = load ptr, ptr %14, align 8
-  %1125 = load i32, ptr @hf_slsk_download_number, align 4
-  %1126 = load ptr, ptr %5, align 8
+  %1113 = call zeroext i1 @check_slsk_format(ptr noundef %1110, ptr noundef %1111, i32 noundef %1112, ptr noundef @.str.234)
+  br i1 %1113, label %1114, label %1157
+
+1114:                                             ; preds = %1109
+  %1115 = load ptr, ptr %13, align 8
+  %1116 = load ptr, ptr %5, align 8
+  %1117 = load i32, ptr %17, align 4
+  %1118 = load i32, ptr @ett_slsk_user, align 4
+  %1119 = load i32, ptr %18, align 4
+  %1120 = add i32 %1119, 1
+  %1121 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1115, ptr noundef %1116, i32 noundef %1117, i32 noundef 20, i32 noundef %1118, ptr noundef null, ptr noundef @.str.235, i32 noundef %1120)
+  store ptr %1121, ptr %14, align 8
+  %1122 = load ptr, ptr %14, align 8
+  %1123 = load i32, ptr @hf_slsk_average_speed, align 4
+  %1124 = load ptr, ptr %5, align 8
+  %1125 = load i32, ptr %17, align 4
+  %1126 = call ptr @proto_tree_add_item(ptr noundef %1122, i32 noundef %1123, ptr noundef %1124, i32 noundef %1125, i32 noundef 4, i32 noundef -2147483648)
   %1127 = load i32, ptr %17, align 4
-  %1128 = call ptr @proto_tree_add_item(ptr noundef %1124, i32 noundef %1125, ptr noundef %1126, i32 noundef %1127, i32 noundef 4, i32 noundef -2147483648)
-  %1129 = load i32, ptr %17, align 4
-  %1130 = add i32 %1129, 4
-  store i32 %1130, ptr %17, align 4
-  %1131 = load ptr, ptr %14, align 8
-  %1132 = load i32, ptr @hf_slsk_integer, align 4
-  %1133 = load ptr, ptr %5, align 8
+  %1128 = add i32 %1127, 4
+  store i32 %1128, ptr %17, align 4
+  %1129 = load ptr, ptr %14, align 8
+  %1130 = load i32, ptr @hf_slsk_download_number, align 4
+  %1131 = load ptr, ptr %5, align 8
+  %1132 = load i32, ptr %17, align 4
+  %1133 = call ptr @proto_tree_add_item(ptr noundef %1129, i32 noundef %1130, ptr noundef %1131, i32 noundef %1132, i32 noundef 4, i32 noundef -2147483648)
   %1134 = load i32, ptr %17, align 4
-  %1135 = call ptr @proto_tree_add_item(ptr noundef %1131, i32 noundef %1132, ptr noundef %1133, i32 noundef %1134, i32 noundef 4, i32 noundef -2147483648)
-  %1136 = load i32, ptr %17, align 4
-  %1137 = add i32 %1136, 4
-  store i32 %1137, ptr %17, align 4
-  %1138 = load ptr, ptr %14, align 8
-  %1139 = load i32, ptr @hf_slsk_files, align 4
-  %1140 = load ptr, ptr %5, align 8
+  %1135 = add i32 %1134, 4
+  store i32 %1135, ptr %17, align 4
+  %1136 = load ptr, ptr %14, align 8
+  %1137 = load i32, ptr @hf_slsk_integer, align 4
+  %1138 = load ptr, ptr %5, align 8
+  %1139 = load i32, ptr %17, align 4
+  %1140 = call ptr @proto_tree_add_item(ptr noundef %1136, i32 noundef %1137, ptr noundef %1138, i32 noundef %1139, i32 noundef 4, i32 noundef -2147483648)
   %1141 = load i32, ptr %17, align 4
-  %1142 = call ptr @proto_tree_add_item(ptr noundef %1138, i32 noundef %1139, ptr noundef %1140, i32 noundef %1141, i32 noundef 4, i32 noundef -2147483648)
-  %1143 = load i32, ptr %17, align 4
-  %1144 = add i32 %1143, 4
-  store i32 %1144, ptr %17, align 4
-  %1145 = load ptr, ptr %14, align 8
-  %1146 = load i32, ptr @hf_slsk_directories, align 4
-  %1147 = load ptr, ptr %5, align 8
+  %1142 = add i32 %1141, 4
+  store i32 %1142, ptr %17, align 4
+  %1143 = load ptr, ptr %14, align 8
+  %1144 = load i32, ptr @hf_slsk_files, align 4
+  %1145 = load ptr, ptr %5, align 8
+  %1146 = load i32, ptr %17, align 4
+  %1147 = call ptr @proto_tree_add_item(ptr noundef %1143, i32 noundef %1144, ptr noundef %1145, i32 noundef %1146, i32 noundef 4, i32 noundef -2147483648)
   %1148 = load i32, ptr %17, align 4
-  %1149 = call ptr @proto_tree_add_item(ptr noundef %1145, i32 noundef %1146, ptr noundef %1147, i32 noundef %1148, i32 noundef 4, i32 noundef -2147483648)
-  %1150 = load i32, ptr %17, align 4
-  %1151 = add i32 %1150, 4
-  store i32 %1151, ptr %17, align 4
-  br label %1153
-
-1152:                                             ; preds = %1104
-  br label %1157
-
-1153:                                             ; preds = %1109
-  br label %1154
-
-1154:                                             ; preds = %1153
-  %1155 = load i32, ptr %18, align 4
-  %1156 = add i32 %1155, 1
-  store i32 %1156, ptr %18, align 4
-  br label %1100, !llvm.loop !12
-
-1157:                                             ; preds = %1152, %1100
+  %1149 = add i32 %1148, 4
+  store i32 %1149, ptr %17, align 4
+  %1150 = load ptr, ptr %14, align 8
+  %1151 = load i32, ptr @hf_slsk_directories, align 4
+  %1152 = load ptr, ptr %5, align 8
+  %1153 = load i32, ptr %17, align 4
+  %1154 = call ptr @proto_tree_add_item(ptr noundef %1150, i32 noundef %1151, ptr noundef %1152, i32 noundef %1153, i32 noundef 4, i32 noundef -2147483648)
+  %1155 = load i32, ptr %17, align 4
+  %1156 = add i32 %1155, 4
+  store i32 %1156, ptr %17, align 4
   br label %1158
 
-1158:                                             ; preds = %1157, %1080
-  %1159 = load ptr, ptr %5, align 8
-  %1160 = load i32, ptr %17, align 4
-  %1161 = call i32 @check_slsk_format(ptr noundef %1159, i32 noundef %1160, ptr noundef @.str.209)
-  %1162 = icmp ne i32 %1161, 0
-  br i1 %1162, label %1163, label %1208
+1157:                                             ; preds = %1109
+  br label %1162
 
-1163:                                             ; preds = %1158
-  %1164 = load ptr, ptr %13, align 8
-  %1165 = load i32, ptr @hf_slsk_num_slotsfull_records, align 4
-  %1166 = load ptr, ptr %5, align 8
-  %1167 = load i32, ptr %17, align 4
-  %1168 = call ptr @proto_tree_add_item_ret_int(ptr noundef %1164, i32 noundef %1165, ptr noundef %1166, i32 noundef %1167, i32 noundef 4, i32 noundef -2147483648, ptr noundef %19)
-  %1169 = load i32, ptr %17, align 4
-  %1170 = add i32 %1169, 4
-  store i32 %1170, ptr %17, align 4
-  %1171 = load i32, ptr %19, align 4
-  %1172 = load ptr, ptr %5, align 8
-  %1173 = load i32, ptr %17, align 4
-  %1174 = call i32 @tvb_reported_length_remaining(ptr noundef %1172, i32 noundef %1173)
-  %1175 = icmp sgt i32 %1171, %1174
-  br i1 %1175, label %1176, label %1177
+1158:                                             ; preds = %1114
+  br label %1159
 
-1176:                                             ; preds = %1163
-  br label %4619
+1159:                                             ; preds = %1158
+  %1160 = load i32, ptr %18, align 4
+  %1161 = add i32 %1160, 1
+  store i32 %1161, ptr %18, align 4
+  br label %1105, !llvm.loop !16
 
-1177:                                             ; preds = %1163
+1162:                                             ; preds = %1157, %1105
+  br label %1163
+
+1163:                                             ; preds = %1162, %1085
+  %1164 = load ptr, ptr %5, align 8
+  %1165 = load ptr, ptr %6, align 8
+  %1166 = load i32, ptr %17, align 4
+  %1167 = call zeroext i1 @check_slsk_format(ptr noundef %1164, ptr noundef %1165, i32 noundef %1166, ptr noundef @.str.213)
+  br i1 %1167, label %1168, label %1213
+
+1168:                                             ; preds = %1163
+  %1169 = load ptr, ptr %13, align 8
+  %1170 = load i32, ptr @hf_slsk_num_slotsfull_records, align 4
+  %1171 = load ptr, ptr %5, align 8
+  %1172 = load i32, ptr %17, align 4
+  %1173 = call ptr @proto_tree_add_item_ret_int(ptr noundef %1169, i32 noundef %1170, ptr noundef %1171, i32 noundef %1172, i32 noundef 4, i32 noundef -2147483648, ptr noundef %19)
+  %1174 = load i32, ptr %17, align 4
+  %1175 = add i32 %1174, 4
+  store i32 %1175, ptr %17, align 4
+  %1176 = load i32, ptr %19, align 4
+  %1177 = load ptr, ptr %5, align 8
+  %1178 = load i32, ptr %17, align 4
+  %1179 = call i32 @tvb_reported_length_remaining(ptr noundef %1177, i32 noundef %1178)
+  %1180 = icmp sgt i32 %1176, %1179
+  br i1 %1180, label %1181, label %1182
+
+1181:                                             ; preds = %1168
+  br label %4626
+
+1182:                                             ; preds = %1168
   store i32 0, ptr %18, align 4
-  br label %1178
+  br label %1183
 
-1178:                                             ; preds = %1204, %1177
-  %1179 = load i32, ptr %18, align 4
-  %1180 = load i32, ptr %19, align 4
-  %1181 = icmp slt i32 %1179, %1180
-  br i1 %1181, label %1182, label %1207
+1183:                                             ; preds = %1209, %1182
+  %1184 = load i32, ptr %18, align 4
+  %1185 = load i32, ptr %19, align 4
+  %1186 = icmp slt i32 %1184, %1185
+  br i1 %1186, label %1187, label %1212
 
-1182:                                             ; preds = %1178
-  %1183 = load ptr, ptr %5, align 8
-  %1184 = load i32, ptr %17, align 4
-  %1185 = call i32 @check_slsk_format(ptr noundef %1183, i32 noundef %1184, ptr noundef @.str.209)
-  %1186 = icmp ne i32 %1185, 0
-  br i1 %1186, label %1187, label %1202
-
-1187:                                             ; preds = %1182
-  %1188 = load ptr, ptr %13, align 8
-  %1189 = load ptr, ptr %5, align 8
+1187:                                             ; preds = %1183
+  %1188 = load ptr, ptr %5, align 8
+  %1189 = load ptr, ptr %6, align 8
   %1190 = load i32, ptr %17, align 4
-  %1191 = load i32, ptr @ett_slsk_user, align 4
-  %1192 = load i32, ptr %18, align 4
-  %1193 = add i32 %1192, 1
-  %1194 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1188, ptr noundef %1189, i32 noundef %1190, i32 noundef 4, i32 noundef %1191, ptr noundef null, ptr noundef @.str.231, i32 noundef %1193)
-  store ptr %1194, ptr %14, align 8
-  %1195 = load ptr, ptr %14, align 8
-  %1196 = load i32, ptr @hf_slsk_slotsfull, align 4
-  %1197 = load ptr, ptr %5, align 8
-  %1198 = load i32, ptr %17, align 4
-  %1199 = call ptr @proto_tree_add_item(ptr noundef %1195, i32 noundef %1196, ptr noundef %1197, i32 noundef %1198, i32 noundef 4, i32 noundef -2147483648)
-  %1200 = load i32, ptr %17, align 4
-  %1201 = add i32 %1200, 4
-  store i32 %1201, ptr %17, align 4
-  br label %1203
+  %1191 = call zeroext i1 @check_slsk_format(ptr noundef %1188, ptr noundef %1189, i32 noundef %1190, ptr noundef @.str.213)
+  br i1 %1191, label %1192, label %1207
 
-1202:                                             ; preds = %1182
-  br label %1207
-
-1203:                                             ; preds = %1187
-  br label %1204
-
-1204:                                             ; preds = %1203
-  %1205 = load i32, ptr %18, align 4
-  %1206 = add i32 %1205, 1
-  store i32 %1206, ptr %18, align 4
-  br label %1178, !llvm.loop !13
-
-1207:                                             ; preds = %1202, %1178
+1192:                                             ; preds = %1187
+  %1193 = load ptr, ptr %13, align 8
+  %1194 = load ptr, ptr %5, align 8
+  %1195 = load i32, ptr %17, align 4
+  %1196 = load i32, ptr @ett_slsk_user, align 4
+  %1197 = load i32, ptr %18, align 4
+  %1198 = add i32 %1197, 1
+  %1199 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1193, ptr noundef %1194, i32 noundef %1195, i32 noundef 4, i32 noundef %1196, ptr noundef null, ptr noundef @.str.235, i32 noundef %1198)
+  store ptr %1199, ptr %14, align 8
+  %1200 = load ptr, ptr %14, align 8
+  %1201 = load i32, ptr @hf_slsk_slotsfull, align 4
+  %1202 = load ptr, ptr %5, align 8
+  %1203 = load i32, ptr %17, align 4
+  %1204 = call ptr @proto_tree_add_item(ptr noundef %1200, i32 noundef %1201, ptr noundef %1202, i32 noundef %1203, i32 noundef 4, i32 noundef -2147483648)
+  %1205 = load i32, ptr %17, align 4
+  %1206 = add i32 %1205, 4
+  store i32 %1206, ptr %17, align 4
   br label %1208
 
-1208:                                             ; preds = %1207, %1158
+1207:                                             ; preds = %1187
+  br label %1212
+
+1208:                                             ; preds = %1192
   br label %1209
 
-1209:                                             ; preds = %1208, %977
-  br label %1210
+1209:                                             ; preds = %1208
+  %1210 = load i32, ptr %18, align 4
+  %1211 = add i32 %1210, 1
+  store i32 %1211, ptr %18, align 4
+  br label %1183, !llvm.loop !17
 
-1210:                                             ; preds = %1209, %959
-  br label %4619
+1212:                                             ; preds = %1207, %1183
+  br label %1213
 
-1211:                                             ; preds = %4
-  %1212 = load ptr, ptr %5, align 8
-  %1213 = load i32, ptr %17, align 4
-  %1214 = call i32 @check_slsk_format(ptr noundef %1212, i32 noundef %1213, ptr noundef @.str.202)
-  %1215 = icmp ne i32 %1214, 0
-  br i1 %1215, label %1216, label %1234
+1213:                                             ; preds = %1212, %1163
+  br label %1214
 
-1216:                                             ; preds = %1211
-  %1217 = load ptr, ptr %13, align 8
-  %1218 = load i32, ptr @hf_slsk_message_code, align 4
-  %1219 = load ptr, ptr %5, align 8
-  %1220 = load i32, ptr %17, align 4
-  %1221 = load i32, ptr %21, align 4
-  %1222 = load i32, ptr %21, align 4
-  %1223 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1217, i32 noundef %1218, ptr noundef %1219, i32 noundef %1220, i32 noundef 4, i32 noundef %1221, ptr noundef @.str.232, i32 noundef %1222)
-  %1224 = load i32, ptr %17, align 4
-  %1225 = add i32 %1224, 4
-  store i32 %1225, ptr %17, align 4
-  %1226 = load ptr, ptr %13, align 8
-  %1227 = load i32, ptr @hf_slsk_room, align 4
-  %1228 = load ptr, ptr %5, align 8
+1214:                                             ; preds = %1213, %982
+  br label %1215
+
+1215:                                             ; preds = %1214, %964
+  br label %4626
+
+1216:                                             ; preds = %4
+  %1217 = load ptr, ptr %5, align 8
+  %1218 = load ptr, ptr %6, align 8
+  %1219 = load i32, ptr %17, align 4
+  %1220 = call zeroext i1 @check_slsk_format(ptr noundef %1217, ptr noundef %1218, i32 noundef %1219, ptr noundef @.str.206)
+  br i1 %1220, label %1221, label %1239
+
+1221:                                             ; preds = %1216
+  %1222 = load ptr, ptr %13, align 8
+  %1223 = load i32, ptr @hf_slsk_message_code, align 4
+  %1224 = load ptr, ptr %5, align 8
+  %1225 = load i32, ptr %17, align 4
+  %1226 = load i32, ptr %21, align 4
+  %1227 = load i32, ptr %21, align 4
+  %1228 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1222, i32 noundef %1223, ptr noundef %1224, i32 noundef %1225, i32 noundef 4, i32 noundef %1226, ptr noundef @.str.236, i32 noundef %1227)
   %1229 = load i32, ptr %17, align 4
-  %1230 = call ptr @proto_tree_add_item_ret_length(ptr noundef %1226, i32 noundef %1227, ptr noundef %1228, i32 noundef %1229, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %1231 = load i32, ptr %23, align 4
-  %1232 = load i32, ptr %17, align 4
-  %1233 = add i32 %1232, %1231
-  store i32 %1233, ptr %17, align 4
-  br label %1250
+  %1230 = add i32 %1229, 4
+  store i32 %1230, ptr %17, align 4
+  %1231 = load ptr, ptr %13, align 8
+  %1232 = load i32, ptr @hf_slsk_room, align 4
+  %1233 = load ptr, ptr %5, align 8
+  %1234 = load i32, ptr %17, align 4
+  %1235 = call ptr @proto_tree_add_item_ret_length(ptr noundef %1231, i32 noundef %1232, ptr noundef %1233, i32 noundef %1234, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %1236 = load i32, ptr %23, align 4
+  %1237 = load i32, ptr %17, align 4
+  %1238 = add i32 %1237, %1236
+  store i32 %1238, ptr %17, align 4
+  br label %1255
 
-1234:                                             ; preds = %1211
-  %1235 = load ptr, ptr %5, align 8
-  %1236 = load i32, ptr %17, align 4
-  %1237 = call i32 @check_slsk_format(ptr noundef %1235, i32 noundef %1236, ptr noundef @.str.204)
-  %1238 = icmp ne i32 %1237, 0
-  br i1 %1238, label %1239, label %1249
+1239:                                             ; preds = %1216
+  %1240 = load ptr, ptr %5, align 8
+  %1241 = load ptr, ptr %6, align 8
+  %1242 = load i32, ptr %17, align 4
+  %1243 = call zeroext i1 @check_slsk_format(ptr noundef %1240, ptr noundef %1241, i32 noundef %1242, ptr noundef @.str.208)
+  br i1 %1243, label %1244, label %1254
 
-1239:                                             ; preds = %1234
-  %1240 = load ptr, ptr %13, align 8
-  %1241 = load i32, ptr @hf_slsk_message_code, align 4
-  %1242 = load ptr, ptr %5, align 8
-  %1243 = load i32, ptr %17, align 4
-  %1244 = load i32, ptr %21, align 4
-  %1245 = load i32, ptr %21, align 4
-  %1246 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1240, i32 noundef %1241, ptr noundef %1242, i32 noundef %1243, i32 noundef 4, i32 noundef %1244, ptr noundef @.str.233, i32 noundef %1245)
-  %1247 = load i32, ptr %17, align 4
-  %1248 = add i32 %1247, 4
-  store i32 %1248, ptr %17, align 4
-  br label %1249
+1244:                                             ; preds = %1239
+  %1245 = load ptr, ptr %13, align 8
+  %1246 = load i32, ptr @hf_slsk_message_code, align 4
+  %1247 = load ptr, ptr %5, align 8
+  %1248 = load i32, ptr %17, align 4
+  %1249 = load i32, ptr %21, align 4
+  %1250 = load i32, ptr %21, align 4
+  %1251 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1245, i32 noundef %1246, ptr noundef %1247, i32 noundef %1248, i32 noundef 4, i32 noundef %1249, ptr noundef @.str.237, i32 noundef %1250)
+  %1252 = load i32, ptr %17, align 4
+  %1253 = add i32 %1252, 4
+  store i32 %1253, ptr %17, align 4
+  br label %1254
 
-1249:                                             ; preds = %1239, %1234
-  br label %1250
+1254:                                             ; preds = %1244, %1239
+  br label %1255
 
-1250:                                             ; preds = %1249, %1216
-  br label %4619
+1255:                                             ; preds = %1254, %1221
+  br label %4626
 
-1251:                                             ; preds = %4
-  %1252 = load ptr, ptr %5, align 8
-  %1253 = load i32, ptr %17, align 4
-  %1254 = call i32 @check_slsk_format(ptr noundef %1252, i32 noundef %1253, ptr noundef @.str.234)
-  %1255 = icmp ne i32 %1254, 0
-  br i1 %1255, label %1256, label %1331
+1256:                                             ; preds = %4
+  %1257 = load ptr, ptr %5, align 8
+  %1258 = load ptr, ptr %6, align 8
+  %1259 = load i32, ptr %17, align 4
+  %1260 = call zeroext i1 @check_slsk_format(ptr noundef %1257, ptr noundef %1258, i32 noundef %1259, ptr noundef @.str.238)
+  br i1 %1260, label %1261, label %1336
 
-1256:                                             ; preds = %1251
-  %1257 = load ptr, ptr %13, align 8
-  %1258 = load i32, ptr @hf_slsk_message_code, align 4
-  %1259 = load ptr, ptr %5, align 8
-  %1260 = load i32, ptr %17, align 4
-  %1261 = load i32, ptr %21, align 4
-  %1262 = load i32, ptr %21, align 4
-  %1263 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1257, i32 noundef %1258, ptr noundef %1259, i32 noundef %1260, i32 noundef 4, i32 noundef %1261, ptr noundef @.str.235, i32 noundef %1262)
-  %1264 = load i32, ptr %17, align 4
-  %1265 = add i32 %1264, 4
-  store i32 %1265, ptr %17, align 4
-  %1266 = load ptr, ptr %13, align 8
-  %1267 = load i32, ptr @hf_slsk_room, align 4
-  %1268 = load ptr, ptr %5, align 8
+1261:                                             ; preds = %1256
+  %1262 = load ptr, ptr %13, align 8
+  %1263 = load i32, ptr @hf_slsk_message_code, align 4
+  %1264 = load ptr, ptr %5, align 8
+  %1265 = load i32, ptr %17, align 4
+  %1266 = load i32, ptr %21, align 4
+  %1267 = load i32, ptr %21, align 4
+  %1268 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1262, i32 noundef %1263, ptr noundef %1264, i32 noundef %1265, i32 noundef 4, i32 noundef %1266, ptr noundef @.str.239, i32 noundef %1267)
   %1269 = load i32, ptr %17, align 4
-  %1270 = call ptr @proto_tree_add_item_ret_length(ptr noundef %1266, i32 noundef %1267, ptr noundef %1268, i32 noundef %1269, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %1271 = load i32, ptr %23, align 4
-  %1272 = load i32, ptr %17, align 4
-  %1273 = add i32 %1272, %1271
-  store i32 %1273, ptr %17, align 4
-  %1274 = load ptr, ptr %13, align 8
-  %1275 = load i32, ptr @hf_slsk_username, align 4
-  %1276 = load ptr, ptr %5, align 8
+  %1270 = add i32 %1269, 4
+  store i32 %1270, ptr %17, align 4
+  %1271 = load ptr, ptr %13, align 8
+  %1272 = load i32, ptr @hf_slsk_room, align 4
+  %1273 = load ptr, ptr %5, align 8
+  %1274 = load i32, ptr %17, align 4
+  %1275 = call ptr @proto_tree_add_item_ret_length(ptr noundef %1271, i32 noundef %1272, ptr noundef %1273, i32 noundef %1274, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %1276 = load i32, ptr %23, align 4
   %1277 = load i32, ptr %17, align 4
-  %1278 = call ptr @proto_tree_add_item_ret_length(ptr noundef %1274, i32 noundef %1275, ptr noundef %1276, i32 noundef %1277, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %1279 = load i32, ptr %23, align 4
-  %1280 = load i32, ptr %17, align 4
-  %1281 = add i32 %1280, %1279
-  store i32 %1281, ptr %17, align 4
-  %1282 = load ptr, ptr %13, align 8
-  %1283 = load i32, ptr @hf_slsk_total_uploads, align 4
-  %1284 = load ptr, ptr %5, align 8
+  %1278 = add i32 %1277, %1276
+  store i32 %1278, ptr %17, align 4
+  %1279 = load ptr, ptr %13, align 8
+  %1280 = load i32, ptr @hf_slsk_username, align 4
+  %1281 = load ptr, ptr %5, align 8
+  %1282 = load i32, ptr %17, align 4
+  %1283 = call ptr @proto_tree_add_item_ret_length(ptr noundef %1279, i32 noundef %1280, ptr noundef %1281, i32 noundef %1282, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %1284 = load i32, ptr %23, align 4
   %1285 = load i32, ptr %17, align 4
-  %1286 = call ptr @proto_tree_add_item(ptr noundef %1282, i32 noundef %1283, ptr noundef %1284, i32 noundef %1285, i32 noundef 4, i32 noundef -2147483648)
-  %1287 = load i32, ptr %17, align 4
-  %1288 = add i32 %1287, 4
-  store i32 %1288, ptr %17, align 4
-  %1289 = load ptr, ptr %13, align 8
-  %1290 = load i32, ptr @hf_slsk_average_speed, align 4
-  %1291 = load ptr, ptr %5, align 8
+  %1286 = add i32 %1285, %1284
+  store i32 %1286, ptr %17, align 4
+  %1287 = load ptr, ptr %13, align 8
+  %1288 = load i32, ptr @hf_slsk_total_uploads, align 4
+  %1289 = load ptr, ptr %5, align 8
+  %1290 = load i32, ptr %17, align 4
+  %1291 = call ptr @proto_tree_add_item(ptr noundef %1287, i32 noundef %1288, ptr noundef %1289, i32 noundef %1290, i32 noundef 4, i32 noundef -2147483648)
   %1292 = load i32, ptr %17, align 4
-  %1293 = call ptr @proto_tree_add_item(ptr noundef %1289, i32 noundef %1290, ptr noundef %1291, i32 noundef %1292, i32 noundef 4, i32 noundef -2147483648)
-  %1294 = load i32, ptr %17, align 4
-  %1295 = add i32 %1294, 4
-  store i32 %1295, ptr %17, align 4
-  %1296 = load ptr, ptr %13, align 8
-  %1297 = load i32, ptr @hf_slsk_download_number, align 4
-  %1298 = load ptr, ptr %5, align 8
+  %1293 = add i32 %1292, 4
+  store i32 %1293, ptr %17, align 4
+  %1294 = load ptr, ptr %13, align 8
+  %1295 = load i32, ptr @hf_slsk_average_speed, align 4
+  %1296 = load ptr, ptr %5, align 8
+  %1297 = load i32, ptr %17, align 4
+  %1298 = call ptr @proto_tree_add_item(ptr noundef %1294, i32 noundef %1295, ptr noundef %1296, i32 noundef %1297, i32 noundef 4, i32 noundef -2147483648)
   %1299 = load i32, ptr %17, align 4
-  %1300 = call ptr @proto_tree_add_item(ptr noundef %1296, i32 noundef %1297, ptr noundef %1298, i32 noundef %1299, i32 noundef 4, i32 noundef -2147483648)
-  %1301 = load i32, ptr %17, align 4
-  %1302 = add i32 %1301, 4
-  store i32 %1302, ptr %17, align 4
-  %1303 = load ptr, ptr %13, align 8
-  %1304 = load i32, ptr @hf_slsk_integer, align 4
-  %1305 = load ptr, ptr %5, align 8
+  %1300 = add i32 %1299, 4
+  store i32 %1300, ptr %17, align 4
+  %1301 = load ptr, ptr %13, align 8
+  %1302 = load i32, ptr @hf_slsk_download_number, align 4
+  %1303 = load ptr, ptr %5, align 8
+  %1304 = load i32, ptr %17, align 4
+  %1305 = call ptr @proto_tree_add_item(ptr noundef %1301, i32 noundef %1302, ptr noundef %1303, i32 noundef %1304, i32 noundef 4, i32 noundef -2147483648)
   %1306 = load i32, ptr %17, align 4
-  %1307 = call ptr @proto_tree_add_item(ptr noundef %1303, i32 noundef %1304, ptr noundef %1305, i32 noundef %1306, i32 noundef 4, i32 noundef -2147483648)
-  %1308 = load i32, ptr %17, align 4
-  %1309 = add i32 %1308, 4
-  store i32 %1309, ptr %17, align 4
-  %1310 = load ptr, ptr %13, align 8
-  %1311 = load i32, ptr @hf_slsk_files, align 4
-  %1312 = load ptr, ptr %5, align 8
+  %1307 = add i32 %1306, 4
+  store i32 %1307, ptr %17, align 4
+  %1308 = load ptr, ptr %13, align 8
+  %1309 = load i32, ptr @hf_slsk_integer, align 4
+  %1310 = load ptr, ptr %5, align 8
+  %1311 = load i32, ptr %17, align 4
+  %1312 = call ptr @proto_tree_add_item(ptr noundef %1308, i32 noundef %1309, ptr noundef %1310, i32 noundef %1311, i32 noundef 4, i32 noundef -2147483648)
   %1313 = load i32, ptr %17, align 4
-  %1314 = call ptr @proto_tree_add_item(ptr noundef %1310, i32 noundef %1311, ptr noundef %1312, i32 noundef %1313, i32 noundef 4, i32 noundef -2147483648)
-  %1315 = load i32, ptr %17, align 4
-  %1316 = add i32 %1315, 4
-  store i32 %1316, ptr %17, align 4
-  %1317 = load ptr, ptr %13, align 8
-  %1318 = load i32, ptr @hf_slsk_directories, align 4
-  %1319 = load ptr, ptr %5, align 8
+  %1314 = add i32 %1313, 4
+  store i32 %1314, ptr %17, align 4
+  %1315 = load ptr, ptr %13, align 8
+  %1316 = load i32, ptr @hf_slsk_files, align 4
+  %1317 = load ptr, ptr %5, align 8
+  %1318 = load i32, ptr %17, align 4
+  %1319 = call ptr @proto_tree_add_item(ptr noundef %1315, i32 noundef %1316, ptr noundef %1317, i32 noundef %1318, i32 noundef 4, i32 noundef -2147483648)
   %1320 = load i32, ptr %17, align 4
-  %1321 = call ptr @proto_tree_add_item(ptr noundef %1317, i32 noundef %1318, ptr noundef %1319, i32 noundef %1320, i32 noundef 4, i32 noundef -2147483648)
-  %1322 = load i32, ptr %17, align 4
-  %1323 = add i32 %1322, 4
-  store i32 %1323, ptr %17, align 4
-  %1324 = load ptr, ptr %13, align 8
-  %1325 = load i32, ptr @hf_slsk_slotsfull, align 4
-  %1326 = load ptr, ptr %5, align 8
+  %1321 = add i32 %1320, 4
+  store i32 %1321, ptr %17, align 4
+  %1322 = load ptr, ptr %13, align 8
+  %1323 = load i32, ptr @hf_slsk_directories, align 4
+  %1324 = load ptr, ptr %5, align 8
+  %1325 = load i32, ptr %17, align 4
+  %1326 = call ptr @proto_tree_add_item(ptr noundef %1322, i32 noundef %1323, ptr noundef %1324, i32 noundef %1325, i32 noundef 4, i32 noundef -2147483648)
   %1327 = load i32, ptr %17, align 4
-  %1328 = call ptr @proto_tree_add_item(ptr noundef %1324, i32 noundef %1325, ptr noundef %1326, i32 noundef %1327, i32 noundef 4, i32 noundef -2147483648)
-  %1329 = load i32, ptr %17, align 4
-  %1330 = add i32 %1329, 4
-  store i32 %1330, ptr %17, align 4
-  br label %1404
+  %1328 = add i32 %1327, 4
+  store i32 %1328, ptr %17, align 4
+  %1329 = load ptr, ptr %13, align 8
+  %1330 = load i32, ptr @hf_slsk_slotsfull, align 4
+  %1331 = load ptr, ptr %5, align 8
+  %1332 = load i32, ptr %17, align 4
+  %1333 = call ptr @proto_tree_add_item(ptr noundef %1329, i32 noundef %1330, ptr noundef %1331, i32 noundef %1332, i32 noundef 4, i32 noundef -2147483648)
+  %1334 = load i32, ptr %17, align 4
+  %1335 = add i32 %1334, 4
+  store i32 %1335, ptr %17, align 4
+  br label %1409
 
-1331:                                             ; preds = %1251
-  %1332 = load ptr, ptr %5, align 8
-  %1333 = load i32, ptr %17, align 4
-  %1334 = call i32 @check_slsk_format(ptr noundef %1332, i32 noundef %1333, ptr noundef @.str.236)
-  %1335 = icmp ne i32 %1334, 0
-  br i1 %1335, label %1341, label %1336
-
-1336:                                             ; preds = %1331
+1336:                                             ; preds = %1256
   %1337 = load ptr, ptr %5, align 8
-  %1338 = load i32, ptr %17, align 4
-  %1339 = call i32 @check_slsk_format(ptr noundef %1337, i32 noundef %1338, ptr noundef @.str.237)
-  %1340 = icmp ne i32 %1339, 0
-  br i1 %1340, label %1341, label %1403
+  %1338 = load ptr, ptr %6, align 8
+  %1339 = load i32, ptr %17, align 4
+  %1340 = call zeroext i1 @check_slsk_format(ptr noundef %1337, ptr noundef %1338, i32 noundef %1339, ptr noundef @.str.240)
+  br i1 %1340, label %1346, label %1341
 
-1341:                                             ; preds = %1336, %1331
-  %1342 = load ptr, ptr %13, align 8
-  %1343 = load i32, ptr @hf_slsk_message_code, align 4
-  %1344 = load ptr, ptr %5, align 8
-  %1345 = load i32, ptr %17, align 4
-  %1346 = load i32, ptr %21, align 4
-  %1347 = load i32, ptr %21, align 4
-  %1348 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1342, i32 noundef %1343, ptr noundef %1344, i32 noundef %1345, i32 noundef 4, i32 noundef %1346, ptr noundef @.str.238, i32 noundef %1347)
-  %1349 = load i32, ptr %17, align 4
-  %1350 = add i32 %1349, 4
-  store i32 %1350, ptr %17, align 4
-  %1351 = load ptr, ptr %13, align 8
-  %1352 = load i32, ptr @hf_slsk_user_description, align 4
-  %1353 = load ptr, ptr %5, align 8
+1341:                                             ; preds = %1336
+  %1342 = load ptr, ptr %5, align 8
+  %1343 = load ptr, ptr %6, align 8
+  %1344 = load i32, ptr %17, align 4
+  %1345 = call zeroext i1 @check_slsk_format(ptr noundef %1342, ptr noundef %1343, i32 noundef %1344, ptr noundef @.str.241)
+  br i1 %1345, label %1346, label %1408
+
+1346:                                             ; preds = %1341, %1336
+  %1347 = load ptr, ptr %13, align 8
+  %1348 = load i32, ptr @hf_slsk_message_code, align 4
+  %1349 = load ptr, ptr %5, align 8
+  %1350 = load i32, ptr %17, align 4
+  %1351 = load i32, ptr %21, align 4
+  %1352 = load i32, ptr %21, align 4
+  %1353 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1347, i32 noundef %1348, ptr noundef %1349, i32 noundef %1350, i32 noundef 4, i32 noundef %1351, ptr noundef @.str.242, i32 noundef %1352)
   %1354 = load i32, ptr %17, align 4
-  %1355 = call ptr @proto_tree_add_item_ret_length(ptr noundef %1351, i32 noundef %1352, ptr noundef %1353, i32 noundef %1354, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %1356 = load i32, ptr %23, align 4
-  %1357 = load i32, ptr %17, align 4
-  %1358 = add i32 %1357, %1356
-  store i32 %1358, ptr %17, align 4
-  %1359 = load ptr, ptr %13, align 8
-  %1360 = load i32, ptr @hf_slsk_picture_exists, align 4
-  %1361 = load ptr, ptr %5, align 8
+  %1355 = add i32 %1354, 4
+  store i32 %1355, ptr %17, align 4
+  %1356 = load ptr, ptr %13, align 8
+  %1357 = load i32, ptr @hf_slsk_user_description, align 4
+  %1358 = load ptr, ptr %5, align 8
+  %1359 = load i32, ptr %17, align 4
+  %1360 = call ptr @proto_tree_add_item_ret_length(ptr noundef %1356, i32 noundef %1357, ptr noundef %1358, i32 noundef %1359, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %1361 = load i32, ptr %23, align 4
   %1362 = load i32, ptr %17, align 4
-  %1363 = call ptr @proto_tree_add_item(ptr noundef %1359, i32 noundef %1360, ptr noundef %1361, i32 noundef %1362, i32 noundef 1, i32 noundef 0)
-  %1364 = load i32, ptr %17, align 4
-  %1365 = add i32 %1364, 1
-  store i32 %1365, ptr %17, align 4
+  %1363 = add i32 %1362, %1361
+  store i32 %1363, ptr %17, align 4
+  %1364 = load ptr, ptr %13, align 8
+  %1365 = load i32, ptr @hf_slsk_picture_exists, align 4
   %1366 = load ptr, ptr %5, align 8
   %1367 = load i32, ptr %17, align 4
-  %1368 = sub i32 %1367, 1
-  %1369 = call zeroext i8 @tvb_get_guint8(ptr noundef %1366, i32 noundef %1368)
-  %1370 = zext i8 %1369 to i32
-  %1371 = icmp eq i32 %1370, 1
-  br i1 %1371, label %1372, label %1381
+  %1368 = call ptr @proto_tree_add_item(ptr noundef %1364, i32 noundef %1365, ptr noundef %1366, i32 noundef %1367, i32 noundef 1, i32 noundef 0)
+  %1369 = load i32, ptr %17, align 4
+  %1370 = add i32 %1369, 1
+  store i32 %1370, ptr %17, align 4
+  %1371 = load ptr, ptr %5, align 8
+  %1372 = load i32, ptr %17, align 4
+  %1373 = sub i32 %1372, 1
+  %1374 = call zeroext i8 @tvb_get_uint8(ptr noundef %1371, i32 noundef %1373)
+  %1375 = zext i8 %1374 to i32
+  %1376 = icmp eq i32 %1375, 1
+  br i1 %1376, label %1377, label %1386
 
-1372:                                             ; preds = %1341
-  %1373 = load ptr, ptr %13, align 8
-  %1374 = load i32, ptr @hf_slsk_picture, align 4
-  %1375 = load ptr, ptr %5, align 8
-  %1376 = load i32, ptr %17, align 4
-  %1377 = call ptr @proto_tree_add_item_ret_length(ptr noundef %1373, i32 noundef %1374, ptr noundef %1375, i32 noundef %1376, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %1378 = load i32, ptr %23, align 4
-  %1379 = load i32, ptr %17, align 4
-  %1380 = add i32 %1379, %1378
-  store i32 %1380, ptr %17, align 4
-  br label %1381
+1377:                                             ; preds = %1346
+  %1378 = load ptr, ptr %13, align 8
+  %1379 = load i32, ptr @hf_slsk_picture, align 4
+  %1380 = load ptr, ptr %5, align 8
+  %1381 = load i32, ptr %17, align 4
+  %1382 = call ptr @proto_tree_add_item_ret_length(ptr noundef %1378, i32 noundef %1379, ptr noundef %1380, i32 noundef %1381, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %1383 = load i32, ptr %23, align 4
+  %1384 = load i32, ptr %17, align 4
+  %1385 = add i32 %1384, %1383
+  store i32 %1385, ptr %17, align 4
+  br label %1386
 
-1381:                                             ; preds = %1372, %1341
-  %1382 = load ptr, ptr %13, align 8
-  %1383 = load i32, ptr @hf_slsk_total_uploads, align 4
-  %1384 = load ptr, ptr %5, align 8
-  %1385 = load i32, ptr %17, align 4
-  %1386 = call ptr @proto_tree_add_item(ptr noundef %1382, i32 noundef %1383, ptr noundef %1384, i32 noundef %1385, i32 noundef 4, i32 noundef -2147483648)
-  %1387 = load i32, ptr %17, align 4
-  %1388 = add i32 %1387, 4
-  store i32 %1388, ptr %17, align 4
-  %1389 = load ptr, ptr %13, align 8
-  %1390 = load i32, ptr @hf_slsk_queued_uploads, align 4
-  %1391 = load ptr, ptr %5, align 8
+1386:                                             ; preds = %1377, %1346
+  %1387 = load ptr, ptr %13, align 8
+  %1388 = load i32, ptr @hf_slsk_total_uploads, align 4
+  %1389 = load ptr, ptr %5, align 8
+  %1390 = load i32, ptr %17, align 4
+  %1391 = call ptr @proto_tree_add_item(ptr noundef %1387, i32 noundef %1388, ptr noundef %1389, i32 noundef %1390, i32 noundef 4, i32 noundef -2147483648)
   %1392 = load i32, ptr %17, align 4
-  %1393 = call ptr @proto_tree_add_item(ptr noundef %1389, i32 noundef %1390, ptr noundef %1391, i32 noundef %1392, i32 noundef 4, i32 noundef -2147483648)
-  %1394 = load i32, ptr %17, align 4
-  %1395 = add i32 %1394, 4
-  store i32 %1395, ptr %17, align 4
-  %1396 = load ptr, ptr %13, align 8
-  %1397 = load i32, ptr @hf_slsk_slots_available, align 4
-  %1398 = load ptr, ptr %5, align 8
+  %1393 = add i32 %1392, 4
+  store i32 %1393, ptr %17, align 4
+  %1394 = load ptr, ptr %13, align 8
+  %1395 = load i32, ptr @hf_slsk_queued_uploads, align 4
+  %1396 = load ptr, ptr %5, align 8
+  %1397 = load i32, ptr %17, align 4
+  %1398 = call ptr @proto_tree_add_item(ptr noundef %1394, i32 noundef %1395, ptr noundef %1396, i32 noundef %1397, i32 noundef 4, i32 noundef -2147483648)
   %1399 = load i32, ptr %17, align 4
-  %1400 = call ptr @proto_tree_add_item(ptr noundef %1396, i32 noundef %1397, ptr noundef %1398, i32 noundef %1399, i32 noundef 1, i32 noundef 0)
-  %1401 = load i32, ptr %17, align 4
-  %1402 = add i32 %1401, 1
-  store i32 %1402, ptr %17, align 4
-  br label %1403
+  %1400 = add i32 %1399, 4
+  store i32 %1400, ptr %17, align 4
+  %1401 = load ptr, ptr %13, align 8
+  %1402 = load i32, ptr @hf_slsk_slots_available, align 4
+  %1403 = load ptr, ptr %5, align 8
+  %1404 = load i32, ptr %17, align 4
+  %1405 = call ptr @proto_tree_add_item(ptr noundef %1401, i32 noundef %1402, ptr noundef %1403, i32 noundef %1404, i32 noundef 1, i32 noundef 0)
+  %1406 = load i32, ptr %17, align 4
+  %1407 = add i32 %1406, 1
+  store i32 %1407, ptr %17, align 4
+  br label %1408
 
-1403:                                             ; preds = %1381, %1336
-  br label %1404
+1408:                                             ; preds = %1386, %1341
+  br label %1409
 
-1404:                                             ; preds = %1403, %1256
-  br label %4619
+1409:                                             ; preds = %1408, %1261
+  br label %4626
 
-1405:                                             ; preds = %4
-  %1406 = load ptr, ptr %5, align 8
-  %1407 = load i32, ptr %17, align 4
-  %1408 = call i32 @check_slsk_format(ptr noundef %1406, i32 noundef %1407, ptr noundef @.str.225)
-  %1409 = icmp ne i32 %1408, 0
-  br i1 %1409, label %1410, label %1436
+1410:                                             ; preds = %4
+  %1411 = load ptr, ptr %5, align 8
+  %1412 = load ptr, ptr %6, align 8
+  %1413 = load i32, ptr %17, align 4
+  %1414 = call zeroext i1 @check_slsk_format(ptr noundef %1411, ptr noundef %1412, i32 noundef %1413, ptr noundef @.str.229)
+  br i1 %1414, label %1415, label %1441
 
-1410:                                             ; preds = %1405
-  %1411 = load ptr, ptr %13, align 8
-  %1412 = load i32, ptr @hf_slsk_message_code, align 4
-  %1413 = load ptr, ptr %5, align 8
-  %1414 = load i32, ptr %17, align 4
-  %1415 = load i32, ptr %21, align 4
-  %1416 = load i32, ptr %21, align 4
-  %1417 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1411, i32 noundef %1412, ptr noundef %1413, i32 noundef %1414, i32 noundef 4, i32 noundef %1415, ptr noundef @.str.239, i32 noundef %1416)
-  %1418 = load i32, ptr %17, align 4
-  %1419 = add i32 %1418, 4
-  store i32 %1419, ptr %17, align 4
-  %1420 = load ptr, ptr %13, align 8
-  %1421 = load i32, ptr @hf_slsk_room, align 4
-  %1422 = load ptr, ptr %5, align 8
+1415:                                             ; preds = %1410
+  %1416 = load ptr, ptr %13, align 8
+  %1417 = load i32, ptr @hf_slsk_message_code, align 4
+  %1418 = load ptr, ptr %5, align 8
+  %1419 = load i32, ptr %17, align 4
+  %1420 = load i32, ptr %21, align 4
+  %1421 = load i32, ptr %21, align 4
+  %1422 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1416, i32 noundef %1417, ptr noundef %1418, i32 noundef %1419, i32 noundef 4, i32 noundef %1420, ptr noundef @.str.243, i32 noundef %1421)
   %1423 = load i32, ptr %17, align 4
-  %1424 = call ptr @proto_tree_add_item_ret_length(ptr noundef %1420, i32 noundef %1421, ptr noundef %1422, i32 noundef %1423, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %1425 = load i32, ptr %23, align 4
-  %1426 = load i32, ptr %17, align 4
-  %1427 = add i32 %1426, %1425
-  store i32 %1427, ptr %17, align 4
-  %1428 = load ptr, ptr %13, align 8
-  %1429 = load i32, ptr @hf_slsk_username, align 4
-  %1430 = load ptr, ptr %5, align 8
+  %1424 = add i32 %1423, 4
+  store i32 %1424, ptr %17, align 4
+  %1425 = load ptr, ptr %13, align 8
+  %1426 = load i32, ptr @hf_slsk_room, align 4
+  %1427 = load ptr, ptr %5, align 8
+  %1428 = load i32, ptr %17, align 4
+  %1429 = call ptr @proto_tree_add_item_ret_length(ptr noundef %1425, i32 noundef %1426, ptr noundef %1427, i32 noundef %1428, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %1430 = load i32, ptr %23, align 4
   %1431 = load i32, ptr %17, align 4
-  %1432 = call ptr @proto_tree_add_item_ret_length(ptr noundef %1428, i32 noundef %1429, ptr noundef %1430, i32 noundef %1431, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %1433 = load i32, ptr %23, align 4
-  %1434 = load i32, ptr %17, align 4
-  %1435 = add i32 %1434, %1433
-  store i32 %1435, ptr %17, align 4
-  br label %1436
-
-1436:                                             ; preds = %1410, %1405
-  br label %4619
-
-1437:                                             ; preds = %4
-  %1438 = load ptr, ptr %5, align 8
+  %1432 = add i32 %1431, %1430
+  store i32 %1432, ptr %17, align 4
+  %1433 = load ptr, ptr %13, align 8
+  %1434 = load i32, ptr @hf_slsk_username, align 4
+  %1435 = load ptr, ptr %5, align 8
+  %1436 = load i32, ptr %17, align 4
+  %1437 = call ptr @proto_tree_add_item_ret_length(ptr noundef %1433, i32 noundef %1434, ptr noundef %1435, i32 noundef %1436, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %1438 = load i32, ptr %23, align 4
   %1439 = load i32, ptr %17, align 4
-  %1440 = call i32 @check_slsk_format(ptr noundef %1438, i32 noundef %1439, ptr noundef @.str.240)
-  %1441 = icmp ne i32 %1440, 0
-  br i1 %1441, label %1442, label %1499
+  %1440 = add i32 %1439, %1438
+  store i32 %1440, ptr %17, align 4
+  br label %1441
 
-1442:                                             ; preds = %1437
-  %1443 = load ptr, ptr %13, align 8
-  %1444 = load i32, ptr @hf_slsk_message_code, align 4
-  %1445 = load ptr, ptr %5, align 8
-  %1446 = load i32, ptr %17, align 4
-  %1447 = load i32, ptr %21, align 4
-  %1448 = load i32, ptr %21, align 4
-  %1449 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1443, i32 noundef %1444, ptr noundef %1445, i32 noundef %1446, i32 noundef 4, i32 noundef %1447, ptr noundef @.str.241, i32 noundef %1448)
-  %1450 = load i32, ptr %17, align 4
-  %1451 = add i32 %1450, 4
-  store i32 %1451, ptr %17, align 4
-  %1452 = load ptr, ptr %13, align 8
-  %1453 = load i32, ptr @hf_slsk_token, align 4
-  %1454 = load ptr, ptr %5, align 8
+1441:                                             ; preds = %1415, %1410
+  br label %4626
+
+1442:                                             ; preds = %4
+  %1443 = load ptr, ptr %5, align 8
+  %1444 = load ptr, ptr %6, align 8
+  %1445 = load i32, ptr %17, align 4
+  %1446 = call zeroext i1 @check_slsk_format(ptr noundef %1443, ptr noundef %1444, i32 noundef %1445, ptr noundef @.str.244)
+  br i1 %1446, label %1447, label %1504
+
+1447:                                             ; preds = %1442
+  call void @llvm.lifetime.start.p0(i64 4, ptr %39) #6
+  %1448 = load ptr, ptr %13, align 8
+  %1449 = load i32, ptr @hf_slsk_message_code, align 4
+  %1450 = load ptr, ptr %5, align 8
+  %1451 = load i32, ptr %17, align 4
+  %1452 = load i32, ptr %21, align 4
+  %1453 = load i32, ptr %21, align 4
+  %1454 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1448, i32 noundef %1449, ptr noundef %1450, i32 noundef %1451, i32 noundef 4, i32 noundef %1452, ptr noundef @.str.245, i32 noundef %1453)
   %1455 = load i32, ptr %17, align 4
-  %1456 = call ptr @proto_tree_add_item(ptr noundef %1452, i32 noundef %1453, ptr noundef %1454, i32 noundef %1455, i32 noundef 4, i32 noundef -2147483648)
-  %1457 = load i32, ptr %17, align 4
-  %1458 = add i32 %1457, 4
-  store i32 %1458, ptr %17, align 4
-  %1459 = load ptr, ptr %13, align 8
-  %1460 = load i32, ptr @hf_slsk_username, align 4
-  %1461 = load ptr, ptr %5, align 8
+  %1456 = add i32 %1455, 4
+  store i32 %1456, ptr %17, align 4
+  %1457 = load ptr, ptr %13, align 8
+  %1458 = load i32, ptr @hf_slsk_token, align 4
+  %1459 = load ptr, ptr %5, align 8
+  %1460 = load i32, ptr %17, align 4
+  %1461 = call ptr @proto_tree_add_item(ptr noundef %1457, i32 noundef %1458, ptr noundef %1459, i32 noundef %1460, i32 noundef 4, i32 noundef -2147483648)
   %1462 = load i32, ptr %17, align 4
-  %1463 = call ptr @proto_tree_add_item_ret_length(ptr noundef %1459, i32 noundef %1460, ptr noundef %1461, i32 noundef %1462, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %1464 = load i32, ptr %23, align 4
-  %1465 = load i32, ptr %17, align 4
-  %1466 = add i32 %1465, %1464
-  store i32 %1466, ptr %17, align 4
-  %1467 = load ptr, ptr %5, align 8
-  %1468 = load i32, ptr %17, align 4
-  %1469 = call i32 @tvb_get_letohl(ptr noundef %1467, i32 noundef %1468)
-  store i32 %1469, ptr %39, align 4
-  %1470 = load ptr, ptr %6, align 8
-  %1471 = getelementptr inbounds %struct._packet_info, ptr %1470, i32 0, i32 50
-  %1472 = load ptr, ptr %1471, align 8
-  %1473 = load ptr, ptr %5, align 8
-  %1474 = load i32, ptr %17, align 4
-  %1475 = add i32 %1474, 4
-  %1476 = load i32, ptr %39, align 4
-  %1477 = call ptr @tvb_get_string_enc(ptr noundef %1472, ptr noundef %1473, i32 noundef %1475, i32 noundef %1476, i32 noundef 0)
-  store ptr %1477, ptr %22, align 8
-  %1478 = load ptr, ptr %13, align 8
-  %1479 = load i32, ptr @hf_slsk_connection_type, align 4
-  %1480 = load ptr, ptr %5, align 8
-  %1481 = load i32, ptr %17, align 4
-  %1482 = load i32, ptr %39, align 4
-  %1483 = add i32 4, %1482
-  %1484 = load ptr, ptr %22, align 8
-  %1485 = load ptr, ptr %22, align 8
-  %1486 = call ptr @connection_type(ptr noundef %1485)
-  %1487 = load ptr, ptr %6, align 8
-  %1488 = getelementptr inbounds %struct._packet_info, ptr %1487, i32 0, i32 50
-  %1489 = load ptr, ptr %1488, align 8
+  %1463 = add i32 %1462, 4
+  store i32 %1463, ptr %17, align 4
+  %1464 = load ptr, ptr %13, align 8
+  %1465 = load i32, ptr @hf_slsk_username, align 4
+  %1466 = load ptr, ptr %5, align 8
+  %1467 = load i32, ptr %17, align 4
+  %1468 = call ptr @proto_tree_add_item_ret_length(ptr noundef %1464, i32 noundef %1465, ptr noundef %1466, i32 noundef %1467, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %1469 = load i32, ptr %23, align 4
+  %1470 = load i32, ptr %17, align 4
+  %1471 = add i32 %1470, %1469
+  store i32 %1471, ptr %17, align 4
+  %1472 = load ptr, ptr %5, align 8
+  %1473 = load i32, ptr %17, align 4
+  %1474 = call i32 @tvb_get_letohl(ptr noundef %1472, i32 noundef %1473)
+  store i32 %1474, ptr %39, align 4
+  %1475 = load ptr, ptr %6, align 8
+  %1476 = getelementptr inbounds nuw %struct._packet_info, ptr %1475, i32 0, i32 51
+  %1477 = load ptr, ptr %1476, align 8
+  %1478 = load ptr, ptr %5, align 8
+  %1479 = load i32, ptr %17, align 4
+  %1480 = add i32 %1479, 4
+  %1481 = load i32, ptr %39, align 4
+  %1482 = call ptr @tvb_get_string_enc(ptr noundef %1477, ptr noundef %1478, i32 noundef %1480, i32 noundef %1481, i32 noundef 0)
+  store ptr %1482, ptr %22, align 8
+  %1483 = load ptr, ptr %13, align 8
+  %1484 = load i32, ptr @hf_slsk_connection_type, align 4
+  %1485 = load ptr, ptr %5, align 8
+  %1486 = load i32, ptr %17, align 4
+  %1487 = load i32, ptr %39, align 4
+  %1488 = add i32 4, %1487
+  %1489 = load ptr, ptr %22, align 8
   %1490 = load ptr, ptr %22, align 8
-  %1491 = load i32, ptr %39, align 4
-  %1492 = zext i32 %1491 to i64
-  %1493 = call ptr @format_text(ptr noundef %1489, ptr noundef %1490, i64 noundef %1492)
-  %1494 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %1478, i32 noundef %1479, ptr noundef %1480, i32 noundef %1481, i32 noundef %1483, ptr noundef %1484, ptr noundef @.str.242, ptr noundef %1486, ptr noundef %1493)
-  %1495 = load i32, ptr %39, align 4
-  %1496 = add i32 4, %1495
-  %1497 = load i32, ptr %17, align 4
-  %1498 = add i32 %1497, %1496
-  store i32 %1498, ptr %17, align 4
-  br label %1576
+  %1491 = call ptr @connection_type(ptr noundef %1490)
+  %1492 = load ptr, ptr %6, align 8
+  %1493 = getelementptr inbounds nuw %struct._packet_info, ptr %1492, i32 0, i32 51
+  %1494 = load ptr, ptr %1493, align 8
+  %1495 = load ptr, ptr %22, align 8
+  %1496 = load i32, ptr %39, align 4
+  %1497 = zext i32 %1496 to i64
+  %1498 = call ptr @format_text(ptr noundef %1494, ptr noundef %1495, i64 noundef %1497)
+  %1499 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %1483, i32 noundef %1484, ptr noundef %1485, i32 noundef %1486, i32 noundef %1488, ptr noundef %1489, ptr noundef @.str.246, ptr noundef %1491, ptr noundef %1498)
+  %1500 = load i32, ptr %39, align 4
+  %1501 = add i32 4, %1500
+  %1502 = load i32, ptr %17, align 4
+  %1503 = add i32 %1502, %1501
+  store i32 %1503, ptr %17, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %39) #6
+  br label %1581
 
-1499:                                             ; preds = %1437
-  %1500 = load ptr, ptr %5, align 8
-  %1501 = load i32, ptr %17, align 4
-  %1502 = call i32 @check_slsk_format(ptr noundef %1500, i32 noundef %1501, ptr noundef @.str.243)
-  %1503 = icmp ne i32 %1502, 0
-  br i1 %1503, label %1504, label %1575
+1504:                                             ; preds = %1442
+  %1505 = load ptr, ptr %5, align 8
+  %1506 = load ptr, ptr %6, align 8
+  %1507 = load i32, ptr %17, align 4
+  %1508 = call zeroext i1 @check_slsk_format(ptr noundef %1505, ptr noundef %1506, i32 noundef %1507, ptr noundef @.str.247)
+  br i1 %1508, label %1509, label %1580
 
-1504:                                             ; preds = %1499
-  %1505 = load ptr, ptr %13, align 8
-  %1506 = load i32, ptr @hf_slsk_message_code, align 4
-  %1507 = load ptr, ptr %5, align 8
-  %1508 = load i32, ptr %17, align 4
-  %1509 = load i32, ptr %21, align 4
-  %1510 = load i32, ptr %21, align 4
-  %1511 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1505, i32 noundef %1506, ptr noundef %1507, i32 noundef %1508, i32 noundef 4, i32 noundef %1509, ptr noundef @.str.241, i32 noundef %1510)
-  %1512 = load i32, ptr %17, align 4
-  %1513 = add i32 %1512, 4
-  store i32 %1513, ptr %17, align 4
-  %1514 = load ptr, ptr %13, align 8
-  %1515 = load i32, ptr @hf_slsk_username, align 4
-  %1516 = load ptr, ptr %5, align 8
+1509:                                             ; preds = %1504
+  call void @llvm.lifetime.start.p0(i64 4, ptr %40) #6
+  %1510 = load ptr, ptr %13, align 8
+  %1511 = load i32, ptr @hf_slsk_message_code, align 4
+  %1512 = load ptr, ptr %5, align 8
+  %1513 = load i32, ptr %17, align 4
+  %1514 = load i32, ptr %21, align 4
+  %1515 = load i32, ptr %21, align 4
+  %1516 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1510, i32 noundef %1511, ptr noundef %1512, i32 noundef %1513, i32 noundef 4, i32 noundef %1514, ptr noundef @.str.245, i32 noundef %1515)
   %1517 = load i32, ptr %17, align 4
-  %1518 = call ptr @proto_tree_add_item_ret_length(ptr noundef %1514, i32 noundef %1515, ptr noundef %1516, i32 noundef %1517, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %1519 = load i32, ptr %23, align 4
-  %1520 = load i32, ptr %17, align 4
-  %1521 = add i32 %1520, %1519
-  store i32 %1521, ptr %17, align 4
-  %1522 = load ptr, ptr %5, align 8
-  %1523 = load i32, ptr %17, align 4
-  %1524 = call i32 @tvb_get_letohl(ptr noundef %1522, i32 noundef %1523)
-  store i32 %1524, ptr %40, align 4
-  %1525 = load ptr, ptr %6, align 8
-  %1526 = getelementptr inbounds %struct._packet_info, ptr %1525, i32 0, i32 50
-  %1527 = load ptr, ptr %1526, align 8
-  %1528 = load ptr, ptr %5, align 8
-  %1529 = load i32, ptr %17, align 4
-  %1530 = add i32 %1529, 4
-  %1531 = load i32, ptr %40, align 4
-  %1532 = call ptr @tvb_get_string_enc(ptr noundef %1527, ptr noundef %1528, i32 noundef %1530, i32 noundef %1531, i32 noundef 0)
-  store ptr %1532, ptr %22, align 8
-  %1533 = load ptr, ptr %13, align 8
-  %1534 = load i32, ptr @hf_slsk_connection_type, align 4
-  %1535 = load ptr, ptr %5, align 8
-  %1536 = load i32, ptr %17, align 4
-  %1537 = load i32, ptr %40, align 4
-  %1538 = add i32 4, %1537
-  %1539 = load ptr, ptr %22, align 8
-  %1540 = load ptr, ptr %22, align 8
-  %1541 = call ptr @connection_type(ptr noundef %1540)
-  %1542 = load ptr, ptr %6, align 8
-  %1543 = getelementptr inbounds %struct._packet_info, ptr %1542, i32 0, i32 50
-  %1544 = load ptr, ptr %1543, align 8
+  %1518 = add i32 %1517, 4
+  store i32 %1518, ptr %17, align 4
+  %1519 = load ptr, ptr %13, align 8
+  %1520 = load i32, ptr @hf_slsk_username, align 4
+  %1521 = load ptr, ptr %5, align 8
+  %1522 = load i32, ptr %17, align 4
+  %1523 = call ptr @proto_tree_add_item_ret_length(ptr noundef %1519, i32 noundef %1520, ptr noundef %1521, i32 noundef %1522, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %1524 = load i32, ptr %23, align 4
+  %1525 = load i32, ptr %17, align 4
+  %1526 = add i32 %1525, %1524
+  store i32 %1526, ptr %17, align 4
+  %1527 = load ptr, ptr %5, align 8
+  %1528 = load i32, ptr %17, align 4
+  %1529 = call i32 @tvb_get_letohl(ptr noundef %1527, i32 noundef %1528)
+  store i32 %1529, ptr %40, align 4
+  %1530 = load ptr, ptr %6, align 8
+  %1531 = getelementptr inbounds nuw %struct._packet_info, ptr %1530, i32 0, i32 51
+  %1532 = load ptr, ptr %1531, align 8
+  %1533 = load ptr, ptr %5, align 8
+  %1534 = load i32, ptr %17, align 4
+  %1535 = add i32 %1534, 4
+  %1536 = load i32, ptr %40, align 4
+  %1537 = call ptr @tvb_get_string_enc(ptr noundef %1532, ptr noundef %1533, i32 noundef %1535, i32 noundef %1536, i32 noundef 0)
+  store ptr %1537, ptr %22, align 8
+  %1538 = load ptr, ptr %13, align 8
+  %1539 = load i32, ptr @hf_slsk_connection_type, align 4
+  %1540 = load ptr, ptr %5, align 8
+  %1541 = load i32, ptr %17, align 4
+  %1542 = load i32, ptr %40, align 4
+  %1543 = add i32 4, %1542
+  %1544 = load ptr, ptr %22, align 8
   %1545 = load ptr, ptr %22, align 8
-  %1546 = load i32, ptr %40, align 4
-  %1547 = zext i32 %1546 to i64
-  %1548 = call ptr @format_text(ptr noundef %1544, ptr noundef %1545, i64 noundef %1547)
-  %1549 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %1533, i32 noundef %1534, ptr noundef %1535, i32 noundef %1536, i32 noundef %1538, ptr noundef %1539, ptr noundef @.str.242, ptr noundef %1541, ptr noundef %1548)
-  %1550 = load i32, ptr %40, align 4
-  %1551 = add i32 4, %1550
-  %1552 = load i32, ptr %17, align 4
-  %1553 = add i32 %1552, %1551
-  store i32 %1553, ptr %17, align 4
-  %1554 = load ptr, ptr %13, align 8
-  %1555 = load i32, ptr @hf_slsk_ip, align 4
-  %1556 = load ptr, ptr %5, align 8
+  %1546 = call ptr @connection_type(ptr noundef %1545)
+  %1547 = load ptr, ptr %6, align 8
+  %1548 = getelementptr inbounds nuw %struct._packet_info, ptr %1547, i32 0, i32 51
+  %1549 = load ptr, ptr %1548, align 8
+  %1550 = load ptr, ptr %22, align 8
+  %1551 = load i32, ptr %40, align 4
+  %1552 = zext i32 %1551 to i64
+  %1553 = call ptr @format_text(ptr noundef %1549, ptr noundef %1550, i64 noundef %1552)
+  %1554 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %1538, i32 noundef %1539, ptr noundef %1540, i32 noundef %1541, i32 noundef %1543, ptr noundef %1544, ptr noundef @.str.246, ptr noundef %1546, ptr noundef %1553)
+  %1555 = load i32, ptr %40, align 4
+  %1556 = add i32 4, %1555
   %1557 = load i32, ptr %17, align 4
-  %1558 = call ptr @proto_tree_add_item(ptr noundef %1554, i32 noundef %1555, ptr noundef %1556, i32 noundef %1557, i32 noundef 4, i32 noundef 0)
-  %1559 = load i32, ptr %17, align 4
-  %1560 = add i32 %1559, 4
-  store i32 %1560, ptr %17, align 4
-  %1561 = load ptr, ptr %13, align 8
-  %1562 = load i32, ptr @hf_slsk_port, align 4
-  %1563 = load ptr, ptr %5, align 8
+  %1558 = add i32 %1557, %1556
+  store i32 %1558, ptr %17, align 4
+  %1559 = load ptr, ptr %13, align 8
+  %1560 = load i32, ptr @hf_slsk_ip, align 4
+  %1561 = load ptr, ptr %5, align 8
+  %1562 = load i32, ptr %17, align 4
+  %1563 = call ptr @proto_tree_add_item(ptr noundef %1559, i32 noundef %1560, ptr noundef %1561, i32 noundef %1562, i32 noundef 4, i32 noundef 0)
   %1564 = load i32, ptr %17, align 4
-  %1565 = call ptr @proto_tree_add_item(ptr noundef %1561, i32 noundef %1562, ptr noundef %1563, i32 noundef %1564, i32 noundef 4, i32 noundef -2147483648)
-  %1566 = load i32, ptr %17, align 4
-  %1567 = add i32 %1566, 4
-  store i32 %1567, ptr %17, align 4
-  %1568 = load ptr, ptr %13, align 8
-  %1569 = load i32, ptr @hf_slsk_token, align 4
-  %1570 = load ptr, ptr %5, align 8
+  %1565 = add i32 %1564, 4
+  store i32 %1565, ptr %17, align 4
+  %1566 = load ptr, ptr %13, align 8
+  %1567 = load i32, ptr @hf_slsk_port, align 4
+  %1568 = load ptr, ptr %5, align 8
+  %1569 = load i32, ptr %17, align 4
+  %1570 = call ptr @proto_tree_add_item(ptr noundef %1566, i32 noundef %1567, ptr noundef %1568, i32 noundef %1569, i32 noundef 4, i32 noundef -2147483648)
   %1571 = load i32, ptr %17, align 4
-  %1572 = call ptr @proto_tree_add_item(ptr noundef %1568, i32 noundef %1569, ptr noundef %1570, i32 noundef %1571, i32 noundef 4, i32 noundef -2147483648)
-  %1573 = load i32, ptr %17, align 4
-  %1574 = add i32 %1573, 4
-  store i32 %1574, ptr %17, align 4
-  br label %1575
+  %1572 = add i32 %1571, 4
+  store i32 %1572, ptr %17, align 4
+  %1573 = load ptr, ptr %13, align 8
+  %1574 = load i32, ptr @hf_slsk_token, align 4
+  %1575 = load ptr, ptr %5, align 8
+  %1576 = load i32, ptr %17, align 4
+  %1577 = call ptr @proto_tree_add_item(ptr noundef %1573, i32 noundef %1574, ptr noundef %1575, i32 noundef %1576, i32 noundef 4, i32 noundef -2147483648)
+  %1578 = load i32, ptr %17, align 4
+  %1579 = add i32 %1578, 4
+  store i32 %1579, ptr %17, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %40) #6
+  br label %1580
 
-1575:                                             ; preds = %1504, %1499
-  br label %1576
+1580:                                             ; preds = %1509, %1504
+  br label %1581
 
-1576:                                             ; preds = %1575, %1442
-  br label %4619
+1581:                                             ; preds = %1580, %1447
+  br label %4626
 
-1577:                                             ; preds = %4
-  %1578 = load ptr, ptr %5, align 8
-  %1579 = load i32, ptr %17, align 4
-  %1580 = call i32 @check_slsk_format(ptr noundef %1578, i32 noundef %1579, ptr noundef @.str.225)
-  %1581 = icmp ne i32 %1580, 0
-  br i1 %1581, label %1582, label %1608
+1582:                                             ; preds = %4
+  %1583 = load ptr, ptr %5, align 8
+  %1584 = load ptr, ptr %6, align 8
+  %1585 = load i32, ptr %17, align 4
+  %1586 = call zeroext i1 @check_slsk_format(ptr noundef %1583, ptr noundef %1584, i32 noundef %1585, ptr noundef @.str.229)
+  br i1 %1586, label %1587, label %1613
 
-1582:                                             ; preds = %1577
-  %1583 = load ptr, ptr %13, align 8
-  %1584 = load i32, ptr @hf_slsk_message_code, align 4
-  %1585 = load ptr, ptr %5, align 8
-  %1586 = load i32, ptr %17, align 4
-  %1587 = load i32, ptr %21, align 4
-  %1588 = load i32, ptr %21, align 4
-  %1589 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1583, i32 noundef %1584, ptr noundef %1585, i32 noundef %1586, i32 noundef 4, i32 noundef %1587, ptr noundef @.str.244, i32 noundef %1588)
-  %1590 = load i32, ptr %17, align 4
-  %1591 = add i32 %1590, 4
-  store i32 %1591, ptr %17, align 4
-  %1592 = load ptr, ptr %13, align 8
-  %1593 = load i32, ptr @hf_slsk_username, align 4
-  %1594 = load ptr, ptr %5, align 8
+1587:                                             ; preds = %1582
+  %1588 = load ptr, ptr %13, align 8
+  %1589 = load i32, ptr @hf_slsk_message_code, align 4
+  %1590 = load ptr, ptr %5, align 8
+  %1591 = load i32, ptr %17, align 4
+  %1592 = load i32, ptr %21, align 4
+  %1593 = load i32, ptr %21, align 4
+  %1594 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1588, i32 noundef %1589, ptr noundef %1590, i32 noundef %1591, i32 noundef 4, i32 noundef %1592, ptr noundef @.str.248, i32 noundef %1593)
   %1595 = load i32, ptr %17, align 4
-  %1596 = call ptr @proto_tree_add_item_ret_length(ptr noundef %1592, i32 noundef %1593, ptr noundef %1594, i32 noundef %1595, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %1597 = load i32, ptr %23, align 4
-  %1598 = load i32, ptr %17, align 4
-  %1599 = add i32 %1598, %1597
-  store i32 %1599, ptr %17, align 4
-  %1600 = load ptr, ptr %13, align 8
-  %1601 = load i32, ptr @hf_slsk_chat_message, align 4
-  %1602 = load ptr, ptr %5, align 8
+  %1596 = add i32 %1595, 4
+  store i32 %1596, ptr %17, align 4
+  %1597 = load ptr, ptr %13, align 8
+  %1598 = load i32, ptr @hf_slsk_username, align 4
+  %1599 = load ptr, ptr %5, align 8
+  %1600 = load i32, ptr %17, align 4
+  %1601 = call ptr @proto_tree_add_item_ret_length(ptr noundef %1597, i32 noundef %1598, ptr noundef %1599, i32 noundef %1600, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %1602 = load i32, ptr %23, align 4
   %1603 = load i32, ptr %17, align 4
-  %1604 = call ptr @proto_tree_add_item_ret_length(ptr noundef %1600, i32 noundef %1601, ptr noundef %1602, i32 noundef %1603, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %1605 = load i32, ptr %23, align 4
-  %1606 = load i32, ptr %17, align 4
-  %1607 = add i32 %1606, %1605
-  store i32 %1607, ptr %17, align 4
-  br label %1654
+  %1604 = add i32 %1603, %1602
+  store i32 %1604, ptr %17, align 4
+  %1605 = load ptr, ptr %13, align 8
+  %1606 = load i32, ptr @hf_slsk_chat_message, align 4
+  %1607 = load ptr, ptr %5, align 8
+  %1608 = load i32, ptr %17, align 4
+  %1609 = call ptr @proto_tree_add_item_ret_length(ptr noundef %1605, i32 noundef %1606, ptr noundef %1607, i32 noundef %1608, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %1610 = load i32, ptr %23, align 4
+  %1611 = load i32, ptr %17, align 4
+  %1612 = add i32 %1611, %1610
+  store i32 %1612, ptr %17, align 4
+  br label %1659
 
-1608:                                             ; preds = %1577
-  %1609 = load ptr, ptr %5, align 8
-  %1610 = load i32, ptr %17, align 4
-  %1611 = call i32 @check_slsk_format(ptr noundef %1609, i32 noundef %1610, ptr noundef @.str.245)
-  %1612 = icmp ne i32 %1611, 0
-  br i1 %1612, label %1613, label %1653
+1613:                                             ; preds = %1582
+  %1614 = load ptr, ptr %5, align 8
+  %1615 = load ptr, ptr %6, align 8
+  %1616 = load i32, ptr %17, align 4
+  %1617 = call zeroext i1 @check_slsk_format(ptr noundef %1614, ptr noundef %1615, i32 noundef %1616, ptr noundef @.str.249)
+  br i1 %1617, label %1618, label %1658
 
-1613:                                             ; preds = %1608
-  %1614 = load ptr, ptr %13, align 8
-  %1615 = load i32, ptr @hf_slsk_message_code, align 4
-  %1616 = load ptr, ptr %5, align 8
-  %1617 = load i32, ptr %17, align 4
-  %1618 = load i32, ptr %21, align 4
-  %1619 = load i32, ptr %21, align 4
-  %1620 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1614, i32 noundef %1615, ptr noundef %1616, i32 noundef %1617, i32 noundef 4, i32 noundef %1618, ptr noundef @.str.246, i32 noundef %1619)
-  %1621 = load i32, ptr %17, align 4
-  %1622 = add i32 %1621, 4
-  store i32 %1622, ptr %17, align 4
-  %1623 = load ptr, ptr %13, align 8
-  %1624 = load i32, ptr @hf_slsk_chat_message_id, align 4
-  %1625 = load ptr, ptr %5, align 8
+1618:                                             ; preds = %1613
+  %1619 = load ptr, ptr %13, align 8
+  %1620 = load i32, ptr @hf_slsk_message_code, align 4
+  %1621 = load ptr, ptr %5, align 8
+  %1622 = load i32, ptr %17, align 4
+  %1623 = load i32, ptr %21, align 4
+  %1624 = load i32, ptr %21, align 4
+  %1625 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1619, i32 noundef %1620, ptr noundef %1621, i32 noundef %1622, i32 noundef 4, i32 noundef %1623, ptr noundef @.str.250, i32 noundef %1624)
   %1626 = load i32, ptr %17, align 4
-  %1627 = call ptr @proto_tree_add_item(ptr noundef %1623, i32 noundef %1624, ptr noundef %1625, i32 noundef %1626, i32 noundef 4, i32 noundef -2147483648)
-  %1628 = load i32, ptr %17, align 4
-  %1629 = add i32 %1628, 4
-  store i32 %1629, ptr %17, align 4
-  %1630 = load ptr, ptr %13, align 8
-  %1631 = load i32, ptr @hf_slsk_timestamp, align 4
-  %1632 = load ptr, ptr %5, align 8
+  %1627 = add i32 %1626, 4
+  store i32 %1627, ptr %17, align 4
+  %1628 = load ptr, ptr %13, align 8
+  %1629 = load i32, ptr @hf_slsk_chat_message_id, align 4
+  %1630 = load ptr, ptr %5, align 8
+  %1631 = load i32, ptr %17, align 4
+  %1632 = call ptr @proto_tree_add_item(ptr noundef %1628, i32 noundef %1629, ptr noundef %1630, i32 noundef %1631, i32 noundef 4, i32 noundef -2147483648)
   %1633 = load i32, ptr %17, align 4
-  %1634 = call ptr @proto_tree_add_item(ptr noundef %1630, i32 noundef %1631, ptr noundef %1632, i32 noundef %1633, i32 noundef 4, i32 noundef -2147483648)
-  %1635 = load i32, ptr %17, align 4
-  %1636 = add i32 %1635, 4
-  store i32 %1636, ptr %17, align 4
-  %1637 = load ptr, ptr %13, align 8
-  %1638 = load i32, ptr @hf_slsk_username, align 4
-  %1639 = load ptr, ptr %5, align 8
+  %1634 = add i32 %1633, 4
+  store i32 %1634, ptr %17, align 4
+  %1635 = load ptr, ptr %13, align 8
+  %1636 = load i32, ptr @hf_slsk_timestamp, align 4
+  %1637 = load ptr, ptr %5, align 8
+  %1638 = load i32, ptr %17, align 4
+  %1639 = call ptr @proto_tree_add_item(ptr noundef %1635, i32 noundef %1636, ptr noundef %1637, i32 noundef %1638, i32 noundef 4, i32 noundef -2147483648)
   %1640 = load i32, ptr %17, align 4
-  %1641 = call ptr @proto_tree_add_item_ret_length(ptr noundef %1637, i32 noundef %1638, ptr noundef %1639, i32 noundef %1640, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %1642 = load i32, ptr %23, align 4
-  %1643 = load i32, ptr %17, align 4
-  %1644 = add i32 %1643, %1642
-  store i32 %1644, ptr %17, align 4
-  %1645 = load ptr, ptr %13, align 8
-  %1646 = load i32, ptr @hf_slsk_chat_message, align 4
-  %1647 = load ptr, ptr %5, align 8
+  %1641 = add i32 %1640, 4
+  store i32 %1641, ptr %17, align 4
+  %1642 = load ptr, ptr %13, align 8
+  %1643 = load i32, ptr @hf_slsk_username, align 4
+  %1644 = load ptr, ptr %5, align 8
+  %1645 = load i32, ptr %17, align 4
+  %1646 = call ptr @proto_tree_add_item_ret_length(ptr noundef %1642, i32 noundef %1643, ptr noundef %1644, i32 noundef %1645, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %1647 = load i32, ptr %23, align 4
   %1648 = load i32, ptr %17, align 4
-  %1649 = call ptr @proto_tree_add_item_ret_length(ptr noundef %1645, i32 noundef %1646, ptr noundef %1647, i32 noundef %1648, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %1650 = load i32, ptr %23, align 4
-  %1651 = load i32, ptr %17, align 4
-  %1652 = add i32 %1651, %1650
-  store i32 %1652, ptr %17, align 4
-  br label %1653
+  %1649 = add i32 %1648, %1647
+  store i32 %1649, ptr %17, align 4
+  %1650 = load ptr, ptr %13, align 8
+  %1651 = load i32, ptr @hf_slsk_chat_message, align 4
+  %1652 = load ptr, ptr %5, align 8
+  %1653 = load i32, ptr %17, align 4
+  %1654 = call ptr @proto_tree_add_item_ret_length(ptr noundef %1650, i32 noundef %1651, ptr noundef %1652, i32 noundef %1653, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %1655 = load i32, ptr %23, align 4
+  %1656 = load i32, ptr %17, align 4
+  %1657 = add i32 %1656, %1655
+  store i32 %1657, ptr %17, align 4
+  br label %1658
 
-1653:                                             ; preds = %1613, %1608
-  br label %1654
+1658:                                             ; preds = %1618, %1613
+  br label %1659
 
-1654:                                             ; preds = %1653, %1582
-  br label %4619
+1659:                                             ; preds = %1658, %1587
+  br label %4626
 
-1655:                                             ; preds = %4
-  %1656 = load ptr, ptr %5, align 8
-  %1657 = load i32, ptr %17, align 4
-  %1658 = call i32 @check_slsk_format(ptr noundef %1656, i32 noundef %1657, ptr noundef @.str.198)
-  %1659 = icmp ne i32 %1658, 0
-  br i1 %1659, label %1660, label %1677
+1660:                                             ; preds = %4
+  %1661 = load ptr, ptr %5, align 8
+  %1662 = load ptr, ptr %6, align 8
+  %1663 = load i32, ptr %17, align 4
+  %1664 = call zeroext i1 @check_slsk_format(ptr noundef %1661, ptr noundef %1662, i32 noundef %1663, ptr noundef @.str.202)
+  br i1 %1664, label %1665, label %1682
 
-1660:                                             ; preds = %1655
-  %1661 = load ptr, ptr %13, align 8
-  %1662 = load i32, ptr @hf_slsk_message_code, align 4
-  %1663 = load ptr, ptr %5, align 8
-  %1664 = load i32, ptr %17, align 4
-  %1665 = load i32, ptr %21, align 4
-  %1666 = load i32, ptr %21, align 4
-  %1667 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1661, i32 noundef %1662, ptr noundef %1663, i32 noundef %1664, i32 noundef 4, i32 noundef %1665, ptr noundef @.str.247, i32 noundef %1666)
-  %1668 = load i32, ptr %17, align 4
-  %1669 = add i32 %1668, 4
-  store i32 %1669, ptr %17, align 4
-  %1670 = load ptr, ptr %13, align 8
-  %1671 = load i32, ptr @hf_slsk_chat_message_id, align 4
-  %1672 = load ptr, ptr %5, align 8
+1665:                                             ; preds = %1660
+  %1666 = load ptr, ptr %13, align 8
+  %1667 = load i32, ptr @hf_slsk_message_code, align 4
+  %1668 = load ptr, ptr %5, align 8
+  %1669 = load i32, ptr %17, align 4
+  %1670 = load i32, ptr %21, align 4
+  %1671 = load i32, ptr %21, align 4
+  %1672 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1666, i32 noundef %1667, ptr noundef %1668, i32 noundef %1669, i32 noundef 4, i32 noundef %1670, ptr noundef @.str.251, i32 noundef %1671)
   %1673 = load i32, ptr %17, align 4
-  %1674 = call ptr @proto_tree_add_item(ptr noundef %1670, i32 noundef %1671, ptr noundef %1672, i32 noundef %1673, i32 noundef 4, i32 noundef -2147483648)
-  %1675 = load i32, ptr %17, align 4
-  %1676 = add i32 %1675, 4
-  store i32 %1676, ptr %17, align 4
-  br label %1677
-
-1677:                                             ; preds = %1660, %1655
-  br label %4619
-
-1678:                                             ; preds = %4
-  %1679 = load ptr, ptr %5, align 8
+  %1674 = add i32 %1673, 4
+  store i32 %1674, ptr %17, align 4
+  %1675 = load ptr, ptr %13, align 8
+  %1676 = load i32, ptr @hf_slsk_chat_message_id, align 4
+  %1677 = load ptr, ptr %5, align 8
+  %1678 = load i32, ptr %17, align 4
+  %1679 = call ptr @proto_tree_add_item(ptr noundef %1675, i32 noundef %1676, ptr noundef %1677, i32 noundef %1678, i32 noundef 4, i32 noundef -2147483648)
   %1680 = load i32, ptr %17, align 4
-  %1681 = call i32 @check_slsk_format(ptr noundef %1679, i32 noundef %1680, ptr noundef @.str.248)
-  %1682 = icmp ne i32 %1681, 0
-  br i1 %1682, label %1683, label %1708
+  %1681 = add i32 %1680, 4
+  store i32 %1681, ptr %17, align 4
+  br label %1682
 
-1683:                                             ; preds = %1678
-  %1684 = load ptr, ptr %13, align 8
-  %1685 = load i32, ptr @hf_slsk_message_code, align 4
-  %1686 = load ptr, ptr %5, align 8
-  %1687 = load i32, ptr %17, align 4
-  %1688 = load i32, ptr %21, align 4
-  %1689 = load i32, ptr %21, align 4
-  %1690 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1684, i32 noundef %1685, ptr noundef %1686, i32 noundef %1687, i32 noundef 4, i32 noundef %1688, ptr noundef @.str.249, i32 noundef %1689)
-  %1691 = load i32, ptr %17, align 4
-  %1692 = add i32 %1691, 4
-  store i32 %1692, ptr %17, align 4
-  %1693 = load ptr, ptr %13, align 8
-  %1694 = load i32, ptr @hf_slsk_token, align 4
-  %1695 = load ptr, ptr %5, align 8
+1682:                                             ; preds = %1665, %1660
+  br label %4626
+
+1683:                                             ; preds = %4
+  %1684 = load ptr, ptr %5, align 8
+  %1685 = load ptr, ptr %6, align 8
+  %1686 = load i32, ptr %17, align 4
+  %1687 = call zeroext i1 @check_slsk_format(ptr noundef %1684, ptr noundef %1685, i32 noundef %1686, ptr noundef @.str.252)
+  br i1 %1687, label %1688, label %1713
+
+1688:                                             ; preds = %1683
+  %1689 = load ptr, ptr %13, align 8
+  %1690 = load i32, ptr @hf_slsk_message_code, align 4
+  %1691 = load ptr, ptr %5, align 8
+  %1692 = load i32, ptr %17, align 4
+  %1693 = load i32, ptr %21, align 4
+  %1694 = load i32, ptr %21, align 4
+  %1695 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1689, i32 noundef %1690, ptr noundef %1691, i32 noundef %1692, i32 noundef 4, i32 noundef %1693, ptr noundef @.str.253, i32 noundef %1694)
   %1696 = load i32, ptr %17, align 4
-  %1697 = call ptr @proto_tree_add_item(ptr noundef %1693, i32 noundef %1694, ptr noundef %1695, i32 noundef %1696, i32 noundef 4, i32 noundef -2147483648)
-  %1698 = load i32, ptr %17, align 4
-  %1699 = add i32 %1698, 4
-  store i32 %1699, ptr %17, align 4
-  %1700 = load ptr, ptr %13, align 8
-  %1701 = load i32, ptr @hf_slsk_search_text, align 4
-  %1702 = load ptr, ptr %5, align 8
+  %1697 = add i32 %1696, 4
+  store i32 %1697, ptr %17, align 4
+  %1698 = load ptr, ptr %13, align 8
+  %1699 = load i32, ptr @hf_slsk_token, align 4
+  %1700 = load ptr, ptr %5, align 8
+  %1701 = load i32, ptr %17, align 4
+  %1702 = call ptr @proto_tree_add_item(ptr noundef %1698, i32 noundef %1699, ptr noundef %1700, i32 noundef %1701, i32 noundef 4, i32 noundef -2147483648)
   %1703 = load i32, ptr %17, align 4
-  %1704 = call ptr @proto_tree_add_item_ret_length(ptr noundef %1700, i32 noundef %1701, ptr noundef %1702, i32 noundef %1703, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %1705 = load i32, ptr %23, align 4
-  %1706 = load i32, ptr %17, align 4
-  %1707 = add i32 %1706, %1705
-  store i32 %1707, ptr %17, align 4
-  br label %1708
-
-1708:                                             ; preds = %1683, %1678
-  br label %4619
-
-1709:                                             ; preds = %4
-  %1710 = load ptr, ptr %5, align 8
+  %1704 = add i32 %1703, 4
+  store i32 %1704, ptr %17, align 4
+  %1705 = load ptr, ptr %13, align 8
+  %1706 = load i32, ptr @hf_slsk_search_text, align 4
+  %1707 = load ptr, ptr %5, align 8
+  %1708 = load i32, ptr %17, align 4
+  %1709 = call ptr @proto_tree_add_item_ret_length(ptr noundef %1705, i32 noundef %1706, ptr noundef %1707, i32 noundef %1708, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %1710 = load i32, ptr %23, align 4
   %1711 = load i32, ptr %17, align 4
-  %1712 = call i32 @check_slsk_format(ptr noundef %1710, i32 noundef %1711, ptr noundef @.str.198)
-  %1713 = icmp ne i32 %1712, 0
-  br i1 %1713, label %1714, label %1731
+  %1712 = add i32 %1711, %1710
+  store i32 %1712, ptr %17, align 4
+  br label %1713
 
-1714:                                             ; preds = %1709
-  %1715 = load ptr, ptr %13, align 8
-  %1716 = load i32, ptr @hf_slsk_message_code, align 4
-  %1717 = load ptr, ptr %5, align 8
-  %1718 = load i32, ptr %17, align 4
-  %1719 = load i32, ptr %21, align 4
-  %1720 = load i32, ptr %21, align 4
-  %1721 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1715, i32 noundef %1716, ptr noundef %1717, i32 noundef %1718, i32 noundef 4, i32 noundef %1719, ptr noundef @.str.250, i32 noundef %1720)
-  %1722 = load i32, ptr %17, align 4
-  %1723 = add i32 %1722, 4
-  store i32 %1723, ptr %17, align 4
-  %1724 = load ptr, ptr %13, align 8
-  %1725 = load i32, ptr @hf_slsk_status_code, align 4
-  %1726 = load ptr, ptr %5, align 8
+1713:                                             ; preds = %1688, %1683
+  br label %4626
+
+1714:                                             ; preds = %4
+  %1715 = load ptr, ptr %5, align 8
+  %1716 = load ptr, ptr %6, align 8
+  %1717 = load i32, ptr %17, align 4
+  %1718 = call zeroext i1 @check_slsk_format(ptr noundef %1715, ptr noundef %1716, i32 noundef %1717, ptr noundef @.str.202)
+  br i1 %1718, label %1719, label %1736
+
+1719:                                             ; preds = %1714
+  %1720 = load ptr, ptr %13, align 8
+  %1721 = load i32, ptr @hf_slsk_message_code, align 4
+  %1722 = load ptr, ptr %5, align 8
+  %1723 = load i32, ptr %17, align 4
+  %1724 = load i32, ptr %21, align 4
+  %1725 = load i32, ptr %21, align 4
+  %1726 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1720, i32 noundef %1721, ptr noundef %1722, i32 noundef %1723, i32 noundef 4, i32 noundef %1724, ptr noundef @.str.254, i32 noundef %1725)
   %1727 = load i32, ptr %17, align 4
-  %1728 = call ptr @proto_tree_add_item(ptr noundef %1724, i32 noundef %1725, ptr noundef %1726, i32 noundef %1727, i32 noundef 4, i32 noundef -2147483648)
-  %1729 = load i32, ptr %17, align 4
-  %1730 = add i32 %1729, 4
-  store i32 %1730, ptr %17, align 4
-  br label %1731
-
-1731:                                             ; preds = %1714, %1709
-  br label %4619
-
-1732:                                             ; preds = %4
-  %1733 = load ptr, ptr %5, align 8
+  %1728 = add i32 %1727, 4
+  store i32 %1728, ptr %17, align 4
+  %1729 = load ptr, ptr %13, align 8
+  %1730 = load i32, ptr @hf_slsk_status_code, align 4
+  %1731 = load ptr, ptr %5, align 8
+  %1732 = load i32, ptr %17, align 4
+  %1733 = call ptr @proto_tree_add_item(ptr noundef %1729, i32 noundef %1730, ptr noundef %1731, i32 noundef %1732, i32 noundef 4, i32 noundef -2147483648)
   %1734 = load i32, ptr %17, align 4
-  %1735 = call i32 @check_slsk_format(ptr noundef %1733, i32 noundef %1734, ptr noundef @.str.204)
-  %1736 = icmp ne i32 %1735, 0
-  br i1 %1736, label %1737, label %1747
+  %1735 = add i32 %1734, 4
+  store i32 %1735, ptr %17, align 4
+  br label %1736
 
-1737:                                             ; preds = %1732
-  %1738 = load ptr, ptr %13, align 8
-  %1739 = load i32, ptr @hf_slsk_message_code, align 4
-  %1740 = load ptr, ptr %5, align 8
-  %1741 = load i32, ptr %17, align 4
-  %1742 = load i32, ptr %21, align 4
-  %1743 = load i32, ptr %21, align 4
-  %1744 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1738, i32 noundef %1739, ptr noundef %1740, i32 noundef %1741, i32 noundef 4, i32 noundef %1742, ptr noundef @.str.251, i32 noundef %1743)
-  %1745 = load i32, ptr %17, align 4
-  %1746 = add i32 %1745, 4
-  store i32 %1746, ptr %17, align 4
-  br label %1747
+1736:                                             ; preds = %1719, %1714
+  br label %4626
 
-1747:                                             ; preds = %1737, %1732
-  br label %4619
+1737:                                             ; preds = %4
+  %1738 = load ptr, ptr %5, align 8
+  %1739 = load ptr, ptr %6, align 8
+  %1740 = load i32, ptr %17, align 4
+  %1741 = call zeroext i1 @check_slsk_format(ptr noundef %1738, ptr noundef %1739, i32 noundef %1740, ptr noundef @.str.208)
+  br i1 %1741, label %1742, label %1752
 
-1748:                                             ; preds = %4
-  %1749 = load ptr, ptr %5, align 8
+1742:                                             ; preds = %1737
+  %1743 = load ptr, ptr %13, align 8
+  %1744 = load i32, ptr @hf_slsk_message_code, align 4
+  %1745 = load ptr, ptr %5, align 8
+  %1746 = load i32, ptr %17, align 4
+  %1747 = load i32, ptr %21, align 4
+  %1748 = load i32, ptr %21, align 4
+  %1749 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1743, i32 noundef %1744, ptr noundef %1745, i32 noundef %1746, i32 noundef 4, i32 noundef %1747, ptr noundef @.str.255, i32 noundef %1748)
   %1750 = load i32, ptr %17, align 4
-  %1751 = call i32 @check_slsk_format(ptr noundef %1749, i32 noundef %1750, ptr noundef @.str.218)
-  %1752 = icmp ne i32 %1751, 0
-  br i1 %1752, label %1753, label %1778
+  %1751 = add i32 %1750, 4
+  store i32 %1751, ptr %17, align 4
+  br label %1752
 
-1753:                                             ; preds = %1748
-  %1754 = load ptr, ptr %13, align 8
-  %1755 = load i32, ptr @hf_slsk_message_code, align 4
-  %1756 = load ptr, ptr %5, align 8
-  %1757 = load i32, ptr %17, align 4
-  %1758 = load i32, ptr %21, align 4
-  %1759 = load i32, ptr %21, align 4
-  %1760 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1754, i32 noundef %1755, ptr noundef %1756, i32 noundef %1757, i32 noundef 4, i32 noundef %1758, ptr noundef @.str.252, i32 noundef %1759)
-  %1761 = load i32, ptr %17, align 4
-  %1762 = add i32 %1761, 4
-  store i32 %1762, ptr %17, align 4
-  %1763 = load ptr, ptr %13, align 8
-  %1764 = load i32, ptr @hf_slsk_username, align 4
-  %1765 = load ptr, ptr %5, align 8
+1752:                                             ; preds = %1742, %1737
+  br label %4626
+
+1753:                                             ; preds = %4
+  %1754 = load ptr, ptr %5, align 8
+  %1755 = load ptr, ptr %6, align 8
+  %1756 = load i32, ptr %17, align 4
+  %1757 = call zeroext i1 @check_slsk_format(ptr noundef %1754, ptr noundef %1755, i32 noundef %1756, ptr noundef @.str.222)
+  br i1 %1757, label %1758, label %1783
+
+1758:                                             ; preds = %1753
+  %1759 = load ptr, ptr %13, align 8
+  %1760 = load i32, ptr @hf_slsk_message_code, align 4
+  %1761 = load ptr, ptr %5, align 8
+  %1762 = load i32, ptr %17, align 4
+  %1763 = load i32, ptr %21, align 4
+  %1764 = load i32, ptr %21, align 4
+  %1765 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1759, i32 noundef %1760, ptr noundef %1761, i32 noundef %1762, i32 noundef 4, i32 noundef %1763, ptr noundef @.str.256, i32 noundef %1764)
   %1766 = load i32, ptr %17, align 4
-  %1767 = call ptr @proto_tree_add_item_ret_length(ptr noundef %1763, i32 noundef %1764, ptr noundef %1765, i32 noundef %1766, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %1768 = load i32, ptr %23, align 4
-  %1769 = load i32, ptr %17, align 4
-  %1770 = add i32 %1769, %1768
-  store i32 %1770, ptr %17, align 4
-  %1771 = load ptr, ptr %13, align 8
-  %1772 = load i32, ptr @hf_slsk_average_speed, align 4
-  %1773 = load ptr, ptr %5, align 8
+  %1767 = add i32 %1766, 4
+  store i32 %1767, ptr %17, align 4
+  %1768 = load ptr, ptr %13, align 8
+  %1769 = load i32, ptr @hf_slsk_username, align 4
+  %1770 = load ptr, ptr %5, align 8
+  %1771 = load i32, ptr %17, align 4
+  %1772 = call ptr @proto_tree_add_item_ret_length(ptr noundef %1768, i32 noundef %1769, ptr noundef %1770, i32 noundef %1771, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %1773 = load i32, ptr %23, align 4
   %1774 = load i32, ptr %17, align 4
-  %1775 = call ptr @proto_tree_add_item(ptr noundef %1771, i32 noundef %1772, ptr noundef %1773, i32 noundef %1774, i32 noundef 4, i32 noundef -2147483648)
-  %1776 = load i32, ptr %17, align 4
-  %1777 = add i32 %1776, 4
-  store i32 %1777, ptr %17, align 4
-  br label %1778
-
-1778:                                             ; preds = %1753, %1748
-  br label %4619
-
-1779:                                             ; preds = %4
-  %1780 = load ptr, ptr %5, align 8
+  %1775 = add i32 %1774, %1773
+  store i32 %1775, ptr %17, align 4
+  %1776 = load ptr, ptr %13, align 8
+  %1777 = load i32, ptr @hf_slsk_average_speed, align 4
+  %1778 = load ptr, ptr %5, align 8
+  %1779 = load i32, ptr %17, align 4
+  %1780 = call ptr @proto_tree_add_item(ptr noundef %1776, i32 noundef %1777, ptr noundef %1778, i32 noundef %1779, i32 noundef 4, i32 noundef -2147483648)
   %1781 = load i32, ptr %17, align 4
-  %1782 = call i32 @check_slsk_format(ptr noundef %1780, i32 noundef %1781, ptr noundef @.str.253)
-  %1783 = icmp ne i32 %1782, 0
-  br i1 %1783, label %1784, label %1808
+  %1782 = add i32 %1781, 4
+  store i32 %1782, ptr %17, align 4
+  br label %1783
 
-1784:                                             ; preds = %1779
-  %1785 = load ptr, ptr %13, align 8
-  %1786 = load i32, ptr @hf_slsk_message_code, align 4
-  %1787 = load ptr, ptr %5, align 8
-  %1788 = load i32, ptr %17, align 4
-  %1789 = load i32, ptr %21, align 4
-  %1790 = load i32, ptr %21, align 4
-  %1791 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1785, i32 noundef %1786, ptr noundef %1787, i32 noundef %1788, i32 noundef 4, i32 noundef %1789, ptr noundef @.str.254, i32 noundef %1790)
-  %1792 = load i32, ptr %17, align 4
-  %1793 = add i32 %1792, 4
-  store i32 %1793, ptr %17, align 4
-  %1794 = load ptr, ptr %13, align 8
-  %1795 = load i32, ptr @hf_slsk_folder_count, align 4
-  %1796 = load ptr, ptr %5, align 8
+1783:                                             ; preds = %1758, %1753
+  br label %4626
+
+1784:                                             ; preds = %4
+  %1785 = load ptr, ptr %5, align 8
+  %1786 = load ptr, ptr %6, align 8
+  %1787 = load i32, ptr %17, align 4
+  %1788 = call zeroext i1 @check_slsk_format(ptr noundef %1785, ptr noundef %1786, i32 noundef %1787, ptr noundef @.str.257)
+  br i1 %1788, label %1789, label %1813
+
+1789:                                             ; preds = %1784
+  %1790 = load ptr, ptr %13, align 8
+  %1791 = load i32, ptr @hf_slsk_message_code, align 4
+  %1792 = load ptr, ptr %5, align 8
+  %1793 = load i32, ptr %17, align 4
+  %1794 = load i32, ptr %21, align 4
+  %1795 = load i32, ptr %21, align 4
+  %1796 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1790, i32 noundef %1791, ptr noundef %1792, i32 noundef %1793, i32 noundef 4, i32 noundef %1794, ptr noundef @.str.258, i32 noundef %1795)
   %1797 = load i32, ptr %17, align 4
-  %1798 = call ptr @proto_tree_add_item(ptr noundef %1794, i32 noundef %1795, ptr noundef %1796, i32 noundef %1797, i32 noundef 4, i32 noundef -2147483648)
-  %1799 = load i32, ptr %17, align 4
-  %1800 = add i32 %1799, 4
-  store i32 %1800, ptr %17, align 4
-  %1801 = load ptr, ptr %13, align 8
-  %1802 = load i32, ptr @hf_slsk_file_count, align 4
-  %1803 = load ptr, ptr %5, align 8
+  %1798 = add i32 %1797, 4
+  store i32 %1798, ptr %17, align 4
+  %1799 = load ptr, ptr %13, align 8
+  %1800 = load i32, ptr @hf_slsk_folder_count, align 4
+  %1801 = load ptr, ptr %5, align 8
+  %1802 = load i32, ptr %17, align 4
+  %1803 = call ptr @proto_tree_add_item(ptr noundef %1799, i32 noundef %1800, ptr noundef %1801, i32 noundef %1802, i32 noundef 4, i32 noundef -2147483648)
   %1804 = load i32, ptr %17, align 4
-  %1805 = call ptr @proto_tree_add_item(ptr noundef %1801, i32 noundef %1802, ptr noundef %1803, i32 noundef %1804, i32 noundef 4, i32 noundef -2147483648)
-  %1806 = load i32, ptr %17, align 4
-  %1807 = add i32 %1806, 4
-  store i32 %1807, ptr %17, align 4
-  br label %1808
-
-1808:                                             ; preds = %1784, %1779
-  br label %4619
-
-1809:                                             ; preds = %4
-  %1810 = load ptr, ptr %5, align 8
+  %1805 = add i32 %1804, 4
+  store i32 %1805, ptr %17, align 4
+  %1806 = load ptr, ptr %13, align 8
+  %1807 = load i32, ptr @hf_slsk_file_count, align 4
+  %1808 = load ptr, ptr %5, align 8
+  %1809 = load i32, ptr %17, align 4
+  %1810 = call ptr @proto_tree_add_item(ptr noundef %1806, i32 noundef %1807, ptr noundef %1808, i32 noundef %1809, i32 noundef 4, i32 noundef -2147483648)
   %1811 = load i32, ptr %17, align 4
-  %1812 = call i32 @check_slsk_format(ptr noundef %1810, i32 noundef %1811, ptr noundef @.str.255)
-  %1813 = icmp ne i32 %1812, 0
-  br i1 %1813, label %1814, label %1867
+  %1812 = add i32 %1811, 4
+  store i32 %1812, ptr %17, align 4
+  br label %1813
 
-1814:                                             ; preds = %1809
-  %1815 = load ptr, ptr %13, align 8
-  %1816 = load i32, ptr @hf_slsk_message_code, align 4
-  %1817 = load ptr, ptr %5, align 8
-  %1818 = load i32, ptr %17, align 4
-  %1819 = load i32, ptr %21, align 4
-  %1820 = load i32, ptr %21, align 4
-  %1821 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1815, i32 noundef %1816, ptr noundef %1817, i32 noundef %1818, i32 noundef 4, i32 noundef %1819, ptr noundef @.str.256, i32 noundef %1820)
-  %1822 = load i32, ptr %17, align 4
-  %1823 = add i32 %1822, 4
-  store i32 %1823, ptr %17, align 4
-  %1824 = load ptr, ptr %13, align 8
-  %1825 = load i32, ptr @hf_slsk_username, align 4
-  %1826 = load ptr, ptr %5, align 8
+1813:                                             ; preds = %1789, %1784
+  br label %4626
+
+1814:                                             ; preds = %4
+  %1815 = load ptr, ptr %5, align 8
+  %1816 = load ptr, ptr %6, align 8
+  %1817 = load i32, ptr %17, align 4
+  %1818 = call zeroext i1 @check_slsk_format(ptr noundef %1815, ptr noundef %1816, i32 noundef %1817, ptr noundef @.str.259)
+  br i1 %1818, label %1819, label %1872
+
+1819:                                             ; preds = %1814
+  %1820 = load ptr, ptr %13, align 8
+  %1821 = load i32, ptr @hf_slsk_message_code, align 4
+  %1822 = load ptr, ptr %5, align 8
+  %1823 = load i32, ptr %17, align 4
+  %1824 = load i32, ptr %21, align 4
+  %1825 = load i32, ptr %21, align 4
+  %1826 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1820, i32 noundef %1821, ptr noundef %1822, i32 noundef %1823, i32 noundef 4, i32 noundef %1824, ptr noundef @.str.260, i32 noundef %1825)
   %1827 = load i32, ptr %17, align 4
-  %1828 = call ptr @proto_tree_add_item_ret_length(ptr noundef %1824, i32 noundef %1825, ptr noundef %1826, i32 noundef %1827, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %1829 = load i32, ptr %23, align 4
-  %1830 = load i32, ptr %17, align 4
-  %1831 = add i32 %1830, %1829
-  store i32 %1831, ptr %17, align 4
-  %1832 = load ptr, ptr %13, align 8
-  %1833 = load i32, ptr @hf_slsk_average_speed, align 4
-  %1834 = load ptr, ptr %5, align 8
+  %1828 = add i32 %1827, 4
+  store i32 %1828, ptr %17, align 4
+  %1829 = load ptr, ptr %13, align 8
+  %1830 = load i32, ptr @hf_slsk_username, align 4
+  %1831 = load ptr, ptr %5, align 8
+  %1832 = load i32, ptr %17, align 4
+  %1833 = call ptr @proto_tree_add_item_ret_length(ptr noundef %1829, i32 noundef %1830, ptr noundef %1831, i32 noundef %1832, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %1834 = load i32, ptr %23, align 4
   %1835 = load i32, ptr %17, align 4
-  %1836 = call ptr @proto_tree_add_item(ptr noundef %1832, i32 noundef %1833, ptr noundef %1834, i32 noundef %1835, i32 noundef 4, i32 noundef -2147483648)
-  %1837 = load i32, ptr %17, align 4
-  %1838 = add i32 %1837, 4
-  store i32 %1838, ptr %17, align 4
-  %1839 = load ptr, ptr %13, align 8
-  %1840 = load i32, ptr @hf_slsk_download_number, align 4
-  %1841 = load ptr, ptr %5, align 8
+  %1836 = add i32 %1835, %1834
+  store i32 %1836, ptr %17, align 4
+  %1837 = load ptr, ptr %13, align 8
+  %1838 = load i32, ptr @hf_slsk_average_speed, align 4
+  %1839 = load ptr, ptr %5, align 8
+  %1840 = load i32, ptr %17, align 4
+  %1841 = call ptr @proto_tree_add_item(ptr noundef %1837, i32 noundef %1838, ptr noundef %1839, i32 noundef %1840, i32 noundef 4, i32 noundef -2147483648)
   %1842 = load i32, ptr %17, align 4
-  %1843 = call ptr @proto_tree_add_item(ptr noundef %1839, i32 noundef %1840, ptr noundef %1841, i32 noundef %1842, i32 noundef 4, i32 noundef -2147483648)
-  %1844 = load i32, ptr %17, align 4
-  %1845 = add i32 %1844, 4
-  store i32 %1845, ptr %17, align 4
-  %1846 = load ptr, ptr %13, align 8
-  %1847 = load i32, ptr @hf_slsk_integer, align 4
-  %1848 = load ptr, ptr %5, align 8
+  %1843 = add i32 %1842, 4
+  store i32 %1843, ptr %17, align 4
+  %1844 = load ptr, ptr %13, align 8
+  %1845 = load i32, ptr @hf_slsk_download_number, align 4
+  %1846 = load ptr, ptr %5, align 8
+  %1847 = load i32, ptr %17, align 4
+  %1848 = call ptr @proto_tree_add_item(ptr noundef %1844, i32 noundef %1845, ptr noundef %1846, i32 noundef %1847, i32 noundef 4, i32 noundef -2147483648)
   %1849 = load i32, ptr %17, align 4
-  %1850 = call ptr @proto_tree_add_item(ptr noundef %1846, i32 noundef %1847, ptr noundef %1848, i32 noundef %1849, i32 noundef 4, i32 noundef -2147483648)
-  %1851 = load i32, ptr %17, align 4
-  %1852 = add i32 %1851, 4
-  store i32 %1852, ptr %17, align 4
-  %1853 = load ptr, ptr %13, align 8
-  %1854 = load i32, ptr @hf_slsk_files, align 4
-  %1855 = load ptr, ptr %5, align 8
+  %1850 = add i32 %1849, 4
+  store i32 %1850, ptr %17, align 4
+  %1851 = load ptr, ptr %13, align 8
+  %1852 = load i32, ptr @hf_slsk_integer, align 4
+  %1853 = load ptr, ptr %5, align 8
+  %1854 = load i32, ptr %17, align 4
+  %1855 = call ptr @proto_tree_add_item(ptr noundef %1851, i32 noundef %1852, ptr noundef %1853, i32 noundef %1854, i32 noundef 4, i32 noundef -2147483648)
   %1856 = load i32, ptr %17, align 4
-  %1857 = call ptr @proto_tree_add_item(ptr noundef %1853, i32 noundef %1854, ptr noundef %1855, i32 noundef %1856, i32 noundef 4, i32 noundef -2147483648)
-  %1858 = load i32, ptr %17, align 4
-  %1859 = add i32 %1858, 4
-  store i32 %1859, ptr %17, align 4
-  %1860 = load ptr, ptr %13, align 8
-  %1861 = load i32, ptr @hf_slsk_directories, align 4
-  %1862 = load ptr, ptr %5, align 8
+  %1857 = add i32 %1856, 4
+  store i32 %1857, ptr %17, align 4
+  %1858 = load ptr, ptr %13, align 8
+  %1859 = load i32, ptr @hf_slsk_files, align 4
+  %1860 = load ptr, ptr %5, align 8
+  %1861 = load i32, ptr %17, align 4
+  %1862 = call ptr @proto_tree_add_item(ptr noundef %1858, i32 noundef %1859, ptr noundef %1860, i32 noundef %1861, i32 noundef 4, i32 noundef -2147483648)
   %1863 = load i32, ptr %17, align 4
-  %1864 = call ptr @proto_tree_add_item(ptr noundef %1860, i32 noundef %1861, ptr noundef %1862, i32 noundef %1863, i32 noundef 4, i32 noundef -2147483648)
-  %1865 = load i32, ptr %17, align 4
-  %1866 = add i32 %1865, 4
-  store i32 %1866, ptr %17, align 4
-  br label %1922
+  %1864 = add i32 %1863, 4
+  store i32 %1864, ptr %17, align 4
+  %1865 = load ptr, ptr %13, align 8
+  %1866 = load i32, ptr @hf_slsk_directories, align 4
+  %1867 = load ptr, ptr %5, align 8
+  %1868 = load i32, ptr %17, align 4
+  %1869 = call ptr @proto_tree_add_item(ptr noundef %1865, i32 noundef %1866, ptr noundef %1867, i32 noundef %1868, i32 noundef 4, i32 noundef -2147483648)
+  %1870 = load i32, ptr %17, align 4
+  %1871 = add i32 %1870, 4
+  store i32 %1871, ptr %17, align 4
+  br label %1927
 
-1867:                                             ; preds = %1809
-  %1868 = load ptr, ptr %5, align 8
-  %1869 = load i32, ptr %17, align 4
-  %1870 = call i32 @check_slsk_format(ptr noundef %1868, i32 noundef %1869, ptr noundef @.str.202)
-  %1871 = icmp ne i32 %1870, 0
-  br i1 %1871, label %1872, label %1890
+1872:                                             ; preds = %1814
+  %1873 = load ptr, ptr %5, align 8
+  %1874 = load ptr, ptr %6, align 8
+  %1875 = load i32, ptr %17, align 4
+  %1876 = call zeroext i1 @check_slsk_format(ptr noundef %1873, ptr noundef %1874, i32 noundef %1875, ptr noundef @.str.206)
+  br i1 %1876, label %1877, label %1895
 
-1872:                                             ; preds = %1867
-  %1873 = load ptr, ptr %13, align 8
-  %1874 = load i32, ptr @hf_slsk_message_code, align 4
-  %1875 = load ptr, ptr %5, align 8
-  %1876 = load i32, ptr %17, align 4
-  %1877 = load i32, ptr %21, align 4
-  %1878 = load i32, ptr %21, align 4
-  %1879 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1873, i32 noundef %1874, ptr noundef %1875, i32 noundef %1876, i32 noundef 4, i32 noundef %1877, ptr noundef @.str.257, i32 noundef %1878)
-  %1880 = load i32, ptr %17, align 4
-  %1881 = add i32 %1880, 4
-  store i32 %1881, ptr %17, align 4
-  %1882 = load ptr, ptr %13, align 8
-  %1883 = load i32, ptr @hf_slsk_username, align 4
-  %1884 = load ptr, ptr %5, align 8
+1877:                                             ; preds = %1872
+  %1878 = load ptr, ptr %13, align 8
+  %1879 = load i32, ptr @hf_slsk_message_code, align 4
+  %1880 = load ptr, ptr %5, align 8
+  %1881 = load i32, ptr %17, align 4
+  %1882 = load i32, ptr %21, align 4
+  %1883 = load i32, ptr %21, align 4
+  %1884 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1878, i32 noundef %1879, ptr noundef %1880, i32 noundef %1881, i32 noundef 4, i32 noundef %1882, ptr noundef @.str.261, i32 noundef %1883)
   %1885 = load i32, ptr %17, align 4
-  %1886 = call ptr @proto_tree_add_item_ret_length(ptr noundef %1882, i32 noundef %1883, ptr noundef %1884, i32 noundef %1885, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %1887 = load i32, ptr %23, align 4
-  %1888 = load i32, ptr %17, align 4
-  %1889 = add i32 %1888, %1887
-  store i32 %1889, ptr %17, align 4
-  br label %1921
+  %1886 = add i32 %1885, 4
+  store i32 %1886, ptr %17, align 4
+  %1887 = load ptr, ptr %13, align 8
+  %1888 = load i32, ptr @hf_slsk_username, align 4
+  %1889 = load ptr, ptr %5, align 8
+  %1890 = load i32, ptr %17, align 4
+  %1891 = call ptr @proto_tree_add_item_ret_length(ptr noundef %1887, i32 noundef %1888, ptr noundef %1889, i32 noundef %1890, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %1892 = load i32, ptr %23, align 4
+  %1893 = load i32, ptr %17, align 4
+  %1894 = add i32 %1893, %1892
+  store i32 %1894, ptr %17, align 4
+  br label %1926
 
-1890:                                             ; preds = %1867
-  %1891 = load ptr, ptr %5, align 8
-  %1892 = load i32, ptr %17, align 4
-  %1893 = call i32 @check_slsk_format(ptr noundef %1891, i32 noundef %1892, ptr noundef @.str.248)
-  %1894 = icmp ne i32 %1893, 0
-  br i1 %1894, label %1895, label %1920
+1895:                                             ; preds = %1872
+  %1896 = load ptr, ptr %5, align 8
+  %1897 = load ptr, ptr %6, align 8
+  %1898 = load i32, ptr %17, align 4
+  %1899 = call zeroext i1 @check_slsk_format(ptr noundef %1896, ptr noundef %1897, i32 noundef %1898, ptr noundef @.str.252)
+  br i1 %1899, label %1900, label %1925
 
-1895:                                             ; preds = %1890
-  %1896 = load ptr, ptr %13, align 8
-  %1897 = load i32, ptr @hf_slsk_message_code, align 4
-  %1898 = load ptr, ptr %5, align 8
-  %1899 = load i32, ptr %17, align 4
-  %1900 = load i32, ptr %21, align 4
-  %1901 = load i32, ptr %21, align 4
-  %1902 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1896, i32 noundef %1897, ptr noundef %1898, i32 noundef %1899, i32 noundef 4, i32 noundef %1900, ptr noundef @.str.258, i32 noundef %1901)
-  %1903 = load i32, ptr %17, align 4
-  %1904 = add i32 %1903, 4
-  store i32 %1904, ptr %17, align 4
-  %1905 = load ptr, ptr %13, align 8
-  %1906 = load i32, ptr @hf_slsk_token, align 4
-  %1907 = load ptr, ptr %5, align 8
+1900:                                             ; preds = %1895
+  %1901 = load ptr, ptr %13, align 8
+  %1902 = load i32, ptr @hf_slsk_message_code, align 4
+  %1903 = load ptr, ptr %5, align 8
+  %1904 = load i32, ptr %17, align 4
+  %1905 = load i32, ptr %21, align 4
+  %1906 = load i32, ptr %21, align 4
+  %1907 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1901, i32 noundef %1902, ptr noundef %1903, i32 noundef %1904, i32 noundef 4, i32 noundef %1905, ptr noundef @.str.262, i32 noundef %1906)
   %1908 = load i32, ptr %17, align 4
-  %1909 = call ptr @proto_tree_add_item(ptr noundef %1905, i32 noundef %1906, ptr noundef %1907, i32 noundef %1908, i32 noundef 4, i32 noundef -2147483648)
-  %1910 = load i32, ptr %17, align 4
-  %1911 = add i32 %1910, 4
-  store i32 %1911, ptr %17, align 4
-  %1912 = load ptr, ptr %13, align 8
-  %1913 = load i32, ptr @hf_slsk_directory, align 4
-  %1914 = load ptr, ptr %5, align 8
+  %1909 = add i32 %1908, 4
+  store i32 %1909, ptr %17, align 4
+  %1910 = load ptr, ptr %13, align 8
+  %1911 = load i32, ptr @hf_slsk_token, align 4
+  %1912 = load ptr, ptr %5, align 8
+  %1913 = load i32, ptr %17, align 4
+  %1914 = call ptr @proto_tree_add_item(ptr noundef %1910, i32 noundef %1911, ptr noundef %1912, i32 noundef %1913, i32 noundef 4, i32 noundef -2147483648)
   %1915 = load i32, ptr %17, align 4
-  %1916 = call ptr @proto_tree_add_item_ret_length(ptr noundef %1912, i32 noundef %1913, ptr noundef %1914, i32 noundef %1915, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %1917 = load i32, ptr %23, align 4
-  %1918 = load i32, ptr %17, align 4
-  %1919 = add i32 %1918, %1917
-  store i32 %1919, ptr %17, align 4
-  br label %1920
+  %1916 = add i32 %1915, 4
+  store i32 %1916, ptr %17, align 4
+  %1917 = load ptr, ptr %13, align 8
+  %1918 = load i32, ptr @hf_slsk_directory, align 4
+  %1919 = load ptr, ptr %5, align 8
+  %1920 = load i32, ptr %17, align 4
+  %1921 = call ptr @proto_tree_add_item_ret_length(ptr noundef %1917, i32 noundef %1918, ptr noundef %1919, i32 noundef %1920, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %1922 = load i32, ptr %23, align 4
+  %1923 = load i32, ptr %17, align 4
+  %1924 = add i32 %1923, %1922
+  store i32 %1924, ptr %17, align 4
+  br label %1925
 
-1920:                                             ; preds = %1895, %1890
-  br label %1921
+1925:                                             ; preds = %1900, %1895
+  br label %1926
 
-1921:                                             ; preds = %1920, %1872
-  br label %1922
+1926:                                             ; preds = %1925, %1877
+  br label %1927
 
-1922:                                             ; preds = %1921, %1814
-  br label %4619
+1927:                                             ; preds = %1926, %1819
+  br label %4626
 
-1923:                                             ; preds = %4
-  %1924 = load ptr, ptr %5, align 8
-  %1925 = load i32, ptr %17, align 4
-  %1926 = call i32 @check_slsk_format(ptr noundef %1924, i32 noundef %1925, ptr noundef @.str.209)
-  %1927 = icmp ne i32 %1926, 0
-  br i1 %1927, label %1928, label %2191
+1928:                                             ; preds = %4
+  %1929 = load ptr, ptr %5, align 8
+  %1930 = load ptr, ptr %6, align 8
+  %1931 = load i32, ptr %17, align 4
+  %1932 = call zeroext i1 @check_slsk_format(ptr noundef %1929, ptr noundef %1930, i32 noundef %1931, ptr noundef @.str.213)
+  br i1 %1932, label %1933, label %2198
 
-1928:                                             ; preds = %1923
-  %1929 = load ptr, ptr %13, align 8
-  %1930 = load i32, ptr @hf_slsk_message_code, align 4
-  %1931 = load ptr, ptr %5, align 8
-  %1932 = load i32, ptr %17, align 4
-  %1933 = load i32, ptr %21, align 4
-  %1934 = load i32, ptr %21, align 4
-  %1935 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1929, i32 noundef %1930, ptr noundef %1931, i32 noundef %1932, i32 noundef 4, i32 noundef %1933, ptr noundef @.str.259, i32 noundef %1934)
-  %1936 = load i32, ptr %17, align 4
-  %1937 = add i32 %1936, 4
-  store i32 %1937, ptr %17, align 4
-  %1938 = load ptr, ptr %5, align 8
-  %1939 = load i32, ptr %17, align 4
-  %1940 = call i32 @tvb_captured_length_remaining(ptr noundef %1938, i32 noundef %1939)
-  store i32 %1940, ptr %26, align 4
-  %1941 = load i32, ptr @slsk_decompress, align 4
-  %1942 = icmp eq i32 %1941, 1
-  br i1 %1942, label %1943, label %2171
+1933:                                             ; preds = %1928
+  %1934 = load ptr, ptr %13, align 8
+  %1935 = load i32, ptr @hf_slsk_message_code, align 4
+  %1936 = load ptr, ptr %5, align 8
+  %1937 = load i32, ptr %17, align 4
+  %1938 = load i32, ptr %21, align 4
+  %1939 = load i32, ptr %21, align 4
+  %1940 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1934, i32 noundef %1935, ptr noundef %1936, i32 noundef %1937, i32 noundef 4, i32 noundef %1938, ptr noundef @.str.263, i32 noundef %1939)
+  %1941 = load i32, ptr %17, align 4
+  %1942 = add i32 %1941, 4
+  store i32 %1942, ptr %17, align 4
+  %1943 = load ptr, ptr %5, align 8
+  %1944 = load i32, ptr %17, align 4
+  %1945 = call i32 @tvb_captured_length_remaining(ptr noundef %1943, i32 noundef %1944)
+  store i32 %1945, ptr %26, align 4
+  %1946 = load i8, ptr @slsk_decompress, align 1, !range !6, !noundef !7
+  %1947 = trunc i8 %1946 to i1
+  %1948 = zext i1 %1947 to i32
+  %1949 = icmp eq i32 %1948, 1
+  br i1 %1949, label %1950, label %2178
 
-1943:                                             ; preds = %1928
-  %1944 = load ptr, ptr %5, align 8
-  %1945 = load ptr, ptr %5, align 8
-  %1946 = load i32, ptr %17, align 4
-  %1947 = load i32, ptr %26, align 4
-  %1948 = call ptr @tvb_child_uncompress(ptr noundef %1944, ptr noundef %1945, i32 noundef %1946, i32 noundef %1947)
-  store ptr %1948, ptr %41, align 8
-  %1949 = load ptr, ptr %41, align 8
-  %1950 = icmp eq ptr %1949, null
-  br i1 %1950, label %1951, label %1962
+1950:                                             ; preds = %1933
+  call void @llvm.lifetime.start.p0(i64 8, ptr %41) #6
+  %1951 = load ptr, ptr %5, align 8
+  %1952 = load ptr, ptr %5, align 8
+  %1953 = load i32, ptr %17, align 4
+  %1954 = load i32, ptr %26, align 4
+  %1955 = call ptr @tvb_child_uncompress_zlib(ptr noundef %1951, ptr noundef %1952, i32 noundef %1953, i32 noundef %1954)
+  store ptr %1955, ptr %41, align 8
+  %1956 = load ptr, ptr %41, align 8
+  %1957 = icmp eq ptr %1956, null
+  br i1 %1957, label %1958, label %1969
 
-1951:                                             ; preds = %1943
-  %1952 = load ptr, ptr %13, align 8
-  %1953 = load ptr, ptr %6, align 8
-  %1954 = load ptr, ptr %5, align 8
-  %1955 = load i32, ptr %17, align 4
-  %1956 = call ptr @proto_tree_add_expert(ptr noundef %1952, ptr noundef %1953, ptr noundef @ei_slsk_zlib_decompression_failed, ptr noundef %1954, i32 noundef %1955, i32 noundef -1)
-  %1957 = load ptr, ptr %5, align 8
-  %1958 = load i32, ptr %17, align 4
-  %1959 = call i32 @tvb_captured_length_remaining(ptr noundef %1957, i32 noundef %1958)
-  %1960 = load i32, ptr %17, align 4
-  %1961 = add i32 %1960, %1959
-  store i32 %1961, ptr %17, align 4
-  br label %2170
+1958:                                             ; preds = %1950
+  %1959 = load ptr, ptr %13, align 8
+  %1960 = load ptr, ptr %6, align 8
+  %1961 = load ptr, ptr %5, align 8
+  %1962 = load i32, ptr %17, align 4
+  %1963 = call ptr @proto_tree_add_expert(ptr noundef %1959, ptr noundef %1960, ptr noundef @ei_slsk_zlib_decompression_failed, ptr noundef %1961, i32 noundef %1962, i32 noundef -1)
+  %1964 = load ptr, ptr %5, align 8
+  %1965 = load i32, ptr %17, align 4
+  %1966 = call i32 @tvb_captured_length_remaining(ptr noundef %1964, i32 noundef %1965)
+  %1967 = load i32, ptr %17, align 4
+  %1968 = add i32 %1967, %1966
+  store i32 %1968, ptr %17, align 4
+  br label %2177
 
-1962:                                             ; preds = %1943
-  %1963 = load ptr, ptr %13, align 8
-  %1964 = load i32, ptr @hf_slsk_compr_packet, align 4
-  %1965 = load ptr, ptr %5, align 8
-  %1966 = load i32, ptr %17, align 4
-  %1967 = call ptr @proto_tree_add_item(ptr noundef %1963, i32 noundef %1964, ptr noundef %1965, i32 noundef %1966, i32 noundef -1, i32 noundef 0)
-  store ptr %1967, ptr %42, align 8
-  %1968 = load ptr, ptr %42, align 8
-  %1969 = load i32, ptr @ett_slsk_compr_packet, align 4
-  %1970 = call ptr @proto_item_add_subtree(ptr noundef %1968, i32 noundef %1969)
-  store ptr %1970, ptr %43, align 8
-  %1971 = load ptr, ptr %42, align 8
-  call void @proto_item_set_generated(ptr noundef %1971)
-  %1972 = load ptr, ptr %13, align 8
-  %1973 = load i32, ptr @hf_slsk_compressed_packet_length, align 4
-  %1974 = load ptr, ptr %5, align 8
-  %1975 = load i32, ptr %17, align 4
-  %1976 = load i32, ptr %26, align 4
-  %1977 = call ptr @proto_tree_add_uint(ptr noundef %1972, i32 noundef %1973, ptr noundef %1974, i32 noundef %1975, i32 noundef 0, i32 noundef %1976)
-  store ptr %1977, ptr %9, align 8
-  %1978 = load ptr, ptr %9, align 8
+1969:                                             ; preds = %1950
+  call void @llvm.lifetime.start.p0(i64 8, ptr %42) #6
+  %1970 = load ptr, ptr %13, align 8
+  %1971 = load i32, ptr @hf_slsk_compr_packet, align 4
+  %1972 = load ptr, ptr %5, align 8
+  %1973 = load i32, ptr %17, align 4
+  %1974 = call ptr @proto_tree_add_item(ptr noundef %1970, i32 noundef %1971, ptr noundef %1972, i32 noundef %1973, i32 noundef -1, i32 noundef 0)
+  store ptr %1974, ptr %42, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %43) #6
+  %1975 = load ptr, ptr %42, align 8
+  %1976 = load i32, ptr @ett_slsk_compr_packet, align 4
+  %1977 = call ptr @proto_item_add_subtree(ptr noundef %1975, i32 noundef %1976)
+  store ptr %1977, ptr %43, align 8
+  %1978 = load ptr, ptr %42, align 8
   call void @proto_item_set_generated(ptr noundef %1978)
-  %1979 = load ptr, ptr %41, align 8
-  %1980 = call i32 @tvb_captured_length_remaining(ptr noundef %1979, i32 noundef 0)
-  store i32 %1980, ptr %27, align 4
-  %1981 = load ptr, ptr %13, align 8
-  %1982 = load i32, ptr @hf_slsk_uncompressed_packet_length, align 4
-  %1983 = load ptr, ptr %5, align 8
-  %1984 = load i32, ptr %17, align 4
-  %1985 = load i32, ptr %27, align 4
-  %1986 = call ptr @proto_tree_add_uint(ptr noundef %1981, i32 noundef %1982, ptr noundef %1983, i32 noundef %1984, i32 noundef 0, i32 noundef %1985)
-  store ptr %1986, ptr %9, align 8
-  %1987 = load ptr, ptr %9, align 8
-  call void @proto_item_set_generated(ptr noundef %1987)
-  %1988 = load ptr, ptr %6, align 8
-  %1989 = load ptr, ptr %41, align 8
-  call void @add_new_data_source(ptr noundef %1988, ptr noundef %1989, ptr noundef @.str.211)
+  %1979 = load ptr, ptr %13, align 8
+  %1980 = load i32, ptr @hf_slsk_compressed_packet_length, align 4
+  %1981 = load ptr, ptr %5, align 8
+  %1982 = load i32, ptr %17, align 4
+  %1983 = load i32, ptr %26, align 4
+  %1984 = call ptr @proto_tree_add_uint(ptr noundef %1979, i32 noundef %1980, ptr noundef %1981, i32 noundef %1982, i32 noundef 0, i32 noundef %1983)
+  store ptr %1984, ptr %9, align 8
+  %1985 = load ptr, ptr %9, align 8
+  call void @proto_item_set_generated(ptr noundef %1985)
+  %1986 = load ptr, ptr %41, align 8
+  %1987 = call i32 @tvb_captured_length_remaining(ptr noundef %1986, i32 noundef 0)
+  store i32 %1987, ptr %27, align 4
+  %1988 = load ptr, ptr %13, align 8
+  %1989 = load i32, ptr @hf_slsk_uncompressed_packet_length, align 4
+  %1990 = load ptr, ptr %5, align 8
+  %1991 = load i32, ptr %17, align 4
+  %1992 = load i32, ptr %27, align 4
+  %1993 = call ptr @proto_tree_add_uint(ptr noundef %1988, i32 noundef %1989, ptr noundef %1990, i32 noundef %1991, i32 noundef 0, i32 noundef %1992)
+  store ptr %1993, ptr %9, align 8
+  %1994 = load ptr, ptr %9, align 8
+  call void @proto_item_set_generated(ptr noundef %1994)
+  %1995 = load ptr, ptr %6, align 8
+  %1996 = load ptr, ptr %41, align 8
+  call void @add_new_data_source(ptr noundef %1995, ptr noundef %1996, ptr noundef @.str.215)
   store i32 0, ptr %28, align 4
-  %1990 = load ptr, ptr %41, align 8
-  %1991 = load i32, ptr %28, align 4
-  %1992 = call i32 @check_slsk_format(ptr noundef %1990, i32 noundef %1991, ptr noundef @.str.227)
-  %1993 = icmp ne i32 %1992, 0
-  br i1 %1993, label %1994, label %2169
-
-1994:                                             ; preds = %1962
-  %1995 = load ptr, ptr %43, align 8
-  %1996 = load i32, ptr @hf_slsk_token, align 4
   %1997 = load ptr, ptr %41, align 8
-  %1998 = load i32, ptr %28, align 4
-  %1999 = call ptr @proto_tree_add_item(ptr noundef %1995, i32 noundef %1996, ptr noundef %1997, i32 noundef %1998, i32 noundef 4, i32 noundef -2147483648)
-  %2000 = load i32, ptr %28, align 4
-  %2001 = add i32 %2000, 4
-  store i32 %2001, ptr %28, align 4
+  %1998 = load ptr, ptr %6, align 8
+  %1999 = load i32, ptr %28, align 4
+  %2000 = call zeroext i1 @check_slsk_format(ptr noundef %1997, ptr noundef %1998, i32 noundef %1999, ptr noundef @.str.231)
+  br i1 %2000, label %2001, label %2176
+
+2001:                                             ; preds = %1969
+  call void @llvm.lifetime.start.p0(i64 4, ptr %44) #6
   %2002 = load ptr, ptr %43, align 8
-  %2003 = load i32, ptr @hf_slsk_directory_name, align 4
+  %2003 = load i32, ptr @hf_slsk_token, align 4
   %2004 = load ptr, ptr %41, align 8
   %2005 = load i32, ptr %28, align 4
-  %2006 = call ptr @proto_tree_add_item_ret_length(ptr noundef %2002, i32 noundef %2003, ptr noundef %2004, i32 noundef %2005, i32 noundef 4, i32 noundef -2147483648, ptr noundef %44)
-  %2007 = load i32, ptr %44, align 4
-  %2008 = load i32, ptr %28, align 4
-  %2009 = add i32 %2008, %2007
-  store i32 %2009, ptr %28, align 4
-  %2010 = load ptr, ptr %43, align 8
-  %2011 = load i32, ptr @hf_slsk_num_directories, align 4
-  %2012 = load ptr, ptr %41, align 8
-  %2013 = load i32, ptr %28, align 4
-  %2014 = call ptr @proto_tree_add_item_ret_int(ptr noundef %2010, i32 noundef %2011, ptr noundef %2012, i32 noundef %2013, i32 noundef 4, i32 noundef -2147483648, ptr noundef %19)
+  %2006 = call ptr @proto_tree_add_item(ptr noundef %2002, i32 noundef %2003, ptr noundef %2004, i32 noundef %2005, i32 noundef 4, i32 noundef -2147483648)
+  %2007 = load i32, ptr %28, align 4
+  %2008 = add i32 %2007, 4
+  store i32 %2008, ptr %28, align 4
+  %2009 = load ptr, ptr %43, align 8
+  %2010 = load i32, ptr @hf_slsk_directory_name, align 4
+  %2011 = load ptr, ptr %41, align 8
+  %2012 = load i32, ptr %28, align 4
+  %2013 = call ptr @proto_tree_add_item_ret_length(ptr noundef %2009, i32 noundef %2010, ptr noundef %2011, i32 noundef %2012, i32 noundef 4, i32 noundef -2147483648, ptr noundef %44)
+  %2014 = load i32, ptr %44, align 4
   %2015 = load i32, ptr %28, align 4
-  %2016 = add i32 %2015, 4
+  %2016 = add i32 %2015, %2014
   store i32 %2016, ptr %28, align 4
+  %2017 = load ptr, ptr %43, align 8
+  %2018 = load i32, ptr @hf_slsk_num_directories, align 4
+  %2019 = load ptr, ptr %41, align 8
+  %2020 = load i32, ptr %28, align 4
+  %2021 = call ptr @proto_tree_add_item_ret_int(ptr noundef %2017, i32 noundef %2018, ptr noundef %2019, i32 noundef %2020, i32 noundef 4, i32 noundef -2147483648, ptr noundef %19)
+  %2022 = load i32, ptr %28, align 4
+  %2023 = add i32 %2022, 4
+  store i32 %2023, ptr %28, align 4
   store i32 0, ptr %18, align 4
-  br label %2017
+  br label %2024
 
-2017:                                             ; preds = %2165, %1994
-  %2018 = load i32, ptr %18, align 4
-  %2019 = load i32, ptr %19, align 4
-  %2020 = icmp slt i32 %2018, %2019
-  br i1 %2020, label %2021, label %2168
+2024:                                             ; preds = %2172, %2001
+  %2025 = load i32, ptr %18, align 4
+  %2026 = load i32, ptr %19, align 4
+  %2027 = icmp slt i32 %2025, %2026
+  br i1 %2027, label %2028, label %2175
 
-2021:                                             ; preds = %2017
-  %2022 = load ptr, ptr %41, align 8
-  %2023 = load i32, ptr %28, align 4
-  %2024 = call i32 @check_slsk_format(ptr noundef %2022, i32 noundef %2023, ptr noundef @.str.212)
-  %2025 = icmp ne i32 %2024, 0
-  br i1 %2025, label %2026, label %2163
-
-2026:                                             ; preds = %2021
-  %2027 = load i32, ptr %28, align 4
-  store i32 %2027, ptr %24, align 4
-  %2028 = load ptr, ptr %43, align 8
+2028:                                             ; preds = %2024
   %2029 = load ptr, ptr %41, align 8
-  %2030 = load i32, ptr %28, align 4
-  %2031 = load i32, ptr @ett_slsk_directory, align 4
-  %2032 = load i32, ptr %18, align 4
-  %2033 = add i32 %2032, 1
-  %2034 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2028, ptr noundef %2029, i32 noundef %2030, i32 noundef 1, i32 noundef %2031, ptr noundef %11, ptr noundef @.str.213, i32 noundef %2033)
-  store ptr %2034, ptr %14, align 8
-  %2035 = load ptr, ptr %14, align 8
-  %2036 = load i32, ptr @hf_slsk_directory_name, align 4
-  %2037 = load ptr, ptr %41, align 8
-  %2038 = load i32, ptr %28, align 4
-  %2039 = call ptr @proto_tree_add_item_ret_length(ptr noundef %2035, i32 noundef %2036, ptr noundef %2037, i32 noundef %2038, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %2040 = load i32, ptr %23, align 4
-  %2041 = load i32, ptr %28, align 4
-  %2042 = add i32 %2041, %2040
-  store i32 %2042, ptr %28, align 4
-  %2043 = load ptr, ptr %14, align 8
-  %2044 = load i32, ptr @hf_slsk_num_files, align 4
-  %2045 = load ptr, ptr %41, align 8
-  %2046 = load i32, ptr %28, align 4
-  %2047 = call ptr @proto_tree_add_item_ret_int(ptr noundef %2043, i32 noundef %2044, ptr noundef %2045, i32 noundef %2046, i32 noundef 4, i32 noundef -2147483648, ptr noundef %30)
+  %2030 = load ptr, ptr %6, align 8
+  %2031 = load i32, ptr %28, align 4
+  %2032 = call zeroext i1 @check_slsk_format(ptr noundef %2029, ptr noundef %2030, i32 noundef %2031, ptr noundef @.str.216)
+  br i1 %2032, label %2033, label %2170
+
+2033:                                             ; preds = %2028
+  %2034 = load i32, ptr %28, align 4
+  store i32 %2034, ptr %24, align 4
+  %2035 = load ptr, ptr %43, align 8
+  %2036 = load ptr, ptr %41, align 8
+  %2037 = load i32, ptr %28, align 4
+  %2038 = load i32, ptr @ett_slsk_directory, align 4
+  %2039 = load i32, ptr %18, align 4
+  %2040 = add i32 %2039, 1
+  %2041 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2035, ptr noundef %2036, i32 noundef %2037, i32 noundef 1, i32 noundef %2038, ptr noundef %11, ptr noundef @.str.217, i32 noundef %2040)
+  store ptr %2041, ptr %14, align 8
+  %2042 = load ptr, ptr %14, align 8
+  %2043 = load i32, ptr @hf_slsk_directory_name, align 4
+  %2044 = load ptr, ptr %41, align 8
+  %2045 = load i32, ptr %28, align 4
+  %2046 = call ptr @proto_tree_add_item_ret_length(ptr noundef %2042, i32 noundef %2043, ptr noundef %2044, i32 noundef %2045, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %2047 = load i32, ptr %23, align 4
   %2048 = load i32, ptr %28, align 4
-  %2049 = add i32 %2048, 4
+  %2049 = add i32 %2048, %2047
   store i32 %2049, ptr %28, align 4
+  %2050 = load ptr, ptr %14, align 8
+  %2051 = load i32, ptr @hf_slsk_num_files, align 4
+  %2052 = load ptr, ptr %41, align 8
+  %2053 = load i32, ptr %28, align 4
+  %2054 = call ptr @proto_tree_add_item_ret_int(ptr noundef %2050, i32 noundef %2051, ptr noundef %2052, i32 noundef %2053, i32 noundef 4, i32 noundef -2147483648, ptr noundef %30)
+  %2055 = load i32, ptr %28, align 4
+  %2056 = add i32 %2055, 4
+  store i32 %2056, ptr %28, align 4
   store i32 0, ptr %29, align 4
-  br label %2050
+  br label %2057
 
-2050:                                             ; preds = %2155, %2026
-  %2051 = load i32, ptr %29, align 4
-  %2052 = load i32, ptr %30, align 4
-  %2053 = icmp slt i32 %2051, %2052
-  br i1 %2053, label %2054, label %2158
+2057:                                             ; preds = %2162, %2033
+  %2058 = load i32, ptr %29, align 4
+  %2059 = load i32, ptr %30, align 4
+  %2060 = icmp slt i32 %2058, %2059
+  br i1 %2060, label %2061, label %2165
 
-2054:                                             ; preds = %2050
-  %2055 = load ptr, ptr %41, align 8
-  %2056 = load i32, ptr %28, align 4
-  %2057 = call i32 @check_slsk_format(ptr noundef %2055, i32 noundef %2056, ptr noundef @.str.214)
-  %2058 = icmp ne i32 %2057, 0
-  br i1 %2058, label %2059, label %2153
-
-2059:                                             ; preds = %2054
-  %2060 = load i32, ptr %28, align 4
-  store i32 %2060, ptr %25, align 4
-  %2061 = load ptr, ptr %14, align 8
+2061:                                             ; preds = %2057
   %2062 = load ptr, ptr %41, align 8
-  %2063 = load i32, ptr %28, align 4
-  %2064 = load i32, ptr @ett_slsk_file, align 4
-  %2065 = load i32, ptr %29, align 4
-  %2066 = add i32 %2065, 1
-  %2067 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2061, ptr noundef %2062, i32 noundef %2063, i32 noundef 1, i32 noundef %2064, ptr noundef %12, ptr noundef @.str.215, i32 noundef %2066)
-  store ptr %2067, ptr %15, align 8
-  %2068 = load ptr, ptr %15, align 8
-  %2069 = load i32, ptr @hf_slsk_file_code, align 4
-  %2070 = load ptr, ptr %41, align 8
-  %2071 = load i32, ptr %28, align 4
-  %2072 = call ptr @proto_tree_add_item(ptr noundef %2068, i32 noundef %2069, ptr noundef %2070, i32 noundef %2071, i32 noundef 1, i32 noundef 0)
-  %2073 = load i32, ptr %28, align 4
-  %2074 = add i32 %2073, 1
-  store i32 %2074, ptr %28, align 4
+  %2063 = load ptr, ptr %6, align 8
+  %2064 = load i32, ptr %28, align 4
+  %2065 = call zeroext i1 @check_slsk_format(ptr noundef %2062, ptr noundef %2063, i32 noundef %2064, ptr noundef @.str.218)
+  br i1 %2065, label %2066, label %2160
+
+2066:                                             ; preds = %2061
+  %2067 = load i32, ptr %28, align 4
+  store i32 %2067, ptr %25, align 4
+  %2068 = load ptr, ptr %14, align 8
+  %2069 = load ptr, ptr %41, align 8
+  %2070 = load i32, ptr %28, align 4
+  %2071 = load i32, ptr @ett_slsk_file, align 4
+  %2072 = load i32, ptr %29, align 4
+  %2073 = add i32 %2072, 1
+  %2074 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2068, ptr noundef %2069, i32 noundef %2070, i32 noundef 1, i32 noundef %2071, ptr noundef %12, ptr noundef @.str.219, i32 noundef %2073)
+  store ptr %2074, ptr %15, align 8
   %2075 = load ptr, ptr %15, align 8
-  %2076 = load i32, ptr @hf_slsk_filename, align 4
+  %2076 = load i32, ptr @hf_slsk_file_code, align 4
   %2077 = load ptr, ptr %41, align 8
   %2078 = load i32, ptr %28, align 4
-  %2079 = call ptr @proto_tree_add_item_ret_length(ptr noundef %2075, i32 noundef %2076, ptr noundef %2077, i32 noundef %2078, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %2080 = load i32, ptr %23, align 4
-  %2081 = load i32, ptr %28, align 4
-  %2082 = add i32 %2081, %2080
-  store i32 %2082, ptr %28, align 4
-  %2083 = load ptr, ptr %15, align 8
-  %2084 = load i32, ptr @hf_slsk_file_size1, align 4
-  %2085 = load ptr, ptr %41, align 8
-  %2086 = load i32, ptr %28, align 4
-  %2087 = call ptr @proto_tree_add_item(ptr noundef %2083, i32 noundef %2084, ptr noundef %2085, i32 noundef %2086, i32 noundef 4, i32 noundef -2147483648)
+  %2079 = call ptr @proto_tree_add_item(ptr noundef %2075, i32 noundef %2076, ptr noundef %2077, i32 noundef %2078, i32 noundef 1, i32 noundef 0)
+  %2080 = load i32, ptr %28, align 4
+  %2081 = add i32 %2080, 1
+  store i32 %2081, ptr %28, align 4
+  %2082 = load ptr, ptr %15, align 8
+  %2083 = load i32, ptr @hf_slsk_filename, align 4
+  %2084 = load ptr, ptr %41, align 8
+  %2085 = load i32, ptr %28, align 4
+  %2086 = call ptr @proto_tree_add_item_ret_length(ptr noundef %2082, i32 noundef %2083, ptr noundef %2084, i32 noundef %2085, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %2087 = load i32, ptr %23, align 4
   %2088 = load i32, ptr %28, align 4
-  %2089 = add i32 %2088, 4
+  %2089 = add i32 %2088, %2087
   store i32 %2089, ptr %28, align 4
   %2090 = load ptr, ptr %15, align 8
-  %2091 = load i32, ptr @hf_slsk_file_size2, align 4
+  %2091 = load i32, ptr @hf_slsk_file_size1, align 4
   %2092 = load ptr, ptr %41, align 8
   %2093 = load i32, ptr %28, align 4
   %2094 = call ptr @proto_tree_add_item(ptr noundef %2090, i32 noundef %2091, ptr noundef %2092, i32 noundef %2093, i32 noundef 4, i32 noundef -2147483648)
@@ -3467,1901 +3530,1905 @@ define internal i32 @dissect_slsk_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   %2096 = add i32 %2095, 4
   store i32 %2096, ptr %28, align 4
   %2097 = load ptr, ptr %15, align 8
-  %2098 = load i32, ptr @hf_slsk_filename_ext, align 4
+  %2098 = load i32, ptr @hf_slsk_file_size2, align 4
   %2099 = load ptr, ptr %41, align 8
   %2100 = load i32, ptr %28, align 4
-  %2101 = call ptr @proto_tree_add_item_ret_length(ptr noundef %2097, i32 noundef %2098, ptr noundef %2099, i32 noundef %2100, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %2102 = load i32, ptr %23, align 4
-  %2103 = load i32, ptr %28, align 4
-  %2104 = add i32 %2103, %2102
-  store i32 %2104, ptr %28, align 4
-  %2105 = load ptr, ptr %15, align 8
-  %2106 = load i32, ptr @hf_slsk_file_num_attributes, align 4
-  %2107 = load ptr, ptr %41, align 8
-  %2108 = load i32, ptr %28, align 4
-  %2109 = call ptr @proto_tree_add_item_ret_int(ptr noundef %2105, i32 noundef %2106, ptr noundef %2107, i32 noundef %2108, i32 noundef 4, i32 noundef -2147483648, ptr noundef %32)
+  %2101 = call ptr @proto_tree_add_item(ptr noundef %2097, i32 noundef %2098, ptr noundef %2099, i32 noundef %2100, i32 noundef 4, i32 noundef -2147483648)
+  %2102 = load i32, ptr %28, align 4
+  %2103 = add i32 %2102, 4
+  store i32 %2103, ptr %28, align 4
+  %2104 = load ptr, ptr %15, align 8
+  %2105 = load i32, ptr @hf_slsk_filename_ext, align 4
+  %2106 = load ptr, ptr %41, align 8
+  %2107 = load i32, ptr %28, align 4
+  %2108 = call ptr @proto_tree_add_item_ret_length(ptr noundef %2104, i32 noundef %2105, ptr noundef %2106, i32 noundef %2107, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %2109 = load i32, ptr %23, align 4
   %2110 = load i32, ptr %28, align 4
-  %2111 = add i32 %2110, 4
+  %2111 = add i32 %2110, %2109
   store i32 %2111, ptr %28, align 4
+  %2112 = load ptr, ptr %15, align 8
+  %2113 = load i32, ptr @hf_slsk_file_num_attributes, align 4
+  %2114 = load ptr, ptr %41, align 8
+  %2115 = load i32, ptr %28, align 4
+  %2116 = call ptr @proto_tree_add_item_ret_int(ptr noundef %2112, i32 noundef %2113, ptr noundef %2114, i32 noundef %2115, i32 noundef 4, i32 noundef -2147483648, ptr noundef %32)
+  %2117 = load i32, ptr %28, align 4
+  %2118 = add i32 %2117, 4
+  store i32 %2118, ptr %28, align 4
   store i32 0, ptr %31, align 4
-  br label %2112
+  br label %2119
 
-2112:                                             ; preds = %2145, %2059
-  %2113 = load i32, ptr %31, align 4
-  %2114 = load i32, ptr %32, align 4
-  %2115 = icmp slt i32 %2113, %2114
-  br i1 %2115, label %2116, label %2148
+2119:                                             ; preds = %2152, %2066
+  %2120 = load i32, ptr %31, align 4
+  %2121 = load i32, ptr %32, align 4
+  %2122 = icmp slt i32 %2120, %2121
+  br i1 %2122, label %2123, label %2155
 
-2116:                                             ; preds = %2112
-  %2117 = load ptr, ptr %41, align 8
-  %2118 = load i32, ptr %28, align 4
-  %2119 = call i32 @check_slsk_format(ptr noundef %2117, i32 noundef %2118, ptr noundef @.str.216)
-  %2120 = icmp ne i32 %2119, 0
-  br i1 %2120, label %2121, label %2143
+2123:                                             ; preds = %2119
+  %2124 = load ptr, ptr %41, align 8
+  %2125 = load ptr, ptr %6, align 8
+  %2126 = load i32, ptr %28, align 4
+  %2127 = call zeroext i1 @check_slsk_format(ptr noundef %2124, ptr noundef %2125, i32 noundef %2126, ptr noundef @.str.220)
+  br i1 %2127, label %2128, label %2150
 
-2121:                                             ; preds = %2116
-  %2122 = load ptr, ptr %15, align 8
-  %2123 = load ptr, ptr %41, align 8
-  %2124 = load i32, ptr %28, align 4
-  %2125 = load i32, ptr @ett_slsk_file_attribute, align 4
-  %2126 = load i32, ptr %31, align 4
-  %2127 = add i32 %2126, 1
-  %2128 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2122, ptr noundef %2123, i32 noundef %2124, i32 noundef 8, i32 noundef %2125, ptr noundef null, ptr noundef @.str.217, i32 noundef %2127)
-  store ptr %2128, ptr %16, align 8
-  %2129 = load ptr, ptr %16, align 8
-  %2130 = load i32, ptr @hf_slsk_file_attribute_type, align 4
-  %2131 = load ptr, ptr %41, align 8
-  %2132 = load i32, ptr %28, align 4
-  %2133 = call ptr @proto_tree_add_item(ptr noundef %2129, i32 noundef %2130, ptr noundef %2131, i32 noundef %2132, i32 noundef 4, i32 noundef -2147483648)
-  %2134 = load i32, ptr %28, align 4
-  %2135 = add i32 %2134, 4
-  store i32 %2135, ptr %28, align 4
+2128:                                             ; preds = %2123
+  %2129 = load ptr, ptr %15, align 8
+  %2130 = load ptr, ptr %41, align 8
+  %2131 = load i32, ptr %28, align 4
+  %2132 = load i32, ptr @ett_slsk_file_attribute, align 4
+  %2133 = load i32, ptr %31, align 4
+  %2134 = add i32 %2133, 1
+  %2135 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2129, ptr noundef %2130, i32 noundef %2131, i32 noundef 8, i32 noundef %2132, ptr noundef null, ptr noundef @.str.221, i32 noundef %2134)
+  store ptr %2135, ptr %16, align 8
   %2136 = load ptr, ptr %16, align 8
-  %2137 = load i32, ptr @hf_slsk_file_attribute_value, align 4
+  %2137 = load i32, ptr @hf_slsk_file_attribute_type, align 4
   %2138 = load ptr, ptr %41, align 8
   %2139 = load i32, ptr %28, align 4
   %2140 = call ptr @proto_tree_add_item(ptr noundef %2136, i32 noundef %2137, ptr noundef %2138, i32 noundef %2139, i32 noundef 4, i32 noundef -2147483648)
   %2141 = load i32, ptr %28, align 4
   %2142 = add i32 %2141, 4
   store i32 %2142, ptr %28, align 4
-  br label %2144
+  %2143 = load ptr, ptr %16, align 8
+  %2144 = load i32, ptr @hf_slsk_file_attribute_value, align 4
+  %2145 = load ptr, ptr %41, align 8
+  %2146 = load i32, ptr %28, align 4
+  %2147 = call ptr @proto_tree_add_item(ptr noundef %2143, i32 noundef %2144, ptr noundef %2145, i32 noundef %2146, i32 noundef 4, i32 noundef -2147483648)
+  %2148 = load i32, ptr %28, align 4
+  %2149 = add i32 %2148, 4
+  store i32 %2149, ptr %28, align 4
+  br label %2151
 
-2143:                                             ; preds = %2116
-  br label %2148
-
-2144:                                             ; preds = %2121
-  br label %2145
-
-2145:                                             ; preds = %2144
-  %2146 = load i32, ptr %31, align 4
-  %2147 = add i32 %2146, 1
-  store i32 %2147, ptr %31, align 4
-  br label %2112, !llvm.loop !14
-
-2148:                                             ; preds = %2143, %2112
-  %2149 = load ptr, ptr %12, align 8
-  %2150 = load i32, ptr %28, align 4
-  %2151 = load i32, ptr %25, align 4
-  %2152 = sub i32 %2150, %2151
-  call void @proto_item_set_len(ptr noundef %2149, i32 noundef %2152)
-  br label %2154
-
-2153:                                             ; preds = %2054
-  br label %2158
-
-2154:                                             ; preds = %2148
+2150:                                             ; preds = %2123
   br label %2155
 
-2155:                                             ; preds = %2154
-  %2156 = load i32, ptr %29, align 4
-  %2157 = add i32 %2156, 1
-  store i32 %2157, ptr %29, align 4
-  br label %2050, !llvm.loop !15
+2151:                                             ; preds = %2128
+  br label %2152
 
-2158:                                             ; preds = %2153, %2050
-  %2159 = load ptr, ptr %11, align 8
-  %2160 = load i32, ptr %28, align 4
-  %2161 = load i32, ptr %24, align 4
-  %2162 = sub i32 %2160, %2161
-  call void @proto_item_set_len(ptr noundef %2159, i32 noundef %2162)
-  br label %2164
+2152:                                             ; preds = %2151
+  %2153 = load i32, ptr %31, align 4
+  %2154 = add i32 %2153, 1
+  store i32 %2154, ptr %31, align 4
+  br label %2119, !llvm.loop !18
 
-2163:                                             ; preds = %2021
-  br label %2168
+2155:                                             ; preds = %2150, %2119
+  %2156 = load ptr, ptr %12, align 8
+  %2157 = load i32, ptr %28, align 4
+  %2158 = load i32, ptr %25, align 4
+  %2159 = sub i32 %2157, %2158
+  call void @proto_item_set_len(ptr noundef %2156, i32 noundef %2159)
+  br label %2161
 
-2164:                                             ; preds = %2158
+2160:                                             ; preds = %2061
   br label %2165
 
-2165:                                             ; preds = %2164
-  %2166 = load i32, ptr %18, align 4
-  %2167 = add i32 %2166, 1
-  store i32 %2167, ptr %18, align 4
-  br label %2017, !llvm.loop !16
+2161:                                             ; preds = %2155
+  br label %2162
 
-2168:                                             ; preds = %2163, %2017
-  br label %2169
+2162:                                             ; preds = %2161
+  %2163 = load i32, ptr %29, align 4
+  %2164 = add i32 %2163, 1
+  store i32 %2164, ptr %29, align 4
+  br label %2057, !llvm.loop !19
 
-2169:                                             ; preds = %2168, %1962
-  br label %2170
+2165:                                             ; preds = %2160, %2057
+  %2166 = load ptr, ptr %11, align 8
+  %2167 = load i32, ptr %28, align 4
+  %2168 = load i32, ptr %24, align 4
+  %2169 = sub i32 %2167, %2168
+  call void @proto_item_set_len(ptr noundef %2166, i32 noundef %2169)
+  br label %2171
 
-2170:                                             ; preds = %2169, %1951
-  br label %2190
+2170:                                             ; preds = %2028
+  br label %2175
 
-2171:                                             ; preds = %1928
-  %2172 = load ptr, ptr %13, align 8
-  %2173 = load i32, ptr @hf_slsk_compr_packet, align 4
-  %2174 = load ptr, ptr %5, align 8
-  %2175 = load i32, ptr %17, align 4
-  %2176 = call ptr @proto_tree_add_item(ptr noundef %2172, i32 noundef %2173, ptr noundef %2174, i32 noundef %2175, i32 noundef -1, i32 noundef 0)
-  store ptr %2176, ptr %9, align 8
-  %2177 = load ptr, ptr %9, align 8
-  call void @proto_item_set_generated(ptr noundef %2177)
-  %2178 = load ptr, ptr %13, align 8
-  %2179 = load i32, ptr @hf_slsk_compressed_packet_length, align 4
-  %2180 = load ptr, ptr %5, align 8
-  %2181 = load i32, ptr %17, align 4
-  %2182 = load i32, ptr %26, align 4
-  %2183 = call ptr @proto_tree_add_uint(ptr noundef %2178, i32 noundef %2179, ptr noundef %2180, i32 noundef %2181, i32 noundef 0, i32 noundef %2182)
+2171:                                             ; preds = %2165
+  br label %2172
+
+2172:                                             ; preds = %2171
+  %2173 = load i32, ptr %18, align 4
+  %2174 = add i32 %2173, 1
+  store i32 %2174, ptr %18, align 4
+  br label %2024, !llvm.loop !20
+
+2175:                                             ; preds = %2170, %2024
+  call void @llvm.lifetime.end.p0(i64 4, ptr %44) #6
+  br label %2176
+
+2176:                                             ; preds = %2175, %1969
+  call void @llvm.lifetime.end.p0(i64 8, ptr %43) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %42) #6
+  br label %2177
+
+2177:                                             ; preds = %2176, %1958
+  call void @llvm.lifetime.end.p0(i64 8, ptr %41) #6
+  br label %2197
+
+2178:                                             ; preds = %1933
+  %2179 = load ptr, ptr %13, align 8
+  %2180 = load i32, ptr @hf_slsk_compr_packet, align 4
+  %2181 = load ptr, ptr %5, align 8
+  %2182 = load i32, ptr %17, align 4
+  %2183 = call ptr @proto_tree_add_item(ptr noundef %2179, i32 noundef %2180, ptr noundef %2181, i32 noundef %2182, i32 noundef -1, i32 noundef 0)
   store ptr %2183, ptr %9, align 8
   %2184 = load ptr, ptr %9, align 8
   call void @proto_item_set_generated(ptr noundef %2184)
-  %2185 = load ptr, ptr %5, align 8
-  %2186 = load i32, ptr %17, align 4
-  %2187 = call i32 @tvb_captured_length_remaining(ptr noundef %2185, i32 noundef %2186)
+  %2185 = load ptr, ptr %13, align 8
+  %2186 = load i32, ptr @hf_slsk_compressed_packet_length, align 4
+  %2187 = load ptr, ptr %5, align 8
   %2188 = load i32, ptr %17, align 4
-  %2189 = add i32 %2188, %2187
-  store i32 %2189, ptr %17, align 4
-  br label %2190
+  %2189 = load i32, ptr %26, align 4
+  %2190 = call ptr @proto_tree_add_uint(ptr noundef %2185, i32 noundef %2186, ptr noundef %2187, i32 noundef %2188, i32 noundef 0, i32 noundef %2189)
+  store ptr %2190, ptr %9, align 8
+  %2191 = load ptr, ptr %9, align 8
+  call void @proto_item_set_generated(ptr noundef %2191)
+  %2192 = load ptr, ptr %5, align 8
+  %2193 = load i32, ptr %17, align 4
+  %2194 = call i32 @tvb_captured_length_remaining(ptr noundef %2192, i32 noundef %2193)
+  %2195 = load i32, ptr %17, align 4
+  %2196 = add i32 %2195, %2194
+  store i32 %2196, ptr %17, align 4
+  br label %2197
 
-2190:                                             ; preds = %2171, %2170
-  br label %2191
+2197:                                             ; preds = %2178, %2177
+  br label %2198
 
-2191:                                             ; preds = %2190, %1923
-  br label %4619
+2198:                                             ; preds = %2197, %1928
+  br label %4626
 
-2192:                                             ; preds = %4
-  %2193 = load ptr, ptr %5, align 8
-  %2194 = load i32, ptr %17, align 4
-  %2195 = call i32 @check_slsk_format(ptr noundef %2193, i32 noundef %2194, ptr noundef @.str.218)
-  %2196 = icmp ne i32 %2195, 0
-  br i1 %2196, label %2197, label %2222
-
-2197:                                             ; preds = %2192
-  %2198 = load ptr, ptr %13, align 8
-  %2199 = load i32, ptr @hf_slsk_message_code, align 4
+2199:                                             ; preds = %4
   %2200 = load ptr, ptr %5, align 8
-  %2201 = load i32, ptr %17, align 4
-  %2202 = load i32, ptr %21, align 4
-  %2203 = load i32, ptr %21, align 4
-  %2204 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2198, i32 noundef %2199, ptr noundef %2200, i32 noundef %2201, i32 noundef 4, i32 noundef %2202, ptr noundef @.str.260, i32 noundef %2203)
-  %2205 = load i32, ptr %17, align 4
-  %2206 = add i32 %2205, 4
-  store i32 %2206, ptr %17, align 4
-  %2207 = load ptr, ptr %13, align 8
-  %2208 = load i32, ptr @hf_slsk_username, align 4
-  %2209 = load ptr, ptr %5, align 8
-  %2210 = load i32, ptr %17, align 4
-  %2211 = call ptr @proto_tree_add_item_ret_length(ptr noundef %2207, i32 noundef %2208, ptr noundef %2209, i32 noundef %2210, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %2212 = load i32, ptr %23, align 4
-  %2213 = load i32, ptr %17, align 4
-  %2214 = add i32 %2213, %2212
-  store i32 %2214, ptr %17, align 4
-  %2215 = load ptr, ptr %13, align 8
-  %2216 = load i32, ptr @hf_slsk_slotsfull, align 4
-  %2217 = load ptr, ptr %5, align 8
-  %2218 = load i32, ptr %17, align 4
-  %2219 = call ptr @proto_tree_add_item(ptr noundef %2215, i32 noundef %2216, ptr noundef %2217, i32 noundef %2218, i32 noundef 4, i32 noundef -2147483648)
+  %2201 = load ptr, ptr %6, align 8
+  %2202 = load i32, ptr %17, align 4
+  %2203 = call zeroext i1 @check_slsk_format(ptr noundef %2200, ptr noundef %2201, i32 noundef %2202, ptr noundef @.str.222)
+  br i1 %2203, label %2204, label %2229
+
+2204:                                             ; preds = %2199
+  %2205 = load ptr, ptr %13, align 8
+  %2206 = load i32, ptr @hf_slsk_message_code, align 4
+  %2207 = load ptr, ptr %5, align 8
+  %2208 = load i32, ptr %17, align 4
+  %2209 = load i32, ptr %21, align 4
+  %2210 = load i32, ptr %21, align 4
+  %2211 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2205, i32 noundef %2206, ptr noundef %2207, i32 noundef %2208, i32 noundef 4, i32 noundef %2209, ptr noundef @.str.264, i32 noundef %2210)
+  %2212 = load i32, ptr %17, align 4
+  %2213 = add i32 %2212, 4
+  store i32 %2213, ptr %17, align 4
+  %2214 = load ptr, ptr %13, align 8
+  %2215 = load i32, ptr @hf_slsk_username, align 4
+  %2216 = load ptr, ptr %5, align 8
+  %2217 = load i32, ptr %17, align 4
+  %2218 = call ptr @proto_tree_add_item_ret_length(ptr noundef %2214, i32 noundef %2215, ptr noundef %2216, i32 noundef %2217, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %2219 = load i32, ptr %23, align 4
   %2220 = load i32, ptr %17, align 4
-  %2221 = add i32 %2220, 4
+  %2221 = add i32 %2220, %2219
   store i32 %2221, ptr %17, align 4
-  br label %2283
+  %2222 = load ptr, ptr %13, align 8
+  %2223 = load i32, ptr @hf_slsk_slotsfull, align 4
+  %2224 = load ptr, ptr %5, align 8
+  %2225 = load i32, ptr %17, align 4
+  %2226 = call ptr @proto_tree_add_item(ptr noundef %2222, i32 noundef %2223, ptr noundef %2224, i32 noundef %2225, i32 noundef 4, i32 noundef -2147483648)
+  %2227 = load i32, ptr %17, align 4
+  %2228 = add i32 %2227, 4
+  store i32 %2228, ptr %17, align 4
+  br label %2290
 
-2222:                                             ; preds = %2192
-  %2223 = load ptr, ptr %5, align 8
-  %2224 = load i32, ptr %17, align 4
-  %2225 = call i32 @check_slsk_format(ptr noundef %2223, i32 noundef %2224, ptr noundef @.str.261)
-  %2226 = icmp ne i32 %2225, 0
-  br i1 %2226, label %2232, label %2227
+2229:                                             ; preds = %2199
+  %2230 = load ptr, ptr %5, align 8
+  %2231 = load ptr, ptr %6, align 8
+  %2232 = load i32, ptr %17, align 4
+  %2233 = call zeroext i1 @check_slsk_format(ptr noundef %2230, ptr noundef %2231, i32 noundef %2232, ptr noundef @.str.265)
+  br i1 %2233, label %2239, label %2234
 
-2227:                                             ; preds = %2222
-  %2228 = load ptr, ptr %5, align 8
-  %2229 = load i32, ptr %17, align 4
-  %2230 = call i32 @check_slsk_format(ptr noundef %2228, i32 noundef %2229, ptr noundef @.str.262)
-  %2231 = icmp ne i32 %2230, 0
-  br i1 %2231, label %2232, label %2282
-
-2232:                                             ; preds = %2227, %2222
-  %2233 = load ptr, ptr %13, align 8
-  %2234 = load i32, ptr @hf_slsk_message_code, align 4
+2234:                                             ; preds = %2229
   %2235 = load ptr, ptr %5, align 8
-  %2236 = load i32, ptr %17, align 4
-  %2237 = load i32, ptr %21, align 4
-  %2238 = load i32, ptr %21, align 4
-  %2239 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2233, i32 noundef %2234, ptr noundef %2235, i32 noundef %2236, i32 noundef 4, i32 noundef %2237, ptr noundef @.str.263, i32 noundef %2238)
-  %2240 = load i32, ptr %17, align 4
-  %2241 = add i32 %2240, 4
-  store i32 %2241, ptr %17, align 4
-  %2242 = load ptr, ptr %13, align 8
-  %2243 = load i32, ptr @hf_slsk_transfer_direction, align 4
-  %2244 = load ptr, ptr %5, align 8
-  %2245 = load i32, ptr %17, align 4
-  %2246 = call ptr @proto_tree_add_item_ret_int(ptr noundef %2242, i32 noundef %2243, ptr noundef %2244, i32 noundef %2245, i32 noundef 4, i32 noundef -2147483648, ptr noundef %18)
+  %2236 = load ptr, ptr %6, align 8
+  %2237 = load i32, ptr %17, align 4
+  %2238 = call zeroext i1 @check_slsk_format(ptr noundef %2235, ptr noundef %2236, i32 noundef %2237, ptr noundef @.str.266)
+  br i1 %2238, label %2239, label %2289
+
+2239:                                             ; preds = %2234, %2229
+  %2240 = load ptr, ptr %13, align 8
+  %2241 = load i32, ptr @hf_slsk_message_code, align 4
+  %2242 = load ptr, ptr %5, align 8
+  %2243 = load i32, ptr %17, align 4
+  %2244 = load i32, ptr %21, align 4
+  %2245 = load i32, ptr %21, align 4
+  %2246 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2240, i32 noundef %2241, ptr noundef %2242, i32 noundef %2243, i32 noundef 4, i32 noundef %2244, ptr noundef @.str.267, i32 noundef %2245)
   %2247 = load i32, ptr %17, align 4
   %2248 = add i32 %2247, 4
   store i32 %2248, ptr %17, align 4
   %2249 = load ptr, ptr %13, align 8
-  %2250 = load i32, ptr @hf_slsk_token, align 4
+  %2250 = load i32, ptr @hf_slsk_transfer_direction, align 4
   %2251 = load ptr, ptr %5, align 8
   %2252 = load i32, ptr %17, align 4
-  %2253 = call ptr @proto_tree_add_item(ptr noundef %2249, i32 noundef %2250, ptr noundef %2251, i32 noundef %2252, i32 noundef 4, i32 noundef -2147483648)
+  %2253 = call ptr @proto_tree_add_item_ret_int(ptr noundef %2249, i32 noundef %2250, ptr noundef %2251, i32 noundef %2252, i32 noundef 4, i32 noundef -2147483648, ptr noundef %18)
   %2254 = load i32, ptr %17, align 4
   %2255 = add i32 %2254, 4
   store i32 %2255, ptr %17, align 4
   %2256 = load ptr, ptr %13, align 8
-  %2257 = load i32, ptr @hf_slsk_filename, align 4
+  %2257 = load i32, ptr @hf_slsk_token, align 4
   %2258 = load ptr, ptr %5, align 8
   %2259 = load i32, ptr %17, align 4
-  %2260 = call ptr @proto_tree_add_item_ret_length(ptr noundef %2256, i32 noundef %2257, ptr noundef %2258, i32 noundef %2259, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %2261 = load i32, ptr %23, align 4
-  %2262 = load i32, ptr %17, align 4
-  %2263 = add i32 %2262, %2261
-  store i32 %2263, ptr %17, align 4
-  %2264 = load i32, ptr %18, align 4
-  %2265 = icmp eq i32 %2264, 1
-  br i1 %2265, label %2266, label %2281
+  %2260 = call ptr @proto_tree_add_item(ptr noundef %2256, i32 noundef %2257, ptr noundef %2258, i32 noundef %2259, i32 noundef 4, i32 noundef -2147483648)
+  %2261 = load i32, ptr %17, align 4
+  %2262 = add i32 %2261, 4
+  store i32 %2262, ptr %17, align 4
+  %2263 = load ptr, ptr %13, align 8
+  %2264 = load i32, ptr @hf_slsk_filename, align 4
+  %2265 = load ptr, ptr %5, align 8
+  %2266 = load i32, ptr %17, align 4
+  %2267 = call ptr @proto_tree_add_item_ret_length(ptr noundef %2263, i32 noundef %2264, ptr noundef %2265, i32 noundef %2266, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %2268 = load i32, ptr %23, align 4
+  %2269 = load i32, ptr %17, align 4
+  %2270 = add i32 %2269, %2268
+  store i32 %2270, ptr %17, align 4
+  %2271 = load i32, ptr %18, align 4
+  %2272 = icmp eq i32 %2271, 1
+  br i1 %2272, label %2273, label %2288
 
-2266:                                             ; preds = %2232
-  %2267 = load ptr, ptr %13, align 8
-  %2268 = load i32, ptr @hf_slsk_size, align 4
-  %2269 = load ptr, ptr %5, align 8
-  %2270 = load i32, ptr %17, align 4
-  %2271 = call ptr @proto_tree_add_item(ptr noundef %2267, i32 noundef %2268, ptr noundef %2269, i32 noundef %2270, i32 noundef 4, i32 noundef -2147483648)
-  %2272 = load i32, ptr %17, align 4
-  %2273 = add i32 %2272, 4
-  store i32 %2273, ptr %17, align 4
+2273:                                             ; preds = %2239
   %2274 = load ptr, ptr %13, align 8
-  %2275 = load i32, ptr @hf_slsk_integer, align 4
+  %2275 = load i32, ptr @hf_slsk_size, align 4
   %2276 = load ptr, ptr %5, align 8
   %2277 = load i32, ptr %17, align 4
   %2278 = call ptr @proto_tree_add_item(ptr noundef %2274, i32 noundef %2275, ptr noundef %2276, i32 noundef %2277, i32 noundef 4, i32 noundef -2147483648)
   %2279 = load i32, ptr %17, align 4
   %2280 = add i32 %2279, 4
   store i32 %2280, ptr %17, align 4
-  br label %2281
-
-2281:                                             ; preds = %2266, %2232
-  br label %2282
-
-2282:                                             ; preds = %2281, %2227
-  br label %2283
-
-2283:                                             ; preds = %2282, %2197
-  br label %4619
-
-2284:                                             ; preds = %4
-  %2285 = load ptr, ptr %5, align 8
+  %2281 = load ptr, ptr %13, align 8
+  %2282 = load i32, ptr @hf_slsk_integer, align 4
+  %2283 = load ptr, ptr %5, align 8
+  %2284 = load i32, ptr %17, align 4
+  %2285 = call ptr @proto_tree_add_item(ptr noundef %2281, i32 noundef %2282, ptr noundef %2283, i32 noundef %2284, i32 noundef 4, i32 noundef -2147483648)
   %2286 = load i32, ptr %17, align 4
-  %2287 = call i32 @check_slsk_format(ptr noundef %2285, i32 noundef %2286, ptr noundef @.str.264)
-  %2288 = icmp ne i32 %2287, 0
-  br i1 %2288, label %2299, label %2289
+  %2287 = add i32 %2286, 4
+  store i32 %2287, ptr %17, align 4
+  br label %2288
 
-2289:                                             ; preds = %2284
-  %2290 = load ptr, ptr %5, align 8
-  %2291 = load i32, ptr %17, align 4
-  %2292 = call i32 @check_slsk_format(ptr noundef %2290, i32 noundef %2291, ptr noundef @.str.265)
-  %2293 = icmp ne i32 %2292, 0
-  br i1 %2293, label %2299, label %2294
+2288:                                             ; preds = %2273, %2239
+  br label %2289
 
-2294:                                             ; preds = %2289
-  %2295 = load ptr, ptr %5, align 8
-  %2296 = load i32, ptr %17, align 4
-  %2297 = call i32 @check_slsk_format(ptr noundef %2295, i32 noundef %2296, ptr noundef @.str.266)
-  %2298 = icmp ne i32 %2297, 0
-  br i1 %2298, label %2299, label %2360
+2289:                                             ; preds = %2288, %2234
+  br label %2290
 
-2299:                                             ; preds = %2294, %2289, %2284
-  %2300 = load ptr, ptr %13, align 8
-  %2301 = load i32, ptr @hf_slsk_message_code, align 4
+2290:                                             ; preds = %2289, %2204
+  br label %4626
+
+2291:                                             ; preds = %4
+  %2292 = load ptr, ptr %5, align 8
+  %2293 = load ptr, ptr %6, align 8
+  %2294 = load i32, ptr %17, align 4
+  %2295 = call zeroext i1 @check_slsk_format(ptr noundef %2292, ptr noundef %2293, i32 noundef %2294, ptr noundef @.str.268)
+  br i1 %2295, label %2306, label %2296
+
+2296:                                             ; preds = %2291
+  %2297 = load ptr, ptr %5, align 8
+  %2298 = load ptr, ptr %6, align 8
+  %2299 = load i32, ptr %17, align 4
+  %2300 = call zeroext i1 @check_slsk_format(ptr noundef %2297, ptr noundef %2298, i32 noundef %2299, ptr noundef @.str.269)
+  br i1 %2300, label %2306, label %2301
+
+2301:                                             ; preds = %2296
   %2302 = load ptr, ptr %5, align 8
-  %2303 = load i32, ptr %17, align 4
-  %2304 = load i32, ptr %21, align 4
-  %2305 = load i32, ptr %21, align 4
-  %2306 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2300, i32 noundef %2301, ptr noundef %2302, i32 noundef %2303, i32 noundef 4, i32 noundef %2304, ptr noundef @.str.267, i32 noundef %2305)
-  %2307 = load i32, ptr %17, align 4
-  %2308 = add i32 %2307, 4
-  store i32 %2308, ptr %17, align 4
-  %2309 = load ptr, ptr %13, align 8
-  %2310 = load i32, ptr @hf_slsk_token, align 4
-  %2311 = load ptr, ptr %5, align 8
-  %2312 = load i32, ptr %17, align 4
-  %2313 = call ptr @proto_tree_add_item(ptr noundef %2309, i32 noundef %2310, ptr noundef %2311, i32 noundef %2312, i32 noundef 4, i32 noundef -2147483648)
+  %2303 = load ptr, ptr %6, align 8
+  %2304 = load i32, ptr %17, align 4
+  %2305 = call zeroext i1 @check_slsk_format(ptr noundef %2302, ptr noundef %2303, i32 noundef %2304, ptr noundef @.str.270)
+  br i1 %2305, label %2306, label %2367
+
+2306:                                             ; preds = %2301, %2296, %2291
+  %2307 = load ptr, ptr %13, align 8
+  %2308 = load i32, ptr @hf_slsk_message_code, align 4
+  %2309 = load ptr, ptr %5, align 8
+  %2310 = load i32, ptr %17, align 4
+  %2311 = load i32, ptr %21, align 4
+  %2312 = load i32, ptr %21, align 4
+  %2313 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2307, i32 noundef %2308, ptr noundef %2309, i32 noundef %2310, i32 noundef 4, i32 noundef %2311, ptr noundef @.str.271, i32 noundef %2312)
   %2314 = load i32, ptr %17, align 4
   %2315 = add i32 %2314, 4
   store i32 %2315, ptr %17, align 4
-  %2316 = load ptr, ptr %5, align 8
-  %2317 = load i32, ptr %17, align 4
-  %2318 = call zeroext i8 @tvb_get_guint8(ptr noundef %2316, i32 noundef %2317)
-  %2319 = zext i8 %2318 to i32
-  store i32 %2319, ptr %18, align 4
-  %2320 = load ptr, ptr %13, align 8
-  %2321 = load i32, ptr @hf_slsk_allowed, align 4
-  %2322 = load ptr, ptr %5, align 8
-  %2323 = load i32, ptr %17, align 4
-  %2324 = call ptr @proto_tree_add_item(ptr noundef %2320, i32 noundef %2321, ptr noundef %2322, i32 noundef %2323, i32 noundef 1, i32 noundef 0)
-  %2325 = load i32, ptr %17, align 4
-  %2326 = add i32 %2325, 1
-  store i32 %2326, ptr %17, align 4
-  %2327 = load i32, ptr %18, align 4
-  %2328 = icmp eq i32 %2327, 1
-  br i1 %2328, label %2329, label %2350
+  %2316 = load ptr, ptr %13, align 8
+  %2317 = load i32, ptr @hf_slsk_token, align 4
+  %2318 = load ptr, ptr %5, align 8
+  %2319 = load i32, ptr %17, align 4
+  %2320 = call ptr @proto_tree_add_item(ptr noundef %2316, i32 noundef %2317, ptr noundef %2318, i32 noundef %2319, i32 noundef 4, i32 noundef -2147483648)
+  %2321 = load i32, ptr %17, align 4
+  %2322 = add i32 %2321, 4
+  store i32 %2322, ptr %17, align 4
+  %2323 = load ptr, ptr %5, align 8
+  %2324 = load i32, ptr %17, align 4
+  %2325 = call zeroext i8 @tvb_get_uint8(ptr noundef %2323, i32 noundef %2324)
+  %2326 = zext i8 %2325 to i32
+  store i32 %2326, ptr %18, align 4
+  %2327 = load ptr, ptr %13, align 8
+  %2328 = load i32, ptr @hf_slsk_allowed, align 4
+  %2329 = load ptr, ptr %5, align 8
+  %2330 = load i32, ptr %17, align 4
+  %2331 = call ptr @proto_tree_add_item(ptr noundef %2327, i32 noundef %2328, ptr noundef %2329, i32 noundef %2330, i32 noundef 1, i32 noundef 0)
+  %2332 = load i32, ptr %17, align 4
+  %2333 = add i32 %2332, 1
+  store i32 %2333, ptr %17, align 4
+  %2334 = load i32, ptr %18, align 4
+  %2335 = icmp eq i32 %2334, 1
+  br i1 %2335, label %2336, label %2357
 
-2329:                                             ; preds = %2299
-  %2330 = load ptr, ptr %5, align 8
-  %2331 = load i32, ptr %17, align 4
-  %2332 = call i32 @tvb_reported_length_remaining(ptr noundef %2330, i32 noundef %2331)
-  %2333 = icmp eq i32 %2332, 8
-  br i1 %2333, label %2334, label %2349
-
-2334:                                             ; preds = %2329
-  %2335 = load ptr, ptr %13, align 8
-  %2336 = load i32, ptr @hf_slsk_size, align 4
+2336:                                             ; preds = %2306
   %2337 = load ptr, ptr %5, align 8
   %2338 = load i32, ptr %17, align 4
-  %2339 = call ptr @proto_tree_add_item(ptr noundef %2335, i32 noundef %2336, ptr noundef %2337, i32 noundef %2338, i32 noundef 4, i32 noundef -2147483648)
-  %2340 = load i32, ptr %17, align 4
-  %2341 = add i32 %2340, 4
-  store i32 %2341, ptr %17, align 4
+  %2339 = call i32 @tvb_reported_length_remaining(ptr noundef %2337, i32 noundef %2338)
+  %2340 = icmp eq i32 %2339, 8
+  br i1 %2340, label %2341, label %2356
+
+2341:                                             ; preds = %2336
   %2342 = load ptr, ptr %13, align 8
-  %2343 = load i32, ptr @hf_slsk_integer, align 4
+  %2343 = load i32, ptr @hf_slsk_size, align 4
   %2344 = load ptr, ptr %5, align 8
   %2345 = load i32, ptr %17, align 4
   %2346 = call ptr @proto_tree_add_item(ptr noundef %2342, i32 noundef %2343, ptr noundef %2344, i32 noundef %2345, i32 noundef 4, i32 noundef -2147483648)
   %2347 = load i32, ptr %17, align 4
   %2348 = add i32 %2347, 4
   store i32 %2348, ptr %17, align 4
-  br label %2349
-
-2349:                                             ; preds = %2334, %2329
-  br label %2359
-
-2350:                                             ; preds = %2299
-  %2351 = load ptr, ptr %13, align 8
-  %2352 = load i32, ptr @hf_slsk_string, align 4
-  %2353 = load ptr, ptr %5, align 8
+  %2349 = load ptr, ptr %13, align 8
+  %2350 = load i32, ptr @hf_slsk_integer, align 4
+  %2351 = load ptr, ptr %5, align 8
+  %2352 = load i32, ptr %17, align 4
+  %2353 = call ptr @proto_tree_add_item(ptr noundef %2349, i32 noundef %2350, ptr noundef %2351, i32 noundef %2352, i32 noundef 4, i32 noundef -2147483648)
   %2354 = load i32, ptr %17, align 4
-  %2355 = call ptr @proto_tree_add_item_ret_length(ptr noundef %2351, i32 noundef %2352, ptr noundef %2353, i32 noundef %2354, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %2356 = load i32, ptr %23, align 4
-  %2357 = load i32, ptr %17, align 4
-  %2358 = add i32 %2357, %2356
-  store i32 %2358, ptr %17, align 4
-  br label %2359
+  %2355 = add i32 %2354, 4
+  store i32 %2355, ptr %17, align 4
+  br label %2356
 
-2359:                                             ; preds = %2350, %2349
-  br label %2360
+2356:                                             ; preds = %2341, %2336
+  br label %2366
 
-2360:                                             ; preds = %2359, %2294
-  br label %4619
+2357:                                             ; preds = %2306
+  %2358 = load ptr, ptr %13, align 8
+  %2359 = load i32, ptr @hf_slsk_string, align 4
+  %2360 = load ptr, ptr %5, align 8
+  %2361 = load i32, ptr %17, align 4
+  %2362 = call ptr @proto_tree_add_item_ret_length(ptr noundef %2358, i32 noundef %2359, ptr noundef %2360, i32 noundef %2361, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %2363 = load i32, ptr %23, align 4
+  %2364 = load i32, ptr %17, align 4
+  %2365 = add i32 %2364, %2363
+  store i32 %2365, ptr %17, align 4
+  br label %2366
 
-2361:                                             ; preds = %4
-  %2362 = load ptr, ptr %5, align 8
-  %2363 = load i32, ptr %17, align 4
-  %2364 = call i32 @check_slsk_format(ptr noundef %2362, i32 noundef %2363, ptr noundef @.str.202)
-  %2365 = icmp ne i32 %2364, 0
-  br i1 %2365, label %2366, label %2384
+2366:                                             ; preds = %2357, %2356
+  br label %2367
 
-2366:                                             ; preds = %2361
-  %2367 = load ptr, ptr %13, align 8
-  %2368 = load i32, ptr @hf_slsk_message_code, align 4
+2367:                                             ; preds = %2366, %2301
+  br label %4626
+
+2368:                                             ; preds = %4
   %2369 = load ptr, ptr %5, align 8
-  %2370 = load i32, ptr %17, align 4
-  %2371 = load i32, ptr %21, align 4
-  %2372 = load i32, ptr %21, align 4
-  %2373 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2367, i32 noundef %2368, ptr noundef %2369, i32 noundef %2370, i32 noundef 4, i32 noundef %2371, ptr noundef @.str.268, i32 noundef %2372)
-  %2374 = load i32, ptr %17, align 4
-  %2375 = add i32 %2374, 4
-  store i32 %2375, ptr %17, align 4
-  %2376 = load ptr, ptr %13, align 8
-  %2377 = load i32, ptr @hf_slsk_filename, align 4
-  %2378 = load ptr, ptr %5, align 8
-  %2379 = load i32, ptr %17, align 4
-  %2380 = call ptr @proto_tree_add_item_ret_length(ptr noundef %2376, i32 noundef %2377, ptr noundef %2378, i32 noundef %2379, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %2381 = load i32, ptr %23, align 4
-  %2382 = load i32, ptr %17, align 4
-  %2383 = add i32 %2382, %2381
-  store i32 %2383, ptr %17, align 4
-  br label %2384
+  %2370 = load ptr, ptr %6, align 8
+  %2371 = load i32, ptr %17, align 4
+  %2372 = call zeroext i1 @check_slsk_format(ptr noundef %2369, ptr noundef %2370, i32 noundef %2371, ptr noundef @.str.206)
+  br i1 %2372, label %2373, label %2391
 
-2384:                                             ; preds = %2366, %2361
-  br label %4619
+2373:                                             ; preds = %2368
+  %2374 = load ptr, ptr %13, align 8
+  %2375 = load i32, ptr @hf_slsk_message_code, align 4
+  %2376 = load ptr, ptr %5, align 8
+  %2377 = load i32, ptr %17, align 4
+  %2378 = load i32, ptr %21, align 4
+  %2379 = load i32, ptr %21, align 4
+  %2380 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2374, i32 noundef %2375, ptr noundef %2376, i32 noundef %2377, i32 noundef 4, i32 noundef %2378, ptr noundef @.str.272, i32 noundef %2379)
+  %2381 = load i32, ptr %17, align 4
+  %2382 = add i32 %2381, 4
+  store i32 %2382, ptr %17, align 4
+  %2383 = load ptr, ptr %13, align 8
+  %2384 = load i32, ptr @hf_slsk_filename, align 4
+  %2385 = load ptr, ptr %5, align 8
+  %2386 = load i32, ptr %17, align 4
+  %2387 = call ptr @proto_tree_add_item_ret_length(ptr noundef %2383, i32 noundef %2384, ptr noundef %2385, i32 noundef %2386, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %2388 = load i32, ptr %23, align 4
+  %2389 = load i32, ptr %17, align 4
+  %2390 = add i32 %2389, %2388
+  store i32 %2390, ptr %17, align 4
+  br label %2391
 
-2385:                                             ; preds = %4
-  %2386 = load ptr, ptr %5, align 8
-  %2387 = load i32, ptr %17, align 4
-  %2388 = call i32 @check_slsk_format(ptr noundef %2386, i32 noundef %2387, ptr noundef @.str.202)
-  %2389 = icmp ne i32 %2388, 0
-  br i1 %2389, label %2390, label %2408
+2391:                                             ; preds = %2373, %2368
+  br label %4626
 
-2390:                                             ; preds = %2385
-  %2391 = load ptr, ptr %13, align 8
-  %2392 = load i32, ptr @hf_slsk_message_code, align 4
+2392:                                             ; preds = %4
   %2393 = load ptr, ptr %5, align 8
-  %2394 = load i32, ptr %17, align 4
-  %2395 = load i32, ptr %21, align 4
-  %2396 = load i32, ptr %21, align 4
-  %2397 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2391, i32 noundef %2392, ptr noundef %2393, i32 noundef %2394, i32 noundef 4, i32 noundef %2395, ptr noundef @.str.269, i32 noundef %2396)
-  %2398 = load i32, ptr %17, align 4
-  %2399 = add i32 %2398, 4
-  store i32 %2399, ptr %17, align 4
-  %2400 = load ptr, ptr %13, align 8
-  %2401 = load i32, ptr @hf_slsk_filename, align 4
-  %2402 = load ptr, ptr %5, align 8
-  %2403 = load i32, ptr %17, align 4
-  %2404 = call ptr @proto_tree_add_item_ret_length(ptr noundef %2400, i32 noundef %2401, ptr noundef %2402, i32 noundef %2403, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %2405 = load i32, ptr %23, align 4
-  %2406 = load i32, ptr %17, align 4
-  %2407 = add i32 %2406, %2405
-  store i32 %2407, ptr %17, align 4
-  br label %2408
+  %2394 = load ptr, ptr %6, align 8
+  %2395 = load i32, ptr %17, align 4
+  %2396 = call zeroext i1 @check_slsk_format(ptr noundef %2393, ptr noundef %2394, i32 noundef %2395, ptr noundef @.str.206)
+  br i1 %2396, label %2397, label %2415
 
-2408:                                             ; preds = %2390, %2385
-  br label %4619
+2397:                                             ; preds = %2392
+  %2398 = load ptr, ptr %13, align 8
+  %2399 = load i32, ptr @hf_slsk_message_code, align 4
+  %2400 = load ptr, ptr %5, align 8
+  %2401 = load i32, ptr %17, align 4
+  %2402 = load i32, ptr %21, align 4
+  %2403 = load i32, ptr %21, align 4
+  %2404 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2398, i32 noundef %2399, ptr noundef %2400, i32 noundef %2401, i32 noundef 4, i32 noundef %2402, ptr noundef @.str.273, i32 noundef %2403)
+  %2405 = load i32, ptr %17, align 4
+  %2406 = add i32 %2405, 4
+  store i32 %2406, ptr %17, align 4
+  %2407 = load ptr, ptr %13, align 8
+  %2408 = load i32, ptr @hf_slsk_filename, align 4
+  %2409 = load ptr, ptr %5, align 8
+  %2410 = load i32, ptr %17, align 4
+  %2411 = call ptr @proto_tree_add_item_ret_length(ptr noundef %2407, i32 noundef %2408, ptr noundef %2409, i32 noundef %2410, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %2412 = load i32, ptr %23, align 4
+  %2413 = load i32, ptr %17, align 4
+  %2414 = add i32 %2413, %2412
+  store i32 %2414, ptr %17, align 4
+  br label %2415
 
-2409:                                             ; preds = %4
-  %2410 = load ptr, ptr %5, align 8
-  %2411 = load i32, ptr %17, align 4
-  %2412 = call i32 @check_slsk_format(ptr noundef %2410, i32 noundef %2411, ptr noundef @.str.218)
-  %2413 = icmp ne i32 %2412, 0
-  br i1 %2413, label %2414, label %2439
+2415:                                             ; preds = %2397, %2392
+  br label %4626
 
-2414:                                             ; preds = %2409
-  %2415 = load ptr, ptr %13, align 8
-  %2416 = load i32, ptr @hf_slsk_message_code, align 4
+2416:                                             ; preds = %4
   %2417 = load ptr, ptr %5, align 8
-  %2418 = load i32, ptr %17, align 4
-  %2419 = load i32, ptr %21, align 4
-  %2420 = load i32, ptr %21, align 4
-  %2421 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2415, i32 noundef %2416, ptr noundef %2417, i32 noundef %2418, i32 noundef 4, i32 noundef %2419, ptr noundef @.str.270, i32 noundef %2420)
-  %2422 = load i32, ptr %17, align 4
-  %2423 = add i32 %2422, 4
-  store i32 %2423, ptr %17, align 4
-  %2424 = load ptr, ptr %13, align 8
-  %2425 = load i32, ptr @hf_slsk_filename, align 4
-  %2426 = load ptr, ptr %5, align 8
-  %2427 = load i32, ptr %17, align 4
-  %2428 = call ptr @proto_tree_add_item_ret_length(ptr noundef %2424, i32 noundef %2425, ptr noundef %2426, i32 noundef %2427, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %2429 = load i32, ptr %23, align 4
-  %2430 = load i32, ptr %17, align 4
-  %2431 = add i32 %2430, %2429
-  store i32 %2431, ptr %17, align 4
-  %2432 = load ptr, ptr %13, align 8
-  %2433 = load i32, ptr @hf_slsk_place_in_queue, align 4
-  %2434 = load ptr, ptr %5, align 8
-  %2435 = load i32, ptr %17, align 4
-  %2436 = call ptr @proto_tree_add_item(ptr noundef %2432, i32 noundef %2433, ptr noundef %2434, i32 noundef %2435, i32 noundef 4, i32 noundef -2147483648)
+  %2418 = load ptr, ptr %6, align 8
+  %2419 = load i32, ptr %17, align 4
+  %2420 = call zeroext i1 @check_slsk_format(ptr noundef %2417, ptr noundef %2418, i32 noundef %2419, ptr noundef @.str.222)
+  br i1 %2420, label %2421, label %2446
+
+2421:                                             ; preds = %2416
+  %2422 = load ptr, ptr %13, align 8
+  %2423 = load i32, ptr @hf_slsk_message_code, align 4
+  %2424 = load ptr, ptr %5, align 8
+  %2425 = load i32, ptr %17, align 4
+  %2426 = load i32, ptr %21, align 4
+  %2427 = load i32, ptr %21, align 4
+  %2428 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2422, i32 noundef %2423, ptr noundef %2424, i32 noundef %2425, i32 noundef 4, i32 noundef %2426, ptr noundef @.str.274, i32 noundef %2427)
+  %2429 = load i32, ptr %17, align 4
+  %2430 = add i32 %2429, 4
+  store i32 %2430, ptr %17, align 4
+  %2431 = load ptr, ptr %13, align 8
+  %2432 = load i32, ptr @hf_slsk_filename, align 4
+  %2433 = load ptr, ptr %5, align 8
+  %2434 = load i32, ptr %17, align 4
+  %2435 = call ptr @proto_tree_add_item_ret_length(ptr noundef %2431, i32 noundef %2432, ptr noundef %2433, i32 noundef %2434, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %2436 = load i32, ptr %23, align 4
   %2437 = load i32, ptr %17, align 4
-  %2438 = add i32 %2437, 4
+  %2438 = add i32 %2437, %2436
   store i32 %2438, ptr %17, align 4
-  br label %2439
-
-2439:                                             ; preds = %2414, %2409
-  br label %4619
-
-2440:                                             ; preds = %4
+  %2439 = load ptr, ptr %13, align 8
+  %2440 = load i32, ptr @hf_slsk_place_in_queue, align 4
   %2441 = load ptr, ptr %5, align 8
   %2442 = load i32, ptr %17, align 4
-  %2443 = call i32 @check_slsk_format(ptr noundef %2441, i32 noundef %2442, ptr noundef @.str.202)
-  %2444 = icmp ne i32 %2443, 0
-  br i1 %2444, label %2445, label %2463
+  %2443 = call ptr @proto_tree_add_item(ptr noundef %2439, i32 noundef %2440, ptr noundef %2441, i32 noundef %2442, i32 noundef 4, i32 noundef -2147483648)
+  %2444 = load i32, ptr %17, align 4
+  %2445 = add i32 %2444, 4
+  store i32 %2445, ptr %17, align 4
+  br label %2446
 
-2445:                                             ; preds = %2440
-  %2446 = load ptr, ptr %13, align 8
-  %2447 = load i32, ptr @hf_slsk_message_code, align 4
+2446:                                             ; preds = %2421, %2416
+  br label %4626
+
+2447:                                             ; preds = %4
   %2448 = load ptr, ptr %5, align 8
-  %2449 = load i32, ptr %17, align 4
-  %2450 = load i32, ptr %21, align 4
-  %2451 = load i32, ptr %21, align 4
-  %2452 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2446, i32 noundef %2447, ptr noundef %2448, i32 noundef %2449, i32 noundef 4, i32 noundef %2450, ptr noundef @.str.271, i32 noundef %2451)
-  %2453 = load i32, ptr %17, align 4
-  %2454 = add i32 %2453, 4
-  store i32 %2454, ptr %17, align 4
-  %2455 = load ptr, ptr %13, align 8
-  %2456 = load i32, ptr @hf_slsk_filename, align 4
-  %2457 = load ptr, ptr %5, align 8
-  %2458 = load i32, ptr %17, align 4
-  %2459 = call ptr @proto_tree_add_item_ret_length(ptr noundef %2455, i32 noundef %2456, ptr noundef %2457, i32 noundef %2458, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %2460 = load i32, ptr %23, align 4
-  %2461 = load i32, ptr %17, align 4
-  %2462 = add i32 %2461, %2460
-  store i32 %2462, ptr %17, align 4
-  br label %2463
+  %2449 = load ptr, ptr %6, align 8
+  %2450 = load i32, ptr %17, align 4
+  %2451 = call zeroext i1 @check_slsk_format(ptr noundef %2448, ptr noundef %2449, i32 noundef %2450, ptr noundef @.str.206)
+  br i1 %2451, label %2452, label %2470
 
-2463:                                             ; preds = %2445, %2440
-  br label %4619
+2452:                                             ; preds = %2447
+  %2453 = load ptr, ptr %13, align 8
+  %2454 = load i32, ptr @hf_slsk_message_code, align 4
+  %2455 = load ptr, ptr %5, align 8
+  %2456 = load i32, ptr %17, align 4
+  %2457 = load i32, ptr %21, align 4
+  %2458 = load i32, ptr %21, align 4
+  %2459 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2453, i32 noundef %2454, ptr noundef %2455, i32 noundef %2456, i32 noundef 4, i32 noundef %2457, ptr noundef @.str.275, i32 noundef %2458)
+  %2460 = load i32, ptr %17, align 4
+  %2461 = add i32 %2460, 4
+  store i32 %2461, ptr %17, align 4
+  %2462 = load ptr, ptr %13, align 8
+  %2463 = load i32, ptr @hf_slsk_filename, align 4
+  %2464 = load ptr, ptr %5, align 8
+  %2465 = load i32, ptr %17, align 4
+  %2466 = call ptr @proto_tree_add_item_ret_length(ptr noundef %2462, i32 noundef %2463, ptr noundef %2464, i32 noundef %2465, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %2467 = load i32, ptr %23, align 4
+  %2468 = load i32, ptr %17, align 4
+  %2469 = add i32 %2468, %2467
+  store i32 %2469, ptr %17, align 4
+  br label %2470
 
-2464:                                             ; preds = %4
-  %2465 = load ptr, ptr %5, align 8
-  %2466 = load i32, ptr %17, align 4
-  %2467 = call i32 @check_slsk_format(ptr noundef %2465, i32 noundef %2466, ptr noundef @.str.202)
-  %2468 = icmp ne i32 %2467, 0
-  br i1 %2468, label %2469, label %2487
+2470:                                             ; preds = %2452, %2447
+  br label %4626
 
-2469:                                             ; preds = %2464
-  %2470 = load ptr, ptr %13, align 8
-  %2471 = load i32, ptr @hf_slsk_message_code, align 4
+2471:                                             ; preds = %4
   %2472 = load ptr, ptr %5, align 8
-  %2473 = load i32, ptr %17, align 4
-  %2474 = load i32, ptr %21, align 4
-  %2475 = load i32, ptr %21, align 4
-  %2476 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2470, i32 noundef %2471, ptr noundef %2472, i32 noundef %2473, i32 noundef 4, i32 noundef %2474, ptr noundef @.str.272, i32 noundef %2475)
-  %2477 = load i32, ptr %17, align 4
-  %2478 = add i32 %2477, 4
-  store i32 %2478, ptr %17, align 4
-  %2479 = load ptr, ptr %13, align 8
-  %2480 = load i32, ptr @hf_slsk_recommendation, align 4
-  %2481 = load ptr, ptr %5, align 8
-  %2482 = load i32, ptr %17, align 4
-  %2483 = call ptr @proto_tree_add_item_ret_length(ptr noundef %2479, i32 noundef %2480, ptr noundef %2481, i32 noundef %2482, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %2484 = load i32, ptr %23, align 4
-  %2485 = load i32, ptr %17, align 4
-  %2486 = add i32 %2485, %2484
-  store i32 %2486, ptr %17, align 4
-  br label %2550
+  %2473 = load ptr, ptr %6, align 8
+  %2474 = load i32, ptr %17, align 4
+  %2475 = call zeroext i1 @check_slsk_format(ptr noundef %2472, ptr noundef %2473, i32 noundef %2474, ptr noundef @.str.206)
+  br i1 %2475, label %2476, label %2494
 
-2487:                                             ; preds = %2464
+2476:                                             ; preds = %2471
+  %2477 = load ptr, ptr %13, align 8
+  %2478 = load i32, ptr @hf_slsk_message_code, align 4
+  %2479 = load ptr, ptr %5, align 8
+  %2480 = load i32, ptr %17, align 4
+  %2481 = load i32, ptr %21, align 4
+  %2482 = load i32, ptr %21, align 4
+  %2483 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2477, i32 noundef %2478, ptr noundef %2479, i32 noundef %2480, i32 noundef 4, i32 noundef %2481, ptr noundef @.str.276, i32 noundef %2482)
+  %2484 = load i32, ptr %17, align 4
+  %2485 = add i32 %2484, 4
+  store i32 %2485, ptr %17, align 4
+  %2486 = load ptr, ptr %13, align 8
+  %2487 = load i32, ptr @hf_slsk_recommendation, align 4
   %2488 = load ptr, ptr %5, align 8
   %2489 = load i32, ptr %17, align 4
-  %2490 = call i32 @check_slsk_format(ptr noundef %2488, i32 noundef %2489, ptr noundef @.str.218)
-  %2491 = icmp ne i32 %2490, 0
-  br i1 %2491, label %2492, label %2517
+  %2490 = call ptr @proto_tree_add_item_ret_length(ptr noundef %2486, i32 noundef %2487, ptr noundef %2488, i32 noundef %2489, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %2491 = load i32, ptr %23, align 4
+  %2492 = load i32, ptr %17, align 4
+  %2493 = add i32 %2492, %2491
+  store i32 %2493, ptr %17, align 4
+  br label %2557
 
-2492:                                             ; preds = %2487
-  %2493 = load ptr, ptr %13, align 8
-  %2494 = load i32, ptr @hf_slsk_message_code, align 4
+2494:                                             ; preds = %2471
   %2495 = load ptr, ptr %5, align 8
-  %2496 = load i32, ptr %17, align 4
-  %2497 = load i32, ptr %21, align 4
-  %2498 = load i32, ptr %21, align 4
-  %2499 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2493, i32 noundef %2494, ptr noundef %2495, i32 noundef %2496, i32 noundef 4, i32 noundef %2497, ptr noundef @.str.273, i32 noundef %2498)
-  %2500 = load i32, ptr %17, align 4
-  %2501 = add i32 %2500, 4
-  store i32 %2501, ptr %17, align 4
-  %2502 = load ptr, ptr %13, align 8
-  %2503 = load i32, ptr @hf_slsk_recommendation, align 4
-  %2504 = load ptr, ptr %5, align 8
-  %2505 = load i32, ptr %17, align 4
-  %2506 = call ptr @proto_tree_add_item_ret_length(ptr noundef %2502, i32 noundef %2503, ptr noundef %2504, i32 noundef %2505, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %2507 = load i32, ptr %23, align 4
-  %2508 = load i32, ptr %17, align 4
-  %2509 = add i32 %2508, %2507
-  store i32 %2509, ptr %17, align 4
-  %2510 = load ptr, ptr %13, align 8
-  %2511 = load i32, ptr @hf_slsk_ranking, align 4
-  %2512 = load ptr, ptr %5, align 8
-  %2513 = load i32, ptr %17, align 4
-  %2514 = call ptr @proto_tree_add_item(ptr noundef %2510, i32 noundef %2511, ptr noundef %2512, i32 noundef %2513, i32 noundef 4, i32 noundef -2147483648)
+  %2496 = load ptr, ptr %6, align 8
+  %2497 = load i32, ptr %17, align 4
+  %2498 = call zeroext i1 @check_slsk_format(ptr noundef %2495, ptr noundef %2496, i32 noundef %2497, ptr noundef @.str.222)
+  br i1 %2498, label %2499, label %2524
+
+2499:                                             ; preds = %2494
+  %2500 = load ptr, ptr %13, align 8
+  %2501 = load i32, ptr @hf_slsk_message_code, align 4
+  %2502 = load ptr, ptr %5, align 8
+  %2503 = load i32, ptr %17, align 4
+  %2504 = load i32, ptr %21, align 4
+  %2505 = load i32, ptr %21, align 4
+  %2506 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2500, i32 noundef %2501, ptr noundef %2502, i32 noundef %2503, i32 noundef 4, i32 noundef %2504, ptr noundef @.str.277, i32 noundef %2505)
+  %2507 = load i32, ptr %17, align 4
+  %2508 = add i32 %2507, 4
+  store i32 %2508, ptr %17, align 4
+  %2509 = load ptr, ptr %13, align 8
+  %2510 = load i32, ptr @hf_slsk_recommendation, align 4
+  %2511 = load ptr, ptr %5, align 8
+  %2512 = load i32, ptr %17, align 4
+  %2513 = call ptr @proto_tree_add_item_ret_length(ptr noundef %2509, i32 noundef %2510, ptr noundef %2511, i32 noundef %2512, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %2514 = load i32, ptr %23, align 4
   %2515 = load i32, ptr %17, align 4
-  %2516 = add i32 %2515, 4
+  %2516 = add i32 %2515, %2514
   store i32 %2516, ptr %17, align 4
-  br label %2549
+  %2517 = load ptr, ptr %13, align 8
+  %2518 = load i32, ptr @hf_slsk_ranking, align 4
+  %2519 = load ptr, ptr %5, align 8
+  %2520 = load i32, ptr %17, align 4
+  %2521 = call ptr @proto_tree_add_item(ptr noundef %2517, i32 noundef %2518, ptr noundef %2519, i32 noundef %2520, i32 noundef 4, i32 noundef -2147483648)
+  %2522 = load i32, ptr %17, align 4
+  %2523 = add i32 %2522, 4
+  store i32 %2523, ptr %17, align 4
+  br label %2556
 
-2517:                                             ; preds = %2487
-  %2518 = load ptr, ptr %5, align 8
-  %2519 = load i32, ptr %17, align 4
-  %2520 = call i32 @check_slsk_format(ptr noundef %2518, i32 noundef %2519, ptr noundef @.str.225)
-  %2521 = icmp ne i32 %2520, 0
-  br i1 %2521, label %2522, label %2548
-
-2522:                                             ; preds = %2517
-  %2523 = load ptr, ptr %13, align 8
-  %2524 = load i32, ptr @hf_slsk_message_code, align 4
+2524:                                             ; preds = %2494
   %2525 = load ptr, ptr %5, align 8
-  %2526 = load i32, ptr %17, align 4
-  %2527 = load i32, ptr %21, align 4
-  %2528 = load i32, ptr %21, align 4
-  %2529 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2523, i32 noundef %2524, ptr noundef %2525, i32 noundef %2526, i32 noundef 4, i32 noundef %2527, ptr noundef @.str.274, i32 noundef %2528)
-  %2530 = load i32, ptr %17, align 4
-  %2531 = add i32 %2530, 4
-  store i32 %2531, ptr %17, align 4
-  %2532 = load ptr, ptr %13, align 8
-  %2533 = load i32, ptr @hf_slsk_filename, align 4
-  %2534 = load ptr, ptr %5, align 8
-  %2535 = load i32, ptr %17, align 4
-  %2536 = call ptr @proto_tree_add_item_ret_length(ptr noundef %2532, i32 noundef %2533, ptr noundef %2534, i32 noundef %2535, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %2537 = load i32, ptr %23, align 4
-  %2538 = load i32, ptr %17, align 4
-  %2539 = add i32 %2538, %2537
-  store i32 %2539, ptr %17, align 4
-  %2540 = load ptr, ptr %13, align 8
-  %2541 = load i32, ptr @hf_slsk_string, align 4
-  %2542 = load ptr, ptr %5, align 8
-  %2543 = load i32, ptr %17, align 4
-  %2544 = call ptr @proto_tree_add_item_ret_length(ptr noundef %2540, i32 noundef %2541, ptr noundef %2542, i32 noundef %2543, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %2545 = load i32, ptr %23, align 4
-  %2546 = load i32, ptr %17, align 4
-  %2547 = add i32 %2546, %2545
-  store i32 %2547, ptr %17, align 4
-  br label %2548
+  %2526 = load ptr, ptr %6, align 8
+  %2527 = load i32, ptr %17, align 4
+  %2528 = call zeroext i1 @check_slsk_format(ptr noundef %2525, ptr noundef %2526, i32 noundef %2527, ptr noundef @.str.229)
+  br i1 %2528, label %2529, label %2555
 
-2548:                                             ; preds = %2522, %2517
-  br label %2549
-
-2549:                                             ; preds = %2548, %2492
-  br label %2550
-
-2550:                                             ; preds = %2549, %2469
-  br label %4619
-
-2551:                                             ; preds = %4
-  %2552 = load ptr, ptr %5, align 8
+2529:                                             ; preds = %2524
+  %2530 = load ptr, ptr %13, align 8
+  %2531 = load i32, ptr @hf_slsk_message_code, align 4
+  %2532 = load ptr, ptr %5, align 8
+  %2533 = load i32, ptr %17, align 4
+  %2534 = load i32, ptr %21, align 4
+  %2535 = load i32, ptr %21, align 4
+  %2536 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2530, i32 noundef %2531, ptr noundef %2532, i32 noundef %2533, i32 noundef 4, i32 noundef %2534, ptr noundef @.str.278, i32 noundef %2535)
+  %2537 = load i32, ptr %17, align 4
+  %2538 = add i32 %2537, 4
+  store i32 %2538, ptr %17, align 4
+  %2539 = load ptr, ptr %13, align 8
+  %2540 = load i32, ptr @hf_slsk_filename, align 4
+  %2541 = load ptr, ptr %5, align 8
+  %2542 = load i32, ptr %17, align 4
+  %2543 = call ptr @proto_tree_add_item_ret_length(ptr noundef %2539, i32 noundef %2540, ptr noundef %2541, i32 noundef %2542, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %2544 = load i32, ptr %23, align 4
+  %2545 = load i32, ptr %17, align 4
+  %2546 = add i32 %2545, %2544
+  store i32 %2546, ptr %17, align 4
+  %2547 = load ptr, ptr %13, align 8
+  %2548 = load i32, ptr @hf_slsk_string, align 4
+  %2549 = load ptr, ptr %5, align 8
+  %2550 = load i32, ptr %17, align 4
+  %2551 = call ptr @proto_tree_add_item_ret_length(ptr noundef %2547, i32 noundef %2548, ptr noundef %2549, i32 noundef %2550, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %2552 = load i32, ptr %23, align 4
   %2553 = load i32, ptr %17, align 4
-  %2554 = call i32 @check_slsk_format(ptr noundef %2552, i32 noundef %2553, ptr noundef @.str.202)
-  %2555 = icmp ne i32 %2554, 0
-  br i1 %2555, label %2556, label %2574
+  %2554 = add i32 %2553, %2552
+  store i32 %2554, ptr %17, align 4
+  br label %2555
 
-2556:                                             ; preds = %2551
-  %2557 = load ptr, ptr %13, align 8
-  %2558 = load i32, ptr @hf_slsk_message_code, align 4
+2555:                                             ; preds = %2529, %2524
+  br label %2556
+
+2556:                                             ; preds = %2555, %2499
+  br label %2557
+
+2557:                                             ; preds = %2556, %2476
+  br label %4626
+
+2558:                                             ; preds = %4
   %2559 = load ptr, ptr %5, align 8
-  %2560 = load i32, ptr %17, align 4
-  %2561 = load i32, ptr %21, align 4
-  %2562 = load i32, ptr %21, align 4
-  %2563 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2557, i32 noundef %2558, ptr noundef %2559, i32 noundef %2560, i32 noundef 4, i32 noundef %2561, ptr noundef @.str.275, i32 noundef %2562)
-  %2564 = load i32, ptr %17, align 4
-  %2565 = add i32 %2564, 4
-  store i32 %2565, ptr %17, align 4
-  %2566 = load ptr, ptr %13, align 8
-  %2567 = load i32, ptr @hf_slsk_filename, align 4
-  %2568 = load ptr, ptr %5, align 8
-  %2569 = load i32, ptr %17, align 4
-  %2570 = call ptr @proto_tree_add_item_ret_length(ptr noundef %2566, i32 noundef %2567, ptr noundef %2568, i32 noundef %2569, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %2571 = load i32, ptr %23, align 4
-  %2572 = load i32, ptr %17, align 4
-  %2573 = add i32 %2572, %2571
-  store i32 %2573, ptr %17, align 4
-  br label %2574
+  %2560 = load ptr, ptr %6, align 8
+  %2561 = load i32, ptr %17, align 4
+  %2562 = call zeroext i1 @check_slsk_format(ptr noundef %2559, ptr noundef %2560, i32 noundef %2561, ptr noundef @.str.206)
+  br i1 %2562, label %2563, label %2581
 
-2574:                                             ; preds = %2556, %2551
-  br label %4619
+2563:                                             ; preds = %2558
+  %2564 = load ptr, ptr %13, align 8
+  %2565 = load i32, ptr @hf_slsk_message_code, align 4
+  %2566 = load ptr, ptr %5, align 8
+  %2567 = load i32, ptr %17, align 4
+  %2568 = load i32, ptr %21, align 4
+  %2569 = load i32, ptr %21, align 4
+  %2570 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2564, i32 noundef %2565, ptr noundef %2566, i32 noundef %2567, i32 noundef 4, i32 noundef %2568, ptr noundef @.str.279, i32 noundef %2569)
+  %2571 = load i32, ptr %17, align 4
+  %2572 = add i32 %2571, 4
+  store i32 %2572, ptr %17, align 4
+  %2573 = load ptr, ptr %13, align 8
+  %2574 = load i32, ptr @hf_slsk_filename, align 4
+  %2575 = load ptr, ptr %5, align 8
+  %2576 = load i32, ptr %17, align 4
+  %2577 = call ptr @proto_tree_add_item_ret_length(ptr noundef %2573, i32 noundef %2574, ptr noundef %2575, i32 noundef %2576, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %2578 = load i32, ptr %23, align 4
+  %2579 = load i32, ptr %17, align 4
+  %2580 = add i32 %2579, %2578
+  store i32 %2580, ptr %17, align 4
+  br label %2581
 
-2575:                                             ; preds = %4
-  %2576 = load ptr, ptr %5, align 8
-  %2577 = load i32, ptr %17, align 4
-  %2578 = call i32 @check_slsk_format(ptr noundef %2576, i32 noundef %2577, ptr noundef @.str.202)
-  %2579 = icmp ne i32 %2578, 0
-  br i1 %2579, label %2580, label %2598
+2581:                                             ; preds = %2563, %2558
+  br label %4626
 
-2580:                                             ; preds = %2575
-  %2581 = load ptr, ptr %13, align 8
-  %2582 = load i32, ptr @hf_slsk_message_code, align 4
+2582:                                             ; preds = %4
   %2583 = load ptr, ptr %5, align 8
-  %2584 = load i32, ptr %17, align 4
-  %2585 = load i32, ptr %21, align 4
-  %2586 = load i32, ptr %21, align 4
-  %2587 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2581, i32 noundef %2582, ptr noundef %2583, i32 noundef %2584, i32 noundef 4, i32 noundef %2585, ptr noundef @.str.276, i32 noundef %2586)
-  %2588 = load i32, ptr %17, align 4
-  %2589 = add i32 %2588, 4
-  store i32 %2589, ptr %17, align 4
-  %2590 = load ptr, ptr %13, align 8
-  %2591 = load i32, ptr @hf_slsk_filename, align 4
-  %2592 = load ptr, ptr %5, align 8
-  %2593 = load i32, ptr %17, align 4
-  %2594 = call ptr @proto_tree_add_item_ret_length(ptr noundef %2590, i32 noundef %2591, ptr noundef %2592, i32 noundef %2593, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %2595 = load i32, ptr %23, align 4
-  %2596 = load i32, ptr %17, align 4
-  %2597 = add i32 %2596, %2595
-  store i32 %2597, ptr %17, align 4
-  br label %2598
+  %2584 = load ptr, ptr %6, align 8
+  %2585 = load i32, ptr %17, align 4
+  %2586 = call zeroext i1 @check_slsk_format(ptr noundef %2583, ptr noundef %2584, i32 noundef %2585, ptr noundef @.str.206)
+  br i1 %2586, label %2587, label %2605
 
-2598:                                             ; preds = %2580, %2575
-  br label %4619
+2587:                                             ; preds = %2582
+  %2588 = load ptr, ptr %13, align 8
+  %2589 = load i32, ptr @hf_slsk_message_code, align 4
+  %2590 = load ptr, ptr %5, align 8
+  %2591 = load i32, ptr %17, align 4
+  %2592 = load i32, ptr %21, align 4
+  %2593 = load i32, ptr %21, align 4
+  %2594 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2588, i32 noundef %2589, ptr noundef %2590, i32 noundef %2591, i32 noundef 4, i32 noundef %2592, ptr noundef @.str.280, i32 noundef %2593)
+  %2595 = load i32, ptr %17, align 4
+  %2596 = add i32 %2595, 4
+  store i32 %2596, ptr %17, align 4
+  %2597 = load ptr, ptr %13, align 8
+  %2598 = load i32, ptr @hf_slsk_filename, align 4
+  %2599 = load ptr, ptr %5, align 8
+  %2600 = load i32, ptr %17, align 4
+  %2601 = call ptr @proto_tree_add_item_ret_length(ptr noundef %2597, i32 noundef %2598, ptr noundef %2599, i32 noundef %2600, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %2602 = load i32, ptr %23, align 4
+  %2603 = load i32, ptr %17, align 4
+  %2604 = add i32 %2603, %2602
+  store i32 %2604, ptr %17, align 4
+  br label %2605
 
-2599:                                             ; preds = %4
-  %2600 = load ptr, ptr %5, align 8
-  %2601 = load i32, ptr %17, align 4
-  %2602 = call i32 @check_slsk_format(ptr noundef %2600, i32 noundef %2601, ptr noundef @.str.204)
-  %2603 = icmp ne i32 %2602, 0
-  br i1 %2603, label %2604, label %2614
+2605:                                             ; preds = %2587, %2582
+  br label %4626
 
-2604:                                             ; preds = %2599
-  %2605 = load ptr, ptr %13, align 8
-  %2606 = load i32, ptr @hf_slsk_message_code, align 4
+2606:                                             ; preds = %4
   %2607 = load ptr, ptr %5, align 8
-  %2608 = load i32, ptr %17, align 4
-  %2609 = load i32, ptr %21, align 4
-  %2610 = load i32, ptr %21, align 4
-  %2611 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2605, i32 noundef %2606, ptr noundef %2607, i32 noundef %2608, i32 noundef 4, i32 noundef %2609, ptr noundef @.str.277, i32 noundef %2610)
-  %2612 = load i32, ptr %17, align 4
-  %2613 = add i32 %2612, 4
-  store i32 %2613, ptr %17, align 4
-  br label %2687
+  %2608 = load ptr, ptr %6, align 8
+  %2609 = load i32, ptr %17, align 4
+  %2610 = call zeroext i1 @check_slsk_format(ptr noundef %2607, ptr noundef %2608, i32 noundef %2609, ptr noundef @.str.208)
+  br i1 %2610, label %2611, label %2621
 
-2614:                                             ; preds = %2599
-  %2615 = load ptr, ptr %5, align 8
-  %2616 = load i32, ptr %17, align 4
-  %2617 = call i32 @check_slsk_format(ptr noundef %2615, i32 noundef %2616, ptr noundef @.str.216)
-  %2618 = icmp ne i32 %2617, 0
-  br i1 %2618, label %2619, label %2686
+2611:                                             ; preds = %2606
+  %2612 = load ptr, ptr %13, align 8
+  %2613 = load i32, ptr @hf_slsk_message_code, align 4
+  %2614 = load ptr, ptr %5, align 8
+  %2615 = load i32, ptr %17, align 4
+  %2616 = load i32, ptr %21, align 4
+  %2617 = load i32, ptr %21, align 4
+  %2618 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2612, i32 noundef %2613, ptr noundef %2614, i32 noundef %2615, i32 noundef 4, i32 noundef %2616, ptr noundef @.str.281, i32 noundef %2617)
+  %2619 = load i32, ptr %17, align 4
+  %2620 = add i32 %2619, 4
+  store i32 %2620, ptr %17, align 4
+  br label %2694
 
-2619:                                             ; preds = %2614
-  %2620 = load ptr, ptr %13, align 8
-  %2621 = load i32, ptr @hf_slsk_message_code, align 4
+2621:                                             ; preds = %2606
   %2622 = load ptr, ptr %5, align 8
-  %2623 = load i32, ptr %17, align 4
-  %2624 = load i32, ptr %21, align 4
-  %2625 = load i32, ptr %21, align 4
-  %2626 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2620, i32 noundef %2621, ptr noundef %2622, i32 noundef %2623, i32 noundef 4, i32 noundef %2624, ptr noundef @.str.278, i32 noundef %2625)
-  %2627 = load i32, ptr %17, align 4
-  %2628 = add i32 %2627, 4
-  store i32 %2628, ptr %17, align 4
-  %2629 = load ptr, ptr %13, align 8
-  %2630 = load i32, ptr @hf_slsk_num_recommendations, align 4
-  %2631 = load ptr, ptr %5, align 8
-  %2632 = load i32, ptr %17, align 4
-  %2633 = call ptr @proto_tree_add_item_ret_int(ptr noundef %2629, i32 noundef %2630, ptr noundef %2631, i32 noundef %2632, i32 noundef 4, i32 noundef -2147483648, ptr noundef %19)
+  %2623 = load ptr, ptr %6, align 8
+  %2624 = load i32, ptr %17, align 4
+  %2625 = call zeroext i1 @check_slsk_format(ptr noundef %2622, ptr noundef %2623, i32 noundef %2624, ptr noundef @.str.220)
+  br i1 %2625, label %2626, label %2693
+
+2626:                                             ; preds = %2621
+  %2627 = load ptr, ptr %13, align 8
+  %2628 = load i32, ptr @hf_slsk_message_code, align 4
+  %2629 = load ptr, ptr %5, align 8
+  %2630 = load i32, ptr %17, align 4
+  %2631 = load i32, ptr %21, align 4
+  %2632 = load i32, ptr %21, align 4
+  %2633 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2627, i32 noundef %2628, ptr noundef %2629, i32 noundef %2630, i32 noundef 4, i32 noundef %2631, ptr noundef @.str.282, i32 noundef %2632)
   %2634 = load i32, ptr %17, align 4
   %2635 = add i32 %2634, 4
   store i32 %2635, ptr %17, align 4
-  %2636 = load i32, ptr %19, align 4
-  %2637 = load ptr, ptr %5, align 8
-  %2638 = load i32, ptr %17, align 4
-  %2639 = call i32 @tvb_reported_length_remaining(ptr noundef %2637, i32 noundef %2638)
-  %2640 = icmp sgt i32 %2636, %2639
-  br i1 %2640, label %2641, label %2642
+  %2636 = load ptr, ptr %13, align 8
+  %2637 = load i32, ptr @hf_slsk_num_recommendations, align 4
+  %2638 = load ptr, ptr %5, align 8
+  %2639 = load i32, ptr %17, align 4
+  %2640 = call ptr @proto_tree_add_item_ret_int(ptr noundef %2636, i32 noundef %2637, ptr noundef %2638, i32 noundef %2639, i32 noundef 4, i32 noundef -2147483648, ptr noundef %19)
+  %2641 = load i32, ptr %17, align 4
+  %2642 = add i32 %2641, 4
+  store i32 %2642, ptr %17, align 4
+  %2643 = load i32, ptr %19, align 4
+  %2644 = load ptr, ptr %5, align 8
+  %2645 = load i32, ptr %17, align 4
+  %2646 = call i32 @tvb_reported_length_remaining(ptr noundef %2644, i32 noundef %2645)
+  %2647 = icmp sgt i32 %2643, %2646
+  br i1 %2647, label %2648, label %2649
 
-2641:                                             ; preds = %2619
-  br label %4619
+2648:                                             ; preds = %2626
+  br label %4626
 
-2642:                                             ; preds = %2619
+2649:                                             ; preds = %2626
   store i32 0, ptr %18, align 4
-  br label %2643
+  br label %2650
 
-2643:                                             ; preds = %2682, %2642
-  %2644 = load i32, ptr %18, align 4
-  %2645 = load i32, ptr %19, align 4
-  %2646 = icmp slt i32 %2644, %2645
-  br i1 %2646, label %2647, label %2685
+2650:                                             ; preds = %2689, %2649
+  %2651 = load i32, ptr %18, align 4
+  %2652 = load i32, ptr %19, align 4
+  %2653 = icmp slt i32 %2651, %2652
+  br i1 %2653, label %2654, label %2692
 
-2647:                                             ; preds = %2643
-  %2648 = load ptr, ptr %5, align 8
-  %2649 = load i32, ptr %17, align 4
-  %2650 = call i32 @check_slsk_format(ptr noundef %2648, i32 noundef %2649, ptr noundef @.str.212)
-  %2651 = icmp ne i32 %2650, 0
-  br i1 %2651, label %2652, label %2680
-
-2652:                                             ; preds = %2647
-  %2653 = load i32, ptr %17, align 4
-  store i32 %2653, ptr %24, align 4
-  %2654 = load ptr, ptr %13, align 8
+2654:                                             ; preds = %2650
   %2655 = load ptr, ptr %5, align 8
-  %2656 = load i32, ptr %17, align 4
-  %2657 = load i32, ptr @ett_slsk_recommendation, align 4
-  %2658 = load i32, ptr %18, align 4
-  %2659 = add i32 %2658, 1
-  %2660 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2654, ptr noundef %2655, i32 noundef %2656, i32 noundef 1, i32 noundef %2657, ptr noundef %11, ptr noundef @.str.279, i32 noundef %2659)
-  store ptr %2660, ptr %14, align 8
-  %2661 = load ptr, ptr %14, align 8
-  %2662 = load i32, ptr @hf_slsk_recommendation, align 4
-  %2663 = load ptr, ptr %5, align 8
-  %2664 = load i32, ptr %17, align 4
-  %2665 = call ptr @proto_tree_add_item_ret_length(ptr noundef %2661, i32 noundef %2662, ptr noundef %2663, i32 noundef %2664, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %2666 = load i32, ptr %23, align 4
-  %2667 = load i32, ptr %17, align 4
-  %2668 = add i32 %2667, %2666
-  store i32 %2668, ptr %17, align 4
-  %2669 = load ptr, ptr %14, align 8
-  %2670 = load i32, ptr @hf_slsk_ranking, align 4
-  %2671 = load ptr, ptr %5, align 8
-  %2672 = load i32, ptr %17, align 4
-  %2673 = call ptr @proto_tree_add_item(ptr noundef %2669, i32 noundef %2670, ptr noundef %2671, i32 noundef %2672, i32 noundef 4, i32 noundef -2147483648)
+  %2656 = load ptr, ptr %6, align 8
+  %2657 = load i32, ptr %17, align 4
+  %2658 = call zeroext i1 @check_slsk_format(ptr noundef %2655, ptr noundef %2656, i32 noundef %2657, ptr noundef @.str.216)
+  br i1 %2658, label %2659, label %2687
+
+2659:                                             ; preds = %2654
+  %2660 = load i32, ptr %17, align 4
+  store i32 %2660, ptr %24, align 4
+  %2661 = load ptr, ptr %13, align 8
+  %2662 = load ptr, ptr %5, align 8
+  %2663 = load i32, ptr %17, align 4
+  %2664 = load i32, ptr @ett_slsk_recommendation, align 4
+  %2665 = load i32, ptr %18, align 4
+  %2666 = add i32 %2665, 1
+  %2667 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2661, ptr noundef %2662, i32 noundef %2663, i32 noundef 1, i32 noundef %2664, ptr noundef %11, ptr noundef @.str.283, i32 noundef %2666)
+  store ptr %2667, ptr %14, align 8
+  %2668 = load ptr, ptr %14, align 8
+  %2669 = load i32, ptr @hf_slsk_recommendation, align 4
+  %2670 = load ptr, ptr %5, align 8
+  %2671 = load i32, ptr %17, align 4
+  %2672 = call ptr @proto_tree_add_item_ret_length(ptr noundef %2668, i32 noundef %2669, ptr noundef %2670, i32 noundef %2671, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %2673 = load i32, ptr %23, align 4
   %2674 = load i32, ptr %17, align 4
-  %2675 = add i32 %2674, 4
+  %2675 = add i32 %2674, %2673
   store i32 %2675, ptr %17, align 4
-  %2676 = load ptr, ptr %11, align 8
-  %2677 = load i32, ptr %17, align 4
-  %2678 = load i32, ptr %24, align 4
-  %2679 = sub i32 %2677, %2678
-  call void @proto_item_set_len(ptr noundef %2676, i32 noundef %2679)
-  br label %2681
+  %2676 = load ptr, ptr %14, align 8
+  %2677 = load i32, ptr @hf_slsk_ranking, align 4
+  %2678 = load ptr, ptr %5, align 8
+  %2679 = load i32, ptr %17, align 4
+  %2680 = call ptr @proto_tree_add_item(ptr noundef %2676, i32 noundef %2677, ptr noundef %2678, i32 noundef %2679, i32 noundef 4, i32 noundef -2147483648)
+  %2681 = load i32, ptr %17, align 4
+  %2682 = add i32 %2681, 4
+  store i32 %2682, ptr %17, align 4
+  %2683 = load ptr, ptr %11, align 8
+  %2684 = load i32, ptr %17, align 4
+  %2685 = load i32, ptr %24, align 4
+  %2686 = sub i32 %2684, %2685
+  call void @proto_item_set_len(ptr noundef %2683, i32 noundef %2686)
+  br label %2688
 
-2680:                                             ; preds = %2647
-  br label %2685
+2687:                                             ; preds = %2654
+  br label %2692
 
-2681:                                             ; preds = %2652
-  br label %2682
+2688:                                             ; preds = %2659
+  br label %2689
 
-2682:                                             ; preds = %2681
-  %2683 = load i32, ptr %18, align 4
-  %2684 = add i32 %2683, 1
-  store i32 %2684, ptr %18, align 4
-  br label %2643, !llvm.loop !17
+2689:                                             ; preds = %2688
+  %2690 = load i32, ptr %18, align 4
+  %2691 = add i32 %2690, 1
+  store i32 %2691, ptr %18, align 4
+  br label %2650, !llvm.loop !21
 
-2685:                                             ; preds = %2680, %2643
-  br label %2686
+2692:                                             ; preds = %2687, %2650
+  br label %2693
 
-2686:                                             ; preds = %2685, %2614
-  br label %2687
+2693:                                             ; preds = %2692, %2621
+  br label %2694
 
-2687:                                             ; preds = %2686, %2604
-  br label %4619
+2694:                                             ; preds = %2693, %2611
+  br label %4626
 
-2688:                                             ; preds = %4
-  %2689 = load ptr, ptr %5, align 8
-  %2690 = load i32, ptr %17, align 4
-  %2691 = call i32 @check_slsk_format(ptr noundef %2689, i32 noundef %2690, ptr noundef @.str.204)
-  %2692 = icmp ne i32 %2691, 0
-  br i1 %2692, label %2693, label %2703
-
-2693:                                             ; preds = %2688
-  %2694 = load ptr, ptr %13, align 8
-  %2695 = load i32, ptr @hf_slsk_message_code, align 4
+2695:                                             ; preds = %4
   %2696 = load ptr, ptr %5, align 8
-  %2697 = load i32, ptr %17, align 4
-  %2698 = load i32, ptr %21, align 4
-  %2699 = load i32, ptr %21, align 4
-  %2700 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2694, i32 noundef %2695, ptr noundef %2696, i32 noundef %2697, i32 noundef 4, i32 noundef %2698, ptr noundef @.str.280, i32 noundef %2699)
-  %2701 = load i32, ptr %17, align 4
-  %2702 = add i32 %2701, 4
-  store i32 %2702, ptr %17, align 4
-  br label %2703
+  %2697 = load ptr, ptr %6, align 8
+  %2698 = load i32, ptr %17, align 4
+  %2699 = call zeroext i1 @check_slsk_format(ptr noundef %2696, ptr noundef %2697, i32 noundef %2698, ptr noundef @.str.208)
+  br i1 %2699, label %2700, label %2710
 
-2703:                                             ; preds = %2693, %2688
-  br label %4619
+2700:                                             ; preds = %2695
+  %2701 = load ptr, ptr %13, align 8
+  %2702 = load i32, ptr @hf_slsk_message_code, align 4
+  %2703 = load ptr, ptr %5, align 8
+  %2704 = load i32, ptr %17, align 4
+  %2705 = load i32, ptr %21, align 4
+  %2706 = load i32, ptr %21, align 4
+  %2707 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2701, i32 noundef %2702, ptr noundef %2703, i32 noundef %2704, i32 noundef 4, i32 noundef %2705, ptr noundef @.str.284, i32 noundef %2706)
+  %2708 = load i32, ptr %17, align 4
+  %2709 = add i32 %2708, 4
+  store i32 %2709, ptr %17, align 4
+  br label %2710
 
-2704:                                             ; preds = %4
-  %2705 = load ptr, ptr %5, align 8
-  %2706 = load i32, ptr %17, align 4
-  %2707 = call i32 @check_slsk_format(ptr noundef %2705, i32 noundef %2706, ptr noundef @.str.204)
-  %2708 = icmp ne i32 %2707, 0
-  br i1 %2708, label %2709, label %2719
+2710:                                             ; preds = %2700, %2695
+  br label %4626
 
-2709:                                             ; preds = %2704
-  %2710 = load ptr, ptr %13, align 8
-  %2711 = load i32, ptr @hf_slsk_message_code, align 4
+2711:                                             ; preds = %4
   %2712 = load ptr, ptr %5, align 8
-  %2713 = load i32, ptr %17, align 4
-  %2714 = load i32, ptr %21, align 4
-  %2715 = load i32, ptr %21, align 4
-  %2716 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2710, i32 noundef %2711, ptr noundef %2712, i32 noundef %2713, i32 noundef 4, i32 noundef %2714, ptr noundef @.str.281, i32 noundef %2715)
-  %2717 = load i32, ptr %17, align 4
-  %2718 = add i32 %2717, 4
-  store i32 %2718, ptr %17, align 4
-  br label %2792
+  %2713 = load ptr, ptr %6, align 8
+  %2714 = load i32, ptr %17, align 4
+  %2715 = call zeroext i1 @check_slsk_format(ptr noundef %2712, ptr noundef %2713, i32 noundef %2714, ptr noundef @.str.208)
+  br i1 %2715, label %2716, label %2726
 
-2719:                                             ; preds = %2704
-  %2720 = load ptr, ptr %5, align 8
-  %2721 = load i32, ptr %17, align 4
-  %2722 = call i32 @check_slsk_format(ptr noundef %2720, i32 noundef %2721, ptr noundef @.str.216)
-  %2723 = icmp ne i32 %2722, 0
-  br i1 %2723, label %2724, label %2791
+2716:                                             ; preds = %2711
+  %2717 = load ptr, ptr %13, align 8
+  %2718 = load i32, ptr @hf_slsk_message_code, align 4
+  %2719 = load ptr, ptr %5, align 8
+  %2720 = load i32, ptr %17, align 4
+  %2721 = load i32, ptr %21, align 4
+  %2722 = load i32, ptr %21, align 4
+  %2723 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2717, i32 noundef %2718, ptr noundef %2719, i32 noundef %2720, i32 noundef 4, i32 noundef %2721, ptr noundef @.str.285, i32 noundef %2722)
+  %2724 = load i32, ptr %17, align 4
+  %2725 = add i32 %2724, 4
+  store i32 %2725, ptr %17, align 4
+  br label %2799
 
-2724:                                             ; preds = %2719
-  %2725 = load ptr, ptr %13, align 8
-  %2726 = load i32, ptr @hf_slsk_message_code, align 4
+2726:                                             ; preds = %2711
   %2727 = load ptr, ptr %5, align 8
-  %2728 = load i32, ptr %17, align 4
-  %2729 = load i32, ptr %21, align 4
-  %2730 = load i32, ptr %21, align 4
-  %2731 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2725, i32 noundef %2726, ptr noundef %2727, i32 noundef %2728, i32 noundef 4, i32 noundef %2729, ptr noundef @.str.282, i32 noundef %2730)
-  %2732 = load i32, ptr %17, align 4
-  %2733 = add i32 %2732, 4
-  store i32 %2733, ptr %17, align 4
-  %2734 = load ptr, ptr %13, align 8
-  %2735 = load i32, ptr @hf_slsk_num_recommendations, align 4
-  %2736 = load ptr, ptr %5, align 8
-  %2737 = load i32, ptr %17, align 4
-  %2738 = call ptr @proto_tree_add_item_ret_int(ptr noundef %2734, i32 noundef %2735, ptr noundef %2736, i32 noundef %2737, i32 noundef 4, i32 noundef -2147483648, ptr noundef %19)
+  %2728 = load ptr, ptr %6, align 8
+  %2729 = load i32, ptr %17, align 4
+  %2730 = call zeroext i1 @check_slsk_format(ptr noundef %2727, ptr noundef %2728, i32 noundef %2729, ptr noundef @.str.220)
+  br i1 %2730, label %2731, label %2798
+
+2731:                                             ; preds = %2726
+  %2732 = load ptr, ptr %13, align 8
+  %2733 = load i32, ptr @hf_slsk_message_code, align 4
+  %2734 = load ptr, ptr %5, align 8
+  %2735 = load i32, ptr %17, align 4
+  %2736 = load i32, ptr %21, align 4
+  %2737 = load i32, ptr %21, align 4
+  %2738 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2732, i32 noundef %2733, ptr noundef %2734, i32 noundef %2735, i32 noundef 4, i32 noundef %2736, ptr noundef @.str.286, i32 noundef %2737)
   %2739 = load i32, ptr %17, align 4
   %2740 = add i32 %2739, 4
   store i32 %2740, ptr %17, align 4
-  %2741 = load i32, ptr %19, align 4
-  %2742 = load ptr, ptr %5, align 8
-  %2743 = load i32, ptr %17, align 4
-  %2744 = call i32 @tvb_reported_length_remaining(ptr noundef %2742, i32 noundef %2743)
-  %2745 = icmp sgt i32 %2741, %2744
-  br i1 %2745, label %2746, label %2747
+  %2741 = load ptr, ptr %13, align 8
+  %2742 = load i32, ptr @hf_slsk_num_recommendations, align 4
+  %2743 = load ptr, ptr %5, align 8
+  %2744 = load i32, ptr %17, align 4
+  %2745 = call ptr @proto_tree_add_item_ret_int(ptr noundef %2741, i32 noundef %2742, ptr noundef %2743, i32 noundef %2744, i32 noundef 4, i32 noundef -2147483648, ptr noundef %19)
+  %2746 = load i32, ptr %17, align 4
+  %2747 = add i32 %2746, 4
+  store i32 %2747, ptr %17, align 4
+  %2748 = load i32, ptr %19, align 4
+  %2749 = load ptr, ptr %5, align 8
+  %2750 = load i32, ptr %17, align 4
+  %2751 = call i32 @tvb_reported_length_remaining(ptr noundef %2749, i32 noundef %2750)
+  %2752 = icmp sgt i32 %2748, %2751
+  br i1 %2752, label %2753, label %2754
 
-2746:                                             ; preds = %2724
-  br label %4619
+2753:                                             ; preds = %2731
+  br label %4626
 
-2747:                                             ; preds = %2724
+2754:                                             ; preds = %2731
   store i32 0, ptr %18, align 4
-  br label %2748
+  br label %2755
 
-2748:                                             ; preds = %2787, %2747
-  %2749 = load i32, ptr %18, align 4
-  %2750 = load i32, ptr %19, align 4
-  %2751 = icmp slt i32 %2749, %2750
-  br i1 %2751, label %2752, label %2790
+2755:                                             ; preds = %2794, %2754
+  %2756 = load i32, ptr %18, align 4
+  %2757 = load i32, ptr %19, align 4
+  %2758 = icmp slt i32 %2756, %2757
+  br i1 %2758, label %2759, label %2797
 
-2752:                                             ; preds = %2748
-  %2753 = load ptr, ptr %5, align 8
-  %2754 = load i32, ptr %17, align 4
-  %2755 = call i32 @check_slsk_format(ptr noundef %2753, i32 noundef %2754, ptr noundef @.str.212)
-  %2756 = icmp ne i32 %2755, 0
-  br i1 %2756, label %2757, label %2785
-
-2757:                                             ; preds = %2752
-  %2758 = load i32, ptr %17, align 4
-  store i32 %2758, ptr %24, align 4
-  %2759 = load ptr, ptr %13, align 8
+2759:                                             ; preds = %2755
   %2760 = load ptr, ptr %5, align 8
-  %2761 = load i32, ptr %17, align 4
-  %2762 = load i32, ptr @ett_slsk_recommendation, align 4
-  %2763 = load i32, ptr %18, align 4
-  %2764 = add i32 %2763, 1
-  %2765 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2759, ptr noundef %2760, i32 noundef %2761, i32 noundef 1, i32 noundef %2762, ptr noundef %11, ptr noundef @.str.279, i32 noundef %2764)
-  store ptr %2765, ptr %14, align 8
-  %2766 = load ptr, ptr %14, align 8
-  %2767 = load i32, ptr @hf_slsk_recommendation, align 4
-  %2768 = load ptr, ptr %5, align 8
-  %2769 = load i32, ptr %17, align 4
-  %2770 = call ptr @proto_tree_add_item_ret_length(ptr noundef %2766, i32 noundef %2767, ptr noundef %2768, i32 noundef %2769, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %2771 = load i32, ptr %23, align 4
-  %2772 = load i32, ptr %17, align 4
-  %2773 = add i32 %2772, %2771
-  store i32 %2773, ptr %17, align 4
-  %2774 = load ptr, ptr %14, align 8
-  %2775 = load i32, ptr @hf_slsk_ranking, align 4
-  %2776 = load ptr, ptr %5, align 8
-  %2777 = load i32, ptr %17, align 4
-  %2778 = call ptr @proto_tree_add_item(ptr noundef %2774, i32 noundef %2775, ptr noundef %2776, i32 noundef %2777, i32 noundef 4, i32 noundef -2147483648)
+  %2761 = load ptr, ptr %6, align 8
+  %2762 = load i32, ptr %17, align 4
+  %2763 = call zeroext i1 @check_slsk_format(ptr noundef %2760, ptr noundef %2761, i32 noundef %2762, ptr noundef @.str.216)
+  br i1 %2763, label %2764, label %2792
+
+2764:                                             ; preds = %2759
+  %2765 = load i32, ptr %17, align 4
+  store i32 %2765, ptr %24, align 4
+  %2766 = load ptr, ptr %13, align 8
+  %2767 = load ptr, ptr %5, align 8
+  %2768 = load i32, ptr %17, align 4
+  %2769 = load i32, ptr @ett_slsk_recommendation, align 4
+  %2770 = load i32, ptr %18, align 4
+  %2771 = add i32 %2770, 1
+  %2772 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2766, ptr noundef %2767, i32 noundef %2768, i32 noundef 1, i32 noundef %2769, ptr noundef %11, ptr noundef @.str.283, i32 noundef %2771)
+  store ptr %2772, ptr %14, align 8
+  %2773 = load ptr, ptr %14, align 8
+  %2774 = load i32, ptr @hf_slsk_recommendation, align 4
+  %2775 = load ptr, ptr %5, align 8
+  %2776 = load i32, ptr %17, align 4
+  %2777 = call ptr @proto_tree_add_item_ret_length(ptr noundef %2773, i32 noundef %2774, ptr noundef %2775, i32 noundef %2776, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %2778 = load i32, ptr %23, align 4
   %2779 = load i32, ptr %17, align 4
-  %2780 = add i32 %2779, 4
+  %2780 = add i32 %2779, %2778
   store i32 %2780, ptr %17, align 4
-  %2781 = load ptr, ptr %11, align 8
-  %2782 = load i32, ptr %17, align 4
-  %2783 = load i32, ptr %24, align 4
-  %2784 = sub i32 %2782, %2783
-  call void @proto_item_set_len(ptr noundef %2781, i32 noundef %2784)
-  br label %2786
+  %2781 = load ptr, ptr %14, align 8
+  %2782 = load i32, ptr @hf_slsk_ranking, align 4
+  %2783 = load ptr, ptr %5, align 8
+  %2784 = load i32, ptr %17, align 4
+  %2785 = call ptr @proto_tree_add_item(ptr noundef %2781, i32 noundef %2782, ptr noundef %2783, i32 noundef %2784, i32 noundef 4, i32 noundef -2147483648)
+  %2786 = load i32, ptr %17, align 4
+  %2787 = add i32 %2786, 4
+  store i32 %2787, ptr %17, align 4
+  %2788 = load ptr, ptr %11, align 8
+  %2789 = load i32, ptr %17, align 4
+  %2790 = load i32, ptr %24, align 4
+  %2791 = sub i32 %2789, %2790
+  call void @proto_item_set_len(ptr noundef %2788, i32 noundef %2791)
+  br label %2793
 
-2785:                                             ; preds = %2752
-  br label %2790
+2792:                                             ; preds = %2759
+  br label %2797
 
-2786:                                             ; preds = %2757
-  br label %2787
+2793:                                             ; preds = %2764
+  br label %2794
 
-2787:                                             ; preds = %2786
-  %2788 = load i32, ptr %18, align 4
-  %2789 = add i32 %2788, 1
-  store i32 %2789, ptr %18, align 4
-  br label %2748, !llvm.loop !18
+2794:                                             ; preds = %2793
+  %2795 = load i32, ptr %18, align 4
+  %2796 = add i32 %2795, 1
+  store i32 %2796, ptr %18, align 4
+  br label %2755, !llvm.loop !22
 
-2790:                                             ; preds = %2785, %2748
-  br label %2791
+2797:                                             ; preds = %2792, %2755
+  br label %2798
 
-2791:                                             ; preds = %2790, %2719
-  br label %2792
+2798:                                             ; preds = %2797, %2726
+  br label %2799
 
-2792:                                             ; preds = %2791, %2709
-  br label %4619
+2799:                                             ; preds = %2798, %2716
+  br label %4626
 
-2793:                                             ; preds = %4
-  %2794 = load ptr, ptr %5, align 8
-  %2795 = load i32, ptr %17, align 4
-  %2796 = call i32 @check_slsk_format(ptr noundef %2794, i32 noundef %2795, ptr noundef @.str.202)
-  %2797 = icmp ne i32 %2796, 0
-  br i1 %2797, label %2798, label %2816
-
-2798:                                             ; preds = %2793
-  %2799 = load ptr, ptr %13, align 8
-  %2800 = load i32, ptr @hf_slsk_message_code, align 4
+2800:                                             ; preds = %4
   %2801 = load ptr, ptr %5, align 8
-  %2802 = load i32, ptr %17, align 4
-  %2803 = load i32, ptr %21, align 4
-  %2804 = load i32, ptr %21, align 4
-  %2805 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2799, i32 noundef %2800, ptr noundef %2801, i32 noundef %2802, i32 noundef 4, i32 noundef %2803, ptr noundef @.str.283, i32 noundef %2804)
-  %2806 = load i32, ptr %17, align 4
-  %2807 = add i32 %2806, 4
-  store i32 %2807, ptr %17, align 4
-  %2808 = load ptr, ptr %13, align 8
-  %2809 = load i32, ptr @hf_slsk_username, align 4
-  %2810 = load ptr, ptr %5, align 8
-  %2811 = load i32, ptr %17, align 4
-  %2812 = call ptr @proto_tree_add_item_ret_length(ptr noundef %2808, i32 noundef %2809, ptr noundef %2810, i32 noundef %2811, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %2813 = load i32, ptr %23, align 4
-  %2814 = load i32, ptr %17, align 4
-  %2815 = add i32 %2814, %2813
-  store i32 %2815, ptr %17, align 4
-  br label %2890
+  %2802 = load ptr, ptr %6, align 8
+  %2803 = load i32, ptr %17, align 4
+  %2804 = call zeroext i1 @check_slsk_format(ptr noundef %2801, ptr noundef %2802, i32 noundef %2803, ptr noundef @.str.206)
+  br i1 %2804, label %2805, label %2823
 
-2816:                                             ; preds = %2793
+2805:                                             ; preds = %2800
+  %2806 = load ptr, ptr %13, align 8
+  %2807 = load i32, ptr @hf_slsk_message_code, align 4
+  %2808 = load ptr, ptr %5, align 8
+  %2809 = load i32, ptr %17, align 4
+  %2810 = load i32, ptr %21, align 4
+  %2811 = load i32, ptr %21, align 4
+  %2812 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2806, i32 noundef %2807, ptr noundef %2808, i32 noundef %2809, i32 noundef 4, i32 noundef %2810, ptr noundef @.str.287, i32 noundef %2811)
+  %2813 = load i32, ptr %17, align 4
+  %2814 = add i32 %2813, 4
+  store i32 %2814, ptr %17, align 4
+  %2815 = load ptr, ptr %13, align 8
+  %2816 = load i32, ptr @hf_slsk_username, align 4
   %2817 = load ptr, ptr %5, align 8
   %2818 = load i32, ptr %17, align 4
-  %2819 = call i32 @check_slsk_format(ptr noundef %2817, i32 noundef %2818, ptr noundef @.str.227)
-  %2820 = icmp ne i32 %2819, 0
-  br i1 %2820, label %2821, label %2889
+  %2819 = call ptr @proto_tree_add_item_ret_length(ptr noundef %2815, i32 noundef %2816, ptr noundef %2817, i32 noundef %2818, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %2820 = load i32, ptr %23, align 4
+  %2821 = load i32, ptr %17, align 4
+  %2822 = add i32 %2821, %2820
+  store i32 %2822, ptr %17, align 4
+  br label %2897
 
-2821:                                             ; preds = %2816
-  %2822 = load ptr, ptr %13, align 8
-  %2823 = load i32, ptr @hf_slsk_message_code, align 4
+2823:                                             ; preds = %2800
   %2824 = load ptr, ptr %5, align 8
-  %2825 = load i32, ptr %17, align 4
-  %2826 = load i32, ptr %21, align 4
-  %2827 = load i32, ptr %21, align 4
-  %2828 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2822, i32 noundef %2823, ptr noundef %2824, i32 noundef %2825, i32 noundef 4, i32 noundef %2826, ptr noundef @.str.284, i32 noundef %2827)
-  %2829 = load i32, ptr %17, align 4
-  %2830 = add i32 %2829, 4
-  store i32 %2830, ptr %17, align 4
-  %2831 = load ptr, ptr %13, align 8
-  %2832 = load i32, ptr @hf_slsk_username, align 4
-  %2833 = load ptr, ptr %5, align 8
-  %2834 = load i32, ptr %17, align 4
-  %2835 = call ptr @proto_tree_add_item_ret_length(ptr noundef %2831, i32 noundef %2832, ptr noundef %2833, i32 noundef %2834, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %2836 = load i32, ptr %23, align 4
-  %2837 = load i32, ptr %17, align 4
-  %2838 = add i32 %2837, %2836
-  store i32 %2838, ptr %17, align 4
-  %2839 = load ptr, ptr %13, align 8
-  %2840 = load i32, ptr @hf_slsk_num_recommendations, align 4
-  %2841 = load ptr, ptr %5, align 8
-  %2842 = load i32, ptr %17, align 4
-  %2843 = call ptr @proto_tree_add_item_ret_int(ptr noundef %2839, i32 noundef %2840, ptr noundef %2841, i32 noundef %2842, i32 noundef 4, i32 noundef -2147483648, ptr noundef %19)
+  %2825 = load ptr, ptr %6, align 8
+  %2826 = load i32, ptr %17, align 4
+  %2827 = call zeroext i1 @check_slsk_format(ptr noundef %2824, ptr noundef %2825, i32 noundef %2826, ptr noundef @.str.231)
+  br i1 %2827, label %2828, label %2896
+
+2828:                                             ; preds = %2823
+  %2829 = load ptr, ptr %13, align 8
+  %2830 = load i32, ptr @hf_slsk_message_code, align 4
+  %2831 = load ptr, ptr %5, align 8
+  %2832 = load i32, ptr %17, align 4
+  %2833 = load i32, ptr %21, align 4
+  %2834 = load i32, ptr %21, align 4
+  %2835 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2829, i32 noundef %2830, ptr noundef %2831, i32 noundef %2832, i32 noundef 4, i32 noundef %2833, ptr noundef @.str.288, i32 noundef %2834)
+  %2836 = load i32, ptr %17, align 4
+  %2837 = add i32 %2836, 4
+  store i32 %2837, ptr %17, align 4
+  %2838 = load ptr, ptr %13, align 8
+  %2839 = load i32, ptr @hf_slsk_username, align 4
+  %2840 = load ptr, ptr %5, align 8
+  %2841 = load i32, ptr %17, align 4
+  %2842 = call ptr @proto_tree_add_item_ret_length(ptr noundef %2838, i32 noundef %2839, ptr noundef %2840, i32 noundef %2841, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %2843 = load i32, ptr %23, align 4
   %2844 = load i32, ptr %17, align 4
-  %2845 = add i32 %2844, 4
+  %2845 = add i32 %2844, %2843
   store i32 %2845, ptr %17, align 4
-  %2846 = load i32, ptr %19, align 4
-  %2847 = load ptr, ptr %5, align 8
-  %2848 = load i32, ptr %17, align 4
-  %2849 = call i32 @tvb_reported_length_remaining(ptr noundef %2847, i32 noundef %2848)
-  %2850 = icmp sgt i32 %2846, %2849
-  br i1 %2850, label %2851, label %2852
+  %2846 = load ptr, ptr %13, align 8
+  %2847 = load i32, ptr @hf_slsk_num_recommendations, align 4
+  %2848 = load ptr, ptr %5, align 8
+  %2849 = load i32, ptr %17, align 4
+  %2850 = call ptr @proto_tree_add_item_ret_int(ptr noundef %2846, i32 noundef %2847, ptr noundef %2848, i32 noundef %2849, i32 noundef 4, i32 noundef -2147483648, ptr noundef %19)
+  %2851 = load i32, ptr %17, align 4
+  %2852 = add i32 %2851, 4
+  store i32 %2852, ptr %17, align 4
+  %2853 = load i32, ptr %19, align 4
+  %2854 = load ptr, ptr %5, align 8
+  %2855 = load i32, ptr %17, align 4
+  %2856 = call i32 @tvb_reported_length_remaining(ptr noundef %2854, i32 noundef %2855)
+  %2857 = icmp sgt i32 %2853, %2856
+  br i1 %2857, label %2858, label %2859
 
-2851:                                             ; preds = %2821
-  br label %4619
+2858:                                             ; preds = %2828
+  br label %4626
 
-2852:                                             ; preds = %2821
+2859:                                             ; preds = %2828
   store i32 0, ptr %18, align 4
-  br label %2853
+  br label %2860
 
-2853:                                             ; preds = %2885, %2852
-  %2854 = load i32, ptr %18, align 4
-  %2855 = load i32, ptr %19, align 4
-  %2856 = icmp slt i32 %2854, %2855
-  br i1 %2856, label %2857, label %2888
+2860:                                             ; preds = %2892, %2859
+  %2861 = load i32, ptr %18, align 4
+  %2862 = load i32, ptr %19, align 4
+  %2863 = icmp slt i32 %2861, %2862
+  br i1 %2863, label %2864, label %2895
 
-2857:                                             ; preds = %2853
-  %2858 = load ptr, ptr %5, align 8
-  %2859 = load i32, ptr %17, align 4
-  %2860 = call i32 @check_slsk_format(ptr noundef %2858, i32 noundef %2859, ptr noundef @.str.229)
-  %2861 = icmp ne i32 %2860, 0
-  br i1 %2861, label %2862, label %2883
-
-2862:                                             ; preds = %2857
-  %2863 = load i32, ptr %17, align 4
-  store i32 %2863, ptr %24, align 4
-  %2864 = load ptr, ptr %13, align 8
+2864:                                             ; preds = %2860
   %2865 = load ptr, ptr %5, align 8
-  %2866 = load i32, ptr %17, align 4
-  %2867 = load i32, ptr @ett_slsk_recommendation, align 4
-  %2868 = load i32, ptr %18, align 4
-  %2869 = add i32 %2868, 1
-  %2870 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2864, ptr noundef %2865, i32 noundef %2866, i32 noundef 1, i32 noundef %2867, ptr noundef %11, ptr noundef @.str.279, i32 noundef %2869)
-  store ptr %2870, ptr %14, align 8
-  %2871 = load ptr, ptr %14, align 8
-  %2872 = load i32, ptr @hf_slsk_recommendation, align 4
-  %2873 = load ptr, ptr %5, align 8
-  %2874 = load i32, ptr %17, align 4
-  %2875 = call ptr @proto_tree_add_item_ret_length(ptr noundef %2871, i32 noundef %2872, ptr noundef %2873, i32 noundef %2874, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %2876 = load i32, ptr %23, align 4
-  %2877 = load i32, ptr %17, align 4
-  %2878 = add i32 %2877, %2876
-  store i32 %2878, ptr %17, align 4
-  %2879 = load ptr, ptr %11, align 8
-  %2880 = load i32, ptr %17, align 4
-  %2881 = load i32, ptr %24, align 4
-  %2882 = sub i32 %2880, %2881
-  call void @proto_item_set_len(ptr noundef %2879, i32 noundef %2882)
-  br label %2884
+  %2866 = load ptr, ptr %6, align 8
+  %2867 = load i32, ptr %17, align 4
+  %2868 = call zeroext i1 @check_slsk_format(ptr noundef %2865, ptr noundef %2866, i32 noundef %2867, ptr noundef @.str.233)
+  br i1 %2868, label %2869, label %2890
 
-2883:                                             ; preds = %2857
-  br label %2888
+2869:                                             ; preds = %2864
+  %2870 = load i32, ptr %17, align 4
+  store i32 %2870, ptr %24, align 4
+  %2871 = load ptr, ptr %13, align 8
+  %2872 = load ptr, ptr %5, align 8
+  %2873 = load i32, ptr %17, align 4
+  %2874 = load i32, ptr @ett_slsk_recommendation, align 4
+  %2875 = load i32, ptr %18, align 4
+  %2876 = add i32 %2875, 1
+  %2877 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2871, ptr noundef %2872, i32 noundef %2873, i32 noundef 1, i32 noundef %2874, ptr noundef %11, ptr noundef @.str.283, i32 noundef %2876)
+  store ptr %2877, ptr %14, align 8
+  %2878 = load ptr, ptr %14, align 8
+  %2879 = load i32, ptr @hf_slsk_recommendation, align 4
+  %2880 = load ptr, ptr %5, align 8
+  %2881 = load i32, ptr %17, align 4
+  %2882 = call ptr @proto_tree_add_item_ret_length(ptr noundef %2878, i32 noundef %2879, ptr noundef %2880, i32 noundef %2881, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %2883 = load i32, ptr %23, align 4
+  %2884 = load i32, ptr %17, align 4
+  %2885 = add i32 %2884, %2883
+  store i32 %2885, ptr %17, align 4
+  %2886 = load ptr, ptr %11, align 8
+  %2887 = load i32, ptr %17, align 4
+  %2888 = load i32, ptr %24, align 4
+  %2889 = sub i32 %2887, %2888
+  call void @proto_item_set_len(ptr noundef %2886, i32 noundef %2889)
+  br label %2891
 
-2884:                                             ; preds = %2862
-  br label %2885
+2890:                                             ; preds = %2864
+  br label %2895
 
-2885:                                             ; preds = %2884
-  %2886 = load i32, ptr %18, align 4
-  %2887 = add i32 %2886, 1
-  store i32 %2887, ptr %18, align 4
-  br label %2853, !llvm.loop !19
+2891:                                             ; preds = %2869
+  br label %2892
 
-2888:                                             ; preds = %2883, %2853
-  br label %2889
+2892:                                             ; preds = %2891
+  %2893 = load i32, ptr %18, align 4
+  %2894 = add i32 %2893, 1
+  store i32 %2894, ptr %18, align 4
+  br label %2860, !llvm.loop !23
 
-2889:                                             ; preds = %2888, %2816
-  br label %2890
+2895:                                             ; preds = %2890, %2860
+  br label %2896
 
-2890:                                             ; preds = %2889, %2798
-  br label %4619
+2896:                                             ; preds = %2895, %2823
+  br label %2897
 
-2891:                                             ; preds = %4
-  %2892 = load ptr, ptr %5, align 8
-  %2893 = load i32, ptr %17, align 4
-  %2894 = call i32 @check_slsk_format(ptr noundef %2892, i32 noundef %2893, ptr noundef @.str.227)
-  %2895 = icmp ne i32 %2894, 0
-  br i1 %2895, label %2896, label %2964
+2897:                                             ; preds = %2896, %2805
+  br label %4626
 
-2896:                                             ; preds = %2891
-  %2897 = load ptr, ptr %13, align 8
-  %2898 = load i32, ptr @hf_slsk_message_code, align 4
+2898:                                             ; preds = %4
   %2899 = load ptr, ptr %5, align 8
-  %2900 = load i32, ptr %17, align 4
-  %2901 = load i32, ptr %21, align 4
-  %2902 = load i32, ptr %21, align 4
-  %2903 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2897, i32 noundef %2898, ptr noundef %2899, i32 noundef %2900, i32 noundef 4, i32 noundef %2901, ptr noundef @.str.285, i32 noundef %2902)
-  %2904 = load i32, ptr %17, align 4
-  %2905 = add i32 %2904, 4
-  store i32 %2905, ptr %17, align 4
-  %2906 = load ptr, ptr %13, align 8
-  %2907 = load i32, ptr @hf_slsk_string, align 4
-  %2908 = load ptr, ptr %5, align 8
-  %2909 = load i32, ptr %17, align 4
-  %2910 = call ptr @proto_tree_add_item_ret_length(ptr noundef %2906, i32 noundef %2907, ptr noundef %2908, i32 noundef %2909, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %2911 = load i32, ptr %23, align 4
-  %2912 = load i32, ptr %17, align 4
-  %2913 = add i32 %2912, %2911
-  store i32 %2913, ptr %17, align 4
-  %2914 = load ptr, ptr %13, align 8
-  %2915 = load i32, ptr @hf_slsk_num_strings, align 4
-  %2916 = load ptr, ptr %5, align 8
-  %2917 = load i32, ptr %17, align 4
-  %2918 = call ptr @proto_tree_add_item_ret_int(ptr noundef %2914, i32 noundef %2915, ptr noundef %2916, i32 noundef %2917, i32 noundef 4, i32 noundef -2147483648, ptr noundef %19)
+  %2900 = load ptr, ptr %6, align 8
+  %2901 = load i32, ptr %17, align 4
+  %2902 = call zeroext i1 @check_slsk_format(ptr noundef %2899, ptr noundef %2900, i32 noundef %2901, ptr noundef @.str.231)
+  br i1 %2902, label %2903, label %2971
+
+2903:                                             ; preds = %2898
+  %2904 = load ptr, ptr %13, align 8
+  %2905 = load i32, ptr @hf_slsk_message_code, align 4
+  %2906 = load ptr, ptr %5, align 8
+  %2907 = load i32, ptr %17, align 4
+  %2908 = load i32, ptr %21, align 4
+  %2909 = load i32, ptr %21, align 4
+  %2910 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2904, i32 noundef %2905, ptr noundef %2906, i32 noundef %2907, i32 noundef 4, i32 noundef %2908, ptr noundef @.str.289, i32 noundef %2909)
+  %2911 = load i32, ptr %17, align 4
+  %2912 = add i32 %2911, 4
+  store i32 %2912, ptr %17, align 4
+  %2913 = load ptr, ptr %13, align 8
+  %2914 = load i32, ptr @hf_slsk_string, align 4
+  %2915 = load ptr, ptr %5, align 8
+  %2916 = load i32, ptr %17, align 4
+  %2917 = call ptr @proto_tree_add_item_ret_length(ptr noundef %2913, i32 noundef %2914, ptr noundef %2915, i32 noundef %2916, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %2918 = load i32, ptr %23, align 4
   %2919 = load i32, ptr %17, align 4
-  %2920 = add i32 %2919, 4
+  %2920 = add i32 %2919, %2918
   store i32 %2920, ptr %17, align 4
-  %2921 = load i32, ptr %19, align 4
-  %2922 = load ptr, ptr %5, align 8
-  %2923 = load i32, ptr %17, align 4
-  %2924 = call i32 @tvb_reported_length_remaining(ptr noundef %2922, i32 noundef %2923)
-  %2925 = icmp sgt i32 %2921, %2924
-  br i1 %2925, label %2926, label %2927
+  %2921 = load ptr, ptr %13, align 8
+  %2922 = load i32, ptr @hf_slsk_num_strings, align 4
+  %2923 = load ptr, ptr %5, align 8
+  %2924 = load i32, ptr %17, align 4
+  %2925 = call ptr @proto_tree_add_item_ret_int(ptr noundef %2921, i32 noundef %2922, ptr noundef %2923, i32 noundef %2924, i32 noundef 4, i32 noundef -2147483648, ptr noundef %19)
+  %2926 = load i32, ptr %17, align 4
+  %2927 = add i32 %2926, 4
+  store i32 %2927, ptr %17, align 4
+  %2928 = load i32, ptr %19, align 4
+  %2929 = load ptr, ptr %5, align 8
+  %2930 = load i32, ptr %17, align 4
+  %2931 = call i32 @tvb_reported_length_remaining(ptr noundef %2929, i32 noundef %2930)
+  %2932 = icmp sgt i32 %2928, %2931
+  br i1 %2932, label %2933, label %2934
 
-2926:                                             ; preds = %2896
-  br label %4619
+2933:                                             ; preds = %2903
+  br label %4626
 
-2927:                                             ; preds = %2896
+2934:                                             ; preds = %2903
   store i32 0, ptr %18, align 4
-  br label %2928
+  br label %2935
 
-2928:                                             ; preds = %2960, %2927
-  %2929 = load i32, ptr %18, align 4
-  %2930 = load i32, ptr %19, align 4
-  %2931 = icmp slt i32 %2929, %2930
-  br i1 %2931, label %2932, label %2963
+2935:                                             ; preds = %2967, %2934
+  %2936 = load i32, ptr %18, align 4
+  %2937 = load i32, ptr %19, align 4
+  %2938 = icmp slt i32 %2936, %2937
+  br i1 %2938, label %2939, label %2970
 
-2932:                                             ; preds = %2928
-  %2933 = load ptr, ptr %5, align 8
-  %2934 = load i32, ptr %17, align 4
-  %2935 = call i32 @check_slsk_format(ptr noundef %2933, i32 noundef %2934, ptr noundef @.str.229)
-  %2936 = icmp ne i32 %2935, 0
-  br i1 %2936, label %2937, label %2958
-
-2937:                                             ; preds = %2932
-  %2938 = load i32, ptr %17, align 4
-  store i32 %2938, ptr %24, align 4
-  %2939 = load ptr, ptr %13, align 8
+2939:                                             ; preds = %2935
   %2940 = load ptr, ptr %5, align 8
-  %2941 = load i32, ptr %17, align 4
-  %2942 = load i32, ptr @ett_slsk_string, align 4
-  %2943 = load i32, ptr %18, align 4
-  %2944 = add i32 %2943, 1
-  %2945 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2939, ptr noundef %2940, i32 noundef %2941, i32 noundef 1, i32 noundef %2942, ptr noundef %11, ptr noundef @.str.286, i32 noundef %2944)
-  store ptr %2945, ptr %14, align 8
-  %2946 = load ptr, ptr %14, align 8
-  %2947 = load i32, ptr @hf_slsk_string, align 4
-  %2948 = load ptr, ptr %5, align 8
-  %2949 = load i32, ptr %17, align 4
-  %2950 = call ptr @proto_tree_add_item_ret_length(ptr noundef %2946, i32 noundef %2947, ptr noundef %2948, i32 noundef %2949, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %2951 = load i32, ptr %23, align 4
-  %2952 = load i32, ptr %17, align 4
-  %2953 = add i32 %2952, %2951
-  store i32 %2953, ptr %17, align 4
-  %2954 = load ptr, ptr %11, align 8
-  %2955 = load i32, ptr %17, align 4
-  %2956 = load i32, ptr %24, align 4
-  %2957 = sub i32 %2955, %2956
-  call void @proto_item_set_len(ptr noundef %2954, i32 noundef %2957)
-  br label %2959
+  %2941 = load ptr, ptr %6, align 8
+  %2942 = load i32, ptr %17, align 4
+  %2943 = call zeroext i1 @check_slsk_format(ptr noundef %2940, ptr noundef %2941, i32 noundef %2942, ptr noundef @.str.233)
+  br i1 %2943, label %2944, label %2965
 
-2958:                                             ; preds = %2932
-  br label %2963
+2944:                                             ; preds = %2939
+  %2945 = load i32, ptr %17, align 4
+  store i32 %2945, ptr %24, align 4
+  %2946 = load ptr, ptr %13, align 8
+  %2947 = load ptr, ptr %5, align 8
+  %2948 = load i32, ptr %17, align 4
+  %2949 = load i32, ptr @ett_slsk_string, align 4
+  %2950 = load i32, ptr %18, align 4
+  %2951 = add i32 %2950, 1
+  %2952 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2946, ptr noundef %2947, i32 noundef %2948, i32 noundef 1, i32 noundef %2949, ptr noundef %11, ptr noundef @.str.290, i32 noundef %2951)
+  store ptr %2952, ptr %14, align 8
+  %2953 = load ptr, ptr %14, align 8
+  %2954 = load i32, ptr @hf_slsk_string, align 4
+  %2955 = load ptr, ptr %5, align 8
+  %2956 = load i32, ptr %17, align 4
+  %2957 = call ptr @proto_tree_add_item_ret_length(ptr noundef %2953, i32 noundef %2954, ptr noundef %2955, i32 noundef %2956, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %2958 = load i32, ptr %23, align 4
+  %2959 = load i32, ptr %17, align 4
+  %2960 = add i32 %2959, %2958
+  store i32 %2960, ptr %17, align 4
+  %2961 = load ptr, ptr %11, align 8
+  %2962 = load i32, ptr %17, align 4
+  %2963 = load i32, ptr %24, align 4
+  %2964 = sub i32 %2962, %2963
+  call void @proto_item_set_len(ptr noundef %2961, i32 noundef %2964)
+  br label %2966
 
-2959:                                             ; preds = %2937
-  br label %2960
+2965:                                             ; preds = %2939
+  br label %2970
 
-2960:                                             ; preds = %2959
-  %2961 = load i32, ptr %18, align 4
-  %2962 = add i32 %2961, 1
-  store i32 %2962, ptr %18, align 4
-  br label %2928, !llvm.loop !20
+2966:                                             ; preds = %2944
+  br label %2967
 
-2963:                                             ; preds = %2958, %2928
-  br label %2964
+2967:                                             ; preds = %2966
+  %2968 = load i32, ptr %18, align 4
+  %2969 = add i32 %2968, 1
+  store i32 %2969, ptr %18, align 4
+  br label %2935, !llvm.loop !24
 
-2964:                                             ; preds = %2963, %2891
-  br label %4619
+2970:                                             ; preds = %2965, %2935
+  br label %2971
 
-2965:                                             ; preds = %4
-  %2966 = load ptr, ptr %5, align 8
-  %2967 = load i32, ptr %17, align 4
-  %2968 = call i32 @check_slsk_format(ptr noundef %2966, i32 noundef %2967, ptr noundef @.str.200)
-  %2969 = icmp ne i32 %2968, 0
-  br i1 %2969, label %2970, label %3002
+2971:                                             ; preds = %2970, %2898
+  br label %4626
 
-2970:                                             ; preds = %2965
-  %2971 = load ptr, ptr %13, align 8
-  %2972 = load i32, ptr @hf_slsk_message_code, align 4
+2972:                                             ; preds = %4
   %2973 = load ptr, ptr %5, align 8
-  %2974 = load i32, ptr %17, align 4
-  %2975 = load i32, ptr %21, align 4
-  %2976 = load i32, ptr %21, align 4
-  %2977 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2971, i32 noundef %2972, ptr noundef %2973, i32 noundef %2974, i32 noundef 4, i32 noundef %2975, ptr noundef @.str.287, i32 noundef %2976)
-  %2978 = load i32, ptr %17, align 4
-  %2979 = add i32 %2978, 4
-  store i32 %2979, ptr %17, align 4
-  %2980 = load ptr, ptr %13, align 8
-  %2981 = load i32, ptr @hf_slsk_username, align 4
-  %2982 = load ptr, ptr %5, align 8
-  %2983 = load i32, ptr %17, align 4
-  %2984 = call ptr @proto_tree_add_item_ret_length(ptr noundef %2980, i32 noundef %2981, ptr noundef %2982, i32 noundef %2983, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %2985 = load i32, ptr %23, align 4
-  %2986 = load i32, ptr %17, align 4
-  %2987 = add i32 %2986, %2985
-  store i32 %2987, ptr %17, align 4
-  %2988 = load ptr, ptr %13, align 8
-  %2989 = load i32, ptr @hf_slsk_token, align 4
-  %2990 = load ptr, ptr %5, align 8
-  %2991 = load i32, ptr %17, align 4
-  %2992 = call ptr @proto_tree_add_item(ptr noundef %2988, i32 noundef %2989, ptr noundef %2990, i32 noundef %2991, i32 noundef 4, i32 noundef -2147483648)
+  %2974 = load ptr, ptr %6, align 8
+  %2975 = load i32, ptr %17, align 4
+  %2976 = call zeroext i1 @check_slsk_format(ptr noundef %2973, ptr noundef %2974, i32 noundef %2975, ptr noundef @.str.204)
+  br i1 %2976, label %2977, label %3009
+
+2977:                                             ; preds = %2972
+  %2978 = load ptr, ptr %13, align 8
+  %2979 = load i32, ptr @hf_slsk_message_code, align 4
+  %2980 = load ptr, ptr %5, align 8
+  %2981 = load i32, ptr %17, align 4
+  %2982 = load i32, ptr %21, align 4
+  %2983 = load i32, ptr %21, align 4
+  %2984 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2978, i32 noundef %2979, ptr noundef %2980, i32 noundef %2981, i32 noundef 4, i32 noundef %2982, ptr noundef @.str.291, i32 noundef %2983)
+  %2985 = load i32, ptr %17, align 4
+  %2986 = add i32 %2985, 4
+  store i32 %2986, ptr %17, align 4
+  %2987 = load ptr, ptr %13, align 8
+  %2988 = load i32, ptr @hf_slsk_username, align 4
+  %2989 = load ptr, ptr %5, align 8
+  %2990 = load i32, ptr %17, align 4
+  %2991 = call ptr @proto_tree_add_item_ret_length(ptr noundef %2987, i32 noundef %2988, ptr noundef %2989, i32 noundef %2990, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %2992 = load i32, ptr %23, align 4
   %2993 = load i32, ptr %17, align 4
-  %2994 = add i32 %2993, 4
+  %2994 = add i32 %2993, %2992
   store i32 %2994, ptr %17, align 4
   %2995 = load ptr, ptr %13, align 8
-  %2996 = load i32, ptr @hf_slsk_place_in_queue, align 4
+  %2996 = load i32, ptr @hf_slsk_token, align 4
   %2997 = load ptr, ptr %5, align 8
   %2998 = load i32, ptr %17, align 4
   %2999 = call ptr @proto_tree_add_item(ptr noundef %2995, i32 noundef %2996, ptr noundef %2997, i32 noundef %2998, i32 noundef 4, i32 noundef -2147483648)
   %3000 = load i32, ptr %17, align 4
   %3001 = add i32 %3000, 4
   store i32 %3001, ptr %17, align 4
-  br label %3002
-
-3002:                                             ; preds = %2970, %2965
-  br label %4619
-
-3003:                                             ; preds = %4
+  %3002 = load ptr, ptr %13, align 8
+  %3003 = load i32, ptr @hf_slsk_place_in_queue, align 4
   %3004 = load ptr, ptr %5, align 8
   %3005 = load i32, ptr %17, align 4
-  %3006 = call i32 @check_slsk_format(ptr noundef %3004, i32 noundef %3005, ptr noundef @.str.202)
-  %3007 = icmp ne i32 %3006, 0
-  br i1 %3007, label %3008, label %3026
+  %3006 = call ptr @proto_tree_add_item(ptr noundef %3002, i32 noundef %3003, ptr noundef %3004, i32 noundef %3005, i32 noundef 4, i32 noundef -2147483648)
+  %3007 = load i32, ptr %17, align 4
+  %3008 = add i32 %3007, 4
+  store i32 %3008, ptr %17, align 4
+  br label %3009
 
-3008:                                             ; preds = %3003
-  %3009 = load ptr, ptr %13, align 8
-  %3010 = load i32, ptr @hf_slsk_message_code, align 4
+3009:                                             ; preds = %2977, %2972
+  br label %4626
+
+3010:                                             ; preds = %4
   %3011 = load ptr, ptr %5, align 8
-  %3012 = load i32, ptr %17, align 4
-  %3013 = load i32, ptr %21, align 4
-  %3014 = load i32, ptr %21, align 4
-  %3015 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3009, i32 noundef %3010, ptr noundef %3011, i32 noundef %3012, i32 noundef 4, i32 noundef %3013, ptr noundef @.str.288, i32 noundef %3014)
-  %3016 = load i32, ptr %17, align 4
-  %3017 = add i32 %3016, 4
-  store i32 %3017, ptr %17, align 4
-  %3018 = load ptr, ptr %13, align 8
-  %3019 = load i32, ptr @hf_slsk_room, align 4
-  %3020 = load ptr, ptr %5, align 8
-  %3021 = load i32, ptr %17, align 4
-  %3022 = call ptr @proto_tree_add_item_ret_length(ptr noundef %3018, i32 noundef %3019, ptr noundef %3020, i32 noundef %3021, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %3023 = load i32, ptr %23, align 4
-  %3024 = load i32, ptr %17, align 4
-  %3025 = add i32 %3024, %3023
-  store i32 %3025, ptr %17, align 4
-  br label %3026
+  %3012 = load ptr, ptr %6, align 8
+  %3013 = load i32, ptr %17, align 4
+  %3014 = call zeroext i1 @check_slsk_format(ptr noundef %3011, ptr noundef %3012, i32 noundef %3013, ptr noundef @.str.206)
+  br i1 %3014, label %3015, label %3033
 
-3026:                                             ; preds = %3008, %3003
-  br label %4619
+3015:                                             ; preds = %3010
+  %3016 = load ptr, ptr %13, align 8
+  %3017 = load i32, ptr @hf_slsk_message_code, align 4
+  %3018 = load ptr, ptr %5, align 8
+  %3019 = load i32, ptr %17, align 4
+  %3020 = load i32, ptr %21, align 4
+  %3021 = load i32, ptr %21, align 4
+  %3022 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3016, i32 noundef %3017, ptr noundef %3018, i32 noundef %3019, i32 noundef 4, i32 noundef %3020, ptr noundef @.str.292, i32 noundef %3021)
+  %3023 = load i32, ptr %17, align 4
+  %3024 = add i32 %3023, 4
+  store i32 %3024, ptr %17, align 4
+  %3025 = load ptr, ptr %13, align 8
+  %3026 = load i32, ptr @hf_slsk_room, align 4
+  %3027 = load ptr, ptr %5, align 8
+  %3028 = load i32, ptr %17, align 4
+  %3029 = call ptr @proto_tree_add_item_ret_length(ptr noundef %3025, i32 noundef %3026, ptr noundef %3027, i32 noundef %3028, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %3030 = load i32, ptr %23, align 4
+  %3031 = load i32, ptr %17, align 4
+  %3032 = add i32 %3031, %3030
+  store i32 %3032, ptr %17, align 4
+  br label %3033
 
-3027:                                             ; preds = %4
-  %3028 = load ptr, ptr %5, align 8
-  %3029 = load i32, ptr %17, align 4
-  %3030 = call i32 @check_slsk_format(ptr noundef %3028, i32 noundef %3029, ptr noundef @.str.202)
-  %3031 = icmp ne i32 %3030, 0
-  br i1 %3031, label %3032, label %3050
+3033:                                             ; preds = %3015, %3010
+  br label %4626
 
-3032:                                             ; preds = %3027
-  %3033 = load ptr, ptr %13, align 8
-  %3034 = load i32, ptr @hf_slsk_message_code, align 4
+3034:                                             ; preds = %4
   %3035 = load ptr, ptr %5, align 8
-  %3036 = load i32, ptr %17, align 4
-  %3037 = load i32, ptr %21, align 4
-  %3038 = load i32, ptr %21, align 4
-  %3039 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3033, i32 noundef %3034, ptr noundef %3035, i32 noundef %3036, i32 noundef 4, i32 noundef %3037, ptr noundef @.str.289, i32 noundef %3038)
-  %3040 = load i32, ptr %17, align 4
-  %3041 = add i32 %3040, 4
-  store i32 %3041, ptr %17, align 4
-  %3042 = load ptr, ptr %13, align 8
-  %3043 = load i32, ptr @hf_slsk_room, align 4
-  %3044 = load ptr, ptr %5, align 8
-  %3045 = load i32, ptr %17, align 4
-  %3046 = call ptr @proto_tree_add_item_ret_length(ptr noundef %3042, i32 noundef %3043, ptr noundef %3044, i32 noundef %3045, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %3047 = load i32, ptr %23, align 4
-  %3048 = load i32, ptr %17, align 4
-  %3049 = add i32 %3048, %3047
-  store i32 %3049, ptr %17, align 4
-  br label %3050
+  %3036 = load ptr, ptr %6, align 8
+  %3037 = load i32, ptr %17, align 4
+  %3038 = call zeroext i1 @check_slsk_format(ptr noundef %3035, ptr noundef %3036, i32 noundef %3037, ptr noundef @.str.206)
+  br i1 %3038, label %3039, label %3057
 
-3050:                                             ; preds = %3032, %3027
-  br label %4619
+3039:                                             ; preds = %3034
+  %3040 = load ptr, ptr %13, align 8
+  %3041 = load i32, ptr @hf_slsk_message_code, align 4
+  %3042 = load ptr, ptr %5, align 8
+  %3043 = load i32, ptr %17, align 4
+  %3044 = load i32, ptr %21, align 4
+  %3045 = load i32, ptr %21, align 4
+  %3046 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3040, i32 noundef %3041, ptr noundef %3042, i32 noundef %3043, i32 noundef 4, i32 noundef %3044, ptr noundef @.str.293, i32 noundef %3045)
+  %3047 = load i32, ptr %17, align 4
+  %3048 = add i32 %3047, 4
+  store i32 %3048, ptr %17, align 4
+  %3049 = load ptr, ptr %13, align 8
+  %3050 = load i32, ptr @hf_slsk_room, align 4
+  %3051 = load ptr, ptr %5, align 8
+  %3052 = load i32, ptr %17, align 4
+  %3053 = call ptr @proto_tree_add_item_ret_length(ptr noundef %3049, i32 noundef %3050, ptr noundef %3051, i32 noundef %3052, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %3054 = load i32, ptr %23, align 4
+  %3055 = load i32, ptr %17, align 4
+  %3056 = add i32 %3055, %3054
+  store i32 %3056, ptr %17, align 4
+  br label %3057
 
-3051:                                             ; preds = %4
-  %3052 = load ptr, ptr %5, align 8
-  %3053 = load i32, ptr %17, align 4
-  %3054 = call i32 @check_slsk_format(ptr noundef %3052, i32 noundef %3053, ptr noundef @.str.204)
-  %3055 = icmp ne i32 %3054, 0
-  br i1 %3055, label %3056, label %3066
+3057:                                             ; preds = %3039, %3034
+  br label %4626
 
-3056:                                             ; preds = %3051
-  %3057 = load ptr, ptr %13, align 8
-  %3058 = load i32, ptr @hf_slsk_message_code, align 4
+3058:                                             ; preds = %4
   %3059 = load ptr, ptr %5, align 8
-  %3060 = load i32, ptr %17, align 4
-  %3061 = load i32, ptr %21, align 4
-  %3062 = load i32, ptr %21, align 4
-  %3063 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3057, i32 noundef %3058, ptr noundef %3059, i32 noundef %3060, i32 noundef 4, i32 noundef %3061, ptr noundef @.str.290, i32 noundef %3062)
-  %3064 = load i32, ptr %17, align 4
-  %3065 = add i32 %3064, 4
-  store i32 %3065, ptr %17, align 4
-  br label %3175
+  %3060 = load ptr, ptr %6, align 8
+  %3061 = load i32, ptr %17, align 4
+  %3062 = call zeroext i1 @check_slsk_format(ptr noundef %3059, ptr noundef %3060, i32 noundef %3061, ptr noundef @.str.208)
+  br i1 %3062, label %3063, label %3073
 
-3066:                                             ; preds = %3051
-  %3067 = load ptr, ptr %5, align 8
-  %3068 = load i32, ptr %17, align 4
-  %3069 = call i32 @check_slsk_format(ptr noundef %3067, i32 noundef %3068, ptr noundef @.str.216)
-  %3070 = icmp ne i32 %3069, 0
-  br i1 %3070, label %3071, label %3174
+3063:                                             ; preds = %3058
+  %3064 = load ptr, ptr %13, align 8
+  %3065 = load i32, ptr @hf_slsk_message_code, align 4
+  %3066 = load ptr, ptr %5, align 8
+  %3067 = load i32, ptr %17, align 4
+  %3068 = load i32, ptr %21, align 4
+  %3069 = load i32, ptr %21, align 4
+  %3070 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3064, i32 noundef %3065, ptr noundef %3066, i32 noundef %3067, i32 noundef 4, i32 noundef %3068, ptr noundef @.str.294, i32 noundef %3069)
+  %3071 = load i32, ptr %17, align 4
+  %3072 = add i32 %3071, 4
+  store i32 %3072, ptr %17, align 4
+  br label %3182
 
-3071:                                             ; preds = %3066
-  %3072 = load ptr, ptr %13, align 8
-  %3073 = load i32, ptr @hf_slsk_message_code, align 4
+3073:                                             ; preds = %3058
   %3074 = load ptr, ptr %5, align 8
-  %3075 = load i32, ptr %17, align 4
-  %3076 = load i32, ptr %21, align 4
-  %3077 = load i32, ptr %21, align 4
-  %3078 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3072, i32 noundef %3073, ptr noundef %3074, i32 noundef %3075, i32 noundef 4, i32 noundef %3076, ptr noundef @.str.291, i32 noundef %3077)
-  %3079 = load i32, ptr %17, align 4
-  %3080 = add i32 %3079, 4
-  store i32 %3080, ptr %17, align 4
-  %3081 = load ptr, ptr %13, align 8
-  %3082 = load i32, ptr @hf_slsk_number_of_rooms, align 4
-  %3083 = load ptr, ptr %5, align 8
-  %3084 = load i32, ptr %17, align 4
-  %3085 = call ptr @proto_tree_add_item_ret_int(ptr noundef %3081, i32 noundef %3082, ptr noundef %3083, i32 noundef %3084, i32 noundef 4, i32 noundef -2147483648, ptr noundef %19)
+  %3075 = load ptr, ptr %6, align 8
+  %3076 = load i32, ptr %17, align 4
+  %3077 = call zeroext i1 @check_slsk_format(ptr noundef %3074, ptr noundef %3075, i32 noundef %3076, ptr noundef @.str.220)
+  br i1 %3077, label %3078, label %3181
+
+3078:                                             ; preds = %3073
+  %3079 = load ptr, ptr %13, align 8
+  %3080 = load i32, ptr @hf_slsk_message_code, align 4
+  %3081 = load ptr, ptr %5, align 8
+  %3082 = load i32, ptr %17, align 4
+  %3083 = load i32, ptr %21, align 4
+  %3084 = load i32, ptr %21, align 4
+  %3085 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3079, i32 noundef %3080, ptr noundef %3081, i32 noundef %3082, i32 noundef 4, i32 noundef %3083, ptr noundef @.str.295, i32 noundef %3084)
   %3086 = load i32, ptr %17, align 4
   %3087 = add i32 %3086, 4
   store i32 %3087, ptr %17, align 4
-  %3088 = load i32, ptr %19, align 4
-  %3089 = load ptr, ptr %5, align 8
-  %3090 = load i32, ptr %17, align 4
-  %3091 = call i32 @tvb_reported_length_remaining(ptr noundef %3089, i32 noundef %3090)
-  %3092 = icmp sgt i32 %3088, %3091
-  br i1 %3092, label %3093, label %3094
+  %3088 = load ptr, ptr %13, align 8
+  %3089 = load i32, ptr @hf_slsk_number_of_rooms, align 4
+  %3090 = load ptr, ptr %5, align 8
+  %3091 = load i32, ptr %17, align 4
+  %3092 = call ptr @proto_tree_add_item_ret_int(ptr noundef %3088, i32 noundef %3089, ptr noundef %3090, i32 noundef %3091, i32 noundef 4, i32 noundef -2147483648, ptr noundef %19)
+  %3093 = load i32, ptr %17, align 4
+  %3094 = add i32 %3093, 4
+  store i32 %3094, ptr %17, align 4
+  %3095 = load i32, ptr %19, align 4
+  %3096 = load ptr, ptr %5, align 8
+  %3097 = load i32, ptr %17, align 4
+  %3098 = call i32 @tvb_reported_length_remaining(ptr noundef %3096, i32 noundef %3097)
+  %3099 = icmp sgt i32 %3095, %3098
+  br i1 %3099, label %3100, label %3101
 
-3093:                                             ; preds = %3071
-  br label %4619
+3100:                                             ; preds = %3078
+  br label %4626
 
-3094:                                             ; preds = %3071
+3101:                                             ; preds = %3078
   store i32 0, ptr %18, align 4
-  br label %3095
+  br label %3102
 
-3095:                                             ; preds = %3127, %3094
-  %3096 = load i32, ptr %18, align 4
-  %3097 = load i32, ptr %19, align 4
-  %3098 = icmp slt i32 %3096, %3097
-  br i1 %3098, label %3099, label %3130
+3102:                                             ; preds = %3134, %3101
+  %3103 = load i32, ptr %18, align 4
+  %3104 = load i32, ptr %19, align 4
+  %3105 = icmp slt i32 %3103, %3104
+  br i1 %3105, label %3106, label %3137
 
-3099:                                             ; preds = %3095
-  %3100 = load ptr, ptr %5, align 8
-  %3101 = load i32, ptr %17, align 4
-  %3102 = call i32 @check_slsk_format(ptr noundef %3100, i32 noundef %3101, ptr noundef @.str.229)
-  %3103 = icmp ne i32 %3102, 0
-  br i1 %3103, label %3104, label %3125
-
-3104:                                             ; preds = %3099
-  %3105 = load i32, ptr %17, align 4
-  store i32 %3105, ptr %24, align 4
-  %3106 = load ptr, ptr %13, align 8
+3106:                                             ; preds = %3102
   %3107 = load ptr, ptr %5, align 8
-  %3108 = load i32, ptr %17, align 4
-  %3109 = load i32, ptr @ett_slsk_room, align 4
-  %3110 = load i32, ptr %18, align 4
-  %3111 = add i32 %3110, 1
-  %3112 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %3106, ptr noundef %3107, i32 noundef %3108, i32 noundef 1, i32 noundef %3109, ptr noundef %11, ptr noundef @.str.292, i32 noundef %3111)
-  store ptr %3112, ptr %14, align 8
-  %3113 = load ptr, ptr %14, align 8
-  %3114 = load i32, ptr @hf_slsk_room, align 4
-  %3115 = load ptr, ptr %5, align 8
-  %3116 = load i32, ptr %17, align 4
-  %3117 = call ptr @proto_tree_add_item_ret_length(ptr noundef %3113, i32 noundef %3114, ptr noundef %3115, i32 noundef %3116, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %3118 = load i32, ptr %23, align 4
-  %3119 = load i32, ptr %17, align 4
-  %3120 = add i32 %3119, %3118
-  store i32 %3120, ptr %17, align 4
-  %3121 = load ptr, ptr %11, align 8
-  %3122 = load i32, ptr %17, align 4
-  %3123 = load i32, ptr %24, align 4
-  %3124 = sub i32 %3122, %3123
-  call void @proto_item_set_len(ptr noundef %3121, i32 noundef %3124)
-  br label %3126
+  %3108 = load ptr, ptr %6, align 8
+  %3109 = load i32, ptr %17, align 4
+  %3110 = call zeroext i1 @check_slsk_format(ptr noundef %3107, ptr noundef %3108, i32 noundef %3109, ptr noundef @.str.233)
+  br i1 %3110, label %3111, label %3132
 
-3125:                                             ; preds = %3099
-  br label %3130
+3111:                                             ; preds = %3106
+  %3112 = load i32, ptr %17, align 4
+  store i32 %3112, ptr %24, align 4
+  %3113 = load ptr, ptr %13, align 8
+  %3114 = load ptr, ptr %5, align 8
+  %3115 = load i32, ptr %17, align 4
+  %3116 = load i32, ptr @ett_slsk_room, align 4
+  %3117 = load i32, ptr %18, align 4
+  %3118 = add i32 %3117, 1
+  %3119 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %3113, ptr noundef %3114, i32 noundef %3115, i32 noundef 1, i32 noundef %3116, ptr noundef %11, ptr noundef @.str.296, i32 noundef %3118)
+  store ptr %3119, ptr %14, align 8
+  %3120 = load ptr, ptr %14, align 8
+  %3121 = load i32, ptr @hf_slsk_room, align 4
+  %3122 = load ptr, ptr %5, align 8
+  %3123 = load i32, ptr %17, align 4
+  %3124 = call ptr @proto_tree_add_item_ret_length(ptr noundef %3120, i32 noundef %3121, ptr noundef %3122, i32 noundef %3123, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %3125 = load i32, ptr %23, align 4
+  %3126 = load i32, ptr %17, align 4
+  %3127 = add i32 %3126, %3125
+  store i32 %3127, ptr %17, align 4
+  %3128 = load ptr, ptr %11, align 8
+  %3129 = load i32, ptr %17, align 4
+  %3130 = load i32, ptr %24, align 4
+  %3131 = sub i32 %3129, %3130
+  call void @proto_item_set_len(ptr noundef %3128, i32 noundef %3131)
+  br label %3133
 
-3126:                                             ; preds = %3104
-  br label %3127
+3132:                                             ; preds = %3106
+  br label %3137
 
-3127:                                             ; preds = %3126
-  %3128 = load i32, ptr %18, align 4
-  %3129 = add i32 %3128, 1
-  store i32 %3129, ptr %18, align 4
-  br label %3095, !llvm.loop !21
+3133:                                             ; preds = %3111
+  br label %3134
 
-3130:                                             ; preds = %3125, %3095
-  %3131 = load ptr, ptr %5, align 8
-  %3132 = load i32, ptr %17, align 4
-  %3133 = call i32 @check_slsk_format(ptr noundef %3131, i32 noundef %3132, ptr noundef @.str.209)
-  %3134 = icmp ne i32 %3133, 0
-  br i1 %3134, label %3135, label %3173
+3134:                                             ; preds = %3133
+  %3135 = load i32, ptr %18, align 4
+  %3136 = add i32 %3135, 1
+  store i32 %3136, ptr %18, align 4
+  br label %3102, !llvm.loop !25
 
-3135:                                             ; preds = %3130
-  %3136 = load ptr, ptr %13, align 8
-  %3137 = load i32, ptr @hf_slsk_users_in_room, align 4
+3137:                                             ; preds = %3132, %3102
   %3138 = load ptr, ptr %5, align 8
-  %3139 = load i32, ptr %17, align 4
-  %3140 = call ptr @proto_tree_add_item_ret_int(ptr noundef %3136, i32 noundef %3137, ptr noundef %3138, i32 noundef %3139, i32 noundef 4, i32 noundef -2147483648, ptr noundef %19)
-  %3141 = load i32, ptr %17, align 4
-  %3142 = add i32 %3141, 4
-  store i32 %3142, ptr %17, align 4
+  %3139 = load ptr, ptr %6, align 8
+  %3140 = load i32, ptr %17, align 4
+  %3141 = call zeroext i1 @check_slsk_format(ptr noundef %3138, ptr noundef %3139, i32 noundef %3140, ptr noundef @.str.213)
+  br i1 %3141, label %3142, label %3180
+
+3142:                                             ; preds = %3137
+  %3143 = load ptr, ptr %13, align 8
+  %3144 = load i32, ptr @hf_slsk_users_in_room, align 4
+  %3145 = load ptr, ptr %5, align 8
+  %3146 = load i32, ptr %17, align 4
+  %3147 = call ptr @proto_tree_add_item_ret_int(ptr noundef %3143, i32 noundef %3144, ptr noundef %3145, i32 noundef %3146, i32 noundef 4, i32 noundef -2147483648, ptr noundef %19)
+  %3148 = load i32, ptr %17, align 4
+  %3149 = add i32 %3148, 4
+  store i32 %3149, ptr %17, align 4
   store i32 0, ptr %18, align 4
-  br label %3143
+  br label %3150
 
-3143:                                             ; preds = %3169, %3135
-  %3144 = load i32, ptr %18, align 4
-  %3145 = load i32, ptr %19, align 4
-  %3146 = icmp slt i32 %3144, %3145
-  br i1 %3146, label %3147, label %3172
+3150:                                             ; preds = %3176, %3142
+  %3151 = load i32, ptr %18, align 4
+  %3152 = load i32, ptr %19, align 4
+  %3153 = icmp slt i32 %3151, %3152
+  br i1 %3153, label %3154, label %3179
 
-3147:                                             ; preds = %3143
-  %3148 = load ptr, ptr %5, align 8
-  %3149 = load i32, ptr %17, align 4
-  %3150 = call i32 @check_slsk_format(ptr noundef %3148, i32 noundef %3149, ptr noundef @.str.209)
-  %3151 = icmp ne i32 %3150, 0
-  br i1 %3151, label %3152, label %3167
+3154:                                             ; preds = %3150
+  %3155 = load ptr, ptr %5, align 8
+  %3156 = load ptr, ptr %6, align 8
+  %3157 = load i32, ptr %17, align 4
+  %3158 = call zeroext i1 @check_slsk_format(ptr noundef %3155, ptr noundef %3156, i32 noundef %3157, ptr noundef @.str.213)
+  br i1 %3158, label %3159, label %3174
 
-3152:                                             ; preds = %3147
-  %3153 = load ptr, ptr %13, align 8
-  %3154 = load ptr, ptr %5, align 8
-  %3155 = load i32, ptr %17, align 4
-  %3156 = load i32, ptr @ett_slsk_room, align 4
-  %3157 = load i32, ptr %18, align 4
-  %3158 = add i32 %3157, 1
-  %3159 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %3153, ptr noundef %3154, i32 noundef %3155, i32 noundef 4, i32 noundef %3156, ptr noundef %11, ptr noundef @.str.292, i32 noundef %3158)
-  store ptr %3159, ptr %14, align 8
-  %3160 = load ptr, ptr %14, align 8
-  %3161 = load i32, ptr @hf_slsk_users_in_room, align 4
-  %3162 = load ptr, ptr %5, align 8
-  %3163 = load i32, ptr %17, align 4
-  %3164 = call ptr @proto_tree_add_item(ptr noundef %3160, i32 noundef %3161, ptr noundef %3162, i32 noundef %3163, i32 noundef 4, i32 noundef -2147483648)
-  %3165 = load i32, ptr %17, align 4
-  %3166 = add i32 %3165, 4
-  store i32 %3166, ptr %17, align 4
-  br label %3168
-
-3167:                                             ; preds = %3147
-  br label %3172
-
-3168:                                             ; preds = %3152
-  br label %3169
-
-3169:                                             ; preds = %3168
-  %3170 = load i32, ptr %18, align 4
-  %3171 = add i32 %3170, 1
-  store i32 %3171, ptr %18, align 4
-  br label %3143, !llvm.loop !22
-
-3172:                                             ; preds = %3167, %3143
-  br label %3173
-
-3173:                                             ; preds = %3172, %3130
-  br label %3174
-
-3174:                                             ; preds = %3173, %3066
+3159:                                             ; preds = %3154
+  %3160 = load ptr, ptr %13, align 8
+  %3161 = load ptr, ptr %5, align 8
+  %3162 = load i32, ptr %17, align 4
+  %3163 = load i32, ptr @ett_slsk_room, align 4
+  %3164 = load i32, ptr %18, align 4
+  %3165 = add i32 %3164, 1
+  %3166 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %3160, ptr noundef %3161, i32 noundef %3162, i32 noundef 4, i32 noundef %3163, ptr noundef %11, ptr noundef @.str.296, i32 noundef %3165)
+  store ptr %3166, ptr %14, align 8
+  %3167 = load ptr, ptr %14, align 8
+  %3168 = load i32, ptr @hf_slsk_users_in_room, align 4
+  %3169 = load ptr, ptr %5, align 8
+  %3170 = load i32, ptr %17, align 4
+  %3171 = call ptr @proto_tree_add_item(ptr noundef %3167, i32 noundef %3168, ptr noundef %3169, i32 noundef %3170, i32 noundef 4, i32 noundef -2147483648)
+  %3172 = load i32, ptr %17, align 4
+  %3173 = add i32 %3172, 4
+  store i32 %3173, ptr %17, align 4
   br label %3175
 
-3175:                                             ; preds = %3174, %3056
-  br label %4619
+3174:                                             ; preds = %3154
+  br label %3179
 
-3176:                                             ; preds = %4
-  %3177 = load ptr, ptr %5, align 8
-  %3178 = load i32, ptr %17, align 4
-  %3179 = call i32 @check_slsk_format(ptr noundef %3177, i32 noundef %3178, ptr noundef @.str.293)
-  %3180 = icmp ne i32 %3179, 0
-  br i1 %3180, label %3181, label %3229
+3175:                                             ; preds = %3159
+  br label %3176
 
-3181:                                             ; preds = %3176
-  %3182 = load ptr, ptr %13, align 8
-  %3183 = load i32, ptr @hf_slsk_message_code, align 4
+3176:                                             ; preds = %3175
+  %3177 = load i32, ptr %18, align 4
+  %3178 = add i32 %3177, 1
+  store i32 %3178, ptr %18, align 4
+  br label %3150, !llvm.loop !26
+
+3179:                                             ; preds = %3174, %3150
+  br label %3180
+
+3180:                                             ; preds = %3179, %3137
+  br label %3181
+
+3181:                                             ; preds = %3180, %3073
+  br label %3182
+
+3182:                                             ; preds = %3181, %3063
+  br label %4626
+
+3183:                                             ; preds = %4
   %3184 = load ptr, ptr %5, align 8
-  %3185 = load i32, ptr %17, align 4
-  %3186 = load i32, ptr %21, align 4
-  %3187 = load i32, ptr %21, align 4
-  %3188 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3182, i32 noundef %3183, ptr noundef %3184, i32 noundef %3185, i32 noundef 4, i32 noundef %3186, ptr noundef @.str.294, i32 noundef %3187)
-  %3189 = load i32, ptr %17, align 4
-  %3190 = add i32 %3189, 4
-  store i32 %3190, ptr %17, align 4
-  %3191 = load ptr, ptr %13, align 8
-  %3192 = load i32, ptr @hf_slsk_username, align 4
-  %3193 = load ptr, ptr %5, align 8
-  %3194 = load i32, ptr %17, align 4
-  %3195 = call ptr @proto_tree_add_item_ret_length(ptr noundef %3191, i32 noundef %3192, ptr noundef %3193, i32 noundef %3194, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %3196 = load i32, ptr %23, align 4
-  %3197 = load i32, ptr %17, align 4
-  %3198 = add i32 %3197, %3196
-  store i32 %3198, ptr %17, align 4
-  %3199 = load ptr, ptr %13, align 8
-  %3200 = load i32, ptr @hf_slsk_token, align 4
-  %3201 = load ptr, ptr %5, align 8
-  %3202 = load i32, ptr %17, align 4
-  %3203 = call ptr @proto_tree_add_item(ptr noundef %3199, i32 noundef %3200, ptr noundef %3201, i32 noundef %3202, i32 noundef 4, i32 noundef -2147483648)
+  %3185 = load ptr, ptr %6, align 8
+  %3186 = load i32, ptr %17, align 4
+  %3187 = call zeroext i1 @check_slsk_format(ptr noundef %3184, ptr noundef %3185, i32 noundef %3186, ptr noundef @.str.297)
+  br i1 %3187, label %3188, label %3236
+
+3188:                                             ; preds = %3183
+  %3189 = load ptr, ptr %13, align 8
+  %3190 = load i32, ptr @hf_slsk_message_code, align 4
+  %3191 = load ptr, ptr %5, align 8
+  %3192 = load i32, ptr %17, align 4
+  %3193 = load i32, ptr %21, align 4
+  %3194 = load i32, ptr %21, align 4
+  %3195 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3189, i32 noundef %3190, ptr noundef %3191, i32 noundef %3192, i32 noundef 4, i32 noundef %3193, ptr noundef @.str.298, i32 noundef %3194)
+  %3196 = load i32, ptr %17, align 4
+  %3197 = add i32 %3196, 4
+  store i32 %3197, ptr %17, align 4
+  %3198 = load ptr, ptr %13, align 8
+  %3199 = load i32, ptr @hf_slsk_username, align 4
+  %3200 = load ptr, ptr %5, align 8
+  %3201 = load i32, ptr %17, align 4
+  %3202 = call ptr @proto_tree_add_item_ret_length(ptr noundef %3198, i32 noundef %3199, ptr noundef %3200, i32 noundef %3201, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %3203 = load i32, ptr %23, align 4
   %3204 = load i32, ptr %17, align 4
-  %3205 = add i32 %3204, 4
+  %3205 = add i32 %3204, %3203
   store i32 %3205, ptr %17, align 4
   %3206 = load ptr, ptr %13, align 8
-  %3207 = load i32, ptr @hf_slsk_filename, align 4
+  %3207 = load i32, ptr @hf_slsk_token, align 4
   %3208 = load ptr, ptr %5, align 8
   %3209 = load i32, ptr %17, align 4
-  %3210 = call ptr @proto_tree_add_item_ret_length(ptr noundef %3206, i32 noundef %3207, ptr noundef %3208, i32 noundef %3209, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %3211 = load i32, ptr %23, align 4
-  %3212 = load i32, ptr %17, align 4
-  %3213 = add i32 %3212, %3211
-  store i32 %3213, ptr %17, align 4
-  %3214 = load ptr, ptr %13, align 8
-  %3215 = load i32, ptr @hf_slsk_directory, align 4
-  %3216 = load ptr, ptr %5, align 8
-  %3217 = load i32, ptr %17, align 4
-  %3218 = call ptr @proto_tree_add_item_ret_length(ptr noundef %3214, i32 noundef %3215, ptr noundef %3216, i32 noundef %3217, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %3219 = load i32, ptr %23, align 4
-  %3220 = load i32, ptr %17, align 4
-  %3221 = add i32 %3220, %3219
-  store i32 %3221, ptr %17, align 4
-  %3222 = load ptr, ptr %13, align 8
-  %3223 = load i32, ptr @hf_slsk_bytes, align 4
-  %3224 = load ptr, ptr %5, align 8
-  %3225 = load i32, ptr %17, align 4
-  %3226 = call ptr @proto_tree_add_item(ptr noundef %3222, i32 noundef %3223, ptr noundef %3224, i32 noundef %3225, i32 noundef 16, i32 noundef 0)
+  %3210 = call ptr @proto_tree_add_item(ptr noundef %3206, i32 noundef %3207, ptr noundef %3208, i32 noundef %3209, i32 noundef 4, i32 noundef -2147483648)
+  %3211 = load i32, ptr %17, align 4
+  %3212 = add i32 %3211, 4
+  store i32 %3212, ptr %17, align 4
+  %3213 = load ptr, ptr %13, align 8
+  %3214 = load i32, ptr @hf_slsk_filename, align 4
+  %3215 = load ptr, ptr %5, align 8
+  %3216 = load i32, ptr %17, align 4
+  %3217 = call ptr @proto_tree_add_item_ret_length(ptr noundef %3213, i32 noundef %3214, ptr noundef %3215, i32 noundef %3216, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %3218 = load i32, ptr %23, align 4
+  %3219 = load i32, ptr %17, align 4
+  %3220 = add i32 %3219, %3218
+  store i32 %3220, ptr %17, align 4
+  %3221 = load ptr, ptr %13, align 8
+  %3222 = load i32, ptr @hf_slsk_directory, align 4
+  %3223 = load ptr, ptr %5, align 8
+  %3224 = load i32, ptr %17, align 4
+  %3225 = call ptr @proto_tree_add_item_ret_length(ptr noundef %3221, i32 noundef %3222, ptr noundef %3223, i32 noundef %3224, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %3226 = load i32, ptr %23, align 4
   %3227 = load i32, ptr %17, align 4
-  %3228 = add i32 %3227, 12
+  %3228 = add i32 %3227, %3226
   store i32 %3228, ptr %17, align 4
-  br label %3275
+  %3229 = load ptr, ptr %13, align 8
+  %3230 = load i32, ptr @hf_slsk_bytes, align 4
+  %3231 = load ptr, ptr %5, align 8
+  %3232 = load i32, ptr %17, align 4
+  %3233 = call ptr @proto_tree_add_item(ptr noundef %3229, i32 noundef %3230, ptr noundef %3231, i32 noundef %3232, i32 noundef 16, i32 noundef 0)
+  %3234 = load i32, ptr %17, align 4
+  %3235 = add i32 %3234, 12
+  store i32 %3235, ptr %17, align 4
+  br label %3282
 
-3229:                                             ; preds = %3176
-  %3230 = load ptr, ptr %5, align 8
-  %3231 = load i32, ptr %17, align 4
-  %3232 = call i32 @check_slsk_format(ptr noundef %3230, i32 noundef %3231, ptr noundef @.str.295)
-  %3233 = icmp ne i32 %3232, 0
-  br i1 %3233, label %3234, label %3274
-
-3234:                                             ; preds = %3229
-  %3235 = load ptr, ptr %13, align 8
-  %3236 = load i32, ptr @hf_slsk_message_code, align 4
+3236:                                             ; preds = %3183
   %3237 = load ptr, ptr %5, align 8
-  %3238 = load i32, ptr %17, align 4
-  %3239 = load i32, ptr %21, align 4
-  %3240 = load i32, ptr %21, align 4
-  %3241 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3235, i32 noundef %3236, ptr noundef %3237, i32 noundef %3238, i32 noundef 4, i32 noundef %3239, ptr noundef @.str.294, i32 noundef %3240)
-  %3242 = load i32, ptr %17, align 4
-  %3243 = add i32 %3242, 4
-  store i32 %3243, ptr %17, align 4
-  %3244 = load ptr, ptr %13, align 8
-  %3245 = load i32, ptr @hf_slsk_token, align 4
-  %3246 = load ptr, ptr %5, align 8
-  %3247 = load i32, ptr %17, align 4
-  %3248 = call ptr @proto_tree_add_item(ptr noundef %3244, i32 noundef %3245, ptr noundef %3246, i32 noundef %3247, i32 noundef 4, i32 noundef -2147483648)
+  %3238 = load ptr, ptr %6, align 8
+  %3239 = load i32, ptr %17, align 4
+  %3240 = call zeroext i1 @check_slsk_format(ptr noundef %3237, ptr noundef %3238, i32 noundef %3239, ptr noundef @.str.299)
+  br i1 %3240, label %3241, label %3281
+
+3241:                                             ; preds = %3236
+  %3242 = load ptr, ptr %13, align 8
+  %3243 = load i32, ptr @hf_slsk_message_code, align 4
+  %3244 = load ptr, ptr %5, align 8
+  %3245 = load i32, ptr %17, align 4
+  %3246 = load i32, ptr %21, align 4
+  %3247 = load i32, ptr %21, align 4
+  %3248 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3242, i32 noundef %3243, ptr noundef %3244, i32 noundef %3245, i32 noundef 4, i32 noundef %3246, ptr noundef @.str.298, i32 noundef %3247)
   %3249 = load i32, ptr %17, align 4
   %3250 = add i32 %3249, 4
   store i32 %3250, ptr %17, align 4
   %3251 = load ptr, ptr %13, align 8
-  %3252 = load i32, ptr @hf_slsk_filename, align 4
+  %3252 = load i32, ptr @hf_slsk_token, align 4
   %3253 = load ptr, ptr %5, align 8
   %3254 = load i32, ptr %17, align 4
-  %3255 = call ptr @proto_tree_add_item_ret_length(ptr noundef %3251, i32 noundef %3252, ptr noundef %3253, i32 noundef %3254, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %3256 = load i32, ptr %23, align 4
-  %3257 = load i32, ptr %17, align 4
-  %3258 = add i32 %3257, %3256
-  store i32 %3258, ptr %17, align 4
-  %3259 = load ptr, ptr %13, align 8
-  %3260 = load i32, ptr @hf_slsk_directory, align 4
-  %3261 = load ptr, ptr %5, align 8
-  %3262 = load i32, ptr %17, align 4
-  %3263 = call ptr @proto_tree_add_item_ret_length(ptr noundef %3259, i32 noundef %3260, ptr noundef %3261, i32 noundef %3262, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %3264 = load i32, ptr %23, align 4
-  %3265 = load i32, ptr %17, align 4
-  %3266 = add i32 %3265, %3264
-  store i32 %3266, ptr %17, align 4
-  %3267 = load ptr, ptr %13, align 8
-  %3268 = load i32, ptr @hf_slsk_bytes, align 4
-  %3269 = load ptr, ptr %5, align 8
-  %3270 = load i32, ptr %17, align 4
-  %3271 = call ptr @proto_tree_add_item(ptr noundef %3267, i32 noundef %3268, ptr noundef %3269, i32 noundef %3270, i32 noundef 13, i32 noundef 0)
+  %3255 = call ptr @proto_tree_add_item(ptr noundef %3251, i32 noundef %3252, ptr noundef %3253, i32 noundef %3254, i32 noundef 4, i32 noundef -2147483648)
+  %3256 = load i32, ptr %17, align 4
+  %3257 = add i32 %3256, 4
+  store i32 %3257, ptr %17, align 4
+  %3258 = load ptr, ptr %13, align 8
+  %3259 = load i32, ptr @hf_slsk_filename, align 4
+  %3260 = load ptr, ptr %5, align 8
+  %3261 = load i32, ptr %17, align 4
+  %3262 = call ptr @proto_tree_add_item_ret_length(ptr noundef %3258, i32 noundef %3259, ptr noundef %3260, i32 noundef %3261, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %3263 = load i32, ptr %23, align 4
+  %3264 = load i32, ptr %17, align 4
+  %3265 = add i32 %3264, %3263
+  store i32 %3265, ptr %17, align 4
+  %3266 = load ptr, ptr %13, align 8
+  %3267 = load i32, ptr @hf_slsk_directory, align 4
+  %3268 = load ptr, ptr %5, align 8
+  %3269 = load i32, ptr %17, align 4
+  %3270 = call ptr @proto_tree_add_item_ret_length(ptr noundef %3266, i32 noundef %3267, ptr noundef %3268, i32 noundef %3269, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %3271 = load i32, ptr %23, align 4
   %3272 = load i32, ptr %17, align 4
-  %3273 = add i32 %3272, 13
+  %3273 = add i32 %3272, %3271
   store i32 %3273, ptr %17, align 4
-  br label %3274
+  %3274 = load ptr, ptr %13, align 8
+  %3275 = load i32, ptr @hf_slsk_bytes, align 4
+  %3276 = load ptr, ptr %5, align 8
+  %3277 = load i32, ptr %17, align 4
+  %3278 = call ptr @proto_tree_add_item(ptr noundef %3274, i32 noundef %3275, ptr noundef %3276, i32 noundef %3277, i32 noundef 13, i32 noundef 0)
+  %3279 = load i32, ptr %17, align 4
+  %3280 = add i32 %3279, 13
+  store i32 %3280, ptr %17, align 4
+  br label %3281
 
-3274:                                             ; preds = %3234, %3229
-  br label %3275
+3281:                                             ; preds = %3241, %3236
+  br label %3282
 
-3275:                                             ; preds = %3274, %3181
-  br label %4619
+3282:                                             ; preds = %3281, %3188
+  br label %4626
 
-3276:                                             ; preds = %4
-  %3277 = load ptr, ptr %5, align 8
-  %3278 = load i32, ptr %17, align 4
-  %3279 = call i32 @check_slsk_format(ptr noundef %3277, i32 noundef %3278, ptr noundef @.str.202)
-  %3280 = icmp ne i32 %3279, 0
-  br i1 %3280, label %3281, label %3299
-
-3281:                                             ; preds = %3276
-  %3282 = load ptr, ptr %13, align 8
-  %3283 = load i32, ptr @hf_slsk_message_code, align 4
+3283:                                             ; preds = %4
   %3284 = load ptr, ptr %5, align 8
-  %3285 = load i32, ptr %17, align 4
-  %3286 = load i32, ptr %21, align 4
-  %3287 = load i32, ptr %21, align 4
-  %3288 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3282, i32 noundef %3283, ptr noundef %3284, i32 noundef %3285, i32 noundef 4, i32 noundef %3286, ptr noundef @.str.296, i32 noundef %3287)
-  %3289 = load i32, ptr %17, align 4
-  %3290 = add i32 %3289, 4
-  store i32 %3290, ptr %17, align 4
-  %3291 = load ptr, ptr %13, align 8
-  %3292 = load i32, ptr @hf_slsk_chat_message, align 4
-  %3293 = load ptr, ptr %5, align 8
-  %3294 = load i32, ptr %17, align 4
-  %3295 = call ptr @proto_tree_add_item_ret_length(ptr noundef %3291, i32 noundef %3292, ptr noundef %3293, i32 noundef %3294, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %3296 = load i32, ptr %23, align 4
-  %3297 = load i32, ptr %17, align 4
-  %3298 = add i32 %3297, %3296
-  store i32 %3298, ptr %17, align 4
-  br label %3299
+  %3285 = load ptr, ptr %6, align 8
+  %3286 = load i32, ptr %17, align 4
+  %3287 = call zeroext i1 @check_slsk_format(ptr noundef %3284, ptr noundef %3285, i32 noundef %3286, ptr noundef @.str.206)
+  br i1 %3287, label %3288, label %3306
 
-3299:                                             ; preds = %3281, %3276
-  br label %4619
+3288:                                             ; preds = %3283
+  %3289 = load ptr, ptr %13, align 8
+  %3290 = load i32, ptr @hf_slsk_message_code, align 4
+  %3291 = load ptr, ptr %5, align 8
+  %3292 = load i32, ptr %17, align 4
+  %3293 = load i32, ptr %21, align 4
+  %3294 = load i32, ptr %21, align 4
+  %3295 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3289, i32 noundef %3290, ptr noundef %3291, i32 noundef %3292, i32 noundef 4, i32 noundef %3293, ptr noundef @.str.300, i32 noundef %3294)
+  %3296 = load i32, ptr %17, align 4
+  %3297 = add i32 %3296, 4
+  store i32 %3297, ptr %17, align 4
+  %3298 = load ptr, ptr %13, align 8
+  %3299 = load i32, ptr @hf_slsk_chat_message, align 4
+  %3300 = load ptr, ptr %5, align 8
+  %3301 = load i32, ptr %17, align 4
+  %3302 = call ptr @proto_tree_add_item_ret_length(ptr noundef %3298, i32 noundef %3299, ptr noundef %3300, i32 noundef %3301, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %3303 = load i32, ptr %23, align 4
+  %3304 = load i32, ptr %17, align 4
+  %3305 = add i32 %3304, %3303
+  store i32 %3305, ptr %17, align 4
+  br label %3306
 
-3300:                                             ; preds = %4
-  %3301 = load ptr, ptr %5, align 8
-  %3302 = load i32, ptr %17, align 4
-  %3303 = call i32 @check_slsk_format(ptr noundef %3301, i32 noundef %3302, ptr noundef @.str.204)
-  %3304 = icmp ne i32 %3303, 0
-  br i1 %3304, label %3305, label %3315
+3306:                                             ; preds = %3288, %3283
+  br label %4626
 
-3305:                                             ; preds = %3300
-  %3306 = load ptr, ptr %13, align 8
-  %3307 = load i32, ptr @hf_slsk_message_code, align 4
+3307:                                             ; preds = %4
   %3308 = load ptr, ptr %5, align 8
-  %3309 = load i32, ptr %17, align 4
-  %3310 = load i32, ptr %21, align 4
-  %3311 = load i32, ptr %21, align 4
-  %3312 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3306, i32 noundef %3307, ptr noundef %3308, i32 noundef %3309, i32 noundef 4, i32 noundef %3310, ptr noundef @.str.297, i32 noundef %3311)
-  %3313 = load i32, ptr %17, align 4
-  %3314 = add i32 %3313, 4
-  store i32 %3314, ptr %17, align 4
-  br label %3541
+  %3309 = load ptr, ptr %6, align 8
+  %3310 = load i32, ptr %17, align 4
+  %3311 = call zeroext i1 @check_slsk_format(ptr noundef %3308, ptr noundef %3309, i32 noundef %3310, ptr noundef @.str.208)
+  br i1 %3311, label %3312, label %3322
 
-3315:                                             ; preds = %3300
-  %3316 = load ptr, ptr %5, align 8
-  %3317 = load i32, ptr %17, align 4
-  %3318 = call i32 @check_slsk_format(ptr noundef %3316, i32 noundef %3317, ptr noundef @.str.227)
-  %3319 = icmp ne i32 %3318, 0
-  br i1 %3319, label %3320, label %3540
+3312:                                             ; preds = %3307
+  %3313 = load ptr, ptr %13, align 8
+  %3314 = load i32, ptr @hf_slsk_message_code, align 4
+  %3315 = load ptr, ptr %5, align 8
+  %3316 = load i32, ptr %17, align 4
+  %3317 = load i32, ptr %21, align 4
+  %3318 = load i32, ptr %21, align 4
+  %3319 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3313, i32 noundef %3314, ptr noundef %3315, i32 noundef %3316, i32 noundef 4, i32 noundef %3317, ptr noundef @.str.301, i32 noundef %3318)
+  %3320 = load i32, ptr %17, align 4
+  %3321 = add i32 %3320, 4
+  store i32 %3321, ptr %17, align 4
+  br label %3548
 
-3320:                                             ; preds = %3315
-  %3321 = load ptr, ptr %13, align 8
-  %3322 = load i32, ptr @hf_slsk_message_code, align 4
+3322:                                             ; preds = %3307
   %3323 = load ptr, ptr %5, align 8
-  %3324 = load i32, ptr %17, align 4
-  %3325 = load i32, ptr %21, align 4
-  %3326 = load i32, ptr %21, align 4
-  %3327 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3321, i32 noundef %3322, ptr noundef %3323, i32 noundef %3324, i32 noundef 4, i32 noundef %3325, ptr noundef @.str.298, i32 noundef %3326)
-  %3328 = load i32, ptr %17, align 4
-  %3329 = add i32 %3328, 4
-  store i32 %3329, ptr %17, align 4
-  %3330 = load ptr, ptr %13, align 8
-  %3331 = load i32, ptr @hf_slsk_room, align 4
-  %3332 = load ptr, ptr %5, align 8
-  %3333 = load i32, ptr %17, align 4
-  %3334 = call ptr @proto_tree_add_item_ret_length(ptr noundef %3330, i32 noundef %3331, ptr noundef %3332, i32 noundef %3333, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %3335 = load i32, ptr %23, align 4
-  %3336 = load i32, ptr %17, align 4
-  %3337 = add i32 %3336, %3335
-  store i32 %3337, ptr %17, align 4
-  %3338 = load ptr, ptr %13, align 8
-  %3339 = load i32, ptr @hf_slsk_users_in_room, align 4
-  %3340 = load ptr, ptr %5, align 8
-  %3341 = load i32, ptr %17, align 4
-  %3342 = call ptr @proto_tree_add_item_ret_int(ptr noundef %3338, i32 noundef %3339, ptr noundef %3340, i32 noundef %3341, i32 noundef 4, i32 noundef -2147483648, ptr noundef %19)
+  %3324 = load ptr, ptr %6, align 8
+  %3325 = load i32, ptr %17, align 4
+  %3326 = call zeroext i1 @check_slsk_format(ptr noundef %3323, ptr noundef %3324, i32 noundef %3325, ptr noundef @.str.231)
+  br i1 %3326, label %3327, label %3547
+
+3327:                                             ; preds = %3322
+  %3328 = load ptr, ptr %13, align 8
+  %3329 = load i32, ptr @hf_slsk_message_code, align 4
+  %3330 = load ptr, ptr %5, align 8
+  %3331 = load i32, ptr %17, align 4
+  %3332 = load i32, ptr %21, align 4
+  %3333 = load i32, ptr %21, align 4
+  %3334 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3328, i32 noundef %3329, ptr noundef %3330, i32 noundef %3331, i32 noundef 4, i32 noundef %3332, ptr noundef @.str.302, i32 noundef %3333)
+  %3335 = load i32, ptr %17, align 4
+  %3336 = add i32 %3335, 4
+  store i32 %3336, ptr %17, align 4
+  %3337 = load ptr, ptr %13, align 8
+  %3338 = load i32, ptr @hf_slsk_room, align 4
+  %3339 = load ptr, ptr %5, align 8
+  %3340 = load i32, ptr %17, align 4
+  %3341 = call ptr @proto_tree_add_item_ret_length(ptr noundef %3337, i32 noundef %3338, ptr noundef %3339, i32 noundef %3340, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %3342 = load i32, ptr %23, align 4
   %3343 = load i32, ptr %17, align 4
-  %3344 = add i32 %3343, 4
+  %3344 = add i32 %3343, %3342
   store i32 %3344, ptr %17, align 4
-  %3345 = load i32, ptr %19, align 4
-  %3346 = load ptr, ptr %5, align 8
-  %3347 = load i32, ptr %17, align 4
-  %3348 = call i32 @tvb_reported_length_remaining(ptr noundef %3346, i32 noundef %3347)
-  %3349 = icmp sgt i32 %3345, %3348
-  br i1 %3349, label %3350, label %3351
+  %3345 = load ptr, ptr %13, align 8
+  %3346 = load i32, ptr @hf_slsk_users_in_room, align 4
+  %3347 = load ptr, ptr %5, align 8
+  %3348 = load i32, ptr %17, align 4
+  %3349 = call ptr @proto_tree_add_item_ret_int(ptr noundef %3345, i32 noundef %3346, ptr noundef %3347, i32 noundef %3348, i32 noundef 4, i32 noundef -2147483648, ptr noundef %19)
+  %3350 = load i32, ptr %17, align 4
+  %3351 = add i32 %3350, 4
+  store i32 %3351, ptr %17, align 4
+  %3352 = load i32, ptr %19, align 4
+  %3353 = load ptr, ptr %5, align 8
+  %3354 = load i32, ptr %17, align 4
+  %3355 = call i32 @tvb_reported_length_remaining(ptr noundef %3353, i32 noundef %3354)
+  %3356 = icmp sgt i32 %3352, %3355
+  br i1 %3356, label %3357, label %3358
 
-3350:                                             ; preds = %3320
-  br label %4619
+3357:                                             ; preds = %3327
+  br label %4626
 
-3351:                                             ; preds = %3320
+3358:                                             ; preds = %3327
   store i32 0, ptr %18, align 4
-  br label %3352
+  br label %3359
 
-3352:                                             ; preds = %3372, %3351
-  %3353 = load i32, ptr %18, align 4
-  %3354 = load i32, ptr %19, align 4
-  %3355 = icmp slt i32 %3353, %3354
-  br i1 %3355, label %3356, label %3375
+3359:                                             ; preds = %3379, %3358
+  %3360 = load i32, ptr %18, align 4
+  %3361 = load i32, ptr %19, align 4
+  %3362 = icmp slt i32 %3360, %3361
+  br i1 %3362, label %3363, label %3382
 
-3356:                                             ; preds = %3352
-  %3357 = load ptr, ptr %5, align 8
-  %3358 = load i32, ptr %17, align 4
-  %3359 = call i32 @check_slsk_format(ptr noundef %3357, i32 noundef %3358, ptr noundef @.str.229)
-  %3360 = icmp ne i32 %3359, 0
-  br i1 %3360, label %3361, label %3370
-
-3361:                                             ; preds = %3356
-  %3362 = load ptr, ptr %13, align 8
-  %3363 = load i32, ptr @hf_slsk_user, align 4
+3363:                                             ; preds = %3359
   %3364 = load ptr, ptr %5, align 8
-  %3365 = load i32, ptr %17, align 4
-  %3366 = call ptr @proto_tree_add_item_ret_length(ptr noundef %3362, i32 noundef %3363, ptr noundef %3364, i32 noundef %3365, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %3367 = load i32, ptr %23, align 4
-  %3368 = load i32, ptr %17, align 4
-  %3369 = add i32 %3368, %3367
-  store i32 %3369, ptr %17, align 4
-  br label %3371
+  %3365 = load ptr, ptr %6, align 8
+  %3366 = load i32, ptr %17, align 4
+  %3367 = call zeroext i1 @check_slsk_format(ptr noundef %3364, ptr noundef %3365, i32 noundef %3366, ptr noundef @.str.233)
+  br i1 %3367, label %3368, label %3377
 
-3370:                                             ; preds = %3356
-  br label %3375
+3368:                                             ; preds = %3363
+  %3369 = load ptr, ptr %13, align 8
+  %3370 = load i32, ptr @hf_slsk_user, align 4
+  %3371 = load ptr, ptr %5, align 8
+  %3372 = load i32, ptr %17, align 4
+  %3373 = call ptr @proto_tree_add_item_ret_length(ptr noundef %3369, i32 noundef %3370, ptr noundef %3371, i32 noundef %3372, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %3374 = load i32, ptr %23, align 4
+  %3375 = load i32, ptr %17, align 4
+  %3376 = add i32 %3375, %3374
+  store i32 %3376, ptr %17, align 4
+  br label %3378
 
-3371:                                             ; preds = %3361
-  br label %3372
+3377:                                             ; preds = %3363
+  br label %3382
 
-3372:                                             ; preds = %3371
-  %3373 = load i32, ptr %18, align 4
-  %3374 = add i32 %3373, 1
-  store i32 %3374, ptr %18, align 4
-  br label %3352, !llvm.loop !23
+3378:                                             ; preds = %3368
+  br label %3379
 
-3375:                                             ; preds = %3370, %3352
-  %3376 = load ptr, ptr %5, align 8
-  %3377 = load i32, ptr %17, align 4
-  %3378 = call i32 @check_slsk_format(ptr noundef %3376, i32 noundef %3377, ptr noundef @.str.209)
-  %3379 = icmp ne i32 %3378, 0
-  br i1 %3379, label %3380, label %3411
+3379:                                             ; preds = %3378
+  %3380 = load i32, ptr %18, align 4
+  %3381 = add i32 %3380, 1
+  store i32 %3381, ptr %18, align 4
+  br label %3359, !llvm.loop !27
 
-3380:                                             ; preds = %3375
-  %3381 = load ptr, ptr %13, align 8
-  %3382 = load i32, ptr @hf_slsk_users_in_room, align 4
+3382:                                             ; preds = %3377, %3359
   %3383 = load ptr, ptr %5, align 8
-  %3384 = load i32, ptr %17, align 4
-  %3385 = call ptr @proto_tree_add_item_ret_int(ptr noundef %3381, i32 noundef %3382, ptr noundef %3383, i32 noundef %3384, i32 noundef 4, i32 noundef -2147483648, ptr noundef %19)
-  %3386 = load i32, ptr %17, align 4
-  %3387 = add i32 %3386, 4
-  store i32 %3387, ptr %17, align 4
+  %3384 = load ptr, ptr %6, align 8
+  %3385 = load i32, ptr %17, align 4
+  %3386 = call zeroext i1 @check_slsk_format(ptr noundef %3383, ptr noundef %3384, i32 noundef %3385, ptr noundef @.str.213)
+  br i1 %3386, label %3387, label %3418
+
+3387:                                             ; preds = %3382
+  %3388 = load ptr, ptr %13, align 8
+  %3389 = load i32, ptr @hf_slsk_users_in_room, align 4
+  %3390 = load ptr, ptr %5, align 8
+  %3391 = load i32, ptr %17, align 4
+  %3392 = call ptr @proto_tree_add_item_ret_int(ptr noundef %3388, i32 noundef %3389, ptr noundef %3390, i32 noundef %3391, i32 noundef 4, i32 noundef -2147483648, ptr noundef %19)
+  %3393 = load i32, ptr %17, align 4
+  %3394 = add i32 %3393, 4
+  store i32 %3394, ptr %17, align 4
   store i32 0, ptr %18, align 4
-  br label %3388
+  br label %3395
 
-3388:                                             ; preds = %3407, %3380
-  %3389 = load i32, ptr %18, align 4
-  %3390 = load i32, ptr %19, align 4
-  %3391 = icmp slt i32 %3389, %3390
-  br i1 %3391, label %3392, label %3410
+3395:                                             ; preds = %3414, %3387
+  %3396 = load i32, ptr %18, align 4
+  %3397 = load i32, ptr %19, align 4
+  %3398 = icmp slt i32 %3396, %3397
+  br i1 %3398, label %3399, label %3417
 
-3392:                                             ; preds = %3388
-  %3393 = load ptr, ptr %5, align 8
-  %3394 = load i32, ptr %17, align 4
-  %3395 = call i32 @check_slsk_format(ptr noundef %3393, i32 noundef %3394, ptr noundef @.str.209)
-  %3396 = icmp ne i32 %3395, 0
-  br i1 %3396, label %3397, label %3405
-
-3397:                                             ; preds = %3392
-  %3398 = load ptr, ptr %13, align 8
-  %3399 = load i32, ptr @hf_slsk_status_code, align 4
+3399:                                             ; preds = %3395
   %3400 = load ptr, ptr %5, align 8
-  %3401 = load i32, ptr %17, align 4
-  %3402 = call ptr @proto_tree_add_item(ptr noundef %3398, i32 noundef %3399, ptr noundef %3400, i32 noundef %3401, i32 noundef 4, i32 noundef -2147483648)
-  %3403 = load i32, ptr %17, align 4
-  %3404 = add i32 %3403, 4
-  store i32 %3404, ptr %17, align 4
-  br label %3406
+  %3401 = load ptr, ptr %6, align 8
+  %3402 = load i32, ptr %17, align 4
+  %3403 = call zeroext i1 @check_slsk_format(ptr noundef %3400, ptr noundef %3401, i32 noundef %3402, ptr noundef @.str.213)
+  br i1 %3403, label %3404, label %3412
 
-3405:                                             ; preds = %3392
-  br label %3410
+3404:                                             ; preds = %3399
+  %3405 = load ptr, ptr %13, align 8
+  %3406 = load i32, ptr @hf_slsk_status_code, align 4
+  %3407 = load ptr, ptr %5, align 8
+  %3408 = load i32, ptr %17, align 4
+  %3409 = call ptr @proto_tree_add_item(ptr noundef %3405, i32 noundef %3406, ptr noundef %3407, i32 noundef %3408, i32 noundef 4, i32 noundef -2147483648)
+  %3410 = load i32, ptr %17, align 4
+  %3411 = add i32 %3410, 4
+  store i32 %3411, ptr %17, align 4
+  br label %3413
 
-3406:                                             ; preds = %3397
-  br label %3407
+3412:                                             ; preds = %3399
+  br label %3417
 
-3407:                                             ; preds = %3406
-  %3408 = load i32, ptr %18, align 4
-  %3409 = add i32 %3408, 1
-  store i32 %3409, ptr %18, align 4
-  br label %3388, !llvm.loop !24
+3413:                                             ; preds = %3404
+  br label %3414
 
-3410:                                             ; preds = %3405, %3388
-  br label %3411
+3414:                                             ; preds = %3413
+  %3415 = load i32, ptr %18, align 4
+  %3416 = add i32 %3415, 1
+  store i32 %3416, ptr %18, align 4
+  br label %3395, !llvm.loop !28
 
-3411:                                             ; preds = %3410, %3375
-  %3412 = load ptr, ptr %5, align 8
-  %3413 = load i32, ptr %17, align 4
-  %3414 = call i32 @check_slsk_format(ptr noundef %3412, i32 noundef %3413, ptr noundef @.str.209)
-  %3415 = icmp ne i32 %3414, 0
-  br i1 %3415, label %3416, label %3489
+3417:                                             ; preds = %3412, %3395
+  br label %3418
 
-3416:                                             ; preds = %3411
-  %3417 = load ptr, ptr %13, align 8
-  %3418 = load i32, ptr @hf_slsk_users_in_room, align 4
+3418:                                             ; preds = %3417, %3382
   %3419 = load ptr, ptr %5, align 8
-  %3420 = load i32, ptr %17, align 4
-  %3421 = call ptr @proto_tree_add_item_ret_int(ptr noundef %3417, i32 noundef %3418, ptr noundef %3419, i32 noundef %3420, i32 noundef 4, i32 noundef -2147483648, ptr noundef %19)
-  %3422 = load i32, ptr %17, align 4
-  %3423 = add i32 %3422, 4
-  store i32 %3423, ptr %17, align 4
-  %3424 = load i32, ptr %19, align 4
-  %3425 = load ptr, ptr %5, align 8
-  %3426 = load i32, ptr %17, align 4
-  %3427 = call i32 @tvb_reported_length_remaining(ptr noundef %3425, i32 noundef %3426)
-  %3428 = icmp sgt i32 %3424, %3427
-  br i1 %3428, label %3429, label %3430
+  %3420 = load ptr, ptr %6, align 8
+  %3421 = load i32, ptr %17, align 4
+  %3422 = call zeroext i1 @check_slsk_format(ptr noundef %3419, ptr noundef %3420, i32 noundef %3421, ptr noundef @.str.213)
+  br i1 %3422, label %3423, label %3496
 
-3429:                                             ; preds = %3416
-  br label %4619
+3423:                                             ; preds = %3418
+  %3424 = load ptr, ptr %13, align 8
+  %3425 = load i32, ptr @hf_slsk_users_in_room, align 4
+  %3426 = load ptr, ptr %5, align 8
+  %3427 = load i32, ptr %17, align 4
+  %3428 = call ptr @proto_tree_add_item_ret_int(ptr noundef %3424, i32 noundef %3425, ptr noundef %3426, i32 noundef %3427, i32 noundef 4, i32 noundef -2147483648, ptr noundef %19)
+  %3429 = load i32, ptr %17, align 4
+  %3430 = add i32 %3429, 4
+  store i32 %3430, ptr %17, align 4
+  %3431 = load i32, ptr %19, align 4
+  %3432 = load ptr, ptr %5, align 8
+  %3433 = load i32, ptr %17, align 4
+  %3434 = call i32 @tvb_reported_length_remaining(ptr noundef %3432, i32 noundef %3433)
+  %3435 = icmp sgt i32 %3431, %3434
+  br i1 %3435, label %3436, label %3437
 
-3430:                                             ; preds = %3416
+3436:                                             ; preds = %3423
+  br label %4626
+
+3437:                                             ; preds = %3423
   store i32 0, ptr %18, align 4
-  br label %3431
+  br label %3438
 
-3431:                                             ; preds = %3485, %3430
-  %3432 = load i32, ptr %18, align 4
-  %3433 = load i32, ptr %19, align 4
-  %3434 = icmp slt i32 %3432, %3433
-  br i1 %3434, label %3435, label %3488
+3438:                                             ; preds = %3492, %3437
+  %3439 = load i32, ptr %18, align 4
+  %3440 = load i32, ptr %19, align 4
+  %3441 = icmp slt i32 %3439, %3440
+  br i1 %3441, label %3442, label %3495
 
-3435:                                             ; preds = %3431
-  %3436 = load ptr, ptr %5, align 8
-  %3437 = load i32, ptr %17, align 4
-  %3438 = call i32 @check_slsk_format(ptr noundef %3436, i32 noundef %3437, ptr noundef @.str.230)
-  %3439 = icmp ne i32 %3438, 0
-  br i1 %3439, label %3440, label %3483
+3442:                                             ; preds = %3438
+  %3443 = load ptr, ptr %5, align 8
+  %3444 = load ptr, ptr %6, align 8
+  %3445 = load i32, ptr %17, align 4
+  %3446 = call zeroext i1 @check_slsk_format(ptr noundef %3443, ptr noundef %3444, i32 noundef %3445, ptr noundef @.str.234)
+  br i1 %3446, label %3447, label %3490
 
-3440:                                             ; preds = %3435
-  %3441 = load ptr, ptr %13, align 8
-  %3442 = load ptr, ptr %5, align 8
-  %3443 = load i32, ptr %17, align 4
-  %3444 = load i32, ptr @ett_slsk_user, align 4
-  %3445 = load i32, ptr %18, align 4
-  %3446 = add i32 %3445, 1
-  %3447 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %3441, ptr noundef %3442, i32 noundef %3443, i32 noundef 20, i32 noundef %3444, ptr noundef null, ptr noundef @.str.231, i32 noundef %3446)
-  store ptr %3447, ptr %14, align 8
-  %3448 = load ptr, ptr %14, align 8
-  %3449 = load i32, ptr @hf_slsk_average_speed, align 4
-  %3450 = load ptr, ptr %5, align 8
-  %3451 = load i32, ptr %17, align 4
-  %3452 = call ptr @proto_tree_add_item(ptr noundef %3448, i32 noundef %3449, ptr noundef %3450, i32 noundef %3451, i32 noundef 4, i32 noundef -2147483648)
-  %3453 = load i32, ptr %17, align 4
-  %3454 = add i32 %3453, 4
-  store i32 %3454, ptr %17, align 4
+3447:                                             ; preds = %3442
+  %3448 = load ptr, ptr %13, align 8
+  %3449 = load ptr, ptr %5, align 8
+  %3450 = load i32, ptr %17, align 4
+  %3451 = load i32, ptr @ett_slsk_user, align 4
+  %3452 = load i32, ptr %18, align 4
+  %3453 = add i32 %3452, 1
+  %3454 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %3448, ptr noundef %3449, i32 noundef %3450, i32 noundef 20, i32 noundef %3451, ptr noundef null, ptr noundef @.str.235, i32 noundef %3453)
+  store ptr %3454, ptr %14, align 8
   %3455 = load ptr, ptr %14, align 8
-  %3456 = load i32, ptr @hf_slsk_download_number, align 4
+  %3456 = load i32, ptr @hf_slsk_average_speed, align 4
   %3457 = load ptr, ptr %5, align 8
   %3458 = load i32, ptr %17, align 4
   %3459 = call ptr @proto_tree_add_item(ptr noundef %3455, i32 noundef %3456, ptr noundef %3457, i32 noundef %3458, i32 noundef 4, i32 noundef -2147483648)
@@ -5369,7 +5436,7 @@ define internal i32 @dissect_slsk_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   %3461 = add i32 %3460, 4
   store i32 %3461, ptr %17, align 4
   %3462 = load ptr, ptr %14, align 8
-  %3463 = load i32, ptr @hf_slsk_integer, align 4
+  %3463 = load i32, ptr @hf_slsk_download_number, align 4
   %3464 = load ptr, ptr %5, align 8
   %3465 = load i32, ptr %17, align 4
   %3466 = call ptr @proto_tree_add_item(ptr noundef %3462, i32 noundef %3463, ptr noundef %3464, i32 noundef %3465, i32 noundef 4, i32 noundef -2147483648)
@@ -5377,7 +5444,7 @@ define internal i32 @dissect_slsk_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   %3468 = add i32 %3467, 4
   store i32 %3468, ptr %17, align 4
   %3469 = load ptr, ptr %14, align 8
-  %3470 = load i32, ptr @hf_slsk_files, align 4
+  %3470 = load i32, ptr @hf_slsk_integer, align 4
   %3471 = load ptr, ptr %5, align 8
   %3472 = load i32, ptr %17, align 4
   %3473 = call ptr @proto_tree_add_item(ptr noundef %3469, i32 noundef %3470, ptr noundef %3471, i32 noundef %3472, i32 noundef 4, i32 noundef -2147483648)
@@ -5385,153 +5452,153 @@ define internal i32 @dissect_slsk_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   %3475 = add i32 %3474, 4
   store i32 %3475, ptr %17, align 4
   %3476 = load ptr, ptr %14, align 8
-  %3477 = load i32, ptr @hf_slsk_directories, align 4
+  %3477 = load i32, ptr @hf_slsk_files, align 4
   %3478 = load ptr, ptr %5, align 8
   %3479 = load i32, ptr %17, align 4
   %3480 = call ptr @proto_tree_add_item(ptr noundef %3476, i32 noundef %3477, ptr noundef %3478, i32 noundef %3479, i32 noundef 4, i32 noundef -2147483648)
   %3481 = load i32, ptr %17, align 4
   %3482 = add i32 %3481, 4
   store i32 %3482, ptr %17, align 4
-  br label %3484
+  %3483 = load ptr, ptr %14, align 8
+  %3484 = load i32, ptr @hf_slsk_directories, align 4
+  %3485 = load ptr, ptr %5, align 8
+  %3486 = load i32, ptr %17, align 4
+  %3487 = call ptr @proto_tree_add_item(ptr noundef %3483, i32 noundef %3484, ptr noundef %3485, i32 noundef %3486, i32 noundef 4, i32 noundef -2147483648)
+  %3488 = load i32, ptr %17, align 4
+  %3489 = add i32 %3488, 4
+  store i32 %3489, ptr %17, align 4
+  br label %3491
 
-3483:                                             ; preds = %3435
-  br label %3488
+3490:                                             ; preds = %3442
+  br label %3495
 
-3484:                                             ; preds = %3440
-  br label %3485
+3491:                                             ; preds = %3447
+  br label %3492
 
-3485:                                             ; preds = %3484
-  %3486 = load i32, ptr %18, align 4
-  %3487 = add i32 %3486, 1
-  store i32 %3487, ptr %18, align 4
-  br label %3431, !llvm.loop !25
+3492:                                             ; preds = %3491
+  %3493 = load i32, ptr %18, align 4
+  %3494 = add i32 %3493, 1
+  store i32 %3494, ptr %18, align 4
+  br label %3438, !llvm.loop !29
 
-3488:                                             ; preds = %3483, %3431
-  br label %3489
+3495:                                             ; preds = %3490, %3438
+  br label %3496
 
-3489:                                             ; preds = %3488, %3411
-  %3490 = load ptr, ptr %5, align 8
-  %3491 = load i32, ptr %17, align 4
-  %3492 = call i32 @check_slsk_format(ptr noundef %3490, i32 noundef %3491, ptr noundef @.str.209)
-  %3493 = icmp ne i32 %3492, 0
-  br i1 %3493, label %3494, label %3539
-
-3494:                                             ; preds = %3489
-  %3495 = load ptr, ptr %13, align 8
-  %3496 = load i32, ptr @hf_slsk_num_slotsfull_records, align 4
+3496:                                             ; preds = %3495, %3418
   %3497 = load ptr, ptr %5, align 8
-  %3498 = load i32, ptr %17, align 4
-  %3499 = call ptr @proto_tree_add_item_ret_int(ptr noundef %3495, i32 noundef %3496, ptr noundef %3497, i32 noundef %3498, i32 noundef 4, i32 noundef -2147483648, ptr noundef %19)
-  %3500 = load i32, ptr %17, align 4
-  %3501 = add i32 %3500, 4
-  store i32 %3501, ptr %17, align 4
-  %3502 = load i32, ptr %19, align 4
-  %3503 = load ptr, ptr %5, align 8
-  %3504 = load i32, ptr %17, align 4
-  %3505 = call i32 @tvb_reported_length_remaining(ptr noundef %3503, i32 noundef %3504)
-  %3506 = icmp sgt i32 %3502, %3505
-  br i1 %3506, label %3507, label %3508
+  %3498 = load ptr, ptr %6, align 8
+  %3499 = load i32, ptr %17, align 4
+  %3500 = call zeroext i1 @check_slsk_format(ptr noundef %3497, ptr noundef %3498, i32 noundef %3499, ptr noundef @.str.213)
+  br i1 %3500, label %3501, label %3546
 
-3507:                                             ; preds = %3494
-  br label %4619
+3501:                                             ; preds = %3496
+  %3502 = load ptr, ptr %13, align 8
+  %3503 = load i32, ptr @hf_slsk_num_slotsfull_records, align 4
+  %3504 = load ptr, ptr %5, align 8
+  %3505 = load i32, ptr %17, align 4
+  %3506 = call ptr @proto_tree_add_item_ret_int(ptr noundef %3502, i32 noundef %3503, ptr noundef %3504, i32 noundef %3505, i32 noundef 4, i32 noundef -2147483648, ptr noundef %19)
+  %3507 = load i32, ptr %17, align 4
+  %3508 = add i32 %3507, 4
+  store i32 %3508, ptr %17, align 4
+  %3509 = load i32, ptr %19, align 4
+  %3510 = load ptr, ptr %5, align 8
+  %3511 = load i32, ptr %17, align 4
+  %3512 = call i32 @tvb_reported_length_remaining(ptr noundef %3510, i32 noundef %3511)
+  %3513 = icmp sgt i32 %3509, %3512
+  br i1 %3513, label %3514, label %3515
 
-3508:                                             ; preds = %3494
+3514:                                             ; preds = %3501
+  br label %4626
+
+3515:                                             ; preds = %3501
   store i32 0, ptr %18, align 4
-  br label %3509
+  br label %3516
 
-3509:                                             ; preds = %3535, %3508
-  %3510 = load i32, ptr %18, align 4
-  %3511 = load i32, ptr %19, align 4
-  %3512 = icmp slt i32 %3510, %3511
-  br i1 %3512, label %3513, label %3538
+3516:                                             ; preds = %3542, %3515
+  %3517 = load i32, ptr %18, align 4
+  %3518 = load i32, ptr %19, align 4
+  %3519 = icmp slt i32 %3517, %3518
+  br i1 %3519, label %3520, label %3545
 
-3513:                                             ; preds = %3509
-  %3514 = load ptr, ptr %5, align 8
-  %3515 = load i32, ptr %17, align 4
-  %3516 = call i32 @check_slsk_format(ptr noundef %3514, i32 noundef %3515, ptr noundef @.str.209)
-  %3517 = icmp ne i32 %3516, 0
-  br i1 %3517, label %3518, label %3533
+3520:                                             ; preds = %3516
+  %3521 = load ptr, ptr %5, align 8
+  %3522 = load ptr, ptr %6, align 8
+  %3523 = load i32, ptr %17, align 4
+  %3524 = call zeroext i1 @check_slsk_format(ptr noundef %3521, ptr noundef %3522, i32 noundef %3523, ptr noundef @.str.213)
+  br i1 %3524, label %3525, label %3540
 
-3518:                                             ; preds = %3513
-  %3519 = load ptr, ptr %13, align 8
-  %3520 = load ptr, ptr %5, align 8
-  %3521 = load i32, ptr %17, align 4
-  %3522 = load i32, ptr @ett_slsk_user, align 4
-  %3523 = load i32, ptr %18, align 4
-  %3524 = add i32 %3523, 1
-  %3525 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %3519, ptr noundef %3520, i32 noundef %3521, i32 noundef 4, i32 noundef %3522, ptr noundef null, ptr noundef @.str.231, i32 noundef %3524)
-  store ptr %3525, ptr %14, align 8
-  %3526 = load ptr, ptr %14, align 8
-  %3527 = load i32, ptr @hf_slsk_slotsfull, align 4
-  %3528 = load ptr, ptr %5, align 8
-  %3529 = load i32, ptr %17, align 4
-  %3530 = call ptr @proto_tree_add_item(ptr noundef %3526, i32 noundef %3527, ptr noundef %3528, i32 noundef %3529, i32 noundef 4, i32 noundef -2147483648)
-  %3531 = load i32, ptr %17, align 4
-  %3532 = add i32 %3531, 4
-  store i32 %3532, ptr %17, align 4
-  br label %3534
-
-3533:                                             ; preds = %3513
-  br label %3538
-
-3534:                                             ; preds = %3518
-  br label %3535
-
-3535:                                             ; preds = %3534
-  %3536 = load i32, ptr %18, align 4
-  %3537 = add i32 %3536, 1
-  store i32 %3537, ptr %18, align 4
-  br label %3509, !llvm.loop !26
-
-3538:                                             ; preds = %3533, %3509
-  br label %3539
-
-3539:                                             ; preds = %3538, %3489
-  br label %3540
-
-3540:                                             ; preds = %3539, %3315
+3525:                                             ; preds = %3520
+  %3526 = load ptr, ptr %13, align 8
+  %3527 = load ptr, ptr %5, align 8
+  %3528 = load i32, ptr %17, align 4
+  %3529 = load i32, ptr @ett_slsk_user, align 4
+  %3530 = load i32, ptr %18, align 4
+  %3531 = add i32 %3530, 1
+  %3532 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %3526, ptr noundef %3527, i32 noundef %3528, i32 noundef 4, i32 noundef %3529, ptr noundef null, ptr noundef @.str.235, i32 noundef %3531)
+  store ptr %3532, ptr %14, align 8
+  %3533 = load ptr, ptr %14, align 8
+  %3534 = load i32, ptr @hf_slsk_slotsfull, align 4
+  %3535 = load ptr, ptr %5, align 8
+  %3536 = load i32, ptr %17, align 4
+  %3537 = call ptr @proto_tree_add_item(ptr noundef %3533, i32 noundef %3534, ptr noundef %3535, i32 noundef %3536, i32 noundef 4, i32 noundef -2147483648)
+  %3538 = load i32, ptr %17, align 4
+  %3539 = add i32 %3538, 4
+  store i32 %3539, ptr %17, align 4
   br label %3541
 
-3541:                                             ; preds = %3540, %3305
-  br label %4619
+3540:                                             ; preds = %3520
+  br label %3545
 
-3542:                                             ; preds = %4
-  %3543 = load ptr, ptr %5, align 8
-  %3544 = load i32, ptr %17, align 4
-  %3545 = call i32 @check_slsk_format(ptr noundef %3543, i32 noundef %3544, ptr noundef @.str.299)
-  %3546 = icmp ne i32 %3545, 0
-  br i1 %3546, label %3547, label %3601
+3541:                                             ; preds = %3525
+  br label %3542
 
-3547:                                             ; preds = %3542
-  %3548 = load ptr, ptr %13, align 8
-  %3549 = load i32, ptr @hf_slsk_message_code, align 4
+3542:                                             ; preds = %3541
+  %3543 = load i32, ptr %18, align 4
+  %3544 = add i32 %3543, 1
+  store i32 %3544, ptr %18, align 4
+  br label %3516, !llvm.loop !30
+
+3545:                                             ; preds = %3540, %3516
+  br label %3546
+
+3546:                                             ; preds = %3545, %3496
+  br label %3547
+
+3547:                                             ; preds = %3546, %3322
+  br label %3548
+
+3548:                                             ; preds = %3547, %3312
+  br label %4626
+
+3549:                                             ; preds = %4
   %3550 = load ptr, ptr %5, align 8
-  %3551 = load i32, ptr %17, align 4
-  %3552 = load i32, ptr %21, align 4
-  %3553 = load i32, ptr %21, align 4
-  %3554 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3548, i32 noundef %3549, ptr noundef %3550, i32 noundef %3551, i32 noundef 4, i32 noundef %3552, ptr noundef @.str.300, i32 noundef %3553)
-  %3555 = load i32, ptr %17, align 4
-  %3556 = add i32 %3555, 4
-  store i32 %3556, ptr %17, align 4
-  %3557 = load ptr, ptr %13, align 8
-  %3558 = load i32, ptr @hf_slsk_username, align 4
-  %3559 = load ptr, ptr %5, align 8
-  %3560 = load i32, ptr %17, align 4
-  %3561 = call ptr @proto_tree_add_item_ret_length(ptr noundef %3557, i32 noundef %3558, ptr noundef %3559, i32 noundef %3560, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %3562 = load i32, ptr %23, align 4
-  %3563 = load i32, ptr %17, align 4
-  %3564 = add i32 %3563, %3562
-  store i32 %3564, ptr %17, align 4
-  %3565 = load ptr, ptr %13, align 8
-  %3566 = load i32, ptr @hf_slsk_code, align 4
-  %3567 = load ptr, ptr %5, align 8
-  %3568 = load i32, ptr %17, align 4
-  %3569 = call ptr @proto_tree_add_item(ptr noundef %3565, i32 noundef %3566, ptr noundef %3567, i32 noundef %3568, i32 noundef 4, i32 noundef -2147483648)
+  %3551 = load ptr, ptr %6, align 8
+  %3552 = load i32, ptr %17, align 4
+  %3553 = call zeroext i1 @check_slsk_format(ptr noundef %3550, ptr noundef %3551, i32 noundef %3552, ptr noundef @.str.303)
+  br i1 %3553, label %3554, label %3608
+
+3554:                                             ; preds = %3549
+  %3555 = load ptr, ptr %13, align 8
+  %3556 = load i32, ptr @hf_slsk_message_code, align 4
+  %3557 = load ptr, ptr %5, align 8
+  %3558 = load i32, ptr %17, align 4
+  %3559 = load i32, ptr %21, align 4
+  %3560 = load i32, ptr %21, align 4
+  %3561 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3555, i32 noundef %3556, ptr noundef %3557, i32 noundef %3558, i32 noundef 4, i32 noundef %3559, ptr noundef @.str.304, i32 noundef %3560)
+  %3562 = load i32, ptr %17, align 4
+  %3563 = add i32 %3562, 4
+  store i32 %3563, ptr %17, align 4
+  %3564 = load ptr, ptr %13, align 8
+  %3565 = load i32, ptr @hf_slsk_username, align 4
+  %3566 = load ptr, ptr %5, align 8
+  %3567 = load i32, ptr %17, align 4
+  %3568 = call ptr @proto_tree_add_item_ret_length(ptr noundef %3564, i32 noundef %3565, ptr noundef %3566, i32 noundef %3567, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %3569 = load i32, ptr %23, align 4
   %3570 = load i32, ptr %17, align 4
-  %3571 = add i32 %3570, 4
+  %3571 = add i32 %3570, %3569
   store i32 %3571, ptr %17, align 4
   %3572 = load ptr, ptr %13, align 8
-  %3573 = load i32, ptr @hf_slsk_token, align 4
+  %3573 = load i32, ptr @hf_slsk_code, align 4
   %3574 = load ptr, ptr %5, align 8
   %3575 = load i32, ptr %17, align 4
   %3576 = call ptr @proto_tree_add_item(ptr noundef %3572, i32 noundef %3573, ptr noundef %3574, i32 noundef %3575, i32 noundef 4, i32 noundef -2147483648)
@@ -5539,1675 +5606,1742 @@ define internal i32 @dissect_slsk_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   %3578 = add i32 %3577, 4
   store i32 %3578, ptr %17, align 4
   %3579 = load ptr, ptr %13, align 8
-  %3580 = load i32, ptr @hf_slsk_ip, align 4
+  %3580 = load i32, ptr @hf_slsk_token, align 4
   %3581 = load ptr, ptr %5, align 8
   %3582 = load i32, ptr %17, align 4
-  %3583 = call ptr @proto_tree_add_item(ptr noundef %3579, i32 noundef %3580, ptr noundef %3581, i32 noundef %3582, i32 noundef 4, i32 noundef 0)
+  %3583 = call ptr @proto_tree_add_item(ptr noundef %3579, i32 noundef %3580, ptr noundef %3581, i32 noundef %3582, i32 noundef 4, i32 noundef -2147483648)
   %3584 = load i32, ptr %17, align 4
   %3585 = add i32 %3584, 4
   store i32 %3585, ptr %17, align 4
   %3586 = load ptr, ptr %13, align 8
-  %3587 = load i32, ptr @hf_slsk_port, align 4
+  %3587 = load i32, ptr @hf_slsk_ip, align 4
   %3588 = load ptr, ptr %5, align 8
   %3589 = load i32, ptr %17, align 4
-  %3590 = call ptr @proto_tree_add_item(ptr noundef %3586, i32 noundef %3587, ptr noundef %3588, i32 noundef %3589, i32 noundef 4, i32 noundef -2147483648)
+  %3590 = call ptr @proto_tree_add_item(ptr noundef %3586, i32 noundef %3587, ptr noundef %3588, i32 noundef %3589, i32 noundef 4, i32 noundef 0)
   %3591 = load i32, ptr %17, align 4
   %3592 = add i32 %3591, 4
   store i32 %3592, ptr %17, align 4
   %3593 = load ptr, ptr %13, align 8
-  %3594 = load i32, ptr @hf_slsk_chat_message, align 4
+  %3594 = load i32, ptr @hf_slsk_port, align 4
   %3595 = load ptr, ptr %5, align 8
   %3596 = load i32, ptr %17, align 4
-  %3597 = call ptr @proto_tree_add_item_ret_length(ptr noundef %3593, i32 noundef %3594, ptr noundef %3595, i32 noundef %3596, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %3598 = load i32, ptr %23, align 4
-  %3599 = load i32, ptr %17, align 4
-  %3600 = add i32 %3599, %3598
-  store i32 %3600, ptr %17, align 4
-  br label %3601
+  %3597 = call ptr @proto_tree_add_item(ptr noundef %3593, i32 noundef %3594, ptr noundef %3595, i32 noundef %3596, i32 noundef 4, i32 noundef -2147483648)
+  %3598 = load i32, ptr %17, align 4
+  %3599 = add i32 %3598, 4
+  store i32 %3599, ptr %17, align 4
+  %3600 = load ptr, ptr %13, align 8
+  %3601 = load i32, ptr @hf_slsk_chat_message, align 4
+  %3602 = load ptr, ptr %5, align 8
+  %3603 = load i32, ptr %17, align 4
+  %3604 = call ptr @proto_tree_add_item_ret_length(ptr noundef %3600, i32 noundef %3601, ptr noundef %3602, i32 noundef %3603, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %3605 = load i32, ptr %23, align 4
+  %3606 = load i32, ptr %17, align 4
+  %3607 = add i32 %3606, %3605
+  store i32 %3607, ptr %17, align 4
+  br label %3608
 
-3601:                                             ; preds = %3547, %3542
-  br label %4619
+3608:                                             ; preds = %3554, %3549
+  br label %4626
 
-3602:                                             ; preds = %4
-  %3603 = load ptr, ptr %5, align 8
-  %3604 = load i32, ptr %17, align 4
-  %3605 = call i32 @check_slsk_format(ptr noundef %3603, i32 noundef %3604, ptr noundef @.str.204)
-  %3606 = icmp ne i32 %3605, 0
-  br i1 %3606, label %3607, label %3617
-
-3607:                                             ; preds = %3602
-  %3608 = load ptr, ptr %13, align 8
-  %3609 = load i32, ptr @hf_slsk_message_code, align 4
+3609:                                             ; preds = %4
   %3610 = load ptr, ptr %5, align 8
-  %3611 = load i32, ptr %17, align 4
-  %3612 = load i32, ptr %21, align 4
-  %3613 = load i32, ptr %21, align 4
-  %3614 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3608, i32 noundef %3609, ptr noundef %3610, i32 noundef %3611, i32 noundef 4, i32 noundef %3612, ptr noundef @.str.301, i32 noundef %3613)
-  %3615 = load i32, ptr %17, align 4
-  %3616 = add i32 %3615, 4
-  store i32 %3616, ptr %17, align 4
-  br label %3671
+  %3611 = load ptr, ptr %6, align 8
+  %3612 = load i32, ptr %17, align 4
+  %3613 = call zeroext i1 @check_slsk_format(ptr noundef %3610, ptr noundef %3611, i32 noundef %3612, ptr noundef @.str.208)
+  br i1 %3613, label %3614, label %3624
 
-3617:                                             ; preds = %3602
-  %3618 = load ptr, ptr %5, align 8
-  %3619 = load i32, ptr %17, align 4
-  %3620 = call i32 @check_slsk_format(ptr noundef %3618, i32 noundef %3619, ptr noundef @.str.216)
-  %3621 = icmp ne i32 %3620, 0
-  br i1 %3621, label %3622, label %3670
+3614:                                             ; preds = %3609
+  %3615 = load ptr, ptr %13, align 8
+  %3616 = load i32, ptr @hf_slsk_message_code, align 4
+  %3617 = load ptr, ptr %5, align 8
+  %3618 = load i32, ptr %17, align 4
+  %3619 = load i32, ptr %21, align 4
+  %3620 = load i32, ptr %21, align 4
+  %3621 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3615, i32 noundef %3616, ptr noundef %3617, i32 noundef %3618, i32 noundef 4, i32 noundef %3619, ptr noundef @.str.305, i32 noundef %3620)
+  %3622 = load i32, ptr %17, align 4
+  %3623 = add i32 %3622, 4
+  store i32 %3623, ptr %17, align 4
+  br label %3678
 
-3622:                                             ; preds = %3617
-  %3623 = load ptr, ptr %13, align 8
-  %3624 = load i32, ptr @hf_slsk_message_code, align 4
+3624:                                             ; preds = %3609
   %3625 = load ptr, ptr %5, align 8
-  %3626 = load i32, ptr %17, align 4
-  %3627 = load i32, ptr %21, align 4
-  %3628 = load i32, ptr %21, align 4
-  %3629 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3623, i32 noundef %3624, ptr noundef %3625, i32 noundef %3626, i32 noundef 4, i32 noundef %3627, ptr noundef @.str.302, i32 noundef %3628)
-  %3630 = load i32, ptr %17, align 4
-  %3631 = add i32 %3630, 4
-  store i32 %3631, ptr %17, align 4
-  %3632 = load ptr, ptr %13, align 8
-  %3633 = load i32, ptr @hf_slsk_number_of_priv_users, align 4
-  %3634 = load ptr, ptr %5, align 8
-  %3635 = load i32, ptr %17, align 4
-  %3636 = call ptr @proto_tree_add_item_ret_int(ptr noundef %3632, i32 noundef %3633, ptr noundef %3634, i32 noundef %3635, i32 noundef 4, i32 noundef -2147483648, ptr noundef %19)
+  %3626 = load ptr, ptr %6, align 8
+  %3627 = load i32, ptr %17, align 4
+  %3628 = call zeroext i1 @check_slsk_format(ptr noundef %3625, ptr noundef %3626, i32 noundef %3627, ptr noundef @.str.220)
+  br i1 %3628, label %3629, label %3677
+
+3629:                                             ; preds = %3624
+  %3630 = load ptr, ptr %13, align 8
+  %3631 = load i32, ptr @hf_slsk_message_code, align 4
+  %3632 = load ptr, ptr %5, align 8
+  %3633 = load i32, ptr %17, align 4
+  %3634 = load i32, ptr %21, align 4
+  %3635 = load i32, ptr %21, align 4
+  %3636 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3630, i32 noundef %3631, ptr noundef %3632, i32 noundef %3633, i32 noundef 4, i32 noundef %3634, ptr noundef @.str.306, i32 noundef %3635)
   %3637 = load i32, ptr %17, align 4
   %3638 = add i32 %3637, 4
   store i32 %3638, ptr %17, align 4
-  %3639 = load i32, ptr %19, align 4
-  %3640 = load ptr, ptr %5, align 8
-  %3641 = load i32, ptr %17, align 4
-  %3642 = call i32 @tvb_reported_length_remaining(ptr noundef %3640, i32 noundef %3641)
-  %3643 = icmp sgt i32 %3639, %3642
-  br i1 %3643, label %3644, label %3645
+  %3639 = load ptr, ptr %13, align 8
+  %3640 = load i32, ptr @hf_slsk_number_of_priv_users, align 4
+  %3641 = load ptr, ptr %5, align 8
+  %3642 = load i32, ptr %17, align 4
+  %3643 = call ptr @proto_tree_add_item_ret_int(ptr noundef %3639, i32 noundef %3640, ptr noundef %3641, i32 noundef %3642, i32 noundef 4, i32 noundef -2147483648, ptr noundef %19)
+  %3644 = load i32, ptr %17, align 4
+  %3645 = add i32 %3644, 4
+  store i32 %3645, ptr %17, align 4
+  %3646 = load i32, ptr %19, align 4
+  %3647 = load ptr, ptr %5, align 8
+  %3648 = load i32, ptr %17, align 4
+  %3649 = call i32 @tvb_reported_length_remaining(ptr noundef %3647, i32 noundef %3648)
+  %3650 = icmp sgt i32 %3646, %3649
+  br i1 %3650, label %3651, label %3652
 
-3644:                                             ; preds = %3622
-  br label %4619
+3651:                                             ; preds = %3629
+  br label %4626
 
-3645:                                             ; preds = %3622
+3652:                                             ; preds = %3629
   store i32 0, ptr %18, align 4
-  br label %3646
+  br label %3653
 
-3646:                                             ; preds = %3666, %3645
-  %3647 = load i32, ptr %18, align 4
-  %3648 = load i32, ptr %19, align 4
-  %3649 = icmp slt i32 %3647, %3648
-  br i1 %3649, label %3650, label %3669
+3653:                                             ; preds = %3673, %3652
+  %3654 = load i32, ptr %18, align 4
+  %3655 = load i32, ptr %19, align 4
+  %3656 = icmp slt i32 %3654, %3655
+  br i1 %3656, label %3657, label %3676
 
-3650:                                             ; preds = %3646
-  %3651 = load ptr, ptr %5, align 8
-  %3652 = load i32, ptr %17, align 4
-  %3653 = call i32 @check_slsk_format(ptr noundef %3651, i32 noundef %3652, ptr noundef @.str.229)
-  %3654 = icmp ne i32 %3653, 0
-  br i1 %3654, label %3655, label %3664
-
-3655:                                             ; preds = %3650
-  %3656 = load ptr, ptr %13, align 8
-  %3657 = load i32, ptr @hf_slsk_user, align 4
+3657:                                             ; preds = %3653
   %3658 = load ptr, ptr %5, align 8
-  %3659 = load i32, ptr %17, align 4
-  %3660 = call ptr @proto_tree_add_item_ret_length(ptr noundef %3656, i32 noundef %3657, ptr noundef %3658, i32 noundef %3659, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %3661 = load i32, ptr %23, align 4
-  %3662 = load i32, ptr %17, align 4
-  %3663 = add i32 %3662, %3661
-  store i32 %3663, ptr %17, align 4
-  br label %3665
+  %3659 = load ptr, ptr %6, align 8
+  %3660 = load i32, ptr %17, align 4
+  %3661 = call zeroext i1 @check_slsk_format(ptr noundef %3658, ptr noundef %3659, i32 noundef %3660, ptr noundef @.str.233)
+  br i1 %3661, label %3662, label %3671
 
-3664:                                             ; preds = %3650
-  br label %3669
+3662:                                             ; preds = %3657
+  %3663 = load ptr, ptr %13, align 8
+  %3664 = load i32, ptr @hf_slsk_user, align 4
+  %3665 = load ptr, ptr %5, align 8
+  %3666 = load i32, ptr %17, align 4
+  %3667 = call ptr @proto_tree_add_item_ret_length(ptr noundef %3663, i32 noundef %3664, ptr noundef %3665, i32 noundef %3666, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %3668 = load i32, ptr %23, align 4
+  %3669 = load i32, ptr %17, align 4
+  %3670 = add i32 %3669, %3668
+  store i32 %3670, ptr %17, align 4
+  br label %3672
 
-3665:                                             ; preds = %3655
-  br label %3666
+3671:                                             ; preds = %3657
+  br label %3676
 
-3666:                                             ; preds = %3665
-  %3667 = load i32, ptr %18, align 4
-  %3668 = add i32 %3667, 1
-  store i32 %3668, ptr %18, align 4
-  br label %3646, !llvm.loop !27
+3672:                                             ; preds = %3662
+  br label %3673
 
-3669:                                             ; preds = %3664, %3646
-  br label %3670
+3673:                                             ; preds = %3672
+  %3674 = load i32, ptr %18, align 4
+  %3675 = add i32 %3674, 1
+  store i32 %3675, ptr %18, align 4
+  br label %3653, !llvm.loop !31
 
-3670:                                             ; preds = %3669, %3617
-  br label %3671
+3676:                                             ; preds = %3671, %3653
+  br label %3677
 
-3671:                                             ; preds = %3670, %3607
-  br label %4619
+3677:                                             ; preds = %3676, %3624
+  br label %3678
 
-3672:                                             ; preds = %4
-  %3673 = load ptr, ptr %5, align 8
-  %3674 = load i32, ptr %17, align 4
-  %3675 = call i32 @check_slsk_format(ptr noundef %3673, i32 noundef %3674, ptr noundef @.str.303)
-  %3676 = icmp ne i32 %3675, 0
-  br i1 %3676, label %3677, label %3694
+3678:                                             ; preds = %3677, %3614
+  br label %4626
 
-3677:                                             ; preds = %3672
-  %3678 = load ptr, ptr %13, align 8
-  %3679 = load i32, ptr @hf_slsk_message_code, align 4
+3679:                                             ; preds = %4
   %3680 = load ptr, ptr %5, align 8
-  %3681 = load i32, ptr %17, align 4
-  %3682 = load i32, ptr %21, align 4
-  %3683 = load i32, ptr %21, align 4
-  %3684 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3678, i32 noundef %3679, ptr noundef %3680, i32 noundef %3681, i32 noundef 4, i32 noundef %3682, ptr noundef @.str.304, i32 noundef %3683)
-  %3685 = load i32, ptr %17, align 4
-  %3686 = add i32 %3685, 4
-  store i32 %3686, ptr %17, align 4
-  %3687 = load ptr, ptr %13, align 8
-  %3688 = load i32, ptr @hf_slsk_byte, align 4
-  %3689 = load ptr, ptr %5, align 8
-  %3690 = load i32, ptr %17, align 4
-  %3691 = call ptr @proto_tree_add_item(ptr noundef %3687, i32 noundef %3688, ptr noundef %3689, i32 noundef %3690, i32 noundef 1, i32 noundef 0)
+  %3681 = load ptr, ptr %6, align 8
+  %3682 = load i32, ptr %17, align 4
+  %3683 = call zeroext i1 @check_slsk_format(ptr noundef %3680, ptr noundef %3681, i32 noundef %3682, ptr noundef @.str.307)
+  br i1 %3683, label %3684, label %3701
+
+3684:                                             ; preds = %3679
+  %3685 = load ptr, ptr %13, align 8
+  %3686 = load i32, ptr @hf_slsk_message_code, align 4
+  %3687 = load ptr, ptr %5, align 8
+  %3688 = load i32, ptr %17, align 4
+  %3689 = load i32, ptr %21, align 4
+  %3690 = load i32, ptr %21, align 4
+  %3691 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3685, i32 noundef %3686, ptr noundef %3687, i32 noundef %3688, i32 noundef 4, i32 noundef %3689, ptr noundef @.str.308, i32 noundef %3690)
   %3692 = load i32, ptr %17, align 4
-  %3693 = add i32 %3692, 1
+  %3693 = add i32 %3692, 4
   store i32 %3693, ptr %17, align 4
-  br label %3694
-
-3694:                                             ; preds = %3677, %3672
-  br label %4619
-
-3695:                                             ; preds = %4
+  %3694 = load ptr, ptr %13, align 8
+  %3695 = load i32, ptr @hf_slsk_byte, align 4
   %3696 = load ptr, ptr %5, align 8
   %3697 = load i32, ptr %17, align 4
-  %3698 = call i32 @check_slsk_format(ptr noundef %3696, i32 noundef %3697, ptr noundef @.str.198)
-  %3699 = icmp ne i32 %3698, 0
-  br i1 %3699, label %3700, label %3717
+  %3698 = call ptr @proto_tree_add_item(ptr noundef %3694, i32 noundef %3695, ptr noundef %3696, i32 noundef %3697, i32 noundef 1, i32 noundef 0)
+  %3699 = load i32, ptr %17, align 4
+  %3700 = add i32 %3699, 1
+  store i32 %3700, ptr %17, align 4
+  br label %3701
 
-3700:                                             ; preds = %3695
-  %3701 = load ptr, ptr %13, align 8
-  %3702 = load i32, ptr @hf_slsk_message_code, align 4
+3701:                                             ; preds = %3684, %3679
+  br label %4626
+
+3702:                                             ; preds = %4
   %3703 = load ptr, ptr %5, align 8
-  %3704 = load i32, ptr %17, align 4
-  %3705 = load i32, ptr %21, align 4
-  %3706 = load i32, ptr %21, align 4
-  %3707 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3701, i32 noundef %3702, ptr noundef %3703, i32 noundef %3704, i32 noundef 4, i32 noundef %3705, ptr noundef @.str.305, i32 noundef %3706)
-  %3708 = load i32, ptr %17, align 4
-  %3709 = add i32 %3708, 4
-  store i32 %3709, ptr %17, align 4
-  %3710 = load ptr, ptr %13, align 8
-  %3711 = load i32, ptr @hf_slsk_integer, align 4
-  %3712 = load ptr, ptr %5, align 8
-  %3713 = load i32, ptr %17, align 4
-  %3714 = call ptr @proto_tree_add_item(ptr noundef %3710, i32 noundef %3711, ptr noundef %3712, i32 noundef %3713, i32 noundef 4, i32 noundef -2147483648)
+  %3704 = load ptr, ptr %6, align 8
+  %3705 = load i32, ptr %17, align 4
+  %3706 = call zeroext i1 @check_slsk_format(ptr noundef %3703, ptr noundef %3704, i32 noundef %3705, ptr noundef @.str.202)
+  br i1 %3706, label %3707, label %3724
+
+3707:                                             ; preds = %3702
+  %3708 = load ptr, ptr %13, align 8
+  %3709 = load i32, ptr @hf_slsk_message_code, align 4
+  %3710 = load ptr, ptr %5, align 8
+  %3711 = load i32, ptr %17, align 4
+  %3712 = load i32, ptr %21, align 4
+  %3713 = load i32, ptr %21, align 4
+  %3714 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3708, i32 noundef %3709, ptr noundef %3710, i32 noundef %3711, i32 noundef 4, i32 noundef %3712, ptr noundef @.str.309, i32 noundef %3713)
   %3715 = load i32, ptr %17, align 4
   %3716 = add i32 %3715, 4
   store i32 %3716, ptr %17, align 4
-  br label %3717
-
-3717:                                             ; preds = %3700, %3695
-  br label %4619
-
-3718:                                             ; preds = %4
+  %3717 = load ptr, ptr %13, align 8
+  %3718 = load i32, ptr @hf_slsk_integer, align 4
   %3719 = load ptr, ptr %5, align 8
   %3720 = load i32, ptr %17, align 4
-  %3721 = call i32 @check_slsk_format(ptr noundef %3719, i32 noundef %3720, ptr noundef @.str.198)
-  %3722 = icmp ne i32 %3721, 0
-  br i1 %3722, label %3723, label %3740
+  %3721 = call ptr @proto_tree_add_item(ptr noundef %3717, i32 noundef %3718, ptr noundef %3719, i32 noundef %3720, i32 noundef 4, i32 noundef -2147483648)
+  %3722 = load i32, ptr %17, align 4
+  %3723 = add i32 %3722, 4
+  store i32 %3723, ptr %17, align 4
+  br label %3724
 
-3723:                                             ; preds = %3718
-  %3724 = load ptr, ptr %13, align 8
-  %3725 = load i32, ptr @hf_slsk_message_code, align 4
+3724:                                             ; preds = %3707, %3702
+  br label %4626
+
+3725:                                             ; preds = %4
   %3726 = load ptr, ptr %5, align 8
-  %3727 = load i32, ptr %17, align 4
-  %3728 = load i32, ptr %21, align 4
-  %3729 = load i32, ptr %21, align 4
-  %3730 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3724, i32 noundef %3725, ptr noundef %3726, i32 noundef %3727, i32 noundef 4, i32 noundef %3728, ptr noundef @.str.306, i32 noundef %3729)
-  %3731 = load i32, ptr %17, align 4
-  %3732 = add i32 %3731, 4
-  store i32 %3732, ptr %17, align 4
-  %3733 = load ptr, ptr %13, align 8
-  %3734 = load i32, ptr @hf_slsk_parent_min_speed, align 4
-  %3735 = load ptr, ptr %5, align 8
-  %3736 = load i32, ptr %17, align 4
-  %3737 = call ptr @proto_tree_add_item(ptr noundef %3733, i32 noundef %3734, ptr noundef %3735, i32 noundef %3736, i32 noundef 4, i32 noundef -2147483648)
+  %3727 = load ptr, ptr %6, align 8
+  %3728 = load i32, ptr %17, align 4
+  %3729 = call zeroext i1 @check_slsk_format(ptr noundef %3726, ptr noundef %3727, i32 noundef %3728, ptr noundef @.str.202)
+  br i1 %3729, label %3730, label %3747
+
+3730:                                             ; preds = %3725
+  %3731 = load ptr, ptr %13, align 8
+  %3732 = load i32, ptr @hf_slsk_message_code, align 4
+  %3733 = load ptr, ptr %5, align 8
+  %3734 = load i32, ptr %17, align 4
+  %3735 = load i32, ptr %21, align 4
+  %3736 = load i32, ptr %21, align 4
+  %3737 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3731, i32 noundef %3732, ptr noundef %3733, i32 noundef %3734, i32 noundef 4, i32 noundef %3735, ptr noundef @.str.310, i32 noundef %3736)
   %3738 = load i32, ptr %17, align 4
   %3739 = add i32 %3738, 4
   store i32 %3739, ptr %17, align 4
-  br label %3740
-
-3740:                                             ; preds = %3723, %3718
-  br label %4619
-
-3741:                                             ; preds = %4
+  %3740 = load ptr, ptr %13, align 8
+  %3741 = load i32, ptr @hf_slsk_parent_min_speed, align 4
   %3742 = load ptr, ptr %5, align 8
   %3743 = load i32, ptr %17, align 4
-  %3744 = call i32 @check_slsk_format(ptr noundef %3742, i32 noundef %3743, ptr noundef @.str.198)
-  %3745 = icmp ne i32 %3744, 0
-  br i1 %3745, label %3746, label %3763
+  %3744 = call ptr @proto_tree_add_item(ptr noundef %3740, i32 noundef %3741, ptr noundef %3742, i32 noundef %3743, i32 noundef 4, i32 noundef -2147483648)
+  %3745 = load i32, ptr %17, align 4
+  %3746 = add i32 %3745, 4
+  store i32 %3746, ptr %17, align 4
+  br label %3747
 
-3746:                                             ; preds = %3741
-  %3747 = load ptr, ptr %13, align 8
-  %3748 = load i32, ptr @hf_slsk_message_code, align 4
+3747:                                             ; preds = %3730, %3725
+  br label %4626
+
+3748:                                             ; preds = %4
   %3749 = load ptr, ptr %5, align 8
-  %3750 = load i32, ptr %17, align 4
-  %3751 = load i32, ptr %21, align 4
-  %3752 = load i32, ptr %21, align 4
-  %3753 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3747, i32 noundef %3748, ptr noundef %3749, i32 noundef %3750, i32 noundef 4, i32 noundef %3751, ptr noundef @.str.307, i32 noundef %3752)
-  %3754 = load i32, ptr %17, align 4
-  %3755 = add i32 %3754, 4
-  store i32 %3755, ptr %17, align 4
-  %3756 = load ptr, ptr %13, align 8
-  %3757 = load i32, ptr @hf_slsk_parent_speed_connection_ratio, align 4
-  %3758 = load ptr, ptr %5, align 8
-  %3759 = load i32, ptr %17, align 4
-  %3760 = call ptr @proto_tree_add_item(ptr noundef %3756, i32 noundef %3757, ptr noundef %3758, i32 noundef %3759, i32 noundef 4, i32 noundef -2147483648)
+  %3750 = load ptr, ptr %6, align 8
+  %3751 = load i32, ptr %17, align 4
+  %3752 = call zeroext i1 @check_slsk_format(ptr noundef %3749, ptr noundef %3750, i32 noundef %3751, ptr noundef @.str.202)
+  br i1 %3752, label %3753, label %3770
+
+3753:                                             ; preds = %3748
+  %3754 = load ptr, ptr %13, align 8
+  %3755 = load i32, ptr @hf_slsk_message_code, align 4
+  %3756 = load ptr, ptr %5, align 8
+  %3757 = load i32, ptr %17, align 4
+  %3758 = load i32, ptr %21, align 4
+  %3759 = load i32, ptr %21, align 4
+  %3760 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3754, i32 noundef %3755, ptr noundef %3756, i32 noundef %3757, i32 noundef 4, i32 noundef %3758, ptr noundef @.str.311, i32 noundef %3759)
   %3761 = load i32, ptr %17, align 4
   %3762 = add i32 %3761, 4
   store i32 %3762, ptr %17, align 4
-  br label %3763
-
-3763:                                             ; preds = %3746, %3741
-  br label %4619
-
-3764:                                             ; preds = %4
+  %3763 = load ptr, ptr %13, align 8
+  %3764 = load i32, ptr @hf_slsk_parent_speed_connection_ratio, align 4
   %3765 = load ptr, ptr %5, align 8
   %3766 = load i32, ptr %17, align 4
-  %3767 = call i32 @check_slsk_format(ptr noundef %3765, i32 noundef %3766, ptr noundef @.str.198)
-  %3768 = icmp ne i32 %3767, 0
-  br i1 %3768, label %3769, label %3786
+  %3767 = call ptr @proto_tree_add_item(ptr noundef %3763, i32 noundef %3764, ptr noundef %3765, i32 noundef %3766, i32 noundef 4, i32 noundef -2147483648)
+  %3768 = load i32, ptr %17, align 4
+  %3769 = add i32 %3768, 4
+  store i32 %3769, ptr %17, align 4
+  br label %3770
 
-3769:                                             ; preds = %3764
-  %3770 = load ptr, ptr %13, align 8
-  %3771 = load i32, ptr @hf_slsk_message_code, align 4
+3770:                                             ; preds = %3753, %3748
+  br label %4626
+
+3771:                                             ; preds = %4
   %3772 = load ptr, ptr %5, align 8
-  %3773 = load i32, ptr %17, align 4
-  %3774 = load i32, ptr %21, align 4
-  %3775 = load i32, ptr %21, align 4
-  %3776 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3770, i32 noundef %3771, ptr noundef %3772, i32 noundef %3773, i32 noundef 4, i32 noundef %3774, ptr noundef @.str.308, i32 noundef %3775)
-  %3777 = load i32, ptr %17, align 4
-  %3778 = add i32 %3777, 4
-  store i32 %3778, ptr %17, align 4
-  %3779 = load ptr, ptr %13, align 8
-  %3780 = load i32, ptr @hf_slsk_seconds_parent_inactivity_before_disconnect, align 4
-  %3781 = load ptr, ptr %5, align 8
-  %3782 = load i32, ptr %17, align 4
-  %3783 = call ptr @proto_tree_add_item(ptr noundef %3779, i32 noundef %3780, ptr noundef %3781, i32 noundef %3782, i32 noundef 4, i32 noundef -2147483648)
+  %3773 = load ptr, ptr %6, align 8
+  %3774 = load i32, ptr %17, align 4
+  %3775 = call zeroext i1 @check_slsk_format(ptr noundef %3772, ptr noundef %3773, i32 noundef %3774, ptr noundef @.str.202)
+  br i1 %3775, label %3776, label %3793
+
+3776:                                             ; preds = %3771
+  %3777 = load ptr, ptr %13, align 8
+  %3778 = load i32, ptr @hf_slsk_message_code, align 4
+  %3779 = load ptr, ptr %5, align 8
+  %3780 = load i32, ptr %17, align 4
+  %3781 = load i32, ptr %21, align 4
+  %3782 = load i32, ptr %21, align 4
+  %3783 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3777, i32 noundef %3778, ptr noundef %3779, i32 noundef %3780, i32 noundef 4, i32 noundef %3781, ptr noundef @.str.312, i32 noundef %3782)
   %3784 = load i32, ptr %17, align 4
   %3785 = add i32 %3784, 4
   store i32 %3785, ptr %17, align 4
-  br label %3786
-
-3786:                                             ; preds = %3769, %3764
-  br label %4619
-
-3787:                                             ; preds = %4
+  %3786 = load ptr, ptr %13, align 8
+  %3787 = load i32, ptr @hf_slsk_seconds_parent_inactivity_before_disconnect, align 4
   %3788 = load ptr, ptr %5, align 8
   %3789 = load i32, ptr %17, align 4
-  %3790 = call i32 @check_slsk_format(ptr noundef %3788, i32 noundef %3789, ptr noundef @.str.198)
-  %3791 = icmp ne i32 %3790, 0
-  br i1 %3791, label %3792, label %3809
+  %3790 = call ptr @proto_tree_add_item(ptr noundef %3786, i32 noundef %3787, ptr noundef %3788, i32 noundef %3789, i32 noundef 4, i32 noundef -2147483648)
+  %3791 = load i32, ptr %17, align 4
+  %3792 = add i32 %3791, 4
+  store i32 %3792, ptr %17, align 4
+  br label %3793
 
-3792:                                             ; preds = %3787
-  %3793 = load ptr, ptr %13, align 8
-  %3794 = load i32, ptr @hf_slsk_message_code, align 4
+3793:                                             ; preds = %3776, %3771
+  br label %4626
+
+3794:                                             ; preds = %4
   %3795 = load ptr, ptr %5, align 8
-  %3796 = load i32, ptr %17, align 4
-  %3797 = load i32, ptr %21, align 4
-  %3798 = load i32, ptr %21, align 4
-  %3799 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3793, i32 noundef %3794, ptr noundef %3795, i32 noundef %3796, i32 noundef 4, i32 noundef %3797, ptr noundef @.str.309, i32 noundef %3798)
-  %3800 = load i32, ptr %17, align 4
-  %3801 = add i32 %3800, 4
-  store i32 %3801, ptr %17, align 4
-  %3802 = load ptr, ptr %13, align 8
-  %3803 = load i32, ptr @hf_slsk_seconds_server_inactivity_before_disconnect, align 4
-  %3804 = load ptr, ptr %5, align 8
-  %3805 = load i32, ptr %17, align 4
-  %3806 = call ptr @proto_tree_add_item(ptr noundef %3802, i32 noundef %3803, ptr noundef %3804, i32 noundef %3805, i32 noundef 4, i32 noundef -2147483648)
+  %3796 = load ptr, ptr %6, align 8
+  %3797 = load i32, ptr %17, align 4
+  %3798 = call zeroext i1 @check_slsk_format(ptr noundef %3795, ptr noundef %3796, i32 noundef %3797, ptr noundef @.str.202)
+  br i1 %3798, label %3799, label %3816
+
+3799:                                             ; preds = %3794
+  %3800 = load ptr, ptr %13, align 8
+  %3801 = load i32, ptr @hf_slsk_message_code, align 4
+  %3802 = load ptr, ptr %5, align 8
+  %3803 = load i32, ptr %17, align 4
+  %3804 = load i32, ptr %21, align 4
+  %3805 = load i32, ptr %21, align 4
+  %3806 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3800, i32 noundef %3801, ptr noundef %3802, i32 noundef %3803, i32 noundef 4, i32 noundef %3804, ptr noundef @.str.313, i32 noundef %3805)
   %3807 = load i32, ptr %17, align 4
   %3808 = add i32 %3807, 4
   store i32 %3808, ptr %17, align 4
-  br label %3809
-
-3809:                                             ; preds = %3792, %3787
-  br label %4619
-
-3810:                                             ; preds = %4
+  %3809 = load ptr, ptr %13, align 8
+  %3810 = load i32, ptr @hf_slsk_seconds_server_inactivity_before_disconnect, align 4
   %3811 = load ptr, ptr %5, align 8
   %3812 = load i32, ptr %17, align 4
-  %3813 = call i32 @check_slsk_format(ptr noundef %3811, i32 noundef %3812, ptr noundef @.str.198)
-  %3814 = icmp ne i32 %3813, 0
-  br i1 %3814, label %3815, label %3832
+  %3813 = call ptr @proto_tree_add_item(ptr noundef %3809, i32 noundef %3810, ptr noundef %3811, i32 noundef %3812, i32 noundef 4, i32 noundef -2147483648)
+  %3814 = load i32, ptr %17, align 4
+  %3815 = add i32 %3814, 4
+  store i32 %3815, ptr %17, align 4
+  br label %3816
 
-3815:                                             ; preds = %3810
-  %3816 = load ptr, ptr %13, align 8
-  %3817 = load i32, ptr @hf_slsk_message_code, align 4
+3816:                                             ; preds = %3799, %3794
+  br label %4626
+
+3817:                                             ; preds = %4
   %3818 = load ptr, ptr %5, align 8
-  %3819 = load i32, ptr %17, align 4
-  %3820 = load i32, ptr %21, align 4
-  %3821 = load i32, ptr %21, align 4
-  %3822 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3816, i32 noundef %3817, ptr noundef %3818, i32 noundef %3819, i32 noundef 4, i32 noundef %3820, ptr noundef @.str.310, i32 noundef %3821)
-  %3823 = load i32, ptr %17, align 4
-  %3824 = add i32 %3823, 4
-  store i32 %3824, ptr %17, align 4
-  %3825 = load ptr, ptr %13, align 8
-  %3826 = load i32, ptr @hf_slsk_nodes_in_cache_before_disconnect, align 4
-  %3827 = load ptr, ptr %5, align 8
-  %3828 = load i32, ptr %17, align 4
-  %3829 = call ptr @proto_tree_add_item(ptr noundef %3825, i32 noundef %3826, ptr noundef %3827, i32 noundef %3828, i32 noundef 4, i32 noundef -2147483648)
+  %3819 = load ptr, ptr %6, align 8
+  %3820 = load i32, ptr %17, align 4
+  %3821 = call zeroext i1 @check_slsk_format(ptr noundef %3818, ptr noundef %3819, i32 noundef %3820, ptr noundef @.str.202)
+  br i1 %3821, label %3822, label %3839
+
+3822:                                             ; preds = %3817
+  %3823 = load ptr, ptr %13, align 8
+  %3824 = load i32, ptr @hf_slsk_message_code, align 4
+  %3825 = load ptr, ptr %5, align 8
+  %3826 = load i32, ptr %17, align 4
+  %3827 = load i32, ptr %21, align 4
+  %3828 = load i32, ptr %21, align 4
+  %3829 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3823, i32 noundef %3824, ptr noundef %3825, i32 noundef %3826, i32 noundef 4, i32 noundef %3827, ptr noundef @.str.314, i32 noundef %3828)
   %3830 = load i32, ptr %17, align 4
   %3831 = add i32 %3830, 4
   store i32 %3831, ptr %17, align 4
-  br label %3832
-
-3832:                                             ; preds = %3815, %3810
-  br label %4619
-
-3833:                                             ; preds = %4
+  %3832 = load ptr, ptr %13, align 8
+  %3833 = load i32, ptr @hf_slsk_nodes_in_cache_before_disconnect, align 4
   %3834 = load ptr, ptr %5, align 8
   %3835 = load i32, ptr %17, align 4
-  %3836 = call i32 @check_slsk_format(ptr noundef %3834, i32 noundef %3835, ptr noundef @.str.198)
-  %3837 = icmp ne i32 %3836, 0
-  br i1 %3837, label %3838, label %3855
+  %3836 = call ptr @proto_tree_add_item(ptr noundef %3832, i32 noundef %3833, ptr noundef %3834, i32 noundef %3835, i32 noundef 4, i32 noundef -2147483648)
+  %3837 = load i32, ptr %17, align 4
+  %3838 = add i32 %3837, 4
+  store i32 %3838, ptr %17, align 4
+  br label %3839
 
-3838:                                             ; preds = %3833
-  %3839 = load ptr, ptr %13, align 8
-  %3840 = load i32, ptr @hf_slsk_message_code, align 4
+3839:                                             ; preds = %3822, %3817
+  br label %4626
+
+3840:                                             ; preds = %4
   %3841 = load ptr, ptr %5, align 8
-  %3842 = load i32, ptr %17, align 4
-  %3843 = load i32, ptr %21, align 4
-  %3844 = load i32, ptr %21, align 4
-  %3845 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3839, i32 noundef %3840, ptr noundef %3841, i32 noundef %3842, i32 noundef 4, i32 noundef %3843, ptr noundef @.str.311, i32 noundef %3844)
-  %3846 = load i32, ptr %17, align 4
-  %3847 = add i32 %3846, 4
-  store i32 %3847, ptr %17, align 4
-  %3848 = load ptr, ptr %13, align 8
-  %3849 = load i32, ptr @hf_slsk_seconds_before_ping_children, align 4
-  %3850 = load ptr, ptr %5, align 8
-  %3851 = load i32, ptr %17, align 4
-  %3852 = call ptr @proto_tree_add_item(ptr noundef %3848, i32 noundef %3849, ptr noundef %3850, i32 noundef %3851, i32 noundef 4, i32 noundef -2147483648)
+  %3842 = load ptr, ptr %6, align 8
+  %3843 = load i32, ptr %17, align 4
+  %3844 = call zeroext i1 @check_slsk_format(ptr noundef %3841, ptr noundef %3842, i32 noundef %3843, ptr noundef @.str.202)
+  br i1 %3844, label %3845, label %3862
+
+3845:                                             ; preds = %3840
+  %3846 = load ptr, ptr %13, align 8
+  %3847 = load i32, ptr @hf_slsk_message_code, align 4
+  %3848 = load ptr, ptr %5, align 8
+  %3849 = load i32, ptr %17, align 4
+  %3850 = load i32, ptr %21, align 4
+  %3851 = load i32, ptr %21, align 4
+  %3852 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3846, i32 noundef %3847, ptr noundef %3848, i32 noundef %3849, i32 noundef 4, i32 noundef %3850, ptr noundef @.str.315, i32 noundef %3851)
   %3853 = load i32, ptr %17, align 4
   %3854 = add i32 %3853, 4
   store i32 %3854, ptr %17, align 4
-  br label %3855
-
-3855:                                             ; preds = %3838, %3833
-  br label %4619
-
-3856:                                             ; preds = %4
+  %3855 = load ptr, ptr %13, align 8
+  %3856 = load i32, ptr @hf_slsk_seconds_before_ping_children, align 4
   %3857 = load ptr, ptr %5, align 8
   %3858 = load i32, ptr %17, align 4
-  %3859 = call i32 @check_slsk_format(ptr noundef %3857, i32 noundef %3858, ptr noundef @.str.202)
-  %3860 = icmp ne i32 %3859, 0
-  br i1 %3860, label %3861, label %3879
+  %3859 = call ptr @proto_tree_add_item(ptr noundef %3855, i32 noundef %3856, ptr noundef %3857, i32 noundef %3858, i32 noundef 4, i32 noundef -2147483648)
+  %3860 = load i32, ptr %17, align 4
+  %3861 = add i32 %3860, 4
+  store i32 %3861, ptr %17, align 4
+  br label %3862
 
-3861:                                             ; preds = %3856
-  %3862 = load ptr, ptr %13, align 8
-  %3863 = load i32, ptr @hf_slsk_message_code, align 4
+3862:                                             ; preds = %3845, %3840
+  br label %4626
+
+3863:                                             ; preds = %4
   %3864 = load ptr, ptr %5, align 8
-  %3865 = load i32, ptr %17, align 4
-  %3866 = load i32, ptr %21, align 4
-  %3867 = load i32, ptr %21, align 4
-  %3868 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3862, i32 noundef %3863, ptr noundef %3864, i32 noundef %3865, i32 noundef 4, i32 noundef %3866, ptr noundef @.str.312, i32 noundef %3867)
-  %3869 = load i32, ptr %17, align 4
-  %3870 = add i32 %3869, 4
-  store i32 %3870, ptr %17, align 4
-  %3871 = load ptr, ptr %13, align 8
-  %3872 = load i32, ptr @hf_slsk_username, align 4
-  %3873 = load ptr, ptr %5, align 8
-  %3874 = load i32, ptr %17, align 4
-  %3875 = call ptr @proto_tree_add_item_ret_length(ptr noundef %3871, i32 noundef %3872, ptr noundef %3873, i32 noundef %3874, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %3876 = load i32, ptr %23, align 4
-  %3877 = load i32, ptr %17, align 4
-  %3878 = add i32 %3877, %3876
-  store i32 %3878, ptr %17, align 4
-  br label %3879
+  %3865 = load ptr, ptr %6, align 8
+  %3866 = load i32, ptr %17, align 4
+  %3867 = call zeroext i1 @check_slsk_format(ptr noundef %3864, ptr noundef %3865, i32 noundef %3866, ptr noundef @.str.206)
+  br i1 %3867, label %3868, label %3886
 
-3879:                                             ; preds = %3861, %3856
-  br label %4619
+3868:                                             ; preds = %3863
+  %3869 = load ptr, ptr %13, align 8
+  %3870 = load i32, ptr @hf_slsk_message_code, align 4
+  %3871 = load ptr, ptr %5, align 8
+  %3872 = load i32, ptr %17, align 4
+  %3873 = load i32, ptr %21, align 4
+  %3874 = load i32, ptr %21, align 4
+  %3875 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3869, i32 noundef %3870, ptr noundef %3871, i32 noundef %3872, i32 noundef 4, i32 noundef %3873, ptr noundef @.str.316, i32 noundef %3874)
+  %3876 = load i32, ptr %17, align 4
+  %3877 = add i32 %3876, 4
+  store i32 %3877, ptr %17, align 4
+  %3878 = load ptr, ptr %13, align 8
+  %3879 = load i32, ptr @hf_slsk_username, align 4
+  %3880 = load ptr, ptr %5, align 8
+  %3881 = load i32, ptr %17, align 4
+  %3882 = call ptr @proto_tree_add_item_ret_length(ptr noundef %3878, i32 noundef %3879, ptr noundef %3880, i32 noundef %3881, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %3883 = load i32, ptr %23, align 4
+  %3884 = load i32, ptr %17, align 4
+  %3885 = add i32 %3884, %3883
+  store i32 %3885, ptr %17, align 4
+  br label %3886
 
-3880:                                             ; preds = %4
-  %3881 = load ptr, ptr %5, align 8
-  %3882 = load i32, ptr %17, align 4
-  %3883 = call i32 @check_slsk_format(ptr noundef %3881, i32 noundef %3882, ptr noundef @.str.204)
-  %3884 = icmp ne i32 %3883, 0
-  br i1 %3884, label %3885, label %3895
+3886:                                             ; preds = %3868, %3863
+  br label %4626
 
-3885:                                             ; preds = %3880
-  %3886 = load ptr, ptr %13, align 8
-  %3887 = load i32, ptr @hf_slsk_message_code, align 4
+3887:                                             ; preds = %4
   %3888 = load ptr, ptr %5, align 8
-  %3889 = load i32, ptr %17, align 4
-  %3890 = load i32, ptr %21, align 4
-  %3891 = load i32, ptr %21, align 4
-  %3892 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3886, i32 noundef %3887, ptr noundef %3888, i32 noundef %3889, i32 noundef 4, i32 noundef %3890, ptr noundef @.str.313, i32 noundef %3891)
-  %3893 = load i32, ptr %17, align 4
-  %3894 = add i32 %3893, 4
-  store i32 %3894, ptr %17, align 4
-  br label %3918
+  %3889 = load ptr, ptr %6, align 8
+  %3890 = load i32, ptr %17, align 4
+  %3891 = call zeroext i1 @check_slsk_format(ptr noundef %3888, ptr noundef %3889, i32 noundef %3890, ptr noundef @.str.208)
+  br i1 %3891, label %3892, label %3902
 
-3895:                                             ; preds = %3880
-  %3896 = load ptr, ptr %5, align 8
-  %3897 = load i32, ptr %17, align 4
-  %3898 = call i32 @check_slsk_format(ptr noundef %3896, i32 noundef %3897, ptr noundef @.str.198)
-  %3899 = icmp ne i32 %3898, 0
-  br i1 %3899, label %3900, label %3917
+3892:                                             ; preds = %3887
+  %3893 = load ptr, ptr %13, align 8
+  %3894 = load i32, ptr @hf_slsk_message_code, align 4
+  %3895 = load ptr, ptr %5, align 8
+  %3896 = load i32, ptr %17, align 4
+  %3897 = load i32, ptr %21, align 4
+  %3898 = load i32, ptr %21, align 4
+  %3899 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3893, i32 noundef %3894, ptr noundef %3895, i32 noundef %3896, i32 noundef 4, i32 noundef %3897, ptr noundef @.str.317, i32 noundef %3898)
+  %3900 = load i32, ptr %17, align 4
+  %3901 = add i32 %3900, 4
+  store i32 %3901, ptr %17, align 4
+  br label %3925
 
-3900:                                             ; preds = %3895
-  %3901 = load ptr, ptr %13, align 8
-  %3902 = load i32, ptr @hf_slsk_message_code, align 4
+3902:                                             ; preds = %3887
   %3903 = load ptr, ptr %5, align 8
-  %3904 = load i32, ptr %17, align 4
-  %3905 = load i32, ptr %21, align 4
-  %3906 = load i32, ptr %21, align 4
-  %3907 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3901, i32 noundef %3902, ptr noundef %3903, i32 noundef %3904, i32 noundef 4, i32 noundef %3905, ptr noundef @.str.314, i32 noundef %3906)
-  %3908 = load i32, ptr %17, align 4
-  %3909 = add i32 %3908, 4
-  store i32 %3909, ptr %17, align 4
-  %3910 = load ptr, ptr %13, align 8
-  %3911 = load i32, ptr @hf_slsk_number_of_days, align 4
-  %3912 = load ptr, ptr %5, align 8
-  %3913 = load i32, ptr %17, align 4
-  %3914 = call ptr @proto_tree_add_item(ptr noundef %3910, i32 noundef %3911, ptr noundef %3912, i32 noundef %3913, i32 noundef 4, i32 noundef -2147483648)
+  %3904 = load ptr, ptr %6, align 8
+  %3905 = load i32, ptr %17, align 4
+  %3906 = call zeroext i1 @check_slsk_format(ptr noundef %3903, ptr noundef %3904, i32 noundef %3905, ptr noundef @.str.202)
+  br i1 %3906, label %3907, label %3924
+
+3907:                                             ; preds = %3902
+  %3908 = load ptr, ptr %13, align 8
+  %3909 = load i32, ptr @hf_slsk_message_code, align 4
+  %3910 = load ptr, ptr %5, align 8
+  %3911 = load i32, ptr %17, align 4
+  %3912 = load i32, ptr %21, align 4
+  %3913 = load i32, ptr %21, align 4
+  %3914 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3908, i32 noundef %3909, ptr noundef %3910, i32 noundef %3911, i32 noundef 4, i32 noundef %3912, ptr noundef @.str.318, i32 noundef %3913)
   %3915 = load i32, ptr %17, align 4
   %3916 = add i32 %3915, 4
   store i32 %3916, ptr %17, align 4
-  br label %3917
+  %3917 = load ptr, ptr %13, align 8
+  %3918 = load i32, ptr @hf_slsk_number_of_days, align 4
+  %3919 = load ptr, ptr %5, align 8
+  %3920 = load i32, ptr %17, align 4
+  %3921 = call ptr @proto_tree_add_item(ptr noundef %3917, i32 noundef %3918, ptr noundef %3919, i32 noundef %3920, i32 noundef 4, i32 noundef -2147483648)
+  %3922 = load i32, ptr %17, align 4
+  %3923 = add i32 %3922, 4
+  store i32 %3923, ptr %17, align 4
+  br label %3924
 
-3917:                                             ; preds = %3900, %3895
-  br label %3918
+3924:                                             ; preds = %3907, %3902
+  br label %3925
 
-3918:                                             ; preds = %3917, %3885
-  br label %4619
+3925:                                             ; preds = %3924, %3892
+  br label %4626
 
-3919:                                             ; preds = %4
-  %3920 = load ptr, ptr %5, align 8
-  %3921 = load i32, ptr %17, align 4
-  %3922 = call i32 @check_slsk_format(ptr noundef %3920, i32 noundef %3921, ptr noundef @.str.315)
-  %3923 = icmp ne i32 %3922, 0
-  br i1 %3923, label %3924, label %3979
-
-3924:                                             ; preds = %3919
-  %3925 = load ptr, ptr %13, align 8
-  %3926 = load i32, ptr @hf_slsk_message_code, align 4
+3926:                                             ; preds = %4
   %3927 = load ptr, ptr %5, align 8
-  %3928 = load i32, ptr %17, align 4
-  %3929 = load i32, ptr %21, align 4
-  %3930 = load i32, ptr %21, align 4
-  %3931 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3925, i32 noundef %3926, ptr noundef %3927, i32 noundef %3928, i32 noundef 4, i32 noundef %3929, ptr noundef @.str.316, i32 noundef %3930)
-  %3932 = load i32, ptr %17, align 4
-  %3933 = add i32 %3932, 4
-  store i32 %3933, ptr %17, align 4
+  %3928 = load ptr, ptr %6, align 8
+  %3929 = load i32, ptr %17, align 4
+  %3930 = call zeroext i1 @check_slsk_format(ptr noundef %3927, ptr noundef %3928, i32 noundef %3929, ptr noundef @.str.319)
+  br i1 %3930, label %3931, label %3986
+
+3931:                                             ; preds = %3926
+  %3932 = load ptr, ptr %13, align 8
+  %3933 = load i32, ptr @hf_slsk_message_code, align 4
   %3934 = load ptr, ptr %5, align 8
   %3935 = load i32, ptr %17, align 4
-  %3936 = call zeroext i8 @tvb_get_guint8(ptr noundef %3934, i32 noundef %3935)
-  %3937 = zext i8 %3936 to i32
-  %3938 = icmp eq i32 %3937, 3
-  br i1 %3938, label %3939, label %3978
+  %3936 = load i32, ptr %21, align 4
+  %3937 = load i32, ptr %21, align 4
+  %3938 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3932, i32 noundef %3933, ptr noundef %3934, i32 noundef %3935, i32 noundef 4, i32 noundef %3936, ptr noundef @.str.320, i32 noundef %3937)
+  %3939 = load i32, ptr %17, align 4
+  %3940 = add i32 %3939, 4
+  store i32 %3940, ptr %17, align 4
+  %3941 = load ptr, ptr %5, align 8
+  %3942 = load i32, ptr %17, align 4
+  %3943 = call zeroext i8 @tvb_get_uint8(ptr noundef %3941, i32 noundef %3942)
+  %3944 = zext i8 %3943 to i32
+  %3945 = icmp eq i32 %3944, 3
+  br i1 %3945, label %3946, label %3985
 
-3939:                                             ; preds = %3924
-  %3940 = load ptr, ptr %13, align 8
-  %3941 = load i32, ptr @hf_slsk_embedded_message_type, align 4
-  %3942 = load ptr, ptr %5, align 8
-  %3943 = load i32, ptr %17, align 4
-  %3944 = load i32, ptr %21, align 4
-  %3945 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3940, i32 noundef %3941, ptr noundef %3942, i32 noundef %3943, i32 noundef 1, i32 noundef %3944, ptr noundef @.str.317, i32 noundef 3)
-  %3946 = load i32, ptr %17, align 4
-  %3947 = add i32 %3946, 1
-  store i32 %3947, ptr %17, align 4
-  %3948 = load ptr, ptr %13, align 8
-  %3949 = load i32, ptr @hf_slsk_integer, align 4
-  %3950 = load ptr, ptr %5, align 8
-  %3951 = load i32, ptr %17, align 4
-  %3952 = call ptr @proto_tree_add_item(ptr noundef %3948, i32 noundef %3949, ptr noundef %3950, i32 noundef %3951, i32 noundef 4, i32 noundef -2147483648)
+3946:                                             ; preds = %3931
+  %3947 = load ptr, ptr %13, align 8
+  %3948 = load i32, ptr @hf_slsk_embedded_message_type, align 4
+  %3949 = load ptr, ptr %5, align 8
+  %3950 = load i32, ptr %17, align 4
+  %3951 = load i32, ptr %21, align 4
+  %3952 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3947, i32 noundef %3948, ptr noundef %3949, i32 noundef %3950, i32 noundef 1, i32 noundef %3951, ptr noundef @.str.321, i32 noundef 3)
   %3953 = load i32, ptr %17, align 4
-  %3954 = add i32 %3953, 4
+  %3954 = add i32 %3953, 1
   store i32 %3954, ptr %17, align 4
   %3955 = load ptr, ptr %13, align 8
-  %3956 = load i32, ptr @hf_slsk_username, align 4
+  %3956 = load i32, ptr @hf_slsk_integer, align 4
   %3957 = load ptr, ptr %5, align 8
   %3958 = load i32, ptr %17, align 4
-  %3959 = call ptr @proto_tree_add_item_ret_length(ptr noundef %3955, i32 noundef %3956, ptr noundef %3957, i32 noundef %3958, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %3960 = load i32, ptr %23, align 4
-  %3961 = load i32, ptr %17, align 4
-  %3962 = add i32 %3961, %3960
-  store i32 %3962, ptr %17, align 4
-  %3963 = load ptr, ptr %13, align 8
-  %3964 = load i32, ptr @hf_slsk_token, align 4
-  %3965 = load ptr, ptr %5, align 8
-  %3966 = load i32, ptr %17, align 4
-  %3967 = call ptr @proto_tree_add_item(ptr noundef %3963, i32 noundef %3964, ptr noundef %3965, i32 noundef %3966, i32 noundef 4, i32 noundef -2147483648)
+  %3959 = call ptr @proto_tree_add_item(ptr noundef %3955, i32 noundef %3956, ptr noundef %3957, i32 noundef %3958, i32 noundef 4, i32 noundef -2147483648)
+  %3960 = load i32, ptr %17, align 4
+  %3961 = add i32 %3960, 4
+  store i32 %3961, ptr %17, align 4
+  %3962 = load ptr, ptr %13, align 8
+  %3963 = load i32, ptr @hf_slsk_username, align 4
+  %3964 = load ptr, ptr %5, align 8
+  %3965 = load i32, ptr %17, align 4
+  %3966 = call ptr @proto_tree_add_item_ret_length(ptr noundef %3962, i32 noundef %3963, ptr noundef %3964, i32 noundef %3965, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %3967 = load i32, ptr %23, align 4
   %3968 = load i32, ptr %17, align 4
-  %3969 = add i32 %3968, 4
+  %3969 = add i32 %3968, %3967
   store i32 %3969, ptr %17, align 4
   %3970 = load ptr, ptr %13, align 8
-  %3971 = load i32, ptr @hf_slsk_search_text, align 4
+  %3971 = load i32, ptr @hf_slsk_token, align 4
   %3972 = load ptr, ptr %5, align 8
   %3973 = load i32, ptr %17, align 4
-  %3974 = call ptr @proto_tree_add_item_ret_length(ptr noundef %3970, i32 noundef %3971, ptr noundef %3972, i32 noundef %3973, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %3975 = load i32, ptr %23, align 4
-  %3976 = load i32, ptr %17, align 4
-  %3977 = add i32 %3976, %3975
-  store i32 %3977, ptr %17, align 4
-  br label %3978
+  %3974 = call ptr @proto_tree_add_item(ptr noundef %3970, i32 noundef %3971, ptr noundef %3972, i32 noundef %3973, i32 noundef 4, i32 noundef -2147483648)
+  %3975 = load i32, ptr %17, align 4
+  %3976 = add i32 %3975, 4
+  store i32 %3976, ptr %17, align 4
+  %3977 = load ptr, ptr %13, align 8
+  %3978 = load i32, ptr @hf_slsk_search_text, align 4
+  %3979 = load ptr, ptr %5, align 8
+  %3980 = load i32, ptr %17, align 4
+  %3981 = call ptr @proto_tree_add_item_ret_length(ptr noundef %3977, i32 noundef %3978, ptr noundef %3979, i32 noundef %3980, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %3982 = load i32, ptr %23, align 4
+  %3983 = load i32, ptr %17, align 4
+  %3984 = add i32 %3983, %3982
+  store i32 %3984, ptr %17, align 4
+  br label %3985
 
-3978:                                             ; preds = %3939, %3924
-  br label %3979
+3985:                                             ; preds = %3946, %3931
+  br label %3986
 
-3979:                                             ; preds = %3978, %3919
-  br label %4619
+3986:                                             ; preds = %3985, %3926
+  br label %4626
 
-3980:                                             ; preds = %4
-  %3981 = load ptr, ptr %5, align 8
-  %3982 = load i32, ptr %17, align 4
-  %3983 = call i32 @check_slsk_format(ptr noundef %3981, i32 noundef %3982, ptr noundef @.str.303)
-  %3984 = icmp ne i32 %3983, 0
-  br i1 %3984, label %3985, label %4002
-
-3985:                                             ; preds = %3980
-  %3986 = load ptr, ptr %13, align 8
-  %3987 = load i32, ptr @hf_slsk_message_code, align 4
+3987:                                             ; preds = %4
   %3988 = load ptr, ptr %5, align 8
-  %3989 = load i32, ptr %17, align 4
-  %3990 = load i32, ptr %21, align 4
-  %3991 = load i32, ptr %21, align 4
-  %3992 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3986, i32 noundef %3987, ptr noundef %3988, i32 noundef %3989, i32 noundef 4, i32 noundef %3990, ptr noundef @.str.318, i32 noundef %3991)
-  %3993 = load i32, ptr %17, align 4
-  %3994 = add i32 %3993, 4
-  store i32 %3994, ptr %17, align 4
-  %3995 = load ptr, ptr %13, align 8
-  %3996 = load i32, ptr @hf_slsk_byte, align 4
-  %3997 = load ptr, ptr %5, align 8
-  %3998 = load i32, ptr %17, align 4
-  %3999 = call ptr @proto_tree_add_item(ptr noundef %3995, i32 noundef %3996, ptr noundef %3997, i32 noundef %3998, i32 noundef 1, i32 noundef 0)
+  %3989 = load ptr, ptr %6, align 8
+  %3990 = load i32, ptr %17, align 4
+  %3991 = call zeroext i1 @check_slsk_format(ptr noundef %3988, ptr noundef %3989, i32 noundef %3990, ptr noundef @.str.307)
+  br i1 %3991, label %3992, label %4009
+
+3992:                                             ; preds = %3987
+  %3993 = load ptr, ptr %13, align 8
+  %3994 = load i32, ptr @hf_slsk_message_code, align 4
+  %3995 = load ptr, ptr %5, align 8
+  %3996 = load i32, ptr %17, align 4
+  %3997 = load i32, ptr %21, align 4
+  %3998 = load i32, ptr %21, align 4
+  %3999 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3993, i32 noundef %3994, ptr noundef %3995, i32 noundef %3996, i32 noundef 4, i32 noundef %3997, ptr noundef @.str.322, i32 noundef %3998)
   %4000 = load i32, ptr %17, align 4
-  %4001 = add i32 %4000, 1
+  %4001 = add i32 %4000, 4
   store i32 %4001, ptr %17, align 4
-  br label %4002
-
-4002:                                             ; preds = %3985, %3980
-  br label %4619
-
-4003:                                             ; preds = %4
+  %4002 = load ptr, ptr %13, align 8
+  %4003 = load i32, ptr @hf_slsk_byte, align 4
   %4004 = load ptr, ptr %5, align 8
   %4005 = load i32, ptr %17, align 4
-  %4006 = call i32 @check_slsk_format(ptr noundef %4004, i32 noundef %4005, ptr noundef @.str.216)
-  %4007 = icmp ne i32 %4006, 0
-  br i1 %4007, label %4008, label %4070
+  %4006 = call ptr @proto_tree_add_item(ptr noundef %4002, i32 noundef %4003, ptr noundef %4004, i32 noundef %4005, i32 noundef 1, i32 noundef 0)
+  %4007 = load i32, ptr %17, align 4
+  %4008 = add i32 %4007, 1
+  store i32 %4008, ptr %17, align 4
+  br label %4009
 
-4008:                                             ; preds = %4003
-  %4009 = load ptr, ptr %13, align 8
-  %4010 = load i32, ptr @hf_slsk_message_code, align 4
+4009:                                             ; preds = %3992, %3987
+  br label %4626
+
+4010:                                             ; preds = %4
   %4011 = load ptr, ptr %5, align 8
-  %4012 = load i32, ptr %17, align 4
-  %4013 = load i32, ptr %21, align 4
-  %4014 = load i32, ptr %21, align 4
-  %4015 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %4009, i32 noundef %4010, ptr noundef %4011, i32 noundef %4012, i32 noundef 4, i32 noundef %4013, ptr noundef @.str.319, i32 noundef %4014)
-  %4016 = load i32, ptr %17, align 4
-  %4017 = add i32 %4016, 4
-  store i32 %4017, ptr %17, align 4
-  %4018 = load ptr, ptr %13, align 8
-  %4019 = load i32, ptr @hf_slsk_num_parent_address, align 4
-  %4020 = load ptr, ptr %5, align 8
-  %4021 = load i32, ptr %17, align 4
-  %4022 = call ptr @proto_tree_add_item_ret_int(ptr noundef %4018, i32 noundef %4019, ptr noundef %4020, i32 noundef %4021, i32 noundef 4, i32 noundef -2147483648, ptr noundef %19)
+  %4012 = load ptr, ptr %6, align 8
+  %4013 = load i32, ptr %17, align 4
+  %4014 = call zeroext i1 @check_slsk_format(ptr noundef %4011, ptr noundef %4012, i32 noundef %4013, ptr noundef @.str.220)
+  br i1 %4014, label %4015, label %4077
+
+4015:                                             ; preds = %4010
+  %4016 = load ptr, ptr %13, align 8
+  %4017 = load i32, ptr @hf_slsk_message_code, align 4
+  %4018 = load ptr, ptr %5, align 8
+  %4019 = load i32, ptr %17, align 4
+  %4020 = load i32, ptr %21, align 4
+  %4021 = load i32, ptr %21, align 4
+  %4022 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %4016, i32 noundef %4017, ptr noundef %4018, i32 noundef %4019, i32 noundef 4, i32 noundef %4020, ptr noundef @.str.323, i32 noundef %4021)
   %4023 = load i32, ptr %17, align 4
   %4024 = add i32 %4023, 4
   store i32 %4024, ptr %17, align 4
-  %4025 = load i32, ptr %19, align 4
-  %4026 = load ptr, ptr %5, align 8
-  %4027 = load i32, ptr %17, align 4
-  %4028 = call i32 @tvb_reported_length_remaining(ptr noundef %4026, i32 noundef %4027)
-  %4029 = icmp sgt i32 %4025, %4028
-  br i1 %4029, label %4030, label %4031
+  %4025 = load ptr, ptr %13, align 8
+  %4026 = load i32, ptr @hf_slsk_num_parent_address, align 4
+  %4027 = load ptr, ptr %5, align 8
+  %4028 = load i32, ptr %17, align 4
+  %4029 = call ptr @proto_tree_add_item_ret_int(ptr noundef %4025, i32 noundef %4026, ptr noundef %4027, i32 noundef %4028, i32 noundef 4, i32 noundef -2147483648, ptr noundef %19)
+  %4030 = load i32, ptr %17, align 4
+  %4031 = add i32 %4030, 4
+  store i32 %4031, ptr %17, align 4
+  %4032 = load i32, ptr %19, align 4
+  %4033 = load ptr, ptr %5, align 8
+  %4034 = load i32, ptr %17, align 4
+  %4035 = call i32 @tvb_reported_length_remaining(ptr noundef %4033, i32 noundef %4034)
+  %4036 = icmp sgt i32 %4032, %4035
+  br i1 %4036, label %4037, label %4038
 
-4030:                                             ; preds = %4008
-  br label %4619
+4037:                                             ; preds = %4015
+  br label %4626
 
-4031:                                             ; preds = %4008
+4038:                                             ; preds = %4015
   store i32 0, ptr %18, align 4
-  br label %4032
+  br label %4039
 
-4032:                                             ; preds = %4066, %4031
-  %4033 = load i32, ptr %18, align 4
-  %4034 = load i32, ptr %19, align 4
-  %4035 = icmp slt i32 %4033, %4034
-  br i1 %4035, label %4036, label %4069
+4039:                                             ; preds = %4073, %4038
+  %4040 = load i32, ptr %18, align 4
+  %4041 = load i32, ptr %19, align 4
+  %4042 = icmp slt i32 %4040, %4041
+  br i1 %4042, label %4043, label %4076
 
-4036:                                             ; preds = %4032
-  %4037 = load ptr, ptr %5, align 8
-  %4038 = load i32, ptr %17, align 4
-  %4039 = call i32 @check_slsk_format(ptr noundef %4037, i32 noundef %4038, ptr noundef @.str.222)
-  %4040 = icmp ne i32 %4039, 0
-  br i1 %4040, label %4041, label %4064
-
-4041:                                             ; preds = %4036
-  %4042 = load ptr, ptr %13, align 8
-  %4043 = load i32, ptr @hf_slsk_user, align 4
+4043:                                             ; preds = %4039
   %4044 = load ptr, ptr %5, align 8
-  %4045 = load i32, ptr %17, align 4
-  %4046 = call ptr @proto_tree_add_item_ret_length(ptr noundef %4042, i32 noundef %4043, ptr noundef %4044, i32 noundef %4045, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %4047 = load i32, ptr %23, align 4
-  %4048 = load i32, ptr %17, align 4
-  %4049 = add i32 %4048, %4047
-  store i32 %4049, ptr %17, align 4
-  %4050 = load ptr, ptr %13, align 8
-  %4051 = load i32, ptr @hf_slsk_ip, align 4
-  %4052 = load ptr, ptr %5, align 8
-  %4053 = load i32, ptr %17, align 4
-  %4054 = call ptr @proto_tree_add_item(ptr noundef %4050, i32 noundef %4051, ptr noundef %4052, i32 noundef %4053, i32 noundef 4, i32 noundef 0)
+  %4045 = load ptr, ptr %6, align 8
+  %4046 = load i32, ptr %17, align 4
+  %4047 = call zeroext i1 @check_slsk_format(ptr noundef %4044, ptr noundef %4045, i32 noundef %4046, ptr noundef @.str.226)
+  br i1 %4047, label %4048, label %4071
+
+4048:                                             ; preds = %4043
+  %4049 = load ptr, ptr %13, align 8
+  %4050 = load i32, ptr @hf_slsk_user, align 4
+  %4051 = load ptr, ptr %5, align 8
+  %4052 = load i32, ptr %17, align 4
+  %4053 = call ptr @proto_tree_add_item_ret_length(ptr noundef %4049, i32 noundef %4050, ptr noundef %4051, i32 noundef %4052, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %4054 = load i32, ptr %23, align 4
   %4055 = load i32, ptr %17, align 4
-  %4056 = add i32 %4055, 4
+  %4056 = add i32 %4055, %4054
   store i32 %4056, ptr %17, align 4
   %4057 = load ptr, ptr %13, align 8
-  %4058 = load i32, ptr @hf_slsk_port, align 4
+  %4058 = load i32, ptr @hf_slsk_ip, align 4
   %4059 = load ptr, ptr %5, align 8
   %4060 = load i32, ptr %17, align 4
-  %4061 = call ptr @proto_tree_add_item(ptr noundef %4057, i32 noundef %4058, ptr noundef %4059, i32 noundef %4060, i32 noundef 4, i32 noundef -2147483648)
+  %4061 = call ptr @proto_tree_add_item(ptr noundef %4057, i32 noundef %4058, ptr noundef %4059, i32 noundef %4060, i32 noundef 4, i32 noundef 0)
   %4062 = load i32, ptr %17, align 4
   %4063 = add i32 %4062, 4
   store i32 %4063, ptr %17, align 4
-  br label %4065
+  %4064 = load ptr, ptr %13, align 8
+  %4065 = load i32, ptr @hf_slsk_port, align 4
+  %4066 = load ptr, ptr %5, align 8
+  %4067 = load i32, ptr %17, align 4
+  %4068 = call ptr @proto_tree_add_item(ptr noundef %4064, i32 noundef %4065, ptr noundef %4066, i32 noundef %4067, i32 noundef 4, i32 noundef -2147483648)
+  %4069 = load i32, ptr %17, align 4
+  %4070 = add i32 %4069, 4
+  store i32 %4070, ptr %17, align 4
+  br label %4072
 
-4064:                                             ; preds = %4036
-  br label %4069
+4071:                                             ; preds = %4043
+  br label %4076
 
-4065:                                             ; preds = %4041
-  br label %4066
+4072:                                             ; preds = %4048
+  br label %4073
 
-4066:                                             ; preds = %4065
-  %4067 = load i32, ptr %18, align 4
-  %4068 = add i32 %4067, 1
-  store i32 %4068, ptr %18, align 4
-  br label %4032, !llvm.loop !28
+4073:                                             ; preds = %4072
+  %4074 = load i32, ptr %18, align 4
+  %4075 = add i32 %4074, 1
+  store i32 %4075, ptr %18, align 4
+  br label %4039, !llvm.loop !32
 
-4069:                                             ; preds = %4064, %4032
-  br label %4070
+4076:                                             ; preds = %4071, %4039
+  br label %4077
 
-4070:                                             ; preds = %4069, %4003
-  br label %4619
+4077:                                             ; preds = %4076, %4010
+  br label %4626
 
-4071:                                             ; preds = %4
-  %4072 = load ptr, ptr %5, align 8
-  %4073 = load i32, ptr %17, align 4
-  %4074 = call i32 @check_slsk_format(ptr noundef %4072, i32 noundef %4073, ptr noundef @.str.248)
-  %4075 = icmp ne i32 %4074, 0
-  br i1 %4075, label %4076, label %4101
-
-4076:                                             ; preds = %4071
-  %4077 = load ptr, ptr %13, align 8
-  %4078 = load i32, ptr @hf_slsk_message_code, align 4
+4078:                                             ; preds = %4
   %4079 = load ptr, ptr %5, align 8
-  %4080 = load i32, ptr %17, align 4
-  %4081 = load i32, ptr %21, align 4
-  %4082 = load i32, ptr %21, align 4
-  %4083 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %4077, i32 noundef %4078, ptr noundef %4079, i32 noundef %4080, i32 noundef 4, i32 noundef %4081, ptr noundef @.str.320, i32 noundef %4082)
-  %4084 = load i32, ptr %17, align 4
-  %4085 = add i32 %4084, 4
-  store i32 %4085, ptr %17, align 4
-  %4086 = load ptr, ptr %13, align 8
-  %4087 = load i32, ptr @hf_slsk_token, align 4
-  %4088 = load ptr, ptr %5, align 8
-  %4089 = load i32, ptr %17, align 4
-  %4090 = call ptr @proto_tree_add_item(ptr noundef %4086, i32 noundef %4087, ptr noundef %4088, i32 noundef %4089, i32 noundef 4, i32 noundef -2147483648)
+  %4080 = load ptr, ptr %6, align 8
+  %4081 = load i32, ptr %17, align 4
+  %4082 = call zeroext i1 @check_slsk_format(ptr noundef %4079, ptr noundef %4080, i32 noundef %4081, ptr noundef @.str.252)
+  br i1 %4082, label %4083, label %4108
+
+4083:                                             ; preds = %4078
+  %4084 = load ptr, ptr %13, align 8
+  %4085 = load i32, ptr @hf_slsk_message_code, align 4
+  %4086 = load ptr, ptr %5, align 8
+  %4087 = load i32, ptr %17, align 4
+  %4088 = load i32, ptr %21, align 4
+  %4089 = load i32, ptr %21, align 4
+  %4090 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %4084, i32 noundef %4085, ptr noundef %4086, i32 noundef %4087, i32 noundef 4, i32 noundef %4088, ptr noundef @.str.324, i32 noundef %4089)
   %4091 = load i32, ptr %17, align 4
   %4092 = add i32 %4091, 4
   store i32 %4092, ptr %17, align 4
   %4093 = load ptr, ptr %13, align 8
-  %4094 = load i32, ptr @hf_slsk_search_text, align 4
+  %4094 = load i32, ptr @hf_slsk_token, align 4
   %4095 = load ptr, ptr %5, align 8
   %4096 = load i32, ptr %17, align 4
-  %4097 = call ptr @proto_tree_add_item_ret_length(ptr noundef %4093, i32 noundef %4094, ptr noundef %4095, i32 noundef %4096, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %4098 = load i32, ptr %23, align 4
-  %4099 = load i32, ptr %17, align 4
-  %4100 = add i32 %4099, %4098
-  store i32 %4100, ptr %17, align 4
-  br label %4101
+  %4097 = call ptr @proto_tree_add_item(ptr noundef %4093, i32 noundef %4094, ptr noundef %4095, i32 noundef %4096, i32 noundef 4, i32 noundef -2147483648)
+  %4098 = load i32, ptr %17, align 4
+  %4099 = add i32 %4098, 4
+  store i32 %4099, ptr %17, align 4
+  %4100 = load ptr, ptr %13, align 8
+  %4101 = load i32, ptr @hf_slsk_search_text, align 4
+  %4102 = load ptr, ptr %5, align 8
+  %4103 = load i32, ptr %17, align 4
+  %4104 = call ptr @proto_tree_add_item_ret_length(ptr noundef %4100, i32 noundef %4101, ptr noundef %4102, i32 noundef %4103, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %4105 = load i32, ptr %23, align 4
+  %4106 = load i32, ptr %17, align 4
+  %4107 = add i32 %4106, %4105
+  store i32 %4107, ptr %17, align 4
+  br label %4108
 
-4101:                                             ; preds = %4076, %4071
-  br label %4619
+4108:                                             ; preds = %4083, %4078
+  br label %4626
 
-4102:                                             ; preds = %4
-  %4103 = load ptr, ptr %5, align 8
-  %4104 = load i32, ptr %17, align 4
-  %4105 = call i32 @check_slsk_format(ptr noundef %4103, i32 noundef %4104, ptr noundef @.str.198)
-  %4106 = icmp ne i32 %4105, 0
-  br i1 %4106, label %4107, label %4124
-
-4107:                                             ; preds = %4102
-  %4108 = load ptr, ptr %13, align 8
-  %4109 = load i32, ptr @hf_slsk_message_code, align 4
+4109:                                             ; preds = %4
   %4110 = load ptr, ptr %5, align 8
-  %4111 = load i32, ptr %17, align 4
-  %4112 = load i32, ptr %21, align 4
-  %4113 = load i32, ptr %21, align 4
-  %4114 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %4108, i32 noundef %4109, ptr noundef %4110, i32 noundef %4111, i32 noundef 4, i32 noundef %4112, ptr noundef @.str.321, i32 noundef %4113)
-  %4115 = load i32, ptr %17, align 4
-  %4116 = add i32 %4115, 4
-  store i32 %4116, ptr %17, align 4
-  %4117 = load ptr, ptr %13, align 8
-  %4118 = load i32, ptr @hf_slsk_integer, align 4
-  %4119 = load ptr, ptr %5, align 8
-  %4120 = load i32, ptr %17, align 4
-  %4121 = call ptr @proto_tree_add_item(ptr noundef %4117, i32 noundef %4118, ptr noundef %4119, i32 noundef %4120, i32 noundef 4, i32 noundef -2147483648)
+  %4111 = load ptr, ptr %6, align 8
+  %4112 = load i32, ptr %17, align 4
+  %4113 = call zeroext i1 @check_slsk_format(ptr noundef %4110, ptr noundef %4111, i32 noundef %4112, ptr noundef @.str.202)
+  br i1 %4113, label %4114, label %4131
+
+4114:                                             ; preds = %4109
+  %4115 = load ptr, ptr %13, align 8
+  %4116 = load i32, ptr @hf_slsk_message_code, align 4
+  %4117 = load ptr, ptr %5, align 8
+  %4118 = load i32, ptr %17, align 4
+  %4119 = load i32, ptr %21, align 4
+  %4120 = load i32, ptr %21, align 4
+  %4121 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %4115, i32 noundef %4116, ptr noundef %4117, i32 noundef %4118, i32 noundef 4, i32 noundef %4119, ptr noundef @.str.325, i32 noundef %4120)
   %4122 = load i32, ptr %17, align 4
   %4123 = add i32 %4122, 4
   store i32 %4123, ptr %17, align 4
-  br label %4124
-
-4124:                                             ; preds = %4107, %4102
-  br label %4619
-
-4125:                                             ; preds = %4
+  %4124 = load ptr, ptr %13, align 8
+  %4125 = load i32, ptr @hf_slsk_integer, align 4
   %4126 = load ptr, ptr %5, align 8
   %4127 = load i32, ptr %17, align 4
-  %4128 = call i32 @check_slsk_format(ptr noundef %4126, i32 noundef %4127, ptr noundef @.str.204)
-  %4129 = icmp ne i32 %4128, 0
-  br i1 %4129, label %4130, label %4140
+  %4128 = call ptr @proto_tree_add_item(ptr noundef %4124, i32 noundef %4125, ptr noundef %4126, i32 noundef %4127, i32 noundef 4, i32 noundef -2147483648)
+  %4129 = load i32, ptr %17, align 4
+  %4130 = add i32 %4129, 4
+  store i32 %4130, ptr %17, align 4
+  br label %4131
 
-4130:                                             ; preds = %4125
-  %4131 = load ptr, ptr %13, align 8
-  %4132 = load i32, ptr @hf_slsk_message_code, align 4
+4131:                                             ; preds = %4114, %4109
+  br label %4626
+
+4132:                                             ; preds = %4
   %4133 = load ptr, ptr %5, align 8
-  %4134 = load i32, ptr %17, align 4
-  %4135 = load i32, ptr %21, align 4
-  %4136 = load i32, ptr %21, align 4
-  %4137 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %4131, i32 noundef %4132, ptr noundef %4133, i32 noundef %4134, i32 noundef 4, i32 noundef %4135, ptr noundef @.str.322, i32 noundef %4136)
-  %4138 = load i32, ptr %17, align 4
-  %4139 = add i32 %4138, 4
-  store i32 %4139, ptr %17, align 4
-  br label %4213
+  %4134 = load ptr, ptr %6, align 8
+  %4135 = load i32, ptr %17, align 4
+  %4136 = call zeroext i1 @check_slsk_format(ptr noundef %4133, ptr noundef %4134, i32 noundef %4135, ptr noundef @.str.208)
+  br i1 %4136, label %4137, label %4147
 
-4140:                                             ; preds = %4125
-  %4141 = load ptr, ptr %5, align 8
-  %4142 = load i32, ptr %17, align 4
-  %4143 = call i32 @check_slsk_format(ptr noundef %4141, i32 noundef %4142, ptr noundef @.str.216)
-  %4144 = icmp ne i32 %4143, 0
-  br i1 %4144, label %4145, label %4212
+4137:                                             ; preds = %4132
+  %4138 = load ptr, ptr %13, align 8
+  %4139 = load i32, ptr @hf_slsk_message_code, align 4
+  %4140 = load ptr, ptr %5, align 8
+  %4141 = load i32, ptr %17, align 4
+  %4142 = load i32, ptr %21, align 4
+  %4143 = load i32, ptr %21, align 4
+  %4144 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %4138, i32 noundef %4139, ptr noundef %4140, i32 noundef %4141, i32 noundef 4, i32 noundef %4142, ptr noundef @.str.326, i32 noundef %4143)
+  %4145 = load i32, ptr %17, align 4
+  %4146 = add i32 %4145, 4
+  store i32 %4146, ptr %17, align 4
+  br label %4220
 
-4145:                                             ; preds = %4140
-  %4146 = load ptr, ptr %13, align 8
-  %4147 = load i32, ptr @hf_slsk_message_code, align 4
+4147:                                             ; preds = %4132
   %4148 = load ptr, ptr %5, align 8
-  %4149 = load i32, ptr %17, align 4
-  %4150 = load i32, ptr %21, align 4
-  %4151 = load i32, ptr %21, align 4
-  %4152 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %4146, i32 noundef %4147, ptr noundef %4148, i32 noundef %4149, i32 noundef 4, i32 noundef %4150, ptr noundef @.str.323, i32 noundef %4151)
-  %4153 = load i32, ptr %17, align 4
-  %4154 = add i32 %4153, 4
-  store i32 %4154, ptr %17, align 4
-  %4155 = load ptr, ptr %13, align 8
-  %4156 = load i32, ptr @hf_slsk_number_of_users, align 4
-  %4157 = load ptr, ptr %5, align 8
-  %4158 = load i32, ptr %17, align 4
-  %4159 = call ptr @proto_tree_add_item_ret_int(ptr noundef %4155, i32 noundef %4156, ptr noundef %4157, i32 noundef %4158, i32 noundef 4, i32 noundef -2147483648, ptr noundef %19)
+  %4149 = load ptr, ptr %6, align 8
+  %4150 = load i32, ptr %17, align 4
+  %4151 = call zeroext i1 @check_slsk_format(ptr noundef %4148, ptr noundef %4149, i32 noundef %4150, ptr noundef @.str.220)
+  br i1 %4151, label %4152, label %4219
+
+4152:                                             ; preds = %4147
+  %4153 = load ptr, ptr %13, align 8
+  %4154 = load i32, ptr @hf_slsk_message_code, align 4
+  %4155 = load ptr, ptr %5, align 8
+  %4156 = load i32, ptr %17, align 4
+  %4157 = load i32, ptr %21, align 4
+  %4158 = load i32, ptr %21, align 4
+  %4159 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %4153, i32 noundef %4154, ptr noundef %4155, i32 noundef %4156, i32 noundef 4, i32 noundef %4157, ptr noundef @.str.327, i32 noundef %4158)
   %4160 = load i32, ptr %17, align 4
   %4161 = add i32 %4160, 4
   store i32 %4161, ptr %17, align 4
-  %4162 = load i32, ptr %19, align 4
-  %4163 = load ptr, ptr %5, align 8
-  %4164 = load i32, ptr %17, align 4
-  %4165 = call i32 @tvb_reported_length_remaining(ptr noundef %4163, i32 noundef %4164)
-  %4166 = icmp sgt i32 %4162, %4165
-  br i1 %4166, label %4167, label %4168
+  %4162 = load ptr, ptr %13, align 8
+  %4163 = load i32, ptr @hf_slsk_number_of_users, align 4
+  %4164 = load ptr, ptr %5, align 8
+  %4165 = load i32, ptr %17, align 4
+  %4166 = call ptr @proto_tree_add_item_ret_int(ptr noundef %4162, i32 noundef %4163, ptr noundef %4164, i32 noundef %4165, i32 noundef 4, i32 noundef -2147483648, ptr noundef %19)
+  %4167 = load i32, ptr %17, align 4
+  %4168 = add i32 %4167, 4
+  store i32 %4168, ptr %17, align 4
+  %4169 = load i32, ptr %19, align 4
+  %4170 = load ptr, ptr %5, align 8
+  %4171 = load i32, ptr %17, align 4
+  %4172 = call i32 @tvb_reported_length_remaining(ptr noundef %4170, i32 noundef %4171)
+  %4173 = icmp sgt i32 %4169, %4172
+  br i1 %4173, label %4174, label %4175
 
-4167:                                             ; preds = %4145
-  br label %4619
+4174:                                             ; preds = %4152
+  br label %4626
 
-4168:                                             ; preds = %4145
+4175:                                             ; preds = %4152
   store i32 0, ptr %18, align 4
-  br label %4169
+  br label %4176
 
-4169:                                             ; preds = %4208, %4168
-  %4170 = load i32, ptr %18, align 4
-  %4171 = load i32, ptr %19, align 4
-  %4172 = icmp slt i32 %4170, %4171
-  br i1 %4172, label %4173, label %4211
+4176:                                             ; preds = %4215, %4175
+  %4177 = load i32, ptr %18, align 4
+  %4178 = load i32, ptr %19, align 4
+  %4179 = icmp slt i32 %4177, %4178
+  br i1 %4179, label %4180, label %4218
 
-4173:                                             ; preds = %4169
-  %4174 = load ptr, ptr %5, align 8
-  %4175 = load i32, ptr %17, align 4
-  %4176 = call i32 @check_slsk_format(ptr noundef %4174, i32 noundef %4175, ptr noundef @.str.212)
-  %4177 = icmp ne i32 %4176, 0
-  br i1 %4177, label %4178, label %4206
-
-4178:                                             ; preds = %4173
-  %4179 = load i32, ptr %17, align 4
-  store i32 %4179, ptr %24, align 4
-  %4180 = load ptr, ptr %13, align 8
+4180:                                             ; preds = %4176
   %4181 = load ptr, ptr %5, align 8
-  %4182 = load i32, ptr %17, align 4
-  %4183 = load i32, ptr @ett_slsk_user, align 4
-  %4184 = load i32, ptr %18, align 4
-  %4185 = add i32 %4184, 1
-  %4186 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %4180, ptr noundef %4181, i32 noundef %4182, i32 noundef 4, i32 noundef %4183, ptr noundef %11, ptr noundef @.str.231, i32 noundef %4185)
-  store ptr %4186, ptr %14, align 8
-  %4187 = load ptr, ptr %14, align 8
-  %4188 = load i32, ptr @hf_slsk_user, align 4
-  %4189 = load ptr, ptr %5, align 8
-  %4190 = load i32, ptr %17, align 4
-  %4191 = call ptr @proto_tree_add_item_ret_length(ptr noundef %4187, i32 noundef %4188, ptr noundef %4189, i32 noundef %4190, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %4192 = load i32, ptr %23, align 4
-  %4193 = load i32, ptr %17, align 4
-  %4194 = add i32 %4193, %4192
-  store i32 %4194, ptr %17, align 4
-  %4195 = load ptr, ptr %14, align 8
-  %4196 = load i32, ptr @hf_slsk_same_recommendation, align 4
-  %4197 = load ptr, ptr %5, align 8
-  %4198 = load i32, ptr %17, align 4
-  %4199 = call ptr @proto_tree_add_item(ptr noundef %4195, i32 noundef %4196, ptr noundef %4197, i32 noundef %4198, i32 noundef 4, i32 noundef -2147483648)
+  %4182 = load ptr, ptr %6, align 8
+  %4183 = load i32, ptr %17, align 4
+  %4184 = call zeroext i1 @check_slsk_format(ptr noundef %4181, ptr noundef %4182, i32 noundef %4183, ptr noundef @.str.216)
+  br i1 %4184, label %4185, label %4213
+
+4185:                                             ; preds = %4180
+  %4186 = load i32, ptr %17, align 4
+  store i32 %4186, ptr %24, align 4
+  %4187 = load ptr, ptr %13, align 8
+  %4188 = load ptr, ptr %5, align 8
+  %4189 = load i32, ptr %17, align 4
+  %4190 = load i32, ptr @ett_slsk_user, align 4
+  %4191 = load i32, ptr %18, align 4
+  %4192 = add i32 %4191, 1
+  %4193 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %4187, ptr noundef %4188, i32 noundef %4189, i32 noundef 4, i32 noundef %4190, ptr noundef %11, ptr noundef @.str.235, i32 noundef %4192)
+  store ptr %4193, ptr %14, align 8
+  %4194 = load ptr, ptr %14, align 8
+  %4195 = load i32, ptr @hf_slsk_user, align 4
+  %4196 = load ptr, ptr %5, align 8
+  %4197 = load i32, ptr %17, align 4
+  %4198 = call ptr @proto_tree_add_item_ret_length(ptr noundef %4194, i32 noundef %4195, ptr noundef %4196, i32 noundef %4197, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %4199 = load i32, ptr %23, align 4
   %4200 = load i32, ptr %17, align 4
-  %4201 = add i32 %4200, 4
+  %4201 = add i32 %4200, %4199
   store i32 %4201, ptr %17, align 4
-  %4202 = load ptr, ptr %11, align 8
-  %4203 = load i32, ptr %17, align 4
-  %4204 = load i32, ptr %24, align 4
-  %4205 = sub i32 %4203, %4204
-  call void @proto_item_set_len(ptr noundef %4202, i32 noundef %4205)
-  br label %4207
+  %4202 = load ptr, ptr %14, align 8
+  %4203 = load i32, ptr @hf_slsk_same_recommendation, align 4
+  %4204 = load ptr, ptr %5, align 8
+  %4205 = load i32, ptr %17, align 4
+  %4206 = call ptr @proto_tree_add_item(ptr noundef %4202, i32 noundef %4203, ptr noundef %4204, i32 noundef %4205, i32 noundef 4, i32 noundef -2147483648)
+  %4207 = load i32, ptr %17, align 4
+  %4208 = add i32 %4207, 4
+  store i32 %4208, ptr %17, align 4
+  %4209 = load ptr, ptr %11, align 8
+  %4210 = load i32, ptr %17, align 4
+  %4211 = load i32, ptr %24, align 4
+  %4212 = sub i32 %4210, %4211
+  call void @proto_item_set_len(ptr noundef %4209, i32 noundef %4212)
+  br label %4214
 
-4206:                                             ; preds = %4173
-  br label %4211
+4213:                                             ; preds = %4180
+  br label %4218
 
-4207:                                             ; preds = %4178
-  br label %4208
+4214:                                             ; preds = %4185
+  br label %4215
 
-4208:                                             ; preds = %4207
-  %4209 = load i32, ptr %18, align 4
-  %4210 = add i32 %4209, 1
-  store i32 %4210, ptr %18, align 4
-  br label %4169, !llvm.loop !29
+4215:                                             ; preds = %4214
+  %4216 = load i32, ptr %18, align 4
+  %4217 = add i32 %4216, 1
+  store i32 %4217, ptr %18, align 4
+  br label %4176, !llvm.loop !33
 
-4211:                                             ; preds = %4206, %4169
-  br label %4212
+4218:                                             ; preds = %4213, %4176
+  br label %4219
 
-4212:                                             ; preds = %4211, %4140
-  br label %4213
+4219:                                             ; preds = %4218, %4147
+  br label %4220
 
-4213:                                             ; preds = %4212, %4130
-  br label %4619
+4220:                                             ; preds = %4219, %4137
+  br label %4626
 
-4214:                                             ; preds = %4
-  %4215 = load ptr, ptr %5, align 8
-  %4216 = load i32, ptr %17, align 4
-  %4217 = call i32 @check_slsk_format(ptr noundef %4215, i32 noundef %4216, ptr noundef @.str.202)
-  %4218 = icmp ne i32 %4217, 0
-  br i1 %4218, label %4219, label %4237
-
-4219:                                             ; preds = %4214
-  %4220 = load ptr, ptr %13, align 8
-  %4221 = load i32, ptr @hf_slsk_message_code, align 4
+4221:                                             ; preds = %4
   %4222 = load ptr, ptr %5, align 8
-  %4223 = load i32, ptr %17, align 4
-  %4224 = load i32, ptr %21, align 4
-  %4225 = load i32, ptr %21, align 4
-  %4226 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %4220, i32 noundef %4221, ptr noundef %4222, i32 noundef %4223, i32 noundef 4, i32 noundef %4224, ptr noundef @.str.324, i32 noundef %4225)
-  %4227 = load i32, ptr %17, align 4
-  %4228 = add i32 %4227, 4
-  store i32 %4228, ptr %17, align 4
-  %4229 = load ptr, ptr %13, align 8
-  %4230 = load i32, ptr @hf_slsk_recommendation, align 4
-  %4231 = load ptr, ptr %5, align 8
-  %4232 = load i32, ptr %17, align 4
-  %4233 = call ptr @proto_tree_add_item_ret_length(ptr noundef %4229, i32 noundef %4230, ptr noundef %4231, i32 noundef %4232, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %4234 = load i32, ptr %23, align 4
-  %4235 = load i32, ptr %17, align 4
-  %4236 = add i32 %4235, %4234
-  store i32 %4236, ptr %17, align 4
-  br label %4318
+  %4223 = load ptr, ptr %6, align 8
+  %4224 = load i32, ptr %17, align 4
+  %4225 = call zeroext i1 @check_slsk_format(ptr noundef %4222, ptr noundef %4223, i32 noundef %4224, ptr noundef @.str.206)
+  br i1 %4225, label %4226, label %4244
 
-4237:                                             ; preds = %4214
+4226:                                             ; preds = %4221
+  %4227 = load ptr, ptr %13, align 8
+  %4228 = load i32, ptr @hf_slsk_message_code, align 4
+  %4229 = load ptr, ptr %5, align 8
+  %4230 = load i32, ptr %17, align 4
+  %4231 = load i32, ptr %21, align 4
+  %4232 = load i32, ptr %21, align 4
+  %4233 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %4227, i32 noundef %4228, ptr noundef %4229, i32 noundef %4230, i32 noundef 4, i32 noundef %4231, ptr noundef @.str.328, i32 noundef %4232)
+  %4234 = load i32, ptr %17, align 4
+  %4235 = add i32 %4234, 4
+  store i32 %4235, ptr %17, align 4
+  %4236 = load ptr, ptr %13, align 8
+  %4237 = load i32, ptr @hf_slsk_recommendation, align 4
   %4238 = load ptr, ptr %5, align 8
   %4239 = load i32, ptr %17, align 4
-  %4240 = call i32 @check_slsk_format(ptr noundef %4238, i32 noundef %4239, ptr noundef @.str.227)
-  %4241 = icmp ne i32 %4240, 0
-  br i1 %4241, label %4242, label %4317
+  %4240 = call ptr @proto_tree_add_item_ret_length(ptr noundef %4236, i32 noundef %4237, ptr noundef %4238, i32 noundef %4239, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %4241 = load i32, ptr %23, align 4
+  %4242 = load i32, ptr %17, align 4
+  %4243 = add i32 %4242, %4241
+  store i32 %4243, ptr %17, align 4
+  br label %4325
 
-4242:                                             ; preds = %4237
-  %4243 = load ptr, ptr %13, align 8
-  %4244 = load i32, ptr @hf_slsk_message_code, align 4
+4244:                                             ; preds = %4221
   %4245 = load ptr, ptr %5, align 8
-  %4246 = load i32, ptr %17, align 4
-  %4247 = load i32, ptr %21, align 4
-  %4248 = load i32, ptr %21, align 4
-  %4249 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %4243, i32 noundef %4244, ptr noundef %4245, i32 noundef %4246, i32 noundef 4, i32 noundef %4247, ptr noundef @.str.325, i32 noundef %4248)
-  %4250 = load i32, ptr %17, align 4
-  %4251 = add i32 %4250, 4
-  store i32 %4251, ptr %17, align 4
-  %4252 = load ptr, ptr %13, align 8
-  %4253 = load i32, ptr @hf_slsk_recommendation, align 4
-  %4254 = load ptr, ptr %5, align 8
-  %4255 = load i32, ptr %17, align 4
-  %4256 = call ptr @proto_tree_add_item_ret_length(ptr noundef %4252, i32 noundef %4253, ptr noundef %4254, i32 noundef %4255, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %4257 = load i32, ptr %23, align 4
-  %4258 = load i32, ptr %17, align 4
-  %4259 = add i32 %4258, %4257
-  store i32 %4259, ptr %17, align 4
-  %4260 = load ptr, ptr %13, align 8
-  %4261 = load i32, ptr @hf_slsk_num_recommendations, align 4
-  %4262 = load ptr, ptr %5, align 8
-  %4263 = load i32, ptr %17, align 4
-  %4264 = call ptr @proto_tree_add_item_ret_int(ptr noundef %4260, i32 noundef %4261, ptr noundef %4262, i32 noundef %4263, i32 noundef 4, i32 noundef -2147483648, ptr noundef %19)
+  %4246 = load ptr, ptr %6, align 8
+  %4247 = load i32, ptr %17, align 4
+  %4248 = call zeroext i1 @check_slsk_format(ptr noundef %4245, ptr noundef %4246, i32 noundef %4247, ptr noundef @.str.231)
+  br i1 %4248, label %4249, label %4324
+
+4249:                                             ; preds = %4244
+  %4250 = load ptr, ptr %13, align 8
+  %4251 = load i32, ptr @hf_slsk_message_code, align 4
+  %4252 = load ptr, ptr %5, align 8
+  %4253 = load i32, ptr %17, align 4
+  %4254 = load i32, ptr %21, align 4
+  %4255 = load i32, ptr %21, align 4
+  %4256 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %4250, i32 noundef %4251, ptr noundef %4252, i32 noundef %4253, i32 noundef 4, i32 noundef %4254, ptr noundef @.str.329, i32 noundef %4255)
+  %4257 = load i32, ptr %17, align 4
+  %4258 = add i32 %4257, 4
+  store i32 %4258, ptr %17, align 4
+  %4259 = load ptr, ptr %13, align 8
+  %4260 = load i32, ptr @hf_slsk_recommendation, align 4
+  %4261 = load ptr, ptr %5, align 8
+  %4262 = load i32, ptr %17, align 4
+  %4263 = call ptr @proto_tree_add_item_ret_length(ptr noundef %4259, i32 noundef %4260, ptr noundef %4261, i32 noundef %4262, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %4264 = load i32, ptr %23, align 4
   %4265 = load i32, ptr %17, align 4
-  %4266 = add i32 %4265, 4
+  %4266 = add i32 %4265, %4264
   store i32 %4266, ptr %17, align 4
-  %4267 = load i32, ptr %19, align 4
-  %4268 = load ptr, ptr %5, align 8
-  %4269 = load i32, ptr %17, align 4
-  %4270 = call i32 @tvb_reported_length_remaining(ptr noundef %4268, i32 noundef %4269)
-  %4271 = icmp sgt i32 %4267, %4270
-  br i1 %4271, label %4272, label %4273
+  %4267 = load ptr, ptr %13, align 8
+  %4268 = load i32, ptr @hf_slsk_num_recommendations, align 4
+  %4269 = load ptr, ptr %5, align 8
+  %4270 = load i32, ptr %17, align 4
+  %4271 = call ptr @proto_tree_add_item_ret_int(ptr noundef %4267, i32 noundef %4268, ptr noundef %4269, i32 noundef %4270, i32 noundef 4, i32 noundef -2147483648, ptr noundef %19)
+  %4272 = load i32, ptr %17, align 4
+  %4273 = add i32 %4272, 4
+  store i32 %4273, ptr %17, align 4
+  %4274 = load i32, ptr %19, align 4
+  %4275 = load ptr, ptr %5, align 8
+  %4276 = load i32, ptr %17, align 4
+  %4277 = call i32 @tvb_reported_length_remaining(ptr noundef %4275, i32 noundef %4276)
+  %4278 = icmp sgt i32 %4274, %4277
+  br i1 %4278, label %4279, label %4280
 
-4272:                                             ; preds = %4242
-  br label %4619
+4279:                                             ; preds = %4249
+  br label %4626
 
-4273:                                             ; preds = %4242
+4280:                                             ; preds = %4249
   store i32 0, ptr %18, align 4
-  br label %4274
+  br label %4281
 
-4274:                                             ; preds = %4313, %4273
-  %4275 = load i32, ptr %18, align 4
-  %4276 = load i32, ptr %19, align 4
-  %4277 = icmp slt i32 %4275, %4276
-  br i1 %4277, label %4278, label %4316
+4281:                                             ; preds = %4320, %4280
+  %4282 = load i32, ptr %18, align 4
+  %4283 = load i32, ptr %19, align 4
+  %4284 = icmp slt i32 %4282, %4283
+  br i1 %4284, label %4285, label %4323
 
-4278:                                             ; preds = %4274
-  %4279 = load ptr, ptr %5, align 8
-  %4280 = load i32, ptr %17, align 4
-  %4281 = call i32 @check_slsk_format(ptr noundef %4279, i32 noundef %4280, ptr noundef @.str.212)
-  %4282 = icmp ne i32 %4281, 0
-  br i1 %4282, label %4283, label %4311
-
-4283:                                             ; preds = %4278
-  %4284 = load i32, ptr %17, align 4
-  store i32 %4284, ptr %24, align 4
-  %4285 = load ptr, ptr %13, align 8
+4285:                                             ; preds = %4281
   %4286 = load ptr, ptr %5, align 8
-  %4287 = load i32, ptr %17, align 4
-  %4288 = load i32, ptr @ett_slsk_recommendation, align 4
-  %4289 = load i32, ptr %18, align 4
-  %4290 = add i32 %4289, 1
-  %4291 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %4285, ptr noundef %4286, i32 noundef %4287, i32 noundef 1, i32 noundef %4288, ptr noundef %11, ptr noundef @.str.279, i32 noundef %4290)
-  store ptr %4291, ptr %14, align 8
-  %4292 = load ptr, ptr %14, align 8
-  %4293 = load i32, ptr @hf_slsk_recommendation, align 4
-  %4294 = load ptr, ptr %5, align 8
-  %4295 = load i32, ptr %17, align 4
-  %4296 = call ptr @proto_tree_add_item_ret_length(ptr noundef %4292, i32 noundef %4293, ptr noundef %4294, i32 noundef %4295, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %4297 = load i32, ptr %23, align 4
-  %4298 = load i32, ptr %17, align 4
-  %4299 = add i32 %4298, %4297
-  store i32 %4299, ptr %17, align 4
-  %4300 = load ptr, ptr %14, align 8
-  %4301 = load i32, ptr @hf_slsk_ranking, align 4
-  %4302 = load ptr, ptr %5, align 8
-  %4303 = load i32, ptr %17, align 4
-  %4304 = call ptr @proto_tree_add_item(ptr noundef %4300, i32 noundef %4301, ptr noundef %4302, i32 noundef %4303, i32 noundef 4, i32 noundef -2147483648)
+  %4287 = load ptr, ptr %6, align 8
+  %4288 = load i32, ptr %17, align 4
+  %4289 = call zeroext i1 @check_slsk_format(ptr noundef %4286, ptr noundef %4287, i32 noundef %4288, ptr noundef @.str.216)
+  br i1 %4289, label %4290, label %4318
+
+4290:                                             ; preds = %4285
+  %4291 = load i32, ptr %17, align 4
+  store i32 %4291, ptr %24, align 4
+  %4292 = load ptr, ptr %13, align 8
+  %4293 = load ptr, ptr %5, align 8
+  %4294 = load i32, ptr %17, align 4
+  %4295 = load i32, ptr @ett_slsk_recommendation, align 4
+  %4296 = load i32, ptr %18, align 4
+  %4297 = add i32 %4296, 1
+  %4298 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %4292, ptr noundef %4293, i32 noundef %4294, i32 noundef 1, i32 noundef %4295, ptr noundef %11, ptr noundef @.str.283, i32 noundef %4297)
+  store ptr %4298, ptr %14, align 8
+  %4299 = load ptr, ptr %14, align 8
+  %4300 = load i32, ptr @hf_slsk_recommendation, align 4
+  %4301 = load ptr, ptr %5, align 8
+  %4302 = load i32, ptr %17, align 4
+  %4303 = call ptr @proto_tree_add_item_ret_length(ptr noundef %4299, i32 noundef %4300, ptr noundef %4301, i32 noundef %4302, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %4304 = load i32, ptr %23, align 4
   %4305 = load i32, ptr %17, align 4
-  %4306 = add i32 %4305, 4
+  %4306 = add i32 %4305, %4304
   store i32 %4306, ptr %17, align 4
-  %4307 = load ptr, ptr %11, align 8
-  %4308 = load i32, ptr %17, align 4
-  %4309 = load i32, ptr %24, align 4
-  %4310 = sub i32 %4308, %4309
-  call void @proto_item_set_len(ptr noundef %4307, i32 noundef %4310)
-  br label %4312
+  %4307 = load ptr, ptr %14, align 8
+  %4308 = load i32, ptr @hf_slsk_ranking, align 4
+  %4309 = load ptr, ptr %5, align 8
+  %4310 = load i32, ptr %17, align 4
+  %4311 = call ptr @proto_tree_add_item(ptr noundef %4307, i32 noundef %4308, ptr noundef %4309, i32 noundef %4310, i32 noundef 4, i32 noundef -2147483648)
+  %4312 = load i32, ptr %17, align 4
+  %4313 = add i32 %4312, 4
+  store i32 %4313, ptr %17, align 4
+  %4314 = load ptr, ptr %11, align 8
+  %4315 = load i32, ptr %17, align 4
+  %4316 = load i32, ptr %24, align 4
+  %4317 = sub i32 %4315, %4316
+  call void @proto_item_set_len(ptr noundef %4314, i32 noundef %4317)
+  br label %4319
 
-4311:                                             ; preds = %4278
-  br label %4316
+4318:                                             ; preds = %4285
+  br label %4323
 
-4312:                                             ; preds = %4283
-  br label %4313
+4319:                                             ; preds = %4290
+  br label %4320
 
-4313:                                             ; preds = %4312
-  %4314 = load i32, ptr %18, align 4
-  %4315 = add i32 %4314, 1
-  store i32 %4315, ptr %18, align 4
-  br label %4274, !llvm.loop !30
+4320:                                             ; preds = %4319
+  %4321 = load i32, ptr %18, align 4
+  %4322 = add i32 %4321, 1
+  store i32 %4322, ptr %18, align 4
+  br label %4281, !llvm.loop !34
 
-4316:                                             ; preds = %4311, %4274
-  br label %4317
+4323:                                             ; preds = %4318, %4281
+  br label %4324
 
-4317:                                             ; preds = %4316, %4237
-  br label %4318
+4324:                                             ; preds = %4323, %4244
+  br label %4325
 
-4318:                                             ; preds = %4317, %4219
-  br label %4619
+4325:                                             ; preds = %4324, %4226
+  br label %4626
 
-4319:                                             ; preds = %4
-  %4320 = load ptr, ptr %5, align 8
-  %4321 = load i32, ptr %17, align 4
-  %4322 = call i32 @check_slsk_format(ptr noundef %4320, i32 noundef %4321, ptr noundef @.str.202)
-  %4323 = icmp ne i32 %4322, 0
-  br i1 %4323, label %4324, label %4342
-
-4324:                                             ; preds = %4319
-  %4325 = load ptr, ptr %13, align 8
-  %4326 = load i32, ptr @hf_slsk_message_code, align 4
+4326:                                             ; preds = %4
   %4327 = load ptr, ptr %5, align 8
-  %4328 = load i32, ptr %17, align 4
-  %4329 = load i32, ptr %21, align 4
-  %4330 = load i32, ptr %21, align 4
-  %4331 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %4325, i32 noundef %4326, ptr noundef %4327, i32 noundef %4328, i32 noundef 4, i32 noundef %4329, ptr noundef @.str.326, i32 noundef %4330)
-  %4332 = load i32, ptr %17, align 4
-  %4333 = add i32 %4332, 4
-  store i32 %4333, ptr %17, align 4
-  %4334 = load ptr, ptr %13, align 8
-  %4335 = load i32, ptr @hf_slsk_recommendation, align 4
-  %4336 = load ptr, ptr %5, align 8
-  %4337 = load i32, ptr %17, align 4
-  %4338 = call ptr @proto_tree_add_item_ret_length(ptr noundef %4334, i32 noundef %4335, ptr noundef %4336, i32 noundef %4337, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %4339 = load i32, ptr %23, align 4
-  %4340 = load i32, ptr %17, align 4
-  %4341 = add i32 %4340, %4339
-  store i32 %4341, ptr %17, align 4
-  br label %4404
+  %4328 = load ptr, ptr %6, align 8
+  %4329 = load i32, ptr %17, align 4
+  %4330 = call zeroext i1 @check_slsk_format(ptr noundef %4327, ptr noundef %4328, i32 noundef %4329, ptr noundef @.str.206)
+  br i1 %4330, label %4331, label %4349
 
-4342:                                             ; preds = %4319
+4331:                                             ; preds = %4326
+  %4332 = load ptr, ptr %13, align 8
+  %4333 = load i32, ptr @hf_slsk_message_code, align 4
+  %4334 = load ptr, ptr %5, align 8
+  %4335 = load i32, ptr %17, align 4
+  %4336 = load i32, ptr %21, align 4
+  %4337 = load i32, ptr %21, align 4
+  %4338 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %4332, i32 noundef %4333, ptr noundef %4334, i32 noundef %4335, i32 noundef 4, i32 noundef %4336, ptr noundef @.str.330, i32 noundef %4337)
+  %4339 = load i32, ptr %17, align 4
+  %4340 = add i32 %4339, 4
+  store i32 %4340, ptr %17, align 4
+  %4341 = load ptr, ptr %13, align 8
+  %4342 = load i32, ptr @hf_slsk_recommendation, align 4
   %4343 = load ptr, ptr %5, align 8
   %4344 = load i32, ptr %17, align 4
-  %4345 = call i32 @check_slsk_format(ptr noundef %4343, i32 noundef %4344, ptr noundef @.str.227)
-  %4346 = icmp ne i32 %4345, 0
-  br i1 %4346, label %4347, label %4403
+  %4345 = call ptr @proto_tree_add_item_ret_length(ptr noundef %4341, i32 noundef %4342, ptr noundef %4343, i32 noundef %4344, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %4346 = load i32, ptr %23, align 4
+  %4347 = load i32, ptr %17, align 4
+  %4348 = add i32 %4347, %4346
+  store i32 %4348, ptr %17, align 4
+  br label %4411
 
-4347:                                             ; preds = %4342
-  %4348 = load ptr, ptr %13, align 8
-  %4349 = load i32, ptr @hf_slsk_message_code, align 4
+4349:                                             ; preds = %4326
   %4350 = load ptr, ptr %5, align 8
-  %4351 = load i32, ptr %17, align 4
-  %4352 = load i32, ptr %21, align 4
-  %4353 = load i32, ptr %21, align 4
-  %4354 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %4348, i32 noundef %4349, ptr noundef %4350, i32 noundef %4351, i32 noundef 4, i32 noundef %4352, ptr noundef @.str.327, i32 noundef %4353)
-  %4355 = load i32, ptr %17, align 4
-  %4356 = add i32 %4355, 4
-  store i32 %4356, ptr %17, align 4
-  %4357 = load ptr, ptr %13, align 8
-  %4358 = load i32, ptr @hf_slsk_recommendation, align 4
-  %4359 = load ptr, ptr %5, align 8
-  %4360 = load i32, ptr %17, align 4
-  %4361 = call ptr @proto_tree_add_item_ret_length(ptr noundef %4357, i32 noundef %4358, ptr noundef %4359, i32 noundef %4360, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %4362 = load i32, ptr %23, align 4
-  %4363 = load i32, ptr %17, align 4
-  %4364 = add i32 %4363, %4362
-  store i32 %4364, ptr %17, align 4
-  %4365 = load ptr, ptr %13, align 8
-  %4366 = load i32, ptr @hf_slsk_num_recommendations, align 4
-  %4367 = load ptr, ptr %5, align 8
-  %4368 = load i32, ptr %17, align 4
-  %4369 = call ptr @proto_tree_add_item_ret_int(ptr noundef %4365, i32 noundef %4366, ptr noundef %4367, i32 noundef %4368, i32 noundef 4, i32 noundef -2147483648, ptr noundef %19)
+  %4351 = load ptr, ptr %6, align 8
+  %4352 = load i32, ptr %17, align 4
+  %4353 = call zeroext i1 @check_slsk_format(ptr noundef %4350, ptr noundef %4351, i32 noundef %4352, ptr noundef @.str.231)
+  br i1 %4353, label %4354, label %4410
+
+4354:                                             ; preds = %4349
+  %4355 = load ptr, ptr %13, align 8
+  %4356 = load i32, ptr @hf_slsk_message_code, align 4
+  %4357 = load ptr, ptr %5, align 8
+  %4358 = load i32, ptr %17, align 4
+  %4359 = load i32, ptr %21, align 4
+  %4360 = load i32, ptr %21, align 4
+  %4361 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %4355, i32 noundef %4356, ptr noundef %4357, i32 noundef %4358, i32 noundef 4, i32 noundef %4359, ptr noundef @.str.331, i32 noundef %4360)
+  %4362 = load i32, ptr %17, align 4
+  %4363 = add i32 %4362, 4
+  store i32 %4363, ptr %17, align 4
+  %4364 = load ptr, ptr %13, align 8
+  %4365 = load i32, ptr @hf_slsk_recommendation, align 4
+  %4366 = load ptr, ptr %5, align 8
+  %4367 = load i32, ptr %17, align 4
+  %4368 = call ptr @proto_tree_add_item_ret_length(ptr noundef %4364, i32 noundef %4365, ptr noundef %4366, i32 noundef %4367, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %4369 = load i32, ptr %23, align 4
   %4370 = load i32, ptr %17, align 4
-  %4371 = add i32 %4370, 4
+  %4371 = add i32 %4370, %4369
   store i32 %4371, ptr %17, align 4
-  %4372 = load i32, ptr %19, align 4
-  %4373 = load ptr, ptr %5, align 8
-  %4374 = load i32, ptr %17, align 4
-  %4375 = call i32 @tvb_reported_length_remaining(ptr noundef %4373, i32 noundef %4374)
-  %4376 = icmp sgt i32 %4372, %4375
-  br i1 %4376, label %4377, label %4378
+  %4372 = load ptr, ptr %13, align 8
+  %4373 = load i32, ptr @hf_slsk_num_recommendations, align 4
+  %4374 = load ptr, ptr %5, align 8
+  %4375 = load i32, ptr %17, align 4
+  %4376 = call ptr @proto_tree_add_item_ret_int(ptr noundef %4372, i32 noundef %4373, ptr noundef %4374, i32 noundef %4375, i32 noundef 4, i32 noundef -2147483648, ptr noundef %19)
+  %4377 = load i32, ptr %17, align 4
+  %4378 = add i32 %4377, 4
+  store i32 %4378, ptr %17, align 4
+  %4379 = load i32, ptr %19, align 4
+  %4380 = load ptr, ptr %5, align 8
+  %4381 = load i32, ptr %17, align 4
+  %4382 = call i32 @tvb_reported_length_remaining(ptr noundef %4380, i32 noundef %4381)
+  %4383 = icmp sgt i32 %4379, %4382
+  br i1 %4383, label %4384, label %4385
 
-4377:                                             ; preds = %4347
-  br label %4619
+4384:                                             ; preds = %4354
+  br label %4626
 
-4378:                                             ; preds = %4347
+4385:                                             ; preds = %4354
   store i32 0, ptr %18, align 4
-  br label %4379
+  br label %4386
 
-4379:                                             ; preds = %4399, %4378
-  %4380 = load i32, ptr %18, align 4
-  %4381 = load i32, ptr %19, align 4
-  %4382 = icmp slt i32 %4380, %4381
-  br i1 %4382, label %4383, label %4402
+4386:                                             ; preds = %4406, %4385
+  %4387 = load i32, ptr %18, align 4
+  %4388 = load i32, ptr %19, align 4
+  %4389 = icmp slt i32 %4387, %4388
+  br i1 %4389, label %4390, label %4409
 
-4383:                                             ; preds = %4379
-  %4384 = load ptr, ptr %5, align 8
-  %4385 = load i32, ptr %17, align 4
-  %4386 = call i32 @check_slsk_format(ptr noundef %4384, i32 noundef %4385, ptr noundef @.str.229)
-  %4387 = icmp ne i32 %4386, 0
-  br i1 %4387, label %4388, label %4397
-
-4388:                                             ; preds = %4383
-  %4389 = load ptr, ptr %13, align 8
-  %4390 = load i32, ptr @hf_slsk_username, align 4
+4390:                                             ; preds = %4386
   %4391 = load ptr, ptr %5, align 8
-  %4392 = load i32, ptr %17, align 4
-  %4393 = call ptr @proto_tree_add_item_ret_length(ptr noundef %4389, i32 noundef %4390, ptr noundef %4391, i32 noundef %4392, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %4394 = load i32, ptr %23, align 4
-  %4395 = load i32, ptr %17, align 4
-  %4396 = add i32 %4395, %4394
-  store i32 %4396, ptr %17, align 4
-  br label %4398
+  %4392 = load ptr, ptr %6, align 8
+  %4393 = load i32, ptr %17, align 4
+  %4394 = call zeroext i1 @check_slsk_format(ptr noundef %4391, ptr noundef %4392, i32 noundef %4393, ptr noundef @.str.233)
+  br i1 %4394, label %4395, label %4404
 
-4397:                                             ; preds = %4383
-  br label %4402
+4395:                                             ; preds = %4390
+  %4396 = load ptr, ptr %13, align 8
+  %4397 = load i32, ptr @hf_slsk_username, align 4
+  %4398 = load ptr, ptr %5, align 8
+  %4399 = load i32, ptr %17, align 4
+  %4400 = call ptr @proto_tree_add_item_ret_length(ptr noundef %4396, i32 noundef %4397, ptr noundef %4398, i32 noundef %4399, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %4401 = load i32, ptr %23, align 4
+  %4402 = load i32, ptr %17, align 4
+  %4403 = add i32 %4402, %4401
+  store i32 %4403, ptr %17, align 4
+  br label %4405
 
-4398:                                             ; preds = %4388
-  br label %4399
+4404:                                             ; preds = %4390
+  br label %4409
 
-4399:                                             ; preds = %4398
-  %4400 = load i32, ptr %18, align 4
-  %4401 = add i32 %4400, 1
-  store i32 %4401, ptr %18, align 4
-  br label %4379, !llvm.loop !31
+4405:                                             ; preds = %4395
+  br label %4406
 
-4402:                                             ; preds = %4397, %4379
-  br label %4403
+4406:                                             ; preds = %4405
+  %4407 = load i32, ptr %18, align 4
+  %4408 = add i32 %4407, 1
+  store i32 %4408, ptr %18, align 4
+  br label %4386, !llvm.loop !35
 
-4403:                                             ; preds = %4402, %4342
-  br label %4404
+4409:                                             ; preds = %4404, %4386
+  br label %4410
 
-4404:                                             ; preds = %4403, %4324
-  br label %4619
+4410:                                             ; preds = %4409, %4349
+  br label %4411
 
-4405:                                             ; preds = %4
-  %4406 = load ptr, ptr %5, align 8
-  %4407 = load i32, ptr %17, align 4
-  %4408 = call i32 @check_slsk_format(ptr noundef %4406, i32 noundef %4407, ptr noundef @.str.248)
-  %4409 = icmp ne i32 %4408, 0
-  br i1 %4409, label %4410, label %4435
+4411:                                             ; preds = %4410, %4331
+  br label %4626
 
-4410:                                             ; preds = %4405
-  %4411 = load ptr, ptr %13, align 8
-  %4412 = load i32, ptr @hf_slsk_message_code, align 4
+4412:                                             ; preds = %4
   %4413 = load ptr, ptr %5, align 8
-  %4414 = load i32, ptr %17, align 4
-  %4415 = load i32, ptr %21, align 4
-  %4416 = load i32, ptr %21, align 4
-  %4417 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %4411, i32 noundef %4412, ptr noundef %4413, i32 noundef %4414, i32 noundef 4, i32 noundef %4415, ptr noundef @.str.328, i32 noundef %4416)
-  %4418 = load i32, ptr %17, align 4
-  %4419 = add i32 %4418, 4
-  store i32 %4419, ptr %17, align 4
-  %4420 = load ptr, ptr %13, align 8
-  %4421 = load i32, ptr @hf_slsk_token, align 4
-  %4422 = load ptr, ptr %5, align 8
-  %4423 = load i32, ptr %17, align 4
-  %4424 = call ptr @proto_tree_add_item(ptr noundef %4420, i32 noundef %4421, ptr noundef %4422, i32 noundef %4423, i32 noundef 4, i32 noundef -2147483648)
+  %4414 = load ptr, ptr %6, align 8
+  %4415 = load i32, ptr %17, align 4
+  %4416 = call zeroext i1 @check_slsk_format(ptr noundef %4413, ptr noundef %4414, i32 noundef %4415, ptr noundef @.str.252)
+  br i1 %4416, label %4417, label %4442
+
+4417:                                             ; preds = %4412
+  %4418 = load ptr, ptr %13, align 8
+  %4419 = load i32, ptr @hf_slsk_message_code, align 4
+  %4420 = load ptr, ptr %5, align 8
+  %4421 = load i32, ptr %17, align 4
+  %4422 = load i32, ptr %21, align 4
+  %4423 = load i32, ptr %21, align 4
+  %4424 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %4418, i32 noundef %4419, ptr noundef %4420, i32 noundef %4421, i32 noundef 4, i32 noundef %4422, ptr noundef @.str.332, i32 noundef %4423)
   %4425 = load i32, ptr %17, align 4
   %4426 = add i32 %4425, 4
   store i32 %4426, ptr %17, align 4
   %4427 = load ptr, ptr %13, align 8
-  %4428 = load i32, ptr @hf_slsk_username, align 4
+  %4428 = load i32, ptr @hf_slsk_token, align 4
   %4429 = load ptr, ptr %5, align 8
   %4430 = load i32, ptr %17, align 4
-  %4431 = call ptr @proto_tree_add_item_ret_length(ptr noundef %4427, i32 noundef %4428, ptr noundef %4429, i32 noundef %4430, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %4432 = load i32, ptr %23, align 4
-  %4433 = load i32, ptr %17, align 4
-  %4434 = add i32 %4433, %4432
-  store i32 %4434, ptr %17, align 4
-  br label %4458
-
-4435:                                             ; preds = %4405
+  %4431 = call ptr @proto_tree_add_item(ptr noundef %4427, i32 noundef %4428, ptr noundef %4429, i32 noundef %4430, i32 noundef 4, i32 noundef -2147483648)
+  %4432 = load i32, ptr %17, align 4
+  %4433 = add i32 %4432, 4
+  store i32 %4433, ptr %17, align 4
+  %4434 = load ptr, ptr %13, align 8
+  %4435 = load i32, ptr @hf_slsk_username, align 4
   %4436 = load ptr, ptr %5, align 8
   %4437 = load i32, ptr %17, align 4
-  %4438 = call i32 @check_slsk_format(ptr noundef %4436, i32 noundef %4437, ptr noundef @.str.198)
-  %4439 = icmp ne i32 %4438, 0
-  br i1 %4439, label %4440, label %4457
+  %4438 = call ptr @proto_tree_add_item_ret_length(ptr noundef %4434, i32 noundef %4435, ptr noundef %4436, i32 noundef %4437, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %4439 = load i32, ptr %23, align 4
+  %4440 = load i32, ptr %17, align 4
+  %4441 = add i32 %4440, %4439
+  store i32 %4441, ptr %17, align 4
+  br label %4465
 
-4440:                                             ; preds = %4435
-  %4441 = load ptr, ptr %13, align 8
-  %4442 = load i32, ptr @hf_slsk_message_code, align 4
+4442:                                             ; preds = %4412
   %4443 = load ptr, ptr %5, align 8
-  %4444 = load i32, ptr %17, align 4
-  %4445 = load i32, ptr %21, align 4
-  %4446 = load i32, ptr %21, align 4
-  %4447 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %4441, i32 noundef %4442, ptr noundef %4443, i32 noundef %4444, i32 noundef 4, i32 noundef %4445, ptr noundef @.str.328, i32 noundef %4446)
-  %4448 = load i32, ptr %17, align 4
-  %4449 = add i32 %4448, 4
-  store i32 %4449, ptr %17, align 4
-  %4450 = load ptr, ptr %13, align 8
-  %4451 = load i32, ptr @hf_slsk_token, align 4
-  %4452 = load ptr, ptr %5, align 8
-  %4453 = load i32, ptr %17, align 4
-  %4454 = call ptr @proto_tree_add_item(ptr noundef %4450, i32 noundef %4451, ptr noundef %4452, i32 noundef %4453, i32 noundef 4, i32 noundef -2147483648)
+  %4444 = load ptr, ptr %6, align 8
+  %4445 = load i32, ptr %17, align 4
+  %4446 = call zeroext i1 @check_slsk_format(ptr noundef %4443, ptr noundef %4444, i32 noundef %4445, ptr noundef @.str.202)
+  br i1 %4446, label %4447, label %4464
+
+4447:                                             ; preds = %4442
+  %4448 = load ptr, ptr %13, align 8
+  %4449 = load i32, ptr @hf_slsk_message_code, align 4
+  %4450 = load ptr, ptr %5, align 8
+  %4451 = load i32, ptr %17, align 4
+  %4452 = load i32, ptr %21, align 4
+  %4453 = load i32, ptr %21, align 4
+  %4454 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %4448, i32 noundef %4449, ptr noundef %4450, i32 noundef %4451, i32 noundef 4, i32 noundef %4452, ptr noundef @.str.332, i32 noundef %4453)
   %4455 = load i32, ptr %17, align 4
   %4456 = add i32 %4455, 4
   store i32 %4456, ptr %17, align 4
-  br label %4457
+  %4457 = load ptr, ptr %13, align 8
+  %4458 = load i32, ptr @hf_slsk_token, align 4
+  %4459 = load ptr, ptr %5, align 8
+  %4460 = load i32, ptr %17, align 4
+  %4461 = call ptr @proto_tree_add_item(ptr noundef %4457, i32 noundef %4458, ptr noundef %4459, i32 noundef %4460, i32 noundef 4, i32 noundef -2147483648)
+  %4462 = load i32, ptr %17, align 4
+  %4463 = add i32 %4462, 4
+  store i32 %4463, ptr %17, align 4
+  br label %4464
 
-4457:                                             ; preds = %4440, %4435
-  br label %4458
+4464:                                             ; preds = %4447, %4442
+  br label %4465
 
-4458:                                             ; preds = %4457, %4410
-  br label %4619
+4465:                                             ; preds = %4464, %4417
+  br label %4626
 
-4459:                                             ; preds = %4
-  %4460 = load ptr, ptr %5, align 8
-  %4461 = load i32, ptr %17, align 4
-  %4462 = call i32 @check_slsk_format(ptr noundef %4460, i32 noundef %4461, ptr noundef @.str.329)
-  %4463 = icmp ne i32 %4462, 0
-  br i1 %4463, label %4464, label %4510
+4466:                                             ; preds = %4
+  %4467 = load ptr, ptr %5, align 8
+  %4468 = load ptr, ptr %6, align 8
+  %4469 = load i32, ptr %17, align 4
+  %4470 = call zeroext i1 @check_slsk_format(ptr noundef %4467, ptr noundef %4468, i32 noundef %4469, ptr noundef @.str.333)
+  br i1 %4470, label %4471, label %4517
 
-4464:                                             ; preds = %4459
-  %4465 = load ptr, ptr %5, align 8
-  %4466 = load i32, ptr %17, align 4
-  %4467 = call zeroext i8 @tvb_get_guint8(ptr noundef %4465, i32 noundef %4466)
-  %4468 = zext i8 %4467 to i32
-  %4469 = icmp eq i32 %4468, 3
-  br i1 %4469, label %4470, label %4509
+4471:                                             ; preds = %4466
+  %4472 = load ptr, ptr %5, align 8
+  %4473 = load i32, ptr %17, align 4
+  %4474 = call zeroext i8 @tvb_get_uint8(ptr noundef %4472, i32 noundef %4473)
+  %4475 = zext i8 %4474 to i32
+  %4476 = icmp eq i32 %4475, 3
+  br i1 %4476, label %4477, label %4516
 
-4470:                                             ; preds = %4464
-  %4471 = load ptr, ptr %13, align 8
-  %4472 = load i32, ptr @hf_slsk_message_code, align 4
-  %4473 = load ptr, ptr %5, align 8
-  %4474 = load i32, ptr %17, align 4
-  %4475 = load i32, ptr %21, align 4
-  %4476 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %4471, i32 noundef %4472, ptr noundef %4473, i32 noundef %4474, i32 noundef 1, i32 noundef %4475, ptr noundef @.str.317, i32 noundef 3)
-  %4477 = load i32, ptr %17, align 4
-  %4478 = add i32 %4477, 1
-  store i32 %4478, ptr %17, align 4
-  %4479 = load ptr, ptr %13, align 8
-  %4480 = load i32, ptr @hf_slsk_integer, align 4
-  %4481 = load ptr, ptr %5, align 8
-  %4482 = load i32, ptr %17, align 4
-  %4483 = call ptr @proto_tree_add_item(ptr noundef %4479, i32 noundef %4480, ptr noundef %4481, i32 noundef %4482, i32 noundef 4, i32 noundef -2147483648)
+4477:                                             ; preds = %4471
+  %4478 = load ptr, ptr %13, align 8
+  %4479 = load i32, ptr @hf_slsk_message_code, align 4
+  %4480 = load ptr, ptr %5, align 8
+  %4481 = load i32, ptr %17, align 4
+  %4482 = load i32, ptr %21, align 4
+  %4483 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %4478, i32 noundef %4479, ptr noundef %4480, i32 noundef %4481, i32 noundef 1, i32 noundef %4482, ptr noundef @.str.321, i32 noundef 3)
   %4484 = load i32, ptr %17, align 4
-  %4485 = add i32 %4484, 4
+  %4485 = add i32 %4484, 1
   store i32 %4485, ptr %17, align 4
   %4486 = load ptr, ptr %13, align 8
-  %4487 = load i32, ptr @hf_slsk_username, align 4
+  %4487 = load i32, ptr @hf_slsk_integer, align 4
   %4488 = load ptr, ptr %5, align 8
   %4489 = load i32, ptr %17, align 4
-  %4490 = call ptr @proto_tree_add_item_ret_length(ptr noundef %4486, i32 noundef %4487, ptr noundef %4488, i32 noundef %4489, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %4491 = load i32, ptr %23, align 4
-  %4492 = load i32, ptr %17, align 4
-  %4493 = add i32 %4492, %4491
-  store i32 %4493, ptr %17, align 4
-  %4494 = load ptr, ptr %13, align 8
-  %4495 = load i32, ptr @hf_slsk_token, align 4
-  %4496 = load ptr, ptr %5, align 8
-  %4497 = load i32, ptr %17, align 4
-  %4498 = call ptr @proto_tree_add_item(ptr noundef %4494, i32 noundef %4495, ptr noundef %4496, i32 noundef %4497, i32 noundef 4, i32 noundef -2147483648)
+  %4490 = call ptr @proto_tree_add_item(ptr noundef %4486, i32 noundef %4487, ptr noundef %4488, i32 noundef %4489, i32 noundef 4, i32 noundef -2147483648)
+  %4491 = load i32, ptr %17, align 4
+  %4492 = add i32 %4491, 4
+  store i32 %4492, ptr %17, align 4
+  %4493 = load ptr, ptr %13, align 8
+  %4494 = load i32, ptr @hf_slsk_username, align 4
+  %4495 = load ptr, ptr %5, align 8
+  %4496 = load i32, ptr %17, align 4
+  %4497 = call ptr @proto_tree_add_item_ret_length(ptr noundef %4493, i32 noundef %4494, ptr noundef %4495, i32 noundef %4496, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %4498 = load i32, ptr %23, align 4
   %4499 = load i32, ptr %17, align 4
-  %4500 = add i32 %4499, 4
+  %4500 = add i32 %4499, %4498
   store i32 %4500, ptr %17, align 4
   %4501 = load ptr, ptr %13, align 8
-  %4502 = load i32, ptr @hf_slsk_search_text, align 4
+  %4502 = load i32, ptr @hf_slsk_token, align 4
   %4503 = load ptr, ptr %5, align 8
   %4504 = load i32, ptr %17, align 4
-  %4505 = call ptr @proto_tree_add_item_ret_length(ptr noundef %4501, i32 noundef %4502, ptr noundef %4503, i32 noundef %4504, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %4506 = load i32, ptr %23, align 4
-  %4507 = load i32, ptr %17, align 4
-  %4508 = add i32 %4507, %4506
-  store i32 %4508, ptr %17, align 4
-  br label %4509
+  %4505 = call ptr @proto_tree_add_item(ptr noundef %4501, i32 noundef %4502, ptr noundef %4503, i32 noundef %4504, i32 noundef 4, i32 noundef -2147483648)
+  %4506 = load i32, ptr %17, align 4
+  %4507 = add i32 %4506, 4
+  store i32 %4507, ptr %17, align 4
+  %4508 = load ptr, ptr %13, align 8
+  %4509 = load i32, ptr @hf_slsk_search_text, align 4
+  %4510 = load ptr, ptr %5, align 8
+  %4511 = load i32, ptr %17, align 4
+  %4512 = call ptr @proto_tree_add_item_ret_length(ptr noundef %4508, i32 noundef %4509, ptr noundef %4510, i32 noundef %4511, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %4513 = load i32, ptr %23, align 4
+  %4514 = load i32, ptr %17, align 4
+  %4515 = add i32 %4514, %4513
+  store i32 %4515, ptr %17, align 4
+  br label %4516
 
-4509:                                             ; preds = %4470, %4464
-  br label %4618
+4516:                                             ; preds = %4477, %4471
+  br label %4625
 
-4510:                                             ; preds = %4459
-  %4511 = load ptr, ptr %5, align 8
-  %4512 = load i32, ptr %17, align 4
-  %4513 = call i32 @check_slsk_format(ptr noundef %4511, i32 noundef %4512, ptr noundef @.str.330)
-  %4514 = icmp ne i32 %4513, 0
-  br i1 %4514, label %4515, label %4578
+4517:                                             ; preds = %4466
+  %4518 = load ptr, ptr %5, align 8
+  %4519 = load ptr, ptr %6, align 8
+  %4520 = load i32, ptr %17, align 4
+  %4521 = call zeroext i1 @check_slsk_format(ptr noundef %4518, ptr noundef %4519, i32 noundef %4520, ptr noundef @.str.334)
+  br i1 %4521, label %4522, label %4585
 
-4515:                                             ; preds = %4510
-  %4516 = load ptr, ptr %5, align 8
-  %4517 = load i32, ptr %17, align 4
-  %4518 = call zeroext i8 @tvb_get_guint8(ptr noundef %4516, i32 noundef %4517)
-  %4519 = zext i8 %4518 to i32
-  %4520 = icmp eq i32 %4519, 1
-  br i1 %4520, label %4521, label %4577
+4522:                                             ; preds = %4517
+  %4523 = load ptr, ptr %5, align 8
+  %4524 = load i32, ptr %17, align 4
+  %4525 = call zeroext i8 @tvb_get_uint8(ptr noundef %4523, i32 noundef %4524)
+  %4526 = zext i8 %4525 to i32
+  %4527 = icmp eq i32 %4526, 1
+  br i1 %4527, label %4528, label %4584
 
-4521:                                             ; preds = %4515
-  %4522 = load ptr, ptr %13, align 8
-  %4523 = load i32, ptr @hf_slsk_message_code, align 4
-  %4524 = load ptr, ptr %5, align 8
-  %4525 = load i32, ptr %17, align 4
-  %4526 = load i32, ptr %21, align 4
-  %4527 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %4522, i32 noundef %4523, ptr noundef %4524, i32 noundef %4525, i32 noundef 1, i32 noundef %4526, ptr noundef @.str.331, i32 noundef 1)
-  %4528 = load i32, ptr %17, align 4
-  %4529 = add i32 %4528, 1
-  store i32 %4529, ptr %17, align 4
-  %4530 = load ptr, ptr %13, align 8
-  %4531 = load i32, ptr @hf_slsk_username, align 4
-  %4532 = load ptr, ptr %5, align 8
-  %4533 = load i32, ptr %17, align 4
-  %4534 = call ptr @proto_tree_add_item_ret_length(ptr noundef %4530, i32 noundef %4531, ptr noundef %4532, i32 noundef %4533, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
-  %4535 = load i32, ptr %23, align 4
-  %4536 = load i32, ptr %17, align 4
-  %4537 = add i32 %4536, %4535
-  store i32 %4537, ptr %17, align 4
-  %4538 = load ptr, ptr %5, align 8
-  %4539 = load i32, ptr %17, align 4
-  %4540 = call i32 @tvb_get_letohl(ptr noundef %4538, i32 noundef %4539)
-  store i32 %4540, ptr %45, align 4
-  %4541 = load ptr, ptr %6, align 8
-  %4542 = getelementptr inbounds %struct._packet_info, ptr %4541, i32 0, i32 50
-  %4543 = load ptr, ptr %4542, align 8
-  %4544 = load ptr, ptr %5, align 8
-  %4545 = load i32, ptr %17, align 4
-  %4546 = add i32 %4545, 4
-  %4547 = load i32, ptr %45, align 4
-  %4548 = call ptr @tvb_get_string_enc(ptr noundef %4543, ptr noundef %4544, i32 noundef %4546, i32 noundef %4547, i32 noundef 0)
-  store ptr %4548, ptr %22, align 8
-  %4549 = load ptr, ptr %13, align 8
-  %4550 = load i32, ptr @hf_slsk_connection_type, align 4
+4528:                                             ; preds = %4522
+  call void @llvm.lifetime.start.p0(i64 4, ptr %45) #6
+  %4529 = load ptr, ptr %13, align 8
+  %4530 = load i32, ptr @hf_slsk_message_code, align 4
+  %4531 = load ptr, ptr %5, align 8
+  %4532 = load i32, ptr %17, align 4
+  %4533 = load i32, ptr %21, align 4
+  %4534 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %4529, i32 noundef %4530, ptr noundef %4531, i32 noundef %4532, i32 noundef 1, i32 noundef %4533, ptr noundef @.str.335, i32 noundef 1)
+  %4535 = load i32, ptr %17, align 4
+  %4536 = add i32 %4535, 1
+  store i32 %4536, ptr %17, align 4
+  %4537 = load ptr, ptr %13, align 8
+  %4538 = load i32, ptr @hf_slsk_username, align 4
+  %4539 = load ptr, ptr %5, align 8
+  %4540 = load i32, ptr %17, align 4
+  %4541 = call ptr @proto_tree_add_item_ret_length(ptr noundef %4537, i32 noundef %4538, ptr noundef %4539, i32 noundef %4540, i32 noundef 4, i32 noundef -2147483648, ptr noundef %23)
+  %4542 = load i32, ptr %23, align 4
+  %4543 = load i32, ptr %17, align 4
+  %4544 = add i32 %4543, %4542
+  store i32 %4544, ptr %17, align 4
+  %4545 = load ptr, ptr %5, align 8
+  %4546 = load i32, ptr %17, align 4
+  %4547 = call i32 @tvb_get_letohl(ptr noundef %4545, i32 noundef %4546)
+  store i32 %4547, ptr %45, align 4
+  %4548 = load ptr, ptr %6, align 8
+  %4549 = getelementptr inbounds nuw %struct._packet_info, ptr %4548, i32 0, i32 51
+  %4550 = load ptr, ptr %4549, align 8
   %4551 = load ptr, ptr %5, align 8
   %4552 = load i32, ptr %17, align 4
-  %4553 = load i32, ptr %45, align 4
-  %4554 = add i32 4, %4553
-  %4555 = load ptr, ptr %22, align 8
-  %4556 = load ptr, ptr %22, align 8
-  %4557 = call ptr @connection_type(ptr noundef %4556)
-  %4558 = load ptr, ptr %6, align 8
-  %4559 = getelementptr inbounds %struct._packet_info, ptr %4558, i32 0, i32 50
-  %4560 = load ptr, ptr %4559, align 8
-  %4561 = load ptr, ptr %22, align 8
-  %4562 = load i32, ptr %45, align 4
-  %4563 = zext i32 %4562 to i64
-  %4564 = call ptr @format_text(ptr noundef %4560, ptr noundef %4561, i64 noundef %4563)
-  %4565 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %4549, i32 noundef %4550, ptr noundef %4551, i32 noundef %4552, i32 noundef %4554, ptr noundef %4555, ptr noundef @.str.242, ptr noundef %4557, ptr noundef %4564)
-  %4566 = load i32, ptr %45, align 4
-  %4567 = add i32 4, %4566
-  %4568 = load i32, ptr %17, align 4
-  %4569 = add i32 %4568, %4567
-  store i32 %4569, ptr %17, align 4
-  %4570 = load ptr, ptr %13, align 8
-  %4571 = load i32, ptr @hf_slsk_token, align 4
-  %4572 = load ptr, ptr %5, align 8
-  %4573 = load i32, ptr %17, align 4
-  %4574 = call ptr @proto_tree_add_item(ptr noundef %4570, i32 noundef %4571, ptr noundef %4572, i32 noundef %4573, i32 noundef 4, i32 noundef -2147483648)
+  %4553 = add i32 %4552, 4
+  %4554 = load i32, ptr %45, align 4
+  %4555 = call ptr @tvb_get_string_enc(ptr noundef %4550, ptr noundef %4551, i32 noundef %4553, i32 noundef %4554, i32 noundef 0)
+  store ptr %4555, ptr %22, align 8
+  %4556 = load ptr, ptr %13, align 8
+  %4557 = load i32, ptr @hf_slsk_connection_type, align 4
+  %4558 = load ptr, ptr %5, align 8
+  %4559 = load i32, ptr %17, align 4
+  %4560 = load i32, ptr %45, align 4
+  %4561 = add i32 4, %4560
+  %4562 = load ptr, ptr %22, align 8
+  %4563 = load ptr, ptr %22, align 8
+  %4564 = call ptr @connection_type(ptr noundef %4563)
+  %4565 = load ptr, ptr %6, align 8
+  %4566 = getelementptr inbounds nuw %struct._packet_info, ptr %4565, i32 0, i32 51
+  %4567 = load ptr, ptr %4566, align 8
+  %4568 = load ptr, ptr %22, align 8
+  %4569 = load i32, ptr %45, align 4
+  %4570 = zext i32 %4569 to i64
+  %4571 = call ptr @format_text(ptr noundef %4567, ptr noundef %4568, i64 noundef %4570)
+  %4572 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %4556, i32 noundef %4557, ptr noundef %4558, i32 noundef %4559, i32 noundef %4561, ptr noundef %4562, ptr noundef @.str.246, ptr noundef %4564, ptr noundef %4571)
+  %4573 = load i32, ptr %45, align 4
+  %4574 = add i32 4, %4573
   %4575 = load i32, ptr %17, align 4
-  %4576 = add i32 %4575, 4
+  %4576 = add i32 %4575, %4574
   store i32 %4576, ptr %17, align 4
-  br label %4577
-
-4577:                                             ; preds = %4521, %4515
-  br label %4617
-
-4578:                                             ; preds = %4510
+  %4577 = load ptr, ptr %13, align 8
+  %4578 = load i32, ptr @hf_slsk_token, align 4
   %4579 = load ptr, ptr %5, align 8
   %4580 = load i32, ptr %17, align 4
-  %4581 = call i32 @check_slsk_format(ptr noundef %4579, i32 noundef %4580, ptr noundef @.str.332)
-  %4582 = icmp ne i32 %4581, 0
-  br i1 %4582, label %4583, label %4606
+  %4581 = call ptr @proto_tree_add_item(ptr noundef %4577, i32 noundef %4578, ptr noundef %4579, i32 noundef %4580, i32 noundef 4, i32 noundef -2147483648)
+  %4582 = load i32, ptr %17, align 4
+  %4583 = add i32 %4582, 4
+  store i32 %4583, ptr %17, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %45) #6
+  br label %4584
 
-4583:                                             ; preds = %4578
-  %4584 = load ptr, ptr %5, align 8
-  %4585 = load i32, ptr %17, align 4
-  %4586 = call zeroext i8 @tvb_get_guint8(ptr noundef %4584, i32 noundef %4585)
-  %4587 = zext i8 %4586 to i32
-  %4588 = icmp eq i32 %4587, 0
-  br i1 %4588, label %4589, label %4605
+4584:                                             ; preds = %4528, %4522
+  br label %4624
 
-4589:                                             ; preds = %4583
-  %4590 = load ptr, ptr %13, align 8
-  %4591 = load i32, ptr @hf_slsk_message_code, align 4
-  %4592 = load ptr, ptr %5, align 8
-  %4593 = load i32, ptr %17, align 4
-  %4594 = load i32, ptr %21, align 4
-  %4595 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %4590, i32 noundef %4591, ptr noundef %4592, i32 noundef %4593, i32 noundef 1, i32 noundef %4594, ptr noundef @.str.333, i32 noundef 0)
-  %4596 = load i32, ptr %17, align 4
-  %4597 = add i32 %4596, 1
-  store i32 %4597, ptr %17, align 4
-  %4598 = load ptr, ptr %13, align 8
-  %4599 = load i32, ptr @hf_slsk_token, align 4
-  %4600 = load ptr, ptr %5, align 8
-  %4601 = load i32, ptr %17, align 4
-  %4602 = call ptr @proto_tree_add_item(ptr noundef %4598, i32 noundef %4599, ptr noundef %4600, i32 noundef %4601, i32 noundef 4, i32 noundef -2147483648)
+4585:                                             ; preds = %4517
+  %4586 = load ptr, ptr %5, align 8
+  %4587 = load ptr, ptr %6, align 8
+  %4588 = load i32, ptr %17, align 4
+  %4589 = call zeroext i1 @check_slsk_format(ptr noundef %4586, ptr noundef %4587, i32 noundef %4588, ptr noundef @.str.336)
+  br i1 %4589, label %4590, label %4613
+
+4590:                                             ; preds = %4585
+  %4591 = load ptr, ptr %5, align 8
+  %4592 = load i32, ptr %17, align 4
+  %4593 = call zeroext i8 @tvb_get_uint8(ptr noundef %4591, i32 noundef %4592)
+  %4594 = zext i8 %4593 to i32
+  %4595 = icmp eq i32 %4594, 0
+  br i1 %4595, label %4596, label %4612
+
+4596:                                             ; preds = %4590
+  %4597 = load ptr, ptr %13, align 8
+  %4598 = load i32, ptr @hf_slsk_message_code, align 4
+  %4599 = load ptr, ptr %5, align 8
+  %4600 = load i32, ptr %17, align 4
+  %4601 = load i32, ptr %21, align 4
+  %4602 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %4597, i32 noundef %4598, ptr noundef %4599, i32 noundef %4600, i32 noundef 1, i32 noundef %4601, ptr noundef @.str.337, i32 noundef 0)
   %4603 = load i32, ptr %17, align 4
-  %4604 = add i32 %4603, 4
+  %4604 = add i32 %4603, 1
   store i32 %4604, ptr %17, align 4
-  br label %4605
-
-4605:                                             ; preds = %4589, %4583
-  br label %4616
-
-4606:                                             ; preds = %4578
-  %4607 = load ptr, ptr %13, align 8
-  %4608 = load i32, ptr @hf_slsk_message_code, align 4
-  %4609 = load ptr, ptr %5, align 8
+  %4605 = load ptr, ptr %13, align 8
+  %4606 = load i32, ptr @hf_slsk_token, align 4
+  %4607 = load ptr, ptr %5, align 8
+  %4608 = load i32, ptr %17, align 4
+  %4609 = call ptr @proto_tree_add_item(ptr noundef %4605, i32 noundef %4606, ptr noundef %4607, i32 noundef %4608, i32 noundef 4, i32 noundef -2147483648)
   %4610 = load i32, ptr %17, align 4
-  %4611 = load i32, ptr %21, align 4
-  %4612 = load i32, ptr %21, align 4
-  %4613 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %4607, i32 noundef %4608, ptr noundef %4609, i32 noundef %4610, i32 noundef 4, i32 noundef %4611, ptr noundef @.str.334, i32 noundef %4612)
-  %4614 = load i32, ptr %17, align 4
-  %4615 = add i32 %4614, 4
-  store i32 %4615, ptr %17, align 4
-  br label %4616
+  %4611 = add i32 %4610, 4
+  store i32 %4611, ptr %17, align 4
+  br label %4612
 
-4616:                                             ; preds = %4606, %4605
-  br label %4617
+4612:                                             ; preds = %4596, %4590
+  br label %4623
 
-4617:                                             ; preds = %4616, %4577
-  br label %4618
+4613:                                             ; preds = %4585
+  %4614 = load ptr, ptr %13, align 8
+  %4615 = load i32, ptr @hf_slsk_message_code, align 4
+  %4616 = load ptr, ptr %5, align 8
+  %4617 = load i32, ptr %17, align 4
+  %4618 = load i32, ptr %21, align 4
+  %4619 = load i32, ptr %21, align 4
+  %4620 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %4614, i32 noundef %4615, ptr noundef %4616, i32 noundef %4617, i32 noundef 4, i32 noundef %4618, ptr noundef @.str.338, i32 noundef %4619)
+  %4621 = load i32, ptr %17, align 4
+  %4622 = add i32 %4621, 4
+  store i32 %4622, ptr %17, align 4
+  br label %4623
 
-4618:                                             ; preds = %4617, %4509
-  br label %4619
+4623:                                             ; preds = %4613, %4612
+  br label %4624
 
-4619:                                             ; preds = %4618, %4458, %4404, %4377, %4318, %4272, %4213, %4167, %4124, %4101, %4070, %4030, %4002, %3979, %3918, %3879, %3855, %3832, %3809, %3786, %3763, %3740, %3717, %3694, %3671, %3644, %3601, %3541, %3507, %3429, %3350, %3299, %3275, %3175, %3093, %3050, %3026, %3002, %2964, %2926, %2890, %2851, %2792, %2746, %2703, %2687, %2641, %2598, %2574, %2550, %2463, %2439, %2408, %2384, %2360, %2283, %2191, %1922, %1808, %1778, %1747, %1731, %1708, %1677, %1654, %1576, %1436, %1404, %1250, %1210, %1176, %1098, %1055, %1012, %953, %881, %629, %574, %265, %249, %187, %164
-  %4620 = load i32, ptr %17, align 4
-  %4621 = load i32, ptr %20, align 4
-  %4622 = icmp slt i32 %4620, %4621
-  br i1 %4622, label %4623, label %4627
+4624:                                             ; preds = %4623, %4584
+  br label %4625
 
-4623:                                             ; preds = %4619
-  %4624 = load ptr, ptr %6, align 8
-  %4625 = load ptr, ptr %10, align 8
-  %4626 = call ptr @expert_add_info(ptr noundef %4624, ptr noundef %4625, ptr noundef @ei_slsk_unknown_data)
-  br label %4627
+4625:                                             ; preds = %4624, %4516
+  br label %4626
 
-4627:                                             ; preds = %4623, %4619
-  %4628 = load ptr, ptr %5, align 8
-  %4629 = call i32 @tvb_captured_length(ptr noundef %4628)
-  ret i32 %4629
+4626:                                             ; preds = %4625, %4465, %4411, %4384, %4325, %4279, %4220, %4174, %4131, %4108, %4077, %4037, %4009, %3986, %3925, %3886, %3862, %3839, %3816, %3793, %3770, %3747, %3724, %3701, %3678, %3651, %3608, %3548, %3514, %3436, %3357, %3306, %3282, %3182, %3100, %3057, %3033, %3009, %2971, %2933, %2897, %2858, %2799, %2753, %2710, %2694, %2648, %2605, %2581, %2557, %2470, %2446, %2415, %2391, %2367, %2290, %2198, %1927, %1813, %1783, %1752, %1736, %1713, %1682, %1659, %1581, %1441, %1409, %1255, %1215, %1181, %1103, %1060, %1017, %958, %886, %632, %577, %266, %250, %188, %165
+  %4627 = load i32, ptr %17, align 4
+  %4628 = load i32, ptr %20, align 4
+  %4629 = icmp slt i32 %4627, %4628
+  br i1 %4629, label %4630, label %4634
+
+4630:                                             ; preds = %4626
+  %4631 = load ptr, ptr %6, align 8
+  %4632 = load ptr, ptr %10, align 8
+  %4633 = call ptr @expert_add_info(ptr noundef %4631, ptr noundef %4632, ptr noundef @ei_slsk_unknown_data)
+  br label %4634
+
+4634:                                             ; preds = %4630, %4626
+  %4635 = load ptr, ptr %5, align 8
+  %4636 = call i32 @tvb_captured_length(ptr noundef %4635)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %32) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %31) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %30) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %29) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %28) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %27) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
+  ret i32 %4636
 }
 
-declare i32 @tvb_captured_length(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length(ptr noundef) #2
 
-declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) #2
 
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #2
 
-; Function Attrs: nounwind uwtable
-define internal ptr @get_message_type(ptr noundef %0) #0 {
-  %2 = alloca ptr, align 8
-  %3 = alloca i32, align 4
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal ptr @get_message_type(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %5 = load ptr, ptr %2, align 8
-  %6 = call i32 @tvb_get_letohl(ptr noundef %5, i32 noundef 4)
-  store i32 %6, ptr %3, align 4
-  %7 = load i32, ptr %3, align 4
-  %8 = call ptr @try_val_to_str(i32 noundef %7, ptr noundef @slsk_tcp_msgs)
-  store ptr %8, ptr %4, align 8
-  %9 = load ptr, ptr %4, align 8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %11, label %30
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #6
+  %7 = load ptr, ptr %3, align 8
+  %8 = call i32 @tvb_get_letohl(ptr noundef %7, i32 noundef 4)
+  store i32 %8, ptr %5, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
+  %9 = load i32, ptr %5, align 4
+  %10 = call ptr @try_val_to_str(i32 noundef %9, ptr noundef @slsk_tcp_msgs)
+  store ptr %10, ptr %6, align 8
+  %11 = load ptr, ptr %6, align 8
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %13, label %32
 
-11:                                               ; preds = %1
-  %12 = load ptr, ptr %2, align 8
-  %13 = call i32 @check_slsk_format(ptr noundef %12, i32 noundef 4, ptr noundef @.str.329)
-  %14 = icmp ne i32 %13, 0
-  br i1 %14, label %15, label %16
-
-15:                                               ; preds = %11
-  store ptr @.str.335, ptr %4, align 8
-  br label %29
-
-16:                                               ; preds = %11
-  %17 = load ptr, ptr %2, align 8
-  %18 = call i32 @check_slsk_format(ptr noundef %17, i32 noundef 4, ptr noundef @.str.330)
-  %19 = icmp ne i32 %18, 0
-  br i1 %19, label %20, label %21
-
-20:                                               ; preds = %16
-  store ptr @.str.336, ptr %4, align 8
-  br label %28
-
-21:                                               ; preds = %16
-  %22 = load ptr, ptr %2, align 8
-  %23 = call i32 @check_slsk_format(ptr noundef %22, i32 noundef 4, ptr noundef @.str.332)
-  %24 = icmp ne i32 %23, 0
-  br i1 %24, label %25, label %26
-
-25:                                               ; preds = %21
-  store ptr @.str.337, ptr %4, align 8
-  br label %27
-
-26:                                               ; preds = %21
-  store ptr @.str.182, ptr %4, align 8
-  br label %27
-
-27:                                               ; preds = %26, %25
-  br label %28
-
-28:                                               ; preds = %27, %20
-  br label %29
-
-29:                                               ; preds = %28, %15
-  br label %30
-
-30:                                               ; preds = %29, %1
-  %31 = load ptr, ptr %4, align 8
-  ret ptr %31
-}
-
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
-
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
-
-declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal i32 @check_slsk_format(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
-  %4 = alloca i32, align 4
-  %5 = alloca ptr, align 8
-  %6 = alloca i32, align 4
-  %7 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store ptr %2, ptr %7, align 8
-  %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr i8, ptr %8, i64 0
-  %10 = load i8, ptr %9, align 1
-  %11 = sext i8 %10 to i32
-  switch i32 %11, label %54 [
-    i32 105, label %12
-    i32 98, label %21
-    i32 115, label %30
-    i32 42, label %53
-  ]
-
-12:                                               ; preds = %3
-  %13 = load ptr, ptr %5, align 8
-  %14 = load i32, ptr %6, align 4
-  %15 = call i32 @tvb_captured_length_remaining(ptr noundef %13, i32 noundef %14)
-  %16 = icmp slt i32 %15, 4
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %3, align 8
+  %15 = load ptr, ptr %4, align 8
+  %16 = call zeroext i1 @check_slsk_format(ptr noundef %14, ptr noundef %15, i32 noundef 4, ptr noundef @.str.333)
   br i1 %16, label %17, label %18
 
-17:                                               ; preds = %12
-  store i32 0, ptr %4, align 4
-  br label %74
+17:                                               ; preds = %13
+  store ptr @.str.339, ptr %6, align 8
+  br label %31
 
-18:                                               ; preds = %12
-  %19 = load i32, ptr %6, align 4
-  %20 = add i32 %19, 4
-  store i32 %20, ptr %6, align 4
-  br label %55
+18:                                               ; preds = %13
+  %19 = load ptr, ptr %3, align 8
+  %20 = load ptr, ptr %4, align 8
+  %21 = call zeroext i1 @check_slsk_format(ptr noundef %19, ptr noundef %20, i32 noundef 4, ptr noundef @.str.334)
+  br i1 %21, label %22, label %23
 
-21:                                               ; preds = %3
-  %22 = load ptr, ptr %5, align 8
-  %23 = load i32, ptr %6, align 4
-  %24 = call i32 @tvb_captured_length_remaining(ptr noundef %22, i32 noundef %23)
-  %25 = icmp slt i32 %24, 1
-  br i1 %25, label %26, label %27
+22:                                               ; preds = %18
+  store ptr @.str.340, ptr %6, align 8
+  br label %30
 
-26:                                               ; preds = %21
-  store i32 0, ptr %4, align 4
-  br label %74
+23:                                               ; preds = %18
+  %24 = load ptr, ptr %3, align 8
+  %25 = load ptr, ptr %4, align 8
+  %26 = call zeroext i1 @check_slsk_format(ptr noundef %24, ptr noundef %25, i32 noundef 4, ptr noundef @.str.336)
+  br i1 %26, label %27, label %28
 
-27:                                               ; preds = %21
-  %28 = load i32, ptr %6, align 4
-  %29 = add i32 %28, 1
-  store i32 %29, ptr %6, align 4
-  br label %55
+27:                                               ; preds = %23
+  store ptr @.str.341, ptr %6, align 8
+  br label %29
 
-30:                                               ; preds = %3
-  %31 = load ptr, ptr %5, align 8
-  %32 = load i32, ptr %6, align 4
-  %33 = call i32 @tvb_captured_length_remaining(ptr noundef %31, i32 noundef %32)
-  %34 = icmp slt i32 %33, 4
-  br i1 %34, label %35, label %36
+28:                                               ; preds = %23
+  store ptr @.str.183, ptr %6, align 8
+  br label %29
 
-35:                                               ; preds = %30
-  store i32 0, ptr %4, align 4
-  br label %74
+29:                                               ; preds = %28, %27
+  br label %30
 
-36:                                               ; preds = %30
-  %37 = load ptr, ptr %5, align 8
-  %38 = load i32, ptr %6, align 4
-  %39 = call i32 @tvb_captured_length_remaining(ptr noundef %37, i32 noundef %38)
-  %40 = load ptr, ptr %5, align 8
-  %41 = load i32, ptr %6, align 4
-  %42 = call i32 @tvb_get_letohl(ptr noundef %40, i32 noundef %41)
-  %43 = add i32 %42, 4
-  %44 = icmp slt i32 %39, %43
-  br i1 %44, label %45, label %46
+30:                                               ; preds = %29, %22
+  br label %31
 
-45:                                               ; preds = %36
-  store i32 0, ptr %4, align 4
-  br label %74
+31:                                               ; preds = %30, %17
+  br label %32
 
-46:                                               ; preds = %36
-  %47 = load ptr, ptr %5, align 8
-  %48 = load i32, ptr %6, align 4
-  %49 = call i32 @tvb_get_letohl(ptr noundef %47, i32 noundef %48)
-  %50 = add i32 %49, 4
-  %51 = load i32, ptr %6, align 4
-  %52 = add i32 %51, %50
-  store i32 %52, ptr %6, align 4
-  br label %55
-
-53:                                               ; preds = %3
-  store i32 1, ptr %4, align 4
-  br label %74
-
-54:                                               ; preds = %3
-  store i32 0, ptr %4, align 4
-  br label %74
-
-55:                                               ; preds = %46, %27, %18
-  %56 = load ptr, ptr %7, align 8
-  %57 = getelementptr i8, ptr %56, i64 1
-  %58 = load i8, ptr %57, align 1
-  %59 = sext i8 %58 to i32
-  %60 = icmp eq i32 %59, 0
-  br i1 %60, label %61, label %68
-
-61:                                               ; preds = %55
-  %62 = load ptr, ptr %5, align 8
-  %63 = load i32, ptr %6, align 4
-  %64 = call i32 @tvb_captured_length_remaining(ptr noundef %62, i32 noundef %63)
-  %65 = icmp sgt i32 %64, 0
-  br i1 %65, label %66, label %67
-
-66:                                               ; preds = %61
-  store i32 0, ptr %4, align 4
-  br label %74
-
-67:                                               ; preds = %61
-  store i32 1, ptr %4, align 4
-  br label %74
-
-68:                                               ; preds = %55
-  %69 = load ptr, ptr %5, align 8
-  %70 = load i32, ptr %6, align 4
-  %71 = load ptr, ptr %7, align 8
-  %72 = getelementptr i8, ptr %71, i64 1
-  %73 = call i32 @check_slsk_format(ptr noundef %69, i32 noundef %70, ptr noundef %72)
-  store i32 %73, ptr %4, align 4
-  br label %74
-
-74:                                               ; preds = %68, %67, %66, %54, %53, %45, %35, %26, %17
-  %75 = load i32, ptr %4, align 4
-  ret i32 %75
+32:                                               ; preds = %31, %2
+  %33 = load ptr, ptr %6, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #6
+  ret ptr %33
 }
 
-declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_item_ret_length(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #2
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #2
 
-declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @check_slsk_format(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i1, align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca i8, align 1
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store i32 %2, ptr %8, align 4
+  store ptr %3, ptr %9, align 8
+  %11 = load ptr, ptr %9, align 8
+  %12 = getelementptr i8, ptr %11, i64 0
+  %13 = load i8, ptr %12, align 1
+  %14 = sext i8 %13 to i32
+  switch i32 %14, label %57 [
+    i32 105, label %15
+    i32 98, label %24
+    i32 115, label %33
+    i32 42, label %56
+  ]
 
-declare ptr @tvb_child_uncompress(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+15:                                               ; preds = %4
+  %16 = load ptr, ptr %6, align 8
+  %17 = load i32, ptr %8, align 4
+  %18 = call i32 @tvb_captured_length_remaining(ptr noundef %16, i32 noundef %17)
+  %19 = icmp slt i32 %18, 4
+  br i1 %19, label %20, label %21
 
-declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+20:                                               ; preds = %15
+  store i1 false, ptr %5, align 1
+  br label %83
 
-; Function Attrs: nounwind uwtable
-define internal void @proto_item_set_generated(ptr noundef %0) #0 {
+21:                                               ; preds = %15
+  %22 = load i32, ptr %8, align 4
+  %23 = add i32 %22, 4
+  store i32 %23, ptr %8, align 4
+  br label %58
+
+24:                                               ; preds = %4
+  %25 = load ptr, ptr %6, align 8
+  %26 = load i32, ptr %8, align 4
+  %27 = call i32 @tvb_captured_length_remaining(ptr noundef %25, i32 noundef %26)
+  %28 = icmp slt i32 %27, 1
+  br i1 %28, label %29, label %30
+
+29:                                               ; preds = %24
+  store i1 false, ptr %5, align 1
+  br label %83
+
+30:                                               ; preds = %24
+  %31 = load i32, ptr %8, align 4
+  %32 = add i32 %31, 1
+  store i32 %32, ptr %8, align 4
+  br label %58
+
+33:                                               ; preds = %4
+  %34 = load ptr, ptr %6, align 8
+  %35 = load i32, ptr %8, align 4
+  %36 = call i32 @tvb_captured_length_remaining(ptr noundef %34, i32 noundef %35)
+  %37 = icmp slt i32 %36, 4
+  br i1 %37, label %38, label %39
+
+38:                                               ; preds = %33
+  store i1 false, ptr %5, align 1
+  br label %83
+
+39:                                               ; preds = %33
+  %40 = load ptr, ptr %6, align 8
+  %41 = load i32, ptr %8, align 4
+  %42 = call i32 @tvb_captured_length_remaining(ptr noundef %40, i32 noundef %41)
+  %43 = load ptr, ptr %6, align 8
+  %44 = load i32, ptr %8, align 4
+  %45 = call i32 @tvb_get_letohl(ptr noundef %43, i32 noundef %44)
+  %46 = add i32 %45, 4
+  %47 = icmp slt i32 %42, %46
+  br i1 %47, label %48, label %49
+
+48:                                               ; preds = %39
+  store i1 false, ptr %5, align 1
+  br label %83
+
+49:                                               ; preds = %39
+  %50 = load ptr, ptr %6, align 8
+  %51 = load i32, ptr %8, align 4
+  %52 = call i32 @tvb_get_letohl(ptr noundef %50, i32 noundef %51)
+  %53 = add i32 %52, 4
+  %54 = load i32, ptr %8, align 4
+  %55 = add i32 %54, %53
+  store i32 %55, ptr %8, align 4
+  br label %58
+
+56:                                               ; preds = %4
+  store i1 true, ptr %5, align 1
+  br label %83
+
+57:                                               ; preds = %4
+  store i1 false, ptr %5, align 1
+  br label %83
+
+58:                                               ; preds = %49, %30, %21
+  %59 = load ptr, ptr %9, align 8
+  %60 = getelementptr i8, ptr %59, i64 1
+  %61 = load i8, ptr %60, align 1
+  %62 = sext i8 %61 to i32
+  %63 = icmp eq i32 %62, 0
+  br i1 %63, label %64, label %71
+
+64:                                               ; preds = %58
+  %65 = load ptr, ptr %6, align 8
+  %66 = load i32, ptr %8, align 4
+  %67 = call i32 @tvb_captured_length_remaining(ptr noundef %65, i32 noundef %66)
+  %68 = icmp sgt i32 %67, 0
+  br i1 %68, label %69, label %70
+
+69:                                               ; preds = %64
+  store i1 false, ptr %5, align 1
+  br label %83
+
+70:                                               ; preds = %64
+  store i1 true, ptr %5, align 1
+  br label %83
+
+71:                                               ; preds = %58
+  %72 = load ptr, ptr %7, align 8
+  call void @increment_dissection_depth(ptr noundef %72)
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #6
+  %73 = load ptr, ptr %6, align 8
+  %74 = load ptr, ptr %7, align 8
+  %75 = load i32, ptr %8, align 4
+  %76 = load ptr, ptr %9, align 8
+  %77 = getelementptr i8, ptr %76, i64 1
+  %78 = call zeroext i1 @check_slsk_format(ptr noundef %73, ptr noundef %74, i32 noundef %75, ptr noundef %77)
+  %79 = zext i1 %78 to i8
+  store i8 %79, ptr %10, align 1
+  %80 = load ptr, ptr %7, align 8
+  call void @decrement_dissection_depth(ptr noundef %80)
+  %81 = load i8, ptr %10, align 1, !range !6, !noundef !7
+  %82 = trunc i8 %81 to i1
+  store i1 %82, ptr %5, align 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #6
+  br label %83
+
+83:                                               ; preds = %71, %70, %69, %57, %56, %48, %38, %29, %20
+  %84 = load i1, ptr %5, align 1
+  ret i1 %84
+}
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) #2
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item_ret_length(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #2
+
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_child_uncompress_zlib(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
+
+; Function Attrs: inlinehint nounwind null_pointer_is_valid sspstrong uwtable
+define internal void @proto_item_set_generated(ptr noundef %0) #3 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -7219,22 +7353,22 @@ define internal void @proto_item_set_generated(ptr noundef %0) #0 {
 
 6:                                                ; preds = %5
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct._proto_node, ptr %7, i32 0, i32 4
+  %8 = getelementptr inbounds nuw %struct._proto_node, ptr %7, i32 0, i32 5
   %9 = load ptr, ptr %8, align 8
   %10 = icmp ne ptr %9, null
   br i1 %10, label %11, label %22
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct._proto_node, ptr %12, i32 0, i32 4
+  %13 = getelementptr inbounds nuw %struct._proto_node, ptr %12, i32 0, i32 5
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds %struct.field_info, ptr %14, i32 0, i32 6
+  %15 = getelementptr inbounds nuw %struct.field_info, ptr %14, i32 0, i32 6
   %16 = load i32, ptr %15, align 4
   %17 = or i32 %16, 2
   %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds %struct._proto_node, ptr %18, i32 0, i32 4
+  %19 = getelementptr inbounds nuw %struct._proto_node, ptr %18, i32 0, i32 5
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds %struct.field_info, ptr %20, i32 0, i32 6
+  %21 = getelementptr inbounds nuw %struct.field_info, ptr %20, i32 0, i32 6
   store i32 %17, ptr %21, align 4
   br label %22
 
@@ -7248,36 +7382,45 @@ define internal void @proto_item_set_generated(ptr noundef %0) #0 {
   ret void
 }
 
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #2
 
-declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @proto_tree_add_item_ret_int(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item_ret_int(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #2
 
-declare void @proto_item_set_len(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_set_len(ptr noundef, i32 noundef) #2
 
-declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_string_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_string_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #2
 
-; Function Attrs: nounwind uwtable
-define internal ptr @connection_type(ptr noundef %0) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal ptr @connection_type(ptr noundef %0) #4 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = call i64 @strlen(ptr noundef %4) #3
+  %5 = call i64 @strlen(ptr noundef %4) #7
   %6 = icmp ne i64 %5, 1
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %1
-  store ptr @.str.182, ptr %2, align 8
+  store ptr @.str.183, ptr %2, align 8
   br label %30
 
 8:                                                ; preds = %1
@@ -7289,7 +7432,7 @@ define internal ptr @connection_type(ptr noundef %0) #0 {
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %8
-  store ptr @.str.335, ptr %2, align 8
+  store ptr @.str.339, ptr %2, align 8
   br label %30
 
 15:                                               ; preds = %8
@@ -7301,7 +7444,7 @@ define internal ptr @connection_type(ptr noundef %0) #0 {
   br i1 %20, label %21, label %22
 
 21:                                               ; preds = %15
-  store ptr @.str.398, ptr %2, align 8
+  store ptr @.str.403, ptr %2, align 8
   br label %30
 
 22:                                               ; preds = %15
@@ -7313,11 +7456,11 @@ define internal ptr @connection_type(ptr noundef %0) #0 {
   br i1 %27, label %28, label %29
 
 28:                                               ; preds = %22
-  store ptr @.str.399, ptr %2, align 8
+  store ptr @.str.404, ptr %2, align 8
   br label %30
 
 29:                                               ; preds = %22
-  store ptr @.str.182, ptr %2, align 8
+  store ptr @.str.183, ptr %2, align 8
   br label %30
 
 30:                                               ; preds = %29, %28, %21, %14, %7
@@ -7325,49 +7468,65 @@ define internal ptr @connection_type(ptr noundef %0) #0 {
   ret ptr %31
 }
 
-declare ptr @format_text(ptr noundef, ptr noundef, i64 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @format_text(ptr noundef, ptr noundef, i64 noundef) #2
 
-declare ptr @try_val_to_str(i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @try_val_to_str(i32 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare void @increment_dissection_depth(ptr noundef) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(read) }
+; Function Attrs: null_pointer_is_valid
+declare void @decrement_dissection_depth(ptr noundef) #2
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+; Function Attrs: nounwind null_pointer_is_valid willreturn memory(read)
+declare i64 @strlen(ptr noundef) #5
+
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind null_pointer_is_valid willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind }
+attributes #7 = { nounwind willreturn memory(read) }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}
+!18 = distinct !{!18, !9}
+!19 = distinct !{!19, !9}
+!20 = distinct !{!20, !9}
+!21 = distinct !{!21, !9}
+!22 = distinct !{!22, !9}
+!23 = distinct !{!23, !9}
+!24 = distinct !{!24, !9}
+!25 = distinct !{!25, !9}
+!26 = distinct !{!26, !9}
+!27 = distinct !{!27, !9}
+!28 = distinct !{!28, !9}
+!29 = distinct !{!29, !9}
+!30 = distinct !{!30, !9}
+!31 = distinct !{!31, !9}
+!32 = distinct !{!32, !9}
+!33 = distinct !{!33, !9}
+!34 = distinct !{!34, !9}
+!35 = distinct !{!35, !9}

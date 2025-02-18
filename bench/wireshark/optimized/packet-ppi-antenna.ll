@@ -5,8 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
 
 @proto_register_ppi_antenna.hf = internal global [34 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_ppi_antenna_version, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 4, i32 1, ptr null, i64 0, ptr @.str.2, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_antenna_pad, %struct._header_field_info { ptr @.str.3, ptr @.str.4, i32 4, i32 1, ptr null, i64 0, ptr @.str.5, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_antenna_length, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 5, i32 1, ptr null, i64 0, ptr @.str.8, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_antenna_flags, %struct._header_field_info { ptr @.str.9, ptr @.str.10, i32 7, i32 2, ptr null, i64 0, ptr @.str.11, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_antenna_present, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 7, i32 2, ptr null, i64 0, ptr @.str.14, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_antenna_present_flags, %struct._header_field_info { ptr @.str.15, ptr @.str.16, i32 2, i32 32, ptr null, i64 1, ptr @.str.17, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_antenna_present_gaindb, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 2, i32 32, ptr null, i64 2, ptr @.str.20, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_antenna_present_horizbw, %struct._header_field_info { ptr @.str.21, ptr @.str.22, i32 2, i32 32, ptr null, i64 4, ptr @.str.23, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_antenna_present_vertbw, %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 2, i32 32, ptr null, i64 8, ptr @.str.26, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_antenna_present_pgain, %struct._header_field_info { ptr @.str.27, ptr @.str.28, i32 2, i32 32, ptr null, i64 16, ptr @.str.29, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_antenna_present_beamid, %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 2, i32 32, ptr null, i64 32, ptr @.str.32, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_antenna_present_serialnum, %struct._header_field_info { ptr @.str.33, ptr @.str.34, i32 2, i32 32, ptr null, i64 67108864, ptr @.str.35, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_antenna_present_modelname, %struct._header_field_info { ptr @.str.36, ptr @.str.37, i32 2, i32 32, ptr null, i64 134217728, ptr @.str.38, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_antenna_present_descstr, %struct._header_field_info { ptr @.str.39, ptr @.str.40, i32 2, i32 32, ptr null, i64 268435456, ptr @.str.41, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_antenna_present_appspecific_num, %struct._header_field_info { ptr @.str.42, ptr @.str.43, i32 2, i32 32, ptr null, i64 536870912, ptr @.str.44, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_antenna_present_appspecific_data, %struct._header_field_info { ptr @.str.45, ptr @.str.46, i32 2, i32 32, ptr null, i64 1073741824, ptr @.str.47, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_antenna_present_ext, %struct._header_field_info { ptr @.str.48, ptr @.str.49, i32 2, i32 32, ptr null, i64 2147483648, ptr @.str.50, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_antennaflags_mimo, %struct._header_field_info { ptr @.str.51, ptr @.str.52, i32 2, i32 32, ptr null, i64 1, ptr @.str.53, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_antennaflags_horizpol, %struct._header_field_info { ptr @.str.54, ptr @.str.55, i32 2, i32 32, ptr null, i64 2, ptr @.str.56, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_antennaflags_vertpol, %struct._header_field_info { ptr @.str.57, ptr @.str.58, i32 2, i32 32, ptr null, i64 4, ptr @.str.59, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_antennaflags_circpol_l, %struct._header_field_info { ptr @.str.60, ptr @.str.61, i32 2, i32 32, ptr null, i64 8, ptr @.str.62, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_antennaflags_circpol_r, %struct._header_field_info { ptr @.str.63, ptr @.str.64, i32 2, i32 32, ptr null, i64 16, ptr @.str.65, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_antennaflags_steer_elec, %struct._header_field_info { ptr @.str.66, ptr @.str.67, i32 2, i32 32, ptr null, i64 65536, ptr @.str.68, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_antennaflags_steer_mech, %struct._header_field_info { ptr @.str.69, ptr @.str.70, i32 2, i32 32, ptr null, i64 131072, ptr @.str.71, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_antenna_gaindb, %struct._header_field_info { ptr @.str.72, ptr @.str.73, i32 4, i32 1, ptr null, i64 0, ptr @.str.74, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_antenna_horizbw, %struct._header_field_info { ptr @.str.75, ptr @.str.76, i32 23, i32 0, ptr null, i64 0, ptr @.str.77, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_antenna_vertbw, %struct._header_field_info { ptr @.str.78, ptr @.str.79, i32 23, i32 0, ptr null, i64 0, ptr @.str.80, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_antenna_pgain, %struct._header_field_info { ptr @.str.81, ptr @.str.82, i32 23, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_antenna_beamid, %struct._header_field_info { ptr @.str.83, ptr @.str.84, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_antenna_serialnum, %struct._header_field_info { ptr @.str.85, ptr @.str.86, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_antenna_modelname, %struct._header_field_info { ptr @.str.87, ptr @.str.88, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_antenna_descstr, %struct._header_field_info { ptr @.str.39, ptr @.str.89, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_antenna_appspecific_num, %struct._header_field_info { ptr @.str.90, ptr @.str.91, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ppi_antenna_appspecific_data, %struct._header_field_info { ptr @.str.92, ptr @.str.93, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
@@ -142,7 +140,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_ppi_antenna = internal global i32 0, align 4
 @ett_ppi_antenna_present = internal global i32 0, align 4
 @ett_ppi_antennaflags = internal global i32 0, align 4
-@proto_register_ppi_antenna.ei = internal global [3 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_ppi_antenna_present_bit, %struct.expert_field_info { ptr @.str.94, i32 150994944, i32 6291456, ptr @.str.95, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_ppi_antenna_version, %struct.expert_field_info { ptr @.str.96, i32 150994944, i32 6291456, ptr @.str.97, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_ppi_antenna_length, %struct.expert_field_info { ptr @.str.98, i32 117440512, i32 8388608, ptr @.str.99, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_ppi_antenna.ei = internal global [3 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_ppi_antenna_present_bit, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.94, i32 150994944, i32 6291456, ptr @.str.95, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_ppi_antenna_version, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.96, i32 150994944, i32 6291456, ptr @.str.97, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_ppi_antenna_length, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.98, i32 117440512, i32 8388608, ptr @.str.99, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_ppi_antenna_present_bit = internal global %struct.expert_field zeroinitializer, align 4
 @.str.94 = private unnamed_addr constant [32 x i8] c"ppi_antenna.present.unknown_bit\00", align 1
 @.str.95 = private unnamed_addr constant [54 x i8] c"Error: PPI-ANTENNA: unknown bit set in present field.\00", align 1
@@ -168,60 +166,66 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.110 = private unnamed_addr constant [6 x i8] c" (%s)\00", align 1
 @.str.111 = private unnamed_addr constant [59 x i8] c"Error: PPI-ANTENNA: unknown bit (%d) set in present field.\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_ppi_antenna() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.101, ptr noundef nonnull @.str.102) #2
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.101, ptr noundef nonnull @.str.102)
   store i32 %1, ptr @proto_ppi_antenna, align 4
-  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_ppi_antenna.hf, i32 noundef 34) #2
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_ppi_antenna.ett, i32 noundef 3) #2
+  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_ppi_antenna.hf, i32 noundef 34)
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_ppi_antenna.ett, i32 noundef 3)
   %2 = load i32, ptr @proto_ppi_antenna, align 4
-  %3 = tail call ptr @expert_register_protocol(i32 noundef %2) #2
-  tail call void @expert_register_field_array(ptr noundef %3, ptr noundef nonnull @proto_register_ppi_antenna.ei, i32 noundef 3) #2
+  %3 = tail call ptr @expert_register_protocol(i32 noundef %2)
+  tail call void @expert_register_field_array(ptr noundef %3, ptr noundef nonnull @proto_register_ppi_antenna.ei, i32 noundef 3)
   %4 = load i32, ptr @proto_ppi_antenna, align 4
-  %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.102, ptr noundef nonnull @dissect_ppi_antenna, i32 noundef %4) #2
+  %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.102, ptr noundef nonnull @dissect_ppi_antenna, i32 noundef %4)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ppi_antenna(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
-  tail call void @col_clear(ptr noundef %6, i32 noundef 25) #2
-  %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #2
+  tail call void @col_clear(ptr noundef %6, i32 noundef 25)
+  %7 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %8 = zext i8 %7 to i32
-  %9 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 2) #2
+  %9 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 2)
   %10 = zext i16 %9 to i32
-  %11 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 4) #2
+  %11 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 4)
   %12 = load ptr, ptr %5, align 8
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %12, i32 noundef 25, ptr noundef nonnull @.str.103, i32 noundef %8, i32 noundef %10) #2
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %12, i32 noundef 25, ptr noundef nonnull @.str.103, i32 noundef %8, i32 noundef %10)
   %13 = load i32, ptr @proto_ppi_antenna, align 4
-  %14 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef 0, i32 noundef %10, ptr noundef nonnull @.str.104) #2
+  %14 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef 0, i32 noundef %10, ptr noundef nonnull @.str.104)
   %15 = load i32, ptr @ett_ppi_antenna, align 4
-  %16 = tail call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %15) #2
+  %16 = tail call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %15)
   %17 = load i32, ptr @hf_ppi_antenna_version, align 4
-  %18 = tail call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %17, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %8) #2
+  %18 = tail call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %17, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %8)
   %19 = load i32, ptr @hf_ppi_antenna_pad, align 4
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %19, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #2
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %19, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648)
   %21 = load i32, ptr @hf_ppi_antenna_length, align 4
-  %22 = tail call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %21, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef %10) #2
+  %22 = tail call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %21, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef %10)
   %23 = add i8 %7, -1
   %or.cond = icmp ult i8 %23, 2
   br i1 %or.cond, label %26, label %24
 
 24:                                               ; preds = %4
-  %25 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %18, ptr noundef nonnull @ei_ppi_antenna_version, ptr noundef nonnull @.str.105, i32 noundef %8) #2
+  %25 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_ppi_antenna_version, ptr noundef nonnull @.str.105, i32 noundef %8)
   br label %26
 
 26:                                               ; preds = %24, %4
@@ -229,7 +233,7 @@ define internal i32 @dissect_ppi_antenna(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %26
-  %29 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %22, ptr noundef nonnull @ei_ppi_antenna_length, ptr noundef nonnull @.str.106) #2
+  %29 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %22, ptr noundef nonnull @ei_ppi_antenna_length, ptr noundef nonnull @.str.106)
   br label %201
 
 30:                                               ; preds = %26
@@ -237,13 +241,13 @@ define internal i32 @dissect_ppi_antenna(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %30
-  %33 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %22, ptr noundef nonnull @ei_ppi_antenna_length, ptr noundef nonnull @.str.107, i32 noundef %10, i32 noundef 187) #2
+  %33 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %22, ptr noundef nonnull @ei_ppi_antenna_length, ptr noundef nonnull @.str.107, i32 noundef %10, i32 noundef 187)
   br label %201
 
 34:                                               ; preds = %30
   %35 = load i32, ptr @hf_ppi_antenna_present, align 4
   %36 = load i32, ptr @ett_ppi_antenna_present, align 4
-  %37 = tail call ptr @proto_tree_add_bitmask(ptr noundef %16, ptr noundef %0, i32 noundef 4, i32 noundef %35, i32 noundef %36, ptr noundef nonnull @dissect_ppi_antenna.ppi_antenna_present_flags, i32 noundef -2147483648) #2
+  %37 = tail call ptr @proto_tree_add_bitmask(ptr noundef %16, ptr noundef %0, i32 noundef 4, i32 noundef %35, i32 noundef %36, ptr noundef nonnull @dissect_ppi_antenna.ppi_antenna_present_flags, i32 noundef -2147483648)
   %.not280 = icmp eq i32 %11, 0
   br i1 %.not280, label %._crit_edge, label %.lr.ph
 
@@ -419,7 +423,7 @@ define internal i32 @dissect_ppi_antenna(ptr noundef %0, ptr noundef %1, ptr nou
 103:                                              ; preds = %101
   %104 = load i32, ptr @hf_ppi_antenna_flags, align 4
   %105 = load i32, ptr @ett_ppi_antennaflags, align 4
-  %106 = tail call ptr @proto_tree_add_bitmask(ptr noundef %16, ptr noundef %0, i32 noundef %.0283, i32 noundef %104, i32 noundef %105, ptr noundef nonnull @dissect_ppi_antenna.ppi_antenna_ant_flags, i32 noundef -2147483648) #2
+  %106 = tail call ptr @proto_tree_add_bitmask(ptr noundef %16, ptr noundef %0, i32 noundef %.0283, i32 noundef %104, i32 noundef %105, ptr noundef nonnull @dissect_ppi_antenna.ppi_antenna_ant_flags, i32 noundef -2147483648)
   %107 = add i32 %.0283, 4
   %108 = add nsw i32 %.0223282, -4
   br label %199
@@ -429,14 +433,14 @@ define internal i32 @dissect_ppi_antenna(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %110, label %199, label %111
 
 111:                                              ; preds = %109
-  %112 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0283) #2
+  %112 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0283)
   br i1 %.not277, label %117, label %113
 
 113:                                              ; preds = %111
   %114 = load i32, ptr @hf_ppi_antenna_gaindb, align 4
   %115 = zext i8 %112 to i32
-  %116 = tail call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %114, ptr noundef %0, i32 noundef %.0283, i32 noundef 1, i32 noundef %115) #2
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.108, i32 noundef %115) #2
+  %116 = tail call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %114, ptr noundef %0, i32 noundef %.0283, i32 noundef 1, i32 noundef %115)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.108, i32 noundef %115)
   br label %117
 
 117:                                              ; preds = %113, %111
@@ -448,14 +452,14 @@ define internal i32 @dissect_ppi_antenna(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %96, label %199, label %120
 
 120:                                              ; preds = %.thread
-  %121 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0283) #2
-  %122 = tail call double @ppi_fixed3_6_to_gdouble(i32 noundef %121) #2
+  %121 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0283)
+  %122 = tail call double @ppi_fixed3_6_to_double(i32 noundef %121)
   br i1 %.not277, label %126, label %123
 
 123:                                              ; preds = %120
   %124 = load i32, ptr @hf_ppi_antenna_horizbw, align 4
-  %125 = tail call ptr @proto_tree_add_double(ptr noundef %16, i32 noundef %124, ptr noundef %0, i32 noundef %.0283, i32 noundef 4, double noundef %122) #2
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.109, double noundef %122) #2
+  %125 = tail call ptr @proto_tree_add_double(ptr noundef %16, i32 noundef %124, ptr noundef %0, i32 noundef %.0283, i32 noundef 4, double noundef %122)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.109, double noundef %122)
   br label %126
 
 126:                                              ; preds = %123, %120
@@ -467,10 +471,10 @@ define internal i32 @dissect_ppi_antenna(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %96, label %199, label %129
 
 129:                                              ; preds = %.thread279
-  %130 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0283) #2
-  %131 = tail call double @ppi_fixed3_6_to_gdouble(i32 noundef %130) #2
+  %130 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0283)
+  %131 = tail call double @ppi_fixed3_6_to_double(i32 noundef %130)
   %132 = load i32, ptr @hf_ppi_antenna_vertbw, align 4
-  %133 = tail call ptr @proto_tree_add_double(ptr noundef %16, i32 noundef %132, ptr noundef %0, i32 noundef %.0283, i32 noundef 4, double noundef %131) #2
+  %133 = tail call ptr @proto_tree_add_double(ptr noundef %16, i32 noundef %132, ptr noundef %0, i32 noundef %.0283, i32 noundef 4, double noundef %131)
   %134 = add i32 %.0283, 4
   %135 = add nsw i32 %.0223282, -4
   br label %199
@@ -480,10 +484,10 @@ define internal i32 @dissect_ppi_antenna(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %137, label %199, label %138
 
 138:                                              ; preds = %136
-  %139 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0283) #2
-  %140 = tail call double @ppi_fixed3_6_to_gdouble(i32 noundef %139) #2
+  %139 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0283)
+  %140 = tail call double @ppi_fixed3_6_to_double(i32 noundef %139)
   %141 = load i32, ptr @hf_ppi_antenna_pgain, align 4
-  %142 = tail call ptr @proto_tree_add_double(ptr noundef %16, i32 noundef %141, ptr noundef %0, i32 noundef %.0283, i32 noundef 4, double noundef %140) #2
+  %142 = tail call ptr @proto_tree_add_double(ptr noundef %16, i32 noundef %141, ptr noundef %0, i32 noundef %.0283, i32 noundef 4, double noundef %140)
   %143 = add i32 %.0283, 4
   %144 = add nsw i32 %.0223282, -4
   br label %199
@@ -493,10 +497,10 @@ define internal i32 @dissect_ppi_antenna(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %146, label %199, label %147
 
 147:                                              ; preds = %145
-  %148 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.0283) #2
+  %148 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.0283)
   %149 = load i32, ptr @hf_ppi_antenna_beamid, align 4
   %150 = zext i16 %148 to i32
-  %151 = tail call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %149, ptr noundef %0, i32 noundef %.0283, i32 noundef 2, i32 noundef %150) #2
+  %151 = tail call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %149, ptr noundef %0, i32 noundef %.0283, i32 noundef 2, i32 noundef %150)
   %152 = add i32 %.0283, 2
   %153 = add nsw i32 %.0223282, -2
   br label %199
@@ -507,7 +511,7 @@ define internal i32 @dissect_ppi_antenna(ptr noundef %0, ptr noundef %1, ptr nou
 
 156:                                              ; preds = %154
   %157 = load i32, ptr @hf_ppi_antenna_serialnum, align 4
-  %158 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %157, ptr noundef %0, i32 noundef %.0283, i32 noundef 32, i32 noundef 0) #2
+  %158 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %157, ptr noundef %0, i32 noundef %.0283, i32 noundef 32, i32 noundef 0)
   %159 = add i32 %.0283, 32
   %160 = add nsw i32 %.0223282, -32
   br label %199
@@ -521,10 +525,10 @@ define internal i32 @dissect_ppi_antenna(ptr noundef %0, ptr noundef %1, ptr nou
 
 164:                                              ; preds = %163
   %165 = load ptr, ptr %39, align 8
-  %166 = tail call ptr @tvb_format_stringzpad(ptr noundef %165, ptr noundef %0, i32 noundef %.0283, i32 noundef 32) #2
+  %166 = tail call ptr @tvb_format_stringzpad(ptr noundef %165, ptr noundef %0, i32 noundef %.0283, i32 noundef 32)
   %167 = load i32, ptr @hf_ppi_antenna_modelname, align 4
-  %168 = tail call ptr @proto_tree_add_string(ptr noundef %16, i32 noundef %167, ptr noundef %0, i32 noundef %.0283, i32 noundef 32, ptr noundef %166) #2
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.110, ptr noundef %166) #2
+  %168 = tail call ptr @proto_tree_add_string(ptr noundef %16, i32 noundef %167, ptr noundef %0, i32 noundef %.0283, i32 noundef 32, ptr noundef %166)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.110, ptr noundef %166)
   br label %169
 
 169:                                              ; preds = %164, %163
@@ -541,10 +545,10 @@ define internal i32 @dissect_ppi_antenna(ptr noundef %0, ptr noundef %1, ptr nou
 
 175:                                              ; preds = %174
   %176 = load ptr, ptr %39, align 8
-  %177 = tail call ptr @tvb_format_stringzpad(ptr noundef %176, ptr noundef %0, i32 noundef %.0283, i32 noundef 32) #2
+  %177 = tail call ptr @tvb_format_stringzpad(ptr noundef %176, ptr noundef %0, i32 noundef %.0283, i32 noundef 32)
   %178 = load i32, ptr @hf_ppi_antenna_descstr, align 4
-  %179 = tail call ptr @proto_tree_add_string(ptr noundef %16, i32 noundef %178, ptr noundef %0, i32 noundef %.0283, i32 noundef 32, ptr noundef %177) #2
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.110, ptr noundef %177) #2
+  %179 = tail call ptr @proto_tree_add_string(ptr noundef %16, i32 noundef %178, ptr noundef %0, i32 noundef %.0283, i32 noundef 32, ptr noundef %177)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.110, ptr noundef %177)
   br label %180
 
 180:                                              ; preds = %175, %174
@@ -557,9 +561,9 @@ define internal i32 @dissect_ppi_antenna(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %184, label %199, label %185
 
 185:                                              ; preds = %183
-  %186 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0283) #2
+  %186 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0283)
   %187 = load i32, ptr @hf_ppi_antenna_appspecific_num, align 4
-  %188 = tail call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %187, ptr noundef %0, i32 noundef %.0283, i32 noundef 4, i32 noundef %186) #2
+  %188 = tail call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %187, ptr noundef %0, i32 noundef %.0283, i32 noundef 4, i32 noundef %186)
   %189 = add i32 %.0283, 4
   %190 = add nsw i32 %.0223282, -4
   br label %199
@@ -570,23 +574,23 @@ define internal i32 @dissect_ppi_antenna(ptr noundef %0, ptr noundef %1, ptr nou
 
 193:                                              ; preds = %191
   %194 = load i32, ptr @hf_ppi_antenna_appspecific_data, align 4
-  %195 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %194, ptr noundef %0, i32 noundef %.0283, i32 noundef 60, i32 noundef 0) #2
+  %195 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %194, ptr noundef %0, i32 noundef %.0283, i32 noundef 60, i32 noundef 0)
   %196 = add i32 %.0283, 60
   %197 = add nsw i32 %.0223282, -60
   br label %199
 
 .thread284:                                       ; preds = %99
-  %198 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %37, ptr noundef nonnull @ei_ppi_antenna_present_bit, ptr noundef nonnull @.str.111, i32 noundef %100) #2
+  %198 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %37, ptr noundef nonnull @ei_ppi_antenna_present_bit, ptr noundef nonnull @.str.111, i32 noundef %100)
   br label %._crit_edge
 
 199:                                              ; preds = %103, %117, %126, %129, %138, %147, %156, %169, %180, %185, %193, %101, %109, %.thread, %.thread279, %136, %145, %154, %161, %172, %183, %191
   %.1224 = phi i32 [ %.0223282, %191 ], [ %197, %193 ], [ %.0223282, %183 ], [ %190, %185 ], [ %.0223282, %172 ], [ %182, %180 ], [ %.0223282, %161 ], [ %171, %169 ], [ %.0223282, %154 ], [ %160, %156 ], [ %.0223282, %145 ], [ %153, %147 ], [ %.0223282, %136 ], [ %144, %138 ], [ %.0223282, %.thread279 ], [ %135, %129 ], [ %.0223282, %.thread ], [ %128, %126 ], [ 0, %109 ], [ %119, %117 ], [ %.0223282, %101 ], [ %108, %103 ]
   %.1 = phi i32 [ %.0283, %191 ], [ %196, %193 ], [ %.0283, %183 ], [ %189, %185 ], [ %.0283, %172 ], [ %181, %180 ], [ %.0283, %161 ], [ %170, %169 ], [ %.0283, %154 ], [ %159, %156 ], [ %.0283, %145 ], [ %152, %147 ], [ %.0283, %136 ], [ %143, %138 ], [ %.0283, %.thread279 ], [ %134, %129 ], [ %.0283, %.thread ], [ %127, %126 ], [ %.0283, %109 ], [ %118, %117 ], [ %.0283, %101 ], [ %107, %103 ]
   %.not = icmp eq i32 %42, 0
-  br i1 %.not, label %._crit_edge, label %40, !llvm.loop !4
+  br i1 %.not, label %._crit_edge, label %40, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %199, %.thread284, %34
-  %200 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
+  %200 = tail call i32 @tvb_captured_length(ptr noundef %0)
   br label %201
 
 201:                                              ; preds = %._crit_edge, %32, %28
@@ -594,49 +598,67 @@ define internal i32 @dissect_ppi_antenna(ptr noundef %0, ptr noundef %1, ptr nou
   ret i32 %.0222
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_protocol_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare double @ppi_fixed3_6_to_gdouble(i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare double @ppi_fixed3_6_to_double(i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_double(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, double noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_format_stringzpad(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}

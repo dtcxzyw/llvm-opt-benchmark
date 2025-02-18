@@ -3,11 +3,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
@@ -19,7 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_auth_msg_code = internal global i32 0, align 4
 @.str.2 = private unnamed_addr constant [13 x i8] c"Message Code\00", align 1
 @.str.3 = private unnamed_addr constant [12 x i8] c"fcsp.opcode\00", align 1
-@fcauth_msgcode_vals = internal constant [13 x %struct._value_string] [%struct._value_string { i32 10, ptr @.str.60 }, %struct._value_string { i32 11, ptr @.str.61 }, %struct._value_string { i32 12, ptr @.str.62 }, %struct._value_string { i32 16, ptr @.str.63 }, %struct._value_string { i32 17, ptr @.str.64 }, %struct._value_string { i32 18, ptr @.str.65 }, %struct._value_string { i32 19, ptr @.str.66 }, %struct._value_string { i32 20, ptr @.str.67 }, %struct._value_string { i32 21, ptr @.str.68 }, %struct._value_string { i32 22, ptr @.str.69 }, %struct._value_string { i32 23, ptr @.str.70 }, %struct._value_string { i32 24, ptr @.str.71 }, %struct._value_string zeroinitializer], align 16
 @hf_auth_flags = internal global i32 0, align 4
 @.str.4 = private unnamed_addr constant [6 x i8] c"Flags\00", align 1
 @.str.5 = private unnamed_addr constant [11 x i8] c"fcsp.flags\00", align 1
@@ -38,7 +34,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_auth_initiator_name_type = internal global i32 0, align 4
 @.str.14 = private unnamed_addr constant [20 x i8] c"Initiator Name Type\00", align 1
 @.str.15 = private unnamed_addr constant [18 x i8] c"fcsp.initnametype\00", align 1
-@fcauth_name_type_vals = internal constant [2 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.72 }, %struct._value_string zeroinitializer], align 16
 @hf_auth_initiator_name_len = internal global i32 0, align 4
 @.str.16 = private unnamed_addr constant [22 x i8] c"Initiator Name Length\00", align 1
 @.str.17 = private unnamed_addr constant [17 x i8] c"fcsp.initnamelen\00", align 1
@@ -48,11 +43,9 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_auth_rjt_code = internal global i32 0, align 4
 @.str.20 = private unnamed_addr constant [12 x i8] c"Reason Code\00", align 1
 @.str.21 = private unnamed_addr constant [13 x i8] c"fcsp.rjtcode\00", align 1
-@fcauth_rjtcode_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.73 }, %struct._value_string { i32 2, ptr @.str.74 }, %struct._value_string zeroinitializer], align 16
 @hf_auth_rjt_codedet = internal global i32 0, align 4
 @.str.22 = private unnamed_addr constant [24 x i8] c"Reason Code Explanation\00", align 1
 @.str.23 = private unnamed_addr constant [14 x i8] c"fcsp.rjtcodet\00", align 1
-@fcauth_rjtcode_detail_vals = internal constant [9 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.75 }, %struct._value_string { i32 2, ptr @.str.76 }, %struct._value_string { i32 3, ptr @.str.77 }, %struct._value_string { i32 4, ptr @.str.78 }, %struct._value_string { i32 5, ptr @.str.79 }, %struct._value_string { i32 6, ptr @.str.80 }, %struct._value_string { i32 7, ptr @.str.81 }, %struct._value_string { i32 8, ptr @.str.82 }, %struct._value_string zeroinitializer], align 16
 @hf_auth_responder_wwn = internal global i32 0, align 4
 @.str.24 = private unnamed_addr constant [21 x i8] c"Responder Name (WWN)\00", align 1
 @.str.25 = private unnamed_addr constant [12 x i8] c"fcsp.rspwwn\00", align 1
@@ -76,25 +69,21 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_auth_proto_type = internal global i32 0, align 4
 @.str.37 = private unnamed_addr constant [29 x i8] c"Authentication Protocol Type\00", align 1
 @.str.38 = private unnamed_addr constant [11 x i8] c"fcsp.proto\00", align 1
-@fcauth_proto_type_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.83 }, %struct._value_string { i32 2, ptr @.str.84 }, %struct._value_string zeroinitializer], align 16
 @hf_auth_proto_param_len = internal global i32 0, align 4
 @.str.39 = private unnamed_addr constant [27 x i8] c"Protocol Parameters Length\00", align 1
 @.str.40 = private unnamed_addr constant [19 x i8] c"fcsp.protoparamlen\00", align 1
 @hf_auth_dhchap_param_tag = internal global i32 0, align 4
 @.str.41 = private unnamed_addr constant [14 x i8] c"Parameter Tag\00", align 1
 @.str.42 = private unnamed_addr constant [22 x i8] c"fcsp.dhchap.paramtype\00", align 1
-@fcauth_dhchap_param_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.85 }, %struct._value_string { i32 2, ptr @.str.86 }, %struct._value_string zeroinitializer], align 16
 @hf_auth_dhchap_param_len = internal global i32 0, align 4
 @.str.43 = private unnamed_addr constant [17 x i8] c"Parameter Length\00", align 1
 @.str.44 = private unnamed_addr constant [21 x i8] c"fcsp.dhchap.paramlen\00", align 1
 @hf_auth_dhchap_hash_type = internal global i32 0, align 4
 @.str.45 = private unnamed_addr constant [15 x i8] c"Hash Algorithm\00", align 1
 @.str.46 = private unnamed_addr constant [21 x i8] c"fcsp.dhchap.hashtype\00", align 1
-@fcauth_dhchap_hash_algo_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 5, ptr @.str.87 }, %struct._value_string { i32 6, ptr @.str.88 }, %struct._value_string zeroinitializer], align 16
 @hf_auth_dhchap_group_type = internal global i32 0, align 4
 @.str.47 = private unnamed_addr constant [9 x i8] c"DH Group\00", align 1
 @.str.48 = private unnamed_addr constant [18 x i8] c"fcsp.dhchap.dhgid\00", align 1
-@fcauth_dhchap_dhgid_vals = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.89 }, %struct._value_string { i32 1, ptr @.str.90 }, %struct._value_string { i32 2, ptr @.str.91 }, %struct._value_string { i32 3, ptr @.str.92 }, %struct._value_string { i32 4, ptr @.str.93 }, %struct._value_string zeroinitializer], align 16
 @hf_auth_dhchap_chal_value = internal global i32 0, align 4
 @.str.49 = private unnamed_addr constant [16 x i8] c"Challenge Value\00", align 1
 @.str.50 = private unnamed_addr constant [20 x i8] c"fcsp.dhchap.chalval\00", align 1
@@ -106,7 +95,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.54 = private unnamed_addr constant [19 x i8] c"fcsp.dhchap.rspval\00", align 1
 @proto_register_fcsp.ett = internal global [1 x ptr] [ptr @ett_fcsp], align 8
 @ett_fcsp = internal global i32 0, align 4
-@proto_register_fcsp.ei = internal global [1 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_auth_fcap_undecoded, %struct.expert_field_info { ptr @.str.55, i32 83886080, i32 6291456, ptr @.str.56, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_fcsp.ei = internal global [1 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_auth_fcap_undecoded, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.55, i32 83886080, i32 6291456, ptr @.str.56, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_auth_fcap_undecoded = internal global %struct.expert_field zeroinitializer, align 4
 @.str.55 = private unnamed_addr constant [20 x i8] c"fcsp.fcap_undecoded\00", align 1
 @.str.56 = private unnamed_addr constant [28 x i8] c"FCAP Decoding Not Supported\00", align 1
@@ -126,33 +115,42 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.69 = private unnamed_addr constant [11 x i8] c"FCPAP_Init\00", align 1
 @.str.70 = private unnamed_addr constant [13 x i8] c"FCPAP_Accept\00", align 1
 @.str.71 = private unnamed_addr constant [15 x i8] c"FCPAP_Complete\00", align 1
-@.str.72 = private unnamed_addr constant [4 x i8] c"WWN\00", align 1
-@.str.73 = private unnamed_addr constant [23 x i8] c"Authentication Failure\00", align 1
-@.str.74 = private unnamed_addr constant [14 x i8] c"Logical Error\00", align 1
-@.str.75 = private unnamed_addr constant [36 x i8] c"Authentication Mechanism Not Usable\00", align 1
-@.str.76 = private unnamed_addr constant [20 x i8] c"DH Group Not Usable\00", align 1
-@.str.77 = private unnamed_addr constant [26 x i8] c"Hash Algorithm Not Usable\00", align 1
-@.str.78 = private unnamed_addr constant [49 x i8] c"Authentication Protocol Instance Already Started\00", align 1
-@.str.79 = private unnamed_addr constant [23 x i8] c"Authentication Failed \00", align 1
-@.str.80 = private unnamed_addr constant [19 x i8] c"Incorrect Payload \00", align 1
-@.str.81 = private unnamed_addr constant [42 x i8] c"Incorrect Authentication Protocol Message\00", align 1
-@.str.82 = private unnamed_addr constant [15 x i8] c"Protocol Reset\00", align 1
-@.str.83 = private unnamed_addr constant [7 x i8] c"DHCHAP\00", align 1
-@.str.84 = private unnamed_addr constant [5 x i8] c"FCAP\00", align 1
-@.str.85 = private unnamed_addr constant [9 x i8] c"HashList\00", align 1
-@.str.86 = private unnamed_addr constant [10 x i8] c"DHgIDList\00", align 1
-@.str.87 = private unnamed_addr constant [4 x i8] c"MD5\00", align 1
-@.str.88 = private unnamed_addr constant [6 x i8] c"SHA-1\00", align 1
-@.str.89 = private unnamed_addr constant [8 x i8] c"DH NULL\00", align 1
-@.str.90 = private unnamed_addr constant [14 x i8] c"DH Group 1024\00", align 1
-@.str.91 = private unnamed_addr constant [14 x i8] c"DH Group 1280\00", align 1
-@.str.92 = private unnamed_addr constant [14 x i8] c"DH Group 1536\00", align 1
-@.str.93 = private unnamed_addr constant [14 x i8] c"DH Group 2048\00", align 1
-@.str.94 = private unnamed_addr constant [5 x i8] c"0x%x\00", align 1
+@fcauth_msgcode_vals = internal constant [13 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.60 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.61 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.62 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.63 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.64 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.65 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.66 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.67 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.68 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.69 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.70 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.71 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.73 = private unnamed_addr constant [4 x i8] c"WWN\00", align 1
+@fcauth_name_type_vals = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.73 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.75 = private unnamed_addr constant [23 x i8] c"Authentication Failure\00", align 1
+@.str.76 = private unnamed_addr constant [14 x i8] c"Logical Error\00", align 1
+@fcauth_rjtcode_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.75 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.76 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.78 = private unnamed_addr constant [36 x i8] c"Authentication Mechanism Not Usable\00", align 1
+@.str.79 = private unnamed_addr constant [20 x i8] c"DH Group Not Usable\00", align 1
+@.str.80 = private unnamed_addr constant [26 x i8] c"Hash Algorithm Not Usable\00", align 1
+@.str.81 = private unnamed_addr constant [49 x i8] c"Authentication Protocol Instance Already Started\00", align 1
+@.str.82 = private unnamed_addr constant [23 x i8] c"Authentication Failed \00", align 1
+@.str.83 = private unnamed_addr constant [19 x i8] c"Incorrect Payload \00", align 1
+@.str.84 = private unnamed_addr constant [42 x i8] c"Incorrect Authentication Protocol Message\00", align 1
+@.str.85 = private unnamed_addr constant [15 x i8] c"Protocol Reset\00", align 1
+@fcauth_rjtcode_detail_vals = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.78 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.79 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.80 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.81 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.82 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.83 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.84 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.85 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.87 = private unnamed_addr constant [7 x i8] c"DHCHAP\00", align 1
+@.str.88 = private unnamed_addr constant [5 x i8] c"FCAP\00", align 1
+@fcauth_proto_type_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.87 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.88 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.90 = private unnamed_addr constant [9 x i8] c"HashList\00", align 1
+@.str.91 = private unnamed_addr constant [10 x i8] c"DHgIDList\00", align 1
+@fcauth_dhchap_param_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.90 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.91 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.93 = private unnamed_addr constant [4 x i8] c"MD5\00", align 1
+@.str.94 = private unnamed_addr constant [6 x i8] c"SHA-1\00", align 1
+@fcauth_dhchap_hash_algo_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.93 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.94 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.96 = private unnamed_addr constant [8 x i8] c"DH NULL\00", align 1
+@.str.97 = private unnamed_addr constant [14 x i8] c"DH Group 1024\00", align 1
+@.str.98 = private unnamed_addr constant [14 x i8] c"DH Group 1280\00", align 1
+@.str.99 = private unnamed_addr constant [14 x i8] c"DH Group 1536\00", align 1
+@.str.100 = private unnamed_addr constant [14 x i8] c"DH Group 2048\00", align 1
+@fcauth_dhchap_dhgid_vals = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.96 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.97 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.98 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.99 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.100 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.102 = private unnamed_addr constant [5 x i8] c"0x%x\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_fcsp() #0 {
   %1 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #4
   %2 = call i32 @proto_register_protocol(ptr noundef @.str.57, ptr noundef @.str.58, ptr noundef @.str.59)
   store i32 %2, ptr @proto_fcsp, align 4
   %3 = load i32, ptr @proto_fcsp, align 4
@@ -165,14 +163,20 @@ define hidden void @proto_register_fcsp() #0 {
   store ptr %7, ptr %1, align 8
   %8 = load ptr, ptr %1, align 8
   call void @expert_register_field_array(ptr noundef %8, ptr noundef @proto_register_fcsp.ei, i32 noundef 1)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #4
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_fcsp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -186,18 +190,22 @@ define internal i32 @dissect_fcsp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
   store ptr null, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
   store i32 0, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #4
   store ptr null, ptr %12, align 8
   %13 = load ptr, ptr %5, align 8
-  %14 = call zeroext i8 @tvb_get_guint8(ptr noundef %13, i32 noundef 2)
+  %14 = call zeroext i8 @tvb_get_uint8(ptr noundef %13, i32 noundef 2)
   store i8 %14, ptr %10, align 1
   %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds %struct._packet_info, ptr %15, i32 0, i32 1
+  %16 = getelementptr inbounds nuw %struct._packet_info, ptr %15, i32 0, i32 1
   %17 = load ptr, ptr %16, align 8
   %18 = load i8, ptr %10, align 1
   %19 = zext i8 %18 to i32
-  %20 = call ptr @val_to_str(i32 noundef %19, ptr noundef @fcauth_msgcode_vals, ptr noundef @.str.94)
+  %20 = call ptr @val_to_str(i32 noundef %19, ptr noundef @fcauth_msgcode_vals, ptr noundef @.str.102)
   call void @col_add_str(ptr noundef %17, i32 noundef 25, ptr noundef %20)
   %21 = load ptr, ptr %7, align 8
   %22 = icmp ne ptr %21, null
@@ -316,38 +324,57 @@ define internal i32 @dissect_fcsp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 92:                                               ; preds = %91, %4
   %93 = load ptr, ptr %5, align 8
   %94 = call i32 @tvb_captured_length(ptr noundef %93)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
   ret i32 %94
 }
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #2
 
-declare ptr @expert_register_protocol(i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_register_protocol(i32 noundef) #2
 
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #2
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #2
 
-declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @proto_tree_add_protocol_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) #2
 
-declare i32 @tvb_captured_length(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_protocol_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) #2
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length(ptr noundef) #2
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_fcsp_auth_rjt(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #4
   store i32 12, ptr %5, align 4
   %6 = load ptr, ptr %4, align 8
   %7 = icmp ne ptr %6, null
@@ -368,10 +395,11 @@ define internal void @dissect_fcsp_auth_rjt(ptr noundef %0, ptr noundef %1) #0 {
   br label %20
 
 20:                                               ; preds = %8, %2
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_fcsp_auth_negotiate(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -384,10 +412,17 @@ define internal void @dissect_fcsp_auth_negotiate(ptr noundef %0, ptr noundef %1
   %11 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #4
   store i32 12, ptr %5, align 4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %6) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %7) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
   %12 = load ptr, ptr %4, align 8
   %13 = icmp ne ptr %12, null
-  br i1 %13, label %14, label %121
+  br i1 %13, label %14, label %119
 
 14:                                               ; preds = %2
   %15 = load ptr, ptr %4, align 8
@@ -457,11 +492,11 @@ define internal void @dissect_fcsp_auth_negotiate(ptr noundef %0, ptr noundef %1
   store i32 0, ptr %11, align 4
   br label %68
 
-68:                                               ; preds = %117, %52
+68:                                               ; preds = %115, %52
   %69 = load i32, ptr %11, align 4
   %70 = load i32, ptr %10, align 4
   %71 = icmp ult i32 %69, %70
-  br i1 %71, label %72, label %120
+  br i1 %71, label %72, label %118
 
 72:                                               ; preds = %68
   %73 = load ptr, ptr %4, align 8
@@ -481,70 +516,73 @@ define internal void @dissect_fcsp_auth_negotiate(ptr noundef %0, ptr noundef %1
   %85 = load i32, ptr %5, align 4
   %86 = load i16, ptr %9, align 2
   %87 = zext i16 %86 to i32
-  %88 = call i32 @tvb_bytes_exist(ptr noundef %84, i32 noundef %85, i32 noundef %87)
-  %89 = icmp ne i32 %88, 0
-  br i1 %89, label %90, label %112
+  %88 = call zeroext i1 @tvb_bytes_exist(ptr noundef %84, i32 noundef %85, i32 noundef %87)
+  br i1 %88, label %89, label %110
 
-90:                                               ; preds = %72
-  %91 = load ptr, ptr %3, align 8
-  %92 = load i32, ptr %5, align 4
-  %93 = call i32 @tvb_get_ntohl(ptr noundef %91, i32 noundef %92)
-  %94 = trunc i32 %93 to i16
-  store i16 %94, ptr %8, align 2
-  %95 = load ptr, ptr %4, align 8
-  %96 = load i32, ptr @hf_auth_proto_type, align 4
-  %97 = load ptr, ptr %3, align 8
-  %98 = load i32, ptr %5, align 4
-  %99 = call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %96, ptr noundef %97, i32 noundef %98, i32 noundef 4, i32 noundef 0)
-  %100 = load i16, ptr %8, align 2
-  %101 = zext i16 %100 to i32
-  switch i32 %101, label %110 [
-    i32 1, label %102
+89:                                               ; preds = %72
+  %90 = load ptr, ptr %3, align 8
+  %91 = load i32, ptr %5, align 4
+  %92 = call i32 @tvb_get_ntohl(ptr noundef %90, i32 noundef %91)
+  %93 = trunc i32 %92 to i16
+  store i16 %93, ptr %8, align 2
+  %94 = load ptr, ptr %4, align 8
+  %95 = load i32, ptr @hf_auth_proto_type, align 4
+  %96 = load ptr, ptr %3, align 8
+  %97 = load i32, ptr %5, align 4
+  %98 = call ptr @proto_tree_add_item(ptr noundef %94, i32 noundef %95, ptr noundef %96, i32 noundef %97, i32 noundef 4, i32 noundef 0)
+  %99 = load i16, ptr %8, align 2
+  %100 = zext i16 %99 to i32
+  switch i32 %100, label %108 [
+    i32 1, label %101
     i32 2, label %109
   ]
 
-102:                                              ; preds = %90
-  %103 = load ptr, ptr %3, align 8
-  %104 = load ptr, ptr %4, align 8
-  %105 = load i32, ptr %5, align 4
-  %106 = add i32 %105, 4
-  %107 = load i16, ptr %9, align 2
-  %108 = zext i16 %107 to i32
-  call void @dissect_fcsp_dhchap_auth_param(ptr noundef %103, ptr noundef %104, i32 noundef %106, i32 noundef %108)
-  br label %111
+101:                                              ; preds = %89
+  %102 = load ptr, ptr %3, align 8
+  %103 = load ptr, ptr %4, align 8
+  %104 = load i32, ptr %5, align 4
+  %105 = add i32 %104, 4
+  %106 = load i16, ptr %9, align 2
+  %107 = zext i16 %106 to i32
+  call void @dissect_fcsp_dhchap_auth_param(ptr noundef %102, ptr noundef %103, i32 noundef %105, i32 noundef %107)
+  br label %109
 
-109:                                              ; preds = %90
-  br label %111
+108:                                              ; preds = %89
+  br label %109
 
-110:                                              ; preds = %90
-  br label %111
+109:                                              ; preds = %108, %89, %101
+  br label %110
 
-111:                                              ; preds = %110, %109, %102
-  br label %112
+110:                                              ; preds = %109, %72
+  %111 = load i16, ptr %9, align 2
+  %112 = zext i16 %111 to i32
+  %113 = load i32, ptr %5, align 4
+  %114 = add i32 %113, %112
+  store i32 %114, ptr %5, align 4
+  br label %115
 
-112:                                              ; preds = %111, %72
-  %113 = load i16, ptr %9, align 2
-  %114 = zext i16 %113 to i32
-  %115 = load i32, ptr %5, align 4
-  %116 = add i32 %115, %114
-  store i32 %116, ptr %5, align 4
-  br label %117
+115:                                              ; preds = %110
+  %116 = load i32, ptr %11, align 4
+  %117 = add i32 %116, 1
+  store i32 %117, ptr %11, align 4
+  br label %68, !llvm.loop !6
 
-117:                                              ; preds = %112
-  %118 = load i32, ptr %11, align 4
-  %119 = add i32 %118, 1
-  store i32 %119, ptr %11, align 4
-  br label %68, !llvm.loop !4
+118:                                              ; preds = %68
+  br label %119
 
-120:                                              ; preds = %68
-  br label %121
-
-121:                                              ; preds = %120, %2
+119:                                              ; preds = %118, %2
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %7) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @dissect_fcsp_auth_done(ptr noundef %0, ptr noundef %1) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal void @dissect_fcsp_auth_done(ptr noundef %0, ptr noundef %1) #3 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
@@ -552,7 +590,7 @@ define internal void @dissect_fcsp_auth_done(ptr noundef %0, ptr noundef %1) #0 
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_fcsp_dhchap_challenge(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -562,7 +600,11 @@ define internal void @dissect_fcsp_dhchap_challenge(ptr noundef %0, ptr noundef 
   %8 = alloca i16, align 2
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #4
   store i32 12, ptr %5, align 4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %6) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %7) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %8) #4
   %9 = load ptr, ptr %4, align 8
   %10 = icmp ne ptr %9, null
   br i1 %10, label %11, label %107
@@ -678,10 +720,14 @@ define internal void @dissect_fcsp_dhchap_challenge(ptr noundef %0, ptr noundef 
   br label %107
 
 107:                                              ; preds = %49, %2
+  call void @llvm.lifetime.end.p0(i64 2, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %7) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_fcsp_dhchap_reply(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -689,7 +735,9 @@ define internal void @dissect_fcsp_dhchap_reply(ptr noundef %0, ptr noundef %1) 
   %6 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #4
   store i32 12, ptr %5, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
   %7 = load ptr, ptr %4, align 8
   %8 = icmp ne ptr %7, null
   br i1 %8, label %9, label %63
@@ -756,10 +804,12 @@ define internal void @dissect_fcsp_dhchap_reply(ptr noundef %0, ptr noundef %1) 
   br label %63
 
 63:                                               ; preds = %9, %2
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_fcsp_dhchap_success(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -767,7 +817,9 @@ define internal void @dissect_fcsp_dhchap_success(ptr noundef %0, ptr noundef %1
   %6 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #4
   store i32 12, ptr %5, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
   %7 = load ptr, ptr %4, align 8
   %8 = icmp ne ptr %7, null
   br i1 %8, label %9, label %25
@@ -792,18 +844,24 @@ define internal void @dissect_fcsp_dhchap_success(ptr noundef %0, ptr noundef %1
   br label %25
 
 25:                                               ; preds = %9, %2
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #4
   ret void
 }
 
-declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #2
 
-declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) #2
 
-declare i32 @tvb_bytes_exist(ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @tvb_bytes_exist(ptr noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_fcsp_dhchap_auth_param(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -812,174 +870,201 @@ define internal void @dissect_fcsp_dhchap_auth_param(ptr noundef %0, ptr noundef
   %9 = alloca i16, align 2
   %10 = alloca i16, align 2
   %11 = alloca i16, align 2
+  %12 = alloca i32, align 4
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store i32 %3, ptr %8, align 4
-  %12 = load ptr, ptr %6, align 8
-  %13 = icmp ne ptr %12, null
-  br i1 %13, label %14, label %106
+  call void @llvm.lifetime.start.p0(i64 2, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %11) #4
+  %13 = load ptr, ptr %6, align 8
+  %14 = icmp ne ptr %13, null
+  br i1 %14, label %15, label %107
 
-14:                                               ; preds = %4
-  %15 = load i32, ptr %8, align 4
-  %16 = sub i32 %15, 4
-  store i32 %16, ptr %8, align 4
-  br label %17
+15:                                               ; preds = %4
+  %16 = load i32, ptr %8, align 4
+  %17 = sub i32 %16, 4
+  store i32 %17, ptr %8, align 4
+  br label %18
 
-17:                                               ; preds = %100, %14
-  %18 = load i32, ptr %8, align 4
-  %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %20, label %105
+18:                                               ; preds = %101, %15
+  %19 = load i32, ptr %8, align 4
+  %20 = icmp sgt i32 %19, 0
+  br i1 %20, label %21, label %106
 
-20:                                               ; preds = %17
-  %21 = load ptr, ptr %6, align 8
-  %22 = load i32, ptr @hf_auth_dhchap_param_tag, align 4
-  %23 = load ptr, ptr %5, align 8
-  %24 = load i32, ptr %7, align 4
-  %25 = call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %22, ptr noundef %23, i32 noundef %24, i32 noundef 2, i32 noundef 0)
-  %26 = load ptr, ptr %6, align 8
-  %27 = load i32, ptr @hf_auth_dhchap_param_len, align 4
-  %28 = load ptr, ptr %5, align 8
-  %29 = load i32, ptr %7, align 4
-  %30 = add i32 %29, 2
-  %31 = call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %27, ptr noundef %28, i32 noundef %30, i32 noundef 2, i32 noundef 0)
-  %32 = load ptr, ptr %5, align 8
-  %33 = load i32, ptr %7, align 4
-  %34 = call zeroext i16 @tvb_get_ntohs(ptr noundef %32, i32 noundef %33)
-  store i16 %34, ptr %9, align 2
-  %35 = load ptr, ptr %5, align 8
-  %36 = load i32, ptr %7, align 4
-  %37 = add i32 %36, 2
-  %38 = call zeroext i16 @tvb_get_ntohs(ptr noundef %35, i32 noundef %37)
-  %39 = zext i16 %38 to i32
-  %40 = mul i32 %39, 4
-  %41 = trunc i32 %40 to i16
-  store i16 %41, ptr %10, align 2
-  %42 = load i16, ptr %9, align 2
-  %43 = zext i16 %42 to i32
-  switch i32 %43, label %94 [
-    i32 1, label %44
-    i32 2, label %69
+21:                                               ; preds = %18
+  %22 = load ptr, ptr %6, align 8
+  %23 = load i32, ptr @hf_auth_dhchap_param_tag, align 4
+  %24 = load ptr, ptr %5, align 8
+  %25 = load i32, ptr %7, align 4
+  %26 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %23, ptr noundef %24, i32 noundef %25, i32 noundef 2, i32 noundef 0)
+  %27 = load ptr, ptr %6, align 8
+  %28 = load i32, ptr @hf_auth_dhchap_param_len, align 4
+  %29 = load ptr, ptr %5, align 8
+  %30 = load i32, ptr %7, align 4
+  %31 = add i32 %30, 2
+  %32 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %28, ptr noundef %29, i32 noundef %31, i32 noundef 2, i32 noundef 0)
+  %33 = load ptr, ptr %5, align 8
+  %34 = load i32, ptr %7, align 4
+  %35 = call zeroext i16 @tvb_get_ntohs(ptr noundef %33, i32 noundef %34)
+  store i16 %35, ptr %9, align 2
+  %36 = load ptr, ptr %5, align 8
+  %37 = load i32, ptr %7, align 4
+  %38 = add i32 %37, 2
+  %39 = call zeroext i16 @tvb_get_ntohs(ptr noundef %36, i32 noundef %38)
+  %40 = zext i16 %39 to i32
+  %41 = mul i32 %40, 4
+  %42 = trunc i32 %41 to i16
+  store i16 %42, ptr %10, align 2
+  %43 = load i16, ptr %9, align 2
+  %44 = zext i16 %43 to i32
+  switch i32 %44, label %95 [
+    i32 1, label %45
+    i32 2, label %70
   ]
 
-44:                                               ; preds = %20
-  %45 = load i32, ptr %7, align 4
-  %46 = add i32 %45, 4
-  store i32 %46, ptr %7, align 4
-  %47 = load i32, ptr %8, align 4
-  %48 = sub i32 %47, 4
-  store i32 %48, ptr %8, align 4
+45:                                               ; preds = %21
+  %46 = load i32, ptr %7, align 4
+  %47 = add i32 %46, 4
+  store i32 %47, ptr %7, align 4
+  %48 = load i32, ptr %8, align 4
+  %49 = sub i32 %48, 4
+  store i32 %49, ptr %8, align 4
   store i16 0, ptr %11, align 2
-  br label %49
+  br label %50
 
-49:                                               ; preds = %63, %44
-  %50 = load i16, ptr %11, align 2
-  %51 = zext i16 %50 to i32
-  %52 = load i16, ptr %10, align 2
-  %53 = zext i16 %52 to i32
-  %54 = icmp slt i32 %51, %53
-  br i1 %54, label %55, label %68
+50:                                               ; preds = %64, %45
+  %51 = load i16, ptr %11, align 2
+  %52 = zext i16 %51 to i32
+  %53 = load i16, ptr %10, align 2
+  %54 = zext i16 %53 to i32
+  %55 = icmp slt i32 %52, %54
+  br i1 %55, label %56, label %69
 
-55:                                               ; preds = %49
-  %56 = load ptr, ptr %6, align 8
-  %57 = load i32, ptr @hf_auth_dhchap_hash_type, align 4
-  %58 = load ptr, ptr %5, align 8
-  %59 = load i32, ptr %7, align 4
-  %60 = call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %57, ptr noundef %58, i32 noundef %59, i32 noundef 4, i32 noundef 0)
-  %61 = load i32, ptr %7, align 4
-  %62 = add i32 %61, 4
-  store i32 %62, ptr %7, align 4
-  br label %63
+56:                                               ; preds = %50
+  %57 = load ptr, ptr %6, align 8
+  %58 = load i32, ptr @hf_auth_dhchap_hash_type, align 4
+  %59 = load ptr, ptr %5, align 8
+  %60 = load i32, ptr %7, align 4
+  %61 = call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %58, ptr noundef %59, i32 noundef %60, i32 noundef 4, i32 noundef 0)
+  %62 = load i32, ptr %7, align 4
+  %63 = add i32 %62, 4
+  store i32 %63, ptr %7, align 4
+  br label %64
 
-63:                                               ; preds = %55
-  %64 = load i16, ptr %11, align 2
-  %65 = zext i16 %64 to i32
-  %66 = add i32 %65, 4
-  %67 = trunc i32 %66 to i16
-  store i16 %67, ptr %11, align 2
-  br label %49, !llvm.loop !6
+64:                                               ; preds = %56
+  %65 = load i16, ptr %11, align 2
+  %66 = zext i16 %65 to i32
+  %67 = add i32 %66, 4
+  %68 = trunc i32 %67 to i16
+  store i16 %68, ptr %11, align 2
+  br label %50, !llvm.loop !8
 
-68:                                               ; preds = %49
-  br label %100
+69:                                               ; preds = %50
+  br label %101
 
-69:                                               ; preds = %20
-  %70 = load i32, ptr %7, align 4
-  %71 = add i32 %70, 4
-  store i32 %71, ptr %7, align 4
-  %72 = load i32, ptr %8, align 4
-  %73 = sub i32 %72, 4
-  store i32 %73, ptr %8, align 4
+70:                                               ; preds = %21
+  %71 = load i32, ptr %7, align 4
+  %72 = add i32 %71, 4
+  store i32 %72, ptr %7, align 4
+  %73 = load i32, ptr %8, align 4
+  %74 = sub i32 %73, 4
+  store i32 %74, ptr %8, align 4
   store i16 0, ptr %11, align 2
-  br label %74
+  br label %75
 
-74:                                               ; preds = %88, %69
-  %75 = load i16, ptr %11, align 2
-  %76 = zext i16 %75 to i32
-  %77 = load i16, ptr %10, align 2
-  %78 = zext i16 %77 to i32
-  %79 = icmp slt i32 %76, %78
-  br i1 %79, label %80, label %93
+75:                                               ; preds = %89, %70
+  %76 = load i16, ptr %11, align 2
+  %77 = zext i16 %76 to i32
+  %78 = load i16, ptr %10, align 2
+  %79 = zext i16 %78 to i32
+  %80 = icmp slt i32 %77, %79
+  br i1 %80, label %81, label %94
 
-80:                                               ; preds = %74
-  %81 = load ptr, ptr %6, align 8
-  %82 = load i32, ptr @hf_auth_dhchap_group_type, align 4
-  %83 = load ptr, ptr %5, align 8
-  %84 = load i32, ptr %7, align 4
-  %85 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %82, ptr noundef %83, i32 noundef %84, i32 noundef 4, i32 noundef 0)
-  %86 = load i32, ptr %7, align 4
-  %87 = add i32 %86, 4
-  store i32 %87, ptr %7, align 4
-  br label %88
+81:                                               ; preds = %75
+  %82 = load ptr, ptr %6, align 8
+  %83 = load i32, ptr @hf_auth_dhchap_group_type, align 4
+  %84 = load ptr, ptr %5, align 8
+  %85 = load i32, ptr %7, align 4
+  %86 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %83, ptr noundef %84, i32 noundef %85, i32 noundef 4, i32 noundef 0)
+  %87 = load i32, ptr %7, align 4
+  %88 = add i32 %87, 4
+  store i32 %88, ptr %7, align 4
+  br label %89
 
-88:                                               ; preds = %80
-  %89 = load i16, ptr %11, align 2
-  %90 = zext i16 %89 to i32
-  %91 = add i32 %90, 4
-  %92 = trunc i32 %91 to i16
-  store i16 %92, ptr %11, align 2
-  br label %74, !llvm.loop !7
+89:                                               ; preds = %81
+  %90 = load i16, ptr %11, align 2
+  %91 = zext i16 %90 to i32
+  %92 = add i32 %91, 4
+  %93 = trunc i32 %92 to i16
+  store i16 %93, ptr %11, align 2
+  br label %75, !llvm.loop !9
 
-93:                                               ; preds = %74
-  br label %100
+94:                                               ; preds = %75
+  br label %101
 
-94:                                               ; preds = %20
-  %95 = load i16, ptr %10, align 2
-  %96 = zext i16 %95 to i32
-  %97 = icmp eq i32 %96, 0
-  br i1 %97, label %98, label %99
+95:                                               ; preds = %21
+  %96 = load i16, ptr %10, align 2
+  %97 = zext i16 %96 to i32
+  %98 = icmp eq i32 %97, 0
+  br i1 %98, label %99, label %100
 
-98:                                               ; preds = %94
-  br label %106
+99:                                               ; preds = %95
+  store i32 1, ptr %12, align 4
+  br label %108
 
-99:                                               ; preds = %94
-  br label %100
+100:                                              ; preds = %95
+  br label %101
 
-100:                                              ; preds = %99, %93, %68
-  %101 = load i16, ptr %10, align 2
-  %102 = zext i16 %101 to i32
-  %103 = load i32, ptr %8, align 4
-  %104 = sub i32 %103, %102
-  store i32 %104, ptr %8, align 4
-  br label %17, !llvm.loop !8
+101:                                              ; preds = %100, %94, %69
+  %102 = load i16, ptr %10, align 2
+  %103 = zext i16 %102 to i32
+  %104 = load i32, ptr %8, align 4
+  %105 = sub i32 %104, %103
+  store i32 %105, ptr %8, align 4
+  br label %18, !llvm.loop !10
 
-105:                                              ; preds = %17
-  br label %106
+106:                                              ; preds = %18
+  br label %107
 
-106:                                              ; preds = %105, %98, %4
+107:                                              ; preds = %106, %4
+  store i32 0, ptr %12, align 4
+  br label %108
+
+108:                                              ; preds = %107, %99
+  call void @llvm.lifetime.end.p0(i64 2, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %9) #4
+  %109 = load i32, ptr %12, align 4
+  switch i32 %109, label %111 [
+    i32 0, label %110
+    i32 1, label %110
+  ]
+
+110:                                              ; preds = %108, %108
   ret void
+
+111:                                              ; preds = %108
+  unreachable
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

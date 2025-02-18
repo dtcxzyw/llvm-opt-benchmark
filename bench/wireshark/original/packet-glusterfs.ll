@@ -4,14 +4,11 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._value_string_ext = type { ptr, i32, i32, ptr, ptr }
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
 %struct.true_false_string = type { ptr, ptr }
-%struct._rpc_proc_list = type { i32, ptr, ptr }
-%struct._vsff = type { i32, ptr, ptr, ptr }
 %struct._e_guid_t = type { i32, i16, i16, [8 x i8] }
-%struct._proto_node = type { ptr, ptr, ptr, ptr, ptr, ptr }
+%struct._proto_node = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.field_info = type { ptr, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, i32, i32 }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
@@ -58,7 +55,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_glusterfs_proc = internal global i32 0, align 4
 @.str.13 = private unnamed_addr constant [10 x i8] c"GlusterFS\00", align 1
 @.str.14 = private unnamed_addr constant [15 x i8] c"glusterfs.proc\00", align 1
-@glusterfs3_1_fop_proc_vals_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 50, ptr @glusterfs3_1_fop_proc_vals, ptr @.str.472 }, align 8
+@glusterfs3_1_fop_proc_vals_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 50, ptr @glusterfs3_1_fop_proc_vals, ptr @.str.473 }, align 8
 @.str.15 = private unnamed_addr constant [13 x i8] c"Return value\00", align 1
 @.str.16 = private unnamed_addr constant [15 x i8] c"gluster.op_ret\00", align 1
 @.str.17 = private unnamed_addr constant [6 x i8] c"Errno\00", align 1
@@ -97,11 +94,10 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_glusterfs_type = internal global i32 0, align 4
 @.str.41 = private unnamed_addr constant [5 x i8] c"Type\00", align 1
 @.str.42 = private unnamed_addr constant [15 x i8] c"glusterfs.type\00", align 1
-@glusterfs_lk_type_names = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.523 }, %struct._value_string { i32 1, ptr @.str.524 }, %struct._value_string { i32 2, ptr @.str.525 }, %struct._value_string { i32 3, ptr @.str.526 }, %struct._value_string zeroinitializer], align 16
 @hf_glusterfs_cmd = internal global i32 0, align 4
 @.str.43 = private unnamed_addr constant [8 x i8] c"Command\00", align 1
 @.str.44 = private unnamed_addr constant [14 x i8] c"glusterfs.cmd\00", align 1
-@glusterfs_lk_cmd_names_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 7, ptr @glusterfs_lk_cmd_names, ptr @.str.527 }, align 8
+@glusterfs_lk_cmd_names_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 7, ptr @glusterfs_lk_cmd_names, ptr @.str.530 }, align 8
 @hf_glusterfs_volume = internal global i32 0, align 4
 @.str.45 = private unnamed_addr constant [7 x i8] c"Volume\00", align 1
 @.str.46 = private unnamed_addr constant [17 x i8] c"glusterfs.volume\00", align 1
@@ -123,14 +119,13 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_glusterfs_whence = internal global i32 0, align 4
 @.str.57 = private unnamed_addr constant [7 x i8] c"Whence\00", align 1
 @.str.58 = private unnamed_addr constant [17 x i8] c"glusterfs.whence\00", align 1
-@glusterfs_seek_whence = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.535 }, %struct._value_string { i32 1, ptr @.str.536 }, %struct._value_string zeroinitializer], align 16
 @hf_glusterfs_flags = internal global i32 0, align 4
 @.str.59 = private unnamed_addr constant [6 x i8] c"Flags\00", align 1
 @.str.60 = private unnamed_addr constant [16 x i8] c"glusterfs.flags\00", align 1
 @hf_glusterfs_flags_rdonly = internal global i32 0, align 4
 @.str.61 = private unnamed_addr constant [9 x i8] c"O_RDONLY\00", align 1
 @.str.62 = private unnamed_addr constant [23 x i8] c"glusterfs.flags.rdonly\00", align 1
-@glusterfs_notset_set = internal constant %struct.true_false_string { ptr @.str.537, ptr @.str.538 }, align 8
+@glusterfs_notset_set = internal constant %struct.true_false_string { ptr @.str.542, ptr @.str.543 }, align 8
 @hf_glusterfs_flags_wronly = internal global i32 0, align 4
 @.str.63 = private unnamed_addr constant [9 x i8] c"O_WRONLY\00", align 1
 @.str.64 = private unnamed_addr constant [23 x i8] c"glusterfs.flags.wronly\00", align 1
@@ -141,7 +136,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_glusterfs_flags_accmode = internal global i32 0, align 4
 @.str.67 = private unnamed_addr constant [10 x i8] c"O_ACCMODE\00", align 1
 @.str.68 = private unnamed_addr constant [24 x i8] c"glusterfs.flags.accmode\00", align 1
-@glusterfs_accmode_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.537 }, %struct._value_string { i32 1, ptr @.str.537 }, %struct._value_string { i32 2, ptr @.str.537 }, %struct._value_string { i32 3, ptr @.str.538 }, %struct._value_string zeroinitializer], align 16
 @hf_glusterfs_flags_append = internal global i32 0, align 4
 @.str.69 = private unnamed_addr constant [9 x i8] c"O_APPEND\00", align 1
 @.str.70 = private unnamed_addr constant [23 x i8] c"glusterfs.flags.append\00", align 1
@@ -255,7 +249,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.146 = private unnamed_addr constant [20 x i8] c"glusterfs.entry.len\00", align 1
 @hf_glusterfs_entry_type = internal global i32 0, align 4
 @.str.147 = private unnamed_addr constant [23 x i8] c"glusterfs.entry.d_type\00", align 1
-@glusterfs_entry_type_names_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 9, ptr @glusterfs_entry_type_names, ptr @.str.539 }, align 8
+@glusterfs_entry_type_names_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 9, ptr @glusterfs_entry_type_names, ptr @.str.545 }, align 8
 @hf_glusterfs_entry_path = internal global i32 0, align 4
 @.str.148 = private unnamed_addr constant [21 x i8] c"glusterfs.entry.path\00", align 1
 @hf_glusterfs_iatt = internal global i32 0, align 4
@@ -345,7 +339,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.211 = private unnamed_addr constant [21 x i8] c"glusterfs.flock.type\00", align 1
 @hf_glusterfs_flock_whence = internal global i32 0, align 4
 @.str.212 = private unnamed_addr constant [23 x i8] c"glusterfs.flock.whence\00", align 1
-@glusterfs_lk_whence = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.549 }, %struct._value_string { i32 1, ptr @.str.550 }, %struct._value_string { i32 2, ptr @.str.551 }, %struct._value_string zeroinitializer], align 16
 @hf_glusterfs_flock_start = internal global i32 0, align 4
 @.str.213 = private unnamed_addr constant [6 x i8] c"Start\00", align 1
 @.str.214 = private unnamed_addr constant [22 x i8] c"glusterfs.flock.start\00", align 1
@@ -496,9 +489,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_gluster_dict_items = internal global i32 0, align 4
 @.str.306 = private unnamed_addr constant [10 x i8] c"glusterfs\00", align 1
 @proto_glusterfs = internal global i32 0, align 4
-@glusterfs_vers_info = internal constant [3 x %struct._rpc_proc_list] [%struct._rpc_proc_list { i32 310, ptr @glusterfs3_1_fop_proc, ptr @hf_glusterfs_proc }, %struct._rpc_proc_list { i32 330, ptr @glusterfs3_3_fop_proc, ptr @hf_glusterfs_proc }, %struct._rpc_proc_list { i32 400, ptr @glusterfs4_0_fop_proc, ptr @hf_glusterfs_proc }], align 16
 @glusterfs_rpc_dissect_mode.mode_bits = internal constant [14 x ptr] [ptr @hf_glusterfs_mode_suid, ptr @hf_glusterfs_mode_sgid, ptr @hf_glusterfs_mode_svtx, ptr @hf_glusterfs_mode_rusr, ptr @hf_glusterfs_mode_wusr, ptr @hf_glusterfs_mode_xusr, ptr @hf_glusterfs_mode_rgrp, ptr @hf_glusterfs_mode_wgrp, ptr @hf_glusterfs_mode_xgrp, ptr @hf_glusterfs_mode_roth, ptr @hf_glusterfs_mode_woth, ptr @hf_glusterfs_mode_xoth, ptr @hf_glusterfs_mode_reserved, ptr null], align 16
-@glusterfs_error_codes = internal constant [166 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.308 }, %struct._value_string { i32 1, ptr @.str.309 }, %struct._value_string { i32 2, ptr @.str.310 }, %struct._value_string { i32 3, ptr @.str.311 }, %struct._value_string { i32 4, ptr @.str.312 }, %struct._value_string { i32 5, ptr @.str.313 }, %struct._value_string { i32 6, ptr @.str.314 }, %struct._value_string { i32 7, ptr @.str.315 }, %struct._value_string { i32 8, ptr @.str.316 }, %struct._value_string { i32 9, ptr @.str.317 }, %struct._value_string { i32 10, ptr @.str.318 }, %struct._value_string { i32 11, ptr @.str.319 }, %struct._value_string { i32 12, ptr @.str.320 }, %struct._value_string { i32 13, ptr @.str.321 }, %struct._value_string { i32 14, ptr @.str.322 }, %struct._value_string { i32 15, ptr @.str.323 }, %struct._value_string { i32 16, ptr @.str.324 }, %struct._value_string { i32 17, ptr @.str.325 }, %struct._value_string { i32 18, ptr @.str.326 }, %struct._value_string { i32 19, ptr @.str.327 }, %struct._value_string { i32 20, ptr @.str.328 }, %struct._value_string { i32 21, ptr @.str.329 }, %struct._value_string { i32 22, ptr @.str.330 }, %struct._value_string { i32 23, ptr @.str.331 }, %struct._value_string { i32 24, ptr @.str.332 }, %struct._value_string { i32 25, ptr @.str.333 }, %struct._value_string { i32 26, ptr @.str.334 }, %struct._value_string { i32 27, ptr @.str.335 }, %struct._value_string { i32 28, ptr @.str.336 }, %struct._value_string { i32 29, ptr @.str.337 }, %struct._value_string { i32 30, ptr @.str.338 }, %struct._value_string { i32 31, ptr @.str.339 }, %struct._value_string { i32 32, ptr @.str.340 }, %struct._value_string { i32 33, ptr @.str.341 }, %struct._value_string { i32 34, ptr @.str.342 }, %struct._value_string { i32 35, ptr @.str.343 }, %struct._value_string { i32 36, ptr @.str.344 }, %struct._value_string { i32 37, ptr @.str.345 }, %struct._value_string { i32 38, ptr @.str.346 }, %struct._value_string { i32 39, ptr @.str.347 }, %struct._value_string { i32 40, ptr @.str.348 }, %struct._value_string { i32 42, ptr @.str.349 }, %struct._value_string { i32 43, ptr @.str.350 }, %struct._value_string { i32 44, ptr @.str.351 }, %struct._value_string { i32 45, ptr @.str.352 }, %struct._value_string { i32 46, ptr @.str.353 }, %struct._value_string { i32 47, ptr @.str.354 }, %struct._value_string { i32 48, ptr @.str.355 }, %struct._value_string { i32 49, ptr @.str.356 }, %struct._value_string { i32 50, ptr @.str.357 }, %struct._value_string { i32 51, ptr @.str.358 }, %struct._value_string { i32 52, ptr @.str.359 }, %struct._value_string { i32 53, ptr @.str.360 }, %struct._value_string { i32 54, ptr @.str.361 }, %struct._value_string { i32 55, ptr @.str.362 }, %struct._value_string { i32 56, ptr @.str.363 }, %struct._value_string { i32 57, ptr @.str.364 }, %struct._value_string { i32 59, ptr @.str.365 }, %struct._value_string { i32 60, ptr @.str.366 }, %struct._value_string { i32 61, ptr @.str.367 }, %struct._value_string { i32 62, ptr @.str.368 }, %struct._value_string { i32 63, ptr @.str.369 }, %struct._value_string { i32 64, ptr @.str.370 }, %struct._value_string { i32 65, ptr @.str.371 }, %struct._value_string { i32 66, ptr @.str.372 }, %struct._value_string { i32 67, ptr @.str.373 }, %struct._value_string { i32 68, ptr @.str.374 }, %struct._value_string { i32 69, ptr @.str.375 }, %struct._value_string { i32 70, ptr @.str.376 }, %struct._value_string { i32 71, ptr @.str.377 }, %struct._value_string { i32 72, ptr @.str.378 }, %struct._value_string { i32 73, ptr @.str.379 }, %struct._value_string { i32 74, ptr @.str.380 }, %struct._value_string { i32 75, ptr @.str.381 }, %struct._value_string { i32 76, ptr @.str.382 }, %struct._value_string { i32 77, ptr @.str.383 }, %struct._value_string { i32 78, ptr @.str.384 }, %struct._value_string { i32 79, ptr @.str.385 }, %struct._value_string { i32 80, ptr @.str.386 }, %struct._value_string { i32 81, ptr @.str.387 }, %struct._value_string { i32 82, ptr @.str.388 }, %struct._value_string { i32 83, ptr @.str.389 }, %struct._value_string { i32 84, ptr @.str.390 }, %struct._value_string { i32 85, ptr @.str.391 }, %struct._value_string { i32 86, ptr @.str.392 }, %struct._value_string { i32 87, ptr @.str.393 }, %struct._value_string { i32 88, ptr @.str.394 }, %struct._value_string { i32 89, ptr @.str.395 }, %struct._value_string { i32 90, ptr @.str.396 }, %struct._value_string { i32 91, ptr @.str.397 }, %struct._value_string { i32 92, ptr @.str.398 }, %struct._value_string { i32 93, ptr @.str.399 }, %struct._value_string { i32 94, ptr @.str.400 }, %struct._value_string { i32 95, ptr @.str.401 }, %struct._value_string { i32 96, ptr @.str.402 }, %struct._value_string { i32 97, ptr @.str.403 }, %struct._value_string { i32 98, ptr @.str.404 }, %struct._value_string { i32 99, ptr @.str.405 }, %struct._value_string { i32 100, ptr @.str.406 }, %struct._value_string { i32 101, ptr @.str.407 }, %struct._value_string { i32 102, ptr @.str.408 }, %struct._value_string { i32 103, ptr @.str.409 }, %struct._value_string { i32 104, ptr @.str.410 }, %struct._value_string { i32 105, ptr @.str.411 }, %struct._value_string { i32 106, ptr @.str.412 }, %struct._value_string { i32 107, ptr @.str.413 }, %struct._value_string { i32 108, ptr @.str.414 }, %struct._value_string { i32 109, ptr @.str.415 }, %struct._value_string { i32 110, ptr @.str.416 }, %struct._value_string { i32 111, ptr @.str.417 }, %struct._value_string { i32 112, ptr @.str.418 }, %struct._value_string { i32 113, ptr @.str.419 }, %struct._value_string { i32 114, ptr @.str.420 }, %struct._value_string { i32 115, ptr @.str.421 }, %struct._value_string { i32 116, ptr @.str.422 }, %struct._value_string { i32 117, ptr @.str.423 }, %struct._value_string { i32 118, ptr @.str.424 }, %struct._value_string { i32 119, ptr @.str.425 }, %struct._value_string { i32 120, ptr @.str.426 }, %struct._value_string { i32 121, ptr @.str.427 }, %struct._value_string { i32 122, ptr @.str.428 }, %struct._value_string { i32 123, ptr @.str.429 }, %struct._value_string { i32 124, ptr @.str.430 }, %struct._value_string { i32 125, ptr @.str.431 }, %struct._value_string { i32 126, ptr @.str.432 }, %struct._value_string { i32 127, ptr @.str.433 }, %struct._value_string { i32 128, ptr @.str.434 }, %struct._value_string { i32 129, ptr @.str.435 }, %struct._value_string { i32 130, ptr @.str.436 }, %struct._value_string { i32 131, ptr @.str.437 }, %struct._value_string { i32 512, ptr @.str.438 }, %struct._value_string { i32 513, ptr @.str.439 }, %struct._value_string { i32 514, ptr @.str.440 }, %struct._value_string { i32 515, ptr @.str.441 }, %struct._value_string { i32 516, ptr @.str.442 }, %struct._value_string { i32 521, ptr @.str.443 }, %struct._value_string { i32 522, ptr @.str.444 }, %struct._value_string { i32 523, ptr @.str.445 }, %struct._value_string { i32 524, ptr @.str.446 }, %struct._value_string { i32 525, ptr @.str.447 }, %struct._value_string { i32 526, ptr @.str.448 }, %struct._value_string { i32 527, ptr @.str.449 }, %struct._value_string { i32 528, ptr @.str.450 }, %struct._value_string { i32 529, ptr @.str.451 }, %struct._value_string { i32 530, ptr @.str.452 }, %struct._value_string { i32 701, ptr @.str.453 }, %struct._value_string { i32 702, ptr @.str.454 }, %struct._value_string { i32 703, ptr @.str.455 }, %struct._value_string { i32 704, ptr @.str.456 }, %struct._value_string { i32 705, ptr @.str.457 }, %struct._value_string { i32 706, ptr @.str.458 }, %struct._value_string { i32 707, ptr @.str.459 }, %struct._value_string { i32 801, ptr @.str.460 }, %struct._value_string { i32 802, ptr @.str.461 }, %struct._value_string { i32 901, ptr @.str.462 }, %struct._value_string { i32 902, ptr @.str.463 }, %struct._value_string { i32 903, ptr @.str.464 }, %struct._value_string { i32 904, ptr @.str.465 }, %struct._value_string { i32 905, ptr @.str.466 }, %struct._value_string { i32 905, ptr @.str.467 }, %struct._value_string { i32 906, ptr @.str.468 }, %struct._value_string { i32 907, ptr @.str.469 }, %struct._value_string { i32 908, ptr @.str.470 }, %struct._value_string { i32 909, ptr @.str.471 }, %struct._value_string { i32 1024, ptr @.str.12 }, %struct._value_string zeroinitializer], align 16
 @.str.307 = private unnamed_addr constant [22 x i8] c"glusterfs_error_codes\00", align 1
 @.str.308 = private unnamed_addr constant [8 x i8] c"Success\00", align 1
 @.str.309 = private unnamed_addr constant [24 x i8] c"Operation not permitted\00", align 1
@@ -664,114 +655,120 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.469 = private unnamed_addr constant [21 x i8] c"Authentication error\00", align 1
 @.str.470 = private unnamed_addr constant [19 x i8] c"Need authenticator\00", align 1
 @.str.471 = private unnamed_addr constant [18 x i8] c"Programming error\00", align 1
-@glusterfs3_1_fop_proc_vals = internal constant [51 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.473 }, %struct._value_string { i32 1, ptr @.str.474 }, %struct._value_string { i32 2, ptr @.str.475 }, %struct._value_string { i32 3, ptr @.str.476 }, %struct._value_string { i32 4, ptr @.str.477 }, %struct._value_string { i32 5, ptr @.str.478 }, %struct._value_string { i32 6, ptr @.str.479 }, %struct._value_string { i32 7, ptr @.str.480 }, %struct._value_string { i32 8, ptr @.str.481 }, %struct._value_string { i32 9, ptr @.str.482 }, %struct._value_string { i32 10, ptr @.str.483 }, %struct._value_string { i32 11, ptr @.str.484 }, %struct._value_string { i32 12, ptr @.str.485 }, %struct._value_string { i32 13, ptr @.str.486 }, %struct._value_string { i32 14, ptr @.str.487 }, %struct._value_string { i32 15, ptr @.str.488 }, %struct._value_string { i32 16, ptr @.str.489 }, %struct._value_string { i32 17, ptr @.str.490 }, %struct._value_string { i32 18, ptr @.str.491 }, %struct._value_string { i32 19, ptr @.str.492 }, %struct._value_string { i32 20, ptr @.str.493 }, %struct._value_string { i32 21, ptr @.str.494 }, %struct._value_string { i32 22, ptr @.str.495 }, %struct._value_string { i32 23, ptr @.str.496 }, %struct._value_string { i32 24, ptr @.str.497 }, %struct._value_string { i32 25, ptr @.str.498 }, %struct._value_string { i32 26, ptr @.str.499 }, %struct._value_string { i32 27, ptr @.str.500 }, %struct._value_string { i32 28, ptr @.str.501 }, %struct._value_string { i32 29, ptr @.str.502 }, %struct._value_string { i32 30, ptr @.str.503 }, %struct._value_string { i32 31, ptr @.str.504 }, %struct._value_string { i32 32, ptr @.str.505 }, %struct._value_string { i32 33, ptr @.str.506 }, %struct._value_string { i32 34, ptr @.str.507 }, %struct._value_string { i32 35, ptr @.str.508 }, %struct._value_string { i32 36, ptr @.str.509 }, %struct._value_string { i32 37, ptr @.str.510 }, %struct._value_string { i32 38, ptr @.str.511 }, %struct._value_string { i32 39, ptr @.str.512 }, %struct._value_string { i32 40, ptr @.str.513 }, %struct._value_string { i32 41, ptr @.str.514 }, %struct._value_string { i32 42, ptr @.str.515 }, %struct._value_string { i32 43, ptr @.str.516 }, %struct._value_string { i32 44, ptr @.str.517 }, %struct._value_string { i32 45, ptr @.str.518 }, %struct._value_string { i32 46, ptr @.str.519 }, %struct._value_string { i32 47, ptr @.str.520 }, %struct._value_string { i32 48, ptr @.str.521 }, %struct._value_string { i32 49, ptr @.str.522 }, %struct._value_string zeroinitializer], align 16
-@.str.472 = private unnamed_addr constant [27 x i8] c"glusterfs3_1_fop_proc_vals\00", align 1
-@.str.473 = private unnamed_addr constant [5 x i8] c"NULL\00", align 1
-@.str.474 = private unnamed_addr constant [5 x i8] c"STAT\00", align 1
-@.str.475 = private unnamed_addr constant [9 x i8] c"READLINK\00", align 1
-@.str.476 = private unnamed_addr constant [6 x i8] c"MKNOD\00", align 1
-@.str.477 = private unnamed_addr constant [6 x i8] c"MKDIR\00", align 1
-@.str.478 = private unnamed_addr constant [7 x i8] c"UNLINK\00", align 1
-@.str.479 = private unnamed_addr constant [6 x i8] c"RMDIR\00", align 1
-@.str.480 = private unnamed_addr constant [8 x i8] c"SYMLINK\00", align 1
-@.str.481 = private unnamed_addr constant [7 x i8] c"RENAME\00", align 1
-@.str.482 = private unnamed_addr constant [5 x i8] c"LINK\00", align 1
-@.str.483 = private unnamed_addr constant [9 x i8] c"TRUNCATE\00", align 1
-@.str.484 = private unnamed_addr constant [5 x i8] c"OPEN\00", align 1
-@.str.485 = private unnamed_addr constant [5 x i8] c"READ\00", align 1
-@.str.486 = private unnamed_addr constant [6 x i8] c"WRITE\00", align 1
-@.str.487 = private unnamed_addr constant [7 x i8] c"STATFS\00", align 1
-@.str.488 = private unnamed_addr constant [6 x i8] c"FLUSH\00", align 1
-@.str.489 = private unnamed_addr constant [6 x i8] c"FSYNC\00", align 1
-@.str.490 = private unnamed_addr constant [9 x i8] c"SETXATTR\00", align 1
-@.str.491 = private unnamed_addr constant [9 x i8] c"GETXATTR\00", align 1
-@.str.492 = private unnamed_addr constant [12 x i8] c"REMOVEXATTR\00", align 1
-@.str.493 = private unnamed_addr constant [8 x i8] c"OPENDIR\00", align 1
-@.str.494 = private unnamed_addr constant [9 x i8] c"FSYNCDIR\00", align 1
-@.str.495 = private unnamed_addr constant [7 x i8] c"ACCESS\00", align 1
-@.str.496 = private unnamed_addr constant [7 x i8] c"CREATE\00", align 1
-@.str.497 = private unnamed_addr constant [10 x i8] c"FTRUNCATE\00", align 1
-@.str.498 = private unnamed_addr constant [6 x i8] c"FSTAT\00", align 1
-@.str.499 = private unnamed_addr constant [3 x i8] c"LK\00", align 1
-@.str.500 = private unnamed_addr constant [7 x i8] c"LOOKUP\00", align 1
-@.str.501 = private unnamed_addr constant [8 x i8] c"READDIR\00", align 1
-@.str.502 = private unnamed_addr constant [8 x i8] c"INODELK\00", align 1
-@.str.503 = private unnamed_addr constant [9 x i8] c"FINODELK\00", align 1
-@.str.504 = private unnamed_addr constant [8 x i8] c"ENTRYLK\00", align 1
-@.str.505 = private unnamed_addr constant [9 x i8] c"FENTRYLK\00", align 1
-@.str.506 = private unnamed_addr constant [8 x i8] c"XATTROP\00", align 1
-@.str.507 = private unnamed_addr constant [9 x i8] c"FXATTROP\00", align 1
-@.str.508 = private unnamed_addr constant [10 x i8] c"FGETXATTR\00", align 1
-@.str.509 = private unnamed_addr constant [10 x i8] c"FSETXATTR\00", align 1
-@.str.510 = private unnamed_addr constant [10 x i8] c"RCHECKSUM\00", align 1
-@.str.511 = private unnamed_addr constant [8 x i8] c"SETATTR\00", align 1
-@.str.512 = private unnamed_addr constant [9 x i8] c"FSETATTR\00", align 1
-@.str.513 = private unnamed_addr constant [9 x i8] c"READDIRP\00", align 1
-@.str.514 = private unnamed_addr constant [7 x i8] c"FORGET\00", align 1
-@.str.515 = private unnamed_addr constant [8 x i8] c"RELEASE\00", align 1
-@.str.516 = private unnamed_addr constant [11 x i8] c"RELEASEDIR\00", align 1
-@.str.517 = private unnamed_addr constant [13 x i8] c"FREMOVEXATTR\00", align 1
-@.str.518 = private unnamed_addr constant [10 x i8] c"FALLOCATE\00", align 1
-@.str.519 = private unnamed_addr constant [8 x i8] c"DISCARD\00", align 1
-@.str.520 = private unnamed_addr constant [9 x i8] c"ZEROFILL\00", align 1
-@.str.521 = private unnamed_addr constant [4 x i8] c"IPC\00", align 1
-@.str.522 = private unnamed_addr constant [5 x i8] c"SEEK\00", align 1
-@.str.523 = private unnamed_addr constant [14 x i8] c"GF_LK_F_RDLCK\00", align 1
-@.str.524 = private unnamed_addr constant [14 x i8] c"GF_LK_F_WRLCK\00", align 1
-@.str.525 = private unnamed_addr constant [14 x i8] c"GF_LK_F_UNLCK\00", align 1
-@.str.526 = private unnamed_addr constant [10 x i8] c"GF_LK_EOL\00", align 1
-@glusterfs_lk_cmd_names = internal constant [8 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.528 }, %struct._value_string { i32 1, ptr @.str.529 }, %struct._value_string { i32 2, ptr @.str.530 }, %struct._value_string { i32 3, ptr @.str.531 }, %struct._value_string { i32 4, ptr @.str.532 }, %struct._value_string { i32 5, ptr @.str.533 }, %struct._value_string { i32 6, ptr @.str.534 }, %struct._value_string zeroinitializer], align 16
-@.str.527 = private unnamed_addr constant [23 x i8] c"glusterfs_lk_cmd_names\00", align 1
-@.str.528 = private unnamed_addr constant [12 x i8] c"GF_LK_GETLK\00", align 1
-@.str.529 = private unnamed_addr constant [12 x i8] c"GF_LK_SETLK\00", align 1
-@.str.530 = private unnamed_addr constant [13 x i8] c"GF_LK_SETLKW\00", align 1
-@.str.531 = private unnamed_addr constant [16 x i8] c"GF_LK_RESLK_LCK\00", align 1
-@.str.532 = private unnamed_addr constant [17 x i8] c"GF_LK_RESLK_LCKW\00", align 1
-@.str.533 = private unnamed_addr constant [18 x i8] c"GF_LK_RESLK_UNLCK\00", align 1
-@.str.534 = private unnamed_addr constant [15 x i8] c"GF_LK_GETLK_FD\00", align 1
-@.str.535 = private unnamed_addr constant [10 x i8] c"SEEK_DATA\00", align 1
-@.str.536 = private unnamed_addr constant [10 x i8] c"SEEK_HOLE\00", align 1
-@.str.537 = private unnamed_addr constant [8 x i8] c"Not set\00", align 1
-@.str.538 = private unnamed_addr constant [4 x i8] c"Set\00", align 1
-@glusterfs_entry_type_names = internal constant [10 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.540 }, %struct._value_string { i32 1, ptr @.str.541 }, %struct._value_string { i32 2, ptr @.str.542 }, %struct._value_string { i32 4, ptr @.str.543 }, %struct._value_string { i32 6, ptr @.str.544 }, %struct._value_string { i32 8, ptr @.str.545 }, %struct._value_string { i32 10, ptr @.str.546 }, %struct._value_string { i32 12, ptr @.str.547 }, %struct._value_string { i32 14, ptr @.str.548 }, %struct._value_string zeroinitializer], align 16
-@.str.539 = private unnamed_addr constant [27 x i8] c"glusterfs_entry_type_names\00", align 1
-@.str.540 = private unnamed_addr constant [11 x i8] c"DT_UNKNOWN\00", align 1
-@.str.541 = private unnamed_addr constant [8 x i8] c"DT_FIFO\00", align 1
-@.str.542 = private unnamed_addr constant [7 x i8] c"DT_CHR\00", align 1
-@.str.543 = private unnamed_addr constant [7 x i8] c"DT_DIR\00", align 1
-@.str.544 = private unnamed_addr constant [7 x i8] c"DT_BLK\00", align 1
-@.str.545 = private unnamed_addr constant [7 x i8] c"DT_REG\00", align 1
-@.str.546 = private unnamed_addr constant [7 x i8] c"DT_LNK\00", align 1
-@.str.547 = private unnamed_addr constant [8 x i8] c"DT_SOCK\00", align 1
-@.str.548 = private unnamed_addr constant [7 x i8] c"DT_WHT\00", align 1
-@.str.549 = private unnamed_addr constant [9 x i8] c"SEEK_SET\00", align 1
-@.str.550 = private unnamed_addr constant [9 x i8] c"SEEK_CUR\00", align 1
-@.str.551 = private unnamed_addr constant [9 x i8] c"SEEK_END\00", align 1
-@glusterfs3_1_fop_proc = internal constant [44 x %struct._vsff] [%struct._vsff { i32 0, ptr @.str.473, ptr @dissect_rpc_void, ptr @dissect_rpc_void }, %struct._vsff { i32 1, ptr @.str.474, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 2, ptr @.str.475, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 3, ptr @.str.476, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 4, ptr @.str.477, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 5, ptr @.str.478, ptr @glusterfs_gfs3_op_unlink_call, ptr @glusterfs_gfs3_op_unlink_reply }, %struct._vsff { i32 6, ptr @.str.479, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 7, ptr @.str.480, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 8, ptr @.str.481, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 9, ptr @.str.482, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 10, ptr @.str.483, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 11, ptr @.str.484, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 12, ptr @.str.485, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 13, ptr @.str.486, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 14, ptr @.str.487, ptr @glusterfs_gfs3_op_statfs_call, ptr @glusterfs_gfs3_op_statfs_reply }, %struct._vsff { i32 15, ptr @.str.488, ptr @glusterfs_gfs3_op_flush_call, ptr @gluster_local_dissect_common_reply }, %struct._vsff { i32 16, ptr @.str.489, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 17, ptr @.str.490, ptr @glusterfs_gfs3_op_setxattr_call, ptr @gluster_local_dissect_common_reply }, %struct._vsff { i32 18, ptr @.str.491, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 19, ptr @.str.492, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 20, ptr @.str.493, ptr @glusterfs_gfs3_op_opendir_call, ptr @glusterfs_gfs3_op_opendir_reply }, %struct._vsff { i32 21, ptr @.str.494, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 22, ptr @.str.495, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 23, ptr @.str.496, ptr @glusterfs_gfs3_op_create_call, ptr @glusterfs_gfs3_op_create_reply }, %struct._vsff { i32 24, ptr @.str.497, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 25, ptr @.str.498, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 26, ptr @.str.499, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 27, ptr @.str.500, ptr @glusterfs_gfs3_op_lookup_call, ptr @glusterfs_gfs3_op_lookup_reply }, %struct._vsff { i32 28, ptr @.str.501, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 29, ptr @.str.502, ptr @glusterfs_gfs3_op_inodelk_call, ptr @gluster_local_dissect_common_reply }, %struct._vsff { i32 30, ptr @.str.503, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 31, ptr @.str.504, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 32, ptr @.str.505, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 33, ptr @.str.506, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 34, ptr @.str.507, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 35, ptr @.str.508, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 36, ptr @.str.509, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 37, ptr @.str.510, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 38, ptr @.str.511, ptr @glusterfs_gfs3_op_setattr_call, ptr @glusterfs_gfs3_op_setattr_reply }, %struct._vsff { i32 39, ptr @.str.512, ptr @glusterfs_gfs3_op_setattr_call, ptr @glusterfs_gfs3_op_setattr_reply }, %struct._vsff { i32 40, ptr @.str.513, ptr @glusterfs_gfs3_op_readdirp_call, ptr @glusterfs_gfs3_op_readdirp_reply }, %struct._vsff { i32 42, ptr @.str.515, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 43, ptr @.str.516, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff zeroinitializer], align 16
-@glusterfs3_3_fop_proc = internal constant [49 x %struct._vsff] [%struct._vsff { i32 0, ptr @.str.473, ptr @dissect_rpc_void, ptr @dissect_rpc_void }, %struct._vsff { i32 1, ptr @.str.474, ptr @glusterfs_gfs3_3_op_stat_call, ptr @glusterfs_gfs3_3_op_stat_reply }, %struct._vsff { i32 2, ptr @.str.475, ptr @glusterfs_gfs3_3_op_readlink_call, ptr @glusterfs_gfs3_3_op_readlink_reply }, %struct._vsff { i32 3, ptr @.str.476, ptr @glusterfs_gfs3_3_op_mknod_call, ptr @glusterfs_gfs3_3_op_mknod_reply }, %struct._vsff { i32 4, ptr @.str.477, ptr @glusterfs_gfs3_3_op_mkdir_call, ptr @glusterfs_gfs3_3_op_mknod_reply }, %struct._vsff { i32 5, ptr @.str.478, ptr @glusterfs_gfs3_3_op_unlink_call, ptr @glusterfs_gfs3_3_op_unlink_reply }, %struct._vsff { i32 6, ptr @.str.479, ptr @glusterfs_gfs3_3_op_rmdir_call, ptr @glusterfs_gfs3_3_op_unlink_reply }, %struct._vsff { i32 7, ptr @.str.480, ptr @glusterfs_gfs3_3_op_symlink_call, ptr @glusterfs_gfs3_3_op_mknod_reply }, %struct._vsff { i32 8, ptr @.str.481, ptr @glusterfs_gfs3_3_op_rename_call, ptr @glusterfs_gfs3_3_op_rename_reply }, %struct._vsff { i32 9, ptr @.str.482, ptr @glusterfs_gfs3_3_op_link_call, ptr @glusterfs_gfs3_3_op_mknod_reply }, %struct._vsff { i32 10, ptr @.str.483, ptr @glusterfs_gfs3_3_op_truncate_call, ptr @glusterfs_gfs3_3_op_unlink_reply }, %struct._vsff { i32 11, ptr @.str.484, ptr @glusterfs_gfs3_3_op_open_call, ptr @glusterfs_gfs3_3_op_open_reply }, %struct._vsff { i32 12, ptr @.str.485, ptr @glusterfs_gfs3_3_op_read_call, ptr @glusterfs_gfs3_3_op_read_reply }, %struct._vsff { i32 13, ptr @.str.486, ptr @glusterfs_gfs3_3_op_write_call, ptr @glusterfs_gfs3_3_op_setattr_reply }, %struct._vsff { i32 14, ptr @.str.487, ptr @glusterfs_gfs3_3_op_statfs_call, ptr @glusterfs_gfs3_3_op_statfs_reply }, %struct._vsff { i32 15, ptr @.str.488, ptr @glusterfs_gfs3_3_op_flush_call, ptr @glusterfs_gfs3_3_op_common_reply }, %struct._vsff { i32 16, ptr @.str.489, ptr @glusterfs_gfs3_3_op_fsync_call, ptr @glusterfs_gfs3_3_op_setattr_reply }, %struct._vsff { i32 17, ptr @.str.490, ptr @glusterfs_gfs3_3_op_setxattr_call, ptr @glusterfs_gfs3_3_op_common_reply }, %struct._vsff { i32 18, ptr @.str.491, ptr @glusterfs_gfs3_3_op_getxattr_call, ptr @glusterfs_gfs3_3_op_getxattr_reply }, %struct._vsff { i32 19, ptr @.str.492, ptr @glusterfs_gfs3_3_op_removexattr_call, ptr @glusterfs_gfs3_3_op_common_reply }, %struct._vsff { i32 20, ptr @.str.493, ptr @glusterfs_gfs3_3_op_opendir_call, ptr @glusterfs_gfs3_3_op_opendir_reply }, %struct._vsff { i32 21, ptr @.str.494, ptr @glusterfs_gfs3_3_op_fsync_call, ptr @glusterfs_gfs3_3_op_common_reply }, %struct._vsff { i32 22, ptr @.str.495, ptr @glusterfs_gfs3_3_op_access_call, ptr @glusterfs_gfs3_3_op_common_reply }, %struct._vsff { i32 23, ptr @.str.496, ptr @glusterfs_gfs3_3_op_create_call, ptr @glusterfs_gfs3_3_op_create_reply }, %struct._vsff { i32 24, ptr @.str.497, ptr @glusterfs_gfs3_3_op_ftruncate_call, ptr @glusterfs_gfs3_3_op_unlink_reply }, %struct._vsff { i32 25, ptr @.str.498, ptr @glusterfs_gfs3_3_op_fstat_call, ptr @glusterfs_gfs3_3_op_fstat_reply }, %struct._vsff { i32 26, ptr @.str.499, ptr @glusterfs_gfs3_3_op_lk_call, ptr @glusterfs_gfs3_3_op_lk_reply }, %struct._vsff { i32 27, ptr @.str.500, ptr @glusterfs_gfs3_3_op_lookup_call, ptr @glusterfs_gfs3_3_op_setattr_reply }, %struct._vsff { i32 28, ptr @.str.501, ptr @glusterfs_gfs3_3_op_readdir_call, ptr @glusterfs_gfs3_3_op_readdir_reply }, %struct._vsff { i32 29, ptr @.str.502, ptr @glusterfs_gfs3_3_op_inodelk_call, ptr @glusterfs_gfs3_3_op_common_reply }, %struct._vsff { i32 30, ptr @.str.503, ptr @glusterfs_gfs3_3_op_finodelk_call, ptr @glusterfs_gfs3_3_op_common_reply }, %struct._vsff { i32 31, ptr @.str.504, ptr @glusterfs_gfs3_3_op_entrylk_call, ptr @glusterfs_gfs3_3_op_common_reply }, %struct._vsff { i32 32, ptr @.str.505, ptr @glusterfs_gfs3_3_op_fentrylk_call, ptr @glusterfs_gfs3_3_op_common_reply }, %struct._vsff { i32 33, ptr @.str.506, ptr @glusterfs_gfs3_3_op_xattrop_call, ptr @glusterfs_gfs3_3_op_xattrop_reply }, %struct._vsff { i32 34, ptr @.str.507, ptr @glusterfs_gfs3_3_op_fxattrop_call, ptr @glusterfs_gfs3_3_op_xattrop_reply }, %struct._vsff { i32 35, ptr @.str.508, ptr @glusterfs_gfs3_3_op_fgetxattr_call, ptr @glusterfs_gfs3_3_op_xattrop_reply }, %struct._vsff { i32 36, ptr @.str.509, ptr @gluter_gfs3_3_op_fsetxattr_call, ptr @glusterfs_gfs3_3_op_common_reply }, %struct._vsff { i32 37, ptr @.str.510, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 38, ptr @.str.511, ptr @glusterfs_gfs3_3_op_setattr_call, ptr @glusterfs_gfs3_3_op_setattr_reply }, %struct._vsff { i32 39, ptr @.str.512, ptr @glusterfs_gfs3_3_op_setattr_call, ptr @glusterfs_gfs3_3_op_setattr_reply }, %struct._vsff { i32 40, ptr @.str.513, ptr @glusterfs_gfs3_3_op_readdirp_call, ptr @glusterfs_gfs3_3_op_readdirp_reply }, %struct._vsff { i32 42, ptr @.str.515, ptr @glusterfs_gfs3_3_op_release_call, ptr @glusterfs_gfs3_3_op_common_reply }, %struct._vsff { i32 43, ptr @.str.516, ptr @glusterfs_gfs3_3_op_releasedir_call, ptr @glusterfs_gfs3_3_op_common_reply }, %struct._vsff { i32 44, ptr @.str.517, ptr @glusterfs_gfs3_3_op_fremovexattr_call, ptr @glusterfs_gfs3_3_op_common_reply }, %struct._vsff { i32 45, ptr @.str.518, ptr @glusterfs_gfs3_3_op_fallocate_call, ptr @glusterfs_gfs3_3_op_setattr_reply }, %struct._vsff { i32 46, ptr @.str.519, ptr @glusterfs_gfs3_3_op_readdirp_call, ptr @glusterfs_gfs3_3_op_setattr_reply }, %struct._vsff { i32 47, ptr @.str.520, ptr @glusterfs_gfs3_3_op_zerofill_call, ptr @glusterfs_gfs3_3_op_setattr_reply }, %struct._vsff { i32 49, ptr @.str.522, ptr @glusterfs_gfs3_3_op_seek_call, ptr @glusterfs_gfs3_3_op_seek_reply }, %struct._vsff zeroinitializer], align 16
-@glusterfs4_0_fop_proc = internal constant [49 x %struct._vsff] [%struct._vsff { i32 0, ptr @.str.473, ptr @dissect_rpc_void, ptr @dissect_rpc_void }, %struct._vsff { i32 1, ptr @.str.474, ptr @glusterfs_gfs4_0_op_stat_call, ptr @glusterfs_gfs4_0_op_common_iatt_reply }, %struct._vsff { i32 2, ptr @.str.475, ptr @glusterfs_gfs4_0_op_readlink_call, ptr @glusterfs_gfs4_0_op_readlink_reply }, %struct._vsff { i32 3, ptr @.str.476, ptr @glusterfs_gfs4_0_op_mknod_call, ptr @glusterfs_gfs4_0_op_common_3iatt_reply }, %struct._vsff { i32 4, ptr @.str.477, ptr @glusterfs_gfs4_0_op_mkdir_call, ptr @glusterfs_gfs4_0_op_common_3iatt_reply }, %struct._vsff { i32 5, ptr @.str.478, ptr @glusterfs_gfs4_0_op_unlink_call, ptr @glusterfs_gfs4_0_op_common_2parent_iatt_reply }, %struct._vsff { i32 6, ptr @.str.479, ptr @glusterfs_gfs4_0_op_rmdir_call, ptr @glusterfs_gfs4_0_op_common_2parent_iatt_reply }, %struct._vsff { i32 7, ptr @.str.480, ptr @glusterfs_gfs4_0_op_symlink_call, ptr @glusterfs_gfs4_0_op_common_3iatt_reply }, %struct._vsff { i32 8, ptr @.str.481, ptr @glusterfs_gfs4_0_op_rename_call, ptr @glusterfs_gfs4_0_op_rename_reply }, %struct._vsff { i32 9, ptr @.str.482, ptr @glusterfs_gfs4_0_op_link_call, ptr @glusterfs_gfs4_0_op_common_3iatt_reply }, %struct._vsff { i32 10, ptr @.str.483, ptr @glusterfs_gfs4_0_op_truncate_call, ptr @glusterfs_gfs4_0_op_common_2iatt_reply }, %struct._vsff { i32 11, ptr @.str.484, ptr @glusterfs_gfs4_0_op_open_call, ptr @glusterfs_gfs4_0_op_open_reply }, %struct._vsff { i32 12, ptr @.str.485, ptr @glusterfs_gfs4_0_op_read_call, ptr @glusterfs_gfs4_0_op_read_reply }, %struct._vsff { i32 13, ptr @.str.486, ptr @glusterfs_gfs4_0_op_write_call, ptr @glusterfs_gfs4_0_op_common_2iatt_reply }, %struct._vsff { i32 14, ptr @.str.487, ptr @glusterfs_gfs4_0_op_statfs_call, ptr @glusterfs_gfs4_0_op_statfs_reply }, %struct._vsff { i32 15, ptr @.str.488, ptr @glusterfs_gfs4_0_op_flush_call, ptr @glusterfs_gfs4_0_op_common_reply }, %struct._vsff { i32 16, ptr @.str.489, ptr @glusterfs_gfs4_0_op_fsync_call, ptr @glusterfs_gfs4_0_op_common_2iatt_reply }, %struct._vsff { i32 17, ptr @.str.490, ptr @glusterfs_gfs4_0_op_setxattr_call, ptr @glusterfs_gfs4_0_op_common_reply }, %struct._vsff { i32 18, ptr @.str.491, ptr @glusterfs_gfs4_0_op_getxattr_call, ptr @glusterfs_gfs4_0_op_common_dict_reply }, %struct._vsff { i32 19, ptr @.str.492, ptr @glusterfs_gfs4_0_op_removexattr_call, ptr @glusterfs_gfs4_0_op_common_reply }, %struct._vsff { i32 20, ptr @.str.493, ptr @glusterfs_gfs4_0_op_opendir_call, ptr @glusterfs_gfs4_0_op_open_reply }, %struct._vsff { i32 21, ptr @.str.494, ptr @glusterfs_gfs4_0_op_fsync_call, ptr @glusterfs_gfs4_0_op_common_reply }, %struct._vsff { i32 22, ptr @.str.495, ptr @glusterfs_gfs4_0_op_access_call, ptr @glusterfs_gfs4_0_op_common_reply }, %struct._vsff { i32 23, ptr @.str.496, ptr @glusterfs_gfs4_0_op_create_call, ptr @glusterfs_gfs4_0_op_create_reply }, %struct._vsff { i32 24, ptr @.str.497, ptr @glusterfs_gfs4_0_op_ftruncate_call, ptr @glusterfs_gfs4_0_op_common_2iatt_reply }, %struct._vsff { i32 25, ptr @.str.498, ptr @glusterfs_gfs4_0_op_fstat_call, ptr @glusterfs_gfs4_0_op_common_iatt_reply }, %struct._vsff { i32 26, ptr @.str.499, ptr @glusterfs_gfs4_0_op_lk_call, ptr @glusterfs_gfs4_0_op_lk_reply }, %struct._vsff { i32 27, ptr @.str.500, ptr @glusterfs_gfs4_0_op_lookup_call, ptr @glusterfs_gfs4_0_op_common_2iatt_reply }, %struct._vsff { i32 28, ptr @.str.501, ptr @glusterfs_gfs4_0_op_readdir_call, ptr @glusterfs_gfs4_0_op_readdir_reply }, %struct._vsff { i32 29, ptr @.str.502, ptr @glusterfs_gfs4_0_op_inodelk_call, ptr @glusterfs_gfs4_0_op_common_reply }, %struct._vsff { i32 30, ptr @.str.503, ptr @glusterfs_gfs4_0_op_finodelk_call, ptr @glusterfs_gfs4_0_op_common_reply }, %struct._vsff { i32 31, ptr @.str.504, ptr @glusterfs_gfs4_0_op_entrylk_call, ptr @glusterfs_gfs4_0_op_common_reply }, %struct._vsff { i32 32, ptr @.str.505, ptr @glusterfs_gfs4_0_op_fentrylk_call, ptr @glusterfs_gfs4_0_op_common_reply }, %struct._vsff { i32 33, ptr @.str.506, ptr @glusterfs_gfs4_0_op_xattrop_call, ptr @glusterfs_gfs4_0_op_common_dict_reply }, %struct._vsff { i32 34, ptr @.str.507, ptr @glusterfs_gfs4_0_op_fxattrop_call, ptr @glusterfs_gfs4_0_op_common_dict_reply }, %struct._vsff { i32 35, ptr @.str.508, ptr @glusterfs_gfs4_0_op_fgetxattr_call, ptr @glusterfs_gfs4_0_op_common_dict_reply }, %struct._vsff { i32 36, ptr @.str.509, ptr @gluter_gfs4_0_op_fsetxattr_call, ptr @glusterfs_gfs4_0_op_common_reply }, %struct._vsff { i32 37, ptr @.str.510, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 38, ptr @.str.511, ptr @glusterfs_gfs4_0_op_setattr_call, ptr @glusterfs_gfs4_0_op_common_2iatt_reply }, %struct._vsff { i32 39, ptr @.str.512, ptr @glusterfs_gfs4_0_op_fsetattr_call, ptr @glusterfs_gfs4_0_op_common_2iatt_reply }, %struct._vsff { i32 40, ptr @.str.513, ptr @glusterfs_gfs4_0_op_readdirp_call, ptr @glusterfs_gfs4_0_op_readdirp_reply }, %struct._vsff { i32 42, ptr @.str.515, ptr @glusterfs_gfs4_0_op_release_call, ptr @glusterfs_gfs4_0_op_common_reply }, %struct._vsff { i32 43, ptr @.str.516, ptr @glusterfs_gfs4_0_op_releasedir_call, ptr @glusterfs_gfs4_0_op_common_reply }, %struct._vsff { i32 44, ptr @.str.517, ptr @glusterfs_gfs4_0_op_fremovexattr_call, ptr @glusterfs_gfs4_0_op_common_reply }, %struct._vsff { i32 45, ptr @.str.518, ptr @glusterfs_gfs4_0_op_fallocate_call, ptr @glusterfs_gfs4_0_op_common_2iatt_reply }, %struct._vsff { i32 46, ptr @.str.519, ptr @glusterfs_gfs4_0_op_readdirp_call, ptr @glusterfs_gfs4_0_op_common_2iatt_reply }, %struct._vsff { i32 47, ptr @.str.520, ptr @glusterfs_gfs4_0_op_zerofill_call, ptr @glusterfs_gfs4_0_op_common_2iatt_reply }, %struct._vsff { i32 49, ptr @.str.522, ptr @glusterfs_gfs4_0_op_seek_call, ptr @glusterfs_gfs4_0_op_seek_reply }, %struct._vsff zeroinitializer], align 16
+@glusterfs_error_codes = internal constant [166 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.308 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.309 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.310 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.311 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.312 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.313 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.314 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.315 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.316 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.317 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.318 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.319 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.320 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.321 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.322 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.323 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.324 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.325 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.326 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.327 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.328 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.329 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.330 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.331 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.332 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.333 }, { i32, [4 x i8], ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.334 }, { i32, [4 x i8], ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.335 }, { i32, [4 x i8], ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.336 }, { i32, [4 x i8], ptr } { i32 29, [4 x i8] zeroinitializer, ptr @.str.337 }, { i32, [4 x i8], ptr } { i32 30, [4 x i8] zeroinitializer, ptr @.str.338 }, { i32, [4 x i8], ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.339 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.340 }, { i32, [4 x i8], ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.341 }, { i32, [4 x i8], ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.342 }, { i32, [4 x i8], ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.343 }, { i32, [4 x i8], ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.344 }, { i32, [4 x i8], ptr } { i32 37, [4 x i8] zeroinitializer, ptr @.str.345 }, { i32, [4 x i8], ptr } { i32 38, [4 x i8] zeroinitializer, ptr @.str.346 }, { i32, [4 x i8], ptr } { i32 39, [4 x i8] zeroinitializer, ptr @.str.347 }, { i32, [4 x i8], ptr } { i32 40, [4 x i8] zeroinitializer, ptr @.str.348 }, { i32, [4 x i8], ptr } { i32 42, [4 x i8] zeroinitializer, ptr @.str.349 }, { i32, [4 x i8], ptr } { i32 43, [4 x i8] zeroinitializer, ptr @.str.350 }, { i32, [4 x i8], ptr } { i32 44, [4 x i8] zeroinitializer, ptr @.str.351 }, { i32, [4 x i8], ptr } { i32 45, [4 x i8] zeroinitializer, ptr @.str.352 }, { i32, [4 x i8], ptr } { i32 46, [4 x i8] zeroinitializer, ptr @.str.353 }, { i32, [4 x i8], ptr } { i32 47, [4 x i8] zeroinitializer, ptr @.str.354 }, { i32, [4 x i8], ptr } { i32 48, [4 x i8] zeroinitializer, ptr @.str.355 }, { i32, [4 x i8], ptr } { i32 49, [4 x i8] zeroinitializer, ptr @.str.356 }, { i32, [4 x i8], ptr } { i32 50, [4 x i8] zeroinitializer, ptr @.str.357 }, { i32, [4 x i8], ptr } { i32 51, [4 x i8] zeroinitializer, ptr @.str.358 }, { i32, [4 x i8], ptr } { i32 52, [4 x i8] zeroinitializer, ptr @.str.359 }, { i32, [4 x i8], ptr } { i32 53, [4 x i8] zeroinitializer, ptr @.str.360 }, { i32, [4 x i8], ptr } { i32 54, [4 x i8] zeroinitializer, ptr @.str.361 }, { i32, [4 x i8], ptr } { i32 55, [4 x i8] zeroinitializer, ptr @.str.362 }, { i32, [4 x i8], ptr } { i32 56, [4 x i8] zeroinitializer, ptr @.str.363 }, { i32, [4 x i8], ptr } { i32 57, [4 x i8] zeroinitializer, ptr @.str.364 }, { i32, [4 x i8], ptr } { i32 59, [4 x i8] zeroinitializer, ptr @.str.365 }, { i32, [4 x i8], ptr } { i32 60, [4 x i8] zeroinitializer, ptr @.str.366 }, { i32, [4 x i8], ptr } { i32 61, [4 x i8] zeroinitializer, ptr @.str.367 }, { i32, [4 x i8], ptr } { i32 62, [4 x i8] zeroinitializer, ptr @.str.368 }, { i32, [4 x i8], ptr } { i32 63, [4 x i8] zeroinitializer, ptr @.str.369 }, { i32, [4 x i8], ptr } { i32 64, [4 x i8] zeroinitializer, ptr @.str.370 }, { i32, [4 x i8], ptr } { i32 65, [4 x i8] zeroinitializer, ptr @.str.371 }, { i32, [4 x i8], ptr } { i32 66, [4 x i8] zeroinitializer, ptr @.str.372 }, { i32, [4 x i8], ptr } { i32 67, [4 x i8] zeroinitializer, ptr @.str.373 }, { i32, [4 x i8], ptr } { i32 68, [4 x i8] zeroinitializer, ptr @.str.374 }, { i32, [4 x i8], ptr } { i32 69, [4 x i8] zeroinitializer, ptr @.str.375 }, { i32, [4 x i8], ptr } { i32 70, [4 x i8] zeroinitializer, ptr @.str.376 }, { i32, [4 x i8], ptr } { i32 71, [4 x i8] zeroinitializer, ptr @.str.377 }, { i32, [4 x i8], ptr } { i32 72, [4 x i8] zeroinitializer, ptr @.str.378 }, { i32, [4 x i8], ptr } { i32 73, [4 x i8] zeroinitializer, ptr @.str.379 }, { i32, [4 x i8], ptr } { i32 74, [4 x i8] zeroinitializer, ptr @.str.380 }, { i32, [4 x i8], ptr } { i32 75, [4 x i8] zeroinitializer, ptr @.str.381 }, { i32, [4 x i8], ptr } { i32 76, [4 x i8] zeroinitializer, ptr @.str.382 }, { i32, [4 x i8], ptr } { i32 77, [4 x i8] zeroinitializer, ptr @.str.383 }, { i32, [4 x i8], ptr } { i32 78, [4 x i8] zeroinitializer, ptr @.str.384 }, { i32, [4 x i8], ptr } { i32 79, [4 x i8] zeroinitializer, ptr @.str.385 }, { i32, [4 x i8], ptr } { i32 80, [4 x i8] zeroinitializer, ptr @.str.386 }, { i32, [4 x i8], ptr } { i32 81, [4 x i8] zeroinitializer, ptr @.str.387 }, { i32, [4 x i8], ptr } { i32 82, [4 x i8] zeroinitializer, ptr @.str.388 }, { i32, [4 x i8], ptr } { i32 83, [4 x i8] zeroinitializer, ptr @.str.389 }, { i32, [4 x i8], ptr } { i32 84, [4 x i8] zeroinitializer, ptr @.str.390 }, { i32, [4 x i8], ptr } { i32 85, [4 x i8] zeroinitializer, ptr @.str.391 }, { i32, [4 x i8], ptr } { i32 86, [4 x i8] zeroinitializer, ptr @.str.392 }, { i32, [4 x i8], ptr } { i32 87, [4 x i8] zeroinitializer, ptr @.str.393 }, { i32, [4 x i8], ptr } { i32 88, [4 x i8] zeroinitializer, ptr @.str.394 }, { i32, [4 x i8], ptr } { i32 89, [4 x i8] zeroinitializer, ptr @.str.395 }, { i32, [4 x i8], ptr } { i32 90, [4 x i8] zeroinitializer, ptr @.str.396 }, { i32, [4 x i8], ptr } { i32 91, [4 x i8] zeroinitializer, ptr @.str.397 }, { i32, [4 x i8], ptr } { i32 92, [4 x i8] zeroinitializer, ptr @.str.398 }, { i32, [4 x i8], ptr } { i32 93, [4 x i8] zeroinitializer, ptr @.str.399 }, { i32, [4 x i8], ptr } { i32 94, [4 x i8] zeroinitializer, ptr @.str.400 }, { i32, [4 x i8], ptr } { i32 95, [4 x i8] zeroinitializer, ptr @.str.401 }, { i32, [4 x i8], ptr } { i32 96, [4 x i8] zeroinitializer, ptr @.str.402 }, { i32, [4 x i8], ptr } { i32 97, [4 x i8] zeroinitializer, ptr @.str.403 }, { i32, [4 x i8], ptr } { i32 98, [4 x i8] zeroinitializer, ptr @.str.404 }, { i32, [4 x i8], ptr } { i32 99, [4 x i8] zeroinitializer, ptr @.str.405 }, { i32, [4 x i8], ptr } { i32 100, [4 x i8] zeroinitializer, ptr @.str.406 }, { i32, [4 x i8], ptr } { i32 101, [4 x i8] zeroinitializer, ptr @.str.407 }, { i32, [4 x i8], ptr } { i32 102, [4 x i8] zeroinitializer, ptr @.str.408 }, { i32, [4 x i8], ptr } { i32 103, [4 x i8] zeroinitializer, ptr @.str.409 }, { i32, [4 x i8], ptr } { i32 104, [4 x i8] zeroinitializer, ptr @.str.410 }, { i32, [4 x i8], ptr } { i32 105, [4 x i8] zeroinitializer, ptr @.str.411 }, { i32, [4 x i8], ptr } { i32 106, [4 x i8] zeroinitializer, ptr @.str.412 }, { i32, [4 x i8], ptr } { i32 107, [4 x i8] zeroinitializer, ptr @.str.413 }, { i32, [4 x i8], ptr } { i32 108, [4 x i8] zeroinitializer, ptr @.str.414 }, { i32, [4 x i8], ptr } { i32 109, [4 x i8] zeroinitializer, ptr @.str.415 }, { i32, [4 x i8], ptr } { i32 110, [4 x i8] zeroinitializer, ptr @.str.416 }, { i32, [4 x i8], ptr } { i32 111, [4 x i8] zeroinitializer, ptr @.str.417 }, { i32, [4 x i8], ptr } { i32 112, [4 x i8] zeroinitializer, ptr @.str.418 }, { i32, [4 x i8], ptr } { i32 113, [4 x i8] zeroinitializer, ptr @.str.419 }, { i32, [4 x i8], ptr } { i32 114, [4 x i8] zeroinitializer, ptr @.str.420 }, { i32, [4 x i8], ptr } { i32 115, [4 x i8] zeroinitializer, ptr @.str.421 }, { i32, [4 x i8], ptr } { i32 116, [4 x i8] zeroinitializer, ptr @.str.422 }, { i32, [4 x i8], ptr } { i32 117, [4 x i8] zeroinitializer, ptr @.str.423 }, { i32, [4 x i8], ptr } { i32 118, [4 x i8] zeroinitializer, ptr @.str.424 }, { i32, [4 x i8], ptr } { i32 119, [4 x i8] zeroinitializer, ptr @.str.425 }, { i32, [4 x i8], ptr } { i32 120, [4 x i8] zeroinitializer, ptr @.str.426 }, { i32, [4 x i8], ptr } { i32 121, [4 x i8] zeroinitializer, ptr @.str.427 }, { i32, [4 x i8], ptr } { i32 122, [4 x i8] zeroinitializer, ptr @.str.428 }, { i32, [4 x i8], ptr } { i32 123, [4 x i8] zeroinitializer, ptr @.str.429 }, { i32, [4 x i8], ptr } { i32 124, [4 x i8] zeroinitializer, ptr @.str.430 }, { i32, [4 x i8], ptr } { i32 125, [4 x i8] zeroinitializer, ptr @.str.431 }, { i32, [4 x i8], ptr } { i32 126, [4 x i8] zeroinitializer, ptr @.str.432 }, { i32, [4 x i8], ptr } { i32 127, [4 x i8] zeroinitializer, ptr @.str.433 }, { i32, [4 x i8], ptr } { i32 128, [4 x i8] zeroinitializer, ptr @.str.434 }, { i32, [4 x i8], ptr } { i32 129, [4 x i8] zeroinitializer, ptr @.str.435 }, { i32, [4 x i8], ptr } { i32 130, [4 x i8] zeroinitializer, ptr @.str.436 }, { i32, [4 x i8], ptr } { i32 131, [4 x i8] zeroinitializer, ptr @.str.437 }, { i32, [4 x i8], ptr } { i32 512, [4 x i8] zeroinitializer, ptr @.str.438 }, { i32, [4 x i8], ptr } { i32 513, [4 x i8] zeroinitializer, ptr @.str.439 }, { i32, [4 x i8], ptr } { i32 514, [4 x i8] zeroinitializer, ptr @.str.440 }, { i32, [4 x i8], ptr } { i32 515, [4 x i8] zeroinitializer, ptr @.str.441 }, { i32, [4 x i8], ptr } { i32 516, [4 x i8] zeroinitializer, ptr @.str.442 }, { i32, [4 x i8], ptr } { i32 521, [4 x i8] zeroinitializer, ptr @.str.443 }, { i32, [4 x i8], ptr } { i32 522, [4 x i8] zeroinitializer, ptr @.str.444 }, { i32, [4 x i8], ptr } { i32 523, [4 x i8] zeroinitializer, ptr @.str.445 }, { i32, [4 x i8], ptr } { i32 524, [4 x i8] zeroinitializer, ptr @.str.446 }, { i32, [4 x i8], ptr } { i32 525, [4 x i8] zeroinitializer, ptr @.str.447 }, { i32, [4 x i8], ptr } { i32 526, [4 x i8] zeroinitializer, ptr @.str.448 }, { i32, [4 x i8], ptr } { i32 527, [4 x i8] zeroinitializer, ptr @.str.449 }, { i32, [4 x i8], ptr } { i32 528, [4 x i8] zeroinitializer, ptr @.str.450 }, { i32, [4 x i8], ptr } { i32 529, [4 x i8] zeroinitializer, ptr @.str.451 }, { i32, [4 x i8], ptr } { i32 530, [4 x i8] zeroinitializer, ptr @.str.452 }, { i32, [4 x i8], ptr } { i32 701, [4 x i8] zeroinitializer, ptr @.str.453 }, { i32, [4 x i8], ptr } { i32 702, [4 x i8] zeroinitializer, ptr @.str.454 }, { i32, [4 x i8], ptr } { i32 703, [4 x i8] zeroinitializer, ptr @.str.455 }, { i32, [4 x i8], ptr } { i32 704, [4 x i8] zeroinitializer, ptr @.str.456 }, { i32, [4 x i8], ptr } { i32 705, [4 x i8] zeroinitializer, ptr @.str.457 }, { i32, [4 x i8], ptr } { i32 706, [4 x i8] zeroinitializer, ptr @.str.458 }, { i32, [4 x i8], ptr } { i32 707, [4 x i8] zeroinitializer, ptr @.str.459 }, { i32, [4 x i8], ptr } { i32 801, [4 x i8] zeroinitializer, ptr @.str.460 }, { i32, [4 x i8], ptr } { i32 802, [4 x i8] zeroinitializer, ptr @.str.461 }, { i32, [4 x i8], ptr } { i32 901, [4 x i8] zeroinitializer, ptr @.str.462 }, { i32, [4 x i8], ptr } { i32 902, [4 x i8] zeroinitializer, ptr @.str.463 }, { i32, [4 x i8], ptr } { i32 903, [4 x i8] zeroinitializer, ptr @.str.464 }, { i32, [4 x i8], ptr } { i32 904, [4 x i8] zeroinitializer, ptr @.str.465 }, { i32, [4 x i8], ptr } { i32 905, [4 x i8] zeroinitializer, ptr @.str.466 }, { i32, [4 x i8], ptr } { i32 905, [4 x i8] zeroinitializer, ptr @.str.467 }, { i32, [4 x i8], ptr } { i32 906, [4 x i8] zeroinitializer, ptr @.str.468 }, { i32, [4 x i8], ptr } { i32 907, [4 x i8] zeroinitializer, ptr @.str.469 }, { i32, [4 x i8], ptr } { i32 908, [4 x i8] zeroinitializer, ptr @.str.470 }, { i32, [4 x i8], ptr } { i32 909, [4 x i8] zeroinitializer, ptr @.str.471 }, { i32, [4 x i8], ptr } { i32 1024, [4 x i8] zeroinitializer, ptr @.str.12 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.473 = private unnamed_addr constant [27 x i8] c"glusterfs3_1_fop_proc_vals\00", align 1
+@.str.474 = private unnamed_addr constant [5 x i8] c"NULL\00", align 1
+@.str.475 = private unnamed_addr constant [5 x i8] c"STAT\00", align 1
+@.str.476 = private unnamed_addr constant [9 x i8] c"READLINK\00", align 1
+@.str.477 = private unnamed_addr constant [6 x i8] c"MKNOD\00", align 1
+@.str.478 = private unnamed_addr constant [6 x i8] c"MKDIR\00", align 1
+@.str.479 = private unnamed_addr constant [7 x i8] c"UNLINK\00", align 1
+@.str.480 = private unnamed_addr constant [6 x i8] c"RMDIR\00", align 1
+@.str.481 = private unnamed_addr constant [8 x i8] c"SYMLINK\00", align 1
+@.str.482 = private unnamed_addr constant [7 x i8] c"RENAME\00", align 1
+@.str.483 = private unnamed_addr constant [5 x i8] c"LINK\00", align 1
+@.str.484 = private unnamed_addr constant [9 x i8] c"TRUNCATE\00", align 1
+@.str.485 = private unnamed_addr constant [5 x i8] c"OPEN\00", align 1
+@.str.486 = private unnamed_addr constant [5 x i8] c"READ\00", align 1
+@.str.487 = private unnamed_addr constant [6 x i8] c"WRITE\00", align 1
+@.str.488 = private unnamed_addr constant [7 x i8] c"STATFS\00", align 1
+@.str.489 = private unnamed_addr constant [6 x i8] c"FLUSH\00", align 1
+@.str.490 = private unnamed_addr constant [6 x i8] c"FSYNC\00", align 1
+@.str.491 = private unnamed_addr constant [9 x i8] c"SETXATTR\00", align 1
+@.str.492 = private unnamed_addr constant [9 x i8] c"GETXATTR\00", align 1
+@.str.493 = private unnamed_addr constant [12 x i8] c"REMOVEXATTR\00", align 1
+@.str.494 = private unnamed_addr constant [8 x i8] c"OPENDIR\00", align 1
+@.str.495 = private unnamed_addr constant [9 x i8] c"FSYNCDIR\00", align 1
+@.str.496 = private unnamed_addr constant [7 x i8] c"ACCESS\00", align 1
+@.str.497 = private unnamed_addr constant [7 x i8] c"CREATE\00", align 1
+@.str.498 = private unnamed_addr constant [10 x i8] c"FTRUNCATE\00", align 1
+@.str.499 = private unnamed_addr constant [6 x i8] c"FSTAT\00", align 1
+@.str.500 = private unnamed_addr constant [3 x i8] c"LK\00", align 1
+@.str.501 = private unnamed_addr constant [7 x i8] c"LOOKUP\00", align 1
+@.str.502 = private unnamed_addr constant [8 x i8] c"READDIR\00", align 1
+@.str.503 = private unnamed_addr constant [8 x i8] c"INODELK\00", align 1
+@.str.504 = private unnamed_addr constant [9 x i8] c"FINODELK\00", align 1
+@.str.505 = private unnamed_addr constant [8 x i8] c"ENTRYLK\00", align 1
+@.str.506 = private unnamed_addr constant [9 x i8] c"FENTRYLK\00", align 1
+@.str.507 = private unnamed_addr constant [8 x i8] c"XATTROP\00", align 1
+@.str.508 = private unnamed_addr constant [9 x i8] c"FXATTROP\00", align 1
+@.str.509 = private unnamed_addr constant [10 x i8] c"FGETXATTR\00", align 1
+@.str.510 = private unnamed_addr constant [10 x i8] c"FSETXATTR\00", align 1
+@.str.511 = private unnamed_addr constant [10 x i8] c"RCHECKSUM\00", align 1
+@.str.512 = private unnamed_addr constant [8 x i8] c"SETATTR\00", align 1
+@.str.513 = private unnamed_addr constant [9 x i8] c"FSETATTR\00", align 1
+@.str.514 = private unnamed_addr constant [9 x i8] c"READDIRP\00", align 1
+@.str.515 = private unnamed_addr constant [7 x i8] c"FORGET\00", align 1
+@.str.516 = private unnamed_addr constant [8 x i8] c"RELEASE\00", align 1
+@.str.517 = private unnamed_addr constant [11 x i8] c"RELEASEDIR\00", align 1
+@.str.518 = private unnamed_addr constant [13 x i8] c"FREMOVEXATTR\00", align 1
+@.str.519 = private unnamed_addr constant [10 x i8] c"FALLOCATE\00", align 1
+@.str.520 = private unnamed_addr constant [8 x i8] c"DISCARD\00", align 1
+@.str.521 = private unnamed_addr constant [9 x i8] c"ZEROFILL\00", align 1
+@.str.522 = private unnamed_addr constant [4 x i8] c"IPC\00", align 1
+@.str.523 = private unnamed_addr constant [5 x i8] c"SEEK\00", align 1
+@glusterfs3_1_fop_proc_vals = internal constant [51 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.474 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.475 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.476 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.477 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.478 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.479 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.480 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.481 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.482 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.483 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.484 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.485 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.486 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.487 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.488 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.489 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.490 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.491 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.492 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.493 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.494 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.495 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.496 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.497 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.498 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.499 }, { i32, [4 x i8], ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.500 }, { i32, [4 x i8], ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.501 }, { i32, [4 x i8], ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.502 }, { i32, [4 x i8], ptr } { i32 29, [4 x i8] zeroinitializer, ptr @.str.503 }, { i32, [4 x i8], ptr } { i32 30, [4 x i8] zeroinitializer, ptr @.str.504 }, { i32, [4 x i8], ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.505 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.506 }, { i32, [4 x i8], ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.507 }, { i32, [4 x i8], ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.508 }, { i32, [4 x i8], ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.509 }, { i32, [4 x i8], ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.510 }, { i32, [4 x i8], ptr } { i32 37, [4 x i8] zeroinitializer, ptr @.str.511 }, { i32, [4 x i8], ptr } { i32 38, [4 x i8] zeroinitializer, ptr @.str.512 }, { i32, [4 x i8], ptr } { i32 39, [4 x i8] zeroinitializer, ptr @.str.513 }, { i32, [4 x i8], ptr } { i32 40, [4 x i8] zeroinitializer, ptr @.str.514 }, { i32, [4 x i8], ptr } { i32 41, [4 x i8] zeroinitializer, ptr @.str.515 }, { i32, [4 x i8], ptr } { i32 42, [4 x i8] zeroinitializer, ptr @.str.516 }, { i32, [4 x i8], ptr } { i32 43, [4 x i8] zeroinitializer, ptr @.str.517 }, { i32, [4 x i8], ptr } { i32 44, [4 x i8] zeroinitializer, ptr @.str.518 }, { i32, [4 x i8], ptr } { i32 45, [4 x i8] zeroinitializer, ptr @.str.519 }, { i32, [4 x i8], ptr } { i32 46, [4 x i8] zeroinitializer, ptr @.str.520 }, { i32, [4 x i8], ptr } { i32 47, [4 x i8] zeroinitializer, ptr @.str.521 }, { i32, [4 x i8], ptr } { i32 48, [4 x i8] zeroinitializer, ptr @.str.522 }, { i32, [4 x i8], ptr } { i32 49, [4 x i8] zeroinitializer, ptr @.str.523 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.525 = private unnamed_addr constant [14 x i8] c"GF_LK_F_RDLCK\00", align 1
+@.str.526 = private unnamed_addr constant [14 x i8] c"GF_LK_F_WRLCK\00", align 1
+@.str.527 = private unnamed_addr constant [14 x i8] c"GF_LK_F_UNLCK\00", align 1
+@.str.528 = private unnamed_addr constant [10 x i8] c"GF_LK_EOL\00", align 1
+@glusterfs_lk_type_names = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.525 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.526 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.527 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.528 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.530 = private unnamed_addr constant [23 x i8] c"glusterfs_lk_cmd_names\00", align 1
+@.str.531 = private unnamed_addr constant [12 x i8] c"GF_LK_GETLK\00", align 1
+@.str.532 = private unnamed_addr constant [12 x i8] c"GF_LK_SETLK\00", align 1
+@.str.533 = private unnamed_addr constant [13 x i8] c"GF_LK_SETLKW\00", align 1
+@.str.534 = private unnamed_addr constant [16 x i8] c"GF_LK_RESLK_LCK\00", align 1
+@.str.535 = private unnamed_addr constant [17 x i8] c"GF_LK_RESLK_LCKW\00", align 1
+@.str.536 = private unnamed_addr constant [18 x i8] c"GF_LK_RESLK_UNLCK\00", align 1
+@.str.537 = private unnamed_addr constant [15 x i8] c"GF_LK_GETLK_FD\00", align 1
+@glusterfs_lk_cmd_names = internal constant [8 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.531 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.532 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.533 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.534 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.535 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.536 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.537 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.539 = private unnamed_addr constant [10 x i8] c"SEEK_DATA\00", align 1
+@.str.540 = private unnamed_addr constant [10 x i8] c"SEEK_HOLE\00", align 1
+@glusterfs_seek_whence = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.539 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.540 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.542 = private unnamed_addr constant [8 x i8] c"Not set\00", align 1
+@.str.543 = private unnamed_addr constant [4 x i8] c"Set\00", align 1
+@glusterfs_accmode_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.542 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.542 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.542 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.543 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.545 = private unnamed_addr constant [27 x i8] c"glusterfs_entry_type_names\00", align 1
+@.str.546 = private unnamed_addr constant [11 x i8] c"DT_UNKNOWN\00", align 1
+@.str.547 = private unnamed_addr constant [8 x i8] c"DT_FIFO\00", align 1
+@.str.548 = private unnamed_addr constant [7 x i8] c"DT_CHR\00", align 1
+@.str.549 = private unnamed_addr constant [7 x i8] c"DT_DIR\00", align 1
+@.str.550 = private unnamed_addr constant [7 x i8] c"DT_BLK\00", align 1
+@.str.551 = private unnamed_addr constant [7 x i8] c"DT_REG\00", align 1
+@.str.552 = private unnamed_addr constant [7 x i8] c"DT_LNK\00", align 1
+@.str.553 = private unnamed_addr constant [8 x i8] c"DT_SOCK\00", align 1
+@.str.554 = private unnamed_addr constant [7 x i8] c"DT_WHT\00", align 1
+@glusterfs_entry_type_names = internal constant [10 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.546 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.547 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.548 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.549 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.550 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.551 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.552 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.553 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.554 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.556 = private unnamed_addr constant [9 x i8] c"SEEK_SET\00", align 1
+@.str.557 = private unnamed_addr constant [9 x i8] c"SEEK_CUR\00", align 1
+@.str.558 = private unnamed_addr constant [9 x i8] c"SEEK_END\00", align 1
+@glusterfs_lk_whence = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.556 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.557 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.558 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@glusterfs_vers_info = internal constant [3 x { i32, [4 x i8], ptr, ptr }] [{ i32, [4 x i8], ptr, ptr } { i32 310, [4 x i8] zeroinitializer, ptr @glusterfs3_1_fop_proc, ptr @hf_glusterfs_proc }, { i32, [4 x i8], ptr, ptr } { i32 330, [4 x i8] zeroinitializer, ptr @glusterfs3_3_fop_proc, ptr @hf_glusterfs_proc }, { i32, [4 x i8], ptr, ptr } { i32 400, [4 x i8] zeroinitializer, ptr @glusterfs4_0_fop_proc, ptr @hf_glusterfs_proc }], align 16
+@glusterfs3_1_fop_proc = internal constant [44 x { i32, [4 x i8], ptr, ptr, ptr }] [{ i32, [4 x i8], ptr, ptr, ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.474, ptr @dissect_rpc_void, ptr @dissect_rpc_void }, { i32, [4 x i8], ptr, ptr, ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.475, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.476, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.477, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.478, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.479, ptr @glusterfs_gfs3_op_unlink_call, ptr @glusterfs_gfs3_op_unlink_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.480, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.481, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.482, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.483, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.484, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.485, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.486, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.487, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.488, ptr @glusterfs_gfs3_op_statfs_call, ptr @glusterfs_gfs3_op_statfs_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.489, ptr @glusterfs_gfs3_op_flush_call, ptr @gluster_local_dissect_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.490, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.491, ptr @glusterfs_gfs3_op_setxattr_call, ptr @gluster_local_dissect_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.492, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.493, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.494, ptr @glusterfs_gfs3_op_opendir_call, ptr @glusterfs_gfs3_op_opendir_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.495, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.496, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.497, ptr @glusterfs_gfs3_op_create_call, ptr @glusterfs_gfs3_op_create_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.498, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.499, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.500, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.501, ptr @glusterfs_gfs3_op_lookup_call, ptr @glusterfs_gfs3_op_lookup_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.502, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 29, [4 x i8] zeroinitializer, ptr @.str.503, ptr @glusterfs_gfs3_op_inodelk_call, ptr @gluster_local_dissect_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 30, [4 x i8] zeroinitializer, ptr @.str.504, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.505, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.506, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.507, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.508, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.509, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.510, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 37, [4 x i8] zeroinitializer, ptr @.str.511, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 38, [4 x i8] zeroinitializer, ptr @.str.512, ptr @glusterfs_gfs3_op_setattr_call, ptr @glusterfs_gfs3_op_setattr_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 39, [4 x i8] zeroinitializer, ptr @.str.513, ptr @glusterfs_gfs3_op_setattr_call, ptr @glusterfs_gfs3_op_setattr_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 40, [4 x i8] zeroinitializer, ptr @.str.514, ptr @glusterfs_gfs3_op_readdirp_call, ptr @glusterfs_gfs3_op_readdirp_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 42, [4 x i8] zeroinitializer, ptr @.str.516, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 43, [4 x i8] zeroinitializer, ptr @.str.517, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } zeroinitializer], align 16
 @glusterfs_rpc_dissect_statfs.flag_bits = internal constant [13 x ptr] [ptr @hf_glusterfs_mnt_flag_rdonly, ptr @hf_glusterfs_mnt_flag_nosuid, ptr @hf_glusterfs_mnt_flag_nodev, ptr @hf_glusterfs_mnt_flag_noexec, ptr @hf_glusterfs_mnt_flag_synchronous, ptr @hf_glusterfs_mnt_flag_mandlock, ptr @hf_glusterfs_mnt_flag_write, ptr @hf_glusterfs_mnt_flag_append, ptr @hf_glusterfs_mnt_flag_immutable, ptr @hf_glusterfs_mnt_flag_noatime, ptr @hf_glusterfs_mnt_flag_nodiratime, ptr @hf_glusterfs_mnt_flag_relatime, ptr null], align 16
 @glusterfs_rpc_dissect_flags.flag_bits = internal constant [19 x ptr] [ptr @hf_glusterfs_flags_wronly, ptr @hf_glusterfs_flags_rdwr, ptr @hf_glusterfs_flags_creat, ptr @hf_glusterfs_flags_excl, ptr @hf_glusterfs_flags_noctty, ptr @hf_glusterfs_flags_trunc, ptr @hf_glusterfs_flags_append, ptr @hf_glusterfs_flags_nonblock, ptr @hf_glusterfs_flags_ndelay, ptr @hf_glusterfs_flags_sync, ptr @hf_glusterfs_flags_async, ptr @hf_glusterfs_flags_direct, ptr @hf_glusterfs_flags_largefile, ptr @hf_glusterfs_flags_directory, ptr @hf_glusterfs_flags_nofollow, ptr @hf_glusterfs_flags_noatime, ptr @hf_glusterfs_flags_cloexec, ptr @hf_glusterfs_flags_reserved, ptr null], align 16
-@.str.552 = private unnamed_addr constant [5 x i8] c", %s\00", align 1
-@.str.553 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
-@.str.554 = private unnamed_addr constant [6 x i8] c"Flock\00", align 1
+@.str.562 = private unnamed_addr constant [5 x i8] c", %s\00", align 1
+@.str.563 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
+@.str.564 = private unnamed_addr constant [6 x i8] c"Flock\00", align 1
 @glusterfs_rpc_dissect_setattr.flag_bits = internal constant [8 x ptr] [ptr @hf_glusterfs_setattr_set_mode, ptr @hf_glusterfs_setattr_set_uid, ptr @hf_glusterfs_setattr_set_gid, ptr @hf_glusterfs_setattr_set_size, ptr @hf_glusterfs_setattr_set_atime, ptr @hf_glusterfs_setattr_set_mtime, ptr @hf_glusterfs_setattr_set_reserved, ptr null], align 16
-@.str.555 = private unnamed_addr constant [23 x i8] c" (More replies follow)\00", align 1
-@.str.556 = private unnamed_addr constant [14 x i8] c" (Last reply)\00", align 1
-@.str.557 = private unnamed_addr constant [6 x i8] c"Entry\00", align 1
-@.str.558 = private unnamed_addr constant [10 x i8] c" Path: %s\00", align 1
-@.str.559 = private unnamed_addr constant [8 x i8] c"%s: %ld\00", align 1
-@.str.560 = private unnamed_addr constant [8 x i8] c"%s: %lu\00", align 1
-@.str.561 = private unnamed_addr constant [7 x i8] c"%s: %f\00", align 1
-@.str.562 = private unnamed_addr constant [15 x i8] c", Filename: %s\00", align 1
-@.str.563 = private unnamed_addr constant [13 x i8] c"Flags: 0%02o\00", align 1
-@.str.564 = private unnamed_addr constant [11 x i8] c"Old parent\00", align 1
-@.str.565 = private unnamed_addr constant [11 x i8] c"New parent\00", align 1
+@.str.565 = private unnamed_addr constant [23 x i8] c" (More replies follow)\00", align 1
+@.str.566 = private unnamed_addr constant [14 x i8] c" (Last reply)\00", align 1
+@.str.567 = private unnamed_addr constant [6 x i8] c"Entry\00", align 1
+@.str.568 = private unnamed_addr constant [10 x i8] c" Path: %s\00", align 1
+@.str.569 = private unnamed_addr constant [8 x i8] c"%s: %ld\00", align 1
+@.str.570 = private unnamed_addr constant [8 x i8] c"%s: %lu\00", align 1
+@.str.571 = private unnamed_addr constant [7 x i8] c"%s: %f\00", align 1
+@glusterfs3_3_fop_proc = internal constant [49 x { i32, [4 x i8], ptr, ptr, ptr }] [{ i32, [4 x i8], ptr, ptr, ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.474, ptr @dissect_rpc_void, ptr @dissect_rpc_void }, { i32, [4 x i8], ptr, ptr, ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.475, ptr @glusterfs_gfs3_3_op_stat_call, ptr @glusterfs_gfs3_3_op_stat_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.476, ptr @glusterfs_gfs3_3_op_readlink_call, ptr @glusterfs_gfs3_3_op_readlink_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.477, ptr @glusterfs_gfs3_3_op_mknod_call, ptr @glusterfs_gfs3_3_op_mknod_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.478, ptr @glusterfs_gfs3_3_op_mkdir_call, ptr @glusterfs_gfs3_3_op_mknod_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.479, ptr @glusterfs_gfs3_3_op_unlink_call, ptr @glusterfs_gfs3_3_op_unlink_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.480, ptr @glusterfs_gfs3_3_op_rmdir_call, ptr @glusterfs_gfs3_3_op_unlink_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.481, ptr @glusterfs_gfs3_3_op_symlink_call, ptr @glusterfs_gfs3_3_op_mknod_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.482, ptr @glusterfs_gfs3_3_op_rename_call, ptr @glusterfs_gfs3_3_op_rename_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.483, ptr @glusterfs_gfs3_3_op_link_call, ptr @glusterfs_gfs3_3_op_mknod_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.484, ptr @glusterfs_gfs3_3_op_truncate_call, ptr @glusterfs_gfs3_3_op_unlink_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.485, ptr @glusterfs_gfs3_3_op_open_call, ptr @glusterfs_gfs3_3_op_open_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.486, ptr @glusterfs_gfs3_3_op_read_call, ptr @glusterfs_gfs3_3_op_read_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.487, ptr @glusterfs_gfs3_3_op_write_call, ptr @glusterfs_gfs3_3_op_setattr_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.488, ptr @glusterfs_gfs3_3_op_statfs_call, ptr @glusterfs_gfs3_3_op_statfs_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.489, ptr @glusterfs_gfs3_3_op_flush_call, ptr @glusterfs_gfs3_3_op_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.490, ptr @glusterfs_gfs3_3_op_fsync_call, ptr @glusterfs_gfs3_3_op_setattr_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.491, ptr @glusterfs_gfs3_3_op_setxattr_call, ptr @glusterfs_gfs3_3_op_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.492, ptr @glusterfs_gfs3_3_op_getxattr_call, ptr @glusterfs_gfs3_3_op_getxattr_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.493, ptr @glusterfs_gfs3_3_op_removexattr_call, ptr @glusterfs_gfs3_3_op_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.494, ptr @glusterfs_gfs3_3_op_opendir_call, ptr @glusterfs_gfs3_3_op_opendir_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.495, ptr @glusterfs_gfs3_3_op_fsync_call, ptr @glusterfs_gfs3_3_op_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.496, ptr @glusterfs_gfs3_3_op_access_call, ptr @glusterfs_gfs3_3_op_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.497, ptr @glusterfs_gfs3_3_op_create_call, ptr @glusterfs_gfs3_3_op_create_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.498, ptr @glusterfs_gfs3_3_op_ftruncate_call, ptr @glusterfs_gfs3_3_op_unlink_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.499, ptr @glusterfs_gfs3_3_op_fstat_call, ptr @glusterfs_gfs3_3_op_fstat_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.500, ptr @glusterfs_gfs3_3_op_lk_call, ptr @glusterfs_gfs3_3_op_lk_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.501, ptr @glusterfs_gfs3_3_op_lookup_call, ptr @glusterfs_gfs3_3_op_setattr_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.502, ptr @glusterfs_gfs3_3_op_readdir_call, ptr @glusterfs_gfs3_3_op_readdir_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 29, [4 x i8] zeroinitializer, ptr @.str.503, ptr @glusterfs_gfs3_3_op_inodelk_call, ptr @glusterfs_gfs3_3_op_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 30, [4 x i8] zeroinitializer, ptr @.str.504, ptr @glusterfs_gfs3_3_op_finodelk_call, ptr @glusterfs_gfs3_3_op_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.505, ptr @glusterfs_gfs3_3_op_entrylk_call, ptr @glusterfs_gfs3_3_op_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.506, ptr @glusterfs_gfs3_3_op_fentrylk_call, ptr @glusterfs_gfs3_3_op_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.507, ptr @glusterfs_gfs3_3_op_xattrop_call, ptr @glusterfs_gfs3_3_op_xattrop_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.508, ptr @glusterfs_gfs3_3_op_fxattrop_call, ptr @glusterfs_gfs3_3_op_xattrop_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.509, ptr @glusterfs_gfs3_3_op_fgetxattr_call, ptr @glusterfs_gfs3_3_op_xattrop_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.510, ptr @gluter_gfs3_3_op_fsetxattr_call, ptr @glusterfs_gfs3_3_op_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 37, [4 x i8] zeroinitializer, ptr @.str.511, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 38, [4 x i8] zeroinitializer, ptr @.str.512, ptr @glusterfs_gfs3_3_op_setattr_call, ptr @glusterfs_gfs3_3_op_setattr_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 39, [4 x i8] zeroinitializer, ptr @.str.513, ptr @glusterfs_gfs3_3_op_setattr_call, ptr @glusterfs_gfs3_3_op_setattr_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 40, [4 x i8] zeroinitializer, ptr @.str.514, ptr @glusterfs_gfs3_3_op_readdirp_call, ptr @glusterfs_gfs3_3_op_readdirp_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 42, [4 x i8] zeroinitializer, ptr @.str.516, ptr @glusterfs_gfs3_3_op_release_call, ptr @glusterfs_gfs3_3_op_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 43, [4 x i8] zeroinitializer, ptr @.str.517, ptr @glusterfs_gfs3_3_op_releasedir_call, ptr @glusterfs_gfs3_3_op_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 44, [4 x i8] zeroinitializer, ptr @.str.518, ptr @glusterfs_gfs3_3_op_fremovexattr_call, ptr @glusterfs_gfs3_3_op_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 45, [4 x i8] zeroinitializer, ptr @.str.519, ptr @glusterfs_gfs3_3_op_fallocate_call, ptr @glusterfs_gfs3_3_op_setattr_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 46, [4 x i8] zeroinitializer, ptr @.str.520, ptr @glusterfs_gfs3_3_op_readdirp_call, ptr @glusterfs_gfs3_3_op_setattr_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 47, [4 x i8] zeroinitializer, ptr @.str.521, ptr @glusterfs_gfs3_3_op_zerofill_call, ptr @glusterfs_gfs3_3_op_setattr_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 49, [4 x i8] zeroinitializer, ptr @.str.523, ptr @glusterfs_gfs3_3_op_seek_call, ptr @glusterfs_gfs3_3_op_seek_reply }, { i32, [4 x i8], ptr, ptr, ptr } zeroinitializer], align 16
+@.str.573 = private unnamed_addr constant [15 x i8] c", Filename: %s\00", align 1
+@.str.574 = private unnamed_addr constant [13 x i8] c"Flags: 0%02o\00", align 1
+@.str.575 = private unnamed_addr constant [11 x i8] c"Old parent\00", align 1
+@.str.576 = private unnamed_addr constant [11 x i8] c"New parent\00", align 1
 @glusterfs_gfs3_3_op_fsync_call.flag_bits = internal constant [3 x ptr] [ptr @hf_glusterfs_fsync_flag_datasync, ptr @hf_glusterfs_fsync_flag_unknown, ptr null], align 16
-@.str.566 = private unnamed_addr constant [32 x i8] c", Filename: (nameless, by GFID)\00", align 1
+@.str.577 = private unnamed_addr constant [32 x i8] c", Filename: (nameless, by GFID)\00", align 1
+@glusterfs4_0_fop_proc = internal constant [49 x { i32, [4 x i8], ptr, ptr, ptr }] [{ i32, [4 x i8], ptr, ptr, ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.474, ptr @dissect_rpc_void, ptr @dissect_rpc_void }, { i32, [4 x i8], ptr, ptr, ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.475, ptr @glusterfs_gfs4_0_op_stat_call, ptr @glusterfs_gfs4_0_op_common_iatt_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.476, ptr @glusterfs_gfs4_0_op_readlink_call, ptr @glusterfs_gfs4_0_op_readlink_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.477, ptr @glusterfs_gfs4_0_op_mknod_call, ptr @glusterfs_gfs4_0_op_common_3iatt_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.478, ptr @glusterfs_gfs4_0_op_mkdir_call, ptr @glusterfs_gfs4_0_op_common_3iatt_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.479, ptr @glusterfs_gfs4_0_op_unlink_call, ptr @glusterfs_gfs4_0_op_common_2parent_iatt_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.480, ptr @glusterfs_gfs4_0_op_rmdir_call, ptr @glusterfs_gfs4_0_op_common_2parent_iatt_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.481, ptr @glusterfs_gfs4_0_op_symlink_call, ptr @glusterfs_gfs4_0_op_common_3iatt_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.482, ptr @glusterfs_gfs4_0_op_rename_call, ptr @glusterfs_gfs4_0_op_rename_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.483, ptr @glusterfs_gfs4_0_op_link_call, ptr @glusterfs_gfs4_0_op_common_3iatt_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.484, ptr @glusterfs_gfs4_0_op_truncate_call, ptr @glusterfs_gfs4_0_op_common_2iatt_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.485, ptr @glusterfs_gfs4_0_op_open_call, ptr @glusterfs_gfs4_0_op_open_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.486, ptr @glusterfs_gfs4_0_op_read_call, ptr @glusterfs_gfs4_0_op_read_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.487, ptr @glusterfs_gfs4_0_op_write_call, ptr @glusterfs_gfs4_0_op_common_2iatt_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.488, ptr @glusterfs_gfs4_0_op_statfs_call, ptr @glusterfs_gfs4_0_op_statfs_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.489, ptr @glusterfs_gfs4_0_op_flush_call, ptr @glusterfs_gfs4_0_op_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.490, ptr @glusterfs_gfs4_0_op_fsync_call, ptr @glusterfs_gfs4_0_op_common_2iatt_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.491, ptr @glusterfs_gfs4_0_op_setxattr_call, ptr @glusterfs_gfs4_0_op_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.492, ptr @glusterfs_gfs4_0_op_getxattr_call, ptr @glusterfs_gfs4_0_op_common_dict_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.493, ptr @glusterfs_gfs4_0_op_removexattr_call, ptr @glusterfs_gfs4_0_op_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.494, ptr @glusterfs_gfs4_0_op_opendir_call, ptr @glusterfs_gfs4_0_op_open_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.495, ptr @glusterfs_gfs4_0_op_fsync_call, ptr @glusterfs_gfs4_0_op_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.496, ptr @glusterfs_gfs4_0_op_access_call, ptr @glusterfs_gfs4_0_op_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.497, ptr @glusterfs_gfs4_0_op_create_call, ptr @glusterfs_gfs4_0_op_create_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.498, ptr @glusterfs_gfs4_0_op_ftruncate_call, ptr @glusterfs_gfs4_0_op_common_2iatt_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.499, ptr @glusterfs_gfs4_0_op_fstat_call, ptr @glusterfs_gfs4_0_op_common_iatt_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.500, ptr @glusterfs_gfs4_0_op_lk_call, ptr @glusterfs_gfs4_0_op_lk_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.501, ptr @glusterfs_gfs4_0_op_lookup_call, ptr @glusterfs_gfs4_0_op_common_2iatt_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.502, ptr @glusterfs_gfs4_0_op_readdir_call, ptr @glusterfs_gfs4_0_op_readdir_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 29, [4 x i8] zeroinitializer, ptr @.str.503, ptr @glusterfs_gfs4_0_op_inodelk_call, ptr @glusterfs_gfs4_0_op_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 30, [4 x i8] zeroinitializer, ptr @.str.504, ptr @glusterfs_gfs4_0_op_finodelk_call, ptr @glusterfs_gfs4_0_op_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.505, ptr @glusterfs_gfs4_0_op_entrylk_call, ptr @glusterfs_gfs4_0_op_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.506, ptr @glusterfs_gfs4_0_op_fentrylk_call, ptr @glusterfs_gfs4_0_op_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.507, ptr @glusterfs_gfs4_0_op_xattrop_call, ptr @glusterfs_gfs4_0_op_common_dict_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.508, ptr @glusterfs_gfs4_0_op_fxattrop_call, ptr @glusterfs_gfs4_0_op_common_dict_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.509, ptr @glusterfs_gfs4_0_op_fgetxattr_call, ptr @glusterfs_gfs4_0_op_common_dict_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.510, ptr @gluter_gfs4_0_op_fsetxattr_call, ptr @glusterfs_gfs4_0_op_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 37, [4 x i8] zeroinitializer, ptr @.str.511, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 38, [4 x i8] zeroinitializer, ptr @.str.512, ptr @glusterfs_gfs4_0_op_setattr_call, ptr @glusterfs_gfs4_0_op_common_2iatt_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 39, [4 x i8] zeroinitializer, ptr @.str.513, ptr @glusterfs_gfs4_0_op_fsetattr_call, ptr @glusterfs_gfs4_0_op_common_2iatt_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 40, [4 x i8] zeroinitializer, ptr @.str.514, ptr @glusterfs_gfs4_0_op_readdirp_call, ptr @glusterfs_gfs4_0_op_readdirp_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 42, [4 x i8] zeroinitializer, ptr @.str.516, ptr @glusterfs_gfs4_0_op_release_call, ptr @glusterfs_gfs4_0_op_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 43, [4 x i8] zeroinitializer, ptr @.str.517, ptr @glusterfs_gfs4_0_op_releasedir_call, ptr @glusterfs_gfs4_0_op_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 44, [4 x i8] zeroinitializer, ptr @.str.518, ptr @glusterfs_gfs4_0_op_fremovexattr_call, ptr @glusterfs_gfs4_0_op_common_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 45, [4 x i8] zeroinitializer, ptr @.str.519, ptr @glusterfs_gfs4_0_op_fallocate_call, ptr @glusterfs_gfs4_0_op_common_2iatt_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 46, [4 x i8] zeroinitializer, ptr @.str.520, ptr @glusterfs_gfs4_0_op_readdirp_call, ptr @glusterfs_gfs4_0_op_common_2iatt_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 47, [4 x i8] zeroinitializer, ptr @.str.521, ptr @glusterfs_gfs4_0_op_zerofill_call, ptr @glusterfs_gfs4_0_op_common_2iatt_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 49, [4 x i8] zeroinitializer, ptr @.str.523, ptr @glusterfs_gfs4_0_op_seek_call, ptr @glusterfs_gfs4_0_op_seek_reply }, { i32, [4 x i8], ptr, ptr, ptr } zeroinitializer], align 16
 @glusterfs_gfs4_0_op_fsync_call.flag_bits = internal constant [3 x ptr] [ptr @hf_glusterfs_fsync_flag_datasync, ptr @hf_glusterfs_fsync_flag_unknown, ptr null], align 16
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @glusterfs_rpc_dissect_gf_iatt(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -784,6 +781,9 @@ define hidden i32 @glusterfs_rpc_dissect_gf_iatt(ptr noundef %0, ptr noundef %1,
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
   %12 = load i32, ptr %8, align 4
   store i32 %12, ptr %11, align 4
   %13 = load ptr, ptr %5, align 8
@@ -892,14 +892,22 @@ define hidden i32 @glusterfs_rpc_dissect_gf_iatt(ptr noundef %0, ptr noundef %1,
   %100 = sub i32 %98, %99
   call void @proto_item_set_len(ptr noundef %97, i32 noundef %100)
   %101 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
   ret i32 %101
 }
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_rpc_dissect_gfid(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -921,9 +929,10 @@ define internal i32 @glusterfs_rpc_dissect_gfid(ptr noundef %0, ptr noundef %1, 
   ret i32 %16
 }
 
-declare i32 @dissect_rpc_uint64(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_rpc_uint64(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_rpc_dissect_mode(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -946,11 +955,16 @@ define internal i32 @glusterfs_rpc_dissect_mode(ptr noundef %0, ptr noundef %1, 
   ret i32 %17
 }
 
-declare i32 @dissect_rpc_uint32(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_rpc_uint32(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-declare void @proto_item_set_len(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_set_len(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @gluster_rpc_dissect_dict(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -973,298 +987,343 @@ define hidden i32 @gluster_rpc_dissect_dict(ptr noundef %0, ptr noundef %1, i32 
   %23 = alloca ptr, align 8
   %24 = alloca ptr, align 8
   %25 = alloca ptr, align 8
-  %26 = alloca ptr, align 8
-  %27 = alloca %struct._e_guid_t, align 4
+  %26 = alloca i32, align 4
+  %27 = alloca ptr, align 8
+  %28 = alloca %struct._e_guid_t, align 4
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store i32 %2, ptr %8, align 4
   store i32 %3, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #5
   store ptr null, ptr %24, align 8
-  %28 = load i32, ptr %8, align 4
-  %29 = icmp sge i32 %28, 0
-  br i1 %29, label %30, label %36
+  %29 = load i32, ptr %8, align 4
+  %30 = icmp sge i32 %29, 0
+  br i1 %30, label %31, label %37
 
-30:                                               ; preds = %4
-  %31 = load i32, ptr %8, align 4
-  %32 = call ptr @proto_registrar_get_nth(i32 noundef %31)
-  store ptr %32, ptr %25, align 8
-  %33 = load ptr, ptr %25, align 8
-  %34 = getelementptr inbounds %struct._header_field_info, ptr %33, i32 0, i32 0
-  %35 = load ptr, ptr %34, align 8
-  store ptr %35, ptr %12, align 8
-  br label %37
+31:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #5
+  %32 = load i32, ptr %8, align 4
+  %33 = call ptr @proto_registrar_get_nth(i32 noundef %32)
+  store ptr %33, ptr %25, align 8
+  %34 = load ptr, ptr %25, align 8
+  %35 = getelementptr inbounds nuw %struct._header_field_info, ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8
+  store ptr %36, ptr %12, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #5
+  br label %38
 
-36:                                               ; preds = %4
+37:                                               ; preds = %4
   store ptr @.str, ptr %12, align 8
-  br label %37
+  br label %38
 
-37:                                               ; preds = %36, %30
-  %38 = load i32, ptr %9, align 4
-  store i32 %38, ptr %19, align 4
-  %39 = load ptr, ptr %6, align 8
-  %40 = load ptr, ptr %7, align 8
-  %41 = load i32, ptr %9, align 4
-  %42 = load i32, ptr @ett_gluster_dict, align 4
-  %43 = load ptr, ptr %12, align 8
-  %44 = call ptr @proto_tree_add_subtree(ptr noundef %39, ptr noundef %40, i32 noundef %41, i32 noundef -1, i32 noundef %42, ptr noundef %21, ptr noundef %43)
-  store ptr %44, ptr %23, align 8
-  %45 = load ptr, ptr %7, align 8
-  %46 = load i32, ptr %9, align 4
-  %47 = call i32 @tvb_get_ntohl(ptr noundef %45, i32 noundef %46)
-  store i32 %47, ptr %18, align 4
-  %48 = load i32, ptr %18, align 4
-  %49 = call i32 @rpc_roundup(i32 noundef %48)
-  %50 = load i32, ptr %18, align 4
-  %51 = sub i32 %49, %50
-  store i32 %51, ptr %13, align 4
-  %52 = load ptr, ptr %23, align 8
-  %53 = load i32, ptr @hf_gluster_dict_size, align 4
-  %54 = load ptr, ptr %7, align 8
-  %55 = load i32, ptr %9, align 4
-  %56 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %52, i32 noundef %53, ptr noundef %54, i32 noundef %55, i32 noundef 4, i32 noundef 0, ptr noundef %18)
-  store ptr %56, ptr %22, align 8
-  %57 = load ptr, ptr %22, align 8
-  %58 = load i32, ptr %18, align 4
-  %59 = call i32 @rpc_roundup(i32 noundef %58)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %57, ptr noundef @.str.1, i32 noundef %59)
-  %60 = load ptr, ptr %22, align 8
-  call void @proto_item_set_generated(ptr noundef %60)
-  %61 = load i32, ptr %9, align 4
-  %62 = add i32 %61, 4
-  store i32 %62, ptr %9, align 4
-  %63 = load i32, ptr %18, align 4
-  %64 = icmp eq i32 %63, 0
-  br i1 %64, label %65, label %66
+38:                                               ; preds = %37, %31
+  %39 = load i32, ptr %9, align 4
+  store i32 %39, ptr %19, align 4
+  %40 = load ptr, ptr %6, align 8
+  %41 = load ptr, ptr %7, align 8
+  %42 = load i32, ptr %9, align 4
+  %43 = load i32, ptr @ett_gluster_dict, align 4
+  %44 = load ptr, ptr %12, align 8
+  %45 = call ptr @proto_tree_add_subtree(ptr noundef %40, ptr noundef %41, i32 noundef %42, i32 noundef -1, i32 noundef %43, ptr noundef %21, ptr noundef %44)
+  store ptr %45, ptr %23, align 8
+  %46 = load ptr, ptr %7, align 8
+  %47 = load i32, ptr %9, align 4
+  %48 = call i32 @tvb_get_ntohl(ptr noundef %46, i32 noundef %47)
+  store i32 %48, ptr %18, align 4
+  %49 = load i32, ptr %18, align 4
+  %50 = call i32 @rpc_roundup(i32 noundef %49)
+  %51 = load i32, ptr %18, align 4
+  %52 = sub i32 %50, %51
+  store i32 %52, ptr %13, align 4
+  %53 = load ptr, ptr %23, align 8
+  %54 = load i32, ptr @hf_gluster_dict_size, align 4
+  %55 = load ptr, ptr %7, align 8
+  %56 = load i32, ptr %9, align 4
+  %57 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %53, i32 noundef %54, ptr noundef %55, i32 noundef %56, i32 noundef 4, i32 noundef 0, ptr noundef %18)
+  store ptr %57, ptr %22, align 8
+  %58 = load ptr, ptr %22, align 8
+  %59 = load i32, ptr %18, align 4
+  %60 = call i32 @rpc_roundup(i32 noundef %59)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %58, ptr noundef @.str.1, i32 noundef %60)
+  %61 = load ptr, ptr %22, align 8
+  call void @proto_item_set_generated(ptr noundef %61)
+  %62 = load i32, ptr %9, align 4
+  %63 = add i32 %62, 4
+  store i32 %63, ptr %9, align 4
+  %64 = load i32, ptr %18, align 4
+  %65 = icmp eq i32 %64, 0
+  br i1 %65, label %66, label %67
 
-65:                                               ; preds = %37
+66:                                               ; preds = %38
   store i32 0, ptr %17, align 4
-  br label %70
+  br label %71
 
-66:                                               ; preds = %37
-  %67 = load ptr, ptr %7, align 8
-  %68 = load i32, ptr %9, align 4
-  %69 = call i32 @tvb_get_ntohl(ptr noundef %67, i32 noundef %68)
-  store i32 %69, ptr %17, align 4
-  br label %70
+67:                                               ; preds = %38
+  %68 = load ptr, ptr %7, align 8
+  %69 = load i32, ptr %9, align 4
+  %70 = call i32 @tvb_get_ntohl(ptr noundef %68, i32 noundef %69)
+  store i32 %70, ptr %17, align 4
+  br label %71
 
-70:                                               ; preds = %66, %65
-  %71 = load ptr, ptr %21, align 8
-  %72 = load i32, ptr %17, align 4
+71:                                               ; preds = %67, %66
+  %72 = load ptr, ptr %21, align 8
   %73 = load i32, ptr %17, align 4
-  %74 = icmp eq i32 %73, 1
-  %75 = select i1 %74, ptr @.str.3, ptr @.str.4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %71, ptr noundef @.str.2, i32 noundef %72, ptr noundef %75)
-  %76 = load i32, ptr %18, align 4
-  %77 = icmp eq i32 %76, 0
-  br i1 %77, label %78, label %80
+  %74 = load i32, ptr %17, align 4
+  %75 = icmp eq i32 %74, 1
+  %76 = select i1 %75, ptr @.str.3, ptr @.str.4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %72, ptr noundef @.str.2, i32 noundef %73, ptr noundef %76)
+  %77 = load i32, ptr %18, align 4
+  %78 = icmp eq i32 %77, 0
+  br i1 %78, label %79, label %81
 
-78:                                               ; preds = %70
-  %79 = load i32, ptr %9, align 4
-  store i32 %79, ptr %5, align 4
-  br label %207
+79:                                               ; preds = %71
+  %80 = load i32, ptr %9, align 4
+  store i32 %80, ptr %5, align 4
+  store i32 1, ptr %26, align 4
+  br label %208
 
-80:                                               ; preds = %70
-  %81 = load ptr, ptr %23, align 8
-  %82 = load i32, ptr @hf_gluster_num_dict_items, align 4
-  %83 = load ptr, ptr %7, align 8
-  %84 = load i32, ptr %9, align 4
-  %85 = load i32, ptr %17, align 4
-  %86 = call ptr @proto_tree_add_uint(ptr noundef %81, i32 noundef %82, ptr noundef %83, i32 noundef %84, i32 noundef 4, i32 noundef %85)
-  %87 = load i32, ptr %9, align 4
-  %88 = add i32 %87, 4
-  store i32 %88, ptr %9, align 4
+81:                                               ; preds = %71
+  %82 = load ptr, ptr %23, align 8
+  %83 = load i32, ptr @hf_gluster_num_dict_items, align 4
+  %84 = load ptr, ptr %7, align 8
+  %85 = load i32, ptr %9, align 4
+  %86 = load i32, ptr %17, align 4
+  %87 = call ptr @proto_tree_add_uint(ptr noundef %82, i32 noundef %83, ptr noundef %84, i32 noundef %85, i32 noundef 4, i32 noundef %86)
+  %88 = load i32, ptr %9, align 4
+  %89 = add i32 %88, 4
+  store i32 %89, ptr %9, align 4
   store i32 0, ptr %16, align 4
-  br label %89
+  br label %90
 
-89:                                               ; preds = %185, %80
-  %90 = load i32, ptr %16, align 4
-  %91 = load i32, ptr %17, align 4
-  %92 = icmp ult i32 %90, %91
-  br i1 %92, label %93, label %188
+90:                                               ; preds = %186, %81
+  %91 = load i32, ptr %16, align 4
+  %92 = load i32, ptr %17, align 4
+  %93 = icmp ult i32 %91, %92
+  br i1 %93, label %94, label %189
 
-93:                                               ; preds = %89
-  %94 = load i32, ptr %9, align 4
-  %95 = add i32 %94, 4
-  store i32 %95, ptr %9, align 4
-  %96 = load ptr, ptr %7, align 8
-  %97 = load i32, ptr %9, align 4
-  %98 = call i32 @tvb_get_ntohl(ptr noundef %96, i32 noundef %97)
-  store i32 %98, ptr %14, align 4
-  %99 = load i32, ptr %9, align 4
-  %100 = add i32 %99, 4
-  store i32 %100, ptr %9, align 4
-  %101 = call ptr @wmem_packet_scope()
-  %102 = load ptr, ptr %7, align 8
-  %103 = load i32, ptr %9, align 4
-  %104 = call ptr @tvb_get_stringz_enc(ptr noundef %101, ptr noundef %102, i32 noundef %103, ptr noundef %15, i32 noundef 0)
-  store ptr %104, ptr %10, align 8
-  %105 = load i32, ptr %9, align 4
-  store i32 %105, ptr %20, align 4
-  %106 = load i32, ptr %15, align 4
-  %107 = load i32, ptr %9, align 4
-  %108 = add i32 %107, %106
-  store i32 %108, ptr %9, align 4
-  %109 = load i32, ptr %14, align 4
-  %110 = icmp eq i32 %109, 16
-  br i1 %110, label %111, label %135
+94:                                               ; preds = %90
+  %95 = load i32, ptr %9, align 4
+  %96 = add i32 %95, 4
+  store i32 %96, ptr %9, align 4
+  %97 = load ptr, ptr %7, align 8
+  %98 = load i32, ptr %9, align 4
+  %99 = call i32 @tvb_get_ntohl(ptr noundef %97, i32 noundef %98)
+  store i32 %99, ptr %14, align 4
+  %100 = load i32, ptr %9, align 4
+  %101 = add i32 %100, 4
+  store i32 %101, ptr %9, align 4
+  %102 = call ptr @wmem_packet_scope()
+  %103 = load ptr, ptr %7, align 8
+  %104 = load i32, ptr %9, align 4
+  %105 = call ptr @tvb_get_stringz_enc(ptr noundef %102, ptr noundef %103, i32 noundef %104, ptr noundef %15, i32 noundef 0)
+  store ptr %105, ptr %10, align 8
+  %106 = load i32, ptr %9, align 4
+  store i32 %106, ptr %20, align 4
+  %107 = load i32, ptr %15, align 4
+  %108 = load i32, ptr %9, align 4
+  %109 = add i32 %108, %107
+  store i32 %109, ptr %9, align 4
+  %110 = load i32, ptr %14, align 4
+  %111 = icmp eq i32 %110, 16
+  br i1 %111, label %112, label %136
 
-111:                                              ; preds = %93
-  %112 = load ptr, ptr %10, align 8
-  %113 = call i32 @strncmp(ptr noundef @.str.5, ptr noundef %112, i64 noundef 8) #3
-  %114 = icmp ne i32 %113, 0
-  br i1 %114, label %115, label %123
+112:                                              ; preds = %94
+  %113 = load ptr, ptr %10, align 8
+  %114 = call i32 @strncmp(ptr noundef @.str.5, ptr noundef %113, i64 noundef 8) #6
+  %115 = icmp ne i32 %114, 0
+  br i1 %115, label %116, label %124
 
-115:                                              ; preds = %111
-  %116 = load ptr, ptr %10, align 8
-  %117 = call i32 @strncmp(ptr noundef @.str.6, ptr noundef %116, i64 noundef 14) #3
-  %118 = icmp ne i32 %117, 0
-  br i1 %118, label %119, label %123
+116:                                              ; preds = %112
+  %117 = load ptr, ptr %10, align 8
+  %118 = call i32 @strncmp(ptr noundef @.str.6, ptr noundef %117, i64 noundef 14) #6
+  %119 = icmp ne i32 %118, 0
+  br i1 %119, label %120, label %124
 
-119:                                              ; preds = %115
-  %120 = load ptr, ptr %10, align 8
-  %121 = call i32 @strncmp(ptr noundef @.str.7, ptr noundef %120, i64 noundef 15) #3
-  %122 = icmp ne i32 %121, 0
-  br i1 %122, label %135, label %123
+120:                                              ; preds = %116
+  %121 = load ptr, ptr %10, align 8
+  %122 = call i32 @strncmp(ptr noundef @.str.7, ptr noundef %121, i64 noundef 15) #6
+  %123 = icmp ne i32 %122, 0
+  br i1 %123, label %136, label %124
 
-123:                                              ; preds = %119, %115, %111
-  %124 = load ptr, ptr %7, align 8
-  %125 = load i32, ptr %9, align 4
-  call void @tvb_get_ntohguid(ptr noundef %124, i32 noundef %125, ptr noundef %27)
-  %126 = call ptr @wmem_packet_scope()
-  %127 = call ptr @guid_to_str(ptr noundef %126, ptr noundef %27)
-  store ptr %127, ptr %26, align 8
-  %128 = load ptr, ptr %23, align 8
-  %129 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %130 = load ptr, ptr %7, align 8
-  %131 = load i32, ptr %9, align 4
-  %132 = load ptr, ptr %10, align 8
-  %133 = load ptr, ptr %26, align 8
-  %134 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_guid_format(ptr noundef %128, i32 noundef %129, ptr noundef %130, i32 noundef %131, i32 noundef 16, ptr noundef %27, ptr noundef @.str.8, ptr noundef %132, ptr noundef %133)
-  store ptr %134, ptr %24, align 8
+124:                                              ; preds = %120, %116, %112
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %28) #5
+  %125 = load ptr, ptr %7, align 8
+  %126 = load i32, ptr %9, align 4
+  call void @tvb_get_ntohguid(ptr noundef %125, i32 noundef %126, ptr noundef %28)
+  %127 = call ptr @wmem_packet_scope()
+  %128 = call ptr @guid_to_str(ptr noundef %127, ptr noundef %28)
+  store ptr %128, ptr %27, align 8
+  %129 = load ptr, ptr %23, align 8
+  %130 = load i32, ptr @hf_glusterfs_gfid, align 4
+  %131 = load ptr, ptr %7, align 8
+  %132 = load i32, ptr %9, align 4
+  %133 = load ptr, ptr %10, align 8
+  %134 = load ptr, ptr %27, align 8
+  %135 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_guid_format(ptr noundef %129, i32 noundef %130, ptr noundef %131, i32 noundef %132, i32 noundef 16, ptr noundef %28, ptr noundef @.str.8, ptr noundef %133, ptr noundef %134)
+  store ptr %135, ptr %24, align 8
+  call void @llvm.lifetime.end.p0(i64 16, ptr %28) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #5
+  br label %178
+
+136:                                              ; preds = %120, %94
+  %137 = load i32, ptr %14, align 4
+  %138 = icmp eq i32 %137, 12
+  br i1 %138, label %139, label %162
+
+139:                                              ; preds = %136
+  %140 = load ptr, ptr %10, align 8
+  %141 = call i32 @strncmp(ptr noundef @.str.9, ptr noundef %140, i64 noundef 12) #6
+  %142 = icmp ne i32 %141, 0
+  br i1 %142, label %162, label %143
+
+143:                                              ; preds = %139
+  %144 = load ptr, ptr %23, align 8
+  %145 = load i32, ptr @hf_gluster_trusted_afr_key, align 4
+  %146 = load ptr, ptr %7, align 8
+  %147 = load i32, ptr %9, align 4
+  %148 = load ptr, ptr %10, align 8
+  %149 = load ptr, ptr %7, align 8
+  %150 = load i32, ptr %9, align 4
+  %151 = add i32 %150, 0
+  %152 = call i32 @tvb_get_letohl(ptr noundef %149, i32 noundef %151)
+  %153 = load ptr, ptr %7, align 8
+  %154 = load i32, ptr %9, align 4
+  %155 = add i32 %154, 4
+  %156 = call i32 @tvb_get_letohl(ptr noundef %153, i32 noundef %155)
+  %157 = load ptr, ptr %7, align 8
+  %158 = load i32, ptr %9, align 4
+  %159 = add i32 %158, 8
+  %160 = call i32 @tvb_get_letohl(ptr noundef %157, i32 noundef %159)
+  %161 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %144, i32 noundef %145, ptr noundef %146, i32 noundef %147, i32 noundef 12, ptr noundef null, ptr noundef @.str.10, ptr noundef %148, i32 noundef %152, i32 noundef %156, i32 noundef %160)
+  store ptr %161, ptr %24, align 8
   br label %177
 
-135:                                              ; preds = %119, %93
-  %136 = load i32, ptr %14, align 4
-  %137 = icmp eq i32 %136, 12
-  br i1 %137, label %138, label %161
-
-138:                                              ; preds = %135
-  %139 = load ptr, ptr %10, align 8
-  %140 = call i32 @strncmp(ptr noundef @.str.9, ptr noundef %139, i64 noundef 12) #3
-  %141 = icmp ne i32 %140, 0
-  br i1 %141, label %161, label %142
-
-142:                                              ; preds = %138
-  %143 = load ptr, ptr %23, align 8
-  %144 = load i32, ptr @hf_gluster_trusted_afr_key, align 4
-  %145 = load ptr, ptr %7, align 8
-  %146 = load i32, ptr %9, align 4
-  %147 = load ptr, ptr %10, align 8
-  %148 = load ptr, ptr %7, align 8
-  %149 = load i32, ptr %9, align 4
-  %150 = add i32 %149, 0
-  %151 = call i32 @tvb_get_letohl(ptr noundef %148, i32 noundef %150)
-  %152 = load ptr, ptr %7, align 8
-  %153 = load i32, ptr %9, align 4
-  %154 = add i32 %153, 4
-  %155 = call i32 @tvb_get_letohl(ptr noundef %152, i32 noundef %154)
-  %156 = load ptr, ptr %7, align 8
-  %157 = load i32, ptr %9, align 4
-  %158 = add i32 %157, 8
-  %159 = call i32 @tvb_get_letohl(ptr noundef %156, i32 noundef %158)
-  %160 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %143, i32 noundef %144, ptr noundef %145, i32 noundef %146, i32 noundef 12, ptr noundef null, ptr noundef @.str.10, ptr noundef %147, i32 noundef %151, i32 noundef %155, i32 noundef %159)
-  store ptr %160, ptr %24, align 8
-  br label %176
-
-161:                                              ; preds = %138, %135
-  %162 = call ptr @wmem_packet_scope()
-  %163 = load ptr, ptr %7, align 8
-  %164 = load i32, ptr %9, align 4
-  %165 = load i32, ptr %14, align 4
-  %166 = call ptr @tvb_get_string_enc(ptr noundef %162, ptr noundef %163, i32 noundef %164, i32 noundef %165, i32 noundef 0)
-  store ptr %166, ptr %11, align 8
-  %167 = load ptr, ptr %23, align 8
-  %168 = load i32, ptr @hf_gluster_dict_value, align 4
-  %169 = load ptr, ptr %7, align 8
-  %170 = load i32, ptr %9, align 4
-  %171 = load i32, ptr %14, align 4
-  %172 = load ptr, ptr %11, align 8
-  %173 = load ptr, ptr %10, align 8
-  %174 = load ptr, ptr %11, align 8
-  %175 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %167, i32 noundef %168, ptr noundef %169, i32 noundef %170, i32 noundef %171, ptr noundef %172, ptr noundef @.str.8, ptr noundef %173, ptr noundef %174)
-  store ptr %175, ptr %24, align 8
-  br label %176
-
-176:                                              ; preds = %161, %142
+162:                                              ; preds = %139, %136
+  %163 = call ptr @wmem_packet_scope()
+  %164 = load ptr, ptr %7, align 8
+  %165 = load i32, ptr %9, align 4
+  %166 = load i32, ptr %14, align 4
+  %167 = call ptr @tvb_get_string_enc(ptr noundef %163, ptr noundef %164, i32 noundef %165, i32 noundef %166, i32 noundef 0)
+  store ptr %167, ptr %11, align 8
+  %168 = load ptr, ptr %23, align 8
+  %169 = load i32, ptr @hf_gluster_dict_value, align 4
+  %170 = load ptr, ptr %7, align 8
+  %171 = load i32, ptr %9, align 4
+  %172 = load i32, ptr %14, align 4
+  %173 = load ptr, ptr %11, align 8
+  %174 = load ptr, ptr %10, align 8
+  %175 = load ptr, ptr %11, align 8
+  %176 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %168, i32 noundef %169, ptr noundef %170, i32 noundef %171, i32 noundef %172, ptr noundef %173, ptr noundef @.str.8, ptr noundef %174, ptr noundef %175)
+  store ptr %176, ptr %24, align 8
   br label %177
 
-177:                                              ; preds = %176, %123
-  %178 = load i32, ptr %14, align 4
-  %179 = load i32, ptr %9, align 4
-  %180 = add i32 %179, %178
-  store i32 %180, ptr %9, align 4
-  %181 = load ptr, ptr %24, align 8
-  %182 = load i32, ptr %9, align 4
-  %183 = load i32, ptr %20, align 4
-  %184 = sub i32 %182, %183
-  call void @proto_item_set_len(ptr noundef %181, i32 noundef %184)
-  br label %185
+177:                                              ; preds = %162, %143
+  br label %178
 
-185:                                              ; preds = %177
-  %186 = load i32, ptr %16, align 4
-  %187 = add i32 %186, 1
-  store i32 %187, ptr %16, align 4
-  br label %89, !llvm.loop !4
+178:                                              ; preds = %177, %124
+  %179 = load i32, ptr %14, align 4
+  %180 = load i32, ptr %9, align 4
+  %181 = add i32 %180, %179
+  store i32 %181, ptr %9, align 4
+  %182 = load ptr, ptr %24, align 8
+  %183 = load i32, ptr %9, align 4
+  %184 = load i32, ptr %20, align 4
+  %185 = sub i32 %183, %184
+  call void @proto_item_set_len(ptr noundef %182, i32 noundef %185)
+  br label %186
 
-188:                                              ; preds = %89
-  %189 = load i32, ptr %13, align 4
-  %190 = icmp ne i32 %189, 0
-  br i1 %190, label %191, label %201
+186:                                              ; preds = %178
+  %187 = load i32, ptr %16, align 4
+  %188 = add i32 %187, 1
+  store i32 %188, ptr %16, align 4
+  br label %90, !llvm.loop !6
 
-191:                                              ; preds = %188
-  %192 = load ptr, ptr %23, align 8
-  %193 = load i32, ptr @hf_gluster_rpc_roundup_bytes, align 4
-  %194 = load ptr, ptr %7, align 8
-  %195 = load i32, ptr %9, align 4
-  %196 = call ptr @proto_tree_add_item(ptr noundef %192, i32 noundef %193, ptr noundef %194, i32 noundef %195, i32 noundef -1, i32 noundef 0)
-  store ptr %196, ptr %22, align 8
-  %197 = load ptr, ptr %22, align 8
-  call void @proto_item_set_generated(ptr noundef %197)
-  %198 = load i32, ptr %13, align 4
-  %199 = load i32, ptr %9, align 4
-  %200 = add i32 %199, %198
-  store i32 %200, ptr %9, align 4
-  br label %201
+189:                                              ; preds = %90
+  %190 = load i32, ptr %13, align 4
+  %191 = icmp ne i32 %190, 0
+  br i1 %191, label %192, label %202
 
-201:                                              ; preds = %191, %188
-  %202 = load ptr, ptr %21, align 8
-  %203 = load i32, ptr %9, align 4
-  %204 = load i32, ptr %19, align 4
-  %205 = sub i32 %203, %204
-  call void @proto_item_set_len(ptr noundef %202, i32 noundef %205)
-  %206 = load i32, ptr %9, align 4
-  store i32 %206, ptr %5, align 4
-  br label %207
+192:                                              ; preds = %189
+  %193 = load ptr, ptr %23, align 8
+  %194 = load i32, ptr @hf_gluster_rpc_roundup_bytes, align 4
+  %195 = load ptr, ptr %7, align 8
+  %196 = load i32, ptr %9, align 4
+  %197 = call ptr @proto_tree_add_item(ptr noundef %193, i32 noundef %194, ptr noundef %195, i32 noundef %196, i32 noundef -1, i32 noundef 0)
+  store ptr %197, ptr %22, align 8
+  %198 = load ptr, ptr %22, align 8
+  call void @proto_item_set_generated(ptr noundef %198)
+  %199 = load i32, ptr %13, align 4
+  %200 = load i32, ptr %9, align 4
+  %201 = add i32 %200, %199
+  store i32 %201, ptr %9, align 4
+  br label %202
 
-207:                                              ; preds = %201, %78
-  %208 = load i32, ptr %5, align 4
-  ret i32 %208
+202:                                              ; preds = %192, %189
+  %203 = load ptr, ptr %21, align 8
+  %204 = load i32, ptr %9, align 4
+  %205 = load i32, ptr %19, align 4
+  %206 = sub i32 %204, %205
+  call void @proto_item_set_len(ptr noundef %203, i32 noundef %206)
+  %207 = load i32, ptr %9, align 4
+  store i32 %207, ptr %5, align 4
+  store i32 1, ptr %26, align 4
+  br label %208
+
+208:                                              ; preds = %202, %79
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  %209 = load i32, ptr %5, align 4
+  ret i32 %209
 }
 
-declare ptr @proto_registrar_get_nth(i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_registrar_get_nth(i32 noundef) #2
 
-declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
-declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) #2
 
-declare i32 @rpc_roundup(i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @rpc_roundup(i32 noundef) #2
 
-declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #2
 
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #2
 
-; Function Attrs: nounwind uwtable
-define internal void @proto_item_set_generated(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind null_pointer_is_valid sspstrong uwtable
+define internal void @proto_item_set_generated(ptr noundef %0) #3 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -1276,22 +1335,22 @@ define internal void @proto_item_set_generated(ptr noundef %0) #0 {
 
 6:                                                ; preds = %5
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct._proto_node, ptr %7, i32 0, i32 4
+  %8 = getelementptr inbounds nuw %struct._proto_node, ptr %7, i32 0, i32 5
   %9 = load ptr, ptr %8, align 8
   %10 = icmp ne ptr %9, null
   br i1 %10, label %11, label %22
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct._proto_node, ptr %12, i32 0, i32 4
+  %13 = getelementptr inbounds nuw %struct._proto_node, ptr %12, i32 0, i32 5
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds %struct.field_info, ptr %14, i32 0, i32 6
+  %15 = getelementptr inbounds nuw %struct.field_info, ptr %14, i32 0, i32 6
   %16 = load i32, ptr %15, align 4
   %17 = or i32 %16, 2
   %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds %struct._proto_node, ptr %18, i32 0, i32 4
+  %19 = getelementptr inbounds nuw %struct._proto_node, ptr %18, i32 0, i32 5
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds %struct.field_info, ptr %20, i32 0, i32 6
+  %21 = getelementptr inbounds nuw %struct.field_info, ptr %20, i32 0, i32 6
   store i32 %17, ptr %21, align 4
   br label %22
 
@@ -1305,30 +1364,40 @@ define internal void @proto_item_set_generated(ptr noundef %0) #0 {
   ret void
 }
 
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @tvb_get_stringz_enc(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_get_stringz_enc(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #2
 
-declare ptr @wmem_packet_scope() #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_packet_scope() #2
 
-; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strncmp(ptr noundef, ptr noundef, i64 noundef) #2
+; Function Attrs: nounwind null_pointer_is_valid willreturn memory(read)
+declare i32 @strncmp(ptr noundef, ptr noundef, i64 noundef) #4
 
-declare void @tvb_get_ntohguid(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @tvb_get_ntohguid(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @guid_to_str(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @guid_to_str(ptr noundef, ptr noundef) #2
 
-declare ptr @proto_tree_add_guid_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_guid_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #2
 
-declare ptr @proto_tree_add_bytes_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_bytes_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #2
 
-declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) #2
 
-declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_string_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_string_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @gluster_dissect_common_reply(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -1342,6 +1411,8 @@ define hidden i32 @gluster_dissect_common_reply(ptr noundef %0, i32 noundef %1, 
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   store ptr %4, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #5
   %13 = load ptr, ptr %6, align 8
   %14 = load ptr, ptr %9, align 8
   %15 = load i32, ptr @hf_gluster_op_ret, align 4
@@ -1367,14 +1438,18 @@ define hidden i32 @gluster_dissect_common_reply(ptr noundef %0, i32 noundef %1, 
   %31 = add i32 %30, 4
   store i32 %31, ptr %7, align 4
   %32 = load i32, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret i32 %32
 }
 
-declare ptr @proto_tree_add_int(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_int(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @val_to_str_ext_const(i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str_ext_const(i32 noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @glusterfs_gfs3_3_op_common_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1385,6 +1460,7 @@ define hidden i32 @glusterfs_gfs3_3_op_common_reply(ptr noundef %0, ptr noundef 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load i32, ptr %9, align 4
@@ -1400,10 +1476,11 @@ define hidden i32 @glusterfs_gfs3_3_op_common_reply(ptr noundef %0, ptr noundef 
   %20 = call i32 @gluster_rpc_dissect_dict(ptr noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef %19)
   store i32 %20, ptr %9, align 4
   %21 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_glusterfs() #0 {
   %1 = call i32 @proto_register_protocol(ptr noundef @.str.13, ptr noundef @.str.13, ptr noundef @.str.306)
   store i32 %1, ptr @proto_glusterfs, align 4
@@ -1413,13 +1490,16 @@ define hidden void @proto_register_glusterfs() #0 {
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #2
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_glusterfs() #0 {
   %1 = load i32, ptr @proto_glusterfs, align 4
   %2 = load i32, ptr @ett_glusterfs, align 4
@@ -1427,17 +1507,22 @@ define hidden void @proto_reg_handoff_glusterfs() #0 {
   ret void
 }
 
-declare void @rpc_init_prog(i32 noundef, i32 noundef, i32 noundef, i64 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @rpc_init_prog(i32 noundef, i32 noundef, i32 noundef, i64 noundef, ptr noundef) #2
 
-declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #2
 
-declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #2
 
-declare i32 @dissect_rpc_void(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_rpc_void(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare i32 @dissect_rpc_unknown(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_rpc_unknown(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_op_unlink_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1448,6 +1533,7 @@ define internal i32 @glusterfs_gfs3_op_unlink_call(ptr noundef %0, ptr noundef %
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -1468,10 +1554,11 @@ define internal i32 @glusterfs_gfs3_op_unlink_call(ptr noundef %0, ptr noundef %
   %24 = call i32 @dissect_rpc_string(ptr noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef %23, ptr noundef null)
   store i32 %24, ptr %9, align 4
   %25 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %25
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_op_unlink_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1482,6 +1569,7 @@ define internal i32 @glusterfs_gfs3_op_unlink_reply(ptr noundef %0, ptr noundef 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -1496,10 +1584,11 @@ define internal i32 @glusterfs_gfs3_op_unlink_reply(ptr noundef %0, ptr noundef 
   %19 = call i32 @glusterfs_rpc_dissect_gf_iatt(ptr noundef %15, ptr noundef %16, i32 noundef %17, i32 noundef %18)
   store i32 %19, ptr %9, align 4
   %20 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_op_statfs_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1510,6 +1599,7 @@ define internal i32 @glusterfs_gfs3_op_statfs_call(ptr noundef %0, ptr noundef %
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -1524,10 +1614,11 @@ define internal i32 @glusterfs_gfs3_op_statfs_call(ptr noundef %0, ptr noundef %
   %19 = call i32 @dissect_rpc_string(ptr noundef %15, ptr noundef %16, i32 noundef %17, i32 noundef %18, ptr noundef null)
   store i32 %19, ptr %9, align 4
   %20 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_op_statfs_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1538,6 +1629,7 @@ define internal i32 @glusterfs_gfs3_op_statfs_reply(ptr noundef %0, ptr noundef 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load i32, ptr %9, align 4
@@ -1552,10 +1644,11 @@ define internal i32 @glusterfs_gfs3_op_statfs_reply(ptr noundef %0, ptr noundef 
   %19 = call i32 @glusterfs_rpc_dissect_statfs(ptr noundef %16, ptr noundef %17, i32 noundef %18)
   store i32 %19, ptr %9, align 4
   %20 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_op_flush_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1566,6 +1659,7 @@ define internal i32 @glusterfs_gfs3_op_flush_call(ptr noundef %0, ptr noundef %1
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -1580,10 +1674,11 @@ define internal i32 @glusterfs_gfs3_op_flush_call(ptr noundef %0, ptr noundef %1
   %19 = call i32 @dissect_rpc_uint64(ptr noundef %15, ptr noundef %16, i32 noundef %17, i32 noundef %18)
   store i32 %19, ptr %9, align 4
   %20 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @gluster_local_dissect_common_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1601,7 +1696,7 @@ define internal i32 @gluster_local_dissect_common_reply(ptr noundef %0, ptr noun
   ret i32 %13
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_op_setxattr_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1612,6 +1707,7 @@ define internal i32 @glusterfs_gfs3_op_setxattr_call(ptr noundef %0, ptr noundef
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -1637,10 +1733,11 @@ define internal i32 @glusterfs_gfs3_op_setxattr_call(ptr noundef %0, ptr noundef
   %28 = call i32 @dissect_rpc_string(ptr noundef %24, ptr noundef %25, i32 noundef %26, i32 noundef %27, ptr noundef null)
   store i32 %28, ptr %9, align 4
   %29 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %29
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_op_opendir_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1651,6 +1748,7 @@ define internal i32 @glusterfs_gfs3_op_opendir_call(ptr noundef %0, ptr noundef 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -1665,10 +1763,11 @@ define internal i32 @glusterfs_gfs3_op_opendir_call(ptr noundef %0, ptr noundef 
   %19 = call i32 @dissect_rpc_string(ptr noundef %15, ptr noundef %16, i32 noundef %17, i32 noundef %18, ptr noundef null)
   store i32 %19, ptr %9, align 4
   %20 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_op_opendir_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1679,6 +1778,7 @@ define internal i32 @glusterfs_gfs3_op_opendir_reply(ptr noundef %0, ptr noundef
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load i32, ptr %9, align 4
@@ -1694,10 +1794,11 @@ define internal i32 @glusterfs_gfs3_op_opendir_reply(ptr noundef %0, ptr noundef
   %20 = call i32 @dissect_rpc_uint64(ptr noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef %19)
   store i32 %20, ptr %9, align 4
   %21 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_op_create_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1708,6 +1809,7 @@ define internal i32 @glusterfs_gfs3_op_create_call(ptr noundef %0, ptr noundef %
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -1745,10 +1847,11 @@ define internal i32 @glusterfs_gfs3_op_create_call(ptr noundef %0, ptr noundef %
   %38 = call i32 @gluster_rpc_dissect_dict(ptr noundef %34, ptr noundef %35, i32 noundef %36, i32 noundef %37)
   store i32 %38, ptr %9, align 4
   %39 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %39
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_op_create_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1759,6 +1862,7 @@ define internal i32 @glusterfs_gfs3_op_create_reply(ptr noundef %0, ptr noundef 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load i32, ptr %9, align 4
@@ -1792,10 +1896,11 @@ define internal i32 @glusterfs_gfs3_op_create_reply(ptr noundef %0, ptr noundef 
   %35 = call i32 @glusterfs_rpc_dissect_gf_iatt(ptr noundef %31, ptr noundef %32, i32 noundef %33, i32 noundef %34)
   store i32 %35, ptr %9, align 4
   %36 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %36
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_op_lookup_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1806,6 +1911,7 @@ define internal i32 @glusterfs_gfs3_op_lookup_call(ptr noundef %0, ptr noundef %
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -1843,10 +1949,11 @@ define internal i32 @glusterfs_gfs3_op_lookup_call(ptr noundef %0, ptr noundef %
   %38 = call i32 @gluster_rpc_dissect_dict(ptr noundef %34, ptr noundef %35, i32 noundef %36, i32 noundef %37)
   store i32 %38, ptr %9, align 4
   %39 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %39
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_op_lookup_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1857,6 +1964,7 @@ define internal i32 @glusterfs_gfs3_op_lookup_reply(ptr noundef %0, ptr noundef 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load i32, ptr %9, align 4
@@ -1884,10 +1992,11 @@ define internal i32 @glusterfs_gfs3_op_lookup_reply(ptr noundef %0, ptr noundef 
   %30 = call i32 @gluster_rpc_dissect_dict(ptr noundef %26, ptr noundef %27, i32 noundef %28, i32 noundef %29)
   store i32 %30, ptr %9, align 4
   %31 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %31
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_op_inodelk_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1901,6 +2010,10 @@ define internal i32 @glusterfs_gfs3_op_inodelk_call(ptr noundef %0, ptr noundef 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #5
   store i32 0, ptr %12, align 4
   %13 = load ptr, ptr %7, align 8
   %14 = load ptr, ptr %5, align 8
@@ -1926,7 +2039,7 @@ define internal i32 @glusterfs_gfs3_op_inodelk_call(ptr noundef %0, ptr noundef 
   %30 = load ptr, ptr %5, align 8
   %31 = load i32, ptr %12, align 4
   %32 = load i32, ptr @ett_glusterfs_flock, align 4
-  %33 = call ptr @proto_tree_add_subtree(ptr noundef %29, ptr noundef %30, i32 noundef %31, i32 noundef -1, i32 noundef %32, ptr noundef %9, ptr noundef @.str.554)
+  %33 = call ptr @proto_tree_add_subtree(ptr noundef %29, ptr noundef %30, i32 noundef %31, i32 noundef -1, i32 noundef %32, ptr noundef %9, ptr noundef @.str.564)
   store ptr %33, ptr %10, align 8
   %34 = load ptr, ptr %10, align 8
   %35 = load ptr, ptr %5, align 8
@@ -1951,10 +2064,14 @@ define internal i32 @glusterfs_gfs3_op_inodelk_call(ptr noundef %0, ptr noundef 
   %51 = call i32 @dissect_rpc_string(ptr noundef %47, ptr noundef %48, i32 noundef %49, i32 noundef %50, ptr noundef null)
   store i32 %51, ptr %12, align 4
   %52 = load i32, ptr %12, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
   ret i32 %52
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_op_setattr_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1965,6 +2082,7 @@ define internal i32 @glusterfs_gfs3_op_setattr_call(ptr noundef %0, ptr noundef 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -1990,10 +2108,11 @@ define internal i32 @glusterfs_gfs3_op_setattr_call(ptr noundef %0, ptr noundef 
   %28 = call i32 @dissect_rpc_string(ptr noundef %24, ptr noundef %25, i32 noundef %26, i32 noundef %27, ptr noundef null)
   store i32 %28, ptr %9, align 4
   %29 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %29
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_op_setattr_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2004,6 +2123,7 @@ define internal i32 @glusterfs_gfs3_op_setattr_reply(ptr noundef %0, ptr noundef
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load i32, ptr %9, align 4
@@ -2025,10 +2145,11 @@ define internal i32 @glusterfs_gfs3_op_setattr_reply(ptr noundef %0, ptr noundef
   %25 = call i32 @glusterfs_rpc_dissect_gf_iatt(ptr noundef %21, ptr noundef %22, i32 noundef %23, i32 noundef %24)
   store i32 %25, ptr %9, align 4
   %26 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %26
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_op_readdirp_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2039,6 +2160,7 @@ define internal i32 @glusterfs_gfs3_op_readdirp_call(ptr noundef %0, ptr noundef
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -2065,10 +2187,11 @@ define internal i32 @glusterfs_gfs3_op_readdirp_call(ptr noundef %0, ptr noundef
   %29 = call i32 @dissect_rpc_uint32(ptr noundef %25, ptr noundef %26, i32 noundef %27, i32 noundef %28)
   store i32 %29, ptr %9, align 4
   %30 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %30
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_op_readdirp_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2079,6 +2202,7 @@ define internal i32 @glusterfs_gfs3_op_readdirp_reply(ptr noundef %0, ptr nounde
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %7, align 8
@@ -2092,12 +2216,14 @@ define internal i32 @glusterfs_gfs3_op_readdirp_reply(ptr noundef %0, ptr nounde
   %18 = call i32 @dissect_rpc_list(ptr noundef %14, ptr noundef %15, ptr noundef %16, i32 noundef %17, ptr noundef @glusterfs_gfs3_op_readdirp_entry, ptr noundef null)
   store i32 %18, ptr %9, align 4
   %19 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %19
 }
 
-declare i32 @dissect_rpc_string(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_rpc_string(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_rpc_dissect_statfs(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -2178,12 +2304,12 @@ define internal i32 @glusterfs_rpc_dissect_statfs(ptr noundef %0, ptr noundef %1
   ret i32 %65
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_rpc_dissect_flags(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  %7 = alloca i32, align 4
+  %7 = alloca i8, align 1
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
@@ -2191,6 +2317,11 @@ define internal i32 @glusterfs_rpc_dissect_flags(ptr noundef %0, ptr noundef %1,
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
   %12 = load ptr, ptr %4, align 8
   %13 = load ptr, ptr %5, align 8
   %14 = load i32, ptr %6, align 4
@@ -2202,15 +2333,15 @@ define internal i32 @glusterfs_rpc_dissect_flags(ptr noundef %0, ptr noundef %1,
   %19 = load i32, ptr %6, align 4
   %20 = call i32 @tvb_get_ntohl(ptr noundef %18, i32 noundef %19)
   %21 = icmp eq i32 %20, 0
-  %22 = zext i1 %21 to i32
-  store i32 %22, ptr %7, align 4
+  %22 = zext i1 %21 to i8
+  store i8 %22, ptr %7, align 1
   %23 = load ptr, ptr %9, align 8
   %24 = load i32, ptr @hf_glusterfs_flags_rdonly, align 4
   %25 = load ptr, ptr %5, align 8
   %26 = load i32, ptr %6, align 4
   %27 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %24, ptr noundef %25, i32 noundef %26, i32 noundef 4, i32 noundef 0)
-  %28 = load i32, ptr %7, align 4
-  %29 = icmp ne i32 %28, 0
+  %28 = load i8, ptr %7, align 1, !range !8, !noundef !9
+  %29 = trunc i8 %28 to i1
   br i1 %29, label %30, label %37
 
 30:                                               ; preds = %3
@@ -2219,9 +2350,9 @@ define internal i32 @glusterfs_rpc_dissect_flags(ptr noundef %0, ptr noundef %1,
   store ptr %32, ptr %10, align 8
   %33 = load ptr, ptr %9, align 8
   %34 = load ptr, ptr %10, align 8
-  %35 = getelementptr inbounds %struct._header_field_info, ptr %34, i32 0, i32 0
+  %35 = getelementptr inbounds nuw %struct._header_field_info, ptr %34, i32 0, i32 0
   %36 = load ptr, ptr %35, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %33, ptr noundef @.str.552, ptr noundef %36)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %33, ptr noundef @.str.562, ptr noundef %36)
   br label %37
 
 37:                                               ; preds = %30, %3
@@ -2239,20 +2370,20 @@ define internal i32 @glusterfs_rpc_dissect_flags(ptr noundef %0, ptr noundef %1,
   %47 = load i32, ptr %8, align 4
   %48 = load i32, ptr %8, align 4
   %49 = load ptr, ptr %11, align 8
-  %50 = getelementptr inbounds %struct._header_field_info, ptr %49, i32 0, i32 5
+  %50 = getelementptr inbounds nuw %struct._header_field_info, ptr %49, i32 0, i32 5
   %51 = load i64, ptr %50, align 8
   %52 = trunc i64 %51 to i32
   %53 = and i32 %48, %52
   %54 = call ptr @val_to_str_const(i32 noundef %53, ptr noundef @glusterfs_accmode_vals, ptr noundef @.str.12)
-  %55 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %43, i32 noundef %44, ptr noundef %45, i32 noundef %46, i32 noundef 4, i32 noundef %47, ptr noundef @.str.553, ptr noundef %54)
+  %55 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %43, i32 noundef %44, ptr noundef %45, i32 noundef %46, i32 noundef 4, i32 noundef %47, ptr noundef @.str.563, ptr noundef %54)
   %56 = load i32, ptr %8, align 4
   %57 = zext i32 %56 to i64
   %58 = load ptr, ptr %11, align 8
-  %59 = getelementptr inbounds %struct._header_field_info, ptr %58, i32 0, i32 5
+  %59 = getelementptr inbounds nuw %struct._header_field_info, ptr %58, i32 0, i32 5
   %60 = load i64, ptr %59, align 8
   %61 = and i64 %57, %60
   %62 = load ptr, ptr %11, align 8
-  %63 = getelementptr inbounds %struct._header_field_info, ptr %62, i32 0, i32 5
+  %63 = getelementptr inbounds nuw %struct._header_field_info, ptr %62, i32 0, i32 5
   %64 = load i64, ptr %63, align 8
   %65 = icmp eq i64 %61, %64
   br i1 %65, label %66, label %72
@@ -2261,9 +2392,9 @@ define internal i32 @glusterfs_rpc_dissect_flags(ptr noundef %0, ptr noundef %1,
   %67 = load ptr, ptr %9, align 8
   %68 = load i32, ptr @hf_glusterfs_flags_accmode, align 4
   %69 = call ptr @proto_registrar_get_nth(i32 noundef %68)
-  %70 = getelementptr inbounds %struct._header_field_info, ptr %69, i32 0, i32 0
+  %70 = getelementptr inbounds nuw %struct._header_field_info, ptr %69, i32 0, i32 0
   %71 = load ptr, ptr %70, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %67, ptr noundef @.str.552, ptr noundef %71)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %67, ptr noundef @.str.562, ptr noundef %71)
   br label %72
 
 72:                                               ; preds = %66, %37
@@ -2271,14 +2402,21 @@ define internal i32 @glusterfs_rpc_dissect_flags(ptr noundef %0, ptr noundef %1,
   %74 = add i32 %73, 4
   store i32 %74, ptr %6, align 4
   %75 = load i32, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #5
   ret i32 %75
 }
 
-declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) #2
 
-declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_rpc_dissect_gf_flock(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -2328,7 +2466,7 @@ define internal i32 @glusterfs_rpc_dissect_gf_flock(ptr noundef %0, ptr noundef 
   ret i32 %39
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_rpc_dissect_setattr(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -2349,7 +2487,7 @@ define internal i32 @glusterfs_rpc_dissect_setattr(ptr noundef %0, ptr noundef %
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @_glusterfs_gfs3_common_readdir_reply(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -2359,6 +2497,8 @@ define internal i32 @_glusterfs_gfs3_common_readdir_reply(ptr noundef %0, ptr no
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
   %9 = load ptr, ptr %4, align 8
   %10 = load ptr, ptr %5, align 8
   %11 = load i32, ptr @hf_glusterfs_entries, align 4
@@ -2382,7 +2522,7 @@ define internal i32 @_glusterfs_gfs3_common_readdir_reply(ptr noundef %0, ptr no
 
 25:                                               ; preds = %3
   %26 = load ptr, ptr %7, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %26, ptr noundef @.str.555)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %26, ptr noundef @.str.565)
   br label %33
 
 27:                                               ; preds = %3
@@ -2392,7 +2532,7 @@ define internal i32 @_glusterfs_gfs3_common_readdir_reply(ptr noundef %0, ptr no
 
 30:                                               ; preds = %27
   %31 = load ptr, ptr %7, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %31, ptr noundef @.str.556)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %31, ptr noundef @.str.566)
   br label %32
 
 32:                                               ; preds = %30, %27
@@ -2403,12 +2543,15 @@ define internal i32 @_glusterfs_gfs3_common_readdir_reply(ptr noundef %0, ptr no
   %35 = add i32 %34, 4
   store i32 %35, ptr %6, align 4
   %36 = load i32, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
   ret i32 %36
 }
 
-declare i32 @dissect_rpc_list(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_rpc_list(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_op_readdirp_entry(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -2423,18 +2566,18 @@ define internal i32 @glusterfs_gfs3_op_readdirp_entry(ptr noundef %0, i32 nounde
   %11 = load ptr, ptr %6, align 8
   %12 = load i32, ptr %7, align 4
   %13 = load ptr, ptr %9, align 8
-  %14 = call i32 @_glusterfs_gfs_op_readdir_entry(ptr noundef %11, i32 noundef %12, ptr noundef %13, i32 noundef 1, i32 noundef 0, i32 noundef 0)
+  %14 = call i32 @_glusterfs_gfs_op_readdir_entry(ptr noundef %11, i32 noundef %12, ptr noundef %13, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false)
   ret i32 %14
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @_glusterfs_gfs_op_readdir_entry(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @_glusterfs_gfs_op_readdir_entry(ptr noundef %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
-  %10 = alloca i32, align 4
-  %11 = alloca i32, align 4
-  %12 = alloca i32, align 4
+  %10 = alloca i8, align 1
+  %11 = alloca i8, align 1
+  %12 = alloca i8, align 1
   %13 = alloca ptr, align 8
   %14 = alloca ptr, align 8
   %15 = alloca ptr, align 8
@@ -2442,123 +2585,134 @@ define internal i32 @_glusterfs_gfs_op_readdir_entry(ptr noundef %0, i32 noundef
   store ptr %0, ptr %7, align 8
   store i32 %1, ptr %8, align 4
   store ptr %2, ptr %9, align 8
-  store i32 %3, ptr %10, align 4
-  store i32 %4, ptr %11, align 4
-  store i32 %5, ptr %12, align 4
+  %17 = zext i1 %3 to i8
+  store i8 %17, ptr %10, align 1
+  %18 = zext i1 %4 to i8
+  store i8 %18, ptr %11, align 1
+  %19 = zext i1 %5 to i8
+  store i8 %19, ptr %12, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #5
   store ptr null, ptr %15, align 8
-  %17 = load i32, ptr %8, align 4
-  store i32 %17, ptr %16, align 4
-  %18 = load ptr, ptr %9, align 8
-  %19 = load ptr, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #5
   %20 = load i32, ptr %8, align 4
-  %21 = load i32, ptr @ett_glusterfs_entry, align 4
-  %22 = call ptr @proto_tree_add_subtree(ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef -1, i32 noundef %21, ptr noundef %13, ptr noundef @.str.557)
-  store ptr %22, ptr %14, align 8
-  %23 = load ptr, ptr %7, align 8
-  %24 = load ptr, ptr %14, align 8
-  %25 = load i32, ptr @hf_glusterfs_entry_ino, align 4
-  %26 = load i32, ptr %8, align 4
-  %27 = call i32 @dissect_rpc_uint64(ptr noundef %23, ptr noundef %24, i32 noundef %25, i32 noundef %26)
-  store i32 %27, ptr %8, align 4
-  %28 = load ptr, ptr %7, align 8
-  %29 = load ptr, ptr %14, align 8
-  %30 = load i32, ptr @hf_glusterfs_entry_off, align 4
-  %31 = load i32, ptr %8, align 4
-  %32 = call i32 @dissect_rpc_uint64(ptr noundef %28, ptr noundef %29, i32 noundef %30, i32 noundef %31)
-  store i32 %32, ptr %8, align 4
-  %33 = load ptr, ptr %7, align 8
-  %34 = load ptr, ptr %14, align 8
-  %35 = load i32, ptr @hf_glusterfs_entry_len, align 4
-  %36 = load i32, ptr %8, align 4
-  %37 = call i32 @dissect_rpc_uint32(ptr noundef %33, ptr noundef %34, i32 noundef %35, i32 noundef %36)
-  store i32 %37, ptr %8, align 4
-  %38 = load ptr, ptr %7, align 8
-  %39 = load ptr, ptr %14, align 8
-  %40 = load i32, ptr @hf_glusterfs_entry_type, align 4
-  %41 = load i32, ptr %8, align 4
-  %42 = call i32 @dissect_rpc_uint32(ptr noundef %38, ptr noundef %39, i32 noundef %40, i32 noundef %41)
-  store i32 %42, ptr %8, align 4
-  %43 = load ptr, ptr %7, align 8
-  %44 = load ptr, ptr %14, align 8
-  %45 = load i32, ptr @hf_glusterfs_entry_path, align 4
-  %46 = load i32, ptr %8, align 4
-  %47 = call i32 @dissect_rpc_string(ptr noundef %43, ptr noundef %44, i32 noundef %45, i32 noundef %46, ptr noundef %15)
-  store i32 %47, ptr %8, align 4
-  %48 = load ptr, ptr %13, align 8
-  %49 = load ptr, ptr %15, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %48, ptr noundef @.str.558, ptr noundef %49)
-  %50 = load i32, ptr %10, align 4
-  %51 = icmp ne i32 %50, 0
-  br i1 %51, label %52, label %68
+  store i32 %20, ptr %16, align 4
+  %21 = load ptr, ptr %9, align 8
+  %22 = load ptr, ptr %7, align 8
+  %23 = load i32, ptr %8, align 4
+  %24 = load i32, ptr @ett_glusterfs_entry, align 4
+  %25 = call ptr @proto_tree_add_subtree(ptr noundef %21, ptr noundef %22, i32 noundef %23, i32 noundef -1, i32 noundef %24, ptr noundef %13, ptr noundef @.str.567)
+  store ptr %25, ptr %14, align 8
+  %26 = load ptr, ptr %7, align 8
+  %27 = load ptr, ptr %14, align 8
+  %28 = load i32, ptr @hf_glusterfs_entry_ino, align 4
+  %29 = load i32, ptr %8, align 4
+  %30 = call i32 @dissect_rpc_uint64(ptr noundef %26, ptr noundef %27, i32 noundef %28, i32 noundef %29)
+  store i32 %30, ptr %8, align 4
+  %31 = load ptr, ptr %7, align 8
+  %32 = load ptr, ptr %14, align 8
+  %33 = load i32, ptr @hf_glusterfs_entry_off, align 4
+  %34 = load i32, ptr %8, align 4
+  %35 = call i32 @dissect_rpc_uint64(ptr noundef %31, ptr noundef %32, i32 noundef %33, i32 noundef %34)
+  store i32 %35, ptr %8, align 4
+  %36 = load ptr, ptr %7, align 8
+  %37 = load ptr, ptr %14, align 8
+  %38 = load i32, ptr @hf_glusterfs_entry_len, align 4
+  %39 = load i32, ptr %8, align 4
+  %40 = call i32 @dissect_rpc_uint32(ptr noundef %36, ptr noundef %37, i32 noundef %38, i32 noundef %39)
+  store i32 %40, ptr %8, align 4
+  %41 = load ptr, ptr %7, align 8
+  %42 = load ptr, ptr %14, align 8
+  %43 = load i32, ptr @hf_glusterfs_entry_type, align 4
+  %44 = load i32, ptr %8, align 4
+  %45 = call i32 @dissect_rpc_uint32(ptr noundef %41, ptr noundef %42, i32 noundef %43, i32 noundef %44)
+  store i32 %45, ptr %8, align 4
+  %46 = load ptr, ptr %7, align 8
+  %47 = load ptr, ptr %14, align 8
+  %48 = load i32, ptr @hf_glusterfs_entry_path, align 4
+  %49 = load i32, ptr %8, align 4
+  %50 = call i32 @dissect_rpc_string(ptr noundef %46, ptr noundef %47, i32 noundef %48, i32 noundef %49, ptr noundef %15)
+  store i32 %50, ptr %8, align 4
+  %51 = load ptr, ptr %13, align 8
+  %52 = load ptr, ptr %15, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %51, ptr noundef @.str.568, ptr noundef %52)
+  %53 = load i8, ptr %10, align 1, !range !8, !noundef !9
+  %54 = trunc i8 %53 to i1
+  br i1 %54, label %55, label %71
 
-52:                                               ; preds = %6
-  %53 = load i32, ptr %11, align 4
-  %54 = icmp ne i32 %53, 0
-  br i1 %54, label %55, label %61
+55:                                               ; preds = %6
+  %56 = load i8, ptr %11, align 1, !range !8, !noundef !9
+  %57 = trunc i8 %56 to i1
+  br i1 %57, label %58, label %64
 
-55:                                               ; preds = %52
-  %56 = load ptr, ptr %14, align 8
-  %57 = load ptr, ptr %7, align 8
-  %58 = load i32, ptr @hf_glusterfs_iattx, align 4
-  %59 = load i32, ptr %8, align 4
-  %60 = call i32 @glusterfs_rpc_dissect_gfx_iatt(ptr noundef %56, ptr noundef %57, i32 noundef %58, i32 noundef %59)
-  store i32 %60, ptr %8, align 4
-  br label %67
+58:                                               ; preds = %55
+  %59 = load ptr, ptr %14, align 8
+  %60 = load ptr, ptr %7, align 8
+  %61 = load i32, ptr @hf_glusterfs_iattx, align 4
+  %62 = load i32, ptr %8, align 4
+  %63 = call i32 @glusterfs_rpc_dissect_gfx_iatt(ptr noundef %59, ptr noundef %60, i32 noundef %61, i32 noundef %62)
+  store i32 %63, ptr %8, align 4
+  br label %70
 
-61:                                               ; preds = %52
-  %62 = load ptr, ptr %14, align 8
-  %63 = load ptr, ptr %7, align 8
-  %64 = load i32, ptr @hf_glusterfs_iatt, align 4
-  %65 = load i32, ptr %8, align 4
-  %66 = call i32 @glusterfs_rpc_dissect_gf_iatt(ptr noundef %62, ptr noundef %63, i32 noundef %64, i32 noundef %65)
-  store i32 %66, ptr %8, align 4
-  br label %67
+64:                                               ; preds = %55
+  %65 = load ptr, ptr %14, align 8
+  %66 = load ptr, ptr %7, align 8
+  %67 = load i32, ptr @hf_glusterfs_iatt, align 4
+  %68 = load i32, ptr %8, align 4
+  %69 = call i32 @glusterfs_rpc_dissect_gf_iatt(ptr noundef %65, ptr noundef %66, i32 noundef %67, i32 noundef %68)
+  store i32 %69, ptr %8, align 4
+  br label %70
 
-67:                                               ; preds = %61, %55
-  br label %68
+70:                                               ; preds = %64, %58
+  br label %71
 
-68:                                               ; preds = %67, %6
-  %69 = load i32, ptr %12, align 4
-  %70 = icmp ne i32 %69, 0
-  br i1 %70, label %71, label %87
-
-71:                                               ; preds = %68
-  %72 = load i32, ptr %11, align 4
-  %73 = icmp ne i32 %72, 0
-  br i1 %73, label %74, label %80
+71:                                               ; preds = %70, %6
+  %72 = load i8, ptr %12, align 1, !range !8, !noundef !9
+  %73 = trunc i8 %72 to i1
+  br i1 %73, label %74, label %90
 
 74:                                               ; preds = %71
-  %75 = load ptr, ptr %14, align 8
-  %76 = load ptr, ptr %7, align 8
-  %77 = load i32, ptr @hf_glusterfs_dict, align 4
-  %78 = load i32, ptr %8, align 4
-  %79 = call i32 @gluster_rpc4_0_dissect_dict(ptr noundef %75, ptr noundef %76, i32 noundef %77, i32 noundef %78)
-  store i32 %79, ptr %8, align 4
-  br label %86
+  %75 = load i8, ptr %11, align 1, !range !8, !noundef !9
+  %76 = trunc i8 %75 to i1
+  br i1 %76, label %77, label %83
 
-80:                                               ; preds = %71
-  %81 = load ptr, ptr %14, align 8
-  %82 = load ptr, ptr %7, align 8
-  %83 = load i32, ptr @hf_glusterfs_dict, align 4
-  %84 = load i32, ptr %8, align 4
-  %85 = call i32 @gluster_rpc_dissect_dict(ptr noundef %81, ptr noundef %82, i32 noundef %83, i32 noundef %84)
-  store i32 %85, ptr %8, align 4
-  br label %86
+77:                                               ; preds = %74
+  %78 = load ptr, ptr %14, align 8
+  %79 = load ptr, ptr %7, align 8
+  %80 = load i32, ptr @hf_glusterfs_dict, align 4
+  %81 = load i32, ptr %8, align 4
+  %82 = call i32 @gluster_rpc4_0_dissect_dict(ptr noundef %78, ptr noundef %79, i32 noundef %80, i32 noundef %81)
+  store i32 %82, ptr %8, align 4
+  br label %89
 
-86:                                               ; preds = %80, %74
-  br label %87
+83:                                               ; preds = %74
+  %84 = load ptr, ptr %14, align 8
+  %85 = load ptr, ptr %7, align 8
+  %86 = load i32, ptr @hf_glusterfs_dict, align 4
+  %87 = load i32, ptr %8, align 4
+  %88 = call i32 @gluster_rpc_dissect_dict(ptr noundef %84, ptr noundef %85, i32 noundef %86, i32 noundef %87)
+  store i32 %88, ptr %8, align 4
+  br label %89
 
-87:                                               ; preds = %86, %68
-  %88 = load ptr, ptr %13, align 8
-  %89 = load i32, ptr %8, align 4
-  %90 = load i32, ptr %16, align 4
-  %91 = sub i32 %89, %90
-  call void @proto_item_set_len(ptr noundef %88, i32 noundef %91)
+89:                                               ; preds = %83, %77
+  br label %90
+
+90:                                               ; preds = %89, %71
+  %91 = load ptr, ptr %13, align 8
   %92 = load i32, ptr %8, align 4
-  ret i32 %92
+  %93 = load i32, ptr %16, align 4
+  %94 = sub i32 %92, %93
+  call void @proto_item_set_len(ptr noundef %91, i32 noundef %94)
+  %95 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  ret i32 %95
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_rpc_dissect_gfx_iatt(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2571,6 +2725,9 @@ define internal i32 @glusterfs_rpc_dissect_gfx_iatt(ptr noundef %0, ptr noundef 
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
   %12 = load i32, ptr %8, align 4
   store i32 %12, ptr %11, align 4
   %13 = load ptr, ptr %5, align 8
@@ -2721,10 +2878,13 @@ define internal i32 @glusterfs_rpc_dissect_gfx_iatt(ptr noundef %0, ptr noundef 
   %134 = sub i32 %132, %133
   call void @proto_item_set_len(ptr noundef %131, i32 noundef %134)
   %135 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
   ret i32 %135
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @gluster_rpc4_0_dissect_dict(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -2748,423 +2908,463 @@ define internal i32 @gluster_rpc4_0_dissect_dict(ptr noundef %0, ptr noundef %1,
   %24 = alloca ptr, align 8
   %25 = alloca ptr, align 8
   %26 = alloca ptr, align 8
+  %27 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store i32 %2, ptr %8, align 4
   store i32 %3, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %22) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #5
   store ptr null, ptr %25, align 8
-  %27 = load i32, ptr %8, align 4
-  %28 = icmp sge i32 %27, 0
-  br i1 %28, label %29, label %35
+  %28 = load i32, ptr %8, align 4
+  %29 = icmp sge i32 %28, 0
+  br i1 %29, label %30, label %36
 
-29:                                               ; preds = %4
-  %30 = load i32, ptr %8, align 4
-  %31 = call ptr @proto_registrar_get_nth(i32 noundef %30)
-  store ptr %31, ptr %26, align 8
-  %32 = load ptr, ptr %26, align 8
-  %33 = getelementptr inbounds %struct._header_field_info, ptr %32, i32 0, i32 0
-  %34 = load ptr, ptr %33, align 8
-  store ptr %34, ptr %12, align 8
-  br label %36
+30:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #5
+  %31 = load i32, ptr %8, align 4
+  %32 = call ptr @proto_registrar_get_nth(i32 noundef %31)
+  store ptr %32, ptr %26, align 8
+  %33 = load ptr, ptr %26, align 8
+  %34 = getelementptr inbounds nuw %struct._header_field_info, ptr %33, i32 0, i32 0
+  %35 = load ptr, ptr %34, align 8
+  store ptr %35, ptr %12, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #5
+  br label %37
 
-35:                                               ; preds = %4
+36:                                               ; preds = %4
   store ptr @.str, ptr %12, align 8
-  br label %36
+  br label %37
 
-36:                                               ; preds = %35, %29
-  %37 = load i32, ptr %9, align 4
-  store i32 %37, ptr %19, align 4
-  %38 = load ptr, ptr %6, align 8
-  %39 = load ptr, ptr %7, align 8
-  %40 = load i32, ptr %9, align 4
-  %41 = load i32, ptr @ett_gluster_dict, align 4
-  %42 = load ptr, ptr %12, align 8
-  %43 = call ptr @proto_tree_add_subtree(ptr noundef %38, ptr noundef %39, i32 noundef %40, i32 noundef -1, i32 noundef %41, ptr noundef %23, ptr noundef %42)
-  store ptr %43, ptr %24, align 8
-  %44 = load ptr, ptr %7, align 8
-  %45 = load i32, ptr %9, align 4
-  %46 = call i32 @tvb_get_ntohl(ptr noundef %44, i32 noundef %45)
-  store i32 %46, ptr %15, align 4
-  %47 = load ptr, ptr %7, align 8
-  %48 = load ptr, ptr %24, align 8
-  %49 = load i32, ptr @hf_gluster_dict_xdr_size, align 4
-  %50 = load i32, ptr %9, align 4
-  %51 = call i32 @dissect_rpc_uint32(ptr noundef %47, ptr noundef %48, i32 noundef %49, i32 noundef %50)
-  store i32 %51, ptr %9, align 4
-  %52 = load i32, ptr %9, align 4
-  %53 = add i32 %52, 4
-  store i32 %53, ptr %9, align 4
-  %54 = load i32, ptr %15, align 4
-  %55 = icmp eq i32 %54, 0
-  br i1 %55, label %56, label %57
+37:                                               ; preds = %36, %30
+  %38 = load i32, ptr %9, align 4
+  store i32 %38, ptr %19, align 4
+  %39 = load ptr, ptr %6, align 8
+  %40 = load ptr, ptr %7, align 8
+  %41 = load i32, ptr %9, align 4
+  %42 = load i32, ptr @ett_gluster_dict, align 4
+  %43 = load ptr, ptr %12, align 8
+  %44 = call ptr @proto_tree_add_subtree(ptr noundef %39, ptr noundef %40, i32 noundef %41, i32 noundef -1, i32 noundef %42, ptr noundef %23, ptr noundef %43)
+  store ptr %44, ptr %24, align 8
+  %45 = load ptr, ptr %7, align 8
+  %46 = load i32, ptr %9, align 4
+  %47 = call i32 @tvb_get_ntohl(ptr noundef %45, i32 noundef %46)
+  store i32 %47, ptr %15, align 4
+  %48 = load ptr, ptr %7, align 8
+  %49 = load ptr, ptr %24, align 8
+  %50 = load i32, ptr @hf_gluster_dict_xdr_size, align 4
+  %51 = load i32, ptr %9, align 4
+  %52 = call i32 @dissect_rpc_uint32(ptr noundef %48, ptr noundef %49, i32 noundef %50, i32 noundef %51)
+  store i32 %52, ptr %9, align 4
+  %53 = load i32, ptr %9, align 4
+  %54 = add i32 %53, 4
+  store i32 %54, ptr %9, align 4
+  %55 = load i32, ptr %15, align 4
+  %56 = icmp eq i32 %55, 0
+  br i1 %56, label %57, label %58
 
-56:                                               ; preds = %36
+57:                                               ; preds = %37
   store i32 0, ptr %14, align 4
-  br label %61
+  br label %62
 
-57:                                               ; preds = %36
-  %58 = load ptr, ptr %7, align 8
-  %59 = load i32, ptr %9, align 4
-  %60 = call i32 @tvb_get_ntohl(ptr noundef %58, i32 noundef %59)
-  store i32 %60, ptr %14, align 4
-  br label %61
+58:                                               ; preds = %37
+  %59 = load ptr, ptr %7, align 8
+  %60 = load i32, ptr %9, align 4
+  %61 = call i32 @tvb_get_ntohl(ptr noundef %59, i32 noundef %60)
+  store i32 %61, ptr %14, align 4
+  br label %62
 
-61:                                               ; preds = %57, %56
-  %62 = load ptr, ptr %7, align 8
-  %63 = load ptr, ptr %24, align 8
-  %64 = load i32, ptr @hf_gluster_num_dict_items, align 4
-  %65 = load i32, ptr %9, align 4
-  %66 = call i32 @dissect_rpc_uint32(ptr noundef %62, ptr noundef %63, i32 noundef %64, i32 noundef %65)
-  store i32 %66, ptr %9, align 4
-  %67 = load i32, ptr %15, align 4
-  %68 = icmp eq i32 %67, 0
-  br i1 %68, label %69, label %71
+62:                                               ; preds = %58, %57
+  %63 = load ptr, ptr %7, align 8
+  %64 = load ptr, ptr %24, align 8
+  %65 = load i32, ptr @hf_gluster_num_dict_items, align 4
+  %66 = load i32, ptr %9, align 4
+  %67 = call i32 @dissect_rpc_uint32(ptr noundef %63, ptr noundef %64, i32 noundef %65, i32 noundef %66)
+  store i32 %67, ptr %9, align 4
+  %68 = load i32, ptr %15, align 4
+  %69 = icmp eq i32 %68, 0
+  br i1 %69, label %70, label %72
 
-69:                                               ; preds = %61
-  %70 = load i32, ptr %9, align 4
-  store i32 %70, ptr %5, align 4
-  br label %290
+70:                                               ; preds = %62
+  %71 = load i32, ptr %9, align 4
+  store i32 %71, ptr %5, align 4
+  store i32 1, ptr %27, align 4
+  br label %291
 
-71:                                               ; preds = %61
+72:                                               ; preds = %62
   store i32 0, ptr %13, align 4
-  br label %72
+  br label %73
 
-72:                                               ; preds = %281, %71
-  %73 = load i32, ptr %13, align 4
-  %74 = load i32, ptr %14, align 4
-  %75 = icmp ult i32 %73, %74
-  br i1 %75, label %76, label %284
+73:                                               ; preds = %282, %72
+  %74 = load i32, ptr %13, align 4
+  %75 = load i32, ptr %14, align 4
+  %76 = icmp ult i32 %74, %75
+  br i1 %76, label %77, label %285
 
-76:                                               ; preds = %72
+77:                                               ; preds = %73
   store i32 0, ptr %17, align 4
-  %77 = load ptr, ptr %7, align 8
-  %78 = load i32, ptr %9, align 4
-  %79 = call i32 @tvb_get_ntohl(ptr noundef %77, i32 noundef %78)
-  store i32 %79, ptr %18, align 4
-  %80 = load i32, ptr %18, align 4
-  %81 = call i32 @rpc_roundup(i32 noundef %80)
-  store i32 %81, ptr %18, align 4
-  %82 = load i32, ptr %9, align 4
-  %83 = add i32 %82, 4
-  store i32 %83, ptr %9, align 4
-  %84 = call ptr @wmem_packet_scope()
-  %85 = load ptr, ptr %7, align 8
-  %86 = load i32, ptr %9, align 4
-  %87 = load i32, ptr %18, align 4
-  %88 = call ptr @tvb_get_string_enc(ptr noundef %84, ptr noundef %85, i32 noundef %86, i32 noundef %87, i32 noundef 0)
-  store ptr %88, ptr %10, align 8
-  %89 = load i32, ptr %9, align 4
-  store i32 %89, ptr %20, align 4
-  %90 = load i32, ptr %18, align 4
-  %91 = load i32, ptr %9, align 4
-  %92 = add i32 %91, %90
-  store i32 %92, ptr %9, align 4
-  %93 = load ptr, ptr %7, align 8
-  %94 = load i32, ptr %9, align 4
-  %95 = call i32 @tvb_get_ntohl(ptr noundef %93, i32 noundef %94)
-  store i32 %95, ptr %16, align 4
-  %96 = load i32, ptr %9, align 4
-  %97 = add i32 %96, 4
-  store i32 %97, ptr %9, align 4
-  %98 = load i32, ptr %16, align 4
-  %99 = icmp eq i32 %98, 2
-  br i1 %99, label %100, label %111
+  %78 = load ptr, ptr %7, align 8
+  %79 = load i32, ptr %9, align 4
+  %80 = call i32 @tvb_get_ntohl(ptr noundef %78, i32 noundef %79)
+  store i32 %80, ptr %18, align 4
+  %81 = load i32, ptr %18, align 4
+  %82 = call i32 @rpc_roundup(i32 noundef %81)
+  store i32 %82, ptr %18, align 4
+  %83 = load i32, ptr %9, align 4
+  %84 = add i32 %83, 4
+  store i32 %84, ptr %9, align 4
+  %85 = call ptr @wmem_packet_scope()
+  %86 = load ptr, ptr %7, align 8
+  %87 = load i32, ptr %9, align 4
+  %88 = load i32, ptr %18, align 4
+  %89 = call ptr @tvb_get_string_enc(ptr noundef %85, ptr noundef %86, i32 noundef %87, i32 noundef %88, i32 noundef 0)
+  store ptr %89, ptr %10, align 8
+  %90 = load i32, ptr %9, align 4
+  store i32 %90, ptr %20, align 4
+  %91 = load i32, ptr %18, align 4
+  %92 = load i32, ptr %9, align 4
+  %93 = add i32 %92, %91
+  store i32 %93, ptr %9, align 4
+  %94 = load ptr, ptr %7, align 8
+  %95 = load i32, ptr %9, align 4
+  %96 = call i32 @tvb_get_ntohl(ptr noundef %94, i32 noundef %95)
+  store i32 %96, ptr %16, align 4
+  %97 = load i32, ptr %9, align 4
+  %98 = add i32 %97, 4
+  store i32 %98, ptr %9, align 4
+  %99 = load i32, ptr %16, align 4
+  %100 = icmp eq i32 %99, 2
+  br i1 %100, label %101, label %112
 
-100:                                              ; preds = %76
+101:                                              ; preds = %77
   store i32 8, ptr %17, align 4
-  %101 = load ptr, ptr %24, align 8
-  %102 = load i32, ptr @hf_gluster_dict_value, align 4
-  %103 = load ptr, ptr %7, align 8
-  %104 = load i32, ptr %9, align 4
-  %105 = load i32, ptr %17, align 4
-  %106 = load ptr, ptr %10, align 8
-  %107 = load ptr, ptr %7, align 8
-  %108 = load i32, ptr %9, align 4
-  %109 = call i64 @tvb_get_gint64(ptr noundef %107, i32 noundef %108, i32 noundef 0)
-  %110 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %101, i32 noundef %102, ptr noundef %103, i32 noundef %104, i32 noundef %105, ptr noundef null, ptr noundef @.str.559, ptr noundef %106, i64 noundef %109)
-  store ptr %110, ptr %25, align 8
+  %102 = load ptr, ptr %24, align 8
+  %103 = load i32, ptr @hf_gluster_dict_value, align 4
+  %104 = load ptr, ptr %7, align 8
+  %105 = load i32, ptr %9, align 4
+  %106 = load i32, ptr %17, align 4
+  %107 = load ptr, ptr %10, align 8
+  %108 = load ptr, ptr %7, align 8
+  %109 = load i32, ptr %9, align 4
+  %110 = call i64 @tvb_get_int64(ptr noundef %108, i32 noundef %109, i32 noundef 0)
+  %111 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %102, i32 noundef %103, ptr noundef %104, i32 noundef %105, i32 noundef %106, ptr noundef null, ptr noundef @.str.569, ptr noundef %107, i64 noundef %110)
+  store ptr %111, ptr %25, align 8
+  br label %274
+
+112:                                              ; preds = %77
+  %113 = load i32, ptr %16, align 4
+  %114 = icmp eq i32 %113, 3
+  br i1 %114, label %115, label %126
+
+115:                                              ; preds = %112
+  store i32 8, ptr %17, align 4
+  %116 = load ptr, ptr %24, align 8
+  %117 = load i32, ptr @hf_gluster_dict_value, align 4
+  %118 = load ptr, ptr %7, align 8
+  %119 = load i32, ptr %9, align 4
+  %120 = load i32, ptr %17, align 4
+  %121 = load ptr, ptr %10, align 8
+  %122 = load ptr, ptr %7, align 8
+  %123 = load i32, ptr %9, align 4
+  %124 = call i64 @tvb_get_uint64(ptr noundef %122, i32 noundef %123, i32 noundef 0)
+  %125 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %116, i32 noundef %117, ptr noundef %118, i32 noundef %119, i32 noundef %120, ptr noundef null, ptr noundef @.str.570, ptr noundef %121, i64 noundef %124)
+  store ptr %125, ptr %25, align 8
   br label %273
 
-111:                                              ; preds = %76
-  %112 = load i32, ptr %16, align 4
-  %113 = icmp eq i32 %112, 3
-  br i1 %113, label %114, label %125
+126:                                              ; preds = %112
+  %127 = load i32, ptr %16, align 4
+  %128 = icmp eq i32 %127, 4
+  br i1 %128, label %129, label %140
 
-114:                                              ; preds = %111
+129:                                              ; preds = %126
   store i32 8, ptr %17, align 4
-  %115 = load ptr, ptr %24, align 8
-  %116 = load i32, ptr @hf_gluster_dict_value, align 4
-  %117 = load ptr, ptr %7, align 8
-  %118 = load i32, ptr %9, align 4
-  %119 = load i32, ptr %17, align 4
-  %120 = load ptr, ptr %10, align 8
-  %121 = load ptr, ptr %7, align 8
-  %122 = load i32, ptr %9, align 4
-  %123 = call i64 @tvb_get_guint64(ptr noundef %121, i32 noundef %122, i32 noundef 0)
-  %124 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %115, i32 noundef %116, ptr noundef %117, i32 noundef %118, i32 noundef %119, ptr noundef null, ptr noundef @.str.560, ptr noundef %120, i64 noundef %123)
-  store ptr %124, ptr %25, align 8
+  %130 = load ptr, ptr %24, align 8
+  %131 = load i32, ptr @hf_gluster_dict_value, align 4
+  %132 = load ptr, ptr %7, align 8
+  %133 = load i32, ptr %9, align 4
+  %134 = load i32, ptr %17, align 4
+  %135 = load ptr, ptr %10, align 8
+  %136 = load ptr, ptr %7, align 8
+  %137 = load i32, ptr %9, align 4
+  %138 = call double @tvb_get_ieee_double(ptr noundef %136, i32 noundef %137, i32 noundef 0)
+  %139 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %130, i32 noundef %131, ptr noundef %132, i32 noundef %133, i32 noundef %134, ptr noundef null, ptr noundef @.str.571, ptr noundef %135, double noundef %138)
+  store ptr %139, ptr %25, align 8
   br label %272
 
-125:                                              ; preds = %111
-  %126 = load i32, ptr %16, align 4
-  %127 = icmp eq i32 %126, 4
-  br i1 %127, label %128, label %139
+140:                                              ; preds = %126
+  %141 = load i32, ptr %16, align 4
+  %142 = icmp eq i32 %141, 5
+  br i1 %142, label %143, label %165
 
-128:                                              ; preds = %125
-  store i32 8, ptr %17, align 4
-  %129 = load ptr, ptr %24, align 8
-  %130 = load i32, ptr @hf_gluster_dict_value, align 4
-  %131 = load ptr, ptr %7, align 8
-  %132 = load i32, ptr %9, align 4
-  %133 = load i32, ptr %17, align 4
-  %134 = load ptr, ptr %10, align 8
-  %135 = load ptr, ptr %7, align 8
-  %136 = load i32, ptr %9, align 4
-  %137 = call double @tvb_get_ieee_double(ptr noundef %135, i32 noundef %136, i32 noundef 0)
-  %138 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %129, i32 noundef %130, ptr noundef %131, i32 noundef %132, i32 noundef %133, ptr noundef null, ptr noundef @.str.561, ptr noundef %134, double noundef %137)
-  store ptr %138, ptr %25, align 8
+143:                                              ; preds = %140
+  %144 = load ptr, ptr %7, align 8
+  %145 = load i32, ptr %9, align 4
+  %146 = call i32 @tvb_get_ntohl(ptr noundef %144, i32 noundef %145)
+  store i32 %146, ptr %17, align 4
+  %147 = load i32, ptr %17, align 4
+  %148 = call i32 @rpc_roundup(i32 noundef %147)
+  store i32 %148, ptr %17, align 4
+  %149 = load i32, ptr %9, align 4
+  %150 = add i32 %149, 4
+  store i32 %150, ptr %9, align 4
+  %151 = call ptr @wmem_packet_scope()
+  %152 = load ptr, ptr %7, align 8
+  %153 = load i32, ptr %9, align 4
+  %154 = load i32, ptr %17, align 4
+  %155 = call ptr @tvb_get_string_enc(ptr noundef %151, ptr noundef %152, i32 noundef %153, i32 noundef %154, i32 noundef 0)
+  store ptr %155, ptr %11, align 8
+  %156 = load ptr, ptr %24, align 8
+  %157 = load i32, ptr @hf_gluster_dict_value, align 4
+  %158 = load ptr, ptr %7, align 8
+  %159 = load i32, ptr %9, align 4
+  %160 = load i32, ptr %17, align 4
+  %161 = load ptr, ptr %11, align 8
+  %162 = load ptr, ptr %10, align 8
+  %163 = load ptr, ptr %11, align 8
+  %164 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %156, i32 noundef %157, ptr noundef %158, i32 noundef %159, i32 noundef %160, ptr noundef %161, ptr noundef @.str.8, ptr noundef %162, ptr noundef %163)
+  store ptr %164, ptr %25, align 8
   br label %271
 
-139:                                              ; preds = %125
-  %140 = load i32, ptr %16, align 4
-  %141 = icmp eq i32 %140, 5
-  br i1 %141, label %142, label %164
+165:                                              ; preds = %140
+  %166 = load i32, ptr %16, align 4
+  %167 = icmp eq i32 %166, 8
+  br i1 %167, label %168, label %174
 
-142:                                              ; preds = %139
-  %143 = load ptr, ptr %7, align 8
-  %144 = load i32, ptr %9, align 4
-  %145 = call i32 @tvb_get_ntohl(ptr noundef %143, i32 noundef %144)
-  store i32 %145, ptr %17, align 4
-  %146 = load i32, ptr %17, align 4
-  %147 = call i32 @rpc_roundup(i32 noundef %146)
-  store i32 %147, ptr %17, align 4
-  %148 = load i32, ptr %9, align 4
-  %149 = add i32 %148, 4
-  store i32 %149, ptr %9, align 4
-  %150 = call ptr @wmem_packet_scope()
-  %151 = load ptr, ptr %7, align 8
-  %152 = load i32, ptr %9, align 4
-  %153 = load i32, ptr %17, align 4
-  %154 = call ptr @tvb_get_string_enc(ptr noundef %150, ptr noundef %151, i32 noundef %152, i32 noundef %153, i32 noundef 0)
-  store ptr %154, ptr %11, align 8
-  %155 = load ptr, ptr %24, align 8
-  %156 = load i32, ptr @hf_gluster_dict_value, align 4
-  %157 = load ptr, ptr %7, align 8
-  %158 = load i32, ptr %9, align 4
-  %159 = load i32, ptr %17, align 4
-  %160 = load ptr, ptr %11, align 8
-  %161 = load ptr, ptr %10, align 8
-  %162 = load ptr, ptr %11, align 8
-  %163 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %155, i32 noundef %156, ptr noundef %157, i32 noundef %158, i32 noundef %159, ptr noundef %160, ptr noundef @.str.8, ptr noundef %161, ptr noundef %162)
-  store ptr %163, ptr %25, align 8
+168:                                              ; preds = %165
+  %169 = load ptr, ptr %6, align 8
+  %170 = load ptr, ptr %7, align 8
+  %171 = load i32, ptr @hf_glusterfs_preparent_iatt, align 4
+  %172 = load i32, ptr %9, align 4
+  %173 = call i32 @glusterfs_rpc_dissect_gfx_iatt(ptr noundef %169, ptr noundef %170, i32 noundef %171, i32 noundef %172)
+  store i32 %173, ptr %9, align 4
   br label %270
 
-164:                                              ; preds = %139
-  %165 = load i32, ptr %16, align 4
-  %166 = icmp eq i32 %165, 8
-  br i1 %166, label %167, label %173
+174:                                              ; preds = %165
+  %175 = load i32, ptr %16, align 4
+  %176 = icmp eq i32 %175, 7
+  br i1 %176, label %177, label %190
 
-167:                                              ; preds = %164
-  %168 = load ptr, ptr %6, align 8
-  %169 = load ptr, ptr %7, align 8
-  %170 = load i32, ptr @hf_glusterfs_preparent_iatt, align 4
-  %171 = load i32, ptr %9, align 4
-  %172 = call i32 @glusterfs_rpc_dissect_gfx_iatt(ptr noundef %168, ptr noundef %169, i32 noundef %170, i32 noundef %171)
-  store i32 %172, ptr %9, align 4
+177:                                              ; preds = %174
+  store i32 16, ptr %17, align 4
+  %178 = load ptr, ptr %7, align 8
+  %179 = load i32, ptr %9, align 4
+  call void @tvb_get_ntohguid(ptr noundef %178, i32 noundef %179, ptr noundef %22)
+  %180 = call ptr @wmem_packet_scope()
+  %181 = call ptr @guid_to_str(ptr noundef %180, ptr noundef %22)
+  store ptr %181, ptr %21, align 8
+  %182 = load ptr, ptr %24, align 8
+  %183 = load i32, ptr @hf_glusterfs_gfid, align 4
+  %184 = load ptr, ptr %7, align 8
+  %185 = load i32, ptr %9, align 4
+  %186 = load i32, ptr %17, align 4
+  %187 = load ptr, ptr %10, align 8
+  %188 = load ptr, ptr %21, align 8
+  %189 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_guid_format(ptr noundef %182, i32 noundef %183, ptr noundef %184, i32 noundef %185, i32 noundef %186, ptr noundef %22, ptr noundef @.str.8, ptr noundef %187, ptr noundef %188)
+  store ptr %189, ptr %25, align 8
   br label %269
 
-173:                                              ; preds = %164
-  %174 = load i32, ptr %16, align 4
-  %175 = icmp eq i32 %174, 7
-  br i1 %175, label %176, label %189
+190:                                              ; preds = %174
+  %191 = load i32, ptr %16, align 4
+  %192 = icmp eq i32 %191, 6
+  br i1 %192, label %193, label %268
 
-176:                                              ; preds = %173
-  store i32 16, ptr %17, align 4
-  %177 = load ptr, ptr %7, align 8
-  %178 = load i32, ptr %9, align 4
-  call void @tvb_get_ntohguid(ptr noundef %177, i32 noundef %178, ptr noundef %22)
-  %179 = call ptr @wmem_packet_scope()
-  %180 = call ptr @guid_to_str(ptr noundef %179, ptr noundef %22)
-  store ptr %180, ptr %21, align 8
-  %181 = load ptr, ptr %24, align 8
-  %182 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %183 = load ptr, ptr %7, align 8
-  %184 = load i32, ptr %9, align 4
-  %185 = load i32, ptr %17, align 4
-  %186 = load ptr, ptr %10, align 8
-  %187 = load ptr, ptr %21, align 8
-  %188 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_guid_format(ptr noundef %181, i32 noundef %182, ptr noundef %183, i32 noundef %184, i32 noundef %185, ptr noundef %22, ptr noundef @.str.8, ptr noundef %186, ptr noundef %187)
-  store ptr %188, ptr %25, align 8
-  br label %268
+193:                                              ; preds = %190
+  %194 = load ptr, ptr %7, align 8
+  %195 = load i32, ptr %9, align 4
+  %196 = call i32 @tvb_get_ntohl(ptr noundef %194, i32 noundef %195)
+  store i32 %196, ptr %17, align 4
+  %197 = load i32, ptr %9, align 4
+  %198 = add i32 %197, 4
+  store i32 %198, ptr %9, align 4
+  %199 = load i32, ptr %17, align 4
+  %200 = icmp eq i32 %199, 16
+  br i1 %200, label %201, label %225
 
-189:                                              ; preds = %173
-  %190 = load i32, ptr %16, align 4
-  %191 = icmp eq i32 %190, 6
-  br i1 %191, label %192, label %267
+201:                                              ; preds = %193
+  %202 = load ptr, ptr %10, align 8
+  %203 = call i32 @strncmp(ptr noundef @.str.5, ptr noundef %202, i64 noundef 8) #6
+  %204 = icmp ne i32 %203, 0
+  br i1 %204, label %205, label %213
 
-192:                                              ; preds = %189
-  %193 = load ptr, ptr %7, align 8
-  %194 = load i32, ptr %9, align 4
-  %195 = call i32 @tvb_get_ntohl(ptr noundef %193, i32 noundef %194)
-  store i32 %195, ptr %17, align 4
-  %196 = load i32, ptr %9, align 4
-  %197 = add i32 %196, 4
-  store i32 %197, ptr %9, align 4
-  %198 = load i32, ptr %17, align 4
-  %199 = icmp eq i32 %198, 16
-  br i1 %199, label %200, label %224
+205:                                              ; preds = %201
+  %206 = load ptr, ptr %10, align 8
+  %207 = call i32 @strncmp(ptr noundef @.str.6, ptr noundef %206, i64 noundef 14) #6
+  %208 = icmp ne i32 %207, 0
+  br i1 %208, label %209, label %213
 
-200:                                              ; preds = %192
-  %201 = load ptr, ptr %10, align 8
-  %202 = call i32 @strncmp(ptr noundef @.str.5, ptr noundef %201, i64 noundef 8) #3
-  %203 = icmp ne i32 %202, 0
-  br i1 %203, label %204, label %212
+209:                                              ; preds = %205
+  %210 = load ptr, ptr %10, align 8
+  %211 = call i32 @strncmp(ptr noundef @.str.7, ptr noundef %210, i64 noundef 15) #6
+  %212 = icmp ne i32 %211, 0
+  br i1 %212, label %225, label %213
 
-204:                                              ; preds = %200
-  %205 = load ptr, ptr %10, align 8
-  %206 = call i32 @strncmp(ptr noundef @.str.6, ptr noundef %205, i64 noundef 14) #3
-  %207 = icmp ne i32 %206, 0
-  br i1 %207, label %208, label %212
-
-208:                                              ; preds = %204
-  %209 = load ptr, ptr %10, align 8
-  %210 = call i32 @strncmp(ptr noundef @.str.7, ptr noundef %209, i64 noundef 15) #3
-  %211 = icmp ne i32 %210, 0
-  br i1 %211, label %224, label %212
-
-212:                                              ; preds = %208, %204, %200
-  %213 = load ptr, ptr %7, align 8
-  %214 = load i32, ptr %9, align 4
-  call void @tvb_get_ntohguid(ptr noundef %213, i32 noundef %214, ptr noundef %22)
-  %215 = call ptr @wmem_packet_scope()
-  %216 = call ptr @guid_to_str(ptr noundef %215, ptr noundef %22)
-  store ptr %216, ptr %21, align 8
-  %217 = load ptr, ptr %24, align 8
-  %218 = load i32, ptr @hf_glusterfs_gfid, align 4
-  %219 = load ptr, ptr %7, align 8
-  %220 = load i32, ptr %9, align 4
-  %221 = load ptr, ptr %10, align 8
-  %222 = load ptr, ptr %21, align 8
-  %223 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_guid_format(ptr noundef %217, i32 noundef %218, ptr noundef %219, i32 noundef %220, i32 noundef 16, ptr noundef %22, ptr noundef @.str.8, ptr noundef %221, ptr noundef %222)
-  store ptr %223, ptr %25, align 8
-  br label %266
-
-224:                                              ; preds = %208, %192
-  %225 = load i32, ptr %17, align 4
-  %226 = icmp eq i32 %225, 12
-  br i1 %226, label %227, label %250
-
-227:                                              ; preds = %224
-  %228 = load ptr, ptr %10, align 8
-  %229 = call i32 @strncmp(ptr noundef @.str.9, ptr noundef %228, i64 noundef 12) #3
-  %230 = icmp ne i32 %229, 0
-  br i1 %230, label %250, label %231
-
-231:                                              ; preds = %227
-  %232 = load ptr, ptr %24, align 8
-  %233 = load i32, ptr @hf_gluster_trusted_afr_key, align 4
-  %234 = load ptr, ptr %7, align 8
-  %235 = load i32, ptr %9, align 4
-  %236 = load ptr, ptr %10, align 8
-  %237 = load ptr, ptr %7, align 8
-  %238 = load i32, ptr %9, align 4
-  %239 = add i32 %238, 0
-  %240 = call i32 @tvb_get_letohl(ptr noundef %237, i32 noundef %239)
-  %241 = load ptr, ptr %7, align 8
-  %242 = load i32, ptr %9, align 4
-  %243 = add i32 %242, 4
-  %244 = call i32 @tvb_get_letohl(ptr noundef %241, i32 noundef %243)
-  %245 = load ptr, ptr %7, align 8
-  %246 = load i32, ptr %9, align 4
-  %247 = add i32 %246, 8
-  %248 = call i32 @tvb_get_letohl(ptr noundef %245, i32 noundef %247)
-  %249 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %232, i32 noundef %233, ptr noundef %234, i32 noundef %235, i32 noundef 12, ptr noundef null, ptr noundef @.str.10, ptr noundef %236, i32 noundef %240, i32 noundef %244, i32 noundef %248)
-  store ptr %249, ptr %25, align 8
-  br label %265
-
-250:                                              ; preds = %227, %224
-  %251 = call ptr @wmem_packet_scope()
-  %252 = load ptr, ptr %7, align 8
-  %253 = load i32, ptr %9, align 4
-  %254 = load i32, ptr %17, align 4
-  %255 = call ptr @tvb_get_string_enc(ptr noundef %251, ptr noundef %252, i32 noundef %253, i32 noundef %254, i32 noundef 0)
-  store ptr %255, ptr %11, align 8
-  %256 = load ptr, ptr %24, align 8
-  %257 = load i32, ptr @hf_gluster_dict_value, align 4
-  %258 = load ptr, ptr %7, align 8
-  %259 = load i32, ptr %9, align 4
-  %260 = load i32, ptr %17, align 4
-  %261 = load ptr, ptr %11, align 8
-  %262 = load ptr, ptr %10, align 8
-  %263 = load ptr, ptr %11, align 8
-  %264 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %256, i32 noundef %257, ptr noundef %258, i32 noundef %259, i32 noundef %260, ptr noundef %261, ptr noundef @.str.8, ptr noundef %262, ptr noundef %263)
-  store ptr %264, ptr %25, align 8
-  br label %265
-
-265:                                              ; preds = %250, %231
-  br label %266
-
-266:                                              ; preds = %265, %212
+213:                                              ; preds = %209, %205, %201
+  %214 = load ptr, ptr %7, align 8
+  %215 = load i32, ptr %9, align 4
+  call void @tvb_get_ntohguid(ptr noundef %214, i32 noundef %215, ptr noundef %22)
+  %216 = call ptr @wmem_packet_scope()
+  %217 = call ptr @guid_to_str(ptr noundef %216, ptr noundef %22)
+  store ptr %217, ptr %21, align 8
+  %218 = load ptr, ptr %24, align 8
+  %219 = load i32, ptr @hf_glusterfs_gfid, align 4
+  %220 = load ptr, ptr %7, align 8
+  %221 = load i32, ptr %9, align 4
+  %222 = load ptr, ptr %10, align 8
+  %223 = load ptr, ptr %21, align 8
+  %224 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_guid_format(ptr noundef %218, i32 noundef %219, ptr noundef %220, i32 noundef %221, i32 noundef 16, ptr noundef %22, ptr noundef @.str.8, ptr noundef %222, ptr noundef %223)
+  store ptr %224, ptr %25, align 8
   br label %267
 
-267:                                              ; preds = %266, %189
+225:                                              ; preds = %209, %193
+  %226 = load i32, ptr %17, align 4
+  %227 = icmp eq i32 %226, 12
+  br i1 %227, label %228, label %251
+
+228:                                              ; preds = %225
+  %229 = load ptr, ptr %10, align 8
+  %230 = call i32 @strncmp(ptr noundef @.str.9, ptr noundef %229, i64 noundef 12) #6
+  %231 = icmp ne i32 %230, 0
+  br i1 %231, label %251, label %232
+
+232:                                              ; preds = %228
+  %233 = load ptr, ptr %24, align 8
+  %234 = load i32, ptr @hf_gluster_trusted_afr_key, align 4
+  %235 = load ptr, ptr %7, align 8
+  %236 = load i32, ptr %9, align 4
+  %237 = load ptr, ptr %10, align 8
+  %238 = load ptr, ptr %7, align 8
+  %239 = load i32, ptr %9, align 4
+  %240 = add i32 %239, 0
+  %241 = call i32 @tvb_get_letohl(ptr noundef %238, i32 noundef %240)
+  %242 = load ptr, ptr %7, align 8
+  %243 = load i32, ptr %9, align 4
+  %244 = add i32 %243, 4
+  %245 = call i32 @tvb_get_letohl(ptr noundef %242, i32 noundef %244)
+  %246 = load ptr, ptr %7, align 8
+  %247 = load i32, ptr %9, align 4
+  %248 = add i32 %247, 8
+  %249 = call i32 @tvb_get_letohl(ptr noundef %246, i32 noundef %248)
+  %250 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %233, i32 noundef %234, ptr noundef %235, i32 noundef %236, i32 noundef 12, ptr noundef null, ptr noundef @.str.10, ptr noundef %237, i32 noundef %241, i32 noundef %245, i32 noundef %249)
+  store ptr %250, ptr %25, align 8
+  br label %266
+
+251:                                              ; preds = %228, %225
+  %252 = call ptr @wmem_packet_scope()
+  %253 = load ptr, ptr %7, align 8
+  %254 = load i32, ptr %9, align 4
+  %255 = load i32, ptr %17, align 4
+  %256 = call ptr @tvb_get_string_enc(ptr noundef %252, ptr noundef %253, i32 noundef %254, i32 noundef %255, i32 noundef 0)
+  store ptr %256, ptr %11, align 8
+  %257 = load ptr, ptr %24, align 8
+  %258 = load i32, ptr @hf_gluster_dict_value, align 4
+  %259 = load ptr, ptr %7, align 8
+  %260 = load i32, ptr %9, align 4
+  %261 = load i32, ptr %17, align 4
+  %262 = load ptr, ptr %11, align 8
+  %263 = load ptr, ptr %10, align 8
+  %264 = load ptr, ptr %11, align 8
+  %265 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %257, i32 noundef %258, ptr noundef %259, i32 noundef %260, i32 noundef %261, ptr noundef %262, ptr noundef @.str.8, ptr noundef %263, ptr noundef %264)
+  store ptr %265, ptr %25, align 8
+  br label %266
+
+266:                                              ; preds = %251, %232
+  br label %267
+
+267:                                              ; preds = %266, %213
   br label %268
 
-268:                                              ; preds = %267, %176
+268:                                              ; preds = %267, %190
   br label %269
 
-269:                                              ; preds = %268, %167
+269:                                              ; preds = %268, %177
   br label %270
 
-270:                                              ; preds = %269, %142
+270:                                              ; preds = %269, %168
   br label %271
 
-271:                                              ; preds = %270, %128
+271:                                              ; preds = %270, %143
   br label %272
 
-272:                                              ; preds = %271, %114
+272:                                              ; preds = %271, %129
   br label %273
 
-273:                                              ; preds = %272, %100
-  %274 = load i32, ptr %17, align 4
-  %275 = load i32, ptr %9, align 4
-  %276 = add i32 %275, %274
-  store i32 %276, ptr %9, align 4
-  %277 = load ptr, ptr %25, align 8
-  %278 = load i32, ptr %9, align 4
-  %279 = load i32, ptr %20, align 4
-  %280 = sub i32 %278, %279
-  call void @proto_item_set_len(ptr noundef %277, i32 noundef %280)
-  br label %281
+273:                                              ; preds = %272, %115
+  br label %274
 
-281:                                              ; preds = %273
-  %282 = load i32, ptr %13, align 4
-  %283 = add i32 %282, 1
-  store i32 %283, ptr %13, align 4
-  br label %72, !llvm.loop !6
+274:                                              ; preds = %273, %101
+  %275 = load i32, ptr %17, align 4
+  %276 = load i32, ptr %9, align 4
+  %277 = add i32 %276, %275
+  store i32 %277, ptr %9, align 4
+  %278 = load ptr, ptr %25, align 8
+  %279 = load i32, ptr %9, align 4
+  %280 = load i32, ptr %20, align 4
+  %281 = sub i32 %279, %280
+  call void @proto_item_set_len(ptr noundef %278, i32 noundef %281)
+  br label %282
 
-284:                                              ; preds = %72
-  %285 = load ptr, ptr %23, align 8
-  %286 = load i32, ptr %9, align 4
-  %287 = load i32, ptr %19, align 4
-  %288 = sub i32 %286, %287
-  call void @proto_item_set_len(ptr noundef %285, i32 noundef %288)
-  %289 = load i32, ptr %9, align 4
-  store i32 %289, ptr %5, align 4
-  br label %290
+282:                                              ; preds = %274
+  %283 = load i32, ptr %13, align 4
+  %284 = add i32 %283, 1
+  store i32 %284, ptr %13, align 4
+  br label %73, !llvm.loop !10
 
-290:                                              ; preds = %284, %69
-  %291 = load i32, ptr %5, align 4
-  ret i32 %291
+285:                                              ; preds = %73
+  %286 = load ptr, ptr %23, align 8
+  %287 = load i32, ptr %9, align 4
+  %288 = load i32, ptr %19, align 4
+  %289 = sub i32 %287, %288
+  call void @proto_item_set_len(ptr noundef %286, i32 noundef %289)
+  %290 = load i32, ptr %9, align 4
+  store i32 %290, ptr %5, align 4
+  store i32 1, ptr %27, align 4
+  br label %291
+
+291:                                              ; preds = %285, %70
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %22) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  %292 = load i32, ptr %5, align 4
+  ret i32 %292
 }
 
-declare i64 @tvb_get_gint64(ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i64 @tvb_get_int64(ptr noundef, i32 noundef, i32 noundef) #2
 
-declare i64 @tvb_get_guint64(ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i64 @tvb_get_uint64(ptr noundef, i32 noundef, i32 noundef) #2
 
-declare double @tvb_get_ieee_double(ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare double @tvb_get_ieee_double(ptr noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_stat_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3175,6 +3375,7 @@ define internal i32 @glusterfs_gfs3_3_op_stat_call(ptr noundef %0, ptr noundef %
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -3189,10 +3390,11 @@ define internal i32 @glusterfs_gfs3_3_op_stat_call(ptr noundef %0, ptr noundef %
   %19 = call i32 @gluster_rpc_dissect_dict(ptr noundef %15, ptr noundef %16, i32 noundef %17, i32 noundef %18)
   store i32 %19, ptr %9, align 4
   %20 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_stat_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3203,6 +3405,7 @@ define internal i32 @glusterfs_gfs3_3_op_stat_reply(ptr noundef %0, ptr noundef 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load i32, ptr %9, align 4
@@ -3224,10 +3427,11 @@ define internal i32 @glusterfs_gfs3_3_op_stat_reply(ptr noundef %0, ptr noundef 
   %25 = call i32 @gluster_rpc_dissect_dict(ptr noundef %21, ptr noundef %22, i32 noundef %23, i32 noundef %24)
   store i32 %25, ptr %9, align 4
   %26 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %26
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_readlink_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3238,6 +3442,7 @@ define internal i32 @glusterfs_gfs3_3_op_readlink_call(ptr noundef %0, ptr nound
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -3258,10 +3463,11 @@ define internal i32 @glusterfs_gfs3_3_op_readlink_call(ptr noundef %0, ptr nound
   %24 = call i32 @gluster_rpc_dissect_dict(ptr noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef %23)
   store i32 %24, ptr %9, align 4
   %25 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %25
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_readlink_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3272,6 +3478,7 @@ define internal i32 @glusterfs_gfs3_3_op_readlink_reply(ptr noundef %0, ptr noun
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load i32, ptr %9, align 4
@@ -3299,10 +3506,11 @@ define internal i32 @glusterfs_gfs3_3_op_readlink_reply(ptr noundef %0, ptr noun
   %30 = call i32 @gluster_rpc_dissect_dict(ptr noundef %26, ptr noundef %27, i32 noundef %28, i32 noundef %29)
   store i32 %30, ptr %9, align 4
   %31 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %31
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_mknod_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3313,6 +3521,7 @@ define internal i32 @glusterfs_gfs3_3_op_mknod_call(ptr noundef %0, ptr noundef 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -3351,10 +3560,11 @@ define internal i32 @glusterfs_gfs3_3_op_mknod_call(ptr noundef %0, ptr noundef 
   %39 = call i32 @gluster_rpc_dissect_dict(ptr noundef %35, ptr noundef %36, i32 noundef %37, i32 noundef %38)
   store i32 %39, ptr %9, align 4
   %40 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %40
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_mknod_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3365,6 +3575,7 @@ define internal i32 @glusterfs_gfs3_3_op_mknod_reply(ptr noundef %0, ptr noundef
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load i32, ptr %9, align 4
@@ -3398,10 +3609,11 @@ define internal i32 @glusterfs_gfs3_3_op_mknod_reply(ptr noundef %0, ptr noundef
   %35 = call i32 @gluster_rpc_dissect_dict(ptr noundef %31, ptr noundef %32, i32 noundef %33, i32 noundef %34)
   store i32 %35, ptr %9, align 4
   %36 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %36
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_mkdir_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3413,7 +3625,9 @@ define internal i32 @glusterfs_gfs3_3_op_mkdir_call(ptr noundef %0, ptr noundef 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
   store ptr null, ptr %10, align 8
   %11 = load ptr, ptr %7, align 8
   %12 = load ptr, ptr %5, align 8
@@ -3446,15 +3660,17 @@ define internal i32 @glusterfs_gfs3_3_op_mkdir_call(ptr noundef %0, ptr noundef 
   %35 = call i32 @gluster_rpc_dissect_dict(ptr noundef %31, ptr noundef %32, i32 noundef %33, i32 noundef %34)
   store i32 %35, ptr %9, align 4
   %36 = load ptr, ptr %6, align 8
-  %37 = getelementptr inbounds %struct._packet_info, ptr %36, i32 0, i32 1
+  %37 = getelementptr inbounds nuw %struct._packet_info, ptr %36, i32 0, i32 1
   %38 = load ptr, ptr %37, align 8
   %39 = load ptr, ptr %10, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %38, i32 noundef 25, ptr noundef @.str.562, ptr noundef %39)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %38, i32 noundef 25, ptr noundef @.str.573, ptr noundef %39)
   %40 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %40
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_unlink_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3466,6 +3682,8 @@ define internal i32 @glusterfs_gfs3_3_op_unlink_call(ptr noundef %0, ptr noundef
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %7, align 8
   %12 = load ptr, ptr %5, align 8
@@ -3489,7 +3707,7 @@ define internal i32 @glusterfs_gfs3_3_op_unlink_call(ptr noundef %0, ptr noundef
   %27 = load i32, ptr %10, align 4
   %28 = load i32, ptr %9, align 4
   %29 = load i32, ptr %9, align 4
-  %30 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %24, i32 noundef %25, ptr noundef %26, i32 noundef %27, i32 noundef 4, i32 noundef %28, ptr noundef @.str.563, i32 noundef %29)
+  %30 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %24, i32 noundef %25, ptr noundef %26, i32 noundef %27, i32 noundef 4, i32 noundef %28, ptr noundef @.str.574, i32 noundef %29)
   %31 = load i32, ptr %10, align 4
   %32 = add i32 %31, 4
   store i32 %32, ptr %10, align 4
@@ -3500,10 +3718,12 @@ define internal i32 @glusterfs_gfs3_3_op_unlink_call(ptr noundef %0, ptr noundef
   %37 = call i32 @gluster_rpc_dissect_dict(ptr noundef %33, ptr noundef %34, i32 noundef %35, i32 noundef %36)
   store i32 %37, ptr %10, align 4
   %38 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %38
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_unlink_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3514,6 +3734,7 @@ define internal i32 @glusterfs_gfs3_3_op_unlink_reply(ptr noundef %0, ptr nounde
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load i32, ptr %9, align 4
@@ -3541,10 +3762,11 @@ define internal i32 @glusterfs_gfs3_3_op_unlink_reply(ptr noundef %0, ptr nounde
   %30 = call i32 @gluster_rpc_dissect_dict(ptr noundef %26, ptr noundef %27, i32 noundef %28, i32 noundef %29)
   store i32 %30, ptr %9, align 4
   %31 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %31
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_rmdir_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3556,6 +3778,8 @@ define internal i32 @glusterfs_gfs3_3_op_rmdir_call(ptr noundef %0, ptr noundef 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %7, align 8
   %12 = load ptr, ptr %5, align 8
@@ -3573,7 +3797,7 @@ define internal i32 @glusterfs_gfs3_3_op_rmdir_call(ptr noundef %0, ptr noundef 
   %22 = load i32, ptr %10, align 4
   %23 = load i32, ptr %9, align 4
   %24 = load i32, ptr %9, align 4
-  %25 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %19, i32 noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef 4, i32 noundef %23, ptr noundef @.str.563, i32 noundef %24)
+  %25 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %19, i32 noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef 4, i32 noundef %23, ptr noundef @.str.574, i32 noundef %24)
   %26 = load i32, ptr %10, align 4
   %27 = add i32 %26, 4
   store i32 %27, ptr %10, align 4
@@ -3590,10 +3814,12 @@ define internal i32 @glusterfs_gfs3_3_op_rmdir_call(ptr noundef %0, ptr noundef 
   %37 = call i32 @gluster_rpc_dissect_dict(ptr noundef %33, ptr noundef %34, i32 noundef %35, i32 noundef %36)
   store i32 %37, ptr %10, align 4
   %38 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %38
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_symlink_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3604,6 +3830,7 @@ define internal i32 @glusterfs_gfs3_3_op_symlink_call(ptr noundef %0, ptr nounde
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -3636,10 +3863,11 @@ define internal i32 @glusterfs_gfs3_3_op_symlink_call(ptr noundef %0, ptr nounde
   %34 = call i32 @gluster_rpc_dissect_dict(ptr noundef %30, ptr noundef %31, i32 noundef %32, i32 noundef %33)
   store i32 %34, ptr %9, align 4
   %35 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %35
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_rename_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3650,6 +3878,7 @@ define internal i32 @glusterfs_gfs3_3_op_rename_call(ptr noundef %0, ptr noundef
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -3682,10 +3911,11 @@ define internal i32 @glusterfs_gfs3_3_op_rename_call(ptr noundef %0, ptr noundef
   %34 = call i32 @gluster_rpc_dissect_dict(ptr noundef %30, ptr noundef %31, i32 noundef %32, i32 noundef %33)
   store i32 %34, ptr %9, align 4
   %35 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %35
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_rename_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3701,6 +3931,12 @@ define internal i32 @glusterfs_gfs3_3_op_rename_reply(ptr noundef %0, ptr nounde
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
   store i32 0, ptr %14, align 4
   %15 = load ptr, ptr %5, align 8
   %16 = load i32, ptr %14, align 4
@@ -3721,7 +3957,7 @@ define internal i32 @glusterfs_gfs3_3_op_rename_reply(ptr noundef %0, ptr nounde
   %28 = load ptr, ptr %5, align 8
   %29 = load i32, ptr %14, align 4
   %30 = load i32, ptr @ett_glusterfs_parent_iatt, align 4
-  %31 = call ptr @proto_tree_add_subtree(ptr noundef %27, ptr noundef %28, i32 noundef %29, i32 noundef -1, i32 noundef %30, ptr noundef %11, ptr noundef @.str.564)
+  %31 = call ptr @proto_tree_add_subtree(ptr noundef %27, ptr noundef %28, i32 noundef %29, i32 noundef -1, i32 noundef %30, ptr noundef %11, ptr noundef @.str.575)
   store ptr %31, ptr %9, align 8
   %32 = load ptr, ptr %9, align 8
   %33 = load ptr, ptr %5, align 8
@@ -3746,7 +3982,7 @@ define internal i32 @glusterfs_gfs3_3_op_rename_reply(ptr noundef %0, ptr nounde
   %48 = load ptr, ptr %5, align 8
   %49 = load i32, ptr %14, align 4
   %50 = load i32, ptr @ett_glusterfs_parent_iatt, align 4
-  %51 = call ptr @proto_tree_add_subtree(ptr noundef %47, ptr noundef %48, i32 noundef %49, i32 noundef -1, i32 noundef %50, ptr noundef %12, ptr noundef @.str.565)
+  %51 = call ptr @proto_tree_add_subtree(ptr noundef %47, ptr noundef %48, i32 noundef %49, i32 noundef -1, i32 noundef %50, ptr noundef %12, ptr noundef @.str.576)
   store ptr %51, ptr %10, align 8
   %52 = load ptr, ptr %10, align 8
   %53 = load ptr, ptr %5, align 8
@@ -3772,10 +4008,16 @@ define internal i32 @glusterfs_gfs3_3_op_rename_reply(ptr noundef %0, ptr nounde
   %70 = call i32 @gluster_rpc_dissect_dict(ptr noundef %66, ptr noundef %67, i32 noundef %68, i32 noundef %69)
   store i32 %70, ptr %14, align 4
   %71 = load i32, ptr %14, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
   ret i32 %71
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_link_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3786,6 +4028,7 @@ define internal i32 @glusterfs_gfs3_3_op_link_call(ptr noundef %0, ptr noundef %
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -3812,10 +4055,11 @@ define internal i32 @glusterfs_gfs3_3_op_link_call(ptr noundef %0, ptr noundef %
   %29 = call i32 @gluster_rpc_dissect_dict(ptr noundef %25, ptr noundef %26, i32 noundef %27, i32 noundef %28)
   store i32 %29, ptr %9, align 4
   %30 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %30
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_truncate_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3826,6 +4070,7 @@ define internal i32 @glusterfs_gfs3_3_op_truncate_call(ptr noundef %0, ptr nound
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -3846,10 +4091,11 @@ define internal i32 @glusterfs_gfs3_3_op_truncate_call(ptr noundef %0, ptr nound
   %24 = call i32 @gluster_rpc_dissect_dict(ptr noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef %23)
   store i32 %24, ptr %9, align 4
   %25 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %25
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_open_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3860,6 +4106,7 @@ define internal i32 @glusterfs_gfs3_3_op_open_call(ptr noundef %0, ptr noundef %
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -3879,10 +4126,11 @@ define internal i32 @glusterfs_gfs3_3_op_open_call(ptr noundef %0, ptr noundef %
   %23 = call i32 @gluster_rpc_dissect_dict(ptr noundef %19, ptr noundef %20, i32 noundef %21, i32 noundef %22)
   store i32 %23, ptr %9, align 4
   %24 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_open_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3893,6 +4141,7 @@ define internal i32 @glusterfs_gfs3_3_op_open_reply(ptr noundef %0, ptr noundef 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load i32, ptr %9, align 4
@@ -3914,10 +4163,11 @@ define internal i32 @glusterfs_gfs3_3_op_open_reply(ptr noundef %0, ptr noundef 
   %25 = call i32 @gluster_rpc_dissect_dict(ptr noundef %21, ptr noundef %22, i32 noundef %23, i32 noundef %24)
   store i32 %25, ptr %9, align 4
   %26 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %26
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_read_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3928,6 +4178,7 @@ define internal i32 @glusterfs_gfs3_3_op_read_call(ptr noundef %0, ptr noundef %
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -3965,10 +4216,11 @@ define internal i32 @glusterfs_gfs3_3_op_read_call(ptr noundef %0, ptr noundef %
   %38 = call i32 @gluster_rpc_dissect_dict(ptr noundef %34, ptr noundef %35, i32 noundef %36, i32 noundef %37)
   store i32 %38, ptr %9, align 4
   %39 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %39
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_read_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3979,6 +4231,7 @@ define internal i32 @glusterfs_gfs3_3_op_read_reply(ptr noundef %0, ptr noundef 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load i32, ptr %9, align 4
@@ -4006,10 +4259,11 @@ define internal i32 @glusterfs_gfs3_3_op_read_reply(ptr noundef %0, ptr noundef 
   %30 = call i32 @gluster_rpc_dissect_dict(ptr noundef %26, ptr noundef %27, i32 noundef %28, i32 noundef %29)
   store i32 %30, ptr %9, align 4
   %31 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %31
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_write_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4020,6 +4274,7 @@ define internal i32 @glusterfs_gfs3_3_op_write_call(ptr noundef %0, ptr noundef 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -4057,10 +4312,11 @@ define internal i32 @glusterfs_gfs3_3_op_write_call(ptr noundef %0, ptr noundef 
   %38 = call i32 @gluster_rpc_dissect_dict(ptr noundef %34, ptr noundef %35, i32 noundef %36, i32 noundef %37)
   store i32 %38, ptr %9, align 4
   %39 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %39
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_setattr_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4071,6 +4327,7 @@ define internal i32 @glusterfs_gfs3_3_op_setattr_reply(ptr noundef %0, ptr nound
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load i32, ptr %9, align 4
@@ -4098,10 +4355,11 @@ define internal i32 @glusterfs_gfs3_3_op_setattr_reply(ptr noundef %0, ptr nound
   %30 = call i32 @gluster_rpc_dissect_dict(ptr noundef %26, ptr noundef %27, i32 noundef %28, i32 noundef %29)
   store i32 %30, ptr %9, align 4
   %31 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %31
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_statfs_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4112,6 +4370,7 @@ define internal i32 @glusterfs_gfs3_3_op_statfs_call(ptr noundef %0, ptr noundef
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -4126,10 +4385,11 @@ define internal i32 @glusterfs_gfs3_3_op_statfs_call(ptr noundef %0, ptr noundef
   %19 = call i32 @gluster_rpc_dissect_dict(ptr noundef %15, ptr noundef %16, i32 noundef %17, i32 noundef %18)
   store i32 %19, ptr %9, align 4
   %20 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_statfs_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4140,6 +4400,7 @@ define internal i32 @glusterfs_gfs3_3_op_statfs_reply(ptr noundef %0, ptr nounde
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load i32, ptr %9, align 4
@@ -4160,10 +4421,11 @@ define internal i32 @glusterfs_gfs3_3_op_statfs_reply(ptr noundef %0, ptr nounde
   %24 = call i32 @gluster_rpc_dissect_dict(ptr noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef %23)
   store i32 %24, ptr %9, align 4
   %25 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %25
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_flush_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4174,6 +4436,7 @@ define internal i32 @glusterfs_gfs3_3_op_flush_call(ptr noundef %0, ptr noundef 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -4194,10 +4457,11 @@ define internal i32 @glusterfs_gfs3_3_op_flush_call(ptr noundef %0, ptr noundef 
   %24 = call i32 @gluster_rpc_dissect_dict(ptr noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef %23)
   store i32 %24, ptr %9, align 4
   %25 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %25
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_fsync_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4208,6 +4472,7 @@ define internal i32 @glusterfs_gfs3_3_op_fsync_call(ptr noundef %0, ptr noundef 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -4237,10 +4502,11 @@ define internal i32 @glusterfs_gfs3_3_op_fsync_call(ptr noundef %0, ptr noundef 
   %32 = call i32 @gluster_rpc_dissect_dict(ptr noundef %28, ptr noundef %29, i32 noundef %30, i32 noundef %31)
   store i32 %32, ptr %9, align 4
   %33 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_setxattr_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4251,6 +4517,7 @@ define internal i32 @glusterfs_gfs3_3_op_setxattr_call(ptr noundef %0, ptr nound
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -4276,10 +4543,11 @@ define internal i32 @glusterfs_gfs3_3_op_setxattr_call(ptr noundef %0, ptr nound
   %28 = call i32 @gluster_rpc_dissect_dict(ptr noundef %24, ptr noundef %25, i32 noundef %26, i32 noundef %27)
   store i32 %28, ptr %9, align 4
   %29 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %29
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_getxattr_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4290,6 +4558,7 @@ define internal i32 @glusterfs_gfs3_3_op_getxattr_call(ptr noundef %0, ptr nound
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -4316,10 +4585,11 @@ define internal i32 @glusterfs_gfs3_3_op_getxattr_call(ptr noundef %0, ptr nound
   %29 = call i32 @gluster_rpc_dissect_dict(ptr noundef %25, ptr noundef %26, i32 noundef %27, i32 noundef %28)
   store i32 %29, ptr %9, align 4
   %30 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %30
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_getxattr_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4330,6 +4600,7 @@ define internal i32 @glusterfs_gfs3_3_op_getxattr_reply(ptr noundef %0, ptr noun
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load i32, ptr %9, align 4
@@ -4351,10 +4622,11 @@ define internal i32 @glusterfs_gfs3_3_op_getxattr_reply(ptr noundef %0, ptr noun
   %25 = call i32 @gluster_rpc_dissect_dict(ptr noundef %21, ptr noundef %22, i32 noundef %23, i32 noundef %24)
   store i32 %25, ptr %9, align 4
   %26 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %26
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_removexattr_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4365,6 +4637,7 @@ define internal i32 @glusterfs_gfs3_3_op_removexattr_call(ptr noundef %0, ptr no
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -4385,10 +4658,11 @@ define internal i32 @glusterfs_gfs3_3_op_removexattr_call(ptr noundef %0, ptr no
   %24 = call i32 @gluster_rpc_dissect_dict(ptr noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef %23)
   store i32 %24, ptr %9, align 4
   %25 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %25
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_opendir_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4399,6 +4673,7 @@ define internal i32 @glusterfs_gfs3_3_op_opendir_call(ptr noundef %0, ptr nounde
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -4413,10 +4688,11 @@ define internal i32 @glusterfs_gfs3_3_op_opendir_call(ptr noundef %0, ptr nounde
   %19 = call i32 @gluster_rpc_dissect_dict(ptr noundef %15, ptr noundef %16, i32 noundef %17, i32 noundef %18)
   store i32 %19, ptr %9, align 4
   %20 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_opendir_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4427,6 +4703,7 @@ define internal i32 @glusterfs_gfs3_3_op_opendir_reply(ptr noundef %0, ptr nound
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load i32, ptr %9, align 4
@@ -4448,10 +4725,11 @@ define internal i32 @glusterfs_gfs3_3_op_opendir_reply(ptr noundef %0, ptr nound
   %25 = call i32 @gluster_rpc_dissect_dict(ptr noundef %21, ptr noundef %22, i32 noundef %23, i32 noundef %24)
   store i32 %25, ptr %9, align 4
   %26 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %26
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_access_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4462,6 +4740,7 @@ define internal i32 @glusterfs_gfs3_3_op_access_call(ptr noundef %0, ptr noundef
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -4482,10 +4761,11 @@ define internal i32 @glusterfs_gfs3_3_op_access_call(ptr noundef %0, ptr noundef
   %24 = call i32 @gluster_rpc_dissect_dict(ptr noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef %23)
   store i32 %24, ptr %9, align 4
   %25 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %25
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_create_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4497,7 +4777,9 @@ define internal i32 @glusterfs_gfs3_3_op_create_call(ptr noundef %0, ptr noundef
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
   store ptr null, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %7, align 8
   %12 = load ptr, ptr %5, align 8
@@ -4535,15 +4817,17 @@ define internal i32 @glusterfs_gfs3_3_op_create_call(ptr noundef %0, ptr noundef
   %39 = call i32 @gluster_rpc_dissect_dict(ptr noundef %35, ptr noundef %36, i32 noundef %37, i32 noundef %38)
   store i32 %39, ptr %10, align 4
   %40 = load ptr, ptr %6, align 8
-  %41 = getelementptr inbounds %struct._packet_info, ptr %40, i32 0, i32 1
+  %41 = getelementptr inbounds nuw %struct._packet_info, ptr %40, i32 0, i32 1
   %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr %9, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %42, i32 noundef 25, ptr noundef @.str.562, ptr noundef %43)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %42, i32 noundef 25, ptr noundef @.str.573, ptr noundef %43)
   %44 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
   ret i32 %44
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_create_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4554,6 +4838,7 @@ define internal i32 @glusterfs_gfs3_3_op_create_reply(ptr noundef %0, ptr nounde
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load i32, ptr %9, align 4
@@ -4593,10 +4878,11 @@ define internal i32 @glusterfs_gfs3_3_op_create_reply(ptr noundef %0, ptr nounde
   %40 = call i32 @gluster_rpc_dissect_dict(ptr noundef %36, ptr noundef %37, i32 noundef %38, i32 noundef %39)
   store i32 %40, ptr %9, align 4
   %41 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %41
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_ftruncate_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4607,6 +4893,7 @@ define internal i32 @glusterfs_gfs3_3_op_ftruncate_call(ptr noundef %0, ptr noun
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -4633,10 +4920,11 @@ define internal i32 @glusterfs_gfs3_3_op_ftruncate_call(ptr noundef %0, ptr noun
   %29 = call i32 @gluster_rpc_dissect_dict(ptr noundef %25, ptr noundef %26, i32 noundef %27, i32 noundef %28)
   store i32 %29, ptr %9, align 4
   %30 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %30
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_fstat_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4647,6 +4935,7 @@ define internal i32 @glusterfs_gfs3_3_op_fstat_call(ptr noundef %0, ptr noundef 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -4667,10 +4956,11 @@ define internal i32 @glusterfs_gfs3_3_op_fstat_call(ptr noundef %0, ptr noundef 
   %24 = call i32 @gluster_rpc_dissect_dict(ptr noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef %23)
   store i32 %24, ptr %9, align 4
   %25 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %25
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_fstat_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4681,6 +4971,7 @@ define internal i32 @glusterfs_gfs3_3_op_fstat_reply(ptr noundef %0, ptr noundef
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load i32, ptr %9, align 4
@@ -4702,10 +4993,11 @@ define internal i32 @glusterfs_gfs3_3_op_fstat_reply(ptr noundef %0, ptr noundef
   %25 = call i32 @gluster_rpc_dissect_dict(ptr noundef %21, ptr noundef %22, i32 noundef %23, i32 noundef %24)
   store i32 %25, ptr %9, align 4
   %26 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %26
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_lk_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4716,6 +5008,7 @@ define internal i32 @glusterfs_gfs3_3_op_lk_call(ptr noundef %0, ptr noundef %1,
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -4753,10 +5046,11 @@ define internal i32 @glusterfs_gfs3_3_op_lk_call(ptr noundef %0, ptr noundef %1,
   %38 = call i32 @gluster_rpc_dissect_dict(ptr noundef %34, ptr noundef %35, i32 noundef %36, i32 noundef %37)
   store i32 %38, ptr %9, align 4
   %39 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %39
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_lk_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4767,6 +5061,7 @@ define internal i32 @glusterfs_gfs3_3_op_lk_reply(ptr noundef %0, ptr noundef %1
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load i32, ptr %9, align 4
@@ -4787,10 +5082,11 @@ define internal i32 @glusterfs_gfs3_3_op_lk_reply(ptr noundef %0, ptr noundef %1
   %24 = call i32 @gluster_rpc_dissect_dict(ptr noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef %23)
   store i32 %24, ptr %9, align 4
   %25 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %25
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_lookup_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4803,7 +5099,10 @@ define internal i32 @glusterfs_gfs3_3_op_lookup_call(ptr noundef %0, ptr noundef
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
   store ptr null, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
   store i32 0, ptr %11, align 4
   %12 = load ptr, ptr %7, align 8
   %13 = load ptr, ptr %5, align 8
@@ -4844,25 +5143,28 @@ define internal i32 @glusterfs_gfs3_3_op_lookup_call(ptr noundef %0, ptr noundef
 
 41:                                               ; preds = %4
   %42 = load ptr, ptr %6, align 8
-  %43 = getelementptr inbounds %struct._packet_info, ptr %42, i32 0, i32 1
+  %43 = getelementptr inbounds nuw %struct._packet_info, ptr %42, i32 0, i32 1
   %44 = load ptr, ptr %43, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %44, i32 noundef 25, ptr noundef @.str.566)
+  call void @col_append_str(ptr noundef %44, i32 noundef 25, ptr noundef @.str.577)
   br label %50
 
 45:                                               ; preds = %4
   %46 = load ptr, ptr %6, align 8
-  %47 = getelementptr inbounds %struct._packet_info, ptr %46, i32 0, i32 1
+  %47 = getelementptr inbounds nuw %struct._packet_info, ptr %46, i32 0, i32 1
   %48 = load ptr, ptr %47, align 8
   %49 = load ptr, ptr %9, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %48, i32 noundef 25, ptr noundef @.str.562, ptr noundef %49)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %48, i32 noundef 25, ptr noundef @.str.573, ptr noundef %49)
   br label %50
 
 50:                                               ; preds = %45, %41
   %51 = load i32, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
   ret i32 %51
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_readdir_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4873,6 +5175,7 @@ define internal i32 @glusterfs_gfs3_3_op_readdir_call(ptr noundef %0, ptr nounde
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -4905,10 +5208,11 @@ define internal i32 @glusterfs_gfs3_3_op_readdir_call(ptr noundef %0, ptr nounde
   %34 = call i32 @gluster_rpc_dissect_dict(ptr noundef %30, ptr noundef %31, i32 noundef %32, i32 noundef %33)
   store i32 %34, ptr %9, align 4
   %35 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %35
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_readdir_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4919,6 +5223,7 @@ define internal i32 @glusterfs_gfs3_3_op_readdir_reply(ptr noundef %0, ptr nound
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %7, align 8
@@ -4938,10 +5243,11 @@ define internal i32 @glusterfs_gfs3_3_op_readdir_reply(ptr noundef %0, ptr nound
   %23 = call i32 @gluster_rpc_dissect_dict(ptr noundef %19, ptr noundef %20, i32 noundef %21, i32 noundef %22)
   store i32 %23, ptr %9, align 4
   %24 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_inodelk_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4952,6 +5258,7 @@ define internal i32 @glusterfs_gfs3_3_op_inodelk_call(ptr noundef %0, ptr nounde
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -4989,10 +5296,11 @@ define internal i32 @glusterfs_gfs3_3_op_inodelk_call(ptr noundef %0, ptr nounde
   %38 = call i32 @gluster_rpc_dissect_dict(ptr noundef %34, ptr noundef %35, i32 noundef %36, i32 noundef %37)
   store i32 %38, ptr %9, align 4
   %39 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %39
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_finodelk_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -5003,6 +5311,7 @@ define internal i32 @glusterfs_gfs3_3_op_finodelk_call(ptr noundef %0, ptr nound
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -5046,10 +5355,11 @@ define internal i32 @glusterfs_gfs3_3_op_finodelk_call(ptr noundef %0, ptr nound
   %43 = call i32 @gluster_rpc_dissect_dict(ptr noundef %39, ptr noundef %40, i32 noundef %41, i32 noundef %42)
   store i32 %43, ptr %9, align 4
   %44 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %44
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_entrylk_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -5060,6 +5370,7 @@ define internal i32 @glusterfs_gfs3_3_op_entrylk_call(ptr noundef %0, ptr nounde
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -5104,10 +5415,11 @@ define internal i32 @glusterfs_gfs3_3_op_entrylk_call(ptr noundef %0, ptr nounde
   %44 = call i32 @gluster_rpc_dissect_dict(ptr noundef %40, ptr noundef %41, i32 noundef %42, i32 noundef %43)
   store i32 %44, ptr %9, align 4
   %45 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %45
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_fentrylk_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -5118,6 +5430,7 @@ define internal i32 @glusterfs_gfs3_3_op_fentrylk_call(ptr noundef %0, ptr nound
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -5168,10 +5481,11 @@ define internal i32 @glusterfs_gfs3_3_op_fentrylk_call(ptr noundef %0, ptr nound
   %49 = call i32 @gluster_rpc_dissect_dict(ptr noundef %45, ptr noundef %46, i32 noundef %47, i32 noundef %48)
   store i32 %49, ptr %9, align 4
   %50 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %50
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_xattrop_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -5182,6 +5496,7 @@ define internal i32 @glusterfs_gfs3_3_op_xattrop_call(ptr noundef %0, ptr nounde
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -5207,10 +5522,11 @@ define internal i32 @glusterfs_gfs3_3_op_xattrop_call(ptr noundef %0, ptr nounde
   %28 = call i32 @gluster_rpc_dissect_dict(ptr noundef %24, ptr noundef %25, i32 noundef %26, i32 noundef %27)
   store i32 %28, ptr %9, align 4
   %29 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %29
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_xattrop_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -5221,6 +5537,7 @@ define internal i32 @glusterfs_gfs3_3_op_xattrop_reply(ptr noundef %0, ptr nound
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load i32, ptr %9, align 4
@@ -5242,10 +5559,11 @@ define internal i32 @glusterfs_gfs3_3_op_xattrop_reply(ptr noundef %0, ptr nound
   %25 = call i32 @gluster_rpc_dissect_dict(ptr noundef %21, ptr noundef %22, i32 noundef %23, i32 noundef %24)
   store i32 %25, ptr %9, align 4
   %26 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %26
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_fxattrop_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -5256,6 +5574,7 @@ define internal i32 @glusterfs_gfs3_3_op_fxattrop_call(ptr noundef %0, ptr nound
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -5287,10 +5606,11 @@ define internal i32 @glusterfs_gfs3_3_op_fxattrop_call(ptr noundef %0, ptr nound
   %33 = call i32 @gluster_rpc_dissect_dict(ptr noundef %29, ptr noundef %30, i32 noundef %31, i32 noundef %32)
   store i32 %33, ptr %9, align 4
   %34 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %34
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_fgetxattr_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -5301,6 +5621,7 @@ define internal i32 @glusterfs_gfs3_3_op_fgetxattr_call(ptr noundef %0, ptr noun
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -5333,10 +5654,11 @@ define internal i32 @glusterfs_gfs3_3_op_fgetxattr_call(ptr noundef %0, ptr noun
   %34 = call i32 @gluster_rpc_dissect_dict(ptr noundef %30, ptr noundef %31, i32 noundef %32, i32 noundef %33)
   store i32 %34, ptr %9, align 4
   %35 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %35
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @gluter_gfs3_3_op_fsetxattr_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -5347,6 +5669,7 @@ define internal i32 @gluter_gfs3_3_op_fsetxattr_call(ptr noundef %0, ptr noundef
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -5378,10 +5701,11 @@ define internal i32 @gluter_gfs3_3_op_fsetxattr_call(ptr noundef %0, ptr noundef
   %33 = call i32 @gluster_rpc_dissect_dict(ptr noundef %29, ptr noundef %30, i32 noundef %31, i32 noundef %32)
   store i32 %33, ptr %9, align 4
   %34 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %34
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_setattr_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -5392,6 +5716,7 @@ define internal i32 @glusterfs_gfs3_3_op_setattr_call(ptr noundef %0, ptr nounde
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -5417,10 +5742,11 @@ define internal i32 @glusterfs_gfs3_3_op_setattr_call(ptr noundef %0, ptr nounde
   %28 = call i32 @gluster_rpc_dissect_dict(ptr noundef %24, ptr noundef %25, i32 noundef %26, i32 noundef %27)
   store i32 %28, ptr %9, align 4
   %29 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %29
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_readdirp_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -5431,6 +5757,7 @@ define internal i32 @glusterfs_gfs3_3_op_readdirp_call(ptr noundef %0, ptr nound
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -5463,10 +5790,11 @@ define internal i32 @glusterfs_gfs3_3_op_readdirp_call(ptr noundef %0, ptr nound
   %34 = call i32 @gluster_rpc_dissect_dict(ptr noundef %30, ptr noundef %31, i32 noundef %32, i32 noundef %33)
   store i32 %34, ptr %9, align 4
   %35 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %35
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_readdirp_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -5477,6 +5805,7 @@ define internal i32 @glusterfs_gfs3_3_op_readdirp_reply(ptr noundef %0, ptr noun
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %7, align 8
@@ -5496,10 +5825,11 @@ define internal i32 @glusterfs_gfs3_3_op_readdirp_reply(ptr noundef %0, ptr noun
   %23 = call i32 @gluster_rpc_dissect_dict(ptr noundef %19, ptr noundef %20, i32 noundef %21, i32 noundef %22)
   store i32 %23, ptr %9, align 4
   %24 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_release_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -5510,6 +5840,7 @@ define internal i32 @glusterfs_gfs3_3_op_release_call(ptr noundef %0, ptr nounde
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -5530,10 +5861,11 @@ define internal i32 @glusterfs_gfs3_3_op_release_call(ptr noundef %0, ptr nounde
   %24 = call i32 @gluster_rpc_dissect_dict(ptr noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef %23)
   store i32 %24, ptr %9, align 4
   %25 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %25
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_releasedir_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -5544,6 +5876,7 @@ define internal i32 @glusterfs_gfs3_3_op_releasedir_call(ptr noundef %0, ptr nou
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -5564,10 +5897,11 @@ define internal i32 @glusterfs_gfs3_3_op_releasedir_call(ptr noundef %0, ptr nou
   %24 = call i32 @gluster_rpc_dissect_dict(ptr noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef %23)
   store i32 %24, ptr %9, align 4
   %25 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %25
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_fremovexattr_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -5578,6 +5912,7 @@ define internal i32 @glusterfs_gfs3_3_op_fremovexattr_call(ptr noundef %0, ptr n
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -5604,10 +5939,11 @@ define internal i32 @glusterfs_gfs3_3_op_fremovexattr_call(ptr noundef %0, ptr n
   %29 = call i32 @gluster_rpc_dissect_dict(ptr noundef %25, ptr noundef %26, i32 noundef %27, i32 noundef %28)
   store i32 %29, ptr %9, align 4
   %30 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %30
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_fallocate_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -5618,6 +5954,7 @@ define internal i32 @glusterfs_gfs3_3_op_fallocate_call(ptr noundef %0, ptr noun
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -5655,10 +5992,11 @@ define internal i32 @glusterfs_gfs3_3_op_fallocate_call(ptr noundef %0, ptr noun
   %38 = call i32 @gluster_rpc_dissect_dict(ptr noundef %34, ptr noundef %35, i32 noundef %36, i32 noundef %37)
   store i32 %38, ptr %9, align 4
   %39 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %39
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_zerofill_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -5669,6 +6007,7 @@ define internal i32 @glusterfs_gfs3_3_op_zerofill_call(ptr noundef %0, ptr nound
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -5695,10 +6034,11 @@ define internal i32 @glusterfs_gfs3_3_op_zerofill_call(ptr noundef %0, ptr nound
   %29 = call i32 @dissect_rpc_uint64(ptr noundef %25, ptr noundef %26, i32 noundef %27, i32 noundef %28)
   store i32 %29, ptr %9, align 4
   %30 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %30
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_seek_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -5709,6 +6049,7 @@ define internal i32 @glusterfs_gfs3_3_op_seek_call(ptr noundef %0, ptr noundef %
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -5741,10 +6082,11 @@ define internal i32 @glusterfs_gfs3_3_op_seek_call(ptr noundef %0, ptr noundef %
   %34 = call i32 @gluster_rpc_dissect_dict(ptr noundef %30, ptr noundef %31, i32 noundef %32, i32 noundef %33)
   store i32 %34, ptr %9, align 4
   %35 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %35
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_seek_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -5755,6 +6097,7 @@ define internal i32 @glusterfs_gfs3_3_op_seek_reply(ptr noundef %0, ptr noundef 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load i32, ptr %9, align 4
@@ -5776,14 +6119,17 @@ define internal i32 @glusterfs_gfs3_3_op_seek_reply(ptr noundef %0, ptr noundef 
   %25 = call i32 @gluster_rpc_dissect_dict(ptr noundef %21, ptr noundef %22, i32 noundef %23, i32 noundef %24)
   store i32 %25, ptr %9, align 4
   %26 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %26
 }
 
-declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #2
 
-declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_rpc_dissect_gf_2_flock(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -5795,13 +6141,17 @@ define internal i32 @glusterfs_rpc_dissect_gf_2_flock(ptr noundef %0, ptr nounde
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
   %11 = load i32, ptr %6, align 4
   store i32 %11, ptr %10, align 4
   %12 = load ptr, ptr %4, align 8
   %13 = load ptr, ptr %5, align 8
   %14 = load i32, ptr %6, align 4
   %15 = load i32, ptr @ett_glusterfs_flock, align 4
-  %16 = call ptr @proto_tree_add_subtree(ptr noundef %12, ptr noundef %13, i32 noundef %14, i32 noundef -1, i32 noundef %15, ptr noundef %7, ptr noundef @.str.554)
+  %16 = call ptr @proto_tree_add_subtree(ptr noundef %12, ptr noundef %13, i32 noundef %14, i32 noundef -1, i32 noundef %15, ptr noundef %7, ptr noundef @.str.564)
   store ptr %16, ptr %8, align 8
   %17 = load ptr, ptr %5, align 8
   %18 = load ptr, ptr %8, align 8
@@ -5856,10 +6206,17 @@ define internal i32 @glusterfs_rpc_dissect_gf_2_flock(ptr noundef %0, ptr nounde
   %59 = sub i32 %57, %58
   call void @proto_item_set_len(ptr noundef %56, i32 noundef %59)
   %60 = load i32, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
   ret i32 %60
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_readdir_entry(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -5874,11 +6231,11 @@ define internal i32 @glusterfs_gfs3_3_op_readdir_entry(ptr noundef %0, i32 nound
   %11 = load ptr, ptr %6, align 8
   %12 = load i32, ptr %7, align 4
   %13 = load ptr, ptr %9, align 8
-  %14 = call i32 @_glusterfs_gfs_op_readdir_entry(ptr noundef %11, i32 noundef %12, ptr noundef %13, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %14 = call i32 @_glusterfs_gfs_op_readdir_entry(ptr noundef %11, i32 noundef %12, ptr noundef %13, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false)
   ret i32 %14
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs3_3_op_readdirp_entry(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -5893,11 +6250,11 @@ define internal i32 @glusterfs_gfs3_3_op_readdirp_entry(ptr noundef %0, i32 noun
   %11 = load ptr, ptr %6, align 8
   %12 = load i32, ptr %7, align 4
   %13 = load ptr, ptr %9, align 8
-  %14 = call i32 @_glusterfs_gfs_op_readdir_entry(ptr noundef %11, i32 noundef %12, ptr noundef %13, i32 noundef 1, i32 noundef 0, i32 noundef 1)
+  %14 = call i32 @_glusterfs_gfs_op_readdir_entry(ptr noundef %11, i32 noundef %12, ptr noundef %13, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext true)
   ret i32 %14
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_stat_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -5908,6 +6265,7 @@ define internal i32 @glusterfs_gfs4_0_op_stat_call(ptr noundef %0, ptr noundef %
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -5922,10 +6280,11 @@ define internal i32 @glusterfs_gfs4_0_op_stat_call(ptr noundef %0, ptr noundef %
   %19 = call i32 @gluster_rpc4_0_dissect_dict(ptr noundef %15, ptr noundef %16, i32 noundef %17, i32 noundef %18)
   store i32 %19, ptr %9, align 4
   %20 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_common_iatt_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -5936,6 +6295,7 @@ define internal i32 @glusterfs_gfs4_0_op_common_iatt_reply(ptr noundef %0, ptr n
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load i32, ptr %9, align 4
@@ -5957,10 +6317,11 @@ define internal i32 @glusterfs_gfs4_0_op_common_iatt_reply(ptr noundef %0, ptr n
   %25 = call i32 @glusterfs_rpc_dissect_gfx_iatt(ptr noundef %21, ptr noundef %22, i32 noundef %23, i32 noundef %24)
   store i32 %25, ptr %9, align 4
   %26 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %26
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_readlink_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -5971,6 +6332,7 @@ define internal i32 @glusterfs_gfs4_0_op_readlink_call(ptr noundef %0, ptr nound
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -5991,10 +6353,11 @@ define internal i32 @glusterfs_gfs4_0_op_readlink_call(ptr noundef %0, ptr nound
   %24 = call i32 @gluster_rpc4_0_dissect_dict(ptr noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef %23)
   store i32 %24, ptr %9, align 4
   %25 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %25
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_readlink_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -6005,6 +6368,7 @@ define internal i32 @glusterfs_gfs4_0_op_readlink_reply(ptr noundef %0, ptr noun
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load i32, ptr %9, align 4
@@ -6032,10 +6396,11 @@ define internal i32 @glusterfs_gfs4_0_op_readlink_reply(ptr noundef %0, ptr noun
   %30 = call i32 @dissect_rpc_string(ptr noundef %26, ptr noundef %27, i32 noundef %28, i32 noundef %29, ptr noundef null)
   store i32 %30, ptr %9, align 4
   %31 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %31
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_mknod_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -6046,6 +6411,7 @@ define internal i32 @glusterfs_gfs4_0_op_mknod_call(ptr noundef %0, ptr noundef 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -6084,10 +6450,11 @@ define internal i32 @glusterfs_gfs4_0_op_mknod_call(ptr noundef %0, ptr noundef 
   %39 = call i32 @gluster_rpc4_0_dissect_dict(ptr noundef %35, ptr noundef %36, i32 noundef %37, i32 noundef %38)
   store i32 %39, ptr %9, align 4
   %40 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %40
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_common_3iatt_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -6098,6 +6465,7 @@ define internal i32 @glusterfs_gfs4_0_op_common_3iatt_reply(ptr noundef %0, ptr 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load i32, ptr %9, align 4
@@ -6131,10 +6499,11 @@ define internal i32 @glusterfs_gfs4_0_op_common_3iatt_reply(ptr noundef %0, ptr 
   %35 = call i32 @glusterfs_rpc_dissect_gfx_iatt(ptr noundef %31, ptr noundef %32, i32 noundef %33, i32 noundef %34)
   store i32 %35, ptr %9, align 4
   %36 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %36
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_mkdir_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -6146,7 +6515,9 @@ define internal i32 @glusterfs_gfs4_0_op_mkdir_call(ptr noundef %0, ptr noundef 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
   store ptr null, ptr %10, align 8
   %11 = load ptr, ptr %7, align 8
   %12 = load ptr, ptr %5, align 8
@@ -6179,15 +6550,17 @@ define internal i32 @glusterfs_gfs4_0_op_mkdir_call(ptr noundef %0, ptr noundef 
   %35 = call i32 @gluster_rpc4_0_dissect_dict(ptr noundef %31, ptr noundef %32, i32 noundef %33, i32 noundef %34)
   store i32 %35, ptr %9, align 4
   %36 = load ptr, ptr %6, align 8
-  %37 = getelementptr inbounds %struct._packet_info, ptr %36, i32 0, i32 1
+  %37 = getelementptr inbounds nuw %struct._packet_info, ptr %36, i32 0, i32 1
   %38 = load ptr, ptr %37, align 8
   %39 = load ptr, ptr %10, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %38, i32 noundef 25, ptr noundef @.str.562, ptr noundef %39)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %38, i32 noundef 25, ptr noundef @.str.573, ptr noundef %39)
   %40 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %40
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_unlink_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -6199,6 +6572,8 @@ define internal i32 @glusterfs_gfs4_0_op_unlink_call(ptr noundef %0, ptr noundef
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %7, align 8
   %12 = load ptr, ptr %5, align 8
@@ -6222,7 +6597,7 @@ define internal i32 @glusterfs_gfs4_0_op_unlink_call(ptr noundef %0, ptr noundef
   %27 = load i32, ptr %10, align 4
   %28 = load i32, ptr %9, align 4
   %29 = load i32, ptr %9, align 4
-  %30 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %24, i32 noundef %25, ptr noundef %26, i32 noundef %27, i32 noundef 4, i32 noundef %28, ptr noundef @.str.563, i32 noundef %29)
+  %30 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %24, i32 noundef %25, ptr noundef %26, i32 noundef %27, i32 noundef 4, i32 noundef %28, ptr noundef @.str.574, i32 noundef %29)
   %31 = load i32, ptr %10, align 4
   %32 = add i32 %31, 4
   store i32 %32, ptr %10, align 4
@@ -6233,10 +6608,12 @@ define internal i32 @glusterfs_gfs4_0_op_unlink_call(ptr noundef %0, ptr noundef
   %37 = call i32 @gluster_rpc4_0_dissect_dict(ptr noundef %33, ptr noundef %34, i32 noundef %35, i32 noundef %36)
   store i32 %37, ptr %10, align 4
   %38 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %38
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_common_2parent_iatt_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -6247,6 +6624,7 @@ define internal i32 @glusterfs_gfs4_0_op_common_2parent_iatt_reply(ptr noundef %
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load i32, ptr %9, align 4
@@ -6274,10 +6652,11 @@ define internal i32 @glusterfs_gfs4_0_op_common_2parent_iatt_reply(ptr noundef %
   %30 = call i32 @glusterfs_rpc_dissect_gfx_iatt(ptr noundef %26, ptr noundef %27, i32 noundef %28, i32 noundef %29)
   store i32 %30, ptr %9, align 4
   %31 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %31
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_rmdir_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -6289,6 +6668,8 @@ define internal i32 @glusterfs_gfs4_0_op_rmdir_call(ptr noundef %0, ptr noundef 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %7, align 8
   %12 = load ptr, ptr %5, align 8
@@ -6306,7 +6687,7 @@ define internal i32 @glusterfs_gfs4_0_op_rmdir_call(ptr noundef %0, ptr noundef 
   %22 = load i32, ptr %10, align 4
   %23 = load i32, ptr %9, align 4
   %24 = load i32, ptr %9, align 4
-  %25 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %19, i32 noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef 4, i32 noundef %23, ptr noundef @.str.563, i32 noundef %24)
+  %25 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %19, i32 noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef 4, i32 noundef %23, ptr noundef @.str.574, i32 noundef %24)
   %26 = load i32, ptr %10, align 4
   %27 = add i32 %26, 4
   store i32 %27, ptr %10, align 4
@@ -6323,10 +6704,12 @@ define internal i32 @glusterfs_gfs4_0_op_rmdir_call(ptr noundef %0, ptr noundef 
   %37 = call i32 @gluster_rpc4_0_dissect_dict(ptr noundef %33, ptr noundef %34, i32 noundef %35, i32 noundef %36)
   store i32 %37, ptr %10, align 4
   %38 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %38
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_symlink_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -6337,6 +6720,7 @@ define internal i32 @glusterfs_gfs4_0_op_symlink_call(ptr noundef %0, ptr nounde
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -6369,10 +6753,11 @@ define internal i32 @glusterfs_gfs4_0_op_symlink_call(ptr noundef %0, ptr nounde
   %34 = call i32 @gluster_rpc4_0_dissect_dict(ptr noundef %30, ptr noundef %31, i32 noundef %32, i32 noundef %33)
   store i32 %34, ptr %9, align 4
   %35 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %35
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_rename_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -6383,6 +6768,7 @@ define internal i32 @glusterfs_gfs4_0_op_rename_call(ptr noundef %0, ptr noundef
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -6415,10 +6801,11 @@ define internal i32 @glusterfs_gfs4_0_op_rename_call(ptr noundef %0, ptr noundef
   %34 = call i32 @gluster_rpc4_0_dissect_dict(ptr noundef %30, ptr noundef %31, i32 noundef %32, i32 noundef %33)
   store i32 %34, ptr %9, align 4
   %35 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %35
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_rename_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -6434,6 +6821,12 @@ define internal i32 @glusterfs_gfs4_0_op_rename_reply(ptr noundef %0, ptr nounde
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
   store i32 0, ptr %14, align 4
   %15 = load ptr, ptr %5, align 8
   %16 = load i32, ptr %14, align 4
@@ -6460,7 +6853,7 @@ define internal i32 @glusterfs_gfs4_0_op_rename_reply(ptr noundef %0, ptr nounde
   %33 = load ptr, ptr %5, align 8
   %34 = load i32, ptr %14, align 4
   %35 = load i32, ptr @ett_glusterfs_parent_iatt, align 4
-  %36 = call ptr @proto_tree_add_subtree(ptr noundef %32, ptr noundef %33, i32 noundef %34, i32 noundef -1, i32 noundef %35, ptr noundef %11, ptr noundef @.str.564)
+  %36 = call ptr @proto_tree_add_subtree(ptr noundef %32, ptr noundef %33, i32 noundef %34, i32 noundef -1, i32 noundef %35, ptr noundef %11, ptr noundef @.str.575)
   store ptr %36, ptr %9, align 8
   %37 = load ptr, ptr %9, align 8
   %38 = load ptr, ptr %5, align 8
@@ -6485,7 +6878,7 @@ define internal i32 @glusterfs_gfs4_0_op_rename_reply(ptr noundef %0, ptr nounde
   %53 = load ptr, ptr %5, align 8
   %54 = load i32, ptr %14, align 4
   %55 = load i32, ptr @ett_glusterfs_parent_iatt, align 4
-  %56 = call ptr @proto_tree_add_subtree(ptr noundef %52, ptr noundef %53, i32 noundef %54, i32 noundef -1, i32 noundef %55, ptr noundef %12, ptr noundef @.str.565)
+  %56 = call ptr @proto_tree_add_subtree(ptr noundef %52, ptr noundef %53, i32 noundef %54, i32 noundef -1, i32 noundef %55, ptr noundef %12, ptr noundef @.str.576)
   store ptr %56, ptr %10, align 8
   %57 = load ptr, ptr %10, align 8
   %58 = load ptr, ptr %5, align 8
@@ -6505,10 +6898,16 @@ define internal i32 @glusterfs_gfs4_0_op_rename_reply(ptr noundef %0, ptr nounde
   %70 = sub i32 %68, %69
   call void @proto_item_set_len(ptr noundef %67, i32 noundef %70)
   %71 = load i32, ptr %14, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
   ret i32 %71
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_link_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -6519,6 +6918,7 @@ define internal i32 @glusterfs_gfs4_0_op_link_call(ptr noundef %0, ptr noundef %
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -6545,10 +6945,11 @@ define internal i32 @glusterfs_gfs4_0_op_link_call(ptr noundef %0, ptr noundef %
   %29 = call i32 @gluster_rpc4_0_dissect_dict(ptr noundef %25, ptr noundef %26, i32 noundef %27, i32 noundef %28)
   store i32 %29, ptr %9, align 4
   %30 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %30
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_truncate_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -6559,6 +6960,7 @@ define internal i32 @glusterfs_gfs4_0_op_truncate_call(ptr noundef %0, ptr nound
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -6579,10 +6981,11 @@ define internal i32 @glusterfs_gfs4_0_op_truncate_call(ptr noundef %0, ptr nound
   %24 = call i32 @gluster_rpc4_0_dissect_dict(ptr noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef %23)
   store i32 %24, ptr %9, align 4
   %25 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %25
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_common_2iatt_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -6593,6 +6996,7 @@ define internal i32 @glusterfs_gfs4_0_op_common_2iatt_reply(ptr noundef %0, ptr 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load i32, ptr %9, align 4
@@ -6620,10 +7024,11 @@ define internal i32 @glusterfs_gfs4_0_op_common_2iatt_reply(ptr noundef %0, ptr 
   %30 = call i32 @glusterfs_rpc_dissect_gfx_iatt(ptr noundef %26, ptr noundef %27, i32 noundef %28, i32 noundef %29)
   store i32 %30, ptr %9, align 4
   %31 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %31
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_open_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -6634,6 +7039,7 @@ define internal i32 @glusterfs_gfs4_0_op_open_call(ptr noundef %0, ptr noundef %
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -6653,10 +7059,11 @@ define internal i32 @glusterfs_gfs4_0_op_open_call(ptr noundef %0, ptr noundef %
   %23 = call i32 @gluster_rpc4_0_dissect_dict(ptr noundef %19, ptr noundef %20, i32 noundef %21, i32 noundef %22)
   store i32 %23, ptr %9, align 4
   %24 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_open_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -6667,6 +7074,7 @@ define internal i32 @glusterfs_gfs4_0_op_open_reply(ptr noundef %0, ptr noundef 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load i32, ptr %9, align 4
@@ -6688,10 +7096,11 @@ define internal i32 @glusterfs_gfs4_0_op_open_reply(ptr noundef %0, ptr noundef 
   %25 = call i32 @dissect_rpc_uint64(ptr noundef %21, ptr noundef %22, i32 noundef %23, i32 noundef %24)
   store i32 %25, ptr %9, align 4
   %26 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %26
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_read_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -6702,6 +7111,7 @@ define internal i32 @glusterfs_gfs4_0_op_read_call(ptr noundef %0, ptr noundef %
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -6739,10 +7149,11 @@ define internal i32 @glusterfs_gfs4_0_op_read_call(ptr noundef %0, ptr noundef %
   %38 = call i32 @gluster_rpc4_0_dissect_dict(ptr noundef %34, ptr noundef %35, i32 noundef %36, i32 noundef %37)
   store i32 %38, ptr %9, align 4
   %39 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %39
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_read_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -6753,6 +7164,7 @@ define internal i32 @glusterfs_gfs4_0_op_read_reply(ptr noundef %0, ptr noundef 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load i32, ptr %9, align 4
@@ -6780,10 +7192,11 @@ define internal i32 @glusterfs_gfs4_0_op_read_reply(ptr noundef %0, ptr noundef 
   %30 = call i32 @gluster_rpc4_0_dissect_dict(ptr noundef %26, ptr noundef %27, i32 noundef %28, i32 noundef %29)
   store i32 %30, ptr %9, align 4
   %31 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %31
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_write_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -6794,6 +7207,7 @@ define internal i32 @glusterfs_gfs4_0_op_write_call(ptr noundef %0, ptr noundef 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -6831,10 +7245,11 @@ define internal i32 @glusterfs_gfs4_0_op_write_call(ptr noundef %0, ptr noundef 
   %38 = call i32 @gluster_rpc4_0_dissect_dict(ptr noundef %34, ptr noundef %35, i32 noundef %36, i32 noundef %37)
   store i32 %38, ptr %9, align 4
   %39 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %39
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_statfs_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -6845,6 +7260,7 @@ define internal i32 @glusterfs_gfs4_0_op_statfs_call(ptr noundef %0, ptr noundef
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -6859,10 +7275,11 @@ define internal i32 @glusterfs_gfs4_0_op_statfs_call(ptr noundef %0, ptr noundef
   %19 = call i32 @gluster_rpc4_0_dissect_dict(ptr noundef %15, ptr noundef %16, i32 noundef %17, i32 noundef %18)
   store i32 %19, ptr %9, align 4
   %20 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_statfs_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -6873,6 +7290,7 @@ define internal i32 @glusterfs_gfs4_0_op_statfs_reply(ptr noundef %0, ptr nounde
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load i32, ptr %9, align 4
@@ -6893,10 +7311,11 @@ define internal i32 @glusterfs_gfs4_0_op_statfs_reply(ptr noundef %0, ptr nounde
   %24 = call i32 @glusterfs_rpc_dissect_statfs(ptr noundef %21, ptr noundef %22, i32 noundef %23)
   store i32 %24, ptr %9, align 4
   %25 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %25
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_flush_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -6907,6 +7326,7 @@ define internal i32 @glusterfs_gfs4_0_op_flush_call(ptr noundef %0, ptr noundef 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -6927,10 +7347,11 @@ define internal i32 @glusterfs_gfs4_0_op_flush_call(ptr noundef %0, ptr noundef 
   %24 = call i32 @gluster_rpc4_0_dissect_dict(ptr noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef %23)
   store i32 %24, ptr %9, align 4
   %25 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %25
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_common_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -6941,6 +7362,7 @@ define internal i32 @glusterfs_gfs4_0_op_common_reply(ptr noundef %0, ptr nounde
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load i32, ptr %9, align 4
@@ -6956,10 +7378,11 @@ define internal i32 @glusterfs_gfs4_0_op_common_reply(ptr noundef %0, ptr nounde
   %20 = call i32 @gluster_rpc4_0_dissect_dict(ptr noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef %19)
   store i32 %20, ptr %9, align 4
   %21 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_fsync_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -6970,6 +7393,7 @@ define internal i32 @glusterfs_gfs4_0_op_fsync_call(ptr noundef %0, ptr noundef 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -6999,10 +7423,11 @@ define internal i32 @glusterfs_gfs4_0_op_fsync_call(ptr noundef %0, ptr noundef 
   %32 = call i32 @gluster_rpc4_0_dissect_dict(ptr noundef %28, ptr noundef %29, i32 noundef %30, i32 noundef %31)
   store i32 %32, ptr %9, align 4
   %33 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_setxattr_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -7013,6 +7438,7 @@ define internal i32 @glusterfs_gfs4_0_op_setxattr_call(ptr noundef %0, ptr nound
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -7038,10 +7464,11 @@ define internal i32 @glusterfs_gfs4_0_op_setxattr_call(ptr noundef %0, ptr nound
   %28 = call i32 @gluster_rpc4_0_dissect_dict(ptr noundef %24, ptr noundef %25, i32 noundef %26, i32 noundef %27)
   store i32 %28, ptr %9, align 4
   %29 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %29
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_getxattr_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -7052,6 +7479,7 @@ define internal i32 @glusterfs_gfs4_0_op_getxattr_call(ptr noundef %0, ptr nound
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -7078,10 +7506,11 @@ define internal i32 @glusterfs_gfs4_0_op_getxattr_call(ptr noundef %0, ptr nound
   %29 = call i32 @gluster_rpc4_0_dissect_dict(ptr noundef %25, ptr noundef %26, i32 noundef %27, i32 noundef %28)
   store i32 %29, ptr %9, align 4
   %30 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %30
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_common_dict_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -7092,6 +7521,7 @@ define internal i32 @glusterfs_gfs4_0_op_common_dict_reply(ptr noundef %0, ptr n
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load i32, ptr %9, align 4
@@ -7125,10 +7555,11 @@ define internal i32 @glusterfs_gfs4_0_op_common_dict_reply(ptr noundef %0, ptr n
   %35 = call i32 @glusterfs_rpc_dissect_gfx_iatt(ptr noundef %31, ptr noundef %32, i32 noundef %33, i32 noundef %34)
   store i32 %35, ptr %9, align 4
   %36 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %36
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_removexattr_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -7139,6 +7570,7 @@ define internal i32 @glusterfs_gfs4_0_op_removexattr_call(ptr noundef %0, ptr no
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -7159,10 +7591,11 @@ define internal i32 @glusterfs_gfs4_0_op_removexattr_call(ptr noundef %0, ptr no
   %24 = call i32 @gluster_rpc4_0_dissect_dict(ptr noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef %23)
   store i32 %24, ptr %9, align 4
   %25 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %25
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_opendir_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -7173,6 +7606,7 @@ define internal i32 @glusterfs_gfs4_0_op_opendir_call(ptr noundef %0, ptr nounde
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -7187,10 +7621,11 @@ define internal i32 @glusterfs_gfs4_0_op_opendir_call(ptr noundef %0, ptr nounde
   %19 = call i32 @gluster_rpc4_0_dissect_dict(ptr noundef %15, ptr noundef %16, i32 noundef %17, i32 noundef %18)
   store i32 %19, ptr %9, align 4
   %20 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_access_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -7201,6 +7636,7 @@ define internal i32 @glusterfs_gfs4_0_op_access_call(ptr noundef %0, ptr noundef
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -7221,10 +7657,11 @@ define internal i32 @glusterfs_gfs4_0_op_access_call(ptr noundef %0, ptr noundef
   %24 = call i32 @gluster_rpc4_0_dissect_dict(ptr noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef %23)
   store i32 %24, ptr %9, align 4
   %25 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %25
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_create_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -7236,7 +7673,9 @@ define internal i32 @glusterfs_gfs4_0_op_create_call(ptr noundef %0, ptr noundef
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
   store ptr null, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %7, align 8
   %12 = load ptr, ptr %5, align 8
@@ -7274,15 +7713,17 @@ define internal i32 @glusterfs_gfs4_0_op_create_call(ptr noundef %0, ptr noundef
   %39 = call i32 @gluster_rpc4_0_dissect_dict(ptr noundef %35, ptr noundef %36, i32 noundef %37, i32 noundef %38)
   store i32 %39, ptr %10, align 4
   %40 = load ptr, ptr %6, align 8
-  %41 = getelementptr inbounds %struct._packet_info, ptr %40, i32 0, i32 1
+  %41 = getelementptr inbounds nuw %struct._packet_info, ptr %40, i32 0, i32 1
   %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr %9, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %42, i32 noundef 25, ptr noundef @.str.562, ptr noundef %43)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %42, i32 noundef 25, ptr noundef @.str.573, ptr noundef %43)
   %44 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
   ret i32 %44
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_create_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -7293,6 +7734,7 @@ define internal i32 @glusterfs_gfs4_0_op_create_reply(ptr noundef %0, ptr nounde
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load i32, ptr %9, align 4
@@ -7332,10 +7774,11 @@ define internal i32 @glusterfs_gfs4_0_op_create_reply(ptr noundef %0, ptr nounde
   %40 = call i32 @glusterfs_rpc_dissect_gfx_iatt(ptr noundef %36, ptr noundef %37, i32 noundef %38, i32 noundef %39)
   store i32 %40, ptr %9, align 4
   %41 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %41
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_ftruncate_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -7346,6 +7789,7 @@ define internal i32 @glusterfs_gfs4_0_op_ftruncate_call(ptr noundef %0, ptr noun
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -7372,10 +7816,11 @@ define internal i32 @glusterfs_gfs4_0_op_ftruncate_call(ptr noundef %0, ptr noun
   %29 = call i32 @gluster_rpc4_0_dissect_dict(ptr noundef %25, ptr noundef %26, i32 noundef %27, i32 noundef %28)
   store i32 %29, ptr %9, align 4
   %30 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %30
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_fstat_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -7386,6 +7831,7 @@ define internal i32 @glusterfs_gfs4_0_op_fstat_call(ptr noundef %0, ptr noundef 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -7406,10 +7852,11 @@ define internal i32 @glusterfs_gfs4_0_op_fstat_call(ptr noundef %0, ptr noundef 
   %24 = call i32 @gluster_rpc4_0_dissect_dict(ptr noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef %23)
   store i32 %24, ptr %9, align 4
   %25 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %25
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_lk_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -7420,6 +7867,7 @@ define internal i32 @glusterfs_gfs4_0_op_lk_call(ptr noundef %0, ptr noundef %1,
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -7457,10 +7905,11 @@ define internal i32 @glusterfs_gfs4_0_op_lk_call(ptr noundef %0, ptr noundef %1,
   %38 = call i32 @gluster_rpc4_0_dissect_dict(ptr noundef %34, ptr noundef %35, i32 noundef %36, i32 noundef %37)
   store i32 %38, ptr %9, align 4
   %39 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %39
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_lk_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -7471,6 +7920,7 @@ define internal i32 @glusterfs_gfs4_0_op_lk_reply(ptr noundef %0, ptr noundef %1
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load i32, ptr %9, align 4
@@ -7491,10 +7941,11 @@ define internal i32 @glusterfs_gfs4_0_op_lk_reply(ptr noundef %0, ptr noundef %1
   %24 = call i32 @glusterfs_rpc_dissect_gf_2_flock(ptr noundef %21, ptr noundef %22, i32 noundef %23)
   store i32 %24, ptr %9, align 4
   %25 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %25
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_lookup_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -7507,7 +7958,10 @@ define internal i32 @glusterfs_gfs4_0_op_lookup_call(ptr noundef %0, ptr noundef
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
   store ptr null, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
   store i32 0, ptr %11, align 4
   %12 = load ptr, ptr %7, align 8
   %13 = load ptr, ptr %5, align 8
@@ -7548,25 +8002,28 @@ define internal i32 @glusterfs_gfs4_0_op_lookup_call(ptr noundef %0, ptr noundef
 
 41:                                               ; preds = %4
   %42 = load ptr, ptr %6, align 8
-  %43 = getelementptr inbounds %struct._packet_info, ptr %42, i32 0, i32 1
+  %43 = getelementptr inbounds nuw %struct._packet_info, ptr %42, i32 0, i32 1
   %44 = load ptr, ptr %43, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %44, i32 noundef 25, ptr noundef @.str.566)
+  call void @col_append_str(ptr noundef %44, i32 noundef 25, ptr noundef @.str.577)
   br label %50
 
 45:                                               ; preds = %4
   %46 = load ptr, ptr %6, align 8
-  %47 = getelementptr inbounds %struct._packet_info, ptr %46, i32 0, i32 1
+  %47 = getelementptr inbounds nuw %struct._packet_info, ptr %46, i32 0, i32 1
   %48 = load ptr, ptr %47, align 8
   %49 = load ptr, ptr %9, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %48, i32 noundef 25, ptr noundef @.str.562, ptr noundef %49)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %48, i32 noundef 25, ptr noundef @.str.573, ptr noundef %49)
   br label %50
 
 50:                                               ; preds = %45, %41
   %51 = load i32, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
   ret i32 %51
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_readdir_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -7577,6 +8034,7 @@ define internal i32 @glusterfs_gfs4_0_op_readdir_call(ptr noundef %0, ptr nounde
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -7609,10 +8067,11 @@ define internal i32 @glusterfs_gfs4_0_op_readdir_call(ptr noundef %0, ptr nounde
   %34 = call i32 @gluster_rpc4_0_dissect_dict(ptr noundef %30, ptr noundef %31, i32 noundef %32, i32 noundef %33)
   store i32 %34, ptr %9, align 4
   %35 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %35
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_readdir_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -7623,6 +8082,7 @@ define internal i32 @glusterfs_gfs4_0_op_readdir_reply(ptr noundef %0, ptr nound
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %7, align 8
@@ -7642,10 +8102,11 @@ define internal i32 @glusterfs_gfs4_0_op_readdir_reply(ptr noundef %0, ptr nound
   %23 = call i32 @dissect_rpc_list(ptr noundef %19, ptr noundef %20, ptr noundef %21, i32 noundef %22, ptr noundef @glusterfs_gfs4_0_op_readdir_entry, ptr noundef null)
   store i32 %23, ptr %9, align 4
   %24 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_inodelk_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -7656,6 +8117,7 @@ define internal i32 @glusterfs_gfs4_0_op_inodelk_call(ptr noundef %0, ptr nounde
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -7693,10 +8155,11 @@ define internal i32 @glusterfs_gfs4_0_op_inodelk_call(ptr noundef %0, ptr nounde
   %38 = call i32 @gluster_rpc4_0_dissect_dict(ptr noundef %34, ptr noundef %35, i32 noundef %36, i32 noundef %37)
   store i32 %38, ptr %9, align 4
   %39 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %39
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_finodelk_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -7707,6 +8170,7 @@ define internal i32 @glusterfs_gfs4_0_op_finodelk_call(ptr noundef %0, ptr nound
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -7750,10 +8214,11 @@ define internal i32 @glusterfs_gfs4_0_op_finodelk_call(ptr noundef %0, ptr nound
   %43 = call i32 @gluster_rpc4_0_dissect_dict(ptr noundef %39, ptr noundef %40, i32 noundef %41, i32 noundef %42)
   store i32 %43, ptr %9, align 4
   %44 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %44
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_entrylk_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -7764,6 +8229,7 @@ define internal i32 @glusterfs_gfs4_0_op_entrylk_call(ptr noundef %0, ptr nounde
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -7808,10 +8274,11 @@ define internal i32 @glusterfs_gfs4_0_op_entrylk_call(ptr noundef %0, ptr nounde
   %44 = call i32 @gluster_rpc4_0_dissect_dict(ptr noundef %40, ptr noundef %41, i32 noundef %42, i32 noundef %43)
   store i32 %44, ptr %9, align 4
   %45 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %45
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_fentrylk_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -7822,6 +8289,7 @@ define internal i32 @glusterfs_gfs4_0_op_fentrylk_call(ptr noundef %0, ptr nound
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -7872,10 +8340,11 @@ define internal i32 @glusterfs_gfs4_0_op_fentrylk_call(ptr noundef %0, ptr nound
   %49 = call i32 @gluster_rpc4_0_dissect_dict(ptr noundef %45, ptr noundef %46, i32 noundef %47, i32 noundef %48)
   store i32 %49, ptr %9, align 4
   %50 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %50
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_xattrop_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -7886,6 +8355,7 @@ define internal i32 @glusterfs_gfs4_0_op_xattrop_call(ptr noundef %0, ptr nounde
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -7911,10 +8381,11 @@ define internal i32 @glusterfs_gfs4_0_op_xattrop_call(ptr noundef %0, ptr nounde
   %28 = call i32 @gluster_rpc4_0_dissect_dict(ptr noundef %24, ptr noundef %25, i32 noundef %26, i32 noundef %27)
   store i32 %28, ptr %9, align 4
   %29 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %29
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_fxattrop_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -7925,6 +8396,7 @@ define internal i32 @glusterfs_gfs4_0_op_fxattrop_call(ptr noundef %0, ptr nound
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -7956,10 +8428,11 @@ define internal i32 @glusterfs_gfs4_0_op_fxattrop_call(ptr noundef %0, ptr nound
   %33 = call i32 @gluster_rpc4_0_dissect_dict(ptr noundef %29, ptr noundef %30, i32 noundef %31, i32 noundef %32)
   store i32 %33, ptr %9, align 4
   %34 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %34
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_fgetxattr_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -7970,6 +8443,7 @@ define internal i32 @glusterfs_gfs4_0_op_fgetxattr_call(ptr noundef %0, ptr noun
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -8002,10 +8476,11 @@ define internal i32 @glusterfs_gfs4_0_op_fgetxattr_call(ptr noundef %0, ptr noun
   %34 = call i32 @gluster_rpc4_0_dissect_dict(ptr noundef %30, ptr noundef %31, i32 noundef %32, i32 noundef %33)
   store i32 %34, ptr %9, align 4
   %35 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %35
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @gluter_gfs4_0_op_fsetxattr_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -8016,6 +8491,7 @@ define internal i32 @gluter_gfs4_0_op_fsetxattr_call(ptr noundef %0, ptr noundef
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -8047,10 +8523,11 @@ define internal i32 @gluter_gfs4_0_op_fsetxattr_call(ptr noundef %0, ptr noundef
   %33 = call i32 @gluster_rpc4_0_dissect_dict(ptr noundef %29, ptr noundef %30, i32 noundef %31, i32 noundef %32)
   store i32 %33, ptr %9, align 4
   %34 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %34
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_setattr_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -8061,6 +8538,7 @@ define internal i32 @glusterfs_gfs4_0_op_setattr_call(ptr noundef %0, ptr nounde
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -8086,10 +8564,11 @@ define internal i32 @glusterfs_gfs4_0_op_setattr_call(ptr noundef %0, ptr nounde
   %28 = call i32 @gluster_rpc4_0_dissect_dict(ptr noundef %24, ptr noundef %25, i32 noundef %26, i32 noundef %27)
   store i32 %28, ptr %9, align 4
   %29 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %29
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_fsetattr_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -8100,6 +8579,7 @@ define internal i32 @glusterfs_gfs4_0_op_fsetattr_call(ptr noundef %0, ptr nound
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -8131,10 +8611,11 @@ define internal i32 @glusterfs_gfs4_0_op_fsetattr_call(ptr noundef %0, ptr nound
   %33 = call i32 @gluster_rpc4_0_dissect_dict(ptr noundef %29, ptr noundef %30, i32 noundef %31, i32 noundef %32)
   store i32 %33, ptr %9, align 4
   %34 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %34
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_readdirp_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -8145,6 +8626,7 @@ define internal i32 @glusterfs_gfs4_0_op_readdirp_call(ptr noundef %0, ptr nound
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -8177,10 +8659,11 @@ define internal i32 @glusterfs_gfs4_0_op_readdirp_call(ptr noundef %0, ptr nound
   %34 = call i32 @gluster_rpc4_0_dissect_dict(ptr noundef %30, ptr noundef %31, i32 noundef %32, i32 noundef %33)
   store i32 %34, ptr %9, align 4
   %35 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %35
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_readdirp_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -8191,6 +8674,7 @@ define internal i32 @glusterfs_gfs4_0_op_readdirp_reply(ptr noundef %0, ptr noun
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %7, align 8
@@ -8210,10 +8694,11 @@ define internal i32 @glusterfs_gfs4_0_op_readdirp_reply(ptr noundef %0, ptr noun
   %23 = call i32 @dissect_rpc_list(ptr noundef %19, ptr noundef %20, ptr noundef %21, i32 noundef %22, ptr noundef @glusterfs_gfs4_0_op_readdirp_entry, ptr noundef null)
   store i32 %23, ptr %9, align 4
   %24 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_release_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -8224,6 +8709,7 @@ define internal i32 @glusterfs_gfs4_0_op_release_call(ptr noundef %0, ptr nounde
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -8244,10 +8730,11 @@ define internal i32 @glusterfs_gfs4_0_op_release_call(ptr noundef %0, ptr nounde
   %24 = call i32 @gluster_rpc4_0_dissect_dict(ptr noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef %23)
   store i32 %24, ptr %9, align 4
   %25 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %25
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_releasedir_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -8258,6 +8745,7 @@ define internal i32 @glusterfs_gfs4_0_op_releasedir_call(ptr noundef %0, ptr nou
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -8278,10 +8766,11 @@ define internal i32 @glusterfs_gfs4_0_op_releasedir_call(ptr noundef %0, ptr nou
   %24 = call i32 @gluster_rpc4_0_dissect_dict(ptr noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef %23)
   store i32 %24, ptr %9, align 4
   %25 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %25
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_fremovexattr_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -8292,6 +8781,7 @@ define internal i32 @glusterfs_gfs4_0_op_fremovexattr_call(ptr noundef %0, ptr n
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -8318,10 +8808,11 @@ define internal i32 @glusterfs_gfs4_0_op_fremovexattr_call(ptr noundef %0, ptr n
   %29 = call i32 @gluster_rpc4_0_dissect_dict(ptr noundef %25, ptr noundef %26, i32 noundef %27, i32 noundef %28)
   store i32 %29, ptr %9, align 4
   %30 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %30
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_fallocate_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -8332,6 +8823,7 @@ define internal i32 @glusterfs_gfs4_0_op_fallocate_call(ptr noundef %0, ptr noun
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -8369,10 +8861,11 @@ define internal i32 @glusterfs_gfs4_0_op_fallocate_call(ptr noundef %0, ptr noun
   %38 = call i32 @gluster_rpc4_0_dissect_dict(ptr noundef %34, ptr noundef %35, i32 noundef %36, i32 noundef %37)
   store i32 %38, ptr %9, align 4
   %39 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %39
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_zerofill_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -8383,6 +8876,7 @@ define internal i32 @glusterfs_gfs4_0_op_zerofill_call(ptr noundef %0, ptr nound
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -8409,10 +8903,11 @@ define internal i32 @glusterfs_gfs4_0_op_zerofill_call(ptr noundef %0, ptr nound
   %29 = call i32 @dissect_rpc_uint64(ptr noundef %25, ptr noundef %26, i32 noundef %27, i32 noundef %28)
   store i32 %29, ptr %9, align 4
   %30 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %30
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_seek_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -8423,6 +8918,7 @@ define internal i32 @glusterfs_gfs4_0_op_seek_call(ptr noundef %0, ptr noundef %
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
@@ -8455,10 +8951,11 @@ define internal i32 @glusterfs_gfs4_0_op_seek_call(ptr noundef %0, ptr noundef %
   %34 = call i32 @gluster_rpc4_0_dissect_dict(ptr noundef %30, ptr noundef %31, i32 noundef %32, i32 noundef %33)
   store i32 %34, ptr %9, align 4
   %35 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %35
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_seek_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -8469,6 +8966,7 @@ define internal i32 @glusterfs_gfs4_0_op_seek_reply(ptr noundef %0, ptr noundef 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load i32, ptr %9, align 4
@@ -8490,10 +8988,11 @@ define internal i32 @glusterfs_gfs4_0_op_seek_reply(ptr noundef %0, ptr noundef 
   %25 = call i32 @dissect_rpc_uint64(ptr noundef %21, ptr noundef %22, i32 noundef %23, i32 noundef %24)
   store i32 %25, ptr %9, align 4
   %26 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %26
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_readdir_entry(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -8508,11 +9007,11 @@ define internal i32 @glusterfs_gfs4_0_op_readdir_entry(ptr noundef %0, i32 nound
   %11 = load ptr, ptr %6, align 8
   %12 = load i32, ptr %7, align 4
   %13 = load ptr, ptr %9, align 8
-  %14 = call i32 @_glusterfs_gfs_op_readdir_entry(ptr noundef %11, i32 noundef %12, ptr noundef %13, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+  %14 = call i32 @_glusterfs_gfs_op_readdir_entry(ptr noundef %11, i32 noundef %12, ptr noundef %13, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext false)
   ret i32 %14
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @glusterfs_gfs4_0_op_readdirp_entry(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -8527,21 +9026,28 @@ define internal i32 @glusterfs_gfs4_0_op_readdirp_entry(ptr noundef %0, i32 noun
   %11 = load ptr, ptr %6, align 8
   %12 = load i32, ptr %7, align 4
   %13 = load ptr, ptr %9, align 8
-  %14 = call i32 @_glusterfs_gfs_op_readdir_entry(ptr noundef %11, i32 noundef %12, ptr noundef %13, i32 noundef 1, i32 noundef 1, i32 noundef 1)
+  %14 = call i32 @_glusterfs_gfs_op_readdir_entry(ptr noundef %11, i32 noundef %12, ptr noundef %13, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext true)
   ret i32 %14
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(read) }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind null_pointer_is_valid willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
+attributes #6 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !7}

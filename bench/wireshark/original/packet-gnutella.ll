@@ -3,7 +3,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
@@ -144,7 +144,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.96 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.97 = private unnamed_addr constant [31 x i8] c"Missing data for Query Search.\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_gnutella() #0 {
   %1 = call i32 @proto_register_protocol(ptr noundef @.str.88, ptr noundef @.str.89, ptr noundef @.str.90)
   store i32 %1, ptr @proto_gnutella, align 4
@@ -157,15 +157,19 @@ define hidden void @proto_register_gnutella() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gnutella(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -175,22 +179,25 @@ define internal i32 @dissect_gnutella(ptr noundef %0, ptr noundef %1, ptr nounde
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
   store ptr null, ptr %11, align 8
-  %13 = load ptr, ptr %7, align 8
-  %14 = getelementptr inbounds %struct._packet_info, ptr %13, i32 0, i32 1
-  %15 = load ptr, ptr %14, align 8
-  call void @col_set_str(ptr noundef %15, i32 noundef 34, ptr noundef @.str.92)
-  %16 = load ptr, ptr %7, align 8
-  %17 = getelementptr inbounds %struct._packet_info, ptr %16, i32 0, i32 1
-  %18 = load ptr, ptr %17, align 8
-  call void @col_clear(ptr noundef %18, i32 noundef 25)
-  %19 = load ptr, ptr %6, align 8
-  %20 = call i32 @tvb_bytes_exist(ptr noundef %19, i32 noundef 19, i32 noundef 4)
-  %21 = icmp ne i32 %20, 0
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
+  %14 = load ptr, ptr %7, align 8
+  %15 = getelementptr inbounds nuw %struct._packet_info, ptr %14, i32 0, i32 1
+  %16 = load ptr, ptr %15, align 8
+  call void @col_set_str(ptr noundef %16, i32 noundef 35, ptr noundef @.str.92)
+  %17 = load ptr, ptr %7, align 8
+  %18 = getelementptr inbounds nuw %struct._packet_info, ptr %17, i32 0, i32 1
+  %19 = load ptr, ptr %18, align 8
+  call void @col_clear(ptr noundef %19, i32 noundef 25)
+  %20 = load ptr, ptr %6, align 8
+  %21 = call zeroext i1 @tvb_bytes_exist(ptr noundef %20, i32 noundef 19, i32 noundef 4)
   br i1 %21, label %22, label %46
 
 22:                                               ; preds = %4
@@ -226,6 +233,7 @@ define internal i32 @dissect_gnutella(ptr noundef %0, ptr noundef %1, ptr nounde
   %43 = load ptr, ptr %6, align 8
   %44 = call i32 @tvb_captured_length(ptr noundef %43)
   store i32 %44, ptr %5, align 4
+  store i32 1, ptr %13, align 4
   br label %53
 
 45:                                               ; preds = %22
@@ -236,43 +244,59 @@ define internal i32 @dissect_gnutella(ptr noundef %0, ptr noundef %1, ptr nounde
   %48 = load ptr, ptr %7, align 8
   %49 = load ptr, ptr %8, align 8
   %50 = load ptr, ptr %9, align 8
-  call void @tcp_dissect_pdus(ptr noundef %47, ptr noundef %48, ptr noundef %49, i32 noundef 1, i32 noundef 23, ptr noundef @get_gnutella_pdu_len, ptr noundef @dissect_gnutella_pdu, ptr noundef %50)
+  call void @tcp_dissect_pdus(ptr noundef %47, ptr noundef %48, ptr noundef %49, i1 noundef zeroext true, i32 noundef 23, ptr noundef @get_gnutella_pdu_len, ptr noundef @dissect_gnutella_pdu, ptr noundef %50)
   %51 = load ptr, ptr %6, align 8
   %52 = call i32 @tvb_captured_length(ptr noundef %51)
   store i32 %52, ptr %5, align 4
+  store i32 1, ptr %13, align 4
   br label %53
 
 53:                                               ; preds = %46, %42
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
   %54 = load i32, ptr %5, align 4
   ret i32 %54
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_gnutella() #0 {
   %1 = load ptr, ptr @gnutella_handle, align 8
   call void @dissector_add_uint_with_preference(ptr noundef @.str.91, i32 noundef 6346, ptr noundef %1)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_clear(ptr noundef, i32 noundef) #1
 
-declare i32 @tvb_bytes_exist(ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @tvb_bytes_exist(ptr noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) #1
 
-declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @get_gnutella_pdu_len(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -283,6 +307,7 @@ define internal i32 @get_gnutella_pdu_len(ptr noundef %0, ptr noundef %1, i32 no
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   %10 = load ptr, ptr %6, align 8
   %11 = load i32, ptr %7, align 4
   %12 = add i32 %11, 19
@@ -299,10 +324,11 @@ define internal i32 @get_gnutella_pdu_len(ptr noundef %0, ptr noundef %1, i32 no
 17:                                               ; preds = %16, %4
   %18 = load i32, ptr %9, align 4
   %19 = add i32 23, %18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %19
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gnutella_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -324,8 +350,20 @@ define internal i32 @dissect_gnutella_pdu(ptr noundef %0, ptr noundef %1, ptr no
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #3
   store ptr null, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %18) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #3
   store i32 0, ptr %19, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #3
   %21 = load ptr, ptr %7, align 8
   %22 = icmp ne ptr %21, null
   br i1 %22, label %23, label %33
@@ -347,7 +385,7 @@ define internal i32 @dissect_gnutella_pdu(ptr noundef %0, ptr noundef %1, ptr no
 
 33:                                               ; preds = %23, %4
   %34 = load ptr, ptr %5, align 8
-  %35 = call zeroext i8 @tvb_get_guint8(ptr noundef %34, i32 noundef 16)
+  %35 = call zeroext i8 @tvb_get_uint8(ptr noundef %34, i32 noundef 16)
   store i8 %35, ptr %18, align 1
   %36 = load i8, ptr %18, align 1
   %37 = zext i8 %36 to i32
@@ -385,7 +423,7 @@ define internal i32 @dissect_gnutella_pdu(ptr noundef %0, ptr noundef %1, ptr no
 
 44:                                               ; preds = %43, %42, %41, %40, %39, %38
   %45 = load ptr, ptr %6, align 8
-  %46 = getelementptr inbounds %struct._packet_info, ptr %45, i32 0, i32 1
+  %46 = getelementptr inbounds nuw %struct._packet_info, ptr %45, i32 0, i32 1
   %47 = load ptr, ptr %46, align 8
   %48 = load ptr, ptr %20, align 8
   call void @col_append_sep_str(ptr noundef %47, i32 noundef 25, ptr noundef null, ptr noundef %48)
@@ -509,7 +547,7 @@ define internal i32 @dissect_gnutella_pdu(ptr noundef %0, ptr noundef %1, ptr no
   call void @dissect_gnutella_queryhit(ptr noundef %133, i32 noundef 23, ptr noundef %134, i32 noundef %135)
   br label %136
 
-136:                                              ; preds = %124, %112, %101, %90, %87
+136:                                              ; preds = %87, %124, %112, %101, %90
   br label %137
 
 137:                                              ; preds = %136, %51
@@ -518,18 +556,37 @@ define internal i32 @dissect_gnutella_pdu(ptr noundef %0, ptr noundef %1, ptr no
 138:                                              ; preds = %137, %44
   %139 = load ptr, ptr %5, align 8
   %140 = call i32 @tvb_captured_length(ptr noundef %139)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %18) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
   ret i32 %140
 }
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #1
+
+; Function Attrs: null_pointer_is_valid
 declare void @col_append_sep_str(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_gnutella_pong(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -564,7 +621,7 @@ define internal void @dissect_gnutella_pong(ptr noundef %0, i32 noundef %1, ptr 
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_gnutella_push(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -599,7 +656,7 @@ define internal void @dissect_gnutella_push(ptr noundef %0, i32 noundef %1, ptr 
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_gnutella_query(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -643,7 +700,7 @@ define internal void @dissect_gnutella_query(ptr noundef %0, i32 noundef %1, ptr
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_gnutella_queryhit(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -668,10 +725,25 @@ define internal void @dissect_gnutella_queryhit(ptr noundef %0, i32 noundef %1, 
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #3
   %24 = load ptr, ptr %5, align 8
   %25 = load i32, ptr %6, align 4
   %26 = add i32 %25, 0
-  %27 = call zeroext i8 @tvb_get_guint8(ptr noundef %24, i32 noundef %26)
+  %27 = call zeroext i8 @tvb_get_uint8(ptr noundef %24, i32 noundef %26)
   %28 = zext i8 %27 to i32
   store i32 %28, ptr %11, align 4
   %29 = load ptr, ptr %7, align 8
@@ -737,7 +809,7 @@ define internal void @dissect_gnutella_queryhit(ptr noundef %0, i32 noundef %1, 
 73:                                               ; preds = %67
   %74 = load ptr, ptr %5, align 8
   %75 = load i32, ptr %13, align 4
-  %76 = call zeroext i8 @tvb_get_guint8(ptr noundef %74, i32 noundef %75)
+  %76 = call zeroext i8 @tvb_get_uint8(ptr noundef %74, i32 noundef %75)
   %77 = zext i8 %76 to i32
   store i32 %77, ptr %21, align 4
   %78 = load i32, ptr %21, align 4
@@ -754,7 +826,7 @@ define internal void @dissect_gnutella_queryhit(ptr noundef %0, i32 noundef %1, 
   %84 = load i32, ptr %14, align 4
   %85 = add i32 %84, 1
   store i32 %85, ptr %14, align 4
-  br label %67, !llvm.loop !4
+  br label %67, !llvm.loop !6
 
 86:                                               ; preds = %80, %67
   %87 = load i32, ptr %13, align 4
@@ -775,7 +847,7 @@ define internal void @dissect_gnutella_queryhit(ptr noundef %0, i32 noundef %1, 
 96:                                               ; preds = %90
   %97 = load ptr, ptr %5, align 8
   %98 = load i32, ptr %13, align 4
-  %99 = call zeroext i8 @tvb_get_guint8(ptr noundef %97, i32 noundef %98)
+  %99 = call zeroext i8 @tvb_get_uint8(ptr noundef %97, i32 noundef %98)
   %100 = zext i8 %99 to i32
   store i32 %100, ptr %21, align 4
   %101 = load i32, ptr %21, align 4
@@ -792,7 +864,7 @@ define internal void @dissect_gnutella_queryhit(ptr noundef %0, i32 noundef %1, 
   %107 = load i32, ptr %15, align 4
   %108 = add i32 %107, 1
   store i32 %108, ptr %15, align 4
-  br label %90, !llvm.loop !6
+  br label %90, !llvm.loop !8
 
 109:                                              ; preds = %103, %90
   %110 = load i32, ptr %13, align 4
@@ -849,7 +921,7 @@ define internal void @dissect_gnutella_queryhit(ptr noundef %0, i32 noundef %1, 
   %152 = load i32, ptr %12, align 4
   %153 = add i32 %152, 1
   store i32 %153, ptr %12, align 4
-  br label %56, !llvm.loop !7
+  br label %56, !llvm.loop !9
 
 154:                                              ; preds = %56
   %155 = load i32, ptr %13, align 4
@@ -891,21 +963,41 @@ define internal void @dissect_gnutella_queryhit(ptr noundef %0, i32 noundef %1, 
   %181 = load ptr, ptr %5, align 8
   %182 = load i32, ptr %18, align 4
   %183 = call ptr @proto_tree_add_item(ptr noundef %179, i32 noundef %180, ptr noundef %181, i32 noundef %182, i32 noundef 16, i32 noundef 0)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_string_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

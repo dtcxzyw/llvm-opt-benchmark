@@ -7,42 +7,44 @@ target triple = "x86_64-pc-linux-gnu"
 
 @instance = internal global %struct.eax_s zeroinitializer, align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define zeroext i1 @Eax_Decrypt(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6, i8 noundef zeroext %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = alloca [16 x i8], align 16
   %11 = alloca ptr, align 8
   %12 = alloca [16 x i8], align 16
   %13 = alloca [16 x i8], align 16
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #9
   %.not = icmp eq i32 %4, 16
   br i1 %.not, label %.preheader.preheader, label %82
 
 .preheader.preheader:                             ; preds = %8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) @instance, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  %14 = call i32 @gcry_cipher_open(ptr noundef nonnull %11, i32 noundef 7, i32 noundef 1, i32 noundef 0) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #9
+  %14 = call i32 @gcry_cipher_open(ptr noundef nonnull %11, i32 noundef 7, i32 noundef 1, i32 noundef 0)
   %.not.i = icmp eq i32 %14, 0
   br i1 %.not.i, label %15, label %AesEncrypt.exit
 
 15:                                               ; preds = %.preheader.preheader
   %16 = load ptr, ptr %11, align 8
-  %17 = call i32 @gcry_cipher_setkey(ptr noundef %16, ptr noundef %1, i64 noundef 16) #7
+  %17 = call i32 @gcry_cipher_setkey(ptr noundef %16, ptr noundef %1, i64 noundef 16)
   %.not3.i = icmp eq i32 %17, 0
   %18 = load ptr, ptr %11, align 8
   br i1 %.not3.i, label %19, label %.sink.split.i
 
 19:                                               ; preds = %15
-  %20 = call i32 @gcry_cipher_encrypt(ptr noundef %18, ptr noundef nonnull @instance, i64 noundef 16, ptr noundef nonnull @instance, i64 noundef 16) #7
+  %20 = call i32 @gcry_cipher_encrypt(ptr noundef %18, ptr noundef nonnull @instance, i64 noundef 16, ptr noundef nonnull @instance, i64 noundef 16)
   %21 = load ptr, ptr %11, align 8
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %19, %15
   %.sink.i = phi ptr [ %21, %19 ], [ %18, %15 ]
-  call void @gcry_cipher_close(ptr noundef %.sink.i) #7
+  call void @gcry_cipher_close(ptr noundef %.sink.i)
   br label %AesEncrypt.exit
 
 AesEncrypt.exit:                                  ; preds = %.preheader.preheader, %.sink.split.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #9
   br label %22
 
 22:                                               ; preds = %22, %AesEncrypt.exit
@@ -57,7 +59,7 @@ AesEncrypt.exit:                                  ; preds = %.preheader.preheade
   %.lobit.i = lshr i8 %24, 7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %28, label %22, !llvm.loop !4
+  br i1 %exitcond.not.i, label %28, label %22, !llvm.loop !6
 
 28:                                               ; preds = %22
   %.not.i38 = icmp sgt i8 %24, -1
@@ -84,7 +86,7 @@ Dbl.exit:                                         ; preds = %Dbl.exit.preheader,
   %.lobit.i41 = lshr i8 %33, 7
   %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i39, 1
   %exitcond.not.i43 = icmp eq i64 %indvars.iv.next.i42, 16
-  br i1 %exitcond.not.i43, label %37, label %Dbl.exit, !llvm.loop !4
+  br i1 %exitcond.not.i43, label %37, label %Dbl.exit, !llvm.loop !6
 
 37:                                               ; preds = %Dbl.exit
   %.not.i44 = icmp sgt i8 %33, -1
@@ -97,16 +99,16 @@ Dbl.exit:                                         ; preds = %Dbl.exit.preheader,
   br label %Dbl.exit45
 
 Dbl.exit45:                                       ; preds = %37, %38
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %12, ptr noundef nonnull align 1 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @instance, i64 16), i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %12, ptr noundef nonnull align 1 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @instance, i64 16), i64 noundef 16, i1 noundef false) #9
   %41 = icmp eq i8 %7, 1
   %42 = trunc i32 %3 to i16
   br i1 %41, label %43, label %46
 
 43:                                               ; preds = %Dbl.exit45
   %44 = trunc i32 %5 to i16
-  call fastcc void @dCMAC(ptr noundef %1, ptr noundef %12, ptr noundef %0, i16 noundef zeroext %42, ptr noundef %2, i16 noundef zeroext %44)
+  call fastcc void @dCMAC(ptr noundef %1, ptr noundef nonnull %12, ptr noundef %0, i16 noundef zeroext %42, ptr noundef %2, i16 noundef zeroext %44)
   %45 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  %bcmp36 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %6, ptr noundef nonnull dereferenceable(4) %45, i64 4)
+  %bcmp36 = call i32 @bcmp(ptr noundef dereferenceable(4) %6, ptr noundef nonnull dereferenceable(4) %45, i64 4)
   %.not37 = icmp eq i32 %bcmp36, 0
   br label %82
 
@@ -121,12 +123,12 @@ Dbl.exit45:                                       ; preds = %37, %38
 
 50:                                               ; preds = %48
   %51 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  %bcmp34 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %6, ptr noundef nonnull dereferenceable(4) %51, i64 4)
+  %bcmp34 = call i32 @bcmp(ptr noundef dereferenceable(4) %6, ptr noundef nonnull dereferenceable(4) %51, i64 4)
   %.not35 = icmp eq i32 %bcmp34, 0
   br label %82
 
 52:                                               ; preds = %48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %13, ptr noundef nonnull align 1 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @instance, i64 32), i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %13, ptr noundef nonnull align 1 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @instance, i64 32), i64 noundef 16, i1 noundef false) #9
   %53 = trunc i32 %5 to i16
   call fastcc void @dCMAC(ptr noundef %1, ptr noundef nonnull %13, ptr noundef readonly %2, i16 noundef zeroext %53, ptr noundef null, i16 noundef zeroext 0)
   br label %54
@@ -141,18 +143,18 @@ Dbl.exit45:                                       ; preds = %37, %38
   store i8 %59, ptr %57, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %60, label %54, !llvm.loop !6
+  br i1 %exitcond.not, label %60, label %54, !llvm.loop !8
 
 60:                                               ; preds = %54
   %61 = getelementptr inbounds nuw i8, ptr %13, i64 12
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %6, ptr noundef nonnull dereferenceable(4) %61, i64 4)
+  %bcmp = call i32 @bcmp(ptr noundef dereferenceable(4) %6, ptr noundef nonnull dereferenceable(4) %61, i64 4)
   %62 = icmp eq i32 %bcmp, 0
   br i1 %62, label %63, label %82
 
 63:                                               ; preds = %60
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, ptr noundef nonnull readonly align 16 dereferenceable(16) %12, i64 16, i1 false)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #9
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, ptr noundef nonnull readonly align 16 dereferenceable(16) %12, i64 noundef 16, i1 noundef false) #9
   %64 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %65 = load i8, ptr %64, align 4
   %66 = and i8 %65, 127
@@ -161,19 +163,19 @@ Dbl.exit45:                                       ; preds = %37, %38
   %68 = load i8, ptr %67, align 2
   %69 = and i8 %68, 127
   store i8 %69, ptr %67, align 2
-  %70 = call i32 @gcry_cipher_open(ptr noundef nonnull %9, i32 noundef 7, i32 noundef 6, i32 noundef 0) #7
+  %70 = call i32 @gcry_cipher_open(ptr noundef nonnull %9, i32 noundef 7, i32 noundef 6, i32 noundef 0)
   %.not.i46 = icmp eq i32 %70, 0
   br i1 %.not.i46, label %71, label %CTR.exit
 
 71:                                               ; preds = %63
   %72 = load ptr, ptr %9, align 8
-  %73 = call i32 @gcry_cipher_setkey(ptr noundef %72, ptr noundef %1, i64 noundef 16) #7
+  %73 = call i32 @gcry_cipher_setkey(ptr noundef %72, ptr noundef %1, i64 noundef 16)
   %.not5.i = icmp eq i32 %73, 0
   %74 = load ptr, ptr %9, align 8
   br i1 %.not5.i, label %75, label %.sink.split.i47
 
 75:                                               ; preds = %71
-  %76 = call i32 @gcry_cipher_setctr(ptr noundef %74, ptr noundef nonnull %10, i64 noundef 16) #7
+  %76 = call i32 @gcry_cipher_setctr(ptr noundef %74, ptr noundef nonnull %10, i64 noundef 16)
   %.not6.i = icmp eq i32 %76, 0
   %77 = load ptr, ptr %9, align 8
   br i1 %.not6.i, label %78, label %.sink.split.i47
@@ -181,235 +183,271 @@ Dbl.exit45:                                       ; preds = %37, %38
 78:                                               ; preds = %75
   %.mask = and i32 %5, 65535
   %79 = zext nneg i32 %.mask to i64
-  %80 = call i32 @gcry_cipher_encrypt(ptr noundef %77, ptr noundef %2, i64 noundef %79, ptr noundef %2, i64 noundef %79) #7
+  %80 = call i32 @gcry_cipher_encrypt(ptr noundef %77, ptr noundef %2, i64 noundef %79, ptr noundef %2, i64 noundef %79)
   %81 = load ptr, ptr %9, align 8
   br label %.sink.split.i47
 
 .sink.split.i47:                                  ; preds = %78, %75, %71
   %.sink.i48 = phi ptr [ %81, %78 ], [ %74, %71 ], [ %77, %75 ]
-  call void @gcry_cipher_close(ptr noundef %.sink.i48) #7
+  call void @gcry_cipher_close(ptr noundef %.sink.i48)
   br label %CTR.exit
 
 CTR.exit:                                         ; preds = %63, %.sink.split.i47
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
   br label %82
 
 82:                                               ; preds = %60, %46, %8, %CTR.exit, %50, %43
   %.031 = phi i1 [ %.not37, %43 ], [ %.not35, %50 ], [ true, %CTR.exit ], [ false, %8 ], [ false, %46 ], [ false, %60 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #9
   ret i1 %.031
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @AesEncrypt(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  %4 = call i32 @gcry_cipher_open(ptr noundef nonnull %3, i32 noundef 7, i32 noundef 1, i32 noundef 0) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
+  %4 = call i32 @gcry_cipher_open(ptr noundef nonnull %3, i32 noundef 7, i32 noundef 1, i32 noundef 0)
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %12
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %3, align 8
-  %7 = call i32 @gcry_cipher_setkey(ptr noundef %6, ptr noundef %1, i64 noundef 16) #7
+  %7 = call i32 @gcry_cipher_setkey(ptr noundef %6, ptr noundef %1, i64 noundef 16)
   %.not3 = icmp eq i32 %7, 0
   %8 = load ptr, ptr %3, align 8
   br i1 %.not3, label %9, label %.sink.split
 
 9:                                                ; preds = %5
-  %10 = call i32 @gcry_cipher_encrypt(ptr noundef %8, ptr noundef %0, i64 noundef 16, ptr noundef %0, i64 noundef 16) #7
+  %10 = call i32 @gcry_cipher_encrypt(ptr noundef %8, ptr noundef %0, i64 noundef 16, ptr noundef %0, i64 noundef 16)
   %11 = load ptr, ptr %3, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %5, %9
   %.sink = phi ptr [ %11, %9 ], [ %8, %5 ]
-  call void @gcry_cipher_close(ptr noundef %.sink) #7
+  call void @gcry_cipher_close(ptr noundef %.sink)
   br label %12
 
 12:                                               ; preds = %.sink.split, %2
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
-
-; Function Attrs: nounwind uwtable
-define internal fastcc void @dCMAC(ptr noundef %0, ptr noundef nonnull %1, ptr noundef readonly captures(none) %2, i16 noundef zeroext %3, ptr noundef readonly captures(address_is_null) %4, i16 noundef zeroext %5) unnamed_addr #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal fastcc void @dCMAC(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i16 noundef zeroext %3, ptr noundef readonly captures(address_is_null) %4, i16 noundef zeroext %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
   %8 = add i16 %5, %3
   %.biased = add i16 %8, 15
   %.054 = and i16 %.biased, -16
   %9 = zext i16 %.054 to i64
-  %10 = tail call noalias ptr @g_malloc(i64 noundef %9) #8
+  %10 = tail call noalias ptr @g_malloc(i64 noundef %9) #10
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %60, label %12
+  br i1 %11, label %66, label %12
 
 12:                                               ; preds = %6
   %13 = zext i16 %3 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr align 1 %2, i64 %13, i1 false)
+  %14 = tail call ptr @__memcpy_chk(ptr noundef nonnull %10, ptr noundef %2, i64 noundef range(i64 0, 65536) %13, i64 noundef %9) #9, !alias.scope !9
   %.not62 = icmp eq ptr %4, null
-  br i1 %.not62, label %17, label %14
+  br i1 %.not62, label %23, label %15
 
-14:                                               ; preds = %12
-  %15 = getelementptr i8, ptr %10, i64 %13
-  %16 = zext i16 %5 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %15, ptr nonnull align 1 %4, i64 %16, i1 false)
-  br label %17
+15:                                               ; preds = %12
+  %16 = getelementptr i8, ptr %10, i64 %13
+  %17 = zext i16 %5 to i64
+  %18 = sub nsw i64 %9, %13
+  %19 = icmp ugt i16 %3, %.054
+  %20 = select i1 %19, i64 0, i64 %18
+  %21 = icmp ne i64 %20, -1
+  tail call void @llvm.assume(i1 %21)
+  %22 = tail call ptr @__memcpy_chk(ptr noundef %16, ptr noundef nonnull %4, i64 noundef range(i64 0, 65536) %17, i64 noundef %20) #9, !alias.scope !13
+  br label %23
 
-17:                                               ; preds = %14, %12
+23:                                               ; preds = %15, %12
   %.not63 = icmp eq i16 %.054, %8
-  br i1 %.not63, label %32, label %18
+  br i1 %.not63, label %38, label %24
 
-18:                                               ; preds = %17
-  %19 = zext i16 %8 to i64
-  %20 = getelementptr i8, ptr %10, i64 %19
-  store i8 -128, ptr %20, align 1
-  %21 = getelementptr i8, ptr %10, i64 %9
-  %.05569 = getelementptr i8, ptr %20, i64 1
-  %22 = icmp ult ptr %.05569, %21
-  br i1 %22, label %.lr.ph.preheader, label %._crit_edge
+24:                                               ; preds = %23
+  %25 = zext i16 %8 to i64
+  %26 = getelementptr i8, ptr %10, i64 %25
+  store i8 -128, ptr %26, align 1
+  %27 = getelementptr i8, ptr %10, i64 %9
+  %.05569 = getelementptr i8, ptr %26, i64 1
+  %28 = icmp ult ptr %.05569, %27
+  br i1 %28, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %18
-  %23 = xor i64 %19, -1
-  %24 = add nsw i64 %23, %9
-  tail call void @llvm.memset.p0.i64(ptr align 1 %.05569, i8 0, i64 %24, i1 false)
+.lr.ph.preheader:                                 ; preds = %24
+  %29 = xor i64 %25, -1
+  %30 = add nsw i64 %29, %9
+  tail call void @llvm.memset.p0.i64(ptr align 1 %.05569, i8 0, i64 %30, i1 false)
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph.preheader, %18
-  %25 = getelementptr i8, ptr %21, i64 -16
-  br label %26
+._crit_edge:                                      ; preds = %.lr.ph.preheader, %24
+  %31 = getelementptr i8, ptr %27, i64 -16
+  br label %32
 
-26:                                               ; preds = %._crit_edge, %26
-  %indvars.iv = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next, %26 ]
-  %27 = getelementptr [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @instance, i64 32), i64 0, i64 %indvars.iv
-  %28 = load i8, ptr %27, align 1
-  %29 = getelementptr i8, ptr %25, i64 %indvars.iv
-  %30 = load i8, ptr %29, align 1
-  %31 = xor i8 %30, %28
-  store i8 %31, ptr %29, align 1
+32:                                               ; preds = %._crit_edge, %32
+  %indvars.iv = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next, %32 ]
+  %33 = getelementptr [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @instance, i64 32), i64 0, i64 %indvars.iv
+  %34 = load i8, ptr %33, align 1
+  %35 = getelementptr i8, ptr %31, i64 %indvars.iv
+  %36 = load i8, ptr %35, align 1
+  %37 = xor i8 %36, %34
+  store i8 %37, ptr %35, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.loopexit, label %26, !llvm.loop !7
+  br i1 %exitcond.not, label %.loopexit, label %32, !llvm.loop !17
 
-32:                                               ; preds = %17
-  %33 = getelementptr i8, ptr %10, i64 %9
-  %34 = getelementptr i8, ptr %33, i64 -16
-  br label %35
+38:                                               ; preds = %23
+  %39 = getelementptr i8, ptr %10, i64 %9
+  %40 = getelementptr i8, ptr %39, i64 -16
+  br label %41
 
-35:                                               ; preds = %32, %35
-  %indvars.iv75 = phi i64 [ 0, %32 ], [ %indvars.iv.next76, %35 ]
-  %36 = getelementptr [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @instance, i64 16), i64 0, i64 %indvars.iv75
-  %37 = load i8, ptr %36, align 1
-  %38 = getelementptr i8, ptr %34, i64 %indvars.iv75
-  %39 = load i8, ptr %38, align 1
-  %40 = xor i8 %39, %37
-  store i8 %40, ptr %38, align 1
+41:                                               ; preds = %38, %41
+  %indvars.iv75 = phi i64 [ 0, %38 ], [ %indvars.iv.next76, %41 ]
+  %42 = getelementptr [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @instance, i64 16), i64 0, i64 %indvars.iv75
+  %43 = load i8, ptr %42, align 1
+  %44 = getelementptr i8, ptr %40, i64 %indvars.iv75
+  %45 = load i8, ptr %44, align 1
+  %46 = xor i8 %45, %43
+  store i8 %46, ptr %44, align 1
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %exitcond78.not = icmp eq i64 %indvars.iv.next76, 16
-  br i1 %exitcond78.not, label %.loopexit, label %35, !llvm.loop !8
+  br i1 %exitcond78.not, label %.loopexit, label %41, !llvm.loop !18
 
-.loopexit:                                        ; preds = %26, %35
-  %.1 = phi ptr [ %34, %35 ], [ %25, %26 ]
-  %41 = call i32 @gcry_cipher_open(ptr noundef nonnull %7, i32 noundef 7, i32 noundef 3, i32 noundef 0) #7
-  %.not64 = icmp eq i32 %41, 0
-  br i1 %.not64, label %43, label %42
+.loopexit:                                        ; preds = %32, %41
+  %.1 = phi ptr [ %40, %41 ], [ %31, %32 ]
+  %47 = call i32 @gcry_cipher_open(ptr noundef nonnull %7, i32 noundef 7, i32 noundef 3, i32 noundef 0)
+  %.not64 = icmp eq i32 %47, 0
+  br i1 %.not64, label %49, label %48
 
-42:                                               ; preds = %.loopexit
-  call void @g_free(ptr noundef nonnull %10) #7
-  br label %60
+48:                                               ; preds = %.loopexit
+  call void @g_free(ptr noundef nonnull %10)
+  br label %66
 
-43:                                               ; preds = %.loopexit
-  %44 = load ptr, ptr %7, align 8
-  %45 = call i32 @gcry_cipher_setkey(ptr noundef %44, ptr noundef %0, i64 noundef 16) #7
-  %.not65 = icmp eq i32 %45, 0
-  br i1 %.not65, label %48, label %46
+49:                                               ; preds = %.loopexit
+  %50 = load ptr, ptr %7, align 8
+  %51 = call i32 @gcry_cipher_setkey(ptr noundef %50, ptr noundef %0, i64 noundef 16)
+  %.not65 = icmp eq i32 %51, 0
+  br i1 %.not65, label %54, label %52
 
-46:                                               ; preds = %43
-  call void @g_free(ptr noundef nonnull %10) #7
-  %47 = load ptr, ptr %7, align 8
-  call void @gcry_cipher_close(ptr noundef %47) #7
-  br label %60
+52:                                               ; preds = %49
+  call void @g_free(ptr noundef nonnull %10)
+  %53 = load ptr, ptr %7, align 8
+  call void @gcry_cipher_close(ptr noundef %53)
+  br label %66
 
-48:                                               ; preds = %43
-  %49 = load ptr, ptr %7, align 8
-  %50 = call i32 @gcry_cipher_setiv(ptr noundef %49, ptr noundef nonnull %1, i64 noundef 16) #7
-  %.not66 = icmp eq i32 %50, 0
-  br i1 %.not66, label %53, label %51
+54:                                               ; preds = %49
+  %55 = load ptr, ptr %7, align 8
+  %56 = call i32 @gcry_cipher_setiv(ptr noundef %55, ptr noundef %1, i64 noundef 16)
+  %.not66 = icmp eq i32 %56, 0
+  br i1 %.not66, label %59, label %57
 
-51:                                               ; preds = %48
-  call void @g_free(ptr noundef nonnull %10) #7
-  %52 = load ptr, ptr %7, align 8
-  call void @gcry_cipher_close(ptr noundef %52) #7
-  br label %60
+57:                                               ; preds = %54
+  call void @g_free(ptr noundef nonnull %10)
+  %58 = load ptr, ptr %7, align 8
+  call void @gcry_cipher_close(ptr noundef %58)
+  br label %66
 
-53:                                               ; preds = %48
-  %54 = load ptr, ptr %7, align 8
-  %55 = call i32 @gcry_cipher_encrypt(ptr noundef %54, ptr noundef nonnull %10, i64 noundef %9, ptr noundef nonnull %10, i64 noundef %9) #7
-  %.not67 = icmp eq i32 %55, 0
-  br i1 %.not67, label %58, label %56
+59:                                               ; preds = %54
+  %60 = load ptr, ptr %7, align 8
+  %61 = call i32 @gcry_cipher_encrypt(ptr noundef %60, ptr noundef nonnull %10, i64 noundef %9, ptr noundef nonnull %10, i64 noundef %9)
+  %.not67 = icmp eq i32 %61, 0
+  br i1 %.not67, label %64, label %62
 
-56:                                               ; preds = %53
-  call void @g_free(ptr noundef nonnull %10) #7
-  %57 = load ptr, ptr %7, align 8
-  call void @gcry_cipher_close(ptr noundef %57) #7
-  br label %60
+62:                                               ; preds = %59
+  call void @g_free(ptr noundef nonnull %10)
+  %63 = load ptr, ptr %7, align 8
+  call void @gcry_cipher_close(ptr noundef %63)
+  br label %66
 
-58:                                               ; preds = %53
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %1, ptr noundef nonnull align 1 dereferenceable(16) %.1, i64 16, i1 false)
-  call void @g_free(ptr noundef nonnull %10) #7
-  %59 = load ptr, ptr %7, align 8
-  call void @gcry_cipher_close(ptr noundef %59) #7
-  br label %60
+64:                                               ; preds = %59
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %1, ptr noundef align 1 dereferenceable(16) %.1, i64 noundef 16, i1 noundef false) #9
+  call void @g_free(ptr noundef nonnull %10)
+  %65 = load ptr, ptr %7, align 8
+  call void @gcry_cipher_close(ptr noundef %65)
+  br label %66
 
-60:                                               ; preds = %6, %58, %56, %51, %46, %42
+66:                                               ; preds = %6, %64, %62, %57, %52, %48
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid
 declare i32 @gcry_cipher_open(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @gcry_cipher_setkey(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
+; Function Attrs: null_pointer_is_valid
 declare void @gcry_cipher_close(ptr noundef) local_unnamed_addr #2
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @gcry_cipher_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #3
+; Function Attrs: nofree nounwind null_pointer_is_valid memory(argmem: readwrite)
+declare ptr @__memcpy_chk(ptr noalias noundef writeonly, ptr noalias noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #3
 
+; Function Attrs: null_pointer_is_valid allocsize(0)
+declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #4
+
+; Function Attrs: null_pointer_is_valid
 declare void @g_free(ptr noundef) local_unnamed_addr #2
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @gcry_cipher_setiv(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @gcry_cipher_setctr(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #4
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #5
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind null_pointer_is_valid memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nounwind }
+attributes #10 = { allocsize(0) }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nounwind }
-attributes #8 = { nounwind allocsize(0) }
-
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = !{!10, !12}
+!10 = distinct !{!10, !11, !"memcpy.inline: argument 0"}
+!11 = distinct !{!11, !"memcpy.inline"}
+!12 = distinct !{!12, !11, !"memcpy.inline: argument 1"}
+!13 = !{!14, !16}
+!14 = distinct !{!14, !15, !"memcpy.inline: argument 0"}
+!15 = distinct !{!15, !"memcpy.inline"}
+!16 = distinct !{!16, !15, !"memcpy.inline: argument 1"}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}

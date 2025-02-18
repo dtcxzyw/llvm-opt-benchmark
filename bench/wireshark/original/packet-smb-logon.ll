@@ -3,9 +3,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
 %struct.true_false_string = type { ptr, ptr }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
@@ -14,7 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_command = internal global i32 0, align 4
 @.str = private unnamed_addr constant [8 x i8] c"Command\00", align 1
 @.str.1 = private unnamed_addr constant [21 x i8] c"smb_netlogon.command\00", align 1
-@commands = internal constant [27 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.145 }, %struct._value_string { i32 1, ptr @.str.146 }, %struct._value_string { i32 2, ptr @.str.147 }, %struct._value_string { i32 3, ptr @.str.148 }, %struct._value_string { i32 4, ptr @.str.149 }, %struct._value_string { i32 5, ptr @.str.150 }, %struct._value_string { i32 6, ptr @.str.151 }, %struct._value_string { i32 7, ptr @.str.152 }, %struct._value_string { i32 8, ptr @.str.153 }, %struct._value_string { i32 9, ptr @.str.154 }, %struct._value_string { i32 10, ptr @.str.155 }, %struct._value_string { i32 11, ptr @.str.156 }, %struct._value_string { i32 12, ptr @.str.157 }, %struct._value_string { i32 13, ptr @.str.158 }, %struct._value_string { i32 14, ptr @.str.159 }, %struct._value_string { i32 15, ptr @.str.160 }, %struct._value_string { i32 16, ptr @.str.161 }, %struct._value_string { i32 17, ptr @.str.162 }, %struct._value_string { i32 18, ptr @.str.163 }, %struct._value_string { i32 19, ptr @.str.164 }, %struct._value_string { i32 20, ptr @.str.165 }, %struct._value_string { i32 21, ptr @.str.166 }, %struct._value_string { i32 22, ptr @.str.167 }, %struct._value_string { i32 23, ptr @.str.168 }, %struct._value_string { i32 24, ptr @.str.169 }, %struct._value_string { i32 25, ptr @.str.170 }, %struct._value_string zeroinitializer], align 16
 @.str.2 = private unnamed_addr constant [21 x i8] c"SMB NETLOGON Command\00", align 1
 @hf_computer_name = internal global i32 0, align 4
 @.str.3 = private unnamed_addr constant [14 x i8] c"Computer Name\00", align 1
@@ -109,57 +107,57 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_flags_autolock = internal global i32 0, align 4
 @.str.70 = private unnamed_addr constant [9 x i8] c"Autolock\00", align 1
 @.str.71 = private unnamed_addr constant [28 x i8] c"smb_netlogon.flags.autolock\00", align 1
-@tfs_flags_autolock = internal constant %struct.true_false_string { ptr @.str.171, ptr @.str.172 }, align 8
+@tfs_flags_autolock = internal constant %struct.true_false_string { ptr @.str.172, ptr @.str.173 }, align 8
 @.str.72 = private unnamed_addr constant [30 x i8] c"SMB NETLOGON Account Autolock\00", align 1
 @hf_flags_expire = internal global i32 0, align 4
 @.str.73 = private unnamed_addr constant [7 x i8] c"Expire\00", align 1
 @.str.74 = private unnamed_addr constant [26 x i8] c"smb_netlogon.flags.expire\00", align 1
-@tfs_flags_expire = internal constant %struct.true_false_string { ptr @.str.173, ptr @.str.174 }, align 8
+@tfs_flags_expire = internal constant %struct.true_false_string { ptr @.str.174, ptr @.str.175 }, align 8
 @.str.75 = private unnamed_addr constant [33 x i8] c"SMB NETLOGON Will Account Expire\00", align 1
 @hf_flags_server_trust = internal global i32 0, align 4
 @.str.76 = private unnamed_addr constant [13 x i8] c"Server Trust\00", align 1
 @.str.77 = private unnamed_addr constant [26 x i8] c"smb_netlogon.flags.server\00", align 1
-@tfs_flags_server_trust = internal constant %struct.true_false_string { ptr @.str.175, ptr @.str.176 }, align 8
+@tfs_flags_server_trust = internal constant %struct.true_false_string { ptr @.str.176, ptr @.str.177 }, align 8
 @.str.78 = private unnamed_addr constant [34 x i8] c"SMB NETLOGON Server Trust Account\00", align 1
 @hf_flags_workstation_trust = internal global i32 0, align 4
 @.str.79 = private unnamed_addr constant [18 x i8] c"Workstation Trust\00", align 1
 @.str.80 = private unnamed_addr constant [31 x i8] c"smb_netlogon.flags.workstation\00", align 1
-@tfs_flags_workstation_trust = internal constant %struct.true_false_string { ptr @.str.177, ptr @.str.178 }, align 8
+@tfs_flags_workstation_trust = internal constant %struct.true_false_string { ptr @.str.178, ptr @.str.179 }, align 8
 @.str.81 = private unnamed_addr constant [39 x i8] c"SMB NETLOGON Workstation Trust Account\00", align 1
 @hf_flags_interdomain_trust = internal global i32 0, align 4
 @.str.82 = private unnamed_addr constant [18 x i8] c"Interdomain Trust\00", align 1
 @.str.83 = private unnamed_addr constant [31 x i8] c"smb_netlogon.flags.interdomain\00", align 1
-@tfs_flags_interdomain_trust = internal constant %struct.true_false_string { ptr @.str.179, ptr @.str.180 }, align 8
+@tfs_flags_interdomain_trust = internal constant %struct.true_false_string { ptr @.str.180, ptr @.str.181 }, align 8
 @.str.84 = private unnamed_addr constant [40 x i8] c"SMB NETLOGON Inter-domain Trust Account\00", align 1
 @hf_flags_mns_user = internal global i32 0, align 4
 @.str.85 = private unnamed_addr constant [9 x i8] c"MNS User\00", align 1
 @.str.86 = private unnamed_addr constant [23 x i8] c"smb_netlogon.flags.mns\00", align 1
-@tfs_flags_mns_user = internal constant %struct.true_false_string { ptr @.str.181, ptr @.str.182 }, align 8
+@tfs_flags_mns_user = internal constant %struct.true_false_string { ptr @.str.182, ptr @.str.183 }, align 8
 @.str.87 = private unnamed_addr constant [30 x i8] c"SMB NETLOGON MNS User Account\00", align 1
 @hf_flags_normal_user = internal global i32 0, align 4
 @.str.88 = private unnamed_addr constant [12 x i8] c"Normal User\00", align 1
 @.str.89 = private unnamed_addr constant [26 x i8] c"smb_netlogon.flags.normal\00", align 1
-@tfs_flags_normal_user = internal constant %struct.true_false_string { ptr @.str.183, ptr @.str.184 }, align 8
+@tfs_flags_normal_user = internal constant %struct.true_false_string { ptr @.str.184, ptr @.str.185 }, align 8
 @.str.90 = private unnamed_addr constant [33 x i8] c"SMB NETLOGON Normal User Account\00", align 1
 @hf_flags_temp_dup_user = internal global i32 0, align 4
 @.str.91 = private unnamed_addr constant [20 x i8] c"Temp Duplicate User\00", align 1
 @.str.92 = private unnamed_addr constant [28 x i8] c"smb_netlogon.flags.temp_dup\00", align 1
-@tfs_flags_temp_dup_user = internal constant %struct.true_false_string { ptr @.str.185, ptr @.str.186 }, align 8
+@tfs_flags_temp_dup_user = internal constant %struct.true_false_string { ptr @.str.186, ptr @.str.187 }, align 8
 @.str.93 = private unnamed_addr constant [41 x i8] c"SMB NETLOGON Temp Duplicate User Account\00", align 1
 @hf_flags_password_required = internal global i32 0, align 4
 @.str.94 = private unnamed_addr constant [9 x i8] c"Password\00", align 1
 @.str.95 = private unnamed_addr constant [28 x i8] c"smb_netlogon.flags.password\00", align 1
-@tfs_flags_password_required = internal constant %struct.true_false_string { ptr @.str.187, ptr @.str.188 }, align 8
+@tfs_flags_password_required = internal constant %struct.true_false_string { ptr @.str.188, ptr @.str.189 }, align 8
 @.str.96 = private unnamed_addr constant [31 x i8] c"SMB NETLOGON Password Required\00", align 1
 @hf_flags_homedir_required = internal global i32 0, align 4
 @.str.97 = private unnamed_addr constant [8 x i8] c"Homedir\00", align 1
 @.str.98 = private unnamed_addr constant [27 x i8] c"smb_netlogon.flags.homedir\00", align 1
-@tfs_flags_homedir_required = internal constant %struct.true_false_string { ptr @.str.189, ptr @.str.190 }, align 8
+@tfs_flags_homedir_required = internal constant %struct.true_false_string { ptr @.str.190, ptr @.str.191 }, align 8
 @.str.99 = private unnamed_addr constant [30 x i8] c"SMB NETLOGON Homedir Required\00", align 1
 @hf_flags_enabled = internal global i32 0, align 4
 @.str.100 = private unnamed_addr constant [8 x i8] c"Enabled\00", align 1
 @.str.101 = private unnamed_addr constant [27 x i8] c"smb_netlogon.flags.enabled\00", align 1
-@tfs_flags_enabled = internal constant %struct.true_false_string { ptr @.str.191, ptr @.str.192 }, align 8
+@tfs_flags_enabled = internal constant %struct.true_false_string { ptr @.str.192, ptr @.str.193 }, align 8
 @.str.102 = private unnamed_addr constant [37 x i8] c"SMB NETLOGON Is This Account Enabled\00", align 1
 @hf_domain_sid_size = internal global i32 0, align 4
 @.str.103 = private unnamed_addr constant [16 x i8] c"Domain SID Size\00", align 1
@@ -249,42 +247,43 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.168 = private unnamed_addr constant [45 x i8] c"SAM Active Directory Response - user unknown\00", align 1
 @.str.169 = private unnamed_addr constant [25 x i8] c"SAM unknown command 0x18\00", align 1
 @.str.170 = private unnamed_addr constant [47 x i8] c"Active Directory Response to SAM LOGON request\00", align 1
-@.str.171 = private unnamed_addr constant [25 x i8] c"User account auto-locked\00", align 1
-@.str.172 = private unnamed_addr constant [29 x i8] c"User account NOT auto-locked\00", align 1
-@.str.173 = private unnamed_addr constant [30 x i8] c"User password will NOT expire\00", align 1
-@.str.174 = private unnamed_addr constant [26 x i8] c"User password will expire\00", align 1
-@.str.175 = private unnamed_addr constant [26 x i8] c"Server Trust user account\00", align 1
-@.str.176 = private unnamed_addr constant [32 x i8] c"NOT a Server Trust user account\00", align 1
-@.str.177 = private unnamed_addr constant [31 x i8] c"Workstation Trust user account\00", align 1
-@.str.178 = private unnamed_addr constant [37 x i8] c"NOT a Workstation Trust user account\00", align 1
-@.str.179 = private unnamed_addr constant [32 x i8] c"Inter-domain Trust user account\00", align 1
-@.str.180 = private unnamed_addr constant [38 x i8] c"NOT a Inter-domain Trust user account\00", align 1
-@.str.181 = private unnamed_addr constant [23 x i8] c"MNS Logon user account\00", align 1
-@.str.182 = private unnamed_addr constant [29 x i8] c"NOT a MNS Logon user account\00", align 1
-@.str.183 = private unnamed_addr constant [20 x i8] c"Normal user account\00", align 1
-@.str.184 = private unnamed_addr constant [26 x i8] c"NOT a normal user account\00", align 1
-@.str.185 = private unnamed_addr constant [28 x i8] c"Temp duplicate user account\00", align 1
-@.str.186 = private unnamed_addr constant [34 x i8] c"NOT a temp duplicate user account\00", align 1
-@.str.187 = private unnamed_addr constant [21 x i8] c"NO password required\00", align 1
-@.str.188 = private unnamed_addr constant [18 x i8] c"Password required\00", align 1
-@.str.189 = private unnamed_addr constant [20 x i8] c"NO homedir required\00", align 1
-@.str.190 = private unnamed_addr constant [17 x i8] c"Homedir required\00", align 1
-@.str.191 = private unnamed_addr constant [21 x i8] c"User account enabled\00", align 1
-@.str.192 = private unnamed_addr constant [22 x i8] c"User account disabled\00", align 1
-@.str.193 = private unnamed_addr constant [21 x i8] c"Unknown Command:%02x\00", align 1
+@commands = internal constant [27 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.145 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.146 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.147 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.148 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.149 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.150 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.151 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.152 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.153 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.154 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.155 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.156 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.157 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.158 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.159 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.160 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.161 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.162 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.163 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.164 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.165 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.166 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.167 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.168 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.169 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.170 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.172 = private unnamed_addr constant [25 x i8] c"User account auto-locked\00", align 1
+@.str.173 = private unnamed_addr constant [29 x i8] c"User account NOT auto-locked\00", align 1
+@.str.174 = private unnamed_addr constant [30 x i8] c"User password will NOT expire\00", align 1
+@.str.175 = private unnamed_addr constant [26 x i8] c"User password will expire\00", align 1
+@.str.176 = private unnamed_addr constant [26 x i8] c"Server Trust user account\00", align 1
+@.str.177 = private unnamed_addr constant [32 x i8] c"NOT a Server Trust user account\00", align 1
+@.str.178 = private unnamed_addr constant [31 x i8] c"Workstation Trust user account\00", align 1
+@.str.179 = private unnamed_addr constant [37 x i8] c"NOT a Workstation Trust user account\00", align 1
+@.str.180 = private unnamed_addr constant [32 x i8] c"Inter-domain Trust user account\00", align 1
+@.str.181 = private unnamed_addr constant [38 x i8] c"NOT a Inter-domain Trust user account\00", align 1
+@.str.182 = private unnamed_addr constant [23 x i8] c"MNS Logon user account\00", align 1
+@.str.183 = private unnamed_addr constant [29 x i8] c"NOT a MNS Logon user account\00", align 1
+@.str.184 = private unnamed_addr constant [20 x i8] c"Normal user account\00", align 1
+@.str.185 = private unnamed_addr constant [26 x i8] c"NOT a normal user account\00", align 1
+@.str.186 = private unnamed_addr constant [28 x i8] c"Temp duplicate user account\00", align 1
+@.str.187 = private unnamed_addr constant [34 x i8] c"NOT a temp duplicate user account\00", align 1
+@.str.188 = private unnamed_addr constant [21 x i8] c"NO password required\00", align 1
+@.str.189 = private unnamed_addr constant [18 x i8] c"Password required\00", align 1
+@.str.190 = private unnamed_addr constant [20 x i8] c"NO homedir required\00", align 1
+@.str.191 = private unnamed_addr constant [17 x i8] c"Homedir required\00", align 1
+@.str.192 = private unnamed_addr constant [21 x i8] c"User account enabled\00", align 1
+@.str.193 = private unnamed_addr constant [22 x i8] c"User account disabled\00", align 1
+@.str.194 = private unnamed_addr constant [21 x i8] c"Unknown Command:%02x\00", align 1
 @dissect_smb_logon_cmds = internal global [26 x ptr] [ptr @dissect_smb_logon_request, ptr @dissect_smb_logon_LM10_resp, ptr @dissect_smb_logon_2, ptr @dissect_smb_logon_2, ptr @dissect_smb_logon_2, ptr @dissect_smb_logon_2, ptr @dissect_smb_logon_LM20_resp, ptr @dissect_smb_pdc_query, ptr @dissect_smb_pdc_startup, ptr @dissect_smb_pdc_failure, ptr @dissect_announce_change, ptr @dissect_smb_no_user, ptr @dissect_smb_pdc_startup, ptr @dissect_smb_relogon_resp, ptr @dissect_smb_inter_resp, ptr @dissect_smb_pdc_failure, ptr @dissect_smb_pdc_failure, ptr @dissect_smb_acc_update, ptr @dissect_smb_sam_logon_req, ptr @dissect_smb_sam_logon_resp, ptr @dissect_smb_unknown, ptr @dissect_smb_sam_logon_resp, ptr @dissect_smb_unknown, ptr @dissect_smb_pdc_response_ads, ptr @dissect_smb_unknown, ptr @dissect_smb_pdc_response_ads], align 16
-@.str.194 = private unnamed_addr constant [42 x i8] c"LM20 Token: 0x%04x (LanMan 2.0 or higher)\00", align 1
-@.str.195 = private unnamed_addr constant [36 x i8] c"LM10 Token: 0x%04x (WFW Networking)\00", align 1
-@.str.196 = private unnamed_addr constant [9 x i8] c" from %s\00", align 1
-@.str.197 = private unnamed_addr constant [31 x i8] c"0x%04x (Windows NT Networking)\00", align 1
-@.str.198 = private unnamed_addr constant [29 x i8] c"LMNT Token: 0x%04x (Unknown)\00", align 1
-@.str.199 = private unnamed_addr constant [10 x i8] c": host %s\00", align 1
-@.str.200 = private unnamed_addr constant [12 x i8] c", domain %s\00", align 1
-@.str.201 = private unnamed_addr constant [34 x i8] c"DBChange Info Structure: index %u\00", align 1
-@.str.202 = private unnamed_addr constant [7 x i8] c"Domain\00", align 1
+@.str.195 = private unnamed_addr constant [42 x i8] c"LM20 Token: 0x%04x (LanMan 2.0 or higher)\00", align 1
+@.str.196 = private unnamed_addr constant [36 x i8] c"LM10 Token: 0x%04x (WFW Networking)\00", align 1
+@.str.197 = private unnamed_addr constant [9 x i8] c" from %s\00", align 1
+@.str.198 = private unnamed_addr constant [31 x i8] c"0x%04x (Windows NT Networking)\00", align 1
+@.str.199 = private unnamed_addr constant [29 x i8] c"LMNT Token: 0x%04x (Unknown)\00", align 1
+@.str.200 = private unnamed_addr constant [10 x i8] c": host %s\00", align 1
+@.str.201 = private unnamed_addr constant [12 x i8] c", domain %s\00", align 1
+@.str.202 = private unnamed_addr constant [34 x i8] c"DBChange Info Structure: index %u\00", align 1
+@.str.203 = private unnamed_addr constant [7 x i8] c"Domain\00", align 1
 @dissect_account_control.flags = internal constant [12 x ptr] [ptr @hf_flags_autolock, ptr @hf_flags_expire, ptr @hf_flags_server_trust, ptr @hf_flags_workstation_trust, ptr @hf_flags_interdomain_trust, ptr @hf_flags_mns_user, ptr @hf_flags_normal_user, ptr @hf_flags_temp_dup_user, ptr @hf_flags_password_required, ptr @hf_flags_homedir_required, ptr @hf_flags_enabled, ptr null], align 16
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_smb_logon() #0 {
   %1 = call i32 @proto_register_protocol(ptr noundef @.str.142, ptr noundef @.str.143, ptr noundef @.str.144)
   store i32 %1, ptr @proto_smb_logon, align 4
@@ -296,15 +295,19 @@ define hidden void @proto_register_smb_logon() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_smb_logon(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -318,27 +321,31 @@ define internal i32 @dissect_smb_logon(ptr noundef %0, ptr noundef %1, ptr nound
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   store i32 0, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
   store ptr null, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #3
   store ptr null, ptr %12, align 8
   %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds %struct._packet_info, ptr %13, i32 0, i32 1
+  %14 = getelementptr inbounds nuw %struct._packet_info, ptr %13, i32 0, i32 1
   %15 = load ptr, ptr %14, align 8
-  call void @col_set_str(ptr noundef %15, i32 noundef 34, ptr noundef @.str.143)
+  call void @col_set_str(ptr noundef %15, i32 noundef 35, ptr noundef @.str.143)
   %16 = load ptr, ptr %6, align 8
-  %17 = getelementptr inbounds %struct._packet_info, ptr %16, i32 0, i32 1
+  %17 = getelementptr inbounds nuw %struct._packet_info, ptr %16, i32 0, i32 1
   %18 = load ptr, ptr %17, align 8
   call void @col_clear(ptr noundef %18, i32 noundef 25)
   %19 = load ptr, ptr %5, align 8
   %20 = load i32, ptr %9, align 4
-  %21 = call zeroext i8 @tvb_get_guint8(ptr noundef %19, i32 noundef %20)
+  %21 = call zeroext i8 @tvb_get_uint8(ptr noundef %19, i32 noundef %20)
   store i8 %21, ptr %10, align 1
   %22 = load ptr, ptr %6, align 8
-  %23 = getelementptr inbounds %struct._packet_info, ptr %22, i32 0, i32 1
+  %23 = getelementptr inbounds nuw %struct._packet_info, ptr %22, i32 0, i32 1
   %24 = load ptr, ptr %23, align 8
   %25 = load i8, ptr %10, align 1
   %26 = zext i8 %25 to i32
-  %27 = call ptr @val_to_str(i32 noundef %26, ptr noundef @commands, ptr noundef @.str.193)
+  %27 = call ptr @val_to_str(i32 noundef %26, ptr noundef @commands, ptr noundef @.str.194)
   call void @col_add_str(ptr noundef %24, i32 noundef 25, ptr noundef %27)
   %28 = load ptr, ptr %7, align 8
   %29 = icmp ne ptr %28, null
@@ -399,26 +406,41 @@ define internal i32 @dissect_smb_logon(ptr noundef %0, ptr noundef %1, ptr nound
 70:                                               ; preds = %64, %54
   %71 = load ptr, ptr %5, align 8
   %72 = call i32 @tvb_captured_length(ptr noundef %71)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %72
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_clear(ptr noundef, i32 noundef) #1
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_smb_unknown(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -441,9 +463,13 @@ define internal i32 @dissect_smb_unknown(ptr noundef %0, ptr noundef %1, ptr nou
   ret i32 %18
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_smb_logon_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -499,7 +525,7 @@ define internal i32 @dissect_smb_logon_request(ptr noundef %0, ptr noundef %1, p
   ret i32 %45
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_smb_logon_LM10_resp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -527,7 +553,7 @@ define internal i32 @dissect_smb_logon_LM10_resp(ptr noundef %0, ptr noundef %1,
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_smb_logon_2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -568,7 +594,7 @@ define internal i32 @dissect_smb_logon_2(ptr noundef %0, ptr noundef %1, ptr nou
   ret i32 %32
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_smb_logon_LM20_resp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -594,7 +620,7 @@ define internal i32 @dissect_smb_logon_LM20_resp(ptr noundef %0, ptr noundef %1,
   ret i32 %19
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_smb_pdc_query(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -605,6 +631,7 @@ define internal i32 @dissect_smb_pdc_query(ptr noundef %0, ptr noundef %1, ptr n
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %6, align 8
   %12 = load ptr, ptr %7, align 8
@@ -613,10 +640,10 @@ define internal i32 @dissect_smb_pdc_query(ptr noundef %0, ptr noundef %1, ptr n
   %15 = call i32 @display_ms_string(ptr noundef %10, ptr noundef %11, ptr noundef %12, i32 noundef %13, i32 noundef %14, ptr noundef %9)
   store i32 %15, ptr %8, align 4
   %16 = load ptr, ptr %6, align 8
-  %17 = getelementptr inbounds %struct._packet_info, ptr %16, i32 0, i32 1
+  %17 = getelementptr inbounds nuw %struct._packet_info, ptr %16, i32 0, i32 1
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %9, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %18, i32 noundef 25, ptr noundef @.str.196, ptr noundef %19)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %18, i32 noundef 25, ptr noundef @.str.197, ptr noundef %19)
   %20 = load ptr, ptr %5, align 8
   %21 = load ptr, ptr %6, align 8
   %22 = load ptr, ptr %7, align 8
@@ -672,10 +699,11 @@ define internal i32 @dissect_smb_pdc_query(ptr noundef %0, ptr noundef %1, ptr n
   %59 = call i32 @display_LM_token(ptr noundef %56, i32 noundef %57, ptr noundef %58)
   store i32 %59, ptr %8, align 4
   %60 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
   ret i32 %60
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_smb_pdc_startup(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -700,6 +728,7 @@ define internal i32 @dissect_smb_pdc_startup(ptr noundef %0, ptr noundef %1, ptr
   br i1 %19, label %20, label %78
 
 20:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
   store ptr null, ptr %9, align 8
   %21 = load i32, ptr %8, align 4
   %22 = srem i32 %21, 2
@@ -726,10 +755,10 @@ define internal i32 @dissect_smb_pdc_startup(ptr noundef %0, ptr noundef %1, ptr
 
 36:                                               ; preds = %27
   %37 = load ptr, ptr %6, align 8
-  %38 = getelementptr inbounds %struct._packet_info, ptr %37, i32 0, i32 1
+  %38 = getelementptr inbounds nuw %struct._packet_info, ptr %37, i32 0, i32 1
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %9, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %39, i32 noundef 25, ptr noundef @.str.199, ptr noundef %40)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %39, i32 noundef 25, ptr noundef @.str.200, ptr noundef %40)
   store ptr null, ptr %9, align 8
   br label %41
 
@@ -759,10 +788,10 @@ define internal i32 @dissect_smb_pdc_startup(ptr noundef %0, ptr noundef %1, ptr
 
 57:                                               ; preds = %48
   %58 = load ptr, ptr %6, align 8
-  %59 = getelementptr inbounds %struct._packet_info, ptr %58, i32 0, i32 1
+  %59 = getelementptr inbounds nuw %struct._packet_info, ptr %58, i32 0, i32 1
   %60 = load ptr, ptr %59, align 8
   %61 = load ptr, ptr %9, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %60, i32 noundef 25, ptr noundef @.str.200, ptr noundef %61)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %60, i32 noundef 25, ptr noundef @.str.201, ptr noundef %61)
   store ptr null, ptr %9, align 8
   br label %62
 
@@ -785,6 +814,7 @@ define internal i32 @dissect_smb_pdc_startup(ptr noundef %0, ptr noundef %1, ptr
   %76 = load ptr, ptr %7, align 8
   %77 = call i32 @display_LM_token(ptr noundef %74, i32 noundef %75, ptr noundef %76)
   store i32 %77, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
   br label %78
 
 78:                                               ; preds = %62, %4
@@ -792,7 +822,7 @@ define internal i32 @dissect_smb_pdc_startup(ptr noundef %0, ptr noundef %1, ptr
   ret i32 %79
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_smb_pdc_failure(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -819,7 +849,7 @@ define internal i32 @dissect_smb_pdc_failure(ptr noundef %0, ptr noundef %1, ptr
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_announce_change(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -833,6 +863,10 @@ define internal i32 @dissect_announce_change(ptr noundef %0, ptr noundef %1, ptr
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
   %13 = load ptr, ptr %7, align 8
   %14 = load i32, ptr @hf_low_serial, align 4
   %15 = load ptr, ptr %5, align 8
@@ -895,7 +929,7 @@ define internal i32 @dissect_announce_change(ptr noundef %0, ptr noundef %1, ptr
   %61 = load i32, ptr %8, align 4
   %62 = call i32 @tvb_reported_length_remaining(ptr noundef %60, i32 noundef %61)
   %63 = icmp sgt i32 %62, 2
-  br i1 %63, label %64, label %158
+  br i1 %63, label %64, label %160
 
 64:                                               ; preds = %59
   %65 = load ptr, ptr %5, align 8
@@ -930,7 +964,7 @@ define internal i32 @dissect_announce_change(ptr noundef %0, ptr noundef %1, ptr
 88:                                               ; preds = %91, %64
   %89 = load i32, ptr %9, align 4
   %90 = icmp ne i32 %89, 0
-  br i1 %90, label %91, label %123
+  br i1 %90, label %91, label %125
 
 91:                                               ; preds = %88
   %92 = load ptr, ptr %5, align 8
@@ -942,7 +976,7 @@ define internal i32 @dissect_announce_change(ptr noundef %0, ptr noundef %1, ptr
   %97 = load i32, ptr %8, align 4
   %98 = load i32, ptr @ett_smb_db_info, align 4
   %99 = load i32, ptr %11, align 4
-  %100 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %95, ptr noundef %96, i32 noundef %97, i32 noundef 20, i32 noundef %98, ptr noundef null, ptr noundef @.str.201, i32 noundef %99)
+  %100 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %95, ptr noundef %96, i32 noundef %97, i32 noundef 20, i32 noundef %98, ptr noundef null, ptr noundef @.str.202, i32 noundef %99)
   store ptr %100, ptr %10, align 8
   %101 = load ptr, ptr %10, align 8
   %102 = load i32, ptr @hf_db_index, align 4
@@ -965,71 +999,77 @@ define internal i32 @dissect_announce_change(ptr noundef %0, ptr noundef %1, ptr
   %117 = load ptr, ptr %10, align 8
   %118 = load i32, ptr %8, align 4
   %119 = load i32, ptr @hf_nt_date_time, align 4
-  %120 = call i32 @dissect_nt_64bit_time(ptr noundef %116, ptr noundef %117, i32 noundef %118, i32 noundef %119)
-  store i32 %120, ptr %8, align 4
-  %121 = load i32, ptr %9, align 4
-  %122 = add i32 %121, -1
-  store i32 %122, ptr %9, align 4
-  br label %88, !llvm.loop !4
+  %120 = call ptr @dissect_nttime(ptr noundef %116, ptr noundef %117, i32 noundef %118, i32 noundef %119, i32 noundef -2147483648)
+  %121 = load i32, ptr %8, align 4
+  %122 = add i32 %121, 8
+  store i32 %122, ptr %8, align 4
+  %123 = load i32, ptr %9, align 4
+  %124 = add i32 %123, -1
+  store i32 %124, ptr %9, align 4
+  br label %88, !llvm.loop !6
 
-123:                                              ; preds = %88
-  %124 = load ptr, ptr %5, align 8
-  %125 = load i32, ptr %8, align 4
-  %126 = call i32 @tvb_get_letohl(ptr noundef %124, i32 noundef %125)
-  store i32 %126, ptr %12, align 4
-  %127 = load ptr, ptr %7, align 8
-  %128 = load i32, ptr @hf_domain_sid_size, align 4
-  %129 = load ptr, ptr %5, align 8
-  %130 = load i32, ptr %8, align 4
-  %131 = load i32, ptr %12, align 4
-  %132 = call ptr @proto_tree_add_uint(ptr noundef %127, i32 noundef %128, ptr noundef %129, i32 noundef %130, i32 noundef 4, i32 noundef %131)
-  %133 = load i32, ptr %8, align 4
-  %134 = add i32 %133, 4
-  store i32 %134, ptr %8, align 4
-  %135 = load i32, ptr %12, align 4
-  %136 = icmp ne i32 %135, 0
-  br i1 %136, label %137, label %146
+125:                                              ; preds = %88
+  %126 = load ptr, ptr %5, align 8
+  %127 = load i32, ptr %8, align 4
+  %128 = call i32 @tvb_get_letohl(ptr noundef %126, i32 noundef %127)
+  store i32 %128, ptr %12, align 4
+  %129 = load ptr, ptr %7, align 8
+  %130 = load i32, ptr @hf_domain_sid_size, align 4
+  %131 = load ptr, ptr %5, align 8
+  %132 = load i32, ptr %8, align 4
+  %133 = load i32, ptr %12, align 4
+  %134 = call ptr @proto_tree_add_uint(ptr noundef %129, i32 noundef %130, ptr noundef %131, i32 noundef %132, i32 noundef 4, i32 noundef %133)
+  %135 = load i32, ptr %8, align 4
+  %136 = add i32 %135, 4
+  store i32 %136, ptr %8, align 4
+  %137 = load i32, ptr %12, align 4
+  %138 = icmp ne i32 %137, 0
+  br i1 %138, label %139, label %148
 
-137:                                              ; preds = %123
-  %138 = load i32, ptr %8, align 4
-  %139 = add i32 %138, 3
-  %140 = sdiv i32 %139, 4
-  %141 = mul i32 %140, 4
-  store i32 %141, ptr %8, align 4
-  %142 = load ptr, ptr %5, align 8
-  %143 = load i32, ptr %8, align 4
-  %144 = load ptr, ptr %7, align 8
-  %145 = call i32 @dissect_nt_sid(ptr noundef %142, i32 noundef %143, ptr noundef %144, ptr noundef @.str.202, ptr noundef null, i32 noundef -1)
-  store i32 %145, ptr %8, align 4
-  br label %146
+139:                                              ; preds = %125
+  %140 = load i32, ptr %8, align 4
+  %141 = add i32 %140, 3
+  %142 = sdiv i32 %141, 4
+  %143 = mul i32 %142, 4
+  store i32 %143, ptr %8, align 4
+  %144 = load ptr, ptr %5, align 8
+  %145 = load i32, ptr %8, align 4
+  %146 = load ptr, ptr %7, align 8
+  %147 = call i32 @dissect_nt_sid(ptr noundef %144, i32 noundef %145, ptr noundef %146, ptr noundef @.str.203, ptr noundef null, i32 noundef -1)
+  store i32 %147, ptr %8, align 4
+  br label %148
 
-146:                                              ; preds = %137, %123
-  %147 = load ptr, ptr %7, align 8
-  %148 = load i32, ptr @hf_nt_version, align 4
-  %149 = load ptr, ptr %5, align 8
-  %150 = load i32, ptr %8, align 4
-  %151 = call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %148, ptr noundef %149, i32 noundef %150, i32 noundef 4, i32 noundef -2147483648)
+148:                                              ; preds = %139, %125
+  %149 = load ptr, ptr %7, align 8
+  %150 = load i32, ptr @hf_nt_version, align 4
+  %151 = load ptr, ptr %5, align 8
   %152 = load i32, ptr %8, align 4
-  %153 = add i32 %152, 4
-  store i32 %153, ptr %8, align 4
-  %154 = load ptr, ptr %5, align 8
-  %155 = load i32, ptr %8, align 4
-  %156 = load ptr, ptr %7, align 8
-  %157 = call i32 @display_LMNT_token(ptr noundef %154, i32 noundef %155, ptr noundef %156)
-  store i32 %157, ptr %8, align 4
-  br label %158
+  %153 = call ptr @proto_tree_add_item(ptr noundef %149, i32 noundef %150, ptr noundef %151, i32 noundef %152, i32 noundef 4, i32 noundef -2147483648)
+  %154 = load i32, ptr %8, align 4
+  %155 = add i32 %154, 4
+  store i32 %155, ptr %8, align 4
+  %156 = load ptr, ptr %5, align 8
+  %157 = load i32, ptr %8, align 4
+  %158 = load ptr, ptr %7, align 8
+  %159 = call i32 @display_LMNT_token(ptr noundef %156, i32 noundef %157, ptr noundef %158)
+  store i32 %159, ptr %8, align 4
+  br label %160
 
-158:                                              ; preds = %146, %59
-  %159 = load ptr, ptr %5, align 8
-  %160 = load i32, ptr %8, align 4
-  %161 = load ptr, ptr %7, align 8
-  %162 = call i32 @display_LM_token(ptr noundef %159, i32 noundef %160, ptr noundef %161)
-  store i32 %162, ptr %8, align 4
-  %163 = load i32, ptr %8, align 4
-  ret i32 %163
+160:                                              ; preds = %148, %59
+  %161 = load ptr, ptr %5, align 8
+  %162 = load i32, ptr %8, align 4
+  %163 = load ptr, ptr %7, align 8
+  %164 = call i32 @display_LM_token(ptr noundef %161, i32 noundef %162, ptr noundef %163)
+  store i32 %164, ptr %8, align 4
+  %165 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
+  ret i32 %165
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_smb_no_user(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1050,7 +1090,7 @@ define internal i32 @dissect_smb_no_user(ptr noundef %0, ptr noundef %1, ptr nou
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_smb_relogon_resp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1101,7 +1141,7 @@ define internal i32 @dissect_smb_relogon_resp(ptr noundef %0, ptr noundef %1, pt
   ret i32 %41
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_smb_inter_resp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1152,7 +1192,7 @@ define internal i32 @dissect_smb_inter_resp(ptr noundef %0, ptr noundef %1, ptr 
   ret i32 %41
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_smb_acc_update(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1217,7 +1257,7 @@ define internal i32 @dissect_smb_acc_update(ptr noundef %0, ptr noundef %1, ptr 
   ret i32 %53
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_smb_sam_logon_req(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1228,6 +1268,7 @@ define internal i32 @dissect_smb_sam_logon_req(ptr noundef %0, ptr noundef %1, p
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   %10 = load ptr, ptr %7, align 8
   %11 = load i32, ptr @hf_request_count, align 4
   %12 = load ptr, ptr %5, align 8
@@ -1288,7 +1329,7 @@ define internal i32 @dissect_smb_sam_logon_req(ptr noundef %0, ptr noundef %1, p
   %57 = load ptr, ptr %5, align 8
   %58 = load i32, ptr %8, align 4
   %59 = load ptr, ptr %7, align 8
-  %60 = call i32 @dissect_nt_sid(ptr noundef %57, i32 noundef %58, ptr noundef %59, ptr noundef @.str.202, ptr noundef null, i32 noundef -1)
+  %60 = call i32 @dissect_nt_sid(ptr noundef %57, i32 noundef %58, ptr noundef %59, ptr noundef @.str.203, ptr noundef null, i32 noundef -1)
   store i32 %60, ptr %8, align 4
   br label %61
 
@@ -1312,10 +1353,11 @@ define internal i32 @dissect_smb_sam_logon_req(ptr noundef %0, ptr noundef %1, p
   %76 = call i32 @display_LM_token(ptr noundef %73, i32 noundef %74, ptr noundef %75)
   store i32 %76, ptr %8, align 4
   %77 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %77
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_smb_sam_logon_resp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1368,7 +1410,7 @@ define internal i32 @dissect_smb_sam_logon_resp(ptr noundef %0, ptr noundef %1, 
   ret i32 %42
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_smb_pdc_response_ads(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1517,9 +1559,10 @@ define internal i32 @dissect_smb_pdc_response_ads(ptr noundef %0, ptr noundef %1
   ret i32 %125
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @display_ms_string(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @display_LM_token(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -1528,6 +1571,7 @@ define internal i32 @display_LM_token(ptr noundef %0, i32 noundef %1, ptr nounde
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %7) #3
   %8 = load ptr, ptr %4, align 8
   %9 = load i32, ptr %5, align 4
   %10 = call zeroext i16 @tvb_get_letohs(ptr noundef %8, i32 noundef %9)
@@ -1547,7 +1591,7 @@ define internal i32 @display_LM_token(ptr noundef %0, i32 noundef %1, ptr nounde
   %21 = zext i16 %20 to i32
   %22 = load i16, ptr %7, align 2
   %23 = zext i16 %22 to i32
-  %24 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %16, i32 noundef %17, ptr noundef %18, i32 noundef %19, i32 noundef 2, i32 noundef %21, ptr noundef @.str.194, i32 noundef %23)
+  %24 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %16, i32 noundef %17, ptr noundef %18, i32 noundef %19, i32 noundef 2, i32 noundef %21, ptr noundef @.str.195, i32 noundef %23)
   br label %35
 
 25:                                               ; preds = %3
@@ -1559,7 +1603,7 @@ define internal i32 @display_LM_token(ptr noundef %0, i32 noundef %1, ptr nounde
   %31 = zext i16 %30 to i32
   %32 = load i16, ptr %7, align 2
   %33 = zext i16 %32 to i32
-  %34 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %26, i32 noundef %27, ptr noundef %28, i32 noundef %29, i32 noundef 2, i32 noundef %31, ptr noundef @.str.195, i32 noundef %33)
+  %34 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %26, i32 noundef %27, ptr noundef %28, i32 noundef %29, i32 noundef 2, i32 noundef %31, ptr noundef @.str.196, i32 noundef %33)
   br label %35
 
 35:                                               ; preds = %25, %15
@@ -1567,20 +1611,26 @@ define internal i32 @display_LM_token(ptr noundef %0, i32 noundef %1, ptr nounde
   %37 = add i32 %36, 2
   store i32 %37, ptr %5, align 4
   %38 = load i32, ptr %5, align 4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %7) #3
   ret i32 %38
 }
 
+; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @display_unicode_string(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @display_LMNT_token(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -1589,6 +1639,7 @@ define internal i32 @display_LMNT_token(ptr noundef %0, i32 noundef %1, ptr noun
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %7) #3
   %8 = load ptr, ptr %4, align 8
   %9 = load i32, ptr %5, align 4
   %10 = call zeroext i16 @tvb_get_letohs(ptr noundef %8, i32 noundef %9)
@@ -1607,7 +1658,7 @@ define internal i32 @display_LMNT_token(ptr noundef %0, i32 noundef %1, ptr noun
   %20 = zext i16 %19 to i32
   %21 = load i16, ptr %7, align 2
   %22 = zext i16 %21 to i32
-  %23 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %15, i32 noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef 2, i32 noundef %20, ptr noundef @.str.197, i32 noundef %22)
+  %23 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %15, i32 noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef 2, i32 noundef %20, ptr noundef @.str.198, i32 noundef %22)
   br label %34
 
 24:                                               ; preds = %3
@@ -1619,7 +1670,7 @@ define internal i32 @display_LMNT_token(ptr noundef %0, i32 noundef %1, ptr noun
   %30 = zext i16 %29 to i32
   %31 = load i16, ptr %7, align 2
   %32 = zext i16 %31 to i32
-  %33 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %25, i32 noundef %26, ptr noundef %27, i32 noundef %28, i32 noundef 2, i32 noundef %30, ptr noundef @.str.198, i32 noundef %32)
+  %33 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %25, i32 noundef %26, ptr noundef %27, i32 noundef %28, i32 noundef 2, i32 noundef %30, ptr noundef @.str.199, i32 noundef %32)
   br label %34
 
 34:                                               ; preds = %24, %14
@@ -1627,20 +1678,26 @@ define internal i32 @display_LMNT_token(ptr noundef %0, i32 noundef %1, ptr noun
   %36 = add i32 %35, 2
   store i32 %36, ptr %5, align 4
   %37 = load i32, ptr %5, align 4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %7) #3
   ret i32 %37
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #1
 
-declare i32 @dissect_nt_64bit_time(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @dissect_nttime(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_nt_sid(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_account_control(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -1661,18 +1718,24 @@ define internal i32 @dissect_account_control(ptr noundef %0, ptr noundef %1, i32
   ret i32 %15
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_ms_compressed_string(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}

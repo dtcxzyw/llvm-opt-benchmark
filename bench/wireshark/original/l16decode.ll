@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [21 x i8] c"16-bit audio, stereo\00", align 1
 @.str.2 = private unnamed_addr constant [4 x i8] c"L16\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @codec_register_l16() #0 {
   %1 = call zeroext i1 @register_codec(ptr noundef @.str, ptr noundef @codec_l16_mono_init, ptr noundef @codec_l16_release, ptr noundef @codec_l16_get_channels, ptr noundef @codec_l16_get_frequency, ptr noundef @codec_l16_decode)
   %2 = call zeroext i1 @register_codec(ptr noundef @.str.1, ptr noundef @codec_l16_stereo_init, ptr noundef @codec_l16_release, ptr noundef @codec_l16_get_channels, ptr noundef @codec_l16_get_frequency, ptr noundef @codec_l16_decode)
@@ -15,48 +15,49 @@ define hidden void @codec_register_l16() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare zeroext i1 @register_codec(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
-define internal ptr @codec_l16_mono_init(ptr noundef %0) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal ptr @codec_l16_mono_init(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct._codec_context_t, ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %struct._codec_context_t, ptr %3, i32 0, i32 0
   store i32 44100, ptr %4, align 8
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %struct._codec_context_t, ptr %5, i32 0, i32 1
+  %6 = getelementptr inbounds nuw %struct._codec_context_t, ptr %5, i32 0, i32 1
   store i32 1, ptr %6, align 4
   ret ptr null
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @codec_l16_release(ptr noundef %0) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal void @codec_l16_release(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @codec_l16_get_channels(ptr noundef %0) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @codec_l16_get_channels(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   ret i32 1
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @codec_l16_get_frequency(ptr noundef %0) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @codec_l16_get_frequency(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct._codec_context_t, ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %struct._codec_context_t, ptr %3, i32 0, i32 0
   %5 = load i32, ptr %4, align 8
   %6 = icmp ne i32 %5, 0
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct._codec_context_t, ptr %8, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %struct._codec_context_t, ptr %8, i32 0, i32 0
   %10 = load i32, ptr %9, align 8
   br label %12
 
@@ -68,8 +69,8 @@ define internal i32 @codec_l16_get_frequency(ptr noundef %0) #0 {
   ret i32 %13
 }
 
-; Function Attrs: nounwind uwtable
-define internal i64 @codec_l16_decode(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i64 @codec_l16_decode(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) #2 {
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -82,181 +83,211 @@ define internal i64 @codec_l16_decode(ptr noundef %0, ptr noundef %1, i64 nounde
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
+  %18 = alloca i32, align 4
   store ptr %0, ptr %7, align 8
   store ptr %1, ptr %8, align 8
   store i64 %2, ptr %9, align 8
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
-  %18 = load ptr, ptr %8, align 8
-  store ptr %18, ptr %12, align 8
-  %19 = load ptr, ptr %10, align 8
-  store ptr %19, ptr %13, align 8
-  %20 = load ptr, ptr %7, align 8
-  %21 = getelementptr inbounds %struct._codec_context_t, ptr %20, i32 0, i32 1
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp ne i32 %22, 0
-  br i1 %23, label %24, label %28
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #4
+  %19 = load ptr, ptr %8, align 8
+  store ptr %19, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
+  %20 = load ptr, ptr %10, align 8
+  store ptr %20, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #4
+  %21 = load ptr, ptr %7, align 8
+  %22 = getelementptr inbounds nuw %struct._codec_context_t, ptr %21, i32 0, i32 1
+  %23 = load i32, ptr %22, align 4
+  %24 = icmp ne i32 %23, 0
+  br i1 %24, label %25, label %29
 
-24:                                               ; preds = %5
-  %25 = load ptr, ptr %7, align 8
-  %26 = getelementptr inbounds %struct._codec_context_t, ptr %25, i32 0, i32 1
-  %27 = load i32, ptr %26, align 4
-  br label %29
+25:                                               ; preds = %5
+  %26 = load ptr, ptr %7, align 8
+  %27 = getelementptr inbounds nuw %struct._codec_context_t, ptr %26, i32 0, i32 1
+  %28 = load i32, ptr %27, align 4
+  br label %30
 
-28:                                               ; preds = %5
-  br label %29
+29:                                               ; preds = %5
+  br label %30
 
-29:                                               ; preds = %28, %24
-  %30 = phi i32 [ %27, %24 ], [ 1, %28 ]
-  store i32 %30, ptr %15, align 4
-  %31 = load ptr, ptr %10, align 8
-  %32 = icmp ne ptr %31, null
-  br i1 %32, label %33, label %36
+30:                                               ; preds = %29, %25
+  %31 = phi i32 [ %28, %25 ], [ 1, %29 ]
+  store i32 %31, ptr %15, align 4
+  %32 = load ptr, ptr %10, align 8
+  %33 = icmp ne ptr %32, null
+  br i1 %33, label %34, label %37
 
-33:                                               ; preds = %29
-  %34 = load ptr, ptr %11, align 8
-  %35 = icmp ne ptr %34, null
-  br i1 %35, label %41, label %36
+34:                                               ; preds = %30
+  %35 = load ptr, ptr %11, align 8
+  %36 = icmp ne ptr %35, null
+  br i1 %36, label %42, label %37
 
-36:                                               ; preds = %33, %29
-  %37 = load i64, ptr %9, align 8
-  %38 = load i32, ptr %15, align 4
-  %39 = zext i32 %38 to i64
-  %40 = udiv i64 %37, %39
-  store i64 %40, ptr %6, align 8
-  br label %111
+37:                                               ; preds = %34, %30
+  %38 = load i64, ptr %9, align 8
+  %39 = load i32, ptr %15, align 4
+  %40 = zext i32 %39 to i64
+  %41 = udiv i64 %38, %40
+  store i64 %41, ptr %6, align 8
+  store i32 1, ptr %16, align 4
+  br label %113
 
-41:                                               ; preds = %33
+42:                                               ; preds = %34
   store i64 0, ptr %14, align 8
-  br label %42
+  br label %43
 
-42:                                               ; preds = %100, %41
-  %43 = load i64, ptr %14, align 8
-  %44 = load i64, ptr %9, align 8
-  %45 = load i32, ptr %15, align 4
-  %46 = mul i32 2, %45
-  %47 = zext i32 %46 to i64
-  %48 = udiv i64 %44, %47
-  %49 = icmp ult i64 %43, %48
-  br i1 %49, label %50, label %103
+43:                                               ; preds = %102, %42
+  %44 = load i64, ptr %14, align 8
+  %45 = load i64, ptr %9, align 8
+  %46 = load i32, ptr %15, align 4
+  %47 = mul i32 2, %46
+  %48 = zext i32 %47 to i64
+  %49 = udiv i64 %45, %48
+  %50 = icmp ult i64 %44, %49
+  br i1 %50, label %51, label %105
 
-50:                                               ; preds = %42
-  store i32 0, ptr %16, align 4
+51:                                               ; preds = %43
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #4
   store i32 0, ptr %17, align 4
-  br label %51
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #4
+  store i32 0, ptr %18, align 4
+  br label %52
 
-51:                                               ; preds = %89, %50
-  %52 = load i32, ptr %17, align 4
-  %53 = load i32, ptr %15, align 4
-  %54 = icmp ult i32 %52, %53
-  br i1 %54, label %55, label %92
+52:                                               ; preds = %91, %51
+  %53 = load i32, ptr %18, align 4
+  %54 = load i32, ptr %15, align 4
+  %55 = icmp ult i32 %53, %54
+  br i1 %55, label %57, label %56
 
-55:                                               ; preds = %51
-  %56 = load ptr, ptr %12, align 8
-  %57 = load i32, ptr %15, align 4
-  %58 = zext i32 %57 to i64
-  %59 = load i64, ptr %14, align 8
-  %60 = mul i64 %58, %59
-  %61 = load i32, ptr %17, align 4
-  %62 = zext i32 %61 to i64
-  %63 = add i64 %60, %62
-  %64 = getelementptr i16, ptr %56, i64 %63
-  %65 = load i16, ptr %64, align 2
-  %66 = zext i16 %65 to i32
-  %67 = ashr i32 %66, 8
-  %68 = trunc i32 %67 to i16
-  %69 = zext i16 %68 to i32
-  %70 = load ptr, ptr %12, align 8
-  %71 = load i32, ptr %15, align 4
-  %72 = zext i32 %71 to i64
-  %73 = load i64, ptr %14, align 8
-  %74 = mul i64 %72, %73
-  %75 = load i32, ptr %17, align 4
-  %76 = zext i32 %75 to i64
-  %77 = add i64 %74, %76
-  %78 = getelementptr i16, ptr %70, i64 %77
-  %79 = load i16, ptr %78, align 2
-  %80 = zext i16 %79 to i32
-  %81 = shl i32 %80, 8
-  %82 = trunc i32 %81 to i16
-  %83 = zext i16 %82 to i32
-  %84 = or i32 %69, %83
-  %85 = trunc i32 %84 to i16
-  %86 = sext i16 %85 to i32
-  %87 = load i32, ptr %16, align 4
-  %88 = add i32 %87, %86
-  store i32 %88, ptr %16, align 4
-  br label %89
+56:                                               ; preds = %52
+  store i32 5, ptr %16, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #4
+  br label %94
 
-89:                                               ; preds = %55
-  %90 = load i32, ptr %17, align 4
-  %91 = add i32 %90, 1
-  store i32 %91, ptr %17, align 4
-  br label %51, !llvm.loop !4
+57:                                               ; preds = %52
+  %58 = load ptr, ptr %12, align 8
+  %59 = load i32, ptr %15, align 4
+  %60 = zext i32 %59 to i64
+  %61 = load i64, ptr %14, align 8
+  %62 = mul i64 %60, %61
+  %63 = load i32, ptr %18, align 4
+  %64 = zext i32 %63 to i64
+  %65 = add i64 %62, %64
+  %66 = getelementptr i16, ptr %58, i64 %65
+  %67 = load i16, ptr %66, align 2
+  %68 = zext i16 %67 to i32
+  %69 = ashr i32 %68, 8
+  %70 = trunc i32 %69 to i16
+  %71 = zext i16 %70 to i32
+  %72 = load ptr, ptr %12, align 8
+  %73 = load i32, ptr %15, align 4
+  %74 = zext i32 %73 to i64
+  %75 = load i64, ptr %14, align 8
+  %76 = mul i64 %74, %75
+  %77 = load i32, ptr %18, align 4
+  %78 = zext i32 %77 to i64
+  %79 = add i64 %76, %78
+  %80 = getelementptr i16, ptr %72, i64 %79
+  %81 = load i16, ptr %80, align 2
+  %82 = zext i16 %81 to i32
+  %83 = shl i32 %82, 8
+  %84 = trunc i32 %83 to i16
+  %85 = zext i16 %84 to i32
+  %86 = or i32 %71, %85
+  %87 = trunc i32 %86 to i16
+  %88 = sext i16 %87 to i32
+  %89 = load i32, ptr %17, align 4
+  %90 = add i32 %89, %88
+  store i32 %90, ptr %17, align 4
+  br label %91
 
-92:                                               ; preds = %51
-  %93 = load i32, ptr %16, align 4
-  %94 = load i32, ptr %15, align 4
-  %95 = udiv i32 %93, %94
-  %96 = trunc i32 %95 to i16
-  %97 = load ptr, ptr %13, align 8
-  %98 = load i64, ptr %14, align 8
-  %99 = getelementptr i16, ptr %97, i64 %98
-  store i16 %96, ptr %99, align 2
-  br label %100
+91:                                               ; preds = %57
+  %92 = load i32, ptr %18, align 4
+  %93 = add i32 %92, 1
+  store i32 %93, ptr %18, align 4
+  br label %52, !llvm.loop !6
 
-100:                                              ; preds = %92
-  %101 = load i64, ptr %14, align 8
-  %102 = add i64 %101, 1
-  store i64 %102, ptr %14, align 8
-  br label %42, !llvm.loop !6
+94:                                               ; preds = %56
+  %95 = load i32, ptr %17, align 4
+  %96 = load i32, ptr %15, align 4
+  %97 = udiv i32 %95, %96
+  %98 = trunc i32 %97 to i16
+  %99 = load ptr, ptr %13, align 8
+  %100 = load i64, ptr %14, align 8
+  %101 = getelementptr i16, ptr %99, i64 %100
+  store i16 %98, ptr %101, align 2
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #4
+  br label %102
 
-103:                                              ; preds = %42
-  %104 = load i64, ptr %9, align 8
-  %105 = load i32, ptr %15, align 4
-  %106 = zext i32 %105 to i64
-  %107 = udiv i64 %104, %106
-  %108 = load ptr, ptr %11, align 8
-  store i64 %107, ptr %108, align 8
-  %109 = load ptr, ptr %11, align 8
-  %110 = load i64, ptr %109, align 8
-  store i64 %110, ptr %6, align 8
-  br label %111
+102:                                              ; preds = %94
+  %103 = load i64, ptr %14, align 8
+  %104 = add i64 %103, 1
+  store i64 %104, ptr %14, align 8
+  br label %43, !llvm.loop !8
 
-111:                                              ; preds = %103, %36
-  %112 = load i64, ptr %6, align 8
-  ret i64 %112
+105:                                              ; preds = %43
+  %106 = load i64, ptr %9, align 8
+  %107 = load i32, ptr %15, align 4
+  %108 = zext i32 %107 to i64
+  %109 = udiv i64 %106, %108
+  %110 = load ptr, ptr %11, align 8
+  store i64 %109, ptr %110, align 8
+  %111 = load ptr, ptr %11, align 8
+  %112 = load i64, ptr %111, align 8
+  store i64 %112, ptr %6, align 8
+  store i32 1, ptr %16, align 4
+  br label %113
+
+113:                                              ; preds = %105, %37
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #4
+  %114 = load i64, ptr %6, align 8
+  ret i64 %114
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @codec_l16_stereo_init(ptr noundef %0) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal ptr @codec_l16_stereo_init(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct._codec_context_t, ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %struct._codec_context_t, ptr %3, i32 0, i32 0
   store i32 44100, ptr %4, align 8
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %struct._codec_context_t, ptr %5, i32 0, i32 1
+  %6 = getelementptr inbounds nuw %struct._codec_context_t, ptr %5, i32 0, i32 1
   store i32 2, ptr %6, align 4
   ret ptr null
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @codec_l16_init(ptr noundef %0) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal ptr @codec_l16_init(ptr noundef %0) #2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   ret ptr null
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}

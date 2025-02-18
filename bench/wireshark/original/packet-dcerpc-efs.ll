@@ -3,116 +3,115 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
+%struct._value_string_ext = type { ptr, i32, i32, ptr, ptr }
 %struct._e_guid_t = type { i32, i16, i16, [8 x i8] }
-%struct._dcerpc_sub_dissector = type { i16, ptr, ptr, ptr }
-%struct._dcerpc_info = type { ptr, i32, i64, i8, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr }
+%struct._dcerpc_info = type { ptr, i32, i64, i8, i8, i8, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, %struct.anon }
+%struct.anon = type { i8, ptr, ptr, ptr, i8 }
 %struct._dcerpc_call_value = type { %struct._e_guid_t, i16, %struct._e_guid_t, i16, i32, %struct.nstime_t, i32, i32, ptr, ptr, ptr, i32 }
 %struct.nstime_t = type { i64, i32 }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon.0, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
-%struct.anon = type { i8, [3 x i8] }
+%struct.anon.0 = type { i8, [3 x i8] }
 
-@ett_efs_EFS_HASH_BLOB = internal global i32 -1, align 4
-@ett_efs_ENCRYPTION_CERTIFICATE_HASH = internal global i32 -1, align 4
-@ett_efs_ENCRYPTION_CERTIFICATE_HASH_LIST = internal global i32 -1, align 4
-@ett_efs_EFS_CERTIFICATE_BLOB = internal global i32 -1, align 4
-@ett_efs_ENCRYPTION_CERTIFICATE = internal global i32 -1, align 4
-@proto_register_dcerpc_efs.hf = internal global [32 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_efs_EFS_CERTIFICATE_BLOB_cbData, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_EFS_CERTIFICATE_BLOB_dwCertEncodingType, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_EFS_CERTIFICATE_BLOB_pbData, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_EFS_HASH_BLOB_cbData, %struct._header_field_info { ptr @.str, ptr @.str.6, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_EFS_HASH_BLOB_pbData, %struct._header_field_info { ptr @.str.4, ptr @.str.7, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_ENCRYPTION_CERTIFICATE_HASH_LIST_nCert_Hash, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_ENCRYPTION_CERTIFICATE_HASH_LIST_pUsers, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_ENCRYPTION_CERTIFICATE_HASH_cbTotalLength, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_ENCRYPTION_CERTIFICATE_HASH_lpDisplayInformation, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_ENCRYPTION_CERTIFICATE_HASH_pHash, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_ENCRYPTION_CERTIFICATE_HASH_pUserSid, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_ENCRYPTION_CERTIFICATE_TotalLength, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_ENCRYPTION_CERTIFICATE_pCertBlob, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_ENCRYPTION_CERTIFICATE_pUserSid, %struct._header_field_info { ptr @.str.18, ptr @.str.24, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_EfsRpcAddUsersToFile_FileName, %struct._header_field_info { ptr @.str.25, ptr @.str.26, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_EfsRpcCloseRaw_pvContext, %struct._header_field_info { ptr @.str.27, ptr @.str.28, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_EfsRpcDecryptFileSrv_FileName, %struct._header_field_info { ptr @.str.25, ptr @.str.29, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_EfsRpcDecryptFileSrv_Reserved, %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_EfsRpcEncryptFileSrv_Filename, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_EfsRpcOpenFileRaw_FileName, %struct._header_field_info { ptr @.str.25, ptr @.str.34, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_EfsRpcOpenFileRaw_Flags, %struct._header_field_info { ptr @.str.35, ptr @.str.36, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_EfsRpcOpenFileRaw_pvContext, %struct._header_field_info { ptr @.str.27, ptr @.str.37, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_EfsRpcQueryRecoveryAgents_FileName, %struct._header_field_info { ptr @.str.25, ptr @.str.38, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_EfsRpcQueryRecoveryAgents_pRecoveryAgents, %struct._header_field_info { ptr @.str.39, ptr @.str.40, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_EfsRpcQueryUsersOnFile_FileName, %struct._header_field_info { ptr @.str.25, ptr @.str.41, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_EfsRpcQueryUsersOnFile_pUsers, %struct._header_field_info { ptr @.str.10, ptr @.str.42, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_EfsRpcReadFileRaw_pvContext, %struct._header_field_info { ptr @.str.27, ptr @.str.43, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_EfsRpcRemoveUsersFromFile_FileName, %struct._header_field_info { ptr @.str.25, ptr @.str.44, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_EfsRpcSetFileEncryptionKey_pEncryptionCertificate, %struct._header_field_info { ptr @.str.45, ptr @.str.46, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_EfsRpcWriteFileRaw_pvContext, %struct._header_field_info { ptr @.str.27, ptr @.str.47, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_opnum, %struct._header_field_info { ptr @.str.48, ptr @.str.49, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_werror, %struct._header_field_info { ptr @.str.50, ptr @.str.51, i32 7, i32 2, ptr @WERR_errors, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
-@hf_efs_EFS_CERTIFICATE_BLOB_cbData = internal global i32 -1, align 4
+@ett_efs_EFS_HASH_BLOB = internal global i32 0, align 4
+@ett_efs_ENCRYPTION_CERTIFICATE_HASH = internal global i32 0, align 4
+@ett_efs_ENCRYPTION_CERTIFICATE_HASH_LIST = internal global i32 0, align 4
+@ett_efs_EFS_CERTIFICATE_BLOB = internal global i32 0, align 4
+@ett_efs_ENCRYPTION_CERTIFICATE = internal global i32 0, align 4
+@proto_register_dcerpc_efs.hf = internal global [32 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_efs_EFS_CERTIFICATE_BLOB_cbData, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_EFS_CERTIFICATE_BLOB_dwCertEncodingType, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_EFS_CERTIFICATE_BLOB_pbData, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_EFS_HASH_BLOB_cbData, %struct._header_field_info { ptr @.str, ptr @.str.6, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_EFS_HASH_BLOB_pbData, %struct._header_field_info { ptr @.str.4, ptr @.str.7, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_ENCRYPTION_CERTIFICATE_HASH_LIST_nCert_Hash, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_ENCRYPTION_CERTIFICATE_HASH_LIST_pUsers, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_ENCRYPTION_CERTIFICATE_HASH_cbTotalLength, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_ENCRYPTION_CERTIFICATE_HASH_lpDisplayInformation, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_ENCRYPTION_CERTIFICATE_HASH_pHash, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_ENCRYPTION_CERTIFICATE_HASH_pUserSid, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_ENCRYPTION_CERTIFICATE_TotalLength, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_ENCRYPTION_CERTIFICATE_pCertBlob, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_ENCRYPTION_CERTIFICATE_pUserSid, %struct._header_field_info { ptr @.str.18, ptr @.str.24, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_EfsRpcAddUsersToFile_FileName, %struct._header_field_info { ptr @.str.25, ptr @.str.26, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_EfsRpcCloseRaw_pvContext, %struct._header_field_info { ptr @.str.27, ptr @.str.28, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_EfsRpcDecryptFileSrv_FileName, %struct._header_field_info { ptr @.str.25, ptr @.str.29, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_EfsRpcDecryptFileSrv_Reserved, %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_EfsRpcEncryptFileSrv_Filename, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_EfsRpcOpenFileRaw_FileName, %struct._header_field_info { ptr @.str.25, ptr @.str.34, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_EfsRpcOpenFileRaw_Flags, %struct._header_field_info { ptr @.str.35, ptr @.str.36, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_EfsRpcOpenFileRaw_pvContext, %struct._header_field_info { ptr @.str.27, ptr @.str.37, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_EfsRpcQueryRecoveryAgents_FileName, %struct._header_field_info { ptr @.str.25, ptr @.str.38, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_EfsRpcQueryRecoveryAgents_pRecoveryAgents, %struct._header_field_info { ptr @.str.39, ptr @.str.40, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_EfsRpcQueryUsersOnFile_FileName, %struct._header_field_info { ptr @.str.25, ptr @.str.41, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_EfsRpcQueryUsersOnFile_pUsers, %struct._header_field_info { ptr @.str.10, ptr @.str.42, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_EfsRpcReadFileRaw_pvContext, %struct._header_field_info { ptr @.str.27, ptr @.str.43, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_EfsRpcRemoveUsersFromFile_FileName, %struct._header_field_info { ptr @.str.25, ptr @.str.44, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_EfsRpcSetFileEncryptionKey_pEncryptionCertificate, %struct._header_field_info { ptr @.str.45, ptr @.str.46, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_EfsRpcWriteFileRaw_pvContext, %struct._header_field_info { ptr @.str.27, ptr @.str.47, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_opnum, %struct._header_field_info { ptr @.str.48, ptr @.str.49, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_efs_werror, %struct._header_field_info { ptr @.str.50, ptr @.str.51, i32 7, i32 514, ptr @WERR_errors_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
+@hf_efs_EFS_CERTIFICATE_BLOB_cbData = internal global i32 0, align 4
 @.str = private unnamed_addr constant [7 x i8] c"CbData\00", align 1
 @.str.1 = private unnamed_addr constant [32 x i8] c"efs.EFS_CERTIFICATE_BLOB.cbData\00", align 1
-@hf_efs_EFS_CERTIFICATE_BLOB_dwCertEncodingType = internal global i32 -1, align 4
+@hf_efs_EFS_CERTIFICATE_BLOB_dwCertEncodingType = internal global i32 0, align 4
 @.str.2 = private unnamed_addr constant [19 x i8] c"DwCertEncodingType\00", align 1
 @.str.3 = private unnamed_addr constant [44 x i8] c"efs.EFS_CERTIFICATE_BLOB.dwCertEncodingType\00", align 1
-@hf_efs_EFS_CERTIFICATE_BLOB_pbData = internal global i32 -1, align 4
+@hf_efs_EFS_CERTIFICATE_BLOB_pbData = internal global i32 0, align 4
 @.str.4 = private unnamed_addr constant [7 x i8] c"PbData\00", align 1
 @.str.5 = private unnamed_addr constant [32 x i8] c"efs.EFS_CERTIFICATE_BLOB.pbData\00", align 1
-@hf_efs_EFS_HASH_BLOB_cbData = internal global i32 -1, align 4
+@hf_efs_EFS_HASH_BLOB_cbData = internal global i32 0, align 4
 @.str.6 = private unnamed_addr constant [25 x i8] c"efs.EFS_HASH_BLOB.cbData\00", align 1
-@hf_efs_EFS_HASH_BLOB_pbData = internal global i32 -1, align 4
+@hf_efs_EFS_HASH_BLOB_pbData = internal global i32 0, align 4
 @.str.7 = private unnamed_addr constant [25 x i8] c"efs.EFS_HASH_BLOB.pbData\00", align 1
-@hf_efs_ENCRYPTION_CERTIFICATE_HASH_LIST_nCert_Hash = internal global i32 -1, align 4
+@hf_efs_ENCRYPTION_CERTIFICATE_HASH_LIST_nCert_Hash = internal global i32 0, align 4
 @.str.8 = private unnamed_addr constant [11 x i8] c"NCert Hash\00", align 1
 @.str.9 = private unnamed_addr constant [48 x i8] c"efs.ENCRYPTION_CERTIFICATE_HASH_LIST.nCert_Hash\00", align 1
-@hf_efs_ENCRYPTION_CERTIFICATE_HASH_LIST_pUsers = internal global i32 -1, align 4
+@hf_efs_ENCRYPTION_CERTIFICATE_HASH_LIST_pUsers = internal global i32 0, align 4
 @.str.10 = private unnamed_addr constant [7 x i8] c"PUsers\00", align 1
 @.str.11 = private unnamed_addr constant [44 x i8] c"efs.ENCRYPTION_CERTIFICATE_HASH_LIST.pUsers\00", align 1
-@hf_efs_ENCRYPTION_CERTIFICATE_HASH_cbTotalLength = internal global i32 -1, align 4
+@hf_efs_ENCRYPTION_CERTIFICATE_HASH_cbTotalLength = internal global i32 0, align 4
 @.str.12 = private unnamed_addr constant [14 x i8] c"CbTotalLength\00", align 1
 @.str.13 = private unnamed_addr constant [46 x i8] c"efs.ENCRYPTION_CERTIFICATE_HASH.cbTotalLength\00", align 1
-@hf_efs_ENCRYPTION_CERTIFICATE_HASH_lpDisplayInformation = internal global i32 -1, align 4
+@hf_efs_ENCRYPTION_CERTIFICATE_HASH_lpDisplayInformation = internal global i32 0, align 4
 @.str.14 = private unnamed_addr constant [21 x i8] c"LpDisplayInformation\00", align 1
 @.str.15 = private unnamed_addr constant [53 x i8] c"efs.ENCRYPTION_CERTIFICATE_HASH.lpDisplayInformation\00", align 1
-@hf_efs_ENCRYPTION_CERTIFICATE_HASH_pHash = internal global i32 -1, align 4
+@hf_efs_ENCRYPTION_CERTIFICATE_HASH_pHash = internal global i32 0, align 4
 @.str.16 = private unnamed_addr constant [6 x i8] c"PHash\00", align 1
 @.str.17 = private unnamed_addr constant [38 x i8] c"efs.ENCRYPTION_CERTIFICATE_HASH.pHash\00", align 1
-@hf_efs_ENCRYPTION_CERTIFICATE_HASH_pUserSid = internal global i32 -1, align 4
+@hf_efs_ENCRYPTION_CERTIFICATE_HASH_pUserSid = internal global i32 0, align 4
 @.str.18 = private unnamed_addr constant [9 x i8] c"PUserSid\00", align 1
 @.str.19 = private unnamed_addr constant [41 x i8] c"efs.ENCRYPTION_CERTIFICATE_HASH.pUserSid\00", align 1
-@hf_efs_ENCRYPTION_CERTIFICATE_TotalLength = internal global i32 -1, align 4
+@hf_efs_ENCRYPTION_CERTIFICATE_TotalLength = internal global i32 0, align 4
 @.str.20 = private unnamed_addr constant [12 x i8] c"TotalLength\00", align 1
 @.str.21 = private unnamed_addr constant [39 x i8] c"efs.ENCRYPTION_CERTIFICATE.TotalLength\00", align 1
-@hf_efs_ENCRYPTION_CERTIFICATE_pCertBlob = internal global i32 -1, align 4
+@hf_efs_ENCRYPTION_CERTIFICATE_pCertBlob = internal global i32 0, align 4
 @.str.22 = private unnamed_addr constant [10 x i8] c"PCertBlob\00", align 1
 @.str.23 = private unnamed_addr constant [37 x i8] c"efs.ENCRYPTION_CERTIFICATE.pCertBlob\00", align 1
-@hf_efs_ENCRYPTION_CERTIFICATE_pUserSid = internal global i32 -1, align 4
+@hf_efs_ENCRYPTION_CERTIFICATE_pUserSid = internal global i32 0, align 4
 @.str.24 = private unnamed_addr constant [36 x i8] c"efs.ENCRYPTION_CERTIFICATE.pUserSid\00", align 1
-@hf_efs_EfsRpcAddUsersToFile_FileName = internal global i32 -1, align 4
+@hf_efs_EfsRpcAddUsersToFile_FileName = internal global i32 0, align 4
 @.str.25 = private unnamed_addr constant [9 x i8] c"FileName\00", align 1
 @.str.26 = private unnamed_addr constant [34 x i8] c"efs.EfsRpcAddUsersToFile.FileName\00", align 1
-@hf_efs_EfsRpcCloseRaw_pvContext = internal global i32 -1, align 4
+@hf_efs_EfsRpcCloseRaw_pvContext = internal global i32 0, align 4
 @.str.27 = private unnamed_addr constant [10 x i8] c"PvContext\00", align 1
 @.str.28 = private unnamed_addr constant [29 x i8] c"efs.EfsRpcCloseRaw.pvContext\00", align 1
-@hf_efs_EfsRpcDecryptFileSrv_FileName = internal global i32 -1, align 4
+@hf_efs_EfsRpcDecryptFileSrv_FileName = internal global i32 0, align 4
 @.str.29 = private unnamed_addr constant [34 x i8] c"efs.EfsRpcDecryptFileSrv.FileName\00", align 1
-@hf_efs_EfsRpcDecryptFileSrv_Reserved = internal global i32 -1, align 4
+@hf_efs_EfsRpcDecryptFileSrv_Reserved = internal global i32 0, align 4
 @.str.30 = private unnamed_addr constant [9 x i8] c"Reserved\00", align 1
 @.str.31 = private unnamed_addr constant [34 x i8] c"efs.EfsRpcDecryptFileSrv.Reserved\00", align 1
-@hf_efs_EfsRpcEncryptFileSrv_Filename = internal global i32 -1, align 4
+@hf_efs_EfsRpcEncryptFileSrv_Filename = internal global i32 0, align 4
 @.str.32 = private unnamed_addr constant [9 x i8] c"Filename\00", align 1
 @.str.33 = private unnamed_addr constant [34 x i8] c"efs.EfsRpcEncryptFileSrv.Filename\00", align 1
-@hf_efs_EfsRpcOpenFileRaw_FileName = internal global i32 -1, align 4
+@hf_efs_EfsRpcOpenFileRaw_FileName = internal global i32 0, align 4
 @.str.34 = private unnamed_addr constant [31 x i8] c"efs.EfsRpcOpenFileRaw.FileName\00", align 1
-@hf_efs_EfsRpcOpenFileRaw_Flags = internal global i32 -1, align 4
+@hf_efs_EfsRpcOpenFileRaw_Flags = internal global i32 0, align 4
 @.str.35 = private unnamed_addr constant [6 x i8] c"Flags\00", align 1
 @.str.36 = private unnamed_addr constant [28 x i8] c"efs.EfsRpcOpenFileRaw.Flags\00", align 1
-@hf_efs_EfsRpcOpenFileRaw_pvContext = internal global i32 -1, align 4
+@hf_efs_EfsRpcOpenFileRaw_pvContext = internal global i32 0, align 4
 @.str.37 = private unnamed_addr constant [32 x i8] c"efs.EfsRpcOpenFileRaw.pvContext\00", align 1
-@hf_efs_EfsRpcQueryRecoveryAgents_FileName = internal global i32 -1, align 4
+@hf_efs_EfsRpcQueryRecoveryAgents_FileName = internal global i32 0, align 4
 @.str.38 = private unnamed_addr constant [39 x i8] c"efs.EfsRpcQueryRecoveryAgents.FileName\00", align 1
-@hf_efs_EfsRpcQueryRecoveryAgents_pRecoveryAgents = internal global i32 -1, align 4
+@hf_efs_EfsRpcQueryRecoveryAgents_pRecoveryAgents = internal global i32 0, align 4
 @.str.39 = private unnamed_addr constant [16 x i8] c"PRecoveryAgents\00", align 1
 @.str.40 = private unnamed_addr constant [46 x i8] c"efs.EfsRpcQueryRecoveryAgents.pRecoveryAgents\00", align 1
-@hf_efs_EfsRpcQueryUsersOnFile_FileName = internal global i32 -1, align 4
+@hf_efs_EfsRpcQueryUsersOnFile_FileName = internal global i32 0, align 4
 @.str.41 = private unnamed_addr constant [36 x i8] c"efs.EfsRpcQueryUsersOnFile.FileName\00", align 1
-@hf_efs_EfsRpcQueryUsersOnFile_pUsers = internal global i32 -1, align 4
+@hf_efs_EfsRpcQueryUsersOnFile_pUsers = internal global i32 0, align 4
 @.str.42 = private unnamed_addr constant [34 x i8] c"efs.EfsRpcQueryUsersOnFile.pUsers\00", align 1
-@hf_efs_EfsRpcReadFileRaw_pvContext = internal global i32 -1, align 4
+@hf_efs_EfsRpcReadFileRaw_pvContext = internal global i32 0, align 4
 @.str.43 = private unnamed_addr constant [32 x i8] c"efs.EfsRpcReadFileRaw.pvContext\00", align 1
-@hf_efs_EfsRpcRemoveUsersFromFile_FileName = internal global i32 -1, align 4
+@hf_efs_EfsRpcRemoveUsersFromFile_FileName = internal global i32 0, align 4
 @.str.44 = private unnamed_addr constant [39 x i8] c"efs.EfsRpcRemoveUsersFromFile.FileName\00", align 1
-@hf_efs_EfsRpcSetFileEncryptionKey_pEncryptionCertificate = internal global i32 -1, align 4
+@hf_efs_EfsRpcSetFileEncryptionKey_pEncryptionCertificate = internal global i32 0, align 4
 @.str.45 = private unnamed_addr constant [23 x i8] c"PEncryptionCertificate\00", align 1
 @.str.46 = private unnamed_addr constant [54 x i8] c"efs.EfsRpcSetFileEncryptionKey.pEncryptionCertificate\00", align 1
-@hf_efs_EfsRpcWriteFileRaw_pvContext = internal global i32 -1, align 4
+@hf_efs_EfsRpcWriteFileRaw_pvContext = internal global i32 0, align 4
 @.str.47 = private unnamed_addr constant [33 x i8] c"efs.EfsRpcWriteFileRaw.pvContext\00", align 1
-@hf_efs_opnum = internal global i32 -1, align 4
+@hf_efs_opnum = internal global i32 0, align 4
 @.str.48 = private unnamed_addr constant [10 x i8] c"Operation\00", align 1
 @.str.49 = private unnamed_addr constant [10 x i8] c"efs.opnum\00", align 1
-@hf_efs_werror = internal global i32 -1, align 4
+@hf_efs_werror = internal global i32 0, align 4
 @.str.50 = private unnamed_addr constant [14 x i8] c"Windows Error\00", align 1
 @.str.51 = private unnamed_addr constant [11 x i8] c"efs.werror\00", align 1
-@WERR_errors = external constant [0 x %struct._value_string], align 8
+@WERR_errors_ext = external global %struct._value_string_ext, align 8
 @proto_register_dcerpc_efs.ett = internal global [6 x ptr] [ptr @ett_dcerpc_efs, ptr @ett_efs_EFS_HASH_BLOB, ptr @ett_efs_ENCRYPTION_CERTIFICATE_HASH, ptr @ett_efs_ENCRYPTION_CERTIFICATE_HASH_LIST, ptr @ett_efs_EFS_CERTIFICATE_BLOB, ptr @ett_efs_ENCRYPTION_CERTIFICATE], align 16
-@ett_dcerpc_efs = internal global i32 -1, align 4
+@ett_dcerpc_efs = internal global i32 0, align 4
 @.str.52 = private unnamed_addr constant [11 x i8] c"EFS (pidl)\00", align 1
 @.str.53 = private unnamed_addr constant [4 x i8] c"EFS\00", align 1
 @.str.54 = private unnamed_addr constant [4 x i8] c"efs\00", align 1
-@proto_dcerpc_efs = internal global i32 -1, align 4
+@proto_dcerpc_efs = internal global i32 0, align 4
 @uuid_dcerpc_efs = internal global %struct._e_guid_t { i32 -964569976, i16 -10160, i16 4560, [8 x i8] c"\8CR\00\C0O\D9\0F~" }, align 4
 @ver_dcerpc_efs = internal global i16 1, align 2
-@efs_dissectors = internal global [15 x %struct._dcerpc_sub_dissector] [%struct._dcerpc_sub_dissector { i16 0, ptr @.str.63, ptr @efs_dissect_EfsRpcOpenFileRaw_request, ptr @efs_dissect_EfsRpcOpenFileRaw_response }, %struct._dcerpc_sub_dissector { i16 1, ptr @.str.64, ptr @efs_dissect_EfsRpcReadFileRaw_request, ptr @efs_dissect_EfsRpcReadFileRaw_response }, %struct._dcerpc_sub_dissector { i16 2, ptr @.str.65, ptr @efs_dissect_EfsRpcWriteFileRaw_request, ptr @efs_dissect_EfsRpcWriteFileRaw_response }, %struct._dcerpc_sub_dissector { i16 3, ptr @.str.66, ptr @efs_dissect_EfsRpcCloseRaw_request, ptr @efs_dissect_EfsRpcCloseRaw_response }, %struct._dcerpc_sub_dissector { i16 4, ptr @.str.67, ptr @efs_dissect_EfsRpcEncryptFileSrv_request, ptr @efs_dissect_EfsRpcEncryptFileSrv_response }, %struct._dcerpc_sub_dissector { i16 5, ptr @.str.68, ptr @efs_dissect_EfsRpcDecryptFileSrv_request, ptr @efs_dissect_EfsRpcDecryptFileSrv_response }, %struct._dcerpc_sub_dissector { i16 6, ptr @.str.69, ptr @efs_dissect_EfsRpcQueryUsersOnFile_request, ptr @efs_dissect_EfsRpcQueryUsersOnFile_response }, %struct._dcerpc_sub_dissector { i16 7, ptr @.str.70, ptr @efs_dissect_EfsRpcQueryRecoveryAgents_request, ptr @efs_dissect_EfsRpcQueryRecoveryAgents_response }, %struct._dcerpc_sub_dissector { i16 8, ptr @.str.71, ptr @efs_dissect_EfsRpcRemoveUsersFromFile_request, ptr @efs_dissect_EfsRpcRemoveUsersFromFile_response }, %struct._dcerpc_sub_dissector { i16 9, ptr @.str.72, ptr @efs_dissect_EfsRpcAddUsersToFile_request, ptr @efs_dissect_EfsRpcAddUsersToFile_response }, %struct._dcerpc_sub_dissector { i16 10, ptr @.str.73, ptr @efs_dissect_EfsRpcSetFileEncryptionKey_request, ptr @efs_dissect_EfsRpcSetFileEncryptionKey_response }, %struct._dcerpc_sub_dissector { i16 11, ptr @.str.74, ptr @efs_dissect_EfsRpcNotSupported_request, ptr @efs_dissect_EfsRpcNotSupported_response }, %struct._dcerpc_sub_dissector { i16 12, ptr @.str.75, ptr @efs_dissect_EfsRpcFileKeyInfo_request, ptr @efs_dissect_EfsRpcFileKeyInfo_response }, %struct._dcerpc_sub_dissector { i16 13, ptr @.str.76, ptr @efs_dissect_EfsRpcDuplicateEncryptionInfoFile_request, ptr @efs_dissect_EfsRpcDuplicateEncryptionInfoFile_response }, %struct._dcerpc_sub_dissector zeroinitializer], align 16
 @.str.55 = private unnamed_addr constant [26 x i8] c"Pointer to PbData (uint8)\00", align 1
 @.str.56 = private unnamed_addr constant [30 x i8] c"Pointer to PUserSid (dom_sid)\00", align 1
 @.str.57 = private unnamed_addr constant [4 x i8] c"SID\00", align 1
@@ -135,14 +134,15 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.74 = private unnamed_addr constant [19 x i8] c"EfsRpcNotSupported\00", align 1
 @.str.75 = private unnamed_addr constant [18 x i8] c"EfsRpcFileKeyInfo\00", align 1
 @.str.76 = private unnamed_addr constant [34 x i8] c"EfsRpcDuplicateEncryptionInfoFile\00", align 1
-@.str.77 = private unnamed_addr constant [12 x i8] c", Error: %s\00", align 1
-@.str.78 = private unnamed_addr constant [25 x i8] c"Unknown DOS error 0x%08x\00", align 1
-@.str.79 = private unnamed_addr constant [37 x i8] c"Pointer to PvContext (policy_handle)\00", align 1
-@.str.80 = private unnamed_addr constant [53 x i8] c"Pointer to PUsers (ENCRYPTION_CERTIFICATE_HASH_LIST)\00", align 1
-@.str.81 = private unnamed_addr constant [62 x i8] c"Pointer to PRecoveryAgents (ENCRYPTION_CERTIFICATE_HASH_LIST)\00", align 1
-@.str.82 = private unnamed_addr constant [59 x i8] c"Pointer to PEncryptionCertificate (ENCRYPTION_CERTIFICATE)\00", align 1
+@efs_dissectors = internal constant [15 x { i16, [6 x i8], ptr, ptr, ptr }] [{ i16, [6 x i8], ptr, ptr, ptr } { i16 0, [6 x i8] zeroinitializer, ptr @.str.63, ptr @efs_dissect_EfsRpcOpenFileRaw_request, ptr @efs_dissect_EfsRpcOpenFileRaw_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 1, [6 x i8] zeroinitializer, ptr @.str.64, ptr @efs_dissect_EfsRpcReadFileRaw_request, ptr @efs_dissect_EfsRpcReadFileRaw_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 2, [6 x i8] zeroinitializer, ptr @.str.65, ptr @efs_dissect_EfsRpcWriteFileRaw_request, ptr @efs_dissect_EfsRpcWriteFileRaw_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 3, [6 x i8] zeroinitializer, ptr @.str.66, ptr @efs_dissect_EfsRpcCloseRaw_request, ptr @efs_dissect_EfsRpcCloseRaw_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 4, [6 x i8] zeroinitializer, ptr @.str.67, ptr @efs_dissect_EfsRpcEncryptFileSrv_request, ptr @efs_dissect_EfsRpcEncryptFileSrv_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 5, [6 x i8] zeroinitializer, ptr @.str.68, ptr @efs_dissect_EfsRpcDecryptFileSrv_request, ptr @efs_dissect_EfsRpcDecryptFileSrv_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 6, [6 x i8] zeroinitializer, ptr @.str.69, ptr @efs_dissect_EfsRpcQueryUsersOnFile_request, ptr @efs_dissect_EfsRpcQueryUsersOnFile_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 7, [6 x i8] zeroinitializer, ptr @.str.70, ptr @efs_dissect_EfsRpcQueryRecoveryAgents_request, ptr @efs_dissect_EfsRpcQueryRecoveryAgents_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 8, [6 x i8] zeroinitializer, ptr @.str.71, ptr @efs_dissect_EfsRpcRemoveUsersFromFile_request, ptr @efs_dissect_EfsRpcRemoveUsersFromFile_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 9, [6 x i8] zeroinitializer, ptr @.str.72, ptr @efs_dissect_EfsRpcAddUsersToFile_request, ptr @efs_dissect_EfsRpcAddUsersToFile_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 10, [6 x i8] zeroinitializer, ptr @.str.73, ptr @efs_dissect_EfsRpcSetFileEncryptionKey_request, ptr @efs_dissect_EfsRpcSetFileEncryptionKey_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 11, [6 x i8] zeroinitializer, ptr @.str.74, ptr @efs_dissect_EfsRpcNotSupported_request, ptr @efs_dissect_EfsRpcNotSupported_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 12, [6 x i8] zeroinitializer, ptr @.str.75, ptr @efs_dissect_EfsRpcFileKeyInfo_request, ptr @efs_dissect_EfsRpcFileKeyInfo_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 13, [6 x i8] zeroinitializer, ptr @.str.76, ptr @efs_dissect_EfsRpcDuplicateEncryptionInfoFile_request, ptr @efs_dissect_EfsRpcDuplicateEncryptionInfoFile_response }, { i16, [6 x i8], ptr, ptr, ptr } zeroinitializer], align 16
+@.str.78 = private unnamed_addr constant [12 x i8] c", Error: %s\00", align 1
+@.str.79 = private unnamed_addr constant [25 x i8] c"Unknown DOS error 0x%08x\00", align 1
+@.str.80 = private unnamed_addr constant [37 x i8] c"Pointer to PvContext (policy_handle)\00", align 1
+@.str.81 = private unnamed_addr constant [53 x i8] c"Pointer to PUsers (ENCRYPTION_CERTIFICATE_HASH_LIST)\00", align 1
+@.str.82 = private unnamed_addr constant [62 x i8] c"Pointer to PRecoveryAgents (ENCRYPTION_CERTIFICATE_HASH_LIST)\00", align 1
+@.str.83 = private unnamed_addr constant [59 x i8] c"Pointer to PEncryptionCertificate (ENCRYPTION_CERTIFICATE)\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @efs_dissect_struct_EFS_HASH_BLOB(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -163,12 +163,15 @@ define hidden i32 @efs_dissect_struct_EFS_HASH_BLOB(ptr noundef %0, i32 noundef 
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 14
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 14
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds %struct._dcerpc_call_value, ptr %22, i32 0, i32 11
+  %23 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %22, i32 0, i32 11
   %24 = load i32, ptr %23, align 8
   %25 = and i32 %24, 1
   %26 = icmp ne i32 %25, 0
@@ -176,9 +179,9 @@ define hidden i32 @efs_dissect_struct_EFS_HASH_BLOB(ptr noundef %0, i32 noundef 
 
 27:                                               ; preds = %8
   %28 = load ptr, ptr %13, align 8
-  %29 = getelementptr inbounds %struct._dcerpc_info, ptr %28, i32 0, i32 4
-  %30 = load i32, ptr %29, align 4
-  %31 = icmp ne i32 %30, 0
+  %29 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %28, i32 0, i32 4
+  %30 = load i8, ptr %29, align 1, !range !6, !noundef !7
+  %31 = trunc i8 %30 to i1
   br i1 %31, label %41, label %32
 
 32:                                               ; preds = %27
@@ -202,9 +205,9 @@ define hidden i32 @efs_dissect_struct_EFS_HASH_BLOB(ptr noundef %0, i32 noundef 
 
 42:                                               ; preds = %8
   %43 = load ptr, ptr %13, align 8
-  %44 = getelementptr inbounds %struct._dcerpc_info, ptr %43, i32 0, i32 4
-  %45 = load i32, ptr %44, align 4
-  %46 = icmp ne i32 %45, 0
+  %44 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %43, i32 0, i32 4
+  %45 = load i8, ptr %44, align 1, !range !6, !noundef !7
+  %46 = trunc i8 %45 to i1
   br i1 %46, label %56, label %47
 
 47:                                               ; preds = %42
@@ -269,9 +272,9 @@ define hidden i32 @efs_dissect_struct_EFS_HASH_BLOB(ptr noundef %0, i32 noundef 
   %88 = sub i32 %86, %87
   call void @proto_item_set_len(ptr noundef %85, i32 noundef %88)
   %89 = load ptr, ptr %13, align 8
-  %90 = getelementptr inbounds %struct._dcerpc_info, ptr %89, i32 0, i32 14
+  %90 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %89, i32 0, i32 14
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds %struct._dcerpc_call_value, ptr %91, i32 0, i32 11
+  %92 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %91, i32 0, i32 11
   %93 = load i32, ptr %92, align 8
   %94 = and i32 %93, 1
   %95 = icmp ne i32 %94, 0
@@ -279,9 +282,9 @@ define hidden i32 @efs_dissect_struct_EFS_HASH_BLOB(ptr noundef %0, i32 noundef 
 
 96:                                               ; preds = %70
   %97 = load ptr, ptr %13, align 8
-  %98 = getelementptr inbounds %struct._dcerpc_info, ptr %97, i32 0, i32 14
+  %98 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %97, i32 0, i32 14
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds %struct._dcerpc_call_value, ptr %99, i32 0, i32 11
+  %100 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %99, i32 0, i32 11
   %101 = load i32, ptr %100, align 8
   %102 = and i32 %101, 1
   %103 = icmp ne i32 %102, 0
@@ -289,9 +292,9 @@ define hidden i32 @efs_dissect_struct_EFS_HASH_BLOB(ptr noundef %0, i32 noundef 
 
 104:                                              ; preds = %96
   %105 = load ptr, ptr %13, align 8
-  %106 = getelementptr inbounds %struct._dcerpc_info, ptr %105, i32 0, i32 4
-  %107 = load i32, ptr %106, align 4
-  %108 = icmp ne i32 %107, 0
+  %106 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %105, i32 0, i32 4
+  %107 = load i8, ptr %106, align 1, !range !6, !noundef !7
+  %108 = trunc i8 %107 to i1
   br i1 %108, label %118, label %109
 
 109:                                              ; preds = %104
@@ -315,9 +318,9 @@ define hidden i32 @efs_dissect_struct_EFS_HASH_BLOB(ptr noundef %0, i32 noundef 
 
 119:                                              ; preds = %96
   %120 = load ptr, ptr %13, align 8
-  %121 = getelementptr inbounds %struct._dcerpc_info, ptr %120, i32 0, i32 4
-  %122 = load i32, ptr %121, align 4
-  %123 = icmp ne i32 %122, 0
+  %121 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %120, i32 0, i32 4
+  %122 = load i8, ptr %121, align 1, !range !6, !noundef !7
+  %123 = trunc i8 %122 to i1
   br i1 %123, label %133, label %124
 
 124:                                              ; preds = %119
@@ -344,14 +347,22 @@ define hidden i32 @efs_dissect_struct_EFS_HASH_BLOB(ptr noundef %0, i32 noundef 
 
 135:                                              ; preds = %134, %70
   %136 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %136
 }
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_element_EFS_HASH_BLOB_cbData(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -378,7 +389,7 @@ define internal i32 @efs_dissect_element_EFS_HASH_BLOB_cbData(ptr noundef %0, i3
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_element_EFS_HASH_BLOB_pbData(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -405,9 +416,13 @@ define internal i32 @efs_dissect_element_EFS_HASH_BLOB_pbData(ptr noundef %0, i3
   ret i32 %21
 }
 
-declare void @proto_item_set_len(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_set_len(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @efs_dissect_struct_ENCRYPTION_CERTIFICATE_HASH(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -428,12 +443,15 @@ define hidden i32 @efs_dissect_struct_ENCRYPTION_CERTIFICATE_HASH(ptr noundef %0
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 14
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 14
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds %struct._dcerpc_call_value, ptr %22, i32 0, i32 11
+  %23 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %22, i32 0, i32 11
   %24 = load i32, ptr %23, align 8
   %25 = and i32 %24, 1
   %26 = icmp ne i32 %25, 0
@@ -441,9 +459,9 @@ define hidden i32 @efs_dissect_struct_ENCRYPTION_CERTIFICATE_HASH(ptr noundef %0
 
 27:                                               ; preds = %8
   %28 = load ptr, ptr %13, align 8
-  %29 = getelementptr inbounds %struct._dcerpc_info, ptr %28, i32 0, i32 4
-  %30 = load i32, ptr %29, align 4
-  %31 = icmp ne i32 %30, 0
+  %29 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %28, i32 0, i32 4
+  %30 = load i8, ptr %29, align 1, !range !6, !noundef !7
+  %31 = trunc i8 %30 to i1
   br i1 %31, label %41, label %32
 
 32:                                               ; preds = %27
@@ -467,9 +485,9 @@ define hidden i32 @efs_dissect_struct_ENCRYPTION_CERTIFICATE_HASH(ptr noundef %0
 
 42:                                               ; preds = %8
   %43 = load ptr, ptr %13, align 8
-  %44 = getelementptr inbounds %struct._dcerpc_info, ptr %43, i32 0, i32 4
-  %45 = load i32, ptr %44, align 4
-  %46 = icmp ne i32 %45, 0
+  %44 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %43, i32 0, i32 4
+  %45 = load i8, ptr %44, align 1, !range !6, !noundef !7
+  %46 = trunc i8 %45 to i1
   br i1 %46, label %56, label %47
 
 47:                                               ; preds = %42
@@ -550,9 +568,9 @@ define hidden i32 @efs_dissect_struct_ENCRYPTION_CERTIFICATE_HASH(ptr noundef %0
   %102 = sub i32 %100, %101
   call void @proto_item_set_len(ptr noundef %99, i32 noundef %102)
   %103 = load ptr, ptr %13, align 8
-  %104 = getelementptr inbounds %struct._dcerpc_info, ptr %103, i32 0, i32 14
+  %104 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %103, i32 0, i32 14
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds %struct._dcerpc_call_value, ptr %105, i32 0, i32 11
+  %106 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %105, i32 0, i32 11
   %107 = load i32, ptr %106, align 8
   %108 = and i32 %107, 1
   %109 = icmp ne i32 %108, 0
@@ -560,9 +578,9 @@ define hidden i32 @efs_dissect_struct_ENCRYPTION_CERTIFICATE_HASH(ptr noundef %0
 
 110:                                              ; preds = %70
   %111 = load ptr, ptr %13, align 8
-  %112 = getelementptr inbounds %struct._dcerpc_info, ptr %111, i32 0, i32 14
+  %112 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %111, i32 0, i32 14
   %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds %struct._dcerpc_call_value, ptr %113, i32 0, i32 11
+  %114 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %113, i32 0, i32 11
   %115 = load i32, ptr %114, align 8
   %116 = and i32 %115, 1
   %117 = icmp ne i32 %116, 0
@@ -570,9 +588,9 @@ define hidden i32 @efs_dissect_struct_ENCRYPTION_CERTIFICATE_HASH(ptr noundef %0
 
 118:                                              ; preds = %110
   %119 = load ptr, ptr %13, align 8
-  %120 = getelementptr inbounds %struct._dcerpc_info, ptr %119, i32 0, i32 4
-  %121 = load i32, ptr %120, align 4
-  %122 = icmp ne i32 %121, 0
+  %120 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %119, i32 0, i32 4
+  %121 = load i8, ptr %120, align 1, !range !6, !noundef !7
+  %122 = trunc i8 %121 to i1
   br i1 %122, label %132, label %123
 
 123:                                              ; preds = %118
@@ -596,9 +614,9 @@ define hidden i32 @efs_dissect_struct_ENCRYPTION_CERTIFICATE_HASH(ptr noundef %0
 
 133:                                              ; preds = %110
   %134 = load ptr, ptr %13, align 8
-  %135 = getelementptr inbounds %struct._dcerpc_info, ptr %134, i32 0, i32 4
-  %136 = load i32, ptr %135, align 4
-  %137 = icmp ne i32 %136, 0
+  %135 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %134, i32 0, i32 4
+  %136 = load i8, ptr %135, align 1, !range !6, !noundef !7
+  %137 = trunc i8 %136 to i1
   br i1 %137, label %147, label %138
 
 138:                                              ; preds = %133
@@ -625,10 +643,13 @@ define hidden i32 @efs_dissect_struct_ENCRYPTION_CERTIFICATE_HASH(ptr noundef %0
 
 149:                                              ; preds = %148, %70
   %150 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %150
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_element_ENCRYPTION_CERTIFICATE_HASH_cbTotalLength(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -655,7 +676,7 @@ define internal i32 @efs_dissect_element_ENCRYPTION_CERTIFICATE_HASH_cbTotalLeng
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_element_ENCRYPTION_CERTIFICATE_HASH_pUserSid(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -682,7 +703,7 @@ define internal i32 @efs_dissect_element_ENCRYPTION_CERTIFICATE_HASH_pUserSid(pt
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_element_ENCRYPTION_CERTIFICATE_HASH_pHash(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -709,7 +730,7 @@ define internal i32 @efs_dissect_element_ENCRYPTION_CERTIFICATE_HASH_pHash(ptr n
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_element_ENCRYPTION_CERTIFICATE_HASH_lpDisplayInformation(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -736,7 +757,7 @@ define internal i32 @efs_dissect_element_ENCRYPTION_CERTIFICATE_HASH_lpDisplayIn
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @efs_dissect_struct_ENCRYPTION_CERTIFICATE_HASH_LIST(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -757,12 +778,15 @@ define hidden i32 @efs_dissect_struct_ENCRYPTION_CERTIFICATE_HASH_LIST(ptr nound
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 14
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 14
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds %struct._dcerpc_call_value, ptr %22, i32 0, i32 11
+  %23 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %22, i32 0, i32 11
   %24 = load i32, ptr %23, align 8
   %25 = and i32 %24, 1
   %26 = icmp ne i32 %25, 0
@@ -770,9 +794,9 @@ define hidden i32 @efs_dissect_struct_ENCRYPTION_CERTIFICATE_HASH_LIST(ptr nound
 
 27:                                               ; preds = %8
   %28 = load ptr, ptr %13, align 8
-  %29 = getelementptr inbounds %struct._dcerpc_info, ptr %28, i32 0, i32 4
-  %30 = load i32, ptr %29, align 4
-  %31 = icmp ne i32 %30, 0
+  %29 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %28, i32 0, i32 4
+  %30 = load i8, ptr %29, align 1, !range !6, !noundef !7
+  %31 = trunc i8 %30 to i1
   br i1 %31, label %41, label %32
 
 32:                                               ; preds = %27
@@ -796,9 +820,9 @@ define hidden i32 @efs_dissect_struct_ENCRYPTION_CERTIFICATE_HASH_LIST(ptr nound
 
 42:                                               ; preds = %8
   %43 = load ptr, ptr %13, align 8
-  %44 = getelementptr inbounds %struct._dcerpc_info, ptr %43, i32 0, i32 4
-  %45 = load i32, ptr %44, align 4
-  %46 = icmp ne i32 %45, 0
+  %44 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %43, i32 0, i32 4
+  %45 = load i8, ptr %44, align 1, !range !6, !noundef !7
+  %46 = trunc i8 %45 to i1
   br i1 %46, label %56, label %47
 
 47:                                               ; preds = %42
@@ -863,9 +887,9 @@ define hidden i32 @efs_dissect_struct_ENCRYPTION_CERTIFICATE_HASH_LIST(ptr nound
   %88 = sub i32 %86, %87
   call void @proto_item_set_len(ptr noundef %85, i32 noundef %88)
   %89 = load ptr, ptr %13, align 8
-  %90 = getelementptr inbounds %struct._dcerpc_info, ptr %89, i32 0, i32 14
+  %90 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %89, i32 0, i32 14
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds %struct._dcerpc_call_value, ptr %91, i32 0, i32 11
+  %92 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %91, i32 0, i32 11
   %93 = load i32, ptr %92, align 8
   %94 = and i32 %93, 1
   %95 = icmp ne i32 %94, 0
@@ -873,9 +897,9 @@ define hidden i32 @efs_dissect_struct_ENCRYPTION_CERTIFICATE_HASH_LIST(ptr nound
 
 96:                                               ; preds = %70
   %97 = load ptr, ptr %13, align 8
-  %98 = getelementptr inbounds %struct._dcerpc_info, ptr %97, i32 0, i32 14
+  %98 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %97, i32 0, i32 14
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds %struct._dcerpc_call_value, ptr %99, i32 0, i32 11
+  %100 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %99, i32 0, i32 11
   %101 = load i32, ptr %100, align 8
   %102 = and i32 %101, 1
   %103 = icmp ne i32 %102, 0
@@ -883,9 +907,9 @@ define hidden i32 @efs_dissect_struct_ENCRYPTION_CERTIFICATE_HASH_LIST(ptr nound
 
 104:                                              ; preds = %96
   %105 = load ptr, ptr %13, align 8
-  %106 = getelementptr inbounds %struct._dcerpc_info, ptr %105, i32 0, i32 4
-  %107 = load i32, ptr %106, align 4
-  %108 = icmp ne i32 %107, 0
+  %106 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %105, i32 0, i32 4
+  %107 = load i8, ptr %106, align 1, !range !6, !noundef !7
+  %108 = trunc i8 %107 to i1
   br i1 %108, label %118, label %109
 
 109:                                              ; preds = %104
@@ -909,9 +933,9 @@ define hidden i32 @efs_dissect_struct_ENCRYPTION_CERTIFICATE_HASH_LIST(ptr nound
 
 119:                                              ; preds = %96
   %120 = load ptr, ptr %13, align 8
-  %121 = getelementptr inbounds %struct._dcerpc_info, ptr %120, i32 0, i32 4
-  %122 = load i32, ptr %121, align 4
-  %123 = icmp ne i32 %122, 0
+  %121 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %120, i32 0, i32 4
+  %122 = load i8, ptr %121, align 1, !range !6, !noundef !7
+  %123 = trunc i8 %122 to i1
   br i1 %123, label %133, label %124
 
 124:                                              ; preds = %119
@@ -938,10 +962,13 @@ define hidden i32 @efs_dissect_struct_ENCRYPTION_CERTIFICATE_HASH_LIST(ptr nound
 
 135:                                              ; preds = %134, %70
   %136 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %136
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_element_ENCRYPTION_CERTIFICATE_HASH_LIST_nCert_Hash(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -968,7 +995,7 @@ define internal i32 @efs_dissect_element_ENCRYPTION_CERTIFICATE_HASH_LIST_nCert_
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_element_ENCRYPTION_CERTIFICATE_HASH_LIST_pUsers(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -994,7 +1021,7 @@ define internal i32 @efs_dissect_element_ENCRYPTION_CERTIFICATE_HASH_LIST_pUsers
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @efs_dissect_struct_EFS_CERTIFICATE_BLOB(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -1015,12 +1042,15 @@ define hidden i32 @efs_dissect_struct_EFS_CERTIFICATE_BLOB(ptr noundef %0, i32 n
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 14
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 14
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds %struct._dcerpc_call_value, ptr %22, i32 0, i32 11
+  %23 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %22, i32 0, i32 11
   %24 = load i32, ptr %23, align 8
   %25 = and i32 %24, 1
   %26 = icmp ne i32 %25, 0
@@ -1028,9 +1058,9 @@ define hidden i32 @efs_dissect_struct_EFS_CERTIFICATE_BLOB(ptr noundef %0, i32 n
 
 27:                                               ; preds = %8
   %28 = load ptr, ptr %13, align 8
-  %29 = getelementptr inbounds %struct._dcerpc_info, ptr %28, i32 0, i32 4
-  %30 = load i32, ptr %29, align 4
-  %31 = icmp ne i32 %30, 0
+  %29 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %28, i32 0, i32 4
+  %30 = load i8, ptr %29, align 1, !range !6, !noundef !7
+  %31 = trunc i8 %30 to i1
   br i1 %31, label %41, label %32
 
 32:                                               ; preds = %27
@@ -1054,9 +1084,9 @@ define hidden i32 @efs_dissect_struct_EFS_CERTIFICATE_BLOB(ptr noundef %0, i32 n
 
 42:                                               ; preds = %8
   %43 = load ptr, ptr %13, align 8
-  %44 = getelementptr inbounds %struct._dcerpc_info, ptr %43, i32 0, i32 4
-  %45 = load i32, ptr %44, align 4
-  %46 = icmp ne i32 %45, 0
+  %44 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %43, i32 0, i32 4
+  %45 = load i8, ptr %44, align 1, !range !6, !noundef !7
+  %46 = trunc i8 %45 to i1
   br i1 %46, label %56, label %47
 
 47:                                               ; preds = %42
@@ -1129,9 +1159,9 @@ define hidden i32 @efs_dissect_struct_EFS_CERTIFICATE_BLOB(ptr noundef %0, i32 n
   %95 = sub i32 %93, %94
   call void @proto_item_set_len(ptr noundef %92, i32 noundef %95)
   %96 = load ptr, ptr %13, align 8
-  %97 = getelementptr inbounds %struct._dcerpc_info, ptr %96, i32 0, i32 14
+  %97 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %96, i32 0, i32 14
   %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds %struct._dcerpc_call_value, ptr %98, i32 0, i32 11
+  %99 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %98, i32 0, i32 11
   %100 = load i32, ptr %99, align 8
   %101 = and i32 %100, 1
   %102 = icmp ne i32 %101, 0
@@ -1139,9 +1169,9 @@ define hidden i32 @efs_dissect_struct_EFS_CERTIFICATE_BLOB(ptr noundef %0, i32 n
 
 103:                                              ; preds = %70
   %104 = load ptr, ptr %13, align 8
-  %105 = getelementptr inbounds %struct._dcerpc_info, ptr %104, i32 0, i32 14
+  %105 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %104, i32 0, i32 14
   %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds %struct._dcerpc_call_value, ptr %106, i32 0, i32 11
+  %107 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %106, i32 0, i32 11
   %108 = load i32, ptr %107, align 8
   %109 = and i32 %108, 1
   %110 = icmp ne i32 %109, 0
@@ -1149,9 +1179,9 @@ define hidden i32 @efs_dissect_struct_EFS_CERTIFICATE_BLOB(ptr noundef %0, i32 n
 
 111:                                              ; preds = %103
   %112 = load ptr, ptr %13, align 8
-  %113 = getelementptr inbounds %struct._dcerpc_info, ptr %112, i32 0, i32 4
-  %114 = load i32, ptr %113, align 4
-  %115 = icmp ne i32 %114, 0
+  %113 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %112, i32 0, i32 4
+  %114 = load i8, ptr %113, align 1, !range !6, !noundef !7
+  %115 = trunc i8 %114 to i1
   br i1 %115, label %125, label %116
 
 116:                                              ; preds = %111
@@ -1175,9 +1205,9 @@ define hidden i32 @efs_dissect_struct_EFS_CERTIFICATE_BLOB(ptr noundef %0, i32 n
 
 126:                                              ; preds = %103
   %127 = load ptr, ptr %13, align 8
-  %128 = getelementptr inbounds %struct._dcerpc_info, ptr %127, i32 0, i32 4
-  %129 = load i32, ptr %128, align 4
-  %130 = icmp ne i32 %129, 0
+  %128 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %127, i32 0, i32 4
+  %129 = load i8, ptr %128, align 1, !range !6, !noundef !7
+  %130 = trunc i8 %129 to i1
   br i1 %130, label %140, label %131
 
 131:                                              ; preds = %126
@@ -1204,10 +1234,13 @@ define hidden i32 @efs_dissect_struct_EFS_CERTIFICATE_BLOB(ptr noundef %0, i32 n
 
 142:                                              ; preds = %141, %70
   %143 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %143
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_element_EFS_CERTIFICATE_BLOB_dwCertEncodingType(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1234,7 +1267,7 @@ define internal i32 @efs_dissect_element_EFS_CERTIFICATE_BLOB_dwCertEncodingType
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_element_EFS_CERTIFICATE_BLOB_cbData(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1261,7 +1294,7 @@ define internal i32 @efs_dissect_element_EFS_CERTIFICATE_BLOB_cbData(ptr noundef
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_element_EFS_CERTIFICATE_BLOB_pbData(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1288,7 +1321,7 @@ define internal i32 @efs_dissect_element_EFS_CERTIFICATE_BLOB_pbData(ptr noundef
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @efs_dissect_struct_ENCRYPTION_CERTIFICATE(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -1309,12 +1342,15 @@ define hidden i32 @efs_dissect_struct_ENCRYPTION_CERTIFICATE(ptr noundef %0, i32
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 14
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 14
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds %struct._dcerpc_call_value, ptr %22, i32 0, i32 11
+  %23 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %22, i32 0, i32 11
   %24 = load i32, ptr %23, align 8
   %25 = and i32 %24, 1
   %26 = icmp ne i32 %25, 0
@@ -1322,9 +1358,9 @@ define hidden i32 @efs_dissect_struct_ENCRYPTION_CERTIFICATE(ptr noundef %0, i32
 
 27:                                               ; preds = %8
   %28 = load ptr, ptr %13, align 8
-  %29 = getelementptr inbounds %struct._dcerpc_info, ptr %28, i32 0, i32 4
-  %30 = load i32, ptr %29, align 4
-  %31 = icmp ne i32 %30, 0
+  %29 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %28, i32 0, i32 4
+  %30 = load i8, ptr %29, align 1, !range !6, !noundef !7
+  %31 = trunc i8 %30 to i1
   br i1 %31, label %41, label %32
 
 32:                                               ; preds = %27
@@ -1348,9 +1384,9 @@ define hidden i32 @efs_dissect_struct_ENCRYPTION_CERTIFICATE(ptr noundef %0, i32
 
 42:                                               ; preds = %8
   %43 = load ptr, ptr %13, align 8
-  %44 = getelementptr inbounds %struct._dcerpc_info, ptr %43, i32 0, i32 4
-  %45 = load i32, ptr %44, align 4
-  %46 = icmp ne i32 %45, 0
+  %44 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %43, i32 0, i32 4
+  %45 = load i8, ptr %44, align 1, !range !6, !noundef !7
+  %46 = trunc i8 %45 to i1
   br i1 %46, label %56, label %47
 
 47:                                               ; preds = %42
@@ -1423,9 +1459,9 @@ define hidden i32 @efs_dissect_struct_ENCRYPTION_CERTIFICATE(ptr noundef %0, i32
   %95 = sub i32 %93, %94
   call void @proto_item_set_len(ptr noundef %92, i32 noundef %95)
   %96 = load ptr, ptr %13, align 8
-  %97 = getelementptr inbounds %struct._dcerpc_info, ptr %96, i32 0, i32 14
+  %97 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %96, i32 0, i32 14
   %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds %struct._dcerpc_call_value, ptr %98, i32 0, i32 11
+  %99 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %98, i32 0, i32 11
   %100 = load i32, ptr %99, align 8
   %101 = and i32 %100, 1
   %102 = icmp ne i32 %101, 0
@@ -1433,9 +1469,9 @@ define hidden i32 @efs_dissect_struct_ENCRYPTION_CERTIFICATE(ptr noundef %0, i32
 
 103:                                              ; preds = %70
   %104 = load ptr, ptr %13, align 8
-  %105 = getelementptr inbounds %struct._dcerpc_info, ptr %104, i32 0, i32 14
+  %105 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %104, i32 0, i32 14
   %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds %struct._dcerpc_call_value, ptr %106, i32 0, i32 11
+  %107 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %106, i32 0, i32 11
   %108 = load i32, ptr %107, align 8
   %109 = and i32 %108, 1
   %110 = icmp ne i32 %109, 0
@@ -1443,9 +1479,9 @@ define hidden i32 @efs_dissect_struct_ENCRYPTION_CERTIFICATE(ptr noundef %0, i32
 
 111:                                              ; preds = %103
   %112 = load ptr, ptr %13, align 8
-  %113 = getelementptr inbounds %struct._dcerpc_info, ptr %112, i32 0, i32 4
-  %114 = load i32, ptr %113, align 4
-  %115 = icmp ne i32 %114, 0
+  %113 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %112, i32 0, i32 4
+  %114 = load i8, ptr %113, align 1, !range !6, !noundef !7
+  %115 = trunc i8 %114 to i1
   br i1 %115, label %125, label %116
 
 116:                                              ; preds = %111
@@ -1469,9 +1505,9 @@ define hidden i32 @efs_dissect_struct_ENCRYPTION_CERTIFICATE(ptr noundef %0, i32
 
 126:                                              ; preds = %103
   %127 = load ptr, ptr %13, align 8
-  %128 = getelementptr inbounds %struct._dcerpc_info, ptr %127, i32 0, i32 4
-  %129 = load i32, ptr %128, align 4
-  %130 = icmp ne i32 %129, 0
+  %128 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %127, i32 0, i32 4
+  %129 = load i8, ptr %128, align 1, !range !6, !noundef !7
+  %130 = trunc i8 %129 to i1
   br i1 %130, label %140, label %131
 
 131:                                              ; preds = %126
@@ -1498,10 +1534,13 @@ define hidden i32 @efs_dissect_struct_ENCRYPTION_CERTIFICATE(ptr noundef %0, i32
 
 142:                                              ; preds = %141, %70
   %143 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %143
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_element_ENCRYPTION_CERTIFICATE_TotalLength(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1528,7 +1567,7 @@ define internal i32 @efs_dissect_element_ENCRYPTION_CERTIFICATE_TotalLength(ptr 
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_element_ENCRYPTION_CERTIFICATE_pUserSid(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1555,7 +1594,7 @@ define internal i32 @efs_dissect_element_ENCRYPTION_CERTIFICATE_pUserSid(ptr nou
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_element_ENCRYPTION_CERTIFICATE_pCertBlob(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1582,7 +1621,7 @@ define internal i32 @efs_dissect_element_ENCRYPTION_CERTIFICATE_pCertBlob(ptr no
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_dcerpc_efs() #0 {
   %1 = call i32 @proto_register_protocol(ptr noundef @.str.52, ptr noundef @.str.53, ptr noundef @.str.54)
   store i32 %1, ptr @proto_dcerpc_efs, align 4
@@ -1592,13 +1631,16 @@ define hidden void @proto_register_dcerpc_efs() #0 {
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_dcerpc_efs() #0 {
   %1 = load i32, ptr @proto_dcerpc_efs, align 4
   %2 = load i32, ptr @ett_dcerpc_efs, align 4
@@ -1608,13 +1650,16 @@ define hidden void @proto_reg_handoff_dcerpc_efs() #0 {
   ret void
 }
 
-declare void @dcerpc_init_uuid(i32 noundef, i32 noundef, ptr noundef, i16 noundef zeroext, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dcerpc_init_uuid(i32 noundef, i32 noundef, ptr noundef, i16 noundef zeroext, ptr noundef, i32 noundef) #2
 
-declare i32 @PIDL_dissect_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @PIDL_dissect_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-declare i32 @dissect_ndr_embedded_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_embedded_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_element_EFS_HASH_BLOB_pbData_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1640,9 +1685,10 @@ define internal i32 @efs_dissect_element_EFS_HASH_BLOB_pbData_(ptr noundef %0, i
   ret i32 %20
 }
 
-declare i32 @dissect_ndr_ucarray(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_ucarray(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_element_EFS_HASH_BLOB_pbData__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1669,9 +1715,10 @@ define internal i32 @efs_dissect_element_EFS_HASH_BLOB_pbData__(ptr noundef %0, 
   ret i32 %21
 }
 
-declare i32 @PIDL_dissect_uint8(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @PIDL_dissect_uint8(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_element_ENCRYPTION_CERTIFICATE_HASH_pUserSid_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1698,7 +1745,7 @@ define internal i32 @efs_dissect_element_ENCRYPTION_CERTIFICATE_HASH_pUserSid_(p
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_struct_dom_sid(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
@@ -1718,9 +1765,9 @@ define internal i32 @efs_dissect_struct_dom_sid(ptr noundef %0, i32 noundef %1, 
   store i32 %6, ptr %16, align 4
   store i32 %7, ptr %17, align 4
   %18 = load ptr, ptr %14, align 8
-  %19 = getelementptr inbounds %struct._dcerpc_info, ptr %18, i32 0, i32 4
-  %20 = load i32, ptr %19, align 4
-  %21 = icmp ne i32 %20, 0
+  %19 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %18, i32 0, i32 4
+  %20 = load i8, ptr %19, align 1, !range !6, !noundef !7
+  %21 = trunc i8 %20 to i1
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %8
@@ -1743,9 +1790,10 @@ define internal i32 @efs_dissect_struct_dom_sid(ptr noundef %0, i32 noundef %1, 
   ret i32 %31
 }
 
-declare i32 @dissect_nt_sid(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_nt_sid(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_element_ENCRYPTION_CERTIFICATE_HASH_pHash_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1772,7 +1820,7 @@ define internal i32 @efs_dissect_element_ENCRYPTION_CERTIFICATE_HASH_pHash_(ptr 
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_element_ENCRYPTION_CERTIFICATE_HASH_lpDisplayInformation_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1787,6 +1835,7 @@ define internal i32 @efs_dissect_element_ENCRYPTION_CERTIFICATE_HASH_lpDisplayIn
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
   %16 = load ptr, ptr %9, align 8
@@ -1794,20 +1843,23 @@ define internal i32 @efs_dissect_element_ENCRYPTION_CERTIFICATE_HASH_lpDisplayIn
   %18 = load ptr, ptr %11, align 8
   %19 = load ptr, ptr %12, align 8
   %20 = load i32, ptr @hf_efs_ENCRYPTION_CERTIFICATE_HASH_lpDisplayInformation, align 4
-  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i32 noundef 0, ptr noundef %13)
+  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i1 noundef zeroext false, ptr noundef %13)
   store i32 %21, ptr %8, align 4
   %22 = load ptr, ptr %10, align 8
   %23 = load ptr, ptr %13, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.60, ptr noundef %23)
   %24 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
   ret i32 %24
 }
 
-declare i32 @dissect_ndr_cvstring(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_cvstring(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef) #2
 
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_element_ENCRYPTION_CERTIFICATE_HASH_LIST_pUsers_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1834,7 +1886,7 @@ define internal i32 @efs_dissect_element_ENCRYPTION_CERTIFICATE_HASH_LIST_pUsers
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_element_ENCRYPTION_CERTIFICATE_HASH_LIST_pUsers__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1861,7 +1913,7 @@ define internal i32 @efs_dissect_element_ENCRYPTION_CERTIFICATE_HASH_LIST_pUsers
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_element_EFS_CERTIFICATE_BLOB_pbData_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1887,7 +1939,7 @@ define internal i32 @efs_dissect_element_EFS_CERTIFICATE_BLOB_pbData_(ptr nounde
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_element_EFS_CERTIFICATE_BLOB_pbData__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1914,7 +1966,7 @@ define internal i32 @efs_dissect_element_EFS_CERTIFICATE_BLOB_pbData__(ptr nound
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_element_ENCRYPTION_CERTIFICATE_pUserSid_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1941,7 +1993,7 @@ define internal i32 @efs_dissect_element_ENCRYPTION_CERTIFICATE_pUserSid_(ptr no
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_element_ENCRYPTION_CERTIFICATE_pCertBlob_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1968,7 +2020,7 @@ define internal i32 @efs_dissect_element_ENCRYPTION_CERTIFICATE_pCertBlob_(ptr n
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_EfsRpcOpenFileRaw_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1983,7 +2035,7 @@ define internal i32 @efs_dissect_EfsRpcOpenFileRaw_request(ptr noundef %0, i32 n
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.63, ptr %14, align 8
   %15 = load ptr, ptr %7, align 8
   %16 = load i32, ptr %8, align 4
@@ -2019,7 +2071,7 @@ define internal i32 @efs_dissect_EfsRpcOpenFileRaw_request(ptr noundef %0, i32 n
   ret i32 %41
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_EfsRpcOpenFileRaw_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2034,8 +2086,9 @@ define internal i32 @efs_dissect_EfsRpcOpenFileRaw_response(ptr noundef %0, i32 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.63, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -2067,19 +2120,20 @@ define internal i32 @efs_dissect_EfsRpcOpenFileRaw_response(ptr noundef %0, i32 
 
 39:                                               ; preds = %6
   %40 = load ptr, ptr %9, align 8
-  %41 = getelementptr inbounds %struct._packet_info, ptr %40, i32 0, i32 1
+  %41 = getelementptr inbounds nuw %struct._packet_info, ptr %40, i32 0, i32 1
   %42 = load ptr, ptr %41, align 8
   %43 = load i32, ptr %13, align 4
-  %44 = call ptr @val_to_str(i32 noundef %43, ptr noundef @WERR_errors, ptr noundef @.str.78)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %42, i32 noundef 25, ptr noundef @.str.77, ptr noundef %44)
+  %44 = call ptr @val_to_str_ext(i32 noundef %43, ptr noundef @WERR_errors_ext, ptr noundef @.str.79)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %42, i32 noundef 25, ptr noundef @.str.78, ptr noundef %44)
   br label %45
 
 45:                                               ; preds = %39, %6
   %46 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %46
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_EfsRpcReadFileRaw_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2094,7 +2148,7 @@ define internal i32 @efs_dissect_EfsRpcReadFileRaw_request(ptr noundef %0, i32 n
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.64, ptr %14, align 8
   %15 = load ptr, ptr %7, align 8
   %16 = load i32, ptr %8, align 4
@@ -2115,7 +2169,7 @@ define internal i32 @efs_dissect_EfsRpcReadFileRaw_request(ptr noundef %0, i32 n
   ret i32 %28
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_EfsRpcReadFileRaw_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2130,8 +2184,9 @@ define internal i32 @efs_dissect_EfsRpcReadFileRaw_response(ptr noundef %0, i32 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.64, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -2148,19 +2203,20 @@ define internal i32 @efs_dissect_EfsRpcReadFileRaw_response(ptr noundef %0, i32 
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @WERR_errors, ptr noundef @.str.78)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.77, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @WERR_errors_ext, ptr noundef @.str.79)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.78, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_EfsRpcWriteFileRaw_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2175,7 +2231,7 @@ define internal i32 @efs_dissect_EfsRpcWriteFileRaw_request(ptr noundef %0, i32 
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.65, ptr %14, align 8
   %15 = load ptr, ptr %7, align 8
   %16 = load i32, ptr %8, align 4
@@ -2196,7 +2252,7 @@ define internal i32 @efs_dissect_EfsRpcWriteFileRaw_request(ptr noundef %0, i32 
   ret i32 %28
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_EfsRpcWriteFileRaw_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2211,8 +2267,9 @@ define internal i32 @efs_dissect_EfsRpcWriteFileRaw_response(ptr noundef %0, i32
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.65, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -2229,19 +2286,20 @@ define internal i32 @efs_dissect_EfsRpcWriteFileRaw_response(ptr noundef %0, i32
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @WERR_errors, ptr noundef @.str.78)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.77, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @WERR_errors_ext, ptr noundef @.str.79)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.78, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_EfsRpcCloseRaw_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2256,7 +2314,7 @@ define internal i32 @efs_dissect_EfsRpcCloseRaw_request(ptr noundef %0, i32 noun
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.66, ptr %14, align 8
   %15 = load ptr, ptr %7, align 8
   %16 = load i32, ptr %8, align 4
@@ -2277,7 +2335,7 @@ define internal i32 @efs_dissect_EfsRpcCloseRaw_request(ptr noundef %0, i32 noun
   ret i32 %28
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_EfsRpcCloseRaw_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2292,7 +2350,7 @@ define internal i32 @efs_dissect_EfsRpcCloseRaw_response(ptr noundef %0, i32 nou
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.66, ptr %14, align 8
   %15 = load ptr, ptr %7, align 8
   %16 = load i32, ptr %8, align 4
@@ -2313,7 +2371,7 @@ define internal i32 @efs_dissect_EfsRpcCloseRaw_response(ptr noundef %0, i32 nou
   ret i32 %28
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_EfsRpcEncryptFileSrv_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2328,7 +2386,7 @@ define internal i32 @efs_dissect_EfsRpcEncryptFileSrv_request(ptr noundef %0, i3
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.67, ptr %14, align 8
   %15 = load ptr, ptr %7, align 8
   %16 = load i32, ptr %8, align 4
@@ -2349,7 +2407,7 @@ define internal i32 @efs_dissect_EfsRpcEncryptFileSrv_request(ptr noundef %0, i3
   ret i32 %28
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_EfsRpcEncryptFileSrv_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2364,8 +2422,9 @@ define internal i32 @efs_dissect_EfsRpcEncryptFileSrv_response(ptr noundef %0, i
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.67, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -2382,19 +2441,20 @@ define internal i32 @efs_dissect_EfsRpcEncryptFileSrv_response(ptr noundef %0, i
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @WERR_errors, ptr noundef @.str.78)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.77, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @WERR_errors_ext, ptr noundef @.str.79)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.78, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_EfsRpcDecryptFileSrv_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2409,7 +2469,7 @@ define internal i32 @efs_dissect_EfsRpcDecryptFileSrv_request(ptr noundef %0, i3
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.68, ptr %14, align 8
   %15 = load ptr, ptr %7, align 8
   %16 = load i32, ptr %8, align 4
@@ -2445,7 +2505,7 @@ define internal i32 @efs_dissect_EfsRpcDecryptFileSrv_request(ptr noundef %0, i3
   ret i32 %41
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_EfsRpcDecryptFileSrv_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2460,8 +2520,9 @@ define internal i32 @efs_dissect_EfsRpcDecryptFileSrv_response(ptr noundef %0, i
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.68, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -2478,19 +2539,20 @@ define internal i32 @efs_dissect_EfsRpcDecryptFileSrv_response(ptr noundef %0, i
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @WERR_errors, ptr noundef @.str.78)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.77, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @WERR_errors_ext, ptr noundef @.str.79)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.78, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_EfsRpcQueryUsersOnFile_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2505,7 +2567,7 @@ define internal i32 @efs_dissect_EfsRpcQueryUsersOnFile_request(ptr noundef %0, 
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.69, ptr %14, align 8
   %15 = load ptr, ptr %7, align 8
   %16 = load i32, ptr %8, align 4
@@ -2526,7 +2588,7 @@ define internal i32 @efs_dissect_EfsRpcQueryUsersOnFile_request(ptr noundef %0, 
   ret i32 %28
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_EfsRpcQueryUsersOnFile_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2541,8 +2603,9 @@ define internal i32 @efs_dissect_EfsRpcQueryUsersOnFile_response(ptr noundef %0,
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.69, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -2574,19 +2637,20 @@ define internal i32 @efs_dissect_EfsRpcQueryUsersOnFile_response(ptr noundef %0,
 
 39:                                               ; preds = %6
   %40 = load ptr, ptr %9, align 8
-  %41 = getelementptr inbounds %struct._packet_info, ptr %40, i32 0, i32 1
+  %41 = getelementptr inbounds nuw %struct._packet_info, ptr %40, i32 0, i32 1
   %42 = load ptr, ptr %41, align 8
   %43 = load i32, ptr %13, align 4
-  %44 = call ptr @val_to_str(i32 noundef %43, ptr noundef @WERR_errors, ptr noundef @.str.78)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %42, i32 noundef 25, ptr noundef @.str.77, ptr noundef %44)
+  %44 = call ptr @val_to_str_ext(i32 noundef %43, ptr noundef @WERR_errors_ext, ptr noundef @.str.79)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %42, i32 noundef 25, ptr noundef @.str.78, ptr noundef %44)
   br label %45
 
 45:                                               ; preds = %39, %6
   %46 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %46
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_EfsRpcQueryRecoveryAgents_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2601,7 +2665,7 @@ define internal i32 @efs_dissect_EfsRpcQueryRecoveryAgents_request(ptr noundef %
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.70, ptr %14, align 8
   %15 = load ptr, ptr %7, align 8
   %16 = load i32, ptr %8, align 4
@@ -2622,7 +2686,7 @@ define internal i32 @efs_dissect_EfsRpcQueryRecoveryAgents_request(ptr noundef %
   ret i32 %28
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_EfsRpcQueryRecoveryAgents_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2637,8 +2701,9 @@ define internal i32 @efs_dissect_EfsRpcQueryRecoveryAgents_response(ptr noundef 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.70, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -2670,19 +2735,20 @@ define internal i32 @efs_dissect_EfsRpcQueryRecoveryAgents_response(ptr noundef 
 
 39:                                               ; preds = %6
   %40 = load ptr, ptr %9, align 8
-  %41 = getelementptr inbounds %struct._packet_info, ptr %40, i32 0, i32 1
+  %41 = getelementptr inbounds nuw %struct._packet_info, ptr %40, i32 0, i32 1
   %42 = load ptr, ptr %41, align 8
   %43 = load i32, ptr %13, align 4
-  %44 = call ptr @val_to_str(i32 noundef %43, ptr noundef @WERR_errors, ptr noundef @.str.78)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %42, i32 noundef 25, ptr noundef @.str.77, ptr noundef %44)
+  %44 = call ptr @val_to_str_ext(i32 noundef %43, ptr noundef @WERR_errors_ext, ptr noundef @.str.79)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %42, i32 noundef 25, ptr noundef @.str.78, ptr noundef %44)
   br label %45
 
 45:                                               ; preds = %39, %6
   %46 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %46
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_EfsRpcRemoveUsersFromFile_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2697,7 +2763,7 @@ define internal i32 @efs_dissect_EfsRpcRemoveUsersFromFile_request(ptr noundef %
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.71, ptr %14, align 8
   %15 = load ptr, ptr %7, align 8
   %16 = load i32, ptr %8, align 4
@@ -2718,7 +2784,7 @@ define internal i32 @efs_dissect_EfsRpcRemoveUsersFromFile_request(ptr noundef %
   ret i32 %28
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_EfsRpcRemoveUsersFromFile_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2733,8 +2799,9 @@ define internal i32 @efs_dissect_EfsRpcRemoveUsersFromFile_response(ptr noundef 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.71, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -2751,19 +2818,20 @@ define internal i32 @efs_dissect_EfsRpcRemoveUsersFromFile_response(ptr noundef 
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @WERR_errors, ptr noundef @.str.78)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.77, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @WERR_errors_ext, ptr noundef @.str.79)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.78, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_EfsRpcAddUsersToFile_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2778,7 +2846,7 @@ define internal i32 @efs_dissect_EfsRpcAddUsersToFile_request(ptr noundef %0, i3
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.72, ptr %14, align 8
   %15 = load ptr, ptr %7, align 8
   %16 = load i32, ptr %8, align 4
@@ -2799,7 +2867,7 @@ define internal i32 @efs_dissect_EfsRpcAddUsersToFile_request(ptr noundef %0, i3
   ret i32 %28
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_EfsRpcAddUsersToFile_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2814,8 +2882,9 @@ define internal i32 @efs_dissect_EfsRpcAddUsersToFile_response(ptr noundef %0, i
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.72, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -2832,19 +2901,20 @@ define internal i32 @efs_dissect_EfsRpcAddUsersToFile_response(ptr noundef %0, i
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @WERR_errors, ptr noundef @.str.78)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.77, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @WERR_errors_ext, ptr noundef @.str.79)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.78, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_EfsRpcSetFileEncryptionKey_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2859,7 +2929,7 @@ define internal i32 @efs_dissect_EfsRpcSetFileEncryptionKey_request(ptr noundef 
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.73, ptr %14, align 8
   %15 = load ptr, ptr %7, align 8
   %16 = load i32, ptr %8, align 4
@@ -2880,7 +2950,7 @@ define internal i32 @efs_dissect_EfsRpcSetFileEncryptionKey_request(ptr noundef 
   ret i32 %28
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_EfsRpcSetFileEncryptionKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2895,8 +2965,9 @@ define internal i32 @efs_dissect_EfsRpcSetFileEncryptionKey_response(ptr noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.73, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -2913,20 +2984,21 @@ define internal i32 @efs_dissect_EfsRpcSetFileEncryptionKey_response(ptr noundef
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @WERR_errors, ptr noundef @.str.78)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.77, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @WERR_errors_ext, ptr noundef @.str.79)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.78, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @efs_dissect_EfsRpcNotSupported_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @efs_dissect_EfsRpcNotSupported_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -2940,13 +3012,13 @@ define internal i32 @efs_dissect_EfsRpcNotSupported_request(ptr noundef %0, i32 
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.74, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_EfsRpcNotSupported_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2961,8 +3033,9 @@ define internal i32 @efs_dissect_EfsRpcNotSupported_response(ptr noundef %0, i32
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.74, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -2979,20 +3052,21 @@ define internal i32 @efs_dissect_EfsRpcNotSupported_response(ptr noundef %0, i32
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @WERR_errors, ptr noundef @.str.78)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.77, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @WERR_errors_ext, ptr noundef @.str.79)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.78, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @efs_dissect_EfsRpcFileKeyInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @efs_dissect_EfsRpcFileKeyInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -3006,13 +3080,13 @@ define internal i32 @efs_dissect_EfsRpcFileKeyInfo_request(ptr noundef %0, i32 n
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.75, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_EfsRpcFileKeyInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3027,8 +3101,9 @@ define internal i32 @efs_dissect_EfsRpcFileKeyInfo_response(ptr noundef %0, i32 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.75, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -3045,20 +3120,21 @@ define internal i32 @efs_dissect_EfsRpcFileKeyInfo_response(ptr noundef %0, i32 
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @WERR_errors, ptr noundef @.str.78)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.77, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @WERR_errors_ext, ptr noundef @.str.79)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.78, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @efs_dissect_EfsRpcDuplicateEncryptionInfoFile_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @efs_dissect_EfsRpcDuplicateEncryptionInfoFile_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -3072,13 +3148,13 @@ define internal i32 @efs_dissect_EfsRpcDuplicateEncryptionInfoFile_request(ptr n
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.76, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_EfsRpcDuplicateEncryptionInfoFile_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3093,8 +3169,9 @@ define internal i32 @efs_dissect_EfsRpcDuplicateEncryptionInfoFile_response(ptr 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.76, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -3111,19 +3188,20 @@ define internal i32 @efs_dissect_EfsRpcDuplicateEncryptionInfoFile_response(ptr 
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @WERR_errors, ptr noundef @.str.78)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.77, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @WERR_errors_ext, ptr noundef @.str.79)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.78, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_element_EfsRpcOpenFileRaw_FileName(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3138,6 +3216,7 @@ define internal i32 @efs_dissect_element_EfsRpcOpenFileRaw_FileName(ptr noundef 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
   %16 = load ptr, ptr %9, align 8
@@ -3145,18 +3224,20 @@ define internal i32 @efs_dissect_element_EfsRpcOpenFileRaw_FileName(ptr noundef 
   %18 = load ptr, ptr %11, align 8
   %19 = load ptr, ptr %12, align 8
   %20 = load i32, ptr @hf_efs_EfsRpcOpenFileRaw_FileName, align 4
-  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i32 noundef 0, ptr noundef %13)
+  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i1 noundef zeroext false, ptr noundef %13)
   store i32 %21, ptr %8, align 4
   %22 = load ptr, ptr %10, align 8
   %23 = load ptr, ptr %13, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.60, ptr noundef %23)
   %24 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
   ret i32 %24
 }
 
-declare i32 @dissect_deferred_pointers(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_deferred_pointers(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_element_EfsRpcOpenFileRaw_Flags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3183,7 +3264,7 @@ define internal i32 @efs_dissect_element_EfsRpcOpenFileRaw_Flags(ptr noundef %0,
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_element_EfsRpcOpenFileRaw_pvContext(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3204,21 +3285,25 @@ define internal i32 @efs_dissect_element_EfsRpcOpenFileRaw_pvContext(ptr noundef
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = load i32, ptr @hf_efs_EfsRpcOpenFileRaw_pvContext, align 4
-  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @efs_dissect_element_EfsRpcOpenFileRaw_pvContext_, i32 noundef 1, ptr noundef @.str.79, i32 noundef %19)
+  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @efs_dissect_element_EfsRpcOpenFileRaw_pvContext_, i32 noundef 1, ptr noundef @.str.80, i32 noundef %19)
   store i32 %20, ptr %8, align 4
   %21 = load i32, ptr %8, align 4
   ret i32 %21
 }
 
-declare i32 @dissect_ndr_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
-declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #2
 
-declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) #2
 
-declare i32 @dissect_ndr_toplevel_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_toplevel_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_element_EfsRpcOpenFileRaw_pvContext_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3245,9 +3330,10 @@ define internal i32 @efs_dissect_element_EfsRpcOpenFileRaw_pvContext_(ptr nounde
   ret i32 %21
 }
 
-declare i32 @PIDL_dissect_policy_hnd(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @PIDL_dissect_policy_hnd(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_element_EfsRpcReadFileRaw_pvContext(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3268,13 +3354,13 @@ define internal i32 @efs_dissect_element_EfsRpcReadFileRaw_pvContext(ptr noundef
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = load i32, ptr @hf_efs_EfsRpcReadFileRaw_pvContext, align 4
-  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @efs_dissect_element_EfsRpcReadFileRaw_pvContext_, i32 noundef 1, ptr noundef @.str.79, i32 noundef %19)
+  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @efs_dissect_element_EfsRpcReadFileRaw_pvContext_, i32 noundef 1, ptr noundef @.str.80, i32 noundef %19)
   store i32 %20, ptr %8, align 4
   %21 = load i32, ptr %8, align 4
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_element_EfsRpcReadFileRaw_pvContext_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3301,7 +3387,7 @@ define internal i32 @efs_dissect_element_EfsRpcReadFileRaw_pvContext_(ptr nounde
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_element_EfsRpcWriteFileRaw_pvContext(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3322,13 +3408,13 @@ define internal i32 @efs_dissect_element_EfsRpcWriteFileRaw_pvContext(ptr nounde
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = load i32, ptr @hf_efs_EfsRpcWriteFileRaw_pvContext, align 4
-  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @efs_dissect_element_EfsRpcWriteFileRaw_pvContext_, i32 noundef 1, ptr noundef @.str.79, i32 noundef %19)
+  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @efs_dissect_element_EfsRpcWriteFileRaw_pvContext_, i32 noundef 1, ptr noundef @.str.80, i32 noundef %19)
   store i32 %20, ptr %8, align 4
   %21 = load i32, ptr %8, align 4
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_element_EfsRpcWriteFileRaw_pvContext_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3355,7 +3441,7 @@ define internal i32 @efs_dissect_element_EfsRpcWriteFileRaw_pvContext_(ptr nound
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_element_EfsRpcCloseRaw_pvContext(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3376,13 +3462,13 @@ define internal i32 @efs_dissect_element_EfsRpcCloseRaw_pvContext(ptr noundef %0
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = load i32, ptr @hf_efs_EfsRpcCloseRaw_pvContext, align 4
-  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @efs_dissect_element_EfsRpcCloseRaw_pvContext_, i32 noundef 1, ptr noundef @.str.79, i32 noundef %19)
+  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @efs_dissect_element_EfsRpcCloseRaw_pvContext_, i32 noundef 1, ptr noundef @.str.80, i32 noundef %19)
   store i32 %20, ptr %8, align 4
   %21 = load i32, ptr %8, align 4
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_element_EfsRpcCloseRaw_pvContext_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3409,7 +3495,7 @@ define internal i32 @efs_dissect_element_EfsRpcCloseRaw_pvContext_(ptr noundef %
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_element_EfsRpcEncryptFileSrv_Filename(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3424,6 +3510,7 @@ define internal i32 @efs_dissect_element_EfsRpcEncryptFileSrv_Filename(ptr nound
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
   %16 = load ptr, ptr %9, align 8
@@ -3431,16 +3518,17 @@ define internal i32 @efs_dissect_element_EfsRpcEncryptFileSrv_Filename(ptr nound
   %18 = load ptr, ptr %11, align 8
   %19 = load ptr, ptr %12, align 8
   %20 = load i32, ptr @hf_efs_EfsRpcEncryptFileSrv_Filename, align 4
-  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i32 noundef 0, ptr noundef %13)
+  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i1 noundef zeroext false, ptr noundef %13)
   store i32 %21, ptr %8, align 4
   %22 = load ptr, ptr %10, align 8
   %23 = load ptr, ptr %13, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.60, ptr noundef %23)
   %24 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_element_EfsRpcDecryptFileSrv_FileName(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3455,6 +3543,7 @@ define internal i32 @efs_dissect_element_EfsRpcDecryptFileSrv_FileName(ptr nound
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
   %16 = load ptr, ptr %9, align 8
@@ -3462,16 +3551,17 @@ define internal i32 @efs_dissect_element_EfsRpcDecryptFileSrv_FileName(ptr nound
   %18 = load ptr, ptr %11, align 8
   %19 = load ptr, ptr %12, align 8
   %20 = load i32, ptr @hf_efs_EfsRpcDecryptFileSrv_FileName, align 4
-  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i32 noundef 0, ptr noundef %13)
+  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i1 noundef zeroext false, ptr noundef %13)
   store i32 %21, ptr %8, align 4
   %22 = load ptr, ptr %10, align 8
   %23 = load ptr, ptr %13, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.60, ptr noundef %23)
   %24 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_element_EfsRpcDecryptFileSrv_Reserved(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3498,7 +3588,7 @@ define internal i32 @efs_dissect_element_EfsRpcDecryptFileSrv_Reserved(ptr nound
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_element_EfsRpcQueryUsersOnFile_FileName(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3513,6 +3603,7 @@ define internal i32 @efs_dissect_element_EfsRpcQueryUsersOnFile_FileName(ptr nou
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
   %16 = load ptr, ptr %9, align 8
@@ -3520,16 +3611,17 @@ define internal i32 @efs_dissect_element_EfsRpcQueryUsersOnFile_FileName(ptr nou
   %18 = load ptr, ptr %11, align 8
   %19 = load ptr, ptr %12, align 8
   %20 = load i32, ptr @hf_efs_EfsRpcQueryUsersOnFile_FileName, align 4
-  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i32 noundef 0, ptr noundef %13)
+  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i1 noundef zeroext false, ptr noundef %13)
   store i32 %21, ptr %8, align 4
   %22 = load ptr, ptr %10, align 8
   %23 = load ptr, ptr %13, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.60, ptr noundef %23)
   %24 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_element_EfsRpcQueryUsersOnFile_pUsers(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3550,13 +3642,13 @@ define internal i32 @efs_dissect_element_EfsRpcQueryUsersOnFile_pUsers(ptr nound
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = load i32, ptr @hf_efs_EfsRpcQueryUsersOnFile_pUsers, align 4
-  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @efs_dissect_element_EfsRpcQueryUsersOnFile_pUsers_, i32 noundef 1, ptr noundef @.str.80, i32 noundef %19)
+  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @efs_dissect_element_EfsRpcQueryUsersOnFile_pUsers_, i32 noundef 1, ptr noundef @.str.81, i32 noundef %19)
   store i32 %20, ptr %8, align 4
   %21 = load i32, ptr %8, align 4
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_element_EfsRpcQueryUsersOnFile_pUsers_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3577,13 +3669,13 @@ define internal i32 @efs_dissect_element_EfsRpcQueryUsersOnFile_pUsers_(ptr noun
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = load i32, ptr @hf_efs_EfsRpcQueryUsersOnFile_pUsers, align 4
-  %20 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @efs_dissect_element_EfsRpcQueryUsersOnFile_pUsers__, i32 noundef 2, ptr noundef @.str.80, i32 noundef %19)
+  %20 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @efs_dissect_element_EfsRpcQueryUsersOnFile_pUsers__, i32 noundef 2, ptr noundef @.str.81, i32 noundef %19)
   store i32 %20, ptr %8, align 4
   %21 = load i32, ptr %8, align 4
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_element_EfsRpcQueryUsersOnFile_pUsers__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3610,7 +3702,7 @@ define internal i32 @efs_dissect_element_EfsRpcQueryUsersOnFile_pUsers__(ptr nou
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_element_EfsRpcQueryRecoveryAgents_FileName(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3625,6 +3717,7 @@ define internal i32 @efs_dissect_element_EfsRpcQueryRecoveryAgents_FileName(ptr 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
   %16 = load ptr, ptr %9, align 8
@@ -3632,16 +3725,17 @@ define internal i32 @efs_dissect_element_EfsRpcQueryRecoveryAgents_FileName(ptr 
   %18 = load ptr, ptr %11, align 8
   %19 = load ptr, ptr %12, align 8
   %20 = load i32, ptr @hf_efs_EfsRpcQueryRecoveryAgents_FileName, align 4
-  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i32 noundef 0, ptr noundef %13)
+  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i1 noundef zeroext false, ptr noundef %13)
   store i32 %21, ptr %8, align 4
   %22 = load ptr, ptr %10, align 8
   %23 = load ptr, ptr %13, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.60, ptr noundef %23)
   %24 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_element_EfsRpcQueryRecoveryAgents_pRecoveryAgents(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3662,13 +3756,13 @@ define internal i32 @efs_dissect_element_EfsRpcQueryRecoveryAgents_pRecoveryAgen
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = load i32, ptr @hf_efs_EfsRpcQueryRecoveryAgents_pRecoveryAgents, align 4
-  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @efs_dissect_element_EfsRpcQueryRecoveryAgents_pRecoveryAgents_, i32 noundef 1, ptr noundef @.str.81, i32 noundef %19)
+  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @efs_dissect_element_EfsRpcQueryRecoveryAgents_pRecoveryAgents_, i32 noundef 1, ptr noundef @.str.82, i32 noundef %19)
   store i32 %20, ptr %8, align 4
   %21 = load i32, ptr %8, align 4
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_element_EfsRpcQueryRecoveryAgents_pRecoveryAgents_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3689,13 +3783,13 @@ define internal i32 @efs_dissect_element_EfsRpcQueryRecoveryAgents_pRecoveryAgen
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = load i32, ptr @hf_efs_EfsRpcQueryRecoveryAgents_pRecoveryAgents, align 4
-  %20 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @efs_dissect_element_EfsRpcQueryRecoveryAgents_pRecoveryAgents__, i32 noundef 2, ptr noundef @.str.81, i32 noundef %19)
+  %20 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @efs_dissect_element_EfsRpcQueryRecoveryAgents_pRecoveryAgents__, i32 noundef 2, ptr noundef @.str.82, i32 noundef %19)
   store i32 %20, ptr %8, align 4
   %21 = load i32, ptr %8, align 4
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_element_EfsRpcQueryRecoveryAgents_pRecoveryAgents__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3722,7 +3816,7 @@ define internal i32 @efs_dissect_element_EfsRpcQueryRecoveryAgents_pRecoveryAgen
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_element_EfsRpcRemoveUsersFromFile_FileName(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3737,6 +3831,7 @@ define internal i32 @efs_dissect_element_EfsRpcRemoveUsersFromFile_FileName(ptr 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
   %16 = load ptr, ptr %9, align 8
@@ -3744,16 +3839,17 @@ define internal i32 @efs_dissect_element_EfsRpcRemoveUsersFromFile_FileName(ptr 
   %18 = load ptr, ptr %11, align 8
   %19 = load ptr, ptr %12, align 8
   %20 = load i32, ptr @hf_efs_EfsRpcRemoveUsersFromFile_FileName, align 4
-  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i32 noundef 0, ptr noundef %13)
+  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i1 noundef zeroext false, ptr noundef %13)
   store i32 %21, ptr %8, align 4
   %22 = load ptr, ptr %10, align 8
   %23 = load ptr, ptr %13, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.60, ptr noundef %23)
   %24 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_element_EfsRpcAddUsersToFile_FileName(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3768,6 +3864,7 @@ define internal i32 @efs_dissect_element_EfsRpcAddUsersToFile_FileName(ptr nound
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
   %16 = load ptr, ptr %9, align 8
@@ -3775,16 +3872,17 @@ define internal i32 @efs_dissect_element_EfsRpcAddUsersToFile_FileName(ptr nound
   %18 = load ptr, ptr %11, align 8
   %19 = load ptr, ptr %12, align 8
   %20 = load i32, ptr @hf_efs_EfsRpcAddUsersToFile_FileName, align 4
-  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i32 noundef 0, ptr noundef %13)
+  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i1 noundef zeroext false, ptr noundef %13)
   store i32 %21, ptr %8, align 4
   %22 = load ptr, ptr %10, align 8
   %23 = load ptr, ptr %13, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.60, ptr noundef %23)
   %24 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_element_EfsRpcSetFileEncryptionKey_pEncryptionCertificate(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3805,13 +3903,13 @@ define internal i32 @efs_dissect_element_EfsRpcSetFileEncryptionKey_pEncryptionC
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = load i32, ptr @hf_efs_EfsRpcSetFileEncryptionKey_pEncryptionCertificate, align 4
-  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @efs_dissect_element_EfsRpcSetFileEncryptionKey_pEncryptionCertificate_, i32 noundef 2, ptr noundef @.str.82, i32 noundef %19)
+  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @efs_dissect_element_EfsRpcSetFileEncryptionKey_pEncryptionCertificate_, i32 noundef 2, ptr noundef @.str.83, i32 noundef %19)
   store i32 %20, ptr %8, align 4
   %21 = load i32, ptr %8, align 4
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @efs_dissect_element_EfsRpcSetFileEncryptionKey_pEncryptionCertificate_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3838,12 +3936,19 @@ define internal i32 @efs_dissect_element_EfsRpcSetFileEncryptionKey_pEncryptionC
   ret i32 %21
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}

@@ -3,93 +3,92 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
+%struct._value_string_ext = type { ptr, i32, i32, ptr, ptr }
 %struct._e_guid_t = type { i32, i16, i16, [8 x i8] }
-%struct._dcerpc_sub_dissector = type { i16, ptr, ptr, ptr }
-%struct._dcerpc_info = type { ptr, i32, i64, i8, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr }
+%struct._dcerpc_info = type { ptr, i32, i64, i8, i8, i8, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, %struct.anon }
+%struct.anon = type { i8, ptr, ptr, ptr, i8 }
 %struct._dcerpc_call_value = type { %struct._e_guid_t, i16, %struct._e_guid_t, i16, i32, %struct.nstime_t, i32, i32, ptr, ptr, ptr, i32 }
 %struct.nstime_t = type { i64, i32 }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon.0, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
-%struct.anon = type { i8, [3 x i8] }
+%struct.anon.0 = type { i8, [3 x i8] }
 
-@ett_IWbemServices_IWbemClassObject = internal global i32 -1, align 4
-@ett_IWbemServices_MInterfacePointer = internal global i32 -1, align 4
-@ett_IWbemServices_IWbemContext = internal global i32 -1, align 4
-@proto_register_dcerpc_IWbemServices.hf = internal global [20 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_IWbemServices_ExecMethod_lFlags, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_IWbemServices_ExecMethod_orpcthat, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_IWbemServices_ExecMethod_orpcthis, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_IWbemServices_ExecMethod_strMethodName, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_IWbemServices_ExecMethod_strObjectPath, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_IWbemServices_GetObject_lFlags, %struct._header_field_info { ptr @.str, ptr @.str.10, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_IWbemServices_GetObject_orpcthat, %struct._header_field_info { ptr @.str.2, ptr @.str.11, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_IWbemServices_GetObject_orpcthis, %struct._header_field_info { ptr @.str.4, ptr @.str.12, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_IWbemServices_GetObject_pCtx, %struct._header_field_info { ptr @.str.13, ptr @.str.14, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_IWbemServices_GetObject_ppCallResult, %struct._header_field_info { ptr @.str.15, ptr @.str.16, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_IWbemServices_GetObject_ppObject, %struct._header_field_info { ptr @.str.17, ptr @.str.18, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_IWbemServices_GetObject_strObjectPath, %struct._header_field_info { ptr @.str.8, ptr @.str.19, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_IWbemServices_IWbemClassObject_count, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_IWbemServices_IWbemClassObject_objects, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_IWbemServices_IWbemContext_intPtr, %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_IWbemServices_IWbemContext_u, %struct._header_field_info { ptr @.str.26, ptr @.str.27, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_IWbemServices_MInterfacePointer_abData, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_IWbemServices_MInterfacePointer_ulCntData, %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_IWbemServices_opnum, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_IWbemServices_werror, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 7, i32 2, ptr @WERR_errors, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
-@hf_IWbemServices_ExecMethod_lFlags = internal global i32 -1, align 4
+@ett_IWbemServices_IWbemClassObject = internal global i32 0, align 4
+@ett_IWbemServices_MInterfacePointer = internal global i32 0, align 4
+@ett_IWbemServices_IWbemContext = internal global i32 0, align 4
+@proto_register_dcerpc_IWbemServices.hf = internal global [20 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_IWbemServices_ExecMethod_lFlags, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_IWbemServices_ExecMethod_orpcthat, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_IWbemServices_ExecMethod_orpcthis, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_IWbemServices_ExecMethod_strMethodName, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_IWbemServices_ExecMethod_strObjectPath, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_IWbemServices_GetObject_lFlags, %struct._header_field_info { ptr @.str, ptr @.str.10, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_IWbemServices_GetObject_orpcthat, %struct._header_field_info { ptr @.str.2, ptr @.str.11, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_IWbemServices_GetObject_orpcthis, %struct._header_field_info { ptr @.str.4, ptr @.str.12, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_IWbemServices_GetObject_pCtx, %struct._header_field_info { ptr @.str.13, ptr @.str.14, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_IWbemServices_GetObject_ppCallResult, %struct._header_field_info { ptr @.str.15, ptr @.str.16, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_IWbemServices_GetObject_ppObject, %struct._header_field_info { ptr @.str.17, ptr @.str.18, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_IWbemServices_GetObject_strObjectPath, %struct._header_field_info { ptr @.str.8, ptr @.str.19, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_IWbemServices_IWbemClassObject_count, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_IWbemServices_IWbemClassObject_objects, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_IWbemServices_IWbemContext_intPtr, %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_IWbemServices_IWbemContext_u, %struct._header_field_info { ptr @.str.26, ptr @.str.27, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_IWbemServices_MInterfacePointer_abData, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_IWbemServices_MInterfacePointer_ulCntData, %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_IWbemServices_opnum, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_IWbemServices_werror, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 7, i32 514, ptr @WERR_errors_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
+@hf_IWbemServices_ExecMethod_lFlags = internal global i32 0, align 4
 @.str = private unnamed_addr constant [7 x i8] c"LFlags\00", align 1
 @.str.1 = private unnamed_addr constant [32 x i8] c"IWbemServices.ExecMethod.lFlags\00", align 1
-@hf_IWbemServices_ExecMethod_orpcthat = internal global i32 -1, align 4
+@hf_IWbemServices_ExecMethod_orpcthat = internal global i32 0, align 4
 @.str.2 = private unnamed_addr constant [9 x i8] c"Orpcthat\00", align 1
 @.str.3 = private unnamed_addr constant [34 x i8] c"IWbemServices.ExecMethod.orpcthat\00", align 1
-@hf_IWbemServices_ExecMethod_orpcthis = internal global i32 -1, align 4
+@hf_IWbemServices_ExecMethod_orpcthis = internal global i32 0, align 4
 @.str.4 = private unnamed_addr constant [9 x i8] c"Orpcthis\00", align 1
 @.str.5 = private unnamed_addr constant [34 x i8] c"IWbemServices.ExecMethod.orpcthis\00", align 1
-@hf_IWbemServices_ExecMethod_strMethodName = internal global i32 -1, align 4
+@hf_IWbemServices_ExecMethod_strMethodName = internal global i32 0, align 4
 @.str.6 = private unnamed_addr constant [14 x i8] c"StrMethodName\00", align 1
 @.str.7 = private unnamed_addr constant [39 x i8] c"IWbemServices.ExecMethod.strMethodName\00", align 1
-@hf_IWbemServices_ExecMethod_strObjectPath = internal global i32 -1, align 4
+@hf_IWbemServices_ExecMethod_strObjectPath = internal global i32 0, align 4
 @.str.8 = private unnamed_addr constant [14 x i8] c"StrObjectPath\00", align 1
 @.str.9 = private unnamed_addr constant [39 x i8] c"IWbemServices.ExecMethod.strObjectPath\00", align 1
-@hf_IWbemServices_GetObject_lFlags = internal global i32 -1, align 4
+@hf_IWbemServices_GetObject_lFlags = internal global i32 0, align 4
 @.str.10 = private unnamed_addr constant [31 x i8] c"IWbemServices.GetObject.lFlags\00", align 1
-@hf_IWbemServices_GetObject_orpcthat = internal global i32 -1, align 4
+@hf_IWbemServices_GetObject_orpcthat = internal global i32 0, align 4
 @.str.11 = private unnamed_addr constant [33 x i8] c"IWbemServices.GetObject.orpcthat\00", align 1
-@hf_IWbemServices_GetObject_orpcthis = internal global i32 -1, align 4
+@hf_IWbemServices_GetObject_orpcthis = internal global i32 0, align 4
 @.str.12 = private unnamed_addr constant [33 x i8] c"IWbemServices.GetObject.orpcthis\00", align 1
-@hf_IWbemServices_GetObject_pCtx = internal global i32 -1, align 4
+@hf_IWbemServices_GetObject_pCtx = internal global i32 0, align 4
 @.str.13 = private unnamed_addr constant [5 x i8] c"PCtx\00", align 1
 @.str.14 = private unnamed_addr constant [29 x i8] c"IWbemServices.GetObject.pCtx\00", align 1
-@hf_IWbemServices_GetObject_ppCallResult = internal global i32 -1, align 4
+@hf_IWbemServices_GetObject_ppCallResult = internal global i32 0, align 4
 @.str.15 = private unnamed_addr constant [13 x i8] c"PpCallResult\00", align 1
 @.str.16 = private unnamed_addr constant [37 x i8] c"IWbemServices.GetObject.ppCallResult\00", align 1
-@hf_IWbemServices_GetObject_ppObject = internal global i32 -1, align 4
+@hf_IWbemServices_GetObject_ppObject = internal global i32 0, align 4
 @.str.17 = private unnamed_addr constant [9 x i8] c"PpObject\00", align 1
 @.str.18 = private unnamed_addr constant [33 x i8] c"IWbemServices.GetObject.ppObject\00", align 1
-@hf_IWbemServices_GetObject_strObjectPath = internal global i32 -1, align 4
+@hf_IWbemServices_GetObject_strObjectPath = internal global i32 0, align 4
 @.str.19 = private unnamed_addr constant [38 x i8] c"IWbemServices.GetObject.strObjectPath\00", align 1
-@hf_IWbemServices_IWbemClassObject_count = internal global i32 -1, align 4
+@hf_IWbemServices_IWbemClassObject_count = internal global i32 0, align 4
 @.str.20 = private unnamed_addr constant [6 x i8] c"Count\00", align 1
 @.str.21 = private unnamed_addr constant [37 x i8] c"IWbemServices.IWbemClassObject.count\00", align 1
-@hf_IWbemServices_IWbemClassObject_objects = internal global i32 -1, align 4
+@hf_IWbemServices_IWbemClassObject_objects = internal global i32 0, align 4
 @.str.22 = private unnamed_addr constant [8 x i8] c"Objects\00", align 1
 @.str.23 = private unnamed_addr constant [39 x i8] c"IWbemServices.IWbemClassObject.objects\00", align 1
-@hf_IWbemServices_IWbemContext_intPtr = internal global i32 -1, align 4
+@hf_IWbemServices_IWbemContext_intPtr = internal global i32 0, align 4
 @.str.24 = private unnamed_addr constant [7 x i8] c"IntPtr\00", align 1
 @.str.25 = private unnamed_addr constant [34 x i8] c"IWbemServices.IWbemContext.intPtr\00", align 1
-@hf_IWbemServices_IWbemContext_u = internal global i32 -1, align 4
+@hf_IWbemServices_IWbemContext_u = internal global i32 0, align 4
 @.str.26 = private unnamed_addr constant [2 x i8] c"U\00", align 1
 @.str.27 = private unnamed_addr constant [29 x i8] c"IWbemServices.IWbemContext.u\00", align 1
-@hf_IWbemServices_MInterfacePointer_abData = internal global i32 -1, align 4
+@hf_IWbemServices_MInterfacePointer_abData = internal global i32 0, align 4
 @.str.28 = private unnamed_addr constant [7 x i8] c"AbData\00", align 1
 @.str.29 = private unnamed_addr constant [39 x i8] c"IWbemServices.MInterfacePointer.abData\00", align 1
-@hf_IWbemServices_MInterfacePointer_ulCntData = internal global i32 -1, align 4
+@hf_IWbemServices_MInterfacePointer_ulCntData = internal global i32 0, align 4
 @.str.30 = private unnamed_addr constant [10 x i8] c"UlCntData\00", align 1
 @.str.31 = private unnamed_addr constant [42 x i8] c"IWbemServices.MInterfacePointer.ulCntData\00", align 1
-@hf_IWbemServices_opnum = internal global i32 -1, align 4
+@hf_IWbemServices_opnum = internal global i32 0, align 4
 @.str.32 = private unnamed_addr constant [10 x i8] c"Operation\00", align 1
 @.str.33 = private unnamed_addr constant [20 x i8] c"IWbemServices.opnum\00", align 1
-@hf_IWbemServices_werror = internal global i32 -1, align 4
+@hf_IWbemServices_werror = internal global i32 0, align 4
 @.str.34 = private unnamed_addr constant [14 x i8] c"Windows Error\00", align 1
 @.str.35 = private unnamed_addr constant [21 x i8] c"IWbemServices.werror\00", align 1
-@WERR_errors = external constant [0 x %struct._value_string], align 8
+@WERR_errors_ext = external global %struct._value_string_ext, align 8
 @proto_register_dcerpc_IWbemServices.ett = internal global [11 x ptr] [ptr @ett_IWbemServices_GetObject_orpcthis, ptr @ett_IWbemServices_GetObject_orpcthat, ptr @ett_IWbemServices_ExecMethod_orpcthis, ptr @ett_IWbemServices_ExecMethod_orpcthat, ptr @ett_dcerpc_IWbemServices, ptr @ett_IWbemServices_ORPCTHIS, ptr @ett_IWbemServices_ORPCTHAT, ptr @ett_IWbemServices_IWbemCallResult, ptr @ett_IWbemServices_IWbemClassObject, ptr @ett_IWbemServices_MInterfacePointer, ptr @ett_IWbemServices_IWbemContext], align 16
-@ett_IWbemServices_GetObject_orpcthis = internal global i32 -1, align 4
-@ett_IWbemServices_GetObject_orpcthat = internal global i32 -1, align 4
-@ett_IWbemServices_ExecMethod_orpcthis = internal global i32 -1, align 4
-@ett_IWbemServices_ExecMethod_orpcthat = internal global i32 -1, align 4
-@ett_dcerpc_IWbemServices = internal global i32 -1, align 4
-@ett_IWbemServices_ORPCTHIS = internal global i32 -1, align 4
-@ett_IWbemServices_ORPCTHAT = internal global i32 -1, align 4
-@ett_IWbemServices_IWbemCallResult = internal global i32 -1, align 4
+@ett_IWbemServices_GetObject_orpcthis = internal global i32 0, align 4
+@ett_IWbemServices_GetObject_orpcthat = internal global i32 0, align 4
+@ett_IWbemServices_ExecMethod_orpcthis = internal global i32 0, align 4
+@ett_IWbemServices_ExecMethod_orpcthat = internal global i32 0, align 4
+@ett_dcerpc_IWbemServices = internal global i32 0, align 4
+@ett_IWbemServices_ORPCTHIS = internal global i32 0, align 4
+@ett_IWbemServices_ORPCTHAT = internal global i32 0, align 4
+@ett_IWbemServices_IWbemCallResult = internal global i32 0, align 4
 @.str.36 = private unnamed_addr constant [21 x i8] c"IWBEMSERVICES (pidl)\00", align 1
 @.str.37 = private unnamed_addr constant [14 x i8] c"IWBEMSERVICES\00", align 1
 @.str.38 = private unnamed_addr constant [14 x i8] c"IWbemServices\00", align 1
-@proto_dcerpc_IWbemServices = internal global i32 -1, align 4
+@proto_dcerpc_IWbemServices = internal global i32 0, align 4
 @uuid_dcerpc_IWbemServices = internal global %struct._e_guid_t { i32 -1789469543, i16 -32116, i16 4559, [8 x i8] c"\A3~\00\AA\002@\C7" }, align 4
 @ver_dcerpc_IWbemServices = internal global i16 0, align 2
-@IWbemServices_dissectors = internal global [26 x %struct._dcerpc_sub_dissector] [%struct._dcerpc_sub_dissector { i16 0, ptr @.str.40, ptr @IWbemServices_dissect_iwbemservices_opnum0_request, ptr @IWbemServices_dissect_iwbemservices_opnum0_response }, %struct._dcerpc_sub_dissector { i16 1, ptr @.str.41, ptr @IWbemServices_dissect_iwbemservices_opnum1_request, ptr @IWbemServices_dissect_iwbemservices_opnum1_response }, %struct._dcerpc_sub_dissector { i16 2, ptr @.str.42, ptr @IWbemServices_dissect_iwbemservices_opnum2_request, ptr @IWbemServices_dissect_iwbemservices_opnum2_response }, %struct._dcerpc_sub_dissector { i16 3, ptr @.str.43, ptr @IWbemServices_dissect_iwbemservices_OpenNamespace_request, ptr @IWbemServices_dissect_iwbemservices_OpenNamespace_response }, %struct._dcerpc_sub_dissector { i16 4, ptr @.str.44, ptr @IWbemServices_dissect_iwbemservices_CancelAsyncCall_request, ptr @IWbemServices_dissect_iwbemservices_CancelAsyncCall_response }, %struct._dcerpc_sub_dissector { i16 5, ptr @.str.45, ptr @IWbemServices_dissect_iwbemservices_QueryObjectSink_request, ptr @IWbemServices_dissect_iwbemservices_QueryObjectSink_response }, %struct._dcerpc_sub_dissector { i16 6, ptr @.str.46, ptr @IWbemServices_dissect_GetObject_request, ptr @IWbemServices_dissect_GetObject_response }, %struct._dcerpc_sub_dissector { i16 7, ptr @.str.47, ptr @IWbemServices_dissect_iwbemservices_opnum7_request, ptr @IWbemServices_dissect_iwbemservices_opnum7_response }, %struct._dcerpc_sub_dissector { i16 8, ptr @.str.48, ptr @IWbemServices_dissect_iwbemservices_opnum8_request, ptr @IWbemServices_dissect_iwbemservices_opnum8_response }, %struct._dcerpc_sub_dissector { i16 9, ptr @.str.49, ptr @IWbemServices_dissect_iwbemservices_opnum9_request, ptr @IWbemServices_dissect_iwbemservices_opnum9_response }, %struct._dcerpc_sub_dissector { i16 10, ptr @.str.50, ptr @IWbemServices_dissect_iwbemservices_opnum10_request, ptr @IWbemServices_dissect_iwbemservices_opnum10_response }, %struct._dcerpc_sub_dissector { i16 11, ptr @.str.51, ptr @IWbemServices_dissect_iwbemservices_opnum11_request, ptr @IWbemServices_dissect_iwbemservices_opnum11_response }, %struct._dcerpc_sub_dissector { i16 12, ptr @.str.52, ptr @IWbemServices_dissect_iwbemservices_opnum12_request, ptr @IWbemServices_dissect_iwbemservices_opnum12_response }, %struct._dcerpc_sub_dissector { i16 13, ptr @.str.53, ptr @IWbemServices_dissect_iwbemservices_opnum13_request, ptr @IWbemServices_dissect_iwbemservices_opnum13_response }, %struct._dcerpc_sub_dissector { i16 14, ptr @.str.54, ptr @IWbemServices_dissect_iwbemservices_opnum14_request, ptr @IWbemServices_dissect_iwbemservices_opnum14_response }, %struct._dcerpc_sub_dissector { i16 15, ptr @.str.55, ptr @IWbemServices_dissect_iwbemservices_opnum15_request, ptr @IWbemServices_dissect_iwbemservices_opnum15_response }, %struct._dcerpc_sub_dissector { i16 16, ptr @.str.56, ptr @IWbemServices_dissect_iwbemservices_opnum16_request, ptr @IWbemServices_dissect_iwbemservices_opnum16_response }, %struct._dcerpc_sub_dissector { i16 17, ptr @.str.57, ptr @IWbemServices_dissect_iwbemservices_opnum17_request, ptr @IWbemServices_dissect_iwbemservices_opnum17_response }, %struct._dcerpc_sub_dissector { i16 18, ptr @.str.58, ptr @IWbemServices_dissect_iwbemservices_opnum18_request, ptr @IWbemServices_dissect_iwbemservices_opnum18_response }, %struct._dcerpc_sub_dissector { i16 19, ptr @.str.59, ptr @IWbemServices_dissect_iwbemservices_opnum19_request, ptr @IWbemServices_dissect_iwbemservices_opnum19_response }, %struct._dcerpc_sub_dissector { i16 20, ptr @.str.60, ptr @IWbemServices_dissect_iwbemservices_opnum20_request, ptr @IWbemServices_dissect_iwbemservices_opnum20_response }, %struct._dcerpc_sub_dissector { i16 21, ptr @.str.61, ptr @IWbemServices_dissect_iwbemservices_opnum21_request, ptr @IWbemServices_dissect_iwbemservices_opnum21_response }, %struct._dcerpc_sub_dissector { i16 22, ptr @.str.62, ptr @IWbemServices_dissect_iwbemservices_opnum22_request, ptr @IWbemServices_dissect_iwbemservices_opnum22_response }, %struct._dcerpc_sub_dissector { i16 23, ptr @.str.63, ptr @IWbemServices_dissect_iwbemservices_opnum23_request, ptr @IWbemServices_dissect_iwbemservices_opnum23_response }, %struct._dcerpc_sub_dissector { i16 24, ptr @.str.64, ptr @IWbemServices_dissect_ExecMethod_request, ptr @IWbemServices_dissect_ExecMethod_response }, %struct._dcerpc_sub_dissector zeroinitializer], align 16
 @.str.39 = private unnamed_addr constant [38 x i8] c"Pointer to IntPtr (MInterfacePointer)\00", align 1
 @.str.40 = private unnamed_addr constant [21 x i8] c"iwbemservices_opnum0\00", align 1
 @.str.41 = private unnamed_addr constant [21 x i8] c"iwbemservices_opnum1\00", align 1
@@ -116,18 +115,19 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.62 = private unnamed_addr constant [22 x i8] c"iwbemservices_opnum22\00", align 1
 @.str.63 = private unnamed_addr constant [22 x i8] c"iwbemservices_opnum23\00", align 1
 @.str.64 = private unnamed_addr constant [11 x i8] c"ExecMethod\00", align 1
-@.str.65 = private unnamed_addr constant [12 x i8] c", Error: %s\00", align 1
-@.str.66 = private unnamed_addr constant [25 x i8] c"Unknown DOS error 0x%08x\00", align 1
-@.str.67 = private unnamed_addr constant [34 x i8] c"Pointer to StrObjectPath (uint16)\00", align 1
-@.str.68 = private unnamed_addr constant [5 x i8] c": %s\00", align 1
-@.str.69 = private unnamed_addr constant [11 x i8] c" Object=%s\00", align 1
-@.str.70 = private unnamed_addr constant [31 x i8] c"Pointer to PCtx (IWbemContext)\00", align 1
-@.str.71 = private unnamed_addr constant [39 x i8] c"Pointer to PpObject (IWbemClassObject)\00", align 1
-@.str.72 = private unnamed_addr constant [42 x i8] c"Pointer to PpCallResult (IWbemCallResult)\00", align 1
-@.str.73 = private unnamed_addr constant [31 x i8] c"Pointer to Orpcthat (ORPCTHAT)\00", align 1
-@.str.74 = private unnamed_addr constant [34 x i8] c"Pointer to StrMethodName (uint16)\00", align 1
+@IWbemServices_dissectors = internal constant [26 x { i16, [6 x i8], ptr, ptr, ptr }] [{ i16, [6 x i8], ptr, ptr, ptr } { i16 0, [6 x i8] zeroinitializer, ptr @.str.40, ptr @IWbemServices_dissect_iwbemservices_opnum0_request, ptr @IWbemServices_dissect_iwbemservices_opnum0_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 1, [6 x i8] zeroinitializer, ptr @.str.41, ptr @IWbemServices_dissect_iwbemservices_opnum1_request, ptr @IWbemServices_dissect_iwbemservices_opnum1_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 2, [6 x i8] zeroinitializer, ptr @.str.42, ptr @IWbemServices_dissect_iwbemservices_opnum2_request, ptr @IWbemServices_dissect_iwbemservices_opnum2_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 3, [6 x i8] zeroinitializer, ptr @.str.43, ptr @IWbemServices_dissect_iwbemservices_OpenNamespace_request, ptr @IWbemServices_dissect_iwbemservices_OpenNamespace_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 4, [6 x i8] zeroinitializer, ptr @.str.44, ptr @IWbemServices_dissect_iwbemservices_CancelAsyncCall_request, ptr @IWbemServices_dissect_iwbemservices_CancelAsyncCall_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 5, [6 x i8] zeroinitializer, ptr @.str.45, ptr @IWbemServices_dissect_iwbemservices_QueryObjectSink_request, ptr @IWbemServices_dissect_iwbemservices_QueryObjectSink_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 6, [6 x i8] zeroinitializer, ptr @.str.46, ptr @IWbemServices_dissect_GetObject_request, ptr @IWbemServices_dissect_GetObject_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 7, [6 x i8] zeroinitializer, ptr @.str.47, ptr @IWbemServices_dissect_iwbemservices_opnum7_request, ptr @IWbemServices_dissect_iwbemservices_opnum7_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 8, [6 x i8] zeroinitializer, ptr @.str.48, ptr @IWbemServices_dissect_iwbemservices_opnum8_request, ptr @IWbemServices_dissect_iwbemservices_opnum8_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 9, [6 x i8] zeroinitializer, ptr @.str.49, ptr @IWbemServices_dissect_iwbemservices_opnum9_request, ptr @IWbemServices_dissect_iwbemservices_opnum9_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 10, [6 x i8] zeroinitializer, ptr @.str.50, ptr @IWbemServices_dissect_iwbemservices_opnum10_request, ptr @IWbemServices_dissect_iwbemservices_opnum10_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 11, [6 x i8] zeroinitializer, ptr @.str.51, ptr @IWbemServices_dissect_iwbemservices_opnum11_request, ptr @IWbemServices_dissect_iwbemservices_opnum11_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 12, [6 x i8] zeroinitializer, ptr @.str.52, ptr @IWbemServices_dissect_iwbemservices_opnum12_request, ptr @IWbemServices_dissect_iwbemservices_opnum12_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 13, [6 x i8] zeroinitializer, ptr @.str.53, ptr @IWbemServices_dissect_iwbemservices_opnum13_request, ptr @IWbemServices_dissect_iwbemservices_opnum13_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 14, [6 x i8] zeroinitializer, ptr @.str.54, ptr @IWbemServices_dissect_iwbemservices_opnum14_request, ptr @IWbemServices_dissect_iwbemservices_opnum14_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 15, [6 x i8] zeroinitializer, ptr @.str.55, ptr @IWbemServices_dissect_iwbemservices_opnum15_request, ptr @IWbemServices_dissect_iwbemservices_opnum15_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 16, [6 x i8] zeroinitializer, ptr @.str.56, ptr @IWbemServices_dissect_iwbemservices_opnum16_request, ptr @IWbemServices_dissect_iwbemservices_opnum16_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 17, [6 x i8] zeroinitializer, ptr @.str.57, ptr @IWbemServices_dissect_iwbemservices_opnum17_request, ptr @IWbemServices_dissect_iwbemservices_opnum17_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 18, [6 x i8] zeroinitializer, ptr @.str.58, ptr @IWbemServices_dissect_iwbemservices_opnum18_request, ptr @IWbemServices_dissect_iwbemservices_opnum18_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 19, [6 x i8] zeroinitializer, ptr @.str.59, ptr @IWbemServices_dissect_iwbemservices_opnum19_request, ptr @IWbemServices_dissect_iwbemservices_opnum19_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 20, [6 x i8] zeroinitializer, ptr @.str.60, ptr @IWbemServices_dissect_iwbemservices_opnum20_request, ptr @IWbemServices_dissect_iwbemservices_opnum20_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 21, [6 x i8] zeroinitializer, ptr @.str.61, ptr @IWbemServices_dissect_iwbemservices_opnum21_request, ptr @IWbemServices_dissect_iwbemservices_opnum21_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 22, [6 x i8] zeroinitializer, ptr @.str.62, ptr @IWbemServices_dissect_iwbemservices_opnum22_request, ptr @IWbemServices_dissect_iwbemservices_opnum22_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 23, [6 x i8] zeroinitializer, ptr @.str.63, ptr @IWbemServices_dissect_iwbemservices_opnum23_request, ptr @IWbemServices_dissect_iwbemservices_opnum23_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 24, [6 x i8] zeroinitializer, ptr @.str.64, ptr @IWbemServices_dissect_ExecMethod_request, ptr @IWbemServices_dissect_ExecMethod_response }, { i16, [6 x i8], ptr, ptr, ptr } zeroinitializer], align 16
+@.str.66 = private unnamed_addr constant [12 x i8] c", Error: %s\00", align 1
+@.str.67 = private unnamed_addr constant [25 x i8] c"Unknown DOS error 0x%08x\00", align 1
+@.str.68 = private unnamed_addr constant [34 x i8] c"Pointer to StrObjectPath (uint16)\00", align 1
+@.str.69 = private unnamed_addr constant [5 x i8] c": %s\00", align 1
+@.str.70 = private unnamed_addr constant [11 x i8] c" Object=%s\00", align 1
+@.str.71 = private unnamed_addr constant [31 x i8] c"Pointer to PCtx (IWbemContext)\00", align 1
+@.str.72 = private unnamed_addr constant [39 x i8] c"Pointer to PpObject (IWbemClassObject)\00", align 1
+@.str.73 = private unnamed_addr constant [42 x i8] c"Pointer to PpCallResult (IWbemCallResult)\00", align 1
+@.str.74 = private unnamed_addr constant [31 x i8] c"Pointer to Orpcthat (ORPCTHAT)\00", align 1
+@.str.75 = private unnamed_addr constant [34 x i8] c"Pointer to StrMethodName (uint16)\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @IWbemServices_dissect_struct_ORPCTHIS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -147,7 +147,9 @@ define hidden i32 @IWbemServices_dissect_struct_ORPCTHIS(ptr noundef %0, i32 nou
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #4
   %19 = load i32, ptr %10, align 4
   store i32 %19, ptr %18, align 4
   %20 = load ptr, ptr %12, align 8
@@ -170,14 +172,24 @@ define hidden i32 @IWbemServices_dissect_struct_ORPCTHIS(ptr noundef %0, i32 nou
   %32 = sub i32 %30, %31
   call void @proto_item_set_len(ptr noundef %29, i32 noundef %32)
   %33 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %33
 }
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @proto_item_set_len(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_set_len(ptr noundef, i32 noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @IWbemServices_dissect_struct_ORPCTHAT(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -197,7 +209,9 @@ define hidden i32 @IWbemServices_dissect_struct_ORPCTHAT(ptr noundef %0, i32 nou
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #4
   %19 = load i32, ptr %10, align 4
   store i32 %19, ptr %18, align 4
   %20 = load ptr, ptr %12, align 8
@@ -220,10 +234,12 @@ define hidden i32 @IWbemServices_dissect_struct_ORPCTHAT(ptr noundef %0, i32 nou
   %32 = sub i32 %30, %31
   call void @proto_item_set_len(ptr noundef %29, i32 noundef %32)
   %33 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @IWbemServices_dissect_struct_IWbemCallResult(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -243,7 +259,9 @@ define hidden i32 @IWbemServices_dissect_struct_IWbemCallResult(ptr noundef %0, 
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #4
   %19 = load i32, ptr %10, align 4
   store i32 %19, ptr %18, align 4
   %20 = load ptr, ptr %12, align 8
@@ -266,10 +284,12 @@ define hidden i32 @IWbemServices_dissect_struct_IWbemCallResult(ptr noundef %0, 
   %32 = sub i32 %30, %31
   call void @proto_item_set_len(ptr noundef %29, i32 noundef %32)
   %33 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @IWbemServices_dissect_struct_IWbemClassObject(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -290,12 +310,15 @@ define hidden i32 @IWbemServices_dissect_struct_IWbemClassObject(ptr noundef %0,
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 4
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp ne i32 %22, 0
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 4
+  %22 = load i8, ptr %21, align 1, !range !6, !noundef !7
+  %23 = trunc i8 %22 to i1
   br i1 %23, label %33, label %24
 
 24:                                               ; preds = %8
@@ -357,9 +380,9 @@ define hidden i32 @IWbemServices_dissect_struct_IWbemClassObject(ptr noundef %0,
   %64 = sub i32 %62, %63
   call void @proto_item_set_len(ptr noundef %61, i32 noundef %64)
   %65 = load ptr, ptr %13, align 8
-  %66 = getelementptr inbounds %struct._dcerpc_info, ptr %65, i32 0, i32 14
+  %66 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %65, i32 0, i32 14
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds %struct._dcerpc_call_value, ptr %67, i32 0, i32 11
+  %68 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %67, i32 0, i32 11
   %69 = load i32, ptr %68, align 8
   %70 = and i32 %69, 1
   %71 = icmp ne i32 %70, 0
@@ -367,9 +390,9 @@ define hidden i32 @IWbemServices_dissect_struct_IWbemClassObject(ptr noundef %0,
 
 72:                                               ; preds = %46
   %73 = load ptr, ptr %13, align 8
-  %74 = getelementptr inbounds %struct._dcerpc_info, ptr %73, i32 0, i32 4
-  %75 = load i32, ptr %74, align 4
-  %76 = icmp ne i32 %75, 0
+  %74 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %73, i32 0, i32 4
+  %75 = load i8, ptr %74, align 1, !range !6, !noundef !7
+  %76 = trunc i8 %75 to i1
   br i1 %76, label %86, label %77
 
 77:                                               ; preds = %72
@@ -393,12 +416,16 @@ define hidden i32 @IWbemServices_dissect_struct_IWbemClassObject(ptr noundef %0,
 
 87:                                               ; preds = %86, %46
   %88 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %88
 }
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_element_IWbemClassObject_count(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -425,7 +452,7 @@ define internal i32 @IWbemServices_dissect_element_IWbemClassObject_count(ptr no
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_element_IWbemClassObject_objects(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -449,7 +476,7 @@ define internal i32 @IWbemServices_dissect_element_IWbemClassObject_objects(ptr 
   ret i32 %19
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @IWbemServices_dissect_struct_MInterfacePointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -470,12 +497,15 @@ define hidden i32 @IWbemServices_dissect_struct_MInterfacePointer(ptr noundef %0
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 4
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp ne i32 %22, 0
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 4
+  %22 = load i8, ptr %21, align 1, !range !6, !noundef !7
+  %23 = trunc i8 %22 to i1
   br i1 %23, label %33, label %24
 
 24:                                               ; preds = %8
@@ -537,9 +567,9 @@ define hidden i32 @IWbemServices_dissect_struct_MInterfacePointer(ptr noundef %0
   %64 = sub i32 %62, %63
   call void @proto_item_set_len(ptr noundef %61, i32 noundef %64)
   %65 = load ptr, ptr %13, align 8
-  %66 = getelementptr inbounds %struct._dcerpc_info, ptr %65, i32 0, i32 14
+  %66 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %65, i32 0, i32 14
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds %struct._dcerpc_call_value, ptr %67, i32 0, i32 11
+  %68 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %67, i32 0, i32 11
   %69 = load i32, ptr %68, align 8
   %70 = and i32 %69, 1
   %71 = icmp ne i32 %70, 0
@@ -547,9 +577,9 @@ define hidden i32 @IWbemServices_dissect_struct_MInterfacePointer(ptr noundef %0
 
 72:                                               ; preds = %46
   %73 = load ptr, ptr %13, align 8
-  %74 = getelementptr inbounds %struct._dcerpc_info, ptr %73, i32 0, i32 4
-  %75 = load i32, ptr %74, align 4
-  %76 = icmp ne i32 %75, 0
+  %74 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %73, i32 0, i32 4
+  %75 = load i8, ptr %74, align 1, !range !6, !noundef !7
+  %76 = trunc i8 %75 to i1
   br i1 %76, label %86, label %77
 
 77:                                               ; preds = %72
@@ -573,10 +603,13 @@ define hidden i32 @IWbemServices_dissect_struct_MInterfacePointer(ptr noundef %0
 
 87:                                               ; preds = %86, %46
   %88 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %88
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_element_MInterfacePointer_ulCntData(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -603,7 +636,7 @@ define internal i32 @IWbemServices_dissect_element_MInterfacePointer_ulCntData(p
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_element_MInterfacePointer_abData(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -629,7 +662,7 @@ define internal i32 @IWbemServices_dissect_element_MInterfacePointer_abData(ptr 
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @IWbemServices_dissect_struct_IWbemContext(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -650,12 +683,15 @@ define hidden i32 @IWbemServices_dissect_struct_IWbemContext(ptr noundef %0, i32
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 14
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 14
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds %struct._dcerpc_call_value, ptr %22, i32 0, i32 11
+  %23 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %22, i32 0, i32 11
   %24 = load i32, ptr %23, align 8
   %25 = and i32 %24, 1
   %26 = icmp ne i32 %25, 0
@@ -663,9 +699,9 @@ define hidden i32 @IWbemServices_dissect_struct_IWbemContext(ptr noundef %0, i32
 
 27:                                               ; preds = %8
   %28 = load ptr, ptr %13, align 8
-  %29 = getelementptr inbounds %struct._dcerpc_info, ptr %28, i32 0, i32 4
-  %30 = load i32, ptr %29, align 4
-  %31 = icmp ne i32 %30, 0
+  %29 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %28, i32 0, i32 4
+  %30 = load i8, ptr %29, align 1, !range !6, !noundef !7
+  %31 = trunc i8 %30 to i1
   br i1 %31, label %41, label %32
 
 32:                                               ; preds = %27
@@ -689,9 +725,9 @@ define hidden i32 @IWbemServices_dissect_struct_IWbemContext(ptr noundef %0, i32
 
 42:                                               ; preds = %8
   %43 = load ptr, ptr %13, align 8
-  %44 = getelementptr inbounds %struct._dcerpc_info, ptr %43, i32 0, i32 4
-  %45 = load i32, ptr %44, align 4
-  %46 = icmp ne i32 %45, 0
+  %44 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %43, i32 0, i32 4
+  %45 = load i8, ptr %44, align 1, !range !6, !noundef !7
+  %46 = trunc i8 %45 to i1
   br i1 %46, label %56, label %47
 
 47:                                               ; preds = %42
@@ -756,9 +792,9 @@ define hidden i32 @IWbemServices_dissect_struct_IWbemContext(ptr noundef %0, i32
   %88 = sub i32 %86, %87
   call void @proto_item_set_len(ptr noundef %85, i32 noundef %88)
   %89 = load ptr, ptr %13, align 8
-  %90 = getelementptr inbounds %struct._dcerpc_info, ptr %89, i32 0, i32 14
+  %90 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %89, i32 0, i32 14
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds %struct._dcerpc_call_value, ptr %91, i32 0, i32 11
+  %92 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %91, i32 0, i32 11
   %93 = load i32, ptr %92, align 8
   %94 = and i32 %93, 1
   %95 = icmp ne i32 %94, 0
@@ -766,9 +802,9 @@ define hidden i32 @IWbemServices_dissect_struct_IWbemContext(ptr noundef %0, i32
 
 96:                                               ; preds = %70
   %97 = load ptr, ptr %13, align 8
-  %98 = getelementptr inbounds %struct._dcerpc_info, ptr %97, i32 0, i32 14
+  %98 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %97, i32 0, i32 14
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds %struct._dcerpc_call_value, ptr %99, i32 0, i32 11
+  %100 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %99, i32 0, i32 11
   %101 = load i32, ptr %100, align 8
   %102 = and i32 %101, 1
   %103 = icmp ne i32 %102, 0
@@ -776,9 +812,9 @@ define hidden i32 @IWbemServices_dissect_struct_IWbemContext(ptr noundef %0, i32
 
 104:                                              ; preds = %96
   %105 = load ptr, ptr %13, align 8
-  %106 = getelementptr inbounds %struct._dcerpc_info, ptr %105, i32 0, i32 4
-  %107 = load i32, ptr %106, align 4
-  %108 = icmp ne i32 %107, 0
+  %106 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %105, i32 0, i32 4
+  %107 = load i8, ptr %106, align 1, !range !6, !noundef !7
+  %108 = trunc i8 %107 to i1
   br i1 %108, label %118, label %109
 
 109:                                              ; preds = %104
@@ -802,9 +838,9 @@ define hidden i32 @IWbemServices_dissect_struct_IWbemContext(ptr noundef %0, i32
 
 119:                                              ; preds = %96
   %120 = load ptr, ptr %13, align 8
-  %121 = getelementptr inbounds %struct._dcerpc_info, ptr %120, i32 0, i32 4
-  %122 = load i32, ptr %121, align 4
-  %123 = icmp ne i32 %122, 0
+  %121 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %120, i32 0, i32 4
+  %122 = load i8, ptr %121, align 1, !range !6, !noundef !7
+  %123 = trunc i8 %122 to i1
   br i1 %123, label %133, label %124
 
 124:                                              ; preds = %119
@@ -831,10 +867,13 @@ define hidden i32 @IWbemServices_dissect_struct_IWbemContext(ptr noundef %0, i32
 
 135:                                              ; preds = %134, %70
   %136 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %136
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_element_IWbemContext_u(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -861,7 +900,7 @@ define internal i32 @IWbemServices_dissect_element_IWbemContext_u(ptr noundef %0
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_element_IWbemContext_intPtr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -888,7 +927,7 @@ define internal i32 @IWbemServices_dissect_element_IWbemContext_intPtr(ptr nound
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_dcerpc_IWbemServices() #0 {
   %1 = call i32 @proto_register_protocol(ptr noundef @.str.36, ptr noundef @.str.37, ptr noundef @.str.38)
   store i32 %1, ptr @proto_dcerpc_IWbemServices, align 4
@@ -898,13 +937,16 @@ define hidden void @proto_register_dcerpc_IWbemServices() #0 {
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_dcerpc_IWbemServices() #0 {
   %1 = load i32, ptr @proto_dcerpc_IWbemServices, align 4
   %2 = load i32, ptr @ett_dcerpc_IWbemServices, align 4
@@ -914,13 +956,16 @@ define hidden void @proto_reg_handoff_dcerpc_IWbemServices() #0 {
   ret void
 }
 
-declare void @dcerpc_init_uuid(i32 noundef, i32 noundef, ptr noundef, i16 noundef zeroext, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dcerpc_init_uuid(i32 noundef, i32 noundef, ptr noundef, i16 noundef zeroext, ptr noundef, i32 noundef) #2
 
-declare i32 @PIDL_dissect_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @PIDL_dissect_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-declare i32 @dissect_ndr_ucarray_block(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_ucarray_block(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_element_IWbemClassObject_objects_(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
@@ -950,11 +995,13 @@ define internal i32 @IWbemServices_dissect_element_IWbemClassObject_objects_(ptr
   ret i32 %25
 }
 
-declare i32 @dissect_dcom_OBJREF(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_dcom_OBJREF(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
-declare i32 @dissect_ndr_ucarray(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_ucarray(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_element_MInterfacePointer_abData_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -981,11 +1028,13 @@ define internal i32 @IWbemServices_dissect_element_MInterfacePointer_abData_(ptr
   ret i32 %21
 }
 
-declare i32 @PIDL_dissect_uint8(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @PIDL_dissect_uint8(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-declare i32 @dissect_ndr_embedded_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_embedded_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_element_IWbemContext_intPtr_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1012,8 +1061,8 @@ define internal i32 @IWbemServices_dissect_element_IWbemContext_intPtr_(ptr noun
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @IWbemServices_dissect_iwbemservices_opnum0_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @IWbemServices_dissect_iwbemservices_opnum0_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -1027,13 +1076,13 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum0_request(ptr noun
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.40, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_iwbemservices_opnum0_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1048,8 +1097,9 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum0_response(ptr nou
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.40, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -1066,20 +1116,21 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum0_response(ptr nou
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @WERR_errors, ptr noundef @.str.66)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.65, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @WERR_errors_ext, ptr noundef @.str.67)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.66, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @IWbemServices_dissect_iwbemservices_opnum1_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @IWbemServices_dissect_iwbemservices_opnum1_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -1093,13 +1144,13 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum1_request(ptr noun
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.41, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_iwbemservices_opnum1_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1114,8 +1165,9 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum1_response(ptr nou
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.41, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -1132,20 +1184,21 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum1_response(ptr nou
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @WERR_errors, ptr noundef @.str.66)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.65, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @WERR_errors_ext, ptr noundef @.str.67)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.66, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @IWbemServices_dissect_iwbemservices_opnum2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @IWbemServices_dissect_iwbemservices_opnum2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -1159,13 +1212,13 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum2_request(ptr noun
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.42, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_iwbemservices_opnum2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1180,8 +1233,9 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum2_response(ptr nou
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.42, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -1198,20 +1252,21 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum2_response(ptr nou
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @WERR_errors, ptr noundef @.str.66)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.65, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @WERR_errors_ext, ptr noundef @.str.67)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.66, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @IWbemServices_dissect_iwbemservices_OpenNamespace_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @IWbemServices_dissect_iwbemservices_OpenNamespace_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -1225,13 +1280,13 @@ define internal i32 @IWbemServices_dissect_iwbemservices_OpenNamespace_request(p
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.43, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_iwbemservices_OpenNamespace_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1246,8 +1301,9 @@ define internal i32 @IWbemServices_dissect_iwbemservices_OpenNamespace_response(
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.43, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -1264,20 +1320,21 @@ define internal i32 @IWbemServices_dissect_iwbemservices_OpenNamespace_response(
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @WERR_errors, ptr noundef @.str.66)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.65, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @WERR_errors_ext, ptr noundef @.str.67)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.66, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @IWbemServices_dissect_iwbemservices_CancelAsyncCall_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @IWbemServices_dissect_iwbemservices_CancelAsyncCall_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -1291,13 +1348,13 @@ define internal i32 @IWbemServices_dissect_iwbemservices_CancelAsyncCall_request
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.44, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_iwbemservices_CancelAsyncCall_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1312,8 +1369,9 @@ define internal i32 @IWbemServices_dissect_iwbemservices_CancelAsyncCall_respons
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.44, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -1330,20 +1388,21 @@ define internal i32 @IWbemServices_dissect_iwbemservices_CancelAsyncCall_respons
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @WERR_errors, ptr noundef @.str.66)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.65, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @WERR_errors_ext, ptr noundef @.str.67)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.66, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @IWbemServices_dissect_iwbemservices_QueryObjectSink_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @IWbemServices_dissect_iwbemservices_QueryObjectSink_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -1357,13 +1416,13 @@ define internal i32 @IWbemServices_dissect_iwbemservices_QueryObjectSink_request
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.45, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_iwbemservices_QueryObjectSink_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1378,8 +1437,9 @@ define internal i32 @IWbemServices_dissect_iwbemservices_QueryObjectSink_respons
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.45, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -1396,19 +1456,20 @@ define internal i32 @IWbemServices_dissect_iwbemservices_QueryObjectSink_respons
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @WERR_errors, ptr noundef @.str.66)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.65, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @WERR_errors_ext, ptr noundef @.str.67)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.66, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_GetObject_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1423,7 +1484,7 @@ define internal i32 @IWbemServices_dissect_GetObject_request(ptr noundef %0, i32
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.46, ptr %14, align 8
   %15 = load ptr, ptr %7, align 8
   %16 = load i32, ptr %8, align 4
@@ -1519,7 +1580,7 @@ define internal i32 @IWbemServices_dissect_GetObject_request(ptr noundef %0, i32
   ret i32 %93
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_GetObject_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1534,8 +1595,9 @@ define internal i32 @IWbemServices_dissect_GetObject_response(ptr noundef %0, i3
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.46, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -1597,20 +1659,21 @@ define internal i32 @IWbemServices_dissect_GetObject_response(ptr noundef %0, i3
 
 65:                                               ; preds = %6
   %66 = load ptr, ptr %9, align 8
-  %67 = getelementptr inbounds %struct._packet_info, ptr %66, i32 0, i32 1
+  %67 = getelementptr inbounds nuw %struct._packet_info, ptr %66, i32 0, i32 1
   %68 = load ptr, ptr %67, align 8
   %69 = load i32, ptr %13, align 4
-  %70 = call ptr @val_to_str(i32 noundef %69, ptr noundef @WERR_errors, ptr noundef @.str.66)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %68, i32 noundef 25, ptr noundef @.str.65, ptr noundef %70)
+  %70 = call ptr @val_to_str_ext(i32 noundef %69, ptr noundef @WERR_errors_ext, ptr noundef @.str.67)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %68, i32 noundef 25, ptr noundef @.str.66, ptr noundef %70)
   br label %71
 
 71:                                               ; preds = %65, %6
   %72 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %72
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @IWbemServices_dissect_iwbemservices_opnum7_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @IWbemServices_dissect_iwbemservices_opnum7_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -1624,13 +1687,13 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum7_request(ptr noun
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.47, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_iwbemservices_opnum7_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1645,8 +1708,9 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum7_response(ptr nou
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.47, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -1663,20 +1727,21 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum7_response(ptr nou
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @WERR_errors, ptr noundef @.str.66)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.65, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @WERR_errors_ext, ptr noundef @.str.67)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.66, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @IWbemServices_dissect_iwbemservices_opnum8_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @IWbemServices_dissect_iwbemservices_opnum8_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -1690,13 +1755,13 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum8_request(ptr noun
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.48, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_iwbemservices_opnum8_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1711,8 +1776,9 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum8_response(ptr nou
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.48, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -1729,20 +1795,21 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum8_response(ptr nou
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @WERR_errors, ptr noundef @.str.66)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.65, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @WERR_errors_ext, ptr noundef @.str.67)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.66, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @IWbemServices_dissect_iwbemservices_opnum9_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @IWbemServices_dissect_iwbemservices_opnum9_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -1756,13 +1823,13 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum9_request(ptr noun
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.49, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_iwbemservices_opnum9_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1777,8 +1844,9 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum9_response(ptr nou
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.49, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -1795,20 +1863,21 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum9_response(ptr nou
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @WERR_errors, ptr noundef @.str.66)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.65, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @WERR_errors_ext, ptr noundef @.str.67)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.66, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @IWbemServices_dissect_iwbemservices_opnum10_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @IWbemServices_dissect_iwbemservices_opnum10_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -1822,13 +1891,13 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum10_request(ptr nou
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.50, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_iwbemservices_opnum10_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1843,8 +1912,9 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum10_response(ptr no
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.50, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -1861,20 +1931,21 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum10_response(ptr no
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @WERR_errors, ptr noundef @.str.66)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.65, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @WERR_errors_ext, ptr noundef @.str.67)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.66, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @IWbemServices_dissect_iwbemservices_opnum11_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @IWbemServices_dissect_iwbemservices_opnum11_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -1888,13 +1959,13 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum11_request(ptr nou
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.51, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_iwbemservices_opnum11_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1909,8 +1980,9 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum11_response(ptr no
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.51, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -1927,20 +1999,21 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum11_response(ptr no
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @WERR_errors, ptr noundef @.str.66)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.65, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @WERR_errors_ext, ptr noundef @.str.67)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.66, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @IWbemServices_dissect_iwbemservices_opnum12_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @IWbemServices_dissect_iwbemservices_opnum12_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -1954,13 +2027,13 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum12_request(ptr nou
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.52, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_iwbemservices_opnum12_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1975,8 +2048,9 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum12_response(ptr no
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.52, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -1993,20 +2067,21 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum12_response(ptr no
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @WERR_errors, ptr noundef @.str.66)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.65, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @WERR_errors_ext, ptr noundef @.str.67)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.66, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @IWbemServices_dissect_iwbemservices_opnum13_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @IWbemServices_dissect_iwbemservices_opnum13_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -2020,13 +2095,13 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum13_request(ptr nou
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.53, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_iwbemservices_opnum13_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2041,8 +2116,9 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum13_response(ptr no
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.53, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -2059,20 +2135,21 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum13_response(ptr no
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @WERR_errors, ptr noundef @.str.66)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.65, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @WERR_errors_ext, ptr noundef @.str.67)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.66, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @IWbemServices_dissect_iwbemservices_opnum14_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @IWbemServices_dissect_iwbemservices_opnum14_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -2086,13 +2163,13 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum14_request(ptr nou
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.54, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_iwbemservices_opnum14_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2107,8 +2184,9 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum14_response(ptr no
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.54, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -2125,20 +2203,21 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum14_response(ptr no
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @WERR_errors, ptr noundef @.str.66)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.65, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @WERR_errors_ext, ptr noundef @.str.67)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.66, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @IWbemServices_dissect_iwbemservices_opnum15_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @IWbemServices_dissect_iwbemservices_opnum15_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -2152,13 +2231,13 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum15_request(ptr nou
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.55, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_iwbemservices_opnum15_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2173,8 +2252,9 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum15_response(ptr no
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.55, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -2191,20 +2271,21 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum15_response(ptr no
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @WERR_errors, ptr noundef @.str.66)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.65, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @WERR_errors_ext, ptr noundef @.str.67)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.66, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @IWbemServices_dissect_iwbemservices_opnum16_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @IWbemServices_dissect_iwbemservices_opnum16_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -2218,13 +2299,13 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum16_request(ptr nou
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.56, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_iwbemservices_opnum16_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2239,8 +2320,9 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum16_response(ptr no
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.56, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -2257,20 +2339,21 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum16_response(ptr no
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @WERR_errors, ptr noundef @.str.66)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.65, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @WERR_errors_ext, ptr noundef @.str.67)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.66, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @IWbemServices_dissect_iwbemservices_opnum17_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @IWbemServices_dissect_iwbemservices_opnum17_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -2284,13 +2367,13 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum17_request(ptr nou
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.57, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_iwbemservices_opnum17_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2305,8 +2388,9 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum17_response(ptr no
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.57, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -2323,20 +2407,21 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum17_response(ptr no
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @WERR_errors, ptr noundef @.str.66)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.65, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @WERR_errors_ext, ptr noundef @.str.67)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.66, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @IWbemServices_dissect_iwbemservices_opnum18_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @IWbemServices_dissect_iwbemservices_opnum18_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -2350,13 +2435,13 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum18_request(ptr nou
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.58, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_iwbemservices_opnum18_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2371,8 +2456,9 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum18_response(ptr no
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.58, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -2389,20 +2475,21 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum18_response(ptr no
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @WERR_errors, ptr noundef @.str.66)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.65, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @WERR_errors_ext, ptr noundef @.str.67)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.66, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @IWbemServices_dissect_iwbemservices_opnum19_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @IWbemServices_dissect_iwbemservices_opnum19_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -2416,13 +2503,13 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum19_request(ptr nou
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.59, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_iwbemservices_opnum19_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2437,8 +2524,9 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum19_response(ptr no
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.59, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -2455,20 +2543,21 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum19_response(ptr no
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @WERR_errors, ptr noundef @.str.66)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.65, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @WERR_errors_ext, ptr noundef @.str.67)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.66, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @IWbemServices_dissect_iwbemservices_opnum20_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @IWbemServices_dissect_iwbemservices_opnum20_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -2482,13 +2571,13 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum20_request(ptr nou
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.60, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_iwbemservices_opnum20_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2503,8 +2592,9 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum20_response(ptr no
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.60, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -2521,20 +2611,21 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum20_response(ptr no
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @WERR_errors, ptr noundef @.str.66)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.65, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @WERR_errors_ext, ptr noundef @.str.67)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.66, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @IWbemServices_dissect_iwbemservices_opnum21_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @IWbemServices_dissect_iwbemservices_opnum21_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -2548,13 +2639,13 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum21_request(ptr nou
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.61, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_iwbemservices_opnum21_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2569,8 +2660,9 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum21_response(ptr no
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.61, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -2587,20 +2679,21 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum21_response(ptr no
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @WERR_errors, ptr noundef @.str.66)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.65, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @WERR_errors_ext, ptr noundef @.str.67)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.66, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @IWbemServices_dissect_iwbemservices_opnum22_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @IWbemServices_dissect_iwbemservices_opnum22_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -2614,13 +2707,13 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum22_request(ptr nou
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.62, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_iwbemservices_opnum22_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2635,8 +2728,9 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum22_response(ptr no
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.62, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -2653,20 +2747,21 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum22_response(ptr no
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @WERR_errors, ptr noundef @.str.66)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.65, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @WERR_errors_ext, ptr noundef @.str.67)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.66, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @IWbemServices_dissect_iwbemservices_opnum23_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @IWbemServices_dissect_iwbemservices_opnum23_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -2680,13 +2775,13 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum23_request(ptr nou
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.63, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_iwbemservices_opnum23_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2701,8 +2796,9 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum23_response(ptr no
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.63, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -2719,19 +2815,20 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum23_response(ptr no
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @WERR_errors, ptr noundef @.str.66)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.65, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @WERR_errors_ext, ptr noundef @.str.67)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.66, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_ExecMethod_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2746,7 +2843,7 @@ define internal i32 @IWbemServices_dissect_ExecMethod_request(ptr noundef %0, i3
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.64, ptr %14, align 8
   %15 = load ptr, ptr %7, align 8
   %16 = load i32, ptr %8, align 4
@@ -2812,7 +2909,7 @@ define internal i32 @IWbemServices_dissect_ExecMethod_request(ptr noundef %0, i3
   ret i32 %67
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_ExecMethod_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2827,8 +2924,9 @@ define internal i32 @IWbemServices_dissect_ExecMethod_response(ptr noundef %0, i
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.64, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -2860,25 +2958,29 @@ define internal i32 @IWbemServices_dissect_ExecMethod_response(ptr noundef %0, i
 
 39:                                               ; preds = %6
   %40 = load ptr, ptr %9, align 8
-  %41 = getelementptr inbounds %struct._packet_info, ptr %40, i32 0, i32 1
+  %41 = getelementptr inbounds nuw %struct._packet_info, ptr %40, i32 0, i32 1
   %42 = load ptr, ptr %41, align 8
   %43 = load i32, ptr %13, align 4
-  %44 = call ptr @val_to_str(i32 noundef %43, ptr noundef @WERR_errors, ptr noundef @.str.66)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %42, i32 noundef 25, ptr noundef @.str.65, ptr noundef %44)
+  %44 = call ptr @val_to_str_ext(i32 noundef %43, ptr noundef @WERR_errors_ext, ptr noundef @.str.67)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %42, i32 noundef 25, ptr noundef @.str.66, ptr noundef %44)
   br label %45
 
 45:                                               ; preds = %39, %6
   %46 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %46
 }
 
-declare i32 @dissect_ndr_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
-declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #2
 
-declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_element_GetObject_orpcthis(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2894,6 +2996,8 @@ define internal i32 @IWbemServices_dissect_element_GetObject_orpcthis(ptr nounde
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #4
   %15 = load ptr, ptr %10, align 8
   %16 = load i32, ptr @hf_IWbemServices_GetObject_orpcthis, align 4
   %17 = load ptr, ptr %7, align 8
@@ -2911,12 +3015,15 @@ define internal i32 @IWbemServices_dissect_element_GetObject_orpcthis(ptr nounde
   %27 = load ptr, ptr %11, align 8
   %28 = load ptr, ptr %12, align 8
   %29 = call i32 @dissect_dcom_this(ptr noundef %23, i32 noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %27, ptr noundef %28)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
   ret i32 %29
 }
 
-declare i32 @dissect_deferred_pointers(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_deferred_pointers(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_element_GetObject_strObjectPath(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2937,13 +3044,13 @@ define internal i32 @IWbemServices_dissect_element_GetObject_strObjectPath(ptr n
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = load i32, ptr @hf_IWbemServices_GetObject_strObjectPath, align 4
-  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @IWbemServices_dissect_element_GetObject_strObjectPath_, i32 noundef 2, ptr noundef @.str.67, i32 noundef %19)
+  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @IWbemServices_dissect_element_GetObject_strObjectPath_, i32 noundef 2, ptr noundef @.str.68, i32 noundef %19)
   store i32 %20, ptr %8, align 4
   %21 = load i32, ptr %8, align 4
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_element_GetObject_lFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2970,7 +3077,7 @@ define internal i32 @IWbemServices_dissect_element_GetObject_lFlags(ptr noundef 
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_element_GetObject_pCtx(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2991,13 +3098,13 @@ define internal i32 @IWbemServices_dissect_element_GetObject_pCtx(ptr noundef %0
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = load i32, ptr @hf_IWbemServices_GetObject_pCtx, align 4
-  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @IWbemServices_dissect_element_GetObject_pCtx_, i32 noundef 1, ptr noundef @.str.70, i32 noundef %19)
+  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @IWbemServices_dissect_element_GetObject_pCtx_, i32 noundef 1, ptr noundef @.str.71, i32 noundef %19)
   store i32 %20, ptr %8, align 4
   %21 = load i32, ptr %8, align 4
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_element_GetObject_ppObject(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3018,13 +3125,13 @@ define internal i32 @IWbemServices_dissect_element_GetObject_ppObject(ptr nounde
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = load i32, ptr @hf_IWbemServices_GetObject_ppObject, align 4
-  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @IWbemServices_dissect_element_GetObject_ppObject_, i32 noundef 2, ptr noundef @.str.71, i32 noundef %19)
+  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @IWbemServices_dissect_element_GetObject_ppObject_, i32 noundef 2, ptr noundef @.str.72, i32 noundef %19)
   store i32 %20, ptr %8, align 4
   %21 = load i32, ptr %8, align 4
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_element_GetObject_ppCallResult(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3045,17 +3152,19 @@ define internal i32 @IWbemServices_dissect_element_GetObject_ppCallResult(ptr no
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = load i32, ptr @hf_IWbemServices_GetObject_ppCallResult, align 4
-  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @IWbemServices_dissect_element_GetObject_ppCallResult_, i32 noundef 2, ptr noundef @.str.72, i32 noundef %19)
+  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @IWbemServices_dissect_element_GetObject_ppCallResult_, i32 noundef 2, ptr noundef @.str.73, i32 noundef %19)
   store i32 %20, ptr %8, align 4
   %21 = load i32, ptr %8, align 4
   ret i32 %21
 }
 
-declare i32 @dissect_dcom_this(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_dcom_this(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare i32 @dissect_ndr_toplevel_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_toplevel_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_element_GetObject_strObjectPath_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3070,6 +3179,7 @@ define internal i32 @IWbemServices_dissect_element_GetObject_strObjectPath_(ptr 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
   store ptr null, ptr %13, align 8
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
@@ -3078,7 +3188,7 @@ define internal i32 @IWbemServices_dissect_element_GetObject_strObjectPath_(ptr 
   %18 = load ptr, ptr %11, align 8
   %19 = load ptr, ptr %12, align 8
   %20 = load i32, ptr @hf_IWbemServices_GetObject_strObjectPath, align 4
-  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i32 noundef 0, ptr noundef %13)
+  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i1 noundef zeroext false, ptr noundef %13)
   store i32 %21, ptr %8, align 4
   %22 = load ptr, ptr %13, align 8
   %23 = icmp ne ptr %22, null
@@ -3087,24 +3197,27 @@ define internal i32 @IWbemServices_dissect_element_GetObject_strObjectPath_(ptr 
 24:                                               ; preds = %6
   %25 = load ptr, ptr %10, align 8
   %26 = load ptr, ptr %13, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %25, ptr noundef @.str.68, ptr noundef %26)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %25, ptr noundef @.str.69, ptr noundef %26)
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr %13, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.69, ptr noundef %30)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.70, ptr noundef %30)
   br label %31
 
 31:                                               ; preds = %24, %6
   %32 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
   ret i32 %32
 }
 
-declare i32 @dissect_ndr_cvstring(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_cvstring(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef) #2
 
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_element_GetObject_pCtx_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3131,7 +3244,7 @@ define internal i32 @IWbemServices_dissect_element_GetObject_pCtx_(ptr noundef %
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_element_GetObject_ppObject_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3152,13 +3265,13 @@ define internal i32 @IWbemServices_dissect_element_GetObject_ppObject_(ptr nound
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = load i32, ptr @hf_IWbemServices_GetObject_ppObject, align 4
-  %20 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @IWbemServices_dissect_element_GetObject_ppObject__, i32 noundef 2, ptr noundef @.str.71, i32 noundef %19)
+  %20 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @IWbemServices_dissect_element_GetObject_ppObject__, i32 noundef 2, ptr noundef @.str.72, i32 noundef %19)
   store i32 %20, ptr %8, align 4
   %21 = load i32, ptr %8, align 4
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_element_GetObject_ppObject__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3185,7 +3298,7 @@ define internal i32 @IWbemServices_dissect_element_GetObject_ppObject__(ptr noun
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_element_GetObject_ppCallResult_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3206,13 +3319,13 @@ define internal i32 @IWbemServices_dissect_element_GetObject_ppCallResult_(ptr n
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = load i32, ptr @hf_IWbemServices_GetObject_ppCallResult, align 4
-  %20 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @IWbemServices_dissect_element_GetObject_ppCallResult__, i32 noundef 2, ptr noundef @.str.72, i32 noundef %19)
+  %20 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @IWbemServices_dissect_element_GetObject_ppCallResult__, i32 noundef 2, ptr noundef @.str.73, i32 noundef %19)
   store i32 %20, ptr %8, align 4
   %21 = load i32, ptr %8, align 4
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_element_GetObject_ppCallResult__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3239,7 +3352,7 @@ define internal i32 @IWbemServices_dissect_element_GetObject_ppCallResult__(ptr 
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_element_GetObject_orpcthat(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3260,13 +3373,13 @@ define internal i32 @IWbemServices_dissect_element_GetObject_orpcthat(ptr nounde
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = load i32, ptr @hf_IWbemServices_GetObject_orpcthat, align 4
-  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @IWbemServices_dissect_element_GetObject_orpcthat_, i32 noundef 1, ptr noundef @.str.73, i32 noundef %19)
+  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @IWbemServices_dissect_element_GetObject_orpcthat_, i32 noundef 1, ptr noundef @.str.74, i32 noundef %19)
   store i32 %20, ptr %8, align 4
   %21 = load i32, ptr %8, align 4
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_element_GetObject_orpcthat_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3282,6 +3395,8 @@ define internal i32 @IWbemServices_dissect_element_GetObject_orpcthat_(ptr nound
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #4
   call void @register_dcom_wmio()
   %15 = load ptr, ptr %10, align 8
   %16 = load i32, ptr @hf_IWbemServices_GetObject_orpcthat, align 4
@@ -3300,14 +3415,18 @@ define internal i32 @IWbemServices_dissect_element_GetObject_orpcthat_(ptr nound
   %27 = load ptr, ptr %11, align 8
   %28 = load ptr, ptr %12, align 8
   %29 = call i32 @dissect_dcom_that(ptr noundef %23, i32 noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %27, ptr noundef %28)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
   ret i32 %29
 }
 
-declare void @register_dcom_wmio() #1
+; Function Attrs: null_pointer_is_valid
+declare void @register_dcom_wmio() #2
 
-declare i32 @dissect_dcom_that(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_dcom_that(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_element_ExecMethod_orpcthis(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3323,6 +3442,8 @@ define internal i32 @IWbemServices_dissect_element_ExecMethod_orpcthis(ptr nound
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #4
   %15 = load ptr, ptr %10, align 8
   %16 = load i32, ptr @hf_IWbemServices_ExecMethod_orpcthis, align 4
   %17 = load ptr, ptr %7, align 8
@@ -3340,10 +3461,12 @@ define internal i32 @IWbemServices_dissect_element_ExecMethod_orpcthis(ptr nound
   %27 = load ptr, ptr %11, align 8
   %28 = load ptr, ptr %12, align 8
   %29 = call i32 @dissect_dcom_this(ptr noundef %23, i32 noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %27, ptr noundef %28)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
   ret i32 %29
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_element_ExecMethod_strObjectPath(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3364,13 +3487,13 @@ define internal i32 @IWbemServices_dissect_element_ExecMethod_strObjectPath(ptr 
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = load i32, ptr @hf_IWbemServices_ExecMethod_strObjectPath, align 4
-  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @IWbemServices_dissect_element_ExecMethod_strObjectPath_, i32 noundef 2, ptr noundef @.str.67, i32 noundef %19)
+  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @IWbemServices_dissect_element_ExecMethod_strObjectPath_, i32 noundef 2, ptr noundef @.str.68, i32 noundef %19)
   store i32 %20, ptr %8, align 4
   %21 = load i32, ptr %8, align 4
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_element_ExecMethod_strMethodName(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3391,13 +3514,13 @@ define internal i32 @IWbemServices_dissect_element_ExecMethod_strMethodName(ptr 
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = load i32, ptr @hf_IWbemServices_ExecMethod_strMethodName, align 4
-  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @IWbemServices_dissect_element_ExecMethod_strMethodName_, i32 noundef 2, ptr noundef @.str.74, i32 noundef %19)
+  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @IWbemServices_dissect_element_ExecMethod_strMethodName_, i32 noundef 2, ptr noundef @.str.75, i32 noundef %19)
   store i32 %20, ptr %8, align 4
   %21 = load i32, ptr %8, align 4
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_element_ExecMethod_lFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3424,7 +3547,7 @@ define internal i32 @IWbemServices_dissect_element_ExecMethod_lFlags(ptr noundef
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_element_ExecMethod_strObjectPath_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3439,6 +3562,7 @@ define internal i32 @IWbemServices_dissect_element_ExecMethod_strObjectPath_(ptr
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
   %16 = load ptr, ptr %9, align 8
@@ -3446,16 +3570,17 @@ define internal i32 @IWbemServices_dissect_element_ExecMethod_strObjectPath_(ptr
   %18 = load ptr, ptr %11, align 8
   %19 = load ptr, ptr %12, align 8
   %20 = load i32, ptr @hf_IWbemServices_ExecMethod_strObjectPath, align 4
-  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i32 noundef 0, ptr noundef %13)
+  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i1 noundef zeroext false, ptr noundef %13)
   store i32 %21, ptr %8, align 4
   %22 = load ptr, ptr %10, align 8
   %23 = load ptr, ptr %13, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.68, ptr noundef %23)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.69, ptr noundef %23)
   %24 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_element_ExecMethod_strMethodName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3470,6 +3595,7 @@ define internal i32 @IWbemServices_dissect_element_ExecMethod_strMethodName_(ptr
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
   %16 = load ptr, ptr %9, align 8
@@ -3477,16 +3603,17 @@ define internal i32 @IWbemServices_dissect_element_ExecMethod_strMethodName_(ptr
   %18 = load ptr, ptr %11, align 8
   %19 = load ptr, ptr %12, align 8
   %20 = load i32, ptr @hf_IWbemServices_ExecMethod_strMethodName, align 4
-  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i32 noundef 0, ptr noundef %13)
+  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i1 noundef zeroext false, ptr noundef %13)
   store i32 %21, ptr %8, align 4
   %22 = load ptr, ptr %10, align 8
   %23 = load ptr, ptr %13, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.68, ptr noundef %23)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.69, ptr noundef %23)
   %24 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_element_ExecMethod_orpcthat(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3507,13 +3634,13 @@ define internal i32 @IWbemServices_dissect_element_ExecMethod_orpcthat(ptr nound
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = load i32, ptr @hf_IWbemServices_ExecMethod_orpcthat, align 4
-  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @IWbemServices_dissect_element_ExecMethod_orpcthat_, i32 noundef 1, ptr noundef @.str.73, i32 noundef %19)
+  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @IWbemServices_dissect_element_ExecMethod_orpcthat_, i32 noundef 1, ptr noundef @.str.74, i32 noundef %19)
   store i32 %20, ptr %8, align 4
   %21 = load i32, ptr %8, align 4
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @IWbemServices_dissect_element_ExecMethod_orpcthat_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3529,6 +3656,8 @@ define internal i32 @IWbemServices_dissect_element_ExecMethod_orpcthat_(ptr noun
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #4
   call void @register_dcom_wmio()
   %15 = load ptr, ptr %10, align 8
   %16 = load i32, ptr @hf_IWbemServices_ExecMethod_orpcthat, align 4
@@ -3547,15 +3676,24 @@ define internal i32 @IWbemServices_dissect_element_ExecMethod_orpcthat_(ptr noun
   %27 = load ptr, ptr %11, align 8
   %28 = load ptr, ptr %12, align 8
   %29 = call i32 @dissect_dcom_that(ptr noundef %23, i32 noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %27, ptr noundef %28)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
   ret i32 %29
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}

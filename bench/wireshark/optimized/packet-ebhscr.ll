@@ -5,10 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
 %struct._val64_string = type { i64, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
 
 @proto_register_ebhscr.hf = internal global [123 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_ebhscr_packet_header, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ebhscr_major_number, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ebhscr_slot, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 4, i32 2, ptr null, i64 192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ebhscr_channel, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 4, i32 2, ptr null, i64 63, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ebhscr_status, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 5, i32 2, ptr null, i64 4095, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ebhscr_status_unused, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 7, i32 2, ptr null, i64 4095, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ebhscr_version, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 5, i32 2, ptr null, i64 61440, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ebhscr_length, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ebhscr_start_timestamp, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ebhscr_stop_timestamp, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ebhscr_mjr_hdr, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ebhscr_mjr_hdr_unused, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_can_proto_type, %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 5, i32 2, ptr @can_proto_type_strings, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_can_status_available, %struct._header_field_info { ptr @.str.26, ptr @.str.27, i32 5, i32 2, ptr @can_status_available_strings, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_can_LEC, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 11, i32 1025, ptr @can_last_err_code_strings, i64 30064771072, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_can_ERRP, %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 11, i32 1025, ptr @can_ERRP_strings, i64 137438953472, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_can_ERRW, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 11, i32 1025, ptr @can_ERRW_strings, i64 274877906944, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_can_BOFF, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 11, i32 1025, ptr @can_BOFF_strings, i64 549755813888, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_can_DLEC, %struct._header_field_info { ptr @.str.36, ptr @.str.37, i32 11, i32 1026, ptr @can_last_err_code_strings, i64 7696581394432, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_can_TEC, %struct._header_field_info { ptr @.str.38, ptr @.str.39, i32 11, i32 2, ptr null, i64 71776119061217280, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_can_REC, %struct._header_field_info { ptr @.str.40, ptr @.str.41, i32 11, i32 1025, ptr null, i64 9151314442816847872, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_can_CEL, %struct._header_field_info { ptr @.str.42, ptr @.str.43, i32 11, i32 1025, ptr null, i64 255, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_can_reserved_bytes, %struct._header_field_info { ptr @.str.44, ptr @.str.45, i32 2, i32 64, ptr null, i64 4294967040, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_eth_reserved_bytes, %struct._header_field_info { ptr @.str.44, ptr @.str.46, i32 2, i32 64, ptr null, i64 -4223219867320321, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_eth_link_up_down, %struct._header_field_info { ptr @.str.47, ptr @.str.48, i32 11, i32 1026, ptr @eth_link_strings, i64 4294967296, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_eth_master_slave, %struct._header_field_info { ptr @.str.49, ptr @.str.50, i32 11, i32 1026, ptr @eth_master_strings, i64 8589934592, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_eth_fcs_unavailable, %struct._header_field_info { ptr @.str.51, ptr @.str.52, i32 11, i32 1026, ptr @eth_fcs_strings, i64 17179869184, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_eth_rsvd_bit, %struct._header_field_info { ptr @.str.53, ptr @.str.54, i32 2, i32 64, ptr null, i64 34359738368, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_eth_speed, %struct._header_field_info { ptr @.str.55, ptr @.str.56, i32 11, i32 1026, ptr @eth_speed_strings, i64 1030792151040, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_eth_crc_error, %struct._header_field_info { ptr @.str.57, ptr @.str.58, i32 2, i32 16, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_eth_mii_foe, %struct._header_field_info { ptr @.str.59, ptr @.str.60, i32 2, i32 16, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_eth_payload_foe, %struct._header_field_info { ptr @.str.61, ptr @.str.62, i32 2, i32 16, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_eth_hdr_foe, %struct._header_field_info { ptr @.str.63, ptr @.str.64, i32 2, i32 16, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_eth_rcv_dec_err, %struct._header_field_info { ptr @.str.65, ptr @.str.66, i32 2, i32 16, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_eth_sym_error, %struct._header_field_info { ptr @.str.67, ptr @.str.68, i32 2, i32 16, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_eth_jabber_event, %struct._header_field_info { ptr @.str.69, ptr @.str.70, i32 2, i32 16, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_eth_pol_ch_event, %struct._header_field_info { ptr @.str.71, ptr @.str.72, i32 2, i32 16, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_eth_fls_carrier_event, %struct._header_field_info { ptr @.str.73, ptr @.str.74, i32 2, i32 16, ptr null, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_eth_rx_trunc, %struct._header_field_info { ptr @.str.75, ptr @.str.76, i32 2, i32 16, ptr null, i64 512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_eth_transmission_disc_err, %struct._header_field_info { ptr @.str.77, ptr @.str.78, i32 2, i32 16, ptr null, i64 1024, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_eth_wait_frame_sep_bit, %struct._header_field_info { ptr @.str.79, ptr @.str.80, i32 2, i32 16, ptr null, i64 2048, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_eth_tx_trunc, %struct._header_field_info { ptr @.str.81, ptr @.str.82, i32 2, i32 64, ptr null, i64 281474976710656, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_eth_trans_undrun, %struct._header_field_info { ptr @.str.83, ptr @.str.84, i32 2, i32 64, ptr null, i64 562949953421312, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_eth_retrans_limit, %struct._header_field_info { ptr @.str.85, ptr @.str.86, i32 2, i32 64, ptr null, i64 1125899906842624, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_eth_late_collision, %struct._header_field_info { ptr @.str.87, ptr @.str.88, i32 2, i32 64, ptr null, i64 2251799813685248, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ts_time_offset_valid, %struct._header_field_info { ptr @.str.89, ptr @.str.90, i32 2, i32 16, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ts_last_offset_change_valid, %struct._header_field_info { ptr @.str.91, ptr @.str.92, i32 2, i32 16, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ts_nano_seconds_last_jump_valid, %struct._header_field_info { ptr @.str.93, ptr @.str.94, i32 2, i32 16, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ts_UTC_leap_seconds_valid, %struct._header_field_info { ptr @.str.95, ptr @.str.96, i32 2, i32 16, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ts_sync_state_valid, %struct._header_field_info { ptr @.str.97, ptr @.str.98, i32 2, i32 16, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ts_time_source, %struct._header_field_info { ptr @.str.99, ptr @.str.100, i32 11, i32 1025, ptr @ts_time_source_strings, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ts_time_offset_ns, %struct._header_field_info { ptr @.str.101, ptr @.str.102, i32 11, i32 2, ptr null, i64 0, ptr @.str.103, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ts_last_offset_ns, %struct._header_field_info { ptr @.str.104, ptr @.str.105, i32 11, i32 2, ptr null, i64 0, ptr @.str.106, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ts_last_jump_ns, %struct._header_field_info { ptr @.str.107, ptr @.str.108, i32 11, i32 2, ptr null, i64 0, ptr @.str.109, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ts_utc_leap_sec, %struct._header_field_info { ptr @.str.110, ptr @.str.111, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ts_sync_state, %struct._header_field_info { ptr @.str.112, ptr @.str.113, i32 5, i32 2, ptr @ts_sync_state_strings, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_lin_1_3_classic_chksum, %struct._header_field_info { ptr @.str.114, ptr @.str.115, i32 2, i32 16, ptr null, i64 1, ptr @.str.116, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_lin_1_2_enhanced_chksum, %struct._header_field_info { ptr @.str.117, ptr @.str.118, i32 2, i32 16, ptr null, i64 2, ptr @.str.119, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_lin_wakeup, %struct._header_field_info { ptr @.str.120, ptr @.str.121, i32 2, i32 16, ptr null, i64 16, ptr @.str.122, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_lin_time_jump, %struct._header_field_info { ptr @.str.123, ptr @.str.124, i32 2, i32 16, ptr null, i64 1024, ptr @.str.125, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_lin_reserved_bytes, %struct._header_field_info { ptr @.str.53, ptr @.str.126, i32 2, i32 64, ptr null, i64 4294967295, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_lin_wakeup_length, %struct._header_field_info { ptr @.str.127, ptr @.str.128, i32 11, i32 1, ptr null, i64 -281474976710656, ptr @.str.129, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_lin_sts_reserved, %struct._header_field_info { ptr @.str.130, ptr @.str.131, i32 2, i32 64, ptr null, i64 4294967296, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_lin_sts_syn, %struct._header_field_info { ptr @.str.132, ptr @.str.133, i32 2, i32 64, ptr null, i64 8589934592, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_lin_sts_par, %struct._header_field_info { ptr @.str.134, ptr @.str.135, i32 2, i32 64, ptr null, i64 17179869184, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_lin_sts_res, %struct._header_field_info { ptr @.str.136, ptr @.str.137, i32 2, i32 64, ptr null, i64 34359738368, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_lin_sts_dat, %struct._header_field_info { ptr @.str.138, ptr @.str.139, i32 2, i32 64, ptr null, i64 68719476736, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_lin_sts_chk, %struct._header_field_info { ptr @.str.140, ptr @.str.141, i32 2, i32 64, ptr null, i64 137438953472, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_lin_sts_sta, %struct._header_field_info { ptr @.str.142, ptr @.str.143, i32 2, i32 64, ptr null, i64 274877906944, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_lin_sts_sto, %struct._header_field_info { ptr @.str.144, ptr @.str.145, i32 2, i32 64, ptr null, i64 549755813888, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_lin_sts_emp, %struct._header_field_info { ptr @.str.146, ptr @.str.147, i32 2, i32 64, ptr null, i64 1099511627776, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_lin_payload, %struct._header_field_info { ptr @.str.148, ptr @.str.149, i32 30, i32 11, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_lin_payload_pid, %struct._header_field_info { ptr @.str.150, ptr @.str.151, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_lin_payload_id, %struct._header_field_info { ptr @.str.152, ptr @.str.153, i32 4, i32 2, ptr null, i64 63, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_lin_payload_id_parity_0, %struct._header_field_info { ptr @.str.154, ptr @.str.155, i32 4, i32 2, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_lin_payload_id_parity_1, %struct._header_field_info { ptr @.str.156, ptr @.str.157, i32 4, i32 2, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_lin_payload_data, %struct._header_field_info { ptr @.str.158, ptr @.str.159, i32 30, i32 11, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_lin_payload_checksum, %struct._header_field_info { ptr @.str.160, ptr @.str.161, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dio_overflow_mon_unit, %struct._header_field_info { ptr @.str.162, ptr @.str.163, i32 2, i32 16, ptr null, i64 1, ptr @.str.164, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dio_jump_occurred, %struct._header_field_info { ptr @.str.165, ptr @.str.166, i32 2, i32 16, ptr null, i64 1024, ptr @.str.167, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dio_value_type, %struct._header_field_info { ptr @.str.168, ptr @.str.169, i32 11, i32 1025, ptr @dio_val_type_strings, i64 72057594037927936, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dio_reserved_bytes, %struct._header_field_info { ptr @.str.44, ptr @.str.170, i32 2, i32 64, ptr null, i64 72057594037927935, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_flexray_ch_a, %struct._header_field_info { ptr @.str.171, ptr @.str.172, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_flexray_ch_b, %struct._header_field_info { ptr @.str.173, ptr @.str.174, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_flexray_ctrl_id, %struct._header_field_info { ptr @.str.175, ptr @.str.176, i32 4, i32 2, ptr null, i64 28, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_flexray_monitoring_bit, %struct._header_field_info { ptr @.str.177, ptr @.str.178, i32 5, i32 2, ptr @flexray_monitoring_bit_strings, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_flexray_sync_bit, %struct._header_field_info { ptr @.str.179, ptr @.str.180, i32 2, i32 16, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_flexray_packet_type, %struct._header_field_info { ptr @.str.181, ptr @.str.182, i32 5, i32 2, ptr @flexray_packet_type_strings, i64 12, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_flexray_CODERR, %struct._header_field_info { ptr @.str.183, ptr @.str.184, i32 2, i32 16, ptr null, i64 16, ptr @.str.185, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_flexray_TSSVIOL, %struct._header_field_info { ptr @.str.186, ptr @.str.187, i32 2, i32 16, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_flexray_HCRCERR, %struct._header_field_info { ptr @.str.188, ptr @.str.189, i32 2, i32 16, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_flexray_FCRCERR, %struct._header_field_info { ptr @.str.190, ptr @.str.191, i32 2, i32 16, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_flexray_FESERR, %struct._header_field_info { ptr @.str.192, ptr @.str.193, i32 2, i32 16, ptr null, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_flexray_FSSERR, %struct._header_field_info { ptr @.str.194, ptr @.str.195, i32 2, i32 16, ptr null, i64 512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_flexray_BSSERR, %struct._header_field_info { ptr @.str.196, ptr @.str.197, i32 2, i32 16, ptr null, i64 1024, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_flexray_jump_occurred, %struct._header_field_info { ptr @.str.165, ptr @.str.198, i32 2, i32 16, ptr null, i64 2048, ptr @.str.167, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_flexray_slot_information, %struct._header_field_info { ptr @.str.199, ptr @.str.200, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_flexray_SBV, %struct._header_field_info { ptr @.str.201, ptr @.str.202, i32 2, i32 16, ptr null, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_flexray_ACI, %struct._header_field_info { ptr @.str.203, ptr @.str.204, i32 2, i32 16, ptr null, i64 16384, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_flexray_CED, %struct._header_field_info { ptr @.str.205, ptr @.str.206, i32 2, i32 16, ptr null, i64 8192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_flexray_SED, %struct._header_field_info { ptr @.str.207, ptr @.str.208, i32 2, i32 16, ptr null, i64 4096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_flexray_VFR, %struct._header_field_info { ptr @.str.209, ptr @.str.210, i32 2, i32 16, ptr null, i64 2048, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_flexray_SID, %struct._header_field_info { ptr @.str.211, ptr @.str.212, i32 5, i32 2, ptr null, i64 2047, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_flexray_frame_status, %struct._header_field_info { ptr @.str.213, ptr @.str.214, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_flexray_SPLERR, %struct._header_field_info { ptr @.str.215, ptr @.str.216, i32 2, i32 16, ptr null, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_flexray_CCERR, %struct._header_field_info { ptr @.str.217, ptr @.str.218, i32 2, i32 16, ptr null, i64 16384, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_flexray_FIDERR, %struct._header_field_info { ptr @.str.219, ptr @.str.220, i32 2, i32 16, ptr null, i64 8192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_flexray_SSERR, %struct._header_field_info { ptr @.str.221, ptr @.str.222, i32 2, i32 16, ptr null, i64 4096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_flexray_NERR, %struct._header_field_info { ptr @.str.223, ptr @.str.224, i32 2, i32 16, ptr null, i64 2048, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_flexray_SOVERR, %struct._header_field_info { ptr @.str.225, ptr @.str.226, i32 2, i32 16, ptr null, i64 1024, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_flexray_SWVIOL, %struct._header_field_info { ptr @.str.227, ptr @.str.228, i32 2, i32 16, ptr null, i64 512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_flexray_NITVIOL, %struct._header_field_info { ptr @.str.229, ptr @.str.230, i32 2, i32 16, ptr null, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_flexray_BVIOL, %struct._header_field_info { ptr @.str.231, ptr @.str.232, i32 2, i32 16, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_flexray_PCD, %struct._header_field_info { ptr @.str.233, ptr @.str.234, i32 2, i32 16, ptr null, i64 64, ptr @.str.235, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_flexray_SYNCERR, %struct._header_field_info { ptr @.str.236, ptr @.str.237, i32 2, i32 16, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_flexray_CP, %struct._header_field_info { ptr @.str.238, ptr @.str.239, i32 5, i32 2, ptr @flexray_CP_strings, i64 24, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_flexray_BRC, %struct._header_field_info { ptr @.str.240, ptr @.str.241, i32 5, i32 2, ptr null, i64 7, ptr @.str.242, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_flexray_symbol_length_and_status, %struct._header_field_info { ptr @.str.243, ptr @.str.244, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_flexray_SYERR, %struct._header_field_info { ptr @.str.245, ptr @.str.246, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_flexray_SL, %struct._header_field_info { ptr @.str.247, ptr @.str.248, i32 4, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_flexray_POC_state, %struct._header_field_info { ptr @.str.249, ptr @.str.250, i32 4, i32 2, ptr @flexray_POC_state_strings, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_flexray_following_cycle_counter, %struct._header_field_info { ptr @.str.251, ptr @.str.252, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_flexray_supercycle_counter, %struct._header_field_info { ptr @.str.253, ptr @.str.254, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
@@ -51,27 +48,25 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_can_proto_type = internal global i32 0, align 4
 @.str.24 = private unnamed_addr constant [12 x i8] c"CAN FD flag\00", align 1
 @.str.25 = private unnamed_addr constant [16 x i8] c"ebhscr.can.type\00", align 1
-@can_proto_type_strings = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.272 }, %struct._value_string { i32 1, ptr @.str.273 }, %struct._value_string zeroinitializer], align 16
 @hf_can_status_available = internal global i32 0, align 4
 @.str.26 = private unnamed_addr constant [33 x i8] c"CAN protocol status availability\00", align 1
 @.str.27 = private unnamed_addr constant [16 x i8] c"ebhscr.can.asts\00", align 1
-@can_status_available_strings = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.274 }, %struct._value_string { i32 1, ptr @.str.275 }, %struct._value_string zeroinitializer], align 16
 @hf_can_LEC = internal global i32 0, align 4
 @.str.28 = private unnamed_addr constant [20 x i8] c"CAN Last error code\00", align 1
 @.str.29 = private unnamed_addr constant [15 x i8] c"ebhscr.can.LEC\00", align 1
-@can_last_err_code_strings = internal constant [9 x %struct._val64_string] [%struct._val64_string { i64 0, ptr @.str.276 }, %struct._val64_string { i64 1, ptr @.str.277 }, %struct._val64_string { i64 2, ptr @.str.278 }, %struct._val64_string { i64 3, ptr @.str.279 }, %struct._val64_string { i64 4, ptr @.str.280 }, %struct._val64_string { i64 5, ptr @.str.281 }, %struct._val64_string { i64 6, ptr @.str.282 }, %struct._val64_string { i64 7, ptr @.str.53 }, %struct._val64_string zeroinitializer], align 16
+@can_last_err_code_strings = internal constant [9 x %struct._val64_string] [%struct._val64_string { i64 0, ptr @.str.278 }, %struct._val64_string { i64 1, ptr @.str.279 }, %struct._val64_string { i64 2, ptr @.str.280 }, %struct._val64_string { i64 3, ptr @.str.281 }, %struct._val64_string { i64 4, ptr @.str.282 }, %struct._val64_string { i64 5, ptr @.str.283 }, %struct._val64_string { i64 6, ptr @.str.284 }, %struct._val64_string { i64 7, ptr @.str.53 }, %struct._val64_string zeroinitializer], align 16
 @hf_can_ERRP = internal global i32 0, align 4
 @.str.30 = private unnamed_addr constant [41 x i8] c"CAN Counters reached Error passive limit\00", align 1
 @.str.31 = private unnamed_addr constant [16 x i8] c"ebhscr.can.errp\00", align 1
-@can_ERRP_strings = internal constant [3 x %struct._val64_string] [%struct._val64_string { i64 0, ptr @.str.283 }, %struct._val64_string { i64 1, ptr @.str.284 }, %struct._val64_string zeroinitializer], align 16
+@can_ERRP_strings = internal constant [3 x %struct._val64_string] [%struct._val64_string { i64 0, ptr @.str.285 }, %struct._val64_string { i64 1, ptr @.str.286 }, %struct._val64_string zeroinitializer], align 16
 @hf_can_ERRW = internal global i32 0, align 4
 @.str.32 = private unnamed_addr constant [41 x i8] c"CAN Counters reached Error warning limit\00", align 1
 @.str.33 = private unnamed_addr constant [16 x i8] c"ebhscr.can.errw\00", align 1
-@can_ERRW_strings = internal constant [3 x %struct._val64_string] [%struct._val64_string { i64 0, ptr @.str.285 }, %struct._val64_string { i64 1, ptr @.str.286 }, %struct._val64_string zeroinitializer], align 16
+@can_ERRW_strings = internal constant [3 x %struct._val64_string] [%struct._val64_string { i64 0, ptr @.str.287 }, %struct._val64_string { i64 1, ptr @.str.288 }, %struct._val64_string zeroinitializer], align 16
 @hf_can_BOFF = internal global i32 0, align 4
 @.str.34 = private unnamed_addr constant [18 x i8] c"CAN Bus Off state\00", align 1
 @.str.35 = private unnamed_addr constant [16 x i8] c"ebhscr.can.boff\00", align 1
-@can_BOFF_strings = internal constant [3 x %struct._val64_string] [%struct._val64_string { i64 0, ptr @.str.287 }, %struct._val64_string { i64 1, ptr @.str.288 }, %struct._val64_string zeroinitializer], align 16
+@can_BOFF_strings = internal constant [3 x %struct._val64_string] [%struct._val64_string { i64 0, ptr @.str.289 }, %struct._val64_string { i64 1, ptr @.str.290 }, %struct._val64_string zeroinitializer], align 16
 @hf_can_DLEC = internal global i32 0, align 4
 @.str.36 = private unnamed_addr constant [68 x i8] c"CAN Data phase of CAN FD frame (with BRS flag set) last error code.\00", align 1
 @.str.37 = private unnamed_addr constant [16 x i8] c"ebhscr.can.dlec\00", align 1
@@ -92,22 +87,22 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_eth_link_up_down = internal global i32 0, align 4
 @.str.47 = private unnamed_addr constant [16 x i8] c"Link Up or Down\00", align 1
 @.str.48 = private unnamed_addr constant [15 x i8] c"ebhscr.eth.lud\00", align 1
-@eth_link_strings = internal constant [3 x %struct._val64_string] [%struct._val64_string { i64 0, ptr @.str.289 }, %struct._val64_string { i64 1, ptr @.str.290 }, %struct._val64_string zeroinitializer], align 16
+@eth_link_strings = internal constant [3 x %struct._val64_string] [%struct._val64_string { i64 0, ptr @.str.291 }, %struct._val64_string { i64 1, ptr @.str.292 }, %struct._val64_string zeroinitializer], align 16
 @hf_eth_master_slave = internal global i32 0, align 4
 @.str.49 = private unnamed_addr constant [31 x i8] c"Master or Slave (if supported)\00", align 1
 @.str.50 = private unnamed_addr constant [14 x i8] c"ebhscr.eth.ms\00", align 1
-@eth_master_strings = internal constant [3 x %struct._val64_string] [%struct._val64_string { i64 0, ptr @.str.291 }, %struct._val64_string { i64 1, ptr @.str.292 }, %struct._val64_string zeroinitializer], align 16
+@eth_master_strings = internal constant [3 x %struct._val64_string] [%struct._val64_string { i64 0, ptr @.str.293 }, %struct._val64_string { i64 1, ptr @.str.294 }, %struct._val64_string zeroinitializer], align 16
 @hf_eth_fcs_unavailable = internal global i32 0, align 4
 @.str.51 = private unnamed_addr constant [16 x i8] c"FCS unavailable\00", align 1
 @.str.52 = private unnamed_addr constant [17 x i8] c"ebhscr.eth.fcsua\00", align 1
-@eth_fcs_strings = internal constant [3 x %struct._val64_string] [%struct._val64_string { i64 0, ptr @.str.293 }, %struct._val64_string { i64 1, ptr @.str.294 }, %struct._val64_string zeroinitializer], align 16
+@eth_fcs_strings = internal constant [3 x %struct._val64_string] [%struct._val64_string { i64 0, ptr @.str.295 }, %struct._val64_string { i64 1, ptr @.str.296 }, %struct._val64_string zeroinitializer], align 16
 @hf_eth_rsvd_bit = internal global i32 0, align 4
 @.str.53 = private unnamed_addr constant [9 x i8] c"Reserved\00", align 1
 @.str.54 = private unnamed_addr constant [16 x i8] c"ebhscr.eth.rsvd\00", align 1
 @hf_eth_speed = internal global i32 0, align 4
 @.str.55 = private unnamed_addr constant [15 x i8] c"Ethernet speed\00", align 1
 @.str.56 = private unnamed_addr constant [15 x i8] c"ebhscr.eth.spd\00", align 1
-@eth_speed_strings = internal constant [17 x %struct._val64_string] [%struct._val64_string { i64 0, ptr @.str.295 }, %struct._val64_string { i64 1, ptr @.str.296 }, %struct._val64_string { i64 2, ptr @.str.297 }, %struct._val64_string { i64 3, ptr @.str.298 }, %struct._val64_string { i64 4, ptr @.str.299 }, %struct._val64_string { i64 5, ptr @.str.300 }, %struct._val64_string { i64 6, ptr @.str.301 }, %struct._val64_string { i64 7, ptr @.str.302 }, %struct._val64_string { i64 8, ptr @.str.303 }, %struct._val64_string { i64 9, ptr @.str.53 }, %struct._val64_string { i64 10, ptr @.str.53 }, %struct._val64_string { i64 11, ptr @.str.53 }, %struct._val64_string { i64 12, ptr @.str.53 }, %struct._val64_string { i64 13, ptr @.str.53 }, %struct._val64_string { i64 14, ptr @.str.53 }, %struct._val64_string { i64 15, ptr @.str.304 }, %struct._val64_string zeroinitializer], align 16
+@eth_speed_strings = internal constant [17 x %struct._val64_string] [%struct._val64_string { i64 0, ptr @.str.297 }, %struct._val64_string { i64 1, ptr @.str.298 }, %struct._val64_string { i64 2, ptr @.str.299 }, %struct._val64_string { i64 3, ptr @.str.300 }, %struct._val64_string { i64 4, ptr @.str.301 }, %struct._val64_string { i64 5, ptr @.str.302 }, %struct._val64_string { i64 6, ptr @.str.303 }, %struct._val64_string { i64 7, ptr @.str.304 }, %struct._val64_string { i64 8, ptr @.str.305 }, %struct._val64_string { i64 9, ptr @.str.53 }, %struct._val64_string { i64 10, ptr @.str.53 }, %struct._val64_string { i64 11, ptr @.str.53 }, %struct._val64_string { i64 12, ptr @.str.53 }, %struct._val64_string { i64 13, ptr @.str.53 }, %struct._val64_string { i64 14, ptr @.str.53 }, %struct._val64_string { i64 15, ptr @.str.306 }, %struct._val64_string zeroinitializer], align 16
 @hf_eth_crc_error = internal global i32 0, align 4
 @.str.57 = private unnamed_addr constant [19 x i8] c"Ethernet CRC Error\00", align 1
 @.str.58 = private unnamed_addr constant [15 x i8] c"ebhscr.eth.crc\00", align 1
@@ -174,7 +169,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_ts_time_source = internal global i32 0, align 4
 @.str.99 = private unnamed_addr constant [12 x i8] c"Time source\00", align 1
 @.str.100 = private unnamed_addr constant [15 x i8] c"ebhscr.ts.tsrc\00", align 1
-@ts_time_source_strings = internal constant [10 x %struct._val64_string] [%struct._val64_string { i64 0, ptr @.str.305 }, %struct._val64_string { i64 1, ptr @.str.306 }, %struct._val64_string { i64 2, ptr @.str.307 }, %struct._val64_string { i64 3, ptr @.str.308 }, %struct._val64_string { i64 16, ptr @.str.309 }, %struct._val64_string { i64 32, ptr @.str.310 }, %struct._val64_string { i64 48, ptr @.str.311 }, %struct._val64_string { i64 64, ptr @.str.312 }, %struct._val64_string { i64 80, ptr @.str.313 }, %struct._val64_string zeroinitializer], align 16
+@ts_time_source_strings = internal constant [10 x %struct._val64_string] [%struct._val64_string { i64 0, ptr @.str.307 }, %struct._val64_string { i64 1, ptr @.str.308 }, %struct._val64_string { i64 2, ptr @.str.309 }, %struct._val64_string { i64 3, ptr @.str.310 }, %struct._val64_string { i64 16, ptr @.str.311 }, %struct._val64_string { i64 32, ptr @.str.312 }, %struct._val64_string { i64 48, ptr @.str.313 }, %struct._val64_string { i64 64, ptr @.str.314 }, %struct._val64_string { i64 80, ptr @.str.315 }, %struct._val64_string zeroinitializer], align 16
 @hf_ts_time_offset_ns = internal global i32 0, align 4
 @.str.101 = private unnamed_addr constant [27 x i8] c"Time offset in nanoseconds\00", align 1
 @.str.102 = private unnamed_addr constant [14 x i8] c"ebhscr.ts.off\00", align 1
@@ -193,7 +188,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_ts_sync_state = internal global i32 0, align 4
 @.str.112 = private unnamed_addr constant [11 x i8] c"Sync state\00", align 1
 @.str.113 = private unnamed_addr constant [14 x i8] c"ebhscr.ts.syn\00", align 1
-@ts_sync_state_strings = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.314 }, %struct._value_string { i32 1, ptr @.str.315 }, %struct._value_string zeroinitializer], align 16
 @hf_lin_1_3_classic_chksum = internal global i32 0, align 4
 @.str.114 = private unnamed_addr constant [34 x i8] c"LIN 1.3 Classic Checksum received\00", align 1
 @.str.115 = private unnamed_addr constant [20 x i8] c"ebhscr.lin.clchksum\00", align 1
@@ -275,7 +269,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_dio_value_type = internal global i32 0, align 4
 @.str.168 = private unnamed_addr constant [22 x i8] c"Digital IO value type\00", align 1
 @.str.169 = private unnamed_addr constant [19 x i8] c"ebhscr.dio.valtype\00", align 1
-@dio_val_type_strings = internal constant [3 x %struct._val64_string] [%struct._val64_string { i64 0, ptr @.str.316 }, %struct._val64_string { i64 1, ptr @.str.317 }, %struct._val64_string zeroinitializer], align 16
+@dio_val_type_strings = internal constant [3 x %struct._val64_string] [%struct._val64_string { i64 0, ptr @.str.319 }, %struct._val64_string { i64 1, ptr @.str.320 }, %struct._val64_string zeroinitializer], align 16
 @hf_dio_reserved_bytes = internal global i32 0, align 4
 @.str.170 = private unnamed_addr constant [15 x i8] c"ebhscr.dio.rsv\00", align 1
 @hf_flexray_ch_a = internal global i32 0, align 4
@@ -290,14 +284,12 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_flexray_monitoring_bit = internal global i32 0, align 4
 @.str.177 = private unnamed_addr constant [30 x i8] c"Synchronous monitoring packet\00", align 1
 @.str.178 = private unnamed_addr constant [23 x i8] c"ebhscr.flexray.syncmon\00", align 1
-@flexray_monitoring_bit_strings = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.318 }, %struct._value_string { i32 1, ptr @.str.319 }, %struct._value_string zeroinitializer], align 16
 @hf_flexray_sync_bit = internal global i32 0, align 4
 @.str.179 = private unnamed_addr constant [67 x i8] c"If value 1 then FlexRay cluster is sync (only valid if bit 0 = 1).\00", align 1
 @.str.180 = private unnamed_addr constant [20 x i8] c"ebhscr.flexray.sync\00", align 1
 @hf_flexray_packet_type = internal global i32 0, align 4
 @.str.181 = private unnamed_addr constant [20 x i8] c"FlexRay packet type\00", align 1
 @.str.182 = private unnamed_addr constant [23 x i8] c"ebhscr.flexray.pkttype\00", align 1
-@flexray_packet_type_strings = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.320 }, %struct._value_string { i32 1, ptr @.str.321 }, %struct._value_string { i32 2, ptr @.str.322 }, %struct._value_string { i32 3, ptr @.str.323 }, %struct._value_string zeroinitializer], align 16
 @hf_flexray_CODERR = internal global i32 0, align 4
 @.str.183 = private unnamed_addr constant [13 x i8] c"Coding error\00", align 1
 @.str.184 = private unnamed_addr constant [22 x i8] c"ebhscr.flexray.coderr\00", align 1
@@ -383,7 +375,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_flexray_CP = internal global i32 0, align 4
 @.str.238 = private unnamed_addr constant [25 x i8] c"Communication cycle part\00", align 1
 @.str.239 = private unnamed_addr constant [27 x i8] c"ebhscr.flexray.framests.cp\00", align 1
-@flexray_CP_strings = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.324 }, %struct._value_string { i32 1, ptr @.str.325 }, %struct._value_string { i32 2, ptr @.str.326 }, %struct._value_string { i32 3, ptr @.str.327 }, %struct._value_string zeroinitializer], align 16
 @hf_flexray_BRC = internal global i32 0, align 4
 @.str.240 = private unnamed_addr constant [22 x i8] c"Byte Received Counter\00", align 1
 @.str.241 = private unnamed_addr constant [28 x i8] c"ebhscr.flexray.framests.brc\00", align 1
@@ -400,7 +391,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_flexray_POC_state = internal global i32 0, align 4
 @.str.249 = private unnamed_addr constant [33 x i8] c"Protocol operation control state\00", align 1
 @.str.250 = private unnamed_addr constant [24 x i8] c"ebhscr.flexray.pocstate\00", align 1
-@flexray_POC_state_strings = internal constant [24 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.328 }, %struct._value_string { i32 1, ptr @.str.329 }, %struct._value_string { i32 2, ptr @.str.330 }, %struct._value_string { i32 3, ptr @.str.331 }, %struct._value_string { i32 4, ptr @.str.332 }, %struct._value_string { i32 5, ptr @.str.333 }, %struct._value_string { i32 15, ptr @.str.334 }, %struct._value_string { i32 16, ptr @.str.335 }, %struct._value_string { i32 17, ptr @.str.336 }, %struct._value_string { i32 18, ptr @.str.337 }, %struct._value_string { i32 19, ptr @.str.338 }, %struct._value_string { i32 32, ptr @.str.339 }, %struct._value_string { i32 33, ptr @.str.340 }, %struct._value_string { i32 34, ptr @.str.341 }, %struct._value_string { i32 35, ptr @.str.342 }, %struct._value_string { i32 36, ptr @.str.343 }, %struct._value_string { i32 37, ptr @.str.344 }, %struct._value_string { i32 38, ptr @.str.345 }, %struct._value_string { i32 39, ptr @.str.346 }, %struct._value_string { i32 40, ptr @.str.347 }, %struct._value_string { i32 41, ptr @.str.348 }, %struct._value_string { i32 42, ptr @.str.349 }, %struct._value_string { i32 43, ptr @.str.350 }, %struct._value_string zeroinitializer], align 16
 @hf_flexray_following_cycle_counter = internal global i32 0, align 4
 @.str.251 = private unnamed_addr constant [33 x i8] c"Cycle counter of following cycle\00", align 1
 @.str.252 = private unnamed_addr constant [19 x i8] c"ebhscr.flexray.fcc\00", align 1
@@ -414,7 +404,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_ebhscr_status = internal global i32 0, align 4
 @ett_ebhscr_mjr_hdr = internal global i32 0, align 4
 @ett_lin_payload = internal global i32 0, align 4
-@proto_register_ebhscr.ei = internal global [3 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_ebhscr_frame_header, %struct.expert_field_info { ptr @.str.255, i32 117440512, i32 8388608, ptr @.str.256, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_ebhscr_err_status_flag, %struct.expert_field_info { ptr @.str.257, i32 150994944, i32 6291456, ptr @.str.258, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_ebhscr_info_status_flag, %struct.expert_field_info { ptr @.str.259, i32 150994944, i32 2097152, ptr @.str.258, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_ebhscr.ei = internal global [3 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_ebhscr_frame_header, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.255, i32 117440512, i32 8388608, ptr @.str.256, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_ebhscr_err_status_flag, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.257, i32 150994944, i32 6291456, ptr @.str.258, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_ebhscr_info_status_flag, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.259, i32 150994944, i32 2097152, ptr @.str.258, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_ebhscr_frame_header = internal global %struct.expert_field zeroinitializer, align 4
 @.str.255 = private unnamed_addr constant [20 x i8] c"ebhscr.frame_header\00", align 1
 @.str.256 = private unnamed_addr constant [26 x i8] c"Frame Header is malformed\00", align 1
@@ -446,192 +436,209 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.271 = private unnamed_addr constant [11 x i8] c"wtap_encap\00", align 1
 @.str.272 = private unnamed_addr constant [14 x i8] c"Classical CAN\00", align 1
 @.str.273 = private unnamed_addr constant [18 x i8] c"CAN FD data frame\00", align 1
-@.str.274 = private unnamed_addr constant [34 x i8] c"CAN protocol status not available\00", align 1
-@.str.275 = private unnamed_addr constant [30 x i8] c"CAN protocol status available\00", align 1
-@.str.276 = private unnamed_addr constant [9 x i8] c"No Error\00", align 1
-@.str.277 = private unnamed_addr constant [12 x i8] c"Stuff Error\00", align 1
-@.str.278 = private unnamed_addr constant [11 x i8] c"Form Error\00", align 1
-@.str.279 = private unnamed_addr constant [10 x i8] c"Ack Error\00", align 1
-@.str.280 = private unnamed_addr constant [11 x i8] c"Bit1 Error\00", align 1
-@.str.281 = private unnamed_addr constant [11 x i8] c"Bit0 Error\00", align 1
-@.str.282 = private unnamed_addr constant [10 x i8] c"CRC Error\00", align 1
-@.str.283 = private unnamed_addr constant [55 x i8] c"Error counters are below the error passive limit (128)\00", align 1
-@.str.284 = private unnamed_addr constant [68 x i8] c"One of the error counters has reached the error passive limit (128)\00", align 1
-@.str.285 = private unnamed_addr constant [54 x i8] c"Error counters are below the error warning limit (96)\00", align 1
-@.str.286 = private unnamed_addr constant [67 x i8] c"One of the error counters has reached the error warning limit (96)\00", align 1
-@.str.287 = private unnamed_addr constant [21 x i8] c"Not in Bus Off state\00", align 1
-@.str.288 = private unnamed_addr constant [18 x i8] c"In Bus Off state.\00", align 1
-@.str.289 = private unnamed_addr constant [10 x i8] c"Link Down\00", align 1
-@.str.290 = private unnamed_addr constant [8 x i8] c"Link Up\00", align 1
-@.str.291 = private unnamed_addr constant [6 x i8] c"Slave\00", align 1
-@.str.292 = private unnamed_addr constant [7 x i8] c"Master\00", align 1
-@.str.293 = private unnamed_addr constant [24 x i8] c"FCS appended to payload\00", align 1
-@.str.294 = private unnamed_addr constant [29 x i8] c"FCS not appended to payload.\00", align 1
-@.str.295 = private unnamed_addr constant [10 x i8] c"Speed 10M\00", align 1
-@.str.296 = private unnamed_addr constant [11 x i8] c"Speed 100M\00", align 1
-@.str.297 = private unnamed_addr constant [12 x i8] c"Speed 1000M\00", align 1
-@.str.298 = private unnamed_addr constant [11 x i8] c"Speed 2.5G\00", align 1
-@.str.299 = private unnamed_addr constant [9 x i8] c"Speed 5G\00", align 1
-@.str.300 = private unnamed_addr constant [10 x i8] c"Speed 10G\00", align 1
-@.str.301 = private unnamed_addr constant [10 x i8] c"Speed 25G\00", align 1
-@.str.302 = private unnamed_addr constant [10 x i8] c"Speed 40G\00", align 1
-@.str.303 = private unnamed_addr constant [11 x i8] c"Speed 100G\00", align 1
-@.str.304 = private unnamed_addr constant [76 x i8] c"Speed unknown. This value can be used when the speed could not be detected.\00", align 1
-@.str.305 = private unnamed_addr constant [15 x i8] c"TimeSourceNone\00", align 1
-@.str.306 = private unnamed_addr constant [25 x i8] c"TimeSourceEBTimesyncHard\00", align 1
-@.str.307 = private unnamed_addr constant [15 x i8] c"TimeSourceXTSS\00", align 1
-@.str.308 = private unnamed_addr constant [16 x i8] c"TimeSourcePTPHW\00", align 1
-@.str.309 = private unnamed_addr constant [16 x i8] c"TimeSourcePTPSW\00", align 1
-@.str.310 = private unnamed_addr constant [14 x i8] c"TimeSourceGPS\00", align 1
-@.str.311 = private unnamed_addr constant [25 x i8] c"TimeSourceEBTimesyncSoft\00", align 1
-@.str.312 = private unnamed_addr constant [14 x i8] c"TimeSourceCAN\00", align 1
-@.str.313 = private unnamed_addr constant [17 x i8] c"TimeSourceEBVirt\00", align 1
-@.str.314 = private unnamed_addr constant [13 x i8] c"Free running\00", align 1
-@.str.315 = private unnamed_addr constant [17 x i8] c"Locked to master\00", align 1
-@.str.316 = private unnamed_addr constant [29 x i8] c"Event triggered falling edge\00", align 1
-@.str.317 = private unnamed_addr constant [28 x i8] c"Event triggered rising edge\00", align 1
-@.str.318 = private unnamed_addr constant [48 x i8] c"Packet was generated by asynchronous monitoring\00", align 1
-@.str.319 = private unnamed_addr constant [55 x i8] c"Packet was generated by FlexRay synchronous monitoring\00", align 1
-@.str.320 = private unnamed_addr constant [6 x i8] c"Frame\00", align 1
-@.str.321 = private unnamed_addr constant [7 x i8] c"Symbol\00", align 1
-@.str.322 = private unnamed_addr constant [12 x i8] c"Slot status\00", align 1
-@.str.323 = private unnamed_addr constant [15 x i8] c"Start of cycle\00", align 1
-@.str.324 = private unnamed_addr constant [12 x i8] c"Static part\00", align 1
-@.str.325 = private unnamed_addr constant [13 x i8] c"Dynamic part\00", align 1
-@.str.326 = private unnamed_addr constant [14 x i8] c"Symbol window\00", align 1
-@.str.327 = private unnamed_addr constant [4 x i8] c"NIT\00", align 1
-@.str.328 = private unnamed_addr constant [21 x i8] c"DEFAULT_CONFIG state\00", align 1
-@.str.329 = private unnamed_addr constant [12 x i8] c"READY state\00", align 1
-@.str.330 = private unnamed_addr constant [20 x i8] c"NORMAL_ACTIVE state\00", align 1
-@.str.331 = private unnamed_addr constant [21 x i8] c"NORMAL_PASSIVE state\00", align 1
-@.str.332 = private unnamed_addr constant [11 x i8] c"HALT state\00", align 1
-@.str.333 = private unnamed_addr constant [19 x i8] c"MONITOR_MODE state\00", align 1
-@.str.334 = private unnamed_addr constant [13 x i8] c"CONFIG state\00", align 1
-@.str.335 = private unnamed_addr constant [21 x i8] c"WAKEUP_STANDBY state\00", align 1
-@.str.336 = private unnamed_addr constant [20 x i8] c"WAKEUP_LISTEN state\00", align 1
-@.str.337 = private unnamed_addr constant [18 x i8] c"WAKEUP_SEND state\00", align 1
-@.str.338 = private unnamed_addr constant [20 x i8] c"WAKEUP_DETECT state\00", align 1
-@.str.339 = private unnamed_addr constant [22 x i8] c"STARTUP_PREPARE state\00", align 1
-@.str.340 = private unnamed_addr constant [23 x i8] c"COLDSTART_LISTEN state\00", align 1
-@.str.341 = private unnamed_addr constant [37 x i8] c"COLDSTART_COLLISION_RESOLUTION state\00", align 1
-@.str.342 = private unnamed_addr constant [34 x i8] c"COLDSTART_CONSISTENCY_CHECK state\00", align 1
-@.str.343 = private unnamed_addr constant [20 x i8] c"COLDSTART_GAP state\00", align 1
-@.str.344 = private unnamed_addr constant [21 x i8] c"COLDSTART_JOIN state\00", align 1
-@.str.345 = private unnamed_addr constant [34 x i8] c"INTEGRATION_COLDSTART_CHECK state\00", align 1
-@.str.346 = private unnamed_addr constant [25 x i8] c"INTEGRATION_LISTEN state\00", align 1
-@.str.347 = private unnamed_addr constant [36 x i8] c"INTEGRATION_CONSISTENCY_CHECK state\00", align 1
-@.str.348 = private unnamed_addr constant [26 x i8] c"INITIALIZE_SCHEDULE state\00", align 1
-@.str.349 = private unnamed_addr constant [20 x i8] c"ABORT_STARTUP state\00", align 1
-@.str.350 = private unnamed_addr constant [22 x i8] c"STARTUP_SUCCESS state\00", align 1
-@.str.351 = private unnamed_addr constant [5 x i8] c"  %s\00", align 1
+@can_proto_type_strings = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.272 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.273 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.275 = private unnamed_addr constant [34 x i8] c"CAN protocol status not available\00", align 1
+@.str.276 = private unnamed_addr constant [30 x i8] c"CAN protocol status available\00", align 1
+@can_status_available_strings = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.275 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.276 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.278 = private unnamed_addr constant [9 x i8] c"No Error\00", align 1
+@.str.279 = private unnamed_addr constant [12 x i8] c"Stuff Error\00", align 1
+@.str.280 = private unnamed_addr constant [11 x i8] c"Form Error\00", align 1
+@.str.281 = private unnamed_addr constant [10 x i8] c"Ack Error\00", align 1
+@.str.282 = private unnamed_addr constant [11 x i8] c"Bit1 Error\00", align 1
+@.str.283 = private unnamed_addr constant [11 x i8] c"Bit0 Error\00", align 1
+@.str.284 = private unnamed_addr constant [10 x i8] c"CRC Error\00", align 1
+@.str.285 = private unnamed_addr constant [55 x i8] c"Error counters are below the error passive limit (128)\00", align 1
+@.str.286 = private unnamed_addr constant [68 x i8] c"One of the error counters has reached the error passive limit (128)\00", align 1
+@.str.287 = private unnamed_addr constant [54 x i8] c"Error counters are below the error warning limit (96)\00", align 1
+@.str.288 = private unnamed_addr constant [67 x i8] c"One of the error counters has reached the error warning limit (96)\00", align 1
+@.str.289 = private unnamed_addr constant [21 x i8] c"Not in Bus Off state\00", align 1
+@.str.290 = private unnamed_addr constant [18 x i8] c"In Bus Off state.\00", align 1
+@.str.291 = private unnamed_addr constant [10 x i8] c"Link Down\00", align 1
+@.str.292 = private unnamed_addr constant [8 x i8] c"Link Up\00", align 1
+@.str.293 = private unnamed_addr constant [6 x i8] c"Slave\00", align 1
+@.str.294 = private unnamed_addr constant [7 x i8] c"Master\00", align 1
+@.str.295 = private unnamed_addr constant [24 x i8] c"FCS appended to payload\00", align 1
+@.str.296 = private unnamed_addr constant [29 x i8] c"FCS not appended to payload.\00", align 1
+@.str.297 = private unnamed_addr constant [10 x i8] c"Speed 10M\00", align 1
+@.str.298 = private unnamed_addr constant [11 x i8] c"Speed 100M\00", align 1
+@.str.299 = private unnamed_addr constant [12 x i8] c"Speed 1000M\00", align 1
+@.str.300 = private unnamed_addr constant [11 x i8] c"Speed 2.5G\00", align 1
+@.str.301 = private unnamed_addr constant [9 x i8] c"Speed 5G\00", align 1
+@.str.302 = private unnamed_addr constant [10 x i8] c"Speed 10G\00", align 1
+@.str.303 = private unnamed_addr constant [10 x i8] c"Speed 25G\00", align 1
+@.str.304 = private unnamed_addr constant [10 x i8] c"Speed 40G\00", align 1
+@.str.305 = private unnamed_addr constant [11 x i8] c"Speed 100G\00", align 1
+@.str.306 = private unnamed_addr constant [76 x i8] c"Speed unknown. This value can be used when the speed could not be detected.\00", align 1
+@.str.307 = private unnamed_addr constant [15 x i8] c"TimeSourceNone\00", align 1
+@.str.308 = private unnamed_addr constant [25 x i8] c"TimeSourceEBTimesyncHard\00", align 1
+@.str.309 = private unnamed_addr constant [15 x i8] c"TimeSourceXTSS\00", align 1
+@.str.310 = private unnamed_addr constant [16 x i8] c"TimeSourcePTPHW\00", align 1
+@.str.311 = private unnamed_addr constant [16 x i8] c"TimeSourcePTPSW\00", align 1
+@.str.312 = private unnamed_addr constant [14 x i8] c"TimeSourceGPS\00", align 1
+@.str.313 = private unnamed_addr constant [25 x i8] c"TimeSourceEBTimesyncSoft\00", align 1
+@.str.314 = private unnamed_addr constant [14 x i8] c"TimeSourceCAN\00", align 1
+@.str.315 = private unnamed_addr constant [17 x i8] c"TimeSourceEBVirt\00", align 1
+@.str.316 = private unnamed_addr constant [13 x i8] c"Free running\00", align 1
+@.str.317 = private unnamed_addr constant [17 x i8] c"Locked to master\00", align 1
+@ts_sync_state_strings = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.316 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.317 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.319 = private unnamed_addr constant [29 x i8] c"Event triggered falling edge\00", align 1
+@.str.320 = private unnamed_addr constant [28 x i8] c"Event triggered rising edge\00", align 1
+@.str.321 = private unnamed_addr constant [48 x i8] c"Packet was generated by asynchronous monitoring\00", align 1
+@.str.322 = private unnamed_addr constant [55 x i8] c"Packet was generated by FlexRay synchronous monitoring\00", align 1
+@flexray_monitoring_bit_strings = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.321 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.322 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.324 = private unnamed_addr constant [6 x i8] c"Frame\00", align 1
+@.str.325 = private unnamed_addr constant [7 x i8] c"Symbol\00", align 1
+@.str.326 = private unnamed_addr constant [12 x i8] c"Slot status\00", align 1
+@.str.327 = private unnamed_addr constant [15 x i8] c"Start of cycle\00", align 1
+@flexray_packet_type_strings = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.324 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.325 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.326 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.327 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.329 = private unnamed_addr constant [12 x i8] c"Static part\00", align 1
+@.str.330 = private unnamed_addr constant [13 x i8] c"Dynamic part\00", align 1
+@.str.331 = private unnamed_addr constant [14 x i8] c"Symbol window\00", align 1
+@.str.332 = private unnamed_addr constant [4 x i8] c"NIT\00", align 1
+@flexray_CP_strings = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.329 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.330 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.331 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.332 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.334 = private unnamed_addr constant [21 x i8] c"DEFAULT_CONFIG state\00", align 1
+@.str.335 = private unnamed_addr constant [12 x i8] c"READY state\00", align 1
+@.str.336 = private unnamed_addr constant [20 x i8] c"NORMAL_ACTIVE state\00", align 1
+@.str.337 = private unnamed_addr constant [21 x i8] c"NORMAL_PASSIVE state\00", align 1
+@.str.338 = private unnamed_addr constant [11 x i8] c"HALT state\00", align 1
+@.str.339 = private unnamed_addr constant [19 x i8] c"MONITOR_MODE state\00", align 1
+@.str.340 = private unnamed_addr constant [13 x i8] c"CONFIG state\00", align 1
+@.str.341 = private unnamed_addr constant [21 x i8] c"WAKEUP_STANDBY state\00", align 1
+@.str.342 = private unnamed_addr constant [20 x i8] c"WAKEUP_LISTEN state\00", align 1
+@.str.343 = private unnamed_addr constant [18 x i8] c"WAKEUP_SEND state\00", align 1
+@.str.344 = private unnamed_addr constant [20 x i8] c"WAKEUP_DETECT state\00", align 1
+@.str.345 = private unnamed_addr constant [22 x i8] c"STARTUP_PREPARE state\00", align 1
+@.str.346 = private unnamed_addr constant [23 x i8] c"COLDSTART_LISTEN state\00", align 1
+@.str.347 = private unnamed_addr constant [37 x i8] c"COLDSTART_COLLISION_RESOLUTION state\00", align 1
+@.str.348 = private unnamed_addr constant [34 x i8] c"COLDSTART_CONSISTENCY_CHECK state\00", align 1
+@.str.349 = private unnamed_addr constant [20 x i8] c"COLDSTART_GAP state\00", align 1
+@.str.350 = private unnamed_addr constant [21 x i8] c"COLDSTART_JOIN state\00", align 1
+@.str.351 = private unnamed_addr constant [34 x i8] c"INTEGRATION_COLDSTART_CHECK state\00", align 1
+@.str.352 = private unnamed_addr constant [25 x i8] c"INTEGRATION_LISTEN state\00", align 1
+@.str.353 = private unnamed_addr constant [36 x i8] c"INTEGRATION_CONSISTENCY_CHECK state\00", align 1
+@.str.354 = private unnamed_addr constant [26 x i8] c"INITIALIZE_SCHEDULE state\00", align 1
+@.str.355 = private unnamed_addr constant [20 x i8] c"ABORT_STARTUP state\00", align 1
+@.str.356 = private unnamed_addr constant [22 x i8] c"STARTUP_SUCCESS state\00", align 1
+@flexray_POC_state_strings = internal constant [24 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.334 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.335 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.336 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.337 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.338 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.339 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.340 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.341 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.342 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.343 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.344 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.345 }, { i32, [4 x i8], ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.346 }, { i32, [4 x i8], ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.347 }, { i32, [4 x i8], ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.348 }, { i32, [4 x i8], ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.349 }, { i32, [4 x i8], ptr } { i32 37, [4 x i8] zeroinitializer, ptr @.str.350 }, { i32, [4 x i8], ptr } { i32 38, [4 x i8] zeroinitializer, ptr @.str.351 }, { i32, [4 x i8], ptr } { i32 39, [4 x i8] zeroinitializer, ptr @.str.352 }, { i32, [4 x i8], ptr } { i32 40, [4 x i8] zeroinitializer, ptr @.str.353 }, { i32, [4 x i8], ptr } { i32 41, [4 x i8] zeroinitializer, ptr @.str.354 }, { i32, [4 x i8], ptr } { i32 42, [4 x i8] zeroinitializer, ptr @.str.355 }, { i32, [4 x i8], ptr } { i32 43, [4 x i8] zeroinitializer, ptr @.str.356 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.358 = private unnamed_addr constant [5 x i8] c"  %s\00", align 1
 @can_status_bits = internal constant [3 x ptr] [ptr @hf_can_proto_type, ptr @hf_can_status_available, ptr null], align 16
 @can_mjr_hdr_bits = internal constant [10 x ptr] [ptr @hf_can_reserved_bytes, ptr @hf_can_LEC, ptr @hf_can_ERRP, ptr @hf_can_ERRW, ptr @hf_can_BOFF, ptr @hf_can_DLEC, ptr @hf_can_TEC, ptr @hf_can_REC, ptr @hf_can_CEL, ptr null], align 16
 @eth_rx_error_bits = internal constant [13 x ptr] [ptr @hf_eth_crc_error, ptr @hf_eth_mii_foe, ptr @hf_eth_payload_foe, ptr @hf_eth_hdr_foe, ptr @hf_eth_rcv_dec_err, ptr @hf_eth_sym_error, ptr @hf_eth_jabber_event, ptr @hf_eth_pol_ch_event, ptr @hf_eth_fls_carrier_event, ptr @hf_eth_rx_trunc, ptr @hf_eth_transmission_disc_err, ptr @hf_eth_wait_frame_sep_bit, ptr null], align 16
 @eth_mjr_hdr_bits = internal constant [11 x ptr] [ptr @hf_eth_reserved_bytes, ptr @hf_eth_tx_trunc, ptr @hf_eth_trans_undrun, ptr @hf_eth_retrans_limit, ptr @hf_eth_late_collision, ptr @hf_eth_link_up_down, ptr @hf_eth_master_slave, ptr @hf_eth_fcs_unavailable, ptr @hf_eth_rsvd_bit, ptr @hf_eth_speed, ptr null], align 16
-@.str.352 = private unnamed_addr constant [26 x i8] c"Ethernet controller %d %s\00", align 1
-@.str.353 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
-@.str.354 = private unnamed_addr constant [4 x i8] c" %s\00", align 1
-@.str.355 = private unnamed_addr constant [14 x i8] c"Speed unknown\00", align 1
-@.str.356 = private unnamed_addr constant [6 x i8] c"%s %s\00", align 1
-@.str.357 = private unnamed_addr constant [6 x i8] c"NMEA:\00", align 1
-@.str.358 = private unnamed_addr constant [11 x i8] c"TimeState \00", align 1
+@.str.359 = private unnamed_addr constant [26 x i8] c"Ethernet controller %d %s\00", align 1
+@.str.360 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@.str.361 = private unnamed_addr constant [4 x i8] c" %s\00", align 1
+@.str.362 = private unnamed_addr constant [14 x i8] c"Speed unknown\00", align 1
+@.str.363 = private unnamed_addr constant [6 x i8] c"%s %s\00", align 1
+@.str.364 = private unnamed_addr constant [6 x i8] c"NMEA:\00", align 1
+@.str.365 = private unnamed_addr constant [11 x i8] c"TimeState \00", align 1
 @ts_status_bits = internal constant [6 x ptr] [ptr @hf_ts_time_offset_valid, ptr @hf_ts_last_offset_change_valid, ptr @hf_ts_nano_seconds_last_jump_valid, ptr @hf_ts_UTC_leap_seconds_valid, ptr @hf_ts_sync_state_valid, ptr null], align 16
-@.str.359 = private unnamed_addr constant [20 x i8] c"Unknown Time Source\00", align 1
-@.str.360 = private unnamed_addr constant [13 x i8] c"LIN (EBHSCR)\00", align 1
+@.str.366 = private unnamed_addr constant [20 x i8] c"Unknown Time Source\00", align 1
+@.str.367 = private unnamed_addr constant [13 x i8] c"LIN (EBHSCR)\00", align 1
 @lin_status_bits = internal constant [5 x ptr] [ptr @hf_lin_time_jump, ptr @hf_lin_wakeup, ptr @hf_lin_1_2_enhanced_chksum, ptr @hf_lin_1_3_classic_chksum, ptr null], align 16
-@.str.361 = private unnamed_addr constant [19 x i8] c"LIN Wake-Up Packet\00", align 1
-@.str.362 = private unnamed_addr constant [10 x i8] c"LIN Frame\00", align 1
+@.str.368 = private unnamed_addr constant [19 x i8] c"LIN Wake-Up Packet\00", align 1
+@.str.369 = private unnamed_addr constant [10 x i8] c"LIN Frame\00", align 1
 @lin_mjr_hdr_bits = internal constant [12 x ptr] [ptr @hf_lin_wakeup_length, ptr @hf_lin_sts_emp, ptr @hf_lin_sts_sto, ptr @hf_lin_sts_sta, ptr @hf_lin_sts_chk, ptr @hf_lin_sts_dat, ptr @hf_lin_sts_res, ptr @hf_lin_sts_par, ptr @hf_lin_sts_syn, ptr @hf_lin_sts_reserved, ptr @hf_lin_reserved_bytes, ptr null], align 16
 @lin_payload_pid_bits = internal constant [4 x ptr] [ptr @hf_lin_payload_id, ptr @hf_lin_payload_id_parity_0, ptr @hf_lin_payload_id_parity_1, ptr null], align 16
-@.str.363 = private unnamed_addr constant [4 x i8] c"DIO\00", align 1
+@.str.370 = private unnamed_addr constant [4 x i8] c"DIO\00", align 1
 @dio_status_bits = internal constant [3 x ptr] [ptr @hf_dio_overflow_mon_unit, ptr @hf_dio_jump_occurred, ptr null], align 16
 @dio_mjr_hdr_bits = internal constant [3 x ptr] [ptr @hf_dio_value_type, ptr @hf_dio_reserved_bytes, ptr null], align 16
-@.str.364 = private unnamed_addr constant [17 x i8] c"FLEXRAY (EBHSCR)\00", align 1
+@.str.371 = private unnamed_addr constant [17 x i8] c"FLEXRAY (EBHSCR)\00", align 1
 @flexray_channel_bits = internal constant [4 x ptr] [ptr @hf_flexray_ch_a, ptr @hf_flexray_ch_b, ptr @hf_flexray_ctrl_id, ptr null], align 16
 @flexray_frame_status_bits = internal constant [12 x ptr] [ptr @hf_flexray_monitoring_bit, ptr @hf_flexray_sync_bit, ptr @hf_flexray_packet_type, ptr @hf_flexray_CODERR, ptr @hf_flexray_TSSVIOL, ptr @hf_flexray_HCRCERR, ptr @hf_flexray_FCRCERR, ptr @hf_flexray_FESERR, ptr @hf_flexray_FSSERR, ptr @hf_flexray_BSSERR, ptr @hf_flexray_jump_occurred, ptr null], align 16
 @flexray_mhdr_slot_information_bits = internal constant [7 x ptr] [ptr @hf_flexray_SBV, ptr @hf_flexray_ACI, ptr @hf_flexray_CED, ptr @hf_flexray_SED, ptr @hf_flexray_VFR, ptr @hf_flexray_SID, ptr null], align 16
 @flexray_mhdr_frame_status_bits = internal constant [14 x ptr] [ptr @hf_flexray_SPLERR, ptr @hf_flexray_CCERR, ptr @hf_flexray_FIDERR, ptr @hf_flexray_SSERR, ptr @hf_flexray_NERR, ptr @hf_flexray_SOVERR, ptr @hf_flexray_SWVIOL, ptr @hf_flexray_NITVIOL, ptr @hf_flexray_BVIOL, ptr @hf_flexray_PCD, ptr @hf_flexray_SYNCERR, ptr @hf_flexray_CP, ptr @hf_flexray_BRC, ptr null], align 16
 @flexray_status_bits = internal constant [5 x ptr] [ptr @hf_flexray_monitoring_bit, ptr @hf_flexray_sync_bit, ptr @hf_flexray_packet_type, ptr @hf_flexray_jump_occurred, ptr null], align 16
 @flexray_mhdr_symbol_length_and_status_bits = internal constant [3 x ptr] [ptr @hf_flexray_SYERR, ptr @hf_flexray_SL, ptr null], align 16
-@.str.365 = private unnamed_addr constant [14 x i8] c"SLSTS: SCC %d\00", align 1
-@.str.366 = private unnamed_addr constant [19 x i8] c"SOC: CC %2d SCC %d\00", align 1
+@.str.372 = private unnamed_addr constant [14 x i8] c"SLSTS: SCC %d\00", align 1
+@.str.373 = private unnamed_addr constant [19 x i8] c"SOC: CC %2d SCC %d\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_ebhscr() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.260, ptr noundef nonnull @.str.261, ptr noundef nonnull @.str.262) #3
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.260, ptr noundef nonnull @.str.261, ptr noundef nonnull @.str.262)
   store i32 %1, ptr @proto_ebhscr, align 4
-  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_ebhscr.hf, i32 noundef 123) #3
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_ebhscr.ett, i32 noundef 6) #3
+  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_ebhscr.hf, i32 noundef 123)
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_ebhscr.ett, i32 noundef 6)
   %2 = load i32, ptr @proto_ebhscr, align 4
-  %3 = tail call ptr @expert_register_protocol(i32 noundef %2) #3
-  tail call void @expert_register_field_array(ptr noundef %3, ptr noundef nonnull @proto_register_ebhscr.ei, i32 noundef 3) #3
+  %3 = tail call ptr @expert_register_protocol(i32 noundef %2)
+  tail call void @expert_register_field_array(ptr noundef %3, ptr noundef nonnull @proto_register_ebhscr.ei, i32 noundef 3)
   %4 = load i32, ptr @proto_ebhscr, align 4
-  %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.262, ptr noundef nonnull @dissect_ebhscr, i32 noundef %4) #3
+  %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.262, ptr noundef nonnull @dissect_ebhscr, i32 noundef %4)
   store ptr %5, ptr @ebhscr_handle, align 8
   %6 = load i32, ptr @proto_ebhscr, align 4
-  %7 = tail call ptr @register_decode_as_next_proto(i32 noundef %6, ptr noundef nonnull @.str.263, ptr noundef nonnull @.str.264, ptr noundef null) #3
+  %7 = tail call ptr @register_decode_as_next_proto(i32 noundef %6, ptr noundef nonnull @.str.263, ptr noundef nonnull @.str.264, ptr noundef null)
   store ptr %7, ptr @subdissector_table, align 8
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #2
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ebhscr(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca [2 x i8], align 1
   %6 = alloca [2 x i8], align 1
   %7 = alloca i64, align 8
   %8 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #3
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
-  tail call void @col_set_str(ptr noundef %10, i32 noundef 34, ptr noundef nonnull @.str.261) #3
+  tail call void @col_set_str(ptr noundef %10, i32 noundef 35, ptr noundef nonnull @.str.261)
   %11 = load ptr, ptr %9, align 8
-  tail call void @col_clear(ptr noundef %11, i32 noundef 25) #3
-  %12 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
+  tail call void @col_clear(ptr noundef %11, i32 noundef 25)
+  %12 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %13 = load i32, ptr @proto_ebhscr, align 4
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #3
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %15 = load i32, ptr @ett_ebhscr, align 4
-  %16 = tail call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %15) #3
+  %16 = tail call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %15)
   %17 = icmp ult i32 %12, 32
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %4
-  %19 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %16, ptr noundef nonnull @ei_ebhscr_frame_header) #3
-  %20 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
+  %19 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %16, ptr noundef nonnull @ei_ebhscr_frame_header)
+  %20 = tail call i32 @tvb_captured_length(ptr noundef %0)
   br label %349
 
 21:                                               ; preds = %4
-  %22 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
-  %23 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef 2, i32 noundef 0) #3
+  %22 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
+  %23 = tail call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef 2, i32 noundef 0)
   %24 = and i16 %23, 4095
   %25 = load i32, ptr @hf_ebhscr_packet_header, align 4
-  %26 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %25, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #3
+  %26 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %25, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0)
   %27 = load i32, ptr @ett_ebhscr_packet_header, align 4
-  %28 = tail call ptr @proto_item_add_subtree(ptr noundef %26, i32 noundef %27) #3
+  %28 = tail call ptr @proto_item_add_subtree(ptr noundef %26, i32 noundef %27)
   %29 = load i32, ptr @hf_ebhscr_major_number, align 4
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %29, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %29, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %31 = load i32, ptr @hf_ebhscr_slot, align 4
-  %32 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %31, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #3
+  %32 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %31, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
   %33 = load i32, ptr @hf_ebhscr_channel, align 4
-  %34 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %33, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #3
+  %34 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %33, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
   %35 = load i32, ptr @hf_ebhscr_version, align 4
-  %36 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %35, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #3
+  %36 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %35, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0)
   %37 = load i32, ptr @hf_ebhscr_length, align 4
-  %38 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %28, i32 noundef %37, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %8) #3
+  %38 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %28, i32 noundef %37, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %8)
   %39 = load i32, ptr @hf_ebhscr_start_timestamp, align 4
-  %40 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %39, ptr noundef %0, i32 noundef 8, i32 noundef 8, i32 noundef 0) #3
+  %40 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %39, ptr noundef %0, i32 noundef 8, i32 noundef 8, i32 noundef 0)
   %41 = load i32, ptr @hf_ebhscr_stop_timestamp, align 4
-  %42 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %41, ptr noundef %0, i32 noundef 16, i32 noundef 8, i32 noundef 0) #3
+  %42 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %41, ptr noundef %0, i32 noundef 16, i32 noundef 8, i32 noundef 0)
   %43 = add i32 %12, -32
   %44 = add i8 %22, -67
   %or.cond = icmp ult i8 %44, 13
@@ -643,27 +650,27 @@ define internal i32 @dissect_ebhscr(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not, label %51, label %47
 
 47:                                               ; preds = %45
-  %48 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 0, i32 noundef %12) #3
+  %48 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 0, i32 noundef %12)
   %49 = load ptr, ptr @ebhscr_user_handle, align 8
-  %50 = call i32 @call_dissector(ptr noundef %49, ptr noundef %48, ptr noundef nonnull %1, ptr noundef %16) #3
+  %50 = call i32 @call_dissector(ptr noundef %49, ptr noundef %48, ptr noundef %1, ptr noundef %16)
   br label %62
 
 51:                                               ; preds = %45
   %52 = load i32, ptr @hf_ebhscr_status, align 4
-  %53 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %52, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #3
+  %53 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %52, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0)
   %54 = load i32, ptr @hf_ebhscr_mjr_hdr, align 4
-  %55 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %54, ptr noundef %0, i32 noundef 24, i32 noundef 8, i32 noundef 0) #3
-  %56 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 32, i32 noundef %43) #3
-  %57 = call i32 @call_data_dissector(ptr noundef %56, ptr noundef nonnull %1, ptr noundef %2) #3
+  %55 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %54, ptr noundef %0, i32 noundef 24, i32 noundef 8, i32 noundef 0)
+  %56 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 32, i32 noundef %43)
+  %57 = call i32 @call_data_dissector(ptr noundef %56, ptr noundef %1, ptr noundef %2)
   %58 = load ptr, ptr %9, align 8
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %60 = load ptr, ptr %59, align 8
-  %61 = call ptr @tvb_bytes_to_str_punct(ptr noundef %60, ptr noundef %0, i32 noundef 32, i32 noundef %43, i8 noundef signext 32) #3
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %58, i32 noundef 25, ptr noundef nonnull @.str.351, ptr noundef %61) #3
+  %61 = call ptr @tvb_bytes_to_str_punct(ptr noundef %60, ptr noundef %0, i32 noundef 32, i32 noundef %43, i8 noundef signext 32)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %58, i32 noundef 25, ptr noundef nonnull @.str.358, ptr noundef %61)
   br label %62
 
 62:                                               ; preds = %51, %47
-  %63 = call i32 @tvb_captured_length(ptr noundef %0) #3
+  %63 = call i32 @tvb_captured_length(ptr noundef %0)
   br label %349
 
 64:                                               ; preds = %21
@@ -680,7 +687,7 @@ define internal i32 @dissect_ebhscr(ptr noundef %0, ptr noundef %1, ptr noundef 
 65:                                               ; preds = %64
   %66 = load i32, ptr @hf_ebhscr_status, align 4
   %67 = load i32, ptr @ett_ebhscr_status, align 4
-  %68 = call ptr @proto_tree_add_bitmask(ptr noundef %28, ptr noundef %0, i32 noundef 2, i32 noundef %66, i32 noundef %67, ptr noundef nonnull @can_status_bits, i32 noundef 0) #3
+  %68 = call ptr @proto_tree_add_bitmask(ptr noundef %28, ptr noundef %0, i32 noundef 2, i32 noundef %66, i32 noundef %67, ptr noundef nonnull @can_status_bits, i32 noundef 0)
   %69 = and i16 %23, 2
   %.not.i = icmp eq i16 %69, 0
   %70 = load i32, ptr @hf_ebhscr_mjr_hdr, align 4
@@ -688,12 +695,12 @@ define internal i32 @dissect_ebhscr(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 71:                                               ; preds = %65
   %72 = load i32, ptr @ett_ebhscr_mjr_hdr, align 4
-  %73 = call ptr @proto_tree_add_bitmask(ptr noundef %28, ptr noundef %0, i32 noundef 24, i32 noundef %70, i32 noundef %72, ptr noundef nonnull @can_mjr_hdr_bits, i32 noundef 0) #3
-  %74 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %68, ptr noundef nonnull @ei_ebhscr_info_status_flag) #3
+  %73 = call ptr @proto_tree_add_bitmask(ptr noundef %28, ptr noundef %0, i32 noundef 24, i32 noundef %70, i32 noundef %72, ptr noundef nonnull @can_mjr_hdr_bits, i32 noundef 0)
+  %74 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %68, ptr noundef nonnull @ei_ebhscr_info_status_flag)
   br label %77
 
 75:                                               ; preds = %65
-  %76 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %70, ptr noundef %0, i32 noundef 24, i32 noundef 8, i32 noundef 0) #3
+  %76 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %70, ptr noundef %0, i32 noundef 24, i32 noundef 8, i32 noundef 0)
   br label %77
 
 77:                                               ; preds = %75, %71
@@ -701,36 +708,36 @@ define internal i32 @dissect_ebhscr(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %78, label %dissect_ebhscr_can.exit, label %79
 
 79:                                               ; preds = %77
-  %80 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 32, i32 noundef %43) #3
+  %80 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 32, i32 noundef %43)
   %81 = and i16 %23, 1
   %.not25.i = icmp eq i16 %81, 0
   %can_handle.val.i = load ptr, ptr @can_handle, align 8
   %can_fd_handle.val.i = load ptr, ptr @can_fd_handle, align 8
   %82 = select i1 %.not25.i, ptr %can_handle.val.i, ptr %can_fd_handle.val.i
-  %83 = call i32 @call_dissector(ptr noundef %82, ptr noundef %80, ptr noundef nonnull %1, ptr noundef %2) #3
+  %83 = call i32 @call_dissector(ptr noundef %82, ptr noundef %80, ptr noundef %1, ptr noundef %2)
   br label %dissect_ebhscr_can.exit
 
 dissect_ebhscr_can.exit:                          ; preds = %77, %79
-  %84 = call i32 @tvb_captured_length(ptr noundef %0) #3
+  %84 = call i32 @tvb_captured_length(ptr noundef %0)
   br label %347
 
 85:                                               ; preds = %64
   %86 = load i32, ptr @hf_ebhscr_status, align 4
   %87 = load i32, ptr @ett_ebhscr_status, align 4
-  %88 = call ptr @proto_tree_add_bitmask(ptr noundef %28, ptr noundef %0, i32 noundef 2, i32 noundef %86, i32 noundef %87, ptr noundef nonnull @eth_rx_error_bits, i32 noundef 0) #3
+  %88 = call ptr @proto_tree_add_bitmask(ptr noundef %28, ptr noundef %0, i32 noundef 2, i32 noundef %86, i32 noundef %87, ptr noundef nonnull @eth_rx_error_bits, i32 noundef 0)
   %.not.i114 = icmp eq i16 %24, 0
   br i1 %.not.i114, label %91, label %89
 
 89:                                               ; preds = %85
-  %90 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %88, ptr noundef nonnull @ei_ebhscr_err_status_flag) #3
+  %90 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %88, ptr noundef nonnull @ei_ebhscr_err_status_flag)
   br label %91
 
 91:                                               ; preds = %89, %85
-  %92 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #3
-  %93 = call i64 @tvb_get_guint64(ptr noundef %0, i32 noundef 24, i32 noundef 0) #3
+  %92 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
+  %93 = call i64 @tvb_get_uint64(ptr noundef %0, i32 noundef 24, i32 noundef 0)
   %94 = load i32, ptr @hf_ebhscr_mjr_hdr, align 4
   %95 = load i32, ptr @ett_ebhscr_mjr_hdr, align 4
-  %96 = call ptr @proto_tree_add_bitmask(ptr noundef %28, ptr noundef %0, i32 noundef 24, i32 noundef %94, i32 noundef %95, ptr noundef nonnull @eth_mjr_hdr_bits, i32 noundef 0) #3
+  %96 = call ptr @proto_tree_add_bitmask(ptr noundef %28, ptr noundef %0, i32 noundef 24, i32 noundef %94, i32 noundef %95, ptr noundef nonnull @eth_mjr_hdr_bits, i32 noundef 0)
   %97 = lshr i64 %93, 28
   %98 = and i64 %97, 15
   %99 = icmp eq i32 %12, 32
@@ -744,28 +751,28 @@ dissect_ebhscr_can.exit:                          ; preds = %77, %79
   %103 = and i8 %102, 7
   %104 = load ptr, ptr %9, align 8
   %105 = zext nneg i8 %103 to i32
-  %106 = call ptr @val64_to_str_const(i64 noundef %.lobit.i, ptr noundef nonnull @eth_link_strings, ptr noundef nonnull @.str.353) #3
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %104, i32 noundef 25, ptr noundef nonnull @.str.352, i32 noundef %105, ptr noundef %106) #3
+  %106 = call ptr @val64_to_str_const(i64 noundef %.lobit.i, ptr noundef nonnull @eth_link_strings, ptr noundef nonnull @.str.360)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %104, i32 noundef 25, ptr noundef nonnull @.str.359, i32 noundef %105, ptr noundef %106)
   br i1 %.not31.not.i, label %dissect_ebhscr_eth.exit, label %107
 
 107:                                              ; preds = %100
   %108 = load ptr, ptr %9, align 8
-  %109 = call ptr @val64_to_str_const(i64 noundef %98, ptr noundef nonnull @eth_speed_strings, ptr noundef nonnull @.str.355) #3
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %108, i32 noundef 25, ptr noundef nonnull @.str.354, ptr noundef %109) #3
+  %109 = call ptr @val64_to_str_const(i64 noundef %98, ptr noundef nonnull @eth_speed_strings, ptr noundef nonnull @.str.362)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %108, i32 noundef 25, ptr noundef nonnull @.str.361, ptr noundef %109)
   br label %dissect_ebhscr_eth.exit
 
 110:                                              ; preds = %91
   %111 = and i64 %93, 17179869184
-  %112 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 32, i32 noundef %43) #3
+  %112 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 32, i32 noundef %43)
   %.not32.i = icmp eq i64 %111, 0
   %eth_withfcs_handle.val.i = load ptr, ptr @eth_withfcs_handle, align 8
   %eth_withoutfcs_handle.val.i = load ptr, ptr @eth_withoutfcs_handle, align 8
   %113 = select i1 %.not32.i, ptr %eth_withfcs_handle.val.i, ptr %eth_withoutfcs_handle.val.i
-  %114 = call i32 @call_dissector(ptr noundef %113, ptr noundef %112, ptr noundef nonnull %1, ptr noundef %2) #3
+  %114 = call i32 @call_dissector(ptr noundef %113, ptr noundef %112, ptr noundef %1, ptr noundef %2)
   br label %dissect_ebhscr_eth.exit
 
 dissect_ebhscr_eth.exit:                          ; preds = %100, %107, %110
-  %115 = call i32 @tvb_captured_length(ptr noundef %0) #3
+  %115 = call i32 @tvb_captured_length(ptr noundef %0)
   br label %347
 
 116:                                              ; preds = %64
@@ -775,46 +782,46 @@ dissect_ebhscr_eth.exit:                          ; preds = %100, %107, %110
 118:                                              ; preds = %116
   %119 = load i32, ptr %8, align 4
   %120 = load i32, ptr @hf_ebhscr_status_unused, align 4
-  %121 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %120, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #3
+  %121 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %120, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0)
   %122 = load i32, ptr @hf_ebhscr_mjr_hdr_unused, align 4
-  %123 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %122, ptr noundef %0, i32 noundef 24, i32 noundef 8, i32 noundef 0) #3
-  %124 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 32, i32 noundef %43) #3
-  %125 = call i32 @call_data_dissector(ptr noundef %124, ptr noundef nonnull %1, ptr noundef %2) #3
+  %123 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %122, ptr noundef %0, i32 noundef 24, i32 noundef 8, i32 noundef 0)
+  %124 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 32, i32 noundef %43)
+  %125 = call i32 @call_data_dissector(ptr noundef %124, ptr noundef %1, ptr noundef %2)
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %127 = load ptr, ptr %126, align 8
-  %128 = call ptr @tvb_get_string_enc(ptr noundef %127, ptr noundef %0, i32 noundef 32, i32 noundef %119, i32 noundef 2) #3
+  %128 = call ptr @tvb_get_string_enc(ptr noundef %127, ptr noundef %0, i32 noundef 32, i32 noundef %119, i32 noundef 2)
   %129 = load ptr, ptr %9, align 8
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %129, i32 noundef 25, ptr noundef nonnull @.str.356, ptr noundef nonnull @.str.357, ptr noundef %128) #3
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %129, i32 noundef 25, ptr noundef nonnull @.str.363, ptr noundef nonnull @.str.364, ptr noundef %128)
   br label %dissect_ebhscr_nmea.exit
 
 dissect_ebhscr_nmea.exit:                         ; preds = %116, %118
-  %130 = call i32 @tvb_captured_length(ptr noundef %0) #3
+  %130 = call i32 @tvb_captured_length(ptr noundef %0)
   br label %347
 
 131:                                              ; preds = %64
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #3
   store i64 0, ptr %7, align 8
   %132 = load ptr, ptr %9, align 8
-  call void @col_set_str(ptr noundef %132, i32 noundef 25, ptr noundef nonnull @.str.358) #3
+  call void @col_set_str(ptr noundef %132, i32 noundef 25, ptr noundef nonnull @.str.365)
   %133 = load i32, ptr @hf_ebhscr_status, align 4
   %134 = load i32, ptr @ett_ebhscr_status, align 4
-  %135 = call ptr @proto_tree_add_bitmask(ptr noundef %28, ptr noundef %0, i32 noundef 2, i32 noundef %133, i32 noundef %134, ptr noundef nonnull @ts_status_bits, i32 noundef 0) #3
+  %135 = call ptr @proto_tree_add_bitmask(ptr noundef %28, ptr noundef %0, i32 noundef 2, i32 noundef %133, i32 noundef %134, ptr noundef nonnull @ts_status_bits, i32 noundef 0)
   %.not.i115 = icmp eq i16 %24, 0
   br i1 %.not.i115, label %138, label %136
 
 136:                                              ; preds = %131
-  %137 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %135, ptr noundef nonnull @ei_ebhscr_info_status_flag) #3
+  %137 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %135, ptr noundef nonnull @ei_ebhscr_info_status_flag)
   br label %138
 
 138:                                              ; preds = %136, %131
   %139 = load i32, ptr @hf_ebhscr_mjr_hdr, align 4
-  %140 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %139, ptr noundef %0, i32 noundef 24, i32 noundef 8, i32 noundef 0) #3
+  %140 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %139, ptr noundef %0, i32 noundef 24, i32 noundef 8, i32 noundef 0)
   %141 = load i32, ptr @hf_ts_time_source, align 4
-  %142 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %28, i32 noundef %141, ptr noundef %0, i32 noundef 24, i32 noundef 8, i32 noundef 0, ptr noundef nonnull %7) #3
+  %142 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %28, i32 noundef %141, ptr noundef %0, i32 noundef 24, i32 noundef 8, i32 noundef 0, ptr noundef nonnull %7)
   %143 = load ptr, ptr %9, align 8
   %144 = load i64, ptr %7, align 8
-  %145 = call ptr @val64_to_str_const(i64 noundef %144, ptr noundef nonnull @ts_time_source_strings, ptr noundef nonnull @.str.359) #3
-  call void @col_append_str(ptr noundef %143, i32 noundef 25, ptr noundef %145) #3
+  %145 = call ptr @val64_to_str_const(i64 noundef %144, ptr noundef nonnull @ts_time_source_strings, ptr noundef nonnull @.str.366)
+  call void @col_append_str(ptr noundef %143, i32 noundef 25, ptr noundef %145)
   %146 = icmp ult i32 %43, 28
   br i1 %146, label %dissect_ebhscr_ts.exit, label %147
 
@@ -826,7 +833,7 @@ dissect_ebhscr_nmea.exit:                         ; preds = %116, %118
 
 150:                                              ; preds = %147
   %151 = load i32, ptr @hf_ts_time_offset_ns, align 4
-  %152 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %151, ptr noundef %0, i32 noundef 32, i32 noundef 8, i32 noundef 0) #3
+  %152 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %151, ptr noundef %0, i32 noundef 32, i32 noundef 8, i32 noundef 0)
   br label %153
 
 153:                                              ; preds = %150, %147
@@ -836,7 +843,7 @@ dissect_ebhscr_nmea.exit:                         ; preds = %116, %118
 
 155:                                              ; preds = %153
   %156 = load i32, ptr @hf_ts_last_offset_ns, align 4
-  %157 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %156, ptr noundef %0, i32 noundef 40, i32 noundef 8, i32 noundef 0) #3
+  %157 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %156, ptr noundef %0, i32 noundef 40, i32 noundef 8, i32 noundef 0)
   br label %158
 
 158:                                              ; preds = %155, %153
@@ -846,7 +853,7 @@ dissect_ebhscr_nmea.exit:                         ; preds = %116, %118
 
 160:                                              ; preds = %158
   %161 = load i32, ptr @hf_ts_last_jump_ns, align 4
-  %162 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %161, ptr noundef %0, i32 noundef 48, i32 noundef 8, i32 noundef 0) #3
+  %162 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %161, ptr noundef %0, i32 noundef 48, i32 noundef 8, i32 noundef 0)
   br label %163
 
 163:                                              ; preds = %160, %158
@@ -856,7 +863,7 @@ dissect_ebhscr_nmea.exit:                         ; preds = %116, %118
 
 165:                                              ; preds = %163
   %166 = load i32, ptr @hf_ts_utc_leap_sec, align 4
-  %167 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %166, ptr noundef %0, i32 noundef 56, i32 noundef 2, i32 noundef 0) #3
+  %167 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %166, ptr noundef %0, i32 noundef 56, i32 noundef 2, i32 noundef 0)
   br label %168
 
 168:                                              ; preds = %165, %163
@@ -866,30 +873,30 @@ dissect_ebhscr_nmea.exit:                         ; preds = %116, %118
 
 170:                                              ; preds = %168
   %171 = load i32, ptr @hf_ts_sync_state, align 4
-  %172 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %171, ptr noundef %0, i32 noundef 58, i32 noundef 2, i32 noundef 0) #3
+  %172 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %171, ptr noundef %0, i32 noundef 58, i32 noundef 2, i32 noundef 0)
   br label %173
 
 173:                                              ; preds = %170, %168
-  %174 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 32, i32 noundef %43) #3
-  %175 = call i32 @call_data_dissector(ptr noundef %174, ptr noundef nonnull %1, ptr noundef %2) #3
+  %174 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 32, i32 noundef %43)
+  %175 = call i32 @call_data_dissector(ptr noundef %174, ptr noundef %1, ptr noundef %2)
   br label %dissect_ebhscr_ts.exit
 
 dissect_ebhscr_ts.exit:                           ; preds = %138, %173
-  %176 = call i32 @tvb_captured_length(ptr noundef %0) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  %176 = call i32 @tvb_captured_length(ptr noundef %0)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #3
   br label %347
 
 177:                                              ; preds = %64
   %178 = load ptr, ptr %9, align 8
-  call void @col_set_str(ptr noundef %178, i32 noundef 34, ptr noundef nonnull @.str.360) #3
+  call void @col_set_str(ptr noundef %178, i32 noundef 35, ptr noundef nonnull @.str.367)
   %179 = load i32, ptr @hf_ebhscr_status, align 4
   %180 = load i32, ptr @ett_ebhscr_status, align 4
-  %181 = call ptr @proto_tree_add_bitmask(ptr noundef %28, ptr noundef %0, i32 noundef 2, i32 noundef %179, i32 noundef %180, ptr noundef nonnull @lin_status_bits, i32 noundef 0) #3
+  %181 = call ptr @proto_tree_add_bitmask(ptr noundef %28, ptr noundef %0, i32 noundef 2, i32 noundef %179, i32 noundef %180, ptr noundef nonnull @lin_status_bits, i32 noundef 0)
   %.not.i116 = icmp eq i16 %24, 0
   br i1 %.not.i116, label %.thread.i, label %182
 
 182:                                              ; preds = %177
-  %183 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %181, ptr noundef nonnull @ei_ebhscr_info_status_flag) #3
+  %183 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %181, ptr noundef nonnull @ei_ebhscr_info_status_flag)
   %184 = and i16 %23, 16
   %.not31.i = icmp eq i16 %184, 0
   br i1 %.not31.i, label %.thread.i, label %185
@@ -898,72 +905,72 @@ dissect_ebhscr_ts.exit:                           ; preds = %138, %173
   br label %185
 
 185:                                              ; preds = %.thread.i, %182
-  %.str.362.sink.i = phi ptr [ @.str.362, %.thread.i ], [ @.str.361, %182 ]
+  %.str.369.sink.i = phi ptr [ @.str.369, %.thread.i ], [ @.str.368, %182 ]
   %186 = load ptr, ptr %9, align 8
-  call void @col_set_str(ptr noundef %186, i32 noundef 25, ptr noundef nonnull %.str.362.sink.i) #3
+  call void @col_set_str(ptr noundef %186, i32 noundef 25, ptr noundef nonnull %.str.369.sink.i)
   %187 = load i32, ptr @hf_ebhscr_mjr_hdr, align 4
   %188 = load i32, ptr @ett_ebhscr_mjr_hdr, align 4
-  %189 = call ptr @proto_tree_add_bitmask(ptr noundef %28, ptr noundef %0, i32 noundef 24, i32 noundef %187, i32 noundef %188, ptr noundef nonnull @lin_mjr_hdr_bits, i32 noundef 0) #3
+  %189 = call ptr @proto_tree_add_bitmask(ptr noundef %28, ptr noundef %0, i32 noundef 24, i32 noundef %187, i32 noundef %188, ptr noundef nonnull @lin_mjr_hdr_bits, i32 noundef 0)
   %190 = icmp eq i32 %12, 32
   br i1 %190, label %dissect_ebhscr_lin.exit, label %191
 
 191:                                              ; preds = %185
   %192 = load i32, ptr @hf_lin_payload, align 4
-  %193 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %192, ptr noundef %0, i32 noundef 32, i32 noundef %43, i32 noundef 0) #3
+  %193 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %192, ptr noundef %0, i32 noundef 32, i32 noundef %43, i32 noundef 0)
   %194 = load i32, ptr @ett_lin_payload, align 4
-  %195 = call ptr @proto_item_add_subtree(ptr noundef %193, i32 noundef %194) #3
+  %195 = call ptr @proto_item_add_subtree(ptr noundef %193, i32 noundef %194)
   %196 = load i32, ptr @hf_lin_payload_pid, align 4
-  %197 = call ptr @proto_tree_add_item(ptr noundef %195, i32 noundef %196, ptr noundef %0, i32 noundef 32, i32 noundef 1, i32 noundef 0) #3
+  %197 = call ptr @proto_tree_add_item(ptr noundef %195, i32 noundef %196, ptr noundef %0, i32 noundef 32, i32 noundef 1, i32 noundef 0)
   %198 = load i32, ptr @ett_lin_payload, align 4
-  %199 = call ptr @proto_item_add_subtree(ptr noundef %197, i32 noundef %198) #3
-  call void @proto_tree_add_bitmask_list(ptr noundef %199, ptr noundef %0, i32 noundef 32, i32 noundef 1, ptr noundef nonnull @lin_payload_pid_bits, i32 noundef 0) #3
+  %199 = call ptr @proto_item_add_subtree(ptr noundef %197, i32 noundef %198)
+  call void @proto_tree_add_bitmask_list(ptr noundef %199, ptr noundef %0, i32 noundef 32, i32 noundef 1, ptr noundef nonnull @lin_payload_pid_bits, i32 noundef 0)
   %200 = load i32, ptr @hf_lin_payload_data, align 4
   %201 = add i32 %12, -34
-  %202 = call ptr @proto_tree_add_item(ptr noundef %195, i32 noundef %200, ptr noundef %0, i32 noundef 33, i32 noundef %201, i32 noundef 0) #3
+  %202 = call ptr @proto_tree_add_item(ptr noundef %195, i32 noundef %200, ptr noundef %0, i32 noundef 33, i32 noundef %201, i32 noundef 0)
   %203 = load i32, ptr @hf_lin_payload_checksum, align 4
   %204 = add i32 %12, -1
-  %205 = call ptr @proto_tree_add_item(ptr noundef %195, i32 noundef %203, ptr noundef %0, i32 noundef %204, i32 noundef 1, i32 noundef 0) #3
+  %205 = call ptr @proto_tree_add_item(ptr noundef %195, i32 noundef %203, ptr noundef %0, i32 noundef %204, i32 noundef 1, i32 noundef 0)
   br label %dissect_ebhscr_lin.exit
 
 dissect_ebhscr_lin.exit:                          ; preds = %185, %191
-  %206 = call i32 @tvb_captured_length(ptr noundef %0) #3
+  %206 = call i32 @tvb_captured_length(ptr noundef %0)
   br label %347
 
 207:                                              ; preds = %64
   %208 = load ptr, ptr %9, align 8
-  call void @col_set_str(ptr noundef %208, i32 noundef 25, ptr noundef nonnull @.str.363) #3
+  call void @col_set_str(ptr noundef %208, i32 noundef 25, ptr noundef nonnull @.str.370)
   %209 = load i32, ptr @hf_ebhscr_status, align 4
   %210 = load i32, ptr @ett_ebhscr_status, align 4
-  %211 = call ptr @proto_tree_add_bitmask(ptr noundef %28, ptr noundef %0, i32 noundef 2, i32 noundef %209, i32 noundef %210, ptr noundef nonnull @dio_status_bits, i32 noundef 0) #3
+  %211 = call ptr @proto_tree_add_bitmask(ptr noundef %28, ptr noundef %0, i32 noundef 2, i32 noundef %209, i32 noundef %210, ptr noundef nonnull @dio_status_bits, i32 noundef 0)
   %.not.i117 = icmp eq i16 %24, 0
   br i1 %.not.i117, label %214, label %212
 
 212:                                              ; preds = %207
-  %213 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %211, ptr noundef nonnull @ei_ebhscr_err_status_flag) #3
+  %213 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %211, ptr noundef nonnull @ei_ebhscr_err_status_flag)
   br label %214
 
 214:                                              ; preds = %212, %207
   %215 = load i32, ptr @hf_ebhscr_mjr_hdr, align 4
   %216 = load i32, ptr @ett_ebhscr_mjr_hdr, align 4
-  %217 = call ptr @proto_tree_add_bitmask(ptr noundef %28, ptr noundef %0, i32 noundef 24, i32 noundef %215, i32 noundef %216, ptr noundef nonnull @dio_mjr_hdr_bits, i32 noundef 0) #3
+  %217 = call ptr @proto_tree_add_bitmask(ptr noundef %28, ptr noundef %0, i32 noundef 24, i32 noundef %215, i32 noundef %216, ptr noundef nonnull @dio_mjr_hdr_bits, i32 noundef 0)
   %218 = icmp eq i32 %12, 32
   br i1 %218, label %dissect_ebhscr_dio.exit, label %219
 
 219:                                              ; preds = %214
-  %220 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 32, i32 noundef %43) #3
-  %221 = call i32 @call_data_dissector(ptr noundef %220, ptr noundef nonnull %1, ptr noundef %2) #3
+  %220 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 32, i32 noundef %43)
+  %221 = call i32 @call_data_dissector(ptr noundef %220, ptr noundef %1, ptr noundef %2)
   br label %dissect_ebhscr_dio.exit
 
 dissect_ebhscr_dio.exit:                          ; preds = %214, %219
-  %222 = call i32 @tvb_captured_length(ptr noundef %0) #3
+  %222 = call i32 @tvb_captured_length(ptr noundef %0)
   br label %347
 
 223:                                              ; preds = %64
   %224 = load ptr, ptr %9, align 8
-  call void @col_set_str(ptr noundef %224, i32 noundef 34, ptr noundef nonnull @.str.364) #3
+  call void @col_set_str(ptr noundef %224, i32 noundef 35, ptr noundef nonnull @.str.371)
   %225 = load i32, ptr @ett_ebhscr_channel, align 4
-  %226 = call ptr @proto_item_add_subtree(ptr noundef %34, i32 noundef %225) #3
-  call void @proto_tree_add_bitmask_list(ptr noundef %226, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @flexray_channel_bits, i32 noundef 0) #3
+  %226 = call ptr @proto_item_add_subtree(ptr noundef %34, i32 noundef %225)
+  call void @proto_tree_add_bitmask_list(ptr noundef %226, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @flexray_channel_bits, i32 noundef 0)
   %227 = lshr i16 %23, 2
   %228 = and i16 %227, 3
   switch i16 %228, label %default.unreachable [
@@ -974,31 +981,31 @@ dissect_ebhscr_dio.exit:                          ; preds = %214, %219
   ]
 
 229:                                              ; preds = %223
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6) #3
   %230 = load i32, ptr @hf_ebhscr_status, align 4
-  %231 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %230, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #3
+  %231 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %230, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0)
   %232 = load i32, ptr @ett_ebhscr_status, align 4
-  %233 = call ptr @proto_item_add_subtree(ptr noundef %231, i32 noundef %232) #3
-  call void @proto_tree_add_bitmask_list(ptr noundef %233, ptr noundef %0, i32 noundef 2, i32 noundef 2, ptr noundef nonnull @flexray_frame_status_bits, i32 noundef 0) #3
+  %233 = call ptr @proto_item_add_subtree(ptr noundef %231, i32 noundef %232)
+  call void @proto_tree_add_bitmask_list(ptr noundef %233, ptr noundef %0, i32 noundef 2, i32 noundef 2, ptr noundef nonnull @flexray_frame_status_bits, i32 noundef 0)
   %234 = load i32, ptr @hf_ebhscr_mjr_hdr, align 4
-  %235 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %234, ptr noundef %0, i32 noundef 24, i32 noundef 8, i32 noundef 0) #3
+  %235 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %234, ptr noundef %0, i32 noundef 24, i32 noundef 8, i32 noundef 0)
   %236 = load i32, ptr @ett_ebhscr_mjr_hdr, align 4
-  %237 = call ptr @proto_item_add_subtree(ptr noundef %235, i32 noundef %236) #3
+  %237 = call ptr @proto_item_add_subtree(ptr noundef %235, i32 noundef %236)
   %238 = load i32, ptr @hf_flexray_slot_information, align 4
-  %239 = call ptr @proto_tree_add_item(ptr noundef %237, i32 noundef %238, ptr noundef %0, i32 noundef 24, i32 noundef 2, i32 noundef 0) #3
+  %239 = call ptr @proto_tree_add_item(ptr noundef %237, i32 noundef %238, ptr noundef %0, i32 noundef 24, i32 noundef 2, i32 noundef 0)
   %240 = load i32, ptr @ett_ebhscr_mjr_hdr, align 4
-  %241 = call ptr @proto_item_add_subtree(ptr noundef %239, i32 noundef %240) #3
-  call void @proto_tree_add_bitmask_list(ptr noundef %241, ptr noundef %0, i32 noundef 24, i32 noundef 2, ptr noundef nonnull @flexray_mhdr_slot_information_bits, i32 noundef 0) #3
+  %241 = call ptr @proto_item_add_subtree(ptr noundef %239, i32 noundef %240)
+  call void @proto_tree_add_bitmask_list(ptr noundef %241, ptr noundef %0, i32 noundef 24, i32 noundef 2, ptr noundef nonnull @flexray_mhdr_slot_information_bits, i32 noundef 0)
   %242 = load i32, ptr @hf_flexray_frame_status, align 4
-  %243 = call ptr @proto_tree_add_item(ptr noundef %237, i32 noundef %242, ptr noundef %0, i32 noundef 26, i32 noundef 2, i32 noundef 0) #3
+  %243 = call ptr @proto_tree_add_item(ptr noundef %237, i32 noundef %242, ptr noundef %0, i32 noundef 26, i32 noundef 2, i32 noundef 0)
   %244 = load i32, ptr @ett_ebhscr_mjr_hdr, align 4
-  %245 = call ptr @proto_item_add_subtree(ptr noundef %243, i32 noundef %244) #3
-  call void @proto_tree_add_bitmask_list(ptr noundef %245, ptr noundef %0, i32 noundef 26, i32 noundef 2, ptr noundef nonnull @flexray_mhdr_frame_status_bits, i32 noundef 0) #3
+  %245 = call ptr @proto_item_add_subtree(ptr noundef %243, i32 noundef %244)
+  call void @proto_tree_add_bitmask_list(ptr noundef %245, ptr noundef %0, i32 noundef 26, i32 noundef 2, ptr noundef nonnull @flexray_mhdr_frame_status_bits, i32 noundef 0)
   %246 = load i32, ptr @hf_flexray_supercycle_counter, align 4
-  %247 = call ptr @proto_tree_add_item(ptr noundef %237, i32 noundef %246, ptr noundef %0, i32 noundef 28, i32 noundef 4, i32 noundef 0) #3
-  %248 = call ptr @tvb_new_composite() #3
+  %247 = call ptr @proto_tree_add_item(ptr noundef %237, i32 noundef %246, ptr noundef %0, i32 noundef 28, i32 noundef 4, i32 noundef 0)
+  %248 = call ptr @tvb_new_composite()
   store i8 1, ptr %6, align 1
-  %249 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #3
+  %249 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
   %250 = and i8 %249, 2
   %.not.i.i = icmp eq i8 %250, 0
   br i1 %.not.i.i, label %dissect_ebhscr_flexray_frame_packet.exit.i, label %251
@@ -1022,46 +1029,46 @@ dissect_ebhscr_flexray_frame_packet.exit.i:       ; preds = %251, %229
   %storemerge.i.i = or disjoint i8 %spec.select42.i.i, %259
   %260 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 %storemerge.i.i, ptr %260, align 1
-  %261 = call ptr @tvb_new_real_data(ptr noundef nonnull %6, i32 noundef 2, i32 noundef 2) #3
-  call void @tvb_composite_append(ptr noundef %248, ptr noundef %261) #3
-  %262 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 32, i32 noundef range(i32 0, -32) %43) #3
-  call void @tvb_composite_append(ptr noundef %248, ptr noundef %262) #3
-  call void @tvb_composite_finalize(ptr noundef %248) #3
+  %261 = call ptr @tvb_new_real_data(ptr noundef nonnull %6, i32 noundef 2, i32 noundef 2)
+  call void @tvb_composite_append(ptr noundef %248, ptr noundef %261)
+  %262 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 32, i32 noundef range(i32 0, -32) %43)
+  call void @tvb_composite_append(ptr noundef %248, ptr noundef %262)
+  call void @tvb_composite_finalize(ptr noundef %248)
   %263 = load ptr, ptr @flexray_handle, align 8
-  %264 = call i32 @call_dissector(ptr noundef %263, ptr noundef %248, ptr noundef nonnull %1, ptr noundef %2) #3
-  %265 = call i32 @tvb_captured_length(ptr noundef %0) #3
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
+  %264 = call i32 @call_dissector(ptr noundef %263, ptr noundef %248, ptr noundef %1, ptr noundef %2)
+  %265 = call i32 @tvb_captured_length(ptr noundef %0)
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #3
   br label %dissect_ebhscr_flexray.exit
 
 266:                                              ; preds = %223
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #3
   %267 = load i32, ptr @hf_ebhscr_status, align 4
-  %268 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %267, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #3
+  %268 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %267, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0)
   %269 = load i32, ptr @ett_ebhscr_status, align 4
-  %270 = call ptr @proto_item_add_subtree(ptr noundef %268, i32 noundef %269) #3
-  call void @proto_tree_add_bitmask_list(ptr noundef %270, ptr noundef %0, i32 noundef 2, i32 noundef 2, ptr noundef nonnull @flexray_status_bits, i32 noundef 0) #3
+  %270 = call ptr @proto_item_add_subtree(ptr noundef %268, i32 noundef %269)
+  call void @proto_tree_add_bitmask_list(ptr noundef %270, ptr noundef %0, i32 noundef 2, i32 noundef 2, ptr noundef nonnull @flexray_status_bits, i32 noundef 0)
   %271 = load i32, ptr @hf_ebhscr_mjr_hdr, align 4
-  %272 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %271, ptr noundef %0, i32 noundef 24, i32 noundef 8, i32 noundef 0) #3
+  %272 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %271, ptr noundef %0, i32 noundef 24, i32 noundef 8, i32 noundef 0)
   %273 = load i32, ptr @ett_ebhscr_mjr_hdr, align 4
-  %274 = call ptr @proto_item_add_subtree(ptr noundef %272, i32 noundef %273) #3
+  %274 = call ptr @proto_item_add_subtree(ptr noundef %272, i32 noundef %273)
   %275 = load i32, ptr @hf_flexray_slot_information, align 4
-  %276 = call ptr @proto_tree_add_item(ptr noundef %274, i32 noundef %275, ptr noundef %0, i32 noundef 24, i32 noundef 2, i32 noundef 0) #3
+  %276 = call ptr @proto_tree_add_item(ptr noundef %274, i32 noundef %275, ptr noundef %0, i32 noundef 24, i32 noundef 2, i32 noundef 0)
   %277 = load i32, ptr @ett_ebhscr_mjr_hdr, align 4
-  %278 = call ptr @proto_item_add_subtree(ptr noundef %276, i32 noundef %277) #3
-  call void @proto_tree_add_bitmask_list(ptr noundef %278, ptr noundef %0, i32 noundef 24, i32 noundef 2, ptr noundef nonnull @flexray_mhdr_slot_information_bits, i32 noundef 0) #3
+  %278 = call ptr @proto_item_add_subtree(ptr noundef %276, i32 noundef %277)
+  call void @proto_tree_add_bitmask_list(ptr noundef %278, ptr noundef %0, i32 noundef 24, i32 noundef 2, ptr noundef nonnull @flexray_mhdr_slot_information_bits, i32 noundef 0)
   %279 = load i32, ptr @hf_flexray_frame_status, align 4
-  %280 = call ptr @proto_tree_add_item(ptr noundef %274, i32 noundef %279, ptr noundef %0, i32 noundef 26, i32 noundef 2, i32 noundef 0) #3
+  %280 = call ptr @proto_tree_add_item(ptr noundef %274, i32 noundef %279, ptr noundef %0, i32 noundef 26, i32 noundef 2, i32 noundef 0)
   %281 = load i32, ptr @ett_ebhscr_mjr_hdr, align 4
-  %282 = call ptr @proto_item_add_subtree(ptr noundef %280, i32 noundef %281) #3
-  call void @proto_tree_add_bitmask_list(ptr noundef %282, ptr noundef %0, i32 noundef 26, i32 noundef 2, ptr noundef nonnull @flexray_mhdr_frame_status_bits, i32 noundef 0) #3
+  %282 = call ptr @proto_item_add_subtree(ptr noundef %280, i32 noundef %281)
+  call void @proto_tree_add_bitmask_list(ptr noundef %282, ptr noundef %0, i32 noundef 26, i32 noundef 2, ptr noundef nonnull @flexray_mhdr_frame_status_bits, i32 noundef 0)
   %283 = load i32, ptr @hf_flexray_symbol_length_and_status, align 4
-  %284 = call ptr @proto_tree_add_item(ptr noundef %274, i32 noundef %283, ptr noundef %0, i32 noundef 28, i32 noundef 1, i32 noundef 0) #3
+  %284 = call ptr @proto_tree_add_item(ptr noundef %274, i32 noundef %283, ptr noundef %0, i32 noundef 28, i32 noundef 1, i32 noundef 0)
   %285 = load i32, ptr @ett_ebhscr_mjr_hdr, align 4
-  %286 = call ptr @proto_item_add_subtree(ptr noundef %284, i32 noundef %285) #3
-  call void @proto_tree_add_bitmask_list(ptr noundef %286, ptr noundef %0, i32 noundef 28, i32 noundef 1, ptr noundef nonnull @flexray_mhdr_symbol_length_and_status_bits, i32 noundef 0) #3
-  %287 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 28) #3
+  %286 = call ptr @proto_item_add_subtree(ptr noundef %284, i32 noundef %285)
+  call void @proto_tree_add_bitmask_list(ptr noundef %286, ptr noundef %0, i32 noundef 28, i32 noundef 1, ptr noundef nonnull @flexray_mhdr_symbol_length_and_status_bits, i32 noundef 0)
+  %287 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 28)
   store i8 2, ptr %5, align 1
-  %288 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #3
+  %288 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
   %289 = and i8 %288, 2
   %.not.i26.i = icmp eq i8 %289, 0
   br i1 %.not.i26.i, label %dissect_ebhscr_flexray_symbol_packet.exit.i, label %290
@@ -1074,189 +1081,219 @@ dissect_ebhscr_flexray_symbol_packet.exit.i:      ; preds = %290, %266
   %291 = and i8 %287, 127
   %292 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 %291, ptr %292, align 1
-  %293 = call ptr @tvb_new_real_data(ptr noundef nonnull %5, i32 noundef 2, i32 noundef 2) #3
+  %293 = call ptr @tvb_new_real_data(ptr noundef nonnull %5, i32 noundef 2, i32 noundef 2)
   %294 = load ptr, ptr @flexray_handle, align 8
-  %295 = call i32 @call_dissector(ptr noundef %294, ptr noundef %293, ptr noundef nonnull %1, ptr noundef %2) #3
-  %296 = call i32 @tvb_captured_length(ptr noundef %0) #3
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
+  %295 = call i32 @call_dissector(ptr noundef %294, ptr noundef %293, ptr noundef %1, ptr noundef %2)
+  %296 = call i32 @tvb_captured_length(ptr noundef %0)
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #3
   br label %dissect_ebhscr_flexray.exit
 
 297:                                              ; preds = %223
-  %298 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef 28, i32 noundef 0) #3
+  %298 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef 28, i32 noundef 0)
   %299 = load ptr, ptr %9, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %299, i32 noundef 25, ptr noundef nonnull @.str.365, i32 noundef %298) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %299, i32 noundef 25, ptr noundef nonnull @.str.372, i32 noundef %298)
   %300 = load i32, ptr @hf_ebhscr_status, align 4
-  %301 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %300, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #3
+  %301 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %300, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0)
   %302 = load i32, ptr @ett_ebhscr_status, align 4
-  %303 = call ptr @proto_item_add_subtree(ptr noundef %301, i32 noundef %302) #3
-  call void @proto_tree_add_bitmask_list(ptr noundef %303, ptr noundef %0, i32 noundef 2, i32 noundef 2, ptr noundef nonnull @flexray_status_bits, i32 noundef 0) #3
+  %303 = call ptr @proto_item_add_subtree(ptr noundef %301, i32 noundef %302)
+  call void @proto_tree_add_bitmask_list(ptr noundef %303, ptr noundef %0, i32 noundef 2, i32 noundef 2, ptr noundef nonnull @flexray_status_bits, i32 noundef 0)
   %304 = load i32, ptr @hf_ebhscr_mjr_hdr, align 4
-  %305 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %304, ptr noundef %0, i32 noundef 24, i32 noundef 8, i32 noundef 0) #3
+  %305 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %304, ptr noundef %0, i32 noundef 24, i32 noundef 8, i32 noundef 0)
   %306 = load i32, ptr @ett_ebhscr_mjr_hdr, align 4
-  %307 = call ptr @proto_item_add_subtree(ptr noundef %305, i32 noundef %306) #3
+  %307 = call ptr @proto_item_add_subtree(ptr noundef %305, i32 noundef %306)
   %308 = load i32, ptr @hf_flexray_slot_information, align 4
-  %309 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %308, ptr noundef %0, i32 noundef 24, i32 noundef 2, i32 noundef 0) #3
+  %309 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %308, ptr noundef %0, i32 noundef 24, i32 noundef 2, i32 noundef 0)
   %310 = load i32, ptr @ett_ebhscr_mjr_hdr, align 4
-  %311 = call ptr @proto_item_add_subtree(ptr noundef %309, i32 noundef %310) #3
-  call void @proto_tree_add_bitmask_list(ptr noundef %311, ptr noundef %0, i32 noundef 24, i32 noundef 2, ptr noundef nonnull @flexray_mhdr_slot_information_bits, i32 noundef 0) #3
+  %311 = call ptr @proto_item_add_subtree(ptr noundef %309, i32 noundef %310)
+  call void @proto_tree_add_bitmask_list(ptr noundef %311, ptr noundef %0, i32 noundef 24, i32 noundef 2, ptr noundef nonnull @flexray_mhdr_slot_information_bits, i32 noundef 0)
   %312 = load i32, ptr @hf_flexray_frame_status, align 4
-  %313 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %312, ptr noundef %0, i32 noundef 26, i32 noundef 2, i32 noundef 0) #3
+  %313 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %312, ptr noundef %0, i32 noundef 26, i32 noundef 2, i32 noundef 0)
   %314 = load i32, ptr @ett_ebhscr_mjr_hdr, align 4
-  %315 = call ptr @proto_item_add_subtree(ptr noundef %313, i32 noundef %314) #3
-  call void @proto_tree_add_bitmask_list(ptr noundef %315, ptr noundef %0, i32 noundef 26, i32 noundef 2, ptr noundef nonnull @flexray_mhdr_frame_status_bits, i32 noundef 0) #3
+  %315 = call ptr @proto_item_add_subtree(ptr noundef %313, i32 noundef %314)
+  call void @proto_tree_add_bitmask_list(ptr noundef %315, ptr noundef %0, i32 noundef 26, i32 noundef 2, ptr noundef nonnull @flexray_mhdr_frame_status_bits, i32 noundef 0)
   %316 = load i32, ptr @hf_flexray_supercycle_counter, align 4
-  %317 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %316, ptr noundef %0, i32 noundef 28, i32 noundef 4, i32 noundef 0) #3
-  %318 = call i32 @tvb_captured_length(ptr noundef %0) #3
+  %317 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %316, ptr noundef %0, i32 noundef 28, i32 noundef 4, i32 noundef 0)
+  %318 = call i32 @tvb_captured_length(ptr noundef %0)
   br label %dissect_ebhscr_flexray.exit
 
 default.unreachable:                              ; preds = %223
   unreachable
 
 319:                                              ; preds = %223
-  %320 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 25) #3
-  %321 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef 28, i32 noundef 0) #3
+  %320 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 25)
+  %321 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef 28, i32 noundef 0)
   %322 = load ptr, ptr %9, align 8
   %323 = zext i8 %320 to i32
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %322, i32 noundef 25, ptr noundef nonnull @.str.366, i32 noundef %323, i32 noundef %321) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %322, i32 noundef 25, ptr noundef nonnull @.str.373, i32 noundef %323, i32 noundef %321)
   %324 = load i32, ptr @hf_ebhscr_status, align 4
-  %325 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %324, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #3
+  %325 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %324, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0)
   %326 = load i32, ptr @ett_ebhscr_status, align 4
-  %327 = call ptr @proto_item_add_subtree(ptr noundef %325, i32 noundef %326) #3
-  call void @proto_tree_add_bitmask_list(ptr noundef %327, ptr noundef %0, i32 noundef 2, i32 noundef 2, ptr noundef nonnull @flexray_status_bits, i32 noundef 0) #3
+  %327 = call ptr @proto_item_add_subtree(ptr noundef %325, i32 noundef %326)
+  call void @proto_tree_add_bitmask_list(ptr noundef %327, ptr noundef %0, i32 noundef 2, i32 noundef 2, ptr noundef nonnull @flexray_status_bits, i32 noundef 0)
   %328 = load i32, ptr @hf_ebhscr_mjr_hdr, align 4
-  %329 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %328, ptr noundef %0, i32 noundef 24, i32 noundef 8, i32 noundef 0) #3
+  %329 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %328, ptr noundef %0, i32 noundef 24, i32 noundef 8, i32 noundef 0)
   %330 = load i32, ptr @ett_ebhscr_mjr_hdr, align 4
-  %331 = call ptr @proto_item_add_subtree(ptr noundef %329, i32 noundef %330) #3
+  %331 = call ptr @proto_item_add_subtree(ptr noundef %329, i32 noundef %330)
   %332 = load i32, ptr @hf_flexray_POC_state, align 4
-  %333 = call ptr @proto_tree_add_item(ptr noundef %331, i32 noundef %332, ptr noundef %0, i32 noundef 24, i32 noundef 1, i32 noundef 0) #3
+  %333 = call ptr @proto_tree_add_item(ptr noundef %331, i32 noundef %332, ptr noundef %0, i32 noundef 24, i32 noundef 1, i32 noundef 0)
   %334 = load i32, ptr @hf_flexray_following_cycle_counter, align 4
-  %335 = call ptr @proto_tree_add_item(ptr noundef %331, i32 noundef %334, ptr noundef %0, i32 noundef 25, i32 noundef 1, i32 noundef 0) #3
+  %335 = call ptr @proto_tree_add_item(ptr noundef %331, i32 noundef %334, ptr noundef %0, i32 noundef 25, i32 noundef 1, i32 noundef 0)
   %336 = load i32, ptr @hf_flexray_supercycle_counter, align 4
-  %337 = call ptr @proto_tree_add_item(ptr noundef %331, i32 noundef %336, ptr noundef %0, i32 noundef 28, i32 noundef 4, i32 noundef 0) #3
-  %338 = call i32 @tvb_captured_length(ptr noundef %0) #3
+  %337 = call ptr @proto_tree_add_item(ptr noundef %331, i32 noundef %336, ptr noundef %0, i32 noundef 28, i32 noundef 4, i32 noundef 0)
+  %338 = call i32 @tvb_captured_length(ptr noundef %0)
   br label %dissect_ebhscr_flexray.exit
 
 dissect_ebhscr_flexray.exit:                      ; preds = %dissect_ebhscr_flexray_frame_packet.exit.i, %dissect_ebhscr_flexray_symbol_packet.exit.i, %297, %319
-  %339 = call i32 @tvb_captured_length(ptr noundef %0) #3
+  %339 = call i32 @tvb_captured_length(ptr noundef %0)
   br label %347
 
 340:                                              ; preds = %64
   %341 = load i32, ptr @hf_ebhscr_status, align 4
-  %342 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %341, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #3
+  %342 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %341, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0)
   %343 = load i32, ptr @hf_ebhscr_mjr_hdr, align 4
-  %344 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %343, ptr noundef %0, i32 noundef 24, i32 noundef 8, i32 noundef 0) #3
-  %345 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 32, i32 noundef %43) #3
-  %346 = call i32 @call_data_dissector(ptr noundef %345, ptr noundef nonnull %1, ptr noundef %2) #3
+  %344 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %343, ptr noundef %0, i32 noundef 24, i32 noundef 8, i32 noundef 0)
+  %345 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 32, i32 noundef %43)
+  %346 = call i32 @call_data_dissector(ptr noundef %345, ptr noundef %1, ptr noundef %2)
   br label %347
 
 347:                                              ; preds = %dissect_ebhscr_eth.exit, %dissect_ebhscr_ts.exit, %dissect_ebhscr_dio.exit, %340, %dissect_ebhscr_flexray.exit, %dissect_ebhscr_lin.exit, %dissect_ebhscr_nmea.exit, %dissect_ebhscr_can.exit
-  %348 = call i32 @tvb_captured_length(ptr noundef %0) #3
+  %348 = call i32 @tvb_captured_length(ptr noundef %0)
   br label %349
 
 349:                                              ; preds = %347, %62, %18
   %.0 = phi i32 [ %20, %18 ], [ %63, %62 ], [ %348, %347 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #3
   ret i32 %.0
 }
 
-declare ptr @register_decode_as_next_proto(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_decode_as_next_proto(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_ebhscr() local_unnamed_addr #0 {
   %1 = load i32, ptr @proto_ebhscr, align 4
-  %2 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.265, i32 noundef %1) #3
+  %2 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.265, i32 noundef %1)
   store ptr %2, ptr @can_handle, align 8
   %3 = load i32, ptr @proto_ebhscr, align 4
-  %4 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.266, i32 noundef %3) #3
+  %4 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.266, i32 noundef %3)
   store ptr %4, ptr @can_fd_handle, align 8
   %5 = load i32, ptr @proto_ebhscr, align 4
-  %6 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.267, i32 noundef %5) #3
+  %6 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.267, i32 noundef %5)
   store ptr %6, ptr @eth_withfcs_handle, align 8
   %7 = load i32, ptr @proto_ebhscr, align 4
-  %8 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.268, i32 noundef %7) #3
+  %8 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.268, i32 noundef %7)
   store ptr %8, ptr @eth_withoutfcs_handle, align 8
   %9 = load i32, ptr @proto_ebhscr, align 4
-  %10 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.269, i32 noundef %9) #3
+  %10 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.269, i32 noundef %9)
   store ptr %10, ptr @ebhscr_user_handle, align 8
   %11 = load i32, ptr @proto_ebhscr, align 4
-  %12 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.270, i32 noundef %11) #3
+  %12 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.270, i32 noundef %11)
   store ptr %12, ptr @flexray_handle, align 8
   %13 = load ptr, ptr @ebhscr_handle, align 8
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.271, i32 noundef 204, ptr noundef %13) #3
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.271, i32 noundef 204, ptr noundef %13)
   ret void
 }
 
-declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare zeroext i16 @tvb_get_guint16(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_uint16(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @tvb_bytes_to_str_punct(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i8 noundef signext) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_bytes_to_str_punct(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i8 noundef signext) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i64 @tvb_get_guint64(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i64 @tvb_get_uint64(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @val64_to_str_const(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val64_to_str_const(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_item_ret_uint64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item_ret_uint64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @proto_tree_add_bitmask_list(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_tree_add_bitmask_list(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @tvb_new_composite() local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_composite() local_unnamed_addr #2
 
-declare ptr @tvb_new_real_data(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_real_data(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @tvb_composite_append(ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @tvb_composite_append(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @tvb_composite_finalize(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @tvb_composite_finalize(ptr noundef) local_unnamed_addr #2
 
-declare i32 @tvb_get_guint32(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_uint32(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}

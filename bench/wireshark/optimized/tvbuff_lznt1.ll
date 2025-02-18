@@ -13,22 +13,27 @@ target triple = "x86_64-pc-linux-gnu"
 
 @tvb_uncompress_lznt1.catch_spec = internal constant [1 x %struct.except_id_t] [%struct.except_id_t { i64 1, i64 0 }], align 16
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define noundef ptr @tvb_uncompress_lznt1(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
-  %7 = alloca i32, align 4
+  %7 = alloca i8, align 1
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   %10 = alloca %struct.except_stacknode, align 8
   %11 = alloca %struct.except_catch, align 8
-  store volatile i32 0, ptr %7, align 4
-  %12 = call ptr @wmem_allocator_new(i32 noundef 0) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
+  store volatile i8 0, ptr %7, align 1
+  %12 = call ptr @wmem_allocator_new(i32 noundef 0)
   %13 = shl i32 %2, 1
-  %14 = call noalias ptr @wmem_array_sized_new(ptr noundef %12, i64 noundef 1, i32 noundef %13) #7
+  %14 = call noalias ptr @wmem_array_sized_new(ptr noundef %12, i64 noundef 1, i32 noundef %13)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store volatile i32 0, ptr %9, align 4
-  call void @except_setup_try(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull @tvb_uncompress_lznt1.catch_spec, i64 noundef 1) #7
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #7
+  call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %11) #7
+  call void @except_setup_try(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull @tvb_uncompress_lznt1.catch_spec, i64 noundef 1)
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %16 = call i32 @_setjmp(ptr noundef nonnull %15) #8
   %.not = icmp eq i32 %16, 0
@@ -60,7 +65,6 @@ define noundef ptr @tvb_uncompress_lznt1(ptr noundef %0, i32 noundef %1, i32 nou
   br i1 %25, label %26, label %85
 
 26:                                               ; preds = %24
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %do_uncompress.exit, label %27
 
@@ -68,17 +72,17 @@ define noundef ptr @tvb_uncompress_lznt1(ptr noundef %0, i32 noundef %1, i32 nou
   %28 = icmp eq i32 %2, 0
   %29 = icmp sgt i32 %2, 16777216
   %or.cond.i = or i1 %28, %29
-  br i1 %or.cond.i, label %do_uncompress.exit, label %.preheader37.i
+  br i1 %or.cond.i, label %do_uncompress.exit, label %.preheader35.i
 
-.preheader37.i:                                   ; preds = %27
+.preheader35.i:                                   ; preds = %27
   %30 = icmp sgt i32 %2, 0
   br i1 %30, label %.lr.ph.i, label %do_uncompress.exit
 
-.lr.ph.i:                                         ; preds = %.preheader37.i, %.loopexit35.i
-  %.02945.i = phi i32 [ %.2.i, %.loopexit35.i ], [ 0, %.preheader37.i ]
-  %31 = add i32 %.02945.i, %1
-  %32 = call zeroext i16 @tvb_get_letohs(ptr noundef nonnull %0, i32 noundef %31) #7
-  %33 = add i32 %.02945.i, 2
+.lr.ph.i:                                         ; preds = %.preheader35.i, %.loopexit33.i
+  %.02943.i = phi i32 [ %.2.i, %.loopexit33.i ], [ 0, %.preheader35.i ]
+  %31 = add i32 %.02943.i, %1
+  %32 = call zeroext i16 @tvb_get_letohs(ptr noundef nonnull %0, i32 noundef %31)
+  %33 = add i32 %.02943.i, 2
   %34 = and i16 %32, 4095
   %narrow.i = add nuw nsw i16 %34, 1
   %35 = zext nneg i16 %narrow.i to i32
@@ -86,134 +90,135 @@ define noundef ptr @tvb_uncompress_lznt1(ptr noundef %0, i32 noundef %1, i32 nou
   br i1 %.not31.i, label %.preheader.i, label %40
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %.preheader.i
-  %.02844.i = phi i32 [ %39, %.preheader.i ], [ 0, %.lr.ph.i ]
-  %.143.i = phi i32 [ %38, %.preheader.i ], [ %33, %.lr.ph.i ]
-  %36 = add i32 %.143.i, %1
-  %37 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %0, i32 noundef %36) #7
+  %.02842.i = phi i32 [ %39, %.preheader.i ], [ 0, %.lr.ph.i ]
+  %.141.i = phi i32 [ %38, %.preheader.i ], [ %33, %.lr.ph.i ]
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #7
+  %36 = add i32 %.141.i, %1
+  %37 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %36)
   store i8 %37, ptr %6, align 1
-  call void @wmem_array_append(ptr noundef %14, ptr noundef nonnull %6, i32 noundef 1) #7
-  %38 = add i32 %.143.i, 1
-  %39 = add nuw nsw i32 %.02844.i, 1
+  call void @wmem_array_append(ptr noundef %14, ptr noundef nonnull %6, i32 noundef 1)
+  %38 = add i32 %.141.i, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #7
+  %39 = add nuw nsw i32 %.02842.i, 1
   %exitcond.not.i = icmp eq i32 %39, %35
-  br i1 %exitcond.not.i, label %.loopexit35.i, label %.preheader.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %.loopexit33.i, label %.preheader.i, !llvm.loop !6
 
 40:                                               ; preds = %.lr.ph.i
   %41 = add i32 %33, %1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
-  %42 = call i32 @wmem_array_get_count(ptr noundef %14) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
+  %42 = call i32 @wmem_array_get_count(ptr noundef %14)
   br label %44
 
-.loopexit56.i.i:                                  ; preds = %49
-  %43 = icmp slt i32 %.2.i.i, %35
-  br i1 %43, label %44, label %.loopexit.i, !llvm.loop !6
+.loopexit69.i.i:                                  ; preds = %49
+  %43 = icmp slt i32 %.250.i.i, %35
+  br i1 %43, label %44, label %.loopexit.i, !llvm.loop !8
 
-44:                                               ; preds = %.loopexit56.i.i, %40
-  %.04374.i.i = phi i32 [ 0, %40 ], [ %.2.i.i, %.loopexit56.i.i ]
-  %.04673.i.i = phi i32 [ 0, %40 ], [ %.248.i.i, %.loopexit56.i.i ]
-  %45 = add i32 %.04374.i.i, %41
-  %46 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %0, i32 noundef %45) #7
-  %47 = add nsw i32 %.04374.i.i, 1
+44:                                               ; preds = %.loopexit69.i.i, %40
+  %.04887.i.i = phi i32 [ 0, %40 ], [ %.250.i.i, %.loopexit69.i.i ]
+  %.05386.i.i = phi i32 [ 0, %40 ], [ %.255.i.i, %.loopexit69.i.i ]
+  %45 = add i32 %.04887.i.i, %41
+  %46 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %45)
+  %47 = add nsw i32 %.04887.i.i, 1
   %48 = zext i8 %46 to i32
   br label %51
 
 49:                                               ; preds = %.loopexit.i.i
-  %50 = add nuw nsw i32 %.05170.i.i, 1
-  %exitcond81.not.i.i = icmp eq i32 %50, 8
-  br i1 %exitcond81.not.i.i, label %.loopexit56.i.i, label %51, !llvm.loop !7
+  %50 = add nuw nsw i32 %.06183.i.i, 1
+  %exitcond93.not.i.i = icmp eq i32 %50, 8
+  br i1 %exitcond93.not.i.i, label %.loopexit69.i.i, label %51, !llvm.loop !9
 
 51:                                               ; preds = %49, %44
-  %.172.i.i = phi i32 [ %47, %44 ], [ %.2.i.i, %49 ]
-  %.14771.i.i = phi i32 [ %.04673.i.i, %44 ], [ %.248.i.i, %49 ]
-  %.05170.i.i = phi i32 [ 0, %44 ], [ %50, %49 ]
-  %52 = shl nuw nsw i32 1, %.05170.i.i
+  %.14985.i.i = phi i32 [ %47, %44 ], [ %.250.i.i, %49 ]
+  %.15484.i.i = phi i32 [ %.05386.i.i, %44 ], [ %.255.i.i, %49 ]
+  %.06183.i.i = phi i32 [ 0, %44 ], [ %50, %49 ]
+  %52 = shl nuw nsw i32 1, %.06183.i.i
   %53 = and i32 %52, %48
   %54 = icmp eq i32 %53, 0
-  %55 = add i32 %.172.i.i, %41
+  %55 = add i32 %.14985.i.i, %41
   br i1 %54, label %56, label %61
 
 56:                                               ; preds = %51
-  %57 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %0, i32 noundef %55) #7
+  %57 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %55)
   %58 = zext i8 %57 to i32
   store i32 %58, ptr %4, align 4
-  %59 = add i32 %.172.i.i, 1
-  call void @wmem_array_append(ptr noundef %14, ptr noundef nonnull %4, i32 noundef 1) #7
-  %60 = add i32 %.14771.i.i, 1
+  %59 = add i32 %.14985.i.i, 1
+  call void @wmem_array_append(ptr noundef %14, ptr noundef nonnull %4, i32 noundef 1)
+  %60 = add i32 %.15484.i.i, 1
   br label %.loopexit.i.i
 
 61:                                               ; preds = %51
-  %62 = call zeroext i16 @tvb_get_letohs(ptr noundef nonnull %0, i32 noundef %55) #7
+  %62 = call zeroext i16 @tvb_get_letohs(ptr noundef nonnull %0, i32 noundef %55)
   %63 = zext i16 %62 to i32
-  %64 = add i32 %.172.i.i, 2
-  %65 = add i32 %.14771.i.i, -1
+  %64 = add i32 %.14985.i.i, 2
+  %65 = add i32 %.15484.i.i, -1
   %66 = icmp ugt i32 %65, 15
   br i1 %66, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %61, %.lr.ph.i.i
-  %.04466.i.i = phi i32 [ %68, %.lr.ph.i.i ], [ 12, %61 ]
-  %.04565.i.i = phi i32 [ %67, %.lr.ph.i.i ], [ 4095, %61 ]
-  %.04964.i.i = phi i32 [ %69, %.lr.ph.i.i ], [ %65, %61 ]
-  %67 = lshr i32 %.04565.i.i, 1
-  %68 = add nsw i32 %.04466.i.i, -1
-  %69 = lshr i32 %.04964.i.i, 1
-  %70 = icmp ugt i32 %.04964.i.i, 31
-  br i1 %70, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !8
+  %.05179.i.i = phi i32 [ %68, %.lr.ph.i.i ], [ 12, %61 ]
+  %.05278.i.i = phi i32 [ %67, %.lr.ph.i.i ], [ 4095, %61 ]
+  %.05977.i.i = phi i32 [ %69, %.lr.ph.i.i ], [ %65, %61 ]
+  %67 = lshr i32 %.05278.i.i, 1
+  %68 = add nsw i32 %.05179.i.i, -1
+  %69 = lshr i32 %.05977.i.i, 1
+  %70 = icmp ugt i32 %.05977.i.i, 31
+  br i1 %70, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !10
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %61
-  %.045.lcssa.i.i = phi i32 [ 4095, %61 ], [ %67, %.lr.ph.i.i ]
-  %.044.lcssa.i.i = phi i32 [ 12, %61 ], [ %68, %.lr.ph.i.i ]
-  %71 = and i32 %.045.lcssa.i.i, %63
-  %72 = lshr i32 %63, %.044.lcssa.i.i
+  %.052.lcssa.i.i = phi i32 [ 4095, %61 ], [ %67, %.lr.ph.i.i ]
+  %.051.lcssa.i.i = phi i32 [ 12, %61 ], [ %68, %.lr.ph.i.i ]
+  %71 = and i32 %.052.lcssa.i.i, %63
+  %72 = lshr i32 %63, %.051.lcssa.i.i
   %.neg.i.i = xor i32 %72, -1
   %73 = add i32 %42, %.neg.i.i
   %74 = add nuw nsw i32 %71, 2
   br label %75
 
 75:                                               ; preds = %79, %._crit_edge.i.i
-  %.369.i.i = phi i32 [ %.14771.i.i, %._crit_edge.i.i ], [ %80, %79 ]
-  %.05068.i.i = phi i32 [ 0, %._crit_edge.i.i ], [ %81, %79 ]
-  %.not.i.i = icmp ult i32 %72, %.369.i.i
-  br i1 %.not.i.i, label %76, label %uncompress_chunk.exit.thread.i
+  %.35682.i.i = phi i32 [ %.15484.i.i, %._crit_edge.i.i ], [ %80, %79 ]
+  %.06081.i.i = phi i32 [ 0, %._crit_edge.i.i ], [ %81, %79 ]
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #7
+  %.not.i.i = icmp ult i32 %72, %.35682.i.i
+  br i1 %.not.i.i, label %76, label %uncompress_chunk.exit.i
 
 76:                                               ; preds = %75
-  %77 = add i32 %73, %.369.i.i
-  %78 = call i32 @wmem_array_try_index(ptr noundef %14, i32 noundef %77, ptr noundef nonnull %5) #7
-  %.not54.i.i = icmp eq i32 %78, 0
-  br i1 %.not54.i.i, label %79, label %uncompress_chunk.exit.thread.i
+  %77 = add i32 %73, %.35682.i.i
+  %78 = call i32 @wmem_array_try_index(ptr noundef %14, i32 noundef %77, ptr noundef nonnull %5)
+  %.not64.i.i = icmp eq i32 %78, 0
+  br i1 %.not64.i.i, label %79, label %uncompress_chunk.exit.i
 
 79:                                               ; preds = %76
-  call void @wmem_array_append(ptr noundef %14, ptr noundef nonnull %5, i32 noundef 1) #7
-  %80 = add i32 %.369.i.i, 1
-  %81 = add nuw nsw i32 %.05068.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %.05068.i.i, %74
-  br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %75, !llvm.loop !9
+  call void @wmem_array_append(ptr noundef %14, ptr noundef nonnull %5, i32 noundef 1)
+  %80 = add i32 %.35682.i.i, 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #7
+  %81 = add nuw nsw i32 %.06081.i.i, 1
+  %exitcond.not.i.i = icmp eq i32 %.06081.i.i, %74
+  br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %75, !llvm.loop !11
 
 .loopexit.i.i:                                    ; preds = %79, %56
-  %.248.i.i = phi i32 [ %60, %56 ], [ %80, %79 ]
-  %.2.i.i = phi i32 [ %59, %56 ], [ %64, %79 ]
-  %82 = icmp eq i32 %.2.i.i, %35
+  %.255.i.i = phi i32 [ %60, %56 ], [ %80, %79 ]
+  %.250.i.i = phi i32 [ %59, %56 ], [ %64, %79 ]
+  %82 = icmp eq i32 %.250.i.i, %35
   br i1 %82, label %.loopexit.i, label %49
 
-uncompress_chunk.exit.thread.i:                   ; preds = %76, %75
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+uncompress_chunk.exit.i:                          ; preds = %76, %75
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
   br label %do_uncompress.exit
 
-.loopexit.i:                                      ; preds = %.loopexit56.i.i, %.loopexit.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
+.loopexit.i:                                      ; preds = %.loopexit69.i.i, %.loopexit.i.i
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
   %83 = add i32 %33, %35
-  br label %.loopexit35.i
+  br label %.loopexit33.i
 
-.loopexit35.i:                                    ; preds = %.preheader.i, %.loopexit.i
+.loopexit33.i:                                    ; preds = %.preheader.i, %.loopexit.i
   %.2.i = phi i32 [ %83, %.loopexit.i ], [ %38, %.preheader.i ]
   %84 = icmp slt i32 %.2.i, %2
-  br i1 %84, label %.lr.ph.i, label %do_uncompress.exit, !llvm.loop !10
+  br i1 %84, label %.lr.ph.i, label %do_uncompress.exit, !llvm.loop !12
 
-do_uncompress.exit:                               ; preds = %.loopexit35.i, %26, %27, %.preheader37.i, %uncompress_chunk.exit.thread.i
-  %.0.i = phi i32 [ 0, %26 ], [ 0, %27 ], [ 0, %uncompress_chunk.exit.thread.i ], [ 1, %.preheader37.i ], [ 1, %.loopexit35.i ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  store volatile i32 %.0.i, ptr %7, align 4
+do_uncompress.exit:                               ; preds = %.loopexit33.i, %26, %27, %.preheader35.i, %uncompress_chunk.exit.i
+  %.0.i = phi i8 [ 0, %26 ], [ 0, %27 ], [ 0, %uncompress_chunk.exit.i ], [ 1, %.preheader35.i ], [ 1, %.loopexit33.i ]
+  store volatile i8 %.0.i, ptr %7, align 1
   br label %85
 
 85:                                               ; preds = %do_uncompress.exit, %24, %21
@@ -230,7 +235,7 @@ do_uncompress.exit:                               ; preds = %.loopexit35.i, %26,
   %.0..0..0..0.10 = load volatile i32, ptr %9, align 4
   %89 = or i32 %.0..0..0..0.10, 1
   store volatile i32 %89, ptr %9, align 4
-  store volatile i32 0, ptr %7, align 4
+  store volatile i8 0, ptr %7, align 1
   br label %90
 
 90:                                               ; preds = %88, %87, %85
@@ -252,114 +257,139 @@ do_uncompress.exit:                               ; preds = %.loopexit35.i, %26,
 94:                                               ; preds = %92, %90
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %96 = load volatile ptr, ptr %95, align 8
-  call void @except_free(ptr noundef %96) #7
-  %97 = call ptr @except_pop() #7
-  %.0..0..0..0.23 = load volatile i32, ptr %7, align 4
-  %.not32 = icmp eq i32 %.0..0..0..0.23, 0
-  br i1 %.not32, label %104, label %98
+  call void @except_free(ptr noundef %96)
+  %97 = call ptr @except_pop()
+  call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %11) #7
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
+  %.0..0..0..0.23 = load volatile i8, ptr %7, align 1, !range !13, !noundef !14
+  %98 = trunc nuw i8 %.0..0..0..0.23 to i1
+  br i1 %98, label %99, label %105
 
-98:                                               ; preds = %94
-  %99 = call i32 @wmem_array_get_count(ptr noundef %14) #7
-  %100 = zext i32 %99 to i64
-  %101 = call noalias ptr @g_malloc(i64 noundef %100) #10
-  %102 = call ptr @wmem_array_get_raw(ptr noundef %14) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %101, ptr align 1 %102, i64 %100, i1 false)
-  %103 = call ptr @tvb_new_real_data(ptr noundef %101, i32 noundef %99, i32 noundef %99) #7
-  call void @tvb_set_free_cb(ptr noundef %103, ptr noundef nonnull @g_free) #7
-  br label %104
+99:                                               ; preds = %94
+  %100 = call i32 @wmem_array_get_count(ptr noundef %14)
+  %101 = zext i32 %100 to i64
+  %102 = call noalias ptr @g_malloc(i64 noundef %101) #10
+  %103 = call ptr @wmem_array_get_raw(ptr noundef %14)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %102, ptr noundef align 1 %103, i64 noundef range(i64 0, 4294967296) %101, i1 noundef false) #7
+  %104 = call ptr @tvb_new_real_data(ptr noundef %102, i32 noundef %100, i32 noundef %100)
+  call void @tvb_set_free_cb(ptr noundef %104, ptr noundef nonnull @g_free)
+  br label %105
 
-104:                                              ; preds = %94, %98
-  %.0 = phi ptr [ %103, %98 ], [ null, %94 ]
-  call void @wmem_destroy_allocator(ptr noundef %12) #7
+105:                                              ; preds = %94, %99
+  %.0 = phi ptr [ %104, %99 ], [ null, %94 ]
+  call void @wmem_destroy_allocator(ptr noundef %12)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   ret ptr %.0
 }
 
-declare ptr @wmem_allocator_new(i32 noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare noalias ptr @wmem_array_sized_new(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_allocator_new(i32 noundef) local_unnamed_addr #2
 
-declare void @except_setup_try(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @wmem_array_sized_new(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind returns_twice
-declare i32 @_setjmp(ptr noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare void @except_setup_try(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-; Function Attrs: noreturn
-declare void @except_rethrow(ptr noundef) local_unnamed_addr #3
+; Function Attrs: nounwind null_pointer_is_valid returns_twice
+declare i32 @_setjmp(ptr noundef) local_unnamed_addr #3
 
-declare void @except_free(ptr noundef) local_unnamed_addr #1
+; Function Attrs: noreturn null_pointer_is_valid
+declare void @except_rethrow(ptr noundef) local_unnamed_addr #4
 
-declare ptr @except_pop() local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @except_free(ptr noundef) local_unnamed_addr #2
 
-declare i32 @wmem_array_get_count(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @except_pop() local_unnamed_addr #2
 
-; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #4
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-declare ptr @wmem_array_get_raw(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @wmem_array_get_count(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+; Function Attrs: null_pointer_is_valid allocsize(0)
+declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #5
 
-declare ptr @tvb_new_real_data(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_array_get_raw(ptr noundef) local_unnamed_addr #2
 
-declare void @tvb_set_free_cb(ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_real_data(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @g_free(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @tvb_set_free_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @wmem_destroy_allocator(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @g_free(ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare void @wmem_destroy_allocator(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define noundef ptr @tvb_child_uncompress_lznt1(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @tvb_uncompress_lznt1(ptr noundef %1, i32 noundef %2, i32 noundef %3)
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %7, label %6
 
 6:                                                ; preds = %4
-  tail call void @tvb_set_child_real_data_tvbuff(ptr noundef %0, ptr noundef nonnull %5) #7
+  tail call void @tvb_set_child_real_data_tvbuff(ptr noundef %0, ptr noundef nonnull %5)
   br label %7
 
 7:                                                ; preds = %6, %4
   ret ptr %5
 }
 
-declare void @tvb_set_child_real_data_tvbuff(ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @tvb_set_child_real_data_tvbuff(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @wmem_array_append(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @wmem_array_append(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @wmem_array_try_index(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @wmem_array_try_index(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind returns_twice "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind null_pointer_is_valid returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }
 attributes #8 = { nounwind returns_twice }
-attributes #9 = { noreturn nounwind }
-attributes #10 = { nounwind allocsize(0) }
+attributes #9 = { noreturn }
+attributes #10 = { allocsize(0) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = !{i8 0, i8 2}
+!14 = !{}

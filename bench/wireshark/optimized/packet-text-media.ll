@@ -35,36 +35,40 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.25 = private unnamed_addr constant [5 x i8] c": %s\00", align 1
 @.str.26 = private unnamed_addr constant [12 x i8] c" (%u lines)\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_text_lines() local_unnamed_addr #0 {
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_text_lines.ett, i32 noundef 1) #2
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #2
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_text_lines.ett, i32 noundef 1)
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1)
   store i32 %1, ptr @proto_text_lines, align 4
-  %2 = tail call ptr @register_dissector(ptr noundef nonnull @.str.1, ptr noundef nonnull @dissect_text_lines, i32 noundef %1) #2
+  %2 = tail call ptr @register_dissector(ptr noundef nonnull @.str.1, ptr noundef nonnull @dissect_text_lines, i32 noundef %1)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_text_lines(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = alloca i32, align 4
-  %6 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3
+  %6 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %7 = icmp sgt i32 %6, 38
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %4
-  %9 = tail call i32 @tvb_strncaseeql(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @.str.22, i64 noundef 5) #2
+  %9 = tail call i32 @tvb_strncaseeql(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @.str.22, i64 noundef 5)
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %8
   %12 = load ptr, ptr @xml_handle, align 8
-  %13 = tail call i32 @call_dissector(ptr noundef %12, ptr noundef %0, ptr noundef %1, ptr noundef %2) #2
+  %13 = tail call i32 @call_dissector(ptr noundef %12, ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %48
 
 14:                                               ; preds = %8, %4
@@ -76,7 +80,7 @@ define internal i32 @dissect_text_lines(ptr noundef %0, ptr noundef %1, ptr noun
 17:                                               ; preds = %14
   %18 = load i8, ptr %16, align 1
   %.not45 = icmp eq i8 %18, 0
-  br i1 %.not45, label %19, label %.thread55
+  br i1 %.not45, label %19, label %.thread54
 
 19:                                               ; preds = %17, %14
   %20 = icmp eq ptr %3, null
@@ -91,127 +95,148 @@ define internal i32 @dissect_text_lines(ptr noundef %0, ptr noundef %1, ptr noun
 24:                                               ; preds = %21
   %25 = load i8, ptr %23, align 1
   %.not47 = icmp eq i8 %25, 0
-  br i1 %.not47, label %.thread, label %.thread55
+  br i1 %.not47, label %.thread, label %.thread54
 
 .thread:                                          ; preds = %21, %24, %19
   %.not49 = icmp eq ptr %2, null
   br i1 %.not49, label %48, label %28
 
-.thread55:                                        ; preds = %24, %17
+.thread54:                                        ; preds = %24, %17
   %.039 = phi ptr [ %16, %17 ], [ %23, %24 ]
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %27 = load ptr, ptr %26, align 8
-  tail call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %27, i32 noundef 25, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, ptr noundef nonnull %.039) #2
-  %.not4958 = icmp eq ptr %2, null
-  br i1 %.not4958, label %48, label %31
+  tail call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %27, i32 noundef 25, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, ptr noundef nonnull %.039)
+  %.not4957 = icmp eq ptr %2, null
+  br i1 %.not4957, label %48, label %31
 
 28:                                               ; preds = %.thread
   %29 = load i32, ptr @proto_text_lines, align 4
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %29, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %29, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   br label %34
 
-31:                                               ; preds = %.thread55
+31:                                               ; preds = %.thread54
   %32 = load i32, ptr @proto_text_lines, align 4
-  %33 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %32, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %33, ptr noundef nonnull @.str.25, ptr noundef nonnull %.039) #2
+  %33 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %32, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %33, ptr noundef nonnull @.str.25, ptr noundef nonnull %.039)
   br label %34
 
 34:                                               ; preds = %28, %31
   %35 = phi ptr [ %33, %31 ], [ %30, %28 ]
   %36 = load i32, ptr @ett_text_lines, align 4
-  %37 = tail call ptr @proto_item_add_subtree(ptr noundef %35, i32 noundef %36) #2
-  %38 = tail call i32 @tvb_offset_exists(ptr noundef %0, i32 noundef 0) #2
-  %.not5065 = icmp eq i32 %38, 0
-  br i1 %.not5065, label %._crit_edge, label %.lr.ph
+  %37 = tail call ptr @proto_item_add_subtree(ptr noundef %35, i32 noundef %36)
+  %38 = tail call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef 0)
+  br i1 %38, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %34, %41
-  %.067 = phi i32 [ %45, %41 ], [ 0, %34 ]
-  %.04066 = phi i32 [ %46, %41 ], [ 0, %34 ]
-  %39 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %.04066, i32 noundef -1, ptr noundef nonnull %5, i32 noundef 0) #2
+  %.065 = phi i32 [ %45, %41 ], [ 0, %34 ]
+  %.04064 = phi i32 [ %46, %41 ], [ 0, %34 ]
+  %39 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %.04064, i32 noundef -1, ptr noundef nonnull %5, i1 noundef zeroext false)
   %40 = icmp eq i32 %39, -1
   br i1 %40, label %._crit_edge, label %41
 
 41:                                               ; preds = %.lr.ph
   %42 = load i32, ptr %5, align 4
-  %43 = sub i32 %42, %.04066
-  %44 = call ptr @proto_tree_add_format_text(ptr noundef %37, ptr noundef %0, i32 noundef %.04066, i32 noundef %43) #2
-  %45 = add i32 %.067, 1
+  %43 = sub i32 %42, %.04064
+  %44 = call ptr @proto_tree_add_format_text(ptr noundef %37, ptr noundef %0, i32 noundef %.04064, i32 noundef %43)
+  %45 = add i32 %.065, 1
   %46 = load i32, ptr %5, align 4
-  %47 = call i32 @tvb_offset_exists(ptr noundef %0, i32 noundef %46) #2
-  %.not50 = icmp eq i32 %47, 0
-  br i1 %.not50, label %._crit_edge, label %.lr.ph, !llvm.loop !4
+  %47 = call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %46)
+  br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %41, %.lr.ph, %34
-  %.0.lcssa = phi i32 [ 0, %34 ], [ %.067, %.lr.ph ], [ %45, %41 ]
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %37, ptr noundef nonnull @.str.26, i32 noundef %.0.lcssa) #2
+  %.0.lcssa = phi i32 [ 0, %34 ], [ %.065, %.lr.ph ], [ %45, %41 ]
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %37, ptr noundef nonnull @.str.26, i32 noundef %.0.lcssa)
   br label %48
 
-48:                                               ; preds = %.thread55, %.thread, %._crit_edge, %11
+48:                                               ; preds = %.thread54, %.thread, %._crit_edge, %11
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
   ret i32 %6
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_text_lines() local_unnamed_addr #0 {
-  %1 = tail call ptr @find_dissector(ptr noundef nonnull @.str.1) #2
-  tail call void @dissector_add_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %1) #2
-  tail call void @dissector_add_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.4, ptr noundef %1) #2
-  tail call void @dissector_add_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5, ptr noundef %1) #2
-  tail call void @dissector_add_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.6, ptr noundef %1) #2
-  tail call void @dissector_add_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.7, ptr noundef %1) #2
-  tail call void @dissector_add_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.8, ptr noundef %1) #2
-  tail call void @dissector_add_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.9, ptr noundef %1) #2
-  tail call void @dissector_add_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.10, ptr noundef %1) #2
-  tail call void @dissector_add_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.11, ptr noundef %1) #2
-  tail call void @dissector_add_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.12, ptr noundef %1) #2
-  tail call void @dissector_add_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.13, ptr noundef %1) #2
-  tail call void @dissector_add_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.14, ptr noundef %1) #2
-  tail call void @dissector_add_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.15, ptr noundef %1) #2
-  tail call void @dissector_add_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.16, ptr noundef %1) #2
-  tail call void @dissector_add_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.17, ptr noundef %1) #2
-  tail call void @dissector_add_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.18, ptr noundef %1) #2
-  tail call void @dissector_add_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.19, ptr noundef %1) #2
-  tail call void @dissector_add_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.20, ptr noundef %1) #2
+  %1 = tail call ptr @find_dissector(ptr noundef nonnull @.str.1)
+  tail call void @dissector_add_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %1)
+  tail call void @dissector_add_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.4, ptr noundef %1)
+  tail call void @dissector_add_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5, ptr noundef %1)
+  tail call void @dissector_add_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.6, ptr noundef %1)
+  tail call void @dissector_add_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.7, ptr noundef %1)
+  tail call void @dissector_add_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.8, ptr noundef %1)
+  tail call void @dissector_add_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.9, ptr noundef %1)
+  tail call void @dissector_add_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.10, ptr noundef %1)
+  tail call void @dissector_add_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.11, ptr noundef %1)
+  tail call void @dissector_add_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.12, ptr noundef %1)
+  tail call void @dissector_add_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.13, ptr noundef %1)
+  tail call void @dissector_add_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.14, ptr noundef %1)
+  tail call void @dissector_add_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.15, ptr noundef %1)
+  tail call void @dissector_add_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.16, ptr noundef %1)
+  tail call void @dissector_add_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.17, ptr noundef %1)
+  tail call void @dissector_add_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.18, ptr noundef %1)
+  tail call void @dissector_add_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.19, ptr noundef %1)
+  tail call void @dissector_add_string(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.20, ptr noundef %1)
   %2 = load i32, ptr @proto_text_lines, align 4
-  %3 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.21, i32 noundef %2) #2
+  %3 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.21, i32 noundef %2)
   store ptr %3, ptr @xml_handle, align 8
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare ptr @find_dissector(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_string(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_strncaseeql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_append_sep_fstr(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @tvb_offset_exists(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @tvb_offset_exists(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @tvb_find_line_end(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_find_line_end(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_format_text(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}

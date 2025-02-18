@@ -3,8 +3,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
@@ -13,7 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_bmc_message_type = internal global i32 0, align 4
 @.str = private unnamed_addr constant [13 x i8] c"Message Type\00", align 1
 @.str.1 = private unnamed_addr constant [17 x i8] c"bmc.message_type\00", align 1
-@message_type_vals = internal constant [4 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.29 }, %struct._value_string { i32 2, ptr @.str.30 }, %struct._value_string { i32 3, ptr @.str.31 }, %struct._value_string zeroinitializer], align 16
 @hf_bmc_message_id = internal global i32 0, align 4
 @.str.2 = private unnamed_addr constant [11 x i8] c"Message ID\00", align 1
 @.str.3 = private unnamed_addr constant [15 x i8] c"bmc.message_id\00", align 1
@@ -32,7 +30,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_bmc_message_description_type = internal global i32 0, align 4
 @.str.12 = private unnamed_addr constant [25 x i8] c"Message Description Type\00", align 1
 @.str.13 = private unnamed_addr constant [29 x i8] c"bmc.message_description_type\00", align 1
-@message_description_type_vals = internal constant [10 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.32 }, %struct._value_string { i32 1, ptr @.str.33 }, %struct._value_string { i32 2, ptr @.str.34 }, %struct._value_string { i32 3, ptr @.str.35 }, %struct._value_string { i32 4, ptr @.str.36 }, %struct._value_string { i32 5, ptr @.str.37 }, %struct._value_string { i32 6, ptr @.str.38 }, %struct._value_string { i32 7, ptr @.str.39 }, %struct._value_string { i32 8, ptr @.str.40 }, %struct._value_string zeroinitializer], align 16
 @hf_bmc_offset_to_ctch_bs_index_of_first_transmission = internal global i32 0, align 4
 @.str.14 = private unnamed_addr constant [46 x i8] c"Offset to CTCH BS index of first transmission\00", align 1
 @.str.15 = private unnamed_addr constant [50 x i8] c"bmc.offset_to_ctch_bs_index_of_first_transmission\00", align 1
@@ -61,22 +58,24 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.29 = private unnamed_addr constant [12 x i8] c"CBS Message\00", align 1
 @.str.30 = private unnamed_addr constant [17 x i8] c"Schedule Message\00", align 1
 @.str.31 = private unnamed_addr constant [14 x i8] c"CBS41 Message\00", align 1
-@.str.32 = private unnamed_addr constant [57 x i8] c"Repetition of new BMC CBS message within schedule period\00", align 1
-@.str.33 = private unnamed_addr constant [62 x i8] c"New BMC CBS message (a BMC CBS message never previously sent)\00", align 1
-@.str.34 = private unnamed_addr constant [16 x i8] c"Reading advised\00", align 1
-@.str.35 = private unnamed_addr constant [17 x i8] c"Reading optional\00", align 1
-@.str.36 = private unnamed_addr constant [57 x i8] c"Repetition of old BMC CBS message within schedule period\00", align 1
-@.str.37 = private unnamed_addr constant [89 x i8] c"Old BMC CBS message (repetition of a BMC CBS message sent in a previous schedule period)\00", align 1
-@.str.38 = private unnamed_addr constant [17 x i8] c"Schedule message\00", align 1
-@.str.39 = private unnamed_addr constant [14 x i8] c"CBS41 message\00", align 1
-@.str.40 = private unnamed_addr constant [11 x i8] c"no message\00", align 1
-@.str.41 = private unnamed_addr constant [18 x i8] c"Bit-reversed Data\00", align 1
-@.str.42 = private unnamed_addr constant [16 x i8] c"Reserved 0x%02x\00", align 1
-@.str.43 = private unnamed_addr constant [20 x i8] c"Message Description\00", align 1
-@.str.44 = private unnamed_addr constant [45 x i8] c"Message %d Message Description Type: %s (%d)\00", align 1
-@.str.45 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
+@message_type_vals = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.29 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.30 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.31 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.33 = private unnamed_addr constant [57 x i8] c"Repetition of new BMC CBS message within schedule period\00", align 1
+@.str.34 = private unnamed_addr constant [62 x i8] c"New BMC CBS message (a BMC CBS message never previously sent)\00", align 1
+@.str.35 = private unnamed_addr constant [16 x i8] c"Reading advised\00", align 1
+@.str.36 = private unnamed_addr constant [17 x i8] c"Reading optional\00", align 1
+@.str.37 = private unnamed_addr constant [57 x i8] c"Repetition of old BMC CBS message within schedule period\00", align 1
+@.str.38 = private unnamed_addr constant [89 x i8] c"Old BMC CBS message (repetition of a BMC CBS message sent in a previous schedule period)\00", align 1
+@.str.39 = private unnamed_addr constant [17 x i8] c"Schedule message\00", align 1
+@.str.40 = private unnamed_addr constant [14 x i8] c"CBS41 message\00", align 1
+@.str.41 = private unnamed_addr constant [11 x i8] c"no message\00", align 1
+@message_description_type_vals = internal constant [10 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.33 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.34 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.35 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.36 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.37 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.38 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.39 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.40 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.41 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.43 = private unnamed_addr constant [18 x i8] c"Bit-reversed Data\00", align 1
+@.str.44 = private unnamed_addr constant [16 x i8] c"Reserved 0x%02x\00", align 1
+@.str.45 = private unnamed_addr constant [20 x i8] c"Message Description\00", align 1
+@.str.46 = private unnamed_addr constant [45 x i8] c"Message %d Message Description Type: %s (%d)\00", align 1
+@.str.47 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_bmc() #0 {
   %1 = call i32 @proto_register_protocol(ptr noundef @.str.26, ptr noundef @.str.27, ptr noundef @.str.28)
   store i32 %1, ptr @proto_bmc, align 4
@@ -88,11 +87,13 @@ define hidden void @proto_register_bmc() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_bmc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -109,13 +110,20 @@ define internal i32 @dissect_bmc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
   store i32 0, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #3
   %16 = load ptr, ptr %6, align 8
-  %17 = getelementptr inbounds %struct._packet_info, ptr %16, i32 0, i32 1
+  %17 = getelementptr inbounds nuw %struct._packet_info, ptr %16, i32 0, i32 1
   %18 = load ptr, ptr %17, align 8
-  call void @col_set_str(ptr noundef %18, i32 noundef 34, ptr noundef @.str.27)
+  call void @col_set_str(ptr noundef %18, i32 noundef 35, ptr noundef @.str.27)
   %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr inbounds %struct._packet_info, ptr %19, i32 0, i32 1
+  %20 = getelementptr inbounds nuw %struct._packet_info, ptr %19, i32 0, i32 1
   %21 = load ptr, ptr %20, align 8
   call void @col_clear(ptr noundef %21, i32 noundef 25)
   %22 = load ptr, ptr %7, align 8
@@ -131,7 +139,7 @@ define internal i32 @dissect_bmc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %30 = call i32 @tvb_reported_length(ptr noundef %29)
   store i32 %30, ptr %12, align 4
   %31 = load ptr, ptr %6, align 8
-  %32 = getelementptr inbounds %struct._packet_info, ptr %31, i32 0, i32 50
+  %32 = getelementptr inbounds nuw %struct._packet_info, ptr %31, i32 0, i32 51
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %5, align 8
   %35 = load i32, ptr %11, align 4
@@ -151,10 +159,10 @@ define internal i32 @dissect_bmc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   store ptr %46, ptr %15, align 8
   %47 = load ptr, ptr %6, align 8
   %48 = load ptr, ptr %15, align 8
-  call void @add_new_data_source(ptr noundef %47, ptr noundef %48, ptr noundef @.str.41)
+  call void @add_new_data_source(ptr noundef %47, ptr noundef %48, ptr noundef @.str.43)
   %49 = load ptr, ptr %15, align 8
   %50 = load i32, ptr %11, align 4
-  %51 = call zeroext i8 @tvb_get_guint8(ptr noundef %49, i32 noundef %50)
+  %51 = call zeroext i8 @tvb_get_uint8(ptr noundef %49, i32 noundef %50)
   store i8 %51, ptr %9, align 1
   %52 = load ptr, ptr %14, align 8
   %53 = load i32, ptr @hf_bmc_message_type, align 4
@@ -165,11 +173,11 @@ define internal i32 @dissect_bmc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %58 = add i32 %57, 1
   store i32 %58, ptr %11, align 4
   %59 = load ptr, ptr %6, align 8
-  %60 = getelementptr inbounds %struct._packet_info, ptr %59, i32 0, i32 1
+  %60 = getelementptr inbounds nuw %struct._packet_info, ptr %59, i32 0, i32 1
   %61 = load ptr, ptr %60, align 8
   %62 = load i8, ptr %9, align 1
   %63 = zext i8 %62 to i32
-  %64 = call ptr @val_to_str(i32 noundef %63, ptr noundef @message_type_vals, ptr noundef @.str.42)
+  %64 = call ptr @val_to_str(i32 noundef %63, ptr noundef @message_type_vals, ptr noundef @.str.44)
   call void @col_add_str(ptr noundef %61, i32 noundef 25, ptr noundef %64)
   %65 = load i8, ptr %9, align 1
   %66 = zext i8 %65 to i32
@@ -208,38 +216,62 @@ define internal i32 @dissect_bmc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 83:                                               ; preds = %82, %77, %72, %67
   %84 = load i32, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #3
   ret i32 %84
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_clear(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_memdup(ptr noundef, ptr noundef, i32 noundef, i64 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @bitswap_buf_inplace(ptr noundef, i64 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_new_child_real_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) #1
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_bmc_cbs_message(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -249,6 +281,8 @@ define internal i32 @dissect_bmc_cbs_message(ptr noundef %0, ptr noundef %1, ptr
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #3
   store i32 1, ptr %8, align 4
   %9 = load ptr, ptr %4, align 8
   %10 = load ptr, ptr %6, align 8
@@ -285,10 +319,12 @@ define internal i32 @dissect_bmc_cbs_message(ptr noundef %0, ptr noundef %1, ptr
   %37 = call i32 @tvb_reported_length(ptr noundef %36)
   store i32 %37, ptr %8, align 4
   %38 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #3
   ret i32 %38
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_bmc_schedule_message(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -308,7 +344,19 @@ define internal i32 @dissect_bmc_schedule_message(ptr noundef %0, ptr noundef %1
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
   store i32 1, ptr %7, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %16) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #3
   %19 = load ptr, ptr %6, align 8
   %20 = load i32, ptr @hf_bmc_offset_to_begin_ctch_bs_index, align 4
   %21 = load ptr, ptr %4, align 8
@@ -319,7 +367,7 @@ define internal i32 @dissect_bmc_schedule_message(ptr noundef %0, ptr noundef %1
   store i32 %25, ptr %7, align 4
   %26 = load ptr, ptr %4, align 8
   %27 = load i32, ptr %7, align 4
-  %28 = call zeroext i8 @tvb_get_guint8(ptr noundef %26, i32 noundef %27)
+  %28 = call zeroext i8 @tvb_get_uint8(ptr noundef %26, i32 noundef %27)
   store i8 %28, ptr %11, align 1
   %29 = load ptr, ptr %6, align 8
   %30 = load i32, ptr @hf_bmc_length_of_cbs_schedule_period, align 4
@@ -365,7 +413,7 @@ define internal i32 @dissect_bmc_schedule_message(ptr noundef %0, ptr noundef %1
   %62 = load ptr, ptr %4, align 8
   %63 = load i32, ptr %7, align 4
   %64 = load i32, ptr @ett_bmc_message_description, align 4
-  %65 = call ptr @proto_tree_add_subtree(ptr noundef %61, ptr noundef %62, i32 noundef %63, i32 noundef 0, i32 noundef %64, ptr noundef %18, ptr noundef @.str.43)
+  %65 = call ptr @proto_tree_add_subtree(ptr noundef %61, ptr noundef %62, i32 noundef %63, i32 noundef 0, i32 noundef %64, ptr noundef %18, ptr noundef @.str.45)
   store ptr %65, ptr %17, align 8
   %66 = load i32, ptr %7, align 4
   store i32 %66, ptr %9, align 4
@@ -394,7 +442,7 @@ define internal i32 @dissect_bmc_schedule_message(ptr noundef %0, ptr noundef %1
 79:                                               ; preds = %73
   %80 = load ptr, ptr %4, align 8
   %81 = load i32, ptr %7, align 4
-  %82 = call zeroext i8 @tvb_get_guint8(ptr noundef %80, i32 noundef %81)
+  %82 = call zeroext i8 @tvb_get_uint8(ptr noundef %80, i32 noundef %81)
   store i8 %82, ptr %12, align 1
   %83 = load ptr, ptr %17, align 8
   %84 = load i32, ptr @hf_bmc_message_description_type, align 4
@@ -406,10 +454,10 @@ define internal i32 @dissect_bmc_schedule_message(ptr noundef %0, ptr noundef %1
   %90 = zext i8 %89 to i32
   %91 = load i8, ptr %12, align 1
   %92 = zext i8 %91 to i32
-  %93 = call ptr @val_to_str_const(i32 noundef %92, ptr noundef @message_description_type_vals, ptr noundef @.str.45)
+  %93 = call ptr @val_to_str_const(i32 noundef %92, ptr noundef @message_description_type_vals, ptr noundef @.str.47)
   %94 = load i8, ptr %12, align 1
   %95 = zext i8 %94 to i32
-  %96 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %83, i32 noundef %84, ptr noundef %85, i32 noundef %86, i32 noundef 1, i32 noundef %88, ptr noundef @.str.44, i32 noundef %90, ptr noundef %93, i32 noundef %95)
+  %96 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %83, i32 noundef %84, ptr noundef %85, i32 noundef %86, i32 noundef 1, i32 noundef %88, ptr noundef @.str.46, i32 noundef %90, ptr noundef %93, i32 noundef %95)
   %97 = load i32, ptr %7, align 4
   %98 = add i32 %97, 1
   store i32 %98, ptr %7, align 4
@@ -468,7 +516,7 @@ define internal i32 @dissect_bmc_schedule_message(ptr noundef %0, ptr noundef %1
   %133 = load i8, ptr %16, align 1
   %134 = add i8 %133, 1
   store i8 %134, ptr %16, align 1
-  br label %73, !llvm.loop !4
+  br label %73, !llvm.loop !6
 
 135:                                              ; preds = %73
   br label %136
@@ -477,7 +525,7 @@ define internal i32 @dissect_bmc_schedule_message(ptr noundef %0, ptr noundef %1
   %137 = load i32, ptr %8, align 4
   %138 = add i32 %137, 1
   store i32 %138, ptr %8, align 4
-  br label %67, !llvm.loop !6
+  br label %67, !llvm.loop !8
 
 139:                                              ; preds = %67
   %140 = load ptr, ptr %18, align 8
@@ -494,7 +542,7 @@ define internal i32 @dissect_bmc_schedule_message(ptr noundef %0, ptr noundef %1
 148:                                              ; preds = %139
   %149 = load ptr, ptr %4, align 8
   %150 = load i32, ptr %7, align 4
-  %151 = call zeroext i8 @tvb_get_guint8(ptr noundef %149, i32 noundef %150)
+  %151 = call zeroext i8 @tvb_get_uint8(ptr noundef %149, i32 noundef %150)
   store i8 %151, ptr %13, align 1
   %152 = load ptr, ptr %6, align 8
   %153 = load i32, ptr @hf_bmc_future_extension_bitmap, align 4
@@ -513,7 +561,7 @@ define internal i32 @dissect_bmc_schedule_message(ptr noundef %0, ptr noundef %1
 163:                                              ; preds = %148
   %164 = load ptr, ptr %4, align 8
   %165 = load i32, ptr %7, align 4
-  %166 = call zeroext i8 @tvb_get_guint8(ptr noundef %164, i32 noundef %165)
+  %166 = call zeroext i8 @tvb_get_uint8(ptr noundef %164, i32 noundef %165)
   store i8 %166, ptr %14, align 1
   %167 = load ptr, ptr %6, align 8
   %168 = load i32, ptr @hf_bmc_length_of_serial_number_list, align 4
@@ -557,7 +605,7 @@ define internal i32 @dissect_bmc_schedule_message(ptr noundef %0, ptr noundef %1
   %196 = load i8, ptr %15, align 1
   %197 = add i8 %196, 1
   store i8 %197, ptr %15, align 1
-  br label %174, !llvm.loop !7
+  br label %174, !llvm.loop !9
 
 198:                                              ; preds = %174
   br label %199
@@ -567,10 +615,22 @@ define internal i32 @dissect_bmc_schedule_message(ptr noundef %0, ptr noundef %1
 
 200:                                              ; preds = %199, %139
   %201 = load i32, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
   ret i32 %201
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_bmc_cbs41_message(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -579,6 +639,7 @@ define internal i32 @dissect_bmc_cbs41_message(ptr noundef %0, ptr noundef %1, p
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
   store i32 1, ptr %7, align 4
   %8 = load ptr, ptr %6, align 8
   %9 = load i32, ptr @hf_bmc_broadcast_address, align 4
@@ -600,39 +661,57 @@ define internal i32 @dissect_bmc_cbs41_message(ptr noundef %0, ptr noundef %1, p
   %24 = call i32 @tvb_reported_length(ptr noundef %23)
   store i32 %24, ptr %7, align 4
   %25 = load i32, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
   ret i32 %25
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_cbs_message_identifier(ptr noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_cbs_serial_number(ptr noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare zeroext i8 @dissect_cbs_data_coding_scheme(ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_umts_cell_broadcast_message(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_item_set_len(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

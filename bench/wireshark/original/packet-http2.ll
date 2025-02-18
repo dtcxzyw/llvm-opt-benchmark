@@ -1,29 +1,26 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct._value_string = type { i32, ptr }
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
 %struct.reassembly_table = type { ptr, ptr, ptr, ptr, ptr }
 %struct.reassembly_table_functions = type { ptr, ptr, ptr, ptr, ptr, ptr }
 %struct._GList = type { ptr, ptr, ptr }
 %struct.http2_session_t = type { [2 x ptr], i32, ptr, [2 x i32], [2 x i32] }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
-%struct.http2_header_data_t = type { ptr, ptr, i32, i32, i32 }
-%struct.tcp_analysis = type { %struct._tcp_flow_t, %struct._tcp_flow_t, ptr, ptr, ptr, ptr, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, i16, i8, ptr, i8, ptr, i32, i32, i32 }
-%struct._tcp_flow_t = type { i8, i32, i32, i32, i16, i16, i16, i32, i32, i32, i8, i32, i32, ptr, i16, i32, i32, ptr, ptr, ptr, ptr }
+%struct.http2_header_data_t = type { ptr, ptr, i32, i32, i8 }
+%struct.tcp_analysis = type { %struct._tcp_flow_t, %struct._tcp_flow_t, ptr, ptr, ptr, ptr, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, i32, i16, i8, i8, ptr, i8, ptr, i8, i8, i8 }
+%struct._tcp_flow_t = type { i8, i32, i32, i32, i16, i16, i8, i16, i8, i8, i8, ptr, i16, i32, i32, i16, ptr, ptr, ptr, ptr }
 %struct.HTTP2Tap = type { i8 }
 %struct.http2_follow_tap_data = type { ptr, i64 }
-%struct._follow_info = type { i32, ptr, ptr, [2 x i32], [2 x i32], [2 x ptr], i32, i32, %struct._address, %struct._address, ptr, i64 }
-%struct.tlsinfo = type { i32, i32, i32, ptr }
-%struct._proto_node = type { ptr, ptr, ptr, ptr, ptr, ptr }
+%struct._proto_node = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.field_info = type { ptr, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, i32, i32 }
+%struct._follow_info = type { i32, ptr, ptr, [2 x i32], [2 x i32], [2 x ptr], i32, i32, %struct._address, %struct._address, ptr, i64 }
+%struct.tlsinfo = type { i32, i8, i8, ptr }
 
 @.str = private unnamed_addr constant [6 x i8] c"HTTP2\00", align 1
 @proto_http2 = internal global i32 0, align 4
@@ -37,7 +34,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_http2_magic = internal global i32 0, align 4
 @hf_http2_length = internal global i32 0, align 4
 @hf_http2_type = internal global i32 0, align 4
-@http2_type_vals = internal constant [15 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.266 }, %struct._value_string { i32 1, ptr @.str.267 }, %struct._value_string { i32 2, ptr @.str.268 }, %struct._value_string { i32 3, ptr @.str.269 }, %struct._value_string { i32 4, ptr @.str.270 }, %struct._value_string { i32 5, ptr @.str.271 }, %struct._value_string { i32 6, ptr @.str.272 }, %struct._value_string { i32 7, ptr @.str.273 }, %struct._value_string { i32 8, ptr @.str.274 }, %struct._value_string { i32 9, ptr @.str.275 }, %struct._value_string { i32 10, ptr @.str.276 }, %struct._value_string { i32 11, ptr @.str.277 }, %struct._value_string { i32 12, ptr @.str.278 }, %struct._value_string { i32 16, ptr @.str.279 }, %struct._value_string zeroinitializer], align 16
 @.str.4 = private unnamed_addr constant [18 x i8] c"Unknown type (%d)\00", align 1
 @hf_http2_r = internal global i32 0, align 4
 @hf_http2_streamid = internal global i32 0, align 4
@@ -45,6 +41,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.6 = private unnamed_addr constant [7 x i8] c"%s[%u]\00", align 1
 @streamid_hash = internal global ptr null, align 8
 @hf_http2_unknown = internal global i32 0, align 4
+@hf_http2_header_request_full_uri = internal global i32 0, align 4
 @http2_tap = internal global i32 0, align 4
 @http2_follow_tap = internal global i32 0, align 4
 @proto_register_http2.hf = internal global [99 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_http2_stream, %struct._header_field_info { ptr @.str.7, ptr @.str.8, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_length, %struct._header_field_info { ptr @.str.9, ptr @.str.10, i32 6, i32 1, ptr null, i64 0, ptr @.str.11, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_type, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 4, i32 1, ptr @http2_type_vals, i64 0, ptr @.str.14, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_r, %struct._header_field_info { ptr @.str.15, ptr @.str.16, i32 7, i32 2, ptr null, i64 2147483648, ptr @.str.17, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_weight, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 4, i32 1, ptr null, i64 0, ptr @.str.20, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_weight_real, %struct._header_field_info { ptr @.str.21, ptr @.str.22, i32 4, i32 1, ptr null, i64 0, ptr @.str.23, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_streamid, %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 7, i32 1, ptr null, i64 2147483647, ptr @.str.26, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_magic, %struct._header_field_info { ptr @.str.2, ptr @.str.27, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_unknown, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_flags, %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 4, i32 2, ptr null, i64 0, ptr @.str.32, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_flags_end_stream, %struct._header_field_info { ptr @.str.33, ptr @.str.34, i32 2, i32 8, ptr null, i64 1, ptr @.str.35, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_flags_end_headers, %struct._header_field_info { ptr @.str.36, ptr @.str.37, i32 2, i32 8, ptr null, i64 4, ptr @.str.38, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_flags_padded, %struct._header_field_info { ptr @.str.39, ptr @.str.40, i32 2, i32 8, ptr null, i64 8, ptr @.str.41, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_flags_priority, %struct._header_field_info { ptr @.str.42, ptr @.str.43, i32 2, i32 8, ptr null, i64 32, ptr @.str.44, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_flags_ping_ack, %struct._header_field_info { ptr @.str.45, ptr @.str.46, i32 2, i32 8, ptr null, i64 1, ptr @.str.47, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_flags_unused, %struct._header_field_info { ptr @.str.48, ptr @.str.49, i32 4, i32 2, ptr null, i64 255, ptr @.str.50, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_flags_unused_settings, %struct._header_field_info { ptr @.str.48, ptr @.str.51, i32 4, i32 2, ptr null, i64 254, ptr @.str.50, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_flags_unused_ping, %struct._header_field_info { ptr @.str.48, ptr @.str.52, i32 4, i32 2, ptr null, i64 254, ptr @.str.50, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_flags_unused_continuation, %struct._header_field_info { ptr @.str.48, ptr @.str.53, i32 4, i32 2, ptr null, i64 251, ptr @.str.50, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_flags_unused_push_promise, %struct._header_field_info { ptr @.str.48, ptr @.str.54, i32 4, i32 2, ptr null, i64 243, ptr @.str.50, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_flags_unused_data, %struct._header_field_info { ptr @.str.48, ptr @.str.55, i32 4, i32 2, ptr null, i64 246, ptr @.str.50, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_flags_unused_headers, %struct._header_field_info { ptr @.str.48, ptr @.str.56, i32 4, i32 2, ptr null, i64 210, ptr @.str.50, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_flags_settings_ack, %struct._header_field_info { ptr @.str.45, ptr @.str.57, i32 2, i32 8, ptr null, i64 1, ptr @.str.58, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_padding, %struct._header_field_info { ptr @.str.59, ptr @.str.60, i32 4, i32 2, ptr null, i64 0, ptr @.str.61, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_pad_length, %struct._header_field_info { ptr @.str.59, ptr @.str.62, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_excl_dependency, %struct._header_field_info { ptr @.str.63, ptr @.str.64, i32 2, i32 32, ptr null, i64 2147483648, ptr @.str.65, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_stream_dependency, %struct._header_field_info { ptr @.str.66, ptr @.str.67, i32 7, i32 1, ptr null, i64 2147483647, ptr @.str.68, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_data_segment, %struct._header_field_info { ptr @.str.69, ptr @.str.70, i32 30, i32 0, ptr null, i64 0, ptr @.str.71, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_data_data, %struct._header_field_info { ptr @.str.72, ptr @.str.73, i32 30, i32 0, ptr null, i64 0, ptr @.str.74, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_data_padding, %struct._header_field_info { ptr @.str.75, ptr @.str.76, i32 30, i32 0, ptr null, i64 0, ptr @.str.77, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_body_fragments, %struct._header_field_info { ptr @.str.78, ptr @.str.79, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_body_fragment, %struct._header_field_info { ptr @.str.80, ptr @.str.81, i32 35, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_body_fragment_overlap, %struct._header_field_info { ptr @.str.82, ptr @.str.83, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_body_fragment_overlap_conflicts, %struct._header_field_info { ptr @.str.84, ptr @.str.85, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_body_fragment_multiple_tails, %struct._header_field_info { ptr @.str.86, ptr @.str.87, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_body_fragment_too_long_fragment, %struct._header_field_info { ptr @.str.88, ptr @.str.89, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_body_fragment_error, %struct._header_field_info { ptr @.str.90, ptr @.str.91, i32 35, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_body_fragment_count, %struct._header_field_info { ptr @.str.92, ptr @.str.93, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_body_reassembled_in, %struct._header_field_info { ptr @.str.94, ptr @.str.95, i32 35, i32 0, ptr null, i64 0, ptr @.str.96, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_body_reassembled_length, %struct._header_field_info { ptr @.str.97, ptr @.str.98, i32 7, i32 1, ptr null, i64 0, ptr @.str.96, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_body_reassembled_data, %struct._header_field_info { ptr @.str.99, ptr @.str.100, i32 30, i32 0, ptr null, i64 0, ptr @.str.101, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_headers, %struct._header_field_info { ptr @.str.102, ptr @.str.103, i32 30, i32 0, ptr null, i64 0, ptr @.str.104, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_headers_padding, %struct._header_field_info { ptr @.str.75, ptr @.str.105, i32 30, i32 0, ptr null, i64 0, ptr @.str.77, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_header, %struct._header_field_info { ptr @.str.106, ptr @.str.107, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_header_length, %struct._header_field_info { ptr @.str.108, ptr @.str.109, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_header_count, %struct._header_field_info { ptr @.str.110, ptr @.str.111, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_header_name_length, %struct._header_field_info { ptr @.str.112, ptr @.str.113, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_header_name, %struct._header_field_info { ptr @.str.114, ptr @.str.115, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_header_value_length, %struct._header_field_info { ptr @.str.116, ptr @.str.117, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_header_value, %struct._header_field_info { ptr @.str.118, ptr @.str.119, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_header_unescaped, %struct._header_field_info { ptr @.str.120, ptr @.str.121, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_header_repr, %struct._header_field_info { ptr @.str.122, ptr @.str.123, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_header_index, %struct._header_field_info { ptr @.str.124, ptr @.str.125, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_header_table_size_update, %struct._header_field_info { ptr @.str.126, ptr @.str.127, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_header_table_size, %struct._header_field_info { ptr @.str.128, ptr @.str.129, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_fake_header_count, %struct._header_field_info { ptr @.str.130, ptr @.str.131, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_fake_header, %struct._header_field_info { ptr @.str.132, ptr @.str.133, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_header_request_full_uri, %struct._header_field_info { ptr @.str.134, ptr @.str.135, i32 26, i32 0, ptr null, i64 0, ptr @.str.136, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_rst_stream_error, %struct._header_field_info { ptr @.str.137, ptr @.str.138, i32 7, i32 1, ptr @http2_error_codes_vals, i64 0, ptr @.str.139, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_settings, %struct._header_field_info { ptr @.str.140, ptr @.str.141, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_settings_identifier, %struct._header_field_info { ptr @.str.142, ptr @.str.143, i32 5, i32 1, ptr @http2_settings_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_settings_header_table_size, %struct._header_field_info { ptr @.str.128, ptr @.str.144, i32 7, i32 1, ptr null, i64 0, ptr @.str.145, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_settings_enable_push, %struct._header_field_info { ptr @.str.146, ptr @.str.147, i32 7, i32 1, ptr null, i64 0, ptr @.str.148, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_settings_max_concurrent_streams, %struct._header_field_info { ptr @.str.149, ptr @.str.150, i32 7, i32 1, ptr null, i64 0, ptr @.str.151, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_settings_initial_window_size, %struct._header_field_info { ptr @.str.152, ptr @.str.153, i32 7, i32 1, ptr null, i64 0, ptr @.str.154, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_settings_max_frame_size, %struct._header_field_info { ptr @.str.155, ptr @.str.156, i32 7, i32 1, ptr null, i64 0, ptr @.str.157, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_settings_max_header_list_size, %struct._header_field_info { ptr @.str.158, ptr @.str.159, i32 7, i32 1, ptr null, i64 0, ptr @.str.160, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_settings_extended_connect, %struct._header_field_info { ptr @.str.161, ptr @.str.162, i32 7, i32 1, ptr null, i64 0, ptr @.str.163, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_settings_no_rfc7540_priorities, %struct._header_field_info { ptr @.str.164, ptr @.str.165, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_settings_unknown, %struct._header_field_info { ptr @.str.166, ptr @.str.167, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_push_promise_r, %struct._header_field_info { ptr @.str.15, ptr @.str.168, i32 7, i32 2, ptr null, i64 2147483648, ptr @.str.50, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_push_promise_promised_stream_id, %struct._header_field_info { ptr @.str.169, ptr @.str.170, i32 7, i32 1, ptr null, i64 2147483647, ptr @.str.171, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_push_promise_header, %struct._header_field_info { ptr @.str.102, ptr @.str.172, i32 30, i32 0, ptr null, i64 0, ptr @.str.173, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_push_promise_padding, %struct._header_field_info { ptr @.str.75, ptr @.str.174, i32 30, i32 0, ptr null, i64 0, ptr @.str.77, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_ping, %struct._header_field_info { ptr @.str.175, ptr @.str.176, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_pong, %struct._header_field_info { ptr @.str.177, ptr @.str.178, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_goaway_r, %struct._header_field_info { ptr @.str.15, ptr @.str.179, i32 7, i32 2, ptr null, i64 2147483648, ptr @.str.50, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_goaway_last_stream_id, %struct._header_field_info { ptr @.str.180, ptr @.str.181, i32 7, i32 1, ptr null, i64 2147483647, ptr @.str.182, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_goaway_error, %struct._header_field_info { ptr @.str.137, ptr @.str.183, i32 7, i32 1, ptr @http2_error_codes_vals, i64 0, ptr @.str.184, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_goaway_addata, %struct._header_field_info { ptr @.str.185, ptr @.str.186, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_window_update_r, %struct._header_field_info { ptr @.str.15, ptr @.str.187, i32 7, i32 2, ptr null, i64 2147483648, ptr @.str.50, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_window_update_window_size_increment, %struct._header_field_info { ptr @.str.188, ptr @.str.189, i32 7, i32 1, ptr null, i64 2147483647, ptr @.str.190, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_continuation_header, %struct._header_field_info { ptr @.str.102, ptr @.str.191, i32 30, i32 0, ptr null, i64 0, ptr @.str.192, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_continuation_padding, %struct._header_field_info { ptr @.str.75, ptr @.str.193, i32 30, i32 0, ptr null, i64 0, ptr @.str.77, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_altsvc_origin_len, %struct._header_field_info { ptr @.str.194, ptr @.str.195, i32 5, i32 1, ptr null, i64 0, ptr @.str.196, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_altsvc_origin, %struct._header_field_info { ptr @.str.197, ptr @.str.198, i32 26, i32 0, ptr null, i64 0, ptr @.str.199, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_altsvc_field_value, %struct._header_field_info { ptr @.str.200, ptr @.str.201, i32 26, i32 0, ptr null, i64 0, ptr @.str.202, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_origin, %struct._header_field_info { ptr @.str.197, ptr @.str.203, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_origin_origin_len, %struct._header_field_info { ptr @.str.194, ptr @.str.204, i32 5, i32 1, ptr null, i64 0, ptr @.str.196, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_origin_origin, %struct._header_field_info { ptr @.str.197, ptr @.str.205, i32 26, i32 0, ptr null, i64 0, ptr @.str.206, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_priority_update_stream_id, %struct._header_field_info { ptr @.str.207, ptr @.str.208, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_priority_update_field_value, %struct._header_field_info { ptr @.str.209, ptr @.str.210, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_time, %struct._header_field_info { ptr @.str.211, ptr @.str.212, i32 25, i32 0, ptr null, i64 0, ptr @.str.213, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_request_in, %struct._header_field_info { ptr @.str.214, ptr @.str.215, i32 35, i32 0, ptr inttoptr (i64 1 to ptr), i64 0, ptr @.str.216, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_response_in, %struct._header_field_info { ptr @.str.217, ptr @.str.218, i32 35, i32 0, ptr inttoptr (i64 2 to ptr), i64 0, ptr @.str.219, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_calculated_window_size_connection_before, %struct._header_field_info { ptr @.str.220, ptr @.str.221, i32 15, i32 1, ptr null, i64 0, ptr @.str.222, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_calculated_window_size_connection_after, %struct._header_field_info { ptr @.str.223, ptr @.str.224, i32 15, i32 1, ptr null, i64 0, ptr @.str.225, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_calculated_window_size_stream_before, %struct._header_field_info { ptr @.str.226, ptr @.str.227, i32 15, i32 1, ptr null, i64 0, ptr @.str.228, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_http2_calculated_window_size_stream_after, %struct._header_field_info { ptr @.str.229, ptr @.str.230, i32 15, i32 1, ptr null, i64 0, ptr @.str.231, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
@@ -225,14 +222,12 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_http2_fake_header = internal global i32 0, align 4
 @.str.132 = private unnamed_addr constant [12 x i8] c"Fake Header\00", align 1
 @.str.133 = private unnamed_addr constant [18 x i8] c"http2.fake.header\00", align 1
-@hf_http2_header_request_full_uri = internal global i32 0, align 4
 @.str.134 = private unnamed_addr constant [17 x i8] c"Full request URI\00", align 1
 @.str.135 = private unnamed_addr constant [23 x i8] c"http2.request.full_uri\00", align 1
 @.str.136 = private unnamed_addr constant [45 x i8] c"The full requested URI (including host name)\00", align 1
 @hf_http2_rst_stream_error = internal global i32 0, align 4
 @.str.137 = private unnamed_addr constant [6 x i8] c"Error\00", align 1
 @.str.138 = private unnamed_addr constant [23 x i8] c"http2.rst_stream.error\00", align 1
-@http2_error_codes_vals = internal constant [15 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.281 }, %struct._value_string { i32 1, ptr @.str.282 }, %struct._value_string { i32 2, ptr @.str.283 }, %struct._value_string { i32 3, ptr @.str.284 }, %struct._value_string { i32 4, ptr @.str.285 }, %struct._value_string { i32 5, ptr @.str.286 }, %struct._value_string { i32 6, ptr @.str.287 }, %struct._value_string { i32 7, ptr @.str.288 }, %struct._value_string { i32 8, ptr @.str.289 }, %struct._value_string { i32 9, ptr @.str.290 }, %struct._value_string { i32 10, ptr @.str.291 }, %struct._value_string { i32 11, ptr @.str.292 }, %struct._value_string { i32 12, ptr @.str.293 }, %struct._value_string { i32 13, ptr @.str.294 }, %struct._value_string zeroinitializer], align 16
 @.str.139 = private unnamed_addr constant [60 x i8] c"The error code indicates why the stream is being terminated\00", align 1
 @hf_http2_settings = internal global i32 0, align 4
 @.str.140 = private unnamed_addr constant [9 x i8] c"Settings\00", align 1
@@ -240,7 +235,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_http2_settings_identifier = internal global i32 0, align 4
 @.str.142 = private unnamed_addr constant [20 x i8] c"Settings Identifier\00", align 1
 @.str.143 = private unnamed_addr constant [18 x i8] c"http2.settings.id\00", align 1
-@http2_settings_vals = internal constant [9 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.128 }, %struct._value_string { i32 2, ptr @.str.146 }, %struct._value_string { i32 3, ptr @.str.149 }, %struct._value_string { i32 4, ptr @.str.295 }, %struct._value_string { i32 5, ptr @.str.155 }, %struct._value_string { i32 6, ptr @.str.158 }, %struct._value_string { i32 8, ptr @.str.161 }, %struct._value_string { i32 9, ptr @.str.164 }, %struct._value_string zeroinitializer], align 16
 @hf_http2_settings_header_table_size = internal global i32 0, align 4
 @.str.144 = private unnamed_addr constant [33 x i8] c"http2.settings.header_table_size\00", align 1
 @.str.145 = private unnamed_addr constant [154 x i8] c"Allows the sender to inform the remote endpoint of the size of the header compression table used to decode header blocks. The initial value is 4096 bytes\00", align 1
@@ -375,7 +369,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_http2_body_fragment = internal global i32 0, align 4
 @ett_http2_body_fragments = internal global i32 0, align 4
 @ett_http2_origin = internal global i32 0, align 4
-@proto_register_http2.ei = internal global [4 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_http2_header_size, %struct.expert_field_info { ptr @.str.232, i32 83886080, i32 8388608, ptr @.str.233, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_http2_header_lines, %struct.expert_field_info { ptr @.str.234, i32 83886080, i32 8388608, ptr @.str.235, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_http2_body_decompression_failed, %struct.expert_field_info { ptr @.str.236, i32 83886080, i32 6291456, ptr @.str.237, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_http2_reassembly_error, %struct.expert_field_info { ptr @.str.238, i32 83886080, i32 6291456, ptr @.str.239, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_http2.ei = internal global [4 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_http2_header_size, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.232, i32 83886080, i32 8388608, ptr @.str.233, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_http2_header_lines, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.234, i32 83886080, i32 8388608, ptr @.str.235, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_http2_body_decompression_failed, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.236, i32 83886080, i32 6291456, ptr @.str.237, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_http2_reassembly_error, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.238, i32 83886080, i32 6291456, ptr @.str.239, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_http2_header_size = internal global %struct.expert_field zeroinitializer, align 4
 @.str.232 = private unnamed_addr constant [27 x i8] c"http2.header_size_exceeded\00", align 1
 @.str.233 = private unnamed_addr constant [23 x i8] c"Decompression stopped.\00", align 1
@@ -435,6 +429,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.277 = private unnamed_addr constant [8 x i8] c"BLOCKED\00", align 1
 @.str.278 = private unnamed_addr constant [7 x i8] c"ORIGIN\00", align 1
 @.str.279 = private unnamed_addr constant [16 x i8] c"PRIORITY_UPDATE\00", align 1
+@http2_type_vals = internal constant [15 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.266 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.267 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.268 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.269 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.270 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.271 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.272 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.273 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.274 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.275 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.276 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.277 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.278 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.279 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
 @dissect_http2_header_flags.http2_hdr_flags = internal constant [6 x ptr] [ptr @hf_http2_flags_unused_headers, ptr @hf_http2_flags_priority, ptr @hf_http2_flags_padded, ptr @hf_http2_flags_end_headers, ptr @hf_http2_flags_end_stream, ptr null], align 16
 @dissect_http2_header_flags.http2_data_flags = internal constant [4 x ptr] [ptr @hf_http2_flags_unused_data, ptr @hf_http2_flags_padded, ptr @hf_http2_flags_end_stream, ptr null], align 16
 @dissect_http2_header_flags.http2_settings_flags = internal constant [3 x ptr] [ptr @hf_http2_flags_unused_settings, ptr @hf_http2_flags_settings_ack, ptr null], align 16
@@ -442,104 +437,115 @@ target triple = "x86_64-pc-linux-gnu"
 @dissect_http2_header_flags.http2_continuation_flags = internal constant [4 x ptr] [ptr @hf_http2_flags_unused_continuation, ptr @hf_http2_flags_padded, ptr @hf_http2_flags_end_headers, ptr null], align 16
 @dissect_http2_header_flags.http2_ping_flags = internal constant [3 x ptr] [ptr @hf_http2_flags_unused_ping, ptr @hf_http2_flags_ping_ack, ptr null], align 16
 @dissect_http2_header_flags.http2_unused_flags = internal constant [2 x ptr] [ptr @hf_http2_flags_unused, ptr null], align 16
-@.str.280 = private unnamed_addr constant [64 x i8] c"Wireshark must be built with nghttp2 for HTTP/2 HEADERS support\00", align 1
-@.str.281 = private unnamed_addr constant [9 x i8] c"NO_ERROR\00", align 1
-@.str.282 = private unnamed_addr constant [15 x i8] c"PROTOCOL_ERROR\00", align 1
-@.str.283 = private unnamed_addr constant [15 x i8] c"INTERNAL_ERROR\00", align 1
-@.str.284 = private unnamed_addr constant [19 x i8] c"FLOW_CONTROL_ERROR\00", align 1
-@.str.285 = private unnamed_addr constant [17 x i8] c"SETTINGS_TIMEOUT\00", align 1
-@.str.286 = private unnamed_addr constant [14 x i8] c"STREAM_CLOSED\00", align 1
-@.str.287 = private unnamed_addr constant [17 x i8] c"FRAME_SIZE_ERROR\00", align 1
-@.str.288 = private unnamed_addr constant [15 x i8] c"REFUSED_STREAM\00", align 1
-@.str.289 = private unnamed_addr constant [7 x i8] c"CANCEL\00", align 1
-@.str.290 = private unnamed_addr constant [18 x i8] c"COMPRESSION_ERROR\00", align 1
-@.str.291 = private unnamed_addr constant [14 x i8] c"CONNECT_ERROR\00", align 1
-@.str.292 = private unnamed_addr constant [18 x i8] c"ENHANCE_YOUR_CALM\00", align 1
-@.str.293 = private unnamed_addr constant [20 x i8] c"INADEQUATE_SECURITY\00", align 1
-@.str.294 = private unnamed_addr constant [18 x i8] c"HTTP_1_1_REQUIRED\00", align 1
-@.str.295 = private unnamed_addr constant [21 x i8] c"Initial Windows size\00", align 1
-@.str.296 = private unnamed_addr constant [42 x i8] c"tcp.stream eq %u and http2.streamid eq %u\00", align 1
+@.str.281 = private unnamed_addr constant [64 x i8] c"Wireshark must be built with nghttp2 for HTTP/2 HEADERS support\00", align 1
+@.str.282 = private unnamed_addr constant [9 x i8] c"NO_ERROR\00", align 1
+@.str.283 = private unnamed_addr constant [15 x i8] c"PROTOCOL_ERROR\00", align 1
+@.str.284 = private unnamed_addr constant [15 x i8] c"INTERNAL_ERROR\00", align 1
+@.str.285 = private unnamed_addr constant [19 x i8] c"FLOW_CONTROL_ERROR\00", align 1
+@.str.286 = private unnamed_addr constant [17 x i8] c"SETTINGS_TIMEOUT\00", align 1
+@.str.287 = private unnamed_addr constant [14 x i8] c"STREAM_CLOSED\00", align 1
+@.str.288 = private unnamed_addr constant [17 x i8] c"FRAME_SIZE_ERROR\00", align 1
+@.str.289 = private unnamed_addr constant [15 x i8] c"REFUSED_STREAM\00", align 1
+@.str.290 = private unnamed_addr constant [7 x i8] c"CANCEL\00", align 1
+@.str.291 = private unnamed_addr constant [18 x i8] c"COMPRESSION_ERROR\00", align 1
+@.str.292 = private unnamed_addr constant [14 x i8] c"CONNECT_ERROR\00", align 1
+@.str.293 = private unnamed_addr constant [18 x i8] c"ENHANCE_YOUR_CALM\00", align 1
+@.str.294 = private unnamed_addr constant [20 x i8] c"INADEQUATE_SECURITY\00", align 1
+@.str.295 = private unnamed_addr constant [18 x i8] c"HTTP_1_1_REQUIRED\00", align 1
+@http2_error_codes_vals = internal constant [15 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.282 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.283 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.284 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.285 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.286 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.287 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.288 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.289 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.290 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.291 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.292 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.293 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.294 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.295 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.297 = private unnamed_addr constant [21 x i8] c"Initial Windows size\00", align 1
+@http2_settings_vals = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.128 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.146 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.149 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.297 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.155 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.158 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.161 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.164 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.299 = private unnamed_addr constant [42 x i8] c"tcp.stream eq %u and http2.streamid eq %u\00", align 1
 @st_str_http2 = internal global ptr @.str, align 8
 @st_node_http2_type = internal global i32 -1, align 4
 @st_node_http2 = internal global i32 -1, align 4
 @st_str_http2_type = internal global ptr @.str.12, align 8
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
 define hidden i32 @http2_get_stream_id(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   ret i32 0
 }
 
-; Function Attrs: nounwind uwtable
-define i32 @http2_get_stream_id_le(i32 noundef %0, i32 noundef %1, ptr noundef %2) #0 {
-  %4 = alloca i32, align 4
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define zeroext i1 @http2_get_stream_id_le(i32 noundef %0, i32 noundef %1, ptr noundef %2) #1 {
+  %4 = alloca i1, align 1
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
   store i32 %0, ptr %5, align 4
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
-  %10 = load i32, ptr %5, align 4
-  %11 = call i32 @get_http2_stream_count(i32 noundef %10)
-  store i32 %11, ptr %8, align 4
-  %12 = load i32, ptr %6, align 4
-  %13 = and i32 %12, 2147483647
-  store i32 %13, ptr %9, align 4
-  %14 = load i32, ptr %9, align 4
-  %15 = load i32, ptr %8, align 4
-  %16 = icmp sgt i32 %14, %15
-  br i1 %16, label %17, label %19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #7
+  %11 = load i32, ptr %5, align 4
+  %12 = call i32 @get_http2_stream_count(i32 noundef %11)
+  store i32 %12, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #7
+  %13 = load i32, ptr %6, align 4
+  %14 = and i32 %13, 2147483647
+  store i32 %14, ptr %9, align 4
+  %15 = load i32, ptr %9, align 4
+  %16 = load i32, ptr %8, align 4
+  %17 = icmp sgt i32 %15, %16
+  br i1 %17, label %18, label %20
 
-17:                                               ; preds = %3
-  %18 = load i32, ptr %8, align 4
-  store i32 %18, ptr %9, align 4
-  br label %19
-
-19:                                               ; preds = %17, %3
+18:                                               ; preds = %3
+  %19 = load i32, ptr %8, align 4
+  store i32 %19, ptr %9, align 4
   br label %20
 
-20:                                               ; preds = %32, %19
-  %21 = load i32, ptr %9, align 4
-  %22 = icmp sge i32 %21, 0
-  br i1 %22, label %23, label %35
+20:                                               ; preds = %18, %3
+  br label %21
 
-23:                                               ; preds = %20
-  %24 = load i32, ptr %5, align 4
-  %25 = load i32, ptr %9, align 4
-  %26 = call i32 @is_http2_stream_contains(i32 noundef %24, i32 noundef %25)
-  %27 = icmp ne i32 %26, 0
+21:                                               ; preds = %32, %20
+  %22 = load i32, ptr %9, align 4
+  %23 = icmp sge i32 %22, 0
+  br i1 %23, label %24, label %35
+
+24:                                               ; preds = %21
+  %25 = load i32, ptr %5, align 4
+  %26 = load i32, ptr %9, align 4
+  %27 = call zeroext i1 @is_http2_stream_contains(i32 noundef %25, i32 noundef %26)
   br i1 %27, label %28, label %31
 
-28:                                               ; preds = %23
+28:                                               ; preds = %24
   %29 = load i32, ptr %9, align 4
   %30 = load ptr, ptr %7, align 8
   store i32 %29, ptr %30, align 4
-  store i32 1, ptr %4, align 4
+  store i1 true, ptr %4, align 1
+  store i32 1, ptr %10, align 4
   br label %36
 
-31:                                               ; preds = %23
+31:                                               ; preds = %24
   br label %32
 
 32:                                               ; preds = %31
   %33 = load i32, ptr %9, align 4
   %34 = add i32 %33, -1
   store i32 %34, ptr %9, align 4
-  br label %20, !llvm.loop !4
+  br label %21, !llvm.loop !6
 
-35:                                               ; preds = %20
-  store i32 0, ptr %4, align 4
+35:                                               ; preds = %21
+  store i1 false, ptr %4, align 1
+  store i32 1, ptr %10, align 4
   br label %36
 
 36:                                               ; preds = %35, %28
-  %37 = load i32, ptr %4, align 4
-  ret i32 %37
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #7
+  %37 = load i1, ptr %4, align 1
+  ret i1 %37
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @get_http2_stream_count(i32 noundef %0) #0 {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @get_http2_stream_count(i32 noundef %0) #1 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -547,7 +553,12 @@ define internal i32 @get_http2_stream_count(i32 noundef %0) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   store i32 %0, ptr %2, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #7
   store i32 0, ptr %3, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
   %8 = load ptr, ptr @streamid_hash, align 8
   %9 = load i32, ptr %2, align 4
   %10 = zext i32 %9 to i64
@@ -573,7 +584,7 @@ define internal i32 @get_http2_stream_count(i32 noundef %0) #0 {
 
 22:                                               ; preds = %19
   %23 = load ptr, ptr %7, align 8
-  %24 = getelementptr inbounds %struct._GList, ptr %23, i32 0, i32 0
+  %24 = getelementptr inbounds nuw %struct._GList, ptr %23, i32 0, i32 0
   %25 = load ptr, ptr %24, align 8
   %26 = ptrtoint ptr %25 to i64
   %27 = trunc i64 %26 to i32
@@ -598,10 +609,10 @@ define internal i32 @get_http2_stream_count(i32 noundef %0) #0 {
 
 37:                                               ; preds = %35
   %38 = load ptr, ptr %7, align 8
-  %39 = getelementptr inbounds %struct._GList, ptr %38, i32 0, i32 1
+  %39 = getelementptr inbounds nuw %struct._GList, ptr %38, i32 0, i32 1
   %40 = load ptr, ptr %39, align 8
   store ptr %40, ptr %7, align 8
-  br label %19, !llvm.loop !6
+  br label %19, !llvm.loop !8
 
 41:                                               ; preds = %19
   %42 = load ptr, ptr %6, align 8
@@ -610,123 +621,154 @@ define internal i32 @get_http2_stream_count(i32 noundef %0) #0 {
 
 43:                                               ; preds = %41, %1
   %44 = load i32, ptr %3, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #7
   ret i32 %44
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @is_http2_stream_contains(i32 noundef %0, i32 noundef %1) #0 {
-  %3 = alloca i32, align 4
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @is_http2_stream_contains(i32 noundef %0, i32 noundef %1) #1 {
+  %3 = alloca i1, align 1
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
   store i32 %0, ptr %4, align 4
   store i32 %1, ptr %5, align 4
-  %7 = load ptr, ptr @streamid_hash, align 8
-  %8 = load i32, ptr %4, align 4
-  %9 = zext i32 %8 to i64
-  %10 = inttoptr i64 %9 to ptr
-  %11 = call ptr @g_hash_table_lookup(ptr noundef %7, ptr noundef %10)
-  store ptr %11, ptr %6, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %14, label %15
-
-14:                                               ; preds = %2
-  store i32 0, ptr %3, align 4
-  br label %24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  %8 = load ptr, ptr @streamid_hash, align 8
+  %9 = load i32, ptr %4, align 4
+  %10 = zext i32 %9 to i64
+  %11 = inttoptr i64 %10 to ptr
+  %12 = call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef %11)
+  store ptr %12, ptr %6, align 8
+  %13 = load ptr, ptr %6, align 8
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %16
 
 15:                                               ; preds = %2
-  %16 = load ptr, ptr %6, align 8
-  %17 = load i32, ptr %5, align 4
-  %18 = sext i32 %17 to i64
-  %19 = inttoptr i64 %18 to ptr
-  %20 = call i32 @g_hash_table_contains(ptr noundef %16, ptr noundef %19)
-  %21 = icmp ne i32 %20, 0
-  br i1 %21, label %23, label %22
+  store i1 false, ptr %3, align 1
+  store i32 1, ptr %7, align 4
+  br label %25
 
-22:                                               ; preds = %15
-  store i32 0, ptr %3, align 4
-  br label %24
+16:                                               ; preds = %2
+  %17 = load ptr, ptr %6, align 8
+  %18 = load i32, ptr %5, align 4
+  %19 = sext i32 %18 to i64
+  %20 = inttoptr i64 %19 to ptr
+  %21 = call i32 @g_hash_table_contains(ptr noundef %17, ptr noundef %20)
+  %22 = icmp ne i32 %21, 0
+  br i1 %22, label %24, label %23
 
-23:                                               ; preds = %15
-  store i32 1, ptr %3, align 4
-  br label %24
+23:                                               ; preds = %16
+  store i1 false, ptr %3, align 1
+  store i32 1, ptr %7, align 4
+  br label %25
 
-24:                                               ; preds = %23, %22, %14
-  %25 = load i32, ptr %3, align 4
-  ret i32 %25
+24:                                               ; preds = %16
+  store i1 true, ptr %3, align 1
+  store i32 1, ptr %7, align 4
+  br label %25
+
+25:                                               ; preds = %24, %23, %15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  %26 = load i1, ptr %3, align 1
+  ret i1 %26
 }
 
-; Function Attrs: nounwind uwtable
-define i32 @http2_get_stream_id_ge(i32 noundef %0, i32 noundef %1, ptr noundef %2) #0 {
-  %4 = alloca i32, align 4
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define zeroext i1 @http2_get_stream_id_ge(i32 noundef %0, i32 noundef %1, ptr noundef %2) #1 {
+  %4 = alloca i1, align 1
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
   store i32 %0, ptr %5, align 4
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
-  %10 = load i32, ptr %5, align 4
-  %11 = call i32 @get_http2_stream_count(i32 noundef %10)
-  store i32 %11, ptr %8, align 4
-  %12 = load i32, ptr %6, align 4
-  %13 = and i32 %12, 2147483647
-  store i32 %13, ptr %9, align 4
-  br label %14
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #7
+  %11 = load i32, ptr %5, align 4
+  %12 = call i32 @get_http2_stream_count(i32 noundef %11)
+  store i32 %12, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #7
+  %13 = load i32, ptr %6, align 4
+  %14 = and i32 %13, 2147483647
+  store i32 %14, ptr %9, align 4
+  br label %15
 
-14:                                               ; preds = %27, %3
-  %15 = load i32, ptr %9, align 4
-  %16 = load i32, ptr %8, align 4
-  %17 = icmp sle i32 %15, %16
-  br i1 %17, label %18, label %30
+15:                                               ; preds = %28, %3
+  %16 = load i32, ptr %9, align 4
+  %17 = load i32, ptr %8, align 4
+  %18 = icmp sle i32 %16, %17
+  br i1 %18, label %20, label %19
 
-18:                                               ; preds = %14
-  %19 = load i32, ptr %5, align 4
-  %20 = load i32, ptr %9, align 4
-  %21 = call i32 @is_http2_stream_contains(i32 noundef %19, i32 noundef %20)
-  %22 = icmp ne i32 %21, 0
-  br i1 %22, label %23, label %26
-
-23:                                               ; preds = %18
-  %24 = load i32, ptr %9, align 4
-  %25 = load ptr, ptr %7, align 8
-  store i32 %24, ptr %25, align 4
-  store i32 1, ptr %4, align 4
+19:                                               ; preds = %15
+  store i32 2, ptr %10, align 4
   br label %31
 
-26:                                               ; preds = %18
-  br label %27
+20:                                               ; preds = %15
+  %21 = load i32, ptr %5, align 4
+  %22 = load i32, ptr %9, align 4
+  %23 = call zeroext i1 @is_http2_stream_contains(i32 noundef %21, i32 noundef %22)
+  br i1 %23, label %24, label %27
 
-27:                                               ; preds = %26
-  %28 = load i32, ptr %9, align 4
-  %29 = add i32 %28, 1
-  store i32 %29, ptr %9, align 4
-  br label %14, !llvm.loop !7
-
-30:                                               ; preds = %14
-  store i32 0, ptr %4, align 4
+24:                                               ; preds = %20
+  %25 = load i32, ptr %9, align 4
+  %26 = load ptr, ptr %7, align 8
+  store i32 %25, ptr %26, align 4
+  store i1 true, ptr %4, align 1
+  store i32 1, ptr %10, align 4
   br label %31
 
-31:                                               ; preds = %30, %23
-  %32 = load i32, ptr %4, align 4
-  ret i32 %32
+27:                                               ; preds = %20
+  br label %28
+
+28:                                               ; preds = %27
+  %29 = load i32, ptr %9, align 4
+  %30 = add i32 %29, 1
+  store i32 %30, ptr %9, align 4
+  br label %15, !llvm.loop !9
+
+31:                                               ; preds = %24, %19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #7
+  %32 = load i32, ptr %10, align 4
+  switch i32 %32, label %34 [
+    i32 2, label %33
+  ]
+
+33:                                               ; preds = %31
+  store i1 false, ptr %4, align 1
+  store i32 1, ptr %10, align 4
+  br label %34
+
+34:                                               ; preds = %33, %31
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #7
+  %35 = load i1, ptr %4, align 1
+  ret i1 %35
 }
 
-; Function Attrs: nounwind uwtable
-define hidden ptr @http2_get_header_value(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define hidden ptr @http2_get_header_value(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  %6 = alloca i32, align 4
+  %6 = alloca i8, align 1
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
-  store i32 %2, ptr %6, align 4
+  %7 = zext i1 %2 to i8
+  store i8 %7, ptr %6, align 1
   ret ptr null
 }
 
-; Function Attrs: nounwind uwtable
-define void @dissect_http2_settings_ext(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define void @dissect_http2_settings_ext(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -743,8 +785,8 @@ define void @dissect_http2_settings_ext(ptr noundef %0, ptr noundef %1, ptr noun
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_http2_settings(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i8 noundef zeroext %5) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @dissect_http2_settings(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i8 noundef zeroext %5) #1 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -762,6 +804,9 @@ define internal i32 @dissect_http2_settings(ptr noundef %0, ptr noundef %1, ptr 
   store ptr %3, ptr %10, align 8
   store i32 %4, ptr %11, align 4
   store i8 %5, ptr %12, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
   br label %18
 
 18:                                               ; preds = %116, %6
@@ -836,6 +881,7 @@ define internal i32 @dissect_http2_settings(ptr noundef %0, ptr noundef %1, ptr 
   br label %116
 
 65:                                               ; preds = %23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #7
   %66 = load ptr, ptr %15, align 8
   %67 = load i32, ptr @hf_http2_settings_initial_window_size, align 4
   %68 = load ptr, ptr %7, align 8
@@ -846,6 +892,7 @@ define internal i32 @dissect_http2_settings(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %72, label %73, label %85
 
 73:                                               ; preds = %65
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #7
   %74 = load ptr, ptr %8, align 8
   %75 = load ptr, ptr %9, align 8
   %76 = call i32 @select_http2_flow_index(ptr noundef %74, ptr noundef %75)
@@ -855,14 +902,16 @@ define internal i32 @dissect_http2_settings(ptr noundef %0, ptr noundef %1, ptr 
   store i32 %78, ptr %17, align 4
   %79 = load i32, ptr %16, align 4
   %80 = load ptr, ptr %9, align 8
-  %81 = getelementptr inbounds %struct.http2_session_t, ptr %80, i32 0, i32 3
+  %81 = getelementptr inbounds nuw %struct.http2_session_t, ptr %80, i32 0, i32 3
   %82 = load i32, ptr %17, align 4
   %83 = zext i32 %82 to i64
   %84 = getelementptr [2 x i32], ptr %81, i64 0, i64 %83
   store i32 %79, ptr %84, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #7
   br label %85
 
 85:                                               ; preds = %73, %65
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #7
   br label %116
 
 86:                                               ; preds = %23
@@ -914,15 +963,18 @@ define internal i32 @dissect_http2_settings(ptr noundef %0, ptr noundef %1, ptr 
   %121 = load i32, ptr %11, align 4
   %122 = add i32 %121, 4
   store i32 %122, ptr %11, align 4
-  br label %18, !llvm.loop !8
+  br label %18, !llvm.loop !10
 
 123:                                              ; preds = %18
   %124 = load i32, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #7
   ret i32 %124
 }
 
-; Function Attrs: nounwind uwtable
-define hidden i32 @dissect_http2_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define hidden i32 @dissect_http2_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -939,478 +991,557 @@ define hidden i32 @dissect_http2_pdu(ptr noundef %0, ptr noundef %1, ptr noundef
   %18 = alloca ptr, align 8
   %19 = alloca ptr, align 8
   %20 = alloca ptr, align 8
-  %21 = alloca i32, align 4
+  %21 = alloca i8, align 1
   %22 = alloca ptr, align 8
   %23 = alloca i32, align 4
-  %24 = alloca ptr, align 8
+  %24 = alloca i32, align 4
   %25 = alloca ptr, align 8
   %26 = alloca ptr, align 8
+  %27 = alloca ptr, align 8
+  %28 = alloca ptr, align 8
+  %29 = alloca ptr, align 8
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #7
   store i32 0, ptr %12, align 4
-  %27 = load ptr, ptr %7, align 8
-  %28 = call nonnull ptr @find_or_create_conversation(ptr noundef %27)
-  store ptr %28, ptr %20, align 8
-  store i32 1, ptr %21, align 4
-  %29 = load ptr, ptr %7, align 8
-  %30 = getelementptr inbounds %struct._packet_info, ptr %29, i32 0, i32 1
-  %31 = load ptr, ptr %30, align 8
-  call void @col_set_str(ptr noundef %31, i32 noundef 34, ptr noundef @.str)
-  %32 = load ptr, ptr %8, align 8
-  %33 = load i32, ptr @proto_http2, align 4
-  %34 = load ptr, ptr %6, align 8
-  %35 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %33, ptr noundef %34, i32 noundef 0, i32 noundef -1, i32 noundef 0)
-  store ptr %35, ptr %10, align 8
-  %36 = load ptr, ptr %10, align 8
-  %37 = load i32, ptr @ett_http2, align 4
-  %38 = call ptr @proto_item_add_subtree(ptr noundef %36, i32 noundef %37)
-  store ptr %38, ptr %11, align 8
-  %39 = call ptr @wmem_file_scope()
-  %40 = load ptr, ptr %7, align 8
-  %41 = load i32, ptr @proto_http2, align 4
-  %42 = call ptr @p_get_proto_data(ptr noundef %39, ptr noundef %40, i32 noundef %41, i32 noundef 0)
-  %43 = icmp ne ptr %42, null
-  br i1 %43, label %55, label %44
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #7
+  call void @llvm.lifetime.start.p0(i64 2, ptr %15) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #7
+  %30 = load ptr, ptr %7, align 8
+  %31 = call ptr @find_or_create_conversation(ptr noundef %30)
+  store ptr %31, ptr %20, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %21) #7
+  store i8 1, ptr %21, align 1
+  %32 = load ptr, ptr %7, align 8
+  %33 = getelementptr inbounds nuw %struct._packet_info, ptr %32, i32 0, i32 1
+  %34 = load ptr, ptr %33, align 8
+  call void @col_set_str(ptr noundef %34, i32 noundef 35, ptr noundef @.str)
+  %35 = load ptr, ptr %8, align 8
+  %36 = load i32, ptr @proto_http2, align 4
+  %37 = load ptr, ptr %6, align 8
+  %38 = call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %36, ptr noundef %37, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  store ptr %38, ptr %10, align 8
+  %39 = load ptr, ptr %10, align 8
+  %40 = load i32, ptr @ett_http2, align 4
+  %41 = call ptr @proto_item_add_subtree(ptr noundef %39, i32 noundef %40)
+  store ptr %41, ptr %11, align 8
+  %42 = call ptr @wmem_file_scope()
+  %43 = load ptr, ptr %7, align 8
+  %44 = load i32, ptr @proto_http2, align 4
+  %45 = call ptr @p_get_proto_data(ptr noundef %42, ptr noundef %43, i32 noundef %44, i32 noundef 0)
+  %46 = icmp ne ptr %45, null
+  br i1 %46, label %58, label %47
 
-44:                                               ; preds = %4
-  %45 = call ptr @wmem_file_scope()
-  %46 = call noalias ptr @wmem_alloc0(ptr noundef %45, i64 noundef 32)
-  store ptr %46, ptr %22, align 8
-  %47 = call ptr @wmem_file_scope()
-  %48 = call noalias ptr @wmem_list_new(ptr noundef %47)
-  %49 = load ptr, ptr %22, align 8
-  %50 = getelementptr inbounds %struct.http2_header_data_t, ptr %49, i32 0, i32 0
-  store ptr %48, ptr %50, align 8
-  %51 = call ptr @wmem_file_scope()
-  %52 = load ptr, ptr %7, align 8
-  %53 = load i32, ptr @proto_http2, align 4
-  %54 = load ptr, ptr %22, align 8
-  call void @p_add_proto_data(ptr noundef %51, ptr noundef %52, i32 noundef %53, i32 noundef 0, ptr noundef %54)
-  br label %55
+47:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #7
+  %48 = call ptr @wmem_file_scope()
+  %49 = call noalias ptr @wmem_alloc0(ptr noundef %48, i64 noundef 32) #8
+  store ptr %49, ptr %22, align 8
+  %50 = call ptr @wmem_file_scope()
+  %51 = call noalias ptr @wmem_list_new(ptr noundef %50)
+  %52 = load ptr, ptr %22, align 8
+  %53 = getelementptr inbounds nuw %struct.http2_header_data_t, ptr %52, i32 0, i32 0
+  store ptr %51, ptr %53, align 8
+  %54 = call ptr @wmem_file_scope()
+  %55 = load ptr, ptr %7, align 8
+  %56 = load i32, ptr @proto_http2, align 4
+  %57 = load ptr, ptr %22, align 8
+  call void @p_add_proto_data(ptr noundef %54, ptr noundef %55, i32 noundef %56, i32 noundef 0, ptr noundef %57)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #7
+  br label %58
 
-55:                                               ; preds = %44, %4
-  %56 = load ptr, ptr %11, align 8
-  %57 = load i32, ptr @hf_http2_stream, align 4
-  %58 = load ptr, ptr %6, align 8
-  %59 = call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %57, ptr noundef %58, i32 noundef 0, i32 noundef -1, i32 noundef 0)
-  store ptr %59, ptr %10, align 8
-  %60 = load ptr, ptr %10, align 8
-  %61 = load i32, ptr @ett_http2_header, align 4
-  %62 = call ptr @proto_item_add_subtree(ptr noundef %60, i32 noundef %61)
-  store ptr %62, ptr %11, align 8
-  %63 = load ptr, ptr %6, align 8
-  %64 = load i32, ptr %12, align 4
-  %65 = call i32 @tvb_memeql(ptr noundef %63, i32 noundef %64, ptr noundef @kMagicHello, i64 noundef 24)
-  %66 = icmp eq i32 %65, 0
-  br i1 %66, label %67, label %78
+58:                                               ; preds = %47, %4
+  %59 = load ptr, ptr %11, align 8
+  %60 = load i32, ptr @hf_http2_stream, align 4
+  %61 = load ptr, ptr %6, align 8
+  %62 = call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %60, ptr noundef %61, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  store ptr %62, ptr %10, align 8
+  %63 = load ptr, ptr %10, align 8
+  %64 = load i32, ptr @ett_http2_header, align 4
+  %65 = call ptr @proto_item_add_subtree(ptr noundef %63, i32 noundef %64)
+  store ptr %65, ptr %11, align 8
+  %66 = load ptr, ptr %6, align 8
+  %67 = load i32, ptr %12, align 4
+  %68 = call i32 @tvb_memeql(ptr noundef %66, i32 noundef %67, ptr noundef @kMagicHello, i64 noundef 24)
+  %69 = icmp eq i32 %68, 0
+  br i1 %69, label %70, label %81
 
-67:                                               ; preds = %55
-  %68 = load ptr, ptr %7, align 8
-  %69 = getelementptr inbounds %struct._packet_info, ptr %68, i32 0, i32 1
-  %70 = load ptr, ptr %69, align 8
-  call void @col_append_sep_str(ptr noundef %70, i32 noundef 25, ptr noundef @.str.1, ptr noundef @.str.2)
-  %71 = load ptr, ptr %10, align 8
-  call void @proto_item_set_len(ptr noundef %71, i32 noundef 24)
-  %72 = load ptr, ptr %10, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %72, ptr noundef @.str.3)
-  %73 = load ptr, ptr %11, align 8
-  %74 = load i32, ptr @hf_http2_magic, align 4
-  %75 = load ptr, ptr %6, align 8
-  %76 = load i32, ptr %12, align 4
-  %77 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %74, ptr noundef %75, i32 noundef %76, i32 noundef 24, i32 noundef 0)
+70:                                               ; preds = %58
+  %71 = load ptr, ptr %7, align 8
+  %72 = getelementptr inbounds nuw %struct._packet_info, ptr %71, i32 0, i32 1
+  %73 = load ptr, ptr %72, align 8
+  call void @col_append_sep_str(ptr noundef %73, i32 noundef 25, ptr noundef @.str.1, ptr noundef @.str.2)
+  %74 = load ptr, ptr %10, align 8
+  call void @proto_item_set_len(ptr noundef %74, i32 noundef 24)
+  %75 = load ptr, ptr %10, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %75, ptr noundef @.str.3)
+  %76 = load ptr, ptr %11, align 8
+  %77 = load i32, ptr @hf_http2_magic, align 4
+  %78 = load ptr, ptr %6, align 8
+  %79 = load i32, ptr %12, align 4
+  %80 = call ptr @proto_tree_add_item(ptr noundef %76, i32 noundef %77, ptr noundef %78, i32 noundef %79, i32 noundef 24, i32 noundef 0)
   store i32 24, ptr %5, align 4
-  br label %331
+  store i32 1, ptr %23, align 4
+  br label %347
 
-78:                                               ; preds = %55
-  %79 = load ptr, ptr %11, align 8
-  %80 = load i32, ptr @hf_http2_length, align 4
-  %81 = load ptr, ptr %6, align 8
-  %82 = load i32, ptr %12, align 4
-  %83 = call ptr @proto_tree_add_item(ptr noundef %79, i32 noundef %80, ptr noundef %81, i32 noundef %82, i32 noundef 3, i32 noundef 0)
+81:                                               ; preds = %58
+  %82 = load ptr, ptr %11, align 8
+  %83 = load i32, ptr @hf_http2_length, align 4
   %84 = load ptr, ptr %6, align 8
   %85 = load i32, ptr %12, align 4
-  %86 = call i32 @tvb_get_ntoh24(ptr noundef %84, i32 noundef %85)
-  %87 = trunc i32 %86 to i16
-  store i16 %87, ptr %15, align 2
+  %86 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %83, ptr noundef %84, i32 noundef %85, i32 noundef 3, i32 noundef 0)
+  %87 = load ptr, ptr %6, align 8
   %88 = load i32, ptr %12, align 4
-  %89 = add i32 %88, 3
-  store i32 %89, ptr %12, align 4
-  %90 = load ptr, ptr %11, align 8
-  %91 = load i32, ptr @hf_http2_type, align 4
-  %92 = load ptr, ptr %6, align 8
-  %93 = load i32, ptr %12, align 4
-  %94 = call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %91, ptr noundef %92, i32 noundef %93, i32 noundef 1, i32 noundef 0)
+  %89 = call i32 @tvb_get_ntoh24(ptr noundef %87, i32 noundef %88)
+  %90 = trunc i32 %89 to i16
+  store i16 %90, ptr %15, align 2
+  %91 = load i32, ptr %12, align 4
+  %92 = add i32 %91, 3
+  store i32 %92, ptr %12, align 4
+  %93 = load ptr, ptr %11, align 8
+  %94 = load i32, ptr @hf_http2_type, align 4
   %95 = load ptr, ptr %6, align 8
   %96 = load i32, ptr %12, align 4
-  %97 = call zeroext i8 @tvb_get_guint8(ptr noundef %95, i32 noundef %96)
-  store i8 %97, ptr %13, align 1
-  %98 = load i8, ptr %13, align 1
-  %99 = zext i8 %98 to i32
-  %100 = call ptr @try_val_to_str_idx(i32 noundef %99, ptr noundef @http2_type_vals, ptr noundef %23)
-  store ptr %100, ptr %24, align 8
-  %101 = load ptr, ptr %24, align 8
-  %102 = icmp eq ptr %101, null
-  br i1 %102, label %103, label %110
+  %97 = call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %94, ptr noundef %95, i32 noundef %96, i32 noundef 1, i32 noundef 0)
+  %98 = load ptr, ptr %6, align 8
+  %99 = load i32, ptr %12, align 4
+  %100 = call zeroext i8 @tvb_get_uint8(ptr noundef %98, i32 noundef %99)
+  store i8 %100, ptr %13, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #7
+  %101 = load i8, ptr %13, align 1
+  %102 = zext i8 %101 to i32
+  %103 = call ptr @try_val_to_str_idx(i32 noundef %102, ptr noundef @http2_type_vals, ptr noundef %24)
+  store ptr %103, ptr %25, align 8
+  %104 = load ptr, ptr %25, align 8
+  %105 = icmp eq ptr %104, null
+  br i1 %105, label %106, label %113
 
-103:                                              ; preds = %78
-  %104 = load ptr, ptr %7, align 8
-  %105 = getelementptr inbounds %struct._packet_info, ptr %104, i32 0, i32 50
-  %106 = load ptr, ptr %105, align 8
-  %107 = load i8, ptr %13, align 1
-  %108 = zext i8 %107 to i32
-  %109 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %106, ptr noundef @.str.4, i32 noundef %108)
-  store ptr %109, ptr %24, align 8
-  br label %110
+106:                                              ; preds = %81
+  %107 = load ptr, ptr %7, align 8
+  %108 = getelementptr inbounds nuw %struct._packet_info, ptr %107, i32 0, i32 51
+  %109 = load ptr, ptr %108, align 8
+  %110 = load i8, ptr %13, align 1
+  %111 = zext i8 %110 to i32
+  %112 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %109, ptr noundef @.str.4, i32 noundef %111)
+  store ptr %112, ptr %25, align 8
+  br label %113
 
-110:                                              ; preds = %103, %78
-  %111 = load i32, ptr %12, align 4
-  %112 = add i32 %111, 1
-  store i32 %112, ptr %12, align 4
-  %113 = load ptr, ptr %6, align 8
-  %114 = load ptr, ptr %7, align 8
-  %115 = load ptr, ptr %11, align 8
-  %116 = load i32, ptr %12, align 4
-  %117 = load i8, ptr %13, align 1
-  %118 = call zeroext i8 @dissect_http2_header_flags(ptr noundef %113, ptr noundef %114, ptr noundef %115, i32 noundef %116, i8 noundef zeroext %117)
-  store i8 %118, ptr %14, align 1
+113:                                              ; preds = %106, %81
+  %114 = load i32, ptr %12, align 4
+  %115 = add i32 %114, 1
+  store i32 %115, ptr %12, align 4
+  %116 = load ptr, ptr %6, align 8
+  %117 = load ptr, ptr %7, align 8
+  %118 = load ptr, ptr %11, align 8
   %119 = load i32, ptr %12, align 4
-  %120 = add i32 %119, 1
-  store i32 %120, ptr %12, align 4
-  %121 = load ptr, ptr %11, align 8
-  %122 = load i32, ptr @hf_http2_r, align 4
-  %123 = load ptr, ptr %6, align 8
-  %124 = load i32, ptr %12, align 4
-  %125 = call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %122, ptr noundef %123, i32 noundef %124, i32 noundef 4, i32 noundef 0)
-  %126 = load ptr, ptr %11, align 8
-  %127 = load i32, ptr @hf_http2_streamid, align 4
-  %128 = load ptr, ptr %6, align 8
-  %129 = load i32, ptr %12, align 4
-  %130 = call ptr @proto_tree_add_item(ptr noundef %126, i32 noundef %127, ptr noundef %128, i32 noundef %129, i32 noundef 4, i32 noundef 0)
+  %120 = load i8, ptr %13, align 1
+  %121 = call zeroext i8 @dissect_http2_header_flags(ptr noundef %116, ptr noundef %117, ptr noundef %118, i32 noundef %119, i8 noundef zeroext %120)
+  store i8 %121, ptr %14, align 1
+  %122 = load i32, ptr %12, align 4
+  %123 = add i32 %122, 1
+  store i32 %123, ptr %12, align 4
+  %124 = load ptr, ptr %11, align 8
+  %125 = load i32, ptr @hf_http2_r, align 4
+  %126 = load ptr, ptr %6, align 8
+  %127 = load i32, ptr %12, align 4
+  %128 = call ptr @proto_tree_add_item(ptr noundef %124, i32 noundef %125, ptr noundef %126, i32 noundef %127, i32 noundef 4, i32 noundef 0)
+  %129 = load ptr, ptr %11, align 8
+  %130 = load i32, ptr @hf_http2_streamid, align 4
   %131 = load ptr, ptr %6, align 8
   %132 = load i32, ptr %12, align 4
-  %133 = call i32 @tvb_get_ntohl(ptr noundef %131, i32 noundef %132)
-  %134 = and i32 %133, 2147483647
-  store i32 %134, ptr %16, align 4
-  %135 = load ptr, ptr %10, align 8
-  %136 = load ptr, ptr %24, align 8
-  %137 = load i32, ptr %16, align 4
-  %138 = load i16, ptr %15, align 2
-  %139 = zext i16 %138 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %135, ptr noundef @.str.5, ptr noundef %136, i32 noundef %137, i32 noundef %139)
-  %140 = load i32, ptr %12, align 4
-  %141 = add i32 %140, 4
-  store i32 %141, ptr %12, align 4
-  %142 = load ptr, ptr %7, align 8
-  %143 = getelementptr inbounds %struct._packet_info, ptr %142, i32 0, i32 1
-  %144 = load ptr, ptr %143, align 8
-  %145 = load ptr, ptr %24, align 8
-  %146 = load i32, ptr %16, align 4
-  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %144, i32 noundef 25, ptr noundef @.str.1, ptr noundef @.str.6, ptr noundef %145, i32 noundef %146)
-  %147 = load ptr, ptr %20, align 8
-  %148 = load ptr, ptr %7, align 8
-  %149 = call ptr @get_tcp_conversation_data(ptr noundef %147, ptr noundef %148)
-  store ptr %149, ptr %19, align 8
-  %150 = load ptr, ptr %19, align 8
-  %151 = icmp ne ptr %150, null
-  br i1 %151, label %152, label %181
+  %133 = call ptr @proto_tree_add_item(ptr noundef %129, i32 noundef %130, ptr noundef %131, i32 noundef %132, i32 noundef 4, i32 noundef 0)
+  %134 = load ptr, ptr %6, align 8
+  %135 = load i32, ptr %12, align 4
+  %136 = call i32 @tvb_get_ntohl(ptr noundef %134, i32 noundef %135)
+  %137 = and i32 %136, 2147483647
+  store i32 %137, ptr %16, align 4
+  %138 = load ptr, ptr %10, align 8
+  %139 = load ptr, ptr %25, align 8
+  %140 = load i32, ptr %16, align 4
+  %141 = load i16, ptr %15, align 2
+  %142 = zext i16 %141 to i32
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %138, ptr noundef @.str.5, ptr noundef %139, i32 noundef %140, i32 noundef %142)
+  %143 = load i32, ptr %12, align 4
+  %144 = add i32 %143, 4
+  store i32 %144, ptr %12, align 4
+  %145 = load ptr, ptr %7, align 8
+  %146 = getelementptr inbounds nuw %struct._packet_info, ptr %145, i32 0, i32 1
+  %147 = load ptr, ptr %146, align 8
+  %148 = load ptr, ptr %25, align 8
+  %149 = load i32, ptr %16, align 4
+  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %147, i32 noundef 25, ptr noundef @.str.1, ptr noundef @.str.6, ptr noundef %148, i32 noundef %149)
+  %150 = load ptr, ptr %20, align 8
+  %151 = load ptr, ptr %7, align 8
+  %152 = call ptr @get_tcp_conversation_data(ptr noundef %150, ptr noundef %151)
+  store ptr %152, ptr %19, align 8
+  %153 = load ptr, ptr %19, align 8
+  %154 = icmp ne ptr %153, null
+  br i1 %154, label %155, label %184
 
-152:                                              ; preds = %110
-  %153 = load i32, ptr %23, align 4
-  %154 = icmp ne i32 %153, -1
-  br i1 %154, label %155, label %181
+155:                                              ; preds = %113
+  %156 = load i32, ptr %24, align 4
+  %157 = icmp ne i32 %156, -1
+  br i1 %157, label %158, label %184
 
-155:                                              ; preds = %152
-  %156 = load ptr, ptr @streamid_hash, align 8
-  %157 = load ptr, ptr %19, align 8
-  %158 = getelementptr inbounds %struct.tcp_analysis, ptr %157, i32 0, i32 10
-  %159 = load i32, ptr %158, align 8
-  %160 = zext i32 %159 to i64
-  %161 = inttoptr i64 %160 to ptr
-  %162 = call ptr @g_hash_table_lookup(ptr noundef %156, ptr noundef %161)
-  store ptr %162, ptr %18, align 8
-  %163 = load ptr, ptr %18, align 8
-  %164 = icmp eq ptr %163, null
-  br i1 %164, label %165, label %175
+158:                                              ; preds = %155
+  %159 = load ptr, ptr @streamid_hash, align 8
+  %160 = load ptr, ptr %19, align 8
+  %161 = getelementptr inbounds nuw %struct.tcp_analysis, ptr %160, i32 0, i32 10
+  %162 = load i32, ptr %161, align 8
+  %163 = zext i32 %162 to i64
+  %164 = inttoptr i64 %163 to ptr
+  %165 = call ptr @g_hash_table_lookup(ptr noundef %159, ptr noundef %164)
+  store ptr %165, ptr %18, align 8
+  %166 = load ptr, ptr %18, align 8
+  %167 = icmp eq ptr %166, null
+  br i1 %167, label %168, label %178
 
-165:                                              ; preds = %155
-  %166 = call ptr @g_hash_table_new(ptr noundef null, ptr noundef null)
-  store ptr %166, ptr %18, align 8
-  %167 = load ptr, ptr @streamid_hash, align 8
-  %168 = load ptr, ptr %19, align 8
-  %169 = getelementptr inbounds %struct.tcp_analysis, ptr %168, i32 0, i32 10
-  %170 = load i32, ptr %169, align 8
-  %171 = zext i32 %170 to i64
-  %172 = inttoptr i64 %171 to ptr
-  %173 = load ptr, ptr %18, align 8
-  %174 = call i32 @g_hash_table_insert(ptr noundef %167, ptr noundef %172, ptr noundef %173)
-  br label %175
-
-175:                                              ; preds = %165, %155
+168:                                              ; preds = %158
+  %169 = call ptr @g_hash_table_new(ptr noundef null, ptr noundef null)
+  store ptr %169, ptr %18, align 8
+  %170 = load ptr, ptr @streamid_hash, align 8
+  %171 = load ptr, ptr %19, align 8
+  %172 = getelementptr inbounds nuw %struct.tcp_analysis, ptr %171, i32 0, i32 10
+  %173 = load i32, ptr %172, align 8
+  %174 = zext i32 %173 to i64
+  %175 = inttoptr i64 %174 to ptr
   %176 = load ptr, ptr %18, align 8
-  %177 = load i32, ptr %16, align 4
-  %178 = zext i32 %177 to i64
-  %179 = inttoptr i64 %178 to ptr
-  %180 = call i32 @g_hash_table_add(ptr noundef %176, ptr noundef %179)
-  br label %181
+  %177 = call i32 @g_hash_table_insert(ptr noundef %170, ptr noundef %175, ptr noundef %176)
+  br label %178
 
-181:                                              ; preds = %175, %152, %110
-  %182 = load ptr, ptr %7, align 8
-  %183 = load ptr, ptr %20, align 8
-  %184 = call ptr @get_http2_session(ptr noundef %182, ptr noundef %183)
-  store ptr %184, ptr %25, align 8
-  %185 = load i32, ptr %16, align 4
-  %186 = load ptr, ptr %25, align 8
-  %187 = getelementptr inbounds %struct.http2_session_t, ptr %186, i32 0, i32 1
-  store i32 %185, ptr %187, align 8
-  %188 = load ptr, ptr %7, align 8
-  %189 = getelementptr inbounds %struct._packet_info, ptr %188, i32 0, i32 50
-  %190 = load ptr, ptr %189, align 8
-  %191 = call noalias ptr @wmem_alloc0(ptr noundef %190, i64 noundef 1)
-  store ptr %191, ptr %17, align 8
-  %192 = load i8, ptr %13, align 1
-  %193 = load ptr, ptr %17, align 8
-  %194 = getelementptr inbounds %struct.HTTP2Tap, ptr %193, i32 0, i32 0
-  store i8 %192, ptr %194, align 1
+178:                                              ; preds = %168, %158
+  %179 = load ptr, ptr %18, align 8
+  %180 = load i32, ptr %16, align 4
+  %181 = zext i32 %180 to i64
+  %182 = inttoptr i64 %181 to ptr
+  %183 = call i32 @g_hash_table_add(ptr noundef %179, ptr noundef %182)
+  br label %184
+
+184:                                              ; preds = %178, %155, %113
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #7
+  %185 = load ptr, ptr %7, align 8
+  %186 = load ptr, ptr %20, align 8
+  %187 = call ptr @get_http2_session(ptr noundef %185, ptr noundef %186)
+  store ptr %187, ptr %26, align 8
+  %188 = load i32, ptr %16, align 4
+  %189 = load ptr, ptr %26, align 8
+  %190 = getelementptr inbounds nuw %struct.http2_session_t, ptr %189, i32 0, i32 1
+  store i32 %188, ptr %190, align 8
+  %191 = load ptr, ptr %7, align 8
+  %192 = getelementptr inbounds nuw %struct._packet_info, ptr %191, i32 0, i32 51
+  %193 = load ptr, ptr %192, align 8
+  %194 = call noalias ptr @wmem_alloc0(ptr noundef %193, i64 noundef 1) #8
+  store ptr %194, ptr %17, align 8
   %195 = load i8, ptr %13, align 1
-  %196 = zext i8 %195 to i32
-  switch i32 %196, label %297 [
-    i32 0, label %197
-    i32 1, label %205
-    i32 2, label %213
-    i32 3, label %220
-    i32 4, label %227
-    i32 5, label %235
-    i32 6, label %243
-    i32 7, label %250
-    i32 8, label %257
-    i32 9, label %265
-    i32 10, label %273
-    i32 11, label %281
-    i32 12, label %282
-    i32 16, label %289
+  %196 = load ptr, ptr %17, align 8
+  %197 = getelementptr inbounds nuw %struct.HTTP2Tap, ptr %196, i32 0, i32 0
+  store i8 %195, ptr %197, align 1
+  %198 = load i8, ptr %13, align 1
+  %199 = zext i8 %198 to i32
+  switch i32 %199, label %299 [
+    i32 0, label %200
+    i32 1, label %208
+    i32 2, label %216
+    i32 3, label %223
+    i32 4, label %230
+    i32 5, label %238
+    i32 6, label %246
+    i32 7, label %253
+    i32 8, label %260
+    i32 9, label %268
+    i32 10, label %276
+    i32 11, label %305
+    i32 12, label %284
+    i32 16, label %291
   ]
 
-197:                                              ; preds = %181
-  %198 = load ptr, ptr %6, align 8
-  %199 = load ptr, ptr %7, align 8
-  %200 = load ptr, ptr %25, align 8
-  %201 = load ptr, ptr %11, align 8
-  %202 = load i32, ptr %12, align 4
-  %203 = load i8, ptr %14, align 1
-  %204 = call i32 @dissect_http2_data(ptr noundef %198, ptr noundef %199, ptr noundef %200, ptr noundef %201, i32 noundef %202, i8 noundef zeroext %203)
-  br label %303
+200:                                              ; preds = %184
+  %201 = load ptr, ptr %6, align 8
+  %202 = load ptr, ptr %7, align 8
+  %203 = load ptr, ptr %26, align 8
+  %204 = load ptr, ptr %11, align 8
+  %205 = load i32, ptr %12, align 4
+  %206 = load i8, ptr %14, align 1
+  %207 = call i32 @dissect_http2_data(ptr noundef %201, ptr noundef %202, ptr noundef %203, ptr noundef %204, i32 noundef %205, i8 noundef zeroext %206)
+  br label %305
 
-205:                                              ; preds = %181
-  %206 = load ptr, ptr %6, align 8
-  %207 = load ptr, ptr %7, align 8
-  %208 = load ptr, ptr %25, align 8
-  %209 = load ptr, ptr %11, align 8
-  %210 = load i32, ptr %12, align 4
-  %211 = load i8, ptr %14, align 1
-  %212 = call i32 @dissect_http2_headers(ptr noundef %206, ptr noundef %207, ptr noundef %208, ptr noundef %209, i32 noundef %210, i8 noundef zeroext %211)
-  br label %303
+208:                                              ; preds = %184
+  %209 = load ptr, ptr %6, align 8
+  %210 = load ptr, ptr %7, align 8
+  %211 = load ptr, ptr %26, align 8
+  %212 = load ptr, ptr %11, align 8
+  %213 = load i32, ptr %12, align 4
+  %214 = load i8, ptr %14, align 1
+  %215 = call i32 @dissect_http2_headers(ptr noundef %209, ptr noundef %210, ptr noundef %211, ptr noundef %212, i32 noundef %213, i8 noundef zeroext %214)
+  br label %305
 
-213:                                              ; preds = %181
-  %214 = load ptr, ptr %6, align 8
-  %215 = load ptr, ptr %7, align 8
-  %216 = load ptr, ptr %11, align 8
-  %217 = load i32, ptr %12, align 4
-  %218 = load i8, ptr %14, align 1
-  %219 = call i32 @dissect_http2_priority(ptr noundef %214, ptr noundef %215, ptr noundef %216, i32 noundef %217, i8 noundef zeroext %218)
-  br label %303
+216:                                              ; preds = %184
+  %217 = load ptr, ptr %6, align 8
+  %218 = load ptr, ptr %7, align 8
+  %219 = load ptr, ptr %11, align 8
+  %220 = load i32, ptr %12, align 4
+  %221 = load i8, ptr %14, align 1
+  %222 = call i32 @dissect_http2_priority(ptr noundef %217, ptr noundef %218, ptr noundef %219, i32 noundef %220, i8 noundef zeroext %221)
+  br label %305
 
-220:                                              ; preds = %181
-  %221 = load ptr, ptr %6, align 8
-  %222 = load ptr, ptr %7, align 8
-  %223 = load ptr, ptr %11, align 8
-  %224 = load i32, ptr %12, align 4
-  %225 = load i8, ptr %14, align 1
-  %226 = call i32 @dissect_http2_rst_stream(ptr noundef %221, ptr noundef %222, ptr noundef %223, i32 noundef %224, i8 noundef zeroext %225)
-  br label %303
+223:                                              ; preds = %184
+  %224 = load ptr, ptr %6, align 8
+  %225 = load ptr, ptr %7, align 8
+  %226 = load ptr, ptr %11, align 8
+  %227 = load i32, ptr %12, align 4
+  %228 = load i8, ptr %14, align 1
+  %229 = call i32 @dissect_http2_rst_stream(ptr noundef %224, ptr noundef %225, ptr noundef %226, i32 noundef %227, i8 noundef zeroext %228)
+  br label %305
 
-227:                                              ; preds = %181
-  %228 = load ptr, ptr %6, align 8
-  %229 = load ptr, ptr %7, align 8
-  %230 = load ptr, ptr %25, align 8
-  %231 = load ptr, ptr %11, align 8
-  %232 = load i32, ptr %12, align 4
-  %233 = load i8, ptr %14, align 1
-  %234 = call i32 @dissect_http2_settings(ptr noundef %228, ptr noundef %229, ptr noundef %230, ptr noundef %231, i32 noundef %232, i8 noundef zeroext %233)
-  br label %303
+230:                                              ; preds = %184
+  %231 = load ptr, ptr %6, align 8
+  %232 = load ptr, ptr %7, align 8
+  %233 = load ptr, ptr %26, align 8
+  %234 = load ptr, ptr %11, align 8
+  %235 = load i32, ptr %12, align 4
+  %236 = load i8, ptr %14, align 1
+  %237 = call i32 @dissect_http2_settings(ptr noundef %231, ptr noundef %232, ptr noundef %233, ptr noundef %234, i32 noundef %235, i8 noundef zeroext %236)
+  br label %305
 
-235:                                              ; preds = %181
-  %236 = load ptr, ptr %6, align 8
-  %237 = load ptr, ptr %7, align 8
-  %238 = load ptr, ptr %25, align 8
-  %239 = load ptr, ptr %11, align 8
-  %240 = load i32, ptr %12, align 4
-  %241 = load i8, ptr %14, align 1
-  %242 = call i32 @dissect_http2_push_promise(ptr noundef %236, ptr noundef %237, ptr noundef %238, ptr noundef %239, i32 noundef %240, i8 noundef zeroext %241)
-  br label %303
+238:                                              ; preds = %184
+  %239 = load ptr, ptr %6, align 8
+  %240 = load ptr, ptr %7, align 8
+  %241 = load ptr, ptr %26, align 8
+  %242 = load ptr, ptr %11, align 8
+  %243 = load i32, ptr %12, align 4
+  %244 = load i8, ptr %14, align 1
+  %245 = call i32 @dissect_http2_push_promise(ptr noundef %239, ptr noundef %240, ptr noundef %241, ptr noundef %242, i32 noundef %243, i8 noundef zeroext %244)
+  br label %305
 
-243:                                              ; preds = %181
-  %244 = load ptr, ptr %6, align 8
-  %245 = load ptr, ptr %7, align 8
-  %246 = load ptr, ptr %11, align 8
-  %247 = load i32, ptr %12, align 4
-  %248 = load i8, ptr %14, align 1
-  %249 = call i32 @dissect_http2_ping(ptr noundef %244, ptr noundef %245, ptr noundef %246, i32 noundef %247, i8 noundef zeroext %248)
-  br label %303
+246:                                              ; preds = %184
+  %247 = load ptr, ptr %6, align 8
+  %248 = load ptr, ptr %7, align 8
+  %249 = load ptr, ptr %11, align 8
+  %250 = load i32, ptr %12, align 4
+  %251 = load i8, ptr %14, align 1
+  %252 = call i32 @dissect_http2_ping(ptr noundef %247, ptr noundef %248, ptr noundef %249, i32 noundef %250, i8 noundef zeroext %251)
+  br label %305
 
-250:                                              ; preds = %181
-  %251 = load ptr, ptr %6, align 8
-  %252 = load ptr, ptr %7, align 8
-  %253 = load ptr, ptr %11, align 8
-  %254 = load i32, ptr %12, align 4
-  %255 = load i8, ptr %14, align 1
-  %256 = call i32 @dissect_http2_goaway(ptr noundef %251, ptr noundef %252, ptr noundef %253, i32 noundef %254, i8 noundef zeroext %255)
-  br label %303
+253:                                              ; preds = %184
+  %254 = load ptr, ptr %6, align 8
+  %255 = load ptr, ptr %7, align 8
+  %256 = load ptr, ptr %11, align 8
+  %257 = load i32, ptr %12, align 4
+  %258 = load i8, ptr %14, align 1
+  %259 = call i32 @dissect_http2_goaway(ptr noundef %254, ptr noundef %255, ptr noundef %256, i32 noundef %257, i8 noundef zeroext %258)
+  br label %305
 
-257:                                              ; preds = %181
-  %258 = load ptr, ptr %6, align 8
-  %259 = load ptr, ptr %7, align 8
-  %260 = load ptr, ptr %25, align 8
-  %261 = load ptr, ptr %11, align 8
-  %262 = load i32, ptr %12, align 4
-  %263 = load i8, ptr %14, align 1
-  %264 = call i32 @dissect_http2_window_update(ptr noundef %258, ptr noundef %259, ptr noundef %260, ptr noundef %261, i32 noundef %262, i8 noundef zeroext %263)
-  br label %303
+260:                                              ; preds = %184
+  %261 = load ptr, ptr %6, align 8
+  %262 = load ptr, ptr %7, align 8
+  %263 = load ptr, ptr %26, align 8
+  %264 = load ptr, ptr %11, align 8
+  %265 = load i32, ptr %12, align 4
+  %266 = load i8, ptr %14, align 1
+  %267 = call i32 @dissect_http2_window_update(ptr noundef %261, ptr noundef %262, ptr noundef %263, ptr noundef %264, i32 noundef %265, i8 noundef zeroext %266)
+  br label %305
 
-265:                                              ; preds = %181
-  %266 = load ptr, ptr %6, align 8
-  %267 = load ptr, ptr %7, align 8
-  %268 = load ptr, ptr %25, align 8
-  %269 = load ptr, ptr %11, align 8
-  %270 = load i32, ptr %12, align 4
-  %271 = load i8, ptr %14, align 1
-  %272 = call i32 @dissect_http2_continuation(ptr noundef %266, ptr noundef %267, ptr noundef %268, ptr noundef %269, i32 noundef %270, i8 noundef zeroext %271)
-  br label %303
+268:                                              ; preds = %184
+  %269 = load ptr, ptr %6, align 8
+  %270 = load ptr, ptr %7, align 8
+  %271 = load ptr, ptr %26, align 8
+  %272 = load ptr, ptr %11, align 8
+  %273 = load i32, ptr %12, align 4
+  %274 = load i8, ptr %14, align 1
+  %275 = call i32 @dissect_http2_continuation(ptr noundef %269, ptr noundef %270, ptr noundef %271, ptr noundef %272, i32 noundef %273, i8 noundef zeroext %274)
+  br label %305
 
-273:                                              ; preds = %181
-  %274 = load ptr, ptr %6, align 8
-  %275 = load ptr, ptr %7, align 8
-  %276 = load ptr, ptr %11, align 8
-  %277 = load i32, ptr %12, align 4
-  %278 = load i8, ptr %14, align 1
-  %279 = load i16, ptr %15, align 2
-  %280 = call i32 @dissect_http2_altsvc(ptr noundef %274, ptr noundef %275, ptr noundef %276, i32 noundef %277, i8 noundef zeroext %278, i16 noundef zeroext %279)
-  br label %303
+276:                                              ; preds = %184
+  %277 = load ptr, ptr %6, align 8
+  %278 = load ptr, ptr %7, align 8
+  %279 = load ptr, ptr %11, align 8
+  %280 = load i32, ptr %12, align 4
+  %281 = load i8, ptr %14, align 1
+  %282 = load i16, ptr %15, align 2
+  %283 = call i32 @dissect_http2_altsvc(ptr noundef %277, ptr noundef %278, ptr noundef %279, i32 noundef %280, i8 noundef zeroext %281, i16 noundef zeroext %282)
+  br label %305
 
-281:                                              ; preds = %181
-  br label %303
+284:                                              ; preds = %184
+  %285 = load ptr, ptr %6, align 8
+  %286 = load ptr, ptr %7, align 8
+  %287 = load ptr, ptr %11, align 8
+  %288 = load i32, ptr %12, align 4
+  %289 = load i8, ptr %14, align 1
+  %290 = call i32 @dissect_http2_origin(ptr noundef %285, ptr noundef %286, ptr noundef %287, i32 noundef %288, i8 noundef zeroext %289)
+  br label %305
 
-282:                                              ; preds = %181
-  %283 = load ptr, ptr %6, align 8
-  %284 = load ptr, ptr %7, align 8
-  %285 = load ptr, ptr %11, align 8
-  %286 = load i32, ptr %12, align 4
-  %287 = load i8, ptr %14, align 1
-  %288 = call i32 @dissect_http2_origin(ptr noundef %283, ptr noundef %284, ptr noundef %285, i32 noundef %286, i8 noundef zeroext %287)
-  br label %303
+291:                                              ; preds = %184
+  %292 = load ptr, ptr %6, align 8
+  %293 = load ptr, ptr %7, align 8
+  %294 = load ptr, ptr %11, align 8
+  %295 = load i32, ptr %12, align 4
+  %296 = load i8, ptr %14, align 1
+  %297 = load i16, ptr %15, align 2
+  %298 = call i32 @dissect_http2_priority_update(ptr noundef %292, ptr noundef %293, ptr noundef %294, i32 noundef %295, i8 noundef zeroext %296, i16 noundef zeroext %297)
+  br label %305
 
-289:                                              ; preds = %181
-  %290 = load ptr, ptr %6, align 8
-  %291 = load ptr, ptr %7, align 8
-  %292 = load ptr, ptr %11, align 8
-  %293 = load i32, ptr %12, align 4
-  %294 = load i8, ptr %14, align 1
-  %295 = load i16, ptr %15, align 2
-  %296 = call i32 @dissect_http2_priority_update(ptr noundef %290, ptr noundef %291, ptr noundef %292, i32 noundef %293, i8 noundef zeroext %294, i16 noundef zeroext %295)
-  br label %303
+299:                                              ; preds = %184
+  %300 = load ptr, ptr %11, align 8
+  %301 = load i32, ptr @hf_http2_unknown, align 4
+  %302 = load ptr, ptr %6, align 8
+  %303 = load i32, ptr %12, align 4
+  %304 = call ptr @proto_tree_add_item(ptr noundef %300, i32 noundef %301, ptr noundef %302, i32 noundef %303, i32 noundef -1, i32 noundef 0)
+  br label %305
 
-297:                                              ; preds = %181
-  %298 = load ptr, ptr %11, align 8
-  %299 = load i32, ptr @hf_http2_unknown, align 4
-  %300 = load ptr, ptr %6, align 8
-  %301 = load i32, ptr %12, align 4
-  %302 = call ptr @proto_tree_add_item(ptr noundef %298, i32 noundef %299, ptr noundef %300, i32 noundef %301, i32 noundef -1, i32 noundef 0)
-  br label %303
+305:                                              ; preds = %299, %291, %284, %184, %276, %268, %260, %253, %246, %238, %230, %223, %216, %208, %200
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #7
+  %306 = load ptr, ptr %7, align 8
+  %307 = load ptr, ptr %26, align 8
+  %308 = load i32, ptr %16, align 4
+  %309 = call ptr @http2_get_request_full_uri(ptr noundef %306, ptr noundef %307, i32 noundef %308)
+  store ptr %309, ptr %27, align 8
+  %310 = load ptr, ptr %27, align 8
+  %311 = icmp ne ptr %310, null
+  br i1 %311, label %312, label %320
 
-303:                                              ; preds = %297, %289, %282, %281, %273, %265, %257, %250, %243, %235, %227, %220, %213, %205, %197
-  %304 = load i32, ptr @http2_tap, align 4
-  %305 = load ptr, ptr %7, align 8
-  %306 = load ptr, ptr %17, align 8
-  call void @tap_queue_packet(i32 noundef %304, ptr noundef %305, ptr noundef %306)
-  %307 = load i32, ptr @http2_follow_tap, align 4
-  %308 = call i32 @have_tap_listener(i32 noundef %307)
-  %309 = icmp ne i32 %308, 0
-  br i1 %309, label %310, label %328
+312:                                              ; preds = %305
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #7
+  %313 = load ptr, ptr %11, align 8
+  %314 = load i32, ptr @hf_http2_header_request_full_uri, align 4
+  %315 = load ptr, ptr %6, align 8
+  %316 = load ptr, ptr %27, align 8
+  %317 = call ptr @proto_tree_add_string(ptr noundef %313, i32 noundef %314, ptr noundef %315, i32 noundef 0, i32 noundef 0, ptr noundef %316)
+  store ptr %317, ptr %28, align 8
+  %318 = load ptr, ptr %28, align 8
+  call void @proto_item_set_url(ptr noundef %318)
+  %319 = load ptr, ptr %28, align 8
+  call void @proto_item_set_generated(ptr noundef %319)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #7
+  br label %320
 
-310:                                              ; preds = %303
-  %311 = load i32, ptr %21, align 4
-  %312 = icmp ne i32 %311, 0
-  br i1 %312, label %313, label %328
+320:                                              ; preds = %312, %305
+  %321 = load i32, ptr @http2_tap, align 4
+  %322 = load ptr, ptr %7, align 8
+  %323 = load ptr, ptr %17, align 8
+  call void @tap_queue_packet(i32 noundef %321, ptr noundef %322, ptr noundef %323)
+  %324 = load i32, ptr @http2_follow_tap, align 4
+  %325 = call zeroext i1 @have_tap_listener(i32 noundef %324)
+  br i1 %325, label %326, label %344
 
-313:                                              ; preds = %310
-  %314 = load ptr, ptr %7, align 8
-  %315 = getelementptr inbounds %struct._packet_info, ptr %314, i32 0, i32 50
-  %316 = load ptr, ptr %315, align 8
-  %317 = call noalias ptr @wmem_alloc0(ptr noundef %316, i64 noundef 16)
-  store ptr %317, ptr %26, align 8
-  %318 = load ptr, ptr %6, align 8
-  %319 = load ptr, ptr %26, align 8
-  %320 = getelementptr inbounds %struct.http2_follow_tap_data, ptr %319, i32 0, i32 0
-  store ptr %318, ptr %320, align 8
-  %321 = load i32, ptr %16, align 4
-  %322 = zext i32 %321 to i64
-  %323 = load ptr, ptr %26, align 8
-  %324 = getelementptr inbounds %struct.http2_follow_tap_data, ptr %323, i32 0, i32 1
-  store i64 %322, ptr %324, align 8
-  %325 = load i32, ptr @http2_follow_tap, align 4
-  %326 = load ptr, ptr %7, align 8
-  %327 = load ptr, ptr %26, align 8
-  call void @tap_queue_packet(i32 noundef %325, ptr noundef %326, ptr noundef %327)
-  br label %328
+326:                                              ; preds = %320
+  %327 = load i8, ptr %21, align 1, !range !11, !noundef !12
+  %328 = trunc i8 %327 to i1
+  br i1 %328, label %329, label %344
 
-328:                                              ; preds = %313, %310, %303
-  %329 = load ptr, ptr %6, align 8
-  %330 = call i32 @tvb_captured_length(ptr noundef %329)
-  store i32 %330, ptr %5, align 4
-  br label %331
+329:                                              ; preds = %326
+  call void @llvm.lifetime.start.p0(i64 8, ptr %29) #7
+  %330 = load ptr, ptr %7, align 8
+  %331 = getelementptr inbounds nuw %struct._packet_info, ptr %330, i32 0, i32 51
+  %332 = load ptr, ptr %331, align 8
+  %333 = call noalias ptr @wmem_alloc0(ptr noundef %332, i64 noundef 16) #8
+  store ptr %333, ptr %29, align 8
+  %334 = load ptr, ptr %6, align 8
+  %335 = load ptr, ptr %29, align 8
+  %336 = getelementptr inbounds nuw %struct.http2_follow_tap_data, ptr %335, i32 0, i32 0
+  store ptr %334, ptr %336, align 8
+  %337 = load i32, ptr %16, align 4
+  %338 = zext i32 %337 to i64
+  %339 = load ptr, ptr %29, align 8
+  %340 = getelementptr inbounds nuw %struct.http2_follow_tap_data, ptr %339, i32 0, i32 1
+  store i64 %338, ptr %340, align 8
+  %341 = load i32, ptr @http2_follow_tap, align 4
+  %342 = load ptr, ptr %7, align 8
+  %343 = load ptr, ptr %29, align 8
+  call void @tap_queue_packet(i32 noundef %341, ptr noundef %342, ptr noundef %343)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #7
+  br label %344
 
-331:                                              ; preds = %328, %67
-  %332 = load i32, ptr %5, align 4
-  ret i32 %332
+344:                                              ; preds = %329, %326, %320
+  %345 = load ptr, ptr %6, align 8
+  %346 = call i32 @tvb_captured_length(ptr noundef %345)
+  store i32 %346, ptr %5, align 4
+  store i32 1, ptr %23, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #7
+  br label %347
+
+347:                                              ; preds = %344, %70
+  call void @llvm.lifetime.end.p0(i64 1, ptr %21) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 2, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %348 = load i32, ptr %5, align 4
+  ret i32 %348
 }
 
-declare nonnull ptr @find_or_create_conversation(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @find_or_create_conversation(ptr noundef) #3
 
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #3
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #3
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #3
 
-declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #3
 
-declare ptr @wmem_file_scope() #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_file_scope() #3
 
-declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) #1
+; Function Attrs: null_pointer_is_valid allocsize(1)
+declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) #4
 
-declare noalias ptr @wmem_list_new(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @wmem_list_new(ptr noundef) #3
 
-declare void @p_add_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @p_add_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #3
 
-declare i32 @tvb_memeql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_memeql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) #3
 
-declare void @col_append_sep_str(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_sep_str(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #3
 
-declare void @proto_item_set_len(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_set_len(ptr noundef, i32 noundef) #3
 
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #3
 
-declare i32 @tvb_get_ntoh24(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_ntoh24(ptr noundef, i32 noundef) #3
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #3
 
-declare ptr @try_val_to_str_idx(i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @try_val_to_str_idx(i32 noundef, ptr noundef, ptr noundef) #3
 
-declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) #3
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i8 @dissect_http2_header_flags(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i8 @dissect_http2_header_flags(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4) #1 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -1423,6 +1554,8 @@ define internal zeroext i8 @dissect_http2_header_flags(ptr noundef %0, ptr nound
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i8 %4, ptr %10, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
   %13 = load i8, ptr %10, align 1
   %14 = zext i8 %13 to i32
   switch i32 %14, label %22 [
@@ -1469,7 +1602,7 @@ define internal zeroext i8 @dissect_http2_header_flags(ptr noundef %0, ptr nound
 21:                                               ; preds = %5, %5, %5, %5, %5, %5, %5, %5
   br label %22
 
-22:                                               ; preds = %21, %5
+22:                                               ; preds = %5, %21
   store ptr @dissect_http2_header_flags.http2_unused_flags, ptr %12, align 8
   br label %23
 
@@ -1483,31 +1616,41 @@ define internal zeroext i8 @dissect_http2_header_flags(ptr noundef %0, ptr nound
   %30 = call ptr @proto_tree_add_bitmask_with_flags_ret_uint64(ptr noundef %24, ptr noundef %25, i32 noundef %26, i32 noundef %27, i32 noundef %28, ptr noundef %29, i32 noundef 0, i32 noundef 6, ptr noundef %11)
   %31 = load i64, ptr %11, align 8
   %32 = trunc i64 %31 to i8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
   ret i8 %32
 }
 
-declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) #3
 
-declare void @col_append_sep_fstr(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_sep_fstr(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) #3
 
-declare ptr @get_tcp_conversation_data(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @get_tcp_conversation_data(ptr noundef, ptr noundef) #3
 
-declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) #3
 
-declare ptr @g_hash_table_new(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_hash_table_new(ptr noundef, ptr noundef) #3
 
-declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) #3
 
-declare i32 @g_hash_table_add(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @g_hash_table_add(ptr noundef, ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal ptr @get_http2_session(ptr noundef %0, ptr noundef %1) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal ptr @get_http2_session(ptr noundef %0, ptr noundef %1) #1 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
   %7 = load ptr, ptr %4, align 8
   %8 = load i32, ptr @proto_http2, align 4
   %9 = call ptr @conversation_get_proto_data(ptr noundef %7, i32 noundef %8)
@@ -1517,60 +1660,63 @@ define internal ptr @get_http2_session(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %11, label %48, label %12
 
 12:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
   %13 = load ptr, ptr %4, align 8
   %14 = load ptr, ptr %3, align 8
   %15 = call ptr @get_tcp_conversation_data(ptr noundef %13, ptr noundef %14)
   store ptr %15, ptr %6, align 8
   %16 = call ptr @wmem_file_scope()
-  %17 = call noalias ptr @wmem_alloc0(ptr noundef %16, i64 noundef 48)
+  %17 = call noalias ptr @wmem_alloc0(ptr noundef %16, i64 noundef 48) #8
   store ptr %17, ptr %5, align 8
   %18 = load ptr, ptr %6, align 8
-  %19 = getelementptr inbounds %struct.tcp_analysis, ptr %18, i32 0, i32 2
+  %19 = getelementptr inbounds nuw %struct.tcp_analysis, ptr %18, i32 0, i32 2
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %5, align 8
-  %22 = getelementptr inbounds %struct.http2_session_t, ptr %21, i32 0, i32 2
+  %22 = getelementptr inbounds nuw %struct.http2_session_t, ptr %21, i32 0, i32 2
   store ptr %20, ptr %22, align 8
   %23 = call ptr @wmem_file_scope()
   %24 = call noalias ptr @wmem_list_new(ptr noundef %23)
   %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds %struct.http2_session_t, ptr %25, i32 0, i32 0
+  %26 = getelementptr inbounds nuw %struct.http2_session_t, ptr %25, i32 0, i32 0
   %27 = getelementptr [2 x ptr], ptr %26, i64 0, i64 0
   store ptr %24, ptr %27, align 8
   %28 = call ptr @wmem_file_scope()
   %29 = call noalias ptr @wmem_list_new(ptr noundef %28)
   %30 = load ptr, ptr %5, align 8
-  %31 = getelementptr inbounds %struct.http2_session_t, ptr %30, i32 0, i32 0
+  %31 = getelementptr inbounds nuw %struct.http2_session_t, ptr %30, i32 0, i32 0
   %32 = getelementptr [2 x ptr], ptr %31, i64 0, i64 1
   store ptr %29, ptr %32, align 8
   %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds %struct.http2_session_t, ptr %33, i32 0, i32 3
+  %34 = getelementptr inbounds nuw %struct.http2_session_t, ptr %33, i32 0, i32 3
   %35 = getelementptr [2 x i32], ptr %34, i64 0, i64 0
   store i32 65535, ptr %35, align 8
   %36 = load ptr, ptr %5, align 8
-  %37 = getelementptr inbounds %struct.http2_session_t, ptr %36, i32 0, i32 3
+  %37 = getelementptr inbounds nuw %struct.http2_session_t, ptr %36, i32 0, i32 3
   %38 = getelementptr [2 x i32], ptr %37, i64 0, i64 1
   store i32 65535, ptr %38, align 4
   %39 = load ptr, ptr %5, align 8
-  %40 = getelementptr inbounds %struct.http2_session_t, ptr %39, i32 0, i32 4
+  %40 = getelementptr inbounds nuw %struct.http2_session_t, ptr %39, i32 0, i32 4
   %41 = getelementptr [2 x i32], ptr %40, i64 0, i64 0
   store i32 65535, ptr %41, align 8
   %42 = load ptr, ptr %5, align 8
-  %43 = getelementptr inbounds %struct.http2_session_t, ptr %42, i32 0, i32 4
+  %43 = getelementptr inbounds nuw %struct.http2_session_t, ptr %42, i32 0, i32 4
   %44 = getelementptr [2 x i32], ptr %43, i64 0, i64 1
   store i32 65535, ptr %44, align 4
   %45 = load ptr, ptr %4, align 8
   %46 = load i32, ptr @proto_http2, align 4
   %47 = load ptr, ptr %5, align 8
   call void @conversation_add_proto_data(ptr noundef %45, i32 noundef %46, ptr noundef %47)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
   br label %48
 
 48:                                               ; preds = %12, %2
   %49 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
   ret ptr %49
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_http2_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i8 noundef zeroext %5) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @dissect_http2_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i8 noundef zeroext %5) #1 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -1585,6 +1731,8 @@ define internal i32 @dissect_http2_data(ptr noundef %0, ptr noundef %1, ptr noun
   store ptr %3, ptr %10, align 8
   store i32 %4, ptr %11, align 4
   store i8 %5, ptr %12, align 1
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #7
   %15 = load ptr, ptr %7, align 8
   %16 = load ptr, ptr %10, align 8
   %17 = load i32, ptr %11, align 4
@@ -1599,49 +1747,53 @@ define internal i32 @dissect_http2_data(ptr noundef %0, ptr noundef %1, ptr noun
   %25 = sub i32 %22, %24
   store i32 %25, ptr %14, align 4
   %26 = load ptr, ptr %7, align 8
-  %27 = load ptr, ptr %8, align 8
-  %28 = load ptr, ptr %9, align 8
-  %29 = load ptr, ptr %10, align 8
-  %30 = load i32, ptr %11, align 4
-  %31 = load i8, ptr %12, align 1
-  %32 = load i32, ptr %14, align 4
-  call void @dissect_http2_data_body(ptr noundef %26, ptr noundef %27, ptr noundef %28, ptr noundef %29, i32 noundef %30, i8 noundef zeroext %31, i32 noundef %32)
-  %33 = load i32, ptr %14, align 4
-  %34 = load i32, ptr %11, align 4
-  %35 = add i32 %34, %33
-  store i32 %35, ptr %11, align 4
-  %36 = load i16, ptr %13, align 2
-  %37 = icmp ne i16 %36, 0
-  br i1 %37, label %38, label %50
+  %27 = load i32, ptr %11, align 4
+  %28 = load i32, ptr %14, align 4
+  %29 = call ptr @tvb_new_subset_length(ptr noundef %26, i32 noundef %27, i32 noundef %28)
+  %30 = load ptr, ptr %8, align 8
+  %31 = load ptr, ptr %9, align 8
+  %32 = load ptr, ptr %10, align 8
+  %33 = load i8, ptr %12, align 1
+  %34 = load i32, ptr %14, align 4
+  call void @dissect_http2_data_body(ptr noundef %29, ptr noundef %30, ptr noundef %31, ptr noundef %32, i32 noundef 0, i8 noundef zeroext %33, i32 noundef %34)
+  %35 = load i32, ptr %14, align 4
+  %36 = load i32, ptr %11, align 4
+  %37 = add i32 %36, %35
+  store i32 %37, ptr %11, align 4
+  %38 = load i16, ptr %13, align 2
+  %39 = icmp ne i16 %38, 0
+  br i1 %39, label %40, label %52
 
-38:                                               ; preds = %6
-  %39 = load ptr, ptr %10, align 8
-  %40 = load i32, ptr @hf_http2_data_padding, align 4
-  %41 = load ptr, ptr %7, align 8
-  %42 = load i32, ptr %11, align 4
-  %43 = load i16, ptr %13, align 2
-  %44 = zext i16 %43 to i32
-  %45 = call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %40, ptr noundef %41, i32 noundef %42, i32 noundef %44, i32 noundef 0)
-  %46 = load i16, ptr %13, align 2
-  %47 = zext i16 %46 to i32
-  %48 = load i32, ptr %11, align 4
-  %49 = add i32 %48, %47
-  store i32 %49, ptr %11, align 4
-  br label %50
+40:                                               ; preds = %6
+  %41 = load ptr, ptr %10, align 8
+  %42 = load i32, ptr @hf_http2_data_padding, align 4
+  %43 = load ptr, ptr %7, align 8
+  %44 = load i32, ptr %11, align 4
+  %45 = load i16, ptr %13, align 2
+  %46 = zext i16 %45 to i32
+  %47 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %42, ptr noundef %43, i32 noundef %44, i32 noundef %46, i32 noundef 0)
+  %48 = load i16, ptr %13, align 2
+  %49 = zext i16 %48 to i32
+  %50 = load i32, ptr %11, align 4
+  %51 = add i32 %50, %49
+  store i32 %51, ptr %11, align 4
+  br label %52
 
-50:                                               ; preds = %38, %6
-  %51 = load ptr, ptr %7, align 8
-  %52 = load ptr, ptr %8, align 8
-  %53 = load ptr, ptr %9, align 8
-  %54 = load ptr, ptr %10, align 8
-  %55 = load i32, ptr %14, align 4
-  call void @adjust_window_size(ptr noundef %51, ptr noundef %52, ptr noundef %53, ptr noundef %54, i32 noundef %55, i32 noundef 0)
-  %56 = load i32, ptr %11, align 4
-  ret i32 %56
+52:                                               ; preds = %40, %6
+  %53 = load ptr, ptr %7, align 8
+  %54 = load ptr, ptr %8, align 8
+  %55 = load ptr, ptr %9, align 8
+  %56 = load ptr, ptr %10, align 8
+  %57 = load i32, ptr %14, align 4
+  call void @adjust_window_size(ptr noundef %53, ptr noundef %54, ptr noundef %55, ptr noundef %56, i32 noundef %57, i1 noundef zeroext false)
+  %58 = load i32, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #7
+  ret i32 %58
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_http2_headers(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i8 noundef zeroext %5) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @dissect_http2_headers(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i8 noundef zeroext %5) #1 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -1656,6 +1808,8 @@ define internal i32 @dissect_http2_headers(ptr noundef %0, ptr noundef %1, ptr n
   store ptr %3, ptr %10, align 8
   store i32 %4, ptr %11, align 4
   store i8 %5, ptr %12, align 1
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #7
   %15 = load ptr, ptr %7, align 8
   %16 = load ptr, ptr %10, align 8
   %17 = load i32, ptr %11, align 4
@@ -1679,7 +1833,7 @@ define internal i32 @dissect_http2_headers(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %6
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #3
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #9
   unreachable
 
 33:                                               ; preds = %6
@@ -1699,7 +1853,7 @@ define internal i32 @dissect_http2_headers(ptr noundef %0, ptr noundef %1, ptr n
   %46 = load ptr, ptr %7, align 8
   %47 = load i32, ptr %11, align 4
   %48 = load i32, ptr %14, align 4
-  %49 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %44, ptr noundef %45, ptr noundef @ei_http2_header_size, ptr noundef %46, i32 noundef %47, i32 noundef %48, ptr noundef @.str.280)
+  %49 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %44, ptr noundef %45, ptr noundef @ei_http2_header_size, ptr noundef %46, i32 noundef %47, i32 noundef %48, ptr noundef @.str.281)
   %50 = load i32, ptr %14, align 4
   %51 = load i32, ptr %11, align 4
   %52 = add i32 %51, %50
@@ -1725,11 +1879,13 @@ define internal i32 @dissect_http2_headers(ptr noundef %0, ptr noundef %1, ptr n
 
 67:                                               ; preds = %55, %33
   %68 = load i32, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #7
   ret i32 %68
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_http2_priority(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @dissect_http2_priority(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4) #1 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -1753,8 +1909,8 @@ define internal i32 @dissect_http2_priority(ptr noundef %0, ptr noundef %1, ptr 
   ret i32 %19
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_http2_rst_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @dissect_http2_rst_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4) #1 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -1777,8 +1933,8 @@ define internal i32 @dissect_http2_rst_stream(ptr noundef %0, ptr noundef %1, pt
   ret i32 %18
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_http2_push_promise(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i8 noundef zeroext %5) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @dissect_http2_push_promise(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i8 noundef zeroext %5) #1 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -1794,6 +1950,9 @@ define internal i32 @dissect_http2_push_promise(ptr noundef %0, ptr noundef %1, 
   store ptr %3, ptr %10, align 8
   store i32 %4, ptr %11, align 4
   store i8 %5, ptr %12, align 1
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #7
   %16 = load ptr, ptr %7, align 8
   %17 = load ptr, ptr %10, align 8
   %18 = load i32, ptr %11, align 4
@@ -1824,7 +1983,7 @@ define internal i32 @dissect_http2_push_promise(ptr noundef %0, ptr noundef %1, 
   br i1 %39, label %40, label %41
 
 40:                                               ; preds = %6
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #3
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #9
   unreachable
 
 41:                                               ; preds = %6
@@ -1865,11 +2024,14 @@ define internal i32 @dissect_http2_push_promise(ptr noundef %0, ptr noundef %1, 
   %70 = add i32 %69, %68
   store i32 %70, ptr %11, align 4
   %71 = load i32, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #7
   ret i32 %71
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_http2_ping(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @dissect_http2_ping(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4) #1 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -1910,8 +2072,8 @@ define internal i32 @dissect_http2_ping(ptr noundef %0, ptr noundef %1, ptr noun
   ret i32 %30
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_http2_goaway(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @dissect_http2_goaway(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4) #1 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -1968,8 +2130,8 @@ define internal i32 @dissect_http2_goaway(ptr noundef %0, ptr noundef %1, ptr no
   ret i32 %46
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_http2_window_update(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i8 noundef zeroext %5) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @dissect_http2_window_update(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i8 noundef zeroext %5) #1 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -1983,6 +2145,7 @@ define internal i32 @dissect_http2_window_update(ptr noundef %0, ptr noundef %1,
   store ptr %3, ptr %10, align 8
   store i32 %4, ptr %11, align 4
   store i8 %5, ptr %12, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #7
   %14 = load ptr, ptr %10, align 8
   %15 = load i32, ptr @hf_http2_window_update_r, align 4
   %16 = load ptr, ptr %7, align 8
@@ -2001,13 +2164,14 @@ define internal i32 @dissect_http2_window_update(ptr noundef %0, ptr noundef %1,
   %28 = load ptr, ptr %9, align 8
   %29 = load ptr, ptr %10, align 8
   %30 = load i32, ptr %13, align 4
-  call void @adjust_window_size(ptr noundef %26, ptr noundef %27, ptr noundef %28, ptr noundef %29, i32 noundef %30, i32 noundef 1)
+  call void @adjust_window_size(ptr noundef %26, ptr noundef %27, ptr noundef %28, ptr noundef %29, i32 noundef %30, i1 noundef zeroext true)
   %31 = load i32, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #7
   ret i32 %31
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_http2_continuation(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i8 noundef zeroext %5) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @dissect_http2_continuation(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i8 noundef zeroext %5) #1 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -2022,6 +2186,8 @@ define internal i32 @dissect_http2_continuation(ptr noundef %0, ptr noundef %1, 
   store ptr %3, ptr %10, align 8
   store i32 %4, ptr %11, align 4
   store i8 %5, ptr %12, align 1
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #7
   %15 = load ptr, ptr %7, align 8
   %16 = load ptr, ptr %10, align 8
   %17 = load i32, ptr %11, align 4
@@ -2039,7 +2205,7 @@ define internal i32 @dissect_http2_continuation(ptr noundef %0, ptr noundef %1, 
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %6
-  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #3
+  call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #9
   unreachable
 
 28:                                               ; preds = %6
@@ -2079,11 +2245,13 @@ define internal i32 @dissect_http2_continuation(ptr noundef %0, ptr noundef %1, 
 
 56:                                               ; preds = %44, %28
   %57 = load i32, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #7
   ret i32 %57
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_http2_altsvc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, i16 noundef zeroext %5) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @dissect_http2_altsvc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, i16 noundef zeroext %5) #1 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -2098,6 +2266,8 @@ define internal i32 @dissect_http2_altsvc(ptr noundef %0, ptr noundef %1, ptr no
   store i32 %3, ptr %10, align 4
   store i8 %4, ptr %11, align 1
   store i16 %5, ptr %12, align 2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #7
   %15 = load i16, ptr %12, align 2
   %16 = zext i16 %15 to i32
   store i32 %16, ptr %14, align 4
@@ -2145,11 +2315,13 @@ define internal i32 @dissect_http2_altsvc(ptr noundef %0, ptr noundef %1, ptr no
 
 50:                                               ; preds = %40, %6
   %51 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #7
   ret i32 %51
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_http2_origin(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @dissect_http2_origin(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4) #1 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -2163,6 +2335,9 @@ define internal i32 @dissect_http2_origin(ptr noundef %0, ptr noundef %1, ptr no
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i8 %4, ptr %10, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
   br label %14
 
 14:                                               ; preds = %19, %5
@@ -2201,15 +2376,18 @@ define internal i32 @dissect_http2_origin(ptr noundef %0, ptr noundef %1, ptr no
   %42 = load i32, ptr %9, align 4
   %43 = add i32 %42, %41
   store i32 %43, ptr %9, align 4
-  br label %14, !llvm.loop !9
+  br label %14, !llvm.loop !13
 
 44:                                               ; preds = %14
   %45 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #7
   ret i32 %45
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_http2_priority_update(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, i16 noundef zeroext %5) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @dissect_http2_priority_update(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, i16 noundef zeroext %5) #1 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -2223,6 +2401,7 @@ define internal i32 @dissect_http2_priority_update(ptr noundef %0, ptr noundef %
   store i32 %3, ptr %10, align 4
   store i8 %4, ptr %11, align 1
   store i16 %5, ptr %12, align 2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #7
   %14 = load i16, ptr %12, align 2
   %15 = zext i16 %14 to i32
   store i32 %15, ptr %13, align 4
@@ -2248,19 +2427,123 @@ define internal i32 @dissect_http2_priority_update(ptr noundef %0, ptr noundef %
   %33 = add i32 %32, %31
   store i32 %33, ptr %10, align 4
   %34 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #7
   ret i32 %34
 }
 
-declare void @tap_queue_packet(i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal ptr @http2_get_request_full_uri(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i32 %2, ptr %6, align 4
+  ret ptr null
+}
 
-declare i32 @have_tap_listener(i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #3
 
-declare i32 @tvb_captured_length(ptr noundef) #1
+; Function Attrs: inlinehint nounwind null_pointer_is_valid sspstrong uwtable
+define internal void @proto_item_set_url(ptr noundef %0) #5 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = icmp ne ptr %3, null
+  br i1 %4, label %5, label %24
 
-; Function Attrs: nounwind uwtable
-define hidden void @proto_register_http2() #0 {
+5:                                                ; preds = %1
+  br label %6
+
+6:                                                ; preds = %5
+  %7 = load ptr, ptr %2, align 8
+  %8 = getelementptr inbounds nuw %struct._proto_node, ptr %7, i32 0, i32 5
+  %9 = load ptr, ptr %8, align 8
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %11, label %22
+
+11:                                               ; preds = %6
+  %12 = load ptr, ptr %2, align 8
+  %13 = getelementptr inbounds nuw %struct._proto_node, ptr %12, i32 0, i32 5
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds nuw %struct.field_info, ptr %14, i32 0, i32 6
+  %16 = load i32, ptr %15, align 4
+  %17 = or i32 %16, 4
+  %18 = load ptr, ptr %2, align 8
+  %19 = getelementptr inbounds nuw %struct._proto_node, ptr %18, i32 0, i32 5
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds nuw %struct.field_info, ptr %20, i32 0, i32 6
+  store i32 %17, ptr %21, align 4
+  br label %22
+
+22:                                               ; preds = %11, %6
+  br label %23
+
+23:                                               ; preds = %22
+  br label %24
+
+24:                                               ; preds = %23, %1
+  ret void
+}
+
+; Function Attrs: inlinehint nounwind null_pointer_is_valid sspstrong uwtable
+define internal void @proto_item_set_generated(ptr noundef %0) #5 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = icmp ne ptr %3, null
+  br i1 %4, label %5, label %24
+
+5:                                                ; preds = %1
+  br label %6
+
+6:                                                ; preds = %5
+  %7 = load ptr, ptr %2, align 8
+  %8 = getelementptr inbounds nuw %struct._proto_node, ptr %7, i32 0, i32 5
+  %9 = load ptr, ptr %8, align 8
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %11, label %22
+
+11:                                               ; preds = %6
+  %12 = load ptr, ptr %2, align 8
+  %13 = getelementptr inbounds nuw %struct._proto_node, ptr %12, i32 0, i32 5
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds nuw %struct.field_info, ptr %14, i32 0, i32 6
+  %16 = load i32, ptr %15, align 4
+  %17 = or i32 %16, 2
+  %18 = load ptr, ptr %2, align 8
+  %19 = getelementptr inbounds nuw %struct._proto_node, ptr %18, i32 0, i32 5
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds nuw %struct.field_info, ptr %20, i32 0, i32 6
+  store i32 %17, ptr %21, align 4
+  br label %22
+
+22:                                               ; preds = %11, %6
+  br label %23
+
+23:                                               ; preds = %22
+  br label %24
+
+24:                                               ; preds = %23, %1
+  ret void
+}
+
+; Function Attrs: null_pointer_is_valid
+declare void @tap_queue_packet(i32 noundef, ptr noundef, ptr noundef) #3
+
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @have_tap_listener(i32 noundef) #3
+
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length(ptr noundef) #3
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define hidden void @proto_register_http2() #1 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
   %3 = call i32 @proto_register_protocol(ptr noundef @.str.240, ptr noundef @.str, ptr noundef @.str.241)
   store i32 %3, ptr @proto_http2, align 4
   %4 = load i32, ptr @proto_http2, align 4
@@ -2295,45 +2578,57 @@ define hidden void @proto_register_http2() #0 {
   store i32 %18, ptr @http2_follow_tap, align 4
   %19 = load i32, ptr @proto_http2, align 4
   call void @register_follow_stream(i32 noundef %19, ptr noundef @.str.246, ptr noundef @http2_follow_conv_filter, ptr noundef @http2_follow_index_filter, ptr noundef @tcp_follow_address_filter, ptr noundef @tcp_port_to_display, ptr noundef @follow_http2_tap_listener, ptr noundef @get_tcp_stream_count, ptr noundef @http2_get_sub_stream_id)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #3
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #3
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #3
 
-declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) #3
 
-declare ptr @expert_register_protocol(i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_register_protocol(i32 noundef) #3
 
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #3
 
-declare void @prefs_register_obsolete_preference(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @prefs_register_obsolete_preference(ptr noundef, ptr noundef) #3
 
-declare void @register_init_routine(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @register_init_routine(ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal void @http2_init_protocol() #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal void @http2_init_protocol() #1 {
   %1 = call ptr @g_hash_table_new_full(ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef @g_hash_table_destroy)
   store ptr %1, ptr @streamid_hash, align 8
   ret void
 }
 
-declare void @register_cleanup_routine(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @register_cleanup_routine(ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal void @http2_cleanup_protocol() #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal void @http2_cleanup_protocol() #1 {
   %1 = load ptr, ptr @streamid_hash, align 8
   call void @g_hash_table_destroy(ptr noundef %1)
   ret void
 }
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_http2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @dissect_http2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -2343,29 +2638,33 @@ define internal i32 @dissect_http2(ptr noundef %0, ptr noundef %1, ptr noundef %
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds %struct._packet_info, ptr %9, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %struct._packet_info, ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %10, align 8
   call void @col_clear(ptr noundef %11, i32 noundef 25)
   %12 = load ptr, ptr %5, align 8
   %13 = load ptr, ptr %6, align 8
   %14 = load ptr, ptr %7, align 8
   %15 = load ptr, ptr %8, align 8
-  call void @tcp_dissect_pdus(ptr noundef %12, ptr noundef %13, ptr noundef %14, i32 noundef 1, i32 noundef 9, ptr noundef @get_http2_message_len, ptr noundef @dissect_http2_pdu, ptr noundef %15)
+  call void @tcp_dissect_pdus(ptr noundef %12, ptr noundef %13, ptr noundef %14, i1 noundef zeroext true, i32 noundef 9, ptr noundef @get_http2_message_len, ptr noundef @dissect_http2_pdu, ptr noundef %15)
   %16 = load ptr, ptr %5, align 8
   %17 = call i32 @tvb_captured_length(ptr noundef %16)
   ret i32 %17
 }
 
-declare void @reassembly_table_register(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @reassembly_table_register(ptr noundef, ptr noundef) #3
 
-declare ptr @register_dissector_table(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector_table(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #3
 
-declare i32 @register_tap(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @register_tap(ptr noundef) #3
 
-declare void @register_follow_stream(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @register_follow_stream(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal ptr @http2_follow_conv_filter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal ptr @http2_follow_conv_filter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -2374,141 +2673,154 @@ define internal ptr @http2_follow_conv_filter(ptr noundef %0, ptr noundef %1, pt
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
-  %13 = load ptr, ptr %7, align 8
-  %14 = getelementptr inbounds %struct._packet_info, ptr %13, i32 0, i32 14
-  %15 = getelementptr inbounds %struct._address, ptr %14, i32 0, i32 0
-  %16 = load i32, ptr %15, align 8
-  %17 = icmp eq i32 %16, 2
-  br i1 %17, label %18, label %24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  %14 = load ptr, ptr %7, align 8
+  %15 = getelementptr inbounds nuw %struct._packet_info, ptr %14, i32 0, i32 14
+  %16 = getelementptr inbounds nuw %struct._address, ptr %15, i32 0, i32 0
+  %17 = load i32, ptr %16, align 8
+  %18 = icmp eq i32 %17, 2
+  br i1 %18, label %19, label %25
 
-18:                                               ; preds = %4
-  %19 = load ptr, ptr %7, align 8
-  %20 = getelementptr inbounds %struct._packet_info, ptr %19, i32 0, i32 15
-  %21 = getelementptr inbounds %struct._address, ptr %20, i32 0, i32 0
-  %22 = load i32, ptr %21, align 8
-  %23 = icmp eq i32 %22, 2
-  br i1 %23, label %36, label %24
+19:                                               ; preds = %4
+  %20 = load ptr, ptr %7, align 8
+  %21 = getelementptr inbounds nuw %struct._packet_info, ptr %20, i32 0, i32 15
+  %22 = getelementptr inbounds nuw %struct._address, ptr %21, i32 0, i32 0
+  %23 = load i32, ptr %22, align 8
+  %24 = icmp eq i32 %23, 2
+  br i1 %24, label %37, label %25
 
-24:                                               ; preds = %18, %4
-  %25 = load ptr, ptr %7, align 8
-  %26 = getelementptr inbounds %struct._packet_info, ptr %25, i32 0, i32 14
-  %27 = getelementptr inbounds %struct._address, ptr %26, i32 0, i32 0
-  %28 = load i32, ptr %27, align 8
-  %29 = icmp eq i32 %28, 3
-  br i1 %29, label %30, label %87
+25:                                               ; preds = %19, %4
+  %26 = load ptr, ptr %7, align 8
+  %27 = getelementptr inbounds nuw %struct._packet_info, ptr %26, i32 0, i32 14
+  %28 = getelementptr inbounds nuw %struct._address, ptr %27, i32 0, i32 0
+  %29 = load i32, ptr %28, align 8
+  %30 = icmp eq i32 %29, 3
+  br i1 %30, label %31, label %88
 
-30:                                               ; preds = %24
-  %31 = load ptr, ptr %7, align 8
-  %32 = getelementptr inbounds %struct._packet_info, ptr %31, i32 0, i32 15
-  %33 = getelementptr inbounds %struct._address, ptr %32, i32 0, i32 0
-  %34 = load i32, ptr %33, align 8
-  %35 = icmp eq i32 %34, 3
-  br i1 %35, label %36, label %87
+31:                                               ; preds = %25
+  %32 = load ptr, ptr %7, align 8
+  %33 = getelementptr inbounds nuw %struct._packet_info, ptr %32, i32 0, i32 15
+  %34 = getelementptr inbounds nuw %struct._address, ptr %33, i32 0, i32 0
+  %35 = load i32, ptr %34, align 8
+  %36 = icmp eq i32 %35, 3
+  br i1 %36, label %37, label %88
 
-36:                                               ; preds = %30, %18
-  %37 = load ptr, ptr %7, align 8
-  %38 = getelementptr inbounds %struct._packet_info, ptr %37, i32 0, i32 22
-  %39 = load i32, ptr %38, align 8
-  %40 = icmp eq i32 %39, 2
-  br i1 %40, label %41, label %87
+37:                                               ; preds = %31, %19
+  %38 = load ptr, ptr %7, align 8
+  %39 = getelementptr inbounds nuw %struct._packet_info, ptr %38, i32 0, i32 23
+  %40 = load i32, ptr %39, align 8
+  %41 = icmp eq i32 %40, 2
+  br i1 %41, label %42, label %88
 
-41:                                               ; preds = %36
-  %42 = load ptr, ptr %7, align 8
-  %43 = getelementptr inbounds %struct._packet_info, ptr %42, i32 0, i32 3
-  %44 = load i32, ptr %43, align 4
-  %45 = load ptr, ptr %7, align 8
-  %46 = getelementptr inbounds %struct._packet_info, ptr %45, i32 0, i32 14
-  %47 = load ptr, ptr %7, align 8
-  %48 = getelementptr inbounds %struct._packet_info, ptr %47, i32 0, i32 15
-  %49 = load ptr, ptr %7, align 8
-  %50 = getelementptr inbounds %struct._packet_info, ptr %49, i32 0, i32 23
-  %51 = load i32, ptr %50, align 4
-  %52 = load ptr, ptr %7, align 8
-  %53 = getelementptr inbounds %struct._packet_info, ptr %52, i32 0, i32 24
-  %54 = load i32, ptr %53, align 8
-  %55 = call ptr @find_conversation(i32 noundef %44, ptr noundef %46, ptr noundef %48, i32 noundef 2, i32 noundef %51, i32 noundef %54, i32 noundef 0)
-  store ptr %55, ptr %12, align 8
-  %56 = icmp ne ptr %55, null
-  br i1 %56, label %57, label %87
+42:                                               ; preds = %37
+  %43 = load ptr, ptr %7, align 8
+  %44 = getelementptr inbounds nuw %struct._packet_info, ptr %43, i32 0, i32 3
+  %45 = load i32, ptr %44, align 4
+  %46 = load ptr, ptr %7, align 8
+  %47 = getelementptr inbounds nuw %struct._packet_info, ptr %46, i32 0, i32 14
+  %48 = load ptr, ptr %7, align 8
+  %49 = getelementptr inbounds nuw %struct._packet_info, ptr %48, i32 0, i32 15
+  %50 = load ptr, ptr %7, align 8
+  %51 = getelementptr inbounds nuw %struct._packet_info, ptr %50, i32 0, i32 24
+  %52 = load i32, ptr %51, align 4
+  %53 = load ptr, ptr %7, align 8
+  %54 = getelementptr inbounds nuw %struct._packet_info, ptr %53, i32 0, i32 25
+  %55 = load i32, ptr %54, align 8
+  %56 = call ptr @find_conversation(i32 noundef %45, ptr noundef %47, ptr noundef %49, i32 noundef 2, i32 noundef %52, i32 noundef %55, i32 noundef 0)
+  store ptr %56, ptr %12, align 8
+  %57 = icmp ne ptr %56, null
+  br i1 %57, label %58, label %88
 
-57:                                               ; preds = %41
-  %58 = load ptr, ptr %7, align 8
-  %59 = load ptr, ptr %12, align 8
-  %60 = call ptr @get_http2_session(ptr noundef %58, ptr noundef %59)
-  store ptr %60, ptr %10, align 8
-  %61 = load ptr, ptr %12, align 8
-  %62 = load ptr, ptr %7, align 8
-  %63 = call ptr @get_tcp_conversation_data(ptr noundef %61, ptr noundef %62)
-  store ptr %63, ptr %11, align 8
-  %64 = load ptr, ptr %11, align 8
-  %65 = icmp eq ptr %64, null
-  br i1 %65, label %66, label %67
+58:                                               ; preds = %42
+  %59 = load ptr, ptr %7, align 8
+  %60 = load ptr, ptr %12, align 8
+  %61 = call ptr @get_http2_session(ptr noundef %59, ptr noundef %60)
+  store ptr %61, ptr %10, align 8
+  %62 = load ptr, ptr %12, align 8
+  %63 = load ptr, ptr %7, align 8
+  %64 = call ptr @get_tcp_conversation_data(ptr noundef %62, ptr noundef %63)
+  store ptr %64, ptr %11, align 8
+  %65 = load ptr, ptr %11, align 8
+  %66 = icmp eq ptr %65, null
+  br i1 %66, label %67, label %68
 
-66:                                               ; preds = %57
+67:                                               ; preds = %58
   store ptr null, ptr %5, align 8
-  br label %88
+  store i32 1, ptr %13, align 4
+  br label %89
 
-67:                                               ; preds = %57
-  %68 = load ptr, ptr %10, align 8
-  %69 = icmp eq ptr %68, null
-  br i1 %69, label %70, label %71
+68:                                               ; preds = %58
+  %69 = load ptr, ptr %10, align 8
+  %70 = icmp eq ptr %69, null
+  br i1 %70, label %71, label %72
 
-70:                                               ; preds = %67
+71:                                               ; preds = %68
   store ptr null, ptr %5, align 8
-  br label %88
+  store i32 1, ptr %13, align 4
+  br label %89
 
-71:                                               ; preds = %67
-  %72 = load ptr, ptr %11, align 8
-  %73 = getelementptr inbounds %struct.tcp_analysis, ptr %72, i32 0, i32 10
-  %74 = load i32, ptr %73, align 8
-  %75 = load ptr, ptr %8, align 8
-  store i32 %74, ptr %75, align 4
-  %76 = load ptr, ptr %10, align 8
-  %77 = getelementptr inbounds %struct.http2_session_t, ptr %76, i32 0, i32 1
-  %78 = load i32, ptr %77, align 8
-  %79 = load ptr, ptr %9, align 8
-  store i32 %78, ptr %79, align 4
-  %80 = load ptr, ptr %11, align 8
-  %81 = getelementptr inbounds %struct.tcp_analysis, ptr %80, i32 0, i32 10
-  %82 = load i32, ptr %81, align 8
-  %83 = load ptr, ptr %10, align 8
-  %84 = getelementptr inbounds %struct.http2_session_t, ptr %83, i32 0, i32 1
-  %85 = load i32, ptr %84, align 8
-  %86 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.296, i32 noundef %82, i32 noundef %85)
-  store ptr %86, ptr %5, align 8
-  br label %88
+72:                                               ; preds = %68
+  %73 = load ptr, ptr %11, align 8
+  %74 = getelementptr inbounds nuw %struct.tcp_analysis, ptr %73, i32 0, i32 10
+  %75 = load i32, ptr %74, align 8
+  %76 = load ptr, ptr %8, align 8
+  store i32 %75, ptr %76, align 4
+  %77 = load ptr, ptr %10, align 8
+  %78 = getelementptr inbounds nuw %struct.http2_session_t, ptr %77, i32 0, i32 1
+  %79 = load i32, ptr %78, align 8
+  %80 = load ptr, ptr %9, align 8
+  store i32 %79, ptr %80, align 4
+  %81 = load ptr, ptr %11, align 8
+  %82 = getelementptr inbounds nuw %struct.tcp_analysis, ptr %81, i32 0, i32 10
+  %83 = load i32, ptr %82, align 8
+  %84 = load ptr, ptr %10, align 8
+  %85 = getelementptr inbounds nuw %struct.http2_session_t, ptr %84, i32 0, i32 1
+  %86 = load i32, ptr %85, align 8
+  %87 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.299, i32 noundef %83, i32 noundef %86)
+  store ptr %87, ptr %5, align 8
+  store i32 1, ptr %13, align 4
+  br label %89
 
-87:                                               ; preds = %41, %36, %30, %24
+88:                                               ; preds = %42, %37, %31, %25
   store ptr null, ptr %5, align 8
-  br label %88
+  store i32 1, ptr %13, align 4
+  br label %89
 
-88:                                               ; preds = %87, %71, %70, %66
-  %89 = load ptr, ptr %5, align 8
-  ret ptr %89
+89:                                               ; preds = %88, %72, %71, %67
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %90 = load ptr, ptr %5, align 8
+  ret ptr %90
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @http2_follow_index_filter(i32 noundef %0, i32 noundef %1) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal ptr @http2_follow_index_filter(i32 noundef %0, i32 noundef %1) #1 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   store i32 %0, ptr %3, align 4
   store i32 %1, ptr %4, align 4
   %5 = load i32, ptr %3, align 4
   %6 = load i32, ptr %4, align 4
-  %7 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.296, i32 noundef %5, i32 noundef %6)
+  %7 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.299, i32 noundef %5, i32 noundef %6)
   ret ptr %7
 }
 
-declare ptr @tcp_follow_address_filter(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tcp_follow_address_filter(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #3
 
-declare ptr @tcp_port_to_display(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tcp_port_to_display(ptr noundef, i32 noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i32 @follow_http2_tap_listener(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @follow_http2_tap_listener(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -2517,91 +2829,100 @@ define internal i32 @follow_http2_tap_listener(ptr noundef %0, ptr noundef %1, p
   %11 = alloca i32, align 4
   %12 = alloca ptr, align 8
   %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
   store ptr %0, ptr %7, align 8
   store ptr %1, ptr %8, align 8
   store ptr %2, ptr %9, align 8
   store ptr %3, ptr %10, align 8
   store i32 %4, ptr %11, align 4
-  %14 = load ptr, ptr %7, align 8
-  store ptr %14, ptr %12, align 8
-  %15 = load ptr, ptr %10, align 8
-  store ptr %15, ptr %13, align 8
-  %16 = load ptr, ptr %12, align 8
-  %17 = getelementptr inbounds %struct._follow_info, ptr %16, i32 0, i32 11
-  %18 = load i64, ptr %17, align 8
-  %19 = icmp ne i64 %18, -1
-  br i1 %19, label %20, label %29
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  %15 = load ptr, ptr %7, align 8
+  store ptr %15, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  %16 = load ptr, ptr %10, align 8
+  store ptr %16, ptr %13, align 8
+  %17 = load ptr, ptr %12, align 8
+  %18 = getelementptr inbounds nuw %struct._follow_info, ptr %17, i32 0, i32 11
+  %19 = load i64, ptr %18, align 8
+  %20 = icmp ne i64 %19, -1
+  br i1 %20, label %21, label %30
 
-20:                                               ; preds = %5
-  %21 = load ptr, ptr %12, align 8
-  %22 = getelementptr inbounds %struct._follow_info, ptr %21, i32 0, i32 11
-  %23 = load i64, ptr %22, align 8
-  %24 = load ptr, ptr %13, align 8
-  %25 = getelementptr inbounds %struct.http2_follow_tap_data, ptr %24, i32 0, i32 1
-  %26 = load i64, ptr %25, align 8
-  %27 = icmp ne i64 %23, %26
-  br i1 %27, label %28, label %29
+21:                                               ; preds = %5
+  %22 = load ptr, ptr %12, align 8
+  %23 = getelementptr inbounds nuw %struct._follow_info, ptr %22, i32 0, i32 11
+  %24 = load i64, ptr %23, align 8
+  %25 = load ptr, ptr %13, align 8
+  %26 = getelementptr inbounds nuw %struct.http2_follow_tap_data, ptr %25, i32 0, i32 1
+  %27 = load i64, ptr %26, align 8
+  %28 = icmp ne i64 %24, %27
+  br i1 %28, label %29, label %30
 
-28:                                               ; preds = %20
+29:                                               ; preds = %21
   store i32 0, ptr %6, align 4
-  br label %37
+  store i32 1, ptr %14, align 4
+  br label %38
 
-29:                                               ; preds = %20, %5
-  %30 = load ptr, ptr %7, align 8
-  %31 = load ptr, ptr %8, align 8
-  %32 = load ptr, ptr %13, align 8
-  %33 = getelementptr inbounds %struct.http2_follow_tap_data, ptr %32, i32 0, i32 0
-  %34 = load ptr, ptr %33, align 8
-  %35 = load i32, ptr %11, align 4
-  %36 = call i32 @follow_tvb_tap_listener(ptr noundef %30, ptr noundef %31, ptr noundef null, ptr noundef %34, i32 noundef %35)
-  store i32 %36, ptr %6, align 4
-  br label %37
+30:                                               ; preds = %21, %5
+  %31 = load ptr, ptr %7, align 8
+  %32 = load ptr, ptr %8, align 8
+  %33 = load ptr, ptr %13, align 8
+  %34 = getelementptr inbounds nuw %struct.http2_follow_tap_data, ptr %33, i32 0, i32 0
+  %35 = load ptr, ptr %34, align 8
+  %36 = load i32, ptr %11, align 4
+  %37 = call i32 @follow_tvb_tap_listener(ptr noundef %31, ptr noundef %32, ptr noundef null, ptr noundef %35, i32 noundef %36)
+  store i32 %37, ptr %6, align 4
+  store i32 1, ptr %14, align 4
+  br label %38
 
-37:                                               ; preds = %29, %28
-  %38 = load i32, ptr %6, align 4
-  ret i32 %38
+38:                                               ; preds = %30, %29
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  %39 = load i32, ptr %6, align 4
+  ret i32 %39
 }
 
-declare i32 @get_tcp_stream_count() #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @get_tcp_stream_count() #3
 
-; Function Attrs: nounwind uwtable
-define internal i32 @http2_get_sub_stream_id(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 {
-  %5 = alloca i32, align 4
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @http2_get_sub_stream_id(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef %3) #1 {
+  %5 = alloca i1, align 1
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  %8 = alloca i32, align 4
+  %8 = alloca i8, align 1
   %9 = alloca ptr, align 8
   store i32 %0, ptr %6, align 4
   store i32 %1, ptr %7, align 4
-  store i32 %2, ptr %8, align 4
+  %10 = zext i1 %2 to i8
+  store i8 %10, ptr %8, align 1
   store ptr %3, ptr %9, align 8
-  %10 = load i32, ptr %8, align 4
-  %11 = icmp ne i32 %10, 0
-  br i1 %11, label %12, label %17
+  %11 = load i8, ptr %8, align 1, !range !11, !noundef !12
+  %12 = trunc i8 %11 to i1
+  br i1 %12, label %13, label %18
 
-12:                                               ; preds = %4
-  %13 = load i32, ptr %6, align 4
-  %14 = load i32, ptr %7, align 4
-  %15 = load ptr, ptr %9, align 8
-  %16 = call i32 @http2_get_stream_id_le(i32 noundef %13, i32 noundef %14, ptr noundef %15)
-  store i32 %16, ptr %5, align 4
-  br label %22
+13:                                               ; preds = %4
+  %14 = load i32, ptr %6, align 4
+  %15 = load i32, ptr %7, align 4
+  %16 = load ptr, ptr %9, align 8
+  %17 = call zeroext i1 @http2_get_stream_id_le(i32 noundef %14, i32 noundef %15, ptr noundef %16)
+  store i1 %17, ptr %5, align 1
+  br label %23
 
-17:                                               ; preds = %4
-  %18 = load i32, ptr %6, align 4
-  %19 = load i32, ptr %7, align 4
-  %20 = load ptr, ptr %9, align 8
-  %21 = call i32 @http2_get_stream_id_ge(i32 noundef %18, i32 noundef %19, ptr noundef %20)
-  store i32 %21, ptr %5, align 4
-  br label %22
+18:                                               ; preds = %4
+  %19 = load i32, ptr %6, align 4
+  %20 = load i32, ptr %7, align 4
+  %21 = load ptr, ptr %9, align 8
+  %22 = call zeroext i1 @http2_get_stream_id_ge(i32 noundef %19, i32 noundef %20, ptr noundef %21)
+  store i1 %22, ptr %5, align 1
+  br label %23
 
-22:                                               ; preds = %17, %12
-  %23 = load i32, ptr %5, align 4
-  ret i32 %23
+23:                                               ; preds = %18, %13
+  %24 = load i1, ptr %5, align 1
+  ret i1 %24
 }
 
-; Function Attrs: nounwind uwtable
-define hidden void @proto_reg_handoff_http2() #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define hidden void @proto_reg_handoff_http2() #1 {
   %1 = call ptr @find_dissector(ptr noundef @.str.247)
   store ptr %1, ptr @data_handle, align 8
   %2 = load ptr, ptr @http2_handle, align 8
@@ -2619,124 +2940,210 @@ define hidden void @proto_reg_handoff_http2() #0 {
   %8 = load i32, ptr @proto_http2, align 4
   call void @heur_dissector_add(ptr noundef @.str.257, ptr noundef @dissect_http2_heur, ptr noundef @.str.258, ptr noundef @.str.259, i32 noundef %8, i32 noundef 1)
   %9 = load i32, ptr @proto_http2, align 4
-  call void @heur_dissector_add(ptr noundef @.str.260, ptr noundef @dissect_http2_heur, ptr noundef @.str.261, ptr noundef @.str.262, i32 noundef %9, i32 noundef 1)
+  call void @heur_dissector_add(ptr noundef @.str.260, ptr noundef @dissect_http2_heur_http, ptr noundef @.str.261, ptr noundef @.str.262, i32 noundef %9, i32 noundef 1)
   %10 = call ptr @stats_tree_register(ptr noundef @.str.241, ptr noundef @.str.241, ptr noundef @.str, i32 noundef 0, ptr noundef @http2_stats_tree_packet, ptr noundef @http2_stats_tree_init, ptr noundef null)
   ret void
 }
 
-declare ptr @find_dissector(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @find_dissector(ptr noundef) #3
 
-declare void @dissector_add_uint_range_with_preference(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_add_uint_range_with_preference(ptr noundef, ptr noundef, ptr noundef) #3
 
-declare void @dissector_add_for_decode_as(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_add_for_decode_as(ptr noundef, ptr noundef) #3
 
-declare void @dissector_add_string(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_add_string(ptr noundef, ptr noundef, ptr noundef) #3
 
-declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_http2_heur_ssl(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = alloca i32, align 4
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @dissect_http2_heur_ssl(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
+  %5 = alloca i1, align 1
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
-  %11 = load ptr, ptr %9, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = load ptr, ptr %6, align 8
-  %13 = load ptr, ptr %7, align 8
-  %14 = load ptr, ptr %8, align 8
-  %15 = call i32 @dissect_http2_heur(ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef null)
-  %16 = icmp ne i32 %15, 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  %12 = load ptr, ptr %9, align 8
+  store ptr %12, ptr %10, align 8
+  %13 = load ptr, ptr %6, align 8
+  %14 = load ptr, ptr %7, align 8
+  %15 = load ptr, ptr %8, align 8
+  %16 = call zeroext i1 @dissect_http2_heur(ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef null)
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %4
   %18 = load ptr, ptr @http2_handle, align 8
   %19 = load ptr, ptr %10, align 8
-  %20 = getelementptr inbounds %struct.tlsinfo, ptr %19, i32 0, i32 3
+  %20 = getelementptr inbounds nuw %struct.tlsinfo, ptr %19, i32 0, i32 3
   %21 = load ptr, ptr %20, align 8
   store ptr %18, ptr %21, align 8
-  store i32 1, ptr %5, align 4
+  store i1 true, ptr %5, align 1
+  store i32 1, ptr %11, align 4
   br label %23
 
 22:                                               ; preds = %4
-  store i32 0, ptr %5, align 4
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %11, align 4
   br label %23
 
 23:                                               ; preds = %22, %17
-  %24 = load i32, ptr %5, align 4
-  ret i32 %24
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %24 = load i1, ptr %5, align 1
+  ret i1 %24
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_http2_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = alloca i32, align 4
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @dissect_http2_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
+  %5 = alloca i1, align 1
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
-  %12 = load ptr, ptr %7, align 8
-  %13 = call nonnull ptr @find_or_create_conversation(ptr noundef %12)
-  store ptr %13, ptr %10, align 8
-  %14 = load ptr, ptr %10, align 8
-  %15 = load i32, ptr @proto_http2, align 4
-  %16 = call ptr @conversation_get_proto_data(ptr noundef %14, i32 noundef %15)
-  store ptr %16, ptr %11, align 8
-  %17 = load ptr, ptr %11, align 8
-  %18 = icmp ne ptr %17, null
-  br i1 %18, label %19, label %25
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  %13 = load ptr, ptr %7, align 8
+  %14 = call ptr @find_or_create_conversation(ptr noundef %13)
+  store ptr %14, ptr %10, align 8
+  %15 = load ptr, ptr %10, align 8
+  %16 = load i32, ptr @proto_http2, align 4
+  %17 = call ptr @conversation_get_proto_data(ptr noundef %15, i32 noundef %16)
+  store ptr %17, ptr %11, align 8
+  %18 = load ptr, ptr %11, align 8
+  %19 = icmp ne ptr %18, null
+  br i1 %19, label %20, label %26
 
-19:                                               ; preds = %4
-  %20 = load ptr, ptr %6, align 8
-  %21 = load ptr, ptr %7, align 8
-  %22 = load ptr, ptr %8, align 8
-  %23 = load ptr, ptr %9, align 8
-  %24 = call i32 @dissect_http2(ptr noundef %20, ptr noundef %21, ptr noundef %22, ptr noundef %23)
-  store i32 1, ptr %5, align 4
-  br label %39
+20:                                               ; preds = %4
+  %21 = load ptr, ptr %6, align 8
+  %22 = load ptr, ptr %7, align 8
+  %23 = load ptr, ptr %8, align 8
+  %24 = load ptr, ptr %9, align 8
+  %25 = call i32 @dissect_http2(ptr noundef %21, ptr noundef %22, ptr noundef %23, ptr noundef %24)
+  store i1 true, ptr %5, align 1
+  store i32 1, ptr %12, align 4
+  br label %40
 
-25:                                               ; preds = %4
-  %26 = load ptr, ptr %6, align 8
-  %27 = call i32 @tvb_memeql(ptr noundef %26, i32 noundef 0, ptr noundef @kMagicHello, i64 noundef 24)
-  %28 = icmp ne i32 %27, 0
-  br i1 %28, label %29, label %30
+26:                                               ; preds = %4
+  %27 = load ptr, ptr %6, align 8
+  %28 = call i32 @tvb_memeql(ptr noundef %27, i32 noundef 0, ptr noundef @kMagicHello, i64 noundef 24)
+  %29 = icmp ne i32 %28, 0
+  br i1 %29, label %30, label %31
 
-29:                                               ; preds = %25
-  store i32 0, ptr %5, align 4
-  br label %39
+30:                                               ; preds = %26
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %12, align 4
+  br label %40
 
-30:                                               ; preds = %25
-  %31 = load ptr, ptr %7, align 8
-  %32 = load ptr, ptr %10, align 8
-  %33 = call ptr @get_http2_session(ptr noundef %31, ptr noundef %32)
-  %34 = load ptr, ptr %6, align 8
-  %35 = load ptr, ptr %7, align 8
-  %36 = load ptr, ptr %8, align 8
-  %37 = load ptr, ptr %9, align 8
-  %38 = call i32 @dissect_http2(ptr noundef %34, ptr noundef %35, ptr noundef %36, ptr noundef %37)
-  store i32 1, ptr %5, align 4
-  br label %39
+31:                                               ; preds = %26
+  %32 = load ptr, ptr %7, align 8
+  %33 = load ptr, ptr %10, align 8
+  %34 = call ptr @get_http2_session(ptr noundef %32, ptr noundef %33)
+  %35 = load ptr, ptr %6, align 8
+  %36 = load ptr, ptr %7, align 8
+  %37 = load ptr, ptr %8, align 8
+  %38 = load ptr, ptr %9, align 8
+  %39 = call i32 @dissect_http2(ptr noundef %35, ptr noundef %36, ptr noundef %37, ptr noundef %38)
+  store i1 true, ptr %5, align 1
+  store i32 1, ptr %12, align 4
+  br label %40
 
-39:                                               ; preds = %30, %29, %19
-  %40 = load i32, ptr %5, align 4
-  ret i32 %40
+40:                                               ; preds = %31, %30, %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %41 = load i1, ptr %5, align 1
+  ret i1 %41
 }
 
-declare ptr @stats_tree_register(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @dissect_http2_heur_http(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
+  %5 = alloca i1, align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  %13 = load ptr, ptr %7, align 8
+  %14 = call ptr @find_or_create_conversation(ptr noundef %13)
+  store ptr %14, ptr %10, align 8
+  %15 = load ptr, ptr %10, align 8
+  %16 = load i32, ptr @proto_http2, align 4
+  %17 = call ptr @conversation_get_proto_data(ptr noundef %15, i32 noundef %16)
+  store ptr %17, ptr %11, align 8
+  %18 = load ptr, ptr %11, align 8
+  %19 = icmp ne ptr %18, null
+  br i1 %19, label %20, label %26
 
-; Function Attrs: nounwind uwtable
-define internal i32 @http2_stats_tree_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
+20:                                               ; preds = %4
+  %21 = load ptr, ptr %6, align 8
+  %22 = load ptr, ptr %7, align 8
+  %23 = load ptr, ptr %8, align 8
+  %24 = load ptr, ptr %9, align 8
+  %25 = call i32 @dissect_http2(ptr noundef %21, ptr noundef %22, ptr noundef %23, ptr noundef %24)
+  store i1 true, ptr %5, align 1
+  store i32 1, ptr %12, align 4
+  br label %40
+
+26:                                               ; preds = %4
+  %27 = load ptr, ptr %6, align 8
+  %28 = call i32 @tvb_memeql(ptr noundef %27, i32 noundef 0, ptr noundef @kMagicHello, i64 noundef 16)
+  %29 = icmp ne i32 %28, 0
+  br i1 %29, label %30, label %31
+
+30:                                               ; preds = %26
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %12, align 4
+  br label %40
+
+31:                                               ; preds = %26
+  %32 = load ptr, ptr %7, align 8
+  %33 = load ptr, ptr %10, align 8
+  %34 = call ptr @get_http2_session(ptr noundef %32, ptr noundef %33)
+  %35 = load ptr, ptr %6, align 8
+  %36 = load ptr, ptr %7, align 8
+  %37 = load ptr, ptr %8, align 8
+  %38 = load ptr, ptr %9, align 8
+  %39 = call i32 @dissect_http2(ptr noundef %35, ptr noundef %36, ptr noundef %37, ptr noundef %38)
+  store i1 true, ptr %5, align 1
+  store i32 1, ptr %12, align 4
+  br label %40
+
+40:                                               ; preds = %31, %30, %20
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %41 = load i1, ptr %5, align 1
+  ret i1 %41
+}
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @stats_tree_register(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #3
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @http2_stats_tree_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -2748,29 +3155,31 @@ define internal i32 @http2_stats_tree_packet(ptr noundef %0, ptr noundef %1, ptr
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   store i32 %4, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
   %12 = load ptr, ptr %9, align 8
   store ptr %12, ptr %11, align 8
   %13 = load ptr, ptr %6, align 8
   %14 = load ptr, ptr @st_str_http2, align 8
-  %15 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %13, ptr noundef %14, i32 noundef 0, i32 noundef 0, i32 noundef 1)
+  %15 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %13, ptr noundef %14, i32 noundef 0, i1 noundef zeroext false, i32 noundef 1)
   %16 = load ptr, ptr %6, align 8
   %17 = load i32, ptr @st_node_http2_type, align 4
   %18 = load ptr, ptr %11, align 8
-  %19 = getelementptr inbounds %struct.HTTP2Tap, ptr %18, i32 0, i32 0
+  %19 = getelementptr inbounds nuw %struct.HTTP2Tap, ptr %18, i32 0, i32 0
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
   %22 = call ptr @val_to_str(i32 noundef %21, ptr noundef @http2_type_vals, ptr noundef @.str.4)
   %23 = call i32 @stats_tree_tick_pivot(ptr noundef %16, i32 noundef %17, ptr noundef %22)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
   ret i32 1
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @http2_stats_tree_init(ptr noundef %0) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal void @http2_stats_tree_init(ptr noundef %0) #1 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr @st_str_http2, align 8
-  %5 = call i32 @stats_tree_create_node(ptr noundef %3, ptr noundef %4, i32 noundef 0, i32 noundef 0, i32 noundef 1)
+  %5 = call i32 @stats_tree_create_node(ptr noundef %3, ptr noundef %4, i32 noundef 0, i32 noundef 0, i1 noundef zeroext true)
   store i32 %5, ptr @st_node_http2, align 4
   %6 = load ptr, ptr %2, align 8
   %7 = load ptr, ptr @st_str_http2_type, align 8
@@ -2780,61 +3189,76 @@ define internal void @http2_stats_tree_init(ptr noundef %0) #0 {
   ret void
 }
 
-declare ptr @g_hash_table_get_keys(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_hash_table_get_keys(ptr noundef) #3
 
-declare void @g_list_free(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @g_list_free(ptr noundef) #3
 
-declare i32 @g_hash_table_contains(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @g_hash_table_contains(ptr noundef, ptr noundef) #3
 
-declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #3
 
-declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #3
 
-declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) #3
 
-declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i32 @select_http2_flow_index(ptr noundef %0, ptr noundef %1) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @select_http2_flow_index(ptr noundef %0, ptr noundef %1) #1 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = call ptr @get_tcp_conversation_data(ptr noundef null, ptr noundef %7)
-  store ptr %8, ptr %6, align 8
-  %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds %struct.tcp_analysis, ptr %9, i32 0, i32 2
-  %11 = load ptr, ptr %10, align 8
-  %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds %struct.http2_session_t, ptr %12, i32 0, i32 2
-  %14 = load ptr, ptr %13, align 8
-  %15 = icmp eq ptr %11, %14
-  br i1 %15, label %16, label %17
-
-16:                                               ; preds = %2
-  store i32 0, ptr %3, align 4
-  br label %18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  %8 = load ptr, ptr %4, align 8
+  %9 = call ptr @get_tcp_conversation_data(ptr noundef null, ptr noundef %8)
+  store ptr %9, ptr %6, align 8
+  %10 = load ptr, ptr %6, align 8
+  %11 = getelementptr inbounds nuw %struct.tcp_analysis, ptr %10, i32 0, i32 2
+  %12 = load ptr, ptr %11, align 8
+  %13 = load ptr, ptr %5, align 8
+  %14 = getelementptr inbounds nuw %struct.http2_session_t, ptr %13, i32 0, i32 2
+  %15 = load ptr, ptr %14, align 8
+  %16 = icmp eq ptr %12, %15
+  br i1 %16, label %17, label %18
 
 17:                                               ; preds = %2
-  store i32 1, ptr %3, align 4
-  br label %18
+  store i32 0, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %19
 
-18:                                               ; preds = %17, %16
-  %19 = load i32, ptr %3, align 4
-  ret i32 %19
+18:                                               ; preds = %2
+  store i32 1, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %19
+
+19:                                               ; preds = %18, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  %20 = load i32, ptr %3, align 4
+  ret i32 %20
 }
 
-declare ptr @proto_tree_add_bitmask_with_flags_ret_uint64(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_bitmask_with_flags_ret_uint64(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #3
 
-declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) #3
 
-declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_frame_padding(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @dissect_frame_padding(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4) #1 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -2847,6 +3271,8 @@ define internal i32 @dissect_frame_padding(ptr noundef %0, ptr noundef %1, ptr n
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i8 %4, ptr %10, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #7
   store i32 0, ptr %12, align 4
   %13 = load ptr, ptr %7, align 8
   store i16 0, ptr %13, align 2
@@ -2859,7 +3285,7 @@ define internal i32 @dissect_frame_padding(ptr noundef %0, ptr noundef %1, ptr n
 18:                                               ; preds = %5
   %19 = load ptr, ptr %6, align 8
   %20 = load i32, ptr %9, align 4
-  %21 = call zeroext i8 @tvb_get_guint8(ptr noundef %19, i32 noundef %20)
+  %21 = call zeroext i8 @tvb_get_uint8(ptr noundef %19, i32 noundef %20)
   %22 = zext i8 %21 to i16
   %23 = load ptr, ptr %7, align 8
   store i16 %22, ptr %23, align 2
@@ -2892,11 +3318,13 @@ define internal i32 @dissect_frame_padding(ptr noundef %0, ptr noundef %1, ptr n
   %45 = load ptr, ptr %11, align 8
   call void @proto_item_set_generated(ptr noundef %45)
   %46 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
   ret i32 %46
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @dissect_http2_data_body(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i8 noundef zeroext %5, i32 noundef %6) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal void @dissect_http2_data_body(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i8 noundef zeroext %5, i32 noundef %6) #1 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
@@ -2920,14 +3348,17 @@ define internal void @dissect_http2_data_body(ptr noundef %0, ptr noundef %1, pt
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @adjust_window_size(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) #0 {
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) #3
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal void @adjust_window_size(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i1 noundef zeroext %5) #1 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
-  %12 = alloca i32, align 4
+  %12 = alloca i8, align 1
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   %15 = alloca ptr, align 8
@@ -2937,150 +3368,119 @@ define internal void @adjust_window_size(ptr noundef %0, ptr noundef %1, ptr nou
   store ptr %2, ptr %9, align 8
   store ptr %3, ptr %10, align 8
   store i32 %4, ptr %11, align 4
-  store i32 %5, ptr %12, align 4
-  %17 = load ptr, ptr %8, align 8
-  %18 = load ptr, ptr %9, align 8
-  %19 = call i32 @select_http2_flow_index(ptr noundef %17, ptr noundef %18)
-  store i32 %19, ptr %13, align 4
-  %20 = load i32, ptr %12, align 4
-  %21 = icmp ne i32 %20, 0
-  %22 = select i1 %21, i32 1, i32 -1
-  %23 = load i32, ptr %11, align 4
-  %24 = mul i32 %22, %23
-  store i32 %24, ptr %14, align 4
-  %25 = load i32, ptr %12, align 4
-  %26 = icmp ne i32 %25, 0
-  br i1 %26, label %27, label %30
+  %17 = zext i1 %5 to i8
+  store i8 %17, ptr %12, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #7
+  %18 = load ptr, ptr %8, align 8
+  %19 = load ptr, ptr %9, align 8
+  %20 = call i32 @select_http2_flow_index(ptr noundef %18, ptr noundef %19)
+  store i32 %20, ptr %13, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #7
+  %21 = load i8, ptr %12, align 1, !range !11, !noundef !12
+  %22 = trunc i8 %21 to i1
+  %23 = select i1 %22, i32 1, i32 -1
+  %24 = load i32, ptr %11, align 4
+  %25 = mul i32 %23, %24
+  store i32 %25, ptr %14, align 4
+  %26 = load i8, ptr %12, align 1, !range !11, !noundef !12
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %28, label %31
 
-27:                                               ; preds = %6
-  %28 = load i32, ptr %13, align 4
-  %29 = xor i32 %28, 1
-  store i32 %29, ptr %13, align 4
-  br label %30
+28:                                               ; preds = %6
+  %29 = load i32, ptr %13, align 4
+  %30 = xor i32 %29, 1
+  store i32 %30, ptr %13, align 4
+  br label %31
 
-30:                                               ; preds = %27, %6
-  %31 = load i32, ptr %12, align 4
-  %32 = icmp ne i32 %31, 0
-  br i1 %32, label %33, label %38
+31:                                               ; preds = %28, %6
+  %32 = load i8, ptr %12, align 1, !range !11, !noundef !12
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %34, label %39
 
-33:                                               ; preds = %30
-  %34 = load ptr, ptr %9, align 8
-  %35 = getelementptr inbounds %struct.http2_session_t, ptr %34, i32 0, i32 1
-  %36 = load i32, ptr %35, align 8
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %83
+34:                                               ; preds = %31
+  %35 = load ptr, ptr %9, align 8
+  %36 = getelementptr inbounds nuw %struct.http2_session_t, ptr %35, i32 0, i32 1
+  %37 = load i32, ptr %36, align 8
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %39, label %84
 
-38:                                               ; preds = %33, %30
-  %39 = call ptr @wmem_file_scope()
-  %40 = load ptr, ptr %8, align 8
-  %41 = load i32, ptr @proto_http2, align 4
-  %42 = call ptr @p_get_proto_data(ptr noundef %39, ptr noundef %40, i32 noundef %41, i32 noundef 1)
-  store ptr %42, ptr %15, align 8
-  %43 = load ptr, ptr %15, align 8
-  %44 = icmp ne ptr %43, null
-  br i1 %44, label %67, label %45
+39:                                               ; preds = %34, %31
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  %40 = call ptr @wmem_file_scope()
+  %41 = load ptr, ptr %8, align 8
+  %42 = load i32, ptr @proto_http2, align 4
+  %43 = call ptr @p_get_proto_data(ptr noundef %40, ptr noundef %41, i32 noundef %42, i32 noundef 1)
+  store ptr %43, ptr %15, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #7
+  %44 = load ptr, ptr %15, align 8
+  %45 = icmp ne ptr %44, null
+  br i1 %45, label %68, label %46
 
-45:                                               ; preds = %38
-  %46 = call ptr @wmem_file_scope()
-  %47 = call noalias ptr @wmem_alloc0(ptr noundef %46, i64 noundef 4)
-  store ptr %47, ptr %15, align 8
-  %48 = load ptr, ptr %9, align 8
-  %49 = getelementptr inbounds %struct.http2_session_t, ptr %48, i32 0, i32 4
-  %50 = load i32, ptr %13, align 4
-  %51 = zext i32 %50 to i64
-  %52 = getelementptr [2 x i32], ptr %49, i64 0, i64 %51
-  %53 = load i32, ptr %52, align 4
-  %54 = load ptr, ptr %15, align 8
-  store i32 %53, ptr %54, align 4
-  %55 = load i32, ptr %14, align 4
-  %56 = load ptr, ptr %9, align 8
-  %57 = getelementptr inbounds %struct.http2_session_t, ptr %56, i32 0, i32 4
-  %58 = load i32, ptr %13, align 4
-  %59 = zext i32 %58 to i64
-  %60 = getelementptr [2 x i32], ptr %57, i64 0, i64 %59
-  %61 = load i32, ptr %60, align 4
-  %62 = add i32 %61, %55
-  store i32 %62, ptr %60, align 4
-  %63 = call ptr @wmem_file_scope()
-  %64 = load ptr, ptr %8, align 8
-  %65 = load i32, ptr @proto_http2, align 4
-  %66 = load ptr, ptr %15, align 8
-  call void @p_add_proto_data(ptr noundef %63, ptr noundef %64, i32 noundef %65, i32 noundef 1, ptr noundef %66)
-  br label %67
+46:                                               ; preds = %39
+  %47 = call ptr @wmem_file_scope()
+  %48 = call noalias ptr @wmem_alloc0(ptr noundef %47, i64 noundef 4) #8
+  store ptr %48, ptr %15, align 8
+  %49 = load ptr, ptr %9, align 8
+  %50 = getelementptr inbounds nuw %struct.http2_session_t, ptr %49, i32 0, i32 4
+  %51 = load i32, ptr %13, align 4
+  %52 = zext i32 %51 to i64
+  %53 = getelementptr [2 x i32], ptr %50, i64 0, i64 %52
+  %54 = load i32, ptr %53, align 4
+  %55 = load ptr, ptr %15, align 8
+  store i32 %54, ptr %55, align 4
+  %56 = load i32, ptr %14, align 4
+  %57 = load ptr, ptr %9, align 8
+  %58 = getelementptr inbounds nuw %struct.http2_session_t, ptr %57, i32 0, i32 4
+  %59 = load i32, ptr %13, align 4
+  %60 = zext i32 %59 to i64
+  %61 = getelementptr [2 x i32], ptr %58, i64 0, i64 %60
+  %62 = load i32, ptr %61, align 4
+  %63 = add i32 %62, %56
+  store i32 %63, ptr %61, align 4
+  %64 = call ptr @wmem_file_scope()
+  %65 = load ptr, ptr %8, align 8
+  %66 = load i32, ptr @proto_http2, align 4
+  %67 = load ptr, ptr %15, align 8
+  call void @p_add_proto_data(ptr noundef %64, ptr noundef %65, i32 noundef %66, i32 noundef 1, ptr noundef %67)
+  br label %68
 
-67:                                               ; preds = %45, %38
-  %68 = load ptr, ptr %10, align 8
-  %69 = load i32, ptr @hf_http2_calculated_window_size_connection_before, align 4
-  %70 = load ptr, ptr %7, align 8
-  %71 = load ptr, ptr %15, align 8
-  %72 = load i32, ptr %71, align 4
-  %73 = call ptr @proto_tree_add_int(ptr noundef %68, i32 noundef %69, ptr noundef %70, i32 noundef 0, i32 noundef 0, i32 noundef %72)
-  call void @proto_item_set_generated(ptr noundef %73)
-  %74 = load ptr, ptr %15, align 8
-  %75 = load i32, ptr %74, align 4
-  %76 = load i32, ptr %14, align 4
-  %77 = add i32 %75, %76
-  store i32 %77, ptr %16, align 4
-  %78 = load ptr, ptr %10, align 8
-  %79 = load i32, ptr @hf_http2_calculated_window_size_connection_after, align 4
-  %80 = load ptr, ptr %7, align 8
-  %81 = load i32, ptr %16, align 4
-  %82 = call ptr @proto_tree_add_int(ptr noundef %78, i32 noundef %79, ptr noundef %80, i32 noundef 0, i32 noundef 0, i32 noundef %81)
-  call void @proto_item_set_generated(ptr noundef %82)
-  br label %83
+68:                                               ; preds = %46, %39
+  %69 = load ptr, ptr %10, align 8
+  %70 = load i32, ptr @hf_http2_calculated_window_size_connection_before, align 4
+  %71 = load ptr, ptr %7, align 8
+  %72 = load ptr, ptr %15, align 8
+  %73 = load i32, ptr %72, align 4
+  %74 = call ptr @proto_tree_add_int(ptr noundef %69, i32 noundef %70, ptr noundef %71, i32 noundef 0, i32 noundef 0, i32 noundef %73)
+  call void @proto_item_set_generated(ptr noundef %74)
+  %75 = load ptr, ptr %15, align 8
+  %76 = load i32, ptr %75, align 4
+  %77 = load i32, ptr %14, align 4
+  %78 = add i32 %76, %77
+  store i32 %78, ptr %16, align 4
+  %79 = load ptr, ptr %10, align 8
+  %80 = load i32, ptr @hf_http2_calculated_window_size_connection_after, align 4
+  %81 = load ptr, ptr %7, align 8
+  %82 = load i32, ptr %16, align 4
+  %83 = call ptr @proto_tree_add_int(ptr noundef %79, i32 noundef %80, ptr noundef %81, i32 noundef 0, i32 noundef 0, i32 noundef %82)
+  call void @proto_item_set_generated(ptr noundef %83)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  br label %84
 
-83:                                               ; preds = %67, %33
+84:                                               ; preds = %68, %34
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #7
   ret void
 }
 
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal void @proto_item_set_generated(ptr noundef %0) #0 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = icmp ne ptr %3, null
-  br i1 %4, label %5, label %24
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_int(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #3
 
-5:                                                ; preds = %1
-  br label %6
-
-6:                                                ; preds = %5
-  %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct._proto_node, ptr %7, i32 0, i32 4
-  %9 = load ptr, ptr %8, align 8
-  %10 = icmp ne ptr %9, null
-  br i1 %10, label %11, label %22
-
-11:                                               ; preds = %6
-  %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct._proto_node, ptr %12, i32 0, i32 4
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds %struct.field_info, ptr %14, i32 0, i32 6
-  %16 = load i32, ptr %15, align 4
-  %17 = or i32 %16, 2
-  %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds %struct._proto_node, ptr %18, i32 0, i32 4
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds %struct.field_info, ptr %20, i32 0, i32 6
-  store i32 %17, ptr %21, align 4
-  br label %22
-
-22:                                               ; preds = %11, %6
-  br label %23
-
-23:                                               ; preds = %22
-  br label %24
-
-24:                                               ; preds = %23, %1
-  ret void
-}
-
-declare ptr @proto_tree_add_int(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
-
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_frame_prio(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @dissect_frame_prio(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -3091,6 +3491,8 @@ define internal i32 @dissect_frame_prio(ptr noundef %0, ptr noundef %1, i32 noun
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store i8 %3, ptr %8, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #7
   %11 = load i8, ptr %8, align 1
   %12 = zext i8 %11 to i32
   %13 = and i32 %12, 32
@@ -3118,7 +3520,7 @@ define internal i32 @dissect_frame_prio(ptr noundef %0, ptr noundef %1, i32 noun
   %32 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %29, ptr noundef %30, i32 noundef %31, i32 noundef 1, i32 noundef 0)
   %33 = load ptr, ptr %5, align 8
   %34 = load i32, ptr %7, align 4
-  %35 = call zeroext i8 @tvb_get_guint8(ptr noundef %33, i32 noundef %34)
+  %35 = call zeroext i8 @tvb_get_uint8(ptr noundef %33, i32 noundef %34)
   store i8 %35, ptr %10, align 1
   %36 = load ptr, ptr %6, align 8
   %37 = load i32, ptr @hf_http2_weight_real, align 4
@@ -3138,24 +3540,31 @@ define internal i32 @dissect_frame_prio(ptr noundef %0, ptr noundef %1, i32 noun
 
 47:                                               ; preds = %15, %4
   %48 = load i32, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
   ret i32 %48
 }
 
-; Function Attrs: noreturn
-declare void @except_throw(i64 noundef, i64 noundef, ptr noundef) #2
+; Function Attrs: noreturn null_pointer_is_valid
+declare void @except_throw(i64 noundef, i64 noundef, ptr noundef) #6
 
-declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) #3
 
-declare ptr @g_hash_table_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_hash_table_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
-declare void @g_hash_table_destroy(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @g_hash_table_destroy(ptr noundef) #3
 
-declare void @col_clear(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_clear(ptr noundef, i32 noundef) #3
 
-declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i32 @get_http2_message_len(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @get_http2_message_len(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #1 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -3167,7 +3576,7 @@ define internal i32 @get_http2_message_len(ptr noundef %0, ptr noundef %1, i32 n
   store ptr %3, ptr %9, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = load i32, ptr %8, align 4
-  %12 = call i32 @tvb_memeql(ptr noundef %10, i32 noundef %11, ptr noundef @kMagicHello, i64 noundef 24)
+  %12 = call i32 @tvb_memeql(ptr noundef %10, i32 noundef %11, ptr noundef @kMagicHello, i64 noundef 9)
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %15
 
@@ -3188,32 +3597,48 @@ define internal i32 @get_http2_message_len(ptr noundef %0, ptr noundef %1, i32 n
   ret i32 %21
 }
 
-declare ptr @find_conversation(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @find_conversation(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) #3
 
-declare i32 @follow_tvb_tap_listener(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @follow_tvb_tap_listener(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #3
 
-declare i32 @stats_tree_manip_node_int(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @stats_tree_manip_node_int(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, i32 noundef) #3
 
-declare i32 @stats_tree_tick_pivot(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @stats_tree_tick_pivot(ptr noundef, i32 noundef, ptr noundef) #3
 
-declare i32 @stats_tree_create_node(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @stats_tree_create_node(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) #3
 
-declare i32 @stats_tree_create_pivot(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @stats_tree_create_pivot(ptr noundef, ptr noundef, i32 noundef) #3
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn }
+attributes #0 = { nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { inlinehint nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind }
+attributes #8 = { allocsize(1) }
+attributes #9 = { noreturn }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = !{i8 0, i8 2}
+!12 = !{}
+!13 = distinct !{!13, !7}

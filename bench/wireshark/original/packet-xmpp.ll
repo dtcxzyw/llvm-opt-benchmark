@@ -3,24 +3,22 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
 %struct.except_stacknode = type { ptr, i32, %union.anon }
 %union.anon = type { ptr }
 %struct.except_cleanup = type { ptr, ptr }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
-%struct._xml_frame_t = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr }
+%struct._xml_frame_t = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr }
 %struct._xmpp_conv_info_t = type { ptr, ptr, ptr, ptr, i32 }
-%struct._xmpp_element_t = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32 }
-%struct._xmpp_attr_t = type { ptr, ptr, i32, i32, i32 }
-%struct._proto_node = type { ptr, ptr, ptr, ptr, ptr, ptr }
+%struct._xmpp_element_t = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i8 }
+%struct._xmpp_attr_t = type { ptr, ptr, i32, i32, i8 }
+%struct._proto_node = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.field_info = type { ptr, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, i32, i32 }
 
-@proto_register_xmpp.hf = internal global [149 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_xmpp_iq, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 0, i32 0, ptr null, i64 0, ptr @.str.2, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_xmlns, %struct._header_field_info { ptr @.str.3, ptr @.str.4, i32 26, i32 0, ptr null, i64 0, ptr @.str.5, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_cdata, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_attribute, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_id, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 26, i32 0, ptr null, i64 0, ptr @.str.12, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_type, %struct._header_field_info { ptr @.str.13, ptr @.str.14, i32 26, i32 0, ptr null, i64 0, ptr @.str.15, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_from, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 26, i32 0, ptr null, i64 0, ptr @.str.18, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_to, %struct._header_field_info { ptr @.str.19, ptr @.str.20, i32 26, i32 0, ptr null, i64 0, ptr @.str.21, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_query, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 0, i32 0, ptr null, i64 0, ptr @.str.24, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_query_node, %struct._header_field_info { ptr @.str.25, ptr @.str.26, i32 26, i32 0, ptr null, i64 0, ptr @.str.27, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_query_item, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 0, i32 0, ptr null, i64 0, ptr @.str.30, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_query_item_jid, %struct._header_field_info { ptr @.str.31, ptr @.str.32, i32 26, i32 0, ptr null, i64 0, ptr @.str.33, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_query_item_name, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 26, i32 0, ptr null, i64 0, ptr @.str.36, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_query_item_subscription, %struct._header_field_info { ptr @.str.37, ptr @.str.38, i32 26, i32 0, ptr null, i64 0, ptr @.str.39, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_query_item_ask, %struct._header_field_info { ptr @.str.40, ptr @.str.41, i32 26, i32 0, ptr null, i64 0, ptr @.str.42, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_query_item_group, %struct._header_field_info { ptr @.str.43, ptr @.str.44, i32 26, i32 0, ptr null, i64 0, ptr @.str.45, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_query_item_approved, %struct._header_field_info { ptr @.str.46, ptr @.str.47, i32 26, i32 0, ptr null, i64 0, ptr @.str.48, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_query_item_node, %struct._header_field_info { ptr @.str.25, ptr @.str.49, i32 26, i32 0, ptr null, i64 0, ptr @.str.50, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_query_identity, %struct._header_field_info { ptr @.str.51, ptr @.str.52, i32 0, i32 0, ptr null, i64 0, ptr @.str.53, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_query_identity_category, %struct._header_field_info { ptr @.str.54, ptr @.str.55, i32 26, i32 0, ptr null, i64 0, ptr @.str.56, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_query_identity_type, %struct._header_field_info { ptr @.str.13, ptr @.str.57, i32 26, i32 0, ptr null, i64 0, ptr @.str.58, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_query_identity_name, %struct._header_field_info { ptr @.str.34, ptr @.str.59, i32 26, i32 0, ptr null, i64 0, ptr @.str.60, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_query_identity_lang, %struct._header_field_info { ptr @.str.61, ptr @.str.62, i32 26, i32 0, ptr null, i64 0, ptr @.str.63, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_query_feature, %struct._header_field_info { ptr @.str.64, ptr @.str.65, i32 26, i32 0, ptr null, i64 0, ptr @.str.66, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_query_streamhost, %struct._header_field_info { ptr @.str.67, ptr @.str.68, i32 0, i32 0, ptr null, i64 0, ptr @.str.69, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_query_streamhost_used, %struct._header_field_info { ptr @.str.70, ptr @.str.71, i32 0, i32 0, ptr null, i64 0, ptr @.str.72, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_query_activate, %struct._header_field_info { ptr @.str.73, ptr @.str.74, i32 26, i32 0, ptr null, i64 0, ptr @.str.75, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_query_udpsuccess, %struct._header_field_info { ptr @.str.76, ptr @.str.77, i32 0, i32 0, ptr null, i64 0, ptr @.str.72, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_error, %struct._header_field_info { ptr @.str.78, ptr @.str.79, i32 0, i32 0, ptr null, i64 0, ptr @.str.80, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_error_code, %struct._header_field_info { ptr @.str.81, ptr @.str.82, i32 26, i32 0, ptr null, i64 0, ptr @.str.83, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_error_type, %struct._header_field_info { ptr @.str.13, ptr @.str.84, i32 26, i32 0, ptr null, i64 0, ptr @.str.85, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_error_condition, %struct._header_field_info { ptr @.str.86, ptr @.str.87, i32 26, i32 0, ptr null, i64 0, ptr @.str.88, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_error_text, %struct._header_field_info { ptr @.str.89, ptr @.str.90, i32 26, i32 0, ptr null, i64 0, ptr @.str.91, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_iq_bind, %struct._header_field_info { ptr @.str.92, ptr @.str.93, i32 0, i32 0, ptr null, i64 0, ptr @.str.94, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_iq_bind_jid, %struct._header_field_info { ptr @.str.31, ptr @.str.95, i32 26, i32 0, ptr null, i64 0, ptr @.str.96, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_iq_bind_resource, %struct._header_field_info { ptr @.str.97, ptr @.str.98, i32 26, i32 0, ptr null, i64 0, ptr @.str.99, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_services, %struct._header_field_info { ptr @.str.100, ptr @.str.101, i32 0, i32 0, ptr null, i64 0, ptr @.str.102, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_channel, %struct._header_field_info { ptr @.str.103, ptr @.str.104, i32 0, i32 0, ptr null, i64 0, ptr @.str.105, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_iq_session, %struct._header_field_info { ptr @.str.106, ptr @.str.107, i32 0, i32 0, ptr null, i64 0, ptr @.str.108, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_vcard, %struct._header_field_info { ptr @.str.109, ptr @.str.110, i32 0, i32 0, ptr null, i64 0, ptr @.str.111, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_vcard_x_update, %struct._header_field_info { ptr @.str.112, ptr @.str.113, i32 0, i32 0, ptr null, i64 0, ptr @.str.114, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle, %struct._header_field_info { ptr @.str.115, ptr @.str.116, i32 0, i32 0, ptr null, i64 0, ptr @.str.117, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_action, %struct._header_field_info { ptr @.str.118, ptr @.str.119, i32 26, i32 0, ptr null, i64 0, ptr @.str.120, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_sid, %struct._header_field_info { ptr @.str.121, ptr @.str.122, i32 26, i32 0, ptr null, i64 0, ptr @.str.123, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_initiator, %struct._header_field_info { ptr @.str.124, ptr @.str.125, i32 26, i32 0, ptr null, i64 0, ptr @.str.126, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_responder, %struct._header_field_info { ptr @.str.127, ptr @.str.128, i32 26, i32 0, ptr null, i64 0, ptr @.str.129, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_content, %struct._header_field_info { ptr @.str.130, ptr @.str.131, i32 0, i32 0, ptr null, i64 0, ptr @.str.132, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_content_creator, %struct._header_field_info { ptr @.str.133, ptr @.str.134, i32 26, i32 0, ptr null, i64 0, ptr @.str.135, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_content_name, %struct._header_field_info { ptr @.str.34, ptr @.str.136, i32 26, i32 0, ptr null, i64 0, ptr @.str.137, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_content_disposition, %struct._header_field_info { ptr @.str.138, ptr @.str.139, i32 26, i32 0, ptr null, i64 0, ptr @.str.140, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_content_senders, %struct._header_field_info { ptr @.str.141, ptr @.str.142, i32 26, i32 0, ptr null, i64 0, ptr @.str.143, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_content_description, %struct._header_field_info { ptr @.str.144, ptr @.str.145, i32 0, i32 0, ptr null, i64 0, ptr @.str.146, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_content_description_media, %struct._header_field_info { ptr @.str.147, ptr @.str.148, i32 26, i32 0, ptr null, i64 0, ptr @.str.146, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_content_description_ssrc, %struct._header_field_info { ptr @.str.149, ptr @.str.150, i32 26, i32 0, ptr null, i64 0, ptr @.str.151, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_cont_desc_payload, %struct._header_field_info { ptr @.str.152, ptr @.str.153, i32 0, i32 0, ptr null, i64 0, ptr @.str.154, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_cont_desc_payload_id, %struct._header_field_info { ptr @.str.10, ptr @.str.155, i32 26, i32 0, ptr null, i64 0, ptr @.str.156, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_cont_desc_payload_channels, %struct._header_field_info { ptr @.str.157, ptr @.str.158, i32 26, i32 0, ptr null, i64 0, ptr @.str.159, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_cont_desc_payload_clockrate, %struct._header_field_info { ptr @.str.160, ptr @.str.161, i32 26, i32 0, ptr null, i64 0, ptr @.str.162, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_cont_desc_payload_maxptime, %struct._header_field_info { ptr @.str.163, ptr @.str.164, i32 26, i32 0, ptr null, i64 0, ptr @.str.165, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_cont_desc_payload_name, %struct._header_field_info { ptr @.str.34, ptr @.str.166, i32 26, i32 0, ptr null, i64 0, ptr @.str.167, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_cont_desc_payload_ptime, %struct._header_field_info { ptr @.str.168, ptr @.str.169, i32 26, i32 0, ptr null, i64 0, ptr @.str.170, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_cont_desc_payload_param, %struct._header_field_info { ptr @.str.171, ptr @.str.172, i32 0, i32 0, ptr null, i64 0, ptr @.str.173, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_cont_desc_payload_param_name, %struct._header_field_info { ptr @.str.34, ptr @.str.174, i32 26, i32 0, ptr null, i64 0, ptr @.str.175, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_cont_desc_payload_param_value, %struct._header_field_info { ptr @.str.176, ptr @.str.177, i32 26, i32 0, ptr null, i64 0, ptr @.str.178, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_cont_trans, %struct._header_field_info { ptr @.str.179, ptr @.str.180, i32 0, i32 0, ptr null, i64 0, ptr @.str.181, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_cont_trans_ufrag, %struct._header_field_info { ptr @.str.182, ptr @.str.183, i32 26, i32 0, ptr null, i64 0, ptr @.str.184, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_cont_trans_pwd, %struct._header_field_info { ptr @.str.185, ptr @.str.186, i32 26, i32 0, ptr null, i64 0, ptr @.str.187, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_cont_trans_cand, %struct._header_field_info { ptr @.str.188, ptr @.str.189, i32 0, i32 0, ptr null, i64 0, ptr @.str.190, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_cont_trans_rem_cand, %struct._header_field_info { ptr @.str.191, ptr @.str.192, i32 0, i32 0, ptr null, i64 0, ptr @.str.193, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_cont_trans_activated, %struct._header_field_info { ptr @.str.194, ptr @.str.195, i32 0, i32 0, ptr null, i64 0, ptr @.str.196, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_cont_trans_candidate_used, %struct._header_field_info { ptr @.str.197, ptr @.str.198, i32 0, i32 0, ptr null, i64 0, ptr @.str.199, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_cont_trans_candidate_error, %struct._header_field_info { ptr @.str.200, ptr @.str.201, i32 0, i32 0, ptr null, i64 0, ptr @.str.202, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_cont_trans_proxy_error, %struct._header_field_info { ptr @.str.203, ptr @.str.204, i32 0, i32 0, ptr null, i64 0, ptr @.str.205, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_cont_desc_enc, %struct._header_field_info { ptr @.str.206, ptr @.str.207, i32 0, i32 0, ptr null, i64 0, ptr @.str.208, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_cont_desc_enc_zrtp_hash, %struct._header_field_info { ptr @.str.209, ptr @.str.210, i32 0, i32 0, ptr null, i64 0, ptr @.str.211, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_cont_desc_enc_crypto, %struct._header_field_info { ptr @.str.212, ptr @.str.213, i32 0, i32 0, ptr null, i64 0, ptr @.str.214, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_cont_desc_bandwidth, %struct._header_field_info { ptr @.str.215, ptr @.str.216, i32 0, i32 0, ptr null, i64 0, ptr @.str.217, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_cont_desc_rtp_hdr, %struct._header_field_info { ptr @.str.218, ptr @.str.219, i32 0, i32 0, ptr null, i64 0, ptr @.str.220, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_reason, %struct._header_field_info { ptr @.str.221, ptr @.str.222, i32 0, i32 0, ptr null, i64 0, ptr @.str.223, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_reason_condition, %struct._header_field_info { ptr @.str.86, ptr @.str.224, i32 26, i32 0, ptr null, i64 0, ptr @.str.225, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_reason_text, %struct._header_field_info { ptr @.str.89, ptr @.str.226, i32 26, i32 0, ptr null, i64 0, ptr @.str.227, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_rtp_info, %struct._header_field_info { ptr @.str.228, ptr @.str.229, i32 26, i32 0, ptr null, i64 0, ptr @.str.230, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_file_transfer_offer, %struct._header_field_info { ptr @.str.231, ptr @.str.232, i32 0, i32 0, ptr null, i64 0, ptr @.str.233, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_file_transfer_request, %struct._header_field_info { ptr @.str.234, ptr @.str.235, i32 0, i32 0, ptr null, i64 0, ptr @.str.236, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_file_transfer_received, %struct._header_field_info { ptr @.str.237, ptr @.str.238, i32 0, i32 0, ptr null, i64 0, ptr @.str.239, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_file_transfer_abort, %struct._header_field_info { ptr @.str.240, ptr @.str.241, i32 0, i32 0, ptr null, i64 0, ptr @.str.242, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_file_transfer_checksum, %struct._header_field_info { ptr @.str.243, ptr @.str.244, i32 0, i32 0, ptr null, i64 0, ptr @.str.245, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_si, %struct._header_field_info { ptr @.str.246, ptr @.str.247, i32 0, i32 0, ptr null, i64 0, ptr @.str.248, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_si_file, %struct._header_field_info { ptr @.str.249, ptr @.str.250, i32 0, i32 0, ptr null, i64 0, ptr @.str.251, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_iq_feature_neg, %struct._header_field_info { ptr @.str.64, ptr @.str.252, i32 0, i32 0, ptr null, i64 0, ptr @.str.253, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_x_data, %struct._header_field_info { ptr @.str.254, ptr @.str.255, i32 0, i32 0, ptr null, i64 0, ptr @.str.256, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_x_data_field, %struct._header_field_info { ptr @.str.257, ptr @.str.258, i32 0, i32 0, ptr null, i64 0, ptr @.str.259, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_x_data_field_value, %struct._header_field_info { ptr @.str.260, ptr @.str.261, i32 0, i32 0, ptr null, i64 0, ptr @.str.262, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_x_data_instructions, %struct._header_field_info { ptr @.str.263, ptr @.str.264, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_muc_user_status, %struct._header_field_info { ptr @.str.265, ptr @.str.266, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_delay, %struct._header_field_info { ptr @.str.267, ptr @.str.268, i32 0, i32 0, ptr null, i64 0, ptr @.str.269, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_x_event, %struct._header_field_info { ptr @.str.270, ptr @.str.271, i32 0, i32 0, ptr null, i64 0, ptr @.str.272, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_x_event_condition, %struct._header_field_info { ptr @.str.86, ptr @.str.273, i32 26, i32 0, ptr null, i64 0, ptr @.str.274, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_presence, %struct._header_field_info { ptr @.str.275, ptr @.str.276, i32 0, i32 0, ptr null, i64 0, ptr @.str.277, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_presence_show, %struct._header_field_info { ptr @.str.278, ptr @.str.279, i32 26, i32 0, ptr null, i64 0, ptr @.str.280, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_presence_status, %struct._header_field_info { ptr @.str.265, ptr @.str.281, i32 0, i32 0, ptr null, i64 0, ptr @.str.282, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_presence_caps, %struct._header_field_info { ptr @.str.283, ptr @.str.284, i32 0, i32 0, ptr null, i64 0, ptr @.str.285, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_message, %struct._header_field_info { ptr @.str.286, ptr @.str.287, i32 0, i32 0, ptr null, i64 0, ptr @.str.288, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_message_chatstate, %struct._header_field_info { ptr @.str.289, ptr @.str.290, i32 26, i32 0, ptr null, i64 0, ptr @.str.291, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_message_thread, %struct._header_field_info { ptr @.str.292, ptr @.str.293, i32 0, i32 0, ptr null, i64 0, ptr @.str.294, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_message_body, %struct._header_field_info { ptr @.str.295, ptr @.str.296, i32 0, i32 0, ptr null, i64 0, ptr @.str.297, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_message_subject, %struct._header_field_info { ptr @.str.298, ptr @.str.299, i32 0, i32 0, ptr null, i64 0, ptr @.str.300, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_message_thread_parent, %struct._header_field_info { ptr @.str.301, ptr @.str.302, i32 26, i32 0, ptr null, i64 0, ptr @.str.303, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_auth, %struct._header_field_info { ptr @.str.304, ptr @.str.305, i32 0, i32 0, ptr null, i64 0, ptr @.str.306, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_stream, %struct._header_field_info { ptr @.str.307, ptr @.str.308, i32 0, i32 0, ptr null, i64 0, ptr @.str.309, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_failure, %struct._header_field_info { ptr @.str.310, ptr @.str.311, i32 0, i32 0, ptr null, i64 0, ptr @.str.312, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_failure_text, %struct._header_field_info { ptr @.str.313, ptr @.str.314, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_xml_header_version, %struct._header_field_info { ptr @.str.315, ptr @.str.316, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_stream_end, %struct._header_field_info { ptr @.str.317, ptr @.str.318, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_features, %struct._header_field_info { ptr @.str.319, ptr @.str.320, i32 0, i32 0, ptr null, i64 0, ptr @.str.321, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_starttls, %struct._header_field_info { ptr @.str.322, ptr @.str.323, i32 0, i32 0, ptr null, i64 0, ptr @.str.324, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_proceed, %struct._header_field_info { ptr @.str.325, ptr @.str.326, i32 0, i32 0, ptr null, i64 0, ptr @.str.327, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_unknown, %struct._header_field_info { ptr @.str.328, ptr @.str.329, i32 26, i32 0, ptr null, i64 0, ptr @.str.330, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_unknown_attr, %struct._header_field_info { ptr @.str.331, ptr @.str.332, i32 26, i32 0, ptr null, i64 0, ptr @.str.333, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_ibb_open, %struct._header_field_info { ptr @.str.334, ptr @.str.335, i32 0, i32 0, ptr null, i64 0, ptr @.str.336, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_ibb_close, %struct._header_field_info { ptr @.str.337, ptr @.str.338, i32 0, i32 0, ptr null, i64 0, ptr @.str.339, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_ibb_data, %struct._header_field_info { ptr @.str.340, ptr @.str.341, i32 0, i32 0, ptr null, i64 0, ptr @.str.342, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_muc_x, %struct._header_field_info { ptr @.str.343, ptr @.str.344, i32 0, i32 0, ptr null, i64 0, ptr @.str.345, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_muc_user_x, %struct._header_field_info { ptr @.str.346, ptr @.str.347, i32 0, i32 0, ptr null, i64 0, ptr @.str.348, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_muc_user_item, %struct._header_field_info { ptr @.str.28, ptr @.str.349, i32 0, i32 0, ptr null, i64 0, ptr @.str.350, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_muc_user_invite, %struct._header_field_info { ptr @.str.351, ptr @.str.352, i32 0, i32 0, ptr null, i64 0, ptr @.str.353, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_gtalk_session, %struct._header_field_info { ptr @.str.354, ptr @.str.355, i32 0, i32 0, ptr null, i64 0, ptr @.str.356, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_gtalk_session_type, %struct._header_field_info { ptr @.str.13, ptr @.str.357, i32 26, i32 0, ptr null, i64 0, ptr @.str.358, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_gtalk, %struct._header_field_info { ptr @.str.359, ptr @.str.360, i32 26, i32 0, ptr null, i64 0, ptr @.str.361, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_gtalk_setting, %struct._header_field_info { ptr @.str.362, ptr @.str.363, i32 0, i32 0, ptr null, i64 0, ptr @.str.364, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_gtalk_setting_element, %struct._header_field_info { ptr @.str.365, ptr @.str.366, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_gtalk_nosave_x, %struct._header_field_info { ptr @.str.367, ptr @.str.368, i32 0, i32 0, ptr null, i64 0, ptr @.str.369, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_gtalk_mail_mailbox, %struct._header_field_info { ptr @.str.370, ptr @.str.371, i32 0, i32 0, ptr null, i64 0, ptr @.str.372, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_gtalk_mail_new_mail, %struct._header_field_info { ptr @.str.373, ptr @.str.374, i32 0, i32 0, ptr null, i64 0, ptr @.str.375, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_gtalk_transport_p2p, %struct._header_field_info { ptr @.str.179, ptr @.str.376, i32 0, i32 0, ptr null, i64 0, ptr @.str.377, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_gtalk_mail_snippet, %struct._header_field_info { ptr @.str.378, ptr @.str.379, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_gtalk_status_status_list, %struct._header_field_info { ptr @.str.265, ptr @.str.380, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_conf_info, %struct._header_field_info { ptr @.str.381, ptr @.str.382, i32 0, i32 0, ptr null, i64 0, ptr @.str.383, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_conf_info_sid, %struct._header_field_info { ptr @.str.121, ptr @.str.384, i32 26, i32 0, ptr null, i64 0, ptr @.str.385, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_response_in, %struct._header_field_info { ptr @.str.386, ptr @.str.387, i32 35, i32 0, ptr null, i64 0, ptr @.str.388, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_response_to, %struct._header_field_info { ptr @.str.389, ptr @.str.390, i32 35, i32 0, ptr null, i64 0, ptr @.str.391, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_out, %struct._header_field_info { ptr @.str.392, ptr @.str.393, i32 2, i32 0, ptr null, i64 0, ptr @.str.394, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_in, %struct._header_field_info { ptr @.str.395, ptr @.str.396, i32 2, i32 0, ptr null, i64 0, ptr @.str.397, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_ibb, %struct._header_field_info { ptr @.str.398, ptr @.str.399, i32 26, i32 0, ptr null, i64 0, ptr @.str.400, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_session, %struct._header_field_info { ptr @.str.401, ptr @.str.402, i32 26, i32 0, ptr null, i64 0, ptr @.str.403, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_ping, %struct._header_field_info { ptr @.str.404, ptr @.str.405, i32 0, i32 0, ptr null, i64 0, ptr @.str.406, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_hashes, %struct._header_field_info { ptr @.str.407, ptr @.str.408, i32 0, i32 0, ptr null, i64 0, ptr @.str.409, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jitsi_inputevt, %struct._header_field_info { ptr @.str.410, ptr @.str.411, i32 0, i32 0, ptr null, i64 0, ptr @.str.412, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jitsi_inputevt_rmt_ctrl, %struct._header_field_info { ptr @.str.413, ptr @.str.414, i32 0, i32 0, ptr null, i64 0, ptr @.str.415, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
+@proto_register_xmpp.hf = internal global [149 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_xmpp_iq, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 0, i32 0, ptr null, i64 0, ptr @.str.2, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_xmlns, %struct._header_field_info { ptr @.str.3, ptr @.str.4, i32 26, i32 0, ptr null, i64 0, ptr @.str.5, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_cdata, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_attribute, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_id, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 26, i32 0, ptr null, i64 0, ptr @.str.12, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_type, %struct._header_field_info { ptr @.str.13, ptr @.str.14, i32 26, i32 0, ptr null, i64 0, ptr @.str.15, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_from, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 26, i32 0, ptr null, i64 0, ptr @.str.18, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_to, %struct._header_field_info { ptr @.str.19, ptr @.str.20, i32 26, i32 0, ptr null, i64 0, ptr @.str.21, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_query, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 0, i32 0, ptr null, i64 0, ptr @.str.24, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_query_node, %struct._header_field_info { ptr @.str.25, ptr @.str.26, i32 26, i32 0, ptr null, i64 0, ptr @.str.27, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_query_item, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 0, i32 0, ptr null, i64 0, ptr @.str.30, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_query_item_jid, %struct._header_field_info { ptr @.str.31, ptr @.str.32, i32 26, i32 0, ptr null, i64 0, ptr @.str.33, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_query_item_name, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 26, i32 0, ptr null, i64 0, ptr @.str.36, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_query_item_subscription, %struct._header_field_info { ptr @.str.37, ptr @.str.38, i32 26, i32 0, ptr null, i64 0, ptr @.str.39, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_query_item_ask, %struct._header_field_info { ptr @.str.40, ptr @.str.41, i32 26, i32 0, ptr null, i64 0, ptr @.str.42, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_query_item_group, %struct._header_field_info { ptr @.str.43, ptr @.str.44, i32 26, i32 0, ptr null, i64 0, ptr @.str.45, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_query_item_approved, %struct._header_field_info { ptr @.str.46, ptr @.str.47, i32 26, i32 0, ptr null, i64 0, ptr @.str.48, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_query_item_node, %struct._header_field_info { ptr @.str.25, ptr @.str.49, i32 26, i32 0, ptr null, i64 0, ptr @.str.50, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_query_identity, %struct._header_field_info { ptr @.str.51, ptr @.str.52, i32 0, i32 0, ptr null, i64 0, ptr @.str.53, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_query_identity_category, %struct._header_field_info { ptr @.str.54, ptr @.str.55, i32 26, i32 0, ptr null, i64 0, ptr @.str.56, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_query_identity_type, %struct._header_field_info { ptr @.str.13, ptr @.str.57, i32 26, i32 0, ptr null, i64 0, ptr @.str.58, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_query_identity_name, %struct._header_field_info { ptr @.str.34, ptr @.str.59, i32 26, i32 0, ptr null, i64 0, ptr @.str.60, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_query_identity_lang, %struct._header_field_info { ptr @.str.61, ptr @.str.62, i32 26, i32 0, ptr null, i64 0, ptr @.str.63, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_query_feature, %struct._header_field_info { ptr @.str.64, ptr @.str.65, i32 26, i32 0, ptr null, i64 0, ptr @.str.66, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_query_streamhost, %struct._header_field_info { ptr @.str.67, ptr @.str.68, i32 0, i32 0, ptr null, i64 0, ptr @.str.69, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_query_streamhost_used, %struct._header_field_info { ptr @.str.70, ptr @.str.71, i32 0, i32 0, ptr null, i64 0, ptr @.str.72, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_query_activate, %struct._header_field_info { ptr @.str.73, ptr @.str.74, i32 26, i32 0, ptr null, i64 0, ptr @.str.75, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_query_udpsuccess, %struct._header_field_info { ptr @.str.76, ptr @.str.77, i32 0, i32 0, ptr null, i64 0, ptr @.str.72, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_error, %struct._header_field_info { ptr @.str.78, ptr @.str.79, i32 0, i32 0, ptr null, i64 0, ptr @.str.80, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_error_code, %struct._header_field_info { ptr @.str.81, ptr @.str.82, i32 26, i32 0, ptr null, i64 0, ptr @.str.83, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_error_type, %struct._header_field_info { ptr @.str.13, ptr @.str.84, i32 26, i32 0, ptr null, i64 0, ptr @.str.85, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_error_condition, %struct._header_field_info { ptr @.str.86, ptr @.str.87, i32 26, i32 0, ptr null, i64 0, ptr @.str.88, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_error_text, %struct._header_field_info { ptr @.str.89, ptr @.str.90, i32 26, i32 0, ptr null, i64 0, ptr @.str.91, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_iq_bind, %struct._header_field_info { ptr @.str.92, ptr @.str.93, i32 0, i32 0, ptr null, i64 0, ptr @.str.94, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_iq_bind_jid, %struct._header_field_info { ptr @.str.31, ptr @.str.95, i32 26, i32 0, ptr null, i64 0, ptr @.str.96, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_iq_bind_resource, %struct._header_field_info { ptr @.str.97, ptr @.str.98, i32 26, i32 0, ptr null, i64 0, ptr @.str.99, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_services, %struct._header_field_info { ptr @.str.100, ptr @.str.101, i32 0, i32 0, ptr null, i64 0, ptr @.str.102, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_channel, %struct._header_field_info { ptr @.str.103, ptr @.str.104, i32 0, i32 0, ptr null, i64 0, ptr @.str.105, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_iq_session, %struct._header_field_info { ptr @.str.106, ptr @.str.107, i32 0, i32 0, ptr null, i64 0, ptr @.str.108, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_vcard, %struct._header_field_info { ptr @.str.109, ptr @.str.110, i32 0, i32 0, ptr null, i64 0, ptr @.str.111, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_vcard_x_update, %struct._header_field_info { ptr @.str.112, ptr @.str.113, i32 0, i32 0, ptr null, i64 0, ptr @.str.114, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle, %struct._header_field_info { ptr @.str.115, ptr @.str.116, i32 0, i32 0, ptr null, i64 0, ptr @.str.117, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_action, %struct._header_field_info { ptr @.str.118, ptr @.str.119, i32 26, i32 0, ptr null, i64 0, ptr @.str.120, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_sid, %struct._header_field_info { ptr @.str.121, ptr @.str.122, i32 26, i32 0, ptr null, i64 0, ptr @.str.123, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_initiator, %struct._header_field_info { ptr @.str.124, ptr @.str.125, i32 26, i32 0, ptr null, i64 0, ptr @.str.126, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_responder, %struct._header_field_info { ptr @.str.127, ptr @.str.128, i32 26, i32 0, ptr null, i64 0, ptr @.str.129, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_content, %struct._header_field_info { ptr @.str.130, ptr @.str.131, i32 0, i32 0, ptr null, i64 0, ptr @.str.132, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_content_creator, %struct._header_field_info { ptr @.str.133, ptr @.str.134, i32 26, i32 0, ptr null, i64 0, ptr @.str.135, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_content_name, %struct._header_field_info { ptr @.str.34, ptr @.str.136, i32 26, i32 0, ptr null, i64 0, ptr @.str.137, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_content_disposition, %struct._header_field_info { ptr @.str.138, ptr @.str.139, i32 26, i32 0, ptr null, i64 0, ptr @.str.140, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_content_senders, %struct._header_field_info { ptr @.str.141, ptr @.str.142, i32 26, i32 0, ptr null, i64 0, ptr @.str.143, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_content_description, %struct._header_field_info { ptr @.str.144, ptr @.str.145, i32 0, i32 0, ptr null, i64 0, ptr @.str.146, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_content_description_media, %struct._header_field_info { ptr @.str.147, ptr @.str.148, i32 26, i32 0, ptr null, i64 0, ptr @.str.146, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_content_description_ssrc, %struct._header_field_info { ptr @.str.149, ptr @.str.150, i32 26, i32 0, ptr null, i64 0, ptr @.str.151, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_cont_desc_payload, %struct._header_field_info { ptr @.str.152, ptr @.str.153, i32 0, i32 0, ptr null, i64 0, ptr @.str.154, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_cont_desc_payload_id, %struct._header_field_info { ptr @.str.10, ptr @.str.155, i32 26, i32 0, ptr null, i64 0, ptr @.str.156, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_cont_desc_payload_channels, %struct._header_field_info { ptr @.str.157, ptr @.str.158, i32 26, i32 0, ptr null, i64 0, ptr @.str.159, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_cont_desc_payload_clockrate, %struct._header_field_info { ptr @.str.160, ptr @.str.161, i32 26, i32 0, ptr null, i64 0, ptr @.str.162, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_cont_desc_payload_maxptime, %struct._header_field_info { ptr @.str.163, ptr @.str.164, i32 26, i32 0, ptr null, i64 0, ptr @.str.165, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_cont_desc_payload_name, %struct._header_field_info { ptr @.str.34, ptr @.str.166, i32 26, i32 0, ptr null, i64 0, ptr @.str.167, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_cont_desc_payload_ptime, %struct._header_field_info { ptr @.str.168, ptr @.str.169, i32 26, i32 0, ptr null, i64 0, ptr @.str.170, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_cont_desc_payload_param, %struct._header_field_info { ptr @.str.171, ptr @.str.172, i32 0, i32 0, ptr null, i64 0, ptr @.str.173, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_cont_desc_payload_param_name, %struct._header_field_info { ptr @.str.34, ptr @.str.174, i32 26, i32 0, ptr null, i64 0, ptr @.str.175, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_cont_desc_payload_param_value, %struct._header_field_info { ptr @.str.176, ptr @.str.177, i32 26, i32 0, ptr null, i64 0, ptr @.str.178, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_cont_trans, %struct._header_field_info { ptr @.str.179, ptr @.str.180, i32 0, i32 0, ptr null, i64 0, ptr @.str.181, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_cont_trans_ufrag, %struct._header_field_info { ptr @.str.182, ptr @.str.183, i32 26, i32 0, ptr null, i64 0, ptr @.str.184, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_cont_trans_pwd, %struct._header_field_info { ptr @.str.185, ptr @.str.186, i32 26, i32 0, ptr null, i64 0, ptr @.str.187, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_cont_trans_cand, %struct._header_field_info { ptr @.str.188, ptr @.str.189, i32 0, i32 0, ptr null, i64 0, ptr @.str.190, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_cont_trans_rem_cand, %struct._header_field_info { ptr @.str.191, ptr @.str.192, i32 0, i32 0, ptr null, i64 0, ptr @.str.193, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_cont_trans_activated, %struct._header_field_info { ptr @.str.194, ptr @.str.195, i32 0, i32 0, ptr null, i64 0, ptr @.str.196, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_cont_trans_candidate_used, %struct._header_field_info { ptr @.str.197, ptr @.str.198, i32 0, i32 0, ptr null, i64 0, ptr @.str.199, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_cont_trans_candidate_error, %struct._header_field_info { ptr @.str.200, ptr @.str.201, i32 0, i32 0, ptr null, i64 0, ptr @.str.202, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_cont_trans_proxy_error, %struct._header_field_info { ptr @.str.203, ptr @.str.204, i32 0, i32 0, ptr null, i64 0, ptr @.str.205, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_cont_desc_enc, %struct._header_field_info { ptr @.str.206, ptr @.str.207, i32 0, i32 0, ptr null, i64 0, ptr @.str.208, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_cont_desc_enc_zrtp_hash, %struct._header_field_info { ptr @.str.209, ptr @.str.210, i32 0, i32 0, ptr null, i64 0, ptr @.str.211, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_cont_desc_enc_crypto, %struct._header_field_info { ptr @.str.212, ptr @.str.213, i32 0, i32 0, ptr null, i64 0, ptr @.str.214, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_cont_desc_bandwidth, %struct._header_field_info { ptr @.str.215, ptr @.str.216, i32 0, i32 0, ptr null, i64 0, ptr @.str.217, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_cont_desc_rtp_hdr, %struct._header_field_info { ptr @.str.218, ptr @.str.219, i32 0, i32 0, ptr null, i64 0, ptr @.str.220, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_reason, %struct._header_field_info { ptr @.str.221, ptr @.str.222, i32 0, i32 0, ptr null, i64 0, ptr @.str.223, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_reason_condition, %struct._header_field_info { ptr @.str.86, ptr @.str.224, i32 26, i32 0, ptr null, i64 0, ptr @.str.225, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_reason_text, %struct._header_field_info { ptr @.str.89, ptr @.str.226, i32 26, i32 0, ptr null, i64 0, ptr @.str.227, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_rtp_info, %struct._header_field_info { ptr @.str.228, ptr @.str.229, i32 26, i32 0, ptr null, i64 0, ptr @.str.230, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_file_transfer_offer, %struct._header_field_info { ptr @.str.231, ptr @.str.232, i32 0, i32 0, ptr null, i64 0, ptr @.str.233, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_file_transfer_request, %struct._header_field_info { ptr @.str.234, ptr @.str.235, i32 0, i32 0, ptr null, i64 0, ptr @.str.236, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_file_transfer_received, %struct._header_field_info { ptr @.str.237, ptr @.str.238, i32 0, i32 0, ptr null, i64 0, ptr @.str.239, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_file_transfer_abort, %struct._header_field_info { ptr @.str.240, ptr @.str.241, i32 0, i32 0, ptr null, i64 0, ptr @.str.242, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_file_transfer_checksum, %struct._header_field_info { ptr @.str.243, ptr @.str.244, i32 0, i32 0, ptr null, i64 0, ptr @.str.245, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_si, %struct._header_field_info { ptr @.str.246, ptr @.str.247, i32 0, i32 0, ptr null, i64 0, ptr @.str.248, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_si_file, %struct._header_field_info { ptr @.str.249, ptr @.str.250, i32 0, i32 0, ptr null, i64 0, ptr @.str.251, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_iq_feature_neg, %struct._header_field_info { ptr @.str.64, ptr @.str.252, i32 0, i32 0, ptr null, i64 0, ptr @.str.253, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_x_data, %struct._header_field_info { ptr @.str.254, ptr @.str.255, i32 0, i32 0, ptr null, i64 0, ptr @.str.256, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_x_data_field, %struct._header_field_info { ptr @.str.257, ptr @.str.258, i32 0, i32 0, ptr null, i64 0, ptr @.str.259, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_x_data_field_value, %struct._header_field_info { ptr @.str.260, ptr @.str.261, i32 0, i32 0, ptr null, i64 0, ptr @.str.262, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_x_data_instructions, %struct._header_field_info { ptr @.str.263, ptr @.str.264, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_muc_user_status, %struct._header_field_info { ptr @.str.265, ptr @.str.266, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_delay, %struct._header_field_info { ptr @.str.267, ptr @.str.268, i32 0, i32 0, ptr null, i64 0, ptr @.str.269, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_x_event, %struct._header_field_info { ptr @.str.270, ptr @.str.271, i32 0, i32 0, ptr null, i64 0, ptr @.str.272, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_x_event_condition, %struct._header_field_info { ptr @.str.86, ptr @.str.273, i32 26, i32 0, ptr null, i64 0, ptr @.str.274, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_presence, %struct._header_field_info { ptr @.str.275, ptr @.str.276, i32 0, i32 0, ptr null, i64 0, ptr @.str.277, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_presence_show, %struct._header_field_info { ptr @.str.278, ptr @.str.279, i32 26, i32 0, ptr null, i64 0, ptr @.str.280, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_presence_status, %struct._header_field_info { ptr @.str.265, ptr @.str.281, i32 0, i32 0, ptr null, i64 0, ptr @.str.282, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_presence_caps, %struct._header_field_info { ptr @.str.283, ptr @.str.284, i32 0, i32 0, ptr null, i64 0, ptr @.str.285, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_message, %struct._header_field_info { ptr @.str.286, ptr @.str.287, i32 0, i32 0, ptr null, i64 0, ptr @.str.288, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_message_chatstate, %struct._header_field_info { ptr @.str.289, ptr @.str.290, i32 26, i32 0, ptr null, i64 0, ptr @.str.291, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_message_thread, %struct._header_field_info { ptr @.str.292, ptr @.str.293, i32 0, i32 0, ptr null, i64 0, ptr @.str.294, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_message_body, %struct._header_field_info { ptr @.str.295, ptr @.str.296, i32 0, i32 0, ptr null, i64 0, ptr @.str.297, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_message_subject, %struct._header_field_info { ptr @.str.298, ptr @.str.299, i32 0, i32 0, ptr null, i64 0, ptr @.str.300, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_message_thread_parent, %struct._header_field_info { ptr @.str.301, ptr @.str.302, i32 26, i32 0, ptr null, i64 0, ptr @.str.303, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_auth, %struct._header_field_info { ptr @.str.304, ptr @.str.305, i32 0, i32 0, ptr null, i64 0, ptr @.str.306, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_stream, %struct._header_field_info { ptr @.str.307, ptr @.str.308, i32 0, i32 0, ptr null, i64 0, ptr @.str.309, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_failure, %struct._header_field_info { ptr @.str.310, ptr @.str.311, i32 0, i32 0, ptr null, i64 0, ptr @.str.312, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_failure_text, %struct._header_field_info { ptr @.str.313, ptr @.str.314, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_xml_header_version, %struct._header_field_info { ptr @.str.315, ptr @.str.316, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_stream_end, %struct._header_field_info { ptr @.str.317, ptr @.str.318, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_features, %struct._header_field_info { ptr @.str.319, ptr @.str.320, i32 0, i32 0, ptr null, i64 0, ptr @.str.321, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_starttls, %struct._header_field_info { ptr @.str.322, ptr @.str.323, i32 0, i32 0, ptr null, i64 0, ptr @.str.324, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_proceed, %struct._header_field_info { ptr @.str.325, ptr @.str.326, i32 0, i32 0, ptr null, i64 0, ptr @.str.327, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_unknown, %struct._header_field_info { ptr @.str.328, ptr @.str.329, i32 26, i32 0, ptr null, i64 0, ptr @.str.330, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_unknown_attr, %struct._header_field_info { ptr @.str.331, ptr @.str.332, i32 26, i32 0, ptr null, i64 0, ptr @.str.333, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_ibb_open, %struct._header_field_info { ptr @.str.334, ptr @.str.335, i32 0, i32 0, ptr null, i64 0, ptr @.str.336, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_ibb_close, %struct._header_field_info { ptr @.str.337, ptr @.str.338, i32 0, i32 0, ptr null, i64 0, ptr @.str.339, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_ibb_data, %struct._header_field_info { ptr @.str.340, ptr @.str.341, i32 0, i32 0, ptr null, i64 0, ptr @.str.342, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_muc_x, %struct._header_field_info { ptr @.str.343, ptr @.str.344, i32 0, i32 0, ptr null, i64 0, ptr @.str.345, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_muc_user_x, %struct._header_field_info { ptr @.str.346, ptr @.str.347, i32 0, i32 0, ptr null, i64 0, ptr @.str.348, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_muc_user_item, %struct._header_field_info { ptr @.str.28, ptr @.str.349, i32 0, i32 0, ptr null, i64 0, ptr @.str.350, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_muc_user_invite, %struct._header_field_info { ptr @.str.351, ptr @.str.352, i32 0, i32 0, ptr null, i64 0, ptr @.str.353, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_gtalk_session, %struct._header_field_info { ptr @.str.354, ptr @.str.355, i32 0, i32 0, ptr null, i64 0, ptr @.str.356, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_gtalk_session_type, %struct._header_field_info { ptr @.str.13, ptr @.str.357, i32 26, i32 0, ptr null, i64 0, ptr @.str.358, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_gtalk, %struct._header_field_info { ptr @.str.359, ptr @.str.360, i32 26, i32 0, ptr null, i64 0, ptr @.str.361, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_gtalk_setting, %struct._header_field_info { ptr @.str.362, ptr @.str.363, i32 0, i32 0, ptr null, i64 0, ptr @.str.364, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_gtalk_setting_element, %struct._header_field_info { ptr @.str.365, ptr @.str.366, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_gtalk_nosave_x, %struct._header_field_info { ptr @.str.367, ptr @.str.368, i32 0, i32 0, ptr null, i64 0, ptr @.str.369, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_gtalk_mail_mailbox, %struct._header_field_info { ptr @.str.370, ptr @.str.371, i32 0, i32 0, ptr null, i64 0, ptr @.str.372, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_gtalk_mail_new_mail, %struct._header_field_info { ptr @.str.373, ptr @.str.374, i32 0, i32 0, ptr null, i64 0, ptr @.str.375, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_gtalk_transport_p2p, %struct._header_field_info { ptr @.str.179, ptr @.str.376, i32 0, i32 0, ptr null, i64 0, ptr @.str.377, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_gtalk_mail_snippet, %struct._header_field_info { ptr @.str.378, ptr @.str.379, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_gtalk_status_status_list, %struct._header_field_info { ptr @.str.265, ptr @.str.380, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_conf_info, %struct._header_field_info { ptr @.str.381, ptr @.str.382, i32 0, i32 0, ptr null, i64 0, ptr @.str.383, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_conf_info_sid, %struct._header_field_info { ptr @.str.121, ptr @.str.384, i32 26, i32 0, ptr null, i64 0, ptr @.str.385, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_response_in, %struct._header_field_info { ptr @.str.386, ptr @.str.387, i32 35, i32 0, ptr inttoptr (i64 2 to ptr), i64 0, ptr @.str.388, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_response_to, %struct._header_field_info { ptr @.str.389, ptr @.str.390, i32 35, i32 0, ptr inttoptr (i64 1 to ptr), i64 0, ptr @.str.391, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_out, %struct._header_field_info { ptr @.str.392, ptr @.str.393, i32 2, i32 0, ptr null, i64 0, ptr @.str.394, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_in, %struct._header_field_info { ptr @.str.395, ptr @.str.396, i32 2, i32 0, ptr null, i64 0, ptr @.str.397, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_ibb, %struct._header_field_info { ptr @.str.398, ptr @.str.399, i32 26, i32 0, ptr null, i64 0, ptr @.str.400, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jingle_session, %struct._header_field_info { ptr @.str.401, ptr @.str.402, i32 26, i32 0, ptr null, i64 0, ptr @.str.403, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_ping, %struct._header_field_info { ptr @.str.404, ptr @.str.405, i32 0, i32 0, ptr null, i64 0, ptr @.str.406, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_hashes, %struct._header_field_info { ptr @.str.407, ptr @.str.408, i32 0, i32 0, ptr null, i64 0, ptr @.str.409, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jitsi_inputevt, %struct._header_field_info { ptr @.str.410, ptr @.str.411, i32 0, i32 0, ptr null, i64 0, ptr @.str.412, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_xmpp_jitsi_inputevt_rmt_ctrl, %struct._header_field_info { ptr @.str.413, ptr @.str.414, i32 0, i32 0, ptr null, i64 0, ptr @.str.415, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_xmpp_iq = hidden global i32 0, align 4
 @.str = private unnamed_addr constant [3 x i8] c"IQ\00", align 1
 @.str.1 = private unnamed_addr constant [8 x i8] c"xmpp.iq\00", align 1
@@ -689,7 +687,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_xmpp_features_mechanisms = hidden global i32 0, align 4
 @ett_xmpp_starttls = hidden global i32 0, align 4
 @ett_xmpp_proceed = hidden global i32 0, align 4
-@proto_register_xmpp.ei = internal global [13 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_xmpp_xml_disabled, %struct.expert_field_info { ptr @.str.416, i32 83886080, i32 6291456, ptr @.str.417, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_xmpp_packet_unknown, %struct.expert_field_info { ptr @.str.418, i32 83886080, i32 4194304, ptr @.str.419, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_xmpp_packet_without_response, %struct.expert_field_info { ptr @.str.420, i32 150994944, i32 2097152, ptr @.str.421, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_xmpp_response, %struct.expert_field_info { ptr @.str.422, i32 50331648, i32 2097152, ptr @.str.423, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_xmpp_challenge, %struct.expert_field_info { ptr @.str.424, i32 50331648, i32 2097152, ptr @.str.425, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_xmpp_success, %struct.expert_field_info { ptr @.str.426, i32 50331648, i32 2097152, ptr @.str.427, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_xmpp_starttls_already_in_frame, %struct.expert_field_info { ptr @.str.428, i32 150994944, i32 6291456, ptr @.str.429, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_xmpp_starttls_missing, %struct.expert_field_info { ptr @.str.430, i32 150994944, i32 6291456, ptr @.str.431, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_xmpp_proceed_already_in_frame, %struct.expert_field_info { ptr @.str.432, i32 150994944, i32 6291456, ptr @.str.433, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_xmpp_unknown_element, %struct.expert_field_info { ptr @.str.434, i32 83886080, i32 4194304, ptr @.str.435, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_xmpp_unknown_attribute, %struct.expert_field_info { ptr @.str.436, i32 83886080, i32 4194304, ptr @.str.437, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_xmpp_required_attribute, %struct.expert_field_info { ptr @.str.438, i32 150994944, i32 6291456, ptr @.str.439, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_xmpp_field_unexpected_value, %struct.expert_field_info { ptr @.str.440, i32 150994944, i32 6291456, ptr @.str.441, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_xmpp.ei = internal global [13 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_xmpp_xml_disabled, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.416, i32 83886080, i32 6291456, ptr @.str.417, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_xmpp_packet_unknown, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.418, i32 83886080, i32 4194304, ptr @.str.419, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_xmpp_packet_without_response, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.420, i32 150994944, i32 2097152, ptr @.str.421, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_xmpp_response, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.422, i32 50331648, i32 2097152, ptr @.str.423, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_xmpp_challenge, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.424, i32 50331648, i32 2097152, ptr @.str.425, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_xmpp_success, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.426, i32 50331648, i32 2097152, ptr @.str.427, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_xmpp_starttls_already_in_frame, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.428, i32 150994944, i32 6291456, ptr @.str.429, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_xmpp_starttls_missing, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.430, i32 150994944, i32 6291456, ptr @.str.431, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_xmpp_proceed_already_in_frame, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.432, i32 150994944, i32 6291456, ptr @.str.433, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_xmpp_unknown_element, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.434, i32 83886080, i32 4194304, ptr @.str.435, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_xmpp_unknown_attribute, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.436, i32 83886080, i32 4194304, ptr @.str.437, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_xmpp_required_attribute, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.438, i32 150994944, i32 6291456, ptr @.str.439, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_xmpp_field_unexpected_value, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.440, i32 150994944, i32 6291456, ptr @.str.441, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_xmpp_xml_disabled = internal global %struct.expert_field zeroinitializer, align 4
 @.str.416 = private unnamed_addr constant [18 x i8] c"xmpp.xml_disabled\00", align 1
 @.str.417 = private unnamed_addr constant [43 x i8] c"XML dissector disabled, can't dissect XMPP\00", align 1
@@ -738,7 +736,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.445 = private unnamed_addr constant [10 x i8] c"desegment\00", align 1
 @.str.446 = private unnamed_addr constant [25 x i8] c"Reassemble XMPP messages\00", align 1
 @.str.447 = private unnamed_addr constant [173 x i8] c"Whether the XMPP dissector should reassemble messages. To use this option, you must also enable \22Allow subdissectors to reassemble TCP streams\22 in the TCP protocol settings\00", align 1
-@xmpp_desegment = internal global i32 1, align 4
+@xmpp_desegment = internal global i8 1, align 1
 @xmpp_handle = internal global ptr null, align 8
 @.str.448 = private unnamed_addr constant [4 x i8] c"xml\00", align 1
 @xml_handle = internal global ptr null, align 8
@@ -765,11 +763,14 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.469 = private unnamed_addr constant [6 x i8] c"> %s \00", align 1
 @.str.470 = private unnamed_addr constant [6 x i8] c"< %s \00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_xmpp() #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #7
   store i32 0, ptr %3, align 4
   br label %4
 
@@ -792,7 +793,7 @@ define hidden void @proto_register_xmpp() #0 {
   %15 = load i32, ptr %3, align 4
   %16 = add i32 %15, 1
   store i32 %16, ptr %3, align 4
-  br label %4, !llvm.loop !4
+  br label %4, !llvm.loop !6
 
 17:                                               ; preds = %4
   %18 = call i32 @proto_register_protocol(ptr noundef @.str.442, ptr noundef @.str.443, ptr noundef @.str.444)
@@ -815,26 +816,40 @@ define hidden void @proto_register_xmpp() #0 {
   %27 = call ptr @register_dissector(ptr noundef @.str.444, ptr noundef @dissect_xmpp, i32 noundef %26)
   store ptr %27, ptr @xmpp_handle, align 8
   call void @xmpp_init_parsers()
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) #2
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #2
 
-declare ptr @expert_register_protocol(i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #2
 
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_register_protocol(i32 noundef) #2
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_xmpp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -843,7 +858,7 @@ define internal i32 @dissect_xmpp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
-  %12 = alloca i32, align 4
+  %12 = alloca i8, align 1
   %13 = alloca ptr, align 8
   %14 = alloca ptr, align 8
   %15 = alloca ptr, align 8
@@ -851,163 +866,178 @@ define internal i32 @dissect_xmpp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %17 = alloca ptr, align 8
   %18 = alloca ptr, align 8
   %19 = alloca i32, align 4
-  %20 = alloca i32, align 4
+  %20 = alloca i8, align 1
   %21 = alloca i32, align 4
   %22 = alloca i8, align 1
-  %23 = alloca %struct.except_stacknode, align 8
-  %24 = alloca %struct.except_cleanup, align 8
-  %25 = alloca ptr, align 8
+  %23 = alloca i32, align 4
+  %24 = alloca %struct.except_stacknode, align 8
+  %25 = alloca %struct.except_cleanup, align 8
   %26 = alloca ptr, align 8
+  %27 = alloca ptr, align 8
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
   store ptr null, ptr %15, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
   store ptr null, ptr %16, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #7
   store ptr null, ptr %18, align 8
-  %27 = load ptr, ptr @xml_handle, align 8
-  %28 = call i32 @dissector_handle_get_protocol_index(ptr noundef %27)
-  store i32 %28, ptr %19, align 4
-  %29 = load ptr, ptr %6, align 8
-  %30 = call i32 @tvb_reported_length(ptr noundef %29)
-  %31 = icmp eq i32 %30, 1
-  br i1 %31, label %32, label %37
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #7
+  %28 = load ptr, ptr @xml_handle, align 8
+  %29 = call i32 @dissector_handle_get_protocol_index(ptr noundef %28)
+  store i32 %29, ptr %19, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %20) #7
+  %30 = load ptr, ptr %6, align 8
+  %31 = call i32 @tvb_reported_length(ptr noundef %30)
+  %32 = icmp eq i32 %31, 1
+  br i1 %32, label %33, label %38
 
-32:                                               ; preds = %4
-  %33 = load ptr, ptr %6, align 8
-  %34 = call zeroext i8 @tvb_get_guint8(ptr noundef %33, i32 noundef 0)
-  %35 = zext i8 %34 to i32
-  %36 = icmp eq i32 %35, 32
-  br label %37
+33:                                               ; preds = %4
+  %34 = load ptr, ptr %6, align 8
+  %35 = call zeroext i8 @tvb_get_uint8(ptr noundef %34, i32 noundef 0)
+  %36 = zext i8 %35 to i32
+  %37 = icmp eq i32 %36, 32
+  br label %38
 
-37:                                               ; preds = %32, %4
-  %38 = phi i1 [ false, %4 ], [ %36, %32 ]
-  %39 = zext i1 %38 to i32
-  store i32 %39, ptr %20, align 4
-  %40 = load i32, ptr @xmpp_desegment, align 4
-  %41 = icmp ne i32 %40, 0
-  br i1 %41, label %42, label %85
+38:                                               ; preds = %33, %4
+  %39 = phi i1 [ false, %4 ], [ %37, %33 ]
+  %40 = zext i1 %39 to i8
+  store i8 %40, ptr %20, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %22) #7
+  %41 = load i8, ptr @xmpp_desegment, align 1, !range !8, !noundef !9
+  %42 = trunc i8 %41 to i1
+  br i1 %42, label %43, label %86
 
-42:                                               ; preds = %37
-  %43 = load i32, ptr %20, align 4
-  %44 = icmp ne i32 %43, 0
-  br i1 %44, label %85, label %45
+43:                                               ; preds = %38
+  %44 = load i8, ptr %20, align 1, !range !8, !noundef !9
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %86, label %46
 
-45:                                               ; preds = %42
-  %46 = load ptr, ptr %6, align 8
-  %47 = call i32 @tvb_reported_length(ptr noundef %46)
-  %48 = sub i32 %47, 1
-  store i32 %48, ptr %21, align 4
-  %49 = load i32, ptr %21, align 4
-  %50 = icmp sge i32 %49, 0
-  br i1 %50, label %51, label %84
+46:                                               ; preds = %43
+  %47 = load ptr, ptr %6, align 8
+  %48 = call i32 @tvb_reported_length(ptr noundef %47)
+  %49 = sub i32 %48, 1
+  store i32 %49, ptr %21, align 4
+  %50 = load i32, ptr %21, align 4
+  %51 = icmp sge i32 %50, 0
+  br i1 %51, label %52, label %85
 
-51:                                               ; preds = %45
-  %52 = load ptr, ptr %6, align 8
-  %53 = load i32, ptr %21, align 4
-  %54 = call zeroext i8 @tvb_get_guint8(ptr noundef %52, i32 noundef %53)
-  store i8 %54, ptr %22, align 1
-  br label %55
+52:                                               ; preds = %46
+  %53 = load ptr, ptr %6, align 8
+  %54 = load i32, ptr %21, align 4
+  %55 = call zeroext i8 @tvb_get_uint8(ptr noundef %53, i32 noundef %54)
+  store i8 %55, ptr %22, align 1
+  br label %56
 
-55:                                               ; preds = %65, %51
-  %56 = load i8, ptr %22, align 1
-  %57 = sext i8 %56 to i32
-  %58 = icmp sle i32 %57, 32
-  br i1 %58, label %59, label %63
+56:                                               ; preds = %66, %52
+  %57 = load i8, ptr %22, align 1
+  %58 = sext i8 %57 to i32
+  %59 = icmp sle i32 %58, 32
+  br i1 %59, label %60, label %64
 
-59:                                               ; preds = %55
-  %60 = load i32, ptr %21, align 4
-  %61 = sub i32 %60, 1
-  %62 = icmp sge i32 %61, 0
-  br label %63
+60:                                               ; preds = %56
+  %61 = load i32, ptr %21, align 4
+  %62 = sub i32 %61, 1
+  %63 = icmp sge i32 %62, 0
+  br label %64
 
-63:                                               ; preds = %59, %55
-  %64 = phi i1 [ false, %55 ], [ %62, %59 ]
-  br i1 %64, label %65, label %71
+64:                                               ; preds = %60, %56
+  %65 = phi i1 [ false, %56 ], [ %63, %60 ]
+  br i1 %65, label %66, label %72
 
-65:                                               ; preds = %63
-  %66 = load i32, ptr %21, align 4
-  %67 = add i32 %66, -1
-  store i32 %67, ptr %21, align 4
-  %68 = load ptr, ptr %6, align 8
-  %69 = load i32, ptr %21, align 4
-  %70 = call zeroext i8 @tvb_get_guint8(ptr noundef %68, i32 noundef %69)
-  store i8 %70, ptr %22, align 1
-  br label %55, !llvm.loop !6
+66:                                               ; preds = %64
+  %67 = load i32, ptr %21, align 4
+  %68 = add i32 %67, -1
+  store i32 %68, ptr %21, align 4
+  %69 = load ptr, ptr %6, align 8
+  %70 = load i32, ptr %21, align 4
+  %71 = call zeroext i8 @tvb_get_uint8(ptr noundef %69, i32 noundef %70)
+  store i8 %71, ptr %22, align 1
+  br label %56, !llvm.loop !10
 
-71:                                               ; preds = %63
-  %72 = load i32, ptr %21, align 4
-  %73 = icmp sge i32 %72, 0
-  br i1 %73, label %74, label %83
+72:                                               ; preds = %64
+  %73 = load i32, ptr %21, align 4
+  %74 = icmp sge i32 %73, 0
+  br i1 %74, label %75, label %84
 
-74:                                               ; preds = %71
-  %75 = load i8, ptr %22, align 1
-  %76 = sext i8 %75 to i32
-  %77 = icmp ne i32 %76, 62
-  br i1 %77, label %78, label %83
+75:                                               ; preds = %72
+  %76 = load i8, ptr %22, align 1
+  %77 = sext i8 %76 to i32
+  %78 = icmp ne i32 %77, 62
+  br i1 %78, label %79, label %84
 
-78:                                               ; preds = %74
-  %79 = load ptr, ptr %7, align 8
-  %80 = getelementptr inbounds %struct._packet_info, ptr %79, i32 0, i32 33
-  store i32 268435455, ptr %80, align 8
-  %81 = load ptr, ptr %6, align 8
-  %82 = call i32 @tvb_captured_length(ptr noundef %81)
-  store i32 %82, ptr %5, align 4
-  br label %484
+79:                                               ; preds = %75
+  %80 = load ptr, ptr %7, align 8
+  %81 = getelementptr inbounds nuw %struct._packet_info, ptr %80, i32 0, i32 34
+  store i32 268435455, ptr %81, align 8
+  %82 = load ptr, ptr %6, align 8
+  %83 = call i32 @tvb_captured_length(ptr noundef %82)
+  store i32 %83, ptr %5, align 4
+  store i32 1, ptr %23, align 4
+  br label %481
 
-83:                                               ; preds = %74, %71
-  br label %84
-
-84:                                               ; preds = %83, %45
+84:                                               ; preds = %75, %72
   br label %85
 
-85:                                               ; preds = %84, %42, %37
-  %86 = load ptr, ptr %7, align 8
-  %87 = getelementptr inbounds %struct._packet_info, ptr %86, i32 0, i32 1
-  %88 = load ptr, ptr %87, align 8
-  call void @col_set_str(ptr noundef %88, i32 noundef 34, ptr noundef @.str.443)
-  %89 = load ptr, ptr %7, align 8
-  %90 = getelementptr inbounds %struct._packet_info, ptr %89, i32 0, i32 1
-  %91 = load ptr, ptr %90, align 8
-  call void @col_clear(ptr noundef %91, i32 noundef 25)
-  %92 = load ptr, ptr %8, align 8
-  %93 = load i32, ptr @proto_xmpp, align 4
-  %94 = load ptr, ptr %6, align 8
-  %95 = call ptr @proto_tree_add_item(ptr noundef %92, i32 noundef %93, ptr noundef %94, i32 noundef 0, i32 noundef -1, i32 noundef 0)
-  store ptr %95, ptr %16, align 8
-  %96 = load ptr, ptr %16, align 8
-  %97 = load i32, ptr @ett_xmpp, align 4
-  %98 = call ptr @proto_item_add_subtree(ptr noundef %96, i32 noundef %97)
-  store ptr %98, ptr %15, align 8
-  %99 = load i32, ptr %20, align 4
-  %100 = icmp ne i32 %99, 0
-  br i1 %100, label %101, label %107
+85:                                               ; preds = %84, %46
+  br label %86
 
-101:                                              ; preds = %85
-  %102 = load ptr, ptr %7, align 8
-  %103 = getelementptr inbounds %struct._packet_info, ptr %102, i32 0, i32 1
-  %104 = load ptr, ptr %103, align 8
-  call void @col_set_str(ptr noundef %104, i32 noundef 25, ptr noundef @.str.450)
-  %105 = load ptr, ptr %6, align 8
-  %106 = call i32 @tvb_captured_length(ptr noundef %105)
-  store i32 %106, ptr %5, align 4
-  br label %484
+86:                                               ; preds = %85, %43, %38
+  %87 = load ptr, ptr %7, align 8
+  %88 = getelementptr inbounds nuw %struct._packet_info, ptr %87, i32 0, i32 1
+  %89 = load ptr, ptr %88, align 8
+  call void @col_set_str(ptr noundef %89, i32 noundef 35, ptr noundef @.str.443)
+  %90 = load ptr, ptr %7, align 8
+  %91 = getelementptr inbounds nuw %struct._packet_info, ptr %90, i32 0, i32 1
+  %92 = load ptr, ptr %91, align 8
+  call void @col_clear(ptr noundef %92, i32 noundef 25)
+  %93 = load ptr, ptr %8, align 8
+  %94 = load i32, ptr @proto_xmpp, align 4
+  %95 = load ptr, ptr %6, align 8
+  %96 = call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %94, ptr noundef %95, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  store ptr %96, ptr %16, align 8
+  %97 = load ptr, ptr %16, align 8
+  %98 = load i32, ptr @ett_xmpp, align 4
+  %99 = call ptr @proto_item_add_subtree(ptr noundef %97, i32 noundef %98)
+  store ptr %99, ptr %15, align 8
+  %100 = load i8, ptr %20, align 1, !range !8, !noundef !9
+  %101 = trunc i8 %100 to i1
+  br i1 %101, label %102, label %108
 
-107:                                              ; preds = %85
-  %108 = load ptr, ptr @xml_handle, align 8
-  %109 = load ptr, ptr %6, align 8
-  %110 = load ptr, ptr %7, align 8
-  %111 = load ptr, ptr %15, align 8
-  %112 = call i32 @call_dissector_with_data(ptr noundef %108, ptr noundef %109, ptr noundef %110, ptr noundef %111, ptr noundef null)
-  %113 = load i32, ptr %19, align 4
-  %114 = call ptr @find_protocol_by_id(i32 noundef %113)
-  %115 = call i32 @proto_is_protocol_enabled(ptr noundef %114)
-  %116 = icmp ne i32 %115, 0
+102:                                              ; preds = %86
+  %103 = load ptr, ptr %7, align 8
+  %104 = getelementptr inbounds nuw %struct._packet_info, ptr %103, i32 0, i32 1
+  %105 = load ptr, ptr %104, align 8
+  call void @col_set_str(ptr noundef %105, i32 noundef 25, ptr noundef @.str.450)
+  %106 = load ptr, ptr %6, align 8
+  %107 = call i32 @tvb_captured_length(ptr noundef %106)
+  store i32 %107, ptr %5, align 4
+  store i32 1, ptr %23, align 4
+  br label %481
+
+108:                                              ; preds = %86
+  %109 = load ptr, ptr @xml_handle, align 8
+  %110 = load ptr, ptr %6, align 8
+  %111 = load ptr, ptr %7, align 8
+  %112 = load ptr, ptr %15, align 8
+  %113 = call i32 @call_dissector_with_data(ptr noundef %109, ptr noundef %110, ptr noundef %111, ptr noundef %112, ptr noundef null)
+  %114 = load i32, ptr %19, align 4
+  %115 = call ptr @find_protocol_by_id(i32 noundef %114)
+  %116 = call zeroext i1 @proto_is_protocol_enabled(ptr noundef %115)
   br i1 %116, label %126, label %117
 
-117:                                              ; preds = %107
+117:                                              ; preds = %108
   %118 = load ptr, ptr %7, align 8
-  %119 = getelementptr inbounds %struct._packet_info, ptr %118, i32 0, i32 1
+  %119 = getelementptr inbounds nuw %struct._packet_info, ptr %118, i32 0, i32 1
   %120 = load ptr, ptr %119, align 8
   call void @col_append_str(ptr noundef %120, i32 noundef 25, ptr noundef @.str.451)
   %121 = load ptr, ptr %7, align 8
@@ -1016,574 +1046,601 @@ define internal i32 @dissect_xmpp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %124 = load ptr, ptr %6, align 8
   %125 = call i32 @tvb_captured_length(ptr noundef %124)
   store i32 %125, ptr %5, align 4
-  br label %484
+  store i32 1, ptr %23, align 4
+  br label %481
 
-126:                                              ; preds = %107
+126:                                              ; preds = %108
   %127 = load ptr, ptr %15, align 8
   %128 = load ptr, ptr %6, align 8
   %129 = load ptr, ptr %7, align 8
-  %130 = call i32 @xmpp_stream_close(ptr noundef %127, ptr noundef %128, ptr noundef %129)
-  %131 = icmp ne i32 %130, 0
-  br i1 %131, label %132, label %140
+  %130 = call zeroext i1 @xmpp_stream_close(ptr noundef %127, ptr noundef %128, ptr noundef %129)
+  br i1 %130, label %131, label %139
 
-132:                                              ; preds = %126
-  %133 = load ptr, ptr %15, align 8
-  %134 = icmp ne ptr %133, null
-  br i1 %134, label %135, label %137
+131:                                              ; preds = %126
+  %132 = load ptr, ptr %15, align 8
+  %133 = icmp ne ptr %132, null
+  br i1 %133, label %134, label %136
 
-135:                                              ; preds = %132
-  %136 = load ptr, ptr %15, align 8
-  call void @xmpp_proto_tree_hide_first_child(ptr noundef %136)
-  br label %137
+134:                                              ; preds = %131
+  %135 = load ptr, ptr %15, align 8
+  call void @xmpp_proto_tree_hide_first_child(ptr noundef %135)
+  br label %136
 
-137:                                              ; preds = %135, %132
-  %138 = load ptr, ptr %6, align 8
-  %139 = call i32 @tvb_captured_length(ptr noundef %138)
-  store i32 %139, ptr %5, align 4
-  br label %484
+136:                                              ; preds = %134, %131
+  %137 = load ptr, ptr %6, align 8
+  %138 = call i32 @tvb_captured_length(ptr noundef %137)
+  store i32 %138, ptr %5, align 4
+  store i32 1, ptr %23, align 4
+  br label %481
 
-140:                                              ; preds = %126
-  %141 = load ptr, ptr %7, align 8
-  %142 = getelementptr inbounds %struct._packet_info, ptr %141, i32 0, i32 50
-  %143 = load ptr, ptr %142, align 8
-  %144 = load ptr, ptr %7, align 8
-  %145 = load i32, ptr %19, align 4
-  %146 = call ptr @p_get_proto_data(ptr noundef %143, ptr noundef %144, i32 noundef %145, i32 noundef 0)
-  store ptr %146, ptr %11, align 8
-  %147 = load ptr, ptr %11, align 8
-  %148 = icmp eq ptr %147, null
-  br i1 %148, label %149, label %152
+139:                                              ; preds = %126
+  %140 = load ptr, ptr %7, align 8
+  %141 = getelementptr inbounds nuw %struct._packet_info, ptr %140, i32 0, i32 51
+  %142 = load ptr, ptr %141, align 8
+  %143 = load ptr, ptr %7, align 8
+  %144 = load i32, ptr %19, align 4
+  %145 = call ptr @p_get_proto_data(ptr noundef %142, ptr noundef %143, i32 noundef %144, i32 noundef 0)
+  store ptr %145, ptr %11, align 8
+  %146 = load ptr, ptr %11, align 8
+  %147 = icmp eq ptr %146, null
+  br i1 %147, label %148, label %151
 
-149:                                              ; preds = %140
-  %150 = load ptr, ptr %6, align 8
-  %151 = call i32 @tvb_captured_length(ptr noundef %150)
-  store i32 %151, ptr %5, align 4
-  br label %484
+148:                                              ; preds = %139
+  %149 = load ptr, ptr %6, align 8
+  %150 = call i32 @tvb_captured_length(ptr noundef %149)
+  store i32 %150, ptr %5, align 4
+  store i32 1, ptr %23, align 4
+  br label %481
 
-152:                                              ; preds = %140
-  %153 = load ptr, ptr %11, align 8
-  %154 = getelementptr inbounds %struct._xml_frame_t, ptr %153, i32 0, i32 2
-  %155 = load ptr, ptr %154, align 8
-  store ptr %155, ptr %10, align 8
-  %156 = load ptr, ptr %10, align 8
-  %157 = icmp ne ptr %156, null
-  br i1 %157, label %161, label %158
+151:                                              ; preds = %139
+  %152 = load ptr, ptr %11, align 8
+  %153 = getelementptr inbounds nuw %struct._xml_frame_t, ptr %152, i32 0, i32 2
+  %154 = load ptr, ptr %153, align 8
+  store ptr %154, ptr %10, align 8
+  %155 = load ptr, ptr %10, align 8
+  %156 = icmp ne ptr %155, null
+  br i1 %156, label %160, label %157
 
-158:                                              ; preds = %152
-  %159 = load ptr, ptr %6, align 8
-  %160 = call i32 @tvb_captured_length(ptr noundef %159)
-  store i32 %160, ptr %5, align 4
-  br label %484
+157:                                              ; preds = %151
+  %158 = load ptr, ptr %6, align 8
+  %159 = call i32 @tvb_captured_length(ptr noundef %158)
+  store i32 %159, ptr %5, align 4
+  store i32 1, ptr %23, align 4
+  br label %481
 
-161:                                              ; preds = %152
-  %162 = load ptr, ptr %7, align 8
-  %163 = call nonnull ptr @find_or_create_conversation(ptr noundef %162)
-  store ptr %163, ptr %13, align 8
-  %164 = load ptr, ptr %13, align 8
-  %165 = load i32, ptr @proto_xmpp, align 4
-  %166 = call ptr @conversation_get_proto_data(ptr noundef %164, i32 noundef %165)
-  store ptr %166, ptr %14, align 8
-  %167 = load ptr, ptr %14, align 8
-  %168 = icmp ne ptr %167, null
-  br i1 %168, label %193, label %169
+160:                                              ; preds = %151
+  %161 = load ptr, ptr %7, align 8
+  %162 = call ptr @find_or_create_conversation(ptr noundef %161)
+  store ptr %162, ptr %13, align 8
+  %163 = load ptr, ptr %13, align 8
+  %164 = load i32, ptr @proto_xmpp, align 4
+  %165 = call ptr @conversation_get_proto_data(ptr noundef %163, i32 noundef %164)
+  store ptr %165, ptr %14, align 8
+  %166 = load ptr, ptr %14, align 8
+  %167 = icmp ne ptr %166, null
+  br i1 %167, label %192, label %168
 
-169:                                              ; preds = %161
-  %170 = call ptr @wmem_file_scope()
-  %171 = call noalias ptr @wmem_alloc(ptr noundef %170, i64 noundef 40)
-  store ptr %171, ptr %14, align 8
-  %172 = call ptr @wmem_file_scope()
-  %173 = call noalias ptr @wmem_tree_new(ptr noundef %172)
-  %174 = load ptr, ptr %14, align 8
-  %175 = getelementptr inbounds %struct._xmpp_conv_info_t, ptr %174, i32 0, i32 0
-  store ptr %173, ptr %175, align 8
-  %176 = call ptr @wmem_file_scope()
-  %177 = call noalias ptr @wmem_tree_new(ptr noundef %176)
-  %178 = load ptr, ptr %14, align 8
-  %179 = getelementptr inbounds %struct._xmpp_conv_info_t, ptr %178, i32 0, i32 1
-  store ptr %177, ptr %179, align 8
-  %180 = call ptr @wmem_file_scope()
-  %181 = call noalias ptr @wmem_tree_new(ptr noundef %180)
-  %182 = load ptr, ptr %14, align 8
-  %183 = getelementptr inbounds %struct._xmpp_conv_info_t, ptr %182, i32 0, i32 2
-  store ptr %181, ptr %183, align 8
-  %184 = call ptr @wmem_file_scope()
-  %185 = call noalias ptr @wmem_tree_new(ptr noundef %184)
-  %186 = load ptr, ptr %14, align 8
-  %187 = getelementptr inbounds %struct._xmpp_conv_info_t, ptr %186, i32 0, i32 3
-  store ptr %185, ptr %187, align 8
-  %188 = load ptr, ptr %14, align 8
-  %189 = getelementptr inbounds %struct._xmpp_conv_info_t, ptr %188, i32 0, i32 4
-  store i32 0, ptr %189, align 8
-  %190 = load ptr, ptr %13, align 8
-  %191 = load i32, ptr @proto_xmpp, align 4
-  %192 = load ptr, ptr %14, align 8
-  call void @conversation_add_proto_data(ptr noundef %190, i32 noundef %191, ptr noundef %192)
-  br label %193
+168:                                              ; preds = %160
+  %169 = call ptr @wmem_file_scope()
+  %170 = call noalias ptr @wmem_alloc(ptr noundef %169, i64 noundef 40) #8
+  store ptr %170, ptr %14, align 8
+  %171 = call ptr @wmem_file_scope()
+  %172 = call noalias ptr @wmem_tree_new(ptr noundef %171)
+  %173 = load ptr, ptr %14, align 8
+  %174 = getelementptr inbounds nuw %struct._xmpp_conv_info_t, ptr %173, i32 0, i32 0
+  store ptr %172, ptr %174, align 8
+  %175 = call ptr @wmem_file_scope()
+  %176 = call noalias ptr @wmem_tree_new(ptr noundef %175)
+  %177 = load ptr, ptr %14, align 8
+  %178 = getelementptr inbounds nuw %struct._xmpp_conv_info_t, ptr %177, i32 0, i32 1
+  store ptr %176, ptr %178, align 8
+  %179 = call ptr @wmem_file_scope()
+  %180 = call noalias ptr @wmem_tree_new(ptr noundef %179)
+  %181 = load ptr, ptr %14, align 8
+  %182 = getelementptr inbounds nuw %struct._xmpp_conv_info_t, ptr %181, i32 0, i32 2
+  store ptr %180, ptr %182, align 8
+  %183 = call ptr @wmem_file_scope()
+  %184 = call noalias ptr @wmem_tree_new(ptr noundef %183)
+  %185 = load ptr, ptr %14, align 8
+  %186 = getelementptr inbounds nuw %struct._xmpp_conv_info_t, ptr %185, i32 0, i32 3
+  store ptr %184, ptr %186, align 8
+  %187 = load ptr, ptr %14, align 8
+  %188 = getelementptr inbounds nuw %struct._xmpp_conv_info_t, ptr %187, i32 0, i32 4
+  store i32 0, ptr %188, align 8
+  %189 = load ptr, ptr %13, align 8
+  %190 = load i32, ptr @proto_xmpp, align 4
+  %191 = load ptr, ptr %14, align 8
+  call void @conversation_add_proto_data(ptr noundef %189, i32 noundef %190, ptr noundef %191)
+  br label %192
 
-193:                                              ; preds = %169, %161
-  %194 = load ptr, ptr %7, align 8
-  %195 = getelementptr inbounds %struct._packet_info, ptr %194, i32 0, i32 25
-  %196 = load i32, ptr %195, align 4
-  %197 = load ptr, ptr %7, align 8
-  %198 = getelementptr inbounds %struct._packet_info, ptr %197, i32 0, i32 24
-  %199 = load i32, ptr %198, align 8
-  %200 = icmp eq i32 %196, %199
-  br i1 %200, label %201, label %202
+192:                                              ; preds = %168, %160
+  %193 = load ptr, ptr %7, align 8
+  %194 = getelementptr inbounds nuw %struct._packet_info, ptr %193, i32 0, i32 26
+  %195 = load i32, ptr %194, align 4
+  %196 = load ptr, ptr %7, align 8
+  %197 = getelementptr inbounds nuw %struct._packet_info, ptr %196, i32 0, i32 25
+  %198 = load i32, ptr %197, align 8
+  %199 = icmp eq i32 %195, %198
+  br i1 %199, label %200, label %201
 
-201:                                              ; preds = %193
-  store i32 1, ptr %12, align 4
+200:                                              ; preds = %192
+  store i8 1, ptr %12, align 1
+  br label %202
+
+201:                                              ; preds = %192
+  store i8 0, ptr %12, align 1
+  br label %202
+
+202:                                              ; preds = %201, %200
   br label %203
 
-202:                                              ; preds = %193
-  store i32 0, ptr %12, align 4
-  br label %203
+203:                                              ; preds = %469, %202
+  %204 = load ptr, ptr %10, align 8
+  %205 = icmp ne ptr %204, null
+  br i1 %205, label %206, label %478
 
-203:                                              ; preds = %202, %201
-  br label %204
+206:                                              ; preds = %203
+  %207 = load ptr, ptr %7, align 8
+  %208 = load ptr, ptr %10, align 8
+  %209 = load ptr, ptr %6, align 8
+  %210 = call ptr @xmpp_xml_frame_to_element_t(ptr noundef %207, ptr noundef %208, ptr noundef null, ptr noundef %209)
+  store ptr %210, ptr %18, align 8
+  %211 = load ptr, ptr %18, align 8
+  %212 = icmp ne ptr %211, null
+  br i1 %212, label %213, label %214
 
-204:                                              ; preds = %472, %203
-  %205 = load ptr, ptr %10, align 8
-  %206 = icmp ne ptr %205, null
-  br i1 %206, label %207, label %481
+213:                                              ; preds = %206
+  br label %216
 
-207:                                              ; preds = %204
-  %208 = load ptr, ptr %7, align 8
-  %209 = getelementptr inbounds %struct._packet_info, ptr %208, i32 0, i32 50
-  %210 = load ptr, ptr %209, align 8
-  %211 = load ptr, ptr %10, align 8
-  %212 = load ptr, ptr %6, align 8
-  %213 = call ptr @xmpp_xml_frame_to_element_t(ptr noundef %210, ptr noundef %211, ptr noundef null, ptr noundef %212)
-  store ptr %213, ptr %18, align 8
-  %214 = load ptr, ptr %18, align 8
-  %215 = icmp ne ptr %214, null
-  br i1 %215, label %216, label %217
-
-216:                                              ; preds = %207
-  br label %219
-
-217:                                              ; preds = %207
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.452, ptr noundef @.str.453, i32 noundef 483, ptr noundef @.str.454) #4
+214:                                              ; preds = %206
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.452, ptr noundef @.str.453, i32 noundef 483, ptr noundef @.str.454) #9
   unreachable
 
-218:                                              ; No predecessors!
-  br label %219
+215:                                              ; No predecessors!
+  br label %216
 
-219:                                              ; preds = %218, %216
-  %220 = load ptr, ptr %18, align 8
-  call void @except_setup_clean(ptr noundef %23, ptr noundef %24, ptr noundef @cleanup_xmpp, ptr noundef %220)
-  %221 = load ptr, ptr %18, align 8
-  %222 = getelementptr inbounds %struct._xmpp_element_t, ptr %221, i32 0, i32 0
-  %223 = load ptr, ptr %222, align 8
-  %224 = call i32 @strcmp(ptr noundef %223, ptr noundef @.str.455) #5
-  %225 = icmp eq i32 %224, 0
-  br i1 %225, label %226, label %236
+216:                                              ; preds = %215, %213
+  call void @llvm.lifetime.start.p0(i64 24, ptr %24) #7
+  call void @llvm.lifetime.start.p0(i64 16, ptr %25) #7
+  %217 = load ptr, ptr %18, align 8
+  call void @except_setup_clean(ptr noundef %24, ptr noundef %25, ptr noundef @cleanup_xmpp, ptr noundef %217)
+  %218 = load ptr, ptr %18, align 8
+  %219 = getelementptr inbounds nuw %struct._xmpp_element_t, ptr %218, i32 0, i32 0
+  %220 = load ptr, ptr %219, align 8
+  %221 = call i32 @strcmp(ptr noundef %220, ptr noundef @.str.455) #10
+  %222 = icmp eq i32 %221, 0
+  br i1 %222, label %223, label %233
 
-226:                                              ; preds = %219
+223:                                              ; preds = %216
+  %224 = load ptr, ptr %7, align 8
+  %225 = load ptr, ptr %18, align 8
+  %226 = load ptr, ptr %14, align 8
+  call void @xmpp_iq_reqresp_track(ptr noundef %224, ptr noundef %225, ptr noundef %226)
   %227 = load ptr, ptr %7, align 8
   %228 = load ptr, ptr %18, align 8
   %229 = load ptr, ptr %14, align 8
-  call void @xmpp_iq_reqresp_track(ptr noundef %227, ptr noundef %228, ptr noundef %229)
+  call void @xmpp_jingle_session_track(ptr noundef %227, ptr noundef %228, ptr noundef %229)
   %230 = load ptr, ptr %7, align 8
   %231 = load ptr, ptr %18, align 8
   %232 = load ptr, ptr %14, align 8
-  call void @xmpp_jingle_session_track(ptr noundef %230, ptr noundef %231, ptr noundef %232)
-  %233 = load ptr, ptr %7, align 8
+  call void @xmpp_gtalk_session_track(ptr noundef %230, ptr noundef %231, ptr noundef %232)
+  br label %233
+
+233:                                              ; preds = %223, %216
   %234 = load ptr, ptr %18, align 8
-  %235 = load ptr, ptr %14, align 8
-  call void @xmpp_gtalk_session_track(ptr noundef %233, ptr noundef %234, ptr noundef %235)
-  br label %236
+  %235 = getelementptr inbounds nuw %struct._xmpp_element_t, ptr %234, i32 0, i32 0
+  %236 = load ptr, ptr %235, align 8
+  %237 = call i32 @strcmp(ptr noundef %236, ptr noundef @.str.455) #10
+  %238 = icmp eq i32 %237, 0
+  br i1 %238, label %245, label %239
 
-236:                                              ; preds = %226, %219
-  %237 = load ptr, ptr %18, align 8
-  %238 = getelementptr inbounds %struct._xmpp_element_t, ptr %237, i32 0, i32 0
-  %239 = load ptr, ptr %238, align 8
-  %240 = call i32 @strcmp(ptr noundef %239, ptr noundef @.str.455) #5
-  %241 = icmp eq i32 %240, 0
-  br i1 %241, label %248, label %242
+239:                                              ; preds = %233
+  %240 = load ptr, ptr %18, align 8
+  %241 = getelementptr inbounds nuw %struct._xmpp_element_t, ptr %240, i32 0, i32 0
+  %242 = load ptr, ptr %241, align 8
+  %243 = call i32 @strcmp(ptr noundef %242, ptr noundef @.str.456) #10
+  %244 = icmp eq i32 %243, 0
+  br i1 %244, label %245, label %249
 
-242:                                              ; preds = %236
-  %243 = load ptr, ptr %18, align 8
-  %244 = getelementptr inbounds %struct._xmpp_element_t, ptr %243, i32 0, i32 0
-  %245 = load ptr, ptr %244, align 8
-  %246 = call i32 @strcmp(ptr noundef %245, ptr noundef @.str.456) #5
-  %247 = icmp eq i32 %246, 0
-  br i1 %247, label %248, label %252
+245:                                              ; preds = %239, %233
+  %246 = load ptr, ptr %7, align 8
+  %247 = load ptr, ptr %18, align 8
+  %248 = load ptr, ptr %14, align 8
+  call void @xmpp_ibb_session_track(ptr noundef %246, ptr noundef %247, ptr noundef %248)
+  br label %249
 
-248:                                              ; preds = %242, %236
-  %249 = load ptr, ptr %7, align 8
-  %250 = load ptr, ptr %18, align 8
-  %251 = load ptr, ptr %14, align 8
-  call void @xmpp_ibb_session_track(ptr noundef %249, ptr noundef %250, ptr noundef %251)
-  br label %252
+249:                                              ; preds = %245, %239
+  %250 = load i8, ptr %12, align 1, !range !8, !noundef !9
+  %251 = trunc i8 %250 to i1
+  br i1 %251, label %252, label %257
 
-252:                                              ; preds = %248, %242
-  %253 = load i32, ptr %12, align 4
-  %254 = icmp ne i32 %253, 0
-  br i1 %254, label %255, label %260
+252:                                              ; preds = %249
+  %253 = load ptr, ptr %15, align 8
+  %254 = load i32, ptr @hf_xmpp_out, align 4
+  %255 = load ptr, ptr %6, align 8
+  %256 = call ptr @proto_tree_add_boolean(ptr noundef %253, i32 noundef %254, ptr noundef %255, i32 noundef 0, i32 noundef 0, i64 noundef 1)
+  store ptr %256, ptr %17, align 8
+  br label %262
 
-255:                                              ; preds = %252
-  %256 = load ptr, ptr %15, align 8
-  %257 = load i32, ptr @hf_xmpp_out, align 4
-  %258 = load ptr, ptr %6, align 8
-  %259 = call ptr @proto_tree_add_boolean(ptr noundef %256, i32 noundef %257, ptr noundef %258, i32 noundef 0, i32 noundef 0, i64 noundef 1)
-  store ptr %259, ptr %17, align 8
-  br label %265
+257:                                              ; preds = %249
+  %258 = load ptr, ptr %15, align 8
+  %259 = load i32, ptr @hf_xmpp_in, align 4
+  %260 = load ptr, ptr %6, align 8
+  %261 = call ptr @proto_tree_add_boolean(ptr noundef %258, i32 noundef %259, ptr noundef %260, i32 noundef 0, i32 noundef 0, i64 noundef 1)
+  store ptr %261, ptr %17, align 8
+  br label %262
 
-260:                                              ; preds = %252
-  %261 = load ptr, ptr %15, align 8
-  %262 = load i32, ptr @hf_xmpp_in, align 4
-  %263 = load ptr, ptr %6, align 8
-  %264 = call ptr @proto_tree_add_boolean(ptr noundef %261, i32 noundef %262, ptr noundef %263, i32 noundef 0, i32 noundef 0, i64 noundef 1)
-  store ptr %264, ptr %17, align 8
-  br label %265
+262:                                              ; preds = %257, %252
+  %263 = load ptr, ptr %17, align 8
+  call void @proto_item_set_hidden(ptr noundef %263)
+  %264 = load ptr, ptr %15, align 8
+  call void @xmpp_proto_tree_hide_first_child(ptr noundef %264)
+  %265 = load ptr, ptr %18, align 8
+  %266 = getelementptr inbounds nuw %struct._xmpp_element_t, ptr %265, i32 0, i32 0
+  %267 = load ptr, ptr %266, align 8
+  %268 = call i32 @strcmp(ptr noundef %267, ptr noundef @.str.455) #10
+  %269 = icmp eq i32 %268, 0
+  br i1 %269, label %270, label %275
 
-265:                                              ; preds = %260, %255
-  %266 = load ptr, ptr %17, align 8
-  call void @proto_item_set_hidden(ptr noundef %266)
-  %267 = load ptr, ptr %15, align 8
-  call void @xmpp_proto_tree_hide_first_child(ptr noundef %267)
-  %268 = load ptr, ptr %18, align 8
-  %269 = getelementptr inbounds %struct._xmpp_element_t, ptr %268, i32 0, i32 0
-  %270 = load ptr, ptr %269, align 8
-  %271 = call i32 @strcmp(ptr noundef %270, ptr noundef @.str.455) #5
-  %272 = icmp eq i32 %271, 0
-  br i1 %272, label %273, label %278
-
-273:                                              ; preds = %265
-  %274 = load ptr, ptr %15, align 8
-  %275 = load ptr, ptr %6, align 8
-  %276 = load ptr, ptr %7, align 8
-  %277 = load ptr, ptr %18, align 8
-  call void @xmpp_iq(ptr noundef %274, ptr noundef %275, ptr noundef %276, ptr noundef %277)
-  br label %438
-
-278:                                              ; preds = %265
-  %279 = load ptr, ptr %18, align 8
-  %280 = getelementptr inbounds %struct._xmpp_element_t, ptr %279, i32 0, i32 0
-  %281 = load ptr, ptr %280, align 8
-  %282 = call i32 @strcmp(ptr noundef %281, ptr noundef @.str.457) #5
-  %283 = icmp eq i32 %282, 0
-  br i1 %283, label %284, label %289
-
-284:                                              ; preds = %278
-  %285 = load ptr, ptr %15, align 8
-  %286 = load ptr, ptr %6, align 8
-  %287 = load ptr, ptr %7, align 8
-  %288 = load ptr, ptr %18, align 8
-  call void @xmpp_presence(ptr noundef %285, ptr noundef %286, ptr noundef %287, ptr noundef %288)
-  br label %437
-
-289:                                              ; preds = %278
-  %290 = load ptr, ptr %18, align 8
-  %291 = getelementptr inbounds %struct._xmpp_element_t, ptr %290, i32 0, i32 0
-  %292 = load ptr, ptr %291, align 8
-  %293 = call i32 @strcmp(ptr noundef %292, ptr noundef @.str.456) #5
-  %294 = icmp eq i32 %293, 0
-  br i1 %294, label %295, label %300
-
-295:                                              ; preds = %289
-  %296 = load ptr, ptr %15, align 8
-  %297 = load ptr, ptr %6, align 8
-  %298 = load ptr, ptr %7, align 8
-  %299 = load ptr, ptr %18, align 8
-  call void @xmpp_message(ptr noundef %296, ptr noundef %297, ptr noundef %298, ptr noundef %299)
-  br label %436
-
-300:                                              ; preds = %289
-  %301 = load ptr, ptr %18, align 8
-  %302 = getelementptr inbounds %struct._xmpp_element_t, ptr %301, i32 0, i32 0
-  %303 = load ptr, ptr %302, align 8
-  %304 = call i32 @strcmp(ptr noundef %303, ptr noundef @.str.458) #5
-  %305 = icmp eq i32 %304, 0
-  br i1 %305, label %306, label %311
-
-306:                                              ; preds = %300
-  %307 = load ptr, ptr %15, align 8
-  %308 = load ptr, ptr %6, align 8
-  %309 = load ptr, ptr %7, align 8
-  %310 = load ptr, ptr %18, align 8
-  call void @xmpp_auth(ptr noundef %307, ptr noundef %308, ptr noundef %309, ptr noundef %310)
+270:                                              ; preds = %262
+  %271 = load ptr, ptr %15, align 8
+  %272 = load ptr, ptr %6, align 8
+  %273 = load ptr, ptr %7, align 8
+  %274 = load ptr, ptr %18, align 8
+  call void @xmpp_iq(ptr noundef %271, ptr noundef %272, ptr noundef %273, ptr noundef %274)
   br label %435
 
-311:                                              ; preds = %300
-  %312 = load ptr, ptr %18, align 8
-  %313 = getelementptr inbounds %struct._xmpp_element_t, ptr %312, i32 0, i32 0
-  %314 = load ptr, ptr %313, align 8
-  %315 = call i32 @strcmp(ptr noundef %314, ptr noundef @.str.459) #5
-  %316 = icmp eq i32 %315, 0
-  br i1 %316, label %317, label %323
+275:                                              ; preds = %262
+  %276 = load ptr, ptr %18, align 8
+  %277 = getelementptr inbounds nuw %struct._xmpp_element_t, ptr %276, i32 0, i32 0
+  %278 = load ptr, ptr %277, align 8
+  %279 = call i32 @strcmp(ptr noundef %278, ptr noundef @.str.457) #10
+  %280 = icmp eq i32 %279, 0
+  br i1 %280, label %281, label %286
 
-317:                                              ; preds = %311
-  %318 = load ptr, ptr %15, align 8
-  %319 = load ptr, ptr %6, align 8
-  %320 = load ptr, ptr %7, align 8
+281:                                              ; preds = %275
+  %282 = load ptr, ptr %15, align 8
+  %283 = load ptr, ptr %6, align 8
+  %284 = load ptr, ptr %7, align 8
+  %285 = load ptr, ptr %18, align 8
+  call void @xmpp_presence(ptr noundef %282, ptr noundef %283, ptr noundef %284, ptr noundef %285)
+  br label %434
+
+286:                                              ; preds = %275
+  %287 = load ptr, ptr %18, align 8
+  %288 = getelementptr inbounds nuw %struct._xmpp_element_t, ptr %287, i32 0, i32 0
+  %289 = load ptr, ptr %288, align 8
+  %290 = call i32 @strcmp(ptr noundef %289, ptr noundef @.str.456) #10
+  %291 = icmp eq i32 %290, 0
+  br i1 %291, label %292, label %297
+
+292:                                              ; preds = %286
+  %293 = load ptr, ptr %15, align 8
+  %294 = load ptr, ptr %6, align 8
+  %295 = load ptr, ptr %7, align 8
+  %296 = load ptr, ptr %18, align 8
+  call void @xmpp_message(ptr noundef %293, ptr noundef %294, ptr noundef %295, ptr noundef %296)
+  br label %433
+
+297:                                              ; preds = %286
+  %298 = load ptr, ptr %18, align 8
+  %299 = getelementptr inbounds nuw %struct._xmpp_element_t, ptr %298, i32 0, i32 0
+  %300 = load ptr, ptr %299, align 8
+  %301 = call i32 @strcmp(ptr noundef %300, ptr noundef @.str.458) #10
+  %302 = icmp eq i32 %301, 0
+  br i1 %302, label %303, label %308
+
+303:                                              ; preds = %297
+  %304 = load ptr, ptr %15, align 8
+  %305 = load ptr, ptr %6, align 8
+  %306 = load ptr, ptr %7, align 8
+  %307 = load ptr, ptr %18, align 8
+  call void @xmpp_auth(ptr noundef %304, ptr noundef %305, ptr noundef %306, ptr noundef %307)
+  br label %432
+
+308:                                              ; preds = %297
+  %309 = load ptr, ptr %18, align 8
+  %310 = getelementptr inbounds nuw %struct._xmpp_element_t, ptr %309, i32 0, i32 0
+  %311 = load ptr, ptr %310, align 8
+  %312 = call i32 @strcmp(ptr noundef %311, ptr noundef @.str.459) #10
+  %313 = icmp eq i32 %312, 0
+  br i1 %313, label %314, label %320
+
+314:                                              ; preds = %308
+  %315 = load ptr, ptr %15, align 8
+  %316 = load ptr, ptr %6, align 8
+  %317 = load ptr, ptr %7, align 8
+  %318 = load ptr, ptr %18, align 8
+  %319 = load i32, ptr @ett_xmpp_challenge, align 4
+  call void @xmpp_challenge_response_success(ptr noundef %315, ptr noundef %316, ptr noundef %317, ptr noundef %318, ptr noundef @ei_xmpp_challenge, i32 noundef %319, ptr noundef @.str.425)
+  br label %431
+
+320:                                              ; preds = %308
   %321 = load ptr, ptr %18, align 8
-  %322 = load i32, ptr @ett_xmpp_challenge, align 4
-  call void @xmpp_challenge_response_success(ptr noundef %318, ptr noundef %319, ptr noundef %320, ptr noundef %321, ptr noundef @ei_xmpp_challenge, i32 noundef %322, ptr noundef @.str.425)
-  br label %434
+  %322 = getelementptr inbounds nuw %struct._xmpp_element_t, ptr %321, i32 0, i32 0
+  %323 = load ptr, ptr %322, align 8
+  %324 = call i32 @strcmp(ptr noundef %323, ptr noundef @.str.460) #10
+  %325 = icmp eq i32 %324, 0
+  br i1 %325, label %326, label %332
 
-323:                                              ; preds = %311
-  %324 = load ptr, ptr %18, align 8
-  %325 = getelementptr inbounds %struct._xmpp_element_t, ptr %324, i32 0, i32 0
-  %326 = load ptr, ptr %325, align 8
-  %327 = call i32 @strcmp(ptr noundef %326, ptr noundef @.str.460) #5
-  %328 = icmp eq i32 %327, 0
-  br i1 %328, label %329, label %335
+326:                                              ; preds = %320
+  %327 = load ptr, ptr %15, align 8
+  %328 = load ptr, ptr %6, align 8
+  %329 = load ptr, ptr %7, align 8
+  %330 = load ptr, ptr %18, align 8
+  %331 = load i32, ptr @ett_xmpp_response, align 4
+  call void @xmpp_challenge_response_success(ptr noundef %327, ptr noundef %328, ptr noundef %329, ptr noundef %330, ptr noundef @ei_xmpp_response, i32 noundef %331, ptr noundef @.str.423)
+  br label %430
 
-329:                                              ; preds = %323
-  %330 = load ptr, ptr %15, align 8
-  %331 = load ptr, ptr %6, align 8
-  %332 = load ptr, ptr %7, align 8
+332:                                              ; preds = %320
   %333 = load ptr, ptr %18, align 8
-  %334 = load i32, ptr @ett_xmpp_response, align 4
-  call void @xmpp_challenge_response_success(ptr noundef %330, ptr noundef %331, ptr noundef %332, ptr noundef %333, ptr noundef @ei_xmpp_response, i32 noundef %334, ptr noundef @.str.423)
-  br label %433
+  %334 = getelementptr inbounds nuw %struct._xmpp_element_t, ptr %333, i32 0, i32 0
+  %335 = load ptr, ptr %334, align 8
+  %336 = call i32 @strcmp(ptr noundef %335, ptr noundef @.str.461) #10
+  %337 = icmp eq i32 %336, 0
+  br i1 %337, label %338, label %344
 
-335:                                              ; preds = %323
-  %336 = load ptr, ptr %18, align 8
-  %337 = getelementptr inbounds %struct._xmpp_element_t, ptr %336, i32 0, i32 0
-  %338 = load ptr, ptr %337, align 8
-  %339 = call i32 @strcmp(ptr noundef %338, ptr noundef @.str.461) #5
-  %340 = icmp eq i32 %339, 0
-  br i1 %340, label %341, label %347
+338:                                              ; preds = %332
+  %339 = load ptr, ptr %15, align 8
+  %340 = load ptr, ptr %6, align 8
+  %341 = load ptr, ptr %7, align 8
+  %342 = load ptr, ptr %18, align 8
+  %343 = load i32, ptr @ett_xmpp_success, align 4
+  call void @xmpp_challenge_response_success(ptr noundef %339, ptr noundef %340, ptr noundef %341, ptr noundef %342, ptr noundef @ei_xmpp_success, i32 noundef %343, ptr noundef @.str.427)
+  br label %429
 
-341:                                              ; preds = %335
-  %342 = load ptr, ptr %15, align 8
-  %343 = load ptr, ptr %6, align 8
-  %344 = load ptr, ptr %7, align 8
+344:                                              ; preds = %332
   %345 = load ptr, ptr %18, align 8
-  %346 = load i32, ptr @ett_xmpp_success, align 4
-  call void @xmpp_challenge_response_success(ptr noundef %342, ptr noundef %343, ptr noundef %344, ptr noundef %345, ptr noundef @ei_xmpp_success, i32 noundef %346, ptr noundef @.str.427)
-  br label %432
+  %346 = getelementptr inbounds nuw %struct._xmpp_element_t, ptr %345, i32 0, i32 0
+  %347 = load ptr, ptr %346, align 8
+  %348 = call i32 @strcmp(ptr noundef %347, ptr noundef @.str.462) #10
+  %349 = icmp eq i32 %348, 0
+  br i1 %349, label %350, label %355
 
-347:                                              ; preds = %335
-  %348 = load ptr, ptr %18, align 8
-  %349 = getelementptr inbounds %struct._xmpp_element_t, ptr %348, i32 0, i32 0
-  %350 = load ptr, ptr %349, align 8
-  %351 = call i32 @strcmp(ptr noundef %350, ptr noundef @.str.462) #5
-  %352 = icmp eq i32 %351, 0
-  br i1 %352, label %353, label %358
-
-353:                                              ; preds = %347
-  %354 = load ptr, ptr %15, align 8
-  %355 = load ptr, ptr %6, align 8
-  %356 = load ptr, ptr %7, align 8
-  %357 = load ptr, ptr %18, align 8
-  call void @xmpp_failure(ptr noundef %354, ptr noundef %355, ptr noundef %356, ptr noundef %357)
-  br label %431
-
-358:                                              ; preds = %347
-  %359 = load ptr, ptr %18, align 8
-  %360 = getelementptr inbounds %struct._xmpp_element_t, ptr %359, i32 0, i32 0
-  %361 = load ptr, ptr %360, align 8
-  %362 = call i32 @strcmp(ptr noundef %361, ptr noundef @.str.448) #5
-  %363 = icmp eq i32 %362, 0
-  br i1 %363, label %364, label %369
-
-364:                                              ; preds = %358
-  %365 = load ptr, ptr %15, align 8
-  %366 = load ptr, ptr %6, align 8
-  %367 = load ptr, ptr %7, align 8
-  %368 = load ptr, ptr %18, align 8
-  call void @xmpp_xml_header(ptr noundef %365, ptr noundef %366, ptr noundef %367, ptr noundef %368)
-  br label %430
-
-369:                                              ; preds = %358
-  %370 = load ptr, ptr %18, align 8
-  %371 = getelementptr inbounds %struct._xmpp_element_t, ptr %370, i32 0, i32 0
-  %372 = load ptr, ptr %371, align 8
-  %373 = call i32 @strcmp(ptr noundef %372, ptr noundef @.str.463) #5
-  %374 = icmp eq i32 %373, 0
-  br i1 %374, label %375, label %380
-
-375:                                              ; preds = %369
-  %376 = load ptr, ptr %15, align 8
-  %377 = load ptr, ptr %6, align 8
-  %378 = load ptr, ptr %7, align 8
-  %379 = load ptr, ptr %18, align 8
-  call void @xmpp_stream(ptr noundef %376, ptr noundef %377, ptr noundef %378, ptr noundef %379)
-  br label %429
-
-380:                                              ; preds = %369
-  %381 = load ptr, ptr %18, align 8
-  %382 = getelementptr inbounds %struct._xmpp_element_t, ptr %381, i32 0, i32 0
-  %383 = load ptr, ptr %382, align 8
-  %384 = call i32 @strcmp(ptr noundef %383, ptr noundef @.str.464) #5
-  %385 = icmp eq i32 %384, 0
-  br i1 %385, label %386, label %391
-
-386:                                              ; preds = %380
-  %387 = load ptr, ptr %15, align 8
-  %388 = load ptr, ptr %6, align 8
-  %389 = load ptr, ptr %7, align 8
-  %390 = load ptr, ptr %18, align 8
-  call void @xmpp_features(ptr noundef %387, ptr noundef %388, ptr noundef %389, ptr noundef %390)
+350:                                              ; preds = %344
+  %351 = load ptr, ptr %15, align 8
+  %352 = load ptr, ptr %6, align 8
+  %353 = load ptr, ptr %7, align 8
+  %354 = load ptr, ptr %18, align 8
+  call void @xmpp_failure(ptr noundef %351, ptr noundef %352, ptr noundef %353, ptr noundef %354)
   br label %428
 
-391:                                              ; preds = %380
-  %392 = load ptr, ptr %18, align 8
-  %393 = getelementptr inbounds %struct._xmpp_element_t, ptr %392, i32 0, i32 0
-  %394 = load ptr, ptr %393, align 8
-  %395 = call i32 @strcmp(ptr noundef %394, ptr noundef @.str.465) #5
-  %396 = icmp eq i32 %395, 0
-  br i1 %396, label %397, label %403
+355:                                              ; preds = %344
+  %356 = load ptr, ptr %18, align 8
+  %357 = getelementptr inbounds nuw %struct._xmpp_element_t, ptr %356, i32 0, i32 0
+  %358 = load ptr, ptr %357, align 8
+  %359 = call i32 @strcmp(ptr noundef %358, ptr noundef @.str.448) #10
+  %360 = icmp eq i32 %359, 0
+  br i1 %360, label %361, label %366
 
-397:                                              ; preds = %391
-  %398 = load ptr, ptr %15, align 8
-  %399 = load ptr, ptr %6, align 8
-  %400 = load ptr, ptr %7, align 8
+361:                                              ; preds = %355
+  %362 = load ptr, ptr %15, align 8
+  %363 = load ptr, ptr %6, align 8
+  %364 = load ptr, ptr %7, align 8
+  %365 = load ptr, ptr %18, align 8
+  call void @xmpp_xml_header(ptr noundef %362, ptr noundef %363, ptr noundef %364, ptr noundef %365)
+  br label %427
+
+366:                                              ; preds = %355
+  %367 = load ptr, ptr %18, align 8
+  %368 = getelementptr inbounds nuw %struct._xmpp_element_t, ptr %367, i32 0, i32 0
+  %369 = load ptr, ptr %368, align 8
+  %370 = call i32 @strcmp(ptr noundef %369, ptr noundef @.str.463) #10
+  %371 = icmp eq i32 %370, 0
+  br i1 %371, label %372, label %377
+
+372:                                              ; preds = %366
+  %373 = load ptr, ptr %15, align 8
+  %374 = load ptr, ptr %6, align 8
+  %375 = load ptr, ptr %7, align 8
+  %376 = load ptr, ptr %18, align 8
+  call void @xmpp_stream(ptr noundef %373, ptr noundef %374, ptr noundef %375, ptr noundef %376)
+  br label %426
+
+377:                                              ; preds = %366
+  %378 = load ptr, ptr %18, align 8
+  %379 = getelementptr inbounds nuw %struct._xmpp_element_t, ptr %378, i32 0, i32 0
+  %380 = load ptr, ptr %379, align 8
+  %381 = call i32 @strcmp(ptr noundef %380, ptr noundef @.str.464) #10
+  %382 = icmp eq i32 %381, 0
+  br i1 %382, label %383, label %388
+
+383:                                              ; preds = %377
+  %384 = load ptr, ptr %15, align 8
+  %385 = load ptr, ptr %6, align 8
+  %386 = load ptr, ptr %7, align 8
+  %387 = load ptr, ptr %18, align 8
+  call void @xmpp_features(ptr noundef %384, ptr noundef %385, ptr noundef %386, ptr noundef %387)
+  br label %425
+
+388:                                              ; preds = %377
+  %389 = load ptr, ptr %18, align 8
+  %390 = getelementptr inbounds nuw %struct._xmpp_element_t, ptr %389, i32 0, i32 0
+  %391 = load ptr, ptr %390, align 8
+  %392 = call i32 @strcmp(ptr noundef %391, ptr noundef @.str.465) #10
+  %393 = icmp eq i32 %392, 0
+  br i1 %393, label %394, label %400
+
+394:                                              ; preds = %388
+  %395 = load ptr, ptr %15, align 8
+  %396 = load ptr, ptr %6, align 8
+  %397 = load ptr, ptr %7, align 8
+  %398 = load ptr, ptr %18, align 8
+  %399 = load ptr, ptr %14, align 8
+  call void @xmpp_starttls(ptr noundef %395, ptr noundef %396, ptr noundef %397, ptr noundef %398, ptr noundef %399)
+  br label %424
+
+400:                                              ; preds = %388
   %401 = load ptr, ptr %18, align 8
-  %402 = load ptr, ptr %14, align 8
-  call void @xmpp_starttls(ptr noundef %398, ptr noundef %399, ptr noundef %400, ptr noundef %401, ptr noundef %402)
-  br label %427
+  %402 = getelementptr inbounds nuw %struct._xmpp_element_t, ptr %401, i32 0, i32 0
+  %403 = load ptr, ptr %402, align 8
+  %404 = call i32 @strcmp(ptr noundef %403, ptr noundef @.str.466) #10
+  %405 = icmp eq i32 %404, 0
+  br i1 %405, label %406, label %412
 
-403:                                              ; preds = %391
-  %404 = load ptr, ptr %18, align 8
-  %405 = getelementptr inbounds %struct._xmpp_element_t, ptr %404, i32 0, i32 0
-  %406 = load ptr, ptr %405, align 8
-  %407 = call i32 @strcmp(ptr noundef %406, ptr noundef @.str.466) #5
-  %408 = icmp eq i32 %407, 0
-  br i1 %408, label %409, label %415
+406:                                              ; preds = %400
+  %407 = load ptr, ptr %15, align 8
+  %408 = load ptr, ptr %6, align 8
+  %409 = load ptr, ptr %7, align 8
+  %410 = load ptr, ptr %18, align 8
+  %411 = load ptr, ptr %14, align 8
+  call void @xmpp_proceed(ptr noundef %407, ptr noundef %408, ptr noundef %409, ptr noundef %410, ptr noundef %411)
+  br label %423
 
-409:                                              ; preds = %403
-  %410 = load ptr, ptr %15, align 8
-  %411 = load ptr, ptr %6, align 8
-  %412 = load ptr, ptr %7, align 8
-  %413 = load ptr, ptr %18, align 8
-  %414 = load ptr, ptr %14, align 8
-  call void @xmpp_proceed(ptr noundef %410, ptr noundef %411, ptr noundef %412, ptr noundef %413, ptr noundef %414)
+412:                                              ; preds = %400
+  %413 = load ptr, ptr %15, align 8
+  call void @xmpp_proto_tree_show_first_child(ptr noundef %413)
+  %414 = load ptr, ptr %7, align 8
+  %415 = load ptr, ptr %15, align 8
+  %416 = load ptr, ptr %18, align 8
+  %417 = getelementptr inbounds nuw %struct._xmpp_element_t, ptr %416, i32 0, i32 0
+  %418 = load ptr, ptr %417, align 8
+  %419 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %414, ptr noundef %415, ptr noundef @ei_xmpp_packet_unknown, ptr noundef @.str.467, ptr noundef %418)
+  %420 = load ptr, ptr %7, align 8
+  %421 = getelementptr inbounds nuw %struct._packet_info, ptr %420, i32 0, i32 1
+  %422 = load ptr, ptr %421, align 8
+  call void @col_set_str(ptr noundef %422, i32 noundef 25, ptr noundef @.str.468)
+  br label %423
+
+423:                                              ; preds = %412, %406
+  br label %424
+
+424:                                              ; preds = %423, %394
+  br label %425
+
+425:                                              ; preds = %424, %383
   br label %426
 
-415:                                              ; preds = %403
-  %416 = load ptr, ptr %15, align 8
-  call void @xmpp_proto_tree_show_first_child(ptr noundef %416)
-  %417 = load ptr, ptr %7, align 8
-  %418 = load ptr, ptr %15, align 8
-  %419 = load ptr, ptr %18, align 8
-  %420 = getelementptr inbounds %struct._xmpp_element_t, ptr %419, i32 0, i32 0
-  %421 = load ptr, ptr %420, align 8
-  %422 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %417, ptr noundef %418, ptr noundef @ei_xmpp_packet_unknown, ptr noundef @.str.467, ptr noundef %421)
-  %423 = load ptr, ptr %7, align 8
-  %424 = getelementptr inbounds %struct._packet_info, ptr %423, i32 0, i32 1
-  %425 = load ptr, ptr %424, align 8
-  call void @col_set_str(ptr noundef %425, i32 noundef 25, ptr noundef @.str.468)
-  br label %426
-
-426:                                              ; preds = %415, %409
+426:                                              ; preds = %425, %372
   br label %427
 
-427:                                              ; preds = %426, %397
+427:                                              ; preds = %426, %361
   br label %428
 
-428:                                              ; preds = %427, %386
+428:                                              ; preds = %427, %350
   br label %429
 
-429:                                              ; preds = %428, %375
+429:                                              ; preds = %428, %338
   br label %430
 
-430:                                              ; preds = %429, %364
+430:                                              ; preds = %429, %326
   br label %431
 
-431:                                              ; preds = %430, %353
+431:                                              ; preds = %430, %314
   br label %432
 
-432:                                              ; preds = %431, %341
+432:                                              ; preds = %431, %303
   br label %433
 
-433:                                              ; preds = %432, %329
+433:                                              ; preds = %432, %292
   br label %434
 
-434:                                              ; preds = %433, %317
+434:                                              ; preds = %433, %281
   br label %435
 
-435:                                              ; preds = %434, %306
-  br label %436
-
-436:                                              ; preds = %435, %295
-  br label %437
-
-437:                                              ; preds = %436, %284
-  br label %438
-
-438:                                              ; preds = %437, %273
+435:                                              ; preds = %434, %270
+  %436 = load ptr, ptr %7, align 8
+  %437 = getelementptr inbounds nuw %struct._packet_info, ptr %436, i32 0, i32 26
+  %438 = load i32, ptr %437, align 4
   %439 = load ptr, ptr %7, align 8
-  %440 = getelementptr inbounds %struct._packet_info, ptr %439, i32 0, i32 25
-  %441 = load i32, ptr %440, align 4
-  %442 = load ptr, ptr %7, align 8
-  %443 = getelementptr inbounds %struct._packet_info, ptr %442, i32 0, i32 24
-  %444 = load i32, ptr %443, align 8
-  %445 = icmp eq i32 %441, %444
-  br i1 %445, label %446, label %459
+  %440 = getelementptr inbounds nuw %struct._packet_info, ptr %439, i32 0, i32 25
+  %441 = load i32, ptr %440, align 8
+  %442 = icmp eq i32 %438, %441
+  br i1 %442, label %443, label %456
 
-446:                                              ; preds = %438
-  %447 = load ptr, ptr %18, align 8
-  %448 = call ptr @xmpp_get_attr(ptr noundef %447, ptr noundef @.str.19)
-  store ptr %448, ptr %25, align 8
-  %449 = load ptr, ptr %25, align 8
-  %450 = icmp ne ptr %449, null
-  br i1 %450, label %451, label %458
+443:                                              ; preds = %435
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #7
+  %444 = load ptr, ptr %18, align 8
+  %445 = call ptr @xmpp_get_attr(ptr noundef %444, ptr noundef @.str.19)
+  store ptr %445, ptr %26, align 8
+  %446 = load ptr, ptr %26, align 8
+  %447 = icmp ne ptr %446, null
+  br i1 %447, label %448, label %455
 
-451:                                              ; preds = %446
-  %452 = load ptr, ptr %7, align 8
-  %453 = getelementptr inbounds %struct._packet_info, ptr %452, i32 0, i32 1
+448:                                              ; preds = %443
+  %449 = load ptr, ptr %7, align 8
+  %450 = getelementptr inbounds nuw %struct._packet_info, ptr %449, i32 0, i32 1
+  %451 = load ptr, ptr %450, align 8
+  %452 = load ptr, ptr %26, align 8
+  %453 = getelementptr inbounds nuw %struct._xmpp_attr_t, ptr %452, i32 0, i32 0
   %454 = load ptr, ptr %453, align 8
-  %455 = load ptr, ptr %25, align 8
-  %456 = getelementptr inbounds %struct._xmpp_attr_t, ptr %455, i32 0, i32 0
-  %457 = load ptr, ptr %456, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %454, i32 noundef 25, ptr noundef @.str.469, ptr noundef %457)
-  br label %458
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %451, i32 noundef 25, ptr noundef @.str.469, ptr noundef %454)
+  br label %455
 
-458:                                              ; preds = %451, %446
-  br label %472
+455:                                              ; preds = %448, %443
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #7
+  br label %469
 
-459:                                              ; preds = %438
-  %460 = load ptr, ptr %18, align 8
-  %461 = call ptr @xmpp_get_attr(ptr noundef %460, ptr noundef @.str.16)
-  store ptr %461, ptr %26, align 8
-  %462 = load ptr, ptr %26, align 8
-  %463 = icmp ne ptr %462, null
-  br i1 %463, label %464, label %471
+456:                                              ; preds = %435
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #7
+  %457 = load ptr, ptr %18, align 8
+  %458 = call ptr @xmpp_get_attr(ptr noundef %457, ptr noundef @.str.16)
+  store ptr %458, ptr %27, align 8
+  %459 = load ptr, ptr %27, align 8
+  %460 = icmp ne ptr %459, null
+  br i1 %460, label %461, label %468
 
-464:                                              ; preds = %459
-  %465 = load ptr, ptr %7, align 8
-  %466 = getelementptr inbounds %struct._packet_info, ptr %465, i32 0, i32 1
+461:                                              ; preds = %456
+  %462 = load ptr, ptr %7, align 8
+  %463 = getelementptr inbounds nuw %struct._packet_info, ptr %462, i32 0, i32 1
+  %464 = load ptr, ptr %463, align 8
+  %465 = load ptr, ptr %27, align 8
+  %466 = getelementptr inbounds nuw %struct._xmpp_attr_t, ptr %465, i32 0, i32 0
   %467 = load ptr, ptr %466, align 8
-  %468 = load ptr, ptr %26, align 8
-  %469 = getelementptr inbounds %struct._xmpp_attr_t, ptr %468, i32 0, i32 0
-  %470 = load ptr, ptr %469, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %467, i32 noundef 25, ptr noundef @.str.470, ptr noundef %470)
-  br label %471
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %464, i32 noundef 25, ptr noundef @.str.470, ptr noundef %467)
+  br label %468
 
-471:                                              ; preds = %464, %459
-  br label %472
+468:                                              ; preds = %461, %456
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #7
+  br label %469
 
-472:                                              ; preds = %471, %458
-  %473 = call ptr @except_pop()
-  %474 = getelementptr inbounds %struct.except_cleanup, ptr %24, i32 0, i32 0
-  %475 = load ptr, ptr %474, align 8
-  %476 = getelementptr inbounds %struct.except_cleanup, ptr %24, i32 0, i32 1
+469:                                              ; preds = %468, %455
+  %470 = call ptr @except_pop()
+  %471 = getelementptr inbounds nuw %struct.except_cleanup, ptr %25, i32 0, i32 0
+  %472 = load ptr, ptr %471, align 8
+  %473 = getelementptr inbounds nuw %struct.except_cleanup, ptr %25, i32 0, i32 1
+  %474 = load ptr, ptr %473, align 8
+  call void %472(ptr noundef %474)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %25) #7
+  call void @llvm.lifetime.end.p0(i64 24, ptr %24) #7
+  %475 = load ptr, ptr %10, align 8
+  %476 = getelementptr inbounds nuw %struct._xml_frame_t, ptr %475, i32 0, i32 5
   %477 = load ptr, ptr %476, align 8
-  call void %475(ptr noundef %477)
-  %478 = load ptr, ptr %10, align 8
-  %479 = getelementptr inbounds %struct._xml_frame_t, ptr %478, i32 0, i32 5
-  %480 = load ptr, ptr %479, align 8
-  store ptr %480, ptr %10, align 8
-  br label %204, !llvm.loop !7
+  store ptr %477, ptr %10, align 8
+  br label %203, !llvm.loop !11
 
-481:                                              ; preds = %204
-  %482 = load ptr, ptr %6, align 8
-  %483 = call i32 @tvb_captured_length(ptr noundef %482)
-  store i32 %483, ptr %5, align 4
-  br label %484
+478:                                              ; preds = %203
+  %479 = load ptr, ptr %6, align 8
+  %480 = call i32 @tvb_captured_length(ptr noundef %479)
+  store i32 %480, ptr %5, align 4
+  store i32 1, ptr %23, align 4
+  br label %481
 
-484:                                              ; preds = %481, %158, %149, %137, %117, %101, %78
-  %485 = load i32, ptr %5, align 4
-  ret i32 %485
+481:                                              ; preds = %478, %157, %148, %136, %117, %102, %79
+  call void @llvm.lifetime.end.p0(i64 1, ptr %22) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %20) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  %482 = load i32, ptr %5, align 4
+  ret i32 %482
 }
 
-declare void @xmpp_init_parsers() #1
+; Function Attrs: null_pointer_is_valid
+declare void @xmpp_init_parsers() #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_xmpp() #0 {
   %1 = load i32, ptr @proto_xmpp, align 4
   %2 = call ptr @find_dissector_add_dependency(ptr noundef @.str.448, i32 noundef %1)
@@ -1593,88 +1650,121 @@ define hidden void @proto_reg_handoff_xmpp() #0 {
   ret void
 }
 
-declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) #2
 
-declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare i32 @dissector_handle_get_protocol_index(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissector_handle_get_protocol_index(ptr noundef) #2
 
-declare i32 @tvb_reported_length(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length(ptr noundef) #2
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #2
 
-declare i32 @tvb_captured_length(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length(ptr noundef) #2
 
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare void @col_clear(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_clear(ptr noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #2
 
-declare i32 @call_dissector_with_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @call_dissector_with_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare i32 @proto_is_protocol_enabled(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @proto_is_protocol_enabled(ptr noundef) #2
 
-declare ptr @find_protocol_by_id(i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @find_protocol_by_id(i32 noundef) #2
 
-declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare i32 @xmpp_stream_close(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @xmpp_stream_close(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @xmpp_proto_tree_hide_first_child(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @xmpp_proto_tree_hide_first_child(ptr noundef) #2
 
-declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-declare nonnull ptr @find_or_create_conversation(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @find_or_create_conversation(ptr noundef) #2
 
-declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) #2
 
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) #1
+; Function Attrs: null_pointer_is_valid allocsize(1)
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) #3
 
-declare ptr @wmem_file_scope() #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_file_scope() #2
 
-declare noalias ptr @wmem_tree_new(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @wmem_tree_new(ptr noundef) #2
 
-declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @xmpp_xml_frame_to_element_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @xmpp_xml_frame_to_element_t(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: noreturn
-declare void @proto_report_dissector_bug(ptr noundef, ...) #2
+; Function Attrs: noreturn null_pointer_is_valid
+declare void @proto_report_dissector_bug(ptr noundef, ...) #4
 
-declare void @except_setup_clean(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @except_setup_clean(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @cleanup_xmpp(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
   %4 = load ptr, ptr %2, align 8
   store ptr %4, ptr %3, align 8
   %5 = load ptr, ptr %3, align 8
   call void @xmpp_element_t_tree_free(ptr noundef %5)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
   ret void
 }
 
-; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #3
+; Function Attrs: nounwind null_pointer_is_valid willreturn memory(read)
+declare i32 @strcmp(ptr noundef, ptr noundef) #5
 
-declare void @xmpp_iq_reqresp_track(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @xmpp_iq_reqresp_track(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @xmpp_jingle_session_track(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @xmpp_jingle_session_track(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @xmpp_gtalk_session_track(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @xmpp_gtalk_session_track(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @xmpp_ibb_session_track(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @xmpp_ibb_session_track(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal void @proto_item_set_hidden(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind null_pointer_is_valid sspstrong uwtable
+define internal void @proto_item_set_hidden(ptr noundef %0) #6 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -1686,22 +1776,22 @@ define internal void @proto_item_set_hidden(ptr noundef %0) #0 {
 
 6:                                                ; preds = %5
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct._proto_node, ptr %7, i32 0, i32 4
+  %8 = getelementptr inbounds nuw %struct._proto_node, ptr %7, i32 0, i32 5
   %9 = load ptr, ptr %8, align 8
   %10 = icmp ne ptr %9, null
   br i1 %10, label %11, label %22
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct._proto_node, ptr %12, i32 0, i32 4
+  %13 = getelementptr inbounds nuw %struct._proto_node, ptr %12, i32 0, i32 5
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds %struct.field_info, ptr %14, i32 0, i32 6
+  %15 = getelementptr inbounds nuw %struct.field_info, ptr %14, i32 0, i32 6
   %16 = load i32, ptr %15, align 4
   %17 = or i32 %16, 1
   %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds %struct._proto_node, ptr %18, i32 0, i32 4
+  %19 = getelementptr inbounds nuw %struct._proto_node, ptr %18, i32 0, i32 5
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds %struct.field_info, ptr %20, i32 0, i32 6
+  %21 = getelementptr inbounds nuw %struct.field_info, ptr %20, i32 0, i32 6
   store i32 %17, ptr %21, align 4
   br label %22
 
@@ -1715,54 +1805,80 @@ define internal void @proto_item_set_hidden(ptr noundef %0) #0 {
   ret void
 }
 
-declare void @xmpp_iq(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @xmpp_iq(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @xmpp_presence(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @xmpp_presence(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @xmpp_message(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @xmpp_message(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @xmpp_auth(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @xmpp_auth(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @xmpp_challenge_response_success(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @xmpp_challenge_response_success(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
-declare void @xmpp_failure(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @xmpp_failure(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @xmpp_xml_header(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @xmpp_xml_header(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @xmpp_stream(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @xmpp_stream(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @xmpp_features(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @xmpp_features(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @xmpp_starttls(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @xmpp_starttls(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @xmpp_proceed(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @xmpp_proceed(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @xmpp_proto_tree_show_first_child(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @xmpp_proto_tree_show_first_child(ptr noundef) #2
 
-declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) #2
 
-declare ptr @xmpp_get_attr(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @xmpp_get_attr(ptr noundef, ptr noundef) #2
 
-declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #2
 
-declare ptr @except_pop() #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @except_pop() #2
 
-declare void @xmpp_element_t_tree_free(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @xmpp_element_t_tree_free(ptr noundef) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn }
-attributes #5 = { nounwind willreturn memory(read) }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind null_pointer_is_valid willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { inlinehint nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind }
+attributes #8 = { allocsize(1) }
+attributes #9 = { noreturn }
+attributes #10 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

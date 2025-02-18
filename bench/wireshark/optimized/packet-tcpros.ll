@@ -104,7 +104,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.68 = private unnamed_addr constant [26 x i8] c"desegment_tcpros_messages\00", align 1
 @.str.69 = private unnamed_addr constant [58 x i8] c"Reassemble TCPROS messages spanning multiple TCP segments\00", align 1
 @.str.70 = private unnamed_addr constant [207 x i8] c"Whether the TCPROS dissector should reassemble messages spanning multiple TCP segments. To use this option, you must also enable \22Allow subdissectors to reassemble TCP streams\22 in the TCP protocol settings.\00", align 1
-@tcpros_desegment = internal global i32 1, align 4
+@tcpros_desegment = internal global i8 1, align 1
 @.str.71 = private unnamed_addr constant [9 x i8] c"tcp.port\00", align 1
 @.str.72 = private unnamed_addr constant [4 x i8] c"tcp\00", align 1
 @.str.73 = private unnamed_addr constant [16 x i8] c"TCPROS over TCP\00", align 1
@@ -119,350 +119,372 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.81 = private unnamed_addr constant [2 x i8] c",\00", align 1
 @.str.82 = private unnamed_addr constant [2 x i8] c"]\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_tcpros() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.67) #3
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.67)
   store i32 %1, ptr @proto_tcpros, align 4
-  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_tcpros.hf, i32 noundef 22) #3
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_tcpros.ett, i32 noundef 1) #3
+  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_tcpros.hf, i32 noundef 22)
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_tcpros.ett, i32 noundef 1)
   %2 = load i32, ptr @proto_tcpros, align 4
-  %3 = tail call ptr @register_dissector(ptr noundef nonnull @.str.67, ptr noundef nonnull @dissect_tcpros, i32 noundef %2) #3
+  %3 = tail call ptr @register_dissector(ptr noundef nonnull @.str.67, ptr noundef nonnull @dissect_tcpros, i32 noundef %2)
   store ptr %3, ptr @tcpros_handle, align 8
   %4 = load i32, ptr @proto_tcpros, align 4
-  %5 = tail call ptr @prefs_register_protocol(i32 noundef %4, ptr noundef null) #3
-  tail call void @prefs_register_bool_preference(ptr noundef %5, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.70, ptr noundef nonnull @tcpros_desegment) #3
+  %5 = tail call ptr @prefs_register_protocol(i32 noundef %4, ptr noundef null)
+  tail call void @prefs_register_bool_preference(ptr noundef %5, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.70, ptr noundef nonnull @tcpros_desegment)
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_tcpros(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = load i32, ptr @tcpros_desegment, align 4
-  tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef 4, ptr noundef nonnull @get_tcpros_pdu_len, ptr noundef nonnull @dissect_tcpros_pdu, ptr noundef %3) #3
-  %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
-  ret i32 %6
+  %5 = load i8, ptr @tcpros_desegment, align 1, !range !6, !noundef !7
+  %6 = trunc nuw i8 %5 to i1
+  tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %6, i32 noundef 4, ptr noundef nonnull @get_tcpros_pdu_len, ptr noundef nonnull @dissect_tcpros_pdu, ptr noundef %3)
+  %7 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  ret i32 %7
 }
 
-declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_tcpros() local_unnamed_addr #0 {
   %1 = load ptr, ptr @tcpros_handle, align 8
-  tail call void @dissector_add_for_decode_as_with_preference(ptr noundef nonnull @.str.71, ptr noundef %1) #3
+  tail call void @dissector_add_for_decode_as_with_preference(ptr noundef nonnull @.str.71, ptr noundef %1)
   %2 = load i32, ptr @proto_tcpros, align 4
-  tail call void @heur_dissector_add(ptr noundef nonnull @.str.72, ptr noundef nonnull @dissect_tcpros_heur_tcp, ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.74, i32 noundef %2, i32 noundef 0) #3
+  tail call void @heur_dissector_add(ptr noundef nonnull @.str.72, ptr noundef nonnull @dissect_tcpros_heur_tcp, ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.74, i32 noundef %2, i32 noundef 0)
   ret void
 }
 
-declare void @dissector_add_for_decode_as_with_preference(ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_add_for_decode_as_with_preference(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_tcpros_heur_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal noundef zeroext i1 @dissect_tcpros_heur_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %6 = icmp ult i32 %5, 8
-  br i1 %6, label %test_tcpros.exit.thread11, label %7
+  br i1 %6, label %test_tcpros.exit.thread13, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #3
+  %8 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
   %.not.i.i = icmp eq i32 %8, 12
   br i1 %.not.i.i, label %is_rosclock.exit.i, label %is_rosclock.exit.thread.i
 
 is_rosclock.exit.i:                               ; preds = %7
-  %9 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 0) #3
-  %.not5.i.not.i = icmp eq i32 %9, 8
-  br i1 %.not5.i.not.i, label %test_tcpros.exit.thread, label %is_rosclock.exit.thread.i
+  %9 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 0)
+  %.not5.i.i = icmp eq i32 %9, 8
+  br i1 %.not5.i.i, label %test_tcpros.exit.thread, label %is_rosclock.exit.thread.i
 
 is_rosclock.exit.thread.i:                        ; preds = %is_rosclock.exit.i, %7
-  %10 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #3
+  %10 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
   %11 = icmp slt i32 %10, 20
   br i1 %11, label %test_tcpros.exit, label %12
 
 12:                                               ; preds = %is_rosclock.exit.thread.i
-  %13 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 0) #3
+  %13 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 0)
   %14 = icmp ult i32 %13, 16
   br i1 %14, label %test_tcpros.exit, label %15
 
 15:                                               ; preds = %12
-  %16 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 16) #3
+  %16 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 16)
   %17 = add i32 %13, -16
-  %18 = icmp ugt i32 %16, %17
+  %18 = icmp ule i32 %16, %17
   %19 = add nuw i32 %16, 4
-  %.not.i = icmp ult i32 %10, %19
-  %or.cond.i = select i1 %18, i1 true, i1 %.not.i
-  br i1 %or.cond.i, label %test_tcpros.exit, label %test_tcpros.exit.thread
+  %20 = icmp uge i32 %10, %19
+  %or.cond.i = select i1 %18, i1 %20, i1 false
+  br i1 %or.cond.i, label %test_tcpros.exit.thread, label %test_tcpros.exit
 
 test_tcpros.exit:                                 ; preds = %is_rosclock.exit.thread.i, %12, %15
-  %20 = tail call fastcc i32 @is_rosconnection_header(ptr noundef %0, i32 noundef 0)
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %test_tcpros.exit.thread11, label %test_tcpros.exit.thread
+  %21 = tail call fastcc zeroext i1 @is_rosconnection_header(ptr noundef %0, i32 noundef 0)
+  br i1 %21, label %test_tcpros.exit.thread, label %test_tcpros.exit.thread13
 
 test_tcpros.exit.thread:                          ; preds = %15, %is_rosclock.exit.i, %test_tcpros.exit
-  %21 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #3
-  %22 = load ptr, ptr @tcpros_handle, align 8
-  tail call void @conversation_set_dissector(ptr noundef nonnull %21, ptr noundef %22) #3
-  %23 = load i32, ptr @tcpros_desegment, align 4
-  tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %23, i32 noundef 4, ptr noundef nonnull @get_tcpros_pdu_len, ptr noundef nonnull @dissect_tcpros_pdu, ptr noundef %3) #3
-  %24 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
-  br label %test_tcpros.exit.thread11
+  %22 = tail call ptr @find_or_create_conversation(ptr noundef %1)
+  %23 = load ptr, ptr @tcpros_handle, align 8
+  tail call void @conversation_set_dissector(ptr noundef %22, ptr noundef %23)
+  %24 = load i8, ptr @tcpros_desegment, align 1, !range !6, !noundef !7
+  %25 = trunc nuw i8 %24 to i1
+  tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %25, i32 noundef 4, ptr noundef nonnull @get_tcpros_pdu_len, ptr noundef nonnull @dissect_tcpros_pdu, ptr noundef %3)
+  %26 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  br label %test_tcpros.exit.thread13
 
-test_tcpros.exit.thread11:                        ; preds = %4, %test_tcpros.exit, %test_tcpros.exit.thread
-  %.0 = phi i32 [ 1, %test_tcpros.exit.thread ], [ 0, %test_tcpros.exit ], [ 0, %4 ]
-  ret i32 %.0
+test_tcpros.exit.thread13:                        ; preds = %4, %test_tcpros.exit, %test_tcpros.exit.thread
+  %.0.i11 = phi i1 [ false, %test_tcpros.exit ], [ true, %test_tcpros.exit.thread ], [ false, %4 ]
+  ret i1 %.0.i11
 }
 
-declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @get_tcpros_pdu_len(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
-  %5 = tail call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %2) #3
+  %5 = tail call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %2)
   %6 = add i32 %5, 4
   ret i32 %6
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_tcpros_pdu(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
-  tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.66) #3
+  tail call void @col_set_str(ptr noundef %6, i32 noundef 35, ptr noundef nonnull @.str.66)
   %7 = load ptr, ptr %5, align 8
-  tail call void @col_clear(ptr noundef %7, i32 noundef 25) #3
+  tail call void @col_clear(ptr noundef %7, i32 noundef 25)
   %8 = load i32, ptr @proto_tcpros, align 4
-  %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #3
+  %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %10 = load i32, ptr @ett_tcpros, align 4
-  %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10) #3
-  %12 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
-  %.not64.i = icmp eq i32 %12, 0
-  br i1 %.not64.i, label %dissect_ros_common.exit, label %.lr.ph.i
+  %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10)
+  %12 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %.not.i = icmp eq i32 %12, 0
+  br i1 %.not.i, label %dissect_ros_common.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %4, %74
-  %.063.i = phi i32 [ %.1.i, %74 ], [ 0, %4 ]
-  %13 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.063.i) #3
+.lr.ph.i:                                         ; preds = %4, %75
+  %.05261.i = phi i32 [ %.1.i, %75 ], [ 0, %4 ]
+  %13 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.05261.i)
   %14 = icmp slt i32 %13, 4
-  br i1 %14, label %18, label %15
+  br i1 %14, label %.thread.i, label %15
 
 15:                                               ; preds = %.lr.ph.i
-  %16 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.063.i) #3
+  %16 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.05261.i)
   %17 = icmp ult i32 %13, %16
-  br i1 %17, label %18, label %21
+  br i1 %17, label %.thread.i, label %20
 
-18:                                               ; preds = %15, %.lr.ph.i
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 332
-  store i32 %.063.i, ptr %19, align 4
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 336
-  store i32 268435455, ptr %20, align 8
+.thread.i:                                        ; preds = %15, %.lr.ph.i
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 332
+  store i32 %.05261.i, ptr %18, align 4
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 336
+  store i32 268435455, ptr %19, align 8
   br label %dissect_ros_common.exit
 
-21:                                               ; preds = %15
-  %22 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.063.i) #3
-  %.not.i.i = icmp eq i32 %22, 12
+20:                                               ; preds = %15
+  %21 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.05261.i)
+  %.not.i.i = icmp eq i32 %21, 12
   br i1 %.not.i.i, label %is_rosclock.exit.i, label %is_rosclock.exit.thread.i
 
-is_rosclock.exit.i:                               ; preds = %21
-  %23 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.063.i) #3
-  %.not5.i.not.i = icmp eq i32 %23, 8
-  br i1 %.not5.i.not.i, label %24, label %is_rosclock.exit.thread.i
+is_rosclock.exit.i:                               ; preds = %20
+  %22 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.05261.i)
+  %.not5.i.i = icmp eq i32 %22, 8
+  br i1 %.not5.i.i, label %23, label %is_rosclock.exit.thread.i
 
-24:                                               ; preds = %is_rosclock.exit.i
-  %25 = load ptr, ptr %5, align 8
-  tail call void @col_append_str(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.75) #3
-  %26 = load i32, ptr @hf_tcpros_clock, align 4
-  %27 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %26, ptr noundef %0, i32 noundef %.063.i, i32 noundef 4, i32 noundef -2147483648) #3
-  %28 = load i32, ptr @ett_tcpros, align 4
-  %29 = tail call ptr @proto_item_add_subtree(ptr noundef %27, i32 noundef %28) #3
-  %30 = load i32, ptr @hf_tcpros_clock_length, align 4
-  %31 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %30, ptr noundef %0, i32 noundef %.063.i, i32 noundef 4, i32 noundef -2147483648) #3
-  %32 = add i32 %.063.i, 4
-  %33 = load i32, ptr @hf_tcpros_message_header_stamp, align 4
-  %34 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %33, ptr noundef %0, i32 noundef %32, i32 noundef 8, i32 noundef -2147483648) #3
-  %35 = load i32, ptr @ett_tcpros, align 4
-  %36 = tail call ptr @proto_item_add_subtree(ptr noundef %34, i32 noundef %35) #3
-  %37 = load i32, ptr @hf_tcpros_message_header_stamp_sec, align 4
-  %38 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %37, ptr noundef %0, i32 noundef %32, i32 noundef 4, i32 noundef -2147483648) #3
-  %39 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %32) #3
-  %40 = load i32, ptr @hf_tcpros_message_header_stamp_nsec, align 4
-  %41 = add i32 %.063.i, 8
-  %42 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %40, ptr noundef %0, i32 noundef %41, i32 noundef 4, i32 noundef -2147483648) #3
-  %43 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %41) #3
-  %44 = load ptr, ptr %5, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %44, i32 noundef 25, ptr noundef nonnull @.str.76, i32 noundef %39, i32 noundef %43) #3
-  %45 = add i32 %.063.i, 12
-  br label %74
+23:                                               ; preds = %is_rosclock.exit.i
+  %24 = load ptr, ptr %5, align 8
+  tail call void @col_append_str(ptr noundef %24, i32 noundef 25, ptr noundef nonnull @.str.75)
+  %25 = load i32, ptr @hf_tcpros_clock, align 4
+  %26 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %25, ptr noundef %0, i32 noundef %.05261.i, i32 noundef 4, i32 noundef -2147483648)
+  %27 = load i32, ptr @ett_tcpros, align 4
+  %28 = tail call ptr @proto_item_add_subtree(ptr noundef %26, i32 noundef %27)
+  %29 = load i32, ptr @hf_tcpros_clock_length, align 4
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %29, ptr noundef %0, i32 noundef %.05261.i, i32 noundef 4, i32 noundef -2147483648)
+  %31 = add i32 %.05261.i, 4
+  %32 = load i32, ptr @hf_tcpros_message_header_stamp, align 4
+  %33 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %32, ptr noundef %0, i32 noundef %31, i32 noundef 8, i32 noundef -2147483648)
+  %34 = load i32, ptr @ett_tcpros, align 4
+  %35 = tail call ptr @proto_item_add_subtree(ptr noundef %33, i32 noundef %34)
+  %36 = load i32, ptr @hf_tcpros_message_header_stamp_sec, align 4
+  %37 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %36, ptr noundef %0, i32 noundef %31, i32 noundef 4, i32 noundef -2147483648)
+  %38 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %31)
+  %39 = load i32, ptr @hf_tcpros_message_header_stamp_nsec, align 4
+  %40 = add i32 %.05261.i, 8
+  %41 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %39, ptr noundef %0, i32 noundef %40, i32 noundef 4, i32 noundef -2147483648)
+  %42 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %40)
+  %43 = load ptr, ptr %5, align 8
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %43, i32 noundef 25, ptr noundef nonnull @.str.76, i32 noundef %38, i32 noundef %42)
+  %44 = add i32 %.05261.i, 12
+  br label %75
 
-is_rosclock.exit.thread.i:                        ; preds = %is_rosclock.exit.i, %21
-  %46 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.063.i) #3
-  %47 = icmp slt i32 %46, 20
-  br i1 %47, label %is_rosmsg.exit.thread.i, label %48
+is_rosclock.exit.thread.i:                        ; preds = %is_rosclock.exit.i, %20
+  %45 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.05261.i)
+  %46 = icmp slt i32 %45, 20
+  br i1 %46, label %is_rosmsg.exit.thread.i, label %47
 
-48:                                               ; preds = %is_rosclock.exit.thread.i
-  %49 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.063.i) #3
-  %50 = icmp ult i32 %49, 16
-  br i1 %50, label %is_rosmsg.exit.thread.i, label %51
+47:                                               ; preds = %is_rosclock.exit.thread.i
+  %48 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.05261.i)
+  %49 = icmp ult i32 %48, 16
+  br i1 %49, label %is_rosmsg.exit.thread.i, label %50
 
-51:                                               ; preds = %48
-  %52 = add i32 %.063.i, 16
-  %53 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %52) #3
-  %54 = add i32 %49, -16
-  %55 = icmp ugt i32 %53, %54
-  %56 = add nuw i32 %53, 4
-  %.not.i = icmp ult i32 %46, %56
-  %or.cond.i = select i1 %55, i1 true, i1 %.not.i
-  br i1 %or.cond.i, label %is_rosmsg.exit.thread.i, label %57
+50:                                               ; preds = %47
+  %51 = add i32 %.05261.i, 16
+  %52 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %51)
+  %53 = add i32 %48, -16
+  %54 = icmp ule i32 %52, %53
+  %55 = add nuw i32 %52, 4
+  %56 = icmp uge i32 %45, %55
+  %or.cond.i = select i1 %54, i1 %56, i1 false
+  br i1 %or.cond.i, label %57, label %is_rosmsg.exit.thread.i
 
-57:                                               ; preds = %51
-  %58 = tail call fastcc i32 @dissect_ros_message(ptr noundef %0, ptr noundef %11, ptr noundef %1, i32 noundef %.063.i)
-  %59 = add i32 %58, %.063.i
-  br label %74
+57:                                               ; preds = %50
+  %58 = tail call fastcc i32 @dissect_ros_message(ptr noundef %0, ptr noundef %11, ptr noundef %1, i32 noundef %.05261.i)
+  %59 = add i32 %58, %.05261.i
+  br label %75
 
-is_rosmsg.exit.thread.i:                          ; preds = %51, %48, %is_rosclock.exit.thread.i
-  %60 = tail call fastcc i32 @is_rosconnection_header(ptr noundef %0, i32 noundef %.063.i)
-  %.not53.i = icmp eq i32 %60, 0
-  br i1 %.not53.i, label %64, label %61
+is_rosmsg.exit.thread.i:                          ; preds = %50, %47, %is_rosclock.exit.thread.i
+  %60 = tail call fastcc zeroext i1 @is_rosconnection_header(ptr noundef %0, i32 noundef %.05261.i)
+  br i1 %60, label %61, label %64
 
 61:                                               ; preds = %is_rosmsg.exit.thread.i
-  %62 = tail call fastcc i32 @dissect_ros_connection_header(ptr noundef %0, ptr noundef %11, ptr noundef %1, i32 noundef %.063.i)
-  %63 = add i32 %62, %.063.i
-  br label %74
+  %62 = tail call fastcc i32 @dissect_ros_connection_header(ptr noundef %0, ptr noundef %11, ptr noundef %1, i32 noundef %.05261.i)
+  %63 = add i32 %62, %.05261.i
+  br label %75
 
 64:                                               ; preds = %is_rosmsg.exit.thread.i
-  %65 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.063.i) #3
-  %66 = add i32 %.063.i, 4
-  %67 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %66) #3
-  %.not61.i = icmp ugt i32 %65, %67
-  br i1 %.not61.i, label %68, label %71
+  %65 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.05261.i)
+  %66 = add i32 %.05261.i, 4
+  %67 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %66)
+  %68 = icmp ugt i32 %65, %67
+  br i1 %68, label %69, label %72
 
-68:                                               ; preds = %64
-  %69 = tail call fastcc i32 @dissect_ros_connection_header(ptr noundef %0, ptr noundef %11, ptr noundef %1, i32 noundef %.063.i)
-  %70 = add i32 %69, %.063.i
-  br label %74
+69:                                               ; preds = %64
+  %70 = tail call fastcc i32 @dissect_ros_connection_header(ptr noundef %0, ptr noundef %11, ptr noundef %1, i32 noundef %.05261.i)
+  %71 = add i32 %70, %.05261.i
+  br label %75
 
-71:                                               ; preds = %64
-  %72 = tail call fastcc i32 @dissect_ros_message(ptr noundef %0, ptr noundef %11, ptr noundef %1, i32 noundef %.063.i)
-  %73 = add i32 %72, %.063.i
-  br label %74
+72:                                               ; preds = %64
+  %73 = tail call fastcc i32 @dissect_ros_message(ptr noundef %0, ptr noundef %11, ptr noundef %1, i32 noundef %.05261.i)
+  %74 = add i32 %73, %.05261.i
+  br label %75
 
-74:                                               ; preds = %71, %68, %61, %57, %24
-  %.1.i = phi i32 [ %45, %24 ], [ %59, %57 ], [ %63, %61 ], [ %70, %68 ], [ %73, %71 ]
-  %75 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
-  %76 = icmp ult i32 %.1.i, %75
-  br i1 %76, label %.lr.ph.i, label %dissect_ros_common.exit, !llvm.loop !4
+75:                                               ; preds = %72, %69, %61, %57, %23
+  %.1.i = phi i32 [ %44, %23 ], [ %59, %57 ], [ %63, %61 ], [ %71, %69 ], [ %74, %72 ]
+  %76 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %77 = icmp ult i32 %.1.i, %76
+  br i1 %77, label %.lr.ph.i, label %dissect_ros_common.exit, !llvm.loop !8
 
-dissect_ros_common.exit:                          ; preds = %74, %4, %18
-  %77 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
-  ret i32 %77
+dissect_ros_common.exit:                          ; preds = %75, %4, %.thread.i
+  %78 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  ret i32 %78
 }
 
-declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #2
 
-declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_ros_message(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  %6 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %3) #3
+  %6 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %3)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8
-  tail call void @col_append_str(ptr noundef %8, i32 noundef 25, ptr noundef nonnull @.str.77) #3
+  tail call void @col_append_str(ptr noundef %8, i32 noundef 25, ptr noundef nonnull @.str.77)
   %9 = load i32, ptr @hf_tcpros_message, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648) #3
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648)
   %11 = load i32, ptr @ett_tcpros, align 4
-  %12 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %11) #3
+  %12 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %11)
   %13 = load i32, ptr @hf_tcpros_message_length, align 4
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %13, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648) #3
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %13, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648)
   %15 = load i32, ptr @hf_tcpros_message_body, align 4
   %16 = add i32 %3, 4
-  %17 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %15, ptr noundef %0, i32 noundef %16, i32 noundef %6, i32 noundef 0) #3
+  %17 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %15, ptr noundef %0, i32 noundef %16, i32 noundef %6, i32 noundef 0)
   %18 = load i32, ptr @ett_tcpros, align 4
-  %19 = tail call ptr @proto_item_add_subtree(ptr noundef %17, i32 noundef %18) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  %19 = tail call ptr @proto_item_add_subtree(ptr noundef %17, i32 noundef %18)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
   %20 = add i32 %3, 8
   %21 = add i32 %3, 16
-  %22 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %21) #3
+  %22 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %21)
   %23 = add i32 %22, 16
   %24 = load i32, ptr @hf_tcpros_message_header, align 4
-  %25 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %24, ptr noundef %0, i32 noundef %16, i32 noundef %23, i32 noundef 0) #3
+  %25 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %24, ptr noundef %0, i32 noundef %16, i32 noundef %23, i32 noundef 0)
   %26 = load i32, ptr @ett_tcpros, align 4
-  %27 = tail call ptr @proto_item_add_subtree(ptr noundef %25, i32 noundef %26) #3
+  %27 = tail call ptr @proto_item_add_subtree(ptr noundef %25, i32 noundef %26)
   %28 = load i32, ptr @hf_tcpros_message_header_seq, align 4
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %28, ptr noundef %0, i32 noundef %16, i32 noundef 4, i32 noundef -2147483648) #3
-  %30 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %16) #3
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %28, ptr noundef %0, i32 noundef %16, i32 noundef 4, i32 noundef -2147483648)
+  %30 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %16)
   %31 = load ptr, ptr %7, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %31, i32 noundef 25, ptr noundef nonnull @.str.78, i32 noundef %30) #3
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %31, i32 noundef 25, ptr noundef nonnull @.str.78, i32 noundef %30)
   %32 = load i32, ptr @hf_tcpros_message_header_stamp, align 4
-  %33 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %32, ptr noundef %0, i32 noundef %20, i32 noundef 8, i32 noundef -2147483648) #3
+  %33 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %32, ptr noundef %0, i32 noundef %20, i32 noundef 8, i32 noundef -2147483648)
   %34 = load i32, ptr @ett_tcpros, align 4
-  %35 = tail call ptr @proto_item_add_subtree(ptr noundef %33, i32 noundef %34) #3
+  %35 = tail call ptr @proto_item_add_subtree(ptr noundef %33, i32 noundef %34)
   %36 = load i32, ptr @hf_tcpros_message_header_stamp_sec, align 4
-  %37 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %36, ptr noundef %0, i32 noundef %20, i32 noundef 4, i32 noundef -2147483648) #3
-  %38 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %20) #3
+  %37 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %36, ptr noundef %0, i32 noundef %20, i32 noundef 4, i32 noundef -2147483648)
+  %38 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %20)
   %39 = load i32, ptr @hf_tcpros_message_header_stamp_nsec, align 4
   %40 = add i32 %3, 12
-  %41 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %39, ptr noundef %0, i32 noundef %40, i32 noundef 4, i32 noundef -2147483648) #3
-  %42 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %40) #3
+  %41 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %39, ptr noundef %0, i32 noundef %40, i32 noundef 4, i32 noundef -2147483648)
+  %42 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %40)
   %43 = load ptr, ptr %7, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %43, i32 noundef 25, ptr noundef nonnull @.str.76, i32 noundef %38, i32 noundef %42) #3
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %43, i32 noundef 25, ptr noundef nonnull @.str.76, i32 noundef %38, i32 noundef %42)
   %44 = load i32, ptr @hf_tcpros_message_header_frame, align 4
-  %45 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %44, ptr noundef %0, i32 noundef %21, i32 noundef 4, i32 noundef -2147483646) #3
+  %45 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %44, ptr noundef %0, i32 noundef %21, i32 noundef 4, i32 noundef -2147483646)
   %46 = load i32, ptr @ett_tcpros, align 4
-  %47 = tail call ptr @proto_item_add_subtree(ptr noundef %45, i32 noundef %46) #3
+  %47 = tail call ptr @proto_item_add_subtree(ptr noundef %45, i32 noundef %46)
   %48 = load i32, ptr @hf_tcpros_message_header_frame_length, align 4
-  %49 = tail call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %48, ptr noundef %0, i32 noundef %21, i32 noundef 4, i32 noundef -2147483648) #3
+  %49 = tail call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %48, ptr noundef %0, i32 noundef %21, i32 noundef 4, i32 noundef -2147483648)
   %50 = load i32, ptr @hf_tcpros_message_header_frame_value, align 4
   %51 = add i32 %3, 20
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %53 = load ptr, ptr %52, align 8
-  %54 = call ptr @proto_tree_add_item_ret_string(ptr noundef %47, i32 noundef %50, ptr noundef %0, i32 noundef %51, i32 noundef %22, i32 noundef 2, ptr noundef %53, ptr noundef nonnull %5) #3
+  %54 = call ptr @proto_tree_add_item_ret_string(ptr noundef %47, i32 noundef %50, ptr noundef %0, i32 noundef %51, i32 noundef %22, i32 noundef 2, ptr noundef %53, ptr noundef nonnull %5)
   %55 = load ptr, ptr %7, align 8
   %56 = load ptr, ptr %5, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %55, i32 noundef 25, ptr noundef nonnull @.str.79, ptr noundef %56) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %55, i32 noundef 25, ptr noundef nonnull @.str.79, ptr noundef %56)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
   %57 = add i32 %6, 4
   %58 = sub i32 %6, %23
   %59 = load i32, ptr @hf_tcpros_message_payload, align 4
   %60 = add i32 %51, %22
-  %61 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %59, ptr noundef %0, i32 noundef %60, i32 noundef %58, i32 noundef 0) #3
+  %61 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %59, ptr noundef %0, i32 noundef %60, i32 noundef %58, i32 noundef 0)
   ret i32 %57
 }
 
-; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @is_rosconnection_header(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
-  %3 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1) #3
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal fastcc noundef zeroext i1 @is_rosconnection_header(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+  %3 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1)
   %4 = icmp slt i32 %3, 9
   br i1 %4, label %is_rosheaderfield.exit, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %1) #3
+  %6 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %1)
   %7 = icmp ult i32 %6, 5
   br i1 %7, label %is_rosheaderfield.exit, label %8
 
 8:                                                ; preds = %5
   %9 = add i32 %1, 4
-  %10 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %9) #3
+  %10 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %9)
   %11 = icmp slt i32 %10, 4
   br i1 %11, label %is_rosheaderfield.exit, label %12
 
 12:                                               ; preds = %8
-  %13 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %9) #3
+  %13 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %9)
   %14 = add i32 %13, 4
   %15 = icmp ult i32 %10, %14
   br i1 %15, label %is_rosheaderfield.exit, label %.preheader.i
@@ -474,158 +496,156 @@ define internal fastcc range(i32 0, 2) i32 @is_rosconnection_header(ptr noundef 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %16 = add i32 %1, 8
   %17 = load ptr, ptr @g_ascii_table, align 8
-  br label %20
+  br label %18
 
-18:                                               ; preds = %20
-  %19 = add nuw i32 %.0171.i, 1
-  %exitcond.not.i = icmp eq i32 %19, %13
-  br i1 %exitcond.not.i, label %is_rosheaderfield.exit, label %20, !llvm.loop !6
+18:                                               ; preds = %18, %.lr.ph.i
+  %.0191.i = phi i32 [ 0, %.lr.ph.i ], [ %27, %18 ]
+  %19 = add i32 %16, %.0191.i
+  %20 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %19)
+  %21 = zext i8 %20 to i64
+  %22 = getelementptr i16, ptr %17, i64 %21
+  %23 = load i16, ptr %22, align 2
+  %24 = and i16 %23, 1
+  %25 = icmp ne i16 %24, 0
+  %26 = icmp ne i8 %20, 0
+  %or.cond.not.i = and i1 %26, %25
+  %27 = add nuw i32 %.0191.i, 1
+  %exitcond.not.i = icmp ne i32 %27, %13
+  %or.cond.not = select i1 %or.cond.not.i, i1 %exitcond.not.i, i1 false
+  br i1 %or.cond.not, label %18, label %is_rosheaderfield.exit, !llvm.loop !10
 
-20:                                               ; preds = %18, %.lr.ph.i
-  %.0171.i = phi i32 [ 0, %.lr.ph.i ], [ %19, %18 ]
-  %21 = add i32 %16, %.0171.i
-  %22 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %21) #3
-  %23 = zext i8 %22 to i64
-  %24 = getelementptr i16, ptr %17, i64 %23
-  %25 = load i16, ptr %24, align 2
-  %26 = and i16 %25, 1
-  %27 = icmp eq i16 %26, 0
-  %28 = icmp eq i8 %22, 0
-  %or.cond.i = or i1 %28, %27
-  br i1 %or.cond.i, label %is_rosheaderfield.exit, label %18
-
-is_rosheaderfield.exit:                           ; preds = %18, %20, %.preheader.i, %8, %12, %5, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %5 ], [ 1, %.preheader.i ], [ 0, %8 ], [ 0, %12 ], [ 0, %20 ], [ 1, %18 ]
-  ret i32 %.0
+is_rosheaderfield.exit:                           ; preds = %18, %.preheader.i, %12, %8, %5, %2
+  %.0 = phi i1 [ false, %2 ], [ false, %5 ], [ false, %8 ], [ false, %12 ], [ true, %.preheader.i ], [ %or.cond.not.i, %18 ]
+  ret i1 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_ros_connection_header(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  %6 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %3) #3
+  %6 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %3)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8
-  tail call void @col_append_str(ptr noundef %8, i32 noundef 25, ptr noundef nonnull @.str.80) #3
+  tail call void @col_append_str(ptr noundef %8, i32 noundef 25, ptr noundef nonnull @.str.80)
   %9 = load i32, ptr @hf_tcpros_connection_header, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648) #3
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648)
   %11 = load i32, ptr @ett_tcpros, align 4
-  %12 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %11) #3
+  %12 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %11)
   %13 = load i32, ptr @hf_tcpros_connection_header_length, align 4
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %13, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648) #3
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %13, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648)
   %15 = load i32, ptr @hf_tcpros_connection_header_content, align 4
   %16 = add i32 %3, 4
-  %17 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %15, ptr noundef %0, i32 noundef %16, i32 noundef %6, i32 noundef 0) #3
+  %17 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %15, ptr noundef %0, i32 noundef %16, i32 noundef %6, i32 noundef 0)
   %18 = load i32, ptr @ett_tcpros, align 4
-  %19 = tail call ptr @proto_item_add_subtree(ptr noundef %17, i32 noundef %18) #3
+  %19 = tail call ptr @proto_item_add_subtree(ptr noundef %17, i32 noundef %18)
   %20 = add i32 %6, 4
   %21 = icmp sgt i32 %20, 4
-  br i1 %21, label %.lr.ph, label %.loopexit
+  br i1 %21, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %4
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %23 = add i32 %3, 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %24 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %23) #3
+  %24 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %23)
   %25 = icmp sgt i32 %24, 4
-  br i1 %25, label %.lr.ph42, label %dissect_ros_connection_header_field.exit.thread
+  br i1 %25, label %.lr.ph45, label %.thread
 
-dissect_ros_connection_header_field.exit.thread:  ; preds = %57, %.lr.ph
-  %.036.lcssa = phi i32 [ 4, %.lr.ph ], [ %54, %57 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %.loopexit
-
-.lr.ph42:                                         ; preds = %.lr.ph, %57
+.lr.ph45:                                         ; preds = %.lr.ph, %57
   %26 = phi i32 [ %59, %57 ], [ %23, %.lr.ph ]
-  %.03641 = phi i32 [ %54, %57 ], [ 4, %.lr.ph ]
-  %27 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %26) #3
+  %.0343944 = phi i32 [ %54, %57 ], [ 4, %.lr.ph ]
+  %27 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %26)
   %28 = load i32, ptr @hf_tcpros_connection_header_field, align 4
-  %29 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %28, ptr noundef %0, i32 noundef %26, i32 noundef 4, i32 noundef -2147483646) #3
+  %29 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %28, ptr noundef %0, i32 noundef %26, i32 noundef 4, i32 noundef -2147483646)
   %30 = load i32, ptr @ett_tcpros, align 4
-  %31 = call ptr @proto_item_add_subtree(ptr noundef %29, i32 noundef %30) #3
+  %31 = call ptr @proto_item_add_subtree(ptr noundef %29, i32 noundef %30)
   %32 = load i32, ptr @hf_tcpros_connection_header_field_length, align 4
-  %33 = call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %32, ptr noundef %0, i32 noundef %26, i32 noundef 4, i32 noundef -2147483648) #3
+  %33 = call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %32, ptr noundef %0, i32 noundef %26, i32 noundef 4, i32 noundef -2147483648)
   %34 = add i32 %26, 4
   %35 = load i32, ptr @hf_tcpros_connection_header_field_data, align 4
-  %36 = call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %35, ptr noundef %0, i32 noundef %34, i32 noundef %27, i32 noundef 2) #3
-  %37 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %34, i32 noundef %27, i8 noundef zeroext 61) #3
+  %36 = call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %35, ptr noundef %0, i32 noundef %34, i32 noundef %27, i32 noundef 2)
+  %37 = call i32 @tvb_find_uint8(ptr noundef %0, i32 noundef %34, i32 noundef %27, i8 noundef zeroext 61)
   %38 = sub i32 %37, %34
   %39 = icmp sgt i32 %38, 0
   br i1 %39, label %40, label %dissect_ros_connection_header_field.exit
 
-40:                                               ; preds = %.lr.ph42
+40:                                               ; preds = %.lr.ph45
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
   %41 = load i32, ptr @ett_tcpros, align 4
-  %42 = call ptr @proto_item_add_subtree(ptr noundef %36, i32 noundef %41) #3
+  %42 = call ptr @proto_item_add_subtree(ptr noundef %36, i32 noundef %41)
   %43 = load i32, ptr @hf_tcpros_connection_header_field_name, align 4
   %44 = load ptr, ptr %22, align 8
-  %45 = call ptr @proto_tree_add_item_ret_string(ptr noundef %42, i32 noundef %43, ptr noundef %0, i32 noundef %34, i32 noundef %38, i32 noundef 2, ptr noundef %44, ptr noundef nonnull %5) #3
+  %45 = call ptr @proto_tree_add_item_ret_string(ptr noundef %42, i32 noundef %43, ptr noundef %0, i32 noundef %34, i32 noundef %38, i32 noundef 2, ptr noundef %44, ptr noundef nonnull %5)
   %46 = load i32, ptr @hf_tcpros_connection_header_field_value, align 4
   %47 = add i32 %37, 1
   %48 = xor i32 %38, -1
   %49 = add i32 %27, %48
-  %50 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %46, ptr noundef %0, i32 noundef %47, i32 noundef %49, i32 noundef 2) #3
+  %50 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %46, ptr noundef %0, i32 noundef %47, i32 noundef %49, i32 noundef 2)
   %51 = load ptr, ptr %7, align 8
   %52 = load ptr, ptr %5, align 8
-  call void @col_append_str(ptr noundef %51, i32 noundef 25, ptr noundef %52) #3
+  call void @col_append_str(ptr noundef %51, i32 noundef 25, ptr noundef %52)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
   br label %dissect_ros_connection_header_field.exit
 
-dissect_ros_connection_header_field.exit:         ; preds = %.lr.ph42, %40
+dissect_ros_connection_header_field.exit:         ; preds = %.lr.ph45, %40
   %53 = add i32 %27, 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %54 = add i32 %53, %.03641
+  %54 = add i32 %53, %.0343944
   %55 = icmp ne i32 %53, 0
   %56 = icmp slt i32 %54, %20
   %or.cond = and i1 %55, %56
-  br i1 %or.cond, label %57, label %.loopexit
+  br i1 %or.cond, label %57, label %.thread
 
 57:                                               ; preds = %dissect_ros_connection_header_field.exit
   %58 = load ptr, ptr %7, align 8
-  call void @col_append_str(ptr noundef %58, i32 noundef 25, ptr noundef nonnull @.str.81) #3
+  call void @col_append_str(ptr noundef %58, i32 noundef 25, ptr noundef nonnull @.str.81)
   %59 = add i32 %54, %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %60 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %59) #3
+  %60 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %59)
   %61 = icmp sgt i32 %60, 4
-  br i1 %61, label %.lr.ph42, label %dissect_ros_connection_header_field.exit.thread
+  br i1 %61, label %.lr.ph45, label %.thread
 
-.loopexit:                                        ; preds = %dissect_ros_connection_header_field.exit, %4, %dissect_ros_connection_header_field.exit.thread
-  %.1 = phi i32 [ %.036.lcssa, %dissect_ros_connection_header_field.exit.thread ], [ 4, %4 ], [ %54, %dissect_ros_connection_header_field.exit ]
+.thread:                                          ; preds = %57, %dissect_ros_connection_header_field.exit, %.lr.ph, %4
+  %.1 = phi i32 [ 4, %4 ], [ 4, %.lr.ph ], [ %54, %dissect_ros_connection_header_field.exit ], [ %54, %57 ]
   %62 = load ptr, ptr %7, align 8
-  call void @col_append_str(ptr noundef %62, i32 noundef 25, ptr noundef nonnull @.str.82) #3
+  call void @col_append_str(ptr noundef %62, i32 noundef 25, ptr noundef nonnull @.str.82)
   ret i32 %.1
 }
 
-declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_item_ret_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item_ret_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @tvb_find_guint8(ptr noundef, i32 noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_find_uint8(ptr noundef, i32 noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #2
 
-declare nonnull ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr #2
 
-declare void @conversation_set_dissector(ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @conversation_set_dissector(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}

@@ -4,9 +4,8 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
 %struct.true_false_string = type { ptr, ptr }
-%struct._value_string = type { i32, ptr }
 %struct.tlv_info_t = type { i8, i8, i8, i8, i32, i32 }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
@@ -57,7 +56,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_reg_phs = internal global i32 0, align 4
 @hf_reg_arq = internal global i32 0, align 4
 @hf_reg_dsx_flow_control = internal global i32 0, align 4
-@include_cor2_changes = external global i32, align 4
+@include_cor2_changes = external global i8, align 1
 @hf_reg_mac_crc_support = internal global i32 0, align 4
 @hf_tlv_type = internal global i32 0, align 4
 @hf_reg_mca_flow_control = internal global i32 0, align 4
@@ -147,7 +146,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.25 = private unnamed_addr constant [41 x i8] c"wmx.reg.arq_ack_type_selective_ack_entry\00", align 1
 @.str.26 = private unnamed_addr constant [49 x i8] c"Bandwidth request and CINR report header support\00", align 1
 @.str.27 = private unnamed_addr constant [53 x i8] c"wmx.reg.bandwidth_request_cinr_report_header_support\00", align 1
-@tfs_support = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.199 }, %struct._value_string { i32 1, ptr @.str.197 }, %struct._value_string zeroinitializer], align 16
 @.str.28 = private unnamed_addr constant [58 x i8] c"Bandwidth request and uplink sleep control header support\00", align 1
 @.str.29 = private unnamed_addr constant [58 x i8] c"wmx.reg.bandwidth_request_ul_sleep_control_header_support\00", align 1
 @.str.30 = private unnamed_addr constant [40 x i8] c"CQICH Allocation Request header support\00", align 1
@@ -156,7 +154,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.33 = private unnamed_addr constant [44 x i8] c"wmx.reg.dl_sleep_control_extended_subheader\00", align 1
 @.str.34 = private unnamed_addr constant [17 x i8] c"DSx flow control\00", align 1
 @.str.35 = private unnamed_addr constant [25 x i8] c"wmx.reg.dsx_flow_control\00", align 1
-@unique_no_limit = internal constant [2 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.200 }, %struct._value_string zeroinitializer], align 16
 @.str.36 = private unnamed_addr constant [20 x i8] c"Packet, 802.1Q VLAN\00", align 1
 @.str.37 = private unnamed_addr constant [21 x i8] c"wmx.reg.encap_802_1q\00", align 1
 @.str.38 = private unnamed_addr constant [23 x i8] c"Packet, 802.3/Ethernet\00", align 1
@@ -192,7 +189,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.68 = private unnamed_addr constant [58 x i8] c"wmx.reg.bandwidth_request_ul_tx_pwr_report_header_support\00", align 1
 @.str.69 = private unnamed_addr constant [53 x i8] c"MDHO/FBSS HO. BS ignore all other bits when set to 1\00", align 1
 @.str.70 = private unnamed_addr constant [29 x i8] c"wmx.reg.fbss_mdho_ho_disable\00", align 1
-@tfs_reg_fbss_mdho_ho_disable = internal constant %struct.true_false_string { ptr @.str.201, ptr @.str.202 }, align 8
+@tfs_reg_fbss_mdho_ho_disable = internal constant %struct.true_false_string { ptr @.str.203, ptr @.str.204 }, align 8
 @.str.71 = private unnamed_addr constant [24 x i8] c"Feedback header support\00", align 1
 @.str.72 = private unnamed_addr constant [32 x i8] c"wmx.reg.feedback_header_support\00", align 1
 @.str.73 = private unnamed_addr constant [36 x i8] c"Feedback request extended subheader\00", align 1
@@ -212,15 +209,14 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.85 = private unnamed_addr constant [26 x i8] c"wmx.reg.idle_mode_timeout\00", align 1
 @.str.86 = private unnamed_addr constant [19 x i8] c"IP management mode\00", align 1
 @.str.87 = private unnamed_addr constant [21 x i8] c"wmx.reg.ip_mgmt_mode\00", align 1
-@tfs_reg_ip_mgmt_mode = internal constant %struct.true_false_string { ptr @.str.203, ptr @.str.204 }, align 8
+@tfs_reg_ip_mgmt_mode = internal constant %struct.true_false_string { ptr @.str.205, ptr @.str.206 }, align 8
 @.str.88 = private unnamed_addr constant [11 x i8] c"IP version\00", align 1
 @.str.89 = private unnamed_addr constant [19 x i8] c"wmx.reg.ip_version\00", align 1
-@vals_reg_ip_version = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.205 }, %struct._value_string { i32 2, ptr @.str.206 }, %struct._value_string zeroinitializer], align 16
 @.str.90 = private unnamed_addr constant [22 x i8] c"MAC Address of the SS\00", align 1
 @.str.91 = private unnamed_addr constant [20 x i8] c"wmx.reg.mac_address\00", align 1
 @.str.92 = private unnamed_addr constant [8 x i8] c"MAC CRC\00", align 1
 @.str.93 = private unnamed_addr constant [24 x i8] c"wmx.reg.mac_crc_support\00", align 1
-@tfs_mac_crc_support = internal constant %struct.true_false_string { ptr @.str.207, ptr @.str.208 }, align 8
+@tfs_mac_crc_support = internal constant %struct.true_false_string { ptr @.str.210, ptr @.str.211 }, align 8
 @.str.94 = private unnamed_addr constant [39 x i8] c"Maximum number of classification rules\00", align 1
 @.str.95 = private unnamed_addr constant [24 x i8] c"wmx.reg.max_classifiers\00", align 1
 @.str.96 = private unnamed_addr constant [60 x i8] c"Maximum number of bursts transmitted concurrently to the MS\00", align 1
@@ -255,7 +251,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.125 = private unnamed_addr constant [40 x i8] c"wmx.reg.pdu_sn_short_extended_subheader\00", align 1
 @.str.126 = private unnamed_addr constant [12 x i8] c"PHS support\00", align 1
 @.str.127 = private unnamed_addr constant [12 x i8] c"wmx.reg.phs\00", align 1
-@vals_reg_phs_support = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.209 }, %struct._value_string { i32 1, ptr @.str.210 }, %struct._value_string { i32 2, ptr @.str.211 }, %struct._value_string { i32 3, ptr @.str.212 }, %struct._value_string zeroinitializer], align 16
 @.str.128 = private unnamed_addr constant [34 x i8] c"PHY channel report header support\00", align 1
 @.str.129 = private unnamed_addr constant [42 x i8] c"wmx.reg.phy_channel_report_header_support\00", align 1
 @.str.130 = private unnamed_addr constant [17 x i8] c"wmx.reg.reserved\00", align 1
@@ -269,7 +264,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.138 = private unnamed_addr constant [38 x i8] c"wmx.reg.sn_request_extended_subheader\00", align 1
 @.str.139 = private unnamed_addr constant [22 x i8] c"SS management support\00", align 1
 @.str.140 = private unnamed_addr constant [24 x i8] c"wmx.reg.ss_mgmt_support\00", align 1
-@tfs_reg_ss_mgmt_support = internal constant %struct.true_false_string { ptr @.str.213, ptr @.str.214 }, align 8
+@tfs_reg_ss_mgmt_support = internal constant %struct.true_false_string { ptr @.str.217, ptr @.str.218 }, align 8
 @.str.141 = private unnamed_addr constant [51 x i8] c"Number of Uplink transport CIDs the SS can support\00", align 1
 @.str.142 = private unnamed_addr constant [26 x i8] c"wmx.reg.ul_cids_supported\00", align 1
 @.str.143 = private unnamed_addr constant [38 x i8] c"UL Tx power report extended subheader\00", align 1
@@ -337,29 +332,33 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.197 = private unnamed_addr constant [10 x i8] c"supported\00", align 1
 @.str.198 = private unnamed_addr constant [12 x i8] c"unsupported\00", align 1
 @.str.199 = private unnamed_addr constant [14 x i8] c"not supported\00", align 1
-@.str.200 = private unnamed_addr constant [9 x i8] c"no limit\00", align 1
-@.str.201 = private unnamed_addr constant [8 x i8] c"Disable\00", align 1
-@.str.202 = private unnamed_addr constant [7 x i8] c"Enable\00", align 1
-@.str.203 = private unnamed_addr constant [16 x i8] c"IP-managed mode\00", align 1
-@.str.204 = private unnamed_addr constant [15 x i8] c"Unmanaged mode\00", align 1
-@.str.205 = private unnamed_addr constant [5 x i8] c"IPv4\00", align 1
-@.str.206 = private unnamed_addr constant [5 x i8] c"IPV6\00", align 1
-@.str.207 = private unnamed_addr constant [26 x i8] c"MAC CRC Support (Default)\00", align 1
-@.str.208 = private unnamed_addr constant [19 x i8] c"No MAC CRC Support\00", align 1
-@.str.209 = private unnamed_addr constant [15 x i8] c"no PHS support\00", align 1
-@.str.210 = private unnamed_addr constant [8 x i8] c"ATM PHS\00", align 1
-@.str.211 = private unnamed_addr constant [11 x i8] c"Packet PHS\00", align 1
-@.str.212 = private unnamed_addr constant [19 x i8] c"ATM and Packet PHS\00", align 1
-@.str.213 = private unnamed_addr constant [32 x i8] c"secondary management connection\00", align 1
-@.str.214 = private unnamed_addr constant [35 x i8] c"no secondary management connection\00", align 1
-@.str.215 = private unnamed_addr constant [32 x i8] c"MAC Management Message, REG-REQ\00", align 1
-@.str.216 = private unnamed_addr constant [30 x i8] c"Uplink Service Flow Encodings\00", align 1
-@.str.217 = private unnamed_addr constant [32 x i8] c"Downlink Service Flow Encodings\00", align 1
-@.str.218 = private unnamed_addr constant [11 x i8] c"HMAC Tuple\00", align 1
-@.str.219 = private unnamed_addr constant [11 x i8] c"CMAC Tuple\00", align 1
-@.str.220 = private unnamed_addr constant [27 x i8] c" (HMAC Tuple is missing !)\00", align 1
+@tfs_support = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.199 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.197 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.201 = private unnamed_addr constant [9 x i8] c"no limit\00", align 1
+@unique_no_limit = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.201 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.203 = private unnamed_addr constant [8 x i8] c"Disable\00", align 1
+@.str.204 = private unnamed_addr constant [7 x i8] c"Enable\00", align 1
+@.str.205 = private unnamed_addr constant [16 x i8] c"IP-managed mode\00", align 1
+@.str.206 = private unnamed_addr constant [15 x i8] c"Unmanaged mode\00", align 1
+@.str.207 = private unnamed_addr constant [5 x i8] c"IPv4\00", align 1
+@.str.208 = private unnamed_addr constant [5 x i8] c"IPV6\00", align 1
+@vals_reg_ip_version = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.207 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.208 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.210 = private unnamed_addr constant [26 x i8] c"MAC CRC Support (Default)\00", align 1
+@.str.211 = private unnamed_addr constant [19 x i8] c"No MAC CRC Support\00", align 1
+@.str.212 = private unnamed_addr constant [15 x i8] c"no PHS support\00", align 1
+@.str.213 = private unnamed_addr constant [8 x i8] c"ATM PHS\00", align 1
+@.str.214 = private unnamed_addr constant [11 x i8] c"Packet PHS\00", align 1
+@.str.215 = private unnamed_addr constant [19 x i8] c"ATM and Packet PHS\00", align 1
+@vals_reg_phs_support = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.212 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.213 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.214 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.215 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.217 = private unnamed_addr constant [32 x i8] c"secondary management connection\00", align 1
+@.str.218 = private unnamed_addr constant [35 x i8] c"no secondary management connection\00", align 1
+@.str.219 = private unnamed_addr constant [32 x i8] c"MAC Management Message, REG-REQ\00", align 1
+@.str.220 = private unnamed_addr constant [30 x i8] c"Uplink Service Flow Encodings\00", align 1
+@.str.221 = private unnamed_addr constant [32 x i8] c"Downlink Service Flow Encodings\00", align 1
+@.str.222 = private unnamed_addr constant [11 x i8] c"HMAC Tuple\00", align 1
+@.str.223 = private unnamed_addr constant [11 x i8] c"CMAC Tuple\00", align 1
+@.str.224 = private unnamed_addr constant [27 x i8] c" (HMAC Tuple is missing !)\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @dissect_extended_tlv(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -384,6 +383,13 @@ define hidden void @dissect_extended_tlv(ptr noundef %0, i32 noundef %1, ptr nou
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #3
+  call void @llvm.lifetime.start.p0(i64 12, ptr %20) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #3
   %24 = load ptr, ptr %11, align 8
   %25 = call i32 @tvb_reported_length(ptr noundef %24)
   store i32 %25, ptr %19, align 4
@@ -754,8 +760,8 @@ define hidden void @dissect_extended_tlv(ptr noundef %0, i32 noundef %1, ptr nou
   br label %752
 
 317:                                              ; preds = %8
-  %318 = load i32, ptr @include_cor2_changes, align 4
-  %319 = icmp ne i32 %318, 0
+  %318 = load i8, ptr @include_cor2_changes, align 1, !range !6, !noundef !7
+  %319 = trunc i8 %318 to i1
   br i1 %319, label %326, label %320
 
 320:                                              ; preds = %317
@@ -854,7 +860,7 @@ define hidden void @dissect_extended_tlv(ptr noundef %0, i32 noundef %1, ptr nou
 
 386:                                              ; preds = %383, %380, %372
   %387 = load ptr, ptr %14, align 8
-  %388 = getelementptr inbounds %struct._packet_info, ptr %387, i32 0, i32 1
+  %388 = getelementptr inbounds nuw %struct._packet_info, ptr %387, i32 0, i32 1
   %389 = load ptr, ptr %388, align 8
   call void @col_append_sep_str(ptr noundef %389, i32 noundef 25, ptr noundef null, ptr noundef @.str.2)
   %390 = load ptr, ptr %9, align 8
@@ -954,7 +960,7 @@ define hidden void @dissect_extended_tlv(ptr noundef %0, i32 noundef %1, ptr nou
   %451 = load i32, ptr %12, align 4
   %452 = add i32 %451, %450
   store i32 %452, ptr %12, align 4
-  br label %368, !llvm.loop !4
+  br label %368, !llvm.loop !8
 
 453:                                              ; preds = %386, %368
   br label %752
@@ -1298,42 +1304,71 @@ define hidden void @dissect_extended_tlv(ptr noundef %0, i32 noundef %1, ptr nou
   br label %752
 
 752:                                              ; preds = %746, %739, %720, %621, %615, %609, %575, %551, %545, %506, %472, %466, %460, %454, %453, %351, %345, %339, %333, %332, %311, %305, %299, %293, %292, %68, %62, %56, %50, %44, %30
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #3
+  call void @llvm.lifetime.end.p0(i64 12, ptr %20) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #3
   ret void
 }
 
-declare i32 @tvb_reported_length(ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare i32 @init_tlv_info(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length(ptr noundef) #2
 
-declare ptr @add_protocol_subtree(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @init_tlv_info(ptr noundef, ptr noundef, i32 noundef) #2
 
-declare void @wimax_service_flow_encodings_decoder(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @add_protocol_subtree(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @wimax_service_flow_encodings_decoder(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @add_tlv_subtree(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @add_tlv_subtree(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #2
 
-declare i32 @get_tlv_type(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare i32 @get_tlv_length(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @get_tlv_type(ptr noundef) #2
 
-declare void @col_append_sep_str(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @get_tlv_length(ptr noundef) #2
 
-declare i32 @get_tlv_value_offset(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_sep_str(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
-declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @get_tlv_value_offset(ptr noundef) #2
 
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #2
 
-declare i32 @wimax_common_tlv_encoding_decoder(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #2
 
-declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @wimax_common_tlv_encoding_decoder(ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_mac_mgmt_msg_reg_req() #0 {
   %1 = call i32 @proto_register_protocol(ptr noundef @.str.192, ptr noundef @.str.193, ptr noundef @.str.194)
   store i32 %1, ptr @proto_mac_mgmt_msg_reg_req_decoder, align 4
@@ -1346,15 +1381,19 @@ define hidden void @proto_register_mac_mgmt_msg_reg_req() #0 {
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #2
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mac_mgmt_msg_reg_req_decoder(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1366,7 +1405,7 @@ define internal i32 @dissect_mac_mgmt_msg_reg_req_decoder(ptr noundef %0, ptr no
   %12 = alloca ptr, align 8
   %13 = alloca ptr, align 8
   %14 = alloca ptr, align 8
-  %15 = alloca i32, align 4
+  %15 = alloca i8, align 1
   %16 = alloca %struct.tlv_info_t, align 4
   %17 = alloca i32, align 4
   %18 = alloca i32, align 4
@@ -1374,11 +1413,21 @@ define internal i32 @dissect_mac_mgmt_msg_reg_req_decoder(ptr noundef %0, ptr no
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   store i32 0, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #3
   store ptr null, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #3
   store ptr null, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #3
   store ptr null, ptr %14, align 8
-  store i32 0, ptr %15, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #3
+  store i8 0, ptr %15, align 1
+  call void @llvm.lifetime.start.p0(i64 12, ptr %16) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #3
   %19 = load ptr, ptr %5, align 8
   %20 = call i32 @tvb_reported_length(ptr noundef %19)
   store i32 %20, ptr %11, align 4
@@ -1387,7 +1436,7 @@ define internal i32 @dissect_mac_mgmt_msg_reg_req_decoder(ptr noundef %0, ptr no
   %23 = load ptr, ptr %5, align 8
   %24 = load i32, ptr %9, align 4
   %25 = load i32, ptr %11, align 4
-  %26 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %21, i32 noundef %22, ptr noundef %23, i32 noundef %24, i32 noundef %25, ptr noundef @.str.215)
+  %26 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %21, i32 noundef %22, ptr noundef %23, i32 noundef %24, i32 noundef %25, ptr noundef @.str.219)
   store ptr %26, ptr %12, align 8
   %27 = load ptr, ptr %12, align 8
   %28 = load i32, ptr @ett_mac_mgmt_msg_reg_req_decoder, align 4
@@ -1425,7 +1474,7 @@ define internal i32 @dissect_mac_mgmt_msg_reg_req_decoder(ptr noundef %0, ptr no
 
 48:                                               ; preds = %45, %42, %34
   %49 = load ptr, ptr %6, align 8
-  %50 = getelementptr inbounds %struct._packet_info, ptr %49, i32 0, i32 1
+  %50 = getelementptr inbounds nuw %struct._packet_info, ptr %49, i32 0, i32 1
   %51 = load ptr, ptr %50, align 8
   call void @col_append_sep_str(ptr noundef %51, i32 noundef 25, ptr noundef null, ptr noundef @.str.2)
   %52 = load ptr, ptr %13, align 8
@@ -1577,7 +1626,7 @@ define internal i32 @dissect_mac_mgmt_msg_reg_req_decoder(ptr noundef %0, ptr no
   %128 = load ptr, ptr %5, align 8
   %129 = load i32, ptr %9, align 4
   %130 = load i32, ptr %18, align 4
-  %131 = call ptr @add_protocol_subtree(ptr noundef %16, i32 noundef %125, ptr noundef %126, i32 noundef %127, ptr noundef %128, i32 noundef %129, i32 noundef %130, ptr noundef @.str.216)
+  %131 = call ptr @add_protocol_subtree(ptr noundef %16, i32 noundef %125, ptr noundef %126, i32 noundef %127, ptr noundef %128, i32 noundef %129, i32 noundef %130, ptr noundef @.str.220)
   store ptr %131, ptr %14, align 8
   %132 = load ptr, ptr %5, align 8
   %133 = load i32, ptr %10, align 4
@@ -1595,7 +1644,7 @@ define internal i32 @dissect_mac_mgmt_msg_reg_req_decoder(ptr noundef %0, ptr no
   %142 = load ptr, ptr %5, align 8
   %143 = load i32, ptr %9, align 4
   %144 = load i32, ptr %18, align 4
-  %145 = call ptr @add_protocol_subtree(ptr noundef %16, i32 noundef %139, ptr noundef %140, i32 noundef %141, ptr noundef %142, i32 noundef %143, i32 noundef %144, ptr noundef @.str.217)
+  %145 = call ptr @add_protocol_subtree(ptr noundef %16, i32 noundef %139, ptr noundef %140, i32 noundef %141, ptr noundef %142, i32 noundef %143, i32 noundef %144, ptr noundef @.str.221)
   store ptr %145, ptr %14, align 8
   %146 = load ptr, ptr %5, align 8
   %147 = load i32, ptr %10, align 4
@@ -1613,14 +1662,14 @@ define internal i32 @dissect_mac_mgmt_msg_reg_req_decoder(ptr noundef %0, ptr no
   %156 = load ptr, ptr %5, align 8
   %157 = load i32, ptr %9, align 4
   %158 = load i32, ptr %18, align 4
-  %159 = call ptr @add_protocol_subtree(ptr noundef %16, i32 noundef %153, ptr noundef %154, i32 noundef %155, ptr noundef %156, i32 noundef %157, i32 noundef %158, ptr noundef @.str.218)
+  %159 = call ptr @add_protocol_subtree(ptr noundef %16, i32 noundef %153, ptr noundef %154, i32 noundef %155, ptr noundef %156, i32 noundef %157, i32 noundef %158, ptr noundef @.str.222)
   store ptr %159, ptr %14, align 8
   %160 = load ptr, ptr %14, align 8
   %161 = load ptr, ptr %5, align 8
   %162 = load i32, ptr %10, align 4
   %163 = load i32, ptr %18, align 4
   call void @wimax_hmac_tuple_decoder(ptr noundef %160, ptr noundef %161, i32 noundef %162, i32 noundef %163)
-  store i32 1, ptr %15, align 4
+  store i8 1, ptr %15, align 1
   br label %182
 
 164:                                              ; preds = %60
@@ -1630,7 +1679,7 @@ define internal i32 @dissect_mac_mgmt_msg_reg_req_decoder(ptr noundef %0, ptr no
   %168 = load ptr, ptr %5, align 8
   %169 = load i32, ptr %9, align 4
   %170 = load i32, ptr %18, align 4
-  %171 = call ptr @add_protocol_subtree(ptr noundef %16, i32 noundef %165, ptr noundef %166, i32 noundef %167, ptr noundef %168, i32 noundef %169, i32 noundef %170, ptr noundef @.str.219)
+  %171 = call ptr @add_protocol_subtree(ptr noundef %16, i32 noundef %165, ptr noundef %166, i32 noundef %167, ptr noundef %168, i32 noundef %169, i32 noundef %170, ptr noundef @.str.223)
   store ptr %171, ptr %14, align 8
   %172 = load ptr, ptr %14, align 8
   %173 = load ptr, ptr %5, align 8
@@ -1652,50 +1701,71 @@ define internal i32 @dissect_mac_mgmt_msg_reg_req_decoder(ptr noundef %0, ptr no
   %184 = load i32, ptr %10, align 4
   %185 = add i32 %183, %184
   store i32 %185, ptr %9, align 4
-  br label %30, !llvm.loop !6
+  br label %30, !llvm.loop !10
 
 186:                                              ; preds = %48, %30
-  %187 = load i32, ptr %15, align 4
-  %188 = icmp ne i32 %187, 0
+  %187 = load i8, ptr %15, align 1, !range !6, !noundef !7
+  %188 = trunc i8 %187 to i1
   br i1 %188, label %191, label %189
 
 189:                                              ; preds = %186
   %190 = load ptr, ptr %13, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %190, ptr noundef @.str.220)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %190, ptr noundef @.str.224)
   br label %191
 
 191:                                              ; preds = %189, %186
   %192 = load ptr, ptr %5, align 8
   %193 = call i32 @tvb_captured_length(ptr noundef %192)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 12, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %193
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_mac_mgmt_msg_reg_req() #0 {
   %1 = load ptr, ptr @reg_req_handle, align 8
   call void @dissector_add_uint(ptr noundef @.str.196, i32 noundef 6, ptr noundef %1)
   ret void
 }
 
-declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @proto_tree_add_protocol_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_protocol_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) #2
 
-declare void @wimax_hmac_tuple_decoder(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @wimax_hmac_tuple_decoder(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-declare void @wimax_cmac_tuple_decoder(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @wimax_cmac_tuple_decoder(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-declare i32 @tvb_captured_length(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length(ptr noundef) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}

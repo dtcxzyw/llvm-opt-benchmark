@@ -5,9 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
 %struct.reassembly_table = type { ptr, ptr, ptr, ptr, ptr }
 %struct.reassembly_table_functions = type { ptr, ptr, ptr, ptr, ptr, ptr }
@@ -17,7 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_gelf_pdu_type = internal global i32 0, align 4
 @.str = private unnamed_addr constant [10 x i8] c"GELF Type\00", align 1
 @.str.1 = private unnamed_addr constant [10 x i8] c"gelf.type\00", align 1
-@gelf_udp_types = internal constant [9 x %struct._value_string] [%struct._value_string { i32 8075, ptr @.str.45 }, %struct._value_string { i32 30721, ptr @.str.46 }, %struct._value_string { i32 30814, ptr @.str.46 }, %struct._value_string { i32 30876, ptr @.str.46 }, %struct._value_string { i32 30938, ptr @.str.46 }, %struct._value_string { i32 7695, ptr @.str.47 }, %struct._value_string { i32 7996, ptr @.str.48 }, %struct._value_string { i32 31522, ptr @.str.49 }, %struct._value_string zeroinitializer], align 16
 @hf_gelf_pdu_message_id = internal global i32 0, align 4
 @.str.2 = private unnamed_addr constant [11 x i8] c"Message id\00", align 1
 @.str.3 = private unnamed_addr constant [18 x i8] c"gelf.chunk.msg_id\00", align 1
@@ -62,7 +58,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.29 = private unnamed_addr constant [24 x i8] c"Reassembled GELF length\00", align 1
 @.str.30 = private unnamed_addr constant [24 x i8] c"gelf.reassembled.length\00", align 1
 @.str.31 = private unnamed_addr constant [44 x i8] c"The total length of the reassembled payload\00", align 1
-@proto_register_gelf.ei_gelf = internal global [2 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_gelf_invalid_header, %struct.expert_field_info { ptr @.str.32, i32 117440512, i32 8388608, ptr @.str.33, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_gelf_broken_compression, %struct.expert_field_info { ptr @.str.34, i32 117440512, i32 8388608, ptr @.str.35, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_gelf.ei_gelf = internal global [2 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_gelf_invalid_header, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.32, i32 117440512, i32 8388608, ptr @.str.33, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_gelf_broken_compression, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.34, i32 117440512, i32 8388608, ptr @.str.35, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_gelf_invalid_header = internal global %struct.expert_field zeroinitializer, align 4
 @.str.32 = private unnamed_addr constant [20 x i8] c"gelf.invalid_header\00", align 1
 @.str.33 = private unnamed_addr constant [15 x i8] c"Invalid header\00", align 1
@@ -92,94 +88,109 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.47 = private unnamed_addr constant [8 x i8] c"chunked\00", align 1
 @.str.48 = private unnamed_addr constant [13 x i8] c"uncompressed\00", align 1
 @.str.49 = private unnamed_addr constant [24 x i8] c"uncompressed plain json\00", align 1
-@.str.50 = private unnamed_addr constant [44 x i8] c"Chunked packet: id: %s, number %u, count %u\00", align 1
-@.str.51 = private unnamed_addr constant [17 x i8] c"Reassembled GELF\00", align 1
+@gelf_udp_types = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 8075, [4 x i8] zeroinitializer, ptr @.str.45 }, { i32, [4 x i8], ptr } { i32 30721, [4 x i8] zeroinitializer, ptr @.str.46 }, { i32, [4 x i8], ptr } { i32 30814, [4 x i8] zeroinitializer, ptr @.str.46 }, { i32, [4 x i8], ptr } { i32 30876, [4 x i8] zeroinitializer, ptr @.str.46 }, { i32, [4 x i8], ptr } { i32 30938, [4 x i8] zeroinitializer, ptr @.str.46 }, { i32, [4 x i8], ptr } { i32 7695, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 7996, [4 x i8] zeroinitializer, ptr @.str.48 }, { i32, [4 x i8], ptr } { i32 31522, [4 x i8] zeroinitializer, ptr @.str.49 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.51 = private unnamed_addr constant [44 x i8] c"Chunked packet: id: %s, number %u, count %u\00", align 1
+@.str.52 = private unnamed_addr constant [17 x i8] c"Reassembled GELF\00", align 1
 @gelf_fragment_items = internal constant %struct._fragment_items { ptr @ett_gelf_fragment, ptr @ett_gelf_fragments, ptr @hf_gelf_fragments, ptr @hf_gelf_fragment, ptr @hf_gelf_fragment_overlap, ptr @hf_gelf_fragment_overlap_conflict, ptr @hf_gelf_fragment_multiple_tails, ptr @hf_gelf_fragment_too_long_fragment, ptr @hf_gelf_fragment_error, ptr @hf_gelf_fragment_count, ptr @hf_gelf_reassembled_in, ptr @hf_gelf_reassembled_length, ptr null, ptr @.str.10 }, align 8
-@.str.52 = private unnamed_addr constant [5 x i8] c"GZIP\00", align 1
-@.str.53 = private unnamed_addr constant [19 x i8] c"uncompressed plain\00", align 1
-@.str.54 = private unnamed_addr constant [5 x i8] c"ZLIB\00", align 1
-@.str.55 = private unnamed_addr constant [21 x i8] c"Invalid header magic\00", align 1
-@.str.56 = private unnamed_addr constant [16 x i8] c"compressed data\00", align 1
-@.str.57 = private unnamed_addr constant [25 x i8] c"Can't uncompress message\00", align 1
+@.str.53 = private unnamed_addr constant [5 x i8] c"GZIP\00", align 1
+@.str.54 = private unnamed_addr constant [19 x i8] c"uncompressed plain\00", align 1
+@.str.55 = private unnamed_addr constant [5 x i8] c"ZLIB\00", align 1
+@.str.56 = private unnamed_addr constant [21 x i8] c"Invalid header magic\00", align 1
+@.str.57 = private unnamed_addr constant [16 x i8] c"compressed data\00", align 1
+@.str.58 = private unnamed_addr constant [25 x i8] c"Can't uncompress message\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_gelf() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38) #2
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38)
   store i32 %1, ptr @proto_gelf, align 4
-  %2 = tail call ptr @register_dissector(ptr noundef nonnull @.str.39, ptr noundef nonnull @dissect_gelf_udp, i32 noundef %1) #2
+  %2 = tail call ptr @register_dissector(ptr noundef nonnull @.str.39, ptr noundef nonnull @dissect_gelf_udp, i32 noundef %1)
   store ptr %2, ptr @gelf_udp_handle, align 8
   %3 = load i32, ptr @proto_gelf, align 4
-  tail call void @proto_register_field_array(i32 noundef %3, ptr noundef nonnull @proto_register_gelf.hf, i32 noundef 15) #2
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_gelf.ett, i32 noundef 3) #2
+  tail call void @proto_register_field_array(i32 noundef %3, ptr noundef nonnull @proto_register_gelf.hf, i32 noundef 15)
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_gelf.ett, i32 noundef 3)
   %4 = load i32, ptr @proto_gelf, align 4
-  %5 = tail call ptr @expert_register_protocol(i32 noundef %4) #2
-  tail call void @expert_register_field_array(ptr noundef %5, ptr noundef nonnull @proto_register_gelf.ei_gelf, i32 noundef 2) #2
-  tail call void @reassembly_table_register(ptr noundef nonnull @gelf_udp_reassembly_table, ptr noundef nonnull @addresses_reassembly_table_functions) #2
+  %5 = tail call ptr @expert_register_protocol(i32 noundef %4)
+  tail call void @expert_register_field_array(ptr noundef %5, ptr noundef nonnull @proto_register_gelf.ei_gelf, i32 noundef 2)
+  tail call void @reassembly_table_register(ptr noundef nonnull @gelf_udp_reassembly_table, ptr noundef nonnull @addresses_reassembly_table_functions)
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gelf_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
-  %5 = tail call fastcc i32 @dissect_gelf(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0)
+  %5 = tail call fastcc i32 @dissect_gelf(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext false)
   ret i32 %5
 }
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #2
 
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @reassembly_table_register(ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @reassembly_table_register(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_gelf() local_unnamed_addr #0 {
   %1 = load ptr, ptr @gelf_udp_handle, align 8
-  tail call void @dissector_add_for_decode_as(ptr noundef nonnull @.str.40, ptr noundef %1) #2
+  tail call void @dissector_add_for_decode_as(ptr noundef nonnull @.str.40, ptr noundef %1)
   %2 = load i32, ptr @proto_gelf, align 4
-  tail call void @heur_dissector_add(ptr noundef nonnull @.str.41, ptr noundef nonnull @dissect_gelf_heur_udp, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, i32 noundef %2, i32 noundef 0) #2
+  tail call void @heur_dissector_add(ptr noundef nonnull @.str.41, ptr noundef nonnull @dissect_gelf_heur_udp, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, i32 noundef %2, i32 noundef 0)
   %3 = load i32, ptr @proto_gelf, align 4
-  %4 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.44, i32 noundef %3) #2
+  %4 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.44, i32 noundef %3)
   store ptr %4, ptr @json_handle, align 8
   ret void
 }
 
-declare void @dissector_add_for_decode_as(ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_add_for_decode_as(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_gelf_heur_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
-  %5 = tail call fastcc i32 @dissect_gelf(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1)
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @dissect_gelf_heur_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
+  %5 = tail call fastcc i32 @dissect_gelf(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true)
   %6 = icmp sgt i32 %5, 0
-  %. = zext i1 %6 to i32
-  ret i32 %.
+  ret i1 %6
 }
 
-declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_gelf(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal fastcc i32 @dissect_gelf(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca [17 x i8], align 16
-  %8 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
+  %8 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %9 = icmp ult i32 %8, 2
-  br i1 %9, label %124, label %10
+  br i1 %9, label %is_simple_zlib.exit, label %10
 
 10:                                               ; preds = %4
-  %11 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #2
-  %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %24, label %12
+  %11 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0)
+  br i1 %3, label %12, label %.critedge
 
 12:                                               ; preds = %10
-  switch i16 %11, label %124 [
+  switch i16 %11, label %is_simple_zlib.exit [
     i16 8075, label %is_simple_zlib.exit.thread
     i16 31522, label %13
     i16 7996, label %14
@@ -200,222 +211,247 @@ define internal fastcc i32 @dissect_gelf(ptr noundef %0, ptr noundef %1, ptr nou
   br label %is_simple_zlib.exit.thread
 
 is_simple_zlib.exit.thread:                       ; preds = %12, %12, %12, %12, %12, %15, %14, %13
-  %.078 = phi i32 [ 12, %15 ], [ 50, %14 ], [ 48, %13 ], [ 46, %12 ], [ 46, %12 ], [ 46, %12 ], [ 46, %12 ], [ 46, %12 ]
-  %16 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
-  %17 = icmp ult i32 %16, %.078
-  br i1 %17, label %124, label %18
+  %.080 = phi i32 [ 12, %15 ], [ 50, %14 ], [ 48, %13 ], [ 46, %12 ], [ 46, %12 ], [ 46, %12 ], [ 46, %12 ], [ 46, %12 ]
+  %16 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %17 = icmp ult i32 %16, %.080
+  br i1 %17, label %is_simple_zlib.exit, label %18
 
 18:                                               ; preds = %is_simple_zlib.exit.thread
   %19 = icmp eq i16 %11, 7695
   %20 = icmp ugt i32 %8, 9
   %or.cond = and i1 %20, %19
-  br i1 %or.cond, label %21, label %24
+  br i1 %or.cond, label %21, label %.critedge
 
 21:                                               ; preds = %18
-  %22 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 10) #2
-  %23 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 11) #2
-  %.not84 = icmp ult i8 %22, %23
-  br i1 %.not84, label %24, label %124
+  %22 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 10)
+  %23 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 11)
+  %.not = icmp ult i8 %22, %23
+  br i1 %.not, label %.critedge, label %is_simple_zlib.exit
 
-24:                                               ; preds = %18, %21, %10
-  %25 = load i32, ptr @proto_gelf, align 4
-  %26 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %25, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
-  %27 = load i32, ptr @ett_gelf, align 4
-  %28 = tail call ptr @proto_item_add_subtree(ptr noundef %26, i32 noundef %27) #2
-  %29 = load i32, ptr @hf_gelf_pdu_type, align 4
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %29, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0) #2
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %32 = load ptr, ptr %31, align 8
-  tail call void @col_set_str(ptr noundef %32, i32 noundef 34, ptr noundef nonnull @.str.37) #2
-  %33 = icmp eq i16 %11, 7695
-  br i1 %33, label %34, label %107
+.critedge:                                        ; preds = %18, %21, %10
+  %24 = load i32, ptr @proto_gelf, align 4
+  %25 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %24, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  %26 = load i32, ptr @ett_gelf, align 4
+  %27 = tail call ptr @proto_item_add_subtree(ptr noundef %25, i32 noundef %26)
+  %28 = load i32, ptr @hf_gelf_pdu_type, align 4
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %28, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0)
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %31 = load ptr, ptr %30, align 8
+  tail call void @col_set_str(ptr noundef %31, i32 noundef 35, ptr noundef nonnull @.str.37)
+  %32 = icmp eq i16 %11, 7695
+  br i1 %32, label %33, label %106
 
-34:                                               ; preds = %24
+33:                                               ; preds = %.critedge
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %7) #3
   store i8 0, ptr %7, align 16
-  %35 = tail call ptr @g_byte_array_sized_new(i32 noundef 8) #2
-  %36 = load i32, ptr @hf_gelf_pdu_chunked, align 4
-  %37 = tail call ptr @proto_tree_add_boolean(ptr noundef %28, i32 noundef %36, ptr noundef %0, i32 noundef 0, i32 noundef 2, i64 noundef 1) #2
-  %.not.i = icmp eq ptr %37, null
-  br i1 %.not.i, label %proto_item_set_generated.exit, label %38
+  %34 = tail call ptr @g_byte_array_sized_new(i32 noundef 8)
+  %35 = load i32, ptr @hf_gelf_pdu_chunked, align 4
+  %36 = tail call ptr @proto_tree_add_boolean(ptr noundef %27, i32 noundef %35, ptr noundef %0, i32 noundef 0, i32 noundef 2, i64 noundef 1)
+  %.not.i = icmp eq ptr %36, null
+  br i1 %.not.i, label %proto_item_set_generated.exit, label %37
 
-38:                                               ; preds = %34
-  %39 = getelementptr inbounds nuw i8, ptr %37, i64 32
-  %40 = load ptr, ptr %39, align 8
-  %.not5.i = icmp eq ptr %40, null
-  br i1 %.not5.i, label %proto_item_set_generated.exit, label %41
+37:                                               ; preds = %33
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 40
+  %39 = load ptr, ptr %38, align 8
+  %.not5.i = icmp eq ptr %39, null
+  br i1 %.not5.i, label %proto_item_set_generated.exit, label %40
 
-41:                                               ; preds = %38
-  %42 = getelementptr inbounds nuw i8, ptr %40, i64 28
-  %43 = load i32, ptr %42, align 4
-  %44 = or i32 %43, 2
-  store i32 %44, ptr %42, align 4
+40:                                               ; preds = %37
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 28
+  %42 = load i32, ptr %41, align 4
+  %43 = or i32 %42, 2
+  store i32 %43, ptr %41, align 4
   br label %proto_item_set_generated.exit
 
-proto_item_set_generated.exit:                    ; preds = %34, %38, %41
-  %45 = load i32, ptr @hf_gelf_pdu_message_id, align 4
-  %46 = tail call ptr @proto_tree_add_bytes_item(ptr noundef %28, i32 noundef %45, ptr noundef %0, i32 noundef 2, i32 noundef 8, i32 noundef 0, ptr noundef %35, ptr noundef null, ptr noundef null) #2
-  %47 = load i32, ptr @hf_gelf_pdu_chunk_number, align 4
-  %48 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %28, i32 noundef %47, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5) #2
-  %49 = load i32, ptr @hf_gelf_pdu_chunk_count, align 4
-  %50 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %28, i32 noundef %49, ptr noundef %0, i32 noundef 11, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6) #2
-  %51 = load ptr, ptr %35, align 8
-  %52 = call ptr @bytes_to_hexstr(ptr noundef nonnull %7, ptr noundef %51, i64 noundef 8) #2
-  %53 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i8 0, ptr %53, align 16
-  %54 = load ptr, ptr %35, align 8
-  %55 = getelementptr i8, ptr %54, i64 3
-  %56 = load i8, ptr %55, align 1
-  %57 = zext i8 %56 to i32
-  %58 = shl nuw nsw i32 %57, 3
-  %59 = getelementptr i8, ptr %54, i64 2
-  %60 = load i8, ptr %59, align 1
-  %61 = zext i8 %60 to i32
-  %62 = shl nuw nsw i32 %61, 2
-  %63 = or i32 %62, %58
-  %64 = getelementptr i8, ptr %54, i64 1
-  %65 = load i8, ptr %64, align 1
-  %66 = zext i8 %65 to i32
-  %67 = shl nuw nsw i32 %66, 1
-  %68 = or i32 %63, %67
-  %69 = load i8, ptr %54, align 1
-  %70 = zext i8 %69 to i32
-  %71 = or i32 %68, %70
-  %72 = getelementptr i8, ptr %54, i64 4
-  %73 = load i8, ptr %72, align 1
-  %74 = zext i8 %73 to i32
-  %75 = shl nuw nsw i32 %74, 3
-  %76 = getelementptr i8, ptr %54, i64 5
-  %77 = load i8, ptr %76, align 1
-  %78 = zext i8 %77 to i32
-  %79 = shl nuw nsw i32 %78, 2
-  %80 = or i32 %79, %75
-  %81 = getelementptr i8, ptr %54, i64 6
-  %82 = load i8, ptr %81, align 1
-  %83 = zext i8 %82 to i32
-  %84 = shl nuw nsw i32 %83, 1
-  %85 = or i32 %80, %84
-  %86 = getelementptr i8, ptr %54, i64 7
-  %87 = load i8, ptr %86, align 1
-  %88 = zext i8 %87 to i32
-  %89 = or i32 %85, %88
-  %90 = xor i32 %89, %71
-  %91 = call ptr @g_byte_array_free(ptr noundef nonnull %35, i32 noundef 1) #2
-  %92 = load ptr, ptr %31, align 8
-  %93 = load i32, ptr %5, align 4
-  %94 = load i32, ptr %6, align 4
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %92, i32 noundef 25, ptr noundef nonnull @.str.50, ptr noundef nonnull %7, i32 noundef %93, i32 noundef %94) #2
-  %95 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 12) #2
-  %96 = load i32, ptr %6, align 4
-  %97 = load i32, ptr %5, align 4
-  %98 = add i32 %97, 1
-  %99 = icmp ne i32 %96, %98
-  %100 = zext i1 %99 to i32
-  %101 = call ptr @fragment_add_seq_check(ptr noundef nonnull @gelf_udp_reassembly_table, ptr noundef %0, i32 noundef 12, ptr noundef nonnull %1, i32 noundef %90, ptr noundef null, i32 noundef %97, i32 noundef %95, i32 noundef %100) #2
+proto_item_set_generated.exit:                    ; preds = %33, %37, %40
+  %44 = load i32, ptr @hf_gelf_pdu_message_id, align 4
+  %45 = tail call ptr @proto_tree_add_bytes_item(ptr noundef %27, i32 noundef %44, ptr noundef %0, i32 noundef 2, i32 noundef 8, i32 noundef 0, ptr noundef %34, ptr noundef null, ptr noundef null)
+  %46 = load i32, ptr @hf_gelf_pdu_chunk_number, align 4
+  %47 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %27, i32 noundef %46, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5)
+  %48 = load i32, ptr @hf_gelf_pdu_chunk_count, align 4
+  %49 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %27, i32 noundef %48, ptr noundef %0, i32 noundef 11, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6)
+  %50 = load ptr, ptr %34, align 8
+  %51 = call ptr @bytes_to_hexstr(ptr noundef nonnull %7, ptr noundef %50, i64 noundef 8)
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store i8 0, ptr %52, align 16
+  %53 = load ptr, ptr %34, align 8
+  %54 = getelementptr i8, ptr %53, i64 3
+  %55 = load i8, ptr %54, align 1
+  %56 = zext i8 %55 to i32
+  %57 = shl nuw nsw i32 %56, 3
+  %58 = getelementptr i8, ptr %53, i64 2
+  %59 = load i8, ptr %58, align 1
+  %60 = zext i8 %59 to i32
+  %61 = shl nuw nsw i32 %60, 2
+  %62 = or i32 %61, %57
+  %63 = getelementptr i8, ptr %53, i64 1
+  %64 = load i8, ptr %63, align 1
+  %65 = zext i8 %64 to i32
+  %66 = shl nuw nsw i32 %65, 1
+  %67 = or i32 %62, %66
+  %68 = load i8, ptr %53, align 1
+  %69 = zext i8 %68 to i32
+  %70 = or i32 %67, %69
+  %71 = getelementptr i8, ptr %53, i64 4
+  %72 = load i8, ptr %71, align 1
+  %73 = zext i8 %72 to i32
+  %74 = shl nuw nsw i32 %73, 3
+  %75 = getelementptr i8, ptr %53, i64 5
+  %76 = load i8, ptr %75, align 1
+  %77 = zext i8 %76 to i32
+  %78 = shl nuw nsw i32 %77, 2
+  %79 = or i32 %78, %74
+  %80 = getelementptr i8, ptr %53, i64 6
+  %81 = load i8, ptr %80, align 1
+  %82 = zext i8 %81 to i32
+  %83 = shl nuw nsw i32 %82, 1
+  %84 = or i32 %79, %83
+  %85 = getelementptr i8, ptr %53, i64 7
+  %86 = load i8, ptr %85, align 1
+  %87 = zext i8 %86 to i32
+  %88 = or i32 %84, %87
+  %89 = xor i32 %88, %70
+  %90 = call ptr @g_byte_array_free(ptr noundef %34, i32 noundef 1)
+  %91 = load ptr, ptr %30, align 8
+  %92 = load i32, ptr %5, align 4
+  %93 = load i32, ptr %6, align 4
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %91, i32 noundef 25, ptr noundef nonnull @.str.51, ptr noundef nonnull %7, i32 noundef %92, i32 noundef %93)
+  %94 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 12)
+  %95 = load i32, ptr %6, align 4
+  %96 = load i32, ptr %5, align 4
+  %97 = add i32 %96, 1
+  %98 = icmp ne i32 %95, %97
+  %99 = call ptr @fragment_add_seq_check(ptr noundef nonnull @gelf_udp_reassembly_table, ptr noundef %0, i32 noundef 12, ptr noundef %1, i32 noundef %89, ptr noundef null, i32 noundef %96, i32 noundef %94, i1 noundef zeroext %98)
+  %.not85 = icmp eq ptr %99, null
+  br i1 %.not85, label %105, label %100
+
+100:                                              ; preds = %proto_item_set_generated.exit
+  %101 = call ptr @process_reassembled_data(ptr noundef %0, i32 noundef 12, ptr noundef %1, ptr noundef nonnull @.str.52, ptr noundef nonnull %99, ptr noundef nonnull @gelf_fragment_items, ptr noundef null, ptr noundef %27)
   %.not86 = icmp eq ptr %101, null
-  br i1 %.not86, label %124, label %102
+  br i1 %.not86, label %105, label %102
 
-102:                                              ; preds = %proto_item_set_generated.exit
-  %103 = call ptr @process_reassembled_data(ptr noundef %0, i32 noundef 12, ptr noundef nonnull %1, ptr noundef nonnull @.str.51, ptr noundef nonnull %101, ptr noundef nonnull @gelf_fragment_items, ptr noundef null, ptr noundef %28) #2
-  %.not87 = icmp eq ptr %103, null
-  br i1 %.not87, label %124, label %104
+102:                                              ; preds = %100
+  %103 = call zeroext i16 @tvb_get_ntohs(ptr noundef nonnull %101, i32 noundef 0)
+  %104 = call fastcc i32 @dissect_gelf_simple_udp(ptr noundef nonnull %101, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %103, ptr noundef %29)
+  br label %105
 
-104:                                              ; preds = %102
-  %105 = call zeroext i16 @tvb_get_ntohs(ptr noundef nonnull %103, i32 noundef 0) #2
-  %106 = call fastcc i32 @dissect_gelf_simple_udp(ptr noundef nonnull %103, ptr noundef nonnull %1, ptr noundef %2, i16 noundef zeroext %105, ptr noundef %30)
-  br label %124
+105:                                              ; preds = %100, %102, %proto_item_set_generated.exit
+  call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %7) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
+  br label %is_simple_zlib.exit
 
-107:                                              ; preds = %24
-  %108 = load i32, ptr @hf_gelf_pdu_chunked, align 4
-  %109 = tail call ptr @proto_tree_add_boolean(ptr noundef %28, i32 noundef %108, ptr noundef %0, i32 noundef 0, i32 noundef 2, i64 noundef 0) #2
-  %.not.i88 = icmp eq ptr %109, null
-  br i1 %.not.i88, label %proto_item_set_generated.exit90, label %110
+106:                                              ; preds = %.critedge
+  %107 = load i32, ptr @hf_gelf_pdu_chunked, align 4
+  %108 = tail call ptr @proto_tree_add_boolean(ptr noundef %27, i32 noundef %107, ptr noundef %0, i32 noundef 0, i32 noundef 2, i64 noundef 0)
+  %.not.i87 = icmp eq ptr %108, null
+  br i1 %.not.i87, label %proto_item_set_generated.exit89, label %109
 
-110:                                              ; preds = %107
-  %111 = getelementptr inbounds nuw i8, ptr %109, i64 32
-  %112 = load ptr, ptr %111, align 8
-  %.not5.i89 = icmp eq ptr %112, null
-  br i1 %.not5.i89, label %proto_item_set_generated.exit90, label %113
+109:                                              ; preds = %106
+  %110 = getelementptr inbounds nuw i8, ptr %108, i64 40
+  %111 = load ptr, ptr %110, align 8
+  %.not5.i88 = icmp eq ptr %111, null
+  br i1 %.not5.i88, label %proto_item_set_generated.exit89, label %112
 
-113:                                              ; preds = %110
-  %114 = getelementptr inbounds nuw i8, ptr %112, i64 28
-  %115 = load i32, ptr %114, align 4
-  %116 = or i32 %115, 2
-  store i32 %116, ptr %114, align 4
-  br label %proto_item_set_generated.exit90
+112:                                              ; preds = %109
+  %113 = getelementptr inbounds nuw i8, ptr %111, i64 28
+  %114 = load i32, ptr %113, align 4
+  %115 = or i32 %114, 2
+  store i32 %115, ptr %113, align 4
+  br label %proto_item_set_generated.exit89
 
-proto_item_set_generated.exit90:                  ; preds = %107, %110, %113
-  switch i16 %11, label %119 [
-    i16 8075, label %121
-    i16 31522, label %117
-    i16 7996, label %118
-    i16 30876, label %is_simple_zlib.exit91.thread
-    i16 30814, label %is_simple_zlib.exit91.thread
-    i16 30721, label %is_simple_zlib.exit91.thread
-    i16 30938, label %is_simple_zlib.exit91.thread
+proto_item_set_generated.exit89:                  ; preds = %106, %109, %112
+  switch i16 %11, label %is_simple_zlib.exit90 [
+    i16 8075, label %120
+    i16 31522, label %116
+    i16 7996, label %117
+    i16 30876, label %118
+    i16 30814, label %118
+    i16 30721, label %118
+    i16 30938, label %118
   ]
 
-117:                                              ; preds = %proto_item_set_generated.exit90
-  br label %121
+116:                                              ; preds = %proto_item_set_generated.exit89
+  br label %120
 
-118:                                              ; preds = %proto_item_set_generated.exit90
-  br label %121
+117:                                              ; preds = %proto_item_set_generated.exit89
+  br label %120
 
-is_simple_zlib.exit91.thread:                     ; preds = %proto_item_set_generated.exit90, %proto_item_set_generated.exit90, %proto_item_set_generated.exit90, %proto_item_set_generated.exit90
-  br label %121
+118:                                              ; preds = %proto_item_set_generated.exit89, %proto_item_set_generated.exit89, %proto_item_set_generated.exit89, %proto_item_set_generated.exit89
+  br label %120
 
-119:                                              ; preds = %proto_item_set_generated.exit90
-  %120 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %30, ptr noundef nonnull @ei_gelf_invalid_header, ptr noundef nonnull @.str.55) #2
-  br label %124
+is_simple_zlib.exit90:                            ; preds = %proto_item_set_generated.exit89
+  %119 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %29, ptr noundef nonnull @ei_gelf_invalid_header, ptr noundef nonnull @.str.56)
+  br label %is_simple_zlib.exit
 
-121:                                              ; preds = %proto_item_set_generated.exit90, %is_simple_zlib.exit91.thread, %118, %117
-  %.str.54.sink = phi ptr [ @.str.54, %is_simple_zlib.exit91.thread ], [ @.str.48, %118 ], [ @.str.53, %117 ], [ @.str.52, %proto_item_set_generated.exit90 ]
-  %122 = load ptr, ptr %31, align 8
-  tail call void @col_set_str(ptr noundef %122, i32 noundef 25, ptr noundef nonnull %.str.54.sink) #2
-  %123 = tail call fastcc i32 @dissect_gelf_simple_udp(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i16 noundef zeroext %11, ptr noundef %30)
-  br label %124
+120:                                              ; preds = %proto_item_set_generated.exit89, %118, %117, %116
+  %.str.55.sink = phi ptr [ @.str.55, %118 ], [ @.str.48, %117 ], [ @.str.54, %116 ], [ @.str.53, %proto_item_set_generated.exit89 ]
+  %121 = load ptr, ptr %30, align 8
+  tail call void @col_set_str(ptr noundef %121, i32 noundef 25, ptr noundef nonnull %.str.55.sink)
+  %122 = tail call fastcc i32 @dissect_gelf_simple_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %11, ptr noundef %29)
+  br label %is_simple_zlib.exit
 
-124:                                              ; preds = %12, %proto_item_set_generated.exit, %104, %102, %21, %is_simple_zlib.exit.thread, %4, %121, %119
-  %.0 = phi i32 [ %123, %121 ], [ 0, %119 ], [ 0, %4 ], [ 0, %is_simple_zlib.exit.thread ], [ 0, %21 ], [ %8, %102 ], [ %8, %104 ], [ %8, %proto_item_set_generated.exit ], [ 0, %12 ]
+is_simple_zlib.exit:                              ; preds = %12, %105, %is_simple_zlib.exit90, %120, %is_simple_zlib.exit.thread, %21, %4
+  %.0 = phi i32 [ 0, %4 ], [ 0, %21 ], [ 0, %is_simple_zlib.exit.thread ], [ %8, %105 ], [ %122, %120 ], [ 0, %is_simple_zlib.exit90 ], [ 0, %12 ]
   ret i32 %.0
 }
 
-declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
 
-declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #2
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @g_byte_array_sized_new(i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_byte_array_sized_new(i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_bytes_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_bytes_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @bytes_to_hexstr(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @bytes_to_hexstr(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @g_byte_array_free(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_byte_array_free(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @fragment_add_seq_check(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @fragment_add_seq_check(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare ptr @process_reassembled_data(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @process_reassembled_data(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_gelf_simple_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, ptr noundef %4) unnamed_addr #0 {
-  %6 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
+  %6 = tail call i32 @tvb_captured_length(ptr noundef %0)
   switch i16 %3, label %22 [
     i16 8075, label %is_simple_zlib.exit.thread
     i16 30876, label %is_simple_zlib.exit.thread
@@ -427,33 +463,33 @@ define internal fastcc i32 @dissect_gelf_simple_udp(ptr noundef %0, ptr noundef 
   ]
 
 is_simple_zlib.exit.thread:                       ; preds = %5, %5, %5, %5, %5
-  %7 = tail call ptr @tvb_child_uncompress(ptr noundef %0, ptr noundef %0, i32 noundef 0, i32 noundef %6) #2
-  %.not31 = icmp eq ptr %7, null
-  br i1 %.not31, label %11, label %8
+  %7 = tail call ptr @tvb_child_uncompress_zlib(ptr noundef %0, ptr noundef %0, i32 noundef 0, i32 noundef %6)
+  %.not30 = icmp eq ptr %7, null
+  br i1 %.not30, label %11, label %8
 
 8:                                                ; preds = %is_simple_zlib.exit.thread
-  tail call void @add_new_data_source(ptr noundef %1, ptr noundef nonnull %7, ptr noundef nonnull @.str.56) #2
+  tail call void @add_new_data_source(ptr noundef %1, ptr noundef nonnull %7, ptr noundef nonnull @.str.57)
   %9 = load ptr, ptr @json_handle, align 8
-  %10 = tail call i32 @call_dissector(ptr noundef %9, ptr noundef nonnull %7, ptr noundef %1, ptr noundef %2) #2
+  %10 = tail call i32 @call_dissector(ptr noundef %9, ptr noundef nonnull %7, ptr noundef %1, ptr noundef %2)
   br label %22
 
 11:                                               ; preds = %is_simple_zlib.exit.thread
-  %12 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %4, ptr noundef nonnull @ei_gelf_broken_compression, ptr noundef nonnull @.str.57) #2
+  %12 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %4, ptr noundef nonnull @ei_gelf_broken_compression, ptr noundef nonnull @.str.58)
   br label %22
 
 13:                                               ; preds = %5
-  %14 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 2) #2
-  %.not30 = icmp eq ptr %14, null
-  br i1 %.not30, label %22, label %15
+  %14 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 2)
+  %.not = icmp eq ptr %14, null
+  br i1 %.not, label %22, label %15
 
 15:                                               ; preds = %13
   %16 = load ptr, ptr @json_handle, align 8
-  %17 = tail call i32 @call_dissector(ptr noundef %16, ptr noundef nonnull %14, ptr noundef %1, ptr noundef %2) #2
+  %17 = tail call i32 @call_dissector(ptr noundef %16, ptr noundef nonnull %14, ptr noundef %1, ptr noundef %2)
   br label %22
 
 18:                                               ; preds = %5
   %19 = load ptr, ptr @json_handle, align 8
-  %20 = tail call i32 @call_dissector(ptr noundef %19, ptr noundef %0, ptr noundef %1, ptr noundef %2) #2
+  %20 = tail call i32 @call_dissector(ptr noundef %19, ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %21 = icmp eq i32 %20, 0
   %. = select i1 %21, i32 0, i32 %6
   br label %22
@@ -463,23 +499,31 @@ is_simple_zlib.exit.thread:                       ; preds = %5, %5, %5, %5, %5
   ret i32 %.0
 }
 
-declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @tvb_child_uncompress(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_child_uncompress_zlib(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}

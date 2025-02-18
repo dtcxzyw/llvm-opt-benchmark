@@ -3,7 +3,6 @@ source_filename = "bench/wireshark/original/btsnoop.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.file_type_subtype_info = type { ptr, ptr, ptr, ptr, i32, i64, ptr, ptr, ptr, ptr }
 %struct.supported_block_type = type { i32, i32, i64, ptr }
 %struct.btsnoop_hdr = type { i32, i32 }
 %struct.btsnooprec_hdr = type { i32, i32, i32, i32, i64 }
@@ -14,61 +13,61 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [52 x i8] c"btsnoop: BlueZ 5 Simulator capture logs unsupported\00", align 1
 @.str.4 = private unnamed_addr constant [49 x i8] c"btsnoop: datalink type %u unknown or unsupported\00", align 1
 @btsnoop_file_type_subtype = internal unnamed_addr global i32 -1, align 4
-@btsnoop_info = internal constant %struct.file_type_subtype_info { ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr null, i32 0, i64 1, ptr @btsnoop_blocks_supported, ptr @btsnoop_dump_can_write_encap, ptr @btsnoop_dump_open, ptr null }, align 8
 @.str.5 = private unnamed_addr constant [8 x i8] c"BTSNOOP\00", align 1
 @.str.6 = private unnamed_addr constant [60 x i8] c"btsnoop: File has %u-byte packet, bigger than maximum of %u\00", align 1
 @.str.7 = private unnamed_addr constant [19 x i8] c"Symbian OS btsnoop\00", align 1
 @.str.8 = private constant [8 x i8] c"btsnoop\00", align 1
 @.str.9 = private unnamed_addr constant [4 x i8] c"log\00", align 1
 @btsnoop_blocks_supported = internal constant [1 x %struct.supported_block_type] [%struct.supported_block_type { i32 5, i32 2, i64 0, ptr null }], align 16
-@.str.10 = private unnamed_addr constant [34 x i8] c"btsnoop: invalid encapsulation %u\00", align 1
-@.str.11 = private unnamed_addr constant [37 x i8] c"btsnoop: Command channel, sent FALSE\00", align 1
-@.str.12 = private unnamed_addr constant [34 x i8] c"btsnoop: Event channel, sent TRUE\00", align 1
-@.str.13 = private unnamed_addr constant [28 x i8] c"btsnoop: Unknown channel %u\00", align 1
+@btsnoop_info = internal constant { ptr, ptr, ptr, ptr, i8, [7 x i8], i64, ptr, ptr, ptr, ptr } { ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr null, i8 0, [7 x i8] zeroinitializer, i64 1, ptr @btsnoop_blocks_supported, ptr @btsnoop_dump_can_write_encap, ptr @btsnoop_dump_open, ptr null }, align 8
+@.str.11 = private unnamed_addr constant [34 x i8] c"btsnoop: invalid encapsulation %u\00", align 1
+@.str.12 = private unnamed_addr constant [37 x i8] c"btsnoop: Command channel, sent false\00", align 1
+@.str.13 = private unnamed_addr constant [34 x i8] c"btsnoop: Event channel, sent true\00", align 1
+@.str.14 = private unnamed_addr constant [28 x i8] c"btsnoop: Unknown channel %u\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden range(i32 -1, 2) i32 @btsnoop_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [8 x i8], align 1
   %5 = alloca %struct.btsnoop_hdr, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
   %6 = load ptr, ptr %0, align 8
-  %7 = call i32 @wtap_read_bytes(ptr noundef %6, ptr noundef nonnull %4, i32 noundef 8, ptr noundef %1, ptr noundef %2) #5
-  %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %8, label %10
+  %7 = call zeroext i1 @wtap_read_bytes(ptr noundef %6, ptr noundef nonnull %4, i32 noundef 8, ptr noundef %1, ptr noundef %2)
+  br i1 %7, label %10, label %8
 
 8:                                                ; preds = %3
   %9 = load i32, ptr %1, align 4
-  %.not26 = icmp ne i32 %9, -12
-  %. = sext i1 %.not26 to i32
+  %.not = icmp ne i32 %9, -12
+  %. = sext i1 %.not to i32
   br label %41
 
 10:                                               ; preds = %3
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %4, ptr noundef nonnull dereferenceable(8) @.str.8, i64 8)
-  %.not27 = icmp eq i32 %bcmp, 0
-  br i1 %.not27, label %11, label %41
+  %.not44 = icmp eq i32 %bcmp, 0
+  br i1 %.not44, label %11, label %41
 
 11:                                               ; preds = %10
   %12 = load ptr, ptr %0, align 8
-  %13 = call i32 @wtap_read_bytes(ptr noundef %12, ptr noundef nonnull %5, i32 noundef 8, ptr noundef %1, ptr noundef %2) #5
-  %.not28 = icmp eq i32 %13, 0
-  br i1 %.not28, label %41, label %14
+  %13 = call zeroext i1 @wtap_read_bytes(ptr noundef %12, ptr noundef nonnull %5, i32 noundef 8, ptr noundef %1, ptr noundef %2)
+  br i1 %13, label %14, label %41
 
 14:                                               ; preds = %11
   %15 = load i32, ptr %5, align 4
-  %16 = call i32 @llvm.bswap.i32(i32 %15)
+  %16 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %15) #6, !srcloc !6
   store i32 %16, ptr %5, align 4
-  %.not29 = icmp eq i32 %15, 16777216
-  br i1 %.not29, label %19, label %17
+  %.not45 = icmp eq i32 %16, 1
+  br i1 %.not45, label %19, label %17
 
 17:                                               ; preds = %14
   store i32 -4, ptr %1, align 4
-  %18 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str, i32 noundef %16) #5
+  %18 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str, i32 noundef %16)
   store ptr %18, ptr %2, align 8
   br label %41
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %21 = load i32, ptr %20, align 4
-  %22 = call i32 @llvm.bswap.i32(i32 %21)
+  %22 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %21) #6, !srcloc !7
   store i32 %22, ptr %20, align 4
   switch i32 %22, label %31 [
     i32 1001, label %33
@@ -84,13 +83,13 @@ define hidden range(i32 -1, 2) i32 @btsnoop_open(ptr noundef %0, ptr noundef %1,
 
 24:                                               ; preds = %19
   store i32 -4, ptr %1, align 4
-  %25 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.1) #5
+  %25 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.1)
   store ptr %25, ptr %2, align 8
   br label %41
 
 26:                                               ; preds = %19
   store i32 -4, ptr %1, align 4
-  %27 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.2) #5
+  %27 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.2)
   store ptr %27, ptr %2, align 8
   br label %41
 
@@ -99,24 +98,24 @@ define hidden range(i32 -1, 2) i32 @btsnoop_open(ptr noundef %0, ptr noundef %1,
 
 29:                                               ; preds = %19
   store i32 -4, ptr %1, align 4
-  %30 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.3) #5
+  %30 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.3)
   store ptr %30, ptr %2, align 8
   br label %41
 
 31:                                               ; preds = %19
   store i32 -4, ptr %1, align 4
-  %32 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef %22) #5
+  %32 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef %22)
   store ptr %32, ptr %2, align 8
   br label %41
 
 33:                                               ; preds = %19, %28, %23
-  %.0 = phi i32 [ 159, %28 ], [ 99, %23 ], [ 102, %19 ]
+  %.041 = phi i32 [ 159, %28 ], [ 99, %23 ], [ 102, %19 ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @btsnoop_read, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @btsnoop_seek_read, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store i32 %.0, ptr %36, align 8
+  store i32 %.041, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 148
@@ -124,184 +123,207 @@ define hidden range(i32 -1, 2) i32 @btsnoop_open(ptr noundef %0, ptr noundef %1,
   %39 = load i32, ptr @btsnoop_file_type_subtype, align 4
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %39, ptr %40, align 4
-  call void @wtap_add_generated_idb(ptr noundef nonnull %0) #5
+  call void @wtap_add_generated_idb(ptr noundef %0)
   br label %41
 
 41:                                               ; preds = %11, %10, %8, %33, %31, %29, %26, %24, %17
-  %.025 = phi i32 [ -1, %17 ], [ -1, %31 ], [ -1, %29 ], [ 1, %33 ], [ -1, %26 ], [ -1, %24 ], [ %., %8 ], [ 0, %10 ], [ -1, %11 ]
-  ret i32 %.025
-}
-
-declare i32 @wtap_read_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
-
-declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
-
-declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: nounwind uwtable
-define internal i32 @btsnoop_read(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5) #0 {
-  %7 = load ptr, ptr %0, align 8
-  %8 = tail call i64 @file_tell(ptr noundef %7) #5
-  store i64 %8, ptr %5, align 8
-  %9 = load ptr, ptr %0, align 8
-  %10 = tail call fastcc i32 @btsnoop_read_record(ptr noundef nonnull %0, ptr noundef %9, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
-  ret i32 %10
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @btsnoop_seek_read(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %1, i32 noundef 0, ptr noundef %4) #5
-  %10 = icmp eq i64 %9, -1
-  br i1 %10, label %14, label %11
-
-11:                                               ; preds = %6
-  %12 = load ptr, ptr %7, align 8
-  %13 = tail call fastcc i32 @btsnoop_read_record(ptr noundef nonnull %0, ptr noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
-  br label %14
-
-14:                                               ; preds = %6, %11
-  %.0 = phi i32 [ %13, %11 ], [ 0, %6 ]
+  %.0 = phi i32 [ -1, %17 ], [ -1, %31 ], [ -1, %29 ], [ 1, %33 ], [ -1, %26 ], [ -1, %24 ], [ %., %8 ], [ 0, %10 ], [ -1, %11 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
   ret i32 %.0
 }
 
-declare void @wtap_add_generated_idb(ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @wtap_read_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @btsnoop_read(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4) #0 {
+  %6 = load ptr, ptr %0, align 8
+  %7 = tail call i64 @file_tell(ptr noundef %6)
+  store i64 %7, ptr %4, align 8
+  %8 = load ptr, ptr %0, align 8
+  %9 = tail call fastcc zeroext i1 @btsnoop_read_record(ptr noundef %0, ptr noundef %8, ptr noundef %1, ptr noundef %2, ptr noundef %3)
+  ret i1 %9
+}
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @btsnoop_seek_read(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = load ptr, ptr %6, align 8
+  %8 = tail call i64 @file_seek(ptr noundef %7, i64 noundef %1, i32 noundef 0, ptr noundef %3)
+  %9 = icmp eq i64 %8, -1
+  br i1 %9, label %13, label %10
+
+10:                                               ; preds = %5
+  %11 = load ptr, ptr %6, align 8
+  %12 = tail call fastcc zeroext i1 @btsnoop_read_record(ptr noundef %0, ptr noundef %11, ptr noundef %2, ptr noundef %3, ptr noundef %4)
+  br label %13
+
+13:                                               ; preds = %5, %10
+  %.0 = phi i1 [ %12, %10 ], [ false, %5 ]
+  ret i1 %.0
+}
+
+; Function Attrs: null_pointer_is_valid
+declare void @wtap_add_generated_idb(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @register_btsnoop() local_unnamed_addr #0 {
-  %1 = tail call i32 @wtap_register_file_type_subtype(ptr noundef nonnull @btsnoop_info) #5
+  %1 = tail call i32 @wtap_register_file_type_subtype(ptr noundef nonnull @btsnoop_info)
   store i32 %1, ptr @btsnoop_file_type_subtype, align 4
-  tail call void @wtap_register_backwards_compatibility_lua_name(ptr noundef nonnull @.str.5, i32 noundef %1) #5
+  tail call void @wtap_register_backwards_compatibility_lua_name(ptr noundef nonnull @.str.5, i32 noundef %1)
   ret void
 }
 
-declare i32 @wtap_register_file_type_subtype(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @wtap_register_file_type_subtype(ptr noundef) local_unnamed_addr #2
 
-declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i64 @file_tell(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
-define internal fastcc i32 @btsnoop_read_record(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
-  %7 = alloca %struct.btsnooprec_hdr, align 8
-  %8 = call i32 @wtap_read_bytes_or_eof(ptr noundef %1, ptr noundef nonnull %7, i32 noundef 24, ptr noundef %4, ptr noundef %5) #5
-  %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %63, label %9
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal fastcc zeroext i1 @btsnoop_read_record(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+  %6 = alloca %struct.btsnooprec_hdr, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #5
+  %7 = call zeroext i1 @wtap_read_bytes_or_eof(ptr noundef %1, ptr noundef nonnull %6, i32 noundef 24, ptr noundef %3, ptr noundef %4)
+  br i1 %7, label %8, label %66
 
-9:                                                ; preds = %6
-  %10 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %11 = load i32, ptr %10, align 4
-  %12 = call i32 @llvm.bswap.i32(i32 %11)
-  %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %14 = load i32, ptr %13, align 8
-  %15 = call i32 @llvm.bswap.i32(i32 %14)
-  %16 = icmp ugt i32 %12, 262144
-  br i1 %16, label %17, label %19
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %10 = load i32, ptr %9, align 4
+  %11 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %10) #6, !srcloc !8
+  %12 = load i32, ptr %6, align 8
+  %13 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %12) #6, !srcloc !9
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %15 = load i32, ptr %14, align 8
+  %16 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %15) #6, !srcloc !10
+  %17 = icmp ugt i32 %11, 262144
+  br i1 %17, label %18, label %20
 
-17:                                               ; preds = %9
-  store i32 -13, ptr %4, align 4
-  %18 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef %12, i32 noundef 262144) #5
-  store ptr %18, ptr %5, align 8
-  br label %63
+18:                                               ; preds = %8
+  store i32 -13, ptr %3, align 4
+  %19 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef %11, i32 noundef 262144)
+  store ptr %19, ptr %4, align 8
+  br label %66
 
-19:                                               ; preds = %9
-  %20 = load i32, ptr %7, align 8
-  %21 = call i32 @llvm.bswap.i32(i32 %20)
-  %22 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %23 = load i64, ptr %22, align 8
-  %24 = call i64 @llvm.bswap.i64(i64 %23)
-  %25 = add i64 %24, -62168256000000000
+20:                                               ; preds = %8
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %22 = load i64, ptr %21, align 8
+  %23 = call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %22) #6, !srcloc !11
+  %24 = add i64 %23, -62168256000000000
   store i32 0, ptr %2, align 8
-  %26 = call ptr @wtap_block_create(i32 noundef 5) #5
-  %27 = getelementptr inbounds nuw i8, ptr %2, i64 232
-  store ptr %26, ptr %27, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 3, ptr %28, align 4
-  %29 = sdiv i64 %25, 1000000
-  %30 = and i64 %29, 4294967295
-  %31 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 %30, ptr %31, align 8
-  %32 = srem i64 %25, 1000000
-  %33 = trunc nsw i64 %32 to i32
-  %34 = mul nsw i32 %33, 1000
-  %35 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i32 %34, ptr %35, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  store i32 %12, ptr %36, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %2, i64 68
-  store i32 %21, ptr %37, align 4
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %39 = load i32, ptr %38, align 8
-  switch i32 %39, label %61 [
-    i32 99, label %40
+  %25 = call ptr @wtap_block_create(i32 noundef 5)
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 232
+  store ptr %25, ptr %26, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  store i32 3, ptr %27, align 4
+  %28 = sdiv i64 %24, 1000000
+  %29 = and i64 %28, 4294967295
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i64 %29, ptr %30, align 8
+  %31 = srem i64 %24, 1000000
+  %32 = trunc nsw i64 %31 to i32
+  %33 = mul nsw i32 %32, 1000
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store i32 %33, ptr %34, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  store i32 %11, ptr %35, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 68
+  store i32 %13, ptr %36, align 4
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %38 = load i32, ptr %37, align 8
+  switch i32 %38, label %63 [
+    i32 99, label %39
     i32 102, label %44
-    i32 159, label %55
+    i32 159, label %57
   ]
 
-40:                                               ; preds = %19
-  %41 = and i32 %15, 1
-  %42 = xor i32 %41, 1
-  %43 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store i32 %42, ptr %43, align 8
-  br label %61
-
-44:                                               ; preds = %19
-  %45 = and i32 %15, 1
-  %46 = xor i32 %45, 1
-  %47 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store i32 %46, ptr %47, align 8
-  %48 = and i32 %15, 2
-  %.not43 = icmp eq i32 %48, 0
-  br i1 %.not43, label %53, label %49
-
-49:                                               ; preds = %44
-  %.not44.not = icmp eq i32 %45, 0
-  %50 = getelementptr inbounds nuw i8, ptr %2, i64 84
-  br i1 %.not44.not, label %51, label %52
-
-51:                                               ; preds = %49
-  store i32 1, ptr %50, align 4
-  br label %61
-
-52:                                               ; preds = %49
-  store i32 4, ptr %50, align 4
-  br label %61
-
-53:                                               ; preds = %44
-  %54 = getelementptr inbounds nuw i8, ptr %2, i64 84
-  store i32 2, ptr %54, align 4
-  br label %61
-
-55:                                               ; preds = %19
-  %56 = trunc i32 %15 to i16
-  %57 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %58 = getelementptr inbounds nuw i8, ptr %2, i64 82
-  store i16 %56, ptr %58, align 2
-  %59 = lshr i32 %15, 16
-  %60 = trunc nuw i32 %59 to i16
-  store i16 %60, ptr %57, align 8
-  br label %61
-
-61:                                               ; preds = %19, %51, %52, %53, %55, %40
-  %62 = call i32 @wtap_read_packet_bytes(ptr noundef %1, ptr noundef %3, i32 noundef %12, ptr noundef %4, ptr noundef %5) #5
+39:                                               ; preds = %20
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %41 = trunc i32 %16 to i8
+  %42 = and i8 %41, 1
+  %43 = xor i8 %42, 1
+  store i8 %43, ptr %40, align 8
   br label %63
 
-63:                                               ; preds = %6, %61, %17
-  %.0 = phi i32 [ 0, %17 ], [ %62, %61 ], [ 0, %6 ]
-  ret i32 %.0
+44:                                               ; preds = %20
+  %45 = and i32 %16, 1
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %47 = trunc nuw nsw i32 %45 to i8
+  %48 = xor i8 %47, 1
+  store i8 %48, ptr %46, align 8
+  %49 = and i32 %16, 2
+  %.not = icmp eq i32 %49, 0
+  br i1 %.not, label %55, label %50
+
+50:                                               ; preds = %44
+  %51 = icmp eq i32 %45, 0
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 84
+  br i1 %51, label %53, label %54
+
+53:                                               ; preds = %50
+  store i32 1, ptr %52, align 4
+  br label %63
+
+54:                                               ; preds = %50
+  store i32 4, ptr %52, align 4
+  br label %63
+
+55:                                               ; preds = %44
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 84
+  store i32 2, ptr %56, align 4
+  br label %63
+
+57:                                               ; preds = %20
+  %58 = trunc i32 %16 to i16
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 82
+  store i16 %58, ptr %60, align 2
+  %61 = lshr i32 %16, 16
+  %62 = trunc nuw i32 %61 to i16
+  store i16 %62, ptr %59, align 8
+  br label %63
+
+63:                                               ; preds = %20, %53, %54, %55, %57, %39
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 280
+  %65 = call zeroext i1 @wtap_read_bytes_buffer(ptr noundef %1, ptr noundef nonnull %64, i32 noundef %11, ptr noundef %3, ptr noundef %4)
+  br label %66
+
+66:                                               ; preds = %5, %63, %18
+  %.0 = phi i1 [ false, %18 ], [ %65, %63 ], [ false, %5 ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #5
+  ret i1 %.0
 }
 
-declare i32 @wtap_read_bytes_or_eof(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @wtap_read_bytes_or_eof(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @wtap_block_create(i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @wtap_block_create(i32 noundef) local_unnamed_addr #2
 
-declare i32 @wtap_read_packet_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @wtap_read_bytes_buffer(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal range(i32 -9, 1) i32 @btsnoop_dump_can_write_encap(i32 noundef %0) #2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
+define internal range(i32 -9, 1) i32 @btsnoop_dump_can_write_encap(i32 noundef %0) #3 {
   switch i32 %0, label %.fold.split [
     i32 -1, label %3
     i32 159, label %2
@@ -320,9 +342,10 @@ define internal range(i32 -9, 1) i32 @btsnoop_dump_can_write_encap(i32 noundef %
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @btsnoop_dump_open(ptr noundef initializes((64, 72)) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @btsnoop_dump_open(ptr noundef initializes((64, 72)) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) #0 {
   %4 = alloca %struct.btsnoop_hdr, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr @btsnoop_dump, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -342,55 +365,54 @@ define internal range(i32 0, 2) i32 @btsnoop_dump_open(ptr noundef initializes((
 10:                                               ; preds = %3
   store i32 -21, ptr %1, align 4
   %11 = load i32, ptr %6, align 8
-  %12 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.10, i32 noundef %11) #5
+  %12 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.11, i32 noundef %11)
   store ptr %12, ptr %2, align 8
-  br label %18
+  br label %19
 
 13:                                               ; preds = %3, %9, %8
-  %.0 = phi i32 [ 2001, %9 ], [ 1002, %8 ], [ 1001, %3 ]
-  %14 = tail call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull @.str.8, i64 noundef 8, ptr noundef %1) #5
-  %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %18, label %15
+  %.026 = phi i32 [ 2001, %9 ], [ 1002, %8 ], [ 1001, %3 ]
+  %14 = tail call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull @.str.8, i64 noundef 8, ptr noundef %1)
+  br i1 %14, label %15, label %19
 
 15:                                               ; preds = %13
   store i32 16777216, ptr %4, align 4
-  %rev = tail call i32 @llvm.bswap.i32(i32 %.0)
-  %16 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 %rev, ptr %16, align 4
-  %17 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 8, ptr noundef %1) #5
-  %.not14 = icmp ne i32 %17, 0
-  %. = zext i1 %.not14 to i32
-  br label %18
+  %16 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.026) #6, !srcloc !12
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i32 %16, ptr %17, align 4
+  %18 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %4, i64 noundef 8, ptr noundef %1)
+  br label %19
 
-18:                                               ; preds = %15, %13, %10
-  %.013 = phi i32 [ 0, %10 ], [ 0, %13 ], [ %., %15 ]
-  ret i32 %.013
+19:                                               ; preds = %15, %13, %10
+  %.0 = phi i1 [ false, %10 ], [ false, %13 ], [ %18, %15 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
+  ret i1 %.0
 }
 
-; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @btsnoop_dump(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) %4) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @btsnoop_dump(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) %4) #0 {
   %6 = alloca %struct.btsnooprec_hdr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #5
   %9 = load i32, ptr %1, align 8
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %11, label %10
 
 10:                                               ; preds = %5
   store i32 -24, ptr %3, align 4
-  br label %99
+  br label %84
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i32, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %15 = load i32, ptr %14, align 8
-  %.not63 = icmp eq i32 %13, %15
-  br i1 %.not63, label %17, label %16
+  %.not96 = icmp eq i32 %13, %15
+  br i1 %.not96, label %17, label %16
 
 16:                                               ; preds = %11
   store i32 -9, ptr %3, align 4
-  br label %99
+  br label %84
 
 17:                                               ; preds = %11
   %18 = load i32, ptr %7, align 8
@@ -399,178 +421,167 @@ define internal range(i32 0, 2) i32 @btsnoop_dump(ptr noundef %0, ptr noundef re
 
 20:                                               ; preds = %17
   store i32 -22, ptr %3, align 4
-  br label %99
+  br label %84
 
 21:                                               ; preds = %17
-  %rev = tail call i32 @llvm.bswap.i32(i32 %18)
-  %22 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 %rev, ptr %22, align 4
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %24 = load i32, ptr %23, align 4
-  %25 = tail call i32 @llvm.bswap.i32(i32 %24)
-  store i32 %25, ptr %6, align 8
-  switch i32 %13, label %56 [
-    i32 102, label %26
-    i32 99, label %42
-    i32 159, label %48
+  %22 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %18) #6, !srcloc !13
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  store i32 %22, ptr %23, align 4
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 68
+  %25 = load i32, ptr %24, align 4
+  %26 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %25) #6, !srcloc !14
+  store i32 %26, ptr %6, align 8
+  switch i32 %13, label %61 [
+    i32 102, label %27
+    i32 99, label %46
+    i32 159, label %53
   ]
 
-26:                                               ; preds = %21
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 84
-  %28 = load i32, ptr %27, align 4
-  switch i32 %28, label %39 [
-    i32 1, label %29
-    i32 4, label %33
-    i32 2, label %37
+27:                                               ; preds = %21
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 84
+  %29 = load i32, ptr %28, align 4
+  switch i32 %29, label %43 [
+    i32 1, label %30
+    i32 4, label %35
+    i32 2, label %40
   ]
 
-29:                                               ; preds = %26
-  %30 = load i32, ptr %8, align 8
-  %.not71 = icmp eq i32 %30, 0
-  br i1 %.not71, label %31, label %59
+30:                                               ; preds = %27
+  %31 = load i8, ptr %8, align 8, !range !15, !noundef !16
+  %32 = trunc nuw i8 %31 to i1
+  br i1 %32, label %64, label %33
 
-31:                                               ; preds = %29
+33:                                               ; preds = %30
   store i32 -25, ptr %3, align 4
-  %32 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.11) #5
-  store ptr %32, ptr %4, align 8
-  br label %99
+  %34 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.12)
+  store ptr %34, ptr %4, align 8
+  br label %84
 
-33:                                               ; preds = %26
-  %34 = load i32, ptr %8, align 8
-  %.not70 = icmp eq i32 %34, 0
-  br i1 %.not70, label %59, label %35
+35:                                               ; preds = %27
+  %36 = load i8, ptr %8, align 8, !range !15, !noundef !16
+  %37 = trunc nuw i8 %36 to i1
+  br i1 %37, label %38, label %64
 
-35:                                               ; preds = %33
+38:                                               ; preds = %35
   store i32 -25, ptr %3, align 4
-  %36 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.12) #5
-  store ptr %36, ptr %4, align 8
-  br label %99
+  %39 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.13)
+  store ptr %39, ptr %4, align 8
+  br label %84
 
-37:                                               ; preds = %26
-  %38 = load i32, ptr %8, align 8
-  %.not69 = icmp eq i32 %38, 0
-  %. = zext i1 %.not69 to i32
-  br label %59
+40:                                               ; preds = %27
+  %41 = load i8, ptr %8, align 8, !range !15, !noundef !16
+  %42 = xor i8 %41, 1
+  %not.106 = zext nneg i8 %42 to i32
+  br label %64
 
-39:                                               ; preds = %26
+43:                                               ; preds = %27
   store i32 -25, ptr %3, align 4
-  %40 = load i32, ptr %27, align 4
-  %41 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.13, i32 noundef %40) #5
-  store ptr %41, ptr %4, align 8
-  br label %99
+  %44 = load i32, ptr %28, align 4
+  %45 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.14, i32 noundef %44)
+  store ptr %45, ptr %4, align 8
+  br label %84
 
-42:                                               ; preds = %21
-  %43 = load i32, ptr %8, align 8
-  %.not67 = icmp eq i32 %43, 0
-  %.77 = zext i1 %.not67 to i32
-  %.not68 = icmp eq i32 %18, 0
-  br i1 %.not68, label %59, label %44
+46:                                               ; preds = %21
+  %47 = load i8, ptr %8, align 8, !range !15, !noundef !16
+  %48 = xor i8 %47, 1
+  %not. = zext nneg i8 %48 to i32
+  %.not100 = icmp eq i32 %18, 0
+  br i1 %.not100, label %64, label %49
 
-44:                                               ; preds = %42
-  %45 = load i8, ptr %2, align 1
-  switch i8 %45, label %59 [
-    i8 1, label %46
-    i8 4, label %46
+49:                                               ; preds = %46
+  %50 = load i8, ptr %2, align 1
+  switch i8 %50, label %64 [
+    i8 1, label %51
+    i8 4, label %51
   ]
 
-46:                                               ; preds = %44, %44
-  %47 = or disjoint i32 %.77, 2
-  br label %59
+51:                                               ; preds = %49, %49
+  %52 = or disjoint i32 %not., 2
+  br label %64
 
-48:                                               ; preds = %21
-  %49 = load i16, ptr %8, align 8
-  %50 = zext i16 %49 to i32
-  %51 = shl nuw i32 %50, 16
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 82
-  %53 = load i16, ptr %52, align 2
-  %54 = zext i16 %53 to i32
-  %55 = or disjoint i32 %51, %54
-  br label %59
+53:                                               ; preds = %21
+  %54 = load i16, ptr %8, align 8
+  %55 = zext i16 %54 to i32
+  %56 = shl nuw i32 %55, 16
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 82
+  %58 = load i16, ptr %57, align 2
+  %59 = zext i16 %58 to i32
+  %60 = or disjoint i32 %56, %59
+  br label %64
 
-56:                                               ; preds = %21
+61:                                               ; preds = %21
   store i32 -21, ptr %3, align 4
-  %57 = load i32, ptr %12, align 8
-  %58 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.10, i32 noundef %57) #5
-  store ptr %58, ptr %4, align 8
-  br label %99
+  %62 = load i32, ptr %12, align 8
+  %63 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.11, i32 noundef %62)
+  store ptr %63, ptr %4, align 8
+  br label %84
 
-59:                                               ; preds = %44, %37, %33, %29, %42, %46, %48
-  %.060 = phi i32 [ %55, %48 ], [ %47, %46 ], [ %.77, %42 ], [ 2, %29 ], [ 3, %33 ], [ %., %37 ], [ %.77, %44 ]
-  %60 = tail call i32 @llvm.bswap.i32(i32 %.060)
-  %61 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 %60, ptr %61, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 0, ptr %62, align 4
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %65 = load i32, ptr %64, align 8
-  %66 = load i64, ptr %63, align 8
-  %67 = mul i64 %66, 1000000
-  %68 = sdiv i32 %65, 1000
-  %69 = sext i32 %68 to i64
-  %70 = add i64 %67, %69
-  %71 = add i64 %70, 62168256000000000
-  %72 = shl i64 %70, 56
-  %73 = shl i64 %71, 40
-  %74 = and i64 %73, 71776119061217280
-  %75 = or disjoint i64 %74, %72
-  %76 = shl i64 %71, 24
-  %77 = and i64 %76, 280375465082880
-  %78 = or disjoint i64 %75, %77
-  %79 = shl i64 %71, 8
-  %80 = and i64 %79, 1095216660480
-  %81 = or disjoint i64 %78, %80
-  %82 = lshr i64 %71, 8
-  %83 = and i64 %82, 4278190080
-  %84 = or disjoint i64 %81, %83
-  %85 = lshr i64 %71, 24
-  %86 = and i64 %85, 16711680
-  %87 = or disjoint i64 %84, %86
-  %88 = lshr i64 %71, 40
-  %89 = and i64 %88, 65280
-  %90 = or disjoint i64 %87, %89
-  %91 = lshr i64 %71, 56
-  %92 = or i64 %90, %91
-  %93 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %92, ptr %93, align 8
-  %94 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef 24, ptr noundef %3) #5
-  %.not75 = icmp eq i32 %94, 0
-  br i1 %.not75, label %99, label %95
+64:                                               ; preds = %53, %51, %46, %30, %35, %40, %49
+  %.088 = phi i32 [ %60, %53 ], [ %52, %51 ], [ %not., %46 ], [ 2, %30 ], [ 3, %35 ], [ %not.106, %40 ], [ %not., %49 ]
+  %65 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.088) #6, !srcloc !17
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i32 %65, ptr %66, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  store i32 0, ptr %67, align 4
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %69 = load i64, ptr %68, align 8
+  %70 = mul i64 %69, 1000000
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %72 = load i32, ptr %71, align 8
+  %73 = sdiv i32 %72, 1000
+  %74 = sext i32 %73 to i64
+  %75 = add i64 %70, %74
+  %76 = add i64 %75, 62168256000000000
+  %77 = tail call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %76) #6, !srcloc !18
+  %78 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 %77, ptr %78, align 8
+  %79 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %6, i64 noundef 24, ptr noundef %3)
+  br i1 %79, label %80, label %84
 
-95:                                               ; preds = %59
-  %96 = load i32, ptr %7, align 8
-  %97 = zext i32 %96 to i64
-  %98 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef %2, i64 noundef %97, ptr noundef %3) #5
-  %.not76 = icmp ne i32 %98, 0
-  %.78 = zext i1 %.not76 to i32
-  br label %99
+80:                                               ; preds = %64
+  %81 = load i32, ptr %7, align 8
+  %82 = zext i32 %81 to i64
+  %83 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef %2, i64 noundef %82, ptr noundef %3)
+  br label %84
 
-99:                                               ; preds = %95, %59, %56, %39, %35, %31, %20, %16, %10
-  %.0 = phi i32 [ 0, %10 ], [ 0, %16 ], [ 0, %20 ], [ 0, %56 ], [ 0, %39 ], [ 0, %35 ], [ 0, %31 ], [ 0, %59 ], [ %.78, %95 ]
-  ret i32 %.0
+84:                                               ; preds = %80, %64, %61, %43, %38, %33, %20, %16, %10
+  %.0 = phi i1 [ false, %10 ], [ false, %16 ], [ false, %20 ], [ false, %61 ], [ false, %43 ], [ false, %38 ], [ false, %33 ], [ false, %64 ], [ %83, %80 ]
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #5
+  ret i1 %.0
 }
 
-declare i32 @wtap_dump_file_write(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @wtap_dump_file_write(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #3
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #4
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #4
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.bswap.i64(i64) #4
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #5 = { nounwind }
+attributes #6 = { nounwind memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i64 2149947920}
+!7 = !{i64 2149948743}
+!8 = !{i64 2149949661}
+!9 = !{i64 2149950386}
+!10 = !{i64 2149951099}
+!11 = !{i64 2149951978}
+!12 = !{i64 2149959401}
+!13 = !{i64 2149953764}
+!14 = !{i64 2149954483}
+!15 = !{i8 0, i8 2}
+!16 = !{}
+!17 = !{i64 2149955720}
+!18 = !{i64 2149956982}

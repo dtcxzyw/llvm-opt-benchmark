@@ -3,21 +3,21 @@ source_filename = "bench/wireshark/original/rtp_stream_id.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @rtpstream_id_copy(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 26), (32, 58), (60, 64)) %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   store i32 %3, ptr %1, align 8
   %8 = icmp eq i32 %5, 0
   br i1 %8, label %copy_address.exit, label %9
 
 9:                                                ; preds = %2
   %10 = sext i32 %5 to i64
-  %11 = tail call noalias ptr @wmem_memdup(ptr noundef null, ptr noundef %7, i64 noundef %10) #7
+  %11 = tail call ptr @wmem_memdup(ptr noundef null, ptr noundef %7, i64 noundef %10) #8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %11, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -45,7 +45,7 @@ copy_address.exit:                                ; preds = %2, %9
 
 26:                                               ; preds = %copy_address.exit
   %27 = sext i32 %22 to i64
-  %28 = tail call noalias ptr @wmem_memdup(ptr noundef null, ptr noundef %24, i64 noundef %27) #7
+  %28 = tail call ptr @wmem_memdup(ptr noundef null, ptr noundef %24, i64 noundef %27) #8
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr %28, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -66,10 +66,9 @@ copy_address.exit10:                              ; preds = %copy_address.exit, 
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define hidden void @rtpstream_id_copy_pinfo(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 26), (32, 58)) %1, i32 noundef %2) local_unnamed_addr #0 {
-  %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %4, label %30
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define hidden void @rtpstream_id_copy_pinfo(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 26), (32, 58)) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+  br i1 %2, label %30, label %4
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -78,14 +77,14 @@ define hidden void @rtpstream_id_copy_pinfo(ptr noundef readonly captures(none) 
   %8 = load i32, ptr %7, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %10 = load ptr, ptr %9, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   store i32 %6, ptr %1, align 8
   %11 = icmp eq i32 %8, 0
   br i1 %11, label %copy_address.exit, label %12
 
 12:                                               ; preds = %4
   %13 = sext i32 %8 to i64
-  %14 = tail call noalias ptr @wmem_memdup(ptr noundef null, ptr noundef %10, i64 noundef %13) #7
+  %14 = tail call ptr @wmem_memdup(ptr noundef null, ptr noundef %10, i64 noundef %13) #8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %14, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -119,14 +118,14 @@ copy_address.exit:                                ; preds = %4, %12
   %34 = load i32, ptr %33, align 4
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %36 = load ptr, ptr %35, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   store i32 %32, ptr %1, align 8
   %37 = icmp eq i32 %34, 0
   br i1 %37, label %copy_address.exit17, label %38
 
 38:                                               ; preds = %30
   %39 = sext i32 %34 to i64
-  %40 = tail call noalias ptr @wmem_memdup(ptr noundef null, ptr noundef %36, i64 noundef %39) #7
+  %40 = tail call ptr @wmem_memdup(ptr noundef null, ptr noundef %36, i64 noundef %39) #8
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %40, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -158,7 +157,7 @@ copy_address.exit16.sink.split:                   ; preds = %copy_address.exit17
   %.sink27 = phi ptr [ %28, %copy_address.exit ], [ %54, %copy_address.exit17 ]
   %.sink.ph = phi i64 [ 288, %copy_address.exit ], [ 284, %copy_address.exit17 ]
   %56 = sext i32 %.sink29 to i64
-  %57 = tail call noalias ptr @wmem_memdup(ptr noundef null, ptr noundef %.sink27, i64 noundef %56) #7
+  %57 = tail call ptr @wmem_memdup(ptr noundef null, ptr noundef %.sink27, i64 noundef %56) #8
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr %57, ptr %58, align 8
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -177,20 +176,19 @@ copy_address.exit16:                              ; preds = %copy_address.exit16
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @rtpstream_id_copy_pinfo_shallow(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 26), (32, 58)) %1, i32 noundef %2) local_unnamed_addr #1 {
-  %.not = icmp eq i32 %2, 0
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: readwrite) uwtable
+define hidden void @rtpstream_id_copy_pinfo_shallow(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 26), (32, 58)) %1, i1 noundef zeroext %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %. = select i1 %.not, i64 208, i64 232
-  %.41 = select i1 %.not, i64 212, i64 236
-  %.42 = select i1 %.not, i64 216, i64 240
-  %.43 = select i1 %.not, i64 284, i64 288
-  %.44 = select i1 %.not, i64 232, i64 208
-  %.45 = select i1 %.not, i64 236, i64 212
-  %.46 = select i1 %.not, i64 240, i64 216
-  %.47 = select i1 %.not, i64 288, i64 284
+  %. = select i1 %2, i64 232, i64 208
+  %.41 = select i1 %2, i64 236, i64 212
+  %.42 = select i1 %2, i64 240, i64 216
+  %.43 = select i1 %2, i64 288, i64 284
+  %.44 = select i1 %2, i64 208, i64 232
+  %.45 = select i1 %2, i64 212, i64 236
+  %.46 = select i1 %2, i64 216, i64 240
+  %.47 = select i1 %2, i64 284, i64 288
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.
   %8 = load i32, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.41
@@ -228,8 +226,8 @@ define hidden void @rtpstream_id_copy_pinfo_shallow(ptr noundef readonly capture
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define hidden void @rtpstream_id_free(ptr noundef captures(none) initializes((8, 16), (24, 32), (40, 48), (56, 64)) %0) local_unnamed_addr #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define hidden void @rtpstream_id_free(ptr noundef initializes((8, 16)) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %.not.i.i = icmp eq i32 %2, 0
   br i1 %.not.i.i, label %free_address.exit, label %3
@@ -247,11 +245,11 @@ define hidden void @rtpstream_id_free(ptr noundef captures(none) initializes((8,
   br i1 %.not6.i.i, label %free_address.exit, label %10
 
 10:                                               ; preds = %7
-  tail call void @wmem_free(ptr noundef null, ptr noundef nonnull %9) #7
+  tail call void @wmem_free(ptr noundef null, ptr noundef nonnull %9)
   br label %free_address.exit
 
 free_address.exit:                                ; preds = %1, %3, %7, %10
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load i32, ptr %11, align 8
   %.not.i.i3 = icmp eq i32 %12, 0
@@ -270,19 +268,16 @@ free_address.exit:                                ; preds = %1, %3, %7, %10
   br i1 %.not6.i.i4, label %free_address.exit5, label %20
 
 20:                                               ; preds = %17
-  tail call void @wmem_free(ptr noundef null, ptr noundef nonnull %19) #7
+  tail call void @wmem_free(ptr noundef null, ptr noundef nonnull %19)
   br label %free_address.exit5
 
 free_address.exit5:                               ; preds = %free_address.exit, %13, %17, %20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(64) %0, i8 noundef 0, i64 noundef 64, i1 noundef false) #9
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
-
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @rtpstream_id_to_hash(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable
+define hidden i32 @rtpstream_id_to_hash(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %add_address_to_hash.exit20, label %2
 
@@ -321,7 +316,7 @@ define hidden i32 @rtpstream_id_to_hash(ptr noundef readonly captures(address_is
   %25 = xor i32 %24, %23
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %add_address_to_hash.exit, label %.lr.ph.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %add_address_to_hash.exit, label %.lr.ph.i, !llvm.loop !6
 
 add_address_to_hash.exit:                         ; preds = %.lr.ph.i, %2
   %.011.lcssa.i = phi i32 [ %13, %2 ], [ %25, %.lr.ph.i ]
@@ -348,15 +343,15 @@ add_address_to_hash.exit:                         ; preds = %.lr.ph.i, %2
   %37 = xor i32 %36, %35
   %indvars.iv.next.i18 = add nuw nsw i64 %indvars.iv.i16, 1
   %exitcond.not.i19 = icmp eq i64 %indvars.iv.next.i18, %wide.trip.count.i14
-  br i1 %exitcond.not.i19, label %add_address_to_hash.exit20, label %.lr.ph.i15, !llvm.loop !4
+  br i1 %exitcond.not.i19, label %add_address_to_hash.exit20, label %.lr.ph.i15, !llvm.loop !6
 
 add_address_to_hash.exit20:                       ; preds = %.lr.ph.i15, %add_address_to_hash.exit, %1
   %.0 = phi i32 [ 0, %1 ], [ %.011.lcssa.i, %add_address_to_hash.exit ], [ %37, %.lr.ph.i15 ]
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @rtpstream_id_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #4 {
+; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden zeroext i1 @rtpstream_id_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = load i32, ptr %0, align 8
   %5 = load i32, ptr %1, align 8
   %6 = icmp eq i32 %4, %5
@@ -418,8 +413,8 @@ define hidden range(i32 0, 2) i32 @rtpstream_id_equal(ptr noundef readonly captu
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %46 = load ptr, ptr %45, align 8
   %47 = sext i32 %36 to i64
-  %bcmp.i17 = tail call i32 @bcmp(ptr %44, ptr %46, i64 %47)
-  %48 = icmp eq i32 %bcmp.i17, 0
+  %bcmp.i15 = tail call i32 @bcmp(ptr %44, ptr %46, i64 %47)
+  %48 = icmp eq i32 %bcmp.i15, 0
   br i1 %48, label %49, label %addresses_equal.exit
 
 49:                                               ; preds = %42, %40
@@ -432,25 +427,24 @@ define hidden range(i32 0, 2) i32 @rtpstream_id_equal(ptr noundef readonly captu
 
 55:                                               ; preds = %49
   %56 = and i32 %2, 1
-  %.not14 = icmp eq i32 %56, 0
-  br i1 %.not14, label %addresses_equal.exit, label %57
+  %.not = icmp eq i32 %56, 0
+  br i1 %.not, label %addresses_equal.exit, label %57
 
 57:                                               ; preds = %55
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %59 = load i32, ptr %58, align 4
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %61 = load i32, ptr %60, align 4
-  %.not15 = icmp eq i32 %59, %61
-  %spec.select = zext i1 %.not15 to i32
+  %.not13 = icmp eq i32 %59, %61
   br label %addresses_equal.exit
 
 addresses_equal.exit:                             ; preds = %42, %34, %28, %15, %7, %3, %57, %22, %49, %55
-  %.012 = phi i32 [ 1, %55 ], [ %spec.select, %57 ], [ 0, %49 ], [ 0, %22 ], [ 0, %3 ], [ 0, %7 ], [ 0, %15 ], [ 0, %28 ], [ 0, %34 ], [ 0, %42 ]
-  ret i32 %.012
+  %.012 = phi i1 [ true, %55 ], [ %.not13, %57 ], [ false, %49 ], [ false, %22 ], [ false, %3 ], [ false, %7 ], [ false, %15 ], [ false, %28 ], [ false, %34 ], [ false, %42 ]
+  ret i1 %.012
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @rtpstream_id_equal_pinfo(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #4 {
+; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef zeroext i1 @rtpstream_id_equal_pinfo(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #3 {
   %4 = load i32, ptr %0, align 8
   br i1 %2, label %59, label %5
 
@@ -517,8 +511,8 @@ define hidden range(i32 0, 2) i32 @rtpstream_id_equal_pinfo(ptr noundef readonly
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %49 = load ptr, ptr %48, align 8
   %50 = sext i32 %39 to i64
-  %bcmp.i21 = tail call i32 @bcmp(ptr %47, ptr %49, i64 %50)
-  %51 = icmp eq i32 %bcmp.i21, 0
+  %bcmp.i18 = tail call i32 @bcmp(ptr %47, ptr %49, i64 %50)
+  %51 = icmp eq i32 %bcmp.i18, 0
   br i1 %51, label %52, label %addresses_equal.exit
 
 52:                                               ; preds = %45, %43
@@ -554,8 +548,8 @@ define hidden range(i32 0, 2) i32 @rtpstream_id_equal_pinfo(ptr noundef readonly
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %75 = load ptr, ptr %74, align 8
   %76 = sext i32 %65 to i64
-  %bcmp.i24 = tail call i32 @bcmp(ptr %73, ptr %75, i64 %76)
-  %77 = icmp eq i32 %bcmp.i24, 0
+  %bcmp.i21 = tail call i32 @bcmp(ptr %73, ptr %75, i64 %76)
+  %77 = icmp eq i32 %bcmp.i21, 0
   br i1 %77, label %78, label %addresses_equal.exit
 
 78:                                               ; preds = %71, %69
@@ -593,8 +587,8 @@ define hidden range(i32 0, 2) i32 @rtpstream_id_equal_pinfo(ptr noundef readonly
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %103 = load ptr, ptr %102, align 8
   %104 = sext i32 %93 to i64
-  %bcmp.i27 = tail call i32 @bcmp(ptr %101, ptr %103, i64 %104)
-  %105 = icmp eq i32 %bcmp.i27, 0
+  %bcmp.i24 = tail call i32 @bcmp(ptr %101, ptr %103, i64 %104)
+  %105 = icmp eq i32 %bcmp.i24, 0
   br i1 %105, label %106, label %addresses_equal.exit
 
 106:                                              ; preds = %99, %97
@@ -610,12 +604,12 @@ addresses_equal.exit:                             ; preds = %99, %91, %85, %71, 
   br label %113
 
 113:                                              ; preds = %106, %52, %addresses_equal.exit
-  %.0 = phi i32 [ 0, %addresses_equal.exit ], [ 1, %52 ], [ 1, %106 ]
-  ret i32 %.0
+  %.0 = phi i1 [ false, %addresses_equal.exit ], [ true, %52 ], [ true, %106 ]
+  ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @rtpstream_id_equal_pinfo_rtp_info(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #4 {
+; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+define hidden noundef zeroext i1 @rtpstream_id_equal_pinfo_rtp_info(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %5 = load i32, ptr %0, align 8
   %6 = load i32, ptr %4, align 8
@@ -704,12 +698,12 @@ addresses_equal.exit:                             ; preds = %44, %36, %30, %16, 
   br label %64
 
 64:                                               ; preds = %58, %addresses_equal.exit
-  %.0 = phi i32 [ 0, %addresses_equal.exit ], [ 1, %58 ]
-  ret i32 %.0
+  %.0 = phi i1 [ false, %addresses_equal.exit ], [ true, %58 ]
+  ret i1 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @pinfo_rtp_info_to_hash(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 {
+; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable
+define hidden i32 @pinfo_rtp_info_to_hash(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -748,7 +742,7 @@ define hidden i32 @pinfo_rtp_info_to_hash(ptr noundef readonly captures(address_
   %26 = xor i32 %25, %24
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %add_address_to_hash.exit, label %.lr.ph.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %add_address_to_hash.exit, label %.lr.ph.i, !llvm.loop !6
 
 add_address_to_hash.exit:                         ; preds = %.lr.ph.i, %5
   %.011.lcssa.i = phi i32 [ %14, %5 ], [ %26, %.lr.ph.i ]
@@ -775,34 +769,43 @@ add_address_to_hash.exit:                         ; preds = %.lr.ph.i, %5
   %38 = xor i32 %37, %36
   %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i19, 1
   %exitcond.not.i22 = icmp eq i64 %indvars.iv.next.i21, %wide.trip.count.i17
-  br i1 %exitcond.not.i22, label %add_address_to_hash.exit23, label %.lr.ph.i18, !llvm.loop !4
+  br i1 %exitcond.not.i22, label %add_address_to_hash.exit23, label %.lr.ph.i18, !llvm.loop !6
 
 add_address_to_hash.exit23:                       ; preds = %.lr.ph.i18, %add_address_to_hash.exit, %2
   %.0 = phi i32 [ 0, %2 ], [ %.011.lcssa.i, %add_address_to_hash.exit ], [ %38, %.lr.ph.i18 ]
   ret i32 %.0
 }
 
-declare noalias ptr @wmem_memdup(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
+; Function Attrs: null_pointer_is_valid allocsize(2)
+declare ptr @wmem_memdup(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
+; Function Attrs: null_pointer_is_valid
 declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #7 = { nounwind }
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { allocsize(2) }
+attributes #9 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}

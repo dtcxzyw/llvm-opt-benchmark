@@ -3,8 +3,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
@@ -74,7 +73,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_quake2_game_client_command_move_bitfield_angles1 = internal global i32 0, align 4
 @.str.42 = private unnamed_addr constant [15 x i8] c"Angles (pitch)\00", align 1
 @.str.43 = private unnamed_addr constant [39 x i8] c"quake2.game.client.command.move.angles\00", align 1
-@hf_quake2_game_client_command_move_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.62 }, %struct._value_string { i32 1, ptr @.str.63 }, %struct._value_string zeroinitializer], align 16
 @hf_quake2_game_client_command_move_bitfield_angles2 = internal global i32 0, align 4
 @.str.44 = private unnamed_addr constant [13 x i8] c"Angles (yaw)\00", align 1
 @hf_quake2_game_client_command_move_bitfield_angles3 = internal global i32 0, align 4
@@ -118,60 +116,61 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.61 = private unnamed_addr constant [9 x i8] c"udp.port\00", align 1
 @.str.62 = private unnamed_addr constant [2 x i8] c"-\00", align 1
 @.str.63 = private unnamed_addr constant [4 x i8] c"set\00", align 1
+@hf_quake2_game_client_command_move_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.62 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.63 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
 @gbl_quake2ServerPorts = internal global ptr null, align 8
-@names_direction = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str }, %struct._value_string { i32 1, ptr @.str.2 }, %struct._value_string zeroinitializer], align 16
-@.str.64 = private unnamed_addr constant [3 x i8] c"%u\00", align 1
-@.str.65 = private unnamed_addr constant [14 x i8] c"Direction: %s\00", align 1
-@.str.66 = private unnamed_addr constant [16 x i8] c" Connectionless\00", align 1
-@.str.67 = private unnamed_addr constant [21 x i8] c"Type: Connectionless\00", align 1
-@.str.68 = private unnamed_addr constant [6 x i8] c" Game\00", align 1
-@.str.69 = private unnamed_addr constant [11 x i8] c"Type: Game\00", align 1
-@.str.70 = private unnamed_addr constant [26 x i8] c"Current Sequence: %u (%s)\00", align 1
-@names_reliable = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.74 }, %struct._value_string { i32 1, ptr @.str.19 }, %struct._value_string zeroinitializer], align 16
-@.str.71 = private unnamed_addr constant [30 x i8] c"Acknowledge Sequence: %u (%s)\00", align 1
-@.str.72 = private unnamed_addr constant [16 x i8] c"Client Commands\00", align 1
-@.str.73 = private unnamed_addr constant [16 x i8] c"Server Commands\00", align 1
-@.str.74 = private unnamed_addr constant [13 x i8] c"Non Reliable\00", align 1
-@.str.75 = private unnamed_addr constant [6 x i8] c" (%s)\00", align 1
-@names_client_cmd = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.76 }, %struct._value_string { i32 1, ptr @.str.77 }, %struct._value_string { i32 2, ptr @.str.78 }, %struct._value_string { i32 3, ptr @.str.79 }, %struct._value_string { i32 4, ptr @.str.80 }, %struct._value_string zeroinitializer], align 16
-@.str.76 = private unnamed_addr constant [8 x i8] c"clc_bad\00", align 1
-@.str.77 = private unnamed_addr constant [8 x i8] c"clc_nop\00", align 1
-@.str.78 = private unnamed_addr constant [9 x i8] c"clc_move\00", align 1
-@.str.79 = private unnamed_addr constant [13 x i8] c"clc_userinfo\00", align 1
-@.str.80 = private unnamed_addr constant [14 x i8] c"clc_stringcmd\00", align 1
-@.str.81 = private unnamed_addr constant [8 x i8] c"Move %u\00", align 1
-@.str.82 = private unnamed_addr constant [12 x i8] c" (no moves)\00", align 1
-@.str.83 = private unnamed_addr constant [5 x i8] c" (%d\00", align 1
-@.str.84 = private unnamed_addr constant [13 x i8] c" = %.2f deg)\00", align 1
-@.str.85 = private unnamed_addr constant [7 x i8] c" (%hd)\00", align 1
-@.str.86 = private unnamed_addr constant [6 x i8] c" (%d)\00", align 1
-@.str.87 = private unnamed_addr constant [10 x i8] c" (Attack)\00", align 1
-@.str.88 = private unnamed_addr constant [7 x i8] c" (Use)\00", align 1
-@.str.89 = private unnamed_addr constant [7 x i8] c" (Any)\00", align 1
-@names_server_cmd = internal constant [22 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.90 }, %struct._value_string { i32 1, ptr @.str.91 }, %struct._value_string { i32 2, ptr @.str.92 }, %struct._value_string { i32 3, ptr @.str.93 }, %struct._value_string { i32 4, ptr @.str.94 }, %struct._value_string { i32 5, ptr @.str.95 }, %struct._value_string { i32 6, ptr @.str.96 }, %struct._value_string { i32 7, ptr @.str.97 }, %struct._value_string { i32 8, ptr @.str.98 }, %struct._value_string { i32 9, ptr @.str.99 }, %struct._value_string { i32 10, ptr @.str.100 }, %struct._value_string { i32 11, ptr @.str.101 }, %struct._value_string { i32 12, ptr @.str.102 }, %struct._value_string { i32 13, ptr @.str.103 }, %struct._value_string { i32 14, ptr @.str.104 }, %struct._value_string { i32 15, ptr @.str.105 }, %struct._value_string { i32 16, ptr @.str.106 }, %struct._value_string { i32 17, ptr @.str.107 }, %struct._value_string { i32 18, ptr @.str.108 }, %struct._value_string { i32 19, ptr @.str.109 }, %struct._value_string { i32 20, ptr @.str.110 }, %struct._value_string zeroinitializer], align 16
-@.str.90 = private unnamed_addr constant [8 x i8] c"svc_bad\00", align 1
-@.str.91 = private unnamed_addr constant [16 x i8] c"svc_muzzleflash\00", align 1
-@.str.92 = private unnamed_addr constant [17 x i8] c"svc_muzzleflash2\00", align 1
-@.str.93 = private unnamed_addr constant [16 x i8] c"svc_temp_entity\00", align 1
-@.str.94 = private unnamed_addr constant [11 x i8] c"svc_layout\00", align 1
-@.str.95 = private unnamed_addr constant [14 x i8] c"svc_inventory\00", align 1
-@.str.96 = private unnamed_addr constant [8 x i8] c"svc_nop\00", align 1
-@.str.97 = private unnamed_addr constant [15 x i8] c"svc_disconnect\00", align 1
-@.str.98 = private unnamed_addr constant [14 x i8] c"svc_reconnect\00", align 1
-@.str.99 = private unnamed_addr constant [10 x i8] c"svc_sound\00", align 1
-@.str.100 = private unnamed_addr constant [10 x i8] c"svc_print\00", align 1
-@.str.101 = private unnamed_addr constant [14 x i8] c"svc_stufftext\00", align 1
-@.str.102 = private unnamed_addr constant [15 x i8] c"svc_serverdata\00", align 1
-@.str.103 = private unnamed_addr constant [17 x i8] c"svc_configstring\00", align 1
-@.str.104 = private unnamed_addr constant [18 x i8] c"svc_spawnbaseline\00", align 1
-@.str.105 = private unnamed_addr constant [16 x i8] c"svc_centerprint\00", align 1
-@.str.106 = private unnamed_addr constant [13 x i8] c"svc_download\00", align 1
-@.str.107 = private unnamed_addr constant [15 x i8] c"svc_playerinfo\00", align 1
-@.str.108 = private unnamed_addr constant [19 x i8] c"svc_packetentities\00", align 1
-@.str.109 = private unnamed_addr constant [24 x i8] c"svc_deltapacketentities\00", align 1
-@.str.110 = private unnamed_addr constant [10 x i8] c"svc_frame\00", align 1
+@.str.65 = private unnamed_addr constant [3 x i8] c"%u\00", align 1
+@.str.66 = private unnamed_addr constant [14 x i8] c"Direction: %s\00", align 1
+@.str.67 = private unnamed_addr constant [16 x i8] c" Connectionless\00", align 1
+@.str.68 = private unnamed_addr constant [21 x i8] c"Type: Connectionless\00", align 1
+@.str.69 = private unnamed_addr constant [6 x i8] c" Game\00", align 1
+@.str.70 = private unnamed_addr constant [11 x i8] c"Type: Game\00", align 1
+@names_direction = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.2 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.72 = private unnamed_addr constant [26 x i8] c"Current Sequence: %u (%s)\00", align 1
+@.str.73 = private unnamed_addr constant [30 x i8] c"Acknowledge Sequence: %u (%s)\00", align 1
+@.str.74 = private unnamed_addr constant [16 x i8] c"Client Commands\00", align 1
+@.str.75 = private unnamed_addr constant [16 x i8] c"Server Commands\00", align 1
+@.str.76 = private unnamed_addr constant [13 x i8] c"Non Reliable\00", align 1
+@names_reliable = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.76 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.19 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.78 = private unnamed_addr constant [6 x i8] c" (%s)\00", align 1
+@.str.79 = private unnamed_addr constant [8 x i8] c"clc_bad\00", align 1
+@.str.80 = private unnamed_addr constant [8 x i8] c"clc_nop\00", align 1
+@.str.81 = private unnamed_addr constant [9 x i8] c"clc_move\00", align 1
+@.str.82 = private unnamed_addr constant [13 x i8] c"clc_userinfo\00", align 1
+@.str.83 = private unnamed_addr constant [14 x i8] c"clc_stringcmd\00", align 1
+@names_client_cmd = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.79 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.80 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.81 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.82 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.83 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.85 = private unnamed_addr constant [8 x i8] c"Move %u\00", align 1
+@.str.86 = private unnamed_addr constant [12 x i8] c" (no moves)\00", align 1
+@.str.87 = private unnamed_addr constant [5 x i8] c" (%d\00", align 1
+@.str.88 = private unnamed_addr constant [13 x i8] c" = %.2f deg)\00", align 1
+@.str.89 = private unnamed_addr constant [7 x i8] c" (%hd)\00", align 1
+@.str.90 = private unnamed_addr constant [6 x i8] c" (%d)\00", align 1
+@.str.91 = private unnamed_addr constant [10 x i8] c" (Attack)\00", align 1
+@.str.92 = private unnamed_addr constant [7 x i8] c" (Use)\00", align 1
+@.str.93 = private unnamed_addr constant [7 x i8] c" (Any)\00", align 1
+@.str.94 = private unnamed_addr constant [8 x i8] c"svc_bad\00", align 1
+@.str.95 = private unnamed_addr constant [16 x i8] c"svc_muzzleflash\00", align 1
+@.str.96 = private unnamed_addr constant [17 x i8] c"svc_muzzleflash2\00", align 1
+@.str.97 = private unnamed_addr constant [16 x i8] c"svc_temp_entity\00", align 1
+@.str.98 = private unnamed_addr constant [11 x i8] c"svc_layout\00", align 1
+@.str.99 = private unnamed_addr constant [14 x i8] c"svc_inventory\00", align 1
+@.str.100 = private unnamed_addr constant [8 x i8] c"svc_nop\00", align 1
+@.str.101 = private unnamed_addr constant [15 x i8] c"svc_disconnect\00", align 1
+@.str.102 = private unnamed_addr constant [14 x i8] c"svc_reconnect\00", align 1
+@.str.103 = private unnamed_addr constant [10 x i8] c"svc_sound\00", align 1
+@.str.104 = private unnamed_addr constant [10 x i8] c"svc_print\00", align 1
+@.str.105 = private unnamed_addr constant [14 x i8] c"svc_stufftext\00", align 1
+@.str.106 = private unnamed_addr constant [15 x i8] c"svc_serverdata\00", align 1
+@.str.107 = private unnamed_addr constant [17 x i8] c"svc_configstring\00", align 1
+@.str.108 = private unnamed_addr constant [18 x i8] c"svc_spawnbaseline\00", align 1
+@.str.109 = private unnamed_addr constant [16 x i8] c"svc_centerprint\00", align 1
+@.str.110 = private unnamed_addr constant [13 x i8] c"svc_download\00", align 1
+@.str.111 = private unnamed_addr constant [15 x i8] c"svc_playerinfo\00", align 1
+@.str.112 = private unnamed_addr constant [19 x i8] c"svc_packetentities\00", align 1
+@.str.113 = private unnamed_addr constant [24 x i8] c"svc_deltapacketentities\00", align 1
+@.str.114 = private unnamed_addr constant [10 x i8] c"svc_frame\00", align 1
+@names_server_cmd = internal constant [22 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.94 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.95 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.96 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.97 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.98 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.99 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.100 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.101 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.102 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.103 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.104 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.105 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.106 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.107 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.108 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.109 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.110 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.111 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.112 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.113 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.114 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_quake2() #0 {
   %1 = call i32 @proto_register_protocol(ptr noundef @.str.58, ptr noundef @.str.59, ptr noundef @.str.60)
   store i32 %1, ptr @proto_quake2, align 4
@@ -186,15 +185,19 @@ define hidden void @proto_register_quake2() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_quake2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -207,114 +210,120 @@ define internal i32 @dissect_quake2(ptr noundef %0, ptr noundef %1, ptr noundef 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
   store ptr null, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
   %12 = load ptr, ptr @gbl_quake2ServerPorts, align 8
   %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds %struct._packet_info, ptr %13, i32 0, i32 24
+  %14 = getelementptr inbounds nuw %struct._packet_info, ptr %13, i32 0, i32 25
   %15 = load i32, ptr %14, align 8
-  %16 = call i32 @value_is_in_range(ptr noundef %12, i32 noundef %15)
-  %17 = icmp ne i32 %16, 0
-  %18 = select i1 %17, i32 0, i32 1
-  store i32 %18, ptr %10, align 4
-  %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr inbounds %struct._packet_info, ptr %19, i32 0, i32 1
-  %21 = load ptr, ptr %20, align 8
-  call void @col_set_str(ptr noundef %21, i32 noundef 34, ptr noundef @.str.59)
-  %22 = load ptr, ptr %6, align 8
-  %23 = getelementptr inbounds %struct._packet_info, ptr %22, i32 0, i32 1
-  %24 = load ptr, ptr %23, align 8
-  %25 = load i32, ptr %10, align 4
-  %26 = call ptr @val_to_str(i32 noundef %25, ptr noundef @names_direction, ptr noundef @.str.64)
-  call void @col_add_str(ptr noundef %24, i32 noundef 25, ptr noundef %26)
-  %27 = load ptr, ptr %7, align 8
-  %28 = icmp ne ptr %27, null
-  br i1 %28, label %29, label %50
+  %16 = call zeroext i1 @value_is_in_range(ptr noundef %12, i32 noundef %15)
+  %17 = select i1 %16, i32 0, i32 1
+  store i32 %17, ptr %10, align 4
+  %18 = load ptr, ptr %6, align 8
+  %19 = getelementptr inbounds nuw %struct._packet_info, ptr %18, i32 0, i32 1
+  %20 = load ptr, ptr %19, align 8
+  call void @col_set_str(ptr noundef %20, i32 noundef 35, ptr noundef @.str.59)
+  %21 = load ptr, ptr %6, align 8
+  %22 = getelementptr inbounds nuw %struct._packet_info, ptr %21, i32 0, i32 1
+  %23 = load ptr, ptr %22, align 8
+  %24 = load i32, ptr %10, align 4
+  %25 = call ptr @val_to_str(i32 noundef %24, ptr noundef @names_direction, ptr noundef @.str.65)
+  call void @col_add_str(ptr noundef %23, i32 noundef 25, ptr noundef %25)
+  %26 = load ptr, ptr %7, align 8
+  %27 = icmp ne ptr %26, null
+  br i1 %27, label %28, label %49
 
-29:                                               ; preds = %4
-  %30 = load ptr, ptr %7, align 8
-  %31 = load i32, ptr @proto_quake2, align 4
-  %32 = load ptr, ptr %5, align 8
-  %33 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %31, ptr noundef %32, i32 noundef 0, i32 noundef -1, i32 noundef 0)
-  store ptr %33, ptr %11, align 8
-  %34 = load ptr, ptr %11, align 8
-  %35 = load i32, ptr @ett_quake2, align 4
-  %36 = call ptr @proto_item_add_subtree(ptr noundef %34, i32 noundef %35)
-  store ptr %36, ptr %9, align 8
-  %37 = load ptr, ptr %9, align 8
-  %38 = load i32, ptr %10, align 4
-  %39 = icmp eq i32 %38, 1
-  br i1 %39, label %40, label %42
+28:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
+  %29 = load ptr, ptr %7, align 8
+  %30 = load i32, ptr @proto_quake2, align 4
+  %31 = load ptr, ptr %5, align 8
+  %32 = call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %30, ptr noundef %31, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  store ptr %32, ptr %11, align 8
+  %33 = load ptr, ptr %11, align 8
+  %34 = load i32, ptr @ett_quake2, align 4
+  %35 = call ptr @proto_item_add_subtree(ptr noundef %33, i32 noundef %34)
+  store ptr %35, ptr %9, align 8
+  %36 = load ptr, ptr %9, align 8
+  %37 = load i32, ptr %10, align 4
+  %38 = icmp eq i32 %37, 1
+  br i1 %38, label %39, label %41
 
-40:                                               ; preds = %29
-  %41 = load i32, ptr @hf_quake2_s2c, align 4
-  br label %44
+39:                                               ; preds = %28
+  %40 = load i32, ptr @hf_quake2_s2c, align 4
+  br label %43
 
-42:                                               ; preds = %29
-  %43 = load i32, ptr @hf_quake2_c2s, align 4
-  br label %44
+41:                                               ; preds = %28
+  %42 = load i32, ptr @hf_quake2_c2s, align 4
+  br label %43
 
-44:                                               ; preds = %42, %40
-  %45 = phi i32 [ %41, %40 ], [ %43, %42 ]
-  %46 = load ptr, ptr %5, align 8
-  %47 = load i32, ptr %10, align 4
-  %48 = call ptr @val_to_str(i32 noundef %47, ptr noundef @names_direction, ptr noundef @.str.64)
-  %49 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %37, i32 noundef %45, ptr noundef %46, i32 noundef 0, i32 noundef 0, i32 noundef 1, ptr noundef @.str.65, ptr noundef %48)
-  br label %50
+43:                                               ; preds = %41, %39
+  %44 = phi i32 [ %40, %39 ], [ %42, %41 ]
+  %45 = load ptr, ptr %5, align 8
+  %46 = load i32, ptr %10, align 4
+  %47 = call ptr @val_to_str(i32 noundef %46, ptr noundef @names_direction, ptr noundef @.str.65)
+  %48 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %36, i32 noundef %44, ptr noundef %45, i32 noundef 0, i32 noundef 0, i32 noundef 1, ptr noundef @.str.66, ptr noundef %47)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
+  br label %49
 
-50:                                               ; preds = %44, %4
-  %51 = load ptr, ptr %5, align 8
-  %52 = call i32 @tvb_get_ntohl(ptr noundef %51, i32 noundef 0)
-  %53 = icmp eq i32 %52, -1
-  br i1 %53, label %54, label %66
+49:                                               ; preds = %43, %4
+  %50 = load ptr, ptr %5, align 8
+  %51 = call i32 @tvb_get_ntohl(ptr noundef %50, i32 noundef 0)
+  %52 = icmp eq i32 %51, -1
+  br i1 %52, label %53, label %65
 
-54:                                               ; preds = %50
-  %55 = load ptr, ptr %6, align 8
-  %56 = getelementptr inbounds %struct._packet_info, ptr %55, i32 0, i32 1
-  %57 = load ptr, ptr %56, align 8
-  call void @col_append_str(ptr noundef %57, i32 noundef 25, ptr noundef @.str.66)
-  %58 = load ptr, ptr %9, align 8
-  %59 = load i32, ptr @hf_quake2_connectionless, align 4
-  %60 = load ptr, ptr %5, align 8
-  %61 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %58, i32 noundef %59, ptr noundef %60, i32 noundef 0, i32 noundef 0, i32 noundef 1, ptr noundef @.str.67)
-  %62 = load ptr, ptr %5, align 8
-  %63 = load ptr, ptr %6, align 8
-  %64 = load ptr, ptr %9, align 8
-  %65 = load i32, ptr %10, align 4
-  call void @dissect_quake2_ConnectionlessPacket(ptr noundef %62, ptr noundef %63, ptr noundef %64, i32 noundef %65)
-  br label %78
+53:                                               ; preds = %49
+  %54 = load ptr, ptr %6, align 8
+  %55 = getelementptr inbounds nuw %struct._packet_info, ptr %54, i32 0, i32 1
+  %56 = load ptr, ptr %55, align 8
+  call void @col_append_str(ptr noundef %56, i32 noundef 25, ptr noundef @.str.67)
+  %57 = load ptr, ptr %9, align 8
+  %58 = load i32, ptr @hf_quake2_connectionless, align 4
+  %59 = load ptr, ptr %5, align 8
+  %60 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %57, i32 noundef %58, ptr noundef %59, i32 noundef 0, i32 noundef 0, i32 noundef 1, ptr noundef @.str.68)
+  %61 = load ptr, ptr %5, align 8
+  %62 = load ptr, ptr %6, align 8
+  %63 = load ptr, ptr %9, align 8
+  %64 = load i32, ptr %10, align 4
+  call void @dissect_quake2_ConnectionlessPacket(ptr noundef %61, ptr noundef %62, ptr noundef %63, i32 noundef %64)
+  br label %77
 
-66:                                               ; preds = %50
-  %67 = load ptr, ptr %6, align 8
-  %68 = getelementptr inbounds %struct._packet_info, ptr %67, i32 0, i32 1
-  %69 = load ptr, ptr %68, align 8
-  call void @col_append_str(ptr noundef %69, i32 noundef 25, ptr noundef @.str.68)
-  %70 = load ptr, ptr %9, align 8
-  %71 = load i32, ptr @hf_quake2_game, align 4
-  %72 = load ptr, ptr %5, align 8
-  %73 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %70, i32 noundef %71, ptr noundef %72, i32 noundef 0, i32 noundef 0, i32 noundef 1, ptr noundef @.str.69)
-  %74 = load ptr, ptr %5, align 8
-  %75 = load ptr, ptr %6, align 8
-  %76 = load ptr, ptr %9, align 8
-  %77 = load i32, ptr %10, align 4
-  call void @dissect_quake2_GamePacket(ptr noundef %74, ptr noundef %75, ptr noundef %76, i32 noundef %77)
-  br label %78
+65:                                               ; preds = %49
+  %66 = load ptr, ptr %6, align 8
+  %67 = getelementptr inbounds nuw %struct._packet_info, ptr %66, i32 0, i32 1
+  %68 = load ptr, ptr %67, align 8
+  call void @col_append_str(ptr noundef %68, i32 noundef 25, ptr noundef @.str.69)
+  %69 = load ptr, ptr %9, align 8
+  %70 = load i32, ptr @hf_quake2_game, align 4
+  %71 = load ptr, ptr %5, align 8
+  %72 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %69, i32 noundef %70, ptr noundef %71, i32 noundef 0, i32 noundef 0, i32 noundef 1, ptr noundef @.str.70)
+  %73 = load ptr, ptr %5, align 8
+  %74 = load ptr, ptr %6, align 8
+  %75 = load ptr, ptr %9, align 8
+  %76 = load i32, ptr %10, align 4
+  call void @dissect_quake2_GamePacket(ptr noundef %73, ptr noundef %74, ptr noundef %75, i32 noundef %76)
+  br label %77
 
-78:                                               ; preds = %66, %54
-  %79 = load ptr, ptr %5, align 8
-  %80 = call i32 @tvb_captured_length(ptr noundef %79)
-  ret i32 %80
+77:                                               ; preds = %65, %53
+  %78 = load ptr, ptr %5, align 8
+  %79 = call i32 @tvb_captured_length(ptr noundef %78)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
+  ret i32 %79
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @apply_quake2_prefs() #0 {
   %1 = call ptr @prefs_get_range_value(ptr noundef @.str.60, ptr noundef @.str.61)
   store ptr %1, ptr @gbl_quake2ServerPorts, align 8
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_quake2() #0 {
   %1 = load ptr, ptr @quake2_handle, align 8
   call void @dissector_add_uint_with_preference(ptr noundef @.str.61, i32 noundef 27910, ptr noundef %1)
@@ -322,27 +331,43 @@ define hidden void @proto_reg_handoff_quake2() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) #1
 
-declare i32 @value_is_in_range(ptr noundef, i32 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @value_is_in_range(ptr noundef, i32 noundef) #1
+
+; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_quake2_ConnectionlessPacket(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -356,6 +381,10 @@ define internal void @dissect_quake2_ConnectionlessPacket(ptr noundef %0, ptr no
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
   %13 = load ptr, ptr %5, align 8
   %14 = call i32 @tvb_get_ntohl(ptr noundef %13, i32 noundef 0)
   store i32 %14, ptr %12, align 4
@@ -380,10 +409,14 @@ define internal void @dissect_quake2_ConnectionlessPacket(ptr noundef %0, ptr no
   %30 = load i32, ptr %11, align 4
   %31 = load i32, ptr %10, align 4
   %32 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %28, ptr noundef %29, i32 noundef %30, i32 noundef %31, i32 noundef 0)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_quake2_GamePacket(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -405,212 +438,245 @@ define internal void @dissect_quake2_GamePacket(ptr noundef %0, ptr noundef %1, 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #3
   %21 = load ptr, ptr @gbl_quake2ServerPorts, align 8
   %22 = load ptr, ptr %6, align 8
-  %23 = getelementptr inbounds %struct._packet_info, ptr %22, i32 0, i32 24
+  %23 = getelementptr inbounds nuw %struct._packet_info, ptr %22, i32 0, i32 25
   %24 = load i32, ptr %23, align 8
-  %25 = call i32 @value_is_in_range(ptr noundef %21, i32 noundef %24)
-  %26 = icmp ne i32 %25, 0
-  %27 = select i1 %26, i32 0, i32 1
-  store i32 %27, ptr %8, align 4
-  %28 = load ptr, ptr %7, align 8
-  %29 = load ptr, ptr %5, align 8
-  %30 = load i32, ptr @ett_quake2_game, align 4
-  %31 = call ptr @proto_tree_add_subtree(ptr noundef %28, ptr noundef %29, i32 noundef 0, i32 noundef -1, i32 noundef %30, ptr noundef null, ptr noundef @.str.6)
-  store ptr %31, ptr %9, align 8
+  %25 = call zeroext i1 @value_is_in_range(ptr noundef %21, i32 noundef %24)
+  %26 = select i1 %25, i32 0, i32 1
+  store i32 %26, ptr %8, align 4
+  %27 = load ptr, ptr %7, align 8
+  %28 = load ptr, ptr %5, align 8
+  %29 = load i32, ptr @ett_quake2_game, align 4
+  %30 = call ptr @proto_tree_add_subtree(ptr noundef %27, ptr noundef %28, i32 noundef 0, i32 noundef -1, i32 noundef %29, ptr noundef null, ptr noundef @.str.6)
+  store ptr %30, ptr %9, align 8
   store i32 0, ptr %14, align 4
-  %32 = load ptr, ptr %5, align 8
-  %33 = load i32, ptr %14, align 4
-  %34 = call i32 @tvb_get_letohl(ptr noundef %32, i32 noundef %33)
-  store i32 %34, ptr %10, align 4
-  %35 = load i32, ptr %10, align 4
-  %36 = and i32 %35, -2147483648
-  %37 = icmp ne i32 %36, 0
-  %38 = select i1 %37, i32 1, i32 0
-  store i32 %38, ptr %12, align 4
-  %39 = load i32, ptr %10, align 4
-  %40 = and i32 %39, 2147483647
-  store i32 %40, ptr %10, align 4
-  %41 = load ptr, ptr %9, align 8
-  %42 = icmp ne ptr %41, null
-  br i1 %42, label %43, label %66
+  %31 = load ptr, ptr %5, align 8
+  %32 = load i32, ptr %14, align 4
+  %33 = call i32 @tvb_get_letohl(ptr noundef %31, i32 noundef %32)
+  store i32 %33, ptr %10, align 4
+  %34 = load i32, ptr %10, align 4
+  %35 = and i32 %34, -2147483648
+  %36 = icmp ne i32 %35, 0
+  %37 = select i1 %36, i32 1, i32 0
+  store i32 %37, ptr %12, align 4
+  %38 = load i32, ptr %10, align 4
+  %39 = and i32 %38, 2147483647
+  store i32 %39, ptr %10, align 4
+  %40 = load ptr, ptr %9, align 8
+  %41 = icmp ne ptr %40, null
+  br i1 %41, label %42, label %65
 
-43:                                               ; preds = %4
-  %44 = load ptr, ptr %9, align 8
-  %45 = load ptr, ptr %5, align 8
-  %46 = load i32, ptr %14, align 4
-  %47 = load i32, ptr @ett_quake2_game_seq1, align 4
-  %48 = load i32, ptr %10, align 4
-  %49 = load i32, ptr %12, align 4
-  %50 = call ptr @val_to_str(i32 noundef %49, ptr noundef @names_reliable, ptr noundef @.str.64)
-  %51 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %44, ptr noundef %45, i32 noundef %46, i32 noundef 4, i32 noundef %47, ptr noundef null, ptr noundef @.str.70, i32 noundef %48, ptr noundef %50)
-  store ptr %51, ptr %16, align 8
-  %52 = load ptr, ptr %16, align 8
-  %53 = load i32, ptr @hf_quake2_game_seq1, align 4
-  %54 = load ptr, ptr %5, align 8
-  %55 = load i32, ptr %14, align 4
-  %56 = load i32, ptr %10, align 4
-  %57 = call ptr @proto_tree_add_uint(ptr noundef %52, i32 noundef %53, ptr noundef %54, i32 noundef %55, i32 noundef 4, i32 noundef %56)
-  %58 = load ptr, ptr %16, align 8
-  %59 = load i32, ptr @hf_quake2_game_rel1, align 4
-  %60 = load ptr, ptr %5, align 8
-  %61 = load i32, ptr %14, align 4
-  %62 = add i32 %61, 3
-  %63 = load i32, ptr %12, align 4
-  %64 = sext i32 %63 to i64
-  %65 = call ptr @proto_tree_add_boolean(ptr noundef %58, i32 noundef %59, ptr noundef %60, i32 noundef %62, i32 noundef 1, i64 noundef %64)
-  br label %66
+42:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #3
+  %43 = load ptr, ptr %9, align 8
+  %44 = load ptr, ptr %5, align 8
+  %45 = load i32, ptr %14, align 4
+  %46 = load i32, ptr @ett_quake2_game_seq1, align 4
+  %47 = load i32, ptr %10, align 4
+  %48 = load i32, ptr %12, align 4
+  %49 = call ptr @val_to_str(i32 noundef %48, ptr noundef @names_reliable, ptr noundef @.str.65)
+  %50 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %43, ptr noundef %44, i32 noundef %45, i32 noundef 4, i32 noundef %46, ptr noundef null, ptr noundef @.str.72, i32 noundef %47, ptr noundef %49)
+  store ptr %50, ptr %16, align 8
+  %51 = load ptr, ptr %16, align 8
+  %52 = load i32, ptr @hf_quake2_game_seq1, align 4
+  %53 = load ptr, ptr %5, align 8
+  %54 = load i32, ptr %14, align 4
+  %55 = load i32, ptr %10, align 4
+  %56 = call ptr @proto_tree_add_uint(ptr noundef %51, i32 noundef %52, ptr noundef %53, i32 noundef %54, i32 noundef 4, i32 noundef %55)
+  %57 = load ptr, ptr %16, align 8
+  %58 = load i32, ptr @hf_quake2_game_rel1, align 4
+  %59 = load ptr, ptr %5, align 8
+  %60 = load i32, ptr %14, align 4
+  %61 = add i32 %60, 3
+  %62 = load i32, ptr %12, align 4
+  %63 = sext i32 %62 to i64
+  %64 = call ptr @proto_tree_add_boolean(ptr noundef %57, i32 noundef %58, ptr noundef %59, i32 noundef %61, i32 noundef 1, i64 noundef %63)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #3
+  br label %65
 
-66:                                               ; preds = %43, %4
-  %67 = load i32, ptr %14, align 4
-  %68 = add i32 %67, 4
-  store i32 %68, ptr %14, align 4
-  %69 = load ptr, ptr %5, align 8
-  %70 = load i32, ptr %14, align 4
-  %71 = call i32 @tvb_get_letohl(ptr noundef %69, i32 noundef %70)
-  store i32 %71, ptr %11, align 4
-  %72 = load i32, ptr %11, align 4
-  %73 = and i32 %72, -2147483648
-  %74 = icmp ne i32 %73, 0
-  %75 = select i1 %74, i32 1, i32 0
-  store i32 %75, ptr %13, align 4
-  %76 = load i32, ptr %11, align 4
-  %77 = and i32 %76, 2147483647
-  store i32 %77, ptr %11, align 4
-  %78 = load ptr, ptr %9, align 8
-  %79 = icmp ne ptr %78, null
-  br i1 %79, label %80, label %103
+65:                                               ; preds = %42, %4
+  %66 = load i32, ptr %14, align 4
+  %67 = add i32 %66, 4
+  store i32 %67, ptr %14, align 4
+  %68 = load ptr, ptr %5, align 8
+  %69 = load i32, ptr %14, align 4
+  %70 = call i32 @tvb_get_letohl(ptr noundef %68, i32 noundef %69)
+  store i32 %70, ptr %11, align 4
+  %71 = load i32, ptr %11, align 4
+  %72 = and i32 %71, -2147483648
+  %73 = icmp ne i32 %72, 0
+  %74 = select i1 %73, i32 1, i32 0
+  store i32 %74, ptr %13, align 4
+  %75 = load i32, ptr %11, align 4
+  %76 = and i32 %75, 2147483647
+  store i32 %76, ptr %11, align 4
+  %77 = load ptr, ptr %9, align 8
+  %78 = icmp ne ptr %77, null
+  br i1 %78, label %79, label %102
 
-80:                                               ; preds = %66
-  %81 = load ptr, ptr %9, align 8
-  %82 = load ptr, ptr %5, align 8
-  %83 = load i32, ptr %14, align 4
-  %84 = load i32, ptr @ett_quake2_game_seq2, align 4
-  %85 = load i32, ptr %11, align 4
-  %86 = load i32, ptr %13, align 4
-  %87 = call ptr @val_to_str(i32 noundef %86, ptr noundef @names_reliable, ptr noundef @.str.64)
-  %88 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %81, ptr noundef %82, i32 noundef %83, i32 noundef 4, i32 noundef %84, ptr noundef null, ptr noundef @.str.71, i32 noundef %85, ptr noundef %87)
-  store ptr %88, ptr %17, align 8
-  %89 = load ptr, ptr %17, align 8
-  %90 = load i32, ptr @hf_quake2_game_seq2, align 4
-  %91 = load ptr, ptr %5, align 8
-  %92 = load i32, ptr %14, align 4
-  %93 = load i32, ptr %11, align 4
-  %94 = call ptr @proto_tree_add_uint(ptr noundef %89, i32 noundef %90, ptr noundef %91, i32 noundef %92, i32 noundef 4, i32 noundef %93)
-  %95 = load ptr, ptr %17, align 8
-  %96 = load i32, ptr @hf_quake2_game_rel2, align 4
-  %97 = load ptr, ptr %5, align 8
-  %98 = load i32, ptr %14, align 4
-  %99 = add i32 %98, 3
-  %100 = load i32, ptr %13, align 4
-  %101 = sext i32 %100 to i64
-  %102 = call ptr @proto_tree_add_boolean(ptr noundef %95, i32 noundef %96, ptr noundef %97, i32 noundef %99, i32 noundef 1, i64 noundef %101)
-  br label %103
+79:                                               ; preds = %65
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #3
+  %80 = load ptr, ptr %9, align 8
+  %81 = load ptr, ptr %5, align 8
+  %82 = load i32, ptr %14, align 4
+  %83 = load i32, ptr @ett_quake2_game_seq2, align 4
+  %84 = load i32, ptr %11, align 4
+  %85 = load i32, ptr %13, align 4
+  %86 = call ptr @val_to_str(i32 noundef %85, ptr noundef @names_reliable, ptr noundef @.str.65)
+  %87 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %80, ptr noundef %81, i32 noundef %82, i32 noundef 4, i32 noundef %83, ptr noundef null, ptr noundef @.str.73, i32 noundef %84, ptr noundef %86)
+  store ptr %87, ptr %17, align 8
+  %88 = load ptr, ptr %17, align 8
+  %89 = load i32, ptr @hf_quake2_game_seq2, align 4
+  %90 = load ptr, ptr %5, align 8
+  %91 = load i32, ptr %14, align 4
+  %92 = load i32, ptr %11, align 4
+  %93 = call ptr @proto_tree_add_uint(ptr noundef %88, i32 noundef %89, ptr noundef %90, i32 noundef %91, i32 noundef 4, i32 noundef %92)
+  %94 = load ptr, ptr %17, align 8
+  %95 = load i32, ptr @hf_quake2_game_rel2, align 4
+  %96 = load ptr, ptr %5, align 8
+  %97 = load i32, ptr %14, align 4
+  %98 = add i32 %97, 3
+  %99 = load i32, ptr %13, align 4
+  %100 = sext i32 %99 to i64
+  %101 = call ptr @proto_tree_add_boolean(ptr noundef %94, i32 noundef %95, ptr noundef %96, i32 noundef %98, i32 noundef 1, i64 noundef %100)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #3
+  br label %102
 
-103:                                              ; preds = %80, %66
-  %104 = load i32, ptr %14, align 4
-  %105 = add i32 %104, 4
-  store i32 %105, ptr %14, align 4
-  %106 = load i32, ptr %8, align 4
-  %107 = icmp eq i32 %106, 0
-  br i1 %107, label %108, label %125
+102:                                              ; preds = %79, %65
+  %103 = load i32, ptr %14, align 4
+  %104 = add i32 %103, 4
+  store i32 %104, ptr %14, align 4
+  %105 = load i32, ptr %8, align 4
+  %106 = icmp eq i32 %105, 0
+  br i1 %106, label %107, label %124
 
-108:                                              ; preds = %103
-  %109 = load ptr, ptr %5, align 8
-  %110 = load i32, ptr %14, align 4
-  %111 = call zeroext i16 @tvb_get_letohs(ptr noundef %109, i32 noundef %110)
-  store i16 %111, ptr %18, align 2
-  %112 = load ptr, ptr %9, align 8
-  %113 = icmp ne ptr %112, null
-  br i1 %113, label %114, label %122
+107:                                              ; preds = %102
+  call void @llvm.lifetime.start.p0(i64 2, ptr %18) #3
+  %108 = load ptr, ptr %5, align 8
+  %109 = load i32, ptr %14, align 4
+  %110 = call zeroext i16 @tvb_get_letohs(ptr noundef %108, i32 noundef %109)
+  store i16 %110, ptr %18, align 2
+  %111 = load ptr, ptr %9, align 8
+  %112 = icmp ne ptr %111, null
+  br i1 %112, label %113, label %121
 
-114:                                              ; preds = %108
-  %115 = load ptr, ptr %9, align 8
-  %116 = load i32, ptr @hf_quake2_game_qport, align 4
-  %117 = load ptr, ptr %5, align 8
-  %118 = load i32, ptr %14, align 4
-  %119 = load i16, ptr %18, align 2
-  %120 = zext i16 %119 to i32
-  %121 = call ptr @proto_tree_add_uint(ptr noundef %115, i32 noundef %116, ptr noundef %117, i32 noundef %118, i32 noundef 2, i32 noundef %120)
-  br label %122
+113:                                              ; preds = %107
+  %114 = load ptr, ptr %9, align 8
+  %115 = load i32, ptr @hf_quake2_game_qport, align 4
+  %116 = load ptr, ptr %5, align 8
+  %117 = load i32, ptr %14, align 4
+  %118 = load i16, ptr %18, align 2
+  %119 = zext i16 %118 to i32
+  %120 = call ptr @proto_tree_add_uint(ptr noundef %114, i32 noundef %115, ptr noundef %116, i32 noundef %117, i32 noundef 2, i32 noundef %119)
+  br label %121
 
-122:                                              ; preds = %114, %108
-  %123 = load i32, ptr %14, align 4
-  %124 = add i32 %123, 2
-  store i32 %124, ptr %14, align 4
-  br label %125
+121:                                              ; preds = %113, %107
+  %122 = load i32, ptr %14, align 4
+  %123 = add i32 %122, 2
+  store i32 %123, ptr %14, align 4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %18) #3
+  br label %124
 
-125:                                              ; preds = %122, %103
-  %126 = load ptr, ptr %5, align 8
-  %127 = call i32 @tvb_reported_length(ptr noundef %126)
-  %128 = load i32, ptr %14, align 4
-  %129 = sub i32 %127, %128
-  store i32 %129, ptr %15, align 4
-  %130 = load i32, ptr %15, align 4
-  %131 = icmp ne i32 %130, 0
-  br i1 %131, label %132, label %155
+124:                                              ; preds = %121, %102
+  %125 = load ptr, ptr %5, align 8
+  %126 = call i32 @tvb_reported_length(ptr noundef %125)
+  %127 = load i32, ptr %14, align 4
+  %128 = sub i32 %126, %127
+  store i32 %128, ptr %15, align 4
+  %129 = load i32, ptr %15, align 4
+  %130 = icmp ne i32 %129, 0
+  br i1 %130, label %131, label %154
 
-132:                                              ; preds = %125
-  %133 = load ptr, ptr %5, align 8
-  %134 = load i32, ptr %14, align 4
-  %135 = call ptr @tvb_new_subset_remaining(ptr noundef %133, i32 noundef %134)
-  store ptr %135, ptr %19, align 8
-  %136 = load i32, ptr %8, align 4
-  %137 = icmp eq i32 %136, 0
-  br i1 %137, label %138, label %146
+131:                                              ; preds = %124
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #3
+  %132 = load ptr, ptr %5, align 8
+  %133 = load i32, ptr %14, align 4
+  %134 = call ptr @tvb_new_subset_remaining(ptr noundef %132, i32 noundef %133)
+  store ptr %134, ptr %19, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #3
+  %135 = load i32, ptr %8, align 4
+  %136 = icmp eq i32 %135, 0
+  br i1 %136, label %137, label %145
 
-138:                                              ; preds = %132
-  %139 = load ptr, ptr %9, align 8
-  %140 = load ptr, ptr %19, align 8
-  %141 = load i32, ptr @ett_quake2_game_clc, align 4
-  %142 = call ptr @proto_tree_add_subtree(ptr noundef %139, ptr noundef %140, i32 noundef 0, i32 noundef -1, i32 noundef %141, ptr noundef null, ptr noundef @.str.72)
-  store ptr %142, ptr %20, align 8
-  %143 = load ptr, ptr %19, align 8
-  %144 = load ptr, ptr %6, align 8
-  %145 = load ptr, ptr %20, align 8
-  call void @dissect_quake2_client_commands(ptr noundef %143, ptr noundef %144, ptr noundef %145)
+137:                                              ; preds = %131
+  %138 = load ptr, ptr %9, align 8
+  %139 = load ptr, ptr %19, align 8
+  %140 = load i32, ptr @ett_quake2_game_clc, align 4
+  %141 = call ptr @proto_tree_add_subtree(ptr noundef %138, ptr noundef %139, i32 noundef 0, i32 noundef -1, i32 noundef %140, ptr noundef null, ptr noundef @.str.74)
+  store ptr %141, ptr %20, align 8
+  %142 = load ptr, ptr %19, align 8
+  %143 = load ptr, ptr %6, align 8
+  %144 = load ptr, ptr %20, align 8
+  call void @dissect_quake2_client_commands(ptr noundef %142, ptr noundef %143, ptr noundef %144)
+  br label %153
+
+145:                                              ; preds = %131
+  %146 = load ptr, ptr %9, align 8
+  %147 = load ptr, ptr %19, align 8
+  %148 = load i32, ptr @ett_quake2_game_svc, align 4
+  %149 = call ptr @proto_tree_add_subtree(ptr noundef %146, ptr noundef %147, i32 noundef 0, i32 noundef -1, i32 noundef %148, ptr noundef null, ptr noundef @.str.75)
+  store ptr %149, ptr %20, align 8
+  %150 = load ptr, ptr %19, align 8
+  %151 = load ptr, ptr %6, align 8
+  %152 = load ptr, ptr %20, align 8
+  call void @dissect_quake2_server_commands(ptr noundef %150, ptr noundef %151, ptr noundef %152)
+  br label %153
+
+153:                                              ; preds = %145, %137
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #3
   br label %154
 
-146:                                              ; preds = %132
-  %147 = load ptr, ptr %9, align 8
-  %148 = load ptr, ptr %19, align 8
-  %149 = load i32, ptr @ett_quake2_game_svc, align 4
-  %150 = call ptr @proto_tree_add_subtree(ptr noundef %147, ptr noundef %148, i32 noundef 0, i32 noundef -1, i32 noundef %149, ptr noundef null, ptr noundef @.str.73)
-  store ptr %150, ptr %20, align 8
-  %151 = load ptr, ptr %19, align 8
-  %152 = load ptr, ptr %6, align 8
-  %153 = load ptr, ptr %20, align 8
-  call void @dissect_quake2_server_commands(ptr noundef %151, ptr noundef %152, ptr noundef %153)
-  br label %154
-
-154:                                              ; preds = %146, %138
-  br label %155
-
-155:                                              ; preds = %154, %125
+154:                                              ; preds = %153, %124
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_quake2_client_commands(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -621,124 +687,146 @@ define internal void @dissect_quake2_client_commands(ptr noundef %0, ptr noundef
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #3
   store ptr null, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
   store ptr null, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
   store i32 0, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
   store i32 0, ptr %12, align 4
-  br label %13
+  br label %14
 
-13:                                               ; preds = %69, %3
-  %14 = load ptr, ptr %4, align 8
-  %15 = load i32, ptr %12, align 4
-  %16 = call zeroext i8 @tvb_get_guint8(ptr noundef %14, i32 noundef %15)
-  store i8 %16, ptr %9, align 1
-  %17 = load ptr, ptr %6, align 8
-  %18 = load i32, ptr @hf_quake2_game_client_command, align 4
-  %19 = load ptr, ptr %4, align 8
-  %20 = load i32, ptr %12, align 4
-  %21 = load i8, ptr %9, align 1
-  %22 = zext i8 %21 to i32
-  %23 = call ptr @proto_tree_add_uint(ptr noundef %17, i32 noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef 1, i32 noundef %22)
-  store ptr %23, ptr %10, align 8
-  %24 = load ptr, ptr %10, align 8
-  %25 = load i8, ptr %9, align 1
-  %26 = zext i8 %25 to i32
-  %27 = call ptr @val_to_str(i32 noundef %26, ptr noundef @names_client_cmd, ptr noundef @.str.64)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %24, ptr noundef @.str.75, ptr noundef %27)
-  %28 = load ptr, ptr %10, align 8
-  %29 = load i32, ptr @ett_quake2_game_clc_cmd, align 4
-  %30 = call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29)
-  store ptr %30, ptr %7, align 8
-  %31 = load i32, ptr %12, align 4
-  %32 = add i32 %31, 1
-  store i32 %32, ptr %12, align 4
-  %33 = load ptr, ptr %4, align 8
-  %34 = call i32 @tvb_reported_length(ptr noundef %33)
-  %35 = load i32, ptr %12, align 4
-  %36 = sub i32 %34, %35
-  store i32 %36, ptr %11, align 4
-  %37 = load i32, ptr %11, align 4
-  %38 = icmp ne i32 %37, 0
-  br i1 %38, label %39, label %43
+14:                                               ; preds = %68, %3
+  %15 = load ptr, ptr %4, align 8
+  %16 = load i32, ptr %12, align 4
+  %17 = call zeroext i8 @tvb_get_uint8(ptr noundef %15, i32 noundef %16)
+  store i8 %17, ptr %9, align 1
+  %18 = load ptr, ptr %6, align 8
+  %19 = load i32, ptr @hf_quake2_game_client_command, align 4
+  %20 = load ptr, ptr %4, align 8
+  %21 = load i32, ptr %12, align 4
+  %22 = load i8, ptr %9, align 1
+  %23 = zext i8 %22 to i32
+  %24 = call ptr @proto_tree_add_uint(ptr noundef %18, i32 noundef %19, ptr noundef %20, i32 noundef %21, i32 noundef 1, i32 noundef %23)
+  store ptr %24, ptr %10, align 8
+  %25 = load ptr, ptr %10, align 8
+  %26 = load i8, ptr %9, align 1
+  %27 = zext i8 %26 to i32
+  %28 = call ptr @val_to_str(i32 noundef %27, ptr noundef @names_client_cmd, ptr noundef @.str.65)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %25, ptr noundef @.str.78, ptr noundef %28)
+  %29 = load ptr, ptr %10, align 8
+  %30 = load i32, ptr @ett_quake2_game_clc_cmd, align 4
+  %31 = call ptr @proto_item_add_subtree(ptr noundef %29, i32 noundef %30)
+  store ptr %31, ptr %7, align 8
+  %32 = load i32, ptr %12, align 4
+  %33 = add i32 %32, 1
+  store i32 %33, ptr %12, align 4
+  %34 = load ptr, ptr %4, align 8
+  %35 = call i32 @tvb_reported_length(ptr noundef %34)
+  %36 = load i32, ptr %12, align 4
+  %37 = sub i32 %35, %36
+  store i32 %37, ptr %11, align 4
+  %38 = load i32, ptr %11, align 4
+  %39 = icmp ne i32 %38, 0
+  br i1 %39, label %40, label %44
 
-39:                                               ; preds = %13
-  %40 = load ptr, ptr %4, align 8
-  %41 = load i32, ptr %12, align 4
-  %42 = call ptr @tvb_new_subset_remaining(ptr noundef %40, i32 noundef %41)
-  store ptr %42, ptr %8, align 8
-  br label %44
+40:                                               ; preds = %14
+  %41 = load ptr, ptr %4, align 8
+  %42 = load i32, ptr %12, align 4
+  %43 = call ptr @tvb_new_subset_remaining(ptr noundef %41, i32 noundef %42)
+  store ptr %43, ptr %8, align 8
+  br label %45
 
-43:                                               ; preds = %13
+44:                                               ; preds = %14
+  store i32 1, ptr %13, align 4
   br label %75
 
-44:                                               ; preds = %39
+45:                                               ; preds = %40
   store i32 0, ptr %11, align 4
-  %45 = load i8, ptr %9, align 1
-  %46 = zext i8 %45 to i32
-  switch i32 %46, label %64 [
-    i32 0, label %47
-    i32 1, label %48
-    i32 2, label %49
-    i32 3, label %54
-    i32 4, label %59
+  %46 = load i8, ptr %9, align 1
+  %47 = zext i8 %46 to i32
+  switch i32 %47, label %63 [
+    i32 0, label %64
+    i32 1, label %64
+    i32 2, label %48
+    i32 3, label %53
+    i32 4, label %58
   ]
 
-47:                                               ; preds = %44
-  br label %65
+48:                                               ; preds = %45
+  %49 = load ptr, ptr %8, align 8
+  %50 = load ptr, ptr %5, align 8
+  %51 = load ptr, ptr %7, align 8
+  %52 = call i32 @dissect_quake2_client_commands_move(ptr noundef %49, ptr noundef %50, ptr noundef %51)
+  store i32 %52, ptr %11, align 4
+  br label %64
 
-48:                                               ; preds = %44
-  br label %65
+53:                                               ; preds = %45
+  %54 = load ptr, ptr %8, align 8
+  %55 = load ptr, ptr %5, align 8
+  %56 = load ptr, ptr %7, align 8
+  %57 = call i32 @dissect_quake2_client_commands_uinfo(ptr noundef %54, ptr noundef %55, ptr noundef %56)
+  store i32 %57, ptr %11, align 4
+  br label %64
 
-49:                                               ; preds = %44
-  %50 = load ptr, ptr %8, align 8
-  %51 = load ptr, ptr %5, align 8
-  %52 = load ptr, ptr %7, align 8
-  %53 = call i32 @dissect_quake2_client_commands_move(ptr noundef %50, ptr noundef %51, ptr noundef %52)
-  store i32 %53, ptr %11, align 4
-  br label %65
+58:                                               ; preds = %45
+  %59 = load ptr, ptr %8, align 8
+  %60 = load ptr, ptr %5, align 8
+  %61 = load ptr, ptr %7, align 8
+  %62 = call i32 @dissect_quake2_client_commands_stringcmd(ptr noundef %59, ptr noundef %60, ptr noundef %61)
+  store i32 %62, ptr %11, align 4
+  br label %64
 
-54:                                               ; preds = %44
-  %55 = load ptr, ptr %8, align 8
-  %56 = load ptr, ptr %5, align 8
-  %57 = load ptr, ptr %7, align 8
-  %58 = call i32 @dissect_quake2_client_commands_uinfo(ptr noundef %55, ptr noundef %56, ptr noundef %57)
-  store i32 %58, ptr %11, align 4
-  br label %65
+63:                                               ; preds = %45
+  br label %64
 
-59:                                               ; preds = %44
-  %60 = load ptr, ptr %8, align 8
-  %61 = load ptr, ptr %5, align 8
-  %62 = load ptr, ptr %7, align 8
-  %63 = call i32 @dissect_quake2_client_commands_stringcmd(ptr noundef %60, ptr noundef %61, ptr noundef %62)
-  store i32 %63, ptr %11, align 4
-  br label %65
+64:                                               ; preds = %63, %58, %53, %48, %45, %45
+  %65 = load i32, ptr %11, align 4
+  %66 = load i32, ptr %12, align 4
+  %67 = add i32 %66, %65
+  store i32 %67, ptr %12, align 4
+  br label %68
 
-64:                                               ; preds = %44
-  br label %65
+68:                                               ; preds = %64
+  %69 = load ptr, ptr %4, align 8
+  %70 = call i32 @tvb_reported_length(ptr noundef %69)
+  %71 = load i32, ptr %12, align 4
+  %72 = sub i32 %70, %71
+  %73 = icmp ugt i32 %72, 0
+  br i1 %73, label %14, label %74, !llvm.loop !6
 
-65:                                               ; preds = %64, %59, %54, %49, %48, %47
-  %66 = load i32, ptr %11, align 4
-  %67 = load i32, ptr %12, align 4
-  %68 = add i32 %67, %66
-  store i32 %68, ptr %12, align 4
-  br label %69
+74:                                               ; preds = %68
+  store i32 0, ptr %13, align 4
+  br label %75
 
-69:                                               ; preds = %65
-  %70 = load ptr, ptr %4, align 8
-  %71 = call i32 @tvb_reported_length(ptr noundef %70)
-  %72 = load i32, ptr %12, align 4
-  %73 = sub i32 %71, %72
-  %74 = icmp ugt i32 %73, 0
-  br i1 %74, label %13, label %75, !llvm.loop !4
+75:                                               ; preds = %74, %44
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #3
+  %76 = load i32, ptr %13, align 4
+  switch i32 %76, label %78 [
+    i32 0, label %77
+    i32 1, label %77
+  ]
 
-75:                                               ; preds = %69, %43
+77:                                               ; preds = %75, %75
   ret void
+
+78:                                               ; preds = %75
+  unreachable
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_quake2_server_commands(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -748,156 +836,121 @@ define internal void @dissect_quake2_server_commands(ptr noundef %0, ptr noundef
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #3
   store ptr null, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
   store i32 0, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
   store i32 0, ptr %11, align 4
-  %12 = load ptr, ptr %4, align 8
-  %13 = load i32, ptr %11, align 4
-  %14 = call zeroext i8 @tvb_get_guint8(ptr noundef %12, i32 noundef %13)
-  store i8 %14, ptr %8, align 1
-  %15 = load ptr, ptr %6, align 8
-  %16 = load i32, ptr @hf_quake2_game_server_command, align 4
-  %17 = load ptr, ptr %4, align 8
-  %18 = load i32, ptr %11, align 4
-  %19 = load i8, ptr %8, align 1
-  %20 = zext i8 %19 to i32
-  %21 = call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef 1, i32 noundef %20)
-  store ptr %21, ptr %9, align 8
-  %22 = load ptr, ptr %9, align 8
-  %23 = load i8, ptr %8, align 1
-  %24 = zext i8 %23 to i32
-  %25 = call ptr @val_to_str(i32 noundef %24, ptr noundef @names_server_cmd, ptr noundef @.str.64)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.75, ptr noundef %25)
-  %26 = load i32, ptr %11, align 4
-  %27 = add i32 %26, 1
-  store i32 %27, ptr %11, align 4
-  %28 = load ptr, ptr %4, align 8
-  %29 = call i32 @tvb_reported_length(ptr noundef %28)
-  %30 = load i32, ptr %11, align 4
-  %31 = sub i32 %29, %30
-  store i32 %31, ptr %10, align 4
-  %32 = load i32, ptr %10, align 4
-  %33 = icmp ne i32 %32, 0
-  br i1 %33, label %34, label %38
+  %13 = load ptr, ptr %4, align 8
+  %14 = load i32, ptr %11, align 4
+  %15 = call zeroext i8 @tvb_get_uint8(ptr noundef %13, i32 noundef %14)
+  store i8 %15, ptr %8, align 1
+  %16 = load ptr, ptr %6, align 8
+  %17 = load i32, ptr @hf_quake2_game_server_command, align 4
+  %18 = load ptr, ptr %4, align 8
+  %19 = load i32, ptr %11, align 4
+  %20 = load i8, ptr %8, align 1
+  %21 = zext i8 %20 to i32
+  %22 = call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %17, ptr noundef %18, i32 noundef %19, i32 noundef 1, i32 noundef %21)
+  store ptr %22, ptr %9, align 8
+  %23 = load ptr, ptr %9, align 8
+  %24 = load i8, ptr %8, align 1
+  %25 = zext i8 %24 to i32
+  %26 = call ptr @val_to_str(i32 noundef %25, ptr noundef @names_server_cmd, ptr noundef @.str.65)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %23, ptr noundef @.str.78, ptr noundef %26)
+  %27 = load i32, ptr %11, align 4
+  %28 = add i32 %27, 1
+  store i32 %28, ptr %11, align 4
+  %29 = load ptr, ptr %4, align 8
+  %30 = call i32 @tvb_reported_length(ptr noundef %29)
+  %31 = load i32, ptr %11, align 4
+  %32 = sub i32 %30, %31
+  store i32 %32, ptr %10, align 4
+  %33 = load i32, ptr %10, align 4
+  %34 = icmp ne i32 %33, 0
+  br i1 %34, label %35, label %39
 
-34:                                               ; preds = %3
-  %35 = load ptr, ptr %4, align 8
-  %36 = load i32, ptr %11, align 4
-  %37 = call ptr @tvb_new_subset_remaining(ptr noundef %35, i32 noundef %36)
-  store ptr %37, ptr %7, align 8
-  br label %39
+35:                                               ; preds = %3
+  %36 = load ptr, ptr %4, align 8
+  %37 = load i32, ptr %11, align 4
+  %38 = call ptr @tvb_new_subset_remaining(ptr noundef %36, i32 noundef %37)
+  store ptr %38, ptr %7, align 8
+  br label %40
 
-38:                                               ; preds = %3
-  br label %68
+39:                                               ; preds = %3
+  store i32 1, ptr %12, align 4
+  br label %49
 
-39:                                               ; preds = %34
-  %40 = load i8, ptr %8, align 1
-  %41 = zext i8 %40 to i32
-  switch i32 %41, label %62 [
-    i32 0, label %42
-    i32 1, label %43
+40:                                               ; preds = %35
+  %41 = load i8, ptr %8, align 1
+  %42 = zext i8 %41 to i32
+  switch i32 %42, label %43 [
+    i32 0, label %44
+    i32 1, label %44
     i32 2, label %44
-    i32 3, label %45
-    i32 4, label %46
-    i32 6, label %47
-    i32 7, label %48
-    i32 8, label %49
-    i32 9, label %50
-    i32 10, label %51
-    i32 11, label %52
-    i32 12, label %53
-    i32 13, label %54
-    i32 14, label %55
-    i32 15, label %56
-    i32 16, label %57
-    i32 17, label %58
-    i32 18, label %59
-    i32 19, label %60
-    i32 20, label %61
+    i32 3, label %44
+    i32 4, label %44
+    i32 6, label %44
+    i32 7, label %44
+    i32 8, label %44
+    i32 9, label %44
+    i32 10, label %44
+    i32 11, label %44
+    i32 12, label %44
+    i32 13, label %44
+    i32 14, label %44
+    i32 15, label %44
+    i32 16, label %44
+    i32 17, label %44
+    i32 18, label %44
+    i32 19, label %44
+    i32 20, label %44
   ]
 
-42:                                               ; preds = %39
-  br label %63
+43:                                               ; preds = %40
+  br label %44
 
-43:                                               ; preds = %39
-  br label %63
+44:                                               ; preds = %43, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40, %40
+  %45 = load ptr, ptr %7, align 8
+  %46 = load ptr, ptr %5, align 8
+  %47 = load ptr, ptr %6, align 8
+  %48 = call i32 @call_data_dissector(ptr noundef %45, ptr noundef %46, ptr noundef %47)
+  store i32 0, ptr %12, align 4
+  br label %49
 
-44:                                               ; preds = %39
-  br label %63
+49:                                               ; preds = %44, %39
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #3
+  %50 = load i32, ptr %12, align 4
+  switch i32 %50, label %52 [
+    i32 0, label %51
+    i32 1, label %51
+  ]
 
-45:                                               ; preds = %39
-  br label %63
-
-46:                                               ; preds = %39
-  br label %63
-
-47:                                               ; preds = %39
-  br label %63
-
-48:                                               ; preds = %39
-  br label %63
-
-49:                                               ; preds = %39
-  br label %63
-
-50:                                               ; preds = %39
-  br label %63
-
-51:                                               ; preds = %39
-  br label %63
-
-52:                                               ; preds = %39
-  br label %63
-
-53:                                               ; preds = %39
-  br label %63
-
-54:                                               ; preds = %39
-  br label %63
-
-55:                                               ; preds = %39
-  br label %63
-
-56:                                               ; preds = %39
-  br label %63
-
-57:                                               ; preds = %39
-  br label %63
-
-58:                                               ; preds = %39
-  br label %63
-
-59:                                               ; preds = %39
-  br label %63
-
-60:                                               ; preds = %39
-  br label %63
-
-61:                                               ; preds = %39
-  br label %63
-
-62:                                               ; preds = %39
-  br label %63
-
-63:                                               ; preds = %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42
-  %64 = load ptr, ptr %7, align 8
-  %65 = load ptr, ptr %5, align 8
-  %66 = load ptr, ptr %6, align 8
-  %67 = call i32 @call_data_dissector(ptr noundef %64, ptr noundef %65, ptr noundef %66)
-  br label %68
-
-68:                                               ; preds = %63, %38
+51:                                               ; preds = %49, %49
   ret void
+
+52:                                               ; preds = %49
+  unreachable
 }
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_quake2_client_commands_move(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
@@ -907,999 +960,1033 @@ define internal i32 @dissect_quake2_client_commands_move(ptr noundef %0, ptr nou
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca [4 x %struct.movement], align 16
-  %12 = alloca ptr, align 8
+  %12 = alloca i32, align 4
   %13 = alloca ptr, align 8
   %14 = alloca ptr, align 8
   %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
   store i32 0, ptr %10, align 4
-  %16 = load i32, ptr %10, align 4
-  %17 = add i32 %16, 1
-  store i32 %17, ptr %10, align 4
-  %18 = load ptr, ptr %5, align 8
-  %19 = load i32, ptr %10, align 4
-  %20 = call i32 @tvb_get_letohl(ptr noundef %18, i32 noundef %19)
-  store i32 %20, ptr %8, align 4
-  %21 = load i32, ptr %10, align 4
-  %22 = add i32 %21, 4
-  store i32 %22, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 136, ptr %11) #3
+  %17 = load i32, ptr %10, align 4
+  %18 = add i32 %17, 1
+  store i32 %18, ptr %10, align 4
+  %19 = load ptr, ptr %5, align 8
+  %20 = load i32, ptr %10, align 4
+  %21 = call i32 @tvb_get_letohl(ptr noundef %19, i32 noundef %20)
+  store i32 %21, ptr %8, align 4
+  %22 = load i32, ptr %10, align 4
+  %23 = add i32 %22, 4
+  store i32 %23, ptr %10, align 4
   store i32 0, ptr %9, align 4
-  br label %23
+  br label %24
 
-23:                                               ; preds = %314, %3
-  %24 = load i32, ptr %9, align 4
-  %25 = icmp slt i32 %24, 3
-  br i1 %25, label %26, label %317
+24:                                               ; preds = %315, %3
+  %25 = load i32, ptr %9, align 4
+  %26 = icmp slt i32 %25, 3
+  br i1 %26, label %27, label %318
 
-26:                                               ; preds = %23
-  %27 = load ptr, ptr %5, align 8
-  %28 = load i32, ptr %10, align 4
-  %29 = call zeroext i8 @tvb_get_guint8(ptr noundef %27, i32 noundef %28)
-  %30 = load i32, ptr %9, align 4
-  %31 = sext i32 %30 to i64
-  %32 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %31
-  %33 = getelementptr inbounds %struct.movement, ptr %32, i32 0, i32 0
-  %34 = getelementptr [2 x i8], ptr %33, i64 0, i64 1
-  store i8 %29, ptr %34, align 1
-  %35 = load i32, ptr %10, align 4
-  %36 = trunc i32 %35 to i8
-  %37 = load i32, ptr %9, align 4
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %38
-  %40 = getelementptr inbounds %struct.movement, ptr %39, i32 0, i32 0
-  %41 = getelementptr [2 x i8], ptr %40, i64 0, i64 0
-  store i8 %36, ptr %41, align 2
-  %42 = load i32, ptr %10, align 4
-  %43 = add i32 %42, 1
-  store i32 %43, ptr %10, align 4
-  %44 = load i32, ptr %9, align 4
-  %45 = sext i32 %44 to i64
-  %46 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %45
-  %47 = getelementptr inbounds %struct.movement, ptr %46, i32 0, i32 0
-  %48 = getelementptr [2 x i8], ptr %47, i64 0, i64 1
-  %49 = load i8, ptr %48, align 1
-  %50 = zext i8 %49 to i32
-  %51 = and i32 %50, 1
-  %52 = icmp ne i32 %51, 0
-  br i1 %52, label %53, label %73
+27:                                               ; preds = %24
+  %28 = load ptr, ptr %5, align 8
+  %29 = load i32, ptr %10, align 4
+  %30 = call zeroext i8 @tvb_get_uint8(ptr noundef %28, i32 noundef %29)
+  %31 = load i32, ptr %9, align 4
+  %32 = sext i32 %31 to i64
+  %33 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %32
+  %34 = getelementptr inbounds nuw %struct.movement, ptr %33, i32 0, i32 0
+  %35 = getelementptr [2 x i8], ptr %34, i64 0, i64 1
+  store i8 %30, ptr %35, align 1
+  %36 = load i32, ptr %10, align 4
+  %37 = trunc i32 %36 to i8
+  %38 = load i32, ptr %9, align 4
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %39
+  %41 = getelementptr inbounds nuw %struct.movement, ptr %40, i32 0, i32 0
+  %42 = getelementptr [2 x i8], ptr %41, i64 0, i64 0
+  store i8 %37, ptr %42, align 2
+  %43 = load i32, ptr %10, align 4
+  %44 = add i32 %43, 1
+  store i32 %44, ptr %10, align 4
+  %45 = load i32, ptr %9, align 4
+  %46 = sext i32 %45 to i64
+  %47 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %46
+  %48 = getelementptr inbounds nuw %struct.movement, ptr %47, i32 0, i32 0
+  %49 = getelementptr [2 x i8], ptr %48, i64 0, i64 1
+  %50 = load i8, ptr %49, align 1
+  %51 = zext i8 %50 to i32
+  %52 = and i32 %51, 1
+  %53 = icmp ne i32 %52, 0
+  br i1 %53, label %54, label %74
 
-53:                                               ; preds = %26
-  %54 = load ptr, ptr %5, align 8
-  %55 = load i32, ptr %10, align 4
-  %56 = call zeroext i16 @tvb_get_letohs(ptr noundef %54, i32 noundef %55)
-  %57 = load i32, ptr %9, align 4
-  %58 = sext i32 %57 to i64
-  %59 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %58
-  %60 = getelementptr inbounds %struct.movement, ptr %59, i32 0, i32 1
-  %61 = getelementptr [3 x [2 x i16]], ptr %60, i64 0, i64 0
-  %62 = getelementptr [2 x i16], ptr %61, i64 0, i64 1
-  store i16 %56, ptr %62, align 2
-  %63 = load i32, ptr %10, align 4
-  %64 = trunc i32 %63 to i16
-  %65 = load i32, ptr %9, align 4
-  %66 = sext i32 %65 to i64
-  %67 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %66
-  %68 = getelementptr inbounds %struct.movement, ptr %67, i32 0, i32 1
-  %69 = getelementptr [3 x [2 x i16]], ptr %68, i64 0, i64 0
-  %70 = getelementptr [2 x i16], ptr %69, i64 0, i64 0
-  store i16 %64, ptr %70, align 2
-  %71 = load i32, ptr %10, align 4
-  %72 = add i32 %71, 2
-  store i32 %72, ptr %10, align 4
-  br label %73
+54:                                               ; preds = %27
+  %55 = load ptr, ptr %5, align 8
+  %56 = load i32, ptr %10, align 4
+  %57 = call zeroext i16 @tvb_get_letohs(ptr noundef %55, i32 noundef %56)
+  %58 = load i32, ptr %9, align 4
+  %59 = sext i32 %58 to i64
+  %60 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %59
+  %61 = getelementptr inbounds nuw %struct.movement, ptr %60, i32 0, i32 1
+  %62 = getelementptr [3 x [2 x i16]], ptr %61, i64 0, i64 0
+  %63 = getelementptr [2 x i16], ptr %62, i64 0, i64 1
+  store i16 %57, ptr %63, align 2
+  %64 = load i32, ptr %10, align 4
+  %65 = trunc i32 %64 to i16
+  %66 = load i32, ptr %9, align 4
+  %67 = sext i32 %66 to i64
+  %68 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %67
+  %69 = getelementptr inbounds nuw %struct.movement, ptr %68, i32 0, i32 1
+  %70 = getelementptr [3 x [2 x i16]], ptr %69, i64 0, i64 0
+  %71 = getelementptr [2 x i16], ptr %70, i64 0, i64 0
+  store i16 %65, ptr %71, align 2
+  %72 = load i32, ptr %10, align 4
+  %73 = add i32 %72, 2
+  store i32 %73, ptr %10, align 4
+  br label %74
 
-73:                                               ; preds = %53, %26
-  %74 = load i32, ptr %9, align 4
-  %75 = sext i32 %74 to i64
-  %76 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %75
-  %77 = getelementptr inbounds %struct.movement, ptr %76, i32 0, i32 0
-  %78 = getelementptr [2 x i8], ptr %77, i64 0, i64 1
-  %79 = load i8, ptr %78, align 1
-  %80 = zext i8 %79 to i32
-  %81 = and i32 %80, 2
-  %82 = icmp ne i32 %81, 0
-  br i1 %82, label %83, label %103
+74:                                               ; preds = %54, %27
+  %75 = load i32, ptr %9, align 4
+  %76 = sext i32 %75 to i64
+  %77 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %76
+  %78 = getelementptr inbounds nuw %struct.movement, ptr %77, i32 0, i32 0
+  %79 = getelementptr [2 x i8], ptr %78, i64 0, i64 1
+  %80 = load i8, ptr %79, align 1
+  %81 = zext i8 %80 to i32
+  %82 = and i32 %81, 2
+  %83 = icmp ne i32 %82, 0
+  br i1 %83, label %84, label %104
 
-83:                                               ; preds = %73
-  %84 = load ptr, ptr %5, align 8
-  %85 = load i32, ptr %10, align 4
-  %86 = call zeroext i16 @tvb_get_letohs(ptr noundef %84, i32 noundef %85)
-  %87 = load i32, ptr %9, align 4
-  %88 = sext i32 %87 to i64
-  %89 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %88
-  %90 = getelementptr inbounds %struct.movement, ptr %89, i32 0, i32 1
-  %91 = getelementptr [3 x [2 x i16]], ptr %90, i64 0, i64 1
-  %92 = getelementptr [2 x i16], ptr %91, i64 0, i64 1
-  store i16 %86, ptr %92, align 2
-  %93 = load i32, ptr %10, align 4
-  %94 = trunc i32 %93 to i16
-  %95 = load i32, ptr %9, align 4
-  %96 = sext i32 %95 to i64
-  %97 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %96
-  %98 = getelementptr inbounds %struct.movement, ptr %97, i32 0, i32 1
-  %99 = getelementptr [3 x [2 x i16]], ptr %98, i64 0, i64 1
-  %100 = getelementptr [2 x i16], ptr %99, i64 0, i64 0
-  store i16 %94, ptr %100, align 2
-  %101 = load i32, ptr %10, align 4
-  %102 = add i32 %101, 2
-  store i32 %102, ptr %10, align 4
-  br label %103
+84:                                               ; preds = %74
+  %85 = load ptr, ptr %5, align 8
+  %86 = load i32, ptr %10, align 4
+  %87 = call zeroext i16 @tvb_get_letohs(ptr noundef %85, i32 noundef %86)
+  %88 = load i32, ptr %9, align 4
+  %89 = sext i32 %88 to i64
+  %90 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %89
+  %91 = getelementptr inbounds nuw %struct.movement, ptr %90, i32 0, i32 1
+  %92 = getelementptr [3 x [2 x i16]], ptr %91, i64 0, i64 1
+  %93 = getelementptr [2 x i16], ptr %92, i64 0, i64 1
+  store i16 %87, ptr %93, align 2
+  %94 = load i32, ptr %10, align 4
+  %95 = trunc i32 %94 to i16
+  %96 = load i32, ptr %9, align 4
+  %97 = sext i32 %96 to i64
+  %98 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %97
+  %99 = getelementptr inbounds nuw %struct.movement, ptr %98, i32 0, i32 1
+  %100 = getelementptr [3 x [2 x i16]], ptr %99, i64 0, i64 1
+  %101 = getelementptr [2 x i16], ptr %100, i64 0, i64 0
+  store i16 %95, ptr %101, align 2
+  %102 = load i32, ptr %10, align 4
+  %103 = add i32 %102, 2
+  store i32 %103, ptr %10, align 4
+  br label %104
 
-103:                                              ; preds = %83, %73
-  %104 = load i32, ptr %9, align 4
-  %105 = sext i32 %104 to i64
-  %106 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %105
-  %107 = getelementptr inbounds %struct.movement, ptr %106, i32 0, i32 0
-  %108 = getelementptr [2 x i8], ptr %107, i64 0, i64 1
-  %109 = load i8, ptr %108, align 1
-  %110 = zext i8 %109 to i32
-  %111 = and i32 %110, 4
-  %112 = icmp ne i32 %111, 0
-  br i1 %112, label %113, label %133
+104:                                              ; preds = %84, %74
+  %105 = load i32, ptr %9, align 4
+  %106 = sext i32 %105 to i64
+  %107 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %106
+  %108 = getelementptr inbounds nuw %struct.movement, ptr %107, i32 0, i32 0
+  %109 = getelementptr [2 x i8], ptr %108, i64 0, i64 1
+  %110 = load i8, ptr %109, align 1
+  %111 = zext i8 %110 to i32
+  %112 = and i32 %111, 4
+  %113 = icmp ne i32 %112, 0
+  br i1 %113, label %114, label %134
 
-113:                                              ; preds = %103
-  %114 = load ptr, ptr %5, align 8
-  %115 = load i32, ptr %10, align 4
-  %116 = call zeroext i16 @tvb_get_letohs(ptr noundef %114, i32 noundef %115)
-  %117 = load i32, ptr %9, align 4
-  %118 = sext i32 %117 to i64
-  %119 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %118
-  %120 = getelementptr inbounds %struct.movement, ptr %119, i32 0, i32 1
-  %121 = getelementptr [3 x [2 x i16]], ptr %120, i64 0, i64 2
-  %122 = getelementptr [2 x i16], ptr %121, i64 0, i64 1
-  store i16 %116, ptr %122, align 2
-  %123 = load i32, ptr %10, align 4
-  %124 = trunc i32 %123 to i16
-  %125 = load i32, ptr %9, align 4
-  %126 = sext i32 %125 to i64
-  %127 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %126
-  %128 = getelementptr inbounds %struct.movement, ptr %127, i32 0, i32 1
-  %129 = getelementptr [3 x [2 x i16]], ptr %128, i64 0, i64 2
-  %130 = getelementptr [2 x i16], ptr %129, i64 0, i64 0
-  store i16 %124, ptr %130, align 2
-  %131 = load i32, ptr %10, align 4
-  %132 = add i32 %131, 2
-  store i32 %132, ptr %10, align 4
-  br label %133
+114:                                              ; preds = %104
+  %115 = load ptr, ptr %5, align 8
+  %116 = load i32, ptr %10, align 4
+  %117 = call zeroext i16 @tvb_get_letohs(ptr noundef %115, i32 noundef %116)
+  %118 = load i32, ptr %9, align 4
+  %119 = sext i32 %118 to i64
+  %120 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %119
+  %121 = getelementptr inbounds nuw %struct.movement, ptr %120, i32 0, i32 1
+  %122 = getelementptr [3 x [2 x i16]], ptr %121, i64 0, i64 2
+  %123 = getelementptr [2 x i16], ptr %122, i64 0, i64 1
+  store i16 %117, ptr %123, align 2
+  %124 = load i32, ptr %10, align 4
+  %125 = trunc i32 %124 to i16
+  %126 = load i32, ptr %9, align 4
+  %127 = sext i32 %126 to i64
+  %128 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %127
+  %129 = getelementptr inbounds nuw %struct.movement, ptr %128, i32 0, i32 1
+  %130 = getelementptr [3 x [2 x i16]], ptr %129, i64 0, i64 2
+  %131 = getelementptr [2 x i16], ptr %130, i64 0, i64 0
+  store i16 %125, ptr %131, align 2
+  %132 = load i32, ptr %10, align 4
+  %133 = add i32 %132, 2
+  store i32 %133, ptr %10, align 4
+  br label %134
 
-133:                                              ; preds = %113, %103
-  %134 = load i32, ptr %9, align 4
-  %135 = sext i32 %134 to i64
-  %136 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %135
-  %137 = getelementptr inbounds %struct.movement, ptr %136, i32 0, i32 0
-  %138 = getelementptr [2 x i8], ptr %137, i64 0, i64 1
-  %139 = load i8, ptr %138, align 1
-  %140 = zext i8 %139 to i32
-  %141 = and i32 %140, 8
-  %142 = icmp ne i32 %141, 0
-  br i1 %142, label %143, label %163
+134:                                              ; preds = %114, %104
+  %135 = load i32, ptr %9, align 4
+  %136 = sext i32 %135 to i64
+  %137 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %136
+  %138 = getelementptr inbounds nuw %struct.movement, ptr %137, i32 0, i32 0
+  %139 = getelementptr [2 x i8], ptr %138, i64 0, i64 1
+  %140 = load i8, ptr %139, align 1
+  %141 = zext i8 %140 to i32
+  %142 = and i32 %141, 8
+  %143 = icmp ne i32 %142, 0
+  br i1 %143, label %144, label %164
 
-143:                                              ; preds = %133
-  %144 = load ptr, ptr %5, align 8
-  %145 = load i32, ptr %10, align 4
-  %146 = call zeroext i16 @tvb_get_letohs(ptr noundef %144, i32 noundef %145)
-  %147 = load i32, ptr %9, align 4
-  %148 = sext i32 %147 to i64
-  %149 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %148
-  %150 = getelementptr inbounds %struct.movement, ptr %149, i32 0, i32 2
-  %151 = getelementptr [3 x [2 x i16]], ptr %150, i64 0, i64 0
-  %152 = getelementptr [2 x i16], ptr %151, i64 0, i64 1
-  store i16 %146, ptr %152, align 2
-  %153 = load i32, ptr %10, align 4
-  %154 = trunc i32 %153 to i16
-  %155 = load i32, ptr %9, align 4
-  %156 = sext i32 %155 to i64
-  %157 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %156
-  %158 = getelementptr inbounds %struct.movement, ptr %157, i32 0, i32 2
-  %159 = getelementptr [3 x [2 x i16]], ptr %158, i64 0, i64 0
-  %160 = getelementptr [2 x i16], ptr %159, i64 0, i64 0
-  store i16 %154, ptr %160, align 2
-  %161 = load i32, ptr %10, align 4
-  %162 = add i32 %161, 2
-  store i32 %162, ptr %10, align 4
-  br label %163
+144:                                              ; preds = %134
+  %145 = load ptr, ptr %5, align 8
+  %146 = load i32, ptr %10, align 4
+  %147 = call zeroext i16 @tvb_get_letohs(ptr noundef %145, i32 noundef %146)
+  %148 = load i32, ptr %9, align 4
+  %149 = sext i32 %148 to i64
+  %150 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %149
+  %151 = getelementptr inbounds nuw %struct.movement, ptr %150, i32 0, i32 2
+  %152 = getelementptr [3 x [2 x i16]], ptr %151, i64 0, i64 0
+  %153 = getelementptr [2 x i16], ptr %152, i64 0, i64 1
+  store i16 %147, ptr %153, align 2
+  %154 = load i32, ptr %10, align 4
+  %155 = trunc i32 %154 to i16
+  %156 = load i32, ptr %9, align 4
+  %157 = sext i32 %156 to i64
+  %158 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %157
+  %159 = getelementptr inbounds nuw %struct.movement, ptr %158, i32 0, i32 2
+  %160 = getelementptr [3 x [2 x i16]], ptr %159, i64 0, i64 0
+  %161 = getelementptr [2 x i16], ptr %160, i64 0, i64 0
+  store i16 %155, ptr %161, align 2
+  %162 = load i32, ptr %10, align 4
+  %163 = add i32 %162, 2
+  store i32 %163, ptr %10, align 4
+  br label %164
 
-163:                                              ; preds = %143, %133
-  %164 = load i32, ptr %9, align 4
-  %165 = sext i32 %164 to i64
-  %166 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %165
-  %167 = getelementptr inbounds %struct.movement, ptr %166, i32 0, i32 0
-  %168 = getelementptr [2 x i8], ptr %167, i64 0, i64 1
-  %169 = load i8, ptr %168, align 1
-  %170 = zext i8 %169 to i32
-  %171 = and i32 %170, 16
-  %172 = icmp ne i32 %171, 0
-  br i1 %172, label %173, label %193
+164:                                              ; preds = %144, %134
+  %165 = load i32, ptr %9, align 4
+  %166 = sext i32 %165 to i64
+  %167 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %166
+  %168 = getelementptr inbounds nuw %struct.movement, ptr %167, i32 0, i32 0
+  %169 = getelementptr [2 x i8], ptr %168, i64 0, i64 1
+  %170 = load i8, ptr %169, align 1
+  %171 = zext i8 %170 to i32
+  %172 = and i32 %171, 16
+  %173 = icmp ne i32 %172, 0
+  br i1 %173, label %174, label %194
 
-173:                                              ; preds = %163
-  %174 = load ptr, ptr %5, align 8
-  %175 = load i32, ptr %10, align 4
-  %176 = call zeroext i16 @tvb_get_letohs(ptr noundef %174, i32 noundef %175)
-  %177 = load i32, ptr %9, align 4
-  %178 = sext i32 %177 to i64
-  %179 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %178
-  %180 = getelementptr inbounds %struct.movement, ptr %179, i32 0, i32 2
-  %181 = getelementptr [3 x [2 x i16]], ptr %180, i64 0, i64 1
-  %182 = getelementptr [2 x i16], ptr %181, i64 0, i64 1
-  store i16 %176, ptr %182, align 2
-  %183 = load i32, ptr %10, align 4
-  %184 = trunc i32 %183 to i16
-  %185 = load i32, ptr %9, align 4
-  %186 = sext i32 %185 to i64
-  %187 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %186
-  %188 = getelementptr inbounds %struct.movement, ptr %187, i32 0, i32 2
-  %189 = getelementptr [3 x [2 x i16]], ptr %188, i64 0, i64 1
-  %190 = getelementptr [2 x i16], ptr %189, i64 0, i64 0
-  store i16 %184, ptr %190, align 2
-  %191 = load i32, ptr %10, align 4
-  %192 = add i32 %191, 2
-  store i32 %192, ptr %10, align 4
-  br label %193
+174:                                              ; preds = %164
+  %175 = load ptr, ptr %5, align 8
+  %176 = load i32, ptr %10, align 4
+  %177 = call zeroext i16 @tvb_get_letohs(ptr noundef %175, i32 noundef %176)
+  %178 = load i32, ptr %9, align 4
+  %179 = sext i32 %178 to i64
+  %180 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %179
+  %181 = getelementptr inbounds nuw %struct.movement, ptr %180, i32 0, i32 2
+  %182 = getelementptr [3 x [2 x i16]], ptr %181, i64 0, i64 1
+  %183 = getelementptr [2 x i16], ptr %182, i64 0, i64 1
+  store i16 %177, ptr %183, align 2
+  %184 = load i32, ptr %10, align 4
+  %185 = trunc i32 %184 to i16
+  %186 = load i32, ptr %9, align 4
+  %187 = sext i32 %186 to i64
+  %188 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %187
+  %189 = getelementptr inbounds nuw %struct.movement, ptr %188, i32 0, i32 2
+  %190 = getelementptr [3 x [2 x i16]], ptr %189, i64 0, i64 1
+  %191 = getelementptr [2 x i16], ptr %190, i64 0, i64 0
+  store i16 %185, ptr %191, align 2
+  %192 = load i32, ptr %10, align 4
+  %193 = add i32 %192, 2
+  store i32 %193, ptr %10, align 4
+  br label %194
 
-193:                                              ; preds = %173, %163
-  %194 = load i32, ptr %9, align 4
-  %195 = sext i32 %194 to i64
-  %196 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %195
-  %197 = getelementptr inbounds %struct.movement, ptr %196, i32 0, i32 0
-  %198 = getelementptr [2 x i8], ptr %197, i64 0, i64 1
-  %199 = load i8, ptr %198, align 1
-  %200 = zext i8 %199 to i32
-  %201 = and i32 %200, 32
-  %202 = icmp ne i32 %201, 0
-  br i1 %202, label %203, label %223
+194:                                              ; preds = %174, %164
+  %195 = load i32, ptr %9, align 4
+  %196 = sext i32 %195 to i64
+  %197 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %196
+  %198 = getelementptr inbounds nuw %struct.movement, ptr %197, i32 0, i32 0
+  %199 = getelementptr [2 x i8], ptr %198, i64 0, i64 1
+  %200 = load i8, ptr %199, align 1
+  %201 = zext i8 %200 to i32
+  %202 = and i32 %201, 32
+  %203 = icmp ne i32 %202, 0
+  br i1 %203, label %204, label %224
 
-203:                                              ; preds = %193
-  %204 = load ptr, ptr %5, align 8
-  %205 = load i32, ptr %10, align 4
-  %206 = call zeroext i16 @tvb_get_letohs(ptr noundef %204, i32 noundef %205)
-  %207 = load i32, ptr %9, align 4
-  %208 = sext i32 %207 to i64
-  %209 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %208
-  %210 = getelementptr inbounds %struct.movement, ptr %209, i32 0, i32 2
-  %211 = getelementptr [3 x [2 x i16]], ptr %210, i64 0, i64 2
-  %212 = getelementptr [2 x i16], ptr %211, i64 0, i64 1
-  store i16 %206, ptr %212, align 2
-  %213 = load i32, ptr %10, align 4
-  %214 = trunc i32 %213 to i16
-  %215 = load i32, ptr %9, align 4
-  %216 = sext i32 %215 to i64
-  %217 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %216
-  %218 = getelementptr inbounds %struct.movement, ptr %217, i32 0, i32 2
-  %219 = getelementptr [3 x [2 x i16]], ptr %218, i64 0, i64 2
-  %220 = getelementptr [2 x i16], ptr %219, i64 0, i64 0
-  store i16 %214, ptr %220, align 2
-  %221 = load i32, ptr %10, align 4
-  %222 = add i32 %221, 2
-  store i32 %222, ptr %10, align 4
-  br label %223
+204:                                              ; preds = %194
+  %205 = load ptr, ptr %5, align 8
+  %206 = load i32, ptr %10, align 4
+  %207 = call zeroext i16 @tvb_get_letohs(ptr noundef %205, i32 noundef %206)
+  %208 = load i32, ptr %9, align 4
+  %209 = sext i32 %208 to i64
+  %210 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %209
+  %211 = getelementptr inbounds nuw %struct.movement, ptr %210, i32 0, i32 2
+  %212 = getelementptr [3 x [2 x i16]], ptr %211, i64 0, i64 2
+  %213 = getelementptr [2 x i16], ptr %212, i64 0, i64 1
+  store i16 %207, ptr %213, align 2
+  %214 = load i32, ptr %10, align 4
+  %215 = trunc i32 %214 to i16
+  %216 = load i32, ptr %9, align 4
+  %217 = sext i32 %216 to i64
+  %218 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %217
+  %219 = getelementptr inbounds nuw %struct.movement, ptr %218, i32 0, i32 2
+  %220 = getelementptr [3 x [2 x i16]], ptr %219, i64 0, i64 2
+  %221 = getelementptr [2 x i16], ptr %220, i64 0, i64 0
+  store i16 %215, ptr %221, align 2
+  %222 = load i32, ptr %10, align 4
+  %223 = add i32 %222, 2
+  store i32 %223, ptr %10, align 4
+  br label %224
 
-223:                                              ; preds = %203, %193
-  %224 = load i32, ptr %9, align 4
-  %225 = sext i32 %224 to i64
-  %226 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %225
-  %227 = getelementptr inbounds %struct.movement, ptr %226, i32 0, i32 0
-  %228 = getelementptr [2 x i8], ptr %227, i64 0, i64 1
-  %229 = load i8, ptr %228, align 1
-  %230 = zext i8 %229 to i32
-  %231 = and i32 %230, 64
-  %232 = icmp ne i32 %231, 0
-  br i1 %232, label %233, label %251
+224:                                              ; preds = %204, %194
+  %225 = load i32, ptr %9, align 4
+  %226 = sext i32 %225 to i64
+  %227 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %226
+  %228 = getelementptr inbounds nuw %struct.movement, ptr %227, i32 0, i32 0
+  %229 = getelementptr [2 x i8], ptr %228, i64 0, i64 1
+  %230 = load i8, ptr %229, align 1
+  %231 = zext i8 %230 to i32
+  %232 = and i32 %231, 64
+  %233 = icmp ne i32 %232, 0
+  br i1 %233, label %234, label %252
 
-233:                                              ; preds = %223
-  %234 = load ptr, ptr %5, align 8
-  %235 = load i32, ptr %10, align 4
-  %236 = call zeroext i8 @tvb_get_guint8(ptr noundef %234, i32 noundef %235)
-  %237 = load i32, ptr %9, align 4
-  %238 = sext i32 %237 to i64
-  %239 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %238
-  %240 = getelementptr inbounds %struct.movement, ptr %239, i32 0, i32 3
-  %241 = getelementptr [2 x i8], ptr %240, i64 0, i64 1
-  store i8 %236, ptr %241, align 1
-  %242 = load i32, ptr %10, align 4
-  %243 = trunc i32 %242 to i8
-  %244 = load i32, ptr %9, align 4
-  %245 = sext i32 %244 to i64
-  %246 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %245
-  %247 = getelementptr inbounds %struct.movement, ptr %246, i32 0, i32 3
-  %248 = getelementptr [2 x i8], ptr %247, i64 0, i64 0
-  store i8 %243, ptr %248, align 2
-  %249 = load i32, ptr %10, align 4
-  %250 = add i32 %249, 1
-  store i32 %250, ptr %10, align 4
-  br label %251
+234:                                              ; preds = %224
+  %235 = load ptr, ptr %5, align 8
+  %236 = load i32, ptr %10, align 4
+  %237 = call zeroext i8 @tvb_get_uint8(ptr noundef %235, i32 noundef %236)
+  %238 = load i32, ptr %9, align 4
+  %239 = sext i32 %238 to i64
+  %240 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %239
+  %241 = getelementptr inbounds nuw %struct.movement, ptr %240, i32 0, i32 3
+  %242 = getelementptr [2 x i8], ptr %241, i64 0, i64 1
+  store i8 %237, ptr %242, align 1
+  %243 = load i32, ptr %10, align 4
+  %244 = trunc i32 %243 to i8
+  %245 = load i32, ptr %9, align 4
+  %246 = sext i32 %245 to i64
+  %247 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %246
+  %248 = getelementptr inbounds nuw %struct.movement, ptr %247, i32 0, i32 3
+  %249 = getelementptr [2 x i8], ptr %248, i64 0, i64 0
+  store i8 %244, ptr %249, align 2
+  %250 = load i32, ptr %10, align 4
+  %251 = add i32 %250, 1
+  store i32 %251, ptr %10, align 4
+  br label %252
 
-251:                                              ; preds = %233, %223
-  %252 = load i32, ptr %9, align 4
-  %253 = sext i32 %252 to i64
-  %254 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %253
-  %255 = getelementptr inbounds %struct.movement, ptr %254, i32 0, i32 0
-  %256 = getelementptr [2 x i8], ptr %255, i64 0, i64 1
-  %257 = load i8, ptr %256, align 1
-  %258 = zext i8 %257 to i32
-  %259 = and i32 %258, 128
-  %260 = icmp ne i32 %259, 0
-  br i1 %260, label %261, label %279
+252:                                              ; preds = %234, %224
+  %253 = load i32, ptr %9, align 4
+  %254 = sext i32 %253 to i64
+  %255 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %254
+  %256 = getelementptr inbounds nuw %struct.movement, ptr %255, i32 0, i32 0
+  %257 = getelementptr [2 x i8], ptr %256, i64 0, i64 1
+  %258 = load i8, ptr %257, align 1
+  %259 = zext i8 %258 to i32
+  %260 = and i32 %259, 128
+  %261 = icmp ne i32 %260, 0
+  br i1 %261, label %262, label %280
 
-261:                                              ; preds = %251
-  %262 = load ptr, ptr %5, align 8
-  %263 = load i32, ptr %10, align 4
-  %264 = call zeroext i8 @tvb_get_guint8(ptr noundef %262, i32 noundef %263)
-  %265 = load i32, ptr %9, align 4
-  %266 = sext i32 %265 to i64
-  %267 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %266
-  %268 = getelementptr inbounds %struct.movement, ptr %267, i32 0, i32 6
-  %269 = getelementptr [2 x i8], ptr %268, i64 0, i64 1
-  store i8 %264, ptr %269, align 1
-  %270 = load i32, ptr %10, align 4
-  %271 = trunc i32 %270 to i8
-  %272 = load i32, ptr %9, align 4
-  %273 = sext i32 %272 to i64
-  %274 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %273
-  %275 = getelementptr inbounds %struct.movement, ptr %274, i32 0, i32 6
-  %276 = getelementptr [2 x i8], ptr %275, i64 0, i64 0
-  store i8 %271, ptr %276, align 2
-  %277 = load i32, ptr %10, align 4
-  %278 = add i32 %277, 1
-  store i32 %278, ptr %10, align 4
-  br label %279
+262:                                              ; preds = %252
+  %263 = load ptr, ptr %5, align 8
+  %264 = load i32, ptr %10, align 4
+  %265 = call zeroext i8 @tvb_get_uint8(ptr noundef %263, i32 noundef %264)
+  %266 = load i32, ptr %9, align 4
+  %267 = sext i32 %266 to i64
+  %268 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %267
+  %269 = getelementptr inbounds nuw %struct.movement, ptr %268, i32 0, i32 6
+  %270 = getelementptr [2 x i8], ptr %269, i64 0, i64 1
+  store i8 %265, ptr %270, align 1
+  %271 = load i32, ptr %10, align 4
+  %272 = trunc i32 %271 to i8
+  %273 = load i32, ptr %9, align 4
+  %274 = sext i32 %273 to i64
+  %275 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %274
+  %276 = getelementptr inbounds nuw %struct.movement, ptr %275, i32 0, i32 6
+  %277 = getelementptr [2 x i8], ptr %276, i64 0, i64 0
+  store i8 %272, ptr %277, align 2
+  %278 = load i32, ptr %10, align 4
+  %279 = add i32 %278, 1
+  store i32 %279, ptr %10, align 4
+  br label %280
 
-279:                                              ; preds = %261, %251
-  %280 = load ptr, ptr %5, align 8
-  %281 = load i32, ptr %10, align 4
-  %282 = call zeroext i8 @tvb_get_guint8(ptr noundef %280, i32 noundef %281)
-  %283 = load i32, ptr %9, align 4
-  %284 = sext i32 %283 to i64
-  %285 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %284
-  %286 = getelementptr inbounds %struct.movement, ptr %285, i32 0, i32 5
-  %287 = getelementptr [2 x i8], ptr %286, i64 0, i64 1
-  store i8 %282, ptr %287, align 1
-  %288 = load i32, ptr %10, align 4
-  %289 = trunc i32 %288 to i8
-  %290 = load i32, ptr %9, align 4
-  %291 = sext i32 %290 to i64
-  %292 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %291
-  %293 = getelementptr inbounds %struct.movement, ptr %292, i32 0, i32 5
-  %294 = getelementptr [2 x i8], ptr %293, i64 0, i64 0
-  store i8 %289, ptr %294, align 2
-  %295 = load i32, ptr %10, align 4
-  %296 = add i32 %295, 1
-  store i32 %296, ptr %10, align 4
-  %297 = load ptr, ptr %5, align 8
-  %298 = load i32, ptr %10, align 4
-  %299 = call zeroext i8 @tvb_get_guint8(ptr noundef %297, i32 noundef %298)
-  %300 = load i32, ptr %9, align 4
-  %301 = sext i32 %300 to i64
-  %302 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %301
-  %303 = getelementptr inbounds %struct.movement, ptr %302, i32 0, i32 4
-  %304 = getelementptr [2 x i8], ptr %303, i64 0, i64 1
-  store i8 %299, ptr %304, align 1
-  %305 = load i32, ptr %10, align 4
-  %306 = trunc i32 %305 to i8
-  %307 = load i32, ptr %9, align 4
-  %308 = sext i32 %307 to i64
-  %309 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %308
-  %310 = getelementptr inbounds %struct.movement, ptr %309, i32 0, i32 4
-  %311 = getelementptr [2 x i8], ptr %310, i64 0, i64 0
-  store i8 %306, ptr %311, align 2
-  %312 = load i32, ptr %10, align 4
-  %313 = add i32 %312, 1
-  store i32 %313, ptr %10, align 4
-  br label %314
+280:                                              ; preds = %262, %252
+  %281 = load ptr, ptr %5, align 8
+  %282 = load i32, ptr %10, align 4
+  %283 = call zeroext i8 @tvb_get_uint8(ptr noundef %281, i32 noundef %282)
+  %284 = load i32, ptr %9, align 4
+  %285 = sext i32 %284 to i64
+  %286 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %285
+  %287 = getelementptr inbounds nuw %struct.movement, ptr %286, i32 0, i32 5
+  %288 = getelementptr [2 x i8], ptr %287, i64 0, i64 1
+  store i8 %283, ptr %288, align 1
+  %289 = load i32, ptr %10, align 4
+  %290 = trunc i32 %289 to i8
+  %291 = load i32, ptr %9, align 4
+  %292 = sext i32 %291 to i64
+  %293 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %292
+  %294 = getelementptr inbounds nuw %struct.movement, ptr %293, i32 0, i32 5
+  %295 = getelementptr [2 x i8], ptr %294, i64 0, i64 0
+  store i8 %290, ptr %295, align 2
+  %296 = load i32, ptr %10, align 4
+  %297 = add i32 %296, 1
+  store i32 %297, ptr %10, align 4
+  %298 = load ptr, ptr %5, align 8
+  %299 = load i32, ptr %10, align 4
+  %300 = call zeroext i8 @tvb_get_uint8(ptr noundef %298, i32 noundef %299)
+  %301 = load i32, ptr %9, align 4
+  %302 = sext i32 %301 to i64
+  %303 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %302
+  %304 = getelementptr inbounds nuw %struct.movement, ptr %303, i32 0, i32 4
+  %305 = getelementptr [2 x i8], ptr %304, i64 0, i64 1
+  store i8 %300, ptr %305, align 1
+  %306 = load i32, ptr %10, align 4
+  %307 = trunc i32 %306 to i8
+  %308 = load i32, ptr %9, align 4
+  %309 = sext i32 %308 to i64
+  %310 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %309
+  %311 = getelementptr inbounds nuw %struct.movement, ptr %310, i32 0, i32 4
+  %312 = getelementptr [2 x i8], ptr %311, i64 0, i64 0
+  store i8 %307, ptr %312, align 2
+  %313 = load i32, ptr %10, align 4
+  %314 = add i32 %313, 1
+  store i32 %314, ptr %10, align 4
+  br label %315
 
-314:                                              ; preds = %279
-  %315 = load i32, ptr %9, align 4
-  %316 = add i32 %315, 1
-  store i32 %316, ptr %9, align 4
-  br label %23, !llvm.loop !6
+315:                                              ; preds = %280
+  %316 = load i32, ptr %9, align 4
+  %317 = add i32 %316, 1
+  store i32 %317, ptr %9, align 4
+  br label %24, !llvm.loop !8
 
-317:                                              ; preds = %23
-  %318 = load ptr, ptr %7, align 8
-  %319 = icmp ne ptr %318, null
-  br i1 %319, label %322, label %320
+318:                                              ; preds = %24
+  %319 = load ptr, ptr %7, align 8
+  %320 = icmp ne ptr %319, null
+  br i1 %320, label %323, label %321
 
-320:                                              ; preds = %317
-  %321 = load i32, ptr %10, align 4
-  store i32 %321, ptr %4, align 4
-  br label %824
+321:                                              ; preds = %318
+  %322 = load i32, ptr %10, align 4
+  store i32 %322, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %828
 
-322:                                              ; preds = %317
-  %323 = load ptr, ptr %7, align 8
-  %324 = load ptr, ptr %5, align 8
-  %325 = load i32, ptr @hf_quake2_game_client_command_move_chksum, align 4
-  %326 = load ptr, ptr %6, align 8
-  %327 = call ptr @proto_tree_add_checksum(ptr noundef %323, ptr noundef %324, i32 noundef 0, i32 noundef %325, i32 noundef -1, ptr noundef null, ptr noundef %326, i32 noundef 0, i32 noundef 0, i32 noundef 0)
-  %328 = load ptr, ptr %7, align 8
-  %329 = load i32, ptr @hf_quake2_game_client_command_move_lframe, align 4
-  %330 = load ptr, ptr %5, align 8
-  %331 = load i32, ptr %8, align 4
-  %332 = call ptr @proto_tree_add_uint(ptr noundef %328, i32 noundef %329, ptr noundef %330, i32 noundef 1, i32 noundef 4, i32 noundef %331)
-  %333 = load i32, ptr %10, align 4
-  %334 = trunc i32 %333 to i8
-  %335 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 3
-  %336 = getelementptr inbounds %struct.movement, ptr %335, i32 0, i32 0
-  %337 = getelementptr [2 x i8], ptr %336, i64 0, i64 0
-  store i8 %334, ptr %337, align 2
+323:                                              ; preds = %318
+  %324 = load ptr, ptr %7, align 8
+  %325 = load ptr, ptr %5, align 8
+  %326 = load i32, ptr @hf_quake2_game_client_command_move_chksum, align 4
+  %327 = load ptr, ptr %6, align 8
+  %328 = call ptr @proto_tree_add_checksum(ptr noundef %324, ptr noundef %325, i32 noundef 0, i32 noundef %326, i32 noundef -1, ptr noundef null, ptr noundef %327, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %329 = load ptr, ptr %7, align 8
+  %330 = load i32, ptr @hf_quake2_game_client_command_move_lframe, align 4
+  %331 = load ptr, ptr %5, align 8
+  %332 = load i32, ptr %8, align 4
+  %333 = call ptr @proto_tree_add_uint(ptr noundef %329, i32 noundef %330, ptr noundef %331, i32 noundef 1, i32 noundef 4, i32 noundef %332)
+  %334 = load i32, ptr %10, align 4
+  %335 = trunc i32 %334 to i8
+  %336 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 3
+  %337 = getelementptr inbounds nuw %struct.movement, ptr %336, i32 0, i32 0
+  %338 = getelementptr [2 x i8], ptr %337, i64 0, i64 0
+  store i8 %335, ptr %338, align 2
   store i32 0, ptr %9, align 4
-  br label %338
+  br label %339
 
-338:                                              ; preds = %819, %322
-  %339 = load i32, ptr %9, align 4
-  %340 = icmp slt i32 %339, 3
-  br i1 %340, label %341, label %822
+339:                                              ; preds = %823, %323
+  %340 = load i32, ptr %9, align 4
+  %341 = icmp slt i32 %340, 3
+  br i1 %341, label %342, label %826
 
-341:                                              ; preds = %338
-  %342 = load ptr, ptr %7, align 8
-  %343 = load ptr, ptr %5, align 8
-  %344 = load i32, ptr %9, align 4
-  %345 = sext i32 %344 to i64
-  %346 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %345
-  %347 = getelementptr inbounds %struct.movement, ptr %346, i32 0, i32 0
-  %348 = getelementptr [2 x i8], ptr %347, i64 0, i64 0
-  %349 = load i8, ptr %348, align 2
-  %350 = zext i8 %349 to i32
-  %351 = load i32, ptr %9, align 4
-  %352 = add i32 %351, 1
-  %353 = sext i32 %352 to i64
-  %354 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %353
-  %355 = getelementptr inbounds %struct.movement, ptr %354, i32 0, i32 0
-  %356 = getelementptr [2 x i8], ptr %355, i64 0, i64 0
-  %357 = load i8, ptr %356, align 2
-  %358 = zext i8 %357 to i32
-  %359 = load i32, ptr %9, align 4
-  %360 = sext i32 %359 to i64
-  %361 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %360
-  %362 = getelementptr inbounds %struct.movement, ptr %361, i32 0, i32 0
-  %363 = getelementptr [2 x i8], ptr %362, i64 0, i64 0
-  %364 = load i8, ptr %363, align 2
-  %365 = zext i8 %364 to i32
-  %366 = sub i32 %358, %365
-  %367 = load i32, ptr @ett_quake2_game_clc_cmd_move_moves, align 4
-  %368 = load i32, ptr %9, align 4
-  %369 = add i32 %368, 1
-  %370 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %342, ptr noundef %343, i32 noundef %350, i32 noundef %366, i32 noundef %367, ptr noundef null, ptr noundef @.str.81, i32 noundef %369)
-  store ptr %370, ptr %14, align 8
-  %371 = load ptr, ptr %14, align 8
-  %372 = load i32, ptr @hf_quake2_game_client_command_move, align 4
-  %373 = load ptr, ptr %5, align 8
-  %374 = load i32, ptr %9, align 4
-  %375 = sext i32 %374 to i64
-  %376 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %375
-  %377 = getelementptr inbounds %struct.movement, ptr %376, i32 0, i32 0
-  %378 = getelementptr [2 x i8], ptr %377, i64 0, i64 0
-  %379 = load i8, ptr %378, align 2
-  %380 = zext i8 %379 to i32
-  %381 = load i32, ptr %9, align 4
-  %382 = sext i32 %381 to i64
-  %383 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %382
-  %384 = getelementptr inbounds %struct.movement, ptr %383, i32 0, i32 0
-  %385 = getelementptr [2 x i8], ptr %384, i64 0, i64 1
-  %386 = load i8, ptr %385, align 1
-  %387 = zext i8 %386 to i32
-  %388 = call ptr @proto_tree_add_uint(ptr noundef %371, i32 noundef %372, ptr noundef %373, i32 noundef %380, i32 noundef 1, i32 noundef %387)
-  store ptr %388, ptr %12, align 8
-  %389 = load ptr, ptr %14, align 8
-  %390 = load i32, ptr @hf_quake2_game_client_command_move_msec, align 4
-  %391 = load ptr, ptr %5, align 8
-  %392 = load i32, ptr %9, align 4
-  %393 = sext i32 %392 to i64
-  %394 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %393
-  %395 = getelementptr inbounds %struct.movement, ptr %394, i32 0, i32 5
-  %396 = getelementptr [2 x i8], ptr %395, i64 0, i64 0
-  %397 = load i8, ptr %396, align 2
-  %398 = zext i8 %397 to i32
-  %399 = load i32, ptr %9, align 4
-  %400 = sext i32 %399 to i64
-  %401 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %400
-  %402 = getelementptr inbounds %struct.movement, ptr %401, i32 0, i32 5
-  %403 = getelementptr [2 x i8], ptr %402, i64 0, i64 1
-  %404 = load i8, ptr %403, align 1
-  %405 = zext i8 %404 to i32
-  %406 = call ptr @proto_tree_add_uint(ptr noundef %389, i32 noundef %390, ptr noundef %391, i32 noundef %398, i32 noundef 1, i32 noundef %405)
-  %407 = load ptr, ptr %14, align 8
-  %408 = load i32, ptr @hf_quake2_game_client_command_move_lightlevel, align 4
-  %409 = load ptr, ptr %5, align 8
-  %410 = load i32, ptr %9, align 4
-  %411 = sext i32 %410 to i64
-  %412 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %411
-  %413 = getelementptr inbounds %struct.movement, ptr %412, i32 0, i32 4
-  %414 = getelementptr [2 x i8], ptr %413, i64 0, i64 0
-  %415 = load i8, ptr %414, align 2
-  %416 = zext i8 %415 to i32
-  %417 = load i32, ptr %9, align 4
-  %418 = sext i32 %417 to i64
-  %419 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %418
-  %420 = getelementptr inbounds %struct.movement, ptr %419, i32 0, i32 4
-  %421 = getelementptr [2 x i8], ptr %420, i64 0, i64 1
-  %422 = load i8, ptr %421, align 1
-  %423 = zext i8 %422 to i32
-  %424 = call ptr @proto_tree_add_uint(ptr noundef %407, i32 noundef %408, ptr noundef %409, i32 noundef %416, i32 noundef 1, i32 noundef %423)
-  %425 = load i32, ptr %9, align 4
-  %426 = sext i32 %425 to i64
-  %427 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %426
-  %428 = getelementptr inbounds %struct.movement, ptr %427, i32 0, i32 0
-  %429 = getelementptr [2 x i8], ptr %428, i64 0, i64 1
-  %430 = load i8, ptr %429, align 1
-  %431 = zext i8 %430 to i32
-  %432 = icmp eq i32 %431, 0
-  br i1 %432, label %433, label %435
+342:                                              ; preds = %339
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #3
+  %343 = load ptr, ptr %7, align 8
+  %344 = load ptr, ptr %5, align 8
+  %345 = load i32, ptr %9, align 4
+  %346 = sext i32 %345 to i64
+  %347 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %346
+  %348 = getelementptr inbounds nuw %struct.movement, ptr %347, i32 0, i32 0
+  %349 = getelementptr [2 x i8], ptr %348, i64 0, i64 0
+  %350 = load i8, ptr %349, align 2
+  %351 = zext i8 %350 to i32
+  %352 = load i32, ptr %9, align 4
+  %353 = add i32 %352, 1
+  %354 = sext i32 %353 to i64
+  %355 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %354
+  %356 = getelementptr inbounds nuw %struct.movement, ptr %355, i32 0, i32 0
+  %357 = getelementptr [2 x i8], ptr %356, i64 0, i64 0
+  %358 = load i8, ptr %357, align 2
+  %359 = zext i8 %358 to i32
+  %360 = load i32, ptr %9, align 4
+  %361 = sext i32 %360 to i64
+  %362 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %361
+  %363 = getelementptr inbounds nuw %struct.movement, ptr %362, i32 0, i32 0
+  %364 = getelementptr [2 x i8], ptr %363, i64 0, i64 0
+  %365 = load i8, ptr %364, align 2
+  %366 = zext i8 %365 to i32
+  %367 = sub i32 %359, %366
+  %368 = load i32, ptr @ett_quake2_game_clc_cmd_move_moves, align 4
+  %369 = load i32, ptr %9, align 4
+  %370 = add i32 %369, 1
+  %371 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %343, ptr noundef %344, i32 noundef %351, i32 noundef %367, i32 noundef %368, ptr noundef null, ptr noundef @.str.85, i32 noundef %370)
+  store ptr %371, ptr %15, align 8
+  %372 = load ptr, ptr %15, align 8
+  %373 = load i32, ptr @hf_quake2_game_client_command_move, align 4
+  %374 = load ptr, ptr %5, align 8
+  %375 = load i32, ptr %9, align 4
+  %376 = sext i32 %375 to i64
+  %377 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %376
+  %378 = getelementptr inbounds nuw %struct.movement, ptr %377, i32 0, i32 0
+  %379 = getelementptr [2 x i8], ptr %378, i64 0, i64 0
+  %380 = load i8, ptr %379, align 2
+  %381 = zext i8 %380 to i32
+  %382 = load i32, ptr %9, align 4
+  %383 = sext i32 %382 to i64
+  %384 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %383
+  %385 = getelementptr inbounds nuw %struct.movement, ptr %384, i32 0, i32 0
+  %386 = getelementptr [2 x i8], ptr %385, i64 0, i64 1
+  %387 = load i8, ptr %386, align 1
+  %388 = zext i8 %387 to i32
+  %389 = call ptr @proto_tree_add_uint(ptr noundef %372, i32 noundef %373, ptr noundef %374, i32 noundef %381, i32 noundef 1, i32 noundef %388)
+  store ptr %389, ptr %13, align 8
+  %390 = load ptr, ptr %15, align 8
+  %391 = load i32, ptr @hf_quake2_game_client_command_move_msec, align 4
+  %392 = load ptr, ptr %5, align 8
+  %393 = load i32, ptr %9, align 4
+  %394 = sext i32 %393 to i64
+  %395 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %394
+  %396 = getelementptr inbounds nuw %struct.movement, ptr %395, i32 0, i32 5
+  %397 = getelementptr [2 x i8], ptr %396, i64 0, i64 0
+  %398 = load i8, ptr %397, align 2
+  %399 = zext i8 %398 to i32
+  %400 = load i32, ptr %9, align 4
+  %401 = sext i32 %400 to i64
+  %402 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %401
+  %403 = getelementptr inbounds nuw %struct.movement, ptr %402, i32 0, i32 5
+  %404 = getelementptr [2 x i8], ptr %403, i64 0, i64 1
+  %405 = load i8, ptr %404, align 1
+  %406 = zext i8 %405 to i32
+  %407 = call ptr @proto_tree_add_uint(ptr noundef %390, i32 noundef %391, ptr noundef %392, i32 noundef %399, i32 noundef 1, i32 noundef %406)
+  %408 = load ptr, ptr %15, align 8
+  %409 = load i32, ptr @hf_quake2_game_client_command_move_lightlevel, align 4
+  %410 = load ptr, ptr %5, align 8
+  %411 = load i32, ptr %9, align 4
+  %412 = sext i32 %411 to i64
+  %413 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %412
+  %414 = getelementptr inbounds nuw %struct.movement, ptr %413, i32 0, i32 4
+  %415 = getelementptr [2 x i8], ptr %414, i64 0, i64 0
+  %416 = load i8, ptr %415, align 2
+  %417 = zext i8 %416 to i32
+  %418 = load i32, ptr %9, align 4
+  %419 = sext i32 %418 to i64
+  %420 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %419
+  %421 = getelementptr inbounds nuw %struct.movement, ptr %420, i32 0, i32 4
+  %422 = getelementptr [2 x i8], ptr %421, i64 0, i64 1
+  %423 = load i8, ptr %422, align 1
+  %424 = zext i8 %423 to i32
+  %425 = call ptr @proto_tree_add_uint(ptr noundef %408, i32 noundef %409, ptr noundef %410, i32 noundef %417, i32 noundef 1, i32 noundef %424)
+  %426 = load i32, ptr %9, align 4
+  %427 = sext i32 %426 to i64
+  %428 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %427
+  %429 = getelementptr inbounds nuw %struct.movement, ptr %428, i32 0, i32 0
+  %430 = getelementptr [2 x i8], ptr %429, i64 0, i64 1
+  %431 = load i8, ptr %430, align 1
+  %432 = zext i8 %431 to i32
+  %433 = icmp eq i32 %432, 0
+  br i1 %433, label %434, label %436
 
-433:                                              ; preds = %341
-  %434 = load ptr, ptr %12, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %434, ptr noundef @.str.82)
-  br label %819
+434:                                              ; preds = %342
+  %435 = load ptr, ptr %13, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %435, ptr noundef @.str.86)
+  store i32 7, ptr %12, align 4
+  br label %820
 
-435:                                              ; preds = %341
-  %436 = load ptr, ptr %12, align 8
-  %437 = load i32, ptr @ett_quake2_game_clc_cmd_move_bitfield, align 4
-  %438 = call ptr @proto_item_add_subtree(ptr noundef %436, i32 noundef %437)
-  store ptr %438, ptr %15, align 8
-  %439 = load i32, ptr %9, align 4
-  %440 = sext i32 %439 to i64
-  %441 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %440
-  %442 = getelementptr inbounds %struct.movement, ptr %441, i32 0, i32 0
-  %443 = getelementptr [2 x i8], ptr %442, i64 0, i64 1
-  %444 = load i8, ptr %443, align 1
-  %445 = zext i8 %444 to i32
-  %446 = and i32 %445, 1
-  %447 = icmp ne i32 %446, 0
-  br i1 %447, label %448, label %489
+436:                                              ; preds = %342
+  %437 = load ptr, ptr %13, align 8
+  %438 = load i32, ptr @ett_quake2_game_clc_cmd_move_bitfield, align 4
+  %439 = call ptr @proto_item_add_subtree(ptr noundef %437, i32 noundef %438)
+  store ptr %439, ptr %16, align 8
+  %440 = load i32, ptr %9, align 4
+  %441 = sext i32 %440 to i64
+  %442 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %441
+  %443 = getelementptr inbounds nuw %struct.movement, ptr %442, i32 0, i32 0
+  %444 = getelementptr [2 x i8], ptr %443, i64 0, i64 1
+  %445 = load i8, ptr %444, align 1
+  %446 = zext i8 %445 to i32
+  %447 = and i32 %446, 1
+  %448 = icmp ne i32 %447, 0
+  br i1 %448, label %449, label %490
 
-448:                                              ; preds = %435
-  %449 = load ptr, ptr %15, align 8
-  %450 = load i32, ptr @hf_quake2_game_client_command_move_bitfield_angles1, align 4
-  %451 = load ptr, ptr %5, align 8
-  %452 = load i32, ptr %9, align 4
-  %453 = sext i32 %452 to i64
-  %454 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %453
-  %455 = getelementptr inbounds %struct.movement, ptr %454, i32 0, i32 1
-  %456 = getelementptr [3 x [2 x i16]], ptr %455, i64 0, i64 0
-  %457 = getelementptr [2 x i16], ptr %456, i64 0, i64 0
-  %458 = load i16, ptr %457, align 2
-  %459 = zext i16 %458 to i32
-  %460 = load i32, ptr %9, align 4
-  %461 = sext i32 %460 to i64
-  %462 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %461
-  %463 = getelementptr inbounds %struct.movement, ptr %462, i32 0, i32 0
-  %464 = getelementptr [2 x i8], ptr %463, i64 0, i64 1
-  %465 = load i8, ptr %464, align 1
-  %466 = zext i8 %465 to i32
-  %467 = call ptr @proto_tree_add_uint(ptr noundef %449, i32 noundef %450, ptr noundef %451, i32 noundef %459, i32 noundef 2, i32 noundef %466)
-  store ptr %467, ptr %13, align 8
-  %468 = load ptr, ptr %13, align 8
-  %469 = load i32, ptr %9, align 4
-  %470 = sext i32 %469 to i64
-  %471 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %470
-  %472 = getelementptr inbounds %struct.movement, ptr %471, i32 0, i32 1
-  %473 = getelementptr [3 x [2 x i16]], ptr %472, i64 0, i64 0
-  %474 = getelementptr [2 x i16], ptr %473, i64 0, i64 1
-  %475 = load i16, ptr %474, align 2
-  %476 = zext i16 %475 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %468, ptr noundef @.str.83, i32 noundef %476)
-  %477 = load ptr, ptr %13, align 8
-  %478 = load i32, ptr %9, align 4
-  %479 = sext i32 %478 to i64
-  %480 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %479
-  %481 = getelementptr inbounds %struct.movement, ptr %480, i32 0, i32 1
-  %482 = getelementptr [3 x [2 x i16]], ptr %481, i64 0, i64 0
-  %483 = getelementptr [2 x i16], ptr %482, i64 0, i64 1
-  %484 = load i16, ptr %483, align 2
-  %485 = uitofp i16 %484 to float
-  %486 = fpext float %485 to double
-  %487 = fdiv double %486, 6.553600e+04
-  %488 = fmul double %487, 3.600000e+02
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %477, ptr noundef @.str.84, double noundef %488)
-  br label %489
+449:                                              ; preds = %436
+  %450 = load ptr, ptr %16, align 8
+  %451 = load i32, ptr @hf_quake2_game_client_command_move_bitfield_angles1, align 4
+  %452 = load ptr, ptr %5, align 8
+  %453 = load i32, ptr %9, align 4
+  %454 = sext i32 %453 to i64
+  %455 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %454
+  %456 = getelementptr inbounds nuw %struct.movement, ptr %455, i32 0, i32 1
+  %457 = getelementptr [3 x [2 x i16]], ptr %456, i64 0, i64 0
+  %458 = getelementptr [2 x i16], ptr %457, i64 0, i64 0
+  %459 = load i16, ptr %458, align 2
+  %460 = zext i16 %459 to i32
+  %461 = load i32, ptr %9, align 4
+  %462 = sext i32 %461 to i64
+  %463 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %462
+  %464 = getelementptr inbounds nuw %struct.movement, ptr %463, i32 0, i32 0
+  %465 = getelementptr [2 x i8], ptr %464, i64 0, i64 1
+  %466 = load i8, ptr %465, align 1
+  %467 = zext i8 %466 to i32
+  %468 = call ptr @proto_tree_add_uint(ptr noundef %450, i32 noundef %451, ptr noundef %452, i32 noundef %460, i32 noundef 2, i32 noundef %467)
+  store ptr %468, ptr %14, align 8
+  %469 = load ptr, ptr %14, align 8
+  %470 = load i32, ptr %9, align 4
+  %471 = sext i32 %470 to i64
+  %472 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %471
+  %473 = getelementptr inbounds nuw %struct.movement, ptr %472, i32 0, i32 1
+  %474 = getelementptr [3 x [2 x i16]], ptr %473, i64 0, i64 0
+  %475 = getelementptr [2 x i16], ptr %474, i64 0, i64 1
+  %476 = load i16, ptr %475, align 2
+  %477 = zext i16 %476 to i32
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %469, ptr noundef @.str.87, i32 noundef %477)
+  %478 = load ptr, ptr %14, align 8
+  %479 = load i32, ptr %9, align 4
+  %480 = sext i32 %479 to i64
+  %481 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %480
+  %482 = getelementptr inbounds nuw %struct.movement, ptr %481, i32 0, i32 1
+  %483 = getelementptr [3 x [2 x i16]], ptr %482, i64 0, i64 0
+  %484 = getelementptr [2 x i16], ptr %483, i64 0, i64 1
+  %485 = load i16, ptr %484, align 2
+  %486 = uitofp i16 %485 to float
+  %487 = fpext float %486 to double
+  %488 = fdiv double %487, 6.553600e+04
+  %489 = fmul double %488, 3.600000e+02
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %478, ptr noundef @.str.88, double noundef %489)
+  br label %490
 
-489:                                              ; preds = %448, %435
-  %490 = load i32, ptr %9, align 4
-  %491 = sext i32 %490 to i64
-  %492 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %491
-  %493 = getelementptr inbounds %struct.movement, ptr %492, i32 0, i32 0
-  %494 = getelementptr [2 x i8], ptr %493, i64 0, i64 1
-  %495 = load i8, ptr %494, align 1
-  %496 = zext i8 %495 to i32
-  %497 = and i32 %496, 2
-  %498 = icmp ne i32 %497, 0
-  br i1 %498, label %499, label %540
+490:                                              ; preds = %449, %436
+  %491 = load i32, ptr %9, align 4
+  %492 = sext i32 %491 to i64
+  %493 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %492
+  %494 = getelementptr inbounds nuw %struct.movement, ptr %493, i32 0, i32 0
+  %495 = getelementptr [2 x i8], ptr %494, i64 0, i64 1
+  %496 = load i8, ptr %495, align 1
+  %497 = zext i8 %496 to i32
+  %498 = and i32 %497, 2
+  %499 = icmp ne i32 %498, 0
+  br i1 %499, label %500, label %541
 
-499:                                              ; preds = %489
-  %500 = load ptr, ptr %15, align 8
-  %501 = load i32, ptr @hf_quake2_game_client_command_move_bitfield_angles2, align 4
-  %502 = load ptr, ptr %5, align 8
-  %503 = load i32, ptr %9, align 4
-  %504 = sext i32 %503 to i64
-  %505 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %504
-  %506 = getelementptr inbounds %struct.movement, ptr %505, i32 0, i32 1
-  %507 = getelementptr [3 x [2 x i16]], ptr %506, i64 0, i64 1
-  %508 = getelementptr [2 x i16], ptr %507, i64 0, i64 0
-  %509 = load i16, ptr %508, align 2
-  %510 = zext i16 %509 to i32
-  %511 = load i32, ptr %9, align 4
-  %512 = sext i32 %511 to i64
-  %513 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %512
-  %514 = getelementptr inbounds %struct.movement, ptr %513, i32 0, i32 0
-  %515 = getelementptr [2 x i8], ptr %514, i64 0, i64 1
-  %516 = load i8, ptr %515, align 1
-  %517 = zext i8 %516 to i32
-  %518 = call ptr @proto_tree_add_uint(ptr noundef %500, i32 noundef %501, ptr noundef %502, i32 noundef %510, i32 noundef 2, i32 noundef %517)
-  store ptr %518, ptr %13, align 8
-  %519 = load ptr, ptr %13, align 8
-  %520 = load i32, ptr %9, align 4
-  %521 = sext i32 %520 to i64
-  %522 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %521
-  %523 = getelementptr inbounds %struct.movement, ptr %522, i32 0, i32 1
-  %524 = getelementptr [3 x [2 x i16]], ptr %523, i64 0, i64 1
-  %525 = getelementptr [2 x i16], ptr %524, i64 0, i64 1
-  %526 = load i16, ptr %525, align 2
-  %527 = zext i16 %526 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %519, ptr noundef @.str.83, i32 noundef %527)
-  %528 = load ptr, ptr %13, align 8
-  %529 = load i32, ptr %9, align 4
-  %530 = sext i32 %529 to i64
-  %531 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %530
-  %532 = getelementptr inbounds %struct.movement, ptr %531, i32 0, i32 1
-  %533 = getelementptr [3 x [2 x i16]], ptr %532, i64 0, i64 1
-  %534 = getelementptr [2 x i16], ptr %533, i64 0, i64 1
-  %535 = load i16, ptr %534, align 2
-  %536 = uitofp i16 %535 to float
-  %537 = fpext float %536 to double
-  %538 = fdiv double %537, 6.553600e+04
-  %539 = fmul double %538, 3.600000e+02
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %528, ptr noundef @.str.84, double noundef %539)
-  br label %540
+500:                                              ; preds = %490
+  %501 = load ptr, ptr %16, align 8
+  %502 = load i32, ptr @hf_quake2_game_client_command_move_bitfield_angles2, align 4
+  %503 = load ptr, ptr %5, align 8
+  %504 = load i32, ptr %9, align 4
+  %505 = sext i32 %504 to i64
+  %506 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %505
+  %507 = getelementptr inbounds nuw %struct.movement, ptr %506, i32 0, i32 1
+  %508 = getelementptr [3 x [2 x i16]], ptr %507, i64 0, i64 1
+  %509 = getelementptr [2 x i16], ptr %508, i64 0, i64 0
+  %510 = load i16, ptr %509, align 2
+  %511 = zext i16 %510 to i32
+  %512 = load i32, ptr %9, align 4
+  %513 = sext i32 %512 to i64
+  %514 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %513
+  %515 = getelementptr inbounds nuw %struct.movement, ptr %514, i32 0, i32 0
+  %516 = getelementptr [2 x i8], ptr %515, i64 0, i64 1
+  %517 = load i8, ptr %516, align 1
+  %518 = zext i8 %517 to i32
+  %519 = call ptr @proto_tree_add_uint(ptr noundef %501, i32 noundef %502, ptr noundef %503, i32 noundef %511, i32 noundef 2, i32 noundef %518)
+  store ptr %519, ptr %14, align 8
+  %520 = load ptr, ptr %14, align 8
+  %521 = load i32, ptr %9, align 4
+  %522 = sext i32 %521 to i64
+  %523 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %522
+  %524 = getelementptr inbounds nuw %struct.movement, ptr %523, i32 0, i32 1
+  %525 = getelementptr [3 x [2 x i16]], ptr %524, i64 0, i64 1
+  %526 = getelementptr [2 x i16], ptr %525, i64 0, i64 1
+  %527 = load i16, ptr %526, align 2
+  %528 = zext i16 %527 to i32
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %520, ptr noundef @.str.87, i32 noundef %528)
+  %529 = load ptr, ptr %14, align 8
+  %530 = load i32, ptr %9, align 4
+  %531 = sext i32 %530 to i64
+  %532 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %531
+  %533 = getelementptr inbounds nuw %struct.movement, ptr %532, i32 0, i32 1
+  %534 = getelementptr [3 x [2 x i16]], ptr %533, i64 0, i64 1
+  %535 = getelementptr [2 x i16], ptr %534, i64 0, i64 1
+  %536 = load i16, ptr %535, align 2
+  %537 = uitofp i16 %536 to float
+  %538 = fpext float %537 to double
+  %539 = fdiv double %538, 6.553600e+04
+  %540 = fmul double %539, 3.600000e+02
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %529, ptr noundef @.str.88, double noundef %540)
+  br label %541
 
-540:                                              ; preds = %499, %489
-  %541 = load i32, ptr %9, align 4
-  %542 = sext i32 %541 to i64
-  %543 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %542
-  %544 = getelementptr inbounds %struct.movement, ptr %543, i32 0, i32 0
-  %545 = getelementptr [2 x i8], ptr %544, i64 0, i64 1
-  %546 = load i8, ptr %545, align 1
-  %547 = zext i8 %546 to i32
-  %548 = and i32 %547, 4
-  %549 = icmp ne i32 %548, 0
-  br i1 %549, label %550, label %591
+541:                                              ; preds = %500, %490
+  %542 = load i32, ptr %9, align 4
+  %543 = sext i32 %542 to i64
+  %544 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %543
+  %545 = getelementptr inbounds nuw %struct.movement, ptr %544, i32 0, i32 0
+  %546 = getelementptr [2 x i8], ptr %545, i64 0, i64 1
+  %547 = load i8, ptr %546, align 1
+  %548 = zext i8 %547 to i32
+  %549 = and i32 %548, 4
+  %550 = icmp ne i32 %549, 0
+  br i1 %550, label %551, label %592
 
-550:                                              ; preds = %540
-  %551 = load ptr, ptr %15, align 8
-  %552 = load i32, ptr @hf_quake2_game_client_command_move_bitfield_angles3, align 4
-  %553 = load ptr, ptr %5, align 8
-  %554 = load i32, ptr %9, align 4
-  %555 = sext i32 %554 to i64
-  %556 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %555
-  %557 = getelementptr inbounds %struct.movement, ptr %556, i32 0, i32 1
-  %558 = getelementptr [3 x [2 x i16]], ptr %557, i64 0, i64 2
-  %559 = getelementptr [2 x i16], ptr %558, i64 0, i64 0
-  %560 = load i16, ptr %559, align 2
-  %561 = zext i16 %560 to i32
-  %562 = load i32, ptr %9, align 4
-  %563 = sext i32 %562 to i64
-  %564 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %563
-  %565 = getelementptr inbounds %struct.movement, ptr %564, i32 0, i32 0
-  %566 = getelementptr [2 x i8], ptr %565, i64 0, i64 1
-  %567 = load i8, ptr %566, align 1
-  %568 = zext i8 %567 to i32
-  %569 = call ptr @proto_tree_add_uint(ptr noundef %551, i32 noundef %552, ptr noundef %553, i32 noundef %561, i32 noundef 2, i32 noundef %568)
-  store ptr %569, ptr %13, align 8
-  %570 = load ptr, ptr %13, align 8
-  %571 = load i32, ptr %9, align 4
-  %572 = sext i32 %571 to i64
-  %573 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %572
-  %574 = getelementptr inbounds %struct.movement, ptr %573, i32 0, i32 1
-  %575 = getelementptr [3 x [2 x i16]], ptr %574, i64 0, i64 2
-  %576 = getelementptr [2 x i16], ptr %575, i64 0, i64 1
-  %577 = load i16, ptr %576, align 2
-  %578 = zext i16 %577 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %570, ptr noundef @.str.83, i32 noundef %578)
-  %579 = load ptr, ptr %13, align 8
-  %580 = load i32, ptr %9, align 4
-  %581 = sext i32 %580 to i64
-  %582 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %581
-  %583 = getelementptr inbounds %struct.movement, ptr %582, i32 0, i32 1
-  %584 = getelementptr [3 x [2 x i16]], ptr %583, i64 0, i64 2
-  %585 = getelementptr [2 x i16], ptr %584, i64 0, i64 1
-  %586 = load i16, ptr %585, align 2
-  %587 = uitofp i16 %586 to float
-  %588 = fpext float %587 to double
-  %589 = fdiv double %588, 6.553600e+04
-  %590 = fmul double %589, 3.600000e+02
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %579, ptr noundef @.str.84, double noundef %590)
-  br label %591
+551:                                              ; preds = %541
+  %552 = load ptr, ptr %16, align 8
+  %553 = load i32, ptr @hf_quake2_game_client_command_move_bitfield_angles3, align 4
+  %554 = load ptr, ptr %5, align 8
+  %555 = load i32, ptr %9, align 4
+  %556 = sext i32 %555 to i64
+  %557 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %556
+  %558 = getelementptr inbounds nuw %struct.movement, ptr %557, i32 0, i32 1
+  %559 = getelementptr [3 x [2 x i16]], ptr %558, i64 0, i64 2
+  %560 = getelementptr [2 x i16], ptr %559, i64 0, i64 0
+  %561 = load i16, ptr %560, align 2
+  %562 = zext i16 %561 to i32
+  %563 = load i32, ptr %9, align 4
+  %564 = sext i32 %563 to i64
+  %565 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %564
+  %566 = getelementptr inbounds nuw %struct.movement, ptr %565, i32 0, i32 0
+  %567 = getelementptr [2 x i8], ptr %566, i64 0, i64 1
+  %568 = load i8, ptr %567, align 1
+  %569 = zext i8 %568 to i32
+  %570 = call ptr @proto_tree_add_uint(ptr noundef %552, i32 noundef %553, ptr noundef %554, i32 noundef %562, i32 noundef 2, i32 noundef %569)
+  store ptr %570, ptr %14, align 8
+  %571 = load ptr, ptr %14, align 8
+  %572 = load i32, ptr %9, align 4
+  %573 = sext i32 %572 to i64
+  %574 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %573
+  %575 = getelementptr inbounds nuw %struct.movement, ptr %574, i32 0, i32 1
+  %576 = getelementptr [3 x [2 x i16]], ptr %575, i64 0, i64 2
+  %577 = getelementptr [2 x i16], ptr %576, i64 0, i64 1
+  %578 = load i16, ptr %577, align 2
+  %579 = zext i16 %578 to i32
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %571, ptr noundef @.str.87, i32 noundef %579)
+  %580 = load ptr, ptr %14, align 8
+  %581 = load i32, ptr %9, align 4
+  %582 = sext i32 %581 to i64
+  %583 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %582
+  %584 = getelementptr inbounds nuw %struct.movement, ptr %583, i32 0, i32 1
+  %585 = getelementptr [3 x [2 x i16]], ptr %584, i64 0, i64 2
+  %586 = getelementptr [2 x i16], ptr %585, i64 0, i64 1
+  %587 = load i16, ptr %586, align 2
+  %588 = uitofp i16 %587 to float
+  %589 = fpext float %588 to double
+  %590 = fdiv double %589, 6.553600e+04
+  %591 = fmul double %590, 3.600000e+02
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %580, ptr noundef @.str.88, double noundef %591)
+  br label %592
 
-591:                                              ; preds = %550, %540
-  %592 = load i32, ptr %9, align 4
-  %593 = sext i32 %592 to i64
-  %594 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %593
-  %595 = getelementptr inbounds %struct.movement, ptr %594, i32 0, i32 0
-  %596 = getelementptr [2 x i8], ptr %595, i64 0, i64 1
-  %597 = load i8, ptr %596, align 1
-  %598 = zext i8 %597 to i32
-  %599 = and i32 %598, 8
-  %600 = icmp ne i32 %599, 0
-  br i1 %600, label %601, label %630
+592:                                              ; preds = %551, %541
+  %593 = load i32, ptr %9, align 4
+  %594 = sext i32 %593 to i64
+  %595 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %594
+  %596 = getelementptr inbounds nuw %struct.movement, ptr %595, i32 0, i32 0
+  %597 = getelementptr [2 x i8], ptr %596, i64 0, i64 1
+  %598 = load i8, ptr %597, align 1
+  %599 = zext i8 %598 to i32
+  %600 = and i32 %599, 8
+  %601 = icmp ne i32 %600, 0
+  br i1 %601, label %602, label %631
 
-601:                                              ; preds = %591
-  %602 = load ptr, ptr %15, align 8
-  %603 = load i32, ptr @hf_quake2_game_client_command_move_bitfield_movement_fwd, align 4
-  %604 = load ptr, ptr %5, align 8
-  %605 = load i32, ptr %9, align 4
-  %606 = sext i32 %605 to i64
-  %607 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %606
-  %608 = getelementptr inbounds %struct.movement, ptr %607, i32 0, i32 2
-  %609 = getelementptr [3 x [2 x i16]], ptr %608, i64 0, i64 0
-  %610 = getelementptr [2 x i16], ptr %609, i64 0, i64 0
-  %611 = load i16, ptr %610, align 2
-  %612 = sext i16 %611 to i32
-  %613 = load i32, ptr %9, align 4
-  %614 = sext i32 %613 to i64
-  %615 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %614
-  %616 = getelementptr inbounds %struct.movement, ptr %615, i32 0, i32 0
-  %617 = getelementptr [2 x i8], ptr %616, i64 0, i64 1
-  %618 = load i8, ptr %617, align 1
-  %619 = zext i8 %618 to i32
-  %620 = call ptr @proto_tree_add_uint(ptr noundef %602, i32 noundef %603, ptr noundef %604, i32 noundef %612, i32 noundef 2, i32 noundef %619)
-  store ptr %620, ptr %13, align 8
-  %621 = load ptr, ptr %13, align 8
-  %622 = load i32, ptr %9, align 4
-  %623 = sext i32 %622 to i64
-  %624 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %623
-  %625 = getelementptr inbounds %struct.movement, ptr %624, i32 0, i32 2
-  %626 = getelementptr [3 x [2 x i16]], ptr %625, i64 0, i64 0
-  %627 = getelementptr [2 x i16], ptr %626, i64 0, i64 1
-  %628 = load i16, ptr %627, align 2
-  %629 = sext i16 %628 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %621, ptr noundef @.str.85, i32 noundef %629)
-  br label %630
+602:                                              ; preds = %592
+  %603 = load ptr, ptr %16, align 8
+  %604 = load i32, ptr @hf_quake2_game_client_command_move_bitfield_movement_fwd, align 4
+  %605 = load ptr, ptr %5, align 8
+  %606 = load i32, ptr %9, align 4
+  %607 = sext i32 %606 to i64
+  %608 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %607
+  %609 = getelementptr inbounds nuw %struct.movement, ptr %608, i32 0, i32 2
+  %610 = getelementptr [3 x [2 x i16]], ptr %609, i64 0, i64 0
+  %611 = getelementptr [2 x i16], ptr %610, i64 0, i64 0
+  %612 = load i16, ptr %611, align 2
+  %613 = sext i16 %612 to i32
+  %614 = load i32, ptr %9, align 4
+  %615 = sext i32 %614 to i64
+  %616 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %615
+  %617 = getelementptr inbounds nuw %struct.movement, ptr %616, i32 0, i32 0
+  %618 = getelementptr [2 x i8], ptr %617, i64 0, i64 1
+  %619 = load i8, ptr %618, align 1
+  %620 = zext i8 %619 to i32
+  %621 = call ptr @proto_tree_add_uint(ptr noundef %603, i32 noundef %604, ptr noundef %605, i32 noundef %613, i32 noundef 2, i32 noundef %620)
+  store ptr %621, ptr %14, align 8
+  %622 = load ptr, ptr %14, align 8
+  %623 = load i32, ptr %9, align 4
+  %624 = sext i32 %623 to i64
+  %625 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %624
+  %626 = getelementptr inbounds nuw %struct.movement, ptr %625, i32 0, i32 2
+  %627 = getelementptr [3 x [2 x i16]], ptr %626, i64 0, i64 0
+  %628 = getelementptr [2 x i16], ptr %627, i64 0, i64 1
+  %629 = load i16, ptr %628, align 2
+  %630 = sext i16 %629 to i32
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %622, ptr noundef @.str.89, i32 noundef %630)
+  br label %631
 
-630:                                              ; preds = %601, %591
-  %631 = load i32, ptr %9, align 4
-  %632 = sext i32 %631 to i64
-  %633 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %632
-  %634 = getelementptr inbounds %struct.movement, ptr %633, i32 0, i32 0
-  %635 = getelementptr [2 x i8], ptr %634, i64 0, i64 1
-  %636 = load i8, ptr %635, align 1
-  %637 = zext i8 %636 to i32
-  %638 = and i32 %637, 16
-  %639 = icmp ne i32 %638, 0
-  br i1 %639, label %640, label %669
+631:                                              ; preds = %602, %592
+  %632 = load i32, ptr %9, align 4
+  %633 = sext i32 %632 to i64
+  %634 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %633
+  %635 = getelementptr inbounds nuw %struct.movement, ptr %634, i32 0, i32 0
+  %636 = getelementptr [2 x i8], ptr %635, i64 0, i64 1
+  %637 = load i8, ptr %636, align 1
+  %638 = zext i8 %637 to i32
+  %639 = and i32 %638, 16
+  %640 = icmp ne i32 %639, 0
+  br i1 %640, label %641, label %670
 
-640:                                              ; preds = %630
-  %641 = load ptr, ptr %15, align 8
-  %642 = load i32, ptr @hf_quake2_game_client_command_move_bitfield_movement_side, align 4
-  %643 = load ptr, ptr %5, align 8
-  %644 = load i32, ptr %9, align 4
-  %645 = sext i32 %644 to i64
-  %646 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %645
-  %647 = getelementptr inbounds %struct.movement, ptr %646, i32 0, i32 2
-  %648 = getelementptr [3 x [2 x i16]], ptr %647, i64 0, i64 1
-  %649 = getelementptr [2 x i16], ptr %648, i64 0, i64 0
-  %650 = load i16, ptr %649, align 2
-  %651 = sext i16 %650 to i32
-  %652 = load i32, ptr %9, align 4
-  %653 = sext i32 %652 to i64
-  %654 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %653
-  %655 = getelementptr inbounds %struct.movement, ptr %654, i32 0, i32 0
-  %656 = getelementptr [2 x i8], ptr %655, i64 0, i64 1
-  %657 = load i8, ptr %656, align 1
-  %658 = zext i8 %657 to i32
-  %659 = call ptr @proto_tree_add_uint(ptr noundef %641, i32 noundef %642, ptr noundef %643, i32 noundef %651, i32 noundef 2, i32 noundef %658)
-  store ptr %659, ptr %13, align 8
-  %660 = load ptr, ptr %13, align 8
-  %661 = load i32, ptr %9, align 4
-  %662 = sext i32 %661 to i64
-  %663 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %662
-  %664 = getelementptr inbounds %struct.movement, ptr %663, i32 0, i32 2
-  %665 = getelementptr [3 x [2 x i16]], ptr %664, i64 0, i64 1
-  %666 = getelementptr [2 x i16], ptr %665, i64 0, i64 1
-  %667 = load i16, ptr %666, align 2
-  %668 = sext i16 %667 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %660, ptr noundef @.str.85, i32 noundef %668)
-  br label %669
+641:                                              ; preds = %631
+  %642 = load ptr, ptr %16, align 8
+  %643 = load i32, ptr @hf_quake2_game_client_command_move_bitfield_movement_side, align 4
+  %644 = load ptr, ptr %5, align 8
+  %645 = load i32, ptr %9, align 4
+  %646 = sext i32 %645 to i64
+  %647 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %646
+  %648 = getelementptr inbounds nuw %struct.movement, ptr %647, i32 0, i32 2
+  %649 = getelementptr [3 x [2 x i16]], ptr %648, i64 0, i64 1
+  %650 = getelementptr [2 x i16], ptr %649, i64 0, i64 0
+  %651 = load i16, ptr %650, align 2
+  %652 = sext i16 %651 to i32
+  %653 = load i32, ptr %9, align 4
+  %654 = sext i32 %653 to i64
+  %655 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %654
+  %656 = getelementptr inbounds nuw %struct.movement, ptr %655, i32 0, i32 0
+  %657 = getelementptr [2 x i8], ptr %656, i64 0, i64 1
+  %658 = load i8, ptr %657, align 1
+  %659 = zext i8 %658 to i32
+  %660 = call ptr @proto_tree_add_uint(ptr noundef %642, i32 noundef %643, ptr noundef %644, i32 noundef %652, i32 noundef 2, i32 noundef %659)
+  store ptr %660, ptr %14, align 8
+  %661 = load ptr, ptr %14, align 8
+  %662 = load i32, ptr %9, align 4
+  %663 = sext i32 %662 to i64
+  %664 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %663
+  %665 = getelementptr inbounds nuw %struct.movement, ptr %664, i32 0, i32 2
+  %666 = getelementptr [3 x [2 x i16]], ptr %665, i64 0, i64 1
+  %667 = getelementptr [2 x i16], ptr %666, i64 0, i64 1
+  %668 = load i16, ptr %667, align 2
+  %669 = sext i16 %668 to i32
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %661, ptr noundef @.str.89, i32 noundef %669)
+  br label %670
 
-669:                                              ; preds = %640, %630
-  %670 = load i32, ptr %9, align 4
-  %671 = sext i32 %670 to i64
-  %672 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %671
-  %673 = getelementptr inbounds %struct.movement, ptr %672, i32 0, i32 0
-  %674 = getelementptr [2 x i8], ptr %673, i64 0, i64 1
-  %675 = load i8, ptr %674, align 1
-  %676 = zext i8 %675 to i32
-  %677 = and i32 %676, 32
-  %678 = icmp ne i32 %677, 0
-  br i1 %678, label %679, label %708
+670:                                              ; preds = %641, %631
+  %671 = load i32, ptr %9, align 4
+  %672 = sext i32 %671 to i64
+  %673 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %672
+  %674 = getelementptr inbounds nuw %struct.movement, ptr %673, i32 0, i32 0
+  %675 = getelementptr [2 x i8], ptr %674, i64 0, i64 1
+  %676 = load i8, ptr %675, align 1
+  %677 = zext i8 %676 to i32
+  %678 = and i32 %677, 32
+  %679 = icmp ne i32 %678, 0
+  br i1 %679, label %680, label %709
 
-679:                                              ; preds = %669
-  %680 = load ptr, ptr %15, align 8
-  %681 = load i32, ptr @hf_quake2_game_client_command_move_bitfield_movement_up, align 4
-  %682 = load ptr, ptr %5, align 8
-  %683 = load i32, ptr %9, align 4
-  %684 = sext i32 %683 to i64
-  %685 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %684
-  %686 = getelementptr inbounds %struct.movement, ptr %685, i32 0, i32 2
-  %687 = getelementptr [3 x [2 x i16]], ptr %686, i64 0, i64 2
-  %688 = getelementptr [2 x i16], ptr %687, i64 0, i64 0
-  %689 = load i16, ptr %688, align 2
-  %690 = sext i16 %689 to i32
-  %691 = load i32, ptr %9, align 4
-  %692 = sext i32 %691 to i64
-  %693 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %692
-  %694 = getelementptr inbounds %struct.movement, ptr %693, i32 0, i32 0
-  %695 = getelementptr [2 x i8], ptr %694, i64 0, i64 1
-  %696 = load i8, ptr %695, align 1
-  %697 = zext i8 %696 to i32
-  %698 = call ptr @proto_tree_add_uint(ptr noundef %680, i32 noundef %681, ptr noundef %682, i32 noundef %690, i32 noundef 2, i32 noundef %697)
-  store ptr %698, ptr %13, align 8
-  %699 = load ptr, ptr %13, align 8
-  %700 = load i32, ptr %9, align 4
-  %701 = sext i32 %700 to i64
-  %702 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %701
-  %703 = getelementptr inbounds %struct.movement, ptr %702, i32 0, i32 2
-  %704 = getelementptr [3 x [2 x i16]], ptr %703, i64 0, i64 2
-  %705 = getelementptr [2 x i16], ptr %704, i64 0, i64 1
-  %706 = load i16, ptr %705, align 2
-  %707 = sext i16 %706 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %699, ptr noundef @.str.85, i32 noundef %707)
-  br label %708
+680:                                              ; preds = %670
+  %681 = load ptr, ptr %16, align 8
+  %682 = load i32, ptr @hf_quake2_game_client_command_move_bitfield_movement_up, align 4
+  %683 = load ptr, ptr %5, align 8
+  %684 = load i32, ptr %9, align 4
+  %685 = sext i32 %684 to i64
+  %686 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %685
+  %687 = getelementptr inbounds nuw %struct.movement, ptr %686, i32 0, i32 2
+  %688 = getelementptr [3 x [2 x i16]], ptr %687, i64 0, i64 2
+  %689 = getelementptr [2 x i16], ptr %688, i64 0, i64 0
+  %690 = load i16, ptr %689, align 2
+  %691 = sext i16 %690 to i32
+  %692 = load i32, ptr %9, align 4
+  %693 = sext i32 %692 to i64
+  %694 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %693
+  %695 = getelementptr inbounds nuw %struct.movement, ptr %694, i32 0, i32 0
+  %696 = getelementptr [2 x i8], ptr %695, i64 0, i64 1
+  %697 = load i8, ptr %696, align 1
+  %698 = zext i8 %697 to i32
+  %699 = call ptr @proto_tree_add_uint(ptr noundef %681, i32 noundef %682, ptr noundef %683, i32 noundef %691, i32 noundef 2, i32 noundef %698)
+  store ptr %699, ptr %14, align 8
+  %700 = load ptr, ptr %14, align 8
+  %701 = load i32, ptr %9, align 4
+  %702 = sext i32 %701 to i64
+  %703 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %702
+  %704 = getelementptr inbounds nuw %struct.movement, ptr %703, i32 0, i32 2
+  %705 = getelementptr [3 x [2 x i16]], ptr %704, i64 0, i64 2
+  %706 = getelementptr [2 x i16], ptr %705, i64 0, i64 1
+  %707 = load i16, ptr %706, align 2
+  %708 = sext i16 %707 to i32
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %700, ptr noundef @.str.89, i32 noundef %708)
+  br label %709
 
-708:                                              ; preds = %679, %669
-  %709 = load i32, ptr %9, align 4
-  %710 = sext i32 %709 to i64
-  %711 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %710
-  %712 = getelementptr inbounds %struct.movement, ptr %711, i32 0, i32 0
-  %713 = getelementptr [2 x i8], ptr %712, i64 0, i64 1
-  %714 = load i8, ptr %713, align 1
-  %715 = zext i8 %714 to i32
-  %716 = and i32 %715, 64
-  %717 = icmp ne i32 %716, 0
-  br i1 %717, label %718, label %781
+709:                                              ; preds = %680, %670
+  %710 = load i32, ptr %9, align 4
+  %711 = sext i32 %710 to i64
+  %712 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %711
+  %713 = getelementptr inbounds nuw %struct.movement, ptr %712, i32 0, i32 0
+  %714 = getelementptr [2 x i8], ptr %713, i64 0, i64 1
+  %715 = load i8, ptr %714, align 1
+  %716 = zext i8 %715 to i32
+  %717 = and i32 %716, 64
+  %718 = icmp ne i32 %717, 0
+  br i1 %718, label %719, label %782
 
-718:                                              ; preds = %708
-  %719 = load ptr, ptr %15, align 8
-  %720 = load i32, ptr @hf_quake2_game_client_command_move_bitfield_buttons, align 4
-  %721 = load ptr, ptr %5, align 8
-  %722 = load i32, ptr %9, align 4
-  %723 = sext i32 %722 to i64
-  %724 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %723
-  %725 = getelementptr inbounds %struct.movement, ptr %724, i32 0, i32 3
-  %726 = getelementptr [2 x i8], ptr %725, i64 0, i64 0
-  %727 = load i8, ptr %726, align 2
-  %728 = zext i8 %727 to i32
-  %729 = load i32, ptr %9, align 4
-  %730 = sext i32 %729 to i64
-  %731 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %730
-  %732 = getelementptr inbounds %struct.movement, ptr %731, i32 0, i32 0
-  %733 = getelementptr [2 x i8], ptr %732, i64 0, i64 1
-  %734 = load i8, ptr %733, align 1
-  %735 = zext i8 %734 to i32
-  %736 = call ptr @proto_tree_add_uint(ptr noundef %719, i32 noundef %720, ptr noundef %721, i32 noundef %728, i32 noundef 1, i32 noundef %735)
-  store ptr %736, ptr %13, align 8
-  %737 = load ptr, ptr %13, align 8
-  %738 = load i32, ptr %9, align 4
-  %739 = sext i32 %738 to i64
-  %740 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %739
-  %741 = getelementptr inbounds %struct.movement, ptr %740, i32 0, i32 3
-  %742 = getelementptr [2 x i8], ptr %741, i64 0, i64 1
-  %743 = load i8, ptr %742, align 1
-  %744 = zext i8 %743 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %737, ptr noundef @.str.86, i32 noundef %744)
-  %745 = load i32, ptr %9, align 4
-  %746 = sext i32 %745 to i64
-  %747 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %746
-  %748 = getelementptr inbounds %struct.movement, ptr %747, i32 0, i32 3
-  %749 = getelementptr [2 x i8], ptr %748, i64 0, i64 1
-  %750 = load i8, ptr %749, align 1
-  %751 = zext i8 %750 to i32
-  %752 = and i32 %751, 1
-  %753 = icmp ne i32 %752, 0
-  br i1 %753, label %754, label %756
+719:                                              ; preds = %709
+  %720 = load ptr, ptr %16, align 8
+  %721 = load i32, ptr @hf_quake2_game_client_command_move_bitfield_buttons, align 4
+  %722 = load ptr, ptr %5, align 8
+  %723 = load i32, ptr %9, align 4
+  %724 = sext i32 %723 to i64
+  %725 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %724
+  %726 = getelementptr inbounds nuw %struct.movement, ptr %725, i32 0, i32 3
+  %727 = getelementptr [2 x i8], ptr %726, i64 0, i64 0
+  %728 = load i8, ptr %727, align 2
+  %729 = zext i8 %728 to i32
+  %730 = load i32, ptr %9, align 4
+  %731 = sext i32 %730 to i64
+  %732 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %731
+  %733 = getelementptr inbounds nuw %struct.movement, ptr %732, i32 0, i32 0
+  %734 = getelementptr [2 x i8], ptr %733, i64 0, i64 1
+  %735 = load i8, ptr %734, align 1
+  %736 = zext i8 %735 to i32
+  %737 = call ptr @proto_tree_add_uint(ptr noundef %720, i32 noundef %721, ptr noundef %722, i32 noundef %729, i32 noundef 1, i32 noundef %736)
+  store ptr %737, ptr %14, align 8
+  %738 = load ptr, ptr %14, align 8
+  %739 = load i32, ptr %9, align 4
+  %740 = sext i32 %739 to i64
+  %741 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %740
+  %742 = getelementptr inbounds nuw %struct.movement, ptr %741, i32 0, i32 3
+  %743 = getelementptr [2 x i8], ptr %742, i64 0, i64 1
+  %744 = load i8, ptr %743, align 1
+  %745 = zext i8 %744 to i32
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %738, ptr noundef @.str.90, i32 noundef %745)
+  %746 = load i32, ptr %9, align 4
+  %747 = sext i32 %746 to i64
+  %748 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %747
+  %749 = getelementptr inbounds nuw %struct.movement, ptr %748, i32 0, i32 3
+  %750 = getelementptr [2 x i8], ptr %749, i64 0, i64 1
+  %751 = load i8, ptr %750, align 1
+  %752 = zext i8 %751 to i32
+  %753 = and i32 %752, 1
+  %754 = icmp ne i32 %753, 0
+  br i1 %754, label %755, label %757
 
-754:                                              ; preds = %718
-  %755 = load ptr, ptr %13, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %755, ptr noundef @.str.87)
-  br label %756
+755:                                              ; preds = %719
+  %756 = load ptr, ptr %14, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %756, ptr noundef @.str.91)
+  br label %757
 
-756:                                              ; preds = %754, %718
-  %757 = load i32, ptr %9, align 4
-  %758 = sext i32 %757 to i64
-  %759 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %758
-  %760 = getelementptr inbounds %struct.movement, ptr %759, i32 0, i32 3
-  %761 = getelementptr [2 x i8], ptr %760, i64 0, i64 1
-  %762 = load i8, ptr %761, align 1
-  %763 = zext i8 %762 to i32
-  %764 = and i32 %763, 2
-  %765 = icmp ne i32 %764, 0
-  br i1 %765, label %766, label %768
+757:                                              ; preds = %755, %719
+  %758 = load i32, ptr %9, align 4
+  %759 = sext i32 %758 to i64
+  %760 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %759
+  %761 = getelementptr inbounds nuw %struct.movement, ptr %760, i32 0, i32 3
+  %762 = getelementptr [2 x i8], ptr %761, i64 0, i64 1
+  %763 = load i8, ptr %762, align 1
+  %764 = zext i8 %763 to i32
+  %765 = and i32 %764, 2
+  %766 = icmp ne i32 %765, 0
+  br i1 %766, label %767, label %769
 
-766:                                              ; preds = %756
-  %767 = load ptr, ptr %13, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %767, ptr noundef @.str.88)
-  br label %768
+767:                                              ; preds = %757
+  %768 = load ptr, ptr %14, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %768, ptr noundef @.str.92)
+  br label %769
 
-768:                                              ; preds = %766, %756
-  %769 = load i32, ptr %9, align 4
-  %770 = sext i32 %769 to i64
-  %771 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %770
-  %772 = getelementptr inbounds %struct.movement, ptr %771, i32 0, i32 3
-  %773 = getelementptr [2 x i8], ptr %772, i64 0, i64 1
-  %774 = load i8, ptr %773, align 1
-  %775 = zext i8 %774 to i32
-  %776 = and i32 %775, 128
-  %777 = icmp ne i32 %776, 0
-  br i1 %777, label %778, label %780
+769:                                              ; preds = %767, %757
+  %770 = load i32, ptr %9, align 4
+  %771 = sext i32 %770 to i64
+  %772 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %771
+  %773 = getelementptr inbounds nuw %struct.movement, ptr %772, i32 0, i32 3
+  %774 = getelementptr [2 x i8], ptr %773, i64 0, i64 1
+  %775 = load i8, ptr %774, align 1
+  %776 = zext i8 %775 to i32
+  %777 = and i32 %776, 128
+  %778 = icmp ne i32 %777, 0
+  br i1 %778, label %779, label %781
 
-778:                                              ; preds = %768
-  %779 = load ptr, ptr %13, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %779, ptr noundef @.str.89)
-  br label %780
-
-780:                                              ; preds = %778, %768
+779:                                              ; preds = %769
+  %780 = load ptr, ptr %14, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %780, ptr noundef @.str.93)
   br label %781
 
-781:                                              ; preds = %780, %708
-  %782 = load i32, ptr %9, align 4
-  %783 = sext i32 %782 to i64
-  %784 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %783
-  %785 = getelementptr inbounds %struct.movement, ptr %784, i32 0, i32 0
-  %786 = getelementptr [2 x i8], ptr %785, i64 0, i64 1
-  %787 = load i8, ptr %786, align 1
-  %788 = zext i8 %787 to i32
-  %789 = and i32 %788, 128
-  %790 = icmp ne i32 %789, 0
-  br i1 %790, label %791, label %818
+781:                                              ; preds = %779, %769
+  br label %782
 
-791:                                              ; preds = %781
-  %792 = load ptr, ptr %15, align 8
-  %793 = load i32, ptr @hf_quake2_game_client_command_move_bitfield_impulse, align 4
-  %794 = load ptr, ptr %5, align 8
-  %795 = load i32, ptr %9, align 4
-  %796 = sext i32 %795 to i64
-  %797 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %796
-  %798 = getelementptr inbounds %struct.movement, ptr %797, i32 0, i32 6
-  %799 = getelementptr [2 x i8], ptr %798, i64 0, i64 0
-  %800 = load i8, ptr %799, align 2
-  %801 = zext i8 %800 to i32
-  %802 = load i32, ptr %9, align 4
-  %803 = sext i32 %802 to i64
-  %804 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %803
-  %805 = getelementptr inbounds %struct.movement, ptr %804, i32 0, i32 0
-  %806 = getelementptr [2 x i8], ptr %805, i64 0, i64 1
-  %807 = load i8, ptr %806, align 1
-  %808 = zext i8 %807 to i32
-  %809 = call ptr @proto_tree_add_uint(ptr noundef %792, i32 noundef %793, ptr noundef %794, i32 noundef %801, i32 noundef 1, i32 noundef %808)
-  store ptr %809, ptr %13, align 8
-  %810 = load ptr, ptr %13, align 8
-  %811 = load i32, ptr %9, align 4
-  %812 = sext i32 %811 to i64
-  %813 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %812
-  %814 = getelementptr inbounds %struct.movement, ptr %813, i32 0, i32 6
-  %815 = getelementptr [2 x i8], ptr %814, i64 0, i64 1
-  %816 = load i8, ptr %815, align 1
-  %817 = zext i8 %816 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %810, ptr noundef @.str.86, i32 noundef %817)
-  br label %818
+782:                                              ; preds = %781, %709
+  %783 = load i32, ptr %9, align 4
+  %784 = sext i32 %783 to i64
+  %785 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %784
+  %786 = getelementptr inbounds nuw %struct.movement, ptr %785, i32 0, i32 0
+  %787 = getelementptr [2 x i8], ptr %786, i64 0, i64 1
+  %788 = load i8, ptr %787, align 1
+  %789 = zext i8 %788 to i32
+  %790 = and i32 %789, 128
+  %791 = icmp ne i32 %790, 0
+  br i1 %791, label %792, label %819
 
-818:                                              ; preds = %791, %781
+792:                                              ; preds = %782
+  %793 = load ptr, ptr %16, align 8
+  %794 = load i32, ptr @hf_quake2_game_client_command_move_bitfield_impulse, align 4
+  %795 = load ptr, ptr %5, align 8
+  %796 = load i32, ptr %9, align 4
+  %797 = sext i32 %796 to i64
+  %798 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %797
+  %799 = getelementptr inbounds nuw %struct.movement, ptr %798, i32 0, i32 6
+  %800 = getelementptr [2 x i8], ptr %799, i64 0, i64 0
+  %801 = load i8, ptr %800, align 2
+  %802 = zext i8 %801 to i32
+  %803 = load i32, ptr %9, align 4
+  %804 = sext i32 %803 to i64
+  %805 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %804
+  %806 = getelementptr inbounds nuw %struct.movement, ptr %805, i32 0, i32 0
+  %807 = getelementptr [2 x i8], ptr %806, i64 0, i64 1
+  %808 = load i8, ptr %807, align 1
+  %809 = zext i8 %808 to i32
+  %810 = call ptr @proto_tree_add_uint(ptr noundef %793, i32 noundef %794, ptr noundef %795, i32 noundef %802, i32 noundef 1, i32 noundef %809)
+  store ptr %810, ptr %14, align 8
+  %811 = load ptr, ptr %14, align 8
+  %812 = load i32, ptr %9, align 4
+  %813 = sext i32 %812 to i64
+  %814 = getelementptr [4 x %struct.movement], ptr %11, i64 0, i64 %813
+  %815 = getelementptr inbounds nuw %struct.movement, ptr %814, i32 0, i32 6
+  %816 = getelementptr [2 x i8], ptr %815, i64 0, i64 1
+  %817 = load i8, ptr %816, align 1
+  %818 = zext i8 %817 to i32
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %811, ptr noundef @.str.90, i32 noundef %818)
   br label %819
 
-819:                                              ; preds = %818, %433
-  %820 = load i32, ptr %9, align 4
-  %821 = add i32 %820, 1
-  store i32 %821, ptr %9, align 4
-  br label %338, !llvm.loop !7
+819:                                              ; preds = %792, %782
+  store i32 0, ptr %12, align 4
+  br label %820
 
-822:                                              ; preds = %338
-  %823 = load i32, ptr %10, align 4
-  store i32 %823, ptr %4, align 4
-  br label %824
+820:                                              ; preds = %819, %434
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #3
+  %821 = load i32, ptr %12, align 4
+  switch i32 %821, label %830 [
+    i32 0, label %822
+    i32 7, label %823
+  ]
 
-824:                                              ; preds = %822, %320
-  %825 = load i32, ptr %4, align 4
-  ret i32 %825
+822:                                              ; preds = %820
+  br label %823
+
+823:                                              ; preds = %822, %820
+  %824 = load i32, ptr %9, align 4
+  %825 = add i32 %824, 1
+  store i32 %825, ptr %9, align 4
+  br label %339, !llvm.loop !9
+
+826:                                              ; preds = %339
+  %827 = load i32, ptr %10, align 4
+  store i32 %827, ptr %4, align 4
+  store i32 1, ptr %12, align 4
+  br label %828
+
+828:                                              ; preds = %826, %321
+  call void @llvm.lifetime.end.p0(i64 136, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #3
+  %829 = load i32, ptr %4, align 4
+  ret i32 %829
+
+830:                                              ; preds = %820
+  unreachable
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_quake2_client_commands_uinfo(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -1908,6 +1995,7 @@ define internal i32 @dissect_quake2_client_commands_uinfo(ptr noundef %0, ptr no
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
   %8 = load ptr, ptr %4, align 8
   %9 = call i32 @tvb_strsize(ptr noundef %8, i32 noundef 0)
   store i32 %9, ptr %7, align 4
@@ -1917,10 +2005,11 @@ define internal i32 @dissect_quake2_client_commands_uinfo(ptr noundef %0, ptr no
   %13 = load i32, ptr %7, align 4
   %14 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %12, i32 noundef 0, i32 noundef %13, i32 noundef 0)
   %15 = load i32, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_quake2_client_commands_stringcmd(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -1929,6 +2018,7 @@ define internal i32 @dissect_quake2_client_commands_stringcmd(ptr noundef %0, pt
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
   %8 = load ptr, ptr %4, align 8
   %9 = call i32 @tvb_strsize(ptr noundef %8, i32 noundef 0)
   store i32 %9, ptr %7, align 4
@@ -1938,27 +2028,36 @@ define internal i32 @dissect_quake2_client_commands_stringcmd(ptr noundef %0, pt
   %13 = load i32, ptr %7, align 4
   %14 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %12, i32 noundef 0, i32 noundef %13, i32 noundef 0)
   %15 = load i32, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
   ret i32 %15
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_checksum(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_strsize(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @prefs_get_range_value(ptr noundef, ptr noundef) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

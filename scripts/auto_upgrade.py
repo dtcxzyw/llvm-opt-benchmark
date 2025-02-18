@@ -61,6 +61,7 @@ supported_project = [
     "sqlite",
     "stb",
     "sundials",
+    "wireshark",
 ]
 
 modify_only = [
@@ -81,6 +82,7 @@ modify_only = [
     "spike",
     "ruby",
     "slurm",
+    "wireshark",
 ]
 
 

@@ -1,11 +1,11 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct._value_string = type { i32, ptr }
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
 %struct._range_string = type { i64, i64, ptr }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._value_string = type { i32, ptr }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
@@ -17,7 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [15 x i8] c"DPP Attributes\00", align 1
 @.str.2 = private unnamed_addr constant [9 x i8] c"wifi_dpp\00", align 1
 @.str.3 = private unnamed_addr constant [11 x i8] c", DPP - %s\00", align 1
-@dpp_public_action_subtypes = internal constant [17 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.101 }, %struct._value_string { i32 1, ptr @.str.102 }, %struct._value_string { i32 2, ptr @.str.103 }, %struct._value_string { i32 5, ptr @.str.104 }, %struct._value_string { i32 6, ptr @.str.105 }, %struct._value_string { i32 7, ptr @.str.106 }, %struct._value_string { i32 8, ptr @.str.107 }, %struct._value_string { i32 9, ptr @.str.108 }, %struct._value_string { i32 10, ptr @.str.109 }, %struct._value_string { i32 11, ptr @.str.110 }, %struct._value_string { i32 12, ptr @.str.111 }, %struct._value_string { i32 13, ptr @.str.112 }, %struct._value_string { i32 14, ptr @.str.113 }, %struct._value_string { i32 15, ptr @.str.114 }, %struct._value_string { i32 16, ptr @.str.115 }, %struct._value_string { i32 17, ptr @.str.116 }, %struct._value_string zeroinitializer], align 16
 @.str.4 = private unnamed_addr constant [13 x i8] c"Unknown (%u)\00", align 1
 @.str.5 = private unnamed_addr constant [5 x i8] c": %s\00", align 1
 @hf_wifi_dpp_crypto_suite = internal global i32 0, align 4
@@ -27,7 +26,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_wifi_dpp_status = internal global i32 0, align 4
 @.str.6 = private unnamed_addr constant [17 x i8] c"Wi-Fi DPP Status\00", align 1
 @.str.7 = private unnamed_addr constant [11 x i8] c"dpp.status\00", align 1
-@dpp_status_codes = internal constant [22 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.117 }, %struct._value_string { i32 1, ptr @.str.118 }, %struct._value_string { i32 2, ptr @.str.119 }, %struct._value_string { i32 3, ptr @.str.120 }, %struct._value_string { i32 4, ptr @.str.121 }, %struct._value_string { i32 5, ptr @.str.122 }, %struct._value_string { i32 6, ptr @.str.123 }, %struct._value_string { i32 7, ptr @.str.124 }, %struct._value_string { i32 8, ptr @.str.125 }, %struct._value_string { i32 9, ptr @.str.126 }, %struct._value_string { i32 10, ptr @.str.127 }, %struct._value_string { i32 11, ptr @.str.128 }, %struct._value_string { i32 12, ptr @.str.129 }, %struct._value_string { i32 13, ptr @.str.130 }, %struct._value_string { i32 0, ptr @.str.117 }, %struct._value_string { i32 1, ptr @.str.118 }, %struct._value_string { i32 2, ptr @.str.119 }, %struct._value_string { i32 3, ptr @.str.120 }, %struct._value_string { i32 4, ptr @.str.121 }, %struct._value_string { i32 5, ptr @.str.122 }, %struct._value_string { i32 6, ptr @.str.123 }, %struct._value_string zeroinitializer], align 16
 @hf_wifi_dpp_init_hash = internal global i32 0, align 4
 @.str.8 = private unnamed_addr constant [25 x i8] c"Wi-Fi DPP Initiator Hash\00", align 1
 @.str.9 = private unnamed_addr constant [14 x i8] c"dpp.init.hash\00", align 1
@@ -73,7 +71,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_wifi_dpp_protocol_version = internal global i32 0, align 4
 @.str.36 = private unnamed_addr constant [17 x i8] c"Protocol Version\00", align 1
 @.str.37 = private unnamed_addr constant [21 x i8] c"dpp.protocol_version\00", align 1
-@dpp_protocol_version_rvals = internal constant [4 x %struct._range_string] [%struct._range_string { i64 0, i64 0, ptr @.str.131 }, %struct._range_string { i64 1, i64 1, ptr @.str.132 }, %struct._range_string { i64 2, i64 255, ptr @.str.131 }, %struct._range_string zeroinitializer], align 16
+@dpp_protocol_version_rvals = internal constant [4 x %struct._range_string] [%struct._range_string { i64 0, i64 0, ptr @.str.133 }, %struct._range_string { i64 1, i64 1, ptr @.str.134 }, %struct._range_string { i64 2, i64 255, ptr @.str.133 }, %struct._range_string zeroinitializer], align 16
 @hf_wifi_dpp_a_nonce = internal global i32 0, align 4
 @.str.38 = private unnamed_addr constant [8 x i8] c"A-NONCE\00", align 1
 @.str.39 = private unnamed_addr constant [12 x i8] c"dpp.a_nonce\00", align 1
@@ -83,7 +81,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_wifi_dpp_ie_attr_id = internal global i32 0, align 4
 @.str.42 = private unnamed_addr constant [26 x i8] c"Wi-Fi DPP IE Attribute ID\00", align 1
 @.str.43 = private unnamed_addr constant [15 x i8] c"dpp.ie.attr_id\00", align 1
-@dpp_ie_attr_ids = internal constant [32 x %struct._value_string] [%struct._value_string { i32 4096, ptr @.str.133 }, %struct._value_string { i32 4097, ptr @.str.134 }, %struct._value_string { i32 4098, ptr @.str.135 }, %struct._value_string { i32 4099, ptr @.str.136 }, %struct._value_string { i32 4100, ptr @.str.137 }, %struct._value_string { i32 4101, ptr @.str.138 }, %struct._value_string { i32 4102, ptr @.str.139 }, %struct._value_string { i32 4103, ptr @.str.140 }, %struct._value_string { i32 4104, ptr @.str.141 }, %struct._value_string { i32 4105, ptr @.str.142 }, %struct._value_string { i32 4106, ptr @.str.143 }, %struct._value_string { i32 4107, ptr @.str.144 }, %struct._value_string { i32 4108, ptr @.str.145 }, %struct._value_string { i32 4109, ptr @.str.146 }, %struct._value_string { i32 4110, ptr @.str.147 }, %struct._value_string { i32 4111, ptr @.str.148 }, %struct._value_string { i32 4114, ptr @.str.149 }, %struct._value_string { i32 4115, ptr @.str.150 }, %struct._value_string { i32 4117, ptr @.str.151 }, %struct._value_string { i32 4118, ptr @.str.152 }, %struct._value_string { i32 4119, ptr @.str.153 }, %struct._value_string { i32 4120, ptr @.str.154 }, %struct._value_string { i32 4121, ptr @.str.155 }, %struct._value_string { i32 4122, ptr @.str.156 }, %struct._value_string { i32 4123, ptr @.str.157 }, %struct._value_string { i32 4124, ptr @.str.158 }, %struct._value_string { i32 4125, ptr @.str.159 }, %struct._value_string { i32 4126, ptr @.str.160 }, %struct._value_string { i32 4127, ptr @.str.161 }, %struct._value_string { i32 4128, ptr @.str.162 }, %struct._value_string { i32 4129, ptr @.str.163 }, %struct._value_string zeroinitializer], align 16
 @hf_wifi_dpp_ie_attr_len = internal global i32 0, align 4
 @.str.44 = private unnamed_addr constant [27 x i8] c"Wi-Fi DPP IE Attribute Len\00", align 1
 @.str.45 = private unnamed_addr constant [16 x i8] c"dpp.ie.attr_len\00", align 1
@@ -93,7 +90,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_wifi_dpp_action_subtype = internal global i32 0, align 4
 @.str.48 = private unnamed_addr constant [25 x i8] c"Wi-Fi DPP Action Subtype\00", align 1
 @.str.49 = private unnamed_addr constant [19 x i8] c"dpp.action.subtype\00", align 1
-@dpp_action_subtypes = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.101 }, %struct._value_string { i32 1, ptr @.str.102 }, %struct._value_string { i32 2, ptr @.str.103 }, %struct._value_string { i32 5, ptr @.str.104 }, %struct._value_string { i32 6, ptr @.str.105 }, %struct._value_string zeroinitializer], align 16
 @hf_wifi_dpp_action_dialog_token = internal global i32 0, align 4
 @.str.50 = private unnamed_addr constant [30 x i8] c"Wi-Fi DPP Action Dialog Token\00", align 1
 @.str.51 = private unnamed_addr constant [24 x i8] c"dpp.action.dialog_token\00", align 1
@@ -166,7 +162,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.93 = private unnamed_addr constant [13 x i8] c"DPP TCP Port\00", align 1
 @.str.94 = private unnamed_addr constant [31 x i8] c"The TCP port DPP over TCP uses\00", align 1
 @wifi_dpp_tcp_port = internal global i32 7871, align 4
-@proto_reg_handoff_wifi_dpp.initialized = internal global i32 0, align 4
+@proto_reg_handoff_wifi_dpp.initialized = internal global i8 0, align 1
 @proto_reg_handoff_wifi_dpp.current_port = internal global i32 0, align 4
 @.str.95 = private unnamed_addr constant [32 x i8] c"wlan.anqp.wifi_alliance.subtype\00", align 1
 @.str.96 = private unnamed_addr constant [30 x i8] c"wlan.ie.wifi_alliance.subtype\00", align 1
@@ -190,58 +186,62 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.114 = private unnamed_addr constant [32 x i8] c"Reconfig Authentication Request\00", align 1
 @.str.115 = private unnamed_addr constant [33 x i8] c"Reconfig Authentication Response\00", align 1
 @.str.116 = private unnamed_addr constant [32 x i8] c"Reconfig Authentication Confirm\00", align 1
-@.str.117 = private unnamed_addr constant [3 x i8] c"OK\00", align 1
-@.str.118 = private unnamed_addr constant [15 x i8] c"Not Compatible\00", align 1
-@.str.119 = private unnamed_addr constant [13 x i8] c"Auth Failure\00", align 1
-@.str.120 = private unnamed_addr constant [15 x i8] c"Unwrap Failure\00", align 1
-@.str.121 = private unnamed_addr constant [10 x i8] c"Bad Group\00", align 1
-@.str.122 = private unnamed_addr constant [18 x i8] c"Configure Failure\00", align 1
-@.str.123 = private unnamed_addr constant [17 x i8] c"Response Pending\00", align 1
-@.str.124 = private unnamed_addr constant [18 x i8] c"Invalid Connector\00", align 1
-@.str.125 = private unnamed_addr constant [9 x i8] c"No Match\00", align 1
-@.str.126 = private unnamed_addr constant [29 x i8] c"Enrollee rejected the config\00", align 1
-@.str.127 = private unnamed_addr constant [34 x i8] c"Enrollee failed to discover an AP\00", align 1
-@.str.128 = private unnamed_addr constant [78 x i8] c"Configuration response is not ready yet. The enrollee needs to request again.\00", align 1
-@.str.129 = private unnamed_addr constant [87 x i8] c"Configuration requires a Certificate Signing Request. Enrollee needs to request again.\00", align 1
-@.str.130 = private unnamed_addr constant [45 x i8] c"The Certificate Signing Request was invalid.\00", align 1
-@.str.131 = private unnamed_addr constant [9 x i8] c"Reserved\00", align 1
-@.str.132 = private unnamed_addr constant [4 x i8] c"1.0\00", align 1
-@.str.133 = private unnamed_addr constant [11 x i8] c"DPP Status\00", align 1
-@.str.134 = private unnamed_addr constant [37 x i8] c"DPP Initiator Bootstrapping Key Hash\00", align 1
-@.str.135 = private unnamed_addr constant [37 x i8] c"DPP Responder Bootstrapping Key Hash\00", align 1
-@.str.136 = private unnamed_addr constant [27 x i8] c"DPP Initiator Protocol Key\00", align 1
-@.str.137 = private unnamed_addr constant [25 x i8] c"DPP Primary Wrapped Data\00", align 1
-@.str.138 = private unnamed_addr constant [20 x i8] c"DPP Initiator Nonce\00", align 1
-@.str.139 = private unnamed_addr constant [27 x i8] c"DPP Initiator Capabilities\00", align 1
-@.str.140 = private unnamed_addr constant [20 x i8] c"DPP Responder Nonce\00", align 1
-@.str.141 = private unnamed_addr constant [27 x i8] c"DPP Responder Capabilities\00", align 1
-@.str.142 = private unnamed_addr constant [27 x i8] c"DPP Responder Protocol Key\00", align 1
-@.str.143 = private unnamed_addr constant [33 x i8] c"DPP Initiator Authenticating Tag\00", align 1
-@.str.144 = private unnamed_addr constant [33 x i8] c"DPP Responder Authenticating Tag\00", align 1
-@.str.145 = private unnamed_addr constant [25 x i8] c"DPP Configuration Object\00", align 1
-@.str.146 = private unnamed_addr constant [14 x i8] c"DPP Connector\00", align 1
-@.str.147 = private unnamed_addr constant [36 x i8] c"DPP Configuration Attributes Object\00", align 1
-@.str.148 = private unnamed_addr constant [22 x i8] c"DPP Bootstrapping Key\00", align 1
-@.str.149 = private unnamed_addr constant [24 x i8] c"DPP Finite Cyclic Group\00", align 1
-@.str.150 = private unnamed_addr constant [18 x i8] c"DPP Encrypted Key\00", align 1
-@.str.151 = private unnamed_addr constant [20 x i8] c"DPP Code Identifier\00", align 1
-@.str.152 = private unnamed_addr constant [19 x i8] c"DPP Transaction ID\00", align 1
-@.str.153 = private unnamed_addr constant [23 x i8] c"DPP Bootstrapping Info\00", align 1
-@.str.154 = private unnamed_addr constant [12 x i8] c"DPP Channel\00", align 1
-@.str.155 = private unnamed_addr constant [21 x i8] c"DPP Protocol Version\00", align 1
-@.str.156 = private unnamed_addr constant [19 x i8] c"DPP Enveloped Data\00", align 1
-@.str.157 = private unnamed_addr constant [21 x i8] c"DPP Send Conn Status\00", align 1
-@.str.158 = private unnamed_addr constant [16 x i8] c"DPP Conn Status\00", align 1
-@.str.159 = private unnamed_addr constant [19 x i8] c"DPP Reconfig Flags\00", align 1
-@.str.160 = private unnamed_addr constant [20 x i8] c"DPP C-sign key Hash\00", align 1
-@.str.161 = private unnamed_addr constant [27 x i8] c"DPP CSR Attributes Request\00", align 1
-@.str.162 = private unnamed_addr constant [12 x i8] c"DPP A-NONCE\00", align 1
-@.str.163 = private unnamed_addr constant [10 x i8] c"DPP E'-id\00", align 1
-@.str.164 = private unnamed_addr constant [30 x i8] c", DPP - Configuration Request\00", align 1
-@.str.165 = private unnamed_addr constant [31 x i8] c", DPP - Configuration Response\00", align 1
-@.str.166 = private unnamed_addr constant [15 x i8] c"Generic DPP IE\00", align 1
+@dpp_public_action_subtypes = internal constant [17 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.101 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.102 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.103 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.104 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.105 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.106 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.107 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.108 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.109 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.110 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.111 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.112 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.113 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.114 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.115 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.116 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.118 = private unnamed_addr constant [3 x i8] c"OK\00", align 1
+@.str.119 = private unnamed_addr constant [15 x i8] c"Not Compatible\00", align 1
+@.str.120 = private unnamed_addr constant [13 x i8] c"Auth Failure\00", align 1
+@.str.121 = private unnamed_addr constant [15 x i8] c"Unwrap Failure\00", align 1
+@.str.122 = private unnamed_addr constant [10 x i8] c"Bad Group\00", align 1
+@.str.123 = private unnamed_addr constant [18 x i8] c"Configure Failure\00", align 1
+@.str.124 = private unnamed_addr constant [17 x i8] c"Response Pending\00", align 1
+@.str.125 = private unnamed_addr constant [18 x i8] c"Invalid Connector\00", align 1
+@.str.126 = private unnamed_addr constant [9 x i8] c"No Match\00", align 1
+@.str.127 = private unnamed_addr constant [29 x i8] c"Enrollee rejected the config\00", align 1
+@.str.128 = private unnamed_addr constant [34 x i8] c"Enrollee failed to discover an AP\00", align 1
+@.str.129 = private unnamed_addr constant [78 x i8] c"Configuration response is not ready yet. The enrollee needs to request again.\00", align 1
+@.str.130 = private unnamed_addr constant [87 x i8] c"Configuration requires a Certificate Signing Request. Enrollee needs to request again.\00", align 1
+@.str.131 = private unnamed_addr constant [45 x i8] c"The Certificate Signing Request was invalid.\00", align 1
+@dpp_status_codes = internal constant [15 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.118 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.119 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.120 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.121 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.122 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.123 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.124 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.125 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.126 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.127 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.128 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.129 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.130 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.131 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.133 = private unnamed_addr constant [9 x i8] c"Reserved\00", align 1
+@.str.134 = private unnamed_addr constant [4 x i8] c"1.0\00", align 1
+@.str.135 = private unnamed_addr constant [11 x i8] c"DPP Status\00", align 1
+@.str.136 = private unnamed_addr constant [37 x i8] c"DPP Initiator Bootstrapping Key Hash\00", align 1
+@.str.137 = private unnamed_addr constant [37 x i8] c"DPP Responder Bootstrapping Key Hash\00", align 1
+@.str.138 = private unnamed_addr constant [27 x i8] c"DPP Initiator Protocol Key\00", align 1
+@.str.139 = private unnamed_addr constant [25 x i8] c"DPP Primary Wrapped Data\00", align 1
+@.str.140 = private unnamed_addr constant [20 x i8] c"DPP Initiator Nonce\00", align 1
+@.str.141 = private unnamed_addr constant [27 x i8] c"DPP Initiator Capabilities\00", align 1
+@.str.142 = private unnamed_addr constant [20 x i8] c"DPP Responder Nonce\00", align 1
+@.str.143 = private unnamed_addr constant [27 x i8] c"DPP Responder Capabilities\00", align 1
+@.str.144 = private unnamed_addr constant [27 x i8] c"DPP Responder Protocol Key\00", align 1
+@.str.145 = private unnamed_addr constant [33 x i8] c"DPP Initiator Authenticating Tag\00", align 1
+@.str.146 = private unnamed_addr constant [33 x i8] c"DPP Responder Authenticating Tag\00", align 1
+@.str.147 = private unnamed_addr constant [25 x i8] c"DPP Configuration Object\00", align 1
+@.str.148 = private unnamed_addr constant [14 x i8] c"DPP Connector\00", align 1
+@.str.149 = private unnamed_addr constant [36 x i8] c"DPP Configuration Attributes Object\00", align 1
+@.str.150 = private unnamed_addr constant [22 x i8] c"DPP Bootstrapping Key\00", align 1
+@.str.151 = private unnamed_addr constant [24 x i8] c"DPP Finite Cyclic Group\00", align 1
+@.str.152 = private unnamed_addr constant [18 x i8] c"DPP Encrypted Key\00", align 1
+@.str.153 = private unnamed_addr constant [20 x i8] c"DPP Code Identifier\00", align 1
+@.str.154 = private unnamed_addr constant [19 x i8] c"DPP Transaction ID\00", align 1
+@.str.155 = private unnamed_addr constant [23 x i8] c"DPP Bootstrapping Info\00", align 1
+@.str.156 = private unnamed_addr constant [12 x i8] c"DPP Channel\00", align 1
+@.str.157 = private unnamed_addr constant [21 x i8] c"DPP Protocol Version\00", align 1
+@.str.158 = private unnamed_addr constant [19 x i8] c"DPP Enveloped Data\00", align 1
+@.str.159 = private unnamed_addr constant [21 x i8] c"DPP Send Conn Status\00", align 1
+@.str.160 = private unnamed_addr constant [16 x i8] c"DPP Conn Status\00", align 1
+@.str.161 = private unnamed_addr constant [19 x i8] c"DPP Reconfig Flags\00", align 1
+@.str.162 = private unnamed_addr constant [20 x i8] c"DPP C-sign key Hash\00", align 1
+@.str.163 = private unnamed_addr constant [27 x i8] c"DPP CSR Attributes Request\00", align 1
+@.str.164 = private unnamed_addr constant [12 x i8] c"DPP A-NONCE\00", align 1
+@.str.165 = private unnamed_addr constant [10 x i8] c"DPP E'-id\00", align 1
+@dpp_ie_attr_ids = internal constant [32 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 4096, [4 x i8] zeroinitializer, ptr @.str.135 }, { i32, [4 x i8], ptr } { i32 4097, [4 x i8] zeroinitializer, ptr @.str.136 }, { i32, [4 x i8], ptr } { i32 4098, [4 x i8] zeroinitializer, ptr @.str.137 }, { i32, [4 x i8], ptr } { i32 4099, [4 x i8] zeroinitializer, ptr @.str.138 }, { i32, [4 x i8], ptr } { i32 4100, [4 x i8] zeroinitializer, ptr @.str.139 }, { i32, [4 x i8], ptr } { i32 4101, [4 x i8] zeroinitializer, ptr @.str.140 }, { i32, [4 x i8], ptr } { i32 4102, [4 x i8] zeroinitializer, ptr @.str.141 }, { i32, [4 x i8], ptr } { i32 4103, [4 x i8] zeroinitializer, ptr @.str.142 }, { i32, [4 x i8], ptr } { i32 4104, [4 x i8] zeroinitializer, ptr @.str.143 }, { i32, [4 x i8], ptr } { i32 4105, [4 x i8] zeroinitializer, ptr @.str.144 }, { i32, [4 x i8], ptr } { i32 4106, [4 x i8] zeroinitializer, ptr @.str.145 }, { i32, [4 x i8], ptr } { i32 4107, [4 x i8] zeroinitializer, ptr @.str.146 }, { i32, [4 x i8], ptr } { i32 4108, [4 x i8] zeroinitializer, ptr @.str.147 }, { i32, [4 x i8], ptr } { i32 4109, [4 x i8] zeroinitializer, ptr @.str.148 }, { i32, [4 x i8], ptr } { i32 4110, [4 x i8] zeroinitializer, ptr @.str.149 }, { i32, [4 x i8], ptr } { i32 4111, [4 x i8] zeroinitializer, ptr @.str.150 }, { i32, [4 x i8], ptr } { i32 4114, [4 x i8] zeroinitializer, ptr @.str.151 }, { i32, [4 x i8], ptr } { i32 4115, [4 x i8] zeroinitializer, ptr @.str.152 }, { i32, [4 x i8], ptr } { i32 4117, [4 x i8] zeroinitializer, ptr @.str.153 }, { i32, [4 x i8], ptr } { i32 4118, [4 x i8] zeroinitializer, ptr @.str.154 }, { i32, [4 x i8], ptr } { i32 4119, [4 x i8] zeroinitializer, ptr @.str.155 }, { i32, [4 x i8], ptr } { i32 4120, [4 x i8] zeroinitializer, ptr @.str.156 }, { i32, [4 x i8], ptr } { i32 4121, [4 x i8] zeroinitializer, ptr @.str.157 }, { i32, [4 x i8], ptr } { i32 4122, [4 x i8] zeroinitializer, ptr @.str.158 }, { i32, [4 x i8], ptr } { i32 4123, [4 x i8] zeroinitializer, ptr @.str.159 }, { i32, [4 x i8], ptr } { i32 4124, [4 x i8] zeroinitializer, ptr @.str.160 }, { i32, [4 x i8], ptr } { i32 4125, [4 x i8] zeroinitializer, ptr @.str.161 }, { i32, [4 x i8], ptr } { i32 4126, [4 x i8] zeroinitializer, ptr @.str.162 }, { i32, [4 x i8], ptr } { i32 4127, [4 x i8] zeroinitializer, ptr @.str.163 }, { i32, [4 x i8], ptr } { i32 4128, [4 x i8] zeroinitializer, ptr @.str.164 }, { i32, [4 x i8], ptr } { i32 4129, [4 x i8] zeroinitializer, ptr @.str.165 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@dpp_action_subtypes = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.101 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.102 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.103 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.104 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.105 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.168 = private unnamed_addr constant [30 x i8] c", DPP - Configuration Request\00", align 1
+@.str.169 = private unnamed_addr constant [31 x i8] c", DPP - Configuration Response\00", align 1
+@.str.170 = private unnamed_addr constant [15 x i8] c"Generic DPP IE\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dissect_wifi_dpp_config_proto(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -255,6 +255,10 @@ define hidden i32 @dissect_wifi_dpp_config_proto(ptr noundef %0, ptr noundef %1,
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
   %13 = load ptr, ptr %7, align 8
   %14 = load i32, ptr %8, align 4
   %15 = call i32 @tvb_reported_length_remaining(ptr noundef %13, i32 noundef %14)
@@ -285,20 +289,32 @@ define hidden i32 @dissect_wifi_dpp_config_proto(ptr noundef %0, ptr noundef %1,
   %35 = call i32 @dissect_wifi_dpp_attributes(ptr noundef %31, ptr noundef %32, ptr noundef %33, i32 noundef %34)
   store i32 %35, ptr %8, align 4
   %36 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
   ret i32 %36
 }
 
-declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #2
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_wifi_dpp_attributes(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -317,8 +333,17 @@ define internal i32 @dissect_wifi_dpp_attributes(ptr noundef %0, ptr noundef %1,
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
   store ptr null, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 2, ptr %14) #3
+  call void @llvm.lifetime.start.p0(i64 2, ptr %15) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #3
   store i32 0, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #3
   %18 = load ptr, ptr %7, align 8
   %19 = load i32, ptr %8, align 4
   %20 = call i32 @tvb_reported_length_remaining(ptr noundef %18, i32 noundef %19)
@@ -333,12 +358,12 @@ define internal i32 @dissect_wifi_dpp_attributes(ptr noundef %0, ptr noundef %1,
 24:                                               ; preds = %21
   %25 = load ptr, ptr %7, align 8
   %26 = load i32, ptr %8, align 4
-  %27 = call zeroext i16 @tvb_get_guint16(ptr noundef %25, i32 noundef %26, i32 noundef -2147483648)
+  %27 = call zeroext i16 @tvb_get_uint16(ptr noundef %25, i32 noundef %26, i32 noundef -2147483648)
   store i16 %27, ptr %14, align 2
   %28 = load ptr, ptr %7, align 8
   %29 = load i32, ptr %8, align 4
   %30 = add i32 %29, 2
-  %31 = call zeroext i16 @tvb_get_guint16(ptr noundef %28, i32 noundef %30, i32 noundef -2147483648)
+  %31 = call zeroext i16 @tvb_get_uint16(ptr noundef %28, i32 noundef %30, i32 noundef -2147483648)
   store i16 %31, ptr %15, align 2
   %32 = load ptr, ptr %6, align 8
   %33 = load ptr, ptr %7, align 8
@@ -414,7 +439,7 @@ define internal i32 @dissect_wifi_dpp_attributes(ptr noundef %0, ptr noundef %1,
 71:                                               ; preds = %24
   %72 = load ptr, ptr %7, align 8
   %73 = load i32, ptr %8, align 4
-  %74 = call zeroext i8 @tvb_get_guint8(ptr noundef %72, i32 noundef %73)
+  %74 = call zeroext i8 @tvb_get_uint8(ptr noundef %72, i32 noundef %73)
   store i8 %74, ptr %10, align 1
   %75 = load ptr, ptr %9, align 8
   %76 = load i8, ptr %10, align 1
@@ -592,7 +617,7 @@ define internal i32 @dissect_wifi_dpp_attributes(ptr noundef %0, ptr noundef %1,
 215:                                              ; preds = %24, %24, %24, %24, %24, %24
   br label %216
 
-216:                                              ; preds = %215, %24
+216:                                              ; preds = %24, %215
   %217 = load ptr, ptr %12, align 8
   %218 = load i32, ptr @hf_wifi_dpp_ie_generic, align 4
   %219 = load ptr, ptr %7, align 8
@@ -620,14 +645,26 @@ define internal i32 @dissect_wifi_dpp_attributes(ptr noundef %0, ptr noundef %1,
   %237 = load i32, ptr %17, align 4
   %238 = sub i32 %237, %236
   store i32 %238, ptr %17, align 4
-  br label %21, !llvm.loop !4
+  br label %21, !llvm.loop !6
 
 239:                                              ; preds = %21
   %240 = load i32, ptr %16, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 2, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 2, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
   ret i32 %240
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dissect_wifi_dpp_public_action(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -644,18 +681,25 @@ define hidden i32 @dissect_wifi_dpp_public_action(ptr noundef %0, ptr noundef %1
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 2, ptr %14) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #3
   store i32 0, ptr %15, align 4
   %16 = load ptr, ptr %6, align 8
-  %17 = getelementptr inbounds %struct._packet_info, ptr %16, i32 0, i32 1
+  %17 = getelementptr inbounds nuw %struct._packet_info, ptr %16, i32 0, i32 1
   %18 = load ptr, ptr %17, align 8
-  call void @col_set_str(ptr noundef %18, i32 noundef 34, ptr noundef @.str.2)
+  call void @col_set_str(ptr noundef %18, i32 noundef 35, ptr noundef @.str.2)
   %19 = load ptr, ptr %5, align 8
   %20 = load i32, ptr %15, align 4
   %21 = add i32 %20, 1
-  %22 = call zeroext i8 @tvb_get_guint8(ptr noundef %19, i32 noundef %21)
+  %22 = call zeroext i8 @tvb_get_uint8(ptr noundef %19, i32 noundef %21)
   store i8 %22, ptr %9, align 1
   %23 = load ptr, ptr %6, align 8
-  %24 = getelementptr inbounds %struct._packet_info, ptr %23, i32 0, i32 1
+  %24 = getelementptr inbounds nuw %struct._packet_info, ptr %23, i32 0, i32 1
   %25 = load ptr, ptr %24, align 8
   %26 = load i8, ptr %9, align 1
   %27 = zext i8 %26 to i32
@@ -730,18 +774,29 @@ define hidden i32 @dissect_wifi_dpp_public_action(ptr noundef %0, ptr noundef %1
 
 81:                                               ; preds = %64, %4
   %82 = load i32, ptr %15, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 2, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #3
   ret i32 %82
 }
 
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #2
 
-declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #2
 
-declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_wifi_dpp() #0 {
   %1 = call i32 @proto_register_protocol(ptr noundef @.str.86, ptr noundef @.str.87, ptr noundef @.str.88)
   store i32 %1, ptr @proto_wifi_dpp, align 4
@@ -768,15 +823,19 @@ define hidden void @proto_register_wifi_dpp() #0 {
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #2
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_wifi_dpp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -787,6 +846,7 @@ define internal i32 @dissect_wifi_dpp(ptr noundef %0, ptr noundef %1, ptr nounde
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load i32, ptr @hf_wifi_dpp_unknown_anqp_item, align 4
@@ -798,10 +858,11 @@ define internal i32 @dissect_wifi_dpp(ptr noundef %0, ptr noundef %1, ptr nounde
   %17 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %12, i32 noundef %13, i32 noundef %16, i32 noundef 0)
   %18 = load ptr, ptr %5, align 8
   %19 = call i32 @tvb_captured_length(ptr noundef %18)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %19
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_wifi_dpp_tcp_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -813,31 +874,30 @@ define internal i32 @dissect_wifi_dpp_tcp_pdus(ptr noundef %0, ptr noundef %1, p
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = call i32 @tvb_bytes_exist(ptr noundef %10, i32 noundef 0, i32 noundef 4)
-  %12 = icmp ne i32 %11, 0
-  br i1 %12, label %14, label %13
+  %11 = call zeroext i1 @tvb_bytes_exist(ptr noundef %10, i32 noundef 0, i32 noundef 4)
+  br i1 %11, label %13, label %12
+
+12:                                               ; preds = %4
+  store i32 0, ptr %5, align 4
+  br label %20
 
 13:                                               ; preds = %4
-  store i32 0, ptr %5, align 4
-  br label %21
+  %14 = load ptr, ptr %6, align 8
+  %15 = load ptr, ptr %7, align 8
+  %16 = load ptr, ptr %8, align 8
+  %17 = load ptr, ptr %9, align 8
+  call void @tcp_dissect_pdus(ptr noundef %14, ptr noundef %15, ptr noundef %16, i1 noundef zeroext true, i32 noundef 4, ptr noundef @get_wifi_dpp_tcp_len, ptr noundef @dissect_wifi_dpp_tcp_pdu, ptr noundef %17)
+  %18 = load ptr, ptr %6, align 8
+  %19 = call i32 @tvb_reported_length(ptr noundef %18)
+  store i32 %19, ptr %5, align 4
+  br label %20
 
-14:                                               ; preds = %4
-  %15 = load ptr, ptr %6, align 8
-  %16 = load ptr, ptr %7, align 8
-  %17 = load ptr, ptr %8, align 8
-  %18 = load ptr, ptr %9, align 8
-  call void @tcp_dissect_pdus(ptr noundef %15, ptr noundef %16, ptr noundef %17, i32 noundef 1, i32 noundef 4, ptr noundef @get_wifi_dpp_tcp_len, ptr noundef @dissect_wifi_dpp_tcp_pdu, ptr noundef %18)
-  %19 = load ptr, ptr %6, align 8
-  %20 = call i32 @tvb_reported_length(ptr noundef %19)
-  store i32 %20, ptr %5, align 4
-  br label %21
-
-21:                                               ; preds = %14, %13
-  %22 = load i32, ptr %5, align 4
-  ret i32 %22
+20:                                               ; preds = %13, %12
+  %21 = load i32, ptr %5, align 4
+  ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_wifi_dpp_ie(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -849,6 +909,8 @@ define internal i32 @dissect_wifi_dpp_ie(ptr noundef %0, ptr noundef %1, ptr nou
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
   %11 = load ptr, ptr %5, align 8
   %12 = call i32 @tvb_reported_length(ptr noundef %11)
   store i32 %12, ptr %10, align 4
@@ -856,7 +918,7 @@ define internal i32 @dissect_wifi_dpp_ie(ptr noundef %0, ptr noundef %1, ptr nou
   %14 = load ptr, ptr %5, align 8
   %15 = load i32, ptr %10, align 4
   %16 = load i32, ptr @ett_wifi_dpp_ie_generic, align 4
-  %17 = call ptr @proto_tree_add_subtree(ptr noundef %13, ptr noundef %14, i32 noundef 0, i32 noundef %15, i32 noundef %16, ptr noundef null, ptr noundef @.str.166)
+  %17 = call ptr @proto_tree_add_subtree(ptr noundef %13, ptr noundef %14, i32 noundef 0, i32 noundef %15, i32 noundef %16, ptr noundef null, ptr noundef @.str.170)
   store ptr %17, ptr %9, align 8
   %18 = load ptr, ptr %9, align 8
   %19 = load i32, ptr @hf_wifi_dpp_ie_generic, align 4
@@ -865,14 +927,18 @@ define internal i32 @dissect_wifi_dpp_ie(ptr noundef %0, ptr noundef %1, ptr nou
   %22 = call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %19, ptr noundef %20, i32 noundef 0, i32 noundef %21, i32 noundef 0)
   %23 = load ptr, ptr %5, align 8
   %24 = call i32 @tvb_captured_length(ptr noundef %23)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
   ret i32 %24
 }
 
-declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) #2
 
-declare void @prefs_register_uint_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @prefs_register_uint_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_wifi_dpp() #0 {
   %1 = load ptr, ptr @wifi_dpp_handle, align 8
   call void @dissector_add_uint(ptr noundef @.str.95, i32 noundef 26, ptr noundef %1)
@@ -880,12 +946,12 @@ define hidden void @proto_reg_handoff_wifi_dpp() #0 {
   call void @dissector_add_uint(ptr noundef @.str.96, i32 noundef 26, ptr noundef %2)
   %3 = load ptr, ptr @wifi_dpp_pubact_handle, align 8
   call void @dissector_add_uint(ptr noundef @.str.97, i32 noundef 26, ptr noundef %3)
-  %4 = load i32, ptr @proto_reg_handoff_wifi_dpp.initialized, align 4
-  %5 = icmp ne i32 %4, 0
+  %4 = load i8, ptr @proto_reg_handoff_wifi_dpp.initialized, align 1, !range !8, !noundef !9
+  %5 = trunc i8 %4 to i1
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %0
-  store i32 1, ptr @proto_reg_handoff_wifi_dpp.initialized, align 4
+  store i8 1, ptr @proto_reg_handoff_wifi_dpp.initialized, align 1
   br label %10
 
 7:                                                ; preds = %0
@@ -903,21 +969,28 @@ define hidden void @proto_reg_handoff_wifi_dpp() #0 {
   ret void
 }
 
-declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare void @dissector_delete_uint(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_delete_uint(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare zeroext i16 @tvb_get_guint16(ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_uint16(ptr noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
-declare i32 @tvb_captured_length(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length(ptr noundef) #2
 
-declare i32 @tvb_bytes_exist(ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @tvb_bytes_exist(ptr noundef, i32 noundef, i32 noundef) #2
 
-declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @get_wifi_dpp_tcp_len(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -928,16 +1001,18 @@ define internal i32 @get_wifi_dpp_tcp_len(ptr noundef %0, ptr noundef %1, i32 no
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   %10 = load ptr, ptr %6, align 8
   %11 = load i32, ptr %7, align 4
   %12 = call i32 @tvb_get_ntohl(ptr noundef %10, i32 noundef %11)
   store i32 %12, ptr %9, align 4
   %13 = load i32, ptr %9, align 4
   %14 = add i32 %13, 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %14
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_wifi_dpp_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -951,11 +1026,14 @@ define internal i32 @dissect_wifi_dpp_tcp_pdu(ptr noundef %0, ptr noundef %1, pt
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   store i32 0, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
   %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds %struct._packet_info, ptr %13, i32 0, i32 1
+  %14 = getelementptr inbounds nuw %struct._packet_info, ptr %13, i32 0, i32 1
   %15 = load ptr, ptr %14, align 8
-  call void @col_set_str(ptr noundef %15, i32 noundef 34, ptr noundef @.str.88)
+  call void @col_set_str(ptr noundef %15, i32 noundef 35, ptr noundef @.str.88)
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr @hf_wifi_dpp_tcp_pdu_length, align 4
   %18 = load ptr, ptr %5, align 8
@@ -966,7 +1044,7 @@ define internal i32 @dissect_wifi_dpp_tcp_pdu(ptr noundef %0, ptr noundef %1, pt
   store i32 %22, ptr %9, align 4
   %23 = load ptr, ptr %5, align 8
   %24 = load i32, ptr %9, align 4
-  %25 = call zeroext i8 @tvb_get_guint8(ptr noundef %23, i32 noundef %24)
+  %25 = call zeroext i8 @tvb_get_uint8(ptr noundef %23, i32 noundef %24)
   store i8 %25, ptr %10, align 1
   %26 = load ptr, ptr %7, align 8
   %27 = load i32, ptr @hf_wifi_dpp_tcp_pdu_action_field, align 4
@@ -1019,9 +1097,9 @@ define internal i32 @dissect_wifi_dpp_tcp_pdu(ptr noundef %0, ptr noundef %1, pt
 
 64:                                               ; preds = %60
   %65 = load ptr, ptr %6, align 8
-  %66 = getelementptr inbounds %struct._packet_info, ptr %65, i32 0, i32 1
+  %66 = getelementptr inbounds nuw %struct._packet_info, ptr %65, i32 0, i32 1
   %67 = load ptr, ptr %66, align 8
-  call void @col_append_str(ptr noundef %67, i32 noundef 25, ptr noundef @.str.164)
+  call void @col_append_str(ptr noundef %67, i32 noundef 25, ptr noundef @.str.168)
   %68 = load ptr, ptr %7, align 8
   %69 = load i32, ptr @hf_wifi_dpp_tcp_dialog_token, align 4
   %70 = load ptr, ptr %5, align 8
@@ -1109,10 +1187,11 @@ define internal i32 @dissect_wifi_dpp_tcp_pdu(ptr noundef %0, ptr noundef %1, pt
   br i1 %138, label %139, label %239
 
 139:                                              ; preds = %135, %131
+  call void @llvm.lifetime.start.p0(i64 2, ptr %12) #3
   %140 = load ptr, ptr %6, align 8
-  %141 = getelementptr inbounds %struct._packet_info, ptr %140, i32 0, i32 1
+  %141 = getelementptr inbounds nuw %struct._packet_info, ptr %140, i32 0, i32 1
   %142 = load ptr, ptr %141, align 8
-  call void @col_append_str(ptr noundef %142, i32 noundef 25, ptr noundef @.str.165)
+  call void @col_append_str(ptr noundef %142, i32 noundef 25, ptr noundef @.str.169)
   %143 = load ptr, ptr %7, align 8
   %144 = load i32, ptr @hf_wifi_dpp_tcp_dialog_token, align 4
   %145 = load ptr, ptr %5, align 8
@@ -1230,6 +1309,7 @@ define internal i32 @dissect_wifi_dpp_tcp_pdu(ptr noundef %0, ptr noundef %1, pt
   br label %238
 
 238:                                              ; preds = %230, %168
+  call void @llvm.lifetime.end.p0(i64 2, ptr %12) #3
   br label %239
 
 239:                                              ; preds = %238, %135
@@ -1240,27 +1320,41 @@ define internal i32 @dissect_wifi_dpp_tcp_pdu(ptr noundef %0, ptr noundef %1, pt
 
 241:                                              ; preds = %240, %36
   %242 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %242
 }
 
-declare i32 @tvb_reported_length(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length(ptr noundef) #2
 
-declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) #2
 
-declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) #2
 
-declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = !{i8 0, i8 2}
+!9 = !{}

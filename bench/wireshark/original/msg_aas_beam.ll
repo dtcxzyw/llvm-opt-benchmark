@@ -3,7 +3,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
 
 @proto_register_mac_mgmt_msg_aas_beam.hf_aas_beam = internal global [11 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_aas_beam_select_index, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 4, i32 1, ptr null, i64 252, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_aas_beam_beam_bit_mask, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 4, i32 2, ptr null, i64 240, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_aas_beam_cinr_value, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_aas_beam_feedback_request_number, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 4, i32 1, ptr null, i64 224, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_aas_beam_frame_number, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_aas_beam_freq_value_im, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_aas_beam_freq_value_re, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_aas_beam_measurement_report_type, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 4, i32 1, ptr @vals_report_types, i64 24, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_aas_beam_select_reserved, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 4, i32 2, ptr null, i64 3, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_aas_beam_resolution_parameter, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 4, i32 1, ptr @vals_resolution_parameter, i64 7, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_aas_beam_rssi_value, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_aas_beam_select_index = internal global i32 0, align 4
@@ -30,14 +29,12 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_aas_beam_measurement_report_type = internal global i32 0, align 4
 @.str.14 = private unnamed_addr constant [24 x i8] c"Measurement Report Type\00", align 1
 @.str.15 = private unnamed_addr constant [37 x i8] c"wmx.aas_beam.measurement_report_type\00", align 1
-@vals_report_types = internal constant [2 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.29 }, %struct._value_string zeroinitializer], align 16
 @hf_aas_beam_select_reserved = internal global i32 0, align 4
 @.str.16 = private unnamed_addr constant [9 x i8] c"Reserved\00", align 1
 @.str.17 = private unnamed_addr constant [22 x i8] c"wmx.aas_beam.reserved\00", align 1
 @hf_aas_beam_resolution_parameter = internal global i32 0, align 4
 @.str.18 = private unnamed_addr constant [21 x i8] c"Resolution Parameter\00", align 1
 @.str.19 = private unnamed_addr constant [34 x i8] c"wmx.aas_beam.resolution_parameter\00", align 1
-@vals_resolution_parameter = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.30 }, %struct._value_string { i32 1, ptr @.str.31 }, %struct._value_string { i32 2, ptr @.str.32 }, %struct._value_string { i32 3, ptr @.str.33 }, %struct._value_string { i32 4, ptr @.str.34 }, %struct._value_string zeroinitializer], align 16
 @hf_aas_beam_rssi_value = internal global i32 0, align 4
 @.str.20 = private unnamed_addr constant [16 x i8] c"RSSI Mean Value\00", align 1
 @.str.21 = private unnamed_addr constant [29 x i8] c"wmx.aas_beam.rssi_mean_value\00", align 1
@@ -55,16 +52,18 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.27 = private unnamed_addr constant [34 x i8] c"mac_mgmt_msg_aas_beam_rsp_handler\00", align 1
 @.str.28 = private unnamed_addr constant [12 x i8] c"wmx.mgmtmsg\00", align 1
 @.str.29 = private unnamed_addr constant [12 x i8] c"BEAM_REP_IE\00", align 1
-@.str.30 = private unnamed_addr constant [28 x i8] c"report every 4th subcarrier\00", align 1
-@.str.31 = private unnamed_addr constant [28 x i8] c"report every 8th subcarrier\00", align 1
-@.str.32 = private unnamed_addr constant [29 x i8] c"report every 16th subcarrier\00", align 1
-@.str.33 = private unnamed_addr constant [29 x i8] c"report every 32nd subcarrier\00", align 1
-@.str.34 = private unnamed_addr constant [29 x i8] c"report every 64th subcarrier\00", align 1
-@.str.35 = private unnamed_addr constant [34 x i8] c"AAS Beam Select (AAS-BEAM-SELECT)\00", align 1
-@.str.36 = private unnamed_addr constant [32 x i8] c"AAS Beam Request (AAS-BEAM-REQ)\00", align 1
-@.str.37 = private unnamed_addr constant [33 x i8] c"AAS Beam Response (AAS-BEAM-RSP)\00", align 1
+@vals_report_types = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.29 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.31 = private unnamed_addr constant [28 x i8] c"report every 4th subcarrier\00", align 1
+@.str.32 = private unnamed_addr constant [28 x i8] c"report every 8th subcarrier\00", align 1
+@.str.33 = private unnamed_addr constant [29 x i8] c"report every 16th subcarrier\00", align 1
+@.str.34 = private unnamed_addr constant [29 x i8] c"report every 32nd subcarrier\00", align 1
+@.str.35 = private unnamed_addr constant [29 x i8] c"report every 64th subcarrier\00", align 1
+@vals_resolution_parameter = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.31 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.32 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.33 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.34 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.35 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.37 = private unnamed_addr constant [34 x i8] c"AAS Beam Select (AAS-BEAM-SELECT)\00", align 1
+@.str.38 = private unnamed_addr constant [32 x i8] c"AAS Beam Request (AAS-BEAM-REQ)\00", align 1
+@.str.39 = private unnamed_addr constant [33 x i8] c"AAS Beam Response (AAS-BEAM-RSP)\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_mac_mgmt_msg_aas_beam() #0 {
   %1 = call i32 @proto_register_protocol(ptr noundef @.str.22, ptr noundef @.str.23, ptr noundef @.str.24)
   store i32 %1, ptr @proto_mac_mgmt_msg_aas_beam_decoder, align 4
@@ -81,15 +80,19 @@ define hidden void @proto_register_mac_mgmt_msg_aas_beam() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mac_mgmt_msg_aas_beam_select_decoder(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -102,12 +105,15 @@ define internal i32 @dissect_mac_mgmt_msg_aas_beam_select_decoder(ptr noundef %0
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   store i32 0, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
   %12 = load ptr, ptr %7, align 8
   %13 = load i32, ptr @proto_mac_mgmt_msg_aas_beam_decoder, align 4
   %14 = load ptr, ptr %5, align 8
   %15 = load i32, ptr %9, align 4
-  %16 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %12, i32 noundef %13, ptr noundef %14, i32 noundef %15, i32 noundef -1, ptr noundef @.str.35)
+  %16 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %12, i32 noundef %13, ptr noundef %14, i32 noundef %15, i32 noundef -1, ptr noundef @.str.37)
   store ptr %16, ptr %10, align 8
   %17 = load ptr, ptr %10, align 8
   %18 = load i32, ptr @ett_mac_mgmt_msg_aas_beam_select_decoder, align 4
@@ -125,10 +131,13 @@ define internal i32 @dissect_mac_mgmt_msg_aas_beam_select_decoder(ptr noundef %0
   %29 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %26, ptr noundef %27, i32 noundef %28, i32 noundef 1, i32 noundef 0)
   %30 = load ptr, ptr %5, align 8
   %31 = call i32 @tvb_captured_length(ptr noundef %30)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %31
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mac_mgmt_msg_aas_beam_req_decoder(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -141,12 +150,15 @@ define internal i32 @dissect_mac_mgmt_msg_aas_beam_req_decoder(ptr noundef %0, p
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   store i32 0, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
   %12 = load ptr, ptr %7, align 8
   %13 = load i32, ptr @proto_mac_mgmt_msg_aas_beam_decoder, align 4
   %14 = load ptr, ptr %5, align 8
   %15 = load i32, ptr %9, align 4
-  %16 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %12, i32 noundef %13, ptr noundef %14, i32 noundef %15, i32 noundef -1, ptr noundef @.str.36)
+  %16 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %12, i32 noundef %13, ptr noundef %14, i32 noundef %15, i32 noundef -1, ptr noundef @.str.38)
   store ptr %16, ptr %10, align 8
   %17 = load ptr, ptr %10, align 8
   %18 = load i32, ptr @ett_mac_mgmt_msg_aas_beam_req_decoder, align 4
@@ -190,10 +202,13 @@ define internal i32 @dissect_mac_mgmt_msg_aas_beam_req_decoder(ptr noundef %0, p
   %53 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %50, ptr noundef %51, i32 noundef %52, i32 noundef 1, i32 noundef 0)
   %54 = load ptr, ptr %5, align 8
   %55 = call i32 @tvb_captured_length(ptr noundef %54)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %55
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mac_mgmt_msg_aas_beam_rsp_decoder(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -210,7 +225,14 @@ define internal i32 @dissect_mac_mgmt_msg_aas_beam_rsp_decoder(ptr noundef %0, p
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   store i32 0, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #3
   %16 = load ptr, ptr %5, align 8
   %17 = call i32 @tvb_reported_length(ptr noundef %16)
   store i32 %17, ptr %10, align 4
@@ -218,7 +240,7 @@ define internal i32 @dissect_mac_mgmt_msg_aas_beam_rsp_decoder(ptr noundef %0, p
   %19 = load i32, ptr @proto_mac_mgmt_msg_aas_beam_decoder, align 4
   %20 = load ptr, ptr %5, align 8
   %21 = load i32, ptr %9, align 4
-  %22 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %18, i32 noundef %19, ptr noundef %20, i32 noundef %21, i32 noundef -1, ptr noundef @.str.37)
+  %22 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %18, i32 noundef %19, ptr noundef %20, i32 noundef %21, i32 noundef -1, ptr noundef @.str.39)
   store ptr %22, ptr %14, align 8
   %23 = load ptr, ptr %14, align 8
   %24 = load i32, ptr @ett_mac_mgmt_msg_aas_beam_rsp_decoder, align 4
@@ -234,7 +256,7 @@ define internal i32 @dissect_mac_mgmt_msg_aas_beam_rsp_decoder(ptr noundef %0, p
   store i32 %32, ptr %9, align 4
   %33 = load ptr, ptr %5, align 8
   %34 = load i32, ptr %9, align 4
-  %35 = call zeroext i8 @tvb_get_guint8(ptr noundef %33, i32 noundef %34)
+  %35 = call zeroext i8 @tvb_get_uint8(ptr noundef %33, i32 noundef %34)
   %36 = zext i8 %35 to i32
   store i32 %36, ptr %11, align 4
   %37 = load ptr, ptr %15, align 8
@@ -312,7 +334,7 @@ define internal i32 @dissect_mac_mgmt_msg_aas_beam_rsp_decoder(ptr noundef %0, p
   %95 = load i32, ptr %13, align 4
   %96 = add i32 %95, 1
   store i32 %96, ptr %13, align 4
-  br label %75, !llvm.loop !4
+  br label %75, !llvm.loop !6
 
 97:                                               ; preds = %75
   br label %98
@@ -333,38 +355,62 @@ define internal i32 @dissect_mac_mgmt_msg_aas_beam_rsp_decoder(ptr noundef %0, p
   %110 = call ptr @proto_tree_add_item(ptr noundef %106, i32 noundef %107, ptr noundef %108, i32 noundef %109, i32 noundef 1, i32 noundef 0)
   %111 = load ptr, ptr %5, align 8
   %112 = call i32 @tvb_captured_length(ptr noundef %111)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %112
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_mac_mgmt_msg_aas_beam() #0 {
   %1 = load ptr, ptr @aas_handle, align 8
   call void @dissector_add_uint(ptr noundef @.str.28, i32 noundef 46, ptr noundef %1)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_protocol_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length(ptr noundef) #1
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}

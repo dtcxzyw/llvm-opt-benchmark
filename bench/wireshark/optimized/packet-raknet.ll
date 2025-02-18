@@ -6,13 +6,11 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
 %struct._value_string = type { i32, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
 %struct.reassembly_table = type { ptr, ptr, ptr, ptr, ptr }
 %struct.reassembly_table_functions = type { ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.raknet_handler_entry = type { %struct._value_string, ptr }
 %struct._fragment_items = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
+%struct.raknet_handler_entry = type { %struct._value_string, ptr }
 %struct._address = type { i32, i32, ptr, ptr }
 
 @.str = private unnamed_addr constant [9 x i8] c"udp.port\00", align 1
@@ -139,7 +137,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_raknet_message_reliability = internal global i32 0, align 4
 @.str.79 = private unnamed_addr constant [12 x i8] c"reliability\00", align 1
 @.str.80 = private unnamed_addr constant [27 x i8] c"raknet.message.reliability\00", align 1
-@raknet_reliability = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.155 }, %struct._value_string { i32 1, ptr @.str.156 }, %struct._value_string { i32 2, ptr @.str.157 }, %struct._value_string { i32 3, ptr @.str.158 }, %struct._value_string { i32 4, ptr @.str.159 }, %struct._value_string zeroinitializer], align 16
 @hf_raknet_message_has_split_packet = internal global i32 0, align 4
 @.str.81 = private unnamed_addr constant [17 x i8] c"has split packet\00", align 1
 @.str.82 = private unnamed_addr constant [32 x i8] c"raknet.message.has_split_packet\00", align 1
@@ -235,7 +232,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_raknet_system_message = internal global i32 0, align 4
 @ett_raknet_fragment = internal global i32 0, align 4
 @ett_raknet_fragments = internal global i32 0, align 4
-@proto_register_raknet.ei = internal global [4 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_raknet_unknown_message_id, %struct.expert_field_info { ptr @.str.137, i32 83886080, i32 6291456, ptr @.str.138, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_raknet_encrypted_message, %struct.expert_field_info { ptr @.str.139, i32 201326592, i32 4194304, ptr @.str.140, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_raknet_subdissector_failed, %struct.expert_field_info { ptr @.str.141, i32 117440512, i32 4194304, ptr @.str.142, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_raknet_ip_ver_invalid, %struct.expert_field_info { ptr @.str.143, i32 150994944, i32 6291456, ptr @.str.144, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_raknet.ei = internal global [4 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_raknet_unknown_message_id, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.137, i32 83886080, i32 6291456, ptr @.str.138, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_raknet_encrypted_message, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.139, i32 201326592, i32 4194304, ptr @.str.140, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_raknet_subdissector_failed, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.141, i32 117440512, i32 4194304, ptr @.str.142, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_raknet_ip_ver_invalid, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.143, i32 150994944, i32 6291456, ptr @.str.144, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_raknet_unknown_message_id = internal global %struct.expert_field zeroinitializer, align 4
 @.str.137 = private unnamed_addr constant [18 x i8] c"raknet.unknown.id\00", align 1
 @.str.138 = private unnamed_addr constant [26 x i8] c"RakNet unknown message ID\00", align 1
@@ -262,8 +259,6 @@ target triple = "x86_64-pc-linux-gnu"
 @raknet_port_dissectors = internal unnamed_addr global ptr null, align 8
 @.str.151 = private unnamed_addr constant [16 x i8] c"RakNet fallback\00", align 1
 @raknet_heur_subdissectors = internal unnamed_addr global ptr null, align 8
-@raknet_offline_message_handlers = internal unnamed_addr constant [14 x %struct.raknet_handler_entry] [%struct.raknet_handler_entry { %struct._value_string { i32 1, ptr @.str.189 }, ptr @raknet_dissect_unconnected_ping }, %struct.raknet_handler_entry { %struct._value_string { i32 2, ptr @.str.190 }, ptr @raknet_dissect_unconnected_ping }, %struct.raknet_handler_entry { %struct._value_string { i32 5, ptr @.str.191 }, ptr @raknet_dissect_open_connection_request_1 }, %struct.raknet_handler_entry { %struct._value_string { i32 6, ptr @.str.192 }, ptr @raknet_dissect_open_connection_reply_1 }, %struct.raknet_handler_entry { %struct._value_string { i32 7, ptr @.str.193 }, ptr @raknet_dissect_open_connection_request_2 }, %struct.raknet_handler_entry { %struct._value_string { i32 8, ptr @.str.194 }, ptr @raknet_dissect_open_connection_reply_2 }, %struct.raknet_handler_entry { %struct._value_string { i32 13, ptr @.str.195 }, ptr @raknet_dissect_connection_failed }, %struct.raknet_handler_entry { %struct._value_string { i32 17, ptr @.str.196 }, ptr @raknet_dissect_connection_failed }, %struct.raknet_handler_entry { %struct._value_string { i32 18, ptr @.str.197 }, ptr @raknet_dissect_connection_failed }, %struct.raknet_handler_entry { %struct._value_string { i32 20, ptr @.str.198 }, ptr @raknet_dissect_connection_failed }, %struct.raknet_handler_entry { %struct._value_string { i32 23, ptr @.str.199 }, ptr @raknet_dissect_connection_failed }, %struct.raknet_handler_entry { %struct._value_string { i32 25, ptr @.str.200 }, ptr @raknet_dissect_incompatible_protocol_version }, %struct.raknet_handler_entry { %struct._value_string { i32 26, ptr @.str.201 }, ptr @raknet_dissect_connection_failed }, %struct.raknet_handler_entry { %struct._value_string { i32 28, ptr @.str.202 }, ptr @raknet_dissect_unconnected_pong }], align 16
-@raknet_system_message_handlers = internal unnamed_addr constant [5 x %struct.raknet_handler_entry] [%struct.raknet_handler_entry { %struct._value_string { i32 0, ptr @.str.207 }, ptr @raknet_dissect_connected_ping }, %struct.raknet_handler_entry { %struct._value_string { i32 3, ptr @.str.208 }, ptr @raknet_dissect_connected_pong }, %struct.raknet_handler_entry { %struct._value_string { i32 9, ptr @.str.209 }, ptr @raknet_dissect_connection_request }, %struct.raknet_handler_entry { %struct._value_string { i32 16, ptr @.str.210 }, ptr @raknet_dissect_connection_request_accepted }, %struct.raknet_handler_entry { %struct._value_string { i32 19, ptr @.str.211 }, ptr @raknet_dissect_new_incoming_connection }], align 16
 @.str.152 = private unnamed_addr constant [4 x i8] c"udp\00", align 1
 @.str.153 = private unnamed_addr constant [16 x i8] c"RakNet over UDP\00", align 1
 @.str.154 = private unnamed_addr constant [11 x i8] c"raknet_udp\00", align 1
@@ -272,101 +267,106 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.157 = private unnamed_addr constant [9 x i8] c"reliable\00", align 1
 @.str.158 = private unnamed_addr constant [17 x i8] c"reliable ordered\00", align 1
 @.str.159 = private unnamed_addr constant [19 x i8] c"reliable sequenced\00", align 1
-@.str.160 = private unnamed_addr constant [18 x i8] c"Encrypted message\00", align 1
-@.str.161 = private unnamed_addr constant [13 x i8] c" (%d octets)\00", align 1
-@.str.162 = private unnamed_addr constant [32 x i8] c"Unknown offline message ID: %#x\00", align 1
-@.str.163 = private unnamed_addr constant [5 x i8] c" %#x\00", align 1
+@raknet_reliability = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.155 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.156 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.157 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.158 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.159 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.161 = private unnamed_addr constant [18 x i8] c"Encrypted message\00", align 1
+@.str.162 = private unnamed_addr constant [13 x i8] c" (%d octets)\00", align 1
+@.str.163 = private unnamed_addr constant [32 x i8] c"Unknown offline message ID: %#x\00", align 1
+@.str.164 = private unnamed_addr constant [5 x i8] c" %#x\00", align 1
 @raknet_dissect_connected_message.ack_flds = internal constant [4 x ptr] [ptr @hf_raknet_packet_is_for_connected, ptr @hf_raknet_packet_is_ACK, ptr @hf_raknet_packet_has_B_and_AS, ptr null], align 16
-@.str.164 = private unnamed_addr constant [6 x i8] c", ACK\00", align 1
+@.str.165 = private unnamed_addr constant [6 x i8] c", ACK\00", align 1
 @raknet_dissect_connected_message.nak_flds = internal constant [4 x ptr] [ptr @hf_raknet_packet_is_for_connected, ptr @hf_raknet_packet_is_ACK, ptr @hf_raknet_packet_is_NAK, ptr null], align 16
-@.str.165 = private unnamed_addr constant [6 x i8] c", NAK\00", align 1
+@.str.166 = private unnamed_addr constant [6 x i8] c", NAK\00", align 1
 @raknet_dissect_connected_message.common_flds = internal constant [7 x ptr] [ptr @hf_raknet_packet_is_for_connected, ptr @hf_raknet_packet_is_ACK, ptr @hf_raknet_packet_is_NAK, ptr @hf_raknet_packet_is_pair, ptr @hf_raknet_packet_is_continuous_send, ptr @hf_raknet_packet_needs_B_and_AS, ptr null], align 16
-@.str.166 = private unnamed_addr constant [14 x i8] c", Message #%u\00", align 1
-@.str.167 = private unnamed_addr constant [6 x i8] c"#%u: \00", align 1
-@.str.168 = private unnamed_addr constant [3 x i8] c", \00", align 1
-@.str.169 = private unnamed_addr constant [4 x i8] c"ACK\00", align 1
-@.str.170 = private unnamed_addr constant [4 x i8] c"NAK\00", align 1
-@.str.171 = private unnamed_addr constant [2 x i8] c" \00", align 1
-@.str.172 = private unnamed_addr constant [4 x i8] c"#%u\00", align 1
-@.str.173 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
-@.str.174 = private unnamed_addr constant [9 x i8] c"%u .. %u\00", align 1
-@.str.175 = private unnamed_addr constant [8 x i8] c"#%u..%u\00", align 1
+@.str.167 = private unnamed_addr constant [14 x i8] c", Message #%u\00", align 1
+@.str.168 = private unnamed_addr constant [6 x i8] c"#%u: \00", align 1
+@.str.169 = private unnamed_addr constant [3 x i8] c", \00", align 1
+@.str.170 = private unnamed_addr constant [4 x i8] c"ACK\00", align 1
+@.str.171 = private unnamed_addr constant [4 x i8] c"NAK\00", align 1
+@.str.172 = private unnamed_addr constant [2 x i8] c" \00", align 1
+@.str.173 = private unnamed_addr constant [4 x i8] c"#%u\00", align 1
+@.str.174 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@.str.175 = private unnamed_addr constant [9 x i8] c"%u .. %u\00", align 1
+@.str.176 = private unnamed_addr constant [8 x i8] c"#%u..%u\00", align 1
 @raknet_dissect_common_message.flag_flds = internal constant [3 x ptr] [ptr @hf_raknet_message_reliability, ptr @hf_raknet_message_has_split_packet, ptr null], align 16
-@.str.176 = private unnamed_addr constant [18 x i8] c" bits (%u octets)\00", align 1
-@.str.177 = private unnamed_addr constant [19 x i8] c"Reassembled packet\00", align 1
+@.str.177 = private unnamed_addr constant [18 x i8] c" bits (%u octets)\00", align 1
+@.str.178 = private unnamed_addr constant [19 x i8] c"Reassembled packet\00", align 1
 @raknet_frag_items = internal constant %struct._fragment_items { ptr @ett_raknet_fragment, ptr @ett_raknet_fragments, ptr @hf_raknet_fragments, ptr @hf_raknet_fragment, ptr @hf_raknet_fragment_overlap, ptr @hf_raknet_fragment_overlap_conflicts, ptr @hf_raknet_fragment_multiple_tails, ptr @hf_raknet_fragment_too_long_fragment, ptr @hf_raknet_fragment_error, ptr @hf_raknet_fragment_count, ptr @hf_raknet_reassembled_in, ptr @hf_raknet_reassembled_length, ptr null, ptr @.str.131 }, align 8
-@.str.178 = private unnamed_addr constant [39 x i8] c"{Message fragment %u/%u; Reassembled} \00", align 1
-@.str.179 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
-@.str.180 = private unnamed_addr constant [25 x i8] c"{Message fragment %u/%u}\00", align 1
-@.str.181 = private unnamed_addr constant [13 x i8] c" (%u octets)\00", align 1
-@.str.182 = private unnamed_addr constant [6 x i8] c" (%s)\00", align 1
-@.str.183 = private unnamed_addr constant [16 x i8] c"Unknown ID: %#x\00", align 1
-@.str.184 = private unnamed_addr constant [12 x i8] c"ID %#x (%s)\00", align 1
-@.str.185 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
-@.str.186 = private unnamed_addr constant [31 x i8] c"Unknown system message ID: %#x\00", align 1
-@.str.187 = private unnamed_addr constant [7 x i8] c"ID %#x\00", align 1
-@.str.188 = private unnamed_addr constant [24 x i8] c"Unknown message ID: %#x\00", align 1
-@.str.189 = private unnamed_addr constant [17 x i8] c"Unconnected Ping\00", align 1
-@.str.190 = private unnamed_addr constant [34 x i8] c"Unconnected Ping Open Connections\00", align 1
-@.str.191 = private unnamed_addr constant [26 x i8] c"Open Connection Request 1\00", align 1
-@.str.192 = private unnamed_addr constant [24 x i8] c"Open Connection Reply 1\00", align 1
-@.str.193 = private unnamed_addr constant [26 x i8] c"Open Connection Request 2\00", align 1
-@.str.194 = private unnamed_addr constant [24 x i8] c"Open Connection Reply 2\00", align 1
-@.str.195 = private unnamed_addr constant [21 x i8] c"Out Of Band Internal\00", align 1
-@.str.196 = private unnamed_addr constant [26 x i8] c"Connection Attempt Failed\00", align 1
-@.str.197 = private unnamed_addr constant [18 x i8] c"Already Connected\00", align 1
-@.str.198 = private unnamed_addr constant [29 x i8] c"No Free Incoming Connections\00", align 1
-@.str.199 = private unnamed_addr constant [18 x i8] c"Connection Banned\00", align 1
-@.str.200 = private unnamed_addr constant [30 x i8] c"Incompatible Protocol Version\00", align 1
-@.str.201 = private unnamed_addr constant [22 x i8] c"IP Recently Connected\00", align 1
-@.str.202 = private unnamed_addr constant [17 x i8] c"Unconnected Pong\00", align 1
-@.str.203 = private unnamed_addr constant [29 x i8] c"Unknown offline message: %#x\00", align 1
-@.str.204 = private unnamed_addr constant [25 x i8] c", Offline message ID %#x\00", align 1
-@.str.205 = private unnamed_addr constant [6 x i8] c"%s:%u\00", align 1
-@.str.206 = private unnamed_addr constant [8 x i8] c"[%s]:%u\00", align 1
-@.str.207 = private unnamed_addr constant [15 x i8] c"Connected Ping\00", align 1
-@.str.208 = private unnamed_addr constant [15 x i8] c"Connected Pong\00", align 1
-@.str.209 = private unnamed_addr constant [19 x i8] c"Connection Request\00", align 1
-@.str.210 = private unnamed_addr constant [28 x i8] c"Connection Request Accepted\00", align 1
-@.str.211 = private unnamed_addr constant [24 x i8] c"New Incoming Connection\00", align 1
+@.str.179 = private unnamed_addr constant [39 x i8] c"{Message fragment %u/%u; Reassembled} \00", align 1
+@.str.180 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
+@.str.181 = private unnamed_addr constant [25 x i8] c"{Message fragment %u/%u}\00", align 1
+@.str.182 = private unnamed_addr constant [13 x i8] c" (%u octets)\00", align 1
+@.str.183 = private unnamed_addr constant [6 x i8] c" (%s)\00", align 1
+@.str.184 = private unnamed_addr constant [16 x i8] c"Unknown ID: %#x\00", align 1
+@.str.185 = private unnamed_addr constant [12 x i8] c"ID %#x (%s)\00", align 1
+@.str.186 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
+@.str.187 = private unnamed_addr constant [31 x i8] c"Unknown system message ID: %#x\00", align 1
+@.str.188 = private unnamed_addr constant [7 x i8] c"ID %#x\00", align 1
+@.str.189 = private unnamed_addr constant [24 x i8] c"Unknown message ID: %#x\00", align 1
+@.str.190 = private unnamed_addr constant [17 x i8] c"Unconnected Ping\00", align 1
+@.str.191 = private unnamed_addr constant [34 x i8] c"Unconnected Ping Open Connections\00", align 1
+@.str.192 = private unnamed_addr constant [26 x i8] c"Open Connection Request 1\00", align 1
+@.str.193 = private unnamed_addr constant [24 x i8] c"Open Connection Reply 1\00", align 1
+@.str.194 = private unnamed_addr constant [26 x i8] c"Open Connection Request 2\00", align 1
+@.str.195 = private unnamed_addr constant [24 x i8] c"Open Connection Reply 2\00", align 1
+@.str.196 = private unnamed_addr constant [21 x i8] c"Out Of Band Internal\00", align 1
+@.str.197 = private unnamed_addr constant [26 x i8] c"Connection Attempt Failed\00", align 1
+@.str.198 = private unnamed_addr constant [18 x i8] c"Already Connected\00", align 1
+@.str.199 = private unnamed_addr constant [29 x i8] c"No Free Incoming Connections\00", align 1
+@.str.200 = private unnamed_addr constant [18 x i8] c"Connection Banned\00", align 1
+@.str.201 = private unnamed_addr constant [30 x i8] c"Incompatible Protocol Version\00", align 1
+@.str.202 = private unnamed_addr constant [22 x i8] c"IP Recently Connected\00", align 1
+@.str.203 = private unnamed_addr constant [17 x i8] c"Unconnected Pong\00", align 1
+@raknet_offline_message_handlers = internal unnamed_addr constant [14 x { { i32, [4 x i8], ptr }, ptr }] [{ { i32, [4 x i8], ptr }, ptr } { { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.190 }, ptr @raknet_dissect_unconnected_ping }, { { i32, [4 x i8], ptr }, ptr } { { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.191 }, ptr @raknet_dissect_unconnected_ping }, { { i32, [4 x i8], ptr }, ptr } { { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.192 }, ptr @raknet_dissect_open_connection_request_1 }, { { i32, [4 x i8], ptr }, ptr } { { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.193 }, ptr @raknet_dissect_open_connection_reply_1 }, { { i32, [4 x i8], ptr }, ptr } { { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.194 }, ptr @raknet_dissect_open_connection_request_2 }, { { i32, [4 x i8], ptr }, ptr } { { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.195 }, ptr @raknet_dissect_open_connection_reply_2 }, { { i32, [4 x i8], ptr }, ptr } { { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.196 }, ptr @raknet_dissect_connection_failed }, { { i32, [4 x i8], ptr }, ptr } { { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.197 }, ptr @raknet_dissect_connection_failed }, { { i32, [4 x i8], ptr }, ptr } { { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.198 }, ptr @raknet_dissect_connection_failed }, { { i32, [4 x i8], ptr }, ptr } { { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.199 }, ptr @raknet_dissect_connection_failed }, { { i32, [4 x i8], ptr }, ptr } { { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.200 }, ptr @raknet_dissect_connection_failed }, { { i32, [4 x i8], ptr }, ptr } { { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.201 }, ptr @raknet_dissect_incompatible_protocol_version }, { { i32, [4 x i8], ptr }, ptr } { { i32, [4 x i8], ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.202 }, ptr @raknet_dissect_connection_failed }, { { i32, [4 x i8], ptr }, ptr } { { i32, [4 x i8], ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.203 }, ptr @raknet_dissect_unconnected_pong }], align 16
+@.str.205 = private unnamed_addr constant [29 x i8] c"Unknown offline message: %#x\00", align 1
+@.str.206 = private unnamed_addr constant [25 x i8] c", Offline message ID %#x\00", align 1
+@.str.207 = private unnamed_addr constant [6 x i8] c"%s:%u\00", align 1
+@.str.208 = private unnamed_addr constant [8 x i8] c"[%s]:%u\00", align 1
+@.str.209 = private unnamed_addr constant [15 x i8] c"Connected Ping\00", align 1
+@.str.210 = private unnamed_addr constant [15 x i8] c"Connected Pong\00", align 1
+@.str.211 = private unnamed_addr constant [19 x i8] c"Connection Request\00", align 1
+@.str.212 = private unnamed_addr constant [28 x i8] c"Connection Request Accepted\00", align 1
+@.str.213 = private unnamed_addr constant [24 x i8] c"New Incoming Connection\00", align 1
+@raknet_system_message_handlers = internal unnamed_addr constant [5 x { { i32, [4 x i8], ptr }, ptr }] [{ { i32, [4 x i8], ptr }, ptr } { { i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.209 }, ptr @raknet_dissect_connected_ping }, { { i32, [4 x i8], ptr }, ptr } { { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.210 }, ptr @raknet_dissect_connected_pong }, { { i32, [4 x i8], ptr }, ptr } { { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.211 }, ptr @raknet_dissect_connection_request }, { { i32, [4 x i8], ptr }, ptr } { { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.212 }, ptr @raknet_dissect_connection_request_accepted }, { { i32, [4 x i8], ptr }, ptr } { { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.213 }, ptr @raknet_dissect_new_incoming_connection }], align 16
 @RAKNET_OFFLINE_MESSAGE_DATA_ID = internal global [16 x i8] c"\00\FF\FF\00\FE\FE\FE\FE\FD\FD\FD\FD\124Vx", align 16
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @raknet_add_udp_dissector(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @raknet_handle, align 8
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str, i32 noundef %0, ptr noundef %3) #3
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.1, i32 noundef %0, ptr noundef %1) #3
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str, i32 noundef %0, ptr noundef %3)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.1, i32 noundef %0, ptr noundef %1)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @raknet_delete_udp_dissector(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @raknet_handle, align 8
-  tail call void @dissector_delete_uint(ptr noundef nonnull @.str, i32 noundef %0, ptr noundef %3) #3
-  tail call void @dissector_delete_uint(ptr noundef nonnull @.str.1, i32 noundef %0, ptr noundef %1) #3
+  tail call void @dissector_delete_uint(ptr noundef nonnull @.str, i32 noundef %0, ptr noundef %3)
+  tail call void @dissector_delete_uint(ptr noundef nonnull @.str.1, i32 noundef %0, ptr noundef %1)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_delete_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @raknet_conversation_set_dissector(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %0) #3
+  %3 = tail call ptr @find_or_create_conversation(ptr noundef %0)
   %4 = load i32, ptr @proto_raknet, align 4
-  %5 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %3, i32 noundef %4) #3
+  %5 = tail call ptr @conversation_get_proto_data(ptr noundef %3, i32 noundef %4)
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %raknet_get_session_state.exit
 
 7:                                                ; preds = %2
-  %8 = tail call ptr @wmem_file_scope() #3
-  %9 = tail call noalias ptr @wmem_alloc(ptr noundef %8, i64 noundef 16) #3
-  store i32 0, ptr %9, align 8
+  %8 = tail call ptr @wmem_file_scope()
+  %9 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %8, i64 noundef 16) #4
+  store i8 0, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr null, ptr %10, align 8
   %11 = load i32, ptr @proto_raknet, align 4
-  tail call void @conversation_add_proto_data(ptr noundef nonnull %3, i32 noundef %11, ptr noundef nonnull %9) #3
+  tail call void @conversation_add_proto_data(ptr noundef %3, i32 noundef %11, ptr noundef %9)
   br label %raknet_get_session_state.exit
 
 raknet_get_session_state.exit:                    ; preds = %2, %7
@@ -376,7 +376,13 @@ raknet_get_session_state.exit:                    ; preds = %2, %7
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_raknet() local_unnamed_addr #0 {
   br label %1
 
@@ -392,7 +398,7 @@ define hidden void @proto_register_raknet() local_unnamed_addr #0 {
   store ptr %6, ptr %7, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 14
-  br i1 %exitcond.not.i, label %8, label %1, !llvm.loop !4
+  br i1 %exitcond.not.i, label %8, label %1, !llvm.loop !6
 
 8:                                                ; preds = %1
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @raknet_offline_message_names, i64 224), align 16
@@ -411,52 +417,59 @@ define hidden void @proto_register_raknet() local_unnamed_addr #0 {
   store ptr %14, ptr %15, align 8
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
   %exitcond20.not.i = icmp eq i64 %indvars.iv.next18.i, 5
-  br i1 %exitcond20.not.i, label %raknet_init_message_names.exit, label %9, !llvm.loop !6
+  br i1 %exitcond20.not.i, label %raknet_init_message_names.exit, label %9, !llvm.loop !8
 
 raknet_init_message_names.exit:                   ; preds = %9
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @raknet_system_message_names, i64 80), align 16
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @raknet_system_message_names, i64 88), align 8
-  %16 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.145, ptr noundef nonnull @.str.146, ptr noundef nonnull @.str.147) #3
+  %16 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.145, ptr noundef nonnull @.str.146, ptr noundef nonnull @.str.147)
   store i32 %16, ptr @proto_raknet, align 4
-  %17 = tail call ptr @expert_register_protocol(i32 noundef %16) #3
-  tail call void @expert_register_field_array(ptr noundef %17, ptr noundef nonnull @proto_register_raknet.ei, i32 noundef 4) #3
+  %17 = tail call ptr @expert_register_protocol(i32 noundef %16)
+  tail call void @expert_register_field_array(ptr noundef %17, ptr noundef nonnull @proto_register_raknet.ei, i32 noundef 4)
   %18 = load i32, ptr @proto_raknet, align 4
-  tail call void @proto_register_field_array(i32 noundef %18, ptr noundef nonnull @proto_register_raknet.hf, i32 noundef 68) #3
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_raknet.ett, i32 noundef 9) #3
-  tail call void @reassembly_table_register(ptr noundef nonnull @raknet_reassembly_table, ptr noundef nonnull @addresses_ports_reassembly_table_functions) #3
+  tail call void @proto_register_field_array(i32 noundef %18, ptr noundef nonnull @proto_register_raknet.hf, i32 noundef 68)
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_raknet.ett, i32 noundef 9)
+  tail call void @reassembly_table_register(ptr noundef nonnull @raknet_reassembly_table, ptr noundef nonnull @addresses_ports_reassembly_table_functions)
   %19 = load i32, ptr @proto_raknet, align 4
-  %20 = tail call ptr @register_dissector(ptr noundef nonnull @.str.147, ptr noundef nonnull @dissect_raknet, i32 noundef %19) #3
+  %20 = tail call ptr @register_dissector(ptr noundef nonnull @.str.147, ptr noundef nonnull @dissect_raknet, i32 noundef %19)
   store ptr %20, ptr @raknet_handle, align 8
   %21 = load i32, ptr @proto_raknet, align 4
-  %22 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.148, i32 noundef %21, i32 noundef 4, i32 noundef 2) #3
+  %22 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.148, i32 noundef %21, i32 noundef 4, i32 noundef 2)
   store ptr %22, ptr @raknet_offline_message_dissectors, align 8
   %23 = load i32, ptr @proto_raknet, align 4
-  %24 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.104, ptr noundef nonnull @.str.149, i32 noundef %23, i32 noundef 4, i32 noundef 2) #3
+  %24 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.104, ptr noundef nonnull @.str.149, i32 noundef %23, i32 noundef 4, i32 noundef 2)
   store ptr %24, ptr @raknet_system_message_dissectors, align 8
   %25 = load i32, ptr @proto_raknet, align 4
-  %26 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.150, i32 noundef %25, i32 noundef 5, i32 noundef 1) #3
+  %26 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.150, i32 noundef %25, i32 noundef 5, i32 noundef 1)
   store ptr %26, ptr @raknet_port_dissectors, align 8
   %27 = load i32, ptr @proto_raknet, align 4
-  %28 = tail call ptr @register_heur_dissector_list_with_description(ptr noundef nonnull @.str.147, ptr noundef nonnull @.str.151, i32 noundef %27) #3
+  %28 = tail call ptr @register_heur_dissector_list_with_description(ptr noundef nonnull @.str.147, ptr noundef nonnull @.str.151, i32 noundef %27)
   store ptr %28, ptr @raknet_heur_subdissectors, align 8
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @reassembly_table_register(ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_raknet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
@@ -465,492 +478,491 @@ define internal i32 @dissect_raknet(ptr noundef %0, ptr noundef %1, ptr noundef 
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
-  %12 = alloca i32, align 4
+  %12 = alloca i8, align 1
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
-  tail call void @col_set_str(ptr noundef %14, i32 noundef 34, ptr noundef nonnull @.str.146) #3
+  tail call void @col_set_str(ptr noundef %14, i32 noundef 35, ptr noundef nonnull @.str.146)
   %15 = load ptr, ptr %13, align 8
-  tail call void @col_clear(ptr noundef %15, i32 noundef 25) #3
-  %16 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
+  tail call void @col_clear(ptr noundef %15, i32 noundef 25)
+  %16 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %17 = load ptr, ptr @raknet_offline_message_dissectors, align 8
   %18 = zext i8 %16 to i32
-  %19 = tail call i32 @dissector_try_uint_new(ptr noundef %17, i32 noundef %18, ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, ptr noundef %3) #3
+  %19 = tail call i32 @dissector_try_uint_with_data(ptr noundef %17, i32 noundef %18, ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, ptr noundef %3)
   %.not = icmp eq i32 %19, 0
-  br i1 %.not, label %20, label %257
+  br i1 %.not, label %20, label %raknet_dissect_connected_message.exit
 
 20:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
-  %21 = tail call nonnull ptr @find_or_create_conversation(ptr noundef nonnull %1) #3
+  %21 = tail call ptr @find_or_create_conversation(ptr noundef %1)
   %22 = load i32, ptr @proto_raknet, align 4
-  %23 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %21, i32 noundef %22) #3
+  %23 = tail call ptr @conversation_get_proto_data(ptr noundef %21, i32 noundef %22)
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %raknet_get_session_state.exit.i
 
 25:                                               ; preds = %20
-  %26 = tail call ptr @wmem_file_scope() #3
-  %27 = tail call noalias ptr @wmem_alloc(ptr noundef %26, i64 noundef 16) #3
-  store i32 0, ptr %27, align 8
+  %26 = tail call ptr @wmem_file_scope()
+  %27 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %26, i64 noundef 16) #4
+  store i8 0, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr null, ptr %28, align 8
   %29 = load i32, ptr @proto_raknet, align 4
-  tail call void @conversation_add_proto_data(ptr noundef nonnull %21, i32 noundef %29, ptr noundef nonnull %27) #3
+  tail call void @conversation_add_proto_data(ptr noundef %21, i32 noundef %29, ptr noundef %27)
   br label %raknet_get_session_state.exit.i
 
 raknet_get_session_state.exit.i:                  ; preds = %25, %20
   %.0.i.i = phi ptr [ %27, %25 ], [ %23, %20 ]
-  %30 = load i32, ptr %.0.i.i, align 8
-  %.not.i = icmp eq i32 %30, 0
-  br i1 %.not.i, label %36, label %31
+  %30 = load i8, ptr %.0.i.i, align 8, !range !9, !noundef !10
+  %31 = trunc nuw i8 %30 to i1
+  br i1 %31, label %32, label %37
 
-31:                                               ; preds = %raknet_get_session_state.exit.i
-  %32 = load ptr, ptr %13, align 8
-  tail call void @col_add_str(ptr noundef %32, i32 noundef 25, ptr noundef nonnull @.str.160) #3
-  %33 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #3
-  %34 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_raknet_encrypted_message, ptr noundef %0, i32 noundef 0, i32 noundef %33) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %34, ptr noundef nonnull @.str.161, i32 noundef %33) #3
-  %35 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
+32:                                               ; preds = %raknet_get_session_state.exit.i
+  %33 = load ptr, ptr %13, align 8
+  tail call void @col_set_str(ptr noundef %33, i32 noundef 25, ptr noundef nonnull @.str.161)
+  %34 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
+  %35 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_raknet_encrypted_message, ptr noundef %0, i32 noundef 0, i32 noundef %34)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %35, ptr noundef nonnull @.str.162, i32 noundef %34)
+  %36 = tail call i32 @tvb_captured_length(ptr noundef %0)
   br label %raknet_dissect_connected_message.exit
 
-36:                                               ; preds = %raknet_get_session_state.exit.i
-  %37 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
-  %38 = zext i8 %37 to i32
-  %.not93.i = icmp sgt i8 %37, -1
-  br i1 %.not93.i, label %39, label %43
+37:                                               ; preds = %raknet_get_session_state.exit.i
+  %38 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
+  %39 = zext i8 %38 to i32
+  %.not.i = icmp sgt i8 %38, -1
+  br i1 %.not.i, label %40, label %44
 
-39:                                               ; preds = %36
-  %40 = load ptr, ptr %13, align 8
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %40, i32 noundef 25, ptr noundef nonnull @.str.162, i32 noundef %38) #3
-  %41 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_raknet_unknown_message_id, ptr noundef %0, i32 noundef 0, i32 noundef 1) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %41, ptr noundef nonnull @.str.163, i32 noundef %38) #3
-  %42 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
+40:                                               ; preds = %37
+  %41 = load ptr, ptr %13, align 8
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %41, i32 noundef 25, ptr noundef nonnull @.str.163, i32 noundef %39)
+  %42 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_raknet_unknown_message_id, ptr noundef %0, i32 noundef 0, i32 noundef 1)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %42, ptr noundef nonnull @.str.164, i32 noundef %39)
+  %43 = tail call i32 @tvb_captured_length(ptr noundef %0)
   br label %raknet_dissect_connected_message.exit
 
-43:                                               ; preds = %36
-  %44 = and i32 %38, 64
-  %.not94.i = icmp eq i32 %44, 0
-  br i1 %.not94.i, label %62, label %45
+44:                                               ; preds = %37
+  %45 = and i32 %39, 64
+  %.not97.i = icmp eq i32 %45, 0
+  br i1 %.not97.i, label %63, label %46
 
-45:                                               ; preds = %43
-  %46 = load i32, ptr @proto_raknet, align 4
-  %47 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %46, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %47, ptr noundef nonnull @.str.164) #3
-  %48 = load i32, ptr @ett_raknet, align 4
-  %49 = tail call ptr @proto_item_add_subtree(ptr noundef %47, i32 noundef %48) #3
-  %50 = load i32, ptr @hf_raknet_packet_type, align 4
-  %51 = load i32, ptr @ett_raknet_packet_type, align 4
-  %52 = tail call ptr @proto_tree_add_bitmask(ptr noundef %49, ptr noundef %0, i32 noundef 0, i32 noundef %50, i32 noundef %51, ptr noundef nonnull @raknet_dissect_connected_message.ack_flds, i32 noundef 0) #3
-  %53 = and i32 %38, 32
-  %.not97.i = icmp eq i32 %53, 0
-  br i1 %.not97.i, label %57, label %54
+46:                                               ; preds = %44
+  %47 = load i32, ptr @proto_raknet, align 4
+  %48 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %47, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %48, ptr noundef nonnull @.str.165)
+  %49 = load i32, ptr @ett_raknet, align 4
+  %50 = tail call ptr @proto_item_add_subtree(ptr noundef %48, i32 noundef %49)
+  %51 = load i32, ptr @hf_raknet_packet_type, align 4
+  %52 = load i32, ptr @ett_raknet_packet_type, align 4
+  %53 = tail call ptr @proto_tree_add_bitmask(ptr noundef %50, ptr noundef %0, i32 noundef 0, i32 noundef %51, i32 noundef %52, ptr noundef nonnull @raknet_dissect_connected_message.ack_flds, i32 noundef 0)
+  %54 = and i32 %39, 32
+  %.not100.i = icmp eq i32 %54, 0
+  br i1 %.not100.i, label %58, label %55
 
-54:                                               ; preds = %45
-  %55 = load i32, ptr @hf_raknet_AS, align 4
-  %56 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %55, ptr noundef %0, i32 noundef 1, i32 noundef 4, i32 noundef 0) #3
-  br label %57
+55:                                               ; preds = %46
+  %56 = load i32, ptr @hf_raknet_AS, align 4
+  %57 = tail call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %56, ptr noundef %0, i32 noundef 1, i32 noundef 4, i32 noundef 0)
+  br label %58
 
-57:                                               ; preds = %54, %45
-  %.088.i = phi i32 [ 5, %54 ], [ 1, %45 ]
-  %.not98.i = icmp eq ptr %49, null
-  br i1 %.not98.i, label %60, label %58
+58:                                               ; preds = %55, %46
+  %.090.i = phi i32 [ 5, %55 ], [ 1, %46 ]
+  %.not101.i = icmp eq ptr %50, null
+  br i1 %.not101.i, label %61, label %59
 
-58:                                               ; preds = %57
-  %59 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.088.i) #3
-  tail call fastcc void @raknet_dissect_ACK(ptr noundef %59, ptr noundef nonnull %1, ptr noundef %49, i32 1)
+59:                                               ; preds = %58
+  %60 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.090.i)
+  tail call fastcc void @raknet_dissect_ACK(ptr noundef %60, ptr noundef %1, ptr noundef %50, i8 1)
   br label %raknet_dissect_connected_message.exit
 
-60:                                               ; preds = %57
-  %61 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
+61:                                               ; preds = %58
+  %62 = tail call i32 @tvb_captured_length(ptr noundef %0)
   br label %raknet_dissect_connected_message.exit
 
-62:                                               ; preds = %43
-  %63 = and i32 %38, 32
-  %.not95.i = icmp eq i32 %63, 0
-  br i1 %.not95.i, label %76, label %64
+63:                                               ; preds = %44
+  %64 = and i32 %39, 32
+  %.not98.i = icmp eq i32 %64, 0
+  br i1 %.not98.i, label %77, label %65
 
-64:                                               ; preds = %62
-  %65 = load i32, ptr @proto_raknet, align 4
-  %66 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %65, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %66, ptr noundef nonnull @.str.165) #3
-  %67 = load i32, ptr @ett_raknet, align 4
-  %68 = tail call ptr @proto_item_add_subtree(ptr noundef %66, i32 noundef %67) #3
-  %69 = load i32, ptr @hf_raknet_packet_type, align 4
-  %70 = load i32, ptr @ett_raknet_packet_type, align 4
-  %71 = tail call ptr @proto_tree_add_bitmask(ptr noundef %68, ptr noundef %0, i32 noundef 0, i32 noundef %69, i32 noundef %70, ptr noundef nonnull @raknet_dissect_connected_message.nak_flds, i32 noundef 0) #3
-  %.not96.i = icmp eq ptr %68, null
-  br i1 %.not96.i, label %74, label %72
+65:                                               ; preds = %63
+  %66 = load i32, ptr @proto_raknet, align 4
+  %67 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %66, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %67, ptr noundef nonnull @.str.166)
+  %68 = load i32, ptr @ett_raknet, align 4
+  %69 = tail call ptr @proto_item_add_subtree(ptr noundef %67, i32 noundef %68)
+  %70 = load i32, ptr @hf_raknet_packet_type, align 4
+  %71 = load i32, ptr @ett_raknet_packet_type, align 4
+  %72 = tail call ptr @proto_tree_add_bitmask(ptr noundef %69, ptr noundef %0, i32 noundef 0, i32 noundef %70, i32 noundef %71, ptr noundef nonnull @raknet_dissect_connected_message.nak_flds, i32 noundef 0)
+  %.not99.i = icmp eq ptr %69, null
+  br i1 %.not99.i, label %75, label %73
 
-72:                                               ; preds = %64
-  %73 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 1) #3
-  tail call fastcc void @raknet_dissect_ACK(ptr noundef %73, ptr noundef nonnull %1, ptr noundef %68, i32 0)
+73:                                               ; preds = %65
+  %74 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 1)
+  tail call fastcc void @raknet_dissect_ACK(ptr noundef %74, ptr noundef %1, ptr noundef %69, i8 0)
   br label %raknet_dissect_connected_message.exit
 
-74:                                               ; preds = %64
-  %75 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
+75:                                               ; preds = %65
+  %76 = tail call i32 @tvb_captured_length(ptr noundef %0)
   br label %raknet_dissect_connected_message.exit
 
-76:                                               ; preds = %62
-  store i32 0, ptr %12, align 4
-  %77 = load i32, ptr @proto_raknet, align 4
-  %78 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %77, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #3
-  %79 = load i32, ptr @ett_raknet, align 4
-  %80 = tail call ptr @proto_item_add_subtree(ptr noundef %78, i32 noundef %79) #3
-  %81 = load i32, ptr @hf_raknet_packet_type, align 4
-  %82 = load i32, ptr @ett_raknet_packet_type, align 4
-  %83 = tail call ptr @proto_tree_add_bitmask(ptr noundef %80, ptr noundef %0, i32 noundef 0, i32 noundef %81, i32 noundef %82, ptr noundef nonnull @raknet_dissect_connected_message.common_flds, i32 noundef 0) #3
-  %84 = load i32, ptr @hf_raknet_packet_number, align 4
-  %85 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %80, i32 noundef %84, ptr noundef %0, i32 noundef 1, i32 noundef 3, i32 noundef -2147483648, ptr noundef nonnull %11) #3
-  %86 = load i32, ptr %11, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %78, ptr noundef nonnull @.str.166, i32 noundef %86) #3
-  %87 = load ptr, ptr %13, align 8
-  %88 = load i32, ptr %11, align 4
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %87, i32 noundef 25, ptr noundef nonnull @.str.167, i32 noundef %88) #3
-  %89 = load ptr, ptr %13, align 8
-  call void @col_set_fence(ptr noundef %89, i32 noundef 25) #3
-  call void @proto_item_set_len(ptr noundef %78, i32 noundef 4) #3
-  %90 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %91 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  %92 = getelementptr inbounds nuw i8, ptr %1, i64 292
-  br label %93
+77:                                               ; preds = %63
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #5
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #5
+  store i8 0, ptr %12, align 1
+  %78 = load i32, ptr @proto_raknet, align 4
+  %79 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %78, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %80 = load i32, ptr @ett_raknet, align 4
+  %81 = tail call ptr @proto_item_add_subtree(ptr noundef %79, i32 noundef %80)
+  %82 = load i32, ptr @hf_raknet_packet_type, align 4
+  %83 = load i32, ptr @ett_raknet_packet_type, align 4
+  %84 = tail call ptr @proto_tree_add_bitmask(ptr noundef %81, ptr noundef %0, i32 noundef 0, i32 noundef %82, i32 noundef %83, ptr noundef nonnull @raknet_dissect_connected_message.common_flds, i32 noundef 0)
+  %85 = load i32, ptr @hf_raknet_packet_number, align 4
+  %86 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %81, i32 noundef %85, ptr noundef %0, i32 noundef 1, i32 noundef 3, i32 noundef -2147483648, ptr noundef nonnull %11)
+  %87 = load i32, ptr %11, align 4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %79, ptr noundef nonnull @.str.167, i32 noundef %87)
+  %88 = load ptr, ptr %13, align 8
+  %89 = load i32, ptr %11, align 4
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %88, i32 noundef 25, ptr noundef nonnull @.str.168, i32 noundef %89)
+  %90 = load ptr, ptr %13, align 8
+  call void @col_set_fence(ptr noundef %90, i32 noundef 25)
+  call void @proto_item_set_len(ptr noundef %79, i32 noundef 4)
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 272
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 292
+  br label %94
 
-93:                                               ; preds = %252, %76
-  %.1.i = phi i32 [ 4, %76 ], [ %249, %252 ]
-  %94 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.1.i) #3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
-  %95 = call ptr @proto_tree_get_parent(ptr noundef %80) #3
-  %96 = load i32, ptr @hf_raknet_message, align 4
-  %97 = call ptr @proto_tree_add_item(ptr noundef %80, i32 noundef %96, ptr noundef %94, i32 noundef 0, i32 noundef -1, i32 noundef 0) #3
-  %98 = load i32, ptr @ett_raknet_message, align 4
-  %99 = call ptr @proto_item_add_subtree(ptr noundef %97, i32 noundef %98) #3
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %97, ptr noundef nonnull @.str.168) #3
-  %100 = load i32, ptr @hf_raknet_message_flags, align 4
-  %101 = load i32, ptr @ett_raknet_message_flags, align 4
-  %102 = call ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef %99, ptr noundef %94, i32 noundef 0, i32 noundef %100, i32 noundef %101, ptr noundef nonnull @raknet_dissect_common_message.flag_flds, i32 noundef 0, ptr noundef nonnull %5) #3
-  %103 = load i32, ptr @hf_raknet_payload_length, align 4
-  %104 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %99, i32 noundef %103, ptr noundef %94, i32 noundef 1, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %6) #3
-  %105 = load i32, ptr %6, align 4
-  %106 = lshr i32 %105, 3
-  %107 = and i32 %105, 7
-  %108 = icmp ne i32 %107, 0
-  %109 = zext i1 %108 to i32
-  %110 = add nuw nsw i32 %106, %109
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %104, ptr noundef nonnull @.str.176, i32 noundef %110) #3
-  %111 = load i64, ptr %5, align 8
-  %112 = trunc i64 %111 to i32
-  %113 = lshr i32 %112, 5
-  %114 = and i32 %113, 7
-  %115 = and i64 %111, 16
-  %.not.i.i = icmp eq i64 %115, 0
-  %116 = icmp eq i32 %114, 4
-  %117 = and i32 %112, 192
-  %118 = icmp eq i32 %117, 64
-  %or.cond3.i.i = or i1 %118, %116
-  br i1 %or.cond3.i.i, label %119, label %122
+94:                                               ; preds = %254, %77
+  %.191.i = phi i32 [ 4, %77 ], [ %251, %254 ]
+  %95 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.191.i)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
+  %96 = call ptr @proto_tree_get_parent(ptr noundef %81)
+  %97 = load i32, ptr @hf_raknet_message, align 4
+  %98 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %97, ptr noundef %95, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  %99 = load i32, ptr @ett_raknet_message, align 4
+  %100 = call ptr @proto_item_add_subtree(ptr noundef %98, i32 noundef %99)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %98, ptr noundef nonnull @.str.169)
+  %101 = load i32, ptr @hf_raknet_message_flags, align 4
+  %102 = load i32, ptr @ett_raknet_message_flags, align 4
+  %103 = call ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef %100, ptr noundef %95, i32 noundef 0, i32 noundef %101, i32 noundef %102, ptr noundef nonnull @raknet_dissect_common_message.flag_flds, i32 noundef 0, ptr noundef nonnull %5)
+  %104 = load i32, ptr @hf_raknet_payload_length, align 4
+  %105 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %100, i32 noundef %104, ptr noundef %95, i32 noundef 1, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %6)
+  %106 = load i32, ptr %6, align 4
+  %107 = lshr i32 %106, 3
+  %108 = and i32 %106, 7
+  %109 = icmp ne i32 %108, 0
+  %110 = zext i1 %109 to i32
+  %111 = add nuw nsw i32 %107, %110
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %105, ptr noundef nonnull @.str.177, i32 noundef %111)
+  %112 = load i64, ptr %5, align 8
+  %113 = trunc i64 %112 to i32
+  %114 = lshr i32 %113, 5
+  %115 = and i32 %114, 7
+  %116 = and i64 %112, 16
+  %.not.i.i = icmp ne i64 %116, 0
+  %117 = icmp eq i32 %115, 4
+  %118 = and i32 %113, 192
+  %119 = icmp eq i32 %118, 64
+  %or.cond3.i.i = or i1 %119, %117
+  br i1 %or.cond3.i.i, label %120, label %123
 
-119:                                              ; preds = %93
-  %120 = load i32, ptr @hf_raknet_reliable_message_number, align 4
-  %121 = call ptr @proto_tree_add_item(ptr noundef %99, i32 noundef %120, ptr noundef %94, i32 noundef 3, i32 noundef 3, i32 noundef -2147483648) #3
-  br label %122
+120:                                              ; preds = %94
+  %121 = load i32, ptr @hf_raknet_reliable_message_number, align 4
+  %122 = call ptr @proto_tree_add_item(ptr noundef %100, i32 noundef %121, ptr noundef %95, i32 noundef 3, i32 noundef 3, i32 noundef -2147483648)
+  br label %123
 
-122:                                              ; preds = %119, %93
-  %.0199.i.i = phi i32 [ 6, %119 ], [ 3, %93 ]
-  switch i32 %114, label %127 [
-    i32 4, label %123
-    i32 1, label %123
+123:                                              ; preds = %120, %94
+  %.0197.i.i = phi i32 [ 6, %120 ], [ 3, %94 ]
+  switch i32 %115, label %128 [
+    i32 4, label %124
+    i32 1, label %124
   ]
 
-123:                                              ; preds = %122, %122
-  %124 = load i32, ptr @hf_raknet_message_sequencing_index, align 4
-  %125 = call ptr @proto_tree_add_item(ptr noundef %99, i32 noundef %124, ptr noundef %94, i32 noundef %.0199.i.i, i32 noundef 3, i32 noundef -2147483648) #3
-  %126 = add nuw nsw i32 %.0199.i.i, 3
-  br label %127
+124:                                              ; preds = %123, %123
+  %125 = load i32, ptr @hf_raknet_message_sequencing_index, align 4
+  %126 = call ptr @proto_tree_add_item(ptr noundef %100, i32 noundef %125, ptr noundef %95, i32 noundef %.0197.i.i, i32 noundef 3, i32 noundef -2147483648)
+  %127 = add nuw nsw i32 %.0197.i.i, 3
+  br label %128
 
-127:                                              ; preds = %123, %122
-  %.1.i.i = phi i32 [ %126, %123 ], [ %.0199.i.i, %122 ]
-  switch i32 %114, label %135 [
-    i32 4, label %128
-    i32 3, label %128
-    i32 1, label %128
+128:                                              ; preds = %124, %123
+  %.1.i.i = phi i32 [ %127, %124 ], [ %.0197.i.i, %123 ]
+  switch i32 %115, label %136 [
+    i32 4, label %129
+    i32 3, label %129
+    i32 1, label %129
   ]
 
-128:                                              ; preds = %127, %127, %127
-  %129 = load i32, ptr @hf_raknet_message_ordering_index, align 4
-  %130 = call ptr @proto_tree_add_item(ptr noundef %99, i32 noundef %129, ptr noundef %94, i32 noundef %.1.i.i, i32 noundef 3, i32 noundef -2147483648) #3
-  %131 = add nuw nsw i32 %.1.i.i, 3
-  %132 = load i32, ptr @hf_raknet_message_ordering_channel, align 4
-  %133 = call ptr @proto_tree_add_item(ptr noundef %99, i32 noundef %132, ptr noundef %94, i32 noundef %131, i32 noundef 1, i32 noundef 0) #3
-  %134 = add nuw nsw i32 %.1.i.i, 4
-  br label %135
+129:                                              ; preds = %128, %128, %128
+  %130 = load i32, ptr @hf_raknet_message_ordering_index, align 4
+  %131 = call ptr @proto_tree_add_item(ptr noundef %100, i32 noundef %130, ptr noundef %95, i32 noundef %.1.i.i, i32 noundef 3, i32 noundef -2147483648)
+  %132 = add nuw nsw i32 %.1.i.i, 3
+  %133 = load i32, ptr @hf_raknet_message_ordering_channel, align 4
+  %134 = call ptr @proto_tree_add_item(ptr noundef %100, i32 noundef %133, ptr noundef %95, i32 noundef %132, i32 noundef 1, i32 noundef 0)
+  %135 = add nuw nsw i32 %.1.i.i, 4
+  br label %136
 
-135:                                              ; preds = %128, %127
-  %.2.i.i = phi i32 [ %134, %128 ], [ %.1.i.i, %127 ]
-  br i1 %.not.i.i, label %171, label %136
+136:                                              ; preds = %129, %128
+  %.2.i.i = phi i32 [ %135, %129 ], [ %.1.i.i, %128 ]
+  br i1 %.not.i.i, label %137, label %172
 
-136:                                              ; preds = %135
-  %137 = load i32, ptr @hf_raknet_split_packet_count, align 4
-  %138 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %99, i32 noundef %137, ptr noundef %94, i32 noundef %.2.i.i, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %8) #3
-  %139 = add nuw nsw i32 %.2.i.i, 4
-  %140 = load i32, ptr @hf_raknet_split_packet_id, align 4
-  %141 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %99, i32 noundef %140, ptr noundef %94, i32 noundef %139, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %9) #3
-  %142 = add nuw nsw i32 %.2.i.i, 6
-  %143 = load i32, ptr @hf_raknet_split_packet_index, align 4
-  %144 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %99, i32 noundef %143, ptr noundef %94, i32 noundef %142, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %10) #3
-  %145 = add nuw nsw i32 %.2.i.i, 10
-  %146 = load i32, ptr %90, align 8
-  store i32 1, ptr %90, align 8
-  %147 = load i32, ptr %9, align 4
-  %148 = load i32, ptr %10, align 4
-  %149 = load i32, ptr %8, align 4
-  %150 = add i32 %149, -1
-  %151 = icmp ne i32 %148, %150
-  %152 = zext i1 %151 to i32
-  %153 = call ptr @fragment_add_seq_check(ptr noundef nonnull @raknet_reassembly_table, ptr noundef %94, i32 noundef %145, ptr noundef nonnull %1, i32 noundef %147, ptr noundef null, i32 noundef %148, i32 noundef %110, i32 noundef %152) #3
-  %154 = call ptr @process_reassembled_data(ptr noundef %94, i32 noundef %145, ptr noundef nonnull %1, ptr noundef nonnull @.str.177, ptr noundef %153, ptr noundef nonnull @raknet_frag_items, ptr noundef null, ptr noundef %99) #3
-  store i32 %146, ptr %90, align 8
-  %.not213.i.i = icmp eq ptr %154, null
-  %155 = load ptr, ptr %91, align 8
-  %156 = call noalias ptr @wmem_strbuf_new(ptr noundef %155, ptr noundef nonnull @.str.173) #3
+137:                                              ; preds = %136
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #5
+  %138 = load i32, ptr @hf_raknet_split_packet_count, align 4
+  %139 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %100, i32 noundef %138, ptr noundef %95, i32 noundef %.2.i.i, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %8)
+  %140 = add nuw nsw i32 %.2.i.i, 4
+  %141 = load i32, ptr @hf_raknet_split_packet_id, align 4
+  %142 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %100, i32 noundef %141, ptr noundef %95, i32 noundef %140, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %9)
+  %143 = add nuw nsw i32 %.2.i.i, 6
+  %144 = load i32, ptr @hf_raknet_split_packet_index, align 4
+  %145 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %100, i32 noundef %144, ptr noundef %95, i32 noundef %143, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %10)
+  %146 = add nuw nsw i32 %.2.i.i, 10
+  %147 = load i8, ptr %91, align 8, !range !9, !noundef !10
+  store i8 1, ptr %91, align 8
+  %148 = load i32, ptr %9, align 4
+  %149 = load i32, ptr %10, align 4
+  %150 = load i32, ptr %8, align 4
+  %151 = add i32 %150, -1
+  %152 = icmp ne i32 %149, %151
+  %153 = call ptr @fragment_add_seq_check(ptr noundef nonnull @raknet_reassembly_table, ptr noundef %95, i32 noundef %146, ptr noundef %1, i32 noundef %148, ptr noundef null, i32 noundef %149, i32 noundef %111, i1 noundef zeroext %152)
+  %154 = call ptr @process_reassembled_data(ptr noundef %95, i32 noundef %146, ptr noundef %1, ptr noundef nonnull @.str.178, ptr noundef %153, ptr noundef nonnull @raknet_frag_items, ptr noundef null, ptr noundef %100)
+  store i8 %147, ptr %91, align 8
+  %.not210.i.i = icmp eq ptr %154, null
+  %155 = load ptr, ptr %92, align 8
+  %156 = call noalias ptr @wmem_strbuf_new(ptr noundef %155, ptr noundef nonnull @.str.174)
   %157 = load i32, ptr %10, align 4
   %158 = add i32 %157, 1
   %159 = load i32, ptr %8, align 4
-  br i1 %.not213.i.i, label %165, label %160
+  br i1 %.not210.i.i, label %165, label %160
 
-160:                                              ; preds = %136
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %156, ptr noundef nonnull @.str.178, i32 noundef %158, i32 noundef %159) #3
-  %161 = call ptr @wmem_strbuf_get_str(ptr noundef %156) #3
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %97, ptr noundef nonnull @.str.179, ptr noundef %161) #3
+160:                                              ; preds = %137
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %156, ptr noundef nonnull @.str.179, i32 noundef %158, i32 noundef %159)
+  %161 = call ptr @wmem_strbuf_get_str(ptr noundef %156)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %98, ptr noundef nonnull @.str.180, ptr noundef %161)
   %162 = load ptr, ptr %13, align 8
-  %163 = call ptr @wmem_strbuf_get_str(ptr noundef %156) #3
-  call void @col_add_str(ptr noundef %162, i32 noundef 25, ptr noundef %163) #3
+  %163 = call ptr @wmem_strbuf_get_str(ptr noundef %156)
+  call void @col_add_str(ptr noundef %162, i32 noundef 25, ptr noundef %163)
   %164 = load ptr, ptr %13, align 8
-  call void @col_set_fence(ptr noundef %164, i32 noundef 25) #3
-  br label %173
+  call void @col_set_fence(ptr noundef %164, i32 noundef 25)
+  br label %171
 
-165:                                              ; preds = %136
-  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %156, ptr noundef nonnull @.str.180, i32 noundef %158, i32 noundef %159) #3
-  %166 = call ptr @wmem_strbuf_get_str(ptr noundef %156) #3
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %97, ptr noundef nonnull @.str.179, ptr noundef %166) #3
+165:                                              ; preds = %137
+  call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %156, ptr noundef nonnull @.str.181, i32 noundef %158, i32 noundef %159)
+  %166 = call ptr @wmem_strbuf_get_str(ptr noundef %156)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %98, ptr noundef nonnull @.str.180, ptr noundef %166)
   %167 = load ptr, ptr %13, align 8
-  %168 = call ptr @wmem_strbuf_get_str(ptr noundef %156) #3
-  call void @col_add_str(ptr noundef %167, i32 noundef 25, ptr noundef %168) #3
+  %168 = call ptr @wmem_strbuf_get_str(ptr noundef %156)
+  call void @col_add_str(ptr noundef %167, i32 noundef 25, ptr noundef %168)
   %169 = load i32, ptr @hf_raknet_split_packet, align 4
-  %170 = call ptr @proto_tree_add_item(ptr noundef %99, i32 noundef %169, ptr noundef %94, i32 noundef %145, i32 noundef %110, i32 noundef 0) #3
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %170, ptr noundef nonnull @.str.181, i32 noundef %110) #3
-  br label %173
+  %170 = call ptr @proto_tree_add_item(ptr noundef %100, i32 noundef %169, ptr noundef %95, i32 noundef %146, i32 noundef %111, i32 noundef 0)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %170, ptr noundef nonnull @.str.182, i32 noundef %111)
+  br label %171
 
-171:                                              ; preds = %135
-  %172 = call ptr @tvb_new_subset_length(ptr noundef %94, i32 noundef %.2.i.i, i32 noundef %110) #3
-  br label %173
+171:                                              ; preds = %165, %160
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
+  br label %174
 
-173:                                              ; preds = %171, %165, %160
-  %.0202.i.i = phi ptr [ %154, %160 ], [ null, %165 ], [ %172, %171 ]
-  %174 = phi i1 [ false, %160 ], [ undef, %165 ], [ true, %171 ]
-  %.3.i.i = phi i32 [ %145, %160 ], [ %145, %165 ], [ %.2.i.i, %171 ]
-  %175 = load i32, ptr %12, align 4
-  %.not214.i.i = icmp eq i32 %175, 0
-  br i1 %.not214.i.i, label %176, label %180
+172:                                              ; preds = %136
+  %173 = call ptr @tvb_new_subset_length(ptr noundef %95, i32 noundef %.2.i.i, i32 noundef %111)
+  br label %174
 
-176:                                              ; preds = %173
-  %177 = call i32 @tvb_reported_length_remaining(ptr noundef %94, i32 noundef %.3.i.i) #3
-  %178 = icmp sgt i32 %177, %110
-  %179 = zext i1 %178 to i32
-  store i32 %179, ptr %12, align 4
-  br label %180
+174:                                              ; preds = %172, %171
+  %.0201.i.i = phi ptr [ %154, %171 ], [ %173, %172 ]
+  %.3.i.i = phi i32 [ %146, %171 ], [ %.2.i.i, %172 ]
+  %175 = load i8, ptr %12, align 1, !range !9, !noundef !10
+  %176 = trunc nuw i8 %175 to i1
+  br i1 %176, label %181, label %177
 
-180:                                              ; preds = %176, %173
-  %181 = add nuw nsw i32 %.3.i.i, %110
-  %.not215.i.i = icmp eq ptr %.0202.i.i, null
-  br i1 %.not215.i.i, label %182, label %183
+177:                                              ; preds = %174
+  %178 = call i32 @tvb_reported_length_remaining(ptr noundef %95, i32 noundef %.3.i.i)
+  %179 = icmp sgt i32 %178, %111
+  %180 = zext i1 %179 to i8
+  store i8 %180, ptr %12, align 1
+  br label %181
 
-182:                                              ; preds = %180
-  call void @proto_item_set_len(ptr noundef %97, i32 noundef %181) #3
-  %.not216.i.i = icmp eq ptr %95, null
-  br i1 %.not216.i.i, label %248, label %.sink.split.i
+181:                                              ; preds = %177, %174
+  %182 = add nuw nsw i32 %.3.i.i, %111
+  %.not211.i.i = icmp eq ptr %.0201.i.i, null
+  br i1 %.not211.i.i, label %183, label %184
 
-183:                                              ; preds = %180
-  %184 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %.0202.i.i, i32 noundef 0) #3
-  %185 = load ptr, ptr @raknet_system_message_dissectors, align 8
-  %186 = zext i8 %184 to i32
-  %187 = call ptr @dissector_get_uint_handle(ptr noundef %185, i32 noundef %186) #3
-  %.not217.i.i = icmp eq ptr %187, null
-  br i1 %.not217.i.i, label %205, label %188
+183:                                              ; preds = %181
+  call void @proto_item_set_len(ptr noundef %98, i32 noundef %182)
+  %.not212.i.i = icmp eq ptr %96, null
+  br i1 %.not212.i.i, label %250, label %.sink.split.i
 
-188:                                              ; preds = %183
-  %189 = load i32, ptr @hf_raknet_system_message, align 4
-  %190 = call ptr @proto_tree_add_item(ptr noundef %99, i32 noundef %189, ptr noundef nonnull %.0202.i.i, i32 noundef 0, i32 noundef -1, i32 noundef 0) #3
-  %191 = load i32, ptr @ett_raknet_system_message, align 4
-  %192 = call ptr @proto_item_add_subtree(ptr noundef %190, i32 noundef %191) #3
-  %193 = call ptr @val_to_str(i32 noundef %186, ptr noundef nonnull @raknet_system_message_names, ptr noundef nonnull @.str.183) #3
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %190, ptr noundef nonnull @.str.182, ptr noundef %193) #3
-  %194 = call ptr @val_to_str_const(i32 noundef %186, ptr noundef nonnull @raknet_system_message_names, ptr noundef nonnull @.str.185) #3
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %97, ptr noundef nonnull @.str.184, i32 noundef %186, ptr noundef %194) #3
-  %195 = load ptr, ptr %13, align 8
-  %196 = call ptr @val_to_str(i32 noundef %186, ptr noundef nonnull @raknet_system_message_names, ptr noundef nonnull @.str.186) #3
-  call void @col_add_str(ptr noundef %195, i32 noundef 25, ptr noundef %196) #3
-  %197 = load i32, ptr @hf_raknet_system_message_id, align 4
-  %198 = call ptr @proto_tree_add_item(ptr noundef %192, i32 noundef %197, ptr noundef nonnull %.0202.i.i, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
-  %199 = call i32 @call_dissector_only(ptr noundef nonnull %187, ptr noundef nonnull %.0202.i.i, ptr noundef nonnull %1, ptr noundef %192, ptr noundef nonnull %12) #3
-  call void @proto_item_set_len(ptr noundef %97, i32 noundef %181) #3
-  %.not224.i.i = icmp eq ptr %95, null
-  br i1 %.not224.i.i, label %203, label %200
+184:                                              ; preds = %181
+  %185 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %.0201.i.i, i32 noundef 0)
+  %186 = load ptr, ptr @raknet_system_message_dissectors, align 8
+  %187 = zext i8 %185 to i32
+  %188 = call ptr @dissector_get_uint_handle(ptr noundef %186, i32 noundef %187)
+  %.not213.i.i = icmp eq ptr %188, null
+  br i1 %.not213.i.i, label %206, label %189
 
-200:                                              ; preds = %188
-  %201 = call i32 @proto_item_get_len(ptr noundef nonnull %95) #3
-  %202 = add i32 %201, %181
-  call void @proto_item_set_len(ptr noundef nonnull %95, i32 noundef %202) #3
-  br label %203
+189:                                              ; preds = %184
+  %190 = load i32, ptr @hf_raknet_system_message, align 4
+  %191 = call ptr @proto_tree_add_item(ptr noundef %100, i32 noundef %190, ptr noundef nonnull %.0201.i.i, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  %192 = load i32, ptr @ett_raknet_system_message, align 4
+  %193 = call ptr @proto_item_add_subtree(ptr noundef %191, i32 noundef %192)
+  %194 = call ptr @val_to_str(i32 noundef %187, ptr noundef nonnull @raknet_system_message_names, ptr noundef nonnull @.str.184)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %191, ptr noundef nonnull @.str.183, ptr noundef %194)
+  %195 = call ptr @val_to_str_const(i32 noundef %187, ptr noundef nonnull @raknet_system_message_names, ptr noundef nonnull @.str.186)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %98, ptr noundef nonnull @.str.185, i32 noundef %187, ptr noundef %195)
+  %196 = load ptr, ptr %13, align 8
+  %197 = call ptr @val_to_str(i32 noundef %187, ptr noundef nonnull @raknet_system_message_names, ptr noundef nonnull @.str.187)
+  call void @col_add_str(ptr noundef %196, i32 noundef 25, ptr noundef %197)
+  %198 = load i32, ptr @hf_raknet_system_message_id, align 4
+  %199 = call ptr @proto_tree_add_item(ptr noundef %193, i32 noundef %198, ptr noundef nonnull %.0201.i.i, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+  %200 = call i32 @call_dissector_only(ptr noundef nonnull %188, ptr noundef nonnull %.0201.i.i, ptr noundef %1, ptr noundef %193, ptr noundef nonnull %12)
+  call void @proto_item_set_len(ptr noundef %98, i32 noundef %182)
+  %.not218.i.i = icmp eq ptr %96, null
+  br i1 %.not218.i.i, label %204, label %201
 
-203:                                              ; preds = %200, %188
-  %204 = icmp slt i32 %199, 0
-  br i1 %204, label %raknet_dissect_common_message.exit.i, label %248
+201:                                              ; preds = %189
+  %202 = call i32 @proto_item_get_len(ptr noundef nonnull %96)
+  %203 = add i32 %202, %182
+  call void @proto_item_set_len(ptr noundef nonnull %96, i32 noundef %203)
+  br label %204
 
-205:                                              ; preds = %183
-  %206 = call nonnull ptr @find_or_create_conversation(ptr noundef nonnull %1) #3
-  %207 = load i32, ptr @proto_raknet, align 4
-  %208 = call ptr @conversation_get_proto_data(ptr noundef nonnull %206, i32 noundef %207) #3
-  %209 = icmp eq ptr %208, null
-  br i1 %209, label %210, label %raknet_get_session_state.exit.i.i
+204:                                              ; preds = %201, %189
+  %205 = icmp slt i32 %200, 0
+  br i1 %205, label %.thread.i, label %250
 
-210:                                              ; preds = %205
-  %211 = call ptr @wmem_file_scope() #3
-  %212 = call noalias ptr @wmem_alloc(ptr noundef %211, i64 noundef 16) #3
-  store i32 0, ptr %212, align 8
-  %213 = getelementptr inbounds nuw i8, ptr %212, i64 8
-  store ptr null, ptr %213, align 8
-  %214 = load i32, ptr @proto_raknet, align 4
-  call void @conversation_add_proto_data(ptr noundef nonnull %206, i32 noundef %214, ptr noundef nonnull %212) #3
+206:                                              ; preds = %184
+  %207 = call ptr @find_or_create_conversation(ptr noundef %1)
+  %208 = load i32, ptr @proto_raknet, align 4
+  %209 = call ptr @conversation_get_proto_data(ptr noundef %207, i32 noundef %208)
+  %210 = icmp eq ptr %209, null
+  br i1 %210, label %211, label %raknet_get_session_state.exit.i.i
+
+211:                                              ; preds = %206
+  %212 = call ptr @wmem_file_scope()
+  %213 = call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %212, i64 noundef 16) #4
+  store i8 0, ptr %213, align 8
+  %214 = getelementptr inbounds nuw i8, ptr %213, i64 8
+  store ptr null, ptr %214, align 8
+  %215 = load i32, ptr @proto_raknet, align 4
+  call void @conversation_add_proto_data(ptr noundef %207, i32 noundef %215, ptr noundef %213)
   br label %raknet_get_session_state.exit.i.i
 
-raknet_get_session_state.exit.i.i:                ; preds = %210, %205
-  %.0.i.i.i = phi ptr [ %212, %210 ], [ %208, %205 ]
-  %215 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
-  %216 = load ptr, ptr %215, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %97, ptr noundef nonnull @.str.187, i32 noundef %186) #3
-  %217 = load i32, ptr %12, align 4
-  %.not218.i.i = icmp eq i32 %217, 0
-  br i1 %.not218.i.i, label %218, label %220
+raknet_get_session_state.exit.i.i:                ; preds = %211, %206
+  %.0.i.i.i = phi ptr [ %213, %211 ], [ %209, %206 ]
+  %216 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
+  %217 = load ptr, ptr %216, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %98, ptr noundef nonnull @.str.188, i32 noundef %187)
+  %218 = load i8, ptr %12, align 1, !range !9, !noundef !10
+  %219 = trunc nuw i8 %218 to i1
+  br i1 %219, label %222, label %220
 
-218:                                              ; preds = %raknet_get_session_state.exit.i.i
-  %219 = call ptr @proto_tree_get_root(ptr noundef %80) #3
-  br label %220
+220:                                              ; preds = %raknet_get_session_state.exit.i.i
+  %221 = call ptr @proto_tree_get_root(ptr noundef %81)
+  br label %222
 
-220:                                              ; preds = %218, %raknet_get_session_state.exit.i.i
-  %.0200.i.i = phi ptr [ %219, %218 ], [ %99, %raknet_get_session_state.exit.i.i ]
-  %.not219.i.i = icmp eq ptr %216, null
-  br i1 %.not219.i.i, label %226, label %221
+222:                                              ; preds = %220, %raknet_get_session_state.exit.i.i
+  %.0198.i.i = phi ptr [ %221, %220 ], [ %100, %raknet_get_session_state.exit.i.i ]
+  %.not214.i.i = icmp eq ptr %217, null
+  br i1 %.not214.i.i, label %228, label %223
 
-221:                                              ; preds = %220
-  %222 = call i32 @call_dissector_only(ptr noundef nonnull %216, ptr noundef nonnull %.0202.i.i, ptr noundef nonnull %1, ptr noundef %.0200.i.i, ptr noundef nonnull %12) #3
-  %223 = icmp sgt i32 %222, 0
-  br i1 %223, label %241, label %224
+223:                                              ; preds = %222
+  %224 = call i32 @call_dissector_only(ptr noundef nonnull %217, ptr noundef nonnull %.0201.i.i, ptr noundef %1, ptr noundef %.0198.i.i, ptr noundef nonnull %12)
+  %225 = icmp sgt i32 %224, 0
+  br i1 %225, label %243, label %226
 
-224:                                              ; preds = %221
-  %225 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %99, ptr noundef nonnull @ei_raknet_subdissector_failed) #3
-  br label %226
+226:                                              ; preds = %223
+  %227 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %100, ptr noundef nonnull @ei_raknet_subdissector_failed)
+  br label %228
 
-226:                                              ; preds = %224, %220
-  %227 = load ptr, ptr @raknet_port_dissectors, align 8
-  %228 = load i32, ptr %92, align 4
-  %229 = call ptr @dissector_get_uint_handle(ptr noundef %227, i32 noundef %228) #3
-  %.not220.i.i = icmp eq ptr %229, null
-  br i1 %.not220.i.i, label %235, label %230
+228:                                              ; preds = %226, %222
+  %229 = load ptr, ptr @raknet_port_dissectors, align 8
+  %230 = load i32, ptr %93, align 4
+  %231 = call ptr @dissector_get_uint_handle(ptr noundef %229, i32 noundef %230)
+  %.not215.i.i = icmp eq ptr %231, null
+  br i1 %.not215.i.i, label %237, label %232
 
-230:                                              ; preds = %226
-  %231 = call i32 @call_dissector_only(ptr noundef nonnull %229, ptr noundef nonnull %.0202.i.i, ptr noundef nonnull %1, ptr noundef %.0200.i.i, ptr noundef nonnull %12) #3
-  %232 = icmp sgt i32 %231, 0
-  br i1 %232, label %241, label %233
+232:                                              ; preds = %228
+  %233 = call i32 @call_dissector_only(ptr noundef nonnull %231, ptr noundef nonnull %.0201.i.i, ptr noundef %1, ptr noundef %.0198.i.i, ptr noundef nonnull %12)
+  %234 = icmp sgt i32 %233, 0
+  br i1 %234, label %243, label %235
 
-233:                                              ; preds = %230
-  %234 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %99, ptr noundef nonnull @ei_raknet_subdissector_failed) #3
-  br label %235
+235:                                              ; preds = %232
+  %236 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %100, ptr noundef nonnull @ei_raknet_subdissector_failed)
+  br label %237
 
-235:                                              ; preds = %233, %226
-  %236 = load ptr, ptr @raknet_heur_subdissectors, align 8
-  %237 = call i32 @dissector_try_heuristic(ptr noundef %236, ptr noundef nonnull %.0202.i.i, ptr noundef nonnull %1, ptr noundef %.0200.i.i, ptr noundef nonnull %7, ptr noundef nonnull %12) #3
-  %.not221.i.i = icmp eq i32 %237, 0
-  br i1 %.not221.i.i, label %238, label %241
+237:                                              ; preds = %235, %228
+  %238 = load ptr, ptr @raknet_heur_subdissectors, align 8
+  %239 = call zeroext i1 @dissector_try_heuristic(ptr noundef %238, ptr noundef nonnull %.0201.i.i, ptr noundef %1, ptr noundef %.0198.i.i, ptr noundef nonnull %7, ptr noundef nonnull %12)
+  br i1 %239, label %243, label %240
 
-238:                                              ; preds = %235
-  %239 = load ptr, ptr %13, align 8
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %239, i32 noundef 25, ptr noundef nonnull @.str.188, i32 noundef %186) #3
-  %240 = call ptr @proto_tree_add_expert(ptr noundef %99, ptr noundef nonnull %1, ptr noundef nonnull @ei_raknet_unknown_message_id, ptr noundef nonnull %.0202.i.i, i32 noundef 0, i32 noundef 1) #3
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %240, ptr noundef nonnull @.str.163, i32 noundef %186) #3
-  br label %241
+240:                                              ; preds = %237
+  %241 = load ptr, ptr %13, align 8
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %241, i32 noundef 25, ptr noundef nonnull @.str.189, i32 noundef %187)
+  %242 = call ptr @proto_tree_add_expert(ptr noundef %100, ptr noundef %1, ptr noundef nonnull @ei_raknet_unknown_message_id, ptr noundef nonnull %.0201.i.i, i32 noundef 0, i32 noundef 1)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %242, ptr noundef nonnull @.str.164, i32 noundef %187)
+  br label %243
 
-241:                                              ; preds = %238, %235, %230, %221
-  %242 = load i32, ptr %12, align 4
-  %243 = icmp eq i32 %242, 0
-  %or.cond11.i.i = and i1 %174, %243
-  %.not223.i.i = icmp eq ptr %95, null
-  br i1 %or.cond11.i.i, label %244, label %245
+243:                                              ; preds = %240, %237, %232, %223
+  %244 = load i8, ptr %12, align 1, !range !9, !noundef !10
+  %245 = trunc nuw i8 %244 to i1
+  %brmerge.i.i = or i1 %.not.i.i, %245
+  %.not217.i.i = icmp eq ptr %96, null
+  br i1 %brmerge.i.i, label %247, label %246
 
-244:                                              ; preds = %241
-  call void @proto_item_set_len(ptr noundef %97, i32 noundef %.3.i.i) #3
-  br i1 %.not223.i.i, label %248, label %.sink.split.i
+246:                                              ; preds = %243
+  call void @proto_item_set_len(ptr noundef %98, i32 noundef %.3.i.i)
+  br i1 %.not217.i.i, label %250, label %.sink.split.i
 
-245:                                              ; preds = %241
-  call void @proto_item_set_len(ptr noundef %97, i32 noundef %181) #3
-  br i1 %.not223.i.i, label %248, label %.sink.split.i
+247:                                              ; preds = %243
+  call void @proto_item_set_len(ptr noundef %98, i32 noundef %182)
+  br i1 %.not217.i.i, label %250, label %.sink.split.i
 
-raknet_dissect_common_message.exit.i:             ; preds = %203
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+.thread.i:                                        ; preds = %204
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  br label %259
+
+.sink.split.i:                                    ; preds = %247, %246, %183
+  %.sink12.i = phi i32 [ %182, %183 ], [ %.3.i.i, %246 ], [ %182, %247 ]
+  %248 = call i32 @proto_item_get_len(ptr noundef nonnull %96)
+  %249 = add i32 %248, %.sink12.i
+  call void @proto_item_set_len(ptr noundef nonnull %96, i32 noundef %249)
+  br label %250
+
+250:                                              ; preds = %.sink.split.i, %247, %246, %204, %183
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
+  %251 = add i32 %182, %.191.i
+  %252 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %251)
+  %253 = icmp sgt i32 %252, 0
+  br i1 %253, label %254, label %257
+
+254:                                              ; preds = %250
+  %255 = load ptr, ptr %13, align 8
+  call void @col_append_str(ptr noundef %255, i32 noundef 25, ptr noundef nonnull @.str.169)
+  %256 = load ptr, ptr %13, align 8
+  call void @col_set_fence(ptr noundef %256, i32 noundef 25)
+  br label %94
+
+257:                                              ; preds = %250
+  %258 = call i32 @tvb_captured_length(ptr noundef %0)
+  br label %259
+
+259:                                              ; preds = %257, %.thread.i
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #5
   br label %raknet_dissect_connected_message.exit
 
-.sink.split.i:                                    ; preds = %245, %244, %182
-  %.sink5.i = phi i32 [ %181, %182 ], [ %.3.i.i, %244 ], [ %181, %245 ]
-  %246 = call i32 @proto_item_get_len(ptr noundef nonnull %95) #3
-  %247 = add i32 %246, %.sink5.i
-  call void @proto_item_set_len(ptr noundef nonnull %95, i32 noundef %247) #3
-  br label %248
-
-248:                                              ; preds = %.sink.split.i, %245, %244, %203, %182
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  %249 = add i32 %181, %.1.i
-  %250 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %249) #3
-  %251 = icmp sgt i32 %250, 0
-  br i1 %251, label %252, label %255
-
-252:                                              ; preds = %248
-  %253 = load ptr, ptr %13, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %253, i32 noundef 25, ptr noundef nonnull @.str.168) #3
-  %254 = load ptr, ptr %13, align 8
-  call void @col_set_fence(ptr noundef %254, i32 noundef 25) #3
-  br label %93
-
-255:                                              ; preds = %248
-  %256 = call i32 @tvb_captured_length(ptr noundef %0) #3
-  br label %raknet_dissect_connected_message.exit
-
-raknet_dissect_connected_message.exit:            ; preds = %31, %39, %58, %60, %72, %74, %raknet_dissect_common_message.exit.i, %255
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
-  br label %257
-
-257:                                              ; preds = %raknet_dissect_connected_message.exit, %4
-  %258 = call i32 @tvb_captured_length(ptr noundef %0) #3
-  ret i32 %258
+raknet_dissect_connected_message.exit:            ; preds = %259, %75, %73, %61, %59, %40, %32, %4
+  %260 = call i32 @tvb_captured_length(ptr noundef %0)
+  ret i32 %260
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector_table(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_heur_dissector_list_with_description(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_raknet() local_unnamed_addr #0 {
   br label %1
 
@@ -960,12 +972,12 @@ define hidden void @proto_reg_handoff_raknet() local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr @proto_raknet, align 4
-  %6 = tail call ptr @create_dissector_handle(ptr noundef %4, i32 noundef %5) #3
+  %6 = tail call ptr @create_dissector_handle(ptr noundef %4, i32 noundef %5)
   %7 = load i32, ptr %2, align 8
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3, i32 noundef %7, ptr noundef %6) #3
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.3, i32 noundef %7, ptr noundef %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 14
-  br i1 %exitcond.not, label %.preheader, label %1, !llvm.loop !7
+  br i1 %exitcond.not, label %.preheader, label %1, !llvm.loop !11
 
 .preheader:                                       ; preds = %1, %.preheader
   %indvars.iv14 = phi i64 [ %indvars.iv.next15, %.preheader ], [ 0, %1 ]
@@ -973,531 +985,607 @@ define hidden void @proto_reg_handoff_raknet() local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_raknet, align 4
-  %12 = tail call ptr @create_dissector_handle(ptr noundef %10, i32 noundef %11) #3
+  %12 = tail call ptr @create_dissector_handle(ptr noundef %10, i32 noundef %11)
   %13 = load i32, ptr %8, align 8
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.104, i32 noundef %13, ptr noundef %12) #3
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.104, i32 noundef %13, ptr noundef %12)
   %indvars.iv.next15 = add nuw nsw i64 %indvars.iv14, 1
   %exitcond17.not = icmp eq i64 %indvars.iv.next15, 5
-  br i1 %exitcond17.not, label %14, label %.preheader, !llvm.loop !8
+  br i1 %exitcond17.not, label %14, label %.preheader, !llvm.loop !12
 
 14:                                               ; preds = %.preheader
   %15 = load i32, ptr @proto_raknet, align 4
-  tail call void @heur_dissector_add(ptr noundef nonnull @.str.152, ptr noundef nonnull @dissect_raknet_heur, ptr noundef nonnull @.str.153, ptr noundef nonnull @.str.154, i32 noundef %15, i32 noundef 1) #3
+  tail call void @heur_dissector_add(ptr noundef nonnull @.str.152, ptr noundef nonnull @dissect_raknet_heur, ptr noundef nonnull @.str.153, ptr noundef nonnull @.str.154, i32 noundef %15, i32 noundef 1)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_raknet_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef 9, ptr noundef nonnull @RAKNET_OFFLINE_MESSAGE_DATA_ID, i64 noundef 16) #3
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @dissect_raknet_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef 9, ptr noundef nonnull @RAKNET_OFFLINE_MESSAGE_DATA_ID, i64 noundef 16)
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %test_raknet_heur.exit.thread, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @RAKNET_OFFLINE_MESSAGE_DATA_ID, i64 noundef 16) #3
+  %8 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @RAKNET_OFFLINE_MESSAGE_DATA_ID, i64 noundef 16)
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %test_raknet_heur.exit.thread, label %test_raknet_heur.exit
 
 test_raknet_heur.exit:                            ; preds = %7
-  %10 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef 17, ptr noundef nonnull @RAKNET_OFFLINE_MESSAGE_DATA_ID, i64 noundef 16) #3
-  %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %test_raknet_heur.exit.thread, label %17
+  %10 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef 17, ptr noundef nonnull @RAKNET_OFFLINE_MESSAGE_DATA_ID, i64 noundef 16)
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %test_raknet_heur.exit.thread, label %17
 
 test_raknet_heur.exit.thread:                     ; preds = %7, %4, %test_raknet_heur.exit
-  %11 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #3
-  %12 = load ptr, ptr @raknet_handle, align 8
-  tail call void @conversation_set_dissector(ptr noundef nonnull %11, ptr noundef %12) #3
+  %12 = tail call ptr @find_or_create_conversation(ptr noundef %1)
   %13 = load ptr, ptr @raknet_handle, align 8
-  %14 = tail call i32 @call_dissector_only(ptr noundef %13, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #3
-  %15 = icmp sgt i32 %14, 0
-  %16 = zext i1 %15 to i32
+  tail call void @conversation_set_dissector(ptr noundef %12, ptr noundef %13)
+  %14 = load ptr, ptr @raknet_handle, align 8
+  %15 = tail call i32 @call_dissector_only(ptr noundef %14, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
+  %16 = icmp sgt i32 %15, 0
   br label %17
 
 17:                                               ; preds = %test_raknet_heur.exit, %test_raknet_heur.exit.thread
-  %.0 = phi i32 [ %16, %test_raknet_heur.exit.thread ], [ 0, %test_raknet_heur.exit ]
-  ret i32 %.0
+  %.0 = phi i1 [ %16, %test_raknet_heur.exit.thread ], [ false, %test_raknet_heur.exit ]
+  ret i1 %.0
 }
 
-declare nonnull ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid allocsize(1)
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_file_scope() local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @dissector_try_uint_new(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissector_try_uint_with_data(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
-declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
-
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
-define internal fastcc void @raknet_dissect_ACK(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull %2, i32 %.0.val) unnamed_addr #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal fastcc void @raknet_dissect_ACK(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull %2, i8 %.0.val) unnamed_addr #0 {
   %4 = alloca i32, align 4
-  %.not = icmp eq i32 %.0.val, 0
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load ptr, ptr %5, align 8
-  %.str.170..str.169 = select i1 %.not, ptr @.str.170, ptr @.str.169
-  tail call void @col_add_str(ptr noundef %6, i32 noundef 25, ptr noundef nonnull %.str.170..str.169) #3
-  %7 = load i32, ptr @hf_raknet_NACK_record_count, align 4
-  %8 = call ptr @proto_tree_add_item_ret_uint(ptr noundef nonnull %2, i32 noundef %7, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %4) #3
-  %9 = load i32, ptr %4, align 4
-  %.not3 = icmp eq i32 %9, 0
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
+  %5 = trunc nuw i8 %.0.val to i1
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %7 = load ptr, ptr %6, align 8
+  %.str.170..str.171 = select i1 %5, ptr @.str.170, ptr @.str.171
+  tail call void @col_set_str(ptr noundef %7, i32 noundef 25, ptr noundef nonnull %.str.170..str.171)
+  %8 = load i32, ptr @hf_raknet_NACK_record_count, align 4
+  %9 = call ptr @proto_tree_add_item_ret_uint(ptr noundef nonnull %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %4)
+  %10 = load i32, ptr %4, align 4
+  %.not3 = icmp eq i32 %10, 0
   br i1 %.not3, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %11
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  br label %12
 
-11:                                               ; preds = %.lr.ph, %41
-  %.02 = phi i32 [ 2, %.lr.ph ], [ %42, %41 ]
-  %.0571 = phi i32 [ 0, %.lr.ph ], [ %43, %41 ]
-  %12 = icmp eq i32 %.0571, 0
-  %13 = load ptr, ptr %10, align 8
-  %.str.171..str.168 = select i1 %12, ptr @.str.171, ptr @.str.168
-  call void @col_append_str(ptr noundef %13, i32 noundef 25, ptr noundef nonnull %.str.171..str.168) #3
-  %14 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.02) #3
-  %.not58 = icmp eq i8 %14, 0
-  %15 = add i32 %.02, 1
-  %16 = call i32 @tvb_get_guint24(ptr noundef %0, i32 noundef %15, i32 noundef -2147483648) #3
-  br i1 %.not58, label %27, label %17
+12:                                               ; preds = %.lr.ph, %42
+  %.02 = phi i32 [ 2, %.lr.ph ], [ %43, %42 ]
+  %.0571 = phi i32 [ 0, %.lr.ph ], [ %44, %42 ]
+  %13 = icmp eq i32 %.0571, 0
+  %14 = load ptr, ptr %11, align 8
+  %.str.172..str.169 = select i1 %13, ptr @.str.172, ptr @.str.169
+  call void @col_append_str(ptr noundef %14, i32 noundef 25, ptr noundef nonnull %.str.172..str.169)
+  %15 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.02)
+  %.not = icmp eq i8 %15, 0
+  %16 = add i32 %.02, 1
+  %17 = call i32 @tvb_get_uint24(ptr noundef %0, i32 noundef %16, i32 noundef -2147483648)
+  br i1 %.not, label %28, label %18
 
-17:                                               ; preds = %11
-  %18 = load ptr, ptr %10, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %18, i32 noundef 25, ptr noundef nonnull @.str.172, i32 noundef %16) #3
-  %19 = load i32, ptr @hf_raknet_packet_number_range, align 4
-  %20 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef nonnull %2, i32 noundef %19, ptr noundef %0, i32 noundef %.02, i32 noundef 4, ptr noundef nonnull @.str.173, ptr noundef nonnull @.str.174, i32 noundef %16, i32 noundef %16) #3
-  %21 = load i32, ptr @ett_raknet_packet_number_range, align 4
-  %22 = call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %21) #3
-  %23 = load i32, ptr @hf_raknet_range_max_equal_to_min, align 4
-  %24 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %23, ptr noundef %0, i32 noundef %.02, i32 noundef 1, i32 noundef 0) #3
-  %25 = load i32, ptr @hf_raknet_packet_number_min, align 4
-  %26 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %25, ptr noundef %0, i32 noundef %15, i32 noundef 3, i32 noundef -2147483648) #3
-  br label %41
+18:                                               ; preds = %12
+  %19 = load ptr, ptr %11, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %19, i32 noundef 25, ptr noundef nonnull @.str.173, i32 noundef %17)
+  %20 = load i32, ptr @hf_raknet_packet_number_range, align 4
+  %21 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef nonnull %2, i32 noundef %20, ptr noundef %0, i32 noundef %.02, i32 noundef 4, ptr noundef nonnull @.str.174, ptr noundef nonnull @.str.175, i32 noundef %17, i32 noundef %17)
+  %22 = load i32, ptr @ett_raknet_packet_number_range, align 4
+  %23 = call ptr @proto_item_add_subtree(ptr noundef %21, i32 noundef %22)
+  %24 = load i32, ptr @hf_raknet_range_max_equal_to_min, align 4
+  %25 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %24, ptr noundef %0, i32 noundef %.02, i32 noundef 1, i32 noundef 0)
+  %26 = load i32, ptr @hf_raknet_packet_number_min, align 4
+  %27 = call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %26, ptr noundef %0, i32 noundef %16, i32 noundef 3, i32 noundef -2147483648)
+  br label %42
 
-27:                                               ; preds = %11
-  %28 = add i32 %.02, 4
-  %29 = call i32 @tvb_get_guint24(ptr noundef %0, i32 noundef %28, i32 noundef -2147483648) #3
-  %30 = load ptr, ptr %10, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %30, i32 noundef 25, ptr noundef nonnull @.str.175, i32 noundef %16, i32 noundef %29) #3
-  %31 = load i32, ptr @hf_raknet_packet_number_range, align 4
-  %32 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef nonnull %2, i32 noundef %31, ptr noundef %0, i32 noundef %.02, i32 noundef 7, ptr noundef nonnull @.str.173, ptr noundef nonnull @.str.174, i32 noundef %16, i32 noundef %29) #3
-  %33 = load i32, ptr @ett_raknet_packet_number_range, align 4
-  %34 = call ptr @proto_item_add_subtree(ptr noundef %32, i32 noundef %33) #3
-  %35 = load i32, ptr @hf_raknet_range_max_equal_to_min, align 4
-  %36 = call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %35, ptr noundef %0, i32 noundef %.02, i32 noundef 1, i32 noundef 0) #3
-  %37 = load i32, ptr @hf_raknet_packet_number_min, align 4
-  %38 = call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %37, ptr noundef %0, i32 noundef %15, i32 noundef 3, i32 noundef -2147483648) #3
-  %39 = load i32, ptr @hf_raknet_packet_number_max, align 4
-  %40 = call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %39, ptr noundef %0, i32 noundef %28, i32 noundef 3, i32 noundef -2147483648) #3
-  br label %41
+28:                                               ; preds = %12
+  %29 = add i32 %.02, 4
+  %30 = call i32 @tvb_get_uint24(ptr noundef %0, i32 noundef %29, i32 noundef -2147483648)
+  %31 = load ptr, ptr %11, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %31, i32 noundef 25, ptr noundef nonnull @.str.176, i32 noundef %17, i32 noundef %30)
+  %32 = load i32, ptr @hf_raknet_packet_number_range, align 4
+  %33 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef nonnull %2, i32 noundef %32, ptr noundef %0, i32 noundef %.02, i32 noundef 7, ptr noundef nonnull @.str.174, ptr noundef nonnull @.str.175, i32 noundef %17, i32 noundef %30)
+  %34 = load i32, ptr @ett_raknet_packet_number_range, align 4
+  %35 = call ptr @proto_item_add_subtree(ptr noundef %33, i32 noundef %34)
+  %36 = load i32, ptr @hf_raknet_range_max_equal_to_min, align 4
+  %37 = call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %36, ptr noundef %0, i32 noundef %.02, i32 noundef 1, i32 noundef 0)
+  %38 = load i32, ptr @hf_raknet_packet_number_min, align 4
+  %39 = call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %38, ptr noundef %0, i32 noundef %16, i32 noundef 3, i32 noundef -2147483648)
+  %40 = load i32, ptr @hf_raknet_packet_number_max, align 4
+  %41 = call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %40, ptr noundef %0, i32 noundef %29, i32 noundef 3, i32 noundef -2147483648)
+  br label %42
 
-41:                                               ; preds = %17, %27
-  %.sink = phi i32 [ 4, %17 ], [ 7, %27 ]
-  %42 = add i32 %.02, %.sink
-  %43 = add nuw i32 %.0571, 1
-  %44 = load i32, ptr %4, align 4
-  %45 = icmp ult i32 %43, %44
-  br i1 %45, label %11, label %._crit_edge, !llvm.loop !9
+42:                                               ; preds = %28, %18
+  %.sink = phi i32 [ 7, %28 ], [ 4, %18 ]
+  %43 = add i32 %.02, %.sink
+  %44 = add nuw i32 %.0571, 1
+  %45 = load i32, ptr %4, align 4
+  %46 = icmp ult i32 %44, %45
+  br i1 %46, label %12, label %._crit_edge, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %41, %3
-  %46 = call i32 @tvb_captured_length(ptr noundef %0) #3
+._crit_edge:                                      ; preds = %42, %3
+  %47 = call i32 @tvb_captured_length(ptr noundef %0)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_set_fence(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
-
+; Function Attrs: null_pointer_is_valid
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @tvb_get_guint24(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_uint24(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_string_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_get_parent(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare ptr @fragment_add_seq_check(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @fragment_add_seq_check(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @process_reassembled_data(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare noalias ptr @wmem_strbuf_new(ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @wmem_strbuf_append_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_strbuf_get_str(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
+declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_item_get_len(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @dissector_get_uint_handle(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @call_dissector_only(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_get_root(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @dissector_try_heuristic(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @dissector_try_heuristic(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @raknet_dissect_unconnected_ping(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @proto_raknet, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %7 = load i32, ptr @ett_raknet, align 4
-  %8 = tail call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %7) #3
-  %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
+  %8 = tail call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %7)
+  %9 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %10 = load i32, ptr @hf_raknet_offline_message_id, align 4
-  %11 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
+  %11 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = zext i8 %9 to i32
-  %15 = tail call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @raknet_offline_message_names, ptr noundef nonnull @.str.203) #3
-  tail call void @col_add_str(ptr noundef %13, i32 noundef 25, ptr noundef %15) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %6, ptr noundef nonnull @.str.204, i32 noundef %14) #3
+  %15 = tail call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @raknet_offline_message_names, ptr noundef nonnull @.str.205)
+  tail call void @col_add_str(ptr noundef %13, i32 noundef 25, ptr noundef %15)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %6, ptr noundef nonnull @.str.206, i32 noundef %14)
   %16 = load i32, ptr @hf_raknet_timestamp, align 4
-  %17 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %16, ptr noundef %0, i32 noundef 1, i32 noundef 8, i32 noundef 0) #3
+  %17 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %16, ptr noundef %0, i32 noundef 1, i32 noundef 8, i32 noundef 0)
   %18 = load i32, ptr @hf_raknet_offline_message_data_id, align 4
-  %19 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %18, ptr noundef %0, i32 noundef 9, i32 noundef 16, i32 noundef 0) #3
+  %19 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %18, ptr noundef %0, i32 noundef 9, i32 noundef 16, i32 noundef 0)
   %20 = load i32, ptr @hf_raknet_client_guid, align 4
-  %21 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %20, ptr noundef %0, i32 noundef 25, i32 noundef 8, i32 noundef 0) #3
+  %21 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %20, ptr noundef %0, i32 noundef 25, i32 noundef 8, i32 noundef 0)
   ret i32 33
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @raknet_dissect_open_connection_request_1(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @proto_raknet, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %7 = load i32, ptr @ett_raknet, align 4
-  %8 = tail call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %7) #3
-  %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
+  %8 = tail call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %7)
+  %9 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %10 = load i32, ptr @hf_raknet_offline_message_id, align 4
-  %11 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
+  %11 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = zext i8 %9 to i32
-  %15 = tail call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @raknet_offline_message_names, ptr noundef nonnull @.str.203) #3
-  tail call void @col_add_str(ptr noundef %13, i32 noundef 25, ptr noundef %15) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %6, ptr noundef nonnull @.str.204, i32 noundef %14) #3
+  %15 = tail call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @raknet_offline_message_names, ptr noundef nonnull @.str.205)
+  tail call void @col_add_str(ptr noundef %13, i32 noundef 25, ptr noundef %15)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %6, ptr noundef nonnull @.str.206, i32 noundef %14)
   %16 = load i32, ptr @hf_raknet_offline_message_data_id, align 4
-  %17 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %16, ptr noundef %0, i32 noundef 1, i32 noundef 16, i32 noundef 0) #3
+  %17 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %16, ptr noundef %0, i32 noundef 1, i32 noundef 16, i32 noundef 0)
   %18 = load i32, ptr @hf_raknet_raknet_proto_ver, align 4
-  %19 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %18, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0) #3
+  %19 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %18, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0)
   %20 = load i32, ptr @hf_raknet_null_padding, align 4
-  %21 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %20, ptr noundef %0, i32 noundef 18, i32 noundef -1, i32 noundef 0) #3
-  %22 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
+  %21 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %20, ptr noundef %0, i32 noundef 18, i32 noundef -1, i32 noundef 0)
+  %22 = tail call i32 @tvb_reported_length(ptr noundef %0)
   ret i32 %22
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 28, 97) i32 @raknet_dissect_open_connection_reply_1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @proto_raknet, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %7 = load i32, ptr @ett_raknet, align 4
-  %8 = tail call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %7) #3
-  %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
+  %8 = tail call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %7)
+  %9 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %10 = load i32, ptr @hf_raknet_offline_message_id, align 4
-  %11 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
+  %11 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = zext i8 %9 to i32
-  %15 = tail call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @raknet_offline_message_names, ptr noundef nonnull @.str.203) #3
-  tail call void @col_add_str(ptr noundef %13, i32 noundef 25, ptr noundef %15) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %6, ptr noundef nonnull @.str.204, i32 noundef %14) #3
+  %15 = tail call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @raknet_offline_message_names, ptr noundef nonnull @.str.205)
+  tail call void @col_add_str(ptr noundef %13, i32 noundef 25, ptr noundef %15)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %6, ptr noundef nonnull @.str.206, i32 noundef %14)
   %16 = load i32, ptr @hf_raknet_offline_message_data_id, align 4
-  %17 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %16, ptr noundef %0, i32 noundef 1, i32 noundef 16, i32 noundef 0) #3
+  %17 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %16, ptr noundef %0, i32 noundef 1, i32 noundef 16, i32 noundef 0)
   %18 = load i32, ptr @hf_raknet_server_guid, align 4
-  %19 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %18, ptr noundef %0, i32 noundef 17, i32 noundef 8, i32 noundef 0) #3
-  %20 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #3
+  %19 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %18, ptr noundef %0, i32 noundef 17, i32 noundef 8, i32 noundef 0)
+  %20 = tail call ptr @find_or_create_conversation(ptr noundef %1)
   %21 = load i32, ptr @proto_raknet, align 4
-  %22 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %20, i32 noundef %21) #3
+  %22 = tail call ptr @conversation_get_proto_data(ptr noundef %20, i32 noundef %21)
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %raknet_get_session_state.exit
 
 24:                                               ; preds = %4
-  %25 = tail call ptr @wmem_file_scope() #3
-  %26 = tail call noalias ptr @wmem_alloc(ptr noundef %25, i64 noundef 16) #3
-  store i32 0, ptr %26, align 8
+  %25 = tail call ptr @wmem_file_scope()
+  %26 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %25, i64 noundef 16) #4
+  store i8 0, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr null, ptr %27, align 8
   %28 = load i32, ptr @proto_raknet, align 4
-  tail call void @conversation_add_proto_data(ptr noundef nonnull %20, i32 noundef %28, ptr noundef nonnull %26) #3
+  tail call void @conversation_add_proto_data(ptr noundef %20, i32 noundef %28, ptr noundef %26)
   br label %raknet_get_session_state.exit
 
 raknet_get_session_state.exit:                    ; preds = %4, %24
   %.0.i = phi ptr [ %26, %24 ], [ %22, %4 ]
-  %29 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 25) #3
-  %.not = icmp ne i8 %29, 0
-  %30 = zext i1 %.not to i32
-  store i32 %30, ptr %.0.i, align 8
-  %31 = load i32, ptr @hf_raknet_use_encryption, align 4
-  %32 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %31, ptr noundef %0, i32 noundef 25, i32 noundef 1, i32 noundef 0) #3
-  %33 = load i32, ptr %.0.i, align 8
-  %.not19 = icmp eq i32 %33, 0
-  br i1 %.not19, label %39, label %34
+  %29 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 25)
+  %30 = icmp ne i8 %29, 0
+  %31 = zext i1 %30 to i8
+  store i8 %31, ptr %.0.i, align 8
+  %32 = load i32, ptr @hf_raknet_use_encryption, align 4
+  %33 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %32, ptr noundef %0, i32 noundef 25, i32 noundef 1, i32 noundef 0)
+  %34 = load i8, ptr %.0.i, align 8, !range !9, !noundef !10
+  %35 = trunc nuw i8 %34 to i1
+  br i1 %35, label %36, label %41
 
-34:                                               ; preds = %raknet_get_session_state.exit
-  %35 = load i32, ptr @hf_raknet_cookie, align 4
-  %36 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %35, ptr noundef %0, i32 noundef 26, i32 noundef 4, i32 noundef 0) #3
-  %37 = load i32, ptr @hf_raknet_server_public_key, align 4
-  %38 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %37, ptr noundef %0, i32 noundef 30, i32 noundef 64, i32 noundef 0) #3
-  br label %39
+36:                                               ; preds = %raknet_get_session_state.exit
+  %37 = load i32, ptr @hf_raknet_cookie, align 4
+  %38 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %37, ptr noundef %0, i32 noundef 26, i32 noundef 4, i32 noundef 0)
+  %39 = load i32, ptr @hf_raknet_server_public_key, align 4
+  %40 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %39, ptr noundef %0, i32 noundef 30, i32 noundef 64, i32 noundef 0)
+  br label %41
 
-39:                                               ; preds = %34, %raknet_get_session_state.exit
-  %.0 = phi i32 [ 26, %raknet_get_session_state.exit ], [ 94, %34 ]
-  %40 = load i32, ptr @hf_raknet_mtu_size, align 4
-  %41 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %40, ptr noundef %0, i32 noundef %.0, i32 noundef 2, i32 noundef 0) #3
-  %42 = add nuw nsw i32 %.0, 2
-  ret i32 %42
+41:                                               ; preds = %36, %raknet_get_session_state.exit
+  %.0 = phi i32 [ 94, %36 ], [ 26, %raknet_get_session_state.exit ]
+  %42 = load i32, ptr @hf_raknet_mtu_size, align 4
+  %43 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %42, ptr noundef %0, i32 noundef %.0, i32 noundef 2, i32 noundef 0)
+  %44 = add nuw nsw i32 %.0, 2
+  ret i32 %44
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @raknet_dissect_open_connection_request_2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
   %6 = load i32, ptr @proto_raknet, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #3
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %8 = load i32, ptr @ett_raknet, align 4
-  %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8) #3
-  %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
+  %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8)
+  %10 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %11 = load i32, ptr @hf_raknet_offline_message_id, align 4
-  %12 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %11, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
+  %12 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %11, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = zext i8 %10 to i32
-  %16 = tail call ptr @val_to_str(i32 noundef %15, ptr noundef nonnull @raknet_offline_message_names, ptr noundef nonnull @.str.203) #3
-  tail call void @col_add_str(ptr noundef %14, i32 noundef 25, ptr noundef %16) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %7, ptr noundef nonnull @.str.204, i32 noundef %15) #3
+  %16 = tail call ptr @val_to_str(i32 noundef %15, ptr noundef nonnull @raknet_offline_message_names, ptr noundef nonnull @.str.205)
+  tail call void @col_add_str(ptr noundef %14, i32 noundef 25, ptr noundef %16)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %7, ptr noundef nonnull @.str.206, i32 noundef %15)
   %17 = load i32, ptr @hf_raknet_offline_message_data_id, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %17, ptr noundef %0, i32 noundef 1, i32 noundef 16, i32 noundef 0) #3
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %17, ptr noundef %0, i32 noundef 1, i32 noundef 16, i32 noundef 0)
   store i32 17, ptr %5, align 4
-  %19 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #3
+  %19 = tail call ptr @find_or_create_conversation(ptr noundef %1)
   %20 = load i32, ptr @proto_raknet, align 4
-  %21 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %19, i32 noundef %20) #3
+  %21 = tail call ptr @conversation_get_proto_data(ptr noundef %19, i32 noundef %20)
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %raknet_get_session_state.exit
 
 23:                                               ; preds = %4
-  %24 = tail call ptr @wmem_file_scope() #3
-  %25 = tail call noalias ptr @wmem_alloc(ptr noundef %24, i64 noundef 16) #3
-  store i32 0, ptr %25, align 8
+  %24 = tail call ptr @wmem_file_scope()
+  %25 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %24, i64 noundef 16) #4
+  store i8 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr null, ptr %26, align 8
   %27 = load i32, ptr @proto_raknet, align 4
-  tail call void @conversation_add_proto_data(ptr noundef nonnull %19, i32 noundef %27, ptr noundef nonnull %25) #3
+  tail call void @conversation_add_proto_data(ptr noundef %19, i32 noundef %27, ptr noundef %25)
   br label %raknet_get_session_state.exit
 
 raknet_get_session_state.exit:                    ; preds = %4, %23
   %.0.i = phi ptr [ %25, %23 ], [ %21, %4 ]
-  %28 = load i32, ptr %.0.i, align 8
-  %.not = icmp eq i32 %28, 0
-  br i1 %.not, label %38, label %29
+  %28 = load i8, ptr %.0.i, align 8, !range !9, !noundef !10
+  %29 = trunc nuw i8 %28 to i1
+  br i1 %29, label %30, label %39
 
-29:                                               ; preds = %raknet_get_session_state.exit
-  %30 = load i32, ptr @hf_raknet_cookie, align 4
-  %31 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %30, ptr noundef %0, i32 noundef 17, i32 noundef 4, i32 noundef 0) #3
-  %32 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 21) #3
-  %.not21 = icmp eq i8 %32, 0
-  %33 = load i32, ptr @hf_raknet_client_wrote_challenge, align 4
-  %34 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %33, ptr noundef %0, i32 noundef 21, i32 noundef 1, i32 noundef 0) #3
+30:                                               ; preds = %raknet_get_session_state.exit
+  %31 = load i32, ptr @hf_raknet_cookie, align 4
+  %32 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %31, ptr noundef %0, i32 noundef 17, i32 noundef 4, i32 noundef 0)
+  %33 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 21)
+  %.not = icmp eq i8 %33, 0
+  %34 = load i32, ptr @hf_raknet_client_wrote_challenge, align 4
+  %35 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %34, ptr noundef %0, i32 noundef 21, i32 noundef 1, i32 noundef 0)
   store i32 22, ptr %5, align 4
-  br i1 %.not21, label %38, label %35
+  br i1 %.not, label %39, label %36
 
-35:                                               ; preds = %29
-  %36 = load i32, ptr @hf_raknet_client_challenge, align 4
-  %37 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %36, ptr noundef %0, i32 noundef 22, i32 noundef 64, i32 noundef 0) #3
+36:                                               ; preds = %30
+  %37 = load i32, ptr @hf_raknet_client_challenge, align 4
+  %38 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %37, ptr noundef %0, i32 noundef 22, i32 noundef 64, i32 noundef 0)
   store i32 86, ptr %5, align 4
-  br label %38
+  br label %39
 
-38:                                               ; preds = %29, %35, %raknet_get_session_state.exit
-  %39 = load i32, ptr @hf_raknet_server_address, align 4
-  call fastcc void @raknet_dissect_system_address(ptr noundef %9, i32 noundef %39, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %5)
-  %40 = load i32, ptr @hf_raknet_mtu_size, align 4
-  %41 = load i32, ptr %5, align 4
-  %42 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %40, ptr noundef %0, i32 noundef %41, i32 noundef 2, i32 noundef 0) #3
-  %43 = add i32 %41, 2
-  %44 = load i32, ptr @hf_raknet_client_guid, align 4
-  %45 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %44, ptr noundef %0, i32 noundef %43, i32 noundef 8, i32 noundef 0) #3
-  %46 = add i32 %41, 10
-  ret i32 %46
+39:                                               ; preds = %30, %36, %raknet_get_session_state.exit
+  %40 = load i32, ptr @hf_raknet_server_address, align 4
+  call fastcc void @raknet_dissect_system_address(ptr noundef %9, i32 noundef %40, ptr noundef %1, ptr noundef %0, ptr noundef nonnull %5)
+  %41 = load i32, ptr @hf_raknet_mtu_size, align 4
+  %42 = load i32, ptr %5, align 4
+  %43 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %41, ptr noundef %0, i32 noundef %42, i32 noundef 2, i32 noundef 0)
+  %44 = add i32 %42, 2
+  %45 = load i32, ptr @hf_raknet_client_guid, align 4
+  %46 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %45, ptr noundef %0, i32 noundef %44, i32 noundef 8, i32 noundef 0)
+  %47 = add i32 %42, 10
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
+  ret i32 %47
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @raknet_dissect_open_connection_reply_2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
   %6 = load i32, ptr @proto_raknet, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #3
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %8 = load i32, ptr @ett_raknet, align 4
-  %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8) #3
-  %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
+  %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8)
+  %10 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %11 = load i32, ptr @hf_raknet_offline_message_id, align 4
-  %12 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %11, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
+  %12 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %11, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = zext i8 %10 to i32
-  %16 = tail call ptr @val_to_str(i32 noundef %15, ptr noundef nonnull @raknet_offline_message_names, ptr noundef nonnull @.str.203) #3
-  tail call void @col_add_str(ptr noundef %14, i32 noundef 25, ptr noundef %16) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %7, ptr noundef nonnull @.str.204, i32 noundef %15) #3
+  %16 = tail call ptr @val_to_str(i32 noundef %15, ptr noundef nonnull @raknet_offline_message_names, ptr noundef nonnull @.str.205)
+  tail call void @col_add_str(ptr noundef %14, i32 noundef 25, ptr noundef %16)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %7, ptr noundef nonnull @.str.206, i32 noundef %15)
   %17 = load i32, ptr @hf_raknet_offline_message_data_id, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %17, ptr noundef %0, i32 noundef 1, i32 noundef 16, i32 noundef 0) #3
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %17, ptr noundef %0, i32 noundef 1, i32 noundef 16, i32 noundef 0)
   %19 = load i32, ptr @hf_raknet_server_guid, align 4
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %19, ptr noundef %0, i32 noundef 17, i32 noundef 8, i32 noundef 0) #3
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %19, ptr noundef %0, i32 noundef 17, i32 noundef 8, i32 noundef 0)
   store i32 25, ptr %5, align 4
   %21 = load i32, ptr @hf_raknet_client_address, align 4
-  call fastcc void @raknet_dissect_system_address(ptr noundef %9, i32 noundef %21, ptr noundef %1, ptr noundef %0, ptr noundef %5)
+  call fastcc void @raknet_dissect_system_address(ptr noundef %9, i32 noundef %21, ptr noundef %1, ptr noundef %0, ptr noundef nonnull %5)
   %22 = load i32, ptr @hf_raknet_mtu_size, align 4
   %23 = load i32, ptr %5, align 4
-  %24 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %22, ptr noundef %0, i32 noundef %23, i32 noundef 2, i32 noundef 0) #3
+  %24 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %22, ptr noundef %0, i32 noundef %23, i32 noundef 2, i32 noundef 0)
   %25 = add i32 %23, 2
-  %26 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %25) #3
-  %.not = icmp eq i8 %26, 0
-  %27 = load i32, ptr @hf_raknet_use_encryption, align 4
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %27, ptr noundef %0, i32 noundef %25, i32 noundef 1, i32 noundef 0) #3
-  %29 = add i32 %23, 3
-  br i1 %.not, label %34, label %30
+  %26 = tail call ptr @find_or_create_conversation(ptr noundef %1)
+  %27 = load i32, ptr @proto_raknet, align 4
+  %28 = tail call ptr @conversation_get_proto_data(ptr noundef %26, i32 noundef %27)
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %30, label %raknet_get_session_state.exit
 
 30:                                               ; preds = %4
-  %31 = load i32, ptr @hf_raknet_server_answer, align 4
-  %32 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %31, ptr noundef %0, i32 noundef %29, i32 noundef 128, i32 noundef 0) #3
-  %33 = add i32 %23, 131
-  br label %34
+  %31 = tail call ptr @wmem_file_scope()
+  %32 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %31, i64 noundef 16) #4
+  store i8 0, ptr %32, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  store ptr null, ptr %33, align 8
+  %34 = load i32, ptr @proto_raknet, align 4
+  tail call void @conversation_add_proto_data(ptr noundef %26, i32 noundef %34, ptr noundef %32)
+  br label %raknet_get_session_state.exit
 
-34:                                               ; preds = %30, %4
-  %35 = phi i32 [ %33, %30 ], [ %29, %4 ]
-  ret i32 %35
+raknet_get_session_state.exit:                    ; preds = %4, %30
+  %.0.i = phi ptr [ %32, %30 ], [ %28, %4 ]
+  %35 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %25)
+  %36 = icmp ne i8 %35, 0
+  %37 = zext i1 %36 to i8
+  store i8 %37, ptr %.0.i, align 8
+  %38 = load i32, ptr @hf_raknet_use_encryption, align 4
+  %39 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %38, ptr noundef %0, i32 noundef %25, i32 noundef 1, i32 noundef 0)
+  %40 = add i32 %23, 3
+  %41 = load i8, ptr %.0.i, align 8, !range !9, !noundef !10
+  %42 = trunc nuw i8 %41 to i1
+  br i1 %42, label %43, label %47
+
+43:                                               ; preds = %raknet_get_session_state.exit
+  %44 = load i32, ptr @hf_raknet_server_answer, align 4
+  %45 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %44, ptr noundef %0, i32 noundef %40, i32 noundef 128, i32 noundef 0)
+  %46 = add i32 %23, 131
+  br label %47
+
+47:                                               ; preds = %43, %raknet_get_session_state.exit
+  %48 = phi i32 [ %46, %43 ], [ %40, %raknet_get_session_state.exit ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
+  ret i32 %48
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @raknet_dissect_connection_failed(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @proto_raknet, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %7 = load i32, ptr @ett_raknet, align 4
-  %8 = tail call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %7) #3
-  %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
+  %8 = tail call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %7)
+  %9 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %10 = load i32, ptr @hf_raknet_offline_message_id, align 4
-  %11 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
+  %11 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = zext i8 %9 to i32
-  %15 = tail call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @raknet_offline_message_names, ptr noundef nonnull @.str.203) #3
-  tail call void @col_add_str(ptr noundef %13, i32 noundef 25, ptr noundef %15) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %6, ptr noundef nonnull @.str.204, i32 noundef %14) #3
+  %15 = tail call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @raknet_offline_message_names, ptr noundef nonnull @.str.205)
+  tail call void @col_add_str(ptr noundef %13, i32 noundef 25, ptr noundef %15)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %6, ptr noundef nonnull @.str.206, i32 noundef %14)
   %16 = load i32, ptr @hf_raknet_offline_message_data_id, align 4
-  %17 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %16, ptr noundef %0, i32 noundef 1, i32 noundef 16, i32 noundef 0) #3
+  %17 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %16, ptr noundef %0, i32 noundef 1, i32 noundef 16, i32 noundef 0)
   %18 = load i32, ptr @hf_raknet_server_guid, align 4
-  %19 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %18, ptr noundef %0, i32 noundef 17, i32 noundef 8, i32 noundef 0) #3
+  %19 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %18, ptr noundef %0, i32 noundef 17, i32 noundef 8, i32 noundef 0)
   ret i32 25
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @raknet_dissect_incompatible_protocol_version(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @proto_raknet, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %7 = load i32, ptr @ett_raknet, align 4
-  %8 = tail call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %7) #3
-  %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
+  %8 = tail call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %7)
+  %9 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %10 = load i32, ptr @hf_raknet_offline_message_id, align 4
-  %11 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
+  %11 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = zext i8 %9 to i32
-  %15 = tail call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @raknet_offline_message_names, ptr noundef nonnull @.str.203) #3
-  tail call void @col_add_str(ptr noundef %13, i32 noundef 25, ptr noundef %15) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %6, ptr noundef nonnull @.str.204, i32 noundef %14) #3
+  %15 = tail call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @raknet_offline_message_names, ptr noundef nonnull @.str.205)
+  tail call void @col_add_str(ptr noundef %13, i32 noundef 25, ptr noundef %15)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %6, ptr noundef nonnull @.str.206, i32 noundef %14)
   %16 = load i32, ptr @hf_raknet_raknet_proto_ver, align 4
-  %17 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %16, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #3
+  %17 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %16, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
   %18 = load i32, ptr @hf_raknet_offline_message_data_id, align 4
-  %19 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %18, ptr noundef %0, i32 noundef 2, i32 noundef 16, i32 noundef 0) #3
+  %19 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %18, ptr noundef %0, i32 noundef 2, i32 noundef 16, i32 noundef 0)
   %20 = load i32, ptr @hf_raknet_server_guid, align 4
-  %21 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %20, ptr noundef %0, i32 noundef 18, i32 noundef 8, i32 noundef 0) #3
+  %21 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %20, ptr noundef %0, i32 noundef 18, i32 noundef 8, i32 noundef 0)
   ret i32 26
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @raknet_dissect_unconnected_pong(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
   %6 = load i32, ptr @proto_raknet, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #3
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %8 = load i32, ptr @ett_raknet, align 4
-  %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8) #3
-  %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
+  %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8)
+  %10 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %11 = load i32, ptr @hf_raknet_offline_message_id, align 4
-  %12 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %11, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
+  %12 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %11, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = zext i8 %10 to i32
-  %16 = tail call ptr @val_to_str(i32 noundef %15, ptr noundef nonnull @raknet_offline_message_names, ptr noundef nonnull @.str.203) #3
-  tail call void @col_add_str(ptr noundef %14, i32 noundef 25, ptr noundef %16) #3
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %7, ptr noundef nonnull @.str.204, i32 noundef %15) #3
+  %16 = tail call ptr @val_to_str(i32 noundef %15, ptr noundef nonnull @raknet_offline_message_names, ptr noundef nonnull @.str.205)
+  tail call void @col_add_str(ptr noundef %14, i32 noundef 25, ptr noundef %16)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %7, ptr noundef nonnull @.str.206, i32 noundef %15)
   %17 = load i32, ptr @hf_raknet_timestamp, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %17, ptr noundef %0, i32 noundef 1, i32 noundef 8, i32 noundef 0) #3
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %17, ptr noundef %0, i32 noundef 1, i32 noundef 8, i32 noundef 0)
   %19 = load i32, ptr @hf_raknet_server_guid, align 4
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %19, ptr noundef %0, i32 noundef 9, i32 noundef 8, i32 noundef 0) #3
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %19, ptr noundef %0, i32 noundef 9, i32 noundef 8, i32 noundef 0)
   %21 = load i32, ptr @hf_raknet_offline_message_data_id, align 4
-  %22 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %21, ptr noundef %0, i32 noundef 17, i32 noundef 16, i32 noundef 0) #3
+  %22 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %21, ptr noundef %0, i32 noundef 17, i32 noundef 16, i32 noundef 0)
   %23 = load i32, ptr @hf_raknet_0x1C_server_id_str_len, align 4
-  %24 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %9, i32 noundef %23, ptr noundef %0, i32 noundef 33, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5) #3
+  %24 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %9, i32 noundef %23, ptr noundef %0, i32 noundef 33, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5)
   %25 = load i32, ptr @hf_raknet_0x1C_server_id_str, align 4
   %26 = load i32, ptr %5, align 4
-  %27 = call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %25, ptr noundef %0, i32 noundef 35, i32 noundef %26, i32 noundef 0) #3
+  %27 = call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %25, ptr noundef %0, i32 noundef 35, i32 noundef %26, i32 noundef 0)
   %28 = load i32, ptr %5, align 4
   %29 = add i32 %28, 35
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
   ret i32 %29
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
-define internal fastcc void @raknet_dissect_system_address(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull captures(none) %4) unnamed_addr #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal fastcc void @raknet_dissect_system_address(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca %struct._address, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #5
   %8 = load i32, ptr %4, align 4
-  %9 = tail call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef %8, i32 noundef -1, ptr noundef nonnull @.str.173) #3
+  %9 = tail call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef %8, i32 noundef -1, ptr noundef nonnull @.str.174)
   %10 = load i32, ptr @ett_raknet_system_address, align 4
-  %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10) #3
+  %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10)
   %12 = load i32, ptr %4, align 4
-  %13 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %3, i32 noundef %12) #3
+  %13 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %3, i32 noundef %12)
   %14 = load i32, ptr @hf_raknet_ip_version, align 4
   %15 = load i32, ptr %4, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %14, ptr noundef %3, i32 noundef %15, i32 noundef 1, i32 noundef 0) #3
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %14, ptr noundef %3, i32 noundef %15, i32 noundef 1, i32 noundef 0)
   %17 = load i32, ptr %4, align 4
   %18 = add i32 %17, 1
   store i32 %18, ptr %4, align 4
@@ -1507,7 +1595,7 @@ define internal fastcc void @raknet_dissect_system_address(ptr noundef %0, i32 n
   ]
 
 19:                                               ; preds = %5
-  %20 = tail call i32 @tvb_get_ipv4(ptr noundef %3, i32 noundef %18) #3
+  %20 = tail call i32 @tvb_get_ipv4(ptr noundef %3, i32 noundef %18)
   %21 = xor i32 %20, -1
   store i32 %21, ptr %6, align 4
   store i32 2, ptr %7, align 8
@@ -1519,128 +1607,137 @@ define internal fastcc void @raknet_dissect_system_address(ptr noundef %0, i32 n
   store ptr null, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %26 = load ptr, ptr %25, align 8
-  %27 = call ptr @address_to_display(ptr noundef %26, ptr noundef nonnull %7) #3
+  %27 = call ptr @address_to_display(ptr noundef %26, ptr noundef nonnull %7)
   %28 = load i32, ptr @hf_raknet_ipv4_address, align 4
   %29 = load i32, ptr %4, align 4
   %30 = load i32, ptr %6, align 4
-  %31 = call ptr @proto_tree_add_ipv4(ptr noundef %11, i32 noundef %28, ptr noundef %3, i32 noundef %29, i32 noundef 4, i32 noundef %30) #3
+  %31 = call ptr @proto_tree_add_ipv4(ptr noundef %11, i32 noundef %28, ptr noundef %3, i32 noundef %29, i32 noundef 4, i32 noundef %30)
   %32 = load i32, ptr %4, align 4
   %33 = add i32 %32, 4
   store i32 %33, ptr %4, align 4
-  %34 = call zeroext i16 @tvb_get_ntohs(ptr noundef %3, i32 noundef %33) #3
+  %34 = call zeroext i16 @tvb_get_ntohs(ptr noundef %3, i32 noundef %33)
   %35 = load i32, ptr @hf_raknet_port, align 4
   %36 = load i32, ptr %4, align 4
-  %37 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %35, ptr noundef %3, i32 noundef %36, i32 noundef 2, i32 noundef 0) #3
+  %37 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %35, ptr noundef %3, i32 noundef %36, i32 noundef 2, i32 noundef 0)
   %38 = load i32, ptr %4, align 4
   %39 = add i32 %38, 2
   store i32 %39, ptr %4, align 4
-  call void @proto_item_set_len(ptr noundef %9, i32 noundef 7) #3
+  call void @proto_item_set_len(ptr noundef %9, i32 noundef 7)
   %40 = zext i16 %34 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.205, ptr noundef %27, i32 noundef %40) #3
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.207, ptr noundef %27, i32 noundef %40)
   br label %59
 
 41:                                               ; preds = %5
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %43 = load ptr, ptr %42, align 8
-  %44 = tail call ptr @tvb_address_to_str(ptr noundef %43, ptr noundef %3, i32 noundef 3, i32 noundef %18) #3
+  %44 = tail call ptr @tvb_address_to_str(ptr noundef %43, ptr noundef %3, i32 noundef 3, i32 noundef %18)
   %45 = load i32, ptr @hf_raknet_ipv6_address, align 4
   %46 = load i32, ptr %4, align 4
-  %47 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %45, ptr noundef %3, i32 noundef %46, i32 noundef 16, i32 noundef 0) #3
+  %47 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %45, ptr noundef %3, i32 noundef %46, i32 noundef 16, i32 noundef 0)
   %48 = load i32, ptr %4, align 4
   %49 = add i32 %48, 16
   store i32 %49, ptr %4, align 4
-  %50 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %3, i32 noundef %49) #3
+  %50 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %3, i32 noundef %49)
   %51 = load i32, ptr @hf_raknet_port, align 4
   %52 = load i32, ptr %4, align 4
-  %53 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %51, ptr noundef %3, i32 noundef %52, i32 noundef 2, i32 noundef 0) #3
+  %53 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %51, ptr noundef %3, i32 noundef %52, i32 noundef 2, i32 noundef 0)
   %54 = load i32, ptr %4, align 4
   %55 = add i32 %54, 2
   store i32 %55, ptr %4, align 4
-  tail call void @proto_item_set_len(ptr noundef %9, i32 noundef 19) #3
+  tail call void @proto_item_set_len(ptr noundef %9, i32 noundef 19)
   %56 = zext i16 %50 to i32
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.206, ptr noundef %44, i32 noundef %56) #3
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.208, ptr noundef %44, i32 noundef %56)
   br label %59
 
 57:                                               ; preds = %5
-  tail call void @proto_item_set_len(ptr noundef %9, i32 noundef 1) #3
-  %58 = tail call ptr @expert_add_info(ptr noundef %2, ptr noundef %11, ptr noundef nonnull @ei_raknet_ip_ver_invalid) #3
+  tail call void @proto_item_set_len(ptr noundef %9, i32 noundef 1)
+  %58 = tail call ptr @expert_add_info(ptr noundef %2, ptr noundef %11, ptr noundef nonnull @ei_raknet_ip_ver_invalid)
   br label %59
 
 59:                                               ; preds = %57, %41, %19
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_get_ipv4(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @address_to_display(ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_ipv4(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_address_to_str(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @raknet_dissect_connected_ping(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_raknet_timestamp, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 1, i32 noundef 8, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 1, i32 noundef 8, i32 noundef 0)
   ret i32 9
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @raknet_dissect_connected_pong(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_raknet_timestamp, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 1, i32 noundef 8, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 1, i32 noundef 8, i32 noundef 0)
   %7 = load i32, ptr @hf_raknet_timestamp, align 4
-  %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 9, i32 noundef 8, i32 noundef 0) #3
+  %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 9, i32 noundef 8, i32 noundef 0)
   ret i32 17
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @raknet_dissect_connection_request(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_raknet_client_guid, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 1, i32 noundef 8, i32 noundef 0) #3
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 1, i32 noundef 8, i32 noundef 0)
   %7 = load i32, ptr @hf_raknet_timestamp, align 4
-  %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 9, i32 noundef 8, i32 noundef 0) #3
-  %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 17) #3
+  %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 9, i32 noundef 8, i32 noundef 0)
+  %9 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 17)
   %.not = icmp eq i8 %9, 0
   %10 = load i32, ptr @hf_raknet_use_encryption, align 4
-  %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0) #3
+  %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0)
   br i1 %.not, label %21, label %12
 
 12:                                               ; preds = %4
   %13 = load i32, ptr @hf_raknet_client_proof, align 4
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef 18, i32 noundef 32, i32 noundef 0) #3
-  %15 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 50) #3
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef 18, i32 noundef 32, i32 noundef 0)
+  %15 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 50)
   %.not33 = icmp eq i8 %15, 0
   %16 = load i32, ptr @hf_raknet_use_client_key, align 4
-  %17 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %16, ptr noundef %0, i32 noundef 50, i32 noundef 1, i32 noundef 0) #3
+  %17 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %16, ptr noundef %0, i32 noundef 50, i32 noundef 1, i32 noundef 0)
   br i1 %.not33, label %21, label %18
 
 18:                                               ; preds = %12
   %19 = load i32, ptr @hf_raknet_client_identity, align 4
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef 51, i32 noundef 160, i32 noundef 0) #3
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef 51, i32 noundef 160, i32 noundef 0)
   br label %21
 
 21:                                               ; preds = %12, %18, %4
-  %.0 = phi i32 [ 211, %18 ], [ 51, %12 ], [ 18, %4 ]
+  %.0 = phi i32 [ 18, %4 ], [ 211, %18 ], [ 51, %12 ]
   %22 = load i32, ptr @hf_raknet_password, align 4
-  %23 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %22, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #3
-  %24 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
+  %23 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %22, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0)
+  %24 = tail call i32 @tvb_reported_length(ptr noundef %0)
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @raknet_dissect_connection_request_accepted(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
   store i32 1, ptr %5, align 4
   %6 = load i32, ptr @hf_raknet_client_address, align 4
-  call fastcc void @raknet_dissect_system_address(ptr noundef %2, i32 noundef %6, ptr noundef %1, ptr noundef %0, ptr noundef %5)
+  call fastcc void @raknet_dissect_system_address(ptr noundef %2, i32 noundef %6, ptr noundef %1, ptr noundef %0, ptr noundef nonnull %5)
   %7 = load i32, ptr @hf_raknet_system_index, align 4
   %8 = load i32, ptr %5, align 4
-  %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %8, i32 noundef 2, i32 noundef 0) #3
+  %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %8, i32 noundef 2, i32 noundef 0)
   %10 = add i32 %8, 2
   store i32 %10, ptr %5, align 4
   br label %11
@@ -1648,75 +1745,80 @@ define internal noundef i32 @raknet_dissect_connection_request_accepted(ptr noun
 11:                                               ; preds = %4, %11
   %.013 = phi i32 [ 0, %4 ], [ %13, %11 ]
   %12 = load i32, ptr @hf_raknet_internal_address, align 4
-  call fastcc void @raknet_dissect_system_address(ptr noundef %2, i32 noundef %12, ptr noundef %1, ptr noundef %0, ptr noundef %5)
+  call fastcc void @raknet_dissect_system_address(ptr noundef %2, i32 noundef %12, ptr noundef %1, ptr noundef %0, ptr noundef nonnull %5)
   %13 = add nuw nsw i32 %.013, 1
   %exitcond.not = icmp eq i32 %13, 10
-  br i1 %exitcond.not, label %14, label %11, !llvm.loop !10
+  br i1 %exitcond.not, label %14, label %11, !llvm.loop !14
 
 14:                                               ; preds = %11
   %15 = load i32, ptr @hf_raknet_timestamp, align 4
   %16 = load i32, ptr %5, align 4
-  %17 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef %16, i32 noundef 8, i32 noundef 0) #3
+  %17 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef %16, i32 noundef 8, i32 noundef 0)
   %18 = add i32 %16, 8
   %19 = load i32, ptr @hf_raknet_timestamp, align 4
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef %18, i32 noundef 8, i32 noundef 0) #3
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef %18, i32 noundef 8, i32 noundef 0)
   %21 = add i32 %16, 16
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @raknet_dissect_new_incoming_connection(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
   store i32 1, ptr %5, align 4
   %6 = load i32, ptr @hf_raknet_server_address, align 4
-  call fastcc void @raknet_dissect_system_address(ptr noundef %2, i32 noundef %6, ptr noundef %1, ptr noundef %0, ptr noundef %5)
+  call fastcc void @raknet_dissect_system_address(ptr noundef %2, i32 noundef %6, ptr noundef %1, ptr noundef %0, ptr noundef nonnull %5)
   br label %7
 
 7:                                                ; preds = %4, %7
   %.011 = phi i32 [ 0, %4 ], [ %9, %7 ]
   %8 = load i32, ptr @hf_raknet_internal_address, align 4
-  call fastcc void @raknet_dissect_system_address(ptr noundef %2, i32 noundef %8, ptr noundef %1, ptr noundef %0, ptr noundef %5)
+  call fastcc void @raknet_dissect_system_address(ptr noundef %2, i32 noundef %8, ptr noundef %1, ptr noundef %0, ptr noundef nonnull %5)
   %9 = add nuw nsw i32 %.011, 1
   %exitcond.not = icmp eq i32 %9, 10
-  br i1 %exitcond.not, label %10, label %7, !llvm.loop !11
+  br i1 %exitcond.not, label %10, label %7, !llvm.loop !15
 
 10:                                               ; preds = %7
   %11 = load i32, ptr @hf_raknet_timestamp, align 4
   %12 = load i32, ptr %5, align 4
-  %13 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %11, ptr noundef %0, i32 noundef %12, i32 noundef 8, i32 noundef 0) #3
+  %13 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %11, ptr noundef %0, i32 noundef %12, i32 noundef 8, i32 noundef 0)
   %14 = add i32 %12, 8
   %15 = load i32, ptr @hf_raknet_timestamp, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef %14, i32 noundef 8, i32 noundef 0) #3
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef %14, i32 noundef 8, i32 noundef 0)
   %17 = add i32 %12, 16
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
   ret i32 %17
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @conversation_set_dissector(ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_memeql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { allocsize(1) }
+attributes #5 = { nounwind }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind }
-
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}

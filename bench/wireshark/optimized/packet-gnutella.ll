@@ -142,115 +142,127 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.96 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.97 = private unnamed_addr constant [31 x i8] c"Missing data for Query Search.\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_gnutella() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.90) #3
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.88, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.90)
   store i32 %1, ptr @proto_gnutella, align 4
-  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_gnutella.hf, i32 noundef 32) #3
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_gnutella.ett, i32 noundef 1) #3
+  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_gnutella.hf, i32 noundef 32)
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_gnutella.ett, i32 noundef 1)
   %2 = load i32, ptr @proto_gnutella, align 4
-  %3 = tail call ptr @register_dissector(ptr noundef nonnull @.str.90, ptr noundef nonnull @dissect_gnutella, i32 noundef %2) #3
+  %3 = tail call ptr @register_dissector(ptr noundef nonnull @.str.90, ptr noundef nonnull @dissect_gnutella, i32 noundef %2)
   store ptr %3, ptr @gnutella_handle, align 8
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gnutella(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
-  tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.92) #3
+  tail call void @col_set_str(ptr noundef %6, i32 noundef 35, ptr noundef nonnull @.str.92)
   %7 = load ptr, ptr %5, align 8
-  tail call void @col_clear(ptr noundef %7, i32 noundef 25) #3
-  %8 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef 19, i32 noundef 4) #3
-  %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %20, label %9
+  tail call void @col_clear(ptr noundef %7, i32 noundef 25)
+  %8 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef 19, i32 noundef 4)
+  br i1 %8, label %9, label %20
 
 9:                                                ; preds = %4
-  %10 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 19) #3
+  %10 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 19)
   %11 = icmp ugt i32 %10, 4096
   br i1 %11, label %12, label %20
 
 12:                                               ; preds = %9
-  %.not18 = icmp eq ptr %2, null
-  br i1 %.not18, label %21, label %13
+  %.not = icmp eq ptr %2, null
+  br i1 %.not, label %21, label %13
 
 13:                                               ; preds = %12
   %14 = load i32, ptr @proto_gnutella, align 4
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %14, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #3
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %14, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %16 = load i32, ptr @ett_gnutella, align 4
-  %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #3
+  %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16)
   %18 = load i32, ptr @hf_gnutella_stream, align 4
-  %19 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %18, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #3
+  %19 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %18, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   br label %21
 
 20:                                               ; preds = %9, %4
-  tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 1, i32 noundef 23, ptr noundef nonnull @get_gnutella_pdu_len, ptr noundef nonnull @dissect_gnutella_pdu, ptr noundef %3) #3
+  tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, i32 noundef 23, ptr noundef nonnull @get_gnutella_pdu_len, ptr noundef nonnull @dissect_gnutella_pdu, ptr noundef %3)
   br label %21
 
 21:                                               ; preds = %12, %13, %20
-  %22 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
+  %22 = tail call i32 @tvb_captured_length(ptr noundef %0)
   ret i32 %22
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_gnutella() local_unnamed_addr #0 {
   %1 = load ptr, ptr @gnutella_handle, align 8
-  tail call void @dissector_add_uint_with_preference(ptr noundef nonnull @.str.91, i32 noundef 6346, ptr noundef %1) #3
+  tail call void @dissector_add_uint_with_preference(ptr noundef nonnull @.str.91, i32 noundef 6346, ptr noundef %1)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @tvb_bytes_exist(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @tvb_bytes_exist(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
-declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 23, 4120) i32 @get_gnutella_pdu_len(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = add i32 %2, 19
-  %6 = tail call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %5) #3
+  %6 = tail call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %5)
   %spec.store.select = tail call i32 @llvm.umin.i32(i32 %6, i32 4096)
   %7 = add nuw nsw i32 %spec.store.select, 23
   ret i32 %7
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gnutella_pdu(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %11, label %5
 
 5:                                                ; preds = %4
   %6 = load i32, ptr @proto_gnutella, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #3
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %8 = load i32, ptr @ett_gnutella, align 4
-  %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8) #3
-  %10 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 19) #3
+  %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8)
+  %10 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 19)
   br label %11
 
 11:                                               ; preds = %5, %4
   %.056 = phi ptr [ %9, %5 ], [ null, %4 ]
   %.055 = phi i32 [ %10, %5 ], [ 0, %4 ]
-  %12 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 16) #3
+  %12 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 16)
   %13 = zext i8 %12 to i32
   switch i8 %12, label %18 [
     i8 0, label %19
@@ -279,24 +291,24 @@ define internal i32 @dissect_gnutella_pdu(ptr noundef %0, ptr noundef readonly c
   %.0 = phi ptr [ @.str.94, %18 ], [ @.str.12, %17 ], [ @.str.9, %16 ], [ @.str.6, %15 ], [ @.str.3, %14 ], [ @.str.93, %11 ]
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8
-  tail call void @col_append_sep_str(ptr noundef %21, i32 noundef 25, ptr noundef null, ptr noundef nonnull %.0) #3
+  tail call void @col_append_sep_str(ptr noundef %21, i32 noundef 25, ptr noundef null, ptr noundef nonnull %.0)
   br i1 %.not, label %dissect_gnutella_query.exit, label %22
 
 22:                                               ; preds = %19
   %23 = load i32, ptr @hf_gnutella_header, align 4
-  %24 = tail call ptr @proto_tree_add_item(ptr noundef %.056, i32 noundef %23, ptr noundef %0, i32 noundef 0, i32 noundef 23, i32 noundef 0) #3
+  %24 = tail call ptr @proto_tree_add_item(ptr noundef %.056, i32 noundef %23, ptr noundef %0, i32 noundef 0, i32 noundef 23, i32 noundef 0)
   %25 = load i32, ptr @ett_gnutella, align 4
-  %26 = tail call ptr @proto_item_add_subtree(ptr noundef %24, i32 noundef %25) #3
+  %26 = tail call ptr @proto_item_add_subtree(ptr noundef %24, i32 noundef %25)
   %27 = load i32, ptr @hf_gnutella_header_id, align 4
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %27, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0) #3
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %27, ptr noundef %0, i32 noundef 0, i32 noundef 16, i32 noundef 0)
   %29 = load i32, ptr @hf_gnutella_header_payload, align 4
-  %30 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %26, i32 noundef %29, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef %13, ptr noundef nonnull @.str.95, i32 noundef %13, ptr noundef nonnull %.0) #3
+  %30 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %26, i32 noundef %29, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef %13, ptr noundef nonnull @.str.95, i32 noundef %13, ptr noundef nonnull %.0)
   %31 = load i32, ptr @hf_gnutella_header_ttl, align 4
-  %32 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %31, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0) #3
+  %32 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %31, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0)
   %33 = load i32, ptr @hf_gnutella_header_hops, align 4
-  %34 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %33, ptr noundef %0, i32 noundef 18, i32 noundef 1, i32 noundef 0) #3
+  %34 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %33, ptr noundef %0, i32 noundef 18, i32 noundef 1, i32 noundef 0)
   %35 = load i32, ptr @hf_gnutella_header_size, align 4
-  %36 = tail call ptr @proto_tree_add_uint(ptr noundef %26, i32 noundef %35, ptr noundef %0, i32 noundef 19, i32 noundef 4, i32 noundef %.055) #3
+  %36 = tail call ptr @proto_tree_add_uint(ptr noundef %26, i32 noundef %35, ptr noundef %0, i32 noundef 19, i32 noundef 4, i32 noundef %.055)
   %.not58 = icmp eq i32 %.055, 0
   br i1 %.not58, label %dissect_gnutella_query.exit, label %37
 
@@ -310,69 +322,69 @@ define internal i32 @dissect_gnutella_pdu(ptr noundef %0, ptr noundef readonly c
 
 38:                                               ; preds = %37
   %39 = load i32, ptr @hf_gnutella_pong_payload, align 4
-  %40 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %39, ptr noundef %0, i32 noundef 23, i32 noundef %.055, i32 noundef 0) #3
+  %40 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %39, ptr noundef %0, i32 noundef 23, i32 noundef %.055, i32 noundef 0)
   %41 = load i32, ptr @ett_gnutella, align 4
-  %42 = tail call ptr @proto_item_add_subtree(ptr noundef %40, i32 noundef %41) #3
+  %42 = tail call ptr @proto_item_add_subtree(ptr noundef %40, i32 noundef %41)
   %43 = load i32, ptr @hf_gnutella_pong_port, align 4
-  %44 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %43, ptr noundef %0, i32 noundef 23, i32 noundef 2, i32 noundef -2147483648) #3
+  %44 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %43, ptr noundef %0, i32 noundef 23, i32 noundef 2, i32 noundef -2147483648)
   %45 = load i32, ptr @hf_gnutella_pong_ip, align 4
-  %46 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %45, ptr noundef %0, i32 noundef 25, i32 noundef 4, i32 noundef 0) #3
+  %46 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %45, ptr noundef %0, i32 noundef 25, i32 noundef 4, i32 noundef 0)
   %47 = load i32, ptr @hf_gnutella_pong_files, align 4
-  %48 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %47, ptr noundef %0, i32 noundef 29, i32 noundef 4, i32 noundef -2147483648) #3
+  %48 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %47, ptr noundef %0, i32 noundef 29, i32 noundef 4, i32 noundef -2147483648)
   %49 = load i32, ptr @hf_gnutella_pong_kbytes, align 4
-  %50 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %49, ptr noundef %0, i32 noundef 33, i32 noundef 4, i32 noundef -2147483648) #3
+  %50 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %49, ptr noundef %0, i32 noundef 33, i32 noundef 4, i32 noundef -2147483648)
   br label %dissect_gnutella_query.exit
 
 51:                                               ; preds = %37
   %52 = load i32, ptr @hf_gnutella_push_payload, align 4
-  %53 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %52, ptr noundef %0, i32 noundef 23, i32 noundef %.055, i32 noundef 0) #3
+  %53 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %52, ptr noundef %0, i32 noundef 23, i32 noundef %.055, i32 noundef 0)
   %54 = load i32, ptr @ett_gnutella, align 4
-  %55 = tail call ptr @proto_item_add_subtree(ptr noundef %53, i32 noundef %54) #3
+  %55 = tail call ptr @proto_item_add_subtree(ptr noundef %53, i32 noundef %54)
   %56 = load i32, ptr @hf_gnutella_push_servent_id, align 4
-  %57 = tail call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %56, ptr noundef %0, i32 noundef 23, i32 noundef 16, i32 noundef 0) #3
+  %57 = tail call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %56, ptr noundef %0, i32 noundef 23, i32 noundef 16, i32 noundef 0)
   %58 = load i32, ptr @hf_gnutella_push_index, align 4
-  %59 = tail call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %58, ptr noundef %0, i32 noundef 39, i32 noundef 4, i32 noundef -2147483648) #3
+  %59 = tail call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %58, ptr noundef %0, i32 noundef 39, i32 noundef 4, i32 noundef -2147483648)
   %60 = load i32, ptr @hf_gnutella_push_ip, align 4
-  %61 = tail call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %60, ptr noundef %0, i32 noundef 43, i32 noundef 4, i32 noundef 0) #3
+  %61 = tail call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %60, ptr noundef %0, i32 noundef 43, i32 noundef 4, i32 noundef 0)
   %62 = load i32, ptr @hf_gnutella_push_port, align 4
-  %63 = tail call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %62, ptr noundef %0, i32 noundef 47, i32 noundef 2, i32 noundef -2147483648) #3
+  %63 = tail call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %62, ptr noundef %0, i32 noundef 47, i32 noundef 2, i32 noundef -2147483648)
   br label %dissect_gnutella_query.exit
 
 64:                                               ; preds = %37
   %65 = load i32, ptr @hf_gnutella_query_payload, align 4
-  %66 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %65, ptr noundef %0, i32 noundef 23, i32 noundef %.055, i32 noundef 0) #3
+  %66 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %65, ptr noundef %0, i32 noundef 23, i32 noundef %.055, i32 noundef 0)
   %67 = load i32, ptr @ett_gnutella, align 4
-  %68 = tail call ptr @proto_item_add_subtree(ptr noundef %66, i32 noundef %67) #3
+  %68 = tail call ptr @proto_item_add_subtree(ptr noundef %66, i32 noundef %67)
   %69 = load i32, ptr @hf_gnutella_query_min_speed, align 4
-  %70 = tail call ptr @proto_tree_add_item(ptr noundef %68, i32 noundef %69, ptr noundef %0, i32 noundef 23, i32 noundef 2, i32 noundef -2147483648) #3
+  %70 = tail call ptr @proto_tree_add_item(ptr noundef %68, i32 noundef %69, ptr noundef %0, i32 noundef 23, i32 noundef 2, i32 noundef -2147483648)
   %71 = icmp ugt i32 %.055, 2
   %72 = load i32, ptr @hf_gnutella_query_search, align 4
   br i1 %71, label %73, label %76
 
 73:                                               ; preds = %64
   %74 = add i32 %.055, -2
-  %75 = tail call ptr @proto_tree_add_item(ptr noundef %68, i32 noundef %72, ptr noundef %0, i32 noundef 25, i32 noundef %74, i32 noundef 0) #3
+  %75 = tail call ptr @proto_tree_add_item(ptr noundef %68, i32 noundef %72, ptr noundef %0, i32 noundef 25, i32 noundef %74, i32 noundef 0)
   br label %dissect_gnutella_query.exit
 
 76:                                               ; preds = %64
-  %77 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %68, i32 noundef %72, ptr noundef %0, i32 noundef 25, i32 noundef 0, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97) #3
+  %77 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %68, i32 noundef %72, ptr noundef %0, i32 noundef 25, i32 noundef 0, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97)
   br label %dissect_gnutella_query.exit
 
 78:                                               ; preds = %37
   %79 = load i32, ptr @hf_gnutella_queryhit_payload, align 4
-  %80 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %79, ptr noundef %0, i32 noundef 23, i32 noundef %.055, i32 noundef 0) #3
+  %80 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %79, ptr noundef %0, i32 noundef 23, i32 noundef %.055, i32 noundef 0)
   %81 = load i32, ptr @ett_gnutella, align 4
-  %82 = tail call ptr @proto_item_add_subtree(ptr noundef %80, i32 noundef %81) #3
-  %83 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 23) #3
+  %82 = tail call ptr @proto_item_add_subtree(ptr noundef %80, i32 noundef %81)
+  %83 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 23)
   %84 = zext i8 %83 to i32
   %85 = load i32, ptr @hf_gnutella_queryhit_count, align 4
-  %86 = tail call ptr @proto_tree_add_uint(ptr noundef %82, i32 noundef %85, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef %84) #3
+  %86 = tail call ptr @proto_tree_add_uint(ptr noundef %82, i32 noundef %85, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef %84)
   %87 = load i32, ptr @hf_gnutella_queryhit_port, align 4
-  %88 = tail call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %87, ptr noundef %0, i32 noundef 24, i32 noundef 2, i32 noundef -2147483648) #3
+  %88 = tail call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %87, ptr noundef %0, i32 noundef 24, i32 noundef 2, i32 noundef -2147483648)
   %89 = load i32, ptr @hf_gnutella_queryhit_ip, align 4
-  %90 = tail call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %89, ptr noundef %0, i32 noundef 26, i32 noundef 4, i32 noundef 0) #3
+  %90 = tail call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %89, ptr noundef %0, i32 noundef 26, i32 noundef 4, i32 noundef 0)
   %91 = load i32, ptr @hf_gnutella_queryhit_speed, align 4
-  %92 = tail call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %91, ptr noundef %0, i32 noundef 30, i32 noundef 4, i32 noundef -2147483648) #3
+  %92 = tail call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %91, ptr noundef %0, i32 noundef 30, i32 noundef 4, i32 noundef -2147483648)
   %.not105.i = icmp eq i8 %83, 0
   br i1 %.not105.i, label %._crit_edge103.i, label %.lr.ph102.preheader.i
 
@@ -397,7 +409,7 @@ define internal i32 @dissect_gnutella_pdu(ptr noundef %0, ptr noundef readonly c
 .lr.ph.i:                                         ; preds = %102, %.lr.ph.preheader.i
   %.184.i = phi i32 [ %103, %102 ], [ %96, %.lr.ph.preheader.i ]
   %.07983.i = phi i32 [ %104, %102 ], [ 0, %.lr.ph.preheader.i ]
-  %100 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.184.i) #3
+  %100 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.184.i)
   %101 = icmp eq i8 %100, 0
   br i1 %101, label %._crit_edge.i, label %102
 
@@ -405,7 +417,7 @@ define internal i32 @dissect_gnutella_pdu(ptr noundef %0, ptr noundef readonly c
   %103 = add i32 %.184.i, 1
   %104 = add i32 %.07983.i, 1
   %exitcond.not.i = icmp eq i32 %104, %99
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %102, %.lr.ph.i, %.lr.ph102.i
   %.079.lcssa.i = phi i32 [ 0, %.lr.ph102.i ], [ %99, %102 ], [ %.07983.i, %.lr.ph.i ]
@@ -422,7 +434,7 @@ define internal i32 @dissect_gnutella_pdu(ptr noundef %0, ptr noundef readonly c
 .lr.ph92.i:                                       ; preds = %111, %.lr.ph92.preheader.i
   %.290.i = phi i32 [ %112, %111 ], [ %105, %.lr.ph92.preheader.i ]
   %.08089.i = phi i32 [ %113, %111 ], [ 0, %.lr.ph92.preheader.i ]
-  %109 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.290.i) #3
+  %109 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.290.i)
   %110 = icmp eq i8 %109, 0
   br i1 %110, label %._crit_edge93.i, label %111
 
@@ -430,7 +442,7 @@ define internal i32 @dissect_gnutella_pdu(ptr noundef %0, ptr noundef readonly c
   %112 = add i32 %.290.i, 1
   %113 = add i32 %.08089.i, 1
   %exitcond106.not.i = icmp eq i32 %113, %108
-  br i1 %exitcond106.not.i, label %._crit_edge93.i, label %.lr.ph92.i, !llvm.loop !6
+  br i1 %exitcond106.not.i, label %._crit_edge93.i, label %.lr.ph92.i, !llvm.loop !8
 
 ._crit_edge93.i:                                  ; preds = %111, %.lr.ph92.i, %._crit_edge.i
   %.080.lcssa.i = phi i32 [ 0, %._crit_edge.i ], [ %108, %111 ], [ %.08089.i, %.lr.ph92.i ]
@@ -439,27 +451,27 @@ define internal i32 @dissect_gnutella_pdu(ptr noundef %0, ptr noundef readonly c
   %115 = load i32, ptr @hf_gnutella_queryhit_hit, align 4
   %116 = add i32 %.079.lcssa.i, 10
   %117 = add i32 %116, %.080.lcssa.i
-  %118 = tail call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %115, ptr noundef %0, i32 noundef %.07899.i, i32 noundef %117, i32 noundef 0) #3
+  %118 = tail call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %115, ptr noundef %0, i32 noundef %.07899.i, i32 noundef %117, i32 noundef 0)
   %119 = load i32, ptr @ett_gnutella, align 4
-  %120 = tail call ptr @proto_item_add_subtree(ptr noundef %118, i32 noundef %119) #3
+  %120 = tail call ptr @proto_item_add_subtree(ptr noundef %118, i32 noundef %119)
   %121 = load i32, ptr @hf_gnutella_queryhit_hit_index, align 4
-  %122 = tail call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %121, ptr noundef %0, i32 noundef %.07899.i, i32 noundef 4, i32 noundef -2147483648) #3
+  %122 = tail call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %121, ptr noundef %0, i32 noundef %.07899.i, i32 noundef 4, i32 noundef -2147483648)
   %123 = load i32, ptr @hf_gnutella_queryhit_hit_size, align 4
-  %124 = tail call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %123, ptr noundef %0, i32 noundef %95, i32 noundef 4, i32 noundef -2147483648) #3
+  %124 = tail call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %123, ptr noundef %0, i32 noundef %95, i32 noundef 4, i32 noundef -2147483648)
   %125 = load i32, ptr @hf_gnutella_queryhit_hit_name, align 4
-  %126 = tail call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %125, ptr noundef %0, i32 noundef %96, i32 noundef %.079.lcssa.i, i32 noundef 0) #3
+  %126 = tail call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %125, ptr noundef %0, i32 noundef %96, i32 noundef %.079.lcssa.i, i32 noundef 0)
   %.not.i = icmp eq i32 %.080.lcssa.i, 0
   br i1 %.not.i, label %130, label %127
 
 127:                                              ; preds = %._crit_edge93.i
   %128 = load i32, ptr @hf_gnutella_queryhit_hit_extra, align 4
-  %129 = tail call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %128, ptr noundef %0, i32 noundef %105, i32 noundef %.080.lcssa.i, i32 noundef 0) #3
+  %129 = tail call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %128, ptr noundef %0, i32 noundef %105, i32 noundef %.080.lcssa.i, i32 noundef 0)
   br label %130
 
 130:                                              ; preds = %127, %._crit_edge93.i
   %131 = add nuw nsw i32 %.0100.i, 1
   %exitcond107.not.i = icmp eq i32 %131, %84
-  br i1 %exitcond107.not.i, label %._crit_edge103.i, label %.lr.ph102.i, !llvm.loop !7
+  br i1 %exitcond107.not.i, label %._crit_edge103.i, label %.lr.ph102.i, !llvm.loop !9
 
 ._crit_edge103.i:                                 ; preds = %130, %78
   %.078.lcssa.i = phi i32 [ 34, %78 ], [ %114, %130 ]
@@ -472,45 +484,51 @@ define internal i32 @dissect_gnutella_pdu(ptr noundef %0, ptr noundef readonly c
   %135 = add i32 %.055, 7
   %136 = load i32, ptr @hf_gnutella_queryhit_extra, align 4
   %137 = sub i32 %135, %.078.lcssa.i
-  %138 = tail call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %136, ptr noundef %0, i32 noundef %.078.lcssa.i, i32 noundef %137, i32 noundef 0) #3
+  %138 = tail call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %136, ptr noundef %0, i32 noundef %.078.lcssa.i, i32 noundef %137, i32 noundef 0)
   br label %dissect_gnutella_queryhit.exit
 
 dissect_gnutella_queryhit.exit:                   ; preds = %._crit_edge103.i, %134
   %.081.i = phi i32 [ %135, %134 ], [ %.078.lcssa.i, %._crit_edge103.i ]
   %139 = load i32, ptr @hf_gnutella_queryhit_servent_id, align 4
-  %140 = tail call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %139, ptr noundef %0, i32 noundef %.081.i, i32 noundef 16, i32 noundef 0) #3
+  %140 = tail call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %139, ptr noundef %0, i32 noundef %.081.i, i32 noundef 16, i32 noundef 0)
   br label %dissect_gnutella_query.exit
 
 dissect_gnutella_query.exit:                      ; preds = %76, %73, %22, %dissect_gnutella_queryhit.exit, %51, %38, %37, %19
-  %141 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
+  %141 = tail call i32 @tvb_captured_length(ptr noundef %0)
   ret i32 %141
 }
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_append_sep_str(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_string_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

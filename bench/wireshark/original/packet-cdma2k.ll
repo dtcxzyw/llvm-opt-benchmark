@@ -3,11 +3,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
@@ -22,14 +19,12 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_cdma2k_tlac_Channel = internal global i32 0, align 4
 @.str.4 = private unnamed_addr constant [13 x i8] c"Channel Type\00", align 1
 @.str.5 = private unnamed_addr constant [19 x i8] c"cdma2k.tlacChannel\00", align 1
-@Channel_Types = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.853 }, %struct._value_string { i32 1, ptr @.str.854 }, %struct._value_string zeroinitializer], align 16
 @hf_cdma2k_tlac_1x_Protocol_Revision = internal global i32 0, align 4
 @.str.6 = private unnamed_addr constant [21 x i8] c"1x Protocol Revision\00", align 1
 @.str.7 = private unnamed_addr constant [30 x i8] c"cdma2k.tlac1xProtocolRevision\00", align 1
 @hf_cdma2k_tlac_msgType = internal global i32 0, align 4
 @.str.8 = private unnamed_addr constant [20 x i8] c"CDMA2K Message Type\00", align 1
 @.str.9 = private unnamed_addr constant [15 x i8] c"cdma2k.MsgType\00", align 1
-@Cdma2k_Message_types = internal constant [11 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.855 }, %struct._value_string { i32 2, ptr @.str.856 }, %struct._value_string { i32 3, ptr @.str.857 }, %struct._value_string { i32 4, ptr @.str.858 }, %struct._value_string { i32 5, ptr @.str.859 }, %struct._value_string { i32 6, ptr @.str.860 }, %struct._value_string { i32 7, ptr @.str.861 }, %struct._value_string { i32 9, ptr @.str.862 }, %struct._value_string { i32 10, ptr @.str.863 }, %struct._value_string { i32 17, ptr @.str.864 }, %struct._value_string zeroinitializer], align 16
 @hf_cdma2k_tlac_Header_Record = internal global i32 0, align 4
 @.str.10 = private unnamed_addr constant [19 x i8] c"TLAC Header Record\00", align 1
 @.str.11 = private unnamed_addr constant [24 x i8] c"cdma2k.tlacHeaderRecord\00", align 1
@@ -39,7 +34,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_cdma2k_tlac_Header_Record_Type = internal global i32 0, align 4
 @.str.14 = private unnamed_addr constant [19 x i8] c"Header Record Type\00", align 1
 @.str.15 = private unnamed_addr constant [28 x i8] c"cdma2k.tlacHeaderRecordType\00", align 1
-@Header_Record_Types = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.865 }, %struct._value_string { i32 1, ptr @.str.866 }, %struct._value_string zeroinitializer], align 16
 @hf_cdma2k_tlac_Header_Record_Length = internal global i32 0, align 4
 @.str.16 = private unnamed_addr constant [21 x i8] c"Header Record Length\00", align 1
 @.str.17 = private unnamed_addr constant [30 x i8] c"cdma2k.tlacHeaderRecordLength\00", align 1
@@ -52,11 +46,9 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_cdma2k_tlac_Header_Record_MsId_Type = internal global i32 0, align 4
 @.str.22 = private unnamed_addr constant [10 x i8] c"MsId Type\00", align 1
 @.str.23 = private unnamed_addr constant [32 x i8] c"cdma2k.tlacHeaderRecordMsIdType\00", align 1
-@MsId_Address_Types = internal constant [8 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.867 }, %struct._value_string { i32 1, ptr @.str.868 }, %struct._value_string { i32 2, ptr @.str.869 }, %struct._value_string { i32 3, ptr @.str.870 }, %struct._value_string { i32 4, ptr @.str.871 }, %struct._value_string { i32 5, ptr @.str.872 }, %struct._value_string { i32 6, ptr @.str.873 }, %struct._value_string zeroinitializer], align 16
 @hf_cdma2k_tlac_Header_Record_Ext_MsId_Type = internal global i32 0, align 4
 @.str.24 = private unnamed_addr constant [14 x i8] c"Ext MsId Type\00", align 1
 @.str.25 = private unnamed_addr constant [35 x i8] c"cdma2k.tlacHeaderRecordExtMsIdType\00", align 1
-@Ext_MsId_Address_Types = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.874 }, %struct._value_string { i32 1, ptr @.str.875 }, %struct._value_string { i32 2, ptr @.str.876 }, %struct._value_string { i32 3, ptr @.str.877 }, %struct._value_string zeroinitializer], align 16
 @hf_cdma2k_tlac_Header_Record_MsId_Length = internal global i32 0, align 4
 @.str.26 = private unnamed_addr constant [12 x i8] c"MsId Length\00", align 1
 @.str.27 = private unnamed_addr constant [34 x i8] c"cdma2k.tlacHeaderRecordMsIdLength\00", align 1
@@ -81,14 +73,11 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_cdma2k_tlac_Header_Record_Imsi_Class = internal global i32 0, align 4
 @.str.40 = private unnamed_addr constant [11 x i8] c"Imsi Class\00", align 1
 @.str.41 = private unnamed_addr constant [33 x i8] c"cdma2k.tlacHeaderRecordImsiClass\00", align 1
-@Imsi_Class = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.878 }, %struct._value_string { i32 1, ptr @.str.879 }, %struct._value_string zeroinitializer], align 16
 @hf_cdma2k_tlac_Header_Record_Imsi_Class0_Type = internal global i32 0, align 4
 @.str.42 = private unnamed_addr constant [16 x i8] c"Imsi Class Type\00", align 1
 @.str.43 = private unnamed_addr constant [38 x i8] c"cdma2k.tlacHeaderRecordImsiClass0Type\00", align 1
-@Imsi_Class0_Types = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.880 }, %struct._value_string { i32 1, ptr @.str.881 }, %struct._value_string { i32 2, ptr @.str.882 }, %struct._value_string { i32 3, ptr @.str.883 }, %struct._value_string zeroinitializer], align 16
 @hf_cdma2k_tlac_Header_Record_Imsi_Class1_Type = internal global i32 0, align 4
 @.str.44 = private unnamed_addr constant [38 x i8] c"cdma2k.tlacHeaderRecordImsiClass1Type\00", align 1
-@Imsi_Class1_Types = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.884 }, %struct._value_string { i32 1, ptr @.str.885 }, %struct._value_string zeroinitializer], align 16
 @hf_cdma2k_tlac_Header_Record_Imsi_S2 = internal global i32 0, align 4
 @.str.45 = private unnamed_addr constant [8 x i8] c"Imsi S2\00", align 1
 @.str.46 = private unnamed_addr constant [30 x i8] c"cdma2k.tlacHeaderRecordImsiS2\00", align 1
@@ -181,7 +170,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_cdma2k_Reg_Type = internal global i32 0, align 4
 @.str.104 = private unnamed_addr constant [9 x i8] c"Reg Type\00", align 1
 @.str.105 = private unnamed_addr constant [16 x i8] c"cdma2k.Reg_Type\00", align 1
-@Reg_Types = internal constant [11 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.886 }, %struct._value_string { i32 1, ptr @.str.887 }, %struct._value_string { i32 2, ptr @.str.888 }, %struct._value_string { i32 3, ptr @.str.889 }, %struct._value_string { i32 4, ptr @.str.890 }, %struct._value_string { i32 5, ptr @.str.891 }, %struct._value_string { i32 6, ptr @.str.892 }, %struct._value_string { i32 7, ptr @.str.893 }, %struct._value_string { i32 8, ptr @.str.894 }, %struct._value_string { i32 9, ptr @.str.895 }, %struct._value_string zeroinitializer], align 16
 @hf_cdma2k_Slot_Cycle_Index = internal global i32 0, align 4
 @.str.106 = private unnamed_addr constant [17 x i8] c"Slot Cycle Index\00", align 1
 @.str.107 = private unnamed_addr constant [24 x i8] c"cdma2k.Slot_Cycle_Index\00", align 1
@@ -221,10 +209,8 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_cdma2k_Order_Ind = internal global i32 0, align 4
 @.str.130 = private unnamed_addr constant [12 x i8] c"Order Value\00", align 1
 @.str.131 = private unnamed_addr constant [17 x i8] c"cdma2k.Order_Ind\00", align 1
-@Order_Ind_Cause_Types = internal constant [17 x %struct._value_string] [%struct._value_string { i32 2, ptr @.str.896 }, %struct._value_string { i32 3, ptr @.str.897 }, %struct._value_string { i32 5, ptr @.str.898 }, %struct._value_string { i32 11, ptr @.str.899 }, %struct._value_string { i32 16, ptr @.str.900 }, %struct._value_string { i32 19, ptr @.str.901 }, %struct._value_string { i32 20, ptr @.str.902 }, %struct._value_string { i32 21, ptr @.str.903 }, %struct._value_string { i32 23, ptr @.str.904 }, %struct._value_string { i32 24, ptr @.str.905 }, %struct._value_string { i32 25, ptr @.str.906 }, %struct._value_string { i32 29, ptr @.str.907 }, %struct._value_string { i32 30, ptr @.str.908 }, %struct._value_string { i32 31, ptr @.str.909 }, %struct._value_string { i32 33, ptr @.str.910 }, %struct._value_string { i32 34, ptr @.str.911 }, %struct._value_string zeroinitializer], align 16
 @hf_cdma2k_Order_Cmd = internal global i32 0, align 4
 @.str.132 = private unnamed_addr constant [17 x i8] c"cdma2k.Order_Cmd\00", align 1
-@Order_Cmd_Cause_Types = internal constant [31 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.912 }, %struct._value_string { i32 2, ptr @.str.896 }, %struct._value_string { i32 3, ptr @.str.913 }, %struct._value_string { i32 4, ptr @.str.914 }, %struct._value_string { i32 5, ptr @.str.915 }, %struct._value_string { i32 6, ptr @.str.916 }, %struct._value_string { i32 9, ptr @.str.917 }, %struct._value_string { i32 10, ptr @.str.918 }, %struct._value_string { i32 16, ptr @.str.919 }, %struct._value_string { i32 17, ptr @.str.920 }, %struct._value_string { i32 18, ptr @.str.921 }, %struct._value_string { i32 19, ptr @.str.901 }, %struct._value_string { i32 20, ptr @.str.902 }, %struct._value_string { i32 21, ptr @.str.903 }, %struct._value_string { i32 22, ptr @.str.922 }, %struct._value_string { i32 23, ptr @.str.904 }, %struct._value_string { i32 24, ptr @.str.905 }, %struct._value_string { i32 25, ptr @.str.906 }, %struct._value_string { i32 26, ptr @.str.923 }, %struct._value_string { i32 27, ptr @.str.924 }, %struct._value_string { i32 29, ptr @.str.907 }, %struct._value_string { i32 30, ptr @.str.925 }, %struct._value_string { i32 31, ptr @.str.926 }, %struct._value_string { i32 32, ptr @.str.927 }, %struct._value_string { i32 33, ptr @.str.928 }, %struct._value_string { i32 34, ptr @.str.929 }, %struct._value_string { i32 35, ptr @.str.930 }, %struct._value_string { i32 36, ptr @.str.911 }, %struct._value_string { i32 37, ptr @.str.931 }, %struct._value_string { i32 38, ptr @.str.932 }, %struct._value_string zeroinitializer], align 16
 @hf_cdma2k_Add_Record_Len = internal global i32 0, align 4
 @.str.133 = private unnamed_addr constant [15 x i8] c"Add Record Len\00", align 1
 @.str.134 = private unnamed_addr constant [22 x i8] c"cdma2k.Add_Record_Len\00", align 1
@@ -261,11 +247,9 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_cdma2k_Rsci = internal global i32 0, align 4
 @.str.155 = private unnamed_addr constant [30 x i8] c"Reduced Slot Cycle Mode Index\00", align 1
 @.str.156 = private unnamed_addr constant [12 x i8] c"cdma2k.Rsci\00", align 1
-@RSCI_Types = internal constant [13 x %struct._value_string] [%struct._value_string { i32 7, ptr @.str.933 }, %struct._value_string { i32 4, ptr @.str.934 }, %struct._value_string { i32 3, ptr @.str.935 }, %struct._value_string { i32 2, ptr @.str.936 }, %struct._value_string { i32 1, ptr @.str.937 }, %struct._value_string { i32 0, ptr @.str.938 }, %struct._value_string { i32 9, ptr @.str.939 }, %struct._value_string { i32 10, ptr @.str.940 }, %struct._value_string { i32 11, ptr @.str.941 }, %struct._value_string { i32 12, ptr @.str.942 }, %struct._value_string { i32 13, ptr @.str.943 }, %struct._value_string { i32 14, ptr @.str.944 }, %struct._value_string zeroinitializer], align 16
 @hf_cdma2k_Rsc_End_Time_Unit = internal global i32 0, align 4
 @.str.157 = private unnamed_addr constant [38 x i8] c"Reduced Slot Cycle Mode End Time Unit\00", align 1
 @.str.158 = private unnamed_addr constant [25 x i8] c"cdma2k.Rsc_End_Time_Unit\00", align 1
-@Rsc_End_Time_Unit_Types = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.945 }, %struct._value_string { i32 1, ptr @.str.946 }, %struct._value_string { i32 2, ptr @.str.947 }, %struct._value_string { i32 3, ptr @.str.20 }, %struct._value_string zeroinitializer], align 16
 @hf_cdma2k_Rsc_End_Time_Value = internal global i32 0, align 4
 @.str.159 = private unnamed_addr constant [39 x i8] c"Reduced Slot Cycle Mode End Time Value\00", align 1
 @.str.160 = private unnamed_addr constant [26 x i8] c"cdma2k.Rsc_End_Time_Value\00", align 1
@@ -281,11 +265,9 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_cdma2k_C_Sig_Encrypt_Mode = internal global i32 0, align 4
 @.str.167 = private unnamed_addr constant [13 x i8] c"Encrypt Mode\00", align 1
 @.str.168 = private unnamed_addr constant [26 x i8] c"cdma2k.C_Sig_Encrypt_Mode\00", align 1
-@C_Sig_Encrypt_Mode_Types = internal constant [9 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.948 }, %struct._value_string { i32 1, ptr @.str.949 }, %struct._value_string { i32 2, ptr @.str.950 }, %struct._value_string { i32 3, ptr @.str.20 }, %struct._value_string { i32 4, ptr @.str.20 }, %struct._value_string { i32 5, ptr @.str.20 }, %struct._value_string { i32 6, ptr @.str.20 }, %struct._value_string { i32 7, ptr @.str.20 }, %struct._value_string zeroinitializer], align 16
 @hf_cdma2k_Enc_Key_Size = internal global i32 0, align 4
 @.str.169 = private unnamed_addr constant [13 x i8] c"Enc Key Size\00", align 1
 @.str.170 = private unnamed_addr constant [20 x i8] c"cdma2k.Enc_Key_Size\00", align 1
-@Enc_Key_Types = internal constant [9 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.20 }, %struct._value_string { i32 1, ptr @.str.951 }, %struct._value_string { i32 2, ptr @.str.952 }, %struct._value_string { i32 3, ptr @.str.20 }, %struct._value_string { i32 4, ptr @.str.20 }, %struct._value_string { i32 5, ptr @.str.20 }, %struct._value_string { i32 6, ptr @.str.20 }, %struct._value_string { i32 7, ptr @.str.20 }, %struct._value_string zeroinitializer], align 16
 @hf_cdma2k_Msg_Int_Info_Incl = internal global i32 0, align 4
 @.str.171 = private unnamed_addr constant [18 x i8] c"Msg Int Info Incl\00", align 1
 @.str.172 = private unnamed_addr constant [25 x i8] c"cdma2k.Msg_Int_Info_Incl\00", align 1
@@ -298,14 +280,12 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_cdma2k_Retry_Type = internal global i32 0, align 4
 @.str.177 = private unnamed_addr constant [11 x i8] c"Retry Type\00", align 1
 @.str.178 = private unnamed_addr constant [18 x i8] c"cdma2k.Retry_Type\00", align 1
-@Retry_Types = internal constant [9 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.953 }, %struct._value_string { i32 1, ptr @.str.954 }, %struct._value_string { i32 2, ptr @.str.955 }, %struct._value_string { i32 3, ptr @.str.956 }, %struct._value_string { i32 4, ptr @.str.957 }, %struct._value_string { i32 5, ptr @.str.958 }, %struct._value_string { i32 6, ptr @.str.20 }, %struct._value_string { i32 7, ptr @.str.20 }, %struct._value_string zeroinitializer], align 16
 @hf_cdma2k_Retry_Delay = internal global i32 0, align 4
 @.str.179 = private unnamed_addr constant [12 x i8] c"Retry Delay\00", align 1
 @.str.180 = private unnamed_addr constant [19 x i8] c"cdma2k.Retry_Delay\00", align 1
 @hf_cdma2k_Reject_Reason = internal global i32 0, align 4
 @.str.181 = private unnamed_addr constant [14 x i8] c"Reject Reason\00", align 1
 @.str.182 = private unnamed_addr constant [21 x i8] c"cdma2k.Reject_Reason\00", align 1
-@Reject_Reason_Types = internal constant [9 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.959 }, %struct._value_string { i32 1, ptr @.str.960 }, %struct._value_string { i32 2, ptr @.str.961 }, %struct._value_string { i32 3, ptr @.str.962 }, %struct._value_string { i32 4, ptr @.str.20 }, %struct._value_string { i32 5, ptr @.str.20 }, %struct._value_string { i32 6, ptr @.str.20 }, %struct._value_string { i32 7, ptr @.str.20 }, %struct._value_string zeroinitializer], align 16
 @hf_cdma2k_Rejected_Msg_Type = internal global i32 0, align 4
 @.str.183 = private unnamed_addr constant [25 x i8] c"cdma2k.Rejected_Msg_Type\00", align 1
 @hf_cdma2k_Rejected_Msg_Seq = internal global i32 0, align 4
@@ -320,11 +300,9 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_cdma2k_All_Bcmc_Reason = internal global i32 0, align 4
 @.str.190 = private unnamed_addr constant [16 x i8] c"All BCMC Reason\00", align 1
 @.str.191 = private unnamed_addr constant [23 x i8] c"cdma2k.All_Bcmc_Reason\00", align 1
-@All_Bcmc_Reason_Types = internal constant [9 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.963 }, %struct._value_string { i32 1, ptr @.str.964 }, %struct._value_string { i32 2, ptr @.str.965 }, %struct._value_string { i32 3, ptr @.str.966 }, %struct._value_string { i32 4, ptr @.str.967 }, %struct._value_string { i32 5, ptr @.str.968 }, %struct._value_string { i32 6, ptr @.str.20 }, %struct._value_string { i32 7, ptr @.str.20 }, %struct._value_string zeroinitializer], align 16
 @hf_cdma2k_All_Bcmc_Retry_Delay = internal global i32 0, align 4
 @.str.192 = private unnamed_addr constant [21 x i8] c"All BCMC Retry Delay\00", align 1
 @.str.193 = private unnamed_addr constant [28 x i8] c"cdma2k.All_Bcmc_Retry_Delay\00", align 1
-@All_Bcmc_Retry_Delay_Types = internal constant [9 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.969 }, %struct._value_string { i32 1, ptr @.str.969 }, %struct._value_string { i32 2, ptr @.str.969 }, %struct._value_string { i32 3, ptr @.str.969 }, %struct._value_string { i32 4, ptr @.str.969 }, %struct._value_string { i32 5, ptr @.str.969 }, %struct._value_string { i32 6, ptr @.str.969 }, %struct._value_string { i32 7, ptr @.str.970 }, %struct._value_string zeroinitializer], align 16
 @hf_cdma2k_Num_Bcmc_Programs = internal global i32 0, align 4
 @.str.194 = private unnamed_addr constant [24 x i8] c"Number of BCMC Programs\00", align 1
 @.str.195 = private unnamed_addr constant [25 x i8] c"cdma2k.Num_Bcmc_Programs\00", align 1
@@ -358,7 +336,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_cdma2k_Max_Rsc_End_Time_Unit = internal global i32 0, align 4
 @.str.214 = private unnamed_addr constant [26 x i8] c"Maximum RSC End Time Unit\00", align 1
 @.str.215 = private unnamed_addr constant [29 x i8] c"cdma2k.Max_Rsc_End_Time_Unit\00", align 1
-@Max_rsc_End_Time_unit_Types = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.971 }, %struct._value_string { i32 1, ptr @.str.972 }, %struct._value_string { i32 2, ptr @.str.973 }, %struct._value_string { i32 3, ptr @.str.20 }, %struct._value_string zeroinitializer], align 16
 @hf_cdma2k_Max_Rsc_End_Time_Value = internal global i32 0, align 4
 @.str.216 = private unnamed_addr constant [27 x i8] c"maximum RSC End Time Value\00", align 1
 @.str.217 = private unnamed_addr constant [30 x i8] c"cdma2k.Max_Rsc_End_Time_Value\00", align 1
@@ -410,7 +387,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_cdma2k_Service_Status = internal global i32 0, align 4
 @.str.248 = private unnamed_addr constant [15 x i8] c"Service Status\00", align 1
 @.str.249 = private unnamed_addr constant [22 x i8] c"cdma2k.Service_Status\00", align 1
-@Service_Status_Types = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.974 }, %struct._value_string { i32 1, ptr @.str.975 }, %struct._value_string zeroinitializer], align 16
 @hf_cdma2k_Regulatory_Ind_Incl = internal global i32 0, align 4
 @.str.250 = private unnamed_addr constant [30 x i8] c"Regulatory Indicator Included\00", align 1
 @.str.251 = private unnamed_addr constant [27 x i8] c"cdma2k.Regulatory_Ind_Incl\00", align 1
@@ -435,11 +411,9 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_cdma2k_Msg_Identifier = internal global i32 0, align 4
 @.str.264 = private unnamed_addr constant [15 x i8] c"Msg Identifier\00", align 1
 @.str.265 = private unnamed_addr constant [22 x i8] c"cdma2k.Msg_Identifier\00", align 1
-@Chari_Identifier_Types = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.976 }, %struct._value_string { i32 1, ptr @.str.977 }, %struct._value_string { i32 2, ptr @.str.978 }, %struct._value_string zeroinitializer], align 16
 @hf_cdma2k_Parm_Id = internal global i32 0, align 4
 @.str.266 = private unnamed_addr constant [8 x i8] c"Parm Id\00", align 1
 @.str.267 = private unnamed_addr constant [15 x i8] c"cdma2k.Parm_Id\00", align 1
-@Chari_Parm_Types = internal constant [10 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.979 }, %struct._value_string { i32 1, ptr @.str.980 }, %struct._value_string { i32 2, ptr @.str.981 }, %struct._value_string { i32 3, ptr @.str.982 }, %struct._value_string { i32 4, ptr @.str.983 }, %struct._value_string { i32 5, ptr @.str.984 }, %struct._value_string { i32 6, ptr @.str.985 }, %struct._value_string { i32 7, ptr @.str.986 }, %struct._value_string { i32 8, ptr @.str.987 }, %struct._value_string zeroinitializer], align 16
 @hf_cdma2k_Parm_Length = internal global i32 0, align 4
 @.str.268 = private unnamed_addr constant [12 x i8] c"Parm Length\00", align 1
 @.str.269 = private unnamed_addr constant [19 x i8] c"cdma2k.Parm_Length\00", align 1
@@ -458,7 +432,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_cdma2k_service_option = internal global i32 0, align 4
 @.str.278 = private unnamed_addr constant [15 x i8] c"Service Option\00", align 1
 @.str.279 = private unnamed_addr constant [22 x i8] c"cdma2k.service_option\00", align 1
-@Page_Req_Service_Option_Types = internal constant [84 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.988 }, %struct._value_string { i32 1, ptr @.str.989 }, %struct._value_string { i32 2, ptr @.str.990 }, %struct._value_string { i32 3, ptr @.str.991 }, %struct._value_string { i32 4, ptr @.str.992 }, %struct._value_string { i32 5, ptr @.str.993 }, %struct._value_string { i32 6, ptr @.str.994 }, %struct._value_string { i32 7, ptr @.str.995 }, %struct._value_string { i32 8, ptr @.str.996 }, %struct._value_string { i32 9, ptr @.str.997 }, %struct._value_string { i32 10, ptr @.str.998 }, %struct._value_string { i32 11, ptr @.str.999 }, %struct._value_string { i32 12, ptr @.str.1000 }, %struct._value_string { i32 13, ptr @.str.1001 }, %struct._value_string { i32 14, ptr @.str.1002 }, %struct._value_string { i32 15, ptr @.str.1003 }, %struct._value_string { i32 16, ptr @.str.1004 }, %struct._value_string { i32 17, ptr @.str.1005 }, %struct._value_string { i32 18, ptr @.str.1006 }, %struct._value_string { i32 19, ptr @.str.1007 }, %struct._value_string { i32 20, ptr @.str.1008 }, %struct._value_string { i32 21, ptr @.str.1009 }, %struct._value_string { i32 22, ptr @.str.1010 }, %struct._value_string { i32 23, ptr @.str.1011 }, %struct._value_string { i32 24, ptr @.str.1012 }, %struct._value_string { i32 25, ptr @.str.1013 }, %struct._value_string { i32 26, ptr @.str.1014 }, %struct._value_string { i32 27, ptr @.str.1015 }, %struct._value_string { i32 28, ptr @.str.1016 }, %struct._value_string { i32 29, ptr @.str.1017 }, %struct._value_string { i32 30, ptr @.str.1018 }, %struct._value_string { i32 31, ptr @.str.1019 }, %struct._value_string { i32 32, ptr @.str.1020 }, %struct._value_string { i32 33, ptr @.str.1021 }, %struct._value_string { i32 34, ptr @.str.1022 }, %struct._value_string { i32 35, ptr @.str.1023 }, %struct._value_string { i32 36, ptr @.str.1024 }, %struct._value_string { i32 37, ptr @.str.1025 }, %struct._value_string { i32 38, ptr @.str.1026 }, %struct._value_string { i32 39, ptr @.str.1027 }, %struct._value_string { i32 40, ptr @.str.1028 }, %struct._value_string { i32 41, ptr @.str.1029 }, %struct._value_string { i32 54, ptr @.str.1030 }, %struct._value_string { i32 55, ptr @.str.1031 }, %struct._value_string { i32 56, ptr @.str.1032 }, %struct._value_string { i32 57, ptr @.str.1033 }, %struct._value_string { i32 58, ptr @.str.1034 }, %struct._value_string { i32 59, ptr @.str.1035 }, %struct._value_string { i32 60, ptr @.str.1036 }, %struct._value_string { i32 61, ptr @.str.1037 }, %struct._value_string { i32 62, ptr @.str.1038 }, %struct._value_string { i32 63, ptr @.str.1039 }, %struct._value_string { i32 64, ptr @.str.1040 }, %struct._value_string { i32 65, ptr @.str.1041 }, %struct._value_string { i32 66, ptr @.str.1042 }, %struct._value_string { i32 67, ptr @.str.1043 }, %struct._value_string { i32 68, ptr @.str.1044 }, %struct._value_string { i32 69, ptr @.str.1045 }, %struct._value_string { i32 70, ptr @.str.1046 }, %struct._value_string { i32 71, ptr @.str.1047 }, %struct._value_string { i32 72, ptr @.str.1048 }, %struct._value_string { i32 73, ptr @.str.1049 }, %struct._value_string { i32 74, ptr @.str.1050 }, %struct._value_string { i32 75, ptr @.str.1051 }, %struct._value_string { i32 4100, ptr @.str.1052 }, %struct._value_string { i32 4101, ptr @.str.1053 }, %struct._value_string { i32 4103, ptr @.str.1054 }, %struct._value_string { i32 4104, ptr @.str.1055 }, %struct._value_string { i32 32760, ptr @.str.1056 }, %struct._value_string { i32 32761, ptr @.str.1057 }, %struct._value_string { i32 32762, ptr @.str.1058 }, %struct._value_string { i32 32763, ptr @.str.1059 }, %struct._value_string { i32 32764, ptr @.str.1060 }, %struct._value_string { i32 32765, ptr @.str.1061 }, %struct._value_string { i32 32766, ptr @.str.1062 }, %struct._value_string { i32 32767, ptr @.str.1063 }, %struct._value_string { i32 32768, ptr @.str.1064 }, %struct._value_string { i32 32769, ptr @.str.1065 }, %struct._value_string { i32 32771, ptr @.str.1066 }, %struct._value_string { i32 32776, ptr @.str.1067 }, %struct._value_string { i32 32797, ptr @.str.1068 }, %struct._value_string { i32 32798, ptr @.str.1069 }, %struct._value_string { i32 32799, ptr @.str.1070 }, %struct._value_string zeroinitializer], align 16
 @hf_cdma2k_Use_Time = internal global i32 0, align 4
 @.str.280 = private unnamed_addr constant [9 x i8] c"Use Time\00", align 1
 @.str.281 = private unnamed_addr constant [16 x i8] c"cdma2k.Use_Time\00", align 1
@@ -537,7 +510,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_cdma2k_Encrypt_Mode = internal global i32 0, align 4
 @.str.330 = private unnamed_addr constant [20 x i8] c"Msg Encryption Mode\00", align 1
 @.str.331 = private unnamed_addr constant [20 x i8] c"cdma2k.Encrypt_Mode\00", align 1
-@Encrypt_Mode_Types = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1071 }, %struct._value_string { i32 1, ptr @.str.1072 }, %struct._value_string { i32 2, ptr @.str.1073 }, %struct._value_string { i32 3, ptr @.str.1074 }, %struct._value_string zeroinitializer], align 16
 @hf_cdma2k_Nom_Pwr_Ext = internal global i32 0, align 4
 @.str.332 = private unnamed_addr constant [27 x i8] c"Ext Nominal Transmit Power\00", align 1
 @.str.333 = private unnamed_addr constant [19 x i8] c"cdma2k.Nom_Pwr_Ext\00", align 1
@@ -580,7 +552,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_cdma2k_Record_Type = internal global i32 0, align 4
 @.str.358 = private unnamed_addr constant [24 x i8] c"Information Record Type\00", align 1
 @.str.359 = private unnamed_addr constant [19 x i8] c"cdma2k.Record_Type\00", align 1
-@Info_Rec_Types = internal constant [22 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.1075 }, %struct._value_string { i32 2, ptr @.str.1076 }, %struct._value_string { i32 3, ptr @.str.1077 }, %struct._value_string { i32 4, ptr @.str.1078 }, %struct._value_string { i32 5, ptr @.str.655 }, %struct._value_string { i32 6, ptr @.str.1079 }, %struct._value_string { i32 7, ptr @.str.1080 }, %struct._value_string { i32 8, ptr @.str.1081 }, %struct._value_string { i32 9, ptr @.str.1082 }, %struct._value_string { i32 10, ptr @.str.1083 }, %struct._value_string { i32 11, ptr @.str.1084 }, %struct._value_string { i32 12, ptr @.str.1085 }, %struct._value_string { i32 13, ptr @.str.1086 }, %struct._value_string { i32 14, ptr @.str.1087 }, %struct._value_string { i32 15, ptr @.str.1088 }, %struct._value_string { i32 16, ptr @.str.1089 }, %struct._value_string { i32 19, ptr @.str.1090 }, %struct._value_string { i32 20, ptr @.str.1091 }, %struct._value_string { i32 21, ptr @.str.1092 }, %struct._value_string { i32 22, ptr @.str.1093 }, %struct._value_string { i32 254, ptr @.str.1094 }, %struct._value_string zeroinitializer], align 16
 @hf_cdma2k_Record_Len = internal global i32 0, align 4
 @.str.360 = private unnamed_addr constant [26 x i8] c"Information Record Length\00", align 1
 @.str.361 = private unnamed_addr constant [18 x i8] c"cdma2k.Record_Len\00", align 1
@@ -650,7 +621,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_cdma2k_Ch_Ind = internal global i32 0, align 4
 @.str.404 = private unnamed_addr constant [18 x i8] c"Channel Indicator\00", align 1
 @.str.405 = private unnamed_addr constant [14 x i8] c"cdma2k.Ch_Ind\00", align 1
-@l3dpu_ORM_ch_ind_values = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1095 }, %struct._value_string { i32 1, ptr @.str.1096 }, %struct._value_string { i32 2, ptr @.str.1097 }, %struct._value_string { i32 3, ptr @.str.1098 }, %struct._value_string zeroinitializer], align 16
 @hf_cdma2k_Active_Set_Rec_Len = internal global i32 0, align 4
 @.str.406 = private unnamed_addr constant [22 x i8] c"Active Set Rec Length\00", align 1
 @.str.407 = private unnamed_addr constant [26 x i8] c"cdma2k.Active_Set_Rec_Len\00", align 1
@@ -675,7 +645,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_cdma2k_1xrl_Freq_Offset = internal global i32 0, align 4
 @.str.420 = private unnamed_addr constant [24 x i8] c"1x Rev Link Freq Offset\00", align 1
 @.str.421 = private unnamed_addr constant [24 x i8] c"cdma2k.1xrl_Freq_Offset\00", align 1
-@rl_Freq_Offset_Types = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1099 }, %struct._value_string { i32 1, ptr @.str.1100 }, %struct._value_string { i32 2, ptr @.str.1101 }, %struct._value_string { i32 3, ptr @.str.20 }, %struct._value_string zeroinitializer], align 16
 @hf_cdma2k_Sync_Id_Incl = internal global i32 0, align 4
 @.str.422 = private unnamed_addr constant [21 x i8] c"Sync Identifier Incl\00", align 1
 @.str.423 = private unnamed_addr constant [20 x i8] c"cdma2k.Sync_Id_Incl\00", align 1
@@ -733,7 +702,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_cdma2k_Plcm_Type = internal global i32 0, align 4
 @.str.458 = private unnamed_addr constant [10 x i8] c"PLCM Type\00", align 1
 @.str.459 = private unnamed_addr constant [17 x i8] c"cdma2k.Plcm_Type\00", align 1
-@Plcm_Types = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1102 }, %struct._value_string { i32 1, ptr @.str.1103 }, %struct._value_string { i32 2, ptr @.str.1104 }, %struct._value_string { i32 3, ptr @.str.1105 }, %struct._value_string { i32 4, ptr @.str.1106 }, %struct._value_string zeroinitializer], align 16
 @hf_cdma2k_Plcm_39 = internal global i32 0, align 4
 @.str.460 = private unnamed_addr constant [8 x i8] c"PLCM 39\00", align 1
 @.str.461 = private unnamed_addr constant [15 x i8] c"cdma2k.Plcm_39\00", align 1
@@ -890,7 +858,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_cdma2k_Pilot_Rec_Type = internal global i32 0, align 4
 @.str.562 = private unnamed_addr constant [15 x i8] c"Pilot Rec Type\00", align 1
 @.str.563 = private unnamed_addr constant [22 x i8] c"cdma2k.Pilot_Rec_Type\00", align 1
-@Pilot_Rec_Types = internal constant [9 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1107 }, %struct._value_string { i32 1, ptr @.str.1108 }, %struct._value_string { i32 2, ptr @.str.1109 }, %struct._value_string { i32 3, ptr @.str.1110 }, %struct._value_string { i32 4, ptr @.str.1111 }, %struct._value_string { i32 5, ptr @.str.20 }, %struct._value_string { i32 6, ptr @.str.20 }, %struct._value_string { i32 7, ptr @.str.20 }, %struct._value_string zeroinitializer], align 16
 @hf_cdma2k_Pwr_Comb_Ind = internal global i32 0, align 4
 @.str.564 = private unnamed_addr constant [21 x i8] c"Power Cntl Indicator\00", align 1
 @.str.565 = private unnamed_addr constant [20 x i8] c"cdma2k.Pwr_Comb_Ind\00", align 1
@@ -1018,23 +985,18 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_cdma2k_Number_Type = internal global i32 0, align 4
 @.str.643 = private unnamed_addr constant [12 x i8] c"Number Type\00", align 1
 @.str.644 = private unnamed_addr constant [19 x i8] c"cdma2k.Number_Type\00", align 1
-@Number_Types = internal constant [9 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1112 }, %struct._value_string { i32 1, ptr @.str.1113 }, %struct._value_string { i32 2, ptr @.str.1114 }, %struct._value_string { i32 3, ptr @.str.1115 }, %struct._value_string { i32 4, ptr @.str.1116 }, %struct._value_string { i32 5, ptr @.str.20 }, %struct._value_string { i32 6, ptr @.str.1117 }, %struct._value_string { i32 7, ptr @.str.1118 }, %struct._value_string zeroinitializer], align 16
 @hf_cdma2k_Number_Plan = internal global i32 0, align 4
 @.str.645 = private unnamed_addr constant [12 x i8] c"Number Plan\00", align 1
 @.str.646 = private unnamed_addr constant [19 x i8] c"cdma2k.Number_Plan\00", align 1
-@Number_Plan_Types = internal constant [17 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1112 }, %struct._value_string { i32 1, ptr @.str.1119 }, %struct._value_string { i32 2, ptr @.str.20 }, %struct._value_string { i32 3, ptr @.str.1120 }, %struct._value_string { i32 4, ptr @.str.1121 }, %struct._value_string { i32 5, ptr @.str.20 }, %struct._value_string { i32 6, ptr @.str.20 }, %struct._value_string { i32 7, ptr @.str.20 }, %struct._value_string { i32 8, ptr @.str.20 }, %struct._value_string { i32 9, ptr @.str.1122 }, %struct._value_string { i32 10, ptr @.str.20 }, %struct._value_string { i32 11, ptr @.str.20 }, %struct._value_string { i32 12, ptr @.str.20 }, %struct._value_string { i32 13, ptr @.str.20 }, %struct._value_string { i32 14, ptr @.str.20 }, %struct._value_string { i32 15, ptr @.str.1118 }, %struct._value_string zeroinitializer], align 16
 @hf_cdma2k_Pres_Indicator = internal global i32 0, align 4
 @.str.647 = private unnamed_addr constant [23 x i8] c"Presentation Indicator\00", align 1
 @.str.648 = private unnamed_addr constant [22 x i8] c"cdma2k.Pres_Indicator\00", align 1
-@Pres_Ind_Types = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1123 }, %struct._value_string { i32 1, ptr @.str.1124 }, %struct._value_string { i32 2, ptr @.str.1125 }, %struct._value_string { i32 3, ptr @.str.20 }, %struct._value_string zeroinitializer], align 16
 @hf_cdma2k_Scr_Indicator = internal global i32 0, align 4
 @.str.649 = private unnamed_addr constant [20 x i8] c"Screening Indicator\00", align 1
 @.str.650 = private unnamed_addr constant [21 x i8] c"cdma2k.Scr_Indicator\00", align 1
-@Scr_Ind_Types = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1126 }, %struct._value_string { i32 1, ptr @.str.1127 }, %struct._value_string { i32 2, ptr @.str.1128 }, %struct._value_string { i32 3, ptr @.str.1129 }, %struct._value_string zeroinitializer], align 16
 @hf_cdma2k_Signal_Type = internal global i32 0, align 4
 @.str.651 = private unnamed_addr constant [12 x i8] c"Signal Type\00", align 1
 @.str.652 = private unnamed_addr constant [19 x i8] c"cdma2k.Signal_Type\00", align 1
-@Signal_Types = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1130 }, %struct._value_string { i32 1, ptr @.str.1131 }, %struct._value_string { i32 2, ptr @.str.1132 }, %struct._value_string { i32 3, ptr @.str.20 }, %struct._value_string zeroinitializer], align 16
 @hf_cdma2k_Alert_Pitch = internal global i32 0, align 4
 @.str.653 = private unnamed_addr constant [12 x i8] c"Alert Pitch\00", align 1
 @.str.654 = private unnamed_addr constant [19 x i8] c"cdma2k.Alert_Pitch\00", align 1
@@ -1053,11 +1015,9 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_cdma2k_Odd_Even_Ind = internal global i32 0, align 4
 @.str.663 = private unnamed_addr constant [19 x i8] c"Odd/Even Indicator\00", align 1
 @.str.664 = private unnamed_addr constant [20 x i8] c"cdma2k.Odd_Even_Ind\00", align 1
-@Odd_Even_Ind_Types = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1133 }, %struct._value_string { i32 1, ptr @.str.1134 }, %struct._value_string zeroinitializer], align 16
 @hf_cdma2k_Redirection_Reason = internal global i32 0, align 4
 @.str.665 = private unnamed_addr constant [19 x i8] c"Redirection Reason\00", align 1
 @.str.666 = private unnamed_addr constant [26 x i8] c"cdma2k.Redirection_Reason\00", align 1
-@Redir_Reason_Types = internal constant [17 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1112 }, %struct._value_string { i32 1, ptr @.str.1135 }, %struct._value_string { i32 2, ptr @.str.1136 }, %struct._value_string { i32 3, ptr @.str.20 }, %struct._value_string { i32 4, ptr @.str.20 }, %struct._value_string { i32 5, ptr @.str.20 }, %struct._value_string { i32 6, ptr @.str.20 }, %struct._value_string { i32 7, ptr @.str.20 }, %struct._value_string { i32 8, ptr @.str.20 }, %struct._value_string { i32 9, ptr @.str.1137 }, %struct._value_string { i32 10, ptr @.str.1138 }, %struct._value_string { i32 11, ptr @.str.20 }, %struct._value_string { i32 12, ptr @.str.20 }, %struct._value_string { i32 13, ptr @.str.20 }, %struct._value_string { i32 14, ptr @.str.20 }, %struct._value_string { i32 15, ptr @.str.1139 }, %struct._value_string zeroinitializer], align 16
 @hf_cdma2k_Pulse_Freq = internal global i32 0, align 4
 @.str.667 = private unnamed_addr constant [16 x i8] c"Pulse Frequency\00", align 1
 @.str.668 = private unnamed_addr constant [18 x i8] c"cdma2k.Pulse_Freq\00", align 1
@@ -1097,7 +1057,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_cdma2k_Cadence_Type = internal global i32 0, align 4
 @.str.691 = private unnamed_addr constant [13 x i8] c"Cadence Type\00", align 1
 @.str.692 = private unnamed_addr constant [20 x i8] c"cdma2k.Cadence_Type\00", align 1
-@Cadence_Types = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1140 }, %struct._value_string { i32 1, ptr @.str.1141 }, %struct._value_string { i32 2, ptr @.str.1142 }, %struct._value_string { i32 3, ptr @.str.20 }, %struct._value_string zeroinitializer], align 16
 @hf_cdma2k_Polarity_Incl = internal global i32 0, align 4
 @.str.693 = private unnamed_addr constant [14 x i8] c"Polarity Incl\00", align 1
 @.str.694 = private unnamed_addr constant [21 x i8] c"cdma2k.Polarity_Incl\00", align 1
@@ -1116,7 +1075,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_cdma2k_Request_Mode = internal global i32 0, align 4
 @.str.703 = private unnamed_addr constant [13 x i8] c"Request Mode\00", align 1
 @.str.704 = private unnamed_addr constant [20 x i8] c"cdma2k.Request_Mode\00", align 1
-@l3dpu_ORM_PRM_req_mode_values = internal constant [9 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.20 }, %struct._value_string { i32 1, ptr @.str.1143 }, %struct._value_string { i32 2, ptr @.str.1144 }, %struct._value_string { i32 3, ptr @.str.1145 }, %struct._value_string { i32 4, ptr @.str.1146 }, %struct._value_string { i32 5, ptr @.str.1147 }, %struct._value_string { i32 6, ptr @.str.1148 }, %struct._value_string { i32 7, ptr @.str.1149 }, %struct._value_string zeroinitializer], align 16
 @hf_cdma2k_Special_Service = internal global i32 0, align 4
 @.str.705 = private unnamed_addr constant [16 x i8] c"Special Service\00", align 1
 @.str.706 = private unnamed_addr constant [23 x i8] c"cdma2k.Special_Service\00", align 1
@@ -1141,7 +1099,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_cdma2k_encryption_supported = internal global i32 0, align 4
 @.str.719 = private unnamed_addr constant [21 x i8] c"Encryption Supported\00", align 1
 @.str.720 = private unnamed_addr constant [28 x i8] c"cdma2k.Encryption_Supported\00", align 1
-@l3dpu_ORM_encryption_algo_values = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1150 }, %struct._value_string { i32 1, ptr @.str.1151 }, %struct._value_string zeroinitializer], align 16
 @hf_cdma2k_Paca_Supported = internal global i32 0, align 4
 @.str.721 = private unnamed_addr constant [15 x i8] c"Paca Supported\00", align 1
 @.str.722 = private unnamed_addr constant [22 x i8] c"cdma2k.Paca_Supported\00", align 1
@@ -1317,26 +1274,21 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_cdma2k_ext_scm_ind = internal global i32 0, align 4
 @.str.835 = private unnamed_addr constant [23 x i8] c"Extended SCM Indicator\00", align 1
 @.str.836 = private unnamed_addr constant [19 x i8] c"cdma2k.ext_scm_ind\00", align 1
-@l3dpu_SCM_field_values7 = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1152 }, %struct._value_string { i32 1, ptr @.str.1153 }, %struct._value_string zeroinitializer], align 16
 @hf_cdma2k_scm_dual_mode = internal global i32 0, align 4
 @.str.837 = private unnamed_addr constant [10 x i8] c"Dual Mode\00", align 1
 @.str.838 = private unnamed_addr constant [21 x i8] c"cdma2k.scm.dual_mode\00", align 1
-@l3dpu_SCM_field_values6 = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1154 }, %struct._value_string { i32 1, ptr @.str.1155 }, %struct._value_string zeroinitializer], align 16
 @hf_cdma2k_scm_slotted_class = internal global i32 0, align 4
 @.str.839 = private unnamed_addr constant [14 x i8] c"Slotted Class\00", align 1
 @.str.840 = private unnamed_addr constant [25 x i8] c"cdma2k.scm.slotted_class\00", align 1
-@l3dpu_SCM_field_values5 = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1156 }, %struct._value_string { i32 1, ptr @.str.1157 }, %struct._value_string zeroinitializer], align 16
 @hf_cdma2k_scm_meid_sup = internal global i32 0, align 4
 @.str.841 = private unnamed_addr constant [23 x i8] c"MEID support indicator\00", align 1
 @.str.842 = private unnamed_addr constant [20 x i8] c"cdma2k.scm.meid_sup\00", align 1
-@l3dpu_SCM_field_values4 = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1158 }, %struct._value_string { i32 1, ptr @.str.1159 }, %struct._value_string zeroinitializer], align 16
 @hf_cdma2k_scm_25mhz_bw = internal global i32 0, align 4
 @.str.843 = private unnamed_addr constant [17 x i8] c"25 MHz Bandwidth\00", align 1
 @.str.844 = private unnamed_addr constant [20 x i8] c"cdma2k.scm.25mhz_bw\00", align 1
 @hf_cdma2k_scm_trans = internal global i32 0, align 4
 @.str.845 = private unnamed_addr constant [13 x i8] c"Transmission\00", align 1
 @.str.846 = private unnamed_addr constant [17 x i8] c"cdma2k.scm.trans\00", align 1
-@l3dpu_SCM_field_values2 = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1160 }, %struct._value_string { i32 1, ptr @.str.1161 }, %struct._value_string zeroinitializer], align 16
 @hf_cdma2k_scm_pow_class = internal global i32 0, align 4
 @.str.847 = private unnamed_addr constant [46 x i8] c"Power Class for Band Class 0 Analog Operation\00", align 1
 @.str.848 = private unnamed_addr constant [21 x i8] c"cdma2k.scm.pow_class\00", align 1
@@ -1347,7 +1299,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_cdma2k_subtree2 = internal global i32 0, align 4
 @ett_cdma2k_m_s1 = internal global i32 0, align 4
 @ett_cdma2000_scm = internal global i32 0, align 4
-@proto_register_cdma2k.ei = internal global [1 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_cdma2k_error, %struct.expert_field_info { ptr @.str.849, i32 150994944, i32 8388608, ptr @.str.850, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_cdma2k.ei = internal global [1 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_cdma2k_error, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.849, i32 150994944, i32 8388608, ptr @.str.850, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_cdma2k_error = internal global %struct.expert_field zeroinitializer, align 4
 @.str.849 = private unnamed_addr constant [13 x i8] c"cdma2k.error\00", align 1
 @.str.850 = private unnamed_addr constant [63 x i8] c"Violation of protocol specs (e.g. invalid information element)\00", align 1
@@ -1357,382 +1309,428 @@ target triple = "x86_64-pc-linux-gnu"
 @cdma2k_handle = internal global ptr null, align 8
 @.str.853 = private unnamed_addr constant [21 x i8] c"CSCH_LOGICAL_CHANNEL\00", align 1
 @.str.854 = private unnamed_addr constant [21 x i8] c"DSCH_LOGICAL_CHANNEL\00", align 1
-@.str.855 = private unnamed_addr constant [16 x i8] c"CDMA2KRegIndMsg\00", align 1
-@.str.856 = private unnamed_addr constant [18 x i8] c"CDMA2KOrderIndMsg\00", align 1
-@.str.857 = private unnamed_addr constant [22 x i8] c"CDMA2KDataBurstIndMsg\00", align 1
-@.str.858 = private unnamed_addr constant [17 x i8] c"CDMA2KOrigIndMsg\00", align 1
-@.str.859 = private unnamed_addr constant [22 x i8] c"CDMA2KPageResponseMsg\00", align 1
-@.str.860 = private unnamed_addr constant [22 x i8] c"CDMA2KAuthChallRspMsg\00", align 1
-@.str.861 = private unnamed_addr constant [18 x i8] c"CDMA2KOrderCmdMsg\00", align 1
-@.str.862 = private unnamed_addr constant [22 x i8] c"CDMA2KDataBurstCmdMsg\00", align 1
-@.str.863 = private unnamed_addr constant [22 x i8] c"CDMA2KAuthChallReqMsg\00", align 1
-@.str.864 = private unnamed_addr constant [20 x i8] c"CDMA2KGenPageReqMsg\00", align 1
-@.str.865 = private unnamed_addr constant [32 x i8] c"ADDRESSING_SUBLAYER_RECORD_TYPE\00", align 1
-@.str.866 = private unnamed_addr constant [36 x i8] c"AUTH_INTEGRITY_SUBLAYER_RECORD_TYPE\00", align 1
-@.str.867 = private unnamed_addr constant [16 x i8] c"IMSI_S_ESN_MSID\00", align 1
-@.str.868 = private unnamed_addr constant [9 x i8] c"ESN_MSID\00", align 1
-@.str.869 = private unnamed_addr constant [10 x i8] c"IMSI_MSID\00", align 1
-@.str.870 = private unnamed_addr constant [14 x i8] c"IMSI_ESN_MSID\00", align 1
-@.str.871 = private unnamed_addr constant [14 x i8] c"EXTENDED_MSID\00", align 1
-@.str.872 = private unnamed_addr constant [10 x i8] c"TMSI_MSID\00", align 1
-@.str.873 = private unnamed_addr constant [13 x i8] c"MAX_MSID_ADD\00", align 1
-@.str.874 = private unnamed_addr constant [19 x i8] c"EXTENDED_MSID_MEID\00", align 1
-@.str.875 = private unnamed_addr constant [24 x i8] c"EXTENDED_MSID_IMSI_MEID\00", align 1
-@.str.876 = private unnamed_addr constant [28 x i8] c"EXTENDED_MSID_IMSI_ESN_MEID\00", align 1
-@.str.877 = private unnamed_addr constant [31 x i8] c"MAX_EXTENDED_MSID_ADDRESS_TYPE\00", align 1
-@.str.878 = private unnamed_addr constant [18 x i8] c"IMSI_CLASS_0_TYPE\00", align 1
-@.str.879 = private unnamed_addr constant [18 x i8] c"IMSI_CLASS_1_TYPE\00", align 1
-@.str.880 = private unnamed_addr constant [20 x i8] c"IMSI_CLASS_0_IMSI_S\00", align 1
-@.str.881 = private unnamed_addr constant [31 x i8] c"IMSI_CLASS_0_IMSI_S_IMSI_11_12\00", align 1
-@.str.882 = private unnamed_addr constant [24 x i8] c"IMSI_CLASS_0_IMSI_S_MCC\00", align 1
-@.str.883 = private unnamed_addr constant [35 x i8] c"IMSI_CLASS_0_IMSI_S_IMSI_11_12_MCC\00", align 1
-@.str.884 = private unnamed_addr constant [31 x i8] c"IMSI_CLASS_1_IMSI_S_IMSI_11_12\00", align 1
-@.str.885 = private unnamed_addr constant [35 x i8] c"IMSI_CLASS_1_IMSI_S_IMSI_11_12_MCC\00", align 1
-@.str.886 = private unnamed_addr constant [12 x i8] c"TIMER_BASED\00", align 1
-@.str.887 = private unnamed_addr constant [9 x i8] c"POWER_UP\00", align 1
-@.str.888 = private unnamed_addr constant [11 x i8] c"ZONE_BASED\00", align 1
-@.str.889 = private unnamed_addr constant [11 x i8] c"POWER_DOWN\00", align 1
-@.str.890 = private unnamed_addr constant [17 x i8] c"PARAMETER_CHANGE\00", align 1
-@.str.891 = private unnamed_addr constant [8 x i8] c"ORDERED\00", align 1
-@.str.892 = private unnamed_addr constant [15 x i8] c"DISTANCE_BASED\00", align 1
-@.str.893 = private unnamed_addr constant [15 x i8] c"USERZONE_BASED\00", align 1
-@.str.894 = private unnamed_addr constant [27 x i8] c"ENCRYPTION_RESYNC_REQUIRED\00", align 1
-@.str.895 = private unnamed_addr constant [18 x i8] c"BCMC_REGISTRATION\00", align 1
-@.str.896 = private unnamed_addr constant [23 x i8] c"BASE_STATION_CHALLENGE\00", align 1
-@.str.897 = private unnamed_addr constant [11 x i8] c"SSD_UPDATE\00", align 1
-@.str.898 = private unnamed_addr constant [30 x i8] c"PARAMETER_UPDATE_CONFIRMATION\00", align 1
-@.str.899 = private unnamed_addr constant [23 x i8] c"REQUEST_ANALOG_SERVICE\00", align 1
-@.str.900 = private unnamed_addr constant [31 x i8] c"MOBILE_STATION_ACKNOWLEDGEMENT\00", align 1
-@.str.901 = private unnamed_addr constant [23 x i8] c"SERVICE_OPTION_REQUEST\00", align 1
-@.str.902 = private unnamed_addr constant [24 x i8] c"SERVICE_OPTION_RESPONSE\00", align 1
-@.str.903 = private unnamed_addr constant [8 x i8] c"RELEASE\00", align 1
-@.str.904 = private unnamed_addr constant [21 x i8] c"LONG_CODE_TRANSITION\00", align 1
-@.str.905 = private unnamed_addr constant [8 x i8] c"CONNECT\00", align 1
-@.str.906 = private unnamed_addr constant [21 x i8] c"CONTINUOUS_DTMF_TONE\00", align 1
-@.str.907 = private unnamed_addr constant [23 x i8] c"SERVICE_OPTION_CONTROL\00", align 1
-@.str.908 = private unnamed_addr constant [23 x i8] c"LOCAL_CONTROL_RESPONSE\00", align 1
-@.str.909 = private unnamed_addr constant [22 x i8] c"MOBILE_STATION_REJECT\00", align 1
-@.str.910 = private unnamed_addr constant [25 x i8] c"SECURITY_MODE_COMPLETION\00", align 1
-@.str.911 = private unnamed_addr constant [16 x i8] c"FAST_CALL_SETUP\00", align 1
-@.str.912 = private unnamed_addr constant [18 x i8] c"ABBREVIATED_ALERT\00", align 1
-@.str.913 = private unnamed_addr constant [24 x i8] c"MESSAGE_ENCRYPTION_MODE\00", align 1
-@.str.914 = private unnamed_addr constant [8 x i8] c"REORDER\00", align 1
-@.str.915 = private unnamed_addr constant [17 x i8] c"PARAMETER_UPDATE\00", align 1
-@.str.916 = private unnamed_addr constant [6 x i8] c"AUDIT\00", align 1
-@.str.917 = private unnamed_addr constant [10 x i8] c"INTERCEPT\00", align 1
-@.str.918 = private unnamed_addr constant [12 x i8] c"MAINTENANCE\00", align 1
-@.str.919 = private unnamed_addr constant [29 x i8] c"BASE_STATION_ACKNOWLEDGEMENT\00", align 1
-@.str.920 = private unnamed_addr constant [26 x i8] c"PILOT_MEASUREMENT_REQUEST\00", align 1
-@.str.921 = private unnamed_addr constant [29 x i8] c"LOCK_OR_MAINTENANCE_REQUIRED\00", align 1
-@.str.922 = private unnamed_addr constant [26 x i8] c"OUTER_LOOP_REPORT_REQUEST\00", align 1
-@.str.923 = private unnamed_addr constant [15 x i8] c"STATUS_REQUEST\00", align 1
-@.str.924 = private unnamed_addr constant [13 x i8] c"REGISTRATION\00", align 1
-@.str.925 = private unnamed_addr constant [14 x i8] c"LOCAL_CONTROL\00", align 1
-@.str.926 = private unnamed_addr constant [13 x i8] c"SLOTTED_MODE\00", align 1
-@.str.927 = private unnamed_addr constant [6 x i8] c"RETRY\00", align 1
-@.str.928 = private unnamed_addr constant [20 x i8] c"BASE_STATION_REJECT\00", align 1
-@.str.929 = private unnamed_addr constant [16 x i8] c"TRANSIT_TO_IDLE\00", align 1
-@.str.930 = private unnamed_addr constant [5 x i8] c"BCMC\00", align 1
-@.str.931 = private unnamed_addr constant [15 x i8] c"SERVICE_STATUS\00", align 1
-@.str.932 = private unnamed_addr constant [18 x i8] c"LOCATION_SERVICES\00", align 1
-@.str.933 = private unnamed_addr constant [12 x i8] c"Non Slotted\00", align 1
-@.str.934 = private unnamed_addr constant [17 x i8] c"0.08ms  - 1 slot\00", align 1
-@.str.935 = private unnamed_addr constant [18 x i8] c"0.16s   - 2 slots\00", align 1
-@.str.936 = private unnamed_addr constant [18 x i8] c"0.32s   - 4 slots\00", align 1
-@.str.937 = private unnamed_addr constant [18 x i8] c"0.64s   - 8 slots\00", align 1
-@.str.938 = private unnamed_addr constant [19 x i8] c"1.28s   - 16 slots\00", align 1
-@.str.939 = private unnamed_addr constant [19 x i8] c"2.56s   - 32 slots\00", align 1
-@.str.940 = private unnamed_addr constant [19 x i8] c"5.12s   - 64 slots\00", align 1
-@.str.941 = private unnamed_addr constant [20 x i8] c"10.24s  - 128 slots\00", align 1
-@.str.942 = private unnamed_addr constant [20 x i8] c"20.48s  - 256 slots\00", align 1
-@.str.943 = private unnamed_addr constant [20 x i8] c"40.96s  - 512 slots\00", align 1
-@.str.944 = private unnamed_addr constant [21 x i8] c"81.92s  - 1024 slots\00", align 1
-@.str.945 = private unnamed_addr constant [18 x i8] c"unit is 4 seconds\00", align 1
-@.str.946 = private unnamed_addr constant [19 x i8] c"unit is 20 seconds\00", align 1
-@.str.947 = private unnamed_addr constant [20 x i8] c"unit is 100 seconds\00", align 1
-@.str.948 = private unnamed_addr constant [45 x i8] c"Common Channel Signaling Encryption Disabled\00", align 1
-@.str.949 = private unnamed_addr constant [46 x i8] c"Enhanced Cellular Msg Encryption Algo Enabled\00", align 1
-@.str.950 = private unnamed_addr constant [33 x i8] c"Rijndael Encryption Algo Enabled\00", align 1
-@.str.951 = private unnamed_addr constant [8 x i8] c"64 Bits\00", align 1
-@.str.952 = private unnamed_addr constant [9 x i8] c"128 Bits\00", align 1
-@.str.953 = private unnamed_addr constant [10 x i8] c"Clear All\00", align 1
-@.str.954 = private unnamed_addr constant [12 x i8] c"Origination\00", align 1
-@.str.955 = private unnamed_addr constant [17 x i8] c"Resource Request\00", align 1
-@.str.956 = private unnamed_addr constant [25 x i8] c"Supplemental Channel Req\00", align 1
-@.str.957 = private unnamed_addr constant [17 x i8] c"Short Data Burst\00", align 1
-@.str.958 = private unnamed_addr constant [24 x i8] c"Orig & Short Data Burst\00", align 1
-@.str.959 = private unnamed_addr constant [22 x i8] c"MACI Field is Missing\00", align 1
-@.str.960 = private unnamed_addr constant [34 x i8] c"MACI Field is present but invalid\00", align 1
-@.str.961 = private unnamed_addr constant [36 x i8] c"Security Sequence Number is Invalid\00", align 1
-@.str.962 = private unnamed_addr constant [49 x i8] c"Base Station Failed to Decrypt the Encrypted Msg\00", align 1
-@.str.963 = private unnamed_addr constant [27 x i8] c"BCMC_FLOW_ID not Available\00", align 1
-@.str.964 = private unnamed_addr constant [29 x i8] c"BCMC_FLOW_ID not Transmitted\00", align 1
-@.str.965 = private unnamed_addr constant [37 x i8] c"BCMC_FLOW_ID available in IDLE state\00", align 1
-@.str.966 = private unnamed_addr constant [27 x i8] c"BCMC Registration Accepted\00", align 1
-@.str.967 = private unnamed_addr constant [22 x i8] c"Authorization Failure\00", align 1
-@.str.968 = private unnamed_addr constant [12 x i8] c"Retry Later\00", align 1
-@.str.969 = private unnamed_addr constant [21 x i8] c"Retry Delay Interval\00", align 1
-@.str.970 = private unnamed_addr constant [21 x i8] c"Unit For Retry Delay\00", align 1
-@.str.971 = private unnamed_addr constant [18 x i8] c"Unit is 4 seconds\00", align 1
-@.str.972 = private unnamed_addr constant [19 x i8] c"Unit is 20 seconds\00", align 1
-@.str.973 = private unnamed_addr constant [20 x i8] c"Unit is 100 seconds\00", align 1
-@.str.974 = private unnamed_addr constant [25 x i8] c"Service Request Accepted\00", align 1
-@.str.975 = private unnamed_addr constant [25 x i8] c"Service Request Rejected\00", align 1
-@.str.976 = private unnamed_addr constant [10 x i8] c"SMDPP_637\00", align 1
-@.str.977 = private unnamed_addr constant [11 x i8] c"SMDBRD_637\00", align 1
-@.str.978 = private unnamed_addr constant [11 x i8] c"SMSACK_637\00", align 1
-@.str.979 = private unnamed_addr constant [17 x i8] c"TELE_SERVICE_637\00", align 1
-@.str.980 = private unnamed_addr constant [22 x i8] c"BROADCAST_SERVICE_637\00", align 1
-@.str.981 = private unnamed_addr constant [24 x i8] c"ORIGINATION_ADDRESS_637\00", align 1
-@.str.982 = private unnamed_addr constant [27 x i8] c"ORIGINATION_SUBADDRESS_637\00", align 1
-@.str.983 = private unnamed_addr constant [24 x i8] c"DESTINATION_ADDRESS_637\00", align 1
-@.str.984 = private unnamed_addr constant [27 x i8] c"DESTINATION_SUBADDRESS_637\00", align 1
-@.str.985 = private unnamed_addr constant [17 x i8] c"BEARER_REPLY_637\00", align 1
-@.str.986 = private unnamed_addr constant [15 x i8] c"CAUSE_CODE_637\00", align 1
-@.str.987 = private unnamed_addr constant [16 x i8] c"BEARER_DATA_637\00", align 1
-@.str.988 = private unnamed_addr constant [8 x i8] c"INVALID\00", align 1
-@.str.989 = private unnamed_addr constant [43 x i8] c"Basic Variable Rate Voice Service (8 kbps)\00", align 1
-@.str.990 = private unnamed_addr constant [33 x i8] c"Mobile Station Loopback (8 kbps)\00", align 1
-@.str.991 = private unnamed_addr constant [46 x i8] c"Enhanced Variable Rate Voice Service (8 kbps)\00", align 1
-@.str.992 = private unnamed_addr constant [37 x i8] c"Asynchronous Data Service (9.6 kbps)\00", align 1
-@.str.993 = private unnamed_addr constant [29 x i8] c"Group 3 Facsimile (9.6 kbps)\00", align 1
-@.str.994 = private unnamed_addr constant [36 x i8] c"Short Message Services (Rate Set 1)\00", align 1
-@.str.995 = private unnamed_addr constant [63 x i8] c"Packet Data Service: Internet or ISO Protocol Stack (9.6 kbps)\00", align 1
-@.str.996 = private unnamed_addr constant [52 x i8] c"Packet Data Service: CDPD Protocol Stack (9.6 kbps)\00", align 1
-@.str.997 = private unnamed_addr constant [34 x i8] c"Mobile Station Loopback (13 kbps)\00", align 1
-@.str.998 = private unnamed_addr constant [33 x i8] c"None STU-III Transparent Service\00", align 1
-@.str.999 = private unnamed_addr constant [37 x i8] c"None STU-III Non-Transparent Service\00", align 1
-@.str.1000 = private unnamed_addr constant [45 x i8] c"Asynchronous Data Service (14.4 or 9.6 kbps)\00", align 1
-@.str.1001 = private unnamed_addr constant [37 x i8] c"Group 3 Facsimile (14.4 or 9.6 kbps)\00", align 1
-@.str.1002 = private unnamed_addr constant [36 x i8] c"Short Message Services (Rate Set 2)\00", align 1
-@.str.1003 = private unnamed_addr constant [64 x i8] c"Packet Data Service: Internet or ISO Protocol Stack (14.4 kbps)\00", align 1
-@.str.1004 = private unnamed_addr constant [53 x i8] c"Packet Data Service: CDPD Protocol Stack (14.4 kbps)\00", align 1
-@.str.1005 = private unnamed_addr constant [34 x i8] c"High Rate Voice Service (13 kbps)\00", align 1
-@.str.1006 = private unnamed_addr constant [51 x i8] c"Over-the-Air Parameter Administration (Rate Set 1)\00", align 1
-@.str.1007 = private unnamed_addr constant [51 x i8] c"Over-the-Air Parameter Administration (Rate Set 2)\00", align 1
-@.str.1008 = private unnamed_addr constant [38 x i8] c"Group 3 Analog Facsimile (Rate Set 1)\00", align 1
-@.str.1009 = private unnamed_addr constant [39 x i8] c"Group 3 Analog Facsimile (Rate Set 2) \00", align 1
-@.str.1010 = private unnamed_addr constant [90 x i8] c"High Speed Packet Data Service: Internet or ISO Protocol Stack (RS1 forward, RS1 reverse)\00", align 1
-@.str.1011 = private unnamed_addr constant [90 x i8] c"High Speed Packet Data Service: Internet or ISO Protocol Stack (RS1 forward, RS2 reverse)\00", align 1
-@.str.1012 = private unnamed_addr constant [90 x i8] c"High Speed Packet Data Service: Internet or ISO Protocol Stack (RS2 forward, RS1 reverse)\00", align 1
-@.str.1013 = private unnamed_addr constant [90 x i8] c"High Speed Packet Data Service: Internet or ISO Protocol Stack (RS2 forward, RS2 reverse)\00", align 1
-@.str.1014 = private unnamed_addr constant [79 x i8] c"High Speed Packet Data Service: CDPD Protocol Stack (RS1 forward, RS1 reverse)\00", align 1
-@.str.1015 = private unnamed_addr constant [79 x i8] c"High Speed Packet Data Service: CDPD Protocol Stack (RS1 forward, RS2 reverse)\00", align 1
-@.str.1016 = private unnamed_addr constant [79 x i8] c"High Speed Packet Data Service: CDPD Protocol Stack (RS2 forward, RS1 reverse)\00", align 1
-@.str.1017 = private unnamed_addr constant [79 x i8] c"High Speed Packet Data Service: CDPD Protocol Stack (RS2 forward, RS2 reverse)\00", align 1
-@.str.1018 = private unnamed_addr constant [50 x i8] c"Supplemental Channel Loopback Test for Rate Set 1\00", align 1
-@.str.1019 = private unnamed_addr constant [50 x i8] c"Supplemental Channel Loopback Test for Rate Set 2\00", align 1
-@.str.1020 = private unnamed_addr constant [32 x i8] c"Test Data Service Option (TDSO)\00", align 1
-@.str.1021 = private unnamed_addr constant [72 x i8] c"cdma2000 High Speed Packet Data Service, Internet or ISO Protocol Stack\00", align 1
-@.str.1022 = private unnamed_addr constant [61 x i8] c"cdma2000 High Speed Packet Data Service, CDPD Protocol Stack\00", align 1
-@.str.1023 = private unnamed_addr constant [41 x i8] c"Location Services, Rate Set 1 (9.6 kbps)\00", align 1
-@.str.1024 = private unnamed_addr constant [42 x i8] c"Location Services, Rate Set 2 (14.4 kbps)\00", align 1
-@.str.1025 = private unnamed_addr constant [36 x i8] c"ISDN Interworking Service (64 kbps)\00", align 1
-@.str.1026 = private unnamed_addr constant [10 x i8] c"GSM Voice\00", align 1
-@.str.1027 = private unnamed_addr constant [17 x i8] c"GSM Circuit Data\00", align 1
-@.str.1028 = private unnamed_addr constant [16 x i8] c"GSM Packet Data\00", align 1
-@.str.1029 = private unnamed_addr constant [26 x i8] c"GSM Short Message Service\00", align 1
-@.str.1030 = private unnamed_addr constant [28 x i8] c"Markov Service Option (MSO)\00", align 1
-@.str.1031 = private unnamed_addr constant [30 x i8] c"Loopback Service Option (LSO)\00", align 1
-@.str.1032 = private unnamed_addr constant [24 x i8] c"Selectable Mode Vocoder\00", align 1
-@.str.1033 = private unnamed_addr constant [35 x i8] c"32 kbps Circuit Video Conferencing\00", align 1
-@.str.1034 = private unnamed_addr constant [35 x i8] c"64 kbps Circuit Video Conferencing\00", align 1
-@.str.1035 = private unnamed_addr constant [25 x i8] c"HRPD Packet Data Service\00", align 1
-@.str.1036 = private unnamed_addr constant [74 x i8] c"Link Layer Assisted Robust Header Compression (LLA ROHC) - Header Removal\00", align 1
-@.str.1037 = private unnamed_addr constant [78 x i8] c"Link Layer Assisted Robust Header Compression (LLA ROHC) - Header Compression\00", align 1
-@.str.1038 = private unnamed_addr constant [84 x i8] c"Source-Controlled Variable-Rate Multimode Wideband Speech Codec (VMR-WB) Rate Set 2\00", align 1
-@.str.1039 = private unnamed_addr constant [84 x i8] c"Source-Controlled Variable-Rate Multimode Wideband Speech Codec (VMR-WB) Rate Set 1\00", align 1
-@.str.1040 = private unnamed_addr constant [44 x i8] c"HRPD auxiliary Packet Data Service instance\00", align 1
-@.str.1041 = private unnamed_addr constant [28 x i8] c"cdma2000/GPRS Inter-working\00", align 1
-@.str.1042 = private unnamed_addr constant [71 x i8] c"cdma2000 High Speed Packet Data Service,Internet or ISO Protocol Stack\00", align 1
-@.str.1043 = private unnamed_addr constant [70 x i8] c"HRPD Packet Data IP Service where Higher Layer Protocol is IP or ROHC\00", align 1
-@.str.1044 = private unnamed_addr constant [46 x i8] c"Enhanced Variable Rate Voice Service (EVRC-B)\00", align 1
-@.str.1045 = private unnamed_addr constant [107 x i8] c"HRPD Packet Data Service, which when used in paging over the 1x air interface, a page response is required\00", align 1
-@.str.1046 = private unnamed_addr constant [47 x i8] c"Enhanced Variable Rate Voice Service (EVRC-WB)\00", align 1
-@.str.1047 = private unnamed_addr constant [36 x i8] c"HRPD Packet Data Service for altPPP\00", align 1
-@.str.1048 = private unnamed_addr constant [67 x i8] c"HRPD auxiliary Packet Data IP Service with PDN multiplexing header\00", align 1
-@.str.1049 = private unnamed_addr constant [97 x i8] c"Enhanced Variable Rate Voice Service (EVRC-NW:EVRC-WB with NB capacity operating points and DTX)\00", align 1
-@.str.1050 = private unnamed_addr constant [31 x i8] c"Flexible Markov Service Option\00", align 1
-@.str.1051 = private unnamed_addr constant [33 x i8] c"Enhanced Loopback Service Option\00", align 1
-@.str.1052 = private unnamed_addr constant [57 x i8] c"Asynchronous Data Service, Revision 1 (9.6 or 14.4 kbps)\00", align 1
-@.str.1053 = private unnamed_addr constant [49 x i8] c"Group 3 Facsimile, Revision 1 (9.6 or 14.4 kbps)\00", align 1
-@.str.1054 = private unnamed_addr constant [83 x i8] c"Packet Data Service: Internet or ISO Protocol Stack, Revision 1 (9.6 or 14.4 kbps)\00", align 1
-@.str.1055 = private unnamed_addr constant [72 x i8] c"Packet Data Service: CDPD Protocol Stack, Revision 1 (9.6 or 14.4 kbps)\00", align 1
-@.str.1056 = private unnamed_addr constant [42 x i8] c"Identifies service reference identifier 0\00", align 1
-@.str.1057 = private unnamed_addr constant [42 x i8] c"Identifies service reference identifier 1\00", align 1
-@.str.1058 = private unnamed_addr constant [42 x i8] c"Identifies service reference identifier 2\00", align 1
-@.str.1059 = private unnamed_addr constant [42 x i8] c"Identifies service reference identifier 3\00", align 1
-@.str.1060 = private unnamed_addr constant [42 x i8] c"Identifies service reference identifier 4\00", align 1
-@.str.1061 = private unnamed_addr constant [42 x i8] c"Identifies service reference identifier 5\00", align 1
-@.str.1062 = private unnamed_addr constant [42 x i8] c"Identifies service reference identifier 6\00", align 1
-@.str.1063 = private unnamed_addr constant [42 x i8] c"Identifies service reference identifier 7\00", align 1
-@.str.1064 = private unnamed_addr constant [15 x i8] c"QCOMM_13KVOICE\00", align 1
-@.str.1065 = private unnamed_addr constant [16 x i8] c"QCOMM_IS96VOICE\00", align 1
-@.str.1066 = private unnamed_addr constant [20 x i8] c"QCOMM_DATA_SERVICES\00", align 1
-@.str.1067 = private unnamed_addr constant [11 x i8] c"QCOMM_TDSO\00", align 1
-@.str.1068 = private unnamed_addr constant [15 x i8] c"QCOMM_OFF_HOOK\00", align 1
-@.str.1069 = private unnamed_addr constant [15 x i8] c"QCOMM_96MARKOV\00", align 1
-@.str.1070 = private unnamed_addr constant [16 x i8] c"QCOMM_144MARKOV\00", align 1
-@.str.1071 = private unnamed_addr constant [20 x i8] c"Encryption Disabled\00", align 1
-@.str.1072 = private unnamed_addr constant [42 x i8] c"Basic Encryption Of Call Control Messages\00", align 1
-@.str.1073 = private unnamed_addr constant [45 x i8] c"Enhanced Encryption Of Call Control Messages\00", align 1
-@.str.1074 = private unnamed_addr constant [45 x i8] c"Extended Encryption Of Call Control Messages\00", align 1
-@.str.1075 = private unnamed_addr constant [8 x i8] c"Display\00", align 1
-@.str.1076 = private unnamed_addr constant [20 x i8] c"Called Party Number\00", align 1
-@.str.1077 = private unnamed_addr constant [21 x i8] c"Calling Party Number\00", align 1
-@.str.1078 = private unnamed_addr constant [17 x i8] c"Connected Number\00", align 1
-@.str.1079 = private unnamed_addr constant [16 x i8] c"Message Waiting\00", align 1
-@.str.1080 = private unnamed_addr constant [22 x i8] c"Service Configuration\00", align 1
-@.str.1081 = private unnamed_addr constant [24 x i8] c"Called Party Subaddress\00", align 1
-@.str.1082 = private unnamed_addr constant [25 x i8] c"Calling Party Subaddress\00", align 1
-@.str.1083 = private unnamed_addr constant [21 x i8] c"Connected Subaddress\00", align 1
-@.str.1084 = private unnamed_addr constant [19 x i8] c"Redirecting Number\00", align 1
-@.str.1085 = private unnamed_addr constant [23 x i8] c"Redirecting Subaddress\00", align 1
-@.str.1086 = private unnamed_addr constant [13 x i8] c"Meter Pulses\00", align 1
-@.str.1087 = private unnamed_addr constant [20 x i8] c"Parametric Alerting\00", align 1
-@.str.1088 = private unnamed_addr constant [13 x i8] c"Line Control\00", align 1
-@.str.1089 = private unnamed_addr constant [17 x i8] c"Extended Display\00", align 1
-@.str.1090 = private unnamed_addr constant [37 x i8] c"Non Negotiable Service Configuration\00", align 1
-@.str.1091 = private unnamed_addr constant [36 x i8] c"Multiple Character Extended Display\00", align 1
-@.str.1092 = private unnamed_addr constant [23 x i8] c"Call Waiting Indicator\00", align 1
-@.str.1093 = private unnamed_addr constant [45 x i8] c"Extended Multiple Character Extended Display\00", align 1
-@.str.1094 = private unnamed_addr constant [35 x i8] c"Extended Record Type_International\00", align 1
-@.str.1095 = private unnamed_addr constant [20 x i8] c"Refer to EXT_CH_IND\00", align 1
-@.str.1096 = private unnamed_addr constant [20 x i8] c"Fundamental Channel\00", align 1
-@.str.1097 = private unnamed_addr constant [26 x i8] c"Dedicated Control Channel\00", align 1
-@.str.1098 = private unnamed_addr constant [50 x i8] c"Fundamental Channel and Dedicated Control Channel\00", align 1
-@.str.1099 = private unnamed_addr constant [37 x i8] c"Reverse Link On Lowest SR3 Frequency\00", align 1
-@.str.1100 = private unnamed_addr constant [37 x i8] c"Reverse Link On Center SR3 Frequency\00", align 1
-@.str.1101 = private unnamed_addr constant [38 x i8] c"Reverse Link On Highest SR3 Frequency\00", align 1
-@.str.1102 = private unnamed_addr constant [12 x i8] c"ESN Derived\00", align 1
-@.str.1103 = private unnamed_addr constant [12 x i8] c"BS Assigned\00", align 1
-@.str.1104 = private unnamed_addr constant [15 x i8] c"IMSI_M Derived\00", align 1
-@.str.1105 = private unnamed_addr constant [15 x i8] c"IMSI_T Derived\00", align 1
-@.str.1106 = private unnamed_addr constant [13 x i8] c"MEID Derived\00", align 1
-@.str.1107 = private unnamed_addr constant [40 x i8] c"1x Common Pilot With Transmit Diversity\00", align 1
-@.str.1108 = private unnamed_addr constant [19 x i8] c"1x Auxiliary Pilot\00", align 1
-@.str.1109 = private unnamed_addr constant [43 x i8] c"1x Auxiliary Pilot With Transmit Diversity\00", align 1
-@.str.1110 = private unnamed_addr constant [16 x i8] c"3x Common Pilot\00", align 1
-@.str.1111 = private unnamed_addr constant [19 x i8] c"3x Auxiliary Pilot\00", align 1
-@.str.1112 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
-@.str.1113 = private unnamed_addr constant [21 x i8] c"International Number\00", align 1
-@.str.1114 = private unnamed_addr constant [16 x i8] c"National Number\00", align 1
-@.str.1115 = private unnamed_addr constant [24 x i8] c"Network Specific Number\00", align 1
-@.str.1116 = private unnamed_addr constant [18 x i8] c"Subscriber Number\00", align 1
-@.str.1117 = private unnamed_addr constant [19 x i8] c"Abbreviated Number\00", align 1
-@.str.1118 = private unnamed_addr constant [23 x i8] c"Reserved For Extension\00", align 1
-@.str.1119 = private unnamed_addr constant [30 x i8] c"ISDN/Telephony Numbering Plan\00", align 1
-@.str.1120 = private unnamed_addr constant [20 x i8] c"Data Numbering Plan\00", align 1
-@.str.1121 = private unnamed_addr constant [21 x i8] c"Telex Numbering Plan\00", align 1
-@.str.1122 = private unnamed_addr constant [23 x i8] c"Private Numbering Plan\00", align 1
-@.str.1123 = private unnamed_addr constant [21 x i8] c"Presentation Allowed\00", align 1
-@.str.1124 = private unnamed_addr constant [24 x i8] c"Presentation Restricted\00", align 1
-@.str.1125 = private unnamed_addr constant [21 x i8] c"Number Not Available\00", align 1
-@.str.1126 = private unnamed_addr constant [28 x i8] c"User Provided, Not Screened\00", align 1
-@.str.1127 = private unnamed_addr constant [35 x i8] c"User Provided, Verified And Passed\00", align 1
-@.str.1128 = private unnamed_addr constant [35 x i8] c"User Provided, Verified And Failed\00", align 1
-@.str.1129 = private unnamed_addr constant [17 x i8] c"Network Provided\00", align 1
-@.str.1130 = private unnamed_addr constant [12 x i8] c"Tone Signal\00", align 1
-@.str.1131 = private unnamed_addr constant [14 x i8] c"ISDN Alerting\00", align 1
-@.str.1132 = private unnamed_addr constant [16 x i8] c"IS-54B Alerting\00", align 1
-@.str.1133 = private unnamed_addr constant [31 x i8] c"Even Number Of Address Signals\00", align 1
-@.str.1134 = private unnamed_addr constant [30 x i8] c"Odd Number Of Address Signals\00", align 1
-@.str.1135 = private unnamed_addr constant [34 x i8] c"Call Forwarding / Called DTE Busy\00", align 1
-@.str.1136 = private unnamed_addr constant [25 x i8] c"Call Forwarding No Reply\00", align 1
-@.str.1137 = private unnamed_addr constant [24 x i8] c"Called DTE Out Of Order\00", align 1
-@.str.1138 = private unnamed_addr constant [34 x i8] c"Call Forwarding By The Called DTE\00", align 1
-@.str.1139 = private unnamed_addr constant [60 x i8] c"Call Forwarding Unconditional / Systematic Call Redirection\00", align 1
-@.str.1140 = private unnamed_addr constant [14 x i8] c"Not Specified\00", align 1
-@.str.1141 = private unnamed_addr constant [35 x i8] c"Acoustic Earpiece / Similar Device\00", align 1
-@.str.1142 = private unnamed_addr constant [66 x i8] c"Device Other Than Acoustic Earpiece / Similar Device(Ex : Ringer)\00", align 1
-@.str.1143 = private unnamed_addr constant [10 x i8] c"CDMA only\00", align 1
-@.str.1144 = private unnamed_addr constant [40 x i8] c"Reserved (Previously: Wide analog only)\00", align 1
-@.str.1145 = private unnamed_addr constant [55 x i8] c"Reserved (Previously: Either wide analog or CDMA only)\00", align 1
-@.str.1146 = private unnamed_addr constant [42 x i8] c"Reserved (Previously: Narrow analog only)\00", align 1
-@.str.1147 = private unnamed_addr constant [57 x i8] c"Reserved (Previously: Either narrow analog or CDMA only)\00", align 1
-@.str.1148 = private unnamed_addr constant [64 x i8] c"Reserved (Previously: Either narrow analog or wide analog only)\00", align 1
-@.str.1149 = private unnamed_addr constant [60 x i8] c"Reserved (Previously: Narrow analog or wide analog or CDMA)\00", align 1
-@.str.1150 = private unnamed_addr constant [27 x i8] c"Basic encryption supported\00", align 1
-@.str.1151 = private unnamed_addr constant [40 x i8] c"Basic and Enhanced encryption supported\00", align 1
-@.str.1152 = private unnamed_addr constant [12 x i8] c"Other bands\00", align 1
-@.str.1153 = private unnamed_addr constant [20 x i8] c"Band Classes 1,4,14\00", align 1
-@.str.1154 = private unnamed_addr constant [10 x i8] c"CDMA Only\00", align 1
-@.str.1155 = private unnamed_addr constant [2 x i8] c"?\00", align 1
-@.str.1156 = private unnamed_addr constant [12 x i8] c"Non-Slotted\00", align 1
-@.str.1157 = private unnamed_addr constant [8 x i8] c"Slotted\00", align 1
-@.str.1158 = private unnamed_addr constant [20 x i8] c"MEID not configured\00", align 1
-@.str.1159 = private unnamed_addr constant [16 x i8] c"MEID configured\00", align 1
-@.str.1160 = private unnamed_addr constant [11 x i8] c"Continuous\00", align 1
-@.str.1161 = private unnamed_addr constant [14 x i8] c"Discontinuous\00", align 1
-@.str.1162 = private unnamed_addr constant [9 x i8] c"[CDMA2K]\00", align 1
-@.str.1163 = private unnamed_addr constant [10 x i8] c" : [%02x]\00", align 1
-@.str.1164 = private unnamed_addr constant [9 x i8] c" 0x%02x \00", align 1
-@.str.1165 = private unnamed_addr constant [44 x i8] c" : Invalid extMsIdType in Addressing Fields\00", align 1
-@.str.1166 = private unnamed_addr constant [41 x i8] c" : Invalid msIdType in Addressing Fields\00", align 1
-@.str.1167 = private unnamed_addr constant [42 x i8] c" : Offset corruption in Addressing Fields\00", align 1
-@.str.1168 = private unnamed_addr constant [44 x i8] c" : Invalid Class0 Type in Addressing Fields\00", align 1
-@.str.1169 = private unnamed_addr constant [44 x i8] c" : Invalid Class1 Type in Addressing Fields\00", align 1
-@.str.1170 = private unnamed_addr constant [38 x i8] c" : Invalid Class in Addressing Fields\00", align 1
-@.str.1171 = private unnamed_addr constant [46 x i8] c" : Offset corruption in Authentication Fields\00", align 1
-@.str.1172 = private unnamed_addr constant [25 x i8] c"SCM - Station Class Mark\00", align 1
-@.str.1173 = private unnamed_addr constant [33 x i8] c" : BASE STATION CHALLENGE Order \00", align 1
-@.str.1174 = private unnamed_addr constant [18 x i8] c" : REORDER Order \00", align 1
-@.str.1175 = private unnamed_addr constant [33 x i8] c" : SERVICE OPTION REQUEST Order \00", align 1
-@.str.1176 = private unnamed_addr constant [34 x i8] c" : SERVICE OPTION RESPONSE Order \00", align 1
-@.str.1177 = private unnamed_addr constant [32 x i8] c" : MOBILE STATION REJECT Order \00", align 1
-@.str.1178 = private unnamed_addr constant [18 x i8] c" : RELEASE Order \00", align 1
-@.str.1179 = private unnamed_addr constant [26 x i8] c" : FAST CALL SETUP Order \00", align 1
-@.str.1180 = private unnamed_addr constant [45 x i8] c" : Invalid / Unsupported Order Type Received\00", align 1
-@.str.1181 = private unnamed_addr constant [2 x i8] c"\0A\00", align 1
-@.str.1182 = private unnamed_addr constant [8 x i8] c"cont...\00", align 1
-@.str.1183 = private unnamed_addr constant [19 x i8] c" - Dialed Digits :\00", align 1
-@.str.1184 = private unnamed_addr constant [8 x i8] c" 0x%02x\00", align 1
-@.str.1185 = private unnamed_addr constant [6 x i8] c" 0x%x\00", align 1
-@.str.1186 = private unnamed_addr constant [12 x i8] c"Fch Records\00", align 1
-@.str.1187 = private unnamed_addr constant [13 x i8] c"Dcch Records\00", align 1
-@.str.1188 = private unnamed_addr constant [6 x i8] c" %02x\00", align 1
-@.str.1189 = private unnamed_addr constant [22 x i8] c"Order Command Message\00", align 1
-@.str.1190 = private unnamed_addr constant [46 x i8] c" : BASE STATION CHALLENGE CONFIRMATION Order \00", align 1
-@.str.1191 = private unnamed_addr constant [32 x i8] c" : Registration Accepted Order \00", align 1
-@.str.1192 = private unnamed_addr constant [31 x i8] c" : Registration Request Order \00", align 1
-@.str.1193 = private unnamed_addr constant [32 x i8] c" : Registration Rejected Order \00", align 1
-@.str.1194 = private unnamed_addr constant [46 x i8] c" : Registration Rejected Order (delete TMSI) \00", align 1
-@.str.1195 = private unnamed_addr constant [16 x i8] c" : RETRY Order \00", align 1
-@.str.1196 = private unnamed_addr constant [30 x i8] c" : BASE STATION REJECT Order \00", align 1
-@.str.1197 = private unnamed_addr constant [15 x i8] c" : BCMC Order \00", align 1
-@.str.1198 = private unnamed_addr constant [25 x i8] c" : SERVICE STATUS Order \00", align 1
-@.str.1199 = private unnamed_addr constant [28 x i8] c" : LOCATION SERVICES Order \00", align 1
-@.str.1200 = private unnamed_addr constant [36 x i8] c" : Invalid / Unsupported Order Type\00", align 1
-@.str.1201 = private unnamed_addr constant [10 x i8] c" : [%02d]\00", align 1
-@.str.1202 = private unnamed_addr constant [9 x i8] c" DISPLAY\00", align 1
-@.str.1203 = private unnamed_addr constant [33 x i8] c" - ASCII Values Of Characters : \00", align 1
-@.str.1204 = private unnamed_addr constant [6 x i8] c"%02x \00", align 1
-@.str.1205 = private unnamed_addr constant [21 x i8] c" CALLED PARTY NUMBER\00", align 1
-@.str.1206 = private unnamed_addr constant [42 x i8] c" - ASCII Values Of Called Party Number : \00", align 1
-@.str.1207 = private unnamed_addr constant [22 x i8] c" CALLING PARTY NUMBER\00", align 1
-@.str.1208 = private unnamed_addr constant [43 x i8] c" - ASCII Values Of Calling Party Number : \00", align 1
-@.str.1209 = private unnamed_addr constant [8 x i8] c" SIGNAL\00", align 1
-@.str.1210 = private unnamed_addr constant [17 x i8] c" MESSAGE WAITING\00", align 1
-@.str.1211 = private unnamed_addr constant [25 x i8] c" CALLED PARTY SUBADDRESS\00", align 1
-@.str.1212 = private unnamed_addr constant [46 x i8] c" - ASCII Values Of Called Party Subaddress : \00", align 1
-@.str.1213 = private unnamed_addr constant [26 x i8] c" CALLING PARTY SUBADDRESS\00", align 1
-@.str.1214 = private unnamed_addr constant [47 x i8] c" - ASCII Values Of Calling Party Subaddress : \00", align 1
-@.str.1215 = private unnamed_addr constant [20 x i8] c" REDIRECTING NUMBER\00", align 1
-@.str.1216 = private unnamed_addr constant [41 x i8] c" - ASCII Values Of Redirecting Number : \00", align 1
-@.str.1217 = private unnamed_addr constant [24 x i8] c" REDIRECTING SUBADDRESS\00", align 1
-@.str.1218 = private unnamed_addr constant [45 x i8] c" - ASCII Values Of Redirecting Subaddress : \00", align 1
-@.str.1219 = private unnamed_addr constant [14 x i8] c" METER PULSES\00", align 1
-@.str.1220 = private unnamed_addr constant [21 x i8] c" PARAMETRIC ALERTING\00", align 1
-@.str.1221 = private unnamed_addr constant [13 x i8] c" [01] : %02d\00", align 1
-@.str.1222 = private unnamed_addr constant [13 x i8] c" [02] : %02d\00", align 1
-@.str.1223 = private unnamed_addr constant [14 x i8] c" LINE CONTROL\00", align 1
-@.str.1224 = private unnamed_addr constant [24 x i8] c" CALL WAITING INDICATOR\00", align 1
-@.str.1225 = private unnamed_addr constant [62 x i8] c" Invalid / Unsupported Record Type in Alert With Info Message\00", align 1
-@.str.1226 = private unnamed_addr constant [8 x i8] c" : [%d]\00", align 1
+@Channel_Types = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.853 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.854 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.856 = private unnamed_addr constant [16 x i8] c"CDMA2KRegIndMsg\00", align 1
+@.str.857 = private unnamed_addr constant [18 x i8] c"CDMA2KOrderIndMsg\00", align 1
+@.str.858 = private unnamed_addr constant [22 x i8] c"CDMA2KDataBurstIndMsg\00", align 1
+@.str.859 = private unnamed_addr constant [17 x i8] c"CDMA2KOrigIndMsg\00", align 1
+@.str.860 = private unnamed_addr constant [22 x i8] c"CDMA2KPageResponseMsg\00", align 1
+@.str.861 = private unnamed_addr constant [22 x i8] c"CDMA2KAuthChallRspMsg\00", align 1
+@.str.862 = private unnamed_addr constant [18 x i8] c"CDMA2KOrderCmdMsg\00", align 1
+@.str.863 = private unnamed_addr constant [22 x i8] c"CDMA2KDataBurstCmdMsg\00", align 1
+@.str.864 = private unnamed_addr constant [22 x i8] c"CDMA2KAuthChallReqMsg\00", align 1
+@.str.865 = private unnamed_addr constant [20 x i8] c"CDMA2KGenPageReqMsg\00", align 1
+@Cdma2k_Message_types = internal constant [11 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.856 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.857 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.858 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.859 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.860 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.861 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.862 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.863 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.864 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.865 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.867 = private unnamed_addr constant [32 x i8] c"ADDRESSING_SUBLAYER_RECORD_TYPE\00", align 1
+@.str.868 = private unnamed_addr constant [36 x i8] c"AUTH_INTEGRITY_SUBLAYER_RECORD_TYPE\00", align 1
+@Header_Record_Types = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.867 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.868 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.870 = private unnamed_addr constant [16 x i8] c"IMSI_S_ESN_MSID\00", align 1
+@.str.871 = private unnamed_addr constant [9 x i8] c"ESN_MSID\00", align 1
+@.str.872 = private unnamed_addr constant [10 x i8] c"IMSI_MSID\00", align 1
+@.str.873 = private unnamed_addr constant [14 x i8] c"IMSI_ESN_MSID\00", align 1
+@.str.874 = private unnamed_addr constant [14 x i8] c"EXTENDED_MSID\00", align 1
+@.str.875 = private unnamed_addr constant [10 x i8] c"TMSI_MSID\00", align 1
+@.str.876 = private unnamed_addr constant [13 x i8] c"MAX_MSID_ADD\00", align 1
+@MsId_Address_Types = internal constant [8 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.870 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.871 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.872 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.873 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.874 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.875 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.876 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.878 = private unnamed_addr constant [19 x i8] c"EXTENDED_MSID_MEID\00", align 1
+@.str.879 = private unnamed_addr constant [24 x i8] c"EXTENDED_MSID_IMSI_MEID\00", align 1
+@.str.880 = private unnamed_addr constant [28 x i8] c"EXTENDED_MSID_IMSI_ESN_MEID\00", align 1
+@.str.881 = private unnamed_addr constant [31 x i8] c"MAX_EXTENDED_MSID_ADDRESS_TYPE\00", align 1
+@Ext_MsId_Address_Types = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.878 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.879 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.880 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.881 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.883 = private unnamed_addr constant [18 x i8] c"IMSI_CLASS_0_TYPE\00", align 1
+@.str.884 = private unnamed_addr constant [18 x i8] c"IMSI_CLASS_1_TYPE\00", align 1
+@Imsi_Class = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.883 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.884 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.886 = private unnamed_addr constant [20 x i8] c"IMSI_CLASS_0_IMSI_S\00", align 1
+@.str.887 = private unnamed_addr constant [31 x i8] c"IMSI_CLASS_0_IMSI_S_IMSI_11_12\00", align 1
+@.str.888 = private unnamed_addr constant [24 x i8] c"IMSI_CLASS_0_IMSI_S_MCC\00", align 1
+@.str.889 = private unnamed_addr constant [35 x i8] c"IMSI_CLASS_0_IMSI_S_IMSI_11_12_MCC\00", align 1
+@Imsi_Class0_Types = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.886 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.887 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.888 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.889 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.891 = private unnamed_addr constant [31 x i8] c"IMSI_CLASS_1_IMSI_S_IMSI_11_12\00", align 1
+@.str.892 = private unnamed_addr constant [35 x i8] c"IMSI_CLASS_1_IMSI_S_IMSI_11_12_MCC\00", align 1
+@Imsi_Class1_Types = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.891 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.892 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.894 = private unnamed_addr constant [12 x i8] c"TIMER_BASED\00", align 1
+@.str.895 = private unnamed_addr constant [9 x i8] c"POWER_UP\00", align 1
+@.str.896 = private unnamed_addr constant [11 x i8] c"ZONE_BASED\00", align 1
+@.str.897 = private unnamed_addr constant [11 x i8] c"POWER_DOWN\00", align 1
+@.str.898 = private unnamed_addr constant [17 x i8] c"PARAMETER_CHANGE\00", align 1
+@.str.899 = private unnamed_addr constant [8 x i8] c"ORDERED\00", align 1
+@.str.900 = private unnamed_addr constant [15 x i8] c"DISTANCE_BASED\00", align 1
+@.str.901 = private unnamed_addr constant [15 x i8] c"USERZONE_BASED\00", align 1
+@.str.902 = private unnamed_addr constant [27 x i8] c"ENCRYPTION_RESYNC_REQUIRED\00", align 1
+@.str.903 = private unnamed_addr constant [18 x i8] c"BCMC_REGISTRATION\00", align 1
+@Reg_Types = internal constant [11 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.894 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.895 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.896 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.897 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.898 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.899 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.900 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.901 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.902 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.903 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.905 = private unnamed_addr constant [23 x i8] c"BASE_STATION_CHALLENGE\00", align 1
+@.str.906 = private unnamed_addr constant [11 x i8] c"SSD_UPDATE\00", align 1
+@.str.907 = private unnamed_addr constant [30 x i8] c"PARAMETER_UPDATE_CONFIRMATION\00", align 1
+@.str.908 = private unnamed_addr constant [23 x i8] c"REQUEST_ANALOG_SERVICE\00", align 1
+@.str.909 = private unnamed_addr constant [31 x i8] c"MOBILE_STATION_ACKNOWLEDGEMENT\00", align 1
+@.str.910 = private unnamed_addr constant [23 x i8] c"SERVICE_OPTION_REQUEST\00", align 1
+@.str.911 = private unnamed_addr constant [24 x i8] c"SERVICE_OPTION_RESPONSE\00", align 1
+@.str.912 = private unnamed_addr constant [8 x i8] c"RELEASE\00", align 1
+@.str.913 = private unnamed_addr constant [21 x i8] c"LONG_CODE_TRANSITION\00", align 1
+@.str.914 = private unnamed_addr constant [8 x i8] c"CONNECT\00", align 1
+@.str.915 = private unnamed_addr constant [21 x i8] c"CONTINUOUS_DTMF_TONE\00", align 1
+@.str.916 = private unnamed_addr constant [23 x i8] c"SERVICE_OPTION_CONTROL\00", align 1
+@.str.917 = private unnamed_addr constant [23 x i8] c"LOCAL_CONTROL_RESPONSE\00", align 1
+@.str.918 = private unnamed_addr constant [22 x i8] c"MOBILE_STATION_REJECT\00", align 1
+@.str.919 = private unnamed_addr constant [25 x i8] c"SECURITY_MODE_COMPLETION\00", align 1
+@.str.920 = private unnamed_addr constant [16 x i8] c"FAST_CALL_SETUP\00", align 1
+@Order_Ind_Cause_Types = internal constant [17 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.905 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.906 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.907 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.908 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.909 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.910 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.911 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.912 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.913 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.914 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.915 }, { i32, [4 x i8], ptr } { i32 29, [4 x i8] zeroinitializer, ptr @.str.916 }, { i32, [4 x i8], ptr } { i32 30, [4 x i8] zeroinitializer, ptr @.str.917 }, { i32, [4 x i8], ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.918 }, { i32, [4 x i8], ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.919 }, { i32, [4 x i8], ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.920 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.922 = private unnamed_addr constant [18 x i8] c"ABBREVIATED_ALERT\00", align 1
+@.str.923 = private unnamed_addr constant [24 x i8] c"MESSAGE_ENCRYPTION_MODE\00", align 1
+@.str.924 = private unnamed_addr constant [8 x i8] c"REORDER\00", align 1
+@.str.925 = private unnamed_addr constant [17 x i8] c"PARAMETER_UPDATE\00", align 1
+@.str.926 = private unnamed_addr constant [6 x i8] c"AUDIT\00", align 1
+@.str.927 = private unnamed_addr constant [10 x i8] c"INTERCEPT\00", align 1
+@.str.928 = private unnamed_addr constant [12 x i8] c"MAINTENANCE\00", align 1
+@.str.929 = private unnamed_addr constant [29 x i8] c"BASE_STATION_ACKNOWLEDGEMENT\00", align 1
+@.str.930 = private unnamed_addr constant [26 x i8] c"PILOT_MEASUREMENT_REQUEST\00", align 1
+@.str.931 = private unnamed_addr constant [29 x i8] c"LOCK_OR_MAINTENANCE_REQUIRED\00", align 1
+@.str.932 = private unnamed_addr constant [26 x i8] c"OUTER_LOOP_REPORT_REQUEST\00", align 1
+@.str.933 = private unnamed_addr constant [15 x i8] c"STATUS_REQUEST\00", align 1
+@.str.934 = private unnamed_addr constant [13 x i8] c"REGISTRATION\00", align 1
+@.str.935 = private unnamed_addr constant [14 x i8] c"LOCAL_CONTROL\00", align 1
+@.str.936 = private unnamed_addr constant [13 x i8] c"SLOTTED_MODE\00", align 1
+@.str.937 = private unnamed_addr constant [6 x i8] c"RETRY\00", align 1
+@.str.938 = private unnamed_addr constant [20 x i8] c"BASE_STATION_REJECT\00", align 1
+@.str.939 = private unnamed_addr constant [16 x i8] c"TRANSIT_TO_IDLE\00", align 1
+@.str.940 = private unnamed_addr constant [5 x i8] c"BCMC\00", align 1
+@.str.941 = private unnamed_addr constant [15 x i8] c"SERVICE_STATUS\00", align 1
+@.str.942 = private unnamed_addr constant [18 x i8] c"LOCATION_SERVICES\00", align 1
+@Order_Cmd_Cause_Types = internal constant [31 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.922 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.905 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.923 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.924 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.925 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.926 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.927 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.928 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.929 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.930 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.931 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.910 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.911 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.912 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.932 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.913 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.914 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.915 }, { i32, [4 x i8], ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.933 }, { i32, [4 x i8], ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.934 }, { i32, [4 x i8], ptr } { i32 29, [4 x i8] zeroinitializer, ptr @.str.916 }, { i32, [4 x i8], ptr } { i32 30, [4 x i8] zeroinitializer, ptr @.str.935 }, { i32, [4 x i8], ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.936 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.937 }, { i32, [4 x i8], ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.938 }, { i32, [4 x i8], ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.939 }, { i32, [4 x i8], ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.940 }, { i32, [4 x i8], ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.920 }, { i32, [4 x i8], ptr } { i32 37, [4 x i8] zeroinitializer, ptr @.str.941 }, { i32, [4 x i8], ptr } { i32 38, [4 x i8] zeroinitializer, ptr @.str.942 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.944 = private unnamed_addr constant [12 x i8] c"Non Slotted\00", align 1
+@.str.945 = private unnamed_addr constant [17 x i8] c"0.08ms  - 1 slot\00", align 1
+@.str.946 = private unnamed_addr constant [18 x i8] c"0.16s   - 2 slots\00", align 1
+@.str.947 = private unnamed_addr constant [18 x i8] c"0.32s   - 4 slots\00", align 1
+@.str.948 = private unnamed_addr constant [18 x i8] c"0.64s   - 8 slots\00", align 1
+@.str.949 = private unnamed_addr constant [19 x i8] c"1.28s   - 16 slots\00", align 1
+@.str.950 = private unnamed_addr constant [19 x i8] c"2.56s   - 32 slots\00", align 1
+@.str.951 = private unnamed_addr constant [19 x i8] c"5.12s   - 64 slots\00", align 1
+@.str.952 = private unnamed_addr constant [20 x i8] c"10.24s  - 128 slots\00", align 1
+@.str.953 = private unnamed_addr constant [20 x i8] c"20.48s  - 256 slots\00", align 1
+@.str.954 = private unnamed_addr constant [20 x i8] c"40.96s  - 512 slots\00", align 1
+@.str.955 = private unnamed_addr constant [21 x i8] c"81.92s  - 1024 slots\00", align 1
+@RSCI_Types = internal constant [13 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.944 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.945 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.946 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.947 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.948 }, { i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.949 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.950 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.951 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.952 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.953 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.954 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.955 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.957 = private unnamed_addr constant [18 x i8] c"unit is 4 seconds\00", align 1
+@.str.958 = private unnamed_addr constant [19 x i8] c"unit is 20 seconds\00", align 1
+@.str.959 = private unnamed_addr constant [20 x i8] c"unit is 100 seconds\00", align 1
+@Rsc_End_Time_Unit_Types = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.957 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.958 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.959 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.961 = private unnamed_addr constant [45 x i8] c"Common Channel Signaling Encryption Disabled\00", align 1
+@.str.962 = private unnamed_addr constant [46 x i8] c"Enhanced Cellular Msg Encryption Algo Enabled\00", align 1
+@.str.963 = private unnamed_addr constant [33 x i8] c"Rijndael Encryption Algo Enabled\00", align 1
+@C_Sig_Encrypt_Mode_Types = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.961 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.962 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.963 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.965 = private unnamed_addr constant [8 x i8] c"64 Bits\00", align 1
+@.str.966 = private unnamed_addr constant [9 x i8] c"128 Bits\00", align 1
+@Enc_Key_Types = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.965 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.966 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.968 = private unnamed_addr constant [10 x i8] c"Clear All\00", align 1
+@.str.969 = private unnamed_addr constant [12 x i8] c"Origination\00", align 1
+@.str.970 = private unnamed_addr constant [17 x i8] c"Resource Request\00", align 1
+@.str.971 = private unnamed_addr constant [25 x i8] c"Supplemental Channel Req\00", align 1
+@.str.972 = private unnamed_addr constant [17 x i8] c"Short Data Burst\00", align 1
+@.str.973 = private unnamed_addr constant [24 x i8] c"Orig & Short Data Burst\00", align 1
+@Retry_Types = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.968 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.969 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.970 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.971 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.972 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.973 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.975 = private unnamed_addr constant [22 x i8] c"MACI Field is Missing\00", align 1
+@.str.976 = private unnamed_addr constant [34 x i8] c"MACI Field is present but invalid\00", align 1
+@.str.977 = private unnamed_addr constant [36 x i8] c"Security Sequence Number is Invalid\00", align 1
+@.str.978 = private unnamed_addr constant [49 x i8] c"Base Station Failed to Decrypt the Encrypted Msg\00", align 1
+@Reject_Reason_Types = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.975 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.976 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.977 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.978 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.980 = private unnamed_addr constant [27 x i8] c"BCMC_FLOW_ID not Available\00", align 1
+@.str.981 = private unnamed_addr constant [29 x i8] c"BCMC_FLOW_ID not Transmitted\00", align 1
+@.str.982 = private unnamed_addr constant [37 x i8] c"BCMC_FLOW_ID available in IDLE state\00", align 1
+@.str.983 = private unnamed_addr constant [27 x i8] c"BCMC Registration Accepted\00", align 1
+@.str.984 = private unnamed_addr constant [22 x i8] c"Authorization Failure\00", align 1
+@.str.985 = private unnamed_addr constant [12 x i8] c"Retry Later\00", align 1
+@All_Bcmc_Reason_Types = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.980 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.981 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.982 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.983 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.984 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.985 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.987 = private unnamed_addr constant [21 x i8] c"Retry Delay Interval\00", align 1
+@.str.988 = private unnamed_addr constant [21 x i8] c"Unit For Retry Delay\00", align 1
+@All_Bcmc_Retry_Delay_Types = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.987 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.987 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.987 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.987 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.987 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.987 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.987 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.988 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.990 = private unnamed_addr constant [18 x i8] c"Unit is 4 seconds\00", align 1
+@.str.991 = private unnamed_addr constant [19 x i8] c"Unit is 20 seconds\00", align 1
+@.str.992 = private unnamed_addr constant [20 x i8] c"Unit is 100 seconds\00", align 1
+@Max_rsc_End_Time_unit_Types = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.990 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.991 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.992 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.994 = private unnamed_addr constant [25 x i8] c"Service Request Accepted\00", align 1
+@.str.995 = private unnamed_addr constant [25 x i8] c"Service Request Rejected\00", align 1
+@Service_Status_Types = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.994 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.995 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.997 = private unnamed_addr constant [10 x i8] c"SMDPP_637\00", align 1
+@.str.998 = private unnamed_addr constant [11 x i8] c"SMDBRD_637\00", align 1
+@.str.999 = private unnamed_addr constant [11 x i8] c"SMSACK_637\00", align 1
+@Chari_Identifier_Types = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.997 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.998 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.999 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1001 = private unnamed_addr constant [17 x i8] c"TELE_SERVICE_637\00", align 1
+@.str.1002 = private unnamed_addr constant [22 x i8] c"BROADCAST_SERVICE_637\00", align 1
+@.str.1003 = private unnamed_addr constant [24 x i8] c"ORIGINATION_ADDRESS_637\00", align 1
+@.str.1004 = private unnamed_addr constant [27 x i8] c"ORIGINATION_SUBADDRESS_637\00", align 1
+@.str.1005 = private unnamed_addr constant [24 x i8] c"DESTINATION_ADDRESS_637\00", align 1
+@.str.1006 = private unnamed_addr constant [27 x i8] c"DESTINATION_SUBADDRESS_637\00", align 1
+@.str.1007 = private unnamed_addr constant [17 x i8] c"BEARER_REPLY_637\00", align 1
+@.str.1008 = private unnamed_addr constant [15 x i8] c"CAUSE_CODE_637\00", align 1
+@.str.1009 = private unnamed_addr constant [16 x i8] c"BEARER_DATA_637\00", align 1
+@Chari_Parm_Types = internal constant [10 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1001 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1002 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1003 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.1004 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.1005 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.1006 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.1007 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.1008 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.1009 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1011 = private unnamed_addr constant [8 x i8] c"INVALID\00", align 1
+@.str.1012 = private unnamed_addr constant [43 x i8] c"Basic Variable Rate Voice Service (8 kbps)\00", align 1
+@.str.1013 = private unnamed_addr constant [33 x i8] c"Mobile Station Loopback (8 kbps)\00", align 1
+@.str.1014 = private unnamed_addr constant [46 x i8] c"Enhanced Variable Rate Voice Service (8 kbps)\00", align 1
+@.str.1015 = private unnamed_addr constant [37 x i8] c"Asynchronous Data Service (9.6 kbps)\00", align 1
+@.str.1016 = private unnamed_addr constant [29 x i8] c"Group 3 Facsimile (9.6 kbps)\00", align 1
+@.str.1017 = private unnamed_addr constant [36 x i8] c"Short Message Services (Rate Set 1)\00", align 1
+@.str.1018 = private unnamed_addr constant [63 x i8] c"Packet Data Service: Internet or ISO Protocol Stack (9.6 kbps)\00", align 1
+@.str.1019 = private unnamed_addr constant [52 x i8] c"Packet Data Service: CDPD Protocol Stack (9.6 kbps)\00", align 1
+@.str.1020 = private unnamed_addr constant [34 x i8] c"Mobile Station Loopback (13 kbps)\00", align 1
+@.str.1021 = private unnamed_addr constant [33 x i8] c"None STU-III Transparent Service\00", align 1
+@.str.1022 = private unnamed_addr constant [37 x i8] c"None STU-III Non-Transparent Service\00", align 1
+@.str.1023 = private unnamed_addr constant [45 x i8] c"Asynchronous Data Service (14.4 or 9.6 kbps)\00", align 1
+@.str.1024 = private unnamed_addr constant [37 x i8] c"Group 3 Facsimile (14.4 or 9.6 kbps)\00", align 1
+@.str.1025 = private unnamed_addr constant [36 x i8] c"Short Message Services (Rate Set 2)\00", align 1
+@.str.1026 = private unnamed_addr constant [64 x i8] c"Packet Data Service: Internet or ISO Protocol Stack (14.4 kbps)\00", align 1
+@.str.1027 = private unnamed_addr constant [53 x i8] c"Packet Data Service: CDPD Protocol Stack (14.4 kbps)\00", align 1
+@.str.1028 = private unnamed_addr constant [34 x i8] c"High Rate Voice Service (13 kbps)\00", align 1
+@.str.1029 = private unnamed_addr constant [51 x i8] c"Over-the-Air Parameter Administration (Rate Set 1)\00", align 1
+@.str.1030 = private unnamed_addr constant [51 x i8] c"Over-the-Air Parameter Administration (Rate Set 2)\00", align 1
+@.str.1031 = private unnamed_addr constant [38 x i8] c"Group 3 Analog Facsimile (Rate Set 1)\00", align 1
+@.str.1032 = private unnamed_addr constant [39 x i8] c"Group 3 Analog Facsimile (Rate Set 2) \00", align 1
+@.str.1033 = private unnamed_addr constant [90 x i8] c"High Speed Packet Data Service: Internet or ISO Protocol Stack (RS1 forward, RS1 reverse)\00", align 1
+@.str.1034 = private unnamed_addr constant [90 x i8] c"High Speed Packet Data Service: Internet or ISO Protocol Stack (RS1 forward, RS2 reverse)\00", align 1
+@.str.1035 = private unnamed_addr constant [90 x i8] c"High Speed Packet Data Service: Internet or ISO Protocol Stack (RS2 forward, RS1 reverse)\00", align 1
+@.str.1036 = private unnamed_addr constant [90 x i8] c"High Speed Packet Data Service: Internet or ISO Protocol Stack (RS2 forward, RS2 reverse)\00", align 1
+@.str.1037 = private unnamed_addr constant [79 x i8] c"High Speed Packet Data Service: CDPD Protocol Stack (RS1 forward, RS1 reverse)\00", align 1
+@.str.1038 = private unnamed_addr constant [79 x i8] c"High Speed Packet Data Service: CDPD Protocol Stack (RS1 forward, RS2 reverse)\00", align 1
+@.str.1039 = private unnamed_addr constant [79 x i8] c"High Speed Packet Data Service: CDPD Protocol Stack (RS2 forward, RS1 reverse)\00", align 1
+@.str.1040 = private unnamed_addr constant [79 x i8] c"High Speed Packet Data Service: CDPD Protocol Stack (RS2 forward, RS2 reverse)\00", align 1
+@.str.1041 = private unnamed_addr constant [50 x i8] c"Supplemental Channel Loopback Test for Rate Set 1\00", align 1
+@.str.1042 = private unnamed_addr constant [50 x i8] c"Supplemental Channel Loopback Test for Rate Set 2\00", align 1
+@.str.1043 = private unnamed_addr constant [32 x i8] c"Test Data Service Option (TDSO)\00", align 1
+@.str.1044 = private unnamed_addr constant [72 x i8] c"cdma2000 High Speed Packet Data Service, Internet or ISO Protocol Stack\00", align 1
+@.str.1045 = private unnamed_addr constant [61 x i8] c"cdma2000 High Speed Packet Data Service, CDPD Protocol Stack\00", align 1
+@.str.1046 = private unnamed_addr constant [41 x i8] c"Location Services, Rate Set 1 (9.6 kbps)\00", align 1
+@.str.1047 = private unnamed_addr constant [42 x i8] c"Location Services, Rate Set 2 (14.4 kbps)\00", align 1
+@.str.1048 = private unnamed_addr constant [36 x i8] c"ISDN Interworking Service (64 kbps)\00", align 1
+@.str.1049 = private unnamed_addr constant [10 x i8] c"GSM Voice\00", align 1
+@.str.1050 = private unnamed_addr constant [17 x i8] c"GSM Circuit Data\00", align 1
+@.str.1051 = private unnamed_addr constant [16 x i8] c"GSM Packet Data\00", align 1
+@.str.1052 = private unnamed_addr constant [26 x i8] c"GSM Short Message Service\00", align 1
+@.str.1053 = private unnamed_addr constant [28 x i8] c"Markov Service Option (MSO)\00", align 1
+@.str.1054 = private unnamed_addr constant [30 x i8] c"Loopback Service Option (LSO)\00", align 1
+@.str.1055 = private unnamed_addr constant [24 x i8] c"Selectable Mode Vocoder\00", align 1
+@.str.1056 = private unnamed_addr constant [35 x i8] c"32 kbps Circuit Video Conferencing\00", align 1
+@.str.1057 = private unnamed_addr constant [35 x i8] c"64 kbps Circuit Video Conferencing\00", align 1
+@.str.1058 = private unnamed_addr constant [25 x i8] c"HRPD Packet Data Service\00", align 1
+@.str.1059 = private unnamed_addr constant [74 x i8] c"Link Layer Assisted Robust Header Compression (LLA ROHC) - Header Removal\00", align 1
+@.str.1060 = private unnamed_addr constant [78 x i8] c"Link Layer Assisted Robust Header Compression (LLA ROHC) - Header Compression\00", align 1
+@.str.1061 = private unnamed_addr constant [84 x i8] c"Source-Controlled Variable-Rate Multimode Wideband Speech Codec (VMR-WB) Rate Set 2\00", align 1
+@.str.1062 = private unnamed_addr constant [84 x i8] c"Source-Controlled Variable-Rate Multimode Wideband Speech Codec (VMR-WB) Rate Set 1\00", align 1
+@.str.1063 = private unnamed_addr constant [44 x i8] c"HRPD auxiliary Packet Data Service instance\00", align 1
+@.str.1064 = private unnamed_addr constant [28 x i8] c"cdma2000/GPRS Inter-working\00", align 1
+@.str.1065 = private unnamed_addr constant [71 x i8] c"cdma2000 High Speed Packet Data Service,Internet or ISO Protocol Stack\00", align 1
+@.str.1066 = private unnamed_addr constant [70 x i8] c"HRPD Packet Data IP Service where Higher Layer Protocol is IP or ROHC\00", align 1
+@.str.1067 = private unnamed_addr constant [46 x i8] c"Enhanced Variable Rate Voice Service (EVRC-B)\00", align 1
+@.str.1068 = private unnamed_addr constant [107 x i8] c"HRPD Packet Data Service, which when used in paging over the 1x air interface, a page response is required\00", align 1
+@.str.1069 = private unnamed_addr constant [47 x i8] c"Enhanced Variable Rate Voice Service (EVRC-WB)\00", align 1
+@.str.1070 = private unnamed_addr constant [36 x i8] c"HRPD Packet Data Service for altPPP\00", align 1
+@.str.1071 = private unnamed_addr constant [67 x i8] c"HRPD auxiliary Packet Data IP Service with PDN multiplexing header\00", align 1
+@.str.1072 = private unnamed_addr constant [97 x i8] c"Enhanced Variable Rate Voice Service (EVRC-NW:EVRC-WB with NB capacity operating points and DTX)\00", align 1
+@.str.1073 = private unnamed_addr constant [31 x i8] c"Flexible Markov Service Option\00", align 1
+@.str.1074 = private unnamed_addr constant [33 x i8] c"Enhanced Loopback Service Option\00", align 1
+@.str.1075 = private unnamed_addr constant [57 x i8] c"Asynchronous Data Service, Revision 1 (9.6 or 14.4 kbps)\00", align 1
+@.str.1076 = private unnamed_addr constant [49 x i8] c"Group 3 Facsimile, Revision 1 (9.6 or 14.4 kbps)\00", align 1
+@.str.1077 = private unnamed_addr constant [83 x i8] c"Packet Data Service: Internet or ISO Protocol Stack, Revision 1 (9.6 or 14.4 kbps)\00", align 1
+@.str.1078 = private unnamed_addr constant [72 x i8] c"Packet Data Service: CDPD Protocol Stack, Revision 1 (9.6 or 14.4 kbps)\00", align 1
+@.str.1079 = private unnamed_addr constant [42 x i8] c"Identifies service reference identifier 0\00", align 1
+@.str.1080 = private unnamed_addr constant [42 x i8] c"Identifies service reference identifier 1\00", align 1
+@.str.1081 = private unnamed_addr constant [42 x i8] c"Identifies service reference identifier 2\00", align 1
+@.str.1082 = private unnamed_addr constant [42 x i8] c"Identifies service reference identifier 3\00", align 1
+@.str.1083 = private unnamed_addr constant [42 x i8] c"Identifies service reference identifier 4\00", align 1
+@.str.1084 = private unnamed_addr constant [42 x i8] c"Identifies service reference identifier 5\00", align 1
+@.str.1085 = private unnamed_addr constant [42 x i8] c"Identifies service reference identifier 6\00", align 1
+@.str.1086 = private unnamed_addr constant [42 x i8] c"Identifies service reference identifier 7\00", align 1
+@.str.1087 = private unnamed_addr constant [15 x i8] c"QCOMM_13KVOICE\00", align 1
+@.str.1088 = private unnamed_addr constant [16 x i8] c"QCOMM_IS96VOICE\00", align 1
+@.str.1089 = private unnamed_addr constant [20 x i8] c"QCOMM_DATA_SERVICES\00", align 1
+@.str.1090 = private unnamed_addr constant [11 x i8] c"QCOMM_TDSO\00", align 1
+@.str.1091 = private unnamed_addr constant [15 x i8] c"QCOMM_OFF_HOOK\00", align 1
+@.str.1092 = private unnamed_addr constant [15 x i8] c"QCOMM_96MARKOV\00", align 1
+@.str.1093 = private unnamed_addr constant [16 x i8] c"QCOMM_144MARKOV\00", align 1
+@Page_Req_Service_Option_Types = internal constant [84 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1011 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1012 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1013 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.1014 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.1015 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.1016 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.1017 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.1018 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.1019 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.1020 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.1021 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.1022 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.1023 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.1024 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.1025 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.1026 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.1027 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.1028 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.1029 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.1030 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.1031 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.1032 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.1033 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.1034 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.1035 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.1036 }, { i32, [4 x i8], ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.1037 }, { i32, [4 x i8], ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.1038 }, { i32, [4 x i8], ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.1039 }, { i32, [4 x i8], ptr } { i32 29, [4 x i8] zeroinitializer, ptr @.str.1040 }, { i32, [4 x i8], ptr } { i32 30, [4 x i8] zeroinitializer, ptr @.str.1041 }, { i32, [4 x i8], ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.1042 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.1043 }, { i32, [4 x i8], ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.1044 }, { i32, [4 x i8], ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.1045 }, { i32, [4 x i8], ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.1046 }, { i32, [4 x i8], ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.1047 }, { i32, [4 x i8], ptr } { i32 37, [4 x i8] zeroinitializer, ptr @.str.1048 }, { i32, [4 x i8], ptr } { i32 38, [4 x i8] zeroinitializer, ptr @.str.1049 }, { i32, [4 x i8], ptr } { i32 39, [4 x i8] zeroinitializer, ptr @.str.1050 }, { i32, [4 x i8], ptr } { i32 40, [4 x i8] zeroinitializer, ptr @.str.1051 }, { i32, [4 x i8], ptr } { i32 41, [4 x i8] zeroinitializer, ptr @.str.1052 }, { i32, [4 x i8], ptr } { i32 54, [4 x i8] zeroinitializer, ptr @.str.1053 }, { i32, [4 x i8], ptr } { i32 55, [4 x i8] zeroinitializer, ptr @.str.1054 }, { i32, [4 x i8], ptr } { i32 56, [4 x i8] zeroinitializer, ptr @.str.1055 }, { i32, [4 x i8], ptr } { i32 57, [4 x i8] zeroinitializer, ptr @.str.1056 }, { i32, [4 x i8], ptr } { i32 58, [4 x i8] zeroinitializer, ptr @.str.1057 }, { i32, [4 x i8], ptr } { i32 59, [4 x i8] zeroinitializer, ptr @.str.1058 }, { i32, [4 x i8], ptr } { i32 60, [4 x i8] zeroinitializer, ptr @.str.1059 }, { i32, [4 x i8], ptr } { i32 61, [4 x i8] zeroinitializer, ptr @.str.1060 }, { i32, [4 x i8], ptr } { i32 62, [4 x i8] zeroinitializer, ptr @.str.1061 }, { i32, [4 x i8], ptr } { i32 63, [4 x i8] zeroinitializer, ptr @.str.1062 }, { i32, [4 x i8], ptr } { i32 64, [4 x i8] zeroinitializer, ptr @.str.1063 }, { i32, [4 x i8], ptr } { i32 65, [4 x i8] zeroinitializer, ptr @.str.1064 }, { i32, [4 x i8], ptr } { i32 66, [4 x i8] zeroinitializer, ptr @.str.1065 }, { i32, [4 x i8], ptr } { i32 67, [4 x i8] zeroinitializer, ptr @.str.1066 }, { i32, [4 x i8], ptr } { i32 68, [4 x i8] zeroinitializer, ptr @.str.1067 }, { i32, [4 x i8], ptr } { i32 69, [4 x i8] zeroinitializer, ptr @.str.1068 }, { i32, [4 x i8], ptr } { i32 70, [4 x i8] zeroinitializer, ptr @.str.1069 }, { i32, [4 x i8], ptr } { i32 71, [4 x i8] zeroinitializer, ptr @.str.1070 }, { i32, [4 x i8], ptr } { i32 72, [4 x i8] zeroinitializer, ptr @.str.1071 }, { i32, [4 x i8], ptr } { i32 73, [4 x i8] zeroinitializer, ptr @.str.1072 }, { i32, [4 x i8], ptr } { i32 74, [4 x i8] zeroinitializer, ptr @.str.1073 }, { i32, [4 x i8], ptr } { i32 75, [4 x i8] zeroinitializer, ptr @.str.1074 }, { i32, [4 x i8], ptr } { i32 4100, [4 x i8] zeroinitializer, ptr @.str.1075 }, { i32, [4 x i8], ptr } { i32 4101, [4 x i8] zeroinitializer, ptr @.str.1076 }, { i32, [4 x i8], ptr } { i32 4103, [4 x i8] zeroinitializer, ptr @.str.1077 }, { i32, [4 x i8], ptr } { i32 4104, [4 x i8] zeroinitializer, ptr @.str.1078 }, { i32, [4 x i8], ptr } { i32 32760, [4 x i8] zeroinitializer, ptr @.str.1079 }, { i32, [4 x i8], ptr } { i32 32761, [4 x i8] zeroinitializer, ptr @.str.1080 }, { i32, [4 x i8], ptr } { i32 32762, [4 x i8] zeroinitializer, ptr @.str.1081 }, { i32, [4 x i8], ptr } { i32 32763, [4 x i8] zeroinitializer, ptr @.str.1082 }, { i32, [4 x i8], ptr } { i32 32764, [4 x i8] zeroinitializer, ptr @.str.1083 }, { i32, [4 x i8], ptr } { i32 32765, [4 x i8] zeroinitializer, ptr @.str.1084 }, { i32, [4 x i8], ptr } { i32 32766, [4 x i8] zeroinitializer, ptr @.str.1085 }, { i32, [4 x i8], ptr } { i32 32767, [4 x i8] zeroinitializer, ptr @.str.1086 }, { i32, [4 x i8], ptr } { i32 32768, [4 x i8] zeroinitializer, ptr @.str.1087 }, { i32, [4 x i8], ptr } { i32 32769, [4 x i8] zeroinitializer, ptr @.str.1088 }, { i32, [4 x i8], ptr } { i32 32771, [4 x i8] zeroinitializer, ptr @.str.1089 }, { i32, [4 x i8], ptr } { i32 32776, [4 x i8] zeroinitializer, ptr @.str.1090 }, { i32, [4 x i8], ptr } { i32 32797, [4 x i8] zeroinitializer, ptr @.str.1091 }, { i32, [4 x i8], ptr } { i32 32798, [4 x i8] zeroinitializer, ptr @.str.1092 }, { i32, [4 x i8], ptr } { i32 32799, [4 x i8] zeroinitializer, ptr @.str.1093 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1095 = private unnamed_addr constant [20 x i8] c"Encryption Disabled\00", align 1
+@.str.1096 = private unnamed_addr constant [42 x i8] c"Basic Encryption Of Call Control Messages\00", align 1
+@.str.1097 = private unnamed_addr constant [45 x i8] c"Enhanced Encryption Of Call Control Messages\00", align 1
+@.str.1098 = private unnamed_addr constant [45 x i8] c"Extended Encryption Of Call Control Messages\00", align 1
+@Encrypt_Mode_Types = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1095 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1096 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1097 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.1098 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1100 = private unnamed_addr constant [8 x i8] c"Display\00", align 1
+@.str.1101 = private unnamed_addr constant [20 x i8] c"Called Party Number\00", align 1
+@.str.1102 = private unnamed_addr constant [21 x i8] c"Calling Party Number\00", align 1
+@.str.1103 = private unnamed_addr constant [17 x i8] c"Connected Number\00", align 1
+@.str.1104 = private unnamed_addr constant [16 x i8] c"Message Waiting\00", align 1
+@.str.1105 = private unnamed_addr constant [22 x i8] c"Service Configuration\00", align 1
+@.str.1106 = private unnamed_addr constant [24 x i8] c"Called Party Subaddress\00", align 1
+@.str.1107 = private unnamed_addr constant [25 x i8] c"Calling Party Subaddress\00", align 1
+@.str.1108 = private unnamed_addr constant [21 x i8] c"Connected Subaddress\00", align 1
+@.str.1109 = private unnamed_addr constant [19 x i8] c"Redirecting Number\00", align 1
+@.str.1110 = private unnamed_addr constant [23 x i8] c"Redirecting Subaddress\00", align 1
+@.str.1111 = private unnamed_addr constant [13 x i8] c"Meter Pulses\00", align 1
+@.str.1112 = private unnamed_addr constant [20 x i8] c"Parametric Alerting\00", align 1
+@.str.1113 = private unnamed_addr constant [13 x i8] c"Line Control\00", align 1
+@.str.1114 = private unnamed_addr constant [17 x i8] c"Extended Display\00", align 1
+@.str.1115 = private unnamed_addr constant [37 x i8] c"Non Negotiable Service Configuration\00", align 1
+@.str.1116 = private unnamed_addr constant [36 x i8] c"Multiple Character Extended Display\00", align 1
+@.str.1117 = private unnamed_addr constant [23 x i8] c"Call Waiting Indicator\00", align 1
+@.str.1118 = private unnamed_addr constant [45 x i8] c"Extended Multiple Character Extended Display\00", align 1
+@.str.1119 = private unnamed_addr constant [35 x i8] c"Extended Record Type_International\00", align 1
+@Info_Rec_Types = internal constant [22 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1100 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1101 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.1102 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.1103 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.655 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.1104 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.1105 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.1106 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.1107 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.1108 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.1109 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.1110 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.1111 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.1112 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.1113 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.1114 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.1115 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.1116 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.1117 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.1118 }, { i32, [4 x i8], ptr } { i32 254, [4 x i8] zeroinitializer, ptr @.str.1119 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1121 = private unnamed_addr constant [20 x i8] c"Refer to EXT_CH_IND\00", align 1
+@.str.1122 = private unnamed_addr constant [20 x i8] c"Fundamental Channel\00", align 1
+@.str.1123 = private unnamed_addr constant [26 x i8] c"Dedicated Control Channel\00", align 1
+@.str.1124 = private unnamed_addr constant [50 x i8] c"Fundamental Channel and Dedicated Control Channel\00", align 1
+@l3dpu_ORM_ch_ind_values = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1121 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1122 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1123 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.1124 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1126 = private unnamed_addr constant [37 x i8] c"Reverse Link On Lowest SR3 Frequency\00", align 1
+@.str.1127 = private unnamed_addr constant [37 x i8] c"Reverse Link On Center SR3 Frequency\00", align 1
+@.str.1128 = private unnamed_addr constant [38 x i8] c"Reverse Link On Highest SR3 Frequency\00", align 1
+@rl_Freq_Offset_Types = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1126 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1127 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1128 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1130 = private unnamed_addr constant [12 x i8] c"ESN Derived\00", align 1
+@.str.1131 = private unnamed_addr constant [12 x i8] c"BS Assigned\00", align 1
+@.str.1132 = private unnamed_addr constant [15 x i8] c"IMSI_M Derived\00", align 1
+@.str.1133 = private unnamed_addr constant [15 x i8] c"IMSI_T Derived\00", align 1
+@.str.1134 = private unnamed_addr constant [13 x i8] c"MEID Derived\00", align 1
+@Plcm_Types = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1130 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1131 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1132 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.1133 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.1134 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1136 = private unnamed_addr constant [40 x i8] c"1x Common Pilot With Transmit Diversity\00", align 1
+@.str.1137 = private unnamed_addr constant [19 x i8] c"1x Auxiliary Pilot\00", align 1
+@.str.1138 = private unnamed_addr constant [43 x i8] c"1x Auxiliary Pilot With Transmit Diversity\00", align 1
+@.str.1139 = private unnamed_addr constant [16 x i8] c"3x Common Pilot\00", align 1
+@.str.1140 = private unnamed_addr constant [19 x i8] c"3x Auxiliary Pilot\00", align 1
+@Pilot_Rec_Types = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1136 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1137 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1138 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.1139 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.1140 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1142 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
+@.str.1143 = private unnamed_addr constant [21 x i8] c"International Number\00", align 1
+@.str.1144 = private unnamed_addr constant [16 x i8] c"National Number\00", align 1
+@.str.1145 = private unnamed_addr constant [24 x i8] c"Network Specific Number\00", align 1
+@.str.1146 = private unnamed_addr constant [18 x i8] c"Subscriber Number\00", align 1
+@.str.1147 = private unnamed_addr constant [19 x i8] c"Abbreviated Number\00", align 1
+@.str.1148 = private unnamed_addr constant [23 x i8] c"Reserved For Extension\00", align 1
+@Number_Types = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1142 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1143 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1144 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.1145 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.1146 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.1147 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.1148 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1150 = private unnamed_addr constant [30 x i8] c"ISDN/Telephony Numbering Plan\00", align 1
+@.str.1151 = private unnamed_addr constant [20 x i8] c"Data Numbering Plan\00", align 1
+@.str.1152 = private unnamed_addr constant [21 x i8] c"Telex Numbering Plan\00", align 1
+@.str.1153 = private unnamed_addr constant [23 x i8] c"Private Numbering Plan\00", align 1
+@Number_Plan_Types = internal constant [17 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1142 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1150 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.1151 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.1152 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.1153 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.1148 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1155 = private unnamed_addr constant [21 x i8] c"Presentation Allowed\00", align 1
+@.str.1156 = private unnamed_addr constant [24 x i8] c"Presentation Restricted\00", align 1
+@.str.1157 = private unnamed_addr constant [21 x i8] c"Number Not Available\00", align 1
+@Pres_Ind_Types = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1155 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1156 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1157 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1159 = private unnamed_addr constant [28 x i8] c"User Provided, Not Screened\00", align 1
+@.str.1160 = private unnamed_addr constant [35 x i8] c"User Provided, Verified And Passed\00", align 1
+@.str.1161 = private unnamed_addr constant [35 x i8] c"User Provided, Verified And Failed\00", align 1
+@.str.1162 = private unnamed_addr constant [17 x i8] c"Network Provided\00", align 1
+@Scr_Ind_Types = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1159 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1160 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1161 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.1162 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1164 = private unnamed_addr constant [12 x i8] c"Tone Signal\00", align 1
+@.str.1165 = private unnamed_addr constant [14 x i8] c"ISDN Alerting\00", align 1
+@.str.1166 = private unnamed_addr constant [16 x i8] c"IS-54B Alerting\00", align 1
+@Signal_Types = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1164 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1165 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1166 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1168 = private unnamed_addr constant [31 x i8] c"Even Number Of Address Signals\00", align 1
+@.str.1169 = private unnamed_addr constant [30 x i8] c"Odd Number Of Address Signals\00", align 1
+@Odd_Even_Ind_Types = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1168 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1169 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1171 = private unnamed_addr constant [34 x i8] c"Call Forwarding / Called DTE Busy\00", align 1
+@.str.1172 = private unnamed_addr constant [25 x i8] c"Call Forwarding No Reply\00", align 1
+@.str.1173 = private unnamed_addr constant [24 x i8] c"Called DTE Out Of Order\00", align 1
+@.str.1174 = private unnamed_addr constant [34 x i8] c"Call Forwarding By The Called DTE\00", align 1
+@.str.1175 = private unnamed_addr constant [60 x i8] c"Call Forwarding Unconditional / Systematic Call Redirection\00", align 1
+@Redir_Reason_Types = internal constant [17 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1142 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1171 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1172 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.1173 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.1174 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.1175 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1177 = private unnamed_addr constant [14 x i8] c"Not Specified\00", align 1
+@.str.1178 = private unnamed_addr constant [35 x i8] c"Acoustic Earpiece / Similar Device\00", align 1
+@.str.1179 = private unnamed_addr constant [66 x i8] c"Device Other Than Acoustic Earpiece / Similar Device(Ex : Ringer)\00", align 1
+@Cadence_Types = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1177 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1178 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1179 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1181 = private unnamed_addr constant [10 x i8] c"CDMA only\00", align 1
+@.str.1182 = private unnamed_addr constant [40 x i8] c"Reserved (Previously: Wide analog only)\00", align 1
+@.str.1183 = private unnamed_addr constant [55 x i8] c"Reserved (Previously: Either wide analog or CDMA only)\00", align 1
+@.str.1184 = private unnamed_addr constant [42 x i8] c"Reserved (Previously: Narrow analog only)\00", align 1
+@.str.1185 = private unnamed_addr constant [57 x i8] c"Reserved (Previously: Either narrow analog or CDMA only)\00", align 1
+@.str.1186 = private unnamed_addr constant [64 x i8] c"Reserved (Previously: Either narrow analog or wide analog only)\00", align 1
+@.str.1187 = private unnamed_addr constant [60 x i8] c"Reserved (Previously: Narrow analog or wide analog or CDMA)\00", align 1
+@l3dpu_ORM_PRM_req_mode_values = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1181 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1182 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.1183 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.1184 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.1185 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.1186 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.1187 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1189 = private unnamed_addr constant [27 x i8] c"Basic encryption supported\00", align 1
+@.str.1190 = private unnamed_addr constant [40 x i8] c"Basic and Enhanced encryption supported\00", align 1
+@l3dpu_ORM_encryption_algo_values = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1189 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1190 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1192 = private unnamed_addr constant [12 x i8] c"Other bands\00", align 1
+@.str.1193 = private unnamed_addr constant [20 x i8] c"Band Classes 1,4,14\00", align 1
+@l3dpu_SCM_field_values7 = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1192 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1193 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1195 = private unnamed_addr constant [10 x i8] c"CDMA Only\00", align 1
+@.str.1196 = private unnamed_addr constant [2 x i8] c"?\00", align 1
+@l3dpu_SCM_field_values6 = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1195 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1196 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1198 = private unnamed_addr constant [12 x i8] c"Non-Slotted\00", align 1
+@.str.1199 = private unnamed_addr constant [8 x i8] c"Slotted\00", align 1
+@l3dpu_SCM_field_values5 = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1198 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1199 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1201 = private unnamed_addr constant [20 x i8] c"MEID not configured\00", align 1
+@.str.1202 = private unnamed_addr constant [16 x i8] c"MEID configured\00", align 1
+@l3dpu_SCM_field_values4 = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1201 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1202 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1204 = private unnamed_addr constant [11 x i8] c"Continuous\00", align 1
+@.str.1205 = private unnamed_addr constant [14 x i8] c"Discontinuous\00", align 1
+@l3dpu_SCM_field_values2 = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1204 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1205 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1207 = private unnamed_addr constant [9 x i8] c"[CDMA2K]\00", align 1
+@.str.1208 = private unnamed_addr constant [10 x i8] c" : [%02x]\00", align 1
+@.str.1209 = private unnamed_addr constant [9 x i8] c" 0x%02x \00", align 1
+@.str.1210 = private unnamed_addr constant [44 x i8] c" : Invalid extMsIdType in Addressing Fields\00", align 1
+@.str.1211 = private unnamed_addr constant [41 x i8] c" : Invalid msIdType in Addressing Fields\00", align 1
+@.str.1212 = private unnamed_addr constant [42 x i8] c" : Offset corruption in Addressing Fields\00", align 1
+@.str.1213 = private unnamed_addr constant [44 x i8] c" : Invalid Class0 Type in Addressing Fields\00", align 1
+@.str.1214 = private unnamed_addr constant [44 x i8] c" : Invalid Class1 Type in Addressing Fields\00", align 1
+@.str.1215 = private unnamed_addr constant [38 x i8] c" : Invalid Class in Addressing Fields\00", align 1
+@.str.1216 = private unnamed_addr constant [46 x i8] c" : Offset corruption in Authentication Fields\00", align 1
+@.str.1217 = private unnamed_addr constant [25 x i8] c"SCM - Station Class Mark\00", align 1
+@.str.1218 = private unnamed_addr constant [33 x i8] c" : BASE STATION CHALLENGE Order \00", align 1
+@.str.1219 = private unnamed_addr constant [18 x i8] c" : REORDER Order \00", align 1
+@.str.1220 = private unnamed_addr constant [33 x i8] c" : SERVICE OPTION REQUEST Order \00", align 1
+@.str.1221 = private unnamed_addr constant [34 x i8] c" : SERVICE OPTION RESPONSE Order \00", align 1
+@.str.1222 = private unnamed_addr constant [32 x i8] c" : MOBILE STATION REJECT Order \00", align 1
+@.str.1223 = private unnamed_addr constant [18 x i8] c" : RELEASE Order \00", align 1
+@.str.1224 = private unnamed_addr constant [26 x i8] c" : FAST CALL SETUP Order \00", align 1
+@.str.1225 = private unnamed_addr constant [45 x i8] c" : Invalid / Unsupported Order Type Received\00", align 1
+@.str.1226 = private unnamed_addr constant [2 x i8] c"\0A\00", align 1
+@.str.1227 = private unnamed_addr constant [8 x i8] c"cont...\00", align 1
+@.str.1228 = private unnamed_addr constant [19 x i8] c" - Dialed Digits :\00", align 1
+@.str.1229 = private unnamed_addr constant [8 x i8] c" 0x%02x\00", align 1
+@.str.1230 = private unnamed_addr constant [6 x i8] c" 0x%x\00", align 1
+@.str.1231 = private unnamed_addr constant [12 x i8] c"Fch Records\00", align 1
+@.str.1232 = private unnamed_addr constant [13 x i8] c"Dcch Records\00", align 1
+@.str.1233 = private unnamed_addr constant [6 x i8] c" %02x\00", align 1
+@.str.1234 = private unnamed_addr constant [22 x i8] c"Order Command Message\00", align 1
+@.str.1235 = private unnamed_addr constant [46 x i8] c" : BASE STATION CHALLENGE CONFIRMATION Order \00", align 1
+@.str.1236 = private unnamed_addr constant [32 x i8] c" : Registration Accepted Order \00", align 1
+@.str.1237 = private unnamed_addr constant [31 x i8] c" : Registration Request Order \00", align 1
+@.str.1238 = private unnamed_addr constant [32 x i8] c" : Registration Rejected Order \00", align 1
+@.str.1239 = private unnamed_addr constant [46 x i8] c" : Registration Rejected Order (delete TMSI) \00", align 1
+@.str.1240 = private unnamed_addr constant [16 x i8] c" : RETRY Order \00", align 1
+@.str.1241 = private unnamed_addr constant [30 x i8] c" : BASE STATION REJECT Order \00", align 1
+@.str.1242 = private unnamed_addr constant [15 x i8] c" : BCMC Order \00", align 1
+@.str.1243 = private unnamed_addr constant [25 x i8] c" : SERVICE STATUS Order \00", align 1
+@.str.1244 = private unnamed_addr constant [28 x i8] c" : LOCATION SERVICES Order \00", align 1
+@.str.1245 = private unnamed_addr constant [36 x i8] c" : Invalid / Unsupported Order Type\00", align 1
+@.str.1246 = private unnamed_addr constant [10 x i8] c" : [%02d]\00", align 1
+@.str.1247 = private unnamed_addr constant [9 x i8] c" DISPLAY\00", align 1
+@.str.1248 = private unnamed_addr constant [33 x i8] c" - ASCII Values Of Characters : \00", align 1
+@.str.1249 = private unnamed_addr constant [6 x i8] c"%02x \00", align 1
+@.str.1250 = private unnamed_addr constant [21 x i8] c" CALLED PARTY NUMBER\00", align 1
+@.str.1251 = private unnamed_addr constant [42 x i8] c" - ASCII Values Of Called Party Number : \00", align 1
+@.str.1252 = private unnamed_addr constant [22 x i8] c" CALLING PARTY NUMBER\00", align 1
+@.str.1253 = private unnamed_addr constant [43 x i8] c" - ASCII Values Of Calling Party Number : \00", align 1
+@.str.1254 = private unnamed_addr constant [8 x i8] c" SIGNAL\00", align 1
+@.str.1255 = private unnamed_addr constant [17 x i8] c" MESSAGE WAITING\00", align 1
+@.str.1256 = private unnamed_addr constant [25 x i8] c" CALLED PARTY SUBADDRESS\00", align 1
+@.str.1257 = private unnamed_addr constant [46 x i8] c" - ASCII Values Of Called Party Subaddress : \00", align 1
+@.str.1258 = private unnamed_addr constant [26 x i8] c" CALLING PARTY SUBADDRESS\00", align 1
+@.str.1259 = private unnamed_addr constant [47 x i8] c" - ASCII Values Of Calling Party Subaddress : \00", align 1
+@.str.1260 = private unnamed_addr constant [20 x i8] c" REDIRECTING NUMBER\00", align 1
+@.str.1261 = private unnamed_addr constant [41 x i8] c" - ASCII Values Of Redirecting Number : \00", align 1
+@.str.1262 = private unnamed_addr constant [24 x i8] c" REDIRECTING SUBADDRESS\00", align 1
+@.str.1263 = private unnamed_addr constant [45 x i8] c" - ASCII Values Of Redirecting Subaddress : \00", align 1
+@.str.1264 = private unnamed_addr constant [14 x i8] c" METER PULSES\00", align 1
+@.str.1265 = private unnamed_addr constant [21 x i8] c" PARAMETRIC ALERTING\00", align 1
+@.str.1266 = private unnamed_addr constant [13 x i8] c" [01] : %02d\00", align 1
+@.str.1267 = private unnamed_addr constant [13 x i8] c" [02] : %02d\00", align 1
+@.str.1268 = private unnamed_addr constant [14 x i8] c" LINE CONTROL\00", align 1
+@.str.1269 = private unnamed_addr constant [24 x i8] c" CALL WAITING INDICATOR\00", align 1
+@.str.1270 = private unnamed_addr constant [62 x i8] c" Invalid / Unsupported Record Type in Alert With Info Message\00", align 1
+@.str.1271 = private unnamed_addr constant [8 x i8] c" : [%d]\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_cdma2k() #0 {
   %1 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #4
   %2 = call i32 @proto_register_protocol(ptr noundef @.str.851, ptr noundef @.str.851, ptr noundef @.str.852)
   store i32 %2, ptr @proto_cdma2k, align 4
   %3 = load i32, ptr @proto_cdma2k, align 4
@@ -1746,14 +1744,20 @@ define hidden void @proto_register_cdma2k() #0 {
   store ptr %7, ptr %1, align 8
   %8 = load ptr, ptr %1, align 8
   call void @expert_register_field_array(ptr noundef %8, ptr noundef @proto_register_cdma2k.ei, i32 noundef 1)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #4
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_cdma2k(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1767,18 +1771,22 @@ define internal i32 @dissect_cdma2k(ptr noundef %0, ptr noundef %1, ptr noundef 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
   store ptr null, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
   store ptr null, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
   store i32 0, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %12) #4
   store i16 1, ptr %12, align 2
   %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds %struct._packet_info, ptr %13, i32 0, i32 1
+  %14 = getelementptr inbounds nuw %struct._packet_info, ptr %13, i32 0, i32 1
   %15 = load ptr, ptr %14, align 8
-  call void @col_set_str(ptr noundef %15, i32 noundef 34, ptr noundef @.str.851)
+  call void @col_set_str(ptr noundef %15, i32 noundef 35, ptr noundef @.str.851)
   %16 = load ptr, ptr %6, align 8
-  %17 = getelementptr inbounds %struct._packet_info, ptr %16, i32 0, i32 1
+  %17 = getelementptr inbounds nuw %struct._packet_info, ptr %16, i32 0, i32 1
   %18 = load ptr, ptr %17, align 8
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %18, i32 noundef 25, ptr noundef @.str.1162)
+  call void @col_set_str(ptr noundef %18, i32 noundef 25, ptr noundef @.str.1207)
   %19 = load ptr, ptr %7, align 8
   %20 = load i32, ptr @hf_cdma2k_msghdr, align 4
   %21 = load ptr, ptr %5, align 8
@@ -1825,7 +1833,7 @@ define internal i32 @dissect_cdma2k(ptr noundef %0, ptr noundef %1, ptr noundef 
   %49 = load ptr, ptr %7, align 8
   %50 = load ptr, ptr %6, align 8
   call void @cdma2k_message_decode(ptr noundef %46, ptr noundef %47, ptr noundef %48, ptr noundef %11, ptr noundef %49, ptr noundef %12, ptr noundef %50)
-  br label %34, !llvm.loop !4
+  br label %34, !llvm.loop !6
 
 51:                                               ; preds = %43
   %52 = load i16, ptr %12, align 2
@@ -1845,33 +1853,46 @@ define internal i32 @dissect_cdma2k(ptr noundef %0, ptr noundef %1, ptr noundef 
 60:                                               ; preds = %59, %4
   %61 = load ptr, ptr %5, align 8
   %62 = call i32 @tvb_reported_length(ptr noundef %61)
+  call void @llvm.lifetime.end.p0(i64 2, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
   ret i32 %62
 }
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #2
 
-declare ptr @expert_register_protocol(i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_register_protocol(i32 noundef) #2
 
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
-define hidden void @proto_reg_handoff_cdma2k() #0 {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define hidden void @proto_reg_handoff_cdma2k() #3 {
   ret void
 }
 
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #2
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) #2
 
-declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) #1
-
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @cdma2k_message_decode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -1903,21 +1924,37 @@ define internal void @cdma2k_message_decode(ptr noundef %0, ptr noundef %1, ptr 
   store ptr %4, ptr %12, align 8
   store ptr %5, ptr %13, align 8
   store ptr %6, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %15) #4
   store i16 -1, ptr %15, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %16) #4
   store i16 -1, ptr %16, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %17) #4
   store i16 -1, ptr %17, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %18) #4
   store i16 -1, ptr %18, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %19) #4
   store i16 -1, ptr %19, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %20) #4
   store i16 -1, ptr %20, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %21) #4
   store i16 -1, ptr %21, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %22) #4
   store i16 -1, ptr %22, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %23) #4
   store i16 -1, ptr %23, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %24) #4
   store i16 -1, ptr %24, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %25) #4
   store i16 -1, ptr %25, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #4
   store ptr null, ptr %26, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #4
   store ptr null, ptr %27, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #4
   store ptr null, ptr %28, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %29) #4
   store ptr null, ptr %29, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %30) #4
   store ptr null, ptr %30, align 8
   %31 = load ptr, ptr %10, align 8
   %32 = load i32, ptr @hf_cdma2k_tlac_Header, align 4
@@ -2072,7 +2109,7 @@ define internal void @cdma2k_message_decode(ptr noundef %0, ptr noundef %1, ptr 
   %156 = load ptr, ptr %26, align 8
   %157 = load i16, ptr %22, align 2
   %158 = zext i16 %157 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %156, ptr noundef @.str.1163, i32 noundef %158)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %156, ptr noundef @.str.1208, i32 noundef %158)
   %159 = load ptr, ptr %26, align 8
   %160 = load i32, ptr @ett_cdma2k_subtree2, align 4
   %161 = call ptr @proto_item_add_subtree(ptr noundef %159, i32 noundef %160)
@@ -2234,7 +2271,7 @@ define internal void @cdma2k_message_decode(ptr noundef %0, ptr noundef %1, ptr 
   %287 = zext i16 %286 to i32
   %288 = call zeroext i8 @tvb_get_bits8(ptr noundef %285, i32 noundef %287, i32 noundef 8)
   %289 = zext i8 %288 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %284, ptr noundef @.str.1164, i32 noundef %289)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %284, ptr noundef @.str.1209, i32 noundef %289)
   %290 = load i16, ptr %19, align 2
   %291 = zext i16 %290 to i32
   %292 = add i32 %291, 8
@@ -2245,7 +2282,7 @@ define internal void @cdma2k_message_decode(ptr noundef %0, ptr noundef %1, ptr 
   %296 = add i32 %295, 8
   %297 = trunc i32 %296 to i16
   store i16 %297, ptr %21, align 2
-  br label %276, !llvm.loop !6
+  br label %276, !llvm.loop !8
 
 298:                                              ; preds = %276
   br label %299
@@ -2260,7 +2297,7 @@ define internal void @cdma2k_message_decode(ptr noundef %0, ptr noundef %1, ptr 
   %302 = load i16, ptr %22, align 2
   %303 = add i16 %302, 1
   store i16 %303, ptr %22, align 2
-  br label %142, !llvm.loop !7
+  br label %142, !llvm.loop !9
 
 304:                                              ; preds = %142
   %305 = load i16, ptr %19, align 2
@@ -2474,20 +2511,41 @@ define internal void @cdma2k_message_decode(ptr noundef %0, ptr noundef %1, ptr 
   br label %436
 
 436:                                              ; preds = %435, %418
+  call void @llvm.lifetime.end.p0(i64 8, ptr %30) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %25) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %24) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %23) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %22) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %21) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %20) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %17) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %15) #4
   ret void
 }
 
-declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare i32 @tvb_reported_length(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length(ptr noundef) #2
 
-declare ptr @proto_tree_add_bits_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_bits_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare zeroext i8 @tvb_get_bits8(ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_bits8(ptr noundef, i32 noundef, i32 noundef) #2
 
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @cdma2k_message_ADDR_FIELDS(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -2505,9 +2563,15 @@ define internal void @cdma2k_message_ADDR_FIELDS(ptr noundef %0, ptr noundef %1,
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #4
   store i16 -1, ptr %13, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %14) #4
   store i16 -1, ptr %14, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %15) #4
   store i16 -1, ptr %15, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %16) #4
   store i16 -1, ptr %16, align 2
   %17 = load ptr, ptr %9, align 8
   %18 = load i16, ptr %17, align 2
@@ -2818,7 +2882,7 @@ define internal void @cdma2k_message_ADDR_FIELDS(ptr noundef %0, ptr noundef %1,
 
 266:                                              ; preds = %204
   %267 = load ptr, ptr %6, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %267, ptr noundef @.str.1165)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %267, ptr noundef @.str.1210)
   br label %268
 
 268:                                              ; preds = %266, %237, %220, %207
@@ -2894,7 +2958,7 @@ define internal void @cdma2k_message_ADDR_FIELDS(ptr noundef %0, ptr noundef %1,
 
 326:                                              ; preds = %65
   %327 = load ptr, ptr %6, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %327, ptr noundef @.str.1166)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %327, ptr noundef @.str.1211)
   br label %328
 
 328:                                              ; preds = %326, %325, %268, %187, %182, %169, %86
@@ -2945,17 +3009,23 @@ define internal void @cdma2k_message_ADDR_FIELDS(ptr noundef %0, ptr noundef %1,
 
 367:                                              ; preds = %360
   %368 = load ptr, ptr %6, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %368, ptr noundef @.str.1167)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %368, ptr noundef @.str.1212)
   br label %369
 
 369:                                              ; preds = %367, %360
   br label %370
 
 370:                                              ; preds = %369, %335
+  call void @llvm.lifetime.end.p0(i64 2, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @cdma2k_message_AUTH_FIELDS(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -2971,9 +3041,13 @@ define internal void @cdma2k_message_AUTH_FIELDS(ptr noundef %0, ptr noundef %1,
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %11) #4
   store i16 -1, ptr %11, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %12) #4
   store i16 -1, ptr %12, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #4
   store i16 -1, ptr %13, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %14) #4
   store i16 -1, ptr %14, align 2
   %15 = load ptr, ptr %9, align 8
   %16 = load i16, ptr %15, align 2
@@ -3234,19 +3308,24 @@ define internal void @cdma2k_message_AUTH_FIELDS(ptr noundef %0, ptr noundef %1,
 
 232:                                              ; preds = %225
   %233 = load ptr, ptr %6, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %233, ptr noundef @.str.1171)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %233, ptr noundef @.str.1216)
   br label %234
 
 234:                                              ; preds = %232, %225
   br label %235
 
 235:                                              ; preds = %234, %200
+  call void @llvm.lifetime.end.p0(i64 2, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %11) #4
   ret void
 }
 
-declare zeroext i16 @tvb_get_bits16(ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_bits16(ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @cdma2k_message_REGISTRATION(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -3264,11 +3343,17 @@ define internal void @cdma2k_message_REGISTRATION(ptr noundef %0, ptr noundef %1
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %11) #4
   store i16 -1, ptr %11, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %12) #4
   store i16 -1, ptr %12, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #4
   store i16 -1, ptr %13, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %14) #4
   store i16 -1, ptr %14, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %15) #4
   store i16 -1, ptr %15, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #4
   store ptr null, ptr %16, align 8
   %17 = load ptr, ptr %8, align 8
   %18 = load i32, ptr @hf_cdma2k_RegMsg, align 4
@@ -3571,10 +3656,16 @@ define internal void @cdma2k_message_REGISTRATION(ptr noundef %0, ptr noundef %1
   br label %258
 
 258:                                              ; preds = %252, %247
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %11) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @cdma2k_message_ORDER_IND(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3592,13 +3683,21 @@ define internal void @cdma2k_message_ORDER_IND(ptr noundef %0, ptr noundef %1, p
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %9) #4
   store i16 -1, ptr %9, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %10) #4
   store i16 -1, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %11) #4
   store i16 -1, ptr %11, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %12) #4
   store i16 -1, ptr %12, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #4
   store i16 -1, ptr %13, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %14) #4
   store i16 -1, ptr %14, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #4
   store ptr null, ptr %15, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #4
   store ptr null, ptr %16, align 8
   %17 = load ptr, ptr %7, align 8
   %18 = load i32, ptr @hf_cdma2k_OrderIndMsg, align 4
@@ -3682,7 +3781,7 @@ define internal void @cdma2k_message_ORDER_IND(ptr noundef %0, ptr noundef %1, p
 
 77:                                               ; preds = %65
   %78 = load ptr, ptr %5, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %78, ptr noundef @.str.1173)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %78, ptr noundef @.str.1218)
   %79 = load ptr, ptr %16, align 8
   %80 = load i32, ptr @hf_cdma2k_Ordq, align 4
   %81 = load ptr, ptr %6, align 8
@@ -3709,7 +3808,7 @@ define internal void @cdma2k_message_ORDER_IND(ptr noundef %0, ptr noundef %1, p
 
 99:                                               ; preds = %65
   %100 = load ptr, ptr %5, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %100, ptr noundef @.str.1174)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %100, ptr noundef @.str.1219)
   %101 = load ptr, ptr %16, align 8
   %102 = load i32, ptr @hf_cdma2k_Ordq, align 4
   %103 = load ptr, ptr %6, align 8
@@ -3725,7 +3824,7 @@ define internal void @cdma2k_message_ORDER_IND(ptr noundef %0, ptr noundef %1, p
 
 111:                                              ; preds = %65
   %112 = load ptr, ptr %5, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %112, ptr noundef @.str.1175)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %112, ptr noundef @.str.1220)
   %113 = load ptr, ptr %16, align 8
   %114 = load i32, ptr @hf_cdma2k_Ordq, align 4
   %115 = load ptr, ptr %6, align 8
@@ -3752,7 +3851,7 @@ define internal void @cdma2k_message_ORDER_IND(ptr noundef %0, ptr noundef %1, p
 
 133:                                              ; preds = %65
   %134 = load ptr, ptr %5, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %134, ptr noundef @.str.1176)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %134, ptr noundef @.str.1221)
   %135 = load ptr, ptr %16, align 8
   %136 = load i32, ptr @hf_cdma2k_Ordq, align 4
   %137 = load ptr, ptr %6, align 8
@@ -3779,7 +3878,7 @@ define internal void @cdma2k_message_ORDER_IND(ptr noundef %0, ptr noundef %1, p
 
 155:                                              ; preds = %65
   %156 = load ptr, ptr %5, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %156, ptr noundef @.str.1177)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %156, ptr noundef @.str.1222)
   %157 = load ptr, ptr %16, align 8
   %158 = load i32, ptr @hf_cdma2k_Ordq, align 4
   %159 = load ptr, ptr %6, align 8
@@ -3979,7 +4078,7 @@ define internal void @cdma2k_message_ORDER_IND(ptr noundef %0, ptr noundef %1, p
 
 313:                                              ; preds = %65
   %314 = load ptr, ptr %5, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %314, ptr noundef @.str.1178)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %314, ptr noundef @.str.1223)
   %315 = load ptr, ptr %16, align 8
   %316 = load i32, ptr @hf_cdma2k_Ordq, align 4
   %317 = load ptr, ptr %6, align 8
@@ -4075,7 +4174,7 @@ define internal void @cdma2k_message_ORDER_IND(ptr noundef %0, ptr noundef %1, p
 
 391:                                              ; preds = %65
   %392 = load ptr, ptr %5, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %392, ptr noundef @.str.1179)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %392, ptr noundef @.str.1224)
   %393 = load ptr, ptr %16, align 8
   %394 = load i32, ptr @hf_cdma2k_Ordq, align 4
   %395 = load ptr, ptr %6, align 8
@@ -4154,7 +4253,7 @@ define internal void @cdma2k_message_ORDER_IND(ptr noundef %0, ptr noundef %1, p
 
 457:                                              ; preds = %65
   %458 = load ptr, ptr %5, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %458, ptr noundef @.str.1180)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %458, ptr noundef @.str.1225)
   br label %459
 
 459:                                              ; preds = %457, %456, %390, %312, %133, %111, %99, %77
@@ -4185,10 +4284,18 @@ define internal void @cdma2k_message_ORDER_IND(ptr noundef %0, ptr noundef %1, p
   br label %476
 
 476:                                              ; preds = %470, %465
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %9) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @cdma2k_message_DATA_BURST_IND(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4206,13 +4313,21 @@ define internal void @cdma2k_message_DATA_BURST_IND(ptr noundef %0, ptr noundef 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %9) #4
   store i16 -1, ptr %9, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %10) #4
   store i16 -1, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %11) #4
   store i16 -1, ptr %11, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %12) #4
   store i16 -1, ptr %12, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #4
   store i16 -1, ptr %13, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #4
   store ptr null, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #4
   store ptr null, ptr %15, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #4
   store ptr null, ptr %16, align 8
   store i16 1, ptr %12, align 2
   %17 = load ptr, ptr %7, align 8
@@ -4409,7 +4524,7 @@ define internal void @cdma2k_message_DATA_BURST_IND(ptr noundef %0, ptr noundef 
   %173 = add i32 %172, 6
   %174 = call zeroext i8 @tvb_get_bits8(ptr noundef %169, i32 noundef %173, i32 noundef 8)
   %175 = zext i8 %174 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %168, ptr noundef @.str.1164, i32 noundef %175)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %168, ptr noundef @.str.1209, i32 noundef %175)
   %176 = load ptr, ptr %8, align 8
   %177 = load i32, ptr %176, align 4
   %178 = add i32 %177, 1
@@ -4422,7 +4537,7 @@ define internal void @cdma2k_message_DATA_BURST_IND(ptr noundef %0, ptr noundef 
 
 183:                                              ; preds = %167
   %184 = load ptr, ptr %5, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %184, ptr noundef @.str.1181)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %184, ptr noundef @.str.1226)
   br label %185
 
 185:                                              ; preds = %183, %167
@@ -4467,7 +4582,7 @@ define internal void @cdma2k_message_DATA_BURST_IND(ptr noundef %0, ptr noundef 
   %214 = call ptr @proto_tree_add_item(ptr noundef %207, i32 noundef %208, ptr noundef %209, i32 noundef %211, i32 noundef %213, i32 noundef 0)
   store ptr %214, ptr %5, align 8
   %215 = load ptr, ptr %5, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %215, ptr noundef @.str.1182)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %215, ptr noundef @.str.1227)
   %216 = load i16, ptr %12, align 2
   %217 = zext i16 %216 to i32
   %218 = add i32 %217, 1
@@ -4482,7 +4597,7 @@ define internal void @cdma2k_message_DATA_BURST_IND(ptr noundef %0, ptr noundef 
   %222 = load i16, ptr %11, align 2
   %223 = add i16 %222, 1
   store i16 %223, ptr %11, align 2
-  br label %161, !llvm.loop !8
+  br label %161, !llvm.loop !10
 
 224:                                              ; preds = %161
   %225 = load i16, ptr %10, align 2
@@ -4492,17 +4607,25 @@ define internal void @cdma2k_message_DATA_BURST_IND(ptr noundef %0, ptr noundef 
   %229 = sub i32 %228, %226
   %230 = trunc i32 %229 to i16
   store i16 %230, ptr %9, align 2
-  br label %95, !llvm.loop !9
+  br label %95, !llvm.loop !11
 
 231:                                              ; preds = %95
   %232 = load ptr, ptr %8, align 8
   %233 = load i32, ptr %232, align 4
   %234 = add i32 %233, 1
   store i32 %234, ptr %232, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %9) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @cdma2k_message_ORIGINATION(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i16 noundef zeroext %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -4553,42 +4676,79 @@ define internal void @cdma2k_message_ORIGINATION(ptr noundef %0, ptr noundef %1,
   store ptr %3, ptr %10, align 8
   store i16 %4, ptr %11, align 2
   store i16 %5, ptr %12, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #4
   store i16 -1, ptr %13, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %14) #4
   store i16 -1, ptr %14, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %15) #4
   store i16 -1, ptr %15, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %16) #4
   store i16 -1, ptr %16, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %17) #4
   store i16 -1, ptr %17, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %18) #4
   store i16 -1, ptr %18, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %19) #4
   store i16 -1, ptr %19, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %20) #4
   store i16 -1, ptr %20, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %21) #4
   store i16 -1, ptr %21, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %22) #4
   store i16 -1, ptr %22, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %23) #4
   store i16 -1, ptr %23, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %24) #4
   store i16 -1, ptr %24, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %25) #4
   store i16 -1, ptr %25, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %26) #4
   store i16 -1, ptr %26, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %27) #4
   store i16 -1, ptr %27, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %28) #4
   store i16 -1, ptr %28, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %29) #4
   store i16 -1, ptr %29, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %30) #4
   store i16 -1, ptr %30, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %31) #4
   store i16 -1, ptr %31, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %32) #4
   store i16 -1, ptr %32, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %33) #4
   store i16 -1, ptr %33, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %34) #4
   store i16 -1, ptr %34, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %35) #4
   store i16 -1, ptr %35, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %36) #4
   store i16 -1, ptr %36, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %37) #4
   store i16 -1, ptr %37, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %38) #4
   store i16 -1, ptr %38, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %39) #4
   store i16 -1, ptr %39, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %40) #4
   store i16 -1, ptr %40, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %41) #4
   store i16 -1, ptr %41, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %42) #4
   store i16 -1, ptr %42, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %43) #4
   store ptr null, ptr %43, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %44) #4
   store ptr null, ptr %44, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %45) #4
   store ptr null, ptr %45, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %46) #4
   store ptr null, ptr %46, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %47) #4
   store ptr null, ptr %47, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %48) #4
   store ptr null, ptr %48, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %49) #4
   store ptr null, ptr %49, align 8
   %50 = load ptr, ptr %10, align 8
   %51 = load i32, ptr %50, align 4
@@ -4883,7 +5043,7 @@ define internal void @cdma2k_message_ORIGINATION(ptr noundef %0, ptr noundef %1,
   %292 = call ptr @proto_tree_add_item(ptr noundef %286, i32 noundef %287, ptr noundef %288, i32 noundef %291, i32 noundef 1, i32 noundef 0)
   store ptr %292, ptr %48, align 8
   %293 = load ptr, ptr %48, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %293, ptr noundef @.str.1183)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %293, ptr noundef @.str.1228)
   br label %294
 
 294:                                              ; preds = %337, %285
@@ -4908,7 +5068,7 @@ define internal void @cdma2k_message_ORIGINATION(ptr noundef %0, ptr noundef %1,
   %308 = zext i16 %307 to i32
   %309 = call zeroext i8 @tvb_get_bits8(ptr noundef %304, i32 noundef %306, i32 noundef %308)
   %310 = zext i8 %309 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %303, ptr noundef @.str.1184, i32 noundef %310)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %303, ptr noundef @.str.1229, i32 noundef %310)
   %311 = load i16, ptr %35, align 2
   %312 = zext i16 %311 to i32
   %313 = load i16, ptr %22, align 2
@@ -4934,7 +5094,7 @@ define internal void @cdma2k_message_ORIGINATION(ptr noundef %0, ptr noundef %1,
   %327 = zext i16 %326 to i32
   %328 = call zeroext i8 @tvb_get_bits8(ptr noundef %323, i32 noundef %325, i32 noundef %327)
   %329 = zext i8 %328 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %322, ptr noundef @.str.1185, i32 noundef %329)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %322, ptr noundef @.str.1230, i32 noundef %329)
   %330 = load i16, ptr %35, align 2
   %331 = zext i16 %330 to i32
   %332 = load i16, ptr %22, align 2
@@ -4953,7 +5113,7 @@ define internal void @cdma2k_message_ORIGINATION(ptr noundef %0, ptr noundef %1,
   %340 = sub i32 %339, 1
   %341 = trunc i32 %340 to i16
   store i16 %341, ptr %23, align 2
-  br label %294, !llvm.loop !10
+  br label %294, !llvm.loop !12
 
 342:                                              ; preds = %294
   br label %343
@@ -5080,7 +5240,7 @@ define internal void @cdma2k_message_ORIGINATION(ptr noundef %0, ptr noundef %1,
   %443 = load i16, ptr %32, align 2
   %444 = add i16 %443, -1
   store i16 %444, ptr %32, align 2
-  br label %428, !llvm.loop !11
+  br label %428, !llvm.loop !13
 
 445:                                              ; preds = %428
   %446 = load i16, ptr %13, align 2
@@ -5723,7 +5883,7 @@ define internal void @cdma2k_message_ORIGINATION(ptr noundef %0, ptr noundef %1,
   %978 = load i16, ptr %22, align 2
   %979 = zext i16 %978 to i32
   %980 = sdiv i32 %979, 8
-  %981 = call ptr @proto_tree_add_item(ptr noundef %975, i32 noundef %976, ptr noundef %977, i32 noundef %980, i32 noundef 8, i32 noundef 0)
+  %981 = call ptr @proto_tree_add_item(ptr noundef %975, i32 noundef %976, ptr noundef %977, i32 noundef %980, i32 noundef 1, i32 noundef 0)
   store ptr %981, ptr %49, align 8
   %982 = load ptr, ptr %49, align 8
   %983 = load i32, ptr @ett_cdma2k_subtree2, align 4
@@ -5735,7 +5895,7 @@ define internal void @cdma2k_message_ORIGINATION(ptr noundef %0, ptr noundef %1,
   %988 = zext i16 %987 to i32
   %989 = call zeroext i8 @tvb_get_bits8(ptr noundef %986, i32 noundef %988, i32 noundef 8)
   %990 = zext i8 %989 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %985, ptr noundef @.str.1184, i32 noundef %990)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %985, ptr noundef @.str.1229, i32 noundef %990)
   %991 = load i16, ptr %22, align 2
   %992 = zext i16 %991 to i32
   %993 = add i32 %992, 8
@@ -5746,7 +5906,7 @@ define internal void @cdma2k_message_ORIGINATION(ptr noundef %0, ptr noundef %1,
   %997 = sub i32 %996, 1
   %998 = trunc i32 %997 to i16
   store i16 %998, ptr %33, align 2
-  br label %970, !llvm.loop !12
+  br label %970, !llvm.loop !14
 
 999:                                              ; preds = %970
   br label %1000
@@ -5992,7 +6152,7 @@ define internal void @cdma2k_message_ORIGINATION(ptr noundef %0, ptr noundef %1,
   %1201 = zext i16 %1200 to i32
   %1202 = call zeroext i8 @tvb_get_bits8(ptr noundef %1199, i32 noundef %1201, i32 noundef 8)
   %1203 = zext i8 %1202 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1198, ptr noundef @.str.1184, i32 noundef %1203)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1198, ptr noundef @.str.1229, i32 noundef %1203)
   %1204 = load i16, ptr %22, align 2
   %1205 = zext i16 %1204 to i32
   %1206 = add i32 %1205, 8
@@ -6003,7 +6163,7 @@ define internal void @cdma2k_message_ORIGINATION(ptr noundef %0, ptr noundef %1,
   %1210 = sub i32 %1209, 1
   %1211 = trunc i32 %1210 to i16
   store i16 %1211, ptr %16, align 2
-  br label %1184, !llvm.loop !13
+  br label %1184, !llvm.loop !15
 
 1212:                                             ; preds = %1184
   br label %1213
@@ -6204,10 +6364,47 @@ define internal void @cdma2k_message_ORIGINATION(ptr noundef %0, ptr noundef %1,
   br label %1367
 
 1367:                                             ; preds = %1361, %1356
+  call void @llvm.lifetime.end.p0(i64 8, ptr %49) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %48) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %47) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %46) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %45) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %44) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %43) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %42) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %41) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %40) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %39) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %38) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %37) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %36) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %35) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %34) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %33) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %32) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %31) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %30) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %29) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %28) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %27) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %26) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %25) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %24) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %23) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %22) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %21) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %20) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %17) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @cdma2k_message_PAGE_RESPONSE(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i16 noundef zeroext %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -6242,26 +6439,47 @@ define internal void @cdma2k_message_PAGE_RESPONSE(ptr noundef %0, ptr noundef %
   store ptr %3, ptr %10, align 8
   store i16 %4, ptr %11, align 2
   store i16 %5, ptr %12, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #4
   store i16 -1, ptr %13, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %14) #4
   store i16 -1, ptr %14, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %15) #4
   store i16 -1, ptr %15, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %16) #4
   store i16 -1, ptr %16, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %17) #4
   store i16 -1, ptr %17, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %18) #4
   store i16 -1, ptr %18, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %19) #4
   store i16 -1, ptr %19, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %20) #4
   store i16 -1, ptr %20, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %21) #4
   store i16 -1, ptr %21, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %22) #4
   store i16 -1, ptr %22, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %23) #4
   store i16 -1, ptr %23, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %24) #4
   store i16 -1, ptr %24, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %25) #4
   store i16 -1, ptr %25, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %26) #4
   store i16 -1, ptr %26, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %27) #4
   store i16 -1, ptr %27, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %28) #4
   store i16 -1, ptr %28, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %29) #4
   store i16 -1, ptr %29, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %30) #4
   store i16 -1, ptr %30, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %31) #4
   store ptr null, ptr %31, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %32) #4
   store ptr null, ptr %32, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %33) #4
   store ptr null, ptr %33, align 8
   %34 = load ptr, ptr %9, align 8
   %35 = load i32, ptr @hf_cdma2k_PageRspMsg, align 4
@@ -6456,7 +6674,7 @@ define internal void @cdma2k_message_PAGE_RESPONSE(ptr noundef %0, ptr noundef %
   %191 = load i16, ptr %15, align 2
   %192 = add i16 %191, -1
   store i16 %192, ptr %15, align 2
-  br label %176, !llvm.loop !14
+  br label %176, !llvm.loop !16
 
 193:                                              ; preds = %176
   %194 = load i16, ptr %29, align 2
@@ -6600,7 +6818,7 @@ define internal void @cdma2k_message_PAGE_RESPONSE(ptr noundef %0, ptr noundef %
   %313 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %308, ptr noundef %309, i32 noundef %312, i32 noundef 1, i32 noundef 0)
   store ptr %313, ptr %33, align 8
   %314 = load ptr, ptr %33, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %314, ptr noundef @.str.1186)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %314, ptr noundef @.str.1231)
   %315 = load ptr, ptr %33, align 8
   %316 = load i32, ptr @ett_cdma2k_subtree2, align 4
   %317 = call ptr @proto_item_add_subtree(ptr noundef %315, i32 noundef %316)
@@ -6737,7 +6955,7 @@ define internal void @cdma2k_message_PAGE_RESPONSE(ptr noundef %0, ptr noundef %
   %426 = call ptr @proto_tree_add_item(ptr noundef %420, i32 noundef %421, ptr noundef %422, i32 noundef %425, i32 noundef 1, i32 noundef 0)
   store ptr %426, ptr %33, align 8
   %427 = load ptr, ptr %33, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %427, ptr noundef @.str.1187)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %427, ptr noundef @.str.1232)
   %428 = load ptr, ptr %33, align 8
   %429 = load i32, ptr @ett_cdma2k_subtree2, align 4
   %430 = call ptr @proto_item_add_subtree(ptr noundef %428, i32 noundef %429)
@@ -7172,7 +7390,7 @@ define internal void @cdma2k_message_PAGE_RESPONSE(ptr noundef %0, ptr noundef %
   %789 = zext i16 %788 to i32
   %790 = call zeroext i8 @tvb_get_bits8(ptr noundef %787, i32 noundef %789, i32 noundef 8)
   %791 = zext i8 %790 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %786, ptr noundef @.str.1188, i32 noundef %791)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %786, ptr noundef @.str.1233, i32 noundef %791)
   %792 = load i16, ptr %26, align 2
   %793 = zext i16 %792 to i32
   %794 = add i32 %793, 8
@@ -7181,7 +7399,7 @@ define internal void @cdma2k_message_PAGE_RESPONSE(ptr noundef %0, ptr noundef %
   %796 = load i16, ptr %21, align 2
   %797 = add i16 %796, -1
   store i16 %797, ptr %21, align 2
-  br label %781, !llvm.loop !15
+  br label %781, !llvm.loop !17
 
 798:                                              ; preds = %781
   br label %799
@@ -7268,10 +7486,31 @@ define internal void @cdma2k_message_PAGE_RESPONSE(ptr noundef %0, ptr noundef %
   br label %862
 
 862:                                              ; preds = %856, %851
+  call void @llvm.lifetime.end.p0(i64 8, ptr %33) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %32) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %31) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %30) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %29) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %28) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %27) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %26) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %25) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %24) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %23) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %22) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %21) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %20) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %17) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @cdma2k_message_AUTH_CHALL_RSP(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -7282,6 +7521,7 @@ define internal void @cdma2k_message_AUTH_CHALL_RSP(ptr noundef %0, ptr noundef 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
   store ptr null, ptr %9, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = load i32, ptr @hf_cdma2k_AuthChallRspMsg, align 4
@@ -7305,10 +7545,11 @@ define internal void @cdma2k_message_AUTH_CHALL_RSP(ptr noundef %0, ptr noundef 
   %27 = load i32, ptr %26, align 4
   %28 = add i32 %27, 3
   store i32 %28, ptr %26, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @cdma2k_message_ORDER_CMD(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -7341,35 +7582,58 @@ define internal void @cdma2k_message_ORDER_CMD(ptr noundef %0, ptr noundef %1, p
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %9) #4
   store i16 -1, ptr %9, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %10) #4
   store i16 -1, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %11) #4
   store i16 -1, ptr %11, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %12) #4
   store i16 -1, ptr %12, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #4
   store i16 -1, ptr %13, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %14) #4
   store i16 -1, ptr %14, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %15) #4
   store i16 -1, ptr %15, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %16) #4
   store i16 -1, ptr %16, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %17) #4
   store i16 -1, ptr %17, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %18) #4
   store i16 -1, ptr %18, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %19) #4
   store i16 -1, ptr %19, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %20) #4
   store i16 -1, ptr %20, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %21) #4
   store i16 -1, ptr %21, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %22) #4
   store i16 -1, ptr %22, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %23) #4
   store i16 -1, ptr %23, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %24) #4
   store i16 -1, ptr %24, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %25) #4
   store i16 -1, ptr %25, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %26) #4
   store i16 -1, ptr %26, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %27) #4
   store i16 -1, ptr %27, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %28) #4
   store i16 -1, ptr %28, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %29) #4
   store i16 -1, ptr %29, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %30) #4
   store ptr null, ptr %30, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %31) #4
   store ptr null, ptr %31, align 8
   %32 = load ptr, ptr %7, align 8
   %33 = load ptr, ptr %6, align 8
   %34 = load ptr, ptr %8, align 8
   %35 = load i32, ptr %34, align 4
   %36 = load i32, ptr @ett_cdma2k_subtree1, align 4
-  %37 = call ptr @proto_tree_add_subtree(ptr noundef %32, ptr noundef %33, i32 noundef %35, i32 noundef -1, i32 noundef %36, ptr noundef null, ptr noundef @.str.1189)
+  %37 = call ptr @proto_tree_add_subtree(ptr noundef %32, ptr noundef %33, i32 noundef %35, i32 noundef -1, i32 noundef %36, ptr noundef null, ptr noundef @.str.1234)
   store ptr %37, ptr %30, align 8
   %38 = load ptr, ptr %30, align 8
   %39 = load i32, ptr @hf_cdma2k_Order_Cmd, align 4
@@ -7380,7 +7644,7 @@ define internal void @cdma2k_message_ORDER_CMD(ptr noundef %0, ptr noundef %1, p
   %44 = load ptr, ptr %6, align 8
   %45 = load ptr, ptr %8, align 8
   %46 = load i32, ptr %45, align 4
-  %47 = call zeroext i8 @tvb_get_guint8(ptr noundef %44, i32 noundef %46)
+  %47 = call zeroext i8 @tvb_get_uint8(ptr noundef %44, i32 noundef %46)
   %48 = zext i8 %47 to i32
   %49 = ashr i32 %48, 2
   %50 = trunc i32 %49 to i16
@@ -7445,7 +7709,7 @@ define internal void @cdma2k_message_ORDER_CMD(ptr noundef %0, ptr noundef %1, p
 
 89:                                               ; preds = %77
   %90 = load ptr, ptr %5, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %90, ptr noundef @.str.1190)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %90, ptr noundef @.str.1235)
   %91 = load ptr, ptr %31, align 8
   %92 = load i32, ptr @hf_cdma2k_Ordq, align 4
   %93 = load ptr, ptr %6, align 8
@@ -7483,7 +7747,7 @@ define internal void @cdma2k_message_ORDER_CMD(ptr noundef %0, ptr noundef %1, p
 
 121:                                              ; preds = %77
   %122 = load ptr, ptr %5, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %122, ptr noundef @.str.1174)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %122, ptr noundef @.str.1219)
   %123 = load ptr, ptr %31, align 8
   %124 = load i32, ptr @hf_cdma2k_Ordq, align 4
   %125 = load ptr, ptr %6, align 8
@@ -7499,7 +7763,7 @@ define internal void @cdma2k_message_ORDER_CMD(ptr noundef %0, ptr noundef %1, p
 
 133:                                              ; preds = %77
   %134 = load ptr, ptr %5, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %134, ptr noundef @.str.1178)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %134, ptr noundef @.str.1223)
   %135 = load ptr, ptr %31, align 8
   %136 = load i32, ptr @hf_cdma2k_Ordq, align 4
   %137 = load ptr, ptr %6, align 8
@@ -7624,27 +7888,27 @@ define internal void @cdma2k_message_ORDER_CMD(ptr noundef %0, ptr noundef %1, p
 
 229:                                              ; preds = %211
   %230 = load ptr, ptr %5, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %230, ptr noundef @.str.1191)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %230, ptr noundef @.str.1236)
   br label %292
 
 231:                                              ; preds = %211
   %232 = load ptr, ptr %5, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %232, ptr noundef @.str.1192)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %232, ptr noundef @.str.1237)
   br label %292
 
 233:                                              ; preds = %211
   %234 = load ptr, ptr %5, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %234, ptr noundef @.str.1193)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %234, ptr noundef @.str.1238)
   br label %292
 
 235:                                              ; preds = %211
   %236 = load ptr, ptr %5, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %236, ptr noundef @.str.1194)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %236, ptr noundef @.str.1239)
   br label %292
 
 237:                                              ; preds = %211
   %238 = load ptr, ptr %5, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %238, ptr noundef @.str.1191)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %238, ptr noundef @.str.1236)
   %239 = load ptr, ptr %31, align 8
   %240 = load i32, ptr @hf_cdma2k_Roam_Ind, align 4
   %241 = load ptr, ptr %6, align 8
@@ -7660,7 +7924,7 @@ define internal void @cdma2k_message_ORDER_CMD(ptr noundef %0, ptr noundef %1, p
 
 249:                                              ; preds = %211
   %250 = load ptr, ptr %5, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %250, ptr noundef @.str.1191)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %250, ptr noundef @.str.1236)
   %251 = load ptr, ptr %31, align 8
   %252 = load i32, ptr @hf_cdma2k_Roam_Ind, align 4
   %253 = load ptr, ptr %6, align 8
@@ -7793,7 +8057,7 @@ define internal void @cdma2k_message_ORDER_CMD(ptr noundef %0, ptr noundef %1, p
 
 353:                                              ; preds = %77
   %354 = load ptr, ptr %5, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %354, ptr noundef @.str.1195)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %354, ptr noundef @.str.1240)
   %355 = load ptr, ptr %31, align 8
   %356 = load i32, ptr @hf_cdma2k_Ordq, align 4
   %357 = load ptr, ptr %6, align 8
@@ -7857,7 +8121,7 @@ define internal void @cdma2k_message_ORDER_CMD(ptr noundef %0, ptr noundef %1, p
 
 405:                                              ; preds = %77
   %406 = load ptr, ptr %5, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %406, ptr noundef @.str.1196)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %406, ptr noundef @.str.1241)
   %407 = load ptr, ptr %31, align 8
   %408 = load i32, ptr @hf_cdma2k_Ordq, align 4
   %409 = load ptr, ptr %6, align 8
@@ -7906,7 +8170,7 @@ define internal void @cdma2k_message_ORDER_CMD(ptr noundef %0, ptr noundef %1, p
 
 447:                                              ; preds = %77
   %448 = load ptr, ptr %5, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %448, ptr noundef @.str.1197)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %448, ptr noundef @.str.1242)
   %449 = load ptr, ptr %31, align 8
   %450 = load i32, ptr @hf_cdma2k_Ordq, align 4
   %451 = load ptr, ptr %6, align 8
@@ -8207,7 +8471,7 @@ define internal void @cdma2k_message_ORDER_CMD(ptr noundef %0, ptr noundef %1, p
 
 691:                                              ; preds = %77
   %692 = load ptr, ptr %5, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %692, ptr noundef @.str.1179)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %692, ptr noundef @.str.1224)
   %693 = load ptr, ptr %31, align 8
   %694 = load i32, ptr @hf_cdma2k_Ordq, align 4
   %695 = load ptr, ptr %6, align 8
@@ -8503,7 +8767,7 @@ define internal void @cdma2k_message_ORDER_CMD(ptr noundef %0, ptr noundef %1, p
 
 936:                                              ; preds = %77
   %937 = load ptr, ptr %5, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %937, ptr noundef @.str.1198)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %937, ptr noundef @.str.1243)
   %938 = load ptr, ptr %31, align 8
   %939 = load i32, ptr @hf_cdma2k_Ordq, align 4
   %940 = load ptr, ptr %6, align 8
@@ -8561,7 +8825,7 @@ define internal void @cdma2k_message_ORDER_CMD(ptr noundef %0, ptr noundef %1, p
 
 984:                                              ; preds = %77
   %985 = load ptr, ptr %5, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %985, ptr noundef @.str.1199)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %985, ptr noundef @.str.1244)
   %986 = load ptr, ptr %31, align 8
   %987 = load i32, ptr @hf_cdma2k_Ordq, align 4
   %988 = load ptr, ptr %6, align 8
@@ -8614,7 +8878,7 @@ define internal void @cdma2k_message_ORDER_CMD(ptr noundef %0, ptr noundef %1, p
 
 1026:                                             ; preds = %77
   %1027 = load ptr, ptr %5, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1027, ptr noundef @.str.1200)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1027, ptr noundef @.str.1245)
   br label %1028
 
 1028:                                             ; preds = %1026, %1025, %983, %895, %690, %405, %394, %352, %210, %121, %89
@@ -8645,10 +8909,33 @@ define internal void @cdma2k_message_ORDER_CMD(ptr noundef %0, ptr noundef %1, p
   br label %1045
 
 1045:                                             ; preds = %1039, %1034
+  call void @llvm.lifetime.end.p0(i64 8, ptr %31) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %30) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %29) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %28) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %27) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %26) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %25) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %24) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %23) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %22) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %21) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %20) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %17) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %9) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @cdma2k_message_DATA_BURST_CMD(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -8666,13 +8953,21 @@ define internal void @cdma2k_message_DATA_BURST_CMD(ptr noundef %0, ptr noundef 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %9) #4
   store i16 -1, ptr %9, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %10) #4
   store i16 -1, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %11) #4
   store i16 -1, ptr %11, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %12) #4
   store i16 -1, ptr %12, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #4
   store i16 -1, ptr %13, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #4
   store ptr null, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #4
   store ptr null, ptr %15, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #4
   store ptr null, ptr %16, align 8
   store i16 1, ptr %12, align 2
   %17 = load ptr, ptr %7, align 8
@@ -8869,7 +9164,7 @@ define internal void @cdma2k_message_DATA_BURST_CMD(ptr noundef %0, ptr noundef 
   %173 = add i32 %172, 6
   %174 = call zeroext i8 @tvb_get_bits8(ptr noundef %169, i32 noundef %173, i32 noundef 8)
   %175 = zext i8 %174 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %168, ptr noundef @.str.1164, i32 noundef %175)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %168, ptr noundef @.str.1209, i32 noundef %175)
   %176 = load ptr, ptr %8, align 8
   %177 = load i32, ptr %176, align 4
   %178 = add i32 %177, 1
@@ -8882,7 +9177,7 @@ define internal void @cdma2k_message_DATA_BURST_CMD(ptr noundef %0, ptr noundef 
 
 183:                                              ; preds = %167
   %184 = load ptr, ptr %5, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %184, ptr noundef @.str.1181)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %184, ptr noundef @.str.1226)
   br label %185
 
 185:                                              ; preds = %183, %167
@@ -8927,7 +9222,7 @@ define internal void @cdma2k_message_DATA_BURST_CMD(ptr noundef %0, ptr noundef 
   %214 = call ptr @proto_tree_add_item(ptr noundef %207, i32 noundef %208, ptr noundef %209, i32 noundef %211, i32 noundef %213, i32 noundef 0)
   store ptr %214, ptr %5, align 8
   %215 = load ptr, ptr %5, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %215, ptr noundef @.str.1182)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %215, ptr noundef @.str.1227)
   %216 = load i16, ptr %12, align 2
   %217 = zext i16 %216 to i32
   %218 = add i32 %217, 1
@@ -8942,7 +9237,7 @@ define internal void @cdma2k_message_DATA_BURST_CMD(ptr noundef %0, ptr noundef 
   %222 = load i16, ptr %11, align 2
   %223 = add i16 %222, 1
   store i16 %223, ptr %11, align 2
-  br label %161, !llvm.loop !16
+  br label %161, !llvm.loop !18
 
 224:                                              ; preds = %161
   %225 = load i16, ptr %10, align 2
@@ -8952,17 +9247,25 @@ define internal void @cdma2k_message_DATA_BURST_CMD(ptr noundef %0, ptr noundef 
   %229 = sub i32 %228, %226
   %230 = trunc i32 %229 to i16
   store i16 %230, ptr %9, align 2
-  br label %95, !llvm.loop !17
+  br label %95, !llvm.loop !19
 
 231:                                              ; preds = %95
   %232 = load ptr, ptr %8, align 8
   %233 = load i32, ptr %232, align 4
   %234 = add i32 %233, 1
   store i32 %234, ptr %232, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %9) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @cdma2k_message_AUTH_CHALL_REQ(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -8973,6 +9276,7 @@ define internal void @cdma2k_message_AUTH_CHALL_REQ(ptr noundef %0, ptr noundef 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
   store ptr null, ptr %9, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = load i32, ptr @hf_cdma2k_AuthChallReqMsg, align 4
@@ -9006,10 +9310,11 @@ define internal void @cdma2k_message_AUTH_CHALL_REQ(ptr noundef %0, ptr noundef 
   %36 = load i32, ptr %35, align 4
   %37 = add i32 %36, 1
   store i32 %37, ptr %35, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @cdma2k_message_GEN_PAGE_REQ(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -9022,6 +9327,7 @@ define internal void @cdma2k_message_GEN_PAGE_REQ(ptr noundef %0, ptr noundef %1
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #4
   store ptr null, ptr %11, align 8
   %12 = load ptr, ptr %8, align 8
   %13 = load i32, ptr @hf_cdma2k_GenPageReqMsg, align 4
@@ -9052,10 +9358,11 @@ define internal void @cdma2k_message_GEN_PAGE_REQ(ptr noundef %0, ptr noundef %1
   br label %33
 
 33:                                               ; preds = %23, %5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @cdma2k_message_ALERT_WITH_INFO(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -9075,15 +9382,25 @@ define internal void @cdma2k_message_ALERT_WITH_INFO(ptr noundef %0, ptr noundef
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %9) #4
   store i16 -1, ptr %9, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %10) #4
   store i16 -1, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %11) #4
   store i16 -1, ptr %11, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %12) #4
   store i16 -1, ptr %12, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #4
   store i16 -1, ptr %13, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %14) #4
   store i16 -1, ptr %14, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #4
   store ptr null, ptr %15, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #4
   store ptr null, ptr %16, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
   %19 = load ptr, ptr %7, align 8
   %20 = load i32, ptr @hf_cdma2k_AlertWithInfoMsg, align 4
@@ -9118,7 +9435,7 @@ define internal void @cdma2k_message_ALERT_WITH_INFO(ptr noundef %0, ptr noundef
   %41 = load ptr, ptr %17, align 8
   %42 = load i16, ptr %14, align 2
   %43 = zext i16 %42 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %41, ptr noundef @.str.1201, i32 noundef %43)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %41, ptr noundef @.str.1246, i32 noundef %43)
   %44 = load i16, ptr %14, align 2
   %45 = add i16 %44, 1
   store i16 %45, ptr %14, align 2
@@ -9189,7 +9506,7 @@ define internal void @cdma2k_message_ALERT_WITH_INFO(ptr noundef %0, ptr noundef
 
 89:                                               ; preds = %34
   %90 = load ptr, ptr %17, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %90, ptr noundef @.str.1202)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %90, ptr noundef @.str.1247)
   %91 = load ptr, ptr %17, align 8
   %92 = load i32, ptr @ett_cdma2k_subtree1, align 4
   %93 = call ptr @proto_item_add_subtree(ptr noundef %91, i32 noundef %92)
@@ -9204,7 +9521,7 @@ define internal void @cdma2k_message_ALERT_WITH_INFO(ptr noundef %0, ptr noundef
   %101 = call ptr @proto_tree_add_item(ptr noundef %94, i32 noundef %95, ptr noundef %96, i32 noundef %98, i32 noundef %100, i32 noundef 0)
   store ptr %101, ptr %18, align 8
   %102 = load ptr, ptr %18, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %102, ptr noundef @.str.1203)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %102, ptr noundef @.str.1248)
   br label %103
 
 103:                                              ; preds = %107, %89
@@ -9221,7 +9538,7 @@ define internal void @cdma2k_message_ALERT_WITH_INFO(ptr noundef %0, ptr noundef
   %112 = mul i32 %111, 8
   %113 = call zeroext i8 @tvb_get_bits8(ptr noundef %109, i32 noundef %112, i32 noundef 8)
   %114 = zext i8 %113 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %108, ptr noundef @.str.1204, i32 noundef %114)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %108, ptr noundef @.str.1249, i32 noundef %114)
   %115 = load ptr, ptr %8, align 8
   %116 = load i32, ptr %115, align 4
   %117 = add i32 %116, 1
@@ -9231,14 +9548,14 @@ define internal void @cdma2k_message_ALERT_WITH_INFO(ptr noundef %0, ptr noundef
   %120 = sub i32 %119, 1
   %121 = trunc i32 %120 to i16
   store i16 %121, ptr %10, align 2
-  br label %103, !llvm.loop !18
+  br label %103, !llvm.loop !20
 
 122:                                              ; preds = %103
   br label %1000
 
 123:                                              ; preds = %34
   %124 = load ptr, ptr %17, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %124, ptr noundef @.str.1205)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %124, ptr noundef @.str.1250)
   %125 = load ptr, ptr %17, align 8
   %126 = load i32, ptr @ett_cdma2k_subtree1, align 4
   %127 = call ptr @proto_item_add_subtree(ptr noundef %125, i32 noundef %126)
@@ -9268,7 +9585,7 @@ define internal void @cdma2k_message_ALERT_WITH_INFO(ptr noundef %0, ptr noundef
   %150 = call ptr @proto_tree_add_item(ptr noundef %143, i32 noundef %144, ptr noundef %145, i32 noundef %147, i32 noundef %149, i32 noundef 0)
   store ptr %150, ptr %18, align 8
   %151 = load ptr, ptr %18, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %151, ptr noundef @.str.1206)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %151, ptr noundef @.str.1251)
   br label %152
 
 152:                                              ; preds = %156, %123
@@ -9286,7 +9603,7 @@ define internal void @cdma2k_message_ALERT_WITH_INFO(ptr noundef %0, ptr noundef
   %162 = add i32 %161, 7
   %163 = call zeroext i8 @tvb_get_bits8(ptr noundef %158, i32 noundef %162, i32 noundef 8)
   %164 = zext i8 %163 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %157, ptr noundef @.str.1204, i32 noundef %164)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %157, ptr noundef @.str.1249, i32 noundef %164)
   %165 = load ptr, ptr %8, align 8
   %166 = load i32, ptr %165, align 4
   %167 = add i32 %166, 1
@@ -9296,7 +9613,7 @@ define internal void @cdma2k_message_ALERT_WITH_INFO(ptr noundef %0, ptr noundef
   %170 = sub i32 %169, 1
   %171 = trunc i32 %170 to i16
   store i16 %171, ptr %10, align 2
-  br label %152, !llvm.loop !19
+  br label %152, !llvm.loop !21
 
 172:                                              ; preds = %152
   %173 = load ptr, ptr %16, align 8
@@ -9315,7 +9632,7 @@ define internal void @cdma2k_message_ALERT_WITH_INFO(ptr noundef %0, ptr noundef
 
 184:                                              ; preds = %34
   %185 = load ptr, ptr %17, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %185, ptr noundef @.str.1207)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %185, ptr noundef @.str.1252)
   %186 = load ptr, ptr %17, align 8
   %187 = load i32, ptr @ett_cdma2k_subtree1, align 4
   %188 = call ptr @proto_item_add_subtree(ptr noundef %186, i32 noundef %187)
@@ -9370,7 +9687,7 @@ define internal void @cdma2k_message_ALERT_WITH_INFO(ptr noundef %0, ptr noundef
   %234 = call ptr @proto_tree_add_item(ptr noundef %227, i32 noundef %228, ptr noundef %229, i32 noundef %231, i32 noundef %233, i32 noundef 0)
   store ptr %234, ptr %18, align 8
   %235 = load ptr, ptr %18, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %235, ptr noundef @.str.1208)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %235, ptr noundef @.str.1253)
   br label %236
 
 236:                                              ; preds = %240, %184
@@ -9388,7 +9705,7 @@ define internal void @cdma2k_message_ALERT_WITH_INFO(ptr noundef %0, ptr noundef
   %246 = add i32 %245, 3
   %247 = call zeroext i8 @tvb_get_bits8(ptr noundef %242, i32 noundef %246, i32 noundef 8)
   %248 = zext i8 %247 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %241, ptr noundef @.str.1204, i32 noundef %248)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %241, ptr noundef @.str.1249, i32 noundef %248)
   %249 = load ptr, ptr %8, align 8
   %250 = load i32, ptr %249, align 4
   %251 = add i32 %250, 1
@@ -9398,7 +9715,7 @@ define internal void @cdma2k_message_ALERT_WITH_INFO(ptr noundef %0, ptr noundef
   %254 = sub i32 %253, 1
   %255 = trunc i32 %254 to i16
   store i16 %255, ptr %10, align 2
-  br label %236, !llvm.loop !20
+  br label %236, !llvm.loop !22
 
 256:                                              ; preds = %236
   %257 = load ptr, ptr %16, align 8
@@ -9417,7 +9734,7 @@ define internal void @cdma2k_message_ALERT_WITH_INFO(ptr noundef %0, ptr noundef
 
 268:                                              ; preds = %34
   %269 = load ptr, ptr %17, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %269, ptr noundef @.str.1209)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %269, ptr noundef @.str.1254)
   %270 = load ptr, ptr %17, align 8
   %271 = load i32, ptr @ett_cdma2k_subtree1, align 4
   %272 = call ptr @proto_item_add_subtree(ptr noundef %270, i32 noundef %271)
@@ -9465,7 +9782,7 @@ define internal void @cdma2k_message_ALERT_WITH_INFO(ptr noundef %0, ptr noundef
 
 310:                                              ; preds = %34
   %311 = load ptr, ptr %17, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %311, ptr noundef @.str.1210)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %311, ptr noundef @.str.1255)
   %312 = load ptr, ptr %17, align 8
   %313 = load i32, ptr @ett_cdma2k_subtree1, align 4
   %314 = call ptr @proto_item_add_subtree(ptr noundef %312, i32 noundef %313)
@@ -9484,7 +9801,7 @@ define internal void @cdma2k_message_ALERT_WITH_INFO(ptr noundef %0, ptr noundef
 
 324:                                              ; preds = %34
   %325 = load ptr, ptr %17, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %325, ptr noundef @.str.1211)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %325, ptr noundef @.str.1256)
   %326 = load ptr, ptr %17, align 8
   %327 = load i32, ptr @ett_cdma2k_subtree1, align 4
   %328 = call ptr @proto_item_add_subtree(ptr noundef %326, i32 noundef %327)
@@ -9540,7 +9857,7 @@ define internal void @cdma2k_message_ALERT_WITH_INFO(ptr noundef %0, ptr noundef
   %375 = call ptr @proto_tree_add_item(ptr noundef %367, i32 noundef %368, ptr noundef %369, i32 noundef %371, i32 noundef %374, i32 noundef 0)
   store ptr %375, ptr %18, align 8
   %376 = load ptr, ptr %18, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %376, ptr noundef @.str.1212)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %376, ptr noundef @.str.1257)
   br label %377
 
 377:                                              ; preds = %381, %324
@@ -9557,7 +9874,7 @@ define internal void @cdma2k_message_ALERT_WITH_INFO(ptr noundef %0, ptr noundef
   %386 = mul i32 %385, 8
   %387 = call zeroext i8 @tvb_get_bits8(ptr noundef %383, i32 noundef %386, i32 noundef 8)
   %388 = zext i8 %387 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %382, ptr noundef @.str.1204, i32 noundef %388)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %382, ptr noundef @.str.1249, i32 noundef %388)
   %389 = load ptr, ptr %8, align 8
   %390 = load i32, ptr %389, align 4
   %391 = add i32 %390, 1
@@ -9567,14 +9884,14 @@ define internal void @cdma2k_message_ALERT_WITH_INFO(ptr noundef %0, ptr noundef
   %394 = sub i32 %393, 1
   %395 = trunc i32 %394 to i16
   store i16 %395, ptr %10, align 2
-  br label %377, !llvm.loop !21
+  br label %377, !llvm.loop !23
 
 396:                                              ; preds = %377
   br label %1000
 
 397:                                              ; preds = %34
   %398 = load ptr, ptr %17, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %398, ptr noundef @.str.1213)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %398, ptr noundef @.str.1258)
   %399 = load ptr, ptr %17, align 8
   %400 = load i32, ptr @ett_cdma2k_subtree1, align 4
   %401 = call ptr @proto_item_add_subtree(ptr noundef %399, i32 noundef %400)
@@ -9630,7 +9947,7 @@ define internal void @cdma2k_message_ALERT_WITH_INFO(ptr noundef %0, ptr noundef
   %448 = call ptr @proto_tree_add_item(ptr noundef %440, i32 noundef %441, ptr noundef %442, i32 noundef %444, i32 noundef %447, i32 noundef 0)
   store ptr %448, ptr %18, align 8
   %449 = load ptr, ptr %18, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %449, ptr noundef @.str.1214)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %449, ptr noundef @.str.1259)
   br label %450
 
 450:                                              ; preds = %454, %397
@@ -9647,7 +9964,7 @@ define internal void @cdma2k_message_ALERT_WITH_INFO(ptr noundef %0, ptr noundef
   %459 = mul i32 %458, 8
   %460 = call zeroext i8 @tvb_get_bits8(ptr noundef %456, i32 noundef %459, i32 noundef 8)
   %461 = zext i8 %460 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %455, ptr noundef @.str.1204, i32 noundef %461)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %455, ptr noundef @.str.1249, i32 noundef %461)
   %462 = load ptr, ptr %8, align 8
   %463 = load i32, ptr %462, align 4
   %464 = add i32 %463, 1
@@ -9657,14 +9974,14 @@ define internal void @cdma2k_message_ALERT_WITH_INFO(ptr noundef %0, ptr noundef
   %467 = sub i32 %466, 1
   %468 = trunc i32 %467 to i16
   store i16 %468, ptr %10, align 2
-  br label %450, !llvm.loop !22
+  br label %450, !llvm.loop !24
 
 469:                                              ; preds = %450
   br label %1000
 
 470:                                              ; preds = %34
   %471 = load ptr, ptr %17, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %471, ptr noundef @.str.1215)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %471, ptr noundef @.str.1260)
   %472 = load ptr, ptr %17, align 8
   %473 = load i32, ptr @ett_cdma2k_subtree1, align 4
   %474 = call ptr @proto_item_add_subtree(ptr noundef %472, i32 noundef %473)
@@ -9816,7 +10133,7 @@ define internal void @cdma2k_message_ALERT_WITH_INFO(ptr noundef %0, ptr noundef
   %603 = call ptr @proto_tree_add_item(ptr noundef %595, i32 noundef %596, ptr noundef %597, i32 noundef %599, i32 noundef %602, i32 noundef 0)
   store ptr %603, ptr %18, align 8
   %604 = load ptr, ptr %18, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %604, ptr noundef @.str.1216)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %604, ptr noundef @.str.1261)
   br label %605
 
 605:                                              ; preds = %609, %594
@@ -9833,7 +10150,7 @@ define internal void @cdma2k_message_ALERT_WITH_INFO(ptr noundef %0, ptr noundef
   %614 = mul i32 %613, 8
   %615 = call zeroext i8 @tvb_get_bits8(ptr noundef %611, i32 noundef %614, i32 noundef 8)
   %616 = zext i8 %615 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %610, ptr noundef @.str.1204, i32 noundef %616)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %610, ptr noundef @.str.1249, i32 noundef %616)
   %617 = load ptr, ptr %8, align 8
   %618 = load i32, ptr %617, align 4
   %619 = add i32 %618, 1
@@ -9843,14 +10160,14 @@ define internal void @cdma2k_message_ALERT_WITH_INFO(ptr noundef %0, ptr noundef
   %622 = sub i32 %621, 1
   %623 = trunc i32 %622 to i16
   store i16 %623, ptr %10, align 2
-  br label %605, !llvm.loop !23
+  br label %605, !llvm.loop !25
 
 624:                                              ; preds = %605
   br label %1000
 
 625:                                              ; preds = %34
   %626 = load ptr, ptr %17, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %626, ptr noundef @.str.1217)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %626, ptr noundef @.str.1262)
   %627 = load ptr, ptr %17, align 8
   %628 = load i32, ptr @ett_cdma2k_subtree1, align 4
   %629 = call ptr @proto_item_add_subtree(ptr noundef %627, i32 noundef %628)
@@ -9906,7 +10223,7 @@ define internal void @cdma2k_message_ALERT_WITH_INFO(ptr noundef %0, ptr noundef
   %676 = call ptr @proto_tree_add_item(ptr noundef %668, i32 noundef %669, ptr noundef %670, i32 noundef %672, i32 noundef %675, i32 noundef 0)
   store ptr %676, ptr %18, align 8
   %677 = load ptr, ptr %18, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %677, ptr noundef @.str.1218)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %677, ptr noundef @.str.1263)
   br label %678
 
 678:                                              ; preds = %682, %625
@@ -9923,7 +10240,7 @@ define internal void @cdma2k_message_ALERT_WITH_INFO(ptr noundef %0, ptr noundef
   %687 = mul i32 %686, 8
   %688 = call zeroext i8 @tvb_get_bits8(ptr noundef %684, i32 noundef %687, i32 noundef 8)
   %689 = zext i8 %688 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %683, ptr noundef @.str.1204, i32 noundef %689)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %683, ptr noundef @.str.1249, i32 noundef %689)
   %690 = load ptr, ptr %8, align 8
   %691 = load i32, ptr %690, align 4
   %692 = add i32 %691, 1
@@ -9933,14 +10250,14 @@ define internal void @cdma2k_message_ALERT_WITH_INFO(ptr noundef %0, ptr noundef
   %695 = sub i32 %694, 1
   %696 = trunc i32 %695 to i16
   store i16 %696, ptr %10, align 2
-  br label %678, !llvm.loop !24
+  br label %678, !llvm.loop !26
 
 697:                                              ; preds = %678
   br label %1000
 
 698:                                              ; preds = %34
   %699 = load ptr, ptr %17, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %699, ptr noundef @.str.1219)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %699, ptr noundef @.str.1264)
   %700 = load ptr, ptr %17, align 8
   %701 = load i32, ptr @ett_cdma2k_subtree1, align 4
   %702 = call ptr @proto_item_add_subtree(ptr noundef %700, i32 noundef %701)
@@ -10004,7 +10321,7 @@ define internal void @cdma2k_message_ALERT_WITH_INFO(ptr noundef %0, ptr noundef
 
 754:                                              ; preds = %34
   %755 = load ptr, ptr %17, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %755, ptr noundef @.str.1220)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %755, ptr noundef @.str.1265)
   %756 = load ptr, ptr %17, align 8
   %757 = load i32, ptr @ett_cdma2k_subtree1, align 4
   %758 = call ptr @proto_item_add_subtree(ptr noundef %756, i32 noundef %757)
@@ -10069,7 +10386,7 @@ define internal void @cdma2k_message_ALERT_WITH_INFO(ptr noundef %0, ptr noundef
   %808 = add i32 %807, 4
   %809 = call zeroext i8 @tvb_get_bits8(ptr noundef %804, i32 noundef %808, i32 noundef 10)
   %810 = zext i8 %809 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %803, ptr noundef @.str.1221, i32 noundef %810)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %803, ptr noundef @.str.1266, i32 noundef %810)
   %811 = load ptr, ptr %8, align 8
   %812 = load i32, ptr %811, align 4
   %813 = add i32 %812, 1
@@ -10089,7 +10406,7 @@ define internal void @cdma2k_message_ALERT_WITH_INFO(ptr noundef %0, ptr noundef
   %825 = add i32 %824, 6
   %826 = call zeroext i8 @tvb_get_bits8(ptr noundef %821, i32 noundef %825, i32 noundef 10)
   %827 = zext i8 %826 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %820, ptr noundef @.str.1222, i32 noundef %827)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %820, ptr noundef @.str.1267, i32 noundef %827)
   %828 = load ptr, ptr %8, align 8
   %829 = load i32, ptr %828, align 4
   %830 = add i32 %829, 2
@@ -10138,7 +10455,7 @@ define internal void @cdma2k_message_ALERT_WITH_INFO(ptr noundef %0, ptr noundef
   %869 = sub i32 %868, 1
   %870 = trunc i32 %869 to i16
   store i16 %870, ptr %12, align 2
-  br label %781, !llvm.loop !25
+  br label %781, !llvm.loop !27
 
 871:                                              ; preds = %781
   %872 = load ptr, ptr %16, align 8
@@ -10165,7 +10482,7 @@ define internal void @cdma2k_message_ALERT_WITH_INFO(ptr noundef %0, ptr noundef
 
 891:                                              ; preds = %34
   %892 = load ptr, ptr %17, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %892, ptr noundef @.str.1223)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %892, ptr noundef @.str.1268)
   %893 = load ptr, ptr %17, align 8
   %894 = load i32, ptr @ett_cdma2k_subtree1, align 4
   %895 = call ptr @proto_item_add_subtree(ptr noundef %893, i32 noundef %894)
@@ -10264,7 +10581,7 @@ define internal void @cdma2k_message_ALERT_WITH_INFO(ptr noundef %0, ptr noundef
 
 975:                                              ; preds = %34
   %976 = load ptr, ptr %17, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %976, ptr noundef @.str.1224)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %976, ptr noundef @.str.1269)
   %977 = load ptr, ptr %17, align 8
   %978 = load i32, ptr @ett_cdma2k_subtree1, align 4
   %979 = call ptr @proto_item_add_subtree(ptr noundef %977, i32 noundef %978)
@@ -10292,17 +10609,27 @@ define internal void @cdma2k_message_ALERT_WITH_INFO(ptr noundef %0, ptr noundef
 
 998:                                              ; preds = %34
   %999 = load ptr, ptr %17, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %999, ptr noundef @.str.1225)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %999, ptr noundef @.str.1270)
   br label %1000
 
 1000:                                             ; preds = %998, %975, %974, %871, %698, %697, %624, %469, %396, %310, %268, %256, %172, %122
-  br label %28, !llvm.loop !26
+  br label %28, !llvm.loop !28
 
 1001:                                             ; preds = %28
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %9) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @cdma2k_message_HANDOFF_DIR(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -10365,56 +10692,107 @@ define internal void @cdma2k_message_HANDOFF_DIR(ptr noundef %0, ptr noundef %1,
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %11) #4
   store i16 -1, ptr %11, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %12) #4
   store i16 -1, ptr %12, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #4
   store i16 -1, ptr %13, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %14) #4
   store i16 -1, ptr %14, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %15) #4
   store i16 -1, ptr %15, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %16) #4
   store i16 -1, ptr %16, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %17) #4
   store i16 -1, ptr %17, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %18) #4
   store i16 -1, ptr %18, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %19) #4
   store i16 -1, ptr %19, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %20) #4
   store i16 -1, ptr %20, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %21) #4
   store i16 -1, ptr %21, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %22) #4
   store i16 -1, ptr %22, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %23) #4
   store i16 -1, ptr %23, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %24) #4
   store i16 -1, ptr %24, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %25) #4
   store i16 -1, ptr %25, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %26) #4
   store i16 -1, ptr %26, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %27) #4
   store i16 -1, ptr %27, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %28) #4
   store i16 -1, ptr %28, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %29) #4
   store i16 -1, ptr %29, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %30) #4
   store i16 -1, ptr %30, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %31) #4
   store i16 -1, ptr %31, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %32) #4
   store i16 -1, ptr %32, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %33) #4
   store i16 -1, ptr %33, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %34) #4
   store i16 -1, ptr %34, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %35) #4
   store i16 -1, ptr %35, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %36) #4
   store i16 -1, ptr %36, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %37) #4
   store i16 -1, ptr %37, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %38) #4
   store i16 -1, ptr %38, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %39) #4
   store i16 -1, ptr %39, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %40) #4
   store i16 -1, ptr %40, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %41) #4
   store i16 -1, ptr %41, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %42) #4
   store i16 -1, ptr %42, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %43) #4
   store i16 -1, ptr %43, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %44) #4
   store i16 -1, ptr %44, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %45) #4
   store i16 -1, ptr %45, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %46) #4
   store i16 -1, ptr %46, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %47) #4
   store i16 -1, ptr %47, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %48) #4
   store i16 -1, ptr %48, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %49) #4
   store i16 -1, ptr %49, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %50) #4
   store i16 -1, ptr %50, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %51) #4
   store i16 -1, ptr %51, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %52) #4
   store i16 -1, ptr %52, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %53) #4
   store i16 -1, ptr %53, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %54) #4
   store i16 -1, ptr %54, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %55) #4
   store i16 -1, ptr %55, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %56) #4
   store ptr null, ptr %56, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %57) #4
   store ptr null, ptr %57, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %58) #4
   store ptr null, ptr %58, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %59) #4
   store ptr null, ptr %59, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %60) #4
   store ptr null, ptr %60, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %61) #4
   store ptr null, ptr %61, align 8
   %62 = load i16, ptr %10, align 2
   %63 = zext i16 %62 to i32
@@ -11037,7 +11415,7 @@ define internal void @cdma2k_message_HANDOFF_DIR(ptr noundef %0, ptr noundef %1,
   %592 = zext i16 %591 to i32
   %593 = call zeroext i8 @tvb_get_bits8(ptr noundef %590, i32 noundef %592, i32 noundef 8)
   %594 = zext i8 %593 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %589, ptr noundef @.str.1184, i32 noundef %594)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %589, ptr noundef @.str.1229, i32 noundef %594)
   %595 = load i16, ptr %15, align 2
   %596 = zext i16 %595 to i32
   %597 = add i32 %596, 8
@@ -11048,7 +11426,7 @@ define internal void @cdma2k_message_HANDOFF_DIR(ptr noundef %0, ptr noundef %1,
   %601 = sub i32 %600, 1
   %602 = trunc i32 %601 to i16
   store i16 %602, ptr %19, align 2
-  br label %584, !llvm.loop !27
+  br label %584, !llvm.loop !29
 
 603:                                              ; preds = %584
   br label %604
@@ -11142,7 +11520,7 @@ define internal void @cdma2k_message_HANDOFF_DIR(ptr noundef %0, ptr noundef %1,
   %676 = zext i16 %675 to i32
   %677 = call zeroext i8 @tvb_get_bits8(ptr noundef %674, i32 noundef %676, i32 noundef 8)
   %678 = zext i8 %677 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %673, ptr noundef @.str.1184, i32 noundef %678)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %673, ptr noundef @.str.1229, i32 noundef %678)
   %679 = load i16, ptr %15, align 2
   %680 = zext i16 %679 to i32
   %681 = add i32 %680, 8
@@ -11153,7 +11531,7 @@ define internal void @cdma2k_message_HANDOFF_DIR(ptr noundef %0, ptr noundef %1,
   %685 = sub i32 %684, 1
   %686 = trunc i32 %685 to i16
   store i16 %686, ptr %19, align 2
-  br label %668, !llvm.loop !28
+  br label %668, !llvm.loop !30
 
 687:                                              ; preds = %668
   br label %688
@@ -11287,7 +11665,7 @@ define internal void @cdma2k_message_HANDOFF_DIR(ptr noundef %0, ptr noundef %1,
   %789 = load ptr, ptr %60, align 8
   %790 = load i16, ptr %23, align 2
   %791 = zext i16 %790 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %789, ptr noundef @.str.1201, i32 noundef %791)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %789, ptr noundef @.str.1246, i32 noundef %791)
   %792 = load ptr, ptr %60, align 8
   %793 = load i32, ptr @ett_cdma2k_subtree2, align 4
   %794 = call ptr @proto_item_add_subtree(ptr noundef %792, i32 noundef %793)
@@ -11368,7 +11746,7 @@ define internal void @cdma2k_message_HANDOFF_DIR(ptr noundef %0, ptr noundef %1,
   %856 = load i16, ptr %23, align 2
   %857 = add i16 %856, 1
   store i16 %857, ptr %23, align 2
-  br label %775, !llvm.loop !29
+  br label %775, !llvm.loop !31
 
 858:                                              ; preds = %775
   %859 = load ptr, ptr %57, align 8
@@ -11411,7 +11789,7 @@ define internal void @cdma2k_message_HANDOFF_DIR(ptr noundef %0, ptr noundef %1,
   %888 = load ptr, ptr %60, align 8
   %889 = load i16, ptr %23, align 2
   %890 = zext i16 %889 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %888, ptr noundef @.str.1201, i32 noundef %890)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %888, ptr noundef @.str.1246, i32 noundef %890)
   %891 = load ptr, ptr %60, align 8
   %892 = load i32, ptr @ett_cdma2k_subtree2, align 4
   %893 = call ptr @proto_item_add_subtree(ptr noundef %891, i32 noundef %892)
@@ -11492,7 +11870,7 @@ define internal void @cdma2k_message_HANDOFF_DIR(ptr noundef %0, ptr noundef %1,
   %955 = load i16, ptr %23, align 2
   %956 = add i16 %955, 1
   store i16 %956, ptr %23, align 2
-  br label %874, !llvm.loop !30
+  br label %874, !llvm.loop !32
 
 957:                                              ; preds = %874
   br label %958
@@ -11870,7 +12248,7 @@ define internal void @cdma2k_message_HANDOFF_DIR(ptr noundef %0, ptr noundef %1,
   %1249 = zext i16 %1248 to i32
   %1250 = call zeroext i8 @tvb_get_bits8(ptr noundef %1247, i32 noundef %1249, i32 noundef 8)
   %1251 = zext i8 %1250 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1246, ptr noundef @.str.1188, i32 noundef %1251)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1246, ptr noundef @.str.1233, i32 noundef %1251)
   %1252 = load i16, ptr %15, align 2
   %1253 = zext i16 %1252 to i32
   %1254 = add i32 %1253, 8
@@ -11879,7 +12257,7 @@ define internal void @cdma2k_message_HANDOFF_DIR(ptr noundef %0, ptr noundef %1,
   %1256 = load i16, ptr %32, align 2
   %1257 = add i16 %1256, -1
   store i16 %1257, ptr %32, align 2
-  br label %1241, !llvm.loop !31
+  br label %1241, !llvm.loop !33
 
 1258:                                             ; preds = %1241
   br label %1259
@@ -11954,7 +12332,7 @@ define internal void @cdma2k_message_HANDOFF_DIR(ptr noundef %0, ptr noundef %1,
   %1312 = load ptr, ptr %59, align 8
   %1313 = load i16, ptr %23, align 2
   %1314 = zext i16 %1313 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1312, ptr noundef @.str.1201, i32 noundef %1314)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1312, ptr noundef @.str.1246, i32 noundef %1314)
   %1315 = load ptr, ptr %59, align 8
   %1316 = load i32, ptr @ett_cdma2k_subtree1, align 4
   %1317 = call ptr @proto_item_add_subtree(ptr noundef %1315, i32 noundef %1316)
@@ -12027,7 +12405,7 @@ define internal void @cdma2k_message_HANDOFF_DIR(ptr noundef %0, ptr noundef %1,
   %1370 = load i16, ptr %23, align 2
   %1371 = add i16 %1370, 1
   store i16 %1371, ptr %23, align 2
-  br label %1295, !llvm.loop !32
+  br label %1295, !llvm.loop !34
 
 1372:                                             ; preds = %1295
   br label %1373
@@ -13091,7 +13469,7 @@ define internal void @cdma2k_message_HANDOFF_DIR(ptr noundef %0, ptr noundef %1,
   %2196 = load ptr, ptr %59, align 8
   %2197 = load i16, ptr %23, align 2
   %2198 = zext i16 %2197 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2196, ptr noundef @.str.1201, i32 noundef %2198)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2196, ptr noundef @.str.1246, i32 noundef %2198)
   %2199 = load ptr, ptr %59, align 8
   %2200 = load i32, ptr @ett_cdma2k_subtree1, align 4
   %2201 = call ptr @proto_item_add_subtree(ptr noundef %2199, i32 noundef %2200)
@@ -13161,7 +13539,7 @@ define internal void @cdma2k_message_HANDOFF_DIR(ptr noundef %0, ptr noundef %1,
   %2253 = load i16, ptr %23, align 2
   %2254 = add i16 %2253, 1
   store i16 %2254, ptr %23, align 2
-  br label %2179, !llvm.loop !33
+  br label %2179, !llvm.loop !35
 
 2255:                                             ; preds = %2179
   br label %2256
@@ -13298,10 +13676,61 @@ define internal void @cdma2k_message_HANDOFF_DIR(ptr noundef %0, ptr noundef %1,
   br label %2358
 
 2358:                                             ; preds = %2342, %2337
+  call void @llvm.lifetime.end.p0(i64 8, ptr %61) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %60) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %59) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %58) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %57) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %56) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %55) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %54) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %53) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %52) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %51) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %50) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %49) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %48) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %47) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %46) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %45) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %44) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %43) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %42) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %41) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %40) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %39) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %38) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %37) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %36) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %35) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %34) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %33) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %32) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %31) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %30) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %29) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %28) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %27) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %26) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %25) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %24) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %23) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %22) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %21) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %20) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %17) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %11) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @cdma2k_message_IMSI_CLASS_SUBFIELDS(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -13313,7 +13742,9 @@ define internal void @cdma2k_message_IMSI_CLASS_SUBFIELDS(ptr noundef %0, ptr no
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %9) #4
   store i16 -1, ptr %9, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %10) #4
   store i16 -1, ptr %10, align 2
   %11 = load ptr, ptr %7, align 8
   %12 = load i32, ptr @hf_cdma2k_tlac_Header_Record_Imsi_Class, align 4
@@ -13592,7 +14023,7 @@ define internal void @cdma2k_message_IMSI_CLASS_SUBFIELDS(ptr noundef %0, ptr no
 
 249:                                              ; preds = %32
   %250 = load ptr, ptr %5, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %250, ptr noundef @.str.1168)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %250, ptr noundef @.str.1213)
   br label %251
 
 251:                                              ; preds = %249, %188, %139, %90, %53
@@ -13774,7 +14205,7 @@ define internal void @cdma2k_message_IMSI_CLASS_SUBFIELDS(ptr noundef %0, ptr no
 
 404:                                              ; preds = %339
   %405 = load ptr, ptr %5, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %405, ptr noundef @.str.1169)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %405, ptr noundef @.str.1214)
   br label %406
 
 406:                                              ; preds = %404, %343
@@ -13785,17 +14216,19 @@ define internal void @cdma2k_message_IMSI_CLASS_SUBFIELDS(ptr noundef %0, ptr no
 
 408:                                              ; preds = %252
   %409 = load ptr, ptr %5, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %409, ptr noundef @.str.1170)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %409, ptr noundef @.str.1215)
   br label %410
 
 410:                                              ; preds = %408, %407
   br label %411
 
 411:                                              ; preds = %410, %251
+  call void @llvm.lifetime.end.p0(i64 2, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %9) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_cdma2000_scm(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -13804,12 +14237,13 @@ define internal void @dissect_cdma2000_scm(ptr noundef %0, ptr noundef %1, i32 n
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #4
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %4, align 8
   %10 = load i32, ptr %6, align 4
   %11 = lshr i32 %10, 3
   %12 = load i32, ptr @ett_cdma2000_scm, align 4
-  %13 = call ptr @proto_tree_add_subtree(ptr noundef %8, ptr noundef %9, i32 noundef %11, i32 noundef 2, i32 noundef %12, ptr noundef null, ptr noundef @.str.1172)
+  %13 = call ptr @proto_tree_add_subtree(ptr noundef %8, ptr noundef %9, i32 noundef %11, i32 noundef 2, i32 noundef %12, ptr noundef null, ptr noundef @.str.1217)
   store ptr %13, ptr %7, align 8
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr @hf_cdma2k_ext_scm_ind, align 4
@@ -13864,14 +14298,17 @@ define internal void @dissect_cdma2000_scm(ptr noundef %0, ptr noundef %1, i32 n
   %58 = load ptr, ptr %4, align 8
   %59 = load i32, ptr %6, align 4
   %60 = call ptr @proto_tree_add_bits_item(ptr noundef %56, i32 noundef %57, ptr noundef %58, i32 noundef %59, i32 noundef 2, i32 noundef 0)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #4
   ret void
 }
 
-declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @cdma2k_message_ACTIVE_SET_RECORD_FIELDS(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i16 noundef zeroext %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -13913,33 +14350,61 @@ define internal void @cdma2k_message_ACTIVE_SET_RECORD_FIELDS(ptr noundef %0, pt
   store ptr %3, ptr %10, align 8
   store i16 %4, ptr %11, align 2
   store i16 %5, ptr %12, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #4
   store i16 -1, ptr %13, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %14) #4
   store i16 -1, ptr %14, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %15) #4
   store i16 -1, ptr %15, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %16) #4
   store i16 -1, ptr %16, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %17) #4
   store i16 -1, ptr %17, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %18) #4
   store i16 -1, ptr %18, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %19) #4
   store i16 -1, ptr %19, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %20) #4
   store i16 -1, ptr %20, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %21) #4
   store i16 -1, ptr %21, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %22) #4
   store i16 -1, ptr %22, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %23) #4
   store i16 -1, ptr %23, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %24) #4
   store i16 -1, ptr %24, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %25) #4
   store i16 -1, ptr %25, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %26) #4
   store i16 -1, ptr %26, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %27) #4
   store i16 -1, ptr %27, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %28) #4
   store i16 -1, ptr %28, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %29) #4
   store i16 -1, ptr %29, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %30) #4
   store i16 -1, ptr %30, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %31) #4
   store i16 -1, ptr %31, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %32) #4
   store i16 -1, ptr %32, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %33) #4
   store i16 -1, ptr %33, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %34) #4
   store i16 -1, ptr %34, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %35) #4
   store i16 -1, ptr %35, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %36) #4
   store i16 -1, ptr %36, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %37) #4
   store ptr null, ptr %37, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %38) #4
   store ptr null, ptr %38, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %39) #4
   store ptr null, ptr %39, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %40) #4
   store ptr null, ptr %40, align 8
   %41 = load i16, ptr %12, align 2
   %42 = zext i16 %41 to i32
@@ -14000,7 +14465,7 @@ define internal void @cdma2k_message_ACTIVE_SET_RECORD_FIELDS(ptr noundef %0, pt
   %85 = load ptr, ptr %39, align 8
   %86 = load i16, ptr %13, align 2
   %87 = zext i16 %86 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %85, ptr noundef @.str.1226, i32 noundef %87)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %85, ptr noundef @.str.1271, i32 noundef %87)
   %88 = load ptr, ptr %39, align 8
   %89 = load i32, ptr @ett_cdma2k_subtree2, align 4
   %90 = call ptr @proto_item_add_subtree(ptr noundef %88, i32 noundef %89)
@@ -14050,7 +14515,7 @@ define internal void @cdma2k_message_ACTIVE_SET_RECORD_FIELDS(ptr noundef %0, pt
   %128 = load i16, ptr %13, align 2
   %129 = add i16 %128, 1
   store i16 %129, ptr %13, align 2
-  br label %67, !llvm.loop !34
+  br label %67, !llvm.loop !36
 
 130:                                              ; preds = %67
   br label %131
@@ -14109,7 +14574,7 @@ define internal void @cdma2k_message_ACTIVE_SET_RECORD_FIELDS(ptr noundef %0, pt
   %172 = load ptr, ptr %39, align 8
   %173 = load i16, ptr %13, align 2
   %174 = zext i16 %173 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %172, ptr noundef @.str.1226, i32 noundef %174)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %172, ptr noundef @.str.1271, i32 noundef %174)
   %175 = load ptr, ptr %39, align 8
   %176 = load i32, ptr @ett_cdma2k_subtree2, align 4
   %177 = call ptr @proto_item_add_subtree(ptr noundef %175, i32 noundef %176)
@@ -14159,7 +14624,7 @@ define internal void @cdma2k_message_ACTIVE_SET_RECORD_FIELDS(ptr noundef %0, pt
   %215 = load i16, ptr %13, align 2
   %216 = add i16 %215, 1
   store i16 %216, ptr %13, align 2
-  br label %154, !llvm.loop !35
+  br label %154, !llvm.loop !37
 
 217:                                              ; preds = %154
   br label %218
@@ -14232,7 +14697,7 @@ define internal void @cdma2k_message_ACTIVE_SET_RECORD_FIELDS(ptr noundef %0, pt
   %271 = load ptr, ptr %39, align 8
   %272 = load i16, ptr %13, align 2
   %273 = zext i16 %272 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %271, ptr noundef @.str.1226, i32 noundef %273)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %271, ptr noundef @.str.1271, i32 noundef %273)
   %274 = load ptr, ptr %39, align 8
   %275 = load i32, ptr @ett_cdma2k_subtree2, align 4
   %276 = call ptr @proto_item_add_subtree(ptr noundef %274, i32 noundef %275)
@@ -14359,7 +14824,7 @@ define internal void @cdma2k_message_ACTIVE_SET_RECORD_FIELDS(ptr noundef %0, pt
   %378 = zext i16 %377 to i32
   %379 = call zeroext i8 @tvb_get_bits8(ptr noundef %375, i32 noundef %378, i32 noundef 8)
   %380 = zext i8 %379 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %374, ptr noundef @.str.1184, i32 noundef %380)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %374, ptr noundef @.str.1229, i32 noundef %380)
   %381 = load ptr, ptr %10, align 8
   %382 = load i16, ptr %381, align 2
   %383 = zext i16 %382 to i32
@@ -14371,7 +14836,7 @@ define internal void @cdma2k_message_ACTIVE_SET_RECORD_FIELDS(ptr noundef %0, pt
   %388 = sub i32 %387, 1
   %389 = trunc i32 %388 to i16
   store i16 %389, ptr %19, align 2
-  br label %369, !llvm.loop !36
+  br label %369, !llvm.loop !38
 
 390:                                              ; preds = %369
   br label %391
@@ -14528,7 +14993,7 @@ define internal void @cdma2k_message_ACTIVE_SET_RECORD_FIELDS(ptr noundef %0, pt
   %511 = load ptr, ptr %40, align 8
   %512 = load i16, ptr %13, align 2
   %513 = zext i16 %512 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %511, ptr noundef @.str.1226, i32 noundef %513)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %511, ptr noundef @.str.1271, i32 noundef %513)
   %514 = load ptr, ptr %40, align 8
   %515 = load i32, ptr @ett_cdma2k_subtree2, align 4
   %516 = call ptr @proto_item_add_subtree(ptr noundef %514, i32 noundef %515)
@@ -14620,7 +15085,7 @@ define internal void @cdma2k_message_ACTIVE_SET_RECORD_FIELDS(ptr noundef %0, pt
   %589 = load i16, ptr %13, align 2
   %590 = add i16 %589, 1
   store i16 %590, ptr %13, align 2
-  br label %496, !llvm.loop !37
+  br label %496, !llvm.loop !39
 
 591:                                              ; preds = %496
   br label %592
@@ -14632,7 +15097,7 @@ define internal void @cdma2k_message_ACTIVE_SET_RECORD_FIELDS(ptr noundef %0, pt
   %594 = load i16, ptr %13, align 2
   %595 = add i16 %594, 1
   store i16 %595, ptr %13, align 2
-  br label %256, !llvm.loop !38
+  br label %256, !llvm.loop !40
 
 596:                                              ; preds = %256
   %597 = load i16, ptr %11, align 2
@@ -14747,7 +15212,7 @@ define internal void @cdma2k_message_ACTIVE_SET_RECORD_FIELDS(ptr noundef %0, pt
   %678 = load ptr, ptr %39, align 8
   %679 = load i16, ptr %13, align 2
   %680 = zext i16 %679 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %678, ptr noundef @.str.1226, i32 noundef %680)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %678, ptr noundef @.str.1271, i32 noundef %680)
   %681 = load ptr, ptr %39, align 8
   %682 = load i32, ptr @ett_cdma2k_subtree2, align 4
   %683 = call ptr @proto_item_add_subtree(ptr noundef %681, i32 noundef %682)
@@ -15046,7 +15511,7 @@ define internal void @cdma2k_message_ACTIVE_SET_RECORD_FIELDS(ptr noundef %0, pt
   %923 = load ptr, ptr %40, align 8
   %924 = load i16, ptr %13, align 2
   %925 = zext i16 %924 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %923, ptr noundef @.str.1226, i32 noundef %925)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %923, ptr noundef @.str.1271, i32 noundef %925)
   %926 = load ptr, ptr %40, align 8
   %927 = load i32, ptr @ett_cdma2k_subtree2, align 4
   %928 = call ptr @proto_item_add_subtree(ptr noundef %926, i32 noundef %927)
@@ -15180,7 +15645,7 @@ define internal void @cdma2k_message_ACTIVE_SET_RECORD_FIELDS(ptr noundef %0, pt
   %1036 = load i16, ptr %13, align 2
   %1037 = add i16 %1036, 1
   store i16 %1037, ptr %13, align 2
-  br label %908, !llvm.loop !39
+  br label %908, !llvm.loop !41
 
 1038:                                             ; preds = %908
   br label %1039
@@ -15195,7 +15660,7 @@ define internal void @cdma2k_message_ACTIVE_SET_RECORD_FIELDS(ptr noundef %0, pt
   %1042 = load i16, ptr %13, align 2
   %1043 = add i16 %1042, 1
   store i16 %1043, ptr %13, align 2
-  br label %663, !llvm.loop !40
+  br label %663, !llvm.loop !42
 
 1044:                                             ; preds = %663
   br label %1045
@@ -15293,7 +15758,7 @@ define internal void @cdma2k_message_ACTIVE_SET_RECORD_FIELDS(ptr noundef %0, pt
   %1118 = load ptr, ptr %39, align 8
   %1119 = load i16, ptr %13, align 2
   %1120 = zext i16 %1119 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1118, ptr noundef @.str.1226, i32 noundef %1120)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1118, ptr noundef @.str.1271, i32 noundef %1120)
   %1121 = load ptr, ptr %39, align 8
   %1122 = load i32, ptr @ett_cdma2k_subtree2, align 4
   %1123 = call ptr @proto_item_add_subtree(ptr noundef %1121, i32 noundef %1122)
@@ -15322,7 +15787,7 @@ define internal void @cdma2k_message_ACTIVE_SET_RECORD_FIELDS(ptr noundef %0, pt
   %1139 = load ptr, ptr %40, align 8
   %1140 = load i16, ptr %13, align 2
   %1141 = zext i16 %1140 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1139, ptr noundef @.str.1226, i32 noundef %1141)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1139, ptr noundef @.str.1271, i32 noundef %1141)
   %1142 = load ptr, ptr %40, align 8
   %1143 = load i32, ptr @ett_cdma2k_subtree2, align 4
   %1144 = call ptr @proto_item_add_subtree(ptr noundef %1142, i32 noundef %1143)
@@ -15346,7 +15811,7 @@ define internal void @cdma2k_message_ACTIVE_SET_RECORD_FIELDS(ptr noundef %0, pt
   %1158 = load i16, ptr %13, align 2
   %1159 = add i16 %1158, 1
   store i16 %1159, ptr %13, align 2
-  br label %1124, !llvm.loop !41
+  br label %1124, !llvm.loop !43
 
 1160:                                             ; preds = %1124
   br label %1161
@@ -15355,7 +15820,7 @@ define internal void @cdma2k_message_ACTIVE_SET_RECORD_FIELDS(ptr noundef %0, pt
   %1162 = load i16, ptr %13, align 2
   %1163 = add i16 %1162, 1
   store i16 %1163, ptr %13, align 2
-  br label %1103, !llvm.loop !42
+  br label %1103, !llvm.loop !44
 
 1164:                                             ; preds = %1103
   br label %1165
@@ -15572,7 +16037,7 @@ define internal void @cdma2k_message_ACTIVE_SET_RECORD_FIELDS(ptr noundef %0, pt
   %1328 = load ptr, ptr %39, align 8
   %1329 = load i16, ptr %13, align 2
   %1330 = zext i16 %1329 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1328, ptr noundef @.str.1226, i32 noundef %1330)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1328, ptr noundef @.str.1271, i32 noundef %1330)
   %1331 = load ptr, ptr %39, align 8
   %1332 = load i32, ptr @ett_cdma2k_subtree2, align 4
   %1333 = call ptr @proto_item_add_subtree(ptr noundef %1331, i32 noundef %1332)
@@ -15609,7 +16074,7 @@ define internal void @cdma2k_message_ACTIVE_SET_RECORD_FIELDS(ptr noundef %0, pt
   %1359 = load i16, ptr %13, align 2
   %1360 = add i16 %1359, 1
   store i16 %1360, ptr %13, align 2
-  br label %1313, !llvm.loop !43
+  br label %1313, !llvm.loop !45
 
 1361:                                             ; preds = %1313
   br label %1362
@@ -15641,55 +16106,88 @@ define internal void @cdma2k_message_ACTIVE_SET_RECORD_FIELDS(ptr noundef %0, pt
   br label %1382
 
 1382:                                             ; preds = %1369, %1363
+  call void @llvm.lifetime.end.p0(i64 8, ptr %40) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %39) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %38) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %37) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %36) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %35) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %34) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %33) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %32) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %31) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %30) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %29) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %28) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %27) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %26) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %25) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %24) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %23) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %22) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %21) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %20) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %17) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #4
   ret void
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}
-!32 = distinct !{!32, !5}
-!33 = distinct !{!33, !5}
-!34 = distinct !{!34, !5}
-!35 = distinct !{!35, !5}
-!36 = distinct !{!36, !5}
-!37 = distinct !{!37, !5}
-!38 = distinct !{!38, !5}
-!39 = distinct !{!39, !5}
-!40 = distinct !{!40, !5}
-!41 = distinct !{!41, !5}
-!42 = distinct !{!42, !5}
-!43 = distinct !{!43, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}
+!29 = distinct !{!29, !7}
+!30 = distinct !{!30, !7}
+!31 = distinct !{!31, !7}
+!32 = distinct !{!32, !7}
+!33 = distinct !{!33, !7}
+!34 = distinct !{!34, !7}
+!35 = distinct !{!35, !7}
+!36 = distinct !{!36, !7}
+!37 = distinct !{!37, !7}
+!38 = distinct !{!38, !7}
+!39 = distinct !{!39, !7}
+!40 = distinct !{!40, !7}
+!41 = distinct !{!41, !7}
+!42 = distinct !{!42, !7}
+!43 = distinct !{!43, !7}
+!44 = distinct !{!44, !7}
+!45 = distinct !{!45, !7}

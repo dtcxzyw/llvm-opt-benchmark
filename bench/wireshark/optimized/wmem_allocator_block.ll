@@ -29,364 +29,367 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.19 = private unnamed_addr constant [44 x i8] c"'WMEM_GET_FREE(chunk)->prev' should be TRUE\00", align 1
 @.str.20 = private unnamed_addr constant [46 x i8] c"'total_len == WMEM_BLOCK_SIZE' should be TRUE\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @wmem_block_verify(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i32, ptr %2, align 8
-  %4 = icmp eq i32 %3, 1
-  br i1 %4, label %6, label %5
+  %.not = icmp eq i32 %3, 1
+  br i1 %.not, label %5, label %4, !prof !6
 
-5:                                                ; preds = %1
-  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 328, ptr noundef nonnull @__func__.wmem_block_verify, ptr noundef nonnull @.str.1) #6
-  br label %6
+4:                                                ; preds = %1
+  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 328, ptr noundef nonnull @__func__.wmem_block_verify, ptr noundef nonnull @.str.1)
+  br label %5
 
-6:                                                ; preds = %5, %1
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
+5:                                                ; preds = %1, %4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = load ptr, ptr %8, align 8
-  %10 = icmp eq ptr %9, null
-  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %12 = load ptr, ptr %11, align 8
-  %.not21 = icmp eq ptr %12, null
-  br i1 %10, label %13, label %19
+  %9 = icmp eq ptr %8, null
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %11 = load ptr, ptr %10, align 8
+  %.not46.not = icmp eq ptr %11, null
+  br i1 %9, label %12, label %18
 
-13:                                               ; preds = %6
-  br i1 %.not21, label %15, label %14
+12:                                               ; preds = %5
+  br i1 %.not46.not, label %14, label %13, !prof !6
 
-14:                                               ; preds = %13
-  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 333, ptr noundef nonnull @__func__.wmem_block_verify, ptr noundef nonnull @.str.2) #6
-  br label %15
+13:                                               ; preds = %12
+  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 333, ptr noundef nonnull @__func__.wmem_block_verify, ptr noundef nonnull @.str.2)
+  br label %14
 
-15:                                               ; preds = %13, %14
-  %16 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %17 = load ptr, ptr %16, align 8
-  %.not22 = icmp eq ptr %17, null
-  br i1 %.not22, label %152, label %18
+14:                                               ; preds = %13, %12
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %16 = load ptr, ptr %15, align 8
+  %.not48.not = icmp eq ptr %16, null
+  br i1 %.not48.not, label %139, label %17, !prof !6
 
-18:                                               ; preds = %15
-  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 334, ptr noundef nonnull @__func__.wmem_block_verify, ptr noundef nonnull @.str.3) #6
-  br label %152
+17:                                               ; preds = %14
+  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 334, ptr noundef nonnull @__func__.wmem_block_verify, ptr noundef nonnull @.str.3)
+  br label %139
 
-19:                                               ; preds = %6
-  br i1 %.not21, label %wmem_block_verify_master_list.exit, label %20
+18:                                               ; preds = %5
+  br i1 %.not46.not, label %wmem_block_verify_master_list.exit, label %19
 
-20:                                               ; preds = %19
-  %21 = getelementptr i8, ptr %12, i64 16
-  %22 = load ptr, ptr %21, align 8
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %.preheader48, label %24
+19:                                               ; preds = %18
+  %20 = getelementptr i8, ptr %11, i64 16
+  %21 = load ptr, ptr %20, align 8
+  %.not33.i = icmp eq ptr %21, null
+  br i1 %.not33.i, label %.preheader75, label %22, !prof !6
 
-24:                                               ; preds = %20
-  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 264, ptr noundef nonnull @__func__.wmem_block_verify_master_list, ptr noundef nonnull @.str.7) #6
-  br label %.preheader48
+22:                                               ; preds = %19
+  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 264, ptr noundef nonnull @__func__.wmem_block_verify_master_list, ptr noundef nonnull @.str.7)
+  br label %.preheader75
 
-.preheader48:                                     ; preds = %24, %20
-  br label %25
+.preheader75:                                     ; preds = %22, %19
+  br label %23
 
-25:                                               ; preds = %.preheader48, %46
-  %.025.i = phi i32 [ %29, %46 ], [ 0, %.preheader48 ]
-  %.01724.i = phi ptr [ %47, %46 ], [ %12, %.preheader48 ]
-  %26 = getelementptr inbounds nuw i8, ptr %.01724.i, i64 4
-  %27 = load i32, ptr %26, align 4
-  %28 = lshr i32 %27, 3
-  %29 = add i32 %28, %.025.i
-  %30 = and i32 %27, 2
-  %.not21.i = icmp eq i32 %30, 0
-  br i1 %.not21.i, label %32, label %31
+23:                                               ; preds = %.preheader75, %42
+  %.02544.i = phi ptr [ %43, %42 ], [ %11, %.preheader75 ]
+  %.02743.i = phi i32 [ %27, %42 ], [ 0, %.preheader75 ]
+  %24 = getelementptr inbounds nuw i8, ptr %.02544.i, i64 4
+  %25 = load i32, ptr %24, align 4
+  %26 = lshr i32 %25, 3
+  %27 = add i32 %26, %.02743.i
+  %28 = and i32 %25, 2
+  %.not35.not.i = icmp eq i32 %28, 0
+  br i1 %.not35.not.i, label %30, label %29, !prof !6
 
-31:                                               ; preds = %25
-  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 271, ptr noundef nonnull @__func__.wmem_block_verify_master_list, ptr noundef nonnull @.str.8) #6
-  br label %32
+29:                                               ; preds = %23
+  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 271, ptr noundef nonnull @__func__.wmem_block_verify_master_list, ptr noundef nonnull @.str.8)
+  br label %30
 
-32:                                               ; preds = %31, %25
-  %33 = getelementptr i8, ptr %.01724.i, i64 24
-  %34 = load ptr, ptr %33, align 8
-  %.not22.i = icmp eq ptr %34, null
-  br i1 %.not22.i, label %40, label %35
+30:                                               ; preds = %29, %23
+  %31 = getelementptr i8, ptr %.02544.i, i64 24
+  %32 = load ptr, ptr %31, align 8
+  %.not37.i = icmp eq ptr %32, null
+  br i1 %.not37.i, label %37, label %33
 
-35:                                               ; preds = %32
-  %36 = getelementptr i8, ptr %34, i64 16
-  %37 = load ptr, ptr %36, align 8
-  %38 = icmp eq ptr %37, %.01724.i
-  br i1 %38, label %40, label %39
+33:                                               ; preds = %30
+  %34 = getelementptr i8, ptr %32, i64 16
+  %35 = load ptr, ptr %34, align 8
+  %.not39.i = icmp eq ptr %35, %.02544.i
+  br i1 %.not39.i, label %37, label %36, !prof !6
 
-39:                                               ; preds = %35
-  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 274, ptr noundef nonnull @__func__.wmem_block_verify_master_list, ptr noundef nonnull @.str.9) #6
-  br label %40
+36:                                               ; preds = %33
+  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 274, ptr noundef nonnull @__func__.wmem_block_verify_master_list, ptr noundef nonnull @.str.9)
+  br label %37
 
-40:                                               ; preds = %39, %35, %32
-  %41 = load ptr, ptr %11, align 8
-  %.not23.i = icmp eq ptr %.01724.i, %41
-  br i1 %.not23.i, label %46, label %42
+37:                                               ; preds = %36, %33, %30
+  %38 = load ptr, ptr %10, align 8
+  %.not40.i = icmp eq ptr %.02544.i, %38
+  br i1 %.not40.i, label %42, label %39
 
-42:                                               ; preds = %40
-  %43 = load i32, ptr %26, align 4
-  %.mask.i = and i32 %43, -8
-  %44 = icmp eq i32 %.mask.i, 67108864
-  br i1 %44, label %46, label %45
+39:                                               ; preds = %37
+  %40 = load i32, ptr %24, align 4
+  %.mask.i = and i32 %40, -8
+  %.not42.i = icmp eq i32 %.mask.i, 67108864
+  br i1 %.not42.i, label %42, label %41, !prof !6
 
-45:                                               ; preds = %42
-  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 278, ptr noundef nonnull @__func__.wmem_block_verify_master_list, ptr noundef nonnull @.str.10) #6
-  br label %46
+41:                                               ; preds = %39
+  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 278, ptr noundef nonnull @__func__.wmem_block_verify_master_list, ptr noundef nonnull @.str.10)
+  br label %42
 
-46:                                               ; preds = %45, %42, %40
-  %47 = load ptr, ptr %33, align 8
-  %.not20.i = icmp eq ptr %47, null
-  br i1 %.not20.i, label %wmem_block_verify_master_list.exit, label %25, !llvm.loop !4
+42:                                               ; preds = %41, %39, %37
+  %43 = load ptr, ptr %31, align 8
+  %.not34.i = icmp eq ptr %43, null
+  br i1 %.not34.i, label %wmem_block_verify_master_list.exit, label %23, !llvm.loop !7
 
-wmem_block_verify_master_list.exit:               ; preds = %46, %19
-  %.016.i = phi i32 [ 0, %19 ], [ %29, %46 ]
-  %48 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %49 = load ptr, ptr %48, align 8
-  %.not.i23 = icmp eq ptr %49, null
-  br i1 %.not.i23, label %wmem_block_verify_recycler.exit, label %.preheader.i
+wmem_block_verify_master_list.exit:               ; preds = %42, %18
+  %.0.i = phi i32 [ 0, %18 ], [ %27, %42 ]
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %45 = load ptr, ptr %44, align 8
+  %.not.i50 = icmp eq ptr %45, null
+  br i1 %.not.i50, label %wmem_block_verify_recycler.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %wmem_block_verify_master_list.exit, %76
-  %.017.i = phi ptr [ %77, %76 ], [ %49, %wmem_block_verify_master_list.exit ]
-  %.0.i = phi i32 [ %53, %76 ], [ 0, %wmem_block_verify_master_list.exit ]
-  %50 = getelementptr inbounds nuw i8, ptr %.017.i, i64 4
-  %51 = load i32, ptr %50, align 4
-  %52 = lshr i32 %51, 3
-  %53 = add i32 %52, %.0.i
-  %54 = getelementptr i8, ptr %.017.i, i64 16
-  %55 = and i32 %51, 2
-  %.not20.i24 = icmp eq i32 %55, 0
-  br i1 %.not20.i24, label %57, label %56
+.preheader.i:                                     ; preds = %wmem_block_verify_master_list.exit, %70
+  %.029.i = phi i32 [ %49, %70 ], [ 0, %wmem_block_verify_master_list.exit ]
+  %.027.i = phi ptr [ %71, %70 ], [ %45, %wmem_block_verify_master_list.exit ]
+  %46 = getelementptr inbounds nuw i8, ptr %.027.i, i64 4
+  %47 = load i32, ptr %46, align 4
+  %48 = lshr i32 %47, 3
+  %49 = add i32 %48, %.029.i
+  %50 = getelementptr i8, ptr %.027.i, i64 16
+  %51 = and i32 %47, 2
+  %.not35.not.i51 = icmp eq i32 %51, 0
+  br i1 %.not35.not.i51, label %53, label %52, !prof !6
 
-56:                                               ; preds = %.preheader.i
-  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 304, ptr noundef nonnull @__func__.wmem_block_verify_recycler, ptr noundef nonnull @.str.8) #6
-  br label %57
+52:                                               ; preds = %.preheader.i
+  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 304, ptr noundef nonnull @__func__.wmem_block_verify_recycler, ptr noundef nonnull @.str.8)
+  br label %53
 
-57:                                               ; preds = %56, %.preheader.i
-  %58 = load ptr, ptr %54, align 8
-  %.not21.i25 = icmp eq ptr %58, null
-  br i1 %.not21.i25, label %59, label %60
+53:                                               ; preds = %52, %.preheader.i
+  %54 = load ptr, ptr %50, align 8
+  %.not37.i52 = icmp eq ptr %54, null
+  br i1 %.not37.i52, label %55, label %56, !prof !9
 
-59:                                               ; preds = %57
-  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 306, ptr noundef nonnull @__func__.wmem_block_verify_recycler, ptr noundef nonnull @.str.11) #6
+55:                                               ; preds = %53
+  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 306, ptr noundef nonnull @__func__.wmem_block_verify_recycler, ptr noundef nonnull @.str.11)
+  br label %56
+
+56:                                               ; preds = %55, %53
+  %57 = getelementptr i8, ptr %.027.i, i64 24
+  %58 = load ptr, ptr %57, align 8
+  %.not39.i53 = icmp eq ptr %58, null
+  br i1 %.not39.i53, label %59, label %60, !prof !9
+
+59:                                               ; preds = %56
+  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 307, ptr noundef nonnull @__func__.wmem_block_verify_recycler, ptr noundef nonnull @.str.12)
   br label %60
 
-60:                                               ; preds = %59, %57
-  %61 = getelementptr i8, ptr %.017.i, i64 24
-  %62 = load ptr, ptr %61, align 8
-  %.not22.i26 = icmp eq ptr %62, null
-  br i1 %.not22.i26, label %63, label %64
+60:                                               ; preds = %59, %56
+  %61 = load ptr, ptr %50, align 8
+  %62 = getelementptr i8, ptr %61, i64 24
+  %63 = load ptr, ptr %62, align 8
+  %.not42.i54 = icmp eq ptr %63, %.027.i
+  br i1 %.not42.i54, label %65, label %64, !prof !6
 
-63:                                               ; preds = %60
-  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 307, ptr noundef nonnull @__func__.wmem_block_verify_recycler, ptr noundef nonnull @.str.12) #6
-  br label %64
+64:                                               ; preds = %60
+  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 309, ptr noundef nonnull @__func__.wmem_block_verify_recycler, ptr noundef nonnull @.str.13)
+  br label %65
 
-64:                                               ; preds = %63, %60
-  %65 = load ptr, ptr %54, align 8
-  %66 = getelementptr i8, ptr %65, i64 24
-  %67 = load ptr, ptr %66, align 8
-  %68 = icmp eq ptr %67, %.017.i
-  br i1 %68, label %70, label %69
+65:                                               ; preds = %64, %60
+  %66 = load ptr, ptr %57, align 8
+  %67 = getelementptr i8, ptr %66, i64 16
+  %68 = load ptr, ptr %67, align 8
+  %.not44.i = icmp eq ptr %68, %.027.i
+  br i1 %.not44.i, label %70, label %69, !prof !6
 
-69:                                               ; preds = %64
-  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 309, ptr noundef nonnull @__func__.wmem_block_verify_recycler, ptr noundef nonnull @.str.13) #6
+69:                                               ; preds = %65
+  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 310, ptr noundef nonnull @__func__.wmem_block_verify_recycler, ptr noundef nonnull @.str.9)
+  %.pre.i = load ptr, ptr %57, align 8
   br label %70
 
-70:                                               ; preds = %69, %64
-  %71 = load ptr, ptr %61, align 8
-  %72 = getelementptr i8, ptr %71, i64 16
-  %73 = load ptr, ptr %72, align 8
-  %74 = icmp eq ptr %73, %.017.i
-  br i1 %74, label %76, label %75
+70:                                               ; preds = %69, %65
+  %71 = phi ptr [ %66, %65 ], [ %.pre.i, %69 ]
+  %72 = load ptr, ptr %44, align 8
+  %.not45.i = icmp eq ptr %71, %72
+  br i1 %.not45.i, label %wmem_block_verify_recycler.exit, label %.preheader.i, !llvm.loop !10
 
-75:                                               ; preds = %70
-  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 310, ptr noundef nonnull @__func__.wmem_block_verify_recycler, ptr noundef nonnull @.str.9) #6
-  %.pre.i = load ptr, ptr %61, align 8
+wmem_block_verify_recycler.exit:                  ; preds = %70, %wmem_block_verify_master_list.exit
+  %.0.i55 = phi i32 [ 0, %wmem_block_verify_master_list.exit ], [ %49, %70 ]
+  %73 = load ptr, ptr %7, align 8
+  %74 = load ptr, ptr %73, align 8
+  %.not39 = icmp eq ptr %74, null
+  br i1 %.not39, label %76, label %75, !prof !6
+
+75:                                               ; preds = %wmem_block_verify_recycler.exit
+  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 342, ptr noundef nonnull @__func__.wmem_block_verify, ptr noundef nonnull @.str.4)
   br label %76
 
-76:                                               ; preds = %75, %70
-  %77 = phi ptr [ %.pre.i, %75 ], [ %71, %70 ]
-  %78 = load ptr, ptr %48, align 8
-  %.not23.i27 = icmp eq ptr %77, %78
-  br i1 %.not23.i27, label %wmem_block_verify_recycler.exit, label %.preheader.i, !llvm.loop !6
+76:                                               ; preds = %wmem_block_verify_recycler.exit, %75
+  %.not4061 = icmp eq ptr %73, null
+  br i1 %.not4061, label %._crit_edge, label %.lr.ph
 
-wmem_block_verify_recycler.exit:                  ; preds = %76, %wmem_block_verify_master_list.exit
-  %.016.i28 = phi i32 [ 0, %wmem_block_verify_master_list.exit ], [ %53, %76 ]
-  %79 = load ptr, ptr %8, align 8
-  %80 = load ptr, ptr %79, align 8
-  %81 = icmp eq ptr %80, null
-  br i1 %81, label %.preheader45, label %82
+.lr.ph:                                           ; preds = %76, %wmem_block_verify_block.exit
+  %.063 = phi ptr [ %136, %wmem_block_verify_block.exit ], [ %73, %76 ]
+  %.03162 = phi i32 [ %135, %wmem_block_verify_block.exit ], [ 0, %76 ]
+  %77 = getelementptr inbounds nuw i8, ptr %.063, i64 8
+  %78 = load ptr, ptr %77, align 8
+  %.not43 = icmp eq ptr %78, null
+  br i1 %.not43, label %82, label %79
 
-82:                                               ; preds = %wmem_block_verify_recycler.exit
-  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 342, ptr noundef nonnull @__func__.wmem_block_verify, ptr noundef nonnull @.str.4) #6
-  br label %.preheader45
+79:                                               ; preds = %.lr.ph
+  %80 = load ptr, ptr %78, align 8
+  %.not45 = icmp eq ptr %80, %.063
+  br i1 %.not45, label %82, label %81, !prof !6
 
-.preheader45:                                     ; preds = %82, %wmem_block_verify_recycler.exit
-  br label %83
+81:                                               ; preds = %79
+  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 345, ptr noundef nonnull @__func__.wmem_block_verify, ptr noundef nonnull @.str.5)
+  br label %82
 
-83:                                               ; preds = %.preheader45, %wmem_block_verify_block.exit
-  %.035 = phi i32 [ %146, %wmem_block_verify_block.exit ], [ 0, %.preheader45 ]
-  %.01834 = phi ptr [ %147, %wmem_block_verify_block.exit ], [ %79, %.preheader45 ]
-  %84 = getelementptr inbounds nuw i8, ptr %.01834, i64 8
-  %85 = load ptr, ptr %84, align 8
-  %.not20 = icmp eq ptr %85, null
-  br i1 %.not20, label %90, label %86
+82:                                               ; preds = %81, %79, %.lr.ph
+  %83 = getelementptr i8, ptr %.063, i64 16
+  %84 = getelementptr i8, ptr %.063, i64 20
+  %85 = load i32, ptr %84, align 4
+  %86 = and i32 %85, 4
+  %.not.i56 = icmp eq i32 %86, 0
+  br i1 %.not.i56, label %87, label %wmem_block_verify_block.exit
 
-86:                                               ; preds = %83
-  %87 = load ptr, ptr %85, align 8
-  %88 = icmp eq ptr %87, %.01834
-  br i1 %88, label %90, label %89
+87:                                               ; preds = %82
+  %88 = load i32, ptr %83, align 4
+  %.not54.i = icmp eq i32 %88, 0
+  br i1 %.not54.i, label %.preheader, label %89, !prof !6
 
-89:                                               ; preds = %86
-  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 345, ptr noundef nonnull @__func__.wmem_block_verify, ptr noundef nonnull @.str.5) #6
-  br label %90
-
-90:                                               ; preds = %86, %89, %83
-  %91 = getelementptr i8, ptr %.01834, i64 16
-  %92 = getelementptr i8, ptr %.01834, i64 20
-  %93 = load i32, ptr %92, align 4
-  %94 = and i32 %93, 4
-  %.not.i29 = icmp eq i32 %94, 0
-  br i1 %.not.i29, label %95, label %wmem_block_verify_block.exit
-
-95:                                               ; preds = %90
-  %96 = load i32, ptr %91, align 4
-  %97 = icmp eq i32 %96, 0
-  br i1 %97, label %.preheader, label %98
-
-98:                                               ; preds = %95
-  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 221, ptr noundef nonnull @__func__.wmem_block_verify_block, ptr noundef nonnull @.str.14) #6
+89:                                               ; preds = %87
+  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 221, ptr noundef nonnull @__func__.wmem_block_verify_block, ptr noundef nonnull @.str.14)
   br label %.preheader
 
-.preheader:                                       ; preds = %98, %95
-  br label %99
+.preheader:                                       ; preds = %89, %87
+  br label %90
 
-99:                                               ; preds = %.preheader, %137
-  %.028.i = phi i32 [ %.1.i, %137 ], [ 0, %.preheader ]
-  %.027.i = phi i32 [ %103, %137 ], [ 16, %.preheader ]
-  %.0.i30 = phi ptr [ %142, %137 ], [ %91, %.preheader ]
-  %100 = getelementptr inbounds nuw i8, ptr %.0.i30, i64 4
-  %101 = load i32, ptr %100, align 4
-  %102 = lshr i32 %101, 3
-  %103 = add i32 %102, %.027.i
-  %104 = icmp ugt i32 %101, 127
-  br i1 %104, label %106, label %105
+90:                                               ; preds = %.preheader, %127
+  %.046.i = phi ptr [ %132, %127 ], [ %83, %.preheader ]
+  %.044.i = phi i32 [ %94, %127 ], [ 16, %.preheader ]
+  %.042.i = phi i32 [ %.1.i, %127 ], [ 0, %.preheader ]
+  %91 = getelementptr inbounds nuw i8, ptr %.046.i, i64 4
+  %92 = load i32, ptr %91, align 4
+  %93 = lshr i32 %92, 3
+  %94 = add i32 %93, %.044.i
+  %95 = icmp ult i32 %92, 128
+  br i1 %95, label %96, label %97, !prof !9
 
-105:                                              ; preds = %99
-  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 226, ptr noundef nonnull @__func__.wmem_block_verify_block, ptr noundef nonnull @.str.15) #6
-  %.pre.i31 = load i32, ptr %100, align 4
-  br label %106
+96:                                               ; preds = %90
+  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 226, ptr noundef nonnull @__func__.wmem_block_verify_block, ptr noundef nonnull @.str.15)
+  %.pre.i58 = load i32, ptr %91, align 4
+  br label %97
 
-106:                                              ; preds = %105, %99
-  %107 = phi i32 [ %101, %99 ], [ %.pre.i31, %105 ]
-  %108 = and i32 %107, 4
-  %.not32.i = icmp eq i32 %108, 0
-  br i1 %.not32.i, label %110, label %109
+97:                                               ; preds = %96, %90
+  %98 = phi i32 [ %.pre.i58, %96 ], [ %92, %90 ]
+  %99 = and i32 %98, 4
+  %.not56.not.i = icmp eq i32 %99, 0
+  br i1 %.not56.not.i, label %101, label %100, !prof !6
 
-109:                                              ; preds = %106
-  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 227, ptr noundef nonnull @__func__.wmem_block_verify_block, ptr noundef nonnull @.str.16) #6
-  %.pre43.i = load i32, ptr %100, align 4
-  br label %110
+100:                                              ; preds = %97
+  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 227, ptr noundef nonnull @__func__.wmem_block_verify_block, ptr noundef nonnull @.str.16)
+  %.pre74.i = load i32, ptr %91, align 4
+  br label %101
 
-110:                                              ; preds = %109, %106
-  %111 = phi i32 [ %.pre43.i, %109 ], [ %107, %106 ]
-  %112 = and i32 %111, 1
-  %.not33.i = icmp eq i32 %112, 0
-  br i1 %.not33.i, label %113, label %121
+101:                                              ; preds = %100, %97
+  %102 = phi i32 [ %98, %97 ], [ %.pre74.i, %100 ]
+  %103 = and i32 %102, 1
+  %.not58.i = icmp eq i32 %103, 0
+  br i1 %.not58.i, label %104, label %111
 
-113:                                              ; preds = %110
-  %114 = lshr i32 %111, 3
-  %115 = zext nneg i32 %114 to i64
-  %116 = getelementptr i8, ptr %.0.i30, i64 %115
-  %.not34.i = icmp eq ptr %116, null
-  br i1 %.not34.i, label %121, label %117
+104:                                              ; preds = %101
+  %105 = lshr i32 %102, 3
+  %106 = zext nneg i32 %105 to i64
+  %107 = getelementptr i8, ptr %.046.i, i64 %106
+  %.not59.i = icmp eq ptr %107, null
+  br i1 %.not59.i, label %111, label %108
 
-117:                                              ; preds = %113
-  %118 = load i32, ptr %116, align 4
-  %119 = icmp eq i32 %114, %118
-  br i1 %119, label %121, label %120
+108:                                              ; preds = %104
+  %109 = load i32, ptr %107, align 4
+  %.not61.i = icmp eq i32 %105, %109
+  br i1 %.not61.i, label %111, label %110, !prof !6
 
-120:                                              ; preds = %117
-  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 230, ptr noundef nonnull @__func__.wmem_block_verify_block, ptr noundef nonnull @.str.17) #6
-  %.pre44.i = load i32, ptr %100, align 4
-  br label %121
+110:                                              ; preds = %108
+  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 230, ptr noundef nonnull @__func__.wmem_block_verify_block, ptr noundef nonnull @.str.17)
+  %.pre75.i = load i32, ptr %91, align 4
+  br label %111
 
-121:                                              ; preds = %120, %117, %113, %110
-  %122 = phi i32 [ %111, %117 ], [ %.pre44.i, %120 ], [ %111, %110 ], [ %111, %113 ]
-  %123 = and i32 %122, 2
-  %.not35.i = icmp ne i32 %123, 0
-  %124 = and i32 %122, -128
-  %.not36.i = icmp eq i32 %124, 128
-  %or.cond.i = or i1 %.not35.i, %.not36.i
-  br i1 %or.cond.i, label %137, label %125
+111:                                              ; preds = %110, %108, %104, %101
+  %112 = phi i32 [ %.pre75.i, %110 ], [ %102, %108 ], [ %102, %101 ], [ %102, %104 ]
+  %113 = and i32 %112, 2
+  %.not62.i = icmp ne i32 %113, 0
+  %114 = and i32 %112, -128
+  %.not63.i = icmp eq i32 %114, 128
+  %or.cond.i = or i1 %.not62.i, %.not63.i
+  br i1 %or.cond.i, label %127, label %115
 
-125:                                              ; preds = %121
-  %126 = lshr i32 %122, 3
-  %127 = add i32 %126, %.028.i
-  %128 = and i32 %122, 1
-  %.not37.i = icmp eq i32 %128, 0
-  br i1 %.not37.i, label %129, label %137
+115:                                              ; preds = %111
+  %116 = lshr i32 %112, 3
+  %117 = add i32 %116, %.042.i
+  %118 = and i32 %112, 1
+  %.not64.i = icmp eq i32 %118, 0
+  br i1 %.not64.i, label %119, label %127
 
-129:                                              ; preds = %125
-  %130 = getelementptr i8, ptr %.0.i30, i64 16
-  %131 = getelementptr i8, ptr %.0.i30, i64 24
-  %132 = load ptr, ptr %131, align 8
-  %.not38.i = icmp eq ptr %132, null
-  br i1 %.not38.i, label %133, label %134
+119:                                              ; preds = %115
+  %120 = getelementptr i8, ptr %.046.i, i64 16
+  %121 = getelementptr i8, ptr %.046.i, i64 24
+  %122 = load ptr, ptr %121, align 8
+  %.not65.i = icmp eq ptr %122, null
+  br i1 %.not65.i, label %123, label %124, !prof !9
 
-133:                                              ; preds = %129
-  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 239, ptr noundef nonnull @__func__.wmem_block_verify_block, ptr noundef nonnull @.str.18) #6
-  br label %134
+123:                                              ; preds = %119
+  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 239, ptr noundef nonnull @__func__.wmem_block_verify_block, ptr noundef nonnull @.str.18)
+  br label %124
 
-134:                                              ; preds = %133, %129
-  %135 = load ptr, ptr %130, align 8
-  %.not39.i = icmp eq ptr %135, null
-  br i1 %.not39.i, label %136, label %137
+124:                                              ; preds = %123, %119
+  %125 = load ptr, ptr %120, align 8
+  %.not67.i = icmp eq ptr %125, null
+  br i1 %.not67.i, label %126, label %127, !prof !9
 
-136:                                              ; preds = %134
-  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 240, ptr noundef nonnull @__func__.wmem_block_verify_block, ptr noundef nonnull @.str.19) #6
-  br label %137
+126:                                              ; preds = %124
+  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 240, ptr noundef nonnull @__func__.wmem_block_verify_block, ptr noundef nonnull @.str.19)
+  br label %127
 
-137:                                              ; preds = %136, %134, %125, %121
-  %.1.i = phi i32 [ %.028.i, %121 ], [ %127, %125 ], [ %127, %134 ], [ %127, %136 ]
-  %138 = load i32, ptr %100, align 4
-  %139 = and i32 %138, 1
-  %.not40.i = icmp ne i32 %139, 0
-  %140 = lshr i32 %138, 3
-  %141 = zext nneg i32 %140 to i64
-  %142 = getelementptr i8, ptr %.0.i30, i64 %141
-  %.not4142.i = icmp eq ptr %142, null
-  %.not41.i = select i1 %.not40.i, i1 true, i1 %.not4142.i
-  br i1 %.not41.i, label %143, label %99, !llvm.loop !7
+127:                                              ; preds = %126, %124, %115, %111
+  %.1.i = phi i32 [ %.042.i, %111 ], [ %117, %115 ], [ %117, %124 ], [ %117, %126 ]
+  %128 = load i32, ptr %91, align 4
+  %129 = and i32 %128, 1
+  %.not69.i = icmp ne i32 %129, 0
+  %130 = lshr i32 %128, 3
+  %131 = zext nneg i32 %130 to i64
+  %132 = getelementptr i8, ptr %.046.i, i64 %131
+  %.not7073.i = icmp eq ptr %132, null
+  %.not70.i = select i1 %.not69.i, i1 true, i1 %.not7073.i
+  br i1 %.not70.i, label %133, label %90, !llvm.loop !11
 
-143:                                              ; preds = %137
-  %144 = icmp eq i32 %103, 8388608
-  br i1 %144, label %wmem_block_verify_block.exit, label %145
+133:                                              ; preds = %127
+  %.not72.i = icmp eq i32 %94, 8388608
+  br i1 %.not72.i, label %wmem_block_verify_block.exit, label %134, !prof !6
 
-145:                                              ; preds = %143
-  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 247, ptr noundef nonnull @__func__.wmem_block_verify_block, ptr noundef nonnull @.str.20) #6
+134:                                              ; preds = %133
+  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 247, ptr noundef nonnull @__func__.wmem_block_verify_block, ptr noundef nonnull @.str.20)
   br label %wmem_block_verify_block.exit
 
-wmem_block_verify_block.exit:                     ; preds = %90, %143, %145
-  %.029.i = phi i32 [ 0, %90 ], [ %.1.i, %145 ], [ %.1.i, %143 ]
-  %146 = add i32 %.029.i, %.035
-  %147 = load ptr, ptr %84, align 8
-  %.not = icmp eq ptr %147, null
-  br i1 %.not, label %148, label %83, !llvm.loop !8
+wmem_block_verify_block.exit:                     ; preds = %82, %133, %134
+  %.0.i57 = phi i32 [ 0, %82 ], [ %.1.i, %133 ], [ %.1.i, %134 ]
+  %135 = add i32 %.0.i57, %.03162
+  %136 = load ptr, ptr %77, align 8
+  %.not40 = icmp eq ptr %136, null
+  br i1 %.not40, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
-148:                                              ; preds = %wmem_block_verify_block.exit
-  %149 = add i32 %.016.i28, %.016.i
-  %150 = icmp eq i32 %146, %149
-  br i1 %150, label %152, label %151
+._crit_edge:                                      ; preds = %wmem_block_verify_block.exit, %76
+  %.031.lcssa = phi i32 [ 0, %76 ], [ %135, %wmem_block_verify_block.exit ]
+  %137 = add i32 %.0.i55, %.0.i
+  %.not42 = icmp eq i32 %.031.lcssa, %137
+  br i1 %.not42, label %139, label %138, !prof !6
 
-151:                                              ; preds = %148
-  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 351, ptr noundef nonnull @__func__.wmem_block_verify, ptr noundef nonnull @.str.6) #6
-  br label %152
+138:                                              ; preds = %._crit_edge
+  tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 351, ptr noundef nonnull @__func__.wmem_block_verify, ptr noundef nonnull @.str.6)
+  br label %139
 
-152:                                              ; preds = %151, %148, %15, %18
+139:                                              ; preds = %138, %._crit_edge, %17, %14
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @g_assertion_message(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @wmem_block_allocator_init(ptr noundef writeonly captures(none) initializes((0, 48), (56, 64)) %0) local_unnamed_addr #0 {
-  %2 = tail call noalias ptr @wmem_alloc(ptr noundef null, i64 noundef 24) #6
+  %2 = tail call noalias dereferenceable_or_null(24) ptr @wmem_alloc(ptr noundef null, i64 noundef 24) #8
   store ptr @wmem_block_alloc, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @wmem_block_realloc, ptr %3, align 8
@@ -400,20 +403,21 @@ define hidden void @wmem_block_allocator_init(ptr noundef writeonly captures(non
   store ptr @wmem_block_allocator_cleanup, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %2, ptr %8, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   ret void
 }
 
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid allocsize(1)
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef ptr @wmem_block_alloc(ptr noundef captures(none) %0, i64 noundef %1) #0 {
   %3 = icmp ugt i64 %1, 8388576
   br i1 %3, label %4, label %13
 
 4:                                                ; preds = %2
   %5 = add i64 %1, 32
-  %6 = tail call noalias ptr @wmem_alloc(ptr noundef null, i64 noundef %5) #6
+  %6 = tail call noalias ptr @wmem_alloc(ptr noundef null, i64 noundef %5) #8
   store ptr null, ptr %6, align 8
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -523,7 +527,7 @@ wmem_block_add_to_recycler.exit:                  ; preds = %.sink.split.i, %44,
   br i1 %.not30, label %wmem_block_add_to_recycler.exit.thread, label %69
 
 wmem_block_add_to_recycler.exit.thread:           ; preds = %22, %wmem_block_add_to_recycler.exit
-  %58 = tail call noalias ptr @wmem_alloc(ptr noundef null, i64 noundef 8388608) #6
+  %58 = tail call noalias dereferenceable_or_null(8388608) ptr @wmem_alloc(ptr noundef null, i64 noundef 8388608) #8
   store ptr null, ptr %58, align 8
   %59 = load ptr, ptr %0, align 8
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 8
@@ -560,7 +564,7 @@ wmem_block_new_block.exit:                        ; preds = %wmem_block_add_to_b
 
 69:                                               ; preds = %wmem_block_add_to_recycler.exit, %wmem_block_new_block.exit, %16
   %.0 = phi ptr [ %15, %16 ], [ %62, %wmem_block_new_block.exit ], [ %.pr, %wmem_block_add_to_recycler.exit ]
-  tail call fastcc void @wmem_block_split_free_chunk(ptr noundef nonnull %0, ptr noundef nonnull %.0, i64 noundef %1)
+  tail call fastcc void @wmem_block_split_free_chunk(ptr noundef %0, ptr noundef %.0, i64 noundef %1)
   %70 = load ptr, ptr %14, align 8
   %71 = icmp eq ptr %70, null
   br i1 %71, label %wmem_block_cycle_recycler.exit, label %72
@@ -613,7 +617,7 @@ wmem_block_cycle_recycler.exit:                   ; preds = %69, %82, %93
   ret ptr %.024
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal ptr @wmem_block_realloc(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = getelementptr i8, ptr %1, i64 -16
   %5 = getelementptr i8, ptr %1, i64 -12
@@ -625,7 +629,7 @@ define internal ptr @wmem_block_realloc(ptr noundef captures(none) %0, ptr nound
 8:                                                ; preds = %3
   %9 = getelementptr i8, ptr %1, i64 -32
   %10 = add i64 %2, 32
-  %11 = tail call noalias ptr @wmem_realloc(ptr noundef null, ptr noundef %9, i64 noundef %10) #6
+  %11 = tail call ptr @wmem_realloc(ptr noundef null, ptr noundef %9, i64 noundef %10) #9
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %13, null
@@ -758,7 +762,7 @@ wmem_block_realloc_jumbo.exit:                    ; preds = %17, %19
   %84 = lshr i32 %83, 3
   %85 = zext nneg i32 %84 to i64
   %86 = add nsw i64 %85, -16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %82, ptr nonnull align 1 %1, i64 %86, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %82, ptr noundef align 1 %1, i64 noundef range(i64 -16, 536870896) %86, i1 noundef false) #10
   %87 = load i32, ptr %5, align 4
   %88 = and i32 %87, 4
   %.not.i62 = icmp eq i32 %88, 0
@@ -791,7 +795,7 @@ wmem_block_realloc_jumbo.exit:                    ; preds = %17, %19
   br label %wmem_block_free_jumbo.exit.i
 
 wmem_block_free_jumbo.exit.i:                     ; preds = %98, %97
-  tail call void @wmem_free(ptr noundef null, ptr noundef nonnull %90) #6
+  tail call void @wmem_free(ptr noundef null, ptr noundef %90)
   br label %wmem_block_cycle_recycler.exit
 
 100:                                              ; preds = %81
@@ -882,7 +886,7 @@ wmem_block_free_jumbo.exit.i:                     ; preds = %98, %97
   br label %156
 
 156:                                              ; preds = %152, %134
-  tail call fastcc void @wmem_block_merge_free(ptr noundef %0, ptr noundef nonnull %141)
+  tail call fastcc void @wmem_block_merge_free(ptr noundef %0, ptr noundef %141)
   br label %wmem_block_split_used_chunk.exit
 
 wmem_block_split_used_chunk.exit:                 ; preds = %129, %156
@@ -931,7 +935,7 @@ wmem_block_cycle_recycler.exit:                   ; preds = %181, %170, %wmem_bl
   ret ptr %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @wmem_block_free(ptr noundef captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr i8, ptr %1, i64 -12
   %4 = load i32, ptr %3, align 4
@@ -966,7 +970,7 @@ define internal void @wmem_block_free(ptr noundef captures(none) %0, ptr noundef
   br label %wmem_block_free_jumbo.exit
 
 wmem_block_free_jumbo.exit:                       ; preds = %14, %15
-  tail call void @wmem_free(ptr noundef null, ptr noundef nonnull %7) #6
+  tail call void @wmem_free(ptr noundef null, ptr noundef %7)
   br label %wmem_block_cycle_recycler.exit
 
 17:                                               ; preds = %2
@@ -1018,7 +1022,7 @@ wmem_block_cycle_recycler.exit:                   ; preds = %44, %33, %17, %wmem
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @wmem_block_free_all(ptr noundef captures(none) initializes((8, 24)) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
@@ -1061,7 +1065,7 @@ define internal void @wmem_block_free_all(ptr noundef captures(none) initializes
 
 wmem_block_remove_from_block_list.exit:           ; preds = %14, %15
   %17 = load ptr, ptr %9, align 8
-  tail call void @wmem_free(ptr noundef null, ptr noundef nonnull %.016) #6
+  tail call void @wmem_free(ptr noundef null, ptr noundef nonnull %.016)
   br label %27
 
 18:                                               ; preds = %.lr.ph
@@ -1090,13 +1094,13 @@ wmem_block_init_block.exit:                       ; preds = %18, %23
 27:                                               ; preds = %wmem_block_init_block.exit, %wmem_block_remove_from_block_list.exit
   %.1 = phi ptr [ %17, %wmem_block_remove_from_block_list.exit ], [ %26, %wmem_block_init_block.exit ]
   %.not = icmp eq ptr %.1, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %27, %1
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @wmem_block_gc(ptr noundef captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   store ptr null, ptr %0, align 8
@@ -1171,7 +1175,7 @@ define internal void @wmem_block_gc(ptr noundef captures(none) %0) #0 {
   br label %35
 
 35:                                               ; preds = %30, %33, %28, %29
-  tail call void @wmem_free(ptr noundef null, ptr noundef nonnull %.042) #6
+  tail call void @wmem_free(ptr noundef null, ptr noundef nonnull %.042)
   br label %39
 
 36:                                               ; preds = %5
@@ -1191,13 +1195,13 @@ wmem_block_add_to_block_list.exit:                ; preds = %36, %38
 
 39:                                               ; preds = %wmem_block_add_to_block_list.exit, %35
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %39, %1
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @wmem_block_allocator_cleanup(ptr noundef %0) #0 {
   %2 = load ptr, ptr %0, align 8
   store ptr null, ptr %0, align 8
@@ -1272,7 +1276,7 @@ define internal void @wmem_block_allocator_cleanup(ptr noundef %0) #0 {
   br label %35
 
 35:                                               ; preds = %33, %30, %29, %28
-  tail call void @wmem_free(ptr noundef null, ptr noundef nonnull %.042.i) #6
+  tail call void @wmem_free(ptr noundef null, ptr noundef nonnull %.042.i)
   br label %39
 
 36:                                               ; preds = %5
@@ -1292,15 +1296,15 @@ wmem_block_add_to_block_list.exit.i:              ; preds = %38, %36
 
 39:                                               ; preds = %wmem_block_add_to_block_list.exit.i, %35
   %.not.i = icmp eq ptr %8, null
-  br i1 %.not.i, label %wmem_block_gc.exit, label %5, !llvm.loop !10
+  br i1 %.not.i, label %wmem_block_gc.exit, label %5, !llvm.loop !14
 
 wmem_block_gc.exit:                               ; preds = %39, %1
-  tail call void @wmem_free(ptr noundef null, ptr noundef nonnull %0) #6
+  tail call void @wmem_free(ptr noundef null, ptr noundef %0)
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @wmem_block_split_free_chunk(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef range(i64 0, -16) %2) unnamed_addr #2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
+define internal fastcc void @wmem_block_split_free_chunk(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef range(i64 0, -16) %2) unnamed_addr #3 {
   %4 = add nuw i64 %2, 15
   %5 = and i64 %4, -16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -1460,17 +1464,15 @@ define internal fastcc void @wmem_block_split_free_chunk(ptr noundef captures(no
   store i32 %93, ptr %95, align 4
   br label %wmem_block_pop_master.exit
 
-wmem_block_pop_master.exit:                       ; preds = %40, %._crit_edge.i, %31, %20, %17, %22, %92, %81
+wmem_block_pop_master.exit:                       ; preds = %40, %._crit_edge.i, %31, %20, %17, %81, %92, %22
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+; Function Attrs: null_pointer_is_valid allocsize(2)
+declare ptr @wmem_realloc(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
-declare noalias ptr @wmem_realloc(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @wmem_block_merge_free(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
+define internal fastcc void @wmem_block_merge_free(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 1
@@ -1699,36 +1701,48 @@ wmem_block_remove_from_recycler.exit:             ; preds = %74, %._crit_edge.i,
   store ptr %.0, ptr %107, align 8
   br label %wmem_block_add_to_recycler.exit
 
-wmem_block_add_to_recycler.exit:                  ; preds = %.sink.split.i, %111, %101, %.critedge, %wmem_block_remove_from_recycler.exit, %81
+wmem_block_add_to_recycler.exit:                  ; preds = %.sink.split.i, %111, %101, %wmem_block_remove_from_recycler.exit, %81, %.critedge
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #5
+declare i64 @llvm.usub.sat.i64(i64, i64) #6
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind }
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { allocsize(1) }
+attributes #9 = { allocsize(2) }
+attributes #10 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}

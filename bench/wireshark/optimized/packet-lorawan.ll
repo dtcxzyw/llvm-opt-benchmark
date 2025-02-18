@@ -5,12 +5,9 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
 %struct.unit_name_string = type { ptr, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
+%struct._value_string = type { i32, ptr }
 %struct.expert_field = type { i32, i32 }
-%struct._uat_field_t = type { ptr, ptr, i32, %struct.anon, %struct.anon.0, ptr, ptr, ptr }
 %struct.anon = type { ptr, ptr, ptr }
 %struct.anon.0 = type { ptr, ptr, ptr }
 %struct.nstime_t = type { i64, i32 }
@@ -28,7 +25,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_lorawan_mac_header_ftype_type = internal global i32 0, align 4
 @.str.5 = private unnamed_addr constant [13 x i8] c"Message Type\00", align 1
 @.str.6 = private unnamed_addr constant [19 x i8] c"lorawan.mhdr.ftype\00", align 1
-@lorawan_ftypenames = internal constant [10 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.122 }, %struct._value_string { i32 1, ptr @.str.133 }, %struct._value_string { i32 2, ptr @.str.260 }, %struct._value_string { i32 3, ptr @.str.261 }, %struct._value_string { i32 4, ptr @.str.262 }, %struct._value_string { i32 5, ptr @.str.263 }, %struct._value_string { i32 6, ptr @.str.8 }, %struct._value_string { i32 7, ptr @.str.264 }, %struct._value_string { i32 65520, ptr @.str.265 }, %struct._value_string zeroinitializer], align 16
 @.str.7 = private unnamed_addr constant [21 x i8] c"[FType] Message Type\00", align 1
 @hf_lorawan_mac_header_rfu_type = internal global i32 0, align 4
 @.str.8 = private unnamed_addr constant [4 x i8] c"RFU\00", align 1
@@ -37,7 +33,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_lorawan_mac_header_major_type = internal global i32 0, align 4
 @.str.11 = private unnamed_addr constant [14 x i8] c"Major Version\00", align 1
 @.str.12 = private unnamed_addr constant [19 x i8] c"lorawan.mhdr.major\00", align 1
-@lorawan_majornames = internal constant [2 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.266 }, %struct._value_string zeroinitializer], align 16
 @.str.13 = private unnamed_addr constant [22 x i8] c"[Major] Major Version\00", align 1
 @hf_lorawan_mac_commands_type = internal global i32 0, align 4
 @.str.14 = private unnamed_addr constant [13 x i8] c"MAC Commands\00", align 1
@@ -45,11 +40,9 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_lorawan_mac_command_uplink_type = internal global i32 0, align 4
 @.str.16 = private unnamed_addr constant [15 x i8] c"Uplink Command\00", align 1
 @.str.17 = private unnamed_addr constant [27 x i8] c"lorawan.mac_command_uplink\00", align 1
-@lorawan_mac_uplink_commandnames = internal constant [15 x %struct._value_string] [%struct._value_string { i32 2, ptr @.str.267 }, %struct._value_string { i32 3, ptr @.str.268 }, %struct._value_string { i32 4, ptr @.str.269 }, %struct._value_string { i32 5, ptr @.str.270 }, %struct._value_string { i32 6, ptr @.str.271 }, %struct._value_string { i32 7, ptr @.str.272 }, %struct._value_string { i32 8, ptr @.str.273 }, %struct._value_string { i32 9, ptr @.str.274 }, %struct._value_string { i32 10, ptr @.str.275 }, %struct._value_string { i32 13, ptr @.str.276 }, %struct._value_string { i32 16, ptr @.str.277 }, %struct._value_string { i32 17, ptr @.str.278 }, %struct._value_string { i32 18, ptr @.str.279 }, %struct._value_string { i32 19, ptr @.str.280 }, %struct._value_string zeroinitializer], align 16
 @hf_lorawan_mac_command_downlink_type = internal global i32 0, align 4
 @.str.18 = private unnamed_addr constant [17 x i8] c"Downlink Command\00", align 1
 @.str.19 = private unnamed_addr constant [29 x i8] c"lorawan.mac_command_downlink\00", align 1
-@lorawan_mac_downlink_commandnames = internal constant [15 x %struct._value_string] [%struct._value_string { i32 2, ptr @.str.281 }, %struct._value_string { i32 3, ptr @.str.282 }, %struct._value_string { i32 4, ptr @.str.283 }, %struct._value_string { i32 5, ptr @.str.284 }, %struct._value_string { i32 6, ptr @.str.285 }, %struct._value_string { i32 7, ptr @.str.286 }, %struct._value_string { i32 8, ptr @.str.287 }, %struct._value_string { i32 9, ptr @.str.288 }, %struct._value_string { i32 10, ptr @.str.289 }, %struct._value_string { i32 13, ptr @.str.290 }, %struct._value_string { i32 16, ptr @.str.291 }, %struct._value_string { i32 17, ptr @.str.292 }, %struct._value_string { i32 18, ptr @.str.293 }, %struct._value_string { i32 19, ptr @.str.294 }, %struct._value_string zeroinitializer], align 16
 @hf_lorawan_mac_command_down_link_check_ans_type = internal global i32 0, align 4
 @.str.20 = private unnamed_addr constant [18 x i8] c"Link Check Answer\00", align 1
 @.str.21 = private unnamed_addr constant [26 x i8] c"lorawan.link_check_answer\00", align 1
@@ -367,7 +360,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_lorawan_frame_payload_decrypted = internal global i32 0, align 4
 @ett_lorawan_beacon = internal global i32 0, align 4
 @ett_lorawan_beacon_gwspecific = internal global i32 0, align 4
-@proto_register_lorawan.ei = internal global [5 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_lorawan_missing_keys, %struct.expert_field_info { ptr @.str.224, i32 150994944, i32 4194304, ptr @.str.225, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_lorawan_decrypting_error, %struct.expert_field_info { ptr @.str.226, i32 201326592, i32 8388608, ptr @.str.227, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_lorawan_mic, %struct.expert_field_info { ptr @.str.228, i32 16777216, i32 6291456, ptr @.str.229, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_lorawan_length_error, %struct.expert_field_info { ptr @.str.230, i32 117440512, i32 8388608, ptr @.str.231, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_lorawan_mhdr_error, %struct.expert_field_info { ptr @.str.232, i32 117440512, i32 8388608, ptr @.str.233, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_lorawan.ei = internal global [5 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_lorawan_missing_keys, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.224, i32 150994944, i32 4194304, ptr @.str.225, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_lorawan_decrypting_error, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.226, i32 201326592, i32 8388608, ptr @.str.227, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_lorawan_mic, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.228, i32 16777216, i32 6291456, ptr @.str.229, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_lorawan_length_error, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.230, i32 117440512, i32 8388608, ptr @.str.231, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_lorawan_mhdr_error, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.232, i32 117440512, i32 8388608, ptr @.str.233, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_lorawan_missing_keys = internal global %struct.expert_field zeroinitializer, align 4
 @.str.224 = private unnamed_addr constant [21 x i8] c"lorawan.missing_keys\00", align 1
 @.str.225 = private unnamed_addr constant [24 x i8] c"Missing encryption keys\00", align 1
@@ -388,14 +381,14 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.236 = private unnamed_addr constant [8 x i8] c"lorawan\00", align 1
 @proto_lorawan = internal unnamed_addr global i32 0, align 4
 @lorawan_handle = internal unnamed_addr global ptr null, align 8
-@proto_register_lorawan.root_keys_uat_fields = internal global [3 x %struct._uat_field_t] [%struct._uat_field_t { ptr @.str.237, ptr @.str.238, i32 1, %struct.anon { ptr @uat_fld_chk_str, ptr @root_keys_deveui_string_set_cb, ptr @root_keys_deveui_string_tostr_cb }, %struct.anon.0 zeroinitializer, ptr null, ptr @.str.239, ptr null }, %struct._uat_field_t { ptr @.str.240, ptr @.str.241, i32 1, %struct.anon { ptr @uat_fld_chk_str, ptr @root_keys_appkey_string_set_cb, ptr @root_keys_appkey_string_tostr_cb }, %struct.anon.0 zeroinitializer, ptr null, ptr @.str.242, ptr null }, %struct._uat_field_t zeroinitializer], align 16
+@proto_register_lorawan.root_keys_uat_fields = internal global [3 x { ptr, ptr, i32, [4 x i8], %struct.anon, %struct.anon.0, ptr, ptr, ptr }] [{ ptr, ptr, i32, [4 x i8], %struct.anon, %struct.anon.0, ptr, ptr, ptr } { ptr @.str.237, ptr @.str.238, i32 1, [4 x i8] zeroinitializer, %struct.anon { ptr @uat_fld_chk_str, ptr @root_keys_deveui_string_set_cb, ptr @root_keys_deveui_string_tostr_cb }, %struct.anon.0 zeroinitializer, ptr null, ptr @.str.239, ptr null }, { ptr, ptr, i32, [4 x i8], %struct.anon, %struct.anon.0, ptr, ptr, ptr } { ptr @.str.240, ptr @.str.241, i32 1, [4 x i8] zeroinitializer, %struct.anon { ptr @uat_fld_chk_str, ptr @root_keys_appkey_string_set_cb, ptr @root_keys_appkey_string_tostr_cb }, %struct.anon.0 zeroinitializer, ptr null, ptr @.str.242, ptr null }, { ptr, ptr, i32, [4 x i8], %struct.anon, %struct.anon.0, ptr, ptr, ptr } zeroinitializer], align 16
 @.str.237 = private unnamed_addr constant [14 x i8] c"deveui_string\00", align 1
 @.str.238 = private unnamed_addr constant [7 x i8] c"DevEUI\00", align 1
 @.str.239 = private unnamed_addr constant [30 x i8] c"LoRaWAN End-device Identifier\00", align 1
 @.str.240 = private unnamed_addr constant [14 x i8] c"appkey_string\00", align 1
 @.str.241 = private unnamed_addr constant [7 x i8] c"AppKey\00", align 1
 @.str.242 = private unnamed_addr constant [24 x i8] c"LoRaWAN Application Key\00", align 1
-@proto_register_lorawan.session_keys_uat_fields = internal global [4 x %struct._uat_field_t] [%struct._uat_field_t { ptr @.str.243, ptr @.str.244, i32 1, %struct.anon { ptr @uat_fld_chk_str, ptr @session_keys_dev_addr_string_set_cb, ptr @session_keys_dev_addr_string_tostr_cb }, %struct.anon.0 zeroinitializer, ptr null, ptr @.str.245, ptr null }, %struct._uat_field_t { ptr @.str.246, ptr @.str.247, i32 1, %struct.anon { ptr @uat_fld_chk_str, ptr @session_keys_nwkskey_string_set_cb, ptr @session_keys_nwkskey_string_tostr_cb }, %struct.anon.0 zeroinitializer, ptr null, ptr @.str.248, ptr null }, %struct._uat_field_t { ptr @.str.249, ptr @.str.250, i32 1, %struct.anon { ptr @uat_fld_chk_str, ptr @session_keys_appskey_string_set_cb, ptr @session_keys_appskey_string_tostr_cb }, %struct.anon.0 zeroinitializer, ptr null, ptr @.str.251, ptr null }, %struct._uat_field_t zeroinitializer], align 16
+@proto_register_lorawan.session_keys_uat_fields = internal global [4 x { ptr, ptr, i32, [4 x i8], %struct.anon, %struct.anon.0, ptr, ptr, ptr }] [{ ptr, ptr, i32, [4 x i8], %struct.anon, %struct.anon.0, ptr, ptr, ptr } { ptr @.str.243, ptr @.str.244, i32 1, [4 x i8] zeroinitializer, %struct.anon { ptr @uat_fld_chk_str, ptr @session_keys_dev_addr_string_set_cb, ptr @session_keys_dev_addr_string_tostr_cb }, %struct.anon.0 zeroinitializer, ptr null, ptr @.str.245, ptr null }, { ptr, ptr, i32, [4 x i8], %struct.anon, %struct.anon.0, ptr, ptr, ptr } { ptr @.str.246, ptr @.str.247, i32 1, [4 x i8] zeroinitializer, %struct.anon { ptr @uat_fld_chk_str, ptr @session_keys_nwkskey_string_set_cb, ptr @session_keys_nwkskey_string_tostr_cb }, %struct.anon.0 zeroinitializer, ptr null, ptr @.str.248, ptr null }, { ptr, ptr, i32, [4 x i8], %struct.anon, %struct.anon.0, ptr, ptr, ptr } { ptr @.str.249, ptr @.str.250, i32 1, [4 x i8] zeroinitializer, %struct.anon { ptr @uat_fld_chk_str, ptr @session_keys_appskey_string_set_cb, ptr @session_keys_appskey_string_tostr_cb }, %struct.anon.0 zeroinitializer, ptr null, ptr @.str.251, ptr null }, { ptr, ptr, i32, [4 x i8], %struct.anon, %struct.anon.0, ptr, ptr, ptr } zeroinitializer], align 16
 @.str.243 = private unnamed_addr constant [16 x i8] c"dev_addr_string\00", align 1
 @.str.244 = private unnamed_addr constant [8 x i8] c"DevAddr\00", align 1
 @.str.245 = private unnamed_addr constant [23 x i8] c"LoRaWAN Device Address\00", align 1
@@ -423,86 +416,90 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.263 = private unnamed_addr constant [20 x i8] c"Confirmed Data Down\00", align 1
 @.str.264 = private unnamed_addr constant [12 x i8] c"Proprietary\00", align 1
 @.str.265 = private unnamed_addr constant [15 x i8] c"Class-B Beacon\00", align 1
-@.str.266 = private unnamed_addr constant [11 x i8] c"LoRaWAN R1\00", align 1
-@.str.267 = private unnamed_addr constant [27 x i8] c"Network validation request\00", align 1
-@.str.268 = private unnamed_addr constant [30 x i8] c"Data rate adjustment response\00", align 1
-@.str.269 = private unnamed_addr constant [29 x i8] c"Duty-cycle rate set response\00", align 1
-@.str.270 = private unnamed_addr constant [29 x i8] c"Reception slots set response\00", align 1
-@.str.271 = private unnamed_addr constant [16 x i8] c"Status response\00", align 1
-@.str.272 = private unnamed_addr constant [39 x i8] c"Channel creation/modification response\00", align 1
-@.str.273 = private unnamed_addr constant [36 x i8] c"Reception slots timing set response\00", align 1
-@.str.274 = private unnamed_addr constant [40 x i8] c"End-device transmit parameters response\00", align 1
-@.str.275 = private unnamed_addr constant [20 x i8] c"Channel DI response\00", align 1
-@.str.276 = private unnamed_addr constant [24 x i8] c"End-device time request\00", align 1
-@.str.277 = private unnamed_addr constant [38 x i8] c"Class-B ping-slot periodicity request\00", align 1
-@.str.278 = private unnamed_addr constant [37 x i8] c"Class-B ping-slot frequency response\00", align 1
-@.str.279 = private unnamed_addr constant [30 x i8] c"Class-B beacon timing request\00", align 1
-@.str.280 = private unnamed_addr constant [34 x i8] c"Class-B beacon frequency response\00", align 1
-@.str.281 = private unnamed_addr constant [28 x i8] c"Network validation response\00", align 1
-@.str.282 = private unnamed_addr constant [29 x i8] c"Data rate adjustment request\00", align 1
-@.str.283 = private unnamed_addr constant [28 x i8] c"Duty-cycle rate set request\00", align 1
-@.str.284 = private unnamed_addr constant [28 x i8] c"Reception slots set request\00", align 1
-@.str.285 = private unnamed_addr constant [15 x i8] c"Status request\00", align 1
-@.str.286 = private unnamed_addr constant [38 x i8] c"Channel creation/modification request\00", align 1
-@.str.287 = private unnamed_addr constant [35 x i8] c"Reception slots timing set request\00", align 1
-@.str.288 = private unnamed_addr constant [39 x i8] c"End-device transmit parameters request\00", align 1
-@.str.289 = private unnamed_addr constant [19 x i8] c"Channel DI request\00", align 1
-@.str.290 = private unnamed_addr constant [25 x i8] c"End-device time response\00", align 1
-@.str.291 = private unnamed_addr constant [39 x i8] c"Class-B ping-slot periodicity response\00", align 1
-@.str.292 = private unnamed_addr constant [36 x i8] c"Class-B ping-slot frequency request\00", align 1
-@.str.293 = private unnamed_addr constant [31 x i8] c"Class-B beacon timing response\00", align 1
-@.str.294 = private unnamed_addr constant [33 x i8] c"Class-B beacon frequency request\00", align 1
-@.str.295 = private unnamed_addr constant [7 x i8] c"%.5f%c\00", align 1
-@.str.296 = private unnamed_addr constant [39 x i8] c" (Message Type: %s, Major Version: %s)\00", align 1
-@.str.297 = private unnamed_addr constant [18 x i8] c"Decrypted payload\00", align 1
+@lorawan_ftypenames = internal constant [10 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.122 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.133 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.260 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.261 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.262 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.263 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.8 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.264 }, { i32, [4 x i8], ptr } { i32 65520, [4 x i8] zeroinitializer, ptr @.str.265 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.267 = private unnamed_addr constant [11 x i8] c"LoRaWAN R1\00", align 1
+@lorawan_majornames = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.267 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.269 = private unnamed_addr constant [27 x i8] c"Network validation request\00", align 1
+@.str.270 = private unnamed_addr constant [30 x i8] c"Data rate adjustment response\00", align 1
+@.str.271 = private unnamed_addr constant [29 x i8] c"Duty-cycle rate set response\00", align 1
+@.str.272 = private unnamed_addr constant [29 x i8] c"Reception slots set response\00", align 1
+@.str.273 = private unnamed_addr constant [16 x i8] c"Status response\00", align 1
+@.str.274 = private unnamed_addr constant [39 x i8] c"Channel creation/modification response\00", align 1
+@.str.275 = private unnamed_addr constant [36 x i8] c"Reception slots timing set response\00", align 1
+@.str.276 = private unnamed_addr constant [40 x i8] c"End-device transmit parameters response\00", align 1
+@.str.277 = private unnamed_addr constant [20 x i8] c"Channel DI response\00", align 1
+@.str.278 = private unnamed_addr constant [24 x i8] c"End-device time request\00", align 1
+@.str.279 = private unnamed_addr constant [38 x i8] c"Class-B ping-slot periodicity request\00", align 1
+@.str.280 = private unnamed_addr constant [37 x i8] c"Class-B ping-slot frequency response\00", align 1
+@.str.281 = private unnamed_addr constant [30 x i8] c"Class-B beacon timing request\00", align 1
+@.str.282 = private unnamed_addr constant [34 x i8] c"Class-B beacon frequency response\00", align 1
+@lorawan_mac_uplink_commandnames = internal constant [15 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.269 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.270 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.271 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.272 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.273 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.274 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.275 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.276 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.277 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.278 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.279 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.280 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.281 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.282 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.284 = private unnamed_addr constant [28 x i8] c"Network validation response\00", align 1
+@.str.285 = private unnamed_addr constant [29 x i8] c"Data rate adjustment request\00", align 1
+@.str.286 = private unnamed_addr constant [28 x i8] c"Duty-cycle rate set request\00", align 1
+@.str.287 = private unnamed_addr constant [28 x i8] c"Reception slots set request\00", align 1
+@.str.288 = private unnamed_addr constant [15 x i8] c"Status request\00", align 1
+@.str.289 = private unnamed_addr constant [38 x i8] c"Channel creation/modification request\00", align 1
+@.str.290 = private unnamed_addr constant [35 x i8] c"Reception slots timing set request\00", align 1
+@.str.291 = private unnamed_addr constant [39 x i8] c"End-device transmit parameters request\00", align 1
+@.str.292 = private unnamed_addr constant [19 x i8] c"Channel DI request\00", align 1
+@.str.293 = private unnamed_addr constant [25 x i8] c"End-device time response\00", align 1
+@.str.294 = private unnamed_addr constant [39 x i8] c"Class-B ping-slot periodicity response\00", align 1
+@.str.295 = private unnamed_addr constant [36 x i8] c"Class-B ping-slot frequency request\00", align 1
+@.str.296 = private unnamed_addr constant [31 x i8] c"Class-B beacon timing response\00", align 1
+@.str.297 = private unnamed_addr constant [33 x i8] c"Class-B beacon frequency request\00", align 1
+@lorawan_mac_downlink_commandnames = internal constant [15 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.284 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.285 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.286 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.287 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.288 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.289 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.290 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.291 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.292 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.293 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.294 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.295 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.296 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.297 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.299 = private unnamed_addr constant [7 x i8] c"%.5f%c\00", align 1
+@.str.300 = private unnamed_addr constant [39 x i8] c" (Message Type: %s, Major Version: %s)\00", align 1
+@.str.301 = private unnamed_addr constant [18 x i8] c"Decrypted payload\00", align 1
 @hfx_lorawan_join_accept_dlsettings = internal constant [3 x ptr] [ptr @hf_lorawan_join_accept_dlsettings_rx1droffset_type, ptr @hf_lorawan_join_accept_dlsettings_rx2dr_type, ptr null], align 16
 @hfx_lorawan_frame_header_frame_control = internal constant [6 x ptr] [ptr @hf_lorawan_frame_header_frame_control_adr_type, ptr @hf_lorawan_frame_header_frame_control_adrackreq_type, ptr @hf_lorawan_frame_header_frame_control_ack_type, ptr @hf_lorawan_frame_header_frame_control_fpending_type, ptr @hf_lorawan_frame_header_frame_control_foptslen_type, ptr null], align 16
-@.str.298 = private unnamed_addr constant [17 x i8] c"Decrypting error\00", align 1
-@.str.299 = private unnamed_addr constant [6 x i8] c" (%s)\00", align 1
+@.str.302 = private unnamed_addr constant [17 x i8] c"Decrypting error\00", align 1
+@.str.303 = private unnamed_addr constant [6 x i8] c" (%s)\00", align 1
 @hfx_lorawan_mac_command_link_check_ans = internal constant [4 x ptr] [ptr @hf_lorawan_mac_command_up_link_adr_ans_txpower_type, ptr @hf_lorawan_mac_command_up_link_adr_ans_datarate_type, ptr @hf_lorawan_mac_command_up_link_adr_ans_channel_mask_type, ptr null], align 16
 @hfx_lorawan_mac_command_rx_setup_ans = internal constant [4 x ptr] [ptr @hf_lorawan_mac_command_up_rx_setup_ans_rx1droffset_type, ptr @hf_lorawan_mac_command_up_rx_setup_ans_rx2datarate_type, ptr @hf_lorawan_mac_command_up_rx_setup_ans_frequency_type, ptr null], align 16
 @hfx_lorawan_mac_command_new_channel_ans = internal constant [3 x ptr] [ptr @hf_lorawan_mac_command_up_new_channel_ans_datarate_type, ptr @hf_lorawan_mac_command_up_new_channel_ans_frequency_type, ptr null], align 16
 @hfx_lorawan_mac_command_link_adr_req_channel = internal constant [17 x ptr] [ptr @hf_lorawan_mac_command_down_link_adr_req_channel1_type, ptr @hf_lorawan_mac_command_down_link_adr_req_channel2_type, ptr @hf_lorawan_mac_command_down_link_adr_req_channel3_type, ptr @hf_lorawan_mac_command_down_link_adr_req_channel4_type, ptr @hf_lorawan_mac_command_down_link_adr_req_channel5_type, ptr @hf_lorawan_mac_command_down_link_adr_req_channel6_type, ptr @hf_lorawan_mac_command_down_link_adr_req_channel7_type, ptr @hf_lorawan_mac_command_down_link_adr_req_channel8_type, ptr @hf_lorawan_mac_command_down_link_adr_req_channel9_type, ptr @hf_lorawan_mac_command_down_link_adr_req_channel10_type, ptr @hf_lorawan_mac_command_down_link_adr_req_channel11_type, ptr @hf_lorawan_mac_command_down_link_adr_req_channel12_type, ptr @hf_lorawan_mac_command_down_link_adr_req_channel13_type, ptr @hf_lorawan_mac_command_down_link_adr_req_channel14_type, ptr @hf_lorawan_mac_command_down_link_adr_req_channel15_type, ptr @hf_lorawan_mac_command_down_link_adr_req_channel16_type, ptr null], align 16
-@.str.300 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
-@.str.301 = private unnamed_addr constant [37 x i8] c"End-device identifier can't be empty\00", align 1
-@.str.302 = private unnamed_addr constant [42 x i8] c"End-device identifier must be hexadecimal\00", align 1
-@.str.303 = private unnamed_addr constant [50 x i8] c"End-device identifier must be 8 bytes hexadecimal\00", align 1
-@.str.304 = private unnamed_addr constant [31 x i8] c"Application key can't be empty\00", align 1
-@.str.305 = private unnamed_addr constant [36 x i8] c"Application key must be hexadecimal\00", align 1
-@.str.306 = private unnamed_addr constant [45 x i8] c"Application key must be 16 bytes hexadecimal\00", align 1
-@.str.307 = private unnamed_addr constant [30 x i8] c"Device address can't be empty\00", align 1
-@.str.308 = private unnamed_addr constant [35 x i8] c"Device address must be hexadecimal\00", align 1
-@.str.309 = private unnamed_addr constant [43 x i8] c"Device address must be 4 bytes hexadecimal\00", align 1
-@.str.310 = private unnamed_addr constant [35 x i8] c"Network session key can't be empty\00", align 1
-@.str.311 = private unnamed_addr constant [40 x i8] c"Network session key must be hexadecimal\00", align 1
-@.str.312 = private unnamed_addr constant [49 x i8] c"Network session key must be 16 bytes hexadecimal\00", align 1
-@.str.313 = private unnamed_addr constant [39 x i8] c"Application session key can't be empty\00", align 1
-@.str.314 = private unnamed_addr constant [44 x i8] c"Application session key must be hexadecimal\00", align 1
-@.str.315 = private unnamed_addr constant [53 x i8] c"Application session key must be 16 bytes hexadecimal\00", align 1
+@.str.304 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@.str.305 = private unnamed_addr constant [37 x i8] c"End-device identifier can't be empty\00", align 1
+@.str.306 = private unnamed_addr constant [42 x i8] c"End-device identifier must be hexadecimal\00", align 1
+@.str.307 = private unnamed_addr constant [50 x i8] c"End-device identifier must be 8 bytes hexadecimal\00", align 1
+@.str.308 = private unnamed_addr constant [31 x i8] c"Application key can't be empty\00", align 1
+@.str.309 = private unnamed_addr constant [36 x i8] c"Application key must be hexadecimal\00", align 1
+@.str.310 = private unnamed_addr constant [45 x i8] c"Application key must be 16 bytes hexadecimal\00", align 1
+@.str.311 = private unnamed_addr constant [30 x i8] c"Device address can't be empty\00", align 1
+@.str.312 = private unnamed_addr constant [35 x i8] c"Device address must be hexadecimal\00", align 1
+@.str.313 = private unnamed_addr constant [43 x i8] c"Device address must be 4 bytes hexadecimal\00", align 1
+@.str.314 = private unnamed_addr constant [35 x i8] c"Network session key can't be empty\00", align 1
+@.str.315 = private unnamed_addr constant [40 x i8] c"Network session key must be hexadecimal\00", align 1
+@.str.316 = private unnamed_addr constant [49 x i8] c"Network session key must be 16 bytes hexadecimal\00", align 1
+@.str.317 = private unnamed_addr constant [39 x i8] c"Application session key can't be empty\00", align 1
+@.str.318 = private unnamed_addr constant [44 x i8] c"Application session key must be hexadecimal\00", align 1
+@.str.319 = private unnamed_addr constant [53 x i8] c"Application session key must be 16 bytes hexadecimal\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_lorawan() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.234, ptr noundef nonnull @.str.235, ptr noundef nonnull @.str.236) #9
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.234, ptr noundef nonnull @.str.235, ptr noundef nonnull @.str.236)
   store i32 %1, ptr @proto_lorawan, align 4
-  %2 = tail call ptr @register_dissector(ptr noundef nonnull @.str.236, ptr noundef nonnull @dissect_lorawan, i32 noundef %1) #9
+  %2 = tail call ptr @register_dissector(ptr noundef nonnull @.str.236, ptr noundef nonnull @dissect_lorawan, i32 noundef %1)
   store ptr %2, ptr @lorawan_handle, align 8
   %3 = load i32, ptr @proto_lorawan, align 4
-  tail call void @proto_register_field_array(i32 noundef %3, ptr noundef nonnull @proto_register_lorawan.hf, i32 noundef 100) #9
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_lorawan.ett, i32 noundef 16) #9
+  tail call void @proto_register_field_array(i32 noundef %3, ptr noundef nonnull @proto_register_lorawan.hf, i32 noundef 100)
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_lorawan.ett, i32 noundef 16)
   %4 = load i32, ptr @proto_lorawan, align 4
-  %5 = tail call ptr @expert_register_protocol(i32 noundef %4) #9
-  tail call void @expert_register_field_array(ptr noundef %5, ptr noundef nonnull @proto_register_lorawan.ei, i32 noundef 5) #9
-  %6 = tail call ptr @uat_new(ptr noundef nonnull @.str.252, i64 noundef 32, ptr noundef nonnull @.str.253, i1 noundef zeroext true, ptr noundef nonnull @root_keys, ptr noundef nonnull @root_num_keys, i32 noundef 3, ptr noundef null, ptr noundef nonnull @root_keys_copy_cb, ptr noundef nonnull @root_keys_update_cb, ptr noundef nonnull @root_keys_free_cb, ptr noundef null, ptr noundef null, ptr noundef nonnull @proto_register_lorawan.root_keys_uat_fields) #9
-  %7 = tail call ptr @uat_new(ptr noundef nonnull @.str.254, i64 noundef 48, ptr noundef nonnull @.str.255, i1 noundef zeroext true, ptr noundef nonnull @session_keys, ptr noundef nonnull @session_num_keys, i32 noundef 3, ptr noundef null, ptr noundef nonnull @session_keys_copy_cb, ptr noundef nonnull @session_keys_update_cb, ptr noundef nonnull @session_keys_free_cb, ptr noundef null, ptr noundef null, ptr noundef nonnull @proto_register_lorawan.session_keys_uat_fields) #9
+  %5 = tail call ptr @expert_register_protocol(i32 noundef %4)
+  tail call void @expert_register_field_array(ptr noundef %5, ptr noundef nonnull @proto_register_lorawan.ei, i32 noundef 5)
+  %6 = tail call ptr @uat_new(ptr noundef nonnull @.str.252, i64 noundef 32, ptr noundef nonnull @.str.253, i1 noundef zeroext true, ptr noundef nonnull @root_keys, ptr noundef nonnull @root_num_keys, i32 noundef 3, ptr noundef null, ptr noundef nonnull @root_keys_copy_cb, ptr noundef nonnull @root_keys_update_cb, ptr noundef nonnull @root_keys_free_cb, ptr noundef null, ptr noundef null, ptr noundef nonnull @proto_register_lorawan.root_keys_uat_fields)
+  %7 = tail call ptr @uat_new(ptr noundef nonnull @.str.254, i64 noundef 48, ptr noundef nonnull @.str.255, i1 noundef zeroext true, ptr noundef nonnull @session_keys, ptr noundef nonnull @session_num_keys, i32 noundef 3, ptr noundef null, ptr noundef nonnull @session_keys_copy_cb, ptr noundef nonnull @session_keys_update_cb, ptr noundef nonnull @session_keys_free_cb, ptr noundef null, ptr noundef null, ptr noundef nonnull @proto_register_lorawan.session_keys_uat_fields)
   %8 = load i32, ptr @proto_lorawan, align 4
-  %9 = tail call ptr @prefs_register_protocol(i32 noundef %8, ptr noundef null) #9
-  tail call void @prefs_register_uat_preference(ptr noundef %9, ptr noundef nonnull @.str.253, ptr noundef nonnull @.str.252, ptr noundef nonnull @.str.256, ptr noundef %6) #9
-  tail call void @prefs_register_uat_preference(ptr noundef %9, ptr noundef nonnull @.str.255, ptr noundef nonnull @.str.254, ptr noundef nonnull @.str.257, ptr noundef %7) #9
+  %9 = tail call ptr @prefs_register_protocol(i32 noundef %8, ptr noundef null)
+  tail call void @prefs_register_uat_preference(ptr noundef %9, ptr noundef nonnull @.str.253, ptr noundef nonnull @.str.252, ptr noundef nonnull @.str.256, ptr noundef %6)
+  tail call void @prefs_register_uat_preference(ptr noundef %9, ptr noundef nonnull @.str.255, ptr noundef nonnull @.str.254, ptr noundef nonnull @.str.257, ptr noundef %7)
   ret void
 }
 
-; Function Attrs: nofree nounwind uwtable
-define internal void @cf_coords_lat_custom(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
+; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
+define internal void @cf_coords_lat_custom(ptr noundef %0, i32 noundef %1) #1 {
   %3 = icmp ult i32 %1, 8388608
   %4 = add i32 %1, -16777216
   %5 = select i1 %3, i32 %1, i32 %4
@@ -512,12 +509,12 @@ define internal void @cf_coords_lat_custom(ptr noundef writeonly captures(none) 
   %9 = tail call double @llvm.fabs.f64(double %8)
   %10 = fcmp oge double %8, 0.000000e+00
   %11 = select i1 %10, i32 78, i32 83
-  %12 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.295, double noundef %9, i32 noundef %11) #9
+  %12 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.299, double noundef %9, i32 noundef %11)
   ret void
 }
 
-; Function Attrs: nofree nounwind uwtable
-define internal void @cf_coords_lng_custom(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
+; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
+define internal void @cf_coords_lng_custom(ptr noundef %0, i32 noundef %1) #1 {
   %3 = icmp ult i32 %1, 8388608
   %4 = add i32 %1, -16777216
   %5 = select i1 %3, i32 %1, i32 %4
@@ -527,29 +524,34 @@ define internal void @cf_coords_lng_custom(ptr noundef writeonly captures(none) 
   %9 = tail call double @llvm.fabs.f64(double %8)
   %10 = fcmp oge double %8, 0.000000e+00
   %11 = select i1 %10, i32 69, i32 87
-  %12 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.295, double noundef %9, i32 noundef %11) #9
+  %12 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.299, double noundef %9, i32 noundef %11)
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_lorawan(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct.nstime_t, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
-  tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.235) #9
+  tail call void @col_set_str(ptr noundef %8, i32 noundef 35, ptr noundef nonnull @.str.235)
   %9 = load ptr, ptr %7, align 8
-  tail call void @col_clear(ptr noundef %9, i32 noundef 25) #9
+  tail call void @col_clear(ptr noundef %9, i32 noundef 25)
   %10 = load i32, ptr @proto_lorawan, align 4
-  %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #9
+  %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %12 = load i32, ptr @ett_lorawan, align 4
-  %13 = tail call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #9
-  %14 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef 0, i32 noundef -2147483648) #9
-  %15 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
+  %13 = tail call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12)
+  %14 = tail call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef 0, i32 noundef -2147483648)
+  %15 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %16 = icmp eq i16 %14, 0
   %17 = and i32 %15, -3
   %or.cond = icmp eq i32 %17, 17
@@ -557,22 +559,22 @@ define internal i32 @dissect_lorawan(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %or.cond63, label %18, label %67
 
 18:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %19 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
+  %19 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
   %20 = load i32, ptr @hf_lorawan_msgtype_type, align 4
-  %21 = tail call ptr @val_to_str_const(i32 noundef 65520, ptr noundef nonnull @lorawan_ftypenames, ptr noundef nonnull @.str.8) #9
-  %22 = tail call ptr @proto_tree_add_string(ptr noundef %13, i32 noundef %20, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %21) #9
+  %21 = tail call ptr @val_to_str_const(i32 noundef 65520, ptr noundef nonnull @lorawan_ftypenames, ptr noundef nonnull @.str.8)
+  %22 = tail call ptr @proto_tree_add_string(ptr noundef %13, i32 noundef %20, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %21)
   %23 = icmp eq i32 %19, 17
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %18
-  %25 = tail call zeroext i16 @crc16_r3_ccitt_tvb(ptr noundef %0, i32 noundef 0, i32 noundef 6) #9
-  %26 = tail call zeroext i16 @crc16_r3_ccitt_tvb(ptr noundef %0, i32 noundef 8, i32 noundef 7) #9
+  %25 = tail call zeroext i16 @crc16_r3_ccitt_tvb(ptr noundef %0, i32 noundef 0, i32 noundef 6)
+  %26 = tail call zeroext i16 @crc16_r3_ccitt_tvb(ptr noundef %0, i32 noundef 8, i32 noundef 7)
   br label %30
 
 27:                                               ; preds = %18
-  %28 = tail call zeroext i16 @crc16_r3_ccitt_tvb(ptr noundef %0, i32 noundef 0, i32 noundef 7) #9
-  %29 = tail call zeroext i16 @crc16_r3_ccitt_tvb(ptr noundef %0, i32 noundef 9, i32 noundef 8) #9
+  %28 = tail call zeroext i16 @crc16_r3_ccitt_tvb(ptr noundef %0, i32 noundef 0, i32 noundef 7)
+  %29 = tail call zeroext i16 @crc16_r3_ccitt_tvb(ptr noundef %0, i32 noundef 9, i32 noundef 8)
   br label %30
 
 30:                                               ; preds = %27, %24
@@ -580,40 +582,40 @@ define internal i32 @dissect_lorawan(ptr noundef %0, ptr noundef %1, ptr noundef
   %.056.i = phi i16 [ %29, %27 ], [ %26, %24 ]
   %.055.i = phi i16 [ %28, %27 ], [ %25, %24 ]
   %31 = load i32, ptr @hf_lorawan_beacon_rfu1_type, align 4
-  %32 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %31, ptr noundef %0, i32 noundef 0, i32 noundef %.sink57.i, i32 noundef 0) #9
-  %33 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %.sink57.i, i32 noundef -2147483648) #9
+  %32 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %31, ptr noundef %0, i32 noundef 0, i32 noundef %.sink57.i, i32 noundef 0)
+  %33 = tail call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %.sink57.i, i32 noundef -2147483648)
   %34 = zext i32 %33 to i64
   %35 = add nuw nsw i64 %34, 315964782
   store i64 %35, ptr %6, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 0, ptr %.sroa.2.0..sroa_idx.i, align 8
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i32 0, ptr %.sroa.4.0..sroa_idx.i, align 8
   %36 = load i32, ptr @hf_lorawan_beacon_time_type, align 4
-  %37 = call ptr @proto_tree_add_time(ptr noundef %13, i32 noundef %36, ptr noundef %0, i32 noundef %.sink57.i, i32 noundef 4, ptr noundef nonnull %6) #9
+  %37 = call ptr @proto_tree_add_time(ptr noundef %13, i32 noundef %36, ptr noundef %0, i32 noundef %.sink57.i, i32 noundef 4, ptr noundef nonnull %6)
   %38 = or disjoint i32 %.sink57.i, 4
   %39 = load i32, ptr @hf_lorawan_beacon_crc1_type, align 4
   %40 = load i32, ptr @hf_lorawan_beacon_crc1_status_type, align 4
   %41 = zext i16 %.055.i to i32
-  %42 = call ptr @proto_tree_add_checksum(ptr noundef %13, ptr noundef %0, i32 noundef %38, i32 noundef %39, i32 noundef %40, ptr noundef null, ptr noundef nonnull %1, i32 noundef %41, i32 noundef -2147483648, i32 noundef 1) #9
+  %42 = call ptr @proto_tree_add_checksum(ptr noundef %13, ptr noundef %0, i32 noundef %38, i32 noundef %39, i32 noundef %40, ptr noundef null, ptr noundef %1, i32 noundef %41, i32 noundef -2147483648, i32 noundef 1)
   %43 = add nuw nsw i32 %.sink57.i, 6
   %44 = load i32, ptr @hf_lorawan_beacon_gwspecific_type, align 4
-  %45 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %44, ptr noundef %0, i32 noundef %43, i32 noundef 7, i32 noundef 0) #9
+  %45 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %44, ptr noundef %0, i32 noundef %43, i32 noundef 7, i32 noundef 0)
   %46 = load i32, ptr @ett_lorawan_beacon_gwspecific, align 4
-  %47 = call ptr @proto_item_add_subtree(ptr noundef %45, i32 noundef %46) #9
+  %47 = call ptr @proto_item_add_subtree(ptr noundef %45, i32 noundef %46)
   %48 = load i32, ptr @hf_lorawan_beacon_gwspecific_infodesc_type, align 4
-  %49 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %48, ptr noundef %0, i32 noundef %43, i32 noundef 1, i32 noundef 0) #9
+  %49 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %48, ptr noundef %0, i32 noundef %43, i32 noundef 1, i32 noundef 0)
   %50 = add nuw nsw i32 %.sink57.i, 7
   %51 = load i32, ptr @hf_lorawan_beacon_gwspecific_lat_type, align 4
-  %52 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %51, ptr noundef %0, i32 noundef %50, i32 noundef 3, i32 noundef -2147483648) #9
+  %52 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %51, ptr noundef %0, i32 noundef %50, i32 noundef 3, i32 noundef -2147483648)
   %53 = add nuw nsw i32 %.sink57.i, 10
   %54 = load i32, ptr @hf_lorawan_beacon_gwspecific_lng_type, align 4
-  %55 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %54, ptr noundef %0, i32 noundef %53, i32 noundef 3, i32 noundef -2147483648) #9
+  %55 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %54, ptr noundef %0, i32 noundef %53, i32 noundef 3, i32 noundef -2147483648)
   %56 = add nuw nsw i32 %.sink57.i, 13
   %57 = icmp eq i32 %19, 19
   br i1 %57, label %58, label %dissect_lorawan_beacon.exit
 
 58:                                               ; preds = %30
   %59 = load i32, ptr @hf_lorawan_beacon_rfu2_type, align 4
-  %60 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %59, ptr noundef %0, i32 noundef %56, i32 noundef 1, i32 noundef 0) #9
+  %60 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %59, ptr noundef %0, i32 noundef %56, i32 noundef 1, i32 noundef 0)
   %61 = add nuw nsw i32 %.sink57.i, 14
   br label %dissect_lorawan_beacon.exit
 
@@ -622,66 +624,66 @@ dissect_lorawan_beacon.exit:                      ; preds = %30, %58
   %62 = load i32, ptr @hf_lorawan_beacon_crc2_type, align 4
   %63 = load i32, ptr @hf_lorawan_beacon_crc2_status_type, align 4
   %64 = zext i16 %.056.i to i32
-  %65 = call ptr @proto_tree_add_checksum(ptr noundef %13, ptr noundef %0, i32 noundef %.1.i, i32 noundef %62, i32 noundef %63, ptr noundef null, ptr noundef nonnull %1, i32 noundef %64, i32 noundef -2147483648, i32 noundef 1) #9
-  %66 = call i32 @tvb_captured_length(ptr noundef %0) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  %65 = call ptr @proto_tree_add_checksum(ptr noundef %13, ptr noundef %0, i32 noundef %.1.i, i32 noundef %62, i32 noundef %63, ptr noundef null, ptr noundef %1, i32 noundef %64, i32 noundef -2147483648, i32 noundef 1)
+  %66 = call i32 @tvb_captured_length(ptr noundef %0)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
   br label %dissect_lorawan_join_accept.exit
 
 67:                                               ; preds = %4
-  %68 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #9
+  %68 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %69 = lshr i8 %68, 5
   %70 = load i32, ptr @hf_lorawan_msgtype_type, align 4
   %71 = zext nneg i8 %69 to i32
-  %72 = tail call ptr @val_to_str_const(i32 noundef %71, ptr noundef nonnull @lorawan_ftypenames, ptr noundef nonnull @.str.8) #9
-  %73 = tail call ptr @proto_tree_add_string(ptr noundef %13, i32 noundef %70, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %72) #9
+  %72 = tail call ptr @val_to_str_const(i32 noundef %71, ptr noundef nonnull @lorawan_ftypenames, ptr noundef nonnull @.str.8)
+  %73 = tail call ptr @proto_tree_add_string(ptr noundef %13, i32 noundef %70, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %72)
   %74 = load i32, ptr @hf_lorawan_mac_header_type, align 4
-  %75 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %74, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  %76 = tail call ptr @val_to_str_const(i32 noundef %71, ptr noundef nonnull @lorawan_ftypenames, ptr noundef nonnull @.str.8) #9
-  %77 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #9
+  %75 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %74, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+  %76 = tail call ptr @val_to_str_const(i32 noundef %71, ptr noundef nonnull @lorawan_ftypenames, ptr noundef nonnull @.str.8)
+  %77 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %78 = and i8 %77, 3
   %79 = zext nneg i8 %78 to i32
-  %80 = tail call ptr @val_to_str_const(i32 noundef %79, ptr noundef nonnull @lorawan_majornames, ptr noundef nonnull @.str.8) #9
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %75, ptr noundef nonnull @.str.296, ptr noundef %76, ptr noundef %80) #9
-  %81 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #9
+  %80 = tail call ptr @val_to_str_const(i32 noundef %79, ptr noundef nonnull @lorawan_majornames, ptr noundef nonnull @.str.8)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %75, ptr noundef nonnull @.str.300, ptr noundef %76, ptr noundef %80)
+  %81 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %82 = and i8 %81, 31
   %.not = icmp eq i8 %82, 0
   br i1 %.not, label %85, label %83
 
 83:                                               ; preds = %67
-  %84 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %13, ptr noundef nonnull @ei_lorawan_mhdr_error) #9
+  %84 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %13, ptr noundef nonnull @ei_lorawan_mhdr_error)
   br label %85
 
 85:                                               ; preds = %83, %67
   %.0 = phi i8 [ 6, %83 ], [ %69, %67 ]
   %86 = load i32, ptr @ett_lorawan_mac_header, align 4
-  %87 = tail call ptr @proto_item_add_subtree(ptr noundef %75, i32 noundef %86) #9
+  %87 = tail call ptr @proto_item_add_subtree(ptr noundef %75, i32 noundef %86)
   %88 = load i32, ptr @hf_lorawan_mac_header_ftype_type, align 4
-  %89 = tail call ptr @proto_tree_add_item(ptr noundef %87, i32 noundef %88, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %89 = tail call ptr @proto_tree_add_item(ptr noundef %87, i32 noundef %88, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %90 = load i32, ptr @hf_lorawan_mac_header_rfu_type, align 4
-  %91 = tail call ptr @proto_tree_add_item(ptr noundef %87, i32 noundef %90, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
+  %91 = tail call ptr @proto_tree_add_item(ptr noundef %87, i32 noundef %90, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %92 = load i32, ptr @hf_lorawan_mac_header_major_type, align 4
-  %93 = tail call ptr @proto_tree_add_item(ptr noundef %87, i32 noundef %92, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #9
-  switch i8 %.0, label %222 [
+  %93 = tail call ptr @proto_tree_add_item(ptr noundef %87, i32 noundef %92, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+  switch i8 %.0, label %225 [
     i8 0, label %94
     i8 1, label %130
-    i8 2, label %218
-    i8 4, label %218
-    i8 3, label %220
-    i8 5, label %220
+    i8 2, label %221
+    i8 4, label %221
+    i8 3, label %223
+    i8 5, label %223
   ]
 
 94:                                               ; preds = %85
   %95 = load i32, ptr @hf_lorawan_join_request_type, align 4
-  %96 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %95, ptr noundef %0, i32 noundef 1, i32 noundef 18, i32 noundef 0) #9
+  %96 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %95, ptr noundef %0, i32 noundef 1, i32 noundef 18, i32 noundef 0)
   %97 = load i32, ptr @ett_lorawan_join_request, align 4
-  %98 = tail call ptr @proto_item_add_subtree(ptr noundef %96, i32 noundef %97) #9
+  %98 = tail call ptr @proto_item_add_subtree(ptr noundef %96, i32 noundef %97)
   %99 = load i32, ptr @hf_lorawan_join_request_joineui_type, align 4
-  %100 = tail call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %99, ptr noundef %0, i32 noundef 1, i32 noundef 8, i32 noundef -2147483648) #9
+  %100 = tail call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %99, ptr noundef %0, i32 noundef 1, i32 noundef 8, i32 noundef -2147483648)
   %101 = load i32, ptr @hf_lorawan_join_request_deveui_type, align 4
-  %102 = tail call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %101, ptr noundef %0, i32 noundef 9, i32 noundef 8, i32 noundef -2147483648) #9
+  %102 = tail call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %101, ptr noundef %0, i32 noundef 9, i32 noundef 8, i32 noundef -2147483648)
   %103 = load i32, ptr @hf_lorawan_join_request_devnonce_type, align 4
-  %104 = tail call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %103, ptr noundef %0, i32 noundef 17, i32 noundef 2, i32 noundef -2147483648) #9
-  %105 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 9, i32 noundef 8) #9
+  %104 = tail call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %103, ptr noundef %0, i32 noundef 17, i32 noundef 2, i32 noundef -2147483648)
+  %105 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 9, i32 noundef 8)
   %106 = load i32, ptr @root_num_keys, align 4
   %.not11.i.i = icmp eq i32 %106, 0
   br i1 %.not11.i.i, label %get_root_key.exit.thread.i, label %.lr.ph.i.i
@@ -701,14 +703,14 @@ dissect_lorawan_beacon.exit:                      ; preds = %30, %58
 
 112:                                              ; preds = %108
   %113 = load ptr, ptr %111, align 8
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %113, ptr noundef nonnull readonly dereferenceable(8) %105, i64 8)
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef dereferenceable(8) %113, ptr noundef readonly dereferenceable(8) %105, i64 8)
   %114 = icmp eq i32 %bcmp.i.i, 0
   br i1 %114, label %get_root_key.exit.i, label %115
 
 115:                                              ; preds = %112, %108
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %get_root_key.exit.thread.i, label %108, !llvm.loop !4
+  br i1 %exitcond.not.i.i, label %get_root_key.exit.thread.i, label %108, !llvm.loop !6
 
 get_root_key.exit.i:                              ; preds = %112
   %.not.i = icmp eq ptr %109, null
@@ -717,53 +719,53 @@ get_root_key.exit.i:                              ; preds = %112
 116:                                              ; preds = %get_root_key.exit.i
   %117 = load i32, ptr @hf_lorawan_mic_type, align 4
   %118 = load i32, ptr @hf_lorawan_mic_status_type, align 4
-  %119 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef 19) #9
+  %119 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef 19)
   %120 = getelementptr inbounds nuw i8, ptr %109, i64 24
   %121 = load ptr, ptr %120, align 8
   %122 = load ptr, ptr %121, align 8
   %123 = tail call fastcc i32 @calculate_mic(ptr noundef %119, i8 noundef zeroext 19, ptr noundef %122)
-  %124 = tail call ptr @proto_tree_add_checksum(ptr noundef %13, ptr noundef %0, i32 noundef 19, i32 noundef %117, i32 noundef %118, ptr noundef nonnull @ei_lorawan_mic, ptr noundef %1, i32 noundef %123, i32 noundef -2147483648, i32 noundef 1) #9
+  %124 = tail call ptr @proto_tree_add_checksum(ptr noundef %13, ptr noundef %0, i32 noundef 19, i32 noundef %117, i32 noundef %118, ptr noundef nonnull @ei_lorawan_mic, ptr noundef %1, i32 noundef %123, i32 noundef -2147483648, i32 noundef 1)
   br label %dissect_lorawan_join_request.exit
 
 get_root_key.exit.thread.i:                       ; preds = %115, %get_root_key.exit.i, %94
   %125 = load i32, ptr @hf_lorawan_mic_type, align 4
   %126 = load i32, ptr @hf_lorawan_mic_status_type, align 4
-  %127 = tail call ptr @proto_tree_add_checksum(ptr noundef %13, ptr noundef %0, i32 noundef 19, i32 noundef %125, i32 noundef %126, ptr noundef null, ptr noundef %1, i32 noundef 0, i32 noundef -2147483648, i32 noundef 0) #9
-  %128 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %127, ptr noundef nonnull @ei_lorawan_missing_keys) #9
+  %127 = tail call ptr @proto_tree_add_checksum(ptr noundef %13, ptr noundef %0, i32 noundef 19, i32 noundef %125, i32 noundef %126, ptr noundef null, ptr noundef %1, i32 noundef 0, i32 noundef -2147483648, i32 noundef 0)
+  %128 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %127, ptr noundef nonnull @ei_lorawan_missing_keys)
   br label %dissect_lorawan_join_request.exit
 
 dissect_lorawan_join_request.exit:                ; preds = %116, %get_root_key.exit.thread.i
-  %129 = tail call i32 @tvb_captured_length(ptr noundef %0) #9
+  %129 = tail call i32 @tvb_captured_length(ptr noundef %0)
   br label %dissect_lorawan_join_accept.exit
 
 130:                                              ; preds = %85
-  %131 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 1) #9
+  %131 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 1)
   %132 = load i32, ptr @hf_lorawan_join_accept_type, align 4
-  %133 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %132, ptr noundef %0, i32 noundef 1, i32 noundef 12, i32 noundef 0) #9
+  %133 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %132, ptr noundef %0, i32 noundef 1, i32 noundef 12, i32 noundef 0)
   %134 = load i32, ptr @ett_lorawan_join_accept, align 4
-  %135 = tail call ptr @proto_item_add_subtree(ptr noundef %133, i32 noundef %134) #9
+  %135 = tail call ptr @proto_item_add_subtree(ptr noundef %133, i32 noundef %134)
   switch i32 %131, label %136 [
     i32 32, label %142
     i32 16, label %142
   ]
 
 136:                                              ; preds = %130
-  %137 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %135, ptr noundef nonnull @ei_lorawan_length_error) #9
+  %137 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %135, ptr noundef nonnull @ei_lorawan_length_error)
   %138 = load i32, ptr @hf_lorawan_frame_payload_type, align 4
-  %139 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 1) #9
-  %140 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %138, ptr noundef %0, i32 noundef 1, i32 noundef %139, i32 noundef 0) #9
-  %141 = tail call i32 @tvb_captured_length(ptr noundef %0) #9
+  %139 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 1)
+  %140 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %138, ptr noundef %0, i32 noundef 1, i32 noundef %139, i32 noundef 0)
+  %141 = tail call i32 @tvb_captured_length(ptr noundef %0)
   br label %dissect_lorawan_join_accept.exit
 
 142:                                              ; preds = %130, %130
   %143 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %144 = load ptr, ptr %143, align 8
   %145 = zext nneg i32 %131 to i64
-  %146 = tail call noalias ptr @wmem_alloc0(ptr noundef %144, i64 noundef %145) #9
+  %146 = tail call noalias ptr @wmem_alloc0(ptr noundef %144, i64 noundef %145) #12
   %147 = load ptr, ptr %143, align 8
   %148 = add nsw i32 %131, -3
   %149 = zext nneg i32 %148 to i64
-  %150 = tail call noalias ptr @wmem_alloc0(ptr noundef %147, i64 noundef %149) #9
+  %150 = tail call noalias ptr @wmem_alloc0(ptr noundef %147, i64 noundef %149) #12
   %151 = load i32, ptr @root_num_keys, align 4
   %.not.i64 = icmp eq i32 %151, 0
   br i1 %.not.i64, label %.critedge.i, label %.lr.ph.i
@@ -772,172 +774,178 @@ dissect_lorawan_join_request.exit:                ; preds = %116, %get_root_key.
   %152 = add nsw i32 %131, -4
   %153 = getelementptr i8, ptr %150, i64 1
   %154 = zext nneg i32 %152 to i64
-  %155 = getelementptr i8, ptr %146, i64 %154
-  %156 = trunc i32 %148 to i8
-  br label %157
+  %155 = add nsw i64 %149, -1
+  %156 = getelementptr i8, ptr %146, i64 %154
+  %157 = trunc i32 %148 to i8
+  br label %158
 
-157:                                              ; preds = %183, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %183 ]
-  %158 = load ptr, ptr @root_keys, align 8
-  %159 = getelementptr %struct._root_keys_t, ptr %158, i64 %indvars.iv.i, i32 3
-  %160 = load ptr, ptr %159, align 8
+158:                                              ; preds = %186, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %186 ]
+  %159 = load ptr, ptr @root_keys, align 8
+  %160 = getelementptr %struct._root_keys_t, ptr %159, i64 %indvars.iv.i, i32 3
   %161 = load ptr, ptr %160, align 8
-  %162 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 1, i32 noundef %131) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %163 = call i32 @gcry_cipher_open(ptr noundef nonnull %5, i32 noundef 7, i32 noundef 1, i32 noundef 0) #9
-  %.not.i.i65 = icmp eq i32 %163, 0
-  br i1 %.not.i.i65, label %164, label %aes128_lorawan_encrypt.exit.thread.i
+  %162 = load ptr, ptr %161, align 8
+  %163 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 1, i32 noundef %131)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
+  %164 = call i32 @gcry_cipher_open(ptr noundef nonnull %5, i32 noundef 7, i32 noundef 1, i32 noundef 0)
+  %.not.i.i65 = icmp eq i32 %164, 0
+  br i1 %.not.i.i65, label %165, label %aes128_lorawan_encrypt.exit.thread.i
 
-164:                                              ; preds = %157
-  %165 = load ptr, ptr %5, align 8
-  %166 = call i32 @gcry_cipher_setkey(ptr noundef %165, ptr noundef %161, i64 noundef 16) #9
-  %.not5.i.i = icmp eq i32 %166, 0
-  %167 = load ptr, ptr %5, align 8
-  br i1 %.not5.i.i, label %aes128_lorawan_encrypt.exit.i, label %168
+165:                                              ; preds = %158
+  %166 = load ptr, ptr %5, align 8
+  %167 = call i32 @gcry_cipher_setkey(ptr noundef %166, ptr noundef %162, i64 noundef 16)
+  %.not5.i.i = icmp eq i32 %167, 0
+  %168 = load ptr, ptr %5, align 8
+  br i1 %.not5.i.i, label %aes128_lorawan_encrypt.exit.i, label %169
 
-168:                                              ; preds = %164
-  call void @gcry_cipher_close(ptr noundef %167) #9
+169:                                              ; preds = %165
+  call void @gcry_cipher_close(ptr noundef %168)
   br label %aes128_lorawan_encrypt.exit.thread.i
 
-aes128_lorawan_encrypt.exit.thread.i:             ; preds = %168, %157
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %183
+aes128_lorawan_encrypt.exit.thread.i:             ; preds = %169, %158
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  br label %186
 
-aes128_lorawan_encrypt.exit.i:                    ; preds = %164
-  %169 = call i32 @gcry_cipher_encrypt(ptr noundef %167, ptr noundef %146, i64 noundef %145, ptr noundef %162, i64 noundef %145) #9
-  %.not6.i.not.i = icmp eq i32 %169, 0
-  %170 = load ptr, ptr %5, align 8
-  call void @gcry_cipher_close(ptr noundef %170) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br i1 %.not6.i.not.i, label %171, label %183
+aes128_lorawan_encrypt.exit.i:                    ; preds = %165
+  %170 = call i32 @gcry_cipher_encrypt(ptr noundef %168, ptr noundef %146, i64 noundef %145, ptr noundef %163, i64 noundef %145)
+  %.not6.i.i = icmp eq i32 %170, 0
+  %171 = load ptr, ptr %5, align 8
+  call void @gcry_cipher_close(ptr noundef %171)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  br i1 %.not6.i.i, label %172, label %186
 
-171:                                              ; preds = %aes128_lorawan_encrypt.exit.i
-  %172 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #9
-  store i8 %172, ptr %150, align 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %153, ptr align 1 %146, i64 %154, i1 false)
-  %.0.copyload.i = load i32, ptr %155, align 1
-  %173 = load ptr, ptr @root_keys, align 8
-  %174 = getelementptr %struct._root_keys_t, ptr %173, i64 %indvars.iv.i, i32 3
-  %175 = load ptr, ptr %174, align 8
-  %176 = load ptr, ptr %175, align 8
-  %177 = call fastcc i32 @calculate_mic(ptr noundef nonnull %150, i8 noundef zeroext %156, ptr noundef %176)
-  %178 = icmp eq i32 %177, %.0.copyload.i
-  br i1 %178, label %179, label %183
+172:                                              ; preds = %aes128_lorawan_encrypt.exit.i
+  %173 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
+  store i8 %173, ptr %150, align 1
+  %174 = call ptr @__memcpy_chk(ptr noundef %153, ptr noundef %146, i64 noundef range(i64 -2147483648, 2147483648) %154, i64 noundef %155) #11, !alias.scope !8
+  %175 = load i32, ptr %156, align 1
+  %176 = load ptr, ptr @root_keys, align 8
+  %177 = getelementptr %struct._root_keys_t, ptr %176, i64 %indvars.iv.i, i32 3
+  %178 = load ptr, ptr %177, align 8
+  %179 = load ptr, ptr %178, align 8
+  %180 = call fastcc i32 @calculate_mic(ptr noundef %150, i8 noundef zeroext %157, ptr noundef %179)
+  %181 = icmp eq i32 %180, %175
+  br i1 %181, label %182, label %186
 
-179:                                              ; preds = %171
-  %180 = load ptr, ptr @root_keys, align 8
-  %181 = getelementptr %struct._root_keys_t, ptr %180, i64 %indvars.iv.i
-  %182 = icmp eq ptr %181, null
-  br i1 %182, label %.critedge.i, label %187
+182:                                              ; preds = %172
+  %183 = load ptr, ptr @root_keys, align 8
+  %184 = getelementptr %struct._root_keys_t, ptr %183, i64 %indvars.iv.i
+  %185 = icmp eq ptr %184, null
+  br i1 %185, label %.critedge.i, label %190
 
-183:                                              ; preds = %171, %aes128_lorawan_encrypt.exit.i, %aes128_lorawan_encrypt.exit.thread.i
+186:                                              ; preds = %172, %aes128_lorawan_encrypt.exit.i, %aes128_lorawan_encrypt.exit.thread.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %184 = load i32, ptr @root_num_keys, align 4
-  %185 = zext i32 %184 to i64
-  %186 = icmp samesign ult i64 %indvars.iv.next.i, %185
-  br i1 %186, label %157, label %.critedge.i, !llvm.loop !6
+  %187 = load i32, ptr @root_num_keys, align 4
+  %188 = zext i32 %187 to i64
+  %189 = icmp samesign ult i64 %indvars.iv.next.i, %188
+  br i1 %189, label %158, label %.critedge.i, !llvm.loop !12
 
-187:                                              ; preds = %179
-  %188 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef nonnull %146, i32 noundef %131, i32 noundef %131) #9
-  call void @add_new_data_source(ptr noundef %1, ptr noundef %188, ptr noundef nonnull @.str.297) #9
-  %189 = load i32, ptr @hf_lorawan_join_accept_joinnonce_type, align 4
-  %190 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %189, ptr noundef %188, i32 noundef 0, i32 noundef 3, i32 noundef -2147483648) #9
-  %191 = load i32, ptr @hf_lorawan_join_accept_netid_type, align 4
-  %192 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %191, ptr noundef %188, i32 noundef 3, i32 noundef 3, i32 noundef -2147483648) #9
-  %193 = load i32, ptr @hf_lorawan_join_accept_devaddr_type, align 4
-  %194 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %193, ptr noundef %188, i32 noundef 6, i32 noundef 4, i32 noundef -2147483648) #9
-  %195 = load i32, ptr @hf_lorawan_join_accept_dlsettings_type, align 4
-  %196 = load i32, ptr @ett_lorawan_join_accept_dlsettings, align 4
-  %197 = call ptr @proto_tree_add_bitmask(ptr noundef %135, ptr noundef %188, i32 noundef 10, i32 noundef %195, i32 noundef %196, ptr noundef nonnull @hfx_lorawan_join_accept_dlsettings, i32 noundef 0) #9
-  %198 = load i32, ptr @hf_lorawan_join_accept_rxdelay_type, align 4
-  %199 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %198, ptr noundef %188, i32 noundef 11, i32 noundef 1, i32 noundef 0) #9
-  %200 = call i32 @tvb_captured_length(ptr noundef %188) #9
-  %201 = add i32 %200, -17
-  %202 = icmp ult i32 %201, -5
-  br i1 %202, label %203, label %208
+190:                                              ; preds = %182
+  %191 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %146, i32 noundef %131, i32 noundef %131)
+  call void @add_new_data_source(ptr noundef %1, ptr noundef %191, ptr noundef nonnull @.str.301)
+  %192 = load i32, ptr @hf_lorawan_join_accept_joinnonce_type, align 4
+  %193 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %192, ptr noundef %191, i32 noundef 0, i32 noundef 3, i32 noundef -2147483648)
+  %194 = load i32, ptr @hf_lorawan_join_accept_netid_type, align 4
+  %195 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %194, ptr noundef %191, i32 noundef 3, i32 noundef 3, i32 noundef -2147483648)
+  %196 = load i32, ptr @hf_lorawan_join_accept_devaddr_type, align 4
+  %197 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %196, ptr noundef %191, i32 noundef 6, i32 noundef 4, i32 noundef -2147483648)
+  %198 = load i32, ptr @hf_lorawan_join_accept_dlsettings_type, align 4
+  %199 = load i32, ptr @ett_lorawan_join_accept_dlsettings, align 4
+  %200 = call ptr @proto_tree_add_bitmask(ptr noundef %135, ptr noundef %191, i32 noundef 10, i32 noundef %198, i32 noundef %199, ptr noundef nonnull @hfx_lorawan_join_accept_dlsettings, i32 noundef 0)
+  %201 = load i32, ptr @hf_lorawan_join_accept_rxdelay_type, align 4
+  %202 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %201, ptr noundef %191, i32 noundef 11, i32 noundef 1, i32 noundef 0)
+  %203 = call i32 @tvb_captured_length(ptr noundef %191)
+  %204 = add i32 %203, -17
+  %205 = icmp ult i32 %204, -5
+  br i1 %205, label %206, label %211
 
-203:                                              ; preds = %187
-  %204 = load i32, ptr @hf_lorawan_join_accept_cflist_type, align 4
-  %205 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %204, ptr noundef %188, i32 noundef 12, i32 noundef 16, i32 noundef 0) #9
-  %206 = call i32 @proto_item_get_len(ptr noundef %133) #9
-  %207 = add i32 %206, 16
-  call void @proto_item_set_len(ptr noundef %133, i32 noundef %207) #9
-  br label %208
+206:                                              ; preds = %190
+  %207 = load i32, ptr @hf_lorawan_join_accept_cflist_type, align 4
+  %208 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %207, ptr noundef %191, i32 noundef 12, i32 noundef 16, i32 noundef 0)
+  %209 = call i32 @proto_item_get_len(ptr noundef %133)
+  %210 = add i32 %209, 16
+  call void @proto_item_set_len(ptr noundef %133, i32 noundef %210)
+  br label %211
 
-208:                                              ; preds = %203, %187
-  %.090.i = phi i32 [ 28, %203 ], [ 12, %187 ]
-  %209 = load i32, ptr @hf_lorawan_mic_type, align 4
-  %210 = load i32, ptr @hf_lorawan_mic_status_type, align 4
-  %211 = call ptr @proto_tree_add_checksum(ptr noundef %13, ptr noundef %188, i32 noundef %.090.i, i32 noundef %209, i32 noundef %210, ptr noundef nonnull @ei_lorawan_mic, ptr noundef %1, i32 noundef 0, i32 noundef -2147483648, i32 noundef 9) #9
-  br label %216
+211:                                              ; preds = %206, %190
+  %.089.i = phi i32 [ 28, %206 ], [ 12, %190 ]
+  %212 = load i32, ptr @hf_lorawan_mic_type, align 4
+  %213 = load i32, ptr @hf_lorawan_mic_status_type, align 4
+  %214 = call ptr @proto_tree_add_checksum(ptr noundef %13, ptr noundef %191, i32 noundef %.089.i, i32 noundef %212, i32 noundef %213, ptr noundef nonnull @ei_lorawan_mic, ptr noundef %1, i32 noundef 0, i32 noundef -2147483648, i32 noundef 9)
+  br label %219
 
-.critedge.i:                                      ; preds = %183, %179, %142
-  %212 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %135, ptr noundef nonnull @ei_lorawan_missing_keys) #9
-  %213 = load i32, ptr @hf_lorawan_frame_payload_type, align 4
-  %214 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 1) #9
-  %215 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %213, ptr noundef %0, i32 noundef 1, i32 noundef %214, i32 noundef 0) #9
-  br label %216
+.critedge.i:                                      ; preds = %186, %182, %142
+  %215 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %135, ptr noundef nonnull @ei_lorawan_missing_keys)
+  %216 = load i32, ptr @hf_lorawan_frame_payload_type, align 4
+  %217 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 1)
+  %218 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %216, ptr noundef %0, i32 noundef 1, i32 noundef %217, i32 noundef 0)
+  br label %219
 
-216:                                              ; preds = %.critedge.i, %208
-  %217 = call i32 @tvb_captured_length(ptr noundef %0) #9
+219:                                              ; preds = %.critedge.i, %211
+  %220 = call i32 @tvb_captured_length(ptr noundef %0)
   br label %dissect_lorawan_join_accept.exit
 
-218:                                              ; preds = %85, %85
-  %219 = tail call fastcc i32 @dissect_lorawan_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %13, i32 noundef 1)
+221:                                              ; preds = %85, %85
+  %222 = tail call fastcc i32 @dissect_lorawan_data(ptr noundef %0, ptr noundef %1, ptr noundef %13, i1 noundef zeroext true)
   br label %dissect_lorawan_join_accept.exit
 
-220:                                              ; preds = %85, %85
-  %221 = tail call fastcc i32 @dissect_lorawan_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %13, i32 noundef 0)
+223:                                              ; preds = %85, %85
+  %224 = tail call fastcc i32 @dissect_lorawan_data(ptr noundef %0, ptr noundef %1, ptr noundef %13, i1 noundef zeroext false)
   br label %dissect_lorawan_join_accept.exit
 
-222:                                              ; preds = %85
-  %223 = load i32, ptr @hf_lorawan_frame_payload_type, align 4
-  %224 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 1) #9
-  %225 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %223, ptr noundef %0, i32 noundef 1, i32 noundef %224, i32 noundef 0) #9
-  %226 = tail call i32 @tvb_captured_length(ptr noundef %0) #9
+225:                                              ; preds = %85
+  %226 = load i32, ptr @hf_lorawan_frame_payload_type, align 4
+  %227 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 1)
+  %228 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %226, ptr noundef %0, i32 noundef 1, i32 noundef %227, i32 noundef 0)
+  %229 = tail call i32 @tvb_captured_length(ptr noundef %0)
   br label %dissect_lorawan_join_accept.exit
 
-dissect_lorawan_join_accept.exit:                 ; preds = %216, %136, %222, %220, %218, %dissect_lorawan_join_request.exit, %dissect_lorawan_beacon.exit
-  %.062 = phi i32 [ %66, %dissect_lorawan_beacon.exit ], [ %226, %222 ], [ %221, %220 ], [ %219, %218 ], [ %129, %dissect_lorawan_join_request.exit ], [ %141, %136 ], [ %217, %216 ]
+dissect_lorawan_join_accept.exit:                 ; preds = %219, %136, %dissect_lorawan_join_request.exit, %221, %223, %225, %dissect_lorawan_beacon.exit
+  %.062 = phi i32 [ %66, %dissect_lorawan_beacon.exit ], [ %229, %225 ], [ %224, %223 ], [ %222, %221 ], [ %129, %dissect_lorawan_join_request.exit ], [ %141, %136 ], [ %220, %219 ]
   ret i32 %.062
 }
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #3
 
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare zeroext i1 @uat_fld_chk_str(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @uat_fld_chk_str(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @root_keys_deveui_string_set_cb(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = zext i32 %2 to i64
-  %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #9
+  %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6)
   %8 = load ptr, ptr %0, align 8
-  tail call void @g_free(ptr noundef %8) #9
+  tail call void @g_free(ptr noundef %8)
   store ptr %7, ptr %0, align 8
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @root_keys_deveui_string_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call noalias ptr @g_strdup(ptr noundef nonnull %6) #9
+  %8 = tail call noalias ptr @g_strdup(ptr noundef nonnull %6)
   store ptr %8, ptr %1, align 8
   %9 = load ptr, ptr %0, align 8
-  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #10
+  %10 = tail call i64 @strlen(ptr noundef %9) #13
   %11 = trunc i64 %10 to i32
   br label %14
 
 12:                                               ; preds = %5
-  %13 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.300) #9
+  %13 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.304)
   store ptr %13, ptr %1, align 8
   br label %14
 
@@ -947,18 +955,18 @@ define internal void @root_keys_deveui_string_tostr_cb(ptr noundef readonly capt
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @root_keys_appkey_string_set_cb(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = zext i32 %2 to i64
-  %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #9
+  %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  tail call void @g_free(ptr noundef %9) #9
+  tail call void @g_free(ptr noundef %9)
   store ptr %7, ptr %8, align 8
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @root_keys_appkey_string_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -966,15 +974,15 @@ define internal void @root_keys_appkey_string_tostr_cb(ptr noundef readonly capt
   br i1 %.not, label %13, label %8
 
 8:                                                ; preds = %5
-  %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %7) #9
+  %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %7)
   store ptr %9, ptr %1, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #10
+  %11 = tail call i64 @strlen(ptr noundef %10) #13
   %12 = trunc i64 %11 to i32
   br label %15
 
 13:                                               ; preds = %5
-  %14 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.300) #9
+  %14 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.304)
   store ptr %14, ptr %1, align 8
   br label %15
 
@@ -984,32 +992,32 @@ define internal void @root_keys_appkey_string_tostr_cb(ptr noundef readonly capt
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @session_keys_dev_addr_string_set_cb(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = zext i32 %2 to i64
-  %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #9
+  %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6)
   %8 = load ptr, ptr %0, align 8
-  tail call void @g_free(ptr noundef %8) #9
+  tail call void @g_free(ptr noundef %8)
   store ptr %7, ptr %0, align 8
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @session_keys_dev_addr_string_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call noalias ptr @g_strdup(ptr noundef nonnull %6) #9
+  %8 = tail call noalias ptr @g_strdup(ptr noundef nonnull %6)
   store ptr %8, ptr %1, align 8
   %9 = load ptr, ptr %0, align 8
-  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #10
+  %10 = tail call i64 @strlen(ptr noundef %9) #13
   %11 = trunc i64 %10 to i32
   br label %14
 
 12:                                               ; preds = %5
-  %13 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.300) #9
+  %13 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.304)
   store ptr %13, ptr %1, align 8
   br label %14
 
@@ -1019,18 +1027,18 @@ define internal void @session_keys_dev_addr_string_tostr_cb(ptr noundef readonly
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @session_keys_nwkskey_string_set_cb(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = zext i32 %2 to i64
-  %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #9
+  %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  tail call void @g_free(ptr noundef %9) #9
+  tail call void @g_free(ptr noundef %9)
   store ptr %7, ptr %8, align 8
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @session_keys_nwkskey_string_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -1038,15 +1046,15 @@ define internal void @session_keys_nwkskey_string_tostr_cb(ptr noundef readonly 
   br i1 %.not, label %13, label %8
 
 8:                                                ; preds = %5
-  %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %7) #9
+  %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %7)
   store ptr %9, ptr %1, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #10
+  %11 = tail call i64 @strlen(ptr noundef %10) #13
   %12 = trunc i64 %11 to i32
   br label %15
 
 13:                                               ; preds = %5
-  %14 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.300) #9
+  %14 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.304)
   store ptr %14, ptr %1, align 8
   br label %15
 
@@ -1056,18 +1064,18 @@ define internal void @session_keys_nwkskey_string_tostr_cb(ptr noundef readonly 
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @session_keys_appskey_string_set_cb(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = zext i32 %2 to i64
-  %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #9
+  %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
-  tail call void @g_free(ptr noundef %9) #9
+  tail call void @g_free(ptr noundef %9)
   store ptr %7, ptr %8, align 8
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @session_keys_appskey_string_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
@@ -1075,15 +1083,15 @@ define internal void @session_keys_appskey_string_tostr_cb(ptr noundef readonly 
   br i1 %.not, label %13, label %8
 
 8:                                                ; preds = %5
-  %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %7) #9
+  %9 = tail call noalias ptr @g_strdup(ptr noundef nonnull %7)
   store ptr %9, ptr %1, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #10
+  %11 = tail call i64 @strlen(ptr noundef %10) #13
   %12 = trunc i64 %11 to i32
   br label %15
 
 13:                                               ; preds = %5
-  %14 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.300) #9
+  %14 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.304)
   store ptr %14, ptr %1, align 8
   br label %15
 
@@ -1093,22 +1101,23 @@ define internal void @session_keys_appskey_string_tostr_cb(ptr noundef readonly 
   ret void
 }
 
-declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef ptr @root_keys_copy_cb(ptr noundef returned captures(ret: address, provenance) initializes((0, 8), (16, 24)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %33, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call noalias ptr @g_strdup(ptr noundef nonnull %4) #9
+  %6 = tail call noalias ptr @g_strdup(ptr noundef nonnull %4)
   store ptr %6, ptr %0, align 8
-  %7 = tail call ptr @g_byte_array_new() #9
+  %7 = tail call ptr @g_byte_array_new()
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %7, ptr %8, align 8
   %9 = load ptr, ptr %0, align 8
-  %10 = tail call i32 @hex_str_to_bytes(ptr noundef %9, ptr noundef %7, i32 noundef 0) #9
+  %10 = tail call zeroext i1 @hex_str_to_bytes(ptr noundef %9, ptr noundef %7, i1 noundef zeroext false)
   %11 = load ptr, ptr %8, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i32, ptr %12, align 8
@@ -1139,7 +1148,7 @@ define internal noundef ptr @root_keys_copy_cb(ptr noundef returned captures(ret
   %30 = lshr i32 %29, 1
   %31 = zext nneg i32 %30 to i64
   %32 = icmp samesign ult i64 %indvars.iv.next.i, %31
-  br i1 %32, label %.lr.ph.i, label %byte_array_reverse.exit, !llvm.loop !7
+  br i1 %32, label %.lr.ph.i, label %byte_array_reverse.exit, !llvm.loop !13
 
 33:                                               ; preds = %3
   store ptr null, ptr %0, align 8
@@ -1154,14 +1163,14 @@ byte_array_reverse.exit:                          ; preds = %.lr.ph.i, %5, %33
   br i1 %.not21, label %44, label %37
 
 37:                                               ; preds = %byte_array_reverse.exit
-  %38 = tail call noalias ptr @g_strdup(ptr noundef nonnull %36) #9
+  %38 = tail call noalias ptr @g_strdup(ptr noundef nonnull %36)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %38, ptr %39, align 8
-  %40 = tail call ptr @g_byte_array_new() #9
+  %40 = tail call ptr @g_byte_array_new()
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %40, ptr %41, align 8
   %42 = load ptr, ptr %39, align 8
-  %43 = tail call i32 @hex_str_to_bytes(ptr noundef %42, ptr noundef %40, i32 noundef 0) #9
+  %43 = tail call zeroext i1 @hex_str_to_bytes(ptr noundef %42, ptr noundef %40, i1 noundef zeroext false)
   br label %47
 
 44:                                               ; preds = %byte_array_reverse.exit
@@ -1175,7 +1184,7 @@ byte_array_reverse.exit:                          ; preds = %.lr.ph.i, %5, %33
   ret ptr %0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef zeroext i1 @root_keys_update_cb(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
@@ -1188,7 +1197,7 @@ define internal noundef zeroext i1 @root_keys_update_cb(ptr noundef captures(non
   br i1 %.not, label %8, label %10
 
 8:                                                ; preds = %5
-  %9 = tail call ptr @g_byte_array_new() #9
+  %9 = tail call ptr @g_byte_array_new()
   store ptr %9, ptr %6, align 8
   %.pre = load ptr, ptr %0, align 8
   br label %10
@@ -1196,16 +1205,15 @@ define internal noundef zeroext i1 @root_keys_update_cb(ptr noundef captures(non
 10:                                               ; preds = %8, %5
   %11 = phi ptr [ %9, %8 ], [ %7, %5 ]
   %12 = phi ptr [ %.pre, %8 ], [ %3, %5 ]
-  %13 = tail call i32 @hex_str_to_bytes(ptr noundef %12, ptr noundef %11, i32 noundef 0) #9
-  %.not22 = icmp eq i32 %13, 0
-  br i1 %.not22, label %.sink.split, label %14
+  %13 = tail call zeroext i1 @hex_str_to_bytes(ptr noundef %12, ptr noundef %11, i1 noundef zeroext false)
+  br i1 %13, label %14, label %.sink.split
 
 14:                                               ; preds = %10
   %15 = load ptr, ptr %6, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i32, ptr %16, align 8
-  %.not23 = icmp eq i32 %17, 8
-  br i1 %.not23, label %.lr.ph.i, label %.sink.split
+  %.not22 = icmp eq i32 %17, 8
+  br i1 %.not22, label %.lr.ph.i, label %.sink.split
 
 .lr.ph.i:                                         ; preds = %14, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %14 ]
@@ -1231,7 +1239,7 @@ define internal noundef zeroext i1 @root_keys_update_cb(ptr noundef captures(non
   %34 = lshr i32 %33, 1
   %35 = zext nneg i32 %34 to i64
   %36 = icmp samesign ult i64 %indvars.iv.next.i, %35
-  br i1 %36, label %.lr.ph.i, label %byte_array_reverse.exit, !llvm.loop !7
+  br i1 %36, label %.lr.ph.i, label %byte_array_reverse.exit, !llvm.loop !13
 
 byte_array_reverse.exit:                          ; preds = %.lr.ph.i
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1242,32 +1250,31 @@ byte_array_reverse.exit:                          ; preds = %.lr.ph.i
 40:                                               ; preds = %byte_array_reverse.exit
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %42 = load ptr, ptr %41, align 8
-  %.not24 = icmp eq ptr %42, null
-  br i1 %.not24, label %43, label %45
+  %.not23 = icmp eq ptr %42, null
+  br i1 %.not23, label %43, label %45
 
 43:                                               ; preds = %40
-  %44 = tail call ptr @g_byte_array_new() #9
+  %44 = tail call ptr @g_byte_array_new()
   store ptr %44, ptr %41, align 8
-  %.pre27 = load ptr, ptr %37, align 8
+  %.pre25 = load ptr, ptr %37, align 8
   br label %45
 
 45:                                               ; preds = %43, %40
   %46 = phi ptr [ %44, %43 ], [ %42, %40 ]
-  %47 = phi ptr [ %.pre27, %43 ], [ %38, %40 ]
-  %48 = tail call i32 @hex_str_to_bytes(ptr noundef %47, ptr noundef %46, i32 noundef 0) #9
-  %.not25 = icmp eq i32 %48, 0
-  br i1 %.not25, label %.sink.split, label %49
+  %47 = phi ptr [ %.pre25, %43 ], [ %38, %40 ]
+  %48 = tail call zeroext i1 @hex_str_to_bytes(ptr noundef %47, ptr noundef %46, i1 noundef zeroext false)
+  br i1 %48, label %49, label %.sink.split
 
 49:                                               ; preds = %45
   %50 = load ptr, ptr %41, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load i32, ptr %51, align 8
-  %.not26 = icmp eq i32 %52, 16
-  br i1 %.not26, label %54, label %.sink.split
+  %.not24 = icmp eq i32 %52, 16
+  br i1 %.not24, label %54, label %.sink.split
 
 .sink.split:                                      ; preds = %49, %45, %byte_array_reverse.exit, %14, %10, %2
-  %.str.306.sink = phi ptr [ @.str.301, %2 ], [ @.str.302, %10 ], [ @.str.303, %14 ], [ @.str.304, %byte_array_reverse.exit ], [ @.str.305, %45 ], [ @.str.306, %49 ]
-  %53 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.str.306.sink) #9
+  %.str.310.sink = phi ptr [ @.str.305, %2 ], [ @.str.306, %10 ], [ @.str.307, %14 ], [ @.str.308, %byte_array_reverse.exit ], [ @.str.309, %45 ], [ @.str.310, %49 ]
+  %53 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.str.310.sink)
   br label %54
 
 54:                                               ; preds = %.sink.split, %49
@@ -1277,36 +1284,35 @@ byte_array_reverse.exit:                          ; preds = %.lr.ph.i
   ret i1 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @root_keys_free_cb(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
-  tail call void @g_free(ptr noundef %2) #9
+  tail call void @g_free(ptr noundef %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call ptr @g_byte_array_free(ptr noundef %4, i32 noundef 1) #9
+  %5 = tail call ptr @g_byte_array_free(ptr noundef %4, i32 noundef 1)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  tail call void @g_free(ptr noundef %7) #9
+  tail call void @g_free(ptr noundef %7)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call ptr @g_byte_array_free(ptr noundef %9, i32 noundef 1) #9
+  %10 = tail call ptr @g_byte_array_free(ptr noundef %9, i32 noundef 1)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal noundef ptr @session_keys_copy_cb(ptr noundef returned captures(ret: address, provenance) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal noundef ptr @session_keys_copy_cb(ptr noundef returned initializes((0, 8)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %40, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call noalias ptr @g_strdup(ptr noundef nonnull %4) #9
+  %6 = tail call noalias ptr @g_strdup(ptr noundef nonnull %4)
   store ptr %6, ptr %0, align 8
-  %7 = tail call ptr @g_byte_array_new() #9
+  %7 = tail call ptr @g_byte_array_new()
   %8 = load ptr, ptr %0, align 8
-  %9 = tail call i32 @hex_str_to_bytes(ptr noundef %8, ptr noundef %7, i32 noundef 0) #9
-  %.not34 = icmp eq i32 %9, 0
-  br i1 %.not34, label %38, label %10
+  %9 = tail call zeroext i1 @hex_str_to_bytes(ptr noundef %8, ptr noundef %7, i1 noundef zeroext false)
+  br i1 %9, label %10, label %38
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1338,13 +1344,13 @@ define internal noundef ptr @session_keys_copy_cb(ptr noundef returned captures(
   %30 = lshr i32 %29, 1
   %31 = zext nneg i32 %30 to i64
   %32 = icmp samesign ult i64 %indvars.iv.next.i, %31
-  br i1 %32, label %.lr.ph.i, label %byte_array_reverse.exit, !llvm.loop !7
+  br i1 %32, label %.lr.ph.i, label %byte_array_reverse.exit, !llvm.loop !13
 
 byte_array_reverse.exit:                          ; preds = %.lr.ph.i
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = load ptr, ptr %7, align 8
   %35 = load i32, ptr %34, align 1
-  store i32 %35, ptr %33, align 8
+  store i32 %35, ptr %33, align 1
   br label %38
 
 36:                                               ; preds = %10
@@ -1353,7 +1359,7 @@ byte_array_reverse.exit:                          ; preds = %.lr.ph.i
   br label %38
 
 38:                                               ; preds = %byte_array_reverse.exit, %36, %5
-  %39 = tail call ptr @g_byte_array_free(ptr noundef %7, i32 noundef 1) #9
+  %39 = tail call ptr @g_byte_array_free(ptr noundef %7, i32 noundef 1)
   br label %42
 
 40:                                               ; preds = %3
@@ -1365,18 +1371,18 @@ byte_array_reverse.exit:                          ; preds = %.lr.ph.i
 42:                                               ; preds = %40, %38
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %44 = load ptr, ptr %43, align 8
-  %.not35 = icmp eq ptr %44, null
-  br i1 %.not35, label %52, label %45
+  %.not34 = icmp eq ptr %44, null
+  br i1 %.not34, label %52, label %45
 
 45:                                               ; preds = %42
-  %46 = tail call noalias ptr @g_strdup(ptr noundef nonnull %44) #9
+  %46 = tail call noalias ptr @g_strdup(ptr noundef nonnull %44)
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %46, ptr %47, align 8
-  %48 = tail call ptr @g_byte_array_new() #9
+  %48 = tail call ptr @g_byte_array_new()
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %48, ptr %49, align 8
   %50 = load ptr, ptr %47, align 8
-  %51 = tail call i32 @hex_str_to_bytes(ptr noundef %50, ptr noundef %48, i32 noundef 0) #9
+  %51 = tail call zeroext i1 @hex_str_to_bytes(ptr noundef %50, ptr noundef %48, i1 noundef zeroext false)
   br label %55
 
 52:                                               ; preds = %42
@@ -1389,18 +1395,18 @@ byte_array_reverse.exit:                          ; preds = %.lr.ph.i
 55:                                               ; preds = %52, %45
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %57 = load ptr, ptr %56, align 8
-  %.not36 = icmp eq ptr %57, null
-  br i1 %.not36, label %65, label %58
+  %.not35 = icmp eq ptr %57, null
+  br i1 %.not35, label %65, label %58
 
 58:                                               ; preds = %55
-  %59 = tail call noalias ptr @g_strdup(ptr noundef nonnull %57) #9
+  %59 = tail call noalias ptr @g_strdup(ptr noundef nonnull %57)
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %59, ptr %60, align 8
-  %61 = tail call ptr @g_byte_array_new() #9
+  %61 = tail call ptr @g_byte_array_new()
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %61, ptr %62, align 8
   %63 = load ptr, ptr %60, align 8
-  %64 = tail call i32 @hex_str_to_bytes(ptr noundef %63, ptr noundef %61, i32 noundef 0) #9
+  %64 = tail call zeroext i1 @hex_str_to_bytes(ptr noundef %63, ptr noundef %61, i1 noundef zeroext false)
   br label %68
 
 65:                                               ; preds = %55
@@ -1414,24 +1420,23 @@ byte_array_reverse.exit:                          ; preds = %.lr.ph.i
   ret ptr %0
 }
 
-; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @session_keys_update_cb(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal noundef zeroext i1 @session_keys_update_cb(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.sink.split, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @g_byte_array_new() #9
+  %6 = tail call ptr @g_byte_array_new()
   %7 = load ptr, ptr %0, align 8
-  %8 = tail call i32 @hex_str_to_bytes(ptr noundef %7, ptr noundef %6, i32 noundef 0) #9
-  %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %.sink.split.sink.split, label %9
+  %8 = tail call zeroext i1 @hex_str_to_bytes(ptr noundef %7, ptr noundef %6, i1 noundef zeroext false)
+  br i1 %8, label %9, label %.sink.split.sink.split
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %11 = load i32, ptr %10, align 8
-  %.not34 = icmp eq i32 %11, 4
-  br i1 %.not34, label %.lr.ph.i, label %.sink.split.sink.split
+  %.not = icmp eq i32 %11, 4
+  br i1 %.not, label %.lr.ph.i, label %.sink.split.sink.split
 
 .lr.ph.i:                                         ; preds = %9, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %9 ]
@@ -1457,14 +1462,14 @@ define internal noundef zeroext i1 @session_keys_update_cb(ptr noundef captures(
   %28 = lshr i32 %27, 1
   %29 = zext nneg i32 %28 to i64
   %30 = icmp samesign ult i64 %indvars.iv.next.i, %29
-  br i1 %30, label %.lr.ph.i, label %byte_array_reverse.exit, !llvm.loop !7
+  br i1 %30, label %.lr.ph.i, label %byte_array_reverse.exit, !llvm.loop !13
 
 byte_array_reverse.exit:                          ; preds = %.lr.ph.i
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %6, align 8
   %33 = load i32, ptr %32, align 1
-  store i32 %33, ptr %31, align 8
-  %34 = tail call ptr @g_byte_array_free(ptr noundef nonnull %6, i32 noundef 1) #9
+  store i32 %33, ptr %31, align 1
+  %34 = tail call ptr @g_byte_array_free(ptr noundef %6, i32 noundef 1)
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
@@ -1473,11 +1478,11 @@ byte_array_reverse.exit:                          ; preds = %.lr.ph.i
 38:                                               ; preds = %byte_array_reverse.exit
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %40 = load ptr, ptr %39, align 8
-  %.not35 = icmp eq ptr %40, null
-  br i1 %.not35, label %41, label %43
+  %.not34 = icmp eq ptr %40, null
+  br i1 %.not34, label %41, label %43
 
 41:                                               ; preds = %38
-  %42 = tail call ptr @g_byte_array_new() #9
+  %42 = tail call ptr @g_byte_array_new()
   store ptr %42, ptr %39, align 8
   %.pre = load ptr, ptr %35, align 8
   br label %43
@@ -1485,16 +1490,15 @@ byte_array_reverse.exit:                          ; preds = %.lr.ph.i
 43:                                               ; preds = %41, %38
   %44 = phi ptr [ %42, %41 ], [ %40, %38 ]
   %45 = phi ptr [ %.pre, %41 ], [ %36, %38 ]
-  %46 = tail call i32 @hex_str_to_bytes(ptr noundef %45, ptr noundef %44, i32 noundef 0) #9
-  %.not36 = icmp eq i32 %46, 0
-  br i1 %.not36, label %.sink.split, label %47
+  %46 = tail call zeroext i1 @hex_str_to_bytes(ptr noundef %45, ptr noundef %44, i1 noundef zeroext false)
+  br i1 %46, label %47, label %.sink.split
 
 47:                                               ; preds = %43
   %48 = load ptr, ptr %39, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load i32, ptr %49, align 8
-  %.not37 = icmp eq i32 %50, 16
-  br i1 %.not37, label %51, label %.sink.split
+  %.not35 = icmp eq i32 %50, 16
+  br i1 %.not35, label %51, label %.sink.split
 
 51:                                               ; preds = %47
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1505,37 +1509,36 @@ byte_array_reverse.exit:                          ; preds = %.lr.ph.i
 55:                                               ; preds = %51
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %57 = load ptr, ptr %56, align 8
-  %.not38 = icmp eq ptr %57, null
-  br i1 %.not38, label %58, label %60
+  %.not36 = icmp eq ptr %57, null
+  br i1 %.not36, label %58, label %60
 
 58:                                               ; preds = %55
-  %59 = tail call ptr @g_byte_array_new() #9
+  %59 = tail call ptr @g_byte_array_new()
   store ptr %59, ptr %56, align 8
-  %.pre41 = load ptr, ptr %52, align 8
+  %.pre38 = load ptr, ptr %52, align 8
   br label %60
 
 60:                                               ; preds = %58, %55
   %61 = phi ptr [ %59, %58 ], [ %57, %55 ]
-  %62 = phi ptr [ %.pre41, %58 ], [ %53, %55 ]
-  %63 = tail call i32 @hex_str_to_bytes(ptr noundef %62, ptr noundef %61, i32 noundef 0) #9
-  %.not39 = icmp eq i32 %63, 0
-  br i1 %.not39, label %.sink.split, label %64
+  %62 = phi ptr [ %.pre38, %58 ], [ %53, %55 ]
+  %63 = tail call zeroext i1 @hex_str_to_bytes(ptr noundef %62, ptr noundef %61, i1 noundef zeroext false)
+  br i1 %63, label %64, label %.sink.split
 
 64:                                               ; preds = %60
   %65 = load ptr, ptr %56, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load i32, ptr %66, align 8
-  %.not40 = icmp eq i32 %67, 16
-  br i1 %.not40, label %70, label %.sink.split
+  %.not37 = icmp eq i32 %67, 16
+  br i1 %.not37, label %70, label %.sink.split
 
 .sink.split.sink.split:                           ; preds = %9, %5
-  %.str.315.sink.ph = phi ptr [ @.str.308, %5 ], [ @.str.309, %9 ]
-  %68 = tail call ptr @g_byte_array_free(ptr noundef %6, i32 noundef 1) #9
+  %.str.312.sink.ph = phi ptr [ @.str.312, %5 ], [ @.str.313, %9 ]
+  %68 = tail call ptr @g_byte_array_free(ptr noundef %6, i32 noundef 1)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %64, %60, %51, %47, %43, %byte_array_reverse.exit, %2
-  %.str.315.sink = phi ptr [ @.str.307, %2 ], [ @.str.310, %byte_array_reverse.exit ], [ @.str.311, %43 ], [ @.str.312, %47 ], [ @.str.313, %51 ], [ @.str.314, %60 ], [ @.str.315, %64 ], [ %.str.315.sink.ph, %.sink.split.sink.split ]
-  %69 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.str.315.sink) #9
+  %.str.312.sink = phi ptr [ @.str.311, %2 ], [ @.str.314, %byte_array_reverse.exit ], [ @.str.315, %43 ], [ @.str.316, %47 ], [ @.str.317, %51 ], [ @.str.318, %60 ], [ @.str.319, %64 ], [ %.str.312.sink.ph, %.sink.split.sink.split ]
+  %69 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.str.312.sink)
   br label %70
 
 70:                                               ; preds = %.sink.split, %64
@@ -1545,715 +1548,803 @@ byte_array_reverse.exit:                          ; preds = %.lr.ph.i
   ret i1 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @session_keys_free_cb(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
-  tail call void @g_free(ptr noundef %2) #9
+  tail call void @g_free(ptr noundef %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  tail call void @g_free(ptr noundef %4) #9
+  tail call void @g_free(ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call ptr @g_byte_array_free(ptr noundef %6, i32 noundef 1) #9
+  %7 = tail call ptr @g_byte_array_free(ptr noundef %6, i32 noundef 1)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
-  tail call void @g_free(ptr noundef %9) #9
+  tail call void @g_free(ptr noundef %9)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call ptr @g_byte_array_free(ptr noundef %11, i32 noundef 1) #9
+  %12 = tail call ptr @g_byte_array_free(ptr noundef %11, i32 noundef 1)
   ret void
 }
 
-declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @prefs_register_uat_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare void @prefs_register_uat_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_lorawan() local_unnamed_addr #0 {
   %1 = load ptr, ptr @lorawan_handle, align 8
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.258, i32 noundef 52, ptr noundef %1) #9
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.258, i32 noundef 52, ptr noundef %1)
   %2 = load ptr, ptr @lorawan_handle, align 8
-  tail call void @dissector_add_for_decode_as(ptr noundef nonnull @.str.259, ptr noundef %2) #9
+  tail call void @dissector_add_for_decode_as(ptr noundef nonnull @.str.259, ptr noundef %2)
   ret void
 }
 
-declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @dissector_add_for_decode_as(ptr noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_add_for_decode_as(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+; Function Attrs: nofree null_pointer_is_valid
+declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #4
+declare double @llvm.fabs.f64(double) #5
 
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare zeroext i16 @tvb_get_guint16(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_uint16(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #3
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
-declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_lorawan_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal fastcc i32 @dissect_lorawan_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca [16 x i8], align 16
-  %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 5) #9
-  %8 = and i8 %7, 15
-  %9 = load i32, ptr @hf_lorawan_frame_header_type, align 4
-  %10 = zext nneg i8 %8 to i32
-  %11 = add nuw nsw i32 %10, 7
-  %12 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 1, i32 noundef %11, i32 noundef 0) #9
-  %13 = load i32, ptr @ett_lorawan_frame_header, align 4
-  %14 = tail call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #9
-  %15 = load i32, ptr @hf_lorawan_frame_header_address_type, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %15, ptr noundef %0, i32 noundef 1, i32 noundef 4, i32 noundef -2147483648) #9
-  %17 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef 1, i32 noundef -2147483648) #9
-  %18 = load i32, ptr @hf_lorawan_frame_header_frame_control_type, align 4
-  %19 = load i32, ptr @ett_lorawan_frame_header_control, align 4
-  %20 = tail call ptr @proto_tree_add_bitmask(ptr noundef %14, ptr noundef %0, i32 noundef 5, i32 noundef %18, i32 noundef %19, ptr noundef nonnull @hfx_lorawan_frame_header_frame_control, i32 noundef 0) #9
-  %21 = load i32, ptr @hf_lorawan_frame_header_frame_counter_type, align 4
-  %22 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %21, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef -2147483648) #9
-  %23 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef 6, i32 noundef -2147483648) #9
-  %24 = zext i16 %23 to i32
-  %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %29, label %25
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 5)
+  %10 = and i8 %9, 15
+  %11 = load i32, ptr @hf_lorawan_frame_header_type, align 4
+  %12 = zext nneg i8 %10 to i32
+  %13 = add nuw nsw i32 %12, 7
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %11, ptr noundef %0, i32 noundef 1, i32 noundef %13, i32 noundef 0)
+  %15 = load i32, ptr @ett_lorawan_frame_header, align 4
+  %16 = tail call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %15)
+  %17 = load i32, ptr @hf_lorawan_frame_header_address_type, align 4
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %17, ptr noundef %0, i32 noundef 1, i32 noundef 4, i32 noundef -2147483648)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #11
+  %19 = tail call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef 1, i32 noundef -2147483648)
+  store i32 %19, ptr %7, align 4
+  %20 = load i32, ptr @hf_lorawan_frame_header_frame_control_type, align 4
+  %21 = load i32, ptr @ett_lorawan_frame_header_control, align 4
+  %22 = tail call ptr @proto_tree_add_bitmask(ptr noundef %16, ptr noundef %0, i32 noundef 5, i32 noundef %20, i32 noundef %21, ptr noundef nonnull @hfx_lorawan_frame_header_frame_control, i32 noundef 0)
+  %23 = load i32, ptr @hf_lorawan_frame_header_frame_counter_type, align 4
+  %24 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %23, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef -2147483648)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #11
+  %25 = tail call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef 6, i32 noundef -2147483648)
+  %26 = zext i16 %25 to i32
+  store i32 %26, ptr %8, align 4
+  %.not = icmp eq i8 %10, 0
+  br i1 %.not, label %31, label %27
 
-25:                                               ; preds = %4
-  %26 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 8, i32 noundef %10) #9
-  %27 = tail call fastcc i32 @dissect_lorawan_mac_commands(ptr noundef %26, ptr noundef %2, i32 noundef %3)
-  %28 = add i32 %27, 8
-  br label %29
+27:                                               ; preds = %4
+  %28 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 8, i32 noundef %12)
+  %29 = tail call fastcc i32 @dissect_lorawan_mac_commands(ptr noundef %28, ptr noundef %2, i1 noundef zeroext %3)
+  %30 = add i32 %29, 8
+  br label %31
 
-29:                                               ; preds = %25, %4
-  %.0130 = phi i32 [ %28, %25 ], [ 8, %4 ]
-  %30 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0130) #9
-  %31 = icmp sgt i32 %30, 4
-  br i1 %31, label %32, label %38
+31:                                               ; preds = %27, %4
+  %.0126 = phi i32 [ %30, %27 ], [ 8, %4 ]
+  %32 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0126)
+  %33 = icmp sgt i32 %32, 4
+  br i1 %33, label %34, label %40
 
-32:                                               ; preds = %29
-  %33 = load i32, ptr @hf_lorawan_frame_fport_type, align 4
-  %34 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %33, ptr noundef %0, i32 noundef %.0130, i32 noundef 1, i32 noundef 0) #9
-  %35 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0130) #9
-  %36 = add i32 %.0130, 1
-  %37 = icmp eq i8 %35, 0
-  br label %38
+34:                                               ; preds = %31
+  %35 = load i32, ptr @hf_lorawan_frame_fport_type, align 4
+  %36 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %35, ptr noundef %0, i32 noundef %.0126, i32 noundef 1, i32 noundef 0)
+  %37 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0126)
+  %38 = add i32 %.0126, 1
+  %39 = icmp eq i8 %37, 0
+  br label %40
 
-38:                                               ; preds = %32, %29
-  %.0131 = phi i1 [ %37, %32 ], [ true, %29 ]
-  %.1 = phi i32 [ %36, %32 ], [ %.0130, %29 ]
-  %39 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.1) #9
-  %40 = trunc i32 %39 to i8
-  %41 = add i8 %40, -4
-  %42 = zext i8 %41 to i32
-  %43 = icmp ne i8 %41, 0
-  br i1 %43, label %44, label %47
+40:                                               ; preds = %34, %31
+  %.0127 = phi i1 [ %39, %34 ], [ true, %31 ]
+  %.1 = phi i32 [ %38, %34 ], [ %.0126, %31 ]
+  %41 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.1)
+  %42 = trunc i32 %41 to i8
+  %43 = add i8 %42, -4
+  %44 = zext i8 %43 to i32
+  %45 = icmp ne i8 %43, 0
+  br i1 %45, label %46, label %49
 
-44:                                               ; preds = %38
-  %45 = load i32, ptr @hf_lorawan_frame_payload_type, align 4
-  %46 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %45, ptr noundef %0, i32 noundef %.1, i32 noundef %42, i32 noundef 0) #9
-  br label %47
+46:                                               ; preds = %40
+  %47 = load i32, ptr @hf_lorawan_frame_payload_type, align 4
+  %48 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %47, ptr noundef %0, i32 noundef %.1, i32 noundef %44, i32 noundef 0)
+  br label %49
 
-47:                                               ; preds = %44, %38
-  %.0 = phi ptr [ %46, %44 ], [ null, %38 ]
-  %48 = load i32, ptr @session_num_keys, align 4
-  %.not.i = icmp eq i32 %48, 0
+49:                                               ; preds = %46, %40
+  %.0 = phi ptr [ %48, %46 ], [ null, %40 ]
+  %50 = load i32, ptr @session_num_keys, align 4
+  %.not.i = icmp eq i32 %50, 0
   br i1 %.not.i, label %.thread, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %47
-  %49 = load ptr, ptr @session_keys, align 8
-  %wide.trip.count.i = zext i32 %48 to i64
-  br label %51
+.lr.ph.i:                                         ; preds = %49
+  %51 = load ptr, ptr @session_keys, align 8
+  %wide.trip.count.i = zext i32 %50 to i64
+  br label %53
 
-50:                                               ; preds = %51
+52:                                               ; preds = %53
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.thread, label %51, !llvm.loop !8
+  br i1 %exitcond.not.i, label %.thread, label %53, !llvm.loop !14
 
-51:                                               ; preds = %50, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %50 ]
-  %52 = getelementptr %struct._session_keys_t, ptr %49, i64 %indvars.iv.i
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
-  %54 = load i32, ptr %53, align 8
-  %55 = icmp eq i32 %54, %17
-  br i1 %55, label %get_session_key.exit, label %50
+53:                                               ; preds = %52, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %52 ]
+  %54 = getelementptr %struct._session_keys_t, ptr %51, i64 %indvars.iv.i
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
+  %56 = load i32, ptr %55, align 8
+  %57 = icmp eq i32 %56, %19
+  br i1 %57, label %get_session_key.exit, label %52
 
-.thread:                                          ; preds = %50, %47
-  %.2148 = add i32 %.1, %42
-  br label %121
+.thread:                                          ; preds = %52, %49
+  %.4140 = add i32 %.1, %44
+  br label %133
 
-get_session_key.exit:                             ; preds = %51
-  %56 = icmp ne ptr %52, null
-  %or.cond5 = and i1 %43, %56
-  br i1 %or.cond5, label %57, label %98
+get_session_key.exit:                             ; preds = %53
+  %58 = icmp ne ptr %54, null
+  %or.cond5 = and i1 %45, %58
+  br i1 %or.cond5, label %59, label %100
 
-57:                                               ; preds = %get_session_key.exit
-  %58 = add i8 %40, 11
-  %59 = and i8 %58, -16
-  %60 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  %61 = load ptr, ptr %60, align 8
-  %62 = zext i8 %59 to i64
-  %63 = tail call noalias ptr @wmem_alloc0(ptr noundef %61, i64 noundef %62) #9
-  %64 = load ptr, ptr %60, align 8
-  %65 = tail call noalias ptr @wmem_alloc0(ptr noundef %64, i64 noundef %62) #9
-  %66 = zext i8 %41 to i64
-  %67 = tail call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %65, i32 noundef %.1, i64 noundef %66) #9
-  %.in.in.v = select i1 %.0131, i64 32, i64 40
-  %.in.in = getelementptr inbounds nuw i8, ptr %52, i64 %.in.in.v
+59:                                               ; preds = %get_session_key.exit
+  %60 = add i8 %42, 11
+  %61 = and i8 %60, -16
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %63 = load ptr, ptr %62, align 8
+  %64 = zext i8 %61 to i64
+  %65 = tail call noalias ptr @wmem_alloc0(ptr noundef %63, i64 noundef %64) #12
+  %66 = load ptr, ptr %62, align 8
+  %67 = tail call noalias ptr @wmem_alloc0(ptr noundef %66, i64 noundef %64) #12
+  %68 = zext i8 %43 to i64
+  %69 = tail call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %67, i32 noundef %.1, i64 noundef %68)
+  %.in.in.v = select i1 %.0127, i64 32, i64 40
+  %.in.in = getelementptr inbounds nuw i8, ptr %54, i64 %.in.in.v
   %.in = load ptr, ptr %.in.in, align 8
-  %68 = load ptr, ptr %.in, align 8
-  %69 = trunc nuw nsw i32 %3 to i8
-  %70 = xor i8 %69, 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  %70 = load ptr, ptr %.in, align 8
+  %71 = xor i1 %3, true
+  %72 = zext i1 %71 to i8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
   store i8 1, ptr %6, align 16
-  %71 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %72 = getelementptr inbounds nuw i8, ptr %6, i64 5
-  store i32 0, ptr %71, align 1
-  store i8 %70, ptr %72, align 1
-  %73 = getelementptr inbounds nuw i8, ptr %6, i64 6
-  %74 = getelementptr inbounds nuw i8, ptr %6, i64 10
-  %75 = getelementptr inbounds nuw i8, ptr %6, i64 15
-  %76 = getelementptr inbounds nuw i8, ptr %6, i64 14
-  store i8 0, ptr %76, align 2
-  store i8 1, ptr %75, align 1
-  store i32 %17, ptr %73, align 2
-  store i32 %24, ptr %74, align 2
-  %77 = call i32 @gcry_cipher_open(ptr noundef nonnull %5, i32 noundef 7, i32 noundef 6, i32 noundef 0) #9
-  %.not.i140 = icmp eq i32 %77, 0
-  br i1 %.not.i140, label %78, label %decrypt_lorawan_frame_payload.exit.thread
+  %73 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 5
+  store i32 0, ptr %73, align 1
+  store i8 %72, ptr %74, align 1
+  %75 = getelementptr inbounds nuw i8, ptr %6, i64 6
+  %76 = getelementptr inbounds nuw i8, ptr %6, i64 10
+  %77 = getelementptr inbounds nuw i8, ptr %6, i64 15
+  %78 = getelementptr inbounds nuw i8, ptr %6, i64 14
+  store i8 0, ptr %78, align 2
+  store i8 1, ptr %77, align 1
+  store i32 %19, ptr %75, align 2
+  store i32 %26, ptr %76, align 2
+  %79 = call i32 @gcry_cipher_open(ptr noundef nonnull %5, i32 noundef 7, i32 noundef 6, i32 noundef 0)
+  %.not.i133 = icmp eq i32 %79, 0
+  br i1 %.not.i133, label %80, label %decrypt_lorawan_frame_payload.exit.thread
 
-78:                                               ; preds = %57
-  %79 = load ptr, ptr %5, align 8
-  %80 = call i32 @gcry_cipher_setkey(ptr noundef %79, ptr noundef %68, i64 noundef 16) #9
-  %.not7.i = icmp eq i32 %80, 0
+80:                                               ; preds = %59
   %81 = load ptr, ptr %5, align 8
-  br i1 %.not7.i, label %82, label %decrypt_lorawan_frame_payload.exit.thread.sink.split
+  %82 = call i32 @gcry_cipher_setkey(ptr noundef %81, ptr noundef %70, i64 noundef 16)
+  %.not6.i = icmp eq i32 %82, 0
+  %83 = load ptr, ptr %5, align 8
+  br i1 %.not6.i, label %84, label %decrypt_lorawan_frame_payload.exit.thread.sink.split
 
-82:                                               ; preds = %78
-  %83 = call i32 @gcry_cipher_setctr(ptr noundef %81, ptr noundef nonnull %6, i64 noundef 16) #9
-  %.not8.i = icmp eq i32 %83, 0
-  %84 = load ptr, ptr %5, align 8
-  br i1 %.not8.i, label %decrypt_lorawan_frame_payload.exit, label %decrypt_lorawan_frame_payload.exit.thread.sink.split
+84:                                               ; preds = %80
+  %85 = call i32 @gcry_cipher_setctr(ptr noundef %83, ptr noundef nonnull %6, i64 noundef 16)
+  %.not7.i = icmp eq i32 %85, 0
+  %86 = load ptr, ptr %5, align 8
+  br i1 %.not7.i, label %decrypt_lorawan_frame_payload.exit, label %decrypt_lorawan_frame_payload.exit.thread.sink.split
 
-decrypt_lorawan_frame_payload.exit.thread.sink.split: ; preds = %82, %78
-  %.sink = phi ptr [ %81, %78 ], [ %84, %82 ]
-  call void @gcry_cipher_close(ptr noundef %.sink) #9
+decrypt_lorawan_frame_payload.exit.thread.sink.split: ; preds = %84, %80
+  %.sink = phi ptr [ %83, %80 ], [ %86, %84 ]
+  call void @gcry_cipher_close(ptr noundef %.sink)
   br label %decrypt_lorawan_frame_payload.exit.thread
 
-decrypt_lorawan_frame_payload.exit.thread:        ; preds = %decrypt_lorawan_frame_payload.exit.thread.sink.split, %57
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  br label %96
+decrypt_lorawan_frame_payload.exit.thread:        ; preds = %decrypt_lorawan_frame_payload.exit.thread.sink.split, %59
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  br label %98
 
-decrypt_lorawan_frame_payload.exit:               ; preds = %82
-  %85 = call i32 @gcry_cipher_encrypt(ptr noundef %84, ptr noundef %63, i64 noundef %62, ptr noundef %65, i64 noundef %62) #9
-  %.not9.i.not = icmp eq i32 %85, 0
-  %86 = load ptr, ptr %5, align 8
-  call void @gcry_cipher_close(ptr noundef %86) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  br i1 %.not9.i.not, label %87, label %96
+decrypt_lorawan_frame_payload.exit:               ; preds = %84
+  %87 = call i32 @gcry_cipher_encrypt(ptr noundef %86, ptr noundef %65, i64 noundef %64, ptr noundef %67, i64 noundef %64)
+  %.not8.i = icmp eq i32 %87, 0
+  %88 = load ptr, ptr %5, align 8
+  call void @gcry_cipher_close(ptr noundef %88)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  br i1 %.not8.i, label %89, label %98
 
-87:                                               ; preds = %decrypt_lorawan_frame_payload.exit
-  %88 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %63, i32 noundef %42, i32 noundef %42) #9
-  call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef %88, ptr noundef nonnull @.str.297) #9
-  %89 = load i32, ptr @ett_lorawan_frame_payload_decrypted, align 4
-  %90 = call ptr @proto_item_add_subtree(ptr noundef %.0, i32 noundef %89) #9
-  br i1 %.0131, label %91, label %93
+89:                                               ; preds = %decrypt_lorawan_frame_payload.exit
+  %90 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %65, i32 noundef %44, i32 noundef %44)
+  call void @add_new_data_source(ptr noundef %1, ptr noundef %90, ptr noundef nonnull @.str.301)
+  %91 = load i32, ptr @ett_lorawan_frame_payload_decrypted, align 4
+  %92 = call ptr @proto_item_add_subtree(ptr noundef %.0, i32 noundef %91)
+  br i1 %.0127, label %93, label %95
 
-91:                                               ; preds = %87
-  %92 = call fastcc i32 @dissect_lorawan_mac_commands(ptr noundef %88, ptr noundef %2, i32 noundef %3)
-  %.2150 = add i32 %92, %.1
-  br label %99
+93:                                               ; preds = %89
+  %94 = call fastcc i32 @dissect_lorawan_mac_commands(ptr noundef %90, ptr noundef %2, i1 noundef zeroext %3)
+  %.4145 = add i32 %94, %.1
+  br label %101
 
-93:                                               ; preds = %87
-  %94 = load i32, ptr @hf_lorawan_frame_payload_decrypted_type, align 4
-  %95 = call ptr @proto_tree_add_bytes(ptr noundef %90, i32 noundef %94, ptr noundef %88, i32 noundef 0, i32 noundef %42, ptr noundef %63) #9
-  %.2153 = add i32 %.1, %42
-  br label %99
+95:                                               ; preds = %89
+  %96 = load i32, ptr @hf_lorawan_frame_payload_decrypted_type, align 4
+  %97 = call ptr @proto_tree_add_bytes(ptr noundef %92, i32 noundef %96, ptr noundef %90, i32 noundef 0, i32 noundef %44, ptr noundef %65)
+  %.4146 = add i32 %.1, %44
+  br label %101
 
-96:                                               ; preds = %decrypt_lorawan_frame_payload.exit.thread, %decrypt_lorawan_frame_payload.exit
-  %97 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull @ei_lorawan_decrypting_error, ptr noundef %0, i32 noundef %.1, i32 noundef 4, ptr noundef nonnull @.str.298) #9
-  %.2154 = add i32 %.1, %42
-  br label %99
+98:                                               ; preds = %decrypt_lorawan_frame_payload.exit.thread, %decrypt_lorawan_frame_payload.exit
+  %99 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_lorawan_decrypting_error, ptr noundef %0, i32 noundef %.1, i32 noundef 4, ptr noundef nonnull @.str.302)
+  %.4142 = add i32 %.1, %44
+  br label %101
 
-98:                                               ; preds = %get_session_key.exit
-  %.2 = add i32 %.1, %42
-  br i1 %56, label %._crit_edge, label %121
+100:                                              ; preds = %get_session_key.exit
+  %.4 = add i32 %.1, %44
+  br i1 %58, label %._crit_edge, label %133
 
-._crit_edge:                                      ; preds = %98
-  %.pre = trunc nuw nsw i32 %3 to i8
-  %.pre157 = xor i8 %.pre, 1
-  br label %99
+._crit_edge:                                      ; preds = %100
+  %.pre = xor i1 %3, true
+  %.pre149 = zext i1 %.pre to i8
+  br label %101
 
-99:                                               ; preds = %._crit_edge, %96, %93, %91
-  %.pre-phi158 = phi i8 [ %.pre157, %._crit_edge ], [ %70, %96 ], [ %70, %93 ], [ %70, %91 ]
-  %.2152 = phi i32 [ %.2, %._crit_edge ], [ %.2154, %96 ], [ %.2153, %93 ], [ %.2150, %91 ]
-  %100 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  %101 = load ptr, ptr %100, align 8
-  %102 = add i32 %.2152, 16
-  %103 = sext i32 %102 to i64
-  %104 = call noalias ptr @wmem_alloc0(ptr noundef %101, i64 noundef %103) #9
-  store i8 73, ptr %104, align 1
-  %105 = getelementptr i8, ptr %104, i64 5
-  store i8 %.pre-phi158, ptr %105, align 1
-  %106 = getelementptr i8, ptr %104, i64 6
-  store i32 %17, ptr %106, align 1
-  %107 = getelementptr i8, ptr %104, i64 10
-  store i32 %24, ptr %107, align 1
-  %108 = trunc i32 %.2152 to i8
-  %109 = getelementptr i8, ptr %104, i64 15
-  store i8 %108, ptr %109, align 1
-  %110 = getelementptr i8, ptr %104, i64 16
-  %111 = sext i32 %.2152 to i64
-  %112 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %110, i32 noundef 0, i64 noundef %111) #9
-  %113 = load i32, ptr @hf_lorawan_mic_type, align 4
-  %114 = load i32, ptr @hf_lorawan_mic_status_type, align 4
-  %115 = trunc i32 %102 to i8
-  %116 = getelementptr inbounds nuw i8, ptr %52, i64 32
-  %117 = load ptr, ptr %116, align 8
-  %118 = load ptr, ptr %117, align 8
-  %119 = call fastcc i32 @calculate_mic(ptr noundef nonnull %104, i8 noundef zeroext %115, ptr noundef %118)
-  %120 = call ptr @proto_tree_add_checksum(ptr noundef %2, ptr noundef %0, i32 noundef %.2152, i32 noundef %113, i32 noundef %114, ptr noundef nonnull @ei_lorawan_mic, ptr noundef %1, i32 noundef %119, i32 noundef -2147483648, i32 noundef 1) #9
-  br label %126
+101:                                              ; preds = %._crit_edge, %98, %95, %93
+  %.pre-phi = phi i8 [ %.pre149, %._crit_edge ], [ %72, %98 ], [ %72, %95 ], [ %72, %93 ]
+  %.4144 = phi i32 [ %.4, %._crit_edge ], [ %.4142, %98 ], [ %.4146, %95 ], [ %.4145, %93 ]
+  %102 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %103 = load ptr, ptr %102, align 8
+  %104 = add i32 %.4144, 16
+  %105 = sext i32 %104 to i64
+  %106 = call noalias ptr @wmem_alloc0(ptr noundef %103, i64 noundef %105) #12
+  store i8 73, ptr %106, align 1
+  %107 = getelementptr i8, ptr %106, i64 5
+  store i8 %.pre-phi, ptr %107, align 1
+  %108 = getelementptr i8, ptr %106, i64 6
+  %109 = add nsw i64 %105, -6
+  %110 = icmp ult i32 %104, 6
+  %111 = select i1 %110, i64 0, i64 %109
+  %112 = icmp ne i64 %111, -1
+  call void @llvm.assume(i1 %112)
+  %113 = call ptr @__memcpy_chk(ptr noundef %108, ptr noundef nonnull %7, i64 noundef 4, i64 noundef %111) #11, !alias.scope !15
+  %114 = getelementptr i8, ptr %106, i64 10
+  %115 = add nsw i64 %105, -10
+  %116 = icmp ult i32 %104, 10
+  %117 = select i1 %116, i64 0, i64 %115
+  %118 = icmp ne i64 %117, -1
+  call void @llvm.assume(i1 %118)
+  %119 = call ptr @__memcpy_chk(ptr noundef %114, ptr noundef nonnull %8, i64 noundef 4, i64 noundef %117) #11, !alias.scope !19
+  %120 = trunc i32 %.4144 to i8
+  %121 = getelementptr i8, ptr %106, i64 15
+  store i8 %120, ptr %121, align 1
+  %122 = getelementptr i8, ptr %106, i64 16
+  %123 = sext i32 %.4144 to i64
+  %124 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %122, i32 noundef 0, i64 noundef %123)
+  %125 = load i32, ptr @hf_lorawan_mic_type, align 4
+  %126 = load i32, ptr @hf_lorawan_mic_status_type, align 4
+  %127 = trunc i32 %104 to i8
+  %128 = getelementptr inbounds nuw i8, ptr %54, i64 32
+  %129 = load ptr, ptr %128, align 8
+  %130 = load ptr, ptr %129, align 8
+  %131 = call fastcc i32 @calculate_mic(ptr noundef %106, i8 noundef zeroext %127, ptr noundef %130)
+  %132 = call ptr @proto_tree_add_checksum(ptr noundef %2, ptr noundef %0, i32 noundef %.4144, i32 noundef %125, i32 noundef %126, ptr noundef nonnull @ei_lorawan_mic, ptr noundef %1, i32 noundef %131, i32 noundef -2147483648, i32 noundef 1)
+  br label %138
 
-121:                                              ; preds = %.thread, %98
-  %.2149 = phi i32 [ %.2148, %.thread ], [ %.2, %98 ]
-  %122 = load i32, ptr @hf_lorawan_mic_type, align 4
-  %123 = load i32, ptr @hf_lorawan_mic_status_type, align 4
-  %124 = tail call ptr @proto_tree_add_checksum(ptr noundef %2, ptr noundef %0, i32 noundef %.2149, i32 noundef %122, i32 noundef %123, ptr noundef null, ptr noundef %1, i32 noundef 0, i32 noundef -2147483648, i32 noundef 0) #9
-  %125 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %124, ptr noundef nonnull @ei_lorawan_missing_keys) #9
-  br label %126
+133:                                              ; preds = %.thread, %100
+  %.4141 = phi i32 [ %.4140, %.thread ], [ %.4, %100 ]
+  %134 = load i32, ptr @hf_lorawan_mic_type, align 4
+  %135 = load i32, ptr @hf_lorawan_mic_status_type, align 4
+  %136 = tail call ptr @proto_tree_add_checksum(ptr noundef %2, ptr noundef %0, i32 noundef %.4141, i32 noundef %134, i32 noundef %135, ptr noundef null, ptr noundef %1, i32 noundef 0, i32 noundef -2147483648, i32 noundef 0)
+  %137 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %136, ptr noundef nonnull @ei_lorawan_missing_keys)
+  br label %138
 
-126:                                              ; preds = %121, %99
-  %127 = call i32 @tvb_captured_length(ptr noundef %0) #9
-  ret i32 %127
+138:                                              ; preds = %133, %101
+  %139 = call i32 @tvb_captured_length(ptr noundef %0)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #11
+  ret i32 %139
 }
 
-declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #3
 
-declare zeroext i16 @crc16_r3_ccitt_tvb(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @crc16_r3_ccitt_tvb(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @tvb_get_guint32(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_uint32(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_checksum(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @proto_tree_add_checksum(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @calculate_mic(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i64, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
   store i64 4, ptr %6, align 8
-  %7 = call i32 @gcry_mac_open(ptr noundef nonnull %4, i32 noundef 201, i32 noundef 0, ptr noundef null) #9
+  %7 = call i32 @gcry_mac_open(ptr noundef nonnull %4, i32 noundef 201, i32 noundef 0, ptr noundef null)
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %20
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr %4, align 8
-  %10 = call i32 @gcry_mac_setkey(ptr noundef %9, ptr noundef %2, i64 noundef 16) #9
+  %10 = call i32 @gcry_mac_setkey(ptr noundef %9, ptr noundef %2, i64 noundef 16)
   %.not3 = icmp eq i32 %10, 0
   %11 = load ptr, ptr %4, align 8
   br i1 %.not3, label %12, label %.sink.split
 
 12:                                               ; preds = %8
   %13 = zext i8 %1 to i64
-  %14 = call i32 @gcry_mac_write(ptr noundef %11, ptr noundef %0, i64 noundef %13) #9
+  %14 = call i32 @gcry_mac_write(ptr noundef %11, ptr noundef %0, i64 noundef %13)
   %.not4 = icmp eq i32 %14, 0
   %15 = load ptr, ptr %4, align 8
   br i1 %.not4, label %16, label %.sink.split
 
 16:                                               ; preds = %12
-  %17 = call i32 @gcry_mac_read(ptr noundef %15, ptr noundef nonnull %5, ptr noundef nonnull %6) #9
+  %17 = call i32 @gcry_mac_read(ptr noundef %15, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not5 = icmp eq i32 %17, 0
   %18 = load ptr, ptr %4, align 8
-  call void @gcry_mac_close(ptr noundef %18) #9
+  call void @gcry_mac_close(ptr noundef %18)
   %19 = load i32, ptr %5, align 4
   %spec.select = select i1 %.not5, i32 %19, i32 0
   br label %20
 
 .sink.split:                                      ; preds = %12, %8
   %.sink = phi ptr [ %11, %8 ], [ %15, %12 ]
-  call void @gcry_mac_close(ptr noundef %.sink) #9
+  call void @gcry_mac_close(ptr noundef %.sink)
   br label %20
 
 20:                                               ; preds = %16, %.sink.split, %3
   %.0 = phi i32 [ 0, %3 ], [ %spec.select, %16 ], [ 0, %.sink.split ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
   ret i32 %.0
 }
 
-declare i32 @gcry_mac_open(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare i32 @gcry_mac_open(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare i32 @gcry_mac_setkey(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare i32 @gcry_mac_setkey(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @gcry_mac_close(ptr noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare void @gcry_mac_close(ptr noundef) local_unnamed_addr #3
 
-declare i32 @gcry_mac_write(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare i32 @gcry_mac_write(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare i32 @gcry_mac_read(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare i32 @gcry_mac_read(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid allocsize(1)
+declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #6
 
-declare ptr @tvb_new_child_real_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_child_real_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @proto_item_get_len(ptr noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_item_get_len(ptr noundef) local_unnamed_addr #3
 
-declare i32 @gcry_cipher_open(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare i32 @gcry_cipher_open(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @gcry_cipher_setkey(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare i32 @gcry_cipher_setkey(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @gcry_cipher_close(ptr noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare void @gcry_cipher_close(ptr noundef) local_unnamed_addr #3
 
-declare i32 @gcry_cipher_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare i32 @gcry_cipher_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: nofree nounwind null_pointer_is_valid memory(argmem: readwrite)
+declare ptr @__memcpy_chk(ptr noalias noundef writeonly, ptr noalias noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #7
 
-; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_lorawan_mac_commands(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal fastcc i32 @dissect_lorawan_mac_commands(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_lorawan_mac_commands_type, align 4
-  %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #9
+  %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %6 = load i32, ptr @ett_lorawan_mac_commands, align 4
-  %7 = tail call ptr @proto_item_add_subtree(ptr noundef %5, i32 noundef %6) #9
-  %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %.split.us, label %.split
+  %7 = tail call ptr @proto_item_add_subtree(ptr noundef %5, i32 noundef %6)
+  br i1 %2, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %3, %107
-  %.0.us = phi i32 [ %.1.us, %107 ], [ 0, %3 ]
-  %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0.us) #9
-  %9 = load i32, ptr @hf_lorawan_mac_command_downlink_type, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %7, i32 noundef %9, ptr noundef %0, i32 noundef %.0.us, i32 noundef 1, i32 noundef 0) #9
+.split.us:                                        ; preds = %3, %68
+  %.0.us = phi i32 [ %.1.us, %68 ], [ 0, %3 ]
+  %8 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0.us)
+  %9 = load i32, ptr @hf_lorawan_mac_command_uplink_type, align 4
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %7, i32 noundef %9, ptr noundef %0, i32 noundef %.0.us, i32 noundef 1, i32 noundef 0)
   %11 = add i32 %.0.us, 1
   %12 = zext i8 %8 to i32
-  %13 = tail call ptr @val_to_str_const(i32 noundef %12, ptr noundef nonnull @lorawan_mac_downlink_commandnames, ptr noundef nonnull @.str.8) #9
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef nonnull @.str.299, ptr noundef %13) #9
+  %13 = tail call ptr @val_to_str_const(i32 noundef %12, ptr noundef nonnull @lorawan_mac_uplink_commandnames, ptr noundef nonnull @.str.8)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef nonnull @.str.303, ptr noundef %13)
   switch i8 %8, label %.split2.us [
-    i8 2, label %98
-    i8 3, label %81
-    i8 4, label %75
-    i8 5, label %64
-    i8 6, label %107
-    i8 16, label %107
-    i8 7, label %50
-    i8 8, label %44
-    i8 9, label %38
-    i8 10, label %32
-    i8 13, label %26
-    i8 18, label %26
+    i8 2, label %68
+    i8 4, label %68
+    i8 8, label %68
+    i8 9, label %68
+    i8 13, label %68
+    i8 18, label %68
+    i8 3, label %61
+    i8 5, label %54
+    i8 6, label %45
+    i8 10, label %39
+    i8 7, label %32
+    i8 16, label %26
     i8 17, label %20
     i8 19, label %14
   ]
 
 14:                                               ; preds = %.split.us
   %15 = load i32, ptr @ett_lorawan_mac_command, align 4
-  %16 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %15) #9
-  %17 = load i32, ptr @hf_lorawan_mac_command_down_beacon_freq_req_type, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %17, ptr noundef %0, i32 noundef %11, i32 noundef 3, i32 noundef 0) #9
-  %19 = add i32 %.0.us, 4
-  br label %107
+  %16 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %15)
+  %17 = load i32, ptr @hf_lorawan_mac_command_up_beacon_freq_ans_type, align 4
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %17, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0)
+  %19 = add i32 %.0.us, 2
+  br label %68
 
 20:                                               ; preds = %.split.us
   %21 = load i32, ptr @ett_lorawan_mac_command, align 4
-  %22 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %21) #9
-  %23 = load i32, ptr @hf_lorawan_mac_command_down_ping_slot_channel_req_type, align 4
-  %24 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %23, ptr noundef %0, i32 noundef %11, i32 noundef 4, i32 noundef 0) #9
-  %25 = add i32 %.0.us, 5
-  br label %107
+  %22 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %21)
+  %23 = load i32, ptr @hf_lorawan_mac_command_up_ping_slot_channel_ans_type, align 4
+  %24 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %23, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0)
+  %25 = add i32 %.0.us, 2
+  br label %68
 
-26:                                               ; preds = %.split.us, %.split.us
+26:                                               ; preds = %.split.us
   %27 = load i32, ptr @ett_lorawan_mac_command, align 4
-  %28 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %27) #9
-  %29 = load i32, ptr @hf_lorawan_mac_command_down_device_time_ans_type, align 4
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %29, ptr noundef %0, i32 noundef %11, i32 noundef 5, i32 noundef 0) #9
-  %31 = add i32 %.0.us, 6
-  br label %107
+  %28 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %27)
+  %29 = load i32, ptr @hf_lorawan_mac_command_up_ping_slot_info_req_type, align 4
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %29, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0)
+  %31 = add i32 %.0.us, 2
+  br label %68
 
 32:                                               ; preds = %.split.us
   %33 = load i32, ptr @ett_lorawan_mac_command, align 4
-  %34 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %33) #9
-  %35 = load i32, ptr @hf_lorawan_mac_command_down_di_channel_req_type, align 4
-  %36 = tail call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %35, ptr noundef %0, i32 noundef %11, i32 noundef 4, i32 noundef 0) #9
-  %37 = add i32 %.0.us, 5
-  br label %107
+  %34 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %33)
+  %35 = load i32, ptr @hf_lorawan_mac_command_up_new_channel_ans_type, align 4
+  %36 = load i32, ptr @ett_lorawan_mac_command_new_channel_ans, align 4
+  %37 = tail call ptr @proto_tree_add_bitmask(ptr noundef %34, ptr noundef %0, i32 noundef %11, i32 noundef %35, i32 noundef %36, ptr noundef nonnull @hfx_lorawan_mac_command_new_channel_ans, i32 noundef 0)
+  %38 = add i32 %.0.us, 2
+  br label %68
 
-38:                                               ; preds = %.split.us
-  %39 = load i32, ptr @ett_lorawan_mac_command, align 4
-  %40 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %39) #9
-  %41 = load i32, ptr @hf_lorawan_mac_command_down_tx_param_setup_req_type, align 4
-  %42 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %41, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #9
-  %43 = add i32 %.0.us, 2
-  br label %107
+39:                                               ; preds = %.split.us
+  %40 = load i32, ptr @ett_lorawan_mac_command, align 4
+  %41 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %40)
+  %42 = load i32, ptr @hf_lorawan_mac_command_up_di_channel_ans_type, align 4
+  %43 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %42, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0)
+  %44 = add i32 %.0.us, 2
+  br label %68
 
-44:                                               ; preds = %.split.us
-  %45 = load i32, ptr @ett_lorawan_mac_command, align 4
-  %46 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %45) #9
-  %47 = load i32, ptr @hf_lorawan_mac_command_down_rx_timing_req_delay_type, align 4
-  %48 = tail call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %47, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #9
-  %49 = add i32 %.0.us, 2
-  br label %107
+45:                                               ; preds = %.split.us
+  %46 = load i32, ptr @ett_lorawan_mac_command, align 4
+  %47 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %46)
+  %48 = load i32, ptr @hf_lorawan_mac_command_up_device_status_ans_battery_type, align 4
+  %49 = tail call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %48, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0)
+  %50 = add i32 %.0.us, 2
+  %51 = load i32, ptr @hf_lorawan_mac_command_up_device_status_ans_margin_type, align 4
+  %52 = tail call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %51, ptr noundef %0, i32 noundef %50, i32 noundef 1, i32 noundef 0)
+  %53 = add i32 %.0.us, 3
+  br label %68
 
-50:                                               ; preds = %.split.us
-  %51 = load i32, ptr @ett_lorawan_mac_command, align 4
-  %52 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %51) #9
-  %53 = load i32, ptr @hf_lorawan_mac_command_down_new_channel_req_index_type, align 4
-  %54 = tail call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %53, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #9
-  %55 = add i32 %.0.us, 2
-  %56 = load i32, ptr @hf_lorawan_mac_command_down_new_channel_req_frequency_type, align 4
-  %57 = tail call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %56, ptr noundef %0, i32 noundef %55, i32 noundef 3, i32 noundef -2147483648) #9
-  %58 = add i32 %.0.us, 5
-  %59 = load i32, ptr @hf_lorawan_mac_command_down_new_channel_req_drrange_max_type, align 4
-  %60 = tail call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %59, ptr noundef %0, i32 noundef %58, i32 noundef 1, i32 noundef 0) #9
-  %61 = load i32, ptr @hf_lorawan_mac_command_down_new_channel_req_drrange_min_type, align 4
-  %62 = tail call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %61, ptr noundef %0, i32 noundef %58, i32 noundef 1, i32 noundef 0) #9
-  %63 = add i32 %.0.us, 6
-  br label %107
+54:                                               ; preds = %.split.us
+  %55 = load i32, ptr @ett_lorawan_mac_command, align 4
+  %56 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %55)
+  %57 = load i32, ptr @hf_lorawan_mac_command_up_rx_setup_ans_type, align 4
+  %58 = load i32, ptr @ett_lorawan_mac_command_rx_setup_ans, align 4
+  %59 = tail call ptr @proto_tree_add_bitmask(ptr noundef %56, ptr noundef %0, i32 noundef %11, i32 noundef %57, i32 noundef %58, ptr noundef nonnull @hfx_lorawan_mac_command_rx_setup_ans, i32 noundef 0)
+  %60 = add i32 %.0.us, 2
+  br label %68
 
-64:                                               ; preds = %.split.us
-  %65 = load i32, ptr @ett_lorawan_mac_command, align 4
-  %66 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %65) #9
-  %67 = load i32, ptr @hf_lorawan_mac_command_down_rx_setup_req_rx1droffset_type, align 4
-  %68 = tail call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %67, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #9
-  %69 = load i32, ptr @hf_lorawan_mac_command_down_rx_setup_req_rx2datarate_type, align 4
-  %70 = tail call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %69, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #9
-  %71 = add i32 %.0.us, 2
-  %72 = load i32, ptr @hf_lorawan_mac_command_down_rx_setup_req_frequency_type, align 4
-  %73 = tail call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %72, ptr noundef %0, i32 noundef %71, i32 noundef 3, i32 noundef -2147483648) #9
-  %74 = add i32 %.0.us, 5
-  br label %107
+61:                                               ; preds = %.split.us
+  %62 = load i32, ptr @ett_lorawan_mac_command, align 4
+  %63 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %62)
+  %64 = load i32, ptr @hf_lorawan_mac_command_down_link_check_ans_type, align 4
+  %65 = load i32, ptr @ett_lorawan_mac_command_link_check_ans, align 4
+  %66 = tail call ptr @proto_tree_add_bitmask(ptr noundef %63, ptr noundef %0, i32 noundef %11, i32 noundef %64, i32 noundef %65, ptr noundef nonnull @hfx_lorawan_mac_command_link_check_ans, i32 noundef 0)
+  %67 = add i32 %.0.us, 2
+  br label %68
 
-75:                                               ; preds = %.split.us
-  %76 = load i32, ptr @ett_lorawan_mac_command, align 4
-  %77 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %76) #9
-  %78 = load i32, ptr @hf_lorawan_mac_command_down_dutycycle_type, align 4
-  %79 = tail call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %78, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #9
-  %80 = add i32 %.0.us, 2
-  br label %107
-
-81:                                               ; preds = %.split.us
-  %82 = load i32, ptr @ett_lorawan_mac_command, align 4
-  %83 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %82) #9
-  %84 = load i32, ptr @hf_lorawan_mac_command_down_link_adr_req_datarate_type, align 4
-  %85 = tail call ptr @proto_tree_add_item(ptr noundef %83, i32 noundef %84, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #9
-  %86 = load i32, ptr @hf_lorawan_mac_command_down_link_adr_req_txpower_type, align 4
-  %87 = tail call ptr @proto_tree_add_item(ptr noundef %83, i32 noundef %86, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #9
-  %88 = add i32 %.0.us, 2
-  %89 = load i32, ptr @hf_lorawan_mac_command_down_link_adr_req_channel_type, align 4
-  %90 = load i32, ptr @ett_lorawan_mac_command_link_adr_req_channel, align 4
-  %91 = tail call ptr @proto_tree_add_bitmask(ptr noundef %83, ptr noundef %0, i32 noundef %88, i32 noundef %89, i32 noundef %90, ptr noundef nonnull @hfx_lorawan_mac_command_link_adr_req_channel, i32 noundef -2147483648) #9
-  %92 = add i32 %.0.us, 4
-  %93 = load i32, ptr @hf_lorawan_mac_command_down_link_adr_req_channel_mask_control_type, align 4
-  %94 = tail call ptr @proto_tree_add_item(ptr noundef %83, i32 noundef %93, ptr noundef %0, i32 noundef %92, i32 noundef 1, i32 noundef 0) #9
-  %95 = load i32, ptr @hf_lorawan_mac_command_down_link_adr_req_repetitions_type, align 4
-  %96 = tail call ptr @proto_tree_add_item(ptr noundef %83, i32 noundef %95, ptr noundef %0, i32 noundef %92, i32 noundef 1, i32 noundef 0) #9
-  %97 = add i32 %.0.us, 5
-  br label %107
-
-98:                                               ; preds = %.split.us
-  %99 = load i32, ptr @ett_lorawan_mac_command, align 4
-  %100 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %99) #9
-  %101 = load i32, ptr @hf_lorawan_mac_command_down_link_check_ans_margin_type, align 4
-  %102 = tail call ptr @proto_tree_add_item(ptr noundef %100, i32 noundef %101, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #9
-  %103 = add i32 %.0.us, 2
-  %104 = load i32, ptr @hf_lorawan_mac_command_down_link_check_ans_gwcnt_type, align 4
-  %105 = tail call ptr @proto_tree_add_item(ptr noundef %100, i32 noundef %104, ptr noundef %0, i32 noundef %103, i32 noundef 1, i32 noundef 0) #9
-  %106 = add i32 %.0.us, 3
-  br label %107
-
-107:                                              ; preds = %98, %81, %75, %64, %50, %44, %38, %32, %26, %20, %14, %.split.us, %.split.us
-  %.1.us = phi i32 [ %19, %14 ], [ %25, %20 ], [ %31, %26 ], [ %37, %32 ], [ %43, %38 ], [ %49, %44 ], [ %63, %50 ], [ %11, %.split.us ], [ %11, %.split.us ], [ %74, %64 ], [ %80, %75 ], [ %97, %81 ], [ %106, %98 ]
-  %108 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.1.us) #9
-  %.not161.us = icmp eq i32 %108, 0
-  br i1 %.not161.us, label %.split2.us, label %.split.us, !llvm.loop !9
+68:                                               ; preds = %61, %54, %45, %39, %32, %26, %20, %14, %.split.us, %.split.us, %.split.us, %.split.us, %.split.us, %.split.us
+  %.1.us = phi i32 [ %19, %14 ], [ %25, %20 ], [ %31, %26 ], [ %38, %32 ], [ %44, %39 ], [ %53, %45 ], [ %60, %54 ], [ %67, %61 ], [ %11, %.split.us ], [ %11, %.split.us ], [ %11, %.split.us ], [ %11, %.split.us ], [ %11, %.split.us ], [ %11, %.split.us ]
+  %69 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.1.us)
+  %.not.us = icmp eq i32 %69, 0
+  br i1 %.not.us, label %.split2.us, label %.split.us, !llvm.loop !23
 
 .split:                                           ; preds = %3, %169
   %.0 = phi i32 [ %.1, %169 ], [ 0, %3 ]
-  %109 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0) #9
-  %110 = load i32, ptr @hf_lorawan_mac_command_uplink_type, align 4
-  %111 = tail call ptr @proto_tree_add_item(ptr noundef %7, i32 noundef %110, ptr noundef %0, i32 noundef %.0, i32 noundef 1, i32 noundef 0) #9
-  %112 = add i32 %.0, 1
-  %113 = zext i8 %109 to i32
-  %114 = tail call ptr @val_to_str_const(i32 noundef %113, ptr noundef nonnull @lorawan_mac_uplink_commandnames, ptr noundef nonnull @.str.8) #9
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %111, ptr noundef nonnull @.str.299, ptr noundef %114) #9
-  switch i8 %109, label %.split2.us [
-    i8 2, label %169
-    i8 4, label %169
-    i8 8, label %169
-    i8 9, label %169
-    i8 13, label %169
-    i8 18, label %169
-    i8 3, label %115
-    i8 5, label %122
-    i8 6, label %129
-    i8 10, label %138
-    i8 7, label %144
-    i8 16, label %151
+  %70 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0)
+  %71 = load i32, ptr @hf_lorawan_mac_command_downlink_type, align 4
+  %72 = tail call ptr @proto_tree_add_item(ptr noundef %7, i32 noundef %71, ptr noundef %0, i32 noundef %.0, i32 noundef 1, i32 noundef 0)
+  %73 = add i32 %.0, 1
+  %74 = zext i8 %70 to i32
+  %75 = tail call ptr @val_to_str_const(i32 noundef %74, ptr noundef nonnull @lorawan_mac_downlink_commandnames, ptr noundef nonnull @.str.8)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %72, ptr noundef nonnull @.str.303, ptr noundef %75)
+  switch i8 %70, label %.split2.us [
+    i8 2, label %76
+    i8 3, label %85
+    i8 4, label %102
+    i8 5, label %108
+    i8 6, label %169
+    i8 16, label %169
+    i8 7, label %119
+    i8 8, label %133
+    i8 9, label %139
+    i8 10, label %145
+    i8 13, label %151
+    i8 18, label %151
     i8 17, label %157
     i8 19, label %163
   ]
 
-115:                                              ; preds = %.split
-  %116 = load i32, ptr @ett_lorawan_mac_command, align 4
-  %117 = tail call ptr @proto_item_add_subtree(ptr noundef %111, i32 noundef %116) #9
-  %118 = load i32, ptr @hf_lorawan_mac_command_down_link_check_ans_type, align 4
-  %119 = load i32, ptr @ett_lorawan_mac_command_link_check_ans, align 4
-  %120 = tail call ptr @proto_tree_add_bitmask(ptr noundef %117, ptr noundef %0, i32 noundef %112, i32 noundef %118, i32 noundef %119, ptr noundef nonnull @hfx_lorawan_mac_command_link_check_ans, i32 noundef 0) #9
-  %121 = add i32 %.0, 2
+76:                                               ; preds = %.split
+  %77 = load i32, ptr @ett_lorawan_mac_command, align 4
+  %78 = tail call ptr @proto_item_add_subtree(ptr noundef %72, i32 noundef %77)
+  %79 = load i32, ptr @hf_lorawan_mac_command_down_link_check_ans_margin_type, align 4
+  %80 = tail call ptr @proto_tree_add_item(ptr noundef %78, i32 noundef %79, ptr noundef %0, i32 noundef %73, i32 noundef 1, i32 noundef 0)
+  %81 = add i32 %.0, 2
+  %82 = load i32, ptr @hf_lorawan_mac_command_down_link_check_ans_gwcnt_type, align 4
+  %83 = tail call ptr @proto_tree_add_item(ptr noundef %78, i32 noundef %82, ptr noundef %0, i32 noundef %81, i32 noundef 1, i32 noundef 0)
+  %84 = add i32 %.0, 3
   br label %169
 
-122:                                              ; preds = %.split
-  %123 = load i32, ptr @ett_lorawan_mac_command, align 4
-  %124 = tail call ptr @proto_item_add_subtree(ptr noundef %111, i32 noundef %123) #9
-  %125 = load i32, ptr @hf_lorawan_mac_command_up_rx_setup_ans_type, align 4
-  %126 = load i32, ptr @ett_lorawan_mac_command_rx_setup_ans, align 4
-  %127 = tail call ptr @proto_tree_add_bitmask(ptr noundef %124, ptr noundef %0, i32 noundef %112, i32 noundef %125, i32 noundef %126, ptr noundef nonnull @hfx_lorawan_mac_command_rx_setup_ans, i32 noundef 0) #9
-  %128 = add i32 %.0, 2
+85:                                               ; preds = %.split
+  %86 = load i32, ptr @ett_lorawan_mac_command, align 4
+  %87 = tail call ptr @proto_item_add_subtree(ptr noundef %72, i32 noundef %86)
+  %88 = load i32, ptr @hf_lorawan_mac_command_down_link_adr_req_datarate_type, align 4
+  %89 = tail call ptr @proto_tree_add_item(ptr noundef %87, i32 noundef %88, ptr noundef %0, i32 noundef %73, i32 noundef 1, i32 noundef 0)
+  %90 = load i32, ptr @hf_lorawan_mac_command_down_link_adr_req_txpower_type, align 4
+  %91 = tail call ptr @proto_tree_add_item(ptr noundef %87, i32 noundef %90, ptr noundef %0, i32 noundef %73, i32 noundef 1, i32 noundef 0)
+  %92 = add i32 %.0, 2
+  %93 = load i32, ptr @hf_lorawan_mac_command_down_link_adr_req_channel_type, align 4
+  %94 = load i32, ptr @ett_lorawan_mac_command_link_adr_req_channel, align 4
+  %95 = tail call ptr @proto_tree_add_bitmask(ptr noundef %87, ptr noundef %0, i32 noundef %92, i32 noundef %93, i32 noundef %94, ptr noundef nonnull @hfx_lorawan_mac_command_link_adr_req_channel, i32 noundef -2147483648)
+  %96 = add i32 %.0, 4
+  %97 = load i32, ptr @hf_lorawan_mac_command_down_link_adr_req_channel_mask_control_type, align 4
+  %98 = tail call ptr @proto_tree_add_item(ptr noundef %87, i32 noundef %97, ptr noundef %0, i32 noundef %96, i32 noundef 1, i32 noundef 0)
+  %99 = load i32, ptr @hf_lorawan_mac_command_down_link_adr_req_repetitions_type, align 4
+  %100 = tail call ptr @proto_tree_add_item(ptr noundef %87, i32 noundef %99, ptr noundef %0, i32 noundef %96, i32 noundef 1, i32 noundef 0)
+  %101 = add i32 %.0, 5
   br label %169
 
-129:                                              ; preds = %.split
-  %130 = load i32, ptr @ett_lorawan_mac_command, align 4
-  %131 = tail call ptr @proto_item_add_subtree(ptr noundef %111, i32 noundef %130) #9
-  %132 = load i32, ptr @hf_lorawan_mac_command_up_device_status_ans_battery_type, align 4
-  %133 = tail call ptr @proto_tree_add_item(ptr noundef %131, i32 noundef %132, ptr noundef %0, i32 noundef %112, i32 noundef 1, i32 noundef 0) #9
-  %134 = add i32 %.0, 2
-  %135 = load i32, ptr @hf_lorawan_mac_command_up_device_status_ans_margin_type, align 4
-  %136 = tail call ptr @proto_tree_add_item(ptr noundef %131, i32 noundef %135, ptr noundef %0, i32 noundef %134, i32 noundef 1, i32 noundef 0) #9
-  %137 = add i32 %.0, 3
+102:                                              ; preds = %.split
+  %103 = load i32, ptr @ett_lorawan_mac_command, align 4
+  %104 = tail call ptr @proto_item_add_subtree(ptr noundef %72, i32 noundef %103)
+  %105 = load i32, ptr @hf_lorawan_mac_command_down_dutycycle_type, align 4
+  %106 = tail call ptr @proto_tree_add_item(ptr noundef %104, i32 noundef %105, ptr noundef %0, i32 noundef %73, i32 noundef 1, i32 noundef 0)
+  %107 = add i32 %.0, 2
   br label %169
 
-138:                                              ; preds = %.split
-  %139 = load i32, ptr @ett_lorawan_mac_command, align 4
-  %140 = tail call ptr @proto_item_add_subtree(ptr noundef %111, i32 noundef %139) #9
-  %141 = load i32, ptr @hf_lorawan_mac_command_up_di_channel_ans_type, align 4
-  %142 = tail call ptr @proto_tree_add_item(ptr noundef %140, i32 noundef %141, ptr noundef %0, i32 noundef %112, i32 noundef 1, i32 noundef 0) #9
-  %143 = add i32 %.0, 2
+108:                                              ; preds = %.split
+  %109 = load i32, ptr @ett_lorawan_mac_command, align 4
+  %110 = tail call ptr @proto_item_add_subtree(ptr noundef %72, i32 noundef %109)
+  %111 = load i32, ptr @hf_lorawan_mac_command_down_rx_setup_req_rx1droffset_type, align 4
+  %112 = tail call ptr @proto_tree_add_item(ptr noundef %110, i32 noundef %111, ptr noundef %0, i32 noundef %73, i32 noundef 1, i32 noundef 0)
+  %113 = load i32, ptr @hf_lorawan_mac_command_down_rx_setup_req_rx2datarate_type, align 4
+  %114 = tail call ptr @proto_tree_add_item(ptr noundef %110, i32 noundef %113, ptr noundef %0, i32 noundef %73, i32 noundef 1, i32 noundef 0)
+  %115 = add i32 %.0, 2
+  %116 = load i32, ptr @hf_lorawan_mac_command_down_rx_setup_req_frequency_type, align 4
+  %117 = tail call ptr @proto_tree_add_item(ptr noundef %110, i32 noundef %116, ptr noundef %0, i32 noundef %115, i32 noundef 3, i32 noundef -2147483648)
+  %118 = add i32 %.0, 5
   br label %169
 
-144:                                              ; preds = %.split
-  %145 = load i32, ptr @ett_lorawan_mac_command, align 4
-  %146 = tail call ptr @proto_item_add_subtree(ptr noundef %111, i32 noundef %145) #9
-  %147 = load i32, ptr @hf_lorawan_mac_command_up_new_channel_ans_type, align 4
-  %148 = load i32, ptr @ett_lorawan_mac_command_new_channel_ans, align 4
-  %149 = tail call ptr @proto_tree_add_bitmask(ptr noundef %146, ptr noundef %0, i32 noundef %112, i32 noundef %147, i32 noundef %148, ptr noundef nonnull @hfx_lorawan_mac_command_new_channel_ans, i32 noundef 0) #9
-  %150 = add i32 %.0, 2
+119:                                              ; preds = %.split
+  %120 = load i32, ptr @ett_lorawan_mac_command, align 4
+  %121 = tail call ptr @proto_item_add_subtree(ptr noundef %72, i32 noundef %120)
+  %122 = load i32, ptr @hf_lorawan_mac_command_down_new_channel_req_index_type, align 4
+  %123 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %122, ptr noundef %0, i32 noundef %73, i32 noundef 1, i32 noundef 0)
+  %124 = add i32 %.0, 2
+  %125 = load i32, ptr @hf_lorawan_mac_command_down_new_channel_req_frequency_type, align 4
+  %126 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %125, ptr noundef %0, i32 noundef %124, i32 noundef 3, i32 noundef -2147483648)
+  %127 = add i32 %.0, 5
+  %128 = load i32, ptr @hf_lorawan_mac_command_down_new_channel_req_drrange_max_type, align 4
+  %129 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %128, ptr noundef %0, i32 noundef %127, i32 noundef 1, i32 noundef 0)
+  %130 = load i32, ptr @hf_lorawan_mac_command_down_new_channel_req_drrange_min_type, align 4
+  %131 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %130, ptr noundef %0, i32 noundef %127, i32 noundef 1, i32 noundef 0)
+  %132 = add i32 %.0, 6
   br label %169
 
-151:                                              ; preds = %.split
+133:                                              ; preds = %.split
+  %134 = load i32, ptr @ett_lorawan_mac_command, align 4
+  %135 = tail call ptr @proto_item_add_subtree(ptr noundef %72, i32 noundef %134)
+  %136 = load i32, ptr @hf_lorawan_mac_command_down_rx_timing_req_delay_type, align 4
+  %137 = tail call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %136, ptr noundef %0, i32 noundef %73, i32 noundef 1, i32 noundef 0)
+  %138 = add i32 %.0, 2
+  br label %169
+
+139:                                              ; preds = %.split
+  %140 = load i32, ptr @ett_lorawan_mac_command, align 4
+  %141 = tail call ptr @proto_item_add_subtree(ptr noundef %72, i32 noundef %140)
+  %142 = load i32, ptr @hf_lorawan_mac_command_down_tx_param_setup_req_type, align 4
+  %143 = tail call ptr @proto_tree_add_item(ptr noundef %141, i32 noundef %142, ptr noundef %0, i32 noundef %73, i32 noundef 1, i32 noundef 0)
+  %144 = add i32 %.0, 2
+  br label %169
+
+145:                                              ; preds = %.split
+  %146 = load i32, ptr @ett_lorawan_mac_command, align 4
+  %147 = tail call ptr @proto_item_add_subtree(ptr noundef %72, i32 noundef %146)
+  %148 = load i32, ptr @hf_lorawan_mac_command_down_di_channel_req_type, align 4
+  %149 = tail call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %148, ptr noundef %0, i32 noundef %73, i32 noundef 4, i32 noundef 0)
+  %150 = add i32 %.0, 5
+  br label %169
+
+151:                                              ; preds = %.split, %.split
   %152 = load i32, ptr @ett_lorawan_mac_command, align 4
-  %153 = tail call ptr @proto_item_add_subtree(ptr noundef %111, i32 noundef %152) #9
-  %154 = load i32, ptr @hf_lorawan_mac_command_up_ping_slot_info_req_type, align 4
-  %155 = tail call ptr @proto_tree_add_item(ptr noundef %153, i32 noundef %154, ptr noundef %0, i32 noundef %112, i32 noundef 1, i32 noundef 0) #9
-  %156 = add i32 %.0, 2
+  %153 = tail call ptr @proto_item_add_subtree(ptr noundef %72, i32 noundef %152)
+  %154 = load i32, ptr @hf_lorawan_mac_command_down_device_time_ans_type, align 4
+  %155 = tail call ptr @proto_tree_add_item(ptr noundef %153, i32 noundef %154, ptr noundef %0, i32 noundef %73, i32 noundef 5, i32 noundef 0)
+  %156 = add i32 %.0, 6
   br label %169
 
 157:                                              ; preds = %.split
   %158 = load i32, ptr @ett_lorawan_mac_command, align 4
-  %159 = tail call ptr @proto_item_add_subtree(ptr noundef %111, i32 noundef %158) #9
-  %160 = load i32, ptr @hf_lorawan_mac_command_up_ping_slot_channel_ans_type, align 4
-  %161 = tail call ptr @proto_tree_add_item(ptr noundef %159, i32 noundef %160, ptr noundef %0, i32 noundef %112, i32 noundef 1, i32 noundef 0) #9
-  %162 = add i32 %.0, 2
+  %159 = tail call ptr @proto_item_add_subtree(ptr noundef %72, i32 noundef %158)
+  %160 = load i32, ptr @hf_lorawan_mac_command_down_ping_slot_channel_req_type, align 4
+  %161 = tail call ptr @proto_tree_add_item(ptr noundef %159, i32 noundef %160, ptr noundef %0, i32 noundef %73, i32 noundef 4, i32 noundef 0)
+  %162 = add i32 %.0, 5
   br label %169
 
 163:                                              ; preds = %.split
   %164 = load i32, ptr @ett_lorawan_mac_command, align 4
-  %165 = tail call ptr @proto_item_add_subtree(ptr noundef %111, i32 noundef %164) #9
-  %166 = load i32, ptr @hf_lorawan_mac_command_up_beacon_freq_ans_type, align 4
-  %167 = tail call ptr @proto_tree_add_item(ptr noundef %165, i32 noundef %166, ptr noundef %0, i32 noundef %112, i32 noundef 1, i32 noundef 0) #9
-  %168 = add i32 %.0, 2
+  %165 = tail call ptr @proto_item_add_subtree(ptr noundef %72, i32 noundef %164)
+  %166 = load i32, ptr @hf_lorawan_mac_command_down_beacon_freq_req_type, align 4
+  %167 = tail call ptr @proto_tree_add_item(ptr noundef %165, i32 noundef %166, ptr noundef %0, i32 noundef %73, i32 noundef 3, i32 noundef 0)
+  %168 = add i32 %.0, 4
   br label %169
 
-169:                                              ; preds = %.split, %.split, %.split, %.split, %.split, %.split, %163, %157, %151, %144, %138, %129, %122, %115
-  %.1 = phi i32 [ %168, %163 ], [ %162, %157 ], [ %156, %151 ], [ %150, %144 ], [ %143, %138 ], [ %137, %129 ], [ %128, %122 ], [ %121, %115 ], [ %112, %.split ], [ %112, %.split ], [ %112, %.split ], [ %112, %.split ], [ %112, %.split ], [ %112, %.split ]
-  %170 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.1) #9
-  %.not161 = icmp eq i32 %170, 0
-  br i1 %.not161, label %.split2.us, label %.split, !llvm.loop !9
+169:                                              ; preds = %.split, %.split, %163, %157, %151, %145, %139, %133, %119, %108, %102, %85, %76
+  %.1 = phi i32 [ %168, %163 ], [ %162, %157 ], [ %156, %151 ], [ %150, %145 ], [ %144, %139 ], [ %138, %133 ], [ %132, %119 ], [ %73, %.split ], [ %73, %.split ], [ %118, %108 ], [ %107, %102 ], [ %101, %85 ], [ %84, %76 ]
+  %170 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.1)
+  %.not = icmp eq i32 %170, 0
+  br i1 %.not, label %.split2.us, label %.split, !llvm.loop !23
 
-.split2.us:                                       ; preds = %169, %.split, %107, %.split.us
-  %171 = tail call i32 @tvb_captured_length(ptr noundef %0) #9
+.split2.us:                                       ; preds = %169, %.split, %68, %.split.us
+  %171 = tail call i32 @tvb_captured_length(ptr noundef %0)
   ret i32 %171
 }
 
-declare ptr @tvb_memcpy(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_memcpy(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
-declare ptr @proto_tree_add_bytes(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_bytes(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
-declare i32 @gcry_cipher_setctr(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare i32 @gcry_cipher_setctr(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare noalias ptr @g_strndup(ptr noundef, i64 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @g_strndup(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare void @g_free(ptr noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare void @g_free(ptr noundef) local_unnamed_addr #3
 
-declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
+; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
-declare ptr @g_byte_array_new() local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_byte_array_new() local_unnamed_addr #3
 
-declare i32 @hex_str_to_bytes(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @hex_str_to_bytes(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
-declare ptr @g_byte_array_free(ptr noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_byte_array_free(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #7
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #10
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree nounwind null_pointer_is_valid memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #11 = { nounwind }
+attributes #12 = { allocsize(1) }
+attributes #13 = { nounwind willreturn memory(read) }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind willreturn memory(read) }
-
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = !{!9, !11}
+!9 = distinct !{!9, !10, !"memcpy.inline: argument 0"}
+!10 = distinct !{!10, !"memcpy.inline"}
+!11 = distinct !{!11, !10, !"memcpy.inline: argument 1"}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = !{!16, !18}
+!16 = distinct !{!16, !17, !"memcpy.inline: argument 0"}
+!17 = distinct !{!17, !"memcpy.inline"}
+!18 = distinct !{!18, !17, !"memcpy.inline: argument 1"}
+!19 = !{!20, !22}
+!20 = distinct !{!20, !21, !"memcpy.inline: argument 0"}
+!21 = distinct !{!21, !"memcpy.inline"}
+!22 = distinct !{!22, !21, !"memcpy.inline: argument 1"}
+!23 = distinct !{!23, !7}

@@ -3,20 +3,14 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
 %struct.true_false_string = type { ptr, ptr }
 
-@cid_type = hidden global i32 0, align 4
-@band_amc_subchannel_type = hidden global i32 0, align 4
 @max_logical_bands = hidden global i32 12, align 4
-@num_of_broadcast_symbols = hidden global i32 0, align 4
-@num_of_dl_band_amc_symbols = hidden global i32 0, align 4
-@num_of_ul_band_amc_symbols = hidden global i32 0, align 4
-@harq_mode = hidden global i32 0, align 4
 @hf_cdlmap_dl_map_type_1 = internal global i32 0, align 4
 @hf_cdlmap_ul_map_append_1 = internal global i32 0, align 4
 @hf_cdlmap_dl_map_type = internal global i32 0, align 4
 @hf_cdlmap_ul_map_append = internal global i32 0, align 4
+@harq_mode = hidden global i32 0, align 4
 @hf_cdlmap_nep_code_1 = internal global i32 0, align 4
 @hf_cdlmap_nsch_code = internal global i32 0, align 4
 @hf_cdlmap_nep_code = internal global i32 0, align 4
@@ -99,7 +93,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.25 = private unnamed_addr constant [42 x i8] c"wmx.compact_dlmap.diuc_num_of_subchannels\00", align 1
 @.str.26 = private unnamed_addr constant [29 x i8] c"Repetition Coding Indication\00", align 1
 @.str.27 = private unnamed_addr constant [52 x i8] c"wmx.compact_dlmap.diuc_repetition_coding_indication\00", align 1
-@rep_msgs = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.131 }, %struct._value_string { i32 1, ptr @.str.132 }, %struct._value_string { i32 2, ptr @.str.133 }, %struct._value_string { i32 3, ptr @.str.134 }, %struct._value_string zeroinitializer], align 16
 @.str.28 = private unnamed_addr constant [32 x i8] c"wmx.compact_dlmap.diuc_reserved\00", align 1
 @.str.29 = private unnamed_addr constant [15 x i8] c"BIT MAP Length\00", align 1
 @.str.30 = private unnamed_addr constant [33 x i8] c"wmx.compact_dlmap.bit_map_length\00", align 1
@@ -109,7 +102,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.34 = private unnamed_addr constant [23 x i8] c"wmx.compact_dlmap.diuc\00", align 1
 @.str.35 = private unnamed_addr constant [16 x i8] c"Allocation Mode\00", align 1
 @.str.36 = private unnamed_addr constant [34 x i8] c"wmx.compact_dlmap.allocation_mode\00", align 1
-@vals_allocation_modes = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.135 }, %struct._value_string { i32 1, ptr @.str.136 }, %struct._value_string { i32 2, ptr @.str.137 }, %struct._value_string { i32 3, ptr @.str.4 }, %struct._value_string zeroinitializer], align 16
 @.str.37 = private unnamed_addr constant [39 x i8] c"wmx.compact_dlmap.allocation_mode_rsvd\00", align 1
 @.str.38 = private unnamed_addr constant [34 x i8] c"wmx.compact_dlmap.num_subchannels\00", align 1
 @.str.39 = private unnamed_addr constant [21 x i8] c"DL-MAP Reserved Type\00", align 1
@@ -122,13 +114,12 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_format_config_ie_new_format_indication = internal global i32 0, align 4
 @.str.42 = private unnamed_addr constant [22 x i8] c"New Format Indication\00", align 1
 @.str.43 = private unnamed_addr constant [43 x i8] c"wmx.format_config_ie.new_format_indication\00", align 1
-@tfs_indication = internal constant %struct.true_false_string { ptr @.str.138, ptr @.str.139 }, align 8
+@tfs_indication = internal constant %struct.true_false_string { ptr @.str.140, ptr @.str.141 }, align 8
 @hf_format_config_ie_new_format_indication_1 = internal global i32 0, align 4
 @hf_format_config_ie_new_format_indication_32 = internal global i32 0, align 4
 @hf_format_config_ie_cid_type = internal global i32 0, align 4
 @.str.44 = private unnamed_addr constant [19 x i8] c"HARQ MAP Indicator\00", align 1
 @.str.45 = private unnamed_addr constant [40 x i8] c"wmx.harq_map.format_config_ie.indicator\00", align 1
-@vals_cid_types = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.61 }, %struct._value_string { i32 1, ptr @.str.140 }, %struct._value_string { i32 2, ptr @.str.141 }, %struct._value_string { i32 3, ptr @.str.142 }, %struct._value_string zeroinitializer], align 16
 @hf_format_config_ie_cid_type_1 = internal global i32 0, align 4
 @.str.46 = private unnamed_addr constant [9 x i8] c"CID Type\00", align 1
 @.str.47 = private unnamed_addr constant [39 x i8] c"wmx.harq_map.format_config_ie.cid_type\00", align 1
@@ -139,12 +130,10 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_format_config_ie_subchannel_type = internal global i32 0, align 4
 @.str.50 = private unnamed_addr constant [29 x i8] c"Subchannel Type For Band AMC\00", align 1
 @.str.51 = private unnamed_addr constant [46 x i8] c"wmx.harq_map.format_config_ie.subchannel_type\00", align 1
-@vals_subchannel_types = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.143 }, %struct._value_string { i32 1, ptr @.str.144 }, %struct._value_string { i32 2, ptr @.str.145 }, %struct._value_string { i32 3, ptr @.str.146 }, %struct._value_string zeroinitializer], align 16
 @hf_format_config_ie_subchannel_type_1 = internal global i32 0, align 4
 @hf_format_config_ie_max_logical_bands = internal global i32 0, align 4
 @.str.52 = private unnamed_addr constant [18 x i8] c"Max Logical Bands\00", align 1
 @.str.53 = private unnamed_addr constant [48 x i8] c"wmx.harq_map.format_config_ie.max_logical_bands\00", align 1
-@vals_max_logical_bands = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.147 }, %struct._value_string { i32 1, ptr @.str.148 }, %struct._value_string { i32 2, ptr @.str.149 }, %struct._value_string { i32 3, ptr @.str.150 }, %struct._value_string zeroinitializer], align 16
 @hf_format_config_ie_max_logical_bands_1 = internal global i32 0, align 4
 @hf_format_config_ie_num_of_broadcast_symbol = internal global i32 0, align 4
 @.str.54 = private unnamed_addr constant [32 x i8] c"Number Of Symbols for Broadcast\00", align 1
@@ -186,7 +175,7 @@ target triple = "x86_64-pc-linux-gnu"
 @wimax_proto_register_wimax_compact_dlmap_ie.hf_harq_control = internal global [10 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_harq_control_ie_prefix, %struct._header_field_info { ptr @.str.63, ptr @.str.72, i32 2, i32 8, ptr @tfs_prefix, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_harq_control_ie_ai_sn, %struct._header_field_info { ptr @.str.73, ptr @.str.74, i32 4, i32 2, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_harq_control_ie_spid, %struct._header_field_info { ptr @.str.75, ptr @.str.76, i32 4, i32 2, ptr null, i64 48, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_harq_control_ie_acid, %struct._header_field_info { ptr @.str.77, ptr @.str.78, i32 4, i32 2, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_harq_control_ie_reserved, %struct._header_field_info { ptr @.str.4, ptr @.str.79, i32 4, i32 2, ptr null, i64 112, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_harq_control_ie_prefix_1, %struct._header_field_info { ptr @.str.63, ptr @.str.72, i32 2, i32 16, ptr @tfs_prefix, i64 2048, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_harq_control_ie_ai_sn_1, %struct._header_field_info { ptr @.str.73, ptr @.str.74, i32 5, i32 2, ptr null, i64 1024, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_harq_control_ie_spid_1, %struct._header_field_info { ptr @.str.75, ptr @.str.76, i32 5, i32 2, ptr null, i64 768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_harq_control_ie_acid_1, %struct._header_field_info { ptr @.str.77, ptr @.str.78, i32 5, i32 2, ptr null, i64 240, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_harq_control_ie_reserved_1, %struct._header_field_info { ptr @.str.4, ptr @.str.79, i32 5, i32 2, ptr null, i64 1792, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_harq_control_ie_prefix = internal global i32 0, align 4
 @.str.72 = private unnamed_addr constant [36 x i8] c"wmx.harq_map.harq_control_ie.prefix\00", align 1
-@tfs_prefix = internal constant %struct.true_false_string { ptr @.str.151, ptr @.str.152 }, align 8
+@tfs_prefix = internal constant %struct.true_false_string { ptr @.str.156, ptr @.str.157 }, align 8
 @hf_harq_control_ie_ai_sn = internal global i32 0, align 4
 @.str.73 = private unnamed_addr constant [31 x i8] c"HARQ ID Sequence Number(AI_SN)\00", align 1
 @.str.74 = private unnamed_addr constant [35 x i8] c"wmx.harq_map.harq_control_ie.ai_sn\00", align 1
@@ -207,7 +196,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_cqich_control_ie_indicator = internal global i32 0, align 4
 @.str.80 = private unnamed_addr constant [16 x i8] c"CQICH Indicator\00", align 1
 @.str.81 = private unnamed_addr constant [46 x i8] c"wmx.harq_map.cqich_control_ie.cqich_indicator\00", align 1
-@tfs_cqich_ind = internal constant %struct.true_false_string { ptr @.str.153, ptr @.str.154 }, align 8
+@tfs_cqich_ind = internal constant %struct.true_false_string { ptr @.str.158, ptr @.str.159 }, align 8
 @hf_cqich_control_ie_alloc_id = internal global i32 0, align 4
 @.str.82 = private unnamed_addr constant [17 x i8] c"Allocation Index\00", align 1
 @.str.83 = private unnamed_addr constant [39 x i8] c"wmx.harq_map.cqich_control_ie.alloc_id\00", align 1
@@ -284,32 +273,42 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.130 = private unnamed_addr constant [44 x i8] c"wmx.extended_diuc_dependent_ie.unknown_diuc\00", align 1
 @proto_wimax = external global i32, align 4
 @proto_wimax_compact_dlmap_ie_decoder = internal global i32 0, align 4
+@cid_type = hidden global i32 0, align 4
+@band_amc_subchannel_type = hidden global i32 0, align 4
+@num_of_broadcast_symbols = hidden global i32 0, align 4
+@num_of_dl_band_amc_symbols = hidden global i32 0, align 4
+@num_of_ul_band_amc_symbols = hidden global i32 0, align 4
 @.str.131 = private unnamed_addr constant [21 x i8] c"No Repetition Coding\00", align 1
 @.str.132 = private unnamed_addr constant [28 x i8] c"Repetition Coding of 2 Used\00", align 1
 @.str.133 = private unnamed_addr constant [28 x i8] c"Repetition Coding of 4 Used\00", align 1
 @.str.134 = private unnamed_addr constant [28 x i8] c"Repetition Coding of 6 Used\00", align 1
-@.str.135 = private unnamed_addr constant [50 x i8] c"Same Number Of Subchannels For The Selected Bands\00", align 1
-@.str.136 = private unnamed_addr constant [60 x i8] c"Different Same Number Of Subchannels For The Selected Bands\00", align 1
-@.str.137 = private unnamed_addr constant [88 x i8] c"Total Number Of Subchannels For The Selected Bands Determined by Nsch Code and Nep Code\00", align 1
-@.str.138 = private unnamed_addr constant [11 x i8] c"New format\00", align 1
-@.str.139 = private unnamed_addr constant [14 x i8] c"No new format\00", align 1
-@.str.140 = private unnamed_addr constant [17 x i8] c"RCID11 (default)\00", align 1
-@.str.141 = private unnamed_addr constant [6 x i8] c"RCID7\00", align 1
-@.str.142 = private unnamed_addr constant [6 x i8] c"RCID3\00", align 1
-@.str.143 = private unnamed_addr constant [13 x i8] c"Default Type\00", align 1
-@.str.144 = private unnamed_addr constant [23 x i8] c"1 bin x 6 symbols Type\00", align 1
-@.str.145 = private unnamed_addr constant [23 x i8] c"2 bin x 3 symbols Type\00", align 1
-@.str.146 = private unnamed_addr constant [23 x i8] c"3 bin x 2 symbols Type\00", align 1
-@.str.147 = private unnamed_addr constant [8 x i8] c"3 Bands\00", align 1
-@.str.148 = private unnamed_addr constant [8 x i8] c"6 Bands\00", align 1
-@.str.149 = private unnamed_addr constant [19 x i8] c"12 Bands (default)\00", align 1
-@.str.150 = private unnamed_addr constant [9 x i8] c"24 Bands\00", align 1
-@.str.151 = private unnamed_addr constant [12 x i8] c"Enable HARQ\00", align 1
-@.str.152 = private unnamed_addr constant [23 x i8] c"Temporary Disable HARQ\00", align 1
-@.str.153 = private unnamed_addr constant [22 x i8] c"With CQICH Control IE\00", align 1
-@.str.154 = private unnamed_addr constant [20 x i8] c"No CQICH Control IE\00", align 1
+@rep_msgs = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.131 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.132 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.133 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.134 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.136 = private unnamed_addr constant [50 x i8] c"Same Number Of Subchannels For The Selected Bands\00", align 1
+@.str.137 = private unnamed_addr constant [60 x i8] c"Different Same Number Of Subchannels For The Selected Bands\00", align 1
+@.str.138 = private unnamed_addr constant [88 x i8] c"Total Number Of Subchannels For The Selected Bands Determined by Nsch Code and Nep Code\00", align 1
+@vals_allocation_modes = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.136 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.137 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.138 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.4 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.140 = private unnamed_addr constant [11 x i8] c"New format\00", align 1
+@.str.141 = private unnamed_addr constant [14 x i8] c"No new format\00", align 1
+@.str.142 = private unnamed_addr constant [17 x i8] c"RCID11 (default)\00", align 1
+@.str.143 = private unnamed_addr constant [6 x i8] c"RCID7\00", align 1
+@.str.144 = private unnamed_addr constant [6 x i8] c"RCID3\00", align 1
+@vals_cid_types = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.61 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.142 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.143 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.144 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.146 = private unnamed_addr constant [13 x i8] c"Default Type\00", align 1
+@.str.147 = private unnamed_addr constant [23 x i8] c"1 bin x 6 symbols Type\00", align 1
+@.str.148 = private unnamed_addr constant [23 x i8] c"2 bin x 3 symbols Type\00", align 1
+@.str.149 = private unnamed_addr constant [23 x i8] c"3 bin x 2 symbols Type\00", align 1
+@vals_subchannel_types = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.146 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.147 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.148 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.149 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.151 = private unnamed_addr constant [8 x i8] c"3 Bands\00", align 1
+@.str.152 = private unnamed_addr constant [8 x i8] c"6 Bands\00", align 1
+@.str.153 = private unnamed_addr constant [19 x i8] c"12 Bands (default)\00", align 1
+@.str.154 = private unnamed_addr constant [9 x i8] c"24 Bands\00", align 1
+@vals_max_logical_bands = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.151 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.152 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.153 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.154 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.156 = private unnamed_addr constant [12 x i8] c"Enable HARQ\00", align 1
+@.str.157 = private unnamed_addr constant [23 x i8] c"Temporary Disable HARQ\00", align 1
+@.str.158 = private unnamed_addr constant [22 x i8] c"With CQICH Control IE\00", align 1
+@.str.159 = private unnamed_addr constant [20 x i8] c"No CQICH Control IE\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @wimax_compact_dlmap_ie_decoder(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -333,12 +332,24 @@ define hidden i32 @wimax_compact_dlmap_ie_decoder(ptr noundef %0, ptr noundef %1
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i32 %4, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
   store i32 0, ptr %13, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #3
   %23 = load i32, ptr %9, align 4
   store i32 %23, ptr %16, align 4
   %24 = load ptr, ptr %8, align 8
   %25 = load i32, ptr %16, align 4
-  %26 = call zeroext i8 @tvb_get_guint8(ptr noundef %24, i32 noundef %25)
+  %26 = call zeroext i8 @tvb_get_uint8(ptr noundef %24, i32 noundef %25)
   %27 = zext i8 %26 to i32
   store i32 %27, ptr %12, align 4
   %28 = load i32, ptr %10, align 4
@@ -862,7 +873,7 @@ define hidden i32 @wimax_compact_dlmap_ie_decoder(ptr noundef %0, ptr noundef %1
 399:                                              ; preds = %396
   %400 = load ptr, ptr %8, align 8
   %401 = load i32, ptr %16, align 4
-  %402 = call zeroext i8 @tvb_get_guint8(ptr noundef %400, i32 noundef %401)
+  %402 = call zeroext i8 @tvb_get_uint8(ptr noundef %400, i32 noundef %401)
   %403 = zext i8 %402 to i32
   store i32 %403, ptr %19, align 4
   %404 = load i32, ptr %10, align 4
@@ -1048,7 +1059,7 @@ define hidden i32 @wimax_compact_dlmap_ie_decoder(ptr noundef %0, ptr noundef %1
 530:                                              ; preds = %527, %505
   %531 = load ptr, ptr %8, align 8
   %532 = load i32, ptr %16, align 4
-  %533 = call zeroext i8 @tvb_get_guint8(ptr noundef %531, i32 noundef %532)
+  %533 = call zeroext i8 @tvb_get_uint8(ptr noundef %531, i32 noundef %532)
   %534 = zext i8 %533 to i32
   store i32 %534, ptr %12, align 4
   %535 = load i32, ptr %10, align 4
@@ -1175,7 +1186,7 @@ define hidden i32 @wimax_compact_dlmap_ie_decoder(ptr noundef %0, ptr noundef %1
   %618 = load i32, ptr %21, align 4
   %619 = add i32 %618, 1
   store i32 %619, ptr %21, align 4
-  br label %594, !llvm.loop !4
+  br label %594, !llvm.loop !6
 
 620:                                              ; preds = %594
   br label %621
@@ -1625,7 +1636,7 @@ define hidden i32 @wimax_compact_dlmap_ie_decoder(ptr noundef %0, ptr noundef %1
   store i32 %948, ptr %16, align 4
   %949 = load ptr, ptr %8, align 8
   %950 = load i32, ptr %16, align 4
-  %951 = call zeroext i8 @tvb_get_guint8(ptr noundef %949, i32 noundef %950)
+  %951 = call zeroext i8 @tvb_get_uint8(ptr noundef %949, i32 noundef %950)
   %952 = zext i8 %951 to i32
   store i32 %952, ptr %12, align 4
   %953 = load i32, ptr %12, align 4
@@ -1652,7 +1663,7 @@ define hidden i32 @wimax_compact_dlmap_ie_decoder(ptr noundef %0, ptr noundef %1
   %971 = call ptr @proto_tree_add_item(ptr noundef %967, i32 noundef %968, ptr noundef %969, i32 noundef %970, i32 noundef 1, i32 noundef 0)
   %972 = load ptr, ptr %8, align 8
   %973 = load i32, ptr %16, align 4
-  %974 = call zeroext i8 @tvb_get_guint8(ptr noundef %972, i32 noundef %973)
+  %974 = call zeroext i8 @tvb_get_uint8(ptr noundef %972, i32 noundef %973)
   %975 = zext i8 %974 to i32
   %976 = and i32 %975, 15
   store i32 %976, ptr %11, align 4
@@ -1848,7 +1859,7 @@ define hidden i32 @wimax_compact_dlmap_ie_decoder(ptr noundef %0, ptr noundef %1
   store i32 %1118, ptr %16, align 4
   %1119 = load ptr, ptr %8, align 8
   %1120 = load i32, ptr %16, align 4
-  %1121 = call zeroext i8 @tvb_get_guint8(ptr noundef %1119, i32 noundef %1120)
+  %1121 = call zeroext i8 @tvb_get_uint8(ptr noundef %1119, i32 noundef %1120)
   %1122 = zext i8 %1121 to i32
   store i32 %1122, ptr %12, align 4
   %1123 = load i32, ptr %12, align 4
@@ -1937,14 +1948,31 @@ define hidden i32 @wimax_compact_dlmap_ie_decoder(ptr noundef %0, ptr noundef %1
 
 1188:                                             ; preds = %1182, %1174, %1173, %1094, %1065, %931, %622, %281
   %1189 = load i32, ptr %13, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
   ret i32 %1189
 }
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @wimax_compact_dlmap_rcid_ie_decoder(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -1958,7 +1986,9 @@ define internal i32 @wimax_compact_dlmap_rcid_ie_decoder(ptr noundef %0, ptr nou
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i32 %4, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
   store i32 0, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
   %13 = load i32, ptr %10, align 4
   %14 = and i32 %13, 1
   %15 = icmp ne i32 %14, 0
@@ -1981,7 +2011,7 @@ define internal i32 @wimax_compact_dlmap_rcid_ie_decoder(ptr noundef %0, ptr nou
 25:                                               ; preds = %16
   %26 = load ptr, ptr %8, align 8
   %27 = load i32, ptr %9, align 4
-  %28 = call zeroext i8 @tvb_get_guint8(ptr noundef %26, i32 noundef %27)
+  %28 = call zeroext i8 @tvb_get_uint8(ptr noundef %26, i32 noundef %27)
   %29 = zext i8 %28 to i32
   %30 = and i32 %29, 8
   store i32 %30, ptr %12, align 4
@@ -2077,7 +2107,7 @@ define internal i32 @wimax_compact_dlmap_rcid_ie_decoder(ptr noundef %0, ptr nou
 85:                                               ; preds = %76
   %86 = load ptr, ptr %8, align 8
   %87 = load i32, ptr %9, align 4
-  %88 = call zeroext i8 @tvb_get_guint8(ptr noundef %86, i32 noundef %87)
+  %88 = call zeroext i8 @tvb_get_uint8(ptr noundef %86, i32 noundef %87)
   %89 = zext i8 %88 to i32
   %90 = and i32 %89, 8
   store i32 %90, ptr %12, align 4
@@ -2163,10 +2193,12 @@ define internal i32 @wimax_compact_dlmap_rcid_ie_decoder(ptr noundef %0, ptr nou
 
 139:                                              ; preds = %138, %75
   %140 = load i32, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
   ret i32 %140
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @wimax_compact_dlmap_harq_control_ie_decoder(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -2181,10 +2213,13 @@ define internal i32 @wimax_compact_dlmap_harq_control_ie_decoder(ptr noundef %0,
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i32 %4, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %8, align 8
   %15 = load i32, ptr %9, align 4
-  %16 = call zeroext i8 @tvb_get_guint8(ptr noundef %14, i32 noundef %15)
+  %16 = call zeroext i8 @tvb_get_uint8(ptr noundef %14, i32 noundef %15)
   %17 = zext i8 %16 to i32
   store i32 %17, ptr %11, align 4
   %18 = load i32, ptr %10, align 4
@@ -2282,10 +2317,13 @@ define internal i32 @wimax_compact_dlmap_harq_control_ie_decoder(ptr noundef %0,
 
 87:                                               ; preds = %86, %53
   %88 = load i32, ptr %13, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
   ret i32 %88
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @wimax_compact_dlmap_cqich_control_ie_decoder(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -2300,10 +2338,13 @@ define internal i32 @wimax_compact_dlmap_cqich_control_ie_decoder(ptr noundef %0
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i32 %4, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %8, align 8
   %15 = load i32, ptr %9, align 4
-  %16 = call zeroext i8 @tvb_get_guint8(ptr noundef %14, i32 noundef %15)
+  %16 = call zeroext i8 @tvb_get_uint8(ptr noundef %14, i32 noundef %15)
   %17 = zext i8 %16 to i32
   store i32 %17, ptr %11, align 4
   %18 = load i32, ptr %10, align 4
@@ -2421,10 +2462,13 @@ define internal i32 @wimax_compact_dlmap_cqich_control_ie_decoder(ptr noundef %0
 
 107:                                              ; preds = %106, %63
   %108 = load i32, ptr %13, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
   ret i32 %108
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @wimax_extended_diuc_dependent_ie_decoder(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -2439,9 +2483,12 @@ define hidden i32 @wimax_extended_diuc_dependent_ie_decoder(ptr noundef %0, ptr 
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i32 %4, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #3
   %14 = load ptr, ptr %8, align 8
   %15 = load i32, ptr %9, align 4
-  %16 = call zeroext i8 @tvb_get_guint8(ptr noundef %14, i32 noundef %15)
+  %16 = call zeroext i8 @tvb_get_uint8(ptr noundef %14, i32 noundef %15)
   store i8 %16, ptr %13, align 1
   %17 = load i32, ptr %10, align 4
   %18 = and i32 %17, 1
@@ -2463,7 +2510,7 @@ define hidden i32 @wimax_extended_diuc_dependent_ie_decoder(ptr noundef %0, ptr 
   store i32 %30, ptr %9, align 4
   %31 = load ptr, ptr %8, align 8
   %32 = load i32, ptr %9, align 4
-  %33 = call zeroext i8 @tvb_get_guint8(ptr noundef %31, i32 noundef %32)
+  %33 = call zeroext i8 @tvb_get_uint8(ptr noundef %31, i32 noundef %32)
   store i8 %33, ptr %13, align 1
   %34 = load i8, ptr %13, align 1
   %35 = zext i8 %34 to i32
@@ -2766,11 +2813,290 @@ define hidden i32 @wimax_extended_diuc_dependent_ie_decoder(ptr noundef %0, ptr 
   %248 = load i32, ptr %12, align 4
   %249 = add i32 %248, 1
   %250 = mul i32 %249, 2
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
   ret i32 %250
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @wimax_compact_dlmap_format_configuration_ie_decoder(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store i32 %3, ptr %10, align 4
+  store i32 %4, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
+  store i32 0, ptr %12, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #3
+  %18 = load i32, ptr %10, align 4
+  store i32 %18, ptr %15, align 4
+  %19 = load ptr, ptr %9, align 8
+  %20 = load i32, ptr %15, align 4
+  %21 = call zeroext i8 @tvb_get_uint8(ptr noundef %19, i32 noundef %20)
+  %22 = zext i8 %21 to i32
+  store i32 %22, ptr %16, align 4
+  %23 = load i32, ptr %11, align 4
+  %24 = and i32 %23, 1
+  %25 = icmp ne i32 %24, 0
+  br i1 %25, label %26, label %110
+
+26:                                               ; preds = %5
+  %27 = load i32, ptr %16, align 4
+  %28 = and i32 %27, 14
+  %29 = lshr i32 %28, 1
+  store i32 %29, ptr %13, align 4
+  %30 = load i32, ptr %13, align 4
+  %31 = icmp ne i32 %30, 4
+  br i1 %31, label %32, label %33
+
+32:                                               ; preds = %26
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %17, align 4
+  br label %202
+
+33:                                               ; preds = %26
+  %34 = load i32, ptr %16, align 4
+  %35 = and i32 %34, 1
+  store i32 %35, ptr %14, align 4
+  %36 = load ptr, ptr %7, align 8
+  %37 = load i32, ptr @hf_format_config_ie_dl_map_type_1, align 4
+  %38 = load ptr, ptr %9, align 8
+  %39 = load i32, ptr %15, align 4
+  %40 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %37, ptr noundef %38, i32 noundef %39, i32 noundef 1, i32 noundef 0)
+  %41 = load ptr, ptr %7, align 8
+  %42 = load i32, ptr @hf_format_config_ie_new_format_indication_1, align 4
+  %43 = load ptr, ptr %9, align 8
+  %44 = load i32, ptr %15, align 4
+  %45 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %42, ptr noundef %43, i32 noundef %44, i32 noundef 1, i32 noundef 0)
+  store i32 1, ptr %12, align 4
+  %46 = load i32, ptr %15, align 4
+  %47 = add i32 %46, 1
+  store i32 %47, ptr %15, align 4
+  %48 = load i32, ptr %14, align 4
+  %49 = icmp ne i32 %48, 0
+  br i1 %49, label %50, label %109
+
+50:                                               ; preds = %33
+  %51 = load ptr, ptr %7, align 8
+  %52 = load i32, ptr @hf_format_config_ie_cid_type, align 4
+  %53 = load ptr, ptr %9, align 8
+  %54 = load i32, ptr %15, align 4
+  %55 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %52, ptr noundef %53, i32 noundef %54, i32 noundef 4, i32 noundef 0)
+  %56 = load ptr, ptr %7, align 8
+  %57 = load i32, ptr @hf_format_config_ie_safety_pattern, align 4
+  %58 = load ptr, ptr %9, align 8
+  %59 = load i32, ptr %15, align 4
+  %60 = call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %57, ptr noundef %58, i32 noundef %59, i32 noundef 4, i32 noundef 0)
+  %61 = load ptr, ptr %7, align 8
+  %62 = load i32, ptr @hf_format_config_ie_subchannel_type, align 4
+  %63 = load ptr, ptr %9, align 8
+  %64 = load i32, ptr %15, align 4
+  %65 = call ptr @proto_tree_add_item(ptr noundef %61, i32 noundef %62, ptr noundef %63, i32 noundef %64, i32 noundef 4, i32 noundef 0)
+  %66 = load ptr, ptr %7, align 8
+  %67 = load i32, ptr @hf_format_config_ie_max_logical_bands, align 4
+  %68 = load ptr, ptr %9, align 8
+  %69 = load i32, ptr %15, align 4
+  %70 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %67, ptr noundef %68, i32 noundef %69, i32 noundef 4, i32 noundef 0)
+  %71 = load ptr, ptr %7, align 8
+  %72 = load i32, ptr @hf_format_config_ie_num_of_broadcast_symbol, align 4
+  %73 = load ptr, ptr %9, align 8
+  %74 = load i32, ptr %15, align 4
+  %75 = call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %72, ptr noundef %73, i32 noundef %74, i32 noundef 4, i32 noundef 0)
+  %76 = load ptr, ptr %7, align 8
+  %77 = load i32, ptr @hf_format_config_ie_num_of_dl_band_amc_symbol, align 4
+  %78 = load ptr, ptr %9, align 8
+  %79 = load i32, ptr %15, align 4
+  %80 = call ptr @proto_tree_add_item(ptr noundef %76, i32 noundef %77, ptr noundef %78, i32 noundef %79, i32 noundef 4, i32 noundef 0)
+  %81 = load ptr, ptr %7, align 8
+  %82 = load i32, ptr @hf_format_config_ie_num_of_ul_band_amc_symbol, align 4
+  %83 = load ptr, ptr %9, align 8
+  %84 = load i32, ptr %15, align 4
+  %85 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %82, ptr noundef %83, i32 noundef %84, i32 noundef 4, i32 noundef 0)
+  %86 = load i32, ptr %12, align 4
+  %87 = add i32 %86, 7
+  store i32 %87, ptr %12, align 4
+  %88 = load ptr, ptr %9, align 8
+  %89 = load i32, ptr %15, align 4
+  %90 = call i32 @tvb_get_ntohl(ptr noundef %88, i32 noundef %89)
+  store i32 %90, ptr %16, align 4
+  %91 = load i32, ptr %16, align 4
+  %92 = and i32 %91, -1073741824
+  %93 = lshr i32 %92, 30
+  store i32 %93, ptr @cid_type, align 4
+  %94 = load i32, ptr %16, align 4
+  %95 = and i32 %94, 25165824
+  %96 = lshr i32 %95, 23
+  store i32 %96, ptr @band_amc_subchannel_type, align 4
+  %97 = load i32, ptr %16, align 4
+  %98 = and i32 %97, 6291456
+  %99 = lshr i32 %98, 21
+  store i32 %99, ptr @max_logical_bands, align 4
+  %100 = load i32, ptr %16, align 4
+  %101 = and i32 %100, 2031616
+  %102 = lshr i32 %101, 16
+  store i32 %102, ptr @num_of_broadcast_symbols, align 4
+  %103 = load i32, ptr %16, align 4
+  %104 = and i32 %103, 64512
+  %105 = lshr i32 %104, 10
+  store i32 %105, ptr @num_of_dl_band_amc_symbols, align 4
+  %106 = load i32, ptr %16, align 4
+  %107 = and i32 %106, 1008
+  %108 = lshr i32 %107, 4
+  store i32 %108, ptr @num_of_ul_band_amc_symbols, align 4
+  br label %109
+
+109:                                              ; preds = %50, %33
+  br label %200
+
+110:                                              ; preds = %5
+  %111 = load i32, ptr %16, align 4
+  %112 = and i32 %111, 224
+  %113 = lshr i32 %112, 5
+  store i32 %113, ptr %13, align 4
+  %114 = load i32, ptr %13, align 4
+  %115 = icmp ne i32 %114, 4
+  br i1 %115, label %116, label %117
+
+116:                                              ; preds = %110
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %17, align 4
+  br label %202
+
+117:                                              ; preds = %110
+  %118 = load i32, ptr %16, align 4
+  %119 = and i32 %118, 16
+  store i32 %119, ptr %14, align 4
+  %120 = load i32, ptr %14, align 4
+  %121 = icmp ne i32 %120, 0
+  br i1 %121, label %122, label %188
+
+122:                                              ; preds = %117
+  %123 = load ptr, ptr %7, align 8
+  %124 = load i32, ptr @hf_format_config_ie_dl_map_type_32, align 4
+  %125 = load ptr, ptr %9, align 8
+  %126 = load i32, ptr %15, align 4
+  %127 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %124, ptr noundef %125, i32 noundef %126, i32 noundef 4, i32 noundef 0)
+  %128 = load ptr, ptr %7, align 8
+  %129 = load i32, ptr @hf_format_config_ie_new_format_indication_32, align 4
+  %130 = load ptr, ptr %9, align 8
+  %131 = load i32, ptr %15, align 4
+  %132 = call ptr @proto_tree_add_item(ptr noundef %128, i32 noundef %129, ptr noundef %130, i32 noundef %131, i32 noundef 4, i32 noundef 0)
+  %133 = load ptr, ptr %7, align 8
+  %134 = load i32, ptr @hf_format_config_ie_cid_type_1, align 4
+  %135 = load ptr, ptr %9, align 8
+  %136 = load i32, ptr %15, align 4
+  %137 = call ptr @proto_tree_add_item(ptr noundef %133, i32 noundef %134, ptr noundef %135, i32 noundef %136, i32 noundef 4, i32 noundef 0)
+  %138 = load ptr, ptr %7, align 8
+  %139 = load i32, ptr @hf_format_config_ie_safety_pattern_1, align 4
+  %140 = load ptr, ptr %9, align 8
+  %141 = load i32, ptr %15, align 4
+  %142 = call ptr @proto_tree_add_item(ptr noundef %138, i32 noundef %139, ptr noundef %140, i32 noundef %141, i32 noundef 4, i32 noundef 0)
+  %143 = load ptr, ptr %7, align 8
+  %144 = load i32, ptr @hf_format_config_ie_subchannel_type_1, align 4
+  %145 = load ptr, ptr %9, align 8
+  %146 = load i32, ptr %15, align 4
+  %147 = call ptr @proto_tree_add_item(ptr noundef %143, i32 noundef %144, ptr noundef %145, i32 noundef %146, i32 noundef 4, i32 noundef 0)
+  %148 = load ptr, ptr %7, align 8
+  %149 = load i32, ptr @hf_format_config_ie_max_logical_bands_1, align 4
+  %150 = load ptr, ptr %9, align 8
+  %151 = load i32, ptr %15, align 4
+  %152 = call ptr @proto_tree_add_item(ptr noundef %148, i32 noundef %149, ptr noundef %150, i32 noundef %151, i32 noundef 4, i32 noundef 0)
+  %153 = load ptr, ptr %7, align 8
+  %154 = load i32, ptr @hf_format_config_ie_num_of_broadcast_symbol_1, align 4
+  %155 = load ptr, ptr %9, align 8
+  %156 = load i32, ptr %15, align 4
+  %157 = call ptr @proto_tree_add_item(ptr noundef %153, i32 noundef %154, ptr noundef %155, i32 noundef %156, i32 noundef 4, i32 noundef 0)
+  %158 = load ptr, ptr %7, align 8
+  %159 = load i32, ptr @hf_format_config_ie_num_of_dl_band_amc_symbol_1, align 4
+  %160 = load ptr, ptr %9, align 8
+  %161 = load i32, ptr %15, align 4
+  %162 = call ptr @proto_tree_add_item(ptr noundef %158, i32 noundef %159, ptr noundef %160, i32 noundef %161, i32 noundef 4, i32 noundef 0)
+  %163 = load ptr, ptr %7, align 8
+  %164 = load i32, ptr @hf_format_config_ie_num_of_ul_band_amc_symbol_1, align 4
+  %165 = load ptr, ptr %9, align 8
+  %166 = load i32, ptr %15, align 4
+  %167 = call ptr @proto_tree_add_item(ptr noundef %163, i32 noundef %164, ptr noundef %165, i32 noundef %166, i32 noundef 4, i32 noundef 0)
+  store i32 8, ptr %12, align 4
+  %168 = load ptr, ptr %9, align 8
+  %169 = load i32, ptr %15, align 4
+  %170 = call i32 @tvb_get_ntohl(ptr noundef %168, i32 noundef %169)
+  store i32 %170, ptr %16, align 4
+  %171 = load i32, ptr %16, align 4
+  %172 = and i32 %171, 201326592
+  %173 = lshr i32 %172, 26
+  store i32 %173, ptr @cid_type, align 4
+  %174 = load i32, ptr %16, align 4
+  %175 = and i32 %174, 1572864
+  %176 = lshr i32 %175, 19
+  store i32 %176, ptr @band_amc_subchannel_type, align 4
+  %177 = load i32, ptr %16, align 4
+  %178 = and i32 %177, 393216
+  %179 = lshr i32 %178, 17
+  store i32 %179, ptr @max_logical_bands, align 4
+  %180 = load i32, ptr %16, align 4
+  %181 = and i32 %180, 126976
+  %182 = lshr i32 %181, 12
+  store i32 %182, ptr @num_of_broadcast_symbols, align 4
+  %183 = load i32, ptr %16, align 4
+  %184 = and i32 %183, 4032
+  %185 = lshr i32 %184, 6
+  store i32 %185, ptr @num_of_dl_band_amc_symbols, align 4
+  %186 = load i32, ptr %16, align 4
+  %187 = and i32 %186, 63
+  store i32 %187, ptr @num_of_ul_band_amc_symbols, align 4
+  br label %199
+
+188:                                              ; preds = %117
+  %189 = load ptr, ptr %7, align 8
+  %190 = load i32, ptr @hf_format_config_ie_dl_map_type, align 4
+  %191 = load ptr, ptr %9, align 8
+  %192 = load i32, ptr %15, align 4
+  %193 = call ptr @proto_tree_add_item(ptr noundef %189, i32 noundef %190, ptr noundef %191, i32 noundef %192, i32 noundef 1, i32 noundef 0)
+  %194 = load ptr, ptr %7, align 8
+  %195 = load i32, ptr @hf_format_config_ie_new_format_indication, align 4
+  %196 = load ptr, ptr %9, align 8
+  %197 = load i32, ptr %15, align 4
+  %198 = call ptr @proto_tree_add_item(ptr noundef %194, i32 noundef %195, ptr noundef %196, i32 noundef %197, i32 noundef 1, i32 noundef 0)
+  store i32 1, ptr %12, align 4
+  br label %199
+
+199:                                              ; preds = %188, %122
+  br label %200
+
+200:                                              ; preds = %199, %109
+  %201 = load i32, ptr %12, align 4
+  store i32 %201, ptr %6, align 4
+  store i32 1, ptr %17, align 4
+  br label %202
+
+202:                                              ; preds = %200, %116, %32
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  %203 = load i32, ptr %6, align 4
+  ret i32 %203
+}
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @wimax_cdlmap_extension_ie_decoder(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -2787,453 +3113,206 @@ define internal i32 @wimax_compact_dlmap_format_configuration_ie_decoder(ptr nou
   store ptr %2, ptr %9, align 8
   store i32 %3, ptr %10, align 4
   store i32 %4, ptr %11, align 4
-  store i32 0, ptr %12, align 4
-  %17 = load i32, ptr %10, align 4
-  store i32 %17, ptr %15, align 4
-  %18 = load ptr, ptr %9, align 8
-  %19 = load i32, ptr %15, align 4
-  %20 = call zeroext i8 @tvb_get_guint8(ptr noundef %18, i32 noundef %19)
-  %21 = zext i8 %20 to i32
-  store i32 %21, ptr %16, align 4
-  %22 = load i32, ptr %11, align 4
-  %23 = and i32 %22, 1
-  %24 = icmp ne i32 %23, 0
-  br i1 %24, label %25, label %109
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #3
+  %17 = load ptr, ptr %9, align 8
+  %18 = load i32, ptr %10, align 4
+  %19 = call zeroext i16 @tvb_get_ntohs(ptr noundef %17, i32 noundef %18)
+  %20 = zext i16 %19 to i32
+  store i32 %20, ptr %12, align 4
+  %21 = load i32, ptr %11, align 4
+  %22 = and i32 %21, 1
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %24, label %85
 
-25:                                               ; preds = %5
-  %26 = load i32, ptr %16, align 4
-  %27 = and i32 %26, 14
-  %28 = lshr i32 %27, 1
-  store i32 %28, ptr %13, align 4
-  %29 = load i32, ptr %13, align 4
-  %30 = icmp ne i32 %29, 4
-  br i1 %30, label %31, label %32
+24:                                               ; preds = %5
+  %25 = load i32, ptr %12, align 4
+  %26 = and i32 %25, 3584
+  %27 = lshr i32 %26, 9
+  store i32 %27, ptr %13, align 4
+  %28 = load i32, ptr %13, align 4
+  %29 = icmp ne i32 %28, 7
+  br i1 %29, label %30, label %31
 
-31:                                               ; preds = %25
+30:                                               ; preds = %24
   store i32 0, ptr %6, align 4
-  br label %201
+  store i32 1, ptr %16, align 4
+  br label %145
 
-32:                                               ; preds = %25
-  %33 = load i32, ptr %16, align 4
-  %34 = and i32 %33, 1
+31:                                               ; preds = %24
+  %32 = load i32, ptr %12, align 4
+  %33 = and i32 %32, 496
+  %34 = lshr i32 %33, 4
   store i32 %34, ptr %14, align 4
-  %35 = load ptr, ptr %7, align 8
-  %36 = load i32, ptr @hf_format_config_ie_dl_map_type_1, align 4
-  %37 = load ptr, ptr %9, align 8
-  %38 = load i32, ptr %15, align 4
-  %39 = call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %36, ptr noundef %37, i32 noundef %38, i32 noundef 1, i32 noundef 0)
-  %40 = load ptr, ptr %7, align 8
-  %41 = load i32, ptr @hf_format_config_ie_new_format_indication_1, align 4
-  %42 = load ptr, ptr %9, align 8
-  %43 = load i32, ptr %15, align 4
-  %44 = call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %41, ptr noundef %42, i32 noundef %43, i32 noundef 1, i32 noundef 0)
-  store i32 1, ptr %12, align 4
-  %45 = load i32, ptr %15, align 4
-  %46 = add i32 %45, 1
-  store i32 %46, ptr %15, align 4
-  %47 = load i32, ptr %14, align 4
-  %48 = icmp ne i32 %47, 0
-  br i1 %48, label %49, label %108
-
-49:                                               ; preds = %32
-  %50 = load ptr, ptr %7, align 8
-  %51 = load i32, ptr @hf_format_config_ie_cid_type, align 4
-  %52 = load ptr, ptr %9, align 8
-  %53 = load i32, ptr %15, align 4
-  %54 = call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %51, ptr noundef %52, i32 noundef %53, i32 noundef 4, i32 noundef 0)
-  %55 = load ptr, ptr %7, align 8
-  %56 = load i32, ptr @hf_format_config_ie_safety_pattern, align 4
-  %57 = load ptr, ptr %9, align 8
-  %58 = load i32, ptr %15, align 4
-  %59 = call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %56, ptr noundef %57, i32 noundef %58, i32 noundef 4, i32 noundef 0)
-  %60 = load ptr, ptr %7, align 8
-  %61 = load i32, ptr @hf_format_config_ie_subchannel_type, align 4
-  %62 = load ptr, ptr %9, align 8
-  %63 = load i32, ptr %15, align 4
-  %64 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %61, ptr noundef %62, i32 noundef %63, i32 noundef 4, i32 noundef 0)
-  %65 = load ptr, ptr %7, align 8
-  %66 = load i32, ptr @hf_format_config_ie_max_logical_bands, align 4
-  %67 = load ptr, ptr %9, align 8
-  %68 = load i32, ptr %15, align 4
-  %69 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %66, ptr noundef %67, i32 noundef %68, i32 noundef 4, i32 noundef 0)
-  %70 = load ptr, ptr %7, align 8
-  %71 = load i32, ptr @hf_format_config_ie_num_of_broadcast_symbol, align 4
-  %72 = load ptr, ptr %9, align 8
-  %73 = load i32, ptr %15, align 4
-  %74 = call ptr @proto_tree_add_item(ptr noundef %70, i32 noundef %71, ptr noundef %72, i32 noundef %73, i32 noundef 4, i32 noundef 0)
-  %75 = load ptr, ptr %7, align 8
-  %76 = load i32, ptr @hf_format_config_ie_num_of_dl_band_amc_symbol, align 4
-  %77 = load ptr, ptr %9, align 8
-  %78 = load i32, ptr %15, align 4
-  %79 = call ptr @proto_tree_add_item(ptr noundef %75, i32 noundef %76, ptr noundef %77, i32 noundef %78, i32 noundef 4, i32 noundef 0)
-  %80 = load ptr, ptr %7, align 8
-  %81 = load i32, ptr @hf_format_config_ie_num_of_ul_band_amc_symbol, align 4
-  %82 = load ptr, ptr %9, align 8
-  %83 = load i32, ptr %15, align 4
-  %84 = call ptr @proto_tree_add_item(ptr noundef %80, i32 noundef %81, ptr noundef %82, i32 noundef %83, i32 noundef 4, i32 noundef 0)
-  %85 = load i32, ptr %12, align 4
-  %86 = add i32 %85, 7
-  store i32 %86, ptr %12, align 4
-  %87 = load ptr, ptr %9, align 8
-  %88 = load i32, ptr %15, align 4
-  %89 = call i32 @tvb_get_ntohl(ptr noundef %87, i32 noundef %88)
-  store i32 %89, ptr %16, align 4
-  %90 = load i32, ptr %16, align 4
-  %91 = and i32 %90, -1073741824
-  %92 = lshr i32 %91, 30
-  store i32 %92, ptr @cid_type, align 4
-  %93 = load i32, ptr %16, align 4
-  %94 = and i32 %93, 25165824
-  %95 = lshr i32 %94, 23
-  store i32 %95, ptr @band_amc_subchannel_type, align 4
-  %96 = load i32, ptr %16, align 4
-  %97 = and i32 %96, 6291456
-  %98 = lshr i32 %97, 21
-  store i32 %98, ptr @max_logical_bands, align 4
-  %99 = load i32, ptr %16, align 4
-  %100 = and i32 %99, 2031616
-  %101 = lshr i32 %100, 16
-  store i32 %101, ptr @num_of_broadcast_symbols, align 4
-  %102 = load i32, ptr %16, align 4
-  %103 = and i32 %102, 64512
-  %104 = lshr i32 %103, 10
-  store i32 %104, ptr @num_of_dl_band_amc_symbols, align 4
-  %105 = load i32, ptr %16, align 4
-  %106 = and i32 %105, 1008
-  %107 = lshr i32 %106, 4
-  store i32 %107, ptr @num_of_ul_band_amc_symbols, align 4
-  br label %108
-
-108:                                              ; preds = %49, %32
-  br label %199
-
-109:                                              ; preds = %5
-  %110 = load i32, ptr %16, align 4
-  %111 = and i32 %110, 224
-  %112 = lshr i32 %111, 5
-  store i32 %112, ptr %13, align 4
-  %113 = load i32, ptr %13, align 4
-  %114 = icmp ne i32 %113, 4
-  br i1 %114, label %115, label %116
-
-115:                                              ; preds = %109
-  store i32 0, ptr %6, align 4
-  br label %201
-
-116:                                              ; preds = %109
-  %117 = load i32, ptr %16, align 4
-  %118 = and i32 %117, 16
-  store i32 %118, ptr %14, align 4
-  %119 = load i32, ptr %14, align 4
-  %120 = icmp ne i32 %119, 0
-  br i1 %120, label %121, label %187
-
-121:                                              ; preds = %116
-  %122 = load ptr, ptr %7, align 8
-  %123 = load i32, ptr @hf_format_config_ie_dl_map_type_32, align 4
-  %124 = load ptr, ptr %9, align 8
-  %125 = load i32, ptr %15, align 4
-  %126 = call ptr @proto_tree_add_item(ptr noundef %122, i32 noundef %123, ptr noundef %124, i32 noundef %125, i32 noundef 4, i32 noundef 0)
-  %127 = load ptr, ptr %7, align 8
-  %128 = load i32, ptr @hf_format_config_ie_new_format_indication_32, align 4
-  %129 = load ptr, ptr %9, align 8
-  %130 = load i32, ptr %15, align 4
-  %131 = call ptr @proto_tree_add_item(ptr noundef %127, i32 noundef %128, ptr noundef %129, i32 noundef %130, i32 noundef 4, i32 noundef 0)
-  %132 = load ptr, ptr %7, align 8
-  %133 = load i32, ptr @hf_format_config_ie_cid_type_1, align 4
-  %134 = load ptr, ptr %9, align 8
-  %135 = load i32, ptr %15, align 4
-  %136 = call ptr @proto_tree_add_item(ptr noundef %132, i32 noundef %133, ptr noundef %134, i32 noundef %135, i32 noundef 4, i32 noundef 0)
-  %137 = load ptr, ptr %7, align 8
-  %138 = load i32, ptr @hf_format_config_ie_safety_pattern_1, align 4
-  %139 = load ptr, ptr %9, align 8
-  %140 = load i32, ptr %15, align 4
-  %141 = call ptr @proto_tree_add_item(ptr noundef %137, i32 noundef %138, ptr noundef %139, i32 noundef %140, i32 noundef 4, i32 noundef 0)
-  %142 = load ptr, ptr %7, align 8
-  %143 = load i32, ptr @hf_format_config_ie_subchannel_type_1, align 4
-  %144 = load ptr, ptr %9, align 8
-  %145 = load i32, ptr %15, align 4
-  %146 = call ptr @proto_tree_add_item(ptr noundef %142, i32 noundef %143, ptr noundef %144, i32 noundef %145, i32 noundef 4, i32 noundef 0)
-  %147 = load ptr, ptr %7, align 8
-  %148 = load i32, ptr @hf_format_config_ie_max_logical_bands_1, align 4
-  %149 = load ptr, ptr %9, align 8
-  %150 = load i32, ptr %15, align 4
-  %151 = call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %148, ptr noundef %149, i32 noundef %150, i32 noundef 4, i32 noundef 0)
-  %152 = load ptr, ptr %7, align 8
-  %153 = load i32, ptr @hf_format_config_ie_num_of_broadcast_symbol_1, align 4
-  %154 = load ptr, ptr %9, align 8
-  %155 = load i32, ptr %15, align 4
-  %156 = call ptr @proto_tree_add_item(ptr noundef %152, i32 noundef %153, ptr noundef %154, i32 noundef %155, i32 noundef 4, i32 noundef 0)
-  %157 = load ptr, ptr %7, align 8
-  %158 = load i32, ptr @hf_format_config_ie_num_of_dl_band_amc_symbol_1, align 4
-  %159 = load ptr, ptr %9, align 8
-  %160 = load i32, ptr %15, align 4
-  %161 = call ptr @proto_tree_add_item(ptr noundef %157, i32 noundef %158, ptr noundef %159, i32 noundef %160, i32 noundef 4, i32 noundef 0)
-  %162 = load ptr, ptr %7, align 8
-  %163 = load i32, ptr @hf_format_config_ie_num_of_ul_band_amc_symbol_1, align 4
-  %164 = load ptr, ptr %9, align 8
-  %165 = load i32, ptr %15, align 4
-  %166 = call ptr @proto_tree_add_item(ptr noundef %162, i32 noundef %163, ptr noundef %164, i32 noundef %165, i32 noundef 4, i32 noundef 0)
-  store i32 8, ptr %12, align 4
-  %167 = load ptr, ptr %9, align 8
-  %168 = load i32, ptr %15, align 4
-  %169 = call i32 @tvb_get_ntohl(ptr noundef %167, i32 noundef %168)
-  store i32 %169, ptr %16, align 4
-  %170 = load i32, ptr %16, align 4
-  %171 = and i32 %170, 201326592
-  %172 = lshr i32 %171, 26
-  store i32 %172, ptr @cid_type, align 4
-  %173 = load i32, ptr %16, align 4
-  %174 = and i32 %173, 1572864
-  %175 = lshr i32 %174, 19
-  store i32 %175, ptr @band_amc_subchannel_type, align 4
-  %176 = load i32, ptr %16, align 4
-  %177 = and i32 %176, 393216
-  %178 = lshr i32 %177, 17
-  store i32 %178, ptr @max_logical_bands, align 4
-  %179 = load i32, ptr %16, align 4
-  %180 = and i32 %179, 126976
-  %181 = lshr i32 %180, 12
-  store i32 %181, ptr @num_of_broadcast_symbols, align 4
-  %182 = load i32, ptr %16, align 4
-  %183 = and i32 %182, 4032
-  %184 = lshr i32 %183, 6
-  store i32 %184, ptr @num_of_dl_band_amc_symbols, align 4
-  %185 = load i32, ptr %16, align 4
-  %186 = and i32 %185, 63
-  store i32 %186, ptr @num_of_ul_band_amc_symbols, align 4
-  br label %198
-
-187:                                              ; preds = %116
-  %188 = load ptr, ptr %7, align 8
-  %189 = load i32, ptr @hf_format_config_ie_dl_map_type, align 4
-  %190 = load ptr, ptr %9, align 8
-  %191 = load i32, ptr %15, align 4
-  %192 = call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %189, ptr noundef %190, i32 noundef %191, i32 noundef 1, i32 noundef 0)
-  %193 = load ptr, ptr %7, align 8
-  %194 = load i32, ptr @hf_format_config_ie_new_format_indication, align 4
-  %195 = load ptr, ptr %9, align 8
-  %196 = load i32, ptr %15, align 4
-  %197 = call ptr @proto_tree_add_item(ptr noundef %193, i32 noundef %194, ptr noundef %195, i32 noundef %196, i32 noundef 1, i32 noundef 0)
-  store i32 1, ptr %12, align 4
-  br label %198
-
-198:                                              ; preds = %187, %121
-  br label %199
-
-199:                                              ; preds = %198, %108
-  %200 = load i32, ptr %12, align 4
-  store i32 %200, ptr %6, align 4
-  br label %201
-
-201:                                              ; preds = %199, %115, %31
-  %202 = load i32, ptr %6, align 4
-  ret i32 %202
-}
-
-; Function Attrs: nounwind uwtable
-define internal i32 @wimax_cdlmap_extension_ie_decoder(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
-  %6 = alloca i32, align 4
-  %7 = alloca ptr, align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca i32, align 4
-  %11 = alloca i32, align 4
-  %12 = alloca i32, align 4
-  %13 = alloca i32, align 4
-  %14 = alloca i32, align 4
-  %15 = alloca i32, align 4
-  store ptr %0, ptr %7, align 8
-  store ptr %1, ptr %8, align 8
-  store ptr %2, ptr %9, align 8
-  store i32 %3, ptr %10, align 4
-  store i32 %4, ptr %11, align 4
-  %16 = load ptr, ptr %9, align 8
-  %17 = load i32, ptr %10, align 4
-  %18 = call zeroext i16 @tvb_get_ntohs(ptr noundef %16, i32 noundef %17)
-  %19 = zext i16 %18 to i32
-  store i32 %19, ptr %12, align 4
-  %20 = load i32, ptr %11, align 4
-  %21 = and i32 %20, 1
-  %22 = icmp ne i32 %21, 0
-  br i1 %22, label %23, label %84
-
-23:                                               ; preds = %5
-  %24 = load i32, ptr %12, align 4
-  %25 = and i32 %24, 3584
-  %26 = lshr i32 %25, 9
-  store i32 %26, ptr %13, align 4
-  %27 = load i32, ptr %13, align 4
-  %28 = icmp ne i32 %27, 7
-  br i1 %28, label %29, label %30
-
-29:                                               ; preds = %23
-  store i32 0, ptr %6, align 4
-  br label %144
-
-30:                                               ; preds = %23
-  %31 = load i32, ptr %12, align 4
-  %32 = and i32 %31, 496
-  %33 = lshr i32 %32, 4
-  store i32 %33, ptr %14, align 4
-  %34 = load i32, ptr %12, align 4
-  %35 = and i32 %34, 15
-  store i32 %35, ptr %15, align 4
-  %36 = load ptr, ptr %7, align 8
-  %37 = load i32, ptr @hf_cdlmap_extension_type_1, align 4
-  %38 = load ptr, ptr %9, align 8
-  %39 = load i32, ptr %10, align 4
-  %40 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %37, ptr noundef %38, i32 noundef %39, i32 noundef 2, i32 noundef 0)
-  %41 = load ptr, ptr %7, align 8
-  %42 = load i32, ptr @hf_cdlmap_extension_subtype_1, align 4
-  %43 = load ptr, ptr %9, align 8
-  %44 = load i32, ptr %10, align 4
-  %45 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %42, ptr noundef %43, i32 noundef %44, i32 noundef 2, i32 noundef 0)
-  %46 = load ptr, ptr %7, align 8
-  %47 = load i32, ptr @hf_cdlmap_extension_length_1, align 4
-  %48 = load ptr, ptr %9, align 8
-  %49 = load i32, ptr %10, align 4
-  %50 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %47, ptr noundef %48, i32 noundef %49, i32 noundef 2, i32 noundef 0)
-  %51 = load i32, ptr %10, align 4
-  %52 = add i32 %51, 2
-  store i32 %52, ptr %10, align 4
-  %53 = load i32, ptr %14, align 4
-  switch i32 %53, label %75 [
-    i32 0, label %54
-    i32 1, label %62
+  %35 = load i32, ptr %12, align 4
+  %36 = and i32 %35, 15
+  store i32 %36, ptr %15, align 4
+  %37 = load ptr, ptr %7, align 8
+  %38 = load i32, ptr @hf_cdlmap_extension_type_1, align 4
+  %39 = load ptr, ptr %9, align 8
+  %40 = load i32, ptr %10, align 4
+  %41 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %38, ptr noundef %39, i32 noundef %40, i32 noundef 2, i32 noundef 0)
+  %42 = load ptr, ptr %7, align 8
+  %43 = load i32, ptr @hf_cdlmap_extension_subtype_1, align 4
+  %44 = load ptr, ptr %9, align 8
+  %45 = load i32, ptr %10, align 4
+  %46 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %43, ptr noundef %44, i32 noundef %45, i32 noundef 2, i32 noundef 0)
+  %47 = load ptr, ptr %7, align 8
+  %48 = load i32, ptr @hf_cdlmap_extension_length_1, align 4
+  %49 = load ptr, ptr %9, align 8
+  %50 = load i32, ptr %10, align 4
+  %51 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %48, ptr noundef %49, i32 noundef %50, i32 noundef 2, i32 noundef 0)
+  %52 = load i32, ptr %10, align 4
+  %53 = add i32 %52, 2
+  store i32 %53, ptr %10, align 4
+  %54 = load i32, ptr %14, align 4
+  switch i32 %54, label %76 [
+    i32 0, label %55
+    i32 1, label %63
   ]
 
-54:                                               ; preds = %30
-  %55 = load ptr, ptr %7, align 8
-  %56 = load i32, ptr @hf_cdlmap_extension_time_diversity_mbs_1, align 4
-  %57 = load ptr, ptr %9, align 8
-  %58 = load i32, ptr %10, align 4
-  %59 = load i32, ptr %15, align 4
-  %60 = sub i32 %59, 2
-  %61 = call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %56, ptr noundef %57, i32 noundef %58, i32 noundef %60, i32 noundef 0)
-  br label %83
+55:                                               ; preds = %31
+  %56 = load ptr, ptr %7, align 8
+  %57 = load i32, ptr @hf_cdlmap_extension_time_diversity_mbs_1, align 4
+  %58 = load ptr, ptr %9, align 8
+  %59 = load i32, ptr %10, align 4
+  %60 = load i32, ptr %15, align 4
+  %61 = sub i32 %60, 2
+  %62 = call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %57, ptr noundef %58, i32 noundef %59, i32 noundef %61, i32 noundef 0)
+  br label %84
 
-62:                                               ; preds = %30
-  %63 = load ptr, ptr %7, align 8
-  %64 = load i32, ptr @hf_cdlmap_extension_harq_mode, align 4
-  %65 = load ptr, ptr %9, align 8
-  %66 = load i32, ptr %10, align 4
-  %67 = call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %64, ptr noundef %65, i32 noundef %66, i32 noundef 1, i32 noundef 0)
-  %68 = load ptr, ptr %9, align 8
-  %69 = load i32, ptr %10, align 4
-  %70 = call zeroext i8 @tvb_get_guint8(ptr noundef %68, i32 noundef %69)
-  %71 = zext i8 %70 to i32
-  store i32 %71, ptr %12, align 4
-  %72 = load i32, ptr %12, align 4
-  %73 = and i32 %72, 240
-  %74 = lshr i32 %73, 4
-  store i32 %74, ptr @harq_mode, align 4
-  br label %83
+63:                                               ; preds = %31
+  %64 = load ptr, ptr %7, align 8
+  %65 = load i32, ptr @hf_cdlmap_extension_harq_mode, align 4
+  %66 = load ptr, ptr %9, align 8
+  %67 = load i32, ptr %10, align 4
+  %68 = call ptr @proto_tree_add_item(ptr noundef %64, i32 noundef %65, ptr noundef %66, i32 noundef %67, i32 noundef 1, i32 noundef 0)
+  %69 = load ptr, ptr %9, align 8
+  %70 = load i32, ptr %10, align 4
+  %71 = call zeroext i8 @tvb_get_uint8(ptr noundef %69, i32 noundef %70)
+  %72 = zext i8 %71 to i32
+  store i32 %72, ptr %12, align 4
+  %73 = load i32, ptr %12, align 4
+  %74 = and i32 %73, 240
+  %75 = lshr i32 %74, 4
+  store i32 %75, ptr @harq_mode, align 4
+  br label %84
 
-75:                                               ; preds = %30
-  %76 = load ptr, ptr %7, align 8
-  %77 = load i32, ptr @hf_cdlmap_extension_unknown_sub_type_1, align 4
-  %78 = load ptr, ptr %9, align 8
-  %79 = load i32, ptr %10, align 4
-  %80 = load i32, ptr %15, align 4
-  %81 = sub i32 %80, 2
-  %82 = call ptr @proto_tree_add_item(ptr noundef %76, i32 noundef %77, ptr noundef %78, i32 noundef %79, i32 noundef %81, i32 noundef 0)
-  br label %83
+76:                                               ; preds = %31
+  %77 = load ptr, ptr %7, align 8
+  %78 = load i32, ptr @hf_cdlmap_extension_unknown_sub_type_1, align 4
+  %79 = load ptr, ptr %9, align 8
+  %80 = load i32, ptr %10, align 4
+  %81 = load i32, ptr %15, align 4
+  %82 = sub i32 %81, 2
+  %83 = call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %78, ptr noundef %79, i32 noundef %80, i32 noundef %82, i32 noundef 0)
+  br label %84
 
-83:                                               ; preds = %75, %62, %54
-  br label %141
+84:                                               ; preds = %76, %63, %55
+  br label %142
 
-84:                                               ; preds = %5
-  %85 = load i32, ptr %12, align 4
-  %86 = and i32 %85, 57344
-  %87 = lshr i32 %86, 13
-  store i32 %87, ptr %13, align 4
-  %88 = load i32, ptr %13, align 4
-  %89 = icmp ne i32 %88, 7
-  br i1 %89, label %90, label %91
+85:                                               ; preds = %5
+  %86 = load i32, ptr %12, align 4
+  %87 = and i32 %86, 57344
+  %88 = lshr i32 %87, 13
+  store i32 %88, ptr %13, align 4
+  %89 = load i32, ptr %13, align 4
+  %90 = icmp ne i32 %89, 7
+  br i1 %90, label %91, label %92
 
-90:                                               ; preds = %84
+91:                                               ; preds = %85
   store i32 0, ptr %6, align 4
-  br label %144
+  store i32 1, ptr %16, align 4
+  br label %145
 
-91:                                               ; preds = %84
-  %92 = load i32, ptr %12, align 4
-  %93 = and i32 %92, 7936
-  %94 = lshr i32 %93, 8
-  store i32 %94, ptr %14, align 4
-  %95 = load i32, ptr %12, align 4
-  %96 = and i32 %95, 240
-  %97 = lshr i32 %96, 4
-  store i32 %97, ptr %15, align 4
-  %98 = load ptr, ptr %7, align 8
-  %99 = load i32, ptr @hf_cdlmap_extension_type, align 4
-  %100 = load ptr, ptr %9, align 8
-  %101 = load i32, ptr %10, align 4
-  %102 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %99, ptr noundef %100, i32 noundef %101, i32 noundef 2, i32 noundef 0)
-  %103 = load ptr, ptr %7, align 8
-  %104 = load i32, ptr @hf_cdlmap_extension_subtype, align 4
-  %105 = load ptr, ptr %9, align 8
-  %106 = load i32, ptr %10, align 4
-  %107 = call ptr @proto_tree_add_item(ptr noundef %103, i32 noundef %104, ptr noundef %105, i32 noundef %106, i32 noundef 2, i32 noundef 0)
-  %108 = load ptr, ptr %7, align 8
-  %109 = load i32, ptr @hf_cdlmap_extension_length, align 4
-  %110 = load ptr, ptr %9, align 8
-  %111 = load i32, ptr %10, align 4
-  %112 = call ptr @proto_tree_add_item(ptr noundef %108, i32 noundef %109, ptr noundef %110, i32 noundef %111, i32 noundef 2, i32 noundef 0)
-  %113 = load i32, ptr %14, align 4
-  switch i32 %113, label %131 [
-    i32 0, label %114
-    i32 1, label %123
+92:                                               ; preds = %85
+  %93 = load i32, ptr %12, align 4
+  %94 = and i32 %93, 7936
+  %95 = lshr i32 %94, 8
+  store i32 %95, ptr %14, align 4
+  %96 = load i32, ptr %12, align 4
+  %97 = and i32 %96, 240
+  %98 = lshr i32 %97, 4
+  store i32 %98, ptr %15, align 4
+  %99 = load ptr, ptr %7, align 8
+  %100 = load i32, ptr @hf_cdlmap_extension_type, align 4
+  %101 = load ptr, ptr %9, align 8
+  %102 = load i32, ptr %10, align 4
+  %103 = call ptr @proto_tree_add_item(ptr noundef %99, i32 noundef %100, ptr noundef %101, i32 noundef %102, i32 noundef 2, i32 noundef 0)
+  %104 = load ptr, ptr %7, align 8
+  %105 = load i32, ptr @hf_cdlmap_extension_subtype, align 4
+  %106 = load ptr, ptr %9, align 8
+  %107 = load i32, ptr %10, align 4
+  %108 = call ptr @proto_tree_add_item(ptr noundef %104, i32 noundef %105, ptr noundef %106, i32 noundef %107, i32 noundef 2, i32 noundef 0)
+  %109 = load ptr, ptr %7, align 8
+  %110 = load i32, ptr @hf_cdlmap_extension_length, align 4
+  %111 = load ptr, ptr %9, align 8
+  %112 = load i32, ptr %10, align 4
+  %113 = call ptr @proto_tree_add_item(ptr noundef %109, i32 noundef %110, ptr noundef %111, i32 noundef %112, i32 noundef 2, i32 noundef 0)
+  %114 = load i32, ptr %14, align 4
+  switch i32 %114, label %132 [
+    i32 0, label %115
+    i32 1, label %124
   ]
 
-114:                                              ; preds = %91
-  %115 = load ptr, ptr %7, align 8
-  %116 = load i32, ptr @hf_cdlmap_extension_time_diversity_mbs, align 4
-  %117 = load ptr, ptr %9, align 8
-  %118 = load i32, ptr %10, align 4
-  %119 = add i32 %118, 1
-  %120 = load i32, ptr %15, align 4
-  %121 = sub i32 %120, 1
-  %122 = call ptr @proto_tree_add_item(ptr noundef %115, i32 noundef %116, ptr noundef %117, i32 noundef %119, i32 noundef %121, i32 noundef 0)
-  br label %140
-
-123:                                              ; preds = %91
-  %124 = load ptr, ptr %7, align 8
-  %125 = load i32, ptr @hf_cdlmap_extension_harq_mode_1, align 4
-  %126 = load ptr, ptr %9, align 8
-  %127 = load i32, ptr %10, align 4
-  %128 = call ptr @proto_tree_add_item(ptr noundef %124, i32 noundef %125, ptr noundef %126, i32 noundef %127, i32 noundef 2, i32 noundef 0)
-  %129 = load i32, ptr %12, align 4
-  %130 = and i32 %129, 15
-  store i32 %130, ptr @harq_mode, align 4
-  br label %140
-
-131:                                              ; preds = %91
-  %132 = load ptr, ptr %7, align 8
-  %133 = load i32, ptr @hf_cdlmap_extension_unknown_sub_type, align 4
-  %134 = load ptr, ptr %9, align 8
-  %135 = load i32, ptr %10, align 4
-  %136 = add i32 %135, 1
-  %137 = load i32, ptr %15, align 4
-  %138 = sub i32 %137, 1
-  %139 = call ptr @proto_tree_add_item(ptr noundef %132, i32 noundef %133, ptr noundef %134, i32 noundef %136, i32 noundef %138, i32 noundef 0)
-  br label %140
-
-140:                                              ; preds = %131, %123, %114
+115:                                              ; preds = %92
+  %116 = load ptr, ptr %7, align 8
+  %117 = load i32, ptr @hf_cdlmap_extension_time_diversity_mbs, align 4
+  %118 = load ptr, ptr %9, align 8
+  %119 = load i32, ptr %10, align 4
+  %120 = add i32 %119, 1
+  %121 = load i32, ptr %15, align 4
+  %122 = sub i32 %121, 1
+  %123 = call ptr @proto_tree_add_item(ptr noundef %116, i32 noundef %117, ptr noundef %118, i32 noundef %120, i32 noundef %122, i32 noundef 0)
   br label %141
 
-141:                                              ; preds = %140, %83
-  %142 = load i32, ptr %15, align 4
-  %143 = mul i32 %142, 2
-  store i32 %143, ptr %6, align 4
-  br label %144
+124:                                              ; preds = %92
+  %125 = load ptr, ptr %7, align 8
+  %126 = load i32, ptr @hf_cdlmap_extension_harq_mode_1, align 4
+  %127 = load ptr, ptr %9, align 8
+  %128 = load i32, ptr %10, align 4
+  %129 = call ptr @proto_tree_add_item(ptr noundef %125, i32 noundef %126, ptr noundef %127, i32 noundef %128, i32 noundef 2, i32 noundef 0)
+  %130 = load i32, ptr %12, align 4
+  %131 = and i32 %130, 15
+  store i32 %131, ptr @harq_mode, align 4
+  br label %141
 
-144:                                              ; preds = %141, %90, %29
-  %145 = load i32, ptr %6, align 4
-  ret i32 %145
+132:                                              ; preds = %92
+  %133 = load ptr, ptr %7, align 8
+  %134 = load i32, ptr @hf_cdlmap_extension_unknown_sub_type, align 4
+  %135 = load ptr, ptr %9, align 8
+  %136 = load i32, ptr %10, align 4
+  %137 = add i32 %136, 1
+  %138 = load i32, ptr %15, align 4
+  %139 = sub i32 %138, 1
+  %140 = call ptr @proto_tree_add_item(ptr noundef %133, i32 noundef %134, ptr noundef %135, i32 noundef %137, i32 noundef %139, i32 noundef 0)
+  br label %141
+
+141:                                              ; preds = %132, %124, %115
+  br label %142
+
+142:                                              ; preds = %141, %84
+  %143 = load i32, ptr %15, align 4
+  %144 = mul i32 %143, 2
+  store i32 %144, ptr %6, align 4
+  store i32 1, ptr %16, align 4
+  br label %145
+
+145:                                              ; preds = %142, %91, %30
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  %146 = load i32, ptr %6, align 4
+  ret i32 %146
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @wimax_proto_register_wimax_compact_dlmap_ie() #0 {
   %1 = load i32, ptr @proto_wimax, align 4
   store i32 %1, ptr @proto_wimax_compact_dlmap_ie_decoder, align 4
@@ -3254,20 +3333,27 @@ define hidden void @wimax_proto_register_wimax_compact_dlmap_ie() #0 {
   ret void
 }
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #2
 
-declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) #2
 
-declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}

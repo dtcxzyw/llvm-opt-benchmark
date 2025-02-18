@@ -3,7 +3,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
 
 @proto_register_oipf.ett = internal global [1 x ptr] [ptr @ett_oipf_ciplus], align 8
 @ett_oipf_ciplus = internal global i32 0, align 4
@@ -11,7 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_oipf_ciplus_cmd_id = internal global i32 0, align 4
 @.str = private unnamed_addr constant [11 x i8] c"Command ID\00", align 1
 @.str.1 = private unnamed_addr constant [19 x i8] c"oipf.ciplus.cmd_id\00", align 1
-@oipf_ciplus_cmd_id = internal constant [6 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.18 }, %struct._value_string { i32 2, ptr @.str.19 }, %struct._value_string { i32 3, ptr @.str.20 }, %struct._value_string { i32 4, ptr @.str.21 }, %struct._value_string { i32 5, ptr @.str.22 }, %struct._value_string zeroinitializer], align 16
 @hf_oipf_ciplus_ca_sys_id = internal global i32 0, align 4
 @.str.2 = private unnamed_addr constant [13 x i8] c"CA system ID\00", align 1
 @.str.3 = private unnamed_addr constant [25 x i8] c"oipf.ciplus.ca_system_id\00", align 1
@@ -24,7 +22,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_oipf_ciplus_dat_id = internal global i32 0, align 4
 @.str.8 = private unnamed_addr constant [12 x i8] c"Datatype ID\00", align 1
 @.str.9 = private unnamed_addr constant [24 x i8] c"oipf.ciplus.datatype_id\00", align 1
-@oipf_ciplus_dat_id = internal constant [9 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.23 }, %struct._value_string { i32 2, ptr @.str.24 }, %struct._value_string { i32 3, ptr @.str.25 }, %struct._value_string { i32 4, ptr @.str.26 }, %struct._value_string { i32 5, ptr @.str.27 }, %struct._value_string { i32 6, ptr @.str.28 }, %struct._value_string { i32 7, ptr @.str.29 }, %struct._value_string { i32 8, ptr @.str.30 }, %struct._value_string zeroinitializer], align 16
 @hf_oipf_ciplus_dat_len = internal global i32 0, align 4
 @.str.10 = private unnamed_addr constant [16 x i8] c"Datatype length\00", align 1
 @.str.11 = private unnamed_addr constant [25 x i8] c"oipf.ciplus.datatype_len\00", align 1
@@ -43,16 +40,18 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.20 = private unnamed_addr constant [22 x i8] c"parental_control_info\00", align 1
 @.str.21 = private unnamed_addr constant [12 x i8] c"rights_info\00", align 1
 @.str.22 = private unnamed_addr constant [12 x i8] c"system_info\00", align 1
-@.str.23 = private unnamed_addr constant [36 x i8] c"oipf_ca_vendor_specific_information\00", align 1
-@.str.24 = private unnamed_addr constant [18 x i8] c"oipf_country_code\00", align 1
-@.str.25 = private unnamed_addr constant [26 x i8] c"oipf_parental_control_url\00", align 1
-@.str.26 = private unnamed_addr constant [17 x i8] c"oipf_rating_type\00", align 1
-@.str.27 = private unnamed_addr constant [18 x i8] c"oipf_rating_value\00", align 1
-@.str.28 = private unnamed_addr constant [23 x i8] c"oipf_rights_issuer_url\00", align 1
-@.str.29 = private unnamed_addr constant [19 x i8] c"oipf_access_status\00", align 1
-@.str.30 = private unnamed_addr constant [12 x i8] c"oipf_status\00", align 1
+@oipf_ciplus_cmd_id = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.18 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.19 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.21 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.22 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.24 = private unnamed_addr constant [36 x i8] c"oipf_ca_vendor_specific_information\00", align 1
+@.str.25 = private unnamed_addr constant [18 x i8] c"oipf_country_code\00", align 1
+@.str.26 = private unnamed_addr constant [26 x i8] c"oipf_parental_control_url\00", align 1
+@.str.27 = private unnamed_addr constant [17 x i8] c"oipf_rating_type\00", align 1
+@.str.28 = private unnamed_addr constant [18 x i8] c"oipf_rating_value\00", align 1
+@.str.29 = private unnamed_addr constant [23 x i8] c"oipf_rights_issuer_url\00", align 1
+@.str.30 = private unnamed_addr constant [19 x i8] c"oipf_access_status\00", align 1
+@.str.31 = private unnamed_addr constant [12 x i8] c"oipf_status\00", align 1
+@oipf_ciplus_dat_id = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.24 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.25 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.26 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.27 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.28 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.29 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.30 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.31 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_oipf() #0 {
   %1 = call i32 @proto_register_protocol(ptr noundef @.str.14, ptr noundef @.str.15, ptr noundef @.str.16)
   store i32 %1, ptr @proto_oipf_ciplus, align 4
@@ -65,15 +64,19 @@ define hidden void @proto_register_oipf() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_oipf_ciplus(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -86,154 +89,185 @@ define internal i32 @dissect_oipf_ciplus(ptr noundef %0, ptr noundef %1, ptr nou
   %13 = alloca i8, align 1
   %14 = alloca i8, align 1
   %15 = alloca i16, align 2
+  %16 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
   store i32 0, ptr %12, align 4
-  %16 = load ptr, ptr %6, align 8
-  %17 = call i32 @tvb_reported_length(ptr noundef %16)
-  store i32 %17, ptr %10, align 4
-  %18 = load i32, ptr %10, align 4
-  %19 = icmp slt i32 %18, 8
-  br i1 %19, label %20, label %21
-
-20:                                               ; preds = %4
-  store i32 0, ptr %5, align 4
-  br label %98
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #3
+  call void @llvm.lifetime.start.p0(i64 2, ptr %15) #3
+  %17 = load ptr, ptr %6, align 8
+  %18 = call i32 @tvb_reported_length(ptr noundef %17)
+  store i32 %18, ptr %10, align 4
+  %19 = load i32, ptr %10, align 4
+  %20 = icmp slt i32 %19, 8
+  br i1 %20, label %21, label %22
 
 21:                                               ; preds = %4
-  %22 = load ptr, ptr %8, align 8
-  %23 = load ptr, ptr %6, align 8
-  %24 = load i32, ptr %10, align 4
-  %25 = load i32, ptr @ett_oipf_ciplus, align 4
-  %26 = call ptr @proto_tree_add_subtree(ptr noundef %22, ptr noundef %23, i32 noundef 0, i32 noundef %24, i32 noundef %25, ptr noundef null, ptr noundef @.str.14)
-  store ptr %26, ptr %11, align 8
-  %27 = load ptr, ptr %11, align 8
-  %28 = load i32, ptr @hf_oipf_ciplus_cmd_id, align 4
-  %29 = load ptr, ptr %6, align 8
-  %30 = load i32, ptr %12, align 4
-  %31 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %28, ptr noundef %29, i32 noundef %30, i32 noundef 1, i32 noundef 0)
-  %32 = load i32, ptr %12, align 4
-  %33 = add i32 %32, 1
-  store i32 %33, ptr %12, align 4
-  %34 = load ptr, ptr %11, align 8
-  %35 = load i32, ptr @hf_oipf_ciplus_ca_sys_id, align 4
-  %36 = load ptr, ptr %6, align 8
-  %37 = load i32, ptr %12, align 4
-  %38 = call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %35, ptr noundef %36, i32 noundef %37, i32 noundef 2, i32 noundef 0)
-  %39 = load i32, ptr %12, align 4
-  %40 = add i32 %39, 2
-  store i32 %40, ptr %12, align 4
-  %41 = load ptr, ptr %11, align 8
-  %42 = load i32, ptr @hf_oipf_ciplus_trx_id, align 4
-  %43 = load ptr, ptr %6, align 8
-  %44 = load i32, ptr %12, align 4
-  %45 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %42, ptr noundef %43, i32 noundef %44, i32 noundef 4, i32 noundef 0)
-  %46 = load i32, ptr %12, align 4
-  %47 = add i32 %46, 4
-  store i32 %47, ptr %12, align 4
-  %48 = load ptr, ptr %6, align 8
-  %49 = load i32, ptr %12, align 4
-  %50 = call zeroext i8 @tvb_get_guint8(ptr noundef %48, i32 noundef %49)
-  store i8 %50, ptr %14, align 1
-  %51 = load ptr, ptr %11, align 8
-  %52 = load i32, ptr @hf_oipf_ciplus_send_datatype_nbr, align 4
-  %53 = load ptr, ptr %6, align 8
-  %54 = load i32, ptr %12, align 4
-  %55 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %52, ptr noundef %53, i32 noundef %54, i32 noundef 1, i32 noundef 0)
-  %56 = load i32, ptr %12, align 4
-  %57 = add i32 %56, 1
-  store i32 %57, ptr %12, align 4
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %16, align 4
+  br label %99
+
+22:                                               ; preds = %4
+  %23 = load ptr, ptr %8, align 8
+  %24 = load ptr, ptr %6, align 8
+  %25 = load i32, ptr %10, align 4
+  %26 = load i32, ptr @ett_oipf_ciplus, align 4
+  %27 = call ptr @proto_tree_add_subtree(ptr noundef %23, ptr noundef %24, i32 noundef 0, i32 noundef %25, i32 noundef %26, ptr noundef null, ptr noundef @.str.14)
+  store ptr %27, ptr %11, align 8
+  %28 = load ptr, ptr %11, align 8
+  %29 = load i32, ptr @hf_oipf_ciplus_cmd_id, align 4
+  %30 = load ptr, ptr %6, align 8
+  %31 = load i32, ptr %12, align 4
+  %32 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %29, ptr noundef %30, i32 noundef %31, i32 noundef 1, i32 noundef 0)
+  %33 = load i32, ptr %12, align 4
+  %34 = add i32 %33, 1
+  store i32 %34, ptr %12, align 4
+  %35 = load ptr, ptr %11, align 8
+  %36 = load i32, ptr @hf_oipf_ciplus_ca_sys_id, align 4
+  %37 = load ptr, ptr %6, align 8
+  %38 = load i32, ptr %12, align 4
+  %39 = call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %36, ptr noundef %37, i32 noundef %38, i32 noundef 2, i32 noundef 0)
+  %40 = load i32, ptr %12, align 4
+  %41 = add i32 %40, 2
+  store i32 %41, ptr %12, align 4
+  %42 = load ptr, ptr %11, align 8
+  %43 = load i32, ptr @hf_oipf_ciplus_trx_id, align 4
+  %44 = load ptr, ptr %6, align 8
+  %45 = load i32, ptr %12, align 4
+  %46 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %43, ptr noundef %44, i32 noundef %45, i32 noundef 4, i32 noundef 0)
+  %47 = load i32, ptr %12, align 4
+  %48 = add i32 %47, 4
+  store i32 %48, ptr %12, align 4
+  %49 = load ptr, ptr %6, align 8
+  %50 = load i32, ptr %12, align 4
+  %51 = call zeroext i8 @tvb_get_uint8(ptr noundef %49, i32 noundef %50)
+  store i8 %51, ptr %14, align 1
+  %52 = load ptr, ptr %11, align 8
+  %53 = load i32, ptr @hf_oipf_ciplus_send_datatype_nbr, align 4
+  %54 = load ptr, ptr %6, align 8
+  %55 = load i32, ptr %12, align 4
+  %56 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %53, ptr noundef %54, i32 noundef %55, i32 noundef 1, i32 noundef 0)
+  %57 = load i32, ptr %12, align 4
+  %58 = add i32 %57, 1
+  store i32 %58, ptr %12, align 4
   store i8 0, ptr %13, align 1
-  br label %58
+  br label %59
 
-58:                                               ; preds = %93, %21
-  %59 = load i8, ptr %13, align 1
-  %60 = zext i8 %59 to i32
-  %61 = load i8, ptr %14, align 1
-  %62 = zext i8 %61 to i32
-  %63 = icmp slt i32 %60, %62
-  br i1 %63, label %64, label %96
+59:                                               ; preds = %94, %22
+  %60 = load i8, ptr %13, align 1
+  %61 = zext i8 %60 to i32
+  %62 = load i8, ptr %14, align 1
+  %63 = zext i8 %62 to i32
+  %64 = icmp slt i32 %61, %63
+  br i1 %64, label %65, label %97
 
-64:                                               ; preds = %58
-  %65 = load ptr, ptr %11, align 8
-  %66 = load i32, ptr @hf_oipf_ciplus_dat_id, align 4
-  %67 = load ptr, ptr %6, align 8
-  %68 = load i32, ptr %12, align 4
-  %69 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %66, ptr noundef %67, i32 noundef %68, i32 noundef 1, i32 noundef 0)
-  %70 = load i32, ptr %12, align 4
-  %71 = add i32 %70, 1
-  store i32 %71, ptr %12, align 4
-  %72 = load ptr, ptr %6, align 8
-  %73 = load i32, ptr %12, align 4
-  %74 = call zeroext i16 @tvb_get_ntohs(ptr noundef %72, i32 noundef %73)
-  store i16 %74, ptr %15, align 2
-  %75 = load ptr, ptr %11, align 8
-  %76 = load i32, ptr @hf_oipf_ciplus_dat_len, align 4
-  %77 = load ptr, ptr %6, align 8
-  %78 = load i32, ptr %12, align 4
-  %79 = call ptr @proto_tree_add_item(ptr noundef %75, i32 noundef %76, ptr noundef %77, i32 noundef %78, i32 noundef 2, i32 noundef 0)
-  %80 = load i32, ptr %12, align 4
-  %81 = add i32 %80, 2
-  store i32 %81, ptr %12, align 4
-  %82 = load ptr, ptr %11, align 8
-  %83 = load i32, ptr @hf_oipf_ciplus_data, align 4
-  %84 = load ptr, ptr %6, align 8
-  %85 = load i32, ptr %12, align 4
-  %86 = load i16, ptr %15, align 2
-  %87 = zext i16 %86 to i32
-  %88 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %83, ptr noundef %84, i32 noundef %85, i32 noundef %87, i32 noundef 0)
-  %89 = load i16, ptr %15, align 2
-  %90 = zext i16 %89 to i32
-  %91 = load i32, ptr %12, align 4
-  %92 = add i32 %91, %90
-  store i32 %92, ptr %12, align 4
-  br label %93
+65:                                               ; preds = %59
+  %66 = load ptr, ptr %11, align 8
+  %67 = load i32, ptr @hf_oipf_ciplus_dat_id, align 4
+  %68 = load ptr, ptr %6, align 8
+  %69 = load i32, ptr %12, align 4
+  %70 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %67, ptr noundef %68, i32 noundef %69, i32 noundef 1, i32 noundef 0)
+  %71 = load i32, ptr %12, align 4
+  %72 = add i32 %71, 1
+  store i32 %72, ptr %12, align 4
+  %73 = load ptr, ptr %6, align 8
+  %74 = load i32, ptr %12, align 4
+  %75 = call zeroext i16 @tvb_get_ntohs(ptr noundef %73, i32 noundef %74)
+  store i16 %75, ptr %15, align 2
+  %76 = load ptr, ptr %11, align 8
+  %77 = load i32, ptr @hf_oipf_ciplus_dat_len, align 4
+  %78 = load ptr, ptr %6, align 8
+  %79 = load i32, ptr %12, align 4
+  %80 = call ptr @proto_tree_add_item(ptr noundef %76, i32 noundef %77, ptr noundef %78, i32 noundef %79, i32 noundef 2, i32 noundef 0)
+  %81 = load i32, ptr %12, align 4
+  %82 = add i32 %81, 2
+  store i32 %82, ptr %12, align 4
+  %83 = load ptr, ptr %11, align 8
+  %84 = load i32, ptr @hf_oipf_ciplus_data, align 4
+  %85 = load ptr, ptr %6, align 8
+  %86 = load i32, ptr %12, align 4
+  %87 = load i16, ptr %15, align 2
+  %88 = zext i16 %87 to i32
+  %89 = call ptr @proto_tree_add_item(ptr noundef %83, i32 noundef %84, ptr noundef %85, i32 noundef %86, i32 noundef %88, i32 noundef 0)
+  %90 = load i16, ptr %15, align 2
+  %91 = zext i16 %90 to i32
+  %92 = load i32, ptr %12, align 4
+  %93 = add i32 %92, %91
+  store i32 %93, ptr %12, align 4
+  br label %94
 
-93:                                               ; preds = %64
-  %94 = load i8, ptr %13, align 1
-  %95 = add i8 %94, 1
-  store i8 %95, ptr %13, align 1
-  br label %58, !llvm.loop !4
+94:                                               ; preds = %65
+  %95 = load i8, ptr %13, align 1
+  %96 = add i8 %95, 1
+  store i8 %96, ptr %13, align 1
+  br label %59, !llvm.loop !6
 
-96:                                               ; preds = %58
-  %97 = load i32, ptr %12, align 4
-  store i32 %97, ptr %5, align 4
-  br label %98
+97:                                               ; preds = %59
+  %98 = load i32, ptr %12, align 4
+  store i32 %98, ptr %5, align 4
+  store i32 1, ptr %16, align 4
+  br label %99
 
-98:                                               ; preds = %96, %20
-  %99 = load i32, ptr %5, align 4
-  ret i32 %99
+99:                                               ; preds = %97, %21
+  call void @llvm.lifetime.end.p0(i64 2, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  %100 = load i32, ptr %5, align 4
+  ret i32 %100
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_oipf() #0 {
   %1 = load ptr, ptr @oipf_ciplus_handle, align 8
   call void @dissector_add_string(ptr noundef @.str.17, ptr noundef @sas_app_id_str_oipf, ptr noundef %1)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_string(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}

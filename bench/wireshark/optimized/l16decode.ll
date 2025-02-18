@@ -7,17 +7,18 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [21 x i8] c"16-bit audio, stereo\00", align 1
 @.str.2 = private unnamed_addr constant [4 x i8] c"L16\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @codec_register_l16() local_unnamed_addr #0 {
-  %1 = tail call zeroext i1 @register_codec(ptr noundef nonnull @.str, ptr noundef nonnull @codec_l16_mono_init, ptr noundef nonnull @codec_l16_release, ptr noundef nonnull @codec_l16_get_channels, ptr noundef nonnull @codec_l16_get_frequency, ptr noundef nonnull @codec_l16_decode) #7
-  %2 = tail call zeroext i1 @register_codec(ptr noundef nonnull @.str.1, ptr noundef nonnull @codec_l16_stereo_init, ptr noundef nonnull @codec_l16_release, ptr noundef nonnull @codec_l16_get_channels, ptr noundef nonnull @codec_l16_get_frequency, ptr noundef nonnull @codec_l16_decode) #7
-  %3 = tail call zeroext i1 @register_codec(ptr noundef nonnull @.str.2, ptr noundef nonnull @codec_l16_init, ptr noundef nonnull @codec_l16_release, ptr noundef nonnull @codec_l16_get_channels, ptr noundef nonnull @codec_l16_get_frequency, ptr noundef nonnull @codec_l16_decode) #7
+  %1 = tail call zeroext i1 @register_codec(ptr noundef nonnull @.str, ptr noundef nonnull @codec_l16_mono_init, ptr noundef nonnull @codec_l16_release, ptr noundef nonnull @codec_l16_get_channels, ptr noundef nonnull @codec_l16_get_frequency, ptr noundef nonnull @codec_l16_decode)
+  %2 = tail call zeroext i1 @register_codec(ptr noundef nonnull @.str.1, ptr noundef nonnull @codec_l16_stereo_init, ptr noundef nonnull @codec_l16_release, ptr noundef nonnull @codec_l16_get_channels, ptr noundef nonnull @codec_l16_get_frequency, ptr noundef nonnull @codec_l16_decode)
+  %3 = tail call zeroext i1 @register_codec(ptr noundef nonnull @.str.2, ptr noundef nonnull @codec_l16_init, ptr noundef nonnull @codec_l16_release, ptr noundef nonnull @codec_l16_get_channels, ptr noundef nonnull @codec_l16_get_frequency, ptr noundef nonnull @codec_l16_decode)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare zeroext i1 @register_codec(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
 define internal noalias noundef ptr @codec_l16_mono_init(ptr noundef writeonly captures(none) initializes((0, 8)) %0) #2 {
   store i32 44100, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -25,17 +26,17 @@ define internal noalias noundef ptr @codec_l16_mono_init(ptr noundef writeonly c
   ret ptr null
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
 define internal void @codec_l16_release(ptr readnone captures(none) %0) #3 {
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
 define internal noundef i32 @codec_l16_get_channels(ptr readnone captures(none) %0) #3 {
   ret i32 1
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
 define internal range(i32 1, 0) i32 @codec_l16_get_frequency(ptr noundef readonly captures(none) %0) #4 {
   %2 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %2, 0
@@ -43,7 +44,7 @@ define internal range(i32 1, 0) i32 @codec_l16_get_frequency(ptr noundef readonl
   ret i32 %spec.select
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(argmem: readwrite) uwtable
 define internal i64 @codec_l16_decode(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) #5 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
@@ -66,34 +67,34 @@ define internal i64 @codec_l16_decode(ptr noundef readonly captures(none) %0, pt
   %15 = udiv i64 %2, %14
   br label %30
 
-.preheader:                                       ; preds = %.preheader40, %23
-  %.03543 = phi i64 [ %27, %23 ], [ 0, %.preheader40 ]
+.preheader:                                       ; preds = %.preheader40, %18
+  %.03543 = phi i64 [ %22, %18 ], [ 0, %.preheader40 ]
   %16 = mul i64 %.03543, %.pre
   %17 = getelementptr i16, ptr %1, i64 %16
-  br label %18
+  br label %24
 
-18:                                               ; preds = %.preheader, %18
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %18 ]
-  %.03341 = phi i32 [ 0, %.preheader ], [ %22, %18 ]
-  %19 = getelementptr i16, ptr %17, i64 %indvars.iv
-  %20 = load i16, ptr %19, align 2
-  %rev = tail call i16 @llvm.bswap.i16(i16 %20)
-  %21 = sext i16 %rev to i32
-  %22 = add i32 %.03341, %21
+18:                                               ; preds = %24
+  %19 = udiv i32 %28, %spec.select
+  %20 = trunc i32 %19 to i16
+  %21 = getelementptr i16, ptr %3, i64 %.03543
+  store i16 %20, ptr %21, align 2
+  %22 = add nuw i64 %.03543, 1
+  %23 = icmp ult i64 %22, %12
+  br i1 %23, label %.preheader, label %._crit_edge, !llvm.loop !6
+
+24:                                               ; preds = %.preheader, %24
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %24 ]
+  %.03341 = phi i32 [ 0, %.preheader ], [ %28, %24 ]
+  %25 = getelementptr i16, ptr %17, i64 %indvars.iv
+  %26 = load i16, ptr %25, align 2
+  %rev = tail call i16 @llvm.bswap.i16(i16 %26)
+  %27 = sext i16 %rev to i32
+  %28 = add i32 %.03341, %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %.pre
-  br i1 %exitcond.not, label %23, label %18, !llvm.loop !4
+  br i1 %exitcond.not, label %18, label %24, !llvm.loop !8
 
-23:                                               ; preds = %18
-  %24 = udiv i32 %22, %spec.select
-  %25 = trunc i32 %24 to i16
-  %26 = getelementptr i16, ptr %3, i64 %.03543
-  store i16 %25, ptr %26, align 2
-  %27 = add nuw i64 %.03543, 1
-  %28 = icmp ult i64 %27, %12
-  br i1 %28, label %.preheader, label %._crit_edge, !llvm.loop !6
-
-._crit_edge:                                      ; preds = %23, %.preheader40
+._crit_edge:                                      ; preds = %18, %.preheader40
   %29 = udiv i64 %2, %.pre
   store i64 %29, ptr %4, align 8
   br label %30
@@ -103,7 +104,7 @@ define internal i64 @codec_l16_decode(ptr noundef readonly captures(none) %0, pt
   ret i64 %.034
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
 define internal noalias noundef ptr @codec_l16_stereo_init(ptr noundef writeonly captures(none) initializes((0, 8)) %0) #2 {
   store i32 44100, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -111,7 +112,7 @@ define internal noalias noundef ptr @codec_l16_stereo_init(ptr noundef writeonly
   ret ptr null
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
 define internal noalias noundef ptr @codec_l16_init(ptr readnone captures(none) %0) #3 {
   ret ptr null
 }
@@ -122,21 +123,22 @@ declare i16 @llvm.bswap.i16(i16) #6
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #6
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}

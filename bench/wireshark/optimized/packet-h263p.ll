@@ -66,72 +66,80 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.39 = private unnamed_addr constant [7 x i8] c"(PSC) \00", align 1
 @.str.40 = private unnamed_addr constant [8 x i8] c"(GBSC) \00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_h263P() local_unnamed_addr #0 {
   %1 = load ptr, ptr @h263P_handle, align 8
-  tail call void @dissector_add_string(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef %1) #2
+  tail call void @dissector_add_string(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef %1)
   %2 = load ptr, ptr @h263P_handle, align 8
-  tail call void @dissector_add_string(ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, ptr noundef %2) #2
+  tail call void @dissector_add_string(ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, ptr noundef %2)
   %3 = load ptr, ptr @h263P_handle, align 8
-  tail call void @dissector_add_uint_range_with_preference(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef %3) #2
+  tail call void @dissector_add_uint_range_with_preference(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef %3)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_string(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint_range_with_preference(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_h263P() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35) #2
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35)
   store i32 %1, ptr @proto_h263P, align 4
-  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_h263P.hf, i32 noundef 10) #2
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_h263P.ett, i32 noundef 4) #2
+  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_h263P.hf, i32 noundef 10)
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_h263P.ett, i32 noundef 4)
   %2 = load i32, ptr @proto_h263P, align 4
-  %3 = tail call ptr @prefs_register_protocol(i32 noundef %2, ptr noundef null) #2
-  tail call void @prefs_register_obsolete_preference(ptr noundef %3, ptr noundef nonnull @.str.36) #2
+  %3 = tail call ptr @prefs_register_protocol(i32 noundef %2, ptr noundef null)
+  tail call void @prefs_register_obsolete_preference(ptr noundef %3, ptr noundef nonnull @.str.36)
   %4 = load i32, ptr @proto_h263P, align 4
-  %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.37, ptr noundef nonnull @dissect_h263P, i32 noundef %4) #2
+  %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.37, ptr noundef nonnull @dissect_h263P, i32 noundef %4)
   store ptr %5, ptr @h263P_handle, align 8
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @prefs_register_obsolete_preference(ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_h263P(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
-  tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.38) #2
+  tail call void @col_set_str(ptr noundef %6, i32 noundef 35, ptr noundef nonnull @.str.38)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %59, label %7
 
 7:                                                ; preds = %4
   %8 = load i32, ptr @proto_h263P, align 4
-  %9 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
+  %9 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %10 = load i32, ptr @ett_h263P, align 4
-  %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10) #2
-  %12 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #2
+  %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10)
+  %12 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0)
   %13 = load i32, ptr @hf_h263P_rr, align 4
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %13, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0) #2
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %13, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0)
   %15 = load i32, ptr @hf_h263P_pbit, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %15, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0) #2
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %15, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0)
   %17 = load i32, ptr @hf_h263P_vbit, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %17, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0) #2
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %17, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0)
   %19 = load i32, ptr @hf_h263P_plen, align 4
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %19, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0) #2
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %19, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0)
   %21 = load i32, ptr @hf_h263P_pebit, align 4
-  %22 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %21, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0) #2
+  %22 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %21, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0)
   %23 = zext i16 %12 to i32
   %24 = and i32 %23, 512
   %.not75 = icmp eq i32 %24, 0
@@ -139,11 +147,11 @@ define internal i32 @dissect_h263P(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 25:                                               ; preds = %7
   %26 = load i32, ptr @hf_h263P_tid, align 4
-  %27 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %26, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
+  %27 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %26, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %28 = load i32, ptr @hf_h263P_trun, align 4
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %28, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %28, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %30 = load i32, ptr @hf_h263P_s, align 4
-  %31 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %30, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
+  %31 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %30, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   br label %32
 
 32:                                               ; preds = %25, %7
@@ -156,10 +164,10 @@ define internal i32 @dissect_h263P(ptr noundef %0, ptr noundef %1, ptr noundef %
 35:                                               ; preds = %32
   %36 = zext nneg i16 %34 to i32
   %37 = load i32, ptr @hf_h263P_extra_hdr, align 4
-  %38 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %37, ptr noundef %0, i32 noundef %.072, i32 noundef %36, i32 noundef 0) #2
+  %38 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %37, ptr noundef %0, i32 noundef %.072, i32 noundef %36, i32 noundef 0)
   %39 = load i32, ptr @ett_h263P_extra_hdr, align 4
-  %40 = tail call ptr @proto_item_add_subtree(ptr noundef %38, i32 noundef %39) #2
-  %41 = tail call i32 @dissect_h263_picture_layer(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %40, i32 noundef %.072, i32 noundef %36, i32 noundef 1) #2
+  %40 = tail call ptr @proto_item_add_subtree(ptr noundef %38, i32 noundef %39)
+  %41 = tail call i32 @dissect_h263_picture_layer(ptr noundef %0, ptr noundef %1, ptr noundef %40, i32 noundef %.072, i32 noundef %36, i1 noundef zeroext true)
   %42 = add nuw nsw i32 %.072, %36
   br label %43
 
@@ -168,13 +176,13 @@ define internal i32 @dissect_h263P(ptr noundef %0, ptr noundef %1, ptr noundef %
   %44 = and i32 %23, 1024
   %.not77 = icmp eq i32 %44, 0
   %45 = load i32, ptr @hf_h263P_payload, align 4
-  %46 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %45, ptr noundef %0, i32 noundef %.1, i32 noundef -1, i32 noundef 0) #2
+  %46 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %45, ptr noundef %0, i32 noundef %.1, i32 noundef -1, i32 noundef 0)
   br i1 %.not77, label %59, label %47
 
 47:                                               ; preds = %43
   %48 = load i32, ptr @ett_h263P_data, align 4
-  %49 = tail call ptr @proto_item_add_subtree(ptr noundef %46, i32 noundef %48) #2
-  %50 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1) #2
+  %49 = tail call ptr @proto_item_add_subtree(ptr noundef %46, i32 noundef %48)
+  %50 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.1)
   %.not78 = icmp sgt i8 %50, -1
   br i1 %.not78, label %59, label %51
 
@@ -188,46 +196,56 @@ define internal i32 @dissect_h263P(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 53:                                               ; preds = %51, %51
   %54 = load ptr, ptr %5, align 8
-  tail call void @col_append_str(ptr noundef %54, i32 noundef 25, ptr noundef nonnull @.str.39) #2
-  %55 = tail call i32 @dissect_h263_picture_layer(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %49, i32 noundef %.1, i32 noundef -1, i32 noundef 1) #2
+  tail call void @col_append_str(ptr noundef %54, i32 noundef 25, ptr noundef nonnull @.str.39)
+  %55 = tail call i32 @dissect_h263_picture_layer(ptr noundef %0, ptr noundef %1, ptr noundef %49, i32 noundef %.1, i32 noundef -1, i1 noundef zeroext true)
   br label %59
 
 56:                                               ; preds = %51
   %57 = load ptr, ptr %5, align 8
-  tail call void @col_append_str(ptr noundef %57, i32 noundef 25, ptr noundef nonnull @.str.40) #2
-  %58 = tail call i32 @dissect_h263_group_of_blocks_layer(ptr noundef %0, ptr noundef %49, i32 noundef %.1, i32 noundef 1) #2
+  tail call void @col_append_str(ptr noundef %57, i32 noundef 25, ptr noundef nonnull @.str.40)
+  %58 = tail call i32 @dissect_h263_group_of_blocks_layer(ptr noundef %0, ptr noundef %49, i32 noundef %.1, i1 noundef zeroext true)
   br label %59
 
-59:                                               ; preds = %4, %43, %51, %56, %53, %47
-  %60 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
+59:                                               ; preds = %4, %43, %56, %53, %51, %47
+  %60 = tail call i32 @tvb_captured_length(ptr noundef %0)
   ret i32 %60
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @dissect_h263_picture_layer(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_h263_picture_layer(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @dissect_h263_group_of_blocks_layer(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_h263_group_of_blocks_layer(ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}

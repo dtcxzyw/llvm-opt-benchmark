@@ -3,13 +3,10 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
 %struct.true_false_string = type { ptr, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
-%struct.btle_mesh_transport_ctx_t = type { i32, i32, i32 }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct.btle_mesh_transport_ctx_t = type { i32, i8, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
@@ -18,7 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_btmesh_beacon_type = internal global i32 0, align 4
 @.str = private unnamed_addr constant [5 x i8] c"Type\00", align 1
 @.str.1 = private unnamed_addr constant [12 x i8] c"beacon.type\00", align 1
-@btmesh_beacon_type = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.60 }, %struct._value_string { i32 1, ptr @.str.61 }, %struct._value_string zeroinitializer], align 16
 @hf_btmesh_beacon_uuid = internal global i32 0, align 4
 @.str.2 = private unnamed_addr constant [12 x i8] c"Device UUID\00", align 1
 @.str.3 = private unnamed_addr constant [12 x i8] c"beacon.uuid\00", align 1
@@ -74,11 +70,11 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_btmesh_beacon_flags_key_refresh = internal global i32 0, align 4
 @.str.36 = private unnamed_addr constant [17 x i8] c"Key Refresh Flag\00", align 1
 @.str.37 = private unnamed_addr constant [25 x i8] c"beacon.flags.key_refresh\00", align 1
-@flags_key_refresh = internal constant %struct.true_false_string { ptr @.str.62, ptr @.str.63 }, align 8
+@flags_key_refresh = internal constant %struct.true_false_string { ptr @.str.63, ptr @.str.64 }, align 8
 @hf_btmesh_beacon_flags_iv_update = internal global i32 0, align 4
 @.str.38 = private unnamed_addr constant [15 x i8] c"IV Update Flag\00", align 1
 @.str.39 = private unnamed_addr constant [23 x i8] c"beacon.flags.iv_update\00", align 1
-@flags_iv_update = internal constant %struct.true_false_string { ptr @.str.64, ptr @.str.65 }, align 8
+@flags_iv_update = internal constant %struct.true_false_string { ptr @.str.65, ptr @.str.66 }, align 8
 @hf_btmesh_beacon_flags_rfu = internal global i32 0, align 4
 @.str.40 = private unnamed_addr constant [17 x i8] c"beacon.flags.rfu\00", align 1
 @hf_btmesh_beacon_network_id = internal global i32 0, align 4
@@ -97,7 +93,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_btmesh_beacon = internal global i32 0, align 4
 @ett_btmesh_beacon_oob = internal global i32 0, align 4
 @ett_btmesh_beacon_flags = internal global i32 0, align 4
-@proto_register_btmesh_beacon.ei = internal global [3 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_btmesh_beacon_unknown_beacon_type, %struct.expert_field_info { ptr @.str.49, i32 150994944, i32 8388608, ptr @.str.50, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_btmesh_beacon_unknown_payload, %struct.expert_field_info { ptr @.str.51, i32 150994944, i32 8388608, ptr @.str.52, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_btmesh_beacon_rfu_not_zero, %struct.expert_field_info { ptr @.str.53, i32 150994944, i32 6291456, ptr @.str.54, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_btmesh_beacon.ei = internal global [3 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_btmesh_beacon_unknown_beacon_type, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.49, i32 150994944, i32 8388608, ptr @.str.50, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_btmesh_beacon_unknown_payload, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.51, i32 150994944, i32 8388608, ptr @.str.52, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_btmesh_beacon_rfu_not_zero, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.53, i32 150994944, i32 6291456, ptr @.str.54, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_btmesh_beacon_unknown_beacon_type = internal global %struct.expert_field zeroinitializer, align 4
 @.str.49 = private unnamed_addr constant [27 x i8] c"beacon.unknown_beacon_type\00", align 1
 @.str.50 = private unnamed_addr constant [20 x i8] c"Unknown Beacon Type\00", align 1
@@ -115,16 +111,18 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.59 = private unnamed_addr constant [14 x i8] c"btmesh.beacon\00", align 1
 @.str.60 = private unnamed_addr constant [28 x i8] c"Unprovisioned Device Beacon\00", align 1
 @.str.61 = private unnamed_addr constant [22 x i8] c"Secure Network Beacon\00", align 1
-@.str.62 = private unnamed_addr constant [24 x i8] c"Key Refresh in progress\00", align 1
-@.str.63 = private unnamed_addr constant [28 x i8] c"Key Refresh not in progress\00", align 1
-@.str.64 = private unnamed_addr constant [17 x i8] c"IV Update active\00", align 1
-@.str.65 = private unnamed_addr constant [17 x i8] c"Normal operation\00", align 1
-@.str.66 = private unnamed_addr constant [15 x i8] c"BT Mesh Beacon\00", align 1
-@.str.67 = private unnamed_addr constant [16 x i8] c" (Last Segment)\00", align 1
+@btmesh_beacon_type = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.60 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.61 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.63 = private unnamed_addr constant [24 x i8] c"Key Refresh in progress\00", align 1
+@.str.64 = private unnamed_addr constant [28 x i8] c"Key Refresh not in progress\00", align 1
+@.str.65 = private unnamed_addr constant [17 x i8] c"IV Update active\00", align 1
+@.str.66 = private unnamed_addr constant [17 x i8] c"Normal operation\00", align 1
+@.str.67 = private unnamed_addr constant [15 x i8] c"BT Mesh Beacon\00", align 1
+@.str.68 = private unnamed_addr constant [16 x i8] c" (Last Segment)\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_btmesh_beacon() #0 {
   %1 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #4
   %2 = call i32 @proto_register_protocol(ptr noundef @.str.55, ptr noundef @.str.56, ptr noundef @.str.57)
   store i32 %2, ptr @proto_btmesh_beacon, align 4
   %3 = load i32, ptr @proto_btmesh_beacon, align 4
@@ -139,24 +137,35 @@ define hidden void @proto_register_btmesh_beacon() #0 {
   %8 = call ptr @prefs_register_protocol_subtree(ptr noundef @.str.58, i32 noundef %7, ptr noundef null)
   %9 = load i32, ptr @proto_btmesh_beacon, align 4
   %10 = call ptr @register_dissector(ptr noundef @.str.59, ptr noundef @dissect_btmesh_beacon_msg, i32 noundef %9)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #4
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #2
 
-declare ptr @expert_register_protocol(i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #2
 
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_register_protocol(i32 noundef) #2
 
-declare ptr @prefs_register_protocol_subtree(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #2
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @prefs_register_protocol_subtree(ptr noundef, i32 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_btmesh_beacon_msg(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -179,13 +188,25 @@ define internal i32 @dissect_btmesh_beacon_msg(ptr noundef %0, ptr noundef %1, p
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #4
   store i32 0, ptr %15, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #4
   store i32 0, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
+  call void @llvm.lifetime.start.p0(i64 12, ptr %18) #4
   call void @llvm.memset.p0.i64(ptr align 4 %18, i8 0, i64 12, i1 false)
+  call void @llvm.lifetime.start.p0(i64 2, ptr %19) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %20) #4
   %22 = load ptr, ptr %6, align 8
-  %23 = getelementptr inbounds %struct._packet_info, ptr %22, i32 0, i32 1
+  %23 = getelementptr inbounds nuw %struct._packet_info, ptr %22, i32 0, i32 1
   %24 = load ptr, ptr %23, align 8
-  call void @col_set_str(ptr noundef %24, i32 noundef 34, ptr noundef @.str.66)
+  call void @col_set_str(ptr noundef %24, i32 noundef 35, ptr noundef @.str.67)
   %25 = load ptr, ptr %8, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %28
@@ -210,9 +231,10 @@ define internal i32 @dissect_btmesh_beacon_msg(ptr noundef %0, ptr noundef %1, p
   %37 = load i32, ptr @ett_btmesh_beacon, align 4
   %38 = call ptr @proto_item_add_subtree(ptr noundef %36, i32 noundef %37)
   store ptr %38, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %21) #4
   %39 = load ptr, ptr %5, align 8
   %40 = load i32, ptr %15, align 4
-  %41 = call zeroext i8 @tvb_get_guint8(ptr noundef %39, i32 noundef %40)
+  %41 = call zeroext i8 @tvb_get_uint8(ptr noundef %39, i32 noundef %40)
   store i8 %41, ptr %21, align 1
   %42 = load ptr, ptr %12, align 8
   %43 = load i32, ptr @hf_btmesh_beacon_type, align 4
@@ -223,21 +245,21 @@ define internal i32 @dissect_btmesh_beacon_msg(ptr noundef %0, ptr noundef %1, p
   %48 = add i32 %47, 1
   store i32 %48, ptr %15, align 4
   %49 = load ptr, ptr %6, align 8
-  %50 = getelementptr inbounds %struct._packet_info, ptr %49, i32 0, i32 1
+  %50 = getelementptr inbounds nuw %struct._packet_info, ptr %49, i32 0, i32 1
   %51 = load ptr, ptr %50, align 8
   %52 = load i8, ptr %21, align 1
   %53 = zext i8 %52 to i32
   %54 = call ptr @val_to_str_const(i32 noundef %53, ptr noundef @btmesh_beacon_type, ptr noundef @.str.50)
   call void @col_set_str(ptr noundef %51, i32 noundef 25, ptr noundef %54)
   %55 = load ptr, ptr %17, align 8
-  %56 = getelementptr inbounds %struct.btle_mesh_transport_ctx_t, ptr %55, i32 0, i32 1
-  %57 = load i32, ptr %56, align 4
-  %58 = icmp ne i32 %57, 0
+  %56 = getelementptr inbounds nuw %struct.btle_mesh_transport_ctx_t, ptr %55, i32 0, i32 1
+  %57 = load i8, ptr %56, align 4, !range !6, !noundef !7
+  %58 = trunc i8 %57 to i1
   br i1 %58, label %59, label %69
 
 59:                                               ; preds = %30
   %60 = load ptr, ptr %17, align 8
-  %61 = getelementptr inbounds %struct.btle_mesh_transport_ctx_t, ptr %60, i32 0, i32 0
+  %61 = getelementptr inbounds nuw %struct.btle_mesh_transport_ctx_t, ptr %60, i32 0, i32 0
   %62 = load i32, ptr %61, align 4
   switch i32 %62, label %67 [
     i32 3, label %63
@@ -245,9 +267,9 @@ define internal i32 @dissect_btmesh_beacon_msg(ptr noundef %0, ptr noundef %1, p
 
 63:                                               ; preds = %59
   %64 = load ptr, ptr %6, align 8
-  %65 = getelementptr inbounds %struct._packet_info, ptr %64, i32 0, i32 1
+  %65 = getelementptr inbounds nuw %struct._packet_info, ptr %64, i32 0, i32 1
   %66 = load ptr, ptr %65, align 8
-  call void @col_append_str(ptr noundef %66, i32 noundef 25, ptr noundef @.str.67)
+  call void @col_append_str(ptr noundef %66, i32 noundef 25, ptr noundef @.str.68)
   br label %68
 
 67:                                               ; preds = %59
@@ -350,7 +372,7 @@ define internal i32 @dissect_btmesh_beacon_msg(ptr noundef %0, ptr noundef %1, p
   %152 = call ptr @proto_tree_add_item(ptr noundef %148, i32 noundef %149, ptr noundef %150, i32 noundef %151, i32 noundef 2, i32 noundef 0)
   %153 = load ptr, ptr %5, align 8
   %154 = load i32, ptr %15, align 4
-  %155 = call zeroext i16 @tvb_get_guint16(ptr noundef %153, i32 noundef %154, i32 noundef 0)
+  %155 = call zeroext i16 @tvb_get_uint16(ptr noundef %153, i32 noundef %154, i32 noundef 0)
   %156 = zext i16 %155 to i32
   %157 = and i32 %156, 1920
   %158 = ashr i32 %157, 7
@@ -424,7 +446,7 @@ define internal i32 @dissect_btmesh_beacon_msg(ptr noundef %0, ptr noundef %1, p
   %210 = call ptr @proto_tree_add_item(ptr noundef %206, i32 noundef %207, ptr noundef %208, i32 noundef %209, i32 noundef 1, i32 noundef 0)
   %211 = load ptr, ptr %5, align 8
   %212 = load i32, ptr %15, align 4
-  %213 = call zeroext i8 @tvb_get_guint8(ptr noundef %211, i32 noundef %212)
+  %213 = call zeroext i8 @tvb_get_uint8(ptr noundef %211, i32 noundef %212)
   %214 = zext i8 %213 to i32
   %215 = ashr i32 %214, 2
   %216 = trunc i32 %215 to i8
@@ -509,39 +531,71 @@ define internal i32 @dissect_btmesh_beacon_msg(ptr noundef %0, ptr noundef %1, p
 277:                                              ; preds = %271, %266
   %278 = load ptr, ptr %5, align 8
   %279 = call i32 @tvb_reported_length(ptr noundef %278)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %21) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %20) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 12, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
   ret i32 %279
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #2
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #2
 
-declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) #2
 
-declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare zeroext i16 @tvb_get_guint16(ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_uint16(ptr noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-declare i32 @tvb_reported_length(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length(ptr noundef) #2
 
-declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}

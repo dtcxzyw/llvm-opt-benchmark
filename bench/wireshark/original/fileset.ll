@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
 %struct._GList = type { ptr, ptr, ptr }
-%struct._fileset_entry = type { ptr, ptr, i64, i64, i64, i32 }
+%struct._fileset_entry = type { ptr, ptr, i64, i64, i64, i8 }
 %struct._GString = type { ptr, i64, i64 }
 
 @fileset_filename_match_pattern.pattern = internal global ptr @.str, align 8
@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 @set = internal global %struct._fileset zeroinitializer, align 8
 @.str.7 = private unnamed_addr constant [5 x i8] c"%s%s\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @fileset_filename_match_pattern(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -36,333 +36,409 @@ define hidden i32 @fileset_filename_match_pattern(ptr noundef %0, ptr noundef %1
   %11 = alloca ptr, align 8
   %12 = alloca i32, align 4
   %13 = alloca ptr, align 8
-  %14 = alloca ptr, align 8
+  %14 = alloca i32, align 4
   %15 = alloca ptr, align 8
   %16 = alloca ptr, align 8
   %17 = alloca ptr, align 8
   %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #10
   store i32 0, ptr %12, align 4
-  %19 = load ptr, ptr @fileset_filename_match_pattern.regex, align 8
-  %20 = icmp eq ptr %19, null
-  br i1 %20, label %21, label %35
+  %20 = load ptr, ptr @fileset_filename_match_pattern.regex, align 8
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %22, label %40
 
-21:                                               ; preds = %4
+22:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #10
   store ptr null, ptr %13, align 8
-  %22 = load ptr, ptr @fileset_filename_match_pattern.pattern, align 8
-  %23 = call ptr @g_regex_new(ptr noundef %22, i32 noundef 8208, i32 noundef 16, ptr noundef null)
-  store ptr %23, ptr @fileset_filename_match_pattern.regex, align 8
-  %24 = load ptr, ptr %13, align 8
-  %25 = icmp ne ptr %24, null
-  br i1 %25, label %26, label %34
+  %23 = load ptr, ptr @fileset_filename_match_pattern.pattern, align 8
+  %24 = call ptr @g_regex_new(ptr noundef %23, i32 noundef 8208, i32 noundef 16, ptr noundef %13)
+  store ptr %24, ptr @fileset_filename_match_pattern.regex, align 8
+  %25 = load ptr, ptr %13, align 8
+  %26 = icmp ne ptr %25, null
+  br i1 %26, label %27, label %36
 
-26:                                               ; preds = %21
-  br label %27
+27:                                               ; preds = %22
+  br label %28
 
-27:                                               ; preds = %26
-  %28 = load ptr, ptr %13, align 8
-  %29 = getelementptr inbounds %struct._GError, ptr %28, i32 0, i32 2
-  %30 = load ptr, ptr %29, align 8
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.2, i32 noundef 5, ptr noundef @.str.3, i64 noundef 80, ptr noundef @__func__.fileset_filename_match_pattern, ptr noundef @.str.4, ptr noundef %30)
-  br label %31
+28:                                               ; preds = %27
+  %29 = load ptr, ptr %13, align 8
+  %30 = getelementptr inbounds nuw %struct._GError, ptr %29, i32 0, i32 2
+  %31 = load ptr, ptr %30, align 8
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.2, i32 noundef 5, ptr noundef @.str.3, i64 noundef 80, ptr noundef @__func__.fileset_filename_match_pattern, ptr noundef @.str.4, ptr noundef %31)
+  br label %32
 
-31:                                               ; preds = %27
-  %32 = load ptr, ptr %13, align 8
-  call void @g_error_free(ptr noundef %32)
+32:                                               ; preds = %28
+  br label %33
+
+33:                                               ; preds = %32
+  %34 = load ptr, ptr %13, align 8
+  call void @g_error_free(ptr noundef %34)
   store ptr null, ptr @fileset_filename_match_pattern.regex, align 8
-  %33 = load i32, ptr %12, align 4
-  store i32 %33, ptr %5, align 4
-  br label %170
+  %35 = load i32, ptr %12, align 4
+  store i32 %35, ptr %5, align 4
+  store i32 1, ptr %14, align 4
+  br label %37
 
-34:                                               ; preds = %21
-  br label %35
+36:                                               ; preds = %22
+  store i32 0, ptr %14, align 4
+  br label %37
 
-35:                                               ; preds = %34, %4
-  %36 = load ptr, ptr @fileset_filename_match_pattern.regex2, align 8
-  %37 = icmp eq ptr %36, null
-  br i1 %37, label %38, label %52
+37:                                               ; preds = %36, %33
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #10
+  %38 = load i32, ptr %14, align 4
+  switch i32 %38, label %181 [
+    i32 0, label %39
+  ]
 
-38:                                               ; preds = %35
-  store ptr null, ptr %14, align 8
-  %39 = load ptr, ptr @fileset_filename_match_pattern.pattern2, align 8
-  %40 = call ptr @g_regex_new(ptr noundef %39, i32 noundef 8208, i32 noundef 16, ptr noundef null)
-  store ptr %40, ptr @fileset_filename_match_pattern.regex2, align 8
-  %41 = load ptr, ptr %14, align 8
-  %42 = icmp ne ptr %41, null
-  br i1 %42, label %43, label %51
+39:                                               ; preds = %37
+  br label %40
 
-43:                                               ; preds = %38
-  br label %44
+40:                                               ; preds = %39, %4
+  %41 = load ptr, ptr @fileset_filename_match_pattern.regex2, align 8
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %43, label %61
 
-44:                                               ; preds = %43
-  %45 = load ptr, ptr %14, align 8
-  %46 = getelementptr inbounds %struct._GError, ptr %45, i32 0, i32 2
-  %47 = load ptr, ptr %46, align 8
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.2, i32 noundef 5, ptr noundef @.str.3, i64 noundef 93, ptr noundef @__func__.fileset_filename_match_pattern, ptr noundef @.str.4, ptr noundef %47)
-  br label %48
+43:                                               ; preds = %40
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #10
+  store ptr null, ptr %15, align 8
+  %44 = load ptr, ptr @fileset_filename_match_pattern.pattern2, align 8
+  %45 = call ptr @g_regex_new(ptr noundef %44, i32 noundef 8208, i32 noundef 16, ptr noundef %15)
+  store ptr %45, ptr @fileset_filename_match_pattern.regex2, align 8
+  %46 = load ptr, ptr %15, align 8
+  %47 = icmp ne ptr %46, null
+  br i1 %47, label %48, label %57
 
-48:                                               ; preds = %44
-  %49 = load ptr, ptr %14, align 8
-  call void @g_error_free(ptr noundef %49)
+48:                                               ; preds = %43
+  br label %49
+
+49:                                               ; preds = %48
+  %50 = load ptr, ptr %15, align 8
+  %51 = getelementptr inbounds nuw %struct._GError, ptr %50, i32 0, i32 2
+  %52 = load ptr, ptr %51, align 8
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef @.str.2, i32 noundef 5, ptr noundef @.str.3, i64 noundef 93, ptr noundef @__func__.fileset_filename_match_pattern, ptr noundef @.str.4, ptr noundef %52)
+  br label %53
+
+53:                                               ; preds = %49
+  br label %54
+
+54:                                               ; preds = %53
+  %55 = load ptr, ptr %15, align 8
+  call void @g_error_free(ptr noundef %55)
   store ptr null, ptr @fileset_filename_match_pattern.regex2, align 8
-  %50 = load i32, ptr %12, align 4
-  store i32 %50, ptr %5, align 4
-  br label %170
+  %56 = load i32, ptr %12, align 4
+  store i32 %56, ptr %5, align 4
+  store i32 1, ptr %14, align 4
+  br label %58
 
-51:                                               ; preds = %38
-  br label %52
+57:                                               ; preds = %43
+  store i32 0, ptr %14, align 4
+  br label %58
 
-52:                                               ; preds = %51, %35
-  %53 = load ptr, ptr %6, align 8
-  %54 = call noalias ptr @g_path_get_basename(ptr noundef %53)
-  store ptr %54, ptr %11, align 8
-  %55 = load ptr, ptr %11, align 8
-  %56 = call ptr @strrchr(ptr noundef %55, i32 noundef 46) #5
-  store ptr %56, ptr %10, align 8
-  %57 = load ptr, ptr %10, align 8
-  %58 = icmp ne ptr %57, null
-  br i1 %58, label %59, label %98
+58:                                               ; preds = %57, %54
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #10
+  %59 = load i32, ptr %14, align 4
+  switch i32 %59, label %181 [
+    i32 0, label %60
+  ]
 
-59:                                               ; preds = %52
-  %60 = load ptr, ptr %10, align 8
-  store i8 0, ptr %60, align 1
-  %61 = call ptr @wtap_get_all_compression_type_extensions_list()
-  store ptr %61, ptr %15, align 8
-  %62 = load ptr, ptr %10, align 8
-  %63 = getelementptr i8, ptr %62, i64 1
-  %64 = call noalias ptr @g_ascii_strdown(ptr noundef %63, i64 noundef -1)
-  store ptr %64, ptr %16, align 8
-  %65 = load ptr, ptr %15, align 8
-  store ptr %65, ptr %17, align 8
-  br label %66
+60:                                               ; preds = %58
+  br label %61
 
-66:                                               ; preds = %93, %59
-  %67 = load ptr, ptr %17, align 8
-  %68 = icmp ne ptr %67, null
-  br i1 %68, label %69, label %95
+61:                                               ; preds = %60, %40
+  %62 = load ptr, ptr %6, align 8
+  %63 = call noalias ptr @g_path_get_basename(ptr noundef %62)
+  store ptr %63, ptr %11, align 8
+  %64 = load ptr, ptr %11, align 8
+  %65 = call ptr @strrchr(ptr noundef %64, i32 noundef 46) #11
+  store ptr %65, ptr %10, align 8
+  %66 = load ptr, ptr %10, align 8
+  %67 = icmp ne ptr %66, null
+  br i1 %67, label %68, label %109
 
-69:                                               ; preds = %66
-  %70 = load ptr, ptr %16, align 8
-  %71 = load ptr, ptr %17, align 8
-  %72 = getelementptr inbounds %struct._GSList, ptr %71, i32 0, i32 0
-  %73 = load ptr, ptr %72, align 8
-  %74 = call i32 @g_strcmp0(ptr noundef %70, ptr noundef %73)
-  %75 = icmp eq i32 %74, 0
-  br i1 %75, label %76, label %84
+68:                                               ; preds = %61
+  %69 = load ptr, ptr %10, align 8
+  store i8 0, ptr %69, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #10
+  %70 = call ptr @wtap_get_all_compression_type_extensions_list()
+  store ptr %70, ptr %16, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #10
+  %71 = load ptr, ptr %10, align 8
+  %72 = getelementptr i8, ptr %71, i64 1
+  %73 = call noalias ptr @g_ascii_strdown(ptr noundef %72, i64 noundef -1)
+  store ptr %73, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #10
+  %74 = load ptr, ptr %16, align 8
+  store ptr %74, ptr %18, align 8
+  br label %75
 
-76:                                               ; preds = %69
-  %77 = load ptr, ptr %11, align 8
-  %78 = call ptr @strrchr(ptr noundef %77, i32 noundef 46) #5
-  store ptr %78, ptr %10, align 8
-  %79 = load ptr, ptr %10, align 8
-  %80 = icmp ne ptr %79, null
-  br i1 %80, label %81, label %83
+75:                                               ; preds = %103, %68
+  %76 = load ptr, ptr %18, align 8
+  %77 = icmp ne ptr %76, null
+  br i1 %77, label %79, label %78
 
-81:                                               ; preds = %76
-  %82 = load ptr, ptr %10, align 8
-  store i8 0, ptr %82, align 1
-  br label %83
+78:                                               ; preds = %75
+  store i32 6, ptr %14, align 4
+  br label %105
 
-83:                                               ; preds = %81, %76
+79:                                               ; preds = %75
+  %80 = load ptr, ptr %17, align 8
+  %81 = load ptr, ptr %18, align 8
+  %82 = getelementptr inbounds nuw %struct._GSList, ptr %81, i32 0, i32 0
+  %83 = load ptr, ptr %82, align 8
+  %84 = call i32 @g_strcmp0(ptr noundef %80, ptr noundef %83)
+  %85 = icmp eq i32 %84, 0
+  br i1 %85, label %86, label %94
+
+86:                                               ; preds = %79
+  %87 = load ptr, ptr %11, align 8
+  %88 = call ptr @strrchr(ptr noundef %87, i32 noundef 46) #11
+  store ptr %88, ptr %10, align 8
+  %89 = load ptr, ptr %10, align 8
+  %90 = icmp ne ptr %89, null
+  br i1 %90, label %91, label %93
+
+91:                                               ; preds = %86
+  %92 = load ptr, ptr %10, align 8
+  store i8 0, ptr %92, align 1
+  br label %93
+
+93:                                               ; preds = %91, %86
+  store i32 6, ptr %14, align 4
+  br label %105
+
+94:                                               ; preds = %79
   br label %95
 
-84:                                               ; preds = %69
-  br label %85
+95:                                               ; preds = %94
+  %96 = load ptr, ptr %18, align 8
+  %97 = icmp ne ptr %96, null
+  br i1 %97, label %98, label %102
 
-85:                                               ; preds = %84
-  %86 = load ptr, ptr %17, align 8
-  %87 = icmp ne ptr %86, null
-  br i1 %87, label %88, label %92
-
-88:                                               ; preds = %85
-  %89 = load ptr, ptr %17, align 8
-  %90 = getelementptr inbounds %struct._GSList, ptr %89, i32 0, i32 1
-  %91 = load ptr, ptr %90, align 8
-  br label %93
-
-92:                                               ; preds = %85
-  br label %93
-
-93:                                               ; preds = %92, %88
-  %94 = phi ptr [ %91, %88 ], [ null, %92 ]
-  store ptr %94, ptr %17, align 8
-  br label %66, !llvm.loop !4
-
-95:                                               ; preds = %83, %66
-  %96 = load ptr, ptr %16, align 8
-  call void @g_free(ptr noundef %96)
-  %97 = load ptr, ptr %15, align 8
-  call void @g_slist_free(ptr noundef %97)
+98:                                               ; preds = %95
+  %99 = load ptr, ptr %18, align 8
+  %100 = getelementptr inbounds nuw %struct._GSList, ptr %99, i32 0, i32 1
+  %101 = load ptr, ptr %100, align 8
   br label %103
 
-98:                                               ; preds = %52
-  %99 = load ptr, ptr %11, align 8
-  %100 = load ptr, ptr %11, align 8
-  %101 = call i64 @strlen(ptr noundef %100) #5
-  %102 = getelementptr i8, ptr %99, i64 %101
-  store ptr %102, ptr %10, align 8
+102:                                              ; preds = %95
   br label %103
 
-103:                                              ; preds = %98, %95
-  %104 = load ptr, ptr @fileset_filename_match_pattern.regex, align 8
-  %105 = load ptr, ptr %11, align 8
-  %106 = call i32 @g_regex_match(ptr noundef %104, ptr noundef %105, i32 noundef 0, ptr noundef %18)
-  %107 = load ptr, ptr %18, align 8
-  %108 = call i32 @g_match_info_matches(ptr noundef %107)
-  %109 = icmp ne i32 %108, 0
-  br i1 %109, label %110, label %132
+103:                                              ; preds = %102, %98
+  %104 = phi ptr [ %101, %98 ], [ null, %102 ]
+  store ptr %104, ptr %18, align 8
+  br label %75, !llvm.loop !6
 
-110:                                              ; preds = %103
-  %111 = load ptr, ptr %7, align 8
-  %112 = icmp ne ptr %111, null
-  br i1 %112, label %113, label %117
+105:                                              ; preds = %93, %78
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #10
+  br label %106
 
-113:                                              ; preds = %110
-  %114 = load ptr, ptr %18, align 8
-  %115 = call ptr @g_match_info_fetch_named(ptr noundef %114, ptr noundef @.str.5)
-  %116 = load ptr, ptr %7, align 8
-  store ptr %115, ptr %116, align 8
-  br label %117
+106:                                              ; preds = %105
+  %107 = load ptr, ptr %17, align 8
+  call void @g_free(ptr noundef %107)
+  %108 = load ptr, ptr %16, align 8
+  call void @g_slist_free(ptr noundef %108)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #10
+  br label %114
 
-117:                                              ; preds = %113, %110
-  %118 = load ptr, ptr %9, align 8
-  %119 = icmp ne ptr %118, null
-  br i1 %119, label %120, label %124
+109:                                              ; preds = %61
+  %110 = load ptr, ptr %11, align 8
+  %111 = load ptr, ptr %11, align 8
+  %112 = call i64 @strlen(ptr noundef %111) #11
+  %113 = getelementptr i8, ptr %110, i64 %112
+  store ptr %113, ptr %10, align 8
+  br label %114
 
-120:                                              ; preds = %117
-  %121 = load ptr, ptr %18, align 8
-  %122 = call ptr @g_match_info_fetch_named(ptr noundef %121, ptr noundef @.str.6)
-  %123 = load ptr, ptr %9, align 8
-  store ptr %122, ptr %123, align 8
-  br label %124
+114:                                              ; preds = %109, %106
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #10
+  %115 = load ptr, ptr @fileset_filename_match_pattern.regex, align 8
+  %116 = load ptr, ptr %11, align 8
+  %117 = call i32 @g_regex_match(ptr noundef %115, ptr noundef %116, i32 noundef 0, ptr noundef %19)
+  %118 = load ptr, ptr %19, align 8
+  %119 = call i32 @g_match_info_matches(ptr noundef %118)
+  %120 = icmp ne i32 %119, 0
+  br i1 %120, label %121, label %143
 
-124:                                              ; preds = %120, %117
-  %125 = load ptr, ptr %8, align 8
-  %126 = icmp ne ptr %125, null
-  br i1 %126, label %127, label %131
+121:                                              ; preds = %114
+  %122 = load ptr, ptr %7, align 8
+  %123 = icmp ne ptr %122, null
+  br i1 %123, label %124, label %128
 
-127:                                              ; preds = %124
-  %128 = load ptr, ptr %10, align 8
-  %129 = call noalias ptr @g_strdup(ptr noundef %128)
-  %130 = load ptr, ptr %8, align 8
-  store ptr %129, ptr %130, align 8
-  br label %131
+124:                                              ; preds = %121
+  %125 = load ptr, ptr %19, align 8
+  %126 = call ptr @g_match_info_fetch_named(ptr noundef %125, ptr noundef @.str.5)
+  %127 = load ptr, ptr %7, align 8
+  store ptr %126, ptr %127, align 8
+  br label %128
 
-131:                                              ; preds = %127, %124
+128:                                              ; preds = %124, %121
+  %129 = load ptr, ptr %9, align 8
+  %130 = icmp ne ptr %129, null
+  br i1 %130, label %131, label %135
+
+131:                                              ; preds = %128
+  %132 = load ptr, ptr %19, align 8
+  %133 = call ptr @g_match_info_fetch_named(ptr noundef %132, ptr noundef @.str.6)
+  %134 = load ptr, ptr %9, align 8
+  store ptr %133, ptr %134, align 8
+  br label %135
+
+135:                                              ; preds = %131, %128
+  %136 = load ptr, ptr %8, align 8
+  %137 = icmp ne ptr %136, null
+  br i1 %137, label %138, label %142
+
+138:                                              ; preds = %135
+  %139 = load ptr, ptr %10, align 8
+  %140 = call noalias ptr @g_strdup(ptr noundef %139)
+  %141 = load ptr, ptr %8, align 8
+  store ptr %140, ptr %141, align 8
+  br label %142
+
+142:                                              ; preds = %138, %135
   store i32 2, ptr %12, align 4
-  br label %132
+  br label %143
 
-132:                                              ; preds = %131, %103
-  %133 = load ptr, ptr %18, align 8
-  call void @g_match_info_free(ptr noundef %133)
-  %134 = load i32, ptr %12, align 4
-  %135 = icmp eq i32 %134, 0
-  br i1 %135, label %136, label %167
+143:                                              ; preds = %142, %114
+  %144 = load ptr, ptr %19, align 8
+  call void @g_match_info_free(ptr noundef %144)
+  %145 = load i32, ptr %12, align 4
+  %146 = icmp eq i32 %145, 0
+  br i1 %146, label %147, label %178
 
-136:                                              ; preds = %132
-  %137 = load ptr, ptr @fileset_filename_match_pattern.regex2, align 8
-  %138 = load ptr, ptr %11, align 8
-  %139 = call i32 @g_regex_match(ptr noundef %137, ptr noundef %138, i32 noundef 0, ptr noundef %18)
-  %140 = load ptr, ptr %18, align 8
-  %141 = call i32 @g_match_info_matches(ptr noundef %140)
-  %142 = icmp ne i32 %141, 0
-  br i1 %142, label %143, label %165
+147:                                              ; preds = %143
+  %148 = load ptr, ptr @fileset_filename_match_pattern.regex2, align 8
+  %149 = load ptr, ptr %11, align 8
+  %150 = call i32 @g_regex_match(ptr noundef %148, ptr noundef %149, i32 noundef 0, ptr noundef %19)
+  %151 = load ptr, ptr %19, align 8
+  %152 = call i32 @g_match_info_matches(ptr noundef %151)
+  %153 = icmp ne i32 %152, 0
+  br i1 %153, label %154, label %176
 
-143:                                              ; preds = %136
-  %144 = load ptr, ptr %7, align 8
-  %145 = icmp ne ptr %144, null
-  br i1 %145, label %146, label %150
+154:                                              ; preds = %147
+  %155 = load ptr, ptr %7, align 8
+  %156 = icmp ne ptr %155, null
+  br i1 %156, label %157, label %161
 
-146:                                              ; preds = %143
-  %147 = load ptr, ptr %18, align 8
-  %148 = call ptr @g_match_info_fetch_named(ptr noundef %147, ptr noundef @.str.5)
-  %149 = load ptr, ptr %7, align 8
-  store ptr %148, ptr %149, align 8
-  br label %150
+157:                                              ; preds = %154
+  %158 = load ptr, ptr %19, align 8
+  %159 = call ptr @g_match_info_fetch_named(ptr noundef %158, ptr noundef @.str.5)
+  %160 = load ptr, ptr %7, align 8
+  store ptr %159, ptr %160, align 8
+  br label %161
 
-150:                                              ; preds = %146, %143
-  %151 = load ptr, ptr %9, align 8
-  %152 = icmp ne ptr %151, null
-  br i1 %152, label %153, label %157
+161:                                              ; preds = %157, %154
+  %162 = load ptr, ptr %9, align 8
+  %163 = icmp ne ptr %162, null
+  br i1 %163, label %164, label %168
 
-153:                                              ; preds = %150
-  %154 = load ptr, ptr %18, align 8
-  %155 = call ptr @g_match_info_fetch_named(ptr noundef %154, ptr noundef @.str.6)
-  %156 = load ptr, ptr %9, align 8
-  store ptr %155, ptr %156, align 8
-  br label %157
+164:                                              ; preds = %161
+  %165 = load ptr, ptr %19, align 8
+  %166 = call ptr @g_match_info_fetch_named(ptr noundef %165, ptr noundef @.str.6)
+  %167 = load ptr, ptr %9, align 8
+  store ptr %166, ptr %167, align 8
+  br label %168
 
-157:                                              ; preds = %153, %150
-  %158 = load ptr, ptr %8, align 8
-  %159 = icmp ne ptr %158, null
-  br i1 %159, label %160, label %164
+168:                                              ; preds = %164, %161
+  %169 = load ptr, ptr %8, align 8
+  %170 = icmp ne ptr %169, null
+  br i1 %170, label %171, label %175
 
-160:                                              ; preds = %157
-  %161 = load ptr, ptr %10, align 8
-  %162 = call noalias ptr @g_strdup(ptr noundef %161)
-  %163 = load ptr, ptr %8, align 8
-  store ptr %162, ptr %163, align 8
-  br label %164
+171:                                              ; preds = %168
+  %172 = load ptr, ptr %10, align 8
+  %173 = call noalias ptr @g_strdup(ptr noundef %172)
+  %174 = load ptr, ptr %8, align 8
+  store ptr %173, ptr %174, align 8
+  br label %175
 
-164:                                              ; preds = %160, %157
+175:                                              ; preds = %171, %168
   store i32 1, ptr %12, align 4
-  br label %165
+  br label %176
 
-165:                                              ; preds = %164, %136
-  %166 = load ptr, ptr %18, align 8
-  call void @g_match_info_free(ptr noundef %166)
-  br label %167
+176:                                              ; preds = %175, %147
+  %177 = load ptr, ptr %19, align 8
+  call void @g_match_info_free(ptr noundef %177)
+  br label %178
 
-167:                                              ; preds = %165, %132
-  %168 = load ptr, ptr %11, align 8
-  call void @g_free(ptr noundef %168)
-  %169 = load i32, ptr %12, align 4
-  store i32 %169, ptr %5, align 4
-  br label %170
+178:                                              ; preds = %176, %143
+  %179 = load ptr, ptr %11, align 8
+  call void @g_free(ptr noundef %179)
+  %180 = load i32, ptr %12, align 4
+  store i32 %180, ptr %5, align 4
+  store i32 1, ptr %14, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #10
+  br label %181
 
-170:                                              ; preds = %167, %48, %31
-  %171 = load i32, ptr %5, align 4
-  ret i32 %171
+181:                                              ; preds = %178, %58, %37
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
+  %182 = load i32, ptr %5, align 4
+  ret i32 %182
 }
 
-declare ptr @g_regex_new(ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @ws_log_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_regex_new(ptr noundef, i32 noundef, i32 noundef, ptr noundef) #2
 
-declare void @g_error_free(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @ws_log_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) #2
 
-declare noalias ptr @g_path_get_basename(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @g_error_free(ptr noundef) #2
 
-; Function Attrs: nounwind willreturn memory(read)
-declare ptr @strrchr(ptr noundef, i32 noundef) #2
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-declare ptr @wtap_get_all_compression_type_extensions_list() #1
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @g_path_get_basename(ptr noundef) #2
 
-declare noalias ptr @g_ascii_strdown(ptr noundef, i64 noundef) #1
+; Function Attrs: nounwind null_pointer_is_valid willreturn memory(read)
+declare ptr @strrchr(ptr noundef, i32 noundef) #3
 
-declare i32 @g_strcmp0(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @wtap_get_all_compression_type_extensions_list() #2
 
-declare void @g_free(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @g_ascii_strdown(ptr noundef, i64 noundef) #2
 
-declare void @g_slist_free(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @g_strcmp0(ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare void @g_free(ptr noundef) #2
 
-declare i32 @g_regex_match(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @g_slist_free(ptr noundef) #2
 
-declare i32 @g_match_info_matches(ptr noundef) #1
+; Function Attrs: nounwind null_pointer_is_valid willreturn memory(read)
+declare i64 @strlen(ptr noundef) #3
 
-declare ptr @g_match_info_fetch_named(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @g_regex_match(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
-declare noalias ptr @g_strdup(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @g_match_info_matches(ptr noundef) #2
 
-declare void @g_match_info_free(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_match_info_fetch_named(ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @g_strdup(ptr noundef) #2
+
+; Function Attrs: null_pointer_is_valid
+declare void @g_match_info_free(ptr noundef) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @fileset_update_file(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
@@ -371,7 +447,12 @@ define hidden void @fileset_update_file(ptr noundef %0) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #10
+  call void @llvm.lifetime.start.p0(i64 144, ptr %5) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
   store ptr null, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
   %8 = load ptr, ptr %2, align 8
   %9 = call i32 (ptr, i32, ...) @open(ptr noundef %8, i32 noundef 0, i32 noundef 0)
   store i32 %9, ptr %3, align 4
@@ -381,7 +462,7 @@ define hidden void @fileset_update_file(ptr noundef %0) #0 {
 
 12:                                               ; preds = %1
   %13 = load i32, ptr %3, align 4
-  %14 = call i32 @fstat(i32 noundef %13, ptr noundef %5) #6
+  %14 = call i32 @fstat(i32 noundef %13, ptr noundef %5) #10
   store i32 %14, ptr %4, align 4
   %15 = load i32, ptr %4, align 4
   %16 = icmp eq i32 %15, 0
@@ -398,22 +479,22 @@ define hidden void @fileset_update_file(ptr noundef %0) #0 {
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %7, align 8
-  %25 = getelementptr inbounds %struct._GList, ptr %24, i32 0, i32 0
+  %25 = getelementptr inbounds nuw %struct._GList, ptr %24, i32 0, i32 0
   %26 = load ptr, ptr %25, align 8
   store ptr %26, ptr %6, align 8
   %27 = load ptr, ptr %6, align 8
-  %28 = getelementptr inbounds %struct._fileset_entry, ptr %27, i32 0, i32 2
+  %28 = getelementptr inbounds nuw %struct._fileset_entry, ptr %27, i32 0, i32 2
   store i64 0, ptr %28, align 8
-  %29 = getelementptr inbounds %struct.stat, ptr %5, i32 0, i32 12
-  %30 = getelementptr inbounds %struct.timespec, ptr %29, i32 0, i32 0
+  %29 = getelementptr inbounds nuw %struct.stat, ptr %5, i32 0, i32 12
+  %30 = getelementptr inbounds nuw %struct.timespec, ptr %29, i32 0, i32 0
   %31 = load i64, ptr %30, align 8
   %32 = load ptr, ptr %6, align 8
-  %33 = getelementptr inbounds %struct._fileset_entry, ptr %32, i32 0, i32 3
+  %33 = getelementptr inbounds nuw %struct._fileset_entry, ptr %32, i32 0, i32 3
   store i64 %31, ptr %33, align 8
-  %34 = getelementptr inbounds %struct.stat, ptr %5, i32 0, i32 8
+  %34 = getelementptr inbounds nuw %struct.stat, ptr %5, i32 0, i32 8
   %35 = load i64, ptr %34, align 8
   %36 = load ptr, ptr %6, align 8
-  %37 = getelementptr inbounds %struct._fileset_entry, ptr %36, i32 0, i32 4
+  %37 = getelementptr inbounds nuw %struct._fileset_entry, ptr %36, i32 0, i32 4
   store i64 %35, ptr %37, align 8
   br label %38
 
@@ -426,17 +507,24 @@ define hidden void @fileset_update_file(ptr noundef %0) #0 {
   br label %42
 
 42:                                               ; preds = %39, %1
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 144, ptr %5) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #10
   ret void
 }
 
-declare i32 @open(ptr noundef, i32 noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @open(ptr noundef, i32 noundef, ...) #2
 
-; Function Attrs: nounwind
-declare i32 @fstat(i32 noundef, ptr noundef) #3
+; Function Attrs: nounwind null_pointer_is_valid
+declare i32 @fstat(i32 noundef, ptr noundef) #4
 
-declare ptr @g_list_find_custom(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_list_find_custom(ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @fileset_find_by_path(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -444,25 +532,31 @@ define internal i32 @fileset_find_by_path(ptr noundef %0, ptr noundef %1) #0 {
   %6 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
   %7 = load ptr, ptr %3, align 8
   store ptr %7, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   store ptr %8, ptr %6, align 8
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds %struct._fileset_entry, ptr %9, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %struct._fileset_entry, ptr %9, i32 0, i32 0
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %6, align 8
   %13 = call i32 @g_strcmp0(ptr noundef %11, ptr noundef %12)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
   ret i32 %13
 }
 
-declare i32 @close(i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @close(i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @fileset_update_dlg(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
   %4 = load ptr, ptr %2, align 8
   call void @fileset_dlg_begin_add_file(ptr noundef %4)
   %5 = load ptr, ptr @set, align 8
@@ -477,7 +571,7 @@ define hidden void @fileset_update_dlg(ptr noundef %0) #0 {
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds %struct._GList, ptr %11, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %struct._GList, ptr %11, i32 0, i32 0
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %2, align 8
   call void @fileset_dlg_add_file(ptr noundef %13, ptr noundef %14)
@@ -487,7 +581,7 @@ define hidden void @fileset_update_dlg(ptr noundef %0) #0 {
 
 17:                                               ; preds = %10
   %18 = load ptr, ptr %3, align 8
-  %19 = getelementptr inbounds %struct._GList, ptr %18, i32 0, i32 1
+  %19 = getelementptr inbounds nuw %struct._GList, ptr %18, i32 0, i32 1
   %20 = load ptr, ptr %19, align 8
   br label %22
 
@@ -497,23 +591,28 @@ define hidden void @fileset_update_dlg(ptr noundef %0) #0 {
 22:                                               ; preds = %21, %17
   %23 = phi ptr [ %20, %17 ], [ null, %21 ]
   store ptr %23, ptr %3, align 8
-  br label %7, !llvm.loop !6
+  br label %7, !llvm.loop !8
 
 24:                                               ; preds = %7
   %25 = load ptr, ptr %2, align 8
   call void @fileset_dlg_end_add_file(ptr noundef %25)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
   ret void
 }
 
-declare void @fileset_dlg_begin_add_file(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @fileset_dlg_begin_add_file(ptr noundef) #2
 
-declare ptr @g_list_first(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_list_first(ptr noundef) #2
 
-declare void @fileset_dlg_add_file(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @fileset_dlg_add_file(ptr noundef, ptr noundef) #2
 
-declare void @fileset_dlg_end_add_file(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @fileset_dlg_end_add_file(ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @fileset_add_dir(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -524,6 +623,11 @@ define hidden void @fileset_add_dir(ptr noundef %0, ptr noundef %1) #0 {
   %9 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
   %10 = load ptr, ptr %3, align 8
   %11 = call noalias ptr @g_strdup(ptr noundef %10)
   store ptr %11, ptr %9, align 8
@@ -534,109 +638,113 @@ define hidden void @fileset_add_dir(ptr noundef %0, ptr noundef %1) #0 {
   %15 = load ptr, ptr %9, align 8
   call void @g_free(ptr noundef %15)
   %16 = load ptr, ptr %8, align 8
-  %17 = getelementptr inbounds %struct._GString, ptr %16, i32 0, i32 0
+  %17 = getelementptr inbounds nuw %struct._GString, ptr %16, i32 0, i32 0
   %18 = load ptr, ptr %17, align 8
   %19 = call noalias ptr @g_strdup(ptr noundef %18)
-  %20 = getelementptr inbounds %struct._fileset, ptr @set, i32 0, i32 1
-  store ptr %19, ptr %20, align 8
-  %21 = load ptr, ptr %8, align 8
-  %22 = call ptr @g_string_append_c_inline(ptr noundef %21, i8 noundef signext 47)
-  store ptr %22, ptr %8, align 8
-  %23 = load ptr, ptr %3, align 8
-  %24 = call i32 @fileset_filename_match_pattern(ptr noundef %23, ptr noundef null, ptr noundef null, ptr noundef null)
-  %25 = icmp ne i32 %24, 0
-  br i1 %25, label %26, label %60
+  store ptr %19, ptr getelementptr inbounds nuw (%struct._fileset, ptr @set, i32 0, i32 1), align 8
+  %20 = load ptr, ptr %8, align 8
+  %21 = call ptr @g_string_append_c_inline(ptr noundef %20, i8 noundef signext 47)
+  store ptr %21, ptr %8, align 8
+  %22 = load ptr, ptr %3, align 8
+  %23 = call i32 @fileset_filename_match_pattern(ptr noundef %22, ptr noundef null, ptr noundef null, ptr noundef null)
+  %24 = icmp ne i32 %23, 0
+  br i1 %24, label %25, label %57
 
-26:                                               ; preds = %2
-  %27 = load ptr, ptr %8, align 8
-  %28 = getelementptr inbounds %struct._GString, ptr %27, i32 0, i32 0
-  %29 = load ptr, ptr %28, align 8
-  %30 = call ptr @g_dir_open(ptr noundef %29, i32 noundef 0, ptr noundef null)
-  store ptr %30, ptr %5, align 8
-  %31 = icmp ne ptr %30, null
-  br i1 %31, label %32, label %59
+25:                                               ; preds = %2
+  %26 = load ptr, ptr %8, align 8
+  %27 = getelementptr inbounds nuw %struct._GString, ptr %26, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8
+  %29 = call ptr @g_dir_open(ptr noundef %28, i32 noundef 0, ptr noundef null)
+  store ptr %29, ptr %5, align 8
+  %30 = icmp ne ptr %29, null
+  br i1 %30, label %31, label %56
 
-32:                                               ; preds = %26
-  br label %33
+31:                                               ; preds = %25
+  br label %32
 
-33:                                               ; preds = %56, %32
-  %34 = load ptr, ptr %5, align 8
-  %35 = call ptr @g_dir_read_name(ptr noundef %34)
-  store ptr %35, ptr %6, align 8
-  %36 = icmp ne ptr %35, null
-  br i1 %36, label %37, label %57
+32:                                               ; preds = %53, %31
+  %33 = load ptr, ptr %5, align 8
+  %34 = call ptr @g_dir_read_name(ptr noundef %33)
+  store ptr %34, ptr %6, align 8
+  %35 = icmp ne ptr %34, null
+  br i1 %35, label %36, label %54
 
-37:                                               ; preds = %33
-  %38 = load ptr, ptr %6, align 8
-  store ptr %38, ptr %7, align 8
-  %39 = load ptr, ptr %7, align 8
-  %40 = load ptr, ptr %3, align 8
-  %41 = call ptr @get_basename(ptr noundef %40)
-  %42 = call i32 @fileset_is_file_in_set(ptr noundef %39, ptr noundef %41)
-  %43 = icmp ne i32 %42, 0
-  br i1 %43, label %44, label %56
+36:                                               ; preds = %32
+  %37 = load ptr, ptr %6, align 8
+  store ptr %37, ptr %7, align 8
+  %38 = load ptr, ptr %7, align 8
+  %39 = load ptr, ptr %3, align 8
+  %40 = call ptr @get_basename(ptr noundef %39)
+  %41 = call zeroext i1 @fileset_is_file_in_set(ptr noundef %38, ptr noundef %40)
+  br i1 %41, label %42, label %53
 
-44:                                               ; preds = %37
-  %45 = load ptr, ptr %8, align 8
-  %46 = getelementptr inbounds %struct._GString, ptr %45, i32 0, i32 0
-  %47 = load ptr, ptr %46, align 8
-  %48 = load ptr, ptr %7, align 8
-  %49 = load ptr, ptr %7, align 8
-  %50 = load ptr, ptr %3, align 8
-  %51 = call ptr @get_basename(ptr noundef %50)
-  %52 = call i32 @strcmp(ptr noundef %49, ptr noundef %51) #5
-  %53 = icmp eq i32 %52, 0
-  %54 = zext i1 %53 to i32
-  %55 = call ptr @fileset_add_file(ptr noundef %47, ptr noundef %48, i32 noundef %54)
+42:                                               ; preds = %36
+  %43 = load ptr, ptr %8, align 8
+  %44 = getelementptr inbounds nuw %struct._GString, ptr %43, i32 0, i32 0
+  %45 = load ptr, ptr %44, align 8
+  %46 = load ptr, ptr %7, align 8
+  %47 = load ptr, ptr %7, align 8
+  %48 = load ptr, ptr %3, align 8
+  %49 = call ptr @get_basename(ptr noundef %48)
+  %50 = call i32 @strcmp(ptr noundef %47, ptr noundef %49) #11
+  %51 = icmp eq i32 %50, 0
+  %52 = call ptr @fileset_add_file(ptr noundef %45, ptr noundef %46, i1 noundef zeroext %51)
+  br label %53
+
+53:                                               ; preds = %42, %36
+  br label %32, !llvm.loop !9
+
+54:                                               ; preds = %32
+  %55 = load ptr, ptr %5, align 8
+  call void @g_dir_close(ptr noundef %55)
   br label %56
 
-56:                                               ; preds = %44, %37
-  br label %33, !llvm.loop !7
+56:                                               ; preds = %54, %25
+  br label %64
 
-57:                                               ; preds = %33
-  %58 = load ptr, ptr %5, align 8
-  call void @g_dir_close(ptr noundef %58)
-  br label %59
+57:                                               ; preds = %2
+  %58 = load ptr, ptr %8, align 8
+  %59 = getelementptr inbounds nuw %struct._GString, ptr %58, i32 0, i32 0
+  %60 = load ptr, ptr %59, align 8
+  %61 = load ptr, ptr %3, align 8
+  %62 = call ptr @get_basename(ptr noundef %61)
+  %63 = call ptr @fileset_add_file(ptr noundef %60, ptr noundef %62, i1 noundef zeroext true)
+  br label %64
 
-59:                                               ; preds = %57, %26
-  br label %67
-
-60:                                               ; preds = %2
-  %61 = load ptr, ptr %8, align 8
-  %62 = getelementptr inbounds %struct._GString, ptr %61, i32 0, i32 0
-  %63 = load ptr, ptr %62, align 8
-  %64 = load ptr, ptr %3, align 8
-  %65 = call ptr @get_basename(ptr noundef %64)
-  %66 = call ptr @fileset_add_file(ptr noundef %63, ptr noundef %65, i32 noundef 1)
-  br label %67
-
-67:                                               ; preds = %60, %59
-  %68 = load ptr, ptr %8, align 8
-  %69 = call ptr @g_string_free(ptr noundef %68, i32 noundef 1)
-  %70 = load ptr, ptr @set, align 8
-  %71 = call ptr @g_list_sort(ptr noundef %70, ptr noundef @fileset_sort_compare)
-  store ptr %71, ptr @set, align 8
-  %72 = load ptr, ptr %4, align 8
-  call void @fileset_update_dlg(ptr noundef %72)
+64:                                               ; preds = %57, %56
+  %65 = load ptr, ptr %8, align 8
+  %66 = call ptr @g_string_free(ptr noundef %65, i32 noundef 1)
+  %67 = load ptr, ptr @set, align 8
+  %68 = call ptr @g_list_sort(ptr noundef %67, ptr noundef @fileset_sort_compare)
+  store ptr %68, ptr @set, align 8
+  %69 = load ptr, ptr %4, align 8
+  call void @fileset_update_dlg(ptr noundef %69)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
   ret void
 }
 
-declare ptr @g_string_new(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_string_new(ptr noundef) #2
 
-declare ptr @get_dirname(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @get_dirname(ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal ptr @g_string_append_c_inline(ptr noundef %0, i8 noundef signext %1) #0 {
+; Function Attrs: inlinehint null_pointer_is_valid sspstrong uwtable
+define internal ptr @g_string_append_c_inline(ptr noundef %0, i8 noundef signext %1) #5 {
   %3 = alloca ptr, align 8
   %4 = alloca i8, align 1
   store ptr %0, ptr %3, align 8
   store i8 %1, ptr %4, align 1
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct._GString, ptr %5, i32 0, i32 1
+  %6 = getelementptr inbounds nuw %struct._GString, ptr %5, i32 0, i32 1
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, 1
   %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct._GString, ptr %9, i32 0, i32 2
+  %10 = getelementptr inbounds nuw %struct._GString, ptr %9, i32 0, i32 2
   %11 = load i64, ptr %10, align 8
   %12 = icmp ult i64 %8, %11
   br i1 %12, label %13, label %30
@@ -644,20 +752,20 @@ define internal ptr @g_string_append_c_inline(ptr noundef %0, i8 noundef signext
 13:                                               ; preds = %2
   %14 = load i8, ptr %4, align 1
   %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct._GString, ptr %15, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %struct._GString, ptr %15, i32 0, i32 0
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %3, align 8
-  %19 = getelementptr inbounds %struct._GString, ptr %18, i32 0, i32 1
+  %19 = getelementptr inbounds nuw %struct._GString, ptr %18, i32 0, i32 1
   %20 = load i64, ptr %19, align 8
   %21 = add i64 %20, 1
   store i64 %21, ptr %19, align 8
   %22 = getelementptr i8, ptr %17, i64 %20
   store i8 %14, ptr %22, align 1
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds %struct._GString, ptr %23, i32 0, i32 0
+  %24 = getelementptr inbounds nuw %struct._GString, ptr %23, i32 0, i32 0
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr inbounds %struct._GString, ptr %26, i32 0, i32 1
+  %27 = getelementptr inbounds nuw %struct._GString, ptr %26, i32 0, i32 1
   %28 = load i64, ptr %27, align 8
   %29 = getelementptr i8, ptr %25, i64 %28
   store i8 0, ptr %29, align 1
@@ -674,13 +782,15 @@ define internal ptr @g_string_append_c_inline(ptr noundef %0, i8 noundef signext
   ret ptr %35
 }
 
-declare ptr @g_dir_open(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_dir_open(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @g_dir_read_name(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_dir_read_name(ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal i32 @fileset_is_file_in_set(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = alloca i32, align 4
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @fileset_is_file_in_set(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i1, align 1
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -689,356 +799,476 @@ define internal i32 @fileset_is_file_in_set(ptr noundef %0, ptr noundef %1) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
-  %12 = alloca i32, align 4
+  %12 = alloca i8, align 1
+  %13 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
-  store i32 0, ptr %12, align 4
-  %13 = load ptr, ptr %4, align 8
-  %14 = call i32 @fileset_filename_match_pattern(ptr noundef %13, ptr noundef %6, ptr noundef %8, ptr noundef null)
-  store i32 %14, ptr %10, align 4
-  %15 = load i32, ptr %10, align 4
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %18
-
-17:                                               ; preds = %2
-  store i32 0, ptr %3, align 4
-  br label %43
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #10
+  store i8 0, ptr %12, align 1
+  %14 = load ptr, ptr %4, align 8
+  %15 = call i32 @fileset_filename_match_pattern(ptr noundef %14, ptr noundef %6, ptr noundef %8, ptr noundef null)
+  store i32 %15, ptr %10, align 4
+  %16 = load i32, ptr %10, align 4
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %18, label %19
 
 18:                                               ; preds = %2
-  %19 = load ptr, ptr %5, align 8
-  %20 = call i32 @fileset_filename_match_pattern(ptr noundef %19, ptr noundef %7, ptr noundef %9, ptr noundef null)
-  store i32 %20, ptr %11, align 4
-  br label %21
+  store i1 false, ptr %3, align 1
+  store i32 1, ptr %13, align 4
+  br label %46
 
-21:                                               ; preds = %18
+19:                                               ; preds = %2
+  %20 = load ptr, ptr %5, align 8
+  %21 = call i32 @fileset_filename_match_pattern(ptr noundef %20, ptr noundef %7, ptr noundef %9, ptr noundef null)
+  store i32 %21, ptr %11, align 4
   br label %22
 
-22:                                               ; preds = %21
-  %23 = load i32, ptr %10, align 4
-  %24 = load i32, ptr %11, align 4
-  %25 = icmp eq i32 %23, %24
-  br i1 %25, label %26, label %37
+22:                                               ; preds = %19
+  br label %23
 
-26:                                               ; preds = %22
-  %27 = load ptr, ptr %6, align 8
-  %28 = load ptr, ptr %7, align 8
-  %29 = call i32 @g_strcmp0(ptr noundef %27, ptr noundef %28)
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %31, label %37
+23:                                               ; preds = %22
+  br label %24
 
-31:                                               ; preds = %26
-  %32 = load ptr, ptr %8, align 8
-  %33 = load ptr, ptr %9, align 8
-  %34 = call i32 @g_strcmp0(ptr noundef %32, ptr noundef %33)
-  %35 = icmp eq i32 %34, 0
-  br i1 %35, label %36, label %37
+24:                                               ; preds = %23
+  %25 = load i32, ptr %10, align 4
+  %26 = load i32, ptr %11, align 4
+  %27 = icmp eq i32 %25, %26
+  br i1 %27, label %28, label %39
 
-36:                                               ; preds = %31
-  store i32 1, ptr %12, align 4
-  br label %37
+28:                                               ; preds = %24
+  %29 = load ptr, ptr %6, align 8
+  %30 = load ptr, ptr %7, align 8
+  %31 = call i32 @g_strcmp0(ptr noundef %29, ptr noundef %30)
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %33, label %39
 
-37:                                               ; preds = %36, %31, %26, %22
-  %38 = load ptr, ptr %6, align 8
-  call void @g_free(ptr noundef %38)
-  %39 = load ptr, ptr %7, align 8
-  call void @g_free(ptr noundef %39)
-  %40 = load ptr, ptr %8, align 8
+33:                                               ; preds = %28
+  %34 = load ptr, ptr %8, align 8
+  %35 = load ptr, ptr %9, align 8
+  %36 = call i32 @g_strcmp0(ptr noundef %34, ptr noundef %35)
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %38, label %39
+
+38:                                               ; preds = %33
+  store i8 1, ptr %12, align 1
+  br label %39
+
+39:                                               ; preds = %38, %33, %28, %24
+  %40 = load ptr, ptr %6, align 8
   call void @g_free(ptr noundef %40)
-  %41 = load ptr, ptr %9, align 8
+  %41 = load ptr, ptr %7, align 8
   call void @g_free(ptr noundef %41)
-  %42 = load i32, ptr %12, align 4
-  store i32 %42, ptr %3, align 4
-  br label %43
+  %42 = load ptr, ptr %8, align 8
+  call void @g_free(ptr noundef %42)
+  %43 = load ptr, ptr %9, align 8
+  call void @g_free(ptr noundef %43)
+  %44 = load i8, ptr %12, align 1, !range !10, !noundef !11
+  %45 = trunc i8 %44 to i1
+  store i1 %45, ptr %3, align 1
+  store i32 1, ptr %13, align 4
+  br label %46
 
-43:                                               ; preds = %37, %17
-  %44 = load i32, ptr %3, align 4
-  ret i32 %44
+46:                                               ; preds = %39, %18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  %47 = load i1, ptr %3, align 1
+  ret i1 %47
 }
 
-declare ptr @get_basename(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @get_basename(ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal ptr @fileset_add_file(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal ptr @fileset_add_file(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  %6 = alloca i32, align 4
+  %6 = alloca i8, align 1
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca %struct.stat, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
-  store i32 %2, ptr %6, align 4
+  %16 = zext i1 %2 to i8
+  store i8 %16, ptr %6, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #10
+  call void @llvm.lifetime.start.p0(i64 144, ptr %9) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #10
   store ptr null, ptr %11, align 8
-  %12 = load ptr, ptr %4, align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.7, ptr noundef %12, ptr noundef %13)
-  store ptr %14, ptr %10, align 8
-  %15 = load ptr, ptr %10, align 8
-  %16 = call i32 (ptr, i32, ...) @open(ptr noundef %15, i32 noundef 0, i32 noundef 0)
-  store i32 %16, ptr %7, align 4
-  %17 = load i32, ptr %7, align 4
-  %18 = icmp ne i32 %17, -1
-  br i1 %18, label %19, label %54
+  %17 = load ptr, ptr %4, align 8
+  %18 = load ptr, ptr %5, align 8
+  %19 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.7, ptr noundef %17, ptr noundef %18)
+  store ptr %19, ptr %10, align 8
+  %20 = load ptr, ptr %10, align 8
+  %21 = call i32 (ptr, i32, ...) @open(ptr noundef %20, i32 noundef 0, i32 noundef 0)
+  store i32 %21, ptr %7, align 4
+  %22 = load i32, ptr %7, align 4
+  %23 = icmp ne i32 %22, -1
+  br i1 %23, label %24, label %89
 
-19:                                               ; preds = %3
-  %20 = load i32, ptr %7, align 4
-  %21 = call i32 @fstat(i32 noundef %20, ptr noundef %9) #6
-  store i32 %21, ptr %8, align 4
-  %22 = load i32, ptr %8, align 4
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %24, label %51
+24:                                               ; preds = %3
+  %25 = load i32, ptr %7, align 4
+  %26 = call i32 @fstat(i32 noundef %25, ptr noundef %9) #10
+  store i32 %26, ptr %8, align 4
+  %27 = load i32, ptr %8, align 4
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %29, label %86
 
-24:                                               ; preds = %19
-  %25 = call noalias ptr @g_malloc_n(i64 noundef 1, i64 noundef 48) #7
-  store ptr %25, ptr %11, align 8
-  %26 = load ptr, ptr %10, align 8
-  %27 = call noalias ptr @g_strdup(ptr noundef %26)
-  %28 = load ptr, ptr %11, align 8
-  %29 = getelementptr inbounds %struct._fileset_entry, ptr %28, i32 0, i32 0
-  store ptr %27, ptr %29, align 8
-  %30 = load ptr, ptr %5, align 8
-  %31 = call noalias ptr @g_strdup(ptr noundef %30)
-  %32 = load ptr, ptr %11, align 8
-  %33 = getelementptr inbounds %struct._fileset_entry, ptr %32, i32 0, i32 1
-  store ptr %31, ptr %33, align 8
-  %34 = load ptr, ptr %11, align 8
-  %35 = getelementptr inbounds %struct._fileset_entry, ptr %34, i32 0, i32 2
-  store i64 0, ptr %35, align 8
-  %36 = getelementptr inbounds %struct.stat, ptr %9, i32 0, i32 12
-  %37 = getelementptr inbounds %struct.timespec, ptr %36, i32 0, i32 0
-  %38 = load i64, ptr %37, align 8
-  %39 = load ptr, ptr %11, align 8
-  %40 = getelementptr inbounds %struct._fileset_entry, ptr %39, i32 0, i32 3
-  store i64 %38, ptr %40, align 8
-  %41 = getelementptr inbounds %struct.stat, ptr %9, i32 0, i32 8
-  %42 = load i64, ptr %41, align 8
-  %43 = load ptr, ptr %11, align 8
-  %44 = getelementptr inbounds %struct._fileset_entry, ptr %43, i32 0, i32 4
-  store i64 %42, ptr %44, align 8
-  %45 = load i32, ptr %6, align 4
-  %46 = load ptr, ptr %11, align 8
-  %47 = getelementptr inbounds %struct._fileset_entry, ptr %46, i32 0, i32 5
-  store i32 %45, ptr %47, align 8
-  %48 = load ptr, ptr @set, align 8
-  %49 = load ptr, ptr %11, align 8
-  %50 = call ptr @g_list_append(ptr noundef %48, ptr noundef %49)
-  store ptr %50, ptr @set, align 8
-  br label %51
+29:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #10
+  store i64 1, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #10
+  store i64 48, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #10
+  %30 = load i64, ptr %13, align 8
+  %31 = icmp eq i64 %30, 1
+  br i1 %31, label %32, label %35
 
-51:                                               ; preds = %24, %19
-  %52 = load i32, ptr %7, align 4
-  %53 = call i32 @close(i32 noundef %52)
-  br label %54
+32:                                               ; preds = %29
+  %33 = load i64, ptr %12, align 8
+  %34 = call noalias ptr @g_malloc(i64 noundef %33) #12
+  store ptr %34, ptr %14, align 8
+  br label %56
 
-54:                                               ; preds = %51, %3
-  %55 = load ptr, ptr %10, align 8
-  call void @g_free(ptr noundef %55)
-  %56 = load ptr, ptr %11, align 8
-  ret ptr %56
+35:                                               ; preds = %29
+  %36 = load i64, ptr %12, align 8
+  %37 = call i1 @llvm.is.constant.i64(i64 %36)
+  br i1 %37, label %38, label %51
+
+38:                                               ; preds = %35
+  %39 = load i64, ptr %13, align 8
+  %40 = icmp eq i64 %39, 0
+  br i1 %40, label %46, label %41
+
+41:                                               ; preds = %38
+  %42 = load i64, ptr %12, align 8
+  %43 = load i64, ptr %13, align 8
+  %44 = udiv i64 -1, %43
+  %45 = icmp ule i64 %42, %44
+  br i1 %45, label %46, label %51
+
+46:                                               ; preds = %41, %38
+  %47 = load i64, ptr %12, align 8
+  %48 = load i64, ptr %13, align 8
+  %49 = mul i64 %47, %48
+  %50 = call noalias ptr @g_malloc(i64 noundef %49) #12
+  store ptr %50, ptr %14, align 8
+  br label %55
+
+51:                                               ; preds = %41, %35
+  %52 = load i64, ptr %12, align 8
+  %53 = load i64, ptr %13, align 8
+  %54 = call noalias ptr @g_malloc_n(i64 noundef %52, i64 noundef %53) #13
+  store ptr %54, ptr %14, align 8
+  br label %55
+
+55:                                               ; preds = %51, %46
+  br label %56
+
+56:                                               ; preds = %55, %32
+  %57 = load ptr, ptr %14, align 8
+  store ptr %57, ptr %15, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #10
+  %58 = load ptr, ptr %15, align 8
+  store ptr %58, ptr %11, align 8
+  %59 = load ptr, ptr %10, align 8
+  %60 = call noalias ptr @g_strdup(ptr noundef %59)
+  %61 = load ptr, ptr %11, align 8
+  %62 = getelementptr inbounds nuw %struct._fileset_entry, ptr %61, i32 0, i32 0
+  store ptr %60, ptr %62, align 8
+  %63 = load ptr, ptr %5, align 8
+  %64 = call noalias ptr @g_strdup(ptr noundef %63)
+  %65 = load ptr, ptr %11, align 8
+  %66 = getelementptr inbounds nuw %struct._fileset_entry, ptr %65, i32 0, i32 1
+  store ptr %64, ptr %66, align 8
+  %67 = load ptr, ptr %11, align 8
+  %68 = getelementptr inbounds nuw %struct._fileset_entry, ptr %67, i32 0, i32 2
+  store i64 0, ptr %68, align 8
+  %69 = getelementptr inbounds nuw %struct.stat, ptr %9, i32 0, i32 12
+  %70 = getelementptr inbounds nuw %struct.timespec, ptr %69, i32 0, i32 0
+  %71 = load i64, ptr %70, align 8
+  %72 = load ptr, ptr %11, align 8
+  %73 = getelementptr inbounds nuw %struct._fileset_entry, ptr %72, i32 0, i32 3
+  store i64 %71, ptr %73, align 8
+  %74 = getelementptr inbounds nuw %struct.stat, ptr %9, i32 0, i32 8
+  %75 = load i64, ptr %74, align 8
+  %76 = load ptr, ptr %11, align 8
+  %77 = getelementptr inbounds nuw %struct._fileset_entry, ptr %76, i32 0, i32 4
+  store i64 %75, ptr %77, align 8
+  %78 = load i8, ptr %6, align 1, !range !10, !noundef !11
+  %79 = trunc i8 %78 to i1
+  %80 = load ptr, ptr %11, align 8
+  %81 = getelementptr inbounds nuw %struct._fileset_entry, ptr %80, i32 0, i32 5
+  %82 = zext i1 %79 to i8
+  store i8 %82, ptr %81, align 8
+  %83 = load ptr, ptr @set, align 8
+  %84 = load ptr, ptr %11, align 8
+  %85 = call ptr @g_list_append(ptr noundef %83, ptr noundef %84)
+  store ptr %85, ptr @set, align 8
+  br label %86
+
+86:                                               ; preds = %56, %24
+  %87 = load i32, ptr %7, align 4
+  %88 = call i32 @close(i32 noundef %87)
+  br label %89
+
+89:                                               ; preds = %86, %3
+  %90 = load ptr, ptr %10, align 8
+  call void @g_free(ptr noundef %90)
+  %91 = load ptr, ptr %11, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 144, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #10
+  ret ptr %91
 }
 
-; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #2
+; Function Attrs: nounwind null_pointer_is_valid willreturn memory(read)
+declare i32 @strcmp(ptr noundef, ptr noundef) #3
 
-declare void @g_dir_close(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @g_dir_close(ptr noundef) #2
 
-declare ptr @g_string_free(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_string_free(ptr noundef, i32 noundef) #2
 
-declare ptr @g_list_sort(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_list_sort(ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal i32 @fileset_sort_compare(ptr noundef %0, ptr noundef %1) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @fileset_sort_compare(ptr noundef %0, ptr noundef %1) #6 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
   %7 = load ptr, ptr %3, align 8
   store ptr %7, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #10
   %8 = load ptr, ptr %4, align 8
   store ptr %8, ptr %6, align 8
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds %struct._fileset_entry, ptr %9, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %struct._fileset_entry, ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds %struct._fileset_entry, ptr %12, i32 0, i32 1
+  %13 = getelementptr inbounds nuw %struct._fileset_entry, ptr %12, i32 0, i32 1
   %14 = load ptr, ptr %13, align 8
-  %15 = call i32 @strcmp(ptr noundef %11, ptr noundef %14) #5
+  %15 = call i32 @strcmp(ptr noundef %11, ptr noundef %14) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
-define hidden ptr @fileset_get_dirname() #0 {
-  %1 = getelementptr inbounds %struct._fileset, ptr @set, i32 0, i32 1
-  %2 = load ptr, ptr %1, align 8
-  ret ptr %2
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define hidden ptr @fileset_get_dirname() #6 {
+  %1 = load ptr, ptr getelementptr inbounds nuw (%struct._fileset, ptr @set, i32 0, i32 1), align 8
+  ret ptr %1
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden ptr @fileset_get_next() #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
-  %3 = call ptr @fileset_get_current()
-  store ptr %3, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %6, label %7
-
-6:                                                ; preds = %0
-  store ptr null, ptr %1, align 8
-  br label %24
+  %3 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #10
+  %4 = call ptr @fileset_get_current()
+  store ptr %4, ptr %2, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %7, label %8
 
 7:                                                ; preds = %0
-  %8 = load ptr, ptr %2, align 8
-  %9 = icmp ne ptr %8, null
-  br i1 %9, label %10, label %14
-
-10:                                               ; preds = %7
-  %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct._GList, ptr %11, i32 0, i32 1
-  %13 = load ptr, ptr %12, align 8
-  br label %15
-
-14:                                               ; preds = %7
-  br label %15
-
-15:                                               ; preds = %14, %10
-  %16 = phi ptr [ %13, %10 ], [ null, %14 ]
-  store ptr %16, ptr %2, align 8
-  %17 = load ptr, ptr %2, align 8
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %19, label %20
-
-19:                                               ; preds = %15
   store ptr null, ptr %1, align 8
-  br label %24
+  store i32 1, ptr %3, align 4
+  br label %25
 
-20:                                               ; preds = %15
-  %21 = load ptr, ptr %2, align 8
-  %22 = getelementptr inbounds %struct._GList, ptr %21, i32 0, i32 0
-  %23 = load ptr, ptr %22, align 8
-  store ptr %23, ptr %1, align 8
-  br label %24
+8:                                                ; preds = %0
+  %9 = load ptr, ptr %2, align 8
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %11, label %15
 
-24:                                               ; preds = %20, %19, %6
-  %25 = load ptr, ptr %1, align 8
-  ret ptr %25
+11:                                               ; preds = %8
+  %12 = load ptr, ptr %2, align 8
+  %13 = getelementptr inbounds nuw %struct._GList, ptr %12, i32 0, i32 1
+  %14 = load ptr, ptr %13, align 8
+  br label %16
+
+15:                                               ; preds = %8
+  br label %16
+
+16:                                               ; preds = %15, %11
+  %17 = phi ptr [ %14, %11 ], [ null, %15 ]
+  store ptr %17, ptr %2, align 8
+  %18 = load ptr, ptr %2, align 8
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %20, label %21
+
+20:                                               ; preds = %16
+  store ptr null, ptr %1, align 8
+  store i32 1, ptr %3, align 4
+  br label %25
+
+21:                                               ; preds = %16
+  %22 = load ptr, ptr %2, align 8
+  %23 = getelementptr inbounds nuw %struct._GList, ptr %22, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8
+  store ptr %24, ptr %1, align 8
+  store i32 1, ptr %3, align 4
+  br label %25
+
+25:                                               ; preds = %21, %20, %7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #10
+  %26 = load ptr, ptr %1, align 8
+  ret ptr %26
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal ptr @fileset_get_current() #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  %4 = load ptr, ptr @set, align 8
-  %5 = call ptr @g_list_first(ptr noundef %4)
-  store ptr %5, ptr %2, align 8
-  br label %6
+  %4 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
+  %5 = load ptr, ptr @set, align 8
+  %6 = call ptr @g_list_first(ptr noundef %5)
+  store ptr %6, ptr %2, align 8
+  br label %7
 
-6:                                                ; preds = %27, %0
-  %7 = load ptr, ptr %2, align 8
-  %8 = icmp ne ptr %7, null
-  br i1 %8, label %9, label %29
-
-9:                                                ; preds = %6
-  %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds %struct._GList, ptr %10, i32 0, i32 0
-  %12 = load ptr, ptr %11, align 8
-  store ptr %12, ptr %3, align 8
-  %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct._fileset_entry, ptr %13, i32 0, i32 5
-  %15 = load i32, ptr %14, align 8
-  %16 = icmp ne i32 %15, 0
-  br i1 %16, label %17, label %19
-
-17:                                               ; preds = %9
-  %18 = load ptr, ptr %2, align 8
-  store ptr %18, ptr %1, align 8
-  br label %30
-
-19:                                               ; preds = %9
-  %20 = load ptr, ptr %2, align 8
-  %21 = icmp ne ptr %20, null
-  br i1 %21, label %22, label %26
-
-22:                                               ; preds = %19
-  %23 = load ptr, ptr %2, align 8
-  %24 = getelementptr inbounds %struct._GList, ptr %23, i32 0, i32 1
-  %25 = load ptr, ptr %24, align 8
-  br label %27
-
-26:                                               ; preds = %19
-  br label %27
-
-27:                                               ; preds = %26, %22
-  %28 = phi ptr [ %25, %22 ], [ null, %26 ]
-  store ptr %28, ptr %2, align 8
-  br label %6, !llvm.loop !8
-
-29:                                               ; preds = %6
-  store ptr null, ptr %1, align 8
-  br label %30
-
-30:                                               ; preds = %29, %17
-  %31 = load ptr, ptr %1, align 8
-  ret ptr %31
-}
-
-; Function Attrs: nounwind uwtable
-define hidden ptr @fileset_get_previous() #0 {
-  %1 = alloca ptr, align 8
-  %2 = alloca ptr, align 8
-  %3 = call ptr @fileset_get_current()
-  store ptr %3, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %6, label %7
-
-6:                                                ; preds = %0
-  store ptr null, ptr %1, align 8
-  br label %24
-
-7:                                                ; preds = %0
+7:                                                ; preds = %28, %0
   %8 = load ptr, ptr %2, align 8
   %9 = icmp ne ptr %8, null
-  br i1 %9, label %10, label %14
+  br i1 %9, label %10, label %30
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct._GList, ptr %11, i32 0, i32 2
+  %12 = getelementptr inbounds nuw %struct._GList, ptr %11, i32 0, i32 0
   %13 = load ptr, ptr %12, align 8
-  br label %15
+  store ptr %13, ptr %3, align 8
+  %14 = load ptr, ptr %3, align 8
+  %15 = getelementptr inbounds nuw %struct._fileset_entry, ptr %14, i32 0, i32 5
+  %16 = load i8, ptr %15, align 8, !range !10, !noundef !11
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %18, label %20
 
-14:                                               ; preds = %7
-  br label %15
+18:                                               ; preds = %10
+  %19 = load ptr, ptr %2, align 8
+  store ptr %19, ptr %1, align 8
+  store i32 1, ptr %4, align 4
+  br label %31
 
-15:                                               ; preds = %14, %10
-  %16 = phi ptr [ %13, %10 ], [ null, %14 ]
-  store ptr %16, ptr %2, align 8
-  %17 = load ptr, ptr %2, align 8
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %19, label %20
-
-19:                                               ; preds = %15
-  store ptr null, ptr %1, align 8
-  br label %24
-
-20:                                               ; preds = %15
+20:                                               ; preds = %10
   %21 = load ptr, ptr %2, align 8
-  %22 = getelementptr inbounds %struct._GList, ptr %21, i32 0, i32 0
-  %23 = load ptr, ptr %22, align 8
-  store ptr %23, ptr %1, align 8
-  br label %24
+  %22 = icmp ne ptr %21, null
+  br i1 %22, label %23, label %27
 
-24:                                               ; preds = %20, %19, %6
-  %25 = load ptr, ptr %1, align 8
-  ret ptr %25
+23:                                               ; preds = %20
+  %24 = load ptr, ptr %2, align 8
+  %25 = getelementptr inbounds nuw %struct._GList, ptr %24, i32 0, i32 1
+  %26 = load ptr, ptr %25, align 8
+  br label %28
+
+27:                                               ; preds = %20
+  br label %28
+
+28:                                               ; preds = %27, %23
+  %29 = phi ptr [ %26, %23 ], [ null, %27 ]
+  store ptr %29, ptr %2, align 8
+  br label %7, !llvm.loop !12
+
+30:                                               ; preds = %7
+  store ptr null, ptr %1, align 8
+  store i32 1, ptr %4, align 4
+  br label %31
+
+31:                                               ; preds = %30, %18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #10
+  %32 = load ptr, ptr %1, align 8
+  ret ptr %32
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define hidden ptr @fileset_get_previous() #0 {
+  %1 = alloca ptr, align 8
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #10
+  %4 = call ptr @fileset_get_current()
+  store ptr %4, ptr %2, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %7, label %8
+
+7:                                                ; preds = %0
+  store ptr null, ptr %1, align 8
+  store i32 1, ptr %3, align 4
+  br label %25
+
+8:                                                ; preds = %0
+  %9 = load ptr, ptr %2, align 8
+  %10 = icmp ne ptr %9, null
+  br i1 %10, label %11, label %15
+
+11:                                               ; preds = %8
+  %12 = load ptr, ptr %2, align 8
+  %13 = getelementptr inbounds nuw %struct._GList, ptr %12, i32 0, i32 2
+  %14 = load ptr, ptr %13, align 8
+  br label %16
+
+15:                                               ; preds = %8
+  br label %16
+
+16:                                               ; preds = %15, %11
+  %17 = phi ptr [ %14, %11 ], [ null, %15 ]
+  store ptr %17, ptr %2, align 8
+  %18 = load ptr, ptr %2, align 8
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %20, label %21
+
+20:                                               ; preds = %16
+  store ptr null, ptr %1, align 8
+  store i32 1, ptr %3, align 4
+  br label %25
+
+21:                                               ; preds = %16
+  %22 = load ptr, ptr %2, align 8
+  %23 = getelementptr inbounds nuw %struct._GList, ptr %22, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8
+  store ptr %24, ptr %1, align 8
+  store i32 1, ptr %3, align 4
+  br label %25
+
+25:                                               ; preds = %21, %20, %7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #10
+  %26 = load ptr, ptr %1, align 8
+  ret ptr %26
+}
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @fileset_delete() #0 {
   %1 = load ptr, ptr @set, align 8
   %2 = icmp ne ptr %1, null
@@ -1053,81 +1283,101 @@ define hidden void @fileset_delete() #0 {
   br label %6
 
 6:                                                ; preds = %3, %0
-  %7 = getelementptr inbounds %struct._fileset, ptr @set, i32 0, i32 1
-  %8 = load ptr, ptr %7, align 8
-  %9 = icmp ne ptr %8, null
-  br i1 %9, label %10, label %14
+  %7 = load ptr, ptr getelementptr inbounds nuw (%struct._fileset, ptr @set, i32 0, i32 1), align 8
+  %8 = icmp ne ptr %7, null
+  br i1 %8, label %9, label %11
 
-10:                                               ; preds = %6
-  %11 = getelementptr inbounds %struct._fileset, ptr @set, i32 0, i32 1
-  %12 = load ptr, ptr %11, align 8
-  call void @g_free(ptr noundef %12)
-  %13 = getelementptr inbounds %struct._fileset, ptr @set, i32 0, i32 1
-  store ptr null, ptr %13, align 8
-  br label %14
+9:                                                ; preds = %6
+  %10 = load ptr, ptr getelementptr inbounds nuw (%struct._fileset, ptr @set, i32 0, i32 1), align 8
+  call void @g_free(ptr noundef %10)
+  store ptr null, ptr getelementptr inbounds nuw (%struct._fileset, ptr @set, i32 0, i32 1), align 8
+  br label %11
 
-14:                                               ; preds = %10, %6
+11:                                               ; preds = %9, %6
   ret void
 }
 
-declare void @g_list_foreach(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @g_list_foreach(ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @fileset_entry_delete(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #10
   %6 = load ptr, ptr %3, align 8
   store ptr %6, ptr %5, align 8
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds %struct._fileset_entry, ptr %7, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %struct._fileset_entry, ptr %7, i32 0, i32 0
   %9 = load ptr, ptr %8, align 8
   call void @g_free(ptr noundef %9)
   %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds %struct._fileset_entry, ptr %10, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %struct._fileset_entry, ptr %10, i32 0, i32 0
   store ptr null, ptr %11, align 8
   %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds %struct._fileset_entry, ptr %12, i32 0, i32 1
+  %13 = getelementptr inbounds nuw %struct._fileset_entry, ptr %12, i32 0, i32 1
   %14 = load ptr, ptr %13, align 8
   call void @g_free(ptr noundef %14)
   %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds %struct._fileset_entry, ptr %15, i32 0, i32 1
+  %16 = getelementptr inbounds nuw %struct._fileset_entry, ptr %15, i32 0, i32 1
   store ptr null, ptr %16, align 8
   %17 = load ptr, ptr %5, align 8
   call void @g_free(ptr noundef %17)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #10
   ret void
 }
 
-declare void @g_list_free(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @g_list_free(ptr noundef) #2
 
-declare ptr @g_string_insert_c(ptr noundef, i64 noundef, i8 noundef signext) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_string_insert_c(ptr noundef, i64 noundef, i8 noundef signext) #2
 
-declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) #2
 
-; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) #4
+; Function Attrs: null_pointer_is_valid allocsize(0)
+declare noalias ptr @g_malloc(i64 noundef) #7
 
-declare ptr @g_list_append(ptr noundef, ptr noundef) #1
+; Function Attrs: convergent nocallback nofree nosync nounwind willreturn memory(none)
+declare i1 @llvm.is.constant.i64(i64) #8
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind willreturn memory(read) }
-attributes #6 = { nounwind }
-attributes #7 = { allocsize(0,1) }
+; Function Attrs: null_pointer_is_valid allocsize(0,1)
+declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) #9
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_list_append(ptr noundef, ptr noundef) #2
+
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind null_pointer_is_valid willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { inlinehint null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #9 = { null_pointer_is_valid allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind }
+attributes #11 = { nounwind willreturn memory(read) }
+attributes #12 = { allocsize(0) }
+attributes #13 = { allocsize(0,1) }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = distinct !{!12, !7}

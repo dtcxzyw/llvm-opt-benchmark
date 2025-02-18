@@ -4,11 +4,8 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
 %struct.unit_name_string = type { ptr, ptr }
-%struct._value_string = type { i32, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
@@ -252,7 +249,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_ppi_vector_vflags_relative_to = internal global i32 0, align 4
 @.str.171 = private unnamed_addr constant [11 x i8] c"RelativeTo\00", align 1
 @.str.172 = private unnamed_addr constant [30 x i8] c"ppi_vector.vflags.relative_to\00", align 1
-@relativeto_string = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.213 }, %struct._value_string { i32 1, ptr @.str.214 }, %struct._value_string { i32 2, ptr @.str.215 }, %struct._value_string { i32 3, ptr @.str.216 }, %struct._value_string zeroinitializer], align 16
 @.str.173 = private unnamed_addr constant [40 x i8] c"Reference frame vectors are RelativeTo:\00", align 1
 @hf_ppi_vector_vchars_antenna = internal global i32 0, align 4
 @.str.174 = private unnamed_addr constant [8 x i8] c"Antenna\00", align 1
@@ -302,7 +298,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_ppi_vector_present = internal global i32 0, align 4
 @ett_ppi_vectorflags = internal global i32 0, align 4
 @ett_ppi_vectorchars = internal global i32 0, align 4
-@proto_register_ppi_vector.ei = internal global [2 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_ppi_vector_present_bit, %struct.expert_field_info { ptr @.str.206, i32 150994944, i32 6291456, ptr @.str.207, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_ppi_vector_length, %struct.expert_field_info { ptr @.str.208, i32 117440512, i32 8388608, ptr @.str.209, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_ppi_vector.ei = internal global [2 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_ppi_vector_present_bit, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.206, i32 150994944, i32 6291456, ptr @.str.207, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_ppi_vector_length, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.208, i32 117440512, i32 8388608, ptr @.str.209, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_ppi_vector_present_bit = internal global %struct.expert_field zeroinitializer, align 4
 @.str.206 = private unnamed_addr constant [31 x i8] c"ppi_vector.present.unknown_bit\00", align 1
 @.str.207 = private unnamed_addr constant [53 x i8] c"Error: PPI-VECTOR: unknown bit set in present field.\00", align 1
@@ -317,41 +313,43 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.214 = private unnamed_addr constant [6 x i8] c"Earth\00", align 1
 @.str.215 = private unnamed_addr constant [8 x i8] c"Current\00", align 1
 @.str.216 = private unnamed_addr constant [9 x i8] c"Reserved\00", align 1
-@.str.217 = private unnamed_addr constant [34 x i8] c"PPI_Vector Capture v%u, Length %u\00", align 1
-@.str.218 = private unnamed_addr constant [8 x i8] c"Vector:\00", align 1
-@.str.219 = private unnamed_addr constant [49 x i8] c"Invalid PPI-Vector length - minimum length is %d\00", align 1
-@.str.220 = private unnamed_addr constant [45 x i8] c"Invalid PPI-Vector length  (got %d, %d max\0A)\00", align 1
+@relativeto_string = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.213 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.214 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.215 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.216 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.218 = private unnamed_addr constant [34 x i8] c"PPI_Vector Capture v%u, Length %u\00", align 1
+@.str.219 = private unnamed_addr constant [8 x i8] c"Vector:\00", align 1
+@.str.220 = private unnamed_addr constant [49 x i8] c"Invalid PPI-Vector length - minimum length is %d\00", align 1
+@.str.221 = private unnamed_addr constant [45 x i8] c"Invalid PPI-Vector length  (got %d, %d max\0A)\00", align 1
 @dissect_ppi_vector_v1.ppi_vector_present_flags = internal constant [25 x ptr] [ptr @hf_ppi_vector_present_vflags, ptr @hf_ppi_vector_present_vchars, ptr @hf_ppi_vector_present_val_x, ptr @hf_ppi_vector_present_val_y, ptr @hf_ppi_vector_present_val_z, ptr @hf_ppi_vector_present_off_r, ptr @hf_ppi_vector_present_off_f, ptr @hf_ppi_vector_present_off_u, ptr @hf_ppi_vector_present_vel_r, ptr @hf_ppi_vector_present_vel_f, ptr @hf_ppi_vector_present_vel_u, ptr @hf_ppi_vector_present_vel_t, ptr @hf_ppi_vector_present_acc_r, ptr @hf_ppi_vector_present_acc_f, ptr @hf_ppi_vector_present_acc_u, ptr @hf_ppi_vector_present_acc_t, ptr @hf_ppi_vector_present_err_rot, ptr @hf_ppi_vector_present_err_off, ptr @hf_ppi_vector_present_err_vel, ptr @hf_ppi_vector_present_err_acc, ptr @hf_ppi_vector_present_descstr, ptr @hf_ppi_vector_presenappsecific_num, ptr @hf_ppi_vector_present_appspecific_data, ptr @hf_ppi_vector_present_ext, ptr null], align 16
-@.str.221 = private unnamed_addr constant [20 x i8] c" Degrees (Absolute)\00", align 1
-@.str.222 = private unnamed_addr constant [26 x i8] c" Degrees (Rel to forward)\00", align 1
-@.str.223 = private unnamed_addr constant [21 x i8] c" Degrees (Absolute) \00", align 1
-@.str.224 = private unnamed_addr constant [17 x i8] c" m from Curr_GPS\00", align 1
-@.str.225 = private unnamed_addr constant [17 x i8] c" m from Curr_Pos\00", align 1
-@.str.226 = private unnamed_addr constant [9 x i8] c" (m/s)/s\00", align 1
-@.str.227 = private unnamed_addr constant [58 x i8] c"Error: PPI-VECTOR: unknown bit (%d) set in present field.\00", align 1
+@.str.222 = private unnamed_addr constant [20 x i8] c" Degrees (Absolute)\00", align 1
+@.str.223 = private unnamed_addr constant [26 x i8] c" Degrees (Rel to forward)\00", align 1
+@.str.224 = private unnamed_addr constant [21 x i8] c" Degrees (Absolute) \00", align 1
+@.str.225 = private unnamed_addr constant [17 x i8] c" m from Curr_GPS\00", align 1
+@.str.226 = private unnamed_addr constant [17 x i8] c" m from Curr_Pos\00", align 1
+@.str.227 = private unnamed_addr constant [9 x i8] c" (m/s)/s\00", align 1
+@.str.228 = private unnamed_addr constant [58 x i8] c"Error: PPI-VECTOR: unknown bit (%d) set in present field.\00", align 1
 @dissect_ppi_vector_v2.ppi_vector_present_flags = internal constant [15 x ptr] [ptr @hf_ppi_vector_present_vflags, ptr @hf_ppi_vector_present_vchars, ptr @hf_ppi_vector_present_val_x, ptr @hf_ppi_vector_present_val_y, ptr @hf_ppi_vector_present_val_z, ptr @hf_ppi_vector_present_off_x, ptr @hf_ppi_vector_present_off_y, ptr @hf_ppi_vector_present_off_z, ptr @hf_ppi_vector_present_err_rot, ptr @hf_ppi_vector_present_err_off, ptr @hf_ppi_vector_present_descstr, ptr @hf_ppi_vector_presenappsecific_num, ptr @hf_ppi_vector_present_appspecific_data, ptr @hf_ppi_vector_present_ext, ptr null], align 16
-@.str.228 = private unnamed_addr constant [11 x i8] c" (Forward)\00", align 1
-@.str.229 = private unnamed_addr constant [21 x i8] c" RelativeTo: Forward\00", align 1
-@.str.230 = private unnamed_addr constant [16 x i8] c" RelativeTo: %s\00", align 1
-@.str.231 = private unnamed_addr constant [24 x i8] c" Degrees RelativeTo: %s\00", align 1
-@.str.232 = private unnamed_addr constant [12 x i8] c" Pitch:%3f \00", align 1
-@.str.233 = private unnamed_addr constant [11 x i8] c" Roll:%3f \00", align 1
-@.str.234 = private unnamed_addr constant [14 x i8] c" Heading:%3f \00", align 1
-@.str.235 = private unnamed_addr constant [23 x i8] c" Meters RelativeTo: %s\00", align 1
-@.str.236 = private unnamed_addr constant [12 x i8] c" Off-X:%3f \00", align 1
-@.str.237 = private unnamed_addr constant [12 x i8] c" Off-Y:%3f \00", align 1
-@.str.238 = private unnamed_addr constant [12 x i8] c" Off-Z:%3f \00", align 1
-@.str.239 = private unnamed_addr constant [6 x i8] c" (%s)\00", align 1
-@.str.240 = private unnamed_addr constant [59 x i8] c"Error: PPI-VECTOR: unknown bit (%d) set in present field.\0A\00", align 1
-@.str.241 = private unnamed_addr constant [11 x i8] c" (Antenna)\00", align 1
-@.str.242 = private unnamed_addr constant [7 x i8] c" (DOT)\00", align 1
-@.str.243 = private unnamed_addr constant [16 x i8] c" (Front_of_veh)\00", align 1
-@.str.244 = private unnamed_addr constant [7 x i8] c" (AOA)\00", align 1
-@.str.245 = private unnamed_addr constant [19 x i8] c" (TRANSMITTER_POS)\00", align 1
+@.str.229 = private unnamed_addr constant [11 x i8] c" (Forward)\00", align 1
+@.str.230 = private unnamed_addr constant [21 x i8] c" RelativeTo: Forward\00", align 1
+@.str.231 = private unnamed_addr constant [16 x i8] c" RelativeTo: %s\00", align 1
+@.str.232 = private unnamed_addr constant [24 x i8] c" Degrees RelativeTo: %s\00", align 1
+@.str.233 = private unnamed_addr constant [12 x i8] c" Pitch:%3f \00", align 1
+@.str.234 = private unnamed_addr constant [11 x i8] c" Roll:%3f \00", align 1
+@.str.235 = private unnamed_addr constant [14 x i8] c" Heading:%3f \00", align 1
+@.str.236 = private unnamed_addr constant [23 x i8] c" Meters RelativeTo: %s\00", align 1
+@.str.237 = private unnamed_addr constant [12 x i8] c" Off-X:%3f \00", align 1
+@.str.238 = private unnamed_addr constant [12 x i8] c" Off-Y:%3f \00", align 1
+@.str.239 = private unnamed_addr constant [12 x i8] c" Off-Z:%3f \00", align 1
+@.str.240 = private unnamed_addr constant [6 x i8] c" (%s)\00", align 1
+@.str.241 = private unnamed_addr constant [59 x i8] c"Error: PPI-VECTOR: unknown bit (%d) set in present field.\0A\00", align 1
+@.str.242 = private unnamed_addr constant [11 x i8] c" (Antenna)\00", align 1
+@.str.243 = private unnamed_addr constant [7 x i8] c" (DOT)\00", align 1
+@.str.244 = private unnamed_addr constant [16 x i8] c" (Front_of_veh)\00", align 1
+@.str.245 = private unnamed_addr constant [7 x i8] c" (AOA)\00", align 1
+@.str.246 = private unnamed_addr constant [19 x i8] c" (TRANSMITTER_POS)\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_ppi_vector() #0 {
   %1 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #3
   %2 = call i32 @proto_register_protocol(ptr noundef @.str.210, ptr noundef @.str.211, ptr noundef @.str.212)
   store i32 %2, ptr @proto_ppi_vector, align 4
   %3 = load i32, ptr @proto_ppi_vector, align 4
@@ -364,22 +362,32 @@ define hidden void @proto_register_ppi_vector() #0 {
   call void @expert_register_field_array(ptr noundef %6, ptr noundef @proto_register_ppi_vector.ei, i32 noundef 2)
   %7 = load i32, ptr @proto_ppi_vector, align 4
   %8 = call ptr @register_dissector(ptr noundef @.str.212, ptr noundef @dissect_ppi_vector, i32 noundef %7)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #3
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #2
 
-declare ptr @expert_register_protocol(i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #2
 
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_register_protocol(i32 noundef) #2
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ppi_vector(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -393,153 +401,183 @@ define internal i32 @dissect_ppi_vector(ptr noundef %0, ptr noundef %1, ptr noun
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #3
   store i32 0, ptr %14, align 4
-  %17 = load ptr, ptr %7, align 8
-  %18 = getelementptr inbounds %struct._packet_info, ptr %17, i32 0, i32 1
-  %19 = load ptr, ptr %18, align 8
-  call void @col_clear(ptr noundef %19, i32 noundef 25)
-  %20 = load ptr, ptr %6, align 8
-  %21 = load i32, ptr %14, align 4
-  %22 = call zeroext i8 @tvb_get_guint8(ptr noundef %20, i32 noundef %21)
-  %23 = zext i8 %22 to i32
-  store i32 %23, ptr %15, align 4
-  %24 = load ptr, ptr %6, align 8
-  %25 = load i32, ptr %14, align 4
-  %26 = add i32 %25, 2
-  %27 = call zeroext i16 @tvb_get_letohs(ptr noundef %24, i32 noundef %26)
-  %28 = zext i16 %27 to i32
-  store i32 %28, ptr %16, align 4
-  %29 = load ptr, ptr %7, align 8
-  %30 = getelementptr inbounds %struct._packet_info, ptr %29, i32 0, i32 1
-  %31 = load ptr, ptr %30, align 8
-  %32 = load i32, ptr %15, align 4
-  %33 = load i32, ptr %16, align 4
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %31, i32 noundef 25, ptr noundef @.str.217, i32 noundef %32, i32 noundef %33)
-  %34 = load ptr, ptr %8, align 8
-  %35 = load i32, ptr @proto_ppi_vector, align 4
-  %36 = load ptr, ptr %6, align 8
-  %37 = load i32, ptr %16, align 4
-  %38 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %34, i32 noundef %35, ptr noundef %36, i32 noundef 0, i32 noundef %37, ptr noundef @.str.218)
-  store ptr %38, ptr %12, align 8
-  %39 = load ptr, ptr %12, align 8
-  %40 = load i32, ptr @ett_ppi_vector, align 4
-  %41 = call ptr @proto_item_add_subtree(ptr noundef %39, i32 noundef %40)
-  store ptr %41, ptr %10, align 8
-  %42 = load ptr, ptr %10, align 8
-  %43 = load i32, ptr @hf_ppi_vector_version, align 4
-  %44 = load ptr, ptr %6, align 8
-  %45 = load i32, ptr %14, align 4
-  %46 = load i32, ptr %15, align 4
-  %47 = call ptr @proto_tree_add_uint(ptr noundef %42, i32 noundef %43, ptr noundef %44, i32 noundef %45, i32 noundef 1, i32 noundef %46)
-  %48 = load ptr, ptr %10, align 8
-  %49 = load i32, ptr @hf_ppi_vector_pad, align 4
-  %50 = load ptr, ptr %6, align 8
-  %51 = load i32, ptr %14, align 4
-  %52 = add i32 %51, 1
-  %53 = call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %49, ptr noundef %50, i32 noundef %52, i32 noundef 1, i32 noundef -2147483648)
-  %54 = load ptr, ptr %10, align 8
-  %55 = load i32, ptr @hf_ppi_vector_length, align 4
-  %56 = load ptr, ptr %6, align 8
-  %57 = load i32, ptr %14, align 4
-  %58 = add i32 %57, 2
-  %59 = load i32, ptr %16, align 4
-  %60 = call ptr @proto_tree_add_uint(ptr noundef %54, i32 noundef %55, ptr noundef %56, i32 noundef %58, i32 noundef 2, i32 noundef %59)
-  store ptr %60, ptr %11, align 8
-  %61 = load i32, ptr %16, align 4
-  store i32 %61, ptr %13, align 4
-  %62 = load i32, ptr %13, align 4
-  %63 = icmp slt i32 %62, 8
-  br i1 %63, label %64, label %68
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #3
+  %18 = load ptr, ptr %7, align 8
+  %19 = getelementptr inbounds nuw %struct._packet_info, ptr %18, i32 0, i32 1
+  %20 = load ptr, ptr %19, align 8
+  call void @col_clear(ptr noundef %20, i32 noundef 25)
+  %21 = load ptr, ptr %6, align 8
+  %22 = load i32, ptr %14, align 4
+  %23 = call zeroext i8 @tvb_get_uint8(ptr noundef %21, i32 noundef %22)
+  %24 = zext i8 %23 to i32
+  store i32 %24, ptr %15, align 4
+  %25 = load ptr, ptr %6, align 8
+  %26 = load i32, ptr %14, align 4
+  %27 = add i32 %26, 2
+  %28 = call zeroext i16 @tvb_get_letohs(ptr noundef %25, i32 noundef %27)
+  %29 = zext i16 %28 to i32
+  store i32 %29, ptr %16, align 4
+  %30 = load ptr, ptr %7, align 8
+  %31 = getelementptr inbounds nuw %struct._packet_info, ptr %30, i32 0, i32 1
+  %32 = load ptr, ptr %31, align 8
+  %33 = load i32, ptr %15, align 4
+  %34 = load i32, ptr %16, align 4
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %32, i32 noundef 25, ptr noundef @.str.218, i32 noundef %33, i32 noundef %34)
+  %35 = load ptr, ptr %8, align 8
+  %36 = load i32, ptr @proto_ppi_vector, align 4
+  %37 = load ptr, ptr %6, align 8
+  %38 = load i32, ptr %16, align 4
+  %39 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %35, i32 noundef %36, ptr noundef %37, i32 noundef 0, i32 noundef %38, ptr noundef @.str.219)
+  store ptr %39, ptr %12, align 8
+  %40 = load ptr, ptr %12, align 8
+  %41 = load i32, ptr @ett_ppi_vector, align 4
+  %42 = call ptr @proto_item_add_subtree(ptr noundef %40, i32 noundef %41)
+  store ptr %42, ptr %10, align 8
+  %43 = load ptr, ptr %10, align 8
+  %44 = load i32, ptr @hf_ppi_vector_version, align 4
+  %45 = load ptr, ptr %6, align 8
+  %46 = load i32, ptr %14, align 4
+  %47 = load i32, ptr %15, align 4
+  %48 = call ptr @proto_tree_add_uint(ptr noundef %43, i32 noundef %44, ptr noundef %45, i32 noundef %46, i32 noundef 1, i32 noundef %47)
+  %49 = load ptr, ptr %10, align 8
+  %50 = load i32, ptr @hf_ppi_vector_pad, align 4
+  %51 = load ptr, ptr %6, align 8
+  %52 = load i32, ptr %14, align 4
+  %53 = add i32 %52, 1
+  %54 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %50, ptr noundef %51, i32 noundef %53, i32 noundef 1, i32 noundef -2147483648)
+  %55 = load ptr, ptr %10, align 8
+  %56 = load i32, ptr @hf_ppi_vector_length, align 4
+  %57 = load ptr, ptr %6, align 8
+  %58 = load i32, ptr %14, align 4
+  %59 = add i32 %58, 2
+  %60 = load i32, ptr %16, align 4
+  %61 = call ptr @proto_tree_add_uint(ptr noundef %55, i32 noundef %56, ptr noundef %57, i32 noundef %59, i32 noundef 2, i32 noundef %60)
+  store ptr %61, ptr %11, align 8
+  %62 = load i32, ptr %16, align 4
+  store i32 %62, ptr %13, align 4
+  %63 = load i32, ptr %13, align 4
+  %64 = icmp slt i32 %63, 8
+  br i1 %64, label %65, label %69
 
-64:                                               ; preds = %4
-  %65 = load ptr, ptr %7, align 8
-  %66 = load ptr, ptr %11, align 8
-  %67 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %65, ptr noundef %66, ptr noundef @ei_ppi_vector_length, ptr noundef @.str.219, i32 noundef 8)
+65:                                               ; preds = %4
+  %66 = load ptr, ptr %7, align 8
+  %67 = load ptr, ptr %11, align 8
+  %68 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %66, ptr noundef %67, ptr noundef @ei_ppi_vector_length, ptr noundef @.str.220, i32 noundef 8)
   store i32 2, ptr %5, align 4
-  br label %101
+  store i32 1, ptr %17, align 4
+  br label %102
 
-68:                                               ; preds = %4
-  %69 = load i32, ptr %15, align 4
-  switch i32 %69, label %91 [
-    i32 1, label %70
-    i32 2, label %76
+69:                                               ; preds = %4
+  %70 = load i32, ptr %15, align 4
+  switch i32 %70, label %92 [
+    i32 1, label %71
+    i32 2, label %77
   ]
 
-70:                                               ; preds = %68
-  %71 = load ptr, ptr %6, align 8
-  %72 = load ptr, ptr %7, align 8
-  %73 = load i32, ptr %14, align 4
-  %74 = load i32, ptr %13, align 4
-  %75 = load ptr, ptr %10, align 8
-  call void @dissect_ppi_vector_v1(ptr noundef %71, ptr noundef %72, i32 noundef %73, i32 noundef %74, ptr noundef %75)
-  br label %98
+71:                                               ; preds = %69
+  %72 = load ptr, ptr %6, align 8
+  %73 = load ptr, ptr %7, align 8
+  %74 = load i32, ptr %14, align 4
+  %75 = load i32, ptr %13, align 4
+  %76 = load ptr, ptr %10, align 8
+  call void @dissect_ppi_vector_v1(ptr noundef %72, ptr noundef %73, i32 noundef %74, i32 noundef %75, ptr noundef %76)
+  br label %99
 
-76:                                               ; preds = %68
-  %77 = load i32, ptr %16, align 4
-  %78 = icmp ugt i32 %77, 144
-  br i1 %78, label %79, label %84
+77:                                               ; preds = %69
+  %78 = load i32, ptr %16, align 4
+  %79 = icmp ugt i32 %78, 144
+  br i1 %79, label %80, label %85
 
-79:                                               ; preds = %76
-  %80 = load ptr, ptr %7, align 8
-  %81 = load ptr, ptr %11, align 8
-  %82 = load i32, ptr %16, align 4
-  %83 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %80, ptr noundef %81, ptr noundef @ei_ppi_vector_length, ptr noundef @.str.220, i32 noundef %82, i32 noundef 144)
+80:                                               ; preds = %77
+  %81 = load ptr, ptr %7, align 8
+  %82 = load ptr, ptr %11, align 8
+  %83 = load i32, ptr %16, align 4
+  %84 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %81, ptr noundef %82, ptr noundef @ei_ppi_vector_length, ptr noundef @.str.221, i32 noundef %83, i32 noundef 144)
   store i32 2, ptr %5, align 4
-  br label %101
+  store i32 1, ptr %17, align 4
+  br label %102
 
-84:                                               ; preds = %76
-  %85 = load ptr, ptr %6, align 8
-  %86 = load ptr, ptr %7, align 8
-  %87 = load i32, ptr %14, align 4
-  %88 = load i32, ptr %13, align 4
-  %89 = load ptr, ptr %10, align 8
-  %90 = load ptr, ptr %12, align 8
-  call void @dissect_ppi_vector_v2(ptr noundef %85, ptr noundef %86, i32 noundef %87, i32 noundef %88, ptr noundef %89, ptr noundef %90)
-  br label %98
+85:                                               ; preds = %77
+  %86 = load ptr, ptr %6, align 8
+  %87 = load ptr, ptr %7, align 8
+  %88 = load i32, ptr %14, align 4
+  %89 = load i32, ptr %13, align 4
+  %90 = load ptr, ptr %10, align 8
+  %91 = load ptr, ptr %12, align 8
+  call void @dissect_ppi_vector_v2(ptr noundef %86, ptr noundef %87, i32 noundef %88, i32 noundef %89, ptr noundef %90, ptr noundef %91)
+  br label %99
 
-91:                                               ; preds = %68
-  %92 = load ptr, ptr %10, align 8
-  %93 = load i32, ptr @hf_ppi_vector_unknown_data, align 4
-  %94 = load ptr, ptr %6, align 8
-  %95 = load i32, ptr %14, align 4
-  %96 = add i32 %95, 4
-  %97 = call ptr @proto_tree_add_item(ptr noundef %92, i32 noundef %93, ptr noundef %94, i32 noundef %96, i32 noundef -1, i32 noundef 0)
-  br label %98
+92:                                               ; preds = %69
+  %93 = load ptr, ptr %10, align 8
+  %94 = load i32, ptr @hf_ppi_vector_unknown_data, align 4
+  %95 = load ptr, ptr %6, align 8
+  %96 = load i32, ptr %14, align 4
+  %97 = add i32 %96, 4
+  %98 = call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %94, ptr noundef %95, i32 noundef %97, i32 noundef -1, i32 noundef 0)
+  br label %99
 
-98:                                               ; preds = %91, %84, %70
-  %99 = load ptr, ptr %6, align 8
-  %100 = call i32 @tvb_captured_length(ptr noundef %99)
-  store i32 %100, ptr %5, align 4
-  br label %101
+99:                                               ; preds = %92, %85, %71
+  %100 = load ptr, ptr %6, align 8
+  %101 = call i32 @tvb_captured_length(ptr noundef %100)
+  store i32 %101, ptr %5, align 4
+  store i32 1, ptr %17, align 4
+  br label %102
 
-101:                                              ; preds = %98, %79, %64
-  %102 = load i32, ptr %5, align 4
-  ret i32 %102
+102:                                              ; preds = %99, %80, %65
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  %103 = load i32, ptr %5, align 4
+  ret i32 %103
 }
 
-declare void @col_clear(ptr noundef, i32 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_clear(ptr noundef, i32 noundef) #2
 
-declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #2
 
-declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_protocol_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #2
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_protocol_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) #2
 
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_ppi_vector_v1(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -581,11 +619,41 @@ define internal void @dissect_ppi_vector_v1(ptr noundef %0, ptr noundef %1, i32 
   store i32 %2, ptr %8, align 4
   store i32 %3, ptr %9, align 4
   store ptr %4, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
   store ptr null, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #3
   store ptr null, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %29) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %30) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %31) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %32) #3
   store double 0.000000e+00, ptr %32, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %33) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %34) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %35) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %36) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %37) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %38) #3
   store i32 0, ptr %38, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %39) #3
   store i32 0, ptr %39, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %40) #3
   %41 = load ptr, ptr %6, align 8
   %42 = load i32, ptr %8, align 4
   %43 = add i32 %42, 4
@@ -1180,7 +1248,7 @@ define internal void @dissect_ppi_vector_v1(ptr noundef %0, ptr noundef %1, i32 
   %472 = call i32 @tvb_get_letohl(ptr noundef %470, i32 noundef %471)
   store i32 %472, ptr %40, align 4
   %473 = load i32, ptr %40, align 4
-  %474 = call double @ppi_fixed3_6_to_gdouble(i32 noundef %473)
+  %474 = call double @ppi_fixed3_6_to_double(i32 noundef %473)
   store double %474, ptr %19, align 8
   %475 = load ptr, ptr %10, align 8
   %476 = icmp ne ptr %475, null
@@ -1201,12 +1269,12 @@ define internal void @dissect_ppi_vector_v1(ptr noundef %0, ptr noundef %1, i32 
 
 487:                                              ; preds = %477
   %488 = load ptr, ptr %15, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %488, ptr noundef @.str.221)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %488, ptr noundef @.str.222)
   br label %491
 
 489:                                              ; preds = %477
   %490 = load ptr, ptr %15, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %490, ptr noundef @.str.222)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %490, ptr noundef @.str.223)
   br label %491
 
 491:                                              ; preds = %489, %487
@@ -1235,7 +1303,7 @@ define internal void @dissect_ppi_vector_v1(ptr noundef %0, ptr noundef %1, i32 
   %504 = call i32 @tvb_get_letohl(ptr noundef %502, i32 noundef %503)
   store i32 %504, ptr %40, align 4
   %505 = load i32, ptr %40, align 4
-  %506 = call double @ppi_fixed3_6_to_gdouble(i32 noundef %505)
+  %506 = call double @ppi_fixed3_6_to_double(i32 noundef %505)
   store double %506, ptr %20, align 8
   %507 = load ptr, ptr %10, align 8
   %508 = icmp ne ptr %507, null
@@ -1256,12 +1324,12 @@ define internal void @dissect_ppi_vector_v1(ptr noundef %0, ptr noundef %1, i32 
 
 519:                                              ; preds = %509
   %520 = load ptr, ptr %15, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %520, ptr noundef @.str.221)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %520, ptr noundef @.str.222)
   br label %523
 
 521:                                              ; preds = %509
   %522 = load ptr, ptr %15, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %522, ptr noundef @.str.222)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %522, ptr noundef @.str.223)
   br label %523
 
 523:                                              ; preds = %521, %519
@@ -1290,7 +1358,7 @@ define internal void @dissect_ppi_vector_v1(ptr noundef %0, ptr noundef %1, i32 
   %536 = call i32 @tvb_get_letohl(ptr noundef %534, i32 noundef %535)
   store i32 %536, ptr %40, align 4
   %537 = load i32, ptr %40, align 4
-  %538 = call double @ppi_fixed3_6_to_gdouble(i32 noundef %537)
+  %538 = call double @ppi_fixed3_6_to_double(i32 noundef %537)
   store double %538, ptr %21, align 8
   %539 = load ptr, ptr %10, align 8
   %540 = icmp ne ptr %539, null
@@ -1311,12 +1379,12 @@ define internal void @dissect_ppi_vector_v1(ptr noundef %0, ptr noundef %1, i32 
 
 551:                                              ; preds = %541
   %552 = load ptr, ptr %15, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %552, ptr noundef @.str.223)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %552, ptr noundef @.str.224)
   br label %555
 
 553:                                              ; preds = %541
   %554 = load ptr, ptr %15, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %554, ptr noundef @.str.222)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %554, ptr noundef @.str.223)
   br label %555
 
 555:                                              ; preds = %553, %551
@@ -1345,7 +1413,7 @@ define internal void @dissect_ppi_vector_v1(ptr noundef %0, ptr noundef %1, i32 
   %568 = call i32 @tvb_get_letohl(ptr noundef %566, i32 noundef %567)
   store i32 %568, ptr %40, align 4
   %569 = load i32, ptr %40, align 4
-  %570 = call double @ppi_fixed6_4_to_gdouble(i32 noundef %569)
+  %570 = call double @ppi_fixed6_4_to_double(i32 noundef %569)
   store double %570, ptr %22, align 8
   %571 = load ptr, ptr %10, align 8
   %572 = icmp ne ptr %571, null
@@ -1366,12 +1434,12 @@ define internal void @dissect_ppi_vector_v1(ptr noundef %0, ptr noundef %1, i32 
 
 583:                                              ; preds = %573
   %584 = load ptr, ptr %15, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %584, ptr noundef @.str.224)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %584, ptr noundef @.str.225)
   br label %587
 
 585:                                              ; preds = %573
   %586 = load ptr, ptr %15, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %586, ptr noundef @.str.225)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %586, ptr noundef @.str.226)
   br label %587
 
 587:                                              ; preds = %585, %583
@@ -1400,7 +1468,7 @@ define internal void @dissect_ppi_vector_v1(ptr noundef %0, ptr noundef %1, i32 
   %600 = call i32 @tvb_get_letohl(ptr noundef %598, i32 noundef %599)
   store i32 %600, ptr %40, align 4
   %601 = load i32, ptr %40, align 4
-  %602 = call double @ppi_fixed6_4_to_gdouble(i32 noundef %601)
+  %602 = call double @ppi_fixed6_4_to_double(i32 noundef %601)
   store double %602, ptr %23, align 8
   %603 = load ptr, ptr %10, align 8
   %604 = icmp ne ptr %603, null
@@ -1421,12 +1489,12 @@ define internal void @dissect_ppi_vector_v1(ptr noundef %0, ptr noundef %1, i32 
 
 615:                                              ; preds = %605
   %616 = load ptr, ptr %15, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %616, ptr noundef @.str.224)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %616, ptr noundef @.str.225)
   br label %619
 
 617:                                              ; preds = %605
   %618 = load ptr, ptr %15, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %618, ptr noundef @.str.225)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %618, ptr noundef @.str.226)
   br label %619
 
 619:                                              ; preds = %617, %615
@@ -1455,7 +1523,7 @@ define internal void @dissect_ppi_vector_v1(ptr noundef %0, ptr noundef %1, i32 
   %632 = call i32 @tvb_get_letohl(ptr noundef %630, i32 noundef %631)
   store i32 %632, ptr %40, align 4
   %633 = load i32, ptr %40, align 4
-  %634 = call double @ppi_fixed6_4_to_gdouble(i32 noundef %633)
+  %634 = call double @ppi_fixed6_4_to_double(i32 noundef %633)
   store double %634, ptr %24, align 8
   %635 = load ptr, ptr %10, align 8
   %636 = icmp ne ptr %635, null
@@ -1476,12 +1544,12 @@ define internal void @dissect_ppi_vector_v1(ptr noundef %0, ptr noundef %1, i32 
 
 647:                                              ; preds = %637
   %648 = load ptr, ptr %15, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %648, ptr noundef @.str.224)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %648, ptr noundef @.str.225)
   br label %651
 
 649:                                              ; preds = %637
   %650 = load ptr, ptr %15, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %650, ptr noundef @.str.225)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %650, ptr noundef @.str.226)
   br label %651
 
 651:                                              ; preds = %649, %647
@@ -1510,7 +1578,7 @@ define internal void @dissect_ppi_vector_v1(ptr noundef %0, ptr noundef %1, i32 
   %664 = call i32 @tvb_get_letohl(ptr noundef %662, i32 noundef %663)
   store i32 %664, ptr %40, align 4
   %665 = load i32, ptr %40, align 4
-  %666 = call double @ppi_fixed6_4_to_gdouble(i32 noundef %665)
+  %666 = call double @ppi_fixed6_4_to_double(i32 noundef %665)
   store double %666, ptr %25, align 8
   %667 = load ptr, ptr %10, align 8
   %668 = load i32, ptr @hf_ppi_vector_vel_r, align 4
@@ -1540,7 +1608,7 @@ define internal void @dissect_ppi_vector_v1(ptr noundef %0, ptr noundef %1, i32 
   %684 = call i32 @tvb_get_letohl(ptr noundef %682, i32 noundef %683)
   store i32 %684, ptr %40, align 4
   %685 = load i32, ptr %40, align 4
-  %686 = call double @ppi_fixed6_4_to_gdouble(i32 noundef %685)
+  %686 = call double @ppi_fixed6_4_to_double(i32 noundef %685)
   store double %686, ptr %26, align 8
   %687 = load ptr, ptr %10, align 8
   %688 = load i32, ptr @hf_ppi_vector_vel_f, align 4
@@ -1570,7 +1638,7 @@ define internal void @dissect_ppi_vector_v1(ptr noundef %0, ptr noundef %1, i32 
   %704 = call i32 @tvb_get_letohl(ptr noundef %702, i32 noundef %703)
   store i32 %704, ptr %40, align 4
   %705 = load i32, ptr %40, align 4
-  %706 = call double @ppi_fixed6_4_to_gdouble(i32 noundef %705)
+  %706 = call double @ppi_fixed6_4_to_double(i32 noundef %705)
   store double %706, ptr %27, align 8
   %707 = load ptr, ptr %10, align 8
   %708 = load i32, ptr @hf_ppi_vector_vel_u, align 4
@@ -1600,7 +1668,7 @@ define internal void @dissect_ppi_vector_v1(ptr noundef %0, ptr noundef %1, i32 
   %724 = call i32 @tvb_get_letohl(ptr noundef %722, i32 noundef %723)
   store i32 %724, ptr %40, align 4
   %725 = load i32, ptr %40, align 4
-  %726 = call double @ppi_fixed6_4_to_gdouble(i32 noundef %725)
+  %726 = call double @ppi_fixed6_4_to_double(i32 noundef %725)
   store double %726, ptr %28, align 8
   %727 = load ptr, ptr %10, align 8
   %728 = load i32, ptr @hf_ppi_vector_vel_t, align 4
@@ -1630,7 +1698,7 @@ define internal void @dissect_ppi_vector_v1(ptr noundef %0, ptr noundef %1, i32 
   %744 = call i32 @tvb_get_letohl(ptr noundef %742, i32 noundef %743)
   store i32 %744, ptr %40, align 4
   %745 = load i32, ptr %40, align 4
-  %746 = call double @ppi_fixed6_4_to_gdouble(i32 noundef %745)
+  %746 = call double @ppi_fixed6_4_to_double(i32 noundef %745)
   store double %746, ptr %29, align 8
   %747 = load ptr, ptr %10, align 8
   %748 = load i32, ptr @hf_ppi_vector_acc_r, align 4
@@ -1660,7 +1728,7 @@ define internal void @dissect_ppi_vector_v1(ptr noundef %0, ptr noundef %1, i32 
   %764 = call i32 @tvb_get_letohl(ptr noundef %762, i32 noundef %763)
   store i32 %764, ptr %40, align 4
   %765 = load i32, ptr %40, align 4
-  %766 = call double @ppi_fixed6_4_to_gdouble(i32 noundef %765)
+  %766 = call double @ppi_fixed6_4_to_double(i32 noundef %765)
   store double %766, ptr %30, align 8
   %767 = load ptr, ptr %10, align 8
   %768 = load i32, ptr @hf_ppi_vector_acc_f, align 4
@@ -1690,7 +1758,7 @@ define internal void @dissect_ppi_vector_v1(ptr noundef %0, ptr noundef %1, i32 
   %784 = call i32 @tvb_get_letohl(ptr noundef %782, i32 noundef %783)
   store i32 %784, ptr %40, align 4
   %785 = load i32, ptr %40, align 4
-  %786 = call double @ppi_fixed6_4_to_gdouble(i32 noundef %785)
+  %786 = call double @ppi_fixed6_4_to_double(i32 noundef %785)
   store double %786, ptr %31, align 8
   %787 = load ptr, ptr %10, align 8
   %788 = load i32, ptr @hf_ppi_vector_acc_u, align 4
@@ -1720,7 +1788,7 @@ define internal void @dissect_ppi_vector_v1(ptr noundef %0, ptr noundef %1, i32 
   %804 = call i32 @tvb_get_letohl(ptr noundef %802, i32 noundef %803)
   store i32 %804, ptr %40, align 4
   %805 = load i32, ptr %40, align 4
-  %806 = call double @ppi_fixed6_4_to_gdouble(i32 noundef %805)
+  %806 = call double @ppi_fixed6_4_to_double(i32 noundef %805)
   store double %806, ptr %32, align 8
   %807 = load ptr, ptr %10, align 8
   %808 = load i32, ptr @hf_ppi_vector_acc_t, align 4
@@ -1750,7 +1818,7 @@ define internal void @dissect_ppi_vector_v1(ptr noundef %0, ptr noundef %1, i32 
   %824 = call i32 @tvb_get_letohl(ptr noundef %822, i32 noundef %823)
   store i32 %824, ptr %40, align 4
   %825 = load i32, ptr %40, align 4
-  %826 = call double @ppi_fixed3_6_to_gdouble(i32 noundef %825)
+  %826 = call double @ppi_fixed3_6_to_double(i32 noundef %825)
   store double %826, ptr %33, align 8
   %827 = load ptr, ptr %10, align 8
   %828 = load i32, ptr @hf_ppi_vector_err_rot, align 4
@@ -1780,7 +1848,7 @@ define internal void @dissect_ppi_vector_v1(ptr noundef %0, ptr noundef %1, i32 
   %844 = call i32 @tvb_get_letohl(ptr noundef %842, i32 noundef %843)
   store i32 %844, ptr %40, align 4
   %845 = load i32, ptr %40, align 4
-  %846 = call double @ppi_fixed6_4_to_gdouble(i32 noundef %845)
+  %846 = call double @ppi_fixed6_4_to_double(i32 noundef %845)
   store double %846, ptr %34, align 8
   %847 = load ptr, ptr %10, align 8
   %848 = load i32, ptr @hf_ppi_vector_err_off, align 4
@@ -1810,7 +1878,7 @@ define internal void @dissect_ppi_vector_v1(ptr noundef %0, ptr noundef %1, i32 
   %864 = call i32 @tvb_get_letohl(ptr noundef %862, i32 noundef %863)
   store i32 %864, ptr %40, align 4
   %865 = load i32, ptr %40, align 4
-  %866 = call double @ppi_fixed6_4_to_gdouble(i32 noundef %865)
+  %866 = call double @ppi_fixed6_4_to_double(i32 noundef %865)
   store double %866, ptr %35, align 8
   %867 = load ptr, ptr %10, align 8
   %868 = load i32, ptr @hf_ppi_vector_err_vel, align 4
@@ -1840,7 +1908,7 @@ define internal void @dissect_ppi_vector_v1(ptr noundef %0, ptr noundef %1, i32 
   %884 = call i32 @tvb_get_letohl(ptr noundef %882, i32 noundef %883)
   store i32 %884, ptr %40, align 4
   %885 = load i32, ptr %40, align 4
-  %886 = call double @ppi_fixed6_4_to_gdouble(i32 noundef %885)
+  %886 = call double @ppi_fixed6_4_to_double(i32 noundef %885)
   store double %886, ptr %36, align 8
   %887 = load ptr, ptr %10, align 8
   %888 = icmp ne ptr %887, null
@@ -1855,7 +1923,7 @@ define internal void @dissect_ppi_vector_v1(ptr noundef %0, ptr noundef %1, i32 
   %895 = call ptr @proto_tree_add_double(ptr noundef %890, i32 noundef %891, ptr noundef %892, i32 noundef %893, i32 noundef 4, double noundef %894)
   store ptr %895, ptr %15, align 8
   %896 = load ptr, ptr %15, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %896, ptr noundef @.str.226)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %896, ptr noundef @.str.227)
   br label %897
 
 897:                                              ; preds = %889, %881
@@ -1942,7 +2010,7 @@ define internal void @dissect_ppi_vector_v1(ptr noundef %0, ptr noundef %1, i32 
   %949 = load ptr, ptr %7, align 8
   %950 = load ptr, ptr %14, align 8
   %951 = load i32, ptr %16, align 4
-  %952 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %949, ptr noundef %950, ptr noundef @ei_ppi_vector_present_bit, ptr noundef @.str.227, i32 noundef %951)
+  %952 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %949, ptr noundef %950, ptr noundef @ei_ppi_vector_present_bit, ptr noundef @.str.228, i32 noundef %951)
   store i32 0, ptr %18, align 4
   br label %954
 
@@ -1952,13 +2020,43 @@ define internal void @dissect_ppi_vector_v1(ptr noundef %0, ptr noundef %1, i32 
 954:                                              ; preds = %953, %948
   %955 = load i32, ptr %18, align 4
   store i32 %955, ptr %17, align 4
-  br label %56, !llvm.loop !4
+  br label %56, !llvm.loop !6
 
 956:                                              ; preds = %56
+  call void @llvm.lifetime.end.p0(i64 4, ptr %40) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %39) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %38) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %37) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %36) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %35) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %34) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %33) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %32) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %31) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %30) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_ppi_vector_v2(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -1995,10 +2093,33 @@ define internal void @dissect_ppi_vector_v2(ptr noundef %0, ptr noundef %1, i32 
   store i32 %3, ptr %10, align 4
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #3
   store ptr null, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #3
   store ptr null, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #3
   store i32 0, ptr %24, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %25) #3
   store i32 0, ptr %25, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %29) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %30) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %31) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %32) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %33) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %34) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %35) #3
   %36 = load ptr, ptr %7, align 8
   %37 = load i32, ptr %9, align 4
   %38 = add i32 %37, 4
@@ -2049,14 +2170,14 @@ define internal void @dissect_ppi_vector_v2(ptr noundef %0, ptr noundef %1, i32 
 
 70:                                               ; preds = %57
   %71 = load ptr, ptr %12, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %71, ptr noundef @.str.228)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %71, ptr noundef @.str.229)
   br label %72
 
 72:                                               ; preds = %70, %57
   br label %74
 
 73:                                               ; preds = %54, %6
-  store ptr @.str.229, ptr %23, align 8
+  store ptr @.str.230, ptr %23, align 8
   br label %74
 
 74:                                               ; preds = %73, %72
@@ -2581,13 +2702,13 @@ define internal void @dissect_ppi_vector_v2(ptr noundef %0, ptr noundef %1, i32 
 
 447:                                              ; preds = %424
   %448 = load ptr, ptr %13, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %448, ptr noundef @.str.228)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %448, ptr noundef @.str.229)
   br label %449
 
 449:                                              ; preds = %447, %424
   %450 = load ptr, ptr %13, align 8
   %451 = load ptr, ptr %23, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %450, ptr noundef @.str.230, ptr noundef %451)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %450, ptr noundef @.str.231, ptr noundef %451)
   br label %452
 
 452:                                              ; preds = %449, %421
@@ -2702,7 +2823,7 @@ define internal void @dissect_ppi_vector_v2(ptr noundef %0, ptr noundef %1, i32 
   %538 = call i32 @tvb_get_letohl(ptr noundef %536, i32 noundef %537)
   store i32 %538, ptr %35, align 4
   %539 = load i32, ptr %35, align 4
-  %540 = call double @ppi_fixed3_6_to_gdouble(i32 noundef %539)
+  %540 = call double @ppi_fixed3_6_to_double(i32 noundef %539)
   store double %540, ptr %26, align 8
   %541 = load ptr, ptr %11, align 8
   %542 = icmp ne ptr %541, null
@@ -2718,10 +2839,10 @@ define internal void @dissect_ppi_vector_v2(ptr noundef %0, ptr noundef %1, i32 
   store ptr %549, ptr %17, align 8
   %550 = load ptr, ptr %17, align 8
   %551 = load ptr, ptr %23, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %550, ptr noundef @.str.231, ptr noundef %551)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %550, ptr noundef @.str.232, ptr noundef %551)
   %552 = load ptr, ptr %12, align 8
   %553 = load double, ptr %26, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %552, ptr noundef @.str.232, double noundef %553)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %552, ptr noundef @.str.233, double noundef %553)
   br label %554
 
 554:                                              ; preds = %543, %535
@@ -2747,7 +2868,7 @@ define internal void @dissect_ppi_vector_v2(ptr noundef %0, ptr noundef %1, i32 
   %566 = call i32 @tvb_get_letohl(ptr noundef %564, i32 noundef %565)
   store i32 %566, ptr %35, align 4
   %567 = load i32, ptr %35, align 4
-  %568 = call double @ppi_fixed3_6_to_gdouble(i32 noundef %567)
+  %568 = call double @ppi_fixed3_6_to_double(i32 noundef %567)
   store double %568, ptr %27, align 8
   %569 = load ptr, ptr %11, align 8
   %570 = icmp ne ptr %569, null
@@ -2763,10 +2884,10 @@ define internal void @dissect_ppi_vector_v2(ptr noundef %0, ptr noundef %1, i32 
   store ptr %577, ptr %17, align 8
   %578 = load ptr, ptr %17, align 8
   %579 = load ptr, ptr %23, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %578, ptr noundef @.str.231, ptr noundef %579)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %578, ptr noundef @.str.232, ptr noundef %579)
   %580 = load ptr, ptr %12, align 8
   %581 = load double, ptr %27, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %580, ptr noundef @.str.233, double noundef %581)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %580, ptr noundef @.str.234, double noundef %581)
   br label %582
 
 582:                                              ; preds = %571, %563
@@ -2792,7 +2913,7 @@ define internal void @dissect_ppi_vector_v2(ptr noundef %0, ptr noundef %1, i32 
   %594 = call i32 @tvb_get_letohl(ptr noundef %592, i32 noundef %593)
   store i32 %594, ptr %35, align 4
   %595 = load i32, ptr %35, align 4
-  %596 = call double @ppi_fixed3_6_to_gdouble(i32 noundef %595)
+  %596 = call double @ppi_fixed3_6_to_double(i32 noundef %595)
   store double %596, ptr %28, align 8
   %597 = load ptr, ptr %11, align 8
   %598 = icmp ne ptr %597, null
@@ -2808,10 +2929,10 @@ define internal void @dissect_ppi_vector_v2(ptr noundef %0, ptr noundef %1, i32 
   store ptr %605, ptr %17, align 8
   %606 = load ptr, ptr %17, align 8
   %607 = load ptr, ptr %23, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %606, ptr noundef @.str.231, ptr noundef %607)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %606, ptr noundef @.str.232, ptr noundef %607)
   %608 = load ptr, ptr %12, align 8
   %609 = load double, ptr %28, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %608, ptr noundef @.str.234, double noundef %609)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %608, ptr noundef @.str.235, double noundef %609)
   br label %610
 
 610:                                              ; preds = %599, %591
@@ -2837,7 +2958,7 @@ define internal void @dissect_ppi_vector_v2(ptr noundef %0, ptr noundef %1, i32 
   %622 = call i32 @tvb_get_letohl(ptr noundef %620, i32 noundef %621)
   store i32 %622, ptr %35, align 4
   %623 = load i32, ptr %35, align 4
-  %624 = call double @ppi_fixed6_4_to_gdouble(i32 noundef %623)
+  %624 = call double @ppi_fixed6_4_to_double(i32 noundef %623)
   store double %624, ptr %29, align 8
   %625 = load ptr, ptr %11, align 8
   %626 = icmp ne ptr %625, null
@@ -2853,10 +2974,10 @@ define internal void @dissect_ppi_vector_v2(ptr noundef %0, ptr noundef %1, i32 
   store ptr %633, ptr %17, align 8
   %634 = load ptr, ptr %17, align 8
   %635 = load ptr, ptr %23, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %634, ptr noundef @.str.235, ptr noundef %635)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %634, ptr noundef @.str.236, ptr noundef %635)
   %636 = load ptr, ptr %12, align 8
   %637 = load double, ptr %29, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %636, ptr noundef @.str.236, double noundef %637)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %636, ptr noundef @.str.237, double noundef %637)
   br label %638
 
 638:                                              ; preds = %627, %619
@@ -2882,7 +3003,7 @@ define internal void @dissect_ppi_vector_v2(ptr noundef %0, ptr noundef %1, i32 
   %650 = call i32 @tvb_get_letohl(ptr noundef %648, i32 noundef %649)
   store i32 %650, ptr %35, align 4
   %651 = load i32, ptr %35, align 4
-  %652 = call double @ppi_fixed6_4_to_gdouble(i32 noundef %651)
+  %652 = call double @ppi_fixed6_4_to_double(i32 noundef %651)
   store double %652, ptr %30, align 8
   %653 = load ptr, ptr %11, align 8
   %654 = icmp ne ptr %653, null
@@ -2898,10 +3019,10 @@ define internal void @dissect_ppi_vector_v2(ptr noundef %0, ptr noundef %1, i32 
   store ptr %661, ptr %17, align 8
   %662 = load ptr, ptr %17, align 8
   %663 = load ptr, ptr %23, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %662, ptr noundef @.str.235, ptr noundef %663)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %662, ptr noundef @.str.236, ptr noundef %663)
   %664 = load ptr, ptr %12, align 8
   %665 = load double, ptr %30, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %664, ptr noundef @.str.237, double noundef %665)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %664, ptr noundef @.str.238, double noundef %665)
   br label %666
 
 666:                                              ; preds = %655, %647
@@ -2927,7 +3048,7 @@ define internal void @dissect_ppi_vector_v2(ptr noundef %0, ptr noundef %1, i32 
   %678 = call i32 @tvb_get_letohl(ptr noundef %676, i32 noundef %677)
   store i32 %678, ptr %35, align 4
   %679 = load i32, ptr %35, align 4
-  %680 = call double @ppi_fixed6_4_to_gdouble(i32 noundef %679)
+  %680 = call double @ppi_fixed6_4_to_double(i32 noundef %679)
   store double %680, ptr %31, align 8
   %681 = load ptr, ptr %11, align 8
   %682 = icmp ne ptr %681, null
@@ -2943,10 +3064,10 @@ define internal void @dissect_ppi_vector_v2(ptr noundef %0, ptr noundef %1, i32 
   store ptr %689, ptr %17, align 8
   %690 = load ptr, ptr %17, align 8
   %691 = load ptr, ptr %23, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %690, ptr noundef @.str.235, ptr noundef %691)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %690, ptr noundef @.str.236, ptr noundef %691)
   %692 = load ptr, ptr %12, align 8
   %693 = load double, ptr %31, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %692, ptr noundef @.str.238, double noundef %693)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %692, ptr noundef @.str.239, double noundef %693)
   br label %694
 
 694:                                              ; preds = %683, %675
@@ -2972,7 +3093,7 @@ define internal void @dissect_ppi_vector_v2(ptr noundef %0, ptr noundef %1, i32 
   %706 = call i32 @tvb_get_letohl(ptr noundef %704, i32 noundef %705)
   store i32 %706, ptr %35, align 4
   %707 = load i32, ptr %35, align 4
-  %708 = call double @ppi_fixed3_6_to_gdouble(i32 noundef %707)
+  %708 = call double @ppi_fixed3_6_to_double(i32 noundef %707)
   store double %708, ptr %32, align 8
   %709 = load ptr, ptr %11, align 8
   %710 = load i32, ptr @hf_ppi_vector_err_rot, align 4
@@ -3002,7 +3123,7 @@ define internal void @dissect_ppi_vector_v2(ptr noundef %0, ptr noundef %1, i32 
   %726 = call i32 @tvb_get_letohl(ptr noundef %724, i32 noundef %725)
   store i32 %726, ptr %35, align 4
   %727 = load i32, ptr %35, align 4
-  %728 = call double @ppi_fixed6_4_to_gdouble(i32 noundef %727)
+  %728 = call double @ppi_fixed6_4_to_double(i32 noundef %727)
   store double %728, ptr %33, align 8
   %729 = load ptr, ptr %11, align 8
   %730 = load i32, ptr @hf_ppi_vector_err_off, align 4
@@ -3033,7 +3154,7 @@ define internal void @dissect_ppi_vector_v2(ptr noundef %0, ptr noundef %1, i32 
 
 746:                                              ; preds = %743
   %747 = load ptr, ptr %8, align 8
-  %748 = getelementptr inbounds %struct._packet_info, ptr %747, i32 0, i32 50
+  %748 = getelementptr inbounds nuw %struct._packet_info, ptr %747, i32 0, i32 51
   %749 = load ptr, ptr %748, align 8
   %750 = load ptr, ptr %7, align 8
   %751 = load i32, ptr %9, align 4
@@ -3047,7 +3168,7 @@ define internal void @dissect_ppi_vector_v2(ptr noundef %0, ptr noundef %1, i32 
   %758 = call ptr @proto_tree_add_string(ptr noundef %753, i32 noundef %754, ptr noundef %755, i32 noundef %756, i32 noundef 32, ptr noundef %757)
   %759 = load ptr, ptr %12, align 8
   %760 = load ptr, ptr %21, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %759, ptr noundef @.str.239, ptr noundef %760)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %759, ptr noundef @.str.240, ptr noundef %760)
   br label %761
 
 761:                                              ; preds = %746, %743
@@ -3128,7 +3249,7 @@ define internal void @dissect_ppi_vector_v2(ptr noundef %0, ptr noundef %1, i32 
   %807 = load ptr, ptr %8, align 8
   %808 = load ptr, ptr %16, align 8
   %809 = load i32, ptr %18, align 4
-  %810 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %807, ptr noundef %808, ptr noundef @ei_ppi_vector_present_bit, ptr noundef @.str.240, i32 noundef %809)
+  %810 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %807, ptr noundef %808, ptr noundef @ei_ppi_vector_present_bit, ptr noundef @.str.241, i32 noundef %809)
   store i32 0, ptr %20, align 4
   br label %812
 
@@ -3138,32 +3259,63 @@ define internal void @dissect_ppi_vector_v2(ptr noundef %0, ptr noundef %1, i32 
 812:                                              ; preds = %811, %806
   %813 = load i32, ptr %20, align 4
   store i32 %813, ptr %19, align 4
-  br label %113, !llvm.loop !6
+  br label %113, !llvm.loop !8
 
 814:                                              ; preds = %113
   %815 = load ptr, ptr %12, align 8
   %816 = load ptr, ptr %23, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %815, ptr noundef @.str.230, ptr noundef %816)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %815, ptr noundef @.str.231, ptr noundef %816)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %35) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %34) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %33) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %32) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %31) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %30) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #3
   ret void
 }
 
-declare i32 @tvb_captured_length(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length(ptr noundef) #2
 
-declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #2
 
-declare double @ppi_fixed3_6_to_gdouble(i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare double @ppi_fixed3_6_to_double(i32 noundef) #2
 
-declare ptr @proto_tree_add_double(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, double noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_double(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, double noundef) #2
 
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #2
 
-declare double @ppi_fixed6_4_to_gdouble(i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare double @ppi_fixed6_4_to_double(i32 noundef) #2
 
-declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @annotate_vector_chars(i32 noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
@@ -3176,7 +3328,7 @@ define internal void @annotate_vector_chars(i32 noundef %0, ptr noundef %1) #0 {
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %4, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef @.str.241)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef @.str.242)
   br label %10
 
 10:                                               ; preds = %8, %2
@@ -3187,7 +3339,7 @@ define internal void @annotate_vector_chars(i32 noundef %0, ptr noundef %1) #0 {
 
 14:                                               ; preds = %10
   %15 = load ptr, ptr %4, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %15, ptr noundef @.str.242)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %15, ptr noundef @.str.243)
   br label %16
 
 16:                                               ; preds = %14, %10
@@ -3198,7 +3350,7 @@ define internal void @annotate_vector_chars(i32 noundef %0, ptr noundef %1) #0 {
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr %4, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %21, ptr noundef @.str.243)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %21, ptr noundef @.str.244)
   br label %22
 
 22:                                               ; preds = %20, %16
@@ -3209,7 +3361,7 @@ define internal void @annotate_vector_chars(i32 noundef %0, ptr noundef %1) #0 {
 
 26:                                               ; preds = %22
   %27 = load ptr, ptr %4, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %27, ptr noundef @.str.244)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %27, ptr noundef @.str.245)
   br label %28
 
 28:                                               ; preds = %26, %22
@@ -3220,26 +3372,32 @@ define internal void @annotate_vector_chars(i32 noundef %0, ptr noundef %1) #0 {
 
 32:                                               ; preds = %28
   %33 = load ptr, ptr %4, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %33, ptr noundef @.str.245)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %33, ptr noundef @.str.246)
   br label %34
 
 34:                                               ; preds = %32, %28
   ret void
 }
 
-declare ptr @tvb_format_stringzpad(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_format_stringzpad(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}

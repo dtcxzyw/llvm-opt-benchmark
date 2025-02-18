@@ -5,7 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
+%struct.expert_field = type { i32, i32 }
 %struct._per_sequence_t = type { ptr, i32, i32, ptr }
 %struct.nstime_t = type { i64, i32 }
 %struct._asn1_ctx_t = type { i32, i32, i8, ptr, ptr, ptr, ptr, ptr, %struct.anon.0, %struct.anon.3, %struct.anon.4, ptr }
@@ -25,7 +25,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_mpeg_pes_stream = internal global i32 0, align 4
 @.str.3 = private unnamed_addr constant [7 x i8] c"stream\00", align 1
 @.str.4 = private unnamed_addr constant [16 x i8] c"mpeg-pes.stream\00", align 1
-@mpeg_pes_T_stream_vals = internal constant [14 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.196 }, %struct._value_string { i32 179, ptr @.str.197 }, %struct._value_string { i32 181, ptr @.str.198 }, %struct._value_string { i32 184, ptr @.str.199 }, %struct._value_string { i32 185, ptr @.str.200 }, %struct._value_string { i32 186, ptr @.str.201 }, %struct._value_string { i32 187, ptr @.str.202 }, %struct._value_string { i32 188, ptr @.str.203 }, %struct._value_string { i32 189, ptr @.str.204 }, %struct._value_string { i32 190, ptr @.str.205 }, %struct._value_string { i32 191, ptr @.str.206 }, %struct._value_string { i32 192, ptr @.str.207 }, %struct._value_string { i32 224, ptr @.str.208 }, %struct._value_string zeroinitializer], align 16
 @hf_mpeg_pes_length = internal global i32 0, align 4
 @.str.5 = private unnamed_addr constant [7 x i8] c"length\00", align 1
 @.str.6 = private unnamed_addr constant [16 x i8] c"mpeg-pes.length\00", align 1
@@ -40,7 +39,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_mpeg_pes_scrambling_control = internal global i32 0, align 4
 @.str.13 = private unnamed_addr constant [19 x i8] c"scrambling-control\00", align 1
 @.str.14 = private unnamed_addr constant [28 x i8] c"mpeg-pes.scrambling_control\00", align 1
-@mpeg_pes_T_scrambling_control_vals = internal constant [2 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.209 }, %struct._value_string zeroinitializer], align 16
 @hf_mpeg_pes_priority = internal global i32 0, align 4
 @.str.15 = private unnamed_addr constant [9 x i8] c"priority\00", align 1
 @.str.16 = private unnamed_addr constant [18 x i8] c"mpeg-pes.priority\00", align 1
@@ -91,12 +89,10 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_mpeg_pes_aspect_ratio = internal global i32 0, align 4
 @.str.47 = private unnamed_addr constant [13 x i8] c"aspect-ratio\00", align 1
 @.str.48 = private unnamed_addr constant [22 x i8] c"mpeg-pes.aspect_ratio\00", align 1
-@mpeg_pes_T_aspect_ratio_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.210 }, %struct._value_string { i32 2, ptr @.str.211 }, %struct._value_string { i32 3, ptr @.str.212 }, %struct._value_string { i32 4, ptr @.str.213 }, %struct._value_string zeroinitializer], align 16
 @.str.49 = private unnamed_addr constant [15 x i8] c"T_aspect_ratio\00", align 1
 @hf_mpeg_pes_frame_rate = internal global i32 0, align 4
 @.str.50 = private unnamed_addr constant [11 x i8] c"frame-rate\00", align 1
 @.str.51 = private unnamed_addr constant [20 x i8] c"mpeg-pes.frame_rate\00", align 1
-@mpeg_pes_T_frame_rate_vals = internal constant [10 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.214 }, %struct._value_string { i32 23976, ptr @.str.215 }, %struct._value_string { i32 24000, ptr @.str.215 }, %struct._value_string { i32 25000, ptr @.str.215 }, %struct._value_string { i32 29970, ptr @.str.215 }, %struct._value_string { i32 30000, ptr @.str.215 }, %struct._value_string { i32 50000, ptr @.str.215 }, %struct._value_string { i32 59940, ptr @.str.215 }, %struct._value_string { i32 60000, ptr @.str.215 }, %struct._value_string zeroinitializer], align 16
 @hf_mpeg_pes_bit_rate = internal global i32 0, align 4
 @.str.52 = private unnamed_addr constant [9 x i8] c"bit-rate\00", align 1
 @.str.53 = private unnamed_addr constant [18 x i8] c"mpeg-pes.bit_rate\00", align 1
@@ -181,7 +177,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_mpeg_pes_frame_type = internal global i32 0, align 4
 @.str.108 = private unnamed_addr constant [11 x i8] c"frame-type\00", align 1
 @.str.109 = private unnamed_addr constant [20 x i8] c"mpeg-pes.frame_type\00", align 1
-@mpeg_pes_T_frame_type_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.216 }, %struct._value_string { i32 2, ptr @.str.217 }, %struct._value_string { i32 3, ptr @.str.218 }, %struct._value_string { i32 4, ptr @.str.219 }, %struct._value_string zeroinitializer], align 16
 @hf_mpeg_pes_vbv_delay = internal global i32 0, align 4
 @.str.110 = private unnamed_addr constant [10 x i8] c"vbv-delay\00", align 1
 @.str.111 = private unnamed_addr constant [19 x i8] c"mpeg-pes.vbv_delay\00", align 1
@@ -225,22 +220,18 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_mpeg_pes_dsm_trick_mode_control = internal global i32 0, align 4
 @.str.137 = private unnamed_addr constant [8 x i8] c"control\00", align 1
 @.str.138 = private unnamed_addr constant [28 x i8] c"mpeg-pes.trick-mode-control\00", align 1
-@mpeg_pes_TrickModeControl_vals = internal constant [9 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.220 }, %struct._value_string { i32 1, ptr @.str.221 }, %struct._value_string { i32 2, ptr @.str.222 }, %struct._value_string { i32 3, ptr @.str.223 }, %struct._value_string { i32 4, ptr @.str.224 }, %struct._value_string { i32 5, ptr @.str.214 }, %struct._value_string { i32 6, ptr @.str.214 }, %struct._value_string { i32 7, ptr @.str.214 }, %struct._value_string zeroinitializer], align 16
 @.str.139 = private unnamed_addr constant [28 x i8] c"mpeg_pes trick mode control\00", align 1
 @hf_mpeg_pes_dsm_trick_mode_field_id = internal global i32 0, align 4
 @.str.140 = private unnamed_addr constant [9 x i8] c"field id\00", align 1
 @.str.141 = private unnamed_addr constant [29 x i8] c"mpeg-pes.trick-mode-field-id\00", align 1
-@mpeg_pes_TrickModeFieldId_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.225 }, %struct._value_string { i32 1, ptr @.str.226 }, %struct._value_string { i32 2, ptr @.str.227 }, %struct._value_string { i32 3, ptr @.str.214 }, %struct._value_string zeroinitializer], align 16
 @.str.142 = private unnamed_addr constant [29 x i8] c"mpeg_pes trick mode field id\00", align 1
 @hf_mpeg_pes_dsm_trick_mode_intra_slice_refresh = internal global i32 0, align 4
 @.str.143 = private unnamed_addr constant [20 x i8] c"intra slice refresh\00", align 1
 @.str.144 = private unnamed_addr constant [40 x i8] c"mpeg-pes.trick-mode-intra-slice-refresh\00", align 1
-@mpeg_pes_TrickModeIntraSliceRefresh_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.228 }, %struct._value_string { i32 1, ptr @.str.229 }, %struct._value_string zeroinitializer], align 16
 @.str.145 = private unnamed_addr constant [40 x i8] c"mpeg_pes trick mode intra slice refresh\00", align 1
 @hf_mpeg_pes_dsm_trick_mode_frequency_truncation = internal global i32 0, align 4
 @.str.146 = private unnamed_addr constant [21 x i8] c"frequency truncation\00", align 1
 @.str.147 = private unnamed_addr constant [41 x i8] c"mpeg-pes.trick-mode-frequency-truncation\00", align 1
-@mpeg_pes_TrickModeFrequencyTruncation_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.230 }, %struct._value_string { i32 1, ptr @.str.231 }, %struct._value_string { i32 2, ptr @.str.232 }, %struct._value_string { i32 3, ptr @.str.233 }, %struct._value_string zeroinitializer], align 16
 @.str.148 = private unnamed_addr constant [41 x i8] c"mpeg_pes trick mode frequency truncation\00", align 1
 @hf_mpeg_pes_dsm_trick_mode_rep_cntrl = internal global i32 0, align 4
 @.str.149 = private unnamed_addr constant [10 x i8] c"rep cntrl\00", align 1
@@ -304,64 +295,125 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_mpeg_pes_pack_header = internal global i32 0, align 4
 @ett_mpeg_pes_header_data = internal global i32 0, align 4
 @ett_mpeg_pes_trick_mode = internal global i32 0, align 4
-@.str.184 = private unnamed_addr constant [29 x i8] c"Moving Picture Experts Group\00", align 1
-@.str.185 = private unnamed_addr constant [5 x i8] c"MPEG\00", align 1
-@.str.186 = private unnamed_addr constant [5 x i8] c"mpeg\00", align 1
+@proto_register_mpeg_pes.ei_pes = internal global [1 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_mpeg_pes_length_zero, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.184, i32 150994944, i32 6291456, ptr @.str.185, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@ei_mpeg_pes_length_zero = internal global %struct.expert_field zeroinitializer, align 4
+@.str.184 = private unnamed_addr constant [21 x i8] c"mpeg-pes.length.zero\00", align 1
+@.str.185 = private unnamed_addr constant [84 x i8] c"Length 0 is allowed only in packets whose payload is from a video elementary stream\00", align 1
+@.str.186 = private unnamed_addr constant [29 x i8] c"Moving Picture Experts Group\00", align 1
+@.str.187 = private unnamed_addr constant [5 x i8] c"MPEG\00", align 1
+@.str.188 = private unnamed_addr constant [5 x i8] c"mpeg\00", align 1
 @proto_mpeg = internal unnamed_addr global i32 0, align 4
 @mpeg_handle = internal unnamed_addr global ptr null, align 8
-@.str.187 = private unnamed_addr constant [13 x i8] c"MPEG payload\00", align 1
+@.str.189 = private unnamed_addr constant [13 x i8] c"MPEG payload\00", align 1
 @heur_subdissector_list = internal unnamed_addr global ptr null, align 8
-@.str.188 = private unnamed_addr constant [29 x i8] c"Packetized Elementary Stream\00", align 1
-@.str.189 = private unnamed_addr constant [9 x i8] c"MPEG PES\00", align 1
-@.str.190 = private unnamed_addr constant [9 x i8] c"mpeg-pes\00", align 1
+@.str.190 = private unnamed_addr constant [29 x i8] c"Packetized Elementary Stream\00", align 1
+@.str.191 = private unnamed_addr constant [9 x i8] c"MPEG PES\00", align 1
+@.str.192 = private unnamed_addr constant [9 x i8] c"mpeg-pes\00", align 1
 @proto_mpeg_pes = internal unnamed_addr global i32 0, align 4
-@.str.191 = private unnamed_addr constant [21 x i8] c"MPEG PES stream type\00", align 1
+@.str.193 = private unnamed_addr constant [21 x i8] c"MPEG PES stream type\00", align 1
 @stream_type_table = internal unnamed_addr global ptr null, align 8
-@.str.192 = private unnamed_addr constant [11 x i8] c"wtap_encap\00", align 1
-@.str.193 = private unnamed_addr constant [9 x i8] c"mpeg_pes\00", align 1
-@.str.194 = private unnamed_addr constant [16 x i8] c"h264_bytestream\00", align 1
-@.str.195 = private unnamed_addr constant [16 x i8] c"h265_bytestream\00", align 1
-@.str.196 = private unnamed_addr constant [8 x i8] c"picture\00", align 1
-@.str.197 = private unnamed_addr constant [16 x i8] c"sequence-header\00", align 1
-@.str.198 = private unnamed_addr constant [26 x i8] c"sequence-header-extension\00", align 1
-@.str.199 = private unnamed_addr constant [18 x i8] c"group-of-pictures\00", align 1
-@.str.200 = private unnamed_addr constant [12 x i8] c"program-end\00", align 1
-@.str.201 = private unnamed_addr constant [12 x i8] c"pack-header\00", align 1
-@.str.202 = private unnamed_addr constant [14 x i8] c"system-header\00", align 1
-@.str.203 = private unnamed_addr constant [19 x i8] c"program-stream-map\00", align 1
-@.str.204 = private unnamed_addr constant [17 x i8] c"private-stream-1\00", align 1
-@.str.205 = private unnamed_addr constant [15 x i8] c"padding-stream\00", align 1
-@.str.206 = private unnamed_addr constant [17 x i8] c"private-stream-2\00", align 1
-@.str.207 = private unnamed_addr constant [13 x i8] c"audio-stream\00", align 1
-@.str.208 = private unnamed_addr constant [13 x i8] c"video-stream\00", align 1
-@.str.209 = private unnamed_addr constant [14 x i8] c"not-scrambled\00", align 1
-@.str.210 = private unnamed_addr constant [12 x i8] c"aspect-1to1\00", align 1
-@.str.211 = private unnamed_addr constant [12 x i8] c"aspect-4to3\00", align 1
-@.str.212 = private unnamed_addr constant [13 x i8] c"aspect-16to9\00", align 1
-@.str.213 = private unnamed_addr constant [15 x i8] c"aspect-2-21to1\00", align 1
-@.str.214 = private unnamed_addr constant [9 x i8] c"reserved\00", align 1
-@.str.215 = private unnamed_addr constant [3 x i8] c"fr\00", align 1
-@.str.216 = private unnamed_addr constant [8 x i8] c"i-frame\00", align 1
-@.str.217 = private unnamed_addr constant [8 x i8] c"p-frame\00", align 1
-@.str.218 = private unnamed_addr constant [8 x i8] c"b-frame\00", align 1
-@.str.219 = private unnamed_addr constant [8 x i8] c"d-frame\00", align 1
-@.str.220 = private unnamed_addr constant [13 x i8] c"fast-forward\00", align 1
-@.str.221 = private unnamed_addr constant [12 x i8] c"slow-motion\00", align 1
-@.str.222 = private unnamed_addr constant [13 x i8] c"freeze-frame\00", align 1
-@.str.223 = private unnamed_addr constant [13 x i8] c"fast-reverse\00", align 1
-@.str.224 = private unnamed_addr constant [13 x i8] c"slow-reverse\00", align 1
-@.str.225 = private unnamed_addr constant [28 x i8] c"display-from-top-field-only\00", align 1
-@.str.226 = private unnamed_addr constant [31 x i8] c"display-from-bottom-field-only\00", align 1
-@.str.227 = private unnamed_addr constant [23 x i8] c"display-complete-frame\00", align 1
-@.str.228 = private unnamed_addr constant [31 x i8] c"macroblocks-may-not-be-missing\00", align 1
-@.str.229 = private unnamed_addr constant [27 x i8] c"macroblocks-may-be-missing\00", align 1
-@.str.230 = private unnamed_addr constant [34 x i8] c"only-DC-coefficients-are-non-zero\00", align 1
-@.str.231 = private unnamed_addr constant [47 x i8] c"only-the-first-three-coefficients-are-non-zero\00", align 1
-@.str.232 = private unnamed_addr constant [45 x i8] c"only-the-first-six-coefficients-are-non-zero\00", align 1
-@.str.233 = private unnamed_addr constant [33 x i8] c"all-coefficients-may-be-non-zero\00", align 1
-@.str.234 = private unnamed_addr constant [4 x i8] c"%s \00", align 1
-@.str.235 = private unnamed_addr constant [19 x i8] c"Unknown stream: %d\00", align 1
-@.str.236 = private unnamed_addr constant [23 x i8] c"Unknown frame type: %d\00", align 1
+@.str.194 = private unnamed_addr constant [16 x i8] c"mpeg-pes_follow\00", align 1
+@mpeg_pes_follow_tap = internal unnamed_addr global i32 0, align 4
+@.str.195 = private unnamed_addr constant [11 x i8] c"wtap_encap\00", align 1
+@.str.196 = private unnamed_addr constant [9 x i8] c"mpeg_pes\00", align 1
+@.str.197 = private unnamed_addr constant [16 x i8] c"h264_bytestream\00", align 1
+@.str.198 = private unnamed_addr constant [16 x i8] c"h265_bytestream\00", align 1
+@.str.199 = private unnamed_addr constant [8 x i8] c"picture\00", align 1
+@.str.200 = private unnamed_addr constant [16 x i8] c"sequence-header\00", align 1
+@.str.201 = private unnamed_addr constant [26 x i8] c"sequence-header-extension\00", align 1
+@.str.202 = private unnamed_addr constant [18 x i8] c"group-of-pictures\00", align 1
+@.str.203 = private unnamed_addr constant [12 x i8] c"program-end\00", align 1
+@.str.204 = private unnamed_addr constant [12 x i8] c"pack-header\00", align 1
+@.str.205 = private unnamed_addr constant [14 x i8] c"system-header\00", align 1
+@.str.206 = private unnamed_addr constant [19 x i8] c"program-stream-map\00", align 1
+@.str.207 = private unnamed_addr constant [17 x i8] c"private-stream-1\00", align 1
+@.str.208 = private unnamed_addr constant [15 x i8] c"padding-stream\00", align 1
+@.str.209 = private unnamed_addr constant [17 x i8] c"private-stream-2\00", align 1
+@.str.210 = private unnamed_addr constant [13 x i8] c"audio-stream\00", align 1
+@.str.211 = private unnamed_addr constant [15 x i8] c"audio-stream-1\00", align 1
+@.str.212 = private unnamed_addr constant [15 x i8] c"audio-stream-2\00", align 1
+@.str.213 = private unnamed_addr constant [15 x i8] c"audio-stream-3\00", align 1
+@.str.214 = private unnamed_addr constant [15 x i8] c"audio-stream-4\00", align 1
+@.str.215 = private unnamed_addr constant [15 x i8] c"audio-stream-5\00", align 1
+@.str.216 = private unnamed_addr constant [15 x i8] c"audio-stream-6\00", align 1
+@.str.217 = private unnamed_addr constant [15 x i8] c"audio-stream-7\00", align 1
+@.str.218 = private unnamed_addr constant [15 x i8] c"audio-stream-8\00", align 1
+@.str.219 = private unnamed_addr constant [15 x i8] c"audio-stream-9\00", align 1
+@.str.220 = private unnamed_addr constant [16 x i8] c"audio-stream-10\00", align 1
+@.str.221 = private unnamed_addr constant [16 x i8] c"audio-stream-11\00", align 1
+@.str.222 = private unnamed_addr constant [16 x i8] c"audio-stream-12\00", align 1
+@.str.223 = private unnamed_addr constant [16 x i8] c"audio-stream-13\00", align 1
+@.str.224 = private unnamed_addr constant [16 x i8] c"audio-stream-14\00", align 1
+@.str.225 = private unnamed_addr constant [16 x i8] c"audio-stream-15\00", align 1
+@.str.226 = private unnamed_addr constant [16 x i8] c"audio-stream-16\00", align 1
+@.str.227 = private unnamed_addr constant [16 x i8] c"audio-stream-17\00", align 1
+@.str.228 = private unnamed_addr constant [16 x i8] c"audio-stream-18\00", align 1
+@.str.229 = private unnamed_addr constant [16 x i8] c"audio-stream-19\00", align 1
+@.str.230 = private unnamed_addr constant [16 x i8] c"audio-stream-20\00", align 1
+@.str.231 = private unnamed_addr constant [16 x i8] c"audio-stream-21\00", align 1
+@.str.232 = private unnamed_addr constant [16 x i8] c"audio-stream-22\00", align 1
+@.str.233 = private unnamed_addr constant [16 x i8] c"audio-stream-23\00", align 1
+@.str.234 = private unnamed_addr constant [16 x i8] c"audio-stream-24\00", align 1
+@.str.235 = private unnamed_addr constant [16 x i8] c"audio-stream-25\00", align 1
+@.str.236 = private unnamed_addr constant [16 x i8] c"audio-stream-26\00", align 1
+@.str.237 = private unnamed_addr constant [16 x i8] c"audio-stream-27\00", align 1
+@.str.238 = private unnamed_addr constant [16 x i8] c"audio-stream-28\00", align 1
+@.str.239 = private unnamed_addr constant [16 x i8] c"audio-stream-29\00", align 1
+@.str.240 = private unnamed_addr constant [16 x i8] c"audio-stream-30\00", align 1
+@.str.241 = private unnamed_addr constant [16 x i8] c"audio-stream-31\00", align 1
+@.str.242 = private unnamed_addr constant [13 x i8] c"video-stream\00", align 1
+@.str.243 = private unnamed_addr constant [15 x i8] c"video-stream-1\00", align 1
+@.str.244 = private unnamed_addr constant [15 x i8] c"video-stream-2\00", align 1
+@.str.245 = private unnamed_addr constant [15 x i8] c"video-stream-3\00", align 1
+@.str.246 = private unnamed_addr constant [15 x i8] c"video-stream-4\00", align 1
+@.str.247 = private unnamed_addr constant [15 x i8] c"video-stream-5\00", align 1
+@.str.248 = private unnamed_addr constant [15 x i8] c"video-stream-6\00", align 1
+@.str.249 = private unnamed_addr constant [15 x i8] c"video-stream-7\00", align 1
+@.str.250 = private unnamed_addr constant [15 x i8] c"video-stream-8\00", align 1
+@.str.251 = private unnamed_addr constant [15 x i8] c"video-stream-9\00", align 1
+@.str.252 = private unnamed_addr constant [16 x i8] c"video-stream-10\00", align 1
+@.str.253 = private unnamed_addr constant [16 x i8] c"video-stream-11\00", align 1
+@.str.254 = private unnamed_addr constant [16 x i8] c"video-stream-12\00", align 1
+@.str.255 = private unnamed_addr constant [16 x i8] c"video-stream-13\00", align 1
+@.str.256 = private unnamed_addr constant [16 x i8] c"video-stream-14\00", align 1
+@.str.257 = private unnamed_addr constant [16 x i8] c"video-stream-15\00", align 1
+@mpeg_pes_T_stream_vals = internal constant [60 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.199 }, { i32, [4 x i8], ptr } { i32 179, [4 x i8] zeroinitializer, ptr @.str.200 }, { i32, [4 x i8], ptr } { i32 181, [4 x i8] zeroinitializer, ptr @.str.201 }, { i32, [4 x i8], ptr } { i32 184, [4 x i8] zeroinitializer, ptr @.str.202 }, { i32, [4 x i8], ptr } { i32 185, [4 x i8] zeroinitializer, ptr @.str.203 }, { i32, [4 x i8], ptr } { i32 186, [4 x i8] zeroinitializer, ptr @.str.204 }, { i32, [4 x i8], ptr } { i32 187, [4 x i8] zeroinitializer, ptr @.str.205 }, { i32, [4 x i8], ptr } { i32 188, [4 x i8] zeroinitializer, ptr @.str.206 }, { i32, [4 x i8], ptr } { i32 189, [4 x i8] zeroinitializer, ptr @.str.207 }, { i32, [4 x i8], ptr } { i32 190, [4 x i8] zeroinitializer, ptr @.str.208 }, { i32, [4 x i8], ptr } { i32 191, [4 x i8] zeroinitializer, ptr @.str.209 }, { i32, [4 x i8], ptr } { i32 192, [4 x i8] zeroinitializer, ptr @.str.210 }, { i32, [4 x i8], ptr } { i32 193, [4 x i8] zeroinitializer, ptr @.str.211 }, { i32, [4 x i8], ptr } { i32 194, [4 x i8] zeroinitializer, ptr @.str.212 }, { i32, [4 x i8], ptr } { i32 195, [4 x i8] zeroinitializer, ptr @.str.213 }, { i32, [4 x i8], ptr } { i32 196, [4 x i8] zeroinitializer, ptr @.str.214 }, { i32, [4 x i8], ptr } { i32 197, [4 x i8] zeroinitializer, ptr @.str.215 }, { i32, [4 x i8], ptr } { i32 198, [4 x i8] zeroinitializer, ptr @.str.216 }, { i32, [4 x i8], ptr } { i32 199, [4 x i8] zeroinitializer, ptr @.str.217 }, { i32, [4 x i8], ptr } { i32 200, [4 x i8] zeroinitializer, ptr @.str.218 }, { i32, [4 x i8], ptr } { i32 201, [4 x i8] zeroinitializer, ptr @.str.219 }, { i32, [4 x i8], ptr } { i32 202, [4 x i8] zeroinitializer, ptr @.str.220 }, { i32, [4 x i8], ptr } { i32 203, [4 x i8] zeroinitializer, ptr @.str.221 }, { i32, [4 x i8], ptr } { i32 204, [4 x i8] zeroinitializer, ptr @.str.222 }, { i32, [4 x i8], ptr } { i32 205, [4 x i8] zeroinitializer, ptr @.str.223 }, { i32, [4 x i8], ptr } { i32 206, [4 x i8] zeroinitializer, ptr @.str.224 }, { i32, [4 x i8], ptr } { i32 207, [4 x i8] zeroinitializer, ptr @.str.225 }, { i32, [4 x i8], ptr } { i32 208, [4 x i8] zeroinitializer, ptr @.str.226 }, { i32, [4 x i8], ptr } { i32 209, [4 x i8] zeroinitializer, ptr @.str.227 }, { i32, [4 x i8], ptr } { i32 210, [4 x i8] zeroinitializer, ptr @.str.228 }, { i32, [4 x i8], ptr } { i32 211, [4 x i8] zeroinitializer, ptr @.str.229 }, { i32, [4 x i8], ptr } { i32 212, [4 x i8] zeroinitializer, ptr @.str.230 }, { i32, [4 x i8], ptr } { i32 213, [4 x i8] zeroinitializer, ptr @.str.231 }, { i32, [4 x i8], ptr } { i32 214, [4 x i8] zeroinitializer, ptr @.str.232 }, { i32, [4 x i8], ptr } { i32 215, [4 x i8] zeroinitializer, ptr @.str.233 }, { i32, [4 x i8], ptr } { i32 216, [4 x i8] zeroinitializer, ptr @.str.234 }, { i32, [4 x i8], ptr } { i32 217, [4 x i8] zeroinitializer, ptr @.str.235 }, { i32, [4 x i8], ptr } { i32 218, [4 x i8] zeroinitializer, ptr @.str.236 }, { i32, [4 x i8], ptr } { i32 219, [4 x i8] zeroinitializer, ptr @.str.237 }, { i32, [4 x i8], ptr } { i32 220, [4 x i8] zeroinitializer, ptr @.str.238 }, { i32, [4 x i8], ptr } { i32 221, [4 x i8] zeroinitializer, ptr @.str.239 }, { i32, [4 x i8], ptr } { i32 222, [4 x i8] zeroinitializer, ptr @.str.240 }, { i32, [4 x i8], ptr } { i32 223, [4 x i8] zeroinitializer, ptr @.str.241 }, { i32, [4 x i8], ptr } { i32 224, [4 x i8] zeroinitializer, ptr @.str.242 }, { i32, [4 x i8], ptr } { i32 225, [4 x i8] zeroinitializer, ptr @.str.243 }, { i32, [4 x i8], ptr } { i32 226, [4 x i8] zeroinitializer, ptr @.str.244 }, { i32, [4 x i8], ptr } { i32 227, [4 x i8] zeroinitializer, ptr @.str.245 }, { i32, [4 x i8], ptr } { i32 228, [4 x i8] zeroinitializer, ptr @.str.246 }, { i32, [4 x i8], ptr } { i32 229, [4 x i8] zeroinitializer, ptr @.str.247 }, { i32, [4 x i8], ptr } { i32 230, [4 x i8] zeroinitializer, ptr @.str.248 }, { i32, [4 x i8], ptr } { i32 231, [4 x i8] zeroinitializer, ptr @.str.249 }, { i32, [4 x i8], ptr } { i32 232, [4 x i8] zeroinitializer, ptr @.str.250 }, { i32, [4 x i8], ptr } { i32 233, [4 x i8] zeroinitializer, ptr @.str.251 }, { i32, [4 x i8], ptr } { i32 234, [4 x i8] zeroinitializer, ptr @.str.252 }, { i32, [4 x i8], ptr } { i32 235, [4 x i8] zeroinitializer, ptr @.str.253 }, { i32, [4 x i8], ptr } { i32 236, [4 x i8] zeroinitializer, ptr @.str.254 }, { i32, [4 x i8], ptr } { i32 237, [4 x i8] zeroinitializer, ptr @.str.255 }, { i32, [4 x i8], ptr } { i32 238, [4 x i8] zeroinitializer, ptr @.str.256 }, { i32, [4 x i8], ptr } { i32 239, [4 x i8] zeroinitializer, ptr @.str.257 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.259 = private unnamed_addr constant [14 x i8] c"not-scrambled\00", align 1
+@mpeg_pes_T_scrambling_control_vals = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.259 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.261 = private unnamed_addr constant [12 x i8] c"aspect-1to1\00", align 1
+@.str.262 = private unnamed_addr constant [12 x i8] c"aspect-4to3\00", align 1
+@.str.263 = private unnamed_addr constant [13 x i8] c"aspect-16to9\00", align 1
+@.str.264 = private unnamed_addr constant [15 x i8] c"aspect-2-21to1\00", align 1
+@mpeg_pes_T_aspect_ratio_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.261 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.262 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.263 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.264 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.266 = private unnamed_addr constant [9 x i8] c"reserved\00", align 1
+@.str.267 = private unnamed_addr constant [3 x i8] c"fr\00", align 1
+@mpeg_pes_T_frame_rate_vals = internal constant [10 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.266 }, { i32, [4 x i8], ptr } { i32 23976, [4 x i8] zeroinitializer, ptr @.str.267 }, { i32, [4 x i8], ptr } { i32 24000, [4 x i8] zeroinitializer, ptr @.str.267 }, { i32, [4 x i8], ptr } { i32 25000, [4 x i8] zeroinitializer, ptr @.str.267 }, { i32, [4 x i8], ptr } { i32 29970, [4 x i8] zeroinitializer, ptr @.str.267 }, { i32, [4 x i8], ptr } { i32 30000, [4 x i8] zeroinitializer, ptr @.str.267 }, { i32, [4 x i8], ptr } { i32 50000, [4 x i8] zeroinitializer, ptr @.str.267 }, { i32, [4 x i8], ptr } { i32 59940, [4 x i8] zeroinitializer, ptr @.str.267 }, { i32, [4 x i8], ptr } { i32 60000, [4 x i8] zeroinitializer, ptr @.str.267 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.269 = private unnamed_addr constant [8 x i8] c"i-frame\00", align 1
+@.str.270 = private unnamed_addr constant [8 x i8] c"p-frame\00", align 1
+@.str.271 = private unnamed_addr constant [8 x i8] c"b-frame\00", align 1
+@.str.272 = private unnamed_addr constant [8 x i8] c"d-frame\00", align 1
+@mpeg_pes_T_frame_type_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.269 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.270 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.271 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.272 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.274 = private unnamed_addr constant [13 x i8] c"fast-forward\00", align 1
+@.str.275 = private unnamed_addr constant [12 x i8] c"slow-motion\00", align 1
+@.str.276 = private unnamed_addr constant [13 x i8] c"freeze-frame\00", align 1
+@.str.277 = private unnamed_addr constant [13 x i8] c"fast-reverse\00", align 1
+@.str.278 = private unnamed_addr constant [13 x i8] c"slow-reverse\00", align 1
+@mpeg_pes_TrickModeControl_vals = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.274 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.275 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.276 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.277 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.278 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.266 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.266 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.266 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.280 = private unnamed_addr constant [28 x i8] c"display-from-top-field-only\00", align 1
+@.str.281 = private unnamed_addr constant [31 x i8] c"display-from-bottom-field-only\00", align 1
+@.str.282 = private unnamed_addr constant [23 x i8] c"display-complete-frame\00", align 1
+@mpeg_pes_TrickModeFieldId_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.280 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.281 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.282 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.266 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.284 = private unnamed_addr constant [31 x i8] c"macroblocks-may-not-be-missing\00", align 1
+@.str.285 = private unnamed_addr constant [27 x i8] c"macroblocks-may-be-missing\00", align 1
+@mpeg_pes_TrickModeIntraSliceRefresh_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.284 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.285 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.287 = private unnamed_addr constant [34 x i8] c"only-DC-coefficients-are-non-zero\00", align 1
+@.str.288 = private unnamed_addr constant [47 x i8] c"only-the-first-three-coefficients-are-non-zero\00", align 1
+@.str.289 = private unnamed_addr constant [45 x i8] c"only-the-first-six-coefficients-are-non-zero\00", align 1
+@.str.290 = private unnamed_addr constant [33 x i8] c"all-coefficients-may-be-non-zero\00", align 1
+@mpeg_pes_TrickModeFrequencyTruncation_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.287 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.288 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.289 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.290 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.292 = private unnamed_addr constant [4 x i8] c"%s \00", align 1
+@.str.293 = private unnamed_addr constant [19 x i8] c"Unknown stream: %d\00", align 1
+@.str.294 = private unnamed_addr constant [23 x i8] c"Unknown frame type: %d\00", align 1
 @PES_sequence = internal constant [3 x %struct._per_sequence_t] [%struct._per_sequence_t { ptr @hf_mpeg_pes_prefix, i32 0, i32 0, ptr @dissect_mpeg_pes_OCTET_STRING_SIZE_3 }, %struct._per_sequence_t { ptr @hf_mpeg_pes_stream, i32 0, i32 0, ptr @dissect_mpeg_pes_T_stream }, %struct._per_sequence_t zeroinitializer], align 16
 @Picture_sequence = internal constant [4 x %struct._per_sequence_t] [%struct._per_sequence_t { ptr @hf_mpeg_pes_temporal_sequence_number, i32 0, i32 0, ptr @dissect_mpeg_pes_BIT_STRING_SIZE_10 }, %struct._per_sequence_t { ptr @hf_mpeg_pes_frame_type, i32 0, i32 0, ptr @dissect_mpeg_pes_T_frame_type }, %struct._per_sequence_t { ptr @hf_mpeg_pes_vbv_delay, i32 0, i32 0, ptr @dissect_mpeg_pes_BIT_STRING_SIZE_16 }, %struct._per_sequence_t zeroinitializer], align 16
 @Sequence_header_sequence = internal constant [11 x %struct._per_sequence_t] [%struct._per_sequence_t { ptr @hf_mpeg_pes_horizontal_size, i32 0, i32 0, ptr @dissect_mpeg_pes_BIT_STRING_SIZE_12 }, %struct._per_sequence_t { ptr @hf_mpeg_pes_vertical_size, i32 0, i32 0, ptr @dissect_mpeg_pes_BIT_STRING_SIZE_12 }, %struct._per_sequence_t { ptr @hf_mpeg_pes_aspect_ratio, i32 0, i32 0, ptr @dissect_mpeg_pes_T_aspect_ratio }, %struct._per_sequence_t { ptr @hf_mpeg_pes_frame_rate, i32 0, i32 0, ptr @dissect_mpeg_pes_T_frame_rate }, %struct._per_sequence_t { ptr @hf_mpeg_pes_bit_rate, i32 0, i32 0, ptr @dissect_mpeg_pes_BIT_STRING_SIZE_18 }, %struct._per_sequence_t { ptr @hf_mpeg_pes_must_be_one, i32 0, i32 0, ptr @dissect_mpeg_pes_BOOLEAN }, %struct._per_sequence_t { ptr @hf_mpeg_pes_vbv_buffer_size, i32 0, i32 0, ptr @dissect_mpeg_pes_BIT_STRING_SIZE_10 }, %struct._per_sequence_t { ptr @hf_mpeg_pes_constrained_parameters_flag, i32 0, i32 0, ptr @dissect_mpeg_pes_BOOLEAN }, %struct._per_sequence_t { ptr @hf_mpeg_pes_load_intra_quantiser_matrix, i32 0, i32 0, ptr @dissect_mpeg_pes_BOOLEAN }, %struct._per_sequence_t { ptr @hf_mpeg_pes_load_non_intra_quantiser_matrix, i32 0, i32 0, ptr @dissect_mpeg_pes_BOOLEAN }, %struct._per_sequence_t zeroinitializer], align 16
@@ -370,90 +422,107 @@ target triple = "x86_64-pc-linux-gnu"
 @Group_of_pictures_sequence = internal constant [10 x %struct._per_sequence_t] [%struct._per_sequence_t { ptr @hf_mpeg_pes_drop_frame_flag, i32 0, i32 0, ptr @dissect_mpeg_pes_BOOLEAN }, %struct._per_sequence_t { ptr @hf_mpeg_pes_hour, i32 0, i32 0, ptr @dissect_mpeg_pes_INTEGER_0_32 }, %struct._per_sequence_t { ptr @hf_mpeg_pes_minute, i32 0, i32 0, ptr @dissect_mpeg_pes_INTEGER_0_64 }, %struct._per_sequence_t { ptr @hf_mpeg_pes_must_be_one, i32 0, i32 0, ptr @dissect_mpeg_pes_BOOLEAN }, %struct._per_sequence_t { ptr @hf_mpeg_pes_second, i32 0, i32 0, ptr @dissect_mpeg_pes_INTEGER_0_64 }, %struct._per_sequence_t { ptr @hf_mpeg_pes_frame, i32 0, i32 0, ptr @dissect_mpeg_pes_INTEGER_0_64 }, %struct._per_sequence_t { ptr @hf_mpeg_pes_closed_gop, i32 0, i32 0, ptr @dissect_mpeg_pes_BOOLEAN }, %struct._per_sequence_t { ptr @hf_mpeg_pes_broken_gop, i32 0, i32 0, ptr @dissect_mpeg_pes_BOOLEAN }, %struct._per_sequence_t { ptr @hf_mpeg_pes_must_be_zero, i32 0, i32 0, ptr @dissect_mpeg_pes_BIT_STRING_SIZE_5 }, %struct._per_sequence_t zeroinitializer], align 16
 @Stream_sequence = internal constant [18 x %struct._per_sequence_t] [%struct._per_sequence_t { ptr @hf_mpeg_pes_length, i32 0, i32 0, ptr @dissect_mpeg_pes_INTEGER_0_65535 }, %struct._per_sequence_t { ptr @hf_mpeg_pes_must_be_one, i32 0, i32 0, ptr @dissect_mpeg_pes_BOOLEAN }, %struct._per_sequence_t { ptr @hf_mpeg_pes_stream_must_be_zero, i32 0, i32 0, ptr @dissect_mpeg_pes_BOOLEAN }, %struct._per_sequence_t { ptr @hf_mpeg_pes_scrambling_control, i32 0, i32 0, ptr @dissect_mpeg_pes_T_scrambling_control }, %struct._per_sequence_t { ptr @hf_mpeg_pes_priority, i32 0, i32 0, ptr @dissect_mpeg_pes_BOOLEAN }, %struct._per_sequence_t { ptr @hf_mpeg_pes_data_alignment, i32 0, i32 0, ptr @dissect_mpeg_pes_BOOLEAN }, %struct._per_sequence_t { ptr @hf_mpeg_pes_copyright, i32 0, i32 0, ptr @dissect_mpeg_pes_BOOLEAN }, %struct._per_sequence_t { ptr @hf_mpeg_pes_original, i32 0, i32 0, ptr @dissect_mpeg_pes_BOOLEAN }, %struct._per_sequence_t { ptr @hf_mpeg_pes_pts_flag, i32 0, i32 0, ptr @dissect_mpeg_pes_BOOLEAN }, %struct._per_sequence_t { ptr @hf_mpeg_pes_dts_flag, i32 0, i32 0, ptr @dissect_mpeg_pes_BOOLEAN }, %struct._per_sequence_t { ptr @hf_mpeg_pes_escr_flag, i32 0, i32 0, ptr @dissect_mpeg_pes_BOOLEAN }, %struct._per_sequence_t { ptr @hf_mpeg_pes_es_rate_flag, i32 0, i32 0, ptr @dissect_mpeg_pes_BOOLEAN }, %struct._per_sequence_t { ptr @hf_mpeg_pes_dsm_trick_mode_flag, i32 0, i32 0, ptr @dissect_mpeg_pes_BOOLEAN }, %struct._per_sequence_t { ptr @hf_mpeg_pes_additional_copy_info_flag, i32 0, i32 0, ptr @dissect_mpeg_pes_BOOLEAN }, %struct._per_sequence_t { ptr @hf_mpeg_pes_crc_flag, i32 0, i32 0, ptr @dissect_mpeg_pes_BOOLEAN }, %struct._per_sequence_t { ptr @hf_mpeg_pes_extension_flag, i32 0, i32 0, ptr @dissect_mpeg_pes_BOOLEAN }, %struct._per_sequence_t { ptr @hf_mpeg_pes_header_data_length, i32 0, i32 0, ptr @dissect_mpeg_pes_INTEGER_0_255 }, %struct._per_sequence_t zeroinitializer], align 16
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_mpeg_pes() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.184, ptr noundef nonnull @.str.185, ptr noundef nonnull @.str.186) #3
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.186, ptr noundef nonnull @.str.187, ptr noundef nonnull @.str.188)
   store i32 %1, ptr @proto_mpeg, align 4
-  %2 = tail call ptr @register_dissector(ptr noundef nonnull @.str.186, ptr noundef nonnull @dissect_mpeg, i32 noundef %1) #3
+  %2 = tail call ptr @register_dissector(ptr noundef nonnull @.str.188, ptr noundef nonnull @dissect_mpeg, i32 noundef %1)
   store ptr %2, ptr @mpeg_handle, align 8
   %3 = load i32, ptr @proto_mpeg, align 4
-  %4 = tail call ptr @register_heur_dissector_list_with_description(ptr noundef nonnull @.str.186, ptr noundef nonnull @.str.187, i32 noundef %3) #3
+  %4 = tail call ptr @register_heur_dissector_list_with_description(ptr noundef nonnull @.str.188, ptr noundef nonnull @.str.189, i32 noundef %3)
   store ptr %4, ptr @heur_subdissector_list, align 8
-  %5 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.188, ptr noundef nonnull @.str.189, ptr noundef nonnull @.str.190) #3
+  %5 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.190, ptr noundef nonnull @.str.191, ptr noundef nonnull @.str.192)
   store i32 %5, ptr @proto_mpeg_pes, align 4
-  tail call void @proto_register_field_array(i32 noundef %5, ptr noundef nonnull @proto_register_mpeg_pes.hf, i32 noundef 83) #3
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_mpeg_pes.ett, i32 noundef 9) #3
+  tail call void @proto_register_field_array(i32 noundef %5, ptr noundef nonnull @proto_register_mpeg_pes.hf, i32 noundef 83)
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_mpeg_pes.ett, i32 noundef 9)
   %6 = load i32, ptr @proto_mpeg_pes, align 4
-  %7 = tail call ptr @register_dissector(ptr noundef nonnull @.str.190, ptr noundef nonnull @dissect_mpeg_pes, i32 noundef %6) #3
+  %7 = tail call ptr @register_dissector(ptr noundef nonnull @.str.192, ptr noundef nonnull @dissect_mpeg_pes, i32 noundef %6)
   %8 = load i32, ptr @proto_mpeg_pes, align 4
-  %9 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.191, i32 noundef %8, i32 noundef 4, i32 noundef 2) #3
-  store ptr %9, ptr @stream_type_table, align 8
+  %9 = tail call ptr @expert_register_protocol(i32 noundef %8)
+  tail call void @expert_register_field_array(ptr noundef %9, ptr noundef nonnull @proto_register_mpeg_pes.ei_pes, i32 noundef 1)
+  %10 = load i32, ptr @proto_mpeg_pes, align 4
+  %11 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.193, i32 noundef %10, i32 noundef 4, i32 noundef 2)
+  store ptr %11, ptr @stream_type_table, align 8
+  %12 = tail call i32 @register_tap(ptr noundef nonnull @.str.194)
+  store i32 %12, ptr @mpeg_pes_follow_tap, align 4
+  %13 = load i32, ptr @proto_mpeg_pes, align 4
+  tail call void @register_follow_stream(i32 noundef %13, ptr noundef nonnull @.str.194, ptr noundef nonnull @mp2t_follow_conv_filter, ptr noundef nonnull @mp2t_follow_index_filter, ptr noundef nonnull @udp_follow_address_filter, ptr noundef nonnull @udp_port_to_display, ptr noundef nonnull @follow_tvb_tap_listener, ptr noundef nonnull @mp2t_get_stream_count, ptr noundef nonnull @mp2t_get_sub_stream_id)
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mpeg(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #3
   %6 = load ptr, ptr @heur_subdissector_list, align 8
-  %7 = call i32 @dissector_try_heuristic(ptr noundef %6, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5, ptr noundef null) #3
-  %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %8, label %14
+  %7 = call zeroext i1 @dissector_try_heuristic(ptr noundef %6, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5, ptr noundef null)
+  br i1 %7, label %14, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
-  call void @col_set_str(ptr noundef %10, i32 noundef 34, ptr noundef nonnull @.str.185) #3
+  call void @col_set_str(ptr noundef %10, i32 noundef 35, ptr noundef nonnull @.str.187)
   %11 = load ptr, ptr %9, align 8
-  call void @col_clear(ptr noundef %11, i32 noundef 25) #3
+  call void @col_clear(ptr noundef %11, i32 noundef 25)
   %12 = load i32, ptr @proto_mpeg, align 4
-  %13 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #3
+  %13 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   br label %14
 
 14:                                               ; preds = %8, %4
-  %15 = call i32 @tvb_captured_length(ptr noundef %0) #3
+  %15 = call i32 @tvb_captured_length(ptr noundef %0)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
   ret i32 %15
 }
 
-declare ptr @register_heur_dissector_list_with_description(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_heur_dissector_list_with_description(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_mpeg_pes(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @dissect_mpeg_pes(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca %struct.nstime_t, align 8
   %6 = alloca %struct._asn1_ctx_t, align 8
-  %7 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef 0, i32 noundef 3) #3
-  %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %205, label %8
+  call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %6) #3
+  %7 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef 0, i32 noundef 3)
+  br i1 %7, label %8, label %211
 
 8:                                                ; preds = %4
-  %9 = tail call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef 0) #3
-  %.not163 = icmp eq i32 %9, 1
-  br i1 %.not163, label %10, label %205
+  %9 = tail call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef 0)
+  %.not = icmp eq i32 %9, 1
+  br i1 %.not, label %10, label %211
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
-  tail call void @col_set_str(ptr noundef %12, i32 noundef 34, ptr noundef nonnull @.str.189) #3
+  tail call void @col_set_str(ptr noundef %12, i32 noundef 35, ptr noundef nonnull @.str.191)
   %13 = load ptr, ptr %11, align 8
-  tail call void @col_clear(ptr noundef %13, i32 noundef 25) #3
-  %14 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #3
+  tail call void @col_clear(ptr noundef %13, i32 noundef 25)
+  %14 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 3)
   %15 = zext i8 %14 to i32
   %16 = load ptr, ptr %11, align 8
-  %17 = tail call ptr @val_to_str(i32 noundef %15, ptr noundef nonnull @mpeg_pes_T_stream_vals, ptr noundef nonnull @.str.235) #3
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %16, i32 noundef 25, ptr noundef nonnull @.str.234, ptr noundef %17) #3
+  %17 = tail call ptr @val_to_str(i32 noundef %15, ptr noundef nonnull @mpeg_pes_T_stream_vals, ptr noundef nonnull @.str.293)
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %16, i32 noundef 25, ptr noundef nonnull @.str.292, ptr noundef %17)
   %18 = ptrtoint ptr %3 to i64
   %19 = trunc i64 %18 to i32
-  call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #3
+  call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1)
   %20 = load i32, ptr @proto_mpeg_pes, align 4
   %21 = load i32, ptr @ett_mpeg_pes_PES, align 4
-  %22 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %6, ptr noundef %2, i32 noundef %20, i32 noundef %21, ptr noundef nonnull @PES_sequence) #3
+  %22 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %6, ptr noundef %2, i32 noundef %20, i32 noundef %21, ptr noundef nonnull @PES_sequence)
+  call void @increment_dissection_depth(ptr noundef %1)
   switch i8 %14, label %113 [
     i8 0, label %23
     i8 -77, label %36
@@ -463,66 +532,66 @@ define internal range(i32 0, 2) i32 @dissect_mpeg_pes(ptr noundef %0, ptr nounde
   ]
 
 23:                                               ; preds = %10
-  %24 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 5) #3
+  %24 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 5)
   %25 = lshr i8 %24, 3
   %26 = and i8 %25, 7
   %27 = zext nneg i8 %26 to i32
   %28 = load ptr, ptr %11, align 8
-  %29 = call ptr @val_to_str(i32 noundef %27, ptr noundef nonnull @mpeg_pes_T_frame_type_vals, ptr noundef nonnull @.str.236) #3
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %28, i32 noundef 25, ptr noundef nonnull @.str.234, ptr noundef %29) #3
+  %29 = call ptr @val_to_str(i32 noundef %27, ptr noundef nonnull @mpeg_pes_T_frame_type_vals, ptr noundef nonnull @.str.294)
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %28, i32 noundef 25, ptr noundef nonnull @.str.292, ptr noundef %29)
   %30 = load i32, ptr @hf_mpeg_video_picture, align 4
   %31 = load i32, ptr @ett_mpeg_pes_Picture, align 4
-  %32 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %22, ptr noundef nonnull %6, ptr noundef %2, i32 noundef %30, i32 noundef %31, ptr noundef nonnull @Picture_sequence) #3
+  %32 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %22, ptr noundef nonnull %6, ptr noundef %2, i32 noundef %30, i32 noundef %31, ptr noundef nonnull @Picture_sequence)
   %33 = load i32, ptr @hf_mpeg_video_data, align 4
   %34 = sdiv i32 %32, 8
-  %35 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %33, ptr noundef %0, i32 noundef %34, i32 noundef -1, i32 noundef 0) #3
-  br label %205
+  %35 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %33, ptr noundef %0, i32 noundef %34, i32 noundef -1, i32 noundef 0)
+  br label %209
 
 36:                                               ; preds = %10
   %37 = load i32, ptr @hf_mpeg_video_sequence_header, align 4
   %38 = load i32, ptr @ett_mpeg_pes_Sequence_header, align 4
-  %39 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %22, ptr noundef nonnull %6, ptr noundef %2, i32 noundef %37, i32 noundef %38, ptr noundef nonnull @Sequence_header_sequence) #3
+  %39 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %22, ptr noundef nonnull %6, ptr noundef %2, i32 noundef %37, i32 noundef %38, ptr noundef nonnull @Sequence_header_sequence)
   %40 = load i32, ptr @hf_mpeg_video_quantization_matrix, align 4
   %41 = sdiv i32 %39, 8
-  %42 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %40, ptr noundef %0, i32 noundef %41, i32 noundef 64, i32 noundef 0) #3
+  %42 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %40, ptr noundef %0, i32 noundef %41, i32 noundef 64, i32 noundef 0)
   %43 = add i32 %39, 512
   %44 = sdiv i32 %43, 8
-  %45 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %44) #3
-  %46 = call i32 @dissect_mpeg_pes(ptr noundef %45, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null)
-  br label %205
+  %45 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %44)
+  %46 = call i32 @dissect_mpeg_pes(ptr noundef %45, ptr noundef %1, ptr noundef %2, ptr noundef null)
+  br label %209
 
 47:                                               ; preds = %10
   %48 = load i32, ptr @hf_mpeg_video_sequence_extension, align 4
   %49 = load i32, ptr @ett_mpeg_pes_Sequence_extension, align 4
-  %50 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %22, ptr noundef nonnull %6, ptr noundef %2, i32 noundef %48, i32 noundef %49, ptr noundef nonnull @Sequence_extension_sequence) #3
+  %50 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %22, ptr noundef nonnull %6, ptr noundef %2, i32 noundef %48, i32 noundef %49, ptr noundef nonnull @Sequence_extension_sequence)
   %51 = sdiv i32 %50, 8
-  %52 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %51) #3
-  %53 = call i32 @dissect_mpeg_pes(ptr noundef %52, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null)
-  br label %205
+  %52 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %51)
+  %53 = call i32 @dissect_mpeg_pes(ptr noundef %52, ptr noundef %1, ptr noundef %2, ptr noundef null)
+  br label %209
 
 54:                                               ; preds = %10
   %55 = load i32, ptr @hf_mpeg_video_group_of_pictures, align 4
   %56 = load i32, ptr @ett_mpeg_pes_Group_of_pictures, align 4
-  %57 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %22, ptr noundef nonnull %6, ptr noundef %2, i32 noundef %55, i32 noundef %56, ptr noundef nonnull @Group_of_pictures_sequence) #3
+  %57 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %22, ptr noundef nonnull %6, ptr noundef %2, i32 noundef %55, i32 noundef %56, ptr noundef nonnull @Group_of_pictures_sequence)
   %58 = sdiv i32 %57, 8
-  %59 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %58) #3
-  %60 = call i32 @dissect_mpeg_pes(ptr noundef %59, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null)
-  br label %205
+  %59 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %58)
+  %60 = call i32 @dissect_mpeg_pes(ptr noundef %59, ptr noundef %1, ptr noundef %2, ptr noundef null)
+  br label %209
 
 61:                                               ; preds = %10
   %62 = sdiv i32 %22, 8
-  %63 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %62) #3
+  %63 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %62)
   %.mask = and i8 %63, -64
   %64 = icmp eq i8 %.mask, 64
   br i1 %64, label %65, label %110
 
 65:                                               ; preds = %61
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %66 = load i32, ptr @hf_mpeg_pes_pack_header, align 4
-  %67 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %66, ptr noundef %0, i32 noundef %62, i32 noundef 10, i32 noundef 0) #3
+  %67 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %66, ptr noundef %0, i32 noundef %62, i32 noundef 10, i32 noundef 0)
   %68 = load i32, ptr @ett_mpeg_pes_pack_header, align 4
-  %69 = call ptr @proto_item_add_subtree(ptr noundef %67, i32 noundef %68) #3
-  %70 = call i64 @tvb_get_ntoh48(ptr noundef %0, i32 noundef range(i32 -268435456, 268435456) %62) #3
+  %69 = call ptr @proto_item_add_subtree(ptr noundef %67, i32 noundef %68)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #3
+  %70 = call i64 @tvb_get_ntoh48(ptr noundef %0, i32 noundef range(i32 -268435456, 268435456) %62)
   %71 = lshr i64 %70, 13
   %72 = and i64 %71, 7516192768
   %73 = lshr i64 %70, 12
@@ -544,20 +613,20 @@ define internal range(i32 0, 2) i32 @dissect_mpeg_pes(ptr noundef %0, ptr nounde
   %88 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %87, ptr %88, align 8
   %89 = load i32, ptr @hf_mpeg_pes_scr, align 4
-  %90 = call ptr @proto_tree_add_time(ptr noundef %69, i32 noundef %89, ptr noundef %0, i32 noundef %62, i32 noundef 6, ptr noundef nonnull %5) #3
+  %90 = call ptr @proto_tree_add_time(ptr noundef %69, i32 noundef %89, ptr noundef %0, i32 noundef %62, i32 noundef 6, ptr noundef nonnull %5)
   %91 = add i32 %22, 48
   %92 = sdiv i32 %91, 8
-  %93 = call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %92) #3
+  %93 = call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %92)
   %94 = lshr i32 %93, 2
   %95 = mul i32 %94, 50
   %96 = load i32, ptr @hf_mpeg_pes_program_mux_rate, align 4
-  %97 = call ptr @proto_tree_add_uint(ptr noundef %69, i32 noundef %96, ptr noundef %0, i32 noundef %92, i32 noundef 3, i32 noundef %95) #3
+  %97 = call ptr @proto_tree_add_uint(ptr noundef %69, i32 noundef %96, ptr noundef %0, i32 noundef %92, i32 noundef 3, i32 noundef %95)
   %98 = add i32 %22, 72
   %99 = sdiv i32 %98, 8
-  %100 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %99) #3
+  %100 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %99)
   %101 = and i8 %100, 7
   %102 = load i32, ptr @hf_mpeg_pes_stuffing_length, align 4
-  %103 = call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %102, ptr noundef %0, i32 noundef %99, i32 noundef 1, i32 noundef 0) #3
+  %103 = call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %102, ptr noundef %0, i32 noundef %99, i32 noundef 1, i32 noundef 0)
   %.not.i = icmp eq i8 %101, 0
   br i1 %.not.i, label %dissect_mpeg_pes_pack_header.exit, label %104
 
@@ -566,17 +635,17 @@ define internal range(i32 0, 2) i32 @dissect_mpeg_pes(ptr noundef %0, ptr nounde
   %106 = zext nneg i8 %101 to i32
   %107 = load i32, ptr @hf_mpeg_pes_stuffing, align 4
   %108 = sdiv i32 %105, 8
-  %109 = call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %107, ptr noundef %0, i32 noundef %108, i32 noundef %106, i32 noundef 0) #3
+  %109 = call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %107, ptr noundef %0, i32 noundef %108, i32 noundef %106, i32 noundef 0)
   br label %dissect_mpeg_pes_pack_header.exit
 
 dissect_mpeg_pes_pack_header.exit:                ; preds = %65, %104
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  br label %205
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #3
+  br label %209
 
 110:                                              ; preds = %61
   %111 = load i32, ptr @hf_mpeg_pes_data, align 4
-  %112 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %111, ptr noundef %0, i32 noundef %62, i32 noundef 8, i32 noundef 0) #3
-  br label %205
+  %112 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %111, ptr noundef %0, i32 noundef %62, i32 noundef 8, i32 noundef 0)
+  br label %209
 
 113:                                              ; preds = %10
   %114 = and i8 %14, -5
@@ -585,15 +654,15 @@ dissect_mpeg_pes_pack_header.exit:                ; preds = %65, %104
 
 115:                                              ; preds = %113
   %116 = sdiv i32 %22, 8
-  %117 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %116) #3
+  %117 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %116)
   %118 = zext i16 %117 to i32
   %119 = load i32, ptr @hf_mpeg_pes_length, align 4
-  %120 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %119, ptr noundef %0, i32 noundef %116, i32 noundef 2, i32 noundef 0) #3
+  %120 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %119, ptr noundef %0, i32 noundef %116, i32 noundef 2, i32 noundef 0)
   %121 = add i32 %22, 16
   %122 = load i32, ptr @hf_mpeg_pes_data, align 4
   %123 = sdiv i32 %121, 8
-  %124 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %122, ptr noundef %0, i32 noundef %123, i32 noundef %118, i32 noundef 0) #3
-  br label %205
+  %124 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %122, ptr noundef %0, i32 noundef %123, i32 noundef %118, i32 noundef 0)
+  br label %209
 
 125:                                              ; preds = %113
   %126 = icmp eq i8 %14, -66
@@ -601,204 +670,293 @@ dissect_mpeg_pes_pack_header.exit:                ; preds = %65, %104
 
 127:                                              ; preds = %125
   %128 = sdiv i32 %22, 8
-  %129 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %128) #3
+  %129 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %128)
   %130 = zext i16 %129 to i32
   %131 = load i32, ptr @hf_mpeg_pes_length, align 4
-  %132 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %131, ptr noundef %0, i32 noundef %128, i32 noundef 2, i32 noundef 0) #3
+  %132 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %131, ptr noundef %0, i32 noundef %128, i32 noundef 2, i32 noundef 0)
   %133 = add i32 %22, 16
   %134 = load i32, ptr @hf_mpeg_pes_padding, align 4
   %135 = sdiv i32 %133, 8
-  %136 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %134, ptr noundef %0, i32 noundef %135, i32 noundef %130, i32 noundef 0) #3
-  br label %205
+  %136 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %134, ptr noundef %0, i32 noundef %135, i32 noundef %130, i32 noundef 0)
+  br label %209
 
 137:                                              ; preds = %125
   %138 = icmp eq i8 %14, -67
   %139 = icmp ugt i8 %14, -65
   %or.cond3 = or i1 %138, %139
-  br i1 %or.cond3, label %140, label %200
+  br i1 %or.cond3, label %140, label %204
 
 140:                                              ; preds = %137
-  %141 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 4) #3
-  %142 = zext i16 %141 to i32
-  %143 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 6) #3
-  %144 = icmp slt i8 %143, -64
-  br i1 %144, label %145, label %190
+  %141 = sdiv i32 %22, 8
+  %142 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %141)
+  %143 = zext i16 %142 to i32
+  %144 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 6)
+  %145 = icmp slt i8 %144, -64
+  br i1 %145, label %146, label %197
 
-145:                                              ; preds = %140
-  %146 = load i32, ptr @hf_mpeg_pes_extension, align 4
-  %147 = load i32, ptr @ett_mpeg_pes_Stream, align 4
-  %148 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %22, ptr noundef nonnull %6, ptr noundef %2, i32 noundef %146, i32 noundef %147, ptr noundef nonnull @Stream_sequence) #3
-  %149 = icmp ne i16 %141, 0
-  %150 = icmp ne i8 %14, -32
-  %or.cond5 = and i1 %150, %149
-  br i1 %or.cond5, label %151, label %154
+146:                                              ; preds = %140
+  %147 = load i32, ptr @hf_mpeg_pes_extension, align 4
+  %148 = load i32, ptr @ett_mpeg_pes_Stream, align 4
+  %149 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %22, ptr noundef nonnull %6, ptr noundef %2, i32 noundef %147, i32 noundef %148, ptr noundef nonnull @Stream_sequence)
+  %.not171 = icmp eq i16 %142, 0
+  br i1 %.not171, label %153, label %150
 
-151:                                              ; preds = %145
-  %152 = sub i32 %148, %22
-  %.neg = sdiv i32 %152, -8
-  %.neg165 = add nuw nsw i32 %142, 2
-  %153 = add nsw i32 %.neg165, %.neg
-  br label %154
+150:                                              ; preds = %146
+  %151 = sub i32 %149, %22
+  %.neg = sdiv i32 %151, -8
+  %.neg172 = add nuw nsw i32 %143, 2
+  %152 = add nsw i32 %.neg172, %.neg
+  br label %157
 
-154:                                              ; preds = %151, %145
-  %.0158 = phi i32 [ %153, %151 ], [ %142, %145 ]
-  %155 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 8) #3
-  %.not166 = icmp eq i8 %155, 0
-  br i1 %.not166, label %166, label %156
+153:                                              ; preds = %146
+  %154 = and i8 %14, -16
+  %or.cond5.not = icmp eq i8 %154, -32
+  br i1 %or.cond5.not, label %157, label %155
 
-156:                                              ; preds = %154
-  %157 = zext i8 %155 to i32
-  %158 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 7) #3
-  %159 = zext i8 %158 to i32
-  %160 = sdiv i32 %148, 8
-  %161 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %160, i32 noundef %157) #3
-  call fastcc void @dissect_mpeg_pes_header_data(ptr noundef %161, ptr noundef %2, i32 noundef %159)
-  %162 = shl nuw nsw i32 %157, 3
-  %163 = add i32 %162, %148
-  %164 = icmp ne i32 %.0158, 0
-  %or.cond7 = and i1 %150, %164
-  %165 = select i1 %or.cond7, i32 %157, i32 0
-  %spec.select = sub nsw i32 %.0158, %165
-  br label %166
+155:                                              ; preds = %153
+  %156 = call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_mpeg_pes_length_zero, ptr noundef %0, i32 noundef %141, i32 noundef 2)
+  br label %157
 
-166:                                              ; preds = %156, %154
-  %.1 = phi i32 [ %.0158, %154 ], [ %spec.select, %156 ]
-  %.0157 = phi i32 [ %148, %154 ], [ %163, %156 ]
-  %167 = icmp eq i32 %.1, 0
-  %168 = sdiv i32 %.0157, 8
-  br i1 %167, label %169, label %171
+157:                                              ; preds = %155, %153, %150
+  %.0165 = phi i32 [ %152, %150 ], [ 0, %155 ], [ 0, %153 ]
+  %158 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 8)
+  %.not173 = icmp eq i8 %158, 0
+  br i1 %.not173, label %168, label %159
 
-169:                                              ; preds = %166
-  %170 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %168) #3
-  br label %173
+159:                                              ; preds = %157
+  %160 = zext i8 %158 to i32
+  %161 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 7)
+  %162 = zext i8 %161 to i32
+  %163 = sdiv i32 %149, 8
+  %164 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %163, i32 noundef %160)
+  call fastcc void @dissect_mpeg_pes_header_data(ptr noundef %164, ptr noundef %2, i32 noundef %162)
+  %165 = shl nuw nsw i32 %160, 3
+  %166 = add i32 %165, %149
+  %.not174 = icmp eq i32 %.0165, 0
+  %167 = sub nsw i32 %.0165, %160
+  br i1 %.not174, label %.thread, label %168
 
-171:                                              ; preds = %166
-  %172 = call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %168, i32 noundef -1, i32 noundef %.1) #3
-  br label %173
+168:                                              ; preds = %159, %157
+  %.1 = phi i32 [ %167, %159 ], [ %.0165, %157 ]
+  %.0163 = phi i32 [ %166, %159 ], [ %149, %157 ]
+  %169 = icmp eq i32 %.1, 0
+  br i1 %169, label %.thread, label %172
 
-173:                                              ; preds = %171, %169
-  %.0159 = phi ptr [ %170, %169 ], [ %172, %171 ]
-  %174 = load ptr, ptr @stream_type_table, align 8
-  %175 = and i32 %19, 255
-  %176 = call i32 @dissector_try_uint_new(ptr noundef %174, i32 noundef %175, ptr noundef %.0159, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 1, ptr noundef null) #3
-  %.not167 = icmp eq i32 %176, 0
-  br i1 %.not167, label %177, label %205
+.thread:                                          ; preds = %159, %168
+  %.0163178 = phi i32 [ %.0163, %168 ], [ %166, %159 ]
+  %170 = sdiv i32 %.0163178, 8
+  %171 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %170)
+  br label %175
 
-177:                                              ; preds = %173
-  %178 = call i32 @tvb_get_ntoh24(ptr noundef %.0159, i32 noundef 0) #3
-  %179 = icmp eq i32 %178, 1
-  br i1 %179, label %180, label %182
+172:                                              ; preds = %168
+  %173 = sdiv i32 %.0163, 8
+  %174 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %173, i32 noundef %.1)
+  br label %175
 
-180:                                              ; preds = %177
-  %181 = call i32 @dissect_mpeg_pes(ptr noundef %.0159, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null)
-  br label %205
+175:                                              ; preds = %172, %.thread
+  %.0164 = phi ptr [ %171, %.thread ], [ %174, %172 ]
+  %176 = load i32, ptr @mpeg_pes_follow_tap, align 4
+  %177 = call zeroext i1 @have_tap_listener(i32 noundef %176)
+  br i1 %177, label %178, label %180
 
-182:                                              ; preds = %177
-  %183 = call zeroext i8 @tvb_get_guint8(ptr noundef %.0159, i32 noundef 0) #3
-  %184 = icmp eq i8 %183, -1
-  br i1 %184, label %185, label %187
+178:                                              ; preds = %175
+  %179 = load i32, ptr @mpeg_pes_follow_tap, align 4
+  call void @tap_queue_packet(i32 noundef %179, ptr noundef %1, ptr noundef %.0164)
+  br label %180
 
-185:                                              ; preds = %182
-  %186 = call i32 @dissect_mpeg(ptr noundef %.0159, ptr noundef nonnull %1, ptr noundef %2, ptr poison)
-  br label %205
+180:                                              ; preds = %178, %175
+  %181 = load ptr, ptr @stream_type_table, align 8
+  %182 = and i32 %19, 255
+  %183 = call i32 @dissector_try_uint_with_data(ptr noundef %181, i32 noundef %182, ptr noundef %.0164, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, ptr noundef null)
+  %.not175 = icmp eq i32 %183, 0
+  br i1 %.not175, label %184, label %209
 
-187:                                              ; preds = %182
-  %188 = load i32, ptr @hf_mpeg_pes_data, align 4
-  %189 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %188, ptr noundef %.0159, i32 noundef 0, i32 noundef -1, i32 noundef 0) #3
-  br label %205
+184:                                              ; preds = %180
+  %185 = call i32 @tvb_get_ntoh24(ptr noundef %.0164, i32 noundef 0)
+  %186 = icmp eq i32 %185, 1
+  br i1 %186, label %187, label %189
 
-190:                                              ; preds = %140
-  %191 = sdiv i32 %22, 8
-  %192 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %191) #3
-  %193 = zext i16 %192 to i32
-  %194 = load i32, ptr @hf_mpeg_pes_length, align 4
-  %195 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %194, ptr noundef %0, i32 noundef %191, i32 noundef 2, i32 noundef 0) #3
-  %196 = add i32 %22, 16
-  %197 = load i32, ptr @hf_mpeg_pes_data, align 4
-  %198 = sdiv i32 %196, 8
-  %199 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %197, ptr noundef %0, i32 noundef %198, i32 noundef %193, i32 noundef 0) #3
-  br label %205
+187:                                              ; preds = %184
+  %188 = call i32 @dissect_mpeg_pes(ptr noundef %.0164, ptr noundef %1, ptr noundef %2, ptr noundef null)
+  br label %209
 
-200:                                              ; preds = %137
-  %.not164 = icmp eq i8 %14, -71
-  br i1 %.not164, label %205, label %201
+189:                                              ; preds = %184
+  %190 = call zeroext i8 @tvb_get_uint8(ptr noundef %.0164, i32 noundef 0)
+  %191 = icmp eq i8 %190, -1
+  br i1 %191, label %192, label %194
 
-201:                                              ; preds = %200
-  %202 = load i32, ptr @hf_mpeg_pes_data, align 4
-  %203 = sdiv i32 %22, 8
-  %204 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %202, ptr noundef %0, i32 noundef %203, i32 noundef -1, i32 noundef 0) #3
-  br label %205
+192:                                              ; preds = %189
+  %193 = call i32 @dissect_mpeg(ptr noundef %.0164, ptr noundef %1, ptr noundef %2, ptr poison)
+  br label %209
 
-205:                                              ; preds = %23, %47, %110, %dissect_mpeg_pes_pack_header.exit, %127, %200, %201, %190, %180, %187, %185, %173, %115, %54, %36, %8, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %8 ], [ 1, %36 ], [ 1, %54 ], [ 1, %115 ], [ 1, %173 ], [ 1, %185 ], [ 1, %187 ], [ 1, %180 ], [ 1, %190 ], [ 1, %201 ], [ 1, %200 ], [ 1, %127 ], [ 1, %dissect_mpeg_pes_pack_header.exit ], [ 1, %110 ], [ 1, %47 ], [ 1, %23 ]
+194:                                              ; preds = %189
+  %195 = load i32, ptr @hf_mpeg_pes_data, align 4
+  %196 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %195, ptr noundef %.0164, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  br label %209
+
+197:                                              ; preds = %140
+  %198 = load i32, ptr @hf_mpeg_pes_length, align 4
+  %199 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %198, ptr noundef %0, i32 noundef %141, i32 noundef 2, i32 noundef 0)
+  %200 = add i32 %22, 16
+  %201 = load i32, ptr @hf_mpeg_pes_data, align 4
+  %202 = sdiv i32 %200, 8
+  %203 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %201, ptr noundef %0, i32 noundef %202, i32 noundef %143, i32 noundef 0)
+  br label %209
+
+204:                                              ; preds = %137
+  %.not170 = icmp eq i8 %14, -71
+  br i1 %.not170, label %209, label %205
+
+205:                                              ; preds = %204
+  %206 = load i32, ptr @hf_mpeg_pes_data, align 4
+  %207 = sdiv i32 %22, 8
+  %208 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %206, ptr noundef %0, i32 noundef %207, i32 noundef -1, i32 noundef 0)
+  br label %209
+
+209:                                              ; preds = %197, %187, %194, %192, %180, %36, %54, %115, %205, %204, %127, %dissect_mpeg_pes_pack_header.exit, %110, %47, %23
+  call void @decrement_dissection_depth(ptr noundef %1)
+  %210 = call i32 @tvb_reported_length(ptr noundef %0)
+  br label %211
+
+211:                                              ; preds = %8, %4, %209
+  %.0 = phi i32 [ %210, %209 ], [ 0, %4 ], [ 0, %8 ]
+  call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %6) #3
   ret i32 %.0
 }
 
-declare ptr @register_dissector_table(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector_table(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: null_pointer_is_valid
+declare i32 @register_tap(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: null_pointer_is_valid
+declare void @register_follow_stream(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @mp2t_follow_conv_filter(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @mp2t_follow_index_filter(i32 noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @udp_follow_address_filter(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @udp_port_to_display(ptr noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid
+declare i32 @follow_tvb_tap_listener(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid
+declare i32 @mp2t_get_stream_count() #2
+
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @mp2t_get_sub_stream_id(i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef) #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_mpeg_pes() local_unnamed_addr #0 {
   %1 = load ptr, ptr @mpeg_handle, align 8
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.192, i32 noundef 96, ptr noundef %1) #3
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.195, i32 noundef 96, ptr noundef %1)
   %2 = load i32, ptr @proto_mpeg_pes, align 4
-  tail call void @heur_dissector_add(ptr noundef nonnull @.str.186, ptr noundef nonnull @dissect_mpeg_pes, ptr noundef nonnull @.str.189, ptr noundef nonnull @.str.193, i32 noundef %2, i32 noundef 1) #3
+  tail call void @heur_dissector_add(ptr noundef nonnull @.str.188, ptr noundef nonnull @dissect_mpeg_pes_heur, ptr noundef nonnull @.str.191, ptr noundef nonnull @.str.196, i32 noundef %2, i32 noundef 1)
   %3 = load i32, ptr @proto_mpeg_pes, align 4
-  %4 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.194, i32 noundef %3) #3
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.4, i32 noundef 27, ptr noundef %4) #3
+  %4 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.197, i32 noundef %3)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.4, i32 noundef 27, ptr noundef %4)
   %5 = load i32, ptr @proto_mpeg_pes, align 4
-  %6 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.195, i32 noundef %5) #3
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.4, i32 noundef 36, ptr noundef %6) #3
+  %6 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.198, i32 noundef %5)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.4, i32 noundef 36, ptr noundef %6)
   ret void
 }
 
-declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @dissect_mpeg_pes_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = tail call i32 @dissect_mpeg_pes(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
+  %6 = icmp sgt i32 %5, 0
+  ret i1 %6
+}
 
-declare i32 @dissector_try_heuristic(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @dissector_try_heuristic(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @tvb_bytes_exist(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
 
-declare i32 @tvb_get_ntoh24(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @tvb_bytes_exist(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_ntoh24(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare void @asn1_ctx_init(ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @asn1_ctx_init(ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @increment_dissection_depth(ptr noundef) local_unnamed_addr #2
 
-declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_mpeg_pes_header_data(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 256) %2) unnamed_addr #0 {
   %4 = alloca %struct.nstime_t, align 8
   %5 = alloca %struct.nstime_t, align 8
   %6 = alloca %struct.nstime_t, align 8
   %7 = load i32, ptr @hf_mpeg_pes_header_data, align 4
-  %8 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %7, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #3
+  %8 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %7, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %9 = load i32, ptr @ett_mpeg_pes_header_data, align 4
-  %10 = tail call ptr @proto_item_add_subtree(ptr noundef %8, i32 noundef %9) #3
+  %10 = tail call ptr @proto_item_add_subtree(ptr noundef %8, i32 noundef %9)
   %.not = icmp samesign ult i32 %2, 128
   br i1 %.not, label %29, label %11
 
 11:                                               ; preds = %3
-  %12 = tail call i64 @tvb_get_ntoh40(ptr noundef %0, i32 noundef 0) #3
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #3
+  %12 = tail call i64 @tvb_get_ntoh40(ptr noundef %0, i32 noundef 0)
   %13 = lshr i64 %12, 3
   %14 = and i64 %13, 7516192768
   %15 = lshr i64 %12, 2
@@ -816,7 +974,8 @@ define internal fastcc void @dissect_mpeg_pes_header_data(ptr noundef %0, ptr no
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %25, ptr %26, align 8
   %27 = load i32, ptr @hf_mpeg_pes_pts, align 4
-  %28 = call ptr @proto_tree_add_time(ptr noundef %10, i32 noundef %27, ptr noundef %0, i32 noundef 0, i32 noundef 5, ptr noundef nonnull %4) #3
+  %28 = call ptr @proto_tree_add_time(ptr noundef %10, i32 noundef %27, ptr noundef %0, i32 noundef 0, i32 noundef 5, ptr noundef nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #3
   br label %29
 
 29:                                               ; preds = %11, %3
@@ -826,7 +985,8 @@ define internal fastcc void @dissect_mpeg_pes_header_data(ptr noundef %0, ptr no
   br i1 %.not122, label %50, label %31
 
 31:                                               ; preds = %29
-  %32 = call i64 @tvb_get_ntoh40(ptr noundef %0, i32 noundef range(i32 0, 6) %.0) #3
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #3
+  %32 = call i64 @tvb_get_ntoh40(ptr noundef %0, i32 noundef range(i32 0, 6) %.0)
   %33 = lshr i64 %32, 3
   %34 = and i64 %33, 7516192768
   %35 = lshr i64 %32, 2
@@ -844,8 +1004,9 @@ define internal fastcc void @dissect_mpeg_pes_header_data(ptr noundef %0, ptr no
   %46 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %45, ptr %46, align 8
   %47 = load i32, ptr @hf_mpeg_pes_dts, align 4
-  %48 = call ptr @proto_tree_add_time(ptr noundef %10, i32 noundef %47, ptr noundef %0, i32 noundef %.0, i32 noundef 5, ptr noundef nonnull %5) #3
+  %48 = call ptr @proto_tree_add_time(ptr noundef %10, i32 noundef %47, ptr noundef %0, i32 noundef %.0, i32 noundef 5, ptr noundef nonnull %5)
   %49 = add nuw nsw i32 %.0, 5
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #3
   br label %50
 
 50:                                               ; preds = %31, %29
@@ -855,7 +1016,8 @@ define internal fastcc void @dissect_mpeg_pes_header_data(ptr noundef %0, ptr no
   br i1 %.not123, label %75, label %52
 
 52:                                               ; preds = %50
-  %53 = call i64 @tvb_get_ntoh48(ptr noundef %0, i32 noundef range(i32 -268435456, 268435456) %.1) #3
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #3
+  %53 = call i64 @tvb_get_ntoh48(ptr noundef %0, i32 noundef range(i32 -268435456, 268435456) %.1)
   %54 = lshr i64 %53, 13
   %55 = and i64 %54, 7516192768
   %56 = lshr i64 %53, 12
@@ -877,8 +1039,9 @@ define internal fastcc void @dissect_mpeg_pes_header_data(ptr noundef %0, ptr no
   %71 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %70, ptr %71, align 8
   %72 = load i32, ptr @hf_mpeg_pes_escr, align 4
-  %73 = call ptr @proto_tree_add_time(ptr noundef %10, i32 noundef %72, ptr noundef %0, i32 noundef %.1, i32 noundef 6, ptr noundef nonnull %6) #3
+  %73 = call ptr @proto_tree_add_time(ptr noundef %10, i32 noundef %72, ptr noundef %0, i32 noundef %.1, i32 noundef 6, ptr noundef nonnull %6)
   %74 = add nuw nsw i32 %.1, 6
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #3
   br label %75
 
 75:                                               ; preds = %52, %50
@@ -888,13 +1051,13 @@ define internal fastcc void @dissect_mpeg_pes_header_data(ptr noundef %0, ptr no
   br i1 %.not124, label %86, label %77
 
 77:                                               ; preds = %75
-  %78 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.2) #3
+  %78 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.2)
   %79 = lshr i16 %78, 1
   %80 = and i16 %79, 16383
   %81 = zext nneg i16 %80 to i32
   %82 = mul nuw nsw i32 %81, 50
   %83 = load i32, ptr @hf_mpeg_pes_es_rate, align 4
-  %84 = call ptr @proto_tree_add_uint(ptr noundef %10, i32 noundef %83, ptr noundef %0, i32 noundef %.2, i32 noundef 3, i32 noundef %82) #3
+  %84 = call ptr @proto_tree_add_uint(ptr noundef %10, i32 noundef %83, ptr noundef %0, i32 noundef %.2, i32 noundef 3, i32 noundef %82)
   %85 = add nuw nsw i32 %.2, 3
   br label %86
 
@@ -905,16 +1068,16 @@ define internal fastcc void @dissect_mpeg_pes_header_data(ptr noundef %0, ptr no
   br i1 %.not125, label %125, label %88
 
 88:                                               ; preds = %86
-  %89 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.3) #3
+  %89 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.3)
   %90 = load i32, ptr @hf_mpeg_pes_dsm_trick_mode, align 4
-  %91 = call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %90, ptr noundef %0, i32 noundef %.3, i32 noundef 1, i32 noundef 0) #3
+  %91 = call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %90, ptr noundef %0, i32 noundef %.3, i32 noundef 1, i32 noundef 0)
   %92 = load i32, ptr @ett_mpeg_pes_trick_mode, align 4
-  %93 = call ptr @proto_item_add_subtree(ptr noundef %91, i32 noundef %92) #3
+  %93 = call ptr @proto_item_add_subtree(ptr noundef %91, i32 noundef %92)
   %94 = zext i8 %89 to i32
   %95 = lshr i8 %89, 5
   %96 = load i32, ptr @hf_mpeg_pes_dsm_trick_mode_control, align 4
   %97 = zext nneg i8 %95 to i32
-  %98 = call ptr @proto_tree_add_uint(ptr noundef %93, i32 noundef %96, ptr noundef %0, i32 noundef %.3, i32 noundef 1, i32 noundef %97) #3
+  %98 = call ptr @proto_tree_add_uint(ptr noundef %93, i32 noundef %96, ptr noundef %0, i32 noundef %.3, i32 noundef 1, i32 noundef %97)
   %99 = icmp ult i8 %89, 32
   %100 = icmp eq i8 %95, 3
   %or.cond = or i1 %99, %100
@@ -924,14 +1087,14 @@ define internal fastcc void @dissect_mpeg_pes_header_data(ptr noundef %0, ptr no
   %102 = load i32, ptr @hf_mpeg_pes_dsm_trick_mode_field_id, align 4
   %103 = lshr i32 %94, 3
   %104 = and i32 %103, 3
-  %105 = call ptr @proto_tree_add_uint(ptr noundef %93, i32 noundef %102, ptr noundef %0, i32 noundef %.3, i32 noundef 1, i32 noundef %104) #3
+  %105 = call ptr @proto_tree_add_uint(ptr noundef %93, i32 noundef %102, ptr noundef %0, i32 noundef %.3, i32 noundef 1, i32 noundef %104)
   %106 = load i32, ptr @hf_mpeg_pes_dsm_trick_mode_intra_slice_refresh, align 4
   %107 = lshr i32 %94, 2
   %108 = and i32 %107, 1
-  %109 = call ptr @proto_tree_add_uint(ptr noundef %93, i32 noundef %106, ptr noundef %0, i32 noundef %.3, i32 noundef 1, i32 noundef %108) #3
+  %109 = call ptr @proto_tree_add_uint(ptr noundef %93, i32 noundef %106, ptr noundef %0, i32 noundef %.3, i32 noundef 1, i32 noundef %108)
   %110 = load i32, ptr @hf_mpeg_pes_dsm_trick_mode_frequency_truncation, align 4
   %111 = and i32 %94, 3
-  %112 = call ptr @proto_tree_add_uint(ptr noundef %93, i32 noundef %110, ptr noundef %0, i32 noundef %.3, i32 noundef 1, i32 noundef %111) #3
+  %112 = call ptr @proto_tree_add_uint(ptr noundef %93, i32 noundef %110, ptr noundef %0, i32 noundef %.3, i32 noundef 1, i32 noundef %111)
   br label %123
 
 113:                                              ; preds = %88
@@ -944,14 +1107,14 @@ define internal fastcc void @dissect_mpeg_pes_header_data(ptr noundef %0, ptr no
 114:                                              ; preds = %113, %113
   %115 = load i32, ptr @hf_mpeg_pes_dsm_trick_mode_rep_cntrl, align 4
   %116 = and i32 %94, 31
-  %117 = call ptr @proto_tree_add_uint(ptr noundef %93, i32 noundef %115, ptr noundef %0, i32 noundef %.3, i32 noundef 1, i32 noundef %116) #3
+  %117 = call ptr @proto_tree_add_uint(ptr noundef %93, i32 noundef %115, ptr noundef %0, i32 noundef %.3, i32 noundef 1, i32 noundef %116)
   br label %123
 
 118:                                              ; preds = %113
   %119 = load i32, ptr @hf_mpeg_pes_dsm_trick_mode_field_id, align 4
   %120 = lshr i32 %94, 3
   %121 = and i32 %120, 3
-  %122 = call ptr @proto_tree_add_uint(ptr noundef %93, i32 noundef %119, ptr noundef %0, i32 noundef %.3, i32 noundef 1, i32 noundef %121) #3
+  %122 = call ptr @proto_tree_add_uint(ptr noundef %93, i32 noundef %119, ptr noundef %0, i32 noundef %.3, i32 noundef 1, i32 noundef %121)
   br label %123
 
 123:                                              ; preds = %113, %114, %118, %101
@@ -966,7 +1129,7 @@ define internal fastcc void @dissect_mpeg_pes_header_data(ptr noundef %0, ptr no
 
 127:                                              ; preds = %125
   %128 = load i32, ptr @hf_mpeg_pes_copy_info, align 4
-  %129 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %128, ptr noundef %0, i32 noundef %.4, i32 noundef 1, i32 noundef 0) #3
+  %129 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %128, ptr noundef %0, i32 noundef %.4, i32 noundef 1, i32 noundef 0)
   %130 = add nuw nsw i32 %.4, 1
   br label %131
 
@@ -978,7 +1141,7 @@ define internal fastcc void @dissect_mpeg_pes_header_data(ptr noundef %0, ptr no
 
 133:                                              ; preds = %131
   %134 = load i32, ptr @hf_mpeg_pes_crc, align 4
-  %135 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %134, ptr noundef %0, i32 noundef %.5, i32 noundef 2, i32 noundef 0) #3
+  %135 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %134, ptr noundef %0, i32 noundef %.5, i32 noundef 2, i32 noundef 0)
   %136 = add nuw nsw i32 %.5, 2
   br label %137
 
@@ -989,17 +1152,17 @@ define internal fastcc void @dissect_mpeg_pes_header_data(ptr noundef %0, ptr no
   br i1 %.not128, label %178, label %139
 
 139:                                              ; preds = %137
-  %140 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.6) #3
+  %140 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.6)
   %141 = zext i8 %140 to i32
   %142 = load i32, ptr @hf_mpeg_pes_extension_flags, align 4
-  %143 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %142, ptr noundef %0, i32 noundef %.6, i32 noundef 1, i32 noundef 0) #3
+  %143 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %142, ptr noundef %0, i32 noundef %.6, i32 noundef 1, i32 noundef 0)
   %144 = add nuw nsw i32 %.6, 1
   %.not129 = icmp sgt i8 %140, -1
   br i1 %.not129, label %149, label %145
 
 145:                                              ; preds = %139
   %146 = load i32, ptr @hf_mpeg_pes_private_data, align 4
-  %147 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %146, ptr noundef %0, i32 noundef %144, i32 noundef 16, i32 noundef 0) #3
+  %147 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %146, ptr noundef %0, i32 noundef %144, i32 noundef 16, i32 noundef 0)
   %148 = add nuw nsw i32 %.6, 17
   br label %149
 
@@ -1011,7 +1174,7 @@ define internal fastcc void @dissect_mpeg_pes_header_data(ptr noundef %0, ptr no
 
 151:                                              ; preds = %149
   %152 = load i32, ptr @hf_mpeg_pes_pack_length, align 4
-  %153 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %152, ptr noundef %0, i32 noundef %.8, i32 noundef 1, i32 noundef 0) #3
+  %153 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %152, ptr noundef %0, i32 noundef %.8, i32 noundef 1, i32 noundef 0)
   %154 = add nuw nsw i32 %.8, 1
   br label %155
 
@@ -1023,7 +1186,7 @@ define internal fastcc void @dissect_mpeg_pes_header_data(ptr noundef %0, ptr no
 
 157:                                              ; preds = %155
   %158 = load i32, ptr @hf_mpeg_pes_sequence, align 4
-  %159 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %158, ptr noundef %0, i32 noundef %.9, i32 noundef 2, i32 noundef 0) #3
+  %159 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %158, ptr noundef %0, i32 noundef %.9, i32 noundef 2, i32 noundef 0)
   %160 = add nuw nsw i32 %.9, 2
   br label %161
 
@@ -1034,7 +1197,7 @@ define internal fastcc void @dissect_mpeg_pes_header_data(ptr noundef %0, ptr no
   br i1 %.not132, label %173, label %163
 
 163:                                              ; preds = %161
-  %164 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.10) #3
+  %164 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.10)
   %165 = zext i16 %164 to i32
   %166 = load i32, ptr @hf_mpeg_pes_pstd_buffer, align 4
   %167 = and i32 %165, 8192
@@ -1042,7 +1205,7 @@ define internal fastcc void @dissect_mpeg_pes_header_data(ptr noundef %0, ptr no
   %168 = and i32 %165, 511
   %169 = select i1 %.not133, i32 7, i32 10
   %170 = shl nuw nsw i32 %168, %169
-  %171 = call ptr @proto_tree_add_uint(ptr noundef %10, i32 noundef %166, ptr noundef %0, i32 noundef %.10, i32 noundef 2, i32 noundef %170) #3
+  %171 = call ptr @proto_tree_add_uint(ptr noundef %10, i32 noundef %166, ptr noundef %0, i32 noundef %.10, i32 noundef 2, i32 noundef %170)
   %172 = add nuw nsw i32 %.10, 2
   br label %173
 
@@ -1054,161 +1217,179 @@ define internal fastcc void @dissect_mpeg_pes_header_data(ptr noundef %0, ptr no
 
 175:                                              ; preds = %173
   %176 = load i32, ptr @hf_mpeg_pes_extension2, align 4
-  %177 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %176, ptr noundef %0, i32 noundef %.11, i32 noundef 2, i32 noundef 0) #3
+  %177 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %176, ptr noundef %0, i32 noundef %.11, i32 noundef 2, i32 noundef 0)
   br label %178
 
 178:                                              ; preds = %173, %175, %137
   ret void
 }
 
-declare ptr @tvb_new_subset_length_caplen(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @have_tap_listener(i32 noundef) local_unnamed_addr #2
 
-declare i32 @dissector_try_uint_new(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @tap_queue_packet(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @dissect_per_sequence(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissector_try_uint_with_data(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare void @decrement_dissection_depth(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_per_sequence(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mpeg_pes_OCTET_STRING_SIZE_3(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = tail call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 3, i32 noundef 3, i32 noundef 0, ptr noundef null) #3
+  %6 = tail call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 3, i32 noundef 3, i1 noundef zeroext false, ptr noundef null)
   ret i32 %6
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mpeg_pes_T_stream(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = tail call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 255, ptr noundef null, i32 noundef 0) #3
+  %6 = tail call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 255, ptr noundef null, i1 noundef zeroext false)
   ret i32 %6
 }
 
-declare i32 @dissect_per_octet_string(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_per_octet_string(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
-declare i32 @dissect_per_constrained_integer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_per_constrained_integer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mpeg_pes_BIT_STRING_SIZE_10(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = tail call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 10, i32 noundef 10, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null) #3
+  %6 = tail call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 10, i32 noundef 10, i1 noundef zeroext false, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null)
   ret i32 %6
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mpeg_pes_T_frame_type(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = tail call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 7, ptr noundef null, i32 noundef 0) #3
+  %6 = tail call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 7, ptr noundef null, i1 noundef zeroext false)
   ret i32 %6
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mpeg_pes_BIT_STRING_SIZE_16(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = tail call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 16, i32 noundef 16, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null) #3
+  %6 = tail call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 16, i32 noundef 16, i1 noundef zeroext false, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null)
   ret i32 %6
 }
 
-declare i32 @dissect_per_bit_string(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_per_bit_string(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mpeg_pes_BIT_STRING_SIZE_12(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = tail call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 12, i32 noundef 12, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null) #3
+  %6 = tail call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 12, i32 noundef 12, i1 noundef zeroext false, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null)
   ret i32 %6
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mpeg_pes_T_aspect_ratio(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = tail call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 15, ptr noundef null, i32 noundef 0) #3
+  %6 = tail call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 15, ptr noundef null, i1 noundef zeroext false)
   ret i32 %6
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mpeg_pes_T_frame_rate(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = tail call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 9, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @T_frame_rate_value_map) #3
+  %6 = tail call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 9, ptr noundef null, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull @T_frame_rate_value_map)
   ret i32 %6
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mpeg_pes_BIT_STRING_SIZE_18(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = tail call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 18, i32 noundef 18, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null) #3
+  %6 = tail call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 18, i32 noundef 18, i1 noundef zeroext false, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null)
   ret i32 %6
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mpeg_pes_BOOLEAN(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = tail call i32 @dissect_per_boolean(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef null) #3
+  %6 = tail call i32 @dissect_per_boolean(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef null)
   ret i32 %6
 }
 
-declare i32 @dissect_per_enumerated(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_per_enumerated(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @dissect_per_boolean(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_per_boolean(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mpeg_pes_BIT_STRING_SIZE_4(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = tail call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 4, i32 noundef 4, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null) #3
+  %6 = tail call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 4, i32 noundef 4, i1 noundef zeroext false, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null)
   ret i32 %6
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mpeg_pes_INTEGER_0_255(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = tail call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 255, ptr noundef null, i32 noundef 0) #3
+  %6 = tail call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 255, ptr noundef null, i1 noundef zeroext false)
   ret i32 %6
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mpeg_pes_INTEGER_0_3(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = tail call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 3, ptr noundef null, i32 noundef 0) #3
+  %6 = tail call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 3, ptr noundef null, i1 noundef zeroext false)
   ret i32 %6
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mpeg_pes_INTEGER_0_32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = tail call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 32, ptr noundef null, i32 noundef 0) #3
+  %6 = tail call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 32, ptr noundef null, i1 noundef zeroext false)
   ret i32 %6
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mpeg_pes_INTEGER_0_64(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = tail call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 64, ptr noundef null, i32 noundef 0) #3
+  %6 = tail call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 64, ptr noundef null, i1 noundef zeroext false)
   ret i32 %6
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mpeg_pes_BIT_STRING_SIZE_5(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = tail call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 5, i32 noundef 5, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null) #3
+  %6 = tail call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 5, i32 noundef 5, i1 noundef zeroext false, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null)
   ret i32 %6
 }
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i64 @tvb_get_ntoh48(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i64 @tvb_get_ntoh48(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mpeg_pes_INTEGER_0_65535(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = tail call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 65535, ptr noundef null, i32 noundef 0) #3
+  %6 = tail call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 65535, ptr noundef null, i1 noundef zeroext false)
   ret i32 %6
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mpeg_pes_T_scrambling_control(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = tail call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 3, ptr noundef null, i32 noundef 0) #3
+  %6 = tail call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 3, ptr noundef null, i1 noundef zeroext false)
   ret i32 %6
 }
 
-declare i64 @tvb_get_ntoh40(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i64 @tvb_get_ntoh40(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}

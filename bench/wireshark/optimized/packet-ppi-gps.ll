@@ -5,8 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 
@@ -161,7 +159,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_ppi_gps = internal global i32 0, align 4
 @ett_ppi_gps_present = internal global i32 0, align 4
 @ett_ppi_gps_gpsflags_flags = internal global i32 0, align 4
-@proto_register_ppi_gps.ei = internal global [3 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_ppi_gps_present_bit, %struct.expert_field_info { ptr @.str.106, i32 150994944, i32 6291456, ptr @.str.107, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_ppi_gps_version, %struct.expert_field_info { ptr @.str.108, i32 150994944, i32 6291456, ptr @.str.109, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_ppi_gps_length, %struct.expert_field_info { ptr @.str.110, i32 117440512, i32 8388608, ptr @.str.111, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_ppi_gps.ei = internal global [3 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_ppi_gps_present_bit, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.106, i32 150994944, i32 6291456, ptr @.str.107, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_ppi_gps_version, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.108, i32 150994944, i32 6291456, ptr @.str.109, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_ppi_gps_length, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.110, i32 117440512, i32 8388608, ptr @.str.111, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_ppi_gps_present_bit = internal global %struct.expert_field zeroinitializer, align 4
 @.str.106 = private unnamed_addr constant [28 x i8] c"ppi_gps.present.unknown_bit\00", align 1
 @.str.107 = private unnamed_addr constant [62 x i8] c"Error: PPI-GEOLOCATION-GPS: unknown bit set in present field.\00", align 1
@@ -189,64 +187,74 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.124 = private unnamed_addr constant [6 x i8] c" (%s)\00", align 1
 @.str.125 = private unnamed_addr constant [67 x i8] c"Error: PPI-GEOLOCATION-GPS: unknown bit (%d) set in present field.\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_ppi_gps() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.112, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.114) #2
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.112, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.114)
   store i32 %1, ptr @proto_ppi_gps, align 4
-  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_ppi_gps.hf, i32 noundef 40) #2
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_ppi_gps.ett, i32 noundef 3) #2
+  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_ppi_gps.hf, i32 noundef 40)
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_ppi_gps.ett, i32 noundef 3)
   %2 = load i32, ptr @proto_ppi_gps, align 4
-  %3 = tail call ptr @expert_register_protocol(i32 noundef %2) #2
-  tail call void @expert_register_field_array(ptr noundef %3, ptr noundef nonnull @proto_register_ppi_gps.ei, i32 noundef 3) #2
+  %3 = tail call ptr @expert_register_protocol(i32 noundef %2)
+  tail call void @expert_register_field_array(ptr noundef %3, ptr noundef nonnull @proto_register_ppi_gps.ei, i32 noundef 3)
   %4 = load i32, ptr @proto_ppi_gps, align 4
-  %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.114, ptr noundef nonnull @dissect_ppi_gps, i32 noundef %4) #2
+  %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.114, ptr noundef nonnull @dissect_ppi_gps, i32 noundef %4)
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #2
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ppi_gps(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct.nstime_t, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %6, align 8
   store i64 0, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
-  tail call void @col_clear(ptr noundef %8, i32 noundef 25) #2
-  %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #2
+  tail call void @col_clear(ptr noundef %8, i32 noundef 25)
+  %9 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %10 = zext i8 %9 to i32
-  %11 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 2) #2
+  %11 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 2)
   %12 = zext i16 %11 to i32
-  %13 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 4) #2
+  %13 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 4)
   %14 = load ptr, ptr %7, align 8
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.115, i32 noundef %10, i32 noundef %12) #2
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.115, i32 noundef %10, i32 noundef %12)
   %15 = load i32, ptr @proto_ppi_gps, align 4
-  %16 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef 0, i32 noundef %12, ptr noundef nonnull @.str.116) #2
+  %16 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef 0, i32 noundef %12, ptr noundef nonnull @.str.116)
   %17 = load i32, ptr @ett_ppi_gps, align 4
-  %18 = tail call ptr @proto_item_add_subtree(ptr noundef %16, i32 noundef %17) #2
+  %18 = tail call ptr @proto_item_add_subtree(ptr noundef %16, i32 noundef %17)
   %19 = load i32, ptr @hf_ppi_gps_version, align 4
-  %20 = tail call ptr @proto_tree_add_uint(ptr noundef %18, i32 noundef %19, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %10) #2
+  %20 = tail call ptr @proto_tree_add_uint(ptr noundef %18, i32 noundef %19, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %10)
   %21 = load i32, ptr @hf_ppi_gps_pad, align 4
-  %22 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %21, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #2
+  %22 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %21, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648)
   %23 = load i32, ptr @hf_ppi_gps_length, align 4
-  %24 = tail call ptr @proto_tree_add_uint(ptr noundef %18, i32 noundef %23, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef %12) #2
+  %24 = tail call ptr @proto_tree_add_uint(ptr noundef %18, i32 noundef %23, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef %12)
   %25 = add i8 %9, -1
   %or.cond = icmp ult i8 %25, 2
   br i1 %or.cond, label %28, label %26
 
 26:                                               ; preds = %4
-  %27 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %20, ptr noundef nonnull @ei_ppi_gps_version, ptr noundef nonnull @.str.117, i32 noundef %10) #2
+  %27 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %20, ptr noundef nonnull @ei_ppi_gps_version, ptr noundef nonnull @.str.117, i32 noundef %10)
   br label %28
 
 28:                                               ; preds = %26, %4
@@ -254,7 +262,7 @@ define internal i32 @dissect_ppi_gps(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %28
-  %31 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %24, ptr noundef nonnull @ei_ppi_gps_length, ptr noundef nonnull @.str.118) #2
+  %31 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %24, ptr noundef nonnull @ei_ppi_gps_length, ptr noundef nonnull @.str.118)
   br label %231
 
 32:                                               ; preds = %28
@@ -262,13 +270,13 @@ define internal i32 @dissect_ppi_gps(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %32
-  %35 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %24, ptr noundef nonnull @ei_ppi_gps_length, ptr noundef nonnull @.str.119, i32 noundef %12, i32 noundef 144) #2
+  %35 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %24, ptr noundef nonnull @ei_ppi_gps_length, ptr noundef nonnull @.str.119, i32 noundef %12, i32 noundef 144)
   br label %231
 
 36:                                               ; preds = %32
   %37 = load i32, ptr @hf_ppi_gps_present, align 4
   %38 = load i32, ptr @ett_ppi_gps_present, align 4
-  %39 = tail call ptr @proto_tree_add_bitmask(ptr noundef %18, ptr noundef %0, i32 noundef 4, i32 noundef %37, i32 noundef %38, ptr noundef nonnull @dissect_ppi_gps.ppi_gps_present_flags, i32 noundef -2147483648) #2
+  %39 = tail call ptr @proto_tree_add_bitmask(ptr noundef %18, ptr noundef %0, i32 noundef 4, i32 noundef %37, i32 noundef %38, ptr noundef nonnull @dissect_ppi_gps.ppi_gps_present_flags, i32 noundef -2147483648)
   %.not321 = icmp eq i32 %13, 0
   br i1 %.not321, label %._crit_edge, label %.lr.ph
 
@@ -447,7 +455,7 @@ define internal i32 @dissect_ppi_gps(ptr noundef %0, ptr noundef %1, ptr noundef
 105:                                              ; preds = %103
   %106 = load i32, ptr @hf_ppi_gps_gpsflags_flags, align 4
   %107 = load i32, ptr @ett_ppi_gps_gpsflags_flags, align 4
-  %108 = call ptr @proto_tree_add_bitmask(ptr noundef %18, ptr noundef %0, i32 noundef %.0257324, i32 noundef %106, i32 noundef %107, ptr noundef nonnull @dissect_ppi_gps.ppi_antenna_gps_flags, i32 noundef -2147483648) #2
+  %108 = call ptr @proto_tree_add_bitmask(ptr noundef %18, ptr noundef %0, i32 noundef %.0257324, i32 noundef %106, i32 noundef %107, ptr noundef nonnull @dissect_ppi_gps.ppi_antenna_gps_flags, i32 noundef -2147483648)
   %109 = add i32 %.0257324, 4
   %110 = add nsw i32 %.0256325, -4
   br label %229
@@ -457,14 +465,14 @@ define internal i32 @dissect_ppi_gps(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %112, label %229, label %113
 
 113:                                              ; preds = %111
-  %114 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0257324) #2
-  %115 = call double @ppi_fixed3_7_to_gdouble(i32 noundef %114) #2
+  %114 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0257324)
+  %115 = call double @ppi_fixed3_7_to_double(i32 noundef %114)
   br i1 %.not317, label %119, label %116
 
 116:                                              ; preds = %113
   %117 = load i32, ptr @hf_ppi_gps_lat, align 4
-  %118 = call ptr @proto_tree_add_double(ptr noundef %18, i32 noundef %117, ptr noundef %0, i32 noundef %.0257324, i32 noundef 4, double noundef %115) #2
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.120, double noundef %115) #2
+  %118 = call ptr @proto_tree_add_double(ptr noundef %18, i32 noundef %117, ptr noundef %0, i32 noundef %.0257324, i32 noundef 4, double noundef %115)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.120, double noundef %115)
   br label %119
 
 119:                                              ; preds = %116, %113
@@ -476,14 +484,14 @@ define internal i32 @dissect_ppi_gps(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %98, label %229, label %122
 
 122:                                              ; preds = %.thread
-  %123 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0257324) #2
-  %124 = call double @ppi_fixed3_7_to_gdouble(i32 noundef %123) #2
+  %123 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0257324)
+  %124 = call double @ppi_fixed3_7_to_double(i32 noundef %123)
   br i1 %.not317, label %128, label %125
 
 125:                                              ; preds = %122
   %126 = load i32, ptr @hf_ppi_gps_lon, align 4
-  %127 = call ptr @proto_tree_add_double(ptr noundef %18, i32 noundef %126, ptr noundef %0, i32 noundef %.0257324, i32 noundef 4, double noundef %124) #2
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.121, double noundef %124) #2
+  %127 = call ptr @proto_tree_add_double(ptr noundef %18, i32 noundef %126, ptr noundef %0, i32 noundef %.0257324, i32 noundef 4, double noundef %124)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.121, double noundef %124)
   br label %128
 
 128:                                              ; preds = %125, %122
@@ -495,14 +503,14 @@ define internal i32 @dissect_ppi_gps(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %98, label %229, label %131
 
 131:                                              ; preds = %.thread320
-  %132 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0257324) #2
-  %133 = call double @ppi_fixed6_4_to_gdouble(i32 noundef %132) #2
+  %132 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0257324)
+  %133 = call double @ppi_fixed6_4_to_double(i32 noundef %132)
   br i1 %.not317, label %137, label %134
 
 134:                                              ; preds = %131
   %135 = load i32, ptr @hf_ppi_gps_alt, align 4
-  %136 = call ptr @proto_tree_add_double(ptr noundef %18, i32 noundef %135, ptr noundef %0, i32 noundef %.0257324, i32 noundef 4, double noundef %133) #2
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.122, double noundef %133) #2
+  %136 = call ptr @proto_tree_add_double(ptr noundef %18, i32 noundef %135, ptr noundef %0, i32 noundef %.0257324, i32 noundef 4, double noundef %133)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.122, double noundef %133)
   br label %137
 
 137:                                              ; preds = %134, %131
@@ -515,14 +523,14 @@ define internal i32 @dissect_ppi_gps(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %141, label %229, label %142
 
 142:                                              ; preds = %140
-  %143 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0257324) #2
-  %144 = call double @ppi_fixed6_4_to_gdouble(i32 noundef %143) #2
+  %143 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0257324)
+  %144 = call double @ppi_fixed6_4_to_double(i32 noundef %143)
   br i1 %.not317, label %148, label %145
 
 145:                                              ; preds = %142
   %146 = load i32, ptr @hf_ppi_gps_alt_gnd, align 4
-  %147 = call ptr @proto_tree_add_double(ptr noundef %18, i32 noundef %146, ptr noundef %0, i32 noundef %.0257324, i32 noundef 4, double noundef %144) #2
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.123, double noundef %144) #2
+  %147 = call ptr @proto_tree_add_double(ptr noundef %18, i32 noundef %146, ptr noundef %0, i32 noundef %.0257324, i32 noundef 4, double noundef %144)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.123, double noundef %144)
   br label %148
 
 148:                                              ; preds = %145, %142
@@ -535,7 +543,7 @@ define internal i32 @dissect_ppi_gps(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %152, label %229, label %153
 
 153:                                              ; preds = %151
-  %154 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0257324) #2
+  %154 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0257324)
   %155 = zext i32 %154 to i64
   store i64 %155, ptr %5, align 8
   store i32 0, ptr %6, align 8
@@ -550,7 +558,7 @@ define internal i32 @dissect_ppi_gps(ptr noundef %0, ptr noundef %1, ptr noundef
 
 159:                                              ; preds = %158
   %160 = add i32 %.0257324, 4
-  %161 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %160) #2
+  %161 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %160)
   store i32 %161, ptr %6, align 8
   br label %162
 
@@ -558,7 +566,7 @@ define internal i32 @dissect_ppi_gps(ptr noundef %0, ptr noundef %1, ptr noundef
   %.1263 = phi i32 [ 1, %159 ], [ %.0262322, %158 ]
   %.0261 = phi i32 [ 8, %159 ], [ 4, %158 ]
   %163 = load i32, ptr @hf_ppi_gps_gpstime, align 4
-  %164 = call ptr @proto_tree_add_time(ptr noundef %18, i32 noundef %163, ptr noundef %0, i32 noundef %.0257324, i32 noundef %.0261, ptr noundef nonnull %5) #2
+  %164 = call ptr @proto_tree_add_time(ptr noundef %18, i32 noundef %163, ptr noundef %0, i32 noundef %.0257324, i32 noundef %.0261, ptr noundef nonnull %5)
   %165 = add i32 %.0261, %.0257324
   %166 = sub nsw i32 %.0256325, %.0261
   br label %229
@@ -571,7 +579,7 @@ define internal i32 @dissect_ppi_gps(ptr noundef %0, ptr noundef %1, ptr noundef
 
 170:                                              ; preds = %167
   %171 = load i32, ptr @hf_ppi_gps_fractime, align 4
-  %172 = call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %171, ptr noundef %0, i32 noundef %.0257324, i32 noundef 4, i32 noundef -2147483648) #2
+  %172 = call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %171, ptr noundef %0, i32 noundef %.0257324, i32 noundef 4, i32 noundef -2147483648)
   %173 = add i32 %.0257324, 4
   %174 = add nsw i32 %.0256325, -4
   br label %229
@@ -581,10 +589,10 @@ define internal i32 @dissect_ppi_gps(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %176, label %229, label %177
 
 177:                                              ; preds = %175
-  %178 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0257324) #2
-  %179 = call double @ppi_fixed3_6_to_gdouble(i32 noundef %178) #2
+  %178 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0257324)
+  %179 = call double @ppi_fixed3_6_to_double(i32 noundef %178)
   %180 = load i32, ptr @hf_ppi_gps_eph, align 4
-  %181 = call ptr @proto_tree_add_double(ptr noundef %18, i32 noundef %180, ptr noundef %0, i32 noundef %.0257324, i32 noundef 4, double noundef %179) #2
+  %181 = call ptr @proto_tree_add_double(ptr noundef %18, i32 noundef %180, ptr noundef %0, i32 noundef %.0257324, i32 noundef 4, double noundef %179)
   %182 = add i32 %.0257324, 4
   %183 = add nsw i32 %.0256325, -4
   br label %229
@@ -594,10 +602,10 @@ define internal i32 @dissect_ppi_gps(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %185, label %229, label %186
 
 186:                                              ; preds = %184
-  %187 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0257324) #2
-  %188 = call double @ppi_fixed3_6_to_gdouble(i32 noundef %187) #2
+  %187 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0257324)
+  %188 = call double @ppi_fixed3_6_to_double(i32 noundef %187)
   %189 = load i32, ptr @hf_ppi_gps_epv, align 4
-  %190 = call ptr @proto_tree_add_double(ptr noundef %18, i32 noundef %189, ptr noundef %0, i32 noundef %.0257324, i32 noundef 4, double noundef %188) #2
+  %190 = call ptr @proto_tree_add_double(ptr noundef %18, i32 noundef %189, ptr noundef %0, i32 noundef %.0257324, i32 noundef 4, double noundef %188)
   %191 = add i32 %.0257324, 4
   %192 = add nsw i32 %.0256325, -4
   br label %229
@@ -607,10 +615,10 @@ define internal i32 @dissect_ppi_gps(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %194, label %229, label %195
 
 195:                                              ; preds = %193
-  %196 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0257324) #2
-  %197 = call double @ppi_ns_counter_to_gdouble(i32 noundef %196) #2
+  %196 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0257324)
+  %197 = call double @ppi_ns_counter_to_double(i32 noundef %196)
   %198 = load i32, ptr @hf_ppi_gps_ept, align 4
-  %199 = call ptr @proto_tree_add_double(ptr noundef %18, i32 noundef %198, ptr noundef %0, i32 noundef %.0257324, i32 noundef 4, double noundef %197) #2
+  %199 = call ptr @proto_tree_add_double(ptr noundef %18, i32 noundef %198, ptr noundef %0, i32 noundef %.0257324, i32 noundef 4, double noundef %197)
   %200 = add i32 %.0257324, 4
   %201 = add nsw i32 %.0256325, -4
   br label %229
@@ -624,10 +632,10 @@ define internal i32 @dissect_ppi_gps(ptr noundef %0, ptr noundef %1, ptr noundef
 
 205:                                              ; preds = %204
   %206 = load ptr, ptr %41, align 8
-  %207 = call ptr @tvb_format_stringzpad(ptr noundef %206, ptr noundef %0, i32 noundef %.0257324, i32 noundef 32) #2
+  %207 = call ptr @tvb_format_stringzpad(ptr noundef %206, ptr noundef %0, i32 noundef %.0257324, i32 noundef 32)
   %208 = load i32, ptr @hf_ppi_gps_descstr, align 4
-  %209 = call ptr @proto_tree_add_string(ptr noundef %18, i32 noundef %208, ptr noundef %0, i32 noundef %.0257324, i32 noundef 32, ptr noundef %207) #2
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.124, ptr noundef %207) #2
+  %209 = call ptr @proto_tree_add_string(ptr noundef %18, i32 noundef %208, ptr noundef %0, i32 noundef %.0257324, i32 noundef 32, ptr noundef %207)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.124, ptr noundef %207)
   br label %210
 
 210:                                              ; preds = %205, %204
@@ -640,9 +648,9 @@ define internal i32 @dissect_ppi_gps(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %214, label %229, label %215
 
 215:                                              ; preds = %213
-  %216 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0257324) #2
+  %216 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0257324)
   %217 = load i32, ptr @hf_ppi_gps_appspecific_num, align 4
-  %218 = call ptr @proto_tree_add_uint(ptr noundef %18, i32 noundef %217, ptr noundef %0, i32 noundef %.0257324, i32 noundef 4, i32 noundef %216) #2
+  %218 = call ptr @proto_tree_add_uint(ptr noundef %18, i32 noundef %217, ptr noundef %0, i32 noundef %.0257324, i32 noundef 4, i32 noundef %216)
   %219 = add i32 %.0257324, 4
   %220 = add nsw i32 %.0256325, -4
   br label %229
@@ -653,13 +661,13 @@ define internal i32 @dissect_ppi_gps(ptr noundef %0, ptr noundef %1, ptr noundef
 
 223:                                              ; preds = %221
   %224 = load i32, ptr @hf_ppi_gps_appspecific_data, align 4
-  %225 = call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %224, ptr noundef %0, i32 noundef %.0257324, i32 noundef 60, i32 noundef 0) #2
+  %225 = call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %224, ptr noundef %0, i32 noundef %.0257324, i32 noundef 60, i32 noundef 0)
   %226 = add i32 %.0257324, 60
   %227 = add nsw i32 %.0256325, -60
   br label %229
 
 .thread326:                                       ; preds = %101
-  %228 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %39, ptr noundef nonnull @ei_ppi_gps_present_bit, ptr noundef nonnull @.str.125, i32 noundef %102) #2
+  %228 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %39, ptr noundef nonnull @ei_ppi_gps_present_bit, ptr noundef nonnull @.str.125, i32 noundef %102)
   br label %._crit_edge
 
 229:                                              ; preds = %153, %105, %119, %128, %137, %148, %162, %170, %177, %186, %195, %210, %215, %223, %103, %111, %.thread, %.thread320, %140, %151, %167, %175, %184, %193, %202, %213, %221
@@ -667,68 +675,96 @@ define internal i32 @dissect_ppi_gps(ptr noundef %0, ptr noundef %1, ptr noundef
   %.1258 = phi i32 [ %.0257324, %221 ], [ %226, %223 ], [ %.0257324, %213 ], [ %219, %215 ], [ %.0257324, %202 ], [ %211, %210 ], [ %.0257324, %193 ], [ %200, %195 ], [ %.0257324, %184 ], [ %191, %186 ], [ %.0257324, %175 ], [ %182, %177 ], [ %.0257324, %167 ], [ %173, %170 ], [ %.0257324, %151 ], [ %165, %162 ], [ %.0257324, %140 ], [ %149, %148 ], [ %.0257324, %.thread320 ], [ %138, %137 ], [ %.0257324, %.thread ], [ %129, %128 ], [ %.0257324, %111 ], [ %120, %119 ], [ %.0257324, %103 ], [ %109, %105 ], [ %.0257324, %153 ]
   %.1 = phi i32 [ %.0256325, %221 ], [ %227, %223 ], [ %.0256325, %213 ], [ %220, %215 ], [ %.0256325, %202 ], [ %212, %210 ], [ %.0256325, %193 ], [ %201, %195 ], [ %.0256325, %184 ], [ %192, %186 ], [ %.0256325, %175 ], [ %183, %177 ], [ %.0256325, %167 ], [ %174, %170 ], [ %.0256325, %151 ], [ %166, %162 ], [ %.0256325, %140 ], [ %150, %148 ], [ %.0256325, %.thread320 ], [ %139, %137 ], [ %.0256325, %.thread ], [ %130, %128 ], [ %.0256325, %111 ], [ %121, %119 ], [ %.0256325, %103 ], [ %110, %105 ], [ %.0256325, %153 ]
   %.not = icmp eq i32 %44, 0
-  br i1 %.not, label %._crit_edge, label %42, !llvm.loop !4
+  br i1 %.not, label %._crit_edge, label %42, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %229, %.thread326, %36
-  %230 = call i32 @tvb_captured_length(ptr noundef %0) #2
+  %230 = call i32 @tvb_captured_length(ptr noundef %0)
   br label %231
 
 231:                                              ; preds = %._crit_edge, %34, %30
   %.0 = phi i32 [ 2, %30 ], [ 2, %34 ], [ %230, %._crit_edge ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #3
   ret i32 %.0
 }
 
-declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_protocol_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_protocol_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare double @ppi_fixed3_7_to_gdouble(i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_double(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, double noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare double @ppi_fixed3_7_to_double(i32 noundef) local_unnamed_addr #2
 
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_double(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, double noundef) local_unnamed_addr #2
 
-declare double @ppi_fixed6_4_to_gdouble(i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare double @ppi_fixed6_4_to_double(i32 noundef) local_unnamed_addr #2
 
-declare double @ppi_fixed3_6_to_gdouble(i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare double @ppi_ns_counter_to_gdouble(i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare double @ppi_fixed3_6_to_double(i32 noundef) local_unnamed_addr #2
 
-declare ptr @tvb_format_stringzpad(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare double @ppi_ns_counter_to_double(i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_format_stringzpad(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind }
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}

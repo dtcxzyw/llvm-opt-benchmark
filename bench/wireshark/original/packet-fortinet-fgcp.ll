@@ -3,8 +3,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
@@ -36,7 +35,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_fortinet_fgcp_hb_mode = internal global i32 0, align 4
 @.str.16 = private unnamed_addr constant [5 x i8] c"Mode\00", align 1
 @.str.17 = private unnamed_addr constant [22 x i8] c"fortinet_fgcp.hb.mode\00", align 1
-@fortinet_fgcp_hb_mode_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.55 }, %struct._value_string { i32 2, ptr @.str.56 }, %struct._value_string zeroinitializer], align 16
 @hf_fortinet_fgcp_hb_gn = internal global i32 0, align 4
 @.str.18 = private unnamed_addr constant [11 x i8] c"Group Name\00", align 1
 @.str.19 = private unnamed_addr constant [20 x i8] c"fortinet_fgcp.hb.gn\00", align 1
@@ -64,7 +62,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_fortinet_fgcp_hb_tlv_type = internal global i32 0, align 4
 @.str.34 = private unnamed_addr constant [5 x i8] c"Type\00", align 1
 @.str.35 = private unnamed_addr constant [26 x i8] c"fortinet_fgcp.hb.tlv.type\00", align 1
-@fortinet_fgcp_hb_tlv_vals = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.57 }, %struct._value_string { i32 12, ptr @.str.42 }, %struct._value_string { i32 13, ptr @.str.44 }, %struct._value_string zeroinitializer], align 16
 @hf_fortinet_fgcp_hb_tlv_length = internal global i32 0, align 4
 @.str.36 = private unnamed_addr constant [7 x i8] c"Length\00", align 1
 @.str.37 = private unnamed_addr constant [28 x i8] c"fortinet_fgcp.hb.tlv.length\00", align 1
@@ -104,18 +101,20 @@ target triple = "x86_64-pc-linux-gnu"
 @ip_handle = internal global ptr null, align 8
 @.str.55 = private unnamed_addr constant [20 x i8] c"A/A (Active/Active)\00", align 1
 @.str.56 = private unnamed_addr constant [21 x i8] c"A/P (Active/Passive)\00", align 1
-@.str.57 = private unnamed_addr constant [11 x i8] c"End of TLV\00", align 1
-@.str.58 = private unnamed_addr constant [8 x i8] c"FGCP-HB\00", align 1
-@.str.59 = private unnamed_addr constant [39 x i8] c"Cluster: %s(%u) - monitor: %s - SN: %s\00", align 1
+@fortinet_fgcp_hb_mode_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.55 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.56 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.58 = private unnamed_addr constant [11 x i8] c"End of TLV\00", align 1
+@fortinet_fgcp_hb_tlv_vals = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.58 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.42 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.44 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.60 = private unnamed_addr constant [8 x i8] c"FGCP-HB\00", align 1
+@.str.61 = private unnamed_addr constant [39 x i8] c"Cluster: %s(%u) - monitor: %s - SN: %s\00", align 1
 @dissect_fortinet_fgcp_hb.fortinet_fgcp_hb_flag = internal constant [6 x ptr] [ptr @hf_fortinet_fgcp_hb_flag_b74, ptr @hf_fortinet_fgcp_hb_flag_b3, ptr @hf_fortinet_fgcp_hb_flag_b2, ptr @hf_fortinet_fgcp_hb_flag_authentication, ptr @hf_fortinet_fgcp_hb_flag_encryption, ptr null], align 16
-@.str.60 = private unnamed_addr constant [17 x i8] c": (t=%u,l=%d) %s\00", align 1
-@.str.61 = private unnamed_addr constant [13 x i8] c"Unknown type\00", align 1
-@.str.62 = private unnamed_addr constant [5 x i8] c": %u\00", align 1
-@.str.63 = private unnamed_addr constant [7 x i8] c": True\00", align 1
-@.str.64 = private unnamed_addr constant [8 x i8] c": False\00", align 1
-@.str.65 = private unnamed_addr constant [13 x i8] c"FGCP-SESSION\00", align 1
+@.str.62 = private unnamed_addr constant [17 x i8] c": (t=%u,l=%d) %s\00", align 1
+@.str.63 = private unnamed_addr constant [13 x i8] c"Unknown type\00", align 1
+@.str.64 = private unnamed_addr constant [5 x i8] c": %u\00", align 1
+@.str.65 = private unnamed_addr constant [7 x i8] c": True\00", align 1
+@.str.66 = private unnamed_addr constant [8 x i8] c": False\00", align 1
+@.str.67 = private unnamed_addr constant [13 x i8] c"FGCP-SESSION\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_fortinet_fgcp() #0 {
   %1 = call i32 @proto_register_protocol(ptr noundef @.str.49, ptr noundef @.str.50, ptr noundef @.str.50)
   store i32 %1, ptr @proto_fortinet_fgcp_hb, align 4
@@ -133,15 +132,19 @@ define hidden void @proto_register_fortinet_fgcp() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_fortinet_fgcp_hb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -165,17 +168,23 @@ define internal i32 @dissect_fortinet_fgcp_hb(ptr noundef %0, ptr noundef %1, pt
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
   store i32 0, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
   store i32 0, ptr %13, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #3
   %23 = load ptr, ptr %6, align 8
-  %24 = getelementptr inbounds %struct._packet_info, ptr %23, i32 0, i32 1
+  %24 = getelementptr inbounds nuw %struct._packet_info, ptr %23, i32 0, i32 1
   %25 = load ptr, ptr %24, align 8
-  call void @col_set_str(ptr noundef %25, i32 noundef 34, ptr noundef @.str.58)
+  call void @col_set_str(ptr noundef %25, i32 noundef 35, ptr noundef @.str.60)
   %26 = load ptr, ptr %6, align 8
-  %27 = getelementptr inbounds %struct._packet_info, ptr %26, i32 0, i32 1
+  %27 = getelementptr inbounds nuw %struct._packet_info, ptr %26, i32 0, i32 1
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %6, align 8
-  %30 = getelementptr inbounds %struct._packet_info, ptr %29, i32 0, i32 50
+  %30 = getelementptr inbounds nuw %struct._packet_info, ptr %29, i32 0, i32 51
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %5, align 8
   %33 = load i32, ptr %11, align 4
@@ -186,10 +195,10 @@ define internal i32 @dissect_fortinet_fgcp_hb(ptr noundef %0, ptr noundef %1, pt
   %38 = add i32 %37, 4
   %39 = add i32 %38, 32
   %40 = add i32 %39, 2
-  %41 = call zeroext i16 @tvb_get_guint16(ptr noundef %36, i32 noundef %40, i32 noundef -2147483648)
+  %41 = call zeroext i16 @tvb_get_uint16(ptr noundef %36, i32 noundef %40, i32 noundef -2147483648)
   %42 = zext i16 %41 to i32
   %43 = load ptr, ptr %6, align 8
-  %44 = getelementptr inbounds %struct._packet_info, ptr %43, i32 0, i32 50
+  %44 = getelementptr inbounds nuw %struct._packet_info, ptr %43, i32 0, i32 51
   %45 = load ptr, ptr %44, align 8
   %46 = load ptr, ptr %5, align 8
   %47 = load i32, ptr %11, align 4
@@ -199,7 +208,7 @@ define internal i32 @dissect_fortinet_fgcp_hb(ptr noundef %0, ptr noundef %1, pt
   %51 = add i32 %50, 14
   %52 = call ptr @tvb_get_string_enc(ptr noundef %45, ptr noundef %46, i32 noundef %51, i32 noundef 16, i32 noundef 0)
   %53 = load ptr, ptr %6, align 8
-  %54 = getelementptr inbounds %struct._packet_info, ptr %53, i32 0, i32 50
+  %54 = getelementptr inbounds nuw %struct._packet_info, ptr %53, i32 0, i32 51
   %55 = load ptr, ptr %54, align 8
   %56 = load ptr, ptr %5, align 8
   %57 = load i32, ptr %11, align 4
@@ -211,7 +220,7 @@ define internal i32 @dissect_fortinet_fgcp_hb(ptr noundef %0, ptr noundef %1, pt
   %63 = add i32 %62, 2
   %64 = add i32 %63, 2
   %65 = call ptr @tvb_get_string_enc(ptr noundef %55, ptr noundef %56, i32 noundef %64, i32 noundef 16, i32 noundef 0)
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %28, i32 noundef 25, ptr noundef @.str.59, ptr noundef %35, i32 noundef %42, ptr noundef %52, ptr noundef %65)
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %28, i32 noundef 25, ptr noundef @.str.61, ptr noundef %35, i32 noundef %42, ptr noundef %52, ptr noundef %65)
   %66 = load ptr, ptr %7, align 8
   %67 = load i32, ptr @proto_fortinet_fgcp_hb, align 4
   %68 = load ptr, ptr %5, align 8
@@ -245,7 +254,7 @@ define internal i32 @dissect_fortinet_fgcp_hb(ptr noundef %0, ptr noundef %1, pt
   %92 = call ptr @proto_tree_add_bitmask(ptr noundef %87, ptr noundef %88, i32 noundef %89, i32 noundef %90, i32 noundef %91, ptr noundef @dissect_fortinet_fgcp_hb.fortinet_fgcp_hb_flag, i32 noundef 0)
   %93 = load ptr, ptr %5, align 8
   %94 = load i32, ptr %11, align 4
-  %95 = call zeroext i8 @tvb_get_guint8(ptr noundef %93, i32 noundef %94)
+  %95 = call zeroext i8 @tvb_get_uint8(ptr noundef %93, i32 noundef %94)
   store i8 %95, ptr %14, align 1
   %96 = load i32, ptr %11, align 4
   %97 = add i32 %96, 1
@@ -391,6 +400,7 @@ define internal i32 @dissect_fortinet_fgcp_hb(ptr noundef %0, ptr noundef %1, pt
   br label %306
 
 214:                                              ; preds = %194
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #3
   %215 = load ptr, ptr %5, align 8
   %216 = load i32, ptr %11, align 4
   %217 = call i32 @tvb_reported_length_remaining(ptr noundef %215, i32 noundef %216)
@@ -410,6 +420,10 @@ define internal i32 @dissect_fortinet_fgcp_hb(ptr noundef %0, ptr noundef %1, pt
   br i1 %226, label %227, label %305
 
 227:                                              ; preds = %223
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #3
   %228 = load ptr, ptr %10, align 8
   %229 = load i32, ptr @hf_fortinet_fgcp_hb_tlv, align 4
   %230 = load ptr, ptr %5, align 8
@@ -440,8 +454,8 @@ define internal i32 @dissect_fortinet_fgcp_hb(ptr noundef %0, ptr noundef %1, pt
   %251 = load i32, ptr %16, align 4
   %252 = load i32, ptr %17, align 4
   %253 = load i32, ptr %16, align 4
-  %254 = call ptr @val_to_str_const(i32 noundef %253, ptr noundef @fortinet_fgcp_hb_tlv_vals, ptr noundef @.str.61)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %250, ptr noundef @.str.60, i32 noundef %251, i32 noundef %252, ptr noundef %254)
+  %254 = call ptr @val_to_str_const(i32 noundef %253, ptr noundef @fortinet_fgcp_hb_tlv_vals, ptr noundef @.str.63)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %250, ptr noundef @.str.62, i32 noundef %251, i32 noundef %252, ptr noundef %254)
   %255 = load ptr, ptr %18, align 8
   %256 = load i32, ptr %17, align 4
   %257 = add i32 4, %256
@@ -460,6 +474,7 @@ define internal i32 @dissect_fortinet_fgcp_hb(ptr noundef %0, ptr noundef %1, pt
   ]
 
 265:                                              ; preds = %227
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #3
   %266 = load ptr, ptr %19, align 8
   %267 = load i32, ptr @hf_fortinet_fgcp_hb_tlv_vcluster_id, align 4
   %268 = load ptr, ptr %5, align 8
@@ -467,13 +482,15 @@ define internal i32 @dissect_fortinet_fgcp_hb(ptr noundef %0, ptr noundef %1, pt
   %270 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %266, i32 noundef %267, ptr noundef %268, i32 noundef %269, i32 noundef 1, i32 noundef 0, ptr noundef %20)
   %271 = load ptr, ptr %18, align 8
   %272 = load i32, ptr %20, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %271, ptr noundef @.str.62, i32 noundef %272)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %271, ptr noundef @.str.64, i32 noundef %272)
   %273 = load i32, ptr %11, align 4
   %274 = add i32 %273, 1
   store i32 %274, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #3
   br label %304
 
 275:                                              ; preds = %227
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #3
   %276 = load ptr, ptr %19, align 8
   %277 = load i32, ptr @hf_fortinet_fgcp_hb_tlv_priority, align 4
   %278 = load ptr, ptr %5, align 8
@@ -481,13 +498,15 @@ define internal i32 @dissect_fortinet_fgcp_hb(ptr noundef %0, ptr noundef %1, pt
   %280 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %276, i32 noundef %277, ptr noundef %278, i32 noundef %279, i32 noundef 1, i32 noundef 0, ptr noundef %21)
   %281 = load ptr, ptr %18, align 8
   %282 = load i32, ptr %21, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %281, ptr noundef @.str.62, i32 noundef %282)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %281, ptr noundef @.str.64, i32 noundef %282)
   %283 = load i32, ptr %11, align 4
   %284 = add i32 %283, 1
   store i32 %284, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #3
   br label %304
 
 285:                                              ; preds = %227
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #3
   %286 = load ptr, ptr %19, align 8
   %287 = load i32, ptr @hf_fortinet_fgcp_hb_tlv_override, align 4
   %288 = load ptr, ptr %5, align 8
@@ -499,18 +518,19 @@ define internal i32 @dissect_fortinet_fgcp_hb(ptr noundef %0, ptr noundef %1, pt
 
 293:                                              ; preds = %285
   %294 = load ptr, ptr %18, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %294, ptr noundef @.str.63)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %294, ptr noundef @.str.65)
   br label %297
 
 295:                                              ; preds = %285
   %296 = load ptr, ptr %18, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %296, ptr noundef @.str.64)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %296, ptr noundef @.str.66)
   br label %297
 
 297:                                              ; preds = %295, %293
   %298 = load i32, ptr %11, align 4
   %299 = add i32 %298, 1
   store i32 %299, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #3
   br label %304
 
 300:                                              ; preds = %227
@@ -521,9 +541,14 @@ define internal i32 @dissect_fortinet_fgcp_hb(ptr noundef %0, ptr noundef %1, pt
   br label %304
 
 304:                                              ; preds = %300, %297, %275, %265
-  br label %223, !llvm.loop !4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #3
+  br label %223, !llvm.loop !6
 
 305:                                              ; preds = %223
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #3
   br label %306
 
 306:                                              ; preds = %305, %199
@@ -544,10 +569,16 @@ define internal i32 @dissect_fortinet_fgcp_hb(ptr noundef %0, ptr noundef %1, pt
 
 317:                                              ; preds = %309, %306
   %318 = load i32, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
   ret i32 %318
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_fortinet_fgcp_session(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -561,11 +592,15 @@ define internal i32 @dissect_fortinet_fgcp_session(ptr noundef %0, ptr noundef %
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
   store i32 0, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #3
   %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds %struct._packet_info, ptr %13, i32 0, i32 1
+  %14 = getelementptr inbounds nuw %struct._packet_info, ptr %13, i32 0, i32 1
   %15 = load ptr, ptr %14, align 8
-  call void @col_set_str(ptr noundef %15, i32 noundef 34, ptr noundef @.str.65)
+  call void @col_set_str(ptr noundef %15, i32 noundef 35, ptr noundef @.str.67)
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr @proto_fortinet_fgcp_session, align 4
   %18 = load ptr, ptr %5, align 8
@@ -601,10 +636,14 @@ define internal i32 @dissect_fortinet_fgcp_session(ptr noundef %0, ptr noundef %
   %43 = load ptr, ptr %7, align 8
   %44 = call i32 @call_dissector(ptr noundef %40, ptr noundef %41, ptr noundef %42, ptr noundef %43)
   %45 = load i32, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
   ret i32 %45
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_fortinet_fgcp() #0 {
   %1 = load ptr, ptr @fortinet_fgcp_hb_handle, align 8
   call void @dissector_add_uint(ptr noundef @.str.53, i32 noundef 34960, ptr noundef %1)
@@ -616,48 +655,75 @@ define hidden void @proto_reg_handoff_fortinet_fgcp() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
-declare zeroext i16 @tvb_get_guint16(ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_uint16(ptr noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #1
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_item_set_len(ptr noundef, i32 noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}

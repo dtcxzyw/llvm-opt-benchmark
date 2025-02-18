@@ -106,8 +106,6 @@ $_ZNK12QPaintDevice16devicePixelRatioEv = comdat any
 
 $_ZNK7QWidget4rectEv = comdat any
 
-$_ZN18QStyleOptionSliderD2Ev = comdat any
-
 $_ZN7QWidget4moveEii = comdat any
 
 $_ZN7QWidget6resizeEii = comdat any
@@ -192,8 +190,6 @@ $_ZN7QStringD2Ev = comdat any
 
 $_ZN17QArrayDataPointerIiEC2Ev = comdat any
 
-$_ZN13OsbProxyStyleD2Ev = comdat any
-
 $_ZN13OsbProxyStyleD0Ev = comdat any
 
 $_ZNK13OsbProxyStyle9styleHintEN6QStyle9StyleHintEPK12QStyleOptionPK7QWidgetP16QStyleHintReturn = comdat any
@@ -241,8 +237,6 @@ $_Z11qt_ptr_swapIiEvRPT_S2_ = comdat any
 $_ZSt4swapIxENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_ = comdat any
 
 $_ZN12QPaintDevice22devicePixelRatioFScaleEv = comdat any
-
-$_ZN19QStyleOptionComplexD2Ev = comdat any
 
 $_ZN6QPointC2Eii = comdat any
 
@@ -318,11 +312,7 @@ $_ZN9QtPrivate11QSlotObjectIM16OverlayScrollBarFviiENS_4ListIJiiEEEvE4implEiPNS_
 
 $_ZN9QtPrivate15QSlotObjectBaseC2EPFviPS0_P7QObjectPPvPbE = comdat any
 
-$_ZN9QtPrivate11QSlotObjectIM16OverlayScrollBarFviiENS_4ListIJiiEEEvED2Ev = comdat any
-
 $_ZN9QtPrivate15FunctionPointerIM16OverlayScrollBarFviiEE4callINS_4ListIJiiEEEvEEvS3_PS1_PPv = comdat any
-
-$_ZN9QtPrivate15QSlotObjectBaseD2Ev = comdat any
 
 $_ZN9QtPrivate11FunctorCallINS_11IndexesListIJLi0ELi1EEEENS_4ListIJiiEEEvM16OverlayScrollBarFviiEE4callES7_PS5_PPv = comdat any
 
@@ -344,7 +334,7 @@ $_ZN9QtPrivate11QSlotObjectIM15QAbstractSliderFviENS_4ListIJiEEEvEC2ES3_ = comda
 
 $_ZN9QtPrivate11QSlotObjectIM15QAbstractSliderFviENS_4ListIJiEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb = comdat any
 
-$_ZN9QtPrivate11QSlotObjectIM15QAbstractSliderFviENS_4ListIJiEEEvED2Ev = comdat any
+$_ZN9QtPrivate15QSlotObjectBaseD2Ev = comdat any
 
 $_ZN9QtPrivate15FunctionPointerIM15QAbstractSliderFviEE4callINS_4ListIJiEEEvEEvS3_PS1_PPv = comdat any
 
@@ -376,20 +366,20 @@ $_ZNK17QArrayDataPointerIiE8constEndEv = comdat any
 
 $_ZTV13OsbProxyStyle = comdat any
 
-$_ZTS13OsbProxyStyle = comdat any
-
 $_ZTI13OsbProxyStyle = comdat any
+
+$_ZTS13OsbProxyStyle = comdat any
 
 $_ZZN9QtPrivate15ConnectionTypesINS_4ListIJiiEEELb1EE5typesEvE1t = comdat any
 
 $_ZZN9QtPrivate15ConnectionTypesINS_4ListIJiEEELb1EE5typesEvE1t = comdat any
 
 @_ZTV16OverlayScrollBar = external unnamed_addr constant { [57 x ptr], [10 x ptr] }, align 8
-@_ZTV13OsbProxyStyle = linkonce_odr unnamed_addr constant { [37 x ptr] } { [37 x ptr] [ptr null, ptr @_ZTI13OsbProxyStyle, ptr @_ZNK11QProxyStyle10metaObjectEv, ptr @_ZN11QProxyStyle11qt_metacastEPKc, ptr @_ZN11QProxyStyle11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN13OsbProxyStyleD2Ev, ptr @_ZN13OsbProxyStyleD0Ev, ptr @_ZN11QProxyStyle5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN11QProxyStyle6polishEP7QWidget, ptr @_ZN11QProxyStyle8unpolishEP7QWidget, ptr @_ZN11QProxyStyle6polishEP12QApplication, ptr @_ZN11QProxyStyle8unpolishEP12QApplication, ptr @_ZN11QProxyStyle6polishER8QPalette, ptr @_ZNK11QProxyStyle12itemTextRectERK12QFontMetricsRK5QRectibRK7QString, ptr @_ZNK11QProxyStyle14itemPixmapRectERK5QRectiRK7QPixmap, ptr @_ZNK11QProxyStyle12drawItemTextEP8QPainterRK5QRectiRK8QPalettebRK7QStringNS5_9ColorRoleE, ptr @_ZNK11QProxyStyle14drawItemPixmapEP8QPainterRK5QRectiRK7QPixmap, ptr @_ZNK11QProxyStyle15standardPaletteEv, ptr @_ZNK11QProxyStyle13drawPrimitiveEN6QStyle16PrimitiveElementEPK12QStyleOptionP8QPainterPK7QWidget, ptr @_ZNK11QProxyStyle11drawControlEN6QStyle14ControlElementEPK12QStyleOptionP8QPainterPK7QWidget, ptr @_ZNK11QProxyStyle14subElementRectEN6QStyle10SubElementEPK12QStyleOptionPK7QWidget, ptr @_ZNK11QProxyStyle18drawComplexControlEN6QStyle14ComplexControlEPK19QStyleOptionComplexP8QPainterPK7QWidget, ptr @_ZNK11QProxyStyle21hitTestComplexControlEN6QStyle14ComplexControlEPK19QStyleOptionComplexRK6QPointPK7QWidget, ptr @_ZNK11QProxyStyle14subControlRectEN6QStyle14ComplexControlEPK19QStyleOptionComplexNS0_10SubControlEPK7QWidget, ptr @_ZNK11QProxyStyle11pixelMetricEN6QStyle11PixelMetricEPK12QStyleOptionPK7QWidget, ptr @_ZNK11QProxyStyle16sizeFromContentsEN6QStyle12ContentsTypeEPK12QStyleOptionRK5QSizePK7QWidget, ptr @_ZNK13OsbProxyStyle9styleHintEN6QStyle9StyleHintEPK12QStyleOptionPK7QWidgetP16QStyleHintReturn, ptr @_ZNK11QProxyStyle14standardPixmapEN6QStyle14StandardPixmapEPK12QStyleOptionPK7QWidget, ptr @_ZNK11QProxyStyle12standardIconEN6QStyle14StandardPixmapEPK12QStyleOptionPK7QWidget, ptr @_ZNK11QProxyStyle19generatedIconPixmapEN5QIcon4ModeERK7QPixmapPK12QStyleOption, ptr @_ZNK11QProxyStyle13layoutSpacingEN11QSizePolicy11ControlTypeES1_N2Qt11OrientationEPK12QStyleOptionPK7QWidget] }, comdat, align 8
+@_ZTV13OsbProxyStyle = linkonce_odr unnamed_addr constant { [37 x ptr] } { [37 x ptr] [ptr null, ptr @_ZTI13OsbProxyStyle, ptr @_ZNK11QProxyStyle10metaObjectEv, ptr @_ZN11QProxyStyle11qt_metacastEPKc, ptr @_ZN11QProxyStyle11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN11QProxyStyleD2Ev, ptr @_ZN13OsbProxyStyleD0Ev, ptr @_ZN11QProxyStyle5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN11QProxyStyle6polishEP7QWidget, ptr @_ZN11QProxyStyle8unpolishEP7QWidget, ptr @_ZN11QProxyStyle6polishEP12QApplication, ptr @_ZN11QProxyStyle8unpolishEP12QApplication, ptr @_ZN11QProxyStyle6polishER8QPalette, ptr @_ZNK11QProxyStyle12itemTextRectERK12QFontMetricsRK5QRectibRK7QString, ptr @_ZNK11QProxyStyle14itemPixmapRectERK5QRectiRK7QPixmap, ptr @_ZNK11QProxyStyle12drawItemTextEP8QPainterRK5QRectiRK8QPalettebRK7QStringNS5_9ColorRoleE, ptr @_ZNK11QProxyStyle14drawItemPixmapEP8QPainterRK5QRectiRK7QPixmap, ptr @_ZNK11QProxyStyle15standardPaletteEv, ptr @_ZNK11QProxyStyle13drawPrimitiveEN6QStyle16PrimitiveElementEPK12QStyleOptionP8QPainterPK7QWidget, ptr @_ZNK11QProxyStyle11drawControlEN6QStyle14ControlElementEPK12QStyleOptionP8QPainterPK7QWidget, ptr @_ZNK11QProxyStyle14subElementRectEN6QStyle10SubElementEPK12QStyleOptionPK7QWidget, ptr @_ZNK11QProxyStyle18drawComplexControlEN6QStyle14ComplexControlEPK19QStyleOptionComplexP8QPainterPK7QWidget, ptr @_ZNK11QProxyStyle21hitTestComplexControlEN6QStyle14ComplexControlEPK19QStyleOptionComplexRK6QPointPK7QWidget, ptr @_ZNK11QProxyStyle14subControlRectEN6QStyle14ComplexControlEPK19QStyleOptionComplexNS0_10SubControlEPK7QWidget, ptr @_ZNK11QProxyStyle11pixelMetricEN6QStyle11PixelMetricEPK12QStyleOptionPK7QWidget, ptr @_ZNK11QProxyStyle16sizeFromContentsEN6QStyle12ContentsTypeEPK12QStyleOptionRK5QSizePK7QWidget, ptr @_ZNK13OsbProxyStyle9styleHintEN6QStyle9StyleHintEPK12QStyleOptionPK7QWidgetP16QStyleHintReturn, ptr @_ZNK11QProxyStyle14standardPixmapEN6QStyle14StandardPixmapEPK12QStyleOptionPK7QWidget, ptr @_ZNK11QProxyStyle12standardIconEN6QStyle14StandardPixmapEPK12QStyleOptionPK7QWidget, ptr @_ZNK11QProxyStyle19generatedIconPixmapEN5QIcon4ModeERK7QPixmapPK12QStyleOption, ptr @_ZNK11QProxyStyle13layoutSpacingEN11QSizePolicy11ControlTypeES1_N2Qt11OrientationEPK12QStyleOptionPK7QWidget] }, comdat, align 8
+@_ZTI13OsbProxyStyle = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS13OsbProxyStyle, ptr @_ZTI11QProxyStyle }, comdat, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTS13OsbProxyStyle = linkonce_odr constant [16 x i8] c"13OsbProxyStyle\00", comdat, align 1
 @_ZTI11QProxyStyle = external constant ptr
-@_ZTI13OsbProxyStyle = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS13OsbProxyStyle, ptr @_ZTI11QProxyStyle }, comdat, align 8
 @_ZN16QCoreApplication4selfE = external global ptr, align 8
 @_ZN15QAbstractSlider16staticMetaObjectE = external global %struct.QMetaObject, align 8
 @_ZZN9QtPrivate15ConnectionTypesINS_4ListIJiiEEELb1EE5typesEvE1t = linkonce_odr constant [3 x i32] [i32 2, i32 2, i32 0], comdat, align 4
@@ -398,8 +388,8 @@ $_ZZN9QtPrivate15ConnectionTypesINS_4ListIJiEEELb1EE5typesEvE1t = comdat any
 @_ZN16OverlayScrollBarC1EN2Qt11OrientationEP7QWidget = unnamed_addr alias void (ptr, i32, ptr), ptr @_ZN16OverlayScrollBarC2EN2Qt11OrientationEP7QWidget
 @_ZN16OverlayScrollBarD1Ev = unnamed_addr alias void (ptr), ptr @_ZN16OverlayScrollBarD2Ev
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN16OverlayScrollBarC2EN2Qt11OrientationEP7QWidget(ptr noundef nonnull align 8 dereferenceable(196) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define void @_ZN16OverlayScrollBarC2EN2Qt11OrientationEP7QWidget(ptr noundef align 8 dereferenceable_or_null(196) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -423,250 +413,260 @@ define void @_ZN16OverlayScrollBarC2EN2Qt11OrientationEP7QWidget(ptr noundef non
   %21 = load ptr, ptr %4, align 8
   %22 = load i32, ptr %5, align 4
   %23 = load ptr, ptr %6, align 8
-  call void @_ZN10QScrollBarC2EN2Qt11OrientationEP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %21, i32 noundef %22, ptr noundef %23)
-  %24 = getelementptr inbounds { [57 x ptr], [10 x ptr] }, ptr @_ZTV16OverlayScrollBar, i32 0, i32 0, i32 2
-  store ptr %24, ptr %21, align 8
-  %25 = getelementptr inbounds i8, ptr %21, i64 16
-  %26 = getelementptr inbounds { [57 x ptr], [10 x ptr] }, ptr @_ZTV16OverlayScrollBar, i32 0, i32 1, i32 2
-  store ptr %26, ptr %25, align 8
-  %27 = getelementptr inbounds %class.OverlayScrollBar, ptr %21, i32 0, i32 3
-  %28 = load i32, ptr %5, align 4
-  invoke void @_ZN10QScrollBarC1EN2Qt11OrientationEP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %27, i32 noundef %28, ptr noundef %21)
-          to label %29 unwind label %77
+  call void @_ZN10QScrollBarC2EN2Qt11OrientationEP7QWidget(ptr noundef align 8 dereferenceable_or_null(40) %21, i32 noundef %22, ptr noundef %23)
+  store ptr getelementptr inbounds inrange(-16, 440) ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV16OverlayScrollBar, i32 0, i32 0, i32 2), ptr %21, align 8
+  %24 = getelementptr inbounds i8, ptr %21, i64 16
+  store ptr getelementptr inbounds inrange(-16, 64) ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV16OverlayScrollBar, i32 0, i32 1, i32 2), ptr %24, align 8
+  %25 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %21, i32 0, i32 3
+  %26 = load i32, ptr %5, align 4
+  invoke void @_ZN10QScrollBarC1EN2Qt11OrientationEP7QWidget(ptr noundef align 8 dereferenceable_or_null(40) %25, i32 noundef %26, ptr noundef %21)
+          to label %27 unwind label %75
 
-29:                                               ; preds = %3
-  %30 = getelementptr inbounds %class.OverlayScrollBar, ptr %21, i32 0, i32 4
-  call void @_ZN6QImageC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #11
-  %31 = getelementptr inbounds %class.OverlayScrollBar, ptr %21, i32 0, i32 5
-  call void @_ZN6QImageC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #11
-  %32 = getelementptr inbounds %class.OverlayScrollBar, ptr %21, i32 0, i32 6
-  store i32 0, ptr %32, align 8
-  %33 = getelementptr inbounds %class.OverlayScrollBar, ptr %21, i32 0, i32 7
-  store i32 0, ptr %33, align 4
-  %34 = getelementptr inbounds %class.OverlayScrollBar, ptr %21, i32 0, i32 8
+27:                                               ; preds = %3
+  %28 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %21, i32 0, i32 4
+  call void @_ZN6QImageC1Ev(ptr noundef align 8 dereferenceable_or_null(24) %28) #14
+  %29 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %21, i32 0, i32 5
+  call void @_ZN6QImageC1Ev(ptr noundef align 8 dereferenceable_or_null(24) %29) #14
+  %30 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %21, i32 0, i32 6
+  store i32 0, ptr %30, align 8
+  %31 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %21, i32 0, i32 7
+  store i32 0, ptr %31, align 4
+  %32 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %21, i32 0, i32 8
+  store i32 -1, ptr %32, align 8
+  %33 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %21, i32 0, i32 9
+  store i32 -1, ptr %33, align 4
+  %34 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %21, i32 0, i32 10
   store i32 -1, ptr %34, align 8
-  %35 = getelementptr inbounds %class.OverlayScrollBar, ptr %21, i32 0, i32 9
-  store i32 -1, ptr %35, align 4
-  %36 = getelementptr inbounds %class.OverlayScrollBar, ptr %21, i32 0, i32 10
-  store i32 -1, ptr %36, align 8
-  %37 = getelementptr inbounds %class.OverlayScrollBar, ptr %21, i32 0, i32 12
-  call void @llvm.memset.p0.i64(ptr align 8 %37, i8 0, i64 24, i1 false)
-  call void @_ZN5QListIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %37) #11
-  %38 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #12
-          to label %39 unwind label %81
+  %35 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %21, i32 0, i32 12
+  call void @llvm.memset.p0.i64(ptr align 8 %35, i8 0, i64 24, i1 false)
+  call void @_ZN5QListIiEC2Ev(ptr noundef align 8 dereferenceable_or_null(24) %35) #14
+  %36 = invoke noalias noundef ptr @_Znwm(i64 noundef 16) #15
+          to label %37 unwind label %79
 
-39:                                               ; preds = %29
-  call void @llvm.memset.p0.i64(ptr align 16 %38, i8 0, i64 16, i1 false)
-  invoke void @_ZN13OsbProxyStyleC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %38)
-          to label %40 unwind label %85
+37:                                               ; preds = %27
+  call void @llvm.memset.p0.i64(ptr align 16 %36, i8 0, i64 16, i1 false)
+  invoke void @_ZN13OsbProxyStyleC2Ev(ptr noundef align 8 dereferenceable_or_null(16) %36)
+          to label %38 unwind label %83
 
-40:                                               ; preds = %39
-  %41 = getelementptr inbounds %class.OverlayScrollBar, ptr %21, i32 0, i32 1
-  store ptr %38, ptr %41, align 8
-  %42 = getelementptr inbounds %class.OverlayScrollBar, ptr %21, i32 0, i32 1
-  %43 = load ptr, ptr %42, align 8
-  invoke void @_ZN7QWidget8setStyleEP6QStyle(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef %43)
-          to label %44 unwind label %81
+38:                                               ; preds = %37
+  %39 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %21, i32 0, i32 1
+  store ptr %36, ptr %39, align 8
+  %40 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %21, i32 0, i32 1
+  %41 = load ptr, ptr %40, align 8
+  invoke void @_ZN7QWidget8setStyleEP6QStyle(ptr noundef align 8 dereferenceable_or_null(40) %21, ptr noundef %41)
+          to label %42 unwind label %79
 
-44:                                               ; preds = %40
-  %45 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #12
-          to label %46 unwind label %81
+42:                                               ; preds = %38
+  %43 = invoke noalias noundef ptr @_Znwm(i64 noundef 16) #15
+          to label %44 unwind label %79
 
-46:                                               ; preds = %44
-  call void @llvm.memset.p0.i64(ptr align 16 %45, i8 0, i64 16, i1 false)
-  invoke void @_ZN13OsbProxyStyleC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %45)
-          to label %47 unwind label %89
+44:                                               ; preds = %42
+  call void @llvm.memset.p0.i64(ptr align 16 %43, i8 0, i64 16, i1 false)
+  invoke void @_ZN13OsbProxyStyleC2Ev(ptr noundef align 8 dereferenceable_or_null(16) %43)
+          to label %45 unwind label %87
 
-47:                                               ; preds = %46
-  %48 = getelementptr inbounds %class.OverlayScrollBar, ptr %21, i32 0, i32 2
-  store ptr %45, ptr %48, align 8
-  invoke void @_ZN16OverlayScrollBar16updateChildStyleEv(ptr noundef nonnull align 8 dereferenceable(196) %21)
-          to label %49 unwind label %81
+45:                                               ; preds = %44
+  %46 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %21, i32 0, i32 2
+  store ptr %43, ptr %46, align 8
+  invoke void @_ZN16OverlayScrollBar16updateChildStyleEv(ptr noundef align 8 dereferenceable_or_null(196) %21)
+          to label %47 unwind label %79
+
+47:                                               ; preds = %45
+  %48 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %21, i32 0, i32 3
+  invoke void @_ZN7QWidget5raiseEv(ptr noundef align 8 dereferenceable_or_null(40) %48)
+          to label %49 unwind label %79
 
 49:                                               ; preds = %47
-  %50 = getelementptr inbounds %class.OverlayScrollBar, ptr %21, i32 0, i32 3
-  invoke void @_ZN7QWidget5raiseEv(ptr noundef nonnull align 8 dereferenceable(40) %50)
-          to label %51 unwind label %81
+  %50 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %21, i32 0, i32 3
+  invoke void @_ZN7QObject18installEventFilterEPS_(ptr noundef align 8 dereferenceable_or_null(16) %50, ptr noundef %21)
+          to label %51 unwind label %79
 
 51:                                               ; preds = %49
-  %52 = getelementptr inbounds %class.OverlayScrollBar, ptr %21, i32 0, i32 3
-  invoke void @_ZN7QObject18installEventFilterEPS_(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef %21)
-          to label %53 unwind label %81
-
-53:                                               ; preds = %51
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN15QAbstractSlider12rangeChangedEii to i64), i64 0 }, ptr %10, align 8
-  %54 = getelementptr inbounds { i64, i64 }, ptr %10, i32 0, i32 0
+  %52 = getelementptr inbounds nuw { i64, i64 }, ptr %10, i32 0, i32 0
+  %53 = load i64, ptr %52, align 8
+  %54 = getelementptr inbounds nuw { i64, i64 }, ptr %10, i32 0, i32 1
   %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds { i64, i64 }, ptr %10, i32 0, i32 1
-  %57 = load i64, ptr %56, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %11) #14
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN16OverlayScrollBar13setChildRangeEii to i64), i64 0 }, ptr %11, align 8
-  invoke void @_ZN7QObject7connectIM15QAbstractSliderFviiEM16OverlayScrollBarFviiEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %9, ptr noundef %21, i64 %55, i64 %57, ptr noundef %21, ptr noundef byval({ i64, i64 }) align 8 %11, i32 noundef 0)
-          to label %58 unwind label %81
+  invoke void @_ZN7QObject7connectIM15QAbstractSliderFviiEM16OverlayScrollBarFviiEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %9, ptr noundef %21, i64 %53, i64 %55, ptr noundef %21, ptr noundef byval({ i64, i64 }) align 8 %11, i32 noundef 0)
+          to label %56 unwind label %79
 
-58:                                               ; preds = %53
-  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
-  %59 = getelementptr inbounds %class.OverlayScrollBar, ptr %21, i32 0, i32 3
+56:                                               ; preds = %51
+  call void @llvm.lifetime.end.p0(i64 16, ptr %11) #14
+  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef align 8 dereferenceable_or_null(8) %9) #14
+  %57 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %21, i32 0, i32 3
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN15QAbstractSlider12valueChangedEi to i64), i64 0 }, ptr %13, align 8
-  %60 = getelementptr inbounds { i64, i64 }, ptr %13, i32 0, i32 0
+  %58 = getelementptr inbounds nuw { i64, i64 }, ptr %13, i32 0, i32 0
+  %59 = load i64, ptr %58, align 8
+  %60 = getelementptr inbounds nuw { i64, i64 }, ptr %13, i32 0, i32 1
   %61 = load i64, ptr %60, align 8
-  %62 = getelementptr inbounds { i64, i64 }, ptr %13, i32 0, i32 1
-  %63 = load i64, ptr %62, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %14) #14
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN15QAbstractSlider8setValueEi to i64), i64 0 }, ptr %14, align 8
-  invoke void @_ZN7QObject7connectIM15QAbstractSliderFviES3_EEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectES8_PKNS7_IT0_E6ObjectESD_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %12, ptr noundef %21, i64 %61, i64 %63, ptr noundef %59, ptr noundef byval({ i64, i64 }) align 8 %14, i32 noundef 0)
-          to label %64 unwind label %81
+  invoke void @_ZN7QObject7connectIM15QAbstractSliderFviES3_EEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectES8_PKNS7_IT0_E6ObjectESD_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %12, ptr noundef %21, i64 %59, i64 %61, ptr noundef %57, ptr noundef byval({ i64, i64 }) align 8 %14, i32 noundef 0)
+          to label %62 unwind label %79
 
-64:                                               ; preds = %58
-  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #11
-  %65 = getelementptr inbounds %class.OverlayScrollBar, ptr %21, i32 0, i32 3
+62:                                               ; preds = %56
+  call void @llvm.lifetime.end.p0(i64 16, ptr %14) #14
+  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef align 8 dereferenceable_or_null(8) %12) #14
+  %63 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %21, i32 0, i32 3
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN15QAbstractSlider12valueChangedEi to i64), i64 0 }, ptr %16, align 8
-  %66 = getelementptr inbounds { i64, i64 }, ptr %16, i32 0, i32 0
+  %64 = getelementptr inbounds nuw { i64, i64 }, ptr %16, i32 0, i32 0
+  %65 = load i64, ptr %64, align 8
+  %66 = getelementptr inbounds nuw { i64, i64 }, ptr %16, i32 0, i32 1
   %67 = load i64, ptr %66, align 8
-  %68 = getelementptr inbounds { i64, i64 }, ptr %16, i32 0, i32 1
-  %69 = load i64, ptr %68, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %17) #14
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN15QAbstractSlider8setValueEi to i64), i64 0 }, ptr %17, align 8
-  invoke void @_ZN7QObject7connectIM15QAbstractSliderFviES3_EEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectES8_PKNS7_IT0_E6ObjectESD_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %15, ptr noundef %65, i64 %67, i64 %69, ptr noundef %21, ptr noundef byval({ i64, i64 }) align 8 %17, i32 noundef 0)
-          to label %70 unwind label %81
+  invoke void @_ZN7QObject7connectIM15QAbstractSliderFviES3_EEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectES8_PKNS7_IT0_E6ObjectESD_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %15, ptr noundef %63, i64 %65, i64 %67, ptr noundef %21, ptr noundef byval({ i64, i64 }) align 8 %17, i32 noundef 0)
+          to label %68 unwind label %79
 
-70:                                               ; preds = %64
-  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #11
-  %71 = getelementptr inbounds %class.OverlayScrollBar, ptr %21, i32 0, i32 3
+68:                                               ; preds = %62
+  call void @llvm.lifetime.end.p0(i64 16, ptr %17) #14
+  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef align 8 dereferenceable_or_null(8) %15) #14
+  %69 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %21, i32 0, i32 3
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN15QAbstractSlider15actionTriggeredEi to i64), i64 0 }, ptr %19, align 8
-  %72 = getelementptr inbounds { i64, i64 }, ptr %19, i32 0, i32 0
+  %70 = getelementptr inbounds nuw { i64, i64 }, ptr %19, i32 0, i32 0
+  %71 = load i64, ptr %70, align 8
+  %72 = getelementptr inbounds nuw { i64, i64 }, ptr %19, i32 0, i32 1
   %73 = load i64, ptr %72, align 8
-  %74 = getelementptr inbounds { i64, i64 }, ptr %19, i32 0, i32 1
-  %75 = load i64, ptr %74, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %20) #14
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN15QAbstractSlider15actionTriggeredEi to i64), i64 0 }, ptr %20, align 8
-  invoke void @_ZN7QObject7connectIM15QAbstractSliderFviES3_EEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectES8_PKNS7_IT0_E6ObjectESD_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %18, ptr noundef %71, i64 %73, i64 %75, ptr noundef %21, ptr noundef byval({ i64, i64 }) align 8 %20, i32 noundef 0)
-          to label %76 unwind label %81
+  invoke void @_ZN7QObject7connectIM15QAbstractSliderFviES3_EEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectES8_PKNS7_IT0_E6ObjectESD_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %18, ptr noundef %69, i64 %71, i64 %73, ptr noundef %21, ptr noundef byval({ i64, i64 }) align 8 %20, i32 noundef 0)
+          to label %74 unwind label %79
 
-76:                                               ; preds = %70
-  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #11
+74:                                               ; preds = %68
+  call void @llvm.lifetime.end.p0(i64 16, ptr %20) #14
+  call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef align 8 dereferenceable_or_null(8) %18) #14
   ret void
 
-77:                                               ; preds = %3
-  %78 = landingpad { ptr, i32 }
+75:                                               ; preds = %3
+  %76 = landingpad { ptr, i32 }
           cleanup
-  %79 = extractvalue { ptr, i32 } %78, 0
-  store ptr %79, ptr %7, align 8
-  %80 = extractvalue { ptr, i32 } %78, 1
-  store i32 %80, ptr %8, align 4
-  br label %94
+  %77 = extractvalue { ptr, i32 } %76, 0
+  store ptr %77, ptr %7, align 8
+  %78 = extractvalue { ptr, i32 } %76, 1
+  store i32 %78, ptr %8, align 4
+  br label %92
 
-81:                                               ; preds = %70, %64, %58, %53, %51, %49, %47, %44, %40, %29
-  %82 = landingpad { ptr, i32 }
+79:                                               ; preds = %68, %62, %56, %51, %49, %47, %45, %42, %38, %27
+  %80 = landingpad { ptr, i32 }
           cleanup
-  %83 = extractvalue { ptr, i32 } %82, 0
-  store ptr %83, ptr %7, align 8
-  %84 = extractvalue { ptr, i32 } %82, 1
-  store i32 %84, ptr %8, align 4
+  %81 = extractvalue { ptr, i32 } %80, 0
+  store ptr %81, ptr %7, align 8
+  %82 = extractvalue { ptr, i32 } %80, 1
+  store i32 %82, ptr %8, align 4
+  br label %91
+
+83:                                               ; preds = %37
+  %84 = landingpad { ptr, i32 }
+          cleanup
+  %85 = extractvalue { ptr, i32 } %84, 0
+  store ptr %85, ptr %7, align 8
+  %86 = extractvalue { ptr, i32 } %84, 1
+  store i32 %86, ptr %8, align 4
+  call void @_ZdlPvm(ptr noundef %36, i64 noundef 16) #16
+  br label %91
+
+87:                                               ; preds = %44
+  %88 = landingpad { ptr, i32 }
+          cleanup
+  %89 = extractvalue { ptr, i32 } %88, 0
+  store ptr %89, ptr %7, align 8
+  %90 = extractvalue { ptr, i32 } %88, 1
+  store i32 %90, ptr %8, align 4
+  call void @_ZdlPvm(ptr noundef %43, i64 noundef 16) #16
+  br label %91
+
+91:                                               ; preds = %87, %83, %79
+  call void @_ZN5QListIiED2Ev(ptr noundef align 8 dereferenceable_or_null(24) %35) #14
+  call void @_ZN6QImageD1Ev(ptr noundef align 8 dereferenceable_or_null(24) %29) #14
+  call void @_ZN6QImageD1Ev(ptr noundef align 8 dereferenceable_or_null(24) %28) #14
+  call void @_ZN10QScrollBarD1Ev(ptr noundef align 8 dereferenceable_or_null(40) %25) #14
+  br label %92
+
+92:                                               ; preds = %91, %75
+  call void @_ZN10QScrollBarD2Ev(ptr noundef align 8 dereferenceable_or_null(40) %21) #14
   br label %93
 
-85:                                               ; preds = %39
-  %86 = landingpad { ptr, i32 }
-          cleanup
-  %87 = extractvalue { ptr, i32 } %86, 0
-  store ptr %87, ptr %7, align 8
-  %88 = extractvalue { ptr, i32 } %86, 1
-  store i32 %88, ptr %8, align 4
-  call void @_ZdlPv(ptr noundef %38) #13
-  br label %93
-
-89:                                               ; preds = %46
-  %90 = landingpad { ptr, i32 }
-          cleanup
-  %91 = extractvalue { ptr, i32 } %90, 0
-  store ptr %91, ptr %7, align 8
-  %92 = extractvalue { ptr, i32 } %90, 1
-  store i32 %92, ptr %8, align 4
-  call void @_ZdlPv(ptr noundef %45) #13
-  br label %93
-
-93:                                               ; preds = %89, %85, %81
-  call void @_ZN5QListIiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %37) #11
-  call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #11
-  call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #11
-  call void @_ZN10QScrollBarD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %27) #11
-  br label %94
-
-94:                                               ; preds = %93, %77
-  call void @_ZN10QScrollBarD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %21) #11
-  br label %95
-
-95:                                               ; preds = %94
-  %96 = load ptr, ptr %7, align 8
-  %97 = load i32, ptr %8, align 4
-  %98 = insertvalue { ptr, i32 } poison, ptr %96, 0
-  %99 = insertvalue { ptr, i32 } %98, i32 %97, 1
-  resume { ptr, i32 } %99
+93:                                               ; preds = %92
+  %94 = load ptr, ptr %7, align 8
+  %95 = load i32, ptr %8, align 4
+  %96 = insertvalue { ptr, i32 } poison, ptr %94, 0
+  %97 = insertvalue { ptr, i32 } %96, i32 %95, 1
+  resume { ptr, i32 } %97
 }
 
-declare void @_ZN10QScrollBarC2EN2Qt11OrientationEP7QWidget(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef, ptr noundef) unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN10QScrollBarC2EN2Qt11OrientationEP7QWidget(ptr noundef align 8 dereferenceable_or_null(40), i32 noundef, ptr noundef) unnamed_addr #1
 
-declare void @_ZN10QScrollBarC1EN2Qt11OrientationEP7QWidget(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef, ptr noundef) unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN10QScrollBarC1EN2Qt11OrientationEP7QWidget(ptr noundef align 8 dereferenceable_or_null(40), i32 noundef, ptr noundef) unnamed_addr #1
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: nounwind
-declare void @_ZN6QImageC1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #2
+; Function Attrs: nounwind null_pointer_is_valid
+declare void @_ZN6QImageC1Ev(ptr noundef align 8 dereferenceable_or_null(24)) unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5QListIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN5QListIiEC2Ev(ptr noundef align 8 dereferenceable_or_null(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %class.QList, ptr %3, i32 0, i32 0
-  call void @_ZN17QArrayDataPointerIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #11
+  %4 = getelementptr inbounds nuw %class.QList, ptr %3, i32 0, i32 0
+  call void @_ZN17QArrayDataPointerIiEC2Ev(ptr noundef align 8 dereferenceable_or_null(24) %4) #14
   ret void
 }
 
-; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) #5
+; Function Attrs: nobuiltin null_pointer_is_valid allocsize(0)
+declare noundef ptr @_Znwm(i64 noundef) #5
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN13OsbProxyStyleC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN13OsbProxyStyleC2Ev(ptr noundef align 8 dereferenceable_or_null(16) %0) unnamed_addr #6 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN11QProxyStyleC2EP6QStyle(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef null)
-  %4 = getelementptr inbounds { [37 x ptr] }, ptr @_ZTV13OsbProxyStyle, i32 0, i32 0, i32 2
-  store ptr %4, ptr %3, align 8
+  call void @_ZN11QProxyStyleC2EP6QStyle(ptr noundef align 8 dereferenceable_or_null(16) %3, ptr noundef null)
+  store ptr getelementptr inbounds inrange(-16, 280) ({ [37 x ptr] }, ptr @_ZTV13OsbProxyStyle, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
-; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) #6
+; Function Attrs: nobuiltin nounwind null_pointer_is_valid
+declare void @_ZdlPvm(ptr noundef, i64 noundef) #7
 
-declare void @_ZN7QWidget8setStyleEP6QStyle(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN7QWidget8setStyleEP6QStyle(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) #1
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN16OverlayScrollBar16updateChildStyleEv(ptr noundef nonnull align 8 dereferenceable(196) %0) #0 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define void @_ZN16OverlayScrollBar16updateChildStyleEv(ptr noundef align 8 dereferenceable_or_null(196) %0) #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca %class.QString, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %class.OverlayScrollBar, ptr %6, i32 0, i32 2
+  %7 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %6, i32 0, i32 2
   %8 = load ptr, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %3) #14
   %9 = call noundef ptr @_ZN16QCoreApplication8instanceEv()
   %10 = call noundef ptr @_ZN12QApplication5styleEv()
-  call void @_ZNK6QStyle4nameEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %10)
-  %11 = invoke noundef ptr @_ZN13QStyleFactory6createERK7QString(ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call void @_ZNK6QStyle4nameEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %3, ptr noundef align 8 dereferenceable_or_null(16) %10)
+  %11 = invoke noundef ptr @_ZN13QStyleFactory6createERK7QString(ptr noundef align 8 dereferenceable(24) %3)
           to label %12 unwind label %17
 
 12:                                               ; preds = %1
-  invoke void @_ZN11QProxyStyle12setBaseStyleEP6QStyle(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %11)
+  invoke void @_ZN11QProxyStyle12setBaseStyleEP6QStyle(ptr noundef align 8 dereferenceable_or_null(16) %8, ptr noundef %11)
           to label %13 unwind label %17
 
 13:                                               ; preds = %12
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #11
-  %14 = getelementptr inbounds %class.OverlayScrollBar, ptr %6, i32 0, i32 3
-  %15 = getelementptr inbounds %class.OverlayScrollBar, ptr %6, i32 0, i32 2
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %3) #14
+  call void @llvm.lifetime.end.p0(i64 24, ptr %3) #14
+  %14 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %6, i32 0, i32 3
+  %15 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %6, i32 0, i32 2
   %16 = load ptr, ptr %15, align 8
-  call void @_ZN7QWidget8setStyleEP6QStyle(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef %16)
+  call void @_ZN7QWidget8setStyleEP6QStyle(ptr noundef align 8 dereferenceable_or_null(40) %14, ptr noundef %16)
   ret void
 
 17:                                               ; preds = %12, %1
@@ -676,7 +676,8 @@ define void @_ZN16OverlayScrollBar16updateChildStyleEv(ptr noundef nonnull align
   store ptr %19, ptr %4, align 8
   %20 = extractvalue { ptr, i32 } %18, 1
   store i32 %20, ptr %5, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #11
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %3) #14
+  call void @llvm.lifetime.end.p0(i64 24, ptr %3) #14
   br label %21
 
 21:                                               ; preds = %17
@@ -687,12 +688,14 @@ define void @_ZN16OverlayScrollBar16updateChildStyleEv(ptr noundef nonnull align
   resume { ptr, i32 } %25
 }
 
-declare void @_ZN7QWidget5raiseEv(ptr noundef nonnull align 8 dereferenceable(40)) #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN7QWidget5raiseEv(ptr noundef align 8 dereferenceable_or_null(40)) #1
 
-declare void @_ZN7QObject18installEventFilterEPS_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN7QObject18installEventFilterEPS_(ptr noundef align 8 dereferenceable_or_null(16), ptr noundef) #1
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN7QObject7connectIM15QAbstractSliderFviiEM16OverlayScrollBarFviiEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind noalias writable sret(%"class.QMetaObject::Connection") align 8 %0, ptr noundef %1, i64 %2, i64 %3, ptr noundef %4, ptr noundef byval({ i64, i64 }) align 8 %5, i32 noundef %6) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: inlinehint mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN7QObject7connectIM15QAbstractSliderFviiEM16OverlayScrollBarFviiEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE(ptr dead_on_unwind noalias writable sret(%"class.QMetaObject::Connection") align 8 %0, ptr noundef %1, i64 %2, i64 %3, ptr noundef %4, ptr noundef byval({ i64, i64 }) align 8 %5, i32 noundef %6) #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca ptr, align 8
   %9 = alloca { i64, i64 }, align 8
   %10 = alloca ptr, align 8
@@ -705,9 +708,9 @@ define linkonce_odr void @_ZN7QObject7connectIM15QAbstractSliderFviiEM16OverlayS
   %17 = alloca ptr, align 8
   %18 = alloca i32, align 4
   store ptr %0, ptr %8, align 8
-  %19 = getelementptr inbounds { i64, i64 }, ptr %9, i32 0, i32 0
+  %19 = getelementptr inbounds nuw { i64, i64 }, ptr %9, i32 0, i32 0
   store i64 %2, ptr %19, align 8
-  %20 = getelementptr inbounds { i64, i64 }, ptr %9, i32 0, i32 1
+  %20 = getelementptr inbounds nuw { i64, i64 }, ptr %9, i32 0, i32 1
   store i64 %3, ptr %20, align 8
   %21 = load { i64, i64 }, ptr %9, align 8
   %22 = load { i64, i64 }, ptr %5, align 8
@@ -716,6 +719,7 @@ define linkonce_odr void @_ZN7QObject7connectIM15QAbstractSliderFviiEM16OverlayS
   store ptr %4, ptr %12, align 8
   store { i64, i64 } %22, ptr %13, align 8
   store i32 %6, ptr %14, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #14
   store ptr null, ptr %15, align 8
   %23 = load i32, ptr %14, align 4
   %24 = icmp eq i32 %23, 2
@@ -734,20 +738,21 @@ define linkonce_odr void @_ZN7QObject7connectIM15QAbstractSliderFviiEM16OverlayS
 30:                                               ; preds = %28, %25
   %31 = load ptr, ptr %10, align 8
   %32 = load ptr, ptr %12, align 8
-  %33 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #12
+  %33 = call noalias noundef ptr @_Znwm(i64 noundef 32) #15
   %34 = load { i64, i64 }, ptr %13, align 8
   store { i64, i64 } %34, ptr %16, align 8
-  %35 = getelementptr inbounds { i64, i64 }, ptr %16, i32 0, i32 0
+  %35 = getelementptr inbounds nuw { i64, i64 }, ptr %16, i32 0, i32 0
   %36 = load i64, ptr %35, align 8
-  %37 = getelementptr inbounds { i64, i64 }, ptr %16, i32 0, i32 1
+  %37 = getelementptr inbounds nuw { i64, i64 }, ptr %16, i32 0, i32 1
   %38 = load i64, ptr %37, align 8
-  invoke void @_ZN9QtPrivate11QSlotObjectIM16OverlayScrollBarFviiENS_4ListIJiiEEEvEC2ES3_(ptr noundef nonnull align 8 dereferenceable(32) %33, i64 %36, i64 %38)
+  invoke void @_ZN9QtPrivate11QSlotObjectIM16OverlayScrollBarFviiENS_4ListIJiiEEEvEC2ES3_(ptr noundef align 8 dereferenceable_or_null(32) %33, i64 %36, i64 %38)
           to label %39 unwind label %42
 
 39:                                               ; preds = %30
   %40 = load i32, ptr %14, align 4
   %41 = load ptr, ptr %15, align 8
   call void @_ZN7QObject11connectImplEPKS_PPvS1_S3_PN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeEPKiPK11QMetaObject(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %0, ptr noundef %31, ptr noundef %11, ptr noundef %32, ptr noundef %13, ptr noundef %33, i32 noundef %40, ptr noundef %41, ptr noundef @_ZN15QAbstractSlider16staticMetaObjectE)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #14
   ret void
 
 42:                                               ; preds = %30
@@ -757,7 +762,8 @@ define linkonce_odr void @_ZN7QObject7connectIM15QAbstractSliderFviiEM16OverlayS
   store ptr %44, ptr %17, align 8
   %45 = extractvalue { ptr, i32 } %43, 1
   store i32 %45, ptr %18, align 4
-  call void @_ZdlPv(ptr noundef %33) #13
+  call void @_ZdlPvm(ptr noundef %33, i64 noundef 32) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #14
   br label %46
 
 46:                                               ; preds = %42
@@ -768,10 +774,11 @@ define linkonce_odr void @_ZN7QObject7connectIM15QAbstractSliderFviiEM16OverlayS
   resume { ptr, i32 } %50
 }
 
-declare void @_ZN15QAbstractSlider12rangeChangedEii(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN15QAbstractSlider12rangeChangedEii(ptr noundef align 8 dereferenceable_or_null(40), i32 noundef, i32 noundef) #1
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN16OverlayScrollBar13setChildRangeEii(ptr noundef nonnull align 8 dereferenceable(196) %0, i32 noundef %1, i32 noundef %2) #0 comdat align 2 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN16OverlayScrollBar13setChildRangeEii(ptr noundef align 8 dereferenceable_or_null(196) %0, i32 noundef %1, i32 noundef %2) #0 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -779,18 +786,24 @@ define linkonce_odr void @_ZN16OverlayScrollBar13setChildRangeEii(ptr noundef no
   store i32 %1, ptr %5, align 4
   store i32 %2, ptr %6, align 4
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %class.OverlayScrollBar, ptr %7, i32 0, i32 3
+  %8 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %7, i32 0, i32 3
   %9 = load i32, ptr %5, align 4
   %10 = load i32, ptr %6, align 4
-  call void @_ZN15QAbstractSlider8setRangeEii(ptr noundef nonnull align 8 dereferenceable(40) %8, i32 noundef %9, i32 noundef %10)
+  call void @_ZN15QAbstractSlider8setRangeEii(ptr noundef align 8 dereferenceable_or_null(40) %8, i32 noundef %9, i32 noundef %10)
   ret void
 }
 
-; Function Attrs: nounwind
-declare void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN7QObject7connectIM15QAbstractSliderFviES3_EEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectES8_PKNS7_IT0_E6ObjectESD_N2Qt14ConnectionTypeE(ptr dead_on_unwind noalias writable sret(%"class.QMetaObject::Connection") align 8 %0, ptr noundef %1, i64 %2, i64 %3, ptr noundef %4, ptr noundef byval({ i64, i64 }) align 8 %5, i32 noundef %6) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
+
+; Function Attrs: nounwind null_pointer_is_valid
+declare void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef align 8 dereferenceable_or_null(8)) unnamed_addr #2
+
+; Function Attrs: inlinehint mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN7QObject7connectIM15QAbstractSliderFviES3_EEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectES8_PKNS7_IT0_E6ObjectESD_N2Qt14ConnectionTypeE(ptr dead_on_unwind noalias writable sret(%"class.QMetaObject::Connection") align 8 %0, ptr noundef %1, i64 %2, i64 %3, ptr noundef %4, ptr noundef byval({ i64, i64 }) align 8 %5, i32 noundef %6) #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca ptr, align 8
   %9 = alloca { i64, i64 }, align 8
   %10 = alloca ptr, align 8
@@ -803,9 +816,9 @@ define linkonce_odr void @_ZN7QObject7connectIM15QAbstractSliderFviES3_EEN11QMet
   %17 = alloca ptr, align 8
   %18 = alloca i32, align 4
   store ptr %0, ptr %8, align 8
-  %19 = getelementptr inbounds { i64, i64 }, ptr %9, i32 0, i32 0
+  %19 = getelementptr inbounds nuw { i64, i64 }, ptr %9, i32 0, i32 0
   store i64 %2, ptr %19, align 8
-  %20 = getelementptr inbounds { i64, i64 }, ptr %9, i32 0, i32 1
+  %20 = getelementptr inbounds nuw { i64, i64 }, ptr %9, i32 0, i32 1
   store i64 %3, ptr %20, align 8
   %21 = load { i64, i64 }, ptr %9, align 8
   %22 = load { i64, i64 }, ptr %5, align 8
@@ -814,6 +827,7 @@ define linkonce_odr void @_ZN7QObject7connectIM15QAbstractSliderFviES3_EEN11QMet
   store ptr %4, ptr %12, align 8
   store { i64, i64 } %22, ptr %13, align 8
   store i32 %6, ptr %14, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #14
   store ptr null, ptr %15, align 8
   %23 = load i32, ptr %14, align 4
   %24 = icmp eq i32 %23, 2
@@ -832,20 +846,21 @@ define linkonce_odr void @_ZN7QObject7connectIM15QAbstractSliderFviES3_EEN11QMet
 30:                                               ; preds = %28, %25
   %31 = load ptr, ptr %10, align 8
   %32 = load ptr, ptr %12, align 8
-  %33 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #12
+  %33 = call noalias noundef ptr @_Znwm(i64 noundef 32) #15
   %34 = load { i64, i64 }, ptr %13, align 8
   store { i64, i64 } %34, ptr %16, align 8
-  %35 = getelementptr inbounds { i64, i64 }, ptr %16, i32 0, i32 0
+  %35 = getelementptr inbounds nuw { i64, i64 }, ptr %16, i32 0, i32 0
   %36 = load i64, ptr %35, align 8
-  %37 = getelementptr inbounds { i64, i64 }, ptr %16, i32 0, i32 1
+  %37 = getelementptr inbounds nuw { i64, i64 }, ptr %16, i32 0, i32 1
   %38 = load i64, ptr %37, align 8
-  invoke void @_ZN9QtPrivate11QSlotObjectIM15QAbstractSliderFviENS_4ListIJiEEEvEC2ES3_(ptr noundef nonnull align 8 dereferenceable(32) %33, i64 %36, i64 %38)
+  invoke void @_ZN9QtPrivate11QSlotObjectIM15QAbstractSliderFviENS_4ListIJiEEEvEC2ES3_(ptr noundef align 8 dereferenceable_or_null(32) %33, i64 %36, i64 %38)
           to label %39 unwind label %42
 
 39:                                               ; preds = %30
   %40 = load i32, ptr %14, align 4
   %41 = load ptr, ptr %15, align 8
   call void @_ZN7QObject11connectImplEPKS_PPvS1_S3_PN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeEPKiPK11QMetaObject(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %0, ptr noundef %31, ptr noundef %11, ptr noundef %32, ptr noundef %13, ptr noundef %33, i32 noundef %40, ptr noundef %41, ptr noundef @_ZN15QAbstractSlider16staticMetaObjectE)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #14
   ret void
 
 42:                                               ; preds = %30
@@ -855,7 +870,8 @@ define linkonce_odr void @_ZN7QObject7connectIM15QAbstractSliderFviES3_EEN11QMet
   store ptr %44, ptr %17, align 8
   %45 = extractvalue { ptr, i32 } %43, 1
   store i32 %45, ptr %18, align 4
-  call void @_ZdlPv(ptr noundef %33) #13
+  call void @_ZdlPvm(ptr noundef %33, i64 noundef 32) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #14
   br label %46
 
 46:                                               ; preds = %42
@@ -866,156 +882,162 @@ define linkonce_odr void @_ZN7QObject7connectIM15QAbstractSliderFviES3_EEN11QMet
   resume { ptr, i32 } %50
 }
 
-declare void @_ZN15QAbstractSlider12valueChangedEi(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN15QAbstractSlider12valueChangedEi(ptr noundef align 8 dereferenceable_or_null(40), i32 noundef) #1
 
-declare void @_ZN15QAbstractSlider8setValueEi(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN15QAbstractSlider8setValueEi(ptr noundef align 8 dereferenceable_or_null(40), i32 noundef) #1
 
-declare void @_ZN15QAbstractSlider15actionTriggeredEi(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN15QAbstractSlider15actionTriggeredEi(ptr noundef align 8 dereferenceable_or_null(40), i32 noundef) #1
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5QListIiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN5QListIiED2Ev(ptr noundef align 8 dereferenceable_or_null(24) %0) unnamed_addr #9 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %class.QList, ptr %3, i32 0, i32 0
-  call void @_ZN17QArrayDataPointerIiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #11
+  %4 = getelementptr inbounds nuw %class.QList, ptr %3, i32 0, i32 0
+  call void @_ZN17QArrayDataPointerIiED2Ev(ptr noundef align 8 dereferenceable_or_null(24) %4) #14
   ret void
 }
 
-; Function Attrs: nounwind
-declare void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #2
+; Function Attrs: nounwind null_pointer_is_valid
+declare void @_ZN6QImageD1Ev(ptr noundef align 8 dereferenceable_or_null(24)) unnamed_addr #2
 
-; Function Attrs: nounwind
-declare void @_ZN10QScrollBarD1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #2
+; Function Attrs: nounwind null_pointer_is_valid
+declare void @_ZN10QScrollBarD1Ev(ptr noundef align 8 dereferenceable_or_null(40)) unnamed_addr #2
 
-; Function Attrs: nounwind
-declare void @_ZN10QScrollBarD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #2
+; Function Attrs: nounwind null_pointer_is_valid
+declare void @_ZN10QScrollBarD2Ev(ptr noundef align 8 dereferenceable_or_null(40)) unnamed_addr #2
 
-; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN16OverlayScrollBarD2Ev(ptr noundef nonnull align 8 dereferenceable(196) %0) unnamed_addr #4 align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define void @_ZN16OverlayScrollBarD2Ev(ptr noundef align 8 dereferenceable_or_null(196) %0) unnamed_addr #4 align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds { [57 x ptr], [10 x ptr] }, ptr @_ZTV16OverlayScrollBar, i32 0, i32 0, i32 2
-  store ptr %4, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
-  %6 = getelementptr inbounds { [57 x ptr], [10 x ptr] }, ptr @_ZTV16OverlayScrollBar, i32 0, i32 1, i32 2
-  store ptr %6, ptr %5, align 8
-  %7 = getelementptr inbounds %class.OverlayScrollBar, ptr %3, i32 0, i32 2
-  %8 = load ptr, ptr %7, align 8
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %14, label %10
+  store ptr getelementptr inbounds inrange(-16, 440) ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV16OverlayScrollBar, i32 0, i32 0, i32 2), ptr %3, align 8
+  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr getelementptr inbounds inrange(-16, 64) ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV16OverlayScrollBar, i32 0, i32 1, i32 2), ptr %4, align 8
+  %5 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %3, i32 0, i32 2
+  %6 = load ptr, ptr %5, align 8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %12, label %8
 
-10:                                               ; preds = %1
-  %11 = load ptr, ptr %8, align 8
-  %12 = getelementptr inbounds ptr, ptr %11, i64 4
-  %13 = load ptr, ptr %12, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(16) %8) #11
-  br label %14
+8:                                                ; preds = %1
+  %9 = load ptr, ptr %6, align 8
+  %10 = getelementptr inbounds ptr, ptr %9, i64 4
+  %11 = load ptr, ptr %10, align 8
+  call void %11(ptr noundef align 8 dereferenceable_or_null(16) %6) #14
+  br label %12
 
-14:                                               ; preds = %10, %1
-  %15 = getelementptr inbounds %class.OverlayScrollBar, ptr %3, i32 0, i32 1
-  %16 = load ptr, ptr %15, align 8
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %22, label %18
+12:                                               ; preds = %8, %1
+  %13 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %3, i32 0, i32 1
+  %14 = load ptr, ptr %13, align 8
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %20, label %16
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %16, align 8
-  %20 = getelementptr inbounds ptr, ptr %19, i64 4
-  %21 = load ptr, ptr %20, align 8
-  call void %21(ptr noundef nonnull align 8 dereferenceable(16) %16) #11
-  br label %22
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %14, align 8
+  %18 = getelementptr inbounds ptr, ptr %17, i64 4
+  %19 = load ptr, ptr %18, align 8
+  call void %19(ptr noundef align 8 dereferenceable_or_null(16) %14) #14
+  br label %20
 
-22:                                               ; preds = %18, %14
-  %23 = getelementptr inbounds %class.OverlayScrollBar, ptr %3, i32 0, i32 12
-  call void @_ZN5QListIiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #11
-  %24 = getelementptr inbounds %class.OverlayScrollBar, ptr %3, i32 0, i32 5
-  call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #11
-  %25 = getelementptr inbounds %class.OverlayScrollBar, ptr %3, i32 0, i32 4
-  call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #11
-  %26 = getelementptr inbounds %class.OverlayScrollBar, ptr %3, i32 0, i32 3
-  call void @_ZN10QScrollBarD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %26) #11
-  call void @_ZN10QScrollBarD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #11
+20:                                               ; preds = %16, %12
+  %21 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %3, i32 0, i32 12
+  call void @_ZN5QListIiED2Ev(ptr noundef align 8 dereferenceable_or_null(24) %21) #14
+  %22 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %3, i32 0, i32 5
+  call void @_ZN6QImageD1Ev(ptr noundef align 8 dereferenceable_or_null(24) %22) #14
+  %23 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %3, i32 0, i32 4
+  call void @_ZN6QImageD1Ev(ptr noundef align 8 dereferenceable_or_null(24) %23) #14
+  %24 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %3, i32 0, i32 3
+  call void @_ZN10QScrollBarD1Ev(ptr noundef align 8 dereferenceable_or_null(40) %24) #14
+  call void @_ZN10QScrollBarD2Ev(ptr noundef align 8 dereferenceable_or_null(40) %3) #14
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define void @_ZThn16_N16OverlayScrollBarD1Ev(ptr noundef %0) unnamed_addr #7 align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 -16
-  tail call void @_ZN16OverlayScrollBarD1Ev(ptr noundef nonnull align 8 dereferenceable(196) %4) #11
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN16OverlayScrollBarD0Ev(ptr noundef nonnull align 8 dereferenceable(196) %0) unnamed_addr #4 align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN16OverlayScrollBarD1Ev(ptr noundef nonnull align 8 dereferenceable(196) %3) #11
-  call void @_ZdlPv(ptr noundef %3) #13
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define void @_ZThn16_N16OverlayScrollBarD0Ev(ptr noundef %0) unnamed_addr #7 align 2 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define void @_ZThn16_N16OverlayScrollBarD1Ev(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -16
-  tail call void @_ZN16OverlayScrollBarD0Ev(ptr noundef nonnull align 8 dereferenceable(196) %4) #11
+  tail call void @_ZN16OverlayScrollBarD1Ev(ptr noundef align 8 dereferenceable_or_null(196) %4) #14
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define i64 @_ZNK16OverlayScrollBar8sizeHintEv(ptr noundef nonnull align 8 dereferenceable(196) %0) unnamed_addr #0 align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define void @_ZN16OverlayScrollBarD0Ev(ptr noundef align 8 dereferenceable_or_null(196) %0) unnamed_addr #4 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN16OverlayScrollBarD1Ev(ptr noundef align 8 dereferenceable_or_null(196) %3) #14
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 200) #16
+  ret void
+}
+
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define void @_ZThn16_N16OverlayScrollBarD0Ev(ptr noundef %0) unnamed_addr #10 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds i8, ptr %3, i64 -16
+  tail call void @_ZN16OverlayScrollBarD0Ev(ptr noundef align 8 dereferenceable_or_null(196) %4) #14
+  ret void
+}
+
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define i64 @_ZNK16OverlayScrollBar8sizeHintEv(ptr noundef align 8 dereferenceable_or_null(196) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.QSize, align 4
   %3 = alloca ptr, align 8
   %4 = alloca %class.QSize, align 4
   %5 = alloca %class.QSize, align 4
   store ptr %0, ptr %3, align 8
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %class.OverlayScrollBar, ptr %6, i32 0, i32 6
+  %7 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %6, i32 0, i32 6
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds %class.OverlayScrollBar, ptr %6, i32 0, i32 3
-  %10 = call i64 @_ZNK10QScrollBar8sizeHintEv(ptr noundef nonnull align 8 dereferenceable(40) %9)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #14
+  %9 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %6, i32 0, i32 3
+  %10 = call i64 @_ZNK10QScrollBar8sizeHintEv(ptr noundef align 8 dereferenceable_or_null(40) %9)
   store i64 %10, ptr %4, align 4
-  %11 = call noundef i32 @_ZNK5QSize5widthEv(ptr noundef nonnull align 4 dereferenceable(8) %4) #11
+  %11 = call noundef i32 @_ZNK5QSize5widthEv(ptr noundef align 4 dereferenceable_or_null(8) %4) #14
   %12 = add i32 %8, %11
-  %13 = call i64 @_ZNK10QScrollBar8sizeHintEv(ptr noundef nonnull align 8 dereferenceable(40) %6)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #14
+  %13 = call i64 @_ZNK10QScrollBar8sizeHintEv(ptr noundef align 8 dereferenceable_or_null(40) %6)
   store i64 %13, ptr %5, align 4
-  %14 = call noundef i32 @_ZNK5QSize6heightEv(ptr noundef nonnull align 4 dereferenceable(8) %5) #11
-  call void @_ZN5QSizeC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %2, i32 noundef %12, i32 noundef %14) #11
+  %14 = call noundef i32 @_ZNK5QSize6heightEv(ptr noundef align 4 dereferenceable_or_null(8) %5) #14
+  call void @_ZN5QSizeC2Eii(ptr noundef align 4 dereferenceable_or_null(8) %2, i32 noundef %12, i32 noundef %14) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #14
   %15 = load i64, ptr %2, align 4
   ret i64 %15
 }
 
-declare i64 @_ZNK10QScrollBar8sizeHintEv(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i64 @_ZNK10QScrollBar8sizeHintEv(ptr noundef align 8 dereferenceable_or_null(40)) unnamed_addr #1
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZNK5QSize5widthEv(ptr noundef nonnull align 4 dereferenceable(8) %0) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef i32 @_ZNK5QSize5widthEv(ptr noundef align 4 dereferenceable_or_null(8) %0) #9 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %class.QSize, ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %class.QSize, ptr %3, i32 0, i32 0
   %5 = load i32, ptr %4, align 4
   ret i32 %5
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZNK5QSize6heightEv(ptr noundef nonnull align 4 dereferenceable(8) %0) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef i32 @_ZNK5QSize6heightEv(ptr noundef align 4 dereferenceable_or_null(8) %0) #9 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %class.QSize, ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds nuw %class.QSize, ptr %3, i32 0, i32 1
   %5 = load i32, ptr %4, align 4
   ret i32 %5
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5QSizeC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN5QSizeC2Eii(ptr noundef align 4 dereferenceable_or_null(8) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #9 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -1023,29 +1045,30 @@ define linkonce_odr void @_ZN5QSizeC2Eii(ptr noundef nonnull align 4 dereference
   store i32 %1, ptr %5, align 4
   store i32 %2, ptr %6, align 4
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %class.QSize, ptr %7, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %class.QSize, ptr %7, i32 0, i32 0
   %9 = load i32, ptr %5, align 4
   store i32 %9, ptr %8, align 4
-  %10 = getelementptr inbounds %class.QSize, ptr %7, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %class.QSize, ptr %7, i32 0, i32 1
   %11 = load i32, ptr %6, align 4
   store i32 %11, ptr %10, align 4
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN16OverlayScrollBar14sliderPositionEv(ptr noundef nonnull align 8 dereferenceable(196) %0) unnamed_addr #0 align 2 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define noundef i32 @_ZN16OverlayScrollBar14sliderPositionEv(ptr noundef align 8 dereferenceable_or_null(196) %0) unnamed_addr #0 align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %class.OverlayScrollBar, ptr %3, i32 0, i32 3
-  %5 = call noundef i32 @_ZNK15QAbstractSlider14sliderPositionEv(ptr noundef nonnull align 8 dereferenceable(40) %4)
+  %4 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %3, i32 0, i32 3
+  %5 = call noundef i32 @_ZNK15QAbstractSlider14sliderPositionEv(ptr noundef align 8 dereferenceable_or_null(40) %4)
   ret i32 %5
 }
 
-declare noundef i32 @_ZNK15QAbstractSlider14sliderPositionEv(ptr noundef nonnull align 8 dereferenceable(40)) #1
+; Function Attrs: null_pointer_is_valid
+declare noundef i32 @_ZNK15QAbstractSlider14sliderPositionEv(ptr noundef align 8 dereferenceable_or_null(40)) #1
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN16OverlayScrollBar19setNearOverlayImageER6QImageiii5QListIiEi(ptr noundef nonnull align 8 dereferenceable(196) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6) #0 align 2 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define void @_ZN16OverlayScrollBar19setNearOverlayImageER6QImageiii5QListIiEi(ptr noundef align 8 dereferenceable_or_null(196) %0, ptr noundef align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6) #0 align 2 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -1063,27 +1086,28 @@ define void @_ZN16OverlayScrollBar19setNearOverlayImageER6QImageiii5QListIiEi(pt
   store ptr %5, ptr %13, align 8
   store i32 %6, ptr %14, align 4
   %17 = load ptr, ptr %8, align 8
-  %18 = getelementptr inbounds %class.OverlayScrollBar, ptr %17, i32 0, i32 4
-  %19 = call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(24) %18)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #14
+  %18 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %17, i32 0, i32 4
+  %19 = call noundef i32 @_ZNK6QImage5widthEv(ptr noundef align 8 dereferenceable_or_null(24) %18)
   store i32 %19, ptr %15, align 4
   %20 = load ptr, ptr %9, align 8
-  %21 = getelementptr inbounds %class.OverlayScrollBar, ptr %17, i32 0, i32 4
-  %22 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6QImageaSERKS_(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %20)
+  %21 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %17, i32 0, i32 4
+  %22 = call noundef align 8 dereferenceable(24) ptr @_ZN6QImageaSERKS_(ptr noundef align 8 dereferenceable_or_null(24) %21, ptr noundef align 8 dereferenceable(24) %20)
   %23 = load i32, ptr %10, align 4
-  %24 = getelementptr inbounds %class.OverlayScrollBar, ptr %17, i32 0, i32 8
+  %24 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %17, i32 0, i32 8
   store i32 %23, ptr %24, align 8
   %25 = load i32, ptr %11, align 4
-  %26 = getelementptr inbounds %class.OverlayScrollBar, ptr %17, i32 0, i32 9
+  %26 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %17, i32 0, i32 9
   store i32 %25, ptr %26, align 4
   %27 = load i32, ptr %12, align 4
-  %28 = getelementptr inbounds %class.OverlayScrollBar, ptr %17, i32 0, i32 10
+  %28 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %17, i32 0, i32 10
   store i32 %27, ptr %28, align 8
-  %29 = getelementptr inbounds %class.OverlayScrollBar, ptr %17, i32 0, i32 12
-  %30 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5QListIiEaSERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %5) #11
+  %29 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %17, i32 0, i32 12
+  %30 = call noundef align 8 dereferenceable(24) ptr @_ZN5QListIiEaSERKS0_(ptr noundef align 8 dereferenceable_or_null(24) %29, ptr noundef align 8 dereferenceable(24) %5) #14
   %31 = load i32, ptr %14, align 4
   %32 = sitofp i32 %31 to double
   %33 = getelementptr inbounds i8, ptr %17, i64 16
-  %34 = call noundef double @_ZNK12QPaintDevice16devicePixelRatioEv(ptr noundef nonnull align 8 dereferenceable(10) %33)
+  %34 = call noundef double @_ZNK12QPaintDevice16devicePixelRatioEv(ptr noundef align 8 dereferenceable_or_null(10) %33)
   %35 = fcmp ogt double %32, %34
   br i1 %35, label %36, label %39
 
@@ -1094,106 +1118,115 @@ define void @_ZN16OverlayScrollBar19setNearOverlayImageER6QImageiii5QListIiEi(pt
 
 39:                                               ; preds = %7
   %40 = getelementptr inbounds i8, ptr %17, i64 16
-  %41 = call noundef double @_ZNK12QPaintDevice16devicePixelRatioEv(ptr noundef nonnull align 8 dereferenceable(10) %40)
+  %41 = call noundef double @_ZNK12QPaintDevice16devicePixelRatioEv(ptr noundef align 8 dereferenceable_or_null(10) %40)
   br label %42
 
 42:                                               ; preds = %39, %36
   %43 = phi double [ %38, %36 ], [ %41, %39 ]
   %44 = fptosi double %43 to i32
-  %45 = getelementptr inbounds %class.OverlayScrollBar, ptr %17, i32 0, i32 13
+  %45 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %17, i32 0, i32 13
   store i32 %44, ptr %45, align 8
   %46 = load i32, ptr %15, align 4
-  %47 = getelementptr inbounds %class.OverlayScrollBar, ptr %17, i32 0, i32 4
-  %48 = call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(24) %47)
+  %47 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %17, i32 0, i32 4
+  %48 = call noundef i32 @_ZNK6QImage5widthEv(ptr noundef align 8 dereferenceable_or_null(24) %47)
   %49 = icmp ne i32 %46, %48
   br i1 %49, label %50, label %60
 
 50:                                               ; preds = %42
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #14
   %51 = getelementptr inbounds i8, ptr %17, i64 16
-  %52 = call noundef double @_ZNK12QPaintDevice16devicePixelRatioEv(ptr noundef nonnull align 8 dereferenceable(10) %51)
+  %52 = call noundef double @_ZNK12QPaintDevice16devicePixelRatioEv(ptr noundef align 8 dereferenceable_or_null(10) %51)
   store double %52, ptr %16, align 8
-  %53 = getelementptr inbounds %class.OverlayScrollBar, ptr %17, i32 0, i32 4
-  %54 = call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(24) %53)
+  %53 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %17, i32 0, i32 4
+  %54 = call noundef i32 @_ZNK6QImage5widthEv(ptr noundef align 8 dereferenceable_or_null(24) %53)
   %55 = sitofp i32 %54 to double
   %56 = load double, ptr %16, align 8
   %57 = fdiv double %55, %56
   %58 = fptosi double %57 to i32
-  %59 = getelementptr inbounds %class.OverlayScrollBar, ptr %17, i32 0, i32 6
+  %59 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %17, i32 0, i32 6
   store i32 %58, ptr %59, align 8
-  call void @_ZN7QWidget14updateGeometryEv(ptr noundef nonnull align 8 dereferenceable(40) %17)
+  call void @_ZN7QWidget14updateGeometryEv(ptr noundef align 8 dereferenceable_or_null(40) %17)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #14
   br label %60
 
 60:                                               ; preds = %50, %42
-  call void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(40) %17)
+  call void @_ZN7QWidget6updateEv(ptr noundef align 8 dereferenceable_or_null(40) %17)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #14
   ret void
 }
 
-declare noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(24)) #1
+; Function Attrs: null_pointer_is_valid
+declare noundef i32 @_ZNK6QImage5widthEv(ptr noundef align 8 dereferenceable_or_null(24)) #1
 
-declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN6QImageaSERKS_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) #1
+; Function Attrs: null_pointer_is_valid
+declare noundef align 8 dereferenceable(24) ptr @_ZN6QImageaSERKS_(ptr noundef align 8 dereferenceable_or_null(24), ptr noundef align 8 dereferenceable(24)) #1
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZN5QListIiEaSERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef align 8 dereferenceable(24) ptr @_ZN5QListIiEaSERKS0_(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef align 8 dereferenceable(24) %1) #9 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %class.QList, ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %class.QList, ptr %5, i32 0, i32 0
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %class.QList, ptr %7, i32 0, i32 0
-  %9 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN17QArrayDataPointerIiEaSERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8) #11
+  %8 = getelementptr inbounds nuw %class.QList, ptr %7, i32 0, i32 0
+  %9 = call noundef align 8 dereferenceable(24) ptr @_ZN17QArrayDataPointerIiEaSERKS0_(ptr noundef align 8 dereferenceable_or_null(24) %6, ptr noundef align 8 dereferenceable(24) %8) #14
   ret ptr %5
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef double @_ZNK12QPaintDevice16devicePixelRatioEv(ptr noundef nonnull align 8 dereferenceable(10) %0) #0 comdat align 2 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef double @_ZNK12QPaintDevice16devicePixelRatioEv(ptr noundef align 8 dereferenceable_or_null(10) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds ptr, ptr %4, i64 4
   %6 = load ptr, ptr %5, align 8
-  %7 = call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(10) %3, i32 noundef 12)
+  %7 = call noundef i32 %6(ptr noundef align 8 dereferenceable_or_null(10) %3, i32 noundef 12)
   %8 = sitofp i32 %7 to double
   %9 = call noundef double @_ZN12QPaintDevice22devicePixelRatioFScaleEv()
   %10 = fdiv double %8, %9
   ret double %10
 }
 
-declare void @_ZN7QWidget14updateGeometryEv(ptr noundef nonnull align 8 dereferenceable(40)) #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN7QWidget14updateGeometryEv(ptr noundef align 8 dereferenceable_or_null(40)) #1
 
-declare void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(40)) #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN7QWidget6updateEv(ptr noundef align 8 dereferenceable_or_null(40)) #1
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN16OverlayScrollBar20setMarkedPacketImageER6QImage(ptr noundef nonnull align 8 dereferenceable(196) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #0 align 2 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define void @_ZN16OverlayScrollBar20setMarkedPacketImageER6QImage(ptr noundef align 8 dereferenceable_or_null(196) %0, ptr noundef align 8 dereferenceable(24) %1) #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca double, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #14
   %7 = getelementptr inbounds i8, ptr %6, i64 16
-  %8 = call noundef double @_ZNK12QPaintDevice16devicePixelRatioEv(ptr noundef nonnull align 8 dereferenceable(10) %7)
+  %8 = call noundef double @_ZNK12QPaintDevice16devicePixelRatioEv(ptr noundef align 8 dereferenceable_or_null(10) %7)
   store double %8, ptr %5, align 8
   %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %class.OverlayScrollBar, ptr %6, i32 0, i32 5
-  %11 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6QImageaSERKS_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %9)
+  %10 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %6, i32 0, i32 5
+  %11 = call noundef align 8 dereferenceable(24) ptr @_ZN6QImageaSERKS_(ptr noundef align 8 dereferenceable_or_null(24) %10, ptr noundef align 8 dereferenceable(24) %9)
   %12 = load ptr, ptr %4, align 8
-  %13 = call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(24) %12)
+  %13 = call noundef i32 @_ZNK6QImage5widthEv(ptr noundef align 8 dereferenceable_or_null(24) %12)
   %14 = sitofp i32 %13 to double
   %15 = load double, ptr %5, align 8
   %16 = fdiv double %14, %15
   %17 = fptosi double %16 to i32
-  %18 = getelementptr inbounds %class.OverlayScrollBar, ptr %6, i32 0, i32 7
+  %18 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %6, i32 0, i32 7
   store i32 %17, ptr %18, align 4
-  %19 = getelementptr inbounds %class.OverlayScrollBar, ptr %6, i32 0, i32 3
-  call void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(40) %19)
+  %19 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %6, i32 0, i32 3
+  call void @_ZN7QWidget6updateEv(ptr noundef align 8 dereferenceable_or_null(40) %19)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #14
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define { i64, i64 } @_ZN16OverlayScrollBar10grooveRectEv(ptr noundef nonnull align 8 dereferenceable(196) %0) #0 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define { i64, i64 } @_ZN16OverlayScrollBar10grooveRectEv(ptr noundef align 8 dereferenceable_or_null(196) %0) #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QRect, align 4
   %3 = alloca ptr, align 8
   %4 = alloca %class.QStyleOptionSlider, align 8
@@ -1202,105 +1235,119 @@ define { i64, i64 } @_ZN16OverlayScrollBar10grooveRectEv(ptr noundef nonnull ali
   %7 = alloca %class.QRect, align 4
   store ptr %0, ptr %3, align 8
   %8 = load ptr, ptr %3, align 8
-  call void @_ZN18QStyleOptionSliderC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %4)
+  call void @llvm.lifetime.start.p0(i64 128, ptr %4) #14
+  call void @_ZN18QStyleOptionSliderC1Ev(ptr noundef align 8 dereferenceable_or_null(128) %4)
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds ptr, ptr %9, i64 53
   %11 = load ptr, ptr %10, align 8
-  invoke void %11(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef %4)
+  invoke void %11(ptr noundef align 8 dereferenceable_or_null(40) %8, ptr noundef %4)
           to label %12 unwind label %35
 
 12:                                               ; preds = %1
-  %13 = getelementptr inbounds %class.OverlayScrollBar, ptr %8, i32 0, i32 3
-  %14 = invoke { i64, i64 } @_ZNK7QWidget4rectEv(ptr noundef nonnull align 8 dereferenceable(40) %13)
-          to label %15 unwind label %35
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #14
+  %13 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %8, i32 0, i32 3
+  %14 = invoke { i64, i64 } @_ZNK7QWidget4rectEv(ptr noundef align 8 dereferenceable_or_null(40) %13)
+          to label %15 unwind label %39
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds { i64, i64 }, ptr %7, i32 0, i32 0
+  %16 = getelementptr inbounds nuw { i64, i64 }, ptr %7, i32 0, i32 0
   %17 = extractvalue { i64, i64 } %14, 0
   store i64 %17, ptr %16, align 4
-  %18 = getelementptr inbounds { i64, i64 }, ptr %7, i32 0, i32 1
+  %18 = getelementptr inbounds nuw { i64, i64 }, ptr %7, i32 0, i32 1
   %19 = extractvalue { i64, i64 } %14, 1
   store i64 %19, ptr %18, align 4
-  %20 = getelementptr inbounds %class.QStyleOption, ptr %4, i32 0, i32 4
+  %20 = getelementptr inbounds nuw %class.QStyleOption, ptr %4, i32 0, i32 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %20, ptr align 4 %7, i64 16, i1 false)
-  %21 = getelementptr inbounds %class.OverlayScrollBar, ptr %8, i32 0, i32 3
-  %22 = invoke noundef ptr @_ZNK7QWidget5styleEv(ptr noundef nonnull align 8 dereferenceable(40) %21)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #14
+  %21 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %8, i32 0, i32 3
+  %22 = invoke noundef ptr @_ZNK7QWidget5styleEv(ptr noundef align 8 dereferenceable_or_null(40) %21)
           to label %23 unwind label %35
 
 23:                                               ; preds = %15
-  %24 = getelementptr inbounds %class.OverlayScrollBar, ptr %8, i32 0, i32 3
+  %24 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %8, i32 0, i32 3
   %25 = load ptr, ptr %22, align 8
   %26 = getelementptr inbounds ptr, ptr %25, i64 27
   %27 = load ptr, ptr %26, align 8
-  %28 = invoke { i64, i64 } %27(ptr noundef nonnull align 8 dereferenceable(16) %22, i32 noundef 2, ptr noundef %4, i32 noundef 128, ptr noundef %24)
+  %28 = invoke { i64, i64 } %27(ptr noundef align 8 dereferenceable_or_null(16) %22, i32 noundef 2, ptr noundef %4, i32 noundef 128, ptr noundef %24)
           to label %29 unwind label %35
 
 29:                                               ; preds = %23
-  %30 = getelementptr inbounds { i64, i64 }, ptr %2, i32 0, i32 0
+  %30 = getelementptr inbounds nuw { i64, i64 }, ptr %2, i32 0, i32 0
   %31 = extractvalue { i64, i64 } %28, 0
   store i64 %31, ptr %30, align 4
-  %32 = getelementptr inbounds { i64, i64 }, ptr %2, i32 0, i32 1
+  %32 = getelementptr inbounds nuw { i64, i64 }, ptr %2, i32 0, i32 1
   %33 = extractvalue { i64, i64 } %28, 1
   store i64 %33, ptr %32, align 4
-  call void @_ZN18QStyleOptionSliderD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %4) #11
+  call void @_ZN12QStyleOptionD2Ev(ptr noundef align 8 dereferenceable_or_null(128) %4) #14
+  call void @llvm.lifetime.end.p0(i64 128, ptr %4) #14
   %34 = load { i64, i64 }, ptr %2, align 4
   ret { i64, i64 } %34
 
-35:                                               ; preds = %23, %15, %12, %1
+35:                                               ; preds = %23, %15, %1
   %36 = landingpad { ptr, i32 }
           cleanup
   %37 = extractvalue { ptr, i32 } %36, 0
   store ptr %37, ptr %5, align 8
   %38 = extractvalue { ptr, i32 } %36, 1
   store i32 %38, ptr %6, align 4
-  call void @_ZN18QStyleOptionSliderD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %4) #11
-  br label %39
+  br label %43
 
-39:                                               ; preds = %35
-  %40 = load ptr, ptr %5, align 8
-  %41 = load i32, ptr %6, align 4
-  %42 = insertvalue { ptr, i32 } poison, ptr %40, 0
-  %43 = insertvalue { ptr, i32 } %42, i32 %41, 1
-  resume { ptr, i32 } %43
+39:                                               ; preds = %12
+  %40 = landingpad { ptr, i32 }
+          cleanup
+  %41 = extractvalue { ptr, i32 } %40, 0
+  store ptr %41, ptr %5, align 8
+  %42 = extractvalue { ptr, i32 } %40, 1
+  store i32 %42, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #14
+  br label %43
+
+43:                                               ; preds = %39, %35
+  call void @_ZN12QStyleOptionD2Ev(ptr noundef align 8 dereferenceable_or_null(128) %4) #14
+  call void @llvm.lifetime.end.p0(i64 128, ptr %4) #14
+  br label %44
+
+44:                                               ; preds = %43
+  %45 = load ptr, ptr %5, align 8
+  %46 = load i32, ptr %6, align 4
+  %47 = insertvalue { ptr, i32 } poison, ptr %45, 0
+  %48 = insertvalue { ptr, i32 } %47, i32 %46, 1
+  resume { ptr, i32 } %48
 }
 
-declare void @_ZN18QStyleOptionSliderC1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN18QStyleOptionSliderC1Ev(ptr noundef align 8 dereferenceable_or_null(128)) unnamed_addr #1
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr { i64, i64 } @_ZNK7QWidget4rectEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr { i64, i64 } @_ZNK7QWidget4rectEv(ptr noundef align 8 dereferenceable_or_null(40) %0) #9 comdat align 2 {
   %2 = alloca %class.QRect, align 4
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %class.QWidget, ptr %4, i32 0, i32 2
+  %5 = getelementptr inbounds nuw %class.QWidget, ptr %4, i32 0, i32 2
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds %class.QWidgetData, ptr %6, i32 0, i32 4
-  %8 = call noundef i32 @_ZNK5QRect5widthEv(ptr noundef nonnull align 4 dereferenceable(16) %7) #11
-  %9 = getelementptr inbounds %class.QWidget, ptr %4, i32 0, i32 2
+  %7 = getelementptr inbounds nuw %class.QWidgetData, ptr %6, i32 0, i32 4
+  %8 = call noundef i32 @_ZNK5QRect5widthEv(ptr noundef align 4 dereferenceable_or_null(16) %7) #14
+  %9 = getelementptr inbounds nuw %class.QWidget, ptr %4, i32 0, i32 2
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds %class.QWidgetData, ptr %10, i32 0, i32 4
-  %12 = call noundef i32 @_ZNK5QRect6heightEv(ptr noundef nonnull align 4 dereferenceable(16) %11) #11
-  call void @_ZN5QRectC2Eiiii(ptr noundef nonnull align 4 dereferenceable(16) %2, i32 noundef 0, i32 noundef 0, i32 noundef %8, i32 noundef %12) #11
+  %11 = getelementptr inbounds nuw %class.QWidgetData, ptr %10, i32 0, i32 4
+  %12 = call noundef i32 @_ZNK5QRect6heightEv(ptr noundef align 4 dereferenceable_or_null(16) %11) #14
+  call void @_ZN5QRectC2Eiiii(ptr noundef align 4 dereferenceable_or_null(16) %2, i32 noundef 0, i32 noundef 0, i32 noundef %8, i32 noundef %12) #14
   %13 = load { i64, i64 }, ptr %2, align 4
   ret { i64, i64 } %13
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
-declare noundef ptr @_ZNK7QWidget5styleEv(ptr noundef nonnull align 8 dereferenceable(40)) #1
+; Function Attrs: null_pointer_is_valid
+declare noundef ptr @_ZNK7QWidget5styleEv(ptr noundef align 8 dereferenceable_or_null(40)) #1
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN18QStyleOptionSliderD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #4 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN19QStyleOptionComplexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #11
-  ret void
-}
+; Function Attrs: nounwind null_pointer_is_valid
+declare void @_ZN12QStyleOptionD2Ev(ptr noundef align 8 dereferenceable_or_null(64)) unnamed_addr #2
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN16OverlayScrollBar11resizeEventEP12QResizeEvent(ptr noundef nonnull align 8 dereferenceable(196) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define void @_ZN16OverlayScrollBar11resizeEventEP12QResizeEvent(ptr noundef align 8 dereferenceable_or_null(196) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %class.QSize, align 4
@@ -1308,25 +1355,28 @@ define void @_ZN16OverlayScrollBar11resizeEventEP12QResizeEvent(ptr noundef nonn
   store ptr %1, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = load ptr, ptr %4, align 8
-  call void @_ZN7QWidget11resizeEventEP12QResizeEvent(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef %7)
-  %8 = getelementptr inbounds %class.OverlayScrollBar, ptr %6, i32 0, i32 3
-  %9 = getelementptr inbounds %class.OverlayScrollBar, ptr %6, i32 0, i32 6
+  call void @_ZN7QWidget11resizeEventEP12QResizeEvent(ptr noundef align 8 dereferenceable_or_null(40) %6, ptr noundef %7)
+  %8 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %6, i32 0, i32 3
+  %9 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %6, i32 0, i32 6
   %10 = load i32, ptr %9, align 8
-  call void @_ZN7QWidget4moveEii(ptr noundef nonnull align 8 dereferenceable(40) %8, i32 noundef %10, i32 noundef 0)
-  %11 = getelementptr inbounds %class.OverlayScrollBar, ptr %6, i32 0, i32 3
-  %12 = getelementptr inbounds %class.OverlayScrollBar, ptr %6, i32 0, i32 3
-  %13 = call i64 @_ZNK10QScrollBar8sizeHintEv(ptr noundef nonnull align 8 dereferenceable(40) %12)
+  call void @_ZN7QWidget4moveEii(ptr noundef align 8 dereferenceable_or_null(40) %8, i32 noundef %10, i32 noundef 0)
+  %11 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %6, i32 0, i32 3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #14
+  %12 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %6, i32 0, i32 3
+  %13 = call i64 @_ZNK10QScrollBar8sizeHintEv(ptr noundef align 8 dereferenceable_or_null(40) %12)
   store i64 %13, ptr %5, align 4
-  %14 = call noundef i32 @_ZNK5QSize5widthEv(ptr noundef nonnull align 4 dereferenceable(8) %5) #11
-  %15 = call noundef i32 @_ZNK7QWidget6heightEv(ptr noundef nonnull align 8 dereferenceable(40) %6)
-  call void @_ZN7QWidget6resizeEii(ptr noundef nonnull align 8 dereferenceable(40) %11, i32 noundef %14, i32 noundef %15)
+  %14 = call noundef i32 @_ZNK5QSize5widthEv(ptr noundef align 4 dereferenceable_or_null(8) %5) #14
+  %15 = call noundef i32 @_ZNK7QWidget6heightEv(ptr noundef align 8 dereferenceable_or_null(40) %6)
+  call void @_ZN7QWidget6resizeEii(ptr noundef align 8 dereferenceable_or_null(40) %11, i32 noundef %14, i32 noundef %15)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #14
   ret void
 }
 
-declare void @_ZN7QWidget11resizeEventEP12QResizeEvent(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN7QWidget11resizeEventEP12QResizeEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #1
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN7QWidget4moveEii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2) #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN7QWidget4moveEii(ptr noundef align 8 dereferenceable_or_null(40) %0, i32 noundef %1, i32 noundef %2) #6 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -1335,15 +1385,17 @@ define linkonce_odr void @_ZN7QWidget4moveEii(ptr noundef nonnull align 8 derefe
   store i32 %1, ptr %5, align 4
   store i32 %2, ptr %6, align 4
   %8 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #14
   %9 = load i32, ptr %5, align 4
   %10 = load i32, ptr %6, align 4
-  call void @_ZN6QPointC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %7, i32 noundef %9, i32 noundef %10) #11
-  call void @_ZN7QWidget4moveERK6QPoint(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 4 dereferenceable(8) %7)
+  call void @_ZN6QPointC2Eii(ptr noundef align 4 dereferenceable_or_null(8) %7, i32 noundef %9, i32 noundef %10) #14
+  call void @_ZN7QWidget4moveERK6QPoint(ptr noundef align 8 dereferenceable_or_null(40) %8, ptr noundef align 4 dereferenceable(8) %7)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #14
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN7QWidget6resizeEii(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2) #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN7QWidget6resizeEii(ptr noundef align 8 dereferenceable_or_null(40) %0, i32 noundef %1, i32 noundef %2) #6 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -1352,27 +1404,29 @@ define linkonce_odr void @_ZN7QWidget6resizeEii(ptr noundef nonnull align 8 dere
   store i32 %1, ptr %5, align 4
   store i32 %2, ptr %6, align 4
   %8 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #14
   %9 = load i32, ptr %5, align 4
   %10 = load i32, ptr %6, align 4
-  call void @_ZN5QSizeC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %7, i32 noundef %9, i32 noundef %10) #11
-  call void @_ZN7QWidget6resizeERK5QSize(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 4 dereferenceable(8) %7)
+  call void @_ZN5QSizeC2Eii(ptr noundef align 4 dereferenceable_or_null(8) %7, i32 noundef %9, i32 noundef %10) #14
+  call void @_ZN7QWidget6resizeERK5QSize(ptr noundef align 8 dereferenceable_or_null(40) %8, ptr noundef align 4 dereferenceable(8) %7)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #14
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZNK7QWidget6heightEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef i32 @_ZNK7QWidget6heightEv(ptr noundef align 8 dereferenceable_or_null(40) %0) #9 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %class.QWidget, ptr %3, i32 0, i32 2
+  %4 = getelementptr inbounds nuw %class.QWidget, ptr %3, i32 0, i32 2
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds %class.QWidgetData, ptr %5, i32 0, i32 4
-  %7 = call noundef i32 @_ZNK5QRect6heightEv(ptr noundef nonnull align 4 dereferenceable(16) %6) #11
+  %6 = getelementptr inbounds nuw %class.QWidgetData, ptr %5, i32 0, i32 4
+  %7 = call noundef i32 @_ZNK5QRect6heightEv(ptr noundef align 4 dereferenceable_or_null(16) %6) #14
   ret i32 %7
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN16OverlayScrollBar10paintEventEP11QPaintEvent(ptr noundef nonnull align 8 dereferenceable(196) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define void @_ZN16OverlayScrollBar10paintEventEP11QPaintEvent(ptr noundef align 8 dereferenceable_or_null(196) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca double, align 8
@@ -1402,378 +1456,585 @@ define void @_ZN16OverlayScrollBar10paintEventEP11QPaintEvent(ptr noundef nonnul
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %29 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #14
   %30 = getelementptr inbounds i8, ptr %29, i64 16
-  %31 = call noundef double @_ZNK12QPaintDevice16devicePixelRatioEv(ptr noundef nonnull align 8 dereferenceable(10) %30)
+  %31 = call noundef double @_ZNK12QPaintDevice16devicePixelRatioEv(ptr noundef align 8 dereferenceable_or_null(10) %30)
   store double %31, ptr %5, align 8
-  %32 = getelementptr inbounds %class.OverlayScrollBar, ptr %29, i32 0, i32 6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #14
+  %32 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %29, i32 0, i32 6
   %33 = load i32, ptr %32, align 8
-  %34 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7QWidget8geometryEv(ptr noundef nonnull align 8 dereferenceable(40) %29)
-  %35 = call noundef i32 @_ZNK5QRect6heightEv(ptr noundef nonnull align 4 dereferenceable(16) %34) #11
-  call void @_ZN5QSizeC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %6, i32 noundef %33, i32 noundef %35) #11
+  %34 = call noundef align 4 dereferenceable(16) ptr @_ZNK7QWidget8geometryEv(ptr noundef align 8 dereferenceable_or_null(40) %29)
+  %35 = call noundef i32 @_ZNK5QRect6heightEv(ptr noundef align 4 dereferenceable_or_null(16) %34) #14
+  call void @_ZN5QSizeC2Eii(ptr noundef align 4 dereferenceable_or_null(8) %6, i32 noundef %33, i32 noundef %35) #14
   %36 = load double, ptr %5, align 8
-  %37 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN5QSizemLEd(ptr noundef nonnull align 4 dereferenceable(8) %6, double noundef %36) #11
+  %37 = call noundef align 4 dereferenceable(8) ptr @_ZN5QSizemLEd(ptr noundef align 4 dereferenceable_or_null(8) %6, double noundef %36) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #14
   %38 = getelementptr inbounds i8, ptr %29, i64 16
-  call void @_ZN8QPainterC1EP12QPaintDevice(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %38)
+  call void @_ZN8QPainterC1EP12QPaintDevice(ptr noundef align 8 dereferenceable_or_null(8) %7, ptr noundef %38)
   %39 = load ptr, ptr %4, align 8
-  %40 = invoke noundef nonnull align 4 dereferenceable(16) ptr @_ZNK11QPaintEvent4rectEv(ptr noundef nonnull align 8 dereferenceable(41) %39)
+  %40 = invoke noundef align 4 dereferenceable(16) ptr @_ZNK11QPaintEvent4rectEv(ptr noundef align 8 dereferenceable_or_null(41) %39)
           to label %41 unwind label %75
 
 41:                                               ; preds = %2
-  %42 = invoke noundef nonnull align 8 dereferenceable(12) ptr @_ZNK7QWidget7paletteEv(ptr noundef nonnull align 8 dereferenceable(40) %29)
+  %42 = invoke noundef align 8 dereferenceable(12) ptr @_ZNK7QWidget7paletteEv(ptr noundef align 8 dereferenceable_or_null(40) %29)
           to label %43 unwind label %75
 
 43:                                               ; preds = %41
-  %44 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8QPalette4baseEv(ptr noundef nonnull align 8 dereferenceable(12) %42)
+  %44 = invoke noundef align 8 dereferenceable(8) ptr @_ZNK8QPalette4baseEv(ptr noundef align 8 dereferenceable_or_null(12) %42)
           to label %45 unwind label %75
 
 45:                                               ; preds = %43
-  invoke void @_ZN8QPainter8fillRectERK5QRectRK6QBrush(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(8) %44)
+  invoke void @_ZN8QPainter8fillRectERK5QRectRK6QBrush(ptr noundef align 8 dereferenceable_or_null(8) %7, ptr noundef align 4 dereferenceable(16) %40, ptr noundef align 8 dereferenceable(8) %44)
           to label %46 unwind label %75
 
 46:                                               ; preds = %45
-  %47 = getelementptr inbounds %class.OverlayScrollBar, ptr %29, i32 0, i32 4
-  %48 = invoke noundef zeroext i1 @_ZNK6QImage6isNullEv(ptr noundef nonnull align 8 dereferenceable(24) %47)
+  %47 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %29, i32 0, i32 4
+  %48 = invoke noundef zeroext i1 @_ZNK6QImage6isNullEv(ptr noundef align 8 dereferenceable_or_null(24) %47)
           to label %49 unwind label %75
 
 49:                                               ; preds = %46
-  br i1 %48, label %171, label %50
+  br i1 %48, label %233, label %50
 
 50:                                               ; preds = %49
-  invoke void @_ZN6QImageC1ERK5QSizeNS_6FormatE(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 4 dereferenceable(8) %6, i32 noundef 6)
-          to label %51 unwind label %75
+  call void @llvm.lifetime.start.p0(i64 24, ptr %10) #14
+  invoke void @_ZN6QImageC1ERK5QSizeNS_6FormatE(ptr noundef align 8 dereferenceable_or_null(24) %10, ptr noundef align 4 dereferenceable(8) %6, i32 noundef 6)
+          to label %51 unwind label %79
 
 51:                                               ; preds = %50
-  invoke void @_ZN6QImage4fillEN2Qt11GlobalColorE(ptr noundef nonnull align 8 dereferenceable(24) %10, i32 noundef 19)
-          to label %52 unwind label %79
+  invoke void @_ZN6QImage4fillEN2Qt11GlobalColorE(ptr noundef align 8 dereferenceable_or_null(24) %10, i32 noundef 19)
+          to label %52 unwind label %83
 
 52:                                               ; preds = %51
-  invoke void @_ZN8QPainterC1EP12QPaintDevice(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %10)
-          to label %53 unwind label %79
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #14
+  invoke void @_ZN8QPainterC1EP12QPaintDevice(ptr noundef align 8 dereferenceable_or_null(8) %11, ptr noundef %10)
+          to label %53 unwind label %87
 
 53:                                               ; preds = %52
-  invoke void @_ZN8QPainter6setPenEN2Qt8PenStyleE(ptr noundef nonnull align 8 dereferenceable(8) %11, i32 noundef 0)
-          to label %54 unwind label %83
+  invoke void @_ZN8QPainter6setPenEN2Qt8PenStyleE(ptr noundef align 8 dereferenceable_or_null(8) %11, i32 noundef 0)
+          to label %54 unwind label %91
 
 54:                                               ; preds = %53
-  %55 = call noundef i32 @_ZNK5QSize5widthEv(ptr noundef nonnull align 4 dereferenceable(8) %6) #11
-  %56 = call noundef i32 @_ZNK5QSize6heightEv(ptr noundef nonnull align 4 dereferenceable(8) %6) #11
-  call void @_ZN5QRectC2Eiiii(ptr noundef nonnull align 4 dereferenceable(16) %12, i32 noundef 0, i32 noundef 0, i32 noundef %55, i32 noundef %56) #11
-  %57 = getelementptr inbounds %class.OverlayScrollBar, ptr %29, i32 0, i32 4
-  %58 = call i64 @_ZNK5QRect4sizeEv(ptr noundef nonnull align 4 dereferenceable(16) %12) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr %12) #14
+  %55 = call noundef i32 @_ZNK5QSize5widthEv(ptr noundef align 4 dereferenceable_or_null(8) %6) #14
+  %56 = call noundef i32 @_ZNK5QSize6heightEv(ptr noundef align 4 dereferenceable_or_null(8) %6) #14
+  call void @_ZN5QRectC2Eiiii(ptr noundef align 4 dereferenceable_or_null(16) %12, i32 noundef 0, i32 noundef 0, i32 noundef %55, i32 noundef %56) #14
+  call void @llvm.lifetime.start.p0(i64 24, ptr %13) #14
+  %57 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %29, i32 0, i32 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #14
+  %58 = call i64 @_ZNK5QRect4sizeEv(ptr noundef align 4 dereferenceable_or_null(16) %12) #14
   store i64 %58, ptr %14, align 4
-  invoke void @_ZNK6QImage6scaledERK5QSizeN2Qt15AspectRatioModeENS3_18TransformationModeE(ptr dead_on_unwind writable sret(%class.QImage) align 8 %13, ptr noundef nonnull align 8 dereferenceable(24) %57, ptr noundef nonnull align 4 dereferenceable(8) %14, i32 noundef 0, i32 noundef 1)
-          to label %59 unwind label %83
+  invoke void @_ZNK6QImage6scaledERK5QSizeN2Qt15AspectRatioModeENS3_18TransformationModeE(ptr dead_on_unwind writable sret(%class.QImage) align 8 %13, ptr noundef align 8 dereferenceable_or_null(24) %57, ptr noundef align 4 dereferenceable(8) %14, i32 noundef 0, i32 noundef 1)
+          to label %59 unwind label %95
 
 59:                                               ; preds = %54
-  invoke void @_ZN8QPainter9drawImageERK5QRectRK6QImage(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(24) %13)
-          to label %60 unwind label %87
+  invoke void @_ZN8QPainter9drawImageERK5QRectRK6QImage(ptr noundef align 8 dereferenceable_or_null(8) %11, ptr noundef align 4 dereferenceable(16) %12, ptr noundef align 8 dereferenceable(24) %13)
+          to label %60 unwind label %99
 
 60:                                               ; preds = %59
-  call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #11
-  %61 = getelementptr inbounds %class.OverlayScrollBar, ptr %29, i32 0, i32 12
-  %62 = call noundef i64 @_ZNK5QListIiE5countEv(ptr noundef nonnull align 8 dereferenceable(24) %61) #11
+  call void @_ZN6QImageD1Ev(ptr noundef align 8 dereferenceable_or_null(24) %13) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #14
+  call void @llvm.lifetime.end.p0(i64 24, ptr %13) #14
+  %61 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %29, i32 0, i32 12
+  %62 = call noundef i64 @_ZNK5QListIiE5countEv(ptr noundef align 8 dereferenceable_or_null(24) %61) #14
   %63 = icmp sgt i64 %62, 0
-  br i1 %63, label %64, label %141
+  br i1 %63, label %64, label %179
 
 64:                                               ; preds = %60
-  %65 = getelementptr inbounds %class.OverlayScrollBar, ptr %29, i32 0, i32 12
-  invoke void @_ZN9QtPrivate21qMakeForeachContainerIR5QListIiEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS6_(ptr dead_on_unwind writable sret(%"class.QtPrivate::QForeachContainer") align 8 %15, ptr noundef nonnull align 8 dereferenceable(24) %65)
-          to label %66 unwind label %83
+  call void @llvm.lifetime.start.p0(i64 48, ptr %15) #14
+  %65 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %29, i32 0, i32 12
+  invoke void @_ZN9QtPrivate21qMakeForeachContainerIR5QListIiEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS6_(ptr dead_on_unwind writable sret(%"class.QtPrivate::QForeachContainer") align 8 %15, ptr noundef align 8 dereferenceable(24) %65)
+          to label %66 unwind label %104
 
 66:                                               ; preds = %64
   br label %67
 
-67:                                               ; preds = %138, %66
-  %68 = getelementptr inbounds %"class.QtPrivate::QForeachContainer", ptr %15, i32 0, i32 1
-  %69 = getelementptr inbounds %"class.QtPrivate::QForeachContainer", ptr %15, i32 0, i32 2
+67:                                               ; preds = %173, %66
+  %68 = getelementptr inbounds nuw %"class.QtPrivate::QForeachContainer", ptr %15, i32 0, i32 1
+  %69 = getelementptr inbounds nuw %"class.QtPrivate::QForeachContainer", ptr %15, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %69, i64 8, i1 false)
-  %70 = getelementptr inbounds %"class.QList<int>::const_iterator", ptr %16, i32 0, i32 0
+  %70 = getelementptr inbounds nuw %"class.QList<int>::const_iterator", ptr %16, i32 0, i32 0
   %71 = load ptr, ptr %70, align 8
-  %72 = invoke noundef zeroext i1 @_ZNK5QListIiE14const_iteratorneES1_(ptr noundef nonnull align 8 dereferenceable(8) %68, ptr %71)
-          to label %73 unwind label %91
+  %72 = invoke noundef zeroext i1 @_ZNK5QListIiE14const_iteratorneES1_(ptr noundef align 8 dereferenceable_or_null(8) %68, ptr %71)
+          to label %73 unwind label %108
 
 73:                                               ; preds = %67
-  br i1 %72, label %95, label %74
+  br i1 %72, label %112, label %74
 
 74:                                               ; preds = %73
-  call void @_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %15) #11
-  br label %140
+  call void @_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev(ptr noundef align 8 dereferenceable_or_null(44) %15) #14
+  call void @llvm.lifetime.end.p0(i64 48, ptr %15) #14
+  br label %178
 
-75:                                               ; preds = %50, %46, %45, %43, %41, %2
+75:                                               ; preds = %46, %45, %43, %41, %2
   %76 = landingpad { ptr, i32 }
           cleanup
   %77 = extractvalue { ptr, i32 } %76, 0
   store ptr %77, ptr %8, align 8
   %78 = extractvalue { ptr, i32 } %76, 1
   store i32 %78, ptr %9, align 4
-  br label %172
+  br label %234
 
-79:                                               ; preds = %52, %51
+79:                                               ; preds = %50
   %80 = landingpad { ptr, i32 }
           cleanup
   %81 = extractvalue { ptr, i32 } %80, 0
   store ptr %81, ptr %8, align 8
   %82 = extractvalue { ptr, i32 } %80, 1
   store i32 %82, ptr %9, align 4
-  br label %170
+  br label %232
 
-83:                                               ; preds = %165, %163, %162, %159, %156, %153, %152, %150, %148, %146, %144, %142, %141, %64, %54, %53
+83:                                               ; preds = %51
   %84 = landingpad { ptr, i32 }
           cleanup
   %85 = extractvalue { ptr, i32 } %84, 0
   store ptr %85, ptr %8, align 8
   %86 = extractvalue { ptr, i32 } %84, 1
   store i32 %86, ptr %9, align 4
-  br label %169
+  br label %231
 
-87:                                               ; preds = %59
+87:                                               ; preds = %52
   %88 = landingpad { ptr, i32 }
           cleanup
   %89 = extractvalue { ptr, i32 } %88, 0
   store ptr %89, ptr %8, align 8
   %90 = extractvalue { ptr, i32 } %88, 1
   store i32 %90, ptr %9, align 4
-  call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #11
-  br label %169
+  br label %230
 
-91:                                               ; preds = %135, %128, %123, %121, %119, %117, %110, %109, %98, %95, %67
+91:                                               ; preds = %53
   %92 = landingpad { ptr, i32 }
           cleanup
   %93 = extractvalue { ptr, i32 } %92, 0
   store ptr %93, ptr %8, align 8
   %94 = extractvalue { ptr, i32 } %92, 1
   store i32 %94, ptr %9, align 4
-  br label %139
+  br label %229
 
-95:                                               ; preds = %73
-  %96 = getelementptr inbounds %"class.QtPrivate::QForeachContainer", ptr %15, i32 0, i32 1
-  %97 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNK5QListIiE14const_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(8) %96)
-          to label %98 unwind label %91
-
-98:                                               ; preds = %95
-  %99 = load i32, ptr %97, align 4
-  store i32 %99, ptr %17, align 4
-  %100 = getelementptr inbounds %class.OverlayScrollBar, ptr %29, i32 0, i32 4
-  %101 = invoke noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(24) %100)
-          to label %102 unwind label %91
-
-102:                                              ; preds = %98
-  store i32 %101, ptr %18, align 4
-  %103 = load i32, ptr %17, align 4
-  %104 = icmp sge i32 %103, 0
-  br i1 %104, label %105, label %134
-
-105:                                              ; preds = %102
-  %106 = load i32, ptr %17, align 4
-  %107 = load i32, ptr %18, align 4
-  %108 = icmp slt i32 %106, %107
-  br i1 %108, label %109, label %134
-
-109:                                              ; preds = %105
-  invoke void @_ZN8QPainter4saveEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %110 unwind label %91
-
-110:                                              ; preds = %109
-  %111 = call noundef i32 @_ZNK5QRect6heightEv(ptr noundef nonnull align 4 dereferenceable(16) %12) #11
-  %112 = load i32, ptr %17, align 4
-  %113 = mul i32 %111, %112
-  %114 = load i32, ptr %18, align 4
-  %115 = sdiv i32 %113, %114
-  store i32 %115, ptr %19, align 4
-  %116 = invoke noundef nonnull align 8 dereferenceable(12) ptr @_ZNK7QWidget7paletteEv(ptr noundef nonnull align 8 dereferenceable(40) %29)
-          to label %117 unwind label %91
-
-117:                                              ; preds = %110
-  %118 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8QPalette9highlightEv(ptr noundef nonnull align 8 dereferenceable(12) %116)
-          to label %119 unwind label %91
-
-119:                                              ; preds = %117
-  %120 = invoke noundef nonnull align 4 dereferenceable(14) ptr @_ZNK6QBrush5colorEv(ptr noundef nonnull align 8 dereferenceable(8) %118)
-          to label %121 unwind label %91
-
-121:                                              ; preds = %119
-  invoke void @_ZN6QBrushC1ERK6QColorN2Qt10BrushStyleE(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 4 dereferenceable(14) %120, i32 noundef 1)
-          to label %122 unwind label %91
-
-122:                                              ; preds = %121
-  invoke void @_ZN8QPainter8setBrushERK6QBrush(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %20)
-          to label %123 unwind label %130
-
-123:                                              ; preds = %122
-  call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #11
-  %124 = load i32, ptr %19, align 4
-  %125 = call noundef i32 @_ZNK5QSize5widthEv(ptr noundef nonnull align 4 dereferenceable(8) %6) #11
-  %126 = getelementptr inbounds %class.OverlayScrollBar, ptr %29, i32 0, i32 13
-  %127 = load i32, ptr %126, align 8
-  invoke void @_ZN8QPainter8drawRectEiiii(ptr noundef nonnull align 8 dereferenceable(8) %11, i32 noundef 0, i32 noundef %124, i32 noundef %125, i32 noundef %127)
-          to label %128 unwind label %91
-
-128:                                              ; preds = %123
-  invoke void @_ZN8QPainter7restoreEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %129 unwind label %91
-
-129:                                              ; preds = %128
-  br label %134
-
-130:                                              ; preds = %122
-  %131 = landingpad { ptr, i32 }
+95:                                               ; preds = %54
+  %96 = landingpad { ptr, i32 }
           cleanup
-  %132 = extractvalue { ptr, i32 } %131, 0
-  store ptr %132, ptr %8, align 8
-  %133 = extractvalue { ptr, i32 } %131, 1
-  store i32 %133, ptr %9, align 4
-  call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #11
-  br label %139
+  %97 = extractvalue { ptr, i32 } %96, 0
+  store ptr %97, ptr %8, align 8
+  %98 = extractvalue { ptr, i32 } %96, 1
+  store i32 %98, ptr %9, align 4
+  br label %103
 
-134:                                              ; preds = %129, %105, %102
-  br label %135
+99:                                               ; preds = %59
+  %100 = landingpad { ptr, i32 }
+          cleanup
+  %101 = extractvalue { ptr, i32 } %100, 0
+  store ptr %101, ptr %8, align 8
+  %102 = extractvalue { ptr, i32 } %100, 1
+  store i32 %102, ptr %9, align 4
+  call void @_ZN6QImageD1Ev(ptr noundef align 8 dereferenceable_or_null(24) %13) #14
+  br label %103
 
-135:                                              ; preds = %134
-  %136 = getelementptr inbounds %"class.QtPrivate::QForeachContainer", ptr %15, i32 0, i32 1
-  %137 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5QListIiE14const_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(8) %136)
-          to label %138 unwind label %91
+103:                                              ; preds = %99, %95
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #14
+  call void @llvm.lifetime.end.p0(i64 24, ptr %13) #14
+  br label %228
 
-138:                                              ; preds = %135
-  br label %67, !llvm.loop !4
+104:                                              ; preds = %64
+  %105 = landingpad { ptr, i32 }
+          cleanup
+  %106 = extractvalue { ptr, i32 } %105, 0
+  store ptr %106, ptr %8, align 8
+  %107 = extractvalue { ptr, i32 } %105, 1
+  store i32 %107, ptr %9, align 4
+  br label %177
 
-139:                                              ; preds = %130, %91
-  call void @_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %15) #11
+108:                                              ; preds = %170, %67
+  %109 = landingpad { ptr, i32 }
+          cleanup
+  %110 = extractvalue { ptr, i32 } %109, 0
+  store ptr %110, ptr %8, align 8
+  %111 = extractvalue { ptr, i32 } %109, 1
+  store i32 %111, ptr %9, align 4
+  br label %176
+
+112:                                              ; preds = %73
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #14
+  %113 = getelementptr inbounds nuw %"class.QtPrivate::QForeachContainer", ptr %15, i32 0, i32 1
+  %114 = invoke noundef align 4 dereferenceable(4) ptr @_ZNK5QListIiE14const_iteratordeEv(ptr noundef align 8 dereferenceable_or_null(8) %113)
+          to label %115 unwind label %147
+
+115:                                              ; preds = %112
+  %116 = load i32, ptr %114, align 4
+  store i32 %116, ptr %17, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #14
+  %117 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %29, i32 0, i32 4
+  %118 = invoke noundef i32 @_ZNK6QImage6heightEv(ptr noundef align 8 dereferenceable_or_null(24) %117)
+          to label %119 unwind label %151
+
+119:                                              ; preds = %115
+  store i32 %118, ptr %18, align 4
+  %120 = load i32, ptr %17, align 4
+  %121 = icmp sge i32 %120, 0
+  br i1 %121, label %122, label %169
+
+122:                                              ; preds = %119
+  %123 = load i32, ptr %17, align 4
+  %124 = load i32, ptr %18, align 4
+  %125 = icmp slt i32 %123, %124
+  br i1 %125, label %126, label %169
+
+126:                                              ; preds = %122
+  invoke void @_ZN8QPainter4saveEv(ptr noundef align 8 dereferenceable_or_null(8) %11)
+          to label %127 unwind label %151
+
+127:                                              ; preds = %126
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #14
+  %128 = call noundef i32 @_ZNK5QRect6heightEv(ptr noundef align 4 dereferenceable_or_null(16) %12) #14
+  %129 = load i32, ptr %17, align 4
+  %130 = mul i32 %128, %129
+  %131 = load i32, ptr %18, align 4
+  %132 = sdiv i32 %130, %131
+  store i32 %132, ptr %19, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #14
+  %133 = invoke noundef align 8 dereferenceable(12) ptr @_ZNK7QWidget7paletteEv(ptr noundef align 8 dereferenceable_or_null(40) %29)
+          to label %134 unwind label %155
+
+134:                                              ; preds = %127
+  %135 = invoke noundef align 8 dereferenceable(8) ptr @_ZNK8QPalette9highlightEv(ptr noundef align 8 dereferenceable_or_null(12) %133)
+          to label %136 unwind label %155
+
+136:                                              ; preds = %134
+  %137 = invoke noundef align 4 dereferenceable(14) ptr @_ZNK6QBrush5colorEv(ptr noundef align 8 dereferenceable_or_null(8) %135)
+          to label %138 unwind label %155
+
+138:                                              ; preds = %136
+  invoke void @_ZN6QBrushC1ERK6QColorN2Qt10BrushStyleE(ptr noundef align 8 dereferenceable_or_null(8) %20, ptr noundef align 4 dereferenceable(14) %137, i32 noundef 1)
+          to label %139 unwind label %155
+
+139:                                              ; preds = %138
+  invoke void @_ZN8QPainter8setBrushERK6QBrush(ptr noundef align 8 dereferenceable_or_null(8) %11, ptr noundef align 8 dereferenceable(8) %20)
+          to label %140 unwind label %159
+
+140:                                              ; preds = %139
+  call void @_ZN6QBrushD1Ev(ptr noundef align 8 dereferenceable_or_null(8) %20) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #14
+  %141 = load i32, ptr %19, align 4
+  %142 = call noundef i32 @_ZNK5QSize5widthEv(ptr noundef align 4 dereferenceable_or_null(8) %6) #14
+  %143 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %29, i32 0, i32 13
+  %144 = load i32, ptr %143, align 8
+  invoke void @_ZN8QPainter8drawRectEiiii(ptr noundef align 8 dereferenceable_or_null(8) %11, i32 noundef 0, i32 noundef %141, i32 noundef %142, i32 noundef %144)
+          to label %145 unwind label %164
+
+145:                                              ; preds = %140
+  invoke void @_ZN8QPainter7restoreEv(ptr noundef align 8 dereferenceable_or_null(8) %11)
+          to label %146 unwind label %164
+
+146:                                              ; preds = %145
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #14
   br label %169
 
-140:                                              ; preds = %74
-  br label %141
+147:                                              ; preds = %112
+  %148 = landingpad { ptr, i32 }
+          cleanup
+  %149 = extractvalue { ptr, i32 } %148, 0
+  store ptr %149, ptr %8, align 8
+  %150 = extractvalue { ptr, i32 } %148, 1
+  store i32 %150, ptr %9, align 4
+  br label %175
 
-141:                                              ; preds = %140, %60
-  invoke void @_ZN8QPainter4saveEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %142 unwind label %83
+151:                                              ; preds = %126, %115
+  %152 = landingpad { ptr, i32 }
+          cleanup
+  %153 = extractvalue { ptr, i32 } %152, 0
+  store ptr %153, ptr %8, align 8
+  %154 = extractvalue { ptr, i32 } %152, 1
+  store i32 %154, ptr %9, align 4
+  br label %174
 
-142:                                              ; preds = %141
-  %143 = invoke noundef nonnull align 8 dereferenceable(12) ptr @_ZNK7QWidget7paletteEv(ptr noundef nonnull align 8 dereferenceable(40) %29)
-          to label %144 unwind label %83
+155:                                              ; preds = %138, %136, %134, %127
+  %156 = landingpad { ptr, i32 }
+          cleanup
+  %157 = extractvalue { ptr, i32 } %156, 0
+  store ptr %157, ptr %8, align 8
+  %158 = extractvalue { ptr, i32 } %156, 1
+  store i32 %158, ptr %9, align 4
+  br label %163
 
-144:                                              ; preds = %142
-  %145 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8QPalette4textEv(ptr noundef nonnull align 8 dereferenceable(12) %143)
-          to label %146 unwind label %83
+159:                                              ; preds = %139
+  %160 = landingpad { ptr, i32 }
+          cleanup
+  %161 = extractvalue { ptr, i32 } %160, 0
+  store ptr %161, ptr %8, align 8
+  %162 = extractvalue { ptr, i32 } %160, 1
+  store i32 %162, ptr %9, align 4
+  call void @_ZN6QBrushD1Ev(ptr noundef align 8 dereferenceable_or_null(8) %20) #14
+  br label %163
 
-146:                                              ; preds = %144
-  %147 = invoke noundef nonnull align 8 dereferenceable(12) ptr @_ZNK7QWidget7paletteEv(ptr noundef nonnull align 8 dereferenceable(40) %29)
-          to label %148 unwind label %83
+163:                                              ; preds = %159, %155
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #14
+  br label %168
 
-148:                                              ; preds = %146
-  %149 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8QPalette6windowEv(ptr noundef nonnull align 8 dereferenceable(12) %147)
-          to label %150 unwind label %83
+164:                                              ; preds = %145, %140
+  %165 = landingpad { ptr, i32 }
+          cleanup
+  %166 = extractvalue { ptr, i32 } %165, 0
+  store ptr %166, ptr %8, align 8
+  %167 = extractvalue { ptr, i32 } %165, 1
+  store i32 %167, ptr %9, align 4
+  br label %168
 
-150:                                              ; preds = %148
-  %151 = invoke noundef i32 @_ZN10ColorUtils10alphaBlendERK6QBrushS2_d(ptr noundef nonnull align 8 dereferenceable(8) %145, ptr noundef nonnull align 8 dereferenceable(8) %149, double noundef 2.500000e-01)
-          to label %152 unwind label %83
+168:                                              ; preds = %164, %163
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #14
+  br label %174
 
-152:                                              ; preds = %150
-  call void @_ZN6QColorC1Ej(ptr noundef nonnull align 4 dereferenceable(14) %21, i32 noundef %151) #11
-  invoke void @_ZN8QPainter6setPenERK6QColor(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(14) %21)
-          to label %153 unwind label %83
-
-153:                                              ; preds = %152
-  %154 = call i64 @_ZNK5QRect7topLeftEv(ptr noundef nonnull align 4 dereferenceable(16) %12) #11
-  store i64 %154, ptr %22, align 4
-  %155 = call i64 @_ZNK5QRect10bottomLeftEv(ptr noundef nonnull align 4 dereferenceable(16) %12) #11
-  store i64 %155, ptr %23, align 4
-  invoke void @_ZN8QPainter8drawLineERK6QPointS2_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(8) %22, ptr noundef nonnull align 4 dereferenceable(8) %23)
-          to label %156 unwind label %83
-
-156:                                              ; preds = %153
-  %157 = call i64 @_ZNK5QRect8topRightEv(ptr noundef nonnull align 4 dereferenceable(16) %12) #11
-  store i64 %157, ptr %24, align 4
-  %158 = call i64 @_ZNK5QRect11bottomRightEv(ptr noundef nonnull align 4 dereferenceable(16) %12) #11
-  store i64 %158, ptr %25, align 4
-  invoke void @_ZN8QPainter8drawLineERK6QPointS2_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(8) %24, ptr noundef nonnull align 4 dereferenceable(8) %25)
-          to label %159 unwind label %83
-
-159:                                              ; preds = %156
-  %160 = call i64 @_ZNK5QRect10bottomLeftEv(ptr noundef nonnull align 4 dereferenceable(16) %12) #11
-  store i64 %160, ptr %26, align 4
-  %161 = call i64 @_ZNK5QRect11bottomRightEv(ptr noundef nonnull align 4 dereferenceable(16) %12) #11
-  store i64 %161, ptr %27, align 4
-  invoke void @_ZN8QPainter8drawLineERK6QPointS2_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(8) %26, ptr noundef nonnull align 4 dereferenceable(8) %27)
-          to label %162 unwind label %83
-
-162:                                              ; preds = %159
-  invoke void @_ZN8QPainter7restoreEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %163 unwind label %83
-
-163:                                              ; preds = %162
-  %164 = load double, ptr %5, align 8
-  invoke void @_ZN6QImage19setDevicePixelRatioEd(ptr noundef nonnull align 8 dereferenceable(24) %10, double noundef %164)
-          to label %165 unwind label %83
-
-165:                                              ; preds = %163
-  call void @_ZN6QFlagsIN2Qt19ImageConversionFlagEEC2ES1_(ptr noundef nonnull align 4 dereferenceable(4) %28, i32 noundef 0) #11
-  %166 = getelementptr inbounds %class.QFlags.9, ptr %28, i32 0, i32 0
-  %167 = load i32, ptr %166, align 4
-  invoke void @_ZN8QPainter9drawImageEiiRK6QImageiiii6QFlagsIN2Qt19ImageConversionFlagEE(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(24) %10, i32 noundef 0, i32 noundef 0, i32 noundef -1, i32 noundef -1, i32 %167)
-          to label %168 unwind label %83
-
-168:                                              ; preds = %165
-  call void @_ZN8QPainterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #11
-  call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #11
-  br label %171
-
-169:                                              ; preds = %139, %87, %83
-  call void @_ZN8QPainterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #11
+169:                                              ; preds = %146, %122, %119
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #14
   br label %170
 
-170:                                              ; preds = %169, %79
-  call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #11
-  br label %172
+170:                                              ; preds = %169
+  %171 = getelementptr inbounds nuw %"class.QtPrivate::QForeachContainer", ptr %15, i32 0, i32 1
+  %172 = invoke noundef align 8 dereferenceable(8) ptr @_ZN5QListIiE14const_iteratorppEv(ptr noundef align 8 dereferenceable_or_null(8) %171)
+          to label %173 unwind label %108
 
-171:                                              ; preds = %168, %49
-  call void @_ZN8QPainterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #11
+173:                                              ; preds = %170
+  br label %67, !llvm.loop !6
+
+174:                                              ; preds = %168, %151
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #14
+  br label %175
+
+175:                                              ; preds = %174, %147
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #14
+  br label %176
+
+176:                                              ; preds = %175, %108
+  call void @_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev(ptr noundef align 8 dereferenceable_or_null(44) %15) #14
+  br label %177
+
+177:                                              ; preds = %176, %104
+  call void @llvm.lifetime.end.p0(i64 48, ptr %15) #14
+  br label %228
+
+178:                                              ; preds = %74
+  br label %179
+
+179:                                              ; preds = %178, %60
+  invoke void @_ZN8QPainter4saveEv(ptr noundef align 8 dereferenceable_or_null(8) %11)
+          to label %180 unwind label %207
+
+180:                                              ; preds = %179
+  call void @llvm.lifetime.start.p0(i64 16, ptr %21) #14
+  %181 = invoke noundef align 8 dereferenceable(12) ptr @_ZNK7QWidget7paletteEv(ptr noundef align 8 dereferenceable_or_null(40) %29)
+          to label %182 unwind label %211
+
+182:                                              ; preds = %180
+  %183 = invoke noundef align 8 dereferenceable(8) ptr @_ZNK8QPalette4textEv(ptr noundef align 8 dereferenceable_or_null(12) %181)
+          to label %184 unwind label %211
+
+184:                                              ; preds = %182
+  %185 = invoke noundef align 8 dereferenceable(12) ptr @_ZNK7QWidget7paletteEv(ptr noundef align 8 dereferenceable_or_null(40) %29)
+          to label %186 unwind label %211
+
+186:                                              ; preds = %184
+  %187 = invoke noundef align 8 dereferenceable(8) ptr @_ZNK8QPalette6windowEv(ptr noundef align 8 dereferenceable_or_null(12) %185)
+          to label %188 unwind label %211
+
+188:                                              ; preds = %186
+  %189 = invoke noundef i32 @_ZN10ColorUtils10alphaBlendERK6QBrushS2_d(ptr noundef align 8 dereferenceable(8) %183, ptr noundef align 8 dereferenceable(8) %187, double noundef 2.500000e-01)
+          to label %190 unwind label %211
+
+190:                                              ; preds = %188
+  call void @_ZN6QColorC1Ej(ptr noundef align 4 dereferenceable_or_null(14) %21, i32 noundef %189) #14
+  invoke void @_ZN8QPainter6setPenERK6QColor(ptr noundef align 8 dereferenceable_or_null(8) %11, ptr noundef align 4 dereferenceable(14) %21)
+          to label %191 unwind label %211
+
+191:                                              ; preds = %190
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #14
+  %192 = call i64 @_ZNK5QRect7topLeftEv(ptr noundef align 4 dereferenceable_or_null(16) %12) #14
+  store i64 %192, ptr %22, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #14
+  %193 = call i64 @_ZNK5QRect10bottomLeftEv(ptr noundef align 4 dereferenceable_or_null(16) %12) #14
+  store i64 %193, ptr %23, align 4
+  invoke void @_ZN8QPainter8drawLineERK6QPointS2_(ptr noundef align 8 dereferenceable_or_null(8) %11, ptr noundef align 4 dereferenceable(8) %22, ptr noundef align 4 dereferenceable(8) %23)
+          to label %194 unwind label %215
+
+194:                                              ; preds = %191
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #14
+  %195 = call i64 @_ZNK5QRect8topRightEv(ptr noundef align 4 dereferenceable_or_null(16) %12) #14
+  store i64 %195, ptr %24, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #14
+  %196 = call i64 @_ZNK5QRect11bottomRightEv(ptr noundef align 4 dereferenceable_or_null(16) %12) #14
+  store i64 %196, ptr %25, align 4
+  invoke void @_ZN8QPainter8drawLineERK6QPointS2_(ptr noundef align 8 dereferenceable_or_null(8) %11, ptr noundef align 4 dereferenceable(8) %24, ptr noundef align 4 dereferenceable(8) %25)
+          to label %197 unwind label %219
+
+197:                                              ; preds = %194
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #14
+  %198 = call i64 @_ZNK5QRect10bottomLeftEv(ptr noundef align 4 dereferenceable_or_null(16) %12) #14
+  store i64 %198, ptr %26, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #14
+  %199 = call i64 @_ZNK5QRect11bottomRightEv(ptr noundef align 4 dereferenceable_or_null(16) %12) #14
+  store i64 %199, ptr %27, align 4
+  invoke void @_ZN8QPainter8drawLineERK6QPointS2_(ptr noundef align 8 dereferenceable_or_null(8) %11, ptr noundef align 4 dereferenceable(8) %26, ptr noundef align 4 dereferenceable(8) %27)
+          to label %200 unwind label %223
+
+200:                                              ; preds = %197
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #14
+  invoke void @_ZN8QPainter7restoreEv(ptr noundef align 8 dereferenceable_or_null(8) %11)
+          to label %201 unwind label %211
+
+201:                                              ; preds = %200
+  %202 = load double, ptr %5, align 8
+  invoke void @_ZN6QImage19setDevicePixelRatioEd(ptr noundef align 8 dereferenceable_or_null(24) %10, double noundef %202)
+          to label %203 unwind label %211
+
+203:                                              ; preds = %201
+  call void @_ZN6QFlagsIN2Qt19ImageConversionFlagEEC2ES1_(ptr noundef align 4 dereferenceable_or_null(4) %28, i32 noundef 0) #14
+  %204 = getelementptr inbounds nuw %class.QFlags.9, ptr %28, i32 0, i32 0
+  %205 = load i32, ptr %204, align 4
+  invoke void @_ZN8QPainter9drawImageEiiRK6QImageiiii6QFlagsIN2Qt19ImageConversionFlagEE(ptr noundef align 8 dereferenceable_or_null(8) %7, i32 noundef 0, i32 noundef 0, ptr noundef align 8 dereferenceable(24) %10, i32 noundef 0, i32 noundef 0, i32 noundef -1, i32 noundef -1, i32 %205)
+          to label %206 unwind label %211
+
+206:                                              ; preds = %203
+  call void @llvm.lifetime.end.p0(i64 16, ptr %21) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr %12) #14
+  call void @_ZN8QPainterD1Ev(ptr noundef align 8 dereferenceable_or_null(8) %11) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #14
+  call void @_ZN6QImageD1Ev(ptr noundef align 8 dereferenceable_or_null(24) %10) #14
+  call void @llvm.lifetime.end.p0(i64 24, ptr %10) #14
+  br label %233
+
+207:                                              ; preds = %179
+  %208 = landingpad { ptr, i32 }
+          cleanup
+  %209 = extractvalue { ptr, i32 } %208, 0
+  store ptr %209, ptr %8, align 8
+  %210 = extractvalue { ptr, i32 } %208, 1
+  store i32 %210, ptr %9, align 4
+  br label %228
+
+211:                                              ; preds = %203, %201, %200, %190, %188, %186, %184, %182, %180
+  %212 = landingpad { ptr, i32 }
+          cleanup
+  %213 = extractvalue { ptr, i32 } %212, 0
+  store ptr %213, ptr %8, align 8
+  %214 = extractvalue { ptr, i32 } %212, 1
+  store i32 %214, ptr %9, align 4
+  br label %227
+
+215:                                              ; preds = %191
+  %216 = landingpad { ptr, i32 }
+          cleanup
+  %217 = extractvalue { ptr, i32 } %216, 0
+  store ptr %217, ptr %8, align 8
+  %218 = extractvalue { ptr, i32 } %216, 1
+  store i32 %218, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #14
+  br label %227
+
+219:                                              ; preds = %194
+  %220 = landingpad { ptr, i32 }
+          cleanup
+  %221 = extractvalue { ptr, i32 } %220, 0
+  store ptr %221, ptr %8, align 8
+  %222 = extractvalue { ptr, i32 } %220, 1
+  store i32 %222, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #14
+  br label %227
+
+223:                                              ; preds = %197
+  %224 = landingpad { ptr, i32 }
+          cleanup
+  %225 = extractvalue { ptr, i32 } %224, 0
+  store ptr %225, ptr %8, align 8
+  %226 = extractvalue { ptr, i32 } %224, 1
+  store i32 %226, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #14
+  br label %227
+
+227:                                              ; preds = %223, %219, %215, %211
+  call void @llvm.lifetime.end.p0(i64 16, ptr %21) #14
+  br label %228
+
+228:                                              ; preds = %227, %207, %177, %103
+  call void @llvm.lifetime.end.p0(i64 16, ptr %12) #14
+  br label %229
+
+229:                                              ; preds = %228, %91
+  call void @_ZN8QPainterD1Ev(ptr noundef align 8 dereferenceable_or_null(8) %11) #14
+  br label %230
+
+230:                                              ; preds = %229, %87
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #14
+  br label %231
+
+231:                                              ; preds = %230, %83
+  call void @_ZN6QImageD1Ev(ptr noundef align 8 dereferenceable_or_null(24) %10) #14
+  br label %232
+
+232:                                              ; preds = %231, %79
+  call void @llvm.lifetime.end.p0(i64 24, ptr %10) #14
+  br label %234
+
+233:                                              ; preds = %206, %49
+  call void @_ZN8QPainterD1Ev(ptr noundef align 8 dereferenceable_or_null(8) %7) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #14
   ret void
 
-172:                                              ; preds = %170, %75
-  call void @_ZN8QPainterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #11
-  br label %173
+234:                                              ; preds = %232, %75
+  call void @_ZN8QPainterD1Ev(ptr noundef align 8 dereferenceable_or_null(8) %7) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #14
+  br label %235
 
-173:                                              ; preds = %172
-  %174 = load ptr, ptr %8, align 8
-  %175 = load i32, ptr %9, align 4
-  %176 = insertvalue { ptr, i32 } poison, ptr %174, 0
-  %177 = insertvalue { ptr, i32 } %176, i32 %175, 1
-  resume { ptr, i32 } %177
+235:                                              ; preds = %234
+  %236 = load ptr, ptr %8, align 8
+  %237 = load i32, ptr %9, align 4
+  %238 = insertvalue { ptr, i32 } poison, ptr %236, 0
+  %239 = insertvalue { ptr, i32 } %238, i32 %237, 1
+  resume { ptr, i32 } %239
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7QWidget8geometryEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef align 4 dereferenceable(16) ptr @_ZNK7QWidget8geometryEv(ptr noundef align 8 dereferenceable_or_null(40) %0) #9 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %class.QWidget, ptr %3, i32 0, i32 2
+  %4 = getelementptr inbounds nuw %class.QWidget, ptr %3, i32 0, i32 2
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds %class.QWidgetData, ptr %5, i32 0, i32 4
+  %6 = getelementptr inbounds nuw %class.QWidgetData, ptr %5, i32 0, i32 4
   ret ptr %6
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZNK5QRect6heightEv(ptr noundef nonnull align 4 dereferenceable(16) %0) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef i32 @_ZNK5QRect6heightEv(ptr noundef align 4 dereferenceable_or_null(16) %0) #9 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %class.QRect, ptr %3, i32 0, i32 3
+  %4 = getelementptr inbounds nuw %class.QRect, ptr %3, i32 0, i32 3
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds %class.QRect, ptr %3, i32 0, i32 1
+  %6 = getelementptr inbounds nuw %class.QRect, ptr %3, i32 0, i32 1
   %7 = load i32, ptr %6, align 4
   %8 = sub i32 %5, %7
   %9 = add i32 %8, 1
   ret i32 %9
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 4 dereferenceable(8) ptr @_ZN5QSizemLEd(ptr noundef nonnull align 4 dereferenceable(8) %0, double noundef %1) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef align 4 dereferenceable(8) ptr @_ZN5QSizemLEd(ptr noundef align 4 dereferenceable_or_null(8) %0, double noundef %1) #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca double, align 8
   store ptr %0, ptr %3, align 8
   store double %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %class.QSize, ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %class.QSize, ptr %5, i32 0, i32 0
   %7 = load i32, ptr %6, align 4
   %8 = sitofp i32 %7 to double
   %9 = load double, ptr %4, align 8
@@ -1782,9 +2043,9 @@ define linkonce_odr noundef nonnull align 4 dereferenceable(8) ptr @_ZN5QSizemLE
           to label %12 unwind label %22
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds %class.QSize, ptr %5, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %class.QSize, ptr %5, i32 0, i32 0
   store i32 %11, ptr %13, align 4
-  %14 = getelementptr inbounds %class.QSize, ptr %5, i32 0, i32 1
+  %14 = getelementptr inbounds nuw %class.QSize, ptr %5, i32 0, i32 1
   %15 = load i32, ptr %14, align 4
   %16 = sitofp i32 %15 to double
   %17 = load double, ptr %4, align 8
@@ -1793,7 +2054,7 @@ define linkonce_odr noundef nonnull align 4 dereferenceable(8) ptr @_ZN5QSizemLE
           to label %20 unwind label %22
 
 20:                                               ; preds = %12
-  %21 = getelementptr inbounds %class.QSize, ptr %5, i32 0, i32 1
+  %21 = getelementptr inbounds nuw %class.QSize, ptr %5, i32 0, i32 1
   store i32 %19, ptr %21, align 4
   ret ptr %5
 
@@ -1801,44 +2062,51 @@ define linkonce_odr noundef nonnull align 4 dereferenceable(8) ptr @_ZN5QSizemLE
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  call void @__clang_call_terminate(ptr %24) #14
+  call void @__clang_call_terminate(ptr %24) #17
   unreachable
 }
 
-declare void @_ZN8QPainterC1EP12QPaintDevice(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN8QPainterC1EP12QPaintDevice(ptr noundef align 8 dereferenceable_or_null(8), ptr noundef) unnamed_addr #1
 
-declare void @_ZN8QPainter8fillRectERK5QRectRK6QBrush(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(8)) #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN8QPainter8fillRectERK5QRectRK6QBrush(ptr noundef align 8 dereferenceable_or_null(8), ptr noundef align 4 dereferenceable(16), ptr noundef align 8 dereferenceable(8)) #1
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 4 dereferenceable(16) ptr @_ZNK11QPaintEvent4rectEv(ptr noundef nonnull align 8 dereferenceable(41) %0) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef align 4 dereferenceable(16) ptr @_ZNK11QPaintEvent4rectEv(ptr noundef align 8 dereferenceable_or_null(41) %0) #9 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %class.QPaintEvent, ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds nuw %class.QPaintEvent, ptr %3, i32 0, i32 1
   ret ptr %4
 }
 
-declare noundef nonnull align 8 dereferenceable(12) ptr @_ZNK7QWidget7paletteEv(ptr noundef nonnull align 8 dereferenceable(40)) #1
+; Function Attrs: null_pointer_is_valid
+declare noundef align 8 dereferenceable(12) ptr @_ZNK7QWidget7paletteEv(ptr noundef align 8 dereferenceable_or_null(40)) #1
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8QPalette4baseEv(ptr noundef nonnull align 8 dereferenceable(12) %0) #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef align 8 dereferenceable(8) ptr @_ZNK8QPalette4baseEv(ptr noundef align 8 dereferenceable_or_null(12) %0) #6 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8QPalette5brushENS_9ColorRoleE(ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef 9)
+  %4 = call noundef align 8 dereferenceable(8) ptr @_ZNK8QPalette5brushENS_9ColorRoleE(ptr noundef align 8 dereferenceable_or_null(12) %3, i32 noundef 9)
   ret ptr %4
 }
 
-declare noundef zeroext i1 @_ZNK6QImage6isNullEv(ptr noundef nonnull align 8 dereferenceable(24)) #1
+; Function Attrs: null_pointer_is_valid
+declare noundef zeroext i1 @_ZNK6QImage6isNullEv(ptr noundef align 8 dereferenceable_or_null(24)) #1
 
-declare void @_ZN6QImageC1ERK5QSizeNS_6FormatE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 4 dereferenceable(8), i32 noundef) unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN6QImageC1ERK5QSizeNS_6FormatE(ptr noundef align 8 dereferenceable_or_null(24), ptr noundef align 4 dereferenceable(8), i32 noundef) unnamed_addr #1
 
-declare void @_ZN6QImage4fillEN2Qt11GlobalColorE(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN6QImage4fillEN2Qt11GlobalColorE(ptr noundef align 8 dereferenceable_or_null(24), i32 noundef) #1
 
-declare void @_ZN8QPainter6setPenEN2Qt8PenStyleE(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN8QPainter6setPenEN2Qt8PenStyleE(ptr noundef align 8 dereferenceable_or_null(8), i32 noundef) #1
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5QRectC2Eiiii(ptr noundef nonnull align 4 dereferenceable(16) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN5QRectC2Eiiii(ptr noundef align 4 dereferenceable_or_null(16) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #9 comdat align 2 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -1850,19 +2118,19 @@ define linkonce_odr void @_ZN5QRectC2Eiiii(ptr noundef nonnull align 4 dereferen
   store i32 %3, ptr %9, align 4
   store i32 %4, ptr %10, align 4
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds %class.QRect, ptr %11, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %class.QRect, ptr %11, i32 0, i32 0
   %13 = load i32, ptr %7, align 4
   store i32 %13, ptr %12, align 4
-  %14 = getelementptr inbounds %class.QRect, ptr %11, i32 0, i32 1
+  %14 = getelementptr inbounds nuw %class.QRect, ptr %11, i32 0, i32 1
   %15 = load i32, ptr %8, align 4
   store i32 %15, ptr %14, align 4
-  %16 = getelementptr inbounds %class.QRect, ptr %11, i32 0, i32 2
+  %16 = getelementptr inbounds nuw %class.QRect, ptr %11, i32 0, i32 2
   %17 = load i32, ptr %7, align 4
   %18 = load i32, ptr %9, align 4
   %19 = add i32 %17, %18
   %20 = sub i32 %19, 1
   store i32 %20, ptr %16, align 4
-  %21 = getelementptr inbounds %class.QRect, ptr %11, i32 0, i32 3
+  %21 = getelementptr inbounds nuw %class.QRect, ptr %11, i32 0, i32 3
   %22 = load i32, ptr %8, align 4
   %23 = load i32, ptr %10, align 4
   %24 = add i32 %22, %23
@@ -1871,8 +2139,8 @@ define linkonce_odr void @_ZN5QRectC2Eiiii(ptr noundef nonnull align 4 dereferen
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN8QPainter9drawImageERK5QRectRK6QImage(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN8QPainter9drawImageERK5QRectRK6QImage(ptr noundef align 8 dereferenceable_or_null(8) %0, ptr noundef align 4 dereferenceable(16) %1, ptr noundef align 8 dereferenceable(24) %2) #6 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1883,118 +2151,127 @@ define linkonce_odr void @_ZN8QPainter9drawImageERK5QRectRK6QImage(ptr noundef n
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr %7) #14
   %11 = load ptr, ptr %5, align 8
-  call void @_ZN6QRectFC2ERK5QRect(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 4 dereferenceable(16) %11) #11
+  call void @_ZN6QRectFC2ERK5QRect(ptr noundef align 8 dereferenceable_or_null(32) %7, ptr noundef align 4 dereferenceable(16) %11) #14
   %12 = load ptr, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr %8) #14
   %13 = load ptr, ptr %6, align 8
-  %14 = call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(24) %13)
+  %14 = call noundef i32 @_ZNK6QImage5widthEv(ptr noundef align 8 dereferenceable_or_null(24) %13)
   %15 = sitofp i32 %14 to double
   %16 = load ptr, ptr %6, align 8
-  %17 = call noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(24) %16)
+  %17 = call noundef i32 @_ZNK6QImage6heightEv(ptr noundef align 8 dereferenceable_or_null(24) %16)
   %18 = sitofp i32 %17 to double
-  call void @_ZN6QRectFC2Edddd(ptr noundef nonnull align 8 dereferenceable(32) %8, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %15, double noundef %18) #11
-  call void @_ZN6QFlagsIN2Qt19ImageConversionFlagEEC2ES1_(ptr noundef nonnull align 4 dereferenceable(4) %9, i32 noundef 0) #11
-  %19 = getelementptr inbounds %class.QFlags.9, ptr %9, i32 0, i32 0
+  call void @_ZN6QRectFC2Edddd(ptr noundef align 8 dereferenceable_or_null(32) %8, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %15, double noundef %18) #14
+  call void @_ZN6QFlagsIN2Qt19ImageConversionFlagEEC2ES1_(ptr noundef align 4 dereferenceable_or_null(4) %9, i32 noundef 0) #14
+  %19 = getelementptr inbounds nuw %class.QFlags.9, ptr %9, i32 0, i32 0
   %20 = load i32, ptr %19, align 4
-  call void @_ZN8QPainter9drawImageERK6QRectFRK6QImageS2_6QFlagsIN2Qt19ImageConversionFlagEE(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 %20)
+  call void @_ZN8QPainter9drawImageERK6QRectFRK6QImageS2_6QFlagsIN2Qt19ImageConversionFlagEE(ptr noundef align 8 dereferenceable_or_null(8) %10, ptr noundef align 8 dereferenceable(32) %7, ptr noundef align 8 dereferenceable(24) %12, ptr noundef align 8 dereferenceable(32) %8, i32 %20)
+  call void @llvm.lifetime.end.p0(i64 32, ptr %8) #14
+  call void @llvm.lifetime.end.p0(i64 32, ptr %7) #14
   ret void
 }
 
-declare void @_ZNK6QImage6scaledERK5QSizeN2Qt15AspectRatioModeENS3_18TransformationModeE(ptr dead_on_unwind writable sret(%class.QImage) align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 4 dereferenceable(8), i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZNK6QImage6scaledERK5QSizeN2Qt15AspectRatioModeENS3_18TransformationModeE(ptr dead_on_unwind writable sret(%class.QImage) align 8, ptr noundef align 8 dereferenceable_or_null(24), ptr noundef align 4 dereferenceable(8), i32 noundef, i32 noundef) #1
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr i64 @_ZNK5QRect4sizeEv(ptr noundef nonnull align 4 dereferenceable(16) %0) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr i64 @_ZNK5QRect4sizeEv(ptr noundef align 4 dereferenceable_or_null(16) %0) #9 comdat align 2 {
   %2 = alloca %class.QSize, align 4
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = call noundef i32 @_ZNK5QRect5widthEv(ptr noundef nonnull align 4 dereferenceable(16) %4) #11
-  %6 = call noundef i32 @_ZNK5QRect6heightEv(ptr noundef nonnull align 4 dereferenceable(16) %4) #11
-  call void @_ZN5QSizeC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %2, i32 noundef %5, i32 noundef %6) #11
+  %5 = call noundef i32 @_ZNK5QRect5widthEv(ptr noundef align 4 dereferenceable_or_null(16) %4) #14
+  %6 = call noundef i32 @_ZNK5QRect6heightEv(ptr noundef align 4 dereferenceable_or_null(16) %4) #14
+  call void @_ZN5QSizeC2Eii(ptr noundef align 4 dereferenceable_or_null(8) %2, i32 noundef %5, i32 noundef %6) #14
   %7 = load i64, ptr %2, align 4
   ret i64 %7
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZNK5QListIiE5countEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef i64 @_ZNK5QListIiE5countEv(ptr noundef align 8 dereferenceable_or_null(24) %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef i64 @_ZNK5QListIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #11
+  %4 = call noundef i64 @_ZNK5QListIiE4sizeEv(ptr noundef align 8 dereferenceable_or_null(24) %3) #14
   ret i64 %4
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN9QtPrivate21qMakeForeachContainerIR5QListIiEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS6_(ptr dead_on_unwind noalias writable sret(%"class.QtPrivate::QForeachContainer") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #0 comdat {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN9QtPrivate21qMakeForeachContainerIR5QListIiEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS6_(ptr dead_on_unwind noalias writable sret(%"class.QtPrivate::QForeachContainer") align 8 %0, ptr noundef align 8 dereferenceable(24) %1) #0 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   call void @_ZN9QtPrivate26warnIfContainerIsNotSharedI5QListIiEvEEvi(i32 noundef 0)
   %5 = load ptr, ptr %4, align 8
-  call void @_ZN9QtPrivate17QForeachContainerI5QListIiEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(24) %5)
+  call void @_ZN9QtPrivate17QForeachContainerI5QListIiEEC2ERKS2_(ptr noundef align 8 dereferenceable_or_null(44) %0, ptr noundef align 8 dereferenceable(24) %5)
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZNK5QListIiE14const_iteratorneES1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %1) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef zeroext i1 @_ZNK5QListIiE14const_iteratorneES1_(ptr noundef align 8 dereferenceable_or_null(8) %0, ptr %1) #9 comdat align 2 {
   %3 = alloca %"class.QList<int>::const_iterator", align 8
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds %"class.QList<int>::const_iterator", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"class.QList<int>::const_iterator", ptr %3, i32 0, i32 0
   store ptr %1, ptr %5, align 8
   store ptr %0, ptr %4, align 8
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %"class.QList<int>::const_iterator", ptr %6, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"class.QList<int>::const_iterator", ptr %6, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds %"class.QList<int>::const_iterator", ptr %3, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %"class.QList<int>::const_iterator", ptr %3, i32 0, i32 0
   %10 = load ptr, ptr %9, align 8
   %11 = icmp ne ptr %8, %10
   ret i1 %11
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNK5QListIiE14const_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef align 4 dereferenceable(4) ptr @_ZNK5QListIiE14const_iteratordeEv(ptr noundef align 8 dereferenceable_or_null(8) %0) #9 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.QList<int>::const_iterator", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"class.QList<int>::const_iterator", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
   ret ptr %5
 }
 
-declare noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(24)) #1
+; Function Attrs: null_pointer_is_valid
+declare noundef i32 @_ZNK6QImage6heightEv(ptr noundef align 8 dereferenceable_or_null(24)) #1
 
-declare void @_ZN8QPainter4saveEv(ptr noundef nonnull align 8 dereferenceable(8)) #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN8QPainter4saveEv(ptr noundef align 8 dereferenceable_or_null(8)) #1
 
-declare void @_ZN8QPainter8setBrushERK6QBrush(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN8QPainter8setBrushERK6QBrush(ptr noundef align 8 dereferenceable_or_null(8), ptr noundef align 8 dereferenceable(8)) #1
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8QPalette9highlightEv(ptr noundef nonnull align 8 dereferenceable(12) %0) #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef align 8 dereferenceable(8) ptr @_ZNK8QPalette9highlightEv(ptr noundef align 8 dereferenceable_or_null(12) %0) #6 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8QPalette5brushENS_9ColorRoleE(ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef 12)
+  %4 = call noundef align 8 dereferenceable(8) ptr @_ZNK8QPalette5brushENS_9ColorRoleE(ptr noundef align 8 dereferenceable_or_null(12) %3, i32 noundef 12)
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 4 dereferenceable(14) ptr @_ZNK6QBrush5colorEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef align 4 dereferenceable(14) ptr @_ZNK6QBrush5colorEv(ptr noundef align 8 dereferenceable_or_null(8) %0) #9 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %class.QBrush, ptr %3, i32 0, i32 0
-  %5 = call noundef ptr @_ZNKSt10unique_ptrI10QBrushData24QBrushDataPointerDeleterEptEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
-  %6 = getelementptr inbounds %struct.QBrushData, ptr %5, i32 0, i32 2
+  %4 = getelementptr inbounds nuw %class.QBrush, ptr %3, i32 0, i32 0
+  %5 = call noundef ptr @_ZNKSt10unique_ptrI10QBrushData24QBrushDataPointerDeleterEptEv(ptr noundef align 8 dereferenceable_or_null(8) %4) #14
+  %6 = getelementptr inbounds nuw %struct.QBrushData, ptr %5, i32 0, i32 2
   ret ptr %6
 }
 
-declare void @_ZN6QBrushC1ERK6QColorN2Qt10BrushStyleE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(14), i32 noundef) unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN6QBrushC1ERK6QColorN2Qt10BrushStyleE(ptr noundef align 8 dereferenceable_or_null(8), ptr noundef align 4 dereferenceable(14), i32 noundef) unnamed_addr #1
 
-; Function Attrs: nounwind
-declare void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
+; Function Attrs: nounwind null_pointer_is_valid
+declare void @_ZN6QBrushD1Ev(ptr noundef align 8 dereferenceable_or_null(8)) unnamed_addr #2
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN8QPainter8drawRectEiiii(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN8QPainter8drawRectEiiii(ptr noundef align 8 dereferenceable_or_null(8) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #6 comdat align 2 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -2007,66 +2284,71 @@ define linkonce_odr void @_ZN8QPainter8drawRectEiiii(ptr noundef nonnull align 8
   store i32 %3, ptr %9, align 4
   store i32 %4, ptr %10, align 4
   %12 = load ptr, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %11) #14
   %13 = load i32, ptr %7, align 4
   %14 = load i32, ptr %8, align 4
   %15 = load i32, ptr %9, align 4
   %16 = load i32, ptr %10, align 4
-  call void @_ZN5QRectC2Eiiii(ptr noundef nonnull align 4 dereferenceable(16) %11, i32 noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef %16) #11
-  call void @_ZN8QPainter9drawRectsEPK5QRecti(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %11, i32 noundef 1)
+  call void @_ZN5QRectC2Eiiii(ptr noundef align 4 dereferenceable_or_null(16) %11, i32 noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef %16) #14
+  call void @_ZN8QPainter9drawRectsEPK5QRecti(ptr noundef align 8 dereferenceable_or_null(8) %12, ptr noundef %11, i32 noundef 1)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %11) #14
   ret void
 }
 
-declare void @_ZN8QPainter7restoreEv(ptr noundef nonnull align 8 dereferenceable(8)) #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN8QPainter7restoreEv(ptr noundef align 8 dereferenceable_or_null(8)) #1
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN5QListIiE14const_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef align 8 dereferenceable(8) ptr @_ZN5QListIiE14const_iteratorppEv(ptr noundef align 8 dereferenceable_or_null(8) %0) #9 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.QList<int>::const_iterator", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"class.QList<int>::const_iterator", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i32, ptr %5, i32 1
   store ptr %6, ptr %4, align 8
   ret ptr %3
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev(ptr noundef align 8 dereferenceable_or_null(44) %0) unnamed_addr #9 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.QtPrivate::QForeachContainer", ptr %3, i32 0, i32 0
-  call void @_ZN5QListIiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #11
+  %4 = getelementptr inbounds nuw %"class.QtPrivate::QForeachContainer", ptr %3, i32 0, i32 0
+  call void @_ZN5QListIiED2Ev(ptr noundef align 8 dereferenceable_or_null(24) %4) #14
   ret void
 }
 
-declare noundef i32 @_ZN10ColorUtils10alphaBlendERK6QBrushS2_d(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), double noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare noundef i32 @_ZN10ColorUtils10alphaBlendERK6QBrushS2_d(ptr noundef align 8 dereferenceable(8), ptr noundef align 8 dereferenceable(8), double noundef) #1
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8QPalette4textEv(ptr noundef nonnull align 8 dereferenceable(12) %0) #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef align 8 dereferenceable(8) ptr @_ZNK8QPalette4textEv(ptr noundef align 8 dereferenceable_or_null(12) %0) #6 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8QPalette5brushENS_9ColorRoleE(ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef 6)
+  %4 = call noundef align 8 dereferenceable(8) ptr @_ZNK8QPalette5brushENS_9ColorRoleE(ptr noundef align 8 dereferenceable_or_null(12) %3, i32 noundef 6)
   ret ptr %4
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8QPalette6windowEv(ptr noundef nonnull align 8 dereferenceable(12) %0) #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef align 8 dereferenceable(8) ptr @_ZNK8QPalette6windowEv(ptr noundef align 8 dereferenceable_or_null(12) %0) #6 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8QPalette5brushENS_9ColorRoleE(ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef 10)
+  %4 = call noundef align 8 dereferenceable(8) ptr @_ZNK8QPalette5brushENS_9ColorRoleE(ptr noundef align 8 dereferenceable_or_null(12) %3, i32 noundef 10)
   ret ptr %4
 }
 
-; Function Attrs: nounwind
-declare void @_ZN6QColorC1Ej(ptr noundef nonnull align 4 dereferenceable(14), i32 noundef) unnamed_addr #2
+; Function Attrs: nounwind null_pointer_is_valid
+declare void @_ZN6QColorC1Ej(ptr noundef align 4 dereferenceable_or_null(14), i32 noundef) unnamed_addr #2
 
-declare void @_ZN8QPainter6setPenERK6QColor(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(14)) #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN8QPainter6setPenERK6QColor(ptr noundef align 8 dereferenceable_or_null(8), ptr noundef align 4 dereferenceable(14)) #1
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN8QPainter8drawLineERK6QPointS2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(8) %2) #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN8QPainter8drawLineERK6QPointS2_(ptr noundef align 8 dereferenceable_or_null(8) %0, ptr noundef align 4 dereferenceable(8) %1, ptr noundef align 4 dereferenceable(8) %2) #6 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2075,77 +2357,80 @@ define linkonce_odr void @_ZN8QPainter8drawLineERK6QPointS2_(ptr noundef nonnull
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %8 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #14
   %9 = load ptr, ptr %5, align 8
   %10 = load ptr, ptr %6, align 8
-  call void @_ZN5QLineC2ERK6QPointS2_(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(8) %10)
-  call void @_ZN8QPainter9drawLinesEPK5QLinei(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %7, i32 noundef 1)
+  call void @_ZN5QLineC2ERK6QPointS2_(ptr noundef align 4 dereferenceable_or_null(16) %7, ptr noundef align 4 dereferenceable(8) %9, ptr noundef align 4 dereferenceable(8) %10)
+  call void @_ZN8QPainter9drawLinesEPK5QLinei(ptr noundef align 8 dereferenceable_or_null(8) %8, ptr noundef %7, i32 noundef 1)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #14
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr i64 @_ZNK5QRect7topLeftEv(ptr noundef nonnull align 4 dereferenceable(16) %0) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr i64 @_ZNK5QRect7topLeftEv(ptr noundef align 4 dereferenceable_or_null(16) %0) #9 comdat align 2 {
   %2 = alloca %class.QPoint, align 4
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %class.QRect, ptr %4, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %class.QRect, ptr %4, i32 0, i32 0
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds %class.QRect, ptr %4, i32 0, i32 1
+  %7 = getelementptr inbounds nuw %class.QRect, ptr %4, i32 0, i32 1
   %8 = load i32, ptr %7, align 4
-  call void @_ZN6QPointC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %2, i32 noundef %6, i32 noundef %8) #11
+  call void @_ZN6QPointC2Eii(ptr noundef align 4 dereferenceable_or_null(8) %2, i32 noundef %6, i32 noundef %8) #14
   %9 = load i64, ptr %2, align 4
   ret i64 %9
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr i64 @_ZNK5QRect10bottomLeftEv(ptr noundef nonnull align 4 dereferenceable(16) %0) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr i64 @_ZNK5QRect10bottomLeftEv(ptr noundef align 4 dereferenceable_or_null(16) %0) #9 comdat align 2 {
   %2 = alloca %class.QPoint, align 4
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %class.QRect, ptr %4, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %class.QRect, ptr %4, i32 0, i32 0
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds %class.QRect, ptr %4, i32 0, i32 3
+  %7 = getelementptr inbounds nuw %class.QRect, ptr %4, i32 0, i32 3
   %8 = load i32, ptr %7, align 4
-  call void @_ZN6QPointC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %2, i32 noundef %6, i32 noundef %8) #11
+  call void @_ZN6QPointC2Eii(ptr noundef align 4 dereferenceable_or_null(8) %2, i32 noundef %6, i32 noundef %8) #14
   %9 = load i64, ptr %2, align 4
   ret i64 %9
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr i64 @_ZNK5QRect8topRightEv(ptr noundef nonnull align 4 dereferenceable(16) %0) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr i64 @_ZNK5QRect8topRightEv(ptr noundef align 4 dereferenceable_or_null(16) %0) #9 comdat align 2 {
   %2 = alloca %class.QPoint, align 4
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %class.QRect, ptr %4, i32 0, i32 2
+  %5 = getelementptr inbounds nuw %class.QRect, ptr %4, i32 0, i32 2
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds %class.QRect, ptr %4, i32 0, i32 1
+  %7 = getelementptr inbounds nuw %class.QRect, ptr %4, i32 0, i32 1
   %8 = load i32, ptr %7, align 4
-  call void @_ZN6QPointC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %2, i32 noundef %6, i32 noundef %8) #11
+  call void @_ZN6QPointC2Eii(ptr noundef align 4 dereferenceable_or_null(8) %2, i32 noundef %6, i32 noundef %8) #14
   %9 = load i64, ptr %2, align 4
   ret i64 %9
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr i64 @_ZNK5QRect11bottomRightEv(ptr noundef nonnull align 4 dereferenceable(16) %0) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr i64 @_ZNK5QRect11bottomRightEv(ptr noundef align 4 dereferenceable_or_null(16) %0) #9 comdat align 2 {
   %2 = alloca %class.QPoint, align 4
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %class.QRect, ptr %4, i32 0, i32 2
+  %5 = getelementptr inbounds nuw %class.QRect, ptr %4, i32 0, i32 2
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds %class.QRect, ptr %4, i32 0, i32 3
+  %7 = getelementptr inbounds nuw %class.QRect, ptr %4, i32 0, i32 3
   %8 = load i32, ptr %7, align 4
-  call void @_ZN6QPointC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %2, i32 noundef %6, i32 noundef %8) #11
+  call void @_ZN6QPointC2Eii(ptr noundef align 4 dereferenceable_or_null(8) %2, i32 noundef %6, i32 noundef %8) #14
   %9 = load i64, ptr %2, align 4
   ret i64 %9
 }
 
-declare void @_ZN6QImage19setDevicePixelRatioEd(ptr noundef nonnull align 8 dereferenceable(24), double noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN6QImage19setDevicePixelRatioEd(ptr noundef align 8 dereferenceable_or_null(24), double noundef) #1
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN8QPainter9drawImageEiiRK6QImageiiii6QFlagsIN2Qt19ImageConversionFlagEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 %8) #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN8QPainter9drawImageEiiRK6QImageiiii6QFlagsIN2Qt19ImageConversionFlagEE(ptr noundef align 8 dereferenceable_or_null(8) %0, i32 noundef %1, i32 noundef %2, ptr noundef align 8 dereferenceable(24) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 %8) #6 comdat align 2 {
   %10 = alloca %class.QFlags.9, align 4
   %11 = alloca ptr, align 8
   %12 = alloca i32, align 4
@@ -2160,7 +2445,7 @@ define linkonce_odr void @_ZN8QPainter9drawImageEiiRK6QImageiiii6QFlagsIN2Qt19Im
   %21 = alloca %class.QRectF, align 8
   %22 = alloca %class.QRectF, align 8
   %23 = alloca %class.QFlags.9, align 4
-  %24 = getelementptr inbounds %class.QFlags.9, ptr %10, i32 0, i32 0
+  %24 = getelementptr inbounds nuw %class.QFlags.9, ptr %10, i32 0, i32 0
   store i32 %8, ptr %24, align 4
   store ptr %0, ptr %11, align 8
   store i32 %1, ptr %12, align 4
@@ -2192,28 +2477,32 @@ define linkonce_odr void @_ZN8QPainter9drawImageEiiRK6QImageiiii6QFlagsIN2Qt19Im
 
 37:                                               ; preds = %34
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %19, ptr align 4 %10, i64 4, i1 false)
-  %38 = getelementptr inbounds %class.QFlags.9, ptr %19, i32 0, i32 0
+  %38 = getelementptr inbounds nuw %class.QFlags.9, ptr %19, i32 0, i32 0
   %39 = load i32, ptr %38, align 4
-  %40 = call noundef zeroext i1 @_Zeq6QFlagsIN2Qt19ImageConversionFlagEES1_(i32 %39, i32 noundef 0) #11
+  %40 = call noundef zeroext i1 @_Zeq6QFlagsIN2Qt19ImageConversionFlagEES1_(i32 %39, i32 noundef 0) #14
   br i1 %40, label %41, label %47
 
 41:                                               ; preds = %37
+  call void @llvm.lifetime.start.p0(i64 16, ptr %20) #14
   %42 = load i32, ptr %12, align 4
   %43 = sitofp i32 %42 to double
   %44 = load i32, ptr %13, align 4
   %45 = sitofp i32 %44 to double
-  call void @_ZN7QPointFC2Edd(ptr noundef nonnull align 8 dereferenceable(16) %20, double noundef %43, double noundef %45) #11
+  call void @_ZN7QPointFC2Edd(ptr noundef align 8 dereferenceable_or_null(16) %20, double noundef %43, double noundef %45) #14
   %46 = load ptr, ptr %14, align 8
-  call void @_ZN8QPainter9drawImageERK7QPointFRK6QImage(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(24) %46)
+  call void @_ZN8QPainter9drawImageERK7QPointFRK6QImage(ptr noundef align 8 dereferenceable_or_null(8) %25, ptr noundef align 8 dereferenceable(16) %20, ptr noundef align 8 dereferenceable(24) %46)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %20) #14
   br label %63
 
 47:                                               ; preds = %37, %34, %31, %28, %9
+  call void @llvm.lifetime.start.p0(i64 32, ptr %21) #14
   %48 = load i32, ptr %12, align 4
   %49 = sitofp i32 %48 to double
   %50 = load i32, ptr %13, align 4
   %51 = sitofp i32 %50 to double
-  call void @_ZN6QRectFC2Edddd(ptr noundef nonnull align 8 dereferenceable(32) %21, double noundef %49, double noundef %51, double noundef -1.000000e+00, double noundef -1.000000e+00) #11
+  call void @_ZN6QRectFC2Edddd(ptr noundef align 8 dereferenceable_or_null(32) %21, double noundef %49, double noundef %51, double noundef -1.000000e+00, double noundef -1.000000e+00) #14
   %52 = load ptr, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr %22) #14
   %53 = load i32, ptr %15, align 4
   %54 = sitofp i32 %53 to double
   %55 = load i32, ptr %16, align 4
@@ -2222,35 +2511,37 @@ define linkonce_odr void @_ZN8QPainter9drawImageEiiRK6QImageiiii6QFlagsIN2Qt19Im
   %58 = sitofp i32 %57 to double
   %59 = load i32, ptr %18, align 4
   %60 = sitofp i32 %59 to double
-  call void @_ZN6QRectFC2Edddd(ptr noundef nonnull align 8 dereferenceable(32) %22, double noundef %54, double noundef %56, double noundef %58, double noundef %60) #11
+  call void @_ZN6QRectFC2Edddd(ptr noundef align 8 dereferenceable_or_null(32) %22, double noundef %54, double noundef %56, double noundef %58, double noundef %60) #14
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %23, ptr align 4 %10, i64 4, i1 false)
-  %61 = getelementptr inbounds %class.QFlags.9, ptr %23, i32 0, i32 0
+  %61 = getelementptr inbounds nuw %class.QFlags.9, ptr %23, i32 0, i32 0
   %62 = load i32, ptr %61, align 4
-  call void @_ZN8QPainter9drawImageERK6QRectFRK6QImageS2_6QFlagsIN2Qt19ImageConversionFlagEE(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 %62)
+  call void @_ZN8QPainter9drawImageERK6QRectFRK6QImageS2_6QFlagsIN2Qt19ImageConversionFlagEE(ptr noundef align 8 dereferenceable_or_null(8) %25, ptr noundef align 8 dereferenceable(32) %21, ptr noundef align 8 dereferenceable(24) %52, ptr noundef align 8 dereferenceable(32) %22, i32 %62)
+  call void @llvm.lifetime.end.p0(i64 32, ptr %22) #14
+  call void @llvm.lifetime.end.p0(i64 32, ptr %21) #14
   br label %63
 
 63:                                               ; preds = %47, %41
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6QFlagsIN2Qt19ImageConversionFlagEEC2ES1_(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN6QFlagsIN2Qt19ImageConversionFlagEEC2ES1_(ptr noundef align 4 dereferenceable_or_null(4) %0, i32 noundef %1) unnamed_addr #9 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %class.QFlags.9, ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %class.QFlags.9, ptr %5, i32 0, i32 0
   %7 = load i32, ptr %4, align 4
   store i32 %7, ptr %6, align 4
   ret void
 }
 
-; Function Attrs: nounwind
-declare void @_ZN8QPainterD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
+; Function Attrs: nounwind null_pointer_is_valid
+declare void @_ZN8QPainterD1Ev(ptr noundef align 8 dereferenceable_or_null(8)) unnamed_addr #2
 
-; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN16OverlayScrollBar11eventFilterEP7QObjectP6QEvent(ptr noundef nonnull align 8 dereferenceable(196) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define noundef zeroext i1 @_ZN16OverlayScrollBar11eventFilterEP7QObjectP6QEvent(ptr noundef align 8 dereferenceable_or_null(196) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2274,86 +2565,105 @@ define noundef zeroext i1 @_ZN16OverlayScrollBar11eventFilterEP7QObjectP6QEvent(
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %23 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #14
   store i8 0, ptr %7, align 1
   %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds %class.OverlayScrollBar, ptr %23, i32 0, i32 3
+  %25 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %23, i32 0, i32 3
   %26 = icmp eq ptr %24, %25
-  br i1 %26, label %27, label %95
+  br i1 %26, label %27, label %115
 
 27:                                               ; preds = %3
   %28 = load ptr, ptr %6, align 8
-  %29 = call noundef i32 @_ZNK6QEvent4typeEv(ptr noundef nonnull align 8 dereferenceable(16) %28)
+  %29 = call noundef i32 @_ZNK6QEvent4typeEv(ptr noundef align 8 dereferenceable_or_null(16) %28)
   %30 = icmp eq i32 %29, 12
-  br i1 %30, label %31, label %95
+  br i1 %30, label %31, label %115
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds %class.OverlayScrollBar, ptr %23, i32 0, i32 3
+  %32 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %23, i32 0, i32 3
   %33 = load ptr, ptr %6, align 8
-  %34 = call noundef zeroext i1 @_ZN10QScrollBar5eventEP6QEvent(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef %33)
+  %34 = call noundef zeroext i1 @_ZN10QScrollBar5eventEP6QEvent(ptr noundef align 8 dereferenceable_or_null(40) %32, ptr noundef %33)
   store i8 1, ptr %7, align 1
-  %35 = getelementptr inbounds %class.OverlayScrollBar, ptr %23, i32 0, i32 5
-  %36 = call noundef zeroext i1 @_ZNK6QImage6isNullEv(ptr noundef nonnull align 8 dereferenceable(24) %35)
-  br i1 %36, label %94, label %37
+  %35 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %23, i32 0, i32 5
+  %36 = call noundef zeroext i1 @_ZNK6QImage6isNullEv(ptr noundef align 8 dereferenceable_or_null(24) %35)
+  br i1 %36, label %114, label %37
 
 37:                                               ; preds = %31
-  %38 = call { i64, i64 } @_ZN16OverlayScrollBar10grooveRectEv(ptr noundef nonnull align 8 dereferenceable(196) %23)
-  %39 = getelementptr inbounds { i64, i64 }, ptr %8, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 16, ptr %8) #14
+  %38 = call { i64, i64 } @_ZN16OverlayScrollBar10grooveRectEv(ptr noundef align 8 dereferenceable_or_null(196) %23)
+  %39 = getelementptr inbounds nuw { i64, i64 }, ptr %8, i32 0, i32 0
   %40 = extractvalue { i64, i64 } %38, 0
   store i64 %40, ptr %39, align 4
-  %41 = getelementptr inbounds { i64, i64 }, ptr %8, i32 0, i32 1
+  %41 = getelementptr inbounds nuw { i64, i64 }, ptr %8, i32 0, i32 1
   %42 = extractvalue { i64, i64 } %38, 1
   store i64 %42, ptr %41, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #14
   %43 = getelementptr inbounds i8, ptr %23, i64 16
-  %44 = call noundef double @_ZNK12QPaintDevice16devicePixelRatioEv(ptr noundef nonnull align 8 dereferenceable(10) %43)
+  %44 = call noundef double @_ZNK12QPaintDevice16devicePixelRatioEv(ptr noundef align 8 dereferenceable_or_null(10) %43)
   store double %44, ptr %9, align 8
-  %45 = call i64 @_ZNK5QRect7topLeftEv(ptr noundef nonnull align 4 dereferenceable(16) %8) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #14
+  %45 = call i64 @_ZNK5QRect7topLeftEv(ptr noundef align 4 dereferenceable_or_null(16) %8) #14
   store i64 %45, ptr %11, align 4
   %46 = load double, ptr %9, align 8
-  %47 = call i64 @_ZmlRK6QPointd(ptr noundef nonnull align 4 dereferenceable(8) %11, double noundef %46)
+  %47 = call i64 @_ZmlRK6QPointd(ptr noundef align 4 dereferenceable(8) %11, double noundef %46)
   store i64 %47, ptr %10, align 4
-  call void @_ZN5QRect10setTopLeftERK6QPoint(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(8) %10) #11
-  %48 = call i64 @_ZNK5QRect4sizeEv(ptr noundef nonnull align 4 dereferenceable(16) %8) #11
+  call void @_ZN5QRect10setTopLeftERK6QPoint(ptr noundef align 4 dereferenceable_or_null(16) %8, ptr noundef align 4 dereferenceable(8) %10) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #14
+  %48 = call i64 @_ZNK5QRect4sizeEv(ptr noundef align 4 dereferenceable_or_null(16) %8) #14
   store i64 %48, ptr %13, align 4
   %49 = load double, ptr %9, align 8
-  %50 = call i64 @_ZmlRK5QSized(ptr noundef nonnull align 4 dereferenceable(8) %13, double noundef %49) #11
+  %50 = call i64 @_ZmlRK5QSized(ptr noundef align 4 dereferenceable(8) %13, double noundef %49) #14
   store i64 %50, ptr %12, align 4
-  call void @_ZN5QRect7setSizeERK5QSize(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(8) %12) #11
-  %51 = call noundef i32 @_ZNK5QRect5widthEv(ptr noundef nonnull align 4 dereferenceable(16) %8) #11
-  %52 = call noundef i32 @_ZNK5QRect6heightEv(ptr noundef nonnull align 4 dereferenceable(16) %8) #11
-  call void @_ZN6QImageC1EiiNS_6FormatE(ptr noundef nonnull align 8 dereferenceable(24) %14, i32 noundef %51, i32 noundef %52, i32 noundef 6)
-  invoke void @_ZN6QImage4fillEN2Qt11GlobalColorE(ptr noundef nonnull align 8 dereferenceable(24) %14, i32 noundef 19)
+  call void @_ZN5QRect7setSizeERK5QSize(ptr noundef align 4 dereferenceable_or_null(16) %8, ptr noundef align 4 dereferenceable(8) %12) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #14
+  call void @llvm.lifetime.start.p0(i64 24, ptr %14) #14
+  %51 = call noundef i32 @_ZNK5QRect5widthEv(ptr noundef align 4 dereferenceable_or_null(16) %8) #14
+  %52 = call noundef i32 @_ZNK5QRect6heightEv(ptr noundef align 4 dereferenceable_or_null(16) %8) #14
+  call void @_ZN6QImageC1EiiNS_6FormatE(ptr noundef align 8 dereferenceable_or_null(24) %14, i32 noundef %51, i32 noundef %52, i32 noundef 6)
+  invoke void @_ZN6QImage4fillEN2Qt11GlobalColorE(ptr noundef align 8 dereferenceable_or_null(24) %14, i32 noundef 19)
           to label %53 unwind label %76
 
 53:                                               ; preds = %37
-  invoke void @_ZN8QPainterC1EP12QPaintDevice(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef %14)
-          to label %54 unwind label %76
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #14
+  invoke void @_ZN8QPainterC1EP12QPaintDevice(ptr noundef align 8 dereferenceable_or_null(8) %17, ptr noundef %14)
+          to label %54 unwind label %80
 
 54:                                               ; preds = %53
-  invoke void @_ZN8QPainter6setPenEN2Qt8PenStyleE(ptr noundef nonnull align 8 dereferenceable(8) %17, i32 noundef 0)
-          to label %55 unwind label %80
+  invoke void @_ZN8QPainter6setPenEN2Qt8PenStyleE(ptr noundef align 8 dereferenceable_or_null(8) %17, i32 noundef 0)
+          to label %55 unwind label %84
 
 55:                                               ; preds = %54
-  %56 = call noundef i32 @_ZNK5QRect5widthEv(ptr noundef nonnull align 4 dereferenceable(16) %8) #11
-  %57 = call noundef i32 @_ZNK5QRect6heightEv(ptr noundef nonnull align 4 dereferenceable(16) %8) #11
-  call void @_ZN5QRectC2Eiiii(ptr noundef nonnull align 4 dereferenceable(16) %18, i32 noundef 0, i32 noundef 0, i32 noundef %56, i32 noundef %57) #11
-  %58 = getelementptr inbounds %class.OverlayScrollBar, ptr %23, i32 0, i32 5
-  %59 = call i64 @_ZNK5QRect4sizeEv(ptr noundef nonnull align 4 dereferenceable(16) %18) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr %18) #14
+  %56 = call noundef i32 @_ZNK5QRect5widthEv(ptr noundef align 4 dereferenceable_or_null(16) %8) #14
+  %57 = call noundef i32 @_ZNK5QRect6heightEv(ptr noundef align 4 dereferenceable_or_null(16) %8) #14
+  call void @_ZN5QRectC2Eiiii(ptr noundef align 4 dereferenceable_or_null(16) %18, i32 noundef 0, i32 noundef 0, i32 noundef %56, i32 noundef %57) #14
+  call void @llvm.lifetime.start.p0(i64 24, ptr %19) #14
+  %58 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %23, i32 0, i32 5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #14
+  %59 = call i64 @_ZNK5QRect4sizeEv(ptr noundef align 4 dereferenceable_or_null(16) %18) #14
   store i64 %59, ptr %20, align 4
-  invoke void @_ZNK6QImage6scaledERK5QSizeN2Qt15AspectRatioModeENS3_18TransformationModeE(ptr dead_on_unwind writable sret(%class.QImage) align 8 %19, ptr noundef nonnull align 8 dereferenceable(24) %58, ptr noundef nonnull align 4 dereferenceable(8) %20, i32 noundef 0, i32 noundef 1)
-          to label %60 unwind label %80
+  invoke void @_ZNK6QImage6scaledERK5QSizeN2Qt15AspectRatioModeENS3_18TransformationModeE(ptr dead_on_unwind writable sret(%class.QImage) align 8 %19, ptr noundef align 8 dereferenceable_or_null(24) %58, ptr noundef align 4 dereferenceable(8) %20, i32 noundef 0, i32 noundef 1)
+          to label %60 unwind label %88
 
 60:                                               ; preds = %55
-  invoke void @_ZN8QPainter9drawImageERK5QRectRK6QImage(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 4 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(24) %19)
-          to label %61 unwind label %84
+  invoke void @_ZN8QPainter9drawImageERK5QRectRK6QImage(ptr noundef align 8 dereferenceable_or_null(8) %17, ptr noundef align 4 dereferenceable(16) %18, ptr noundef align 8 dereferenceable(24) %19)
+          to label %61 unwind label %92
 
 61:                                               ; preds = %60
-  call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #11
+  call void @_ZN6QImageD1Ev(ptr noundef align 8 dereferenceable_or_null(24) %19) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #14
+  call void @llvm.lifetime.end.p0(i64 24, ptr %19) #14
   %62 = load double, ptr %9, align 8
-  invoke void @_ZN6QImage19setDevicePixelRatioEd(ptr noundef nonnull align 8 dereferenceable(24) %14, double noundef %62)
-          to label %63 unwind label %80
+  invoke void @_ZN6QImage19setDevicePixelRatioEd(ptr noundef align 8 dereferenceable_or_null(24) %14, double noundef %62)
+          to label %63 unwind label %97
 
 63:                                               ; preds = %61
-  %64 = getelementptr inbounds %class.OverlayScrollBar, ptr %23, i32 0, i32 3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #14
+  %64 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %23, i32 0, i32 3
   %65 = icmp eq ptr %64, null
   br i1 %65, label %68, label %66
 
@@ -2363,246 +2673,312 @@ define noundef zeroext i1 @_ZN16OverlayScrollBar11eventFilterEP7QObjectP6QEvent(
 
 68:                                               ; preds = %66, %63
   %69 = phi ptr [ %67, %66 ], [ null, %63 ]
-  invoke void @_ZN8QPainterC1EP12QPaintDevice(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef %69)
-          to label %70 unwind label %80
+  invoke void @_ZN8QPainterC1EP12QPaintDevice(ptr noundef align 8 dereferenceable_or_null(8) %21, ptr noundef %69)
+          to label %70 unwind label %101
 
 70:                                               ; preds = %68
-  %71 = call noundef i32 @_ZNK5QRect4leftEv(ptr noundef nonnull align 4 dereferenceable(16) %8) #11
-  %72 = call noundef i32 @_ZNK5QRect3topEv(ptr noundef nonnull align 4 dereferenceable(16) %8) #11
-  call void @_ZN6QFlagsIN2Qt19ImageConversionFlagEEC2ES1_(ptr noundef nonnull align 4 dereferenceable(4) %22, i32 noundef 0) #11
-  %73 = getelementptr inbounds %class.QFlags.9, ptr %22, i32 0, i32 0
+  %71 = call noundef i32 @_ZNK5QRect4leftEv(ptr noundef align 4 dereferenceable_or_null(16) %8) #14
+  %72 = call noundef i32 @_ZNK5QRect3topEv(ptr noundef align 4 dereferenceable_or_null(16) %8) #14
+  call void @_ZN6QFlagsIN2Qt19ImageConversionFlagEEC2ES1_(ptr noundef align 4 dereferenceable_or_null(4) %22, i32 noundef 0) #14
+  %73 = getelementptr inbounds nuw %class.QFlags.9, ptr %22, i32 0, i32 0
   %74 = load i32, ptr %73, align 4
-  invoke void @_ZN8QPainter9drawImageEiiRK6QImageiiii6QFlagsIN2Qt19ImageConversionFlagEE(ptr noundef nonnull align 8 dereferenceable(8) %21, i32 noundef %71, i32 noundef %72, ptr noundef nonnull align 8 dereferenceable(24) %14, i32 noundef 0, i32 noundef 0, i32 noundef -1, i32 noundef -1, i32 %74)
-          to label %75 unwind label %88
+  invoke void @_ZN8QPainter9drawImageEiiRK6QImageiiii6QFlagsIN2Qt19ImageConversionFlagEE(ptr noundef align 8 dereferenceable_or_null(8) %21, i32 noundef %71, i32 noundef %72, ptr noundef align 8 dereferenceable(24) %14, i32 noundef 0, i32 noundef 0, i32 noundef -1, i32 noundef -1, i32 %74)
+          to label %75 unwind label %105
 
 75:                                               ; preds = %70
-  call void @_ZN8QPainterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #11
-  call void @_ZN8QPainterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #11
-  call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #11
-  br label %94
+  call void @_ZN8QPainterD1Ev(ptr noundef align 8 dereferenceable_or_null(8) %21) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr %18) #14
+  call void @_ZN8QPainterD1Ev(ptr noundef align 8 dereferenceable_or_null(8) %17) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #14
+  call void @_ZN6QImageD1Ev(ptr noundef align 8 dereferenceable_or_null(24) %14) #14
+  call void @llvm.lifetime.end.p0(i64 24, ptr %14) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #14
+  br label %114
 
-76:                                               ; preds = %53, %37
+76:                                               ; preds = %37
   %77 = landingpad { ptr, i32 }
           cleanup
   %78 = extractvalue { ptr, i32 } %77, 0
   store ptr %78, ptr %15, align 8
   %79 = extractvalue { ptr, i32 } %77, 1
   store i32 %79, ptr %16, align 4
-  br label %93
+  br label %113
 
-80:                                               ; preds = %68, %61, %55, %54
+80:                                               ; preds = %53
   %81 = landingpad { ptr, i32 }
           cleanup
   %82 = extractvalue { ptr, i32 } %81, 0
   store ptr %82, ptr %15, align 8
   %83 = extractvalue { ptr, i32 } %81, 1
   store i32 %83, ptr %16, align 4
-  br label %92
+  br label %112
 
-84:                                               ; preds = %60
+84:                                               ; preds = %54
   %85 = landingpad { ptr, i32 }
           cleanup
   %86 = extractvalue { ptr, i32 } %85, 0
   store ptr %86, ptr %15, align 8
   %87 = extractvalue { ptr, i32 } %85, 1
   store i32 %87, ptr %16, align 4
-  call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #11
-  br label %92
+  br label %111
 
-88:                                               ; preds = %70
+88:                                               ; preds = %55
   %89 = landingpad { ptr, i32 }
           cleanup
   %90 = extractvalue { ptr, i32 } %89, 0
   store ptr %90, ptr %15, align 8
   %91 = extractvalue { ptr, i32 } %89, 1
   store i32 %91, ptr %16, align 4
-  call void @_ZN8QPainterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #11
-  br label %92
+  br label %96
 
-92:                                               ; preds = %88, %84, %80
-  call void @_ZN8QPainterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #11
-  br label %93
+92:                                               ; preds = %60
+  %93 = landingpad { ptr, i32 }
+          cleanup
+  %94 = extractvalue { ptr, i32 } %93, 0
+  store ptr %94, ptr %15, align 8
+  %95 = extractvalue { ptr, i32 } %93, 1
+  store i32 %95, ptr %16, align 4
+  call void @_ZN6QImageD1Ev(ptr noundef align 8 dereferenceable_or_null(24) %19) #14
+  br label %96
 
-93:                                               ; preds = %92, %76
-  call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #11
-  br label %104
+96:                                               ; preds = %92, %88
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #14
+  call void @llvm.lifetime.end.p0(i64 24, ptr %19) #14
+  br label %110
 
-94:                                               ; preds = %75, %31
-  br label %101
+97:                                               ; preds = %61
+  %98 = landingpad { ptr, i32 }
+          cleanup
+  %99 = extractvalue { ptr, i32 } %98, 0
+  store ptr %99, ptr %15, align 8
+  %100 = extractvalue { ptr, i32 } %98, 1
+  store i32 %100, ptr %16, align 4
+  br label %110
 
-95:                                               ; preds = %27, %3
-  %96 = load ptr, ptr %6, align 8
-  %97 = call noundef i32 @_ZNK6QEvent4typeEv(ptr noundef nonnull align 8 dereferenceable(16) %96)
-  %98 = icmp eq i32 %97, 38
-  br i1 %98, label %99, label %100
+101:                                              ; preds = %68
+  %102 = landingpad { ptr, i32 }
+          cleanup
+  %103 = extractvalue { ptr, i32 } %102, 0
+  store ptr %103, ptr %15, align 8
+  %104 = extractvalue { ptr, i32 } %102, 1
+  store i32 %104, ptr %16, align 4
+  br label %109
 
-99:                                               ; preds = %95
-  call void @_ZN16OverlayScrollBar16updateChildStyleEv(ptr noundef nonnull align 8 dereferenceable(196) %23)
-  br label %100
+105:                                              ; preds = %70
+  %106 = landingpad { ptr, i32 }
+          cleanup
+  %107 = extractvalue { ptr, i32 } %106, 0
+  store ptr %107, ptr %15, align 8
+  %108 = extractvalue { ptr, i32 } %106, 1
+  store i32 %108, ptr %16, align 4
+  call void @_ZN8QPainterD1Ev(ptr noundef align 8 dereferenceable_or_null(8) %21) #14
+  br label %109
 
-100:                                              ; preds = %99, %95
-  br label %101
+109:                                              ; preds = %105, %101
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #14
+  br label %110
 
-101:                                              ; preds = %100, %94
-  %102 = load i8, ptr %7, align 1
-  %103 = trunc i8 %102 to i1
-  ret i1 %103
+110:                                              ; preds = %109, %97, %96
+  call void @llvm.lifetime.end.p0(i64 16, ptr %18) #14
+  br label %111
 
-104:                                              ; preds = %93
-  %105 = load ptr, ptr %15, align 8
-  %106 = load i32, ptr %16, align 4
-  %107 = insertvalue { ptr, i32 } poison, ptr %105, 0
-  %108 = insertvalue { ptr, i32 } %107, i32 %106, 1
-  resume { ptr, i32 } %108
+111:                                              ; preds = %110, %84
+  call void @_ZN8QPainterD1Ev(ptr noundef align 8 dereferenceable_or_null(8) %17) #14
+  br label %112
+
+112:                                              ; preds = %111, %80
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #14
+  br label %113
+
+113:                                              ; preds = %112, %76
+  call void @_ZN6QImageD1Ev(ptr noundef align 8 dereferenceable_or_null(24) %14) #14
+  call void @llvm.lifetime.end.p0(i64 24, ptr %14) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #14
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #14
+  br label %124
+
+114:                                              ; preds = %75, %31
+  br label %121
+
+115:                                              ; preds = %27, %3
+  %116 = load ptr, ptr %6, align 8
+  %117 = call noundef i32 @_ZNK6QEvent4typeEv(ptr noundef align 8 dereferenceable_or_null(16) %116)
+  %118 = icmp eq i32 %117, 38
+  br i1 %118, label %119, label %120
+
+119:                                              ; preds = %115
+  call void @_ZN16OverlayScrollBar16updateChildStyleEv(ptr noundef align 8 dereferenceable_or_null(196) %23)
+  br label %120
+
+120:                                              ; preds = %119, %115
+  br label %121
+
+121:                                              ; preds = %120, %114
+  %122 = load i8, ptr %7, align 1, !range !8, !noundef !9
+  %123 = trunc i8 %122 to i1
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #14
+  ret i1 %123
+
+124:                                              ; preds = %113
+  %125 = load ptr, ptr %15, align 8
+  %126 = load i32, ptr %16, align 4
+  %127 = insertvalue { ptr, i32 } poison, ptr %125, 0
+  %128 = insertvalue { ptr, i32 } %127, i32 %126, 1
+  resume { ptr, i32 } %128
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZNK6QEvent4typeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef i32 @_ZNK6QEvent4typeEv(ptr noundef align 8 dereferenceable_or_null(16) %0) #9 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %class.QEvent, ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds nuw %class.QEvent, ptr %3, i32 0, i32 1
   %5 = load i16, ptr %4, align 8
   %6 = zext i16 %5 to i32
   ret i32 %6
 }
 
-declare noundef zeroext i1 @_ZN10QScrollBar5eventEP6QEvent(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare noundef zeroext i1 @_ZN10QScrollBar5eventEP6QEvent(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #1
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5QRect10setTopLeftERK6QPoint(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(8) %1) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN5QRect10setTopLeftERK6QPoint(ptr noundef align 4 dereferenceable_or_null(16) %0, ptr noundef align 4 dereferenceable(8) %1) #9 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
-  %7 = call noundef i32 @_ZNK6QPoint1xEv(ptr noundef nonnull align 4 dereferenceable(8) %6) #11
-  %8 = getelementptr inbounds %class.QRect, ptr %5, i32 0, i32 0
+  %7 = call noundef i32 @_ZNK6QPoint1xEv(ptr noundef align 4 dereferenceable_or_null(8) %6) #14
+  %8 = getelementptr inbounds nuw %class.QRect, ptr %5, i32 0, i32 0
   store i32 %7, ptr %8, align 4
   %9 = load ptr, ptr %4, align 8
-  %10 = call noundef i32 @_ZNK6QPoint1yEv(ptr noundef nonnull align 4 dereferenceable(8) %9) #11
-  %11 = getelementptr inbounds %class.QRect, ptr %5, i32 0, i32 1
+  %10 = call noundef i32 @_ZNK6QPoint1yEv(ptr noundef align 4 dereferenceable_or_null(8) %9) #14
+  %11 = getelementptr inbounds nuw %class.QRect, ptr %5, i32 0, i32 1
   store i32 %10, ptr %11, align 4
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr i64 @_ZmlRK6QPointd(ptr noundef nonnull align 4 dereferenceable(8) %0, double noundef %1) #4 comdat {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr i64 @_ZmlRK6QPointd(ptr noundef align 4 dereferenceable(8) %0, double noundef %1) #9 comdat {
   %3 = alloca %class.QPoint, align 4
   %4 = alloca ptr, align 8
   %5 = alloca double, align 8
   store ptr %0, ptr %4, align 8
   store double %1, ptr %5, align 8
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %class.QPoint, ptr %6, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %class.QPoint, ptr %6, i32 0, i32 0
   %8 = load i32, ptr %7, align 4
   %9 = sitofp i32 %8 to double
   %10 = load double, ptr %5, align 8
   %11 = fmul double %9, %10
   %12 = call noundef i32 @_Z6qRoundd(double noundef %11)
   %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds %class.QPoint, ptr %13, i32 0, i32 1
+  %14 = getelementptr inbounds nuw %class.QPoint, ptr %13, i32 0, i32 1
   %15 = load i32, ptr %14, align 4
   %16 = sitofp i32 %15 to double
   %17 = load double, ptr %5, align 8
   %18 = fmul double %16, %17
   %19 = call noundef i32 @_Z6qRoundd(double noundef %18)
-  call void @_ZN6QPointC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %3, i32 noundef %12, i32 noundef %19) #11
+  call void @_ZN6QPointC2Eii(ptr noundef align 4 dereferenceable_or_null(8) %3, i32 noundef %12, i32 noundef %19) #14
   %20 = load i64, ptr %3, align 4
   ret i64 %20
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5QRect7setSizeERK5QSize(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(8) %1) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN5QRect7setSizeERK5QSize(ptr noundef align 4 dereferenceable_or_null(16) %0, ptr noundef align 4 dereferenceable(8) %1) #9 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
-  %7 = call noundef i32 @_ZNK5QSize5widthEv(ptr noundef nonnull align 4 dereferenceable(8) %6) #11
-  %8 = getelementptr inbounds %class.QRect, ptr %5, i32 0, i32 0
+  %7 = call noundef i32 @_ZNK5QSize5widthEv(ptr noundef align 4 dereferenceable_or_null(8) %6) #14
+  %8 = getelementptr inbounds nuw %class.QRect, ptr %5, i32 0, i32 0
   %9 = load i32, ptr %8, align 4
   %10 = add i32 %7, %9
   %11 = sub i32 %10, 1
-  %12 = getelementptr inbounds %class.QRect, ptr %5, i32 0, i32 2
+  %12 = getelementptr inbounds nuw %class.QRect, ptr %5, i32 0, i32 2
   store i32 %11, ptr %12, align 4
   %13 = load ptr, ptr %4, align 8
-  %14 = call noundef i32 @_ZNK5QSize6heightEv(ptr noundef nonnull align 4 dereferenceable(8) %13) #11
-  %15 = getelementptr inbounds %class.QRect, ptr %5, i32 0, i32 1
+  %14 = call noundef i32 @_ZNK5QSize6heightEv(ptr noundef align 4 dereferenceable_or_null(8) %13) #14
+  %15 = getelementptr inbounds nuw %class.QRect, ptr %5, i32 0, i32 1
   %16 = load i32, ptr %15, align 4
   %17 = add i32 %14, %16
   %18 = sub i32 %17, 1
-  %19 = getelementptr inbounds %class.QRect, ptr %5, i32 0, i32 3
+  %19 = getelementptr inbounds nuw %class.QRect, ptr %5, i32 0, i32 3
   store i32 %18, ptr %19, align 4
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr i64 @_ZmlRK5QSized(ptr noundef nonnull align 4 dereferenceable(8) %0, double noundef %1) #4 comdat {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr i64 @_ZmlRK5QSized(ptr noundef align 4 dereferenceable(8) %0, double noundef %1) #9 comdat {
   %3 = alloca %class.QSize, align 4
   %4 = alloca ptr, align 8
   %5 = alloca double, align 8
   store ptr %0, ptr %4, align 8
   store double %1, ptr %5, align 8
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %class.QSize, ptr %6, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %class.QSize, ptr %6, i32 0, i32 0
   %8 = load i32, ptr %7, align 4
   %9 = sitofp i32 %8 to double
   %10 = load double, ptr %5, align 8
   %11 = fmul double %9, %10
   %12 = call noundef i32 @_Z6qRoundd(double noundef %11)
   %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds %class.QSize, ptr %13, i32 0, i32 1
+  %14 = getelementptr inbounds nuw %class.QSize, ptr %13, i32 0, i32 1
   %15 = load i32, ptr %14, align 4
   %16 = sitofp i32 %15 to double
   %17 = load double, ptr %5, align 8
   %18 = fmul double %16, %17
   %19 = call noundef i32 @_Z6qRoundd(double noundef %18)
-  call void @_ZN5QSizeC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %3, i32 noundef %12, i32 noundef %19) #11
+  call void @_ZN5QSizeC2Eii(ptr noundef align 4 dereferenceable_or_null(8) %3, i32 noundef %12, i32 noundef %19) #14
   %20 = load i64, ptr %3, align 4
   ret i64 %20
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZNK5QRect5widthEv(ptr noundef nonnull align 4 dereferenceable(16) %0) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef i32 @_ZNK5QRect5widthEv(ptr noundef align 4 dereferenceable_or_null(16) %0) #9 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %class.QRect, ptr %3, i32 0, i32 2
+  %4 = getelementptr inbounds nuw %class.QRect, ptr %3, i32 0, i32 2
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds %class.QRect, ptr %3, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %class.QRect, ptr %3, i32 0, i32 0
   %7 = load i32, ptr %6, align 4
   %8 = sub i32 %5, %7
   %9 = add i32 %8, 1
   ret i32 %9
 }
 
-declare void @_ZN6QImageC1EiiNS_6FormatE(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef, i32 noundef, i32 noundef) unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN6QImageC1EiiNS_6FormatE(ptr noundef align 8 dereferenceable_or_null(24), i32 noundef, i32 noundef, i32 noundef) unnamed_addr #1
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZNK5QRect4leftEv(ptr noundef nonnull align 4 dereferenceable(16) %0) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef i32 @_ZNK5QRect4leftEv(ptr noundef align 4 dereferenceable_or_null(16) %0) #9 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %class.QRect, ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %class.QRect, ptr %3, i32 0, i32 0
   %5 = load i32, ptr %4, align 4
   ret i32 %5
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZNK5QRect3topEv(ptr noundef nonnull align 4 dereferenceable(16) %0) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef i32 @_ZNK5QRect3topEv(ptr noundef align 4 dereferenceable_or_null(16) %0) #9 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %class.QRect, ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds nuw %class.QRect, ptr %3, i32 0, i32 1
   %5 = load i32, ptr %4, align 4
   ret i32 %5
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN16OverlayScrollBar17mouseReleaseEventEP11QMouseEvent(ptr noundef nonnull align 8 dereferenceable(196) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define void @_ZN16OverlayScrollBar17mouseReleaseEventEP11QMouseEvent(ptr noundef align 8 dereferenceable_or_null(196) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %class.QRect, align 4
@@ -2615,73 +2991,82 @@ define void @_ZN16OverlayScrollBar17mouseReleaseEventEP11QMouseEvent(ptr noundef
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %class.OverlayScrollBar, ptr %12, i32 0, i32 6
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #14
+  %13 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %12, i32 0, i32 6
   %14 = load i32, ptr %13, align 8
-  %15 = call noundef i32 @_ZNK7QWidget6heightEv(ptr noundef nonnull align 8 dereferenceable(40) %12)
-  call void @_ZN5QRectC2Eiiii(ptr noundef nonnull align 4 dereferenceable(16) %5, i32 noundef 0, i32 noundef 0, i32 noundef %14, i32 noundef %15) #11
+  %15 = call noundef i32 @_ZNK7QWidget6heightEv(ptr noundef align 8 dereferenceable_or_null(40) %12)
+  call void @_ZN5QRectC2Eiiii(ptr noundef align 4 dereferenceable_or_null(16) %5, i32 noundef 0, i32 noundef 0, i32 noundef %14, i32 noundef %15) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #14
   %16 = load ptr, ptr %4, align 8
-  %17 = call i64 @_ZNK11QMouseEvent3posEv(ptr noundef nonnull align 8 dereferenceable(80) %16)
+  %17 = call i64 @_ZNK11QMouseEvent3posEv(ptr noundef align 8 dereferenceable_or_null(80) %16)
   store i64 %17, ptr %6, align 4
-  %18 = call noundef zeroext i1 @_ZNK5QRect8containsERK6QPointb(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(8) %6, i1 noundef zeroext false) #11
+  %18 = call noundef zeroext i1 @_ZNK5QRect8containsERK6QPointb(ptr noundef align 4 dereferenceable_or_null(16) %5, ptr noundef align 4 dereferenceable(8) %6, i1 noundef zeroext false) #14
   br i1 %18, label %19, label %30
 
 19:                                               ; preds = %2
-  %20 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7QWidget8geometryEv(ptr noundef nonnull align 8 dereferenceable(40) %12)
-  %21 = call noundef i32 @_ZNK5QRect6heightEv(ptr noundef nonnull align 4 dereferenceable(16) %20) #11
+  %20 = call noundef align 4 dereferenceable(16) ptr @_ZNK7QWidget8geometryEv(ptr noundef align 8 dereferenceable_or_null(40) %12)
+  %21 = call noundef i32 @_ZNK5QRect6heightEv(ptr noundef align 4 dereferenceable_or_null(16) %20) #14
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %23, label %30
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds %class.OverlayScrollBar, ptr %12, i32 0, i32 8
+  %24 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %12, i32 0, i32 8
   %25 = load i32, ptr %24, align 8
   %26 = icmp sgt i32 %25, 0
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %23
-  %28 = call noundef i32 @_ZNK15QAbstractSlider8pageStepEv(ptr noundef nonnull align 8 dereferenceable(40) %12)
+  %28 = call noundef i32 @_ZNK15QAbstractSlider8pageStepEv(ptr noundef align 8 dereferenceable_or_null(40) %12)
   %29 = icmp sgt i32 %28, 0
   br label %30
 
 30:                                               ; preds = %27, %23, %19, %2
   %31 = phi i1 [ false, %23 ], [ false, %19 ], [ false, %2 ], [ %29, %27 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #14
   br i1 %31, label %32, label %73
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds %class.OverlayScrollBar, ptr %12, i32 0, i32 10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #14
+  %33 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %12, i32 0, i32 10
   %34 = load i32, ptr %33, align 8
-  %35 = getelementptr inbounds %class.OverlayScrollBar, ptr %12, i32 0, i32 9
+  %35 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %12, i32 0, i32 9
   %36 = load i32, ptr %35, align 4
   %37 = sub i32 %34, %36
   %38 = sitofp i32 %37 to double
-  %39 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7QWidget8geometryEv(ptr noundef nonnull align 8 dereferenceable(40) %12)
-  %40 = call noundef i32 @_ZNK5QRect6heightEv(ptr noundef nonnull align 4 dereferenceable(16) %39) #11
+  %39 = call noundef align 4 dereferenceable(16) ptr @_ZNK7QWidget8geometryEv(ptr noundef align 8 dereferenceable_or_null(40) %12)
+  %40 = call noundef i32 @_ZNK5QRect6heightEv(ptr noundef align 4 dereferenceable_or_null(16) %39) #14
   %41 = sitofp i32 %40 to double
   %42 = fdiv double %38, %41
   store double %42, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #14
   %43 = load ptr, ptr %4, align 8
-  %44 = call i64 @_ZNK11QMouseEvent3posEv(ptr noundef nonnull align 8 dereferenceable(80) %43)
+  %44 = call i64 @_ZNK11QMouseEvent3posEv(ptr noundef align 8 dereferenceable_or_null(80) %43)
   store i64 %44, ptr %9, align 4
-  %45 = call noundef i32 @_ZNK6QPoint1yEv(ptr noundef nonnull align 4 dereferenceable(8) %9) #11
+  %45 = call noundef i32 @_ZNK6QPoint1yEv(ptr noundef align 4 dereferenceable_or_null(8) %9) #14
   %46 = sitofp i32 %45 to double
   %47 = load double, ptr %7, align 8
-  %48 = getelementptr inbounds %class.OverlayScrollBar, ptr %12, i32 0, i32 9
+  %48 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %12, i32 0, i32 9
   %49 = load i32, ptr %48, align 4
   %50 = sitofp i32 %49 to double
   %51 = call double @llvm.fmuladd.f64(double %46, double %47, double %50)
   %52 = fptosi double %51 to i32
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #14
   store i32 %52, ptr %8, align 4
-  %53 = call noundef i32 @_ZNK15QAbstractSlider7maximumEv(ptr noundef nonnull align 8 dereferenceable(40) %12)
-  %54 = call noundef i32 @_ZNK15QAbstractSlider8pageStepEv(ptr noundef nonnull align 8 dereferenceable(40) %12)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #14
+  %53 = call noundef i32 @_ZNK15QAbstractSlider7maximumEv(ptr noundef align 8 dereferenceable_or_null(40) %12)
+  %54 = call noundef i32 @_ZNK15QAbstractSlider8pageStepEv(ptr noundef align 8 dereferenceable_or_null(40) %12)
   %55 = add i32 %53, %54
-  %56 = call noundef i32 @_ZNK15QAbstractSlider7minimumEv(ptr noundef nonnull align 8 dereferenceable(40) %12)
+  %56 = call noundef i32 @_ZNK15QAbstractSlider7minimumEv(ptr noundef align 8 dereferenceable_or_null(40) %12)
   %57 = sub i32 %55, %56
   %58 = sitofp i32 %57 to double
-  %59 = getelementptr inbounds %class.OverlayScrollBar, ptr %12, i32 0, i32 8
+  %59 = getelementptr inbounds nuw %class.OverlayScrollBar, ptr %12, i32 0, i32 8
   %60 = load i32, ptr %59, align 8
   %61 = sitofp i32 %60 to double
   %62 = fdiv double %58, %61
   store double %62, ptr %10, align 8
-  %63 = call noundef i32 @_ZNK15QAbstractSlider8pageStepEv(ptr noundef nonnull align 8 dereferenceable(40) %12)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #14
+  %63 = call noundef i32 @_ZNK15QAbstractSlider8pageStepEv(ptr noundef align 8 dereferenceable_or_null(40) %12)
   %64 = sdiv i32 %63, 4
   store i32 %64, ptr %11, align 4
   %65 = load i32, ptr %8, align 4
@@ -2692,172 +3077,209 @@ define void @_ZN16OverlayScrollBar17mouseReleaseEventEP11QMouseEvent(ptr noundef
   %70 = fneg double %69
   %71 = call double @llvm.fmuladd.f64(double %66, double %67, double %70)
   %72 = fptosi double %71 to i32
-  call void @_ZN15QAbstractSlider8setValueEi(ptr noundef nonnull align 8 dereferenceable(40) %12, i32 noundef %72)
+  call void @_ZN15QAbstractSlider8setValueEi(ptr noundef align 8 dereferenceable_or_null(40) %12, i32 noundef %72)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #14
   br label %73
 
 73:                                               ; preds = %32, %30
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #14
   ret void
 }
 
-; Function Attrs: nounwind
-declare noundef zeroext i1 @_ZNK5QRect8containsERK6QPointb(ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(8), i1 noundef zeroext) #2
+; Function Attrs: nounwind null_pointer_is_valid
+declare noundef zeroext i1 @_ZNK5QRect8containsERK6QPointb(ptr noundef align 4 dereferenceable_or_null(16), ptr noundef align 4 dereferenceable(8), i1 noundef zeroext) #2
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr i64 @_ZNK11QMouseEvent3posEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr i64 @_ZNK11QMouseEvent3posEv(ptr noundef align 8 dereferenceable_or_null(80) %0) #6 comdat align 2 {
   %2 = alloca %class.QPoint, align 4
   %3 = alloca ptr, align 8
   %4 = alloca %class.QPointF, align 8
   store ptr %0, ptr %3, align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = call { double, double } @_ZNK17QSinglePointEvent8positionEv(ptr noundef nonnull align 8 dereferenceable(80) %5)
-  %7 = getelementptr inbounds { double, double }, ptr %4, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 16, ptr %4) #14
+  %6 = call { double, double } @_ZNK17QSinglePointEvent8positionEv(ptr noundef align 8 dereferenceable_or_null(80) %5)
+  %7 = getelementptr inbounds nuw { double, double }, ptr %4, i32 0, i32 0
   %8 = extractvalue { double, double } %6, 0
   store double %8, ptr %7, align 8
-  %9 = getelementptr inbounds { double, double }, ptr %4, i32 0, i32 1
+  %9 = getelementptr inbounds nuw { double, double }, ptr %4, i32 0, i32 1
   %10 = extractvalue { double, double } %6, 1
   store double %10, ptr %9, align 8
-  %11 = call i64 @_ZNK7QPointF7toPointEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
+  %11 = call i64 @_ZNK7QPointF7toPointEv(ptr noundef align 8 dereferenceable_or_null(16) %4)
   store i64 %11, ptr %2, align 4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %4) #14
   %12 = load i64, ptr %2, align 4
   ret i64 %12
 }
 
-declare noundef i32 @_ZNK15QAbstractSlider8pageStepEv(ptr noundef nonnull align 8 dereferenceable(40)) #1
+; Function Attrs: null_pointer_is_valid
+declare noundef i32 @_ZNK15QAbstractSlider8pageStepEv(ptr noundef align 8 dereferenceable_or_null(40)) #1
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZNK6QPoint1yEv(ptr noundef nonnull align 4 dereferenceable(8) %0) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef i32 @_ZNK6QPoint1yEv(ptr noundef align 4 dereferenceable_or_null(8) %0) #9 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %class.QPoint, ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds nuw %class.QPoint, ptr %3, i32 0, i32 1
   %5 = load i32, ptr %4, align 4
   ret i32 %5
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #9
+declare double @llvm.fmuladd.f64(double, double, double) #12
 
-declare noundef i32 @_ZNK15QAbstractSlider7maximumEv(ptr noundef nonnull align 8 dereferenceable(40)) #1
+; Function Attrs: null_pointer_is_valid
+declare noundef i32 @_ZNK15QAbstractSlider7maximumEv(ptr noundef align 8 dereferenceable_or_null(40)) #1
 
-declare noundef i32 @_ZNK15QAbstractSlider7minimumEv(ptr noundef nonnull align 8 dereferenceable(40)) #1
+; Function Attrs: null_pointer_is_valid
+declare noundef i32 @_ZNK15QAbstractSlider7minimumEv(ptr noundef align 8 dereferenceable_or_null(40)) #1
 
-declare void @_ZN11QProxyStyle12setBaseStyleEP6QStyle(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN11QProxyStyle12setBaseStyleEP6QStyle(ptr noundef align 8 dereferenceable_or_null(16), ptr noundef) #1
 
-declare noundef ptr @_ZN13QStyleFactory6createERK7QString(ptr noundef nonnull align 8 dereferenceable(24)) #1
+; Function Attrs: null_pointer_is_valid
+declare noundef ptr @_ZN13QStyleFactory6createERK7QString(ptr noundef align 8 dereferenceable(24)) #1
 
-; Function Attrs: mustprogress nounwind uwtable
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
 define linkonce_odr noundef ptr @_ZN16QCoreApplication8instanceEv() #4 comdat align 2 {
   %1 = load ptr, ptr @_ZN16QCoreApplication4selfE, align 8
   ret ptr %1
 }
 
+; Function Attrs: null_pointer_is_valid
 declare noundef ptr @_ZN12QApplication5styleEv() #1
 
-declare void @_ZNK6QStyle4nameEv(ptr dead_on_unwind writable sret(%class.QString) align 8, ptr noundef nonnull align 8 dereferenceable(16)) #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZNK6QStyle4nameEv(ptr dead_on_unwind writable sret(%class.QString) align 8, ptr noundef align 8 dereferenceable_or_null(16)) #1
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %0) unnamed_addr #9 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %class.QString, ptr %3, i32 0, i32 0
-  call void @_ZN17QArrayDataPointerIDsED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #11
+  %4 = getelementptr inbounds nuw %class.QString, ptr %3, i32 0, i32 0
+  call void @_ZN17QArrayDataPointerIDsED2Ev(ptr noundef align 8 dereferenceable_or_null(24) %4) #14
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN17QArrayDataPointerIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN17QArrayDataPointerIiEC2Ev(ptr noundef align 8 dereferenceable_or_null(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.QArrayDataPointer, ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %3, i32 0, i32 0
   store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds %struct.QArrayDataPointer, ptr %3, i32 0, i32 1
+  %5 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %3, i32 0, i32 1
   store ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds %struct.QArrayDataPointer, ptr %3, i32 0, i32 2
+  %6 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %3, i32 0, i32 2
   store i64 0, ptr %6, align 8
   ret void
 }
 
-declare void @_ZN11QProxyStyleC2EP6QStyle(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN11QProxyStyleC2EP6QStyle(ptr noundef align 8 dereferenceable_or_null(16), ptr noundef) unnamed_addr #1
 
-declare noundef ptr @_ZNK11QProxyStyle10metaObjectEv(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare noundef ptr @_ZNK11QProxyStyle10metaObjectEv(ptr noundef align 8 dereferenceable_or_null(16)) unnamed_addr #1
 
-declare noundef ptr @_ZN11QProxyStyle11qt_metacastEPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare noundef ptr @_ZN11QProxyStyle11qt_metacastEPKc(ptr noundef align 8 dereferenceable_or_null(16), ptr noundef) unnamed_addr #1
 
-declare noundef i32 @_ZN11QProxyStyle11qt_metacallEN11QMetaObject4CallEiPPv(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, i32 noundef, ptr noundef) unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare noundef i32 @_ZN11QProxyStyle11qt_metacallEN11QMetaObject4CallEiPPv(ptr noundef align 8 dereferenceable_or_null(16), i32 noundef, i32 noundef, ptr noundef) unnamed_addr #1
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN13OsbProxyStyleD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: nounwind null_pointer_is_valid
+declare void @_ZN11QProxyStyleD2Ev(ptr noundef align 8 dereferenceable_or_null(16)) unnamed_addr #2
+
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN13OsbProxyStyleD0Ev(ptr noundef align 8 dereferenceable_or_null(16) %0) unnamed_addr #9 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN11QProxyStyleD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #11
+  call void @_ZN11QProxyStyleD2Ev(ptr noundef align 8 dereferenceable_or_null(16) %3) #14
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 16) #16
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN13OsbProxyStyleD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN13OsbProxyStyleD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #11
-  call void @_ZdlPv(ptr noundef %3) #13
-  ret void
-}
+; Function Attrs: null_pointer_is_valid
+declare noundef zeroext i1 @_ZN11QProxyStyle5eventEP6QEvent(ptr noundef align 8 dereferenceable_or_null(16), ptr noundef) unnamed_addr #1
 
-declare noundef zeroext i1 @_ZN11QProxyStyle5eventEP6QEvent(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare noundef zeroext i1 @_ZN7QObject11eventFilterEPS_P6QEvent(ptr noundef align 8 dereferenceable_or_null(16), ptr noundef, ptr noundef) unnamed_addr #1
 
-declare noundef zeroext i1 @_ZN7QObject11eventFilterEPS_P6QEvent(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef) unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN7QObject10timerEventEP11QTimerEvent(ptr noundef align 8 dereferenceable_or_null(16), ptr noundef) unnamed_addr #1
 
-declare void @_ZN7QObject10timerEventEP11QTimerEvent(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN7QObject10childEventEP11QChildEvent(ptr noundef align 8 dereferenceable_or_null(16), ptr noundef) unnamed_addr #1
 
-declare void @_ZN7QObject10childEventEP11QChildEvent(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN7QObject11customEventEP6QEvent(ptr noundef align 8 dereferenceable_or_null(16), ptr noundef) unnamed_addr #1
 
-declare void @_ZN7QObject11customEventEP6QEvent(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN7QObject13connectNotifyERK11QMetaMethod(ptr noundef align 8 dereferenceable_or_null(16), ptr noundef align 1) unnamed_addr #1
 
-declare void @_ZN7QObject13connectNotifyERK11QMetaMethod(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 1) unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN7QObject16disconnectNotifyERK11QMetaMethod(ptr noundef align 8 dereferenceable_or_null(16), ptr noundef align 1) unnamed_addr #1
 
-declare void @_ZN7QObject16disconnectNotifyERK11QMetaMethod(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 1) unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN11QProxyStyle6polishEP7QWidget(ptr noundef align 8 dereferenceable_or_null(16), ptr noundef) unnamed_addr #1
 
-declare void @_ZN11QProxyStyle6polishEP7QWidget(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN11QProxyStyle8unpolishEP7QWidget(ptr noundef align 8 dereferenceable_or_null(16), ptr noundef) unnamed_addr #1
 
-declare void @_ZN11QProxyStyle8unpolishEP7QWidget(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN11QProxyStyle6polishEP12QApplication(ptr noundef align 8 dereferenceable_or_null(16), ptr noundef) unnamed_addr #1
 
-declare void @_ZN11QProxyStyle6polishEP12QApplication(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN11QProxyStyle8unpolishEP12QApplication(ptr noundef align 8 dereferenceable_or_null(16), ptr noundef) unnamed_addr #1
 
-declare void @_ZN11QProxyStyle8unpolishEP12QApplication(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN11QProxyStyle6polishER8QPalette(ptr noundef align 8 dereferenceable_or_null(16), ptr noundef align 8 dereferenceable(12)) unnamed_addr #1
 
-declare void @_ZN11QProxyStyle6polishER8QPalette(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(12)) unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare { i64, i64 } @_ZNK11QProxyStyle12itemTextRectERK12QFontMetricsRK5QRectibRK7QString(ptr noundef align 8 dereferenceable_or_null(16), ptr noundef align 8 dereferenceable(8), ptr noundef align 4 dereferenceable(16), i32 noundef, i1 noundef zeroext, ptr noundef align 8 dereferenceable(24)) unnamed_addr #1
 
-declare { i64, i64 } @_ZNK11QProxyStyle12itemTextRectERK12QFontMetricsRK5QRectibRK7QString(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(16), i32 noundef, i1 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare { i64, i64 } @_ZNK11QProxyStyle14itemPixmapRectERK5QRectiRK7QPixmap(ptr noundef align 8 dereferenceable_or_null(16), ptr noundef align 4 dereferenceable(16), i32 noundef, ptr noundef align 8 dereferenceable(24)) unnamed_addr #1
 
-declare { i64, i64 } @_ZNK11QProxyStyle14itemPixmapRectERK5QRectiRK7QPixmap(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(16), i32 noundef, ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZNK11QProxyStyle12drawItemTextEP8QPainterRK5QRectiRK8QPalettebRK7QStringNS5_9ColorRoleE(ptr noundef align 8 dereferenceable_or_null(16), ptr noundef, ptr noundef align 4 dereferenceable(16), i32 noundef, ptr noundef align 8 dereferenceable(12), i1 noundef zeroext, ptr noundef align 8 dereferenceable(24), i32 noundef) unnamed_addr #1
 
-declare void @_ZNK11QProxyStyle12drawItemTextEP8QPainterRK5QRectiRK8QPalettebRK7QStringNS5_9ColorRoleE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef nonnull align 4 dereferenceable(16), i32 noundef, ptr noundef nonnull align 8 dereferenceable(12), i1 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZNK11QProxyStyle14drawItemPixmapEP8QPainterRK5QRectiRK7QPixmap(ptr noundef align 8 dereferenceable_or_null(16), ptr noundef, ptr noundef align 4 dereferenceable(16), i32 noundef, ptr noundef align 8 dereferenceable(24)) unnamed_addr #1
 
-declare void @_ZNK11QProxyStyle14drawItemPixmapEP8QPainterRK5QRectiRK7QPixmap(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef nonnull align 4 dereferenceable(16), i32 noundef, ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZNK11QProxyStyle15standardPaletteEv(ptr dead_on_unwind writable sret(%class.QPalette) align 8, ptr noundef align 8 dereferenceable_or_null(16)) unnamed_addr #1
 
-declare void @_ZNK11QProxyStyle15standardPaletteEv(ptr dead_on_unwind writable sret(%class.QPalette) align 8, ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZNK11QProxyStyle13drawPrimitiveEN6QStyle16PrimitiveElementEPK12QStyleOptionP8QPainterPK7QWidget(ptr noundef align 8 dereferenceable_or_null(16), i32 noundef, ptr noundef, ptr noundef, ptr noundef) unnamed_addr #1
 
-declare void @_ZNK11QProxyStyle13drawPrimitiveEN6QStyle16PrimitiveElementEPK12QStyleOptionP8QPainterPK7QWidget(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, ptr noundef, ptr noundef, ptr noundef) unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZNK11QProxyStyle11drawControlEN6QStyle14ControlElementEPK12QStyleOptionP8QPainterPK7QWidget(ptr noundef align 8 dereferenceable_or_null(16), i32 noundef, ptr noundef, ptr noundef, ptr noundef) unnamed_addr #1
 
-declare void @_ZNK11QProxyStyle11drawControlEN6QStyle14ControlElementEPK12QStyleOptionP8QPainterPK7QWidget(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, ptr noundef, ptr noundef, ptr noundef) unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare { i64, i64 } @_ZNK11QProxyStyle14subElementRectEN6QStyle10SubElementEPK12QStyleOptionPK7QWidget(ptr noundef align 8 dereferenceable_or_null(16), i32 noundef, ptr noundef, ptr noundef) unnamed_addr #1
 
-declare { i64, i64 } @_ZNK11QProxyStyle14subElementRectEN6QStyle10SubElementEPK12QStyleOptionPK7QWidget(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, ptr noundef, ptr noundef) unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZNK11QProxyStyle18drawComplexControlEN6QStyle14ComplexControlEPK19QStyleOptionComplexP8QPainterPK7QWidget(ptr noundef align 8 dereferenceable_or_null(16), i32 noundef, ptr noundef, ptr noundef, ptr noundef) unnamed_addr #1
 
-declare void @_ZNK11QProxyStyle18drawComplexControlEN6QStyle14ComplexControlEPK19QStyleOptionComplexP8QPainterPK7QWidget(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, ptr noundef, ptr noundef, ptr noundef) unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare noundef i32 @_ZNK11QProxyStyle21hitTestComplexControlEN6QStyle14ComplexControlEPK19QStyleOptionComplexRK6QPointPK7QWidget(ptr noundef align 8 dereferenceable_or_null(16), i32 noundef, ptr noundef, ptr noundef align 4 dereferenceable(8), ptr noundef) unnamed_addr #1
 
-declare noundef i32 @_ZNK11QProxyStyle21hitTestComplexControlEN6QStyle14ComplexControlEPK19QStyleOptionComplexRK6QPointPK7QWidget(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, ptr noundef, ptr noundef nonnull align 4 dereferenceable(8), ptr noundef) unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare { i64, i64 } @_ZNK11QProxyStyle14subControlRectEN6QStyle14ComplexControlEPK19QStyleOptionComplexNS0_10SubControlEPK7QWidget(ptr noundef align 8 dereferenceable_or_null(16), i32 noundef, ptr noundef, i32 noundef, ptr noundef) unnamed_addr #1
 
-declare { i64, i64 } @_ZNK11QProxyStyle14subControlRectEN6QStyle14ComplexControlEPK19QStyleOptionComplexNS0_10SubControlEPK7QWidget(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, ptr noundef, i32 noundef, ptr noundef) unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare noundef i32 @_ZNK11QProxyStyle11pixelMetricEN6QStyle11PixelMetricEPK12QStyleOptionPK7QWidget(ptr noundef align 8 dereferenceable_or_null(16), i32 noundef, ptr noundef, ptr noundef) unnamed_addr #1
 
-declare noundef i32 @_ZNK11QProxyStyle11pixelMetricEN6QStyle11PixelMetricEPK12QStyleOptionPK7QWidget(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, ptr noundef, ptr noundef) unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i64 @_ZNK11QProxyStyle16sizeFromContentsEN6QStyle12ContentsTypeEPK12QStyleOptionRK5QSizePK7QWidget(ptr noundef align 8 dereferenceable_or_null(16), i32 noundef, ptr noundef, ptr noundef align 4 dereferenceable(8), ptr noundef) unnamed_addr #1
 
-declare i64 @_ZNK11QProxyStyle16sizeFromContentsEN6QStyle12ContentsTypeEPK12QStyleOptionRK5QSizePK7QWidget(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, ptr noundef, ptr noundef nonnull align 4 dereferenceable(8), ptr noundef) unnamed_addr #1
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZNK13OsbProxyStyle9styleHintEN6QStyle9StyleHintEPK12QStyleOptionPK7QWidgetP16QStyleHintReturn(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 comdat align 2 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef i32 @_ZNK13OsbProxyStyle9styleHintEN6QStyle9StyleHintEPK12QStyleOptionPK7QWidgetP16QStyleHintReturn(ptr noundef align 8 dereferenceable_or_null(16) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 comdat align 2 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2883,7 +3305,7 @@ define linkonce_odr noundef i32 @_ZNK13OsbProxyStyle9styleHintEN6QStyle9StyleHin
   %18 = load ptr, ptr %9, align 8
   %19 = load ptr, ptr %10, align 8
   %20 = load ptr, ptr %11, align 8
-  %21 = call noundef i32 @_ZNK11QProxyStyle9styleHintEN6QStyle9StyleHintEPK12QStyleOptionPK7QWidgetP16QStyleHintReturn(ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef %17, ptr noundef %18, ptr noundef %19, ptr noundef %20)
+  %21 = call noundef i32 @_ZNK11QProxyStyle9styleHintEN6QStyle9StyleHintEPK12QStyleOptionPK7QWidgetP16QStyleHintReturn(ptr noundef align 8 dereferenceable_or_null(16) %12, i32 noundef %17, ptr noundef %18, ptr noundef %19, ptr noundef %20)
   store i32 %21, ptr %6, align 4
   br label %22
 
@@ -2892,55 +3314,58 @@ define linkonce_odr noundef i32 @_ZNK13OsbProxyStyle9styleHintEN6QStyle9StyleHin
   ret i32 %23
 }
 
-declare void @_ZNK11QProxyStyle14standardPixmapEN6QStyle14StandardPixmapEPK12QStyleOptionPK7QWidget(ptr dead_on_unwind writable sret(%class.QPixmap) align 8, ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, ptr noundef, ptr noundef) unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZNK11QProxyStyle14standardPixmapEN6QStyle14StandardPixmapEPK12QStyleOptionPK7QWidget(ptr dead_on_unwind writable sret(%class.QPixmap) align 8, ptr noundef align 8 dereferenceable_or_null(16), i32 noundef, ptr noundef, ptr noundef) unnamed_addr #1
 
-declare void @_ZNK11QProxyStyle12standardIconEN6QStyle14StandardPixmapEPK12QStyleOptionPK7QWidget(ptr dead_on_unwind writable sret(%class.QIcon) align 8, ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, ptr noundef, ptr noundef) unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZNK11QProxyStyle12standardIconEN6QStyle14StandardPixmapEPK12QStyleOptionPK7QWidget(ptr dead_on_unwind writable sret(%class.QIcon) align 8, ptr noundef align 8 dereferenceable_or_null(16), i32 noundef, ptr noundef, ptr noundef) unnamed_addr #1
 
-declare void @_ZNK11QProxyStyle19generatedIconPixmapEN5QIcon4ModeERK7QPixmapPK12QStyleOption(ptr dead_on_unwind writable sret(%class.QPixmap) align 8, ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZNK11QProxyStyle19generatedIconPixmapEN5QIcon4ModeERK7QPixmapPK12QStyleOption(ptr dead_on_unwind writable sret(%class.QPixmap) align 8, ptr noundef align 8 dereferenceable_or_null(16), i32 noundef, ptr noundef align 8 dereferenceable(24), ptr noundef) unnamed_addr #1
 
-declare noundef i32 @_ZNK11QProxyStyle13layoutSpacingEN11QSizePolicy11ControlTypeES1_N2Qt11OrientationEPK12QStyleOptionPK7QWidget(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare noundef i32 @_ZNK11QProxyStyle13layoutSpacingEN11QSizePolicy11ControlTypeES1_N2Qt11OrientationEPK12QStyleOptionPK7QWidget(ptr noundef align 8 dereferenceable_or_null(16), i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) unnamed_addr #1
 
-; Function Attrs: nounwind
-declare void @_ZN11QProxyStyleD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare noundef i32 @_ZNK11QProxyStyle9styleHintEN6QStyle9StyleHintEPK12QStyleOptionPK7QWidgetP16QStyleHintReturn(ptr noundef align 8 dereferenceable_or_null(16), i32 noundef, ptr noundef, ptr noundef, ptr noundef) unnamed_addr #1
 
-declare noundef i32 @_ZNK11QProxyStyle9styleHintEN6QStyle9StyleHintEPK12QStyleOptionPK7QWidgetP16QStyleHintReturn(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, ptr noundef, ptr noundef, ptr noundef) unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN15QAbstractSlider8setRangeEii(ptr noundef align 8 dereferenceable_or_null(40), i32 noundef, i32 noundef) #1
 
-declare void @_ZN15QAbstractSlider8setRangeEii(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef, i32 noundef) #1
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN17QArrayDataPointerIiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN17QArrayDataPointerIiED2Ev(ptr noundef align 8 dereferenceable_or_null(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef zeroext i1 @_ZN17QArrayDataPointerIiE5derefEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #11
+  %4 = call noundef zeroext i1 @_ZN17QArrayDataPointerIiE5derefEv(ptr noundef align 8 dereferenceable_or_null(24) %3) #14
   br i1 %4, label %9, label %5
 
 5:                                                ; preds = %1
-  %6 = call noundef ptr @_ZN17QArrayDataPointerIiEptEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #11
-  call void @_ZN9QtPrivate12QPodArrayOpsIiE10destroyAllEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #11
-  %7 = getelementptr inbounds %struct.QArrayDataPointer, ptr %3, i32 0, i32 0
+  %6 = call noundef ptr @_ZN17QArrayDataPointerIiEptEv(ptr noundef align 8 dereferenceable_or_null(24) %3) #14
+  call void @_ZN9QtPrivate12QPodArrayOpsIiE10destroyAllEv(ptr noundef align 8 dereferenceable_or_null(24) %6) #14
+  %7 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %3, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
-  call void @_ZN15QTypedArrayDataIiE10deallocateEP10QArrayData(ptr noundef %8) #11
+  call void @_ZN15QTypedArrayDataIiE10deallocateEP10QArrayData(ptr noundef %8) #14
   br label %9
 
 9:                                                ; preds = %5, %1
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZN17QArrayDataPointerIiE5derefEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef zeroext i1 @_ZN17QArrayDataPointerIiE5derefEv(ptr noundef align 8 dereferenceable_or_null(24) %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.QArrayDataPointer, ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ne ptr %5, null
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds %struct.QArrayDataPointer, ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %3, i32 0, i32 0
   %9 = load ptr, ptr %8, align 8
-  %10 = call noundef zeroext i1 @_ZN10QArrayData5derefEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #11
+  %10 = call noundef zeroext i1 @_ZN10QArrayData5derefEv(ptr noundef align 8 dereferenceable_or_null(16) %9) #14
   br label %11
 
 11:                                               ; preds = %7, %1
@@ -2948,68 +3373,68 @@ define linkonce_odr noundef zeroext i1 @_ZN17QArrayDataPointerIiE5derefEv(ptr no
   ret i1 %12
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN17QArrayDataPointerIiEptEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef ptr @_ZN17QArrayDataPointerIiEptEv(ptr noundef align 8 dereferenceable_or_null(24) %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN9QtPrivate12QPodArrayOpsIiE10destroyAllEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN9QtPrivate12QPodArrayOpsIiE10destroyAllEv(ptr noundef align 8 dereferenceable_or_null(24) %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
 define linkonce_odr void @_ZN15QTypedArrayDataIiE10deallocateEP10QArrayData(ptr noundef %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %3, i64 noundef 4, i64 noundef 8) #11
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %3, i64 noundef 4, i64 noundef 8) #14
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZN10QArrayData5derefEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #4 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef zeroext i1 @_ZN10QArrayData5derefEv(ptr noundef align 8 dereferenceable_or_null(16) %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.QArrayData, ptr %3, i32 0, i32 0
-  %5 = call noundef zeroext i1 @_ZN19QBasicAtomicIntegerIiE5derefEv(ptr noundef nonnull align 4 dereferenceable(4) %4) #11
+  %4 = getelementptr inbounds nuw %struct.QArrayData, ptr %3, i32 0, i32 0
+  %5 = call noundef zeroext i1 @_ZN19QBasicAtomicIntegerIiE5derefEv(ptr noundef align 4 dereferenceable_or_null(4) %4) #14
   ret i1 %5
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZN19QBasicAtomicIntegerIiE5derefEv(ptr noundef nonnull align 4 dereferenceable(4) %0) #4 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef zeroext i1 @_ZN19QBasicAtomicIntegerIiE5derefEv(ptr noundef align 4 dereferenceable_or_null(4) %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %class.QBasicAtomicInteger, ptr %3, i32 0, i32 0
-  %5 = call noundef zeroext i1 @_ZN10QAtomicOpsIiE5derefIiEEbRSt6atomicIT_E(ptr noundef nonnull align 4 dereferenceable(4) %4) #11
+  %4 = getelementptr inbounds nuw %class.QBasicAtomicInteger, ptr %3, i32 0, i32 0
+  %5 = call noundef zeroext i1 @_ZN10QAtomicOpsIiE5derefIiEEbRSt6atomicIT_E(ptr noundef align 4 dereferenceable(4) %4) #14
   ret i1 %5
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZN10QAtomicOpsIiE5derefIiEEbRSt6atomicIT_E(ptr noundef nonnull align 4 dereferenceable(4) %0) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef zeroext i1 @_ZN10QAtomicOpsIiE5derefIiEEbRSt6atomicIT_E(ptr noundef align 4 dereferenceable(4) %0) #9 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef i32 @_ZNSt13__atomic_baseIiEmmEv(ptr noundef nonnull align 4 dereferenceable(4) %3) #11
+  %4 = call noundef i32 @_ZNSt13__atomic_baseIiEmmEv(ptr noundef align 4 dereferenceable_or_null(4) %3) #14
   %5 = icmp ne i32 %4, 0
   ret i1 %5
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZNSt13__atomic_baseIiEmmEv(ptr noundef nonnull align 4 dereferenceable(4) %0) #4 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef i32 @_ZNSt13__atomic_baseIiEmmEv(ptr noundef align 4 dereferenceable_or_null(4) %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %"struct.std::__atomic_base", ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.std::__atomic_base", ptr %5, i32 0, i32 0
   store i32 1, ptr %3, align 4
   %7 = load i32, ptr %3, align 4
   %8 = atomicrmw sub ptr %6, i32 %7 seq_cst, align 4
@@ -3019,109 +3444,111 @@ define linkonce_odr noundef i32 @_ZNSt13__atomic_baseIiEmmEv(ptr noundef nonnull
   ret i32 %10
 }
 
-; Function Attrs: nounwind
+; Function Attrs: nounwind null_pointer_is_valid
 declare void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef, i64 noundef, i64 noundef) #2
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZN17QArrayDataPointerIiEaSERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #4 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef align 8 dereferenceable(24) ptr @_ZN17QArrayDataPointerIiEaSERKS0_(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef align 8 dereferenceable(24) %1) #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %struct.QArrayDataPointer, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %5) #14
   %7 = load ptr, ptr %4, align 8
-  call void @_ZN17QArrayDataPointerIiEC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %7) #11
-  call void @_ZN17QArrayDataPointerIiE4swapERS0_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %5) #11
-  call void @_ZN17QArrayDataPointerIiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
+  call void @_ZN17QArrayDataPointerIiEC2ERKS0_(ptr noundef align 8 dereferenceable_or_null(24) %5, ptr noundef align 8 dereferenceable(24) %7) #14
+  call void @_ZN17QArrayDataPointerIiE4swapERS0_(ptr noundef align 8 dereferenceable_or_null(24) %6, ptr noundef align 8 dereferenceable(24) %5) #14
+  call void @_ZN17QArrayDataPointerIiED2Ev(ptr noundef align 8 dereferenceable_or_null(24) %5) #14
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #14
   ret ptr %6
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN17QArrayDataPointerIiEC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #4 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN17QArrayDataPointerIiEC2ERKS0_(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef align 8 dereferenceable(24) %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.QArrayDataPointer, ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %5, i32 0, i32 0
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %struct.QArrayDataPointer, ptr %7, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %7, i32 0, i32 0
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %6, align 8
-  %10 = getelementptr inbounds %struct.QArrayDataPointer, ptr %5, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %5, i32 0, i32 1
   %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %struct.QArrayDataPointer, ptr %11, i32 0, i32 1
+  %12 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %11, i32 0, i32 1
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %10, align 8
-  %14 = getelementptr inbounds %struct.QArrayDataPointer, ptr %5, i32 0, i32 2
+  %14 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %5, i32 0, i32 2
   %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %struct.QArrayDataPointer, ptr %15, i32 0, i32 2
+  %16 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %15, i32 0, i32 2
   %17 = load i64, ptr %16, align 8
   store i64 %17, ptr %14, align 8
-  call void @_ZN17QArrayDataPointerIiE3refEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
+  call void @_ZN17QArrayDataPointerIiE3refEv(ptr noundef align 8 dereferenceable_or_null(24) %5) #14
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN17QArrayDataPointerIiE4swapERS0_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #4 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN17QArrayDataPointerIiE4swapERS0_(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef align 8 dereferenceable(24) %1) #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.QArrayDataPointer, ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %5, i32 0, i32 0
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %struct.QArrayDataPointer, ptr %7, i32 0, i32 0
-  call void @_Z11qt_ptr_swapI15QTypedArrayDataIiEEvRPT_S4_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8) #11
-  %9 = getelementptr inbounds %struct.QArrayDataPointer, ptr %5, i32 0, i32 1
+  %8 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %7, i32 0, i32 0
+  call void @_Z11qt_ptr_swapI15QTypedArrayDataIiEEvRPT_S4_(ptr noundef align 8 dereferenceable(8) %6, ptr noundef align 8 dereferenceable(8) %8) #14
+  %9 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %5, i32 0, i32 1
   %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %struct.QArrayDataPointer, ptr %10, i32 0, i32 1
-  call void @_Z11qt_ptr_swapIiEvRPT_S2_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %11) #11
-  %12 = getelementptr inbounds %struct.QArrayDataPointer, ptr %5, i32 0, i32 2
+  %11 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %10, i32 0, i32 1
+  call void @_Z11qt_ptr_swapIiEvRPT_S2_(ptr noundef align 8 dereferenceable(8) %9, ptr noundef align 8 dereferenceable(8) %11) #14
+  %12 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %5, i32 0, i32 2
   %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds %struct.QArrayDataPointer, ptr %13, i32 0, i32 2
-  call void @_ZSt4swapIxENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %14) #11
+  %14 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %13, i32 0, i32 2
+  call void @_ZSt4swapIxENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef align 8 dereferenceable(8) %12, ptr noundef align 8 dereferenceable(8) %14) #14
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN17QArrayDataPointerIiE3refEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN17QArrayDataPointerIiE3refEv(ptr noundef align 8 dereferenceable_or_null(24) %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.QArrayDataPointer, ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ne ptr %5, null
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds %struct.QArrayDataPointer, ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %3, i32 0, i32 0
   %9 = load ptr, ptr %8, align 8
-  %10 = call noundef zeroext i1 @_ZN10QArrayData3refEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #11
+  %10 = call noundef zeroext i1 @_ZN10QArrayData3refEv(ptr noundef align 8 dereferenceable_or_null(16) %9) #14
   br label %11
 
 11:                                               ; preds = %7, %1
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZN10QArrayData3refEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #4 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef zeroext i1 @_ZN10QArrayData3refEv(ptr noundef align 8 dereferenceable_or_null(16) %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.QArrayData, ptr %3, i32 0, i32 0
-  %5 = call noundef zeroext i1 @_ZN19QBasicAtomicIntegerIiE3refEv(ptr noundef nonnull align 4 dereferenceable(4) %4) #11
+  %4 = getelementptr inbounds nuw %struct.QArrayData, ptr %3, i32 0, i32 0
+  %5 = call noundef zeroext i1 @_ZN19QBasicAtomicIntegerIiE3refEv(ptr noundef align 4 dereferenceable_or_null(4) %4) #14
   ret i1 true
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZN19QBasicAtomicIntegerIiE3refEv(ptr noundef nonnull align 4 dereferenceable(4) %0) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef zeroext i1 @_ZN19QBasicAtomicIntegerIiE3refEv(ptr noundef align 4 dereferenceable_or_null(4) %0) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %class.QBasicAtomicInteger, ptr %3, i32 0, i32 0
-  %5 = invoke noundef zeroext i1 @_ZN10QAtomicOpsIiE3refIiEEbRSt6atomicIT_E(ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %4 = getelementptr inbounds nuw %class.QBasicAtomicInteger, ptr %3, i32 0, i32 0
+  %5 = invoke noundef zeroext i1 @_ZN10QAtomicOpsIiE3refIiEEbRSt6atomicIT_E(ptr noundef align 4 dereferenceable(4) %4)
           to label %6 unwind label %7
 
 6:                                                ; preds = %1
@@ -3131,24 +3558,24 @@ define linkonce_odr noundef zeroext i1 @_ZN19QBasicAtomicIntegerIiE3refEv(ptr no
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #14
+  call void @__clang_call_terminate(ptr %9) #17
   unreachable
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZN10QAtomicOpsIiE3refIiEEbRSt6atomicIT_E(ptr noundef nonnull align 4 dereferenceable(4) %0) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef zeroext i1 @_ZN10QAtomicOpsIiE3refIiEEbRSt6atomicIT_E(ptr noundef align 4 dereferenceable(4) %0) #9 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef i32 @_ZNSt13__atomic_baseIiEppEv(ptr noundef nonnull align 4 dereferenceable(4) %3) #11
+  %4 = call noundef i32 @_ZNSt13__atomic_baseIiEppEv(ptr noundef align 4 dereferenceable_or_null(4) %3) #14
   %5 = icmp ne i32 %4, 0
   ret i1 %5
 }
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #10 comdat {
-  %2 = call ptr @__cxa_begin_catch(ptr %0) #11
-  call void @_ZSt9terminatev() #14
+; Function Attrs: noinline noreturn nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #13 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #14
+  call void @_ZSt9terminatev() #17
   unreachable
 }
 
@@ -3156,14 +3583,14 @@ declare ptr @__cxa_begin_catch(ptr)
 
 declare void @_ZSt9terminatev()
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZNSt13__atomic_baseIiEppEv(ptr noundef nonnull align 4 dereferenceable(4) %0) #4 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef i32 @_ZNSt13__atomic_baseIiEppEv(ptr noundef align 4 dereferenceable_or_null(4) %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %"struct.std::__atomic_base", ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.std::__atomic_base", ptr %5, i32 0, i32 0
   store i32 1, ptr %3, align 4
   %7 = load i32, ptr %3, align 4
   %8 = atomicrmw add ptr %6, i32 %7 seq_cst, align 4
@@ -3173,13 +3600,14 @@ define linkonce_odr noundef i32 @_ZNSt13__atomic_baseIiEppEv(ptr noundef nonnull
   ret i32 %10
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_Z11qt_ptr_swapI15QTypedArrayDataIiEEvRPT_S4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_Z11qt_ptr_swapI15QTypedArrayDataIiEEvRPT_S4_(ptr noundef align 8 dereferenceable(8) %0, ptr noundef align 8 dereferenceable(8) %1) #9 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #14
   %6 = load ptr, ptr %3, align 8
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %5, align 8
@@ -3190,16 +3618,18 @@ define linkonce_odr void @_Z11qt_ptr_swapI15QTypedArrayDataIiEEvRPT_S4_(ptr noun
   %11 = load ptr, ptr %5, align 8
   %12 = load ptr, ptr %4, align 8
   store ptr %11, ptr %12, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #14
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_Z11qt_ptr_swapIiEvRPT_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_Z11qt_ptr_swapIiEvRPT_S2_(ptr noundef align 8 dereferenceable(8) %0, ptr noundef align 8 dereferenceable(8) %1) #9 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #14
   %6 = load ptr, ptr %3, align 8
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %5, align 8
@@ -3210,16 +3640,18 @@ define linkonce_odr void @_Z11qt_ptr_swapIiEvRPT_S2_(ptr noundef nonnull align 8
   %11 = load ptr, ptr %5, align 8
   %12 = load ptr, ptr %4, align 8
   store ptr %11, ptr %12, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #14
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZSt4swapIxENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZSt4swapIxENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef align 8 dereferenceable(8) %0, ptr noundef align 8 dereferenceable(8) %1) #9 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #14
   %6 = load ptr, ptr %3, align 8
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
@@ -3230,30 +3662,20 @@ define linkonce_odr void @_ZSt4swapIxENSt9enable_ifIXsr6__and_ISt6__not_ISt15__i
   %11 = load i64, ptr %5, align 8
   %12 = load ptr, ptr %4, align 8
   store i64 %11, ptr %12, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #14
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef double @_ZN12QPaintDevice22devicePixelRatioFScaleEv() #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef double @_ZN12QPaintDevice22devicePixelRatioFScaleEv() #9 comdat align 2 {
   ret double 6.553600e+04
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN19QStyleOptionComplexD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN12QStyleOptionD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #11
-  ret void
-}
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN7QWidget4moveERK6QPoint(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef align 4 dereferenceable(8)) #1
 
-; Function Attrs: nounwind
-declare void @_ZN12QStyleOptionD2Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #2
-
-declare void @_ZN7QWidget4moveERK6QPoint(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 4 dereferenceable(8)) #1
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6QPointC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN6QPointC2Eii(ptr noundef align 4 dereferenceable_or_null(8) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #9 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -3261,19 +3683,20 @@ define linkonce_odr void @_ZN6QPointC2Eii(ptr noundef nonnull align 4 dereferenc
   store i32 %1, ptr %5, align 4
   store i32 %2, ptr %6, align 4
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %class.QPoint, ptr %7, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %class.QPoint, ptr %7, i32 0, i32 0
   %9 = load i32, ptr %5, align 4
   store i32 %9, ptr %8, align 4
-  %10 = getelementptr inbounds %class.QPoint, ptr %7, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %class.QPoint, ptr %7, i32 0, i32 1
   %11 = load i32, ptr %6, align 4
   store i32 %11, ptr %10, align 4
   ret void
 }
 
-declare void @_ZN7QWidget6resizeERK5QSize(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 4 dereferenceable(8)) #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN7QWidget6resizeERK5QSize(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef align 4 dereferenceable(8)) #1
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_Z6qRoundd(double noundef %0) #4 comdat {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef i32 @_Z6qRoundd(double noundef %0) #9 comdat {
   %2 = alloca double, align 8
   store double %0, ptr %2, align 8
   %3 = load double, ptr %2, align 8
@@ -3285,56 +3708,58 @@ define linkonce_odr noundef i32 @_Z6qRoundd(double noundef %0) #4 comdat {
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.copysign.f64(double, double) #9
+declare double @llvm.copysign.f64(double, double) #12
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8QPalette5brushENS_9ColorRoleE(ptr noundef nonnull align 8 dereferenceable(12) %0, i32 noundef %1) #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef align 8 dereferenceable(8) ptr @_ZNK8QPalette5brushENS_9ColorRoleE(ptr noundef align 8 dereferenceable_or_null(12) %0, i32 noundef %1) #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
   %6 = load i32, ptr %4, align 4
-  %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8QPalette5brushENS_10ColorGroupENS_9ColorRoleE(ptr noundef nonnull align 8 dereferenceable(12) %5, i32 noundef 4, i32 noundef %6)
+  %7 = call noundef align 8 dereferenceable(8) ptr @_ZNK8QPalette5brushENS_10ColorGroupENS_9ColorRoleE(ptr noundef align 8 dereferenceable_or_null(12) %5, i32 noundef 4, i32 noundef %6)
   ret ptr %7
 }
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8QPalette5brushENS_10ColorGroupENS_9ColorRoleE(ptr noundef nonnull align 8 dereferenceable(12), i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare noundef align 8 dereferenceable(8) ptr @_ZNK8QPalette5brushENS_10ColorGroupENS_9ColorRoleE(ptr noundef align 8 dereferenceable_or_null(12), i32 noundef, i32 noundef) #1
 
-declare void @_ZN8QPainter9drawImageERK6QRectFRK6QImageS2_6QFlagsIN2Qt19ImageConversionFlagEE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(32), i32) #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN8QPainter9drawImageERK6QRectFRK6QImageS2_6QFlagsIN2Qt19ImageConversionFlagEE(ptr noundef align 8 dereferenceable_or_null(8), ptr noundef align 8 dereferenceable(32), ptr noundef align 8 dereferenceable(24), ptr noundef align 8 dereferenceable(32), i32) #1
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6QRectFC2ERK5QRect(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 4 dereferenceable(16) %1) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN6QRectFC2ERK5QRect(ptr noundef align 8 dereferenceable_or_null(32) %0, ptr noundef align 4 dereferenceable(16) %1) unnamed_addr #9 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %class.QRectF, ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %class.QRectF, ptr %5, i32 0, i32 0
   %7 = load ptr, ptr %4, align 8
-  %8 = call noundef i32 @_ZNK5QRect1xEv(ptr noundef nonnull align 4 dereferenceable(16) %7) #11
+  %8 = call noundef i32 @_ZNK5QRect1xEv(ptr noundef align 4 dereferenceable_or_null(16) %7) #14
   %9 = sitofp i32 %8 to double
   store double %9, ptr %6, align 8
-  %10 = getelementptr inbounds %class.QRectF, ptr %5, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %class.QRectF, ptr %5, i32 0, i32 1
   %11 = load ptr, ptr %4, align 8
-  %12 = call noundef i32 @_ZNK5QRect1yEv(ptr noundef nonnull align 4 dereferenceable(16) %11) #11
+  %12 = call noundef i32 @_ZNK5QRect1yEv(ptr noundef align 4 dereferenceable_or_null(16) %11) #14
   %13 = sitofp i32 %12 to double
   store double %13, ptr %10, align 8
-  %14 = getelementptr inbounds %class.QRectF, ptr %5, i32 0, i32 2
+  %14 = getelementptr inbounds nuw %class.QRectF, ptr %5, i32 0, i32 2
   %15 = load ptr, ptr %4, align 8
-  %16 = call noundef i32 @_ZNK5QRect5widthEv(ptr noundef nonnull align 4 dereferenceable(16) %15) #11
+  %16 = call noundef i32 @_ZNK5QRect5widthEv(ptr noundef align 4 dereferenceable_or_null(16) %15) #14
   %17 = sitofp i32 %16 to double
   store double %17, ptr %14, align 8
-  %18 = getelementptr inbounds %class.QRectF, ptr %5, i32 0, i32 3
+  %18 = getelementptr inbounds nuw %class.QRectF, ptr %5, i32 0, i32 3
   %19 = load ptr, ptr %4, align 8
-  %20 = call noundef i32 @_ZNK5QRect6heightEv(ptr noundef nonnull align 4 dereferenceable(16) %19) #11
+  %20 = call noundef i32 @_ZNK5QRect6heightEv(ptr noundef align 4 dereferenceable_or_null(16) %19) #14
   %21 = sitofp i32 %20 to double
   store double %21, ptr %18, align 8
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6QRectFC2Edddd(ptr noundef nonnull align 8 dereferenceable(32) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN6QRectFC2Edddd(ptr noundef align 8 dereferenceable_or_null(32) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4) unnamed_addr #9 comdat align 2 {
   %6 = alloca ptr, align 8
   %7 = alloca double, align 8
   %8 = alloca double, align 8
@@ -3346,111 +3771,112 @@ define linkonce_odr void @_ZN6QRectFC2Edddd(ptr noundef nonnull align 8 derefere
   store double %3, ptr %9, align 8
   store double %4, ptr %10, align 8
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds %class.QRectF, ptr %11, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %class.QRectF, ptr %11, i32 0, i32 0
   %13 = load double, ptr %7, align 8
   store double %13, ptr %12, align 8
-  %14 = getelementptr inbounds %class.QRectF, ptr %11, i32 0, i32 1
+  %14 = getelementptr inbounds nuw %class.QRectF, ptr %11, i32 0, i32 1
   %15 = load double, ptr %8, align 8
   store double %15, ptr %14, align 8
-  %16 = getelementptr inbounds %class.QRectF, ptr %11, i32 0, i32 2
+  %16 = getelementptr inbounds nuw %class.QRectF, ptr %11, i32 0, i32 2
   %17 = load double, ptr %9, align 8
   store double %17, ptr %16, align 8
-  %18 = getelementptr inbounds %class.QRectF, ptr %11, i32 0, i32 3
+  %18 = getelementptr inbounds nuw %class.QRectF, ptr %11, i32 0, i32 3
   %19 = load double, ptr %10, align 8
   store double %19, ptr %18, align 8
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZNK5QRect1xEv(ptr noundef nonnull align 4 dereferenceable(16) %0) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef i32 @_ZNK5QRect1xEv(ptr noundef align 4 dereferenceable_or_null(16) %0) #9 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %class.QRect, ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %class.QRect, ptr %3, i32 0, i32 0
   %5 = load i32, ptr %4, align 4
   ret i32 %5
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZNK5QRect1yEv(ptr noundef nonnull align 4 dereferenceable(16) %0) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef i32 @_ZNK5QRect1yEv(ptr noundef align 4 dereferenceable_or_null(16) %0) #9 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %class.QRect, ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds nuw %class.QRect, ptr %3, i32 0, i32 1
   %5 = load i32, ptr %4, align 4
   ret i32 %5
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZNKSt10unique_ptrI10QBrushData24QBrushDataPointerDeleterEptEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef ptr @_ZNKSt10unique_ptrI10QBrushData24QBrushDataPointerDeleterEptEv(ptr noundef align 8 dereferenceable_or_null(8) %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef ptr @_ZNKSt10unique_ptrI10QBrushData24QBrushDataPointerDeleterE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  %4 = call noundef ptr @_ZNKSt10unique_ptrI10QBrushData24QBrushDataPointerDeleterE3getEv(ptr noundef align 8 dereferenceable_or_null(8) %3) #14
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZNKSt10unique_ptrI10QBrushData24QBrushDataPointerDeleterE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef ptr @_ZNKSt10unique_ptrI10QBrushData24QBrushDataPointerDeleterE3getEv(ptr noundef align 8 dereferenceable_or_null(8) %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::unique_ptr", ptr %3, i32 0, i32 0
-  %5 = call noundef ptr @_ZNKSt15__uniq_ptr_implI10QBrushData24QBrushDataPointerDeleterE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  %4 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %3, i32 0, i32 0
+  %5 = call noundef ptr @_ZNKSt15__uniq_ptr_implI10QBrushData24QBrushDataPointerDeleterE6_M_ptrEv(ptr noundef align 8 dereferenceable_or_null(8) %4) #14
   ret ptr %5
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZNKSt15__uniq_ptr_implI10QBrushData24QBrushDataPointerDeleterE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef ptr @_ZNKSt15__uniq_ptr_implI10QBrushData24QBrushDataPointerDeleterE6_M_ptrEv(ptr noundef align 8 dereferenceable_or_null(8) %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.std::__uniq_ptr_impl", ptr %3, i32 0, i32 0
-  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP10QBrushData24QBrushDataPointerDeleterEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKS7_(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
+  %4 = getelementptr inbounds nuw %"class.std::__uniq_ptr_impl", ptr %3, i32 0, i32 0
+  %5 = call noundef align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP10QBrushData24QBrushDataPointerDeleterEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKS7_(ptr noundef align 8 dereferenceable(8) %4) #14
   %6 = load ptr, ptr %5, align 8
   ret ptr %6
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP10QBrushData24QBrushDataPointerDeleterEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKS7_(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef align 8 dereferenceable(8) ptr @_ZSt3getILm0EJP10QBrushData24QBrushDataPointerDeleterEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKS7_(ptr noundef align 8 dereferenceable(8) %0) #4 comdat {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP10QBrushDataJ24QBrushDataPointerDeleterEERKT0_RKSt11_Tuple_implIXT_EJS3_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  %4 = call noundef align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP10QBrushDataJ24QBrushDataPointerDeleterEERKT0_RKSt11_Tuple_implIXT_EJS3_DpT1_EE(ptr noundef align 8 dereferenceable(8) %3) #14
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP10QBrushDataJ24QBrushDataPointerDeleterEERKT0_RKSt11_Tuple_implIXT_EJS3_DpT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef align 8 dereferenceable(8) ptr @_ZSt12__get_helperILm0EP10QBrushDataJ24QBrushDataPointerDeleterEERKT0_RKSt11_Tuple_implIXT_EJS3_DpT1_EE(ptr noundef align 8 dereferenceable(8) %0) #4 comdat {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP10QBrushData24QBrushDataPointerDeleterEE7_M_headERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  %4 = call noundef align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP10QBrushData24QBrushDataPointerDeleterEE7_M_headERKS3_(ptr noundef align 8 dereferenceable(8) %3) #14
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP10QBrushData24QBrushDataPointerDeleterEE7_M_headERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef align 8 dereferenceable(8) ptr @_ZNSt11_Tuple_implILm0EJP10QBrushData24QBrushDataPointerDeleterEE7_M_headERKS3_(ptr noundef align 8 dereferenceable(8) %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP10QBrushDataLb0EE7_M_headERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  %4 = call noundef align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP10QBrushDataLb0EE7_M_headERKS2_(ptr noundef align 8 dereferenceable(8) %3) #14
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP10QBrushDataLb0EE7_M_headERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef align 8 dereferenceable(8) ptr @_ZNSt10_Head_baseILm0EP10QBrushDataLb0EE7_M_headERKS2_(ptr noundef align 8 dereferenceable(8) %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Head_base.4", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"struct.std::_Head_base.4", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
-declare void @_ZN8QPainter9drawRectsEPK5QRecti(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN8QPainter9drawRectsEPK5QRecti(ptr noundef align 8 dereferenceable_or_null(8), ptr noundef, i32 noundef) #1
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5QLineC2ERK6QPointS2_(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(8) %2) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN5QLineC2ERK6QPointS2_(ptr noundef align 4 dereferenceable_or_null(16) %0, ptr noundef align 4 dereferenceable(8) %1, ptr noundef align 4 dereferenceable(8) %2) unnamed_addr #9 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3458,41 +3884,43 @@ define linkonce_odr void @_ZN5QLineC2ERK6QPointS2_(ptr noundef nonnull align 4 d
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %class.QLine, ptr %7, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %class.QLine, ptr %7, i32 0, i32 0
   %9 = load ptr, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %8, ptr align 4 %9, i64 8, i1 false)
-  %10 = getelementptr inbounds %class.QLine, ptr %7, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %class.QLine, ptr %7, i32 0, i32 1
   %11 = load ptr, ptr %6, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %10, ptr align 4 %11, i64 8, i1 false)
   ret void
 }
 
-declare void @_ZN8QPainter9drawLinesEPK5QLinei(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN8QPainter9drawLinesEPK5QLinei(ptr noundef align 8 dereferenceable_or_null(8), ptr noundef, i32 noundef) #1
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_Zeq6QFlagsIN2Qt19ImageConversionFlagEES1_(i32 %0, i32 noundef %1) #4 comdat {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef zeroext i1 @_Zeq6QFlagsIN2Qt19ImageConversionFlagEES1_(i32 %0, i32 noundef %1) #9 comdat {
   %3 = alloca %class.QFlags.9, align 4
   %4 = alloca i32, align 4
   %5 = alloca %class.QFlags.9, align 4
   %6 = alloca %class.QFlags.9, align 4
-  %7 = getelementptr inbounds %class.QFlags.9, ptr %3, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %class.QFlags.9, ptr %3, i32 0, i32 0
   store i32 %0, ptr %7, align 4
   store i32 %1, ptr %4, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %5, ptr align 4 %3, i64 4, i1 false)
   %8 = load i32, ptr %4, align 4
-  call void @_ZN6QFlagsIN2Qt19ImageConversionFlagEEC2ES1_(ptr noundef nonnull align 4 dereferenceable(4) %6, i32 noundef %8) #11
-  %9 = getelementptr inbounds %class.QFlags.9, ptr %5, i32 0, i32 0
+  call void @_ZN6QFlagsIN2Qt19ImageConversionFlagEEC2ES1_(ptr noundef align 4 dereferenceable_or_null(4) %6, i32 noundef %8) #14
+  %9 = getelementptr inbounds nuw %class.QFlags.9, ptr %5, i32 0, i32 0
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds %class.QFlags.9, ptr %6, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %class.QFlags.9, ptr %6, i32 0, i32 0
   %12 = load i32, ptr %11, align 4
-  %13 = call noundef zeroext i1 @_Zeq6QFlagsIN2Qt19ImageConversionFlagEES2_(i32 %10, i32 %12) #11
+  %13 = call noundef zeroext i1 @_Zeq6QFlagsIN2Qt19ImageConversionFlagEES2_(i32 %10, i32 %12) #14
   ret i1 %13
 }
 
-declare void @_ZN8QPainter9drawImageERK7QPointFRK6QImage(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(24)) #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN8QPainter9drawImageERK7QPointFRK6QImage(ptr noundef align 8 dereferenceable_or_null(8), ptr noundef align 8 dereferenceable(16), ptr noundef align 8 dereferenceable(24)) #1
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN7QPointFC2Edd(ptr noundef nonnull align 8 dereferenceable(16) %0, double noundef %1, double noundef %2) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN7QPointFC2Edd(ptr noundef align 8 dereferenceable_or_null(16) %0, double noundef %1, double noundef %2) unnamed_addr #9 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca double, align 8
   %6 = alloca double, align 8
@@ -3500,116 +3928,119 @@ define linkonce_odr void @_ZN7QPointFC2Edd(ptr noundef nonnull align 8 dereferen
   store double %1, ptr %5, align 8
   store double %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %class.QPointF, ptr %7, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %class.QPointF, ptr %7, i32 0, i32 0
   %9 = load double, ptr %5, align 8
   store double %9, ptr %8, align 8
-  %10 = getelementptr inbounds %class.QPointF, ptr %7, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %class.QPointF, ptr %7, i32 0, i32 1
   %11 = load double, ptr %6, align 8
   store double %11, ptr %10, align 8
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_Zeq6QFlagsIN2Qt19ImageConversionFlagEES2_(i32 %0, i32 %1) #4 comdat {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef zeroext i1 @_Zeq6QFlagsIN2Qt19ImageConversionFlagEES2_(i32 %0, i32 %1) #9 comdat {
   %3 = alloca %class.QFlags.9, align 4
   %4 = alloca %class.QFlags.9, align 4
-  %5 = getelementptr inbounds %class.QFlags.9, ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %class.QFlags.9, ptr %3, i32 0, i32 0
   store i32 %0, ptr %5, align 4
-  %6 = getelementptr inbounds %class.QFlags.9, ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %class.QFlags.9, ptr %4, i32 0, i32 0
   store i32 %1, ptr %6, align 4
-  %7 = getelementptr inbounds %class.QFlags.9, ptr %3, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %class.QFlags.9, ptr %3, i32 0, i32 0
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds %class.QFlags.9, ptr %4, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %class.QFlags.9, ptr %4, i32 0, i32 0
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %8, %10
   ret i1 %11
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZNK6QPoint1xEv(ptr noundef nonnull align 4 dereferenceable(8) %0) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef i32 @_ZNK6QPoint1xEv(ptr noundef align 4 dereferenceable_or_null(8) %0) #9 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %class.QPoint, ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %class.QPoint, ptr %3, i32 0, i32 0
   %5 = load i32, ptr %4, align 4
   ret i32 %5
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr { double, double } @_ZNK17QSinglePointEvent8positionEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr { double, double } @_ZNK17QSinglePointEvent8positionEv(ptr noundef align 8 dereferenceable_or_null(80) %0) #6 comdat align 2 {
   %2 = alloca %class.QPointF, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %class.QPointerEvent, ptr %4, i32 0, i32 1
-  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5QListI11QEventPointE5firstEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
-  %7 = call { double, double } @_ZNK11QEventPoint8positionEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
-  %8 = getelementptr inbounds { double, double }, ptr %2, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %class.QPointerEvent, ptr %4, i32 0, i32 1
+  %6 = call noundef align 8 dereferenceable(8) ptr @_ZNK5QListI11QEventPointE5firstEv(ptr noundef align 8 dereferenceable_or_null(24) %5) #14
+  %7 = call { double, double } @_ZNK11QEventPoint8positionEv(ptr noundef align 8 dereferenceable_or_null(8) %6)
+  %8 = getelementptr inbounds nuw { double, double }, ptr %2, i32 0, i32 0
   %9 = extractvalue { double, double } %7, 0
   store double %9, ptr %8, align 8
-  %10 = getelementptr inbounds { double, double }, ptr %2, i32 0, i32 1
+  %10 = getelementptr inbounds nuw { double, double }, ptr %2, i32 0, i32 1
   %11 = extractvalue { double, double } %7, 1
   store double %11, ptr %10, align 8
   %12 = load { double, double }, ptr %2, align 8
   ret { double, double } %12
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr i64 @_ZNK7QPointF7toPointEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr i64 @_ZNK7QPointF7toPointEv(ptr noundef align 8 dereferenceable_or_null(16) %0) #9 comdat align 2 {
   %2 = alloca %class.QPoint, align 4
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %class.QPointF, ptr %4, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %class.QPointF, ptr %4, i32 0, i32 0
   %6 = load double, ptr %5, align 8
   %7 = call noundef i32 @_Z6qRoundd(double noundef %6)
-  %8 = getelementptr inbounds %class.QPointF, ptr %4, i32 0, i32 1
+  %8 = getelementptr inbounds nuw %class.QPointF, ptr %4, i32 0, i32 1
   %9 = load double, ptr %8, align 8
   %10 = call noundef i32 @_Z6qRoundd(double noundef %9)
-  call void @_ZN6QPointC2Eii(ptr noundef nonnull align 4 dereferenceable(8) %2, i32 noundef %7, i32 noundef %10) #11
+  call void @_ZN6QPointC2Eii(ptr noundef align 4 dereferenceable_or_null(8) %2, i32 noundef %7, i32 noundef %10) #14
   %11 = load i64, ptr %2, align 4
   ret i64 %11
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5QListI11QEventPointE5firstEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef align 8 dereferenceable(8) ptr @_ZNK5QListI11QEventPointE5firstEv(ptr noundef align 8 dereferenceable_or_null(24) %0) #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca %"class.QList<QEventPoint>::const_iterator", align 8
   store ptr %0, ptr %2, align 8
   %4 = load ptr, ptr %2, align 8
-  %5 = call ptr @_ZNK5QListI11QEventPointE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #11
-  %6 = getelementptr inbounds %"class.QList<QEventPoint>::const_iterator", ptr %3, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #14
+  %5 = call ptr @_ZNK5QListI11QEventPointE5beginEv(ptr noundef align 8 dereferenceable_or_null(24) %4) #14
+  %6 = getelementptr inbounds nuw %"class.QList<QEventPoint>::const_iterator", ptr %3, i32 0, i32 0
   store ptr %5, ptr %6, align 8
-  %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5QListI11QEventPointE14const_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %7 = invoke noundef align 8 dereferenceable(8) ptr @_ZNK5QListI11QEventPointE14const_iteratordeEv(ptr noundef align 8 dereferenceable_or_null(8) %3)
           to label %8 unwind label %9
 
 8:                                                ; preds = %1
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #14
   ret ptr %7
 
 9:                                                ; preds = %1
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  call void @__clang_call_terminate(ptr %11) #14
+  call void @__clang_call_terminate(ptr %11) #17
   unreachable
 }
 
-declare { double, double } @_ZNK11QEventPoint8positionEv(ptr noundef nonnull align 8 dereferenceable(8)) #1
+; Function Attrs: null_pointer_is_valid
+declare { double, double } @_ZNK11QEventPoint8positionEv(ptr noundef align 8 dereferenceable_or_null(8)) #1
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr ptr @_ZNK5QListI11QEventPointE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr ptr @_ZNK5QListI11QEventPointE5beginEv(ptr noundef align 8 dereferenceable_or_null(24) %0) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.QList<QEventPoint>::const_iterator", align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %class.QList.10, ptr %4, i32 0, i32 0
-  %6 = call noundef ptr @_ZNK17QArrayDataPointerI11QEventPointEptEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
-  %7 = call noundef ptr @_ZNK17QArrayDataPointerI11QEventPointE10constBeginEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #11
-  invoke void @_ZN5QListI11QEventPointE14const_iteratorC2EPKS0_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %7)
+  %5 = getelementptr inbounds nuw %class.QList.10, ptr %4, i32 0, i32 0
+  %6 = call noundef ptr @_ZNK17QArrayDataPointerI11QEventPointEptEv(ptr noundef align 8 dereferenceable_or_null(24) %5) #14
+  %7 = call noundef ptr @_ZNK17QArrayDataPointerI11QEventPointE10constBeginEv(ptr noundef align 8 dereferenceable_or_null(24) %6) #14
+  invoke void @_ZN5QListI11QEventPointE14const_iteratorC2EPKS0_(ptr noundef align 8 dereferenceable_or_null(8) %2, ptr noundef %7)
           to label %8 unwind label %11
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds %"class.QList<QEventPoint>::const_iterator", ptr %2, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %"class.QList<QEventPoint>::const_iterator", ptr %2, i32 0, i32 0
   %10 = load ptr, ptr %9, align 8
   ret ptr %10
 
@@ -3617,94 +4048,94 @@ define linkonce_odr ptr @_ZNK5QListI11QEventPointE5beginEv(ptr noundef nonnull a
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #14
+  call void @__clang_call_terminate(ptr %13) #17
   unreachable
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5QListI11QEventPointE14const_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef align 8 dereferenceable(8) ptr @_ZNK5QListI11QEventPointE14const_iteratordeEv(ptr noundef align 8 dereferenceable_or_null(8) %0) #9 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"class.QList<QEventPoint>::const_iterator", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"class.QList<QEventPoint>::const_iterator", ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
   ret ptr %5
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZNK17QArrayDataPointerI11QEventPointEptEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef ptr @_ZNK17QArrayDataPointerI11QEventPointEptEv(ptr noundef align 8 dereferenceable_or_null(24) %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZNK17QArrayDataPointerI11QEventPointE10constBeginEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef ptr @_ZNK17QArrayDataPointerI11QEventPointE10constBeginEv(ptr noundef align 8 dereferenceable_or_null(24) %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef ptr @_ZNK17QArrayDataPointerI11QEventPointE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #11
+  %4 = call noundef ptr @_ZNK17QArrayDataPointerI11QEventPointE4dataEv(ptr noundef align 8 dereferenceable_or_null(24) %3) #14
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5QListI11QEventPointE14const_iteratorC2EPKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN5QListI11QEventPointE14const_iteratorC2EPKS0_(ptr noundef align 8 dereferenceable_or_null(8) %0, ptr noundef %1) unnamed_addr #9 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.QList<QEventPoint>::const_iterator", ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"class.QList<QEventPoint>::const_iterator", ptr %5, i32 0, i32 0
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZNK17QArrayDataPointerI11QEventPointE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef ptr @_ZNK17QArrayDataPointerI11QEventPointE4dataEv(ptr noundef align 8 dereferenceable_or_null(24) %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.QArrayDataPointer.13, ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds nuw %struct.QArrayDataPointer.13, ptr %3, i32 0, i32 1
   %5 = load ptr, ptr %4, align 8
   ret ptr %5
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN17QArrayDataPointerIDsED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN17QArrayDataPointerIDsED2Ev(ptr noundef align 8 dereferenceable_or_null(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef zeroext i1 @_ZN17QArrayDataPointerIDsE5derefEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #11
+  %4 = call noundef zeroext i1 @_ZN17QArrayDataPointerIDsE5derefEv(ptr noundef align 8 dereferenceable_or_null(24) %3) #14
   br i1 %4, label %9, label %5
 
 5:                                                ; preds = %1
-  %6 = call noundef ptr @_ZN17QArrayDataPointerIDsEptEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #11
-  call void @_ZN9QtPrivate12QPodArrayOpsIDsE10destroyAllEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #11
-  %7 = getelementptr inbounds %struct.QArrayDataPointer.15, ptr %3, i32 0, i32 0
+  %6 = call noundef ptr @_ZN17QArrayDataPointerIDsEptEv(ptr noundef align 8 dereferenceable_or_null(24) %3) #14
+  call void @_ZN9QtPrivate12QPodArrayOpsIDsE10destroyAllEv(ptr noundef align 8 dereferenceable_or_null(24) %6) #14
+  %7 = getelementptr inbounds nuw %struct.QArrayDataPointer.15, ptr %3, i32 0, i32 0
   %8 = load ptr, ptr %7, align 8
-  call void @_ZN15QTypedArrayDataIDsE10deallocateEP10QArrayData(ptr noundef %8) #11
+  call void @_ZN15QTypedArrayDataIDsE10deallocateEP10QArrayData(ptr noundef %8) #14
   br label %9
 
 9:                                                ; preds = %5, %1
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZN17QArrayDataPointerIDsE5derefEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef zeroext i1 @_ZN17QArrayDataPointerIDsE5derefEv(ptr noundef align 8 dereferenceable_or_null(24) %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.QArrayDataPointer.15, ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %struct.QArrayDataPointer.15, ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ne ptr %5, null
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds %struct.QArrayDataPointer.15, ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %struct.QArrayDataPointer.15, ptr %3, i32 0, i32 0
   %9 = load ptr, ptr %8, align 8
-  %10 = call noundef zeroext i1 @_ZN10QArrayData5derefEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #11
+  %10 = call noundef zeroext i1 @_ZN10QArrayData5derefEv(ptr noundef align 8 dereferenceable_or_null(16) %9) #14
   br label %11
 
 11:                                               ; preds = %7, %1
@@ -3712,58 +4143,59 @@ define linkonce_odr noundef zeroext i1 @_ZN17QArrayDataPointerIDsE5derefEv(ptr n
   ret i1 %12
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN17QArrayDataPointerIDsEptEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef ptr @_ZN17QArrayDataPointerIDsEptEv(ptr noundef align 8 dereferenceable_or_null(24) %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN9QtPrivate12QPodArrayOpsIDsE10destroyAllEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN9QtPrivate12QPodArrayOpsIDsE10destroyAllEv(ptr noundef align 8 dereferenceable_or_null(24) %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
 define linkonce_odr void @_ZN15QTypedArrayDataIDsE10deallocateEP10QArrayData(ptr noundef %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %3, i64 noundef 2, i64 noundef 8) #11
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %3, i64 noundef 2, i64 noundef 8) #14
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
 define linkonce_odr noundef ptr @_ZN9QtPrivate15ConnectionTypesINS_4ListIJiiEEELb1EE5typesEv() #4 comdat align 2 {
   ret ptr @_ZZN9QtPrivate15ConnectionTypesINS_4ListIJiiEEELb1EE5typesEvE1t
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @_ZN7QObject11connectImplEPKS_PPvS1_S3_PN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeEPKiPK11QMetaObject(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM16OverlayScrollBarFviiENS_4ListIJiiEEEvEC2ES3_(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %1, i64 %2) unnamed_addr #0 comdat align 2 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM16OverlayScrollBarFviiENS_4ListIJiiEEEvEC2ES3_(ptr noundef align 8 dereferenceable_or_null(32) %0, i64 %1, i64 %2) unnamed_addr #0 comdat align 2 {
   %4 = alloca { i64, i64 }, align 8
   %5 = alloca ptr, align 8
   %6 = alloca { i64, i64 }, align 8
-  %7 = getelementptr inbounds { i64, i64 }, ptr %4, i32 0, i32 0
+  %7 = getelementptr inbounds nuw { i64, i64 }, ptr %4, i32 0, i32 0
   store i64 %1, ptr %7, align 8
-  %8 = getelementptr inbounds { i64, i64 }, ptr %4, i32 0, i32 1
+  %8 = getelementptr inbounds nuw { i64, i64 }, ptr %4, i32 0, i32 1
   store i64 %2, ptr %8, align 8
   %9 = load { i64, i64 }, ptr %4, align 8
   store ptr %0, ptr %5, align 8
   store { i64, i64 } %9, ptr %6, align 8
   %10 = load ptr, ptr %5, align 8
-  call void @_ZN9QtPrivate15QSlotObjectBaseC2EPFviPS0_P7QObjectPPvPbE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef @_ZN9QtPrivate11QSlotObjectIM16OverlayScrollBarFviiENS_4ListIJiiEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb)
-  %11 = getelementptr inbounds %"class.QtPrivate::QSlotObject", ptr %10, i32 0, i32 1
+  call void @_ZN9QtPrivate15QSlotObjectBaseC2EPFviPS0_P7QObjectPPvPbE(ptr noundef align 8 dereferenceable_or_null(16) %10, ptr noundef @_ZN9QtPrivate11QSlotObjectIM16OverlayScrollBarFviiENS_4ListIJiiEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb)
+  %11 = getelementptr inbounds nuw %"class.QtPrivate::QSlotObject", ptr %10, i32 0, i32 1
   %12 = load { i64, i64 }, ptr %6, align 8
   store { i64, i64 } %12, ptr %11, align 8
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
 define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM16OverlayScrollBarFviiENS_4ListIJiiEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 comdat align 2 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -3790,8 +4222,8 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM16OverlayScrollBarFviiENS_
   br i1 %15, label %17, label %16
 
 16:                                               ; preds = %13
-  call void @_ZN9QtPrivate11QSlotObjectIM16OverlayScrollBarFviiENS_4ListIJiiEEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #11
-  call void @_ZdlPv(ptr noundef %14) #13
+  call void @_ZN9QtPrivate15QSlotObjectBaseD2Ev(ptr noundef align 8 dereferenceable_or_null(32) %14) #14
+  call void @_ZdlPvm(ptr noundef %14, i64 noundef 32) #16
   br label %17
 
 17:                                               ; preds = %16, %13
@@ -3799,14 +4231,14 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM16OverlayScrollBarFviiENS_
 
 18:                                               ; preds = %5
   %19 = load ptr, ptr %7, align 8
-  %20 = getelementptr inbounds %"class.QtPrivate::QSlotObject", ptr %19, i32 0, i32 1
+  %20 = getelementptr inbounds nuw %"class.QtPrivate::QSlotObject", ptr %19, i32 0, i32 1
   %21 = load { i64, i64 }, ptr %20, align 8
   %22 = load ptr, ptr %8, align 8
   %23 = load ptr, ptr %9, align 8
   store { i64, i64 } %21, ptr %11, align 8
-  %24 = getelementptr inbounds { i64, i64 }, ptr %11, i32 0, i32 0
+  %24 = getelementptr inbounds nuw { i64, i64 }, ptr %11, i32 0, i32 0
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds { i64, i64 }, ptr %11, i32 0, i32 1
+  %26 = getelementptr inbounds nuw { i64, i64 }, ptr %11, i32 0, i32 1
   %27 = load i64, ptr %26, align 8
   call void @_ZN9QtPrivate15FunctionPointerIM16OverlayScrollBarFviiEE4callINS_4ListIJiiEEEvEEvS3_PS1_PPv(i64 %25, i64 %27, ptr noundef %22, ptr noundef %23)
   br label %46
@@ -3815,7 +4247,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM16OverlayScrollBarFviiENS_
   %29 = load ptr, ptr %9, align 8
   %30 = load { i64, i64 }, ptr %29, align 8
   %31 = load ptr, ptr %7, align 8
-  %32 = getelementptr inbounds %"class.QtPrivate::QSlotObject", ptr %31, i32 0, i32 1
+  %32 = getelementptr inbounds nuw %"class.QtPrivate::QSlotObject", ptr %31, i32 0, i32 1
   %33 = load { i64, i64 }, ptr %32, align 8
   %34 = extractvalue { i64, i64 } %30, 0
   %35 = extractvalue { i64, i64 } %33, 0
@@ -3834,44 +4266,35 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM16OverlayScrollBarFviiENS_
 45:                                               ; preds = %5
   br label %46
 
-46:                                               ; preds = %45, %28, %18, %17, %5
+46:                                               ; preds = %45, %5, %28, %18, %17
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN9QtPrivate15QSlotObjectBaseC2EPFviPS0_P7QObjectPPvPbE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN9QtPrivate15QSlotObjectBaseC2EPFviPS0_P7QObjectPPvPbE(ptr noundef align 8 dereferenceable_or_null(16) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.QtPrivate::QSlotObjectBase", ptr %5, i32 0, i32 0
-  call void @_ZN10QAtomicIntC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %6, i32 noundef 1) #11
-  %7 = getelementptr inbounds %"class.QtPrivate::QSlotObjectBase", ptr %5, i32 0, i32 1
+  %6 = getelementptr inbounds nuw %"class.QtPrivate::QSlotObjectBase", ptr %5, i32 0, i32 0
+  call void @_ZN10QAtomicIntC2Ei(ptr noundef align 4 dereferenceable_or_null(4) %6, i32 noundef 1) #14
+  %7 = getelementptr inbounds nuw %"class.QtPrivate::QSlotObjectBase", ptr %5, i32 0, i32 1
   %8 = load ptr, ptr %4, align 8
   store ptr %8, ptr %7, align 8
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM16OverlayScrollBarFviiENS_4ListIJiiEEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN9QtPrivate15QSlotObjectBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #11
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
 define linkonce_odr void @_ZN9QtPrivate15FunctionPointerIM16OverlayScrollBarFviiEE4callINS_4ListIJiiEEEvEEvS3_PS1_PPv(i64 %0, i64 %1, ptr noundef %2, ptr noundef %3) #0 comdat align 2 {
   %5 = alloca { i64, i64 }, align 8
   %6 = alloca { i64, i64 }, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca { i64, i64 }, align 8
-  %10 = getelementptr inbounds { i64, i64 }, ptr %5, i32 0, i32 0
+  %10 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 0
   store i64 %0, ptr %10, align 8
-  %11 = getelementptr inbounds { i64, i64 }, ptr %5, i32 0, i32 1
+  %11 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 1
   store i64 %1, ptr %11, align 8
   %12 = load { i64, i64 }, ptr %5, align 8
   store { i64, i64 } %12, ptr %6, align 8
@@ -3881,31 +4304,24 @@ define linkonce_odr void @_ZN9QtPrivate15FunctionPointerIM16OverlayScrollBarFvii
   %14 = load ptr, ptr %7, align 8
   %15 = load ptr, ptr %8, align 8
   store { i64, i64 } %13, ptr %9, align 8
-  %16 = getelementptr inbounds { i64, i64 }, ptr %9, i32 0, i32 0
+  %16 = getelementptr inbounds nuw { i64, i64 }, ptr %9, i32 0, i32 0
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds { i64, i64 }, ptr %9, i32 0, i32 1
+  %18 = getelementptr inbounds nuw { i64, i64 }, ptr %9, i32 0, i32 1
   %19 = load i64, ptr %18, align 8
   call void @_ZN9QtPrivate11FunctorCallINS_11IndexesListIJLi0ELi1EEEENS_4ListIJiiEEEvM16OverlayScrollBarFviiEE4callES7_PS5_PPv(i64 %17, i64 %19, ptr noundef %14, ptr noundef %15)
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN9QtPrivate15QSlotObjectBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
 define linkonce_odr void @_ZN9QtPrivate11FunctorCallINS_11IndexesListIJLi0ELi1EEEENS_4ListIJiiEEEvM16OverlayScrollBarFviiEE4callES7_PS5_PPv(i64 %0, i64 %1, ptr noundef %2, ptr noundef %3) #0 comdat align 2 {
   %5 = alloca { i64, i64 }, align 8
   %6 = alloca { i64, i64 }, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca %"struct.QtPrivate::ApplyReturnValue", align 8
-  %10 = getelementptr inbounds { i64, i64 }, ptr %5, i32 0, i32 0
+  %10 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 0
   store i64 %0, ptr %10, align 8
-  %11 = getelementptr inbounds { i64, i64 }, ptr %5, i32 0, i32 1
+  %11 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 1
   store i64 %1, ptr %11, align 8
   %12 = load { i64, i64 }, ptr %5, align 8
   store { i64, i64 } %12, ptr %6, align 8
@@ -3923,8 +4339,8 @@ define linkonce_odr void @_ZN9QtPrivate11FunctorCallINS_11IndexesListIJLi0ELi1EE
 20:                                               ; preds = %4
   %21 = load ptr, ptr %16, align 8
   %22 = sub i64 %17, 1
-  %23 = getelementptr i8, ptr %21, i64 %22, !nosanitize !6
-  %24 = load ptr, ptr %23, align 8, !nosanitize !6
+  %23 = getelementptr i8, ptr %21, i64 %22, !nosanitize !9
+  %24 = load ptr, ptr %23, align 8, !nosanitize !9
   br label %27
 
 25:                                               ; preds = %4
@@ -3941,115 +4357,115 @@ define linkonce_odr void @_ZN9QtPrivate11FunctorCallINS_11IndexesListIJLi0ELi1EE
   %34 = getelementptr ptr, ptr %33, i64 2
   %35 = load ptr, ptr %34, align 8
   %36 = load i32, ptr %35, align 4
-  call void %28(ptr noundef nonnull align 8 dereferenceable(196) %16, i32 noundef %32, i32 noundef %36)
+  call void %28(ptr noundef align 8 dereferenceable_or_null(196) %16, i32 noundef %32, i32 noundef %36)
   %37 = load ptr, ptr %8, align 8
   %38 = getelementptr ptr, ptr %37, i64 0
   %39 = load ptr, ptr %38, align 8
-  call void @_ZN9QtPrivate16ApplyReturnValueIvEC2EPv(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %39)
+  call void @_ZN9QtPrivate16ApplyReturnValueIvEC2EPv(ptr noundef align 8 dereferenceable_or_null(8) %9, ptr noundef %39)
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN9QtPrivate16ApplyReturnValueIvEC2EPv(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN9QtPrivate16ApplyReturnValueIvEC2EPv(ptr noundef align 8 dereferenceable_or_null(8) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.QtPrivate::ApplyReturnValue", ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.QtPrivate::ApplyReturnValue", ptr %5, i32 0, i32 0
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN10QAtomicIntC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) unnamed_addr #4 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN10QAtomicIntC2Ei(ptr noundef align 4 dereferenceable_or_null(4) %0, i32 noundef %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
   %6 = load i32, ptr %4, align 4
-  call void @_ZN14QAtomicIntegerIiEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef %6) #11
+  call void @_ZN14QAtomicIntegerIiEC2Ei(ptr noundef align 4 dereferenceable_or_null(4) %5, i32 noundef %6) #14
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN14QAtomicIntegerIiEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) unnamed_addr #4 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN14QAtomicIntegerIiEC2Ei(ptr noundef align 4 dereferenceable_or_null(4) %0, i32 noundef %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
   %6 = load i32, ptr %4, align 4
-  call void @_ZN19QBasicAtomicIntegerIiEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef %6) #11
+  call void @_ZN19QBasicAtomicIntegerIiEC2Ei(ptr noundef align 4 dereferenceable_or_null(4) %5, i32 noundef %6) #14
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN19QBasicAtomicIntegerIiEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) unnamed_addr #4 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN19QBasicAtomicIntegerIiEC2Ei(ptr noundef align 4 dereferenceable_or_null(4) %0, i32 noundef %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %class.QBasicAtomicInteger, ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %class.QBasicAtomicInteger, ptr %5, i32 0, i32 0
   %7 = load i32, ptr %4, align 4
-  call void @_ZNSt6atomicIiEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %6, i32 noundef %7) #11
+  call void @_ZNSt6atomicIiEC2Ei(ptr noundef align 4 dereferenceable_or_null(4) %6, i32 noundef %7) #14
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt6atomicIiEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) unnamed_addr #4 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZNSt6atomicIiEC2Ei(ptr noundef align 4 dereferenceable_or_null(4) %0, i32 noundef %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
   %6 = load i32, ptr %4, align 4
-  call void @_ZNSt13__atomic_baseIiEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef %6) #11
+  call void @_ZNSt13__atomic_baseIiEC2Ei(ptr noundef align 4 dereferenceable_or_null(4) %5, i32 noundef %6) #14
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt13__atomic_baseIiEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) unnamed_addr #4 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZNSt13__atomic_baseIiEC2Ei(ptr noundef align 4 dereferenceable_or_null(4) %0, i32 noundef %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.std::__atomic_base", ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.std::__atomic_base", ptr %5, i32 0, i32 0
   %7 = load i32, ptr %4, align 4
   store i32 %7, ptr %6, align 4
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
 define linkonce_odr noundef ptr @_ZN9QtPrivate15ConnectionTypesINS_4ListIJiEEELb1EE5typesEv() #4 comdat align 2 {
   ret ptr @_ZZN9QtPrivate15ConnectionTypesINS_4ListIJiEEELb1EE5typesEvE1t
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM15QAbstractSliderFviENS_4ListIJiEEEvEC2ES3_(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %1, i64 %2) unnamed_addr #4 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM15QAbstractSliderFviENS_4ListIJiEEEvEC2ES3_(ptr noundef align 8 dereferenceable_or_null(32) %0, i64 %1, i64 %2) unnamed_addr #4 comdat align 2 {
   %4 = alloca { i64, i64 }, align 8
   %5 = alloca ptr, align 8
   %6 = alloca { i64, i64 }, align 8
-  %7 = getelementptr inbounds { i64, i64 }, ptr %4, i32 0, i32 0
+  %7 = getelementptr inbounds nuw { i64, i64 }, ptr %4, i32 0, i32 0
   store i64 %1, ptr %7, align 8
-  %8 = getelementptr inbounds { i64, i64 }, ptr %4, i32 0, i32 1
+  %8 = getelementptr inbounds nuw { i64, i64 }, ptr %4, i32 0, i32 1
   store i64 %2, ptr %8, align 8
   %9 = load { i64, i64 }, ptr %4, align 8
   store ptr %0, ptr %5, align 8
   store { i64, i64 } %9, ptr %6, align 8
   %10 = load ptr, ptr %5, align 8
-  call void @_ZN9QtPrivate15QSlotObjectBaseC2EPFviPS0_P7QObjectPPvPbE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef @_ZN9QtPrivate11QSlotObjectIM15QAbstractSliderFviENS_4ListIJiEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb)
-  %11 = getelementptr inbounds %"class.QtPrivate::QSlotObject.26", ptr %10, i32 0, i32 1
+  call void @_ZN9QtPrivate15QSlotObjectBaseC2EPFviPS0_P7QObjectPPvPbE(ptr noundef align 8 dereferenceable_or_null(16) %10, ptr noundef @_ZN9QtPrivate11QSlotObjectIM15QAbstractSliderFviENS_4ListIJiEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb)
+  %11 = getelementptr inbounds nuw %"class.QtPrivate::QSlotObject.26", ptr %10, i32 0, i32 1
   %12 = load { i64, i64 }, ptr %6, align 8
   store { i64, i64 } %12, ptr %11, align 8
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
 define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM15QAbstractSliderFviENS_4ListIJiEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 comdat align 2 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -4076,8 +4492,8 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM15QAbstractSliderFviENS_4L
   br i1 %15, label %17, label %16
 
 16:                                               ; preds = %13
-  call void @_ZN9QtPrivate11QSlotObjectIM15QAbstractSliderFviENS_4ListIJiEEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #11
-  call void @_ZdlPv(ptr noundef %14) #13
+  call void @_ZN9QtPrivate15QSlotObjectBaseD2Ev(ptr noundef align 8 dereferenceable_or_null(32) %14) #14
+  call void @_ZdlPvm(ptr noundef %14, i64 noundef 32) #16
   br label %17
 
 17:                                               ; preds = %16, %13
@@ -4085,14 +4501,14 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM15QAbstractSliderFviENS_4L
 
 18:                                               ; preds = %5
   %19 = load ptr, ptr %7, align 8
-  %20 = getelementptr inbounds %"class.QtPrivate::QSlotObject.26", ptr %19, i32 0, i32 1
+  %20 = getelementptr inbounds nuw %"class.QtPrivate::QSlotObject.26", ptr %19, i32 0, i32 1
   %21 = load { i64, i64 }, ptr %20, align 8
   %22 = load ptr, ptr %8, align 8
   %23 = load ptr, ptr %9, align 8
   store { i64, i64 } %21, ptr %11, align 8
-  %24 = getelementptr inbounds { i64, i64 }, ptr %11, i32 0, i32 0
+  %24 = getelementptr inbounds nuw { i64, i64 }, ptr %11, i32 0, i32 0
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds { i64, i64 }, ptr %11, i32 0, i32 1
+  %26 = getelementptr inbounds nuw { i64, i64 }, ptr %11, i32 0, i32 1
   %27 = load i64, ptr %26, align 8
   call void @_ZN9QtPrivate15FunctionPointerIM15QAbstractSliderFviEE4callINS_4ListIJiEEEvEEvS3_PS1_PPv(i64 %25, i64 %27, ptr noundef %22, ptr noundef %23)
   br label %46
@@ -4101,7 +4517,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM15QAbstractSliderFviENS_4L
   %29 = load ptr, ptr %9, align 8
   %30 = load { i64, i64 }, ptr %29, align 8
   %31 = load ptr, ptr %7, align 8
-  %32 = getelementptr inbounds %"class.QtPrivate::QSlotObject.26", ptr %31, i32 0, i32 1
+  %32 = getelementptr inbounds nuw %"class.QtPrivate::QSlotObject.26", ptr %31, i32 0, i32 1
   %33 = load { i64, i64 }, ptr %32, align 8
   %34 = extractvalue { i64, i64 } %30, 0
   %35 = extractvalue { i64, i64 } %33, 0
@@ -4120,29 +4536,27 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM15QAbstractSliderFviENS_4L
 45:                                               ; preds = %5
   br label %46
 
-46:                                               ; preds = %45, %28, %18, %17, %5
+46:                                               ; preds = %45, %5, %28, %18, %17
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM15QAbstractSliderFviENS_4ListIJiEEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN9QtPrivate15QSlotObjectBaseD2Ev(ptr noundef align 8 dereferenceable_or_null(16) %0) unnamed_addr #4 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN9QtPrivate15QSlotObjectBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #11
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
 define linkonce_odr void @_ZN9QtPrivate15FunctionPointerIM15QAbstractSliderFviEE4callINS_4ListIJiEEEvEEvS3_PS1_PPv(i64 %0, i64 %1, ptr noundef %2, ptr noundef %3) #0 comdat align 2 {
   %5 = alloca { i64, i64 }, align 8
   %6 = alloca { i64, i64 }, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca { i64, i64 }, align 8
-  %10 = getelementptr inbounds { i64, i64 }, ptr %5, i32 0, i32 0
+  %10 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 0
   store i64 %0, ptr %10, align 8
-  %11 = getelementptr inbounds { i64, i64 }, ptr %5, i32 0, i32 1
+  %11 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 1
   store i64 %1, ptr %11, align 8
   %12 = load { i64, i64 }, ptr %5, align 8
   store { i64, i64 } %12, ptr %6, align 8
@@ -4152,24 +4566,24 @@ define linkonce_odr void @_ZN9QtPrivate15FunctionPointerIM15QAbstractSliderFviEE
   %14 = load ptr, ptr %7, align 8
   %15 = load ptr, ptr %8, align 8
   store { i64, i64 } %13, ptr %9, align 8
-  %16 = getelementptr inbounds { i64, i64 }, ptr %9, i32 0, i32 0
+  %16 = getelementptr inbounds nuw { i64, i64 }, ptr %9, i32 0, i32 0
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds { i64, i64 }, ptr %9, i32 0, i32 1
+  %18 = getelementptr inbounds nuw { i64, i64 }, ptr %9, i32 0, i32 1
   %19 = load i64, ptr %18, align 8
   call void @_ZN9QtPrivate11FunctorCallINS_11IndexesListIJLi0EEEENS_4ListIJiEEEvM15QAbstractSliderFviEE4callES7_PS5_PPv(i64 %17, i64 %19, ptr noundef %14, ptr noundef %15)
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
 define linkonce_odr void @_ZN9QtPrivate11FunctorCallINS_11IndexesListIJLi0EEEENS_4ListIJiEEEvM15QAbstractSliderFviEE4callES7_PS5_PPv(i64 %0, i64 %1, ptr noundef %2, ptr noundef %3) #0 comdat align 2 {
   %5 = alloca { i64, i64 }, align 8
   %6 = alloca { i64, i64 }, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca %"struct.QtPrivate::ApplyReturnValue", align 8
-  %10 = getelementptr inbounds { i64, i64 }, ptr %5, i32 0, i32 0
+  %10 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 0
   store i64 %0, ptr %10, align 8
-  %11 = getelementptr inbounds { i64, i64 }, ptr %5, i32 0, i32 1
+  %11 = getelementptr inbounds nuw { i64, i64 }, ptr %5, i32 0, i32 1
   store i64 %1, ptr %11, align 8
   %12 = load { i64, i64 }, ptr %5, align 8
   store { i64, i64 } %12, ptr %6, align 8
@@ -4187,8 +4601,8 @@ define linkonce_odr void @_ZN9QtPrivate11FunctorCallINS_11IndexesListIJLi0EEEENS
 20:                                               ; preds = %4
   %21 = load ptr, ptr %16, align 8
   %22 = sub i64 %17, 1
-  %23 = getelementptr i8, ptr %21, i64 %22, !nosanitize !6
-  %24 = load ptr, ptr %23, align 8, !nosanitize !6
+  %23 = getelementptr i8, ptr %21, i64 %22, !nosanitize !9
+  %24 = load ptr, ptr %23, align 8, !nosanitize !9
   br label %27
 
 25:                                               ; preds = %4
@@ -4201,104 +4615,104 @@ define linkonce_odr void @_ZN9QtPrivate11FunctorCallINS_11IndexesListIJLi0EEEENS
   %30 = getelementptr ptr, ptr %29, i64 1
   %31 = load ptr, ptr %30, align 8
   %32 = load i32, ptr %31, align 4
-  call void %28(ptr noundef nonnull align 8 dereferenceable(40) %16, i32 noundef %32)
+  call void %28(ptr noundef align 8 dereferenceable_or_null(40) %16, i32 noundef %32)
   %33 = load ptr, ptr %8, align 8
   %34 = getelementptr ptr, ptr %33, i64 0
   %35 = load ptr, ptr %34, align 8
-  call void @_ZN9QtPrivate16ApplyReturnValueIvEC2EPv(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %35)
+  call void @_ZN9QtPrivate16ApplyReturnValueIvEC2EPv(ptr noundef align 8 dereferenceable_or_null(8) %9, ptr noundef %35)
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZNK5QListIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef i64 @_ZNK5QListIiE4sizeEv(ptr noundef align 8 dereferenceable_or_null(24) %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %class.QList, ptr %3, i32 0, i32 0
-  %5 = call noundef ptr @_ZNK17QArrayDataPointerIiEptEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #11
-  %6 = getelementptr inbounds %struct.QArrayDataPointer, ptr %5, i32 0, i32 2
+  %4 = getelementptr inbounds nuw %class.QList, ptr %3, i32 0, i32 0
+  %5 = call noundef ptr @_ZNK17QArrayDataPointerIiEptEv(ptr noundef align 8 dereferenceable_or_null(24) %4) #14
+  %6 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %5, i32 0, i32 2
   %7 = load i64, ptr %6, align 8
   ret i64 %7
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZNK17QArrayDataPointerIiEptEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef ptr @_ZNK17QArrayDataPointerIiEptEv(ptr noundef align 8 dereferenceable_or_null(24) %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN9QtPrivate26warnIfContainerIsNotSharedI5QListIiEvEEvi(i32 noundef %0) #4 comdat {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN9QtPrivate26warnIfContainerIsNotSharedI5QListIiEvEEvi(i32 noundef %0) #9 comdat {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN9QtPrivate17QForeachContainerI5QListIiEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #4 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN9QtPrivate17QForeachContainerI5QListIiEEC2ERKS2_(ptr noundef align 8 dereferenceable_or_null(44) %0, ptr noundef align 8 dereferenceable(24) %1) unnamed_addr #4 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.QtPrivate::QForeachContainer", ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"class.QtPrivate::QForeachContainer", ptr %5, i32 0, i32 0
   %7 = load ptr, ptr %4, align 8
-  call void @_ZN5QListIiEC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7) #11
-  %8 = getelementptr inbounds %"class.QtPrivate::QForeachContainer", ptr %5, i32 0, i32 1
-  %9 = getelementptr inbounds %"class.QtPrivate::QForeachContainer", ptr %5, i32 0, i32 0
-  %10 = call noundef nonnull align 8 dereferenceable(24) ptr @_Z8qAsConstI5QListIiEERNSt9add_constIT_E4typeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %9) #11
-  %11 = call ptr @_ZNK5QListIiE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #11
-  %12 = getelementptr inbounds %"class.QList<int>::const_iterator", ptr %8, i32 0, i32 0
+  call void @_ZN5QListIiEC2ERKS0_(ptr noundef align 8 dereferenceable_or_null(24) %6, ptr noundef align 8 dereferenceable(24) %7) #14
+  %8 = getelementptr inbounds nuw %"class.QtPrivate::QForeachContainer", ptr %5, i32 0, i32 1
+  %9 = getelementptr inbounds nuw %"class.QtPrivate::QForeachContainer", ptr %5, i32 0, i32 0
+  %10 = call noundef align 8 dereferenceable(24) ptr @_Z8qAsConstI5QListIiEERNSt9add_constIT_E4typeERS3_(ptr noundef align 8 dereferenceable(24) %9) #14
+  %11 = call ptr @_ZNK5QListIiE5beginEv(ptr noundef align 8 dereferenceable_or_null(24) %10) #14
+  %12 = getelementptr inbounds nuw %"class.QList<int>::const_iterator", ptr %8, i32 0, i32 0
   store ptr %11, ptr %12, align 8
-  %13 = getelementptr inbounds %"class.QtPrivate::QForeachContainer", ptr %5, i32 0, i32 2
-  %14 = getelementptr inbounds %"class.QtPrivate::QForeachContainer", ptr %5, i32 0, i32 0
-  %15 = call noundef nonnull align 8 dereferenceable(24) ptr @_Z8qAsConstI5QListIiEERNSt9add_constIT_E4typeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %14) #11
-  %16 = call ptr @_ZNK5QListIiE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #11
-  %17 = getelementptr inbounds %"class.QList<int>::const_iterator", ptr %13, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %"class.QtPrivate::QForeachContainer", ptr %5, i32 0, i32 2
+  %14 = getelementptr inbounds nuw %"class.QtPrivate::QForeachContainer", ptr %5, i32 0, i32 0
+  %15 = call noundef align 8 dereferenceable(24) ptr @_Z8qAsConstI5QListIiEERNSt9add_constIT_E4typeERS3_(ptr noundef align 8 dereferenceable(24) %14) #14
+  %16 = call ptr @_ZNK5QListIiE3endEv(ptr noundef align 8 dereferenceable_or_null(24) %15) #14
+  %17 = getelementptr inbounds nuw %"class.QList<int>::const_iterator", ptr %13, i32 0, i32 0
   store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds %"class.QtPrivate::QForeachContainer", ptr %5, i32 0, i32 3
+  %18 = getelementptr inbounds nuw %"class.QtPrivate::QForeachContainer", ptr %5, i32 0, i32 3
   store i32 1, ptr %18, align 8
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5QListIiEC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN5QListIiEC2ERKS0_(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef align 8 dereferenceable(24) %1) unnamed_addr #9 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %class.QList, ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %class.QList, ptr %5, i32 0, i32 0
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %class.QList, ptr %7, i32 0, i32 0
-  call void @_ZN17QArrayDataPointerIiEC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8) #11
+  %8 = getelementptr inbounds nuw %class.QList, ptr %7, i32 0, i32 0
+  call void @_ZN17QArrayDataPointerIiEC2ERKS0_(ptr noundef align 8 dereferenceable_or_null(24) %6, ptr noundef align 8 dereferenceable(24) %8) #14
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_Z8qAsConstI5QListIiEERNSt9add_constIT_E4typeERS3_(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef align 8 dereferenceable(24) ptr @_Z8qAsConstI5QListIiEERNSt9add_constIT_E4typeERS3_(ptr noundef align 8 dereferenceable(24) %0) #4 comdat {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr ptr @_ZNK5QListIiE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr ptr @_ZNK5QListIiE5beginEv(ptr noundef align 8 dereferenceable_or_null(24) %0) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.QList<int>::const_iterator", align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %class.QList, ptr %4, i32 0, i32 0
-  %6 = call noundef ptr @_ZNK17QArrayDataPointerIiEptEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
-  %7 = call noundef ptr @_ZNK17QArrayDataPointerIiE10constBeginEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #11
-  invoke void @_ZN5QListIiE14const_iteratorC2EPKi(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %7)
+  %5 = getelementptr inbounds nuw %class.QList, ptr %4, i32 0, i32 0
+  %6 = call noundef ptr @_ZNK17QArrayDataPointerIiEptEv(ptr noundef align 8 dereferenceable_or_null(24) %5) #14
+  %7 = call noundef ptr @_ZNK17QArrayDataPointerIiE10constBeginEv(ptr noundef align 8 dereferenceable_or_null(24) %6) #14
+  invoke void @_ZN5QListIiE14const_iteratorC2EPKi(ptr noundef align 8 dereferenceable_or_null(8) %2, ptr noundef %7)
           to label %8 unwind label %11
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds %"class.QList<int>::const_iterator", ptr %2, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %"class.QList<int>::const_iterator", ptr %2, i32 0, i32 0
   %10 = load ptr, ptr %9, align 8
   ret ptr %10
 
@@ -4306,24 +4720,24 @@ define linkonce_odr ptr @_ZNK5QListIiE5beginEv(ptr noundef nonnull align 8 deref
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #14
+  call void @__clang_call_terminate(ptr %13) #17
   unreachable
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr ptr @_ZNK5QListIiE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr ptr @_ZNK5QListIiE3endEv(ptr noundef align 8 dereferenceable_or_null(24) %0) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.QList<int>::const_iterator", align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %class.QList, ptr %4, i32 0, i32 0
-  %6 = call noundef ptr @_ZNK17QArrayDataPointerIiEptEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
-  %7 = call noundef ptr @_ZNK17QArrayDataPointerIiE8constEndEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #11
-  invoke void @_ZN5QListIiE14const_iteratorC2EPKi(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %7)
+  %5 = getelementptr inbounds nuw %class.QList, ptr %4, i32 0, i32 0
+  %6 = call noundef ptr @_ZNK17QArrayDataPointerIiEptEv(ptr noundef align 8 dereferenceable_or_null(24) %5) #14
+  %7 = call noundef ptr @_ZNK17QArrayDataPointerIiE8constEndEv(ptr noundef align 8 dereferenceable_or_null(24) %6) #14
+  invoke void @_ZN5QListIiE14const_iteratorC2EPKi(ptr noundef align 8 dereferenceable_or_null(8) %2, ptr noundef %7)
           to label %8 unwind label %11
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds %"class.QList<int>::const_iterator", ptr %2, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %"class.QList<int>::const_iterator", ptr %2, i32 0, i32 0
   %10 = load ptr, ptr %9, align 8
   ret ptr %10
 
@@ -4331,76 +4745,82 @@ define linkonce_odr ptr @_ZNK5QListIiE3endEv(ptr noundef nonnull align 8 derefer
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #14
+  call void @__clang_call_terminate(ptr %13) #17
   unreachable
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZNK17QArrayDataPointerIiE10constBeginEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef ptr @_ZNK17QArrayDataPointerIiE10constBeginEv(ptr noundef align 8 dereferenceable_or_null(24) %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef ptr @_ZNK17QArrayDataPointerIiE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #11
+  %4 = call noundef ptr @_ZNK17QArrayDataPointerIiE4dataEv(ptr noundef align 8 dereferenceable_or_null(24) %3) #14
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5QListIiE14const_iteratorC2EPKi(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN5QListIiE14const_iteratorC2EPKi(ptr noundef align 8 dereferenceable_or_null(8) %0, ptr noundef %1) unnamed_addr #9 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"class.QList<int>::const_iterator", ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"class.QList<int>::const_iterator", ptr %5, i32 0, i32 0
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZNK17QArrayDataPointerIiE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef ptr @_ZNK17QArrayDataPointerIiE4dataEv(ptr noundef align 8 dereferenceable_or_null(24) %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.QArrayDataPointer, ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %3, i32 0, i32 1
   %5 = load ptr, ptr %4, align 8
   ret ptr %5
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZNK17QArrayDataPointerIiE8constEndEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef ptr @_ZNK17QArrayDataPointerIiE8constEndEv(ptr noundef align 8 dereferenceable_or_null(24) %0) #4 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef ptr @_ZNK17QArrayDataPointerIiE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #11
-  %5 = getelementptr inbounds %struct.QArrayDataPointer, ptr %3, i32 0, i32 2
+  %4 = call noundef ptr @_ZNK17QArrayDataPointerIiE4dataEv(ptr noundef align 8 dereferenceable_or_null(24) %3) #14
+  %5 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %3, i32 0, i32 2
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr i32, ptr %4, i64 %6
   ret ptr %7
 }
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nounwind }
-attributes #12 = { builtin allocsize(0) }
-attributes #13 = { builtin nounwind }
-attributes #14 = { noreturn nounwind }
+attributes #4 = { mustprogress nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nobuiltin null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { inlinehint mustprogress null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nobuiltin nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { noinline noreturn nounwind null_pointer_is_valid sspstrong uwtable "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nounwind }
+attributes #15 = { builtin allocsize(0) }
+attributes #16 = { builtin nounwind }
+attributes #17 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = !{}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = !{i8 0, i8 2}
+!9 = !{}

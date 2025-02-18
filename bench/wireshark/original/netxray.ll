@@ -1,14 +1,13 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.file_type_subtype_info = type { ptr, ptr, ptr, ptr, i32, i64, ptr, ptr, ptr, ptr }
 %struct.supported_block_type = type { i32, i32, i64, ptr }
 %struct.anon.3 = type { i32, i32 }
 %struct.anon.4 = type { i32, i32 }
 %struct.netxray_hdr = type { [8 x i8], i32, i32, i32, i32, i32, i32, i32, i32, i8, i8, [2 x i8], i8, [3 x i8], i32, i32, i32, [12 x i8], [4 x i8], [4 x i8], i8, [3 x i8], [4 x i8], i8, [3 x i8], [16 x i8], [14 x i8], i16 }
-%struct.wtap = type { ptr, ptr, i32, i32, i32, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr }
-%struct.netxray_t = type { i64, double, double, i32, i32, i64, i64, i32, i32, i32 }
-%struct.wtap_rec = type { i32, i32, i32, %struct.nstime_t, i32, %struct.nstime_t, i32, %union.anon, ptr, i32, %struct.Buffer }
+%struct.wtap = type { ptr, ptr, i8, i32, i32, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr }
+%struct.netxray_t = type { i64, double, double, i8, i32, i64, i64, i32, i8, i32 }
+%struct.wtap_rec = type { i32, i32, i32, %struct.nstime_t, i32, %struct.nstime_t, i8, %union.anon, ptr, i8, %struct.Buffer, %struct.Buffer }
 %struct.nstime_t = type { i64, i32 }
 %union.anon = type { %struct.wtap_packet_header }
 %struct.wtap_packet_header = type { i32, i32, i32, i32, %union.wtap_pseudo_header }
@@ -22,16 +21,17 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.netxrayrec_2_x_hdr = type { i32, i32, i16, i16, [28 x i8] }
 %struct.eth_phdr = type { i32 }
 %struct.ieee_802_11_phdr = type { i32, i8, i32, %union.ieee_802_11_phy_info, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i64, i32, i32, i8 }
-%union.ieee_802_11_phy_info = type { %struct.ieee_802_11n }
-%struct.ieee_802_11n = type { i8, i16, i32, i8, i32 }
-%struct.isdn_phdr = type { i32, i8 }
+%union.ieee_802_11_phy_info = type { %struct.ieee_802_11be }
+%struct.ieee_802_11be = type { i8, i8, i8, i8, [4 x %struct.ieee_802_11be_user_info] }
+%struct.ieee_802_11be_user_info = type { i32 }
+%struct.isdn_phdr = type { i8, i8 }
 %struct.dte_dce_phdr = type { i8 }
-%struct.p2p_phdr = type { i32 }
+%struct.p2p_phdr = type { i8 }
 %struct.atm_phdr = type { i32, i8, i8, i8, i16, i16, i8, i16, i16, i16, i16, i32 }
 %struct.old_netxrayrec_hdr = type { i32, i32, i16, [6 x i8] }
 %struct.netxrayrec_1_x_hdr = type { i32, i32, i16, i16, [16 x i8] }
-%struct.wtap_dumper = type { ptr, i32, i32, i32, i32, i32, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32 }
-%struct.netxray_dump_t = type { i32, i32, i32 }
+%struct.wtap_dumper = type { ptr, i32, i32, i32, i32, i8, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32 }
+%struct.netxray_dump_t = type { i8, i32, i32 }
 
 @netxray_open.netxray_encap = internal constant [12 x i32] [i32 0, i32 1, i32 2, i32 6, i32 1, i32 0, i32 0, i32 0, i32 0, i32 14, i32 22, i32 0], align 16
 @netxray_magic = internal constant [4 x i8] c"XCP\00", align 1
@@ -64,10 +64,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.10 = private unnamed_addr constant [60 x i8] c"netxray: Unknown timeunit %u for %u/%u version %.8s capture\00", align 1
 @.str.11 = private unnamed_addr constant [67 x i8] c"netxray: WAN HDLC capture subsubtype 0x%02x unknown or unsupported\00", align 1
 @.str.12 = private unnamed_addr constant [59 x i8] c"netxray: WAN capture subtype 0x%02x unknown or unsupported\00", align 1
-@netxray_old_info = internal constant %struct.file_type_subtype_info { ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr null, i32 1, i64 1, ptr @netxray_old_blocks_supported, ptr null, ptr null, ptr null }, align 8
-@netxray_1_0_info = internal constant %struct.file_type_subtype_info { ptr @.str.20, ptr @.str.21, ptr @.str.19, ptr null, i32 1, i64 1, ptr @netxray_1_0_blocks_supported, ptr null, ptr null, ptr null }, align 8
-@netxray_1_1_info = internal constant %struct.file_type_subtype_info { ptr @.str.22, ptr @.str.23, ptr @.str.19, ptr null, i32 1, i64 1, ptr @netxray_1_1_blocks_supported, ptr @netxray_dump_can_write_encap_1_1, ptr @netxray_dump_open_1_1, ptr null }, align 8
-@netxray_2_00x_info = internal constant %struct.file_type_subtype_info { ptr @.str.24, ptr @.str.25, ptr @.str.19, ptr @.str.26, i32 1, i64 1, ptr @netxray_2_00x_blocks_supported, ptr @netxray_dump_can_write_encap_2_0, ptr @netxray_dump_open_2_0, ptr null }, align 8
 @.str.13 = private unnamed_addr constant [12 x i8] c"NETXRAY_OLD\00", align 1
 @.str.14 = private unnamed_addr constant [12 x i8] c"NETXRAY_1_0\00", align 1
 @.str.15 = private unnamed_addr constant [12 x i8] c"NETXRAY_1_1\00", align 1
@@ -76,27 +72,31 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.18 = private unnamed_addr constant [9 x i8] c"netxray1\00", align 1
 @.str.19 = private unnamed_addr constant [4 x i8] c"cap\00", align 1
 @netxray_old_blocks_supported = internal constant [1 x %struct.supported_block_type] [%struct.supported_block_type { i32 5, i32 2, i64 0, ptr null }], align 16
-@.str.20 = private unnamed_addr constant [36 x i8] c"Cinco Networks NetXRay 2.0 or later\00", align 1
-@.str.21 = private unnamed_addr constant [9 x i8] c"netxray2\00", align 1
+@netxray_old_info = internal constant { ptr, ptr, ptr, ptr, i8, [7 x i8], i64, ptr, ptr, ptr, ptr } { ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr null, i8 1, [7 x i8] zeroinitializer, i64 1, ptr @netxray_old_blocks_supported, ptr null, ptr null, ptr null }, align 8
+@.str.21 = private unnamed_addr constant [36 x i8] c"Cinco Networks NetXRay 2.0 or later\00", align 1
+@.str.22 = private unnamed_addr constant [9 x i8] c"netxray2\00", align 1
 @netxray_1_0_blocks_supported = internal constant [1 x %struct.supported_block_type] [%struct.supported_block_type { i32 5, i32 2, i64 0, ptr null }], align 16
-@.str.22 = private unnamed_addr constant [31 x i8] c"NetXray, Sniffer (Windows) 1.1\00", align 1
-@.str.23 = private unnamed_addr constant [15 x i8] c"ngwsniffer_1_1\00", align 1
+@netxray_1_0_info = internal constant { ptr, ptr, ptr, ptr, i8, [7 x i8], i64, ptr, ptr, ptr, ptr } { ptr @.str.21, ptr @.str.22, ptr @.str.19, ptr null, i8 1, [7 x i8] zeroinitializer, i64 1, ptr @netxray_1_0_blocks_supported, ptr null, ptr null, ptr null }, align 8
+@.str.24 = private unnamed_addr constant [31 x i8] c"NetXray, Sniffer (Windows) 1.1\00", align 1
+@.str.25 = private unnamed_addr constant [15 x i8] c"ngwsniffer_1_1\00", align 1
 @netxray_1_1_blocks_supported = internal constant [1 x %struct.supported_block_type] [%struct.supported_block_type { i32 5, i32 2, i64 0, ptr null }], align 16
+@netxray_1_1_info = internal constant { ptr, ptr, ptr, ptr, i8, [7 x i8], i64, ptr, ptr, ptr, ptr } { ptr @.str.24, ptr @.str.25, ptr @.str.19, ptr null, i8 1, [7 x i8] zeroinitializer, i64 1, ptr @netxray_1_1_blocks_supported, ptr @netxray_dump_can_write_encap_1_1, ptr @netxray_dump_open_1_1, ptr null }, align 8
 @wtap_encap_1_1 = internal constant [4 x %struct.anon.3] [%struct.anon.3 { i32 1, i32 0 }, %struct.anon.3 { i32 2, i32 1 }, %struct.anon.3 { i32 5, i32 2 }, %struct.anon.3 { i32 6, i32 2 }], align 16
-@.str.24 = private unnamed_addr constant [24 x i8] c"Sniffer (Windows) 2.00x\00", align 1
-@.str.25 = private unnamed_addr constant [15 x i8] c"ngwsniffer_2_0\00", align 1
-@.str.26 = private unnamed_addr constant [4 x i8] c"caz\00", align 1
+@.str.27 = private unnamed_addr constant [24 x i8] c"Sniffer (Windows) 2.00x\00", align 1
+@.str.28 = private unnamed_addr constant [15 x i8] c"ngwsniffer_2_0\00", align 1
+@.str.29 = private unnamed_addr constant [4 x i8] c"caz\00", align 1
 @netxray_2_00x_blocks_supported = internal constant [1 x %struct.supported_block_type] [%struct.supported_block_type { i32 5, i32 2, i64 0, ptr null }], align 16
+@netxray_2_00x_info = internal constant { ptr, ptr, ptr, ptr, i8, [7 x i8], i64, ptr, ptr, ptr, ptr } { ptr @.str.27, ptr @.str.28, ptr @.str.19, ptr @.str.29, i8 1, [7 x i8] zeroinitializer, i64 1, ptr @netxray_2_00x_blocks_supported, ptr @netxray_dump_can_write_encap_2_0, ptr @netxray_dump_open_2_0, ptr null }, align 8
 @wtap_encap_2_0 = internal constant [8 x %struct.anon.4] [%struct.anon.4 { i32 1, i32 0 }, %struct.anon.4 { i32 2, i32 1 }, %struct.anon.4 { i32 5, i32 2 }, %struct.anon.4 { i32 6, i32 2 }, %struct.anon.4 { i32 19, i32 3 }, %struct.anon.4 { i32 27, i32 3 }, %struct.anon.4 { i32 12, i32 3 }, %struct.anon.4 { i32 36, i32 3 }], align 16
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @netxray_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca [4 x i8], align 1
-  %9 = alloca i32, align 4
+  %9 = alloca i8, align 1
   %10 = alloca %struct.netxray_hdr, align 4
   %11 = alloca i32, align 4
   %12 = alloca double, align 8
@@ -107,951 +107,1059 @@ define hidden i32 @netxray_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %17 = alloca i32, align 4
   %18 = alloca i32, align 4
   %19 = alloca ptr, align 8
+  %20 = alloca i32, align 4
+  %21 = alloca i64, align 8
+  %22 = alloca i64, align 8
+  %23 = alloca ptr, align 8
+  %24 = alloca ptr, align 8
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #12
+  call void @llvm.lifetime.start.p0(i64 124, ptr %10) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #12
   store i32 0, ptr %18, align 4
-  %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds %struct.wtap, ptr %20, i32 0, i32 0
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds [4 x i8], ptr %8, i64 0, i64 0
-  %24 = load ptr, ptr %6, align 8
-  %25 = load ptr, ptr %7, align 8
-  %26 = call i32 @wtap_read_bytes(ptr noundef %22, ptr noundef %23, i32 noundef 4, ptr noundef %24, ptr noundef %25)
-  %27 = icmp ne i32 %26, 0
-  br i1 %27, label %34, label %28
-
-28:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #12
+  %25 = load ptr, ptr %5, align 8
+  %26 = getelementptr inbounds nuw %struct.wtap, ptr %25, i32 0, i32 0
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds [4 x i8], ptr %8, i64 0, i64 0
   %29 = load ptr, ptr %6, align 8
-  %30 = load i32, ptr %29, align 4
-  %31 = icmp ne i32 %30, -12
-  br i1 %31, label %32, label %33
+  %30 = load ptr, ptr %7, align 8
+  %31 = call zeroext i1 @wtap_read_bytes(ptr noundef %27, ptr noundef %28, i32 noundef 4, ptr noundef %29, ptr noundef %30)
+  br i1 %31, label %38, label %32
 
-32:                                               ; preds = %28
+32:                                               ; preds = %3
+  %33 = load ptr, ptr %6, align 8
+  %34 = load i32, ptr %33, align 4
+  %35 = icmp ne i32 %34, -12
+  br i1 %35, label %36, label %37
+
+36:                                               ; preds = %32
   store i32 -1, ptr %4, align 4
-  br label %546
+  store i32 1, ptr %20, align 4
+  br label %577
 
-33:                                               ; preds = %28
+37:                                               ; preds = %32
   store i32 0, ptr %4, align 4
-  br label %546
+  store i32 1, ptr %20, align 4
+  br label %577
 
-34:                                               ; preds = %3
-  %35 = getelementptr inbounds [4 x i8], ptr %8, i64 0, i64 0
-  %36 = call i32 @memcmp(ptr noundef %35, ptr noundef @netxray_magic, i64 noundef 4) #7
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %39
+38:                                               ; preds = %3
+  %39 = getelementptr inbounds [4 x i8], ptr %8, i64 0, i64 0
+  %40 = call i32 @memcmp(ptr noundef %39, ptr noundef @netxray_magic, i64 noundef 4) #13
+  %41 = icmp eq i32 %40, 0
+  br i1 %41, label %42, label %43
 
-38:                                               ; preds = %34
-  store i32 0, ptr %9, align 4
-  br label %46
+42:                                               ; preds = %38
+  store i8 0, ptr %9, align 1
+  br label %50
 
-39:                                               ; preds = %34
-  %40 = getelementptr inbounds [4 x i8], ptr %8, i64 0, i64 0
-  %41 = call i32 @memcmp(ptr noundef %40, ptr noundef @old_netxray_magic, i64 noundef 4) #7
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %43, label %44
+43:                                               ; preds = %38
+  %44 = getelementptr inbounds [4 x i8], ptr %8, i64 0, i64 0
+  %45 = call i32 @memcmp(ptr noundef %44, ptr noundef @old_netxray_magic, i64 noundef 4) #13
+  %46 = icmp eq i32 %45, 0
+  br i1 %46, label %47, label %48
 
-43:                                               ; preds = %39
-  store i32 1, ptr %9, align 4
-  br label %45
+47:                                               ; preds = %43
+  store i8 1, ptr %9, align 1
+  br label %49
 
-44:                                               ; preds = %39
+48:                                               ; preds = %43
   store i32 0, ptr %4, align 4
-  br label %546
+  store i32 1, ptr %20, align 4
+  br label %577
 
-45:                                               ; preds = %43
-  br label %46
+49:                                               ; preds = %47
+  br label %50
 
-46:                                               ; preds = %45, %38
-  %47 = load ptr, ptr %5, align 8
-  %48 = getelementptr inbounds %struct.wtap, ptr %47, i32 0, i32 0
-  %49 = load ptr, ptr %48, align 8
-  %50 = load ptr, ptr %6, align 8
-  %51 = load ptr, ptr %7, align 8
-  %52 = call i32 @wtap_read_bytes(ptr noundef %49, ptr noundef %10, i32 noundef 124, ptr noundef %50, ptr noundef %51)
-  %53 = icmp ne i32 %52, 0
-  br i1 %53, label %55, label %54
+50:                                               ; preds = %49, %42
+  %51 = load ptr, ptr %5, align 8
+  %52 = getelementptr inbounds nuw %struct.wtap, ptr %51, i32 0, i32 0
+  %53 = load ptr, ptr %52, align 8
+  %54 = load ptr, ptr %6, align 8
+  %55 = load ptr, ptr %7, align 8
+  %56 = call zeroext i1 @wtap_read_bytes(ptr noundef %53, ptr noundef %10, i32 noundef 124, ptr noundef %54, ptr noundef %55)
+  br i1 %56, label %58, label %57
 
-54:                                               ; preds = %46
+57:                                               ; preds = %50
   store i32 -1, ptr %4, align 4
-  br label %546
+  store i32 1, ptr %20, align 4
+  br label %577
 
-55:                                               ; preds = %46
-  %56 = load i32, ptr %9, align 4
-  %57 = icmp ne i32 %56, 0
-  br i1 %57, label %58, label %60
+58:                                               ; preds = %50
+  %59 = load i8, ptr %9, align 1, !range !6, !noundef !7
+  %60 = trunc i8 %59 to i1
+  br i1 %60, label %61, label %63
 
-58:                                               ; preds = %55
+61:                                               ; preds = %58
   store i32 0, ptr %13, align 4
   store i32 0, ptr %14, align 4
-  %59 = load i32, ptr @netxray_old_file_type_subtype, align 4
-  store i32 %59, ptr %15, align 4
+  %62 = load i32, ptr @netxray_old_file_type_subtype, align 4
+  store i32 %62, ptr %15, align 4
+  br label %117
+
+63:                                               ; preds = %58
+  %64 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 0
+  %65 = getelementptr inbounds [8 x i8], ptr %64, i64 0, i64 0
+  %66 = call i32 @memcmp(ptr noundef %65, ptr noundef @vers_1_0, i64 noundef 8) #13
+  %67 = icmp eq i32 %66, 0
+  br i1 %67, label %68, label %70
+
+68:                                               ; preds = %63
+  store i32 1, ptr %13, align 4
+  store i32 0, ptr %14, align 4
+  %69 = load i32, ptr @netxray_1_0_file_type_subtype, align 4
+  store i32 %69, ptr %15, align 4
+  br label %116
+
+70:                                               ; preds = %63
+  %71 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 0
+  %72 = getelementptr inbounds [8 x i8], ptr %71, i64 0, i64 0
+  %73 = call i32 @memcmp(ptr noundef %72, ptr noundef @vers_1_1, i64 noundef 8) #13
+  %74 = icmp eq i32 %73, 0
+  br i1 %74, label %75, label %77
+
+75:                                               ; preds = %70
+  store i32 1, ptr %13, align 4
+  store i32 1, ptr %14, align 4
+  %76 = load i32, ptr @netxray_1_1_file_type_subtype, align 4
+  store i32 %76, ptr %15, align 4
+  br label %115
+
+77:                                               ; preds = %70
+  %78 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 0
+  %79 = getelementptr inbounds [8 x i8], ptr %78, i64 0, i64 0
+  %80 = call i32 @memcmp(ptr noundef %79, ptr noundef @vers_2_000, i64 noundef 8) #13
+  %81 = icmp eq i32 %80, 0
+  br i1 %81, label %82, label %84
+
+82:                                               ; preds = %77
+  store i32 2, ptr %13, align 4
+  store i32 0, ptr %14, align 4
+  %83 = load i32, ptr @netxray_2_00x_file_type_subtype, align 4
+  store i32 %83, ptr %15, align 4
   br label %114
 
-60:                                               ; preds = %55
-  %61 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 0
-  %62 = getelementptr inbounds [8 x i8], ptr %61, i64 0, i64 0
-  %63 = call i32 @memcmp(ptr noundef %62, ptr noundef @vers_1_0, i64 noundef 8) #7
-  %64 = icmp eq i32 %63, 0
-  br i1 %64, label %65, label %67
+84:                                               ; preds = %77
+  %85 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 0
+  %86 = getelementptr inbounds [8 x i8], ptr %85, i64 0, i64 0
+  %87 = call i32 @memcmp(ptr noundef %86, ptr noundef @vers_2_001, i64 noundef 8) #13
+  %88 = icmp eq i32 %87, 0
+  br i1 %88, label %89, label %91
 
-65:                                               ; preds = %60
-  store i32 1, ptr %13, align 4
-  store i32 0, ptr %14, align 4
-  %66 = load i32, ptr @netxray_1_0_file_type_subtype, align 4
-  store i32 %66, ptr %15, align 4
+89:                                               ; preds = %84
+  store i32 2, ptr %13, align 4
+  store i32 1, ptr %14, align 4
+  %90 = load i32, ptr @netxray_2_00x_file_type_subtype, align 4
+  store i32 %90, ptr %15, align 4
   br label %113
 
-67:                                               ; preds = %60
-  %68 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 0
-  %69 = getelementptr inbounds [8 x i8], ptr %68, i64 0, i64 0
-  %70 = call i32 @memcmp(ptr noundef %69, ptr noundef @vers_1_1, i64 noundef 8) #7
-  %71 = icmp eq i32 %70, 0
-  br i1 %71, label %72, label %74
+91:                                               ; preds = %84
+  %92 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 0
+  %93 = getelementptr inbounds [8 x i8], ptr %92, i64 0, i64 0
+  %94 = call i32 @memcmp(ptr noundef %93, ptr noundef @vers_2_002, i64 noundef 8) #13
+  %95 = icmp eq i32 %94, 0
+  br i1 %95, label %96, label %98
 
-72:                                               ; preds = %67
-  store i32 1, ptr %13, align 4
-  store i32 1, ptr %14, align 4
-  %73 = load i32, ptr @netxray_1_1_file_type_subtype, align 4
-  store i32 %73, ptr %15, align 4
-  br label %112
-
-74:                                               ; preds = %67
-  %75 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 0
-  %76 = getelementptr inbounds [8 x i8], ptr %75, i64 0, i64 0
-  %77 = call i32 @memcmp(ptr noundef %76, ptr noundef @vers_2_000, i64 noundef 8) #7
-  %78 = icmp eq i32 %77, 0
-  br i1 %78, label %79, label %81
-
-79:                                               ; preds = %74
-  store i32 2, ptr %13, align 4
-  store i32 0, ptr %14, align 4
-  %80 = load i32, ptr @netxray_2_00x_file_type_subtype, align 4
-  store i32 %80, ptr %15, align 4
-  br label %111
-
-81:                                               ; preds = %74
-  %82 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 0
-  %83 = getelementptr inbounds [8 x i8], ptr %82, i64 0, i64 0
-  %84 = call i32 @memcmp(ptr noundef %83, ptr noundef @vers_2_001, i64 noundef 8) #7
-  %85 = icmp eq i32 %84, 0
-  br i1 %85, label %86, label %88
-
-86:                                               ; preds = %81
-  store i32 2, ptr %13, align 4
-  store i32 1, ptr %14, align 4
-  %87 = load i32, ptr @netxray_2_00x_file_type_subtype, align 4
-  store i32 %87, ptr %15, align 4
-  br label %110
-
-88:                                               ; preds = %81
-  %89 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 0
-  %90 = getelementptr inbounds [8 x i8], ptr %89, i64 0, i64 0
-  %91 = call i32 @memcmp(ptr noundef %90, ptr noundef @vers_2_002, i64 noundef 8) #7
-  %92 = icmp eq i32 %91, 0
-  br i1 %92, label %93, label %95
-
-93:                                               ; preds = %88
+96:                                               ; preds = %91
   store i32 2, ptr %13, align 4
   store i32 2, ptr %14, align 4
-  %94 = load i32, ptr @netxray_2_00x_file_type_subtype, align 4
-  store i32 %94, ptr %15, align 4
-  br label %109
-
-95:                                               ; preds = %88
-  %96 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 0
-  %97 = getelementptr inbounds [8 x i8], ptr %96, i64 0, i64 0
-  %98 = call i32 @memcmp(ptr noundef %97, ptr noundef @vers_2_003, i64 noundef 8) #7
-  %99 = icmp eq i32 %98, 0
-  br i1 %99, label %100, label %102
-
-100:                                              ; preds = %95
-  store i32 2, ptr %13, align 4
-  store i32 3, ptr %14, align 4
-  %101 = load i32, ptr @netxray_2_00x_file_type_subtype, align 4
-  store i32 %101, ptr %15, align 4
-  br label %108
-
-102:                                              ; preds = %95
-  %103 = load ptr, ptr %6, align 8
-  store i32 -4, ptr %103, align 4
-  %104 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 0
-  %105 = getelementptr inbounds [8 x i8], ptr %104, i64 0, i64 0
-  %106 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str, ptr noundef %105)
-  %107 = load ptr, ptr %7, align 8
-  store ptr %106, ptr %107, align 8
-  store i32 -1, ptr %4, align 4
-  br label %546
-
-108:                                              ; preds = %100
-  br label %109
-
-109:                                              ; preds = %108, %93
-  br label %110
-
-110:                                              ; preds = %109, %86
-  br label %111
-
-111:                                              ; preds = %110, %79
+  %97 = load i32, ptr @netxray_2_00x_file_type_subtype, align 4
+  store i32 %97, ptr %15, align 4
   br label %112
 
-112:                                              ; preds = %111, %72
+98:                                               ; preds = %91
+  %99 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 0
+  %100 = getelementptr inbounds [8 x i8], ptr %99, i64 0, i64 0
+  %101 = call i32 @memcmp(ptr noundef %100, ptr noundef @vers_2_003, i64 noundef 8) #13
+  %102 = icmp eq i32 %101, 0
+  br i1 %102, label %103, label %105
+
+103:                                              ; preds = %98
+  store i32 2, ptr %13, align 4
+  store i32 3, ptr %14, align 4
+  %104 = load i32, ptr @netxray_2_00x_file_type_subtype, align 4
+  store i32 %104, ptr %15, align 4
+  br label %111
+
+105:                                              ; preds = %98
+  %106 = load ptr, ptr %6, align 8
+  store i32 -4, ptr %106, align 4
+  %107 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 0
+  %108 = getelementptr inbounds [8 x i8], ptr %107, i64 0, i64 0
+  %109 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str, ptr noundef %108)
+  %110 = load ptr, ptr %7, align 8
+  store ptr %109, ptr %110, align 8
+  store i32 -1, ptr %4, align 4
+  store i32 1, ptr %20, align 4
+  br label %577
+
+111:                                              ; preds = %103
+  br label %112
+
+112:                                              ; preds = %111, %96
   br label %113
 
-113:                                              ; preds = %112, %65
+113:                                              ; preds = %112, %89
   br label %114
 
-114:                                              ; preds = %113, %58
-  %115 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 10
-  %116 = load i8, ptr %115, align 1
-  %117 = zext i8 %116 to i32
-  switch i32 %117, label %127 [
-    i32 0, label %118
-    i32 2, label %123
+114:                                              ; preds = %113, %82
+  br label %115
+
+115:                                              ; preds = %114, %75
+  br label %116
+
+116:                                              ; preds = %115, %68
+  br label %117
+
+117:                                              ; preds = %116, %61
+  %118 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 10
+  %119 = load i8, ptr %118, align 1
+  %120 = zext i8 %119 to i32
+  switch i32 %120, label %130 [
+    i32 0, label %121
+    i32 2, label %126
   ]
 
-118:                                              ; preds = %114
-  %119 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 9
-  %120 = load i8, ptr %119, align 4
-  %121 = zext i8 %120 to i32
-  %122 = add i32 %121, 1
-  store i32 %122, ptr %11, align 4
-  br label %134
+121:                                              ; preds = %117
+  %122 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 9
+  %123 = load i8, ptr %122, align 4
+  %124 = zext i8 %123 to i32
+  %125 = add i32 %124, 1
+  store i32 %125, ptr %11, align 4
+  br label %137
 
-123:                                              ; preds = %114
-  %124 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 9
-  %125 = load i8, ptr %124, align 4
-  %126 = zext i8 %125 to i32
-  store i32 %126, ptr %11, align 4
-  br label %134
+126:                                              ; preds = %117
+  %127 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 9
+  %128 = load i8, ptr %127, align 4
+  %129 = zext i8 %128 to i32
+  store i32 %129, ptr %11, align 4
+  br label %137
 
-127:                                              ; preds = %114
-  %128 = load ptr, ptr %6, align 8
-  store i32 -4, ptr %128, align 4
-  %129 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 10
-  %130 = load i8, ptr %129, align 1
-  %131 = zext i8 %130 to i32
-  %132 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.1, i32 noundef %131)
-  %133 = load ptr, ptr %7, align 8
-  store ptr %132, ptr %133, align 8
+130:                                              ; preds = %117
+  %131 = load ptr, ptr %6, align 8
+  store i32 -4, ptr %131, align 4
+  %132 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 10
+  %133 = load i8, ptr %132, align 1
+  %134 = zext i8 %133 to i32
+  %135 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.1, i32 noundef %134)
+  %136 = load ptr, ptr %7, align 8
+  store ptr %135, ptr %136, align 8
   store i32 -1, ptr %4, align 4
-  br label %546
+  store i32 1, ptr %20, align 4
+  br label %577
 
-134:                                              ; preds = %123, %118
-  %135 = load i32, ptr %11, align 4
-  %136 = zext i32 %135 to i64
-  %137 = icmp uge i64 %136, 12
-  br i1 %137, label %144, label %138
+137:                                              ; preds = %126, %121
+  %138 = load i32, ptr %11, align 4
+  %139 = zext i32 %138 to i64
+  %140 = icmp uge i64 %139, 12
+  br i1 %140, label %147, label %141
 
-138:                                              ; preds = %134
-  %139 = load i32, ptr %11, align 4
-  %140 = zext i32 %139 to i64
-  %141 = getelementptr [12 x i32], ptr @netxray_open.netxray_encap, i64 0, i64 %140
-  %142 = load i32, ptr %141, align 4
-  %143 = icmp eq i32 %142, 0
-  br i1 %143, label %144, label %152
+141:                                              ; preds = %137
+  %142 = load i32, ptr %11, align 4
+  %143 = zext i32 %142 to i64
+  %144 = getelementptr [12 x i32], ptr @netxray_open.netxray_encap, i64 0, i64 %143
+  %145 = load i32, ptr %144, align 4
+  %146 = icmp eq i32 %145, 0
+  br i1 %146, label %147, label %155
 
-144:                                              ; preds = %138, %134
-  %145 = load ptr, ptr %6, align 8
-  store i32 -4, ptr %145, align 4
-  %146 = load i32, ptr %11, align 4
-  %147 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 10
-  %148 = load i8, ptr %147, align 1
-  %149 = zext i8 %148 to i32
-  %150 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.2, i32 noundef %146, i32 noundef %149)
-  %151 = load ptr, ptr %7, align 8
-  store ptr %150, ptr %151, align 8
+147:                                              ; preds = %141, %137
+  %148 = load ptr, ptr %6, align 8
+  store i32 -4, ptr %148, align 4
+  %149 = load i32, ptr %11, align 4
+  %150 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 10
+  %151 = load i8, ptr %150, align 1
+  %152 = zext i8 %151 to i32
+  %153 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.2, i32 noundef %149, i32 noundef %152)
+  %154 = load ptr, ptr %7, align 8
+  store ptr %153, ptr %154, align 8
   store i32 -1, ptr %4, align 4
-  br label %546
+  store i32 1, ptr %20, align 4
+  br label %577
 
-152:                                              ; preds = %138
-  %153 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 14
-  %154 = call i32 @pletoh32(ptr noundef %153)
-  %155 = uitofp i32 %154 to double
-  %156 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 15
+155:                                              ; preds = %141
+  %156 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 14
   %157 = call i32 @pletoh32(ptr noundef %156)
   %158 = uitofp i32 %157 to double
-  %159 = call double @llvm.fmuladd.f64(double %158, double 0x41F0000000000000, double %155)
-  store double %159, ptr %16, align 8
-  %160 = load i32, ptr %9, align 4
-  %161 = icmp ne i32 %160, 0
-  br i1 %161, label %162, label %165
+  %159 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 15
+  %160 = call i32 @pletoh32(ptr noundef %159)
+  %161 = uitofp i32 %160 to double
+  %162 = call double @llvm.fmuladd.f64(double %161, double 0x41F0000000000000, double %158)
+  store double %162, ptr %16, align 8
+  %163 = load i8, ptr %9, align 1, !range !6, !noundef !7
+  %164 = trunc i8 %163 to i1
+  br i1 %164, label %165, label %168
 
-162:                                              ; preds = %152
+165:                                              ; preds = %155
   store double 1.000000e+03, ptr %12, align 8
-  %163 = load ptr, ptr %5, align 8
-  %164 = getelementptr inbounds %struct.wtap, ptr %163, i32 0, i32 20
-  store i32 3, ptr %164, align 4
-  br label %411
+  %166 = load ptr, ptr %5, align 8
+  %167 = getelementptr inbounds nuw %struct.wtap, ptr %166, i32 0, i32 20
+  store i32 3, ptr %167, align 4
+  br label %414
 
-165:                                              ; preds = %152
-  %166 = load i32, ptr %13, align 4
-  %167 = icmp eq i32 %166, 1
-  br i1 %167, label %168, label %183
+168:                                              ; preds = %155
+  %169 = load i32, ptr %13, align 4
+  %170 = icmp eq i32 %169, 1
+  br i1 %170, label %171, label %186
 
-168:                                              ; preds = %165
-  %169 = load i32, ptr %14, align 4
-  switch i32 %169, label %176 [
-    i32 0, label %170
-    i32 1, label %173
+171:                                              ; preds = %168
+  %172 = load i32, ptr %14, align 4
+  switch i32 %172, label %179 [
+    i32 0, label %173
+    i32 1, label %176
   ]
 
-170:                                              ; preds = %168
+173:                                              ; preds = %171
   store double 1.000000e+03, ptr %12, align 8
-  %171 = load ptr, ptr %5, align 8
-  %172 = getelementptr inbounds %struct.wtap, ptr %171, i32 0, i32 20
-  store i32 3, ptr %172, align 4
-  br label %182
-
-173:                                              ; preds = %168
-  store double 1.000000e+06, ptr %12, align 8
   %174 = load ptr, ptr %5, align 8
-  %175 = getelementptr inbounds %struct.wtap, ptr %174, i32 0, i32 20
-  store i32 6, ptr %175, align 4
-  br label %182
+  %175 = getelementptr inbounds nuw %struct.wtap, ptr %174, i32 0, i32 20
+  store i32 3, ptr %175, align 4
+  br label %185
 
-176:                                              ; preds = %168
-  %177 = load ptr, ptr %6, align 8
-  store i32 -21, ptr %177, align 4
-  %178 = load i32, ptr %13, align 4
-  %179 = load i32, ptr %14, align 4
-  %180 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.3, i32 noundef %178, i32 noundef %179)
-  %181 = load ptr, ptr %7, align 8
-  store ptr %180, ptr %181, align 8
+176:                                              ; preds = %171
+  store double 1.000000e+06, ptr %12, align 8
+  %177 = load ptr, ptr %5, align 8
+  %178 = getelementptr inbounds nuw %struct.wtap, ptr %177, i32 0, i32 20
+  store i32 6, ptr %178, align 4
+  br label %185
+
+179:                                              ; preds = %171
+  %180 = load ptr, ptr %6, align 8
+  store i32 -21, ptr %180, align 4
+  %181 = load i32, ptr %13, align 4
+  %182 = load i32, ptr %14, align 4
+  %183 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.3, i32 noundef %181, i32 noundef %182)
+  %184 = load ptr, ptr %7, align 8
+  store ptr %183, ptr %184, align 8
   store i32 -1, ptr %4, align 4
-  br label %546
+  store i32 1, ptr %20, align 4
+  br label %577
 
-182:                                              ; preds = %173, %170
-  br label %410
+185:                                              ; preds = %176, %173
+  br label %413
 
-183:                                              ; preds = %165
-  %184 = load i32, ptr %13, align 4
-  %185 = icmp eq i32 %184, 2
-  br i1 %185, label %186, label %403
+186:                                              ; preds = %168
+  %187 = load i32, ptr %13, align 4
+  %188 = icmp eq i32 %187, 2
+  br i1 %188, label %189, label %406
 
-186:                                              ; preds = %183
-  %187 = load i32, ptr %11, align 4
-  switch i32 %187, label %369 [
-    i32 1, label %188
+189:                                              ; preds = %186
+  %190 = load i32, ptr %11, align 4
+  switch i32 %190, label %372 [
+    i32 1, label %191
   ]
 
-188:                                              ; preds = %186
-  %189 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 20
-  %190 = load i8, ptr %189, align 4
-  %191 = zext i8 %190 to i32
-  switch i32 %191, label %359 [
-    i32 0, label %192
-    i32 2, label %223
-    i32 3, label %257
-    i32 5, label %291
-    i32 6, label %325
+191:                                              ; preds = %189
+  %192 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 20
+  %193 = load i8, ptr %192, align 4
+  %194 = zext i8 %193 to i32
+  switch i32 %194, label %362 [
+    i32 0, label %195
+    i32 2, label %226
+    i32 3, label %260
+    i32 5, label %294
+    i32 6, label %328
   ]
 
-192:                                              ; preds = %188
-  %193 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 12
-  %194 = load i8, ptr %193, align 4
-  %195 = zext i8 %194 to i64
-  %196 = icmp uge i64 %195, 3
-  br i1 %196, label %197, label %206
+195:                                              ; preds = %191
+  %196 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 12
+  %197 = load i8, ptr %196, align 4
+  %198 = zext i8 %197 to i64
+  %199 = icmp uge i64 %198, 3
+  br i1 %199, label %200, label %209
 
-197:                                              ; preds = %192
-  %198 = load ptr, ptr %6, align 8
-  store i32 -4, ptr %198, align 4
-  %199 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 12
-  %200 = load i8, ptr %199, align 4
-  %201 = zext i8 %200 to i32
-  %202 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 0
-  %203 = getelementptr inbounds [8 x i8], ptr %202, i64 0, i64 0
-  %204 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.4, i32 noundef %201, ptr noundef %203)
-  %205 = load ptr, ptr %7, align 8
-  store ptr %204, ptr %205, align 8
+200:                                              ; preds = %195
+  %201 = load ptr, ptr %6, align 8
+  store i32 -4, ptr %201, align 4
+  %202 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 12
+  %203 = load i8, ptr %202, align 4
+  %204 = zext i8 %203 to i32
+  %205 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 0
+  %206 = getelementptr inbounds [8 x i8], ptr %205, i64 0, i64 0
+  %207 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.4, i32 noundef %204, ptr noundef %206)
+  %208 = load ptr, ptr %7, align 8
+  store ptr %207, ptr %208, align 8
   store i32 -1, ptr %4, align 4
-  br label %546
+  store i32 1, ptr %20, align 4
+  br label %577
 
-206:                                              ; preds = %192
-  %207 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 12
-  %208 = load i8, ptr %207, align 4
-  %209 = zext i8 %208 to i32
-  %210 = icmp eq i32 %209, 2
-  br i1 %210, label %211, label %216
+209:                                              ; preds = %195
+  %210 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 12
+  %211 = load i8, ptr %210, align 4
+  %212 = zext i8 %211 to i32
+  %213 = icmp eq i32 %212, 2
+  br i1 %213, label %214, label %219
 
-211:                                              ; preds = %206
-  %212 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 18
-  %213 = getelementptr inbounds [4 x i8], ptr %212, i64 0, i64 0
-  %214 = call i32 @pletoh32(ptr noundef %213)
-  %215 = uitofp i32 %214 to double
-  store double %215, ptr %12, align 8
-  br label %222
+214:                                              ; preds = %209
+  %215 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 18
+  %216 = getelementptr inbounds [4 x i8], ptr %215, i64 0, i64 0
+  %217 = call i32 @pletoh32(ptr noundef %216)
+  %218 = uitofp i32 %217 to double
+  store double %218, ptr %12, align 8
+  br label %225
 
-216:                                              ; preds = %206
-  %217 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 12
-  %218 = load i8, ptr %217, align 4
-  %219 = zext i8 %218 to i64
-  %220 = getelementptr [3 x double], ptr @TpS, i64 0, i64 %219
-  %221 = load double, ptr %220, align 8
-  store double %221, ptr %12, align 8
-  br label %222
+219:                                              ; preds = %209
+  %220 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 12
+  %221 = load i8, ptr %220, align 4
+  %222 = zext i8 %221 to i64
+  %223 = getelementptr [3 x double], ptr @TpS, i64 0, i64 %222
+  %224 = load double, ptr %223, align 8
+  store double %224, ptr %12, align 8
+  br label %225
 
-222:                                              ; preds = %216, %211
-  br label %368
+225:                                              ; preds = %219, %214
+  br label %371
 
-223:                                              ; preds = %188
-  %224 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 12
-  %225 = load i8, ptr %224, align 4
-  %226 = zext i8 %225 to i64
-  %227 = icmp uge i64 %226, 3
-  br i1 %227, label %235, label %228
+226:                                              ; preds = %191
+  %227 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 12
+  %228 = load i8, ptr %227, align 4
+  %229 = zext i8 %228 to i64
+  %230 = icmp uge i64 %229, 3
+  br i1 %230, label %238, label %231
 
-228:                                              ; preds = %223
-  %229 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 12
-  %230 = load i8, ptr %229, align 4
-  %231 = zext i8 %230 to i64
-  %232 = getelementptr [3 x double], ptr @TpS_gigpod, i64 0, i64 %231
-  %233 = load double, ptr %232, align 8
-  %234 = fcmp oeq double %233, 0.000000e+00
-  br i1 %234, label %235, label %244
+231:                                              ; preds = %226
+  %232 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 12
+  %233 = load i8, ptr %232, align 4
+  %234 = zext i8 %233 to i64
+  %235 = getelementptr [3 x double], ptr @TpS_gigpod, i64 0, i64 %234
+  %236 = load double, ptr %235, align 8
+  %237 = fcmp oeq double %236, 0.000000e+00
+  br i1 %237, label %238, label %247
 
-235:                                              ; preds = %228, %223
-  %236 = load ptr, ptr %6, align 8
-  store i32 -4, ptr %236, align 4
-  %237 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 12
-  %238 = load i8, ptr %237, align 4
-  %239 = zext i8 %238 to i32
-  %240 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 0
-  %241 = getelementptr inbounds [8 x i8], ptr %240, i64 0, i64 0
-  %242 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.5, i32 noundef %239, ptr noundef %241)
-  %243 = load ptr, ptr %7, align 8
-  store ptr %242, ptr %243, align 8
+238:                                              ; preds = %231, %226
+  %239 = load ptr, ptr %6, align 8
+  store i32 -4, ptr %239, align 4
+  %240 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 12
+  %241 = load i8, ptr %240, align 4
+  %242 = zext i8 %241 to i32
+  %243 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 0
+  %244 = getelementptr inbounds [8 x i8], ptr %243, i64 0, i64 0
+  %245 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.5, i32 noundef %242, ptr noundef %244)
+  %246 = load ptr, ptr %7, align 8
+  store ptr %245, ptr %246, align 8
   store i32 -1, ptr %4, align 4
-  br label %546
+  store i32 1, ptr %20, align 4
+  br label %577
 
-244:                                              ; preds = %228
-  %245 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 12
-  %246 = load i8, ptr %245, align 4
-  %247 = zext i8 %246 to i64
-  %248 = getelementptr [3 x double], ptr @TpS_gigpod, i64 0, i64 %247
-  %249 = load double, ptr %248, align 8
-  store double %249, ptr %12, align 8
-  %250 = load i32, ptr %14, align 4
-  %251 = icmp eq i32 %250, 2
-  br i1 %251, label %255, label %252
-
-252:                                              ; preds = %244
+247:                                              ; preds = %231
+  %248 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 12
+  %249 = load i8, ptr %248, align 4
+  %250 = zext i8 %249 to i64
+  %251 = getelementptr [3 x double], ptr @TpS_gigpod, i64 0, i64 %250
+  %252 = load double, ptr %251, align 8
+  store double %252, ptr %12, align 8
   %253 = load i32, ptr %14, align 4
-  %254 = icmp eq i32 %253, 3
-  br i1 %254, label %255, label %256
+  %254 = icmp eq i32 %253, 2
+  br i1 %254, label %258, label %255
 
-255:                                              ; preds = %252, %244
+255:                                              ; preds = %247
+  %256 = load i32, ptr %14, align 4
+  %257 = icmp eq i32 %256, 3
+  br i1 %257, label %258, label %259
+
+258:                                              ; preds = %255, %247
   store double 0.000000e+00, ptr %16, align 8
-  br label %256
+  br label %259
 
-256:                                              ; preds = %255, %252
-  br label %368
+259:                                              ; preds = %258, %255
+  br label %371
 
-257:                                              ; preds = %188
-  %258 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 12
-  %259 = load i8, ptr %258, align 4
-  %260 = zext i8 %259 to i64
-  %261 = icmp uge i64 %260, 3
-  br i1 %261, label %269, label %262
+260:                                              ; preds = %191
+  %261 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 12
+  %262 = load i8, ptr %261, align 4
+  %263 = zext i8 %262 to i64
+  %264 = icmp uge i64 %263, 3
+  br i1 %264, label %272, label %265
 
-262:                                              ; preds = %257
-  %263 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 12
-  %264 = load i8, ptr %263, align 4
-  %265 = zext i8 %264 to i64
-  %266 = getelementptr [3 x double], ptr @TpS_otherpod, i64 0, i64 %265
-  %267 = load double, ptr %266, align 8
-  %268 = fcmp oeq double %267, 0.000000e+00
-  br i1 %268, label %269, label %278
+265:                                              ; preds = %260
+  %266 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 12
+  %267 = load i8, ptr %266, align 4
+  %268 = zext i8 %267 to i64
+  %269 = getelementptr [3 x double], ptr @TpS_otherpod, i64 0, i64 %268
+  %270 = load double, ptr %269, align 8
+  %271 = fcmp oeq double %270, 0.000000e+00
+  br i1 %271, label %272, label %281
 
-269:                                              ; preds = %262, %257
-  %270 = load ptr, ptr %6, align 8
-  store i32 -4, ptr %270, align 4
-  %271 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 12
-  %272 = load i8, ptr %271, align 4
-  %273 = zext i8 %272 to i32
-  %274 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 0
-  %275 = getelementptr inbounds [8 x i8], ptr %274, i64 0, i64 0
-  %276 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.6, i32 noundef %273, ptr noundef %275)
-  %277 = load ptr, ptr %7, align 8
-  store ptr %276, ptr %277, align 8
+272:                                              ; preds = %265, %260
+  %273 = load ptr, ptr %6, align 8
+  store i32 -4, ptr %273, align 4
+  %274 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 12
+  %275 = load i8, ptr %274, align 4
+  %276 = zext i8 %275 to i32
+  %277 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 0
+  %278 = getelementptr inbounds [8 x i8], ptr %277, i64 0, i64 0
+  %279 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.6, i32 noundef %276, ptr noundef %278)
+  %280 = load ptr, ptr %7, align 8
+  store ptr %279, ptr %280, align 8
   store i32 -1, ptr %4, align 4
-  br label %546
+  store i32 1, ptr %20, align 4
+  br label %577
 
-278:                                              ; preds = %262
-  %279 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 12
-  %280 = load i8, ptr %279, align 4
-  %281 = zext i8 %280 to i64
-  %282 = getelementptr [3 x double], ptr @TpS_otherpod, i64 0, i64 %281
-  %283 = load double, ptr %282, align 8
-  store double %283, ptr %12, align 8
-  %284 = load i32, ptr %14, align 4
-  %285 = icmp eq i32 %284, 2
-  br i1 %285, label %289, label %286
-
-286:                                              ; preds = %278
+281:                                              ; preds = %265
+  %282 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 12
+  %283 = load i8, ptr %282, align 4
+  %284 = zext i8 %283 to i64
+  %285 = getelementptr [3 x double], ptr @TpS_otherpod, i64 0, i64 %284
+  %286 = load double, ptr %285, align 8
+  store double %286, ptr %12, align 8
   %287 = load i32, ptr %14, align 4
-  %288 = icmp eq i32 %287, 3
-  br i1 %288, label %289, label %290
+  %288 = icmp eq i32 %287, 2
+  br i1 %288, label %292, label %289
 
-289:                                              ; preds = %286, %278
+289:                                              ; preds = %281
+  %290 = load i32, ptr %14, align 4
+  %291 = icmp eq i32 %290, 3
+  br i1 %291, label %292, label %293
+
+292:                                              ; preds = %289, %281
   store double 0.000000e+00, ptr %16, align 8
-  br label %290
+  br label %293
 
-290:                                              ; preds = %289, %286
-  br label %368
+293:                                              ; preds = %292, %289
+  br label %371
 
-291:                                              ; preds = %188
-  %292 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 12
-  %293 = load i8, ptr %292, align 4
-  %294 = zext i8 %293 to i64
-  %295 = icmp uge i64 %294, 3
-  br i1 %295, label %303, label %296
+294:                                              ; preds = %191
+  %295 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 12
+  %296 = load i8, ptr %295, align 4
+  %297 = zext i8 %296 to i64
+  %298 = icmp uge i64 %297, 3
+  br i1 %298, label %306, label %299
 
-296:                                              ; preds = %291
-  %297 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 12
-  %298 = load i8, ptr %297, align 4
-  %299 = zext i8 %298 to i64
-  %300 = getelementptr [3 x double], ptr @TpS_otherpod2, i64 0, i64 %299
-  %301 = load double, ptr %300, align 8
-  %302 = fcmp oeq double %301, 0.000000e+00
-  br i1 %302, label %303, label %312
+299:                                              ; preds = %294
+  %300 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 12
+  %301 = load i8, ptr %300, align 4
+  %302 = zext i8 %301 to i64
+  %303 = getelementptr [3 x double], ptr @TpS_otherpod2, i64 0, i64 %302
+  %304 = load double, ptr %303, align 8
+  %305 = fcmp oeq double %304, 0.000000e+00
+  br i1 %305, label %306, label %315
 
-303:                                              ; preds = %296, %291
-  %304 = load ptr, ptr %6, align 8
-  store i32 -4, ptr %304, align 4
-  %305 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 12
-  %306 = load i8, ptr %305, align 4
-  %307 = zext i8 %306 to i32
-  %308 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 0
-  %309 = getelementptr inbounds [8 x i8], ptr %308, i64 0, i64 0
-  %310 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.7, i32 noundef %307, ptr noundef %309)
-  %311 = load ptr, ptr %7, align 8
-  store ptr %310, ptr %311, align 8
+306:                                              ; preds = %299, %294
+  %307 = load ptr, ptr %6, align 8
+  store i32 -4, ptr %307, align 4
+  %308 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 12
+  %309 = load i8, ptr %308, align 4
+  %310 = zext i8 %309 to i32
+  %311 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 0
+  %312 = getelementptr inbounds [8 x i8], ptr %311, i64 0, i64 0
+  %313 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.7, i32 noundef %310, ptr noundef %312)
+  %314 = load ptr, ptr %7, align 8
+  store ptr %313, ptr %314, align 8
   store i32 -1, ptr %4, align 4
-  br label %546
+  store i32 1, ptr %20, align 4
+  br label %577
 
-312:                                              ; preds = %296
-  %313 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 12
-  %314 = load i8, ptr %313, align 4
-  %315 = zext i8 %314 to i64
-  %316 = getelementptr [3 x double], ptr @TpS_otherpod2, i64 0, i64 %315
-  %317 = load double, ptr %316, align 8
-  store double %317, ptr %12, align 8
-  %318 = load i32, ptr %14, align 4
-  %319 = icmp eq i32 %318, 2
-  br i1 %319, label %323, label %320
-
-320:                                              ; preds = %312
+315:                                              ; preds = %299
+  %316 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 12
+  %317 = load i8, ptr %316, align 4
+  %318 = zext i8 %317 to i64
+  %319 = getelementptr [3 x double], ptr @TpS_otherpod2, i64 0, i64 %318
+  %320 = load double, ptr %319, align 8
+  store double %320, ptr %12, align 8
   %321 = load i32, ptr %14, align 4
-  %322 = icmp eq i32 %321, 3
-  br i1 %322, label %323, label %324
+  %322 = icmp eq i32 %321, 2
+  br i1 %322, label %326, label %323
 
-323:                                              ; preds = %320, %312
+323:                                              ; preds = %315
+  %324 = load i32, ptr %14, align 4
+  %325 = icmp eq i32 %324, 3
+  br i1 %325, label %326, label %327
+
+326:                                              ; preds = %323, %315
   store double 0.000000e+00, ptr %16, align 8
-  br label %324
+  br label %327
 
-324:                                              ; preds = %323, %320
-  br label %368
+327:                                              ; preds = %326, %323
+  br label %371
 
-325:                                              ; preds = %188
-  %326 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 12
-  %327 = load i8, ptr %326, align 4
-  %328 = zext i8 %327 to i64
-  %329 = icmp uge i64 %328, 3
-  br i1 %329, label %337, label %330
+328:                                              ; preds = %191
+  %329 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 12
+  %330 = load i8, ptr %329, align 4
+  %331 = zext i8 %330 to i64
+  %332 = icmp uge i64 %331, 3
+  br i1 %332, label %340, label %333
 
-330:                                              ; preds = %325
-  %331 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 12
-  %332 = load i8, ptr %331, align 4
-  %333 = zext i8 %332 to i64
-  %334 = getelementptr [3 x double], ptr @TpS_gigpod2, i64 0, i64 %333
-  %335 = load double, ptr %334, align 8
-  %336 = fcmp oeq double %335, 0.000000e+00
-  br i1 %336, label %337, label %346
+333:                                              ; preds = %328
+  %334 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 12
+  %335 = load i8, ptr %334, align 4
+  %336 = zext i8 %335 to i64
+  %337 = getelementptr [3 x double], ptr @TpS_gigpod2, i64 0, i64 %336
+  %338 = load double, ptr %337, align 8
+  %339 = fcmp oeq double %338, 0.000000e+00
+  br i1 %339, label %340, label %349
 
-337:                                              ; preds = %330, %325
-  %338 = load ptr, ptr %6, align 8
-  store i32 -4, ptr %338, align 4
-  %339 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 12
-  %340 = load i8, ptr %339, align 4
-  %341 = zext i8 %340 to i32
-  %342 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 0
-  %343 = getelementptr inbounds [8 x i8], ptr %342, i64 0, i64 0
-  %344 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.8, i32 noundef %341, ptr noundef %343)
-  %345 = load ptr, ptr %7, align 8
-  store ptr %344, ptr %345, align 8
+340:                                              ; preds = %333, %328
+  %341 = load ptr, ptr %6, align 8
+  store i32 -4, ptr %341, align 4
+  %342 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 12
+  %343 = load i8, ptr %342, align 4
+  %344 = zext i8 %343 to i32
+  %345 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 0
+  %346 = getelementptr inbounds [8 x i8], ptr %345, i64 0, i64 0
+  %347 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.8, i32 noundef %344, ptr noundef %346)
+  %348 = load ptr, ptr %7, align 8
+  store ptr %347, ptr %348, align 8
   store i32 -1, ptr %4, align 4
-  br label %546
+  store i32 1, ptr %20, align 4
+  br label %577
 
-346:                                              ; preds = %330
-  %347 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 12
-  %348 = load i8, ptr %347, align 4
-  %349 = zext i8 %348 to i64
-  %350 = getelementptr [3 x double], ptr @TpS_gigpod2, i64 0, i64 %349
-  %351 = load double, ptr %350, align 8
-  store double %351, ptr %12, align 8
-  %352 = load i32, ptr %14, align 4
-  %353 = icmp eq i32 %352, 2
-  br i1 %353, label %357, label %354
-
-354:                                              ; preds = %346
+349:                                              ; preds = %333
+  %350 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 12
+  %351 = load i8, ptr %350, align 4
+  %352 = zext i8 %351 to i64
+  %353 = getelementptr [3 x double], ptr @TpS_gigpod2, i64 0, i64 %352
+  %354 = load double, ptr %353, align 8
+  store double %354, ptr %12, align 8
   %355 = load i32, ptr %14, align 4
-  %356 = icmp eq i32 %355, 3
-  br i1 %356, label %357, label %358
+  %356 = icmp eq i32 %355, 2
+  br i1 %356, label %360, label %357
 
-357:                                              ; preds = %354, %346
+357:                                              ; preds = %349
+  %358 = load i32, ptr %14, align 4
+  %359 = icmp eq i32 %358, 3
+  br i1 %359, label %360, label %361
+
+360:                                              ; preds = %357, %349
   store double 0.000000e+00, ptr %16, align 8
-  br label %358
+  br label %361
 
-358:                                              ; preds = %357, %354
-  br label %368
+361:                                              ; preds = %360, %357
+  br label %371
 
-359:                                              ; preds = %188
-  %360 = load ptr, ptr %6, align 8
-  store i32 -4, ptr %360, align 4
-  %361 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 20
-  %362 = load i8, ptr %361, align 4
-  %363 = zext i8 %362 to i32
-  %364 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 0
-  %365 = getelementptr inbounds [8 x i8], ptr %364, i64 0, i64 0
-  %366 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.9, i32 noundef %363, ptr noundef %365)
-  %367 = load ptr, ptr %7, align 8
-  store ptr %366, ptr %367, align 8
+362:                                              ; preds = %191
+  %363 = load ptr, ptr %6, align 8
+  store i32 -4, ptr %363, align 4
+  %364 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 20
+  %365 = load i8, ptr %364, align 4
+  %366 = zext i8 %365 to i32
+  %367 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 0
+  %368 = getelementptr inbounds [8 x i8], ptr %367, i64 0, i64 0
+  %369 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.9, i32 noundef %366, ptr noundef %368)
+  %370 = load ptr, ptr %7, align 8
+  store ptr %369, ptr %370, align 8
   store i32 -1, ptr %4, align 4
-  br label %546
+  store i32 1, ptr %20, align 4
+  br label %577
 
-368:                                              ; preds = %358, %324, %290, %256, %222
-  br label %393
+371:                                              ; preds = %361, %327, %293, %259, %225
+  br label %396
 
-369:                                              ; preds = %186
-  %370 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 12
-  %371 = load i8, ptr %370, align 4
-  %372 = zext i8 %371 to i64
-  %373 = icmp uge i64 %372, 3
-  br i1 %373, label %374, label %387
+372:                                              ; preds = %189
+  %373 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 12
+  %374 = load i8, ptr %373, align 4
+  %375 = zext i8 %374 to i64
+  %376 = icmp uge i64 %375, 3
+  br i1 %376, label %377, label %390
 
-374:                                              ; preds = %369
-  %375 = load ptr, ptr %6, align 8
-  store i32 -4, ptr %375, align 4
-  %376 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 12
-  %377 = load i8, ptr %376, align 4
-  %378 = zext i8 %377 to i32
-  %379 = load i32, ptr %11, align 4
-  %380 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 20
-  %381 = load i8, ptr %380, align 4
-  %382 = zext i8 %381 to i32
-  %383 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 0
-  %384 = getelementptr inbounds [8 x i8], ptr %383, i64 0, i64 0
-  %385 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.10, i32 noundef %378, i32 noundef %379, i32 noundef %382, ptr noundef %384)
-  %386 = load ptr, ptr %7, align 8
-  store ptr %385, ptr %386, align 8
+377:                                              ; preds = %372
+  %378 = load ptr, ptr %6, align 8
+  store i32 -4, ptr %378, align 4
+  %379 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 12
+  %380 = load i8, ptr %379, align 4
+  %381 = zext i8 %380 to i32
+  %382 = load i32, ptr %11, align 4
+  %383 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 20
+  %384 = load i8, ptr %383, align 4
+  %385 = zext i8 %384 to i32
+  %386 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 0
+  %387 = getelementptr inbounds [8 x i8], ptr %386, i64 0, i64 0
+  %388 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.10, i32 noundef %381, i32 noundef %382, i32 noundef %385, ptr noundef %387)
+  %389 = load ptr, ptr %7, align 8
+  store ptr %388, ptr %389, align 8
   store i32 -1, ptr %4, align 4
-  br label %546
+  store i32 1, ptr %20, align 4
+  br label %577
 
-387:                                              ; preds = %369
-  %388 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 12
-  %389 = load i8, ptr %388, align 4
-  %390 = zext i8 %389 to i64
-  %391 = getelementptr [3 x double], ptr @TpS, i64 0, i64 %390
-  %392 = load double, ptr %391, align 8
-  store double %392, ptr %12, align 8
-  br label %393
+390:                                              ; preds = %372
+  %391 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 12
+  %392 = load i8, ptr %391, align 4
+  %393 = zext i8 %392 to i64
+  %394 = getelementptr [3 x double], ptr @TpS, i64 0, i64 %393
+  %395 = load double, ptr %394, align 8
+  store double %395, ptr %12, align 8
+  br label %396
 
-393:                                              ; preds = %387, %368
-  %394 = load double, ptr %12, align 8
-  %395 = fcmp oge double %394, 1.000000e+07
-  br i1 %395, label %396, label %399
+396:                                              ; preds = %390, %371
+  %397 = load double, ptr %12, align 8
+  %398 = fcmp oge double %397, 1.000000e+07
+  br i1 %398, label %399, label %402
 
-396:                                              ; preds = %393
-  %397 = load ptr, ptr %5, align 8
-  %398 = getelementptr inbounds %struct.wtap, ptr %397, i32 0, i32 20
-  store i32 9, ptr %398, align 4
-  br label %402
-
-399:                                              ; preds = %393
+399:                                              ; preds = %396
   %400 = load ptr, ptr %5, align 8
-  %401 = getelementptr inbounds %struct.wtap, ptr %400, i32 0, i32 20
-  store i32 6, ptr %401, align 4
-  br label %402
+  %401 = getelementptr inbounds nuw %struct.wtap, ptr %400, i32 0, i32 20
+  store i32 9, ptr %401, align 4
+  br label %405
 
-402:                                              ; preds = %399, %396
-  br label %409
+402:                                              ; preds = %396
+  %403 = load ptr, ptr %5, align 8
+  %404 = getelementptr inbounds nuw %struct.wtap, ptr %403, i32 0, i32 20
+  store i32 6, ptr %404, align 4
+  br label %405
 
-403:                                              ; preds = %183
-  %404 = load ptr, ptr %6, align 8
-  store i32 -21, ptr %404, align 4
-  %405 = load i32, ptr %13, align 4
-  %406 = load i32, ptr %14, align 4
-  %407 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.3, i32 noundef %405, i32 noundef %406)
-  %408 = load ptr, ptr %7, align 8
-  store ptr %407, ptr %408, align 8
+405:                                              ; preds = %402, %399
+  br label %412
+
+406:                                              ; preds = %186
+  %407 = load ptr, ptr %6, align 8
+  store i32 -21, ptr %407, align 4
+  %408 = load i32, ptr %13, align 4
+  %409 = load i32, ptr %14, align 4
+  %410 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.3, i32 noundef %408, i32 noundef %409)
+  %411 = load ptr, ptr %7, align 8
+  store ptr %410, ptr %411, align 8
   store i32 -1, ptr %4, align 4
-  br label %546
+  store i32 1, ptr %20, align 4
+  br label %577
 
-409:                                              ; preds = %402
-  br label %410
+412:                                              ; preds = %405
+  br label %413
 
-410:                                              ; preds = %409, %182
-  br label %411
+413:                                              ; preds = %412, %185
+  br label %414
 
-411:                                              ; preds = %410, %162
-  %412 = load double, ptr %16, align 8
-  %413 = load double, ptr %12, align 8
-  %414 = fdiv double %412, %413
-  store double %414, ptr %16, align 8
-  %415 = load i32, ptr %11, align 4
-  %416 = icmp eq i32 %415, 4
-  br i1 %416, label %417, label %455
+414:                                              ; preds = %413, %165
+  %415 = load double, ptr %16, align 8
+  %416 = load double, ptr %12, align 8
+  %417 = fdiv double %415, %416
+  store double %417, ptr %16, align 8
+  %418 = load i32, ptr %11, align 4
+  %419 = icmp eq i32 %418, 4
+  br i1 %419, label %420, label %458
 
-417:                                              ; preds = %411
-  %418 = load i32, ptr %13, align 4
-  %419 = icmp eq i32 %418, 2
-  br i1 %419, label %420, label %453
+420:                                              ; preds = %414
+  %421 = load i32, ptr %13, align 4
+  %422 = icmp eq i32 %421, 2
+  br i1 %422, label %423, label %456
 
-420:                                              ; preds = %417
-  %421 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 20
-  %422 = load i8, ptr %421, align 4
-  %423 = zext i8 %422 to i32
-  switch i32 %423, label %445 [
-    i32 3, label %424
-    i32 4, label %425
-    i32 6, label %426
-    i32 8, label %426
-    i32 7, label %443
-    i32 19, label %444
+423:                                              ; preds = %420
+  %424 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 20
+  %425 = load i8, ptr %424, align 4
+  %426 = zext i8 %425 to i32
+  switch i32 %426, label %448 [
+    i32 3, label %427
+    i32 4, label %428
+    i32 6, label %429
+    i32 8, label %429
+    i32 7, label %446
+    i32 19, label %447
   ]
 
-424:                                              ; preds = %420
+427:                                              ; preds = %423
   store i32 19, ptr %17, align 4
-  br label %452
+  br label %455
 
-425:                                              ; preds = %420
+428:                                              ; preds = %423
   store i32 27, ptr %17, align 4
-  br label %452
+  br label %455
 
-426:                                              ; preds = %420, %420
-  %427 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 23
-  %428 = load i8, ptr %427, align 4
-  %429 = zext i8 %428 to i32
-  switch i32 %429, label %435 [
-    i32 0, label %430
-    i32 1, label %431
-    i32 2, label %431
-    i32 3, label %431
+429:                                              ; preds = %423, %423
+  %430 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 23
+  %431 = load i8, ptr %430, align 4
+  %432 = zext i8 %431 to i32
+  switch i32 %432, label %438 [
+    i32 0, label %433
+    i32 1, label %434
+    i32 2, label %434
+    i32 3, label %434
   ]
 
-430:                                              ; preds = %426
+433:                                              ; preds = %429
   store i32 12, ptr %17, align 4
-  br label %442
+  br label %445
 
-431:                                              ; preds = %426, %426, %426
+434:                                              ; preds = %429, %429, %429
   store i32 17, ptr %17, align 4
-  %432 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 23
-  %433 = load i8, ptr %432, align 4
-  %434 = zext i8 %433 to i32
-  store i32 %434, ptr %18, align 4
-  br label %442
+  %435 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 23
+  %436 = load i8, ptr %435, align 4
+  %437 = zext i8 %436 to i32
+  store i32 %437, ptr %18, align 4
+  br label %445
 
-435:                                              ; preds = %426
-  %436 = load ptr, ptr %6, align 8
-  store i32 -4, ptr %436, align 4
-  %437 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 23
-  %438 = load i8, ptr %437, align 4
-  %439 = zext i8 %438 to i32
-  %440 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.11, i32 noundef %439)
-  %441 = load ptr, ptr %7, align 8
-  store ptr %440, ptr %441, align 8
+438:                                              ; preds = %429
+  %439 = load ptr, ptr %6, align 8
+  store i32 -4, ptr %439, align 4
+  %440 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 23
+  %441 = load i8, ptr %440, align 4
+  %442 = zext i8 %441 to i32
+  %443 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.11, i32 noundef %442)
+  %444 = load ptr, ptr %7, align 8
+  store ptr %443, ptr %444, align 8
   store i32 -1, ptr %4, align 4
-  br label %546
+  store i32 1, ptr %20, align 4
+  br label %577
 
-442:                                              ; preds = %431, %430
-  br label %452
+445:                                              ; preds = %434, %433
+  br label %455
 
-443:                                              ; preds = %420
+446:                                              ; preds = %423
   store i32 36, ptr %17, align 4
-  br label %452
+  br label %455
 
-444:                                              ; preds = %420
+447:                                              ; preds = %423
   store i32 40, ptr %17, align 4
-  br label %452
+  br label %455
 
-445:                                              ; preds = %420
-  %446 = load ptr, ptr %6, align 8
-  store i32 -4, ptr %446, align 4
-  %447 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 20
-  %448 = load i8, ptr %447, align 4
-  %449 = zext i8 %448 to i32
-  %450 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.12, i32 noundef %449)
-  %451 = load ptr, ptr %7, align 8
-  store ptr %450, ptr %451, align 8
+448:                                              ; preds = %423
+  %449 = load ptr, ptr %6, align 8
+  store i32 -4, ptr %449, align 4
+  %450 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 20
+  %451 = load i8, ptr %450, align 4
+  %452 = zext i8 %451 to i32
+  %453 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.12, i32 noundef %452)
+  %454 = load ptr, ptr %7, align 8
+  store ptr %453, ptr %454, align 8
   store i32 -1, ptr %4, align 4
-  br label %546
+  store i32 1, ptr %20, align 4
+  br label %577
 
-452:                                              ; preds = %444, %443, %442, %425, %424
-  br label %454
+455:                                              ; preds = %447, %446, %445, %428, %427
+  br label %457
 
-453:                                              ; preds = %417
+456:                                              ; preds = %420
   store i32 1, ptr %17, align 4
-  br label %454
+  br label %457
 
-454:                                              ; preds = %453, %452
-  br label %460
+457:                                              ; preds = %456, %455
+  br label %463
 
-455:                                              ; preds = %411
-  %456 = load i32, ptr %11, align 4
-  %457 = zext i32 %456 to i64
-  %458 = getelementptr [12 x i32], ptr @netxray_open.netxray_encap, i64 0, i64 %457
-  %459 = load i32, ptr %458, align 4
-  store i32 %459, ptr %17, align 4
-  br label %460
+458:                                              ; preds = %414
+  %459 = load i32, ptr %11, align 4
+  %460 = zext i32 %459 to i64
+  %461 = getelementptr [12 x i32], ptr @netxray_open.netxray_encap, i64 0, i64 %460
+  %462 = load i32, ptr %461, align 4
+  store i32 %462, ptr %17, align 4
+  br label %463
 
-460:                                              ; preds = %455, %454
-  %461 = load i32, ptr %15, align 4
-  %462 = load ptr, ptr %5, align 8
-  %463 = getelementptr inbounds %struct.wtap, ptr %462, i32 0, i32 3
-  store i32 %461, ptr %463, align 4
-  %464 = call noalias ptr @g_malloc_n(i64 noundef 1, i64 noundef 64) #8
-  store ptr %464, ptr %19, align 8
-  %465 = load ptr, ptr %19, align 8
-  %466 = load ptr, ptr %5, align 8
-  %467 = getelementptr inbounds %struct.wtap, ptr %466, i32 0, i32 13
-  store ptr %465, ptr %467, align 8
-  %468 = load ptr, ptr %5, align 8
-  %469 = getelementptr inbounds %struct.wtap, ptr %468, i32 0, i32 15
-  store ptr @netxray_read, ptr %469, align 8
-  %470 = load ptr, ptr %5, align 8
-  %471 = getelementptr inbounds %struct.wtap, ptr %470, i32 0, i32 16
-  store ptr @netxray_seek_read, ptr %471, align 8
-  %472 = load i32, ptr %17, align 4
-  %473 = load ptr, ptr %5, align 8
-  %474 = getelementptr inbounds %struct.wtap, ptr %473, i32 0, i32 19
-  store i32 %472, ptr %474, align 8
-  %475 = load ptr, ptr %5, align 8
-  %476 = getelementptr inbounds %struct.wtap, ptr %475, i32 0, i32 4
-  store i32 0, ptr %476, align 8
-  %477 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 1
-  %478 = call i32 @pletoh32(ptr noundef %477)
-  %479 = zext i32 %478 to i64
-  %480 = load ptr, ptr %19, align 8
-  %481 = getelementptr inbounds %struct.netxray_t, ptr %480, i32 0, i32 0
-  store i64 %479, ptr %481, align 8
-  %482 = load double, ptr %12, align 8
-  %483 = load ptr, ptr %19, align 8
-  %484 = getelementptr inbounds %struct.netxray_t, ptr %483, i32 0, i32 1
-  store double %482, ptr %484, align 8
-  %485 = load double, ptr %16, align 8
-  %486 = load ptr, ptr %19, align 8
-  %487 = getelementptr inbounds %struct.netxray_t, ptr %486, i32 0, i32 2
-  store double %485, ptr %487, align 8
-  %488 = load i32, ptr %13, align 4
-  %489 = load ptr, ptr %19, align 8
-  %490 = getelementptr inbounds %struct.netxray_t, ptr %489, i32 0, i32 7
-  store i32 %488, ptr %490, align 8
-  %491 = load ptr, ptr %19, align 8
-  %492 = getelementptr inbounds %struct.netxray_t, ptr %491, i32 0, i32 8
-  store i32 0, ptr %492, align 4
-  %493 = load i32, ptr %17, align 4
-  switch i32 %493, label %514 [
-    i32 1, label %494
-    i32 22, label %494
-    i32 17, label %494
-    i32 12, label %494
+463:                                              ; preds = %458, %457
+  %464 = load i32, ptr %15, align 4
+  %465 = load ptr, ptr %5, align 8
+  %466 = getelementptr inbounds nuw %struct.wtap, ptr %465, i32 0, i32 3
+  store i32 %464, ptr %466, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #12
+  store i64 1, ptr %21, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #12
+  store i64 64, ptr %22, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #12
+  %467 = load i64, ptr %22, align 8
+  %468 = icmp eq i64 %467, 1
+  br i1 %468, label %469, label %472
+
+469:                                              ; preds = %463
+  %470 = load i64, ptr %21, align 8
+  %471 = call noalias ptr @g_malloc(i64 noundef %470) #14
+  store ptr %471, ptr %23, align 8
+  br label %493
+
+472:                                              ; preds = %463
+  %473 = load i64, ptr %21, align 8
+  %474 = call i1 @llvm.is.constant.i64(i64 %473)
+  br i1 %474, label %475, label %488
+
+475:                                              ; preds = %472
+  %476 = load i64, ptr %22, align 8
+  %477 = icmp eq i64 %476, 0
+  br i1 %477, label %483, label %478
+
+478:                                              ; preds = %475
+  %479 = load i64, ptr %21, align 8
+  %480 = load i64, ptr %22, align 8
+  %481 = udiv i64 -1, %480
+  %482 = icmp ule i64 %479, %481
+  br i1 %482, label %483, label %488
+
+483:                                              ; preds = %478, %475
+  %484 = load i64, ptr %21, align 8
+  %485 = load i64, ptr %22, align 8
+  %486 = mul i64 %484, %485
+  %487 = call noalias ptr @g_malloc(i64 noundef %486) #14
+  store ptr %487, ptr %23, align 8
+  br label %492
+
+488:                                              ; preds = %478, %472
+  %489 = load i64, ptr %21, align 8
+  %490 = load i64, ptr %22, align 8
+  %491 = call noalias ptr @g_malloc_n(i64 noundef %489, i64 noundef %490) #15
+  store ptr %491, ptr %23, align 8
+  br label %492
+
+492:                                              ; preds = %488, %483
+  br label %493
+
+493:                                              ; preds = %492, %469
+  %494 = load ptr, ptr %23, align 8
+  store ptr %494, ptr %24, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #12
+  %495 = load ptr, ptr %24, align 8
+  store ptr %495, ptr %19, align 8
+  %496 = load ptr, ptr %19, align 8
+  %497 = load ptr, ptr %5, align 8
+  %498 = getelementptr inbounds nuw %struct.wtap, ptr %497, i32 0, i32 13
+  store ptr %496, ptr %498, align 8
+  %499 = load ptr, ptr %5, align 8
+  %500 = getelementptr inbounds nuw %struct.wtap, ptr %499, i32 0, i32 15
+  store ptr @netxray_read, ptr %500, align 8
+  %501 = load ptr, ptr %5, align 8
+  %502 = getelementptr inbounds nuw %struct.wtap, ptr %501, i32 0, i32 16
+  store ptr @netxray_seek_read, ptr %502, align 8
+  %503 = load i32, ptr %17, align 4
+  %504 = load ptr, ptr %5, align 8
+  %505 = getelementptr inbounds nuw %struct.wtap, ptr %504, i32 0, i32 19
+  store i32 %503, ptr %505, align 8
+  %506 = load ptr, ptr %5, align 8
+  %507 = getelementptr inbounds nuw %struct.wtap, ptr %506, i32 0, i32 4
+  store i32 0, ptr %507, align 8
+  %508 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 1
+  %509 = call i32 @pletoh32(ptr noundef %508)
+  %510 = zext i32 %509 to i64
+  %511 = load ptr, ptr %19, align 8
+  %512 = getelementptr inbounds nuw %struct.netxray_t, ptr %511, i32 0, i32 0
+  store i64 %510, ptr %512, align 8
+  %513 = load double, ptr %12, align 8
+  %514 = load ptr, ptr %19, align 8
+  %515 = getelementptr inbounds nuw %struct.netxray_t, ptr %514, i32 0, i32 1
+  store double %513, ptr %515, align 8
+  %516 = load double, ptr %16, align 8
+  %517 = load ptr, ptr %19, align 8
+  %518 = getelementptr inbounds nuw %struct.netxray_t, ptr %517, i32 0, i32 2
+  store double %516, ptr %518, align 8
+  %519 = load i32, ptr %13, align 4
+  %520 = load ptr, ptr %19, align 8
+  %521 = getelementptr inbounds nuw %struct.netxray_t, ptr %520, i32 0, i32 7
+  store i32 %519, ptr %521, align 8
+  %522 = load ptr, ptr %19, align 8
+  %523 = getelementptr inbounds nuw %struct.netxray_t, ptr %522, i32 0, i32 8
+  store i8 0, ptr %523, align 4
+  %524 = load i32, ptr %17, align 4
+  switch i32 %524, label %545 [
+    i32 1, label %525
+    i32 22, label %525
+    i32 17, label %525
+    i32 12, label %525
   ]
 
-494:                                              ; preds = %460, %460, %460, %460
-  %495 = load i32, ptr %13, align 4
-  %496 = icmp eq i32 %495, 2
-  br i1 %496, label %497, label %513
+525:                                              ; preds = %493, %493, %493, %493
+  %526 = load i32, ptr %13, align 4
+  %527 = icmp eq i32 %526, 2
+  br i1 %527, label %528, label %544
 
-497:                                              ; preds = %494
-  %498 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 18
-  %499 = getelementptr [4 x i8], ptr %498, i64 0, i64 1
-  %500 = load i8, ptr %499, align 1
-  %501 = zext i8 %500 to i32
-  %502 = icmp eq i32 %501, 52
-  br i1 %502, label %503, label %512
+528:                                              ; preds = %525
+  %529 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 18
+  %530 = getelementptr [4 x i8], ptr %529, i64 0, i64 1
+  %531 = load i8, ptr %530, align 1
+  %532 = zext i8 %531 to i32
+  %533 = icmp eq i32 %532, 52
+  br i1 %533, label %534, label %543
 
-503:                                              ; preds = %497
-  %504 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 18
-  %505 = getelementptr [4 x i8], ptr %504, i64 0, i64 2
-  %506 = load i8, ptr %505, align 2
-  %507 = zext i8 %506 to i32
-  %508 = icmp eq i32 %507, 18
-  br i1 %508, label %509, label %512
+534:                                              ; preds = %528
+  %535 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 18
+  %536 = getelementptr [4 x i8], ptr %535, i64 0, i64 2
+  %537 = load i8, ptr %536, align 2
+  %538 = zext i8 %537 to i32
+  %539 = icmp eq i32 %538, 18
+  br i1 %539, label %540, label %543
 
-509:                                              ; preds = %503
-  %510 = load ptr, ptr %19, align 8
-  %511 = getelementptr inbounds %struct.netxray_t, ptr %510, i32 0, i32 8
-  store i32 1, ptr %511, align 4
-  br label %512
+540:                                              ; preds = %534
+  %541 = load ptr, ptr %19, align 8
+  %542 = getelementptr inbounds nuw %struct.netxray_t, ptr %541, i32 0, i32 8
+  store i8 1, ptr %542, align 4
+  br label %543
 
-512:                                              ; preds = %509, %503, %497
-  br label %513
+543:                                              ; preds = %540, %534, %528
+  br label %544
 
-513:                                              ; preds = %512, %494
-  br label %514
+544:                                              ; preds = %543, %525
+  br label %545
 
-514:                                              ; preds = %513, %460
-  %515 = load i32, ptr %18, align 4
-  %516 = load ptr, ptr %19, align 8
-  %517 = getelementptr inbounds %struct.netxray_t, ptr %516, i32 0, i32 9
-  store i32 %515, ptr %517, align 8
-  %518 = load ptr, ptr %19, align 8
-  %519 = getelementptr inbounds %struct.netxray_t, ptr %518, i32 0, i32 3
-  store i32 0, ptr %519, align 8
-  %520 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 2
-  %521 = call i32 @pletoh32(ptr noundef %520)
-  %522 = load ptr, ptr %19, align 8
-  %523 = getelementptr inbounds %struct.netxray_t, ptr %522, i32 0, i32 4
-  store i32 %521, ptr %523, align 4
-  %524 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 4
-  %525 = call i32 @pletoh32(ptr noundef %524)
-  %526 = zext i32 %525 to i64
-  %527 = load ptr, ptr %19, align 8
-  %528 = getelementptr inbounds %struct.netxray_t, ptr %527, i32 0, i32 5
-  store i64 %526, ptr %528, align 8
-  %529 = getelementptr inbounds %struct.netxray_hdr, ptr %10, i32 0, i32 5
-  %530 = call i32 @pletoh32(ptr noundef %529)
-  %531 = zext i32 %530 to i64
-  %532 = load ptr, ptr %19, align 8
-  %533 = getelementptr inbounds %struct.netxray_t, ptr %532, i32 0, i32 6
-  store i64 %531, ptr %533, align 8
-  %534 = load ptr, ptr %5, align 8
-  %535 = getelementptr inbounds %struct.wtap, ptr %534, i32 0, i32 0
-  %536 = load ptr, ptr %535, align 8
-  %537 = load ptr, ptr %19, align 8
-  %538 = getelementptr inbounds %struct.netxray_t, ptr %537, i32 0, i32 5
-  %539 = load i64, ptr %538, align 8
-  %540 = load ptr, ptr %6, align 8
-  %541 = call i64 @file_seek(ptr noundef %536, i64 noundef %539, i32 noundef 0, ptr noundef %540)
-  %542 = icmp eq i64 %541, -1
-  br i1 %542, label %543, label %544
+545:                                              ; preds = %493, %544
+  %546 = load i32, ptr %18, align 4
+  %547 = load ptr, ptr %19, align 8
+  %548 = getelementptr inbounds nuw %struct.netxray_t, ptr %547, i32 0, i32 9
+  store i32 %546, ptr %548, align 8
+  %549 = load ptr, ptr %19, align 8
+  %550 = getelementptr inbounds nuw %struct.netxray_t, ptr %549, i32 0, i32 3
+  store i8 0, ptr %550, align 8
+  %551 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 2
+  %552 = call i32 @pletoh32(ptr noundef %551)
+  %553 = load ptr, ptr %19, align 8
+  %554 = getelementptr inbounds nuw %struct.netxray_t, ptr %553, i32 0, i32 4
+  store i32 %552, ptr %554, align 4
+  %555 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 4
+  %556 = call i32 @pletoh32(ptr noundef %555)
+  %557 = zext i32 %556 to i64
+  %558 = load ptr, ptr %19, align 8
+  %559 = getelementptr inbounds nuw %struct.netxray_t, ptr %558, i32 0, i32 5
+  store i64 %557, ptr %559, align 8
+  %560 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %10, i32 0, i32 5
+  %561 = call i32 @pletoh32(ptr noundef %560)
+  %562 = zext i32 %561 to i64
+  %563 = load ptr, ptr %19, align 8
+  %564 = getelementptr inbounds nuw %struct.netxray_t, ptr %563, i32 0, i32 6
+  store i64 %562, ptr %564, align 8
+  %565 = load ptr, ptr %5, align 8
+  %566 = getelementptr inbounds nuw %struct.wtap, ptr %565, i32 0, i32 0
+  %567 = load ptr, ptr %566, align 8
+  %568 = load ptr, ptr %19, align 8
+  %569 = getelementptr inbounds nuw %struct.netxray_t, ptr %568, i32 0, i32 5
+  %570 = load i64, ptr %569, align 8
+  %571 = load ptr, ptr %6, align 8
+  %572 = call i64 @file_seek(ptr noundef %567, i64 noundef %570, i32 noundef 0, ptr noundef %571)
+  %573 = icmp eq i64 %572, -1
+  br i1 %573, label %574, label %575
 
-543:                                              ; preds = %514
+574:                                              ; preds = %545
   store i32 -1, ptr %4, align 4
-  br label %546
+  store i32 1, ptr %20, align 4
+  br label %577
 
-544:                                              ; preds = %514
-  %545 = load ptr, ptr %5, align 8
-  call void @wtap_add_generated_idb(ptr noundef %545)
+575:                                              ; preds = %545
+  %576 = load ptr, ptr %5, align 8
+  call void @wtap_add_generated_idb(ptr noundef %576)
   store i32 1, ptr %4, align 4
-  br label %546
+  store i32 1, ptr %20, align 4
+  br label %577
 
-546:                                              ; preds = %544, %543, %445, %435, %403, %374, %359, %337, %303, %269, %235, %197, %176, %144, %127, %102, %54, %44, %33, %32
-  %547 = load i32, ptr %4, align 4
-  ret i32 %547
+577:                                              ; preds = %575, %574, %448, %438, %406, %377, %362, %340, %306, %272, %238, %200, %179, %147, %130, %105, %57, %48, %37, %36
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #12
+  call void @llvm.lifetime.end.p0(i64 124, ptr %10) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #12
+  %578 = load i32, ptr %4, align 4
+  ret i32 %578
 }
 
-declare i32 @wtap_read_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-; Function Attrs: nounwind willreturn memory(read)
-declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @wtap_read_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
-declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: nounwind null_pointer_is_valid willreturn memory(read)
+declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i32 @pletoh32(ptr noundef %0) #0 {
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) #2
+
+; Function Attrs: inlinehint nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @pletoh32(ptr noundef %0) #4 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -1081,264 +1189,281 @@ define internal i32 @pletoh32(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #3
+declare double @llvm.fmuladd.f64(double, double, double) #5
 
-; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) #4
+; Function Attrs: null_pointer_is_valid allocsize(0)
+declare noalias ptr @g_malloc(i64 noundef) #6
 
-; Function Attrs: nounwind uwtable
-define internal i32 @netxray_read(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = alloca i32, align 4
+; Function Attrs: convergent nocallback nofree nosync nounwind willreturn memory(none)
+declare i1 @llvm.is.constant.i64(i64) #7
+
+; Function Attrs: null_pointer_is_valid allocsize(0,1)
+declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) #8
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @netxray_read(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+  %6 = alloca i1, align 1
+  %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
-  %13 = alloca ptr, align 8
-  %14 = alloca ptr, align 8
-  %15 = alloca i32, align 4
-  store ptr %0, ptr %8, align 8
-  store ptr %1, ptr %9, align 8
-  store ptr %2, ptr %10, align 8
-  store ptr %3, ptr %11, align 8
-  store ptr %4, ptr %12, align 8
-  store ptr %5, ptr %13, align 8
-  %16 = load ptr, ptr %8, align 8
-  %17 = getelementptr inbounds %struct.wtap, ptr %16, i32 0, i32 13
-  %18 = load ptr, ptr %17, align 8
-  store ptr %18, ptr %14, align 8
-  br label %19
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #12
+  %15 = load ptr, ptr %7, align 8
+  %16 = getelementptr inbounds nuw %struct.wtap, ptr %15, i32 0, i32 13
+  %17 = load ptr, ptr %16, align 8
+  store ptr %17, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #12
+  br label %18
 
-19:                                               ; preds = %74, %6
-  %20 = load ptr, ptr %8, align 8
-  %21 = getelementptr inbounds %struct.wtap, ptr %20, i32 0, i32 0
-  %22 = load ptr, ptr %21, align 8
-  %23 = call i64 @file_tell(ptr noundef %22)
-  %24 = load ptr, ptr %13, align 8
-  store i64 %23, ptr %24, align 8
-  %25 = load ptr, ptr %13, align 8
-  %26 = load i64, ptr %25, align 8
-  %27 = load ptr, ptr %14, align 8
-  %28 = getelementptr inbounds %struct.netxray_t, ptr %27, i32 0, i32 6
-  %29 = load i64, ptr %28, align 8
-  %30 = icmp eq i64 %26, %29
-  br i1 %30, label %31, label %33
+18:                                               ; preds = %73, %5
+  %19 = load ptr, ptr %7, align 8
+  %20 = getelementptr inbounds nuw %struct.wtap, ptr %19, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8
+  %22 = call i64 @file_tell(ptr noundef %21)
+  %23 = load ptr, ptr %11, align 8
+  store i64 %22, ptr %23, align 8
+  %24 = load ptr, ptr %11, align 8
+  %25 = load i64, ptr %24, align 8
+  %26 = load ptr, ptr %12, align 8
+  %27 = getelementptr inbounds nuw %struct.netxray_t, ptr %26, i32 0, i32 6
+  %28 = load i64, ptr %27, align 8
+  %29 = icmp eq i64 %25, %28
+  br i1 %29, label %30, label %32
 
-31:                                               ; preds = %19
-  %32 = load ptr, ptr %11, align 8
-  store i32 0, ptr %32, align 4
-  store i32 0, ptr %7, align 4
-  br label %104
+30:                                               ; preds = %18
+  %31 = load ptr, ptr %9, align 8
+  store i32 0, ptr %31, align 4
+  store i1 false, ptr %6, align 1
+  store i32 1, ptr %14, align 4
+  br label %101
 
-33:                                               ; preds = %19
-  %34 = load ptr, ptr %8, align 8
-  %35 = load ptr, ptr %8, align 8
-  %36 = getelementptr inbounds %struct.wtap, ptr %35, i32 0, i32 0
-  %37 = load ptr, ptr %36, align 8
+32:                                               ; preds = %18
+  %33 = load ptr, ptr %7, align 8
+  %34 = load ptr, ptr %7, align 8
+  %35 = getelementptr inbounds nuw %struct.wtap, ptr %34, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8
+  %37 = load ptr, ptr %8, align 8
   %38 = load ptr, ptr %9, align 8
-  %39 = load ptr, ptr %11, align 8
-  %40 = load ptr, ptr %12, align 8
-  %41 = call i32 @netxray_process_rec_header(ptr noundef %34, ptr noundef %37, ptr noundef %38, ptr noundef %39, ptr noundef %40)
-  store i32 %41, ptr %15, align 4
-  %42 = load i32, ptr %15, align 4
-  %43 = icmp slt i32 %42, 0
-  br i1 %43, label %44, label %76
+  %39 = load ptr, ptr %10, align 8
+  %40 = call i32 @netxray_process_rec_header(ptr noundef %33, ptr noundef %36, ptr noundef %37, ptr noundef %38, ptr noundef %39)
+  store i32 %40, ptr %13, align 4
+  %41 = load i32, ptr %13, align 4
+  %42 = icmp slt i32 %41, 0
+  br i1 %42, label %43, label %75
 
-44:                                               ; preds = %33
-  %45 = load ptr, ptr %11, align 8
-  %46 = load i32, ptr %45, align 4
-  %47 = icmp ne i32 %46, 0
-  br i1 %47, label %48, label %49
+43:                                               ; preds = %32
+  %44 = load ptr, ptr %9, align 8
+  %45 = load i32, ptr %44, align 4
+  %46 = icmp ne i32 %45, 0
+  br i1 %46, label %47, label %48
 
-48:                                               ; preds = %44
-  store i32 0, ptr %7, align 4
-  br label %104
+47:                                               ; preds = %43
+  store i1 false, ptr %6, align 1
+  store i32 1, ptr %14, align 4
+  br label %101
 
-49:                                               ; preds = %44
-  %50 = load ptr, ptr %14, align 8
-  %51 = getelementptr inbounds %struct.netxray_t, ptr %50, i32 0, i32 5
-  %52 = load i64, ptr %51, align 8
-  %53 = load ptr, ptr %14, align 8
-  %54 = getelementptr inbounds %struct.netxray_t, ptr %53, i32 0, i32 6
-  %55 = load i64, ptr %54, align 8
-  %56 = icmp slt i64 %52, %55
-  br i1 %56, label %57, label %59
+48:                                               ; preds = %43
+  %49 = load ptr, ptr %12, align 8
+  %50 = getelementptr inbounds nuw %struct.netxray_t, ptr %49, i32 0, i32 5
+  %51 = load i64, ptr %50, align 8
+  %52 = load ptr, ptr %12, align 8
+  %53 = getelementptr inbounds nuw %struct.netxray_t, ptr %52, i32 0, i32 6
+  %54 = load i64, ptr %53, align 8
+  %55 = icmp slt i64 %51, %54
+  br i1 %55, label %56, label %58
 
-57:                                               ; preds = %49
-  %58 = load ptr, ptr %11, align 8
-  store i32 -12, ptr %58, align 4
-  store i32 0, ptr %7, align 4
-  br label %104
+56:                                               ; preds = %48
+  %57 = load ptr, ptr %9, align 8
+  store i32 -12, ptr %57, align 4
+  store i1 false, ptr %6, align 1
+  store i32 1, ptr %14, align 4
+  br label %101
 
-59:                                               ; preds = %49
-  %60 = load ptr, ptr %14, align 8
-  %61 = getelementptr inbounds %struct.netxray_t, ptr %60, i32 0, i32 3
-  %62 = load i32, ptr %61, align 8
-  %63 = icmp ne i32 %62, 0
-  br i1 %63, label %75, label %64
+58:                                               ; preds = %48
+  %59 = load ptr, ptr %12, align 8
+  %60 = getelementptr inbounds nuw %struct.netxray_t, ptr %59, i32 0, i32 3
+  %61 = load i8, ptr %60, align 8, !range !6, !noundef !7
+  %62 = trunc i8 %61 to i1
+  br i1 %62, label %74, label %63
 
-64:                                               ; preds = %59
-  %65 = load ptr, ptr %14, align 8
-  %66 = getelementptr inbounds %struct.netxray_t, ptr %65, i32 0, i32 3
-  store i32 1, ptr %66, align 8
-  %67 = load ptr, ptr %8, align 8
-  %68 = getelementptr inbounds %struct.wtap, ptr %67, i32 0, i32 0
-  %69 = load ptr, ptr %68, align 8
-  %70 = load ptr, ptr %11, align 8
-  %71 = call i64 @file_seek(ptr noundef %69, i64 noundef 128, i32 noundef 0, ptr noundef %70)
-  %72 = icmp eq i64 %71, -1
-  br i1 %72, label %73, label %74
+63:                                               ; preds = %58
+  %64 = load ptr, ptr %12, align 8
+  %65 = getelementptr inbounds nuw %struct.netxray_t, ptr %64, i32 0, i32 3
+  store i8 1, ptr %65, align 8
+  %66 = load ptr, ptr %7, align 8
+  %67 = getelementptr inbounds nuw %struct.wtap, ptr %66, i32 0, i32 0
+  %68 = load ptr, ptr %67, align 8
+  %69 = load ptr, ptr %9, align 8
+  %70 = call i64 @file_seek(ptr noundef %68, i64 noundef 128, i32 noundef 0, ptr noundef %69)
+  %71 = icmp eq i64 %70, -1
+  br i1 %71, label %72, label %73
 
-73:                                               ; preds = %64
-  store i32 0, ptr %7, align 4
-  br label %104
+72:                                               ; preds = %63
+  store i1 false, ptr %6, align 1
+  store i32 1, ptr %14, align 4
+  br label %101
 
-74:                                               ; preds = %64
-  br label %19
+73:                                               ; preds = %63
+  br label %18
 
-75:                                               ; preds = %59
-  store i32 0, ptr %7, align 4
-  br label %104
+74:                                               ; preds = %58
+  store i1 false, ptr %6, align 1
+  store i32 1, ptr %14, align 4
+  br label %101
 
-76:                                               ; preds = %33
-  %77 = load ptr, ptr %8, align 8
-  %78 = getelementptr inbounds %struct.wtap, ptr %77, i32 0, i32 0
-  %79 = load ptr, ptr %78, align 8
-  %80 = load ptr, ptr %10, align 8
-  %81 = load ptr, ptr %9, align 8
-  %82 = getelementptr inbounds %struct.wtap_rec, ptr %81, i32 0, i32 7
-  %83 = getelementptr inbounds %struct.wtap_packet_header, ptr %82, i32 0, i32 0
+75:                                               ; preds = %32
+  %76 = load ptr, ptr %7, align 8
+  %77 = getelementptr inbounds nuw %struct.wtap, ptr %76, i32 0, i32 0
+  %78 = load ptr, ptr %77, align 8
+  %79 = load ptr, ptr %8, align 8
+  %80 = getelementptr inbounds nuw %struct.wtap_rec, ptr %79, i32 0, i32 11
+  %81 = load ptr, ptr %8, align 8
+  %82 = getelementptr inbounds nuw %struct.wtap_rec, ptr %81, i32 0, i32 7
+  %83 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %82, i32 0, i32 0
   %84 = load i32, ptr %83, align 8
-  %85 = load ptr, ptr %11, align 8
-  %86 = load ptr, ptr %12, align 8
-  %87 = call i32 @wtap_read_packet_bytes(ptr noundef %79, ptr noundef %80, i32 noundef %84, ptr noundef %85, ptr noundef %86)
-  %88 = icmp ne i32 %87, 0
-  br i1 %88, label %90, label %89
+  %85 = load ptr, ptr %9, align 8
+  %86 = load ptr, ptr %10, align 8
+  %87 = call zeroext i1 @wtap_read_bytes_buffer(ptr noundef %78, ptr noundef %80, i32 noundef %84, ptr noundef %85, ptr noundef %86)
+  br i1 %87, label %89, label %88
 
-89:                                               ; preds = %76
-  store i32 0, ptr %7, align 4
-  br label %104
+88:                                               ; preds = %75
+  store i1 false, ptr %6, align 1
+  store i32 1, ptr %14, align 4
+  br label %101
 
-90:                                               ; preds = %76
-  %91 = load ptr, ptr %8, align 8
-  %92 = getelementptr inbounds %struct.wtap, ptr %91, i32 0, i32 0
-  %93 = load ptr, ptr %92, align 8
-  %94 = load i32, ptr %15, align 4
-  %95 = load ptr, ptr %11, align 8
-  %96 = load ptr, ptr %12, align 8
-  %97 = call i32 @wtap_read_bytes(ptr noundef %93, ptr noundef null, i32 noundef %94, ptr noundef %95, ptr noundef %96)
-  %98 = icmp ne i32 %97, 0
-  br i1 %98, label %100, label %99
+89:                                               ; preds = %75
+  %90 = load ptr, ptr %7, align 8
+  %91 = getelementptr inbounds nuw %struct.wtap, ptr %90, i32 0, i32 0
+  %92 = load ptr, ptr %91, align 8
+  %93 = load i32, ptr %13, align 4
+  %94 = load ptr, ptr %9, align 8
+  %95 = load ptr, ptr %10, align 8
+  %96 = call zeroext i1 @wtap_read_bytes(ptr noundef %92, ptr noundef null, i32 noundef %93, ptr noundef %94, ptr noundef %95)
+  br i1 %96, label %98, label %97
 
-99:                                               ; preds = %90
-  store i32 0, ptr %7, align 4
-  br label %104
+97:                                               ; preds = %89
+  store i1 false, ptr %6, align 1
+  store i32 1, ptr %14, align 4
+  br label %101
 
-100:                                              ; preds = %90
-  %101 = load ptr, ptr %8, align 8
-  %102 = load ptr, ptr %9, align 8
-  %103 = load ptr, ptr %10, align 8
-  call void @netxray_guess_atm_type(ptr noundef %101, ptr noundef %102, ptr noundef %103)
-  store i32 1, ptr %7, align 4
-  br label %104
+98:                                               ; preds = %89
+  %99 = load ptr, ptr %7, align 8
+  %100 = load ptr, ptr %8, align 8
+  call void @netxray_guess_atm_type(ptr noundef %99, ptr noundef %100)
+  store i1 true, ptr %6, align 1
+  store i32 1, ptr %14, align 4
+  br label %101
 
-104:                                              ; preds = %100, %99, %89, %75, %73, %57, %48, %31
-  %105 = load i32, ptr %7, align 4
-  ret i32 %105
+101:                                              ; preds = %98, %97, %88, %74, %72, %56, %47, %30
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #12
+  %102 = load i1, ptr %6, align 1
+  ret i1 %102
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @netxray_seek_read(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = alloca i32, align 4
-  %8 = alloca ptr, align 8
-  %9 = alloca i64, align 8
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @netxray_seek_read(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+  %6 = alloca i1, align 1
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
-  %12 = alloca ptr, align 8
-  %13 = alloca ptr, align 8
-  store ptr %0, ptr %8, align 8
-  store i64 %1, ptr %9, align 8
-  store ptr %2, ptr %10, align 8
-  store ptr %3, ptr %11, align 8
-  store ptr %4, ptr %12, align 8
-  store ptr %5, ptr %13, align 8
-  %14 = load ptr, ptr %8, align 8
-  %15 = getelementptr inbounds %struct.wtap, ptr %14, i32 0, i32 1
-  %16 = load ptr, ptr %15, align 8
-  %17 = load i64, ptr %9, align 8
-  %18 = load ptr, ptr %12, align 8
-  %19 = call i64 @file_seek(ptr noundef %16, i64 noundef %17, i32 noundef 0, ptr noundef %18)
-  %20 = icmp eq i64 %19, -1
-  br i1 %20, label %21, label %22
+  store ptr %0, ptr %7, align 8
+  store i64 %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  %12 = load ptr, ptr %7, align 8
+  %13 = getelementptr inbounds nuw %struct.wtap, ptr %12, i32 0, i32 1
+  %14 = load ptr, ptr %13, align 8
+  %15 = load i64, ptr %8, align 8
+  %16 = load ptr, ptr %10, align 8
+  %17 = call i64 @file_seek(ptr noundef %14, i64 noundef %15, i32 noundef 0, ptr noundef %16)
+  %18 = icmp eq i64 %17, -1
+  br i1 %18, label %19, label %20
 
-21:                                               ; preds = %6
-  store i32 0, ptr %7, align 4
-  br label %57
+19:                                               ; preds = %5
+  store i1 false, ptr %6, align 1
+  br label %54
 
-22:                                               ; preds = %6
-  %23 = load ptr, ptr %8, align 8
-  %24 = load ptr, ptr %8, align 8
-  %25 = getelementptr inbounds %struct.wtap, ptr %24, i32 0, i32 1
-  %26 = load ptr, ptr %25, align 8
-  %27 = load ptr, ptr %10, align 8
-  %28 = load ptr, ptr %12, align 8
-  %29 = load ptr, ptr %13, align 8
-  %30 = call i32 @netxray_process_rec_header(ptr noundef %23, ptr noundef %26, ptr noundef %27, ptr noundef %28, ptr noundef %29)
-  %31 = icmp eq i32 %30, -1
-  br i1 %31, label %32, label %39
+20:                                               ; preds = %5
+  %21 = load ptr, ptr %7, align 8
+  %22 = load ptr, ptr %7, align 8
+  %23 = getelementptr inbounds nuw %struct.wtap, ptr %22, i32 0, i32 1
+  %24 = load ptr, ptr %23, align 8
+  %25 = load ptr, ptr %9, align 8
+  %26 = load ptr, ptr %10, align 8
+  %27 = load ptr, ptr %11, align 8
+  %28 = call i32 @netxray_process_rec_header(ptr noundef %21, ptr noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %27)
+  %29 = icmp eq i32 %28, -1
+  br i1 %29, label %30, label %37
 
-32:                                               ; preds = %22
-  %33 = load ptr, ptr %12, align 8
-  %34 = load i32, ptr %33, align 4
-  %35 = icmp eq i32 %34, 0
-  br i1 %35, label %36, label %38
+30:                                               ; preds = %20
+  %31 = load ptr, ptr %10, align 8
+  %32 = load i32, ptr %31, align 4
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %34, label %36
 
-36:                                               ; preds = %32
-  %37 = load ptr, ptr %12, align 8
-  store i32 -12, ptr %37, align 4
-  br label %38
+34:                                               ; preds = %30
+  %35 = load ptr, ptr %10, align 8
+  store i32 -12, ptr %35, align 4
+  br label %36
 
-38:                                               ; preds = %36, %32
-  store i32 0, ptr %7, align 4
-  br label %57
+36:                                               ; preds = %34, %30
+  store i1 false, ptr %6, align 1
+  br label %54
 
-39:                                               ; preds = %22
-  %40 = load ptr, ptr %8, align 8
-  %41 = getelementptr inbounds %struct.wtap, ptr %40, i32 0, i32 1
-  %42 = load ptr, ptr %41, align 8
-  %43 = load ptr, ptr %11, align 8
-  %44 = load ptr, ptr %10, align 8
-  %45 = getelementptr inbounds %struct.wtap_rec, ptr %44, i32 0, i32 7
-  %46 = getelementptr inbounds %struct.wtap_packet_header, ptr %45, i32 0, i32 0
-  %47 = load i32, ptr %46, align 8
-  %48 = load ptr, ptr %12, align 8
-  %49 = load ptr, ptr %13, align 8
-  %50 = call i32 @wtap_read_packet_bytes(ptr noundef %42, ptr noundef %43, i32 noundef %47, ptr noundef %48, ptr noundef %49)
-  %51 = icmp ne i32 %50, 0
-  br i1 %51, label %53, label %52
+37:                                               ; preds = %20
+  %38 = load ptr, ptr %7, align 8
+  %39 = getelementptr inbounds nuw %struct.wtap, ptr %38, i32 0, i32 1
+  %40 = load ptr, ptr %39, align 8
+  %41 = load ptr, ptr %9, align 8
+  %42 = getelementptr inbounds nuw %struct.wtap_rec, ptr %41, i32 0, i32 11
+  %43 = load ptr, ptr %9, align 8
+  %44 = getelementptr inbounds nuw %struct.wtap_rec, ptr %43, i32 0, i32 7
+  %45 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %44, i32 0, i32 0
+  %46 = load i32, ptr %45, align 8
+  %47 = load ptr, ptr %10, align 8
+  %48 = load ptr, ptr %11, align 8
+  %49 = call zeroext i1 @wtap_read_bytes_buffer(ptr noundef %40, ptr noundef %42, i32 noundef %46, ptr noundef %47, ptr noundef %48)
+  br i1 %49, label %51, label %50
 
-52:                                               ; preds = %39
-  store i32 0, ptr %7, align 4
-  br label %57
+50:                                               ; preds = %37
+  store i1 false, ptr %6, align 1
+  br label %54
 
-53:                                               ; preds = %39
-  %54 = load ptr, ptr %8, align 8
-  %55 = load ptr, ptr %10, align 8
-  %56 = load ptr, ptr %11, align 8
-  call void @netxray_guess_atm_type(ptr noundef %54, ptr noundef %55, ptr noundef %56)
-  store i32 1, ptr %7, align 4
-  br label %57
+51:                                               ; preds = %37
+  %52 = load ptr, ptr %7, align 8
+  %53 = load ptr, ptr %9, align 8
+  call void @netxray_guess_atm_type(ptr noundef %52, ptr noundef %53)
+  store i1 true, ptr %6, align 1
+  br label %54
 
-57:                                               ; preds = %53, %52, %38, %21
-  %58 = load i32, ptr %7, align 4
-  ret i32 %58
+54:                                               ; preds = %51, %50, %36, %19
+  %55 = load i1, ptr %6, align 1
+  ret i1 %55
 }
 
-declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) #2
 
-declare void @wtap_add_generated_idb(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @wtap_add_generated_idb(ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @register_netxray() #0 {
   %1 = call i32 @wtap_register_file_type_subtype(ptr noundef @netxray_old_info)
   store i32 %1, ptr @netxray_old_file_type_subtype, align 4
@@ -1359,13 +1484,16 @@ define hidden void @register_netxray() #0 {
   ret void
 }
 
-declare i32 @wtap_register_file_type_subtype(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @wtap_register_file_type_subtype(ptr noundef) #2
 
-declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 noundef) #2
 
-declare i64 @file_tell(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i64 @file_tell(ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @netxray_process_rec_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -1379,63 +1507,70 @@ define internal i32 @netxray_process_rec_header(ptr noundef %0, ptr noundef %1, 
   %15 = alloca double, align 8
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
+  %18 = alloca i32, align 4
   store ptr %0, ptr %7, align 8
   store ptr %1, ptr %8, align 8
   store ptr %2, ptr %9, align 8
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
-  %18 = load ptr, ptr %7, align 8
-  %19 = getelementptr inbounds %struct.wtap, ptr %18, i32 0, i32 13
-  %20 = load ptr, ptr %19, align 8
-  store ptr %20, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #12
+  %19 = load ptr, ptr %7, align 8
+  %20 = getelementptr inbounds nuw %struct.wtap, ptr %19, i32 0, i32 13
+  %21 = load ptr, ptr %20, align 8
+  store ptr %21, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 40, ptr %13) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #12
   store i32 0, ptr %14, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #12
   store i32 0, ptr %17, align 4
-  %21 = load ptr, ptr %12, align 8
-  %22 = getelementptr inbounds %struct.netxray_t, ptr %21, i32 0, i32 7
-  %23 = load i32, ptr %22, align 8
-  switch i32 %23, label %27 [
-    i32 0, label %24
-    i32 1, label %25
-    i32 2, label %26
+  %22 = load ptr, ptr %12, align 8
+  %23 = getelementptr inbounds nuw %struct.netxray_t, ptr %22, i32 0, i32 7
+  %24 = load i32, ptr %23, align 8
+  switch i32 %24, label %28 [
+    i32 0, label %25
+    i32 1, label %26
+    i32 2, label %27
   ]
 
-24:                                               ; preds = %5
-  store i32 16, ptr %14, align 4
-  br label %27
-
 25:                                               ; preds = %5
-  store i32 28, ptr %14, align 4
-  br label %27
+  store i32 16, ptr %14, align 4
+  br label %28
 
 26:                                               ; preds = %5
-  store i32 40, ptr %14, align 4
-  br label %27
+  store i32 28, ptr %14, align 4
+  br label %28
 
-27:                                               ; preds = %26, %25, %24, %5
-  %28 = load ptr, ptr %8, align 8
-  %29 = load i32, ptr %14, align 4
-  %30 = load ptr, ptr %10, align 8
-  %31 = load ptr, ptr %11, align 8
-  %32 = call i32 @wtap_read_bytes_or_eof(ptr noundef %28, ptr noundef %13, i32 noundef %29, ptr noundef %30, ptr noundef %31)
-  %33 = icmp ne i32 %32, 0
+27:                                               ; preds = %5
+  store i32 40, ptr %14, align 4
+  br label %28
+
+28:                                               ; preds = %5, %27, %26, %25
+  %29 = load ptr, ptr %8, align 8
+  %30 = load i32, ptr %14, align 4
+  %31 = load ptr, ptr %10, align 8
+  %32 = load ptr, ptr %11, align 8
+  %33 = call zeroext i1 @wtap_read_bytes_or_eof(ptr noundef %29, ptr noundef %13, i32 noundef %30, ptr noundef %31, ptr noundef %32)
   br i1 %33, label %35, label %34
 
-34:                                               ; preds = %27
+34:                                               ; preds = %28
   store i32 -1, ptr %6, align 4
-  br label %648
+  store i32 1, ptr %18, align 4
+  br label %653
 
-35:                                               ; preds = %27
+35:                                               ; preds = %28
   %36 = load ptr, ptr %12, align 8
-  %37 = getelementptr inbounds %struct.netxray_t, ptr %36, i32 0, i32 7
+  %37 = getelementptr inbounds nuw %struct.netxray_t, ptr %36, i32 0, i32 7
   %38 = load i32, ptr %37, align 8
-  switch i32 %38, label %525 [
+  switch i32 %38, label %530 [
     i32 1, label %39
     i32 2, label %49
   ]
 
 39:                                               ; preds = %35
   %40 = load ptr, ptr %7, align 8
-  %41 = getelementptr inbounds %struct.wtap, ptr %40, i32 0, i32 19
+  %41 = getelementptr inbounds nuw %struct.wtap, ptr %40, i32 0, i32 19
   %42 = load i32, ptr %41, align 8
   switch i32 %42, label %48 [
     i32 1, label %43
@@ -1443,33 +1578,33 @@ define internal i32 @netxray_process_rec_header(ptr noundef %0, ptr noundef %1, 
 
 43:                                               ; preds = %39
   %44 = load ptr, ptr %9, align 8
-  %45 = getelementptr inbounds %struct.wtap_rec, ptr %44, i32 0, i32 7
-  %46 = getelementptr inbounds %struct.wtap_packet_header, ptr %45, i32 0, i32 4
-  %47 = getelementptr inbounds %struct.eth_phdr, ptr %46, i32 0, i32 0
+  %45 = getelementptr inbounds nuw %struct.wtap_rec, ptr %44, i32 0, i32 7
+  %46 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %45, i32 0, i32 4
+  %47 = getelementptr inbounds nuw %struct.eth_phdr, ptr %46, i32 0, i32 0
   store i32 0, ptr %47, align 8
   br label %48
 
-48:                                               ; preds = %43, %39
-  br label %525
+48:                                               ; preds = %39, %43
+  br label %530
 
 49:                                               ; preds = %35
   %50 = load ptr, ptr %7, align 8
-  %51 = getelementptr inbounds %struct.wtap, ptr %50, i32 0, i32 19
+  %51 = getelementptr inbounds nuw %struct.wtap, ptr %50, i32 0, i32 19
   %52 = load i32, ptr %51, align 8
-  switch i32 %52, label %524 [
+  switch i32 %52, label %529 [
     i32 1, label %53
     i32 22, label %83
-    i32 17, label %203
-    i32 12, label %304
-    i32 27, label %304
-    i32 19, label %330
-    i32 36, label %330
-    i32 40, label %330
-    i32 14, label %342
+    i32 17, label %204
+    i32 12, label %307
+    i32 27, label %307
+    i32 19, label %333
+    i32 36, label %333
+    i32 40, label %333
+    i32 14, label %347
   ]
 
 53:                                               ; preds = %49
-  %54 = getelementptr inbounds %struct.netxrayrec_2_x_hdr, ptr %13, i32 0, i32 4
+  %54 = getelementptr inbounds nuw %struct.netxrayrec_2_x_hdr, ptr %13, i32 0, i32 4
   %55 = getelementptr [28 x i8], ptr %54, i64 0, i64 2
   %56 = load i8, ptr %55, align 2
   %57 = zext i8 %56 to i32
@@ -1477,7 +1612,7 @@ define internal i32 @netxray_process_rec_header(ptr noundef %0, ptr noundef %1, 
   br i1 %58, label %59, label %77
 
 59:                                               ; preds = %53
-  %60 = getelementptr inbounds %struct.netxrayrec_2_x_hdr, ptr %13, i32 0, i32 4
+  %60 = getelementptr inbounds nuw %struct.netxrayrec_2_x_hdr, ptr %13, i32 0, i32 4
   %61 = getelementptr [28 x i8], ptr %60, i64 0, i64 3
   %62 = load i8, ptr %61, align 1
   %63 = zext i8 %62 to i32
@@ -1486,16 +1621,16 @@ define internal i32 @netxray_process_rec_header(ptr noundef %0, ptr noundef %1, 
 
 65:                                               ; preds = %59
   %66 = load ptr, ptr %12, align 8
-  %67 = getelementptr inbounds %struct.netxray_t, ptr %66, i32 0, i32 8
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp ne i32 %68, 0
+  %67 = getelementptr inbounds nuw %struct.netxray_t, ptr %66, i32 0, i32 8
+  %68 = load i8, ptr %67, align 4, !range !6, !noundef !7
+  %69 = trunc i8 %68 to i1
   br i1 %69, label %70, label %75
 
 70:                                               ; preds = %65
   %71 = load ptr, ptr %9, align 8
-  %72 = getelementptr inbounds %struct.wtap_rec, ptr %71, i32 0, i32 7
-  %73 = getelementptr inbounds %struct.wtap_packet_header, ptr %72, i32 0, i32 4
-  %74 = getelementptr inbounds %struct.eth_phdr, ptr %73, i32 0, i32 0
+  %72 = getelementptr inbounds nuw %struct.wtap_rec, ptr %71, i32 0, i32 7
+  %73 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %72, i32 0, i32 4
+  %74 = getelementptr inbounds nuw %struct.eth_phdr, ptr %73, i32 0, i32 0
   store i32 4, ptr %74, align 8
   br label %76
 
@@ -1508,893 +1643,899 @@ define internal i32 @netxray_process_rec_header(ptr noundef %0, ptr noundef %1, 
 
 77:                                               ; preds = %59, %53
   %78 = load ptr, ptr %9, align 8
-  %79 = getelementptr inbounds %struct.wtap_rec, ptr %78, i32 0, i32 7
-  %80 = getelementptr inbounds %struct.wtap_packet_header, ptr %79, i32 0, i32 4
-  %81 = getelementptr inbounds %struct.eth_phdr, ptr %80, i32 0, i32 0
+  %79 = getelementptr inbounds nuw %struct.wtap_rec, ptr %78, i32 0, i32 7
+  %80 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %79, i32 0, i32 4
+  %81 = getelementptr inbounds nuw %struct.eth_phdr, ptr %80, i32 0, i32 0
   store i32 0, ptr %81, align 8
   br label %82
 
 82:                                               ; preds = %77, %76
-  br label %524
+  br label %529
 
 83:                                               ; preds = %49
   %84 = load ptr, ptr %9, align 8
-  %85 = getelementptr inbounds %struct.wtap_rec, ptr %84, i32 0, i32 7
-  %86 = getelementptr inbounds %struct.wtap_packet_header, ptr %85, i32 0, i32 4
-  call void @llvm.memset.p0.i64(ptr align 8 %86, i8 0, i64 72, i1 false)
-  %87 = getelementptr inbounds %struct.netxrayrec_2_x_hdr, ptr %13, i32 0, i32 4
-  %88 = getelementptr [28 x i8], ptr %87, i64 0, i64 2
-  %89 = load i8, ptr %88, align 2
-  %90 = zext i8 %89 to i32
-  %91 = icmp eq i32 %90, 255
-  br i1 %91, label %92, label %110
+  %85 = getelementptr inbounds nuw %struct.wtap_rec, ptr %84, i32 0, i32 7
+  %86 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %85, i32 0, i32 4
+  %87 = call ptr @memset.inline(ptr noundef %86, i32 noundef 0, i64 noundef 72) #12
+  %88 = getelementptr inbounds nuw %struct.netxrayrec_2_x_hdr, ptr %13, i32 0, i32 4
+  %89 = getelementptr [28 x i8], ptr %88, i64 0, i64 2
+  %90 = load i8, ptr %89, align 2
+  %91 = zext i8 %90 to i32
+  %92 = icmp eq i32 %91, 255
+  br i1 %92, label %93, label %111
 
-92:                                               ; preds = %83
-  %93 = getelementptr inbounds %struct.netxrayrec_2_x_hdr, ptr %13, i32 0, i32 4
-  %94 = getelementptr [28 x i8], ptr %93, i64 0, i64 3
-  %95 = load i8, ptr %94, align 1
-  %96 = zext i8 %95 to i32
-  %97 = icmp eq i32 %96, 255
-  br i1 %97, label %98, label %110
+93:                                               ; preds = %83
+  %94 = getelementptr inbounds nuw %struct.netxrayrec_2_x_hdr, ptr %13, i32 0, i32 4
+  %95 = getelementptr [28 x i8], ptr %94, i64 0, i64 3
+  %96 = load i8, ptr %95, align 1
+  %97 = zext i8 %96 to i32
+  %98 = icmp eq i32 %97, 255
+  br i1 %98, label %99, label %111
 
-98:                                               ; preds = %92
-  %99 = load ptr, ptr %12, align 8
-  %100 = getelementptr inbounds %struct.netxray_t, ptr %99, i32 0, i32 8
-  %101 = load i32, ptr %100, align 4
-  %102 = icmp ne i32 %101, 0
-  br i1 %102, label %103, label %108
+99:                                               ; preds = %93
+  %100 = load ptr, ptr %12, align 8
+  %101 = getelementptr inbounds nuw %struct.netxray_t, ptr %100, i32 0, i32 8
+  %102 = load i8, ptr %101, align 4, !range !6, !noundef !7
+  %103 = trunc i8 %102 to i1
+  br i1 %103, label %104, label %109
 
-103:                                              ; preds = %98
-  %104 = load ptr, ptr %9, align 8
-  %105 = getelementptr inbounds %struct.wtap_rec, ptr %104, i32 0, i32 7
-  %106 = getelementptr inbounds %struct.wtap_packet_header, ptr %105, i32 0, i32 4
-  %107 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %106, i32 0, i32 0
-  store i32 4, ptr %107, align 8
-  br label %109
+104:                                              ; preds = %99
+  %105 = load ptr, ptr %9, align 8
+  %106 = getelementptr inbounds nuw %struct.wtap_rec, ptr %105, i32 0, i32 7
+  %107 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %106, i32 0, i32 4
+  %108 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %107, i32 0, i32 0
+  store i32 4, ptr %108, align 8
+  br label %110
 
-108:                                              ; preds = %98
+109:                                              ; preds = %99
   store i32 4, ptr %17, align 4
-  br label %109
+  br label %110
 
-109:                                              ; preds = %108, %103
-  br label %115
+110:                                              ; preds = %109, %104
+  br label %116
 
-110:                                              ; preds = %92, %83
-  %111 = load ptr, ptr %9, align 8
-  %112 = getelementptr inbounds %struct.wtap_rec, ptr %111, i32 0, i32 7
-  %113 = getelementptr inbounds %struct.wtap_packet_header, ptr %112, i32 0, i32 4
-  %114 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %113, i32 0, i32 0
-  store i32 0, ptr %114, align 8
-  br label %115
+111:                                              ; preds = %93, %83
+  %112 = load ptr, ptr %9, align 8
+  %113 = getelementptr inbounds nuw %struct.wtap_rec, ptr %112, i32 0, i32 7
+  %114 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %113, i32 0, i32 4
+  %115 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %114, i32 0, i32 0
+  store i32 0, ptr %115, align 8
+  br label %116
 
-115:                                              ; preds = %110, %109
-  %116 = load ptr, ptr %9, align 8
-  %117 = getelementptr inbounds %struct.wtap_rec, ptr %116, i32 0, i32 7
-  %118 = getelementptr inbounds %struct.wtap_packet_header, ptr %117, i32 0, i32 4
-  %119 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %118, i32 0, i32 1
-  %120 = load i8, ptr %119, align 4
-  %121 = and i8 %120, -2
-  %122 = or i8 %121, 0
-  store i8 %122, ptr %119, align 4
-  %123 = load ptr, ptr %9, align 8
-  %124 = getelementptr inbounds %struct.wtap_rec, ptr %123, i32 0, i32 7
-  %125 = getelementptr inbounds %struct.wtap_packet_header, ptr %124, i32 0, i32 4
-  %126 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %125, i32 0, i32 1
-  %127 = load i8, ptr %126, align 4
-  %128 = and i8 %127, -3
-  %129 = or i8 %128, 0
-  store i8 %129, ptr %126, align 4
-  %130 = load ptr, ptr %9, align 8
-  %131 = getelementptr inbounds %struct.wtap_rec, ptr %130, i32 0, i32 7
-  %132 = getelementptr inbounds %struct.wtap_packet_header, ptr %131, i32 0, i32 4
-  %133 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %132, i32 0, i32 2
-  store i32 0, ptr %133, align 8
-  %134 = load ptr, ptr %9, align 8
-  %135 = getelementptr inbounds %struct.wtap_rec, ptr %134, i32 0, i32 7
-  %136 = getelementptr inbounds %struct.wtap_packet_header, ptr %135, i32 0, i32 4
-  %137 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %136, i32 0, i32 4
-  %138 = load i16, ptr %137, align 4
-  %139 = and i16 %138, -2
-  %140 = or i16 %139, 1
-  store i16 %140, ptr %137, align 4
-  %141 = getelementptr inbounds %struct.netxrayrec_2_x_hdr, ptr %13, i32 0, i32 4
-  %142 = getelementptr [28 x i8], ptr %141, i64 0, i64 12
-  %143 = load i8, ptr %142, align 4
-  %144 = zext i8 %143 to i16
-  %145 = load ptr, ptr %9, align 8
-  %146 = getelementptr inbounds %struct.wtap_rec, ptr %145, i32 0, i32 7
-  %147 = getelementptr inbounds %struct.wtap_packet_header, ptr %146, i32 0, i32 4
-  %148 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %147, i32 0, i32 5
-  store i16 %144, ptr %148, align 2
-  %149 = load ptr, ptr %9, align 8
-  %150 = getelementptr inbounds %struct.wtap_rec, ptr %149, i32 0, i32 7
-  %151 = getelementptr inbounds %struct.wtap_packet_header, ptr %150, i32 0, i32 4
-  %152 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %151, i32 0, i32 4
-  %153 = load i16, ptr %152, align 4
-  %154 = and i16 %153, -5
-  %155 = or i16 %154, 4
-  store i16 %155, ptr %152, align 4
-  %156 = getelementptr inbounds %struct.netxrayrec_2_x_hdr, ptr %13, i32 0, i32 4
-  %157 = getelementptr [28 x i8], ptr %156, i64 0, i64 13
-  %158 = load i8, ptr %157, align 1
-  %159 = zext i8 %158 to i16
-  %160 = load ptr, ptr %9, align 8
-  %161 = getelementptr inbounds %struct.wtap_rec, ptr %160, i32 0, i32 7
-  %162 = getelementptr inbounds %struct.wtap_packet_header, ptr %161, i32 0, i32 4
-  %163 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %162, i32 0, i32 7
-  store i16 %159, ptr %163, align 4
-  %164 = load ptr, ptr %9, align 8
-  %165 = getelementptr inbounds %struct.wtap_rec, ptr %164, i32 0, i32 7
-  %166 = getelementptr inbounds %struct.wtap_packet_header, ptr %165, i32 0, i32 4
-  %167 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %166, i32 0, i32 4
-  %168 = load i16, ptr %167, align 4
-  %169 = and i16 %168, -9
-  %170 = or i16 %169, 8
-  store i16 %170, ptr %167, align 4
-  %171 = getelementptr inbounds %struct.netxrayrec_2_x_hdr, ptr %13, i32 0, i32 4
-  %172 = getelementptr [28 x i8], ptr %171, i64 0, i64 14
-  %173 = load i8, ptr %172, align 2
-  %174 = load ptr, ptr %9, align 8
-  %175 = getelementptr inbounds %struct.wtap_rec, ptr %174, i32 0, i32 7
-  %176 = getelementptr inbounds %struct.wtap_packet_header, ptr %175, i32 0, i32 4
-  %177 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %176, i32 0, i32 8
-  store i8 %173, ptr %177, align 2
-  %178 = getelementptr inbounds %struct.netxrayrec_2_x_hdr, ptr %13, i32 0, i32 4
-  %179 = getelementptr [28 x i8], ptr %178, i64 0, i64 15
-  %180 = load i8, ptr %179, align 1
-  %181 = zext i8 %180 to i32
-  %182 = icmp ne i32 %181, 255
-  br i1 %182, label %183, label %202
+116:                                              ; preds = %111, %110
+  %117 = load ptr, ptr %9, align 8
+  %118 = getelementptr inbounds nuw %struct.wtap_rec, ptr %117, i32 0, i32 7
+  %119 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %118, i32 0, i32 4
+  %120 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %119, i32 0, i32 1
+  %121 = load i8, ptr %120, align 4
+  %122 = and i8 %121, -2
+  %123 = or i8 %122, 0
+  store i8 %123, ptr %120, align 4
+  %124 = load ptr, ptr %9, align 8
+  %125 = getelementptr inbounds nuw %struct.wtap_rec, ptr %124, i32 0, i32 7
+  %126 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %125, i32 0, i32 4
+  %127 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %126, i32 0, i32 1
+  %128 = load i8, ptr %127, align 4
+  %129 = and i8 %128, -3
+  %130 = or i8 %129, 0
+  store i8 %130, ptr %127, align 4
+  %131 = load ptr, ptr %9, align 8
+  %132 = getelementptr inbounds nuw %struct.wtap_rec, ptr %131, i32 0, i32 7
+  %133 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %132, i32 0, i32 4
+  %134 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %133, i32 0, i32 2
+  store i32 0, ptr %134, align 8
+  %135 = load ptr, ptr %9, align 8
+  %136 = getelementptr inbounds nuw %struct.wtap_rec, ptr %135, i32 0, i32 7
+  %137 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %136, i32 0, i32 4
+  %138 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %137, i32 0, i32 4
+  %139 = load i16, ptr %138, align 8
+  %140 = and i16 %139, -2
+  %141 = or i16 %140, 1
+  store i16 %141, ptr %138, align 8
+  %142 = getelementptr inbounds nuw %struct.netxrayrec_2_x_hdr, ptr %13, i32 0, i32 4
+  %143 = getelementptr [28 x i8], ptr %142, i64 0, i64 12
+  %144 = load i8, ptr %143, align 4
+  %145 = zext i8 %144 to i16
+  %146 = load ptr, ptr %9, align 8
+  %147 = getelementptr inbounds nuw %struct.wtap_rec, ptr %146, i32 0, i32 7
+  %148 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %147, i32 0, i32 4
+  %149 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %148, i32 0, i32 5
+  store i16 %145, ptr %149, align 2
+  %150 = load ptr, ptr %9, align 8
+  %151 = getelementptr inbounds nuw %struct.wtap_rec, ptr %150, i32 0, i32 7
+  %152 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %151, i32 0, i32 4
+  %153 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %152, i32 0, i32 4
+  %154 = load i16, ptr %153, align 8
+  %155 = and i16 %154, -5
+  %156 = or i16 %155, 4
+  store i16 %156, ptr %153, align 8
+  %157 = getelementptr inbounds nuw %struct.netxrayrec_2_x_hdr, ptr %13, i32 0, i32 4
+  %158 = getelementptr [28 x i8], ptr %157, i64 0, i64 13
+  %159 = load i8, ptr %158, align 1
+  %160 = zext i8 %159 to i16
+  %161 = load ptr, ptr %9, align 8
+  %162 = getelementptr inbounds nuw %struct.wtap_rec, ptr %161, i32 0, i32 7
+  %163 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %162, i32 0, i32 4
+  %164 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %163, i32 0, i32 7
+  store i16 %160, ptr %164, align 8
+  %165 = load ptr, ptr %9, align 8
+  %166 = getelementptr inbounds nuw %struct.wtap_rec, ptr %165, i32 0, i32 7
+  %167 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %166, i32 0, i32 4
+  %168 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %167, i32 0, i32 4
+  %169 = load i16, ptr %168, align 8
+  %170 = and i16 %169, -9
+  %171 = or i16 %170, 8
+  store i16 %171, ptr %168, align 8
+  %172 = getelementptr inbounds nuw %struct.netxrayrec_2_x_hdr, ptr %13, i32 0, i32 4
+  %173 = getelementptr [28 x i8], ptr %172, i64 0, i64 14
+  %174 = load i8, ptr %173, align 2
+  %175 = load ptr, ptr %9, align 8
+  %176 = getelementptr inbounds nuw %struct.wtap_rec, ptr %175, i32 0, i32 7
+  %177 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %176, i32 0, i32 4
+  %178 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %177, i32 0, i32 8
+  store i8 %174, ptr %178, align 2
+  %179 = getelementptr inbounds nuw %struct.netxrayrec_2_x_hdr, ptr %13, i32 0, i32 4
+  %180 = getelementptr [28 x i8], ptr %179, i64 0, i64 15
+  %181 = load i8, ptr %180, align 1
+  %182 = zext i8 %181 to i32
+  %183 = icmp ne i32 %182, 255
+  br i1 %183, label %184, label %203
 
-183:                                              ; preds = %115
-  %184 = load ptr, ptr %9, align 8
-  %185 = getelementptr inbounds %struct.wtap_rec, ptr %184, i32 0, i32 7
-  %186 = getelementptr inbounds %struct.wtap_packet_header, ptr %185, i32 0, i32 4
-  %187 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %186, i32 0, i32 4
-  %188 = load i16, ptr %187, align 4
-  %189 = and i16 %188, -17
-  %190 = or i16 %189, 16
-  store i16 %190, ptr %187, align 4
-  %191 = getelementptr inbounds %struct.netxrayrec_2_x_hdr, ptr %13, i32 0, i32 4
-  %192 = getelementptr [28 x i8], ptr %191, i64 0, i64 15
-  %193 = load i8, ptr %192, align 1
-  %194 = zext i8 %193 to i32
-  %195 = mul i32 %194, 100
-  %196 = sdiv i32 %195, 127
-  %197 = trunc i32 %196 to i8
-  %198 = load ptr, ptr %9, align 8
-  %199 = getelementptr inbounds %struct.wtap_rec, ptr %198, i32 0, i32 7
-  %200 = getelementptr inbounds %struct.wtap_packet_header, ptr %199, i32 0, i32 4
-  %201 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %200, i32 0, i32 9
-  store i8 %197, ptr %201, align 1
-  br label %202
+184:                                              ; preds = %116
+  %185 = load ptr, ptr %9, align 8
+  %186 = getelementptr inbounds nuw %struct.wtap_rec, ptr %185, i32 0, i32 7
+  %187 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %186, i32 0, i32 4
+  %188 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %187, i32 0, i32 4
+  %189 = load i16, ptr %188, align 8
+  %190 = and i16 %189, -17
+  %191 = or i16 %190, 16
+  store i16 %191, ptr %188, align 8
+  %192 = getelementptr inbounds nuw %struct.netxrayrec_2_x_hdr, ptr %13, i32 0, i32 4
+  %193 = getelementptr [28 x i8], ptr %192, i64 0, i64 15
+  %194 = load i8, ptr %193, align 1
+  %195 = zext i8 %194 to i32
+  %196 = mul i32 %195, 100
+  %197 = sdiv i32 %196, 127
+  %198 = trunc i32 %197 to i8
+  %199 = load ptr, ptr %9, align 8
+  %200 = getelementptr inbounds nuw %struct.wtap_rec, ptr %199, i32 0, i32 7
+  %201 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %200, i32 0, i32 4
+  %202 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %201, i32 0, i32 9
+  store i8 %198, ptr %202, align 1
+  br label %203
 
-202:                                              ; preds = %183, %115
-  br label %524
+203:                                              ; preds = %184, %116
+  br label %529
 
-203:                                              ; preds = %49
-  %204 = getelementptr inbounds %struct.netxrayrec_2_x_hdr, ptr %13, i32 0, i32 4
-  %205 = getelementptr [28 x i8], ptr %204, i64 0, i64 12
-  %206 = load i8, ptr %205, align 4
-  %207 = zext i8 %206 to i32
-  %208 = and i32 %207, 1
-  %209 = load ptr, ptr %9, align 8
-  %210 = getelementptr inbounds %struct.wtap_rec, ptr %209, i32 0, i32 7
-  %211 = getelementptr inbounds %struct.wtap_packet_header, ptr %210, i32 0, i32 4
-  %212 = getelementptr inbounds %struct.isdn_phdr, ptr %211, i32 0, i32 0
-  store i32 %208, ptr %212, align 8
-  %213 = getelementptr inbounds %struct.netxrayrec_2_x_hdr, ptr %13, i32 0, i32 4
-  %214 = getelementptr [28 x i8], ptr %213, i64 0, i64 13
-  %215 = load i8, ptr %214, align 1
-  %216 = zext i8 %215 to i32
-  %217 = and i32 %216, 31
-  %218 = trunc i32 %217 to i8
-  %219 = load ptr, ptr %9, align 8
-  %220 = getelementptr inbounds %struct.wtap_rec, ptr %219, i32 0, i32 7
-  %221 = getelementptr inbounds %struct.wtap_packet_header, ptr %220, i32 0, i32 4
-  %222 = getelementptr inbounds %struct.isdn_phdr, ptr %221, i32 0, i32 1
-  store i8 %218, ptr %222, align 4
-  %223 = load ptr, ptr %12, align 8
-  %224 = getelementptr inbounds %struct.netxray_t, ptr %223, i32 0, i32 9
-  %225 = load i32, ptr %224, align 8
-  switch i32 %225, label %290 [
-    i32 1, label %226
-    i32 2, label %258
+204:                                              ; preds = %49
+  %205 = getelementptr inbounds nuw %struct.netxrayrec_2_x_hdr, ptr %13, i32 0, i32 4
+  %206 = getelementptr [28 x i8], ptr %205, i64 0, i64 12
+  %207 = load i8, ptr %206, align 4
+  %208 = zext i8 %207 to i32
+  %209 = and i32 %208, 1
+  %210 = icmp ne i32 %209, 0
+  %211 = load ptr, ptr %9, align 8
+  %212 = getelementptr inbounds nuw %struct.wtap_rec, ptr %211, i32 0, i32 7
+  %213 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %212, i32 0, i32 4
+  %214 = getelementptr inbounds nuw %struct.isdn_phdr, ptr %213, i32 0, i32 0
+  %215 = zext i1 %210 to i8
+  store i8 %215, ptr %214, align 8
+  %216 = getelementptr inbounds nuw %struct.netxrayrec_2_x_hdr, ptr %13, i32 0, i32 4
+  %217 = getelementptr [28 x i8], ptr %216, i64 0, i64 13
+  %218 = load i8, ptr %217, align 1
+  %219 = zext i8 %218 to i32
+  %220 = and i32 %219, 31
+  %221 = trunc i32 %220 to i8
+  %222 = load ptr, ptr %9, align 8
+  %223 = getelementptr inbounds nuw %struct.wtap_rec, ptr %222, i32 0, i32 7
+  %224 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %223, i32 0, i32 4
+  %225 = getelementptr inbounds nuw %struct.isdn_phdr, ptr %224, i32 0, i32 1
+  store i8 %221, ptr %225, align 1
+  %226 = load ptr, ptr %12, align 8
+  %227 = getelementptr inbounds nuw %struct.netxray_t, ptr %226, i32 0, i32 9
+  %228 = load i32, ptr %227, align 8
+  switch i32 %228, label %293 [
+    i32 1, label %229
+    i32 2, label %261
   ]
 
-226:                                              ; preds = %203
-  %227 = load ptr, ptr %9, align 8
-  %228 = getelementptr inbounds %struct.wtap_rec, ptr %227, i32 0, i32 7
-  %229 = getelementptr inbounds %struct.wtap_packet_header, ptr %228, i32 0, i32 4
-  %230 = getelementptr inbounds %struct.isdn_phdr, ptr %229, i32 0, i32 1
-  %231 = load i8, ptr %230, align 4
-  %232 = zext i8 %231 to i32
-  %233 = icmp eq i32 %232, 16
-  br i1 %233, label %234, label %239
+229:                                              ; preds = %204
+  %230 = load ptr, ptr %9, align 8
+  %231 = getelementptr inbounds nuw %struct.wtap_rec, ptr %230, i32 0, i32 7
+  %232 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %231, i32 0, i32 4
+  %233 = getelementptr inbounds nuw %struct.isdn_phdr, ptr %232, i32 0, i32 1
+  %234 = load i8, ptr %233, align 1
+  %235 = zext i8 %234 to i32
+  %236 = icmp eq i32 %235, 16
+  br i1 %236, label %237, label %242
 
-234:                                              ; preds = %226
-  %235 = load ptr, ptr %9, align 8
-  %236 = getelementptr inbounds %struct.wtap_rec, ptr %235, i32 0, i32 7
-  %237 = getelementptr inbounds %struct.wtap_packet_header, ptr %236, i32 0, i32 4
-  %238 = getelementptr inbounds %struct.isdn_phdr, ptr %237, i32 0, i32 1
-  store i8 0, ptr %238, align 4
-  br label %257
+237:                                              ; preds = %229
+  %238 = load ptr, ptr %9, align 8
+  %239 = getelementptr inbounds nuw %struct.wtap_rec, ptr %238, i32 0, i32 7
+  %240 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %239, i32 0, i32 4
+  %241 = getelementptr inbounds nuw %struct.isdn_phdr, ptr %240, i32 0, i32 1
+  store i8 0, ptr %241, align 1
+  br label %260
 
-239:                                              ; preds = %226
-  %240 = load ptr, ptr %9, align 8
-  %241 = getelementptr inbounds %struct.wtap_rec, ptr %240, i32 0, i32 7
-  %242 = getelementptr inbounds %struct.wtap_packet_header, ptr %241, i32 0, i32 4
-  %243 = getelementptr inbounds %struct.isdn_phdr, ptr %242, i32 0, i32 1
-  %244 = load i8, ptr %243, align 4
-  %245 = zext i8 %244 to i32
-  %246 = icmp sgt i32 %245, 16
-  br i1 %246, label %247, label %256
+242:                                              ; preds = %229
+  %243 = load ptr, ptr %9, align 8
+  %244 = getelementptr inbounds nuw %struct.wtap_rec, ptr %243, i32 0, i32 7
+  %245 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %244, i32 0, i32 4
+  %246 = getelementptr inbounds nuw %struct.isdn_phdr, ptr %245, i32 0, i32 1
+  %247 = load i8, ptr %246, align 1
+  %248 = zext i8 %247 to i32
+  %249 = icmp sgt i32 %248, 16
+  br i1 %249, label %250, label %259
 
-247:                                              ; preds = %239
-  %248 = load ptr, ptr %9, align 8
-  %249 = getelementptr inbounds %struct.wtap_rec, ptr %248, i32 0, i32 7
-  %250 = getelementptr inbounds %struct.wtap_packet_header, ptr %249, i32 0, i32 4
-  %251 = getelementptr inbounds %struct.isdn_phdr, ptr %250, i32 0, i32 1
-  %252 = load i8, ptr %251, align 4
-  %253 = zext i8 %252 to i32
-  %254 = sub i32 %253, 1
-  %255 = trunc i32 %254 to i8
-  store i8 %255, ptr %251, align 4
-  br label %256
+250:                                              ; preds = %242
+  %251 = load ptr, ptr %9, align 8
+  %252 = getelementptr inbounds nuw %struct.wtap_rec, ptr %251, i32 0, i32 7
+  %253 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %252, i32 0, i32 4
+  %254 = getelementptr inbounds nuw %struct.isdn_phdr, ptr %253, i32 0, i32 1
+  %255 = load i8, ptr %254, align 1
+  %256 = zext i8 %255 to i32
+  %257 = sub i32 %256, 1
+  %258 = trunc i32 %257 to i8
+  store i8 %258, ptr %254, align 1
+  br label %259
 
-256:                                              ; preds = %247, %239
-  br label %257
+259:                                              ; preds = %250, %242
+  br label %260
 
-257:                                              ; preds = %256, %234
-  br label %290
+260:                                              ; preds = %259, %237
+  br label %293
 
-258:                                              ; preds = %203
-  %259 = load ptr, ptr %9, align 8
-  %260 = getelementptr inbounds %struct.wtap_rec, ptr %259, i32 0, i32 7
-  %261 = getelementptr inbounds %struct.wtap_packet_header, ptr %260, i32 0, i32 4
-  %262 = getelementptr inbounds %struct.isdn_phdr, ptr %261, i32 0, i32 1
-  %263 = load i8, ptr %262, align 4
-  %264 = zext i8 %263 to i32
-  %265 = icmp eq i32 %264, 24
-  br i1 %265, label %266, label %271
+261:                                              ; preds = %204
+  %262 = load ptr, ptr %9, align 8
+  %263 = getelementptr inbounds nuw %struct.wtap_rec, ptr %262, i32 0, i32 7
+  %264 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %263, i32 0, i32 4
+  %265 = getelementptr inbounds nuw %struct.isdn_phdr, ptr %264, i32 0, i32 1
+  %266 = load i8, ptr %265, align 1
+  %267 = zext i8 %266 to i32
+  %268 = icmp eq i32 %267, 24
+  br i1 %268, label %269, label %274
 
-266:                                              ; preds = %258
-  %267 = load ptr, ptr %9, align 8
-  %268 = getelementptr inbounds %struct.wtap_rec, ptr %267, i32 0, i32 7
-  %269 = getelementptr inbounds %struct.wtap_packet_header, ptr %268, i32 0, i32 4
-  %270 = getelementptr inbounds %struct.isdn_phdr, ptr %269, i32 0, i32 1
-  store i8 0, ptr %270, align 4
-  br label %289
+269:                                              ; preds = %261
+  %270 = load ptr, ptr %9, align 8
+  %271 = getelementptr inbounds nuw %struct.wtap_rec, ptr %270, i32 0, i32 7
+  %272 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %271, i32 0, i32 4
+  %273 = getelementptr inbounds nuw %struct.isdn_phdr, ptr %272, i32 0, i32 1
+  store i8 0, ptr %273, align 1
+  br label %292
 
-271:                                              ; preds = %258
-  %272 = load ptr, ptr %9, align 8
-  %273 = getelementptr inbounds %struct.wtap_rec, ptr %272, i32 0, i32 7
-  %274 = getelementptr inbounds %struct.wtap_packet_header, ptr %273, i32 0, i32 4
-  %275 = getelementptr inbounds %struct.isdn_phdr, ptr %274, i32 0, i32 1
-  %276 = load i8, ptr %275, align 4
-  %277 = zext i8 %276 to i32
-  %278 = icmp sgt i32 %277, 24
-  br i1 %278, label %279, label %288
+274:                                              ; preds = %261
+  %275 = load ptr, ptr %9, align 8
+  %276 = getelementptr inbounds nuw %struct.wtap_rec, ptr %275, i32 0, i32 7
+  %277 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %276, i32 0, i32 4
+  %278 = getelementptr inbounds nuw %struct.isdn_phdr, ptr %277, i32 0, i32 1
+  %279 = load i8, ptr %278, align 1
+  %280 = zext i8 %279 to i32
+  %281 = icmp sgt i32 %280, 24
+  br i1 %281, label %282, label %291
 
-279:                                              ; preds = %271
-  %280 = load ptr, ptr %9, align 8
-  %281 = getelementptr inbounds %struct.wtap_rec, ptr %280, i32 0, i32 7
-  %282 = getelementptr inbounds %struct.wtap_packet_header, ptr %281, i32 0, i32 4
-  %283 = getelementptr inbounds %struct.isdn_phdr, ptr %282, i32 0, i32 1
-  %284 = load i8, ptr %283, align 4
-  %285 = zext i8 %284 to i32
-  %286 = sub i32 %285, 1
-  %287 = trunc i32 %286 to i8
-  store i8 %287, ptr %283, align 4
-  br label %288
+282:                                              ; preds = %274
+  %283 = load ptr, ptr %9, align 8
+  %284 = getelementptr inbounds nuw %struct.wtap_rec, ptr %283, i32 0, i32 7
+  %285 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %284, i32 0, i32 4
+  %286 = getelementptr inbounds nuw %struct.isdn_phdr, ptr %285, i32 0, i32 1
+  %287 = load i8, ptr %286, align 1
+  %288 = zext i8 %287 to i32
+  %289 = sub i32 %288, 1
+  %290 = trunc i32 %289 to i8
+  store i8 %290, ptr %286, align 1
+  br label %291
 
-288:                                              ; preds = %279, %271
-  br label %289
+291:                                              ; preds = %282, %274
+  br label %292
 
-289:                                              ; preds = %288, %266
-  br label %290
+292:                                              ; preds = %291, %269
+  br label %293
 
-290:                                              ; preds = %289, %257, %203
-  %291 = getelementptr inbounds %struct.netxrayrec_2_x_hdr, ptr %13, i32 0, i32 4
-  %292 = getelementptr [28 x i8], ptr %291, i64 0, i64 2
-  %293 = load i8, ptr %292, align 2
-  %294 = zext i8 %293 to i32
-  %295 = icmp eq i32 %294, 255
-  br i1 %295, label %296, label %303
+293:                                              ; preds = %204, %292, %260
+  %294 = getelementptr inbounds nuw %struct.netxrayrec_2_x_hdr, ptr %13, i32 0, i32 4
+  %295 = getelementptr [28 x i8], ptr %294, i64 0, i64 2
+  %296 = load i8, ptr %295, align 2
+  %297 = zext i8 %296 to i32
+  %298 = icmp eq i32 %297, 255
+  br i1 %298, label %299, label %306
 
-296:                                              ; preds = %290
-  %297 = getelementptr inbounds %struct.netxrayrec_2_x_hdr, ptr %13, i32 0, i32 4
-  %298 = getelementptr [28 x i8], ptr %297, i64 0, i64 3
-  %299 = load i8, ptr %298, align 1
-  %300 = zext i8 %299 to i32
-  %301 = icmp eq i32 %300, 255
-  br i1 %301, label %302, label %303
+299:                                              ; preds = %293
+  %300 = getelementptr inbounds nuw %struct.netxrayrec_2_x_hdr, ptr %13, i32 0, i32 4
+  %301 = getelementptr [28 x i8], ptr %300, i64 0, i64 3
+  %302 = load i8, ptr %301, align 1
+  %303 = zext i8 %302 to i32
+  %304 = icmp eq i32 %303, 255
+  br i1 %304, label %305, label %306
 
-302:                                              ; preds = %296
+305:                                              ; preds = %299
   store i32 4, ptr %17, align 4
-  br label %303
+  br label %306
 
-303:                                              ; preds = %302, %296, %290
-  br label %524
+306:                                              ; preds = %305, %299, %293
+  br label %529
 
-304:                                              ; preds = %49, %49
-  %305 = getelementptr inbounds %struct.netxrayrec_2_x_hdr, ptr %13, i32 0, i32 4
-  %306 = getelementptr [28 x i8], ptr %305, i64 0, i64 12
-  %307 = load i8, ptr %306, align 4
-  %308 = zext i8 %307 to i32
-  %309 = and i32 %308, 1
-  %310 = icmp ne i32 %309, 0
-  %311 = select i1 %310, i32 0, i32 128
-  %312 = trunc i32 %311 to i8
-  %313 = load ptr, ptr %9, align 8
-  %314 = getelementptr inbounds %struct.wtap_rec, ptr %313, i32 0, i32 7
-  %315 = getelementptr inbounds %struct.wtap_packet_header, ptr %314, i32 0, i32 4
-  %316 = getelementptr inbounds %struct.dte_dce_phdr, ptr %315, i32 0, i32 0
-  store i8 %312, ptr %316, align 8
-  %317 = getelementptr inbounds %struct.netxrayrec_2_x_hdr, ptr %13, i32 0, i32 4
-  %318 = getelementptr [28 x i8], ptr %317, i64 0, i64 2
-  %319 = load i8, ptr %318, align 2
-  %320 = zext i8 %319 to i32
-  %321 = icmp eq i32 %320, 255
-  br i1 %321, label %322, label %329
+307:                                              ; preds = %49, %49
+  %308 = getelementptr inbounds nuw %struct.netxrayrec_2_x_hdr, ptr %13, i32 0, i32 4
+  %309 = getelementptr [28 x i8], ptr %308, i64 0, i64 12
+  %310 = load i8, ptr %309, align 4
+  %311 = zext i8 %310 to i32
+  %312 = and i32 %311, 1
+  %313 = icmp ne i32 %312, 0
+  %314 = select i1 %313, i32 0, i32 128
+  %315 = trunc i32 %314 to i8
+  %316 = load ptr, ptr %9, align 8
+  %317 = getelementptr inbounds nuw %struct.wtap_rec, ptr %316, i32 0, i32 7
+  %318 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %317, i32 0, i32 4
+  %319 = getelementptr inbounds nuw %struct.dte_dce_phdr, ptr %318, i32 0, i32 0
+  store i8 %315, ptr %319, align 8
+  %320 = getelementptr inbounds nuw %struct.netxrayrec_2_x_hdr, ptr %13, i32 0, i32 4
+  %321 = getelementptr [28 x i8], ptr %320, i64 0, i64 2
+  %322 = load i8, ptr %321, align 2
+  %323 = zext i8 %322 to i32
+  %324 = icmp eq i32 %323, 255
+  br i1 %324, label %325, label %332
 
-322:                                              ; preds = %304
-  %323 = getelementptr inbounds %struct.netxrayrec_2_x_hdr, ptr %13, i32 0, i32 4
-  %324 = getelementptr [28 x i8], ptr %323, i64 0, i64 3
-  %325 = load i8, ptr %324, align 1
-  %326 = zext i8 %325 to i32
-  %327 = icmp eq i32 %326, 255
-  br i1 %327, label %328, label %329
+325:                                              ; preds = %307
+  %326 = getelementptr inbounds nuw %struct.netxrayrec_2_x_hdr, ptr %13, i32 0, i32 4
+  %327 = getelementptr [28 x i8], ptr %326, i64 0, i64 3
+  %328 = load i8, ptr %327, align 1
+  %329 = zext i8 %328 to i32
+  %330 = icmp eq i32 %329, 255
+  br i1 %330, label %331, label %332
 
-328:                                              ; preds = %322
+331:                                              ; preds = %325
   store i32 4, ptr %17, align 4
-  br label %329
+  br label %332
 
-329:                                              ; preds = %328, %322, %304
-  br label %524
+332:                                              ; preds = %331, %325, %307
+  br label %529
 
-330:                                              ; preds = %49, %49, %49
-  %331 = getelementptr inbounds %struct.netxrayrec_2_x_hdr, ptr %13, i32 0, i32 4
-  %332 = getelementptr [28 x i8], ptr %331, i64 0, i64 12
-  %333 = load i8, ptr %332, align 4
-  %334 = zext i8 %333 to i32
-  %335 = and i32 %334, 1
-  %336 = icmp ne i32 %335, 0
-  %337 = select i1 %336, i32 1, i32 0
-  %338 = load ptr, ptr %9, align 8
-  %339 = getelementptr inbounds %struct.wtap_rec, ptr %338, i32 0, i32 7
-  %340 = getelementptr inbounds %struct.wtap_packet_header, ptr %339, i32 0, i32 4
-  %341 = getelementptr inbounds %struct.p2p_phdr, ptr %340, i32 0, i32 0
-  store i32 %337, ptr %341, align 8
-  br label %524
+333:                                              ; preds = %49, %49, %49
+  %334 = getelementptr inbounds nuw %struct.netxrayrec_2_x_hdr, ptr %13, i32 0, i32 4
+  %335 = getelementptr [28 x i8], ptr %334, i64 0, i64 12
+  %336 = load i8, ptr %335, align 4
+  %337 = zext i8 %336 to i32
+  %338 = and i32 %337, 1
+  %339 = icmp ne i32 %338, 0
+  %340 = select i1 %339, i32 1, i32 0
+  %341 = icmp ne i32 %340, 0
+  %342 = load ptr, ptr %9, align 8
+  %343 = getelementptr inbounds nuw %struct.wtap_rec, ptr %342, i32 0, i32 7
+  %344 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %343, i32 0, i32 4
+  %345 = getelementptr inbounds nuw %struct.p2p_phdr, ptr %344, i32 0, i32 0
+  %346 = zext i1 %341 to i8
+  store i8 %346, ptr %345, align 8
+  br label %529
 
-342:                                              ; preds = %49
-  %343 = load ptr, ptr %9, align 8
-  %344 = getelementptr inbounds %struct.wtap_rec, ptr %343, i32 0, i32 7
-  %345 = getelementptr inbounds %struct.wtap_packet_header, ptr %344, i32 0, i32 4
-  %346 = getelementptr inbounds %struct.atm_phdr, ptr %345, i32 0, i32 0
-  store i32 0, ptr %346, align 8
-  %347 = getelementptr inbounds %struct.netxrayrec_2_x_hdr, ptr %13, i32 0, i32 4
-  %348 = getelementptr [28 x i8], ptr %347, i64 0, i64 8
-  %349 = load i8, ptr %348, align 4
-  %350 = zext i8 %349 to i32
-  %351 = and i32 %350, 1
-  %352 = icmp ne i32 %351, 0
-  br i1 %352, label %353, label %360
+347:                                              ; preds = %49
+  %348 = load ptr, ptr %9, align 8
+  %349 = getelementptr inbounds nuw %struct.wtap_rec, ptr %348, i32 0, i32 7
+  %350 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %349, i32 0, i32 4
+  %351 = getelementptr inbounds nuw %struct.atm_phdr, ptr %350, i32 0, i32 0
+  store i32 0, ptr %351, align 8
+  %352 = getelementptr inbounds nuw %struct.netxrayrec_2_x_hdr, ptr %13, i32 0, i32 4
+  %353 = getelementptr [28 x i8], ptr %352, i64 0, i64 8
+  %354 = load i8, ptr %353, align 4
+  %355 = zext i8 %354 to i32
+  %356 = and i32 %355, 1
+  %357 = icmp ne i32 %356, 0
+  br i1 %357, label %358, label %365
 
-353:                                              ; preds = %342
-  %354 = load ptr, ptr %9, align 8
-  %355 = getelementptr inbounds %struct.wtap_rec, ptr %354, i32 0, i32 7
-  %356 = getelementptr inbounds %struct.wtap_packet_header, ptr %355, i32 0, i32 4
-  %357 = getelementptr inbounds %struct.atm_phdr, ptr %356, i32 0, i32 0
-  %358 = load i32, ptr %357, align 8
-  %359 = or i32 %358, 8
-  store i32 %359, ptr %357, align 8
-  br label %360
+358:                                              ; preds = %347
+  %359 = load ptr, ptr %9, align 8
+  %360 = getelementptr inbounds nuw %struct.wtap_rec, ptr %359, i32 0, i32 7
+  %361 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %360, i32 0, i32 4
+  %362 = getelementptr inbounds nuw %struct.atm_phdr, ptr %361, i32 0, i32 0
+  %363 = load i32, ptr %362, align 8
+  %364 = or i32 %363, 8
+  store i32 %364, ptr %362, align 8
+  br label %365
 
-360:                                              ; preds = %353, %342
-  %361 = getelementptr inbounds %struct.netxrayrec_2_x_hdr, ptr %13, i32 0, i32 4
-  %362 = getelementptr [28 x i8], ptr %361, i64 0, i64 9
-  %363 = load i8, ptr %362, align 1
-  %364 = zext i8 %363 to i32
-  %365 = and i32 %364, 4
-  %366 = icmp ne i32 %365, 0
-  br i1 %366, label %367, label %374
+365:                                              ; preds = %358, %347
+  %366 = getelementptr inbounds nuw %struct.netxrayrec_2_x_hdr, ptr %13, i32 0, i32 4
+  %367 = getelementptr [28 x i8], ptr %366, i64 0, i64 9
+  %368 = load i8, ptr %367, align 1
+  %369 = zext i8 %368 to i32
+  %370 = and i32 %369, 4
+  %371 = icmp ne i32 %370, 0
+  br i1 %371, label %372, label %379
 
-367:                                              ; preds = %360
-  %368 = load ptr, ptr %9, align 8
-  %369 = getelementptr inbounds %struct.wtap_rec, ptr %368, i32 0, i32 7
-  %370 = getelementptr inbounds %struct.wtap_packet_header, ptr %369, i32 0, i32 4
-  %371 = getelementptr inbounds %struct.atm_phdr, ptr %370, i32 0, i32 0
-  %372 = load i32, ptr %371, align 8
-  %373 = or i32 %372, 1
-  store i32 %373, ptr %371, align 8
-  br label %374
+372:                                              ; preds = %365
+  %373 = load ptr, ptr %9, align 8
+  %374 = getelementptr inbounds nuw %struct.wtap_rec, ptr %373, i32 0, i32 7
+  %375 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %374, i32 0, i32 4
+  %376 = getelementptr inbounds nuw %struct.atm_phdr, ptr %375, i32 0, i32 0
+  %377 = load i32, ptr %376, align 8
+  %378 = or i32 %377, 1
+  store i32 %378, ptr %376, align 8
+  br label %379
 
-374:                                              ; preds = %367, %360
-  %375 = getelementptr inbounds %struct.netxrayrec_2_x_hdr, ptr %13, i32 0, i32 4
-  %376 = getelementptr [28 x i8], ptr %375, i64 0, i64 11
-  %377 = load i8, ptr %376, align 1
-  %378 = zext i8 %377 to i16
-  %379 = load ptr, ptr %9, align 8
-  %380 = getelementptr inbounds %struct.wtap_rec, ptr %379, i32 0, i32 7
-  %381 = getelementptr inbounds %struct.wtap_packet_header, ptr %380, i32 0, i32 4
-  %382 = getelementptr inbounds %struct.atm_phdr, ptr %381, i32 0, i32 4
-  store i16 %378, ptr %382, align 8
-  %383 = getelementptr inbounds %struct.netxrayrec_2_x_hdr, ptr %13, i32 0, i32 4
-  %384 = getelementptr [28 x i8], ptr %383, i64 0, i64 12
-  %385 = call zeroext i16 @pletoh16(ptr noundef %384)
-  %386 = load ptr, ptr %9, align 8
-  %387 = getelementptr inbounds %struct.wtap_rec, ptr %386, i32 0, i32 7
-  %388 = getelementptr inbounds %struct.wtap_packet_header, ptr %387, i32 0, i32 4
-  %389 = getelementptr inbounds %struct.atm_phdr, ptr %388, i32 0, i32 5
-  store i16 %385, ptr %389, align 2
-  %390 = getelementptr inbounds %struct.netxrayrec_2_x_hdr, ptr %13, i32 0, i32 4
-  %391 = getelementptr [28 x i8], ptr %390, i64 0, i64 15
-  %392 = load i8, ptr %391, align 1
-  %393 = zext i8 %392 to i32
-  %394 = and i32 %393, 16
-  %395 = icmp ne i32 %394, 0
-  %396 = select i1 %395, i32 1, i32 0
-  %397 = trunc i32 %396 to i16
-  %398 = load ptr, ptr %9, align 8
-  %399 = getelementptr inbounds %struct.wtap_rec, ptr %398, i32 0, i32 7
-  %400 = getelementptr inbounds %struct.wtap_packet_header, ptr %399, i32 0, i32 4
-  %401 = getelementptr inbounds %struct.atm_phdr, ptr %400, i32 0, i32 7
-  store i16 %397, ptr %401, align 2
-  %402 = load ptr, ptr %9, align 8
-  %403 = getelementptr inbounds %struct.wtap_rec, ptr %402, i32 0, i32 7
-  %404 = getelementptr inbounds %struct.wtap_packet_header, ptr %403, i32 0, i32 4
-  %405 = getelementptr inbounds %struct.atm_phdr, ptr %404, i32 0, i32 8
-  store i16 0, ptr %405, align 8
-  %406 = getelementptr inbounds %struct.netxrayrec_2_x_hdr, ptr %13, i32 0, i32 4
-  %407 = getelementptr [28 x i8], ptr %406, i64 0, i64 0
-  %408 = load i8, ptr %407, align 4
-  %409 = zext i8 %408 to i32
-  %410 = and i32 %409, 112
-  switch i32 %410, label %523 [
-    i32 0, label %411
-    i32 16, label %424
-    i32 32, label %437
-    i32 64, label %450
-    i32 48, label %463
-    i32 80, label %463
-    i32 96, label %463
-    i32 112, label %463
+379:                                              ; preds = %372, %365
+  %380 = getelementptr inbounds nuw %struct.netxrayrec_2_x_hdr, ptr %13, i32 0, i32 4
+  %381 = getelementptr [28 x i8], ptr %380, i64 0, i64 11
+  %382 = load i8, ptr %381, align 1
+  %383 = zext i8 %382 to i16
+  %384 = load ptr, ptr %9, align 8
+  %385 = getelementptr inbounds nuw %struct.wtap_rec, ptr %384, i32 0, i32 7
+  %386 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %385, i32 0, i32 4
+  %387 = getelementptr inbounds nuw %struct.atm_phdr, ptr %386, i32 0, i32 4
+  store i16 %383, ptr %387, align 8
+  %388 = getelementptr inbounds nuw %struct.netxrayrec_2_x_hdr, ptr %13, i32 0, i32 4
+  %389 = getelementptr [28 x i8], ptr %388, i64 0, i64 12
+  %390 = call zeroext i16 @pletoh16(ptr noundef %389)
+  %391 = load ptr, ptr %9, align 8
+  %392 = getelementptr inbounds nuw %struct.wtap_rec, ptr %391, i32 0, i32 7
+  %393 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %392, i32 0, i32 4
+  %394 = getelementptr inbounds nuw %struct.atm_phdr, ptr %393, i32 0, i32 5
+  store i16 %390, ptr %394, align 2
+  %395 = getelementptr inbounds nuw %struct.netxrayrec_2_x_hdr, ptr %13, i32 0, i32 4
+  %396 = getelementptr [28 x i8], ptr %395, i64 0, i64 15
+  %397 = load i8, ptr %396, align 1
+  %398 = zext i8 %397 to i32
+  %399 = and i32 %398, 16
+  %400 = icmp ne i32 %399, 0
+  %401 = select i1 %400, i32 1, i32 0
+  %402 = trunc i32 %401 to i16
+  %403 = load ptr, ptr %9, align 8
+  %404 = getelementptr inbounds nuw %struct.wtap_rec, ptr %403, i32 0, i32 7
+  %405 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %404, i32 0, i32 4
+  %406 = getelementptr inbounds nuw %struct.atm_phdr, ptr %405, i32 0, i32 7
+  store i16 %402, ptr %406, align 2
+  %407 = load ptr, ptr %9, align 8
+  %408 = getelementptr inbounds nuw %struct.wtap_rec, ptr %407, i32 0, i32 7
+  %409 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %408, i32 0, i32 4
+  %410 = getelementptr inbounds nuw %struct.atm_phdr, ptr %409, i32 0, i32 8
+  store i16 0, ptr %410, align 8
+  %411 = getelementptr inbounds nuw %struct.netxrayrec_2_x_hdr, ptr %13, i32 0, i32 4
+  %412 = getelementptr [28 x i8], ptr %411, i64 0, i64 0
+  %413 = load i8, ptr %412, align 4
+  %414 = zext i8 %413 to i32
+  %415 = and i32 %414, 112
+  switch i32 %415, label %528 [
+    i32 0, label %416
+    i32 16, label %429
+    i32 32, label %442
+    i32 64, label %455
+    i32 48, label %468
+    i32 80, label %468
+    i32 96, label %468
+    i32 112, label %468
   ]
 
-411:                                              ; preds = %374
-  %412 = load ptr, ptr %9, align 8
-  %413 = getelementptr inbounds %struct.wtap_rec, ptr %412, i32 0, i32 7
-  %414 = getelementptr inbounds %struct.wtap_packet_header, ptr %413, i32 0, i32 4
-  %415 = getelementptr inbounds %struct.atm_phdr, ptr %414, i32 0, i32 1
-  store i8 0, ptr %415, align 4
-  %416 = load ptr, ptr %9, align 8
-  %417 = getelementptr inbounds %struct.wtap_rec, ptr %416, i32 0, i32 7
-  %418 = getelementptr inbounds %struct.wtap_packet_header, ptr %417, i32 0, i32 4
-  %419 = getelementptr inbounds %struct.atm_phdr, ptr %418, i32 0, i32 2
-  store i8 0, ptr %419, align 1
-  %420 = load ptr, ptr %9, align 8
-  %421 = getelementptr inbounds %struct.wtap_rec, ptr %420, i32 0, i32 7
-  %422 = getelementptr inbounds %struct.wtap_packet_header, ptr %421, i32 0, i32 4
-  %423 = getelementptr inbounds %struct.atm_phdr, ptr %422, i32 0, i32 3
-  store i8 0, ptr %423, align 2
-  br label %523
-
-424:                                              ; preds = %374
+416:                                              ; preds = %379
+  %417 = load ptr, ptr %9, align 8
+  %418 = getelementptr inbounds nuw %struct.wtap_rec, ptr %417, i32 0, i32 7
+  %419 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %418, i32 0, i32 4
+  %420 = getelementptr inbounds nuw %struct.atm_phdr, ptr %419, i32 0, i32 1
+  store i8 0, ptr %420, align 4
+  %421 = load ptr, ptr %9, align 8
+  %422 = getelementptr inbounds nuw %struct.wtap_rec, ptr %421, i32 0, i32 7
+  %423 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %422, i32 0, i32 4
+  %424 = getelementptr inbounds nuw %struct.atm_phdr, ptr %423, i32 0, i32 2
+  store i8 0, ptr %424, align 1
   %425 = load ptr, ptr %9, align 8
-  %426 = getelementptr inbounds %struct.wtap_rec, ptr %425, i32 0, i32 7
-  %427 = getelementptr inbounds %struct.wtap_packet_header, ptr %426, i32 0, i32 4
-  %428 = getelementptr inbounds %struct.atm_phdr, ptr %427, i32 0, i32 1
-  store i8 0, ptr %428, align 4
-  %429 = load ptr, ptr %9, align 8
-  %430 = getelementptr inbounds %struct.wtap_rec, ptr %429, i32 0, i32 7
-  %431 = getelementptr inbounds %struct.wtap_packet_header, ptr %430, i32 0, i32 4
-  %432 = getelementptr inbounds %struct.atm_phdr, ptr %431, i32 0, i32 2
-  store i8 0, ptr %432, align 1
-  %433 = load ptr, ptr %9, align 8
-  %434 = getelementptr inbounds %struct.wtap_rec, ptr %433, i32 0, i32 7
-  %435 = getelementptr inbounds %struct.wtap_packet_header, ptr %434, i32 0, i32 4
-  %436 = getelementptr inbounds %struct.atm_phdr, ptr %435, i32 0, i32 3
-  store i8 0, ptr %436, align 2
-  br label %523
+  %426 = getelementptr inbounds nuw %struct.wtap_rec, ptr %425, i32 0, i32 7
+  %427 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %426, i32 0, i32 4
+  %428 = getelementptr inbounds nuw %struct.atm_phdr, ptr %427, i32 0, i32 3
+  store i8 0, ptr %428, align 2
+  br label %528
 
-437:                                              ; preds = %374
+429:                                              ; preds = %379
+  %430 = load ptr, ptr %9, align 8
+  %431 = getelementptr inbounds nuw %struct.wtap_rec, ptr %430, i32 0, i32 7
+  %432 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %431, i32 0, i32 4
+  %433 = getelementptr inbounds nuw %struct.atm_phdr, ptr %432, i32 0, i32 1
+  store i8 0, ptr %433, align 4
+  %434 = load ptr, ptr %9, align 8
+  %435 = getelementptr inbounds nuw %struct.wtap_rec, ptr %434, i32 0, i32 7
+  %436 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %435, i32 0, i32 4
+  %437 = getelementptr inbounds nuw %struct.atm_phdr, ptr %436, i32 0, i32 2
+  store i8 0, ptr %437, align 1
   %438 = load ptr, ptr %9, align 8
-  %439 = getelementptr inbounds %struct.wtap_rec, ptr %438, i32 0, i32 7
-  %440 = getelementptr inbounds %struct.wtap_packet_header, ptr %439, i32 0, i32 4
-  %441 = getelementptr inbounds %struct.atm_phdr, ptr %440, i32 0, i32 1
-  store i8 0, ptr %441, align 4
-  %442 = load ptr, ptr %9, align 8
-  %443 = getelementptr inbounds %struct.wtap_rec, ptr %442, i32 0, i32 7
-  %444 = getelementptr inbounds %struct.wtap_packet_header, ptr %443, i32 0, i32 4
-  %445 = getelementptr inbounds %struct.atm_phdr, ptr %444, i32 0, i32 2
-  store i8 0, ptr %445, align 1
-  %446 = load ptr, ptr %9, align 8
-  %447 = getelementptr inbounds %struct.wtap_rec, ptr %446, i32 0, i32 7
-  %448 = getelementptr inbounds %struct.wtap_packet_header, ptr %447, i32 0, i32 4
-  %449 = getelementptr inbounds %struct.atm_phdr, ptr %448, i32 0, i32 3
-  store i8 0, ptr %449, align 2
-  br label %523
+  %439 = getelementptr inbounds nuw %struct.wtap_rec, ptr %438, i32 0, i32 7
+  %440 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %439, i32 0, i32 4
+  %441 = getelementptr inbounds nuw %struct.atm_phdr, ptr %440, i32 0, i32 3
+  store i8 0, ptr %441, align 2
+  br label %528
 
-450:                                              ; preds = %374
+442:                                              ; preds = %379
+  %443 = load ptr, ptr %9, align 8
+  %444 = getelementptr inbounds nuw %struct.wtap_rec, ptr %443, i32 0, i32 7
+  %445 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %444, i32 0, i32 4
+  %446 = getelementptr inbounds nuw %struct.atm_phdr, ptr %445, i32 0, i32 1
+  store i8 0, ptr %446, align 4
+  %447 = load ptr, ptr %9, align 8
+  %448 = getelementptr inbounds nuw %struct.wtap_rec, ptr %447, i32 0, i32 7
+  %449 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %448, i32 0, i32 4
+  %450 = getelementptr inbounds nuw %struct.atm_phdr, ptr %449, i32 0, i32 2
+  store i8 0, ptr %450, align 1
   %451 = load ptr, ptr %9, align 8
-  %452 = getelementptr inbounds %struct.wtap_rec, ptr %451, i32 0, i32 7
-  %453 = getelementptr inbounds %struct.wtap_packet_header, ptr %452, i32 0, i32 4
-  %454 = getelementptr inbounds %struct.atm_phdr, ptr %453, i32 0, i32 1
-  store i8 0, ptr %454, align 4
-  %455 = load ptr, ptr %9, align 8
-  %456 = getelementptr inbounds %struct.wtap_rec, ptr %455, i32 0, i32 7
-  %457 = getelementptr inbounds %struct.wtap_packet_header, ptr %456, i32 0, i32 4
-  %458 = getelementptr inbounds %struct.atm_phdr, ptr %457, i32 0, i32 2
-  store i8 0, ptr %458, align 1
-  %459 = load ptr, ptr %9, align 8
-  %460 = getelementptr inbounds %struct.wtap_rec, ptr %459, i32 0, i32 7
-  %461 = getelementptr inbounds %struct.wtap_packet_header, ptr %460, i32 0, i32 4
-  %462 = getelementptr inbounds %struct.atm_phdr, ptr %461, i32 0, i32 3
-  store i8 0, ptr %462, align 2
-  br label %523
+  %452 = getelementptr inbounds nuw %struct.wtap_rec, ptr %451, i32 0, i32 7
+  %453 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %452, i32 0, i32 4
+  %454 = getelementptr inbounds nuw %struct.atm_phdr, ptr %453, i32 0, i32 3
+  store i8 0, ptr %454, align 2
+  br label %528
 
-463:                                              ; preds = %374, %374, %374, %374
+455:                                              ; preds = %379
+  %456 = load ptr, ptr %9, align 8
+  %457 = getelementptr inbounds nuw %struct.wtap_rec, ptr %456, i32 0, i32 7
+  %458 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %457, i32 0, i32 4
+  %459 = getelementptr inbounds nuw %struct.atm_phdr, ptr %458, i32 0, i32 1
+  store i8 0, ptr %459, align 4
+  %460 = load ptr, ptr %9, align 8
+  %461 = getelementptr inbounds nuw %struct.wtap_rec, ptr %460, i32 0, i32 7
+  %462 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %461, i32 0, i32 4
+  %463 = getelementptr inbounds nuw %struct.atm_phdr, ptr %462, i32 0, i32 2
+  store i8 0, ptr %463, align 1
   %464 = load ptr, ptr %9, align 8
-  %465 = getelementptr inbounds %struct.wtap_rec, ptr %464, i32 0, i32 7
-  %466 = getelementptr inbounds %struct.wtap_packet_header, ptr %465, i32 0, i32 4
-  %467 = getelementptr inbounds %struct.atm_phdr, ptr %466, i32 0, i32 1
-  store i8 4, ptr %467, align 4
-  %468 = getelementptr inbounds %struct.netxrayrec_2_x_hdr, ptr %13, i32 0, i32 4
-  %469 = getelementptr [28 x i8], ptr %468, i64 0, i64 0
-  %470 = load i8, ptr %469, align 4
-  %471 = zext i8 %470 to i32
-  %472 = and i32 %471, 7
-  switch i32 %472, label %522 [
-    i32 1, label %473
-    i32 2, label %473
-    i32 3, label %486
-    i32 0, label %495
-    i32 4, label %495
-    i32 5, label %495
-    i32 6, label %504
-    i32 7, label %513
+  %465 = getelementptr inbounds nuw %struct.wtap_rec, ptr %464, i32 0, i32 7
+  %466 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %465, i32 0, i32 4
+  %467 = getelementptr inbounds nuw %struct.atm_phdr, ptr %466, i32 0, i32 3
+  store i8 0, ptr %467, align 2
+  br label %528
+
+468:                                              ; preds = %379, %379, %379, %379
+  %469 = load ptr, ptr %9, align 8
+  %470 = getelementptr inbounds nuw %struct.wtap_rec, ptr %469, i32 0, i32 7
+  %471 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %470, i32 0, i32 4
+  %472 = getelementptr inbounds nuw %struct.atm_phdr, ptr %471, i32 0, i32 1
+  store i8 4, ptr %472, align 4
+  %473 = getelementptr inbounds nuw %struct.netxrayrec_2_x_hdr, ptr %13, i32 0, i32 4
+  %474 = getelementptr [28 x i8], ptr %473, i64 0, i64 0
+  %475 = load i8, ptr %474, align 4
+  %476 = zext i8 %475 to i32
+  %477 = and i32 %476, 7
+  switch i32 %477, label %527 [
+    i32 1, label %478
+    i32 2, label %478
+    i32 3, label %491
+    i32 0, label %500
+    i32 4, label %500
+    i32 5, label %500
+    i32 6, label %509
+    i32 7, label %518
   ]
 
-473:                                              ; preds = %463, %463
-  %474 = load ptr, ptr %9, align 8
-  %475 = getelementptr inbounds %struct.wtap_rec, ptr %474, i32 0, i32 7
-  %476 = getelementptr inbounds %struct.wtap_packet_header, ptr %475, i32 0, i32 4
-  %477 = getelementptr inbounds %struct.atm_phdr, ptr %476, i32 0, i32 1
-  store i8 6, ptr %477, align 4
-  %478 = load ptr, ptr %9, align 8
-  %479 = getelementptr inbounds %struct.wtap_rec, ptr %478, i32 0, i32 7
-  %480 = getelementptr inbounds %struct.wtap_packet_header, ptr %479, i32 0, i32 4
-  %481 = getelementptr inbounds %struct.atm_phdr, ptr %480, i32 0, i32 2
-  store i8 0, ptr %481, align 1
-  %482 = load ptr, ptr %9, align 8
-  %483 = getelementptr inbounds %struct.wtap_rec, ptr %482, i32 0, i32 7
-  %484 = getelementptr inbounds %struct.wtap_packet_header, ptr %483, i32 0, i32 4
-  %485 = getelementptr inbounds %struct.atm_phdr, ptr %484, i32 0, i32 3
-  store i8 0, ptr %485, align 2
-  br label %522
-
-486:                                              ; preds = %463
+478:                                              ; preds = %468, %468
+  %479 = load ptr, ptr %9, align 8
+  %480 = getelementptr inbounds nuw %struct.wtap_rec, ptr %479, i32 0, i32 7
+  %481 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %480, i32 0, i32 4
+  %482 = getelementptr inbounds nuw %struct.atm_phdr, ptr %481, i32 0, i32 1
+  store i8 6, ptr %482, align 4
+  %483 = load ptr, ptr %9, align 8
+  %484 = getelementptr inbounds nuw %struct.wtap_rec, ptr %483, i32 0, i32 7
+  %485 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %484, i32 0, i32 4
+  %486 = getelementptr inbounds nuw %struct.atm_phdr, ptr %485, i32 0, i32 2
+  store i8 0, ptr %486, align 1
   %487 = load ptr, ptr %9, align 8
-  %488 = getelementptr inbounds %struct.wtap_rec, ptr %487, i32 0, i32 7
-  %489 = getelementptr inbounds %struct.wtap_packet_header, ptr %488, i32 0, i32 4
-  %490 = getelementptr inbounds %struct.atm_phdr, ptr %489, i32 0, i32 2
-  store i8 4, ptr %490, align 1
-  %491 = load ptr, ptr %9, align 8
-  %492 = getelementptr inbounds %struct.wtap_rec, ptr %491, i32 0, i32 7
-  %493 = getelementptr inbounds %struct.wtap_packet_header, ptr %492, i32 0, i32 4
-  %494 = getelementptr inbounds %struct.atm_phdr, ptr %493, i32 0, i32 3
-  store i8 0, ptr %494, align 2
-  br label %522
+  %488 = getelementptr inbounds nuw %struct.wtap_rec, ptr %487, i32 0, i32 7
+  %489 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %488, i32 0, i32 4
+  %490 = getelementptr inbounds nuw %struct.atm_phdr, ptr %489, i32 0, i32 3
+  store i8 0, ptr %490, align 2
+  br label %527
 
-495:                                              ; preds = %463, %463, %463
+491:                                              ; preds = %468
+  %492 = load ptr, ptr %9, align 8
+  %493 = getelementptr inbounds nuw %struct.wtap_rec, ptr %492, i32 0, i32 7
+  %494 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %493, i32 0, i32 4
+  %495 = getelementptr inbounds nuw %struct.atm_phdr, ptr %494, i32 0, i32 2
+  store i8 4, ptr %495, align 1
   %496 = load ptr, ptr %9, align 8
-  %497 = getelementptr inbounds %struct.wtap_rec, ptr %496, i32 0, i32 7
-  %498 = getelementptr inbounds %struct.wtap_packet_header, ptr %497, i32 0, i32 4
-  %499 = getelementptr inbounds %struct.atm_phdr, ptr %498, i32 0, i32 2
-  store i8 3, ptr %499, align 1
-  %500 = load ptr, ptr %9, align 8
-  %501 = getelementptr inbounds %struct.wtap_rec, ptr %500, i32 0, i32 7
-  %502 = getelementptr inbounds %struct.wtap_packet_header, ptr %501, i32 0, i32 4
-  %503 = getelementptr inbounds %struct.atm_phdr, ptr %502, i32 0, i32 3
-  store i8 0, ptr %503, align 2
-  br label %522
+  %497 = getelementptr inbounds nuw %struct.wtap_rec, ptr %496, i32 0, i32 7
+  %498 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %497, i32 0, i32 4
+  %499 = getelementptr inbounds nuw %struct.atm_phdr, ptr %498, i32 0, i32 3
+  store i8 0, ptr %499, align 2
+  br label %527
 
-504:                                              ; preds = %463
+500:                                              ; preds = %468, %468, %468
+  %501 = load ptr, ptr %9, align 8
+  %502 = getelementptr inbounds nuw %struct.wtap_rec, ptr %501, i32 0, i32 7
+  %503 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %502, i32 0, i32 4
+  %504 = getelementptr inbounds nuw %struct.atm_phdr, ptr %503, i32 0, i32 2
+  store i8 3, ptr %504, align 1
   %505 = load ptr, ptr %9, align 8
-  %506 = getelementptr inbounds %struct.wtap_rec, ptr %505, i32 0, i32 7
-  %507 = getelementptr inbounds %struct.wtap_packet_header, ptr %506, i32 0, i32 4
-  %508 = getelementptr inbounds %struct.atm_phdr, ptr %507, i32 0, i32 2
-  store i8 0, ptr %508, align 1
-  %509 = load ptr, ptr %9, align 8
-  %510 = getelementptr inbounds %struct.wtap_rec, ptr %509, i32 0, i32 7
-  %511 = getelementptr inbounds %struct.wtap_packet_header, ptr %510, i32 0, i32 4
-  %512 = getelementptr inbounds %struct.atm_phdr, ptr %511, i32 0, i32 3
-  store i8 0, ptr %512, align 2
-  br label %522
+  %506 = getelementptr inbounds nuw %struct.wtap_rec, ptr %505, i32 0, i32 7
+  %507 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %506, i32 0, i32 4
+  %508 = getelementptr inbounds nuw %struct.atm_phdr, ptr %507, i32 0, i32 3
+  store i8 0, ptr %508, align 2
+  br label %527
 
-513:                                              ; preds = %463
+509:                                              ; preds = %468
+  %510 = load ptr, ptr %9, align 8
+  %511 = getelementptr inbounds nuw %struct.wtap_rec, ptr %510, i32 0, i32 7
+  %512 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %511, i32 0, i32 4
+  %513 = getelementptr inbounds nuw %struct.atm_phdr, ptr %512, i32 0, i32 2
+  store i8 0, ptr %513, align 1
   %514 = load ptr, ptr %9, align 8
-  %515 = getelementptr inbounds %struct.wtap_rec, ptr %514, i32 0, i32 7
-  %516 = getelementptr inbounds %struct.wtap_packet_header, ptr %515, i32 0, i32 4
-  %517 = getelementptr inbounds %struct.atm_phdr, ptr %516, i32 0, i32 2
-  store i8 1, ptr %517, align 1
-  %518 = load ptr, ptr %9, align 8
-  %519 = getelementptr inbounds %struct.wtap_rec, ptr %518, i32 0, i32 7
-  %520 = getelementptr inbounds %struct.wtap_packet_header, ptr %519, i32 0, i32 4
-  %521 = getelementptr inbounds %struct.atm_phdr, ptr %520, i32 0, i32 3
-  store i8 0, ptr %521, align 2
-  br label %522
+  %515 = getelementptr inbounds nuw %struct.wtap_rec, ptr %514, i32 0, i32 7
+  %516 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %515, i32 0, i32 4
+  %517 = getelementptr inbounds nuw %struct.atm_phdr, ptr %516, i32 0, i32 3
+  store i8 0, ptr %517, align 2
+  br label %527
 
-522:                                              ; preds = %513, %504, %495, %486, %473, %463
-  br label %523
+518:                                              ; preds = %468
+  %519 = load ptr, ptr %9, align 8
+  %520 = getelementptr inbounds nuw %struct.wtap_rec, ptr %519, i32 0, i32 7
+  %521 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %520, i32 0, i32 4
+  %522 = getelementptr inbounds nuw %struct.atm_phdr, ptr %521, i32 0, i32 2
+  store i8 1, ptr %522, align 1
+  %523 = load ptr, ptr %9, align 8
+  %524 = getelementptr inbounds nuw %struct.wtap_rec, ptr %523, i32 0, i32 7
+  %525 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %524, i32 0, i32 4
+  %526 = getelementptr inbounds nuw %struct.atm_phdr, ptr %525, i32 0, i32 3
+  store i8 0, ptr %526, align 2
+  br label %527
 
-523:                                              ; preds = %522, %450, %437, %424, %411, %374
-  br label %524
+527:                                              ; preds = %468, %518, %509, %500, %491, %478
+  br label %528
 
-524:                                              ; preds = %523, %330, %329, %303, %202, %82, %49
-  br label %525
+528:                                              ; preds = %379, %527, %455, %442, %429, %416
+  br label %529
 
-525:                                              ; preds = %524, %48, %35
-  %526 = load ptr, ptr %9, align 8
-  %527 = getelementptr inbounds %struct.wtap_rec, ptr %526, i32 0, i32 0
-  store i32 0, ptr %527, align 8
-  %528 = call ptr @wtap_block_create(i32 noundef 5)
-  %529 = load ptr, ptr %9, align 8
-  %530 = getelementptr inbounds %struct.wtap_rec, ptr %529, i32 0, i32 8
-  store ptr %528, ptr %530, align 8
-  %531 = load ptr, ptr %12, align 8
-  %532 = getelementptr inbounds %struct.netxray_t, ptr %531, i32 0, i32 7
-  %533 = load i32, ptr %532, align 8
-  %534 = icmp eq i32 %533, 0
-  br i1 %534, label %535, label %590
+529:                                              ; preds = %49, %528, %333, %332, %306, %203, %82
+  br label %530
 
-535:                                              ; preds = %525
-  %536 = load ptr, ptr %9, align 8
-  %537 = getelementptr inbounds %struct.wtap_rec, ptr %536, i32 0, i32 1
-  store i32 1, ptr %537, align 4
-  %538 = getelementptr inbounds %struct.old_netxrayrec_hdr, ptr %13, i32 0, i32 0
-  %539 = call i32 @pletoh32(ptr noundef %538)
-  %540 = uitofp i32 %539 to double
-  %541 = getelementptr inbounds %struct.old_netxrayrec_hdr, ptr %13, i32 0, i32 1
-  %542 = call i32 @pletoh32(ptr noundef %541)
-  %543 = uitofp i32 %542 to double
-  %544 = call double @llvm.fmuladd.f64(double %543, double 0x41F0000000000000, double %540)
-  store double %544, ptr %15, align 8
-  %545 = load ptr, ptr %12, align 8
-  %546 = getelementptr inbounds %struct.netxray_t, ptr %545, i32 0, i32 1
-  %547 = load double, ptr %546, align 8
-  %548 = load double, ptr %15, align 8
-  %549 = fdiv double %548, %547
+530:                                              ; preds = %35, %529, %48
+  %531 = load ptr, ptr %9, align 8
+  %532 = getelementptr inbounds nuw %struct.wtap_rec, ptr %531, i32 0, i32 0
+  store i32 0, ptr %532, align 8
+  %533 = call ptr @wtap_block_create(i32 noundef 5)
+  %534 = load ptr, ptr %9, align 8
+  %535 = getelementptr inbounds nuw %struct.wtap_rec, ptr %534, i32 0, i32 8
+  store ptr %533, ptr %535, align 8
+  %536 = load ptr, ptr %12, align 8
+  %537 = getelementptr inbounds nuw %struct.netxray_t, ptr %536, i32 0, i32 7
+  %538 = load i32, ptr %537, align 8
+  %539 = icmp eq i32 %538, 0
+  br i1 %539, label %540, label %595
+
+540:                                              ; preds = %530
+  %541 = load ptr, ptr %9, align 8
+  %542 = getelementptr inbounds nuw %struct.wtap_rec, ptr %541, i32 0, i32 1
+  store i32 1, ptr %542, align 4
+  %543 = getelementptr inbounds nuw %struct.old_netxrayrec_hdr, ptr %13, i32 0, i32 0
+  %544 = call i32 @pletoh32(ptr noundef %543)
+  %545 = uitofp i32 %544 to double
+  %546 = getelementptr inbounds nuw %struct.old_netxrayrec_hdr, ptr %13, i32 0, i32 1
+  %547 = call i32 @pletoh32(ptr noundef %546)
+  %548 = uitofp i32 %547 to double
+  %549 = call double @llvm.fmuladd.f64(double %548, double 0x41F0000000000000, double %545)
   store double %549, ptr %15, align 8
   %550 = load ptr, ptr %12, align 8
-  %551 = getelementptr inbounds %struct.netxray_t, ptr %550, i32 0, i32 2
+  %551 = getelementptr inbounds nuw %struct.netxray_t, ptr %550, i32 0, i32 1
   %552 = load double, ptr %551, align 8
   %553 = load double, ptr %15, align 8
-  %554 = fsub double %553, %552
+  %554 = fdiv double %553, %552
   store double %554, ptr %15, align 8
   %555 = load ptr, ptr %12, align 8
-  %556 = getelementptr inbounds %struct.netxray_t, ptr %555, i32 0, i32 0
-  %557 = load i64, ptr %556, align 8
+  %556 = getelementptr inbounds nuw %struct.netxray_t, ptr %555, i32 0, i32 2
+  %557 = load double, ptr %556, align 8
   %558 = load double, ptr %15, align 8
-  %559 = fptosi double %558 to i64
-  %560 = add i64 %557, %559
-  %561 = load ptr, ptr %9, align 8
-  %562 = getelementptr inbounds %struct.wtap_rec, ptr %561, i32 0, i32 3
-  %563 = getelementptr inbounds %struct.nstime_t, ptr %562, i32 0, i32 0
-  store i64 %560, ptr %563, align 8
-  %564 = load double, ptr %15, align 8
-  %565 = load double, ptr %15, align 8
-  %566 = fptoui double %565 to i64
-  %567 = uitofp i64 %566 to double
-  %568 = fsub double %564, %567
-  %569 = fmul double %568, 1.000000e+09
-  %570 = fptosi double %569 to i32
-  %571 = load ptr, ptr %9, align 8
-  %572 = getelementptr inbounds %struct.wtap_rec, ptr %571, i32 0, i32 3
-  %573 = getelementptr inbounds %struct.nstime_t, ptr %572, i32 0, i32 1
-  store i32 %570, ptr %573, align 8
-  %574 = getelementptr inbounds %struct.old_netxrayrec_hdr, ptr %13, i32 0, i32 2
-  %575 = call zeroext i16 @pletoh16(ptr noundef %574)
-  %576 = zext i16 %575 to i32
-  store i32 %576, ptr %16, align 4
-  %577 = load i32, ptr %16, align 4
-  %578 = load i32, ptr %17, align 4
-  %579 = sub i32 %577, %578
-  %580 = load ptr, ptr %9, align 8
-  %581 = getelementptr inbounds %struct.wtap_rec, ptr %580, i32 0, i32 7
-  %582 = getelementptr inbounds %struct.wtap_packet_header, ptr %581, i32 0, i32 0
-  store i32 %579, ptr %582, align 8
-  %583 = load ptr, ptr %9, align 8
-  %584 = getelementptr inbounds %struct.wtap_rec, ptr %583, i32 0, i32 7
-  %585 = getelementptr inbounds %struct.wtap_packet_header, ptr %584, i32 0, i32 0
-  %586 = load i32, ptr %585, align 8
-  %587 = load ptr, ptr %9, align 8
-  %588 = getelementptr inbounds %struct.wtap_rec, ptr %587, i32 0, i32 7
-  %589 = getelementptr inbounds %struct.wtap_packet_header, ptr %588, i32 0, i32 1
-  store i32 %586, ptr %589, align 4
-  br label %646
+  %559 = fsub double %558, %557
+  store double %559, ptr %15, align 8
+  %560 = load ptr, ptr %12, align 8
+  %561 = getelementptr inbounds nuw %struct.netxray_t, ptr %560, i32 0, i32 0
+  %562 = load i64, ptr %561, align 8
+  %563 = load double, ptr %15, align 8
+  %564 = fptosi double %563 to i64
+  %565 = add i64 %562, %564
+  %566 = load ptr, ptr %9, align 8
+  %567 = getelementptr inbounds nuw %struct.wtap_rec, ptr %566, i32 0, i32 3
+  %568 = getelementptr inbounds nuw %struct.nstime_t, ptr %567, i32 0, i32 0
+  store i64 %565, ptr %568, align 8
+  %569 = load double, ptr %15, align 8
+  %570 = load double, ptr %15, align 8
+  %571 = fptoui double %570 to i64
+  %572 = uitofp i64 %571 to double
+  %573 = fsub double %569, %572
+  %574 = fmul double %573, 1.000000e+09
+  %575 = fptosi double %574 to i32
+  %576 = load ptr, ptr %9, align 8
+  %577 = getelementptr inbounds nuw %struct.wtap_rec, ptr %576, i32 0, i32 3
+  %578 = getelementptr inbounds nuw %struct.nstime_t, ptr %577, i32 0, i32 1
+  store i32 %575, ptr %578, align 8
+  %579 = getelementptr inbounds nuw %struct.old_netxrayrec_hdr, ptr %13, i32 0, i32 2
+  %580 = call zeroext i16 @pletoh16(ptr noundef %579)
+  %581 = zext i16 %580 to i32
+  store i32 %581, ptr %16, align 4
+  %582 = load i32, ptr %16, align 4
+  %583 = load i32, ptr %17, align 4
+  %584 = sub i32 %582, %583
+  %585 = load ptr, ptr %9, align 8
+  %586 = getelementptr inbounds nuw %struct.wtap_rec, ptr %585, i32 0, i32 7
+  %587 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %586, i32 0, i32 0
+  store i32 %584, ptr %587, align 8
+  %588 = load ptr, ptr %9, align 8
+  %589 = getelementptr inbounds nuw %struct.wtap_rec, ptr %588, i32 0, i32 7
+  %590 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %589, i32 0, i32 0
+  %591 = load i32, ptr %590, align 8
+  %592 = load ptr, ptr %9, align 8
+  %593 = getelementptr inbounds nuw %struct.wtap_rec, ptr %592, i32 0, i32 7
+  %594 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %593, i32 0, i32 1
+  store i32 %591, ptr %594, align 4
+  br label %651
 
-590:                                              ; preds = %525
-  %591 = load ptr, ptr %9, align 8
-  %592 = getelementptr inbounds %struct.wtap_rec, ptr %591, i32 0, i32 1
-  store i32 3, ptr %592, align 4
-  %593 = getelementptr inbounds %struct.netxrayrec_1_x_hdr, ptr %13, i32 0, i32 0
-  %594 = call i32 @pletoh32(ptr noundef %593)
-  %595 = uitofp i32 %594 to double
-  %596 = getelementptr inbounds %struct.netxrayrec_1_x_hdr, ptr %13, i32 0, i32 1
-  %597 = call i32 @pletoh32(ptr noundef %596)
-  %598 = uitofp i32 %597 to double
-  %599 = call double @llvm.fmuladd.f64(double %598, double 0x41F0000000000000, double %595)
-  store double %599, ptr %15, align 8
-  %600 = load ptr, ptr %12, align 8
-  %601 = getelementptr inbounds %struct.netxray_t, ptr %600, i32 0, i32 1
-  %602 = load double, ptr %601, align 8
-  %603 = load double, ptr %15, align 8
-  %604 = fdiv double %603, %602
+595:                                              ; preds = %530
+  %596 = load ptr, ptr %9, align 8
+  %597 = getelementptr inbounds nuw %struct.wtap_rec, ptr %596, i32 0, i32 1
+  store i32 3, ptr %597, align 4
+  %598 = getelementptr inbounds nuw %struct.netxrayrec_1_x_hdr, ptr %13, i32 0, i32 0
+  %599 = call i32 @pletoh32(ptr noundef %598)
+  %600 = uitofp i32 %599 to double
+  %601 = getelementptr inbounds nuw %struct.netxrayrec_1_x_hdr, ptr %13, i32 0, i32 1
+  %602 = call i32 @pletoh32(ptr noundef %601)
+  %603 = uitofp i32 %602 to double
+  %604 = call double @llvm.fmuladd.f64(double %603, double 0x41F0000000000000, double %600)
   store double %604, ptr %15, align 8
   %605 = load ptr, ptr %12, align 8
-  %606 = getelementptr inbounds %struct.netxray_t, ptr %605, i32 0, i32 2
+  %606 = getelementptr inbounds nuw %struct.netxray_t, ptr %605, i32 0, i32 1
   %607 = load double, ptr %606, align 8
   %608 = load double, ptr %15, align 8
-  %609 = fsub double %608, %607
+  %609 = fdiv double %608, %607
   store double %609, ptr %15, align 8
   %610 = load ptr, ptr %12, align 8
-  %611 = getelementptr inbounds %struct.netxray_t, ptr %610, i32 0, i32 0
-  %612 = load i64, ptr %611, align 8
+  %611 = getelementptr inbounds nuw %struct.netxray_t, ptr %610, i32 0, i32 2
+  %612 = load double, ptr %611, align 8
   %613 = load double, ptr %15, align 8
-  %614 = fptosi double %613 to i64
-  %615 = add i64 %612, %614
-  %616 = load ptr, ptr %9, align 8
-  %617 = getelementptr inbounds %struct.wtap_rec, ptr %616, i32 0, i32 3
-  %618 = getelementptr inbounds %struct.nstime_t, ptr %617, i32 0, i32 0
-  store i64 %615, ptr %618, align 8
-  %619 = load double, ptr %15, align 8
-  %620 = load double, ptr %15, align 8
-  %621 = fptoui double %620 to i64
-  %622 = uitofp i64 %621 to double
-  %623 = fsub double %619, %622
-  %624 = fmul double %623, 1.000000e+09
-  %625 = fptosi double %624 to i32
-  %626 = load ptr, ptr %9, align 8
-  %627 = getelementptr inbounds %struct.wtap_rec, ptr %626, i32 0, i32 3
-  %628 = getelementptr inbounds %struct.nstime_t, ptr %627, i32 0, i32 1
-  store i32 %625, ptr %628, align 8
-  %629 = getelementptr inbounds %struct.netxrayrec_1_x_hdr, ptr %13, i32 0, i32 3
-  %630 = call zeroext i16 @pletoh16(ptr noundef %629)
-  %631 = zext i16 %630 to i32
-  store i32 %631, ptr %16, align 4
-  %632 = load i32, ptr %16, align 4
-  %633 = load i32, ptr %17, align 4
-  %634 = sub i32 %632, %633
-  %635 = load ptr, ptr %9, align 8
-  %636 = getelementptr inbounds %struct.wtap_rec, ptr %635, i32 0, i32 7
-  %637 = getelementptr inbounds %struct.wtap_packet_header, ptr %636, i32 0, i32 0
-  store i32 %634, ptr %637, align 8
-  %638 = getelementptr inbounds %struct.netxrayrec_1_x_hdr, ptr %13, i32 0, i32 2
-  %639 = call zeroext i16 @pletoh16(ptr noundef %638)
-  %640 = zext i16 %639 to i32
-  %641 = load i32, ptr %17, align 4
-  %642 = sub i32 %640, %641
-  %643 = load ptr, ptr %9, align 8
-  %644 = getelementptr inbounds %struct.wtap_rec, ptr %643, i32 0, i32 7
-  %645 = getelementptr inbounds %struct.wtap_packet_header, ptr %644, i32 0, i32 1
-  store i32 %642, ptr %645, align 4
-  br label %646
+  %614 = fsub double %613, %612
+  store double %614, ptr %15, align 8
+  %615 = load ptr, ptr %12, align 8
+  %616 = getelementptr inbounds nuw %struct.netxray_t, ptr %615, i32 0, i32 0
+  %617 = load i64, ptr %616, align 8
+  %618 = load double, ptr %15, align 8
+  %619 = fptosi double %618 to i64
+  %620 = add i64 %617, %619
+  %621 = load ptr, ptr %9, align 8
+  %622 = getelementptr inbounds nuw %struct.wtap_rec, ptr %621, i32 0, i32 3
+  %623 = getelementptr inbounds nuw %struct.nstime_t, ptr %622, i32 0, i32 0
+  store i64 %620, ptr %623, align 8
+  %624 = load double, ptr %15, align 8
+  %625 = load double, ptr %15, align 8
+  %626 = fptoui double %625 to i64
+  %627 = uitofp i64 %626 to double
+  %628 = fsub double %624, %627
+  %629 = fmul double %628, 1.000000e+09
+  %630 = fptosi double %629 to i32
+  %631 = load ptr, ptr %9, align 8
+  %632 = getelementptr inbounds nuw %struct.wtap_rec, ptr %631, i32 0, i32 3
+  %633 = getelementptr inbounds nuw %struct.nstime_t, ptr %632, i32 0, i32 1
+  store i32 %630, ptr %633, align 8
+  %634 = getelementptr inbounds nuw %struct.netxrayrec_1_x_hdr, ptr %13, i32 0, i32 3
+  %635 = call zeroext i16 @pletoh16(ptr noundef %634)
+  %636 = zext i16 %635 to i32
+  store i32 %636, ptr %16, align 4
+  %637 = load i32, ptr %16, align 4
+  %638 = load i32, ptr %17, align 4
+  %639 = sub i32 %637, %638
+  %640 = load ptr, ptr %9, align 8
+  %641 = getelementptr inbounds nuw %struct.wtap_rec, ptr %640, i32 0, i32 7
+  %642 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %641, i32 0, i32 0
+  store i32 %639, ptr %642, align 8
+  %643 = getelementptr inbounds nuw %struct.netxrayrec_1_x_hdr, ptr %13, i32 0, i32 2
+  %644 = call zeroext i16 @pletoh16(ptr noundef %643)
+  %645 = zext i16 %644 to i32
+  %646 = load i32, ptr %17, align 4
+  %647 = sub i32 %645, %646
+  %648 = load ptr, ptr %9, align 8
+  %649 = getelementptr inbounds nuw %struct.wtap_rec, ptr %648, i32 0, i32 7
+  %650 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %649, i32 0, i32 1
+  store i32 %647, ptr %650, align 4
+  br label %651
 
-646:                                              ; preds = %590, %535
-  %647 = load i32, ptr %17, align 4
-  store i32 %647, ptr %6, align 4
-  br label %648
+651:                                              ; preds = %595, %540
+  %652 = load i32, ptr %17, align 4
+  store i32 %652, ptr %6, align 4
+  store i32 1, ptr %18, align 4
+  br label %653
 
-648:                                              ; preds = %646, %34
-  %649 = load i32, ptr %6, align 4
-  ret i32 %649
+653:                                              ; preds = %651, %34
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #12
+  call void @llvm.lifetime.end.p0(i64 40, ptr %13) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #12
+  %654 = load i32, ptr %6, align 4
+  ret i32 %654
 }
 
-declare i32 @wtap_read_packet_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @wtap_read_bytes_buffer(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal void @netxray_guess_atm_type(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal void @netxray_guess_atm_type(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %struct.wtap, ptr %8, i32 0, i32 19
-  %10 = load i32, ptr %9, align 8
-  %11 = icmp eq i32 %10, 14
-  br i1 %11, label %12, label %66
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %struct.wtap, ptr %5, i32 0, i32 19
+  %7 = load i32, ptr %6, align 8
+  %8 = icmp eq i32 %7, 14
+  br i1 %8, label %9, label %47
 
-12:                                               ; preds = %3
-  %13 = load ptr, ptr %5, align 8
-  %14 = getelementptr inbounds %struct.wtap_rec, ptr %13, i32 0, i32 7
-  %15 = getelementptr inbounds %struct.wtap_packet_header, ptr %14, i32 0, i32 4
-  %16 = getelementptr inbounds %struct.atm_phdr, ptr %15, i32 0, i32 0
-  %17 = load i32, ptr %16, align 8
-  %18 = and i32 %17, 8
-  %19 = icmp ne i32 %18, 0
-  br i1 %19, label %66, label %20
+9:                                                ; preds = %2
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds nuw %struct.wtap_rec, ptr %10, i32 0, i32 7
+  %12 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %11, i32 0, i32 4
+  %13 = getelementptr inbounds nuw %struct.atm_phdr, ptr %12, i32 0, i32 0
+  %14 = load i32, ptr %13, align 8
+  %15 = and i32 %14, 8
+  %16 = icmp ne i32 %15, 0
+  br i1 %16, label %47, label %17
 
-20:                                               ; preds = %12
-  %21 = load ptr, ptr %5, align 8
-  %22 = getelementptr inbounds %struct.wtap_rec, ptr %21, i32 0, i32 7
-  %23 = getelementptr inbounds %struct.wtap_packet_header, ptr %22, i32 0, i32 4
-  %24 = getelementptr inbounds %struct.atm_phdr, ptr %23, i32 0, i32 1
-  %25 = load i8, ptr %24, align 4
-  %26 = zext i8 %25 to i32
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %38
+17:                                               ; preds = %9
+  %18 = load ptr, ptr %4, align 8
+  %19 = getelementptr inbounds nuw %struct.wtap_rec, ptr %18, i32 0, i32 7
+  %20 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %19, i32 0, i32 4
+  %21 = getelementptr inbounds nuw %struct.atm_phdr, ptr %20, i32 0, i32 1
+  %22 = load i8, ptr %21, align 4
+  %23 = zext i8 %22 to i32
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %25, label %27
 
-28:                                               ; preds = %20
-  %29 = load ptr, ptr %6, align 8
-  %30 = getelementptr inbounds %struct.Buffer, ptr %29, i32 0, i32 0
-  %31 = load ptr, ptr %30, align 8
-  %32 = load ptr, ptr %6, align 8
-  %33 = getelementptr inbounds %struct.Buffer, ptr %32, i32 0, i32 2
-  %34 = load i64, ptr %33, align 8
-  %35 = getelementptr i8, ptr %31, i64 %34
-  store ptr %35, ptr %7, align 8
-  %36 = load ptr, ptr %5, align 8
-  %37 = load ptr, ptr %7, align 8
-  call void @atm_guess_traffic_type(ptr noundef %36, ptr noundef %37)
-  br label %65
+25:                                               ; preds = %17
+  %26 = load ptr, ptr %4, align 8
+  call void @atm_guess_traffic_type(ptr noundef %26)
+  br label %46
 
-38:                                               ; preds = %20
-  %39 = load ptr, ptr %5, align 8
-  %40 = getelementptr inbounds %struct.wtap_rec, ptr %39, i32 0, i32 7
-  %41 = getelementptr inbounds %struct.wtap_packet_header, ptr %40, i32 0, i32 4
-  %42 = getelementptr inbounds %struct.atm_phdr, ptr %41, i32 0, i32 1
-  %43 = load i8, ptr %42, align 4
-  %44 = zext i8 %43 to i32
-  %45 = icmp eq i32 %44, 4
-  br i1 %45, label %46, label %64
+27:                                               ; preds = %17
+  %28 = load ptr, ptr %4, align 8
+  %29 = getelementptr inbounds nuw %struct.wtap_rec, ptr %28, i32 0, i32 7
+  %30 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %29, i32 0, i32 4
+  %31 = getelementptr inbounds nuw %struct.atm_phdr, ptr %30, i32 0, i32 1
+  %32 = load i8, ptr %31, align 4
+  %33 = zext i8 %32 to i32
+  %34 = icmp eq i32 %33, 4
+  br i1 %34, label %35, label %45
 
-46:                                               ; preds = %38
-  %47 = load ptr, ptr %5, align 8
-  %48 = getelementptr inbounds %struct.wtap_rec, ptr %47, i32 0, i32 7
-  %49 = getelementptr inbounds %struct.wtap_packet_header, ptr %48, i32 0, i32 4
-  %50 = getelementptr inbounds %struct.atm_phdr, ptr %49, i32 0, i32 2
-  %51 = load i8, ptr %50, align 1
-  %52 = zext i8 %51 to i32
-  %53 = icmp eq i32 %52, 3
-  br i1 %53, label %54, label %64
+35:                                               ; preds = %27
+  %36 = load ptr, ptr %4, align 8
+  %37 = getelementptr inbounds nuw %struct.wtap_rec, ptr %36, i32 0, i32 7
+  %38 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %37, i32 0, i32 4
+  %39 = getelementptr inbounds nuw %struct.atm_phdr, ptr %38, i32 0, i32 2
+  %40 = load i8, ptr %39, align 1
+  %41 = zext i8 %40 to i32
+  %42 = icmp eq i32 %41, 3
+  br i1 %42, label %43, label %45
 
-54:                                               ; preds = %46
-  %55 = load ptr, ptr %6, align 8
-  %56 = getelementptr inbounds %struct.Buffer, ptr %55, i32 0, i32 0
-  %57 = load ptr, ptr %56, align 8
-  %58 = load ptr, ptr %6, align 8
-  %59 = getelementptr inbounds %struct.Buffer, ptr %58, i32 0, i32 2
-  %60 = load i64, ptr %59, align 8
-  %61 = getelementptr i8, ptr %57, i64 %60
-  store ptr %61, ptr %7, align 8
-  %62 = load ptr, ptr %5, align 8
-  %63 = load ptr, ptr %7, align 8
-  call void @atm_guess_lane_type(ptr noundef %62, ptr noundef %63)
-  br label %64
+43:                                               ; preds = %35
+  %44 = load ptr, ptr %4, align 8
+  call void @atm_guess_lane_type(ptr noundef %44)
+  br label %45
 
-64:                                               ; preds = %54, %46, %38
-  br label %65
+45:                                               ; preds = %43, %35, %27
+  br label %46
 
-65:                                               ; preds = %64, %28
-  br label %66
+46:                                               ; preds = %45, %25
+  br label %47
 
-66:                                               ; preds = %65, %12, %3
+47:                                               ; preds = %46, %9, %2
   ret void
 }
 
-declare i32 @wtap_read_bytes_or_eof(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @wtap_read_bytes_or_eof(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+; Function Attrs: alwaysinline nounwind
+define internal ptr @memset.inline(ptr %0, i32 %1, i64 %2) #9 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i32, ptr %5, align 4
+  %9 = load i64, ptr %6, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = call i64 @llvm.objectsize.i64.p0(ptr %10, i1 false, i1 true, i1 true)
+  %12 = call ptr @__memset_chk(ptr noundef %7, i32 noundef %8, i64 noundef %9, i64 noundef %11) #12
+  ret ptr %12
+}
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i16 @pletoh16(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind null_pointer_is_valid sspstrong uwtable
+define internal zeroext i16 @pletoh16(ptr noundef %0) #4 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -2414,13 +2555,22 @@ define internal zeroext i16 @pletoh16(ptr noundef %0) #0 {
   ret i16 %16
 }
 
-declare ptr @wtap_block_create(i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @wtap_block_create(i32 noundef) #2
 
-declare void @atm_guess_traffic_type(ptr noundef, ptr noundef) #1
+; Function Attrs: nounwind null_pointer_is_valid
+declare ptr @__memset_chk(ptr noundef, i32 noundef, i64 noundef, i64 noundef) #10
 
-declare void @atm_guess_lane_type(ptr noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.objectsize.i64.p0(ptr, i1 immarg, i1 immarg, i1 immarg) #5
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare void @atm_guess_traffic_type(ptr noundef) #2
+
+; Function Attrs: null_pointer_is_valid
+declare void @atm_guess_lane_type(ptr noundef) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @netxray_dump_can_write_encap_1_1(i32 noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
@@ -2452,116 +2602,186 @@ define internal i32 @netxray_dump_can_write_encap_1_1(i32 noundef %0) #0 {
   ret i32 %14
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @netxray_dump_open_1_1(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = alloca i32, align 4
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @netxray_dump_open_1_1(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i1, align 1
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i64, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds %struct.wtap_dumper, ptr %9, i32 0, i32 10
-  store ptr @netxray_dump_1_1, ptr %10, align 8
-  %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds %struct.wtap_dumper, ptr %11, i32 0, i32 11
-  store ptr @netxray_dump_finish_1_1, ptr %12, align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = load ptr, ptr %6, align 8
-  %15 = call i64 @wtap_dump_file_seek(ptr noundef %13, i64 noundef 128, i32 noundef 0, ptr noundef %14)
-  %16 = icmp eq i64 %15, -1
-  br i1 %16, label %17, label %18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #12
+  %14 = load ptr, ptr %5, align 8
+  %15 = getelementptr inbounds nuw %struct.wtap_dumper, ptr %14, i32 0, i32 10
+  store ptr @netxray_dump_1_1, ptr %15, align 8
+  %16 = load ptr, ptr %5, align 8
+  %17 = getelementptr inbounds nuw %struct.wtap_dumper, ptr %16, i32 0, i32 11
+  store ptr @netxray_dump_finish_1_1, ptr %17, align 8
+  %18 = load ptr, ptr %5, align 8
+  %19 = load ptr, ptr %6, align 8
+  %20 = call i64 @wtap_dump_file_seek(ptr noundef %18, i64 noundef 128, i32 noundef 0, ptr noundef %19)
+  %21 = icmp eq i64 %20, -1
+  br i1 %21, label %22, label %23
 
-17:                                               ; preds = %3
-  store i32 0, ptr %4, align 4
-  br label %33
+22:                                               ; preds = %3
+  store i1 false, ptr %4, align 1
+  store i32 1, ptr %9, align 4
+  br label %66
 
-18:                                               ; preds = %3
-  %19 = load ptr, ptr %5, align 8
-  %20 = getelementptr inbounds %struct.wtap_dumper, ptr %19, i32 0, i32 6
-  %21 = load i64, ptr %20, align 8
-  %22 = add i64 %21, 128
-  store i64 %22, ptr %20, align 8
-  %23 = call noalias ptr @g_malloc_n(i64 noundef 1, i64 noundef 12) #8
-  store ptr %23, ptr %8, align 8
-  %24 = load ptr, ptr %8, align 8
-  %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds %struct.wtap_dumper, ptr %25, i32 0, i32 7
-  store ptr %24, ptr %26, align 8
-  %27 = load ptr, ptr %8, align 8
-  %28 = getelementptr inbounds %struct.netxray_dump_t, ptr %27, i32 0, i32 0
-  store i32 1, ptr %28, align 4
-  %29 = load ptr, ptr %8, align 8
-  %30 = getelementptr inbounds %struct.netxray_dump_t, ptr %29, i32 0, i32 1
-  store i32 0, ptr %30, align 4
-  %31 = load ptr, ptr %8, align 8
-  %32 = getelementptr inbounds %struct.netxray_dump_t, ptr %31, i32 0, i32 2
-  store i32 0, ptr %32, align 4
-  store i32 1, ptr %4, align 4
-  br label %33
+23:                                               ; preds = %3
+  %24 = load ptr, ptr %5, align 8
+  %25 = getelementptr inbounds nuw %struct.wtap_dumper, ptr %24, i32 0, i32 6
+  %26 = load i64, ptr %25, align 8
+  %27 = add i64 %26, 128
+  store i64 %27, ptr %25, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #12
+  store i64 1, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #12
+  store i64 12, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #12
+  %28 = load i64, ptr %11, align 8
+  %29 = icmp eq i64 %28, 1
+  br i1 %29, label %30, label %33
 
-33:                                               ; preds = %18, %17
-  %34 = load i32, ptr %4, align 4
-  ret i32 %34
+30:                                               ; preds = %23
+  %31 = load i64, ptr %10, align 8
+  %32 = call noalias ptr @g_malloc(i64 noundef %31) #14
+  store ptr %32, ptr %12, align 8
+  br label %54
+
+33:                                               ; preds = %23
+  %34 = load i64, ptr %10, align 8
+  %35 = call i1 @llvm.is.constant.i64(i64 %34)
+  br i1 %35, label %36, label %49
+
+36:                                               ; preds = %33
+  %37 = load i64, ptr %11, align 8
+  %38 = icmp eq i64 %37, 0
+  br i1 %38, label %44, label %39
+
+39:                                               ; preds = %36
+  %40 = load i64, ptr %10, align 8
+  %41 = load i64, ptr %11, align 8
+  %42 = udiv i64 -1, %41
+  %43 = icmp ule i64 %40, %42
+  br i1 %43, label %44, label %49
+
+44:                                               ; preds = %39, %36
+  %45 = load i64, ptr %10, align 8
+  %46 = load i64, ptr %11, align 8
+  %47 = mul i64 %45, %46
+  %48 = call noalias ptr @g_malloc(i64 noundef %47) #14
+  store ptr %48, ptr %12, align 8
+  br label %53
+
+49:                                               ; preds = %39, %33
+  %50 = load i64, ptr %10, align 8
+  %51 = load i64, ptr %11, align 8
+  %52 = call noalias ptr @g_malloc_n(i64 noundef %50, i64 noundef %51) #15
+  store ptr %52, ptr %12, align 8
+  br label %53
+
+53:                                               ; preds = %49, %44
+  br label %54
+
+54:                                               ; preds = %53, %30
+  %55 = load ptr, ptr %12, align 8
+  store ptr %55, ptr %13, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #12
+  %56 = load ptr, ptr %13, align 8
+  store ptr %56, ptr %8, align 8
+  %57 = load ptr, ptr %8, align 8
+  %58 = load ptr, ptr %5, align 8
+  %59 = getelementptr inbounds nuw %struct.wtap_dumper, ptr %58, i32 0, i32 7
+  store ptr %57, ptr %59, align 8
+  %60 = load ptr, ptr %8, align 8
+  %61 = getelementptr inbounds nuw %struct.netxray_dump_t, ptr %60, i32 0, i32 0
+  store i8 1, ptr %61, align 4
+  %62 = load ptr, ptr %8, align 8
+  %63 = getelementptr inbounds nuw %struct.netxray_dump_t, ptr %62, i32 0, i32 1
+  store i32 0, ptr %63, align 4
+  %64 = load ptr, ptr %8, align 8
+  %65 = getelementptr inbounds nuw %struct.netxray_dump_t, ptr %64, i32 0, i32 2
+  store i32 0, ptr %65, align 4
+  store i1 true, ptr %4, align 1
+  store i32 1, ptr %9, align 4
+  br label %66
+
+66:                                               ; preds = %54, %22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  %67 = load i1, ptr %4, align 1
+  ret i1 %67
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @wtap_encap_to_netxray_1_1_encap(i32 noundef %0) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @wtap_encap_to_netxray_1_1_encap(i32 noundef %0) #11 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
   store i32 %0, ptr %3, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #12
   store i32 0, ptr %4, align 4
-  br label %5
+  br label %6
 
-5:                                                ; preds = %24, %1
-  %6 = load i32, ptr %4, align 4
-  %7 = zext i32 %6 to i64
-  %8 = icmp ult i64 %7, 4
-  br i1 %8, label %9, label %27
+6:                                                ; preds = %25, %1
+  %7 = load i32, ptr %4, align 4
+  %8 = zext i32 %7 to i64
+  %9 = icmp ult i64 %8, 4
+  br i1 %9, label %10, label %28
 
-9:                                                ; preds = %5
-  %10 = load i32, ptr %3, align 4
-  %11 = load i32, ptr %4, align 4
-  %12 = zext i32 %11 to i64
-  %13 = getelementptr [4 x %struct.anon.3], ptr @wtap_encap_1_1, i64 0, i64 %12
-  %14 = getelementptr inbounds %struct.anon.3, ptr %13, i32 0, i32 0
-  %15 = load i32, ptr %14, align 8
-  %16 = icmp eq i32 %10, %15
-  br i1 %16, label %17, label %23
+10:                                               ; preds = %6
+  %11 = load i32, ptr %3, align 4
+  %12 = load i32, ptr %4, align 4
+  %13 = zext i32 %12 to i64
+  %14 = getelementptr [4 x %struct.anon.3], ptr @wtap_encap_1_1, i64 0, i64 %13
+  %15 = getelementptr inbounds nuw %struct.anon.3, ptr %14, i32 0, i32 0
+  %16 = load i32, ptr %15, align 8
+  %17 = icmp eq i32 %11, %16
+  br i1 %17, label %18, label %24
 
-17:                                               ; preds = %9
-  %18 = load i32, ptr %4, align 4
-  %19 = zext i32 %18 to i64
-  %20 = getelementptr [4 x %struct.anon.3], ptr @wtap_encap_1_1, i64 0, i64 %19
-  %21 = getelementptr inbounds %struct.anon.3, ptr %20, i32 0, i32 1
-  %22 = load i32, ptr %21, align 4
-  store i32 %22, ptr %2, align 4
-  br label %28
+18:                                               ; preds = %10
+  %19 = load i32, ptr %4, align 4
+  %20 = zext i32 %19 to i64
+  %21 = getelementptr [4 x %struct.anon.3], ptr @wtap_encap_1_1, i64 0, i64 %20
+  %22 = getelementptr inbounds nuw %struct.anon.3, ptr %21, i32 0, i32 1
+  %23 = load i32, ptr %22, align 4
+  store i32 %23, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %29
 
-23:                                               ; preds = %9
-  br label %24
+24:                                               ; preds = %10
+  br label %25
 
-24:                                               ; preds = %23
-  %25 = load i32, ptr %4, align 4
-  %26 = add i32 %25, 1
-  store i32 %26, ptr %4, align 4
-  br label %5, !llvm.loop !4
+25:                                               ; preds = %24
+  %26 = load i32, ptr %4, align 4
+  %27 = add i32 %26, 1
+  store i32 %27, ptr %4, align 4
+  br label %6, !llvm.loop !8
 
-27:                                               ; preds = %5
+28:                                               ; preds = %6
   store i32 -1, ptr %2, align 4
-  br label %28
+  store i32 1, ptr %5, align 4
+  br label %29
 
-28:                                               ; preds = %27, %17
-  %29 = load i32, ptr %2, align 4
-  ret i32 %29
+29:                                               ; preds = %28, %18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #12
+  %30 = load i32, ptr %2, align 4
+  ret i32 %30
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @netxray_dump_1_1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
-  %6 = alloca i32, align 4
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @netxray_dump_1_1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+  %6 = alloca i1, align 1
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -2571,193 +2791,207 @@ define internal i32 @netxray_dump_1_1(ptr noundef %0, ptr noundef %1, ptr nounde
   %13 = alloca i64, align 8
   %14 = alloca i32, align 4
   %15 = alloca %struct.netxrayrec_1_x_hdr, align 4
+  %16 = alloca i32, align 4
   store ptr %0, ptr %7, align 8
   store ptr %1, ptr %8, align 8
   store ptr %2, ptr %9, align 8
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
-  %16 = load ptr, ptr %7, align 8
-  %17 = getelementptr inbounds %struct.wtap_dumper, ptr %16, i32 0, i32 7
-  %18 = load ptr, ptr %17, align 8
-  store ptr %18, ptr %12, align 8
-  %19 = load ptr, ptr %8, align 8
-  %20 = getelementptr inbounds %struct.wtap_rec, ptr %19, i32 0, i32 0
-  %21 = load i32, ptr %20, align 8
-  %22 = icmp ne i32 %21, 0
-  br i1 %22, label %23, label %25
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #12
+  %17 = load ptr, ptr %7, align 8
+  %18 = getelementptr inbounds nuw %struct.wtap_dumper, ptr %17, i32 0, i32 7
+  %19 = load ptr, ptr %18, align 8
+  store ptr %19, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #12
+  call void @llvm.lifetime.start.p0(i64 28, ptr %15) #12
+  %20 = load ptr, ptr %8, align 8
+  %21 = getelementptr inbounds nuw %struct.wtap_rec, ptr %20, i32 0, i32 0
+  %22 = load i32, ptr %21, align 8
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %24, label %26
 
-23:                                               ; preds = %5
-  %24 = load ptr, ptr %10, align 8
-  store i32 -24, ptr %24, align 4
-  store i32 0, ptr %6, align 4
+24:                                               ; preds = %5
+  %25 = load ptr, ptr %10, align 8
+  store i32 -24, ptr %25, align 4
+  store i1 false, ptr %6, align 1
+  store i32 1, ptr %16, align 4
   br label %135
 
-25:                                               ; preds = %5
-  %26 = load ptr, ptr %7, align 8
-  %27 = getelementptr inbounds %struct.wtap_dumper, ptr %26, i32 0, i32 3
-  %28 = load i32, ptr %27, align 8
-  %29 = load ptr, ptr %8, align 8
-  %30 = getelementptr inbounds %struct.wtap_rec, ptr %29, i32 0, i32 7
-  %31 = getelementptr inbounds %struct.wtap_packet_header, ptr %30, i32 0, i32 2
-  %32 = load i32, ptr %31, align 8
-  %33 = icmp ne i32 %28, %32
-  br i1 %33, label %34, label %36
+26:                                               ; preds = %5
+  %27 = load ptr, ptr %7, align 8
+  %28 = getelementptr inbounds nuw %struct.wtap_dumper, ptr %27, i32 0, i32 3
+  %29 = load i32, ptr %28, align 8
+  %30 = load ptr, ptr %8, align 8
+  %31 = getelementptr inbounds nuw %struct.wtap_rec, ptr %30, i32 0, i32 7
+  %32 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %31, i32 0, i32 2
+  %33 = load i32, ptr %32, align 8
+  %34 = icmp ne i32 %29, %33
+  br i1 %34, label %35, label %37
 
-34:                                               ; preds = %25
-  %35 = load ptr, ptr %10, align 8
-  store i32 -9, ptr %35, align 4
-  store i32 0, ptr %6, align 4
+35:                                               ; preds = %26
+  %36 = load ptr, ptr %10, align 8
+  store i32 -9, ptr %36, align 4
+  store i1 false, ptr %6, align 1
+  store i32 1, ptr %16, align 4
   br label %135
 
-36:                                               ; preds = %25
-  %37 = load ptr, ptr %8, align 8
-  %38 = getelementptr inbounds %struct.wtap_rec, ptr %37, i32 0, i32 7
-  %39 = getelementptr inbounds %struct.wtap_packet_header, ptr %38, i32 0, i32 0
-  %40 = load i32, ptr %39, align 8
-  %41 = icmp ugt i32 %40, 65535
-  br i1 %41, label %42, label %44
+37:                                               ; preds = %26
+  %38 = load ptr, ptr %8, align 8
+  %39 = getelementptr inbounds nuw %struct.wtap_rec, ptr %38, i32 0, i32 7
+  %40 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %39, i32 0, i32 0
+  %41 = load i32, ptr %40, align 8
+  %42 = icmp ugt i32 %41, 65535
+  br i1 %42, label %43, label %45
 
-42:                                               ; preds = %36
-  %43 = load ptr, ptr %10, align 8
-  store i32 -22, ptr %43, align 4
-  store i32 0, ptr %6, align 4
+43:                                               ; preds = %37
+  %44 = load ptr, ptr %10, align 8
+  store i32 -22, ptr %44, align 4
+  store i1 false, ptr %6, align 1
+  store i32 1, ptr %16, align 4
   br label %135
 
-44:                                               ; preds = %36
-  %45 = load ptr, ptr %12, align 8
-  %46 = getelementptr inbounds %struct.netxray_dump_t, ptr %45, i32 0, i32 0
-  %47 = load i32, ptr %46, align 4
-  %48 = icmp ne i32 %47, 0
-  br i1 %48, label %49, label %73
+45:                                               ; preds = %37
+  %46 = load ptr, ptr %12, align 8
+  %47 = getelementptr inbounds nuw %struct.netxray_dump_t, ptr %46, i32 0, i32 0
+  %48 = load i8, ptr %47, align 4, !range !6, !noundef !7
+  %49 = trunc i8 %48 to i1
+  br i1 %49, label %50, label %74
 
-49:                                               ; preds = %44
-  %50 = load ptr, ptr %12, align 8
-  %51 = getelementptr inbounds %struct.netxray_dump_t, ptr %50, i32 0, i32 0
-  store i32 0, ptr %51, align 4
-  %52 = load ptr, ptr %8, align 8
-  %53 = getelementptr inbounds %struct.wtap_rec, ptr %52, i32 0, i32 3
-  %54 = getelementptr inbounds %struct.nstime_t, ptr %53, i32 0, i32 0
-  %55 = load i64, ptr %54, align 8
-  %56 = icmp slt i64 %55, 0
-  br i1 %56, label %63, label %57
+50:                                               ; preds = %45
+  %51 = load ptr, ptr %12, align 8
+  %52 = getelementptr inbounds nuw %struct.netxray_dump_t, ptr %51, i32 0, i32 0
+  store i8 0, ptr %52, align 4
+  %53 = load ptr, ptr %8, align 8
+  %54 = getelementptr inbounds nuw %struct.wtap_rec, ptr %53, i32 0, i32 3
+  %55 = getelementptr inbounds nuw %struct.nstime_t, ptr %54, i32 0, i32 0
+  %56 = load i64, ptr %55, align 8
+  %57 = icmp slt i64 %56, 0
+  br i1 %57, label %64, label %58
 
-57:                                               ; preds = %49
-  %58 = load ptr, ptr %8, align 8
-  %59 = getelementptr inbounds %struct.wtap_rec, ptr %58, i32 0, i32 3
-  %60 = getelementptr inbounds %struct.nstime_t, ptr %59, i32 0, i32 0
-  %61 = load i64, ptr %60, align 8
-  %62 = icmp sgt i64 %61, 4294967295
-  br i1 %62, label %63, label %65
+58:                                               ; preds = %50
+  %59 = load ptr, ptr %8, align 8
+  %60 = getelementptr inbounds nuw %struct.wtap_rec, ptr %59, i32 0, i32 3
+  %61 = getelementptr inbounds nuw %struct.nstime_t, ptr %60, i32 0, i32 0
+  %62 = load i64, ptr %61, align 8
+  %63 = icmp sgt i64 %62, 4294967295
+  br i1 %63, label %64, label %66
 
-63:                                               ; preds = %57, %49
-  %64 = load ptr, ptr %10, align 8
-  store i32 -27, ptr %64, align 4
-  store i32 0, ptr %6, align 4
+64:                                               ; preds = %58, %50
+  %65 = load ptr, ptr %10, align 8
+  store i32 -27, ptr %65, align 4
+  store i1 false, ptr %6, align 1
+  store i32 1, ptr %16, align 4
   br label %135
 
-65:                                               ; preds = %57
-  %66 = load ptr, ptr %8, align 8
-  %67 = getelementptr inbounds %struct.wtap_rec, ptr %66, i32 0, i32 3
-  %68 = getelementptr inbounds %struct.nstime_t, ptr %67, i32 0, i32 0
-  %69 = load i64, ptr %68, align 8
-  %70 = trunc i64 %69 to i32
-  %71 = load ptr, ptr %12, align 8
-  %72 = getelementptr inbounds %struct.netxray_dump_t, ptr %71, i32 0, i32 1
-  store i32 %70, ptr %72, align 4
-  br label %73
+66:                                               ; preds = %58
+  %67 = load ptr, ptr %8, align 8
+  %68 = getelementptr inbounds nuw %struct.wtap_rec, ptr %67, i32 0, i32 3
+  %69 = getelementptr inbounds nuw %struct.nstime_t, ptr %68, i32 0, i32 0
+  %70 = load i64, ptr %69, align 8
+  %71 = trunc i64 %70 to i32
+  %72 = load ptr, ptr %12, align 8
+  %73 = getelementptr inbounds nuw %struct.netxray_dump_t, ptr %72, i32 0, i32 1
+  store i32 %71, ptr %73, align 4
+  br label %74
 
-73:                                               ; preds = %65, %44
-  call void @llvm.memset.p0.i64(ptr align 4 %15, i8 0, i64 28, i1 false)
-  %74 = load ptr, ptr %8, align 8
-  %75 = getelementptr inbounds %struct.wtap_rec, ptr %74, i32 0, i32 3
-  %76 = getelementptr inbounds %struct.nstime_t, ptr %75, i32 0, i32 0
-  %77 = load i64, ptr %76, align 8
-  %78 = load ptr, ptr %12, align 8
-  %79 = getelementptr inbounds %struct.netxray_dump_t, ptr %78, i32 0, i32 1
-  %80 = load i32, ptr %79, align 4
-  %81 = zext i32 %80 to i64
-  %82 = sub i64 %77, %81
-  %83 = mul i64 %82, 1000000
-  %84 = load ptr, ptr %8, align 8
-  %85 = getelementptr inbounds %struct.wtap_rec, ptr %84, i32 0, i32 3
-  %86 = getelementptr inbounds %struct.nstime_t, ptr %85, i32 0, i32 1
-  %87 = load i32, ptr %86, align 8
-  %88 = sext i32 %87 to i64
-  %89 = udiv i64 %88, 1000
-  %90 = add i64 %83, %89
-  store i64 %90, ptr %13, align 8
-  %91 = load i64, ptr %13, align 8
-  %92 = urem i64 %91, 4294967296
-  %93 = trunc i64 %92 to i32
-  store i32 %93, ptr %14, align 4
-  %94 = load i32, ptr %14, align 4
-  %95 = getelementptr inbounds %struct.netxrayrec_1_x_hdr, ptr %15, i32 0, i32 0
-  store i32 %94, ptr %95, align 4
-  %96 = load i64, ptr %13, align 8
-  %97 = udiv i64 %96, 4294967296
-  %98 = trunc i64 %97 to i32
-  store i32 %98, ptr %14, align 4
-  %99 = load i32, ptr %14, align 4
-  %100 = getelementptr inbounds %struct.netxrayrec_1_x_hdr, ptr %15, i32 0, i32 1
-  store i32 %99, ptr %100, align 4
-  %101 = load ptr, ptr %8, align 8
-  %102 = getelementptr inbounds %struct.wtap_rec, ptr %101, i32 0, i32 7
-  %103 = getelementptr inbounds %struct.wtap_packet_header, ptr %102, i32 0, i32 1
-  %104 = load i32, ptr %103, align 4
-  %105 = trunc i32 %104 to i16
-  %106 = getelementptr inbounds %struct.netxrayrec_1_x_hdr, ptr %15, i32 0, i32 2
-  store i16 %105, ptr %106, align 4
-  %107 = load ptr, ptr %8, align 8
-  %108 = getelementptr inbounds %struct.wtap_rec, ptr %107, i32 0, i32 7
-  %109 = getelementptr inbounds %struct.wtap_packet_header, ptr %108, i32 0, i32 0
-  %110 = load i32, ptr %109, align 8
-  %111 = trunc i32 %110 to i16
-  %112 = getelementptr inbounds %struct.netxrayrec_1_x_hdr, ptr %15, i32 0, i32 3
-  store i16 %111, ptr %112, align 2
-  %113 = load ptr, ptr %7, align 8
-  %114 = load ptr, ptr %10, align 8
-  %115 = call i32 @wtap_dump_file_write(ptr noundef %113, ptr noundef %15, i64 noundef 28, ptr noundef %114)
-  %116 = icmp ne i32 %115, 0
-  br i1 %116, label %118, label %117
+74:                                               ; preds = %66, %45
+  %75 = call ptr @memset.inline(ptr noundef %15, i32 noundef 0, i64 noundef 28) #12
+  %76 = load ptr, ptr %8, align 8
+  %77 = getelementptr inbounds nuw %struct.wtap_rec, ptr %76, i32 0, i32 3
+  %78 = getelementptr inbounds nuw %struct.nstime_t, ptr %77, i32 0, i32 0
+  %79 = load i64, ptr %78, align 8
+  %80 = load ptr, ptr %12, align 8
+  %81 = getelementptr inbounds nuw %struct.netxray_dump_t, ptr %80, i32 0, i32 1
+  %82 = load i32, ptr %81, align 4
+  %83 = zext i32 %82 to i64
+  %84 = sub i64 %79, %83
+  %85 = mul i64 %84, 1000000
+  %86 = load ptr, ptr %8, align 8
+  %87 = getelementptr inbounds nuw %struct.wtap_rec, ptr %86, i32 0, i32 3
+  %88 = getelementptr inbounds nuw %struct.nstime_t, ptr %87, i32 0, i32 1
+  %89 = load i32, ptr %88, align 8
+  %90 = sext i32 %89 to i64
+  %91 = udiv i64 %90, 1000
+  %92 = add i64 %85, %91
+  store i64 %92, ptr %13, align 8
+  %93 = load i64, ptr %13, align 8
+  %94 = urem i64 %93, 4294967296
+  %95 = trunc i64 %94 to i32
+  store i32 %95, ptr %14, align 4
+  %96 = load i32, ptr %14, align 4
+  %97 = getelementptr inbounds nuw %struct.netxrayrec_1_x_hdr, ptr %15, i32 0, i32 0
+  store i32 %96, ptr %97, align 4
+  %98 = load i64, ptr %13, align 8
+  %99 = udiv i64 %98, 4294967296
+  %100 = trunc i64 %99 to i32
+  store i32 %100, ptr %14, align 4
+  %101 = load i32, ptr %14, align 4
+  %102 = getelementptr inbounds nuw %struct.netxrayrec_1_x_hdr, ptr %15, i32 0, i32 1
+  store i32 %101, ptr %102, align 4
+  %103 = load ptr, ptr %8, align 8
+  %104 = getelementptr inbounds nuw %struct.wtap_rec, ptr %103, i32 0, i32 7
+  %105 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %104, i32 0, i32 1
+  %106 = load i32, ptr %105, align 4
+  %107 = trunc i32 %106 to i16
+  %108 = getelementptr inbounds nuw %struct.netxrayrec_1_x_hdr, ptr %15, i32 0, i32 2
+  store i16 %107, ptr %108, align 4
+  %109 = load ptr, ptr %8, align 8
+  %110 = getelementptr inbounds nuw %struct.wtap_rec, ptr %109, i32 0, i32 7
+  %111 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %110, i32 0, i32 0
+  %112 = load i32, ptr %111, align 8
+  %113 = trunc i32 %112 to i16
+  %114 = getelementptr inbounds nuw %struct.netxrayrec_1_x_hdr, ptr %15, i32 0, i32 3
+  store i16 %113, ptr %114, align 2
+  %115 = load ptr, ptr %7, align 8
+  %116 = load ptr, ptr %10, align 8
+  %117 = call zeroext i1 @wtap_dump_file_write(ptr noundef %115, ptr noundef %15, i64 noundef 28, ptr noundef %116)
+  br i1 %117, label %119, label %118
 
-117:                                              ; preds = %73
-  store i32 0, ptr %6, align 4
+118:                                              ; preds = %74
+  store i1 false, ptr %6, align 1
+  store i32 1, ptr %16, align 4
   br label %135
 
-118:                                              ; preds = %73
-  %119 = load ptr, ptr %7, align 8
-  %120 = load ptr, ptr %9, align 8
-  %121 = load ptr, ptr %8, align 8
-  %122 = getelementptr inbounds %struct.wtap_rec, ptr %121, i32 0, i32 7
-  %123 = getelementptr inbounds %struct.wtap_packet_header, ptr %122, i32 0, i32 0
-  %124 = load i32, ptr %123, align 8
-  %125 = zext i32 %124 to i64
-  %126 = load ptr, ptr %10, align 8
-  %127 = call i32 @wtap_dump_file_write(ptr noundef %119, ptr noundef %120, i64 noundef %125, ptr noundef %126)
-  %128 = icmp ne i32 %127, 0
+119:                                              ; preds = %74
+  %120 = load ptr, ptr %7, align 8
+  %121 = load ptr, ptr %9, align 8
+  %122 = load ptr, ptr %8, align 8
+  %123 = getelementptr inbounds nuw %struct.wtap_rec, ptr %122, i32 0, i32 7
+  %124 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %123, i32 0, i32 0
+  %125 = load i32, ptr %124, align 8
+  %126 = zext i32 %125 to i64
+  %127 = load ptr, ptr %10, align 8
+  %128 = call zeroext i1 @wtap_dump_file_write(ptr noundef %120, ptr noundef %121, i64 noundef %126, ptr noundef %127)
   br i1 %128, label %130, label %129
 
-129:                                              ; preds = %118
-  store i32 0, ptr %6, align 4
+129:                                              ; preds = %119
+  store i1 false, ptr %6, align 1
+  store i32 1, ptr %16, align 4
   br label %135
 
-130:                                              ; preds = %118
+130:                                              ; preds = %119
   %131 = load ptr, ptr %12, align 8
-  %132 = getelementptr inbounds %struct.netxray_dump_t, ptr %131, i32 0, i32 2
+  %132 = getelementptr inbounds nuw %struct.netxray_dump_t, ptr %131, i32 0, i32 2
   %133 = load i32, ptr %132, align 4
   %134 = add i32 %133, 1
   store i32 %134, ptr %132, align 4
-  store i32 1, ptr %6, align 4
+  store i1 true, ptr %6, align 1
+  store i32 1, ptr %16, align 4
   br label %135
 
-135:                                              ; preds = %130, %129, %117, %63, %42, %34, %23
-  %136 = load i32, ptr %6, align 4
-  ret i32 %136
+135:                                              ; preds = %130, %129, %118, %64, %43, %35, %24
+  call void @llvm.lifetime.end.p0(i64 28, ptr %15) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #12
+  %136 = load i1, ptr %6, align 1
+  ret i1 %136
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @netxray_dump_finish_1_1(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = alloca i32, align 4
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @netxray_dump_finish_1_1(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i1, align 1
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -2765,116 +2999,148 @@ define internal i32 @netxray_dump_finish_1_1(ptr noundef %0, ptr noundef %1, ptr
   %9 = alloca ptr, align 8
   %10 = alloca i64, align 8
   %11 = alloca %struct.netxray_hdr, align 4
+  %12 = alloca i32, align 4
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
-  %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds %struct.wtap_dumper, ptr %12, i32 0, i32 7
-  %14 = load ptr, ptr %13, align 8
-  store ptr %14, ptr %9, align 8
-  %15 = load ptr, ptr %5, align 8
-  %16 = load ptr, ptr %6, align 8
-  %17 = call i64 @wtap_dump_file_tell(ptr noundef %15, ptr noundef %16)
-  store i64 %17, ptr %10, align 8
-  %18 = icmp eq i64 -1, %17
-  br i1 %18, label %19, label %20
-
-19:                                               ; preds = %3
-  store i32 0, ptr %4, align 4
-  br label %67
+  call void @llvm.lifetime.start.p0(i64 124, ptr %8) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #12
+  %13 = load ptr, ptr %5, align 8
+  %14 = getelementptr inbounds nuw %struct.wtap_dumper, ptr %13, i32 0, i32 7
+  %15 = load ptr, ptr %14, align 8
+  store ptr %15, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #12
+  call void @llvm.lifetime.start.p0(i64 124, ptr %11) #12
+  %16 = load ptr, ptr %5, align 8
+  %17 = load ptr, ptr %6, align 8
+  %18 = call i64 @wtap_dump_file_tell(ptr noundef %16, ptr noundef %17)
+  store i64 %18, ptr %10, align 8
+  %19 = icmp eq i64 -1, %18
+  br i1 %19, label %20, label %21
 
 20:                                               ; preds = %3
-  %21 = load ptr, ptr %5, align 8
-  %22 = load ptr, ptr %6, align 8
-  %23 = call i64 @wtap_dump_file_seek(ptr noundef %21, i64 noundef 0, i32 noundef 0, ptr noundef %22)
-  %24 = icmp eq i64 %23, -1
-  br i1 %24, label %25, label %26
+  store i1 false, ptr %4, align 1
+  store i32 1, ptr %12, align 4
+  br label %70
 
-25:                                               ; preds = %20
-  store i32 0, ptr %4, align 4
-  br label %67
+21:                                               ; preds = %3
+  %22 = load ptr, ptr %5, align 8
+  %23 = load ptr, ptr %6, align 8
+  %24 = call i64 @wtap_dump_file_seek(ptr noundef %22, i64 noundef 0, i32 noundef 0, ptr noundef %23)
+  %25 = icmp eq i64 %24, -1
+  br i1 %25, label %26, label %27
 
-26:                                               ; preds = %20
-  %27 = load ptr, ptr %5, align 8
-  %28 = load ptr, ptr %6, align 8
-  %29 = call i32 @wtap_dump_file_write(ptr noundef %27, ptr noundef @netxray_magic, i64 noundef 4, ptr noundef %28)
-  %30 = icmp ne i32 %29, 0
+26:                                               ; preds = %21
+  store i1 false, ptr %4, align 1
+  store i32 1, ptr %12, align 4
+  br label %70
+
+27:                                               ; preds = %21
+  %28 = load ptr, ptr %5, align 8
+  %29 = load ptr, ptr %6, align 8
+  %30 = call zeroext i1 @wtap_dump_file_write(ptr noundef %28, ptr noundef @netxray_magic, i64 noundef 4, ptr noundef %29)
   br i1 %30, label %32, label %31
 
-31:                                               ; preds = %26
-  store i32 0, ptr %4, align 4
-  br label %67
+31:                                               ; preds = %27
+  store i1 false, ptr %4, align 1
+  store i32 1, ptr %12, align 4
+  br label %70
 
-32:                                               ; preds = %26
-  call void @llvm.memset.p0.i64(ptr align 4 %11, i8 0, i64 124, i1 false)
-  %33 = getelementptr inbounds %struct.netxray_hdr, ptr %11, i32 0, i32 0
-  %34 = getelementptr inbounds [8 x i8], ptr %33, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %34, ptr align 1 @vers_1_1, i64 8, i1 false)
-  %35 = load ptr, ptr %9, align 8
-  %36 = getelementptr inbounds %struct.netxray_dump_t, ptr %35, i32 0, i32 1
-  %37 = load i32, ptr %36, align 4
-  %38 = getelementptr inbounds %struct.netxray_hdr, ptr %11, i32 0, i32 1
-  store i32 %37, ptr %38, align 4
-  %39 = load ptr, ptr %9, align 8
-  %40 = getelementptr inbounds %struct.netxray_dump_t, ptr %39, i32 0, i32 2
-  %41 = load i32, ptr %40, align 4
-  %42 = getelementptr inbounds %struct.netxray_hdr, ptr %11, i32 0, i32 2
-  store i32 %41, ptr %42, align 4
-  %43 = getelementptr inbounds %struct.netxray_hdr, ptr %11, i32 0, i32 4
-  store i32 128, ptr %43, align 4
-  %44 = load i64, ptr %10, align 8
-  %45 = trunc i64 %44 to i32
-  %46 = getelementptr inbounds %struct.netxray_hdr, ptr %11, i32 0, i32 5
-  store i32 %45, ptr %46, align 4
-  %47 = load ptr, ptr %5, align 8
-  %48 = getelementptr inbounds %struct.wtap_dumper, ptr %47, i32 0, i32 3
-  %49 = load i32, ptr %48, align 8
-  %50 = call i32 @wtap_encap_to_netxray_1_1_encap(i32 noundef %49)
-  %51 = trunc i32 %50 to i8
-  %52 = getelementptr inbounds %struct.netxray_hdr, ptr %11, i32 0, i32 9
-  store i8 %51, ptr %52, align 4
-  %53 = getelementptr inbounds %struct.netxray_hdr, ptr %11, i32 0, i32 14
-  store i32 0, ptr %53, align 4
-  %54 = getelementptr inbounds %struct.netxray_hdr, ptr %11, i32 0, i32 15
-  store i32 0, ptr %54, align 4
-  %55 = getelementptr inbounds [124 x i8], ptr %8, i64 0, i64 0
-  call void @llvm.memset.p0.i64(ptr align 16 %55, i8 0, i64 124, i1 false)
-  %56 = getelementptr inbounds [124 x i8], ptr %8, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %56, ptr align 4 %11, i64 124, i1 false)
-  %57 = load ptr, ptr %5, align 8
-  %58 = getelementptr inbounds [124 x i8], ptr %8, i64 0, i64 0
-  %59 = load ptr, ptr %6, align 8
-  %60 = call i32 @wtap_dump_file_write(ptr noundef %57, ptr noundef %58, i64 noundef 124, ptr noundef %59)
-  %61 = icmp ne i32 %60, 0
-  br i1 %61, label %63, label %62
+32:                                               ; preds = %27
+  %33 = call ptr @memset.inline(ptr noundef %11, i32 noundef 0, i64 noundef 124) #12
+  %34 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %11, i32 0, i32 0
+  %35 = getelementptr inbounds [8 x i8], ptr %34, i64 0, i64 0
+  %36 = call ptr @memcpy.inline(ptr noundef %35, ptr noundef @vers_1_1, i64 noundef 8) #12
+  %37 = load ptr, ptr %9, align 8
+  %38 = getelementptr inbounds nuw %struct.netxray_dump_t, ptr %37, i32 0, i32 1
+  %39 = load i32, ptr %38, align 4
+  %40 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %11, i32 0, i32 1
+  store i32 %39, ptr %40, align 4
+  %41 = load ptr, ptr %9, align 8
+  %42 = getelementptr inbounds nuw %struct.netxray_dump_t, ptr %41, i32 0, i32 2
+  %43 = load i32, ptr %42, align 4
+  %44 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %11, i32 0, i32 2
+  store i32 %43, ptr %44, align 4
+  %45 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %11, i32 0, i32 4
+  store i32 128, ptr %45, align 4
+  %46 = load i64, ptr %10, align 8
+  %47 = trunc i64 %46 to i32
+  %48 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %11, i32 0, i32 5
+  store i32 %47, ptr %48, align 4
+  %49 = load ptr, ptr %5, align 8
+  %50 = getelementptr inbounds nuw %struct.wtap_dumper, ptr %49, i32 0, i32 3
+  %51 = load i32, ptr %50, align 8
+  %52 = call i32 @wtap_encap_to_netxray_1_1_encap(i32 noundef %51)
+  %53 = trunc i32 %52 to i8
+  %54 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %11, i32 0, i32 9
+  store i8 %53, ptr %54, align 4
+  %55 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %11, i32 0, i32 14
+  store i32 0, ptr %55, align 4
+  %56 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %11, i32 0, i32 15
+  store i32 0, ptr %56, align 4
+  %57 = getelementptr inbounds [124 x i8], ptr %8, i64 0, i64 0
+  %58 = call ptr @memset.inline(ptr noundef %57, i32 noundef 0, i64 noundef 124) #12
+  %59 = getelementptr inbounds [124 x i8], ptr %8, i64 0, i64 0
+  %60 = call ptr @memcpy.inline(ptr noundef %59, ptr noundef %11, i64 noundef 124) #12
+  %61 = load ptr, ptr %5, align 8
+  %62 = getelementptr inbounds [124 x i8], ptr %8, i64 0, i64 0
+  %63 = load ptr, ptr %6, align 8
+  %64 = call zeroext i1 @wtap_dump_file_write(ptr noundef %61, ptr noundef %62, i64 noundef 124, ptr noundef %63)
+  br i1 %64, label %66, label %65
 
-62:                                               ; preds = %32
-  store i32 0, ptr %4, align 4
-  br label %67
+65:                                               ; preds = %32
+  store i1 false, ptr %4, align 1
+  store i32 1, ptr %12, align 4
+  br label %70
 
-63:                                               ; preds = %32
-  %64 = load i64, ptr %10, align 8
-  %65 = load ptr, ptr %5, align 8
-  %66 = getelementptr inbounds %struct.wtap_dumper, ptr %65, i32 0, i32 6
-  store i64 %64, ptr %66, align 8
-  store i32 1, ptr %4, align 4
-  br label %67
+66:                                               ; preds = %32
+  %67 = load i64, ptr %10, align 8
+  %68 = load ptr, ptr %5, align 8
+  %69 = getelementptr inbounds nuw %struct.wtap_dumper, ptr %68, i32 0, i32 6
+  store i64 %67, ptr %69, align 8
+  store i1 true, ptr %4, align 1
+  store i32 1, ptr %12, align 4
+  br label %70
 
-67:                                               ; preds = %63, %62, %31, %25, %19
-  %68 = load i32, ptr %4, align 4
-  ret i32 %68
+70:                                               ; preds = %66, %65, %31, %26, %20
+  call void @llvm.lifetime.end.p0(i64 124, ptr %11) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
+  call void @llvm.lifetime.end.p0(i64 124, ptr %8) #12
+  %71 = load i1, ptr %4, align 1
+  ret i1 %71
 }
 
-declare i64 @wtap_dump_file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i64 @wtap_dump_file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) #2
 
-declare i32 @wtap_dump_file_write(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @wtap_dump_file_write(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #2
 
-declare i64 @wtap_dump_file_tell(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i64 @wtap_dump_file_tell(ptr noundef, ptr noundef) #2
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+; Function Attrs: alwaysinline nounwind
+define internal ptr @memcpy.inline(ptr noalias %0, ptr noalias %1, i64 %2) #9 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load i64, ptr %6, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = call i64 @llvm.objectsize.i64.p0(ptr %10, i1 false, i1 true, i1 true)
+  %12 = call ptr @__memcpy_chk(ptr noundef %7, ptr noundef %8, i64 noundef %9, i64 noundef %11) #12
+  ret ptr %12
+}
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind null_pointer_is_valid
+declare ptr @__memcpy_chk(ptr noundef, ptr noundef, i64 noundef, i64 noundef) #10
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @netxray_dump_can_write_encap_2_0(i32 noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
@@ -2906,116 +3172,186 @@ define internal i32 @netxray_dump_can_write_encap_2_0(i32 noundef %0) #0 {
   ret i32 %14
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @netxray_dump_open_2_0(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = alloca i32, align 4
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @netxray_dump_open_2_0(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i1, align 1
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i64, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds %struct.wtap_dumper, ptr %9, i32 0, i32 10
-  store ptr @netxray_dump_2_0, ptr %10, align 8
-  %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds %struct.wtap_dumper, ptr %11, i32 0, i32 11
-  store ptr @netxray_dump_finish_2_0, ptr %12, align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = load ptr, ptr %6, align 8
-  %15 = call i64 @wtap_dump_file_seek(ptr noundef %13, i64 noundef 128, i32 noundef 0, ptr noundef %14)
-  %16 = icmp eq i64 %15, -1
-  br i1 %16, label %17, label %18
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #12
+  %14 = load ptr, ptr %5, align 8
+  %15 = getelementptr inbounds nuw %struct.wtap_dumper, ptr %14, i32 0, i32 10
+  store ptr @netxray_dump_2_0, ptr %15, align 8
+  %16 = load ptr, ptr %5, align 8
+  %17 = getelementptr inbounds nuw %struct.wtap_dumper, ptr %16, i32 0, i32 11
+  store ptr @netxray_dump_finish_2_0, ptr %17, align 8
+  %18 = load ptr, ptr %5, align 8
+  %19 = load ptr, ptr %6, align 8
+  %20 = call i64 @wtap_dump_file_seek(ptr noundef %18, i64 noundef 128, i32 noundef 0, ptr noundef %19)
+  %21 = icmp eq i64 %20, -1
+  br i1 %21, label %22, label %23
 
-17:                                               ; preds = %3
-  store i32 0, ptr %4, align 4
-  br label %33
+22:                                               ; preds = %3
+  store i1 false, ptr %4, align 1
+  store i32 1, ptr %9, align 4
+  br label %66
 
-18:                                               ; preds = %3
-  %19 = load ptr, ptr %5, align 8
-  %20 = getelementptr inbounds %struct.wtap_dumper, ptr %19, i32 0, i32 6
-  %21 = load i64, ptr %20, align 8
-  %22 = add i64 %21, 128
-  store i64 %22, ptr %20, align 8
-  %23 = call noalias ptr @g_malloc_n(i64 noundef 1, i64 noundef 12) #8
-  store ptr %23, ptr %8, align 8
-  %24 = load ptr, ptr %8, align 8
-  %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds %struct.wtap_dumper, ptr %25, i32 0, i32 7
-  store ptr %24, ptr %26, align 8
-  %27 = load ptr, ptr %8, align 8
-  %28 = getelementptr inbounds %struct.netxray_dump_t, ptr %27, i32 0, i32 0
-  store i32 1, ptr %28, align 4
-  %29 = load ptr, ptr %8, align 8
-  %30 = getelementptr inbounds %struct.netxray_dump_t, ptr %29, i32 0, i32 1
-  store i32 0, ptr %30, align 4
-  %31 = load ptr, ptr %8, align 8
-  %32 = getelementptr inbounds %struct.netxray_dump_t, ptr %31, i32 0, i32 2
-  store i32 0, ptr %32, align 4
-  store i32 1, ptr %4, align 4
-  br label %33
+23:                                               ; preds = %3
+  %24 = load ptr, ptr %5, align 8
+  %25 = getelementptr inbounds nuw %struct.wtap_dumper, ptr %24, i32 0, i32 6
+  %26 = load i64, ptr %25, align 8
+  %27 = add i64 %26, 128
+  store i64 %27, ptr %25, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #12
+  store i64 1, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #12
+  store i64 12, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #12
+  %28 = load i64, ptr %11, align 8
+  %29 = icmp eq i64 %28, 1
+  br i1 %29, label %30, label %33
 
-33:                                               ; preds = %18, %17
-  %34 = load i32, ptr %4, align 4
-  ret i32 %34
+30:                                               ; preds = %23
+  %31 = load i64, ptr %10, align 8
+  %32 = call noalias ptr @g_malloc(i64 noundef %31) #14
+  store ptr %32, ptr %12, align 8
+  br label %54
+
+33:                                               ; preds = %23
+  %34 = load i64, ptr %10, align 8
+  %35 = call i1 @llvm.is.constant.i64(i64 %34)
+  br i1 %35, label %36, label %49
+
+36:                                               ; preds = %33
+  %37 = load i64, ptr %11, align 8
+  %38 = icmp eq i64 %37, 0
+  br i1 %38, label %44, label %39
+
+39:                                               ; preds = %36
+  %40 = load i64, ptr %10, align 8
+  %41 = load i64, ptr %11, align 8
+  %42 = udiv i64 -1, %41
+  %43 = icmp ule i64 %40, %42
+  br i1 %43, label %44, label %49
+
+44:                                               ; preds = %39, %36
+  %45 = load i64, ptr %10, align 8
+  %46 = load i64, ptr %11, align 8
+  %47 = mul i64 %45, %46
+  %48 = call noalias ptr @g_malloc(i64 noundef %47) #14
+  store ptr %48, ptr %12, align 8
+  br label %53
+
+49:                                               ; preds = %39, %33
+  %50 = load i64, ptr %10, align 8
+  %51 = load i64, ptr %11, align 8
+  %52 = call noalias ptr @g_malloc_n(i64 noundef %50, i64 noundef %51) #15
+  store ptr %52, ptr %12, align 8
+  br label %53
+
+53:                                               ; preds = %49, %44
+  br label %54
+
+54:                                               ; preds = %53, %30
+  %55 = load ptr, ptr %12, align 8
+  store ptr %55, ptr %13, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #12
+  %56 = load ptr, ptr %13, align 8
+  store ptr %56, ptr %8, align 8
+  %57 = load ptr, ptr %8, align 8
+  %58 = load ptr, ptr %5, align 8
+  %59 = getelementptr inbounds nuw %struct.wtap_dumper, ptr %58, i32 0, i32 7
+  store ptr %57, ptr %59, align 8
+  %60 = load ptr, ptr %8, align 8
+  %61 = getelementptr inbounds nuw %struct.netxray_dump_t, ptr %60, i32 0, i32 0
+  store i8 1, ptr %61, align 4
+  %62 = load ptr, ptr %8, align 8
+  %63 = getelementptr inbounds nuw %struct.netxray_dump_t, ptr %62, i32 0, i32 1
+  store i32 0, ptr %63, align 4
+  %64 = load ptr, ptr %8, align 8
+  %65 = getelementptr inbounds nuw %struct.netxray_dump_t, ptr %64, i32 0, i32 2
+  store i32 0, ptr %65, align 4
+  store i1 true, ptr %4, align 1
+  store i32 1, ptr %9, align 4
+  br label %66
+
+66:                                               ; preds = %54, %22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #12
+  %67 = load i1, ptr %4, align 1
+  ret i1 %67
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @wtap_encap_to_netxray_2_0_encap(i32 noundef %0) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @wtap_encap_to_netxray_2_0_encap(i32 noundef %0) #11 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
   store i32 %0, ptr %3, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #12
   store i32 0, ptr %4, align 4
-  br label %5
+  br label %6
 
-5:                                                ; preds = %24, %1
-  %6 = load i32, ptr %4, align 4
-  %7 = zext i32 %6 to i64
-  %8 = icmp ult i64 %7, 8
-  br i1 %8, label %9, label %27
+6:                                                ; preds = %25, %1
+  %7 = load i32, ptr %4, align 4
+  %8 = zext i32 %7 to i64
+  %9 = icmp ult i64 %8, 8
+  br i1 %9, label %10, label %28
 
-9:                                                ; preds = %5
-  %10 = load i32, ptr %3, align 4
-  %11 = load i32, ptr %4, align 4
-  %12 = zext i32 %11 to i64
-  %13 = getelementptr [8 x %struct.anon.4], ptr @wtap_encap_2_0, i64 0, i64 %12
-  %14 = getelementptr inbounds %struct.anon.4, ptr %13, i32 0, i32 0
-  %15 = load i32, ptr %14, align 8
-  %16 = icmp eq i32 %10, %15
-  br i1 %16, label %17, label %23
+10:                                               ; preds = %6
+  %11 = load i32, ptr %3, align 4
+  %12 = load i32, ptr %4, align 4
+  %13 = zext i32 %12 to i64
+  %14 = getelementptr [8 x %struct.anon.4], ptr @wtap_encap_2_0, i64 0, i64 %13
+  %15 = getelementptr inbounds nuw %struct.anon.4, ptr %14, i32 0, i32 0
+  %16 = load i32, ptr %15, align 8
+  %17 = icmp eq i32 %11, %16
+  br i1 %17, label %18, label %24
 
-17:                                               ; preds = %9
-  %18 = load i32, ptr %4, align 4
-  %19 = zext i32 %18 to i64
-  %20 = getelementptr [8 x %struct.anon.4], ptr @wtap_encap_2_0, i64 0, i64 %19
-  %21 = getelementptr inbounds %struct.anon.4, ptr %20, i32 0, i32 1
-  %22 = load i32, ptr %21, align 4
-  store i32 %22, ptr %2, align 4
-  br label %28
+18:                                               ; preds = %10
+  %19 = load i32, ptr %4, align 4
+  %20 = zext i32 %19 to i64
+  %21 = getelementptr [8 x %struct.anon.4], ptr @wtap_encap_2_0, i64 0, i64 %20
+  %22 = getelementptr inbounds nuw %struct.anon.4, ptr %21, i32 0, i32 1
+  %23 = load i32, ptr %22, align 4
+  store i32 %23, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %29
 
-23:                                               ; preds = %9
-  br label %24
+24:                                               ; preds = %10
+  br label %25
 
-24:                                               ; preds = %23
-  %25 = load i32, ptr %4, align 4
-  %26 = add i32 %25, 1
-  store i32 %26, ptr %4, align 4
-  br label %5, !llvm.loop !6
+25:                                               ; preds = %24
+  %26 = load i32, ptr %4, align 4
+  %27 = add i32 %26, 1
+  store i32 %27, ptr %4, align 4
+  br label %6, !llvm.loop !10
 
-27:                                               ; preds = %5
+28:                                               ; preds = %6
   store i32 -1, ptr %2, align 4
-  br label %28
+  store i32 1, ptr %5, align 4
+  br label %29
 
-28:                                               ; preds = %27, %17
-  %29 = load i32, ptr %2, align 4
-  ret i32 %29
+29:                                               ; preds = %28, %18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #12
+  %30 = load i32, ptr %2, align 4
+  ret i32 %30
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @netxray_dump_2_0(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
-  %6 = alloca i32, align 4
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @netxray_dump_2_0(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+  %6 = alloca i1, align 1
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -3026,346 +3362,362 @@ define internal i32 @netxray_dump_2_0(ptr noundef %0, ptr noundef %1, ptr nounde
   %14 = alloca i64, align 8
   %15 = alloca i32, align 4
   %16 = alloca %struct.netxrayrec_2_x_hdr, align 4
+  %17 = alloca i32, align 4
   store ptr %0, ptr %7, align 8
   store ptr %1, ptr %8, align 8
   store ptr %2, ptr %9, align 8
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
-  %17 = load ptr, ptr %8, align 8
-  %18 = getelementptr inbounds %struct.wtap_rec, ptr %17, i32 0, i32 7
-  %19 = getelementptr inbounds %struct.wtap_packet_header, ptr %18, i32 0, i32 4
-  store ptr %19, ptr %12, align 8
-  %20 = load ptr, ptr %7, align 8
-  %21 = getelementptr inbounds %struct.wtap_dumper, ptr %20, i32 0, i32 7
-  %22 = load ptr, ptr %21, align 8
-  store ptr %22, ptr %13, align 8
-  %23 = load ptr, ptr %8, align 8
-  %24 = getelementptr inbounds %struct.wtap_rec, ptr %23, i32 0, i32 0
-  %25 = load i32, ptr %24, align 8
-  %26 = icmp ne i32 %25, 0
-  br i1 %26, label %27, label %29
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #12
+  %18 = load ptr, ptr %8, align 8
+  %19 = getelementptr inbounds nuw %struct.wtap_rec, ptr %18, i32 0, i32 7
+  %20 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %19, i32 0, i32 4
+  store ptr %20, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #12
+  %21 = load ptr, ptr %7, align 8
+  %22 = getelementptr inbounds nuw %struct.wtap_dumper, ptr %21, i32 0, i32 7
+  %23 = load ptr, ptr %22, align 8
+  store ptr %23, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #12
+  call void @llvm.lifetime.start.p0(i64 40, ptr %16) #12
+  %24 = load ptr, ptr %8, align 8
+  %25 = getelementptr inbounds nuw %struct.wtap_rec, ptr %24, i32 0, i32 0
+  %26 = load i32, ptr %25, align 8
+  %27 = icmp ne i32 %26, 0
+  br i1 %27, label %28, label %30
 
-27:                                               ; preds = %5
-  %28 = load ptr, ptr %10, align 8
-  store i32 -24, ptr %28, align 4
-  store i32 0, ptr %6, align 4
+28:                                               ; preds = %5
+  %29 = load ptr, ptr %10, align 8
+  store i32 -24, ptr %29, align 4
+  store i1 false, ptr %6, align 1
+  store i32 1, ptr %17, align 4
   br label %245
 
-29:                                               ; preds = %5
-  %30 = load ptr, ptr %7, align 8
-  %31 = getelementptr inbounds %struct.wtap_dumper, ptr %30, i32 0, i32 3
-  %32 = load i32, ptr %31, align 8
-  %33 = load ptr, ptr %8, align 8
-  %34 = getelementptr inbounds %struct.wtap_rec, ptr %33, i32 0, i32 7
-  %35 = getelementptr inbounds %struct.wtap_packet_header, ptr %34, i32 0, i32 2
-  %36 = load i32, ptr %35, align 8
-  %37 = icmp ne i32 %32, %36
-  br i1 %37, label %38, label %40
+30:                                               ; preds = %5
+  %31 = load ptr, ptr %7, align 8
+  %32 = getelementptr inbounds nuw %struct.wtap_dumper, ptr %31, i32 0, i32 3
+  %33 = load i32, ptr %32, align 8
+  %34 = load ptr, ptr %8, align 8
+  %35 = getelementptr inbounds nuw %struct.wtap_rec, ptr %34, i32 0, i32 7
+  %36 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %35, i32 0, i32 2
+  %37 = load i32, ptr %36, align 8
+  %38 = icmp ne i32 %33, %37
+  br i1 %38, label %39, label %41
 
-38:                                               ; preds = %29
-  %39 = load ptr, ptr %10, align 8
-  store i32 -9, ptr %39, align 4
-  store i32 0, ptr %6, align 4
+39:                                               ; preds = %30
+  %40 = load ptr, ptr %10, align 8
+  store i32 -9, ptr %40, align 4
+  store i1 false, ptr %6, align 1
+  store i32 1, ptr %17, align 4
   br label %245
 
-40:                                               ; preds = %29
-  %41 = load ptr, ptr %8, align 8
-  %42 = getelementptr inbounds %struct.wtap_rec, ptr %41, i32 0, i32 7
-  %43 = getelementptr inbounds %struct.wtap_packet_header, ptr %42, i32 0, i32 0
-  %44 = load i32, ptr %43, align 8
-  %45 = icmp ugt i32 %44, 262144
-  br i1 %45, label %46, label %48
+41:                                               ; preds = %30
+  %42 = load ptr, ptr %8, align 8
+  %43 = getelementptr inbounds nuw %struct.wtap_rec, ptr %42, i32 0, i32 7
+  %44 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %43, i32 0, i32 0
+  %45 = load i32, ptr %44, align 8
+  %46 = icmp ugt i32 %45, 262144
+  br i1 %46, label %47, label %49
 
-46:                                               ; preds = %40
-  %47 = load ptr, ptr %10, align 8
-  store i32 -22, ptr %47, align 4
-  store i32 0, ptr %6, align 4
+47:                                               ; preds = %41
+  %48 = load ptr, ptr %10, align 8
+  store i32 -22, ptr %48, align 4
+  store i1 false, ptr %6, align 1
+  store i32 1, ptr %17, align 4
   br label %245
 
-48:                                               ; preds = %40
-  %49 = load ptr, ptr %13, align 8
-  %50 = getelementptr inbounds %struct.netxray_dump_t, ptr %49, i32 0, i32 0
-  %51 = load i32, ptr %50, align 4
-  %52 = icmp ne i32 %51, 0
-  br i1 %52, label %53, label %77
+49:                                               ; preds = %41
+  %50 = load ptr, ptr %13, align 8
+  %51 = getelementptr inbounds nuw %struct.netxray_dump_t, ptr %50, i32 0, i32 0
+  %52 = load i8, ptr %51, align 4, !range !6, !noundef !7
+  %53 = trunc i8 %52 to i1
+  br i1 %53, label %54, label %78
 
-53:                                               ; preds = %48
-  %54 = load ptr, ptr %13, align 8
-  %55 = getelementptr inbounds %struct.netxray_dump_t, ptr %54, i32 0, i32 0
-  store i32 0, ptr %55, align 4
-  %56 = load ptr, ptr %8, align 8
-  %57 = getelementptr inbounds %struct.wtap_rec, ptr %56, i32 0, i32 3
-  %58 = getelementptr inbounds %struct.nstime_t, ptr %57, i32 0, i32 0
-  %59 = load i64, ptr %58, align 8
-  %60 = icmp slt i64 %59, 0
-  br i1 %60, label %67, label %61
+54:                                               ; preds = %49
+  %55 = load ptr, ptr %13, align 8
+  %56 = getelementptr inbounds nuw %struct.netxray_dump_t, ptr %55, i32 0, i32 0
+  store i8 0, ptr %56, align 4
+  %57 = load ptr, ptr %8, align 8
+  %58 = getelementptr inbounds nuw %struct.wtap_rec, ptr %57, i32 0, i32 3
+  %59 = getelementptr inbounds nuw %struct.nstime_t, ptr %58, i32 0, i32 0
+  %60 = load i64, ptr %59, align 8
+  %61 = icmp slt i64 %60, 0
+  br i1 %61, label %68, label %62
 
-61:                                               ; preds = %53
-  %62 = load ptr, ptr %8, align 8
-  %63 = getelementptr inbounds %struct.wtap_rec, ptr %62, i32 0, i32 3
-  %64 = getelementptr inbounds %struct.nstime_t, ptr %63, i32 0, i32 0
-  %65 = load i64, ptr %64, align 8
-  %66 = icmp sgt i64 %65, 4294967295
-  br i1 %66, label %67, label %69
+62:                                               ; preds = %54
+  %63 = load ptr, ptr %8, align 8
+  %64 = getelementptr inbounds nuw %struct.wtap_rec, ptr %63, i32 0, i32 3
+  %65 = getelementptr inbounds nuw %struct.nstime_t, ptr %64, i32 0, i32 0
+  %66 = load i64, ptr %65, align 8
+  %67 = icmp sgt i64 %66, 4294967295
+  br i1 %67, label %68, label %70
 
-67:                                               ; preds = %61, %53
-  %68 = load ptr, ptr %10, align 8
-  store i32 -27, ptr %68, align 4
-  store i32 0, ptr %6, align 4
+68:                                               ; preds = %62, %54
+  %69 = load ptr, ptr %10, align 8
+  store i32 -27, ptr %69, align 4
+  store i1 false, ptr %6, align 1
+  store i32 1, ptr %17, align 4
   br label %245
 
-69:                                               ; preds = %61
-  %70 = load ptr, ptr %8, align 8
-  %71 = getelementptr inbounds %struct.wtap_rec, ptr %70, i32 0, i32 3
-  %72 = getelementptr inbounds %struct.nstime_t, ptr %71, i32 0, i32 0
-  %73 = load i64, ptr %72, align 8
-  %74 = trunc i64 %73 to i32
-  %75 = load ptr, ptr %13, align 8
-  %76 = getelementptr inbounds %struct.netxray_dump_t, ptr %75, i32 0, i32 1
-  store i32 %74, ptr %76, align 4
-  br label %77
+70:                                               ; preds = %62
+  %71 = load ptr, ptr %8, align 8
+  %72 = getelementptr inbounds nuw %struct.wtap_rec, ptr %71, i32 0, i32 3
+  %73 = getelementptr inbounds nuw %struct.nstime_t, ptr %72, i32 0, i32 0
+  %74 = load i64, ptr %73, align 8
+  %75 = trunc i64 %74 to i32
+  %76 = load ptr, ptr %13, align 8
+  %77 = getelementptr inbounds nuw %struct.netxray_dump_t, ptr %76, i32 0, i32 1
+  store i32 %75, ptr %77, align 4
+  br label %78
 
-77:                                               ; preds = %69, %48
-  call void @llvm.memset.p0.i64(ptr align 4 %16, i8 0, i64 40, i1 false)
-  %78 = load ptr, ptr %8, align 8
-  %79 = getelementptr inbounds %struct.wtap_rec, ptr %78, i32 0, i32 3
-  %80 = getelementptr inbounds %struct.nstime_t, ptr %79, i32 0, i32 0
-  %81 = load i64, ptr %80, align 8
-  %82 = load ptr, ptr %13, align 8
-  %83 = getelementptr inbounds %struct.netxray_dump_t, ptr %82, i32 0, i32 1
-  %84 = load i32, ptr %83, align 4
-  %85 = zext i32 %84 to i64
-  %86 = sub i64 %81, %85
-  %87 = mul i64 %86, 1000000
-  %88 = load ptr, ptr %8, align 8
-  %89 = getelementptr inbounds %struct.wtap_rec, ptr %88, i32 0, i32 3
-  %90 = getelementptr inbounds %struct.nstime_t, ptr %89, i32 0, i32 1
-  %91 = load i32, ptr %90, align 8
-  %92 = sext i32 %91 to i64
-  %93 = udiv i64 %92, 1000
-  %94 = add i64 %87, %93
-  store i64 %94, ptr %14, align 8
-  %95 = load i64, ptr %14, align 8
-  %96 = urem i64 %95, 4294967296
-  %97 = trunc i64 %96 to i32
-  store i32 %97, ptr %15, align 4
-  %98 = load i32, ptr %15, align 4
-  %99 = getelementptr inbounds %struct.netxrayrec_2_x_hdr, ptr %16, i32 0, i32 0
-  store i32 %98, ptr %99, align 4
-  %100 = load i64, ptr %14, align 8
-  %101 = udiv i64 %100, 4294967296
-  %102 = trunc i64 %101 to i32
-  store i32 %102, ptr %15, align 4
-  %103 = load i32, ptr %15, align 4
-  %104 = getelementptr inbounds %struct.netxrayrec_2_x_hdr, ptr %16, i32 0, i32 1
-  store i32 %103, ptr %104, align 4
-  %105 = load ptr, ptr %8, align 8
-  %106 = getelementptr inbounds %struct.wtap_rec, ptr %105, i32 0, i32 7
-  %107 = getelementptr inbounds %struct.wtap_packet_header, ptr %106, i32 0, i32 1
-  %108 = load i32, ptr %107, align 4
-  %109 = trunc i32 %108 to i16
-  %110 = getelementptr inbounds %struct.netxrayrec_2_x_hdr, ptr %16, i32 0, i32 2
-  store i16 %109, ptr %110, align 4
-  %111 = load ptr, ptr %8, align 8
-  %112 = getelementptr inbounds %struct.wtap_rec, ptr %111, i32 0, i32 7
-  %113 = getelementptr inbounds %struct.wtap_packet_header, ptr %112, i32 0, i32 0
-  %114 = load i32, ptr %113, align 8
-  %115 = trunc i32 %114 to i16
-  %116 = getelementptr inbounds %struct.netxrayrec_2_x_hdr, ptr %16, i32 0, i32 3
-  store i16 %115, ptr %116, align 2
-  %117 = load ptr, ptr %8, align 8
-  %118 = getelementptr inbounds %struct.wtap_rec, ptr %117, i32 0, i32 7
-  %119 = getelementptr inbounds %struct.wtap_packet_header, ptr %118, i32 0, i32 2
-  %120 = load i32, ptr %119, align 8
-  switch i32 %120, label %222 [
-    i32 22, label %121
-    i32 19, label %196
-    i32 36, label %196
-    i32 27, label %208
+78:                                               ; preds = %70, %49
+  %79 = call ptr @memset.inline(ptr noundef %16, i32 noundef 0, i64 noundef 40) #12
+  %80 = load ptr, ptr %8, align 8
+  %81 = getelementptr inbounds nuw %struct.wtap_rec, ptr %80, i32 0, i32 3
+  %82 = getelementptr inbounds nuw %struct.nstime_t, ptr %81, i32 0, i32 0
+  %83 = load i64, ptr %82, align 8
+  %84 = load ptr, ptr %13, align 8
+  %85 = getelementptr inbounds nuw %struct.netxray_dump_t, ptr %84, i32 0, i32 1
+  %86 = load i32, ptr %85, align 4
+  %87 = zext i32 %86 to i64
+  %88 = sub i64 %83, %87
+  %89 = mul i64 %88, 1000000
+  %90 = load ptr, ptr %8, align 8
+  %91 = getelementptr inbounds nuw %struct.wtap_rec, ptr %90, i32 0, i32 3
+  %92 = getelementptr inbounds nuw %struct.nstime_t, ptr %91, i32 0, i32 1
+  %93 = load i32, ptr %92, align 8
+  %94 = sext i32 %93 to i64
+  %95 = udiv i64 %94, 1000
+  %96 = add i64 %89, %95
+  store i64 %96, ptr %14, align 8
+  %97 = load i64, ptr %14, align 8
+  %98 = urem i64 %97, 4294967296
+  %99 = trunc i64 %98 to i32
+  store i32 %99, ptr %15, align 4
+  %100 = load i32, ptr %15, align 4
+  %101 = getelementptr inbounds nuw %struct.netxrayrec_2_x_hdr, ptr %16, i32 0, i32 0
+  store i32 %100, ptr %101, align 4
+  %102 = load i64, ptr %14, align 8
+  %103 = udiv i64 %102, 4294967296
+  %104 = trunc i64 %103 to i32
+  store i32 %104, ptr %15, align 4
+  %105 = load i32, ptr %15, align 4
+  %106 = getelementptr inbounds nuw %struct.netxrayrec_2_x_hdr, ptr %16, i32 0, i32 1
+  store i32 %105, ptr %106, align 4
+  %107 = load ptr, ptr %8, align 8
+  %108 = getelementptr inbounds nuw %struct.wtap_rec, ptr %107, i32 0, i32 7
+  %109 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %108, i32 0, i32 1
+  %110 = load i32, ptr %109, align 4
+  %111 = trunc i32 %110 to i16
+  %112 = getelementptr inbounds nuw %struct.netxrayrec_2_x_hdr, ptr %16, i32 0, i32 2
+  store i16 %111, ptr %112, align 4
+  %113 = load ptr, ptr %8, align 8
+  %114 = getelementptr inbounds nuw %struct.wtap_rec, ptr %113, i32 0, i32 7
+  %115 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %114, i32 0, i32 0
+  %116 = load i32, ptr %115, align 8
+  %117 = trunc i32 %116 to i16
+  %118 = getelementptr inbounds nuw %struct.netxrayrec_2_x_hdr, ptr %16, i32 0, i32 3
+  store i16 %117, ptr %118, align 2
+  %119 = load ptr, ptr %8, align 8
+  %120 = getelementptr inbounds nuw %struct.wtap_rec, ptr %119, i32 0, i32 7
+  %121 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %120, i32 0, i32 2
+  %122 = load i32, ptr %121, align 8
+  switch i32 %122, label %224 [
+    i32 22, label %123
+    i32 19, label %198
+    i32 36, label %198
+    i32 27, label %210
   ]
 
-121:                                              ; preds = %77
-  %122 = load ptr, ptr %12, align 8
-  %123 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %122, i32 0, i32 4
-  %124 = load i16, ptr %123, align 4
-  %125 = and i16 %124, 1
-  %126 = zext i16 %125 to i32
-  %127 = icmp ne i32 %126, 0
-  br i1 %127, label %128, label %133
+123:                                              ; preds = %78
+  %124 = load ptr, ptr %12, align 8
+  %125 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %124, i32 0, i32 4
+  %126 = load i16, ptr %125, align 8
+  %127 = and i16 %126, 1
+  %128 = zext i16 %127 to i32
+  %129 = icmp ne i32 %128, 0
+  br i1 %129, label %130, label %135
 
-128:                                              ; preds = %121
-  %129 = load ptr, ptr %12, align 8
-  %130 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %129, i32 0, i32 5
-  %131 = load i16, ptr %130, align 2
-  %132 = zext i16 %131 to i32
-  br label %134
+130:                                              ; preds = %123
+  %131 = load ptr, ptr %12, align 8
+  %132 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %131, i32 0, i32 5
+  %133 = load i16, ptr %132, align 2
+  %134 = zext i16 %133 to i32
+  br label %136
 
-133:                                              ; preds = %121
-  br label %134
+135:                                              ; preds = %123
+  br label %136
 
-134:                                              ; preds = %133, %128
-  %135 = phi i32 [ %132, %128 ], [ 0, %133 ]
-  %136 = trunc i32 %135 to i8
-  %137 = getelementptr inbounds %struct.netxrayrec_2_x_hdr, ptr %16, i32 0, i32 4
-  %138 = getelementptr [28 x i8], ptr %137, i64 0, i64 12
-  store i8 %136, ptr %138, align 4
-  %139 = load ptr, ptr %12, align 8
-  %140 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %139, i32 0, i32 4
-  %141 = load i16, ptr %140, align 4
-  %142 = lshr i16 %141, 2
-  %143 = and i16 %142, 1
-  %144 = zext i16 %143 to i32
-  %145 = icmp ne i32 %144, 0
-  br i1 %145, label %146, label %152
+136:                                              ; preds = %135, %130
+  %137 = phi i32 [ %134, %130 ], [ 0, %135 ]
+  %138 = trunc i32 %137 to i8
+  %139 = getelementptr inbounds nuw %struct.netxrayrec_2_x_hdr, ptr %16, i32 0, i32 4
+  %140 = getelementptr [28 x i8], ptr %139, i64 0, i64 12
+  store i8 %138, ptr %140, align 4
+  %141 = load ptr, ptr %12, align 8
+  %142 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %141, i32 0, i32 4
+  %143 = load i16, ptr %142, align 8
+  %144 = lshr i16 %143, 2
+  %145 = and i16 %144, 1
+  %146 = zext i16 %145 to i32
+  %147 = icmp ne i32 %146, 0
+  br i1 %147, label %148, label %154
 
-146:                                              ; preds = %134
-  %147 = load ptr, ptr %12, align 8
-  %148 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %147, i32 0, i32 7
-  %149 = load i16, ptr %148, align 4
-  %150 = trunc i16 %149 to i8
-  %151 = zext i8 %150 to i32
-  br label %153
+148:                                              ; preds = %136
+  %149 = load ptr, ptr %12, align 8
+  %150 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %149, i32 0, i32 7
+  %151 = load i16, ptr %150, align 8
+  %152 = trunc i16 %151 to i8
+  %153 = zext i8 %152 to i32
+  br label %155
 
-152:                                              ; preds = %134
-  br label %153
+154:                                              ; preds = %136
+  br label %155
 
-153:                                              ; preds = %152, %146
-  %154 = phi i32 [ %151, %146 ], [ 0, %152 ]
-  %155 = trunc i32 %154 to i8
-  %156 = getelementptr inbounds %struct.netxrayrec_2_x_hdr, ptr %16, i32 0, i32 4
-  %157 = getelementptr [28 x i8], ptr %156, i64 0, i64 13
-  store i8 %155, ptr %157, align 1
-  %158 = load ptr, ptr %12, align 8
-  %159 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %158, i32 0, i32 4
-  %160 = load i16, ptr %159, align 4
-  %161 = lshr i16 %160, 3
-  %162 = and i16 %161, 1
-  %163 = zext i16 %162 to i32
-  %164 = icmp ne i32 %163, 0
-  br i1 %164, label %165, label %170
+155:                                              ; preds = %154, %148
+  %156 = phi i32 [ %153, %148 ], [ 0, %154 ]
+  %157 = trunc i32 %156 to i8
+  %158 = getelementptr inbounds nuw %struct.netxrayrec_2_x_hdr, ptr %16, i32 0, i32 4
+  %159 = getelementptr [28 x i8], ptr %158, i64 0, i64 13
+  store i8 %157, ptr %159, align 1
+  %160 = load ptr, ptr %12, align 8
+  %161 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %160, i32 0, i32 4
+  %162 = load i16, ptr %161, align 8
+  %163 = lshr i16 %162, 3
+  %164 = and i16 %163, 1
+  %165 = zext i16 %164 to i32
+  %166 = icmp ne i32 %165, 0
+  br i1 %166, label %167, label %172
 
-165:                                              ; preds = %153
-  %166 = load ptr, ptr %12, align 8
-  %167 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %166, i32 0, i32 8
-  %168 = load i8, ptr %167, align 2
-  %169 = zext i8 %168 to i32
-  br label %171
+167:                                              ; preds = %155
+  %168 = load ptr, ptr %12, align 8
+  %169 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %168, i32 0, i32 8
+  %170 = load i8, ptr %169, align 2
+  %171 = zext i8 %170 to i32
+  br label %173
 
-170:                                              ; preds = %153
-  br label %171
+172:                                              ; preds = %155
+  br label %173
 
-171:                                              ; preds = %170, %165
-  %172 = phi i32 [ %169, %165 ], [ 0, %170 ]
-  %173 = trunc i32 %172 to i8
-  %174 = getelementptr inbounds %struct.netxrayrec_2_x_hdr, ptr %16, i32 0, i32 4
-  %175 = getelementptr [28 x i8], ptr %174, i64 0, i64 14
-  store i8 %173, ptr %175, align 2
-  %176 = load ptr, ptr %12, align 8
-  %177 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %176, i32 0, i32 4
-  %178 = load i16, ptr %177, align 4
-  %179 = lshr i16 %178, 4
-  %180 = and i16 %179, 1
-  %181 = zext i16 %180 to i32
-  %182 = icmp ne i32 %181, 0
-  br i1 %182, label %183, label %190
+173:                                              ; preds = %172, %167
+  %174 = phi i32 [ %171, %167 ], [ 0, %172 ]
+  %175 = trunc i32 %174 to i8
+  %176 = getelementptr inbounds nuw %struct.netxrayrec_2_x_hdr, ptr %16, i32 0, i32 4
+  %177 = getelementptr [28 x i8], ptr %176, i64 0, i64 14
+  store i8 %175, ptr %177, align 2
+  %178 = load ptr, ptr %12, align 8
+  %179 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %178, i32 0, i32 4
+  %180 = load i16, ptr %179, align 8
+  %181 = lshr i16 %180, 4
+  %182 = and i16 %181, 1
+  %183 = zext i16 %182 to i32
+  %184 = icmp ne i32 %183, 0
+  br i1 %184, label %185, label %192
 
-183:                                              ; preds = %171
-  %184 = load ptr, ptr %12, align 8
-  %185 = getelementptr inbounds %struct.ieee_802_11_phdr, ptr %184, i32 0, i32 9
-  %186 = load i8, ptr %185, align 1
-  %187 = zext i8 %186 to i32
-  %188 = mul i32 %187, 127
-  %189 = sdiv i32 %188, 100
-  br label %191
+185:                                              ; preds = %173
+  %186 = load ptr, ptr %12, align 8
+  %187 = getelementptr inbounds nuw %struct.ieee_802_11_phdr, ptr %186, i32 0, i32 9
+  %188 = load i8, ptr %187, align 1
+  %189 = zext i8 %188 to i32
+  %190 = mul i32 %189, 127
+  %191 = sdiv i32 %190, 100
+  br label %193
 
-190:                                              ; preds = %171
-  br label %191
+192:                                              ; preds = %173
+  br label %193
 
-191:                                              ; preds = %190, %183
-  %192 = phi i32 [ %189, %183 ], [ 255, %190 ]
-  %193 = trunc i32 %192 to i8
-  %194 = getelementptr inbounds %struct.netxrayrec_2_x_hdr, ptr %16, i32 0, i32 4
-  %195 = getelementptr [28 x i8], ptr %194, i64 0, i64 15
-  store i8 %193, ptr %195, align 1
-  br label %222
+193:                                              ; preds = %192, %185
+  %194 = phi i32 [ %191, %185 ], [ 255, %192 ]
+  %195 = trunc i32 %194 to i8
+  %196 = getelementptr inbounds nuw %struct.netxrayrec_2_x_hdr, ptr %16, i32 0, i32 4
+  %197 = getelementptr [28 x i8], ptr %196, i64 0, i64 15
+  store i8 %195, ptr %197, align 1
+  br label %224
 
-196:                                              ; preds = %77, %77
-  %197 = load ptr, ptr %12, align 8
-  %198 = getelementptr inbounds %struct.p2p_phdr, ptr %197, i32 0, i32 0
-  %199 = load i32, ptr %198, align 8
-  %200 = icmp ne i32 %199, 0
-  %201 = select i1 %200, i32 1, i32 0
-  %202 = getelementptr inbounds %struct.netxrayrec_2_x_hdr, ptr %16, i32 0, i32 4
-  %203 = getelementptr [28 x i8], ptr %202, i64 0, i64 12
-  %204 = load i8, ptr %203, align 4
-  %205 = zext i8 %204 to i32
-  %206 = or i32 %205, %201
-  %207 = trunc i32 %206 to i8
-  store i8 %207, ptr %203, align 4
-  br label %222
+198:                                              ; preds = %78, %78
+  %199 = load ptr, ptr %12, align 8
+  %200 = getelementptr inbounds nuw %struct.p2p_phdr, ptr %199, i32 0, i32 0
+  %201 = load i8, ptr %200, align 8, !range !6, !noundef !7
+  %202 = trunc i8 %201 to i1
+  %203 = select i1 %202, i32 1, i32 0
+  %204 = getelementptr inbounds nuw %struct.netxrayrec_2_x_hdr, ptr %16, i32 0, i32 4
+  %205 = getelementptr [28 x i8], ptr %204, i64 0, i64 12
+  %206 = load i8, ptr %205, align 4
+  %207 = zext i8 %206 to i32
+  %208 = or i32 %207, %203
+  %209 = trunc i32 %208 to i8
+  store i8 %209, ptr %205, align 4
+  br label %224
 
-208:                                              ; preds = %77
-  %209 = load ptr, ptr %12, align 8
-  %210 = getelementptr inbounds %struct.dte_dce_phdr, ptr %209, i32 0, i32 0
-  %211 = load i8, ptr %210, align 8
-  %212 = zext i8 %211 to i32
-  %213 = and i32 %212, 128
-  %214 = icmp ne i32 %213, 0
-  %215 = select i1 %214, i32 0, i32 1
-  %216 = getelementptr inbounds %struct.netxrayrec_2_x_hdr, ptr %16, i32 0, i32 4
-  %217 = getelementptr [28 x i8], ptr %216, i64 0, i64 12
-  %218 = load i8, ptr %217, align 4
-  %219 = zext i8 %218 to i32
-  %220 = or i32 %219, %215
-  %221 = trunc i32 %220 to i8
-  store i8 %221, ptr %217, align 4
-  br label %222
+210:                                              ; preds = %78
+  %211 = load ptr, ptr %12, align 8
+  %212 = getelementptr inbounds nuw %struct.dte_dce_phdr, ptr %211, i32 0, i32 0
+  %213 = load i8, ptr %212, align 8
+  %214 = zext i8 %213 to i32
+  %215 = and i32 %214, 128
+  %216 = icmp ne i32 %215, 0
+  %217 = select i1 %216, i32 0, i32 1
+  %218 = getelementptr inbounds nuw %struct.netxrayrec_2_x_hdr, ptr %16, i32 0, i32 4
+  %219 = getelementptr [28 x i8], ptr %218, i64 0, i64 12
+  %220 = load i8, ptr %219, align 4
+  %221 = zext i8 %220 to i32
+  %222 = or i32 %221, %217
+  %223 = trunc i32 %222 to i8
+  store i8 %223, ptr %219, align 4
+  br label %224
 
-222:                                              ; preds = %208, %196, %191, %77
-  %223 = load ptr, ptr %7, align 8
-  %224 = load ptr, ptr %10, align 8
-  %225 = call i32 @wtap_dump_file_write(ptr noundef %223, ptr noundef %16, i64 noundef 40, ptr noundef %224)
-  %226 = icmp ne i32 %225, 0
-  br i1 %226, label %228, label %227
+224:                                              ; preds = %78, %210, %198, %193
+  %225 = load ptr, ptr %7, align 8
+  %226 = load ptr, ptr %10, align 8
+  %227 = call zeroext i1 @wtap_dump_file_write(ptr noundef %225, ptr noundef %16, i64 noundef 40, ptr noundef %226)
+  br i1 %227, label %229, label %228
 
-227:                                              ; preds = %222
-  store i32 0, ptr %6, align 4
+228:                                              ; preds = %224
+  store i1 false, ptr %6, align 1
+  store i32 1, ptr %17, align 4
   br label %245
 
-228:                                              ; preds = %222
-  %229 = load ptr, ptr %7, align 8
-  %230 = load ptr, ptr %9, align 8
-  %231 = load ptr, ptr %8, align 8
-  %232 = getelementptr inbounds %struct.wtap_rec, ptr %231, i32 0, i32 7
-  %233 = getelementptr inbounds %struct.wtap_packet_header, ptr %232, i32 0, i32 0
-  %234 = load i32, ptr %233, align 8
-  %235 = zext i32 %234 to i64
-  %236 = load ptr, ptr %10, align 8
-  %237 = call i32 @wtap_dump_file_write(ptr noundef %229, ptr noundef %230, i64 noundef %235, ptr noundef %236)
-  %238 = icmp ne i32 %237, 0
+229:                                              ; preds = %224
+  %230 = load ptr, ptr %7, align 8
+  %231 = load ptr, ptr %9, align 8
+  %232 = load ptr, ptr %8, align 8
+  %233 = getelementptr inbounds nuw %struct.wtap_rec, ptr %232, i32 0, i32 7
+  %234 = getelementptr inbounds nuw %struct.wtap_packet_header, ptr %233, i32 0, i32 0
+  %235 = load i32, ptr %234, align 8
+  %236 = zext i32 %235 to i64
+  %237 = load ptr, ptr %10, align 8
+  %238 = call zeroext i1 @wtap_dump_file_write(ptr noundef %230, ptr noundef %231, i64 noundef %236, ptr noundef %237)
   br i1 %238, label %240, label %239
 
-239:                                              ; preds = %228
-  store i32 0, ptr %6, align 4
+239:                                              ; preds = %229
+  store i1 false, ptr %6, align 1
+  store i32 1, ptr %17, align 4
   br label %245
 
-240:                                              ; preds = %228
+240:                                              ; preds = %229
   %241 = load ptr, ptr %13, align 8
-  %242 = getelementptr inbounds %struct.netxray_dump_t, ptr %241, i32 0, i32 2
+  %242 = getelementptr inbounds nuw %struct.netxray_dump_t, ptr %241, i32 0, i32 2
   %243 = load i32, ptr %242, align 4
   %244 = add i32 %243, 1
   store i32 %244, ptr %242, align 4
-  store i32 1, ptr %6, align 4
+  store i1 true, ptr %6, align 1
+  store i32 1, ptr %17, align 4
   br label %245
 
-245:                                              ; preds = %240, %239, %227, %67, %46, %38, %27
-  %246 = load i32, ptr %6, align 4
-  ret i32 %246
+245:                                              ; preds = %240, %239, %228, %68, %47, %39, %28
+  call void @llvm.lifetime.end.p0(i64 40, ptr %16) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #12
+  %246 = load i1, ptr %6, align 1
+  ret i1 %246
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @netxray_dump_finish_2_0(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = alloca i32, align 4
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @netxray_dump_finish_2_0(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  %4 = alloca i1, align 1
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -3373,160 +3725,183 @@ define internal i32 @netxray_dump_finish_2_0(ptr noundef %0, ptr noundef %1, ptr
   %9 = alloca ptr, align 8
   %10 = alloca i64, align 8
   %11 = alloca %struct.netxray_hdr, align 4
+  %12 = alloca i32, align 4
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
-  %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds %struct.wtap_dumper, ptr %12, i32 0, i32 7
-  %14 = load ptr, ptr %13, align 8
-  store ptr %14, ptr %9, align 8
-  %15 = load ptr, ptr %5, align 8
-  %16 = load ptr, ptr %6, align 8
-  %17 = call i64 @wtap_dump_file_tell(ptr noundef %15, ptr noundef %16)
-  store i64 %17, ptr %10, align 8
-  %18 = icmp eq i64 -1, %17
-  br i1 %18, label %19, label %20
-
-19:                                               ; preds = %3
-  store i32 0, ptr %4, align 4
-  br label %82
+  call void @llvm.lifetime.start.p0(i64 124, ptr %8) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #12
+  %13 = load ptr, ptr %5, align 8
+  %14 = getelementptr inbounds nuw %struct.wtap_dumper, ptr %13, i32 0, i32 7
+  %15 = load ptr, ptr %14, align 8
+  store ptr %15, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #12
+  call void @llvm.lifetime.start.p0(i64 124, ptr %11) #12
+  %16 = load ptr, ptr %5, align 8
+  %17 = load ptr, ptr %6, align 8
+  %18 = call i64 @wtap_dump_file_tell(ptr noundef %16, ptr noundef %17)
+  store i64 %18, ptr %10, align 8
+  %19 = icmp eq i64 -1, %18
+  br i1 %19, label %20, label %21
 
 20:                                               ; preds = %3
-  %21 = load ptr, ptr %5, align 8
-  %22 = load ptr, ptr %6, align 8
-  %23 = call i64 @wtap_dump_file_seek(ptr noundef %21, i64 noundef 0, i32 noundef 0, ptr noundef %22)
-  %24 = icmp eq i64 %23, -1
-  br i1 %24, label %25, label %26
+  store i1 false, ptr %4, align 1
+  store i32 1, ptr %12, align 4
+  br label %85
 
-25:                                               ; preds = %20
-  store i32 0, ptr %4, align 4
-  br label %82
+21:                                               ; preds = %3
+  %22 = load ptr, ptr %5, align 8
+  %23 = load ptr, ptr %6, align 8
+  %24 = call i64 @wtap_dump_file_seek(ptr noundef %22, i64 noundef 0, i32 noundef 0, ptr noundef %23)
+  %25 = icmp eq i64 %24, -1
+  br i1 %25, label %26, label %27
 
-26:                                               ; preds = %20
-  %27 = load ptr, ptr %5, align 8
-  %28 = load ptr, ptr %6, align 8
-  %29 = call i32 @wtap_dump_file_write(ptr noundef %27, ptr noundef @netxray_magic, i64 noundef 4, ptr noundef %28)
-  %30 = icmp ne i32 %29, 0
+26:                                               ; preds = %21
+  store i1 false, ptr %4, align 1
+  store i32 1, ptr %12, align 4
+  br label %85
+
+27:                                               ; preds = %21
+  %28 = load ptr, ptr %5, align 8
+  %29 = load ptr, ptr %6, align 8
+  %30 = call zeroext i1 @wtap_dump_file_write(ptr noundef %28, ptr noundef @netxray_magic, i64 noundef 4, ptr noundef %29)
   br i1 %30, label %32, label %31
 
-31:                                               ; preds = %26
-  store i32 0, ptr %4, align 4
-  br label %82
+31:                                               ; preds = %27
+  store i1 false, ptr %4, align 1
+  store i32 1, ptr %12, align 4
+  br label %85
 
-32:                                               ; preds = %26
-  call void @llvm.memset.p0.i64(ptr align 4 %11, i8 0, i64 124, i1 false)
-  %33 = getelementptr inbounds %struct.netxray_hdr, ptr %11, i32 0, i32 0
-  %34 = getelementptr inbounds [8 x i8], ptr %33, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %34, ptr align 1 @vers_2_001, i64 8, i1 false)
-  %35 = load ptr, ptr %9, align 8
-  %36 = getelementptr inbounds %struct.netxray_dump_t, ptr %35, i32 0, i32 1
-  %37 = load i32, ptr %36, align 4
-  %38 = getelementptr inbounds %struct.netxray_hdr, ptr %11, i32 0, i32 1
-  store i32 %37, ptr %38, align 4
-  %39 = load ptr, ptr %9, align 8
-  %40 = getelementptr inbounds %struct.netxray_dump_t, ptr %39, i32 0, i32 2
-  %41 = load i32, ptr %40, align 4
-  %42 = getelementptr inbounds %struct.netxray_hdr, ptr %11, i32 0, i32 2
-  store i32 %41, ptr %42, align 4
-  %43 = getelementptr inbounds %struct.netxray_hdr, ptr %11, i32 0, i32 4
-  store i32 128, ptr %43, align 4
-  %44 = load i64, ptr %10, align 8
-  %45 = trunc i64 %44 to i32
-  %46 = getelementptr inbounds %struct.netxray_hdr, ptr %11, i32 0, i32 5
-  store i32 %45, ptr %46, align 4
-  %47 = load ptr, ptr %5, align 8
-  %48 = getelementptr inbounds %struct.wtap_dumper, ptr %47, i32 0, i32 3
-  %49 = load i32, ptr %48, align 8
-  %50 = call i32 @wtap_encap_to_netxray_2_0_encap(i32 noundef %49)
-  %51 = trunc i32 %50 to i8
-  %52 = getelementptr inbounds %struct.netxray_hdr, ptr %11, i32 0, i32 9
-  store i8 %51, ptr %52, align 4
-  %53 = getelementptr inbounds %struct.netxray_hdr, ptr %11, i32 0, i32 14
-  store i32 0, ptr %53, align 4
-  %54 = getelementptr inbounds %struct.netxray_hdr, ptr %11, i32 0, i32 15
-  store i32 0, ptr %54, align 4
-  %55 = load ptr, ptr %5, align 8
-  %56 = getelementptr inbounds %struct.wtap_dumper, ptr %55, i32 0, i32 3
-  %57 = load i32, ptr %56, align 8
-  switch i32 %57, label %67 [
-    i32 19, label %58
-    i32 27, label %60
-    i32 12, label %62
-    i32 36, label %65
+32:                                               ; preds = %27
+  %33 = call ptr @memset.inline(ptr noundef %11, i32 noundef 0, i64 noundef 124) #12
+  %34 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %11, i32 0, i32 0
+  %35 = getelementptr inbounds [8 x i8], ptr %34, i64 0, i64 0
+  %36 = call ptr @memcpy.inline(ptr noundef %35, ptr noundef @vers_2_001, i64 noundef 8) #12
+  %37 = load ptr, ptr %9, align 8
+  %38 = getelementptr inbounds nuw %struct.netxray_dump_t, ptr %37, i32 0, i32 1
+  %39 = load i32, ptr %38, align 4
+  %40 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %11, i32 0, i32 1
+  store i32 %39, ptr %40, align 4
+  %41 = load ptr, ptr %9, align 8
+  %42 = getelementptr inbounds nuw %struct.netxray_dump_t, ptr %41, i32 0, i32 2
+  %43 = load i32, ptr %42, align 4
+  %44 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %11, i32 0, i32 2
+  store i32 %43, ptr %44, align 4
+  %45 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %11, i32 0, i32 4
+  store i32 128, ptr %45, align 4
+  %46 = load i64, ptr %10, align 8
+  %47 = trunc i64 %46 to i32
+  %48 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %11, i32 0, i32 5
+  store i32 %47, ptr %48, align 4
+  %49 = load ptr, ptr %5, align 8
+  %50 = getelementptr inbounds nuw %struct.wtap_dumper, ptr %49, i32 0, i32 3
+  %51 = load i32, ptr %50, align 8
+  %52 = call i32 @wtap_encap_to_netxray_2_0_encap(i32 noundef %51)
+  %53 = trunc i32 %52 to i8
+  %54 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %11, i32 0, i32 9
+  store i8 %53, ptr %54, align 4
+  %55 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %11, i32 0, i32 14
+  store i32 0, ptr %55, align 4
+  %56 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %11, i32 0, i32 15
+  store i32 0, ptr %56, align 4
+  %57 = load ptr, ptr %5, align 8
+  %58 = getelementptr inbounds nuw %struct.wtap_dumper, ptr %57, i32 0, i32 3
+  %59 = load i32, ptr %58, align 8
+  switch i32 %59, label %69 [
+    i32 19, label %60
+    i32 27, label %62
+    i32 12, label %64
+    i32 36, label %67
   ]
 
-58:                                               ; preds = %32
-  %59 = getelementptr inbounds %struct.netxray_hdr, ptr %11, i32 0, i32 20
-  store i8 3, ptr %59, align 4
-  br label %69
-
 60:                                               ; preds = %32
-  %61 = getelementptr inbounds %struct.netxray_hdr, ptr %11, i32 0, i32 20
-  store i8 4, ptr %61, align 4
-  br label %69
+  %61 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %11, i32 0, i32 20
+  store i8 3, ptr %61, align 4
+  br label %71
 
 62:                                               ; preds = %32
-  %63 = getelementptr inbounds %struct.netxray_hdr, ptr %11, i32 0, i32 20
-  store i8 6, ptr %63, align 4
-  %64 = getelementptr inbounds %struct.netxray_hdr, ptr %11, i32 0, i32 23
-  store i8 0, ptr %64, align 4
-  br label %69
+  %63 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %11, i32 0, i32 20
+  store i8 4, ptr %63, align 4
+  br label %71
 
-65:                                               ; preds = %32
-  %66 = getelementptr inbounds %struct.netxray_hdr, ptr %11, i32 0, i32 20
-  store i8 7, ptr %66, align 4
-  br label %69
+64:                                               ; preds = %32
+  %65 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %11, i32 0, i32 20
+  store i8 6, ptr %65, align 4
+  %66 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %11, i32 0, i32 23
+  store i8 0, ptr %66, align 4
+  br label %71
 
 67:                                               ; preds = %32
-  %68 = getelementptr inbounds %struct.netxray_hdr, ptr %11, i32 0, i32 20
-  store i8 0, ptr %68, align 4
-  br label %69
+  %68 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %11, i32 0, i32 20
+  store i8 7, ptr %68, align 4
+  br label %71
 
-69:                                               ; preds = %67, %65, %62, %60, %58
-  %70 = getelementptr inbounds [124 x i8], ptr %8, i64 0, i64 0
-  call void @llvm.memset.p0.i64(ptr align 16 %70, i8 0, i64 124, i1 false)
-  %71 = getelementptr inbounds [124 x i8], ptr %8, i64 0, i64 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %71, ptr align 4 %11, i64 124, i1 false)
-  %72 = load ptr, ptr %5, align 8
-  %73 = getelementptr inbounds [124 x i8], ptr %8, i64 0, i64 0
-  %74 = load ptr, ptr %6, align 8
-  %75 = call i32 @wtap_dump_file_write(ptr noundef %72, ptr noundef %73, i64 noundef 124, ptr noundef %74)
-  %76 = icmp ne i32 %75, 0
-  br i1 %76, label %78, label %77
+69:                                               ; preds = %32
+  %70 = getelementptr inbounds nuw %struct.netxray_hdr, ptr %11, i32 0, i32 20
+  store i8 0, ptr %70, align 4
+  br label %71
 
-77:                                               ; preds = %69
-  store i32 0, ptr %4, align 4
-  br label %82
+71:                                               ; preds = %69, %67, %64, %62, %60
+  %72 = getelementptr inbounds [124 x i8], ptr %8, i64 0, i64 0
+  %73 = call ptr @memset.inline(ptr noundef %72, i32 noundef 0, i64 noundef 124) #12
+  %74 = getelementptr inbounds [124 x i8], ptr %8, i64 0, i64 0
+  %75 = call ptr @memcpy.inline(ptr noundef %74, ptr noundef %11, i64 noundef 124) #12
+  %76 = load ptr, ptr %5, align 8
+  %77 = getelementptr inbounds [124 x i8], ptr %8, i64 0, i64 0
+  %78 = load ptr, ptr %6, align 8
+  %79 = call zeroext i1 @wtap_dump_file_write(ptr noundef %76, ptr noundef %77, i64 noundef 124, ptr noundef %78)
+  br i1 %79, label %81, label %80
 
-78:                                               ; preds = %69
-  %79 = load i64, ptr %10, align 8
-  %80 = load ptr, ptr %5, align 8
-  %81 = getelementptr inbounds %struct.wtap_dumper, ptr %80, i32 0, i32 6
-  store i64 %79, ptr %81, align 8
-  store i32 1, ptr %4, align 4
-  br label %82
+80:                                               ; preds = %71
+  store i1 false, ptr %4, align 1
+  store i32 1, ptr %12, align 4
+  br label %85
 
-82:                                               ; preds = %78, %77, %31, %25, %19
-  %83 = load i32, ptr %4, align 4
-  ret i32 %83
+81:                                               ; preds = %71
+  %82 = load i64, ptr %10, align 8
+  %83 = load ptr, ptr %5, align 8
+  %84 = getelementptr inbounds nuw %struct.wtap_dumper, ptr %83, i32 0, i32 6
+  store i64 %82, ptr %84, align 8
+  store i1 true, ptr %4, align 1
+  store i32 1, ptr %12, align 4
+  br label %85
+
+85:                                               ; preds = %81, %80, %31, %26, %20
+  call void @llvm.lifetime.end.p0(i64 124, ptr %11) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #12
+  call void @llvm.lifetime.end.p0(i64 124, ptr %8) #12
+  %86 = load i1, ptr %4, align 1
+  ret i1 %86
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nounwind willreturn memory(read) }
-attributes #8 = { allocsize(0,1) }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind null_pointer_is_valid willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #8 = { null_pointer_is_valid allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { alwaysinline nounwind "min-legal-vector-width"="0" }
+attributes #10 = { nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nounwind }
+attributes #13 = { nounwind willreturn memory(read) }
+attributes #14 = { allocsize(0) }
+attributes #15 = { allocsize(0,1) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}

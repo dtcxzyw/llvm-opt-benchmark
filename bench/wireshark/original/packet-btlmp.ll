@@ -3,9 +3,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
 %struct.unit_name_string = type { ptr, ptr }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
@@ -17,17 +16,12 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [4 x i8] c"TID\00", align 1
 @.str.3 = private unnamed_addr constant [17 x i8] c"btlmp.opcode.tid\00", align 1
 @.str.4 = private unnamed_addr constant [20 x i8] c"btlmp.opcode.opcode\00", align 1
-@opcode_vals = internal constant [64 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.502 }, %struct._value_string { i32 2, ptr @.str.503 }, %struct._value_string { i32 3, ptr @.str.504 }, %struct._value_string { i32 4, ptr @.str.505 }, %struct._value_string { i32 5, ptr @.str.506 }, %struct._value_string { i32 6, ptr @.str.507 }, %struct._value_string { i32 7, ptr @.str.508 }, %struct._value_string { i32 8, ptr @.str.509 }, %struct._value_string { i32 9, ptr @.str.510 }, %struct._value_string { i32 10, ptr @.str.511 }, %struct._value_string { i32 11, ptr @.str.512 }, %struct._value_string { i32 12, ptr @.str.513 }, %struct._value_string { i32 13, ptr @.str.514 }, %struct._value_string { i32 14, ptr @.str.515 }, %struct._value_string { i32 15, ptr @.str.516 }, %struct._value_string { i32 16, ptr @.str.517 }, %struct._value_string { i32 17, ptr @.str.518 }, %struct._value_string { i32 18, ptr @.str.519 }, %struct._value_string { i32 19, ptr @.str.520 }, %struct._value_string { i32 20, ptr @.str.521 }, %struct._value_string { i32 21, ptr @.str.522 }, %struct._value_string { i32 23, ptr @.str.523 }, %struct._value_string { i32 24, ptr @.str.524 }, %struct._value_string { i32 31, ptr @.str.525 }, %struct._value_string { i32 32, ptr @.str.526 }, %struct._value_string { i32 33, ptr @.str.527 }, %struct._value_string { i32 34, ptr @.str.528 }, %struct._value_string { i32 35, ptr @.str.529 }, %struct._value_string { i32 36, ptr @.str.530 }, %struct._value_string { i32 37, ptr @.str.531 }, %struct._value_string { i32 38, ptr @.str.532 }, %struct._value_string { i32 39, ptr @.str.533 }, %struct._value_string { i32 40, ptr @.str.534 }, %struct._value_string { i32 41, ptr @.str.535 }, %struct._value_string { i32 42, ptr @.str.536 }, %struct._value_string { i32 43, ptr @.str.537 }, %struct._value_string { i32 44, ptr @.str.538 }, %struct._value_string { i32 45, ptr @.str.539 }, %struct._value_string { i32 46, ptr @.str.540 }, %struct._value_string { i32 47, ptr @.str.541 }, %struct._value_string { i32 48, ptr @.str.542 }, %struct._value_string { i32 49, ptr @.str.543 }, %struct._value_string { i32 50, ptr @.str.544 }, %struct._value_string { i32 51, ptr @.str.545 }, %struct._value_string { i32 52, ptr @.str.546 }, %struct._value_string { i32 53, ptr @.str.547 }, %struct._value_string { i32 54, ptr @.str.548 }, %struct._value_string { i32 55, ptr @.str.549 }, %struct._value_string { i32 56, ptr @.str.550 }, %struct._value_string { i32 57, ptr @.str.551 }, %struct._value_string { i32 58, ptr @.str.552 }, %struct._value_string { i32 59, ptr @.str.553 }, %struct._value_string { i32 60, ptr @.str.554 }, %struct._value_string { i32 61, ptr @.str.555 }, %struct._value_string { i32 62, ptr @.str.556 }, %struct._value_string { i32 63, ptr @.str.557 }, %struct._value_string { i32 64, ptr @.str.558 }, %struct._value_string { i32 65, ptr @.str.559 }, %struct._value_string { i32 66, ptr @.str.560 }, %struct._value_string { i32 124, ptr @.str.561 }, %struct._value_string { i32 125, ptr @.str.562 }, %struct._value_string { i32 126, ptr @.str.563 }, %struct._value_string { i32 127, ptr @.str.564 }, %struct._value_string zeroinitializer], align 16
 @hf_escopcode = internal global [4 x i32] zeroinitializer, align 16
 @.str.5 = private unnamed_addr constant [16 x i8] c"Escape 1 Opcode\00", align 1
 @.str.6 = private unnamed_addr constant [21 x i8] c"btlmp.opcode.escaped\00", align 1
-@escape1_opcode_vals = internal constant [2 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.565 }, %struct._value_string zeroinitializer], align 16
 @.str.7 = private unnamed_addr constant [16 x i8] c"Escape 2 Opcode\00", align 1
-@escape2_opcode_vals = internal constant [2 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.565 }, %struct._value_string zeroinitializer], align 16
 @.str.8 = private unnamed_addr constant [16 x i8] c"Escape 3 Opcode\00", align 1
-@escape3_opcode_vals = internal constant [2 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.565 }, %struct._value_string zeroinitializer], align 16
 @.str.9 = private unnamed_addr constant [16 x i8] c"Escape 4 Opcode\00", align 1
-@escape4_opcode_vals = internal constant [30 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.566 }, %struct._value_string { i32 2, ptr @.str.567 }, %struct._value_string { i32 3, ptr @.str.568 }, %struct._value_string { i32 4, ptr @.str.569 }, %struct._value_string { i32 5, ptr @.str.570 }, %struct._value_string { i32 6, ptr @.str.571 }, %struct._value_string { i32 7, ptr @.str.572 }, %struct._value_string { i32 11, ptr @.str.573 }, %struct._value_string { i32 12, ptr @.str.574 }, %struct._value_string { i32 13, ptr @.str.575 }, %struct._value_string { i32 16, ptr @.str.576 }, %struct._value_string { i32 17, ptr @.str.577 }, %struct._value_string { i32 21, ptr @.str.578 }, %struct._value_string { i32 22, ptr @.str.579 }, %struct._value_string { i32 23, ptr @.str.580 }, %struct._value_string { i32 24, ptr @.str.581 }, %struct._value_string { i32 25, ptr @.str.582 }, %struct._value_string { i32 26, ptr @.str.583 }, %struct._value_string { i32 27, ptr @.str.584 }, %struct._value_string { i32 28, ptr @.str.585 }, %struct._value_string { i32 29, ptr @.str.586 }, %struct._value_string { i32 30, ptr @.str.587 }, %struct._value_string { i32 31, ptr @.str.588 }, %struct._value_string { i32 32, ptr @.str.589 }, %struct._value_string { i32 33, ptr @.str.590 }, %struct._value_string { i32 34, ptr @.str.591 }, %struct._value_string { i32 35, ptr @.str.592 }, %struct._value_string { i32 36, ptr @.str.593 }, %struct._value_string { i32 37, ptr @.str.594 }, %struct._value_string zeroinitializer], align 16
 @hf_accept_opcode = internal global i32 0, align 4
 @.str.10 = private unnamed_addr constant [20 x i8] c"btlmp.accept_opcode\00", align 1
 @hf_accept_escopcode = internal global [4 x i32] zeroinitializer, align 16
@@ -38,7 +32,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_errorcode = internal global i32 0, align 4
 @.str.15 = private unnamed_addr constant [11 x i8] c"Error Code\00", align 1
 @.str.16 = private unnamed_addr constant [16 x i8] c"btlmp.errorcode\00", align 1
-@errorcode_vals = internal constant [71 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.595 }, %struct._value_string { i32 1, ptr @.str.596 }, %struct._value_string { i32 2, ptr @.str.597 }, %struct._value_string { i32 3, ptr @.str.598 }, %struct._value_string { i32 4, ptr @.str.599 }, %struct._value_string { i32 5, ptr @.str.600 }, %struct._value_string { i32 6, ptr @.str.601 }, %struct._value_string { i32 7, ptr @.str.602 }, %struct._value_string { i32 8, ptr @.str.603 }, %struct._value_string { i32 9, ptr @.str.604 }, %struct._value_string { i32 10, ptr @.str.605 }, %struct._value_string { i32 11, ptr @.str.606 }, %struct._value_string { i32 12, ptr @.str.607 }, %struct._value_string { i32 13, ptr @.str.608 }, %struct._value_string { i32 14, ptr @.str.609 }, %struct._value_string { i32 15, ptr @.str.610 }, %struct._value_string { i32 16, ptr @.str.611 }, %struct._value_string { i32 17, ptr @.str.612 }, %struct._value_string { i32 18, ptr @.str.613 }, %struct._value_string { i32 19, ptr @.str.614 }, %struct._value_string { i32 20, ptr @.str.615 }, %struct._value_string { i32 21, ptr @.str.616 }, %struct._value_string { i32 22, ptr @.str.617 }, %struct._value_string { i32 23, ptr @.str.618 }, %struct._value_string { i32 24, ptr @.str.619 }, %struct._value_string { i32 25, ptr @.str.620 }, %struct._value_string { i32 26, ptr @.str.621 }, %struct._value_string { i32 27, ptr @.str.622 }, %struct._value_string { i32 28, ptr @.str.623 }, %struct._value_string { i32 29, ptr @.str.624 }, %struct._value_string { i32 30, ptr @.str.625 }, %struct._value_string { i32 31, ptr @.str.626 }, %struct._value_string { i32 32, ptr @.str.627 }, %struct._value_string { i32 33, ptr @.str.628 }, %struct._value_string { i32 34, ptr @.str.629 }, %struct._value_string { i32 35, ptr @.str.630 }, %struct._value_string { i32 36, ptr @.str.631 }, %struct._value_string { i32 37, ptr @.str.632 }, %struct._value_string { i32 38, ptr @.str.633 }, %struct._value_string { i32 39, ptr @.str.634 }, %struct._value_string { i32 40, ptr @.str.635 }, %struct._value_string { i32 41, ptr @.str.636 }, %struct._value_string { i32 42, ptr @.str.637 }, %struct._value_string { i32 43, ptr @.str.638 }, %struct._value_string { i32 44, ptr @.str.639 }, %struct._value_string { i32 45, ptr @.str.640 }, %struct._value_string { i32 46, ptr @.str.641 }, %struct._value_string { i32 47, ptr @.str.642 }, %struct._value_string { i32 48, ptr @.str.643 }, %struct._value_string { i32 49, ptr @.str.638 }, %struct._value_string { i32 50, ptr @.str.644 }, %struct._value_string { i32 51, ptr @.str.638 }, %struct._value_string { i32 52, ptr @.str.645 }, %struct._value_string { i32 53, ptr @.str.646 }, %struct._value_string { i32 54, ptr @.str.647 }, %struct._value_string { i32 55, ptr @.str.648 }, %struct._value_string { i32 56, ptr @.str.649 }, %struct._value_string { i32 57, ptr @.str.650 }, %struct._value_string { i32 58, ptr @.str.651 }, %struct._value_string { i32 59, ptr @.str.652 }, %struct._value_string { i32 60, ptr @.str.653 }, %struct._value_string { i32 61, ptr @.str.654 }, %struct._value_string { i32 62, ptr @.str.655 }, %struct._value_string { i32 63, ptr @.str.656 }, %struct._value_string { i32 64, ptr @.str.657 }, %struct._value_string { i32 65, ptr @.str.658 }, %struct._value_string { i32 66, ptr @.str.659 }, %struct._value_string { i32 67, ptr @.str.660 }, %struct._value_string { i32 68, ptr @.str.661 }, %struct._value_string { i32 69, ptr @.str.662 }, %struct._value_string zeroinitializer], align 16
 @hf_param_feature_page0_byte0 = internal global [9 x i32] zeroinitializer, align 16
 @.str.17 = private unnamed_addr constant [22 x i8] c"Feature Page 0 Byte 0\00", align 1
 @.str.18 = private unnamed_addr constant [26 x i8] c"btlmp.feature.page0.byte0\00", align 1
@@ -118,10 +111,10 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.88 = private unnamed_addr constant [12 x i8] c"EV5 packets\00", align 1
 @.str.89 = private unnamed_addr constant [24 x i8] c"btlmp.feature.page0.ev5\00", align 1
 @.str.90 = private unnamed_addr constant [30 x i8] c"btlmp.feature.page0.reserved3\00", align 1
-@.str.91 = private unnamed_addr constant [18 x i8] c"AFH capable slave\00", align 1
-@.str.92 = private unnamed_addr constant [36 x i8] c"btlmp.feature.page0.afhcapableslave\00", align 1
-@.str.93 = private unnamed_addr constant [25 x i8] c"AFH classification slave\00", align 1
-@.str.94 = private unnamed_addr constant [43 x i8] c"btlmp.feature.page0.afhclassificationslave\00", align 1
+@.str.91 = private unnamed_addr constant [23 x i8] c"AFH capable peripheral\00", align 1
+@.str.92 = private unnamed_addr constant [41 x i8] c"btlmp.feature.page0.afhcapableperipheral\00", align 1
+@.str.93 = private unnamed_addr constant [30 x i8] c"AFH classification peripheral\00", align 1
+@.str.94 = private unnamed_addr constant [48 x i8] c"btlmp.feature.page0.afhclassificationperipheral\00", align 1
 @.str.95 = private unnamed_addr constant [21 x i8] c"BR/EDR Not Supported\00", align 1
 @.str.96 = private unnamed_addr constant [33 x i8] c"btlmp.feature.page0.bredrnotsupp\00", align 1
 @.str.97 = private unnamed_addr constant [26 x i8] c"LE Supported (Controller)\00", align 1
@@ -137,10 +130,10 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.106 = private unnamed_addr constant [35 x i8] c"btlmp.feature.page0.sniffsubrating\00", align 1
 @.str.107 = private unnamed_addr constant [17 x i8] c"Pause encryption\00", align 1
 @.str.108 = private unnamed_addr constant [33 x i8] c"btlmp.feature.page0.pauseencrypt\00", align 1
-@.str.109 = private unnamed_addr constant [19 x i8] c"AFH capable master\00", align 1
-@.str.110 = private unnamed_addr constant [37 x i8] c"btlmp.feature.page0.afhcapablemaster\00", align 1
-@.str.111 = private unnamed_addr constant [26 x i8] c"AFH classification master\00", align 1
-@.str.112 = private unnamed_addr constant [44 x i8] c"btlmp.feature.page0.afhclassificationmaster\00", align 1
+@.str.109 = private unnamed_addr constant [20 x i8] c"AFH capable central\00", align 1
+@.str.110 = private unnamed_addr constant [38 x i8] c"btlmp.feature.page0.afhcapablecentral\00", align 1
+@.str.111 = private unnamed_addr constant [27 x i8] c"AFH classification central\00", align 1
+@.str.112 = private unnamed_addr constant [45 x i8] c"btlmp.feature.page0.afhclassificationcentral\00", align 1
 @.str.113 = private unnamed_addr constant [36 x i8] c"Enhanced Data Rate eSCO 2 Mb/s mode\00", align 1
 @.str.114 = private unnamed_addr constant [29 x i8] c"btlmp.feature.page0.edresco2\00", align 1
 @.str.115 = private unnamed_addr constant [36 x i8] c"Enhanced Data Rate eSCO 3 Mb/s mode\00", align 1
@@ -190,10 +183,10 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_param_feature_page2_byte0 = internal global [9 x i32] zeroinitializer, align 16
 @.str.156 = private unnamed_addr constant [22 x i8] c"Feature Page 2 Byte 0\00", align 1
 @.str.157 = private unnamed_addr constant [26 x i8] c"btlmp.feature.page2.byte0\00", align 1
-@.str.158 = private unnamed_addr constant [40 x i8] c"Connectionless Slave Broadcast - Master\00", align 1
-@.str.159 = private unnamed_addr constant [30 x i8] c"btlmp.feature.page2.csbmaster\00", align 1
-@.str.160 = private unnamed_addr constant [39 x i8] c"Connectionless Slave Broadcast - Slave\00", align 1
-@.str.161 = private unnamed_addr constant [29 x i8] c"btlmp.feature.page2.csbslave\00", align 1
+@.str.158 = private unnamed_addr constant [46 x i8] c"Connectionless Peripheral Broadcast - Central\00", align 1
+@.str.159 = private unnamed_addr constant [31 x i8] c"btlmp.feature.page2.cpbcentral\00", align 1
+@.str.160 = private unnamed_addr constant [49 x i8] c"Connectionless Peripheral Broadcast - Peripheral\00", align 1
+@.str.161 = private unnamed_addr constant [34 x i8] c"btlmp.feature.page2.cpbperipheral\00", align 1
 @.str.162 = private unnamed_addr constant [22 x i8] c"Synchronization Train\00", align 1
 @.str.163 = private unnamed_addr constant [30 x i8] c"btlmp.feature.page2.synctrain\00", align 1
 @.str.164 = private unnamed_addr constant [21 x i8] c"Synchronization Scan\00", align 1
@@ -244,11 +237,10 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_param_afh_mode = internal global i32 0, align 4
 @.str.200 = private unnamed_addr constant [9 x i8] c"AFH Mode\00", align 1
 @.str.201 = private unnamed_addr constant [15 x i8] c"btlmp.afh.mode\00", align 1
-@afh_mode_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.663 }, %struct._value_string { i32 1, ptr @.str.664 }, %struct._value_string zeroinitializer], align 16
 @hf_param_afh_instant = internal global i32 0, align 4
 @.str.202 = private unnamed_addr constant [12 x i8] c"AFH Instant\00", align 1
 @.str.203 = private unnamed_addr constant [18 x i8] c"btlmp.afh.instant\00", align 1
-@units_slots = internal constant %struct.unit_name_string { ptr @.str.665, ptr @.str.666 }, align 8
+@units_slots = internal constant %struct.unit_name_string { ptr @.str.672, ptr @.str.673 }, align 8
 @hf_param_afh_channelmap = internal global [10 x i32] zeroinitializer, align 16
 @.str.204 = private unnamed_addr constant [18 x i8] c"AFH Channel Map 0\00", align 1
 @.str.205 = private unnamed_addr constant [22 x i8] c"btlmp.afh.channelmap0\00", align 1
@@ -273,7 +265,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_param_afh_reportingmode = internal global i32 0, align 4
 @.str.224 = private unnamed_addr constant [19 x i8] c"AFH Reporting Mode\00", align 1
 @.str.225 = private unnamed_addr constant [24 x i8] c"btlmp.afh.reportingmode\00", align 1
-@afh_reportingmode_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.667 }, %struct._value_string { i32 1, ptr @.str.668 }, %struct._value_string zeroinitializer], align 16
 @hf_param_afh_mininterval = internal global i32 0, align 4
 @.str.226 = private unnamed_addr constant [17 x i8] c"AFH Min Interval\00", align 1
 @.str.227 = private unnamed_addr constant [22 x i8] c"btlmp.afh.mininterval\00", align 1
@@ -283,7 +274,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_param_afh_channelclass = internal global [10 x [4 x i32]] zeroinitializer, align 16
 @.str.230 = private unnamed_addr constant [31 x i8] c"AFH Channel 0-1 Classification\00", align 1
 @.str.231 = private unnamed_addr constant [24 x i8] c"btlmp.afh.channelclass0\00", align 1
-@afh_channelclass_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.669 }, %struct._value_string { i32 1, ptr @.str.670 }, %struct._value_string { i32 2, ptr @.str.671 }, %struct._value_string { i32 3, ptr @.str.672 }, %struct._value_string zeroinitializer], align 16
 @.str.232 = private unnamed_addr constant [31 x i8] c"AFH Channel 2-3 Classification\00", align 1
 @.str.233 = private unnamed_addr constant [24 x i8] c"btlmp.afh.channelclass2\00", align 1
 @.str.234 = private unnamed_addr constant [31 x i8] c"AFH Channel 4-5 Classification\00", align 1
@@ -371,14 +361,13 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_param_clockoffset = internal global i32 0, align 4
 @.str.314 = private unnamed_addr constant [13 x i8] c"Clock Offset\00", align 1
 @.str.315 = private unnamed_addr constant [18 x i8] c"btlmp.clockoffset\00", align 1
-@units_slotpairs = internal constant %struct.unit_name_string { ptr @.str.673, ptr @.str.674 }, align 8
+@units_slotpairs = internal constant %struct.unit_name_string { ptr @.str.682, ptr @.str.683 }, align 8
 @hf_param_authresp = internal global i32 0, align 4
 @.str.316 = private unnamed_addr constant [24 x i8] c"Authentication Response\00", align 1
 @.str.317 = private unnamed_addr constant [29 x i8] c"btlmp.authenticationresponse\00", align 1
 @hf_param_encryptionmode = internal global i32 0, align 4
 @.str.318 = private unnamed_addr constant [16 x i8] c"Encryption Mode\00", align 1
 @.str.319 = private unnamed_addr constant [21 x i8] c"btlmp.encryptionmode\00", align 1
-@encryptionmode_vals = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.675 }, %struct._value_string { i32 1, ptr @.str.676 }, %struct._value_string { i32 2, ptr @.str.676 }, %struct._value_string zeroinitializer], align 16
 @hf_param_encryptionkeysize = internal global i32 0, align 4
 @.str.320 = private unnamed_addr constant [20 x i8] c"Encryption Key Size\00", align 1
 @.str.321 = private unnamed_addr constant [24 x i8] c"btlmp.encryptionkeysize\00", align 1
@@ -408,13 +397,10 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.337 = private unnamed_addr constant [26 x i8] c"btlmp.timingcontrol.flags\00", align 1
 @.str.338 = private unnamed_addr constant [14 x i8] c"Timing Change\00", align 1
 @.str.339 = private unnamed_addr constant [33 x i8] c"btlmp.timingcontrol.timingchange\00", align 1
-@timingcontrol_timingchange_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.677 }, %struct._value_string { i32 1, ptr @.str.678 }, %struct._value_string zeroinitializer], align 16
 @.str.340 = private unnamed_addr constant [21 x i8] c"Use Initialization 2\00", align 1
 @.str.341 = private unnamed_addr constant [29 x i8] c"btlmp.timingcontrol.useinit2\00", align 1
-@timingcontrol_useinit2 = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.679 }, %struct._value_string { i32 1, ptr @.str.680 }, %struct._value_string zeroinitializer], align 16
 @.str.342 = private unnamed_addr constant [17 x i8] c"No Access Window\00", align 1
 @.str.343 = private unnamed_addr constant [35 x i8] c"btlmp.timingcontrol.noaccesswindow\00", align 1
-@timingcontrol_noaccesswindow = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.681 }, %struct._value_string { i32 1, ptr @.str.682 }, %struct._value_string zeroinitializer], align 16
 @.str.344 = private unnamed_addr constant [29 x i8] c"btlmp.timingcontrol.reserved\00", align 1
 @hf_param_futureuse1 = internal global i32 0, align 4
 @.str.345 = private unnamed_addr constant [11 x i8] c"Future Use\00", align 1
@@ -424,13 +410,10 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.348 = private unnamed_addr constant [21 x i8] c"btlmp.datarate.flags\00", align 1
 @.str.349 = private unnamed_addr constant [15 x i8] c"Do not use FEC\00", align 1
 @.str.350 = private unnamed_addr constant [21 x i8] c"btlmp.datarate.nofec\00", align 1
-@dataratenofec_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.683 }, %struct._value_string { i32 1, ptr @.str.684 }, %struct._value_string zeroinitializer], align 16
 @.str.351 = private unnamed_addr constant [34 x i8] c"Basic Rate Packet Size Preference\00", align 1
 @.str.352 = private unnamed_addr constant [38 x i8] c"btlmp.datarate.brpacketsizepreference\00", align 1
-@dataratepacketsizepreference_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.685 }, %struct._value_string { i32 1, ptr @.str.686 }, %struct._value_string { i32 2, ptr @.str.687 }, %struct._value_string { i32 3, ptr @.str.688 }, %struct._value_string zeroinitializer], align 16
 @.str.353 = private unnamed_addr constant [39 x i8] c"Enhanced Data Rate Datarate Preference\00", align 1
 @.str.354 = private unnamed_addr constant [37 x i8] c"btlmp.datarate.edrdataratepreference\00", align 1
-@dataratedrpreference_vals = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.689 }, %struct._value_string { i32 1, ptr @.str.690 }, %struct._value_string { i32 2, ptr @.str.691 }, %struct._value_string zeroinitializer], align 16
 @.str.355 = private unnamed_addr constant [42 x i8] c"Enhanced Data Rate Packet Size Preference\00", align 1
 @.str.356 = private unnamed_addr constant [39 x i8] c"btlmp.datarate.edrpacketsizepreference\00", align 1
 @.str.357 = private unnamed_addr constant [24 x i8] c"btlmp.datarate.reserved\00", align 1
@@ -452,18 +435,16 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_param_scopacket = internal global i32 0, align 4
 @.str.368 = private unnamed_addr constant [11 x i8] c"SCO packet\00", align 1
 @.str.369 = private unnamed_addr constant [17 x i8] c"btlmp.sco.packet\00", align 1
-@scopacket_vals = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.692 }, %struct._value_string { i32 1, ptr @.str.693 }, %struct._value_string { i32 2, ptr @.str.694 }, %struct._value_string zeroinitializer], align 16
 @hf_param_airmode = internal global i32 0, align 4
 @.str.370 = private unnamed_addr constant [9 x i8] c"Air Mode\00", align 1
 @.str.371 = private unnamed_addr constant [18 x i8] c"btlmp.sco.airmode\00", align 1
-@airmode_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.695 }, %struct._value_string { i32 1, ptr @.str.696 }, %struct._value_string { i32 2, ptr @.str.697 }, %struct._value_string { i32 3, ptr @.str.698 }, %struct._value_string zeroinitializer], align 16
 @hf_param_slots = internal global i32 0, align 4
 @.str.372 = private unnamed_addr constant [6 x i8] c"Slots\00", align 1
 @.str.373 = private unnamed_addr constant [12 x i8] c"btlmp.slots\00", align 1
 @hf_param_tmgacc_drift = internal global i32 0, align 4
 @.str.374 = private unnamed_addr constant [6 x i8] c"Drift\00", align 1
 @.str.375 = private unnamed_addr constant [27 x i8] c"btlmp.timingaccuracy.drift\00", align 1
-@units_ppm = internal constant %struct.unit_name_string { ptr @.str.699, ptr null }, align 8
+@units_ppm = external constant %struct.unit_name_string, align 8
 @hf_param_tmgacc_jitter = internal global i32 0, align 4
 @.str.376 = private unnamed_addr constant [7 x i8] c"Jitter\00", align 1
 @.str.377 = private unnamed_addr constant [28 x i8] c"btlmp.timingaccuracy.jitter\00", align 1
@@ -477,11 +458,9 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_param_pagingscheme = internal global i32 0, align 4
 @.str.382 = private unnamed_addr constant [14 x i8] c"Paging Scheme\00", align 1
 @.str.383 = private unnamed_addr constant [20 x i8] c"btlmp.paging.scheme\00", align 1
-@pagingscheme_vals = internal constant [2 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.700 }, %struct._value_string zeroinitializer], align 16
 @hf_param_pagingschemesettings = internal global i32 0, align 4
 @.str.384 = private unnamed_addr constant [23 x i8] c"Paging Scheme Settings\00", align 1
 @.str.385 = private unnamed_addr constant [28 x i8] c"btlmp.paging.schemesettings\00", align 1
-@pagingschemesettings_vals = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.701 }, %struct._value_string { i32 1, ptr @.str.702 }, %struct._value_string { i32 2, ptr @.str.703 }, %struct._value_string zeroinitializer], align 16
 @hf_param_supervisiontimeout = internal global i32 0, align 4
 @.str.386 = private unnamed_addr constant [20 x i8] c"Supervision Timeout\00", align 1
 @.str.387 = private unnamed_addr constant [25 x i8] c"btlmp.supervisiontimeout\00", align 1
@@ -515,11 +494,9 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_param_encapsulatedmajor = internal global i32 0, align 4
 @.str.406 = private unnamed_addr constant [24 x i8] c"Encapsulated Major Type\00", align 1
 @.str.407 = private unnamed_addr constant [25 x i8] c"btlmp.encapsulated.major\00", align 1
-@encapsulatedmajor_vals = internal constant [2 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.704 }, %struct._value_string zeroinitializer], align 16
 @hf_param_encapsulatedminor = internal global i32 0, align 4
 @.str.408 = private unnamed_addr constant [24 x i8] c"Encapsulated Minor Type\00", align 1
 @.str.409 = private unnamed_addr constant [25 x i8] c"btlmp.encapsulated.minor\00", align 1
-@encapsulatedminor_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.705 }, %struct._value_string { i32 2, ptr @.str.706 }, %struct._value_string zeroinitializer], align 16
 @hf_param_encapsulatedlength = internal global i32 0, align 4
 @.str.410 = private unnamed_addr constant [28 x i8] c"Encapsulated Payload Length\00", align 1
 @.str.411 = private unnamed_addr constant [33 x i8] c"btlmp.encapsulated.payloadlength\00", align 1
@@ -550,7 +527,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_param_clkadjmode = internal global i32 0, align 4
 @.str.428 = private unnamed_addr constant [18 x i8] c"Clock Adjust Mode\00", align 1
 @.str.429 = private unnamed_addr constant [18 x i8] c"btlmp.clkadj.mode\00", align 1
-@clkadjmode_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.707 }, %struct._value_string { i32 1, ptr @.str.708 }, %struct._value_string zeroinitializer], align 16
 @hf_param_clkadjclk = internal global i32 0, align 4
 @.str.430 = private unnamed_addr constant [19 x i8] c"Clock Adjust Clock\00", align 1
 @.str.431 = private unnamed_addr constant [17 x i8] c"btlmp.clkadj.clk\00", align 1
@@ -560,7 +536,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_param_packettypetable = internal global i32 0, align 4
 @.str.434 = private unnamed_addr constant [18 x i8] c"Packet Type Table\00", align 1
 @.str.435 = private unnamed_addr constant [22 x i8] c"btlmp.packettypetable\00", align 1
-@packettypetable_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.709 }, %struct._value_string { i32 1, ptr @.str.710 }, %struct._value_string zeroinitializer], align 16
 @hf_param_escohandle = internal global i32 0, align 4
 @.str.436 = private unnamed_addr constant [12 x i8] c"eSCO Handle\00", align 1
 @.str.437 = private unnamed_addr constant [18 x i8] c"btlmp.esco.handle\00", align 1
@@ -579,11 +554,9 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_param_escopackettypems = internal global i32 0, align 4
 @.str.446 = private unnamed_addr constant [22 x i8] c"eSCO Packet Type M->S\00", align 1
 @.str.447 = private unnamed_addr constant [24 x i8] c"btlmp.esco.packettypems\00", align 1
-@escopackettypems_vals = internal constant [9 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.711 }, %struct._value_string { i32 7, ptr @.str.712 }, %struct._value_string { i32 12, ptr @.str.713 }, %struct._value_string { i32 13, ptr @.str.714 }, %struct._value_string { i32 38, ptr @.str.715 }, %struct._value_string { i32 44, ptr @.str.716 }, %struct._value_string { i32 55, ptr @.str.717 }, %struct._value_string { i32 61, ptr @.str.718 }, %struct._value_string zeroinitializer], align 16
 @hf_param_escopackettypesm = internal global i32 0, align 4
 @.str.448 = private unnamed_addr constant [22 x i8] c"eSCO Packet Type S->M\00", align 1
 @.str.449 = private unnamed_addr constant [24 x i8] c"btlmp.esco.packettypesm\00", align 1
-@escopackettypesm_vals = internal constant [9 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.719 }, %struct._value_string { i32 7, ptr @.str.712 }, %struct._value_string { i32 12, ptr @.str.713 }, %struct._value_string { i32 13, ptr @.str.714 }, %struct._value_string { i32 38, ptr @.str.715 }, %struct._value_string { i32 44, ptr @.str.716 }, %struct._value_string { i32 55, ptr @.str.717 }, %struct._value_string { i32 61, ptr @.str.718 }, %struct._value_string zeroinitializer], align 16
 @hf_param_escopacketlengthms = internal global i32 0, align 4
 @.str.450 = private unnamed_addr constant [24 x i8] c"eSCO Packet Length M->S\00", align 1
 @.str.451 = private unnamed_addr constant [26 x i8] c"btlmp.esco.packetlengthms\00", align 1
@@ -593,7 +566,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_param_negostate = internal global i32 0, align 4
 @.str.454 = private unnamed_addr constant [18 x i8] c"Negotiation State\00", align 1
 @.str.455 = private unnamed_addr constant [23 x i8] c"btlmp.negotiationstate\00", align 1
-@negostate_vals = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.720 }, %struct._value_string { i32 1, ptr @.str.721 }, %struct._value_string { i32 2, ptr @.str.722 }, %struct._value_string { i32 3, ptr @.str.723 }, %struct._value_string { i32 4, ptr @.str.724 }, %struct._value_string zeroinitializer], align 16
 @hf_param_maxsniffsubrate = internal global i32 0, align 4
 @.str.456 = private unnamed_addr constant [18 x i8] c"Max Sniff Subrate\00", align 1
 @.str.457 = private unnamed_addr constant [23 x i8] c"btlmp.sniffsubrate.max\00", align 1
@@ -606,29 +578,23 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_param_iocapcap = internal global i32 0, align 4
 @.str.462 = private unnamed_addr constant [16 x i8] c"IO Capabilities\00", align 1
 @.str.463 = private unnamed_addr constant [16 x i8] c"btlmp.iocap.cap\00", align 1
-@iocapcap_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.725 }, %struct._value_string { i32 1, ptr @.str.726 }, %struct._value_string { i32 2, ptr @.str.727 }, %struct._value_string { i32 3, ptr @.str.728 }, %struct._value_string zeroinitializer], align 16
 @hf_param_iocapoobauthdata = internal global i32 0, align 4
 @.str.464 = private unnamed_addr constant [24 x i8] c"OOB Authentication Data\00", align 1
 @.str.465 = private unnamed_addr constant [24 x i8] c"btlmp.iocap.oobauthdata\00", align 1
-@iocapoobauthdata_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.729 }, %struct._value_string { i32 1, ptr @.str.730 }, %struct._value_string zeroinitializer], align 16
 @hf_param_iocapauthreq = internal global i32 0, align 4
 @.str.466 = private unnamed_addr constant [27 x i8] c"Authentication Requirement\00", align 1
 @.str.467 = private unnamed_addr constant [20 x i8] c"btlmp.iocap.authreq\00", align 1
-@iocapauthreq_vals = internal constant [7 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.731 }, %struct._value_string { i32 1, ptr @.str.732 }, %struct._value_string { i32 2, ptr @.str.733 }, %struct._value_string { i32 3, ptr @.str.734 }, %struct._value_string { i32 4, ptr @.str.735 }, %struct._value_string { i32 5, ptr @.str.736 }, %struct._value_string zeroinitializer], align 16
 @hf_param_keypressnotificationtype = internal global i32 0, align 4
 @.str.468 = private unnamed_addr constant [18 x i8] c"Notification Type\00", align 1
 @.str.469 = private unnamed_addr constant [32 x i8] c"btlmp.keypress.notificationtype\00", align 1
-@keypressnotificationtype_vals = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.737 }, %struct._value_string { i32 1, ptr @.str.738 }, %struct._value_string { i32 2, ptr @.str.739 }, %struct._value_string { i32 3, ptr @.str.740 }, %struct._value_string { i32 4, ptr @.str.741 }, %struct._value_string zeroinitializer], align 16
 @hf_param_poweradjreq = internal global i32 0, align 4
 @.str.470 = private unnamed_addr constant [25 x i8] c"Power Adjustment Request\00", align 1
 @.str.471 = private unnamed_addr constant [23 x i8] c"btlmp.poweradj.request\00", align 1
-@poweradjreq_vals = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.742 }, %struct._value_string { i32 1, ptr @.str.743 }, %struct._value_string { i32 2, ptr @.str.744 }, %struct._value_string zeroinitializer], align 16
 @hf_param_poweradjresp = internal global [5 x i32] zeroinitializer, align 16
 @.str.472 = private unnamed_addr constant [26 x i8] c"Power Adjustment Response\00", align 1
 @.str.473 = private unnamed_addr constant [24 x i8] c"btlmp.poweradj.response\00", align 1
 @.str.474 = private unnamed_addr constant [5 x i8] c"GFSK\00", align 1
 @.str.475 = private unnamed_addr constant [20 x i8] c"btlmp.poweradj.gfsk\00", align 1
-@poweradjresp_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.745 }, %struct._value_string { i32 1, ptr @.str.746 }, %struct._value_string { i32 2, ptr @.str.747 }, %struct._value_string { i32 3, ptr @.str.748 }, %struct._value_string zeroinitializer], align 16
 @.str.476 = private unnamed_addr constant [11 x i8] c"Pi/4-DQPSK\00", align 1
 @.str.477 = private unnamed_addr constant [23 x i8] c"btlmp.poweradj.pi4dqsk\00", align 1
 @.str.478 = private unnamed_addr constant [6 x i8] c"8DPSK\00", align 1
@@ -649,7 +615,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_param_samupdatemode = internal global i32 0, align 4
 @.str.489 = private unnamed_addr constant [12 x i8] c"Update Mode\00", align 1
 @.str.490 = private unnamed_addr constant [21 x i8] c"btlmp.sam.updatemode\00", align 1
-@samupdatemode_vals = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.749 }, %struct._value_string { i32 1, ptr @.str.750 }, %struct._value_string { i32 2, ptr @.str.751 }, %struct._value_string zeroinitializer], align 16
 @hf_param_samtype0submap = internal global i32 0, align 4
 @.str.491 = private unnamed_addr constant [18 x i8] c"SAM Type 0 Submap\00", align 1
 @.str.492 = private unnamed_addr constant [22 x i8] c"btlmp.sam.type0submap\00", align 1
@@ -732,195 +697,228 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.562 = private unnamed_addr constant [9 x i8] c"Escape 2\00", align 1
 @.str.563 = private unnamed_addr constant [9 x i8] c"Escape 3\00", align 1
 @.str.564 = private unnamed_addr constant [9 x i8] c"Escape 4\00", align 1
-@.str.565 = private unnamed_addr constant [20 x i8] c"Mandatory Scan Mode\00", align 1
-@.str.566 = private unnamed_addr constant [17 x i8] c"LMP_accepted_ext\00", align 1
-@.str.567 = private unnamed_addr constant [21 x i8] c"LMP_not_accepted_ext\00", align 1
-@.str.568 = private unnamed_addr constant [21 x i8] c"LMP_features_req_ext\00", align 1
-@.str.569 = private unnamed_addr constant [21 x i8] c"LMP_features_res_ext\00", align 1
-@.str.570 = private unnamed_addr constant [12 x i8] c"LMP_clk_adj\00", align 1
-@.str.571 = private unnamed_addr constant [16 x i8] c"LMP_clk_adj_ack\00", align 1
-@.str.572 = private unnamed_addr constant [16 x i8] c"LMP_clk_adj_req\00", align 1
-@.str.573 = private unnamed_addr constant [26 x i8] c"LMP_packet_type_table_req\00", align 1
-@.str.574 = private unnamed_addr constant [18 x i8] c"LMP_eSCO_link_req\00", align 1
-@.str.575 = private unnamed_addr constant [25 x i8] c"LMP_remove_eSCO_link_req\00", align 1
-@.str.576 = private unnamed_addr constant [31 x i8] c"LMP_channel_classification_req\00", align 1
-@.str.577 = private unnamed_addr constant [27 x i8] c"LMP_channel_classification\00", align 1
-@.str.578 = private unnamed_addr constant [24 x i8] c"LMP_sniff_subrating_req\00", align 1
-@.str.579 = private unnamed_addr constant [24 x i8] c"LMP_sniff_subrating_res\00", align 1
-@.str.580 = private unnamed_addr constant [25 x i8] c"LMP_pause_encryption_req\00", align 1
-@.str.581 = private unnamed_addr constant [26 x i8] c"LMP_resume_encryption_req\00", align 1
-@.str.582 = private unnamed_addr constant [22 x i8] c"LMP_IO_Capability_req\00", align 1
-@.str.583 = private unnamed_addr constant [22 x i8] c"LMP_IO_Capability_res\00", align 1
-@.str.584 = private unnamed_addr constant [30 x i8] c"LMP_numeric_comparison_failed\00", align 1
-@.str.585 = private unnamed_addr constant [19 x i8] c"LMP_passkey_failed\00", align 1
-@.str.586 = private unnamed_addr constant [15 x i8] c"LMP_oob_failed\00", align 1
-@.str.587 = private unnamed_addr constant [26 x i8] c"LMP_keypress_notification\00", align 1
-@.str.588 = private unnamed_addr constant [22 x i8] c"LMP_power_control_req\00", align 1
-@.str.589 = private unnamed_addr constant [22 x i8] c"LMP_power_control_res\00", align 1
-@.str.590 = private unnamed_addr constant [13 x i8] c"LMP_ping_req\00", align 1
-@.str.591 = private unnamed_addr constant [13 x i8] c"LMP_ping_res\00", align 1
-@.str.592 = private unnamed_addr constant [18 x i8] c"LMP_SAM_set_type0\00", align 1
-@.str.593 = private unnamed_addr constant [19 x i8] c"LMP_SAM_define_map\00", align 1
-@.str.594 = private unnamed_addr constant [15 x i8] c"LMP_SAM_switch\00", align 1
-@.str.595 = private unnamed_addr constant [8 x i8] c"Success\00", align 1
-@.str.596 = private unnamed_addr constant [20 x i8] c"Unknown HCI Command\00", align 1
-@.str.597 = private unnamed_addr constant [30 x i8] c"Unknown Connection Identifier\00", align 1
-@.str.598 = private unnamed_addr constant [17 x i8] c"Hardware Failure\00", align 1
-@.str.599 = private unnamed_addr constant [13 x i8] c"Page Timeout\00", align 1
-@.str.600 = private unnamed_addr constant [23 x i8] c"Authentication Failure\00", align 1
-@.str.601 = private unnamed_addr constant [19 x i8] c"PIN or Key Missing\00", align 1
-@.str.602 = private unnamed_addr constant [25 x i8] c"Memory Capacity Exceeded\00", align 1
-@.str.603 = private unnamed_addr constant [19 x i8] c"Connection Timeout\00", align 1
-@.str.604 = private unnamed_addr constant [26 x i8] c"Connection Limit Exceeded\00", align 1
-@.str.605 = private unnamed_addr constant [50 x i8] c"Synchronous Connection Limit To A Device Exceeded\00", align 1
-@.str.606 = private unnamed_addr constant [26 x i8] c"Connection Already Exists\00", align 1
-@.str.607 = private unnamed_addr constant [19 x i8] c"Command Disallowed\00", align 1
-@.str.608 = private unnamed_addr constant [45 x i8] c"Connection Rejected due to Limited Resources\00", align 1
-@.str.609 = private unnamed_addr constant [44 x i8] c"Connection Rejected Due To Security Reasons\00", align 1
-@.str.610 = private unnamed_addr constant [48 x i8] c"Connection Rejected due to Unacceptable BD_ADDR\00", align 1
-@.str.611 = private unnamed_addr constant [35 x i8] c"Connection Accept Timeout Exceeded\00", align 1
-@.str.612 = private unnamed_addr constant [39 x i8] c"Unsupported Feature or Parameter Value\00", align 1
-@.str.613 = private unnamed_addr constant [31 x i8] c"Invalid HCI Command Parameters\00", align 1
-@.str.614 = private unnamed_addr constant [34 x i8] c"Remote User Terminated Connection\00", align 1
-@.str.615 = private unnamed_addr constant [57 x i8] c"Remote Device Terminated Connection due to Low Resources\00", align 1
-@.str.616 = private unnamed_addr constant [53 x i8] c"Remote Device Terminated Connection due to Power Off\00", align 1
-@.str.617 = private unnamed_addr constant [36 x i8] c"Connection Terminated By Local Host\00", align 1
-@.str.618 = private unnamed_addr constant [18 x i8] c"Repeated Attempts\00", align 1
-@.str.619 = private unnamed_addr constant [20 x i8] c"Pairing Not Allowed\00", align 1
-@.str.620 = private unnamed_addr constant [16 x i8] c"Unknown LMP PDU\00", align 1
-@.str.621 = private unnamed_addr constant [53 x i8] c"Unsupported Remote Feature / Unsupported LMP Feature\00", align 1
-@.str.622 = private unnamed_addr constant [20 x i8] c"SCO Offset Rejected\00", align 1
-@.str.623 = private unnamed_addr constant [22 x i8] c"SCO Interval Rejected\00", align 1
-@.str.624 = private unnamed_addr constant [22 x i8] c"SCO Air Mode Rejected\00", align 1
-@.str.625 = private unnamed_addr constant [47 x i8] c"Invalid LMP Parameters / Invalid LL Parameters\00", align 1
-@.str.626 = private unnamed_addr constant [18 x i8] c"Unspecified Error\00", align 1
-@.str.627 = private unnamed_addr constant [65 x i8] c"Unsupported LMP Parameter Value / Unsupported LL Parameter Value\00", align 1
-@.str.628 = private unnamed_addr constant [24 x i8] c"Role Change Not Allowed\00", align 1
-@.str.629 = private unnamed_addr constant [43 x i8] c"LMP Response Timeout / LL Response Timeout\00", align 1
-@.str.630 = private unnamed_addr constant [57 x i8] c"LMP Error Transaction Collision / LL Procedure Collision\00", align 1
-@.str.631 = private unnamed_addr constant [20 x i8] c"LMP PDU Not Allowed\00", align 1
-@.str.632 = private unnamed_addr constant [31 x i8] c"Encryption Mode Not Acceptable\00", align 1
-@.str.633 = private unnamed_addr constant [27 x i8] c"Link Key cannot be Changed\00", align 1
-@.str.634 = private unnamed_addr constant [28 x i8] c"Requested QoS Not Supported\00", align 1
-@.str.635 = private unnamed_addr constant [15 x i8] c"Instant Passed\00", align 1
-@.str.636 = private unnamed_addr constant [36 x i8] c"Pairing With Unit Key Not Supported\00", align 1
-@.str.637 = private unnamed_addr constant [32 x i8] c"Different Transaction Collision\00", align 1
-@.str.638 = private unnamed_addr constant [24 x i8] c"Reserved for future use\00", align 1
-@.str.639 = private unnamed_addr constant [27 x i8] c"QoS Unacceptable Parameter\00", align 1
-@.str.640 = private unnamed_addr constant [13 x i8] c"QoS Rejected\00", align 1
-@.str.641 = private unnamed_addr constant [37 x i8] c"Channel Classification Not Supported\00", align 1
-@.str.642 = private unnamed_addr constant [22 x i8] c"Insufficient Security\00", align 1
-@.str.643 = private unnamed_addr constant [33 x i8] c"Parameter Out Of Mandatory Range\00", align 1
-@.str.644 = private unnamed_addr constant [20 x i8] c"Role Switch Pending\00", align 1
-@.str.645 = private unnamed_addr constant [24 x i8] c"Reserved Slot Violation\00", align 1
-@.str.646 = private unnamed_addr constant [19 x i8] c"Role Switch Failed\00", align 1
-@.str.647 = private unnamed_addr constant [36 x i8] c"Extended Inquiry Response Too Large\00", align 1
-@.str.648 = private unnamed_addr constant [44 x i8] c"Secure Simple Pairing Not Supported By Host\00", align 1
-@.str.649 = private unnamed_addr constant [20 x i8] c"Host Busy - Pairing\00", align 1
-@.str.650 = private unnamed_addr constant [53 x i8] c"Connection Rejected due to No Suitable Channel Found\00", align 1
-@.str.651 = private unnamed_addr constant [16 x i8] c"Controller Busy\00", align 1
-@.str.652 = private unnamed_addr constant [35 x i8] c"Unacceptable Connection Parameters\00", align 1
-@.str.653 = private unnamed_addr constant [20 x i8] c"Advertising Timeout\00", align 1
-@.str.654 = private unnamed_addr constant [41 x i8] c"Connection Terminated due to MIC Failure\00", align 1
-@.str.655 = private unnamed_addr constant [62 x i8] c"Connection Failed to be Established / Synchronization Timeout\00", align 1
-@.str.656 = private unnamed_addr constant [22 x i8] c"MAC Connection Failed\00", align 1
-@.str.657 = private unnamed_addr constant [68 x i8] c"Coarse Clock Adjustment Rejected but Will Try to Adjust Using Clock\00", align 1
-@.str.658 = private unnamed_addr constant [25 x i8] c"Type0 Submap Not Defined\00", align 1
-@.str.659 = private unnamed_addr constant [31 x i8] c"Unknown Advertising Identifier\00", align 1
-@.str.660 = private unnamed_addr constant [14 x i8] c"Limit Reached\00", align 1
-@.str.661 = private unnamed_addr constant [28 x i8] c"Operation Cancelled by Host\00", align 1
-@.str.662 = private unnamed_addr constant [16 x i8] c"Packet Too Long\00", align 1
-@.str.663 = private unnamed_addr constant [13 x i8] c"AFH disabled\00", align 1
-@.str.664 = private unnamed_addr constant [12 x i8] c"AFH enabled\00", align 1
-@.str.665 = private unnamed_addr constant [6 x i8] c" slot\00", align 1
-@.str.666 = private unnamed_addr constant [7 x i8] c" slots\00", align 1
-@.str.667 = private unnamed_addr constant [23 x i8] c"AFH reporting disabled\00", align 1
-@.str.668 = private unnamed_addr constant [22 x i8] c"AFH reporting enabled\00", align 1
-@.str.669 = private unnamed_addr constant [8 x i8] c"unknown\00", align 1
-@.str.670 = private unnamed_addr constant [5 x i8] c"good\00", align 1
-@.str.671 = private unnamed_addr constant [9 x i8] c"reserved\00", align 1
-@.str.672 = private unnamed_addr constant [4 x i8] c"bad\00", align 1
-@.str.673 = private unnamed_addr constant [11 x i8] c" slot pair\00", align 1
-@.str.674 = private unnamed_addr constant [12 x i8] c" slot pairs\00", align 1
-@.str.675 = private unnamed_addr constant [14 x i8] c"no encryption\00", align 1
-@.str.676 = private unnamed_addr constant [11 x i8] c"encryption\00", align 1
-@.str.677 = private unnamed_addr constant [17 x i8] c"no timing change\00", align 1
-@.str.678 = private unnamed_addr constant [14 x i8] c"timing change\00", align 1
-@.str.679 = private unnamed_addr constant [21 x i8] c"use initialization 1\00", align 1
-@.str.680 = private unnamed_addr constant [21 x i8] c"use initialization 2\00", align 1
-@.str.681 = private unnamed_addr constant [14 x i8] c"access window\00", align 1
-@.str.682 = private unnamed_addr constant [17 x i8] c"no access window\00", align 1
-@.str.683 = private unnamed_addr constant [8 x i8] c"use FEC\00", align 1
-@.str.684 = private unnamed_addr constant [15 x i8] c"do not use FEC\00", align 1
-@.str.685 = private unnamed_addr constant [26 x i8] c"no packet size preference\00", align 1
-@.str.686 = private unnamed_addr constant [19 x i8] c"use 1-slot packets\00", align 1
-@.str.687 = private unnamed_addr constant [19 x i8] c"use 3-slot packets\00", align 1
-@.str.688 = private unnamed_addr constant [19 x i8] c"use 5-slot packets\00", align 1
-@.str.689 = private unnamed_addr constant [16 x i8] c"use DM1 packets\00", align 1
-@.str.690 = private unnamed_addr constant [18 x i8] c"use 2Mb/s packets\00", align 1
-@.str.691 = private unnamed_addr constant [18 x i8] c"use 3Mb/s packets\00", align 1
-@.str.692 = private unnamed_addr constant [4 x i8] c"HV1\00", align 1
-@.str.693 = private unnamed_addr constant [4 x i8] c"HV2\00", align 1
-@.str.694 = private unnamed_addr constant [4 x i8] c"HV3\00", align 1
-@.str.695 = private unnamed_addr constant [9 x i8] c"ulaw log\00", align 1
-@.str.696 = private unnamed_addr constant [9 x i8] c"Alaw log\00", align 1
-@.str.697 = private unnamed_addr constant [5 x i8] c"CVSD\00", align 1
-@.str.698 = private unnamed_addr constant [17 x i8] c"transparent data\00", align 1
-@.str.699 = private unnamed_addr constant [5 x i8] c" ppm\00", align 1
-@.str.700 = private unnamed_addr constant [17 x i8] c"mandatory scheme\00", align 1
-@.str.701 = private unnamed_addr constant [3 x i8] c"R0\00", align 1
-@.str.702 = private unnamed_addr constant [3 x i8] c"R1\00", align 1
-@.str.703 = private unnamed_addr constant [3 x i8] c"R2\00", align 1
-@.str.704 = private unnamed_addr constant [11 x i8] c"public key\00", align 1
-@.str.705 = private unnamed_addr constant [17 x i8] c"P-192 public key\00", align 1
-@.str.706 = private unnamed_addr constant [17 x i8] c"P-256 public key\00", align 1
-@.str.707 = private unnamed_addr constant [15 x i8] c"before instant\00", align 1
-@.str.708 = private unnamed_addr constant [14 x i8] c"after instant\00", align 1
-@.str.709 = private unnamed_addr constant [11 x i8] c"1Mb/s only\00", align 1
-@.str.710 = private unnamed_addr constant [8 x i8] c"2/3Mb/s\00", align 1
-@.str.711 = private unnamed_addr constant [5 x i8] c"POLL\00", align 1
-@.str.712 = private unnamed_addr constant [4 x i8] c"EV3\00", align 1
-@.str.713 = private unnamed_addr constant [4 x i8] c"EV4\00", align 1
-@.str.714 = private unnamed_addr constant [4 x i8] c"EV5\00", align 1
-@.str.715 = private unnamed_addr constant [6 x i8] c"2-EV3\00", align 1
-@.str.716 = private unnamed_addr constant [6 x i8] c"2-EV5\00", align 1
-@.str.717 = private unnamed_addr constant [6 x i8] c"3-EV3\00", align 1
-@.str.718 = private unnamed_addr constant [6 x i8] c"3-EV5\00", align 1
-@.str.719 = private unnamed_addr constant [5 x i8] c"NULL\00", align 1
-@.str.720 = private unnamed_addr constant [21 x i8] c"initiate negotiation\00", align 1
-@.str.721 = private unnamed_addr constant [98 x i8] c"the latest received set of negotiable parameters were possible but these parameters are preferred\00", align 1
-@.str.722 = private unnamed_addr constant [87 x i8] c"the latest received set of negotiable parameters would cause a reserved slot violation\00", align 1
-@.str.723 = private unnamed_addr constant [81 x i8] c"the latest received set of negotiable parameters would cause a latency violation\00", align 1
-@.str.724 = private unnamed_addr constant [67 x i8] c"the latest received set of negotiable parameters are not supported\00", align 1
-@.str.725 = private unnamed_addr constant [13 x i8] c"Display Only\00", align 1
-@.str.726 = private unnamed_addr constant [15 x i8] c"Display Yes/No\00", align 1
-@.str.727 = private unnamed_addr constant [14 x i8] c"Keyboard Only\00", align 1
-@.str.728 = private unnamed_addr constant [19 x i8] c"No Input No Output\00", align 1
-@.str.729 = private unnamed_addr constant [36 x i8] c"No OOB Authentication Data received\00", align 1
-@.str.730 = private unnamed_addr constant [33 x i8] c"OOB Authentication Data received\00", align 1
-@.str.731 = private unnamed_addr constant [42 x i8] c"MITM Protection Not Required - No Bonding\00", align 1
-@.str.732 = private unnamed_addr constant [38 x i8] c"MITM Protection Required - No Bonding\00", align 1
-@.str.733 = private unnamed_addr constant [49 x i8] c"MITM Protection Not Required - Dedicated Bonding\00", align 1
-@.str.734 = private unnamed_addr constant [45 x i8] c"MITM Protection Required - Dedicated Bonding\00", align 1
-@.str.735 = private unnamed_addr constant [47 x i8] c"MITM Protection Not Required - General Bonding\00", align 1
-@.str.736 = private unnamed_addr constant [43 x i8] c"MITM Protection Required - General Bonding\00", align 1
-@.str.737 = private unnamed_addr constant [22 x i8] c"passkey entry started\00", align 1
-@.str.738 = private unnamed_addr constant [22 x i8] c"passkey digit entered\00", align 1
-@.str.739 = private unnamed_addr constant [21 x i8] c"passkey digit erased\00", align 1
-@.str.740 = private unnamed_addr constant [16 x i8] c"passkey cleared\00", align 1
-@.str.741 = private unnamed_addr constant [24 x i8] c"passkey entry completed\00", align 1
-@.str.742 = private unnamed_addr constant [25 x i8] c"decrement power one step\00", align 1
-@.str.743 = private unnamed_addr constant [25 x i8] c"increment power one step\00", align 1
-@.str.744 = private unnamed_addr constant [26 x i8] c"increase to maximum power\00", align 1
-@.str.745 = private unnamed_addr constant [14 x i8] c"not supported\00", align 1
-@.str.746 = private unnamed_addr constant [17 x i8] c"changed one step\00", align 1
-@.str.747 = private unnamed_addr constant [10 x i8] c"max power\00", align 1
-@.str.748 = private unnamed_addr constant [10 x i8] c"min power\00", align 1
-@.str.749 = private unnamed_addr constant [69 x i8] c"Existing SAM slot maps containing any type 0 submaps are invalidated\00", align 1
-@.str.750 = private unnamed_addr constant [51 x i8] c"The defined type 0 submap takes effect immediately\00", align 1
-@.str.751 = private unnamed_addr constant [77 x i8] c"The defined type 0 submap takes effect at the start of the next sub-interval\00", align 1
+@opcode_vals = internal constant [64 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.502 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.503 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.504 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.505 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.506 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.507 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.508 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.509 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.510 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.511 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.512 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.513 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.514 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.515 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.516 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.517 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.518 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.519 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.520 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.521 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.522 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.523 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.524 }, { i32, [4 x i8], ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.525 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.526 }, { i32, [4 x i8], ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.527 }, { i32, [4 x i8], ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.528 }, { i32, [4 x i8], ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.529 }, { i32, [4 x i8], ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.530 }, { i32, [4 x i8], ptr } { i32 37, [4 x i8] zeroinitializer, ptr @.str.531 }, { i32, [4 x i8], ptr } { i32 38, [4 x i8] zeroinitializer, ptr @.str.532 }, { i32, [4 x i8], ptr } { i32 39, [4 x i8] zeroinitializer, ptr @.str.533 }, { i32, [4 x i8], ptr } { i32 40, [4 x i8] zeroinitializer, ptr @.str.534 }, { i32, [4 x i8], ptr } { i32 41, [4 x i8] zeroinitializer, ptr @.str.535 }, { i32, [4 x i8], ptr } { i32 42, [4 x i8] zeroinitializer, ptr @.str.536 }, { i32, [4 x i8], ptr } { i32 43, [4 x i8] zeroinitializer, ptr @.str.537 }, { i32, [4 x i8], ptr } { i32 44, [4 x i8] zeroinitializer, ptr @.str.538 }, { i32, [4 x i8], ptr } { i32 45, [4 x i8] zeroinitializer, ptr @.str.539 }, { i32, [4 x i8], ptr } { i32 46, [4 x i8] zeroinitializer, ptr @.str.540 }, { i32, [4 x i8], ptr } { i32 47, [4 x i8] zeroinitializer, ptr @.str.541 }, { i32, [4 x i8], ptr } { i32 48, [4 x i8] zeroinitializer, ptr @.str.542 }, { i32, [4 x i8], ptr } { i32 49, [4 x i8] zeroinitializer, ptr @.str.543 }, { i32, [4 x i8], ptr } { i32 50, [4 x i8] zeroinitializer, ptr @.str.544 }, { i32, [4 x i8], ptr } { i32 51, [4 x i8] zeroinitializer, ptr @.str.545 }, { i32, [4 x i8], ptr } { i32 52, [4 x i8] zeroinitializer, ptr @.str.546 }, { i32, [4 x i8], ptr } { i32 53, [4 x i8] zeroinitializer, ptr @.str.547 }, { i32, [4 x i8], ptr } { i32 54, [4 x i8] zeroinitializer, ptr @.str.548 }, { i32, [4 x i8], ptr } { i32 55, [4 x i8] zeroinitializer, ptr @.str.549 }, { i32, [4 x i8], ptr } { i32 56, [4 x i8] zeroinitializer, ptr @.str.550 }, { i32, [4 x i8], ptr } { i32 57, [4 x i8] zeroinitializer, ptr @.str.551 }, { i32, [4 x i8], ptr } { i32 58, [4 x i8] zeroinitializer, ptr @.str.552 }, { i32, [4 x i8], ptr } { i32 59, [4 x i8] zeroinitializer, ptr @.str.553 }, { i32, [4 x i8], ptr } { i32 60, [4 x i8] zeroinitializer, ptr @.str.554 }, { i32, [4 x i8], ptr } { i32 61, [4 x i8] zeroinitializer, ptr @.str.555 }, { i32, [4 x i8], ptr } { i32 62, [4 x i8] zeroinitializer, ptr @.str.556 }, { i32, [4 x i8], ptr } { i32 63, [4 x i8] zeroinitializer, ptr @.str.557 }, { i32, [4 x i8], ptr } { i32 64, [4 x i8] zeroinitializer, ptr @.str.558 }, { i32, [4 x i8], ptr } { i32 65, [4 x i8] zeroinitializer, ptr @.str.559 }, { i32, [4 x i8], ptr } { i32 66, [4 x i8] zeroinitializer, ptr @.str.560 }, { i32, [4 x i8], ptr } { i32 124, [4 x i8] zeroinitializer, ptr @.str.561 }, { i32, [4 x i8], ptr } { i32 125, [4 x i8] zeroinitializer, ptr @.str.562 }, { i32, [4 x i8], ptr } { i32 126, [4 x i8] zeroinitializer, ptr @.str.563 }, { i32, [4 x i8], ptr } { i32 127, [4 x i8] zeroinitializer, ptr @.str.564 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.566 = private unnamed_addr constant [20 x i8] c"Mandatory Scan Mode\00", align 1
+@escape1_opcode_vals = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.566 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@escape2_opcode_vals = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.566 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@escape3_opcode_vals = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.566 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.570 = private unnamed_addr constant [17 x i8] c"LMP_accepted_ext\00", align 1
+@.str.571 = private unnamed_addr constant [21 x i8] c"LMP_not_accepted_ext\00", align 1
+@.str.572 = private unnamed_addr constant [21 x i8] c"LMP_features_req_ext\00", align 1
+@.str.573 = private unnamed_addr constant [21 x i8] c"LMP_features_res_ext\00", align 1
+@.str.574 = private unnamed_addr constant [12 x i8] c"LMP_clk_adj\00", align 1
+@.str.575 = private unnamed_addr constant [16 x i8] c"LMP_clk_adj_ack\00", align 1
+@.str.576 = private unnamed_addr constant [16 x i8] c"LMP_clk_adj_req\00", align 1
+@.str.577 = private unnamed_addr constant [26 x i8] c"LMP_packet_type_table_req\00", align 1
+@.str.578 = private unnamed_addr constant [18 x i8] c"LMP_eSCO_link_req\00", align 1
+@.str.579 = private unnamed_addr constant [25 x i8] c"LMP_remove_eSCO_link_req\00", align 1
+@.str.580 = private unnamed_addr constant [31 x i8] c"LMP_channel_classification_req\00", align 1
+@.str.581 = private unnamed_addr constant [27 x i8] c"LMP_channel_classification\00", align 1
+@.str.582 = private unnamed_addr constant [24 x i8] c"LMP_sniff_subrating_req\00", align 1
+@.str.583 = private unnamed_addr constant [24 x i8] c"LMP_sniff_subrating_res\00", align 1
+@.str.584 = private unnamed_addr constant [25 x i8] c"LMP_pause_encryption_req\00", align 1
+@.str.585 = private unnamed_addr constant [26 x i8] c"LMP_resume_encryption_req\00", align 1
+@.str.586 = private unnamed_addr constant [22 x i8] c"LMP_IO_Capability_req\00", align 1
+@.str.587 = private unnamed_addr constant [22 x i8] c"LMP_IO_Capability_res\00", align 1
+@.str.588 = private unnamed_addr constant [30 x i8] c"LMP_numeric_comparison_failed\00", align 1
+@.str.589 = private unnamed_addr constant [19 x i8] c"LMP_passkey_failed\00", align 1
+@.str.590 = private unnamed_addr constant [15 x i8] c"LMP_oob_failed\00", align 1
+@.str.591 = private unnamed_addr constant [26 x i8] c"LMP_keypress_notification\00", align 1
+@.str.592 = private unnamed_addr constant [22 x i8] c"LMP_power_control_req\00", align 1
+@.str.593 = private unnamed_addr constant [22 x i8] c"LMP_power_control_res\00", align 1
+@.str.594 = private unnamed_addr constant [13 x i8] c"LMP_ping_req\00", align 1
+@.str.595 = private unnamed_addr constant [13 x i8] c"LMP_ping_res\00", align 1
+@.str.596 = private unnamed_addr constant [18 x i8] c"LMP_SAM_set_type0\00", align 1
+@.str.597 = private unnamed_addr constant [19 x i8] c"LMP_SAM_define_map\00", align 1
+@.str.598 = private unnamed_addr constant [15 x i8] c"LMP_SAM_switch\00", align 1
+@escape4_opcode_vals = internal constant [30 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.570 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.571 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.572 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.573 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.574 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.575 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.576 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.577 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.578 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.579 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.580 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.581 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.582 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.583 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.584 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.585 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.586 }, { i32, [4 x i8], ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.587 }, { i32, [4 x i8], ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.588 }, { i32, [4 x i8], ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.589 }, { i32, [4 x i8], ptr } { i32 29, [4 x i8] zeroinitializer, ptr @.str.590 }, { i32, [4 x i8], ptr } { i32 30, [4 x i8] zeroinitializer, ptr @.str.591 }, { i32, [4 x i8], ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.592 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.593 }, { i32, [4 x i8], ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.594 }, { i32, [4 x i8], ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.595 }, { i32, [4 x i8], ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.596 }, { i32, [4 x i8], ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.597 }, { i32, [4 x i8], ptr } { i32 37, [4 x i8] zeroinitializer, ptr @.str.598 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.600 = private unnamed_addr constant [8 x i8] c"Success\00", align 1
+@.str.601 = private unnamed_addr constant [20 x i8] c"Unknown HCI Command\00", align 1
+@.str.602 = private unnamed_addr constant [30 x i8] c"Unknown Connection Identifier\00", align 1
+@.str.603 = private unnamed_addr constant [17 x i8] c"Hardware Failure\00", align 1
+@.str.604 = private unnamed_addr constant [13 x i8] c"Page Timeout\00", align 1
+@.str.605 = private unnamed_addr constant [23 x i8] c"Authentication Failure\00", align 1
+@.str.606 = private unnamed_addr constant [19 x i8] c"PIN or Key Missing\00", align 1
+@.str.607 = private unnamed_addr constant [25 x i8] c"Memory Capacity Exceeded\00", align 1
+@.str.608 = private unnamed_addr constant [19 x i8] c"Connection Timeout\00", align 1
+@.str.609 = private unnamed_addr constant [26 x i8] c"Connection Limit Exceeded\00", align 1
+@.str.610 = private unnamed_addr constant [50 x i8] c"Synchronous Connection Limit To A Device Exceeded\00", align 1
+@.str.611 = private unnamed_addr constant [26 x i8] c"Connection Already Exists\00", align 1
+@.str.612 = private unnamed_addr constant [19 x i8] c"Command Disallowed\00", align 1
+@.str.613 = private unnamed_addr constant [45 x i8] c"Connection Rejected due to Limited Resources\00", align 1
+@.str.614 = private unnamed_addr constant [44 x i8] c"Connection Rejected Due To Security Reasons\00", align 1
+@.str.615 = private unnamed_addr constant [48 x i8] c"Connection Rejected due to Unacceptable BD_ADDR\00", align 1
+@.str.616 = private unnamed_addr constant [35 x i8] c"Connection Accept Timeout Exceeded\00", align 1
+@.str.617 = private unnamed_addr constant [39 x i8] c"Unsupported Feature or Parameter Value\00", align 1
+@.str.618 = private unnamed_addr constant [31 x i8] c"Invalid HCI Command Parameters\00", align 1
+@.str.619 = private unnamed_addr constant [34 x i8] c"Remote User Terminated Connection\00", align 1
+@.str.620 = private unnamed_addr constant [57 x i8] c"Remote Device Terminated Connection due to Low Resources\00", align 1
+@.str.621 = private unnamed_addr constant [53 x i8] c"Remote Device Terminated Connection due to Power Off\00", align 1
+@.str.622 = private unnamed_addr constant [36 x i8] c"Connection Terminated By Local Host\00", align 1
+@.str.623 = private unnamed_addr constant [18 x i8] c"Repeated Attempts\00", align 1
+@.str.624 = private unnamed_addr constant [20 x i8] c"Pairing Not Allowed\00", align 1
+@.str.625 = private unnamed_addr constant [16 x i8] c"Unknown LMP PDU\00", align 1
+@.str.626 = private unnamed_addr constant [53 x i8] c"Unsupported Remote Feature / Unsupported LMP Feature\00", align 1
+@.str.627 = private unnamed_addr constant [20 x i8] c"SCO Offset Rejected\00", align 1
+@.str.628 = private unnamed_addr constant [22 x i8] c"SCO Interval Rejected\00", align 1
+@.str.629 = private unnamed_addr constant [22 x i8] c"SCO Air Mode Rejected\00", align 1
+@.str.630 = private unnamed_addr constant [47 x i8] c"Invalid LMP Parameters / Invalid LL Parameters\00", align 1
+@.str.631 = private unnamed_addr constant [18 x i8] c"Unspecified Error\00", align 1
+@.str.632 = private unnamed_addr constant [65 x i8] c"Unsupported LMP Parameter Value / Unsupported LL Parameter Value\00", align 1
+@.str.633 = private unnamed_addr constant [24 x i8] c"Role Change Not Allowed\00", align 1
+@.str.634 = private unnamed_addr constant [43 x i8] c"LMP Response Timeout / LL Response Timeout\00", align 1
+@.str.635 = private unnamed_addr constant [57 x i8] c"LMP Error Transaction Collision / LL Procedure Collision\00", align 1
+@.str.636 = private unnamed_addr constant [20 x i8] c"LMP PDU Not Allowed\00", align 1
+@.str.637 = private unnamed_addr constant [31 x i8] c"Encryption Mode Not Acceptable\00", align 1
+@.str.638 = private unnamed_addr constant [27 x i8] c"Link Key cannot be Changed\00", align 1
+@.str.639 = private unnamed_addr constant [28 x i8] c"Requested QoS Not Supported\00", align 1
+@.str.640 = private unnamed_addr constant [15 x i8] c"Instant Passed\00", align 1
+@.str.641 = private unnamed_addr constant [36 x i8] c"Pairing With Unit Key Not Supported\00", align 1
+@.str.642 = private unnamed_addr constant [32 x i8] c"Different Transaction Collision\00", align 1
+@.str.643 = private unnamed_addr constant [24 x i8] c"Reserved for future use\00", align 1
+@.str.644 = private unnamed_addr constant [27 x i8] c"QoS Unacceptable Parameter\00", align 1
+@.str.645 = private unnamed_addr constant [13 x i8] c"QoS Rejected\00", align 1
+@.str.646 = private unnamed_addr constant [37 x i8] c"Channel Classification Not Supported\00", align 1
+@.str.647 = private unnamed_addr constant [22 x i8] c"Insufficient Security\00", align 1
+@.str.648 = private unnamed_addr constant [33 x i8] c"Parameter Out Of Mandatory Range\00", align 1
+@.str.649 = private unnamed_addr constant [20 x i8] c"Role Switch Pending\00", align 1
+@.str.650 = private unnamed_addr constant [24 x i8] c"Reserved Slot Violation\00", align 1
+@.str.651 = private unnamed_addr constant [19 x i8] c"Role Switch Failed\00", align 1
+@.str.652 = private unnamed_addr constant [36 x i8] c"Extended Inquiry Response Too Large\00", align 1
+@.str.653 = private unnamed_addr constant [44 x i8] c"Secure Simple Pairing Not Supported By Host\00", align 1
+@.str.654 = private unnamed_addr constant [20 x i8] c"Host Busy - Pairing\00", align 1
+@.str.655 = private unnamed_addr constant [53 x i8] c"Connection Rejected due to No Suitable Channel Found\00", align 1
+@.str.656 = private unnamed_addr constant [16 x i8] c"Controller Busy\00", align 1
+@.str.657 = private unnamed_addr constant [35 x i8] c"Unacceptable Connection Parameters\00", align 1
+@.str.658 = private unnamed_addr constant [20 x i8] c"Advertising Timeout\00", align 1
+@.str.659 = private unnamed_addr constant [41 x i8] c"Connection Terminated due to MIC Failure\00", align 1
+@.str.660 = private unnamed_addr constant [62 x i8] c"Connection Failed to be Established / Synchronization Timeout\00", align 1
+@.str.661 = private unnamed_addr constant [22 x i8] c"MAC Connection Failed\00", align 1
+@.str.662 = private unnamed_addr constant [68 x i8] c"Coarse Clock Adjustment Rejected but Will Try to Adjust Using Clock\00", align 1
+@.str.663 = private unnamed_addr constant [25 x i8] c"Type0 Submap Not Defined\00", align 1
+@.str.664 = private unnamed_addr constant [31 x i8] c"Unknown Advertising Identifier\00", align 1
+@.str.665 = private unnamed_addr constant [14 x i8] c"Limit Reached\00", align 1
+@.str.666 = private unnamed_addr constant [28 x i8] c"Operation Cancelled by Host\00", align 1
+@.str.667 = private unnamed_addr constant [16 x i8] c"Packet Too Long\00", align 1
+@errorcode_vals = internal constant [71 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.600 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.601 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.602 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.603 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.604 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.605 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.606 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.607 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.608 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.609 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.610 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.611 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.612 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.613 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.614 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.615 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.616 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.617 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.618 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.619 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.620 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.621 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.622 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.623 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.624 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.625 }, { i32, [4 x i8], ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.626 }, { i32, [4 x i8], ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.627 }, { i32, [4 x i8], ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.628 }, { i32, [4 x i8], ptr } { i32 29, [4 x i8] zeroinitializer, ptr @.str.629 }, { i32, [4 x i8], ptr } { i32 30, [4 x i8] zeroinitializer, ptr @.str.630 }, { i32, [4 x i8], ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.631 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.632 }, { i32, [4 x i8], ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.633 }, { i32, [4 x i8], ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.634 }, { i32, [4 x i8], ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.635 }, { i32, [4 x i8], ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.636 }, { i32, [4 x i8], ptr } { i32 37, [4 x i8] zeroinitializer, ptr @.str.637 }, { i32, [4 x i8], ptr } { i32 38, [4 x i8] zeroinitializer, ptr @.str.638 }, { i32, [4 x i8], ptr } { i32 39, [4 x i8] zeroinitializer, ptr @.str.639 }, { i32, [4 x i8], ptr } { i32 40, [4 x i8] zeroinitializer, ptr @.str.640 }, { i32, [4 x i8], ptr } { i32 41, [4 x i8] zeroinitializer, ptr @.str.641 }, { i32, [4 x i8], ptr } { i32 42, [4 x i8] zeroinitializer, ptr @.str.642 }, { i32, [4 x i8], ptr } { i32 43, [4 x i8] zeroinitializer, ptr @.str.643 }, { i32, [4 x i8], ptr } { i32 44, [4 x i8] zeroinitializer, ptr @.str.644 }, { i32, [4 x i8], ptr } { i32 45, [4 x i8] zeroinitializer, ptr @.str.645 }, { i32, [4 x i8], ptr } { i32 46, [4 x i8] zeroinitializer, ptr @.str.646 }, { i32, [4 x i8], ptr } { i32 47, [4 x i8] zeroinitializer, ptr @.str.647 }, { i32, [4 x i8], ptr } { i32 48, [4 x i8] zeroinitializer, ptr @.str.648 }, { i32, [4 x i8], ptr } { i32 49, [4 x i8] zeroinitializer, ptr @.str.643 }, { i32, [4 x i8], ptr } { i32 50, [4 x i8] zeroinitializer, ptr @.str.649 }, { i32, [4 x i8], ptr } { i32 51, [4 x i8] zeroinitializer, ptr @.str.643 }, { i32, [4 x i8], ptr } { i32 52, [4 x i8] zeroinitializer, ptr @.str.650 }, { i32, [4 x i8], ptr } { i32 53, [4 x i8] zeroinitializer, ptr @.str.651 }, { i32, [4 x i8], ptr } { i32 54, [4 x i8] zeroinitializer, ptr @.str.652 }, { i32, [4 x i8], ptr } { i32 55, [4 x i8] zeroinitializer, ptr @.str.653 }, { i32, [4 x i8], ptr } { i32 56, [4 x i8] zeroinitializer, ptr @.str.654 }, { i32, [4 x i8], ptr } { i32 57, [4 x i8] zeroinitializer, ptr @.str.655 }, { i32, [4 x i8], ptr } { i32 58, [4 x i8] zeroinitializer, ptr @.str.656 }, { i32, [4 x i8], ptr } { i32 59, [4 x i8] zeroinitializer, ptr @.str.657 }, { i32, [4 x i8], ptr } { i32 60, [4 x i8] zeroinitializer, ptr @.str.658 }, { i32, [4 x i8], ptr } { i32 61, [4 x i8] zeroinitializer, ptr @.str.659 }, { i32, [4 x i8], ptr } { i32 62, [4 x i8] zeroinitializer, ptr @.str.660 }, { i32, [4 x i8], ptr } { i32 63, [4 x i8] zeroinitializer, ptr @.str.661 }, { i32, [4 x i8], ptr } { i32 64, [4 x i8] zeroinitializer, ptr @.str.662 }, { i32, [4 x i8], ptr } { i32 65, [4 x i8] zeroinitializer, ptr @.str.663 }, { i32, [4 x i8], ptr } { i32 66, [4 x i8] zeroinitializer, ptr @.str.664 }, { i32, [4 x i8], ptr } { i32 67, [4 x i8] zeroinitializer, ptr @.str.665 }, { i32, [4 x i8], ptr } { i32 68, [4 x i8] zeroinitializer, ptr @.str.666 }, { i32, [4 x i8], ptr } { i32 69, [4 x i8] zeroinitializer, ptr @.str.667 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.669 = private unnamed_addr constant [13 x i8] c"AFH disabled\00", align 1
+@.str.670 = private unnamed_addr constant [12 x i8] c"AFH enabled\00", align 1
+@afh_mode_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.669 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.670 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.672 = private unnamed_addr constant [6 x i8] c" slot\00", align 1
+@.str.673 = private unnamed_addr constant [7 x i8] c" slots\00", align 1
+@.str.674 = private unnamed_addr constant [23 x i8] c"AFH reporting disabled\00", align 1
+@.str.675 = private unnamed_addr constant [22 x i8] c"AFH reporting enabled\00", align 1
+@afh_reportingmode_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.674 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.675 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.677 = private unnamed_addr constant [8 x i8] c"unknown\00", align 1
+@.str.678 = private unnamed_addr constant [5 x i8] c"good\00", align 1
+@.str.679 = private unnamed_addr constant [9 x i8] c"reserved\00", align 1
+@.str.680 = private unnamed_addr constant [4 x i8] c"bad\00", align 1
+@afh_channelclass_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.677 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.678 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.679 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.680 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.682 = private unnamed_addr constant [11 x i8] c" slot pair\00", align 1
+@.str.683 = private unnamed_addr constant [12 x i8] c" slot pairs\00", align 1
+@.str.684 = private unnamed_addr constant [14 x i8] c"no encryption\00", align 1
+@.str.685 = private unnamed_addr constant [11 x i8] c"encryption\00", align 1
+@encryptionmode_vals = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.684 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.685 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.685 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.687 = private unnamed_addr constant [17 x i8] c"no timing change\00", align 1
+@.str.688 = private unnamed_addr constant [14 x i8] c"timing change\00", align 1
+@timingcontrol_timingchange_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.687 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.688 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.690 = private unnamed_addr constant [21 x i8] c"use initialization 1\00", align 1
+@.str.691 = private unnamed_addr constant [21 x i8] c"use initialization 2\00", align 1
+@timingcontrol_useinit2 = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.690 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.691 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.693 = private unnamed_addr constant [14 x i8] c"access window\00", align 1
+@.str.694 = private unnamed_addr constant [17 x i8] c"no access window\00", align 1
+@timingcontrol_noaccesswindow = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.693 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.694 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.696 = private unnamed_addr constant [8 x i8] c"use FEC\00", align 1
+@.str.697 = private unnamed_addr constant [15 x i8] c"do not use FEC\00", align 1
+@dataratenofec_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.696 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.697 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.699 = private unnamed_addr constant [26 x i8] c"no packet size preference\00", align 1
+@.str.700 = private unnamed_addr constant [19 x i8] c"use 1-slot packets\00", align 1
+@.str.701 = private unnamed_addr constant [19 x i8] c"use 3-slot packets\00", align 1
+@.str.702 = private unnamed_addr constant [19 x i8] c"use 5-slot packets\00", align 1
+@dataratepacketsizepreference_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.699 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.700 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.701 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.702 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.704 = private unnamed_addr constant [16 x i8] c"use DM1 packets\00", align 1
+@.str.705 = private unnamed_addr constant [18 x i8] c"use 2Mb/s packets\00", align 1
+@.str.706 = private unnamed_addr constant [18 x i8] c"use 3Mb/s packets\00", align 1
+@dataratedrpreference_vals = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.704 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.705 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.706 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.708 = private unnamed_addr constant [4 x i8] c"HV1\00", align 1
+@.str.709 = private unnamed_addr constant [4 x i8] c"HV2\00", align 1
+@.str.710 = private unnamed_addr constant [4 x i8] c"HV3\00", align 1
+@scopacket_vals = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.708 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.709 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.710 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.712 = private unnamed_addr constant [9 x i8] c"ulaw log\00", align 1
+@.str.713 = private unnamed_addr constant [9 x i8] c"Alaw log\00", align 1
+@.str.714 = private unnamed_addr constant [5 x i8] c"CVSD\00", align 1
+@.str.715 = private unnamed_addr constant [17 x i8] c"transparent data\00", align 1
+@airmode_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.712 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.713 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.714 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.715 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.717 = private unnamed_addr constant [17 x i8] c"mandatory scheme\00", align 1
+@pagingscheme_vals = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.717 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.719 = private unnamed_addr constant [3 x i8] c"R0\00", align 1
+@.str.720 = private unnamed_addr constant [3 x i8] c"R1\00", align 1
+@.str.721 = private unnamed_addr constant [3 x i8] c"R2\00", align 1
+@pagingschemesettings_vals = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.719 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.720 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.721 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.723 = private unnamed_addr constant [11 x i8] c"public key\00", align 1
+@encapsulatedmajor_vals = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.723 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.725 = private unnamed_addr constant [17 x i8] c"P-192 public key\00", align 1
+@.str.726 = private unnamed_addr constant [17 x i8] c"P-256 public key\00", align 1
+@encapsulatedminor_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.725 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.726 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.728 = private unnamed_addr constant [15 x i8] c"before instant\00", align 1
+@.str.729 = private unnamed_addr constant [14 x i8] c"after instant\00", align 1
+@clkadjmode_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.728 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.729 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.731 = private unnamed_addr constant [11 x i8] c"1Mb/s only\00", align 1
+@.str.732 = private unnamed_addr constant [8 x i8] c"2/3Mb/s\00", align 1
+@packettypetable_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.731 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.732 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.734 = private unnamed_addr constant [5 x i8] c"POLL\00", align 1
+@.str.735 = private unnamed_addr constant [4 x i8] c"EV3\00", align 1
+@.str.736 = private unnamed_addr constant [4 x i8] c"EV4\00", align 1
+@.str.737 = private unnamed_addr constant [4 x i8] c"EV5\00", align 1
+@.str.738 = private unnamed_addr constant [6 x i8] c"2-EV3\00", align 1
+@.str.739 = private unnamed_addr constant [6 x i8] c"2-EV5\00", align 1
+@.str.740 = private unnamed_addr constant [6 x i8] c"3-EV3\00", align 1
+@.str.741 = private unnamed_addr constant [6 x i8] c"3-EV5\00", align 1
+@escopackettypems_vals = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.734 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.735 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.736 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.737 }, { i32, [4 x i8], ptr } { i32 38, [4 x i8] zeroinitializer, ptr @.str.738 }, { i32, [4 x i8], ptr } { i32 44, [4 x i8] zeroinitializer, ptr @.str.739 }, { i32, [4 x i8], ptr } { i32 55, [4 x i8] zeroinitializer, ptr @.str.740 }, { i32, [4 x i8], ptr } { i32 61, [4 x i8] zeroinitializer, ptr @.str.741 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.743 = private unnamed_addr constant [5 x i8] c"NULL\00", align 1
+@escopackettypesm_vals = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.743 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.735 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.736 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.737 }, { i32, [4 x i8], ptr } { i32 38, [4 x i8] zeroinitializer, ptr @.str.738 }, { i32, [4 x i8], ptr } { i32 44, [4 x i8] zeroinitializer, ptr @.str.739 }, { i32, [4 x i8], ptr } { i32 55, [4 x i8] zeroinitializer, ptr @.str.740 }, { i32, [4 x i8], ptr } { i32 61, [4 x i8] zeroinitializer, ptr @.str.741 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.745 = private unnamed_addr constant [21 x i8] c"initiate negotiation\00", align 1
+@.str.746 = private unnamed_addr constant [98 x i8] c"the latest received set of negotiable parameters were possible but these parameters are preferred\00", align 1
+@.str.747 = private unnamed_addr constant [87 x i8] c"the latest received set of negotiable parameters would cause a reserved slot violation\00", align 1
+@.str.748 = private unnamed_addr constant [81 x i8] c"the latest received set of negotiable parameters would cause a latency violation\00", align 1
+@.str.749 = private unnamed_addr constant [67 x i8] c"the latest received set of negotiable parameters are not supported\00", align 1
+@negostate_vals = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.745 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.746 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.747 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.748 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.749 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.751 = private unnamed_addr constant [13 x i8] c"Display Only\00", align 1
+@.str.752 = private unnamed_addr constant [15 x i8] c"Display Yes/No\00", align 1
+@.str.753 = private unnamed_addr constant [14 x i8] c"Keyboard Only\00", align 1
+@.str.754 = private unnamed_addr constant [19 x i8] c"No Input No Output\00", align 1
+@iocapcap_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.751 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.752 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.753 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.754 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.756 = private unnamed_addr constant [36 x i8] c"No OOB Authentication Data received\00", align 1
+@.str.757 = private unnamed_addr constant [33 x i8] c"OOB Authentication Data received\00", align 1
+@iocapoobauthdata_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.756 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.757 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.759 = private unnamed_addr constant [42 x i8] c"MITM Protection Not Required - No Bonding\00", align 1
+@.str.760 = private unnamed_addr constant [38 x i8] c"MITM Protection Required - No Bonding\00", align 1
+@.str.761 = private unnamed_addr constant [49 x i8] c"MITM Protection Not Required - Dedicated Bonding\00", align 1
+@.str.762 = private unnamed_addr constant [45 x i8] c"MITM Protection Required - Dedicated Bonding\00", align 1
+@.str.763 = private unnamed_addr constant [47 x i8] c"MITM Protection Not Required - General Bonding\00", align 1
+@.str.764 = private unnamed_addr constant [43 x i8] c"MITM Protection Required - General Bonding\00", align 1
+@iocapauthreq_vals = internal constant [7 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.759 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.760 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.761 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.762 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.763 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.764 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.766 = private unnamed_addr constant [22 x i8] c"passkey entry started\00", align 1
+@.str.767 = private unnamed_addr constant [22 x i8] c"passkey digit entered\00", align 1
+@.str.768 = private unnamed_addr constant [21 x i8] c"passkey digit erased\00", align 1
+@.str.769 = private unnamed_addr constant [16 x i8] c"passkey cleared\00", align 1
+@.str.770 = private unnamed_addr constant [24 x i8] c"passkey entry completed\00", align 1
+@keypressnotificationtype_vals = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.766 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.767 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.768 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.769 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.770 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.772 = private unnamed_addr constant [25 x i8] c"decrement power one step\00", align 1
+@.str.773 = private unnamed_addr constant [25 x i8] c"increment power one step\00", align 1
+@.str.774 = private unnamed_addr constant [26 x i8] c"increase to maximum power\00", align 1
+@poweradjreq_vals = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.772 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.773 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.774 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.776 = private unnamed_addr constant [14 x i8] c"not supported\00", align 1
+@.str.777 = private unnamed_addr constant [17 x i8] c"changed one step\00", align 1
+@.str.778 = private unnamed_addr constant [10 x i8] c"max power\00", align 1
+@.str.779 = private unnamed_addr constant [10 x i8] c"min power\00", align 1
+@poweradjresp_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.776 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.777 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.778 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.779 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.781 = private unnamed_addr constant [69 x i8] c"Existing SAM slot maps containing any type 0 submaps are invalidated\00", align 1
+@.str.782 = private unnamed_addr constant [51 x i8] c"The defined type 0 submap takes effect immediately\00", align 1
+@.str.783 = private unnamed_addr constant [77 x i8] c"The defined type 0 submap takes effect at the start of the next sub-interval\00", align 1
+@samupdatemode_vals = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.781 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.782 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.783 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_btlmp() #0 {
   %1 = call i32 @proto_register_protocol(ptr noundef @.str.499, ptr noundef @.str.500, ptr noundef @.str.501)
   store i32 %1, ptr @proto_btlmp, align 4
@@ -933,17 +931,18 @@ define hidden void @proto_register_btlmp() #0 {
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @decode_uint8_binary(ptr noundef %0, i8 noundef zeroext %1) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal void @decode_uint8_binary(ptr noundef %0, i8 noundef zeroext %1) #1 {
   %3 = alloca ptr, align 8
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store i8 %1, ptr %4, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #4
   store i32 0, ptr %5, align 4
   br label %6
 
-6:                                                ; preds = %24, %2
+6:                                                ; preds = %25, %2
   %7 = load i32, ptr %5, align 4
   %8 = icmp ult i32 %7, 8
   br i1 %8, label %9, label %13
@@ -956,47 +955,55 @@ define internal void @decode_uint8_binary(ptr noundef %0, i8 noundef zeroext %1)
 
 13:                                               ; preds = %9, %6
   %14 = phi i1 [ false, %6 ], [ %12, %9 ]
-  br i1 %14, label %15, label %31
+  br i1 %14, label %16, label %15
 
 15:                                               ; preds = %13
-  %16 = load i8, ptr %4, align 1
-  %17 = zext i8 %16 to i32
-  %18 = ashr i32 %17, 7
-  %19 = and i32 %18, 1
-  %20 = add i32 48, %19
-  %21 = trunc i32 %20 to i8
-  %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr i8, ptr %22, i32 1
-  store ptr %23, ptr %3, align 8
-  store i8 %21, ptr %22, align 1
-  br label %24
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #4
+  br label %32
 
-24:                                               ; preds = %15
-  %25 = load i32, ptr %5, align 4
-  %26 = add i32 %25, 1
-  store i32 %26, ptr %5, align 4
-  %27 = load i8, ptr %4, align 1
-  %28 = zext i8 %27 to i32
-  %29 = shl i32 %28, 1
-  %30 = trunc i32 %29 to i8
-  store i8 %30, ptr %4, align 1
-  br label %6, !llvm.loop !4
+16:                                               ; preds = %13
+  %17 = load i8, ptr %4, align 1
+  %18 = zext i8 %17 to i32
+  %19 = ashr i32 %18, 7
+  %20 = and i32 %19, 1
+  %21 = add i32 48, %20
+  %22 = trunc i32 %21 to i8
+  %23 = load ptr, ptr %3, align 8
+  %24 = getelementptr i8, ptr %23, i32 1
+  store ptr %24, ptr %3, align 8
+  store i8 %22, ptr %23, align 1
+  br label %25
 
-31:                                               ; preds = %13
-  %32 = load ptr, ptr %3, align 8
-  store i8 0, ptr %32, align 1
+25:                                               ; preds = %16
+  %26 = load i32, ptr %5, align 4
+  %27 = add i32 %26, 1
+  store i32 %27, ptr %5, align 4
+  %28 = load i8, ptr %4, align 1
+  %29 = zext i8 %28 to i32
+  %30 = shl i32 %29, 1
+  %31 = trunc i32 %30 to i8
+  store i8 %31, ptr %4, align 1
+  br label %6, !llvm.loop !6
+
+32:                                               ; preds = %15
+  %33 = load ptr, ptr %3, align 8
+  store i8 0, ptr %33, align 1
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #2
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1036,114 +1043,125 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %40 = alloca i32, align 4
   %41 = alloca i32, align 4
   %42 = alloca i32, align 4
+  %43 = alloca i32, align 4
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
   store i32 0, ptr %11, align 4
-  %43 = load ptr, ptr %8, align 8
-  store ptr %43, ptr %13, align 8
-  %44 = load ptr, ptr %7, align 8
-  %45 = load i32, ptr @proto_btlmp, align 4
-  %46 = load ptr, ptr %5, align 8
-  %47 = load i32, ptr %11, align 4
-  %48 = call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %45, ptr noundef %46, i32 noundef %47, i32 noundef -1, i32 noundef 0)
-  store ptr %48, ptr %9, align 8
-  %49 = load ptr, ptr %9, align 8
-  %50 = load i32, ptr @ett_btlmp, align 4
-  %51 = call ptr @proto_item_add_subtree(ptr noundef %49, i32 noundef %50)
-  store ptr %51, ptr %10, align 8
-  %52 = load ptr, ptr %6, align 8
-  %53 = getelementptr inbounds %struct._packet_info, ptr %52, i32 0, i32 1
-  %54 = load ptr, ptr %53, align 8
-  call void @col_set_str(ptr noundef %54, i32 noundef 34, ptr noundef @.str.500)
+  call void @llvm.lifetime.start.p0(i64 2, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
+  %44 = load ptr, ptr %8, align 8
+  store ptr %44, ptr %13, align 8
+  %45 = load ptr, ptr %7, align 8
+  %46 = load i32, ptr @proto_btlmp, align 4
+  %47 = load ptr, ptr %5, align 8
+  %48 = load i32, ptr %11, align 4
+  %49 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %46, ptr noundef %47, i32 noundef %48, i32 noundef -1, i32 noundef 0)
+  store ptr %49, ptr %9, align 8
+  %50 = load ptr, ptr %9, align 8
+  %51 = load i32, ptr @ett_btlmp, align 4
+  %52 = call ptr @proto_item_add_subtree(ptr noundef %50, i32 noundef %51)
+  store ptr %52, ptr %10, align 8
+  %53 = load ptr, ptr %6, align 8
+  %54 = getelementptr inbounds nuw %struct._packet_info, ptr %53, i32 0, i32 1
+  %55 = load ptr, ptr %54, align 8
+  call void @col_set_str(ptr noundef %55, i32 noundef 35, ptr noundef @.str.500)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #4
   store i32 0, ptr %14, align 4
-  br label %55
+  br label %56
 
-55:                                               ; preds = %68, %4
-  %56 = load i32, ptr %14, align 4
-  %57 = zext i32 %56 to i64
-  %58 = icmp ult i64 %57, 3
-  br i1 %58, label %59, label %71
+56:                                               ; preds = %70, %4
+  %57 = load i32, ptr %14, align 4
+  %58 = zext i32 %57 to i64
+  %59 = icmp ult i64 %58, 3
+  br i1 %59, label %61, label %60
 
-59:                                               ; preds = %55
-  %60 = load ptr, ptr %10, align 8
-  %61 = load i32, ptr %14, align 4
-  %62 = zext i32 %61 to i64
-  %63 = getelementptr [3 x i32], ptr @hf_opcode, i64 0, i64 %62
-  %64 = load i32, ptr %63, align 4
-  %65 = load ptr, ptr %5, align 8
-  %66 = load i32, ptr %11, align 4
-  %67 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %64, ptr noundef %65, i32 noundef %66, i32 noundef 1, i32 noundef -2147483648)
-  br label %68
+60:                                               ; preds = %56
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #4
+  br label %73
 
-68:                                               ; preds = %59
-  %69 = load i32, ptr %14, align 4
-  %70 = add i32 %69, 1
-  store i32 %70, ptr %14, align 4
-  br label %55, !llvm.loop !6
+61:                                               ; preds = %56
+  %62 = load ptr, ptr %10, align 8
+  %63 = load i32, ptr %14, align 4
+  %64 = zext i32 %63 to i64
+  %65 = getelementptr [3 x i32], ptr @hf_opcode, i64 0, i64 %64
+  %66 = load i32, ptr %65, align 4
+  %67 = load ptr, ptr %5, align 8
+  %68 = load i32, ptr %11, align 4
+  %69 = call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %66, ptr noundef %67, i32 noundef %68, i32 noundef 1, i32 noundef -2147483648)
+  br label %70
 
-71:                                               ; preds = %55
-  %72 = load ptr, ptr %5, align 8
-  %73 = load i32, ptr %11, align 4
-  %74 = call zeroext i8 @tvb_get_guint8(ptr noundef %72, i32 noundef %73)
-  %75 = zext i8 %74 to i32
-  %76 = ashr i32 %75, 1
-  %77 = trunc i32 %76 to i16
-  store i16 %77, ptr %12, align 2
-  %78 = load i32, ptr %11, align 4
-  %79 = add i32 %78, 1
-  store i32 %79, ptr %11, align 4
-  %80 = load i16, ptr %12, align 2
-  %81 = zext i16 %80 to i32
-  %82 = icmp sge i32 %81, 124
-  br i1 %82, label %83, label %112
+70:                                               ; preds = %61
+  %71 = load i32, ptr %14, align 4
+  %72 = add i32 %71, 1
+  store i32 %72, ptr %14, align 4
+  br label %56, !llvm.loop !8
 
-83:                                               ; preds = %71
-  %84 = load i16, ptr %12, align 2
-  %85 = zext i16 %84 to i32
-  %86 = and i32 %85, 3
-  %87 = trunc i32 %86 to i16
-  store i16 %87, ptr %12, align 2
-  %88 = load ptr, ptr %10, align 8
-  %89 = load i16, ptr %12, align 2
-  %90 = zext i16 %89 to i64
-  %91 = getelementptr [4 x i32], ptr @hf_escopcode, i64 0, i64 %90
-  %92 = load i32, ptr %91, align 4
-  %93 = load ptr, ptr %5, align 8
-  %94 = load i32, ptr %11, align 4
-  %95 = call ptr @proto_tree_add_item(ptr noundef %88, i32 noundef %92, ptr noundef %93, i32 noundef %94, i32 noundef 1, i32 noundef -2147483648)
-  %96 = load i16, ptr %12, align 2
-  %97 = add i16 %96, 1
-  store i16 %97, ptr %12, align 2
+73:                                               ; preds = %60
+  %74 = load ptr, ptr %5, align 8
+  %75 = load i32, ptr %11, align 4
+  %76 = call zeroext i8 @tvb_get_uint8(ptr noundef %74, i32 noundef %75)
+  %77 = zext i8 %76 to i32
+  %78 = ashr i32 %77, 1
+  %79 = trunc i32 %78 to i16
+  store i16 %79, ptr %12, align 2
+  %80 = load i32, ptr %11, align 4
+  %81 = add i32 %80, 1
+  store i32 %81, ptr %11, align 4
+  %82 = load i16, ptr %12, align 2
+  %83 = zext i16 %82 to i32
+  %84 = icmp sge i32 %83, 124
+  br i1 %84, label %85, label %114
+
+85:                                               ; preds = %73
+  %86 = load i16, ptr %12, align 2
+  %87 = zext i16 %86 to i32
+  %88 = and i32 %87, 3
+  %89 = trunc i32 %88 to i16
+  store i16 %89, ptr %12, align 2
+  %90 = load ptr, ptr %10, align 8
+  %91 = load i16, ptr %12, align 2
+  %92 = zext i16 %91 to i64
+  %93 = getelementptr [4 x i32], ptr @hf_escopcode, i64 0, i64 %92
+  %94 = load i32, ptr %93, align 4
+  %95 = load ptr, ptr %5, align 8
+  %96 = load i32, ptr %11, align 4
+  %97 = call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %94, ptr noundef %95, i32 noundef %96, i32 noundef 1, i32 noundef -2147483648)
   %98 = load i16, ptr %12, align 2
-  %99 = zext i16 %98 to i32
-  %100 = shl i32 %99, 8
-  %101 = trunc i32 %100 to i16
-  store i16 %101, ptr %12, align 2
-  %102 = load ptr, ptr %5, align 8
-  %103 = load i32, ptr %11, align 4
-  %104 = call zeroext i8 @tvb_get_guint8(ptr noundef %102, i32 noundef %103)
-  %105 = zext i8 %104 to i32
-  %106 = load i16, ptr %12, align 2
-  %107 = zext i16 %106 to i32
-  %108 = or i32 %107, %105
-  %109 = trunc i32 %108 to i16
-  store i16 %109, ptr %12, align 2
-  %110 = load i32, ptr %11, align 4
-  %111 = add i32 %110, 1
-  store i32 %111, ptr %11, align 4
-  br label %112
+  %99 = add i16 %98, 1
+  store i16 %99, ptr %12, align 2
+  %100 = load i16, ptr %12, align 2
+  %101 = zext i16 %100 to i32
+  %102 = shl i32 %101, 8
+  %103 = trunc i32 %102 to i16
+  store i16 %103, ptr %12, align 2
+  %104 = load ptr, ptr %5, align 8
+  %105 = load i32, ptr %11, align 4
+  %106 = call zeroext i8 @tvb_get_uint8(ptr noundef %104, i32 noundef %105)
+  %107 = zext i8 %106 to i32
+  %108 = load i16, ptr %12, align 2
+  %109 = zext i16 %108 to i32
+  %110 = or i32 %109, %107
+  %111 = trunc i32 %110 to i16
+  store i16 %111, ptr %12, align 2
+  %112 = load i32, ptr %11, align 4
+  %113 = add i32 %112, 1
+  store i32 %113, ptr %11, align 4
+  br label %114
 
-112:                                              ; preds = %83, %71
-  %113 = load i16, ptr %12, align 2
-  %114 = zext i16 %113 to i32
-  switch i32 %114, label %1535 [
-    i32 1, label %115
-    i32 2, label %116
-    i32 3, label %147
-    i32 4, label %155
-    i32 5, label %170
+114:                                              ; preds = %85, %73
+  %115 = load i16, ptr %12, align 2
+  %116 = zext i16 %115 to i32
+  switch i32 %116, label %1558 [
+    i32 1, label %1559
+    i32 2, label %117
+    i32 3, label %148
+    i32 4, label %156
+    i32 5, label %1559
     i32 6, label %171
     i32 7, label %179
     i32 8, label %187
@@ -1157,155 +1175,149 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
     i32 12, label %203
     i32 15, label %211
     i32 16, label %219
-    i32 18, label %227
-    i32 19, label %228
-    i32 20, label %236
-    i32 21, label %236
-    i32 23, label %251
-    i32 24, label %299
-    i32 31, label %300
-    i32 32, label %300
-    i32 33, label %308
-    i32 34, label %308
-    i32 35, label %308
-    i32 36, label %309
+    i32 18, label %1559
+    i32 19, label %227
+    i32 20, label %235
+    i32 21, label %235
+    i32 23, label %250
+    i32 24, label %1559
+    i32 31, label %299
+    i32 32, label %299
+    i32 33, label %307
+    i32 34, label %307
+    i32 35, label %307
+    i32 36, label %308
     i32 37, label %327
     i32 38, label %327
     i32 39, label %349
     i32 40, label %349
-    i32 41, label %502
-    i32 42, label %502
-    i32 43, label %517
-    i32 44, label %572
-    i32 45, label %587
-    i32 46, label %587
-    i32 47, label %595
-    i32 48, label %596
-    i32 49, label %611
-    i32 50, label %611
-    i32 51, label %611
-    i32 52, label %612
-    i32 53, label %627
-    i32 54, label %627
-    i32 55, label %642
-    i32 56, label %650
-    i32 57, label %651
-    i32 58, label %708
-    i32 59, label %709
-    i32 60, label %717
-    i32 61, label %751
-    i32 62, label %773
-    i32 63, label %781
-    i32 64, label %789
-    i32 65, label %797
-    i32 1025, label %805
-    i32 1026, label %828
-    i32 1027, label %858
-    i32 1028, label %858
-    i32 1029, label %1092
-    i32 1030, label %1135
-    i32 1031, label %1143
-    i32 1035, label %1165
-    i32 1036, label %1173
-    i32 1037, label %1289
-    i32 1040, label %1309
-    i32 1041, label %1331
-    i32 1045, label %1367
-    i32 1046, label %1367
-    i32 1047, label %1389
-    i32 1048, label %1389
-    i32 1049, label %1390
-    i32 1050, label %1390
-    i32 1051, label %1412
-    i32 1052, label %1412
-    i32 1053, label %1412
-    i32 1054, label %1413
-    i32 1055, label %1421
-    i32 1056, label %1429
-    i32 1057, label %1449
-    i32 1058, label %1449
-    i32 1059, label %1450
-    i32 1060, label %1465
-    i32 1061, label %1494
+    i32 41, label %510
+    i32 42, label %510
+    i32 43, label %525
+    i32 44, label %581
+    i32 45, label %596
+    i32 46, label %596
+    i32 47, label %1559
+    i32 48, label %604
+    i32 49, label %619
+    i32 50, label %619
+    i32 51, label %619
+    i32 52, label %620
+    i32 53, label %635
+    i32 54, label %635
+    i32 55, label %650
+    i32 56, label %1559
+    i32 57, label %658
+    i32 58, label %1559
+    i32 59, label %715
+    i32 60, label %723
+    i32 61, label %758
+    i32 62, label %780
+    i32 63, label %788
+    i32 64, label %796
+    i32 65, label %804
+    i32 1025, label %812
+    i32 1026, label %835
+    i32 1027, label %865
+    i32 1028, label %865
+    i32 1029, label %1110
+    i32 1030, label %1153
+    i32 1031, label %1161
+    i32 1035, label %1183
+    i32 1036, label %1191
+    i32 1037, label %1308
+    i32 1040, label %1328
+    i32 1041, label %1350
+    i32 1045, label %1388
+    i32 1046, label %1388
+    i32 1047, label %1410
+    i32 1048, label %1410
+    i32 1049, label %1411
+    i32 1050, label %1411
+    i32 1051, label %1433
+    i32 1052, label %1433
+    i32 1053, label %1433
+    i32 1054, label %1434
+    i32 1055, label %1442
+    i32 1056, label %1450
+    i32 1057, label %1471
+    i32 1058, label %1471
+    i32 1059, label %1472
+    i32 1060, label %1487
+    i32 1061, label %1516
   ]
 
-115:                                              ; preds = %112
-  br label %1536
+117:                                              ; preds = %114
+  %118 = load ptr, ptr %10, align 8
+  %119 = load i32, ptr @hf_param_nameoffset, align 4
+  %120 = load ptr, ptr %5, align 8
+  %121 = load i32, ptr %11, align 4
+  %122 = call ptr @proto_tree_add_item(ptr noundef %118, i32 noundef %119, ptr noundef %120, i32 noundef %121, i32 noundef 1, i32 noundef -2147483648)
+  %123 = load i32, ptr %11, align 4
+  %124 = add i32 %123, 1
+  store i32 %124, ptr %11, align 4
+  %125 = load ptr, ptr %10, align 8
+  %126 = load i32, ptr @hf_param_namelength, align 4
+  %127 = load ptr, ptr %5, align 8
+  %128 = load i32, ptr %11, align 4
+  %129 = call ptr @proto_tree_add_item(ptr noundef %125, i32 noundef %126, ptr noundef %127, i32 noundef %128, i32 noundef 1, i32 noundef -2147483648)
+  %130 = load i32, ptr %11, align 4
+  %131 = add i32 %130, 1
+  store i32 %131, ptr %11, align 4
+  %132 = load ptr, ptr %5, align 8
+  %133 = load i32, ptr %11, align 4
+  %134 = call i32 @tvb_captured_length_remaining(ptr noundef %132, i32 noundef %133)
+  %135 = icmp sle i32 %134, 0
+  br i1 %135, label %136, label %137
 
-116:                                              ; preds = %112
-  %117 = load ptr, ptr %10, align 8
-  %118 = load i32, ptr @hf_param_nameoffset, align 4
-  %119 = load ptr, ptr %5, align 8
-  %120 = load i32, ptr %11, align 4
-  %121 = call ptr @proto_tree_add_item(ptr noundef %117, i32 noundef %118, ptr noundef %119, i32 noundef %120, i32 noundef 1, i32 noundef -2147483648)
-  %122 = load i32, ptr %11, align 4
-  %123 = add i32 %122, 1
-  store i32 %123, ptr %11, align 4
-  %124 = load ptr, ptr %10, align 8
-  %125 = load i32, ptr @hf_param_namelength, align 4
-  %126 = load ptr, ptr %5, align 8
-  %127 = load i32, ptr %11, align 4
-  %128 = call ptr @proto_tree_add_item(ptr noundef %124, i32 noundef %125, ptr noundef %126, i32 noundef %127, i32 noundef 1, i32 noundef -2147483648)
-  %129 = load i32, ptr %11, align 4
-  %130 = add i32 %129, 1
-  store i32 %130, ptr %11, align 4
-  %131 = load ptr, ptr %5, align 8
-  %132 = load i32, ptr %11, align 4
-  %133 = call i32 @tvb_captured_length_remaining(ptr noundef %131, i32 noundef %132)
-  %134 = icmp sle i32 %133, 0
-  br i1 %134, label %135, label %136
+136:                                              ; preds = %117
+  br label %1559
 
-135:                                              ; preds = %116
-  br label %1536
+137:                                              ; preds = %117
+  %138 = load ptr, ptr %10, align 8
+  %139 = load i32, ptr @hf_param_namefragment, align 4
+  %140 = load ptr, ptr %5, align 8
+  %141 = load i32, ptr %11, align 4
+  %142 = load ptr, ptr %5, align 8
+  %143 = load i32, ptr %11, align 4
+  %144 = call i32 @tvb_captured_length_remaining(ptr noundef %142, i32 noundef %143)
+  %145 = call ptr @proto_tree_add_item(ptr noundef %138, i32 noundef %139, ptr noundef %140, i32 noundef %141, i32 noundef %144, i32 noundef 0)
+  %146 = load ptr, ptr %5, align 8
+  %147 = call i32 @tvb_reported_length(ptr noundef %146)
+  store i32 %147, ptr %11, align 4
+  br label %1559
 
-136:                                              ; preds = %116
-  %137 = load ptr, ptr %10, align 8
-  %138 = load i32, ptr @hf_param_namefragment, align 4
-  %139 = load ptr, ptr %5, align 8
-  %140 = load i32, ptr %11, align 4
-  %141 = load ptr, ptr %5, align 8
-  %142 = load i32, ptr %11, align 4
-  %143 = call i32 @tvb_captured_length_remaining(ptr noundef %141, i32 noundef %142)
-  %144 = call ptr @proto_tree_add_item(ptr noundef %137, i32 noundef %138, ptr noundef %139, i32 noundef %140, i32 noundef %143, i32 noundef 0)
-  %145 = load ptr, ptr %5, align 8
-  %146 = call i32 @tvb_reported_length(ptr noundef %145)
-  store i32 %146, ptr %11, align 4
-  br label %1536
+148:                                              ; preds = %114
+  %149 = load ptr, ptr %10, align 8
+  %150 = load i32, ptr @hf_accept_opcode, align 4
+  %151 = load ptr, ptr %5, align 8
+  %152 = load i32, ptr %11, align 4
+  %153 = call ptr @proto_tree_add_item(ptr noundef %149, i32 noundef %150, ptr noundef %151, i32 noundef %152, i32 noundef 1, i32 noundef -2147483648)
+  %154 = load i32, ptr %11, align 4
+  %155 = add i32 %154, 1
+  store i32 %155, ptr %11, align 4
+  br label %1559
 
-147:                                              ; preds = %112
-  %148 = load ptr, ptr %10, align 8
-  %149 = load i32, ptr @hf_accept_opcode, align 4
-  %150 = load ptr, ptr %5, align 8
-  %151 = load i32, ptr %11, align 4
-  %152 = call ptr @proto_tree_add_item(ptr noundef %148, i32 noundef %149, ptr noundef %150, i32 noundef %151, i32 noundef 1, i32 noundef -2147483648)
-  %153 = load i32, ptr %11, align 4
-  %154 = add i32 %153, 1
-  store i32 %154, ptr %11, align 4
-  br label %1536
+156:                                              ; preds = %114
+  %157 = load ptr, ptr %10, align 8
+  %158 = load i32, ptr @hf_accept_opcode, align 4
+  %159 = load ptr, ptr %5, align 8
+  %160 = load i32, ptr %11, align 4
+  %161 = call ptr @proto_tree_add_item(ptr noundef %157, i32 noundef %158, ptr noundef %159, i32 noundef %160, i32 noundef 1, i32 noundef -2147483648)
+  %162 = load i32, ptr %11, align 4
+  %163 = add i32 %162, 1
+  store i32 %163, ptr %11, align 4
+  %164 = load ptr, ptr %10, align 8
+  %165 = load i32, ptr @hf_errorcode, align 4
+  %166 = load ptr, ptr %5, align 8
+  %167 = load i32, ptr %11, align 4
+  %168 = call ptr @proto_tree_add_item(ptr noundef %164, i32 noundef %165, ptr noundef %166, i32 noundef %167, i32 noundef 1, i32 noundef -2147483648)
+  %169 = load i32, ptr %11, align 4
+  %170 = add i32 %169, 1
+  store i32 %170, ptr %11, align 4
+  br label %1559
 
-155:                                              ; preds = %112
-  %156 = load ptr, ptr %10, align 8
-  %157 = load i32, ptr @hf_accept_opcode, align 4
-  %158 = load ptr, ptr %5, align 8
-  %159 = load i32, ptr %11, align 4
-  %160 = call ptr @proto_tree_add_item(ptr noundef %156, i32 noundef %157, ptr noundef %158, i32 noundef %159, i32 noundef 1, i32 noundef -2147483648)
-  %161 = load i32, ptr %11, align 4
-  %162 = add i32 %161, 1
-  store i32 %162, ptr %11, align 4
-  %163 = load ptr, ptr %10, align 8
-  %164 = load i32, ptr @hf_errorcode, align 4
-  %165 = load ptr, ptr %5, align 8
-  %166 = load i32, ptr %11, align 4
-  %167 = call ptr @proto_tree_add_item(ptr noundef %163, i32 noundef %164, ptr noundef %165, i32 noundef %166, i32 noundef 1, i32 noundef -2147483648)
-  %168 = load i32, ptr %11, align 4
-  %169 = add i32 %168, 1
-  store i32 %169, ptr %11, align 4
-  br label %1536
-
-170:                                              ; preds = %112
-  br label %1536
-
-171:                                              ; preds = %112
+171:                                              ; preds = %114
   %172 = load ptr, ptr %10, align 8
   %173 = load i32, ptr @hf_param_clockoffset, align 4
   %174 = load ptr, ptr %5, align 8
@@ -1314,9 +1326,9 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %177 = load i32, ptr %11, align 4
   %178 = add i32 %177, 2
   store i32 %178, ptr %11, align 4
-  br label %1536
+  br label %1559
 
-179:                                              ; preds = %112
+179:                                              ; preds = %114
   %180 = load ptr, ptr %10, align 8
   %181 = load i32, ptr @hf_errorcode, align 4
   %182 = load ptr, ptr %5, align 8
@@ -1325,9 +1337,9 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %185 = load i32, ptr %11, align 4
   %186 = add i32 %185, 1
   store i32 %186, ptr %11, align 4
-  br label %1536
+  br label %1559
 
-187:                                              ; preds = %112, %112, %112, %112, %112, %112
+187:                                              ; preds = %114, %114, %114, %114, %114, %114
   %188 = load ptr, ptr %10, align 8
   %189 = load i32, ptr @hf_param_rand, align 4
   %190 = load ptr, ptr %5, align 8
@@ -1336,9 +1348,9 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %193 = load i32, ptr %11, align 4
   %194 = add i32 %193, 16
   store i32 %194, ptr %11, align 4
-  br label %1536
+  br label %1559
 
-195:                                              ; preds = %112, %112
+195:                                              ; preds = %114, %114
   %196 = load ptr, ptr %10, align 8
   %197 = load i32, ptr @hf_param_key, align 4
   %198 = load ptr, ptr %5, align 8
@@ -1347,9 +1359,9 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %201 = load i32, ptr %11, align 4
   %202 = add i32 %201, 16
   store i32 %202, ptr %11, align 4
-  br label %1536
+  br label %1559
 
-203:                                              ; preds = %112
+203:                                              ; preds = %114
   %204 = load ptr, ptr %10, align 8
   %205 = load i32, ptr @hf_param_authresp, align 4
   %206 = load ptr, ptr %5, align 8
@@ -1358,9 +1370,9 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %209 = load i32, ptr %11, align 4
   %210 = add i32 %209, 4
   store i32 %210, ptr %11, align 4
-  br label %1536
+  br label %1559
 
-211:                                              ; preds = %112
+211:                                              ; preds = %114
   %212 = load ptr, ptr %10, align 8
   %213 = load i32, ptr @hf_param_encryptionmode, align 4
   %214 = load ptr, ptr %5, align 8
@@ -1369,9 +1381,9 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %217 = load i32, ptr %11, align 4
   %218 = add i32 %217, 1
   store i32 %218, ptr %11, align 4
-  br label %1536
+  br label %1559
 
-219:                                              ; preds = %112
+219:                                              ; preds = %114
   %220 = load ptr, ptr %10, align 8
   %221 = load i32, ptr @hf_param_encryptionkeysize, align 4
   %222 = load ptr, ptr %5, align 8
@@ -1380,52 +1392,54 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %225 = load i32, ptr %11, align 4
   %226 = add i32 %225, 1
   store i32 %226, ptr %11, align 4
-  br label %1536
+  br label %1559
 
-227:                                              ; preds = %112
-  br label %1536
+227:                                              ; preds = %114
+  %228 = load ptr, ptr %10, align 8
+  %229 = load i32, ptr @hf_param_switchinstant, align 4
+  %230 = load ptr, ptr %5, align 8
+  %231 = load i32, ptr %11, align 4
+  %232 = call ptr @proto_tree_add_item(ptr noundef %228, i32 noundef %229, ptr noundef %230, i32 noundef %231, i32 noundef 4, i32 noundef -2147483648)
+  %233 = load i32, ptr %11, align 4
+  %234 = add i32 %233, 4
+  store i32 %234, ptr %11, align 4
+  br label %1559
 
-228:                                              ; preds = %112
-  %229 = load ptr, ptr %10, align 8
-  %230 = load i32, ptr @hf_param_switchinstant, align 4
-  %231 = load ptr, ptr %5, align 8
-  %232 = load i32, ptr %11, align 4
-  %233 = call ptr @proto_tree_add_item(ptr noundef %229, i32 noundef %230, ptr noundef %231, i32 noundef %232, i32 noundef 4, i32 noundef -2147483648)
-  %234 = load i32, ptr %11, align 4
-  %235 = add i32 %234, 4
-  store i32 %235, ptr %11, align 4
-  br label %1536
+235:                                              ; preds = %114, %114
+  %236 = load ptr, ptr %10, align 8
+  %237 = load i32, ptr @hf_param_holdtime, align 4
+  %238 = load ptr, ptr %5, align 8
+  %239 = load i32, ptr %11, align 4
+  %240 = call ptr @proto_tree_add_item(ptr noundef %236, i32 noundef %237, ptr noundef %238, i32 noundef %239, i32 noundef 2, i32 noundef -2147483648)
+  %241 = load i32, ptr %11, align 4
+  %242 = add i32 %241, 2
+  store i32 %242, ptr %11, align 4
+  %243 = load ptr, ptr %10, align 8
+  %244 = load i32, ptr @hf_param_holdinstant, align 4
+  %245 = load ptr, ptr %5, align 8
+  %246 = load i32, ptr %11, align 4
+  %247 = call ptr @proto_tree_add_item(ptr noundef %243, i32 noundef %244, ptr noundef %245, i32 noundef %246, i32 noundef 4, i32 noundef -2147483648)
+  %248 = load i32, ptr %11, align 4
+  %249 = add i32 %248, 4
+  store i32 %249, ptr %11, align 4
+  br label %1559
 
-236:                                              ; preds = %112, %112
-  %237 = load ptr, ptr %10, align 8
-  %238 = load i32, ptr @hf_param_holdtime, align 4
-  %239 = load ptr, ptr %5, align 8
-  %240 = load i32, ptr %11, align 4
-  %241 = call ptr @proto_tree_add_item(ptr noundef %237, i32 noundef %238, ptr noundef %239, i32 noundef %240, i32 noundef 2, i32 noundef -2147483648)
-  %242 = load i32, ptr %11, align 4
-  %243 = add i32 %242, 2
-  store i32 %243, ptr %11, align 4
-  %244 = load ptr, ptr %10, align 8
-  %245 = load i32, ptr @hf_param_holdinstant, align 4
-  %246 = load ptr, ptr %5, align 8
-  %247 = load i32, ptr %11, align 4
-  %248 = call ptr @proto_tree_add_item(ptr noundef %244, i32 noundef %245, ptr noundef %246, i32 noundef %247, i32 noundef 4, i32 noundef -2147483648)
-  %249 = load i32, ptr %11, align 4
-  %250 = add i32 %249, 4
-  store i32 %250, ptr %11, align 4
-  br label %1536
-
-251:                                              ; preds = %112
+250:                                              ; preds = %114
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #4
   store i32 0, ptr %15, align 4
-  br label %252
+  br label %251
 
-252:                                              ; preds = %265, %251
-  %253 = load i32, ptr %15, align 4
-  %254 = zext i32 %253 to i64
-  %255 = icmp ult i64 %254, 5
-  br i1 %255, label %256, label %268
+251:                                              ; preds = %265, %250
+  %252 = load i32, ptr %15, align 4
+  %253 = zext i32 %252 to i64
+  %254 = icmp ult i64 %253, 5
+  br i1 %254, label %256, label %255
 
-256:                                              ; preds = %252
+255:                                              ; preds = %251
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #4
+  br label %268
+
+256:                                              ; preds = %251
   %257 = load ptr, ptr %10, align 8
   %258 = load i32, ptr %15, align 4
   %259 = zext i32 %258 to i64
@@ -1440,9 +1454,9 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %266 = load i32, ptr %15, align 4
   %267 = add i32 %266, 1
   store i32 %267, ptr %15, align 4
-  br label %252, !llvm.loop !7
+  br label %251, !llvm.loop !9
 
-268:                                              ; preds = %252
+268:                                              ; preds = %255
   %269 = load i32, ptr %11, align 4
   %270 = add i32 %269, 1
   store i32 %270, ptr %11, align 4
@@ -1478,36 +1492,38 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %297 = load i32, ptr %11, align 4
   %298 = add i32 %297, 2
   store i32 %298, ptr %11, align 4
-  br label %1536
+  br label %1559
 
-299:                                              ; preds = %112
-  br label %1536
+299:                                              ; preds = %114, %114
+  %300 = load ptr, ptr %10, align 8
+  %301 = load i32, ptr @hf_param_futureuse1, align 4
+  %302 = load ptr, ptr %5, align 8
+  %303 = load i32, ptr %11, align 4
+  %304 = call ptr @proto_tree_add_item(ptr noundef %300, i32 noundef %301, ptr noundef %302, i32 noundef %303, i32 noundef 1, i32 noundef -2147483648)
+  %305 = load i32, ptr %11, align 4
+  %306 = add i32 %305, 1
+  store i32 %306, ptr %11, align 4
+  br label %1559
 
-300:                                              ; preds = %112, %112
-  %301 = load ptr, ptr %10, align 8
-  %302 = load i32, ptr @hf_param_futureuse1, align 4
-  %303 = load ptr, ptr %5, align 8
-  %304 = load i32, ptr %11, align 4
-  %305 = call ptr @proto_tree_add_item(ptr noundef %301, i32 noundef %302, ptr noundef %303, i32 noundef %304, i32 noundef 1, i32 noundef -2147483648)
-  %306 = load i32, ptr %11, align 4
-  %307 = add i32 %306, 1
-  store i32 %307, ptr %11, align 4
-  br label %1536
+307:                                              ; preds = %114, %114, %114
+  br label %1559
 
-308:                                              ; preds = %112, %112, %112
-  br label %1536
-
-309:                                              ; preds = %112
+308:                                              ; preds = %114
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #4
   store i32 0, ptr %16, align 4
-  br label %310
+  br label %309
 
-310:                                              ; preds = %323, %309
-  %311 = load i32, ptr %16, align 4
-  %312 = zext i32 %311 to i64
-  %313 = icmp ult i64 %312, 6
-  br i1 %313, label %314, label %326
+309:                                              ; preds = %323, %308
+  %310 = load i32, ptr %16, align 4
+  %311 = zext i32 %310 to i64
+  %312 = icmp ult i64 %311, 6
+  br i1 %312, label %314, label %313
 
-314:                                              ; preds = %310
+313:                                              ; preds = %309
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #4
+  br label %326
+
+314:                                              ; preds = %309
   %315 = load ptr, ptr %10, align 8
   %316 = load i32, ptr %16, align 4
   %317 = zext i32 %316 to i64
@@ -1522,12 +1538,12 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %324 = load i32, ptr %16, align 4
   %325 = add i32 %324, 1
   store i32 %325, ptr %16, align 4
-  br label %310, !llvm.loop !8
+  br label %309, !llvm.loop !10
 
-326:                                              ; preds = %310
-  br label %1536
+326:                                              ; preds = %313
+  br label %1559
 
-327:                                              ; preds = %112, %112
+327:                                              ; preds = %114, %114
   %328 = load ptr, ptr %10, align 8
   %329 = load i32, ptr @hf_param_versnr, align 4
   %330 = load ptr, ptr %5, align 8
@@ -1552,461 +1568,492 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %347 = load i32, ptr %11, align 4
   %348 = add i32 %347, 2
   store i32 %348, ptr %11, align 4
-  br label %1536
+  br label %1559
 
-349:                                              ; preds = %112, %112
+349:                                              ; preds = %114, %114
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #4
   store i32 0, ptr %17, align 4
   br label %350
 
-350:                                              ; preds = %363, %349
+350:                                              ; preds = %364, %349
   %351 = load i32, ptr %17, align 4
   %352 = zext i32 %351 to i64
   %353 = icmp ult i64 %352, 9
-  br i1 %353, label %354, label %366
+  br i1 %353, label %355, label %354
 
 354:                                              ; preds = %350
-  %355 = load ptr, ptr %10, align 8
-  %356 = load i32, ptr %17, align 4
-  %357 = zext i32 %356 to i64
-  %358 = getelementptr [9 x i32], ptr @hf_param_feature_page0_byte0, i64 0, i64 %357
-  %359 = load i32, ptr %358, align 4
-  %360 = load ptr, ptr %5, align 8
-  %361 = load i32, ptr %11, align 4
-  %362 = call ptr @proto_tree_add_item(ptr noundef %355, i32 noundef %359, ptr noundef %360, i32 noundef %361, i32 noundef 1, i32 noundef -2147483648)
-  br label %363
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #4
+  br label %367
 
-363:                                              ; preds = %354
-  %364 = load i32, ptr %17, align 4
-  %365 = add i32 %364, 1
-  store i32 %365, ptr %17, align 4
-  br label %350, !llvm.loop !9
+355:                                              ; preds = %350
+  %356 = load ptr, ptr %10, align 8
+  %357 = load i32, ptr %17, align 4
+  %358 = zext i32 %357 to i64
+  %359 = getelementptr [9 x i32], ptr @hf_param_feature_page0_byte0, i64 0, i64 %358
+  %360 = load i32, ptr %359, align 4
+  %361 = load ptr, ptr %5, align 8
+  %362 = load i32, ptr %11, align 4
+  %363 = call ptr @proto_tree_add_item(ptr noundef %356, i32 noundef %360, ptr noundef %361, i32 noundef %362, i32 noundef 1, i32 noundef -2147483648)
+  br label %364
 
-366:                                              ; preds = %350
-  %367 = load i32, ptr %11, align 4
-  %368 = add i32 %367, 1
-  store i32 %368, ptr %11, align 4
+364:                                              ; preds = %355
+  %365 = load i32, ptr %17, align 4
+  %366 = add i32 %365, 1
+  store i32 %366, ptr %17, align 4
+  br label %350, !llvm.loop !11
+
+367:                                              ; preds = %354
+  %368 = load i32, ptr %11, align 4
+  %369 = add i32 %368, 1
+  store i32 %369, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #4
   store i32 0, ptr %18, align 4
-  br label %369
+  br label %370
 
-369:                                              ; preds = %382, %366
-  %370 = load i32, ptr %18, align 4
-  %371 = zext i32 %370 to i64
-  %372 = icmp ult i64 %371, 9
-  br i1 %372, label %373, label %385
+370:                                              ; preds = %384, %367
+  %371 = load i32, ptr %18, align 4
+  %372 = zext i32 %371 to i64
+  %373 = icmp ult i64 %372, 9
+  br i1 %373, label %375, label %374
 
-373:                                              ; preds = %369
-  %374 = load ptr, ptr %10, align 8
-  %375 = load i32, ptr %18, align 4
-  %376 = zext i32 %375 to i64
-  %377 = getelementptr [9 x i32], ptr @hf_param_feature_page0_byte1, i64 0, i64 %376
-  %378 = load i32, ptr %377, align 4
-  %379 = load ptr, ptr %5, align 8
-  %380 = load i32, ptr %11, align 4
-  %381 = call ptr @proto_tree_add_item(ptr noundef %374, i32 noundef %378, ptr noundef %379, i32 noundef %380, i32 noundef 1, i32 noundef -2147483648)
-  br label %382
+374:                                              ; preds = %370
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #4
+  br label %387
 
-382:                                              ; preds = %373
-  %383 = load i32, ptr %18, align 4
-  %384 = add i32 %383, 1
-  store i32 %384, ptr %18, align 4
-  br label %369, !llvm.loop !10
+375:                                              ; preds = %370
+  %376 = load ptr, ptr %10, align 8
+  %377 = load i32, ptr %18, align 4
+  %378 = zext i32 %377 to i64
+  %379 = getelementptr [9 x i32], ptr @hf_param_feature_page0_byte1, i64 0, i64 %378
+  %380 = load i32, ptr %379, align 4
+  %381 = load ptr, ptr %5, align 8
+  %382 = load i32, ptr %11, align 4
+  %383 = call ptr @proto_tree_add_item(ptr noundef %376, i32 noundef %380, ptr noundef %381, i32 noundef %382, i32 noundef 1, i32 noundef -2147483648)
+  br label %384
 
-385:                                              ; preds = %369
-  %386 = load i32, ptr %11, align 4
-  %387 = add i32 %386, 1
-  store i32 %387, ptr %11, align 4
+384:                                              ; preds = %375
+  %385 = load i32, ptr %18, align 4
+  %386 = add i32 %385, 1
+  store i32 %386, ptr %18, align 4
+  br label %370, !llvm.loop !12
+
+387:                                              ; preds = %374
+  %388 = load i32, ptr %11, align 4
+  %389 = add i32 %388, 1
+  store i32 %389, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
   store i32 0, ptr %19, align 4
-  br label %388
+  br label %390
 
-388:                                              ; preds = %401, %385
-  %389 = load i32, ptr %19, align 4
-  %390 = zext i32 %389 to i64
-  %391 = icmp ult i64 %390, 7
-  br i1 %391, label %392, label %404
+390:                                              ; preds = %404, %387
+  %391 = load i32, ptr %19, align 4
+  %392 = zext i32 %391 to i64
+  %393 = icmp ult i64 %392, 7
+  br i1 %393, label %395, label %394
 
-392:                                              ; preds = %388
-  %393 = load ptr, ptr %10, align 8
-  %394 = load i32, ptr %19, align 4
-  %395 = zext i32 %394 to i64
-  %396 = getelementptr [7 x i32], ptr @hf_param_feature_page0_byte2, i64 0, i64 %395
-  %397 = load i32, ptr %396, align 4
-  %398 = load ptr, ptr %5, align 8
-  %399 = load i32, ptr %11, align 4
-  %400 = call ptr @proto_tree_add_item(ptr noundef %393, i32 noundef %397, ptr noundef %398, i32 noundef %399, i32 noundef 1, i32 noundef -2147483648)
-  br label %401
-
-401:                                              ; preds = %392
-  %402 = load i32, ptr %19, align 4
-  %403 = add i32 %402, 1
-  store i32 %403, ptr %19, align 4
-  br label %388, !llvm.loop !11
-
-404:                                              ; preds = %388
-  %405 = load i32, ptr %11, align 4
-  %406 = add i32 %405, 1
-  store i32 %406, ptr %11, align 4
-  store i32 0, ptr %20, align 4
+394:                                              ; preds = %390
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
   br label %407
 
-407:                                              ; preds = %420, %404
-  %408 = load i32, ptr %20, align 4
-  %409 = zext i32 %408 to i64
-  %410 = icmp ult i64 %409, 9
-  br i1 %410, label %411, label %423
+395:                                              ; preds = %390
+  %396 = load ptr, ptr %10, align 8
+  %397 = load i32, ptr %19, align 4
+  %398 = zext i32 %397 to i64
+  %399 = getelementptr [7 x i32], ptr @hf_param_feature_page0_byte2, i64 0, i64 %398
+  %400 = load i32, ptr %399, align 4
+  %401 = load ptr, ptr %5, align 8
+  %402 = load i32, ptr %11, align 4
+  %403 = call ptr @proto_tree_add_item(ptr noundef %396, i32 noundef %400, ptr noundef %401, i32 noundef %402, i32 noundef 1, i32 noundef -2147483648)
+  br label %404
 
-411:                                              ; preds = %407
-  %412 = load ptr, ptr %10, align 8
-  %413 = load i32, ptr %20, align 4
-  %414 = zext i32 %413 to i64
-  %415 = getelementptr [9 x i32], ptr @hf_param_feature_page0_byte3, i64 0, i64 %414
-  %416 = load i32, ptr %415, align 4
-  %417 = load ptr, ptr %5, align 8
-  %418 = load i32, ptr %11, align 4
-  %419 = call ptr @proto_tree_add_item(ptr noundef %412, i32 noundef %416, ptr noundef %417, i32 noundef %418, i32 noundef 1, i32 noundef -2147483648)
-  br label %420
+404:                                              ; preds = %395
+  %405 = load i32, ptr %19, align 4
+  %406 = add i32 %405, 1
+  store i32 %406, ptr %19, align 4
+  br label %390, !llvm.loop !13
 
-420:                                              ; preds = %411
-  %421 = load i32, ptr %20, align 4
-  %422 = add i32 %421, 1
-  store i32 %422, ptr %20, align 4
-  br label %407, !llvm.loop !12
+407:                                              ; preds = %394
+  %408 = load i32, ptr %11, align 4
+  %409 = add i32 %408, 1
+  store i32 %409, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #4
+  store i32 0, ptr %20, align 4
+  br label %410
 
-423:                                              ; preds = %407
-  %424 = load i32, ptr %11, align 4
-  %425 = add i32 %424, 1
-  store i32 %425, ptr %11, align 4
+410:                                              ; preds = %424, %407
+  %411 = load i32, ptr %20, align 4
+  %412 = zext i32 %411 to i64
+  %413 = icmp ult i64 %412, 9
+  br i1 %413, label %415, label %414
+
+414:                                              ; preds = %410
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #4
+  br label %427
+
+415:                                              ; preds = %410
+  %416 = load ptr, ptr %10, align 8
+  %417 = load i32, ptr %20, align 4
+  %418 = zext i32 %417 to i64
+  %419 = getelementptr [9 x i32], ptr @hf_param_feature_page0_byte3, i64 0, i64 %418
+  %420 = load i32, ptr %419, align 4
+  %421 = load ptr, ptr %5, align 8
+  %422 = load i32, ptr %11, align 4
+  %423 = call ptr @proto_tree_add_item(ptr noundef %416, i32 noundef %420, ptr noundef %421, i32 noundef %422, i32 noundef 1, i32 noundef -2147483648)
+  br label %424
+
+424:                                              ; preds = %415
+  %425 = load i32, ptr %20, align 4
+  %426 = add i32 %425, 1
+  store i32 %426, ptr %20, align 4
+  br label %410, !llvm.loop !14
+
+427:                                              ; preds = %414
+  %428 = load i32, ptr %11, align 4
+  %429 = add i32 %428, 1
+  store i32 %429, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #4
   store i32 0, ptr %21, align 4
-  br label %426
+  br label %430
 
-426:                                              ; preds = %439, %423
-  %427 = load i32, ptr %21, align 4
-  %428 = zext i32 %427 to i64
-  %429 = icmp ult i64 %428, 9
-  br i1 %429, label %430, label %442
+430:                                              ; preds = %444, %427
+  %431 = load i32, ptr %21, align 4
+  %432 = zext i32 %431 to i64
+  %433 = icmp ult i64 %432, 9
+  br i1 %433, label %435, label %434
 
-430:                                              ; preds = %426
-  %431 = load ptr, ptr %10, align 8
-  %432 = load i32, ptr %21, align 4
-  %433 = zext i32 %432 to i64
-  %434 = getelementptr [9 x i32], ptr @hf_param_feature_page0_byte4, i64 0, i64 %433
-  %435 = load i32, ptr %434, align 4
-  %436 = load ptr, ptr %5, align 8
-  %437 = load i32, ptr %11, align 4
-  %438 = call ptr @proto_tree_add_item(ptr noundef %431, i32 noundef %435, ptr noundef %436, i32 noundef %437, i32 noundef 1, i32 noundef -2147483648)
-  br label %439
+434:                                              ; preds = %430
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #4
+  br label %447
 
-439:                                              ; preds = %430
-  %440 = load i32, ptr %21, align 4
-  %441 = add i32 %440, 1
-  store i32 %441, ptr %21, align 4
-  br label %426, !llvm.loop !13
+435:                                              ; preds = %430
+  %436 = load ptr, ptr %10, align 8
+  %437 = load i32, ptr %21, align 4
+  %438 = zext i32 %437 to i64
+  %439 = getelementptr [9 x i32], ptr @hf_param_feature_page0_byte4, i64 0, i64 %438
+  %440 = load i32, ptr %439, align 4
+  %441 = load ptr, ptr %5, align 8
+  %442 = load i32, ptr %11, align 4
+  %443 = call ptr @proto_tree_add_item(ptr noundef %436, i32 noundef %440, ptr noundef %441, i32 noundef %442, i32 noundef 1, i32 noundef -2147483648)
+  br label %444
 
-442:                                              ; preds = %426
-  %443 = load i32, ptr %11, align 4
-  %444 = add i32 %443, 1
-  store i32 %444, ptr %11, align 4
+444:                                              ; preds = %435
+  %445 = load i32, ptr %21, align 4
+  %446 = add i32 %445, 1
+  store i32 %446, ptr %21, align 4
+  br label %430, !llvm.loop !15
+
+447:                                              ; preds = %434
+  %448 = load i32, ptr %11, align 4
+  %449 = add i32 %448, 1
+  store i32 %449, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #4
   store i32 0, ptr %22, align 4
-  br label %445
+  br label %450
 
-445:                                              ; preds = %458, %442
-  %446 = load i32, ptr %22, align 4
-  %447 = zext i32 %446 to i64
-  %448 = icmp ult i64 %447, 9
-  br i1 %448, label %449, label %461
-
-449:                                              ; preds = %445
-  %450 = load ptr, ptr %10, align 8
+450:                                              ; preds = %464, %447
   %451 = load i32, ptr %22, align 4
   %452 = zext i32 %451 to i64
-  %453 = getelementptr [9 x i32], ptr @hf_param_feature_page0_byte5, i64 0, i64 %452
-  %454 = load i32, ptr %453, align 4
-  %455 = load ptr, ptr %5, align 8
-  %456 = load i32, ptr %11, align 4
-  %457 = call ptr @proto_tree_add_item(ptr noundef %450, i32 noundef %454, ptr noundef %455, i32 noundef %456, i32 noundef 1, i32 noundef -2147483648)
-  br label %458
+  %453 = icmp ult i64 %452, 9
+  br i1 %453, label %455, label %454
 
-458:                                              ; preds = %449
-  %459 = load i32, ptr %22, align 4
-  %460 = add i32 %459, 1
-  store i32 %460, ptr %22, align 4
-  br label %445, !llvm.loop !14
+454:                                              ; preds = %450
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #4
+  br label %467
 
-461:                                              ; preds = %445
+455:                                              ; preds = %450
+  %456 = load ptr, ptr %10, align 8
+  %457 = load i32, ptr %22, align 4
+  %458 = zext i32 %457 to i64
+  %459 = getelementptr [9 x i32], ptr @hf_param_feature_page0_byte5, i64 0, i64 %458
+  %460 = load i32, ptr %459, align 4
+  %461 = load ptr, ptr %5, align 8
   %462 = load i32, ptr %11, align 4
-  %463 = add i32 %462, 1
-  store i32 %463, ptr %11, align 4
-  store i32 0, ptr %23, align 4
+  %463 = call ptr @proto_tree_add_item(ptr noundef %456, i32 noundef %460, ptr noundef %461, i32 noundef %462, i32 noundef 1, i32 noundef -2147483648)
   br label %464
 
-464:                                              ; preds = %477, %461
-  %465 = load i32, ptr %23, align 4
-  %466 = zext i32 %465 to i64
-  %467 = icmp ult i64 %466, 9
-  br i1 %467, label %468, label %480
+464:                                              ; preds = %455
+  %465 = load i32, ptr %22, align 4
+  %466 = add i32 %465, 1
+  store i32 %466, ptr %22, align 4
+  br label %450, !llvm.loop !16
 
-468:                                              ; preds = %464
-  %469 = load ptr, ptr %10, align 8
-  %470 = load i32, ptr %23, align 4
-  %471 = zext i32 %470 to i64
-  %472 = getelementptr [9 x i32], ptr @hf_param_feature_page0_byte6, i64 0, i64 %471
-  %473 = load i32, ptr %472, align 4
-  %474 = load ptr, ptr %5, align 8
-  %475 = load i32, ptr %11, align 4
-  %476 = call ptr @proto_tree_add_item(ptr noundef %469, i32 noundef %473, ptr noundef %474, i32 noundef %475, i32 noundef 1, i32 noundef -2147483648)
-  br label %477
+467:                                              ; preds = %454
+  %468 = load i32, ptr %11, align 4
+  %469 = add i32 %468, 1
+  store i32 %469, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #4
+  store i32 0, ptr %23, align 4
+  br label %470
 
-477:                                              ; preds = %468
-  %478 = load i32, ptr %23, align 4
-  %479 = add i32 %478, 1
-  store i32 %479, ptr %23, align 4
-  br label %464, !llvm.loop !15
+470:                                              ; preds = %484, %467
+  %471 = load i32, ptr %23, align 4
+  %472 = zext i32 %471 to i64
+  %473 = icmp ult i64 %472, 9
+  br i1 %473, label %475, label %474
 
-480:                                              ; preds = %464
-  %481 = load i32, ptr %11, align 4
-  %482 = add i32 %481, 1
-  store i32 %482, ptr %11, align 4
+474:                                              ; preds = %470
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #4
+  br label %487
+
+475:                                              ; preds = %470
+  %476 = load ptr, ptr %10, align 8
+  %477 = load i32, ptr %23, align 4
+  %478 = zext i32 %477 to i64
+  %479 = getelementptr [9 x i32], ptr @hf_param_feature_page0_byte6, i64 0, i64 %478
+  %480 = load i32, ptr %479, align 4
+  %481 = load ptr, ptr %5, align 8
+  %482 = load i32, ptr %11, align 4
+  %483 = call ptr @proto_tree_add_item(ptr noundef %476, i32 noundef %480, ptr noundef %481, i32 noundef %482, i32 noundef 1, i32 noundef -2147483648)
+  br label %484
+
+484:                                              ; preds = %475
+  %485 = load i32, ptr %23, align 4
+  %486 = add i32 %485, 1
+  store i32 %486, ptr %23, align 4
+  br label %470, !llvm.loop !17
+
+487:                                              ; preds = %474
+  %488 = load i32, ptr %11, align 4
+  %489 = add i32 %488, 1
+  store i32 %489, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #4
   store i32 0, ptr %24, align 4
-  br label %483
+  br label %490
 
-483:                                              ; preds = %496, %480
-  %484 = load i32, ptr %24, align 4
-  %485 = zext i32 %484 to i64
-  %486 = icmp ult i64 %485, 6
-  br i1 %486, label %487, label %499
+490:                                              ; preds = %504, %487
+  %491 = load i32, ptr %24, align 4
+  %492 = zext i32 %491 to i64
+  %493 = icmp ult i64 %492, 6
+  br i1 %493, label %495, label %494
 
-487:                                              ; preds = %483
-  %488 = load ptr, ptr %10, align 8
-  %489 = load i32, ptr %24, align 4
-  %490 = zext i32 %489 to i64
-  %491 = getelementptr [6 x i32], ptr @hf_param_feature_page0_byte7, i64 0, i64 %490
-  %492 = load i32, ptr %491, align 4
-  %493 = load ptr, ptr %5, align 8
-  %494 = load i32, ptr %11, align 4
-  %495 = call ptr @proto_tree_add_item(ptr noundef %488, i32 noundef %492, ptr noundef %493, i32 noundef %494, i32 noundef 1, i32 noundef -2147483648)
-  br label %496
+494:                                              ; preds = %490
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #4
+  br label %507
 
-496:                                              ; preds = %487
+495:                                              ; preds = %490
+  %496 = load ptr, ptr %10, align 8
   %497 = load i32, ptr %24, align 4
-  %498 = add i32 %497, 1
-  store i32 %498, ptr %24, align 4
-  br label %483, !llvm.loop !16
+  %498 = zext i32 %497 to i64
+  %499 = getelementptr [6 x i32], ptr @hf_param_feature_page0_byte7, i64 0, i64 %498
+  %500 = load i32, ptr %499, align 4
+  %501 = load ptr, ptr %5, align 8
+  %502 = load i32, ptr %11, align 4
+  %503 = call ptr @proto_tree_add_item(ptr noundef %496, i32 noundef %500, ptr noundef %501, i32 noundef %502, i32 noundef 1, i32 noundef -2147483648)
+  br label %504
 
-499:                                              ; preds = %483
-  %500 = load i32, ptr %11, align 4
-  %501 = add i32 %500, 1
-  store i32 %501, ptr %11, align 4
-  br label %1536
+504:                                              ; preds = %495
+  %505 = load i32, ptr %24, align 4
+  %506 = add i32 %505, 1
+  store i32 %506, ptr %24, align 4
+  br label %490, !llvm.loop !18
 
-502:                                              ; preds = %112, %112
-  %503 = load ptr, ptr %10, align 8
-  %504 = load i32, ptr @hf_param_pollinterval, align 4
-  %505 = load ptr, ptr %5, align 8
-  %506 = load i32, ptr %11, align 4
-  %507 = call ptr @proto_tree_add_item(ptr noundef %503, i32 noundef %504, ptr noundef %505, i32 noundef %506, i32 noundef 2, i32 noundef -2147483648)
+507:                                              ; preds = %494
   %508 = load i32, ptr %11, align 4
-  %509 = add i32 %508, 2
+  %509 = add i32 %508, 1
   store i32 %509, ptr %11, align 4
-  %510 = load ptr, ptr %10, align 8
-  %511 = load i32, ptr @hf_param_nbc, align 4
-  %512 = load ptr, ptr %5, align 8
-  %513 = load i32, ptr %11, align 4
-  %514 = call ptr @proto_tree_add_item(ptr noundef %510, i32 noundef %511, ptr noundef %512, i32 noundef %513, i32 noundef 1, i32 noundef -2147483648)
-  %515 = load i32, ptr %11, align 4
-  %516 = add i32 %515, 1
-  store i32 %516, ptr %11, align 4
-  br label %1536
+  br label %1559
 
-517:                                              ; preds = %112
+510:                                              ; preds = %114, %114
+  %511 = load ptr, ptr %10, align 8
+  %512 = load i32, ptr @hf_param_pollinterval, align 4
+  %513 = load ptr, ptr %5, align 8
+  %514 = load i32, ptr %11, align 4
+  %515 = call ptr @proto_tree_add_item(ptr noundef %511, i32 noundef %512, ptr noundef %513, i32 noundef %514, i32 noundef 2, i32 noundef -2147483648)
+  %516 = load i32, ptr %11, align 4
+  %517 = add i32 %516, 2
+  store i32 %517, ptr %11, align 4
   %518 = load ptr, ptr %10, align 8
-  %519 = load i32, ptr @hf_param_scohandle, align 4
+  %519 = load i32, ptr @hf_param_nbc, align 4
   %520 = load ptr, ptr %5, align 8
   %521 = load i32, ptr %11, align 4
   %522 = call ptr @proto_tree_add_item(ptr noundef %518, i32 noundef %519, ptr noundef %520, i32 noundef %521, i32 noundef 1, i32 noundef -2147483648)
   %523 = load i32, ptr %11, align 4
   %524 = add i32 %523, 1
   store i32 %524, ptr %11, align 4
+  br label %1559
+
+525:                                              ; preds = %114
+  %526 = load ptr, ptr %10, align 8
+  %527 = load i32, ptr @hf_param_scohandle, align 4
+  %528 = load ptr, ptr %5, align 8
+  %529 = load i32, ptr %11, align 4
+  %530 = call ptr @proto_tree_add_item(ptr noundef %526, i32 noundef %527, ptr noundef %528, i32 noundef %529, i32 noundef 1, i32 noundef -2147483648)
+  %531 = load i32, ptr %11, align 4
+  %532 = add i32 %531, 1
+  store i32 %532, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %25) #4
   store i32 0, ptr %25, align 4
-  br label %525
+  br label %533
 
-525:                                              ; preds = %538, %517
-  %526 = load i32, ptr %25, align 4
-  %527 = zext i32 %526 to i64
-  %528 = icmp ult i64 %527, 5
-  br i1 %528, label %529, label %541
+533:                                              ; preds = %547, %525
+  %534 = load i32, ptr %25, align 4
+  %535 = zext i32 %534 to i64
+  %536 = icmp ult i64 %535, 5
+  br i1 %536, label %538, label %537
 
-529:                                              ; preds = %525
-  %530 = load ptr, ptr %10, align 8
-  %531 = load i32, ptr %25, align 4
-  %532 = zext i32 %531 to i64
-  %533 = getelementptr [5 x i32], ptr @hf_param_timingcontrolflags, i64 0, i64 %532
-  %534 = load i32, ptr %533, align 4
-  %535 = load ptr, ptr %5, align 8
-  %536 = load i32, ptr %11, align 4
-  %537 = call ptr @proto_tree_add_item(ptr noundef %530, i32 noundef %534, ptr noundef %535, i32 noundef %536, i32 noundef 1, i32 noundef -2147483648)
-  br label %538
+537:                                              ; preds = %533
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #4
+  br label %550
 
-538:                                              ; preds = %529
-  %539 = load i32, ptr %25, align 4
-  %540 = add i32 %539, 1
-  store i32 %540, ptr %25, align 4
-  br label %525, !llvm.loop !17
+538:                                              ; preds = %533
+  %539 = load ptr, ptr %10, align 8
+  %540 = load i32, ptr %25, align 4
+  %541 = zext i32 %540 to i64
+  %542 = getelementptr [5 x i32], ptr @hf_param_timingcontrolflags, i64 0, i64 %541
+  %543 = load i32, ptr %542, align 4
+  %544 = load ptr, ptr %5, align 8
+  %545 = load i32, ptr %11, align 4
+  %546 = call ptr @proto_tree_add_item(ptr noundef %539, i32 noundef %543, ptr noundef %544, i32 noundef %545, i32 noundef 1, i32 noundef -2147483648)
+  br label %547
 
-541:                                              ; preds = %525
-  %542 = load i32, ptr %11, align 4
-  %543 = add i32 %542, 1
-  store i32 %543, ptr %11, align 4
-  %544 = load ptr, ptr %10, align 8
-  %545 = load i32, ptr @hf_param_dsco, align 4
-  %546 = load ptr, ptr %5, align 8
-  %547 = load i32, ptr %11, align 4
-  %548 = call ptr @proto_tree_add_item(ptr noundef %544, i32 noundef %545, ptr noundef %546, i32 noundef %547, i32 noundef 1, i32 noundef -2147483648)
-  %549 = load i32, ptr %11, align 4
-  %550 = add i32 %549, 1
-  store i32 %550, ptr %11, align 4
-  %551 = load ptr, ptr %10, align 8
-  %552 = load i32, ptr @hf_param_tsco, align 4
-  %553 = load ptr, ptr %5, align 8
-  %554 = load i32, ptr %11, align 4
-  %555 = call ptr @proto_tree_add_item(ptr noundef %551, i32 noundef %552, ptr noundef %553, i32 noundef %554, i32 noundef 1, i32 noundef -2147483648)
+547:                                              ; preds = %538
+  %548 = load i32, ptr %25, align 4
+  %549 = add i32 %548, 1
+  store i32 %549, ptr %25, align 4
+  br label %533, !llvm.loop !19
+
+550:                                              ; preds = %537
+  %551 = load i32, ptr %11, align 4
+  %552 = add i32 %551, 1
+  store i32 %552, ptr %11, align 4
+  %553 = load ptr, ptr %10, align 8
+  %554 = load i32, ptr @hf_param_dsco, align 4
+  %555 = load ptr, ptr %5, align 8
   %556 = load i32, ptr %11, align 4
-  %557 = add i32 %556, 1
-  store i32 %557, ptr %11, align 4
-  %558 = load ptr, ptr %10, align 8
-  %559 = load i32, ptr @hf_param_scopacket, align 4
-  %560 = load ptr, ptr %5, align 8
-  %561 = load i32, ptr %11, align 4
-  %562 = call ptr @proto_tree_add_item(ptr noundef %558, i32 noundef %559, ptr noundef %560, i32 noundef %561, i32 noundef 1, i32 noundef -2147483648)
+  %557 = call ptr @proto_tree_add_item(ptr noundef %553, i32 noundef %554, ptr noundef %555, i32 noundef %556, i32 noundef 1, i32 noundef -2147483648)
+  %558 = load i32, ptr %11, align 4
+  %559 = add i32 %558, 1
+  store i32 %559, ptr %11, align 4
+  %560 = load ptr, ptr %10, align 8
+  %561 = load i32, ptr @hf_param_tsco, align 4
+  %562 = load ptr, ptr %5, align 8
   %563 = load i32, ptr %11, align 4
-  %564 = add i32 %563, 1
-  store i32 %564, ptr %11, align 4
-  %565 = load ptr, ptr %10, align 8
-  %566 = load i32, ptr @hf_param_airmode, align 4
-  %567 = load ptr, ptr %5, align 8
-  %568 = load i32, ptr %11, align 4
-  %569 = call ptr @proto_tree_add_item(ptr noundef %565, i32 noundef %566, ptr noundef %567, i32 noundef %568, i32 noundef 1, i32 noundef -2147483648)
+  %564 = call ptr @proto_tree_add_item(ptr noundef %560, i32 noundef %561, ptr noundef %562, i32 noundef %563, i32 noundef 1, i32 noundef -2147483648)
+  %565 = load i32, ptr %11, align 4
+  %566 = add i32 %565, 1
+  store i32 %566, ptr %11, align 4
+  %567 = load ptr, ptr %10, align 8
+  %568 = load i32, ptr @hf_param_scopacket, align 4
+  %569 = load ptr, ptr %5, align 8
   %570 = load i32, ptr %11, align 4
-  %571 = add i32 %570, 1
-  store i32 %571, ptr %11, align 4
-  br label %1536
+  %571 = call ptr @proto_tree_add_item(ptr noundef %567, i32 noundef %568, ptr noundef %569, i32 noundef %570, i32 noundef 1, i32 noundef -2147483648)
+  %572 = load i32, ptr %11, align 4
+  %573 = add i32 %572, 1
+  store i32 %573, ptr %11, align 4
+  %574 = load ptr, ptr %10, align 8
+  %575 = load i32, ptr @hf_param_airmode, align 4
+  %576 = load ptr, ptr %5, align 8
+  %577 = load i32, ptr %11, align 4
+  %578 = call ptr @proto_tree_add_item(ptr noundef %574, i32 noundef %575, ptr noundef %576, i32 noundef %577, i32 noundef 1, i32 noundef -2147483648)
+  %579 = load i32, ptr %11, align 4
+  %580 = add i32 %579, 1
+  store i32 %580, ptr %11, align 4
+  br label %1559
 
-572:                                              ; preds = %112
-  %573 = load ptr, ptr %10, align 8
-  %574 = load i32, ptr @hf_param_scohandle, align 4
-  %575 = load ptr, ptr %5, align 8
-  %576 = load i32, ptr %11, align 4
-  %577 = call ptr @proto_tree_add_item(ptr noundef %573, i32 noundef %574, ptr noundef %575, i32 noundef %576, i32 noundef 1, i32 noundef -2147483648)
-  %578 = load i32, ptr %11, align 4
-  %579 = add i32 %578, 1
-  store i32 %579, ptr %11, align 4
-  %580 = load ptr, ptr %10, align 8
-  %581 = load i32, ptr @hf_errorcode, align 4
-  %582 = load ptr, ptr %5, align 8
-  %583 = load i32, ptr %11, align 4
-  %584 = call ptr @proto_tree_add_item(ptr noundef %580, i32 noundef %581, ptr noundef %582, i32 noundef %583, i32 noundef 1, i32 noundef -2147483648)
+581:                                              ; preds = %114
+  %582 = load ptr, ptr %10, align 8
+  %583 = load i32, ptr @hf_param_scohandle, align 4
+  %584 = load ptr, ptr %5, align 8
   %585 = load i32, ptr %11, align 4
-  %586 = add i32 %585, 1
-  store i32 %586, ptr %11, align 4
-  br label %1536
+  %586 = call ptr @proto_tree_add_item(ptr noundef %582, i32 noundef %583, ptr noundef %584, i32 noundef %585, i32 noundef 1, i32 noundef -2147483648)
+  %587 = load i32, ptr %11, align 4
+  %588 = add i32 %587, 1
+  store i32 %588, ptr %11, align 4
+  %589 = load ptr, ptr %10, align 8
+  %590 = load i32, ptr @hf_errorcode, align 4
+  %591 = load ptr, ptr %5, align 8
+  %592 = load i32, ptr %11, align 4
+  %593 = call ptr @proto_tree_add_item(ptr noundef %589, i32 noundef %590, ptr noundef %591, i32 noundef %592, i32 noundef 1, i32 noundef -2147483648)
+  %594 = load i32, ptr %11, align 4
+  %595 = add i32 %594, 1
+  store i32 %595, ptr %11, align 4
+  br label %1559
 
-587:                                              ; preds = %112, %112
-  %588 = load ptr, ptr %10, align 8
-  %589 = load i32, ptr @hf_param_slots, align 4
-  %590 = load ptr, ptr %5, align 8
-  %591 = load i32, ptr %11, align 4
-  %592 = call ptr @proto_tree_add_item(ptr noundef %588, i32 noundef %589, ptr noundef %590, i32 noundef %591, i32 noundef 1, i32 noundef -2147483648)
-  %593 = load i32, ptr %11, align 4
-  %594 = add i32 %593, 1
-  store i32 %594, ptr %11, align 4
-  br label %1536
-
-595:                                              ; preds = %112
-  br label %1536
-
-596:                                              ; preds = %112
+596:                                              ; preds = %114, %114
   %597 = load ptr, ptr %10, align 8
-  %598 = load i32, ptr @hf_param_tmgacc_drift, align 4
+  %598 = load i32, ptr @hf_param_slots, align 4
   %599 = load ptr, ptr %5, align 8
   %600 = load i32, ptr %11, align 4
   %601 = call ptr @proto_tree_add_item(ptr noundef %597, i32 noundef %598, ptr noundef %599, i32 noundef %600, i32 noundef 1, i32 noundef -2147483648)
   %602 = load i32, ptr %11, align 4
   %603 = add i32 %602, 1
   store i32 %603, ptr %11, align 4
-  %604 = load ptr, ptr %10, align 8
-  %605 = load i32, ptr @hf_param_tmgacc_jitter, align 4
-  %606 = load ptr, ptr %5, align 8
-  %607 = load i32, ptr %11, align 4
-  %608 = call ptr @proto_tree_add_item(ptr noundef %604, i32 noundef %605, ptr noundef %606, i32 noundef %607, i32 noundef 1, i32 noundef -2147483648)
-  %609 = load i32, ptr %11, align 4
-  %610 = add i32 %609, 1
-  store i32 %610, ptr %11, align 4
-  br label %1536
+  br label %1559
 
-611:                                              ; preds = %112, %112, %112
-  br label %1536
+604:                                              ; preds = %114
+  %605 = load ptr, ptr %10, align 8
+  %606 = load i32, ptr @hf_param_tmgacc_drift, align 4
+  %607 = load ptr, ptr %5, align 8
+  %608 = load i32, ptr %11, align 4
+  %609 = call ptr @proto_tree_add_item(ptr noundef %605, i32 noundef %606, ptr noundef %607, i32 noundef %608, i32 noundef 1, i32 noundef -2147483648)
+  %610 = load i32, ptr %11, align 4
+  %611 = add i32 %610, 1
+  store i32 %611, ptr %11, align 4
+  %612 = load ptr, ptr %10, align 8
+  %613 = load i32, ptr @hf_param_tmgacc_jitter, align 4
+  %614 = load ptr, ptr %5, align 8
+  %615 = load i32, ptr %11, align 4
+  %616 = call ptr @proto_tree_add_item(ptr noundef %612, i32 noundef %613, ptr noundef %614, i32 noundef %615, i32 noundef 1, i32 noundef -2147483648)
+  %617 = load i32, ptr %11, align 4
+  %618 = add i32 %617, 1
+  store i32 %618, ptr %11, align 4
+  br label %1559
 
-612:                                              ; preds = %112
-  %613 = load ptr, ptr %10, align 8
-  %614 = load i32, ptr @hf_param_slotoffset, align 4
-  %615 = load ptr, ptr %5, align 8
-  %616 = load i32, ptr %11, align 4
-  %617 = call ptr @proto_tree_add_item(ptr noundef %613, i32 noundef %614, ptr noundef %615, i32 noundef %616, i32 noundef 2, i32 noundef -2147483648)
-  %618 = load i32, ptr %11, align 4
-  %619 = add i32 %618, 2
-  store i32 %619, ptr %11, align 4
-  %620 = load ptr, ptr %10, align 8
-  %621 = load i32, ptr @hf_param_bdaddr, align 4
-  %622 = load ptr, ptr %5, align 8
-  %623 = load i32, ptr %11, align 4
-  %624 = call ptr @proto_tree_add_item(ptr noundef %620, i32 noundef %621, ptr noundef %622, i32 noundef %623, i32 noundef 6, i32 noundef 0)
-  %625 = load i32, ptr %11, align 4
-  %626 = add i32 %625, 6
-  store i32 %626, ptr %11, align 4
-  br label %1536
+619:                                              ; preds = %114, %114, %114
+  br label %1559
 
-627:                                              ; preds = %112, %112
+620:                                              ; preds = %114
+  %621 = load ptr, ptr %10, align 8
+  %622 = load i32, ptr @hf_param_slotoffset, align 4
+  %623 = load ptr, ptr %5, align 8
+  %624 = load i32, ptr %11, align 4
+  %625 = call ptr @proto_tree_add_item(ptr noundef %621, i32 noundef %622, ptr noundef %623, i32 noundef %624, i32 noundef 2, i32 noundef -2147483648)
+  %626 = load i32, ptr %11, align 4
+  %627 = add i32 %626, 2
+  store i32 %627, ptr %11, align 4
   %628 = load ptr, ptr %10, align 8
-  %629 = load i32, ptr @hf_param_pagingscheme, align 4
+  %629 = load i32, ptr @hf_param_bdaddr, align 4
   %630 = load ptr, ptr %5, align 8
   %631 = load i32, ptr %11, align 4
-  %632 = call ptr @proto_tree_add_item(ptr noundef %628, i32 noundef %629, ptr noundef %630, i32 noundef %631, i32 noundef 1, i32 noundef -2147483648)
+  %632 = call ptr @proto_tree_add_item(ptr noundef %628, i32 noundef %629, ptr noundef %630, i32 noundef %631, i32 noundef 6, i32 noundef 0)
   %633 = load i32, ptr %11, align 4
-  %634 = add i32 %633, 1
+  %634 = add i32 %633, 6
   store i32 %634, ptr %11, align 4
-  %635 = load ptr, ptr %10, align 8
-  %636 = load i32, ptr @hf_param_pagingschemesettings, align 4
-  %637 = load ptr, ptr %5, align 8
-  %638 = load i32, ptr %11, align 4
-  %639 = call ptr @proto_tree_add_item(ptr noundef %635, i32 noundef %636, ptr noundef %637, i32 noundef %638, i32 noundef 1, i32 noundef -2147483648)
-  %640 = load i32, ptr %11, align 4
-  %641 = add i32 %640, 1
-  store i32 %641, ptr %11, align 4
-  br label %1536
+  br label %1559
 
-642:                                              ; preds = %112
+635:                                              ; preds = %114, %114
+  %636 = load ptr, ptr %10, align 8
+  %637 = load i32, ptr @hf_param_pagingscheme, align 4
+  %638 = load ptr, ptr %5, align 8
+  %639 = load i32, ptr %11, align 4
+  %640 = call ptr @proto_tree_add_item(ptr noundef %636, i32 noundef %637, ptr noundef %638, i32 noundef %639, i32 noundef 1, i32 noundef -2147483648)
+  %641 = load i32, ptr %11, align 4
+  %642 = add i32 %641, 1
+  store i32 %642, ptr %11, align 4
   %643 = load ptr, ptr %10, align 8
-  %644 = load i32, ptr @hf_param_supervisiontimeout, align 4
+  %644 = load i32, ptr @hf_param_pagingschemesettings, align 4
   %645 = load ptr, ptr %5, align 8
   %646 = load i32, ptr %11, align 4
-  %647 = call ptr @proto_tree_add_item(ptr noundef %643, i32 noundef %644, ptr noundef %645, i32 noundef %646, i32 noundef 2, i32 noundef -2147483648)
+  %647 = call ptr @proto_tree_add_item(ptr noundef %643, i32 noundef %644, ptr noundef %645, i32 noundef %646, i32 noundef 1, i32 noundef -2147483648)
   %648 = load i32, ptr %11, align 4
-  %649 = add i32 %648, 2
+  %649 = add i32 %648, 1
   store i32 %649, ptr %11, align 4
-  br label %1536
+  br label %1559
 
-650:                                              ; preds = %112
-  br label %1536
+650:                                              ; preds = %114
+  %651 = load ptr, ptr %10, align 8
+  %652 = load i32, ptr @hf_param_supervisiontimeout, align 4
+  %653 = load ptr, ptr %5, align 8
+  %654 = load i32, ptr %11, align 4
+  %655 = call ptr @proto_tree_add_item(ptr noundef %651, i32 noundef %652, ptr noundef %653, i32 noundef %654, i32 noundef 2, i32 noundef -2147483648)
+  %656 = load i32, ptr %11, align 4
+  %657 = add i32 %656, 2
+  store i32 %657, ptr %11, align 4
+  br label %1559
 
-651:                                              ; preds = %112
-  %652 = load ptr, ptr %10, align 8
-  %653 = load i32, ptr @hf_param_testscenario, align 4
-  %654 = load ptr, ptr %5, align 8
-  %655 = load i32, ptr %11, align 4
-  %656 = call ptr @proto_tree_add_item(ptr noundef %652, i32 noundef %653, ptr noundef %654, i32 noundef %655, i32 noundef 1, i32 noundef -2147483648)
-  %657 = load i32, ptr %11, align 4
-  %658 = add i32 %657, 1
-  store i32 %658, ptr %11, align 4
+658:                                              ; preds = %114
   %659 = load ptr, ptr %10, align 8
-  %660 = load i32, ptr @hf_param_testhoppingmode, align 4
+  %660 = load i32, ptr @hf_param_testscenario, align 4
   %661 = load ptr, ptr %5, align 8
   %662 = load i32, ptr %11, align 4
   %663 = call ptr @proto_tree_add_item(ptr noundef %659, i32 noundef %660, ptr noundef %661, i32 noundef %662, i32 noundef 1, i32 noundef -2147483648)
@@ -2014,7 +2061,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %665 = add i32 %664, 1
   store i32 %665, ptr %11, align 4
   %666 = load ptr, ptr %10, align 8
-  %667 = load i32, ptr @hf_param_testtxfrequency, align 4
+  %667 = load i32, ptr @hf_param_testhoppingmode, align 4
   %668 = load ptr, ptr %5, align 8
   %669 = load i32, ptr %11, align 4
   %670 = call ptr @proto_tree_add_item(ptr noundef %666, i32 noundef %667, ptr noundef %668, i32 noundef %669, i32 noundef 1, i32 noundef -2147483648)
@@ -2022,7 +2069,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %672 = add i32 %671, 1
   store i32 %672, ptr %11, align 4
   %673 = load ptr, ptr %10, align 8
-  %674 = load i32, ptr @hf_param_testrxfrequency, align 4
+  %674 = load i32, ptr @hf_param_testtxfrequency, align 4
   %675 = load ptr, ptr %5, align 8
   %676 = load i32, ptr %11, align 4
   %677 = call ptr @proto_tree_add_item(ptr noundef %673, i32 noundef %674, ptr noundef %675, i32 noundef %676, i32 noundef 1, i32 noundef -2147483648)
@@ -2030,7 +2077,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %679 = add i32 %678, 1
   store i32 %679, ptr %11, align 4
   %680 = load ptr, ptr %10, align 8
-  %681 = load i32, ptr @hf_param_testpowercontrolmode, align 4
+  %681 = load i32, ptr @hf_param_testrxfrequency, align 4
   %682 = load ptr, ptr %5, align 8
   %683 = load i32, ptr %11, align 4
   %684 = call ptr @proto_tree_add_item(ptr noundef %680, i32 noundef %681, ptr noundef %682, i32 noundef %683, i32 noundef 1, i32 noundef -2147483648)
@@ -2038,7 +2085,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %686 = add i32 %685, 1
   store i32 %686, ptr %11, align 4
   %687 = load ptr, ptr %10, align 8
-  %688 = load i32, ptr @hf_param_testpollperiod, align 4
+  %688 = load i32, ptr @hf_param_testpowercontrolmode, align 4
   %689 = load ptr, ptr %5, align 8
   %690 = load i32, ptr %11, align 4
   %691 = call ptr @proto_tree_add_item(ptr noundef %687, i32 noundef %688, ptr noundef %689, i32 noundef %690, i32 noundef 1, i32 noundef -2147483648)
@@ -2046,7 +2093,7 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %693 = add i32 %692, 1
   store i32 %693, ptr %11, align 4
   %694 = load ptr, ptr %10, align 8
-  %695 = load i32, ptr @hf_param_testpackettype, align 4
+  %695 = load i32, ptr @hf_param_testpollperiod, align 4
   %696 = load ptr, ptr %5, align 8
   %697 = load i32, ptr %11, align 4
   %698 = call ptr @proto_tree_add_item(ptr noundef %694, i32 noundef %695, ptr noundef %696, i32 noundef %697, i32 noundef 1, i32 noundef -2147483648)
@@ -2054,89 +2101,91 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %700 = add i32 %699, 1
   store i32 %700, ptr %11, align 4
   %701 = load ptr, ptr %10, align 8
-  %702 = load i32, ptr @hf_param_testdatalength, align 4
+  %702 = load i32, ptr @hf_param_testpackettype, align 4
   %703 = load ptr, ptr %5, align 8
   %704 = load i32, ptr %11, align 4
   %705 = call ptr @proto_tree_add_item(ptr noundef %701, i32 noundef %702, ptr noundef %703, i32 noundef %704, i32 noundef 1, i32 noundef -2147483648)
   %706 = load i32, ptr %11, align 4
   %707 = add i32 %706, 1
   store i32 %707, ptr %11, align 4
-  br label %1536
-
-708:                                              ; preds = %112
-  br label %1536
-
-709:                                              ; preds = %112
-  %710 = load ptr, ptr %10, align 8
-  %711 = load i32, ptr @hf_param_keysizemask, align 4
-  %712 = load ptr, ptr %5, align 8
+  %708 = load ptr, ptr %10, align 8
+  %709 = load i32, ptr @hf_param_testdatalength, align 4
+  %710 = load ptr, ptr %5, align 8
+  %711 = load i32, ptr %11, align 4
+  %712 = call ptr @proto_tree_add_item(ptr noundef %708, i32 noundef %709, ptr noundef %710, i32 noundef %711, i32 noundef 1, i32 noundef -2147483648)
   %713 = load i32, ptr %11, align 4
-  %714 = call ptr @proto_tree_add_item(ptr noundef %710, i32 noundef %711, ptr noundef %712, i32 noundef %713, i32 noundef 2, i32 noundef -2147483648)
-  %715 = load i32, ptr %11, align 4
-  %716 = add i32 %715, 2
-  store i32 %716, ptr %11, align 4
-  br label %1536
+  %714 = add i32 %713, 1
+  store i32 %714, ptr %11, align 4
+  br label %1559
 
-717:                                              ; preds = %112
-  %718 = load ptr, ptr %10, align 8
-  %719 = load i32, ptr @hf_param_afh_instant, align 4
-  %720 = load ptr, ptr %5, align 8
+715:                                              ; preds = %114
+  %716 = load ptr, ptr %10, align 8
+  %717 = load i32, ptr @hf_param_keysizemask, align 4
+  %718 = load ptr, ptr %5, align 8
+  %719 = load i32, ptr %11, align 4
+  %720 = call ptr @proto_tree_add_item(ptr noundef %716, i32 noundef %717, ptr noundef %718, i32 noundef %719, i32 noundef 2, i32 noundef -2147483648)
   %721 = load i32, ptr %11, align 4
-  %722 = call ptr @proto_tree_add_item(ptr noundef %718, i32 noundef %719, ptr noundef %720, i32 noundef %721, i32 noundef 4, i32 noundef -2147483648)
-  %723 = load i32, ptr %11, align 4
-  %724 = add i32 %723, 4
-  store i32 %724, ptr %11, align 4
-  %725 = load ptr, ptr %10, align 8
-  %726 = load i32, ptr @hf_param_afh_mode, align 4
-  %727 = load ptr, ptr %5, align 8
-  %728 = load i32, ptr %11, align 4
-  %729 = call ptr @proto_tree_add_item(ptr noundef %725, i32 noundef %726, ptr noundef %727, i32 noundef %728, i32 noundef 1, i32 noundef -2147483648)
-  %730 = load i32, ptr %11, align 4
-  %731 = add i32 %730, 1
-  store i32 %731, ptr %11, align 4
+  %722 = add i32 %721, 2
+  store i32 %722, ptr %11, align 4
+  br label %1559
+
+723:                                              ; preds = %114
+  %724 = load ptr, ptr %10, align 8
+  %725 = load i32, ptr @hf_param_afh_instant, align 4
+  %726 = load ptr, ptr %5, align 8
+  %727 = load i32, ptr %11, align 4
+  %728 = call ptr @proto_tree_add_item(ptr noundef %724, i32 noundef %725, ptr noundef %726, i32 noundef %727, i32 noundef 4, i32 noundef -2147483648)
+  %729 = load i32, ptr %11, align 4
+  %730 = add i32 %729, 4
+  store i32 %730, ptr %11, align 4
+  %731 = load ptr, ptr %10, align 8
+  %732 = load i32, ptr @hf_param_afh_mode, align 4
+  %733 = load ptr, ptr %5, align 8
+  %734 = load i32, ptr %11, align 4
+  %735 = call ptr @proto_tree_add_item(ptr noundef %731, i32 noundef %732, ptr noundef %733, i32 noundef %734, i32 noundef 1, i32 noundef -2147483648)
+  %736 = load i32, ptr %11, align 4
+  %737 = add i32 %736, 1
+  store i32 %737, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %26) #4
   store i32 0, ptr %26, align 4
-  br label %732
+  br label %738
 
-732:                                              ; preds = %745, %717
-  %733 = load i32, ptr %26, align 4
-  %734 = zext i32 %733 to i64
-  %735 = icmp ult i64 %734, 10
-  br i1 %735, label %736, label %750
+738:                                              ; preds = %752, %723
+  %739 = load i32, ptr %26, align 4
+  %740 = zext i32 %739 to i64
+  %741 = icmp ult i64 %740, 10
+  br i1 %741, label %743, label %742
 
-736:                                              ; preds = %732
-  %737 = load ptr, ptr %10, align 8
-  %738 = load i32, ptr %26, align 4
-  %739 = zext i32 %738 to i64
-  %740 = getelementptr [10 x i32], ptr @hf_param_afh_channelmap, i64 0, i64 %739
-  %741 = load i32, ptr %740, align 4
-  %742 = load ptr, ptr %5, align 8
-  %743 = load i32, ptr %11, align 4
-  %744 = call ptr @proto_tree_add_item(ptr noundef %737, i32 noundef %741, ptr noundef %742, i32 noundef %743, i32 noundef 1, i32 noundef -2147483648)
-  br label %745
+742:                                              ; preds = %738
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #4
+  br label %757
 
-745:                                              ; preds = %736
-  %746 = load i32, ptr %26, align 4
-  %747 = add i32 %746, 1
-  store i32 %747, ptr %26, align 4
-  %748 = load i32, ptr %11, align 4
-  %749 = add i32 %748, 1
-  store i32 %749, ptr %11, align 4
-  br label %732, !llvm.loop !18
+743:                                              ; preds = %738
+  %744 = load ptr, ptr %10, align 8
+  %745 = load i32, ptr %26, align 4
+  %746 = zext i32 %745 to i64
+  %747 = getelementptr [10 x i32], ptr @hf_param_afh_channelmap, i64 0, i64 %746
+  %748 = load i32, ptr %747, align 4
+  %749 = load ptr, ptr %5, align 8
+  %750 = load i32, ptr %11, align 4
+  %751 = call ptr @proto_tree_add_item(ptr noundef %744, i32 noundef %748, ptr noundef %749, i32 noundef %750, i32 noundef 1, i32 noundef -2147483648)
+  br label %752
 
-750:                                              ; preds = %732
-  br label %1536
-
-751:                                              ; preds = %112
-  %752 = load ptr, ptr %10, align 8
-  %753 = load i32, ptr @hf_param_encapsulatedmajor, align 4
-  %754 = load ptr, ptr %5, align 8
+752:                                              ; preds = %743
+  %753 = load i32, ptr %26, align 4
+  %754 = add i32 %753, 1
+  store i32 %754, ptr %26, align 4
   %755 = load i32, ptr %11, align 4
-  %756 = call ptr @proto_tree_add_item(ptr noundef %752, i32 noundef %753, ptr noundef %754, i32 noundef %755, i32 noundef 1, i32 noundef -2147483648)
-  %757 = load i32, ptr %11, align 4
-  %758 = add i32 %757, 1
-  store i32 %758, ptr %11, align 4
+  %756 = add i32 %755, 1
+  store i32 %756, ptr %11, align 4
+  br label %738, !llvm.loop !20
+
+757:                                              ; preds = %742
+  br label %1559
+
+758:                                              ; preds = %114
   %759 = load ptr, ptr %10, align 8
-  %760 = load i32, ptr @hf_param_encapsulatedminor, align 4
+  %760 = load i32, ptr @hf_param_encapsulatedmajor, align 4
   %761 = load ptr, ptr %5, align 8
   %762 = load i32, ptr %11, align 4
   %763 = call ptr @proto_tree_add_item(ptr noundef %759, i32 noundef %760, ptr noundef %761, i32 noundef %762, i32 noundef 1, i32 noundef -2147483648)
@@ -2144,993 +2193,1052 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %765 = add i32 %764, 1
   store i32 %765, ptr %11, align 4
   %766 = load ptr, ptr %10, align 8
-  %767 = load i32, ptr @hf_param_encapsulatedlength, align 4
+  %767 = load i32, ptr @hf_param_encapsulatedminor, align 4
   %768 = load ptr, ptr %5, align 8
   %769 = load i32, ptr %11, align 4
   %770 = call ptr @proto_tree_add_item(ptr noundef %766, i32 noundef %767, ptr noundef %768, i32 noundef %769, i32 noundef 1, i32 noundef -2147483648)
   %771 = load i32, ptr %11, align 4
   %772 = add i32 %771, 1
   store i32 %772, ptr %11, align 4
-  br label %1536
+  %773 = load ptr, ptr %10, align 8
+  %774 = load i32, ptr @hf_param_encapsulatedlength, align 4
+  %775 = load ptr, ptr %5, align 8
+  %776 = load i32, ptr %11, align 4
+  %777 = call ptr @proto_tree_add_item(ptr noundef %773, i32 noundef %774, ptr noundef %775, i32 noundef %776, i32 noundef 1, i32 noundef -2147483648)
+  %778 = load i32, ptr %11, align 4
+  %779 = add i32 %778, 1
+  store i32 %779, ptr %11, align 4
+  br label %1559
 
-773:                                              ; preds = %112
-  %774 = load ptr, ptr %10, align 8
-  %775 = load i32, ptr @hf_param_encapsulateddata, align 4
-  %776 = load ptr, ptr %5, align 8
-  %777 = load i32, ptr %11, align 4
-  %778 = call ptr @proto_tree_add_item(ptr noundef %774, i32 noundef %775, ptr noundef %776, i32 noundef %777, i32 noundef 16, i32 noundef 0)
-  %779 = load i32, ptr %11, align 4
-  %780 = add i32 %779, 16
-  store i32 %780, ptr %11, align 4
-  br label %1536
+780:                                              ; preds = %114
+  %781 = load ptr, ptr %10, align 8
+  %782 = load i32, ptr @hf_param_encapsulateddata, align 4
+  %783 = load ptr, ptr %5, align 8
+  %784 = load i32, ptr %11, align 4
+  %785 = call ptr @proto_tree_add_item(ptr noundef %781, i32 noundef %782, ptr noundef %783, i32 noundef %784, i32 noundef 16, i32 noundef 0)
+  %786 = load i32, ptr %11, align 4
+  %787 = add i32 %786, 16
+  store i32 %787, ptr %11, align 4
+  br label %1559
 
-781:                                              ; preds = %112
-  %782 = load ptr, ptr %10, align 8
-  %783 = load i32, ptr @hf_param_simplepaircommit, align 4
-  %784 = load ptr, ptr %5, align 8
-  %785 = load i32, ptr %11, align 4
-  %786 = call ptr @proto_tree_add_item(ptr noundef %782, i32 noundef %783, ptr noundef %784, i32 noundef %785, i32 noundef 16, i32 noundef 0)
-  %787 = load i32, ptr %11, align 4
-  %788 = add i32 %787, 16
-  store i32 %788, ptr %11, align 4
-  br label %1536
+788:                                              ; preds = %114
+  %789 = load ptr, ptr %10, align 8
+  %790 = load i32, ptr @hf_param_simplepaircommit, align 4
+  %791 = load ptr, ptr %5, align 8
+  %792 = load i32, ptr %11, align 4
+  %793 = call ptr @proto_tree_add_item(ptr noundef %789, i32 noundef %790, ptr noundef %791, i32 noundef %792, i32 noundef 16, i32 noundef 0)
+  %794 = load i32, ptr %11, align 4
+  %795 = add i32 %794, 16
+  store i32 %795, ptr %11, align 4
+  br label %1559
 
-789:                                              ; preds = %112
-  %790 = load ptr, ptr %10, align 8
-  %791 = load i32, ptr @hf_param_simplepairnonce, align 4
-  %792 = load ptr, ptr %5, align 8
-  %793 = load i32, ptr %11, align 4
-  %794 = call ptr @proto_tree_add_item(ptr noundef %790, i32 noundef %791, ptr noundef %792, i32 noundef %793, i32 noundef 16, i32 noundef 0)
-  %795 = load i32, ptr %11, align 4
-  %796 = add i32 %795, 16
-  store i32 %796, ptr %11, align 4
-  br label %1536
+796:                                              ; preds = %114
+  %797 = load ptr, ptr %10, align 8
+  %798 = load i32, ptr @hf_param_simplepairnonce, align 4
+  %799 = load ptr, ptr %5, align 8
+  %800 = load i32, ptr %11, align 4
+  %801 = call ptr @proto_tree_add_item(ptr noundef %797, i32 noundef %798, ptr noundef %799, i32 noundef %800, i32 noundef 16, i32 noundef 0)
+  %802 = load i32, ptr %11, align 4
+  %803 = add i32 %802, 16
+  store i32 %803, ptr %11, align 4
+  br label %1559
 
-797:                                              ; preds = %112
-  %798 = load ptr, ptr %10, align 8
-  %799 = load i32, ptr @hf_param_dhkeyconfirm, align 4
-  %800 = load ptr, ptr %5, align 8
-  %801 = load i32, ptr %11, align 4
-  %802 = call ptr @proto_tree_add_item(ptr noundef %798, i32 noundef %799, ptr noundef %800, i32 noundef %801, i32 noundef 16, i32 noundef 0)
-  %803 = load i32, ptr %11, align 4
-  %804 = add i32 %803, 16
-  store i32 %804, ptr %11, align 4
-  br label %1536
+804:                                              ; preds = %114
+  %805 = load ptr, ptr %10, align 8
+  %806 = load i32, ptr @hf_param_dhkeyconfirm, align 4
+  %807 = load ptr, ptr %5, align 8
+  %808 = load i32, ptr %11, align 4
+  %809 = call ptr @proto_tree_add_item(ptr noundef %805, i32 noundef %806, ptr noundef %807, i32 noundef %808, i32 noundef 16, i32 noundef 0)
+  %810 = load i32, ptr %11, align 4
+  %811 = add i32 %810, 16
+  store i32 %811, ptr %11, align 4
+  br label %1559
 
-805:                                              ; preds = %112
-  %806 = load ptr, ptr %10, align 8
-  %807 = load i32, ptr @hf_accept_opcode, align 4
-  %808 = load ptr, ptr %5, align 8
-  %809 = load i32, ptr %11, align 4
-  %810 = call ptr @proto_tree_add_item(ptr noundef %806, i32 noundef %807, ptr noundef %808, i32 noundef %809, i32 noundef 1, i32 noundef -2147483648)
-  %811 = load i32, ptr %11, align 4
-  %812 = add i32 %811, 1
-  store i32 %812, ptr %11, align 4
+812:                                              ; preds = %114
   %813 = load ptr, ptr %10, align 8
-  %814 = load ptr, ptr %5, align 8
-  %815 = load i32, ptr %11, align 4
-  %816 = sub i32 %815, 1
-  %817 = call zeroext i8 @tvb_get_guint8(ptr noundef %814, i32 noundef %816)
-  %818 = zext i8 %817 to i32
-  %819 = and i32 %818, 3
-  %820 = sext i32 %819 to i64
-  %821 = getelementptr [4 x i32], ptr @hf_accept_escopcode, i64 0, i64 %820
-  %822 = load i32, ptr %821, align 4
-  %823 = load ptr, ptr %5, align 8
-  %824 = load i32, ptr %11, align 4
-  %825 = call ptr @proto_tree_add_item(ptr noundef %813, i32 noundef %822, ptr noundef %823, i32 noundef %824, i32 noundef 1, i32 noundef -2147483648)
-  %826 = load i32, ptr %11, align 4
-  %827 = add i32 %826, 1
-  store i32 %827, ptr %11, align 4
-  br label %1536
+  %814 = load i32, ptr @hf_accept_opcode, align 4
+  %815 = load ptr, ptr %5, align 8
+  %816 = load i32, ptr %11, align 4
+  %817 = call ptr @proto_tree_add_item(ptr noundef %813, i32 noundef %814, ptr noundef %815, i32 noundef %816, i32 noundef 1, i32 noundef -2147483648)
+  %818 = load i32, ptr %11, align 4
+  %819 = add i32 %818, 1
+  store i32 %819, ptr %11, align 4
+  %820 = load ptr, ptr %10, align 8
+  %821 = load ptr, ptr %5, align 8
+  %822 = load i32, ptr %11, align 4
+  %823 = sub i32 %822, 1
+  %824 = call zeroext i8 @tvb_get_uint8(ptr noundef %821, i32 noundef %823)
+  %825 = zext i8 %824 to i32
+  %826 = and i32 %825, 3
+  %827 = sext i32 %826 to i64
+  %828 = getelementptr [4 x i32], ptr @hf_accept_escopcode, i64 0, i64 %827
+  %829 = load i32, ptr %828, align 4
+  %830 = load ptr, ptr %5, align 8
+  %831 = load i32, ptr %11, align 4
+  %832 = call ptr @proto_tree_add_item(ptr noundef %820, i32 noundef %829, ptr noundef %830, i32 noundef %831, i32 noundef 1, i32 noundef -2147483648)
+  %833 = load i32, ptr %11, align 4
+  %834 = add i32 %833, 1
+  store i32 %834, ptr %11, align 4
+  br label %1559
 
-828:                                              ; preds = %112
-  %829 = load ptr, ptr %10, align 8
-  %830 = load i32, ptr @hf_accept_opcode, align 4
-  %831 = load ptr, ptr %5, align 8
-  %832 = load i32, ptr %11, align 4
-  %833 = call ptr @proto_tree_add_item(ptr noundef %829, i32 noundef %830, ptr noundef %831, i32 noundef %832, i32 noundef 1, i32 noundef -2147483648)
-  %834 = load i32, ptr %11, align 4
-  %835 = add i32 %834, 1
-  store i32 %835, ptr %11, align 4
+835:                                              ; preds = %114
   %836 = load ptr, ptr %10, align 8
-  %837 = load ptr, ptr %5, align 8
-  %838 = load i32, ptr %11, align 4
-  %839 = sub i32 %838, 1
-  %840 = call zeroext i8 @tvb_get_guint8(ptr noundef %837, i32 noundef %839)
-  %841 = zext i8 %840 to i32
-  %842 = and i32 %841, 3
-  %843 = sext i32 %842 to i64
-  %844 = getelementptr [4 x i32], ptr @hf_accept_escopcode, i64 0, i64 %843
-  %845 = load i32, ptr %844, align 4
-  %846 = load ptr, ptr %5, align 8
-  %847 = load i32, ptr %11, align 4
-  %848 = call ptr @proto_tree_add_item(ptr noundef %836, i32 noundef %845, ptr noundef %846, i32 noundef %847, i32 noundef 1, i32 noundef -2147483648)
-  %849 = load i32, ptr %11, align 4
-  %850 = add i32 %849, 1
-  store i32 %850, ptr %11, align 4
-  %851 = load ptr, ptr %10, align 8
-  %852 = load i32, ptr @hf_errorcode, align 4
+  %837 = load i32, ptr @hf_accept_opcode, align 4
+  %838 = load ptr, ptr %5, align 8
+  %839 = load i32, ptr %11, align 4
+  %840 = call ptr @proto_tree_add_item(ptr noundef %836, i32 noundef %837, ptr noundef %838, i32 noundef %839, i32 noundef 1, i32 noundef -2147483648)
+  %841 = load i32, ptr %11, align 4
+  %842 = add i32 %841, 1
+  store i32 %842, ptr %11, align 4
+  %843 = load ptr, ptr %10, align 8
+  %844 = load ptr, ptr %5, align 8
+  %845 = load i32, ptr %11, align 4
+  %846 = sub i32 %845, 1
+  %847 = call zeroext i8 @tvb_get_uint8(ptr noundef %844, i32 noundef %846)
+  %848 = zext i8 %847 to i32
+  %849 = and i32 %848, 3
+  %850 = sext i32 %849 to i64
+  %851 = getelementptr [4 x i32], ptr @hf_accept_escopcode, i64 0, i64 %850
+  %852 = load i32, ptr %851, align 4
   %853 = load ptr, ptr %5, align 8
   %854 = load i32, ptr %11, align 4
-  %855 = call ptr @proto_tree_add_item(ptr noundef %851, i32 noundef %852, ptr noundef %853, i32 noundef %854, i32 noundef 1, i32 noundef -2147483648)
+  %855 = call ptr @proto_tree_add_item(ptr noundef %843, i32 noundef %852, ptr noundef %853, i32 noundef %854, i32 noundef 1, i32 noundef -2147483648)
   %856 = load i32, ptr %11, align 4
   %857 = add i32 %856, 1
   store i32 %857, ptr %11, align 4
-  br label %1536
+  %858 = load ptr, ptr %10, align 8
+  %859 = load i32, ptr @hf_errorcode, align 4
+  %860 = load ptr, ptr %5, align 8
+  %861 = load i32, ptr %11, align 4
+  %862 = call ptr @proto_tree_add_item(ptr noundef %858, i32 noundef %859, ptr noundef %860, i32 noundef %861, i32 noundef 1, i32 noundef -2147483648)
+  %863 = load i32, ptr %11, align 4
+  %864 = add i32 %863, 1
+  store i32 %864, ptr %11, align 4
+  br label %1559
 
-858:                                              ; preds = %112, %112
-  %859 = load ptr, ptr %10, align 8
-  %860 = load i32, ptr @hf_param_features_page, align 4
-  %861 = load ptr, ptr %5, align 8
-  %862 = load i32, ptr %11, align 4
-  %863 = call ptr @proto_tree_add_item(ptr noundef %859, i32 noundef %860, ptr noundef %861, i32 noundef %862, i32 noundef 1, i32 noundef -2147483648)
-  %864 = load i32, ptr %11, align 4
-  %865 = add i32 %864, 1
-  store i32 %865, ptr %11, align 4
+865:                                              ; preds = %114, %114
   %866 = load ptr, ptr %10, align 8
-  %867 = load i32, ptr @hf_param_max_supported_page, align 4
+  %867 = load i32, ptr @hf_param_features_page, align 4
   %868 = load ptr, ptr %5, align 8
   %869 = load i32, ptr %11, align 4
   %870 = call ptr @proto_tree_add_item(ptr noundef %866, i32 noundef %867, ptr noundef %868, i32 noundef %869, i32 noundef 1, i32 noundef -2147483648)
   %871 = load i32, ptr %11, align 4
   %872 = add i32 %871, 1
   store i32 %872, ptr %11, align 4
-  %873 = load ptr, ptr %5, align 8
-  %874 = load i32, ptr %11, align 4
-  %875 = sub i32 %874, 2
-  %876 = call zeroext i8 @tvb_get_guint8(ptr noundef %873, i32 noundef %875)
-  %877 = zext i8 %876 to i32
-  switch i32 %877, label %1090 [
-    i32 0, label %878
-    i32 1, label %1031
-    i32 2, label %1051
+  %873 = load ptr, ptr %10, align 8
+  %874 = load i32, ptr @hf_param_max_supported_page, align 4
+  %875 = load ptr, ptr %5, align 8
+  %876 = load i32, ptr %11, align 4
+  %877 = call ptr @proto_tree_add_item(ptr noundef %873, i32 noundef %874, ptr noundef %875, i32 noundef %876, i32 noundef 1, i32 noundef -2147483648)
+  %878 = load i32, ptr %11, align 4
+  %879 = add i32 %878, 1
+  store i32 %879, ptr %11, align 4
+  %880 = load ptr, ptr %5, align 8
+  %881 = load i32, ptr %11, align 4
+  %882 = sub i32 %881, 2
+  %883 = call zeroext i8 @tvb_get_uint8(ptr noundef %880, i32 noundef %882)
+  %884 = zext i8 %883 to i32
+  switch i32 %884, label %1108 [
+    i32 0, label %885
+    i32 1, label %1046
+    i32 2, label %1067
   ]
 
-878:                                              ; preds = %858
+885:                                              ; preds = %865
+  call void @llvm.lifetime.start.p0(i64 4, ptr %27) #4
   store i32 0, ptr %27, align 4
-  br label %879
+  br label %886
 
-879:                                              ; preds = %892, %878
-  %880 = load i32, ptr %27, align 4
-  %881 = zext i32 %880 to i64
-  %882 = icmp ult i64 %881, 9
-  br i1 %882, label %883, label %895
+886:                                              ; preds = %900, %885
+  %887 = load i32, ptr %27, align 4
+  %888 = zext i32 %887 to i64
+  %889 = icmp ult i64 %888, 9
+  br i1 %889, label %891, label %890
 
-883:                                              ; preds = %879
-  %884 = load ptr, ptr %10, align 8
-  %885 = load i32, ptr %27, align 4
-  %886 = zext i32 %885 to i64
-  %887 = getelementptr [9 x i32], ptr @hf_param_feature_page0_byte0, i64 0, i64 %886
-  %888 = load i32, ptr %887, align 4
-  %889 = load ptr, ptr %5, align 8
-  %890 = load i32, ptr %11, align 4
-  %891 = call ptr @proto_tree_add_item(ptr noundef %884, i32 noundef %888, ptr noundef %889, i32 noundef %890, i32 noundef 1, i32 noundef -2147483648)
-  br label %892
+890:                                              ; preds = %886
+  call void @llvm.lifetime.end.p0(i64 4, ptr %27) #4
+  br label %903
 
-892:                                              ; preds = %883
+891:                                              ; preds = %886
+  %892 = load ptr, ptr %10, align 8
   %893 = load i32, ptr %27, align 4
-  %894 = add i32 %893, 1
-  store i32 %894, ptr %27, align 4
-  br label %879, !llvm.loop !19
+  %894 = zext i32 %893 to i64
+  %895 = getelementptr [9 x i32], ptr @hf_param_feature_page0_byte0, i64 0, i64 %894
+  %896 = load i32, ptr %895, align 4
+  %897 = load ptr, ptr %5, align 8
+  %898 = load i32, ptr %11, align 4
+  %899 = call ptr @proto_tree_add_item(ptr noundef %892, i32 noundef %896, ptr noundef %897, i32 noundef %898, i32 noundef 1, i32 noundef -2147483648)
+  br label %900
 
-895:                                              ; preds = %879
-  %896 = load i32, ptr %11, align 4
-  %897 = add i32 %896, 1
-  store i32 %897, ptr %11, align 4
+900:                                              ; preds = %891
+  %901 = load i32, ptr %27, align 4
+  %902 = add i32 %901, 1
+  store i32 %902, ptr %27, align 4
+  br label %886, !llvm.loop !21
+
+903:                                              ; preds = %890
+  %904 = load i32, ptr %11, align 4
+  %905 = add i32 %904, 1
+  store i32 %905, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %28) #4
   store i32 0, ptr %28, align 4
-  br label %898
+  br label %906
 
-898:                                              ; preds = %911, %895
-  %899 = load i32, ptr %28, align 4
-  %900 = zext i32 %899 to i64
-  %901 = icmp ult i64 %900, 9
-  br i1 %901, label %902, label %914
+906:                                              ; preds = %920, %903
+  %907 = load i32, ptr %28, align 4
+  %908 = zext i32 %907 to i64
+  %909 = icmp ult i64 %908, 9
+  br i1 %909, label %911, label %910
 
-902:                                              ; preds = %898
-  %903 = load ptr, ptr %10, align 8
-  %904 = load i32, ptr %28, align 4
-  %905 = zext i32 %904 to i64
-  %906 = getelementptr [9 x i32], ptr @hf_param_feature_page0_byte1, i64 0, i64 %905
-  %907 = load i32, ptr %906, align 4
-  %908 = load ptr, ptr %5, align 8
-  %909 = load i32, ptr %11, align 4
-  %910 = call ptr @proto_tree_add_item(ptr noundef %903, i32 noundef %907, ptr noundef %908, i32 noundef %909, i32 noundef 1, i32 noundef -2147483648)
-  br label %911
+910:                                              ; preds = %906
+  call void @llvm.lifetime.end.p0(i64 4, ptr %28) #4
+  br label %923
 
-911:                                              ; preds = %902
-  %912 = load i32, ptr %28, align 4
-  %913 = add i32 %912, 1
-  store i32 %913, ptr %28, align 4
-  br label %898, !llvm.loop !20
+911:                                              ; preds = %906
+  %912 = load ptr, ptr %10, align 8
+  %913 = load i32, ptr %28, align 4
+  %914 = zext i32 %913 to i64
+  %915 = getelementptr [9 x i32], ptr @hf_param_feature_page0_byte1, i64 0, i64 %914
+  %916 = load i32, ptr %915, align 4
+  %917 = load ptr, ptr %5, align 8
+  %918 = load i32, ptr %11, align 4
+  %919 = call ptr @proto_tree_add_item(ptr noundef %912, i32 noundef %916, ptr noundef %917, i32 noundef %918, i32 noundef 1, i32 noundef -2147483648)
+  br label %920
 
-914:                                              ; preds = %898
-  %915 = load i32, ptr %11, align 4
-  %916 = add i32 %915, 1
-  store i32 %916, ptr %11, align 4
+920:                                              ; preds = %911
+  %921 = load i32, ptr %28, align 4
+  %922 = add i32 %921, 1
+  store i32 %922, ptr %28, align 4
+  br label %906, !llvm.loop !22
+
+923:                                              ; preds = %910
+  %924 = load i32, ptr %11, align 4
+  %925 = add i32 %924, 1
+  store i32 %925, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %29) #4
   store i32 0, ptr %29, align 4
-  br label %917
+  br label %926
 
-917:                                              ; preds = %930, %914
-  %918 = load i32, ptr %29, align 4
-  %919 = zext i32 %918 to i64
-  %920 = icmp ult i64 %919, 7
-  br i1 %920, label %921, label %933
+926:                                              ; preds = %940, %923
+  %927 = load i32, ptr %29, align 4
+  %928 = zext i32 %927 to i64
+  %929 = icmp ult i64 %928, 7
+  br i1 %929, label %931, label %930
 
-921:                                              ; preds = %917
-  %922 = load ptr, ptr %10, align 8
-  %923 = load i32, ptr %29, align 4
-  %924 = zext i32 %923 to i64
-  %925 = getelementptr [7 x i32], ptr @hf_param_feature_page0_byte2, i64 0, i64 %924
-  %926 = load i32, ptr %925, align 4
-  %927 = load ptr, ptr %5, align 8
-  %928 = load i32, ptr %11, align 4
-  %929 = call ptr @proto_tree_add_item(ptr noundef %922, i32 noundef %926, ptr noundef %927, i32 noundef %928, i32 noundef 1, i32 noundef -2147483648)
-  br label %930
+930:                                              ; preds = %926
+  call void @llvm.lifetime.end.p0(i64 4, ptr %29) #4
+  br label %943
 
-930:                                              ; preds = %921
-  %931 = load i32, ptr %29, align 4
-  %932 = add i32 %931, 1
-  store i32 %932, ptr %29, align 4
-  br label %917, !llvm.loop !21
+931:                                              ; preds = %926
+  %932 = load ptr, ptr %10, align 8
+  %933 = load i32, ptr %29, align 4
+  %934 = zext i32 %933 to i64
+  %935 = getelementptr [7 x i32], ptr @hf_param_feature_page0_byte2, i64 0, i64 %934
+  %936 = load i32, ptr %935, align 4
+  %937 = load ptr, ptr %5, align 8
+  %938 = load i32, ptr %11, align 4
+  %939 = call ptr @proto_tree_add_item(ptr noundef %932, i32 noundef %936, ptr noundef %937, i32 noundef %938, i32 noundef 1, i32 noundef -2147483648)
+  br label %940
 
-933:                                              ; preds = %917
-  %934 = load i32, ptr %11, align 4
-  %935 = add i32 %934, 1
-  store i32 %935, ptr %11, align 4
+940:                                              ; preds = %931
+  %941 = load i32, ptr %29, align 4
+  %942 = add i32 %941, 1
+  store i32 %942, ptr %29, align 4
+  br label %926, !llvm.loop !23
+
+943:                                              ; preds = %930
+  %944 = load i32, ptr %11, align 4
+  %945 = add i32 %944, 1
+  store i32 %945, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %30) #4
   store i32 0, ptr %30, align 4
-  br label %936
+  br label %946
 
-936:                                              ; preds = %949, %933
-  %937 = load i32, ptr %30, align 4
-  %938 = zext i32 %937 to i64
-  %939 = icmp ult i64 %938, 9
-  br i1 %939, label %940, label %952
+946:                                              ; preds = %960, %943
+  %947 = load i32, ptr %30, align 4
+  %948 = zext i32 %947 to i64
+  %949 = icmp ult i64 %948, 9
+  br i1 %949, label %951, label %950
 
-940:                                              ; preds = %936
-  %941 = load ptr, ptr %10, align 8
-  %942 = load i32, ptr %30, align 4
-  %943 = zext i32 %942 to i64
-  %944 = getelementptr [9 x i32], ptr @hf_param_feature_page0_byte3, i64 0, i64 %943
-  %945 = load i32, ptr %944, align 4
-  %946 = load ptr, ptr %5, align 8
-  %947 = load i32, ptr %11, align 4
-  %948 = call ptr @proto_tree_add_item(ptr noundef %941, i32 noundef %945, ptr noundef %946, i32 noundef %947, i32 noundef 1, i32 noundef -2147483648)
-  br label %949
+950:                                              ; preds = %946
+  call void @llvm.lifetime.end.p0(i64 4, ptr %30) #4
+  br label %963
 
-949:                                              ; preds = %940
-  %950 = load i32, ptr %30, align 4
-  %951 = add i32 %950, 1
-  store i32 %951, ptr %30, align 4
-  br label %936, !llvm.loop !22
+951:                                              ; preds = %946
+  %952 = load ptr, ptr %10, align 8
+  %953 = load i32, ptr %30, align 4
+  %954 = zext i32 %953 to i64
+  %955 = getelementptr [9 x i32], ptr @hf_param_feature_page0_byte3, i64 0, i64 %954
+  %956 = load i32, ptr %955, align 4
+  %957 = load ptr, ptr %5, align 8
+  %958 = load i32, ptr %11, align 4
+  %959 = call ptr @proto_tree_add_item(ptr noundef %952, i32 noundef %956, ptr noundef %957, i32 noundef %958, i32 noundef 1, i32 noundef -2147483648)
+  br label %960
 
-952:                                              ; preds = %936
-  %953 = load i32, ptr %11, align 4
-  %954 = add i32 %953, 1
-  store i32 %954, ptr %11, align 4
+960:                                              ; preds = %951
+  %961 = load i32, ptr %30, align 4
+  %962 = add i32 %961, 1
+  store i32 %962, ptr %30, align 4
+  br label %946, !llvm.loop !24
+
+963:                                              ; preds = %950
+  %964 = load i32, ptr %11, align 4
+  %965 = add i32 %964, 1
+  store i32 %965, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %31) #4
   store i32 0, ptr %31, align 4
-  br label %955
+  br label %966
 
-955:                                              ; preds = %968, %952
-  %956 = load i32, ptr %31, align 4
-  %957 = zext i32 %956 to i64
-  %958 = icmp ult i64 %957, 9
-  br i1 %958, label %959, label %971
+966:                                              ; preds = %980, %963
+  %967 = load i32, ptr %31, align 4
+  %968 = zext i32 %967 to i64
+  %969 = icmp ult i64 %968, 9
+  br i1 %969, label %971, label %970
 
-959:                                              ; preds = %955
-  %960 = load ptr, ptr %10, align 8
-  %961 = load i32, ptr %31, align 4
-  %962 = zext i32 %961 to i64
-  %963 = getelementptr [9 x i32], ptr @hf_param_feature_page0_byte4, i64 0, i64 %962
-  %964 = load i32, ptr %963, align 4
-  %965 = load ptr, ptr %5, align 8
-  %966 = load i32, ptr %11, align 4
-  %967 = call ptr @proto_tree_add_item(ptr noundef %960, i32 noundef %964, ptr noundef %965, i32 noundef %966, i32 noundef 1, i32 noundef -2147483648)
-  br label %968
+970:                                              ; preds = %966
+  call void @llvm.lifetime.end.p0(i64 4, ptr %31) #4
+  br label %983
 
-968:                                              ; preds = %959
-  %969 = load i32, ptr %31, align 4
-  %970 = add i32 %969, 1
-  store i32 %970, ptr %31, align 4
-  br label %955, !llvm.loop !23
+971:                                              ; preds = %966
+  %972 = load ptr, ptr %10, align 8
+  %973 = load i32, ptr %31, align 4
+  %974 = zext i32 %973 to i64
+  %975 = getelementptr [9 x i32], ptr @hf_param_feature_page0_byte4, i64 0, i64 %974
+  %976 = load i32, ptr %975, align 4
+  %977 = load ptr, ptr %5, align 8
+  %978 = load i32, ptr %11, align 4
+  %979 = call ptr @proto_tree_add_item(ptr noundef %972, i32 noundef %976, ptr noundef %977, i32 noundef %978, i32 noundef 1, i32 noundef -2147483648)
+  br label %980
 
-971:                                              ; preds = %955
-  %972 = load i32, ptr %11, align 4
-  %973 = add i32 %972, 1
-  store i32 %973, ptr %11, align 4
+980:                                              ; preds = %971
+  %981 = load i32, ptr %31, align 4
+  %982 = add i32 %981, 1
+  store i32 %982, ptr %31, align 4
+  br label %966, !llvm.loop !25
+
+983:                                              ; preds = %970
+  %984 = load i32, ptr %11, align 4
+  %985 = add i32 %984, 1
+  store i32 %985, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %32) #4
   store i32 0, ptr %32, align 4
-  br label %974
+  br label %986
 
-974:                                              ; preds = %987, %971
-  %975 = load i32, ptr %32, align 4
-  %976 = zext i32 %975 to i64
-  %977 = icmp ult i64 %976, 9
-  br i1 %977, label %978, label %990
+986:                                              ; preds = %1000, %983
+  %987 = load i32, ptr %32, align 4
+  %988 = zext i32 %987 to i64
+  %989 = icmp ult i64 %988, 9
+  br i1 %989, label %991, label %990
 
-978:                                              ; preds = %974
-  %979 = load ptr, ptr %10, align 8
-  %980 = load i32, ptr %32, align 4
-  %981 = zext i32 %980 to i64
-  %982 = getelementptr [9 x i32], ptr @hf_param_feature_page0_byte5, i64 0, i64 %981
-  %983 = load i32, ptr %982, align 4
-  %984 = load ptr, ptr %5, align 8
-  %985 = load i32, ptr %11, align 4
-  %986 = call ptr @proto_tree_add_item(ptr noundef %979, i32 noundef %983, ptr noundef %984, i32 noundef %985, i32 noundef 1, i32 noundef -2147483648)
-  br label %987
+990:                                              ; preds = %986
+  call void @llvm.lifetime.end.p0(i64 4, ptr %32) #4
+  br label %1003
 
-987:                                              ; preds = %978
-  %988 = load i32, ptr %32, align 4
-  %989 = add i32 %988, 1
-  store i32 %989, ptr %32, align 4
-  br label %974, !llvm.loop !24
+991:                                              ; preds = %986
+  %992 = load ptr, ptr %10, align 8
+  %993 = load i32, ptr %32, align 4
+  %994 = zext i32 %993 to i64
+  %995 = getelementptr [9 x i32], ptr @hf_param_feature_page0_byte5, i64 0, i64 %994
+  %996 = load i32, ptr %995, align 4
+  %997 = load ptr, ptr %5, align 8
+  %998 = load i32, ptr %11, align 4
+  %999 = call ptr @proto_tree_add_item(ptr noundef %992, i32 noundef %996, ptr noundef %997, i32 noundef %998, i32 noundef 1, i32 noundef -2147483648)
+  br label %1000
 
-990:                                              ; preds = %974
-  %991 = load i32, ptr %11, align 4
-  %992 = add i32 %991, 1
-  store i32 %992, ptr %11, align 4
-  store i32 0, ptr %33, align 4
-  br label %993
+1000:                                             ; preds = %991
+  %1001 = load i32, ptr %32, align 4
+  %1002 = add i32 %1001, 1
+  store i32 %1002, ptr %32, align 4
+  br label %986, !llvm.loop !26
 
-993:                                              ; preds = %1006, %990
-  %994 = load i32, ptr %33, align 4
-  %995 = zext i32 %994 to i64
-  %996 = icmp ult i64 %995, 9
-  br i1 %996, label %997, label %1009
-
-997:                                              ; preds = %993
-  %998 = load ptr, ptr %10, align 8
-  %999 = load i32, ptr %33, align 4
-  %1000 = zext i32 %999 to i64
-  %1001 = getelementptr [9 x i32], ptr @hf_param_feature_page0_byte6, i64 0, i64 %1000
-  %1002 = load i32, ptr %1001, align 4
-  %1003 = load ptr, ptr %5, align 8
+1003:                                             ; preds = %990
   %1004 = load i32, ptr %11, align 4
-  %1005 = call ptr @proto_tree_add_item(ptr noundef %998, i32 noundef %1002, ptr noundef %1003, i32 noundef %1004, i32 noundef 1, i32 noundef -2147483648)
+  %1005 = add i32 %1004, 1
+  store i32 %1005, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %33) #4
+  store i32 0, ptr %33, align 4
   br label %1006
 
-1006:                                             ; preds = %997
+1006:                                             ; preds = %1020, %1003
   %1007 = load i32, ptr %33, align 4
-  %1008 = add i32 %1007, 1
-  store i32 %1008, ptr %33, align 4
-  br label %993, !llvm.loop !25
+  %1008 = zext i32 %1007 to i64
+  %1009 = icmp ult i64 %1008, 9
+  br i1 %1009, label %1011, label %1010
 
-1009:                                             ; preds = %993
-  %1010 = load i32, ptr %11, align 4
-  %1011 = add i32 %1010, 1
-  store i32 %1011, ptr %11, align 4
-  store i32 0, ptr %34, align 4
-  br label %1012
+1010:                                             ; preds = %1006
+  call void @llvm.lifetime.end.p0(i64 4, ptr %33) #4
+  br label %1023
 
-1012:                                             ; preds = %1025, %1009
-  %1013 = load i32, ptr %34, align 4
+1011:                                             ; preds = %1006
+  %1012 = load ptr, ptr %10, align 8
+  %1013 = load i32, ptr %33, align 4
   %1014 = zext i32 %1013 to i64
-  %1015 = icmp ult i64 %1014, 6
-  br i1 %1015, label %1016, label %1028
+  %1015 = getelementptr [9 x i32], ptr @hf_param_feature_page0_byte6, i64 0, i64 %1014
+  %1016 = load i32, ptr %1015, align 4
+  %1017 = load ptr, ptr %5, align 8
+  %1018 = load i32, ptr %11, align 4
+  %1019 = call ptr @proto_tree_add_item(ptr noundef %1012, i32 noundef %1016, ptr noundef %1017, i32 noundef %1018, i32 noundef 1, i32 noundef -2147483648)
+  br label %1020
 
-1016:                                             ; preds = %1012
-  %1017 = load ptr, ptr %10, align 8
-  %1018 = load i32, ptr %34, align 4
-  %1019 = zext i32 %1018 to i64
-  %1020 = getelementptr [6 x i32], ptr @hf_param_feature_page0_byte7, i64 0, i64 %1019
-  %1021 = load i32, ptr %1020, align 4
-  %1022 = load ptr, ptr %5, align 8
-  %1023 = load i32, ptr %11, align 4
-  %1024 = call ptr @proto_tree_add_item(ptr noundef %1017, i32 noundef %1021, ptr noundef %1022, i32 noundef %1023, i32 noundef 1, i32 noundef -2147483648)
-  br label %1025
+1020:                                             ; preds = %1011
+  %1021 = load i32, ptr %33, align 4
+  %1022 = add i32 %1021, 1
+  store i32 %1022, ptr %33, align 4
+  br label %1006, !llvm.loop !27
 
-1025:                                             ; preds = %1016
-  %1026 = load i32, ptr %34, align 4
-  %1027 = add i32 %1026, 1
-  store i32 %1027, ptr %34, align 4
-  br label %1012, !llvm.loop !26
+1023:                                             ; preds = %1010
+  %1024 = load i32, ptr %11, align 4
+  %1025 = add i32 %1024, 1
+  store i32 %1025, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %34) #4
+  store i32 0, ptr %34, align 4
+  br label %1026
 
-1028:                                             ; preds = %1012
-  %1029 = load i32, ptr %11, align 4
-  %1030 = add i32 %1029, 1
-  store i32 %1030, ptr %11, align 4
-  br label %1091
+1026:                                             ; preds = %1040, %1023
+  %1027 = load i32, ptr %34, align 4
+  %1028 = zext i32 %1027 to i64
+  %1029 = icmp ult i64 %1028, 6
+  br i1 %1029, label %1031, label %1030
 
-1031:                                             ; preds = %858
-  store i32 0, ptr %35, align 4
-  br label %1032
+1030:                                             ; preds = %1026
+  call void @llvm.lifetime.end.p0(i64 4, ptr %34) #4
+  br label %1043
 
-1032:                                             ; preds = %1045, %1031
-  %1033 = load i32, ptr %35, align 4
+1031:                                             ; preds = %1026
+  %1032 = load ptr, ptr %10, align 8
+  %1033 = load i32, ptr %34, align 4
   %1034 = zext i32 %1033 to i64
-  %1035 = icmp ult i64 %1034, 6
-  br i1 %1035, label %1036, label %1048
+  %1035 = getelementptr [6 x i32], ptr @hf_param_feature_page0_byte7, i64 0, i64 %1034
+  %1036 = load i32, ptr %1035, align 4
+  %1037 = load ptr, ptr %5, align 8
+  %1038 = load i32, ptr %11, align 4
+  %1039 = call ptr @proto_tree_add_item(ptr noundef %1032, i32 noundef %1036, ptr noundef %1037, i32 noundef %1038, i32 noundef 1, i32 noundef -2147483648)
+  br label %1040
 
-1036:                                             ; preds = %1032
-  %1037 = load ptr, ptr %10, align 8
-  %1038 = load i32, ptr %35, align 4
-  %1039 = zext i32 %1038 to i64
-  %1040 = getelementptr [6 x i32], ptr @hf_param_feature_page1_byte0, i64 0, i64 %1039
-  %1041 = load i32, ptr %1040, align 4
-  %1042 = load ptr, ptr %5, align 8
-  %1043 = load i32, ptr %11, align 4
-  %1044 = call ptr @proto_tree_add_item(ptr noundef %1037, i32 noundef %1041, ptr noundef %1042, i32 noundef %1043, i32 noundef 1, i32 noundef -2147483648)
-  br label %1045
+1040:                                             ; preds = %1031
+  %1041 = load i32, ptr %34, align 4
+  %1042 = add i32 %1041, 1
+  store i32 %1042, ptr %34, align 4
+  br label %1026, !llvm.loop !28
 
-1045:                                             ; preds = %1036
-  %1046 = load i32, ptr %35, align 4
-  %1047 = add i32 %1046, 1
-  store i32 %1047, ptr %35, align 4
-  br label %1032, !llvm.loop !27
+1043:                                             ; preds = %1030
+  %1044 = load i32, ptr %11, align 4
+  %1045 = add i32 %1044, 1
+  store i32 %1045, ptr %11, align 4
+  br label %1109
 
-1048:                                             ; preds = %1032
-  %1049 = load i32, ptr %11, align 4
-  %1050 = add i32 %1049, 1
-  store i32 %1050, ptr %11, align 4
-  br label %1091
+1046:                                             ; preds = %865
+  call void @llvm.lifetime.start.p0(i64 4, ptr %35) #4
+  store i32 0, ptr %35, align 4
+  br label %1047
 
-1051:                                             ; preds = %858
+1047:                                             ; preds = %1061, %1046
+  %1048 = load i32, ptr %35, align 4
+  %1049 = zext i32 %1048 to i64
+  %1050 = icmp ult i64 %1049, 6
+  br i1 %1050, label %1052, label %1051
+
+1051:                                             ; preds = %1047
+  call void @llvm.lifetime.end.p0(i64 4, ptr %35) #4
+  br label %1064
+
+1052:                                             ; preds = %1047
+  %1053 = load ptr, ptr %10, align 8
+  %1054 = load i32, ptr %35, align 4
+  %1055 = zext i32 %1054 to i64
+  %1056 = getelementptr [6 x i32], ptr @hf_param_feature_page1_byte0, i64 0, i64 %1055
+  %1057 = load i32, ptr %1056, align 4
+  %1058 = load ptr, ptr %5, align 8
+  %1059 = load i32, ptr %11, align 4
+  %1060 = call ptr @proto_tree_add_item(ptr noundef %1053, i32 noundef %1057, ptr noundef %1058, i32 noundef %1059, i32 noundef 1, i32 noundef -2147483648)
+  br label %1061
+
+1061:                                             ; preds = %1052
+  %1062 = load i32, ptr %35, align 4
+  %1063 = add i32 %1062, 1
+  store i32 %1063, ptr %35, align 4
+  br label %1047, !llvm.loop !29
+
+1064:                                             ; preds = %1051
+  %1065 = load i32, ptr %11, align 4
+  %1066 = add i32 %1065, 1
+  store i32 %1066, ptr %11, align 4
+  br label %1109
+
+1067:                                             ; preds = %865
+  call void @llvm.lifetime.start.p0(i64 4, ptr %36) #4
   store i32 0, ptr %36, align 4
-  br label %1052
+  br label %1068
 
-1052:                                             ; preds = %1065, %1051
-  %1053 = load i32, ptr %36, align 4
-  %1054 = zext i32 %1053 to i64
-  %1055 = icmp ult i64 %1054, 9
-  br i1 %1055, label %1056, label %1068
+1068:                                             ; preds = %1082, %1067
+  %1069 = load i32, ptr %36, align 4
+  %1070 = zext i32 %1069 to i64
+  %1071 = icmp ult i64 %1070, 9
+  br i1 %1071, label %1073, label %1072
 
-1056:                                             ; preds = %1052
-  %1057 = load ptr, ptr %10, align 8
-  %1058 = load i32, ptr %36, align 4
-  %1059 = zext i32 %1058 to i64
-  %1060 = getelementptr [9 x i32], ptr @hf_param_feature_page2_byte0, i64 0, i64 %1059
-  %1061 = load i32, ptr %1060, align 4
-  %1062 = load ptr, ptr %5, align 8
-  %1063 = load i32, ptr %11, align 4
-  %1064 = call ptr @proto_tree_add_item(ptr noundef %1057, i32 noundef %1061, ptr noundef %1062, i32 noundef %1063, i32 noundef 1, i32 noundef -2147483648)
-  br label %1065
+1072:                                             ; preds = %1068
+  call void @llvm.lifetime.end.p0(i64 4, ptr %36) #4
+  br label %1085
 
-1065:                                             ; preds = %1056
-  %1066 = load i32, ptr %36, align 4
-  %1067 = add i32 %1066, 1
-  store i32 %1067, ptr %36, align 4
-  br label %1052, !llvm.loop !28
+1073:                                             ; preds = %1068
+  %1074 = load ptr, ptr %10, align 8
+  %1075 = load i32, ptr %36, align 4
+  %1076 = zext i32 %1075 to i64
+  %1077 = getelementptr [9 x i32], ptr @hf_param_feature_page2_byte0, i64 0, i64 %1076
+  %1078 = load i32, ptr %1077, align 4
+  %1079 = load ptr, ptr %5, align 8
+  %1080 = load i32, ptr %11, align 4
+  %1081 = call ptr @proto_tree_add_item(ptr noundef %1074, i32 noundef %1078, ptr noundef %1079, i32 noundef %1080, i32 noundef 1, i32 noundef -2147483648)
+  br label %1082
 
-1068:                                             ; preds = %1052
-  %1069 = load i32, ptr %11, align 4
-  %1070 = add i32 %1069, 1
-  store i32 %1070, ptr %11, align 4
+1082:                                             ; preds = %1073
+  %1083 = load i32, ptr %36, align 4
+  %1084 = add i32 %1083, 1
+  store i32 %1084, ptr %36, align 4
+  br label %1068, !llvm.loop !30
+
+1085:                                             ; preds = %1072
+  %1086 = load i32, ptr %11, align 4
+  %1087 = add i32 %1086, 1
+  store i32 %1087, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %37) #4
   store i32 0, ptr %37, align 4
-  br label %1071
+  br label %1088
 
-1071:                                             ; preds = %1084, %1068
-  %1072 = load i32, ptr %37, align 4
-  %1073 = zext i32 %1072 to i64
-  %1074 = icmp ult i64 %1073, 6
-  br i1 %1074, label %1075, label %1087
+1088:                                             ; preds = %1102, %1085
+  %1089 = load i32, ptr %37, align 4
+  %1090 = zext i32 %1089 to i64
+  %1091 = icmp ult i64 %1090, 6
+  br i1 %1091, label %1093, label %1092
 
-1075:                                             ; preds = %1071
-  %1076 = load ptr, ptr %10, align 8
-  %1077 = load i32, ptr %37, align 4
-  %1078 = zext i32 %1077 to i64
-  %1079 = getelementptr [6 x i32], ptr @hf_param_feature_page2_byte1, i64 0, i64 %1078
-  %1080 = load i32, ptr %1079, align 4
-  %1081 = load ptr, ptr %5, align 8
-  %1082 = load i32, ptr %11, align 4
-  %1083 = call ptr @proto_tree_add_item(ptr noundef %1076, i32 noundef %1080, ptr noundef %1081, i32 noundef %1082, i32 noundef 1, i32 noundef -2147483648)
-  br label %1084
+1092:                                             ; preds = %1088
+  call void @llvm.lifetime.end.p0(i64 4, ptr %37) #4
+  br label %1105
 
-1084:                                             ; preds = %1075
-  %1085 = load i32, ptr %37, align 4
-  %1086 = add i32 %1085, 1
-  store i32 %1086, ptr %37, align 4
-  br label %1071, !llvm.loop !29
+1093:                                             ; preds = %1088
+  %1094 = load ptr, ptr %10, align 8
+  %1095 = load i32, ptr %37, align 4
+  %1096 = zext i32 %1095 to i64
+  %1097 = getelementptr [6 x i32], ptr @hf_param_feature_page2_byte1, i64 0, i64 %1096
+  %1098 = load i32, ptr %1097, align 4
+  %1099 = load ptr, ptr %5, align 8
+  %1100 = load i32, ptr %11, align 4
+  %1101 = call ptr @proto_tree_add_item(ptr noundef %1094, i32 noundef %1098, ptr noundef %1099, i32 noundef %1100, i32 noundef 1, i32 noundef -2147483648)
+  br label %1102
 
-1087:                                             ; preds = %1071
-  %1088 = load i32, ptr %11, align 4
-  %1089 = add i32 %1088, 1
-  store i32 %1089, ptr %11, align 4
-  br label %1091
+1102:                                             ; preds = %1093
+  %1103 = load i32, ptr %37, align 4
+  %1104 = add i32 %1103, 1
+  store i32 %1104, ptr %37, align 4
+  br label %1088, !llvm.loop !31
 
-1090:                                             ; preds = %858
-  br label %1091
+1105:                                             ; preds = %1092
+  %1106 = load i32, ptr %11, align 4
+  %1107 = add i32 %1106, 1
+  store i32 %1107, ptr %11, align 4
+  br label %1109
 
-1091:                                             ; preds = %1090, %1087, %1048, %1028
-  br label %1536
+1108:                                             ; preds = %865
+  br label %1109
 
-1092:                                             ; preds = %112
-  %1093 = load ptr, ptr %10, align 8
-  %1094 = load i32, ptr @hf_param_clkadjid, align 4
-  %1095 = load ptr, ptr %5, align 8
-  %1096 = load i32, ptr %11, align 4
-  %1097 = call ptr @proto_tree_add_item(ptr noundef %1093, i32 noundef %1094, ptr noundef %1095, i32 noundef %1096, i32 noundef 1, i32 noundef -2147483648)
-  %1098 = load i32, ptr %11, align 4
-  %1099 = add i32 %1098, 1
-  store i32 %1099, ptr %11, align 4
-  %1100 = load ptr, ptr %10, align 8
-  %1101 = load i32, ptr @hf_param_clkadjinstant, align 4
-  %1102 = load ptr, ptr %5, align 8
-  %1103 = load i32, ptr %11, align 4
-  %1104 = call ptr @proto_tree_add_item(ptr noundef %1100, i32 noundef %1101, ptr noundef %1102, i32 noundef %1103, i32 noundef 4, i32 noundef -2147483648)
-  %1105 = load i32, ptr %11, align 4
-  %1106 = add i32 %1105, 4
-  store i32 %1106, ptr %11, align 4
-  %1107 = load ptr, ptr %10, align 8
-  %1108 = load i32, ptr @hf_param_clkadjus, align 4
-  %1109 = load ptr, ptr %5, align 8
-  %1110 = load i32, ptr %11, align 4
-  %1111 = call ptr @proto_tree_add_item(ptr noundef %1107, i32 noundef %1108, ptr noundef %1109, i32 noundef %1110, i32 noundef 2, i32 noundef -2147483648)
-  %1112 = load i32, ptr %11, align 4
-  %1113 = add i32 %1112, 2
-  store i32 %1113, ptr %11, align 4
-  %1114 = load ptr, ptr %10, align 8
-  %1115 = load i32, ptr @hf_param_clkadjslots, align 4
-  %1116 = load ptr, ptr %5, align 8
-  %1117 = load i32, ptr %11, align 4
-  %1118 = call ptr @proto_tree_add_item(ptr noundef %1114, i32 noundef %1115, ptr noundef %1116, i32 noundef %1117, i32 noundef 1, i32 noundef -2147483648)
-  %1119 = load i32, ptr %11, align 4
-  %1120 = add i32 %1119, 1
-  store i32 %1120, ptr %11, align 4
-  %1121 = load ptr, ptr %10, align 8
-  %1122 = load i32, ptr @hf_param_clkadjmode, align 4
-  %1123 = load ptr, ptr %5, align 8
-  %1124 = load i32, ptr %11, align 4
-  %1125 = call ptr @proto_tree_add_item(ptr noundef %1121, i32 noundef %1122, ptr noundef %1123, i32 noundef %1124, i32 noundef 1, i32 noundef -2147483648)
-  %1126 = load i32, ptr %11, align 4
-  %1127 = add i32 %1126, 1
-  store i32 %1127, ptr %11, align 4
-  %1128 = load ptr, ptr %10, align 8
-  %1129 = load i32, ptr @hf_param_clkadjclk, align 4
-  %1130 = load ptr, ptr %5, align 8
-  %1131 = load i32, ptr %11, align 4
-  %1132 = call ptr @proto_tree_add_item(ptr noundef %1128, i32 noundef %1129, ptr noundef %1130, i32 noundef %1131, i32 noundef 4, i32 noundef -2147483648)
-  %1133 = load i32, ptr %11, align 4
-  %1134 = add i32 %1133, 4
-  store i32 %1134, ptr %11, align 4
-  br label %1536
+1109:                                             ; preds = %1108, %1105, %1064, %1043
+  br label %1559
 
-1135:                                             ; preds = %112
-  %1136 = load ptr, ptr %10, align 8
-  %1137 = load i32, ptr @hf_param_clkadjid, align 4
-  %1138 = load ptr, ptr %5, align 8
-  %1139 = load i32, ptr %11, align 4
-  %1140 = call ptr @proto_tree_add_item(ptr noundef %1136, i32 noundef %1137, ptr noundef %1138, i32 noundef %1139, i32 noundef 1, i32 noundef -2147483648)
-  %1141 = load i32, ptr %11, align 4
-  %1142 = add i32 %1141, 1
-  store i32 %1142, ptr %11, align 4
-  br label %1536
-
-1143:                                             ; preds = %112
-  %1144 = load ptr, ptr %10, align 8
-  %1145 = load i32, ptr @hf_param_clkadjus, align 4
-  %1146 = load ptr, ptr %5, align 8
-  %1147 = load i32, ptr %11, align 4
-  %1148 = call ptr @proto_tree_add_item(ptr noundef %1144, i32 noundef %1145, ptr noundef %1146, i32 noundef %1147, i32 noundef 2, i32 noundef -2147483648)
+1110:                                             ; preds = %114
+  %1111 = load ptr, ptr %10, align 8
+  %1112 = load i32, ptr @hf_param_clkadjid, align 4
+  %1113 = load ptr, ptr %5, align 8
+  %1114 = load i32, ptr %11, align 4
+  %1115 = call ptr @proto_tree_add_item(ptr noundef %1111, i32 noundef %1112, ptr noundef %1113, i32 noundef %1114, i32 noundef 1, i32 noundef -2147483648)
+  %1116 = load i32, ptr %11, align 4
+  %1117 = add i32 %1116, 1
+  store i32 %1117, ptr %11, align 4
+  %1118 = load ptr, ptr %10, align 8
+  %1119 = load i32, ptr @hf_param_clkadjinstant, align 4
+  %1120 = load ptr, ptr %5, align 8
+  %1121 = load i32, ptr %11, align 4
+  %1122 = call ptr @proto_tree_add_item(ptr noundef %1118, i32 noundef %1119, ptr noundef %1120, i32 noundef %1121, i32 noundef 4, i32 noundef -2147483648)
+  %1123 = load i32, ptr %11, align 4
+  %1124 = add i32 %1123, 4
+  store i32 %1124, ptr %11, align 4
+  %1125 = load ptr, ptr %10, align 8
+  %1126 = load i32, ptr @hf_param_clkadjus, align 4
+  %1127 = load ptr, ptr %5, align 8
+  %1128 = load i32, ptr %11, align 4
+  %1129 = call ptr @proto_tree_add_item(ptr noundef %1125, i32 noundef %1126, ptr noundef %1127, i32 noundef %1128, i32 noundef 2, i32 noundef -2147483648)
+  %1130 = load i32, ptr %11, align 4
+  %1131 = add i32 %1130, 2
+  store i32 %1131, ptr %11, align 4
+  %1132 = load ptr, ptr %10, align 8
+  %1133 = load i32, ptr @hf_param_clkadjslots, align 4
+  %1134 = load ptr, ptr %5, align 8
+  %1135 = load i32, ptr %11, align 4
+  %1136 = call ptr @proto_tree_add_item(ptr noundef %1132, i32 noundef %1133, ptr noundef %1134, i32 noundef %1135, i32 noundef 1, i32 noundef -2147483648)
+  %1137 = load i32, ptr %11, align 4
+  %1138 = add i32 %1137, 1
+  store i32 %1138, ptr %11, align 4
+  %1139 = load ptr, ptr %10, align 8
+  %1140 = load i32, ptr @hf_param_clkadjmode, align 4
+  %1141 = load ptr, ptr %5, align 8
+  %1142 = load i32, ptr %11, align 4
+  %1143 = call ptr @proto_tree_add_item(ptr noundef %1139, i32 noundef %1140, ptr noundef %1141, i32 noundef %1142, i32 noundef 1, i32 noundef -2147483648)
+  %1144 = load i32, ptr %11, align 4
+  %1145 = add i32 %1144, 1
+  store i32 %1145, ptr %11, align 4
+  %1146 = load ptr, ptr %10, align 8
+  %1147 = load i32, ptr @hf_param_clkadjclk, align 4
+  %1148 = load ptr, ptr %5, align 8
   %1149 = load i32, ptr %11, align 4
-  %1150 = add i32 %1149, 2
-  store i32 %1150, ptr %11, align 4
-  %1151 = load ptr, ptr %10, align 8
-  %1152 = load i32, ptr @hf_param_clkadjslots, align 4
-  %1153 = load ptr, ptr %5, align 8
-  %1154 = load i32, ptr %11, align 4
-  %1155 = call ptr @proto_tree_add_item(ptr noundef %1151, i32 noundef %1152, ptr noundef %1153, i32 noundef %1154, i32 noundef 1, i32 noundef -2147483648)
-  %1156 = load i32, ptr %11, align 4
-  %1157 = add i32 %1156, 1
-  store i32 %1157, ptr %11, align 4
-  %1158 = load ptr, ptr %10, align 8
-  %1159 = load i32, ptr @hf_param_clkadjperiod, align 4
-  %1160 = load ptr, ptr %5, align 8
-  %1161 = load i32, ptr %11, align 4
-  %1162 = call ptr @proto_tree_add_item(ptr noundef %1158, i32 noundef %1159, ptr noundef %1160, i32 noundef %1161, i32 noundef 1, i32 noundef -2147483648)
-  %1163 = load i32, ptr %11, align 4
-  %1164 = add i32 %1163, 1
-  store i32 %1164, ptr %11, align 4
-  br label %1536
+  %1150 = call ptr @proto_tree_add_item(ptr noundef %1146, i32 noundef %1147, ptr noundef %1148, i32 noundef %1149, i32 noundef 4, i32 noundef -2147483648)
+  %1151 = load i32, ptr %11, align 4
+  %1152 = add i32 %1151, 4
+  store i32 %1152, ptr %11, align 4
+  br label %1559
 
-1165:                                             ; preds = %112
-  %1166 = load ptr, ptr %10, align 8
-  %1167 = load i32, ptr @hf_param_packettypetable, align 4
-  %1168 = load ptr, ptr %5, align 8
-  %1169 = load i32, ptr %11, align 4
-  %1170 = call ptr @proto_tree_add_item(ptr noundef %1166, i32 noundef %1167, ptr noundef %1168, i32 noundef %1169, i32 noundef 1, i32 noundef -2147483648)
-  %1171 = load i32, ptr %11, align 4
-  %1172 = add i32 %1171, 1
-  store i32 %1172, ptr %11, align 4
-  br label %1536
+1153:                                             ; preds = %114
+  %1154 = load ptr, ptr %10, align 8
+  %1155 = load i32, ptr @hf_param_clkadjid, align 4
+  %1156 = load ptr, ptr %5, align 8
+  %1157 = load i32, ptr %11, align 4
+  %1158 = call ptr @proto_tree_add_item(ptr noundef %1154, i32 noundef %1155, ptr noundef %1156, i32 noundef %1157, i32 noundef 1, i32 noundef -2147483648)
+  %1159 = load i32, ptr %11, align 4
+  %1160 = add i32 %1159, 1
+  store i32 %1160, ptr %11, align 4
+  br label %1559
 
-1173:                                             ; preds = %112
-  %1174 = load ptr, ptr %13, align 8
-  %1175 = load ptr, ptr %6, align 8
-  %1176 = load ptr, ptr %5, align 8
-  %1177 = load i32, ptr %11, align 4
-  %1178 = call zeroext i8 @tvb_get_guint8(ptr noundef %1176, i32 noundef %1177)
-  %1179 = load ptr, ptr %5, align 8
-  %1180 = load i32, ptr %11, align 4
-  %1181 = add i32 %1180, 1
-  %1182 = call zeroext i8 @tvb_get_guint8(ptr noundef %1179, i32 noundef %1181)
-  %1183 = zext i8 %1182 to i32
-  %1184 = load ptr, ptr %5, align 8
-  %1185 = load i32, ptr %11, align 4
-  %1186 = add i32 %1185, 8
-  %1187 = call zeroext i16 @tvb_get_guint16(ptr noundef %1184, i32 noundef %1186, i32 noundef -2147483648)
-  %1188 = load ptr, ptr %5, align 8
+1161:                                             ; preds = %114
+  %1162 = load ptr, ptr %10, align 8
+  %1163 = load i32, ptr @hf_param_clkadjus, align 4
+  %1164 = load ptr, ptr %5, align 8
+  %1165 = load i32, ptr %11, align 4
+  %1166 = call ptr @proto_tree_add_item(ptr noundef %1162, i32 noundef %1163, ptr noundef %1164, i32 noundef %1165, i32 noundef 2, i32 noundef -2147483648)
+  %1167 = load i32, ptr %11, align 4
+  %1168 = add i32 %1167, 2
+  store i32 %1168, ptr %11, align 4
+  %1169 = load ptr, ptr %10, align 8
+  %1170 = load i32, ptr @hf_param_clkadjslots, align 4
+  %1171 = load ptr, ptr %5, align 8
+  %1172 = load i32, ptr %11, align 4
+  %1173 = call ptr @proto_tree_add_item(ptr noundef %1169, i32 noundef %1170, ptr noundef %1171, i32 noundef %1172, i32 noundef 1, i32 noundef -2147483648)
+  %1174 = load i32, ptr %11, align 4
+  %1175 = add i32 %1174, 1
+  store i32 %1175, ptr %11, align 4
+  %1176 = load ptr, ptr %10, align 8
+  %1177 = load i32, ptr @hf_param_clkadjperiod, align 4
+  %1178 = load ptr, ptr %5, align 8
+  %1179 = load i32, ptr %11, align 4
+  %1180 = call ptr @proto_tree_add_item(ptr noundef %1176, i32 noundef %1177, ptr noundef %1178, i32 noundef %1179, i32 noundef 1, i32 noundef -2147483648)
+  %1181 = load i32, ptr %11, align 4
+  %1182 = add i32 %1181, 1
+  store i32 %1182, ptr %11, align 4
+  br label %1559
+
+1183:                                             ; preds = %114
+  %1184 = load ptr, ptr %10, align 8
+  %1185 = load i32, ptr @hf_param_packettypetable, align 4
+  %1186 = load ptr, ptr %5, align 8
+  %1187 = load i32, ptr %11, align 4
+  %1188 = call ptr @proto_tree_add_item(ptr noundef %1184, i32 noundef %1185, ptr noundef %1186, i32 noundef %1187, i32 noundef 1, i32 noundef -2147483648)
   %1189 = load i32, ptr %11, align 4
-  %1190 = add i32 %1189, 10
-  %1191 = call zeroext i16 @tvb_get_guint16(ptr noundef %1188, i32 noundef %1190, i32 noundef -2147483648)
-  %1192 = call ptr @btbredr_rf_add_esco_link(ptr noundef %1174, ptr noundef %1175, i8 noundef zeroext %1178, i32 noundef %1183, i16 noundef zeroext %1187, i16 noundef zeroext %1191)
-  %1193 = load ptr, ptr %10, align 8
-  %1194 = load i32, ptr @hf_param_escohandle, align 4
-  %1195 = load ptr, ptr %5, align 8
-  %1196 = load i32, ptr %11, align 4
-  %1197 = call ptr @proto_tree_add_item(ptr noundef %1193, i32 noundef %1194, ptr noundef %1195, i32 noundef %1196, i32 noundef 1, i32 noundef -2147483648)
+  %1190 = add i32 %1189, 1
+  store i32 %1190, ptr %11, align 4
+  br label %1559
+
+1191:                                             ; preds = %114
+  %1192 = load ptr, ptr %13, align 8
+  %1193 = load ptr, ptr %6, align 8
+  %1194 = load ptr, ptr %5, align 8
+  %1195 = load i32, ptr %11, align 4
+  %1196 = call zeroext i8 @tvb_get_uint8(ptr noundef %1194, i32 noundef %1195)
+  %1197 = load ptr, ptr %5, align 8
   %1198 = load i32, ptr %11, align 4
   %1199 = add i32 %1198, 1
-  store i32 %1199, ptr %11, align 4
-  %1200 = load ptr, ptr %10, align 8
-  %1201 = load i32, ptr @hf_param_escoltaddr, align 4
+  %1200 = call zeroext i8 @tvb_get_uint8(ptr noundef %1197, i32 noundef %1199)
+  %1201 = zext i8 %1200 to i32
   %1202 = load ptr, ptr %5, align 8
   %1203 = load i32, ptr %11, align 4
-  %1204 = call ptr @proto_tree_add_item(ptr noundef %1200, i32 noundef %1201, ptr noundef %1202, i32 noundef %1203, i32 noundef 1, i32 noundef -2147483648)
-  %1205 = load i32, ptr %11, align 4
-  %1206 = add i32 %1205, 1
-  store i32 %1206, ptr %11, align 4
+  %1204 = add i32 %1203, 8
+  %1205 = call zeroext i16 @tvb_get_uint16(ptr noundef %1202, i32 noundef %1204, i32 noundef -2147483648)
+  %1206 = load ptr, ptr %5, align 8
+  %1207 = load i32, ptr %11, align 4
+  %1208 = add i32 %1207, 10
+  %1209 = call zeroext i16 @tvb_get_uint16(ptr noundef %1206, i32 noundef %1208, i32 noundef -2147483648)
+  %1210 = call ptr @btbredr_rf_add_esco_link(ptr noundef %1192, ptr noundef %1193, i8 noundef zeroext %1196, i32 noundef %1201, i16 noundef zeroext %1205, i16 noundef zeroext %1209)
+  %1211 = load ptr, ptr %10, align 8
+  %1212 = load i32, ptr @hf_param_escohandle, align 4
+  %1213 = load ptr, ptr %5, align 8
+  %1214 = load i32, ptr %11, align 4
+  %1215 = call ptr @proto_tree_add_item(ptr noundef %1211, i32 noundef %1212, ptr noundef %1213, i32 noundef %1214, i32 noundef 1, i32 noundef -2147483648)
+  %1216 = load i32, ptr %11, align 4
+  %1217 = add i32 %1216, 1
+  store i32 %1217, ptr %11, align 4
+  %1218 = load ptr, ptr %10, align 8
+  %1219 = load i32, ptr @hf_param_escoltaddr, align 4
+  %1220 = load ptr, ptr %5, align 8
+  %1221 = load i32, ptr %11, align 4
+  %1222 = call ptr @proto_tree_add_item(ptr noundef %1218, i32 noundef %1219, ptr noundef %1220, i32 noundef %1221, i32 noundef 1, i32 noundef -2147483648)
+  %1223 = load i32, ptr %11, align 4
+  %1224 = add i32 %1223, 1
+  store i32 %1224, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %38) #4
   store i32 0, ptr %38, align 4
-  br label %1207
+  br label %1225
 
-1207:                                             ; preds = %1220, %1173
-  %1208 = load i32, ptr %38, align 4
-  %1209 = zext i32 %1208 to i64
-  %1210 = icmp ult i64 %1209, 5
-  br i1 %1210, label %1211, label %1223
+1225:                                             ; preds = %1239, %1191
+  %1226 = load i32, ptr %38, align 4
+  %1227 = zext i32 %1226 to i64
+  %1228 = icmp ult i64 %1227, 5
+  br i1 %1228, label %1230, label %1229
 
-1211:                                             ; preds = %1207
-  %1212 = load ptr, ptr %10, align 8
-  %1213 = load i32, ptr %38, align 4
-  %1214 = zext i32 %1213 to i64
-  %1215 = getelementptr [5 x i32], ptr @hf_param_timingcontrolflags, i64 0, i64 %1214
-  %1216 = load i32, ptr %1215, align 4
-  %1217 = load ptr, ptr %5, align 8
-  %1218 = load i32, ptr %11, align 4
-  %1219 = call ptr @proto_tree_add_item(ptr noundef %1212, i32 noundef %1216, ptr noundef %1217, i32 noundef %1218, i32 noundef 1, i32 noundef -2147483648)
-  br label %1220
+1229:                                             ; preds = %1225
+  call void @llvm.lifetime.end.p0(i64 4, ptr %38) #4
+  br label %1242
 
-1220:                                             ; preds = %1211
-  %1221 = load i32, ptr %38, align 4
-  %1222 = add i32 %1221, 1
-  store i32 %1222, ptr %38, align 4
-  br label %1207, !llvm.loop !30
+1230:                                             ; preds = %1225
+  %1231 = load ptr, ptr %10, align 8
+  %1232 = load i32, ptr %38, align 4
+  %1233 = zext i32 %1232 to i64
+  %1234 = getelementptr [5 x i32], ptr @hf_param_timingcontrolflags, i64 0, i64 %1233
+  %1235 = load i32, ptr %1234, align 4
+  %1236 = load ptr, ptr %5, align 8
+  %1237 = load i32, ptr %11, align 4
+  %1238 = call ptr @proto_tree_add_item(ptr noundef %1231, i32 noundef %1235, ptr noundef %1236, i32 noundef %1237, i32 noundef 1, i32 noundef -2147483648)
+  br label %1239
 
-1223:                                             ; preds = %1207
-  %1224 = load i32, ptr %11, align 4
-  %1225 = add i32 %1224, 1
-  store i32 %1225, ptr %11, align 4
-  %1226 = load ptr, ptr %10, align 8
-  %1227 = load i32, ptr @hf_param_escod, align 4
-  %1228 = load ptr, ptr %5, align 8
-  %1229 = load i32, ptr %11, align 4
-  %1230 = call ptr @proto_tree_add_item(ptr noundef %1226, i32 noundef %1227, ptr noundef %1228, i32 noundef %1229, i32 noundef 1, i32 noundef -2147483648)
-  %1231 = load i32, ptr %11, align 4
-  %1232 = add i32 %1231, 1
-  store i32 %1232, ptr %11, align 4
-  %1233 = load ptr, ptr %10, align 8
-  %1234 = load i32, ptr @hf_param_escot, align 4
-  %1235 = load ptr, ptr %5, align 8
-  %1236 = load i32, ptr %11, align 4
-  %1237 = call ptr @proto_tree_add_item(ptr noundef %1233, i32 noundef %1234, ptr noundef %1235, i32 noundef %1236, i32 noundef 1, i32 noundef -2147483648)
-  %1238 = load i32, ptr %11, align 4
-  %1239 = add i32 %1238, 1
-  store i32 %1239, ptr %11, align 4
-  %1240 = load ptr, ptr %10, align 8
-  %1241 = load i32, ptr @hf_param_escow, align 4
-  %1242 = load ptr, ptr %5, align 8
+1239:                                             ; preds = %1230
+  %1240 = load i32, ptr %38, align 4
+  %1241 = add i32 %1240, 1
+  store i32 %1241, ptr %38, align 4
+  br label %1225, !llvm.loop !32
+
+1242:                                             ; preds = %1229
   %1243 = load i32, ptr %11, align 4
-  %1244 = call ptr @proto_tree_add_item(ptr noundef %1240, i32 noundef %1241, ptr noundef %1242, i32 noundef %1243, i32 noundef 1, i32 noundef -2147483648)
-  %1245 = load i32, ptr %11, align 4
-  %1246 = add i32 %1245, 1
-  store i32 %1246, ptr %11, align 4
-  %1247 = load ptr, ptr %10, align 8
-  %1248 = load i32, ptr @hf_param_escopackettypems, align 4
-  %1249 = load ptr, ptr %5, align 8
+  %1244 = add i32 %1243, 1
+  store i32 %1244, ptr %11, align 4
+  %1245 = load ptr, ptr %10, align 8
+  %1246 = load i32, ptr @hf_param_escod, align 4
+  %1247 = load ptr, ptr %5, align 8
+  %1248 = load i32, ptr %11, align 4
+  %1249 = call ptr @proto_tree_add_item(ptr noundef %1245, i32 noundef %1246, ptr noundef %1247, i32 noundef %1248, i32 noundef 1, i32 noundef -2147483648)
   %1250 = load i32, ptr %11, align 4
-  %1251 = call ptr @proto_tree_add_item(ptr noundef %1247, i32 noundef %1248, ptr noundef %1249, i32 noundef %1250, i32 noundef 1, i32 noundef -2147483648)
-  %1252 = load i32, ptr %11, align 4
-  %1253 = add i32 %1252, 1
-  store i32 %1253, ptr %11, align 4
-  %1254 = load ptr, ptr %10, align 8
-  %1255 = load i32, ptr @hf_param_escopackettypesm, align 4
-  %1256 = load ptr, ptr %5, align 8
+  %1251 = add i32 %1250, 1
+  store i32 %1251, ptr %11, align 4
+  %1252 = load ptr, ptr %10, align 8
+  %1253 = load i32, ptr @hf_param_escot, align 4
+  %1254 = load ptr, ptr %5, align 8
+  %1255 = load i32, ptr %11, align 4
+  %1256 = call ptr @proto_tree_add_item(ptr noundef %1252, i32 noundef %1253, ptr noundef %1254, i32 noundef %1255, i32 noundef 1, i32 noundef -2147483648)
   %1257 = load i32, ptr %11, align 4
-  %1258 = call ptr @proto_tree_add_item(ptr noundef %1254, i32 noundef %1255, ptr noundef %1256, i32 noundef %1257, i32 noundef 1, i32 noundef -2147483648)
-  %1259 = load i32, ptr %11, align 4
-  %1260 = add i32 %1259, 1
-  store i32 %1260, ptr %11, align 4
-  %1261 = load ptr, ptr %10, align 8
-  %1262 = load i32, ptr @hf_param_escopacketlengthms, align 4
-  %1263 = load ptr, ptr %5, align 8
+  %1258 = add i32 %1257, 1
+  store i32 %1258, ptr %11, align 4
+  %1259 = load ptr, ptr %10, align 8
+  %1260 = load i32, ptr @hf_param_escow, align 4
+  %1261 = load ptr, ptr %5, align 8
+  %1262 = load i32, ptr %11, align 4
+  %1263 = call ptr @proto_tree_add_item(ptr noundef %1259, i32 noundef %1260, ptr noundef %1261, i32 noundef %1262, i32 noundef 1, i32 noundef -2147483648)
   %1264 = load i32, ptr %11, align 4
-  %1265 = call ptr @proto_tree_add_item(ptr noundef %1261, i32 noundef %1262, ptr noundef %1263, i32 noundef %1264, i32 noundef 2, i32 noundef -2147483648)
-  %1266 = load i32, ptr %11, align 4
-  %1267 = add i32 %1266, 2
-  store i32 %1267, ptr %11, align 4
-  %1268 = load ptr, ptr %10, align 8
-  %1269 = load i32, ptr @hf_param_escopacketlengthsm, align 4
-  %1270 = load ptr, ptr %5, align 8
+  %1265 = add i32 %1264, 1
+  store i32 %1265, ptr %11, align 4
+  %1266 = load ptr, ptr %10, align 8
+  %1267 = load i32, ptr @hf_param_escopackettypems, align 4
+  %1268 = load ptr, ptr %5, align 8
+  %1269 = load i32, ptr %11, align 4
+  %1270 = call ptr @proto_tree_add_item(ptr noundef %1266, i32 noundef %1267, ptr noundef %1268, i32 noundef %1269, i32 noundef 1, i32 noundef -2147483648)
   %1271 = load i32, ptr %11, align 4
-  %1272 = call ptr @proto_tree_add_item(ptr noundef %1268, i32 noundef %1269, ptr noundef %1270, i32 noundef %1271, i32 noundef 2, i32 noundef -2147483648)
-  %1273 = load i32, ptr %11, align 4
-  %1274 = add i32 %1273, 2
-  store i32 %1274, ptr %11, align 4
-  %1275 = load ptr, ptr %10, align 8
-  %1276 = load i32, ptr @hf_param_airmode, align 4
-  %1277 = load ptr, ptr %5, align 8
+  %1272 = add i32 %1271, 1
+  store i32 %1272, ptr %11, align 4
+  %1273 = load ptr, ptr %10, align 8
+  %1274 = load i32, ptr @hf_param_escopackettypesm, align 4
+  %1275 = load ptr, ptr %5, align 8
+  %1276 = load i32, ptr %11, align 4
+  %1277 = call ptr @proto_tree_add_item(ptr noundef %1273, i32 noundef %1274, ptr noundef %1275, i32 noundef %1276, i32 noundef 1, i32 noundef -2147483648)
   %1278 = load i32, ptr %11, align 4
-  %1279 = call ptr @proto_tree_add_item(ptr noundef %1275, i32 noundef %1276, ptr noundef %1277, i32 noundef %1278, i32 noundef 1, i32 noundef -2147483648)
-  %1280 = load i32, ptr %11, align 4
-  %1281 = add i32 %1280, 1
-  store i32 %1281, ptr %11, align 4
-  %1282 = load ptr, ptr %10, align 8
-  %1283 = load i32, ptr @hf_param_negostate, align 4
-  %1284 = load ptr, ptr %5, align 8
+  %1279 = add i32 %1278, 1
+  store i32 %1279, ptr %11, align 4
+  %1280 = load ptr, ptr %10, align 8
+  %1281 = load i32, ptr @hf_param_escopacketlengthms, align 4
+  %1282 = load ptr, ptr %5, align 8
+  %1283 = load i32, ptr %11, align 4
+  %1284 = call ptr @proto_tree_add_item(ptr noundef %1280, i32 noundef %1281, ptr noundef %1282, i32 noundef %1283, i32 noundef 2, i32 noundef -2147483648)
   %1285 = load i32, ptr %11, align 4
-  %1286 = call ptr @proto_tree_add_item(ptr noundef %1282, i32 noundef %1283, ptr noundef %1284, i32 noundef %1285, i32 noundef 1, i32 noundef -2147483648)
-  %1287 = load i32, ptr %11, align 4
-  %1288 = add i32 %1287, 1
-  store i32 %1288, ptr %11, align 4
-  br label %1536
+  %1286 = add i32 %1285, 2
+  store i32 %1286, ptr %11, align 4
+  %1287 = load ptr, ptr %10, align 8
+  %1288 = load i32, ptr @hf_param_escopacketlengthsm, align 4
+  %1289 = load ptr, ptr %5, align 8
+  %1290 = load i32, ptr %11, align 4
+  %1291 = call ptr @proto_tree_add_item(ptr noundef %1287, i32 noundef %1288, ptr noundef %1289, i32 noundef %1290, i32 noundef 2, i32 noundef -2147483648)
+  %1292 = load i32, ptr %11, align 4
+  %1293 = add i32 %1292, 2
+  store i32 %1293, ptr %11, align 4
+  %1294 = load ptr, ptr %10, align 8
+  %1295 = load i32, ptr @hf_param_airmode, align 4
+  %1296 = load ptr, ptr %5, align 8
+  %1297 = load i32, ptr %11, align 4
+  %1298 = call ptr @proto_tree_add_item(ptr noundef %1294, i32 noundef %1295, ptr noundef %1296, i32 noundef %1297, i32 noundef 1, i32 noundef -2147483648)
+  %1299 = load i32, ptr %11, align 4
+  %1300 = add i32 %1299, 1
+  store i32 %1300, ptr %11, align 4
+  %1301 = load ptr, ptr %10, align 8
+  %1302 = load i32, ptr @hf_param_negostate, align 4
+  %1303 = load ptr, ptr %5, align 8
+  %1304 = load i32, ptr %11, align 4
+  %1305 = call ptr @proto_tree_add_item(ptr noundef %1301, i32 noundef %1302, ptr noundef %1303, i32 noundef %1304, i32 noundef 1, i32 noundef -2147483648)
+  %1306 = load i32, ptr %11, align 4
+  %1307 = add i32 %1306, 1
+  store i32 %1307, ptr %11, align 4
+  br label %1559
 
-1289:                                             ; preds = %112
-  %1290 = load ptr, ptr %13, align 8
-  %1291 = load ptr, ptr %6, align 8
-  %1292 = load ptr, ptr %5, align 8
-  %1293 = load i32, ptr %11, align 4
-  %1294 = call zeroext i8 @tvb_get_guint8(ptr noundef %1292, i32 noundef %1293)
-  call void @btbredr_rf_remove_esco_link(ptr noundef %1290, ptr noundef %1291, i8 noundef zeroext %1294)
-  %1295 = load ptr, ptr %10, align 8
-  %1296 = load i32, ptr @hf_param_escohandle, align 4
-  %1297 = load ptr, ptr %5, align 8
-  %1298 = load i32, ptr %11, align 4
-  %1299 = call ptr @proto_tree_add_item(ptr noundef %1295, i32 noundef %1296, ptr noundef %1297, i32 noundef %1298, i32 noundef 1, i32 noundef -2147483648)
-  %1300 = load i32, ptr %11, align 4
-  %1301 = add i32 %1300, 1
-  store i32 %1301, ptr %11, align 4
-  %1302 = load ptr, ptr %10, align 8
-  %1303 = load i32, ptr @hf_errorcode, align 4
-  %1304 = load ptr, ptr %5, align 8
-  %1305 = load i32, ptr %11, align 4
-  %1306 = call ptr @proto_tree_add_item(ptr noundef %1302, i32 noundef %1303, ptr noundef %1304, i32 noundef %1305, i32 noundef 1, i32 noundef -2147483648)
-  %1307 = load i32, ptr %11, align 4
-  %1308 = add i32 %1307, 1
-  store i32 %1308, ptr %11, align 4
-  br label %1536
+1308:                                             ; preds = %114
+  %1309 = load ptr, ptr %13, align 8
+  %1310 = load ptr, ptr %6, align 8
+  %1311 = load ptr, ptr %5, align 8
+  %1312 = load i32, ptr %11, align 4
+  %1313 = call zeroext i8 @tvb_get_uint8(ptr noundef %1311, i32 noundef %1312)
+  call void @btbredr_rf_remove_esco_link(ptr noundef %1309, ptr noundef %1310, i8 noundef zeroext %1313)
+  %1314 = load ptr, ptr %10, align 8
+  %1315 = load i32, ptr @hf_param_escohandle, align 4
+  %1316 = load ptr, ptr %5, align 8
+  %1317 = load i32, ptr %11, align 4
+  %1318 = call ptr @proto_tree_add_item(ptr noundef %1314, i32 noundef %1315, ptr noundef %1316, i32 noundef %1317, i32 noundef 1, i32 noundef -2147483648)
+  %1319 = load i32, ptr %11, align 4
+  %1320 = add i32 %1319, 1
+  store i32 %1320, ptr %11, align 4
+  %1321 = load ptr, ptr %10, align 8
+  %1322 = load i32, ptr @hf_errorcode, align 4
+  %1323 = load ptr, ptr %5, align 8
+  %1324 = load i32, ptr %11, align 4
+  %1325 = call ptr @proto_tree_add_item(ptr noundef %1321, i32 noundef %1322, ptr noundef %1323, i32 noundef %1324, i32 noundef 1, i32 noundef -2147483648)
+  %1326 = load i32, ptr %11, align 4
+  %1327 = add i32 %1326, 1
+  store i32 %1327, ptr %11, align 4
+  br label %1559
 
-1309:                                             ; preds = %112
-  %1310 = load ptr, ptr %10, align 8
-  %1311 = load i32, ptr @hf_param_afh_reportingmode, align 4
-  %1312 = load ptr, ptr %5, align 8
-  %1313 = load i32, ptr %11, align 4
-  %1314 = call ptr @proto_tree_add_item(ptr noundef %1310, i32 noundef %1311, ptr noundef %1312, i32 noundef %1313, i32 noundef 1, i32 noundef -2147483648)
-  %1315 = load i32, ptr %11, align 4
-  %1316 = add i32 %1315, 1
-  store i32 %1316, ptr %11, align 4
-  %1317 = load ptr, ptr %10, align 8
-  %1318 = load i32, ptr @hf_param_afh_mininterval, align 4
-  %1319 = load ptr, ptr %5, align 8
-  %1320 = load i32, ptr %11, align 4
-  %1321 = call ptr @proto_tree_add_item(ptr noundef %1317, i32 noundef %1318, ptr noundef %1319, i32 noundef %1320, i32 noundef 2, i32 noundef -2147483648)
-  %1322 = load i32, ptr %11, align 4
-  %1323 = add i32 %1322, 2
-  store i32 %1323, ptr %11, align 4
-  %1324 = load ptr, ptr %10, align 8
-  %1325 = load i32, ptr @hf_param_afh_maxinterval, align 4
-  %1326 = load ptr, ptr %5, align 8
-  %1327 = load i32, ptr %11, align 4
-  %1328 = call ptr @proto_tree_add_item(ptr noundef %1324, i32 noundef %1325, ptr noundef %1326, i32 noundef %1327, i32 noundef 2, i32 noundef -2147483648)
-  %1329 = load i32, ptr %11, align 4
-  %1330 = add i32 %1329, 2
-  store i32 %1330, ptr %11, align 4
-  br label %1536
+1328:                                             ; preds = %114
+  %1329 = load ptr, ptr %10, align 8
+  %1330 = load i32, ptr @hf_param_afh_reportingmode, align 4
+  %1331 = load ptr, ptr %5, align 8
+  %1332 = load i32, ptr %11, align 4
+  %1333 = call ptr @proto_tree_add_item(ptr noundef %1329, i32 noundef %1330, ptr noundef %1331, i32 noundef %1332, i32 noundef 1, i32 noundef -2147483648)
+  %1334 = load i32, ptr %11, align 4
+  %1335 = add i32 %1334, 1
+  store i32 %1335, ptr %11, align 4
+  %1336 = load ptr, ptr %10, align 8
+  %1337 = load i32, ptr @hf_param_afh_mininterval, align 4
+  %1338 = load ptr, ptr %5, align 8
+  %1339 = load i32, ptr %11, align 4
+  %1340 = call ptr @proto_tree_add_item(ptr noundef %1336, i32 noundef %1337, ptr noundef %1338, i32 noundef %1339, i32 noundef 2, i32 noundef -2147483648)
+  %1341 = load i32, ptr %11, align 4
+  %1342 = add i32 %1341, 2
+  store i32 %1342, ptr %11, align 4
+  %1343 = load ptr, ptr %10, align 8
+  %1344 = load i32, ptr @hf_param_afh_maxinterval, align 4
+  %1345 = load ptr, ptr %5, align 8
+  %1346 = load i32, ptr %11, align 4
+  %1347 = call ptr @proto_tree_add_item(ptr noundef %1343, i32 noundef %1344, ptr noundef %1345, i32 noundef %1346, i32 noundef 2, i32 noundef -2147483648)
+  %1348 = load i32, ptr %11, align 4
+  %1349 = add i32 %1348, 2
+  store i32 %1349, ptr %11, align 4
+  br label %1559
 
-1331:                                             ; preds = %112
+1350:                                             ; preds = %114
+  call void @llvm.lifetime.start.p0(i64 4, ptr %39) #4
   store i32 0, ptr %39, align 4
-  br label %1332
+  br label %1351
 
-1332:                                             ; preds = %1359, %1331
-  %1333 = load i32, ptr %39, align 4
-  %1334 = zext i32 %1333 to i64
-  %1335 = icmp ult i64 %1334, 10
-  br i1 %1335, label %1336, label %1362
-
-1336:                                             ; preds = %1332
-  store i32 0, ptr %40, align 4
-  br label %1337
-
-1337:                                             ; preds = %1355, %1336
-  %1338 = load i32, ptr %40, align 4
-  %1339 = zext i32 %1338 to i64
-  %1340 = icmp ult i64 %1339, 4
-  br i1 %1340, label %1341, label %1358
-
-1341:                                             ; preds = %1337
-  %1342 = load ptr, ptr %10, align 8
-  %1343 = load i32, ptr %39, align 4
-  %1344 = zext i32 %1343 to i64
-  %1345 = getelementptr [10 x [4 x i32]], ptr @hf_param_afh_channelclass, i64 0, i64 %1344
-  %1346 = load i32, ptr %40, align 4
-  %1347 = zext i32 %1346 to i64
-  %1348 = getelementptr [4 x i32], ptr %1345, i64 0, i64 %1347
-  %1349 = load i32, ptr %1348, align 4
-  %1350 = load ptr, ptr %5, align 8
-  %1351 = load i32, ptr %11, align 4
+1351:                                             ; preds = %1380, %1350
   %1352 = load i32, ptr %39, align 4
-  %1353 = add i32 %1351, %1352
-  %1354 = call ptr @proto_tree_add_item(ptr noundef %1342, i32 noundef %1349, ptr noundef %1350, i32 noundef %1353, i32 noundef 1, i32 noundef -2147483648)
-  br label %1355
+  %1353 = zext i32 %1352 to i64
+  %1354 = icmp ult i64 %1353, 10
+  br i1 %1354, label %1356, label %1355
 
-1355:                                             ; preds = %1341
-  %1356 = load i32, ptr %40, align 4
-  %1357 = add i32 %1356, 1
-  store i32 %1357, ptr %40, align 4
-  br label %1337, !llvm.loop !31
+1355:                                             ; preds = %1351
+  store i32 79, ptr %40, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %39) #4
+  br label %1383
 
-1358:                                             ; preds = %1337
-  br label %1359
-
-1359:                                             ; preds = %1358
-  %1360 = load i32, ptr %39, align 4
-  %1361 = add i32 %1360, 1
-  store i32 %1361, ptr %39, align 4
-  br label %1332, !llvm.loop !32
-
-1362:                                             ; preds = %1332
-  %1363 = load i32, ptr %11, align 4
-  %1364 = sext i32 %1363 to i64
-  %1365 = add i64 %1364, 10
-  %1366 = trunc i64 %1365 to i32
-  store i32 %1366, ptr %11, align 4
-  br label %1536
-
-1367:                                             ; preds = %112, %112
-  %1368 = load ptr, ptr %10, align 8
-  %1369 = load i32, ptr @hf_param_maxsniffsubrate, align 4
-  %1370 = load ptr, ptr %5, align 8
-  %1371 = load i32, ptr %11, align 4
-  %1372 = call ptr @proto_tree_add_item(ptr noundef %1368, i32 noundef %1369, ptr noundef %1370, i32 noundef %1371, i32 noundef 1, i32 noundef -2147483648)
-  %1373 = load i32, ptr %11, align 4
-  %1374 = add i32 %1373, 1
-  store i32 %1374, ptr %11, align 4
-  %1375 = load ptr, ptr %10, align 8
-  %1376 = load i32, ptr @hf_param_minsniffmodetimeout, align 4
-  %1377 = load ptr, ptr %5, align 8
-  %1378 = load i32, ptr %11, align 4
-  %1379 = call ptr @proto_tree_add_item(ptr noundef %1375, i32 noundef %1376, ptr noundef %1377, i32 noundef %1378, i32 noundef 2, i32 noundef -2147483648)
-  %1380 = load i32, ptr %11, align 4
-  %1381 = add i32 %1380, 2
-  store i32 %1381, ptr %11, align 4
-  %1382 = load ptr, ptr %10, align 8
-  %1383 = load i32, ptr @hf_param_sniffsubratinginstant, align 4
-  %1384 = load ptr, ptr %5, align 8
-  %1385 = load i32, ptr %11, align 4
-  %1386 = call ptr @proto_tree_add_item(ptr noundef %1382, i32 noundef %1383, ptr noundef %1384, i32 noundef %1385, i32 noundef 4, i32 noundef -2147483648)
-  %1387 = load i32, ptr %11, align 4
-  %1388 = add i32 %1387, 4
-  store i32 %1388, ptr %11, align 4
-  br label %1536
-
-1389:                                             ; preds = %112, %112
-  br label %1536
-
-1390:                                             ; preds = %112, %112
-  %1391 = load ptr, ptr %10, align 8
-  %1392 = load i32, ptr @hf_param_iocapcap, align 4
-  %1393 = load ptr, ptr %5, align 8
-  %1394 = load i32, ptr %11, align 4
-  %1395 = call ptr @proto_tree_add_item(ptr noundef %1391, i32 noundef %1392, ptr noundef %1393, i32 noundef %1394, i32 noundef 1, i32 noundef -2147483648)
-  %1396 = load i32, ptr %11, align 4
-  %1397 = add i32 %1396, 1
-  store i32 %1397, ptr %11, align 4
-  %1398 = load ptr, ptr %10, align 8
-  %1399 = load i32, ptr @hf_param_iocapoobauthdata, align 4
-  %1400 = load ptr, ptr %5, align 8
-  %1401 = load i32, ptr %11, align 4
-  %1402 = call ptr @proto_tree_add_item(ptr noundef %1398, i32 noundef %1399, ptr noundef %1400, i32 noundef %1401, i32 noundef 1, i32 noundef -2147483648)
-  %1403 = load i32, ptr %11, align 4
-  %1404 = add i32 %1403, 1
-  store i32 %1404, ptr %11, align 4
-  %1405 = load ptr, ptr %10, align 8
-  %1406 = load i32, ptr @hf_param_iocapauthreq, align 4
-  %1407 = load ptr, ptr %5, align 8
-  %1408 = load i32, ptr %11, align 4
-  %1409 = call ptr @proto_tree_add_item(ptr noundef %1405, i32 noundef %1406, ptr noundef %1407, i32 noundef %1408, i32 noundef 1, i32 noundef -2147483648)
-  %1410 = load i32, ptr %11, align 4
-  %1411 = add i32 %1410, 1
-  store i32 %1411, ptr %11, align 4
-  br label %1536
-
-1412:                                             ; preds = %112, %112, %112
-  br label %1536
-
-1413:                                             ; preds = %112
-  %1414 = load ptr, ptr %10, align 8
-  %1415 = load i32, ptr @hf_param_keypressnotificationtype, align 4
-  %1416 = load ptr, ptr %5, align 8
-  %1417 = load i32, ptr %11, align 4
-  %1418 = call ptr @proto_tree_add_item(ptr noundef %1414, i32 noundef %1415, ptr noundef %1416, i32 noundef %1417, i32 noundef 1, i32 noundef -2147483648)
-  %1419 = load i32, ptr %11, align 4
-  %1420 = add i32 %1419, 1
-  store i32 %1420, ptr %11, align 4
-  br label %1536
-
-1421:                                             ; preds = %112
-  %1422 = load ptr, ptr %10, align 8
-  %1423 = load i32, ptr @hf_param_poweradjreq, align 4
-  %1424 = load ptr, ptr %5, align 8
-  %1425 = load i32, ptr %11, align 4
-  %1426 = call ptr @proto_tree_add_item(ptr noundef %1422, i32 noundef %1423, ptr noundef %1424, i32 noundef %1425, i32 noundef 1, i32 noundef -2147483648)
-  %1427 = load i32, ptr %11, align 4
-  %1428 = add i32 %1427, 1
-  store i32 %1428, ptr %11, align 4
-  br label %1536
-
-1429:                                             ; preds = %112
+1356:                                             ; preds = %1351
+  call void @llvm.lifetime.start.p0(i64 4, ptr %41) #4
   store i32 0, ptr %41, align 4
-  br label %1430
+  br label %1357
 
-1430:                                             ; preds = %1443, %1429
-  %1431 = load i32, ptr %41, align 4
-  %1432 = zext i32 %1431 to i64
-  %1433 = icmp ult i64 %1432, 5
-  br i1 %1433, label %1434, label %1446
+1357:                                             ; preds = %1376, %1356
+  %1358 = load i32, ptr %41, align 4
+  %1359 = zext i32 %1358 to i64
+  %1360 = icmp ult i64 %1359, 4
+  br i1 %1360, label %1362, label %1361
 
-1434:                                             ; preds = %1430
+1361:                                             ; preds = %1357
+  store i32 82, ptr %40, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %41) #4
+  br label %1379
+
+1362:                                             ; preds = %1357
+  %1363 = load ptr, ptr %10, align 8
+  %1364 = load i32, ptr %39, align 4
+  %1365 = zext i32 %1364 to i64
+  %1366 = getelementptr [10 x [4 x i32]], ptr @hf_param_afh_channelclass, i64 0, i64 %1365
+  %1367 = load i32, ptr %41, align 4
+  %1368 = zext i32 %1367 to i64
+  %1369 = getelementptr [4 x i32], ptr %1366, i64 0, i64 %1368
+  %1370 = load i32, ptr %1369, align 4
+  %1371 = load ptr, ptr %5, align 8
+  %1372 = load i32, ptr %11, align 4
+  %1373 = load i32, ptr %39, align 4
+  %1374 = add i32 %1372, %1373
+  %1375 = call ptr @proto_tree_add_item(ptr noundef %1363, i32 noundef %1370, ptr noundef %1371, i32 noundef %1374, i32 noundef 1, i32 noundef -2147483648)
+  br label %1376
+
+1376:                                             ; preds = %1362
+  %1377 = load i32, ptr %41, align 4
+  %1378 = add i32 %1377, 1
+  store i32 %1378, ptr %41, align 4
+  br label %1357, !llvm.loop !33
+
+1379:                                             ; preds = %1361
+  br label %1380
+
+1380:                                             ; preds = %1379
+  %1381 = load i32, ptr %39, align 4
+  %1382 = add i32 %1381, 1
+  store i32 %1382, ptr %39, align 4
+  br label %1351, !llvm.loop !34
+
+1383:                                             ; preds = %1355
+  %1384 = load i32, ptr %11, align 4
+  %1385 = sext i32 %1384 to i64
+  %1386 = add i64 %1385, 10
+  %1387 = trunc i64 %1386 to i32
+  store i32 %1387, ptr %11, align 4
+  br label %1559
+
+1388:                                             ; preds = %114, %114
+  %1389 = load ptr, ptr %10, align 8
+  %1390 = load i32, ptr @hf_param_maxsniffsubrate, align 4
+  %1391 = load ptr, ptr %5, align 8
+  %1392 = load i32, ptr %11, align 4
+  %1393 = call ptr @proto_tree_add_item(ptr noundef %1389, i32 noundef %1390, ptr noundef %1391, i32 noundef %1392, i32 noundef 1, i32 noundef -2147483648)
+  %1394 = load i32, ptr %11, align 4
+  %1395 = add i32 %1394, 1
+  store i32 %1395, ptr %11, align 4
+  %1396 = load ptr, ptr %10, align 8
+  %1397 = load i32, ptr @hf_param_minsniffmodetimeout, align 4
+  %1398 = load ptr, ptr %5, align 8
+  %1399 = load i32, ptr %11, align 4
+  %1400 = call ptr @proto_tree_add_item(ptr noundef %1396, i32 noundef %1397, ptr noundef %1398, i32 noundef %1399, i32 noundef 2, i32 noundef -2147483648)
+  %1401 = load i32, ptr %11, align 4
+  %1402 = add i32 %1401, 2
+  store i32 %1402, ptr %11, align 4
+  %1403 = load ptr, ptr %10, align 8
+  %1404 = load i32, ptr @hf_param_sniffsubratinginstant, align 4
+  %1405 = load ptr, ptr %5, align 8
+  %1406 = load i32, ptr %11, align 4
+  %1407 = call ptr @proto_tree_add_item(ptr noundef %1403, i32 noundef %1404, ptr noundef %1405, i32 noundef %1406, i32 noundef 4, i32 noundef -2147483648)
+  %1408 = load i32, ptr %11, align 4
+  %1409 = add i32 %1408, 4
+  store i32 %1409, ptr %11, align 4
+  br label %1559
+
+1410:                                             ; preds = %114, %114
+  br label %1559
+
+1411:                                             ; preds = %114, %114
+  %1412 = load ptr, ptr %10, align 8
+  %1413 = load i32, ptr @hf_param_iocapcap, align 4
+  %1414 = load ptr, ptr %5, align 8
+  %1415 = load i32, ptr %11, align 4
+  %1416 = call ptr @proto_tree_add_item(ptr noundef %1412, i32 noundef %1413, ptr noundef %1414, i32 noundef %1415, i32 noundef 1, i32 noundef -2147483648)
+  %1417 = load i32, ptr %11, align 4
+  %1418 = add i32 %1417, 1
+  store i32 %1418, ptr %11, align 4
+  %1419 = load ptr, ptr %10, align 8
+  %1420 = load i32, ptr @hf_param_iocapoobauthdata, align 4
+  %1421 = load ptr, ptr %5, align 8
+  %1422 = load i32, ptr %11, align 4
+  %1423 = call ptr @proto_tree_add_item(ptr noundef %1419, i32 noundef %1420, ptr noundef %1421, i32 noundef %1422, i32 noundef 1, i32 noundef -2147483648)
+  %1424 = load i32, ptr %11, align 4
+  %1425 = add i32 %1424, 1
+  store i32 %1425, ptr %11, align 4
+  %1426 = load ptr, ptr %10, align 8
+  %1427 = load i32, ptr @hf_param_iocapauthreq, align 4
+  %1428 = load ptr, ptr %5, align 8
+  %1429 = load i32, ptr %11, align 4
+  %1430 = call ptr @proto_tree_add_item(ptr noundef %1426, i32 noundef %1427, ptr noundef %1428, i32 noundef %1429, i32 noundef 1, i32 noundef -2147483648)
+  %1431 = load i32, ptr %11, align 4
+  %1432 = add i32 %1431, 1
+  store i32 %1432, ptr %11, align 4
+  br label %1559
+
+1433:                                             ; preds = %114, %114, %114
+  br label %1559
+
+1434:                                             ; preds = %114
   %1435 = load ptr, ptr %10, align 8
-  %1436 = load i32, ptr %41, align 4
-  %1437 = zext i32 %1436 to i64
-  %1438 = getelementptr [5 x i32], ptr @hf_param_poweradjresp, i64 0, i64 %1437
-  %1439 = load i32, ptr %1438, align 4
-  %1440 = load ptr, ptr %5, align 8
-  %1441 = load i32, ptr %11, align 4
-  %1442 = call ptr @proto_tree_add_item(ptr noundef %1435, i32 noundef %1439, ptr noundef %1440, i32 noundef %1441, i32 noundef 1, i32 noundef -2147483648)
-  br label %1443
+  %1436 = load i32, ptr @hf_param_keypressnotificationtype, align 4
+  %1437 = load ptr, ptr %5, align 8
+  %1438 = load i32, ptr %11, align 4
+  %1439 = call ptr @proto_tree_add_item(ptr noundef %1435, i32 noundef %1436, ptr noundef %1437, i32 noundef %1438, i32 noundef 1, i32 noundef -2147483648)
+  %1440 = load i32, ptr %11, align 4
+  %1441 = add i32 %1440, 1
+  store i32 %1441, ptr %11, align 4
+  br label %1559
 
-1443:                                             ; preds = %1434
-  %1444 = load i32, ptr %41, align 4
-  %1445 = add i32 %1444, 1
-  store i32 %1445, ptr %41, align 4
-  br label %1430, !llvm.loop !33
+1442:                                             ; preds = %114
+  %1443 = load ptr, ptr %10, align 8
+  %1444 = load i32, ptr @hf_param_poweradjreq, align 4
+  %1445 = load ptr, ptr %5, align 8
+  %1446 = load i32, ptr %11, align 4
+  %1447 = call ptr @proto_tree_add_item(ptr noundef %1443, i32 noundef %1444, ptr noundef %1445, i32 noundef %1446, i32 noundef 1, i32 noundef -2147483648)
+  %1448 = load i32, ptr %11, align 4
+  %1449 = add i32 %1448, 1
+  store i32 %1449, ptr %11, align 4
+  br label %1559
 
-1446:                                             ; preds = %1430
-  %1447 = load i32, ptr %11, align 4
-  %1448 = add i32 %1447, 1
-  store i32 %1448, ptr %11, align 4
-  br label %1536
+1450:                                             ; preds = %114
+  call void @llvm.lifetime.start.p0(i64 4, ptr %42) #4
+  store i32 0, ptr %42, align 4
+  br label %1451
 
-1449:                                             ; preds = %112, %112
-  br label %1536
+1451:                                             ; preds = %1465, %1450
+  %1452 = load i32, ptr %42, align 4
+  %1453 = zext i32 %1452 to i64
+  %1454 = icmp ult i64 %1453, 5
+  br i1 %1454, label %1456, label %1455
 
-1450:                                             ; preds = %112
-  %1451 = load ptr, ptr %10, align 8
-  %1452 = load i32, ptr @hf_param_samupdatemode, align 4
-  %1453 = load ptr, ptr %5, align 8
-  %1454 = load i32, ptr %11, align 4
-  %1455 = call ptr @proto_tree_add_item(ptr noundef %1451, i32 noundef %1452, ptr noundef %1453, i32 noundef %1454, i32 noundef 1, i32 noundef -2147483648)
-  %1456 = load i32, ptr %11, align 4
-  %1457 = add i32 %1456, 1
-  store i32 %1457, ptr %11, align 4
-  %1458 = load ptr, ptr %10, align 8
-  %1459 = load i32, ptr @hf_param_samtype0submap, align 4
-  %1460 = load ptr, ptr %5, align 8
-  %1461 = load i32, ptr %11, align 4
-  %1462 = call ptr @proto_tree_add_item(ptr noundef %1458, i32 noundef %1459, ptr noundef %1460, i32 noundef %1461, i32 noundef 14, i32 noundef 0)
+1455:                                             ; preds = %1451
+  store i32 85, ptr %40, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %42) #4
+  br label %1468
+
+1456:                                             ; preds = %1451
+  %1457 = load ptr, ptr %10, align 8
+  %1458 = load i32, ptr %42, align 4
+  %1459 = zext i32 %1458 to i64
+  %1460 = getelementptr [5 x i32], ptr @hf_param_poweradjresp, i64 0, i64 %1459
+  %1461 = load i32, ptr %1460, align 4
+  %1462 = load ptr, ptr %5, align 8
   %1463 = load i32, ptr %11, align 4
-  %1464 = add i32 %1463, 14
-  store i32 %1464, ptr %11, align 4
-  br label %1536
+  %1464 = call ptr @proto_tree_add_item(ptr noundef %1457, i32 noundef %1461, ptr noundef %1462, i32 noundef %1463, i32 noundef 1, i32 noundef -2147483648)
+  br label %1465
 
-1465:                                             ; preds = %112
-  %1466 = load ptr, ptr %10, align 8
-  %1467 = load i32, ptr @hf_param_samindex, align 4
-  %1468 = load ptr, ptr %5, align 8
+1465:                                             ; preds = %1456
+  %1466 = load i32, ptr %42, align 4
+  %1467 = add i32 %1466, 1
+  store i32 %1467, ptr %42, align 4
+  br label %1451, !llvm.loop !35
+
+1468:                                             ; preds = %1455
   %1469 = load i32, ptr %11, align 4
-  %1470 = call ptr @proto_tree_add_item(ptr noundef %1466, i32 noundef %1467, ptr noundef %1468, i32 noundef %1469, i32 noundef 1, i32 noundef -2147483648)
-  %1471 = load i32, ptr %11, align 4
-  %1472 = add i32 %1471, 1
-  store i32 %1472, ptr %11, align 4
+  %1470 = add i32 %1469, 1
+  store i32 %1470, ptr %11, align 4
+  br label %1559
+
+1471:                                             ; preds = %114, %114
+  br label %1559
+
+1472:                                             ; preds = %114
   %1473 = load ptr, ptr %10, align 8
-  %1474 = load i32, ptr @hf_param_samtsm, align 4
+  %1474 = load i32, ptr @hf_param_samupdatemode, align 4
   %1475 = load ptr, ptr %5, align 8
   %1476 = load i32, ptr %11, align 4
   %1477 = call ptr @proto_tree_add_item(ptr noundef %1473, i32 noundef %1474, ptr noundef %1475, i32 noundef %1476, i32 noundef 1, i32 noundef -2147483648)
@@ -3138,169 +3246,228 @@ define internal i32 @dissect_btlmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %1479 = add i32 %1478, 1
   store i32 %1479, ptr %11, align 4
   %1480 = load ptr, ptr %10, align 8
-  %1481 = load i32, ptr @hf_param_samnsm, align 4
+  %1481 = load i32, ptr @hf_param_samtype0submap, align 4
   %1482 = load ptr, ptr %5, align 8
   %1483 = load i32, ptr %11, align 4
-  %1484 = call ptr @proto_tree_add_item(ptr noundef %1480, i32 noundef %1481, ptr noundef %1482, i32 noundef %1483, i32 noundef 1, i32 noundef -2147483648)
+  %1484 = call ptr @proto_tree_add_item(ptr noundef %1480, i32 noundef %1481, ptr noundef %1482, i32 noundef %1483, i32 noundef 14, i32 noundef 0)
   %1485 = load i32, ptr %11, align 4
-  %1486 = add i32 %1485, 1
+  %1486 = add i32 %1485, 14
   store i32 %1486, ptr %11, align 4
-  %1487 = load ptr, ptr %10, align 8
-  %1488 = load i32, ptr @hf_param_samsubmaps, align 4
-  %1489 = load ptr, ptr %5, align 8
-  %1490 = load i32, ptr %11, align 4
-  %1491 = call ptr @proto_tree_add_item(ptr noundef %1487, i32 noundef %1488, ptr noundef %1489, i32 noundef %1490, i32 noundef 12, i32 noundef 0)
-  %1492 = load i32, ptr %11, align 4
-  %1493 = add i32 %1492, 12
-  store i32 %1493, ptr %11, align 4
-  br label %1536
+  br label %1559
 
-1494:                                             ; preds = %112
+1487:                                             ; preds = %114
+  %1488 = load ptr, ptr %10, align 8
+  %1489 = load i32, ptr @hf_param_samindex, align 4
+  %1490 = load ptr, ptr %5, align 8
+  %1491 = load i32, ptr %11, align 4
+  %1492 = call ptr @proto_tree_add_item(ptr noundef %1488, i32 noundef %1489, ptr noundef %1490, i32 noundef %1491, i32 noundef 1, i32 noundef -2147483648)
+  %1493 = load i32, ptr %11, align 4
+  %1494 = add i32 %1493, 1
+  store i32 %1494, ptr %11, align 4
   %1495 = load ptr, ptr %10, align 8
-  %1496 = load i32, ptr @hf_param_samindex, align 4
+  %1496 = load i32, ptr @hf_param_samtsm, align 4
   %1497 = load ptr, ptr %5, align 8
   %1498 = load i32, ptr %11, align 4
   %1499 = call ptr @proto_tree_add_item(ptr noundef %1495, i32 noundef %1496, ptr noundef %1497, i32 noundef %1498, i32 noundef 1, i32 noundef -2147483648)
   %1500 = load i32, ptr %11, align 4
   %1501 = add i32 %1500, 1
   store i32 %1501, ptr %11, align 4
-  store i32 0, ptr %42, align 4
-  br label %1502
+  %1502 = load ptr, ptr %10, align 8
+  %1503 = load i32, ptr @hf_param_samnsm, align 4
+  %1504 = load ptr, ptr %5, align 8
+  %1505 = load i32, ptr %11, align 4
+  %1506 = call ptr @proto_tree_add_item(ptr noundef %1502, i32 noundef %1503, ptr noundef %1504, i32 noundef %1505, i32 noundef 1, i32 noundef -2147483648)
+  %1507 = load i32, ptr %11, align 4
+  %1508 = add i32 %1507, 1
+  store i32 %1508, ptr %11, align 4
+  %1509 = load ptr, ptr %10, align 8
+  %1510 = load i32, ptr @hf_param_samsubmaps, align 4
+  %1511 = load ptr, ptr %5, align 8
+  %1512 = load i32, ptr %11, align 4
+  %1513 = call ptr @proto_tree_add_item(ptr noundef %1509, i32 noundef %1510, ptr noundef %1511, i32 noundef %1512, i32 noundef 12, i32 noundef 0)
+  %1514 = load i32, ptr %11, align 4
+  %1515 = add i32 %1514, 12
+  store i32 %1515, ptr %11, align 4
+  br label %1559
 
-1502:                                             ; preds = %1515, %1494
-  %1503 = load i32, ptr %42, align 4
-  %1504 = zext i32 %1503 to i64
-  %1505 = icmp ult i64 %1504, 5
-  br i1 %1505, label %1506, label %1518
+1516:                                             ; preds = %114
+  %1517 = load ptr, ptr %10, align 8
+  %1518 = load i32, ptr @hf_param_samindex, align 4
+  %1519 = load ptr, ptr %5, align 8
+  %1520 = load i32, ptr %11, align 4
+  %1521 = call ptr @proto_tree_add_item(ptr noundef %1517, i32 noundef %1518, ptr noundef %1519, i32 noundef %1520, i32 noundef 1, i32 noundef -2147483648)
+  %1522 = load i32, ptr %11, align 4
+  %1523 = add i32 %1522, 1
+  store i32 %1523, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %43) #4
+  store i32 0, ptr %43, align 4
+  br label %1524
 
-1506:                                             ; preds = %1502
-  %1507 = load ptr, ptr %10, align 8
-  %1508 = load i32, ptr %42, align 4
-  %1509 = zext i32 %1508 to i64
-  %1510 = getelementptr [5 x i32], ptr @hf_param_timingcontrolflags, i64 0, i64 %1509
-  %1511 = load i32, ptr %1510, align 4
-  %1512 = load ptr, ptr %5, align 8
-  %1513 = load i32, ptr %11, align 4
-  %1514 = call ptr @proto_tree_add_item(ptr noundef %1507, i32 noundef %1511, ptr noundef %1512, i32 noundef %1513, i32 noundef 1, i32 noundef -2147483648)
-  br label %1515
+1524:                                             ; preds = %1538, %1516
+  %1525 = load i32, ptr %43, align 4
+  %1526 = zext i32 %1525 to i64
+  %1527 = icmp ult i64 %1526, 5
+  br i1 %1527, label %1529, label %1528
 
-1515:                                             ; preds = %1506
-  %1516 = load i32, ptr %42, align 4
-  %1517 = add i32 %1516, 1
-  store i32 %1517, ptr %42, align 4
-  br label %1502, !llvm.loop !34
+1528:                                             ; preds = %1524
+  store i32 88, ptr %40, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %43) #4
+  br label %1541
 
-1518:                                             ; preds = %1502
-  %1519 = load i32, ptr %11, align 4
-  %1520 = add i32 %1519, 1
-  store i32 %1520, ptr %11, align 4
-  %1521 = load ptr, ptr %10, align 8
-  %1522 = load i32, ptr @hf_param_samd, align 4
-  %1523 = load ptr, ptr %5, align 8
-  %1524 = load i32, ptr %11, align 4
-  %1525 = call ptr @proto_tree_add_item(ptr noundef %1521, i32 noundef %1522, ptr noundef %1523, i32 noundef %1524, i32 noundef 1, i32 noundef -2147483648)
-  %1526 = load i32, ptr %11, align 4
-  %1527 = add i32 %1526, 1
-  store i32 %1527, ptr %11, align 4
-  %1528 = load ptr, ptr %10, align 8
-  %1529 = load i32, ptr @hf_param_saminstant, align 4
-  %1530 = load ptr, ptr %5, align 8
-  %1531 = load i32, ptr %11, align 4
-  %1532 = call ptr @proto_tree_add_item(ptr noundef %1528, i32 noundef %1529, ptr noundef %1530, i32 noundef %1531, i32 noundef 4, i32 noundef -2147483648)
-  %1533 = load i32, ptr %11, align 4
-  %1534 = add i32 %1533, 4
-  store i32 %1534, ptr %11, align 4
-  br label %1536
+1529:                                             ; preds = %1524
+  %1530 = load ptr, ptr %10, align 8
+  %1531 = load i32, ptr %43, align 4
+  %1532 = zext i32 %1531 to i64
+  %1533 = getelementptr [5 x i32], ptr @hf_param_timingcontrolflags, i64 0, i64 %1532
+  %1534 = load i32, ptr %1533, align 4
+  %1535 = load ptr, ptr %5, align 8
+  %1536 = load i32, ptr %11, align 4
+  %1537 = call ptr @proto_tree_add_item(ptr noundef %1530, i32 noundef %1534, ptr noundef %1535, i32 noundef %1536, i32 noundef 1, i32 noundef -2147483648)
+  br label %1538
 
-1535:                                             ; preds = %112
-  br label %1536
+1538:                                             ; preds = %1529
+  %1539 = load i32, ptr %43, align 4
+  %1540 = add i32 %1539, 1
+  store i32 %1540, ptr %43, align 4
+  br label %1524, !llvm.loop !36
 
-1536:                                             ; preds = %1535, %1518, %1465, %1450, %1449, %1446, %1421, %1413, %1412, %1390, %1389, %1367, %1362, %1309, %1289, %1223, %1165, %1143, %1135, %1092, %1091, %828, %805, %797, %789, %781, %773, %751, %750, %709, %708, %651, %650, %642, %627, %612, %611, %596, %595, %587, %572, %541, %502, %499, %327, %326, %308, %300, %299, %268, %236, %228, %227, %219, %211, %203, %195, %187, %179, %171, %170, %155, %147, %136, %135, %115
-  %1537 = load ptr, ptr %5, align 8
-  %1538 = load i32, ptr %11, align 4
-  %1539 = call i32 @tvb_captured_length_remaining(ptr noundef %1537, i32 noundef %1538)
-  %1540 = icmp sgt i32 %1539, 0
-  br i1 %1540, label %1541, label %1552
-
-1541:                                             ; preds = %1536
-  %1542 = load ptr, ptr %10, align 8
-  %1543 = load i32, ptr @hf_params, align 4
-  %1544 = load ptr, ptr %5, align 8
-  %1545 = load i32, ptr %11, align 4
+1541:                                             ; preds = %1528
+  %1542 = load i32, ptr %11, align 4
+  %1543 = add i32 %1542, 1
+  store i32 %1543, ptr %11, align 4
+  %1544 = load ptr, ptr %10, align 8
+  %1545 = load i32, ptr @hf_param_samd, align 4
   %1546 = load ptr, ptr %5, align 8
   %1547 = load i32, ptr %11, align 4
-  %1548 = call i32 @tvb_captured_length_remaining(ptr noundef %1546, i32 noundef %1547)
-  %1549 = call ptr @proto_tree_add_item(ptr noundef %1542, i32 noundef %1543, ptr noundef %1544, i32 noundef %1545, i32 noundef %1548, i32 noundef 0)
-  %1550 = load ptr, ptr %5, align 8
-  %1551 = call i32 @tvb_reported_length(ptr noundef %1550)
-  store i32 %1551, ptr %11, align 4
-  br label %1552
+  %1548 = call ptr @proto_tree_add_item(ptr noundef %1544, i32 noundef %1545, ptr noundef %1546, i32 noundef %1547, i32 noundef 1, i32 noundef -2147483648)
+  %1549 = load i32, ptr %11, align 4
+  %1550 = add i32 %1549, 1
+  store i32 %1550, ptr %11, align 4
+  %1551 = load ptr, ptr %10, align 8
+  %1552 = load i32, ptr @hf_param_saminstant, align 4
+  %1553 = load ptr, ptr %5, align 8
+  %1554 = load i32, ptr %11, align 4
+  %1555 = call ptr @proto_tree_add_item(ptr noundef %1551, i32 noundef %1552, ptr noundef %1553, i32 noundef %1554, i32 noundef 4, i32 noundef -2147483648)
+  %1556 = load i32, ptr %11, align 4
+  %1557 = add i32 %1556, 4
+  store i32 %1557, ptr %11, align 4
+  br label %1559
 
-1552:                                             ; preds = %1541, %1536
-  %1553 = load i32, ptr %11, align 4
-  ret i32 %1553
+1558:                                             ; preds = %114
+  br label %1559
+
+1559:                                             ; preds = %1558, %1541, %1487, %1472, %1471, %1468, %1442, %1434, %1433, %1411, %1410, %1388, %1383, %1328, %1308, %1242, %1183, %1161, %1153, %1110, %1109, %835, %812, %804, %796, %788, %780, %758, %757, %715, %114, %658, %114, %650, %635, %620, %619, %604, %114, %596, %581, %550, %510, %507, %114, %114, %114, %114, %327, %326, %307, %299, %268, %235, %227, %219, %211, %203, %195, %187, %179, %171, %156, %148, %137, %136
+  %1560 = load ptr, ptr %5, align 8
+  %1561 = load i32, ptr %11, align 4
+  %1562 = call i32 @tvb_captured_length_remaining(ptr noundef %1560, i32 noundef %1561)
+  %1563 = icmp sgt i32 %1562, 0
+  br i1 %1563, label %1564, label %1575
+
+1564:                                             ; preds = %1559
+  %1565 = load ptr, ptr %10, align 8
+  %1566 = load i32, ptr @hf_params, align 4
+  %1567 = load ptr, ptr %5, align 8
+  %1568 = load i32, ptr %11, align 4
+  %1569 = load ptr, ptr %5, align 8
+  %1570 = load i32, ptr %11, align 4
+  %1571 = call i32 @tvb_captured_length_remaining(ptr noundef %1569, i32 noundef %1570)
+  %1572 = call ptr @proto_tree_add_item(ptr noundef %1565, i32 noundef %1566, ptr noundef %1567, i32 noundef %1568, i32 noundef %1571, i32 noundef 0)
+  %1573 = load ptr, ptr %5, align 8
+  %1574 = call i32 @tvb_reported_length(ptr noundef %1573)
+  store i32 %1574, ptr %11, align 4
+  br label %1575
+
+1575:                                             ; preds = %1564, %1559
+  %1576 = load i32, ptr %11, align 4
+  store i32 1, ptr %40, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
+  ret i32 %1576
 }
 
-; Function Attrs: nounwind uwtable
-define hidden void @proto_reg_handoff_btlmp() #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define hidden void @proto_reg_handoff_btlmp() #1 {
   ret void
 }
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #2
 
-declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare i32 @tvb_reported_length(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #2
 
-declare ptr @btbredr_rf_add_esco_link(ptr noundef, ptr noundef, i8 noundef zeroext, i32 noundef, i16 noundef zeroext, i16 noundef zeroext) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) #2
 
-declare zeroext i16 @tvb_get_guint16(ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length(ptr noundef) #2
 
-declare void @btbredr_rf_remove_esco_link(ptr noundef, ptr noundef, i8 noundef zeroext) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @btbredr_rf_add_esco_link(ptr noundef, ptr noundef, i8 noundef zeroext, i32 noundef, i16 noundef zeroext, i16 noundef zeroext) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_uint16(ptr noundef, i32 noundef, i32 noundef) #2
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+; Function Attrs: null_pointer_is_valid
+declare void @btbredr_rf_remove_esco_link(ptr noundef, ptr noundef, i8 noundef zeroext) #2
+
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}
-!32 = distinct !{!32, !5}
-!33 = distinct !{!33, !5}
-!34 = distinct !{!34, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}
+!29 = distinct !{!29, !7}
+!30 = distinct !{!30, !7}
+!31 = distinct !{!31, !7}
+!32 = distinct !{!32, !7}
+!33 = distinct !{!33, !7}
+!34 = distinct !{!34, !7}
+!35 = distinct !{!35, !7}
+!36 = distinct !{!36, !7}

@@ -11,35 +11,43 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [2 x i8] c",\00", align 1
 @.str.3 = private unnamed_addr constant [8 x i8] c"%s%u-%u\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define noalias noundef ptr @range_empty(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef 4) #4
+  %2 = tail call noalias dereferenceable_or_null(4) ptr @wmem_alloc(ptr noundef %0, i64 noundef 4) #7
   store i32 0, ptr %2, align 4
   ret ptr %2
 }
 
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid allocsize(1)
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define range(i32 0, 3) i32 @range_convert_str(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = tail call i32 @range_convert_str_work(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef 1)
+  %5 = tail call i32 @range_convert_str_work(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext true)
   ret i32 %5
 }
 
-; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @range_convert_str_work(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define range(i32 0, 3) i32 @range_convert_str_work(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
   %8 = icmp eq ptr %1, null
   %9 = icmp eq ptr %2, null
   %or.cond = or i1 %8, %9
   br i1 %or.cond, label %118, label %10
 
 10:                                               ; preds = %5
-  %11 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef 12) #4
+  %11 = tail call noalias dereferenceable_or_null(12) ptr @wmem_alloc(ptr noundef %0, i64 noundef 12) #7
   store i32 0, ptr %11, align 4
   %12 = load ptr, ptr @g_ascii_table, align 8
-  %.not116 = icmp eq i32 %4, 0
   br label %13
 
 13:                                               ; preds = %.loopexit, %10
@@ -59,8 +67,8 @@ define range(i32 0, 3) i32 @range_convert_str_work(ptr noundef %0, ptr noundef w
   ]
 
 .preheader:                                       ; preds = %15
-  %.not143 = icmp eq i32 %14, 0
-  br i1 %.not143, label %._crit_edge, label %.lr.ph
+  %.not141 = icmp eq i32 %14, 0
+  br i1 %.not141, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %17 = getelementptr inbounds nuw i8, ptr %.0104, i64 4
@@ -68,7 +76,7 @@ define range(i32 0, 3) i32 @range_convert_str_work(ptr noundef %0, ptr noundef w
 
 18:                                               ; preds = %15, %15
   %19 = getelementptr i8, ptr %.1100, i64 1
-  br label %15, !llvm.loop !4
+  br label %15, !llvm.loop !6
 
 20:                                               ; preds = %15
   %.not = icmp ult i32 %14, %.0101
@@ -81,22 +89,22 @@ define range(i32 0, 3) i32 @range_convert_str_work(ptr noundef %0, ptr noundef w
   %24 = zext i32 %.2103 to i64
   %25 = shl nuw nsw i64 %24, 3
   %26 = or disjoint i64 %25, 4
-  %27 = call noalias ptr @wmem_realloc(ptr noundef %0, ptr noundef nonnull %.0104, i64 noundef %26) #4
+  %27 = call ptr @wmem_realloc(ptr noundef %0, ptr noundef %.0104, i64 noundef %26) #9
   br label %28
 
 28:                                               ; preds = %21, %20
   %.1105 = phi ptr [ %27, %21 ], [ %.0104, %20 ]
   %.1102 = phi i32 [ %.2103, %21 ], [ %.0101, %20 ]
   %29 = icmp eq i8 %16, 45
-  br i1 %29, label %.loopexit121.thread, label %34
+  br i1 %29, label %.loopexit119.thread, label %34
 
-.loopexit121.thread:                              ; preds = %28
+.loopexit119.thread:                              ; preds = %28
   %30 = getelementptr inbounds nuw i8, ptr %.1105, i64 4
   %31 = load i32, ptr %.1105, align 4
   %32 = zext i32 %31 to i64
-  %33 = getelementptr [1 x %struct.range_admin_tag], ptr %30, i64 0, i64 %32
+  %33 = getelementptr [0 x %struct.range_admin_tag], ptr %30, i64 0, i64 %32
   store i32 1, ptr %33, align 4
-  br label %.preheader120.preheader
+  br label %.preheader118.preheader
 
 34:                                               ; preds = %28
   %35 = zext i8 %16 to i64
@@ -107,9 +115,9 @@ define range(i32 0, 3) i32 @range_convert_str_work(ptr noundef %0, ptr noundef w
   br i1 %.not115, label %61, label %39
 
 39:                                               ; preds = %34
-  %40 = tail call ptr @__errno_location() #5
+  %40 = tail call ptr @__errno_location() #10
   store i32 0, ptr %40, align 4
-  %41 = call zeroext i1 @ws_basestrtou32(ptr noundef nonnull %.1100, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 0) #4
+  %41 = call zeroext i1 @ws_basestrtou32(ptr noundef %.1100, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 0)
   %42 = load i32, ptr %40, align 4
   switch i32 %42, label %44 [
     i32 22, label %43
@@ -117,7 +125,7 @@ define range(i32 0, 3) i32 @range_convert_str_work(ptr noundef %0, ptr noundef w
   ]
 
 43:                                               ; preds = %39
-  call void @wmem_free(ptr noundef %0, ptr noundef %.1105) #4
+  call void @wmem_free(ptr noundef %0, ptr noundef %.1105)
   br label %118
 
 44:                                               ; preds = %39
@@ -126,10 +134,10 @@ define range(i32 0, 3) i32 @range_convert_str_work(ptr noundef %0, ptr noundef w
   br i1 %46, label %47, label %50
 
 47:                                               ; preds = %39, %44
-  br i1 %.not116, label %49, label %48
+  br i1 %4, label %48, label %49
 
 48:                                               ; preds = %47
-  call void @wmem_free(ptr noundef %0, ptr noundef %.1105) #4
+  call void @wmem_free(ptr noundef %0, ptr noundef %.1105)
   br label %118
 
 49:                                               ; preds = %47
@@ -142,7 +150,7 @@ define range(i32 0, 3) i32 @range_convert_str_work(ptr noundef %0, ptr noundef w
   %53 = getelementptr inbounds nuw i8, ptr %.1105, i64 4
   %54 = load i32, ptr %.1105, align 4
   %55 = zext i32 %54 to i64
-  %56 = getelementptr [1 x %struct.range_admin_tag], ptr %53, i64 0, i64 %55
+  %56 = getelementptr [0 x %struct.range_admin_tag], ptr %53, i64 0, i64 %55
   store i32 %51, ptr %56, align 4
   br label %57
 
@@ -152,58 +160,58 @@ define range(i32 0, 3) i32 @range_convert_str_work(ptr noundef %0, ptr noundef w
   switch i8 %58, label %102 [
     i8 32, label %59
     i8 9, label %59
-    i8 45, label %.preheader120.preheader
+    i8 45, label %.preheader118.preheader
     i8 44, label %96
     i8 0, label %96
   ]
 
 59:                                               ; preds = %57, %57
   %60 = getelementptr i8, ptr %.3, i64 1
-  br label %57, !llvm.loop !6
+  br label %57, !llvm.loop !8
 
 61:                                               ; preds = %34
-  call void @wmem_free(ptr noundef %0, ptr noundef %.1105) #4
+  call void @wmem_free(ptr noundef %0, ptr noundef %.1105)
   br label %118
 
-.preheader120.preheader:                          ; preds = %57, %.loopexit121.thread
-  %.2167 = phi ptr [ %.1100, %.loopexit121.thread ], [ %.3, %57 ]
-  %62 = phi i32 [ %31, %.loopexit121.thread ], [ %54, %57 ]
-  br label %.preheader120
+.preheader118.preheader:                          ; preds = %57, %.loopexit119.thread
+  %.2165 = phi ptr [ %.1100, %.loopexit119.thread ], [ %.3, %57 ]
+  %62 = phi i32 [ %31, %.loopexit119.thread ], [ %54, %57 ]
+  br label %.preheader118
 
-.preheader120:                                    ; preds = %.preheader120.backedge, %.preheader120.preheader
-  %.2.pn = phi ptr [ %.2167, %.preheader120.preheader ], [ %.4, %.preheader120.backedge ]
+.preheader118:                                    ; preds = %.preheader118.backedge, %.preheader118.preheader
+  %.2.pn = phi ptr [ %.2165, %.preheader118.preheader ], [ %.4, %.preheader118.backedge ]
   %.4 = getelementptr i8, ptr %.2.pn, i64 1
   %63 = load i8, ptr %.4, align 1
   switch i8 %63, label %68 [
-    i8 32, label %.preheader120.backedge
-    i8 9, label %.preheader120.backedge
+    i8 32, label %.preheader118.backedge
+    i8 9, label %.preheader118.backedge
     i8 44, label %64
     i8 0, label %64
   ]
 
-.preheader120.backedge:                           ; preds = %.preheader120, %.preheader120
-  br label %.preheader120, !llvm.loop !7
+.preheader118.backedge:                           ; preds = %.preheader118, %.preheader118
+  br label %.preheader118, !llvm.loop !9
 
-64:                                               ; preds = %.preheader120, %.preheader120
+64:                                               ; preds = %.preheader118, %.preheader118
   %65 = zext i32 %62 to i64
-  %.idx119 = shl nuw nsw i64 %65, 3
+  %.idx117 = shl nuw nsw i64 %65, 3
   %66 = getelementptr i8, ptr %.1105, i64 8
-  %67 = getelementptr i8, ptr %66, i64 %.idx119
+  %67 = getelementptr i8, ptr %66, i64 %.idx117
   store i32 %3, ptr %67, align 4
   br label %.loopexit
 
-68:                                               ; preds = %.preheader120
+68:                                               ; preds = %.preheader118
   %69 = zext i8 %63 to i64
   %70 = getelementptr i16, ptr %12, i64 %69
   %71 = load i16, ptr %70, align 2
   %72 = and i16 %71, 8
-  %.not117 = icmp eq i16 %72, 0
-  br i1 %.not117, label %95, label %73
+  %.not116 = icmp eq i16 %72, 0
+  br i1 %.not116, label %95, label %73
 
 73:                                               ; preds = %68
-  %74 = tail call ptr @__errno_location() #5
+  %74 = tail call ptr @__errno_location() #10
   store i32 0, ptr %74, align 4
-  %75 = call zeroext i1 @ws_basestrtou32(ptr noundef nonnull %.4, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 0) #4
+  %75 = call zeroext i1 @ws_basestrtou32(ptr noundef %.4, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 0)
   %76 = load i32, ptr %74, align 4
   switch i32 %76, label %78 [
     i32 22, label %77
@@ -211,7 +219,7 @@ define range(i32 0, 3) i32 @range_convert_str_work(ptr noundef %0, ptr noundef w
   ]
 
 77:                                               ; preds = %73
-  call void @wmem_free(ptr noundef %0, ptr noundef %.1105) #4
+  call void @wmem_free(ptr noundef %0, ptr noundef %.1105)
   br label %118
 
 78:                                               ; preds = %73
@@ -220,10 +228,10 @@ define range(i32 0, 3) i32 @range_convert_str_work(ptr noundef %0, ptr noundef w
   br i1 %80, label %81, label %84
 
 81:                                               ; preds = %73, %78
-  br i1 %.not116, label %83, label %82
+  br i1 %4, label %82, label %83
 
 82:                                               ; preds = %81
-  call void @wmem_free(ptr noundef %0, ptr noundef %.1105) #4
+  call void @wmem_free(ptr noundef %0, ptr noundef %.1105)
   br label %118
 
 83:                                               ; preds = %81
@@ -251,23 +259,23 @@ define range(i32 0, 3) i32 @range_convert_str_work(ptr noundef %0, ptr noundef w
 
 93:                                               ; preds = %91, %91
   %94 = getelementptr i8, ptr %.5, i64 1
-  br label %91, !llvm.loop !8
+  br label %91, !llvm.loop !10
 
 95:                                               ; preds = %68
-  call void @wmem_free(ptr noundef %0, ptr noundef %.1105) #4
+  call void @wmem_free(ptr noundef %0, ptr noundef %.1105)
   br label %118
 
 96:                                               ; preds = %57, %57
   %97 = getelementptr inbounds nuw i8, ptr %.1105, i64 4
   %98 = zext i32 %54 to i64
-  %99 = getelementptr [1 x %struct.range_admin_tag], ptr %97, i64 0, i64 %98
+  %99 = getelementptr [0 x %struct.range_admin_tag], ptr %97, i64 0, i64 %98
   %100 = load i32, ptr %99, align 4
   %101 = getelementptr inbounds nuw i8, ptr %99, i64 4
   store i32 %100, ptr %101, align 4
   br label %.loopexit
 
 102:                                              ; preds = %57
-  call void @wmem_free(ptr noundef %0, ptr noundef nonnull %.1105) #4
+  call void @wmem_free(ptr noundef %0, ptr noundef %.1105)
   br label %118
 
 .loopexit:                                        ; preds = %91, %64, %96
@@ -284,7 +292,7 @@ define range(i32 0, 3) i32 @range_convert_str_work(ptr noundef %0, ptr noundef w
 106:                                              ; preds = %.lr.ph, %114
   %107 = phi i32 [ %14, %.lr.ph ], [ %115, %114 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %114 ]
-  %108 = getelementptr [1 x %struct.range_admin_tag], ptr %17, i64 0, i64 %indvars.iv
+  %108 = getelementptr [0 x %struct.range_admin_tag], ptr %17, i64 0, i64 %indvars.iv
   %109 = load i32, ptr %108, align 4
   %110 = getelementptr inbounds nuw i8, ptr %108, i64 4
   %111 = load i32, ptr %110, align 4
@@ -302,7 +310,7 @@ define range(i32 0, 3) i32 @range_convert_str_work(ptr noundef %0, ptr noundef w
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %116 = zext i32 %115 to i64
   %117 = icmp samesign ult i64 %indvars.iv.next, %116
-  br i1 %117, label %106, label %._crit_edge, !llvm.loop !9
+  br i1 %117, label %106, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %114, %.preheader
   store ptr %.0104, ptr %1, align 8
@@ -310,20 +318,25 @@ define range(i32 0, 3) i32 @range_convert_str_work(ptr noundef %0, ptr noundef w
 
 118:                                              ; preds = %5, %._crit_edge, %102, %95, %82, %77, %61, %48, %43
   %.0 = phi i32 [ 0, %._crit_edge ], [ 1, %77 ], [ 2, %82 ], [ 1, %95 ], [ 1, %102 ], [ 1, %43 ], [ 2, %48 ], [ 1, %61 ], [ 1, %5 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
   ret i32 %.0
 }
 
-declare noalias ptr @wmem_realloc(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid allocsize(2)
+declare ptr @wmem_realloc(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #2
+; Function Attrs: mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none)
+declare ptr @__errno_location() local_unnamed_addr #4
 
-declare zeroext i1 @ws_basestrtou32(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @ws_basestrtou32(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
-declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @value_is_in_range(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #3 {
+; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(argmem: read) uwtable
+define noundef zeroext i1 @value_is_in_range(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -339,7 +352,7 @@ define range(i32 0, 2) i32 @value_is_in_range(ptr noundef readonly captures(addr
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %10 ]
-  %5 = getelementptr [1 x %struct.range_admin_tag], ptr %3, i64 0, i64 %indvars.iv
+  %5 = getelementptr [0 x %struct.range_admin_tag], ptr %3, i64 0, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4
   %.not13 = icmp ult i32 %1, %6
   br i1 %.not13, label %10, label %7
@@ -353,15 +366,15 @@ define range(i32 0, 2) i32 @value_is_in_range(ptr noundef readonly captures(addr
 10:                                               ; preds = %.lr.ph, %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
 .loopexit:                                        ; preds = %7, %10, %.preheader, %2
-  %.010 = phi i32 [ 0, %2 ], [ 0, %.preheader ], [ 1, %7 ], [ 0, %10 ]
-  ret i32 %.010
+  %.010 = phi i1 [ false, %2 ], [ false, %.preheader ], [ true, %7 ], [ false, %10 ]
+  ret i1 %.010
 }
 
-; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @range_add_value(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define noundef zeroext i1 @range_add_value(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %4
 
@@ -382,7 +395,7 @@ define range(i32 0, 2) i32 @range_add_value(ptr noundef %0, ptr noundef captures
 
 8:                                                ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %9 = getelementptr [1 x %struct.range_admin_tag], ptr %7, i64 0, i64 %indvars.iv
+  %9 = getelementptr [0 x %struct.range_admin_tag], ptr %7, i64 0, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %.not38 = icmp ult i32 %2, %10
   br i1 %.not38, label %14, label %11
@@ -417,7 +430,7 @@ define range(i32 0, 2) i32 @range_add_value(ptr noundef %0, ptr noundef captures
 25:                                               ; preds = %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %8, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %8, !llvm.loop !13
 
 ._crit_edge.loopexit:                             ; preds = %25
   %26 = zext i32 %6 to i64
@@ -429,27 +442,29 @@ define range(i32 0, 2) i32 @range_add_value(ptr noundef %0, ptr noundef captures
   %28 = zext i32 %27 to i64
   %29 = shl nuw nsw i64 %28, 3
   %30 = or disjoint i64 %29, 4
-  %31 = tail call noalias ptr @wmem_realloc(ptr noundef %0, ptr noundef nonnull %5, i64 noundef %30) #4
+  %31 = tail call ptr @wmem_realloc(ptr noundef %0, ptr noundef nonnull %5, i64 noundef %30) #9
   store ptr %31, ptr %1, align 8
   %32 = load i32, ptr %31, align 4
   %33 = add i32 %32, 1
   store i32 %33, ptr %31, align 4
+  %34 = load ptr, ptr %1, align 8
   %.idx = shl nuw nsw i64 %.0.lcssa, 3
-  %34 = getelementptr i8, ptr %31, i64 8
-  %35 = getelementptr i8, ptr %34, i64 %.idx
-  store i32 %2, ptr %35, align 4
-  %36 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  %37 = getelementptr [1 x %struct.range_admin_tag], ptr %36, i64 0, i64 %.0.lcssa
-  store i32 %2, ptr %37, align 4
+  %35 = getelementptr i8, ptr %34, i64 8
+  %36 = getelementptr i8, ptr %35, i64 %.idx
+  store i32 %2, ptr %36, align 4
+  %37 = load ptr, ptr %1, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
+  %39 = getelementptr [0 x %struct.range_admin_tag], ptr %38, i64 0, i64 %.0.lcssa
+  store i32 %2, ptr %39, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %11, %3, %4, %._crit_edge, %23, %17
-  %.033 = phi i32 [ 1, %17 ], [ 1, %23 ], [ 1, %._crit_edge ], [ 0, %4 ], [ 0, %3 ], [ 1, %11 ]
-  ret i32 %.033
+  %.033 = phi i1 [ true, %17 ], [ true, %23 ], [ true, %._crit_edge ], [ false, %4 ], [ false, %3 ], [ true, %11 ]
+  ret i1 %.033
 }
 
-; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @range_remove_value(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define noundef zeroext i1 @range_remove_value(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %4
 
@@ -470,7 +485,7 @@ define range(i32 0, 2) i32 @range_remove_value(ptr noundef %0, ptr noundef captu
 
 8:                                                ; preds = %.lr.ph, %55
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %55 ]
-  %9 = getelementptr [1 x %struct.range_admin_tag], ptr %7, i64 0, i64 %indvars.iv
+  %9 = getelementptr [0 x %struct.range_admin_tag], ptr %7, i64 0, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %11 = icmp ugt i32 %2, %10
   br i1 %11, label %12, label %16
@@ -496,7 +511,7 @@ define range(i32 0, 2) i32 @range_remove_value(ptr noundef %0, ptr noundef captu
   %24 = zext i32 %23 to i64
   %25 = shl nuw nsw i64 %24, 3
   %26 = or disjoint i64 %25, 4
-  %27 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef %26) #4
+  %27 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef %26) #7
   %28 = load ptr, ptr %1, align 8
   %29 = load i32, ptr %28, align 4
   %30 = add i32 %29, -1
@@ -519,10 +534,10 @@ define range(i32 0, 2) i32 @range_remove_value(ptr noundef %0, ptr noundef captu
   br i1 %37, label %47, label %38
 
 38:                                               ; preds = %36
-  %39 = getelementptr [1 x %struct.range_admin_tag], ptr %31, i64 0, i64 %indvars.iv84
+  %39 = getelementptr [0 x %struct.range_admin_tag], ptr %31, i64 0, i64 %indvars.iv84
   %40 = load i32, ptr %39, align 4
   %41 = zext i32 %.04971 to i64
-  %42 = getelementptr [1 x %struct.range_admin_tag], ptr %32, i64 0, i64 %41
+  %42 = getelementptr [0 x %struct.range_admin_tag], ptr %32, i64 0, i64 %41
   store i32 %40, ptr %42, align 4
   %.idx = shl nuw nsw i64 %indvars.iv84, 3
   %43 = getelementptr i8, ptr %33, i64 %.idx
@@ -536,10 +551,10 @@ define range(i32 0, 2) i32 @range_remove_value(ptr noundef %0, ptr noundef captu
   %.1 = phi i32 [ %.04971, %36 ], [ %46, %38 ]
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %48 = icmp samesign ult i64 %indvars.iv.next85, %35
-  br i1 %48, label %36, label %._crit_edge, !llvm.loop !12
+  br i1 %48, label %36, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %47, %22
-  tail call void @wmem_free(ptr noundef %0, ptr noundef nonnull %28) #4
+  tail call void @wmem_free(ptr noundef %0, ptr noundef %28)
   store ptr %27, ptr %1, align 8
   br label %.loopexit
 
@@ -560,15 +575,15 @@ define range(i32 0, 2) i32 @range_remove_value(ptr noundef %0, ptr noundef captu
 55:                                               ; preds = %51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !15
 
 .loopexit:                                        ; preds = %12, %55, %.preheader, %3, %4, %52, %49, %._crit_edge
-  %.0 = phi i32 [ 1, %._crit_edge ], [ 1, %49 ], [ 1, %52 ], [ 0, %4 ], [ 0, %3 ], [ 1, %.preheader ], [ 1, %55 ], [ 1, %12 ]
-  ret i32 %.0
+  %.0 = phi i1 [ true, %._crit_edge ], [ true, %49 ], [ true, %52 ], [ false, %4 ], [ false, %3 ], [ true, %.preheader ], [ true, %55 ], [ true, %12 ]
+  ret i1 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @ranges_are_equal(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 {
+; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(argmem: read) uwtable
+define noundef zeroext i1 @ranges_are_equal(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #6 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -593,13 +608,13 @@ define range(i32 0, 2) i32 @ranges_are_equal(ptr noundef readonly captures(addre
 10:                                               ; preds = %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !16
 
 11:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %12 = getelementptr [1 x %struct.range_admin_tag], ptr %8, i64 0, i64 %indvars.iv
+  %12 = getelementptr [0 x %struct.range_admin_tag], ptr %8, i64 0, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr [1 x %struct.range_admin_tag], ptr %9, i64 0, i64 %indvars.iv
+  %14 = getelementptr [0 x %struct.range_admin_tag], ptr %9, i64 0, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4
   %.not19 = icmp eq i32 %13, %15
   br i1 %.not19, label %16, label %.loopexit
@@ -613,11 +628,11 @@ define range(i32 0, 2) i32 @ranges_are_equal(ptr noundef readonly captures(addre
   br i1 %.not20, label %10, label %.loopexit
 
 .loopexit:                                        ; preds = %11, %16, %10, %.preheader, %5, %2
-  %.016 = phi i32 [ 0, %2 ], [ 0, %5 ], [ 1, %.preheader ], [ 0, %11 ], [ 0, %16 ], [ 1, %10 ]
-  ret i32 %.016
+  %.016 = phi i1 [ false, %2 ], [ false, %5 ], [ true, %.preheader ], [ false, %11 ], [ false, %16 ], [ true, %10 ]
+  ret i1 %.016
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @range_foreach(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
@@ -636,7 +651,7 @@ define void @range_foreach(ptr noundef readonly captures(address_is_null) %0, pt
 8:                                                ; preds = %.lr.ph20, %._crit_edge
   %9 = phi i32 [ %6, %.lr.ph20 ], [ %16, %._crit_edge ]
   %indvars.iv = phi i64 [ 0, %.lr.ph20 ], [ %indvars.iv.next, %._crit_edge ]
-  %10 = getelementptr [1 x %struct.range_admin_tag], ptr %7, i64 0, i64 %indvars.iv
+  %10 = getelementptr [0 x %struct.range_admin_tag], ptr %7, i64 0, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i32, ptr %12, align 4
@@ -645,11 +660,11 @@ define void @range_foreach(ptr noundef readonly captures(address_is_null) %0, pt
 
 .lr.ph:                                           ; preds = %8, %.lr.ph
   %.018 = phi i32 [ %14, %.lr.ph ], [ %11, %8 ]
-  tail call void %1(i32 noundef %.018, ptr noundef %2) #4
+  tail call void %1(i32 noundef %.018, ptr noundef %2)
   %14 = add i32 %.018, 1
   %15 = load i32, ptr %12, align 4
   %.not = icmp ugt i32 %14, %15
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i32, ptr %0, align 4
@@ -660,22 +675,22 @@ define void @range_foreach(ptr noundef readonly captures(address_is_null) %0, pt
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = zext i32 %16 to i64
   %18 = icmp samesign ult i64 %indvars.iv.next, %17
-  br i1 %18, label %8, label %.loopexit, !llvm.loop !16
+  br i1 %18, label %8, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %._crit_edge, %.preheader, %3
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define ptr @range_convert_range(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
-  %3 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %0, ptr noundef nonnull @.str) #4
+  %3 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %0, ptr noundef nonnull @.str)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %2
   %4 = load i32, ptr %1, align 4
-  %.not27 = icmp eq i32 %4, 0
-  br i1 %.not27, label %.loopexit, label %.lr.ph
+  %.not25 = icmp eq i32 %4, 0
+  br i1 %.not25, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -683,8 +698,8 @@ define ptr @range_convert_range(ptr noundef %0, ptr noundef readonly captures(ad
 
 6:                                                ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %.not2325 = phi ptr [ @.str, %.lr.ph ], [ @.str.2, %14 ]
-  %7 = getelementptr [1 x %struct.range_admin_tag], ptr %5, i64 0, i64 %indvars.iv
+  %.01923 = phi ptr [ @.str, %.lr.ph ], [ @.str.2, %14 ]
+  %7 = getelementptr [0 x %struct.range_admin_tag], ptr %5, i64 0, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %10 = load i32, ptr %9, align 4
@@ -692,11 +707,11 @@ define ptr @range_convert_range(ptr noundef %0, ptr noundef readonly captures(ad
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %6
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %3, ptr noundef nonnull @.str.1, ptr noundef nonnull %.not2325, i32 noundef %8) #4
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %3, ptr noundef nonnull @.str.1, ptr noundef nonnull %.01923, i32 noundef %8)
   br label %14
 
 13:                                               ; preds = %6
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %3, ptr noundef nonnull @.str.3, ptr noundef nonnull %.not2325, i32 noundef %8, i32 noundef %10) #4
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %3, ptr noundef nonnull @.str.3, ptr noundef nonnull %.01923, i32 noundef %8, i32 noundef %10)
   br label %14
 
 14:                                               ; preds = %13, %12
@@ -704,21 +719,24 @@ define ptr @range_convert_range(ptr noundef %0, ptr noundef readonly captures(ad
   %15 = load i32, ptr %1, align 4
   %16 = zext i32 %15 to i64
   %17 = icmp samesign ult i64 %indvars.iv.next, %16
-  br i1 %17, label %6, label %.loopexit, !llvm.loop !17
+  br i1 %17, label %6, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %14, %.preheader, %2
-  %18 = tail call ptr @wmem_strbuf_finalize(ptr noundef %3) #4
+  %18 = tail call ptr @wmem_strbuf_finalize(ptr noundef %3)
   ret ptr %18
 }
 
-declare noalias ptr @wmem_strbuf_new(ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @wmem_strbuf_new(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-declare void @wmem_strbuf_append_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @wmem_strbuf_append_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
-declare ptr @wmem_strbuf_finalize(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_strbuf_finalize(ptr noundef) local_unnamed_addr #5
 
-; Function Attrs: nounwind uwtable
-define noalias ptr @range_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define ptr @range_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %10, label %4
 
@@ -727,7 +745,7 @@ define noalias ptr @range_copy(ptr noundef %0, ptr noundef %1) local_unnamed_add
   %6 = zext i32 %5 to i64
   %7 = shl nuw nsw i64 %6, 3
   %8 = or disjoint i64 %7, 4
-  %9 = tail call noalias ptr @wmem_memdup(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %8) #4
+  %9 = tail call ptr @wmem_memdup(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %8) #9
   br label %10
 
 10:                                               ; preds = %2, %4
@@ -735,32 +753,40 @@ define noalias ptr @range_copy(ptr noundef %0, ptr noundef %1) local_unnamed_add
   ret ptr %.0
 }
 
-declare noalias ptr @wmem_memdup(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid allocsize(2)
+declare ptr @wmem_memdup(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
-attributes #5 = { nounwind willreturn memory(none) }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { allocsize(1) }
+attributes #8 = { nounwind }
+attributes #9 = { allocsize(2) }
+attributes #10 = { nounwind willreturn memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}

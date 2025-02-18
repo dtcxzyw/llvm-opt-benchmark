@@ -3,11 +3,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
@@ -23,7 +20,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_sj_priority = internal global i32 0, align 4
 @.str.4 = private unnamed_addr constant [9 x i8] c"Priority\00", align 1
 @.str.5 = private unnamed_addr constant [25 x i8] c"systemd_journal.priority\00", align 1
-@syslog_level_vals = internal constant [9 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.212 }, %struct._value_string { i32 1, ptr @.str.213 }, %struct._value_string { i32 2, ptr @.str.214 }, %struct._value_string { i32 3, ptr @.str.215 }, %struct._value_string { i32 4, ptr @.str.216 }, %struct._value_string { i32 5, ptr @.str.217 }, %struct._value_string { i32 6, ptr @.str.218 }, %struct._value_string { i32 7, ptr @.str.219 }, %struct._value_string zeroinitializer], align 16
 @hf_sj_code_file = internal global i32 0, align 4
 @.str.6 = private unnamed_addr constant [10 x i8] c"Code file\00", align 1
 @.str.7 = private unnamed_addr constant [26 x i8] c"systemd_journal.code_file\00", align 1
@@ -39,7 +35,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_sj_syslog_facility = internal global i32 0, align 4
 @.str.14 = private unnamed_addr constant [16 x i8] c"Syslog facility\00", align 1
 @.str.15 = private unnamed_addr constant [32 x i8] c"systemd_journal.syslog_facility\00", align 1
-@syslog_facility_vals = internal constant [25 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.220 }, %struct._value_string { i32 1, ptr @.str.221 }, %struct._value_string { i32 2, ptr @.str.222 }, %struct._value_string { i32 3, ptr @.str.223 }, %struct._value_string { i32 4, ptr @.str.224 }, %struct._value_string { i32 5, ptr @.str.225 }, %struct._value_string { i32 6, ptr @.str.226 }, %struct._value_string { i32 7, ptr @.str.227 }, %struct._value_string { i32 8, ptr @.str.228 }, %struct._value_string { i32 9, ptr @.str.229 }, %struct._value_string { i32 10, ptr @.str.230 }, %struct._value_string { i32 11, ptr @.str.231 }, %struct._value_string { i32 12, ptr @.str.232 }, %struct._value_string { i32 13, ptr @.str.233 }, %struct._value_string { i32 14, ptr @.str.234 }, %struct._value_string { i32 15, ptr @.str.235 }, %struct._value_string { i32 16, ptr @.str.236 }, %struct._value_string { i32 17, ptr @.str.237 }, %struct._value_string { i32 18, ptr @.str.238 }, %struct._value_string { i32 19, ptr @.str.239 }, %struct._value_string { i32 20, ptr @.str.240 }, %struct._value_string { i32 21, ptr @.str.241 }, %struct._value_string { i32 22, ptr @.str.242 }, %struct._value_string { i32 23, ptr @.str.243 }, %struct._value_string zeroinitializer], align 16
 @hf_sj_syslog_identifier = internal global i32 0, align 4
 @.str.16 = private unnamed_addr constant [18 x i8] c"Syslog identifier\00", align 1
 @.str.17 = private unnamed_addr constant [26 x i8] c"systemd_journal.syslog_id\00", align 1
@@ -319,7 +314,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_systemd_journal_entry = internal global i32 0, align 4
 @ett_systemd_binary_data = internal global i32 0, align 4
 @ett_systemd_unknown_field = internal global i32 0, align 4
-@proto_register_systemd_journal.ei = internal global [3 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_unhandled_field_type, %struct.expert_field_info { ptr @.str.199, i32 83886080, i32 8388608, ptr @.str.200, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_nonbinary_field, %struct.expert_field_info { ptr @.str.201, i32 83886080, i32 6291456, ptr @.str.202, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_undecoded_field, %struct.expert_field_info { ptr @.str.203, i32 83886080, i32 6291456, ptr @.str.204, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_systemd_journal.ei = internal global [3 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_unhandled_field_type, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.199, i32 83886080, i32 8388608, ptr @.str.200, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_nonbinary_field, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.201, i32 83886080, i32 6291456, ptr @.str.202, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_undecoded_field, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.203, i32 83886080, i32 6291456, ptr @.str.204, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_unhandled_field_type = internal global %struct.expert_field zeroinitializer, align 4
 @.str.199 = private unnamed_addr constant [47 x i8] c"systemd_journal.unhandled_field_type.undecoded\00", align 1
 @.str.200 = private unnamed_addr constant [21 x i8] c"Unhandled field type\00", align 1
@@ -346,137 +341,140 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.217 = private unnamed_addr constant [42 x i8] c"NOTICE - normal but significant condition\00", align 1
 @.str.218 = private unnamed_addr constant [21 x i8] c"INFO - informational\00", align 1
 @.str.219 = private unnamed_addr constant [29 x i8] c"DEBUG - debug-level messages\00", align 1
-@.str.220 = private unnamed_addr constant [23 x i8] c"KERN - kernel messages\00", align 1
-@.str.221 = private unnamed_addr constant [34 x i8] c"USER - random user-level messages\00", align 1
-@.str.222 = private unnamed_addr constant [19 x i8] c"MAIL - mail system\00", align 1
-@.str.223 = private unnamed_addr constant [24 x i8] c"DAEMON - system daemons\00", align 1
-@.str.224 = private unnamed_addr constant [39 x i8] c"AUTH - security/authorization messages\00", align 1
-@.str.225 = private unnamed_addr constant [50 x i8] c"SYSLOG - messages generated internally by syslogd\00", align 1
-@.str.226 = private unnamed_addr constant [29 x i8] c"LPR - line printer subsystem\00", align 1
-@.str.227 = private unnamed_addr constant [30 x i8] c"NEWS - network news subsystem\00", align 1
-@.str.228 = private unnamed_addr constant [22 x i8] c"UUCP - UUCP subsystem\00", align 1
-@.str.229 = private unnamed_addr constant [33 x i8] c"CRON - clock daemon (BSD, Linux)\00", align 1
-@.str.230 = private unnamed_addr constant [53 x i8] c"AUTHPRIV - security/authorization messages (private)\00", align 1
-@.str.231 = private unnamed_addr constant [17 x i8] c"FTP - ftp daemon\00", align 1
-@.str.232 = private unnamed_addr constant [20 x i8] c"NTP - ntp subsystem\00", align 1
-@.str.233 = private unnamed_addr constant [21 x i8] c"LOGAUDIT - log audit\00", align 1
-@.str.234 = private unnamed_addr constant [21 x i8] c"LOGALERT - log alert\00", align 1
-@.str.235 = private unnamed_addr constant [30 x i8] c"CRON - clock daemon (Solaris)\00", align 1
-@.str.236 = private unnamed_addr constant [32 x i8] c"LOCAL0 - reserved for local use\00", align 1
-@.str.237 = private unnamed_addr constant [32 x i8] c"LOCAL1 - reserved for local use\00", align 1
-@.str.238 = private unnamed_addr constant [32 x i8] c"LOCAL2 - reserved for local use\00", align 1
-@.str.239 = private unnamed_addr constant [32 x i8] c"LOCAL3 - reserved for local use\00", align 1
-@.str.240 = private unnamed_addr constant [32 x i8] c"LOCAL4 - reserved for local use\00", align 1
-@.str.241 = private unnamed_addr constant [32 x i8] c"LOCAL5 - reserved for local use\00", align 1
-@.str.242 = private unnamed_addr constant [32 x i8] c"LOCAL6 - reserved for local use\00", align 1
-@.str.243 = private unnamed_addr constant [32 x i8] c"LOCAL7 - reserved for local use\00", align 1
-@.str.244 = private unnamed_addr constant [14 x i8] c"Journal Entry\00", align 1
+@syslog_level_vals = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.212 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.213 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.214 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.215 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.216 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.217 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.218 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.219 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.221 = private unnamed_addr constant [23 x i8] c"KERN - kernel messages\00", align 1
+@.str.222 = private unnamed_addr constant [34 x i8] c"USER - random user-level messages\00", align 1
+@.str.223 = private unnamed_addr constant [19 x i8] c"MAIL - mail system\00", align 1
+@.str.224 = private unnamed_addr constant [24 x i8] c"DAEMON - system daemons\00", align 1
+@.str.225 = private unnamed_addr constant [39 x i8] c"AUTH - security/authorization messages\00", align 1
+@.str.226 = private unnamed_addr constant [50 x i8] c"SYSLOG - messages generated internally by syslogd\00", align 1
+@.str.227 = private unnamed_addr constant [29 x i8] c"LPR - line printer subsystem\00", align 1
+@.str.228 = private unnamed_addr constant [30 x i8] c"NEWS - network news subsystem\00", align 1
+@.str.229 = private unnamed_addr constant [22 x i8] c"UUCP - UUCP subsystem\00", align 1
+@.str.230 = private unnamed_addr constant [33 x i8] c"CRON - clock daemon (BSD, Linux)\00", align 1
+@.str.231 = private unnamed_addr constant [53 x i8] c"AUTHPRIV - security/authorization messages (private)\00", align 1
+@.str.232 = private unnamed_addr constant [17 x i8] c"FTP - ftp daemon\00", align 1
+@.str.233 = private unnamed_addr constant [20 x i8] c"NTP - ntp subsystem\00", align 1
+@.str.234 = private unnamed_addr constant [21 x i8] c"LOGAUDIT - log audit\00", align 1
+@.str.235 = private unnamed_addr constant [21 x i8] c"LOGALERT - log alert\00", align 1
+@.str.236 = private unnamed_addr constant [30 x i8] c"CRON - clock daemon (Solaris)\00", align 1
+@.str.237 = private unnamed_addr constant [32 x i8] c"LOCAL0 - reserved for local use\00", align 1
+@.str.238 = private unnamed_addr constant [32 x i8] c"LOCAL1 - reserved for local use\00", align 1
+@.str.239 = private unnamed_addr constant [32 x i8] c"LOCAL2 - reserved for local use\00", align 1
+@.str.240 = private unnamed_addr constant [32 x i8] c"LOCAL3 - reserved for local use\00", align 1
+@.str.241 = private unnamed_addr constant [32 x i8] c"LOCAL4 - reserved for local use\00", align 1
+@.str.242 = private unnamed_addr constant [32 x i8] c"LOCAL5 - reserved for local use\00", align 1
+@.str.243 = private unnamed_addr constant [32 x i8] c"LOCAL6 - reserved for local use\00", align 1
+@.str.244 = private unnamed_addr constant [32 x i8] c"LOCAL7 - reserved for local use\00", align 1
+@syslog_facility_vals = internal constant [25 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.221 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.222 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.223 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.224 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.225 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.226 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.227 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.228 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.229 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.230 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.231 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.232 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.233 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.234 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.235 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.236 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.237 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.238 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.239 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.240 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.241 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.242 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.243 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.244 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.246 = private unnamed_addr constant [14 x i8] c"Journal Entry\00", align 1
 @jf_to_hf = internal global ptr null, align 8
-@.str.245 = private unnamed_addr constant [23 x i8] c"Unknown text field: %s\00", align 1
-@.str.246 = private unnamed_addr constant [2 x i8] c"\0A\00", align 1
-@.str.247 = private unnamed_addr constant [23 x i8] c"Unknown data field: %s\00", align 1
-@.str.248 = private unnamed_addr constant [22 x i8] c"Invalid time value %s\00", align 1
-@.str.249 = private unnamed_addr constant [9 x i8] c"MESSAGE=\00", align 1
-@.str.250 = private unnamed_addr constant [12 x i8] c"MESSAGE_ID=\00", align 1
-@.str.251 = private unnamed_addr constant [10 x i8] c"PRIORITY=\00", align 1
-@.str.252 = private unnamed_addr constant [11 x i8] c"CODE_FILE=\00", align 1
-@.str.253 = private unnamed_addr constant [11 x i8] c"CODE_LINE=\00", align 1
-@.str.254 = private unnamed_addr constant [11 x i8] c"CODE_FUNC=\00", align 1
-@.str.255 = private unnamed_addr constant [8 x i8] c"RESULT=\00", align 1
-@.str.256 = private unnamed_addr constant [7 x i8] c"ERRNO=\00", align 1
-@.str.257 = private unnamed_addr constant [17 x i8] c"SYSLOG_FACILITY=\00", align 1
-@.str.258 = private unnamed_addr constant [19 x i8] c"SYSLOG_IDENTIFIER=\00", align 1
-@.str.259 = private unnamed_addr constant [12 x i8] c"SYSLOG_PID=\00", align 1
-@.str.260 = private unnamed_addr constant [6 x i8] c"_PID=\00", align 1
-@.str.261 = private unnamed_addr constant [6 x i8] c"_UID=\00", align 1
-@.str.262 = private unnamed_addr constant [6 x i8] c"_GID=\00", align 1
-@.str.263 = private unnamed_addr constant [7 x i8] c"_COMM=\00", align 1
-@.str.264 = private unnamed_addr constant [6 x i8] c"_EXE=\00", align 1
-@.str.265 = private unnamed_addr constant [10 x i8] c"_CMDLINE=\00", align 1
-@.str.266 = private unnamed_addr constant [16 x i8] c"_CAP_EFFECTIVE=\00", align 1
-@.str.267 = private unnamed_addr constant [16 x i8] c"_AUDIT_SESSION=\00", align 1
-@.str.268 = private unnamed_addr constant [17 x i8] c"_AUDIT_LOGINUID=\00", align 1
-@.str.269 = private unnamed_addr constant [17 x i8] c"_SYSTEMD_CGROUP=\00", align 1
-@.str.270 = private unnamed_addr constant [16 x i8] c"_SYSTEMD_SLICE=\00", align 1
-@.str.271 = private unnamed_addr constant [15 x i8] c"_SYSTEMD_UNIT=\00", align 1
-@.str.272 = private unnamed_addr constant [20 x i8] c"_SYSTEMD_USER_UNIT=\00", align 1
-@.str.273 = private unnamed_addr constant [18 x i8] c"_SYSTEMD_SESSION=\00", align 1
-@.str.274 = private unnamed_addr constant [20 x i8] c"_SYSTEMD_OWNER_UID=\00", align 1
-@.str.275 = private unnamed_addr constant [18 x i8] c"_SELINUX_CONTEXT=\00", align 1
-@.str.276 = private unnamed_addr constant [28 x i8] c"_SOURCE_REALTIME_TIMESTAMP=\00", align 1
-@.str.277 = private unnamed_addr constant [29 x i8] c"_SOURCE_MONOTONIC_TIMESTAMP=\00", align 1
-@.str.278 = private unnamed_addr constant [10 x i8] c"_BOOT_ID=\00", align 1
-@.str.279 = private unnamed_addr constant [13 x i8] c"_MACHINE_ID=\00", align 1
-@.str.280 = private unnamed_addr constant [24 x i8] c"_SYSTEMD_INVOCATION_ID=\00", align 1
-@.str.281 = private unnamed_addr constant [11 x i8] c"_HOSTNAME=\00", align 1
-@.str.282 = private unnamed_addr constant [12 x i8] c"_TRANSPORT=\00", align 1
-@.str.283 = private unnamed_addr constant [12 x i8] c"_STREAM_ID=\00", align 1
-@.str.284 = private unnamed_addr constant [13 x i8] c"_LINE_BREAK=\00", align 1
-@.str.285 = private unnamed_addr constant [16 x i8] c"_KERNEL_DEVICE=\00", align 1
-@.str.286 = private unnamed_addr constant [19 x i8] c"_KERNEL_SUBSYSTEM=\00", align 1
-@.str.287 = private unnamed_addr constant [15 x i8] c"_UDEV_SYSNAME=\00", align 1
-@.str.288 = private unnamed_addr constant [15 x i8] c"_UDEV_DEVNODE=\00", align 1
-@.str.289 = private unnamed_addr constant [15 x i8] c"_UDEV_DEVLINK=\00", align 1
-@.str.290 = private unnamed_addr constant [15 x i8] c"COREDUMP_UNIT=\00", align 1
-@.str.291 = private unnamed_addr constant [20 x i8] c"COREDUMP_USER_UNIT=\00", align 1
-@.str.292 = private unnamed_addr constant [12 x i8] c"OBJECT_PID=\00", align 1
-@.str.293 = private unnamed_addr constant [12 x i8] c"OBJECT_UID=\00", align 1
-@.str.294 = private unnamed_addr constant [12 x i8] c"OBJECT_GID=\00", align 1
-@.str.295 = private unnamed_addr constant [13 x i8] c"OBJECT_COMM=\00", align 1
-@.str.296 = private unnamed_addr constant [12 x i8] c"OBJECT_EXE=\00", align 1
-@.str.297 = private unnamed_addr constant [16 x i8] c"OBJECT_CMDLINE=\00", align 1
-@.str.298 = private unnamed_addr constant [22 x i8] c"OBJECT_AUDIT_SESSION=\00", align 1
-@.str.299 = private unnamed_addr constant [23 x i8] c"OBJECT_AUDIT_LOGINUID=\00", align 1
-@.str.300 = private unnamed_addr constant [22 x i8] c"OBJECT_CAP_EFFECTIVE=\00", align 1
-@.str.301 = private unnamed_addr constant [24 x i8] c"OBJECT_SELINUX_CONTEXT=\00", align 1
-@.str.302 = private unnamed_addr constant [23 x i8] c"OBJECT_SYSTEMD_CGROUP=\00", align 1
-@.str.303 = private unnamed_addr constant [24 x i8] c"OBJECT_SYSTEMD_SESSION=\00", align 1
-@.str.304 = private unnamed_addr constant [26 x i8] c"OBJECT_SYSTEMD_OWNER_UID=\00", align 1
-@.str.305 = private unnamed_addr constant [21 x i8] c"OBJECT_SYSTEMD_UNIT=\00", align 1
-@.str.306 = private unnamed_addr constant [26 x i8] c"OBJECT_SYSTEMD_USER_UNIT=\00", align 1
-@.str.307 = private unnamed_addr constant [22 x i8] c"OBJECT_SYSTEMD_SLICE=\00", align 1
-@.str.308 = private unnamed_addr constant [27 x i8] c"OBJECT_SYSTEMD_USER_SLICE=\00", align 1
-@.str.309 = private unnamed_addr constant [30 x i8] c"OBJECT_SYSTEMD_INVOCATION_ID=\00", align 1
-@.str.310 = private unnamed_addr constant [10 x i8] c"__CURSOR=\00", align 1
-@.str.311 = private unnamed_addr constant [22 x i8] c"__REALTIME_TIMESTAMP=\00", align 1
-@.str.312 = private unnamed_addr constant [23 x i8] c"__MONOTONIC_TIMESTAMP=\00", align 1
-@.str.313 = private unnamed_addr constant [14 x i8] c"JOURNAL_NAME=\00", align 1
-@.str.314 = private unnamed_addr constant [14 x i8] c"JOURNAL_PATH=\00", align 1
-@.str.315 = private unnamed_addr constant [13 x i8] c"CURRENT_USE=\00", align 1
-@.str.316 = private unnamed_addr constant [20 x i8] c"CURRENT_USE_PRETTY=\00", align 1
-@.str.317 = private unnamed_addr constant [9 x i8] c"MAX_USE=\00", align 1
-@.str.318 = private unnamed_addr constant [16 x i8] c"MAX_USE_PRETTY=\00", align 1
-@.str.319 = private unnamed_addr constant [16 x i8] c"DISK_KEEP_FREE=\00", align 1
-@.str.320 = private unnamed_addr constant [23 x i8] c"DISK_KEEP_FREE_PRETTY=\00", align 1
-@.str.321 = private unnamed_addr constant [16 x i8] c"DISK_AVAILABLE=\00", align 1
-@.str.322 = private unnamed_addr constant [23 x i8] c"DISK_AVAILABLE_PRETTY=\00", align 1
-@.str.323 = private unnamed_addr constant [7 x i8] c"LIMIT=\00", align 1
-@.str.324 = private unnamed_addr constant [14 x i8] c"LIMIT_PRETTY=\00", align 1
-@.str.325 = private unnamed_addr constant [11 x i8] c"AVAILABLE=\00", align 1
-@.str.326 = private unnamed_addr constant [18 x i8] c"AVAILABLE_PRETTY=\00", align 1
-@.str.327 = private unnamed_addr constant [15 x i8] c"CODE_FUNCTION=\00", align 1
-@.str.328 = private unnamed_addr constant [6 x i8] c"UNIT=\00", align 1
-@.str.329 = private unnamed_addr constant [11 x i8] c"USER_UNIT=\00", align 1
-@.str.330 = private unnamed_addr constant [13 x i8] c"_AUDIT_TYPE=\00", align 1
-@.str.331 = private unnamed_addr constant [11 x i8] c"_AUDIT_ID=\00", align 1
-@.str.332 = private unnamed_addr constant [23 x i8] c"_AUDIT_FIELD_APPARMOR=\00", align 1
-@.str.333 = private unnamed_addr constant [24 x i8] c"_AUDIT_FIELD_OPERATION=\00", align 1
-@.str.334 = private unnamed_addr constant [22 x i8] c"_AUDIT_FIELD_PROFILE=\00", align 1
-@.str.335 = private unnamed_addr constant [19 x i8] c"_AUDIT_FIELD_NAME=\00", align 1
-@.str.336 = private unnamed_addr constant [9 x i8] c"SEAT_ID=\00", align 1
-@.str.337 = private unnamed_addr constant [13 x i8] c"KERNEL_USEC=\00", align 1
-@.str.338 = private unnamed_addr constant [15 x i8] c"USERSPACE_USEC\00", align 1
-@.str.339 = private unnamed_addr constant [11 x i8] c"SESSION_ID\00", align 1
-@.str.340 = private unnamed_addr constant [8 x i8] c"USER_ID\00", align 1
-@.str.341 = private unnamed_addr constant [7 x i8] c"LEADER\00", align 1
-@.str.342 = private unnamed_addr constant [9 x i8] c"JOB_TYPE\00", align 1
-@.str.343 = private unnamed_addr constant [11 x i8] c"JOB_RESULT\00", align 1
-@.str.344 = private unnamed_addr constant [19 x i8] c"USER_INVOCATION_ID\00", align 1
-@.str.345 = private unnamed_addr constant [21 x i8] c"_SYSTEMD_USER_SLICE=\00", align 1
+@.str.247 = private unnamed_addr constant [23 x i8] c"Unknown text field: %s\00", align 1
+@.str.248 = private unnamed_addr constant [2 x i8] c"\0A\00", align 1
+@.str.249 = private unnamed_addr constant [23 x i8] c"Unknown data field: %s\00", align 1
+@.str.250 = private unnamed_addr constant [22 x i8] c"Invalid time value %s\00", align 1
+@.str.251 = private unnamed_addr constant [9 x i8] c"MESSAGE=\00", align 1
+@.str.252 = private unnamed_addr constant [12 x i8] c"MESSAGE_ID=\00", align 1
+@.str.253 = private unnamed_addr constant [10 x i8] c"PRIORITY=\00", align 1
+@.str.254 = private unnamed_addr constant [11 x i8] c"CODE_FILE=\00", align 1
+@.str.255 = private unnamed_addr constant [11 x i8] c"CODE_LINE=\00", align 1
+@.str.256 = private unnamed_addr constant [11 x i8] c"CODE_FUNC=\00", align 1
+@.str.257 = private unnamed_addr constant [8 x i8] c"RESULT=\00", align 1
+@.str.258 = private unnamed_addr constant [7 x i8] c"ERRNO=\00", align 1
+@.str.259 = private unnamed_addr constant [17 x i8] c"SYSLOG_FACILITY=\00", align 1
+@.str.260 = private unnamed_addr constant [19 x i8] c"SYSLOG_IDENTIFIER=\00", align 1
+@.str.261 = private unnamed_addr constant [12 x i8] c"SYSLOG_PID=\00", align 1
+@.str.262 = private unnamed_addr constant [6 x i8] c"_PID=\00", align 1
+@.str.263 = private unnamed_addr constant [6 x i8] c"_UID=\00", align 1
+@.str.264 = private unnamed_addr constant [6 x i8] c"_GID=\00", align 1
+@.str.265 = private unnamed_addr constant [7 x i8] c"_COMM=\00", align 1
+@.str.266 = private unnamed_addr constant [6 x i8] c"_EXE=\00", align 1
+@.str.267 = private unnamed_addr constant [10 x i8] c"_CMDLINE=\00", align 1
+@.str.268 = private unnamed_addr constant [16 x i8] c"_CAP_EFFECTIVE=\00", align 1
+@.str.269 = private unnamed_addr constant [16 x i8] c"_AUDIT_SESSION=\00", align 1
+@.str.270 = private unnamed_addr constant [17 x i8] c"_AUDIT_LOGINUID=\00", align 1
+@.str.271 = private unnamed_addr constant [17 x i8] c"_SYSTEMD_CGROUP=\00", align 1
+@.str.272 = private unnamed_addr constant [16 x i8] c"_SYSTEMD_SLICE=\00", align 1
+@.str.273 = private unnamed_addr constant [15 x i8] c"_SYSTEMD_UNIT=\00", align 1
+@.str.274 = private unnamed_addr constant [20 x i8] c"_SYSTEMD_USER_UNIT=\00", align 1
+@.str.275 = private unnamed_addr constant [18 x i8] c"_SYSTEMD_SESSION=\00", align 1
+@.str.276 = private unnamed_addr constant [20 x i8] c"_SYSTEMD_OWNER_UID=\00", align 1
+@.str.277 = private unnamed_addr constant [18 x i8] c"_SELINUX_CONTEXT=\00", align 1
+@.str.278 = private unnamed_addr constant [28 x i8] c"_SOURCE_REALTIME_TIMESTAMP=\00", align 1
+@.str.279 = private unnamed_addr constant [29 x i8] c"_SOURCE_MONOTONIC_TIMESTAMP=\00", align 1
+@.str.280 = private unnamed_addr constant [10 x i8] c"_BOOT_ID=\00", align 1
+@.str.281 = private unnamed_addr constant [13 x i8] c"_MACHINE_ID=\00", align 1
+@.str.282 = private unnamed_addr constant [24 x i8] c"_SYSTEMD_INVOCATION_ID=\00", align 1
+@.str.283 = private unnamed_addr constant [11 x i8] c"_HOSTNAME=\00", align 1
+@.str.284 = private unnamed_addr constant [12 x i8] c"_TRANSPORT=\00", align 1
+@.str.285 = private unnamed_addr constant [12 x i8] c"_STREAM_ID=\00", align 1
+@.str.286 = private unnamed_addr constant [13 x i8] c"_LINE_BREAK=\00", align 1
+@.str.287 = private unnamed_addr constant [16 x i8] c"_KERNEL_DEVICE=\00", align 1
+@.str.288 = private unnamed_addr constant [19 x i8] c"_KERNEL_SUBSYSTEM=\00", align 1
+@.str.289 = private unnamed_addr constant [15 x i8] c"_UDEV_SYSNAME=\00", align 1
+@.str.290 = private unnamed_addr constant [15 x i8] c"_UDEV_DEVNODE=\00", align 1
+@.str.291 = private unnamed_addr constant [15 x i8] c"_UDEV_DEVLINK=\00", align 1
+@.str.292 = private unnamed_addr constant [15 x i8] c"COREDUMP_UNIT=\00", align 1
+@.str.293 = private unnamed_addr constant [20 x i8] c"COREDUMP_USER_UNIT=\00", align 1
+@.str.294 = private unnamed_addr constant [12 x i8] c"OBJECT_PID=\00", align 1
+@.str.295 = private unnamed_addr constant [12 x i8] c"OBJECT_UID=\00", align 1
+@.str.296 = private unnamed_addr constant [12 x i8] c"OBJECT_GID=\00", align 1
+@.str.297 = private unnamed_addr constant [13 x i8] c"OBJECT_COMM=\00", align 1
+@.str.298 = private unnamed_addr constant [12 x i8] c"OBJECT_EXE=\00", align 1
+@.str.299 = private unnamed_addr constant [16 x i8] c"OBJECT_CMDLINE=\00", align 1
+@.str.300 = private unnamed_addr constant [22 x i8] c"OBJECT_AUDIT_SESSION=\00", align 1
+@.str.301 = private unnamed_addr constant [23 x i8] c"OBJECT_AUDIT_LOGINUID=\00", align 1
+@.str.302 = private unnamed_addr constant [22 x i8] c"OBJECT_CAP_EFFECTIVE=\00", align 1
+@.str.303 = private unnamed_addr constant [24 x i8] c"OBJECT_SELINUX_CONTEXT=\00", align 1
+@.str.304 = private unnamed_addr constant [23 x i8] c"OBJECT_SYSTEMD_CGROUP=\00", align 1
+@.str.305 = private unnamed_addr constant [24 x i8] c"OBJECT_SYSTEMD_SESSION=\00", align 1
+@.str.306 = private unnamed_addr constant [26 x i8] c"OBJECT_SYSTEMD_OWNER_UID=\00", align 1
+@.str.307 = private unnamed_addr constant [21 x i8] c"OBJECT_SYSTEMD_UNIT=\00", align 1
+@.str.308 = private unnamed_addr constant [26 x i8] c"OBJECT_SYSTEMD_USER_UNIT=\00", align 1
+@.str.309 = private unnamed_addr constant [22 x i8] c"OBJECT_SYSTEMD_SLICE=\00", align 1
+@.str.310 = private unnamed_addr constant [27 x i8] c"OBJECT_SYSTEMD_USER_SLICE=\00", align 1
+@.str.311 = private unnamed_addr constant [30 x i8] c"OBJECT_SYSTEMD_INVOCATION_ID=\00", align 1
+@.str.312 = private unnamed_addr constant [10 x i8] c"__CURSOR=\00", align 1
+@.str.313 = private unnamed_addr constant [22 x i8] c"__REALTIME_TIMESTAMP=\00", align 1
+@.str.314 = private unnamed_addr constant [23 x i8] c"__MONOTONIC_TIMESTAMP=\00", align 1
+@.str.315 = private unnamed_addr constant [14 x i8] c"JOURNAL_NAME=\00", align 1
+@.str.316 = private unnamed_addr constant [14 x i8] c"JOURNAL_PATH=\00", align 1
+@.str.317 = private unnamed_addr constant [13 x i8] c"CURRENT_USE=\00", align 1
+@.str.318 = private unnamed_addr constant [20 x i8] c"CURRENT_USE_PRETTY=\00", align 1
+@.str.319 = private unnamed_addr constant [9 x i8] c"MAX_USE=\00", align 1
+@.str.320 = private unnamed_addr constant [16 x i8] c"MAX_USE_PRETTY=\00", align 1
+@.str.321 = private unnamed_addr constant [16 x i8] c"DISK_KEEP_FREE=\00", align 1
+@.str.322 = private unnamed_addr constant [23 x i8] c"DISK_KEEP_FREE_PRETTY=\00", align 1
+@.str.323 = private unnamed_addr constant [16 x i8] c"DISK_AVAILABLE=\00", align 1
+@.str.324 = private unnamed_addr constant [23 x i8] c"DISK_AVAILABLE_PRETTY=\00", align 1
+@.str.325 = private unnamed_addr constant [7 x i8] c"LIMIT=\00", align 1
+@.str.326 = private unnamed_addr constant [14 x i8] c"LIMIT_PRETTY=\00", align 1
+@.str.327 = private unnamed_addr constant [11 x i8] c"AVAILABLE=\00", align 1
+@.str.328 = private unnamed_addr constant [18 x i8] c"AVAILABLE_PRETTY=\00", align 1
+@.str.329 = private unnamed_addr constant [15 x i8] c"CODE_FUNCTION=\00", align 1
+@.str.330 = private unnamed_addr constant [6 x i8] c"UNIT=\00", align 1
+@.str.331 = private unnamed_addr constant [11 x i8] c"USER_UNIT=\00", align 1
+@.str.332 = private unnamed_addr constant [13 x i8] c"_AUDIT_TYPE=\00", align 1
+@.str.333 = private unnamed_addr constant [11 x i8] c"_AUDIT_ID=\00", align 1
+@.str.334 = private unnamed_addr constant [23 x i8] c"_AUDIT_FIELD_APPARMOR=\00", align 1
+@.str.335 = private unnamed_addr constant [24 x i8] c"_AUDIT_FIELD_OPERATION=\00", align 1
+@.str.336 = private unnamed_addr constant [22 x i8] c"_AUDIT_FIELD_PROFILE=\00", align 1
+@.str.337 = private unnamed_addr constant [19 x i8] c"_AUDIT_FIELD_NAME=\00", align 1
+@.str.338 = private unnamed_addr constant [9 x i8] c"SEAT_ID=\00", align 1
+@.str.339 = private unnamed_addr constant [13 x i8] c"KERNEL_USEC=\00", align 1
+@.str.340 = private unnamed_addr constant [15 x i8] c"USERSPACE_USEC\00", align 1
+@.str.341 = private unnamed_addr constant [11 x i8] c"SESSION_ID\00", align 1
+@.str.342 = private unnamed_addr constant [8 x i8] c"USER_ID\00", align 1
+@.str.343 = private unnamed_addr constant [7 x i8] c"LEADER\00", align 1
+@.str.344 = private unnamed_addr constant [9 x i8] c"JOB_TYPE\00", align 1
+@.str.345 = private unnamed_addr constant [11 x i8] c"JOB_RESULT\00", align 1
+@.str.346 = private unnamed_addr constant [19 x i8] c"USER_INVOCATION_ID\00", align 1
+@.str.347 = private unnamed_addr constant [21 x i8] c"_SYSTEMD_USER_SLICE=\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_systemd_journal() #0 {
   %1 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
   %2 = call i32 @proto_register_protocol(ptr noundef @.str.205, ptr noundef @.str.206, ptr noundef @.str.207)
   store i32 %2, ptr @proto_systemd_journal, align 4
   %3 = load i32, ptr @proto_systemd_journal, align 4
@@ -491,22 +489,32 @@ define hidden void @proto_register_systemd_journal() #0 {
   %8 = call ptr @register_dissector(ptr noundef @.str.207, ptr noundef @dissect_systemd_journal_line_entry, i32 noundef %7)
   store ptr %8, ptr @sje_handle, align 8
   call void @init_jf_to_hf_map()
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #2
 
-declare ptr @expert_register_protocol(i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #2
 
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_register_protocol(i32 noundef) #2
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_systemd_journal_line_entry(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -518,63 +526,68 @@ define internal i32 @dissect_systemd_journal_line_entry(ptr noundef %0, ptr noun
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
-  %15 = alloca i32, align 4
+  %15 = alloca i8, align 1
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
   %18 = alloca i32, align 4
-  %19 = alloca ptr, align 8
+  %19 = alloca i32, align 4
   %20 = alloca ptr, align 8
   %21 = alloca ptr, align 8
-  %22 = alloca i32, align 4
+  %22 = alloca ptr, align 8
   %23 = alloca i32, align 4
   %24 = alloca i32, align 4
-  %25 = alloca i64, align 8
-  %26 = alloca i32, align 4
-  %27 = alloca ptr, align 8
+  %25 = alloca i32, align 4
+  %26 = alloca i64, align 8
+  %27 = alloca i32, align 4
   %28 = alloca ptr, align 8
   %29 = alloca ptr, align 8
   %30 = alloca ptr, align 8
   %31 = alloca ptr, align 8
+  %32 = alloca ptr, align 8
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #7
   store i32 0, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #7
   store i32 0, ptr %12, align 4
-  %32 = load ptr, ptr %6, align 8
-  %33 = getelementptr inbounds %struct._packet_info, ptr %32, i32 0, i32 1
-  %34 = load ptr, ptr %33, align 8
-  call void @col_set_str(ptr noundef %34, i32 noundef 34, ptr noundef @.str.206)
-  %35 = load ptr, ptr %6, align 8
-  %36 = getelementptr inbounds %struct._packet_info, ptr %35, i32 0, i32 1
-  %37 = load ptr, ptr %36, align 8
-  call void @col_clear(ptr noundef %37, i32 noundef 25)
-  %38 = load ptr, ptr %6, align 8
-  %39 = getelementptr inbounds %struct._packet_info, ptr %38, i32 0, i32 1
-  %40 = load ptr, ptr %39, align 8
-  call void @col_set_str(ptr noundef %40, i32 noundef 25, ptr noundef @.str.244)
-  %41 = load ptr, ptr %7, align 8
-  %42 = load i32, ptr @proto_systemd_journal, align 4
-  %43 = load ptr, ptr %5, align 8
-  %44 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %42, ptr noundef %43, i32 noundef 0, i32 noundef -1, i32 noundef 0)
-  store ptr %44, ptr %9, align 8
-  %45 = load ptr, ptr %9, align 8
-  %46 = load i32, ptr @ett_systemd_journal_entry, align 4
-  %47 = call ptr @proto_item_add_subtree(ptr noundef %45, i32 noundef %46)
-  store ptr %47, ptr %10, align 8
-  br label %48
+  %33 = load ptr, ptr %6, align 8
+  %34 = getelementptr inbounds nuw %struct._packet_info, ptr %33, i32 0, i32 1
+  %35 = load ptr, ptr %34, align 8
+  call void @col_set_str(ptr noundef %35, i32 noundef 35, ptr noundef @.str.206)
+  %36 = load ptr, ptr %6, align 8
+  %37 = getelementptr inbounds nuw %struct._packet_info, ptr %36, i32 0, i32 1
+  %38 = load ptr, ptr %37, align 8
+  call void @col_clear(ptr noundef %38, i32 noundef 25)
+  %39 = load ptr, ptr %6, align 8
+  %40 = getelementptr inbounds nuw %struct._packet_info, ptr %39, i32 0, i32 1
+  %41 = load ptr, ptr %40, align 8
+  call void @col_set_str(ptr noundef %41, i32 noundef 25, ptr noundef @.str.246)
+  %42 = load ptr, ptr %7, align 8
+  %43 = load i32, ptr @proto_systemd_journal, align 4
+  %44 = load ptr, ptr %5, align 8
+  %45 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %43, ptr noundef %44, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  store ptr %45, ptr %9, align 8
+  %46 = load ptr, ptr %9, align 8
+  %47 = load i32, ptr @ett_systemd_journal_entry, align 4
+  %48 = call ptr @proto_item_add_subtree(ptr noundef %46, i32 noundef %47)
+  store ptr %48, ptr %10, align 8
+  br label %49
 
-48:                                               ; preds = %363, %178, %59, %4
-  %49 = load ptr, ptr %5, align 8
-  %50 = load i32, ptr %11, align 4
-  %51 = call i32 @tvb_offset_exists(ptr noundef %49, i32 noundef %50)
-  %52 = icmp ne i32 %51, 0
-  br i1 %52, label %53, label %365
+49:                                               ; preds = %370, %368, %4
+  %50 = load ptr, ptr %5, align 8
+  %51 = load i32, ptr %11, align 4
+  %52 = call zeroext i1 @tvb_offset_exists(ptr noundef %50, i32 noundef %51)
+  br i1 %52, label %53, label %371
 
-53:                                               ; preds = %48
+53:                                               ; preds = %49
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #7
   %54 = load ptr, ptr %5, align 8
   %55 = load i32, ptr %11, align 4
-  %56 = call i32 @tvb_find_line_end(ptr noundef %54, i32 noundef %55, i32 noundef -1, ptr noundef %12, i32 noundef 0)
+  %56 = call i32 @tvb_find_line_end(ptr noundef %54, i32 noundef %55, i32 noundef -1, ptr noundef %12, i1 noundef zeroext false)
   store i32 %56, ptr %13, align 4
   %57 = load i32, ptr %13, align 4
   %58 = icmp slt i32 %57, 3
@@ -583,1021 +596,1292 @@ define internal i32 @dissect_systemd_journal_line_entry(ptr noundef %0, ptr noun
 59:                                               ; preds = %53
   %60 = load i32, ptr %12, align 4
   store i32 %60, ptr %11, align 4
-  br label %48, !llvm.loop !4
+  store i32 2, ptr %14, align 4
+  br label %368, !llvm.loop !6
 
 61:                                               ; preds = %53
-  store i32 0, ptr %14, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #7
+  store i8 0, ptr %15, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #7
   %62 = load ptr, ptr %5, align 8
   %63 = load i32, ptr %11, align 4
   %64 = load i32, ptr %13, align 4
-  %65 = call i32 @tvb_find_guint8(ptr noundef %62, i32 noundef %63, i32 noundef %64, i8 noundef zeroext 61)
+  %65 = call i32 @tvb_find_uint8(ptr noundef %62, i32 noundef %63, i32 noundef %64, i8 noundef zeroext 61)
   %66 = add i32 %65, 1
-  store i32 %66, ptr %15, align 4
+  store i32 %66, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #7
   %67 = load i32, ptr %11, align 4
   %68 = load i32, ptr %13, align 4
   %69 = add i32 %67, %68
-  %70 = load i32, ptr %15, align 4
+  %70 = load i32, ptr %16, align 4
   %71 = sub i32 %69, %70
-  store i32 %71, ptr %16, align 4
-  store i32 0, ptr %17, align 4
+  store i32 %71, ptr %17, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #7
+  store i32 0, ptr %18, align 4
   br label %72
 
-72:                                               ; preds = %167, %61
+72:                                               ; preds = %168, %61
   %73 = load ptr, ptr @jf_to_hf, align 8
-  %74 = load i32, ptr %17, align 4
+  %74 = load i32, ptr %18, align 4
   %75 = sext i32 %74 to i64
   %76 = getelementptr %struct._journal_field_hf_map, ptr %73, i64 %75
-  %77 = getelementptr inbounds %struct._journal_field_hf_map, ptr %76, i32 0, i32 1
+  %77 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %76, i32 0, i32 1
   %78 = load ptr, ptr %77, align 8
   %79 = icmp ne ptr %78, null
-  br i1 %79, label %80, label %170
+  br i1 %79, label %81, label %80
 
 80:                                               ; preds = %72
-  %81 = load ptr, ptr %5, align 8
-  %82 = load i32, ptr %11, align 4
-  %83 = load ptr, ptr @jf_to_hf, align 8
-  %84 = load i32, ptr %17, align 4
-  %85 = sext i32 %84 to i64
-  %86 = getelementptr %struct._journal_field_hf_map, ptr %83, i64 %85
-  %87 = getelementptr inbounds %struct._journal_field_hf_map, ptr %86, i32 0, i32 1
-  %88 = load ptr, ptr %87, align 8
-  %89 = load ptr, ptr @jf_to_hf, align 8
-  %90 = load i32, ptr %17, align 4
-  %91 = sext i32 %90 to i64
-  %92 = getelementptr %struct._journal_field_hf_map, ptr %89, i64 %91
-  %93 = getelementptr inbounds %struct._journal_field_hf_map, ptr %92, i32 0, i32 1
-  %94 = load ptr, ptr %93, align 8
-  %95 = call i64 @strlen(ptr noundef %94) #5
-  %96 = call i32 @tvb_memeql(ptr noundef %81, i32 noundef %82, ptr noundef %88, i64 noundef %95)
-  %97 = icmp eq i32 %96, 0
-  br i1 %97, label %98, label %166
+  store i32 4, ptr %14, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #7
+  br label %171
 
-98:                                               ; preds = %80
-  %99 = load ptr, ptr @jf_to_hf, align 8
-  %100 = load i32, ptr %17, align 4
-  %101 = sext i32 %100 to i64
-  %102 = getelementptr %struct._journal_field_hf_map, ptr %99, i64 %101
-  %103 = getelementptr inbounds %struct._journal_field_hf_map, ptr %102, i32 0, i32 0
-  %104 = load i32, ptr %103, align 8
-  store i32 %104, ptr %18, align 4
-  %105 = load i32, ptr %18, align 4
-  %106 = call i32 @proto_registrar_get_ftype(i32 noundef %105)
-  switch i32 %106, label %137 [
-    i32 24, label %107
-    i32 25, label %107
-    i32 7, label %113
-    i32 5, label %113
-    i32 4, label %113
-    i32 15, label %119
-    i32 13, label %119
-    i32 12, label %119
-    i32 26, label %125
+81:                                               ; preds = %72
+  %82 = load ptr, ptr %5, align 8
+  %83 = load i32, ptr %11, align 4
+  %84 = load ptr, ptr @jf_to_hf, align 8
+  %85 = load i32, ptr %18, align 4
+  %86 = sext i32 %85 to i64
+  %87 = getelementptr %struct._journal_field_hf_map, ptr %84, i64 %86
+  %88 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %87, i32 0, i32 1
+  %89 = load ptr, ptr %88, align 8
+  %90 = load ptr, ptr @jf_to_hf, align 8
+  %91 = load i32, ptr %18, align 4
+  %92 = sext i32 %91 to i64
+  %93 = getelementptr %struct._journal_field_hf_map, ptr %90, i64 %92
+  %94 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %93, i32 0, i32 1
+  %95 = load ptr, ptr %94, align 8
+  %96 = call i64 @strlen(ptr noundef %95) #8
+  %97 = call i32 @tvb_memeql(ptr noundef %82, i32 noundef %83, ptr noundef %89, i64 noundef %96)
+  %98 = icmp eq i32 %97, 0
+  br i1 %98, label %99, label %167
+
+99:                                               ; preds = %81
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #7
+  %100 = load ptr, ptr @jf_to_hf, align 8
+  %101 = load i32, ptr %18, align 4
+  %102 = sext i32 %101 to i64
+  %103 = getelementptr %struct._journal_field_hf_map, ptr %100, i64 %102
+  %104 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %103, i32 0, i32 0
+  %105 = load i32, ptr %104, align 8
+  store i32 %105, ptr %19, align 4
+  %106 = load i32, ptr %19, align 4
+  %107 = call i32 @proto_registrar_get_ftype(i32 noundef %106)
+  switch i32 %107, label %138 [
+    i32 24, label %108
+    i32 25, label %108
+    i32 7, label %114
+    i32 5, label %114
+    i32 4, label %114
+    i32 15, label %120
+    i32 13, label %120
+    i32 12, label %120
+    i32 26, label %126
   ]
 
-107:                                              ; preds = %98, %98
-  %108 = load ptr, ptr %10, align 8
-  %109 = load i32, ptr %18, align 4
-  %110 = load ptr, ptr %5, align 8
-  %111 = load i32, ptr %15, align 4
+108:                                              ; preds = %99, %99
+  %109 = load ptr, ptr %10, align 8
+  %110 = load i32, ptr %19, align 4
+  %111 = load ptr, ptr %5, align 8
   %112 = load i32, ptr %16, align 4
-  call void @dissect_sjle_time_usecs(ptr noundef %108, i32 noundef %109, ptr noundef %110, i32 noundef %111, i32 noundef %112)
-  br label %147
+  %113 = load i32, ptr %17, align 4
+  call void @dissect_sjle_time_usecs(ptr noundef %109, i32 noundef %110, ptr noundef %111, i32 noundef %112, i32 noundef %113)
+  br label %148
 
-113:                                              ; preds = %98, %98, %98
-  %114 = load ptr, ptr %10, align 8
-  %115 = load i32, ptr %18, align 4
-  %116 = load ptr, ptr %5, align 8
-  %117 = load i32, ptr %15, align 4
+114:                                              ; preds = %99, %99, %99
+  %115 = load ptr, ptr %10, align 8
+  %116 = load i32, ptr %19, align 4
+  %117 = load ptr, ptr %5, align 8
   %118 = load i32, ptr %16, align 4
-  call void @dissect_sjle_uint(ptr noundef %114, i32 noundef %115, ptr noundef %116, i32 noundef %117, i32 noundef %118)
-  br label %147
+  %119 = load i32, ptr %17, align 4
+  call void @dissect_sjle_uint(ptr noundef %115, i32 noundef %116, ptr noundef %117, i32 noundef %118, i32 noundef %119)
+  br label %148
 
-119:                                              ; preds = %98, %98, %98
-  %120 = load ptr, ptr %10, align 8
-  %121 = load i32, ptr %18, align 4
-  %122 = load ptr, ptr %5, align 8
-  %123 = load i32, ptr %15, align 4
+120:                                              ; preds = %99, %99, %99
+  %121 = load ptr, ptr %10, align 8
+  %122 = load i32, ptr %19, align 4
+  %123 = load ptr, ptr %5, align 8
   %124 = load i32, ptr %16, align 4
-  call void @dissect_sjle_int(ptr noundef %120, i32 noundef %121, ptr noundef %122, i32 noundef %123, i32 noundef %124)
-  br label %147
+  %125 = load i32, ptr %17, align 4
+  call void @dissect_sjle_int(ptr noundef %121, i32 noundef %122, ptr noundef %123, i32 noundef %124, i32 noundef %125)
+  br label %148
 
-125:                                              ; preds = %98
-  %126 = load ptr, ptr %10, align 8
-  %127 = load ptr, ptr @jf_to_hf, align 8
-  %128 = load i32, ptr %17, align 4
-  %129 = sext i32 %128 to i64
-  %130 = getelementptr %struct._journal_field_hf_map, ptr %127, i64 %129
-  %131 = getelementptr inbounds %struct._journal_field_hf_map, ptr %130, i32 0, i32 0
-  %132 = load i32, ptr %131, align 8
-  %133 = load ptr, ptr %5, align 8
-  %134 = load i32, ptr %15, align 4
+126:                                              ; preds = %99
+  %127 = load ptr, ptr %10, align 8
+  %128 = load ptr, ptr @jf_to_hf, align 8
+  %129 = load i32, ptr %18, align 4
+  %130 = sext i32 %129 to i64
+  %131 = getelementptr %struct._journal_field_hf_map, ptr %128, i64 %130
+  %132 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %131, i32 0, i32 0
+  %133 = load i32, ptr %132, align 8
+  %134 = load ptr, ptr %5, align 8
   %135 = load i32, ptr %16, align 4
-  %136 = call ptr @proto_tree_add_item(ptr noundef %126, i32 noundef %132, ptr noundef %133, i32 noundef %134, i32 noundef %135, i32 noundef 2)
-  br label %147
+  %136 = load i32, ptr %17, align 4
+  %137 = call ptr @proto_tree_add_item(ptr noundef %127, i32 noundef %133, ptr noundef %134, i32 noundef %135, i32 noundef %136, i32 noundef 2)
+  br label %148
 
-137:                                              ; preds = %98
-  %138 = load ptr, ptr %10, align 8
-  %139 = load i32, ptr @hf_sj_unhandled_field_type, align 4
-  %140 = load ptr, ptr %5, align 8
-  %141 = load i32, ptr %11, align 4
-  %142 = load i32, ptr %13, align 4
-  %143 = call ptr @proto_tree_add_item(ptr noundef %138, i32 noundef %139, ptr noundef %140, i32 noundef %141, i32 noundef %142, i32 noundef 2)
-  store ptr %143, ptr %19, align 8
-  %144 = load ptr, ptr %6, align 8
-  %145 = load ptr, ptr %19, align 8
-  %146 = call ptr @expert_add_info(ptr noundef %144, ptr noundef %145, ptr noundef @ei_unhandled_field_type)
-  br label %147
+138:                                              ; preds = %99
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #7
+  %139 = load ptr, ptr %10, align 8
+  %140 = load i32, ptr @hf_sj_unhandled_field_type, align 4
+  %141 = load ptr, ptr %5, align 8
+  %142 = load i32, ptr %11, align 4
+  %143 = load i32, ptr %13, align 4
+  %144 = call ptr @proto_tree_add_item(ptr noundef %139, i32 noundef %140, ptr noundef %141, i32 noundef %142, i32 noundef %143, i32 noundef 2)
+  store ptr %144, ptr %20, align 8
+  %145 = load ptr, ptr %6, align 8
+  %146 = load ptr, ptr %20, align 8
+  %147 = call ptr @expert_add_info(ptr noundef %145, ptr noundef %146, ptr noundef @ei_unhandled_field_type)
+  store i32 7, ptr %14, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #7
+  br label %148
 
-147:                                              ; preds = %137, %125, %119, %113, %107
-  %148 = load i32, ptr %18, align 4
-  %149 = load i32, ptr @hf_sj_message, align 4
-  %150 = icmp eq i32 %148, %149
-  br i1 %150, label %151, label %165
+148:                                              ; preds = %138, %126, %120, %114, %108
+  %149 = load i32, ptr %19, align 4
+  %150 = load i32, ptr @hf_sj_message, align 4
+  %151 = icmp eq i32 %149, %150
+  br i1 %151, label %152, label %166
 
-151:                                              ; preds = %147
-  %152 = load ptr, ptr %6, align 8
-  %153 = getelementptr inbounds %struct._packet_info, ptr %152, i32 0, i32 1
-  %154 = load ptr, ptr %153, align 8
-  call void @col_clear(ptr noundef %154, i32 noundef 25)
-  %155 = load ptr, ptr %6, align 8
-  %156 = getelementptr inbounds %struct._packet_info, ptr %155, i32 0, i32 1
-  %157 = load ptr, ptr %156, align 8
-  %158 = load ptr, ptr %6, align 8
-  %159 = getelementptr inbounds %struct._packet_info, ptr %158, i32 0, i32 50
-  %160 = load ptr, ptr %159, align 8
-  %161 = load ptr, ptr %5, align 8
-  %162 = load i32, ptr %15, align 4
+152:                                              ; preds = %148
+  %153 = load ptr, ptr %6, align 8
+  %154 = getelementptr inbounds nuw %struct._packet_info, ptr %153, i32 0, i32 1
+  %155 = load ptr, ptr %154, align 8
+  call void @col_clear(ptr noundef %155, i32 noundef 25)
+  %156 = load ptr, ptr %6, align 8
+  %157 = getelementptr inbounds nuw %struct._packet_info, ptr %156, i32 0, i32 1
+  %158 = load ptr, ptr %157, align 8
+  %159 = load ptr, ptr %6, align 8
+  %160 = getelementptr inbounds nuw %struct._packet_info, ptr %159, i32 0, i32 51
+  %161 = load ptr, ptr %160, align 8
+  %162 = load ptr, ptr %5, align 8
   %163 = load i32, ptr %16, align 4
-  %164 = call ptr @tvb_get_string_enc(ptr noundef %160, ptr noundef %161, i32 noundef %162, i32 noundef %163, i32 noundef 2)
-  call void @col_add_str(ptr noundef %157, i32 noundef 25, ptr noundef %164)
-  br label %165
-
-165:                                              ; preds = %151, %147
-  store i32 1, ptr %14, align 4
+  %164 = load i32, ptr %17, align 4
+  %165 = call ptr @tvb_get_string_enc(ptr noundef %161, ptr noundef %162, i32 noundef %163, i32 noundef %164, i32 noundef 2)
+  call void @col_add_str(ptr noundef %158, i32 noundef 25, ptr noundef %165)
   br label %166
 
-166:                                              ; preds = %165, %80
+166:                                              ; preds = %152, %148
+  store i8 1, ptr %15, align 1
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #7
   br label %167
 
-167:                                              ; preds = %166
-  %168 = load i32, ptr %17, align 4
-  %169 = add i32 %168, 1
-  store i32 %169, ptr %17, align 4
-  br label %72, !llvm.loop !6
+167:                                              ; preds = %166, %81
+  br label %168
 
-170:                                              ; preds = %72
-  %171 = load i32, ptr %14, align 4
-  %172 = icmp ne i32 %171, 0
-  br i1 %172, label %214, label %173
+168:                                              ; preds = %167
+  %169 = load i32, ptr %18, align 4
+  %170 = add i32 %169, 1
+  store i32 %170, ptr %18, align 4
+  br label %72, !llvm.loop !8
 
-173:                                              ; preds = %170
-  %174 = load i32, ptr %15, align 4
-  %175 = load i32, ptr %11, align 4
-  %176 = add i32 %175, 1
-  %177 = icmp sgt i32 %174, %176
-  br i1 %177, label %178, label %214
+171:                                              ; preds = %80
+  %172 = load i8, ptr %15, align 1, !range !9, !noundef !10
+  %173 = trunc i8 %172 to i1
+  br i1 %173, label %215, label %174
 
-178:                                              ; preds = %173
-  %179 = load ptr, ptr %10, align 8
-  %180 = load i32, ptr @hf_sj_unknown_field, align 4
-  %181 = load ptr, ptr %5, align 8
-  %182 = load i32, ptr %11, align 4
-  %183 = load i32, ptr %13, align 4
-  %184 = load ptr, ptr %6, align 8
-  %185 = getelementptr inbounds %struct._packet_info, ptr %184, i32 0, i32 50
-  %186 = load ptr, ptr %185, align 8
-  %187 = load ptr, ptr %5, align 8
-  %188 = load i32, ptr %11, align 4
-  %189 = load i32, ptr %15, align 4
-  %190 = load i32, ptr %11, align 4
-  %191 = sub i32 %189, %190
-  %192 = sub i32 %191, 1
-  %193 = call ptr @tvb_get_string_enc(ptr noundef %186, ptr noundef %187, i32 noundef %188, i32 noundef %192, i32 noundef 2)
-  %194 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %179, i32 noundef %180, ptr noundef %181, i32 noundef %182, i32 noundef %183, ptr noundef @.str.245, ptr noundef %193)
-  store ptr %194, ptr %20, align 8
-  %195 = load ptr, ptr %20, align 8
-  %196 = load i32, ptr @ett_systemd_unknown_field, align 4
-  %197 = call ptr @proto_item_add_subtree(ptr noundef %195, i32 noundef %196)
-  store ptr %197, ptr %21, align 8
-  %198 = load ptr, ptr %21, align 8
-  %199 = load i32, ptr @hf_sj_unknown_field_name, align 4
-  %200 = load ptr, ptr %5, align 8
-  %201 = load i32, ptr %11, align 4
-  %202 = load i32, ptr %15, align 4
-  %203 = load i32, ptr %11, align 4
-  %204 = sub i32 %202, %203
-  %205 = sub i32 %204, 1
-  %206 = call ptr @proto_tree_add_item(ptr noundef %198, i32 noundef %199, ptr noundef %200, i32 noundef %201, i32 noundef %205, i32 noundef 2)
-  %207 = load ptr, ptr %21, align 8
-  %208 = load i32, ptr @hf_sj_unknown_field_value, align 4
-  %209 = load ptr, ptr %5, align 8
-  %210 = load i32, ptr %15, align 4
+174:                                              ; preds = %171
+  %175 = load i32, ptr %16, align 4
+  %176 = load i32, ptr %11, align 4
+  %177 = add i32 %176, 1
+  %178 = icmp sgt i32 %175, %177
+  br i1 %178, label %179, label %215
+
+179:                                              ; preds = %174
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #7
+  %180 = load ptr, ptr %10, align 8
+  %181 = load i32, ptr @hf_sj_unknown_field, align 4
+  %182 = load ptr, ptr %5, align 8
+  %183 = load i32, ptr %11, align 4
+  %184 = load i32, ptr %13, align 4
+  %185 = load ptr, ptr %6, align 8
+  %186 = getelementptr inbounds nuw %struct._packet_info, ptr %185, i32 0, i32 51
+  %187 = load ptr, ptr %186, align 8
+  %188 = load ptr, ptr %5, align 8
+  %189 = load i32, ptr %11, align 4
+  %190 = load i32, ptr %16, align 4
+  %191 = load i32, ptr %11, align 4
+  %192 = sub i32 %190, %191
+  %193 = sub i32 %192, 1
+  %194 = call ptr @tvb_get_string_enc(ptr noundef %187, ptr noundef %188, i32 noundef %189, i32 noundef %193, i32 noundef 2)
+  %195 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %180, i32 noundef %181, ptr noundef %182, i32 noundef %183, i32 noundef %184, ptr noundef @.str.247, ptr noundef %194)
+  store ptr %195, ptr %21, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #7
+  %196 = load ptr, ptr %21, align 8
+  %197 = load i32, ptr @ett_systemd_unknown_field, align 4
+  %198 = call ptr @proto_item_add_subtree(ptr noundef %196, i32 noundef %197)
+  store ptr %198, ptr %22, align 8
+  %199 = load ptr, ptr %22, align 8
+  %200 = load i32, ptr @hf_sj_unknown_field_name, align 4
+  %201 = load ptr, ptr %5, align 8
+  %202 = load i32, ptr %11, align 4
+  %203 = load i32, ptr %16, align 4
+  %204 = load i32, ptr %11, align 4
+  %205 = sub i32 %203, %204
+  %206 = sub i32 %205, 1
+  %207 = call ptr @proto_tree_add_item(ptr noundef %199, i32 noundef %200, ptr noundef %201, i32 noundef %202, i32 noundef %206, i32 noundef 2)
+  %208 = load ptr, ptr %22, align 8
+  %209 = load i32, ptr @hf_sj_unknown_field_value, align 4
+  %210 = load ptr, ptr %5, align 8
   %211 = load i32, ptr %16, align 4
-  %212 = call ptr @proto_tree_add_item(ptr noundef %207, i32 noundef %208, ptr noundef %209, i32 noundef %210, i32 noundef %211, i32 noundef 2)
-  %213 = load i32, ptr %12, align 4
-  store i32 %213, ptr %11, align 4
-  br label %48, !llvm.loop !4
+  %212 = load i32, ptr %17, align 4
+  %213 = call ptr @proto_tree_add_item(ptr noundef %208, i32 noundef %209, ptr noundef %210, i32 noundef %211, i32 noundef %212, i32 noundef 2)
+  %214 = load i32, ptr %12, align 4
+  store i32 %214, ptr %11, align 4
+  store i32 2, ptr %14, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #7
+  br label %367
 
-214:                                              ; preds = %173, %170
-  %215 = load i32, ptr %14, align 4
-  %216 = icmp ne i32 %215, 0
-  br i1 %216, label %363, label %217
+215:                                              ; preds = %174, %171
+  %216 = load i8, ptr %15, align 1, !range !9, !noundef !10
+  %217 = trunc i8 %216 to i1
+  br i1 %217, label %365, label %218
 
-217:                                              ; preds = %214
-  store i32 0, ptr %22, align 4
-  br label %218
+218:                                              ; preds = %215
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #7
+  store i32 0, ptr %23, align 4
+  br label %219
 
-218:                                              ; preds = %359, %217
-  %219 = load ptr, ptr @jf_to_hf, align 8
-  %220 = load i32, ptr %22, align 4
-  %221 = sext i32 %220 to i64
-  %222 = getelementptr %struct._journal_field_hf_map, ptr %219, i64 %221
-  %223 = getelementptr inbounds %struct._journal_field_hf_map, ptr %222, i32 0, i32 1
-  %224 = load ptr, ptr %223, align 8
-  %225 = icmp ne ptr %224, null
-  br i1 %225, label %226, label %362
+219:                                              ; preds = %361, %218
+  %220 = load ptr, ptr @jf_to_hf, align 8
+  %221 = load i32, ptr %23, align 4
+  %222 = sext i32 %221 to i64
+  %223 = getelementptr %struct._journal_field_hf_map, ptr %220, i64 %222
+  %224 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %223, i32 0, i32 1
+  %225 = load ptr, ptr %224, align 8
+  %226 = icmp ne ptr %225, null
+  br i1 %226, label %228, label %227
 
-226:                                              ; preds = %218
-  %227 = load ptr, ptr @jf_to_hf, align 8
-  %228 = load i32, ptr %22, align 4
-  %229 = sext i32 %228 to i64
-  %230 = getelementptr %struct._journal_field_hf_map, ptr %227, i64 %229
-  %231 = getelementptr inbounds %struct._journal_field_hf_map, ptr %230, i32 0, i32 1
-  %232 = load ptr, ptr %231, align 8
-  %233 = call i64 @strlen(ptr noundef %232) #5
-  %234 = trunc i64 %233 to i32
-  %235 = sub i32 %234, 1
-  store i32 %235, ptr %23, align 4
-  %236 = load ptr, ptr %5, align 8
-  %237 = load i32, ptr %11, align 4
-  %238 = load ptr, ptr @jf_to_hf, align 8
-  %239 = load i32, ptr %22, align 4
-  %240 = sext i32 %239 to i64
-  %241 = getelementptr %struct._journal_field_hf_map, ptr %238, i64 %240
-  %242 = getelementptr inbounds %struct._journal_field_hf_map, ptr %241, i32 0, i32 1
-  %243 = load ptr, ptr %242, align 8
-  %244 = load i32, ptr %23, align 4
-  %245 = sext i32 %244 to i64
-  %246 = call i32 @tvb_memeql(ptr noundef %236, i32 noundef %237, ptr noundef %243, i64 noundef %245)
-  %247 = icmp eq i32 %246, 0
-  br i1 %247, label %248, label %358
+227:                                              ; preds = %219
+  store i32 8, ptr %14, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #7
+  br label %364
 
-248:                                              ; preds = %226
-  %249 = load ptr, ptr %5, align 8
-  %250 = load i32, ptr %11, align 4
-  %251 = load i32, ptr %23, align 4
-  %252 = add i32 %250, %251
-  %253 = call i32 @tvb_memeql(ptr noundef %249, i32 noundef %252, ptr noundef @.str.246, i64 noundef 1)
-  %254 = icmp eq i32 %253, 0
-  br i1 %254, label %255, label %358
+228:                                              ; preds = %219
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #7
+  %229 = load ptr, ptr @jf_to_hf, align 8
+  %230 = load i32, ptr %23, align 4
+  %231 = sext i32 %230 to i64
+  %232 = getelementptr %struct._journal_field_hf_map, ptr %229, i64 %231
+  %233 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %232, i32 0, i32 1
+  %234 = load ptr, ptr %233, align 8
+  %235 = call i64 @strlen(ptr noundef %234) #8
+  %236 = trunc i64 %235 to i32
+  %237 = sub i32 %236, 1
+  store i32 %237, ptr %24, align 4
+  %238 = load ptr, ptr %5, align 8
+  %239 = load i32, ptr %11, align 4
+  %240 = load ptr, ptr @jf_to_hf, align 8
+  %241 = load i32, ptr %23, align 4
+  %242 = sext i32 %241 to i64
+  %243 = getelementptr %struct._journal_field_hf_map, ptr %240, i64 %242
+  %244 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %243, i32 0, i32 1
+  %245 = load ptr, ptr %244, align 8
+  %246 = load i32, ptr %24, align 4
+  %247 = sext i32 %246 to i64
+  %248 = call i32 @tvb_memeql(ptr noundef %238, i32 noundef %239, ptr noundef %245, i64 noundef %247)
+  %249 = icmp eq i32 %248, 0
+  br i1 %249, label %250, label %360
 
-255:                                              ; preds = %248
-  %256 = load ptr, ptr @jf_to_hf, align 8
-  %257 = load i32, ptr %22, align 4
-  %258 = sext i32 %257 to i64
-  %259 = getelementptr %struct._journal_field_hf_map, ptr %256, i64 %258
-  %260 = getelementptr inbounds %struct._journal_field_hf_map, ptr %259, i32 0, i32 0
-  %261 = load i32, ptr %260, align 8
-  store i32 %261, ptr %24, align 4
-  %262 = load ptr, ptr %5, align 8
-  %263 = load i32, ptr %11, align 4
-  %264 = load i32, ptr %23, align 4
-  %265 = add i32 %263, %264
-  %266 = add i32 %265, 1
-  %267 = call i64 @tvb_get_letoh64(ptr noundef %262, i32 noundef %266)
-  store i64 %267, ptr %25, align 8
-  %268 = load i32, ptr %11, align 4
-  %269 = load i32, ptr %23, align 4
-  %270 = add i32 %268, %269
-  %271 = add i32 %270, 1
-  %272 = add i32 %271, 8
-  store i32 %272, ptr %26, align 4
-  %273 = load i32, ptr %26, align 4
-  %274 = load i64, ptr %25, align 8
-  %275 = trunc i64 %274 to i32
-  %276 = add i32 %273, %275
-  %277 = add i32 %276, 1
-  store i32 %277, ptr %12, align 4
-  %278 = load i32, ptr %24, align 4
-  %279 = call i32 @proto_registrar_get_ftype(i32 noundef %278)
-  %280 = icmp eq i32 %279, 26
-  br i1 %280, label %281, label %319
+250:                                              ; preds = %228
+  %251 = load ptr, ptr %5, align 8
+  %252 = load i32, ptr %11, align 4
+  %253 = load i32, ptr %24, align 4
+  %254 = add i32 %252, %253
+  %255 = call i32 @tvb_memeql(ptr noundef %251, i32 noundef %254, ptr noundef @.str.248, i64 noundef 1)
+  %256 = icmp eq i32 %255, 0
+  br i1 %256, label %257, label %360
 
-281:                                              ; preds = %255
-  %282 = load ptr, ptr %10, align 8
-  %283 = load i32, ptr %24, align 4
-  %284 = load ptr, ptr %5, align 8
-  %285 = load i32, ptr %26, align 4
-  %286 = load i64, ptr %25, align 8
-  %287 = trunc i64 %286 to i32
-  %288 = call ptr @proto_tree_add_item(ptr noundef %282, i32 noundef %283, ptr noundef %284, i32 noundef %285, i32 noundef %287, i32 noundef 0)
-  store ptr %288, ptr %27, align 8
-  %289 = load ptr, ptr %27, align 8
-  %290 = load i32, ptr @ett_systemd_binary_data, align 4
-  %291 = call ptr @proto_item_add_subtree(ptr noundef %289, i32 noundef %290)
-  store ptr %291, ptr %28, align 8
-  %292 = load ptr, ptr %28, align 8
-  %293 = load i32, ptr @hf_sj_binary_data_len, align 4
-  %294 = load ptr, ptr %5, align 8
-  %295 = load i32, ptr %11, align 4
-  %296 = load i32, ptr %23, align 4
-  %297 = add i32 %295, %296
-  %298 = add i32 %297, 1
-  %299 = call ptr @proto_tree_add_item(ptr noundef %292, i32 noundef %293, ptr noundef %294, i32 noundef %298, i32 noundef 8, i32 noundef -2147483648)
-  %300 = load i32, ptr %24, align 4
-  %301 = load i32, ptr @hf_sj_message, align 4
-  %302 = icmp eq i32 %300, %301
-  br i1 %302, label %303, label %318
+257:                                              ; preds = %250
+  call void @llvm.lifetime.start.p0(i64 4, ptr %25) #7
+  %258 = load ptr, ptr @jf_to_hf, align 8
+  %259 = load i32, ptr %23, align 4
+  %260 = sext i32 %259 to i64
+  %261 = getelementptr %struct._journal_field_hf_map, ptr %258, i64 %260
+  %262 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %261, i32 0, i32 0
+  %263 = load i32, ptr %262, align 8
+  store i32 %263, ptr %25, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #7
+  %264 = load ptr, ptr %5, align 8
+  %265 = load i32, ptr %11, align 4
+  %266 = load i32, ptr %24, align 4
+  %267 = add i32 %265, %266
+  %268 = add i32 %267, 1
+  %269 = call i64 @tvb_get_letoh64(ptr noundef %264, i32 noundef %268)
+  store i64 %269, ptr %26, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %27) #7
+  %270 = load i32, ptr %11, align 4
+  %271 = load i32, ptr %24, align 4
+  %272 = add i32 %270, %271
+  %273 = add i32 %272, 1
+  %274 = add i32 %273, 8
+  store i32 %274, ptr %27, align 4
+  %275 = load i32, ptr %27, align 4
+  %276 = load i64, ptr %26, align 8
+  %277 = trunc i64 %276 to i32
+  %278 = add i32 %275, %277
+  %279 = add i32 %278, 1
+  store i32 %279, ptr %12, align 4
+  %280 = load i32, ptr %25, align 4
+  %281 = call i32 @proto_registrar_get_ftype(i32 noundef %280)
+  %282 = icmp eq i32 %281, 26
+  br i1 %282, label %283, label %321
 
-303:                                              ; preds = %281
-  %304 = load ptr, ptr %6, align 8
-  %305 = getelementptr inbounds %struct._packet_info, ptr %304, i32 0, i32 1
-  %306 = load ptr, ptr %305, align 8
-  call void @col_clear(ptr noundef %306, i32 noundef 25)
-  %307 = load ptr, ptr %6, align 8
-  %308 = getelementptr inbounds %struct._packet_info, ptr %307, i32 0, i32 1
-  %309 = load ptr, ptr %308, align 8
-  %310 = load ptr, ptr %6, align 8
-  %311 = getelementptr inbounds %struct._packet_info, ptr %310, i32 0, i32 50
-  %312 = load ptr, ptr %311, align 8
-  %313 = load ptr, ptr %5, align 8
-  %314 = load i32, ptr %26, align 4
-  %315 = load i64, ptr %25, align 8
-  %316 = trunc i64 %315 to i32
-  %317 = call ptr @tvb_format_text(ptr noundef %312, ptr noundef %313, i32 noundef %314, i32 noundef %316)
-  call void @col_add_str(ptr noundef %309, i32 noundef 25, ptr noundef %317)
-  br label %318
+283:                                              ; preds = %257
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #7
+  %284 = load ptr, ptr %10, align 8
+  %285 = load i32, ptr %25, align 4
+  %286 = load ptr, ptr %5, align 8
+  %287 = load i32, ptr %27, align 4
+  %288 = load i64, ptr %26, align 8
+  %289 = trunc i64 %288 to i32
+  %290 = call ptr @proto_tree_add_item(ptr noundef %284, i32 noundef %285, ptr noundef %286, i32 noundef %287, i32 noundef %289, i32 noundef 0)
+  store ptr %290, ptr %28, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %29) #7
+  %291 = load ptr, ptr %28, align 8
+  %292 = load i32, ptr @ett_systemd_binary_data, align 4
+  %293 = call ptr @proto_item_add_subtree(ptr noundef %291, i32 noundef %292)
+  store ptr %293, ptr %29, align 8
+  %294 = load ptr, ptr %29, align 8
+  %295 = load i32, ptr @hf_sj_binary_data_len, align 4
+  %296 = load ptr, ptr %5, align 8
+  %297 = load i32, ptr %11, align 4
+  %298 = load i32, ptr %24, align 4
+  %299 = add i32 %297, %298
+  %300 = add i32 %299, 1
+  %301 = call ptr @proto_tree_add_item(ptr noundef %294, i32 noundef %295, ptr noundef %296, i32 noundef %300, i32 noundef 8, i32 noundef -2147483648)
+  %302 = load i32, ptr %25, align 4
+  %303 = load i32, ptr @hf_sj_message, align 4
+  %304 = icmp eq i32 %302, %303
+  br i1 %304, label %305, label %320
 
-318:                                              ; preds = %303, %281
-  br label %357
+305:                                              ; preds = %283
+  %306 = load ptr, ptr %6, align 8
+  %307 = getelementptr inbounds nuw %struct._packet_info, ptr %306, i32 0, i32 1
+  %308 = load ptr, ptr %307, align 8
+  call void @col_clear(ptr noundef %308, i32 noundef 25)
+  %309 = load ptr, ptr %6, align 8
+  %310 = getelementptr inbounds nuw %struct._packet_info, ptr %309, i32 0, i32 1
+  %311 = load ptr, ptr %310, align 8
+  %312 = load ptr, ptr %6, align 8
+  %313 = getelementptr inbounds nuw %struct._packet_info, ptr %312, i32 0, i32 51
+  %314 = load ptr, ptr %313, align 8
+  %315 = load ptr, ptr %5, align 8
+  %316 = load i32, ptr %27, align 4
+  %317 = load i64, ptr %26, align 8
+  %318 = trunc i64 %317 to i32
+  %319 = call ptr @tvb_format_text(ptr noundef %314, ptr noundef %315, i32 noundef %316, i32 noundef %318)
+  call void @col_add_str(ptr noundef %311, i32 noundef 25, ptr noundef %319)
+  br label %320
 
-319:                                              ; preds = %255
-  %320 = load ptr, ptr %10, align 8
-  %321 = load i32, ptr @hf_sj_unknown_field, align 4
-  %322 = load ptr, ptr %5, align 8
-  %323 = load i32, ptr %11, align 4
-  %324 = load i32, ptr %13, align 4
-  %325 = load ptr, ptr %6, align 8
-  %326 = getelementptr inbounds %struct._packet_info, ptr %325, i32 0, i32 50
-  %327 = load ptr, ptr %326, align 8
-  %328 = load ptr, ptr %5, align 8
-  %329 = load i32, ptr %11, align 4
-  %330 = load i32, ptr %15, align 4
-  %331 = load i32, ptr %11, align 4
-  %332 = sub i32 %330, %331
-  %333 = sub i32 %332, 1
-  %334 = call ptr @tvb_format_text(ptr noundef %327, ptr noundef %328, i32 noundef %329, i32 noundef %333)
-  %335 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %320, i32 noundef %321, ptr noundef %322, i32 noundef %323, i32 noundef %324, ptr noundef @.str.247, ptr noundef %334)
-  store ptr %335, ptr %29, align 8
-  %336 = load ptr, ptr %29, align 8
-  %337 = load i32, ptr @ett_systemd_unknown_field, align 4
-  %338 = call ptr @proto_item_add_subtree(ptr noundef %336, i32 noundef %337)
-  store ptr %338, ptr %30, align 8
-  %339 = load ptr, ptr %30, align 8
-  %340 = load i32, ptr @hf_sj_unknown_field_name, align 4
-  %341 = load ptr, ptr %5, align 8
-  %342 = load i32, ptr %11, align 4
-  %343 = load i32, ptr %11, align 4
-  %344 = load i32, ptr %23, align 4
-  %345 = add i32 %343, %344
-  %346 = call ptr @proto_tree_add_item(ptr noundef %339, i32 noundef %340, ptr noundef %341, i32 noundef %342, i32 noundef %345, i32 noundef 2)
-  store ptr %346, ptr %31, align 8
-  %347 = load ptr, ptr %30, align 8
-  %348 = load i32, ptr @hf_sj_unknown_field_data, align 4
-  %349 = load ptr, ptr %5, align 8
-  %350 = load i32, ptr %26, align 4
-  %351 = load i64, ptr %25, align 8
-  %352 = trunc i64 %351 to i32
-  %353 = call ptr @proto_tree_add_item(ptr noundef %347, i32 noundef %348, ptr noundef %349, i32 noundef %350, i32 noundef %352, i32 noundef 2)
-  %354 = load ptr, ptr %6, align 8
-  %355 = load ptr, ptr %31, align 8
-  %356 = call ptr @expert_add_info(ptr noundef %354, ptr noundef %355, ptr noundef @ei_nonbinary_field)
-  br label %357
-
-357:                                              ; preds = %319, %318
-  br label %358
-
-358:                                              ; preds = %357, %248, %226
+320:                                              ; preds = %305, %283
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #7
   br label %359
 
-359:                                              ; preds = %358
-  %360 = load i32, ptr %22, align 4
-  %361 = add i32 %360, 1
-  store i32 %361, ptr %22, align 4
-  br label %218, !llvm.loop !7
+321:                                              ; preds = %257
+  call void @llvm.lifetime.start.p0(i64 8, ptr %30) #7
+  %322 = load ptr, ptr %10, align 8
+  %323 = load i32, ptr @hf_sj_unknown_field, align 4
+  %324 = load ptr, ptr %5, align 8
+  %325 = load i32, ptr %11, align 4
+  %326 = load i32, ptr %13, align 4
+  %327 = load ptr, ptr %6, align 8
+  %328 = getelementptr inbounds nuw %struct._packet_info, ptr %327, i32 0, i32 51
+  %329 = load ptr, ptr %328, align 8
+  %330 = load ptr, ptr %5, align 8
+  %331 = load i32, ptr %11, align 4
+  %332 = load i32, ptr %16, align 4
+  %333 = load i32, ptr %11, align 4
+  %334 = sub i32 %332, %333
+  %335 = sub i32 %334, 1
+  %336 = call ptr @tvb_format_text(ptr noundef %329, ptr noundef %330, i32 noundef %331, i32 noundef %335)
+  %337 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %322, i32 noundef %323, ptr noundef %324, i32 noundef %325, i32 noundef %326, ptr noundef @.str.249, ptr noundef %336)
+  store ptr %337, ptr %30, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %31) #7
+  %338 = load ptr, ptr %30, align 8
+  %339 = load i32, ptr @ett_systemd_unknown_field, align 4
+  %340 = call ptr @proto_item_add_subtree(ptr noundef %338, i32 noundef %339)
+  store ptr %340, ptr %31, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %32) #7
+  %341 = load ptr, ptr %31, align 8
+  %342 = load i32, ptr @hf_sj_unknown_field_name, align 4
+  %343 = load ptr, ptr %5, align 8
+  %344 = load i32, ptr %11, align 4
+  %345 = load i32, ptr %11, align 4
+  %346 = load i32, ptr %24, align 4
+  %347 = add i32 %345, %346
+  %348 = call ptr @proto_tree_add_item(ptr noundef %341, i32 noundef %342, ptr noundef %343, i32 noundef %344, i32 noundef %347, i32 noundef 2)
+  store ptr %348, ptr %32, align 8
+  %349 = load ptr, ptr %31, align 8
+  %350 = load i32, ptr @hf_sj_unknown_field_data, align 4
+  %351 = load ptr, ptr %5, align 8
+  %352 = load i32, ptr %27, align 4
+  %353 = load i64, ptr %26, align 8
+  %354 = trunc i64 %353 to i32
+  %355 = call ptr @proto_tree_add_item(ptr noundef %349, i32 noundef %350, ptr noundef %351, i32 noundef %352, i32 noundef %354, i32 noundef 2)
+  %356 = load ptr, ptr %6, align 8
+  %357 = load ptr, ptr %32, align 8
+  %358 = call ptr @expert_add_info(ptr noundef %356, ptr noundef %357, ptr noundef @ei_nonbinary_field)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %32) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %31) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %30) #7
+  br label %359
 
-362:                                              ; preds = %218
-  br label %363
+359:                                              ; preds = %321, %320
+  call void @llvm.lifetime.end.p0(i64 4, ptr %27) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #7
+  br label %360
 
-363:                                              ; preds = %362, %214
-  %364 = load i32, ptr %12, align 4
-  store i32 %364, ptr %11, align 4
-  br label %48, !llvm.loop !4
+360:                                              ; preds = %359, %250, %228
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #7
+  br label %361
 
-365:                                              ; preds = %48
-  %366 = load i32, ptr %11, align 4
-  ret i32 %366
+361:                                              ; preds = %360
+  %362 = load i32, ptr %23, align 4
+  %363 = add i32 %362, 1
+  store i32 %363, ptr %23, align 4
+  br label %219, !llvm.loop !11
+
+364:                                              ; preds = %227
+  br label %365
+
+365:                                              ; preds = %364, %215
+  %366 = load i32, ptr %12, align 4
+  store i32 %366, ptr %11, align 4
+  store i32 0, ptr %14, align 4
+  br label %367
+
+367:                                              ; preds = %365, %179
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #7
+  br label %368
+
+368:                                              ; preds = %367, %59
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #7
+  %369 = load i32, ptr %14, align 4
+  switch i32 %369, label %373 [
+    i32 0, label %370
+    i32 2, label %49
+  ]
+
+370:                                              ; preds = %368
+  br label %49, !llvm.loop !6
+
+371:                                              ; preds = %49
+  %372 = load i32, ptr %11, align 4
+  store i32 1, ptr %14, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  ret i32 %372
+
+373:                                              ; preds = %368
+  unreachable
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @init_jf_to_hf_map() #0 {
   %1 = alloca [98 x %struct._journal_field_hf_map], align 16
-  %2 = getelementptr inbounds [98 x %struct._journal_field_hf_map], ptr %1, i64 0, i64 0
-  %3 = getelementptr inbounds %struct._journal_field_hf_map, ptr %2, i32 0, i32 0
-  %4 = load i32, ptr @hf_sj_message, align 4
-  store i32 %4, ptr %3, align 16
-  %5 = getelementptr inbounds %struct._journal_field_hf_map, ptr %2, i32 0, i32 1
-  store ptr @.str.249, ptr %5, align 8
-  %6 = getelementptr inbounds %struct._journal_field_hf_map, ptr %2, i64 1
-  %7 = getelementptr inbounds %struct._journal_field_hf_map, ptr %6, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 1568, ptr %1) #7
+  %2 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %1, i32 0, i32 0
+  %3 = load i32, ptr @hf_sj_message, align 4
+  store i32 %3, ptr %2, align 16
+  %4 = getelementptr i8, ptr %1, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %4, i8 0, i64 4, i1 false)
+  %5 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %1, i32 0, i32 1
+  store ptr @.str.251, ptr %5, align 8
+  %6 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 1
+  %7 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %6, i32 0, i32 0
   %8 = load i32, ptr @hf_sj_message_id, align 4
   store i32 %8, ptr %7, align 16
-  %9 = getelementptr inbounds %struct._journal_field_hf_map, ptr %6, i32 0, i32 1
-  store ptr @.str.250, ptr %9, align 8
-  %10 = getelementptr inbounds %struct._journal_field_hf_map, ptr %6, i64 1
-  %11 = getelementptr inbounds %struct._journal_field_hf_map, ptr %10, i32 0, i32 0
-  %12 = load i32, ptr @hf_sj_priority, align 4
-  store i32 %12, ptr %11, align 16
-  %13 = getelementptr inbounds %struct._journal_field_hf_map, ptr %10, i32 0, i32 1
-  store ptr @.str.251, ptr %13, align 8
-  %14 = getelementptr inbounds %struct._journal_field_hf_map, ptr %10, i64 1
-  %15 = getelementptr inbounds %struct._journal_field_hf_map, ptr %14, i32 0, i32 0
-  %16 = load i32, ptr @hf_sj_code_file, align 4
-  store i32 %16, ptr %15, align 16
-  %17 = getelementptr inbounds %struct._journal_field_hf_map, ptr %14, i32 0, i32 1
-  store ptr @.str.252, ptr %17, align 8
-  %18 = getelementptr inbounds %struct._journal_field_hf_map, ptr %14, i64 1
-  %19 = getelementptr inbounds %struct._journal_field_hf_map, ptr %18, i32 0, i32 0
-  %20 = load i32, ptr @hf_sj_code_line, align 4
-  store i32 %20, ptr %19, align 16
-  %21 = getelementptr inbounds %struct._journal_field_hf_map, ptr %18, i32 0, i32 1
-  store ptr @.str.253, ptr %21, align 8
-  %22 = getelementptr inbounds %struct._journal_field_hf_map, ptr %18, i64 1
-  %23 = getelementptr inbounds %struct._journal_field_hf_map, ptr %22, i32 0, i32 0
-  %24 = load i32, ptr @hf_sj_code_func, align 4
-  store i32 %24, ptr %23, align 16
-  %25 = getelementptr inbounds %struct._journal_field_hf_map, ptr %22, i32 0, i32 1
-  store ptr @.str.254, ptr %25, align 8
-  %26 = getelementptr inbounds %struct._journal_field_hf_map, ptr %22, i64 1
-  %27 = getelementptr inbounds %struct._journal_field_hf_map, ptr %26, i32 0, i32 0
-  %28 = load i32, ptr @hf_sj_result, align 4
+  %9 = getelementptr i8, ptr %6, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %9, i8 0, i64 4, i1 false)
+  %10 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %6, i32 0, i32 1
+  store ptr @.str.252, ptr %10, align 8
+  %11 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 2
+  %12 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %11, i32 0, i32 0
+  %13 = load i32, ptr @hf_sj_priority, align 4
+  store i32 %13, ptr %12, align 16
+  %14 = getelementptr i8, ptr %11, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %14, i8 0, i64 4, i1 false)
+  %15 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %11, i32 0, i32 1
+  store ptr @.str.253, ptr %15, align 8
+  %16 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 3
+  %17 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %16, i32 0, i32 0
+  %18 = load i32, ptr @hf_sj_code_file, align 4
+  store i32 %18, ptr %17, align 16
+  %19 = getelementptr i8, ptr %16, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %19, i8 0, i64 4, i1 false)
+  %20 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %16, i32 0, i32 1
+  store ptr @.str.254, ptr %20, align 8
+  %21 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 4
+  %22 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %21, i32 0, i32 0
+  %23 = load i32, ptr @hf_sj_code_line, align 4
+  store i32 %23, ptr %22, align 16
+  %24 = getelementptr i8, ptr %21, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %24, i8 0, i64 4, i1 false)
+  %25 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %21, i32 0, i32 1
+  store ptr @.str.255, ptr %25, align 8
+  %26 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 5
+  %27 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %26, i32 0, i32 0
+  %28 = load i32, ptr @hf_sj_code_func, align 4
   store i32 %28, ptr %27, align 16
-  %29 = getelementptr inbounds %struct._journal_field_hf_map, ptr %26, i32 0, i32 1
-  store ptr @.str.255, ptr %29, align 8
-  %30 = getelementptr inbounds %struct._journal_field_hf_map, ptr %26, i64 1
-  %31 = getelementptr inbounds %struct._journal_field_hf_map, ptr %30, i32 0, i32 0
-  %32 = load i32, ptr @hf_sj_errno, align 4
-  store i32 %32, ptr %31, align 16
-  %33 = getelementptr inbounds %struct._journal_field_hf_map, ptr %30, i32 0, i32 1
-  store ptr @.str.256, ptr %33, align 8
-  %34 = getelementptr inbounds %struct._journal_field_hf_map, ptr %30, i64 1
-  %35 = getelementptr inbounds %struct._journal_field_hf_map, ptr %34, i32 0, i32 0
-  %36 = load i32, ptr @hf_sj_syslog_facility, align 4
-  store i32 %36, ptr %35, align 16
-  %37 = getelementptr inbounds %struct._journal_field_hf_map, ptr %34, i32 0, i32 1
-  store ptr @.str.257, ptr %37, align 8
-  %38 = getelementptr inbounds %struct._journal_field_hf_map, ptr %34, i64 1
-  %39 = getelementptr inbounds %struct._journal_field_hf_map, ptr %38, i32 0, i32 0
-  %40 = load i32, ptr @hf_sj_syslog_identifier, align 4
-  store i32 %40, ptr %39, align 16
-  %41 = getelementptr inbounds %struct._journal_field_hf_map, ptr %38, i32 0, i32 1
-  store ptr @.str.258, ptr %41, align 8
-  %42 = getelementptr inbounds %struct._journal_field_hf_map, ptr %38, i64 1
-  %43 = getelementptr inbounds %struct._journal_field_hf_map, ptr %42, i32 0, i32 0
-  %44 = load i32, ptr @hf_sj_syslog_pid, align 4
-  store i32 %44, ptr %43, align 16
-  %45 = getelementptr inbounds %struct._journal_field_hf_map, ptr %42, i32 0, i32 1
+  %29 = getelementptr i8, ptr %26, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %29, i8 0, i64 4, i1 false)
+  %30 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %26, i32 0, i32 1
+  store ptr @.str.256, ptr %30, align 8
+  %31 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 6
+  %32 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %31, i32 0, i32 0
+  %33 = load i32, ptr @hf_sj_result, align 4
+  store i32 %33, ptr %32, align 16
+  %34 = getelementptr i8, ptr %31, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %34, i8 0, i64 4, i1 false)
+  %35 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %31, i32 0, i32 1
+  store ptr @.str.257, ptr %35, align 8
+  %36 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 7
+  %37 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %36, i32 0, i32 0
+  %38 = load i32, ptr @hf_sj_errno, align 4
+  store i32 %38, ptr %37, align 16
+  %39 = getelementptr i8, ptr %36, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %39, i8 0, i64 4, i1 false)
+  %40 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %36, i32 0, i32 1
+  store ptr @.str.258, ptr %40, align 8
+  %41 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 8
+  %42 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %41, i32 0, i32 0
+  %43 = load i32, ptr @hf_sj_syslog_facility, align 4
+  store i32 %43, ptr %42, align 16
+  %44 = getelementptr i8, ptr %41, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %44, i8 0, i64 4, i1 false)
+  %45 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %41, i32 0, i32 1
   store ptr @.str.259, ptr %45, align 8
-  %46 = getelementptr inbounds %struct._journal_field_hf_map, ptr %42, i64 1
-  %47 = getelementptr inbounds %struct._journal_field_hf_map, ptr %46, i32 0, i32 0
-  %48 = load i32, ptr @hf_sj_pid, align 4
+  %46 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 9
+  %47 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %46, i32 0, i32 0
+  %48 = load i32, ptr @hf_sj_syslog_identifier, align 4
   store i32 %48, ptr %47, align 16
-  %49 = getelementptr inbounds %struct._journal_field_hf_map, ptr %46, i32 0, i32 1
-  store ptr @.str.260, ptr %49, align 8
-  %50 = getelementptr inbounds %struct._journal_field_hf_map, ptr %46, i64 1
-  %51 = getelementptr inbounds %struct._journal_field_hf_map, ptr %50, i32 0, i32 0
-  %52 = load i32, ptr @hf_sj_uid, align 4
-  store i32 %52, ptr %51, align 16
-  %53 = getelementptr inbounds %struct._journal_field_hf_map, ptr %50, i32 0, i32 1
-  store ptr @.str.261, ptr %53, align 8
-  %54 = getelementptr inbounds %struct._journal_field_hf_map, ptr %50, i64 1
-  %55 = getelementptr inbounds %struct._journal_field_hf_map, ptr %54, i32 0, i32 0
-  %56 = load i32, ptr @hf_sj_gid, align 4
-  store i32 %56, ptr %55, align 16
-  %57 = getelementptr inbounds %struct._journal_field_hf_map, ptr %54, i32 0, i32 1
-  store ptr @.str.262, ptr %57, align 8
-  %58 = getelementptr inbounds %struct._journal_field_hf_map, ptr %54, i64 1
-  %59 = getelementptr inbounds %struct._journal_field_hf_map, ptr %58, i32 0, i32 0
-  %60 = load i32, ptr @hf_sj_comm, align 4
-  store i32 %60, ptr %59, align 16
-  %61 = getelementptr inbounds %struct._journal_field_hf_map, ptr %58, i32 0, i32 1
-  store ptr @.str.263, ptr %61, align 8
-  %62 = getelementptr inbounds %struct._journal_field_hf_map, ptr %58, i64 1
-  %63 = getelementptr inbounds %struct._journal_field_hf_map, ptr %62, i32 0, i32 0
-  %64 = load i32, ptr @hf_sj_exe, align 4
-  store i32 %64, ptr %63, align 16
-  %65 = getelementptr inbounds %struct._journal_field_hf_map, ptr %62, i32 0, i32 1
-  store ptr @.str.264, ptr %65, align 8
-  %66 = getelementptr inbounds %struct._journal_field_hf_map, ptr %62, i64 1
-  %67 = getelementptr inbounds %struct._journal_field_hf_map, ptr %66, i32 0, i32 0
-  %68 = load i32, ptr @hf_sj_cmdline, align 4
+  %49 = getelementptr i8, ptr %46, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %49, i8 0, i64 4, i1 false)
+  %50 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %46, i32 0, i32 1
+  store ptr @.str.260, ptr %50, align 8
+  %51 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 10
+  %52 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %51, i32 0, i32 0
+  %53 = load i32, ptr @hf_sj_syslog_pid, align 4
+  store i32 %53, ptr %52, align 16
+  %54 = getelementptr i8, ptr %51, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %54, i8 0, i64 4, i1 false)
+  %55 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %51, i32 0, i32 1
+  store ptr @.str.261, ptr %55, align 8
+  %56 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 11
+  %57 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %56, i32 0, i32 0
+  %58 = load i32, ptr @hf_sj_pid, align 4
+  store i32 %58, ptr %57, align 16
+  %59 = getelementptr i8, ptr %56, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %59, i8 0, i64 4, i1 false)
+  %60 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %56, i32 0, i32 1
+  store ptr @.str.262, ptr %60, align 8
+  %61 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 12
+  %62 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %61, i32 0, i32 0
+  %63 = load i32, ptr @hf_sj_uid, align 4
+  store i32 %63, ptr %62, align 16
+  %64 = getelementptr i8, ptr %61, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %64, i8 0, i64 4, i1 false)
+  %65 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %61, i32 0, i32 1
+  store ptr @.str.263, ptr %65, align 8
+  %66 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 13
+  %67 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %66, i32 0, i32 0
+  %68 = load i32, ptr @hf_sj_gid, align 4
   store i32 %68, ptr %67, align 16
-  %69 = getelementptr inbounds %struct._journal_field_hf_map, ptr %66, i32 0, i32 1
-  store ptr @.str.265, ptr %69, align 8
-  %70 = getelementptr inbounds %struct._journal_field_hf_map, ptr %66, i64 1
-  %71 = getelementptr inbounds %struct._journal_field_hf_map, ptr %70, i32 0, i32 0
-  %72 = load i32, ptr @hf_sj_cap_effective, align 4
-  store i32 %72, ptr %71, align 16
-  %73 = getelementptr inbounds %struct._journal_field_hf_map, ptr %70, i32 0, i32 1
-  store ptr @.str.266, ptr %73, align 8
-  %74 = getelementptr inbounds %struct._journal_field_hf_map, ptr %70, i64 1
-  %75 = getelementptr inbounds %struct._journal_field_hf_map, ptr %74, i32 0, i32 0
-  %76 = load i32, ptr @hf_sj_audit_session, align 4
-  store i32 %76, ptr %75, align 16
-  %77 = getelementptr inbounds %struct._journal_field_hf_map, ptr %74, i32 0, i32 1
-  store ptr @.str.267, ptr %77, align 8
-  %78 = getelementptr inbounds %struct._journal_field_hf_map, ptr %74, i64 1
-  %79 = getelementptr inbounds %struct._journal_field_hf_map, ptr %78, i32 0, i32 0
-  %80 = load i32, ptr @hf_sj_audit_loginuid, align 4
-  store i32 %80, ptr %79, align 16
-  %81 = getelementptr inbounds %struct._journal_field_hf_map, ptr %78, i32 0, i32 1
-  store ptr @.str.268, ptr %81, align 8
-  %82 = getelementptr inbounds %struct._journal_field_hf_map, ptr %78, i64 1
-  %83 = getelementptr inbounds %struct._journal_field_hf_map, ptr %82, i32 0, i32 0
-  %84 = load i32, ptr @hf_sj_systemd_cgroup, align 4
-  store i32 %84, ptr %83, align 16
-  %85 = getelementptr inbounds %struct._journal_field_hf_map, ptr %82, i32 0, i32 1
-  store ptr @.str.269, ptr %85, align 8
-  %86 = getelementptr inbounds %struct._journal_field_hf_map, ptr %82, i64 1
-  %87 = getelementptr inbounds %struct._journal_field_hf_map, ptr %86, i32 0, i32 0
-  %88 = load i32, ptr @hf_sj_systemd_slice, align 4
+  %69 = getelementptr i8, ptr %66, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %69, i8 0, i64 4, i1 false)
+  %70 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %66, i32 0, i32 1
+  store ptr @.str.264, ptr %70, align 8
+  %71 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 14
+  %72 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %71, i32 0, i32 0
+  %73 = load i32, ptr @hf_sj_comm, align 4
+  store i32 %73, ptr %72, align 16
+  %74 = getelementptr i8, ptr %71, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %74, i8 0, i64 4, i1 false)
+  %75 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %71, i32 0, i32 1
+  store ptr @.str.265, ptr %75, align 8
+  %76 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 15
+  %77 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %76, i32 0, i32 0
+  %78 = load i32, ptr @hf_sj_exe, align 4
+  store i32 %78, ptr %77, align 16
+  %79 = getelementptr i8, ptr %76, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %79, i8 0, i64 4, i1 false)
+  %80 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %76, i32 0, i32 1
+  store ptr @.str.266, ptr %80, align 8
+  %81 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 16
+  %82 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %81, i32 0, i32 0
+  %83 = load i32, ptr @hf_sj_cmdline, align 4
+  store i32 %83, ptr %82, align 16
+  %84 = getelementptr i8, ptr %81, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %84, i8 0, i64 4, i1 false)
+  %85 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %81, i32 0, i32 1
+  store ptr @.str.267, ptr %85, align 8
+  %86 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 17
+  %87 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %86, i32 0, i32 0
+  %88 = load i32, ptr @hf_sj_cap_effective, align 4
   store i32 %88, ptr %87, align 16
-  %89 = getelementptr inbounds %struct._journal_field_hf_map, ptr %86, i32 0, i32 1
-  store ptr @.str.270, ptr %89, align 8
-  %90 = getelementptr inbounds %struct._journal_field_hf_map, ptr %86, i64 1
-  %91 = getelementptr inbounds %struct._journal_field_hf_map, ptr %90, i32 0, i32 0
-  %92 = load i32, ptr @hf_sj_systemd_unit, align 4
-  store i32 %92, ptr %91, align 16
-  %93 = getelementptr inbounds %struct._journal_field_hf_map, ptr %90, i32 0, i32 1
-  store ptr @.str.271, ptr %93, align 8
-  %94 = getelementptr inbounds %struct._journal_field_hf_map, ptr %90, i64 1
-  %95 = getelementptr inbounds %struct._journal_field_hf_map, ptr %94, i32 0, i32 0
-  %96 = load i32, ptr @hf_sj_systemd_user_unit, align 4
-  store i32 %96, ptr %95, align 16
-  %97 = getelementptr inbounds %struct._journal_field_hf_map, ptr %94, i32 0, i32 1
-  store ptr @.str.272, ptr %97, align 8
-  %98 = getelementptr inbounds %struct._journal_field_hf_map, ptr %94, i64 1
-  %99 = getelementptr inbounds %struct._journal_field_hf_map, ptr %98, i32 0, i32 0
-  %100 = load i32, ptr @hf_sj_systemd_session, align 4
-  store i32 %100, ptr %99, align 16
-  %101 = getelementptr inbounds %struct._journal_field_hf_map, ptr %98, i32 0, i32 1
-  store ptr @.str.273, ptr %101, align 8
-  %102 = getelementptr inbounds %struct._journal_field_hf_map, ptr %98, i64 1
-  %103 = getelementptr inbounds %struct._journal_field_hf_map, ptr %102, i32 0, i32 0
-  %104 = load i32, ptr @hf_sj_systemd_owner_uid, align 4
-  store i32 %104, ptr %103, align 16
-  %105 = getelementptr inbounds %struct._journal_field_hf_map, ptr %102, i32 0, i32 1
-  store ptr @.str.274, ptr %105, align 8
-  %106 = getelementptr inbounds %struct._journal_field_hf_map, ptr %102, i64 1
-  %107 = getelementptr inbounds %struct._journal_field_hf_map, ptr %106, i32 0, i32 0
-  %108 = load i32, ptr @hf_sj_selinux_context, align 4
+  %89 = getelementptr i8, ptr %86, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %89, i8 0, i64 4, i1 false)
+  %90 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %86, i32 0, i32 1
+  store ptr @.str.268, ptr %90, align 8
+  %91 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 18
+  %92 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %91, i32 0, i32 0
+  %93 = load i32, ptr @hf_sj_audit_session, align 4
+  store i32 %93, ptr %92, align 16
+  %94 = getelementptr i8, ptr %91, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %94, i8 0, i64 4, i1 false)
+  %95 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %91, i32 0, i32 1
+  store ptr @.str.269, ptr %95, align 8
+  %96 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 19
+  %97 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %96, i32 0, i32 0
+  %98 = load i32, ptr @hf_sj_audit_loginuid, align 4
+  store i32 %98, ptr %97, align 16
+  %99 = getelementptr i8, ptr %96, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %99, i8 0, i64 4, i1 false)
+  %100 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %96, i32 0, i32 1
+  store ptr @.str.270, ptr %100, align 8
+  %101 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 20
+  %102 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %101, i32 0, i32 0
+  %103 = load i32, ptr @hf_sj_systemd_cgroup, align 4
+  store i32 %103, ptr %102, align 16
+  %104 = getelementptr i8, ptr %101, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %104, i8 0, i64 4, i1 false)
+  %105 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %101, i32 0, i32 1
+  store ptr @.str.271, ptr %105, align 8
+  %106 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 21
+  %107 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %106, i32 0, i32 0
+  %108 = load i32, ptr @hf_sj_systemd_slice, align 4
   store i32 %108, ptr %107, align 16
-  %109 = getelementptr inbounds %struct._journal_field_hf_map, ptr %106, i32 0, i32 1
-  store ptr @.str.275, ptr %109, align 8
-  %110 = getelementptr inbounds %struct._journal_field_hf_map, ptr %106, i64 1
-  %111 = getelementptr inbounds %struct._journal_field_hf_map, ptr %110, i32 0, i32 0
-  %112 = load i32, ptr @hf_sj_source_realtime_timestamp, align 4
-  store i32 %112, ptr %111, align 16
-  %113 = getelementptr inbounds %struct._journal_field_hf_map, ptr %110, i32 0, i32 1
-  store ptr @.str.276, ptr %113, align 8
-  %114 = getelementptr inbounds %struct._journal_field_hf_map, ptr %110, i64 1
-  %115 = getelementptr inbounds %struct._journal_field_hf_map, ptr %114, i32 0, i32 0
-  %116 = load i32, ptr @hf_sj_source_monotonic_timestamp, align 4
-  store i32 %116, ptr %115, align 16
-  %117 = getelementptr inbounds %struct._journal_field_hf_map, ptr %114, i32 0, i32 1
-  store ptr @.str.277, ptr %117, align 8
-  %118 = getelementptr inbounds %struct._journal_field_hf_map, ptr %114, i64 1
-  %119 = getelementptr inbounds %struct._journal_field_hf_map, ptr %118, i32 0, i32 0
-  %120 = load i32, ptr @hf_sj_boot_id, align 4
-  store i32 %120, ptr %119, align 16
-  %121 = getelementptr inbounds %struct._journal_field_hf_map, ptr %118, i32 0, i32 1
-  store ptr @.str.278, ptr %121, align 8
-  %122 = getelementptr inbounds %struct._journal_field_hf_map, ptr %118, i64 1
-  %123 = getelementptr inbounds %struct._journal_field_hf_map, ptr %122, i32 0, i32 0
-  %124 = load i32, ptr @hf_sj_machine_id, align 4
-  store i32 %124, ptr %123, align 16
-  %125 = getelementptr inbounds %struct._journal_field_hf_map, ptr %122, i32 0, i32 1
-  store ptr @.str.279, ptr %125, align 8
-  %126 = getelementptr inbounds %struct._journal_field_hf_map, ptr %122, i64 1
-  %127 = getelementptr inbounds %struct._journal_field_hf_map, ptr %126, i32 0, i32 0
-  %128 = load i32, ptr @hf_sj_systemd_invocation_id, align 4
+  %109 = getelementptr i8, ptr %106, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %109, i8 0, i64 4, i1 false)
+  %110 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %106, i32 0, i32 1
+  store ptr @.str.272, ptr %110, align 8
+  %111 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 22
+  %112 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %111, i32 0, i32 0
+  %113 = load i32, ptr @hf_sj_systemd_unit, align 4
+  store i32 %113, ptr %112, align 16
+  %114 = getelementptr i8, ptr %111, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %114, i8 0, i64 4, i1 false)
+  %115 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %111, i32 0, i32 1
+  store ptr @.str.273, ptr %115, align 8
+  %116 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 23
+  %117 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %116, i32 0, i32 0
+  %118 = load i32, ptr @hf_sj_systemd_user_unit, align 4
+  store i32 %118, ptr %117, align 16
+  %119 = getelementptr i8, ptr %116, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %119, i8 0, i64 4, i1 false)
+  %120 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %116, i32 0, i32 1
+  store ptr @.str.274, ptr %120, align 8
+  %121 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 24
+  %122 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %121, i32 0, i32 0
+  %123 = load i32, ptr @hf_sj_systemd_session, align 4
+  store i32 %123, ptr %122, align 16
+  %124 = getelementptr i8, ptr %121, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %124, i8 0, i64 4, i1 false)
+  %125 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %121, i32 0, i32 1
+  store ptr @.str.275, ptr %125, align 8
+  %126 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 25
+  %127 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %126, i32 0, i32 0
+  %128 = load i32, ptr @hf_sj_systemd_owner_uid, align 4
   store i32 %128, ptr %127, align 16
-  %129 = getelementptr inbounds %struct._journal_field_hf_map, ptr %126, i32 0, i32 1
-  store ptr @.str.280, ptr %129, align 8
-  %130 = getelementptr inbounds %struct._journal_field_hf_map, ptr %126, i64 1
-  %131 = getelementptr inbounds %struct._journal_field_hf_map, ptr %130, i32 0, i32 0
-  %132 = load i32, ptr @hf_sj_hostname, align 4
-  store i32 %132, ptr %131, align 16
-  %133 = getelementptr inbounds %struct._journal_field_hf_map, ptr %130, i32 0, i32 1
-  store ptr @.str.281, ptr %133, align 8
-  %134 = getelementptr inbounds %struct._journal_field_hf_map, ptr %130, i64 1
-  %135 = getelementptr inbounds %struct._journal_field_hf_map, ptr %134, i32 0, i32 0
-  %136 = load i32, ptr @hf_sj_transport, align 4
-  store i32 %136, ptr %135, align 16
-  %137 = getelementptr inbounds %struct._journal_field_hf_map, ptr %134, i32 0, i32 1
-  store ptr @.str.282, ptr %137, align 8
-  %138 = getelementptr inbounds %struct._journal_field_hf_map, ptr %134, i64 1
-  %139 = getelementptr inbounds %struct._journal_field_hf_map, ptr %138, i32 0, i32 0
-  %140 = load i32, ptr @hf_sj_stream_id, align 4
-  store i32 %140, ptr %139, align 16
-  %141 = getelementptr inbounds %struct._journal_field_hf_map, ptr %138, i32 0, i32 1
-  store ptr @.str.283, ptr %141, align 8
-  %142 = getelementptr inbounds %struct._journal_field_hf_map, ptr %138, i64 1
-  %143 = getelementptr inbounds %struct._journal_field_hf_map, ptr %142, i32 0, i32 0
-  %144 = load i32, ptr @hf_sj_line_break, align 4
-  store i32 %144, ptr %143, align 16
-  %145 = getelementptr inbounds %struct._journal_field_hf_map, ptr %142, i32 0, i32 1
-  store ptr @.str.284, ptr %145, align 8
-  %146 = getelementptr inbounds %struct._journal_field_hf_map, ptr %142, i64 1
-  %147 = getelementptr inbounds %struct._journal_field_hf_map, ptr %146, i32 0, i32 0
-  %148 = load i32, ptr @hf_sj_kernel_device, align 4
+  %129 = getelementptr i8, ptr %126, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %129, i8 0, i64 4, i1 false)
+  %130 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %126, i32 0, i32 1
+  store ptr @.str.276, ptr %130, align 8
+  %131 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 26
+  %132 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %131, i32 0, i32 0
+  %133 = load i32, ptr @hf_sj_selinux_context, align 4
+  store i32 %133, ptr %132, align 16
+  %134 = getelementptr i8, ptr %131, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %134, i8 0, i64 4, i1 false)
+  %135 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %131, i32 0, i32 1
+  store ptr @.str.277, ptr %135, align 8
+  %136 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 27
+  %137 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %136, i32 0, i32 0
+  %138 = load i32, ptr @hf_sj_source_realtime_timestamp, align 4
+  store i32 %138, ptr %137, align 16
+  %139 = getelementptr i8, ptr %136, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %139, i8 0, i64 4, i1 false)
+  %140 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %136, i32 0, i32 1
+  store ptr @.str.278, ptr %140, align 8
+  %141 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 28
+  %142 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %141, i32 0, i32 0
+  %143 = load i32, ptr @hf_sj_source_monotonic_timestamp, align 4
+  store i32 %143, ptr %142, align 16
+  %144 = getelementptr i8, ptr %141, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %144, i8 0, i64 4, i1 false)
+  %145 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %141, i32 0, i32 1
+  store ptr @.str.279, ptr %145, align 8
+  %146 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 29
+  %147 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %146, i32 0, i32 0
+  %148 = load i32, ptr @hf_sj_boot_id, align 4
   store i32 %148, ptr %147, align 16
-  %149 = getelementptr inbounds %struct._journal_field_hf_map, ptr %146, i32 0, i32 1
-  store ptr @.str.285, ptr %149, align 8
-  %150 = getelementptr inbounds %struct._journal_field_hf_map, ptr %146, i64 1
-  %151 = getelementptr inbounds %struct._journal_field_hf_map, ptr %150, i32 0, i32 0
-  %152 = load i32, ptr @hf_sj_kernel_subsystem, align 4
-  store i32 %152, ptr %151, align 16
-  %153 = getelementptr inbounds %struct._journal_field_hf_map, ptr %150, i32 0, i32 1
-  store ptr @.str.286, ptr %153, align 8
-  %154 = getelementptr inbounds %struct._journal_field_hf_map, ptr %150, i64 1
-  %155 = getelementptr inbounds %struct._journal_field_hf_map, ptr %154, i32 0, i32 0
-  %156 = load i32, ptr @hf_sj_udev_sysname, align 4
-  store i32 %156, ptr %155, align 16
-  %157 = getelementptr inbounds %struct._journal_field_hf_map, ptr %154, i32 0, i32 1
-  store ptr @.str.287, ptr %157, align 8
-  %158 = getelementptr inbounds %struct._journal_field_hf_map, ptr %154, i64 1
-  %159 = getelementptr inbounds %struct._journal_field_hf_map, ptr %158, i32 0, i32 0
-  %160 = load i32, ptr @hf_sj_udev_devnode, align 4
-  store i32 %160, ptr %159, align 16
-  %161 = getelementptr inbounds %struct._journal_field_hf_map, ptr %158, i32 0, i32 1
-  store ptr @.str.288, ptr %161, align 8
-  %162 = getelementptr inbounds %struct._journal_field_hf_map, ptr %158, i64 1
-  %163 = getelementptr inbounds %struct._journal_field_hf_map, ptr %162, i32 0, i32 0
-  %164 = load i32, ptr @hf_sj_udev_devlink, align 4
-  store i32 %164, ptr %163, align 16
-  %165 = getelementptr inbounds %struct._journal_field_hf_map, ptr %162, i32 0, i32 1
-  store ptr @.str.289, ptr %165, align 8
-  %166 = getelementptr inbounds %struct._journal_field_hf_map, ptr %162, i64 1
-  %167 = getelementptr inbounds %struct._journal_field_hf_map, ptr %166, i32 0, i32 0
-  %168 = load i32, ptr @hf_sj_coredump_unit, align 4
+  %149 = getelementptr i8, ptr %146, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %149, i8 0, i64 4, i1 false)
+  %150 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %146, i32 0, i32 1
+  store ptr @.str.280, ptr %150, align 8
+  %151 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 30
+  %152 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %151, i32 0, i32 0
+  %153 = load i32, ptr @hf_sj_machine_id, align 4
+  store i32 %153, ptr %152, align 16
+  %154 = getelementptr i8, ptr %151, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %154, i8 0, i64 4, i1 false)
+  %155 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %151, i32 0, i32 1
+  store ptr @.str.281, ptr %155, align 8
+  %156 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 31
+  %157 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %156, i32 0, i32 0
+  %158 = load i32, ptr @hf_sj_systemd_invocation_id, align 4
+  store i32 %158, ptr %157, align 16
+  %159 = getelementptr i8, ptr %156, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %159, i8 0, i64 4, i1 false)
+  %160 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %156, i32 0, i32 1
+  store ptr @.str.282, ptr %160, align 8
+  %161 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 32
+  %162 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %161, i32 0, i32 0
+  %163 = load i32, ptr @hf_sj_hostname, align 4
+  store i32 %163, ptr %162, align 16
+  %164 = getelementptr i8, ptr %161, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %164, i8 0, i64 4, i1 false)
+  %165 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %161, i32 0, i32 1
+  store ptr @.str.283, ptr %165, align 8
+  %166 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 33
+  %167 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %166, i32 0, i32 0
+  %168 = load i32, ptr @hf_sj_transport, align 4
   store i32 %168, ptr %167, align 16
-  %169 = getelementptr inbounds %struct._journal_field_hf_map, ptr %166, i32 0, i32 1
-  store ptr @.str.290, ptr %169, align 8
-  %170 = getelementptr inbounds %struct._journal_field_hf_map, ptr %166, i64 1
-  %171 = getelementptr inbounds %struct._journal_field_hf_map, ptr %170, i32 0, i32 0
-  %172 = load i32, ptr @hf_sj_coredump_user_unit, align 4
-  store i32 %172, ptr %171, align 16
-  %173 = getelementptr inbounds %struct._journal_field_hf_map, ptr %170, i32 0, i32 1
-  store ptr @.str.291, ptr %173, align 8
-  %174 = getelementptr inbounds %struct._journal_field_hf_map, ptr %170, i64 1
-  %175 = getelementptr inbounds %struct._journal_field_hf_map, ptr %174, i32 0, i32 0
-  %176 = load i32, ptr @hf_sj_object_pid, align 4
-  store i32 %176, ptr %175, align 16
-  %177 = getelementptr inbounds %struct._journal_field_hf_map, ptr %174, i32 0, i32 1
-  store ptr @.str.292, ptr %177, align 8
-  %178 = getelementptr inbounds %struct._journal_field_hf_map, ptr %174, i64 1
-  %179 = getelementptr inbounds %struct._journal_field_hf_map, ptr %178, i32 0, i32 0
-  %180 = load i32, ptr @hf_sj_object_uid, align 4
-  store i32 %180, ptr %179, align 16
-  %181 = getelementptr inbounds %struct._journal_field_hf_map, ptr %178, i32 0, i32 1
-  store ptr @.str.293, ptr %181, align 8
-  %182 = getelementptr inbounds %struct._journal_field_hf_map, ptr %178, i64 1
-  %183 = getelementptr inbounds %struct._journal_field_hf_map, ptr %182, i32 0, i32 0
-  %184 = load i32, ptr @hf_sj_object_gid, align 4
-  store i32 %184, ptr %183, align 16
-  %185 = getelementptr inbounds %struct._journal_field_hf_map, ptr %182, i32 0, i32 1
-  store ptr @.str.294, ptr %185, align 8
-  %186 = getelementptr inbounds %struct._journal_field_hf_map, ptr %182, i64 1
-  %187 = getelementptr inbounds %struct._journal_field_hf_map, ptr %186, i32 0, i32 0
-  %188 = load i32, ptr @hf_sj_object_comm, align 4
+  %169 = getelementptr i8, ptr %166, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %169, i8 0, i64 4, i1 false)
+  %170 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %166, i32 0, i32 1
+  store ptr @.str.284, ptr %170, align 8
+  %171 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 34
+  %172 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %171, i32 0, i32 0
+  %173 = load i32, ptr @hf_sj_stream_id, align 4
+  store i32 %173, ptr %172, align 16
+  %174 = getelementptr i8, ptr %171, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %174, i8 0, i64 4, i1 false)
+  %175 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %171, i32 0, i32 1
+  store ptr @.str.285, ptr %175, align 8
+  %176 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 35
+  %177 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %176, i32 0, i32 0
+  %178 = load i32, ptr @hf_sj_line_break, align 4
+  store i32 %178, ptr %177, align 16
+  %179 = getelementptr i8, ptr %176, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %179, i8 0, i64 4, i1 false)
+  %180 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %176, i32 0, i32 1
+  store ptr @.str.286, ptr %180, align 8
+  %181 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 36
+  %182 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %181, i32 0, i32 0
+  %183 = load i32, ptr @hf_sj_kernel_device, align 4
+  store i32 %183, ptr %182, align 16
+  %184 = getelementptr i8, ptr %181, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %184, i8 0, i64 4, i1 false)
+  %185 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %181, i32 0, i32 1
+  store ptr @.str.287, ptr %185, align 8
+  %186 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 37
+  %187 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %186, i32 0, i32 0
+  %188 = load i32, ptr @hf_sj_kernel_subsystem, align 4
   store i32 %188, ptr %187, align 16
-  %189 = getelementptr inbounds %struct._journal_field_hf_map, ptr %186, i32 0, i32 1
-  store ptr @.str.295, ptr %189, align 8
-  %190 = getelementptr inbounds %struct._journal_field_hf_map, ptr %186, i64 1
-  %191 = getelementptr inbounds %struct._journal_field_hf_map, ptr %190, i32 0, i32 0
-  %192 = load i32, ptr @hf_sj_object_exe, align 4
-  store i32 %192, ptr %191, align 16
-  %193 = getelementptr inbounds %struct._journal_field_hf_map, ptr %190, i32 0, i32 1
-  store ptr @.str.296, ptr %193, align 8
-  %194 = getelementptr inbounds %struct._journal_field_hf_map, ptr %190, i64 1
-  %195 = getelementptr inbounds %struct._journal_field_hf_map, ptr %194, i32 0, i32 0
-  %196 = load i32, ptr @hf_sj_object_cmdline, align 4
-  store i32 %196, ptr %195, align 16
-  %197 = getelementptr inbounds %struct._journal_field_hf_map, ptr %194, i32 0, i32 1
-  store ptr @.str.297, ptr %197, align 8
-  %198 = getelementptr inbounds %struct._journal_field_hf_map, ptr %194, i64 1
-  %199 = getelementptr inbounds %struct._journal_field_hf_map, ptr %198, i32 0, i32 0
-  %200 = load i32, ptr @hf_sj_object_audit_session, align 4
-  store i32 %200, ptr %199, align 16
-  %201 = getelementptr inbounds %struct._journal_field_hf_map, ptr %198, i32 0, i32 1
-  store ptr @.str.298, ptr %201, align 8
-  %202 = getelementptr inbounds %struct._journal_field_hf_map, ptr %198, i64 1
-  %203 = getelementptr inbounds %struct._journal_field_hf_map, ptr %202, i32 0, i32 0
-  %204 = load i32, ptr @hf_sj_object_audit_loginuid, align 4
-  store i32 %204, ptr %203, align 16
-  %205 = getelementptr inbounds %struct._journal_field_hf_map, ptr %202, i32 0, i32 1
-  store ptr @.str.299, ptr %205, align 8
-  %206 = getelementptr inbounds %struct._journal_field_hf_map, ptr %202, i64 1
-  %207 = getelementptr inbounds %struct._journal_field_hf_map, ptr %206, i32 0, i32 0
-  %208 = load i32, ptr @hf_sj_object_cap_effective, align 4
+  %189 = getelementptr i8, ptr %186, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %189, i8 0, i64 4, i1 false)
+  %190 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %186, i32 0, i32 1
+  store ptr @.str.288, ptr %190, align 8
+  %191 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 38
+  %192 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %191, i32 0, i32 0
+  %193 = load i32, ptr @hf_sj_udev_sysname, align 4
+  store i32 %193, ptr %192, align 16
+  %194 = getelementptr i8, ptr %191, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %194, i8 0, i64 4, i1 false)
+  %195 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %191, i32 0, i32 1
+  store ptr @.str.289, ptr %195, align 8
+  %196 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 39
+  %197 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %196, i32 0, i32 0
+  %198 = load i32, ptr @hf_sj_udev_devnode, align 4
+  store i32 %198, ptr %197, align 16
+  %199 = getelementptr i8, ptr %196, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %199, i8 0, i64 4, i1 false)
+  %200 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %196, i32 0, i32 1
+  store ptr @.str.290, ptr %200, align 8
+  %201 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 40
+  %202 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %201, i32 0, i32 0
+  %203 = load i32, ptr @hf_sj_udev_devlink, align 4
+  store i32 %203, ptr %202, align 16
+  %204 = getelementptr i8, ptr %201, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %204, i8 0, i64 4, i1 false)
+  %205 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %201, i32 0, i32 1
+  store ptr @.str.291, ptr %205, align 8
+  %206 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 41
+  %207 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %206, i32 0, i32 0
+  %208 = load i32, ptr @hf_sj_coredump_unit, align 4
   store i32 %208, ptr %207, align 16
-  %209 = getelementptr inbounds %struct._journal_field_hf_map, ptr %206, i32 0, i32 1
-  store ptr @.str.300, ptr %209, align 8
-  %210 = getelementptr inbounds %struct._journal_field_hf_map, ptr %206, i64 1
-  %211 = getelementptr inbounds %struct._journal_field_hf_map, ptr %210, i32 0, i32 0
-  %212 = load i32, ptr @hf_sj_object_selinux_context, align 4
-  store i32 %212, ptr %211, align 16
-  %213 = getelementptr inbounds %struct._journal_field_hf_map, ptr %210, i32 0, i32 1
-  store ptr @.str.301, ptr %213, align 8
-  %214 = getelementptr inbounds %struct._journal_field_hf_map, ptr %210, i64 1
-  %215 = getelementptr inbounds %struct._journal_field_hf_map, ptr %214, i32 0, i32 0
-  %216 = load i32, ptr @hf_sj_object_systemd_cgroup, align 4
-  store i32 %216, ptr %215, align 16
-  %217 = getelementptr inbounds %struct._journal_field_hf_map, ptr %214, i32 0, i32 1
-  store ptr @.str.302, ptr %217, align 8
-  %218 = getelementptr inbounds %struct._journal_field_hf_map, ptr %214, i64 1
-  %219 = getelementptr inbounds %struct._journal_field_hf_map, ptr %218, i32 0, i32 0
-  %220 = load i32, ptr @hf_sj_object_systemd_session, align 4
-  store i32 %220, ptr %219, align 16
-  %221 = getelementptr inbounds %struct._journal_field_hf_map, ptr %218, i32 0, i32 1
-  store ptr @.str.303, ptr %221, align 8
-  %222 = getelementptr inbounds %struct._journal_field_hf_map, ptr %218, i64 1
-  %223 = getelementptr inbounds %struct._journal_field_hf_map, ptr %222, i32 0, i32 0
-  %224 = load i32, ptr @hf_sj_object_systemd_owner_uid, align 4
-  store i32 %224, ptr %223, align 16
-  %225 = getelementptr inbounds %struct._journal_field_hf_map, ptr %222, i32 0, i32 1
-  store ptr @.str.304, ptr %225, align 8
-  %226 = getelementptr inbounds %struct._journal_field_hf_map, ptr %222, i64 1
-  %227 = getelementptr inbounds %struct._journal_field_hf_map, ptr %226, i32 0, i32 0
-  %228 = load i32, ptr @hf_sj_object_systemd_unit, align 4
+  %209 = getelementptr i8, ptr %206, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %209, i8 0, i64 4, i1 false)
+  %210 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %206, i32 0, i32 1
+  store ptr @.str.292, ptr %210, align 8
+  %211 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 42
+  %212 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %211, i32 0, i32 0
+  %213 = load i32, ptr @hf_sj_coredump_user_unit, align 4
+  store i32 %213, ptr %212, align 16
+  %214 = getelementptr i8, ptr %211, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %214, i8 0, i64 4, i1 false)
+  %215 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %211, i32 0, i32 1
+  store ptr @.str.293, ptr %215, align 8
+  %216 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 43
+  %217 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %216, i32 0, i32 0
+  %218 = load i32, ptr @hf_sj_object_pid, align 4
+  store i32 %218, ptr %217, align 16
+  %219 = getelementptr i8, ptr %216, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %219, i8 0, i64 4, i1 false)
+  %220 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %216, i32 0, i32 1
+  store ptr @.str.294, ptr %220, align 8
+  %221 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 44
+  %222 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %221, i32 0, i32 0
+  %223 = load i32, ptr @hf_sj_object_uid, align 4
+  store i32 %223, ptr %222, align 16
+  %224 = getelementptr i8, ptr %221, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %224, i8 0, i64 4, i1 false)
+  %225 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %221, i32 0, i32 1
+  store ptr @.str.295, ptr %225, align 8
+  %226 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 45
+  %227 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %226, i32 0, i32 0
+  %228 = load i32, ptr @hf_sj_object_gid, align 4
   store i32 %228, ptr %227, align 16
-  %229 = getelementptr inbounds %struct._journal_field_hf_map, ptr %226, i32 0, i32 1
-  store ptr @.str.305, ptr %229, align 8
-  %230 = getelementptr inbounds %struct._journal_field_hf_map, ptr %226, i64 1
-  %231 = getelementptr inbounds %struct._journal_field_hf_map, ptr %230, i32 0, i32 0
-  %232 = load i32, ptr @hf_sj_object_systemd_user_unit, align 4
-  store i32 %232, ptr %231, align 16
-  %233 = getelementptr inbounds %struct._journal_field_hf_map, ptr %230, i32 0, i32 1
-  store ptr @.str.306, ptr %233, align 8
-  %234 = getelementptr inbounds %struct._journal_field_hf_map, ptr %230, i64 1
-  %235 = getelementptr inbounds %struct._journal_field_hf_map, ptr %234, i32 0, i32 0
-  %236 = load i32, ptr @hf_sj_object_systemd_slice, align 4
-  store i32 %236, ptr %235, align 16
-  %237 = getelementptr inbounds %struct._journal_field_hf_map, ptr %234, i32 0, i32 1
-  store ptr @.str.307, ptr %237, align 8
-  %238 = getelementptr inbounds %struct._journal_field_hf_map, ptr %234, i64 1
-  %239 = getelementptr inbounds %struct._journal_field_hf_map, ptr %238, i32 0, i32 0
-  %240 = load i32, ptr @hf_sj_object_systemd_user_slice, align 4
-  store i32 %240, ptr %239, align 16
-  %241 = getelementptr inbounds %struct._journal_field_hf_map, ptr %238, i32 0, i32 1
-  store ptr @.str.308, ptr %241, align 8
-  %242 = getelementptr inbounds %struct._journal_field_hf_map, ptr %238, i64 1
-  %243 = getelementptr inbounds %struct._journal_field_hf_map, ptr %242, i32 0, i32 0
-  %244 = load i32, ptr @hf_sj_object_systemd_invocation_id, align 4
-  store i32 %244, ptr %243, align 16
-  %245 = getelementptr inbounds %struct._journal_field_hf_map, ptr %242, i32 0, i32 1
-  store ptr @.str.309, ptr %245, align 8
-  %246 = getelementptr inbounds %struct._journal_field_hf_map, ptr %242, i64 1
-  %247 = getelementptr inbounds %struct._journal_field_hf_map, ptr %246, i32 0, i32 0
-  %248 = load i32, ptr @hf_sj_cursor, align 4
+  %229 = getelementptr i8, ptr %226, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %229, i8 0, i64 4, i1 false)
+  %230 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %226, i32 0, i32 1
+  store ptr @.str.296, ptr %230, align 8
+  %231 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 46
+  %232 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %231, i32 0, i32 0
+  %233 = load i32, ptr @hf_sj_object_comm, align 4
+  store i32 %233, ptr %232, align 16
+  %234 = getelementptr i8, ptr %231, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %234, i8 0, i64 4, i1 false)
+  %235 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %231, i32 0, i32 1
+  store ptr @.str.297, ptr %235, align 8
+  %236 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 47
+  %237 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %236, i32 0, i32 0
+  %238 = load i32, ptr @hf_sj_object_exe, align 4
+  store i32 %238, ptr %237, align 16
+  %239 = getelementptr i8, ptr %236, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %239, i8 0, i64 4, i1 false)
+  %240 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %236, i32 0, i32 1
+  store ptr @.str.298, ptr %240, align 8
+  %241 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 48
+  %242 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %241, i32 0, i32 0
+  %243 = load i32, ptr @hf_sj_object_cmdline, align 4
+  store i32 %243, ptr %242, align 16
+  %244 = getelementptr i8, ptr %241, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %244, i8 0, i64 4, i1 false)
+  %245 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %241, i32 0, i32 1
+  store ptr @.str.299, ptr %245, align 8
+  %246 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 49
+  %247 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %246, i32 0, i32 0
+  %248 = load i32, ptr @hf_sj_object_audit_session, align 4
   store i32 %248, ptr %247, align 16
-  %249 = getelementptr inbounds %struct._journal_field_hf_map, ptr %246, i32 0, i32 1
-  store ptr @.str.310, ptr %249, align 8
-  %250 = getelementptr inbounds %struct._journal_field_hf_map, ptr %246, i64 1
-  %251 = getelementptr inbounds %struct._journal_field_hf_map, ptr %250, i32 0, i32 0
-  %252 = load i32, ptr @hf_sj_realtime_timestamp, align 4
-  store i32 %252, ptr %251, align 16
-  %253 = getelementptr inbounds %struct._journal_field_hf_map, ptr %250, i32 0, i32 1
-  store ptr @.str.311, ptr %253, align 8
-  %254 = getelementptr inbounds %struct._journal_field_hf_map, ptr %250, i64 1
-  %255 = getelementptr inbounds %struct._journal_field_hf_map, ptr %254, i32 0, i32 0
-  %256 = load i32, ptr @hf_sj_monotonic_timestamp, align 4
-  store i32 %256, ptr %255, align 16
-  %257 = getelementptr inbounds %struct._journal_field_hf_map, ptr %254, i32 0, i32 1
-  store ptr @.str.312, ptr %257, align 8
-  %258 = getelementptr inbounds %struct._journal_field_hf_map, ptr %254, i64 1
-  %259 = getelementptr inbounds %struct._journal_field_hf_map, ptr %258, i32 0, i32 0
-  %260 = load i32, ptr @hf_sj_journal_name, align 4
-  store i32 %260, ptr %259, align 16
-  %261 = getelementptr inbounds %struct._journal_field_hf_map, ptr %258, i32 0, i32 1
-  store ptr @.str.313, ptr %261, align 8
-  %262 = getelementptr inbounds %struct._journal_field_hf_map, ptr %258, i64 1
-  %263 = getelementptr inbounds %struct._journal_field_hf_map, ptr %262, i32 0, i32 0
-  %264 = load i32, ptr @hf_sj_journal_path, align 4
-  store i32 %264, ptr %263, align 16
-  %265 = getelementptr inbounds %struct._journal_field_hf_map, ptr %262, i32 0, i32 1
-  store ptr @.str.314, ptr %265, align 8
-  %266 = getelementptr inbounds %struct._journal_field_hf_map, ptr %262, i64 1
-  %267 = getelementptr inbounds %struct._journal_field_hf_map, ptr %266, i32 0, i32 0
-  %268 = load i32, ptr @hf_sj_current_use, align 4
+  %249 = getelementptr i8, ptr %246, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %249, i8 0, i64 4, i1 false)
+  %250 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %246, i32 0, i32 1
+  store ptr @.str.300, ptr %250, align 8
+  %251 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 50
+  %252 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %251, i32 0, i32 0
+  %253 = load i32, ptr @hf_sj_object_audit_loginuid, align 4
+  store i32 %253, ptr %252, align 16
+  %254 = getelementptr i8, ptr %251, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %254, i8 0, i64 4, i1 false)
+  %255 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %251, i32 0, i32 1
+  store ptr @.str.301, ptr %255, align 8
+  %256 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 51
+  %257 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %256, i32 0, i32 0
+  %258 = load i32, ptr @hf_sj_object_cap_effective, align 4
+  store i32 %258, ptr %257, align 16
+  %259 = getelementptr i8, ptr %256, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %259, i8 0, i64 4, i1 false)
+  %260 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %256, i32 0, i32 1
+  store ptr @.str.302, ptr %260, align 8
+  %261 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 52
+  %262 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %261, i32 0, i32 0
+  %263 = load i32, ptr @hf_sj_object_selinux_context, align 4
+  store i32 %263, ptr %262, align 16
+  %264 = getelementptr i8, ptr %261, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %264, i8 0, i64 4, i1 false)
+  %265 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %261, i32 0, i32 1
+  store ptr @.str.303, ptr %265, align 8
+  %266 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 53
+  %267 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %266, i32 0, i32 0
+  %268 = load i32, ptr @hf_sj_object_systemd_cgroup, align 4
   store i32 %268, ptr %267, align 16
-  %269 = getelementptr inbounds %struct._journal_field_hf_map, ptr %266, i32 0, i32 1
-  store ptr @.str.315, ptr %269, align 8
-  %270 = getelementptr inbounds %struct._journal_field_hf_map, ptr %266, i64 1
-  %271 = getelementptr inbounds %struct._journal_field_hf_map, ptr %270, i32 0, i32 0
-  %272 = load i32, ptr @hf_sj_current_use_pretty, align 4
-  store i32 %272, ptr %271, align 16
-  %273 = getelementptr inbounds %struct._journal_field_hf_map, ptr %270, i32 0, i32 1
-  store ptr @.str.316, ptr %273, align 8
-  %274 = getelementptr inbounds %struct._journal_field_hf_map, ptr %270, i64 1
-  %275 = getelementptr inbounds %struct._journal_field_hf_map, ptr %274, i32 0, i32 0
-  %276 = load i32, ptr @hf_sj_max_use, align 4
-  store i32 %276, ptr %275, align 16
-  %277 = getelementptr inbounds %struct._journal_field_hf_map, ptr %274, i32 0, i32 1
-  store ptr @.str.317, ptr %277, align 8
-  %278 = getelementptr inbounds %struct._journal_field_hf_map, ptr %274, i64 1
-  %279 = getelementptr inbounds %struct._journal_field_hf_map, ptr %278, i32 0, i32 0
-  %280 = load i32, ptr @hf_sj_max_use_pretty, align 4
-  store i32 %280, ptr %279, align 16
-  %281 = getelementptr inbounds %struct._journal_field_hf_map, ptr %278, i32 0, i32 1
-  store ptr @.str.318, ptr %281, align 8
-  %282 = getelementptr inbounds %struct._journal_field_hf_map, ptr %278, i64 1
-  %283 = getelementptr inbounds %struct._journal_field_hf_map, ptr %282, i32 0, i32 0
-  %284 = load i32, ptr @hf_sj_disk_keep_free, align 4
-  store i32 %284, ptr %283, align 16
-  %285 = getelementptr inbounds %struct._journal_field_hf_map, ptr %282, i32 0, i32 1
-  store ptr @.str.319, ptr %285, align 8
-  %286 = getelementptr inbounds %struct._journal_field_hf_map, ptr %282, i64 1
-  %287 = getelementptr inbounds %struct._journal_field_hf_map, ptr %286, i32 0, i32 0
-  %288 = load i32, ptr @hf_sj_disk_keep_free_pretty, align 4
+  %269 = getelementptr i8, ptr %266, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %269, i8 0, i64 4, i1 false)
+  %270 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %266, i32 0, i32 1
+  store ptr @.str.304, ptr %270, align 8
+  %271 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 54
+  %272 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %271, i32 0, i32 0
+  %273 = load i32, ptr @hf_sj_object_systemd_session, align 4
+  store i32 %273, ptr %272, align 16
+  %274 = getelementptr i8, ptr %271, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %274, i8 0, i64 4, i1 false)
+  %275 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %271, i32 0, i32 1
+  store ptr @.str.305, ptr %275, align 8
+  %276 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 55
+  %277 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %276, i32 0, i32 0
+  %278 = load i32, ptr @hf_sj_object_systemd_owner_uid, align 4
+  store i32 %278, ptr %277, align 16
+  %279 = getelementptr i8, ptr %276, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %279, i8 0, i64 4, i1 false)
+  %280 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %276, i32 0, i32 1
+  store ptr @.str.306, ptr %280, align 8
+  %281 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 56
+  %282 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %281, i32 0, i32 0
+  %283 = load i32, ptr @hf_sj_object_systemd_unit, align 4
+  store i32 %283, ptr %282, align 16
+  %284 = getelementptr i8, ptr %281, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %284, i8 0, i64 4, i1 false)
+  %285 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %281, i32 0, i32 1
+  store ptr @.str.307, ptr %285, align 8
+  %286 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 57
+  %287 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %286, i32 0, i32 0
+  %288 = load i32, ptr @hf_sj_object_systemd_user_unit, align 4
   store i32 %288, ptr %287, align 16
-  %289 = getelementptr inbounds %struct._journal_field_hf_map, ptr %286, i32 0, i32 1
-  store ptr @.str.320, ptr %289, align 8
-  %290 = getelementptr inbounds %struct._journal_field_hf_map, ptr %286, i64 1
-  %291 = getelementptr inbounds %struct._journal_field_hf_map, ptr %290, i32 0, i32 0
-  %292 = load i32, ptr @hf_sj_disk_available, align 4
-  store i32 %292, ptr %291, align 16
-  %293 = getelementptr inbounds %struct._journal_field_hf_map, ptr %290, i32 0, i32 1
-  store ptr @.str.321, ptr %293, align 8
-  %294 = getelementptr inbounds %struct._journal_field_hf_map, ptr %290, i64 1
-  %295 = getelementptr inbounds %struct._journal_field_hf_map, ptr %294, i32 0, i32 0
-  %296 = load i32, ptr @hf_sj_disk_available_pretty, align 4
-  store i32 %296, ptr %295, align 16
-  %297 = getelementptr inbounds %struct._journal_field_hf_map, ptr %294, i32 0, i32 1
-  store ptr @.str.322, ptr %297, align 8
-  %298 = getelementptr inbounds %struct._journal_field_hf_map, ptr %294, i64 1
-  %299 = getelementptr inbounds %struct._journal_field_hf_map, ptr %298, i32 0, i32 0
-  %300 = load i32, ptr @hf_sj_limit, align 4
-  store i32 %300, ptr %299, align 16
-  %301 = getelementptr inbounds %struct._journal_field_hf_map, ptr %298, i32 0, i32 1
-  store ptr @.str.323, ptr %301, align 8
-  %302 = getelementptr inbounds %struct._journal_field_hf_map, ptr %298, i64 1
-  %303 = getelementptr inbounds %struct._journal_field_hf_map, ptr %302, i32 0, i32 0
-  %304 = load i32, ptr @hf_sj_limit_pretty, align 4
-  store i32 %304, ptr %303, align 16
-  %305 = getelementptr inbounds %struct._journal_field_hf_map, ptr %302, i32 0, i32 1
-  store ptr @.str.324, ptr %305, align 8
-  %306 = getelementptr inbounds %struct._journal_field_hf_map, ptr %302, i64 1
-  %307 = getelementptr inbounds %struct._journal_field_hf_map, ptr %306, i32 0, i32 0
-  %308 = load i32, ptr @hf_sj_available, align 4
+  %289 = getelementptr i8, ptr %286, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %289, i8 0, i64 4, i1 false)
+  %290 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %286, i32 0, i32 1
+  store ptr @.str.308, ptr %290, align 8
+  %291 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 58
+  %292 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %291, i32 0, i32 0
+  %293 = load i32, ptr @hf_sj_object_systemd_slice, align 4
+  store i32 %293, ptr %292, align 16
+  %294 = getelementptr i8, ptr %291, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %294, i8 0, i64 4, i1 false)
+  %295 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %291, i32 0, i32 1
+  store ptr @.str.309, ptr %295, align 8
+  %296 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 59
+  %297 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %296, i32 0, i32 0
+  %298 = load i32, ptr @hf_sj_object_systemd_user_slice, align 4
+  store i32 %298, ptr %297, align 16
+  %299 = getelementptr i8, ptr %296, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %299, i8 0, i64 4, i1 false)
+  %300 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %296, i32 0, i32 1
+  store ptr @.str.310, ptr %300, align 8
+  %301 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 60
+  %302 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %301, i32 0, i32 0
+  %303 = load i32, ptr @hf_sj_object_systemd_invocation_id, align 4
+  store i32 %303, ptr %302, align 16
+  %304 = getelementptr i8, ptr %301, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %304, i8 0, i64 4, i1 false)
+  %305 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %301, i32 0, i32 1
+  store ptr @.str.311, ptr %305, align 8
+  %306 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 61
+  %307 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %306, i32 0, i32 0
+  %308 = load i32, ptr @hf_sj_cursor, align 4
   store i32 %308, ptr %307, align 16
-  %309 = getelementptr inbounds %struct._journal_field_hf_map, ptr %306, i32 0, i32 1
-  store ptr @.str.325, ptr %309, align 8
-  %310 = getelementptr inbounds %struct._journal_field_hf_map, ptr %306, i64 1
-  %311 = getelementptr inbounds %struct._journal_field_hf_map, ptr %310, i32 0, i32 0
-  %312 = load i32, ptr @hf_sj_available_pretty, align 4
-  store i32 %312, ptr %311, align 16
-  %313 = getelementptr inbounds %struct._journal_field_hf_map, ptr %310, i32 0, i32 1
-  store ptr @.str.326, ptr %313, align 8
-  %314 = getelementptr inbounds %struct._journal_field_hf_map, ptr %310, i64 1
-  %315 = getelementptr inbounds %struct._journal_field_hf_map, ptr %314, i32 0, i32 0
-  %316 = load i32, ptr @hf_sj_code_func, align 4
-  store i32 %316, ptr %315, align 16
-  %317 = getelementptr inbounds %struct._journal_field_hf_map, ptr %314, i32 0, i32 1
-  store ptr @.str.327, ptr %317, align 8
-  %318 = getelementptr inbounds %struct._journal_field_hf_map, ptr %314, i64 1
-  %319 = getelementptr inbounds %struct._journal_field_hf_map, ptr %318, i32 0, i32 0
-  %320 = load i32, ptr @hf_sj_systemd_user_unit, align 4
-  store i32 %320, ptr %319, align 16
-  %321 = getelementptr inbounds %struct._journal_field_hf_map, ptr %318, i32 0, i32 1
-  store ptr @.str.328, ptr %321, align 8
-  %322 = getelementptr inbounds %struct._journal_field_hf_map, ptr %318, i64 1
-  %323 = getelementptr inbounds %struct._journal_field_hf_map, ptr %322, i32 0, i32 0
-  %324 = load i32, ptr @hf_sj_systemd_user_unit, align 4
-  store i32 %324, ptr %323, align 16
-  %325 = getelementptr inbounds %struct._journal_field_hf_map, ptr %322, i32 0, i32 1
-  store ptr @.str.329, ptr %325, align 8
-  %326 = getelementptr inbounds %struct._journal_field_hf_map, ptr %322, i64 1
-  %327 = getelementptr inbounds %struct._journal_field_hf_map, ptr %326, i32 0, i32 0
-  %328 = load i32, ptr @hf_sj_audit_type, align 4
+  %309 = getelementptr i8, ptr %306, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %309, i8 0, i64 4, i1 false)
+  %310 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %306, i32 0, i32 1
+  store ptr @.str.312, ptr %310, align 8
+  %311 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 62
+  %312 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %311, i32 0, i32 0
+  %313 = load i32, ptr @hf_sj_realtime_timestamp, align 4
+  store i32 %313, ptr %312, align 16
+  %314 = getelementptr i8, ptr %311, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %314, i8 0, i64 4, i1 false)
+  %315 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %311, i32 0, i32 1
+  store ptr @.str.313, ptr %315, align 8
+  %316 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 63
+  %317 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %316, i32 0, i32 0
+  %318 = load i32, ptr @hf_sj_monotonic_timestamp, align 4
+  store i32 %318, ptr %317, align 16
+  %319 = getelementptr i8, ptr %316, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %319, i8 0, i64 4, i1 false)
+  %320 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %316, i32 0, i32 1
+  store ptr @.str.314, ptr %320, align 8
+  %321 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 64
+  %322 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %321, i32 0, i32 0
+  %323 = load i32, ptr @hf_sj_journal_name, align 4
+  store i32 %323, ptr %322, align 16
+  %324 = getelementptr i8, ptr %321, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %324, i8 0, i64 4, i1 false)
+  %325 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %321, i32 0, i32 1
+  store ptr @.str.315, ptr %325, align 8
+  %326 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 65
+  %327 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %326, i32 0, i32 0
+  %328 = load i32, ptr @hf_sj_journal_path, align 4
   store i32 %328, ptr %327, align 16
-  %329 = getelementptr inbounds %struct._journal_field_hf_map, ptr %326, i32 0, i32 1
-  store ptr @.str.330, ptr %329, align 8
-  %330 = getelementptr inbounds %struct._journal_field_hf_map, ptr %326, i64 1
-  %331 = getelementptr inbounds %struct._journal_field_hf_map, ptr %330, i32 0, i32 0
-  %332 = load i32, ptr @hf_sj_audit_id, align 4
-  store i32 %332, ptr %331, align 16
-  %333 = getelementptr inbounds %struct._journal_field_hf_map, ptr %330, i32 0, i32 1
-  store ptr @.str.331, ptr %333, align 8
-  %334 = getelementptr inbounds %struct._journal_field_hf_map, ptr %330, i64 1
-  %335 = getelementptr inbounds %struct._journal_field_hf_map, ptr %334, i32 0, i32 0
-  %336 = load i32, ptr @hf_sj_audit_field_apparmor, align 4
-  store i32 %336, ptr %335, align 16
-  %337 = getelementptr inbounds %struct._journal_field_hf_map, ptr %334, i32 0, i32 1
-  store ptr @.str.332, ptr %337, align 8
-  %338 = getelementptr inbounds %struct._journal_field_hf_map, ptr %334, i64 1
-  %339 = getelementptr inbounds %struct._journal_field_hf_map, ptr %338, i32 0, i32 0
-  %340 = load i32, ptr @hf_sj_audit_field_operation, align 4
-  store i32 %340, ptr %339, align 16
-  %341 = getelementptr inbounds %struct._journal_field_hf_map, ptr %338, i32 0, i32 1
-  store ptr @.str.333, ptr %341, align 8
-  %342 = getelementptr inbounds %struct._journal_field_hf_map, ptr %338, i64 1
-  %343 = getelementptr inbounds %struct._journal_field_hf_map, ptr %342, i32 0, i32 0
-  %344 = load i32, ptr @hf_sj_audit_field_profile, align 4
-  store i32 %344, ptr %343, align 16
-  %345 = getelementptr inbounds %struct._journal_field_hf_map, ptr %342, i32 0, i32 1
-  store ptr @.str.334, ptr %345, align 8
-  %346 = getelementptr inbounds %struct._journal_field_hf_map, ptr %342, i64 1
-  %347 = getelementptr inbounds %struct._journal_field_hf_map, ptr %346, i32 0, i32 0
-  %348 = load i32, ptr @hf_sj_audit_field_name, align 4
+  %329 = getelementptr i8, ptr %326, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %329, i8 0, i64 4, i1 false)
+  %330 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %326, i32 0, i32 1
+  store ptr @.str.316, ptr %330, align 8
+  %331 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 66
+  %332 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %331, i32 0, i32 0
+  %333 = load i32, ptr @hf_sj_current_use, align 4
+  store i32 %333, ptr %332, align 16
+  %334 = getelementptr i8, ptr %331, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %334, i8 0, i64 4, i1 false)
+  %335 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %331, i32 0, i32 1
+  store ptr @.str.317, ptr %335, align 8
+  %336 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 67
+  %337 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %336, i32 0, i32 0
+  %338 = load i32, ptr @hf_sj_current_use_pretty, align 4
+  store i32 %338, ptr %337, align 16
+  %339 = getelementptr i8, ptr %336, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %339, i8 0, i64 4, i1 false)
+  %340 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %336, i32 0, i32 1
+  store ptr @.str.318, ptr %340, align 8
+  %341 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 68
+  %342 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %341, i32 0, i32 0
+  %343 = load i32, ptr @hf_sj_max_use, align 4
+  store i32 %343, ptr %342, align 16
+  %344 = getelementptr i8, ptr %341, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %344, i8 0, i64 4, i1 false)
+  %345 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %341, i32 0, i32 1
+  store ptr @.str.319, ptr %345, align 8
+  %346 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 69
+  %347 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %346, i32 0, i32 0
+  %348 = load i32, ptr @hf_sj_max_use_pretty, align 4
   store i32 %348, ptr %347, align 16
-  %349 = getelementptr inbounds %struct._journal_field_hf_map, ptr %346, i32 0, i32 1
-  store ptr @.str.335, ptr %349, align 8
-  %350 = getelementptr inbounds %struct._journal_field_hf_map, ptr %346, i64 1
-  %351 = getelementptr inbounds %struct._journal_field_hf_map, ptr %350, i32 0, i32 0
-  %352 = load i32, ptr @hf_sj_seat_id, align 4
-  store i32 %352, ptr %351, align 16
-  %353 = getelementptr inbounds %struct._journal_field_hf_map, ptr %350, i32 0, i32 1
-  store ptr @.str.336, ptr %353, align 8
-  %354 = getelementptr inbounds %struct._journal_field_hf_map, ptr %350, i64 1
-  %355 = getelementptr inbounds %struct._journal_field_hf_map, ptr %354, i32 0, i32 0
-  %356 = load i32, ptr @hf_sj_kernel_usec, align 4
-  store i32 %356, ptr %355, align 16
-  %357 = getelementptr inbounds %struct._journal_field_hf_map, ptr %354, i32 0, i32 1
-  store ptr @.str.337, ptr %357, align 8
-  %358 = getelementptr inbounds %struct._journal_field_hf_map, ptr %354, i64 1
-  %359 = getelementptr inbounds %struct._journal_field_hf_map, ptr %358, i32 0, i32 0
-  %360 = load i32, ptr @hf_sj_userspace_usec, align 4
-  store i32 %360, ptr %359, align 16
-  %361 = getelementptr inbounds %struct._journal_field_hf_map, ptr %358, i32 0, i32 1
-  store ptr @.str.338, ptr %361, align 8
-  %362 = getelementptr inbounds %struct._journal_field_hf_map, ptr %358, i64 1
-  %363 = getelementptr inbounds %struct._journal_field_hf_map, ptr %362, i32 0, i32 0
-  %364 = load i32, ptr @hf_sj_session_id, align 4
-  store i32 %364, ptr %363, align 16
-  %365 = getelementptr inbounds %struct._journal_field_hf_map, ptr %362, i32 0, i32 1
-  store ptr @.str.339, ptr %365, align 8
-  %366 = getelementptr inbounds %struct._journal_field_hf_map, ptr %362, i64 1
-  %367 = getelementptr inbounds %struct._journal_field_hf_map, ptr %366, i32 0, i32 0
-  %368 = load i32, ptr @hf_sj_user_id, align 4
+  %349 = getelementptr i8, ptr %346, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %349, i8 0, i64 4, i1 false)
+  %350 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %346, i32 0, i32 1
+  store ptr @.str.320, ptr %350, align 8
+  %351 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 70
+  %352 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %351, i32 0, i32 0
+  %353 = load i32, ptr @hf_sj_disk_keep_free, align 4
+  store i32 %353, ptr %352, align 16
+  %354 = getelementptr i8, ptr %351, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %354, i8 0, i64 4, i1 false)
+  %355 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %351, i32 0, i32 1
+  store ptr @.str.321, ptr %355, align 8
+  %356 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 71
+  %357 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %356, i32 0, i32 0
+  %358 = load i32, ptr @hf_sj_disk_keep_free_pretty, align 4
+  store i32 %358, ptr %357, align 16
+  %359 = getelementptr i8, ptr %356, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %359, i8 0, i64 4, i1 false)
+  %360 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %356, i32 0, i32 1
+  store ptr @.str.322, ptr %360, align 8
+  %361 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 72
+  %362 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %361, i32 0, i32 0
+  %363 = load i32, ptr @hf_sj_disk_available, align 4
+  store i32 %363, ptr %362, align 16
+  %364 = getelementptr i8, ptr %361, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %364, i8 0, i64 4, i1 false)
+  %365 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %361, i32 0, i32 1
+  store ptr @.str.323, ptr %365, align 8
+  %366 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 73
+  %367 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %366, i32 0, i32 0
+  %368 = load i32, ptr @hf_sj_disk_available_pretty, align 4
   store i32 %368, ptr %367, align 16
-  %369 = getelementptr inbounds %struct._journal_field_hf_map, ptr %366, i32 0, i32 1
-  store ptr @.str.340, ptr %369, align 8
-  %370 = getelementptr inbounds %struct._journal_field_hf_map, ptr %366, i64 1
-  %371 = getelementptr inbounds %struct._journal_field_hf_map, ptr %370, i32 0, i32 0
-  %372 = load i32, ptr @hf_sj_leader, align 4
-  store i32 %372, ptr %371, align 16
-  %373 = getelementptr inbounds %struct._journal_field_hf_map, ptr %370, i32 0, i32 1
-  store ptr @.str.341, ptr %373, align 8
-  %374 = getelementptr inbounds %struct._journal_field_hf_map, ptr %370, i64 1
-  %375 = getelementptr inbounds %struct._journal_field_hf_map, ptr %374, i32 0, i32 0
-  %376 = load i32, ptr @hf_sj_job_type, align 4
-  store i32 %376, ptr %375, align 16
-  %377 = getelementptr inbounds %struct._journal_field_hf_map, ptr %374, i32 0, i32 1
-  store ptr @.str.342, ptr %377, align 8
-  %378 = getelementptr inbounds %struct._journal_field_hf_map, ptr %374, i64 1
-  %379 = getelementptr inbounds %struct._journal_field_hf_map, ptr %378, i32 0, i32 0
-  %380 = load i32, ptr @hf_sj_job_result, align 4
-  store i32 %380, ptr %379, align 16
-  %381 = getelementptr inbounds %struct._journal_field_hf_map, ptr %378, i32 0, i32 1
-  store ptr @.str.343, ptr %381, align 8
-  %382 = getelementptr inbounds %struct._journal_field_hf_map, ptr %378, i64 1
-  %383 = getelementptr inbounds %struct._journal_field_hf_map, ptr %382, i32 0, i32 0
-  %384 = load i32, ptr @hf_sj_user_invocation_id, align 4
-  store i32 %384, ptr %383, align 16
-  %385 = getelementptr inbounds %struct._journal_field_hf_map, ptr %382, i32 0, i32 1
-  store ptr @.str.344, ptr %385, align 8
-  %386 = getelementptr inbounds %struct._journal_field_hf_map, ptr %382, i64 1
-  %387 = getelementptr inbounds %struct._journal_field_hf_map, ptr %386, i32 0, i32 0
-  %388 = load i32, ptr @hf_sj_systemd_user_slice, align 4
+  %369 = getelementptr i8, ptr %366, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %369, i8 0, i64 4, i1 false)
+  %370 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %366, i32 0, i32 1
+  store ptr @.str.324, ptr %370, align 8
+  %371 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 74
+  %372 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %371, i32 0, i32 0
+  %373 = load i32, ptr @hf_sj_limit, align 4
+  store i32 %373, ptr %372, align 16
+  %374 = getelementptr i8, ptr %371, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %374, i8 0, i64 4, i1 false)
+  %375 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %371, i32 0, i32 1
+  store ptr @.str.325, ptr %375, align 8
+  %376 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 75
+  %377 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %376, i32 0, i32 0
+  %378 = load i32, ptr @hf_sj_limit_pretty, align 4
+  store i32 %378, ptr %377, align 16
+  %379 = getelementptr i8, ptr %376, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %379, i8 0, i64 4, i1 false)
+  %380 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %376, i32 0, i32 1
+  store ptr @.str.326, ptr %380, align 8
+  %381 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 76
+  %382 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %381, i32 0, i32 0
+  %383 = load i32, ptr @hf_sj_available, align 4
+  store i32 %383, ptr %382, align 16
+  %384 = getelementptr i8, ptr %381, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %384, i8 0, i64 4, i1 false)
+  %385 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %381, i32 0, i32 1
+  store ptr @.str.327, ptr %385, align 8
+  %386 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 77
+  %387 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %386, i32 0, i32 0
+  %388 = load i32, ptr @hf_sj_available_pretty, align 4
   store i32 %388, ptr %387, align 16
-  %389 = getelementptr inbounds %struct._journal_field_hf_map, ptr %386, i32 0, i32 1
-  store ptr @.str.345, ptr %389, align 8
-  %390 = getelementptr inbounds %struct._journal_field_hf_map, ptr %386, i64 1
-  %391 = getelementptr inbounds %struct._journal_field_hf_map, ptr %390, i32 0, i32 0
-  store i32 0, ptr %391, align 16
-  %392 = getelementptr inbounds %struct._journal_field_hf_map, ptr %390, i32 0, i32 1
-  store ptr null, ptr %392, align 8
-  %393 = getelementptr inbounds [98 x %struct._journal_field_hf_map], ptr %1, i64 0, i64 0
-  %394 = call ptr @g_memdup2(ptr noundef %393, i64 noundef 1568) #6
-  store ptr %394, ptr @jf_to_hf, align 8
+  %389 = getelementptr i8, ptr %386, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %389, i8 0, i64 4, i1 false)
+  %390 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %386, i32 0, i32 1
+  store ptr @.str.328, ptr %390, align 8
+  %391 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 78
+  %392 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %391, i32 0, i32 0
+  %393 = load i32, ptr @hf_sj_code_func, align 4
+  store i32 %393, ptr %392, align 16
+  %394 = getelementptr i8, ptr %391, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %394, i8 0, i64 4, i1 false)
+  %395 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %391, i32 0, i32 1
+  store ptr @.str.329, ptr %395, align 8
+  %396 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 79
+  %397 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %396, i32 0, i32 0
+  %398 = load i32, ptr @hf_sj_systemd_user_unit, align 4
+  store i32 %398, ptr %397, align 16
+  %399 = getelementptr i8, ptr %396, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %399, i8 0, i64 4, i1 false)
+  %400 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %396, i32 0, i32 1
+  store ptr @.str.330, ptr %400, align 8
+  %401 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 80
+  %402 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %401, i32 0, i32 0
+  %403 = load i32, ptr @hf_sj_systemd_user_unit, align 4
+  store i32 %403, ptr %402, align 16
+  %404 = getelementptr i8, ptr %401, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %404, i8 0, i64 4, i1 false)
+  %405 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %401, i32 0, i32 1
+  store ptr @.str.331, ptr %405, align 8
+  %406 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 81
+  %407 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %406, i32 0, i32 0
+  %408 = load i32, ptr @hf_sj_audit_type, align 4
+  store i32 %408, ptr %407, align 16
+  %409 = getelementptr i8, ptr %406, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %409, i8 0, i64 4, i1 false)
+  %410 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %406, i32 0, i32 1
+  store ptr @.str.332, ptr %410, align 8
+  %411 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 82
+  %412 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %411, i32 0, i32 0
+  %413 = load i32, ptr @hf_sj_audit_id, align 4
+  store i32 %413, ptr %412, align 16
+  %414 = getelementptr i8, ptr %411, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %414, i8 0, i64 4, i1 false)
+  %415 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %411, i32 0, i32 1
+  store ptr @.str.333, ptr %415, align 8
+  %416 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 83
+  %417 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %416, i32 0, i32 0
+  %418 = load i32, ptr @hf_sj_audit_field_apparmor, align 4
+  store i32 %418, ptr %417, align 16
+  %419 = getelementptr i8, ptr %416, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %419, i8 0, i64 4, i1 false)
+  %420 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %416, i32 0, i32 1
+  store ptr @.str.334, ptr %420, align 8
+  %421 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 84
+  %422 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %421, i32 0, i32 0
+  %423 = load i32, ptr @hf_sj_audit_field_operation, align 4
+  store i32 %423, ptr %422, align 16
+  %424 = getelementptr i8, ptr %421, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %424, i8 0, i64 4, i1 false)
+  %425 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %421, i32 0, i32 1
+  store ptr @.str.335, ptr %425, align 8
+  %426 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 85
+  %427 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %426, i32 0, i32 0
+  %428 = load i32, ptr @hf_sj_audit_field_profile, align 4
+  store i32 %428, ptr %427, align 16
+  %429 = getelementptr i8, ptr %426, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %429, i8 0, i64 4, i1 false)
+  %430 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %426, i32 0, i32 1
+  store ptr @.str.336, ptr %430, align 8
+  %431 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 86
+  %432 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %431, i32 0, i32 0
+  %433 = load i32, ptr @hf_sj_audit_field_name, align 4
+  store i32 %433, ptr %432, align 16
+  %434 = getelementptr i8, ptr %431, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %434, i8 0, i64 4, i1 false)
+  %435 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %431, i32 0, i32 1
+  store ptr @.str.337, ptr %435, align 8
+  %436 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 87
+  %437 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %436, i32 0, i32 0
+  %438 = load i32, ptr @hf_sj_seat_id, align 4
+  store i32 %438, ptr %437, align 16
+  %439 = getelementptr i8, ptr %436, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %439, i8 0, i64 4, i1 false)
+  %440 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %436, i32 0, i32 1
+  store ptr @.str.338, ptr %440, align 8
+  %441 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 88
+  %442 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %441, i32 0, i32 0
+  %443 = load i32, ptr @hf_sj_kernel_usec, align 4
+  store i32 %443, ptr %442, align 16
+  %444 = getelementptr i8, ptr %441, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %444, i8 0, i64 4, i1 false)
+  %445 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %441, i32 0, i32 1
+  store ptr @.str.339, ptr %445, align 8
+  %446 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 89
+  %447 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %446, i32 0, i32 0
+  %448 = load i32, ptr @hf_sj_userspace_usec, align 4
+  store i32 %448, ptr %447, align 16
+  %449 = getelementptr i8, ptr %446, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %449, i8 0, i64 4, i1 false)
+  %450 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %446, i32 0, i32 1
+  store ptr @.str.340, ptr %450, align 8
+  %451 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 90
+  %452 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %451, i32 0, i32 0
+  %453 = load i32, ptr @hf_sj_session_id, align 4
+  store i32 %453, ptr %452, align 16
+  %454 = getelementptr i8, ptr %451, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %454, i8 0, i64 4, i1 false)
+  %455 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %451, i32 0, i32 1
+  store ptr @.str.341, ptr %455, align 8
+  %456 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 91
+  %457 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %456, i32 0, i32 0
+  %458 = load i32, ptr @hf_sj_user_id, align 4
+  store i32 %458, ptr %457, align 16
+  %459 = getelementptr i8, ptr %456, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %459, i8 0, i64 4, i1 false)
+  %460 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %456, i32 0, i32 1
+  store ptr @.str.342, ptr %460, align 8
+  %461 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 92
+  %462 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %461, i32 0, i32 0
+  %463 = load i32, ptr @hf_sj_leader, align 4
+  store i32 %463, ptr %462, align 16
+  %464 = getelementptr i8, ptr %461, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %464, i8 0, i64 4, i1 false)
+  %465 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %461, i32 0, i32 1
+  store ptr @.str.343, ptr %465, align 8
+  %466 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 93
+  %467 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %466, i32 0, i32 0
+  %468 = load i32, ptr @hf_sj_job_type, align 4
+  store i32 %468, ptr %467, align 16
+  %469 = getelementptr i8, ptr %466, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %469, i8 0, i64 4, i1 false)
+  %470 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %466, i32 0, i32 1
+  store ptr @.str.344, ptr %470, align 8
+  %471 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 94
+  %472 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %471, i32 0, i32 0
+  %473 = load i32, ptr @hf_sj_job_result, align 4
+  store i32 %473, ptr %472, align 16
+  %474 = getelementptr i8, ptr %471, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %474, i8 0, i64 4, i1 false)
+  %475 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %471, i32 0, i32 1
+  store ptr @.str.345, ptr %475, align 8
+  %476 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 95
+  %477 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %476, i32 0, i32 0
+  %478 = load i32, ptr @hf_sj_user_invocation_id, align 4
+  store i32 %478, ptr %477, align 16
+  %479 = getelementptr i8, ptr %476, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %479, i8 0, i64 4, i1 false)
+  %480 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %476, i32 0, i32 1
+  store ptr @.str.346, ptr %480, align 8
+  %481 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 96
+  %482 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %481, i32 0, i32 0
+  %483 = load i32, ptr @hf_sj_systemd_user_slice, align 4
+  store i32 %483, ptr %482, align 16
+  %484 = getelementptr i8, ptr %481, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %484, i8 0, i64 4, i1 false)
+  %485 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %481, i32 0, i32 1
+  store ptr @.str.347, ptr %485, align 8
+  %486 = getelementptr inbounds %struct._journal_field_hf_map, ptr %1, i64 97
+  %487 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %486, i32 0, i32 0
+  store i32 0, ptr %487, align 16
+  %488 = getelementptr i8, ptr %486, i64 4
+  call void @llvm.memset.p0.i64(ptr align 4 %488, i8 0, i64 4, i1 false)
+  %489 = getelementptr inbounds nuw %struct._journal_field_hf_map, ptr %486, i32 0, i32 1
+  store ptr null, ptr %489, align 8
+  %490 = getelementptr inbounds [98 x %struct._journal_field_hf_map], ptr %1, i64 0, i64 0
+  %491 = call ptr @g_memdup2(ptr noundef %490, i64 noundef 1568) #9
+  store ptr %491, ptr @jf_to_hf, align 8
+  call void @llvm.lifetime.end.p0(i64 1568, ptr %1) #7
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_systemd_journal() #0 {
   %1 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %1) #7
   %2 = call i32 @wtap_name_to_file_type_subtype(ptr noundef @.str.207)
   store i32 %2, ptr %1, align 4
   %3 = load i32, ptr %1, align 4
@@ -1615,37 +1899,50 @@ define hidden void @proto_reg_handoff_systemd_journal() #0 {
   call void @dissector_add_uint(ptr noundef @.str.209, i32 noundef 9, ptr noundef %9)
   %10 = load ptr, ptr @sje_handle, align 8
   call void @dissector_add_string(ptr noundef @.str.210, ptr noundef @.str.211, ptr noundef %10)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %1) #7
   ret void
 }
 
-declare i32 @wtap_name_to_file_type_subtype(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @wtap_name_to_file_type_subtype(ptr noundef) #2
 
-declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare void @dissector_add_string(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_add_string(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare void @col_clear(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_clear(ptr noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #2
 
-declare i32 @tvb_offset_exists(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @tvb_offset_exists(ptr noundef, i32 noundef) #2
 
-declare i32 @tvb_find_line_end(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_find_line_end(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i1 noundef zeroext) #2
 
-declare i32 @tvb_find_guint8(ptr noundef, i32 noundef, i32 noundef, i8 noundef zeroext) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_find_uint8(ptr noundef, i32 noundef, i32 noundef, i8 noundef zeroext) #2
 
-declare i32 @tvb_memeql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_memeql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
-; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #2
+; Function Attrs: nounwind null_pointer_is_valid willreturn memory(read)
+declare i64 @strlen(ptr noundef) #3
 
-declare i32 @proto_registrar_get_ftype(i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_registrar_get_ftype(i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_sjle_time_usecs(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -1654,38 +1951,42 @@ define internal void @dissect_sjle_time_usecs(ptr noundef %0, i32 noundef %1, pt
   %10 = alloca i32, align 4
   %11 = alloca i64, align 8
   %12 = alloca ptr, align 8
-  %13 = alloca i32, align 4
+  %13 = alloca i8, align 1
   %14 = alloca %struct.nstime_t, align 8
   store ptr %0, ptr %6, align 8
   store i32 %1, ptr %7, align 4
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i32 %4, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
   store i64 0, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
   %15 = call ptr @wmem_packet_scope()
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr %9, align 4
   %18 = load i32, ptr %10, align 4
   %19 = call ptr @tvb_format_text(ptr noundef %15, ptr noundef %16, i32 noundef %17, i32 noundef %18)
   store ptr %19, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #7
   %20 = load ptr, ptr %12, align 8
   %21 = call zeroext i1 @ws_strtou64(ptr noundef %20, ptr noundef null, ptr noundef %11)
-  %22 = zext i1 %21 to i32
-  store i32 %22, ptr %13, align 4
-  %23 = load i32, ptr %13, align 4
-  %24 = icmp ne i32 %23, 0
+  %22 = zext i1 %21 to i8
+  store i8 %22, ptr %13, align 1
+  %23 = load i8, ptr %13, align 1, !range !9, !noundef !10
+  %24 = trunc i8 %23 to i1
   br i1 %24, label %25, label %40
 
 25:                                               ; preds = %5
+  call void @llvm.lifetime.start.p0(i64 16, ptr %14) #7
   %26 = load i64, ptr %11, align 8
   %27 = udiv i64 %26, 1000000
-  %28 = getelementptr inbounds %struct.nstime_t, ptr %14, i32 0, i32 0
+  %28 = getelementptr inbounds nuw %struct.nstime_t, ptr %14, i32 0, i32 0
   store i64 %27, ptr %28, align 8
   %29 = load i64, ptr %11, align 8
   %30 = urem i64 %29, 1000000
   %31 = mul i64 %30, 1000
   %32 = trunc i64 %31 to i32
-  %33 = getelementptr inbounds %struct.nstime_t, ptr %14, i32 0, i32 1
+  %33 = getelementptr inbounds nuw %struct.nstime_t, ptr %14, i32 0, i32 1
   store i32 %32, ptr %33, align 8
   %34 = load ptr, ptr %6, align 8
   %35 = load i32, ptr %7, align 4
@@ -1693,6 +1994,7 @@ define internal void @dissect_sjle_time_usecs(ptr noundef %0, i32 noundef %1, pt
   %37 = load i32, ptr %9, align 4
   %38 = load i32, ptr %10, align 4
   %39 = call ptr @proto_tree_add_time(ptr noundef %34, i32 noundef %35, ptr noundef %36, i32 noundef %37, i32 noundef %38, ptr noundef %14)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %14) #7
   br label %47
 
 40:                                               ; preds = %5
@@ -1701,14 +2003,17 @@ define internal void @dissect_sjle_time_usecs(ptr noundef %0, i32 noundef %1, pt
   %43 = load i32, ptr %9, align 4
   %44 = load i32, ptr %10, align 4
   %45 = load ptr, ptr %12, align 8
-  %46 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %41, ptr noundef null, ptr noundef @ei_undecoded_field, ptr noundef %42, i32 noundef %43, i32 noundef %44, ptr noundef @.str.248, ptr noundef %45)
+  %46 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %41, ptr noundef null, ptr noundef @ei_undecoded_field, ptr noundef %42, i32 noundef %43, i32 noundef %44, ptr noundef @.str.250, ptr noundef %45)
   br label %47
 
 47:                                               ; preds = %40, %25
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_sjle_uint(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -1721,6 +2026,7 @@ define internal void @dissect_sjle_uint(ptr noundef %0, i32 noundef %1, ptr noun
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i32 %4, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #7
   %12 = call ptr @wmem_packet_scope()
   %13 = load ptr, ptr %8, align 8
   %14 = load i32, ptr %9, align 4
@@ -1736,10 +2042,11 @@ define internal void @dissect_sjle_uint(ptr noundef %0, i32 noundef %1, ptr noun
   %23 = load i32, ptr %10, align 4
   %24 = load i32, ptr %11, align 4
   %25 = call ptr @proto_tree_add_uint(ptr noundef %19, i32 noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef %23, i32 noundef %24)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #7
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_sjle_int(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -1752,6 +2059,7 @@ define internal void @dissect_sjle_int(ptr noundef %0, i32 noundef %1, ptr nound
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i32 %4, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #7
   %12 = call ptr @wmem_packet_scope()
   %13 = load ptr, ptr %8, align 8
   %14 = load i32, ptr %9, align 4
@@ -1767,58 +2075,80 @@ define internal void @dissect_sjle_int(ptr noundef %0, i32 noundef %1, ptr nound
   %23 = load i32, ptr %10, align 4
   %24 = load i32, ptr %11, align 4
   %25 = call ptr @proto_tree_add_int(ptr noundef %19, i32 noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef %23, i32 noundef %24)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #7
   ret void
 }
 
-declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_none_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_none_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) #2
 
-declare i64 @tvb_get_letoh64(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i64 @tvb_get_letoh64(ptr noundef, i32 noundef) #2
 
-declare ptr @tvb_format_text(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_format_text(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @wmem_packet_scope() #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_packet_scope() #2
 
-declare zeroext i1 @ws_strtou64(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @ws_strtou64(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) #2
 
-; Function Attrs: nounwind
-declare i64 @strtoul(ptr noundef, ptr noundef, i32 noundef) #3
+; Function Attrs: nounwind null_pointer_is_valid
+declare i64 @strtoul(ptr noundef, ptr noundef, i32 noundef) #4
 
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: nounwind
-declare i64 @strtol(ptr noundef, ptr noundef, i32 noundef) #3
+; Function Attrs: nounwind null_pointer_is_valid
+declare i64 @strtol(ptr noundef, ptr noundef, i32 noundef) #4
 
-declare ptr @proto_tree_add_int(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_int(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: allocsize(1)
-declare ptr @g_memdup2(ptr noundef, i64 noundef) #4
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { allocsize(1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind willreturn memory(read) }
-attributes #6 = { allocsize(1) }
+; Function Attrs: null_pointer_is_valid allocsize(1)
+declare ptr @g_memdup2(ptr noundef, i64 noundef) #6
+
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind null_pointer_is_valid willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nounwind }
+attributes #8 = { nounwind willreturn memory(read) }
+attributes #9 = { allocsize(1) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !7}

@@ -6,12 +6,9 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
 %struct.true_false_string = type { ptr, ptr }
-%struct._value_string = type { i32, ptr }
 %struct._value_string_ext = type { ptr, i32, i32, ptr, ptr }
 %struct._range_string = type { i64, i64, ptr }
 %struct._val64_string = type { i64, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
 %struct.enum_val_t = type { ptr, ptr, i32 }
 
@@ -48,7 +45,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_drda_ddm_fmt_dsstyp = internal global i32 0, align 4
 @.str.21 = private unnamed_addr constant [9 x i8] c"DSS type\00", align 1
 @.str.22 = private unnamed_addr constant [20 x i8] c"drda.ddm.fmt.dsstyp\00", align 1
-@drda_dsstyp_abbr = internal constant [6 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.308 }, %struct._value_string { i32 2, ptr @.str.309 }, %struct._value_string { i32 3, ptr @.str.310 }, %struct._value_string { i32 4, ptr @.str.311 }, %struct._value_string { i32 5, ptr @.str.312 }, %struct._value_string zeroinitializer], align 16
 @.str.23 = private unnamed_addr constant [12 x i8] c"DSSFMT type\00", align 1
 @hf_drda_ddm_rc = internal global i32 0, align 4
 @.str.24 = private unnamed_addr constant [9 x i8] c"CorrelId\00", align 1
@@ -61,7 +57,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_drda_ddm_codepoint = internal global i32 0, align 4
 @.str.30 = private unnamed_addr constant [11 x i8] c"Code point\00", align 1
 @.str.31 = private unnamed_addr constant [19 x i8] c"drda.ddm.codepoint\00", align 1
-@drda_opcode_abbr_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 201, ptr @drda_opcode_abbr, ptr @.str.313 }, align 8
+@drda_opcode_abbr_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 201, ptr @drda_opcode_abbr, ptr @.str.314 }, align 8
 @.str.32 = private unnamed_addr constant [15 x i8] c"DDM code point\00", align 1
 @hf_drda_param_length = internal global i32 0, align 4
 @.str.33 = private unnamed_addr constant [18 x i8] c"drda.param.length\00", align 1
@@ -80,7 +76,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_drda_null_ind = internal global i32 0, align 4
 @.str.43 = private unnamed_addr constant [19 x i8] c"SQL NULL Indicator\00", align 1
 @.str.44 = private unnamed_addr constant [14 x i8] c"drda.null_ind\00", align 1
-@drda_null_ind_rvals = internal constant [6 x %struct._range_string] [%struct._range_string { i64 0, i64 0, ptr @.str.515 }, %struct._range_string { i64 1, i64 127, ptr @.str.516 }, %struct._range_string { i64 128, i64 253, ptr @.str.517 }, %struct._range_string { i64 254, i64 254, ptr @.str.518 }, %struct._range_string { i64 255, i64 255, ptr @.str.519 }, %struct._range_string zeroinitializer], align 16
+@drda_null_ind_rvals = internal constant [6 x %struct._range_string] [%struct._range_string { i64 0, i64 0, ptr @.str.517 }, %struct._range_string { i64 1, i64 127, ptr @.str.518 }, %struct._range_string { i64 128, i64 253, ptr @.str.519 }, %struct._range_string { i64 254, i64 254, ptr @.str.520 }, %struct._range_string { i64 255, i64 255, ptr @.str.521 }, %struct._range_string zeroinitializer], align 16
 @hf_drda_typdefnam = internal global i32 0, align 4
 @.str.45 = private unnamed_addr constant [26 x i8] c"Data Type Definition Name\00", align 1
 @.str.46 = private unnamed_addr constant [15 x i8] c"drda.typdefnam\00", align 1
@@ -165,31 +161,24 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_drda_sqldhold = internal global i32 0, align 4
 @.str.99 = private unnamed_addr constant [9 x i8] c"SQLDHOLD\00", align 1
 @.str.100 = private unnamed_addr constant [14 x i8] c"drda.sqldhold\00", align 1
-@drda_hold_vals = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.520 }, %struct._value_string { i32 1, ptr @.str.521 }, %struct._value_string { i32 -1, ptr @.str.522 }, %struct._value_string zeroinitializer], align 16
 @hf_drda_sqldreturn = internal global i32 0, align 4
 @.str.101 = private unnamed_addr constant [11 x i8] c"SQLDRETURN\00", align 1
 @.str.102 = private unnamed_addr constant [16 x i8] c"drda.sqldreturn\00", align 1
-@drda_return_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.523 }, %struct._value_string { i32 1, ptr @.str.524 }, %struct._value_string { i32 2, ptr @.str.525 }, %struct._value_string { i32 -1, ptr @.str.526 }, %struct._value_string zeroinitializer], align 16
 @hf_drda_sqldscroll = internal global i32 0, align 4
 @.str.103 = private unnamed_addr constant [11 x i8] c"SQLDSCROLL\00", align 1
 @.str.104 = private unnamed_addr constant [16 x i8] c"drda.sqldscroll\00", align 1
-@drda_scroll_vals = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.527 }, %struct._value_string { i32 1, ptr @.str.528 }, %struct._value_string { i32 -1, ptr @.str.529 }, %struct._value_string zeroinitializer], align 16
 @hf_drda_sqldsensitive = internal global i32 0, align 4
 @.str.105 = private unnamed_addr constant [14 x i8] c"SQLDSENSITIVE\00", align 1
 @.str.106 = private unnamed_addr constant [19 x i8] c"drda.sqldsensitive\00", align 1
-@drda_sensitive_vals = internal constant [8 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.530 }, %struct._value_string { i32 1, ptr @.str.531 }, %struct._value_string { i32 2, ptr @.str.532 }, %struct._value_string { i32 3, ptr @.str.533 }, %struct._value_string { i32 4, ptr @.str.534 }, %struct._value_string { i32 5, ptr @.str.535 }, %struct._value_string { i32 -1, ptr @.str.536 }, %struct._value_string zeroinitializer], align 16
 @hf_drda_sqldfcode = internal global i32 0, align 4
 @.str.107 = private unnamed_addr constant [10 x i8] c"SQLDFCODE\00", align 1
 @.str.108 = private unnamed_addr constant [15 x i8] c"drda.sqldfcode\00", align 1
-@drda_fcode_vals = internal constant [66 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.537 }, %struct._value_string { i32 2, ptr @.str.538 }, %struct._value_string { i32 3, ptr @.str.539 }, %struct._value_string { i32 4, ptr @.str.540 }, %struct._value_string { i32 6, ptr @.str.541 }, %struct._value_string { i32 7, ptr @.str.542 }, %struct._value_string { i32 8, ptr @.str.543 }, %struct._value_string { i32 9, ptr @.str.544 }, %struct._value_string { i32 11, ptr @.str.545 }, %struct._value_string { i32 12, ptr @.str.546 }, %struct._value_string { i32 13, ptr @.str.547 }, %struct._value_string { i32 15, ptr @.str.548 }, %struct._value_string { i32 16, ptr @.str.549 }, %struct._value_string { i32 17, ptr @.str.550 }, %struct._value_string { i32 18, ptr @.str.551 }, %struct._value_string { i32 19, ptr @.str.552 }, %struct._value_string { i32 20, ptr @.str.553 }, %struct._value_string { i32 21, ptr @.str.554 }, %struct._value_string { i32 22, ptr @.str.555 }, %struct._value_string { i32 23, ptr @.str.556 }, %struct._value_string { i32 24, ptr @.str.557 }, %struct._value_string { i32 25, ptr @.str.558 }, %struct._value_string { i32 26, ptr @.str.559 }, %struct._value_string { i32 27, ptr @.str.560 }, %struct._value_string { i32 29, ptr @.str.561 }, %struct._value_string { i32 30, ptr @.str.562 }, %struct._value_string { i32 31, ptr @.str.563 }, %struct._value_string { i32 32, ptr @.str.564 }, %struct._value_string { i32 33, ptr @.str.565 }, %struct._value_string { i32 34, ptr @.str.566 }, %struct._value_string { i32 35, ptr @.str.567 }, %struct._value_string { i32 36, ptr @.str.568 }, %struct._value_string { i32 37, ptr @.str.569 }, %struct._value_string { i32 38, ptr @.str.570 }, %struct._value_string { i32 39, ptr @.str.571 }, %struct._value_string { i32 40, ptr @.str.572 }, %struct._value_string { i32 41, ptr @.str.554 }, %struct._value_string { i32 42, ptr @.str.573 }, %struct._value_string { i32 43, ptr @.str.574 }, %struct._value_string { i32 44, ptr @.str.575 }, %struct._value_string { i32 45, ptr @.str.576 }, %struct._value_string { i32 47, ptr @.str.577 }, %struct._value_string { i32 48, ptr @.str.578 }, %struct._value_string { i32 49, ptr @.str.579 }, %struct._value_string { i32 50, ptr @.str.580 }, %struct._value_string { i32 53, ptr @.str.581 }, %struct._value_string { i32 54, ptr @.str.570 }, %struct._value_string { i32 55, ptr @.str.573 }, %struct._value_string { i32 56, ptr @.str.582 }, %struct._value_string { i32 57, ptr @.str.583 }, %struct._value_string { i32 58, ptr @.str.584 }, %struct._value_string { i32 59, ptr @.str.585 }, %struct._value_string { i32 60, ptr @.str.586 }, %struct._value_string { i32 66, ptr @.str.587 }, %struct._value_string { i32 69, ptr @.str.588 }, %struct._value_string { i32 70, ptr @.str.589 }, %struct._value_string { i32 72, ptr @.str.590 }, %struct._value_string { i32 74, ptr @.str.591 }, %struct._value_string { i32 85, ptr @.str.592 }, %struct._value_string { i32 98, ptr @.str.593 }, %struct._value_string { i32 99, ptr @.str.594 }, %struct._value_string { i32 101, ptr @.str.595 }, %struct._value_string { i32 115, ptr @.str.596 }, %struct._value_string { i32 116, ptr @.str.597 }, %struct._value_string { i32 118, ptr @.str.598 }, %struct._value_string zeroinitializer], align 16
 @hf_drda_sqldkeytype = internal global i32 0, align 4
 @.str.109 = private unnamed_addr constant [12 x i8] c"SQLDKEYTYPE\00", align 1
 @.str.110 = private unnamed_addr constant [17 x i8] c"drda.sqldkeytype\00", align 1
-@drda_keytype_vals = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.599 }, %struct._value_string { i32 1, ptr @.str.600 }, %struct._value_string { i32 2, ptr @.str.601 }, %struct._value_string zeroinitializer], align 16
 @hf_drda_sqldoptlck = internal global i32 0, align 4
 @.str.111 = private unnamed_addr constant [11 x i8] c"SQLDOPTLCK\00", align 1
 @.str.112 = private unnamed_addr constant [16 x i8] c"drda.sqldoptlck\00", align 1
-@drda_doptlck_vals = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.602 }, %struct._value_string { i32 1, ptr @.str.603 }, %struct._value_string { i32 2, ptr @.str.604 }, %struct._value_string zeroinitializer], align 16
 @hf_drda_sqldschema = internal global i32 0, align 4
 @.str.113 = private unnamed_addr constant [11 x i8] c"SQLDSCHEMA\00", align 1
 @.str.114 = private unnamed_addr constant [16 x i8] c"drda.sqldschema\00", align 1
@@ -212,7 +201,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_drda_sqltype = internal global i32 0, align 4
 @.str.125 = private unnamed_addr constant [8 x i8] c"SQLTYPE\00", align 1
 @.str.126 = private unnamed_addr constant [13 x i8] c"drda.sqltype\00", align 1
-@drda_sqltype_vals = internal constant [69 x %struct._value_string] [%struct._value_string { i32 384, ptr @.str.605 }, %struct._value_string { i32 385, ptr @.str.606 }, %struct._value_string { i32 388, ptr @.str.607 }, %struct._value_string { i32 389, ptr @.str.608 }, %struct._value_string { i32 392, ptr @.str.609 }, %struct._value_string { i32 393, ptr @.str.610 }, %struct._value_string { i32 396, ptr @.str.611 }, %struct._value_string { i32 397, ptr @.str.612 }, %struct._value_string { i32 404, ptr @.str.613 }, %struct._value_string { i32 405, ptr @.str.614 }, %struct._value_string { i32 408, ptr @.str.615 }, %struct._value_string { i32 409, ptr @.str.616 }, %struct._value_string { i32 412, ptr @.str.617 }, %struct._value_string { i32 413, ptr @.str.618 }, %struct._value_string { i32 448, ptr @.str.619 }, %struct._value_string { i32 449, ptr @.str.620 }, %struct._value_string { i32 452, ptr @.str.621 }, %struct._value_string { i32 453, ptr @.str.622 }, %struct._value_string { i32 456, ptr @.str.623 }, %struct._value_string { i32 457, ptr @.str.624 }, %struct._value_string { i32 460, ptr @.str.625 }, %struct._value_string { i32 461, ptr @.str.626 }, %struct._value_string { i32 464, ptr @.str.627 }, %struct._value_string { i32 465, ptr @.str.628 }, %struct._value_string { i32 468, ptr @.str.629 }, %struct._value_string { i32 469, ptr @.str.630 }, %struct._value_string { i32 472, ptr @.str.631 }, %struct._value_string { i32 473, ptr @.str.632 }, %struct._value_string { i32 476, ptr @.str.633 }, %struct._value_string { i32 477, ptr @.str.634 }, %struct._value_string { i32 480, ptr @.str.635 }, %struct._value_string { i32 481, ptr @.str.636 }, %struct._value_string { i32 484, ptr @.str.637 }, %struct._value_string { i32 485, ptr @.str.638 }, %struct._value_string { i32 488, ptr @.str.639 }, %struct._value_string { i32 489, ptr @.str.640 }, %struct._value_string { i32 492, ptr @.str.641 }, %struct._value_string { i32 493, ptr @.str.642 }, %struct._value_string { i32 496, ptr @.str.643 }, %struct._value_string { i32 497, ptr @.str.644 }, %struct._value_string { i32 500, ptr @.str.645 }, %struct._value_string { i32 501, ptr @.str.646 }, %struct._value_string { i32 504, ptr @.str.647 }, %struct._value_string { i32 505, ptr @.str.648 }, %struct._value_string { i32 904, ptr @.str.649 }, %struct._value_string { i32 905, ptr @.str.650 }, %struct._value_string { i32 908, ptr @.str.651 }, %struct._value_string { i32 909, ptr @.str.652 }, %struct._value_string { i32 912, ptr @.str.653 }, %struct._value_string { i32 913, ptr @.str.654 }, %struct._value_string { i32 960, ptr @.str.655 }, %struct._value_string { i32 961, ptr @.str.656 }, %struct._value_string { i32 964, ptr @.str.657 }, %struct._value_string { i32 965, ptr @.str.658 }, %struct._value_string { i32 968, ptr @.str.659 }, %struct._value_string { i32 969, ptr @.str.660 }, %struct._value_string { i32 972, ptr @.str.661 }, %struct._value_string { i32 973, ptr @.str.662 }, %struct._value_string { i32 988, ptr @.str.663 }, %struct._value_string { i32 989, ptr @.str.664 }, %struct._value_string { i32 996, ptr @.str.665 }, %struct._value_string { i32 997, ptr @.str.666 }, %struct._value_string { i32 2436, ptr @.str.667 }, %struct._value_string { i32 2437, ptr @.str.668 }, %struct._value_string { i32 2444, ptr @.str.669 }, %struct._value_string { i32 2445, ptr @.str.670 }, %struct._value_string { i32 2448, ptr @.str.671 }, %struct._value_string { i32 2449, ptr @.str.672 }, %struct._value_string zeroinitializer], align 16
 @hf_drda_sqlarrextent = internal global i32 0, align 4
 @.str.127 = private unnamed_addr constant [13 x i8] c"SQLARREXTENT\00", align 1
 @.str.128 = private unnamed_addr constant [18 x i8] c"drda.sqlarrextent\00", align 1
@@ -222,7 +210,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_drda_sqlunnamed = internal global i32 0, align 4
 @.str.131 = private unnamed_addr constant [11 x i8] c"SQLUNNAMED\00", align 1
 @.str.132 = private unnamed_addr constant [16 x i8] c"drda.sqlunnamed\00", align 1
-@drda_unnamed_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.673 }, %struct._value_string { i32 1, ptr @.str.674 }, %struct._value_string zeroinitializer], align 16
 @hf_drda_sqlname = internal global i32 0, align 4
 @.str.133 = private unnamed_addr constant [8 x i8] c"SQLNAME\00", align 1
 @.str.134 = private unnamed_addr constant [13 x i8] c"drda.sqlname\00", align 1
@@ -238,7 +225,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_drda_sqludtxtype = internal global i32 0, align 4
 @.str.141 = private unnamed_addr constant [12 x i8] c"SQLUDTXTYPE\00", align 1
 @.str.142 = private unnamed_addr constant [17 x i8] c"drda.sqludtxtype\00", align 1
-@drda_udtxtype_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.675 }, %struct._value_string { i32 1, ptr @.str.676 }, %struct._value_string { i32 2, ptr @.str.677 }, %struct._value_string { i32 3, ptr @.str.678 }, %struct._value_string zeroinitializer], align 16
 @hf_drda_sqludtschema = internal global i32 0, align 4
 @.str.143 = private unnamed_addr constant [13 x i8] c"SQLUDTSCHEMA\00", align 1
 @.str.144 = private unnamed_addr constant [18 x i8] c"drda.sqludtschema\00", align 1
@@ -254,27 +240,21 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_drda_sqlxkeymem = internal global i32 0, align 4
 @.str.151 = private unnamed_addr constant [11 x i8] c"SQLXKEYMEM\00", align 1
 @.str.152 = private unnamed_addr constant [16 x i8] c"drda.sqlxkeymem\00", align 1
-@drda_keymem_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.679 }, %struct._value_string { i32 1, ptr @.str.680 }, %struct._value_string zeroinitializer], align 16
 @hf_drda_sqlxupdateable = internal global i32 0, align 4
 @.str.153 = private unnamed_addr constant [15 x i8] c"SQLXUPDATEABLE\00", align 1
 @.str.154 = private unnamed_addr constant [20 x i8] c"drda.sqlxupdateable\00", align 1
-@drda_updateable_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.681 }, %struct._value_string { i32 1, ptr @.str.682 }, %struct._value_string zeroinitializer], align 16
 @hf_drda_sqlxgenerated = internal global i32 0, align 4
 @.str.155 = private unnamed_addr constant [14 x i8] c"SQLXGENERATED\00", align 1
 @.str.156 = private unnamed_addr constant [19 x i8] c"drda.sqlxgenerated\00", align 1
-@drda_generated_vals = internal constant [9 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.683 }, %struct._value_string { i32 1, ptr @.str.684 }, %struct._value_string { i32 2, ptr @.str.685 }, %struct._value_string { i32 3, ptr @.str.686 }, %struct._value_string { i32 4, ptr @.str.687 }, %struct._value_string { i32 5, ptr @.str.688 }, %struct._value_string { i32 6, ptr @.str.689 }, %struct._value_string { i32 7, ptr @.str.690 }, %struct._value_string zeroinitializer], align 16
 @hf_drda_sqlxparmmode = internal global i32 0, align 4
 @.str.157 = private unnamed_addr constant [13 x i8] c"SQLXPARMMODE\00", align 1
 @.str.158 = private unnamed_addr constant [18 x i8] c"drda.sqlxparmmode\00", align 1
-@drda_parmmode_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.691 }, %struct._value_string { i32 1, ptr @.str.692 }, %struct._value_string { i32 2, ptr @.str.693 }, %struct._value_string { i32 4, ptr @.str.694 }, %struct._value_string zeroinitializer], align 16
 @hf_drda_sqlxoptlck = internal global i32 0, align 4
 @.str.159 = private unnamed_addr constant [11 x i8] c"SQLXOPTLCK\00", align 1
 @.str.160 = private unnamed_addr constant [16 x i8] c"drda.sqlxoptlck\00", align 1
-@drda_xoptlck_vals = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.695 }, %struct._value_string { i32 1, ptr @.str.696 }, %struct._value_string { i32 2, ptr @.str.697 }, %struct._value_string zeroinitializer], align 16
 @hf_drda_sqlxhidden = internal global i32 0, align 4
 @.str.161 = private unnamed_addr constant [11 x i8] c"SQLXHIDDEN\00", align 1
 @.str.162 = private unnamed_addr constant [16 x i8] c"drda.sqlxhidden\00", align 1
-@drda_hidden_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.698 }, %struct._value_string { i32 1, ptr @.str.699 }, %struct._value_string zeroinitializer], align 16
 @hf_drda_sqlxcorname = internal global i32 0, align 4
 @.str.163 = private unnamed_addr constant [12 x i8] c"SQLXCORNAME\00", align 1
 @.str.164 = private unnamed_addr constant [17 x i8] c"drda.sqlxcorname\00", align 1
@@ -299,26 +279,21 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_drda_rlsconv = internal global i32 0, align 4
 @.str.177 = private unnamed_addr constant [21 x i8] c"Release Conversation\00", align 1
 @.str.178 = private unnamed_addr constant [13 x i8] c"drda.rlsconv\00", align 1
-@drda_rlsconv_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 240, ptr @.str.700 }, %struct._value_string { i32 241, ptr @.str.701 }, %struct._value_string { i32 242, ptr @.str.702 }, %struct._value_string { i32 243, ptr @.str.703 }, %struct._value_string zeroinitializer], align 16
 @hf_drda_secmec = internal global i32 0, align 4
 @.str.179 = private unnamed_addr constant [19 x i8] c"Security Mechanism\00", align 1
 @.str.180 = private unnamed_addr constant [12 x i8] c"drda.secmec\00", align 1
-@drda_secmec_vals = internal constant [16 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.704 }, %struct._value_string { i32 3, ptr @.str.705 }, %struct._value_string { i32 4, ptr @.str.706 }, %struct._value_string { i32 5, ptr @.str.707 }, %struct._value_string { i32 6, ptr @.str.708 }, %struct._value_string { i32 7, ptr @.str.709 }, %struct._value_string { i32 8, ptr @.str.710 }, %struct._value_string { i32 9, ptr @.str.711 }, %struct._value_string { i32 10, ptr @.str.712 }, %struct._value_string { i32 11, ptr @.str.713 }, %struct._value_string { i32 12, ptr @.str.714 }, %struct._value_string { i32 13, ptr @.str.715 }, %struct._value_string { i32 14, ptr @.str.716 }, %struct._value_string { i32 15, ptr @.str.717 }, %struct._value_string { i32 16, ptr @.str.718 }, %struct._value_string zeroinitializer], align 16
 @hf_drda_sectkn = internal global i32 0, align 4
 @.str.181 = private unnamed_addr constant [15 x i8] c"Security Token\00", align 1
 @.str.182 = private unnamed_addr constant [12 x i8] c"drda.sectkn\00", align 1
 @hf_drda_svrcod = internal global i32 0, align 4
 @.str.183 = private unnamed_addr constant [14 x i8] c"Severity Code\00", align 1
 @.str.184 = private unnamed_addr constant [12 x i8] c"drda.svrcod\00", align 1
-@drda_svrcod_vals = internal constant [8 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.719 }, %struct._value_string { i32 4, ptr @.str.720 }, %struct._value_string { i32 8, ptr @.str.721 }, %struct._value_string { i32 16, ptr @.str.722 }, %struct._value_string { i32 32, ptr @.str.723 }, %struct._value_string { i32 64, ptr @.str.724 }, %struct._value_string { i32 128, ptr @.str.725 }, %struct._value_string zeroinitializer], align 16
 @hf_drda_secchkcd = internal global i32 0, align 4
 @.str.185 = private unnamed_addr constant [20 x i8] c"Security Check Code\00", align 1
 @.str.186 = private unnamed_addr constant [14 x i8] c"drda.secchkcd\00", align 1
-@drda_secchkcd_vals = internal constant [24 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.726 }, %struct._value_string { i32 1, ptr @.str.727 }, %struct._value_string { i32 2, ptr @.str.728 }, %struct._value_string { i32 3, ptr @.str.729 }, %struct._value_string { i32 4, ptr @.str.730 }, %struct._value_string { i32 5, ptr @.str.731 }, %struct._value_string { i32 6, ptr @.str.732 }, %struct._value_string { i32 7, ptr @.str.733 }, %struct._value_string { i32 8, ptr @.str.734 }, %struct._value_string { i32 9, ptr @.str.735 }, %struct._value_string { i32 10, ptr @.str.736 }, %struct._value_string { i32 11, ptr @.str.737 }, %struct._value_string { i32 14, ptr @.str.738 }, %struct._value_string { i32 15, ptr @.str.739 }, %struct._value_string { i32 16, ptr @.str.740 }, %struct._value_string { i32 18, ptr @.str.741 }, %struct._value_string { i32 19, ptr @.str.742 }, %struct._value_string { i32 20, ptr @.str.743 }, %struct._value_string { i32 21, ptr @.str.744 }, %struct._value_string { i32 22, ptr @.str.745 }, %struct._value_string { i32 23, ptr @.str.746 }, %struct._value_string { i32 24, ptr @.str.747 }, %struct._value_string { i32 25, ptr @.str.748 }, %struct._value_string zeroinitializer], align 16
 @hf_drda_ccsid = internal global i32 0, align 4
 @.str.187 = private unnamed_addr constant [6 x i8] c"CCSID\00", align 1
 @.str.188 = private unnamed_addr constant [11 x i8] c"drda.ccsid\00", align 1
-@drda_ccsid_vals = internal constant [11 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.749 }, %struct._value_string { i32 37, ptr @.str.750 }, %struct._value_string { i32 367, ptr @.str.751 }, %struct._value_string { i32 500, ptr @.str.752 }, %struct._value_string { i32 819, ptr @.str.753 }, %struct._value_string { i32 850, ptr @.str.754 }, %struct._value_string { i32 1200, ptr @.str.755 }, %struct._value_string { i32 1202, ptr @.str.756 }, %struct._value_string { i32 1208, ptr @.str.757 }, %struct._value_string { i32 65535, ptr @.str.758 }, %struct._value_string zeroinitializer], align 16
 @.str.189 = private unnamed_addr constant [31 x i8] c"Coded Character Set Identifier\00", align 1
 @hf_drda_mgrlvln = internal global i32 0, align 4
 @.str.190 = private unnamed_addr constant [21 x i8] c"Manager-level Number\00", align 1
@@ -342,7 +317,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_drda_rdbcmtok = internal global i32 0, align 4
 @.str.202 = private unnamed_addr constant [19 x i8] c"RDB Commit Allowed\00", align 1
 @.str.203 = private unnamed_addr constant [14 x i8] c"drda.rdbcmtok\00", align 1
-@drda_boolean_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 240, ptr @.str.759 }, %struct._value_string { i32 241, ptr @.str.760 }, %struct._value_string zeroinitializer], align 16
 @hf_drda_rtnsetstt = internal global i32 0, align 4
 @.str.204 = private unnamed_addr constant [21 x i8] c"Return SET Statement\00", align 1
 @.str.205 = private unnamed_addr constant [15 x i8] c"drda.rtnsetstt\00", align 1
@@ -385,7 +359,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_drda_uowdsp = internal global i32 0, align 4
 @.str.232 = private unnamed_addr constant [25 x i8] c"Unit of Work Disposition\00", align 1
 @.str.233 = private unnamed_addr constant [12 x i8] c"drda.uowdsp\00", align 1
-@drda_uowdsp_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.761 }, %struct._value_string { i32 2, ptr @.str.762 }, %struct._value_string zeroinitializer], align 16
 @hf_drda_rdbalwupd = internal global i32 0, align 4
 @.str.234 = private unnamed_addr constant [18 x i8] c"RDB Allow Updates\00", align 1
 @.str.235 = private unnamed_addr constant [15 x i8] c"drda.rdbalwupd\00", align 1
@@ -395,7 +368,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_drda_qryextdtasz = internal global i32 0, align 4
 @.str.238 = private unnamed_addr constant [29 x i8] c"Query Externalized Data Size\00", align 1
 @.str.239 = private unnamed_addr constant [17 x i8] c"drda.qryextdtasz\00", align 1
-@drda_qryextdtasz_vals = internal constant [2 x %struct._val64_string] [%struct._val64_string { i64 -1, ptr @.str.763 }, %struct._val64_string zeroinitializer], align 16
+@drda_qryextdtasz_vals = internal constant [2 x %struct._val64_string] [%struct._val64_string { i64 -1, ptr @.str.788 }, %struct._val64_string zeroinitializer], align 16
 @hf_drda_smldtasz = internal global i32 0, align 4
 @.str.240 = private unnamed_addr constant [27 x i8] c"Maximum Size of Small Data\00", align 1
 @.str.241 = private unnamed_addr constant [14 x i8] c"drda.smldtasz\00", align 1
@@ -411,7 +384,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_drda_qryattupd = internal global i32 0, align 4
 @.str.248 = private unnamed_addr constant [33 x i8] c"Query Attribute for Updatability\00", align 1
 @.str.249 = private unnamed_addr constant [15 x i8] c"drda.qryattupd\00", align 1
-@drda_qryattupd_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.764 }, %struct._value_string { i32 1, ptr @.str.765 }, %struct._value_string { i32 2, ptr @.str.766 }, %struct._value_string { i32 4, ptr @.str.767 }, %struct._value_string zeroinitializer], align 16
 @hf_drda_qryrowset = internal global i32 0, align 4
 @.str.250 = private unnamed_addr constant [18 x i8] c"Query Rowset Size\00", align 1
 @.str.251 = private unnamed_addr constant [15 x i8] c"drda.qryrowset\00", align 1
@@ -421,14 +393,12 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_drda_qryclsimp = internal global i32 0, align 4
 @.str.254 = private unnamed_addr constant [21 x i8] c"Query Close Implicit\00", align 1
 @.str.255 = private unnamed_addr constant [15 x i8] c"drda.qryclsimp\00", align 1
-@drda_qryclsimp_vals = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.768 }, %struct._value_string { i32 1, ptr @.str.769 }, %struct._value_string { i32 2, ptr @.str.770 }, %struct._value_string zeroinitializer], align 16
 @hf_drda_qryblkfct = internal global i32 0, align 4
 @.str.256 = private unnamed_addr constant [22 x i8] c"Query Blocking Factor\00", align 1
 @.str.257 = private unnamed_addr constant [15 x i8] c"drda.qryblkfct\00", align 1
 @hf_drda_maxrslcnt = internal global i32 0, align 4
 @.str.258 = private unnamed_addr constant [25 x i8] c"Maximum Result Set Count\00", align 1
 @.str.259 = private unnamed_addr constant [15 x i8] c"drda.maxrslcnt\00", align 1
-@drda_max_vals = internal constant [2 x %struct._value_string] [%struct._value_string { i32 -1, ptr @.str.771 }, %struct._value_string zeroinitializer], align 16
 @hf_drda_maxblkext = internal global i32 0, align 4
 @.str.260 = private unnamed_addr constant [31 x i8] c"Maximum Number of Extra Blocks\00", align 1
 @.str.261 = private unnamed_addr constant [15 x i8] c"drda.maxblkext\00", align 1
@@ -446,18 +416,15 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_drda_rslsetflg_extended = internal global i32 0, align 4
 @.str.270 = private unnamed_addr constant [9 x i8] c"Extended\00", align 1
 @.str.271 = private unnamed_addr constant [24 x i8] c"drda.rslsetflg.extended\00", align 1
-@drda_rslsetflg_extended_vals = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.772 }, %struct._value_string { i32 1, ptr @.str.773 }, %struct._value_string { i32 2, ptr @.str.774 }, %struct._value_string zeroinitializer], align 16
 @.str.272 = private unnamed_addr constant [56 x i8] c"Identifies the type of FD:OCA SQLDA descriptor returned\00", align 1
 @hf_drda_rslsetflg_reserved = internal global i32 0, align 4
 @.str.273 = private unnamed_addr constant [24 x i8] c"drda.rslsetflg.reserved\00", align 1
 @hf_drda_typsqlda = internal global i32 0, align 4
 @.str.274 = private unnamed_addr constant [28 x i8] c"Type of SQL Descriptor Area\00", align 1
 @.str.275 = private unnamed_addr constant [14 x i8] c"drda.typsqlda\00", align 1
-@drda_typsqlda_vals = internal constant [7 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.775 }, %struct._value_string { i32 1, ptr @.str.776 }, %struct._value_string { i32 2, ptr @.str.777 }, %struct._value_string { i32 3, ptr @.str.778 }, %struct._value_string { i32 4, ptr @.str.779 }, %struct._value_string { i32 5, ptr @.str.780 }, %struct._value_string zeroinitializer], align 16
 @hf_drda_outovropt = internal global i32 0, align 4
 @.str.276 = private unnamed_addr constant [23 x i8] c"Output Override Option\00", align 1
 @.str.277 = private unnamed_addr constant [15 x i8] c"drda.outovropt\00", align 1
-@drda_outovropt_vals = internal constant [4 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.781 }, %struct._value_string { i32 2, ptr @.str.782 }, %struct._value_string { i32 3, ptr @.str.783 }, %struct._value_string zeroinitializer], align 16
 @hf_drda_dyndtafmt = internal global i32 0, align 4
 @.str.278 = private unnamed_addr constant [20 x i8] c"Dynamic Data Format\00", align 1
 @.str.279 = private unnamed_addr constant [15 x i8] c"drda.dyndtafmt\00", align 1
@@ -479,7 +446,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_drda_sqludtgrp = internal global i32 0, align 4
 @ett_drda_sqldxgrp = internal global i32 0, align 4
 @ett_drda_sqldiaggrp = internal global i32 0, align 4
-@proto_register_drda.ei = internal global [2 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_drda_opcode_invalid_length, %struct.expert_field_info { ptr @.str.282, i32 117440512, i32 8388608, ptr @.str.283, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_drda_undecoded, %struct.expert_field_info { ptr @.str.284, i32 83886080, i32 4194304, ptr @.str.285, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_drda.ei = internal global [2 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_drda_opcode_invalid_length, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.282, i32 117440512, i32 8388608, ptr @.str.283, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_drda_undecoded, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.284, i32 83886080, i32 4194304, ptr @.str.285, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_drda_opcode_invalid_length = internal global %struct.expert_field zeroinitializer, align 4
 @.str.282 = private unnamed_addr constant [27 x i8] c"drda.opcode.invalid_length\00", align 1
 @.str.283 = private unnamed_addr constant [24 x i8] c"Invalid length detected\00", align 1
@@ -495,7 +462,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.290 = private unnamed_addr constant [10 x i8] c"desegment\00", align 1
 @.str.291 = private unnamed_addr constant [56 x i8] c"Reassemble DRDA messages spanning multiple TCP segments\00", align 1
 @.str.292 = private unnamed_addr constant [205 x i8] c"Whether the DRDA dissector should reassemble messages spanning multiple TCP segments. To use this option, you must also enable \22Allow subdissectors to reassemble TCP streams\22 in the TCP protocol settings.\00", align 1
-@drda_desegment = internal global i32 1, align 4
+@drda_desegment = internal global i8 1, align 1
 @.str.293 = private unnamed_addr constant [6 x i8] c"sqlam\00", align 1
 @.str.294 = private unnamed_addr constant [20 x i8] c"Default SQLAM Level\00", align 1
 @.str.295 = private unnamed_addr constant [149 x i8] c"Default SQL Application Manager Level in the absence of EXSATRD command. (Currently the only difference in handling is between values < 7 and >= 7.)\00", align 1
@@ -504,7 +471,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.297 = private unnamed_addr constant [18 x i8] c"Default TYPDEFNAM\00", align 1
 @.str.298 = private unnamed_addr constant [76 x i8] c"Data Type Definition to use in the absence of ACCRDB and ACCRDBRM commands.\00", align 1
 @drda_default_typdefnam = internal global i32 3, align 4
-@typdefnam_vals = internal constant [6 x %struct.enum_val_t] [%struct.enum_val_t { ptr @.str.784, ptr @.str.785, i32 1 }, %struct.enum_val_t { ptr @.str.786, ptr @.str.787, i32 2 }, %struct.enum_val_t { ptr @.str.788, ptr @.str.789, i32 3 }, %struct.enum_val_t { ptr @.str.790, ptr @.str.791, i32 4 }, %struct.enum_val_t { ptr @.str.792, ptr @.str.793, i32 5 }, %struct.enum_val_t zeroinitializer], align 16
 @.str.299 = private unnamed_addr constant [9 x i8] c"ccsidsbc\00", align 1
 @.str.300 = private unnamed_addr constant [45 x i8] c"Default Single-byte encoding for FD:OCA data\00", align 1
 @.str.301 = private unnamed_addr constant [102 x i8] c"Single-byte encoding to use for FD:OCA character data in the absence of CCSIDSBC TYPDEFOVR parameter.\00", align 1
@@ -523,895 +489,945 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.310 = private unnamed_addr constant [7 x i8] c"OBJDSS\00", align 1
 @.str.311 = private unnamed_addr constant [7 x i8] c"CMNDSS\00", align 1
 @.str.312 = private unnamed_addr constant [9 x i8] c"NORPYDSS\00", align 1
-@drda_opcode_abbr = internal constant [202 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.314 }, %struct._value_string { i32 12, ptr @.str.315 }, %struct._value_string { i32 16, ptr @.str.316 }, %struct._value_string { i32 47, ptr @.str.317 }, %struct._value_string { i32 53, ptr @.str.318 }, %struct._value_string { i32 100, ptr @.str.319 }, %struct._value_string { i32 4161, ptr @.str.320 }, %struct._value_string { i32 4181, ptr @.str.321 }, %struct._value_string { i32 4201, ptr @.str.322 }, %struct._value_string { i32 4205, ptr @.str.323 }, %struct._value_string { i32 4206, ptr @.str.324 }, %struct._value_string { i32 4207, ptr @.str.325 }, %struct._value_string { i32 4383, ptr @.str.326 }, %struct._value_string { i32 4391, ptr @.str.327 }, %struct._value_string { i32 4397, ptr @.str.328 }, %struct._value_string { i32 4398, ptr @.str.329 }, %struct._value_string { i32 4415, ptr @.str.330 }, %struct._value_string { i32 4420, ptr @.str.331 }, %struct._value_string { i32 4423, ptr @.str.332 }, %struct._value_string { i32 4425, ptr @.str.333 }, %struct._value_string { i32 4426, ptr @.str.334 }, %struct._value_string { i32 4435, ptr @.str.335 }, %struct._value_string { i32 4442, ptr @.str.336 }, %struct._value_string { i32 4445, ptr @.str.337 }, %struct._value_string { i32 4446, ptr @.str.338 }, %struct._value_string { i32 4461, ptr @.str.339 }, %struct._value_string { i32 4502, ptr @.str.340 }, %struct._value_string { i32 4507, ptr @.str.341 }, %struct._value_string { i32 4508, ptr @.str.342 }, %struct._value_string { i32 4509, ptr @.str.343 }, %struct._value_string { i32 4510, ptr @.str.344 }, %struct._value_string { i32 4511, ptr @.str.345 }, %struct._value_string { i32 4512, ptr @.str.346 }, %struct._value_string { i32 4513, ptr @.str.347 }, %struct._value_string { i32 4514, ptr @.str.348 }, %struct._value_string { i32 4516, ptr @.str.349 }, %struct._value_string { i32 4532, ptr @.str.350 }, %struct._value_string { i32 4572, ptr @.str.351 }, %struct._value_string { i32 4574, ptr @.str.352 }, %struct._value_string { i32 4624, ptr @.str.353 }, %struct._value_string { i32 4632, ptr @.str.354 }, %struct._value_string { i32 4633, ptr @.str.355 }, %struct._value_string { i32 4636, ptr @.str.356 }, %struct._value_string { i32 4658, ptr @.str.357 }, %struct._value_string { i32 4659, ptr @.str.358 }, %struct._value_string { i32 4677, ptr @.str.359 }, %struct._value_string { i32 4683, ptr @.str.360 }, %struct._value_string { i32 4684, ptr @.str.361 }, %struct._value_string { i32 4688, ptr @.str.362 }, %struct._value_string { i32 4689, ptr @.str.363 }, %struct._value_string { i32 4690, ptr @.str.364 }, %struct._value_string { i32 4691, ptr @.str.365 }, %struct._value_string { i32 4692, ptr @.str.366 }, %struct._value_string { i32 4703, ptr @.str.367 }, %struct._value_string { i32 5123, ptr @.str.368 }, %struct._value_string { i32 5124, ptr @.str.369 }, %struct._value_string { i32 5180, ptr @.str.370 }, %struct._value_string { i32 5184, ptr @.str.371 }, %struct._value_string { i32 5187, ptr @.str.372 }, %struct._value_string { i32 5188, ptr @.str.373 }, %struct._value_string { i32 5208, ptr @.str.374 }, %struct._value_string { i32 5235, ptr @.str.375 }, %struct._value_string { i32 5236, ptr @.str.376 }, %struct._value_string { i32 5242, ptr @.str.377 }, %struct._value_string { i32 5244, ptr @.str.378 }, %struct._value_string { i32 5292, ptr @.str.379 }, %struct._value_string { i32 5312, ptr @.str.380 }, %struct._value_string { i32 5313, ptr @.str.381 }, %struct._value_string { i32 5324, ptr @.str.382 }, %struct._value_string { i32 6149, ptr @.str.383 }, %struct._value_string { i32 6400, ptr @.str.384 }, %struct._value_string { i32 6401, ptr @.str.385 }, %struct._value_string { i32 6408, ptr @.str.386 }, %struct._value_string { i32 6419, ptr @.str.387 }, %struct._value_string { i32 7168, ptr @.str.388 }, %struct._value_string { i32 7169, ptr @.str.389 }, %struct._value_string { i32 7172, ptr @.str.390 }, %struct._value_string { i32 7176, ptr @.str.391 }, %struct._value_string { i32 8193, ptr @.str.392 }, %struct._value_string { i32 8194, ptr @.str.393 }, %struct._value_string { i32 8196, ptr @.str.394 }, %struct._value_string { i32 8197, ptr @.str.395 }, %struct._value_string { i32 8198, ptr @.str.396 }, %struct._value_string { i32 8199, ptr @.str.397 }, %struct._value_string { i32 8200, ptr @.str.398 }, %struct._value_string { i32 8201, ptr @.str.399 }, %struct._value_string { i32 8202, ptr @.str.400 }, %struct._value_string { i32 8203, ptr @.str.401 }, %struct._value_string { i32 8204, ptr @.str.402 }, %struct._value_string { i32 8205, ptr @.str.403 }, %struct._value_string { i32 8206, ptr @.str.404 }, %struct._value_string { i32 8207, ptr @.str.405 }, %struct._value_string { i32 8208, ptr @.str.406 }, %struct._value_string { i32 8210, ptr @.str.407 }, %struct._value_string { i32 8212, ptr @.str.408 }, %struct._value_string { i32 8449, ptr @.str.409 }, %struct._value_string { i32 8450, ptr @.str.410 }, %struct._value_string { i32 8451, ptr @.str.411 }, %struct._value_string { i32 8452, ptr @.str.412 }, %struct._value_string { i32 8453, ptr @.str.413 }, %struct._value_string { i32 8456, ptr @.str.414 }, %struct._value_string { i32 8457, ptr @.str.415 }, %struct._value_string { i32 8458, ptr @.str.416 }, %struct._value_string { i32 8460, ptr @.str.417 }, %struct._value_string { i32 8461, ptr @.str.418 }, %struct._value_string { i32 8462, ptr @.str.419 }, %struct._value_string { i32 8463, ptr @.str.420 }, %struct._value_string { i32 8464, ptr @.str.421 }, %struct._value_string { i32 8465, ptr @.str.422 }, %struct._value_string { i32 8466, ptr @.str.423 }, %struct._value_string { i32 8467, ptr @.str.424 }, %struct._value_string { i32 8468, ptr @.str.425 }, %struct._value_string { i32 8469, ptr @.str.426 }, %struct._value_string { i32 8470, ptr @.str.427 }, %struct._value_string { i32 8474, ptr @.str.428 }, %struct._value_string { i32 8479, ptr @.str.429 }, %struct._value_string { i32 8480, ptr @.str.430 }, %struct._value_string { i32 8481, ptr @.str.431 }, %struct._value_string { i32 8485, ptr @.str.432 }, %struct._value_string { i32 8498, ptr @.str.433 }, %struct._value_string { i32 8500, ptr @.str.434 }, %struct._value_string { i32 8501, ptr @.str.435 }, %struct._value_string { i32 8502, ptr @.str.436 }, %struct._value_string { i32 8503, ptr @.str.437 }, %struct._value_string { i32 8504, ptr @.str.438 }, %struct._value_string { i32 8505, ptr @.str.439 }, %struct._value_string { i32 8506, ptr @.str.440 }, %struct._value_string { i32 8507, ptr @.str.441 }, %struct._value_string { i32 8508, ptr @.str.442 }, %struct._value_string { i32 8509, ptr @.str.443 }, %struct._value_string { i32 8510, ptr @.str.444 }, %struct._value_string { i32 8512, ptr @.str.445 }, %struct._value_string { i32 8513, ptr @.str.446 }, %struct._value_string { i32 8514, ptr @.str.447 }, %struct._value_string { i32 8518, ptr @.str.448 }, %struct._value_string { i32 8519, ptr @.str.449 }, %struct._value_string { i32 8520, ptr @.str.450 }, %struct._value_string { i32 8521, ptr @.str.451 }, %struct._value_string { i32 8523, ptr @.str.452 }, %struct._value_string { i32 8528, ptr @.str.453 }, %struct._value_string { i32 8530, ptr @.str.454 }, %struct._value_string { i32 8531, ptr @.str.455 }, %struct._value_string { i32 8532, ptr @.str.456 }, %struct._value_string { i32 8533, ptr @.str.457 }, %struct._value_string { i32 8534, ptr @.str.458 }, %struct._value_string { i32 8535, ptr @.str.459 }, %struct._value_string { i32 8539, ptr @.str.460 }, %struct._value_string { i32 8541, ptr @.str.461 }, %struct._value_string { i32 8542, ptr @.str.462 }, %struct._value_string { i32 8543, ptr @.str.463 }, %struct._value_string { i32 8544, ptr @.str.464 }, %struct._value_string { i32 8705, ptr @.str.465 }, %struct._value_string { i32 8706, ptr @.str.466 }, %struct._value_string { i32 8708, ptr @.str.467 }, %struct._value_string { i32 8709, ptr @.str.468 }, %struct._value_string { i32 8710, ptr @.str.469 }, %struct._value_string { i32 8711, ptr @.str.470 }, %struct._value_string { i32 8712, ptr @.str.471 }, %struct._value_string { i32 8713, ptr @.str.472 }, %struct._value_string { i32 8714, ptr @.str.473 }, %struct._value_string { i32 8715, ptr @.str.474 }, %struct._value_string { i32 8716, ptr @.str.475 }, %struct._value_string { i32 8717, ptr @.str.476 }, %struct._value_string { i32 8718, ptr @.str.477 }, %struct._value_string { i32 8719, ptr @.str.478 }, %struct._value_string { i32 8721, ptr @.str.479 }, %struct._value_string { i32 8722, ptr @.str.480 }, %struct._value_string { i32 8723, ptr @.str.481 }, %struct._value_string { i32 8728, ptr @.str.482 }, %struct._value_string { i32 8729, ptr @.str.483 }, %struct._value_string { i32 8730, ptr @.str.484 }, %struct._value_string { i32 8733, ptr @.str.485 }, %struct._value_string { i32 8741, ptr @.str.486 }, %struct._value_string { i32 8907, ptr @.str.487 }, %struct._value_string { i32 9223, ptr @.str.488 }, %struct._value_string { i32 9224, ptr @.str.489 }, %struct._value_string { i32 9227, ptr @.str.490 }, %struct._value_string { i32 9230, ptr @.str.491 }, %struct._value_string { i32 9231, ptr @.str.492 }, %struct._value_string { i32 9232, ptr @.str.493 }, %struct._value_string { i32 9233, ptr @.str.494 }, %struct._value_string { i32 9234, ptr @.str.495 }, %struct._value_string { i32 9235, ptr @.str.496 }, %struct._value_string { i32 9236, ptr @.str.497 }, %struct._value_string { i32 9237, ptr @.str.498 }, %struct._value_string { i32 9239, ptr @.str.499 }, %struct._value_string { i32 9240, ptr @.str.500 }, %struct._value_string { i32 9241, ptr @.str.501 }, %struct._value_string { i32 9242, ptr @.str.502 }, %struct._value_string { i32 9243, ptr @.str.503 }, %struct._value_string { i32 9266, ptr @.str.504 }, %struct._value_string { i32 9267, ptr @.str.505 }, %struct._value_string { i32 9268, ptr @.str.506 }, %struct._value_string { i32 9269, ptr @.str.507 }, %struct._value_string { i32 9281, ptr @.str.508 }, %struct._value_string { i32 9282, ptr @.str.509 }, %struct._value_string { i32 9283, ptr @.str.510 }, %struct._value_string { i32 9284, ptr @.str.511 }, %struct._value_string { i32 9285, ptr @.str.512 }, %struct._value_string { i32 9294, ptr @.str.513 }, %struct._value_string { i32 9296, ptr @.str.514 }, %struct._value_string zeroinitializer], align 16
-@.str.313 = private unnamed_addr constant [17 x i8] c"drda_opcode_abbr\00", align 1
-@.str.314 = private unnamed_addr constant [5 x i8] c"DATA\00", align 1
-@.str.315 = private unnamed_addr constant [7 x i8] c"CODPNT\00", align 1
-@.str.316 = private unnamed_addr constant [7 x i8] c"FDODSC\00", align 1
-@.str.317 = private unnamed_addr constant [10 x i8] c"TYPDEFNAM\00", align 1
-@.str.318 = private unnamed_addr constant [10 x i8] c"TYPDEFOVR\00", align 1
-@.str.319 = private unnamed_addr constant [9 x i8] c"CODPNTDR\00", align 1
-@.str.320 = private unnamed_addr constant [7 x i8] c"EXCSAT\00", align 1
-@.str.321 = private unnamed_addr constant [8 x i8] c"SYNCCTL\00", align 1
-@.str.322 = private unnamed_addr constant [8 x i8] c"SYNCRSY\00", align 1
-@.str.323 = private unnamed_addr constant [7 x i8] c"ACCSEC\00", align 1
-@.str.324 = private unnamed_addr constant [7 x i8] c"SECCHK\00", align 1
-@.str.325 = private unnamed_addr constant [8 x i8] c"SYNCLOG\00", align 1
-@.str.326 = private unnamed_addr constant [7 x i8] c"RSCTYP\00", align 1
-@.str.327 = private unnamed_addr constant [7 x i8] c"RSNCOD\00", align 1
-@.str.328 = private unnamed_addr constant [7 x i8] c"RSCNAM\00", align 1
-@.str.329 = private unnamed_addr constant [6 x i8] c"PRDID\00", align 1
-@.str.330 = private unnamed_addr constant [9 x i8] c"PRCCNVCD\00", align 1
-@.str.331 = private unnamed_addr constant [7 x i8] c"VRSNAM\00", align 1
-@.str.332 = private unnamed_addr constant [9 x i8] c"SRVCLSNM\00", align 1
-@.str.333 = private unnamed_addr constant [7 x i8] c"SVRCOD\00", align 1
-@.str.334 = private unnamed_addr constant [9 x i8] c"SYNERRCD\00", align 1
-@.str.335 = private unnamed_addr constant [7 x i8] c"SRVDGN\00", align 1
-@.str.336 = private unnamed_addr constant [9 x i8] c"SRVRLSLV\00", align 1
-@.str.337 = private unnamed_addr constant [7 x i8] c"SPVNAM\00", align 1
-@.str.338 = private unnamed_addr constant [7 x i8] c"EXTNAM\00", align 1
-@.str.339 = private unnamed_addr constant [7 x i8] c"SRVNAM\00", align 1
-@.str.340 = private unnamed_addr constant [9 x i8] c"SECMGRNM\00", align 1
-@.str.341 = private unnamed_addr constant [9 x i8] c"DEPERRCD\00", align 1
-@.str.342 = private unnamed_addr constant [9 x i8] c"CCSIDSBC\00", align 1
-@.str.343 = private unnamed_addr constant [9 x i8] c"CCSIDDBC\00", align 1
-@.str.344 = private unnamed_addr constant [9 x i8] c"CCSIDMBC\00", align 1
-@.str.345 = private unnamed_addr constant [8 x i8] c"RLSCONV\00", align 1
-@.str.346 = private unnamed_addr constant [6 x i8] c"USRID\00", align 1
-@.str.347 = private unnamed_addr constant [9 x i8] c"PASSWORD\00", align 1
-@.str.348 = private unnamed_addr constant [7 x i8] c"SECMEC\00", align 1
-@.str.349 = private unnamed_addr constant [9 x i8] c"SECCHKCD\00", align 1
-@.str.350 = private unnamed_addr constant [9 x i8] c"SVCERRNO\00", align 1
-@.str.351 = private unnamed_addr constant [7 x i8] c"SECTKN\00", align 1
-@.str.352 = private unnamed_addr constant [12 x i8] c"NEWPASSWORD\00", align 1
-@.str.353 = private unnamed_addr constant [9 x i8] c"MGRLVLRM\00", align 1
-@.str.354 = private unnamed_addr constant [9 x i8] c"MGRDEPRM\00", align 1
-@.str.355 = private unnamed_addr constant [9 x i8] c"SECCHKRM\00", align 1
-@.str.356 = private unnamed_addr constant [9 x i8] c"CMDATHRM\00", align 1
-@.str.357 = private unnamed_addr constant [9 x i8] c"AGNPRMRM\00", align 1
-@.str.358 = private unnamed_addr constant [9 x i8] c"RSCLMTRM\00", align 1
-@.str.359 = private unnamed_addr constant [9 x i8] c"PRCCNVRM\00", align 1
-@.str.360 = private unnamed_addr constant [9 x i8] c"CMDCMPRM\00", align 1
-@.str.361 = private unnamed_addr constant [9 x i8] c"SYNTAXRM\00", align 1
-@.str.362 = private unnamed_addr constant [9 x i8] c"CMDNSPRM\00", align 1
-@.str.363 = private unnamed_addr constant [9 x i8] c"PRMNSPRM\00", align 1
-@.str.364 = private unnamed_addr constant [9 x i8] c"VALNSPRM\00", align 1
-@.str.365 = private unnamed_addr constant [9 x i8] c"OBJNSPRM\00", align 1
-@.str.366 = private unnamed_addr constant [9 x i8] c"CMDCHKRM\00", align 1
-@.str.367 = private unnamed_addr constant [9 x i8] c"TRGNSPRM\00", align 1
-@.str.368 = private unnamed_addr constant [6 x i8] c"AGENT\00", align 1
-@.str.369 = private unnamed_addr constant [9 x i8] c"MGRLVLLS\00", align 1
-@.str.370 = private unnamed_addr constant [11 x i8] c"SUPERVISOR\00", align 1
-@.str.371 = private unnamed_addr constant [7 x i8] c"SECMGR\00", align 1
-@.str.372 = private unnamed_addr constant [9 x i8] c"EXCSATRD\00", align 1
-@.str.373 = private unnamed_addr constant [8 x i8] c"CMNAPPC\00", align 1
-@.str.374 = private unnamed_addr constant [11 x i8] c"DICTIONARY\00", align 1
-@.str.375 = private unnamed_addr constant [8 x i8] c"MGRLVLN\00", align 1
-@.str.376 = private unnamed_addr constant [9 x i8] c"CMNTCPIP\00", align 1
-@.str.377 = private unnamed_addr constant [7 x i8] c"FDODTA\00", align 1
-@.str.378 = private unnamed_addr constant [10 x i8] c"CMNSYNCPT\00", align 1
-@.str.379 = private unnamed_addr constant [9 x i8] c"ACCSECRD\00", align 1
-@.str.380 = private unnamed_addr constant [10 x i8] c"SYNCPTMGR\00", align 1
-@.str.381 = private unnamed_addr constant [9 x i8] c"RSYNCMGR\00", align 1
-@.str.382 = private unnamed_addr constant [9 x i8] c"CCSIDMGR\00", align 1
-@.str.383 = private unnamed_addr constant [7 x i8] c"SNDPKT\00", align 1
-@.str.384 = private unnamed_addr constant [8 x i8] c"MONITOR\00", align 1
-@.str.385 = private unnamed_addr constant [6 x i8] c"ETIME\00", align 1
-@.str.386 = private unnamed_addr constant [9 x i8] c"RESPKTSZ\00", align 1
-@.str.387 = private unnamed_addr constant [9 x i8] c"CCSIDXML\00", align 1
-@.str.388 = private unnamed_addr constant [10 x i8] c"MONITORRD\00", align 1
-@.str.389 = private unnamed_addr constant [6 x i8] c"XAMGR\00", align 1
-@.str.390 = private unnamed_addr constant [7 x i8] c"PKTOBJ\00", align 1
-@.str.391 = private unnamed_addr constant [11 x i8] c"UNICODEMGR\00", align 1
-@.str.392 = private unnamed_addr constant [7 x i8] c"ACCRDB\00", align 1
-@.str.393 = private unnamed_addr constant [7 x i8] c"BGNBND\00", align 1
-@.str.394 = private unnamed_addr constant [10 x i8] c"BNDSQLSTT\00", align 1
-@.str.395 = private unnamed_addr constant [7 x i8] c"CLSQRY\00", align 1
-@.str.396 = private unnamed_addr constant [7 x i8] c"CNTQRY\00", align 1
-@.str.397 = private unnamed_addr constant [7 x i8] c"DRPPKG\00", align 1
-@.str.398 = private unnamed_addr constant [10 x i8] c"DSCSQLSTT\00", align 1
-@.str.399 = private unnamed_addr constant [7 x i8] c"ENDBND\00", align 1
-@.str.400 = private unnamed_addr constant [10 x i8] c"EXCSQLIMM\00", align 1
-@.str.401 = private unnamed_addr constant [10 x i8] c"EXCSQLSTT\00", align 1
-@.str.402 = private unnamed_addr constant [7 x i8] c"OPNQRY\00", align 1
-@.str.403 = private unnamed_addr constant [10 x i8] c"PRPSQLSTT\00", align 1
-@.str.404 = private unnamed_addr constant [7 x i8] c"RDBCMM\00", align 1
-@.str.405 = private unnamed_addr constant [10 x i8] c"RDBRLLBCK\00", align 1
-@.str.406 = private unnamed_addr constant [7 x i8] c"REBIND\00", align 1
-@.str.407 = private unnamed_addr constant [10 x i8] c"DSCRDBTBL\00", align 1
-@.str.408 = private unnamed_addr constant [10 x i8] c"EXCSQLSET\00", align 1
-@.str.409 = private unnamed_addr constant [9 x i8] c"DSCERRCD\00", align 1
-@.str.410 = private unnamed_addr constant [10 x i8] c"QRYPRCTYP\00", align 1
-@.str.411 = private unnamed_addr constant [10 x i8] c"RDBINTTKN\00", align 1
-@.str.412 = private unnamed_addr constant [7 x i8] c"PRDDTA\00", align 1
-@.str.413 = private unnamed_addr constant [9 x i8] c"RDBCMTOK\00", align 1
-@.str.414 = private unnamed_addr constant [9 x i8] c"RDBCOLID\00", align 1
-@.str.415 = private unnamed_addr constant [6 x i8] c"PKGID\00", align 1
-@.str.416 = private unnamed_addr constant [7 x i8] c"PKGNAM\00", align 1
-@.str.417 = private unnamed_addr constant [6 x i8] c"PKGSN\00", align 1
-@.str.418 = private unnamed_addr constant [10 x i8] c"PKGCNSTKN\00", align 1
-@.str.419 = private unnamed_addr constant [10 x i8] c"RTNSETSTT\00", align 1
-@.str.420 = private unnamed_addr constant [9 x i8] c"RDBACCCL\00", align 1
-@.str.421 = private unnamed_addr constant [7 x i8] c"RDBNAM\00", align 1
-@.str.422 = private unnamed_addr constant [7 x i8] c"OUTEXP\00", align 1
-@.str.423 = private unnamed_addr constant [9 x i8] c"PKGNAMCT\00", align 1
-@.str.424 = private unnamed_addr constant [10 x i8] c"PKGNAMCSN\00", align 1
-@.str.425 = private unnamed_addr constant [9 x i8] c"QRYBLKSZ\00", align 1
-@.str.426 = private unnamed_addr constant [7 x i8] c"UOWDSP\00", align 1
-@.str.427 = private unnamed_addr constant [9 x i8] c"RTNSQLDA\00", align 1
-@.str.428 = private unnamed_addr constant [10 x i8] c"RDBALWUPD\00", align 1
-@.str.429 = private unnamed_addr constant [10 x i8] c"SQLCSRHLD\00", align 1
-@.str.430 = private unnamed_addr constant [10 x i8] c"STTSTRDEL\00", align 1
-@.str.431 = private unnamed_addr constant [10 x i8] c"STTDECDEL\00", align 1
-@.str.432 = private unnamed_addr constant [10 x i8] c"PKGDFTCST\00", align 1
-@.str.433 = private unnamed_addr constant [10 x i8] c"QRYBLKCTL\00", align 1
-@.str.434 = private unnamed_addr constant [12 x i8] c"QRYEXTDTASZ\00", align 1
-@.str.435 = private unnamed_addr constant [7 x i8] c"CRRTKN\00", align 1
-@.str.436 = private unnamed_addr constant [9 x i8] c"SMLDTASZ\00", align 1
-@.str.437 = private unnamed_addr constant [9 x i8] c"MEDDTASZ\00", align 1
-@.str.438 = private unnamed_addr constant [7 x i8] c"PRCNAM\00", align 1
-@.str.439 = private unnamed_addr constant [9 x i8] c"PKGSNLST\00", align 1
-@.str.440 = private unnamed_addr constant [7 x i8] c"NBRROW\00", align 1
-@.str.441 = private unnamed_addr constant [9 x i8] c"TRGDFTRT\00", align 1
-@.str.442 = private unnamed_addr constant [10 x i8] c"QRYRELSCR\00", align 1
-@.str.443 = private unnamed_addr constant [10 x i8] c"QRYROWNBR\00", align 1
-@.str.444 = private unnamed_addr constant [10 x i8] c"QRYRFRTBL\00", align 1
-@.str.445 = private unnamed_addr constant [10 x i8] c"MAXRSLCNT\00", align 1
-@.str.446 = private unnamed_addr constant [10 x i8] c"MAXBLKEXT\00", align 1
-@.str.447 = private unnamed_addr constant [10 x i8] c"RSLSETFLG\00", align 1
-@.str.448 = private unnamed_addr constant [9 x i8] c"TYPSQLDA\00", align 1
-@.str.449 = private unnamed_addr constant [10 x i8] c"OUTOVROPT\00", align 1
-@.str.450 = private unnamed_addr constant [10 x i8] c"RTNEXTDTA\00", align 1
-@.str.451 = private unnamed_addr constant [10 x i8] c"QRYATTSCR\00", align 1
-@.str.452 = private unnamed_addr constant [10 x i8] c"DYNDTAFMT\00", align 1
-@.str.453 = private unnamed_addr constant [10 x i8] c"QRYATTUPD\00", align 1
-@.str.454 = private unnamed_addr constant [10 x i8] c"QRYSCRORN\00", align 1
-@.str.455 = private unnamed_addr constant [10 x i8] c"QRYROWSNS\00", align 1
-@.str.456 = private unnamed_addr constant [10 x i8] c"QRYBLKRST\00", align 1
-@.str.457 = private unnamed_addr constant [10 x i8] c"QRYRTNDTA\00", align 1
-@.str.458 = private unnamed_addr constant [10 x i8] c"QRYROWSET\00", align 1
-@.str.459 = private unnamed_addr constant [10 x i8] c"QRYATTSNS\00", align 1
-@.str.460 = private unnamed_addr constant [9 x i8] c"QRYINSID\00", align 1
-@.str.461 = private unnamed_addr constant [10 x i8] c"QRYCLSIMP\00", align 1
-@.str.462 = private unnamed_addr constant [10 x i8] c"QRYCLSRLS\00", align 1
-@.str.463 = private unnamed_addr constant [10 x i8] c"QRYBLKFCT\00", align 1
-@.str.464 = private unnamed_addr constant [8 x i8] c"DIAGLVL\00", align 1
-@.str.465 = private unnamed_addr constant [9 x i8] c"ACCRDBRM\00", align 1
-@.str.466 = private unnamed_addr constant [9 x i8] c"QRYNOPRM\00", align 1
-@.str.467 = private unnamed_addr constant [9 x i8] c"RDBNACRM\00", align 1
-@.str.468 = private unnamed_addr constant [9 x i8] c"OPNQRYRM\00", align 1
-@.str.469 = private unnamed_addr constant [9 x i8] c"PKGBNARM\00", align 1
-@.str.470 = private unnamed_addr constant [9 x i8] c"RDBACCRM\00", align 1
-@.str.471 = private unnamed_addr constant [9 x i8] c"BGNBNDRM\00", align 1
-@.str.472 = private unnamed_addr constant [9 x i8] c"PKGBPARM\00", align 1
-@.str.473 = private unnamed_addr constant [9 x i8] c"DSCINVRM\00", align 1
-@.str.474 = private unnamed_addr constant [9 x i8] c"ENDQRYRM\00", align 1
-@.str.475 = private unnamed_addr constant [9 x i8] c"ENDUOWRM\00", align 1
-@.str.476 = private unnamed_addr constant [9 x i8] c"ABNUOWRM\00", align 1
-@.str.477 = private unnamed_addr constant [9 x i8] c"DTAMCHRM\00", align 1
-@.str.478 = private unnamed_addr constant [9 x i8] c"QRYPOPRM\00", align 1
-@.str.479 = private unnamed_addr constant [9 x i8] c"RDBNFNRM\00", align 1
-@.str.480 = private unnamed_addr constant [9 x i8] c"OPNQFLRM\00", align 1
-@.str.481 = private unnamed_addr constant [9 x i8] c"SQLERRRM\00", align 1
-@.str.482 = private unnamed_addr constant [9 x i8] c"RDBUPDRM\00", align 1
-@.str.483 = private unnamed_addr constant [9 x i8] c"RSLSETRM\00", align 1
-@.str.484 = private unnamed_addr constant [9 x i8] c"RDBAFLRM\00", align 1
-@.str.485 = private unnamed_addr constant [9 x i8] c"CMDVLTRM\00", align 1
-@.str.486 = private unnamed_addr constant [9 x i8] c"CMMRQSRM\00", align 1
-@.str.487 = private unnamed_addr constant [9 x i8] c"RDBATHRM\00", align 1
-@.str.488 = private unnamed_addr constant [6 x i8] c"SQLAM\00", align 1
-@.str.489 = private unnamed_addr constant [8 x i8] c"SQLCARD\00", align 1
-@.str.490 = private unnamed_addr constant [9 x i8] c"SQLCINRD\00", align 1
-@.str.491 = private unnamed_addr constant [9 x i8] c"SQLRSLRD\00", align 1
-@.str.492 = private unnamed_addr constant [4 x i8] c"RDB\00", align 1
-@.str.493 = private unnamed_addr constant [10 x i8] c"FRCFIXROW\00", align 1
-@.str.494 = private unnamed_addr constant [8 x i8] c"SQLDARD\00", align 1
-@.str.495 = private unnamed_addr constant [7 x i8] c"SQLDTA\00", align 1
-@.str.496 = private unnamed_addr constant [9 x i8] c"SQLDTARD\00", align 1
-@.str.497 = private unnamed_addr constant [7 x i8] c"SQLSTT\00", align 1
-@.str.498 = private unnamed_addr constant [7 x i8] c"OUTOVR\00", align 1
-@.str.499 = private unnamed_addr constant [10 x i8] c"LMTBLKPRC\00", align 1
-@.str.500 = private unnamed_addr constant [10 x i8] c"FIXROWPRC\00", align 1
-@.str.501 = private unnamed_addr constant [10 x i8] c"SQLSTTVRB\00", align 1
-@.str.502 = private unnamed_addr constant [7 x i8] c"QRYDSC\00", align 1
-@.str.503 = private unnamed_addr constant [7 x i8] c"QRYDTA\00", align 1
-@.str.504 = private unnamed_addr constant [10 x i8] c"CSTSYSDFT\00", align 1
-@.str.505 = private unnamed_addr constant [8 x i8] c"CSTBITS\00", align 1
-@.str.506 = private unnamed_addr constant [8 x i8] c"CSTSBCS\00", align 1
-@.str.507 = private unnamed_addr constant [8 x i8] c"CSTMBCS\00", align 1
-@.str.508 = private unnamed_addr constant [10 x i8] c"ISOLVLCHG\00", align 1
-@.str.509 = private unnamed_addr constant [9 x i8] c"ISOLVLCS\00", align 1
-@.str.510 = private unnamed_addr constant [10 x i8] c"ISOLVLALL\00", align 1
-@.str.511 = private unnamed_addr constant [9 x i8] c"ISOLVLRR\00", align 1
-@.str.512 = private unnamed_addr constant [9 x i8] c"ISOLVLNC\00", align 1
-@.str.513 = private unnamed_addr constant [7 x i8] c"SRVLST\00", align 1
-@.str.514 = private unnamed_addr constant [8 x i8] c"SQLATTR\00", align 1
-@.str.515 = private unnamed_addr constant [28 x i8] c"Complete data value follows\00", align 1
-@.str.516 = private unnamed_addr constant [51 x i8] c"Truncation has occurred (should not occur in DRDA)\00", align 1
-@.str.517 = private unnamed_addr constant [32 x i8] c"Reserved; no data value follows\00", align 1
-@.str.518 = private unnamed_addr constant [40 x i8] c"Undefined result; no data value follows\00", align 1
-@.str.519 = private unnamed_addr constant [28 x i8] c"NULL; no data value follows\00", align 1
-@.str.520 = private unnamed_addr constant [61 x i8] c"No cursor exists, or cursor defined without WITH HOLD clause\00", align 1
-@.str.521 = private unnamed_addr constant [38 x i8] c"Cursor defined using WITH HOLD clause\00", align 1
-@.str.522 = private unnamed_addr constant [53 x i8] c"Unknown if cursor was defined using WITH HOLD clause\00", align 1
-@.str.523 = private unnamed_addr constant [25 x i8] c"Statement is not a query\00", align 1
-@.str.524 = private unnamed_addr constant [51 x i8] c"Cursor defined using the WITH RETURN CLIENT clause\00", align 1
-@.str.525 = private unnamed_addr constant [51 x i8] c"Cursor defined using the WITH RETURN CALLER clause\00", align 1
-@.str.526 = private unnamed_addr constant [96 x i8] c"Unknown if cursor is intended to be used as a result set that will be returned from a procedure\00", align 1
-@.str.527 = private unnamed_addr constant [36 x i8] c"No cursor exists, or not scrollable\00", align 1
-@.str.528 = private unnamed_addr constant [35 x i8] c"Cursor defined using SCROLL clause\00", align 1
-@.str.529 = private unnamed_addr constant [41 x i8] c"Cursor exists, but scrollability unknown\00", align 1
-@.str.530 = private unnamed_addr constant [17 x i8] c"No cursor exists\00", align 1
-@.str.531 = private unnamed_addr constant [36 x i8] c"Cursor defined as SENSITIVE DYNAMIC\00", align 1
-@.str.532 = private unnamed_addr constant [35 x i8] c"Cursor defined as SENSITIVE STATIC\00", align 1
-@.str.533 = private unnamed_addr constant [30 x i8] c"Cursor defined as INSENSITIVE\00", align 1
-@.str.534 = private unnamed_addr constant [69 x i8] c"Cursor defined with PARTIAL SENSITIVITY and STATIC size and ordering\00", align 1
-@.str.535 = private unnamed_addr constant [70 x i8] c"Cursor defined with PARTIAL SENSITIVITY and DYNAMIC size and ordering\00", align 1
-@.str.536 = private unnamed_addr constant [39 x i8] c"Cursor exists, but sensitivity unknown\00", align 1
-@.str.537 = private unnamed_addr constant [16 x i8] c"ALLOCATE CURSOR\00", align 1
-@.str.538 = private unnamed_addr constant [20 x i8] c"ALLOCATE DESCRIPTOR\00", align 1
-@.str.539 = private unnamed_addr constant [13 x i8] c"ALTER DOMAIN\00", align 1
-@.str.540 = private unnamed_addr constant [12 x i8] c"ALTER TABLE\00", align 1
-@.str.541 = private unnamed_addr constant [17 x i8] c"CREATE ASSERTION\00", align 1
-@.str.542 = private unnamed_addr constant [5 x i8] c"CALL\00", align 1
-@.str.543 = private unnamed_addr constant [21 x i8] c"CREATE CHARACTER SET\00", align 1
-@.str.544 = private unnamed_addr constant [13 x i8] c"CLOSE CURSOR\00", align 1
-@.str.545 = private unnamed_addr constant [17 x i8] c"CREATE COLLATION\00", align 1
-@.str.546 = private unnamed_addr constant [12 x i8] c"COMMIT WORK\00", align 1
-@.str.547 = private unnamed_addr constant [8 x i8] c"CONNECT\00", align 1
-@.str.548 = private unnamed_addr constant [22 x i8] c"DEALLOCATE DESCRIPTOR\00", align 1
-@.str.549 = private unnamed_addr constant [19 x i8] c"DEALLOCATE PREPARE\00", align 1
-@.str.550 = private unnamed_addr constant [14 x i8] c"ALTER ROUTINE\00", align 1
-@.str.551 = private unnamed_addr constant [14 x i8] c"DELETE CURSOR\00", align 1
-@.str.552 = private unnamed_addr constant [13 x i8] c"DELETE WHERE\00", align 1
-@.str.553 = private unnamed_addr constant [9 x i8] c"DESCRIBE\00", align 1
-@.str.554 = private unnamed_addr constant [7 x i8] c"SELECT\00", align 1
-@.str.555 = private unnamed_addr constant [11 x i8] c"DISCONNECT\00", align 1
-@.str.556 = private unnamed_addr constant [14 x i8] c"CREATE DOMAIN\00", align 1
-@.str.557 = private unnamed_addr constant [15 x i8] c"DROP ASSERTION\00", align 1
-@.str.558 = private unnamed_addr constant [19 x i8] c"DROP CHARACTER SET\00", align 1
-@.str.559 = private unnamed_addr constant [15 x i8] c"DROP COLLATION\00", align 1
-@.str.560 = private unnamed_addr constant [12 x i8] c"DROP DOMAIN\00", align 1
-@.str.561 = private unnamed_addr constant [10 x i8] c"DROP ROLE\00", align 1
-@.str.562 = private unnamed_addr constant [13 x i8] c"DROP ROUTINE\00", align 1
-@.str.563 = private unnamed_addr constant [12 x i8] c"DROP SCHEMA\00", align 1
-@.str.564 = private unnamed_addr constant [11 x i8] c"DROP TABLE\00", align 1
-@.str.565 = private unnamed_addr constant [17 x i8] c"DROP TRANSLATION\00", align 1
-@.str.566 = private unnamed_addr constant [13 x i8] c"DROP TRIGGER\00", align 1
-@.str.567 = private unnamed_addr constant [10 x i8] c"DROP TYPE\00", align 1
-@.str.568 = private unnamed_addr constant [10 x i8] c"DROP VIEW\00", align 1
-@.str.569 = private unnamed_addr constant [14 x i8] c"DYNAMIC CLOSE\00", align 1
-@.str.570 = private unnamed_addr constant [22 x i8] c"DYNAMIC DELETE CURSOR\00", align 1
-@.str.571 = private unnamed_addr constant [14 x i8] c"DYNAMIC FETCH\00", align 1
-@.str.572 = private unnamed_addr constant [13 x i8] c"DYNAMIC OPEN\00", align 1
-@.str.573 = private unnamed_addr constant [22 x i8] c"DYNAMIC UPDATE CURSOR\00", align 1
-@.str.574 = private unnamed_addr constant [18 x i8] c"EXECUTE IMMEDIATE\00", align 1
-@.str.575 = private unnamed_addr constant [8 x i8] c"EXECUTE\00", align 1
-@.str.576 = private unnamed_addr constant [6 x i8] c"FETCH\00", align 1
-@.str.577 = private unnamed_addr constant [15 x i8] c"GET DESCRIPTOR\00", align 1
-@.str.578 = private unnamed_addr constant [6 x i8] c"GRANT\00", align 1
-@.str.579 = private unnamed_addr constant [11 x i8] c"GRANT ROLE\00", align 1
-@.str.580 = private unnamed_addr constant [7 x i8] c"INSERT\00", align 1
-@.str.581 = private unnamed_addr constant [5 x i8] c"OPEN\00", align 1
-@.str.582 = private unnamed_addr constant [8 x i8] c"PREPARE\00", align 1
-@.str.583 = private unnamed_addr constant [18 x i8] c"RELEASE SAVEPOINT\00", align 1
-@.str.584 = private unnamed_addr constant [7 x i8] c"RETURN\00", align 1
-@.str.585 = private unnamed_addr constant [7 x i8] c"REVOKE\00", align 1
-@.str.586 = private unnamed_addr constant [11 x i8] c"ALTER TYPE\00", align 1
-@.str.587 = private unnamed_addr constant [12 x i8] c"SET CATALOG\00", align 1
-@.str.588 = private unnamed_addr constant [17 x i8] c"SET CURRENT_PATH\00", align 1
-@.str.589 = private unnamed_addr constant [15 x i8] c"SET DESCRIPTOR\00", align 1
-@.str.590 = private unnamed_addr constant [10 x i8] c"SET NAMES\00", align 1
-@.str.591 = private unnamed_addr constant [11 x i8] c"SET SCHEMA\00", align 1
-@.str.592 = private unnamed_addr constant [14 x i8] c"SELECT CURSOR\00", align 1
-@.str.593 = private unnamed_addr constant [13 x i8] c"FREE LOCATOR\00", align 1
-@.str.594 = private unnamed_addr constant [13 x i8] c"HOLD LOCATOR\00", align 1
-@.str.595 = private unnamed_addr constant [15 x i8] c"DECLARE CURSOR\00", align 1
-@.str.596 = private unnamed_addr constant [14 x i8] c"DROP ORDERING\00", align 1
-@.str.597 = private unnamed_addr constant [15 x i8] c"DROP TRANSFORM\00", align 1
-@.str.598 = private unnamed_addr constant [20 x i8] c"SET TRANSFORM GROUP\00", align 1
-@.str.599 = private unnamed_addr constant [61 x i8] c"Statement is not a query, or no columns are members of a key\00", align 1
-@.str.600 = private unnamed_addr constant [94 x i8] c"Select list includes all columns of the primary key of the base table referenced by the query\00", align 1
-@.str.601 = private unnamed_addr constant [152 x i8] c"Table reference by the query does not have a primary key, but the select list includes a set of columns that are defined as the preferred candidate key\00", align 1
-@.str.602 = private unnamed_addr constant [40 x i8] c"Optimistic locking columns not injected\00", align 1
-@.str.603 = private unnamed_addr constant [104 x i8] c"Optimistic locking columns injected, but might not have the granularity to guarantee no false negatives\00", align 1
-@.str.604 = private unnamed_addr constant [69 x i8] c"Optimistic locking columns injected, guaranteeing no false negatives\00", align 1
-@.str.605 = private unnamed_addr constant [5 x i8] c"DATE\00", align 1
-@.str.606 = private unnamed_addr constant [16 x i8] c"DATE (NULLABLE)\00", align 1
-@.str.607 = private unnamed_addr constant [5 x i8] c"TIME\00", align 1
-@.str.608 = private unnamed_addr constant [16 x i8] c"TIME (NULLABLE)\00", align 1
-@.str.609 = private unnamed_addr constant [10 x i8] c"TIMESTAMP\00", align 1
-@.str.610 = private unnamed_addr constant [21 x i8] c"TIMESTAMP (NULLABLE)\00", align 1
-@.str.611 = private unnamed_addr constant [9 x i8] c"DATALINK\00", align 1
-@.str.612 = private unnamed_addr constant [20 x i8] c"DATALINK (NULLABLE)\00", align 1
-@.str.613 = private unnamed_addr constant [5 x i8] c"BLOB\00", align 1
-@.str.614 = private unnamed_addr constant [16 x i8] c"BLOB (NULLABLE)\00", align 1
-@.str.615 = private unnamed_addr constant [5 x i8] c"CLOB\00", align 1
-@.str.616 = private unnamed_addr constant [16 x i8] c"CLOB (NULLABLE)\00", align 1
-@.str.617 = private unnamed_addr constant [7 x i8] c"DBCLOB\00", align 1
-@.str.618 = private unnamed_addr constant [18 x i8] c"DBCLOB (NULLABLE)\00", align 1
-@.str.619 = private unnamed_addr constant [8 x i8] c"VARCHAR\00", align 1
-@.str.620 = private unnamed_addr constant [19 x i8] c"VARCHAR (NULLABLE)\00", align 1
-@.str.621 = private unnamed_addr constant [5 x i8] c"CHAR\00", align 1
-@.str.622 = private unnamed_addr constant [16 x i8] c"CHAR (NULLABLE)\00", align 1
-@.str.623 = private unnamed_addr constant [13 x i8] c"LONG VARCHAR\00", align 1
-@.str.624 = private unnamed_addr constant [24 x i8] c"LONG VARCHAR (NULLABLE)\00", align 1
-@.str.625 = private unnamed_addr constant [21 x i8] c"NULL-TERMINATED CHAR\00", align 1
-@.str.626 = private unnamed_addr constant [32 x i8] c"NULL-TERMINATED CHAR (NULLABLE)\00", align 1
-@.str.627 = private unnamed_addr constant [11 x i8] c"VARGRAPHIC\00", align 1
-@.str.628 = private unnamed_addr constant [22 x i8] c"VARGRAPHIC (NULLABLE)\00", align 1
-@.str.629 = private unnamed_addr constant [8 x i8] c"GRAPHIC\00", align 1
-@.str.630 = private unnamed_addr constant [19 x i8] c"GRAPHIC (NULLABLE)\00", align 1
-@.str.631 = private unnamed_addr constant [16 x i8] c"LONG VARGRAPHIC\00", align 1
-@.str.632 = private unnamed_addr constant [27 x i8] c"LONG VARGRAPHIC (NULLABLE)\00", align 1
-@.str.633 = private unnamed_addr constant [16 x i8] c"PASCAL L STRING\00", align 1
-@.str.634 = private unnamed_addr constant [27 x i8] c"PASCAL L STRING (NULLABLE)\00", align 1
-@.str.635 = private unnamed_addr constant [6 x i8] c"FLOAT\00", align 1
-@.str.636 = private unnamed_addr constant [17 x i8] c"FLOAT (NULLABLE)\00", align 1
-@.str.637 = private unnamed_addr constant [14 x i8] c"FIXED DECIMAL\00", align 1
-@.str.638 = private unnamed_addr constant [25 x i8] c"FIXED DECIMAL (NULLABLE)\00", align 1
-@.str.639 = private unnamed_addr constant [14 x i8] c"ZONED DECIMAL\00", align 1
-@.str.640 = private unnamed_addr constant [25 x i8] c"ZONED DECIMAL (NULLABLE)\00", align 1
-@.str.641 = private unnamed_addr constant [7 x i8] c"BIGINT\00", align 1
-@.str.642 = private unnamed_addr constant [18 x i8] c"BIGINT (NULLABLE)\00", align 1
-@.str.643 = private unnamed_addr constant [8 x i8] c"INTEGER\00", align 1
-@.str.644 = private unnamed_addr constant [19 x i8] c"INTEGER (NULLABLE)\00", align 1
-@.str.645 = private unnamed_addr constant [9 x i8] c"SMALLINT\00", align 1
-@.str.646 = private unnamed_addr constant [20 x i8] c"SMALLINT (NULLABLE)\00", align 1
-@.str.647 = private unnamed_addr constant [13 x i8] c"NUMERIC CHAR\00", align 1
-@.str.648 = private unnamed_addr constant [24 x i8] c"NUMERIC CHAR (NULLABLE)\00", align 1
-@.str.649 = private unnamed_addr constant [6 x i8] c"ROWID\00", align 1
-@.str.650 = private unnamed_addr constant [17 x i8] c"ROWID (NULLABLE)\00", align 1
-@.str.651 = private unnamed_addr constant [10 x i8] c"VARBINARY\00", align 1
-@.str.652 = private unnamed_addr constant [21 x i8] c"VARBINARY (NULLABLE)\00", align 1
-@.str.653 = private unnamed_addr constant [7 x i8] c"BINARY\00", align 1
-@.str.654 = private unnamed_addr constant [18 x i8] c"BINARY (NULLABLE)\00", align 1
-@.str.655 = private unnamed_addr constant [13 x i8] c"BLOB LOCATOR\00", align 1
-@.str.656 = private unnamed_addr constant [24 x i8] c"BLOB LOCATOR (NULLABLE)\00", align 1
-@.str.657 = private unnamed_addr constant [13 x i8] c"CLOB LOCATOR\00", align 1
-@.str.658 = private unnamed_addr constant [24 x i8] c"CLOB LOCATOR (NULLABLE)\00", align 1
-@.str.659 = private unnamed_addr constant [15 x i8] c"DBCLOB LOCATOR\00", align 1
-@.str.660 = private unnamed_addr constant [26 x i8] c"DBCLOB LOCATOR (NULLABLE)\00", align 1
-@.str.661 = private unnamed_addr constant [19 x i8] c"RESULT SET LOCATOR\00", align 1
-@.str.662 = private unnamed_addr constant [30 x i8] c"RESULT SET LOCATOR (NULLABLE)\00", align 1
-@.str.663 = private unnamed_addr constant [4 x i8] c"XML\00", align 1
-@.str.664 = private unnamed_addr constant [15 x i8] c"XML (NULLABLE)\00", align 1
-@.str.665 = private unnamed_addr constant [9 x i8] c"DECFLOAT\00", align 1
-@.str.666 = private unnamed_addr constant [20 x i8] c"DECFLOAT (NULLABLE)\00", align 1
-@.str.667 = private unnamed_addr constant [8 x i8] c"BOOLEAN\00", align 1
-@.str.668 = private unnamed_addr constant [19 x i8] c"BOOLEAN (NULLABLE)\00", align 1
-@.str.669 = private unnamed_addr constant [12 x i8] c"CURSOR TYPE\00", align 1
-@.str.670 = private unnamed_addr constant [23 x i8] c"CURSOR TYPE (NULLABLE)\00", align 1
-@.str.671 = private unnamed_addr constant [25 x i8] c"TIMESTAMP WITH TIME ZONE\00", align 1
-@.str.672 = private unnamed_addr constant [36 x i8] c"TIMESTAMP WITH TIME ZONE (NULLABLE)\00", align 1
-@.str.673 = private unnamed_addr constant [37 x i8] c"Column name not generated by the RDB\00", align 1
-@.str.674 = private unnamed_addr constant [33 x i8] c"Column name generated by the RDB\00", align 1
-@.str.675 = private unnamed_addr constant [10 x i8] c"Not a UDT\00", align 1
-@.str.676 = private unnamed_addr constant [14 x i8] c"Distinct type\00", align 1
-@.str.677 = private unnamed_addr constant [16 x i8] c"Structured type\00", align 1
-@.str.678 = private unnamed_addr constant [15 x i8] c"Reference type\00", align 1
-@.str.679 = private unnamed_addr constant [53 x i8] c"Not a member of the primary key or of a unique index\00", align 1
-@.str.680 = private unnamed_addr constant [47 x i8] c"Member of the primary key or of a unique index\00", align 1
-@.str.681 = private unnamed_addr constant [15 x i8] c"Not updateable\00", align 1
-@.str.682 = private unnamed_addr constant [11 x i8] c"Updateable\00", align 1
-@.str.683 = private unnamed_addr constant [45 x i8] c"None of the other values of this field apply\00", align 1
-@.str.684 = private unnamed_addr constant [61 x i8] c"Data for this column is always generated using an expression\00", align 1
-@.str.685 = private unnamed_addr constant [50 x i8] c"Data for this identity column is always generated\00", align 1
-@.str.686 = private unnamed_addr constant [47 x i8] c"Data for this ROWID column is always generated\00", align 1
-@.str.687 = private unnamed_addr constant [54 x i8] c"Data for this identity column is generated by default\00", align 1
-@.str.688 = private unnamed_addr constant [51 x i8] c"Data for this ROWID column is generated by default\00", align 1
-@.str.689 = private unnamed_addr constant [62 x i8] c"Data for this row change timestamp column is always generated\00", align 1
-@.str.690 = private unnamed_addr constant [66 x i8] c"Data for this row change timestamp column is generated by default\00", align 1
-@.str.691 = private unnamed_addr constant [34 x i8] c"Not for use with a CALL statement\00", align 1
-@.str.692 = private unnamed_addr constant [21 x i8] c"Input-only parameter\00", align 1
-@.str.693 = private unnamed_addr constant [27 x i8] c"Input and output parameter\00", align 1
-@.str.694 = private unnamed_addr constant [22 x i8] c"Output-only parameter\00", align 1
-@.str.695 = private unnamed_addr constant [50 x i8] c"Column not injected because of optimistic locking\00", align 1
-@.str.696 = private unnamed_addr constant [78 x i8] c"Row change token column was injected because optimistic locking was requested\00", align 1
-@.str.697 = private unnamed_addr constant [65 x i8] c"RID column was injected because optimistic locking was requested\00", align 1
-@.str.698 = private unnamed_addr constant [20 x i8] c"Not a hidden column\00", align 1
-@.str.699 = private unnamed_addr constant [14 x i8] c"Hidden column\00", align 1
-@.str.700 = private unnamed_addr constant [3 x i8] c"NO\00", align 1
-@.str.701 = private unnamed_addr constant [10 x i8] c"TERMINATE\00", align 1
-@.str.702 = private unnamed_addr constant [6 x i8] c"REUSE\00", align 1
-@.str.703 = private unnamed_addr constant [43 x i8] c"NO_KDO - Presence of keep dynamic sections\00", align 1
-@.str.704 = private unnamed_addr constant [43 x i8] c"DCESEC - Distributed Computing Environment\00", align 1
-@.str.705 = private unnamed_addr constant [32 x i8] c"USRIDPWD - User ID and Password\00", align 1
-@.str.706 = private unnamed_addr constant [24 x i8] c"UDRIDONL - User ID Only\00", align 1
-@.str.707 = private unnamed_addr constant [49 x i8] c"USRIDNWPWD - User ID, Password, and New Password\00", align 1
-@.str.708 = private unnamed_addr constant [45 x i8] c"USRSBSPWD - User ID with Substitute Password\00", align 1
-@.str.709 = private unnamed_addr constant [44 x i8] c"USRENCPWD - User ID with Encrypted Password\00", align 1
-@.str.710 = private unnamed_addr constant [52 x i8] c"USRSSBPWD - User ID with Strong Password Substitute\00", align 1
-@.str.711 = private unnamed_addr constant [43 x i8] c"EUSRIDPWD - Encrypted User ID and Password\00", align 1
-@.str.712 = private unnamed_addr constant [56 x i8] c"EUSRIDNWPWD - Encrypted User ID, Password, New Password\00", align 1
-@.str.713 = private unnamed_addr constant [27 x i8] c"KERSEC - Kerberos Security\00", align 1
-@.str.714 = private unnamed_addr constant [58 x i8] c"EUSRIDDTA - Encrypted User ID and Security-Sensitive Data\00", align 1
-@.str.715 = private unnamed_addr constant [70 x i8] c"EUSRPWDDTA - Encrypted User ID, Password, and Security-Sensitive Data\00", align 1
-@.str.716 = private unnamed_addr constant [85 x i8] c"EUSRNPWDDTA - Encrypted User ID, Password, New Password, and Security-Sensitive Data\00", align 1
-@.str.717 = private unnamed_addr constant [25 x i8] c"PLGIN - Plug-in Security\00", align 1
-@.str.718 = private unnamed_addr constant [35 x i8] c"EUSRIDONL - Encrypted User ID Only\00", align 1
-@.str.719 = private unnamed_addr constant [24 x i8] c"INFO - Information Only\00", align 1
-@.str.720 = private unnamed_addr constant [18 x i8] c"WARNING - Warning\00", align 1
-@.str.721 = private unnamed_addr constant [14 x i8] c"ERROR - Error\00", align 1
-@.str.722 = private unnamed_addr constant [22 x i8] c"SEVERE - Severe Error\00", align 1
-@.str.723 = private unnamed_addr constant [23 x i8] c"ACCDMG - Access Damage\00", align 1
-@.str.724 = private unnamed_addr constant [26 x i8] c"PRMDMG - Permanent Damage\00", align 1
-@.str.725 = private unnamed_addr constant [24 x i8] c"SESDMG - Session Damage\00", align 1
-@.str.726 = private unnamed_addr constant [52 x i8] c"The security information is correct and acceptable.\00", align 1
-@.str.727 = private unnamed_addr constant [28 x i8] c"SECMEC value not supported.\00", align 1
-@.str.728 = private unnamed_addr constant [31 x i8] c"DCE information status issued.\00", align 1
-@.str.729 = private unnamed_addr constant [21 x i8] c"DCE retryable error.\00", align 1
-@.str.730 = private unnamed_addr constant [25 x i8] c"DCE non-retryable error.\00", align 1
-@.str.731 = private unnamed_addr constant [36 x i8] c"GSSAPI informational status issued.\00", align 1
-@.str.732 = private unnamed_addr constant [24 x i8] c"GSSAPI retryable error.\00", align 1
-@.str.733 = private unnamed_addr constant [28 x i8] c"GSSAPI non-retryable error.\00", align 1
-@.str.734 = private unnamed_addr constant [52 x i8] c"Local Security Service informational status issued.\00", align 1
-@.str.735 = private unnamed_addr constant [40 x i8] c"Local Security Service retryable error.\00", align 1
-@.str.736 = private unnamed_addr constant [44 x i8] c"Local Security Service non-retryable error.\00", align 1
-@.str.737 = private unnamed_addr constant [53 x i8] c"SECTKN missing when it is required or it is invalid.\00", align 1
-@.str.738 = private unnamed_addr constant [18 x i8] c"Password expired.\00", align 1
-@.str.739 = private unnamed_addr constant [18 x i8] c"Password invalid.\00", align 1
-@.str.740 = private unnamed_addr constant [18 x i8] c"Password missing.\00", align 1
-@.str.741 = private unnamed_addr constant [17 x i8] c"User ID missing.\00", align 1
-@.str.742 = private unnamed_addr constant [17 x i8] c"User ID invalid.\00", align 1
-@.str.743 = private unnamed_addr constant [17 x i8] c"User ID revoked.\00", align 1
-@.str.744 = private unnamed_addr constant [22 x i8] c"New Password invalid.\00", align 1
-@.str.745 = private unnamed_addr constant [93 x i8] c"Authentication failed because of connectivity restrictions enforced by the security plug-in.\00", align 1
-@.str.746 = private unnamed_addr constant [35 x i8] c"Invalid GSS-API server credential.\00", align 1
-@.str.747 = private unnamed_addr constant [58 x i8] c"GSS-API server credential expired on the database server.\00", align 1
-@.str.748 = private unnamed_addr constant [73 x i8] c"Continue - require more security context information for authentication.\00", align 1
-@.str.749 = private unnamed_addr constant [18 x i8] c"Use default value\00", align 1
-@.str.750 = private unnamed_addr constant [7 x i8] c"IBM037\00", align 1
-@.str.751 = private unnamed_addr constant [9 x i8] c"US-ASCII\00", align 1
-@.str.752 = private unnamed_addr constant [7 x i8] c"IBM500\00", align 1
-@.str.753 = private unnamed_addr constant [11 x i8] c"ISO-8859-1\00", align 1
-@.str.754 = private unnamed_addr constant [7 x i8] c"IBM850\00", align 1
-@.str.755 = private unnamed_addr constant [7 x i8] c"UTF-16\00", align 1
-@.str.756 = private unnamed_addr constant [9 x i8] c"UTF-16LE\00", align 1
-@.str.757 = private unnamed_addr constant [6 x i8] c"UTF-8\00", align 1
-@.str.758 = private unnamed_addr constant [28 x i8] c"Requested CCSID unsupported\00", align 1
-@.str.759 = private unnamed_addr constant [6 x i8] c"FALSE\00", align 1
-@.str.760 = private unnamed_addr constant [5 x i8] c"TRUE\00", align 1
-@.str.761 = private unnamed_addr constant [10 x i8] c"Committed\00", align 1
-@.str.762 = private unnamed_addr constant [12 x i8] c"Rolled back\00", align 1
-@.str.763 = private unnamed_addr constant [30 x i8] c"Not limited by this parameter\00", align 1
-@.str.764 = private unnamed_addr constant [46 x i8] c"QRYUNK - Unknown or undefined for this cursor\00", align 1
-@.str.765 = private unnamed_addr constant [33 x i8] c"QRYRDO - The cursor is read-only\00", align 1
-@.str.766 = private unnamed_addr constant [43 x i8] c"QRYDEL - The cursor allows read and delete\00", align 1
-@.str.767 = private unnamed_addr constant [52 x i8] c"QRYUPD - The cursor allows read, delete, and update\00", align 1
-@.str.768 = private unnamed_addr constant [116 x i8] c"Target server determines whether to implicitly close the cursor or not upon SQLSTATE 02000 based on the cursor type\00", align 1
-@.str.769 = private unnamed_addr constant [67 x i8] c"Target server must implicitly close the cursor upon SQLSTATE 02000\00", align 1
-@.str.770 = private unnamed_addr constant [71 x i8] c"Target server must not implicitly close the cursor upon SQLSTATE 02000\00", align 1
-@.str.771 = private unnamed_addr constant [10 x i8] c"Unlimited\00", align 1
-@.str.772 = private unnamed_addr constant [15 x i8] c"Standard SQLDA\00", align 1
-@.str.773 = private unnamed_addr constant [15 x i8] c"Extended SQLDA\00", align 1
-@.str.774 = private unnamed_addr constant [12 x i8] c"Light SQLDA\00", align 1
-@.str.775 = private unnamed_addr constant [22 x i8] c"Standard output SQLDA\00", align 1
-@.str.776 = private unnamed_addr constant [21 x i8] c"Standard input SQLDA\00", align 1
-@.str.777 = private unnamed_addr constant [19 x i8] c"Light output SQLDA\00", align 1
-@.str.778 = private unnamed_addr constant [18 x i8] c"Light input SQLDA\00", align 1
-@.str.779 = private unnamed_addr constant [22 x i8] c"Extended output SQLDA\00", align 1
-@.str.780 = private unnamed_addr constant [21 x i8] c"Extended input SQLDA\00", align 1
-@.str.781 = private unnamed_addr constant [52 x i8] c"OUTOVRFRS - Output Override Allowed on First CNTQRY\00", align 1
-@.str.782 = private unnamed_addr constant [50 x i8] c"OUTOVRANY - Output Override Allowed on Any CNTQRY\00", align 1
-@.str.783 = private unnamed_addr constant [57 x i8] c"OUTOVRNON - Output Override Not Allowed, and MINLVL is 8\00", align 1
-@.str.784 = private unnamed_addr constant [10 x i8] c"QTDSQL370\00", align 1
-@.str.785 = private unnamed_addr constant [31 x i8] c"System/390 SQL type definition\00", align 1
-@.str.786 = private unnamed_addr constant [10 x i8] c"QTDSQL400\00", align 1
-@.str.787 = private unnamed_addr constant [27 x i8] c"AS/400 SQL type definition\00", align 1
-@.str.788 = private unnamed_addr constant [10 x i8] c"QTDSQLX86\00", align 1
-@.str.789 = private unnamed_addr constant [32 x i8] c"Intel 80x86 SQL type definition\00", align 1
-@.str.790 = private unnamed_addr constant [10 x i8] c"QTDSQLASC\00", align 1
-@.str.791 = private unnamed_addr constant [45 x i8] c"General ASCII Big Endian SQL type definition\00", align 1
-@.str.792 = private unnamed_addr constant [10 x i8] c"QTDSQLVAX\00", align 1
-@.str.793 = private unnamed_addr constant [28 x i8] c"DEC VAX SQL type definition\00", align 1
+@drda_dsstyp_abbr = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.308 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.309 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.310 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.311 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.312 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.314 = private unnamed_addr constant [17 x i8] c"drda_opcode_abbr\00", align 1
+@.str.315 = private unnamed_addr constant [5 x i8] c"DATA\00", align 1
+@.str.316 = private unnamed_addr constant [7 x i8] c"CODPNT\00", align 1
+@.str.317 = private unnamed_addr constant [7 x i8] c"FDODSC\00", align 1
+@.str.318 = private unnamed_addr constant [10 x i8] c"TYPDEFNAM\00", align 1
+@.str.319 = private unnamed_addr constant [10 x i8] c"TYPDEFOVR\00", align 1
+@.str.320 = private unnamed_addr constant [9 x i8] c"CODPNTDR\00", align 1
+@.str.321 = private unnamed_addr constant [7 x i8] c"EXCSAT\00", align 1
+@.str.322 = private unnamed_addr constant [8 x i8] c"SYNCCTL\00", align 1
+@.str.323 = private unnamed_addr constant [8 x i8] c"SYNCRSY\00", align 1
+@.str.324 = private unnamed_addr constant [7 x i8] c"ACCSEC\00", align 1
+@.str.325 = private unnamed_addr constant [7 x i8] c"SECCHK\00", align 1
+@.str.326 = private unnamed_addr constant [8 x i8] c"SYNCLOG\00", align 1
+@.str.327 = private unnamed_addr constant [7 x i8] c"RSCTYP\00", align 1
+@.str.328 = private unnamed_addr constant [7 x i8] c"RSNCOD\00", align 1
+@.str.329 = private unnamed_addr constant [7 x i8] c"RSCNAM\00", align 1
+@.str.330 = private unnamed_addr constant [6 x i8] c"PRDID\00", align 1
+@.str.331 = private unnamed_addr constant [9 x i8] c"PRCCNVCD\00", align 1
+@.str.332 = private unnamed_addr constant [7 x i8] c"VRSNAM\00", align 1
+@.str.333 = private unnamed_addr constant [9 x i8] c"SRVCLSNM\00", align 1
+@.str.334 = private unnamed_addr constant [7 x i8] c"SVRCOD\00", align 1
+@.str.335 = private unnamed_addr constant [9 x i8] c"SYNERRCD\00", align 1
+@.str.336 = private unnamed_addr constant [7 x i8] c"SRVDGN\00", align 1
+@.str.337 = private unnamed_addr constant [9 x i8] c"SRVRLSLV\00", align 1
+@.str.338 = private unnamed_addr constant [7 x i8] c"SPVNAM\00", align 1
+@.str.339 = private unnamed_addr constant [7 x i8] c"EXTNAM\00", align 1
+@.str.340 = private unnamed_addr constant [7 x i8] c"SRVNAM\00", align 1
+@.str.341 = private unnamed_addr constant [9 x i8] c"SECMGRNM\00", align 1
+@.str.342 = private unnamed_addr constant [9 x i8] c"DEPERRCD\00", align 1
+@.str.343 = private unnamed_addr constant [9 x i8] c"CCSIDSBC\00", align 1
+@.str.344 = private unnamed_addr constant [9 x i8] c"CCSIDDBC\00", align 1
+@.str.345 = private unnamed_addr constant [9 x i8] c"CCSIDMBC\00", align 1
+@.str.346 = private unnamed_addr constant [8 x i8] c"RLSCONV\00", align 1
+@.str.347 = private unnamed_addr constant [6 x i8] c"USRID\00", align 1
+@.str.348 = private unnamed_addr constant [9 x i8] c"PASSWORD\00", align 1
+@.str.349 = private unnamed_addr constant [7 x i8] c"SECMEC\00", align 1
+@.str.350 = private unnamed_addr constant [9 x i8] c"SECCHKCD\00", align 1
+@.str.351 = private unnamed_addr constant [9 x i8] c"SVCERRNO\00", align 1
+@.str.352 = private unnamed_addr constant [7 x i8] c"SECTKN\00", align 1
+@.str.353 = private unnamed_addr constant [12 x i8] c"NEWPASSWORD\00", align 1
+@.str.354 = private unnamed_addr constant [9 x i8] c"MGRLVLRM\00", align 1
+@.str.355 = private unnamed_addr constant [9 x i8] c"MGRDEPRM\00", align 1
+@.str.356 = private unnamed_addr constant [9 x i8] c"SECCHKRM\00", align 1
+@.str.357 = private unnamed_addr constant [9 x i8] c"CMDATHRM\00", align 1
+@.str.358 = private unnamed_addr constant [9 x i8] c"AGNPRMRM\00", align 1
+@.str.359 = private unnamed_addr constant [9 x i8] c"RSCLMTRM\00", align 1
+@.str.360 = private unnamed_addr constant [9 x i8] c"PRCCNVRM\00", align 1
+@.str.361 = private unnamed_addr constant [9 x i8] c"CMDCMPRM\00", align 1
+@.str.362 = private unnamed_addr constant [9 x i8] c"SYNTAXRM\00", align 1
+@.str.363 = private unnamed_addr constant [9 x i8] c"CMDNSPRM\00", align 1
+@.str.364 = private unnamed_addr constant [9 x i8] c"PRMNSPRM\00", align 1
+@.str.365 = private unnamed_addr constant [9 x i8] c"VALNSPRM\00", align 1
+@.str.366 = private unnamed_addr constant [9 x i8] c"OBJNSPRM\00", align 1
+@.str.367 = private unnamed_addr constant [9 x i8] c"CMDCHKRM\00", align 1
+@.str.368 = private unnamed_addr constant [9 x i8] c"TRGNSPRM\00", align 1
+@.str.369 = private unnamed_addr constant [6 x i8] c"AGENT\00", align 1
+@.str.370 = private unnamed_addr constant [9 x i8] c"MGRLVLLS\00", align 1
+@.str.371 = private unnamed_addr constant [11 x i8] c"SUPERVISOR\00", align 1
+@.str.372 = private unnamed_addr constant [7 x i8] c"SECMGR\00", align 1
+@.str.373 = private unnamed_addr constant [9 x i8] c"EXCSATRD\00", align 1
+@.str.374 = private unnamed_addr constant [8 x i8] c"CMNAPPC\00", align 1
+@.str.375 = private unnamed_addr constant [11 x i8] c"DICTIONARY\00", align 1
+@.str.376 = private unnamed_addr constant [8 x i8] c"MGRLVLN\00", align 1
+@.str.377 = private unnamed_addr constant [9 x i8] c"CMNTCPIP\00", align 1
+@.str.378 = private unnamed_addr constant [7 x i8] c"FDODTA\00", align 1
+@.str.379 = private unnamed_addr constant [10 x i8] c"CMNSYNCPT\00", align 1
+@.str.380 = private unnamed_addr constant [9 x i8] c"ACCSECRD\00", align 1
+@.str.381 = private unnamed_addr constant [10 x i8] c"SYNCPTMGR\00", align 1
+@.str.382 = private unnamed_addr constant [9 x i8] c"RSYNCMGR\00", align 1
+@.str.383 = private unnamed_addr constant [9 x i8] c"CCSIDMGR\00", align 1
+@.str.384 = private unnamed_addr constant [7 x i8] c"SNDPKT\00", align 1
+@.str.385 = private unnamed_addr constant [8 x i8] c"MONITOR\00", align 1
+@.str.386 = private unnamed_addr constant [6 x i8] c"ETIME\00", align 1
+@.str.387 = private unnamed_addr constant [9 x i8] c"RESPKTSZ\00", align 1
+@.str.388 = private unnamed_addr constant [9 x i8] c"CCSIDXML\00", align 1
+@.str.389 = private unnamed_addr constant [10 x i8] c"MONITORRD\00", align 1
+@.str.390 = private unnamed_addr constant [6 x i8] c"XAMGR\00", align 1
+@.str.391 = private unnamed_addr constant [7 x i8] c"PKTOBJ\00", align 1
+@.str.392 = private unnamed_addr constant [11 x i8] c"UNICODEMGR\00", align 1
+@.str.393 = private unnamed_addr constant [7 x i8] c"ACCRDB\00", align 1
+@.str.394 = private unnamed_addr constant [7 x i8] c"BGNBND\00", align 1
+@.str.395 = private unnamed_addr constant [10 x i8] c"BNDSQLSTT\00", align 1
+@.str.396 = private unnamed_addr constant [7 x i8] c"CLSQRY\00", align 1
+@.str.397 = private unnamed_addr constant [7 x i8] c"CNTQRY\00", align 1
+@.str.398 = private unnamed_addr constant [7 x i8] c"DRPPKG\00", align 1
+@.str.399 = private unnamed_addr constant [10 x i8] c"DSCSQLSTT\00", align 1
+@.str.400 = private unnamed_addr constant [7 x i8] c"ENDBND\00", align 1
+@.str.401 = private unnamed_addr constant [10 x i8] c"EXCSQLIMM\00", align 1
+@.str.402 = private unnamed_addr constant [10 x i8] c"EXCSQLSTT\00", align 1
+@.str.403 = private unnamed_addr constant [7 x i8] c"OPNQRY\00", align 1
+@.str.404 = private unnamed_addr constant [10 x i8] c"PRPSQLSTT\00", align 1
+@.str.405 = private unnamed_addr constant [7 x i8] c"RDBCMM\00", align 1
+@.str.406 = private unnamed_addr constant [10 x i8] c"RDBRLLBCK\00", align 1
+@.str.407 = private unnamed_addr constant [7 x i8] c"REBIND\00", align 1
+@.str.408 = private unnamed_addr constant [10 x i8] c"DSCRDBTBL\00", align 1
+@.str.409 = private unnamed_addr constant [10 x i8] c"EXCSQLSET\00", align 1
+@.str.410 = private unnamed_addr constant [9 x i8] c"DSCERRCD\00", align 1
+@.str.411 = private unnamed_addr constant [10 x i8] c"QRYPRCTYP\00", align 1
+@.str.412 = private unnamed_addr constant [10 x i8] c"RDBINTTKN\00", align 1
+@.str.413 = private unnamed_addr constant [7 x i8] c"PRDDTA\00", align 1
+@.str.414 = private unnamed_addr constant [9 x i8] c"RDBCMTOK\00", align 1
+@.str.415 = private unnamed_addr constant [9 x i8] c"RDBCOLID\00", align 1
+@.str.416 = private unnamed_addr constant [6 x i8] c"PKGID\00", align 1
+@.str.417 = private unnamed_addr constant [7 x i8] c"PKGNAM\00", align 1
+@.str.418 = private unnamed_addr constant [6 x i8] c"PKGSN\00", align 1
+@.str.419 = private unnamed_addr constant [10 x i8] c"PKGCNSTKN\00", align 1
+@.str.420 = private unnamed_addr constant [10 x i8] c"RTNSETSTT\00", align 1
+@.str.421 = private unnamed_addr constant [9 x i8] c"RDBACCCL\00", align 1
+@.str.422 = private unnamed_addr constant [7 x i8] c"RDBNAM\00", align 1
+@.str.423 = private unnamed_addr constant [7 x i8] c"OUTEXP\00", align 1
+@.str.424 = private unnamed_addr constant [9 x i8] c"PKGNAMCT\00", align 1
+@.str.425 = private unnamed_addr constant [10 x i8] c"PKGNAMCSN\00", align 1
+@.str.426 = private unnamed_addr constant [9 x i8] c"QRYBLKSZ\00", align 1
+@.str.427 = private unnamed_addr constant [7 x i8] c"UOWDSP\00", align 1
+@.str.428 = private unnamed_addr constant [9 x i8] c"RTNSQLDA\00", align 1
+@.str.429 = private unnamed_addr constant [10 x i8] c"RDBALWUPD\00", align 1
+@.str.430 = private unnamed_addr constant [10 x i8] c"SQLCSRHLD\00", align 1
+@.str.431 = private unnamed_addr constant [10 x i8] c"STTSTRDEL\00", align 1
+@.str.432 = private unnamed_addr constant [10 x i8] c"STTDECDEL\00", align 1
+@.str.433 = private unnamed_addr constant [10 x i8] c"PKGDFTCST\00", align 1
+@.str.434 = private unnamed_addr constant [10 x i8] c"QRYBLKCTL\00", align 1
+@.str.435 = private unnamed_addr constant [12 x i8] c"QRYEXTDTASZ\00", align 1
+@.str.436 = private unnamed_addr constant [7 x i8] c"CRRTKN\00", align 1
+@.str.437 = private unnamed_addr constant [9 x i8] c"SMLDTASZ\00", align 1
+@.str.438 = private unnamed_addr constant [9 x i8] c"MEDDTASZ\00", align 1
+@.str.439 = private unnamed_addr constant [7 x i8] c"PRCNAM\00", align 1
+@.str.440 = private unnamed_addr constant [9 x i8] c"PKGSNLST\00", align 1
+@.str.441 = private unnamed_addr constant [7 x i8] c"NBRROW\00", align 1
+@.str.442 = private unnamed_addr constant [9 x i8] c"TRGDFTRT\00", align 1
+@.str.443 = private unnamed_addr constant [10 x i8] c"QRYRELSCR\00", align 1
+@.str.444 = private unnamed_addr constant [10 x i8] c"QRYROWNBR\00", align 1
+@.str.445 = private unnamed_addr constant [10 x i8] c"QRYRFRTBL\00", align 1
+@.str.446 = private unnamed_addr constant [10 x i8] c"MAXRSLCNT\00", align 1
+@.str.447 = private unnamed_addr constant [10 x i8] c"MAXBLKEXT\00", align 1
+@.str.448 = private unnamed_addr constant [10 x i8] c"RSLSETFLG\00", align 1
+@.str.449 = private unnamed_addr constant [9 x i8] c"TYPSQLDA\00", align 1
+@.str.450 = private unnamed_addr constant [10 x i8] c"OUTOVROPT\00", align 1
+@.str.451 = private unnamed_addr constant [10 x i8] c"RTNEXTDTA\00", align 1
+@.str.452 = private unnamed_addr constant [10 x i8] c"QRYATTSCR\00", align 1
+@.str.453 = private unnamed_addr constant [10 x i8] c"DYNDTAFMT\00", align 1
+@.str.454 = private unnamed_addr constant [10 x i8] c"QRYATTUPD\00", align 1
+@.str.455 = private unnamed_addr constant [10 x i8] c"QRYSCRORN\00", align 1
+@.str.456 = private unnamed_addr constant [10 x i8] c"QRYROWSNS\00", align 1
+@.str.457 = private unnamed_addr constant [10 x i8] c"QRYBLKRST\00", align 1
+@.str.458 = private unnamed_addr constant [10 x i8] c"QRYRTNDTA\00", align 1
+@.str.459 = private unnamed_addr constant [10 x i8] c"QRYROWSET\00", align 1
+@.str.460 = private unnamed_addr constant [10 x i8] c"QRYATTSNS\00", align 1
+@.str.461 = private unnamed_addr constant [9 x i8] c"QRYINSID\00", align 1
+@.str.462 = private unnamed_addr constant [10 x i8] c"QRYCLSIMP\00", align 1
+@.str.463 = private unnamed_addr constant [10 x i8] c"QRYCLSRLS\00", align 1
+@.str.464 = private unnamed_addr constant [10 x i8] c"QRYBLKFCT\00", align 1
+@.str.465 = private unnamed_addr constant [8 x i8] c"DIAGLVL\00", align 1
+@.str.466 = private unnamed_addr constant [9 x i8] c"ACCRDBRM\00", align 1
+@.str.467 = private unnamed_addr constant [9 x i8] c"QRYNOPRM\00", align 1
+@.str.468 = private unnamed_addr constant [9 x i8] c"RDBNACRM\00", align 1
+@.str.469 = private unnamed_addr constant [9 x i8] c"OPNQRYRM\00", align 1
+@.str.470 = private unnamed_addr constant [9 x i8] c"PKGBNARM\00", align 1
+@.str.471 = private unnamed_addr constant [9 x i8] c"RDBACCRM\00", align 1
+@.str.472 = private unnamed_addr constant [9 x i8] c"BGNBNDRM\00", align 1
+@.str.473 = private unnamed_addr constant [9 x i8] c"PKGBPARM\00", align 1
+@.str.474 = private unnamed_addr constant [9 x i8] c"DSCINVRM\00", align 1
+@.str.475 = private unnamed_addr constant [9 x i8] c"ENDQRYRM\00", align 1
+@.str.476 = private unnamed_addr constant [9 x i8] c"ENDUOWRM\00", align 1
+@.str.477 = private unnamed_addr constant [9 x i8] c"ABNUOWRM\00", align 1
+@.str.478 = private unnamed_addr constant [9 x i8] c"DTAMCHRM\00", align 1
+@.str.479 = private unnamed_addr constant [9 x i8] c"QRYPOPRM\00", align 1
+@.str.480 = private unnamed_addr constant [9 x i8] c"RDBNFNRM\00", align 1
+@.str.481 = private unnamed_addr constant [9 x i8] c"OPNQFLRM\00", align 1
+@.str.482 = private unnamed_addr constant [9 x i8] c"SQLERRRM\00", align 1
+@.str.483 = private unnamed_addr constant [9 x i8] c"RDBUPDRM\00", align 1
+@.str.484 = private unnamed_addr constant [9 x i8] c"RSLSETRM\00", align 1
+@.str.485 = private unnamed_addr constant [9 x i8] c"RDBAFLRM\00", align 1
+@.str.486 = private unnamed_addr constant [9 x i8] c"CMDVLTRM\00", align 1
+@.str.487 = private unnamed_addr constant [9 x i8] c"CMMRQSRM\00", align 1
+@.str.488 = private unnamed_addr constant [9 x i8] c"RDBATHRM\00", align 1
+@.str.489 = private unnamed_addr constant [6 x i8] c"SQLAM\00", align 1
+@.str.490 = private unnamed_addr constant [8 x i8] c"SQLCARD\00", align 1
+@.str.491 = private unnamed_addr constant [9 x i8] c"SQLCINRD\00", align 1
+@.str.492 = private unnamed_addr constant [9 x i8] c"SQLRSLRD\00", align 1
+@.str.493 = private unnamed_addr constant [4 x i8] c"RDB\00", align 1
+@.str.494 = private unnamed_addr constant [10 x i8] c"FRCFIXROW\00", align 1
+@.str.495 = private unnamed_addr constant [8 x i8] c"SQLDARD\00", align 1
+@.str.496 = private unnamed_addr constant [7 x i8] c"SQLDTA\00", align 1
+@.str.497 = private unnamed_addr constant [9 x i8] c"SQLDTARD\00", align 1
+@.str.498 = private unnamed_addr constant [7 x i8] c"SQLSTT\00", align 1
+@.str.499 = private unnamed_addr constant [7 x i8] c"OUTOVR\00", align 1
+@.str.500 = private unnamed_addr constant [10 x i8] c"LMTBLKPRC\00", align 1
+@.str.501 = private unnamed_addr constant [10 x i8] c"FIXROWPRC\00", align 1
+@.str.502 = private unnamed_addr constant [10 x i8] c"SQLSTTVRB\00", align 1
+@.str.503 = private unnamed_addr constant [7 x i8] c"QRYDSC\00", align 1
+@.str.504 = private unnamed_addr constant [7 x i8] c"QRYDTA\00", align 1
+@.str.505 = private unnamed_addr constant [10 x i8] c"CSTSYSDFT\00", align 1
+@.str.506 = private unnamed_addr constant [8 x i8] c"CSTBITS\00", align 1
+@.str.507 = private unnamed_addr constant [8 x i8] c"CSTSBCS\00", align 1
+@.str.508 = private unnamed_addr constant [8 x i8] c"CSTMBCS\00", align 1
+@.str.509 = private unnamed_addr constant [10 x i8] c"ISOLVLCHG\00", align 1
+@.str.510 = private unnamed_addr constant [9 x i8] c"ISOLVLCS\00", align 1
+@.str.511 = private unnamed_addr constant [10 x i8] c"ISOLVLALL\00", align 1
+@.str.512 = private unnamed_addr constant [9 x i8] c"ISOLVLRR\00", align 1
+@.str.513 = private unnamed_addr constant [9 x i8] c"ISOLVLNC\00", align 1
+@.str.514 = private unnamed_addr constant [7 x i8] c"SRVLST\00", align 1
+@.str.515 = private unnamed_addr constant [8 x i8] c"SQLATTR\00", align 1
+@drda_opcode_abbr = internal constant [202 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.315 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.316 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.317 }, { i32, [4 x i8], ptr } { i32 47, [4 x i8] zeroinitializer, ptr @.str.318 }, { i32, [4 x i8], ptr } { i32 53, [4 x i8] zeroinitializer, ptr @.str.319 }, { i32, [4 x i8], ptr } { i32 100, [4 x i8] zeroinitializer, ptr @.str.320 }, { i32, [4 x i8], ptr } { i32 4161, [4 x i8] zeroinitializer, ptr @.str.321 }, { i32, [4 x i8], ptr } { i32 4181, [4 x i8] zeroinitializer, ptr @.str.322 }, { i32, [4 x i8], ptr } { i32 4201, [4 x i8] zeroinitializer, ptr @.str.323 }, { i32, [4 x i8], ptr } { i32 4205, [4 x i8] zeroinitializer, ptr @.str.324 }, { i32, [4 x i8], ptr } { i32 4206, [4 x i8] zeroinitializer, ptr @.str.325 }, { i32, [4 x i8], ptr } { i32 4207, [4 x i8] zeroinitializer, ptr @.str.326 }, { i32, [4 x i8], ptr } { i32 4383, [4 x i8] zeroinitializer, ptr @.str.327 }, { i32, [4 x i8], ptr } { i32 4391, [4 x i8] zeroinitializer, ptr @.str.328 }, { i32, [4 x i8], ptr } { i32 4397, [4 x i8] zeroinitializer, ptr @.str.329 }, { i32, [4 x i8], ptr } { i32 4398, [4 x i8] zeroinitializer, ptr @.str.330 }, { i32, [4 x i8], ptr } { i32 4415, [4 x i8] zeroinitializer, ptr @.str.331 }, { i32, [4 x i8], ptr } { i32 4420, [4 x i8] zeroinitializer, ptr @.str.332 }, { i32, [4 x i8], ptr } { i32 4423, [4 x i8] zeroinitializer, ptr @.str.333 }, { i32, [4 x i8], ptr } { i32 4425, [4 x i8] zeroinitializer, ptr @.str.334 }, { i32, [4 x i8], ptr } { i32 4426, [4 x i8] zeroinitializer, ptr @.str.335 }, { i32, [4 x i8], ptr } { i32 4435, [4 x i8] zeroinitializer, ptr @.str.336 }, { i32, [4 x i8], ptr } { i32 4442, [4 x i8] zeroinitializer, ptr @.str.337 }, { i32, [4 x i8], ptr } { i32 4445, [4 x i8] zeroinitializer, ptr @.str.338 }, { i32, [4 x i8], ptr } { i32 4446, [4 x i8] zeroinitializer, ptr @.str.339 }, { i32, [4 x i8], ptr } { i32 4461, [4 x i8] zeroinitializer, ptr @.str.340 }, { i32, [4 x i8], ptr } { i32 4502, [4 x i8] zeroinitializer, ptr @.str.341 }, { i32, [4 x i8], ptr } { i32 4507, [4 x i8] zeroinitializer, ptr @.str.342 }, { i32, [4 x i8], ptr } { i32 4508, [4 x i8] zeroinitializer, ptr @.str.343 }, { i32, [4 x i8], ptr } { i32 4509, [4 x i8] zeroinitializer, ptr @.str.344 }, { i32, [4 x i8], ptr } { i32 4510, [4 x i8] zeroinitializer, ptr @.str.345 }, { i32, [4 x i8], ptr } { i32 4511, [4 x i8] zeroinitializer, ptr @.str.346 }, { i32, [4 x i8], ptr } { i32 4512, [4 x i8] zeroinitializer, ptr @.str.347 }, { i32, [4 x i8], ptr } { i32 4513, [4 x i8] zeroinitializer, ptr @.str.348 }, { i32, [4 x i8], ptr } { i32 4514, [4 x i8] zeroinitializer, ptr @.str.349 }, { i32, [4 x i8], ptr } { i32 4516, [4 x i8] zeroinitializer, ptr @.str.350 }, { i32, [4 x i8], ptr } { i32 4532, [4 x i8] zeroinitializer, ptr @.str.351 }, { i32, [4 x i8], ptr } { i32 4572, [4 x i8] zeroinitializer, ptr @.str.352 }, { i32, [4 x i8], ptr } { i32 4574, [4 x i8] zeroinitializer, ptr @.str.353 }, { i32, [4 x i8], ptr } { i32 4624, [4 x i8] zeroinitializer, ptr @.str.354 }, { i32, [4 x i8], ptr } { i32 4632, [4 x i8] zeroinitializer, ptr @.str.355 }, { i32, [4 x i8], ptr } { i32 4633, [4 x i8] zeroinitializer, ptr @.str.356 }, { i32, [4 x i8], ptr } { i32 4636, [4 x i8] zeroinitializer, ptr @.str.357 }, { i32, [4 x i8], ptr } { i32 4658, [4 x i8] zeroinitializer, ptr @.str.358 }, { i32, [4 x i8], ptr } { i32 4659, [4 x i8] zeroinitializer, ptr @.str.359 }, { i32, [4 x i8], ptr } { i32 4677, [4 x i8] zeroinitializer, ptr @.str.360 }, { i32, [4 x i8], ptr } { i32 4683, [4 x i8] zeroinitializer, ptr @.str.361 }, { i32, [4 x i8], ptr } { i32 4684, [4 x i8] zeroinitializer, ptr @.str.362 }, { i32, [4 x i8], ptr } { i32 4688, [4 x i8] zeroinitializer, ptr @.str.363 }, { i32, [4 x i8], ptr } { i32 4689, [4 x i8] zeroinitializer, ptr @.str.364 }, { i32, [4 x i8], ptr } { i32 4690, [4 x i8] zeroinitializer, ptr @.str.365 }, { i32, [4 x i8], ptr } { i32 4691, [4 x i8] zeroinitializer, ptr @.str.366 }, { i32, [4 x i8], ptr } { i32 4692, [4 x i8] zeroinitializer, ptr @.str.367 }, { i32, [4 x i8], ptr } { i32 4703, [4 x i8] zeroinitializer, ptr @.str.368 }, { i32, [4 x i8], ptr } { i32 5123, [4 x i8] zeroinitializer, ptr @.str.369 }, { i32, [4 x i8], ptr } { i32 5124, [4 x i8] zeroinitializer, ptr @.str.370 }, { i32, [4 x i8], ptr } { i32 5180, [4 x i8] zeroinitializer, ptr @.str.371 }, { i32, [4 x i8], ptr } { i32 5184, [4 x i8] zeroinitializer, ptr @.str.372 }, { i32, [4 x i8], ptr } { i32 5187, [4 x i8] zeroinitializer, ptr @.str.373 }, { i32, [4 x i8], ptr } { i32 5188, [4 x i8] zeroinitializer, ptr @.str.374 }, { i32, [4 x i8], ptr } { i32 5208, [4 x i8] zeroinitializer, ptr @.str.375 }, { i32, [4 x i8], ptr } { i32 5235, [4 x i8] zeroinitializer, ptr @.str.376 }, { i32, [4 x i8], ptr } { i32 5236, [4 x i8] zeroinitializer, ptr @.str.377 }, { i32, [4 x i8], ptr } { i32 5242, [4 x i8] zeroinitializer, ptr @.str.378 }, { i32, [4 x i8], ptr } { i32 5244, [4 x i8] zeroinitializer, ptr @.str.379 }, { i32, [4 x i8], ptr } { i32 5292, [4 x i8] zeroinitializer, ptr @.str.380 }, { i32, [4 x i8], ptr } { i32 5312, [4 x i8] zeroinitializer, ptr @.str.381 }, { i32, [4 x i8], ptr } { i32 5313, [4 x i8] zeroinitializer, ptr @.str.382 }, { i32, [4 x i8], ptr } { i32 5324, [4 x i8] zeroinitializer, ptr @.str.383 }, { i32, [4 x i8], ptr } { i32 6149, [4 x i8] zeroinitializer, ptr @.str.384 }, { i32, [4 x i8], ptr } { i32 6400, [4 x i8] zeroinitializer, ptr @.str.385 }, { i32, [4 x i8], ptr } { i32 6401, [4 x i8] zeroinitializer, ptr @.str.386 }, { i32, [4 x i8], ptr } { i32 6408, [4 x i8] zeroinitializer, ptr @.str.387 }, { i32, [4 x i8], ptr } { i32 6419, [4 x i8] zeroinitializer, ptr @.str.388 }, { i32, [4 x i8], ptr } { i32 7168, [4 x i8] zeroinitializer, ptr @.str.389 }, { i32, [4 x i8], ptr } { i32 7169, [4 x i8] zeroinitializer, ptr @.str.390 }, { i32, [4 x i8], ptr } { i32 7172, [4 x i8] zeroinitializer, ptr @.str.391 }, { i32, [4 x i8], ptr } { i32 7176, [4 x i8] zeroinitializer, ptr @.str.392 }, { i32, [4 x i8], ptr } { i32 8193, [4 x i8] zeroinitializer, ptr @.str.393 }, { i32, [4 x i8], ptr } { i32 8194, [4 x i8] zeroinitializer, ptr @.str.394 }, { i32, [4 x i8], ptr } { i32 8196, [4 x i8] zeroinitializer, ptr @.str.395 }, { i32, [4 x i8], ptr } { i32 8197, [4 x i8] zeroinitializer, ptr @.str.396 }, { i32, [4 x i8], ptr } { i32 8198, [4 x i8] zeroinitializer, ptr @.str.397 }, { i32, [4 x i8], ptr } { i32 8199, [4 x i8] zeroinitializer, ptr @.str.398 }, { i32, [4 x i8], ptr } { i32 8200, [4 x i8] zeroinitializer, ptr @.str.399 }, { i32, [4 x i8], ptr } { i32 8201, [4 x i8] zeroinitializer, ptr @.str.400 }, { i32, [4 x i8], ptr } { i32 8202, [4 x i8] zeroinitializer, ptr @.str.401 }, { i32, [4 x i8], ptr } { i32 8203, [4 x i8] zeroinitializer, ptr @.str.402 }, { i32, [4 x i8], ptr } { i32 8204, [4 x i8] zeroinitializer, ptr @.str.403 }, { i32, [4 x i8], ptr } { i32 8205, [4 x i8] zeroinitializer, ptr @.str.404 }, { i32, [4 x i8], ptr } { i32 8206, [4 x i8] zeroinitializer, ptr @.str.405 }, { i32, [4 x i8], ptr } { i32 8207, [4 x i8] zeroinitializer, ptr @.str.406 }, { i32, [4 x i8], ptr } { i32 8208, [4 x i8] zeroinitializer, ptr @.str.407 }, { i32, [4 x i8], ptr } { i32 8210, [4 x i8] zeroinitializer, ptr @.str.408 }, { i32, [4 x i8], ptr } { i32 8212, [4 x i8] zeroinitializer, ptr @.str.409 }, { i32, [4 x i8], ptr } { i32 8449, [4 x i8] zeroinitializer, ptr @.str.410 }, { i32, [4 x i8], ptr } { i32 8450, [4 x i8] zeroinitializer, ptr @.str.411 }, { i32, [4 x i8], ptr } { i32 8451, [4 x i8] zeroinitializer, ptr @.str.412 }, { i32, [4 x i8], ptr } { i32 8452, [4 x i8] zeroinitializer, ptr @.str.413 }, { i32, [4 x i8], ptr } { i32 8453, [4 x i8] zeroinitializer, ptr @.str.414 }, { i32, [4 x i8], ptr } { i32 8456, [4 x i8] zeroinitializer, ptr @.str.415 }, { i32, [4 x i8], ptr } { i32 8457, [4 x i8] zeroinitializer, ptr @.str.416 }, { i32, [4 x i8], ptr } { i32 8458, [4 x i8] zeroinitializer, ptr @.str.417 }, { i32, [4 x i8], ptr } { i32 8460, [4 x i8] zeroinitializer, ptr @.str.418 }, { i32, [4 x i8], ptr } { i32 8461, [4 x i8] zeroinitializer, ptr @.str.419 }, { i32, [4 x i8], ptr } { i32 8462, [4 x i8] zeroinitializer, ptr @.str.420 }, { i32, [4 x i8], ptr } { i32 8463, [4 x i8] zeroinitializer, ptr @.str.421 }, { i32, [4 x i8], ptr } { i32 8464, [4 x i8] zeroinitializer, ptr @.str.422 }, { i32, [4 x i8], ptr } { i32 8465, [4 x i8] zeroinitializer, ptr @.str.423 }, { i32, [4 x i8], ptr } { i32 8466, [4 x i8] zeroinitializer, ptr @.str.424 }, { i32, [4 x i8], ptr } { i32 8467, [4 x i8] zeroinitializer, ptr @.str.425 }, { i32, [4 x i8], ptr } { i32 8468, [4 x i8] zeroinitializer, ptr @.str.426 }, { i32, [4 x i8], ptr } { i32 8469, [4 x i8] zeroinitializer, ptr @.str.427 }, { i32, [4 x i8], ptr } { i32 8470, [4 x i8] zeroinitializer, ptr @.str.428 }, { i32, [4 x i8], ptr } { i32 8474, [4 x i8] zeroinitializer, ptr @.str.429 }, { i32, [4 x i8], ptr } { i32 8479, [4 x i8] zeroinitializer, ptr @.str.430 }, { i32, [4 x i8], ptr } { i32 8480, [4 x i8] zeroinitializer, ptr @.str.431 }, { i32, [4 x i8], ptr } { i32 8481, [4 x i8] zeroinitializer, ptr @.str.432 }, { i32, [4 x i8], ptr } { i32 8485, [4 x i8] zeroinitializer, ptr @.str.433 }, { i32, [4 x i8], ptr } { i32 8498, [4 x i8] zeroinitializer, ptr @.str.434 }, { i32, [4 x i8], ptr } { i32 8500, [4 x i8] zeroinitializer, ptr @.str.435 }, { i32, [4 x i8], ptr } { i32 8501, [4 x i8] zeroinitializer, ptr @.str.436 }, { i32, [4 x i8], ptr } { i32 8502, [4 x i8] zeroinitializer, ptr @.str.437 }, { i32, [4 x i8], ptr } { i32 8503, [4 x i8] zeroinitializer, ptr @.str.438 }, { i32, [4 x i8], ptr } { i32 8504, [4 x i8] zeroinitializer, ptr @.str.439 }, { i32, [4 x i8], ptr } { i32 8505, [4 x i8] zeroinitializer, ptr @.str.440 }, { i32, [4 x i8], ptr } { i32 8506, [4 x i8] zeroinitializer, ptr @.str.441 }, { i32, [4 x i8], ptr } { i32 8507, [4 x i8] zeroinitializer, ptr @.str.442 }, { i32, [4 x i8], ptr } { i32 8508, [4 x i8] zeroinitializer, ptr @.str.443 }, { i32, [4 x i8], ptr } { i32 8509, [4 x i8] zeroinitializer, ptr @.str.444 }, { i32, [4 x i8], ptr } { i32 8510, [4 x i8] zeroinitializer, ptr @.str.445 }, { i32, [4 x i8], ptr } { i32 8512, [4 x i8] zeroinitializer, ptr @.str.446 }, { i32, [4 x i8], ptr } { i32 8513, [4 x i8] zeroinitializer, ptr @.str.447 }, { i32, [4 x i8], ptr } { i32 8514, [4 x i8] zeroinitializer, ptr @.str.448 }, { i32, [4 x i8], ptr } { i32 8518, [4 x i8] zeroinitializer, ptr @.str.449 }, { i32, [4 x i8], ptr } { i32 8519, [4 x i8] zeroinitializer, ptr @.str.450 }, { i32, [4 x i8], ptr } { i32 8520, [4 x i8] zeroinitializer, ptr @.str.451 }, { i32, [4 x i8], ptr } { i32 8521, [4 x i8] zeroinitializer, ptr @.str.452 }, { i32, [4 x i8], ptr } { i32 8523, [4 x i8] zeroinitializer, ptr @.str.453 }, { i32, [4 x i8], ptr } { i32 8528, [4 x i8] zeroinitializer, ptr @.str.454 }, { i32, [4 x i8], ptr } { i32 8530, [4 x i8] zeroinitializer, ptr @.str.455 }, { i32, [4 x i8], ptr } { i32 8531, [4 x i8] zeroinitializer, ptr @.str.456 }, { i32, [4 x i8], ptr } { i32 8532, [4 x i8] zeroinitializer, ptr @.str.457 }, { i32, [4 x i8], ptr } { i32 8533, [4 x i8] zeroinitializer, ptr @.str.458 }, { i32, [4 x i8], ptr } { i32 8534, [4 x i8] zeroinitializer, ptr @.str.459 }, { i32, [4 x i8], ptr } { i32 8535, [4 x i8] zeroinitializer, ptr @.str.460 }, { i32, [4 x i8], ptr } { i32 8539, [4 x i8] zeroinitializer, ptr @.str.461 }, { i32, [4 x i8], ptr } { i32 8541, [4 x i8] zeroinitializer, ptr @.str.462 }, { i32, [4 x i8], ptr } { i32 8542, [4 x i8] zeroinitializer, ptr @.str.463 }, { i32, [4 x i8], ptr } { i32 8543, [4 x i8] zeroinitializer, ptr @.str.464 }, { i32, [4 x i8], ptr } { i32 8544, [4 x i8] zeroinitializer, ptr @.str.465 }, { i32, [4 x i8], ptr } { i32 8705, [4 x i8] zeroinitializer, ptr @.str.466 }, { i32, [4 x i8], ptr } { i32 8706, [4 x i8] zeroinitializer, ptr @.str.467 }, { i32, [4 x i8], ptr } { i32 8708, [4 x i8] zeroinitializer, ptr @.str.468 }, { i32, [4 x i8], ptr } { i32 8709, [4 x i8] zeroinitializer, ptr @.str.469 }, { i32, [4 x i8], ptr } { i32 8710, [4 x i8] zeroinitializer, ptr @.str.470 }, { i32, [4 x i8], ptr } { i32 8711, [4 x i8] zeroinitializer, ptr @.str.471 }, { i32, [4 x i8], ptr } { i32 8712, [4 x i8] zeroinitializer, ptr @.str.472 }, { i32, [4 x i8], ptr } { i32 8713, [4 x i8] zeroinitializer, ptr @.str.473 }, { i32, [4 x i8], ptr } { i32 8714, [4 x i8] zeroinitializer, ptr @.str.474 }, { i32, [4 x i8], ptr } { i32 8715, [4 x i8] zeroinitializer, ptr @.str.475 }, { i32, [4 x i8], ptr } { i32 8716, [4 x i8] zeroinitializer, ptr @.str.476 }, { i32, [4 x i8], ptr } { i32 8717, [4 x i8] zeroinitializer, ptr @.str.477 }, { i32, [4 x i8], ptr } { i32 8718, [4 x i8] zeroinitializer, ptr @.str.478 }, { i32, [4 x i8], ptr } { i32 8719, [4 x i8] zeroinitializer, ptr @.str.479 }, { i32, [4 x i8], ptr } { i32 8721, [4 x i8] zeroinitializer, ptr @.str.480 }, { i32, [4 x i8], ptr } { i32 8722, [4 x i8] zeroinitializer, ptr @.str.481 }, { i32, [4 x i8], ptr } { i32 8723, [4 x i8] zeroinitializer, ptr @.str.482 }, { i32, [4 x i8], ptr } { i32 8728, [4 x i8] zeroinitializer, ptr @.str.483 }, { i32, [4 x i8], ptr } { i32 8729, [4 x i8] zeroinitializer, ptr @.str.484 }, { i32, [4 x i8], ptr } { i32 8730, [4 x i8] zeroinitializer, ptr @.str.485 }, { i32, [4 x i8], ptr } { i32 8733, [4 x i8] zeroinitializer, ptr @.str.486 }, { i32, [4 x i8], ptr } { i32 8741, [4 x i8] zeroinitializer, ptr @.str.487 }, { i32, [4 x i8], ptr } { i32 8907, [4 x i8] zeroinitializer, ptr @.str.488 }, { i32, [4 x i8], ptr } { i32 9223, [4 x i8] zeroinitializer, ptr @.str.489 }, { i32, [4 x i8], ptr } { i32 9224, [4 x i8] zeroinitializer, ptr @.str.490 }, { i32, [4 x i8], ptr } { i32 9227, [4 x i8] zeroinitializer, ptr @.str.491 }, { i32, [4 x i8], ptr } { i32 9230, [4 x i8] zeroinitializer, ptr @.str.492 }, { i32, [4 x i8], ptr } { i32 9231, [4 x i8] zeroinitializer, ptr @.str.493 }, { i32, [4 x i8], ptr } { i32 9232, [4 x i8] zeroinitializer, ptr @.str.494 }, { i32, [4 x i8], ptr } { i32 9233, [4 x i8] zeroinitializer, ptr @.str.495 }, { i32, [4 x i8], ptr } { i32 9234, [4 x i8] zeroinitializer, ptr @.str.496 }, { i32, [4 x i8], ptr } { i32 9235, [4 x i8] zeroinitializer, ptr @.str.497 }, { i32, [4 x i8], ptr } { i32 9236, [4 x i8] zeroinitializer, ptr @.str.498 }, { i32, [4 x i8], ptr } { i32 9237, [4 x i8] zeroinitializer, ptr @.str.499 }, { i32, [4 x i8], ptr } { i32 9239, [4 x i8] zeroinitializer, ptr @.str.500 }, { i32, [4 x i8], ptr } { i32 9240, [4 x i8] zeroinitializer, ptr @.str.501 }, { i32, [4 x i8], ptr } { i32 9241, [4 x i8] zeroinitializer, ptr @.str.502 }, { i32, [4 x i8], ptr } { i32 9242, [4 x i8] zeroinitializer, ptr @.str.503 }, { i32, [4 x i8], ptr } { i32 9243, [4 x i8] zeroinitializer, ptr @.str.504 }, { i32, [4 x i8], ptr } { i32 9266, [4 x i8] zeroinitializer, ptr @.str.505 }, { i32, [4 x i8], ptr } { i32 9267, [4 x i8] zeroinitializer, ptr @.str.506 }, { i32, [4 x i8], ptr } { i32 9268, [4 x i8] zeroinitializer, ptr @.str.507 }, { i32, [4 x i8], ptr } { i32 9269, [4 x i8] zeroinitializer, ptr @.str.508 }, { i32, [4 x i8], ptr } { i32 9281, [4 x i8] zeroinitializer, ptr @.str.509 }, { i32, [4 x i8], ptr } { i32 9282, [4 x i8] zeroinitializer, ptr @.str.510 }, { i32, [4 x i8], ptr } { i32 9283, [4 x i8] zeroinitializer, ptr @.str.511 }, { i32, [4 x i8], ptr } { i32 9284, [4 x i8] zeroinitializer, ptr @.str.512 }, { i32, [4 x i8], ptr } { i32 9285, [4 x i8] zeroinitializer, ptr @.str.513 }, { i32, [4 x i8], ptr } { i32 9294, [4 x i8] zeroinitializer, ptr @.str.514 }, { i32, [4 x i8], ptr } { i32 9296, [4 x i8] zeroinitializer, ptr @.str.515 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.517 = private unnamed_addr constant [28 x i8] c"Complete data value follows\00", align 1
+@.str.518 = private unnamed_addr constant [51 x i8] c"Truncation has occurred (should not occur in DRDA)\00", align 1
+@.str.519 = private unnamed_addr constant [32 x i8] c"Reserved; no data value follows\00", align 1
+@.str.520 = private unnamed_addr constant [40 x i8] c"Undefined result; no data value follows\00", align 1
+@.str.521 = private unnamed_addr constant [28 x i8] c"NULL; no data value follows\00", align 1
+@.str.522 = private unnamed_addr constant [61 x i8] c"No cursor exists, or cursor defined without WITH HOLD clause\00", align 1
+@.str.523 = private unnamed_addr constant [38 x i8] c"Cursor defined using WITH HOLD clause\00", align 1
+@.str.524 = private unnamed_addr constant [53 x i8] c"Unknown if cursor was defined using WITH HOLD clause\00", align 1
+@drda_hold_vals = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.522 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.523 }, { i32, [4 x i8], ptr } { i32 -1, [4 x i8] zeroinitializer, ptr @.str.524 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.526 = private unnamed_addr constant [25 x i8] c"Statement is not a query\00", align 1
+@.str.527 = private unnamed_addr constant [51 x i8] c"Cursor defined using the WITH RETURN CLIENT clause\00", align 1
+@.str.528 = private unnamed_addr constant [51 x i8] c"Cursor defined using the WITH RETURN CALLER clause\00", align 1
+@.str.529 = private unnamed_addr constant [96 x i8] c"Unknown if cursor is intended to be used as a result set that will be returned from a procedure\00", align 1
+@drda_return_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.526 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.527 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.528 }, { i32, [4 x i8], ptr } { i32 -1, [4 x i8] zeroinitializer, ptr @.str.529 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.531 = private unnamed_addr constant [36 x i8] c"No cursor exists, or not scrollable\00", align 1
+@.str.532 = private unnamed_addr constant [35 x i8] c"Cursor defined using SCROLL clause\00", align 1
+@.str.533 = private unnamed_addr constant [41 x i8] c"Cursor exists, but scrollability unknown\00", align 1
+@drda_scroll_vals = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.531 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.532 }, { i32, [4 x i8], ptr } { i32 -1, [4 x i8] zeroinitializer, ptr @.str.533 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.535 = private unnamed_addr constant [17 x i8] c"No cursor exists\00", align 1
+@.str.536 = private unnamed_addr constant [36 x i8] c"Cursor defined as SENSITIVE DYNAMIC\00", align 1
+@.str.537 = private unnamed_addr constant [35 x i8] c"Cursor defined as SENSITIVE STATIC\00", align 1
+@.str.538 = private unnamed_addr constant [30 x i8] c"Cursor defined as INSENSITIVE\00", align 1
+@.str.539 = private unnamed_addr constant [69 x i8] c"Cursor defined with PARTIAL SENSITIVITY and STATIC size and ordering\00", align 1
+@.str.540 = private unnamed_addr constant [70 x i8] c"Cursor defined with PARTIAL SENSITIVITY and DYNAMIC size and ordering\00", align 1
+@.str.541 = private unnamed_addr constant [39 x i8] c"Cursor exists, but sensitivity unknown\00", align 1
+@drda_sensitive_vals = internal constant [8 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.535 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.536 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.537 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.538 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.539 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.540 }, { i32, [4 x i8], ptr } { i32 -1, [4 x i8] zeroinitializer, ptr @.str.541 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.543 = private unnamed_addr constant [16 x i8] c"ALLOCATE CURSOR\00", align 1
+@.str.544 = private unnamed_addr constant [20 x i8] c"ALLOCATE DESCRIPTOR\00", align 1
+@.str.545 = private unnamed_addr constant [13 x i8] c"ALTER DOMAIN\00", align 1
+@.str.546 = private unnamed_addr constant [12 x i8] c"ALTER TABLE\00", align 1
+@.str.547 = private unnamed_addr constant [17 x i8] c"CREATE ASSERTION\00", align 1
+@.str.548 = private unnamed_addr constant [5 x i8] c"CALL\00", align 1
+@.str.549 = private unnamed_addr constant [21 x i8] c"CREATE CHARACTER SET\00", align 1
+@.str.550 = private unnamed_addr constant [13 x i8] c"CLOSE CURSOR\00", align 1
+@.str.551 = private unnamed_addr constant [17 x i8] c"CREATE COLLATION\00", align 1
+@.str.552 = private unnamed_addr constant [12 x i8] c"COMMIT WORK\00", align 1
+@.str.553 = private unnamed_addr constant [8 x i8] c"CONNECT\00", align 1
+@.str.554 = private unnamed_addr constant [22 x i8] c"DEALLOCATE DESCRIPTOR\00", align 1
+@.str.555 = private unnamed_addr constant [19 x i8] c"DEALLOCATE PREPARE\00", align 1
+@.str.556 = private unnamed_addr constant [14 x i8] c"ALTER ROUTINE\00", align 1
+@.str.557 = private unnamed_addr constant [14 x i8] c"DELETE CURSOR\00", align 1
+@.str.558 = private unnamed_addr constant [13 x i8] c"DELETE WHERE\00", align 1
+@.str.559 = private unnamed_addr constant [9 x i8] c"DESCRIBE\00", align 1
+@.str.560 = private unnamed_addr constant [7 x i8] c"SELECT\00", align 1
+@.str.561 = private unnamed_addr constant [11 x i8] c"DISCONNECT\00", align 1
+@.str.562 = private unnamed_addr constant [14 x i8] c"CREATE DOMAIN\00", align 1
+@.str.563 = private unnamed_addr constant [15 x i8] c"DROP ASSERTION\00", align 1
+@.str.564 = private unnamed_addr constant [19 x i8] c"DROP CHARACTER SET\00", align 1
+@.str.565 = private unnamed_addr constant [15 x i8] c"DROP COLLATION\00", align 1
+@.str.566 = private unnamed_addr constant [12 x i8] c"DROP DOMAIN\00", align 1
+@.str.567 = private unnamed_addr constant [10 x i8] c"DROP ROLE\00", align 1
+@.str.568 = private unnamed_addr constant [13 x i8] c"DROP ROUTINE\00", align 1
+@.str.569 = private unnamed_addr constant [12 x i8] c"DROP SCHEMA\00", align 1
+@.str.570 = private unnamed_addr constant [11 x i8] c"DROP TABLE\00", align 1
+@.str.571 = private unnamed_addr constant [17 x i8] c"DROP TRANSLATION\00", align 1
+@.str.572 = private unnamed_addr constant [13 x i8] c"DROP TRIGGER\00", align 1
+@.str.573 = private unnamed_addr constant [10 x i8] c"DROP TYPE\00", align 1
+@.str.574 = private unnamed_addr constant [10 x i8] c"DROP VIEW\00", align 1
+@.str.575 = private unnamed_addr constant [14 x i8] c"DYNAMIC CLOSE\00", align 1
+@.str.576 = private unnamed_addr constant [22 x i8] c"DYNAMIC DELETE CURSOR\00", align 1
+@.str.577 = private unnamed_addr constant [14 x i8] c"DYNAMIC FETCH\00", align 1
+@.str.578 = private unnamed_addr constant [13 x i8] c"DYNAMIC OPEN\00", align 1
+@.str.579 = private unnamed_addr constant [22 x i8] c"DYNAMIC UPDATE CURSOR\00", align 1
+@.str.580 = private unnamed_addr constant [18 x i8] c"EXECUTE IMMEDIATE\00", align 1
+@.str.581 = private unnamed_addr constant [8 x i8] c"EXECUTE\00", align 1
+@.str.582 = private unnamed_addr constant [6 x i8] c"FETCH\00", align 1
+@.str.583 = private unnamed_addr constant [15 x i8] c"GET DESCRIPTOR\00", align 1
+@.str.584 = private unnamed_addr constant [6 x i8] c"GRANT\00", align 1
+@.str.585 = private unnamed_addr constant [11 x i8] c"GRANT ROLE\00", align 1
+@.str.586 = private unnamed_addr constant [7 x i8] c"INSERT\00", align 1
+@.str.587 = private unnamed_addr constant [5 x i8] c"OPEN\00", align 1
+@.str.588 = private unnamed_addr constant [8 x i8] c"PREPARE\00", align 1
+@.str.589 = private unnamed_addr constant [18 x i8] c"RELEASE SAVEPOINT\00", align 1
+@.str.590 = private unnamed_addr constant [7 x i8] c"RETURN\00", align 1
+@.str.591 = private unnamed_addr constant [7 x i8] c"REVOKE\00", align 1
+@.str.592 = private unnamed_addr constant [11 x i8] c"ALTER TYPE\00", align 1
+@.str.593 = private unnamed_addr constant [12 x i8] c"SET CATALOG\00", align 1
+@.str.594 = private unnamed_addr constant [17 x i8] c"SET CURRENT_PATH\00", align 1
+@.str.595 = private unnamed_addr constant [15 x i8] c"SET DESCRIPTOR\00", align 1
+@.str.596 = private unnamed_addr constant [10 x i8] c"SET NAMES\00", align 1
+@.str.597 = private unnamed_addr constant [11 x i8] c"SET SCHEMA\00", align 1
+@.str.598 = private unnamed_addr constant [14 x i8] c"SELECT CURSOR\00", align 1
+@.str.599 = private unnamed_addr constant [13 x i8] c"FREE LOCATOR\00", align 1
+@.str.600 = private unnamed_addr constant [13 x i8] c"HOLD LOCATOR\00", align 1
+@.str.601 = private unnamed_addr constant [15 x i8] c"DECLARE CURSOR\00", align 1
+@.str.602 = private unnamed_addr constant [14 x i8] c"DROP ORDERING\00", align 1
+@.str.603 = private unnamed_addr constant [15 x i8] c"DROP TRANSFORM\00", align 1
+@.str.604 = private unnamed_addr constant [20 x i8] c"SET TRANSFORM GROUP\00", align 1
+@drda_fcode_vals = internal constant [66 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.543 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.544 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.545 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.546 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.547 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.548 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.549 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.550 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.551 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.552 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.553 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.554 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.555 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.556 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.557 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.558 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.559 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.560 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.561 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.562 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.563 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.564 }, { i32, [4 x i8], ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.565 }, { i32, [4 x i8], ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.566 }, { i32, [4 x i8], ptr } { i32 29, [4 x i8] zeroinitializer, ptr @.str.567 }, { i32, [4 x i8], ptr } { i32 30, [4 x i8] zeroinitializer, ptr @.str.568 }, { i32, [4 x i8], ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.569 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.570 }, { i32, [4 x i8], ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.571 }, { i32, [4 x i8], ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.572 }, { i32, [4 x i8], ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.573 }, { i32, [4 x i8], ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.574 }, { i32, [4 x i8], ptr } { i32 37, [4 x i8] zeroinitializer, ptr @.str.575 }, { i32, [4 x i8], ptr } { i32 38, [4 x i8] zeroinitializer, ptr @.str.576 }, { i32, [4 x i8], ptr } { i32 39, [4 x i8] zeroinitializer, ptr @.str.577 }, { i32, [4 x i8], ptr } { i32 40, [4 x i8] zeroinitializer, ptr @.str.578 }, { i32, [4 x i8], ptr } { i32 41, [4 x i8] zeroinitializer, ptr @.str.560 }, { i32, [4 x i8], ptr } { i32 42, [4 x i8] zeroinitializer, ptr @.str.579 }, { i32, [4 x i8], ptr } { i32 43, [4 x i8] zeroinitializer, ptr @.str.580 }, { i32, [4 x i8], ptr } { i32 44, [4 x i8] zeroinitializer, ptr @.str.581 }, { i32, [4 x i8], ptr } { i32 45, [4 x i8] zeroinitializer, ptr @.str.582 }, { i32, [4 x i8], ptr } { i32 47, [4 x i8] zeroinitializer, ptr @.str.583 }, { i32, [4 x i8], ptr } { i32 48, [4 x i8] zeroinitializer, ptr @.str.584 }, { i32, [4 x i8], ptr } { i32 49, [4 x i8] zeroinitializer, ptr @.str.585 }, { i32, [4 x i8], ptr } { i32 50, [4 x i8] zeroinitializer, ptr @.str.586 }, { i32, [4 x i8], ptr } { i32 53, [4 x i8] zeroinitializer, ptr @.str.587 }, { i32, [4 x i8], ptr } { i32 54, [4 x i8] zeroinitializer, ptr @.str.576 }, { i32, [4 x i8], ptr } { i32 55, [4 x i8] zeroinitializer, ptr @.str.579 }, { i32, [4 x i8], ptr } { i32 56, [4 x i8] zeroinitializer, ptr @.str.588 }, { i32, [4 x i8], ptr } { i32 57, [4 x i8] zeroinitializer, ptr @.str.589 }, { i32, [4 x i8], ptr } { i32 58, [4 x i8] zeroinitializer, ptr @.str.590 }, { i32, [4 x i8], ptr } { i32 59, [4 x i8] zeroinitializer, ptr @.str.591 }, { i32, [4 x i8], ptr } { i32 60, [4 x i8] zeroinitializer, ptr @.str.592 }, { i32, [4 x i8], ptr } { i32 66, [4 x i8] zeroinitializer, ptr @.str.593 }, { i32, [4 x i8], ptr } { i32 69, [4 x i8] zeroinitializer, ptr @.str.594 }, { i32, [4 x i8], ptr } { i32 70, [4 x i8] zeroinitializer, ptr @.str.595 }, { i32, [4 x i8], ptr } { i32 72, [4 x i8] zeroinitializer, ptr @.str.596 }, { i32, [4 x i8], ptr } { i32 74, [4 x i8] zeroinitializer, ptr @.str.597 }, { i32, [4 x i8], ptr } { i32 85, [4 x i8] zeroinitializer, ptr @.str.598 }, { i32, [4 x i8], ptr } { i32 98, [4 x i8] zeroinitializer, ptr @.str.599 }, { i32, [4 x i8], ptr } { i32 99, [4 x i8] zeroinitializer, ptr @.str.600 }, { i32, [4 x i8], ptr } { i32 101, [4 x i8] zeroinitializer, ptr @.str.601 }, { i32, [4 x i8], ptr } { i32 115, [4 x i8] zeroinitializer, ptr @.str.602 }, { i32, [4 x i8], ptr } { i32 116, [4 x i8] zeroinitializer, ptr @.str.603 }, { i32, [4 x i8], ptr } { i32 118, [4 x i8] zeroinitializer, ptr @.str.604 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.606 = private unnamed_addr constant [61 x i8] c"Statement is not a query, or no columns are members of a key\00", align 1
+@.str.607 = private unnamed_addr constant [94 x i8] c"Select list includes all columns of the primary key of the base table referenced by the query\00", align 1
+@.str.608 = private unnamed_addr constant [152 x i8] c"Table reference by the query does not have a primary key, but the select list includes a set of columns that are defined as the preferred candidate key\00", align 1
+@drda_keytype_vals = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.606 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.607 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.608 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.610 = private unnamed_addr constant [40 x i8] c"Optimistic locking columns not injected\00", align 1
+@.str.611 = private unnamed_addr constant [104 x i8] c"Optimistic locking columns injected, but might not have the granularity to guarantee no false negatives\00", align 1
+@.str.612 = private unnamed_addr constant [69 x i8] c"Optimistic locking columns injected, guaranteeing no false negatives\00", align 1
+@drda_doptlck_vals = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.610 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.611 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.612 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.614 = private unnamed_addr constant [5 x i8] c"DATE\00", align 1
+@.str.615 = private unnamed_addr constant [16 x i8] c"DATE (NULLABLE)\00", align 1
+@.str.616 = private unnamed_addr constant [5 x i8] c"TIME\00", align 1
+@.str.617 = private unnamed_addr constant [16 x i8] c"TIME (NULLABLE)\00", align 1
+@.str.618 = private unnamed_addr constant [10 x i8] c"TIMESTAMP\00", align 1
+@.str.619 = private unnamed_addr constant [21 x i8] c"TIMESTAMP (NULLABLE)\00", align 1
+@.str.620 = private unnamed_addr constant [9 x i8] c"DATALINK\00", align 1
+@.str.621 = private unnamed_addr constant [20 x i8] c"DATALINK (NULLABLE)\00", align 1
+@.str.622 = private unnamed_addr constant [5 x i8] c"BLOB\00", align 1
+@.str.623 = private unnamed_addr constant [16 x i8] c"BLOB (NULLABLE)\00", align 1
+@.str.624 = private unnamed_addr constant [5 x i8] c"CLOB\00", align 1
+@.str.625 = private unnamed_addr constant [16 x i8] c"CLOB (NULLABLE)\00", align 1
+@.str.626 = private unnamed_addr constant [7 x i8] c"DBCLOB\00", align 1
+@.str.627 = private unnamed_addr constant [18 x i8] c"DBCLOB (NULLABLE)\00", align 1
+@.str.628 = private unnamed_addr constant [8 x i8] c"VARCHAR\00", align 1
+@.str.629 = private unnamed_addr constant [19 x i8] c"VARCHAR (NULLABLE)\00", align 1
+@.str.630 = private unnamed_addr constant [5 x i8] c"CHAR\00", align 1
+@.str.631 = private unnamed_addr constant [16 x i8] c"CHAR (NULLABLE)\00", align 1
+@.str.632 = private unnamed_addr constant [13 x i8] c"LONG VARCHAR\00", align 1
+@.str.633 = private unnamed_addr constant [24 x i8] c"LONG VARCHAR (NULLABLE)\00", align 1
+@.str.634 = private unnamed_addr constant [21 x i8] c"NULL-TERMINATED CHAR\00", align 1
+@.str.635 = private unnamed_addr constant [32 x i8] c"NULL-TERMINATED CHAR (NULLABLE)\00", align 1
+@.str.636 = private unnamed_addr constant [11 x i8] c"VARGRAPHIC\00", align 1
+@.str.637 = private unnamed_addr constant [22 x i8] c"VARGRAPHIC (NULLABLE)\00", align 1
+@.str.638 = private unnamed_addr constant [8 x i8] c"GRAPHIC\00", align 1
+@.str.639 = private unnamed_addr constant [19 x i8] c"GRAPHIC (NULLABLE)\00", align 1
+@.str.640 = private unnamed_addr constant [16 x i8] c"LONG VARGRAPHIC\00", align 1
+@.str.641 = private unnamed_addr constant [27 x i8] c"LONG VARGRAPHIC (NULLABLE)\00", align 1
+@.str.642 = private unnamed_addr constant [16 x i8] c"PASCAL L STRING\00", align 1
+@.str.643 = private unnamed_addr constant [27 x i8] c"PASCAL L STRING (NULLABLE)\00", align 1
+@.str.644 = private unnamed_addr constant [6 x i8] c"FLOAT\00", align 1
+@.str.645 = private unnamed_addr constant [17 x i8] c"FLOAT (NULLABLE)\00", align 1
+@.str.646 = private unnamed_addr constant [14 x i8] c"FIXED DECIMAL\00", align 1
+@.str.647 = private unnamed_addr constant [25 x i8] c"FIXED DECIMAL (NULLABLE)\00", align 1
+@.str.648 = private unnamed_addr constant [14 x i8] c"ZONED DECIMAL\00", align 1
+@.str.649 = private unnamed_addr constant [25 x i8] c"ZONED DECIMAL (NULLABLE)\00", align 1
+@.str.650 = private unnamed_addr constant [7 x i8] c"BIGINT\00", align 1
+@.str.651 = private unnamed_addr constant [18 x i8] c"BIGINT (NULLABLE)\00", align 1
+@.str.652 = private unnamed_addr constant [8 x i8] c"INTEGER\00", align 1
+@.str.653 = private unnamed_addr constant [19 x i8] c"INTEGER (NULLABLE)\00", align 1
+@.str.654 = private unnamed_addr constant [9 x i8] c"SMALLINT\00", align 1
+@.str.655 = private unnamed_addr constant [20 x i8] c"SMALLINT (NULLABLE)\00", align 1
+@.str.656 = private unnamed_addr constant [13 x i8] c"NUMERIC CHAR\00", align 1
+@.str.657 = private unnamed_addr constant [24 x i8] c"NUMERIC CHAR (NULLABLE)\00", align 1
+@.str.658 = private unnamed_addr constant [6 x i8] c"ROWID\00", align 1
+@.str.659 = private unnamed_addr constant [17 x i8] c"ROWID (NULLABLE)\00", align 1
+@.str.660 = private unnamed_addr constant [10 x i8] c"VARBINARY\00", align 1
+@.str.661 = private unnamed_addr constant [21 x i8] c"VARBINARY (NULLABLE)\00", align 1
+@.str.662 = private unnamed_addr constant [7 x i8] c"BINARY\00", align 1
+@.str.663 = private unnamed_addr constant [18 x i8] c"BINARY (NULLABLE)\00", align 1
+@.str.664 = private unnamed_addr constant [13 x i8] c"BLOB LOCATOR\00", align 1
+@.str.665 = private unnamed_addr constant [24 x i8] c"BLOB LOCATOR (NULLABLE)\00", align 1
+@.str.666 = private unnamed_addr constant [13 x i8] c"CLOB LOCATOR\00", align 1
+@.str.667 = private unnamed_addr constant [24 x i8] c"CLOB LOCATOR (NULLABLE)\00", align 1
+@.str.668 = private unnamed_addr constant [15 x i8] c"DBCLOB LOCATOR\00", align 1
+@.str.669 = private unnamed_addr constant [26 x i8] c"DBCLOB LOCATOR (NULLABLE)\00", align 1
+@.str.670 = private unnamed_addr constant [19 x i8] c"RESULT SET LOCATOR\00", align 1
+@.str.671 = private unnamed_addr constant [30 x i8] c"RESULT SET LOCATOR (NULLABLE)\00", align 1
+@.str.672 = private unnamed_addr constant [4 x i8] c"XML\00", align 1
+@.str.673 = private unnamed_addr constant [15 x i8] c"XML (NULLABLE)\00", align 1
+@.str.674 = private unnamed_addr constant [9 x i8] c"DECFLOAT\00", align 1
+@.str.675 = private unnamed_addr constant [20 x i8] c"DECFLOAT (NULLABLE)\00", align 1
+@.str.676 = private unnamed_addr constant [8 x i8] c"BOOLEAN\00", align 1
+@.str.677 = private unnamed_addr constant [19 x i8] c"BOOLEAN (NULLABLE)\00", align 1
+@.str.678 = private unnamed_addr constant [12 x i8] c"CURSOR TYPE\00", align 1
+@.str.679 = private unnamed_addr constant [23 x i8] c"CURSOR TYPE (NULLABLE)\00", align 1
+@.str.680 = private unnamed_addr constant [25 x i8] c"TIMESTAMP WITH TIME ZONE\00", align 1
+@.str.681 = private unnamed_addr constant [36 x i8] c"TIMESTAMP WITH TIME ZONE (NULLABLE)\00", align 1
+@drda_sqltype_vals = internal constant [69 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 384, [4 x i8] zeroinitializer, ptr @.str.614 }, { i32, [4 x i8], ptr } { i32 385, [4 x i8] zeroinitializer, ptr @.str.615 }, { i32, [4 x i8], ptr } { i32 388, [4 x i8] zeroinitializer, ptr @.str.616 }, { i32, [4 x i8], ptr } { i32 389, [4 x i8] zeroinitializer, ptr @.str.617 }, { i32, [4 x i8], ptr } { i32 392, [4 x i8] zeroinitializer, ptr @.str.618 }, { i32, [4 x i8], ptr } { i32 393, [4 x i8] zeroinitializer, ptr @.str.619 }, { i32, [4 x i8], ptr } { i32 396, [4 x i8] zeroinitializer, ptr @.str.620 }, { i32, [4 x i8], ptr } { i32 397, [4 x i8] zeroinitializer, ptr @.str.621 }, { i32, [4 x i8], ptr } { i32 404, [4 x i8] zeroinitializer, ptr @.str.622 }, { i32, [4 x i8], ptr } { i32 405, [4 x i8] zeroinitializer, ptr @.str.623 }, { i32, [4 x i8], ptr } { i32 408, [4 x i8] zeroinitializer, ptr @.str.624 }, { i32, [4 x i8], ptr } { i32 409, [4 x i8] zeroinitializer, ptr @.str.625 }, { i32, [4 x i8], ptr } { i32 412, [4 x i8] zeroinitializer, ptr @.str.626 }, { i32, [4 x i8], ptr } { i32 413, [4 x i8] zeroinitializer, ptr @.str.627 }, { i32, [4 x i8], ptr } { i32 448, [4 x i8] zeroinitializer, ptr @.str.628 }, { i32, [4 x i8], ptr } { i32 449, [4 x i8] zeroinitializer, ptr @.str.629 }, { i32, [4 x i8], ptr } { i32 452, [4 x i8] zeroinitializer, ptr @.str.630 }, { i32, [4 x i8], ptr } { i32 453, [4 x i8] zeroinitializer, ptr @.str.631 }, { i32, [4 x i8], ptr } { i32 456, [4 x i8] zeroinitializer, ptr @.str.632 }, { i32, [4 x i8], ptr } { i32 457, [4 x i8] zeroinitializer, ptr @.str.633 }, { i32, [4 x i8], ptr } { i32 460, [4 x i8] zeroinitializer, ptr @.str.634 }, { i32, [4 x i8], ptr } { i32 461, [4 x i8] zeroinitializer, ptr @.str.635 }, { i32, [4 x i8], ptr } { i32 464, [4 x i8] zeroinitializer, ptr @.str.636 }, { i32, [4 x i8], ptr } { i32 465, [4 x i8] zeroinitializer, ptr @.str.637 }, { i32, [4 x i8], ptr } { i32 468, [4 x i8] zeroinitializer, ptr @.str.638 }, { i32, [4 x i8], ptr } { i32 469, [4 x i8] zeroinitializer, ptr @.str.639 }, { i32, [4 x i8], ptr } { i32 472, [4 x i8] zeroinitializer, ptr @.str.640 }, { i32, [4 x i8], ptr } { i32 473, [4 x i8] zeroinitializer, ptr @.str.641 }, { i32, [4 x i8], ptr } { i32 476, [4 x i8] zeroinitializer, ptr @.str.642 }, { i32, [4 x i8], ptr } { i32 477, [4 x i8] zeroinitializer, ptr @.str.643 }, { i32, [4 x i8], ptr } { i32 480, [4 x i8] zeroinitializer, ptr @.str.644 }, { i32, [4 x i8], ptr } { i32 481, [4 x i8] zeroinitializer, ptr @.str.645 }, { i32, [4 x i8], ptr } { i32 484, [4 x i8] zeroinitializer, ptr @.str.646 }, { i32, [4 x i8], ptr } { i32 485, [4 x i8] zeroinitializer, ptr @.str.647 }, { i32, [4 x i8], ptr } { i32 488, [4 x i8] zeroinitializer, ptr @.str.648 }, { i32, [4 x i8], ptr } { i32 489, [4 x i8] zeroinitializer, ptr @.str.649 }, { i32, [4 x i8], ptr } { i32 492, [4 x i8] zeroinitializer, ptr @.str.650 }, { i32, [4 x i8], ptr } { i32 493, [4 x i8] zeroinitializer, ptr @.str.651 }, { i32, [4 x i8], ptr } { i32 496, [4 x i8] zeroinitializer, ptr @.str.652 }, { i32, [4 x i8], ptr } { i32 497, [4 x i8] zeroinitializer, ptr @.str.653 }, { i32, [4 x i8], ptr } { i32 500, [4 x i8] zeroinitializer, ptr @.str.654 }, { i32, [4 x i8], ptr } { i32 501, [4 x i8] zeroinitializer, ptr @.str.655 }, { i32, [4 x i8], ptr } { i32 504, [4 x i8] zeroinitializer, ptr @.str.656 }, { i32, [4 x i8], ptr } { i32 505, [4 x i8] zeroinitializer, ptr @.str.657 }, { i32, [4 x i8], ptr } { i32 904, [4 x i8] zeroinitializer, ptr @.str.658 }, { i32, [4 x i8], ptr } { i32 905, [4 x i8] zeroinitializer, ptr @.str.659 }, { i32, [4 x i8], ptr } { i32 908, [4 x i8] zeroinitializer, ptr @.str.660 }, { i32, [4 x i8], ptr } { i32 909, [4 x i8] zeroinitializer, ptr @.str.661 }, { i32, [4 x i8], ptr } { i32 912, [4 x i8] zeroinitializer, ptr @.str.662 }, { i32, [4 x i8], ptr } { i32 913, [4 x i8] zeroinitializer, ptr @.str.663 }, { i32, [4 x i8], ptr } { i32 960, [4 x i8] zeroinitializer, ptr @.str.664 }, { i32, [4 x i8], ptr } { i32 961, [4 x i8] zeroinitializer, ptr @.str.665 }, { i32, [4 x i8], ptr } { i32 964, [4 x i8] zeroinitializer, ptr @.str.666 }, { i32, [4 x i8], ptr } { i32 965, [4 x i8] zeroinitializer, ptr @.str.667 }, { i32, [4 x i8], ptr } { i32 968, [4 x i8] zeroinitializer, ptr @.str.668 }, { i32, [4 x i8], ptr } { i32 969, [4 x i8] zeroinitializer, ptr @.str.669 }, { i32, [4 x i8], ptr } { i32 972, [4 x i8] zeroinitializer, ptr @.str.670 }, { i32, [4 x i8], ptr } { i32 973, [4 x i8] zeroinitializer, ptr @.str.671 }, { i32, [4 x i8], ptr } { i32 988, [4 x i8] zeroinitializer, ptr @.str.672 }, { i32, [4 x i8], ptr } { i32 989, [4 x i8] zeroinitializer, ptr @.str.673 }, { i32, [4 x i8], ptr } { i32 996, [4 x i8] zeroinitializer, ptr @.str.674 }, { i32, [4 x i8], ptr } { i32 997, [4 x i8] zeroinitializer, ptr @.str.675 }, { i32, [4 x i8], ptr } { i32 2436, [4 x i8] zeroinitializer, ptr @.str.676 }, { i32, [4 x i8], ptr } { i32 2437, [4 x i8] zeroinitializer, ptr @.str.677 }, { i32, [4 x i8], ptr } { i32 2444, [4 x i8] zeroinitializer, ptr @.str.678 }, { i32, [4 x i8], ptr } { i32 2445, [4 x i8] zeroinitializer, ptr @.str.679 }, { i32, [4 x i8], ptr } { i32 2448, [4 x i8] zeroinitializer, ptr @.str.680 }, { i32, [4 x i8], ptr } { i32 2449, [4 x i8] zeroinitializer, ptr @.str.681 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.683 = private unnamed_addr constant [37 x i8] c"Column name not generated by the RDB\00", align 1
+@.str.684 = private unnamed_addr constant [33 x i8] c"Column name generated by the RDB\00", align 1
+@drda_unnamed_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.683 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.684 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.686 = private unnamed_addr constant [10 x i8] c"Not a UDT\00", align 1
+@.str.687 = private unnamed_addr constant [14 x i8] c"Distinct type\00", align 1
+@.str.688 = private unnamed_addr constant [16 x i8] c"Structured type\00", align 1
+@.str.689 = private unnamed_addr constant [15 x i8] c"Reference type\00", align 1
+@drda_udtxtype_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.686 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.687 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.688 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.689 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.691 = private unnamed_addr constant [53 x i8] c"Not a member of the primary key or of a unique index\00", align 1
+@.str.692 = private unnamed_addr constant [47 x i8] c"Member of the primary key or of a unique index\00", align 1
+@drda_keymem_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.691 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.692 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.694 = private unnamed_addr constant [15 x i8] c"Not updateable\00", align 1
+@.str.695 = private unnamed_addr constant [11 x i8] c"Updateable\00", align 1
+@drda_updateable_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.694 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.695 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.697 = private unnamed_addr constant [45 x i8] c"None of the other values of this field apply\00", align 1
+@.str.698 = private unnamed_addr constant [61 x i8] c"Data for this column is always generated using an expression\00", align 1
+@.str.699 = private unnamed_addr constant [50 x i8] c"Data for this identity column is always generated\00", align 1
+@.str.700 = private unnamed_addr constant [47 x i8] c"Data for this ROWID column is always generated\00", align 1
+@.str.701 = private unnamed_addr constant [54 x i8] c"Data for this identity column is generated by default\00", align 1
+@.str.702 = private unnamed_addr constant [51 x i8] c"Data for this ROWID column is generated by default\00", align 1
+@.str.703 = private unnamed_addr constant [62 x i8] c"Data for this row change timestamp column is always generated\00", align 1
+@.str.704 = private unnamed_addr constant [66 x i8] c"Data for this row change timestamp column is generated by default\00", align 1
+@drda_generated_vals = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.697 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.698 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.699 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.700 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.701 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.702 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.703 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.704 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.706 = private unnamed_addr constant [34 x i8] c"Not for use with a CALL statement\00", align 1
+@.str.707 = private unnamed_addr constant [21 x i8] c"Input-only parameter\00", align 1
+@.str.708 = private unnamed_addr constant [27 x i8] c"Input and output parameter\00", align 1
+@.str.709 = private unnamed_addr constant [22 x i8] c"Output-only parameter\00", align 1
+@drda_parmmode_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.706 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.707 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.708 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.709 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.711 = private unnamed_addr constant [50 x i8] c"Column not injected because of optimistic locking\00", align 1
+@.str.712 = private unnamed_addr constant [78 x i8] c"Row change token column was injected because optimistic locking was requested\00", align 1
+@.str.713 = private unnamed_addr constant [65 x i8] c"RID column was injected because optimistic locking was requested\00", align 1
+@drda_xoptlck_vals = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.711 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.712 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.713 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.715 = private unnamed_addr constant [20 x i8] c"Not a hidden column\00", align 1
+@.str.716 = private unnamed_addr constant [14 x i8] c"Hidden column\00", align 1
+@drda_hidden_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.715 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.716 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.718 = private unnamed_addr constant [3 x i8] c"NO\00", align 1
+@.str.719 = private unnamed_addr constant [10 x i8] c"TERMINATE\00", align 1
+@.str.720 = private unnamed_addr constant [6 x i8] c"REUSE\00", align 1
+@.str.721 = private unnamed_addr constant [43 x i8] c"NO_KDO - Presence of keep dynamic sections\00", align 1
+@drda_rlsconv_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 240, [4 x i8] zeroinitializer, ptr @.str.718 }, { i32, [4 x i8], ptr } { i32 241, [4 x i8] zeroinitializer, ptr @.str.719 }, { i32, [4 x i8], ptr } { i32 242, [4 x i8] zeroinitializer, ptr @.str.720 }, { i32, [4 x i8], ptr } { i32 243, [4 x i8] zeroinitializer, ptr @.str.721 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.723 = private unnamed_addr constant [43 x i8] c"DCESEC - Distributed Computing Environment\00", align 1
+@.str.724 = private unnamed_addr constant [32 x i8] c"USRIDPWD - User ID and Password\00", align 1
+@.str.725 = private unnamed_addr constant [24 x i8] c"UDRIDONL - User ID Only\00", align 1
+@.str.726 = private unnamed_addr constant [49 x i8] c"USRIDNWPWD - User ID, Password, and New Password\00", align 1
+@.str.727 = private unnamed_addr constant [45 x i8] c"USRSBSPWD - User ID with Substitute Password\00", align 1
+@.str.728 = private unnamed_addr constant [44 x i8] c"USRENCPWD - User ID with Encrypted Password\00", align 1
+@.str.729 = private unnamed_addr constant [52 x i8] c"USRSSBPWD - User ID with Strong Password Substitute\00", align 1
+@.str.730 = private unnamed_addr constant [43 x i8] c"EUSRIDPWD - Encrypted User ID and Password\00", align 1
+@.str.731 = private unnamed_addr constant [56 x i8] c"EUSRIDNWPWD - Encrypted User ID, Password, New Password\00", align 1
+@.str.732 = private unnamed_addr constant [27 x i8] c"KERSEC - Kerberos Security\00", align 1
+@.str.733 = private unnamed_addr constant [58 x i8] c"EUSRIDDTA - Encrypted User ID and Security-Sensitive Data\00", align 1
+@.str.734 = private unnamed_addr constant [70 x i8] c"EUSRPWDDTA - Encrypted User ID, Password, and Security-Sensitive Data\00", align 1
+@.str.735 = private unnamed_addr constant [85 x i8] c"EUSRNPWDDTA - Encrypted User ID, Password, New Password, and Security-Sensitive Data\00", align 1
+@.str.736 = private unnamed_addr constant [25 x i8] c"PLGIN - Plug-in Security\00", align 1
+@.str.737 = private unnamed_addr constant [35 x i8] c"EUSRIDONL - Encrypted User ID Only\00", align 1
+@drda_secmec_vals = internal constant [16 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.723 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.724 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.725 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.726 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.727 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.728 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.729 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.730 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.731 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.732 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.733 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.734 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.735 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.736 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.737 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.739 = private unnamed_addr constant [24 x i8] c"INFO - Information Only\00", align 1
+@.str.740 = private unnamed_addr constant [18 x i8] c"WARNING - Warning\00", align 1
+@.str.741 = private unnamed_addr constant [14 x i8] c"ERROR - Error\00", align 1
+@.str.742 = private unnamed_addr constant [22 x i8] c"SEVERE - Severe Error\00", align 1
+@.str.743 = private unnamed_addr constant [23 x i8] c"ACCDMG - Access Damage\00", align 1
+@.str.744 = private unnamed_addr constant [26 x i8] c"PRMDMG - Permanent Damage\00", align 1
+@.str.745 = private unnamed_addr constant [24 x i8] c"SESDMG - Session Damage\00", align 1
+@drda_svrcod_vals = internal constant [8 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.739 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.740 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.741 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.742 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.743 }, { i32, [4 x i8], ptr } { i32 64, [4 x i8] zeroinitializer, ptr @.str.744 }, { i32, [4 x i8], ptr } { i32 128, [4 x i8] zeroinitializer, ptr @.str.745 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.747 = private unnamed_addr constant [52 x i8] c"The security information is correct and acceptable.\00", align 1
+@.str.748 = private unnamed_addr constant [28 x i8] c"SECMEC value not supported.\00", align 1
+@.str.749 = private unnamed_addr constant [31 x i8] c"DCE information status issued.\00", align 1
+@.str.750 = private unnamed_addr constant [21 x i8] c"DCE retryable error.\00", align 1
+@.str.751 = private unnamed_addr constant [25 x i8] c"DCE non-retryable error.\00", align 1
+@.str.752 = private unnamed_addr constant [36 x i8] c"GSSAPI informational status issued.\00", align 1
+@.str.753 = private unnamed_addr constant [24 x i8] c"GSSAPI retryable error.\00", align 1
+@.str.754 = private unnamed_addr constant [28 x i8] c"GSSAPI non-retryable error.\00", align 1
+@.str.755 = private unnamed_addr constant [52 x i8] c"Local Security Service informational status issued.\00", align 1
+@.str.756 = private unnamed_addr constant [40 x i8] c"Local Security Service retryable error.\00", align 1
+@.str.757 = private unnamed_addr constant [44 x i8] c"Local Security Service non-retryable error.\00", align 1
+@.str.758 = private unnamed_addr constant [53 x i8] c"SECTKN missing when it is required or it is invalid.\00", align 1
+@.str.759 = private unnamed_addr constant [18 x i8] c"Password expired.\00", align 1
+@.str.760 = private unnamed_addr constant [18 x i8] c"Password invalid.\00", align 1
+@.str.761 = private unnamed_addr constant [18 x i8] c"Password missing.\00", align 1
+@.str.762 = private unnamed_addr constant [17 x i8] c"User ID missing.\00", align 1
+@.str.763 = private unnamed_addr constant [17 x i8] c"User ID invalid.\00", align 1
+@.str.764 = private unnamed_addr constant [17 x i8] c"User ID revoked.\00", align 1
+@.str.765 = private unnamed_addr constant [22 x i8] c"New Password invalid.\00", align 1
+@.str.766 = private unnamed_addr constant [93 x i8] c"Authentication failed because of connectivity restrictions enforced by the security plug-in.\00", align 1
+@.str.767 = private unnamed_addr constant [35 x i8] c"Invalid GSS-API server credential.\00", align 1
+@.str.768 = private unnamed_addr constant [58 x i8] c"GSS-API server credential expired on the database server.\00", align 1
+@.str.769 = private unnamed_addr constant [73 x i8] c"Continue - require more security context information for authentication.\00", align 1
+@drda_secchkcd_vals = internal constant [24 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.747 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.748 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.749 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.750 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.751 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.752 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.753 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.754 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.755 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.756 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.757 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.758 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.759 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.760 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.761 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.762 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.763 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.764 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.765 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.766 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.767 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.768 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.769 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.771 = private unnamed_addr constant [18 x i8] c"Use default value\00", align 1
+@.str.772 = private unnamed_addr constant [7 x i8] c"IBM037\00", align 1
+@.str.773 = private unnamed_addr constant [9 x i8] c"US-ASCII\00", align 1
+@.str.774 = private unnamed_addr constant [7 x i8] c"IBM500\00", align 1
+@.str.775 = private unnamed_addr constant [11 x i8] c"ISO-8859-1\00", align 1
+@.str.776 = private unnamed_addr constant [7 x i8] c"IBM850\00", align 1
+@.str.777 = private unnamed_addr constant [7 x i8] c"UTF-16\00", align 1
+@.str.778 = private unnamed_addr constant [9 x i8] c"UTF-16LE\00", align 1
+@.str.779 = private unnamed_addr constant [6 x i8] c"UTF-8\00", align 1
+@.str.780 = private unnamed_addr constant [28 x i8] c"Requested CCSID unsupported\00", align 1
+@drda_ccsid_vals = internal constant [11 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.771 }, { i32, [4 x i8], ptr } { i32 37, [4 x i8] zeroinitializer, ptr @.str.772 }, { i32, [4 x i8], ptr } { i32 367, [4 x i8] zeroinitializer, ptr @.str.773 }, { i32, [4 x i8], ptr } { i32 500, [4 x i8] zeroinitializer, ptr @.str.774 }, { i32, [4 x i8], ptr } { i32 819, [4 x i8] zeroinitializer, ptr @.str.775 }, { i32, [4 x i8], ptr } { i32 850, [4 x i8] zeroinitializer, ptr @.str.776 }, { i32, [4 x i8], ptr } { i32 1200, [4 x i8] zeroinitializer, ptr @.str.777 }, { i32, [4 x i8], ptr } { i32 1202, [4 x i8] zeroinitializer, ptr @.str.778 }, { i32, [4 x i8], ptr } { i32 1208, [4 x i8] zeroinitializer, ptr @.str.779 }, { i32, [4 x i8], ptr } { i32 65535, [4 x i8] zeroinitializer, ptr @.str.780 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.782 = private unnamed_addr constant [6 x i8] c"FALSE\00", align 1
+@.str.783 = private unnamed_addr constant [5 x i8] c"TRUE\00", align 1
+@drda_boolean_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 240, [4 x i8] zeroinitializer, ptr @.str.782 }, { i32, [4 x i8], ptr } { i32 241, [4 x i8] zeroinitializer, ptr @.str.783 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.785 = private unnamed_addr constant [10 x i8] c"Committed\00", align 1
+@.str.786 = private unnamed_addr constant [12 x i8] c"Rolled back\00", align 1
+@drda_uowdsp_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.785 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.786 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.788 = private unnamed_addr constant [30 x i8] c"Not limited by this parameter\00", align 1
+@.str.789 = private unnamed_addr constant [46 x i8] c"QRYUNK - Unknown or undefined for this cursor\00", align 1
+@.str.790 = private unnamed_addr constant [33 x i8] c"QRYRDO - The cursor is read-only\00", align 1
+@.str.791 = private unnamed_addr constant [43 x i8] c"QRYDEL - The cursor allows read and delete\00", align 1
+@.str.792 = private unnamed_addr constant [52 x i8] c"QRYUPD - The cursor allows read, delete, and update\00", align 1
+@drda_qryattupd_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.789 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.790 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.791 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.792 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.794 = private unnamed_addr constant [116 x i8] c"Target server determines whether to implicitly close the cursor or not upon SQLSTATE 02000 based on the cursor type\00", align 1
+@.str.795 = private unnamed_addr constant [67 x i8] c"Target server must implicitly close the cursor upon SQLSTATE 02000\00", align 1
+@.str.796 = private unnamed_addr constant [71 x i8] c"Target server must not implicitly close the cursor upon SQLSTATE 02000\00", align 1
+@drda_qryclsimp_vals = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.794 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.795 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.796 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.798 = private unnamed_addr constant [10 x i8] c"Unlimited\00", align 1
+@drda_max_vals = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 -1, [4 x i8] zeroinitializer, ptr @.str.798 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.800 = private unnamed_addr constant [15 x i8] c"Standard SQLDA\00", align 1
+@.str.801 = private unnamed_addr constant [15 x i8] c"Extended SQLDA\00", align 1
+@.str.802 = private unnamed_addr constant [12 x i8] c"Light SQLDA\00", align 1
+@drda_rslsetflg_extended_vals = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.800 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.801 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.802 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.804 = private unnamed_addr constant [22 x i8] c"Standard output SQLDA\00", align 1
+@.str.805 = private unnamed_addr constant [21 x i8] c"Standard input SQLDA\00", align 1
+@.str.806 = private unnamed_addr constant [19 x i8] c"Light output SQLDA\00", align 1
+@.str.807 = private unnamed_addr constant [18 x i8] c"Light input SQLDA\00", align 1
+@.str.808 = private unnamed_addr constant [22 x i8] c"Extended output SQLDA\00", align 1
+@.str.809 = private unnamed_addr constant [21 x i8] c"Extended input SQLDA\00", align 1
+@drda_typsqlda_vals = internal constant [7 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.804 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.805 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.806 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.807 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.808 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.809 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.811 = private unnamed_addr constant [52 x i8] c"OUTOVRFRS - Output Override Allowed on First CNTQRY\00", align 1
+@.str.812 = private unnamed_addr constant [50 x i8] c"OUTOVRANY - Output Override Allowed on Any CNTQRY\00", align 1
+@.str.813 = private unnamed_addr constant [57 x i8] c"OUTOVRNON - Output Override Not Allowed, and MINLVL is 8\00", align 1
+@drda_outovropt_vals = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.811 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.812 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.813 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.815 = private unnamed_addr constant [10 x i8] c"QTDSQL370\00", align 1
+@.str.816 = private unnamed_addr constant [31 x i8] c"System/390 SQL type definition\00", align 1
+@.str.817 = private unnamed_addr constant [10 x i8] c"QTDSQL400\00", align 1
+@.str.818 = private unnamed_addr constant [27 x i8] c"AS/400 SQL type definition\00", align 1
+@.str.819 = private unnamed_addr constant [10 x i8] c"QTDSQLX86\00", align 1
+@.str.820 = private unnamed_addr constant [32 x i8] c"Intel 80x86 SQL type definition\00", align 1
+@.str.821 = private unnamed_addr constant [10 x i8] c"QTDSQLASC\00", align 1
+@.str.822 = private unnamed_addr constant [45 x i8] c"General ASCII Big Endian SQL type definition\00", align 1
+@.str.823 = private unnamed_addr constant [10 x i8] c"QTDSQLVAX\00", align 1
+@.str.824 = private unnamed_addr constant [28 x i8] c"DEC VAX SQL type definition\00", align 1
+@typdefnam_vals = internal constant [6 x { ptr, ptr, i32, [4 x i8] }] [{ ptr, ptr, i32, [4 x i8] } { ptr @.str.815, ptr @.str.816, i32 1, [4 x i8] zeroinitializer }, { ptr, ptr, i32, [4 x i8] } { ptr @.str.817, ptr @.str.818, i32 2, [4 x i8] zeroinitializer }, { ptr, ptr, i32, [4 x i8] } { ptr @.str.819, ptr @.str.820, i32 3, [4 x i8] zeroinitializer }, { ptr, ptr, i32, [4 x i8] } { ptr @.str.821, ptr @.str.822, i32 4, [4 x i8] zeroinitializer }, { ptr, ptr, i32, [4 x i8] } { ptr @.str.823, ptr @.str.824, i32 5, [4 x i8] zeroinitializer }, { ptr, ptr, i32, [4 x i8] } zeroinitializer], align 16
 @dissect_drda_pdu.format_flags = internal constant [6 x ptr] [ptr @hf_drda_ddm_fmt_reserved, ptr @hf_drda_ddm_fmt_chained, ptr @hf_drda_ddm_fmt_errcont, ptr @hf_drda_ddm_fmt_samecorr, ptr @hf_drda_ddm_fmt_dsstyp, ptr null], align 16
-@.str.794 = private unnamed_addr constant [4 x i8] c"DDM\00", align 1
-@.str.795 = private unnamed_addr constant [63 x i8] c"Invalid length detected (%u): should be at least 10 bytes long\00", align 1
-@.str.796 = private unnamed_addr constant [6 x i8] c" (%s)\00", align 1
-@drda_opcode_vals_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 201, ptr @drda_opcode_vals, ptr @.str.800 }, align 8
-@.str.797 = private unnamed_addr constant [17 x i8] c"Unknown (0x%02x)\00", align 1
-@.str.798 = private unnamed_addr constant [4 x i8] c" | \00", align 1
-@.str.799 = private unnamed_addr constant [10 x i8] c"Parameter\00", align 1
-@drda_opcode_vals = internal constant [202 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.801 }, %struct._value_string { i32 12, ptr @.str.802 }, %struct._value_string { i32 16, ptr @.str.803 }, %struct._value_string { i32 47, ptr @.str.45 }, %struct._value_string { i32 53, ptr @.str.804 }, %struct._value_string { i32 100, ptr @.str.805 }, %struct._value_string { i32 4161, ptr @.str.806 }, %struct._value_string { i32 4181, ptr @.str.807 }, %struct._value_string { i32 4201, ptr @.str.808 }, %struct._value_string { i32 4205, ptr @.str.809 }, %struct._value_string { i32 4206, ptr @.str.810 }, %struct._value_string { i32 4207, ptr @.str.811 }, %struct._value_string { i32 4383, ptr @.str.812 }, %struct._value_string { i32 4391, ptr @.str.813 }, %struct._value_string { i32 4397, ptr @.str.814 }, %struct._value_string { i32 4398, ptr @.str.815 }, %struct._value_string { i32 4415, ptr @.str.816 }, %struct._value_string { i32 4420, ptr @.str.817 }, %struct._value_string { i32 4423, ptr @.str.818 }, %struct._value_string { i32 4425, ptr @.str.183 }, %struct._value_string { i32 4426, ptr @.str.819 }, %struct._value_string { i32 4435, ptr @.str.820 }, %struct._value_string { i32 4442, ptr @.str.821 }, %struct._value_string { i32 4445, ptr @.str.822 }, %struct._value_string { i32 4446, ptr @.str.823 }, %struct._value_string { i32 4461, ptr @.str.824 }, %struct._value_string { i32 4502, ptr @.str.825 }, %struct._value_string { i32 4507, ptr @.str.826 }, %struct._value_string { i32 4508, ptr @.str.827 }, %struct._value_string { i32 4509, ptr @.str.828 }, %struct._value_string { i32 4510, ptr @.str.829 }, %struct._value_string { i32 4511, ptr @.str.177 }, %struct._value_string { i32 4512, ptr @.str.830 }, %struct._value_string { i32 4513, ptr @.str.831 }, %struct._value_string { i32 4514, ptr @.str.179 }, %struct._value_string { i32 4516, ptr @.str.185 }, %struct._value_string { i32 4532, ptr @.str.832 }, %struct._value_string { i32 4572, ptr @.str.181 }, %struct._value_string { i32 4574, ptr @.str.833 }, %struct._value_string { i32 4624, ptr @.str.834 }, %struct._value_string { i32 4632, ptr @.str.835 }, %struct._value_string { i32 4633, ptr @.str.810 }, %struct._value_string { i32 4636, ptr @.str.836 }, %struct._value_string { i32 4658, ptr @.str.837 }, %struct._value_string { i32 4659, ptr @.str.838 }, %struct._value_string { i32 4677, ptr @.str.839 }, %struct._value_string { i32 4683, ptr @.str.840 }, %struct._value_string { i32 4684, ptr @.str.841 }, %struct._value_string { i32 4688, ptr @.str.842 }, %struct._value_string { i32 4689, ptr @.str.843 }, %struct._value_string { i32 4690, ptr @.str.844 }, %struct._value_string { i32 4691, ptr @.str.845 }, %struct._value_string { i32 4692, ptr @.str.846 }, %struct._value_string { i32 4703, ptr @.str.847 }, %struct._value_string { i32 5123, ptr @.str.848 }, %struct._value_string { i32 5124, ptr @.str.849 }, %struct._value_string { i32 5180, ptr @.str.850 }, %struct._value_string { i32 5184, ptr @.str.851 }, %struct._value_string { i32 5187, ptr @.str.852 }, %struct._value_string { i32 5188, ptr @.str.853 }, %struct._value_string { i32 5208, ptr @.str.854 }, %struct._value_string { i32 5235, ptr @.str.855 }, %struct._value_string { i32 5236, ptr @.str.856 }, %struct._value_string { i32 5242, ptr @.str.857 }, %struct._value_string { i32 5244, ptr @.str.858 }, %struct._value_string { i32 5292, ptr @.str.859 }, %struct._value_string { i32 5312, ptr @.str.860 }, %struct._value_string { i32 5313, ptr @.str.861 }, %struct._value_string { i32 5324, ptr @.str.862 }, %struct._value_string { i32 6149, ptr @.str.863 }, %struct._value_string { i32 6400, ptr @.str.864 }, %struct._value_string { i32 6401, ptr @.str.194 }, %struct._value_string { i32 6408, ptr @.str.198 }, %struct._value_string { i32 6419, ptr @.str.865 }, %struct._value_string { i32 7168, ptr @.str.866 }, %struct._value_string { i32 7169, ptr @.str.867 }, %struct._value_string { i32 7172, ptr @.str.280 }, %struct._value_string { i32 7176, ptr @.str.868 }, %struct._value_string { i32 8193, ptr @.str.869 }, %struct._value_string { i32 8194, ptr @.str.870 }, %struct._value_string { i32 8196, ptr @.str.871 }, %struct._value_string { i32 8197, ptr @.str.872 }, %struct._value_string { i32 8198, ptr @.str.873 }, %struct._value_string { i32 8199, ptr @.str.874 }, %struct._value_string { i32 8200, ptr @.str.875 }, %struct._value_string { i32 8201, ptr @.str.876 }, %struct._value_string { i32 8202, ptr @.str.877 }, %struct._value_string { i32 8203, ptr @.str.878 }, %struct._value_string { i32 8204, ptr @.str.879 }, %struct._value_string { i32 8205, ptr @.str.880 }, %struct._value_string { i32 8206, ptr @.str.881 }, %struct._value_string { i32 8207, ptr @.str.882 }, %struct._value_string { i32 8208, ptr @.str.883 }, %struct._value_string { i32 8210, ptr @.str.884 }, %struct._value_string { i32 8212, ptr @.str.885 }, %struct._value_string { i32 8449, ptr @.str.886 }, %struct._value_string { i32 8450, ptr @.str.887 }, %struct._value_string { i32 8451, ptr @.str.200 }, %struct._value_string { i32 8452, ptr @.str.888 }, %struct._value_string { i32 8453, ptr @.str.202 }, %struct._value_string { i32 8456, ptr @.str.889 }, %struct._value_string { i32 8457, ptr @.str.890 }, %struct._value_string { i32 8458, ptr @.str.891 }, %struct._value_string { i32 8460, ptr @.str.226 }, %struct._value_string { i32 8461, ptr @.str.228 }, %struct._value_string { i32 8462, ptr @.str.204 }, %struct._value_string { i32 8463, ptr @.str.892 }, %struct._value_string { i32 8464, ptr @.str.893 }, %struct._value_string { i32 8465, ptr @.str.206 }, %struct._value_string { i32 8466, ptr @.str.894 }, %struct._value_string { i32 8467, ptr @.str.895 }, %struct._value_string { i32 8468, ptr @.str.230 }, %struct._value_string { i32 8469, ptr @.str.232 }, %struct._value_string { i32 8470, ptr @.str.258 }, %struct._value_string { i32 8474, ptr @.str.234 }, %struct._value_string { i32 8479, ptr @.str.236 }, %struct._value_string { i32 8480, ptr @.str.896 }, %struct._value_string { i32 8481, ptr @.str.897 }, %struct._value_string { i32 8485, ptr @.str.898 }, %struct._value_string { i32 8498, ptr @.str.899 }, %struct._value_string { i32 8500, ptr @.str.238 }, %struct._value_string { i32 8501, ptr @.str.900 }, %struct._value_string { i32 8502, ptr @.str.240 }, %struct._value_string { i32 8503, ptr @.str.242 }, %struct._value_string { i32 8504, ptr @.str.901 }, %struct._value_string { i32 8505, ptr @.str.902 }, %struct._value_string { i32 8506, ptr @.str.903 }, %struct._value_string { i32 8507, ptr @.str.244 }, %struct._value_string { i32 8508, ptr @.str.904 }, %struct._value_string { i32 8509, ptr @.str.905 }, %struct._value_string { i32 8510, ptr @.str.906 }, %struct._value_string { i32 8512, ptr @.str.258 }, %struct._value_string { i32 8513, ptr @.str.260 }, %struct._value_string { i32 8514, ptr @.str.262 }, %struct._value_string { i32 8518, ptr @.str.274 }, %struct._value_string { i32 8519, ptr @.str.276 }, %struct._value_string { i32 8520, ptr @.str.907 }, %struct._value_string { i32 8521, ptr @.str.908 }, %struct._value_string { i32 8523, ptr @.str.278 }, %struct._value_string { i32 8528, ptr @.str.248 }, %struct._value_string { i32 8530, ptr @.str.909 }, %struct._value_string { i32 8531, ptr @.str.910 }, %struct._value_string { i32 8532, ptr @.str.911 }, %struct._value_string { i32 8533, ptr @.str.912 }, %struct._value_string { i32 8534, ptr @.str.250 }, %struct._value_string { i32 8535, ptr @.str.913 }, %struct._value_string { i32 8539, ptr @.str.252 }, %struct._value_string { i32 8541, ptr @.str.254 }, %struct._value_string { i32 8542, ptr @.str.914 }, %struct._value_string { i32 8543, ptr @.str.256 }, %struct._value_string { i32 8544, ptr @.str.915 }, %struct._value_string { i32 8705, ptr @.str.916 }, %struct._value_string { i32 8706, ptr @.str.917 }, %struct._value_string { i32 8708, ptr @.str.918 }, %struct._value_string { i32 8709, ptr @.str.919 }, %struct._value_string { i32 8710, ptr @.str.920 }, %struct._value_string { i32 8711, ptr @.str.921 }, %struct._value_string { i32 8712, ptr @.str.922 }, %struct._value_string { i32 8713, ptr @.str.923 }, %struct._value_string { i32 8714, ptr @.str.924 }, %struct._value_string { i32 8715, ptr @.str.925 }, %struct._value_string { i32 8716, ptr @.str.926 }, %struct._value_string { i32 8717, ptr @.str.927 }, %struct._value_string { i32 8718, ptr @.str.928 }, %struct._value_string { i32 8719, ptr @.str.929 }, %struct._value_string { i32 8721, ptr @.str.930 }, %struct._value_string { i32 8722, ptr @.str.931 }, %struct._value_string { i32 8723, ptr @.str.932 }, %struct._value_string { i32 8728, ptr @.str.933 }, %struct._value_string { i32 8729, ptr @.str.902 }, %struct._value_string { i32 8730, ptr @.str.934 }, %struct._value_string { i32 8733, ptr @.str.935 }, %struct._value_string { i32 8741, ptr @.str.936 }, %struct._value_string { i32 8907, ptr @.str.937 }, %struct._value_string { i32 9223, ptr @.str.938 }, %struct._value_string { i32 9224, ptr @.str.939 }, %struct._value_string { i32 9227, ptr @.str.940 }, %struct._value_string { i32 9230, ptr @.str.941 }, %struct._value_string { i32 9231, ptr @.str.942 }, %struct._value_string { i32 9232, ptr @.str.943 }, %struct._value_string { i32 9233, ptr @.str.944 }, %struct._value_string { i32 9234, ptr @.str.945 }, %struct._value_string { i32 9235, ptr @.str.946 }, %struct._value_string { i32 9236, ptr @.str.947 }, %struct._value_string { i32 9237, ptr @.str.948 }, %struct._value_string { i32 9239, ptr @.str.949 }, %struct._value_string { i32 9240, ptr @.str.950 }, %struct._value_string { i32 9241, ptr @.str.951 }, %struct._value_string { i32 9242, ptr @.str.952 }, %struct._value_string { i32 9243, ptr @.str.953 }, %struct._value_string { i32 9266, ptr @.str.954 }, %struct._value_string { i32 9267, ptr @.str.955 }, %struct._value_string { i32 9268, ptr @.str.956 }, %struct._value_string { i32 9269, ptr @.str.957 }, %struct._value_string { i32 9281, ptr @.str.958 }, %struct._value_string { i32 9282, ptr @.str.959 }, %struct._value_string { i32 9283, ptr @.str.960 }, %struct._value_string { i32 9284, ptr @.str.961 }, %struct._value_string { i32 9285, ptr @.str.962 }, %struct._value_string { i32 9294, ptr @.str.963 }, %struct._value_string { i32 9296, ptr @.str.964 }, %struct._value_string zeroinitializer], align 16
-@.str.800 = private unnamed_addr constant [17 x i8] c"drda_opcode_vals\00", align 1
-@.str.801 = private unnamed_addr constant [5 x i8] c"Data\00", align 1
-@.str.802 = private unnamed_addr constant [11 x i8] c"Code Point\00", align 1
-@.str.803 = private unnamed_addr constant [23 x i8] c"FD:OCA Data Descriptor\00", align 1
-@.str.804 = private unnamed_addr constant [17 x i8] c"TYPDEF Overrides\00", align 1
-@.str.805 = private unnamed_addr constant [31 x i8] c"Code Point Data Representation\00", align 1
-@.str.806 = private unnamed_addr constant [27 x i8] c"Exchange Server Attributes\00", align 1
-@.str.807 = private unnamed_addr constant [27 x i8] c"Sync Point Control Request\00", align 1
-@.str.808 = private unnamed_addr constant [26 x i8] c"Sync Point Resync Command\00", align 1
-@.str.809 = private unnamed_addr constant [16 x i8] c"Access Security\00", align 1
-@.str.810 = private unnamed_addr constant [15 x i8] c"Security Check\00", align 1
-@.str.811 = private unnamed_addr constant [15 x i8] c"Sync Point Log\00", align 1
-@.str.812 = private unnamed_addr constant [26 x i8] c"Resource Type Information\00", align 1
-@.str.813 = private unnamed_addr constant [24 x i8] c"Reason Code Information\00", align 1
-@.str.814 = private unnamed_addr constant [26 x i8] c"Resource Name Information\00", align 1
-@.str.815 = private unnamed_addr constant [28 x i8] c"Product-Specific Identifier\00", align 1
-@.str.816 = private unnamed_addr constant [33 x i8] c"Conversation Protocol Error Code\00", align 1
-@.str.817 = private unnamed_addr constant [13 x i8] c"Version Name\00", align 1
-@.str.818 = private unnamed_addr constant [18 x i8] c"Server Class Name\00", align 1
-@.str.819 = private unnamed_addr constant [18 x i8] c"Syntax Error Code\00", align 1
-@.str.820 = private unnamed_addr constant [30 x i8] c"Server Diagnostic Information\00", align 1
-@.str.821 = private unnamed_addr constant [29 x i8] c"Server Product Release Level\00", align 1
-@.str.822 = private unnamed_addr constant [16 x i8] c"Supervisor Name\00", align 1
-@.str.823 = private unnamed_addr constant [14 x i8] c"External Name\00", align 1
-@.str.824 = private unnamed_addr constant [12 x i8] c"Server Name\00", align 1
-@.str.825 = private unnamed_addr constant [22 x i8] c"Security Manager Name\00", align 1
-@.str.826 = private unnamed_addr constant [30 x i8] c"Manager Dependency Error Code\00", align 1
-@.str.827 = private unnamed_addr constant [33 x i8] c"CCSID for Single-Byte Characters\00", align 1
-@.str.828 = private unnamed_addr constant [33 x i8] c"CCSID for Double-byte Characters\00", align 1
-@.str.829 = private unnamed_addr constant [32 x i8] c"CCSID for Mixed-byte Characters\00", align 1
-@.str.830 = private unnamed_addr constant [29 x i8] c"User ID at the Target System\00", align 1
-@.str.831 = private unnamed_addr constant [9 x i8] c"Password\00", align 1
-@.str.832 = private unnamed_addr constant [29 x i8] c"Security Service ErrorNumber\00", align 1
-@.str.833 = private unnamed_addr constant [13 x i8] c"New Password\00", align 1
-@.str.834 = private unnamed_addr constant [23 x i8] c"Manager-Level Conflict\00", align 1
-@.str.835 = private unnamed_addr constant [25 x i8] c"Manager Dependency Error\00", align 1
-@.str.836 = private unnamed_addr constant [26 x i8] c"Not Authorized to Command\00", align 1
-@.str.837 = private unnamed_addr constant [22 x i8] c"Permanent Agent Error\00", align 1
-@.str.838 = private unnamed_addr constant [24 x i8] c"Resource Limits Reached\00", align 1
-@.str.839 = private unnamed_addr constant [30 x i8] c"Conversational Protocol Error\00", align 1
-@.str.840 = private unnamed_addr constant [29 x i8] c"Command Processing Completed\00", align 1
-@.str.841 = private unnamed_addr constant [25 x i8] c"Data Stream Syntax Error\00", align 1
-@.str.842 = private unnamed_addr constant [22 x i8] c"Command Not Supported\00", align 1
-@.str.843 = private unnamed_addr constant [24 x i8] c"Parameter Not Supported\00", align 1
-@.str.844 = private unnamed_addr constant [30 x i8] c"Parameter Value Not Supported\00", align 1
-@.str.845 = private unnamed_addr constant [21 x i8] c"Object Not Supported\00", align 1
-@.str.846 = private unnamed_addr constant [14 x i8] c"Command Check\00", align 1
-@.str.847 = private unnamed_addr constant [21 x i8] c"Target Not Supported\00", align 1
-@.str.848 = private unnamed_addr constant [6 x i8] c"Agent\00", align 1
-@.str.849 = private unnamed_addr constant [19 x i8] c"Manager-Level List\00", align 1
-@.str.850 = private unnamed_addr constant [11 x i8] c"Supervisor\00", align 1
-@.str.851 = private unnamed_addr constant [17 x i8] c"Security Manager\00", align 1
-@.str.852 = private unnamed_addr constant [29 x i8] c"Server Attributes Reply Data\00", align 1
-@.str.853 = private unnamed_addr constant [45 x i8] c"LU 6.2 Conversational Communications Manager\00", align 1
-@.str.854 = private unnamed_addr constant [11 x i8] c"Dictionary\00", align 1
-@.str.855 = private unnamed_addr constant [31 x i8] c"Manager-Level Number Attribute\00", align 1
-@.str.856 = private unnamed_addr constant [28 x i8] c"TCP/IP CommunicationManager\00", align 1
-@.str.857 = private unnamed_addr constant [12 x i8] c"FD:OCA Data\00", align 1
-@.str.858 = private unnamed_addr constant [60 x i8] c"SNA LU 6.2 Sync Point Conversational Communications Manager\00", align 1
-@.str.859 = private unnamed_addr constant [27 x i8] c"Access Security Reply Data\00", align 1
-@.str.860 = private unnamed_addr constant [19 x i8] c"Sync Point Manager\00", align 1
-@.str.861 = private unnamed_addr constant [25 x i8] c"ResynchronizationManager\00", align 1
-@.str.862 = private unnamed_addr constant [14 x i8] c"CCSID Manager\00", align 1
-@.str.863 = private unnamed_addr constant [12 x i8] c"Send Packet\00", align 1
-@.str.864 = private unnamed_addr constant [15 x i8] c"Monitor Events\00", align 1
-@.str.865 = private unnamed_addr constant [39 x i8] c"CCSID for External Encoded XML Strings\00", align 1
-@.str.866 = private unnamed_addr constant [19 x i8] c"Monitor Reply Data\00", align 1
-@.str.867 = private unnamed_addr constant [10 x i8] c"XAManager\00", align 1
-@.str.868 = private unnamed_addr constant [16 x i8] c"Unicode Manager\00", align 1
-@.str.869 = private unnamed_addr constant [11 x i8] c"Access RDB\00", align 1
-@.str.870 = private unnamed_addr constant [34 x i8] c"Begin Binding a Package to an RDB\00", align 1
-@.str.871 = private unnamed_addr constant [37 x i8] c"Bind SQL Statement to an RDB Package\00", align 1
-@.str.872 = private unnamed_addr constant [12 x i8] c"Close Query\00", align 1
-@.str.873 = private unnamed_addr constant [15 x i8] c"Continue Query\00", align 1
-@.str.874 = private unnamed_addr constant [17 x i8] c"Drop RDB Package\00", align 1
-@.str.875 = private unnamed_addr constant [23 x i8] c"Describe SQL Statement\00", align 1
-@.str.876 = private unnamed_addr constant [32 x i8] c"End Binding a Package to an RDB\00", align 1
-@.str.877 = private unnamed_addr constant [32 x i8] c"Execute Immediate SQL Statement\00", align 1
-@.str.878 = private unnamed_addr constant [22 x i8] c"Execute SQL Statement\00", align 1
-@.str.879 = private unnamed_addr constant [11 x i8] c"Open Query\00", align 1
-@.str.880 = private unnamed_addr constant [22 x i8] c"Prepare SQL Statement\00", align 1
-@.str.881 = private unnamed_addr constant [24 x i8] c"RDB Commit Unit of Work\00", align 1
-@.str.882 = private unnamed_addr constant [26 x i8] c"RDB Rollback Unit of Work\00", align 1
-@.str.883 = private unnamed_addr constant [31 x i8] c"Rebind an Existing RDB Package\00", align 1
-@.str.884 = private unnamed_addr constant [19 x i8] c"Describe RDB Table\00", align 1
-@.str.885 = private unnamed_addr constant [20 x i8] c"Set SQL Environment\00", align 1
-@.str.886 = private unnamed_addr constant [23 x i8] c"Description Error Code\00", align 1
-@.str.887 = private unnamed_addr constant [20 x i8] c"Query Protocol Type\00", align 1
-@.str.888 = private unnamed_addr constant [22 x i8] c"Product-Specific Data\00", align 1
-@.str.889 = private unnamed_addr constant [26 x i8] c"RDB Collection Identifier\00", align 1
-@.str.890 = private unnamed_addr constant [23 x i8] c"RDB Package Identifier\00", align 1
-@.str.891 = private unnamed_addr constant [17 x i8] c"RDB Package Name\00", align 1
-@.str.892 = private unnamed_addr constant [25 x i8] c"RDB Access Manager Class\00", align 1
-@.str.893 = private unnamed_addr constant [25 x i8] c"Relational Database Name\00", align 1
-@.str.894 = private unnamed_addr constant [39 x i8] c"RDB Package Name and Consistency Token\00", align 1
-@.str.895 = private unnamed_addr constant [56 x i8] c"RDB Package Name, Consistency Token, and Section Number\00", align 1
-@.str.896 = private unnamed_addr constant [27 x i8] c"Statement String Delimiter\00", align 1
-@.str.897 = private unnamed_addr constant [28 x i8] c"Statement Decimal Delimiter\00", align 1
-@.str.898 = private unnamed_addr constant [34 x i8] c"Package Default Character Subtype\00", align 1
-@.str.899 = private unnamed_addr constant [29 x i8] c"Query Block Protocol Control\00", align 1
-@.str.900 = private unnamed_addr constant [18 x i8] c"Correlation Token\00", align 1
-@.str.901 = private unnamed_addr constant [15 x i8] c"Procedure Name\00", align 1
-@.str.902 = private unnamed_addr constant [29 x i8] c"RDB Result Set Reply Message\00", align 1
-@.str.903 = private unnamed_addr constant [31 x i8] c"Number of Fetch or Insert Rows\00", align 1
-@.str.904 = private unnamed_addr constant [32 x i8] c"Query Relative Scrolling Action\00", align 1
-@.str.905 = private unnamed_addr constant [17 x i8] c"Query Row Number\00", align 1
-@.str.906 = private unnamed_addr constant [31 x i8] c"Query Refresh Answer Set Table\00", align 1
-@.str.907 = private unnamed_addr constant [24 x i8] c"Return of EXTDTA Option\00", align 1
-@.str.908 = private unnamed_addr constant [34 x i8] c"Query Attribute for Scrollability\00", align 1
-@.str.909 = private unnamed_addr constant [25 x i8] c"Query Scroll Orientation\00", align 1
-@.str.910 = private unnamed_addr constant [22 x i8] c"Query Row Sensitivity\00", align 1
-@.str.911 = private unnamed_addr constant [18 x i8] c"Query Block Reset\00", align 1
-@.str.912 = private unnamed_addr constant [20 x i8] c"Query Returns Datat\00", align 1
-@.str.913 = private unnamed_addr constant [32 x i8] c"Query Attribute for Sensitivity\00", align 1
-@.str.914 = private unnamed_addr constant [25 x i8] c"Query Close Lock Release\00", align 1
-@.str.915 = private unnamed_addr constant [27 x i8] c"SQL Error Diagnostic Level\00", align 1
-@.str.916 = private unnamed_addr constant [24 x i8] c"Access to RDB Completed\00", align 1
-@.str.917 = private unnamed_addr constant [15 x i8] c"Query Not Open\00", align 1
-@.str.918 = private unnamed_addr constant [17 x i8] c"RDB Not Accessed\00", align 1
-@.str.919 = private unnamed_addr constant [20 x i8] c"Open Query Complete\00", align 1
-@.str.920 = private unnamed_addr constant [31 x i8] c"RDB Package Binding Not Active\00", align 1
-@.str.921 = private unnamed_addr constant [23 x i8] c"RDB Currently Accessed\00", align 1
-@.str.922 = private unnamed_addr constant [17 x i8] c"Begin Bind Error\00", align 1
-@.str.923 = private unnamed_addr constant [35 x i8] c"RDB Package Binding Process Active\00", align 1
-@.str.924 = private unnamed_addr constant [20 x i8] c"Invalid Description\00", align 1
-@.str.925 = private unnamed_addr constant [13 x i8] c"End of Query\00", align 1
-@.str.926 = private unnamed_addr constant [27 x i8] c"End Unit of Work Condition\00", align 1
-@.str.927 = private unnamed_addr constant [35 x i8] c"Abnormal End Unit ofWork Condition\00", align 1
-@.str.928 = private unnamed_addr constant [25 x i8] c"Data Descriptor Mismatch\00", align 1
-@.str.929 = private unnamed_addr constant [24 x i8] c"Query Previously Opened\00", align 1
-@.str.930 = private unnamed_addr constant [14 x i8] c"RDB Not Found\00", align 1
-@.str.931 = private unnamed_addr constant [19 x i8] c"Open Query Failure\00", align 1
-@.str.932 = private unnamed_addr constant [20 x i8] c"SQL Error Condition\00", align 1
-@.str.933 = private unnamed_addr constant [25 x i8] c"RDB Update Reply Message\00", align 1
-@.str.934 = private unnamed_addr constant [32 x i8] c"RDB Access Failed Reply Message\00", align 1
-@.str.935 = private unnamed_addr constant [18 x i8] c"Command Violation\00", align 1
-@.str.936 = private unnamed_addr constant [19 x i8] c"Commitment Request\00", align 1
-@.str.937 = private unnamed_addr constant [22 x i8] c"Not Authorized to RDB\00", align 1
-@.str.938 = private unnamed_addr constant [24 x i8] c"SQL Application Manager\00", align 1
-@.str.939 = private unnamed_addr constant [35 x i8] c"SQL Communications Area Reply Data\00", align 1
-@.str.940 = private unnamed_addr constant [45 x i8] c"SQL Result Set Column Information Reply Data\00", align 1
-@.str.941 = private unnamed_addr constant [26 x i8] c"SQL Result Set Reply Data\00", align 1
-@.str.942 = private unnamed_addr constant [20 x i8] c"Relational Database\00", align 1
-@.str.943 = private unnamed_addr constant [31 x i8] c"Force Fixed Row Query Protocol\00", align 1
-@.str.944 = private unnamed_addr constant [17 x i8] c"SQLDA Reply Data\00", align 1
-@.str.945 = private unnamed_addr constant [26 x i8] c"SQL Program Variable Data\00", align 1
-@.str.946 = private unnamed_addr constant [20 x i8] c"SQL Data Reply Data\00", align 1
-@.str.947 = private unnamed_addr constant [14 x i8] c"SQL Statement\00", align 1
-@.str.948 = private unnamed_addr constant [27 x i8] c"Output Override Descriptor\00", align 1
-@.str.949 = private unnamed_addr constant [23 x i8] c"Limited Block Protocol\00", align 1
-@.str.950 = private unnamed_addr constant [25 x i8] c"Fixed Row Query Protocol\00", align 1
-@.str.951 = private unnamed_addr constant [36 x i8] c"SQL Statement Variable Descriptions\00", align 1
-@.str.952 = private unnamed_addr constant [29 x i8] c"Query Answer Set Description\00", align 1
-@.str.953 = private unnamed_addr constant [22 x i8] c"Query Answer Set Data\00", align 1
-@.str.954 = private unnamed_addr constant [33 x i8] c"Character Subtype System Default\00", align 1
-@.str.955 = private unnamed_addr constant [23 x i8] c"Character Subtype Bits\00", align 1
-@.str.956 = private unnamed_addr constant [23 x i8] c"Character Subtype SBCS\00", align 1
-@.str.957 = private unnamed_addr constant [23 x i8] c"Character Subtype MBCS\00", align 1
-@.str.958 = private unnamed_addr constant [23 x i8] c"Isolation Level Change\00", align 1
-@.str.959 = private unnamed_addr constant [33 x i8] c"Isolation Level Cursor Stability\00", align 1
-@.str.960 = private unnamed_addr constant [20 x i8] c"Isolation Level All\00", align 1
-@.str.961 = private unnamed_addr constant [32 x i8] c"Isolation Level Repeatable Read\00", align 1
-@.str.962 = private unnamed_addr constant [26 x i8] c"Isolation Level No Commit\00", align 1
-@.str.963 = private unnamed_addr constant [12 x i8] c"Server List\00", align 1
-@.str.964 = private unnamed_addr constant [25 x i8] c"SQL Statement Attributes\00", align 1
-@.str.965 = private unnamed_addr constant [6 x i8] c" - %s\00", align 1
+@.str.826 = private unnamed_addr constant [4 x i8] c"DDM\00", align 1
+@.str.827 = private unnamed_addr constant [63 x i8] c"Invalid length detected (%u): should be at least 10 bytes long\00", align 1
+@.str.828 = private unnamed_addr constant [6 x i8] c" (%s)\00", align 1
+@drda_opcode_vals_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 201, ptr @drda_opcode_vals, ptr @.str.832 }, align 8
+@.str.829 = private unnamed_addr constant [17 x i8] c"Unknown (0x%02x)\00", align 1
+@.str.830 = private unnamed_addr constant [4 x i8] c" | \00", align 1
+@.str.831 = private unnamed_addr constant [10 x i8] c"Parameter\00", align 1
+@.str.832 = private unnamed_addr constant [17 x i8] c"drda_opcode_vals\00", align 1
+@.str.833 = private unnamed_addr constant [5 x i8] c"Data\00", align 1
+@.str.834 = private unnamed_addr constant [11 x i8] c"Code Point\00", align 1
+@.str.835 = private unnamed_addr constant [23 x i8] c"FD:OCA Data Descriptor\00", align 1
+@.str.836 = private unnamed_addr constant [17 x i8] c"TYPDEF Overrides\00", align 1
+@.str.837 = private unnamed_addr constant [31 x i8] c"Code Point Data Representation\00", align 1
+@.str.838 = private unnamed_addr constant [27 x i8] c"Exchange Server Attributes\00", align 1
+@.str.839 = private unnamed_addr constant [27 x i8] c"Sync Point Control Request\00", align 1
+@.str.840 = private unnamed_addr constant [26 x i8] c"Sync Point Resync Command\00", align 1
+@.str.841 = private unnamed_addr constant [16 x i8] c"Access Security\00", align 1
+@.str.842 = private unnamed_addr constant [15 x i8] c"Security Check\00", align 1
+@.str.843 = private unnamed_addr constant [15 x i8] c"Sync Point Log\00", align 1
+@.str.844 = private unnamed_addr constant [26 x i8] c"Resource Type Information\00", align 1
+@.str.845 = private unnamed_addr constant [24 x i8] c"Reason Code Information\00", align 1
+@.str.846 = private unnamed_addr constant [26 x i8] c"Resource Name Information\00", align 1
+@.str.847 = private unnamed_addr constant [28 x i8] c"Product-Specific Identifier\00", align 1
+@.str.848 = private unnamed_addr constant [33 x i8] c"Conversation Protocol Error Code\00", align 1
+@.str.849 = private unnamed_addr constant [13 x i8] c"Version Name\00", align 1
+@.str.850 = private unnamed_addr constant [18 x i8] c"Server Class Name\00", align 1
+@.str.851 = private unnamed_addr constant [18 x i8] c"Syntax Error Code\00", align 1
+@.str.852 = private unnamed_addr constant [30 x i8] c"Server Diagnostic Information\00", align 1
+@.str.853 = private unnamed_addr constant [29 x i8] c"Server Product Release Level\00", align 1
+@.str.854 = private unnamed_addr constant [16 x i8] c"Supervisor Name\00", align 1
+@.str.855 = private unnamed_addr constant [14 x i8] c"External Name\00", align 1
+@.str.856 = private unnamed_addr constant [12 x i8] c"Server Name\00", align 1
+@.str.857 = private unnamed_addr constant [22 x i8] c"Security Manager Name\00", align 1
+@.str.858 = private unnamed_addr constant [30 x i8] c"Manager Dependency Error Code\00", align 1
+@.str.859 = private unnamed_addr constant [33 x i8] c"CCSID for Single-Byte Characters\00", align 1
+@.str.860 = private unnamed_addr constant [33 x i8] c"CCSID for Double-byte Characters\00", align 1
+@.str.861 = private unnamed_addr constant [32 x i8] c"CCSID for Mixed-byte Characters\00", align 1
+@.str.862 = private unnamed_addr constant [29 x i8] c"User ID at the Target System\00", align 1
+@.str.863 = private unnamed_addr constant [9 x i8] c"Password\00", align 1
+@.str.864 = private unnamed_addr constant [29 x i8] c"Security Service ErrorNumber\00", align 1
+@.str.865 = private unnamed_addr constant [13 x i8] c"New Password\00", align 1
+@.str.866 = private unnamed_addr constant [23 x i8] c"Manager-Level Conflict\00", align 1
+@.str.867 = private unnamed_addr constant [25 x i8] c"Manager Dependency Error\00", align 1
+@.str.868 = private unnamed_addr constant [26 x i8] c"Not Authorized to Command\00", align 1
+@.str.869 = private unnamed_addr constant [22 x i8] c"Permanent Agent Error\00", align 1
+@.str.870 = private unnamed_addr constant [24 x i8] c"Resource Limits Reached\00", align 1
+@.str.871 = private unnamed_addr constant [30 x i8] c"Conversational Protocol Error\00", align 1
+@.str.872 = private unnamed_addr constant [29 x i8] c"Command Processing Completed\00", align 1
+@.str.873 = private unnamed_addr constant [25 x i8] c"Data Stream Syntax Error\00", align 1
+@.str.874 = private unnamed_addr constant [22 x i8] c"Command Not Supported\00", align 1
+@.str.875 = private unnamed_addr constant [24 x i8] c"Parameter Not Supported\00", align 1
+@.str.876 = private unnamed_addr constant [30 x i8] c"Parameter Value Not Supported\00", align 1
+@.str.877 = private unnamed_addr constant [21 x i8] c"Object Not Supported\00", align 1
+@.str.878 = private unnamed_addr constant [14 x i8] c"Command Check\00", align 1
+@.str.879 = private unnamed_addr constant [21 x i8] c"Target Not Supported\00", align 1
+@.str.880 = private unnamed_addr constant [6 x i8] c"Agent\00", align 1
+@.str.881 = private unnamed_addr constant [19 x i8] c"Manager-Level List\00", align 1
+@.str.882 = private unnamed_addr constant [11 x i8] c"Supervisor\00", align 1
+@.str.883 = private unnamed_addr constant [17 x i8] c"Security Manager\00", align 1
+@.str.884 = private unnamed_addr constant [29 x i8] c"Server Attributes Reply Data\00", align 1
+@.str.885 = private unnamed_addr constant [45 x i8] c"LU 6.2 Conversational Communications Manager\00", align 1
+@.str.886 = private unnamed_addr constant [11 x i8] c"Dictionary\00", align 1
+@.str.887 = private unnamed_addr constant [31 x i8] c"Manager-Level Number Attribute\00", align 1
+@.str.888 = private unnamed_addr constant [28 x i8] c"TCP/IP CommunicationManager\00", align 1
+@.str.889 = private unnamed_addr constant [12 x i8] c"FD:OCA Data\00", align 1
+@.str.890 = private unnamed_addr constant [60 x i8] c"SNA LU 6.2 Sync Point Conversational Communications Manager\00", align 1
+@.str.891 = private unnamed_addr constant [27 x i8] c"Access Security Reply Data\00", align 1
+@.str.892 = private unnamed_addr constant [19 x i8] c"Sync Point Manager\00", align 1
+@.str.893 = private unnamed_addr constant [25 x i8] c"ResynchronizationManager\00", align 1
+@.str.894 = private unnamed_addr constant [14 x i8] c"CCSID Manager\00", align 1
+@.str.895 = private unnamed_addr constant [12 x i8] c"Send Packet\00", align 1
+@.str.896 = private unnamed_addr constant [15 x i8] c"Monitor Events\00", align 1
+@.str.897 = private unnamed_addr constant [39 x i8] c"CCSID for External Encoded XML Strings\00", align 1
+@.str.898 = private unnamed_addr constant [19 x i8] c"Monitor Reply Data\00", align 1
+@.str.899 = private unnamed_addr constant [10 x i8] c"XAManager\00", align 1
+@.str.900 = private unnamed_addr constant [16 x i8] c"Unicode Manager\00", align 1
+@.str.901 = private unnamed_addr constant [11 x i8] c"Access RDB\00", align 1
+@.str.902 = private unnamed_addr constant [34 x i8] c"Begin Binding a Package to an RDB\00", align 1
+@.str.903 = private unnamed_addr constant [37 x i8] c"Bind SQL Statement to an RDB Package\00", align 1
+@.str.904 = private unnamed_addr constant [12 x i8] c"Close Query\00", align 1
+@.str.905 = private unnamed_addr constant [15 x i8] c"Continue Query\00", align 1
+@.str.906 = private unnamed_addr constant [17 x i8] c"Drop RDB Package\00", align 1
+@.str.907 = private unnamed_addr constant [23 x i8] c"Describe SQL Statement\00", align 1
+@.str.908 = private unnamed_addr constant [32 x i8] c"End Binding a Package to an RDB\00", align 1
+@.str.909 = private unnamed_addr constant [32 x i8] c"Execute Immediate SQL Statement\00", align 1
+@.str.910 = private unnamed_addr constant [22 x i8] c"Execute SQL Statement\00", align 1
+@.str.911 = private unnamed_addr constant [11 x i8] c"Open Query\00", align 1
+@.str.912 = private unnamed_addr constant [22 x i8] c"Prepare SQL Statement\00", align 1
+@.str.913 = private unnamed_addr constant [24 x i8] c"RDB Commit Unit of Work\00", align 1
+@.str.914 = private unnamed_addr constant [26 x i8] c"RDB Rollback Unit of Work\00", align 1
+@.str.915 = private unnamed_addr constant [31 x i8] c"Rebind an Existing RDB Package\00", align 1
+@.str.916 = private unnamed_addr constant [19 x i8] c"Describe RDB Table\00", align 1
+@.str.917 = private unnamed_addr constant [20 x i8] c"Set SQL Environment\00", align 1
+@.str.918 = private unnamed_addr constant [23 x i8] c"Description Error Code\00", align 1
+@.str.919 = private unnamed_addr constant [20 x i8] c"Query Protocol Type\00", align 1
+@.str.920 = private unnamed_addr constant [22 x i8] c"Product-Specific Data\00", align 1
+@.str.921 = private unnamed_addr constant [26 x i8] c"RDB Collection Identifier\00", align 1
+@.str.922 = private unnamed_addr constant [23 x i8] c"RDB Package Identifier\00", align 1
+@.str.923 = private unnamed_addr constant [17 x i8] c"RDB Package Name\00", align 1
+@.str.924 = private unnamed_addr constant [25 x i8] c"RDB Access Manager Class\00", align 1
+@.str.925 = private unnamed_addr constant [25 x i8] c"Relational Database Name\00", align 1
+@.str.926 = private unnamed_addr constant [39 x i8] c"RDB Package Name and Consistency Token\00", align 1
+@.str.927 = private unnamed_addr constant [56 x i8] c"RDB Package Name, Consistency Token, and Section Number\00", align 1
+@.str.928 = private unnamed_addr constant [27 x i8] c"Statement String Delimiter\00", align 1
+@.str.929 = private unnamed_addr constant [28 x i8] c"Statement Decimal Delimiter\00", align 1
+@.str.930 = private unnamed_addr constant [34 x i8] c"Package Default Character Subtype\00", align 1
+@.str.931 = private unnamed_addr constant [29 x i8] c"Query Block Protocol Control\00", align 1
+@.str.932 = private unnamed_addr constant [18 x i8] c"Correlation Token\00", align 1
+@.str.933 = private unnamed_addr constant [15 x i8] c"Procedure Name\00", align 1
+@.str.934 = private unnamed_addr constant [29 x i8] c"RDB Result Set Reply Message\00", align 1
+@.str.935 = private unnamed_addr constant [31 x i8] c"Number of Fetch or Insert Rows\00", align 1
+@.str.936 = private unnamed_addr constant [32 x i8] c"Query Relative Scrolling Action\00", align 1
+@.str.937 = private unnamed_addr constant [17 x i8] c"Query Row Number\00", align 1
+@.str.938 = private unnamed_addr constant [31 x i8] c"Query Refresh Answer Set Table\00", align 1
+@.str.939 = private unnamed_addr constant [24 x i8] c"Return of EXTDTA Option\00", align 1
+@.str.940 = private unnamed_addr constant [34 x i8] c"Query Attribute for Scrollability\00", align 1
+@.str.941 = private unnamed_addr constant [25 x i8] c"Query Scroll Orientation\00", align 1
+@.str.942 = private unnamed_addr constant [22 x i8] c"Query Row Sensitivity\00", align 1
+@.str.943 = private unnamed_addr constant [18 x i8] c"Query Block Reset\00", align 1
+@.str.944 = private unnamed_addr constant [20 x i8] c"Query Returns Datat\00", align 1
+@.str.945 = private unnamed_addr constant [32 x i8] c"Query Attribute for Sensitivity\00", align 1
+@.str.946 = private unnamed_addr constant [25 x i8] c"Query Close Lock Release\00", align 1
+@.str.947 = private unnamed_addr constant [27 x i8] c"SQL Error Diagnostic Level\00", align 1
+@.str.948 = private unnamed_addr constant [24 x i8] c"Access to RDB Completed\00", align 1
+@.str.949 = private unnamed_addr constant [15 x i8] c"Query Not Open\00", align 1
+@.str.950 = private unnamed_addr constant [17 x i8] c"RDB Not Accessed\00", align 1
+@.str.951 = private unnamed_addr constant [20 x i8] c"Open Query Complete\00", align 1
+@.str.952 = private unnamed_addr constant [31 x i8] c"RDB Package Binding Not Active\00", align 1
+@.str.953 = private unnamed_addr constant [23 x i8] c"RDB Currently Accessed\00", align 1
+@.str.954 = private unnamed_addr constant [17 x i8] c"Begin Bind Error\00", align 1
+@.str.955 = private unnamed_addr constant [35 x i8] c"RDB Package Binding Process Active\00", align 1
+@.str.956 = private unnamed_addr constant [20 x i8] c"Invalid Description\00", align 1
+@.str.957 = private unnamed_addr constant [13 x i8] c"End of Query\00", align 1
+@.str.958 = private unnamed_addr constant [27 x i8] c"End Unit of Work Condition\00", align 1
+@.str.959 = private unnamed_addr constant [35 x i8] c"Abnormal End Unit ofWork Condition\00", align 1
+@.str.960 = private unnamed_addr constant [25 x i8] c"Data Descriptor Mismatch\00", align 1
+@.str.961 = private unnamed_addr constant [24 x i8] c"Query Previously Opened\00", align 1
+@.str.962 = private unnamed_addr constant [14 x i8] c"RDB Not Found\00", align 1
+@.str.963 = private unnamed_addr constant [19 x i8] c"Open Query Failure\00", align 1
+@.str.964 = private unnamed_addr constant [20 x i8] c"SQL Error Condition\00", align 1
+@.str.965 = private unnamed_addr constant [25 x i8] c"RDB Update Reply Message\00", align 1
+@.str.966 = private unnamed_addr constant [32 x i8] c"RDB Access Failed Reply Message\00", align 1
+@.str.967 = private unnamed_addr constant [18 x i8] c"Command Violation\00", align 1
+@.str.968 = private unnamed_addr constant [19 x i8] c"Commitment Request\00", align 1
+@.str.969 = private unnamed_addr constant [22 x i8] c"Not Authorized to RDB\00", align 1
+@.str.970 = private unnamed_addr constant [24 x i8] c"SQL Application Manager\00", align 1
+@.str.971 = private unnamed_addr constant [35 x i8] c"SQL Communications Area Reply Data\00", align 1
+@.str.972 = private unnamed_addr constant [45 x i8] c"SQL Result Set Column Information Reply Data\00", align 1
+@.str.973 = private unnamed_addr constant [26 x i8] c"SQL Result Set Reply Data\00", align 1
+@.str.974 = private unnamed_addr constant [20 x i8] c"Relational Database\00", align 1
+@.str.975 = private unnamed_addr constant [31 x i8] c"Force Fixed Row Query Protocol\00", align 1
+@.str.976 = private unnamed_addr constant [17 x i8] c"SQLDA Reply Data\00", align 1
+@.str.977 = private unnamed_addr constant [26 x i8] c"SQL Program Variable Data\00", align 1
+@.str.978 = private unnamed_addr constant [20 x i8] c"SQL Data Reply Data\00", align 1
+@.str.979 = private unnamed_addr constant [14 x i8] c"SQL Statement\00", align 1
+@.str.980 = private unnamed_addr constant [27 x i8] c"Output Override Descriptor\00", align 1
+@.str.981 = private unnamed_addr constant [23 x i8] c"Limited Block Protocol\00", align 1
+@.str.982 = private unnamed_addr constant [25 x i8] c"Fixed Row Query Protocol\00", align 1
+@.str.983 = private unnamed_addr constant [36 x i8] c"SQL Statement Variable Descriptions\00", align 1
+@.str.984 = private unnamed_addr constant [29 x i8] c"Query Answer Set Description\00", align 1
+@.str.985 = private unnamed_addr constant [22 x i8] c"Query Answer Set Data\00", align 1
+@.str.986 = private unnamed_addr constant [33 x i8] c"Character Subtype System Default\00", align 1
+@.str.987 = private unnamed_addr constant [23 x i8] c"Character Subtype Bits\00", align 1
+@.str.988 = private unnamed_addr constant [23 x i8] c"Character Subtype SBCS\00", align 1
+@.str.989 = private unnamed_addr constant [23 x i8] c"Character Subtype MBCS\00", align 1
+@.str.990 = private unnamed_addr constant [23 x i8] c"Isolation Level Change\00", align 1
+@.str.991 = private unnamed_addr constant [33 x i8] c"Isolation Level Cursor Stability\00", align 1
+@.str.992 = private unnamed_addr constant [20 x i8] c"Isolation Level All\00", align 1
+@.str.993 = private unnamed_addr constant [32 x i8] c"Isolation Level Repeatable Read\00", align 1
+@.str.994 = private unnamed_addr constant [26 x i8] c"Isolation Level No Commit\00", align 1
+@.str.995 = private unnamed_addr constant [12 x i8] c"Server List\00", align 1
+@.str.996 = private unnamed_addr constant [25 x i8] c"SQL Statement Attributes\00", align 1
+@drda_opcode_vals = internal constant [202 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.833 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.834 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.835 }, { i32, [4 x i8], ptr } { i32 47, [4 x i8] zeroinitializer, ptr @.str.45 }, { i32, [4 x i8], ptr } { i32 53, [4 x i8] zeroinitializer, ptr @.str.836 }, { i32, [4 x i8], ptr } { i32 100, [4 x i8] zeroinitializer, ptr @.str.837 }, { i32, [4 x i8], ptr } { i32 4161, [4 x i8] zeroinitializer, ptr @.str.838 }, { i32, [4 x i8], ptr } { i32 4181, [4 x i8] zeroinitializer, ptr @.str.839 }, { i32, [4 x i8], ptr } { i32 4201, [4 x i8] zeroinitializer, ptr @.str.840 }, { i32, [4 x i8], ptr } { i32 4205, [4 x i8] zeroinitializer, ptr @.str.841 }, { i32, [4 x i8], ptr } { i32 4206, [4 x i8] zeroinitializer, ptr @.str.842 }, { i32, [4 x i8], ptr } { i32 4207, [4 x i8] zeroinitializer, ptr @.str.843 }, { i32, [4 x i8], ptr } { i32 4383, [4 x i8] zeroinitializer, ptr @.str.844 }, { i32, [4 x i8], ptr } { i32 4391, [4 x i8] zeroinitializer, ptr @.str.845 }, { i32, [4 x i8], ptr } { i32 4397, [4 x i8] zeroinitializer, ptr @.str.846 }, { i32, [4 x i8], ptr } { i32 4398, [4 x i8] zeroinitializer, ptr @.str.847 }, { i32, [4 x i8], ptr } { i32 4415, [4 x i8] zeroinitializer, ptr @.str.848 }, { i32, [4 x i8], ptr } { i32 4420, [4 x i8] zeroinitializer, ptr @.str.849 }, { i32, [4 x i8], ptr } { i32 4423, [4 x i8] zeroinitializer, ptr @.str.850 }, { i32, [4 x i8], ptr } { i32 4425, [4 x i8] zeroinitializer, ptr @.str.183 }, { i32, [4 x i8], ptr } { i32 4426, [4 x i8] zeroinitializer, ptr @.str.851 }, { i32, [4 x i8], ptr } { i32 4435, [4 x i8] zeroinitializer, ptr @.str.852 }, { i32, [4 x i8], ptr } { i32 4442, [4 x i8] zeroinitializer, ptr @.str.853 }, { i32, [4 x i8], ptr } { i32 4445, [4 x i8] zeroinitializer, ptr @.str.854 }, { i32, [4 x i8], ptr } { i32 4446, [4 x i8] zeroinitializer, ptr @.str.855 }, { i32, [4 x i8], ptr } { i32 4461, [4 x i8] zeroinitializer, ptr @.str.856 }, { i32, [4 x i8], ptr } { i32 4502, [4 x i8] zeroinitializer, ptr @.str.857 }, { i32, [4 x i8], ptr } { i32 4507, [4 x i8] zeroinitializer, ptr @.str.858 }, { i32, [4 x i8], ptr } { i32 4508, [4 x i8] zeroinitializer, ptr @.str.859 }, { i32, [4 x i8], ptr } { i32 4509, [4 x i8] zeroinitializer, ptr @.str.860 }, { i32, [4 x i8], ptr } { i32 4510, [4 x i8] zeroinitializer, ptr @.str.861 }, { i32, [4 x i8], ptr } { i32 4511, [4 x i8] zeroinitializer, ptr @.str.177 }, { i32, [4 x i8], ptr } { i32 4512, [4 x i8] zeroinitializer, ptr @.str.862 }, { i32, [4 x i8], ptr } { i32 4513, [4 x i8] zeroinitializer, ptr @.str.863 }, { i32, [4 x i8], ptr } { i32 4514, [4 x i8] zeroinitializer, ptr @.str.179 }, { i32, [4 x i8], ptr } { i32 4516, [4 x i8] zeroinitializer, ptr @.str.185 }, { i32, [4 x i8], ptr } { i32 4532, [4 x i8] zeroinitializer, ptr @.str.864 }, { i32, [4 x i8], ptr } { i32 4572, [4 x i8] zeroinitializer, ptr @.str.181 }, { i32, [4 x i8], ptr } { i32 4574, [4 x i8] zeroinitializer, ptr @.str.865 }, { i32, [4 x i8], ptr } { i32 4624, [4 x i8] zeroinitializer, ptr @.str.866 }, { i32, [4 x i8], ptr } { i32 4632, [4 x i8] zeroinitializer, ptr @.str.867 }, { i32, [4 x i8], ptr } { i32 4633, [4 x i8] zeroinitializer, ptr @.str.842 }, { i32, [4 x i8], ptr } { i32 4636, [4 x i8] zeroinitializer, ptr @.str.868 }, { i32, [4 x i8], ptr } { i32 4658, [4 x i8] zeroinitializer, ptr @.str.869 }, { i32, [4 x i8], ptr } { i32 4659, [4 x i8] zeroinitializer, ptr @.str.870 }, { i32, [4 x i8], ptr } { i32 4677, [4 x i8] zeroinitializer, ptr @.str.871 }, { i32, [4 x i8], ptr } { i32 4683, [4 x i8] zeroinitializer, ptr @.str.872 }, { i32, [4 x i8], ptr } { i32 4684, [4 x i8] zeroinitializer, ptr @.str.873 }, { i32, [4 x i8], ptr } { i32 4688, [4 x i8] zeroinitializer, ptr @.str.874 }, { i32, [4 x i8], ptr } { i32 4689, [4 x i8] zeroinitializer, ptr @.str.875 }, { i32, [4 x i8], ptr } { i32 4690, [4 x i8] zeroinitializer, ptr @.str.876 }, { i32, [4 x i8], ptr } { i32 4691, [4 x i8] zeroinitializer, ptr @.str.877 }, { i32, [4 x i8], ptr } { i32 4692, [4 x i8] zeroinitializer, ptr @.str.878 }, { i32, [4 x i8], ptr } { i32 4703, [4 x i8] zeroinitializer, ptr @.str.879 }, { i32, [4 x i8], ptr } { i32 5123, [4 x i8] zeroinitializer, ptr @.str.880 }, { i32, [4 x i8], ptr } { i32 5124, [4 x i8] zeroinitializer, ptr @.str.881 }, { i32, [4 x i8], ptr } { i32 5180, [4 x i8] zeroinitializer, ptr @.str.882 }, { i32, [4 x i8], ptr } { i32 5184, [4 x i8] zeroinitializer, ptr @.str.883 }, { i32, [4 x i8], ptr } { i32 5187, [4 x i8] zeroinitializer, ptr @.str.884 }, { i32, [4 x i8], ptr } { i32 5188, [4 x i8] zeroinitializer, ptr @.str.885 }, { i32, [4 x i8], ptr } { i32 5208, [4 x i8] zeroinitializer, ptr @.str.886 }, { i32, [4 x i8], ptr } { i32 5235, [4 x i8] zeroinitializer, ptr @.str.887 }, { i32, [4 x i8], ptr } { i32 5236, [4 x i8] zeroinitializer, ptr @.str.888 }, { i32, [4 x i8], ptr } { i32 5242, [4 x i8] zeroinitializer, ptr @.str.889 }, { i32, [4 x i8], ptr } { i32 5244, [4 x i8] zeroinitializer, ptr @.str.890 }, { i32, [4 x i8], ptr } { i32 5292, [4 x i8] zeroinitializer, ptr @.str.891 }, { i32, [4 x i8], ptr } { i32 5312, [4 x i8] zeroinitializer, ptr @.str.892 }, { i32, [4 x i8], ptr } { i32 5313, [4 x i8] zeroinitializer, ptr @.str.893 }, { i32, [4 x i8], ptr } { i32 5324, [4 x i8] zeroinitializer, ptr @.str.894 }, { i32, [4 x i8], ptr } { i32 6149, [4 x i8] zeroinitializer, ptr @.str.895 }, { i32, [4 x i8], ptr } { i32 6400, [4 x i8] zeroinitializer, ptr @.str.896 }, { i32, [4 x i8], ptr } { i32 6401, [4 x i8] zeroinitializer, ptr @.str.194 }, { i32, [4 x i8], ptr } { i32 6408, [4 x i8] zeroinitializer, ptr @.str.198 }, { i32, [4 x i8], ptr } { i32 6419, [4 x i8] zeroinitializer, ptr @.str.897 }, { i32, [4 x i8], ptr } { i32 7168, [4 x i8] zeroinitializer, ptr @.str.898 }, { i32, [4 x i8], ptr } { i32 7169, [4 x i8] zeroinitializer, ptr @.str.899 }, { i32, [4 x i8], ptr } { i32 7172, [4 x i8] zeroinitializer, ptr @.str.280 }, { i32, [4 x i8], ptr } { i32 7176, [4 x i8] zeroinitializer, ptr @.str.900 }, { i32, [4 x i8], ptr } { i32 8193, [4 x i8] zeroinitializer, ptr @.str.901 }, { i32, [4 x i8], ptr } { i32 8194, [4 x i8] zeroinitializer, ptr @.str.902 }, { i32, [4 x i8], ptr } { i32 8196, [4 x i8] zeroinitializer, ptr @.str.903 }, { i32, [4 x i8], ptr } { i32 8197, [4 x i8] zeroinitializer, ptr @.str.904 }, { i32, [4 x i8], ptr } { i32 8198, [4 x i8] zeroinitializer, ptr @.str.905 }, { i32, [4 x i8], ptr } { i32 8199, [4 x i8] zeroinitializer, ptr @.str.906 }, { i32, [4 x i8], ptr } { i32 8200, [4 x i8] zeroinitializer, ptr @.str.907 }, { i32, [4 x i8], ptr } { i32 8201, [4 x i8] zeroinitializer, ptr @.str.908 }, { i32, [4 x i8], ptr } { i32 8202, [4 x i8] zeroinitializer, ptr @.str.909 }, { i32, [4 x i8], ptr } { i32 8203, [4 x i8] zeroinitializer, ptr @.str.910 }, { i32, [4 x i8], ptr } { i32 8204, [4 x i8] zeroinitializer, ptr @.str.911 }, { i32, [4 x i8], ptr } { i32 8205, [4 x i8] zeroinitializer, ptr @.str.912 }, { i32, [4 x i8], ptr } { i32 8206, [4 x i8] zeroinitializer, ptr @.str.913 }, { i32, [4 x i8], ptr } { i32 8207, [4 x i8] zeroinitializer, ptr @.str.914 }, { i32, [4 x i8], ptr } { i32 8208, [4 x i8] zeroinitializer, ptr @.str.915 }, { i32, [4 x i8], ptr } { i32 8210, [4 x i8] zeroinitializer, ptr @.str.916 }, { i32, [4 x i8], ptr } { i32 8212, [4 x i8] zeroinitializer, ptr @.str.917 }, { i32, [4 x i8], ptr } { i32 8449, [4 x i8] zeroinitializer, ptr @.str.918 }, { i32, [4 x i8], ptr } { i32 8450, [4 x i8] zeroinitializer, ptr @.str.919 }, { i32, [4 x i8], ptr } { i32 8451, [4 x i8] zeroinitializer, ptr @.str.200 }, { i32, [4 x i8], ptr } { i32 8452, [4 x i8] zeroinitializer, ptr @.str.920 }, { i32, [4 x i8], ptr } { i32 8453, [4 x i8] zeroinitializer, ptr @.str.202 }, { i32, [4 x i8], ptr } { i32 8456, [4 x i8] zeroinitializer, ptr @.str.921 }, { i32, [4 x i8], ptr } { i32 8457, [4 x i8] zeroinitializer, ptr @.str.922 }, { i32, [4 x i8], ptr } { i32 8458, [4 x i8] zeroinitializer, ptr @.str.923 }, { i32, [4 x i8], ptr } { i32 8460, [4 x i8] zeroinitializer, ptr @.str.226 }, { i32, [4 x i8], ptr } { i32 8461, [4 x i8] zeroinitializer, ptr @.str.228 }, { i32, [4 x i8], ptr } { i32 8462, [4 x i8] zeroinitializer, ptr @.str.204 }, { i32, [4 x i8], ptr } { i32 8463, [4 x i8] zeroinitializer, ptr @.str.924 }, { i32, [4 x i8], ptr } { i32 8464, [4 x i8] zeroinitializer, ptr @.str.925 }, { i32, [4 x i8], ptr } { i32 8465, [4 x i8] zeroinitializer, ptr @.str.206 }, { i32, [4 x i8], ptr } { i32 8466, [4 x i8] zeroinitializer, ptr @.str.926 }, { i32, [4 x i8], ptr } { i32 8467, [4 x i8] zeroinitializer, ptr @.str.927 }, { i32, [4 x i8], ptr } { i32 8468, [4 x i8] zeroinitializer, ptr @.str.230 }, { i32, [4 x i8], ptr } { i32 8469, [4 x i8] zeroinitializer, ptr @.str.232 }, { i32, [4 x i8], ptr } { i32 8470, [4 x i8] zeroinitializer, ptr @.str.258 }, { i32, [4 x i8], ptr } { i32 8474, [4 x i8] zeroinitializer, ptr @.str.234 }, { i32, [4 x i8], ptr } { i32 8479, [4 x i8] zeroinitializer, ptr @.str.236 }, { i32, [4 x i8], ptr } { i32 8480, [4 x i8] zeroinitializer, ptr @.str.928 }, { i32, [4 x i8], ptr } { i32 8481, [4 x i8] zeroinitializer, ptr @.str.929 }, { i32, [4 x i8], ptr } { i32 8485, [4 x i8] zeroinitializer, ptr @.str.930 }, { i32, [4 x i8], ptr } { i32 8498, [4 x i8] zeroinitializer, ptr @.str.931 }, { i32, [4 x i8], ptr } { i32 8500, [4 x i8] zeroinitializer, ptr @.str.238 }, { i32, [4 x i8], ptr } { i32 8501, [4 x i8] zeroinitializer, ptr @.str.932 }, { i32, [4 x i8], ptr } { i32 8502, [4 x i8] zeroinitializer, ptr @.str.240 }, { i32, [4 x i8], ptr } { i32 8503, [4 x i8] zeroinitializer, ptr @.str.242 }, { i32, [4 x i8], ptr } { i32 8504, [4 x i8] zeroinitializer, ptr @.str.933 }, { i32, [4 x i8], ptr } { i32 8505, [4 x i8] zeroinitializer, ptr @.str.934 }, { i32, [4 x i8], ptr } { i32 8506, [4 x i8] zeroinitializer, ptr @.str.935 }, { i32, [4 x i8], ptr } { i32 8507, [4 x i8] zeroinitializer, ptr @.str.244 }, { i32, [4 x i8], ptr } { i32 8508, [4 x i8] zeroinitializer, ptr @.str.936 }, { i32, [4 x i8], ptr } { i32 8509, [4 x i8] zeroinitializer, ptr @.str.937 }, { i32, [4 x i8], ptr } { i32 8510, [4 x i8] zeroinitializer, ptr @.str.938 }, { i32, [4 x i8], ptr } { i32 8512, [4 x i8] zeroinitializer, ptr @.str.258 }, { i32, [4 x i8], ptr } { i32 8513, [4 x i8] zeroinitializer, ptr @.str.260 }, { i32, [4 x i8], ptr } { i32 8514, [4 x i8] zeroinitializer, ptr @.str.262 }, { i32, [4 x i8], ptr } { i32 8518, [4 x i8] zeroinitializer, ptr @.str.274 }, { i32, [4 x i8], ptr } { i32 8519, [4 x i8] zeroinitializer, ptr @.str.276 }, { i32, [4 x i8], ptr } { i32 8520, [4 x i8] zeroinitializer, ptr @.str.939 }, { i32, [4 x i8], ptr } { i32 8521, [4 x i8] zeroinitializer, ptr @.str.940 }, { i32, [4 x i8], ptr } { i32 8523, [4 x i8] zeroinitializer, ptr @.str.278 }, { i32, [4 x i8], ptr } { i32 8528, [4 x i8] zeroinitializer, ptr @.str.248 }, { i32, [4 x i8], ptr } { i32 8530, [4 x i8] zeroinitializer, ptr @.str.941 }, { i32, [4 x i8], ptr } { i32 8531, [4 x i8] zeroinitializer, ptr @.str.942 }, { i32, [4 x i8], ptr } { i32 8532, [4 x i8] zeroinitializer, ptr @.str.943 }, { i32, [4 x i8], ptr } { i32 8533, [4 x i8] zeroinitializer, ptr @.str.944 }, { i32, [4 x i8], ptr } { i32 8534, [4 x i8] zeroinitializer, ptr @.str.250 }, { i32, [4 x i8], ptr } { i32 8535, [4 x i8] zeroinitializer, ptr @.str.945 }, { i32, [4 x i8], ptr } { i32 8539, [4 x i8] zeroinitializer, ptr @.str.252 }, { i32, [4 x i8], ptr } { i32 8541, [4 x i8] zeroinitializer, ptr @.str.254 }, { i32, [4 x i8], ptr } { i32 8542, [4 x i8] zeroinitializer, ptr @.str.946 }, { i32, [4 x i8], ptr } { i32 8543, [4 x i8] zeroinitializer, ptr @.str.256 }, { i32, [4 x i8], ptr } { i32 8544, [4 x i8] zeroinitializer, ptr @.str.947 }, { i32, [4 x i8], ptr } { i32 8705, [4 x i8] zeroinitializer, ptr @.str.948 }, { i32, [4 x i8], ptr } { i32 8706, [4 x i8] zeroinitializer, ptr @.str.949 }, { i32, [4 x i8], ptr } { i32 8708, [4 x i8] zeroinitializer, ptr @.str.950 }, { i32, [4 x i8], ptr } { i32 8709, [4 x i8] zeroinitializer, ptr @.str.951 }, { i32, [4 x i8], ptr } { i32 8710, [4 x i8] zeroinitializer, ptr @.str.952 }, { i32, [4 x i8], ptr } { i32 8711, [4 x i8] zeroinitializer, ptr @.str.953 }, { i32, [4 x i8], ptr } { i32 8712, [4 x i8] zeroinitializer, ptr @.str.954 }, { i32, [4 x i8], ptr } { i32 8713, [4 x i8] zeroinitializer, ptr @.str.955 }, { i32, [4 x i8], ptr } { i32 8714, [4 x i8] zeroinitializer, ptr @.str.956 }, { i32, [4 x i8], ptr } { i32 8715, [4 x i8] zeroinitializer, ptr @.str.957 }, { i32, [4 x i8], ptr } { i32 8716, [4 x i8] zeroinitializer, ptr @.str.958 }, { i32, [4 x i8], ptr } { i32 8717, [4 x i8] zeroinitializer, ptr @.str.959 }, { i32, [4 x i8], ptr } { i32 8718, [4 x i8] zeroinitializer, ptr @.str.960 }, { i32, [4 x i8], ptr } { i32 8719, [4 x i8] zeroinitializer, ptr @.str.961 }, { i32, [4 x i8], ptr } { i32 8721, [4 x i8] zeroinitializer, ptr @.str.962 }, { i32, [4 x i8], ptr } { i32 8722, [4 x i8] zeroinitializer, ptr @.str.963 }, { i32, [4 x i8], ptr } { i32 8723, [4 x i8] zeroinitializer, ptr @.str.964 }, { i32, [4 x i8], ptr } { i32 8728, [4 x i8] zeroinitializer, ptr @.str.965 }, { i32, [4 x i8], ptr } { i32 8729, [4 x i8] zeroinitializer, ptr @.str.934 }, { i32, [4 x i8], ptr } { i32 8730, [4 x i8] zeroinitializer, ptr @.str.966 }, { i32, [4 x i8], ptr } { i32 8733, [4 x i8] zeroinitializer, ptr @.str.967 }, { i32, [4 x i8], ptr } { i32 8741, [4 x i8] zeroinitializer, ptr @.str.968 }, { i32, [4 x i8], ptr } { i32 8907, [4 x i8] zeroinitializer, ptr @.str.969 }, { i32, [4 x i8], ptr } { i32 9223, [4 x i8] zeroinitializer, ptr @.str.970 }, { i32, [4 x i8], ptr } { i32 9224, [4 x i8] zeroinitializer, ptr @.str.971 }, { i32, [4 x i8], ptr } { i32 9227, [4 x i8] zeroinitializer, ptr @.str.972 }, { i32, [4 x i8], ptr } { i32 9230, [4 x i8] zeroinitializer, ptr @.str.973 }, { i32, [4 x i8], ptr } { i32 9231, [4 x i8] zeroinitializer, ptr @.str.974 }, { i32, [4 x i8], ptr } { i32 9232, [4 x i8] zeroinitializer, ptr @.str.975 }, { i32, [4 x i8], ptr } { i32 9233, [4 x i8] zeroinitializer, ptr @.str.976 }, { i32, [4 x i8], ptr } { i32 9234, [4 x i8] zeroinitializer, ptr @.str.977 }, { i32, [4 x i8], ptr } { i32 9235, [4 x i8] zeroinitializer, ptr @.str.978 }, { i32, [4 x i8], ptr } { i32 9236, [4 x i8] zeroinitializer, ptr @.str.979 }, { i32, [4 x i8], ptr } { i32 9237, [4 x i8] zeroinitializer, ptr @.str.980 }, { i32, [4 x i8], ptr } { i32 9239, [4 x i8] zeroinitializer, ptr @.str.981 }, { i32, [4 x i8], ptr } { i32 9240, [4 x i8] zeroinitializer, ptr @.str.982 }, { i32, [4 x i8], ptr } { i32 9241, [4 x i8] zeroinitializer, ptr @.str.983 }, { i32, [4 x i8], ptr } { i32 9242, [4 x i8] zeroinitializer, ptr @.str.984 }, { i32, [4 x i8], ptr } { i32 9243, [4 x i8] zeroinitializer, ptr @.str.985 }, { i32, [4 x i8], ptr } { i32 9266, [4 x i8] zeroinitializer, ptr @.str.986 }, { i32, [4 x i8], ptr } { i32 9267, [4 x i8] zeroinitializer, ptr @.str.987 }, { i32, [4 x i8], ptr } { i32 9268, [4 x i8] zeroinitializer, ptr @.str.988 }, { i32, [4 x i8], ptr } { i32 9269, [4 x i8] zeroinitializer, ptr @.str.989 }, { i32, [4 x i8], ptr } { i32 9281, [4 x i8] zeroinitializer, ptr @.str.990 }, { i32, [4 x i8], ptr } { i32 9282, [4 x i8] zeroinitializer, ptr @.str.991 }, { i32, [4 x i8], ptr } { i32 9283, [4 x i8] zeroinitializer, ptr @.str.992 }, { i32, [4 x i8], ptr } { i32 9284, [4 x i8] zeroinitializer, ptr @.str.993 }, { i32, [4 x i8], ptr } { i32 9285, [4 x i8] zeroinitializer, ptr @.str.994 }, { i32, [4 x i8], ptr } { i32 9294, [4 x i8] zeroinitializer, ptr @.str.995 }, { i32, [4 x i8], ptr } { i32 9296, [4 x i8] zeroinitializer, ptr @.str.996 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.998 = private unnamed_addr constant [6 x i8] c" - %s\00", align 1
 @dissect_drda_monitor.monitor_fields = internal constant [3 x ptr] [ptr @hf_drda_monitor_etime, ptr @hf_drda_monitor_reserved, ptr null], align 16
-@.str.966 = private unnamed_addr constant [58 x i8] c"Invalid length detected (%u): should be 18-255 bytes long\00", align 1
-@.str.967 = private unnamed_addr constant [79 x i8] c"Invalid length; RDBNAM, RDBCOLID, and PKGID should all be length 18 or larger.\00", align 1
+@.str.999 = private unnamed_addr constant [58 x i8] c"Invalid length detected (%u): should be 18-255 bytes long\00", align 1
+@.str.1000 = private unnamed_addr constant [79 x i8] c"Invalid length; RDBNAM, RDBCOLID, and PKGID should all be length 18 or larger.\00", align 1
 @dissect_drda_rslsetflg.rslsetflg_fields = internal constant [5 x ptr] [ptr @hf_drda_rslsetflg_unused, ptr @hf_drda_rslsetflg_dsconly, ptr @hf_drda_rslsetflg_extended, ptr @hf_drda_rslsetflg_reserved, ptr null], align 16
-@.str.968 = private unnamed_addr constant [6 x i8] c"00000\00", align 1
+@.str.1001 = private unnamed_addr constant [6 x i8] c"00000\00", align 1
 @switch.table.dissect_drda_sqludtgrp = private unnamed_addr constant [4 x i32] [i32 0, i32 0, i32 -2147483648, i32 0], align 4
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_drda() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.286, ptr noundef nonnull @.str.286, ptr noundef nonnull @.str.287) #6
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.286, ptr noundef nonnull @.str.286, ptr noundef nonnull @.str.287)
   store i32 %1, ptr @proto_drda, align 4
-  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_drda.hf, i32 noundef 132) #6
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_drda.ett, i32 noundef 14) #6
+  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_drda.hf, i32 noundef 132)
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_drda.ett, i32 noundef 14)
   %2 = load i32, ptr @proto_drda, align 4
-  %3 = tail call ptr @expert_register_protocol(i32 noundef %2) #6
-  tail call void @expert_register_field_array(ptr noundef %3, ptr noundef nonnull @proto_register_drda.ei, i32 noundef 2) #6
+  %3 = tail call ptr @expert_register_protocol(i32 noundef %2)
+  tail call void @expert_register_field_array(ptr noundef %3, ptr noundef nonnull @proto_register_drda.ei, i32 noundef 2)
   %4 = load i32, ptr @proto_drda, align 4
-  %5 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.288, ptr noundef nonnull @.str.289, i32 noundef %4, i32 noundef 5, i32 noundef 2) #6
+  %5 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.288, ptr noundef nonnull @.str.289, i32 noundef %4, i32 noundef 5, i32 noundef 2)
   store ptr %5, ptr @drda_opcode_table, align 8
   %6 = load i32, ptr @proto_drda, align 4
-  %7 = tail call ptr @prefs_register_protocol(i32 noundef %6, ptr noundef null) #6
-  tail call void @prefs_register_bool_preference(ptr noundef %7, ptr noundef nonnull @.str.290, ptr noundef nonnull @.str.291, ptr noundef nonnull @.str.292, ptr noundef nonnull @drda_desegment) #6
-  tail call void @prefs_register_uint_preference(ptr noundef %7, ptr noundef nonnull @.str.293, ptr noundef nonnull @.str.294, ptr noundef nonnull @.str.295, i32 noundef 10, ptr noundef nonnull @drda_default_sqlam) #6
-  tail call void @prefs_register_enum_preference(ptr noundef %7, ptr noundef nonnull @.str.296, ptr noundef nonnull @.str.297, ptr noundef nonnull @.str.298, ptr noundef nonnull @drda_default_typdefnam, ptr noundef nonnull @typdefnam_vals, i32 noundef 0) #6
-  tail call void @prefs_register_enum_preference(ptr noundef %7, ptr noundef nonnull @.str.299, ptr noundef nonnull @.str.300, ptr noundef nonnull @.str.301, ptr noundef nonnull @drda_default_ccsidsbc, ptr noundef nonnull @ws_supported_mibenum_vals_character_sets_ev_array, i32 noundef 0) #6
-  tail call void @prefs_register_enum_preference(ptr noundef %7, ptr noundef nonnull @.str.302, ptr noundef nonnull @.str.303, ptr noundef nonnull @.str.304, ptr noundef nonnull @drda_default_ccsidmbc, ptr noundef nonnull @ws_supported_mibenum_vals_character_sets_ev_array, i32 noundef 0) #6
+  %7 = tail call ptr @prefs_register_protocol(i32 noundef %6, ptr noundef null)
+  tail call void @prefs_register_bool_preference(ptr noundef %7, ptr noundef nonnull @.str.290, ptr noundef nonnull @.str.291, ptr noundef nonnull @.str.292, ptr noundef nonnull @drda_desegment)
+  tail call void @prefs_register_uint_preference(ptr noundef %7, ptr noundef nonnull @.str.293, ptr noundef nonnull @.str.294, ptr noundef nonnull @.str.295, i32 noundef 10, ptr noundef nonnull @drda_default_sqlam)
+  tail call void @prefs_register_enum_preference(ptr noundef %7, ptr noundef nonnull @.str.296, ptr noundef nonnull @.str.297, ptr noundef nonnull @.str.298, ptr noundef nonnull @drda_default_typdefnam, ptr noundef nonnull @typdefnam_vals, i1 noundef zeroext false)
+  tail call void @prefs_register_enum_preference(ptr noundef %7, ptr noundef nonnull @.str.299, ptr noundef nonnull @.str.300, ptr noundef nonnull @.str.301, ptr noundef nonnull @drda_default_ccsidsbc, ptr noundef nonnull @ws_supported_mibenum_vals_character_sets_ev_array, i1 noundef zeroext false)
+  tail call void @prefs_register_enum_preference(ptr noundef %7, ptr noundef nonnull @.str.302, ptr noundef nonnull @.str.303, ptr noundef nonnull @.str.304, ptr noundef nonnull @drda_default_ccsidmbc, ptr noundef nonnull @ws_supported_mibenum_vals_character_sets_ev_array, i1 noundef zeroext false)
   %8 = load i32, ptr @proto_drda, align 4
-  %9 = tail call ptr @register_dissector(ptr noundef nonnull @.str.287, ptr noundef nonnull @dissect_drda_tcp, i32 noundef %8) #6
+  %9 = tail call ptr @register_dissector(ptr noundef nonnull @.str.287, ptr noundef nonnull @dissect_drda_tcp, i32 noundef %8)
   store ptr %9, ptr @drda_tcp_handle, align 8
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #2
 
-declare ptr @register_dissector_table(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector_table(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @prefs_register_uint_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @prefs_register_enum_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @prefs_register_uint_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @prefs_register_enum_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_drda_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
-  tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.286) #6
+  tail call void @col_set_str(ptr noundef %6, i32 noundef 35, ptr noundef nonnull @.str.286)
   %7 = load ptr, ptr %5, align 8
-  tail call void @col_clear(ptr noundef %7, i32 noundef 25) #6
-  %8 = load i32, ptr @drda_desegment, align 4
-  tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %8, i32 noundef 10, ptr noundef nonnull @get_drda_pdu_len, ptr noundef nonnull @dissect_drda_pdu, ptr noundef %3) #6
-  %9 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
-  ret i32 %9
+  tail call void @col_clear(ptr noundef %7, i32 noundef 25)
+  %8 = load i8, ptr @drda_desegment, align 1, !range !6, !noundef !7
+  %9 = trunc nuw i8 %8 to i1
+  tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %9, i32 noundef 10, ptr noundef nonnull @get_drda_pdu_len, ptr noundef nonnull @dissect_drda_pdu, ptr noundef %3)
+  %10 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  ret i32 %10
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_drda() local_unnamed_addr #0 {
   %1 = load i32, ptr @proto_drda, align 4
-  tail call void @heur_dissector_add(ptr noundef nonnull @.str.305, ptr noundef nonnull @dissect_drda_heur, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.307, i32 noundef %1, i32 noundef 1) #6
+  tail call void @heur_dissector_add(ptr noundef nonnull @.str.305, ptr noundef nonnull @dissect_drda_heur, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.307, i32 noundef %1, i32 noundef 1)
   %2 = load i32, ptr @proto_drda, align 4
-  %3 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_ccsid, i32 noundef %2) #6
+  %3 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_ccsid, i32 noundef %2)
   %4 = load i32, ptr @proto_drda, align 4
-  %5 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_codpntdr, i32 noundef %4) #6
+  %5 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_codpntdr, i32 noundef %4)
   %6 = load i32, ptr @proto_drda, align 4
-  %7 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_collection, i32 noundef %6) #6
+  %7 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_collection, i32 noundef %6)
   %8 = load i32, ptr @proto_drda, align 4
-  %9 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_sqlstt, i32 noundef %8) #6
+  %9 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_sqlstt, i32 noundef %8)
   %10 = load i32, ptr @proto_drda, align 4
-  %11 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_undecoded, i32 noundef %10) #6
+  %11 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_undecoded, i32 noundef %10)
   %12 = load i32, ptr @proto_drda, align 4
-  %13 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_typdefnam, i32 noundef %12) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 47, ptr noundef %13) #6
+  %13 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_typdefnam, i32 noundef %12)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 47, ptr noundef %13)
   %14 = load i32, ptr @proto_drda, align 4
-  %15 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_mgrlvlls, i32 noundef %14) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 5124, ptr noundef %15) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 53, ptr noundef %7) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8505, ptr noundef %7) #6
+  %15 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_mgrlvlls, i32 noundef %14)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 5124, ptr noundef %15)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 53, ptr noundef %7)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8505, ptr noundef %7)
   %16 = load i32, ptr @proto_drda, align 4
-  %17 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_rlsconv, i32 noundef %16) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 4511, ptr noundef %17) #6
+  %17 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_rlsconv, i32 noundef %16)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 4511, ptr noundef %17)
   %18 = load i32, ptr @proto_drda, align 4
-  %19 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_secmec, i32 noundef %18) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 4514, ptr noundef %19) #6
+  %19 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_secmec, i32 noundef %18)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 4514, ptr noundef %19)
   %20 = load i32, ptr @proto_drda, align 4
-  %21 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_sectkn, i32 noundef %20) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 4572, ptr noundef %21) #6
+  %21 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_sectkn, i32 noundef %20)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 4572, ptr noundef %21)
   %22 = load i32, ptr @proto_drda, align 4
-  %23 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_svrcod, i32 noundef %22) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 4425, ptr noundef %23) #6
+  %23 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_svrcod, i32 noundef %22)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 4425, ptr noundef %23)
   %24 = load i32, ptr @proto_drda, align 4
-  %25 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_secchkcd, i32 noundef %24) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 4516, ptr noundef %25) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 4508, ptr noundef %3) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 4509, ptr noundef %3) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 4510, ptr noundef %3) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 6419, ptr noundef %3) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8463, ptr noundef %5) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8450, ptr noundef %5) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8485, ptr noundef %5) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 9312, ptr noundef %5) #6
+  %25 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_secchkcd, i32 noundef %24)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 4516, ptr noundef %25)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 4508, ptr noundef %3)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 4509, ptr noundef %3)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 4510, ptr noundef %3)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 6419, ptr noundef %3)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8463, ptr noundef %5)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8450, ptr noundef %5)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8485, ptr noundef %5)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 9312, ptr noundef %5)
   %26 = load i32, ptr @proto_drda, align 4
-  %27 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_monitor, i32 noundef %26) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 6400, ptr noundef %27) #6
+  %27 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_monitor, i32 noundef %26)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 6400, ptr noundef %27)
   %28 = load i32, ptr @proto_drda, align 4
-  %29 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_etime, i32 noundef %28) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 6401, ptr noundef %29) #6
+  %29 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_etime, i32 noundef %28)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 6401, ptr noundef %29)
   %30 = load i32, ptr @proto_drda, align 4
-  %31 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_respktsz, i32 noundef %30) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 6408, ptr noundef %31) #6
+  %31 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_respktsz, i32 noundef %30)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 6408, ptr noundef %31)
   %32 = load i32, ptr @proto_drda, align 4
-  %33 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_rdbinttkn, i32 noundef %32) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8451, ptr noundef %33) #6
+  %33 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_rdbinttkn, i32 noundef %32)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8451, ptr noundef %33)
   %34 = load i32, ptr @proto_drda, align 4
-  %35 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_rdbcmtok, i32 noundef %34) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8453, ptr noundef %35) #6
+  %35 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_rdbcmtok, i32 noundef %34)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8453, ptr noundef %35)
   %36 = load i32, ptr @proto_drda, align 4
-  %37 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_rtnsetstt, i32 noundef %36) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8462, ptr noundef %37) #6
+  %37 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_rtnsetstt, i32 noundef %36)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8462, ptr noundef %37)
   %38 = load i32, ptr @proto_drda, align 4
-  %39 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_outexp, i32 noundef %38) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8465, ptr noundef %39) #6
+  %39 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_outexp, i32 noundef %38)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8465, ptr noundef %39)
   %40 = load i32, ptr @proto_drda, align 4
-  %41 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_pkgnam, i32 noundef %40) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8458, ptr noundef %41) #6
+  %41 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_pkgnam, i32 noundef %40)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8458, ptr noundef %41)
   %42 = load i32, ptr @proto_drda, align 4
-  %43 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_pkgnamct, i32 noundef %42) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8466, ptr noundef %43) #6
+  %43 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_pkgnamct, i32 noundef %42)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8466, ptr noundef %43)
   %44 = load i32, ptr @proto_drda, align 4
-  %45 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_pkgnamcsn, i32 noundef %44) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8467, ptr noundef %45) #6
+  %45 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_pkgnamcsn, i32 noundef %44)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8467, ptr noundef %45)
   %46 = load i32, ptr @proto_drda, align 4
-  %47 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_uowdsp, i32 noundef %46) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8469, ptr noundef %47) #6
+  %47 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_uowdsp, i32 noundef %46)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8469, ptr noundef %47)
   %48 = load i32, ptr @proto_drda, align 4
-  %49 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_rdbalwupd, i32 noundef %48) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8474, ptr noundef %49) #6
+  %49 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_rdbalwupd, i32 noundef %48)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8474, ptr noundef %49)
   %50 = load i32, ptr @proto_drda, align 4
-  %51 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_qryblksz, i32 noundef %50) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8468, ptr noundef %51) #6
+  %51 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_qryblksz, i32 noundef %50)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8468, ptr noundef %51)
   %52 = load i32, ptr @proto_drda, align 4
-  %53 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_rtnsqlda, i32 noundef %52) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8470, ptr noundef %53) #6
+  %53 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_rtnsqlda, i32 noundef %52)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8470, ptr noundef %53)
   %54 = load i32, ptr @proto_drda, align 4
-  %55 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_sqlcsrhld, i32 noundef %54) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8479, ptr noundef %55) #6
+  %55 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_sqlcsrhld, i32 noundef %54)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8479, ptr noundef %55)
   %56 = load i32, ptr @proto_drda, align 4
-  %57 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_qryextdtasz, i32 noundef %56) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8500, ptr noundef %57) #6
+  %57 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_qryextdtasz, i32 noundef %56)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8500, ptr noundef %57)
   %58 = load i32, ptr @proto_drda, align 4
-  %59 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_smldtasz, i32 noundef %58) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8502, ptr noundef %59) #6
+  %59 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_smldtasz, i32 noundef %58)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8502, ptr noundef %59)
   %60 = load i32, ptr @proto_drda, align 4
-  %61 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_meddtasz, i32 noundef %60) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8503, ptr noundef %61) #6
+  %61 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_meddtasz, i32 noundef %60)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8503, ptr noundef %61)
   %62 = load i32, ptr @proto_drda, align 4
-  %63 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_trgdftrt, i32 noundef %62) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8507, ptr noundef %63) #6
+  %63 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_trgdftrt, i32 noundef %62)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8507, ptr noundef %63)
   %64 = load i32, ptr @proto_drda, align 4
-  %65 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_qryattupd, i32 noundef %64) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8528, ptr noundef %65) #6
+  %65 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_qryattupd, i32 noundef %64)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8528, ptr noundef %65)
   %66 = load i32, ptr @proto_drda, align 4
-  %67 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_qryrowset, i32 noundef %66) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8534, ptr noundef %67) #6
+  %67 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_qryrowset, i32 noundef %66)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8534, ptr noundef %67)
   %68 = load i32, ptr @proto_drda, align 4
-  %69 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_qryinsid, i32 noundef %68) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8539, ptr noundef %69) #6
+  %69 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_qryinsid, i32 noundef %68)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8539, ptr noundef %69)
   %70 = load i32, ptr @proto_drda, align 4
-  %71 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_qryclsimp, i32 noundef %70) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8541, ptr noundef %71) #6
+  %71 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_qryclsimp, i32 noundef %70)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8541, ptr noundef %71)
   %72 = load i32, ptr @proto_drda, align 4
-  %73 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_qryblkfct, i32 noundef %72) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8543, ptr noundef %73) #6
+  %73 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_qryblkfct, i32 noundef %72)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8543, ptr noundef %73)
   %74 = load i32, ptr @proto_drda, align 4
-  %75 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_maxrslcnt, i32 noundef %74) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8512, ptr noundef %75) #6
+  %75 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_maxrslcnt, i32 noundef %74)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8512, ptr noundef %75)
   %76 = load i32, ptr @proto_drda, align 4
-  %77 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_maxblkext, i32 noundef %76) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8513, ptr noundef %77) #6
+  %77 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_maxblkext, i32 noundef %76)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8513, ptr noundef %77)
   %78 = load i32, ptr @proto_drda, align 4
-  %79 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_rslsetflg, i32 noundef %78) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8514, ptr noundef %79) #6
+  %79 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_rslsetflg, i32 noundef %78)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8514, ptr noundef %79)
   %80 = load i32, ptr @proto_drda, align 4
-  %81 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_typsqlda, i32 noundef %80) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8518, ptr noundef %81) #6
+  %81 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_typsqlda, i32 noundef %80)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8518, ptr noundef %81)
   %82 = load i32, ptr @proto_drda, align 4
-  %83 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_outovropt, i32 noundef %82) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8519, ptr noundef %83) #6
+  %83 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_outovropt, i32 noundef %82)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8519, ptr noundef %83)
   %84 = load i32, ptr @proto_drda, align 4
-  %85 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_dyndtafmt, i32 noundef %84) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8523, ptr noundef %85) #6
+  %85 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_dyndtafmt, i32 noundef %84)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 8523, ptr noundef %85)
   %86 = load i32, ptr @proto_drda, align 4
-  %87 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_pktobj, i32 noundef %86) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 7172, ptr noundef %87) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 9236, ptr noundef %9) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 9296, ptr noundef %9) #6
+  %87 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_pktobj, i32 noundef %86)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 7172, ptr noundef %87)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 9236, ptr noundef %9)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 9296, ptr noundef %9)
   %88 = load i32, ptr @proto_drda, align 4
-  %89 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_sqlcard, i32 noundef %88) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 9224, ptr noundef %89) #6
+  %89 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_sqlcard, i32 noundef %88)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 9224, ptr noundef %89)
   %90 = load i32, ptr @proto_drda, align 4
-  %91 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_sqldard, i32 noundef %90) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 9233, ptr noundef %91) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 16, ptr noundef %11) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 5242, ptr noundef %11) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 9242, ptr noundef %11) #6
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 9243, ptr noundef %11) #6
+  %91 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_drda_sqldard, i32 noundef %90)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 9233, ptr noundef %91)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 16, ptr noundef %11)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 5242, ptr noundef %11)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 9242, ptr noundef %11)
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.288, i32 noundef 9243, ptr noundef %11)
   ret void
 }
 
-declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_drda_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal noundef zeroext i1 @dissect_drda_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %6 = icmp ugt i32 %5, 9
   br i1 %6, label %7, label %25
 
 7:                                                ; preds = %4
-  %8 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #6
-  %9 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 6) #6
-  %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #6
+  %8 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0)
+  %9 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 6)
+  %10 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
   %11 = icmp eq i8 %10, -48
   br i1 %11, label %12, label %25
 
@@ -1420,34 +1436,37 @@ define internal range(i32 0, 2) i32 @dissect_drda_heur(ptr noundef %0, ptr nound
   %14 = zext i16 %9 to i32
   %15 = sub nsw i32 %13, %14
   %16 = icmp eq i32 %15, 6
-  br i1 %16, label %17, label %25
+  br i1 %16, label %.critedge, label %25
 
-17:                                               ; preds = %12
-  %18 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #6
-  %19 = load ptr, ptr @drda_tcp_handle, align 8
-  tail call void @conversation_set_dissector(ptr noundef nonnull %18, ptr noundef %19) #6
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %21 = load ptr, ptr %20, align 8
-  tail call void @col_set_str(ptr noundef %21, i32 noundef 34, ptr noundef nonnull @.str.286) #6
-  %22 = load ptr, ptr %20, align 8
-  tail call void @col_clear(ptr noundef %22, i32 noundef 25) #6
-  %23 = load i32, ptr @drda_desegment, align 4
-  tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %23, i32 noundef 10, ptr noundef nonnull @get_drda_pdu_len, ptr noundef nonnull @dissect_drda_pdu, ptr noundef %3) #6
-  %24 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
+.critedge:                                        ; preds = %12
+  %17 = tail call ptr @find_or_create_conversation(ptr noundef %1)
+  %18 = load ptr, ptr @drda_tcp_handle, align 8
+  tail call void @conversation_set_dissector(ptr noundef %17, ptr noundef %18)
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %20 = load ptr, ptr %19, align 8
+  tail call void @col_set_str(ptr noundef %20, i32 noundef 35, ptr noundef nonnull @.str.286)
+  %21 = load ptr, ptr %19, align 8
+  tail call void @col_clear(ptr noundef %21, i32 noundef 25)
+  %22 = load i8, ptr @drda_desegment, align 1, !range !6, !noundef !7
+  %23 = trunc nuw i8 %22 to i1
+  tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %23, i32 noundef 10, ptr noundef nonnull @get_drda_pdu_len, ptr noundef nonnull @dissect_drda_pdu, ptr noundef %3)
+  %24 = tail call i32 @tvb_captured_length(ptr noundef %0)
   br label %25
 
-25:                                               ; preds = %4, %12, %7, %17
-  %.0 = phi i32 [ 1, %17 ], [ 0, %7 ], [ 0, %12 ], [ 0, %4 ]
-  ret i32 %.0
+25:                                               ; preds = %4, %7, %12, %.critedge
+  %.1 = phi i1 [ true, %.critedge ], [ false, %12 ], [ false, %7 ], [ false, %4 ]
+  ret i1 %.1
 }
 
-declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_drda_ccsid(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) #0 {
   %5 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
   %6 = load i32, ptr @hf_drda_ccsid, align 4
-  %7 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5) #6
+  %7 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 292
   %9 = load i32, ptr %8, align 4
   switch i32 %9, label %27 [
@@ -1527,75 +1546,80 @@ define internal noundef i32 @dissect_drda_ccsid(ptr noundef %0, ptr noundef read
   br label %27
 
 27:                                               ; preds = %.sink.split, %4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
   ret i32 2
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_drda_codpntdr(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
   %6 = load i32, ptr @hf_drda_param_codepoint, align 4
-  %7 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5) #6
+  %7 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5)
   %8 = load i32, ptr %5, align 4
-  %9 = call ptr @val_to_str_ext(i32 noundef %8, ptr noundef nonnull @drda_opcode_vals_ext, ptr noundef nonnull @.str.797) #6
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %7, ptr noundef nonnull @.str.965, ptr noundef %9) #6
+  %9 = call ptr @val_to_str_ext(i32 noundef %8, ptr noundef nonnull @drda_opcode_vals_ext, ptr noundef nonnull @.str.829)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %7, ptr noundef nonnull @.str.998, ptr noundef %9)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
   ret i32 2
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_drda_collection(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
-  %6 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  %6 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
   %7 = icmp sgt i32 %6, 1
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %33
   %.039 = phi i32 [ %34, %33 ], [ 0, %4 ]
-  %8 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.039) #6
+  %8 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.039)
   %9 = zext i16 %8 to i32
-  %10 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.039) #6
+  %10 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.039)
   %.not = icmp slt i32 %10, %9
   br i1 %.not, label %33, label %11
 
 11:                                               ; preds = %.lr.ph
   %12 = add i32 %.039, 2
-  %13 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %12) #6
+  %13 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %12)
   %14 = load i32, ptr @ett_drda_param, align 4
-  %15 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %.039, i32 noundef %9, i32 noundef %14, ptr noundef nonnull %5, ptr noundef nonnull @.str.799) #6
+  %15 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %.039, i32 noundef %9, i32 noundef %14, ptr noundef nonnull %5, ptr noundef nonnull @.str.831)
   %16 = load ptr, ptr %5, align 8
   %17 = zext i16 %13 to i32
-  %18 = call ptr @val_to_str_ext(i32 noundef %17, ptr noundef nonnull @drda_opcode_vals_ext, ptr noundef nonnull @.str.797) #6
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.796, ptr noundef %18) #6
+  %18 = call ptr @val_to_str_ext(i32 noundef %17, ptr noundef nonnull @drda_opcode_vals_ext, ptr noundef nonnull @.str.829)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.828, ptr noundef %18)
   %19 = load i32, ptr @hf_drda_param_length, align 4
-  %20 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %19, ptr noundef %0, i32 noundef %.039, i32 noundef 2, i32 noundef 0) #6
+  %20 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %19, ptr noundef %0, i32 noundef %.039, i32 noundef 2, i32 noundef 0)
   %21 = load i32, ptr @hf_drda_param_codepoint, align 4
-  %22 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %21, ptr noundef %0, i32 noundef %12, i32 noundef 2, i32 noundef 0) #6
+  %22 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %21, ptr noundef %0, i32 noundef %12, i32 noundef 2, i32 noundef 0)
   %23 = load ptr, ptr @drda_opcode_table, align 8
   %24 = add i32 %.039, 4
   %25 = add nsw i32 %9, -4
-  %26 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %24, i32 noundef %25) #6
-  %27 = call i32 @dissector_try_uint_new(ptr noundef %23, i32 noundef %17, ptr noundef %26, ptr noundef %1, ptr noundef %15, i32 noundef 0, ptr noundef %3) #6
+  %26 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %24, i32 noundef %25)
+  %27 = call i32 @dissector_try_uint_with_data(ptr noundef %23, i32 noundef %17, ptr noundef %26, ptr noundef %1, ptr noundef %15, i1 noundef zeroext false, ptr noundef %3)
   %.not38 = icmp eq i32 %27, 0
   br i1 %.not38, label %28, label %33
 
 28:                                               ; preds = %11
   %29 = load i32, ptr @hf_drda_param_data, align 4
-  %30 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %29, ptr noundef %0, i32 noundef %24, i32 noundef %25, i32 noundef 2) #6
+  %30 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %29, ptr noundef %0, i32 noundef %24, i32 noundef %25, i32 noundef 2)
   %31 = load i32, ptr @hf_drda_param_data_ebcdic, align 4
-  %32 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %31, ptr noundef %0, i32 noundef %24, i32 noundef %25, i32 noundef 96) #6
+  %32 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %31, ptr noundef %0, i32 noundef %24, i32 noundef %25, i32 noundef 96)
   br label %33
 
 33:                                               ; preds = %11, %28, %.lr.ph
   %34 = add i32 %.039, %9
-  %35 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %34) #6
+  %35 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %34)
   %36 = icmp sgt i32 %35, 1
-  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !4
+  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %33, %4
-  %37 = call i32 @tvb_captured_length(ptr noundef %0) #6
+  %37 = call i32 @tvb_captured_length(ptr noundef %0)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
   ret i32 %37
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_drda_sqlstt(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -1603,53 +1627,53 @@ define internal i32 @dissect_drda_sqlstt(ptr noundef %0, ptr readnone captures(n
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  %11 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #6
+  %11 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0)
   %12 = icmp eq i16 %11, 0
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %4
-  %14 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #6
+  %14 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2)
   br label %15
 
 15:                                               ; preds = %13, %4
   %.0.in = phi i16 [ %14, %13 ], [ %11, %4 ]
   %.0 = zext i16 %.0.in to i32
   %16 = add nuw nsw i32 %.0, 4
-  %17 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
+  %17 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %18 = icmp eq i32 %16, %17
   %19 = load i32, ptr @hf_drda_sqlstatement, align 4
   br i1 %18, label %20, label %39
 
 20:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #8
   %21 = load i32, ptr @hf_drda_param_length, align 4
-  %22 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %21, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %10) #6
+  %22 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %21, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %10)
   %23 = load i32, ptr %10, align 4
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %25 = load i32, ptr %24, align 4
-  %26 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef 2, i32 noundef %23, i32 noundef %25) #6
+  %26 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef 2, i32 noundef %23, i32 noundef %25)
   %27 = load i32, ptr %10, align 4
   %28 = add i32 %27, 2
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #8
   %29 = load i32, ptr @hf_drda_sqlstatement, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #8
   %30 = load i32, ptr @hf_drda_param_length, align 4
-  %31 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %30, ptr noundef %0, i32 noundef %28, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %9) #6
+  %31 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %30, ptr noundef %0, i32 noundef %28, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %9)
   %32 = add i32 %27, 4
   %33 = load i32, ptr %9, align 4
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %35 = load i32, ptr %34, align 4
-  %36 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %29, ptr noundef %0, i32 noundef %32, i32 noundef %33, i32 noundef %35) #6
+  %36 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %29, ptr noundef %0, i32 noundef %32, i32 noundef %33, i32 noundef %35)
   %37 = load i32, ptr %9, align 4
   %38 = add i32 %37, %32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #8
   br label %69
 
 39:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
   %40 = load i32, ptr @hf_drda_null_ind, align 4
-  %41 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %40, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %7) #6
+  %41 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %40, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %7)
   %42 = load i32, ptr %7, align 4
   %sext.mask.i = and i32 %42, 128
   %43 = icmp eq i32 %sext.mask.i, 0
@@ -1657,24 +1681,24 @@ define internal i32 @dissect_drda_sqlstt(ptr noundef %0, ptr readnone captures(n
 
 44:                                               ; preds = %39
   %45 = load i32, ptr @hf_drda_clob_length, align 4
-  %46 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %45, ptr noundef %0, i32 noundef 1, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %8) #6
+  %46 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %45, ptr noundef %0, i32 noundef 1, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %8)
   %47 = load i32, ptr %8, align 4
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %49 = load i32, ptr %48, align 4
-  %50 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef 5, i32 noundef %47, i32 noundef %49) #6
+  %50 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef 5, i32 noundef %47, i32 noundef %49)
   %51 = load i32, ptr %8, align 4
   %52 = add i32 %51, 5
   br label %dissect_fdoca_nocm.exit
 
 dissect_fdoca_nocm.exit:                          ; preds = %39, %44
   %.0.i = phi i32 [ %52, %44 ], [ 1, %39 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
   %53 = load i32, ptr @hf_drda_sqlstatement, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
   %54 = load i32, ptr @hf_drda_null_ind, align 4
-  %55 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %54, ptr noundef %0, i32 noundef %.0.i, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5) #6
+  %55 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %54, ptr noundef %0, i32 noundef %.0.i, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5)
   %56 = add i32 %.0.i, 1
   %57 = load i32, ptr %5, align 4
   %sext.mask.i26 = and i32 %57, 128
@@ -1683,20 +1707,20 @@ dissect_fdoca_nocm.exit:                          ; preds = %39, %44
 
 59:                                               ; preds = %dissect_fdoca_nocm.exit
   %60 = load i32, ptr @hf_drda_clob_length, align 4
-  %61 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %60, ptr noundef %0, i32 noundef %56, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %6) #6
+  %61 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %60, ptr noundef %0, i32 noundef %56, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %6)
   %62 = add i32 %.0.i, 5
   %63 = load i32, ptr %6, align 4
   %64 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %65 = load i32, ptr %64, align 4
-  %66 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %53, ptr noundef %0, i32 noundef %62, i32 noundef %63, i32 noundef %65) #6
+  %66 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %53, ptr noundef %0, i32 noundef %62, i32 noundef %63, i32 noundef %65)
   %67 = load i32, ptr %6, align 4
   %68 = add i32 %67, %62
   br label %dissect_fdoca_nocs.exit
 
 dissect_fdoca_nocs.exit:                          ; preds = %dissect_fdoca_nocm.exit, %59
   %.0.i27 = phi i32 [ %68, %59 ], [ %56, %dissect_fdoca_nocm.exit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
   br label %69
 
 69:                                               ; preds = %dissect_fdoca_nocs.exit, %20
@@ -1704,25 +1728,27 @@ dissect_fdoca_nocs.exit:                          ; preds = %dissect_fdoca_nocm.
   ret i32 %.024
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_drda_undecoded(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
-  %5 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_drda_undecoded, ptr noundef %0, i32 noundef 0, i32 noundef -1) #6
-  %6 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
+  %5 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_drda_undecoded, ptr noundef %0, i32 noundef 0, i32 noundef -1)
+  %6 = tail call i32 @tvb_captured_length(ptr noundef %0)
   ret i32 %6
 }
 
-declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_drda_typdefnam(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) #0 {
   %5 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
   %6 = load i32, ptr @hf_drda_typdefnam, align 4
-  %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
+  %7 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %9 = load ptr, ptr %8, align 8
-  %10 = call ptr @proto_tree_add_item_ret_string(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef %7, i32 noundef 2, ptr noundef %9, ptr noundef nonnull %5) #6
+  %10 = call ptr @proto_tree_add_item_ret_string(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef %7, i32 noundef 2, ptr noundef %9, ptr noundef nonnull %5)
   %11 = load ptr, ptr %5, align 8
-  %12 = call i32 @strcmp(ptr noundef nonnull dereferenceable(10) @.str.784, ptr noundef nonnull dereferenceable(1) %11) #7
+  %12 = call i32 @strcmp(ptr noundef nonnull dereferenceable(10) @.str.815, ptr noundef %11) #9
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %._crit_edge, label %.lr.ph
 
@@ -1730,14 +1756,14 @@ define internal i32 @dissect_drda_typdefnam(ptr noundef %0, ptr noundef readonly
   %indvars.iv42 = phi i64 [ %indvars.iv.next, %14 ], [ 0, %4 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv42, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond, label %.loopexit23, label %14, !llvm.loop !6
+  br i1 %exitcond, label %.loopexit23, label %14, !llvm.loop !10
 
 14:                                               ; preds = %.lr.ph
   %15 = getelementptr [6 x %struct.enum_val_t], ptr @typdefnam_vals, i64 0, i64 %indvars.iv.next
   %16 = load ptr, ptr %15, align 8
-  %17 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %11) #7
+  %17 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef %11) #9
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %18, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %14, %4
   %.lcssa40 = phi ptr [ @typdefnam_vals, %4 ], [ %15, %14 ]
@@ -1749,11 +1775,11 @@ define internal i32 @dissect_drda_typdefnam(ptr noundef %0, ptr noundef readonly
 
 .loopexit23:                                      ; preds = %.lr.ph, %._crit_edge
   %22 = load i32, ptr @hf_drda_typdefnam, align 4
-  %23 = call i32 @tvb_reported_length(ptr noundef %0) #6
+  %23 = call i32 @tvb_reported_length(ptr noundef %0)
   %24 = load ptr, ptr %8, align 8
-  %25 = call ptr @proto_tree_add_item_ret_string(ptr noundef %2, i32 noundef %22, ptr noundef %0, i32 noundef 0, i32 noundef %23, i32 noundef 96, ptr noundef %24, ptr noundef nonnull %5) #6
+  %25 = call ptr @proto_tree_add_item_ret_string(ptr noundef %2, i32 noundef %22, ptr noundef %0, i32 noundef 0, i32 noundef %23, i32 noundef 96, ptr noundef %24, ptr noundef nonnull %5)
   %26 = load ptr, ptr %5, align 8
-  %27 = call i32 @strcmp(ptr noundef nonnull dereferenceable(10) @.str.784, ptr noundef nonnull dereferenceable(1) %26) #7
+  %27 = call i32 @strcmp(ptr noundef nonnull dereferenceable(10) @.str.815, ptr noundef %26) #9
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %._crit_edge45, label %.lr.ph44
 
@@ -1761,14 +1787,14 @@ define internal i32 @dissect_drda_typdefnam(ptr noundef %0, ptr noundef readonly
   %indvars.iv3243 = phi i64 [ %indvars.iv.next33, %29 ], [ 0, %.loopexit23 ]
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv3243, 1
   %exitcond35 = icmp eq i64 %indvars.iv.next33, 5
-  br i1 %exitcond35, label %.loopexit, label %29, !llvm.loop !7
+  br i1 %exitcond35, label %.loopexit, label %29, !llvm.loop !11
 
 29:                                               ; preds = %.lr.ph44
   %30 = getelementptr [6 x %struct.enum_val_t], ptr @typdefnam_vals, i64 0, i64 %indvars.iv.next33
   %31 = load ptr, ptr %30, align 8
-  %32 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(1) %26) #7
+  %32 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef %26) #9
   %33 = icmp eq i32 %32, 0
-  br i1 %33, label %._crit_edge45, label %.lr.ph44, !llvm.loop !7
+  br i1 %33, label %._crit_edge45, label %.lr.ph44, !llvm.loop !11
 
 ._crit_edge45:                                    ; preds = %29, %.loopexit23
   %.lcssa = phi ptr [ @typdefnam_vals, %.loopexit23 ], [ %30, %29 ]
@@ -1779,29 +1805,32 @@ define internal i32 @dissect_drda_typdefnam(ptr noundef %0, ptr noundef readonly
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph44, %._crit_edge45
-  %37 = call i32 @tvb_reported_length(ptr noundef %0) #6
+  %37 = call i32 @tvb_reported_length(ptr noundef %0)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
   ret i32 %37
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_drda_mgrlvlls(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
+  %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
   %8 = icmp sgt i32 %7, 1
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %30
   %.026 = phi i32 [ %31, %30 ], [ 0, %4 ]
-  %9 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.026) #6
+  %9 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.026)
   %10 = load i32, ptr @ett_drda_param, align 4
-  %11 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %.026, i32 noundef 4, i32 noundef %10, ptr noundef nonnull %5, ptr noundef nonnull @.str.799) #6
+  %11 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %.026, i32 noundef 4, i32 noundef %10, ptr noundef nonnull %5, ptr noundef nonnull @.str.831)
   %12 = load ptr, ptr %5, align 8
   %13 = zext i16 %9 to i32
-  %14 = call ptr @val_to_str_ext(i32 noundef %13, ptr noundef nonnull @drda_opcode_vals_ext, ptr noundef nonnull @.str.797) #6
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.796, ptr noundef %14) #6
+  %14 = call ptr @val_to_str_ext(i32 noundef %13, ptr noundef nonnull @drda_opcode_vals_ext, ptr noundef nonnull @.str.829)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.828, ptr noundef %14)
   %15 = load i32, ptr @hf_drda_param_codepoint, align 4
-  %16 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %15, ptr noundef %0, i32 noundef %.026, i32 noundef 2, i32 noundef 0) #6
+  %16 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %15, ptr noundef %0, i32 noundef %.026, i32 noundef 2, i32 noundef 0)
   switch i16 %9, label %26 [
     i16 5324, label %17
     i16 7176, label %17
@@ -1811,13 +1840,13 @@ define internal i32 @dissect_drda_mgrlvlls(ptr noundef %0, ptr readnone captures
 17:                                               ; preds = %.lr.ph, %.lr.ph
   %18 = load i32, ptr @hf_drda_ccsid, align 4
   %19 = or disjoint i32 %.026, 2
-  %20 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %18, ptr noundef %0, i32 noundef %19, i32 noundef 2, i32 noundef 0) #6
+  %20 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %18, ptr noundef %0, i32 noundef %19, i32 noundef 2, i32 noundef 0)
   br label %30
 
 21:                                               ; preds = %.lr.ph
   %22 = load i32, ptr @hf_drda_mgrlvln, align 4
   %23 = or disjoint i32 %.026, 2
-  %24 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %11, i32 noundef %22, ptr noundef %0, i32 noundef %23, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %6) #6
+  %24 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %11, i32 noundef %22, ptr noundef %0, i32 noundef %23, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %6)
   %25 = load i32, ptr %6, align 4
   store i32 %25, ptr %3, align 4
   br label %30
@@ -1825,180 +1854,183 @@ define internal i32 @dissect_drda_mgrlvlls(ptr noundef %0, ptr readnone captures
 26:                                               ; preds = %.lr.ph
   %27 = load i32, ptr @hf_drda_mgrlvln, align 4
   %28 = or disjoint i32 %.026, 2
-  %29 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %27, ptr noundef %0, i32 noundef %28, i32 noundef 2, i32 noundef 0) #6
+  %29 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %27, ptr noundef %0, i32 noundef %28, i32 noundef 2, i32 noundef 0)
   br label %30
 
 30:                                               ; preds = %26, %21, %17
   %31 = add i32 %.026, 4
-  %32 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %31) #6
+  %32 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %31)
   %33 = icmp sgt i32 %32, 1
-  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %30, %4
-  %34 = call i32 @tvb_captured_length(ptr noundef %0) #6
+  %34 = call i32 @tvb_captured_length(ptr noundef %0)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
   ret i32 %34
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_drda_rlsconv(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_drda_rlsconv, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #6
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   ret i32 1
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_drda_secmec(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
-  %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #6
+  %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
   %6 = icmp sgt i32 %5, 1
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.06 = phi i32 [ %9, %.lr.ph ], [ 0, %4 ]
   %7 = load i32, ptr @hf_drda_secmec, align 4
-  %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %.06, i32 noundef 2, i32 noundef 0) #6
+  %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %.06, i32 noundef 2, i32 noundef 0)
   %9 = add i32 %.06, 2
-  %10 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %9) #6
+  %10 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %9)
   %11 = icmp sgt i32 %10, 1
-  br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.0.lcssa = phi i32 [ 0, %4 ], [ %9, %.lr.ph ]
   ret i32 %.0.lcssa
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_drda_sectkn(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_drda_sectkn, align 4
-  %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef %6, i32 noundef 0) #6
-  %8 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
+  %6 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef %6, i32 noundef 0)
+  %8 = tail call i32 @tvb_reported_length(ptr noundef %0)
   ret i32 %8
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_drda_svrcod(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_drda_svrcod, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0) #6
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0)
   ret i32 2
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_drda_secchkcd(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_drda_secchkcd, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #6
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   ret i32 1
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_drda_monitor(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_drda_monitor, align 4
   %6 = load i32, ptr @ett_drda_monitor, align 4
-  %7 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %5, i32 noundef %6, ptr noundef nonnull @dissect_drda_monitor.monitor_fields, i32 noundef 0) #6
+  %7 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %5, i32 noundef %6, ptr noundef nonnull @dissect_drda_monitor.monitor_fields, i32 noundef 0)
   ret i32 4
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_drda_etime(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_drda_etime, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef 48) #6
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef 48)
   ret i32 8
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_drda_respktsz(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_drda_respktsz, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #6
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0)
   ret i32 4
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_drda_rdbinttkn(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_drda_rdbinttkn, align 4
-  %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef %6, i32 noundef 0) #6
-  %8 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
+  %6 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef %6, i32 noundef 0)
+  %8 = tail call i32 @tvb_reported_length(ptr noundef %0)
   ret i32 %8
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_drda_rdbcmtok(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_drda_rdbcmtok, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #6
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   ret i32 1
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_drda_rtnsetstt(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_drda_rtnsetstt, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #6
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   ret i32 1
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_drda_outexp(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_drda_outexp, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #6
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   ret i32 1
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_drda_pkgnam(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
-  %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
+  %6 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %7 = icmp eq i32 %6, 54
   br i1 %7, label %8, label %21
 
 8:                                                ; preds = %4
   %9 = load i32, ptr @hf_drda_rdbnam, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 18, i32 noundef 2) #6
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 18, i32 noundef 2)
   %11 = load i32, ptr @hf_drda_rdbnam_ebcdic, align 4
-  %12 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %11, ptr noundef %0, i32 noundef 0, i32 noundef 18, i32 noundef 96) #6
+  %12 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %11, ptr noundef %0, i32 noundef 0, i32 noundef 18, i32 noundef 96)
   %13 = load i32, ptr @hf_drda_rdbcolid, align 4
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef 18, i32 noundef 18, i32 noundef 2) #6
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef 18, i32 noundef 18, i32 noundef 2)
   %15 = load i32, ptr @hf_drda_rdbcolid_ebcdic, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef 18, i32 noundef 18, i32 noundef 96) #6
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef 18, i32 noundef 18, i32 noundef 96)
   %17 = load i32, ptr @hf_drda_pkgid, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %17, ptr noundef %0, i32 noundef 36, i32 noundef 18, i32 noundef 2) #6
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %17, ptr noundef %0, i32 noundef 36, i32 noundef 18, i32 noundef 2)
   %19 = load i32, ptr @hf_drda_pkgid_ebcdic, align 4
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef 36, i32 noundef 18, i32 noundef 96) #6
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef 36, i32 noundef 18, i32 noundef 96)
   br label %75
 
 21:                                               ; preds = %4
-  %22 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
+  %22 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %23 = icmp ugt i32 %22, 64
   br i1 %23, label %24, label %72
 
 24:                                               ; preds = %21
   %25 = load i32, ptr @hf_drda_param_length, align 4
-  %26 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %25, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5) #6
+  %26 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %25, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5)
   %27 = load i32, ptr %5, align 4
   %28 = add i32 %27, -256
   %or.cond = icmp ult i32 %28, -238
   br i1 %or.cond, label %29, label %31
 
 29:                                               ; preds = %24
-  %30 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %26, ptr noundef nonnull @ei_drda_opcode_invalid_length, ptr noundef nonnull @.str.966, i32 noundef %27) #6
+  %30 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %26, ptr noundef nonnull @ei_drda_opcode_invalid_length, ptr noundef nonnull @.str.999, i32 noundef %27)
   %.pre = load i32, ptr %5, align 4
   br label %31
 
 31:                                               ; preds = %24, %29
   %32 = phi i32 [ %27, %24 ], [ %.pre, %29 ]
   %33 = load i32, ptr @hf_drda_rdbnam, align 4
-  %34 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %33, ptr noundef %0, i32 noundef 2, i32 noundef %32, i32 noundef 2) #6
+  %34 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %33, ptr noundef %0, i32 noundef 2, i32 noundef %32, i32 noundef 2)
   %35 = load i32, ptr @hf_drda_rdbnam_ebcdic, align 4
   %36 = load i32, ptr %5, align 4
-  %37 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %35, ptr noundef %0, i32 noundef 2, i32 noundef %36, i32 noundef 96) #6
+  %37 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %35, ptr noundef %0, i32 noundef 2, i32 noundef %36, i32 noundef 96)
   %38 = load i32, ptr %5, align 4
   %39 = add i32 %38, 2
   %40 = load i32, ptr @hf_drda_param_length, align 4
-  %41 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %40, ptr noundef %0, i32 noundef %39, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5) #6
+  %41 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %40, ptr noundef %0, i32 noundef %39, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5)
   %42 = load i32, ptr %5, align 4
   %43 = add i32 %42, -256
   %or.cond3 = icmp ult i32 %43, -238
   br i1 %or.cond3, label %44, label %46
 
 44:                                               ; preds = %31
-  %45 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %41, ptr noundef nonnull @ei_drda_opcode_invalid_length, ptr noundef nonnull @.str.966, i32 noundef %42) #6
+  %45 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %41, ptr noundef nonnull @ei_drda_opcode_invalid_length, ptr noundef nonnull @.str.999, i32 noundef %42)
   %.pre71 = load i32, ptr %5, align 4
   br label %46
 
@@ -2006,21 +2038,21 @@ define internal i32 @dissect_drda_pkgnam(ptr noundef %0, ptr noundef %1, ptr nou
   %47 = phi i32 [ %42, %31 ], [ %.pre71, %44 ]
   %48 = add i32 %38, 4
   %49 = load i32, ptr @hf_drda_rdbcolid, align 4
-  %50 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %49, ptr noundef %0, i32 noundef %48, i32 noundef %47, i32 noundef 2) #6
+  %50 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %49, ptr noundef %0, i32 noundef %48, i32 noundef %47, i32 noundef 2)
   %51 = load i32, ptr @hf_drda_rdbcolid_ebcdic, align 4
   %52 = load i32, ptr %5, align 4
-  %53 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %51, ptr noundef %0, i32 noundef %48, i32 noundef %52, i32 noundef 96) #6
+  %53 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %51, ptr noundef %0, i32 noundef %48, i32 noundef %52, i32 noundef 96)
   %54 = load i32, ptr %5, align 4
   %55 = add i32 %54, %48
   %56 = load i32, ptr @hf_drda_param_length, align 4
-  %57 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %56, ptr noundef %0, i32 noundef %55, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5) #6
+  %57 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %56, ptr noundef %0, i32 noundef %55, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5)
   %58 = load i32, ptr %5, align 4
   %59 = add i32 %58, -256
   %or.cond5 = icmp ult i32 %59, -238
   br i1 %or.cond5, label %60, label %62
 
 60:                                               ; preds = %46
-  %61 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %57, ptr noundef nonnull @ei_drda_opcode_invalid_length, ptr noundef nonnull @.str.966, i32 noundef %58) #6
+  %61 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %57, ptr noundef nonnull @ei_drda_opcode_invalid_length, ptr noundef nonnull @.str.999, i32 noundef %58)
   %.pre72 = load i32, ptr %5, align 4
   br label %62
 
@@ -2028,215 +2060,218 @@ define internal i32 @dissect_drda_pkgnam(ptr noundef %0, ptr noundef %1, ptr nou
   %63 = phi i32 [ %58, %46 ], [ %.pre72, %60 ]
   %64 = add i32 %55, 2
   %65 = load i32, ptr @hf_drda_pkgid, align 4
-  %66 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %65, ptr noundef %0, i32 noundef %64, i32 noundef %63, i32 noundef 2) #6
+  %66 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %65, ptr noundef %0, i32 noundef %64, i32 noundef %63, i32 noundef 2)
   %67 = load i32, ptr @hf_drda_pkgid_ebcdic, align 4
   %68 = load i32, ptr %5, align 4
-  %69 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %67, ptr noundef %0, i32 noundef %64, i32 noundef %68, i32 noundef 96) #6
+  %69 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %67, ptr noundef %0, i32 noundef %64, i32 noundef %68, i32 noundef 96)
   %70 = load i32, ptr %5, align 4
   %71 = add i32 %70, %64
   br label %75
 
 72:                                               ; preds = %21
-  %73 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
-  %74 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_drda_opcode_invalid_length, ptr noundef %0, i32 noundef 0, i32 noundef %73, ptr noundef nonnull @.str.967) #6
+  %73 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %74 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_drda_opcode_invalid_length, ptr noundef %0, i32 noundef 0, i32 noundef %73, ptr noundef nonnull @.str.1000)
   br label %75
 
 75:                                               ; preds = %62, %72, %8
   %.0 = phi i32 [ 54, %8 ], [ %71, %62 ], [ 0, %72 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_drda_pkgnamct(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
-  %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 8) #6
-  %6 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 0, i32 noundef %5) #6
+  %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 8)
+  %6 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 0, i32 noundef %5)
   %7 = tail call i32 @dissect_drda_pkgnam(ptr noundef %6, ptr noundef %1, ptr noundef %2, ptr poison)
   %8 = load i32, ptr @hf_drda_pkgcnstkn, align 4
-  %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %7, i32 noundef 8, i32 noundef 2) #6
+  %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %7, i32 noundef 8, i32 noundef 2)
   %10 = add i32 %7, 8
   ret i32 %10
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_drda_pkgnamcsn(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
-  %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 2) #6
-  %6 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 0, i32 noundef %5) #6
-  %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %6, i32 noundef 8) #6
-  %8 = tail call ptr @tvb_new_subset_length(ptr noundef %6, i32 noundef 0, i32 noundef %7) #6
+  %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 2)
+  %6 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 0, i32 noundef %5)
+  %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %6, i32 noundef 8)
+  %8 = tail call ptr @tvb_new_subset_length(ptr noundef %6, i32 noundef 0, i32 noundef %7)
   %9 = tail call i32 @dissect_drda_pkgnam(ptr noundef %8, ptr noundef %1, ptr noundef %2, ptr readnone poison)
   %10 = load i32, ptr @hf_drda_pkgcnstkn, align 4
-  %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %6, i32 noundef %9, i32 noundef 8, i32 noundef 2) #6
+  %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %6, i32 noundef %9, i32 noundef 8, i32 noundef 2)
   %12 = add i32 %9, 8
   %13 = load i32, ptr @hf_drda_pkgsn, align 4
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef %12, i32 noundef 2, i32 noundef 0) #6
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef %12, i32 noundef 2, i32 noundef 0)
   %15 = add i32 %9, 10
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_drda_uowdsp(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_drda_uowdsp, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #6
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   ret i32 1
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_drda_rdbalwupd(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_drda_rdbalwupd, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #6
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   ret i32 1
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_drda_qryblksz(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_drda_qryblksz, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #6
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0)
   ret i32 4
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_drda_rtnsqlda(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_drda_rtnsqlda, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #6
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   ret i32 1
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_drda_sqlcsrhld(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_drda_sqlcsrhld, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #6
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   ret i32 1
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_drda_qryextdtasz(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_drda_qryextdtasz, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef 0) #6
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef 0)
   ret i32 8
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_drda_smldtasz(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_drda_smldtasz, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef 0) #6
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef 0)
   ret i32 8
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_drda_meddtasz(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_drda_meddtasz, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef 0) #6
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef 0)
   ret i32 8
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_drda_trgdftrt(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_drda_trgdftrt, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #6
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   ret i32 1
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_drda_qryattupd(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_drda_qryattupd, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #6
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   ret i32 1
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_drda_qryrowset(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_drda_qryrowset, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #6
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0)
   ret i32 4
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_drda_qryinsid(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_drda_qryinsid, align 4
-  %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef %6, i32 noundef 0) #6
-  %8 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
+  %6 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef %6, i32 noundef 0)
+  %8 = tail call i32 @tvb_reported_length(ptr noundef %0)
   ret i32 %8
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_drda_qryclsimp(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_drda_qryclsimp, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #6
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   ret i32 1
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_drda_qryblkfct(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_drda_qryblkfct, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #6
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0)
   ret i32 4
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_drda_maxrslcnt(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_drda_maxrslcnt, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0) #6
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0)
   ret i32 2
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_drda_maxblkext(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_drda_maxblkext, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0) #6
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0)
   ret i32 2
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_drda_rslsetflg(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_drda_rslsetflg, align 4
   %6 = load i32, ptr @ett_drda_rslsetflg, align 4
-  %7 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %5, i32 noundef %6, ptr noundef nonnull @dissect_drda_rslsetflg.rslsetflg_fields, i32 noundef 0) #6
+  %7 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %5, i32 noundef %6, ptr noundef nonnull @dissect_drda_rslsetflg.rslsetflg_fields, i32 noundef 0)
   ret i32 4
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_drda_typsqlda(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_drda_typsqlda, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #6
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   ret i32 1
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_drda_outovropt(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_drda_outovropt, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #6
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   ret i32 1
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_drda_dyndtafmt(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_drda_dyndtafmt, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #6
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   ret i32 1
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_drda_pktobj(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_drda_pktobj, align 4
-  %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef %6, i32 noundef 0) #6
-  %8 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
+  %6 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef %6, i32 noundef 0)
+  %8 = tail call i32 @tvb_reported_length(ptr noundef %0)
   ret i32 %8
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_drda_sqlcard(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
   %9 = load i32, ptr @hf_drda_sqlcagrp, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #6
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %11 = load i32, ptr @ett_drda_sqlcagrp, align 4
-  %12 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %11) #6
+  %12 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %11)
   %13 = load i32, ptr @hf_drda_null_ind, align 4
-  %14 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %12, i32 noundef %13, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %7) #6
+  %14 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %12, i32 noundef %13, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %7)
   %15 = load i32, ptr %7, align 4
   %sext.mask = and i32 %15, 128
   %16 = icmp eq i32 %sext.mask, 0
@@ -2258,16 +2293,16 @@ switch.lookup:                                    ; preds = %18
 
 dissect_fdoca_integer.exit:                       ; preds = %18, %switch.lookup
   %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ -2147483648, %18 ]
-  %22 = call ptr @proto_tree_add_item_ret_int(ptr noundef %12, i32 noundef %17, ptr noundef %0, i32 noundef 1, i32 noundef 4, i32 noundef %.0.i, ptr noundef null) #6
+  %22 = call ptr @proto_tree_add_item_ret_int(ptr noundef %12, i32 noundef %17, ptr noundef %0, i32 noundef 1, i32 noundef 4, i32 noundef %.0.i, ptr noundef null)
   %23 = load i32, ptr @hf_drda_sqlstate, align 4
   %24 = getelementptr i8, ptr %3, i64 8
   %.val199 = load i32, ptr %24, align 4
-  %25 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %23, ptr noundef %0, i32 noundef 5, i32 noundef 5, i32 noundef %.val199) #6
+  %25 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %23, ptr noundef %0, i32 noundef 5, i32 noundef 5, i32 noundef %.val199)
   %26 = load i32, ptr @hf_drda_sqlerrproc, align 4
   %.val200 = load i32, ptr %24, align 4
-  %27 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %26, ptr noundef %0, i32 noundef 10, i32 noundef 8, i32 noundef %.val200) #6
+  %27 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %26, ptr noundef %0, i32 noundef 10, i32 noundef 8, i32 noundef %.val200)
   %28 = load i32, ptr @hf_drda_null_ind, align 4
-  %29 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %12, i32 noundef %28, ptr noundef %0, i32 noundef 18, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %7) #6
+  %29 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %12, i32 noundef %28, ptr noundef %0, i32 noundef 18, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %7)
   %30 = load i32, ptr %7, align 4
   %sext.mask190 = and i32 %30, 128
   %31 = icmp eq i32 %sext.mask190, 0
@@ -2275,9 +2310,9 @@ dissect_fdoca_integer.exit:                       ; preds = %18, %switch.lookup
 
 32:                                               ; preds = %dissect_fdoca_integer.exit
   %33 = load i32, ptr @hf_drda_sqlcaxgrp, align 4
-  %34 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %33, ptr noundef %0, i32 noundef 19, i32 noundef 35, i32 noundef 0) #6
+  %34 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %33, ptr noundef %0, i32 noundef 19, i32 noundef 35, i32 noundef 0)
   %35 = load i32, ptr @ett_drda_sqlcaxgrp, align 4
-  %36 = call ptr @proto_item_add_subtree(ptr noundef %34, i32 noundef %35) #6
+  %36 = call ptr @proto_item_add_subtree(ptr noundef %34, i32 noundef %35)
   %37 = load i32, ptr %3, align 4
   %38 = icmp ult i32 %37, 7
   br i1 %38, label %39, label %42
@@ -2285,7 +2320,7 @@ dissect_fdoca_integer.exit:                       ; preds = %18, %switch.lookup
 39:                                               ; preds = %32
   %40 = load i32, ptr @hf_drda_rdbnam, align 4
   %.val201 = load i32, ptr %24, align 4
-  %41 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %40, ptr noundef %0, i32 noundef 19, i32 noundef 18, i32 noundef %.val201) #6
+  %41 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %40, ptr noundef %0, i32 noundef 19, i32 noundef 18, i32 noundef %.val201)
   br label %42
 
 42:                                               ; preds = %39, %32
@@ -2304,7 +2339,7 @@ switch.lookup241:                                 ; preds = %42
 
 dissect_fdoca_integer.exit214:                    ; preds = %42, %switch.lookup241
   %.0.i213 = phi i32 [ %switch.load244, %switch.lookup241 ], [ -2147483648, %42 ]
-  %46 = call ptr @proto_tree_add_item_ret_int(ptr noundef %36, i32 noundef %43, ptr noundef %0, i32 noundef %.1, i32 noundef 4, i32 noundef %.0.i213, ptr noundef null) #6
+  %46 = call ptr @proto_tree_add_item_ret_int(ptr noundef %36, i32 noundef %43, ptr noundef %0, i32 noundef %.1, i32 noundef 4, i32 noundef %.0.i213, ptr noundef null)
   %47 = add nuw nsw i32 %.1, 4
   %48 = load i32, ptr @hf_drda_sqlerrd2, align 4
   %.val194 = load i32, ptr %19, align 4
@@ -2320,7 +2355,7 @@ switch.lookup245:                                 ; preds = %dissect_fdoca_integ
 
 dissect_fdoca_integer.exit216:                    ; preds = %dissect_fdoca_integer.exit214, %switch.lookup245
   %.0.i215 = phi i32 [ %switch.load248, %switch.lookup245 ], [ -2147483648, %dissect_fdoca_integer.exit214 ]
-  %51 = call ptr @proto_tree_add_item_ret_int(ptr noundef %36, i32 noundef %48, ptr noundef %0, i32 noundef %47, i32 noundef 4, i32 noundef %.0.i215, ptr noundef null) #6
+  %51 = call ptr @proto_tree_add_item_ret_int(ptr noundef %36, i32 noundef %48, ptr noundef %0, i32 noundef %47, i32 noundef 4, i32 noundef %.0.i215, ptr noundef null)
   %52 = or disjoint i32 %.1, 8
   %53 = load i32, ptr @hf_drda_sqlerrd3, align 4
   %.val195 = load i32, ptr %19, align 4
@@ -2336,7 +2371,7 @@ switch.lookup249:                                 ; preds = %dissect_fdoca_integ
 
 dissect_fdoca_integer.exit218:                    ; preds = %dissect_fdoca_integer.exit216, %switch.lookup249
   %.0.i217 = phi i32 [ %switch.load252, %switch.lookup249 ], [ -2147483648, %dissect_fdoca_integer.exit216 ]
-  %56 = call ptr @proto_tree_add_item_ret_int(ptr noundef %36, i32 noundef %53, ptr noundef %0, i32 noundef %52, i32 noundef 4, i32 noundef %.0.i217, ptr noundef null) #6
+  %56 = call ptr @proto_tree_add_item_ret_int(ptr noundef %36, i32 noundef %53, ptr noundef %0, i32 noundef %52, i32 noundef 4, i32 noundef %.0.i217, ptr noundef null)
   %57 = add nuw nsw i32 %.1, 12
   %58 = load i32, ptr @hf_drda_sqlerrd4, align 4
   %.val196 = load i32, ptr %19, align 4
@@ -2352,7 +2387,7 @@ switch.lookup253:                                 ; preds = %dissect_fdoca_integ
 
 dissect_fdoca_integer.exit220:                    ; preds = %dissect_fdoca_integer.exit218, %switch.lookup253
   %.0.i219 = phi i32 [ %switch.load256, %switch.lookup253 ], [ -2147483648, %dissect_fdoca_integer.exit218 ]
-  %61 = call ptr @proto_tree_add_item_ret_int(ptr noundef %36, i32 noundef %58, ptr noundef %0, i32 noundef %57, i32 noundef 4, i32 noundef %.0.i219, ptr noundef null) #6
+  %61 = call ptr @proto_tree_add_item_ret_int(ptr noundef %36, i32 noundef %58, ptr noundef %0, i32 noundef %57, i32 noundef 4, i32 noundef %.0.i219, ptr noundef null)
   %62 = add nuw nsw i32 %.1, 16
   %63 = load i32, ptr @hf_drda_sqlerrd5, align 4
   %.val197 = load i32, ptr %19, align 4
@@ -2368,7 +2403,7 @@ switch.lookup257:                                 ; preds = %dissect_fdoca_integ
 
 dissect_fdoca_integer.exit222:                    ; preds = %dissect_fdoca_integer.exit220, %switch.lookup257
   %.0.i221 = phi i32 [ %switch.load260, %switch.lookup257 ], [ -2147483648, %dissect_fdoca_integer.exit220 ]
-  %66 = call ptr @proto_tree_add_item_ret_int(ptr noundef %36, i32 noundef %63, ptr noundef %0, i32 noundef %62, i32 noundef 4, i32 noundef %.0.i221, ptr noundef null) #6
+  %66 = call ptr @proto_tree_add_item_ret_int(ptr noundef %36, i32 noundef %63, ptr noundef %0, i32 noundef %62, i32 noundef 4, i32 noundef %.0.i221, ptr noundef null)
   %67 = add nuw nsw i32 %.1, 20
   %68 = load i32, ptr @hf_drda_sqlerrd6, align 4
   %.val198 = load i32, ptr %19, align 4
@@ -2384,51 +2419,51 @@ switch.lookup261:                                 ; preds = %dissect_fdoca_integ
 
 dissect_fdoca_integer.exit224:                    ; preds = %dissect_fdoca_integer.exit222, %switch.lookup261
   %.0.i223 = phi i32 [ %switch.load264, %switch.lookup261 ], [ -2147483648, %dissect_fdoca_integer.exit222 ]
-  %71 = call ptr @proto_tree_add_item_ret_int(ptr noundef %36, i32 noundef %68, ptr noundef %0, i32 noundef %67, i32 noundef 4, i32 noundef %.0.i223, ptr noundef null) #6
+  %71 = call ptr @proto_tree_add_item_ret_int(ptr noundef %36, i32 noundef %68, ptr noundef %0, i32 noundef %67, i32 noundef 4, i32 noundef %.0.i223, ptr noundef null)
   %72 = add nuw nsw i32 %.1, 24
   %73 = load i32, ptr @hf_drda_sqlwarn0, align 4
   %.val202 = load i32, ptr %24, align 4
-  %74 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %73, ptr noundef %0, i32 noundef %72, i32 noundef 1, i32 noundef %.val202) #6
+  %74 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %73, ptr noundef %0, i32 noundef %72, i32 noundef 1, i32 noundef %.val202)
   %75 = add nuw nsw i32 %.1, 25
   %76 = load i32, ptr @hf_drda_sqlwarn1, align 4
   %.val203 = load i32, ptr %24, align 4
-  %77 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %76, ptr noundef %0, i32 noundef %75, i32 noundef 1, i32 noundef %.val203) #6
+  %77 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %76, ptr noundef %0, i32 noundef %75, i32 noundef 1, i32 noundef %.val203)
   %78 = add nuw nsw i32 %.1, 26
   %79 = load i32, ptr @hf_drda_sqlwarn2, align 4
   %.val204 = load i32, ptr %24, align 4
-  %80 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %79, ptr noundef %0, i32 noundef %78, i32 noundef 1, i32 noundef %.val204) #6
+  %80 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %79, ptr noundef %0, i32 noundef %78, i32 noundef 1, i32 noundef %.val204)
   %81 = add nuw nsw i32 %.1, 27
   %82 = load i32, ptr @hf_drda_sqlwarn3, align 4
   %.val205 = load i32, ptr %24, align 4
-  %83 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %82, ptr noundef %0, i32 noundef %81, i32 noundef 1, i32 noundef %.val205) #6
+  %83 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %82, ptr noundef %0, i32 noundef %81, i32 noundef 1, i32 noundef %.val205)
   %84 = add nuw nsw i32 %.1, 28
   %85 = load i32, ptr @hf_drda_sqlwarn4, align 4
   %.val206 = load i32, ptr %24, align 4
-  %86 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %85, ptr noundef %0, i32 noundef %84, i32 noundef 1, i32 noundef %.val206) #6
+  %86 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %85, ptr noundef %0, i32 noundef %84, i32 noundef 1, i32 noundef %.val206)
   %87 = add nuw nsw i32 %.1, 29
   %88 = load i32, ptr @hf_drda_sqlwarn5, align 4
   %.val207 = load i32, ptr %24, align 4
-  %89 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %88, ptr noundef %0, i32 noundef %87, i32 noundef 1, i32 noundef %.val207) #6
+  %89 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %88, ptr noundef %0, i32 noundef %87, i32 noundef 1, i32 noundef %.val207)
   %90 = add nuw nsw i32 %.1, 30
   %91 = load i32, ptr @hf_drda_sqlwarn6, align 4
   %.val208 = load i32, ptr %24, align 4
-  %92 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %91, ptr noundef %0, i32 noundef %90, i32 noundef 1, i32 noundef %.val208) #6
+  %92 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %91, ptr noundef %0, i32 noundef %90, i32 noundef 1, i32 noundef %.val208)
   %93 = add nuw nsw i32 %.1, 31
   %94 = load i32, ptr @hf_drda_sqlwarn7, align 4
   %.val209 = load i32, ptr %24, align 4
-  %95 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %94, ptr noundef %0, i32 noundef %93, i32 noundef 1, i32 noundef %.val209) #6
+  %95 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %94, ptr noundef %0, i32 noundef %93, i32 noundef 1, i32 noundef %.val209)
   %96 = add nuw nsw i32 %.1, 32
   %97 = load i32, ptr @hf_drda_sqlwarn8, align 4
   %.val210 = load i32, ptr %24, align 4
-  %98 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %97, ptr noundef %0, i32 noundef %96, i32 noundef 1, i32 noundef %.val210) #6
+  %98 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %97, ptr noundef %0, i32 noundef %96, i32 noundef 1, i32 noundef %.val210)
   %99 = add nuw nsw i32 %.1, 33
   %100 = load i32, ptr @hf_drda_sqlwarn9, align 4
   %.val211 = load i32, ptr %24, align 4
-  %101 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %100, ptr noundef %0, i32 noundef %99, i32 noundef 1, i32 noundef %.val211) #6
+  %101 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %100, ptr noundef %0, i32 noundef %99, i32 noundef 1, i32 noundef %.val211)
   %102 = add nuw nsw i32 %.1, 34
   %103 = load i32, ptr @hf_drda_sqlwarna, align 4
   %.val212 = load i32, ptr %24, align 4
-  %104 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %103, ptr noundef %0, i32 noundef %102, i32 noundef 1, i32 noundef %.val212) #6
+  %104 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %103, ptr noundef %0, i32 noundef %102, i32 noundef 1, i32 noundef %.val212)
   %105 = add nuw nsw i32 %.1, 35
   %106 = load i32, ptr %3, align 4
   %107 = icmp ugt i32 %106, 6
@@ -2436,25 +2471,25 @@ dissect_fdoca_integer.exit224:                    ; preds = %dissect_fdoca_integ
 
 108:                                              ; preds = %dissect_fdoca_integer.exit224
   %109 = load i32, ptr @hf_drda_rdbnam, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
   %110 = load i32, ptr @hf_drda_param_length, align 4
-  %111 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %36, i32 noundef %110, ptr noundef %0, i32 noundef %105, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %6) #6
+  %111 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %36, i32 noundef %110, ptr noundef %0, i32 noundef %105, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %6)
   %112 = add nuw nsw i32 %.1, 37
   %113 = load i32, ptr %6, align 4
   %114 = load i32, ptr %24, align 4
-  %115 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %109, ptr noundef %0, i32 noundef %112, i32 noundef %113, i32 noundef %114) #6
+  %115 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %109, ptr noundef %0, i32 noundef %112, i32 noundef %113, i32 noundef %114)
   %116 = load i32, ptr %6, align 4
   %117 = add i32 %116, %112
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
   br label %118
 
 118:                                              ; preds = %108, %dissect_fdoca_integer.exit224
   %.2 = phi i32 [ %117, %108 ], [ %105, %dissect_fdoca_integer.exit224 ]
   %119 = load i32, ptr @hf_drda_param_length, align 4
-  %120 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %36, i32 noundef %119, ptr noundef %0, i32 noundef %.2, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %8) #6
+  %120 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %36, i32 noundef %119, ptr noundef %0, i32 noundef %.2, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %8)
   %121 = add i32 %.2, 2
   %122 = load i32, ptr %8, align 4
-  %123 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %121, i32 noundef %122, i8 noundef zeroext -1) #6
+  %123 = call i32 @tvb_find_uint8(ptr noundef %0, i32 noundef %121, i32 noundef %122, i8 noundef zeroext -1)
   %.not230 = icmp eq i32 %123, -1
   br i1 %.not230, label %._crit_edge, label %.lr.ph
 
@@ -2468,16 +2503,16 @@ dissect_fdoca_integer.exit224:                    ; preds = %dissect_fdoca_integ
   %127 = load i32, ptr @hf_drda_sqlerrmsg, align 4
   %128 = sub i32 %126, %.3231
   %129 = load i32, ptr %124, align 4
-  %130 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %127, ptr noundef %0, i32 noundef %.3231, i32 noundef %128, i32 noundef %129) #6
+  %130 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %127, ptr noundef %0, i32 noundef %.3231, i32 noundef %128, i32 noundef %129)
   %131 = add nuw i32 %126, 1
   %.neg228 = xor i32 %126, -1
   %.neg192 = add i32 %.3231, %.neg228
   %132 = load i32, ptr %8, align 4
   %133 = add i32 %.neg192, %132
   store i32 %133, ptr %8, align 4
-  %134 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %131, i32 noundef %133, i8 noundef zeroext -1) #6
+  %134 = call i32 @tvb_find_uint8(ptr noundef %0, i32 noundef %131, i32 noundef %133, i8 noundef zeroext -1)
   %.not = icmp eq i32 %134, -1
-  br i1 %.not, label %._crit_edge, label %125, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %125, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %125, %118
   %.3.lcssa = phi i32 [ %121, %118 ], [ %131, %125 ]
@@ -2485,14 +2520,14 @@ dissect_fdoca_integer.exit224:                    ; preds = %dissect_fdoca_integ
   %136 = load i32, ptr %8, align 4
   %137 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %138 = load i32, ptr %137, align 4
-  %139 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %135, ptr noundef %0, i32 noundef %.3.lcssa, i32 noundef %136, i32 noundef %138) #6
+  %139 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %135, ptr noundef %0, i32 noundef %.3.lcssa, i32 noundef %136, i32 noundef %138)
   %140 = load i32, ptr %8, align 4
   %141 = add i32 %140, %.3.lcssa
   %142 = load i32, ptr @hf_drda_param_length, align 4
-  %143 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %36, i32 noundef %142, ptr noundef %0, i32 noundef %141, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %8) #6
+  %143 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %36, i32 noundef %142, ptr noundef %0, i32 noundef %141, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %8)
   %144 = add i32 %141, 2
   %145 = load i32, ptr %8, align 4
-  %146 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %144, i32 noundef %145, i8 noundef zeroext -1) #6
+  %146 = call i32 @tvb_find_uint8(ptr noundef %0, i32 noundef %144, i32 noundef %145, i8 noundef zeroext -1)
   %.not191232 = icmp eq i32 %146, -1
   br i1 %.not191232, label %._crit_edge236, label %.lr.ph235
 
@@ -2502,26 +2537,26 @@ dissect_fdoca_integer.exit224:                    ; preds = %dissect_fdoca_integ
   %148 = load i32, ptr @hf_drda_sqlerrmsg, align 4
   %149 = sub i32 %147, %.4233
   %150 = load i32, ptr %24, align 4
-  %151 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %148, ptr noundef %0, i32 noundef %.4233, i32 noundef %149, i32 noundef %150) #6
+  %151 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %148, ptr noundef %0, i32 noundef %.4233, i32 noundef %149, i32 noundef %150)
   %152 = add nuw i32 %147, 1
   %.neg229 = xor i32 %147, -1
   %.neg = add i32 %.4233, %.neg229
   %153 = load i32, ptr %8, align 4
   %154 = add i32 %.neg, %153
   store i32 %154, ptr %8, align 4
-  %155 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %152, i32 noundef %154, i8 noundef zeroext -1) #6
+  %155 = call i32 @tvb_find_uint8(ptr noundef %0, i32 noundef %152, i32 noundef %154, i8 noundef zeroext -1)
   %.not191 = icmp eq i32 %155, -1
-  br i1 %.not191, label %._crit_edge236, label %.lr.ph235, !llvm.loop !11
+  br i1 %.not191, label %._crit_edge236, label %.lr.ph235, !llvm.loop !15
 
 ._crit_edge236:                                   ; preds = %.lr.ph235, %._crit_edge
   %.4.lcssa = phi i32 [ %144, %._crit_edge ], [ %152, %.lr.ph235 ]
   %156 = load i32, ptr @hf_drda_sqlerrmsg, align 4
   %157 = load i32, ptr %8, align 4
   %158 = load i32, ptr %24, align 4
-  %159 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %156, ptr noundef %0, i32 noundef %.4.lcssa, i32 noundef %157, i32 noundef %158) #6
+  %159 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %156, ptr noundef %0, i32 noundef %.4.lcssa, i32 noundef %157, i32 noundef %158)
   %160 = load i32, ptr %8, align 4
   %161 = add i32 %160, %.4.lcssa
-  call void @proto_item_set_end(ptr noundef %34, ptr noundef %0, i32 noundef %161) #6
+  call void @proto_item_set_end(ptr noundef %34, ptr noundef %0, i32 noundef %161)
   br label %162
 
 162:                                              ; preds = %._crit_edge236, %dissect_fdoca_integer.exit
@@ -2531,36 +2566,36 @@ dissect_fdoca_integer.exit224:                    ; preds = %dissect_fdoca_integ
   br i1 %164, label %165, label %proto_item_set_generated.exit227
 
 165:                                              ; preds = %162
-  %166 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  %166 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
   %167 = load i32, ptr @hf_drda_sqldiaggrp, align 4
-  %168 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %167, ptr noundef %166, i32 noundef 0, i32 noundef 1, i32 noundef 0) #6
+  %168 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %167, ptr noundef %166, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %169 = load i32, ptr @ett_drda_sqldiaggrp, align 4
-  %170 = call ptr @proto_item_add_subtree(ptr noundef %168, i32 noundef %169) #6
+  %170 = call ptr @proto_item_add_subtree(ptr noundef %168, i32 noundef %169)
   %171 = load i32, ptr @hf_drda_null_ind, align 4
-  %172 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %170, i32 noundef %171, ptr noundef %166, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5) #6
+  %172 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %170, i32 noundef %171, ptr noundef %166, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5)
   %173 = load i32, ptr %5, align 4
   %sext.mask.i = and i32 %173, 128
   %174 = icmp eq i32 %sext.mask.i, 0
   br i1 %174, label %175, label %dissect_drda_sqldiaggrp.exit
 
 175:                                              ; preds = %165
-  %176 = call ptr @proto_tree_add_expert(ptr noundef %170, ptr noundef %1, ptr noundef nonnull @ei_drda_undecoded, ptr noundef %166, i32 noundef 1, i32 noundef 2) #6
+  %176 = call ptr @proto_tree_add_expert(ptr noundef %170, ptr noundef %1, ptr noundef nonnull @ei_drda_undecoded, ptr noundef %166, i32 noundef 1, i32 noundef 2)
   br label %dissect_drda_sqldiaggrp.exit
 
 dissect_drda_sqldiaggrp.exit:                     ; preds = %165, %175
-  call void @proto_item_set_end(ptr noundef %168, ptr noundef %166, i32 noundef 1) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @proto_item_set_end(ptr noundef %168, ptr noundef %166, i32 noundef 1)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
   %177 = add i32 %.0, 1
   br label %proto_item_set_generated.exit227
 
 178:                                              ; preds = %4
-  %179 = call ptr @proto_tree_add_int(ptr noundef %12, i32 noundef %17, ptr noundef %0, i32 noundef 1, i32 noundef 0, i32 noundef 0) #6
+  %179 = call ptr @proto_tree_add_int(ptr noundef %12, i32 noundef %17, ptr noundef %0, i32 noundef 1, i32 noundef 0, i32 noundef 0)
   %.not.i = icmp eq ptr %179, null
   br i1 %.not.i, label %proto_item_set_generated.exit, label %180
 
 180:                                              ; preds = %178
-  %181 = getelementptr inbounds nuw i8, ptr %179, i64 32
+  %181 = getelementptr inbounds nuw i8, ptr %179, i64 40
   %182 = load ptr, ptr %181, align 8
   %.not5.i = icmp eq ptr %182, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %183
@@ -2574,12 +2609,12 @@ dissect_drda_sqldiaggrp.exit:                     ; preds = %165, %175
 
 proto_item_set_generated.exit:                    ; preds = %178, %180, %183
   %187 = load i32, ptr @hf_drda_sqlstate, align 4
-  %188 = call ptr @proto_tree_add_string(ptr noundef %12, i32 noundef %187, ptr noundef %0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.968) #6
+  %188 = call ptr @proto_tree_add_string(ptr noundef %12, i32 noundef %187, ptr noundef %0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.1001)
   %.not.i225 = icmp eq ptr %188, null
   br i1 %.not.i225, label %proto_item_set_generated.exit227, label %189
 
 189:                                              ; preds = %proto_item_set_generated.exit
-  %190 = getelementptr inbounds nuw i8, ptr %188, i64 32
+  %190 = getelementptr inbounds nuw i8, ptr %188, i64 40
   %191 = load ptr, ptr %190, align 8
   %.not5.i226 = icmp eq ptr %191, null
   br i1 %.not5.i226, label %proto_item_set_generated.exit227, label %192
@@ -2593,11 +2628,13 @@ proto_item_set_generated.exit:                    ; preds = %178, %180, %183
 
 proto_item_set_generated.exit227:                 ; preds = %192, %189, %proto_item_set_generated.exit, %162, %dissect_drda_sqldiaggrp.exit
   %.5 = phi i32 [ %177, %dissect_drda_sqldiaggrp.exit ], [ %.0, %162 ], [ 1, %proto_item_set_generated.exit ], [ 1, %189 ], [ 1, %192 ]
-  call void @proto_item_set_end(ptr noundef %10, ptr noundef %0, i32 noundef %.5) #6
+  call void @proto_item_set_end(ptr noundef %10, ptr noundef %0, i32 noundef %.5)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
   ret i32 %.5
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_drda_sqldard(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -2631,20 +2668,21 @@ define internal noundef i32 @dissect_drda_sqldard(ptr noundef %0, ptr noundef %1
   %34 = alloca i32, align 4
   %35 = alloca i32, align 4
   %36 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %36) #8
   %37 = tail call i32 @dissect_drda_sqlcard(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %38 = load i32, ptr %3, align 4
   %39 = icmp ugt i32 %38, 6
   br i1 %39, label %40, label %135
 
 40:                                               ; preds = %4
-  %41 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %37) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %35)
+  %41 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %37)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %35) #8
   %42 = load i32, ptr @hf_drda_sqldhgrp, align 4
-  %43 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %42, ptr noundef %41, i32 noundef 0, i32 noundef 1, i32 noundef 0) #6
+  %43 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %42, ptr noundef %41, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %44 = load i32, ptr @ett_drda_sqldhgrp, align 4
-  %45 = tail call ptr @proto_item_add_subtree(ptr noundef %43, i32 noundef %44) #6
+  %45 = tail call ptr @proto_item_add_subtree(ptr noundef %43, i32 noundef %44)
   %46 = load i32, ptr @hf_drda_null_ind, align 4
-  %47 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %45, i32 noundef %46, ptr noundef %41, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %35) #6
+  %47 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %45, i32 noundef %46, ptr noundef %41, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %35)
   %48 = load i32, ptr %35, align 4
   %sext.mask.i = and i32 %48, 128
   %49 = icmp eq i32 %sext.mask.i, 0
@@ -2666,7 +2704,7 @@ switch.lookup:                                    ; preds = %50
 
 dissect_fdoca_integer.exit.i:                     ; preds = %50, %switch.lookup
   %.0.i.i = phi i32 [ %switch.load, %switch.lookup ], [ -2147483648, %50 ]
-  %55 = call ptr @proto_tree_add_item_ret_int(ptr noundef %45, i32 noundef %51, ptr noundef %41, i32 noundef 1, i32 noundef 2, i32 noundef %.0.i.i, ptr noundef null) #6
+  %55 = call ptr @proto_tree_add_item_ret_int(ptr noundef %45, i32 noundef %51, ptr noundef %41, i32 noundef 1, i32 noundef 2, i32 noundef %.0.i.i, ptr noundef null)
   %56 = load i32, ptr @hf_drda_sqldreturn, align 4
   %.val73.i = load i32, ptr %52, align 4
   %switch.tableidx34 = add i32 %.val73.i, -1
@@ -2681,7 +2719,7 @@ switch.lookup33:                                  ; preds = %dissect_fdoca_integ
 
 dissect_fdoca_integer.exit76.i:                   ; preds = %dissect_fdoca_integer.exit.i, %switch.lookup33
   %.0.i75.i = phi i32 [ %switch.load36, %switch.lookup33 ], [ -2147483648, %dissect_fdoca_integer.exit.i ]
-  %59 = call ptr @proto_tree_add_item_ret_int(ptr noundef %45, i32 noundef %56, ptr noundef %41, i32 noundef 3, i32 noundef 2, i32 noundef %.0.i75.i, ptr noundef null) #6
+  %59 = call ptr @proto_tree_add_item_ret_int(ptr noundef %45, i32 noundef %56, ptr noundef %41, i32 noundef 3, i32 noundef 2, i32 noundef %.0.i75.i, ptr noundef null)
   %60 = load i32, ptr @hf_drda_sqldscroll, align 4
   %.val72.i = load i32, ptr %52, align 4
   %switch.tableidx38 = add i32 %.val72.i, -1
@@ -2696,7 +2734,7 @@ switch.lookup37:                                  ; preds = %dissect_fdoca_integ
 
 dissect_fdoca_integer.exit78.i:                   ; preds = %dissect_fdoca_integer.exit76.i, %switch.lookup37
   %.0.i77.i = phi i32 [ %switch.load40, %switch.lookup37 ], [ -2147483648, %dissect_fdoca_integer.exit76.i ]
-  %63 = call ptr @proto_tree_add_item_ret_int(ptr noundef %45, i32 noundef %60, ptr noundef %41, i32 noundef 5, i32 noundef 2, i32 noundef %.0.i77.i, ptr noundef null) #6
+  %63 = call ptr @proto_tree_add_item_ret_int(ptr noundef %45, i32 noundef %60, ptr noundef %41, i32 noundef 5, i32 noundef 2, i32 noundef %.0.i77.i, ptr noundef null)
   %64 = load i32, ptr @hf_drda_sqldsensitive, align 4
   %.val71.i = load i32, ptr %52, align 4
   %switch.tableidx42 = add i32 %.val71.i, -1
@@ -2711,7 +2749,7 @@ switch.lookup41:                                  ; preds = %dissect_fdoca_integ
 
 dissect_fdoca_integer.exit80.i:                   ; preds = %dissect_fdoca_integer.exit78.i, %switch.lookup41
   %.0.i79.i = phi i32 [ %switch.load44, %switch.lookup41 ], [ -2147483648, %dissect_fdoca_integer.exit78.i ]
-  %67 = call ptr @proto_tree_add_item_ret_int(ptr noundef %45, i32 noundef %64, ptr noundef %41, i32 noundef 7, i32 noundef 2, i32 noundef %.0.i79.i, ptr noundef null) #6
+  %67 = call ptr @proto_tree_add_item_ret_int(ptr noundef %45, i32 noundef %64, ptr noundef %41, i32 noundef 7, i32 noundef 2, i32 noundef %.0.i79.i, ptr noundef null)
   %68 = load i32, ptr @hf_drda_sqldfcode, align 4
   %.val70.i = load i32, ptr %52, align 4
   %switch.tableidx46 = add i32 %.val70.i, -1
@@ -2726,7 +2764,7 @@ switch.lookup45:                                  ; preds = %dissect_fdoca_integ
 
 dissect_fdoca_integer.exit82.i:                   ; preds = %dissect_fdoca_integer.exit80.i, %switch.lookup45
   %.0.i81.i = phi i32 [ %switch.load48, %switch.lookup45 ], [ -2147483648, %dissect_fdoca_integer.exit80.i ]
-  %71 = call ptr @proto_tree_add_item_ret_int(ptr noundef %45, i32 noundef %68, ptr noundef %41, i32 noundef 9, i32 noundef 2, i32 noundef %.0.i81.i, ptr noundef null) #6
+  %71 = call ptr @proto_tree_add_item_ret_int(ptr noundef %45, i32 noundef %68, ptr noundef %41, i32 noundef 9, i32 noundef 2, i32 noundef %.0.i81.i, ptr noundef null)
   %72 = load i32, ptr @hf_drda_sqldkeytype, align 4
   %.val69.i = load i32, ptr %52, align 4
   %switch.tableidx50 = add i32 %.val69.i, -1
@@ -2741,7 +2779,7 @@ switch.lookup49:                                  ; preds = %dissect_fdoca_integ
 
 dissect_fdoca_integer.exit84.i:                   ; preds = %dissect_fdoca_integer.exit82.i, %switch.lookup49
   %.0.i83.i = phi i32 [ %switch.load52, %switch.lookup49 ], [ -2147483648, %dissect_fdoca_integer.exit82.i ]
-  %75 = call ptr @proto_tree_add_item_ret_int(ptr noundef %45, i32 noundef %72, ptr noundef %41, i32 noundef 11, i32 noundef 2, i32 noundef %.0.i83.i, ptr noundef null) #6
+  %75 = call ptr @proto_tree_add_item_ret_int(ptr noundef %45, i32 noundef %72, ptr noundef %41, i32 noundef 11, i32 noundef 2, i32 noundef %.0.i83.i, ptr noundef null)
   %76 = load i32, ptr %3, align 4
   %77 = icmp ugt i32 %76, 8
   br i1 %77, label %78, label %83
@@ -2761,79 +2799,79 @@ switch.lookup53:                                  ; preds = %78
 
 dissect_fdoca_integer.exit86.i:                   ; preds = %78, %switch.lookup53
   %.0.i85.i = phi i32 [ %switch.load56, %switch.lookup53 ], [ -2147483648, %78 ]
-  %82 = call ptr @proto_tree_add_item_ret_int(ptr noundef %45, i32 noundef %79, ptr noundef %41, i32 noundef 13, i32 noundef 2, i32 noundef %.0.i85.i, ptr noundef null) #6
+  %82 = call ptr @proto_tree_add_item_ret_int(ptr noundef %45, i32 noundef %79, ptr noundef %41, i32 noundef 13, i32 noundef 2, i32 noundef %.0.i85.i, ptr noundef null)
   br label %83
 
 83:                                               ; preds = %dissect_fdoca_integer.exit86.i, %dissect_fdoca_integer.exit84.i
   %.1.i = phi i32 [ 15, %dissect_fdoca_integer.exit86.i ], [ 13, %dissect_fdoca_integer.exit84.i ]
   %84 = load i32, ptr @hf_drda_rdbnam, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %34) #8
   %85 = load i32, ptr @hf_drda_param_length, align 4
-  %86 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %45, i32 noundef %85, ptr noundef %41, i32 noundef %.1.i, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %34) #6
+  %86 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %45, i32 noundef %85, ptr noundef %41, i32 noundef %.1.i, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %34)
   %87 = add nuw nsw i32 %.1.i, 2
   %88 = load i32, ptr %34, align 4
   %89 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %90 = load i32, ptr %89, align 4
-  %91 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %84, ptr noundef %41, i32 noundef %87, i32 noundef %88, i32 noundef %90) #6
+  %91 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %84, ptr noundef %41, i32 noundef %87, i32 noundef %88, i32 noundef %90)
   %92 = load i32, ptr %34, align 4
   %93 = add i32 %92, %87
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34) #8
   %94 = load i32, ptr @hf_drda_sqldschema, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %33) #8
   %95 = load i32, ptr @hf_drda_param_length, align 4
-  %96 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %45, i32 noundef %95, ptr noundef %41, i32 noundef %93, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %33) #6
+  %96 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %45, i32 noundef %95, ptr noundef %41, i32 noundef %93, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %33)
   %97 = add i32 %93, 2
   %98 = load i32, ptr %33, align 4
   %99 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %100 = load i32, ptr %99, align 4
-  %101 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %94, ptr noundef %41, i32 noundef %97, i32 noundef %98, i32 noundef %100) #6
+  %101 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %94, ptr noundef %41, i32 noundef %97, i32 noundef %98, i32 noundef %100)
   %102 = load i32, ptr %33, align 4
   %103 = add i32 %102, %97
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33) #8
   %104 = load i32, ptr @hf_drda_sqldschema, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %32) #8
   %105 = load i32, ptr @hf_drda_param_length, align 4
-  %106 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %45, i32 noundef %105, ptr noundef %41, i32 noundef %103, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %32) #6
+  %106 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %45, i32 noundef %105, ptr noundef %41, i32 noundef %103, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %32)
   %107 = add i32 %103, 2
   %108 = load i32, ptr %32, align 4
   %109 = load i32, ptr %89, align 4
-  %110 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %104, ptr noundef %41, i32 noundef %107, i32 noundef %108, i32 noundef %109) #6
+  %110 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %104, ptr noundef %41, i32 noundef %107, i32 noundef %108, i32 noundef %109)
   %111 = load i32, ptr %32, align 4
   %112 = add i32 %111, %107
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %32) #8
   %113 = load i32, ptr %3, align 4
   %114 = icmp ugt i32 %113, 9
   br i1 %114, label %115, label %dissect_drda_sqldhgrp.exit
 
 115:                                              ; preds = %83
   %116 = load i32, ptr @hf_drda_sqldmodule, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %31) #8
   %117 = load i32, ptr @hf_drda_param_length, align 4
-  %118 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %45, i32 noundef %117, ptr noundef %41, i32 noundef %112, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %31) #6
+  %118 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %45, i32 noundef %117, ptr noundef %41, i32 noundef %112, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %31)
   %119 = add i32 %112, 2
   %120 = load i32, ptr %31, align 4
   %121 = load i32, ptr %99, align 4
-  %122 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %116, ptr noundef %41, i32 noundef %119, i32 noundef %120, i32 noundef %121) #6
+  %122 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %116, ptr noundef %41, i32 noundef %119, i32 noundef %120, i32 noundef %121)
   %123 = load i32, ptr %31, align 4
   %124 = add i32 %123, %119
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31) #8
   %125 = load i32, ptr @hf_drda_sqldmodule, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30) #8
   %126 = load i32, ptr @hf_drda_param_length, align 4
-  %127 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %45, i32 noundef %126, ptr noundef %41, i32 noundef %124, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %30) #6
+  %127 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %45, i32 noundef %126, ptr noundef %41, i32 noundef %124, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %30)
   %128 = add i32 %124, 2
   %129 = load i32, ptr %30, align 4
   %130 = load i32, ptr %89, align 4
-  %131 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %125, ptr noundef %41, i32 noundef %128, i32 noundef %129, i32 noundef %130) #6
+  %131 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %125, ptr noundef %41, i32 noundef %128, i32 noundef %129, i32 noundef %130)
   %132 = load i32, ptr %30, align 4
   %133 = add i32 %132, %128
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30) #8
   br label %dissect_drda_sqldhgrp.exit
 
 dissect_drda_sqldhgrp.exit:                       ; preds = %40, %83, %115
   %.0.i = phi i32 [ %133, %115 ], [ %112, %83 ], [ 1, %40 ]
-  call void @proto_item_set_end(ptr noundef %43, ptr noundef %41, i32 noundef %.0.i) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35)
+  call void @proto_item_set_end(ptr noundef %43, ptr noundef %41, i32 noundef %.0.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35) #8
   %134 = add i32 %.0.i, %37
   br label %135
 
@@ -2854,7 +2892,7 @@ switch.lookup57:                                  ; preds = %135
 
 dissect_fdoca_integer.exit:                       ; preds = %135, %switch.lookup57
   %.0.i25 = phi i32 [ %switch.load60, %switch.lookup57 ], [ -2147483648, %135 ]
-  %140 = call ptr @proto_tree_add_item_ret_int(ptr noundef %2, i32 noundef %136, ptr noundef %0, i32 noundef %.024, i32 noundef 2, i32 noundef %.0.i25, ptr noundef nonnull %36) #6
+  %140 = call ptr @proto_tree_add_item_ret_int(ptr noundef %2, i32 noundef %136, ptr noundef %0, i32 noundef %.024, i32 noundef 2, i32 noundef %.0.i25, ptr noundef nonnull %36)
   %141 = add i32 %.024, 2
   %142 = load i32, ptr %36, align 4
   %.not = icmp eq i32 %142, 0
@@ -2865,14 +2903,19 @@ dissect_fdoca_integer.exit:                       ; preds = %135, %switch.lookup
   %144 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %145
 
+._crit_edge:                                      ; preds = %dissect_drda_sqldagrp.exit, %dissect_fdoca_integer.exit
+  %.1.lcssa = phi i32 [ %141, %dissect_fdoca_integer.exit ], [ %479, %dissect_drda_sqldagrp.exit ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %36) #8
+  ret i32 %.1.lcssa
+
 145:                                              ; preds = %.lr.ph, %dissect_drda_sqldagrp.exit
   %.032 = phi i32 [ 0, %.lr.ph ], [ %480, %dissect_drda_sqldagrp.exit ]
   %.131 = phi i32 [ %141, %.lr.ph ], [ %479, %dissect_drda_sqldagrp.exit ]
-  %146 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.131) #6
+  %146 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.131)
   %147 = load i32, ptr @hf_drda_sqldagrp, align 4
-  %148 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %147, ptr noundef %146, i32 noundef 0, i32 noundef 1, i32 noundef 0) #6
+  %148 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %147, ptr noundef %146, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %149 = load i32, ptr @ett_drda_sqldagrp, align 4
-  %150 = call ptr @proto_item_add_subtree(ptr noundef %148, i32 noundef %149) #6
+  %150 = call ptr @proto_item_add_subtree(ptr noundef %148, i32 noundef %149)
   %151 = load i32, ptr @hf_drda_sqlprecision, align 4
   %.val84.i = load i32, ptr %137, align 4
   %switch.tableidx62 = add i32 %.val84.i, -1
@@ -2887,7 +2930,7 @@ switch.lookup61:                                  ; preds = %145
 
 dissect_fdoca_integer.exit.i26:                   ; preds = %145, %switch.lookup61
   %.0.i.i27 = phi i32 [ %switch.load64, %switch.lookup61 ], [ -2147483648, %145 ]
-  %154 = call ptr @proto_tree_add_item_ret_int(ptr noundef %150, i32 noundef %151, ptr noundef %146, i32 noundef 0, i32 noundef 2, i32 noundef %.0.i.i27, ptr noundef null) #6
+  %154 = call ptr @proto_tree_add_item_ret_int(ptr noundef %150, i32 noundef %151, ptr noundef %146, i32 noundef 0, i32 noundef 2, i32 noundef %.0.i.i27, ptr noundef null)
   %155 = load i32, ptr @hf_drda_sqlscale, align 4
   %.val83.i = load i32, ptr %137, align 4
   %switch.tableidx66 = add i32 %.val83.i, -1
@@ -2902,7 +2945,7 @@ switch.lookup65:                                  ; preds = %dissect_fdoca_integ
 
 dissect_fdoca_integer.exit88.i:                   ; preds = %dissect_fdoca_integer.exit.i26, %switch.lookup65
   %.0.i87.i = phi i32 [ %switch.load68, %switch.lookup65 ], [ -2147483648, %dissect_fdoca_integer.exit.i26 ]
-  %158 = call ptr @proto_tree_add_item_ret_int(ptr noundef %150, i32 noundef %155, ptr noundef %146, i32 noundef 2, i32 noundef 2, i32 noundef %.0.i87.i, ptr noundef null) #6
+  %158 = call ptr @proto_tree_add_item_ret_int(ptr noundef %150, i32 noundef %155, ptr noundef %146, i32 noundef 2, i32 noundef 2, i32 noundef %.0.i87.i, ptr noundef null)
   %159 = load i32, ptr %3, align 4
   %160 = icmp ugt i32 %159, 5
   %.val85.i = load i32, ptr %137, align 4
@@ -2922,7 +2965,7 @@ switch.lookup69:                                  ; preds = %162
 
 dissect_fdoca_integer64.exit.i:                   ; preds = %162, %switch.lookup69
   %.0.i89.i = phi i32 [ %switch.load72, %switch.lookup69 ], [ -2147483648, %162 ]
-  %165 = call ptr @proto_tree_add_item_ret_int64(ptr noundef %150, i32 noundef %163, ptr noundef %146, i32 noundef 4, i32 noundef 8, i32 noundef %.0.i89.i, ptr noundef null) #6
+  %165 = call ptr @proto_tree_add_item_ret_int64(ptr noundef %150, i32 noundef %163, ptr noundef %146, i32 noundef 4, i32 noundef 8, i32 noundef %.0.i89.i, ptr noundef null)
   br label %170
 
 166:                                              ; preds = %dissect_fdoca_integer.exit88.i
@@ -2937,7 +2980,7 @@ switch.lookup73:                                  ; preds = %166
 
 dissect_fdoca_integer.exit91.i:                   ; preds = %166, %switch.lookup73
   %.0.i90.i = phi i32 [ %switch.load76, %switch.lookup73 ], [ -2147483648, %166 ]
-  %169 = call ptr @proto_tree_add_item_ret_int(ptr noundef %150, i32 noundef %167, ptr noundef %146, i32 noundef 4, i32 noundef 4, i32 noundef %.0.i90.i, ptr noundef null) #6
+  %169 = call ptr @proto_tree_add_item_ret_int(ptr noundef %150, i32 noundef %167, ptr noundef %146, i32 noundef 4, i32 noundef 4, i32 noundef %.0.i90.i, ptr noundef null)
   br label %170
 
 170:                                              ; preds = %dissect_fdoca_integer.exit91.i, %dissect_fdoca_integer64.exit.i
@@ -2956,10 +2999,10 @@ switch.lookup77:                                  ; preds = %170
 
 dissect_fdoca_integer.exit93.i:                   ; preds = %170, %switch.lookup77
   %.0.i92.i = phi i32 [ %switch.load80, %switch.lookup77 ], [ -2147483648, %170 ]
-  %174 = call ptr @proto_tree_add_item_ret_int(ptr noundef %150, i32 noundef %171, ptr noundef %146, i32 noundef %.0.i28, i32 noundef 2, i32 noundef %.0.i92.i, ptr noundef null) #6
+  %174 = call ptr @proto_tree_add_item_ret_int(ptr noundef %150, i32 noundef %171, ptr noundef %146, i32 noundef %.0.i28, i32 noundef 2, i32 noundef %.0.i92.i, ptr noundef null)
   %175 = or disjoint i32 %.0.i28, 2
   %176 = load i32, ptr @hf_drda_ccsid, align 4
-  %177 = call ptr @proto_tree_add_item(ptr noundef %150, i32 noundef %176, ptr noundef %146, i32 noundef %175, i32 noundef 2, i32 noundef 0) #6
+  %177 = call ptr @proto_tree_add_item(ptr noundef %150, i32 noundef %176, ptr noundef %146, i32 noundef %175, i32 noundef 2, i32 noundef 0)
   %178 = add nuw nsw i32 %.0.i28, 4
   %179 = load i32, ptr %3, align 4
   %180 = icmp ugt i32 %179, 8
@@ -2980,14 +3023,14 @@ switch.lookup81:                                  ; preds = %181
 
 dissect_fdoca_integer64.exit95.i:                 ; preds = %181, %switch.lookup81
   %.0.i94.i = phi i32 [ %switch.load84, %switch.lookup81 ], [ -2147483648, %181 ]
-  %185 = call ptr @proto_tree_add_item_ret_int64(ptr noundef %150, i32 noundef %182, ptr noundef %146, i32 noundef %178, i32 noundef 8, i32 noundef %.0.i94.i, ptr noundef null) #6
+  %185 = call ptr @proto_tree_add_item_ret_int64(ptr noundef %150, i32 noundef %182, ptr noundef %146, i32 noundef %178, i32 noundef 8, i32 noundef %.0.i94.i, ptr noundef null)
   %186 = add nuw nsw i32 %.0.i28, 12
   %187 = load i32, ptr %3, align 4
   %188 = icmp ugt i32 %187, 9
   br i1 %188, label %189, label %192
 
 189:                                              ; preds = %dissect_fdoca_integer64.exit95.i
-  %190 = call ptr @proto_tree_add_expert(ptr noundef %150, ptr noundef %1, ptr noundef nonnull @ei_drda_undecoded, ptr noundef %146, i32 noundef %186, i32 noundef 2) #6
+  %190 = call ptr @proto_tree_add_expert(ptr noundef %150, ptr noundef %1, ptr noundef nonnull @ei_drda_undecoded, ptr noundef %146, i32 noundef %186, i32 noundef 2)
   %191 = add nuw nsw i32 %.0.i28, 14
   %.pr.i = load i32, ptr %3, align 4
   br label %192
@@ -2999,14 +3042,14 @@ dissect_fdoca_integer64.exit95.i:                 ; preds = %181, %switch.lookup
   br i1 %194, label %195, label %418
 
 195:                                              ; preds = %192
-  %196 = call ptr @tvb_new_subset_remaining(ptr noundef %146, i32 noundef %.1.i30) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29)
+  %196 = call ptr @tvb_new_subset_remaining(ptr noundef %146, i32 noundef %.1.i30)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29) #8
   %197 = load i32, ptr @hf_drda_sqldoptgrp, align 4
-  %198 = call ptr @proto_tree_add_item(ptr noundef %150, i32 noundef %197, ptr noundef %196, i32 noundef 0, i32 noundef 1, i32 noundef 0) #6
+  %198 = call ptr @proto_tree_add_item(ptr noundef %150, i32 noundef %197, ptr noundef %196, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %199 = load i32, ptr @ett_drda_sqldoptgrp, align 4
-  %200 = call ptr @proto_item_add_subtree(ptr noundef %198, i32 noundef %199) #6
+  %200 = call ptr @proto_item_add_subtree(ptr noundef %198, i32 noundef %199)
   %201 = load i32, ptr @hf_drda_null_ind, align 4
-  %202 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %200, i32 noundef %201, ptr noundef %196, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %29) #6
+  %202 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %200, i32 noundef %201, ptr noundef %196, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %29)
   %203 = load i32, ptr %29, align 4
   %sext.mask.i.i = and i32 %203, 128
   %204 = icmp eq i32 %sext.mask.i.i, 0
@@ -3027,83 +3070,83 @@ switch.lookup85:                                  ; preds = %205
 
 dissect_fdoca_integer.exit.i.i:                   ; preds = %205, %switch.lookup85
   %.0.i.i.i = phi i32 [ %switch.load88, %switch.lookup85 ], [ -2147483648, %205 ]
-  %209 = call ptr @proto_tree_add_item_ret_int(ptr noundef %200, i32 noundef %206, ptr noundef %196, i32 noundef 1, i32 noundef 2, i32 noundef %.0.i.i.i, ptr noundef null) #6
+  %209 = call ptr @proto_tree_add_item_ret_int(ptr noundef %200, i32 noundef %206, ptr noundef %196, i32 noundef 1, i32 noundef 2, i32 noundef %.0.i.i.i, ptr noundef null)
   %210 = load i32, ptr @hf_drda_sqlname, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28) #8
   %211 = load i32, ptr @hf_drda_param_length, align 4
-  %212 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %200, i32 noundef %211, ptr noundef %196, i32 noundef 3, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %28) #6
+  %212 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %200, i32 noundef %211, ptr noundef %196, i32 noundef 3, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %28)
   %213 = load i32, ptr %28, align 4
   %214 = load i32, ptr %143, align 4
-  %215 = call ptr @proto_tree_add_item(ptr noundef %200, i32 noundef %210, ptr noundef %196, i32 noundef 5, i32 noundef %213, i32 noundef %214) #6
+  %215 = call ptr @proto_tree_add_item(ptr noundef %200, i32 noundef %210, ptr noundef %196, i32 noundef 5, i32 noundef %213, i32 noundef %214)
   %216 = load i32, ptr %28, align 4
   %217 = add i32 %216, 5
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28) #8
   %218 = load i32, ptr @hf_drda_sqlname, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27) #8
   %219 = load i32, ptr @hf_drda_param_length, align 4
-  %220 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %200, i32 noundef %219, ptr noundef %196, i32 noundef %217, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %27) #6
+  %220 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %200, i32 noundef %219, ptr noundef %196, i32 noundef %217, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %27)
   %221 = add i32 %216, 7
   %222 = load i32, ptr %27, align 4
   %223 = load i32, ptr %144, align 4
-  %224 = call ptr @proto_tree_add_item(ptr noundef %200, i32 noundef %218, ptr noundef %196, i32 noundef %221, i32 noundef %222, i32 noundef %223) #6
+  %224 = call ptr @proto_tree_add_item(ptr noundef %200, i32 noundef %218, ptr noundef %196, i32 noundef %221, i32 noundef %222, i32 noundef %223)
   %225 = load i32, ptr %27, align 4
   %226 = add i32 %225, %221
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27) #8
   %227 = load i32, ptr @hf_drda_sqllabel, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26) #8
   %228 = load i32, ptr @hf_drda_param_length, align 4
-  %229 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %200, i32 noundef %228, ptr noundef %196, i32 noundef %226, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %26) #6
+  %229 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %200, i32 noundef %228, ptr noundef %196, i32 noundef %226, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %26)
   %230 = add i32 %226, 2
   %231 = load i32, ptr %26, align 4
   %232 = load i32, ptr %143, align 4
-  %233 = call ptr @proto_tree_add_item(ptr noundef %200, i32 noundef %227, ptr noundef %196, i32 noundef %230, i32 noundef %231, i32 noundef %232) #6
+  %233 = call ptr @proto_tree_add_item(ptr noundef %200, i32 noundef %227, ptr noundef %196, i32 noundef %230, i32 noundef %231, i32 noundef %232)
   %234 = load i32, ptr %26, align 4
   %235 = add i32 %234, %230
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #8
   %236 = load i32, ptr @hf_drda_sqllabel, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #8
   %237 = load i32, ptr @hf_drda_param_length, align 4
-  %238 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %200, i32 noundef %237, ptr noundef %196, i32 noundef %235, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %25) #6
+  %238 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %200, i32 noundef %237, ptr noundef %196, i32 noundef %235, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %25)
   %239 = add i32 %235, 2
   %240 = load i32, ptr %25, align 4
   %241 = load i32, ptr %144, align 4
-  %242 = call ptr @proto_tree_add_item(ptr noundef %200, i32 noundef %236, ptr noundef %196, i32 noundef %239, i32 noundef %240, i32 noundef %241) #6
+  %242 = call ptr @proto_tree_add_item(ptr noundef %200, i32 noundef %236, ptr noundef %196, i32 noundef %239, i32 noundef %240, i32 noundef %241)
   %243 = load i32, ptr %25, align 4
   %244 = add i32 %243, %239
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #8
   %245 = load i32, ptr @hf_drda_sqlcomments, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #8
   %246 = load i32, ptr @hf_drda_param_length, align 4
-  %247 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %200, i32 noundef %246, ptr noundef %196, i32 noundef %244, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %24) #6
+  %247 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %200, i32 noundef %246, ptr noundef %196, i32 noundef %244, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %24)
   %248 = add i32 %244, 2
   %249 = load i32, ptr %24, align 4
   %250 = load i32, ptr %143, align 4
-  %251 = call ptr @proto_tree_add_item(ptr noundef %200, i32 noundef %245, ptr noundef %196, i32 noundef %248, i32 noundef %249, i32 noundef %250) #6
+  %251 = call ptr @proto_tree_add_item(ptr noundef %200, i32 noundef %245, ptr noundef %196, i32 noundef %248, i32 noundef %249, i32 noundef %250)
   %252 = load i32, ptr %24, align 4
   %253 = add i32 %252, %248
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #8
   %254 = load i32, ptr @hf_drda_sqlcomments, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23) #8
   %255 = load i32, ptr @hf_drda_param_length, align 4
-  %256 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %200, i32 noundef %255, ptr noundef %196, i32 noundef %253, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %23) #6
+  %256 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %200, i32 noundef %255, ptr noundef %196, i32 noundef %253, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %23)
   %257 = add i32 %253, 2
   %258 = load i32, ptr %23, align 4
   %259 = load i32, ptr %144, align 4
-  %260 = call ptr @proto_tree_add_item(ptr noundef %200, i32 noundef %254, ptr noundef %196, i32 noundef %257, i32 noundef %258, i32 noundef %259) #6
+  %260 = call ptr @proto_tree_add_item(ptr noundef %200, i32 noundef %254, ptr noundef %196, i32 noundef %257, i32 noundef %258, i32 noundef %259)
   %261 = load i32, ptr %23, align 4
   %262 = add i32 %261, %257
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23)
-  %263 = call ptr @tvb_new_subset_remaining(ptr noundef %196, i32 noundef %262) #6
-  %264 = call fastcc i32 @dissect_drda_sqludtgrp(ptr noundef %263, ptr noundef %200, ptr noundef nonnull readonly %3)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #8
+  %263 = call ptr @tvb_new_subset_remaining(ptr noundef %196, i32 noundef %262)
+  %264 = call fastcc i32 @dissect_drda_sqludtgrp(ptr noundef %263, ptr noundef %200, ptr noundef readonly %3)
   %265 = add i32 %264, %262
-  %266 = call ptr @tvb_new_subset_remaining(ptr noundef %196, i32 noundef %265) #6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22)
+  %266 = call ptr @tvb_new_subset_remaining(ptr noundef %196, i32 noundef %265)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #8
   %267 = load i32, ptr @hf_drda_sqldxgrp, align 4
-  %268 = call ptr @proto_tree_add_item(ptr noundef %200, i32 noundef %267, ptr noundef %266, i32 noundef 0, i32 noundef 1, i32 noundef 0) #6
+  %268 = call ptr @proto_tree_add_item(ptr noundef %200, i32 noundef %267, ptr noundef %266, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %269 = load i32, ptr @ett_drda_sqldxgrp, align 4
-  %270 = call ptr @proto_item_add_subtree(ptr noundef %268, i32 noundef %269) #6
+  %270 = call ptr @proto_item_add_subtree(ptr noundef %268, i32 noundef %269)
   %271 = load i32, ptr @hf_drda_null_ind, align 4
-  %272 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %270, i32 noundef %271, ptr noundef %266, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %22) #6
+  %272 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %270, i32 noundef %271, ptr noundef %266, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %22)
   %273 = load i32, ptr %22, align 4
   %sext.mask.i.i.i = and i32 %273, 128
   %274 = icmp eq i32 %sext.mask.i.i.i, 0
@@ -3124,7 +3167,7 @@ switch.lookup89:                                  ; preds = %275
 
 dissect_fdoca_integer.exit.i.i.i:                 ; preds = %275, %switch.lookup89
   %.0.i.i.i.i = phi i32 [ %switch.load92, %switch.lookup89 ], [ -2147483648, %275 ]
-  %279 = call ptr @proto_tree_add_item_ret_int(ptr noundef %270, i32 noundef %276, ptr noundef %266, i32 noundef 1, i32 noundef 2, i32 noundef %.0.i.i.i.i, ptr noundef null) #6
+  %279 = call ptr @proto_tree_add_item_ret_int(ptr noundef %270, i32 noundef %276, ptr noundef %266, i32 noundef 1, i32 noundef 2, i32 noundef %.0.i.i.i.i, ptr noundef null)
   %280 = load i32, ptr @hf_drda_sqlxupdateable, align 4
   %.val85.i.i.i = load i32, ptr %137, align 4
   %switch.tableidx94 = add i32 %.val85.i.i.i, -1
@@ -3139,7 +3182,7 @@ switch.lookup93:                                  ; preds = %dissect_fdoca_integ
 
 dissect_fdoca_integer.exit88.i.i.i:               ; preds = %dissect_fdoca_integer.exit.i.i.i, %switch.lookup93
   %.0.i87.i.i.i = phi i32 [ %switch.load96, %switch.lookup93 ], [ -2147483648, %dissect_fdoca_integer.exit.i.i.i ]
-  %283 = call ptr @proto_tree_add_item_ret_int(ptr noundef %270, i32 noundef %280, ptr noundef %266, i32 noundef 3, i32 noundef 2, i32 noundef %.0.i87.i.i.i, ptr noundef null) #6
+  %283 = call ptr @proto_tree_add_item_ret_int(ptr noundef %270, i32 noundef %280, ptr noundef %266, i32 noundef 3, i32 noundef 2, i32 noundef %.0.i87.i.i.i, ptr noundef null)
   %284 = load i32, ptr @hf_drda_sqlxgenerated, align 4
   %.val84.i.i.i = load i32, ptr %137, align 4
   %switch.tableidx98 = add i32 %.val84.i.i.i, -1
@@ -3154,7 +3197,7 @@ switch.lookup97:                                  ; preds = %dissect_fdoca_integ
 
 dissect_fdoca_integer.exit90.i.i.i:               ; preds = %dissect_fdoca_integer.exit88.i.i.i, %switch.lookup97
   %.0.i89.i.i.i = phi i32 [ %switch.load100, %switch.lookup97 ], [ -2147483648, %dissect_fdoca_integer.exit88.i.i.i ]
-  %287 = call ptr @proto_tree_add_item_ret_int(ptr noundef %270, i32 noundef %284, ptr noundef %266, i32 noundef 5, i32 noundef 2, i32 noundef %.0.i89.i.i.i, ptr noundef null) #6
+  %287 = call ptr @proto_tree_add_item_ret_int(ptr noundef %270, i32 noundef %284, ptr noundef %266, i32 noundef 5, i32 noundef 2, i32 noundef %.0.i89.i.i.i, ptr noundef null)
   %288 = load i32, ptr @hf_drda_sqlxparmmode, align 4
   %.val83.i.i.i = load i32, ptr %137, align 4
   %switch.tableidx102 = add i32 %.val83.i.i.i, -1
@@ -3169,7 +3212,7 @@ switch.lookup101:                                 ; preds = %dissect_fdoca_integ
 
 dissect_fdoca_integer.exit92.i.i.i:               ; preds = %dissect_fdoca_integer.exit90.i.i.i, %switch.lookup101
   %.0.i91.i.i.i = phi i32 [ %switch.load104, %switch.lookup101 ], [ -2147483648, %dissect_fdoca_integer.exit90.i.i.i ]
-  %291 = call ptr @proto_tree_add_item_ret_int(ptr noundef %270, i32 noundef %288, ptr noundef %266, i32 noundef 7, i32 noundef 2, i32 noundef %.0.i91.i.i.i, ptr noundef null) #6
+  %291 = call ptr @proto_tree_add_item_ret_int(ptr noundef %270, i32 noundef %288, ptr noundef %266, i32 noundef 7, i32 noundef 2, i32 noundef %.0.i91.i.i.i, ptr noundef null)
   %292 = load i32, ptr %3, align 4
   %293 = icmp ugt i32 %292, 8
   br i1 %293, label %294, label %303
@@ -3189,7 +3232,7 @@ switch.lookup105:                                 ; preds = %294
 
 dissect_fdoca_integer.exit94.i.i.i:               ; preds = %294, %switch.lookup105
   %.0.i93.i.i.i = phi i32 [ %switch.load108, %switch.lookup105 ], [ -2147483648, %294 ]
-  %298 = call ptr @proto_tree_add_item_ret_int(ptr noundef %270, i32 noundef %295, ptr noundef %266, i32 noundef 9, i32 noundef 2, i32 noundef %.0.i93.i.i.i, ptr noundef null) #6
+  %298 = call ptr @proto_tree_add_item_ret_int(ptr noundef %270, i32 noundef %295, ptr noundef %266, i32 noundef 9, i32 noundef 2, i32 noundef %.0.i93.i.i.i, ptr noundef null)
   %299 = load i32, ptr @hf_drda_sqlxhidden, align 4
   %.val.i.i.i = load i32, ptr %137, align 4
   %switch.tableidx110 = add i32 %.val.i.i.i, -1
@@ -3204,143 +3247,143 @@ switch.lookup109:                                 ; preds = %dissect_fdoca_integ
 
 dissect_fdoca_integer.exit96.i.i.i:               ; preds = %dissect_fdoca_integer.exit94.i.i.i, %switch.lookup109
   %.0.i95.i.i.i = phi i32 [ %switch.load112, %switch.lookup109 ], [ -2147483648, %dissect_fdoca_integer.exit94.i.i.i ]
-  %302 = call ptr @proto_tree_add_item_ret_int(ptr noundef %270, i32 noundef %299, ptr noundef %266, i32 noundef 11, i32 noundef 2, i32 noundef %.0.i95.i.i.i, ptr noundef null) #6
+  %302 = call ptr @proto_tree_add_item_ret_int(ptr noundef %270, i32 noundef %299, ptr noundef %266, i32 noundef 11, i32 noundef 2, i32 noundef %.0.i95.i.i.i, ptr noundef null)
   br label %303
 
 303:                                              ; preds = %dissect_fdoca_integer.exit96.i.i.i, %dissect_fdoca_integer.exit92.i.i.i
   %.1.i.i.i = phi i32 [ 13, %dissect_fdoca_integer.exit96.i.i.i ], [ 9, %dissect_fdoca_integer.exit92.i.i.i ]
   %304 = load i32, ptr @hf_drda_rdbnam, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #8
   %305 = load i32, ptr @hf_drda_param_length, align 4
-  %306 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %270, i32 noundef %305, ptr noundef %266, i32 noundef %.1.i.i.i, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %21) #6
+  %306 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %270, i32 noundef %305, ptr noundef %266, i32 noundef %.1.i.i.i, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %21)
   %307 = or disjoint i32 %.1.i.i.i, 2
   %308 = load i32, ptr %21, align 4
   %309 = load i32, ptr %144, align 4
-  %310 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %304, ptr noundef %266, i32 noundef %307, i32 noundef %308, i32 noundef %309) #6
+  %310 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %304, ptr noundef %266, i32 noundef %307, i32 noundef %308, i32 noundef %309)
   %311 = load i32, ptr %21, align 4
   %312 = add i32 %311, %307
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #8
   %313 = load i32, ptr @hf_drda_sqlxcorname, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #8
   %314 = load i32, ptr @hf_drda_param_length, align 4
-  %315 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %270, i32 noundef %314, ptr noundef %266, i32 noundef %312, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %20) #6
+  %315 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %270, i32 noundef %314, ptr noundef %266, i32 noundef %312, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %20)
   %316 = add i32 %312, 2
   %317 = load i32, ptr %20, align 4
   %318 = load i32, ptr %143, align 4
-  %319 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %313, ptr noundef %266, i32 noundef %316, i32 noundef %317, i32 noundef %318) #6
+  %319 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %313, ptr noundef %266, i32 noundef %316, i32 noundef %317, i32 noundef %318)
   %320 = load i32, ptr %20, align 4
   %321 = add i32 %320, %316
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #8
   %322 = load i32, ptr @hf_drda_sqlxcorname, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #8
   %323 = load i32, ptr @hf_drda_param_length, align 4
-  %324 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %270, i32 noundef %323, ptr noundef %266, i32 noundef %321, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %19) #6
+  %324 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %270, i32 noundef %323, ptr noundef %266, i32 noundef %321, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %19)
   %325 = add i32 %321, 2
   %326 = load i32, ptr %19, align 4
   %327 = load i32, ptr %144, align 4
-  %328 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %322, ptr noundef %266, i32 noundef %325, i32 noundef %326, i32 noundef %327) #6
+  %328 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %322, ptr noundef %266, i32 noundef %325, i32 noundef %326, i32 noundef %327)
   %329 = load i32, ptr %19, align 4
   %330 = add i32 %329, %325
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #8
   %331 = load i32, ptr @hf_drda_sqlxbasename, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #8
   %332 = load i32, ptr @hf_drda_param_length, align 4
-  %333 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %270, i32 noundef %332, ptr noundef %266, i32 noundef %330, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %18) #6
+  %333 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %270, i32 noundef %332, ptr noundef %266, i32 noundef %330, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %18)
   %334 = add i32 %330, 2
   %335 = load i32, ptr %18, align 4
   %336 = load i32, ptr %143, align 4
-  %337 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %331, ptr noundef %266, i32 noundef %334, i32 noundef %335, i32 noundef %336) #6
+  %337 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %331, ptr noundef %266, i32 noundef %334, i32 noundef %335, i32 noundef %336)
   %338 = load i32, ptr %18, align 4
   %339 = add i32 %338, %334
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #8
   %340 = load i32, ptr @hf_drda_sqlxbasename, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #8
   %341 = load i32, ptr @hf_drda_param_length, align 4
-  %342 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %270, i32 noundef %341, ptr noundef %266, i32 noundef %339, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %17) #6
+  %342 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %270, i32 noundef %341, ptr noundef %266, i32 noundef %339, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %17)
   %343 = add i32 %339, 2
   %344 = load i32, ptr %17, align 4
   %345 = load i32, ptr %144, align 4
-  %346 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %340, ptr noundef %266, i32 noundef %343, i32 noundef %344, i32 noundef %345) #6
+  %346 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %340, ptr noundef %266, i32 noundef %343, i32 noundef %344, i32 noundef %345)
   %347 = load i32, ptr %17, align 4
   %348 = add i32 %347, %343
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #8
   %349 = load i32, ptr @hf_drda_sqlxschema, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #8
   %350 = load i32, ptr @hf_drda_param_length, align 4
-  %351 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %270, i32 noundef %350, ptr noundef %266, i32 noundef %348, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %16) #6
+  %351 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %270, i32 noundef %350, ptr noundef %266, i32 noundef %348, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %16)
   %352 = add i32 %348, 2
   %353 = load i32, ptr %16, align 4
   %354 = load i32, ptr %143, align 4
-  %355 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %349, ptr noundef %266, i32 noundef %352, i32 noundef %353, i32 noundef %354) #6
+  %355 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %349, ptr noundef %266, i32 noundef %352, i32 noundef %353, i32 noundef %354)
   %356 = load i32, ptr %16, align 4
   %357 = add i32 %356, %352
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #8
   %358 = load i32, ptr @hf_drda_sqlxschema, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #8
   %359 = load i32, ptr @hf_drda_param_length, align 4
-  %360 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %270, i32 noundef %359, ptr noundef %266, i32 noundef %357, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %15) #6
+  %360 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %270, i32 noundef %359, ptr noundef %266, i32 noundef %357, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %15)
   %361 = add i32 %357, 2
   %362 = load i32, ptr %15, align 4
   %363 = load i32, ptr %144, align 4
-  %364 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %358, ptr noundef %266, i32 noundef %361, i32 noundef %362, i32 noundef %363) #6
+  %364 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %358, ptr noundef %266, i32 noundef %361, i32 noundef %362, i32 noundef %363)
   %365 = load i32, ptr %15, align 4
   %366 = add i32 %365, %361
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #8
   %367 = load i32, ptr @hf_drda_sqlxname, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #8
   %368 = load i32, ptr @hf_drda_param_length, align 4
-  %369 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %270, i32 noundef %368, ptr noundef %266, i32 noundef %366, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %14) #6
+  %369 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %270, i32 noundef %368, ptr noundef %266, i32 noundef %366, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %14)
   %370 = add i32 %366, 2
   %371 = load i32, ptr %14, align 4
   %372 = load i32, ptr %143, align 4
-  %373 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %367, ptr noundef %266, i32 noundef %370, i32 noundef %371, i32 noundef %372) #6
+  %373 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %367, ptr noundef %266, i32 noundef %370, i32 noundef %371, i32 noundef %372)
   %374 = load i32, ptr %14, align 4
   %375 = add i32 %374, %370
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #8
   %376 = load i32, ptr @hf_drda_sqlxname, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #8
   %377 = load i32, ptr @hf_drda_param_length, align 4
-  %378 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %270, i32 noundef %377, ptr noundef %266, i32 noundef %375, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %13) #6
+  %378 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %270, i32 noundef %377, ptr noundef %266, i32 noundef %375, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %13)
   %379 = add i32 %375, 2
   %380 = load i32, ptr %13, align 4
   %381 = load i32, ptr %144, align 4
-  %382 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %376, ptr noundef %266, i32 noundef %379, i32 noundef %380, i32 noundef %381) #6
+  %382 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %376, ptr noundef %266, i32 noundef %379, i32 noundef %380, i32 noundef %381)
   %383 = load i32, ptr %13, align 4
   %384 = add i32 %383, %379
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #8
   %385 = load i32, ptr %3, align 4
   %386 = icmp ugt i32 %385, 9
   br i1 %386, label %387, label %dissect_drda_sqldxgrp.exit.i.i
 
 387:                                              ; preds = %303
   %388 = load i32, ptr @hf_drda_sqlxmodule, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #8
   %389 = load i32, ptr @hf_drda_param_length, align 4
-  %390 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %270, i32 noundef %389, ptr noundef %266, i32 noundef %384, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %12) #6
+  %390 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %270, i32 noundef %389, ptr noundef %266, i32 noundef %384, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %12)
   %391 = add i32 %384, 2
   %392 = load i32, ptr %12, align 4
   %393 = load i32, ptr %143, align 4
-  %394 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %388, ptr noundef %266, i32 noundef %391, i32 noundef %392, i32 noundef %393) #6
+  %394 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %388, ptr noundef %266, i32 noundef %391, i32 noundef %392, i32 noundef %393)
   %395 = load i32, ptr %12, align 4
   %396 = add i32 %395, %391
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #8
   %397 = load i32, ptr @hf_drda_sqlxmodule, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #8
   %398 = load i32, ptr @hf_drda_param_length, align 4
-  %399 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %270, i32 noundef %398, ptr noundef %266, i32 noundef %396, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %11) #6
+  %399 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %270, i32 noundef %398, ptr noundef %266, i32 noundef %396, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %11)
   %400 = add i32 %396, 2
   %401 = load i32, ptr %11, align 4
   %402 = load i32, ptr %144, align 4
-  %403 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %397, ptr noundef %266, i32 noundef %400, i32 noundef %401, i32 noundef %402) #6
+  %403 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %397, ptr noundef %266, i32 noundef %400, i32 noundef %401, i32 noundef %402)
   %404 = load i32, ptr %11, align 4
   %405 = add i32 %404, %400
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #8
   br label %dissect_drda_sqldxgrp.exit.i.i
 
 dissect_drda_sqldxgrp.exit.i.i:                   ; preds = %387, %303, %dissect_fdoca_integer.exit.i.i
   %.0.i60.i.i = phi i32 [ %405, %387 ], [ %384, %303 ], [ 1, %dissect_fdoca_integer.exit.i.i ]
-  call void @proto_item_set_end(ptr noundef %268, ptr noundef %266, i32 noundef %.0.i60.i.i) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22)
+  call void @proto_item_set_end(ptr noundef %268, ptr noundef %266, i32 noundef %.0.i60.i.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #8
   %406 = add i32 %.0.i60.i.i, %265
   %407 = load i32, ptr %3, align 4
   %408 = icmp ugt i32 %407, 9
@@ -3348,7 +3391,7 @@ dissect_drda_sqldxgrp.exit.i.i:                   ; preds = %387, %303, %dissect
 
 409:                                              ; preds = %dissect_drda_sqldxgrp.exit.i.i
   %410 = load i32, ptr @hf_drda_null_ind, align 4
-  %411 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %200, i32 noundef %410, ptr noundef %196, i32 noundef %406, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %29) #6
+  %411 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %200, i32 noundef %410, ptr noundef %196, i32 noundef %406, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %29)
   %412 = add i32 %406, 1
   %413 = load i32, ptr %29, align 4
   %sext.mask59.i.i = and i32 %413, 128
@@ -3356,123 +3399,123 @@ dissect_drda_sqldxgrp.exit.i.i:                   ; preds = %387, %303, %dissect
   br i1 %414, label %415, label %dissect_drda_sqldoptgrp.exit.i
 
 415:                                              ; preds = %409
-  %416 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %411, ptr noundef nonnull @ei_drda_undecoded) #6
+  %416 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %411, ptr noundef nonnull @ei_drda_undecoded)
   br label %dissect_drda_sqldoptgrp.exit.i
 
 dissect_drda_sqldoptgrp.exit.i:                   ; preds = %415, %409, %dissect_drda_sqldxgrp.exit.i.i, %195
   %.0.i96.i = phi i32 [ %412, %415 ], [ %412, %409 ], [ %406, %dissect_drda_sqldxgrp.exit.i.i ], [ 1, %195 ]
-  call void @proto_item_set_end(ptr noundef %198, ptr noundef %196, i32 noundef %.0.i96.i) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29)
+  call void @proto_item_set_end(ptr noundef %198, ptr noundef %196, i32 noundef %.0.i96.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29) #8
   %417 = add i32 %.0.i96.i, %.1.i30
   br label %dissect_drda_sqldagrp.exit
 
 418:                                              ; preds = %192
   %419 = load i32, ptr @hf_drda_sqlname, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #8
   %420 = load i32, ptr @hf_drda_param_length, align 4
-  %421 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %150, i32 noundef %420, ptr noundef %146, i32 noundef %.1.i30, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %10) #6
+  %421 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %150, i32 noundef %420, ptr noundef %146, i32 noundef %.1.i30, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %10)
   %422 = add nuw nsw i32 %.1.i30, 2
   %423 = load i32, ptr %10, align 4
   %424 = load i32, ptr %143, align 4
-  %425 = call ptr @proto_tree_add_item(ptr noundef %150, i32 noundef %419, ptr noundef %146, i32 noundef %422, i32 noundef %423, i32 noundef %424) #6
+  %425 = call ptr @proto_tree_add_item(ptr noundef %150, i32 noundef %419, ptr noundef %146, i32 noundef %422, i32 noundef %423, i32 noundef %424)
   %426 = load i32, ptr %10, align 4
   %427 = add i32 %426, %422
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #8
   %428 = load i32, ptr @hf_drda_sqlname, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #8
   %429 = load i32, ptr @hf_drda_param_length, align 4
-  %430 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %150, i32 noundef %429, ptr noundef %146, i32 noundef %427, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %9) #6
+  %430 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %150, i32 noundef %429, ptr noundef %146, i32 noundef %427, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %9)
   %431 = add i32 %427, 2
   %432 = load i32, ptr %9, align 4
   %433 = load i32, ptr %144, align 4
-  %434 = call ptr @proto_tree_add_item(ptr noundef %150, i32 noundef %428, ptr noundef %146, i32 noundef %431, i32 noundef %432, i32 noundef %433) #6
+  %434 = call ptr @proto_tree_add_item(ptr noundef %150, i32 noundef %428, ptr noundef %146, i32 noundef %431, i32 noundef %432, i32 noundef %433)
   %435 = load i32, ptr %9, align 4
   %436 = add i32 %435, %431
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #8
   %437 = load i32, ptr @hf_drda_sqllabel, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
   %438 = load i32, ptr @hf_drda_param_length, align 4
-  %439 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %150, i32 noundef %438, ptr noundef %146, i32 noundef %436, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %8) #6
+  %439 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %150, i32 noundef %438, ptr noundef %146, i32 noundef %436, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %8)
   %440 = add i32 %436, 2
   %441 = load i32, ptr %8, align 4
   %442 = load i32, ptr %143, align 4
-  %443 = call ptr @proto_tree_add_item(ptr noundef %150, i32 noundef %437, ptr noundef %146, i32 noundef %440, i32 noundef %441, i32 noundef %442) #6
+  %443 = call ptr @proto_tree_add_item(ptr noundef %150, i32 noundef %437, ptr noundef %146, i32 noundef %440, i32 noundef %441, i32 noundef %442)
   %444 = load i32, ptr %8, align 4
   %445 = add i32 %444, %440
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
   %446 = load i32, ptr @hf_drda_sqllabel, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
   %447 = load i32, ptr @hf_drda_param_length, align 4
-  %448 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %150, i32 noundef %447, ptr noundef %146, i32 noundef %445, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %7) #6
+  %448 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %150, i32 noundef %447, ptr noundef %146, i32 noundef %445, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %7)
   %449 = add i32 %445, 2
   %450 = load i32, ptr %7, align 4
   %451 = load i32, ptr %144, align 4
-  %452 = call ptr @proto_tree_add_item(ptr noundef %150, i32 noundef %446, ptr noundef %146, i32 noundef %449, i32 noundef %450, i32 noundef %451) #6
+  %452 = call ptr @proto_tree_add_item(ptr noundef %150, i32 noundef %446, ptr noundef %146, i32 noundef %449, i32 noundef %450, i32 noundef %451)
   %453 = load i32, ptr %7, align 4
   %454 = add i32 %453, %449
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
   %455 = load i32, ptr @hf_drda_sqlcomments, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
   %456 = load i32, ptr @hf_drda_param_length, align 4
-  %457 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %150, i32 noundef %456, ptr noundef %146, i32 noundef %454, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %6) #6
+  %457 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %150, i32 noundef %456, ptr noundef %146, i32 noundef %454, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %6)
   %458 = add i32 %454, 2
   %459 = load i32, ptr %6, align 4
   %460 = load i32, ptr %143, align 4
-  %461 = call ptr @proto_tree_add_item(ptr noundef %150, i32 noundef %455, ptr noundef %146, i32 noundef %458, i32 noundef %459, i32 noundef %460) #6
+  %461 = call ptr @proto_tree_add_item(ptr noundef %150, i32 noundef %455, ptr noundef %146, i32 noundef %458, i32 noundef %459, i32 noundef %460)
   %462 = load i32, ptr %6, align 4
   %463 = add i32 %462, %458
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
   %464 = load i32, ptr @hf_drda_sqlcomments, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
   %465 = load i32, ptr @hf_drda_param_length, align 4
-  %466 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %150, i32 noundef %465, ptr noundef %146, i32 noundef %463, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5) #6
+  %466 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %150, i32 noundef %465, ptr noundef %146, i32 noundef %463, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5)
   %467 = add i32 %463, 2
   %468 = load i32, ptr %5, align 4
   %469 = load i32, ptr %144, align 4
-  %470 = call ptr @proto_tree_add_item(ptr noundef %150, i32 noundef %464, ptr noundef %146, i32 noundef %467, i32 noundef %468, i32 noundef %469) #6
+  %470 = call ptr @proto_tree_add_item(ptr noundef %150, i32 noundef %464, ptr noundef %146, i32 noundef %467, i32 noundef %468, i32 noundef %469)
   %471 = load i32, ptr %5, align 4
   %472 = add i32 %471, %467
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
   %473 = load i32, ptr %3, align 4
   %474 = icmp eq i32 %473, 6
   br i1 %474, label %475, label %dissect_drda_sqldagrp.exit
 
 475:                                              ; preds = %418
-  %476 = call ptr @tvb_new_subset_remaining(ptr noundef %146, i32 noundef %472) #6
-  %477 = call fastcc i32 @dissect_drda_sqludtgrp(ptr noundef %476, ptr noundef %150, ptr noundef nonnull readonly %3)
+  %476 = call ptr @tvb_new_subset_remaining(ptr noundef %146, i32 noundef %472)
+  %477 = call fastcc i32 @dissect_drda_sqludtgrp(ptr noundef %476, ptr noundef %150, ptr noundef readonly %3)
   %478 = add i32 %477, %472
   br label %dissect_drda_sqldagrp.exit
 
 dissect_drda_sqldagrp.exit:                       ; preds = %dissect_drda_sqldoptgrp.exit.i, %418, %475
   %.2.i = phi i32 [ %417, %dissect_drda_sqldoptgrp.exit.i ], [ %478, %475 ], [ %472, %418 ]
-  call void @proto_item_set_end(ptr noundef %148, ptr noundef %146, i32 noundef %.2.i) #6
+  call void @proto_item_set_end(ptr noundef %148, ptr noundef %146, i32 noundef %.2.i)
   %479 = add i32 %.2.i, %.131
   %480 = add nuw i32 %.032, 1
   %481 = load i32, ptr %36, align 4
   %482 = icmp ult i32 %480, %481
-  br i1 %482, label %145, label %._crit_edge, !llvm.loop !12
-
-._crit_edge:                                      ; preds = %dissect_drda_sqldagrp.exit, %dissect_fdoca_integer.exit
-  %.1.lcssa = phi i32 [ %141, %dissect_fdoca_integer.exit ], [ %479, %dissect_drda_sqldagrp.exit ]
-  ret i32 %.1.lcssa
+  br i1 %482, label %145, label %._crit_edge, !llvm.loop !16
 }
 
-declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #2
 
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 0, 65536) i32 @get_drda_pdu_len(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
-  %5 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %2) #6
+  %5 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %2)
   %6 = zext i16 %5 to i32
   ret i32 %6
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_drda_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3480,38 +3523,44 @@ define internal i32 @dissect_drda_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #8
   %11 = load i32, ptr @proto_drda, align 4
-  %12 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %11, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #6
+  %12 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %11, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   store ptr %12, ptr %5, align 8
   %13 = load i32, ptr @ett_drda, align 4
-  %14 = tail call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13) #6
+  %14 = tail call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13)
   %15 = load i32, ptr @ett_drda_ddm, align 4
-  %16 = call ptr @proto_tree_add_subtree(ptr noundef %14, ptr noundef %0, i32 noundef 0, i32 noundef 10, i32 noundef %15, ptr noundef nonnull %6, ptr noundef nonnull @.str.794) #6
+  %16 = call ptr @proto_tree_add_subtree(ptr noundef %14, ptr noundef %0, i32 noundef 0, i32 noundef 10, i32 noundef %15, ptr noundef nonnull %6, ptr noundef nonnull @.str.826)
   %17 = load i32, ptr @hf_drda_ddm_length, align 4
-  %18 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %16, i32 noundef %17, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %8) #6
+  %18 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %16, i32 noundef %17, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %8)
   %19 = load i32, ptr %8, align 4
   %20 = icmp ult i32 %19, 10
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %4
-  %22 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_drda_opcode_invalid_length, ptr noundef nonnull @.str.795, i32 noundef %19) #6
+  %22 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %18, ptr noundef nonnull @ei_drda_opcode_invalid_length, ptr noundef nonnull @.str.827, i32 noundef %19)
   br label %303
 
 23:                                               ; preds = %4
   %24 = load i32, ptr @hf_drda_ddm_magic, align 4
-  %25 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %24, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #6
+  %25 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %24, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %26 = load i32, ptr @hf_drda_ddm_format, align 4
   %27 = load i32, ptr @ett_drda_ddm_format, align 4
-  %28 = call ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef %16, ptr noundef %0, i32 noundef 3, i32 noundef %26, i32 noundef %27, ptr noundef nonnull @dissect_drda_pdu.format_flags, i32 noundef 0, ptr noundef nonnull %7) #6
+  %28 = call ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef %16, ptr noundef %0, i32 noundef 3, i32 noundef %26, i32 noundef %27, ptr noundef nonnull @dissect_drda_pdu.format_flags, i32 noundef 0, ptr noundef nonnull %7)
   %29 = load i64, ptr %7, align 8
   %30 = trunc i64 %29 to i8
   %31 = and i8 %30, 15
   %32 = load i32, ptr @hf_drda_ddm_rc, align 4
-  %33 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %16, i32 noundef %32, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %10) #6
+  %33 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %16, i32 noundef %32, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %10)
   %34 = load i32, ptr @hf_drda_ddm_length2, align 4
-  %35 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %34, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0) #6
+  %35 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %34, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0)
   %36 = load i32, ptr @hf_drda_ddm_codepoint, align 4
-  %37 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %16, i32 noundef %36, ptr noundef %0, i32 noundef 8, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %9) #6
+  %37 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %16, i32 noundef %36, ptr noundef %0, i32 noundef 8, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %9)
   %38 = load i32, ptr %9, align 4
   %39 = call fastcc ptr @drda_get_conv_info(ptr noundef %1)
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
@@ -3580,7 +3629,7 @@ define internal i32 @dissect_drda_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   %78 = load i32, ptr %77, align 8
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %80 = load i32, ptr %79, align 8
-  %81 = call ptr @wmem_file_scope() #6
+  %81 = call ptr @wmem_file_scope()
   %82 = load i32, ptr %76, align 8
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 236
   %84 = load i32, ptr %83, align 4
@@ -3593,7 +3642,7 @@ define internal i32 @dissect_drda_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
 
 88:                                               ; preds = %75
   %89 = sext i32 %84 to i64
-  %90 = call noalias ptr @wmem_memdup(ptr noundef %81, ptr noundef %86, i64 noundef %89) #6
+  %90 = call ptr @wmem_memdup(ptr noundef %81, ptr noundef %86, i64 noundef %89) #10
   %91 = getelementptr inbounds nuw i8, ptr %39, i64 32
   store ptr %90, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %39, i64 24
@@ -3615,7 +3664,7 @@ drda_set_server.exit.i:                           ; preds = %88, %75
   %99 = load i32, ptr %98, align 8
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %101 = load i32, ptr %100, align 4
-  %102 = call ptr @wmem_file_scope() #6
+  %102 = call ptr @wmem_file_scope()
   %103 = load i32, ptr %97, align 8
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 212
   %105 = load i32, ptr %104, align 4
@@ -3628,7 +3677,7 @@ drda_set_server.exit.i:                           ; preds = %88, %75
 
 109:                                              ; preds = %96
   %110 = sext i32 %105 to i64
-  %111 = call noalias ptr @wmem_memdup(ptr noundef %102, ptr noundef %107, i64 noundef %110) #6
+  %111 = call ptr @wmem_memdup(ptr noundef %102, ptr noundef %107, i64 noundef %110) #10
   %112 = getelementptr inbounds nuw i8, ptr %39, i64 32
   store ptr %111, ptr %112, align 8
   %113 = getelementptr inbounds nuw i8, ptr %39, i64 24
@@ -3657,7 +3706,7 @@ drda_set_server.exit26.i:                         ; preds = %109, %96
   %121 = load i32, ptr %120, align 8
   %122 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %123 = load i32, ptr %122, align 8
-  %124 = call ptr @wmem_file_scope() #6
+  %124 = call ptr @wmem_file_scope()
   %125 = load i32, ptr %119, align 8
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 236
   %127 = load i32, ptr %126, align 4
@@ -3670,7 +3719,7 @@ drda_set_server.exit26.i:                         ; preds = %109, %96
 
 131:                                              ; preds = %118
   %132 = sext i32 %127 to i64
-  %133 = call noalias ptr @wmem_memdup(ptr noundef %124, ptr noundef %129, i64 noundef %132) #6
+  %133 = call ptr @wmem_memdup(ptr noundef %124, ptr noundef %129, i64 noundef %132) #10
   %134 = getelementptr inbounds nuw i8, ptr %39, i64 32
   store ptr %133, ptr %134, align 8
   %135 = getelementptr inbounds nuw i8, ptr %39, i64 24
@@ -3692,54 +3741,54 @@ drda_set_server.exit27.i:                         ; preds = %131, %118
   %142 = load i32, ptr %141, align 8
   %143 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %144 = load i32, ptr %143, align 4
-  call fastcc void @drda_set_server(ptr noundef nonnull %39, ptr noundef nonnull %140, i32 noundef %142, i32 noundef %144)
+  call fastcc void @drda_set_server(ptr noundef %39, ptr noundef nonnull %140, i32 noundef %142, i32 noundef %144)
   br label %drda_packet_from_server.exit
 
 drda_packet_from_server.exit:                     ; preds = %42, %48, %64, %66, %73, %drda_set_server.exit.i, %drda_set_server.exit26.i, %117, %drda_set_server.exit27.i, %139
-  %.not30.i = phi i64 [ 8, %139 ], [ 0, %drda_set_server.exit27.i ], [ 8, %drda_set_server.exit26.i ], [ 0, %drda_set_server.exit.i ], [ 0, %48 ], [ 0, %42 ], [ 0, %117 ], [ 0, %73 ], [ 8, %66 ], [ 8, %64 ]
+  %.0.i = phi i64 [ 8, %139 ], [ 0, %drda_set_server.exit27.i ], [ 8, %drda_set_server.exit26.i ], [ 0, %drda_set_server.exit.i ], [ 0, %48 ], [ 0, %42 ], [ 0, %117 ], [ 0, %73 ], [ 8, %66 ], [ 8, %64 ]
   %145 = load i32, ptr %9, align 4
-  %146 = call ptr @val_to_str_ext(i32 noundef %145, ptr noundef nonnull @drda_opcode_vals_ext, ptr noundef nonnull @.str.797) #6
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.796, ptr noundef %146) #6
+  %146 = call ptr @val_to_str_ext(i32 noundef %145, ptr noundef nonnull @drda_opcode_vals_ext, ptr noundef nonnull @.str.829)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.828, ptr noundef %146)
   %147 = load ptr, ptr %6, align 8
   %148 = load i32, ptr %9, align 4
-  %149 = call ptr @val_to_str_ext(i32 noundef %148, ptr noundef nonnull @drda_opcode_abbr_ext, ptr noundef nonnull @.str.797) #6
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %147, ptr noundef nonnull @.str.796, ptr noundef %149) #6
+  %149 = call ptr @val_to_str_ext(i32 noundef %148, ptr noundef nonnull @drda_opcode_abbr_ext, ptr noundef nonnull @.str.829)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %147, ptr noundef nonnull @.str.828, ptr noundef %149)
   %150 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %151 = load ptr, ptr %150, align 8
   %152 = load i32, ptr %9, align 4
-  %153 = call ptr @val_to_str_ext(i32 noundef %152, ptr noundef nonnull @drda_opcode_abbr_ext, ptr noundef nonnull @.str.797) #6
-  call void @col_append_sep_str(ptr noundef %151, i32 noundef 25, ptr noundef nonnull @.str.798, ptr noundef %153) #6
+  %153 = call ptr @val_to_str_ext(i32 noundef %152, ptr noundef nonnull @drda_opcode_abbr_ext, ptr noundef nonnull @.str.829)
+  call void @col_append_sep_str(ptr noundef %151, i32 noundef 25, ptr noundef nonnull @.str.830, ptr noundef %153)
   %154 = load ptr, ptr %150, align 8
-  call void @col_set_fence(ptr noundef %154, i32 noundef 25) #6
+  call void @col_set_fence(ptr noundef %154, i32 noundef 25)
   %155 = load i32, ptr %10, align 4
   %156 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %157 = load ptr, ptr %156, align 8
   %158 = load i32, ptr @proto_drda, align 4
-  %159 = call ptr @p_get_proto_data(ptr noundef %157, ptr noundef %1, i32 noundef %158, i32 noundef %155) #6
+  %159 = call ptr @p_get_proto_data(ptr noundef %157, ptr noundef %1, i32 noundef %158, i32 noundef %155)
   %.not.i102 = icmp eq ptr %159, null
   br i1 %.not.i102, label %160, label %drda_get_pdu_info.exit
 
 160:                                              ; preds = %drda_packet_from_server.exit
   %161 = load ptr, ptr %156, align 8
-  %162 = call noalias ptr @wmem_alloc(ptr noundef %161, i64 noundef 16) #6
-  %163 = call fastcc ptr @drda_get_conv_info(ptr noundef nonnull %1)
-  %.in.i = getelementptr inbounds nuw i8, ptr %163, i64 %.not30.i
+  %162 = call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %161, i64 noundef 16) #11
+  %163 = call fastcc ptr @drda_get_conv_info(ptr noundef %1)
+  %.in.i = getelementptr inbounds nuw i8, ptr %163, i64 %.0.i
   %164 = load ptr, ptr %.in.i, align 8
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 8
   %166 = load ptr, ptr %165, align 8
   %167 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %168 = load i32, ptr %167, align 4
-  %169 = call ptr @wmem_tree_lookup32_le(ptr noundef %166, i32 noundef %168) #6
+  %169 = call ptr @wmem_tree_lookup32_le(ptr noundef %166, i32 noundef %168)
   %170 = ptrtoint ptr %169 to i64
   %171 = trunc i64 %170 to i32
   store i32 %171, ptr %162, align 4
   %172 = load ptr, ptr %164, align 8
   %173 = load i32, ptr %167, align 4
-  %174 = call ptr @wmem_tree_lookup32_le(ptr noundef %172, i32 noundef %173) #6
-  %.not31.i = icmp eq ptr %174, null
+  %174 = call ptr @wmem_tree_lookup32_le(ptr noundef %172, i32 noundef %173)
+  %.not30.i = icmp eq ptr %174, null
   %175 = getelementptr inbounds nuw i8, ptr %162, i64 4
   %176 = getelementptr inbounds nuw i8, ptr %162, i64 8
-  br i1 %.not31.i, label %183, label %177
+  br i1 %.not30.i, label %183, label %177
 
 177:                                              ; preds = %160
   %178 = load i32, ptr %174, align 4
@@ -3755,10 +3804,10 @@ drda_packet_from_server.exit:                     ; preds = %42, %48, %64, %66, 
   %184 = load i32, ptr @drda_default_typdefnam, align 4
   store i32 %184, ptr %175, align 4
   %185 = load i32, ptr @drda_default_ccsidsbc, align 4
-  %186 = call i32 @mibenum_charset_to_encoding(i32 noundef %185) #6
+  %186 = call i32 @mibenum_charset_to_encoding(i32 noundef %185)
   store i32 %186, ptr %176, align 4
   %187 = load i32, ptr @drda_default_ccsidmbc, align 4
-  %188 = call i32 @mibenum_charset_to_encoding(i32 noundef %187) #6
+  %188 = call i32 @mibenum_charset_to_encoding(i32 noundef %187)
   br label %189
 
 189:                                              ; preds = %183, %177
@@ -3767,7 +3816,7 @@ drda_packet_from_server.exit:                     ; preds = %42, %48, %64, %66, 
   store i32 %.sink.i, ptr %190, align 4
   %191 = load ptr, ptr %156, align 8
   %192 = load i32, ptr @proto_drda, align 4
-  call void @p_set_proto_data(ptr noundef %191, ptr noundef nonnull %1, i32 noundef %192, i32 noundef %155, ptr noundef nonnull %162) #6
+  call void @p_set_proto_data(ptr noundef %191, ptr noundef %1, i32 noundef %192, i32 noundef %155, ptr noundef %162)
   br label %drda_get_pdu_info.exit
 
 drda_get_pdu_info.exit:                           ; preds = %drda_packet_from_server.exit, %189
@@ -3776,61 +3825,61 @@ drda_get_pdu_info.exit:                           ; preds = %drda_packet_from_se
   %194 = load i32, ptr %9, align 4
   %195 = load i32, ptr %8, align 4
   %196 = add i32 %195, -10
-  %197 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 10, i32 noundef %196) #6
-  %198 = call i32 @dissector_try_uint_new(ptr noundef %193, i32 noundef %194, ptr noundef %197, ptr noundef nonnull %1, ptr noundef %16, i32 noundef 0, ptr noundef nonnull %.0.i103) #6
+  %197 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 10, i32 noundef %196)
+  %198 = call i32 @dissector_try_uint_with_data(ptr noundef %193, i32 noundef %194, ptr noundef %197, ptr noundef %1, ptr noundef %16, i1 noundef zeroext false, ptr noundef %.0.i103)
   %.not = icmp eq i32 %198, 0
   br i1 %.not, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %drda_get_pdu_info.exit
-  %199 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 10) #6
+  %199 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 10)
   %200 = icmp sgt i32 %199, 1
   br i1 %200, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %228
   %.092105 = phi i32 [ %229, %228 ], [ 10, %.preheader ]
-  %201 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.092105) #6
+  %201 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.092105)
   %202 = zext i16 %201 to i32
   %or.cond = icmp ult i16 %201, 2
   %203 = load i32, ptr %8, align 4
   %204 = add i32 %203, -10
   %.0 = select i1 %or.cond, i32 %204, i32 %202
-  %205 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.092105) #6
+  %205 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.092105)
   %.not98 = icmp slt i32 %205, %.0
   br i1 %.not98, label %228, label %206
 
 206:                                              ; preds = %.lr.ph
   %207 = add i32 %.092105, 2
-  %208 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %207) #6
+  %208 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %207)
   %209 = load i32, ptr @ett_drda_param, align 4
-  %210 = call ptr @proto_tree_add_subtree(ptr noundef %14, ptr noundef %0, i32 noundef %.092105, i32 noundef %.0, i32 noundef %209, ptr noundef nonnull %5, ptr noundef nonnull @.str.799) #6
+  %210 = call ptr @proto_tree_add_subtree(ptr noundef %14, ptr noundef %0, i32 noundef %.092105, i32 noundef %.0, i32 noundef %209, ptr noundef nonnull %5, ptr noundef nonnull @.str.831)
   %211 = load ptr, ptr %5, align 8
   %212 = zext i16 %208 to i32
-  %213 = call ptr @val_to_str_ext(i32 noundef %212, ptr noundef nonnull @drda_opcode_vals_ext, ptr noundef nonnull @.str.797) #6
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %211, ptr noundef nonnull @.str.796, ptr noundef %213) #6
+  %213 = call ptr @val_to_str_ext(i32 noundef %212, ptr noundef nonnull @drda_opcode_vals_ext, ptr noundef nonnull @.str.829)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %211, ptr noundef nonnull @.str.828, ptr noundef %213)
   %214 = load i32, ptr @hf_drda_param_length, align 4
-  %215 = call ptr @proto_tree_add_item(ptr noundef %210, i32 noundef %214, ptr noundef %0, i32 noundef %.092105, i32 noundef 2, i32 noundef 0) #6
+  %215 = call ptr @proto_tree_add_item(ptr noundef %210, i32 noundef %214, ptr noundef %0, i32 noundef %.092105, i32 noundef 2, i32 noundef 0)
   %216 = load i32, ptr @hf_drda_param_codepoint, align 4
-  %217 = call ptr @proto_tree_add_item(ptr noundef %210, i32 noundef %216, ptr noundef %0, i32 noundef %207, i32 noundef 2, i32 noundef 0) #6
+  %217 = call ptr @proto_tree_add_item(ptr noundef %210, i32 noundef %216, ptr noundef %0, i32 noundef %207, i32 noundef 2, i32 noundef 0)
   %218 = load ptr, ptr @drda_opcode_table, align 8
   %219 = add i32 %.092105, 4
   %220 = add i32 %.0, -4
-  %221 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %219, i32 noundef %220) #6
-  %222 = call i32 @dissector_try_uint_new(ptr noundef %218, i32 noundef %212, ptr noundef %221, ptr noundef %1, ptr noundef %210, i32 noundef 0, ptr noundef nonnull %.0.i103) #6
+  %221 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %219, i32 noundef %220)
+  %222 = call i32 @dissector_try_uint_with_data(ptr noundef %218, i32 noundef %212, ptr noundef %221, ptr noundef %1, ptr noundef %210, i1 noundef zeroext false, ptr noundef %.0.i103)
   %.not99 = icmp eq i32 %222, 0
   br i1 %.not99, label %223, label %228
 
 223:                                              ; preds = %206
   %224 = load i32, ptr @hf_drda_param_data, align 4
-  %225 = call ptr @proto_tree_add_item(ptr noundef %210, i32 noundef %224, ptr noundef %0, i32 noundef %219, i32 noundef %220, i32 noundef 2) #6
+  %225 = call ptr @proto_tree_add_item(ptr noundef %210, i32 noundef %224, ptr noundef %0, i32 noundef %219, i32 noundef %220, i32 noundef 2)
   %226 = load i32, ptr @hf_drda_param_data_ebcdic, align 4
-  %227 = call ptr @proto_tree_add_item(ptr noundef %210, i32 noundef %226, ptr noundef %0, i32 noundef %219, i32 noundef %220, i32 noundef 96) #6
+  %227 = call ptr @proto_tree_add_item(ptr noundef %210, i32 noundef %226, ptr noundef %0, i32 noundef %219, i32 noundef %220, i32 noundef 96)
   br label %228
 
 228:                                              ; preds = %206, %223, %.lr.ph
   %229 = add i32 %.0, %.092105
-  %230 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %229) #6
+  %230 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %229)
   %231 = icmp sgt i32 %230, 1
-  br i1 %231, label %.lr.ph, label %.loopexit, !llvm.loop !13
+  br i1 %231, label %.lr.ph, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %228, %.preheader, %drda_get_pdu_info.exit
   %232 = call fastcc ptr @drda_get_conv_info(ptr noundef %1)
@@ -3848,7 +3897,7 @@ drda_get_pdu_info.exit:                           ; preds = %drda_packet_from_se
   %238 = load ptr, ptr %237, align 8
   %239 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %240 = load i32, ptr %239, align 4
-  %241 = call ptr @wmem_tree_lookup32_le(ptr noundef %238, i32 noundef %240) #6
+  %241 = call ptr @wmem_tree_lookup32_le(ptr noundef %238, i32 noundef %240)
   %242 = ptrtoint ptr %241 to i64
   %243 = trunc i64 %242 to i32
   %244 = load i32, ptr %.0.i103, align 4
@@ -3860,7 +3909,7 @@ drda_get_pdu_info.exit:                           ; preds = %drda_packet_from_se
   %247 = load i32, ptr %239, align 4
   %248 = zext i32 %244 to i64
   %249 = inttoptr i64 %248 to ptr
-  call void @wmem_tree_insert32(ptr noundef %246, i32 noundef %247, ptr noundef %249) #6
+  call void @wmem_tree_insert32(ptr noundef %246, i32 noundef %247, ptr noundef %249)
   br label %250
 
 250:                                              ; preds = %245, %234
@@ -3868,7 +3917,7 @@ drda_get_pdu_info.exit:                           ; preds = %drda_packet_from_se
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 8
   %253 = load ptr, ptr %252, align 8
   %254 = load i32, ptr %239, align 4
-  %255 = call ptr @wmem_tree_lookup32_le(ptr noundef %253, i32 noundef %254) #6
+  %255 = call ptr @wmem_tree_lookup32_le(ptr noundef %253, i32 noundef %254)
   %256 = ptrtoint ptr %255 to i64
   %257 = trunc i64 %256 to i32
   %258 = load i32, ptr %.0.i103, align 4
@@ -3880,7 +3929,7 @@ drda_get_pdu_info.exit:                           ; preds = %drda_packet_from_se
   %261 = load i32, ptr %239, align 4
   %262 = zext i32 %258 to i64
   %263 = inttoptr i64 %262 to ptr
-  call void @wmem_tree_insert32(ptr noundef %260, i32 noundef %261, ptr noundef %263) #6
+  call void @wmem_tree_insert32(ptr noundef %260, i32 noundef %261, ptr noundef %263)
   br label %drda_update_flow_encoding.exit
 
 264:                                              ; preds = %.loopexit
@@ -3893,7 +3942,7 @@ drda_get_pdu_info.exit:                           ; preds = %drda_packet_from_se
   %268 = load ptr, ptr %267, align 8
   %269 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %270 = load i32, ptr %269, align 4
-  %271 = call ptr @wmem_tree_lookup32_le(ptr noundef %268, i32 noundef %270) #6
+  %271 = call ptr @wmem_tree_lookup32_le(ptr noundef %268, i32 noundef %270)
   %.not.i104 = icmp eq ptr %271, null
   br i1 %.not.i104, label %289, label %272
 
@@ -3921,8 +3970,8 @@ drda_get_pdu_info.exit:                           ; preds = %drda_packet_from_se
   br i1 %288, label %drda_update_flow_encoding.exit, label %289
 
 289:                                              ; preds = %283, %277, %272, %266
-  %290 = call ptr @wmem_file_scope() #6
-  %291 = call noalias ptr @wmem_alloc(ptr noundef %290, i64 noundef 12) #6
+  %290 = call ptr @wmem_file_scope()
+  %291 = call noalias dereferenceable_or_null(12) ptr @wmem_alloc(ptr noundef %290, i64 noundef 12) #11
   %292 = getelementptr inbounds nuw i8, ptr %.0.i103, i64 12
   %293 = load i32, ptr %292, align 4
   %294 = getelementptr inbounds nuw i8, ptr %291, i64 8
@@ -3936,64 +3985,85 @@ drda_get_pdu_info.exit:                           ; preds = %drda_packet_from_se
   store i32 %299, ptr %291, align 4
   %300 = load ptr, ptr %267, align 8
   %301 = load i32, ptr %269, align 4
-  call void @wmem_tree_insert32(ptr noundef %300, i32 noundef %301, ptr noundef nonnull %291) #6
+  call void @wmem_tree_insert32(ptr noundef %300, i32 noundef %301, ptr noundef %291)
   br label %drda_update_flow_encoding.exit
 
 drda_update_flow_encoding.exit:                   ; preds = %.loopexit, %289, %283, %250, %259
-  %302 = call i32 @tvb_captured_length(ptr noundef %0) #6
+  %302 = call i32 @tvb_captured_length(ptr noundef %0)
   br label %303
 
 303:                                              ; preds = %drda_update_flow_encoding.exit, %21
   %.091 = phi i32 [ 2, %21 ], [ %302, %drda_update_flow_encoding.exit ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
   ret i32 %.091
 }
 
-declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
 
-declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @col_append_sep_str(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_sep_str(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @col_set_fence(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_fence(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @dissector_try_uint_new(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissector_try_uint_with_data(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
-declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc ptr @drda_get_conv_info(ptr noundef %0) unnamed_addr #0 {
-  %2 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %0) #6
+  %2 = tail call ptr @find_or_create_conversation(ptr noundef %0)
   %3 = load i32, ptr @proto_drda, align 4
-  %4 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %2, i32 noundef %3) #6
+  %4 = tail call ptr @conversation_get_proto_data(ptr noundef %2, i32 noundef %3)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %30
 
 6:                                                ; preds = %1
-  %7 = tail call ptr @wmem_file_scope() #6
-  %8 = tail call noalias ptr @wmem_alloc0(ptr noundef %7, i64 noundef 48) #6
-  %9 = tail call ptr @wmem_file_scope() #6
-  %10 = tail call noalias ptr @wmem_alloc(ptr noundef %9, i64 noundef 16) #6
-  %11 = tail call noalias ptr @wmem_tree_new(ptr noundef %9) #6
+  %7 = tail call ptr @wmem_file_scope()
+  %8 = tail call noalias dereferenceable_or_null(48) ptr @wmem_alloc0(ptr noundef %7, i64 noundef 48) #11
+  %9 = tail call ptr @wmem_file_scope()
+  %10 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %9, i64 noundef 16) #11
+  %11 = tail call noalias ptr @wmem_tree_new(ptr noundef %9)
   store ptr %11, ptr %10, align 8
-  %12 = tail call noalias ptr @wmem_tree_new(ptr noundef %9) #6
+  %12 = tail call noalias ptr @wmem_tree_new(ptr noundef %9)
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %12, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -4001,24 +4071,24 @@ define internal fastcc ptr @drda_get_conv_info(ptr noundef %0) unnamed_addr #0 {
   %16 = load i32, ptr @drda_default_sqlam, align 4
   %17 = zext i32 %16 to i64
   %18 = inttoptr i64 %17 to ptr
-  tail call void @wmem_tree_insert32(ptr noundef %12, i32 noundef %15, ptr noundef %18) #6
+  tail call void @wmem_tree_insert32(ptr noundef %12, i32 noundef %15, ptr noundef %18)
   store ptr %10, ptr %8, align 8
-  %19 = tail call ptr @wmem_file_scope() #6
-  %20 = tail call noalias ptr @wmem_alloc(ptr noundef %19, i64 noundef 16) #6
-  %21 = tail call noalias ptr @wmem_tree_new(ptr noundef %19) #6
+  %19 = tail call ptr @wmem_file_scope()
+  %20 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %19, i64 noundef 16) #11
+  %21 = tail call noalias ptr @wmem_tree_new(ptr noundef %19)
   store ptr %21, ptr %20, align 8
-  %22 = tail call noalias ptr @wmem_tree_new(ptr noundef %19) #6
+  %22 = tail call noalias ptr @wmem_tree_new(ptr noundef %19)
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %22, ptr %23, align 8
   %24 = load i32, ptr %14, align 4
   %25 = load i32, ptr @drda_default_sqlam, align 4
   %26 = zext i32 %25 to i64
   %27 = inttoptr i64 %26 to ptr
-  tail call void @wmem_tree_insert32(ptr noundef %22, i32 noundef %24, ptr noundef %27) #6
+  tail call void @wmem_tree_insert32(ptr noundef %22, i32 noundef %24, ptr noundef %27)
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %20, ptr %28, align 8
   %29 = load i32, ptr @proto_drda, align 4
-  tail call void @conversation_add_proto_data(ptr noundef nonnull %2, i32 noundef %29, ptr noundef nonnull %8) #6
+  tail call void @conversation_add_proto_data(ptr noundef %2, i32 noundef %29, ptr noundef %8)
   br label %30
 
 30:                                               ; preds = %6, %1
@@ -4026,13 +4096,15 @@ define internal fastcc ptr @drda_get_conv_info(ptr noundef %0) unnamed_addr #0 {
   ret ptr %.0
 }
 
-declare ptr @wmem_tree_lookup32_le(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_tree_lookup32_le(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @wmem_tree_insert32(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @wmem_tree_insert32(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @drda_set_server(ptr noundef writeonly captures(none) initializes((16, 48)) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
-  %5 = tail call ptr @wmem_file_scope() #6
+  %5 = tail call ptr @wmem_file_scope()
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %1, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -4046,7 +4118,7 @@ define internal fastcc void @drda_set_server(ptr noundef writeonly captures(none
 
 13:                                               ; preds = %4
   %14 = sext i32 %9 to i64
-  %15 = tail call noalias ptr @wmem_memdup(ptr noundef %5, ptr noundef %11, i64 noundef %14) #6
+  %15 = tail call ptr @wmem_memdup(ptr noundef %5, ptr noundef %11, i64 noundef %14) #10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %15, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4063,58 +4135,82 @@ copy_address_wmem.exit:                           ; preds = %4, %13
   ret void
 }
 
-declare ptr @wmem_file_scope() local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_file_scope() local_unnamed_addr #2
 
-declare noalias ptr @wmem_memdup(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid allocsize(2)
+declare ptr @wmem_memdup(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid allocsize(1)
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #4
 
-declare i32 @mibenum_charset_to_encoding(i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @mibenum_charset_to_encoding(i32 noundef) local_unnamed_addr #2
 
-declare void @p_set_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @p_set_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare nonnull ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr #2
 
-declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid allocsize(1)
+declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #4
 
-declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare noalias ptr @wmem_tree_new(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @wmem_tree_new(ptr noundef) local_unnamed_addr #2
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @conversation_set_dissector(ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @conversation_set_dissector(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_item_ret_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item_ret_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
+; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
-declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare i32 @tvb_find_guint8(ptr noundef, i32 noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_find_uint8(ptr noundef, i32 noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #2
 
-declare void @proto_item_set_end(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_set_end(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_int(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_int(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_item_ret_int(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item_ret_int(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc noundef i32 @dissect_drda_sqludtgrp(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -4124,12 +4220,13 @@ define internal fastcc noundef i32 @dissect_drda_sqludtgrp(ptr noundef %0, ptr n
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #8
   %12 = load i32, ptr @hf_drda_sqludtgrp, align 4
-  %13 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %12, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #6
+  %13 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %12, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %14 = load i32, ptr @ett_drda_sqludtgrp, align 4
-  %15 = tail call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %14) #6
+  %15 = tail call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %14)
   %16 = load i32, ptr @hf_drda_null_ind, align 4
-  %17 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %15, i32 noundef %16, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %11) #6
+  %17 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %15, i32 noundef %16, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %11)
   %18 = load i32, ptr %11, align 4
   %sext.mask = and i32 %18, 128
   %19 = icmp eq i32 %sext.mask, 0
@@ -4156,142 +4253,147 @@ switch.lookup:                                    ; preds = %23
 
 dissect_fdoca_integer.exit:                       ; preds = %23, %switch.lookup
   %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ -2147483648, %23 ]
-  %28 = call ptr @proto_tree_add_item_ret_int(ptr noundef %15, i32 noundef %24, ptr noundef %0, i32 noundef 1, i32 noundef 4, i32 noundef %.0.i, ptr noundef null) #6
+  %28 = call ptr @proto_tree_add_item_ret_int(ptr noundef %15, i32 noundef %24, ptr noundef %0, i32 noundef 1, i32 noundef 4, i32 noundef %.0.i, ptr noundef null)
   %29 = load i32, ptr @hf_drda_rdbnam, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #8
   %30 = load i32, ptr @hf_drda_param_length, align 4
-  %31 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %15, i32 noundef %30, ptr noundef %0, i32 noundef 5, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %10) #6
+  %31 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %15, i32 noundef %30, ptr noundef %0, i32 noundef 5, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %10)
   %32 = load i32, ptr %10, align 4
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %34 = load i32, ptr %33, align 4
-  %35 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %29, ptr noundef %0, i32 noundef 7, i32 noundef %32, i32 noundef %34) #6
+  %35 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %29, ptr noundef %0, i32 noundef 7, i32 noundef %32, i32 noundef %34)
   %36 = load i32, ptr %10, align 4
   %37 = add i32 %36, 7
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #8
   %38 = load i32, ptr @hf_drda_sqludtschema, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #8
   %39 = load i32, ptr @hf_drda_param_length, align 4
-  %40 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %15, i32 noundef %39, ptr noundef %0, i32 noundef %37, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %9) #6
+  %40 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %15, i32 noundef %39, ptr noundef %0, i32 noundef %37, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %9)
   %41 = add i32 %36, 9
   %42 = load i32, ptr %9, align 4
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %44 = load i32, ptr %43, align 4
-  %45 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %38, ptr noundef %0, i32 noundef %41, i32 noundef %42, i32 noundef %44) #6
+  %45 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %38, ptr noundef %0, i32 noundef %41, i32 noundef %42, i32 noundef %44)
   %46 = load i32, ptr %9, align 4
   %47 = add i32 %46, %41
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #8
   %48 = load i32, ptr @hf_drda_sqludtschema, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
   %49 = load i32, ptr @hf_drda_param_length, align 4
-  %50 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %15, i32 noundef %49, ptr noundef %0, i32 noundef %47, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %8) #6
+  %50 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %15, i32 noundef %49, ptr noundef %0, i32 noundef %47, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %8)
   %51 = add i32 %47, 2
   %52 = load i32, ptr %8, align 4
   %53 = load i32, ptr %33, align 4
-  %54 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %48, ptr noundef %0, i32 noundef %51, i32 noundef %52, i32 noundef %53) #6
+  %54 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %48, ptr noundef %0, i32 noundef %51, i32 noundef %52, i32 noundef %53)
   %55 = load i32, ptr %8, align 4
   %56 = add i32 %55, %51
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
   br label %57
 
 57:                                               ; preds = %dissect_fdoca_integer.exit, %20
   %.1 = phi i32 [ %56, %dissect_fdoca_integer.exit ], [ 1, %20 ]
   %58 = load i32, ptr @hf_drda_sqludtname, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
   %59 = load i32, ptr @hf_drda_param_length, align 4
-  %60 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %15, i32 noundef %59, ptr noundef %0, i32 noundef %.1, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %7) #6
+  %60 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %15, i32 noundef %59, ptr noundef %0, i32 noundef %.1, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %7)
   %61 = add i32 %.1, 2
   %62 = load i32, ptr %7, align 4
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %64 = load i32, ptr %63, align 4
-  %65 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %58, ptr noundef %0, i32 noundef %61, i32 noundef %62, i32 noundef %64) #6
+  %65 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %58, ptr noundef %0, i32 noundef %61, i32 noundef %62, i32 noundef %64)
   %66 = load i32, ptr %7, align 4
   %67 = add i32 %66, %61
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
   %68 = load i32, ptr @hf_drda_sqludtname, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
   %69 = load i32, ptr @hf_drda_param_length, align 4
-  %70 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %15, i32 noundef %69, ptr noundef %0, i32 noundef %67, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %6) #6
+  %70 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %15, i32 noundef %69, ptr noundef %0, i32 noundef %67, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %6)
   %71 = add i32 %67, 2
   %72 = load i32, ptr %6, align 4
   %73 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %74 = load i32, ptr %73, align 4
-  %75 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %68, ptr noundef %0, i32 noundef %71, i32 noundef %72, i32 noundef %74) #6
+  %75 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %68, ptr noundef %0, i32 noundef %71, i32 noundef %72, i32 noundef %74)
   %76 = load i32, ptr %6, align 4
   %77 = add i32 %76, %71
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
   %78 = load i32, ptr %2, align 4
   %79 = icmp ugt i32 %78, 9
   br i1 %79, label %80, label %99
 
 80:                                               ; preds = %57
   %81 = load i32, ptr @hf_drda_sqludtmodule, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
   %82 = load i32, ptr @hf_drda_param_length, align 4
-  %83 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %15, i32 noundef %82, ptr noundef %0, i32 noundef %77, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5) #6
+  %83 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %15, i32 noundef %82, ptr noundef %0, i32 noundef %77, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5)
   %84 = add i32 %77, 2
   %85 = load i32, ptr %5, align 4
   %86 = load i32, ptr %63, align 4
-  %87 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %81, ptr noundef %0, i32 noundef %84, i32 noundef %85, i32 noundef %86) #6
+  %87 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %81, ptr noundef %0, i32 noundef %84, i32 noundef %85, i32 noundef %86)
   %88 = load i32, ptr %5, align 4
   %89 = add i32 %88, %84
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
   %90 = load i32, ptr @hf_drda_sqludtmodule, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
   %91 = load i32, ptr @hf_drda_param_length, align 4
-  %92 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %15, i32 noundef %91, ptr noundef %0, i32 noundef %89, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %4) #6
+  %92 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %15, i32 noundef %91, ptr noundef %0, i32 noundef %89, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %4)
   %93 = add i32 %89, 2
   %94 = load i32, ptr %4, align 4
   %95 = load i32, ptr %73, align 4
-  %96 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %90, ptr noundef %0, i32 noundef %93, i32 noundef %94, i32 noundef %95) #6
+  %96 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %90, ptr noundef %0, i32 noundef %93, i32 noundef %94, i32 noundef %95)
   %97 = load i32, ptr %4, align 4
   %98 = add i32 %97, %93
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
   br label %99
 
 99:                                               ; preds = %57, %80, %3
   %.0 = phi i32 [ %98, %80 ], [ %77, %57 ], [ 1, %3 ]
-  call void @proto_item_set_end(ptr noundef %13, ptr noundef %0, i32 noundef %.0) #6
+  call void @proto_item_set_end(ptr noundef %13, ptr noundef %0, i32 noundef %.0)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #8
   ret i32 %.0
 }
 
-declare ptr @proto_tree_add_item_ret_int64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item_ret_int64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #3
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind willreturn memory(read) }
+attributes #10 = { allocsize(2) }
+attributes #11 = { allocsize(1) }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nounwind }
-attributes #7 = { nounwind willreturn memory(read) }
-
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}

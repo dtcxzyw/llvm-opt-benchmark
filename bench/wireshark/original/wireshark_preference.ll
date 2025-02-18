@@ -33,17 +33,17 @@ module asm ".previous"
 %class.QString = type { %struct.QArrayDataPointer }
 %struct.QArrayDataPointer = type { ptr, ptr, i64 }
 %class.QModelIndex = type { i32, i32, i64, ptr }
-%class.QByteArrayView = type { i64, ptr }
 %struct.QArrayData = type { %class.QBasicAtomicInteger, %class.QFlags.4, i64 }
 %class.QBasicAtomicInteger = type { %"struct.std::atomic" }
 %"struct.std::atomic" = type { %"struct.std::__atomic_base" }
 %"struct.std::__atomic_base" = type { i32 }
 %class.QFlags.4 = type { i32 }
 %struct.enum_val_t = type { ptr, ptr, i32 }
-%class.PrefsItem = type <{ %class.ModelHelperTreeItem, ptr, ptr, %class.QString, i8, [7 x i8] }>
+%class.PrefsItem = type <{ %class.ModelHelperTreeItem, ptr, ptr, %class.QString, %class.QString, i8, [7 x i8] }>
 %class.ModelHelperTreeItem = type { ptr, ptr, %class.QList }
 %class.QList = type { %struct.QArrayDataPointer.5 }
 %struct.QArrayDataPointer.5 = type { ptr, ptr, i64 }
+%class.QByteArrayView = type { i64, ptr }
 %class.QMetaType = type { ptr }
 %class.anon = type { i8 }
 %class.anon.6 = type { i8 }
@@ -66,68 +66,38 @@ module asm ".previous"
 %"struct.std::pair.27" = type { ptr, ptr }
 %class.QFlag = type { i32 }
 %class.UatDialog = type { %class.GeometryStateDialog, ptr, ptr, ptr, ptr, ptr, ptr }
-%class.GeometryStateDialog = type { %class.QDialog, %class.QString }
+%class.GeometryStateDialog = type { %class.QDialog, %class.QString, ptr }
 %class.QDialog = type { %class.QWidget }
 %class.QWidget = type { %class.QObject, %class.QPaintDevice.base, ptr }
 %class.QPaintDevice.base = type <{ ptr, i16 }>
 
 $_ZN30BoolPreferencePREF_BOOLFactoryC2Ev = comdat any
 
-$_ZN30BoolPreferencePREF_BOOLFactoryD2Ev = comdat any
-
 $_ZN34StringPreferencePREF_STRINGFactoryC2Ev = comdat any
-
-$_ZN34StringPreferencePREF_STRINGFactoryD2Ev = comdat any
 
 $_ZN34StringPreferencePREF_CUSTOMFactoryC2Ev = comdat any
 
-$_ZN34StringPreferencePREF_CUSTOMFactoryD2Ev = comdat any
-
 $_ZN37StringPreferencePREF_DISSECTORFactoryC2Ev = comdat any
-
-$_ZN37StringPreferencePREF_DISSECTORFactoryD2Ev = comdat any
 
 $_ZN38PasswordPreferencePREF_PASSWORDFactoryC2Ev = comdat any
 
-$_ZN38PasswordPreferencePREF_PASSWORDFactoryD2Ev = comdat any
-
 $_ZN30UIntPreferencePREF_UINTFactoryC2Ev = comdat any
-
-$_ZN30UIntPreferencePREF_UINTFactoryD2Ev = comdat any
 
 $_ZN30EnumPreferencePREF_ENUMFactoryC2Ev = comdat any
 
-$_ZN30EnumPreferencePREF_ENUMFactoryD2Ev = comdat any
-
 $_ZN32RangePreferencePREF_RANGEFactoryC2Ev = comdat any
-
-$_ZN32RangePreferencePREF_RANGEFactoryD2Ev = comdat any
 
 $_ZN42RangePreferencePREF_DECODE_AS_RANGEFactoryC2Ev = comdat any
 
-$_ZN42RangePreferencePREF_DECODE_AS_RANGEFactoryD2Ev = comdat any
-
 $_ZN32ColorPreferencePREF_COLORFactoryC2Ev = comdat any
-
-$_ZN32ColorPreferencePREF_COLORFactoryD2Ev = comdat any
 
 $_ZN43SaveFilePreferencePREF_SAVE_FILENAMEFactoryC2Ev = comdat any
 
-$_ZN43SaveFilePreferencePREF_SAVE_FILENAMEFactoryD2Ev = comdat any
-
 $_ZN43OpenFilePreferencePREF_OPEN_FILENAMEFactoryC2Ev = comdat any
-
-$_ZN43OpenFilePreferencePREF_OPEN_FILENAMEFactoryD2Ev = comdat any
 
 $_ZN36DirNamePreferencePREF_DIRNAMEFactoryC2Ev = comdat any
 
-$_ZN36DirNamePreferencePREF_DIRNAMEFactoryD2Ev = comdat any
-
 $_ZN28UatPreferencePREF_UATFactoryC2Ev = comdat any
-
-$_ZN28UatPreferencePREF_UATFactoryD2Ev = comdat any
-
-$_ZN19WiresharkPreferenceD2Ev = comdat any
 
 $_ZN19WiresharkPreferenceD0Ev = comdat any
 
@@ -139,43 +109,21 @@ $_ZN30BoolPreferencePREF_BOOLFactory6createEP7QObject = comdat any
 
 $_ZN14BoolPreferenceC2EP7QObject = comdat any
 
-$_ZN14BoolPreferenceD2Ev = comdat any
-
 $_ZN14BoolPreferenceD0Ev = comdat any
 
 $_ZN14BoolPreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex = comdat any
 
 $_ZNK11QModelIndex5modelEv = comdat any
 
-$_ZN7QStringC2EPKc = comdat any
+$_ZN7QStringC2EO17QArrayDataPointerIDsE = comdat any
 
 $_ZN7QStringD2Ev = comdat any
 
-$_ZN14QByteArrayViewC2IPKcTnNSt9enable_ifIXsr9QtPrivate28IsCompatibleByteArrayPointerIT_EE5valueEbE4typeELb1EEERKS4_ = comdat any
-
-$_ZN14QByteArrayView19lengthHelperPointerIcEExPKT_ = comdat any
-
-$_ZN14QByteArrayViewC2IcTnNSt9enable_ifIXsr9QtPrivate20IsCompatibleByteTypeIT_EE5valueEbE4typeELb1EEEPKS2_x = comdat any
-
-$__clang_call_terminate = comdat any
-
-$_ZNSt11char_traitsIcE6lengthEPKc = comdat any
-
-$_ZN14QByteArrayView10castHelperEPKc = comdat any
-
-$_ZN17QArrayDataPointerIDsEC2Ev = comdat any
-
-$_Z5qSwapIDsEvR17QArrayDataPointerIT_ES3_ = comdat any
-
-$_ZN17QArrayDataPointerIDsE4swapERS0_ = comdat any
-
-$_Z11qt_ptr_swapI15QTypedArrayDataIDsEEvRPT_S4_ = comdat any
-
-$_Z11qt_ptr_swapIDsEvRPT_S2_ = comdat any
-
-$_ZSt4swapIxENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_ = comdat any
-
 $_ZN17QArrayDataPointerIDsED2Ev = comdat any
+
+$_ZN17QArrayDataPointerIDsEC2EP15QTypedArrayDataIDsEPDsx = comdat any
+
+$_ZN17QArrayDataPointerIDsEC2EOS0_ = comdat any
 
 $_ZN17QArrayDataPointerIDsE5derefEv = comdat any
 
@@ -199,8 +147,6 @@ $_ZN34StringPreferencePREF_STRINGFactory6createEP7QObject = comdat any
 
 $_ZN16StringPreferenceC2EP7QObject = comdat any
 
-$_ZN16StringPreferenceD2Ev = comdat any
-
 $_ZN16StringPreferenceD0Ev = comdat any
 
 $_ZN16StringPreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex = comdat any
@@ -223,8 +169,6 @@ $_ZN38PasswordPreferencePREF_PASSWORDFactory6createEP7QObject = comdat any
 
 $_ZN18PasswordPreferenceC2EP7QObject = comdat any
 
-$_ZN18PasswordPreferenceD2Ev = comdat any
-
 $_ZN18PasswordPreferenceD0Ev = comdat any
 
 $_ZN18PasswordPreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex = comdat any
@@ -235,8 +179,6 @@ $_ZN30UIntPreferencePREF_UINTFactory6createEP7QObject = comdat any
 
 $_ZN14UIntPreferenceC2EP7QObject = comdat any
 
-$_ZN14UIntPreferenceD2Ev = comdat any
-
 $_ZN14UIntPreferenceD0Ev = comdat any
 
 $_ZN30EnumPreferencePREF_ENUMFactoryD0Ev = comdat any
@@ -244,8 +186,6 @@ $_ZN30EnumPreferencePREF_ENUMFactoryD0Ev = comdat any
 $_ZN30EnumPreferencePREF_ENUMFactory6createEP7QObject = comdat any
 
 $_ZN14EnumPreferenceC2EP7QObject = comdat any
-
-$_ZN14EnumPreferenceD2Ev = comdat any
 
 $_ZN14EnumPreferenceD0Ev = comdat any
 
@@ -260,6 +200,8 @@ $_ZN14VariantPointerI9PrefsItemE5asPtrE8QVariant = comdat any
 $_ZNK9PrefsItem7getPrefEv = comdat any
 
 $_ZN9QComboBox7addItemERK7QStringRK8QVariant = comdat any
+
+$_ZN7QStringC2EPKc = comdat any
 
 $_ZNK8QVariant5valueIPvEET_v = comdat any
 
@@ -297,7 +239,11 @@ $_ZNK19QBasicAtomicIntegerIiE11loadRelaxedEv = comdat any
 
 $_ZN10QAtomicOpsIiE11loadRelaxedIiEET_RKSt6atomicIS2_E = comdat any
 
+$_ZNKSt13__atomic_baseIiE4loadESt12memory_order = comdat any
+
 $_ZStanSt12memory_orderSt23__memory_order_modifier = comdat any
+
+$__clang_call_terminate = comdat any
 
 $_ZNK8QVariant7Private7storageEv = comdat any
 
@@ -305,13 +251,33 @@ $_ZN8QVariant13PrivateShared4dataEv = comdat any
 
 $_ZN9QComboBox10insertItemEiRK7QStringRK8QVariant = comdat any
 
+$_ZN14QByteArrayViewC2IPKcTnNSt9enable_ifIXsr9QtPrivate28IsCompatibleByteArrayPointerIT_EE5valueEbE4typeELb1EEERKS4_ = comdat any
+
+$_ZN14QByteArrayView19lengthHelperPointerIcEExPKT_ = comdat any
+
+$_ZN14QByteArrayViewC2IcTnNSt9enable_ifIXsr9QtPrivate20IsCompatibleByteTypeIT_EE5valueEbE4typeELb1EEEPKS2_x = comdat any
+
+$_ZNSt11char_traitsIcE6lengthEPKc = comdat any
+
+$_ZN14QByteArrayView10castHelperEPKc = comdat any
+
+$_ZN17QArrayDataPointerIDsEC2Ev = comdat any
+
+$_Z5qSwapIDsEvR17QArrayDataPointerIT_ES3_ = comdat any
+
+$_ZN17QArrayDataPointerIDsE4swapERS0_ = comdat any
+
+$_Z11qt_ptr_swapI15QTypedArrayDataIDsEEvRPT_S4_ = comdat any
+
+$_Z11qt_ptr_swapIDsEvRPT_S2_ = comdat any
+
+$_ZSt4swapIxENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_ = comdat any
+
 $_ZN32RangePreferencePREF_RANGEFactoryD0Ev = comdat any
 
 $_ZN32RangePreferencePREF_RANGEFactory6createEP7QObject = comdat any
 
 $_ZN15RangePreferenceC2EP7QObject = comdat any
-
-$_ZN15RangePreferenceD2Ev = comdat any
 
 $_ZN15RangePreferenceD0Ev = comdat any
 
@@ -330,8 +296,6 @@ $_ZN32ColorPreferencePREF_COLORFactoryD0Ev = comdat any
 $_ZN32ColorPreferencePREF_COLORFactory6createEP7QObject = comdat any
 
 $_ZN15ColorPreferenceC2EP7QObject = comdat any
-
-$_ZN15ColorPreferenceD2Ev = comdat any
 
 $_ZN15ColorPreferenceD0Ev = comdat any
 
@@ -354,8 +318,6 @@ $_ZN43SaveFilePreferencePREF_SAVE_FILENAMEFactoryD0Ev = comdat any
 $_ZN43SaveFilePreferencePREF_SAVE_FILENAMEFactory6createEP7QObject = comdat any
 
 $_ZN18SaveFilePreferenceC2EP7QObject = comdat any
-
-$_ZN18SaveFilePreferenceD2Ev = comdat any
 
 $_ZN18SaveFilePreferenceD0Ev = comdat any
 
@@ -527,8 +489,6 @@ $_ZN43OpenFilePreferencePREF_OPEN_FILENAMEFactory6createEP7QObject = comdat any
 
 $_ZN18OpenFilePreferenceC2EP7QObject = comdat any
 
-$_ZN18OpenFilePreferenceD2Ev = comdat any
-
 $_ZN18OpenFilePreferenceD0Ev = comdat any
 
 $_ZN18OpenFilePreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex = comdat any
@@ -538,8 +498,6 @@ $_ZN36DirNamePreferencePREF_DIRNAMEFactoryD0Ev = comdat any
 $_ZN36DirNamePreferencePREF_DIRNAMEFactory6createEP7QObject = comdat any
 
 $_ZN17DirNamePreferenceC2EP7QObject = comdat any
-
-$_ZN17DirNamePreferenceD2Ev = comdat any
 
 $_ZN17DirNamePreferenceD0Ev = comdat any
 
@@ -553,83 +511,81 @@ $_ZN28UatPreferencePREF_UATFactory6createEP7QObject = comdat any
 
 $_ZN13UatPreferenceC2EP7QObject = comdat any
 
-$_ZN13UatPreferenceD2Ev = comdat any
-
 $_ZN13UatPreferenceD0Ev = comdat any
 
 $_ZN13UatPreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex = comdat any
 
 $_ZTV30BoolPreferencePREF_BOOLFactory = comdat any
 
-$_ZTS30BoolPreferencePREF_BOOLFactory = comdat any
-
 $_ZTI30BoolPreferencePREF_BOOLFactory = comdat any
+
+$_ZTS30BoolPreferencePREF_BOOLFactory = comdat any
 
 $_ZTV14BoolPreference = comdat any
 
-$_ZTS14BoolPreference = comdat any
-
 $_ZTI14BoolPreference = comdat any
+
+$_ZTS14BoolPreference = comdat any
 
 $_ZTV34StringPreferencePREF_STRINGFactory = comdat any
 
-$_ZTS34StringPreferencePREF_STRINGFactory = comdat any
-
 $_ZTI34StringPreferencePREF_STRINGFactory = comdat any
+
+$_ZTS34StringPreferencePREF_STRINGFactory = comdat any
 
 $_ZTV16StringPreference = comdat any
 
-$_ZTS16StringPreference = comdat any
-
 $_ZTI16StringPreference = comdat any
+
+$_ZTS16StringPreference = comdat any
 
 $_ZTV34StringPreferencePREF_CUSTOMFactory = comdat any
 
-$_ZTS34StringPreferencePREF_CUSTOMFactory = comdat any
-
 $_ZTI34StringPreferencePREF_CUSTOMFactory = comdat any
+
+$_ZTS34StringPreferencePREF_CUSTOMFactory = comdat any
 
 $_ZTV37StringPreferencePREF_DISSECTORFactory = comdat any
 
-$_ZTS37StringPreferencePREF_DISSECTORFactory = comdat any
-
 $_ZTI37StringPreferencePREF_DISSECTORFactory = comdat any
+
+$_ZTS37StringPreferencePREF_DISSECTORFactory = comdat any
 
 $_ZTV38PasswordPreferencePREF_PASSWORDFactory = comdat any
 
-$_ZTS38PasswordPreferencePREF_PASSWORDFactory = comdat any
-
 $_ZTI38PasswordPreferencePREF_PASSWORDFactory = comdat any
+
+$_ZTS38PasswordPreferencePREF_PASSWORDFactory = comdat any
 
 $_ZTV18PasswordPreference = comdat any
 
-$_ZTS18PasswordPreference = comdat any
-
 $_ZTI18PasswordPreference = comdat any
+
+$_ZTS18PasswordPreference = comdat any
 
 $_ZTV30UIntPreferencePREF_UINTFactory = comdat any
 
-$_ZTS30UIntPreferencePREF_UINTFactory = comdat any
-
 $_ZTI30UIntPreferencePREF_UINTFactory = comdat any
+
+$_ZTS30UIntPreferencePREF_UINTFactory = comdat any
 
 $_ZTV14UIntPreference = comdat any
 
-$_ZTS14UIntPreference = comdat any
-
 $_ZTI14UIntPreference = comdat any
+
+$_ZTS14UIntPreference = comdat any
 
 $_ZTV30EnumPreferencePREF_ENUMFactory = comdat any
 
-$_ZTS30EnumPreferencePREF_ENUMFactory = comdat any
-
 $_ZTI30EnumPreferencePREF_ENUMFactory = comdat any
+
+$_ZTS30EnumPreferencePREF_ENUMFactory = comdat any
 
 $_ZTV14EnumPreference = comdat any
 
-$_ZTS14EnumPreference = comdat any
-
 $_ZTI14EnumPreference = comdat any
+
+$_ZTS14EnumPreference = comdat any
 
 $_ZN12QMetaTypeId2IPvE11nameAsArrayE = comdat any
 
@@ -637,83 +593,83 @@ $_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE = comdat any
 
 $_ZTV32RangePreferencePREF_RANGEFactory = comdat any
 
-$_ZTS32RangePreferencePREF_RANGEFactory = comdat any
-
 $_ZTI32RangePreferencePREF_RANGEFactory = comdat any
+
+$_ZTS32RangePreferencePREF_RANGEFactory = comdat any
 
 $_ZTV15RangePreference = comdat any
 
-$_ZTS15RangePreference = comdat any
-
 $_ZTI15RangePreference = comdat any
+
+$_ZTS15RangePreference = comdat any
 
 $_ZTV42RangePreferencePREF_DECODE_AS_RANGEFactory = comdat any
 
-$_ZTS42RangePreferencePREF_DECODE_AS_RANGEFactory = comdat any
-
 $_ZTI42RangePreferencePREF_DECODE_AS_RANGEFactory = comdat any
+
+$_ZTS42RangePreferencePREF_DECODE_AS_RANGEFactory = comdat any
 
 $_ZTV32ColorPreferencePREF_COLORFactory = comdat any
 
-$_ZTS32ColorPreferencePREF_COLORFactory = comdat any
-
 $_ZTI32ColorPreferencePREF_COLORFactory = comdat any
+
+$_ZTS32ColorPreferencePREF_COLORFactory = comdat any
 
 $_ZTV15ColorPreference = comdat any
 
-$_ZTS15ColorPreference = comdat any
-
 $_ZTI15ColorPreference = comdat any
+
+$_ZTS15ColorPreference = comdat any
 
 $_ZTV43SaveFilePreferencePREF_SAVE_FILENAMEFactory = comdat any
 
-$_ZTS43SaveFilePreferencePREF_SAVE_FILENAMEFactory = comdat any
-
 $_ZTI43SaveFilePreferencePREF_SAVE_FILENAMEFactory = comdat any
+
+$_ZTS43SaveFilePreferencePREF_SAVE_FILENAMEFactory = comdat any
 
 $_ZTV18SaveFilePreference = comdat any
 
-$_ZTS18SaveFilePreference = comdat any
-
 $_ZTI18SaveFilePreference = comdat any
+
+$_ZTS18SaveFilePreference = comdat any
 
 $_ZTV43OpenFilePreferencePREF_OPEN_FILENAMEFactory = comdat any
 
-$_ZTS43OpenFilePreferencePREF_OPEN_FILENAMEFactory = comdat any
-
 $_ZTI43OpenFilePreferencePREF_OPEN_FILENAMEFactory = comdat any
+
+$_ZTS43OpenFilePreferencePREF_OPEN_FILENAMEFactory = comdat any
 
 $_ZTV18OpenFilePreference = comdat any
 
-$_ZTS18OpenFilePreference = comdat any
-
 $_ZTI18OpenFilePreference = comdat any
+
+$_ZTS18OpenFilePreference = comdat any
 
 $_ZTV36DirNamePreferencePREF_DIRNAMEFactory = comdat any
 
-$_ZTS36DirNamePreferencePREF_DIRNAMEFactory = comdat any
-
 $_ZTI36DirNamePreferencePREF_DIRNAMEFactory = comdat any
+
+$_ZTS36DirNamePreferencePREF_DIRNAMEFactory = comdat any
 
 $_ZTV17DirNamePreference = comdat any
 
-$_ZTS17DirNamePreference = comdat any
-
 $_ZTI17DirNamePreference = comdat any
+
+$_ZTS17DirNamePreference = comdat any
 
 $_ZTV28UatPreferencePREF_UATFactory = comdat any
 
-$_ZTS28UatPreferencePREF_UATFactory = comdat any
-
 $_ZTI28UatPreferencePREF_UATFactory = comdat any
+
+$_ZTS28UatPreferencePREF_UATFactory = comdat any
 
 $_ZTV13UatPreference = comdat any
 
-$_ZTS13UatPreference = comdat any
-
 $_ZTI13UatPreference = comdat any
 
-@_ZTV19WiresharkPreference = unnamed_addr constant { [17 x ptr] } { [17 x ptr] [ptr null, ptr @_ZTI19WiresharkPreference, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN19WiresharkPreferenceD2Ev, ptr @_ZN19WiresharkPreferenceD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN19WiresharkPreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex, ptr @_ZN19WiresharkPreference7setDataEP7QWidgetRK11QModelIndex, ptr @_ZN19WiresharkPreference12setModelDataEP7QWidgetP18QAbstractItemModelRK11QModelIndex] }, align 8
+$_ZTS13UatPreference = comdat any
+
+@_ZTV19WiresharkPreference = unnamed_addr constant { [17 x ptr] } { [17 x ptr] [ptr null, ptr @_ZTI19WiresharkPreference, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN7QObjectD2Ev, ptr @_ZN19WiresharkPreferenceD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN19WiresharkPreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex, ptr @_ZN19WiresharkPreference7setDataEP7QWidgetRK11QModelIndex, ptr @_ZN19WiresharkPreference12setModelDataEP7QWidgetP18QAbstractItemModelRK11QModelIndex] }, align 8
 @_ZL37global_BoolPreferencePREF_BOOLFactory = internal global %class.BoolPreferencePREF_BOOLFactory zeroinitializer, align 8
 @__dso_handle = external hidden global i8
 @_ZL41global_StringPreferencePREF_STRINGFactory = internal global %class.StringPreferencePREF_STRINGFactory zeroinitializer, align 8
@@ -729,116 +685,120 @@ $_ZTI13UatPreference = comdat any
 @_ZL50global_OpenFilePreferencePREF_OPEN_FILENAMEFactory = internal global %class.OpenFilePreferencePREF_OPEN_FILENAMEFactory zeroinitializer, align 8
 @_ZL43global_DirNamePreferencePREF_DIRNAMEFactory = internal global %class.DirNamePreferencePREF_DIRNAMEFactory zeroinitializer, align 8
 @_ZL35global_UatPreferencePREF_UATFactory = internal global %class.UatPreferencePREF_UATFactory zeroinitializer, align 8
+@_ZTI19WiresharkPreference = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS19WiresharkPreference, ptr @_ZTI7QObject }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTS19WiresharkPreference = constant [22 x i8] c"19WiresharkPreference\00", align 1
 @_ZTI7QObject = external constant ptr
-@_ZTI19WiresharkPreference = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS19WiresharkPreference, ptr @_ZTI7QObject }, align 8
-@_ZTV30BoolPreferencePREF_BOOLFactory = linkonce_odr unnamed_addr constant { [15 x ptr] } { [15 x ptr] [ptr null, ptr @_ZTI30BoolPreferencePREF_BOOLFactory, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN30BoolPreferencePREF_BOOLFactoryD2Ev, ptr @_ZN30BoolPreferencePREF_BOOLFactoryD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN30BoolPreferencePREF_BOOLFactory6createEP7QObject] }, comdat, align 8
+@_ZTV30BoolPreferencePREF_BOOLFactory = linkonce_odr unnamed_addr constant { [15 x ptr] } { [15 x ptr] [ptr null, ptr @_ZTI30BoolPreferencePREF_BOOLFactory, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN17PreferenceFactoryD2Ev, ptr @_ZN30BoolPreferencePREF_BOOLFactoryD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN30BoolPreferencePREF_BOOLFactory6createEP7QObject] }, comdat, align 8
+@_ZTI30BoolPreferencePREF_BOOLFactory = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS30BoolPreferencePREF_BOOLFactory, ptr @_ZTI17PreferenceFactory }, comdat, align 8
 @_ZTS30BoolPreferencePREF_BOOLFactory = linkonce_odr constant [33 x i8] c"30BoolPreferencePREF_BOOLFactory\00", comdat, align 1
 @_ZTI17PreferenceFactory = external constant ptr
-@_ZTI30BoolPreferencePREF_BOOLFactory = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS30BoolPreferencePREF_BOOLFactory, ptr @_ZTI17PreferenceFactory }, comdat, align 8
-@_ZTV17PreferenceFactory = external unnamed_addr constant { [15 x ptr] }, align 8
-@_ZTV14BoolPreference = linkonce_odr unnamed_addr constant { [17 x ptr] } { [17 x ptr] [ptr null, ptr @_ZTI14BoolPreference, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN14BoolPreferenceD2Ev, ptr @_ZN14BoolPreferenceD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN14BoolPreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex, ptr @_ZN19WiresharkPreference7setDataEP7QWidgetRK11QModelIndex, ptr @_ZN19WiresharkPreference12setModelDataEP7QWidgetP18QAbstractItemModelRK11QModelIndex] }, comdat, align 8
-@_ZTS14BoolPreference = linkonce_odr constant [17 x i8] c"14BoolPreference\00", comdat, align 1
+@_ZTV17PreferenceFactory = available_externally unnamed_addr constant { [15 x ptr] } { [15 x ptr] [ptr null, ptr @_ZTI17PreferenceFactory, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN17PreferenceFactoryD1Ev, ptr @_ZN17PreferenceFactoryD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @__cxa_pure_virtual] }, align 8
+@_ZTV14BoolPreference = linkonce_odr unnamed_addr constant { [17 x ptr] } { [17 x ptr] [ptr null, ptr @_ZTI14BoolPreference, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN7QObjectD2Ev, ptr @_ZN14BoolPreferenceD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN14BoolPreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex, ptr @_ZN19WiresharkPreference7setDataEP7QWidgetRK11QModelIndex, ptr @_ZN19WiresharkPreference12setModelDataEP7QWidgetP18QAbstractItemModelRK11QModelIndex] }, comdat, align 8
 @_ZTI14BoolPreference = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS14BoolPreference, ptr @_ZTI19WiresharkPreference }, comdat, align 8
-@.str = private unnamed_addr constant [5 x i8] c"BOOL\00", align 1
-@_ZTV34StringPreferencePREF_STRINGFactory = linkonce_odr unnamed_addr constant { [15 x ptr] } { [15 x ptr] [ptr null, ptr @_ZTI34StringPreferencePREF_STRINGFactory, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN34StringPreferencePREF_STRINGFactoryD2Ev, ptr @_ZN34StringPreferencePREF_STRINGFactoryD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN34StringPreferencePREF_STRINGFactory6createEP7QObject] }, comdat, align 8
-@_ZTS34StringPreferencePREF_STRINGFactory = linkonce_odr constant [37 x i8] c"34StringPreferencePREF_STRINGFactory\00", comdat, align 1
+@_ZTS14BoolPreference = linkonce_odr constant [17 x i8] c"14BoolPreference\00", comdat, align 1
+@.str = private unnamed_addr constant [5 x i16] [i16 66, i16 79, i16 79, i16 76, i16 0], align 2
+@_ZTV34StringPreferencePREF_STRINGFactory = linkonce_odr unnamed_addr constant { [15 x ptr] } { [15 x ptr] [ptr null, ptr @_ZTI34StringPreferencePREF_STRINGFactory, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN17PreferenceFactoryD2Ev, ptr @_ZN34StringPreferencePREF_STRINGFactoryD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN34StringPreferencePREF_STRINGFactory6createEP7QObject] }, comdat, align 8
 @_ZTI34StringPreferencePREF_STRINGFactory = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS34StringPreferencePREF_STRINGFactory, ptr @_ZTI17PreferenceFactory }, comdat, align 8
-@_ZTV16StringPreference = linkonce_odr unnamed_addr constant { [17 x ptr] } { [17 x ptr] [ptr null, ptr @_ZTI16StringPreference, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN16StringPreferenceD2Ev, ptr @_ZN16StringPreferenceD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN16StringPreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex, ptr @_ZN16StringPreference7setDataEP7QWidgetRK11QModelIndex, ptr @_ZN16StringPreference12setModelDataEP7QWidgetP18QAbstractItemModelRK11QModelIndex] }, comdat, align 8
-@_ZTS16StringPreference = linkonce_odr constant [19 x i8] c"16StringPreference\00", comdat, align 1
+@_ZTS34StringPreferencePREF_STRINGFactory = linkonce_odr constant [37 x i8] c"34StringPreferencePREF_STRINGFactory\00", comdat, align 1
+@_ZTV16StringPreference = linkonce_odr unnamed_addr constant { [17 x ptr] } { [17 x ptr] [ptr null, ptr @_ZTI16StringPreference, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN7QObjectD2Ev, ptr @_ZN16StringPreferenceD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN16StringPreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex, ptr @_ZN16StringPreference7setDataEP7QWidgetRK11QModelIndex, ptr @_ZN16StringPreference12setModelDataEP7QWidgetP18QAbstractItemModelRK11QModelIndex] }, comdat, align 8
 @_ZTI16StringPreference = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS16StringPreference, ptr @_ZTI19WiresharkPreference }, comdat, align 8
-@_ZTV34StringPreferencePREF_CUSTOMFactory = linkonce_odr unnamed_addr constant { [15 x ptr] } { [15 x ptr] [ptr null, ptr @_ZTI34StringPreferencePREF_CUSTOMFactory, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN34StringPreferencePREF_CUSTOMFactoryD2Ev, ptr @_ZN34StringPreferencePREF_CUSTOMFactoryD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN34StringPreferencePREF_CUSTOMFactory6createEP7QObject] }, comdat, align 8
-@_ZTS34StringPreferencePREF_CUSTOMFactory = linkonce_odr constant [37 x i8] c"34StringPreferencePREF_CUSTOMFactory\00", comdat, align 1
+@_ZTS16StringPreference = linkonce_odr constant [19 x i8] c"16StringPreference\00", comdat, align 1
+@_ZTV34StringPreferencePREF_CUSTOMFactory = linkonce_odr unnamed_addr constant { [15 x ptr] } { [15 x ptr] [ptr null, ptr @_ZTI34StringPreferencePREF_CUSTOMFactory, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN17PreferenceFactoryD2Ev, ptr @_ZN34StringPreferencePREF_CUSTOMFactoryD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN34StringPreferencePREF_CUSTOMFactory6createEP7QObject] }, comdat, align 8
 @_ZTI34StringPreferencePREF_CUSTOMFactory = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS34StringPreferencePREF_CUSTOMFactory, ptr @_ZTI17PreferenceFactory }, comdat, align 8
-@_ZTV37StringPreferencePREF_DISSECTORFactory = linkonce_odr unnamed_addr constant { [15 x ptr] } { [15 x ptr] [ptr null, ptr @_ZTI37StringPreferencePREF_DISSECTORFactory, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN37StringPreferencePREF_DISSECTORFactoryD2Ev, ptr @_ZN37StringPreferencePREF_DISSECTORFactoryD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN37StringPreferencePREF_DISSECTORFactory6createEP7QObject] }, comdat, align 8
-@_ZTS37StringPreferencePREF_DISSECTORFactory = linkonce_odr constant [40 x i8] c"37StringPreferencePREF_DISSECTORFactory\00", comdat, align 1
+@_ZTS34StringPreferencePREF_CUSTOMFactory = linkonce_odr constant [37 x i8] c"34StringPreferencePREF_CUSTOMFactory\00", comdat, align 1
+@_ZTV37StringPreferencePREF_DISSECTORFactory = linkonce_odr unnamed_addr constant { [15 x ptr] } { [15 x ptr] [ptr null, ptr @_ZTI37StringPreferencePREF_DISSECTORFactory, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN17PreferenceFactoryD2Ev, ptr @_ZN37StringPreferencePREF_DISSECTORFactoryD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN37StringPreferencePREF_DISSECTORFactory6createEP7QObject] }, comdat, align 8
 @_ZTI37StringPreferencePREF_DISSECTORFactory = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS37StringPreferencePREF_DISSECTORFactory, ptr @_ZTI17PreferenceFactory }, comdat, align 8
-@_ZTV38PasswordPreferencePREF_PASSWORDFactory = linkonce_odr unnamed_addr constant { [15 x ptr] } { [15 x ptr] [ptr null, ptr @_ZTI38PasswordPreferencePREF_PASSWORDFactory, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN38PasswordPreferencePREF_PASSWORDFactoryD2Ev, ptr @_ZN38PasswordPreferencePREF_PASSWORDFactoryD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN38PasswordPreferencePREF_PASSWORDFactory6createEP7QObject] }, comdat, align 8
-@_ZTS38PasswordPreferencePREF_PASSWORDFactory = linkonce_odr constant [41 x i8] c"38PasswordPreferencePREF_PASSWORDFactory\00", comdat, align 1
+@_ZTS37StringPreferencePREF_DISSECTORFactory = linkonce_odr constant [40 x i8] c"37StringPreferencePREF_DISSECTORFactory\00", comdat, align 1
+@_ZTV38PasswordPreferencePREF_PASSWORDFactory = linkonce_odr unnamed_addr constant { [15 x ptr] } { [15 x ptr] [ptr null, ptr @_ZTI38PasswordPreferencePREF_PASSWORDFactory, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN17PreferenceFactoryD2Ev, ptr @_ZN38PasswordPreferencePREF_PASSWORDFactoryD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN38PasswordPreferencePREF_PASSWORDFactory6createEP7QObject] }, comdat, align 8
 @_ZTI38PasswordPreferencePREF_PASSWORDFactory = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS38PasswordPreferencePREF_PASSWORDFactory, ptr @_ZTI17PreferenceFactory }, comdat, align 8
-@_ZTV18PasswordPreference = linkonce_odr unnamed_addr constant { [17 x ptr] } { [17 x ptr] [ptr null, ptr @_ZTI18PasswordPreference, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN18PasswordPreferenceD2Ev, ptr @_ZN18PasswordPreferenceD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN18PasswordPreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex, ptr @_ZN16StringPreference7setDataEP7QWidgetRK11QModelIndex, ptr @_ZN16StringPreference12setModelDataEP7QWidgetP18QAbstractItemModelRK11QModelIndex] }, comdat, align 8
-@_ZTS18PasswordPreference = linkonce_odr constant [21 x i8] c"18PasswordPreference\00", comdat, align 1
+@_ZTS38PasswordPreferencePREF_PASSWORDFactory = linkonce_odr constant [41 x i8] c"38PasswordPreferencePREF_PASSWORDFactory\00", comdat, align 1
+@_ZTV18PasswordPreference = linkonce_odr unnamed_addr constant { [17 x ptr] } { [17 x ptr] [ptr null, ptr @_ZTI18PasswordPreference, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN7QObjectD2Ev, ptr @_ZN18PasswordPreferenceD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN18PasswordPreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex, ptr @_ZN16StringPreference7setDataEP7QWidgetRK11QModelIndex, ptr @_ZN16StringPreference12setModelDataEP7QWidgetP18QAbstractItemModelRK11QModelIndex] }, comdat, align 8
 @_ZTI18PasswordPreference = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS18PasswordPreference, ptr @_ZTI16StringPreference }, comdat, align 8
-@_ZTV30UIntPreferencePREF_UINTFactory = linkonce_odr unnamed_addr constant { [15 x ptr] } { [15 x ptr] [ptr null, ptr @_ZTI30UIntPreferencePREF_UINTFactory, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN30UIntPreferencePREF_UINTFactoryD2Ev, ptr @_ZN30UIntPreferencePREF_UINTFactoryD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN30UIntPreferencePREF_UINTFactory6createEP7QObject] }, comdat, align 8
-@_ZTS30UIntPreferencePREF_UINTFactory = linkonce_odr constant [33 x i8] c"30UIntPreferencePREF_UINTFactory\00", comdat, align 1
+@_ZTS18PasswordPreference = linkonce_odr constant [21 x i8] c"18PasswordPreference\00", comdat, align 1
+@_ZTV30UIntPreferencePREF_UINTFactory = linkonce_odr unnamed_addr constant { [15 x ptr] } { [15 x ptr] [ptr null, ptr @_ZTI30UIntPreferencePREF_UINTFactory, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN17PreferenceFactoryD2Ev, ptr @_ZN30UIntPreferencePREF_UINTFactoryD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN30UIntPreferencePREF_UINTFactory6createEP7QObject] }, comdat, align 8
 @_ZTI30UIntPreferencePREF_UINTFactory = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS30UIntPreferencePREF_UINTFactory, ptr @_ZTI17PreferenceFactory }, comdat, align 8
-@_ZTV14UIntPreference = linkonce_odr unnamed_addr constant { [17 x ptr] } { [17 x ptr] [ptr null, ptr @_ZTI14UIntPreference, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN14UIntPreferenceD2Ev, ptr @_ZN14UIntPreferenceD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN16StringPreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex, ptr @_ZN16StringPreference7setDataEP7QWidgetRK11QModelIndex, ptr @_ZN16StringPreference12setModelDataEP7QWidgetP18QAbstractItemModelRK11QModelIndex] }, comdat, align 8
-@_ZTS14UIntPreference = linkonce_odr constant [17 x i8] c"14UIntPreference\00", comdat, align 1
+@_ZTS30UIntPreferencePREF_UINTFactory = linkonce_odr constant [33 x i8] c"30UIntPreferencePREF_UINTFactory\00", comdat, align 1
+@_ZTV14UIntPreference = linkonce_odr unnamed_addr constant { [17 x ptr] } { [17 x ptr] [ptr null, ptr @_ZTI14UIntPreference, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN7QObjectD2Ev, ptr @_ZN14UIntPreferenceD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN16StringPreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex, ptr @_ZN16StringPreference7setDataEP7QWidgetRK11QModelIndex, ptr @_ZN16StringPreference12setModelDataEP7QWidgetP18QAbstractItemModelRK11QModelIndex] }, comdat, align 8
 @_ZTI14UIntPreference = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS14UIntPreference, ptr @_ZTI16StringPreference }, comdat, align 8
-@_ZTV30EnumPreferencePREF_ENUMFactory = linkonce_odr unnamed_addr constant { [15 x ptr] } { [15 x ptr] [ptr null, ptr @_ZTI30EnumPreferencePREF_ENUMFactory, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN30EnumPreferencePREF_ENUMFactoryD2Ev, ptr @_ZN30EnumPreferencePREF_ENUMFactoryD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN30EnumPreferencePREF_ENUMFactory6createEP7QObject] }, comdat, align 8
-@_ZTS30EnumPreferencePREF_ENUMFactory = linkonce_odr constant [33 x i8] c"30EnumPreferencePREF_ENUMFactory\00", comdat, align 1
+@_ZTS14UIntPreference = linkonce_odr constant [17 x i8] c"14UIntPreference\00", comdat, align 1
+@_ZTV30EnumPreferencePREF_ENUMFactory = linkonce_odr unnamed_addr constant { [15 x ptr] } { [15 x ptr] [ptr null, ptr @_ZTI30EnumPreferencePREF_ENUMFactory, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN17PreferenceFactoryD2Ev, ptr @_ZN30EnumPreferencePREF_ENUMFactoryD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN30EnumPreferencePREF_ENUMFactory6createEP7QObject] }, comdat, align 8
 @_ZTI30EnumPreferencePREF_ENUMFactory = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS30EnumPreferencePREF_ENUMFactory, ptr @_ZTI17PreferenceFactory }, comdat, align 8
-@_ZTV14EnumPreference = linkonce_odr unnamed_addr constant { [17 x ptr] } { [17 x ptr] [ptr null, ptr @_ZTI14EnumPreference, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN14EnumPreferenceD2Ev, ptr @_ZN14EnumPreferenceD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN14EnumPreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex, ptr @_ZN14EnumPreference7setDataEP7QWidgetRK11QModelIndex, ptr @_ZN14EnumPreference12setModelDataEP7QWidgetP18QAbstractItemModelRK11QModelIndex] }, comdat, align 8
-@_ZTS14EnumPreference = linkonce_odr constant [17 x i8] c"14EnumPreference\00", comdat, align 1
+@_ZTS30EnumPreferencePREF_ENUMFactory = linkonce_odr constant [33 x i8] c"30EnumPreferencePREF_ENUMFactory\00", comdat, align 1
+@_ZTV14EnumPreference = linkonce_odr unnamed_addr constant { [17 x ptr] } { [17 x ptr] [ptr null, ptr @_ZTI14EnumPreference, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN7QObjectD2Ev, ptr @_ZN14EnumPreferenceD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN14EnumPreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex, ptr @_ZN14EnumPreference7setDataEP7QWidgetRK11QModelIndex, ptr @_ZN14EnumPreference12setModelDataEP7QWidgetP18QAbstractItemModelRK11QModelIndex] }, comdat, align 8
 @_ZTI14EnumPreference = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS14EnumPreference, ptr @_ZTI19WiresharkPreference }, comdat, align 8
+@_ZTS14EnumPreference = linkonce_odr constant [17 x i8] c"14EnumPreference\00", comdat, align 1
 @_ZN12QMetaTypeId2IPvE11nameAsArrayE = linkonce_odr constant %"struct.std::array" { [6 x i8] c"void*\00" }, comdat, align 1
 @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE = linkonce_odr global { i16, i16, i32, i32, { { i32 } }, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { i16 0, i16 8, i32 8, i32 2052, { { i32 } } { { i32 } { i32 31 } }, ptr null, ptr @_ZN12QMetaTypeId2IPvE11nameAsArrayE, ptr @_ZZN9QtPrivate16QMetaTypeForTypeIPvE13getDefaultCtrEvENUlPKNS_18QMetaTypeInterfaceES1_E_8__invokeES5_S1_, ptr @_ZZN9QtPrivate16QMetaTypeForTypeIPvE10getCopyCtrEvENUlPKNS_18QMetaTypeInterfaceES1_PKvE_8__invokeES5_S1_S7_, ptr @_ZZN9QtPrivate16QMetaTypeForTypeIPvE10getMoveCtrEvENUlPKNS_18QMetaTypeInterfaceES1_S1_E_8__invokeES5_S1_S1_, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, comdat, align 8
-@_ZTV32RangePreferencePREF_RANGEFactory = linkonce_odr unnamed_addr constant { [15 x ptr] } { [15 x ptr] [ptr null, ptr @_ZTI32RangePreferencePREF_RANGEFactory, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN32RangePreferencePREF_RANGEFactoryD2Ev, ptr @_ZN32RangePreferencePREF_RANGEFactoryD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN32RangePreferencePREF_RANGEFactory6createEP7QObject] }, comdat, align 8
-@_ZTS32RangePreferencePREF_RANGEFactory = linkonce_odr constant [35 x i8] c"32RangePreferencePREF_RANGEFactory\00", comdat, align 1
+@.str.15 = private unnamed_addr constant [88 x i8] c"generated/usr/lib/gcc/x86_64-linux-gnu/12/../../../../include/c++/12/bits/atomic_base.h\00", align 1
+@__PRETTY_FUNCTION__._ZNKSt13__atomic_baseIiE4loadESt12memory_order = private unnamed_addr constant [74 x i8] c"__int_type std::__atomic_base<int>::load(memory_order) const [_ITp = int]\00", align 1
+@.str.16 = private unnamed_addr constant [28 x i8] c"__b != memory_order_release\00", align 1
+@.str.17 = private unnamed_addr constant [28 x i8] c"__b != memory_order_acq_rel\00", align 1
+@_ZTV32RangePreferencePREF_RANGEFactory = linkonce_odr unnamed_addr constant { [15 x ptr] } { [15 x ptr] [ptr null, ptr @_ZTI32RangePreferencePREF_RANGEFactory, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN17PreferenceFactoryD2Ev, ptr @_ZN32RangePreferencePREF_RANGEFactoryD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN32RangePreferencePREF_RANGEFactory6createEP7QObject] }, comdat, align 8
 @_ZTI32RangePreferencePREF_RANGEFactory = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS32RangePreferencePREF_RANGEFactory, ptr @_ZTI17PreferenceFactory }, comdat, align 8
-@_ZTV15RangePreference = linkonce_odr unnamed_addr constant { [17 x ptr] } { [17 x ptr] [ptr null, ptr @_ZTI15RangePreference, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN15RangePreferenceD2Ev, ptr @_ZN15RangePreferenceD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN15RangePreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex, ptr @_ZN15RangePreference7setDataEP7QWidgetRK11QModelIndex, ptr @_ZN15RangePreference12setModelDataEP7QWidgetP18QAbstractItemModelRK11QModelIndex] }, comdat, align 8
-@_ZTS15RangePreference = linkonce_odr constant [18 x i8] c"15RangePreference\00", comdat, align 1
+@_ZTS32RangePreferencePREF_RANGEFactory = linkonce_odr constant [35 x i8] c"32RangePreferencePREF_RANGEFactory\00", comdat, align 1
+@_ZTV15RangePreference = linkonce_odr unnamed_addr constant { [17 x ptr] } { [17 x ptr] [ptr null, ptr @_ZTI15RangePreference, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN7QObjectD2Ev, ptr @_ZN15RangePreferenceD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN15RangePreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex, ptr @_ZN15RangePreference7setDataEP7QWidgetRK11QModelIndex, ptr @_ZN15RangePreference12setModelDataEP7QWidgetP18QAbstractItemModelRK11QModelIndex] }, comdat, align 8
 @_ZTI15RangePreference = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS15RangePreference, ptr @_ZTI19WiresharkPreference }, comdat, align 8
-@_ZTV42RangePreferencePREF_DECODE_AS_RANGEFactory = linkonce_odr unnamed_addr constant { [15 x ptr] } { [15 x ptr] [ptr null, ptr @_ZTI42RangePreferencePREF_DECODE_AS_RANGEFactory, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN42RangePreferencePREF_DECODE_AS_RANGEFactoryD2Ev, ptr @_ZN42RangePreferencePREF_DECODE_AS_RANGEFactoryD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN42RangePreferencePREF_DECODE_AS_RANGEFactory6createEP7QObject] }, comdat, align 8
-@_ZTS42RangePreferencePREF_DECODE_AS_RANGEFactory = linkonce_odr constant [45 x i8] c"42RangePreferencePREF_DECODE_AS_RANGEFactory\00", comdat, align 1
+@_ZTS15RangePreference = linkonce_odr constant [18 x i8] c"15RangePreference\00", comdat, align 1
+@_ZTV42RangePreferencePREF_DECODE_AS_RANGEFactory = linkonce_odr unnamed_addr constant { [15 x ptr] } { [15 x ptr] [ptr null, ptr @_ZTI42RangePreferencePREF_DECODE_AS_RANGEFactory, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN17PreferenceFactoryD2Ev, ptr @_ZN42RangePreferencePREF_DECODE_AS_RANGEFactoryD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN42RangePreferencePREF_DECODE_AS_RANGEFactory6createEP7QObject] }, comdat, align 8
 @_ZTI42RangePreferencePREF_DECODE_AS_RANGEFactory = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS42RangePreferencePREF_DECODE_AS_RANGEFactory, ptr @_ZTI17PreferenceFactory }, comdat, align 8
-@_ZTV32ColorPreferencePREF_COLORFactory = linkonce_odr unnamed_addr constant { [15 x ptr] } { [15 x ptr] [ptr null, ptr @_ZTI32ColorPreferencePREF_COLORFactory, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN32ColorPreferencePREF_COLORFactoryD2Ev, ptr @_ZN32ColorPreferencePREF_COLORFactoryD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN32ColorPreferencePREF_COLORFactory6createEP7QObject] }, comdat, align 8
-@_ZTS32ColorPreferencePREF_COLORFactory = linkonce_odr constant [35 x i8] c"32ColorPreferencePREF_COLORFactory\00", comdat, align 1
+@_ZTS42RangePreferencePREF_DECODE_AS_RANGEFactory = linkonce_odr constant [45 x i8] c"42RangePreferencePREF_DECODE_AS_RANGEFactory\00", comdat, align 1
+@_ZTV32ColorPreferencePREF_COLORFactory = linkonce_odr unnamed_addr constant { [15 x ptr] } { [15 x ptr] [ptr null, ptr @_ZTI32ColorPreferencePREF_COLORFactory, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN17PreferenceFactoryD2Ev, ptr @_ZN32ColorPreferencePREF_COLORFactoryD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN32ColorPreferencePREF_COLORFactory6createEP7QObject] }, comdat, align 8
 @_ZTI32ColorPreferencePREF_COLORFactory = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS32ColorPreferencePREF_COLORFactory, ptr @_ZTI17PreferenceFactory }, comdat, align 8
-@_ZTV15ColorPreference = linkonce_odr unnamed_addr constant { [17 x ptr] } { [17 x ptr] [ptr null, ptr @_ZTI15ColorPreference, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN15ColorPreferenceD2Ev, ptr @_ZN15ColorPreferenceD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN15ColorPreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex, ptr @_ZN15ColorPreference7setDataEP7QWidgetRK11QModelIndex, ptr @_ZN15ColorPreference12setModelDataEP7QWidgetP18QAbstractItemModelRK11QModelIndex] }, comdat, align 8
-@_ZTS15ColorPreference = linkonce_odr constant [18 x i8] c"15ColorPreference\00", comdat, align 1
+@_ZTS32ColorPreferencePREF_COLORFactory = linkonce_odr constant [35 x i8] c"32ColorPreferencePREF_COLORFactory\00", comdat, align 1
+@_ZTV15ColorPreference = linkonce_odr unnamed_addr constant { [17 x ptr] } { [17 x ptr] [ptr null, ptr @_ZTI15ColorPreference, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN7QObjectD2Ev, ptr @_ZN15ColorPreferenceD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN15ColorPreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex, ptr @_ZN15ColorPreference7setDataEP7QWidgetRK11QModelIndex, ptr @_ZN15ColorPreference12setModelDataEP7QWidgetP18QAbstractItemModelRK11QModelIndex] }, comdat, align 8
 @_ZTI15ColorPreference = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS15ColorPreference, ptr @_ZTI19WiresharkPreference }, comdat, align 8
-@.str.15 = private unnamed_addr constant [2 x i8] c"#\00", align 1
-@_ZTV43SaveFilePreferencePREF_SAVE_FILENAMEFactory = linkonce_odr unnamed_addr constant { [15 x ptr] } { [15 x ptr] [ptr null, ptr @_ZTI43SaveFilePreferencePREF_SAVE_FILENAMEFactory, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN43SaveFilePreferencePREF_SAVE_FILENAMEFactoryD2Ev, ptr @_ZN43SaveFilePreferencePREF_SAVE_FILENAMEFactoryD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN43SaveFilePreferencePREF_SAVE_FILENAMEFactory6createEP7QObject] }, comdat, align 8
-@_ZTS43SaveFilePreferencePREF_SAVE_FILENAMEFactory = linkonce_odr constant [46 x i8] c"43SaveFilePreferencePREF_SAVE_FILENAMEFactory\00", comdat, align 1
+@_ZTS15ColorPreference = linkonce_odr constant [18 x i8] c"15ColorPreference\00", comdat, align 1
+@.str.18 = private unnamed_addr constant [2 x i8] c"#\00", align 1
+@_ZTV43SaveFilePreferencePREF_SAVE_FILENAMEFactory = linkonce_odr unnamed_addr constant { [15 x ptr] } { [15 x ptr] [ptr null, ptr @_ZTI43SaveFilePreferencePREF_SAVE_FILENAMEFactory, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN17PreferenceFactoryD2Ev, ptr @_ZN43SaveFilePreferencePREF_SAVE_FILENAMEFactoryD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN43SaveFilePreferencePREF_SAVE_FILENAMEFactory6createEP7QObject] }, comdat, align 8
 @_ZTI43SaveFilePreferencePREF_SAVE_FILENAMEFactory = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS43SaveFilePreferencePREF_SAVE_FILENAMEFactory, ptr @_ZTI17PreferenceFactory }, comdat, align 8
-@_ZTV18SaveFilePreference = linkonce_odr unnamed_addr constant { [17 x ptr] } { [17 x ptr] [ptr null, ptr @_ZTI18SaveFilePreference, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN18SaveFilePreferenceD2Ev, ptr @_ZN18SaveFilePreferenceD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN18SaveFilePreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex, ptr @_ZN19WiresharkPreference7setDataEP7QWidgetRK11QModelIndex, ptr @_ZN19WiresharkPreference12setModelDataEP7QWidgetP18QAbstractItemModelRK11QModelIndex] }, comdat, align 8
-@_ZTS18SaveFilePreference = linkonce_odr constant [21 x i8] c"18SaveFilePreference\00", comdat, align 1
+@_ZTS43SaveFilePreferencePREF_SAVE_FILENAMEFactory = linkonce_odr constant [46 x i8] c"43SaveFilePreferencePREF_SAVE_FILENAMEFactory\00", comdat, align 1
+@_ZTV18SaveFilePreference = linkonce_odr unnamed_addr constant { [17 x ptr] } { [17 x ptr] [ptr null, ptr @_ZTI18SaveFilePreference, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN7QObjectD2Ev, ptr @_ZN18SaveFilePreferenceD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN18SaveFilePreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex, ptr @_ZN19WiresharkPreference7setDataEP7QWidgetRK11QModelIndex, ptr @_ZN19WiresharkPreference12setModelDataEP7QWidgetP18QAbstractItemModelRK11QModelIndex] }, comdat, align 8
 @_ZTI18SaveFilePreference = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS18SaveFilePreference, ptr @_ZTI19WiresharkPreference }, comdat, align 8
+@_ZTS18SaveFilePreference = linkonce_odr constant [21 x i8] c"18SaveFilePreference\00", comdat, align 1
 @mainApp = external global ptr, align 8
-@_ZTV43OpenFilePreferencePREF_OPEN_FILENAMEFactory = linkonce_odr unnamed_addr constant { [15 x ptr] } { [15 x ptr] [ptr null, ptr @_ZTI43OpenFilePreferencePREF_OPEN_FILENAMEFactory, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN43OpenFilePreferencePREF_OPEN_FILENAMEFactoryD2Ev, ptr @_ZN43OpenFilePreferencePREF_OPEN_FILENAMEFactoryD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN43OpenFilePreferencePREF_OPEN_FILENAMEFactory6createEP7QObject] }, comdat, align 8
-@_ZTS43OpenFilePreferencePREF_OPEN_FILENAMEFactory = linkonce_odr constant [46 x i8] c"43OpenFilePreferencePREF_OPEN_FILENAMEFactory\00", comdat, align 1
+@_ZTV43OpenFilePreferencePREF_OPEN_FILENAMEFactory = linkonce_odr unnamed_addr constant { [15 x ptr] } { [15 x ptr] [ptr null, ptr @_ZTI43OpenFilePreferencePREF_OPEN_FILENAMEFactory, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN17PreferenceFactoryD2Ev, ptr @_ZN43OpenFilePreferencePREF_OPEN_FILENAMEFactoryD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN43OpenFilePreferencePREF_OPEN_FILENAMEFactory6createEP7QObject] }, comdat, align 8
 @_ZTI43OpenFilePreferencePREF_OPEN_FILENAMEFactory = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS43OpenFilePreferencePREF_OPEN_FILENAMEFactory, ptr @_ZTI17PreferenceFactory }, comdat, align 8
-@_ZTV18OpenFilePreference = linkonce_odr unnamed_addr constant { [17 x ptr] } { [17 x ptr] [ptr null, ptr @_ZTI18OpenFilePreference, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN18OpenFilePreferenceD2Ev, ptr @_ZN18OpenFilePreferenceD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN18OpenFilePreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex, ptr @_ZN19WiresharkPreference7setDataEP7QWidgetRK11QModelIndex, ptr @_ZN19WiresharkPreference12setModelDataEP7QWidgetP18QAbstractItemModelRK11QModelIndex] }, comdat, align 8
-@_ZTS18OpenFilePreference = linkonce_odr constant [21 x i8] c"18OpenFilePreference\00", comdat, align 1
+@_ZTS43OpenFilePreferencePREF_OPEN_FILENAMEFactory = linkonce_odr constant [46 x i8] c"43OpenFilePreferencePREF_OPEN_FILENAMEFactory\00", comdat, align 1
+@_ZTV18OpenFilePreference = linkonce_odr unnamed_addr constant { [17 x ptr] } { [17 x ptr] [ptr null, ptr @_ZTI18OpenFilePreference, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN7QObjectD2Ev, ptr @_ZN18OpenFilePreferenceD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN18OpenFilePreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex, ptr @_ZN19WiresharkPreference7setDataEP7QWidgetRK11QModelIndex, ptr @_ZN19WiresharkPreference12setModelDataEP7QWidgetP18QAbstractItemModelRK11QModelIndex] }, comdat, align 8
 @_ZTI18OpenFilePreference = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS18OpenFilePreference, ptr @_ZTI19WiresharkPreference }, comdat, align 8
-@_ZTV36DirNamePreferencePREF_DIRNAMEFactory = linkonce_odr unnamed_addr constant { [15 x ptr] } { [15 x ptr] [ptr null, ptr @_ZTI36DirNamePreferencePREF_DIRNAMEFactory, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN36DirNamePreferencePREF_DIRNAMEFactoryD2Ev, ptr @_ZN36DirNamePreferencePREF_DIRNAMEFactoryD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN36DirNamePreferencePREF_DIRNAMEFactory6createEP7QObject] }, comdat, align 8
-@_ZTS36DirNamePreferencePREF_DIRNAMEFactory = linkonce_odr constant [39 x i8] c"36DirNamePreferencePREF_DIRNAMEFactory\00", comdat, align 1
+@_ZTS18OpenFilePreference = linkonce_odr constant [21 x i8] c"18OpenFilePreference\00", comdat, align 1
+@_ZTV36DirNamePreferencePREF_DIRNAMEFactory = linkonce_odr unnamed_addr constant { [15 x ptr] } { [15 x ptr] [ptr null, ptr @_ZTI36DirNamePreferencePREF_DIRNAMEFactory, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN17PreferenceFactoryD2Ev, ptr @_ZN36DirNamePreferencePREF_DIRNAMEFactoryD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN36DirNamePreferencePREF_DIRNAMEFactory6createEP7QObject] }, comdat, align 8
 @_ZTI36DirNamePreferencePREF_DIRNAMEFactory = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS36DirNamePreferencePREF_DIRNAMEFactory, ptr @_ZTI17PreferenceFactory }, comdat, align 8
-@_ZTV17DirNamePreference = linkonce_odr unnamed_addr constant { [17 x ptr] } { [17 x ptr] [ptr null, ptr @_ZTI17DirNamePreference, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN17DirNamePreferenceD2Ev, ptr @_ZN17DirNamePreferenceD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN17DirNamePreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex, ptr @_ZN19WiresharkPreference7setDataEP7QWidgetRK11QModelIndex, ptr @_ZN19WiresharkPreference12setModelDataEP7QWidgetP18QAbstractItemModelRK11QModelIndex] }, comdat, align 8
-@_ZTS17DirNamePreference = linkonce_odr constant [20 x i8] c"17DirNamePreference\00", comdat, align 1
+@_ZTS36DirNamePreferencePREF_DIRNAMEFactory = linkonce_odr constant [39 x i8] c"36DirNamePreferencePREF_DIRNAMEFactory\00", comdat, align 1
+@_ZTV17DirNamePreference = linkonce_odr unnamed_addr constant { [17 x ptr] } { [17 x ptr] [ptr null, ptr @_ZTI17DirNamePreference, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN7QObjectD2Ev, ptr @_ZN17DirNamePreferenceD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN17DirNamePreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex, ptr @_ZN19WiresharkPreference7setDataEP7QWidgetRK11QModelIndex, ptr @_ZN19WiresharkPreference12setModelDataEP7QWidgetP18QAbstractItemModelRK11QModelIndex] }, comdat, align 8
 @_ZTI17DirNamePreference = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS17DirNamePreference, ptr @_ZTI19WiresharkPreference }, comdat, align 8
-@_ZTV28UatPreferencePREF_UATFactory = linkonce_odr unnamed_addr constant { [15 x ptr] } { [15 x ptr] [ptr null, ptr @_ZTI28UatPreferencePREF_UATFactory, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN28UatPreferencePREF_UATFactoryD2Ev, ptr @_ZN28UatPreferencePREF_UATFactoryD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN28UatPreferencePREF_UATFactory6createEP7QObject] }, comdat, align 8
-@_ZTS28UatPreferencePREF_UATFactory = linkonce_odr constant [31 x i8] c"28UatPreferencePREF_UATFactory\00", comdat, align 1
+@_ZTS17DirNamePreference = linkonce_odr constant [20 x i8] c"17DirNamePreference\00", comdat, align 1
+@_ZTV28UatPreferencePREF_UATFactory = linkonce_odr unnamed_addr constant { [15 x ptr] } { [15 x ptr] [ptr null, ptr @_ZTI28UatPreferencePREF_UATFactory, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN17PreferenceFactoryD2Ev, ptr @_ZN28UatPreferencePREF_UATFactoryD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN28UatPreferencePREF_UATFactory6createEP7QObject] }, comdat, align 8
 @_ZTI28UatPreferencePREF_UATFactory = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS28UatPreferencePREF_UATFactory, ptr @_ZTI17PreferenceFactory }, comdat, align 8
-@_ZTV13UatPreference = linkonce_odr unnamed_addr constant { [17 x ptr] } { [17 x ptr] [ptr null, ptr @_ZTI13UatPreference, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN13UatPreferenceD2Ev, ptr @_ZN13UatPreferenceD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN13UatPreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex, ptr @_ZN19WiresharkPreference7setDataEP7QWidgetRK11QModelIndex, ptr @_ZN19WiresharkPreference12setModelDataEP7QWidgetP18QAbstractItemModelRK11QModelIndex] }, comdat, align 8
-@_ZTS13UatPreference = linkonce_odr constant [16 x i8] c"13UatPreference\00", comdat, align 1
+@_ZTS28UatPreferencePREF_UATFactory = linkonce_odr constant [31 x i8] c"28UatPreferencePREF_UATFactory\00", comdat, align 1
+@_ZTV13UatPreference = linkonce_odr unnamed_addr constant { [17 x ptr] } { [17 x ptr] [ptr null, ptr @_ZTI13UatPreference, ptr @_ZNK7QObject10metaObjectEv, ptr @_ZN7QObject11qt_metacastEPKc, ptr @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN7QObjectD2Ev, ptr @_ZN13UatPreferenceD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZN13UatPreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex, ptr @_ZN19WiresharkPreference7setDataEP7QWidgetRK11QModelIndex, ptr @_ZN19WiresharkPreference12setModelDataEP7QWidgetP18QAbstractItemModelRK11QModelIndex] }, comdat, align 8
 @_ZTI13UatPreference = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS13UatPreference, ptr @_ZTI19WiresharkPreference }, comdat, align 8
+@_ZTS13UatPreference = linkonce_odr constant [16 x i8] c"13UatPreference\00", comdat, align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_wireshark_preference.cpp, ptr null }]
 
 @_ZN19WiresharkPreferenceC1EP7QObject = unnamed_addr alias void (ptr, ptr), ptr @_ZN19WiresharkPreferenceC2EP7QObject
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN19WiresharkPreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define void @_ZN19WiresharkPreferenceC2EP7QObject(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
-  call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  %7 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTV19WiresharkPreference, i32 0, i32 0, i32 2
-  store ptr %7, ptr %5, align 8
-  %8 = getelementptr inbounds %class.WiresharkPreference, ptr %5, i32 0, i32 1
-  store ptr null, ptr %8, align 8
+  call void @_ZN7QObjectC2EPS_(ptr noundef align 8 dereferenceable_or_null(16) %5, ptr noundef %6)
+  store ptr getelementptr inbounds inrange(-16, 120) ({ [17 x ptr] }, ptr @_ZTV19WiresharkPreference, i32 0, i32 0, i32 2), ptr %5, align 8
+  %7 = getelementptr inbounds nuw %class.WiresharkPreference, ptr %5, i32 0, i32 1
+  store ptr null, ptr %7, align 8
   ret void
 }
 
-declare void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN7QObjectC2EPS_(ptr noundef align 8 dereferenceable_or_null(16), ptr noundef) unnamed_addr #1
 
-; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN19WiresharkPreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(208) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #2 align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define noundef ptr @_ZN19WiresharkPreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef %1, ptr noundef align 8 dereferenceable(208) %2, ptr noundef align 8 dereferenceable(24) %3) unnamed_addr #2 align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -850,8 +810,8 @@ define noundef ptr @_ZN19WiresharkPreference6editorEP7QWidgetRK20QStyleOptionVie
   ret ptr null
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN19WiresharkPreference7setDataEP7QWidgetRK11QModelIndex(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #2 align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define void @_ZN19WiresharkPreference7setDataEP7QWidgetRK11QModelIndex(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef %1, ptr noundef align 8 dereferenceable(24) %2) unnamed_addr #2 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -861,8 +821,8 @@ define void @_ZN19WiresharkPreference7setDataEP7QWidgetRK11QModelIndex(ptr nound
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN19WiresharkPreference12setModelDataEP7QWidgetP18QAbstractItemModelRK11QModelIndex(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #2 align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define void @_ZN19WiresharkPreference12setModelDataEP7QWidgetP18QAbstractItemModelRK11QModelIndex(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef %1, ptr noundef %2, ptr noundef align 8 dereferenceable(24) %3) unnamed_addr #2 align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -874,859 +834,724 @@ define void @_ZN19WiresharkPreference12setModelDataEP7QWidgetP18QAbstractItemMod
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN19WiresharkPreference12setPrefsItemEP9PrefsItem(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) #2 align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define void @_ZN19WiresharkPreference12setPrefsItemEP9PrefsItem(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef %1) #2 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %class.WiresharkPreference, ptr %5, i32 0, i32 1
+  %7 = getelementptr inbounds nuw %class.WiresharkPreference, ptr %5, i32 0, i32 1
   store ptr %6, ptr %7, align 8
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZNK19WiresharkPreference9prefsItemEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #2 align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define noundef ptr @_ZNK19WiresharkPreference9prefsItemEv(ptr noundef align 8 dereferenceable_or_null(24) %0) #2 align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %class.WiresharkPreference, ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds nuw %class.WiresharkPreference, ptr %3, i32 0, i32 1
   %5 = load ptr, ptr %4, align 8
   ret ptr %5
 }
 
-; Function Attrs: uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @__cxx_global_var_init() #3 section ".text.startup" {
-  call void @_ZN30BoolPreferencePREF_BOOLFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) @_ZL37global_BoolPreferencePREF_BOOLFactory)
-  %1 = call i32 @__cxa_atexit(ptr @_ZN30BoolPreferencePREF_BOOLFactoryD2Ev, ptr @_ZL37global_BoolPreferencePREF_BOOLFactory, ptr @__dso_handle) #4
+  call void @_ZN30BoolPreferencePREF_BOOLFactoryC2Ev(ptr noundef align 8 dereferenceable_or_null(16) @_ZL37global_BoolPreferencePREF_BOOLFactory)
+  %1 = call i32 @__cxa_atexit(ptr @_ZN17PreferenceFactoryD2Ev, ptr @_ZL37global_BoolPreferencePREF_BOOLFactory, ptr @__dso_handle) #4
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN30BoolPreferencePREF_BOOLFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN30BoolPreferencePREF_BOOLFactoryC2Ev(ptr noundef align 8 dereferenceable_or_null(16) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  call void @_ZN17PreferenceFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  %6 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV30BoolPreferencePREF_BOOLFactory, i32 0, i32 0, i32 2
-  store ptr %6, ptr %5, align 8
-  %7 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
-          to label %8 unwind label %10
+  call void @_ZN17PreferenceFactoryC2Ev(ptr noundef align 8 dereferenceable_or_null(16) %5)
+  store ptr getelementptr inbounds inrange(-16, 104) ({ [15 x ptr] }, ptr @_ZTV30BoolPreferencePREF_BOOLFactory, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
+          to label %7 unwind label %9
 
-8:                                                ; preds = %1
-  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 2, ptr noundef %5)
-          to label %9 unwind label %10
+7:                                                ; preds = %1
+  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef align 8 dereferenceable_or_null(16) %6, i32 noundef 2, ptr noundef %5)
+          to label %8 unwind label %9
 
-9:                                                ; preds = %8
+8:                                                ; preds = %7
   ret void
 
-10:                                               ; preds = %8, %1
-  %11 = landingpad { ptr, i32 }
+9:                                                ; preds = %7, %1
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %3, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %4, align 4
-  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #4
-  br label %14
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %3, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %4, align 4
+  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef align 8 dereferenceable_or_null(16) %5) #4
+  br label %13
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN30BoolPreferencePREF_BOOLFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #4
-  ret void
+13:                                               ; preds = %9
+  %14 = load ptr, ptr %3, align 8
+  %15 = load i32, ptr %4, align 4
+  %16 = insertvalue { ptr, i32 } poison, ptr %14, 0
+  %17 = insertvalue { ptr, i32 } %16, i32 %15, 1
+  resume { ptr, i32 } %17
 }
 
 ; Function Attrs: nounwind
 declare i32 @__cxa_atexit(ptr, ptr, ptr) #4
 
-; Function Attrs: uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @__cxx_global_var_init.1() #3 section ".text.startup" {
-  call void @_ZN34StringPreferencePREF_STRINGFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) @_ZL41global_StringPreferencePREF_STRINGFactory)
-  %1 = call i32 @__cxa_atexit(ptr @_ZN34StringPreferencePREF_STRINGFactoryD2Ev, ptr @_ZL41global_StringPreferencePREF_STRINGFactory, ptr @__dso_handle) #4
+  call void @_ZN34StringPreferencePREF_STRINGFactoryC2Ev(ptr noundef align 8 dereferenceable_or_null(16) @_ZL41global_StringPreferencePREF_STRINGFactory)
+  %1 = call i32 @__cxa_atexit(ptr @_ZN17PreferenceFactoryD2Ev, ptr @_ZL41global_StringPreferencePREF_STRINGFactory, ptr @__dso_handle) #4
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN34StringPreferencePREF_STRINGFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN34StringPreferencePREF_STRINGFactoryC2Ev(ptr noundef align 8 dereferenceable_or_null(16) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  call void @_ZN17PreferenceFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  %6 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV34StringPreferencePREF_STRINGFactory, i32 0, i32 0, i32 2
-  store ptr %6, ptr %5, align 8
-  %7 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
-          to label %8 unwind label %10
+  call void @_ZN17PreferenceFactoryC2Ev(ptr noundef align 8 dereferenceable_or_null(16) %5)
+  store ptr getelementptr inbounds inrange(-16, 104) ({ [15 x ptr] }, ptr @_ZTV34StringPreferencePREF_STRINGFactory, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
+          to label %7 unwind label %9
 
-8:                                                ; preds = %1
-  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 8, ptr noundef %5)
-          to label %9 unwind label %10
+7:                                                ; preds = %1
+  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef align 8 dereferenceable_or_null(16) %6, i32 noundef 8, ptr noundef %5)
+          to label %8 unwind label %9
 
-9:                                                ; preds = %8
+8:                                                ; preds = %7
   ret void
 
-10:                                               ; preds = %8, %1
-  %11 = landingpad { ptr, i32 }
+9:                                                ; preds = %7, %1
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %3, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %4, align 4
-  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #4
-  br label %14
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %3, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %4, align 4
+  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef align 8 dereferenceable_or_null(16) %5) #4
+  br label %13
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+13:                                               ; preds = %9
+  %14 = load ptr, ptr %3, align 8
+  %15 = load i32, ptr %4, align 4
+  %16 = insertvalue { ptr, i32 } poison, ptr %14, 0
+  %17 = insertvalue { ptr, i32 } %16, i32 %15, 1
+  resume { ptr, i32 } %17
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN34StringPreferencePREF_STRINGFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #4
-  ret void
-}
-
-; Function Attrs: uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @__cxx_global_var_init.2() #3 section ".text.startup" {
-  call void @_ZN34StringPreferencePREF_CUSTOMFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) @_ZL41global_StringPreferencePREF_CUSTOMFactory)
-  %1 = call i32 @__cxa_atexit(ptr @_ZN34StringPreferencePREF_CUSTOMFactoryD2Ev, ptr @_ZL41global_StringPreferencePREF_CUSTOMFactory, ptr @__dso_handle) #4
+  call void @_ZN34StringPreferencePREF_CUSTOMFactoryC2Ev(ptr noundef align 8 dereferenceable_or_null(16) @_ZL41global_StringPreferencePREF_CUSTOMFactory)
+  %1 = call i32 @__cxa_atexit(ptr @_ZN17PreferenceFactoryD2Ev, ptr @_ZL41global_StringPreferencePREF_CUSTOMFactory, ptr @__dso_handle) #4
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN34StringPreferencePREF_CUSTOMFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN34StringPreferencePREF_CUSTOMFactoryC2Ev(ptr noundef align 8 dereferenceable_or_null(16) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  call void @_ZN17PreferenceFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  %6 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV34StringPreferencePREF_CUSTOMFactory, i32 0, i32 0, i32 2
-  store ptr %6, ptr %5, align 8
-  %7 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
-          to label %8 unwind label %10
+  call void @_ZN17PreferenceFactoryC2Ev(ptr noundef align 8 dereferenceable_or_null(16) %5)
+  store ptr getelementptr inbounds inrange(-16, 104) ({ [15 x ptr] }, ptr @_ZTV34StringPreferencePREF_CUSTOMFactory, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
+          to label %7 unwind label %9
 
-8:                                                ; preds = %1
-  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 512, ptr noundef %5)
-          to label %9 unwind label %10
+7:                                                ; preds = %1
+  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef align 8 dereferenceable_or_null(16) %6, i32 noundef 512, ptr noundef %5)
+          to label %8 unwind label %9
 
-9:                                                ; preds = %8
+8:                                                ; preds = %7
   ret void
 
-10:                                               ; preds = %8, %1
-  %11 = landingpad { ptr, i32 }
+9:                                                ; preds = %7, %1
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %3, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %4, align 4
-  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #4
-  br label %14
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %3, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %4, align 4
+  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef align 8 dereferenceable_or_null(16) %5) #4
+  br label %13
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+13:                                               ; preds = %9
+  %14 = load ptr, ptr %3, align 8
+  %15 = load i32, ptr %4, align 4
+  %16 = insertvalue { ptr, i32 } poison, ptr %14, 0
+  %17 = insertvalue { ptr, i32 } %16, i32 %15, 1
+  resume { ptr, i32 } %17
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN34StringPreferencePREF_CUSTOMFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #4
-  ret void
-}
-
-; Function Attrs: uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @__cxx_global_var_init.3() #3 section ".text.startup" {
-  call void @_ZN37StringPreferencePREF_DISSECTORFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) @_ZL44global_StringPreferencePREF_DISSECTORFactory)
-  %1 = call i32 @__cxa_atexit(ptr @_ZN37StringPreferencePREF_DISSECTORFactoryD2Ev, ptr @_ZL44global_StringPreferencePREF_DISSECTORFactory, ptr @__dso_handle) #4
+  call void @_ZN37StringPreferencePREF_DISSECTORFactoryC2Ev(ptr noundef align 8 dereferenceable_or_null(16) @_ZL44global_StringPreferencePREF_DISSECTORFactory)
+  %1 = call i32 @__cxa_atexit(ptr @_ZN17PreferenceFactoryD2Ev, ptr @_ZL44global_StringPreferencePREF_DISSECTORFactory, ptr @__dso_handle) #4
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN37StringPreferencePREF_DISSECTORFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN37StringPreferencePREF_DISSECTORFactoryC2Ev(ptr noundef align 8 dereferenceable_or_null(16) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  call void @_ZN17PreferenceFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  %6 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV37StringPreferencePREF_DISSECTORFactory, i32 0, i32 0, i32 2
-  store ptr %6, ptr %5, align 8
-  %7 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
-          to label %8 unwind label %10
+  call void @_ZN17PreferenceFactoryC2Ev(ptr noundef align 8 dereferenceable_or_null(16) %5)
+  store ptr getelementptr inbounds inrange(-16, 104) ({ [15 x ptr] }, ptr @_ZTV37StringPreferencePREF_DISSECTORFactory, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
+          to label %7 unwind label %9
 
-8:                                                ; preds = %1
-  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 131072, ptr noundef %5)
-          to label %9 unwind label %10
+7:                                                ; preds = %1
+  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef align 8 dereferenceable_or_null(16) %6, i32 noundef 131072, ptr noundef %5)
+          to label %8 unwind label %9
 
-9:                                                ; preds = %8
+8:                                                ; preds = %7
   ret void
 
-10:                                               ; preds = %8, %1
-  %11 = landingpad { ptr, i32 }
+9:                                                ; preds = %7, %1
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %3, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %4, align 4
-  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #4
-  br label %14
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %3, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %4, align 4
+  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef align 8 dereferenceable_or_null(16) %5) #4
+  br label %13
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+13:                                               ; preds = %9
+  %14 = load ptr, ptr %3, align 8
+  %15 = load i32, ptr %4, align 4
+  %16 = insertvalue { ptr, i32 } poison, ptr %14, 0
+  %17 = insertvalue { ptr, i32 } %16, i32 %15, 1
+  resume { ptr, i32 } %17
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN37StringPreferencePREF_DISSECTORFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #4
-  ret void
-}
-
-; Function Attrs: uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @__cxx_global_var_init.4() #3 section ".text.startup" {
-  call void @_ZN38PasswordPreferencePREF_PASSWORDFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) @_ZL45global_PasswordPreferencePREF_PASSWORDFactory)
-  %1 = call i32 @__cxa_atexit(ptr @_ZN38PasswordPreferencePREF_PASSWORDFactoryD2Ev, ptr @_ZL45global_PasswordPreferencePREF_PASSWORDFactory, ptr @__dso_handle) #4
+  call void @_ZN38PasswordPreferencePREF_PASSWORDFactoryC2Ev(ptr noundef align 8 dereferenceable_or_null(16) @_ZL45global_PasswordPreferencePREF_PASSWORDFactory)
+  %1 = call i32 @__cxa_atexit(ptr @_ZN17PreferenceFactoryD2Ev, ptr @_ZL45global_PasswordPreferencePREF_PASSWORDFactory, ptr @__dso_handle) #4
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN38PasswordPreferencePREF_PASSWORDFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN38PasswordPreferencePREF_PASSWORDFactoryC2Ev(ptr noundef align 8 dereferenceable_or_null(16) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  call void @_ZN17PreferenceFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  %6 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV38PasswordPreferencePREF_PASSWORDFactory, i32 0, i32 0, i32 2
-  store ptr %6, ptr %5, align 8
-  %7 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
-          to label %8 unwind label %10
+  call void @_ZN17PreferenceFactoryC2Ev(ptr noundef align 8 dereferenceable_or_null(16) %5)
+  store ptr getelementptr inbounds inrange(-16, 104) ({ [15 x ptr] }, ptr @_ZTV38PasswordPreferencePREF_PASSWORDFactory, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
+          to label %7 unwind label %9
 
-8:                                                ; preds = %1
-  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 32768, ptr noundef %5)
-          to label %9 unwind label %10
+7:                                                ; preds = %1
+  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef align 8 dereferenceable_or_null(16) %6, i32 noundef 32768, ptr noundef %5)
+          to label %8 unwind label %9
 
-9:                                                ; preds = %8
+8:                                                ; preds = %7
   ret void
 
-10:                                               ; preds = %8, %1
-  %11 = landingpad { ptr, i32 }
+9:                                                ; preds = %7, %1
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %3, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %4, align 4
-  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #4
-  br label %14
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %3, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %4, align 4
+  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef align 8 dereferenceable_or_null(16) %5) #4
+  br label %13
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+13:                                               ; preds = %9
+  %14 = load ptr, ptr %3, align 8
+  %15 = load i32, ptr %4, align 4
+  %16 = insertvalue { ptr, i32 } poison, ptr %14, 0
+  %17 = insertvalue { ptr, i32 } %16, i32 %15, 1
+  resume { ptr, i32 } %17
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN38PasswordPreferencePREF_PASSWORDFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #4
-  ret void
-}
-
-; Function Attrs: uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @__cxx_global_var_init.5() #3 section ".text.startup" {
-  call void @_ZN30UIntPreferencePREF_UINTFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) @_ZL37global_UIntPreferencePREF_UINTFactory)
-  %1 = call i32 @__cxa_atexit(ptr @_ZN30UIntPreferencePREF_UINTFactoryD2Ev, ptr @_ZL37global_UIntPreferencePREF_UINTFactory, ptr @__dso_handle) #4
+  call void @_ZN30UIntPreferencePREF_UINTFactoryC2Ev(ptr noundef align 8 dereferenceable_or_null(16) @_ZL37global_UIntPreferencePREF_UINTFactory)
+  %1 = call i32 @__cxa_atexit(ptr @_ZN17PreferenceFactoryD2Ev, ptr @_ZL37global_UIntPreferencePREF_UINTFactory, ptr @__dso_handle) #4
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN30UIntPreferencePREF_UINTFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN30UIntPreferencePREF_UINTFactoryC2Ev(ptr noundef align 8 dereferenceable_or_null(16) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  call void @_ZN17PreferenceFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  %6 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV30UIntPreferencePREF_UINTFactory, i32 0, i32 0, i32 2
-  store ptr %6, ptr %5, align 8
-  %7 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
-          to label %8 unwind label %10
+  call void @_ZN17PreferenceFactoryC2Ev(ptr noundef align 8 dereferenceable_or_null(16) %5)
+  store ptr getelementptr inbounds inrange(-16, 104) ({ [15 x ptr] }, ptr @_ZTV30UIntPreferencePREF_UINTFactory, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
+          to label %7 unwind label %9
 
-8:                                                ; preds = %1
-  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 1, ptr noundef %5)
-          to label %9 unwind label %10
+7:                                                ; preds = %1
+  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef align 8 dereferenceable_or_null(16) %6, i32 noundef 1, ptr noundef %5)
+          to label %8 unwind label %9
 
-9:                                                ; preds = %8
+8:                                                ; preds = %7
   ret void
 
-10:                                               ; preds = %8, %1
-  %11 = landingpad { ptr, i32 }
+9:                                                ; preds = %7, %1
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %3, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %4, align 4
-  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #4
-  br label %14
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %3, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %4, align 4
+  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef align 8 dereferenceable_or_null(16) %5) #4
+  br label %13
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+13:                                               ; preds = %9
+  %14 = load ptr, ptr %3, align 8
+  %15 = load i32, ptr %4, align 4
+  %16 = insertvalue { ptr, i32 } poison, ptr %14, 0
+  %17 = insertvalue { ptr, i32 } %16, i32 %15, 1
+  resume { ptr, i32 } %17
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN30UIntPreferencePREF_UINTFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #4
-  ret void
-}
-
-; Function Attrs: uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @__cxx_global_var_init.6() #3 section ".text.startup" {
-  call void @_ZN30EnumPreferencePREF_ENUMFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) @_ZL37global_EnumPreferencePREF_ENUMFactory)
-  %1 = call i32 @__cxa_atexit(ptr @_ZN30EnumPreferencePREF_ENUMFactoryD2Ev, ptr @_ZL37global_EnumPreferencePREF_ENUMFactory, ptr @__dso_handle) #4
+  call void @_ZN30EnumPreferencePREF_ENUMFactoryC2Ev(ptr noundef align 8 dereferenceable_or_null(16) @_ZL37global_EnumPreferencePREF_ENUMFactory)
+  %1 = call i32 @__cxa_atexit(ptr @_ZN17PreferenceFactoryD2Ev, ptr @_ZL37global_EnumPreferencePREF_ENUMFactory, ptr @__dso_handle) #4
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN30EnumPreferencePREF_ENUMFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN30EnumPreferencePREF_ENUMFactoryC2Ev(ptr noundef align 8 dereferenceable_or_null(16) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  call void @_ZN17PreferenceFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  %6 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV30EnumPreferencePREF_ENUMFactory, i32 0, i32 0, i32 2
-  store ptr %6, ptr %5, align 8
-  %7 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
-          to label %8 unwind label %10
+  call void @_ZN17PreferenceFactoryC2Ev(ptr noundef align 8 dereferenceable_or_null(16) %5)
+  store ptr getelementptr inbounds inrange(-16, 104) ({ [15 x ptr] }, ptr @_ZTV30EnumPreferencePREF_ENUMFactory, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
+          to label %7 unwind label %9
 
-8:                                                ; preds = %1
-  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 4, ptr noundef %5)
-          to label %9 unwind label %10
+7:                                                ; preds = %1
+  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef align 8 dereferenceable_or_null(16) %6, i32 noundef 4, ptr noundef %5)
+          to label %8 unwind label %9
 
-9:                                                ; preds = %8
+8:                                                ; preds = %7
   ret void
 
-10:                                               ; preds = %8, %1
-  %11 = landingpad { ptr, i32 }
+9:                                                ; preds = %7, %1
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %3, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %4, align 4
-  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #4
-  br label %14
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %3, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %4, align 4
+  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef align 8 dereferenceable_or_null(16) %5) #4
+  br label %13
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+13:                                               ; preds = %9
+  %14 = load ptr, ptr %3, align 8
+  %15 = load i32, ptr %4, align 4
+  %16 = insertvalue { ptr, i32 } poison, ptr %14, 0
+  %17 = insertvalue { ptr, i32 } %16, i32 %15, 1
+  resume { ptr, i32 } %17
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN30EnumPreferencePREF_ENUMFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #4
-  ret void
-}
-
-; Function Attrs: uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @__cxx_global_var_init.7() #3 section ".text.startup" {
-  call void @_ZN32RangePreferencePREF_RANGEFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) @_ZL39global_RangePreferencePREF_RANGEFactory)
-  %1 = call i32 @__cxa_atexit(ptr @_ZN32RangePreferencePREF_RANGEFactoryD2Ev, ptr @_ZL39global_RangePreferencePREF_RANGEFactory, ptr @__dso_handle) #4
+  call void @_ZN32RangePreferencePREF_RANGEFactoryC2Ev(ptr noundef align 8 dereferenceable_or_null(16) @_ZL39global_RangePreferencePREF_RANGEFactory)
+  %1 = call i32 @__cxa_atexit(ptr @_ZN17PreferenceFactoryD2Ev, ptr @_ZL39global_RangePreferencePREF_RANGEFactory, ptr @__dso_handle) #4
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN32RangePreferencePREF_RANGEFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN32RangePreferencePREF_RANGEFactoryC2Ev(ptr noundef align 8 dereferenceable_or_null(16) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  call void @_ZN17PreferenceFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  %6 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV32RangePreferencePREF_RANGEFactory, i32 0, i32 0, i32 2
-  store ptr %6, ptr %5, align 8
-  %7 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
-          to label %8 unwind label %10
+  call void @_ZN17PreferenceFactoryC2Ev(ptr noundef align 8 dereferenceable_or_null(16) %5)
+  store ptr getelementptr inbounds inrange(-16, 104) ({ [15 x ptr] }, ptr @_ZTV32RangePreferencePREF_RANGEFactory, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
+          to label %7 unwind label %9
 
-8:                                                ; preds = %1
-  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 16, ptr noundef %5)
-          to label %9 unwind label %10
+7:                                                ; preds = %1
+  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef align 8 dereferenceable_or_null(16) %6, i32 noundef 16, ptr noundef %5)
+          to label %8 unwind label %9
 
-9:                                                ; preds = %8
+8:                                                ; preds = %7
   ret void
 
-10:                                               ; preds = %8, %1
-  %11 = landingpad { ptr, i32 }
+9:                                                ; preds = %7, %1
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %3, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %4, align 4
-  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #4
-  br label %14
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %3, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %4, align 4
+  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef align 8 dereferenceable_or_null(16) %5) #4
+  br label %13
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+13:                                               ; preds = %9
+  %14 = load ptr, ptr %3, align 8
+  %15 = load i32, ptr %4, align 4
+  %16 = insertvalue { ptr, i32 } poison, ptr %14, 0
+  %17 = insertvalue { ptr, i32 } %16, i32 %15, 1
+  resume { ptr, i32 } %17
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN32RangePreferencePREF_RANGEFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #4
-  ret void
-}
-
-; Function Attrs: uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @__cxx_global_var_init.8() #3 section ".text.startup" {
-  call void @_ZN42RangePreferencePREF_DECODE_AS_RANGEFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) @_ZL49global_RangePreferencePREF_DECODE_AS_RANGEFactory)
-  %1 = call i32 @__cxa_atexit(ptr @_ZN42RangePreferencePREF_DECODE_AS_RANGEFactoryD2Ev, ptr @_ZL49global_RangePreferencePREF_DECODE_AS_RANGEFactory, ptr @__dso_handle) #4
+  call void @_ZN42RangePreferencePREF_DECODE_AS_RANGEFactoryC2Ev(ptr noundef align 8 dereferenceable_or_null(16) @_ZL49global_RangePreferencePREF_DECODE_AS_RANGEFactory)
+  %1 = call i32 @__cxa_atexit(ptr @_ZN17PreferenceFactoryD2Ev, ptr @_ZL49global_RangePreferencePREF_DECODE_AS_RANGEFactory, ptr @__dso_handle) #4
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN42RangePreferencePREF_DECODE_AS_RANGEFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN42RangePreferencePREF_DECODE_AS_RANGEFactoryC2Ev(ptr noundef align 8 dereferenceable_or_null(16) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  call void @_ZN17PreferenceFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  %6 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV42RangePreferencePREF_DECODE_AS_RANGEFactory, i32 0, i32 0, i32 2
-  store ptr %6, ptr %5, align 8
-  %7 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
-          to label %8 unwind label %10
+  call void @_ZN17PreferenceFactoryC2Ev(ptr noundef align 8 dereferenceable_or_null(16) %5)
+  store ptr getelementptr inbounds inrange(-16, 104) ({ [15 x ptr] }, ptr @_ZTV42RangePreferencePREF_DECODE_AS_RANGEFactory, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
+          to label %7 unwind label %9
 
-8:                                                ; preds = %1
-  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 8192, ptr noundef %5)
-          to label %9 unwind label %10
+7:                                                ; preds = %1
+  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef align 8 dereferenceable_or_null(16) %6, i32 noundef 8192, ptr noundef %5)
+          to label %8 unwind label %9
 
-9:                                                ; preds = %8
+8:                                                ; preds = %7
   ret void
 
-10:                                               ; preds = %8, %1
-  %11 = landingpad { ptr, i32 }
+9:                                                ; preds = %7, %1
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %3, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %4, align 4
-  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #4
-  br label %14
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %3, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %4, align 4
+  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef align 8 dereferenceable_or_null(16) %5) #4
+  br label %13
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+13:                                               ; preds = %9
+  %14 = load ptr, ptr %3, align 8
+  %15 = load i32, ptr %4, align 4
+  %16 = insertvalue { ptr, i32 } poison, ptr %14, 0
+  %17 = insertvalue { ptr, i32 } %16, i32 %15, 1
+  resume { ptr, i32 } %17
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN42RangePreferencePREF_DECODE_AS_RANGEFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #4
-  ret void
-}
-
-; Function Attrs: uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @__cxx_global_var_init.9() #3 section ".text.startup" {
-  call void @_ZN32ColorPreferencePREF_COLORFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) @_ZL39global_ColorPreferencePREF_COLORFactory)
-  %1 = call i32 @__cxa_atexit(ptr @_ZN32ColorPreferencePREF_COLORFactoryD2Ev, ptr @_ZL39global_ColorPreferencePREF_COLORFactory, ptr @__dso_handle) #4
+  call void @_ZN32ColorPreferencePREF_COLORFactoryC2Ev(ptr noundef align 8 dereferenceable_or_null(16) @_ZL39global_ColorPreferencePREF_COLORFactory)
+  %1 = call i32 @__cxa_atexit(ptr @_ZN17PreferenceFactoryD2Ev, ptr @_ZL39global_ColorPreferencePREF_COLORFactory, ptr @__dso_handle) #4
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN32ColorPreferencePREF_COLORFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN32ColorPreferencePREF_COLORFactoryC2Ev(ptr noundef align 8 dereferenceable_or_null(16) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  call void @_ZN17PreferenceFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  %6 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV32ColorPreferencePREF_COLORFactory, i32 0, i32 0, i32 2
-  store ptr %6, ptr %5, align 8
-  %7 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
-          to label %8 unwind label %10
+  call void @_ZN17PreferenceFactoryC2Ev(ptr noundef align 8 dereferenceable_or_null(16) %5)
+  store ptr getelementptr inbounds inrange(-16, 104) ({ [15 x ptr] }, ptr @_ZTV32ColorPreferencePREF_COLORFactory, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
+          to label %7 unwind label %9
 
-8:                                                ; preds = %1
-  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 256, ptr noundef %5)
-          to label %9 unwind label %10
+7:                                                ; preds = %1
+  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef align 8 dereferenceable_or_null(16) %6, i32 noundef 256, ptr noundef %5)
+          to label %8 unwind label %9
 
-9:                                                ; preds = %8
+8:                                                ; preds = %7
   ret void
 
-10:                                               ; preds = %8, %1
-  %11 = landingpad { ptr, i32 }
+9:                                                ; preds = %7, %1
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %3, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %4, align 4
-  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #4
-  br label %14
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %3, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %4, align 4
+  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef align 8 dereferenceable_or_null(16) %5) #4
+  br label %13
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+13:                                               ; preds = %9
+  %14 = load ptr, ptr %3, align 8
+  %15 = load i32, ptr %4, align 4
+  %16 = insertvalue { ptr, i32 } poison, ptr %14, 0
+  %17 = insertvalue { ptr, i32 } %16, i32 %15, 1
+  resume { ptr, i32 } %17
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN32ColorPreferencePREF_COLORFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #4
-  ret void
-}
-
-; Function Attrs: uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @__cxx_global_var_init.10() #3 section ".text.startup" {
-  call void @_ZN43SaveFilePreferencePREF_SAVE_FILENAMEFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) @_ZL50global_SaveFilePreferencePREF_SAVE_FILENAMEFactory)
-  %1 = call i32 @__cxa_atexit(ptr @_ZN43SaveFilePreferencePREF_SAVE_FILENAMEFactoryD2Ev, ptr @_ZL50global_SaveFilePreferencePREF_SAVE_FILENAMEFactory, ptr @__dso_handle) #4
+  call void @_ZN43SaveFilePreferencePREF_SAVE_FILENAMEFactoryC2Ev(ptr noundef align 8 dereferenceable_or_null(16) @_ZL50global_SaveFilePreferencePREF_SAVE_FILENAMEFactory)
+  %1 = call i32 @__cxa_atexit(ptr @_ZN17PreferenceFactoryD2Ev, ptr @_ZL50global_SaveFilePreferencePREF_SAVE_FILENAMEFactory, ptr @__dso_handle) #4
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN43SaveFilePreferencePREF_SAVE_FILENAMEFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN43SaveFilePreferencePREF_SAVE_FILENAMEFactoryC2Ev(ptr noundef align 8 dereferenceable_or_null(16) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  call void @_ZN17PreferenceFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  %6 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV43SaveFilePreferencePREF_SAVE_FILENAMEFactory, i32 0, i32 0, i32 2
-  store ptr %6, ptr %5, align 8
-  %7 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
-          to label %8 unwind label %10
+  call void @_ZN17PreferenceFactoryC2Ev(ptr noundef align 8 dereferenceable_or_null(16) %5)
+  store ptr getelementptr inbounds inrange(-16, 104) ({ [15 x ptr] }, ptr @_ZTV43SaveFilePreferencePREF_SAVE_FILENAMEFactory, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
+          to label %7 unwind label %9
 
-8:                                                ; preds = %1
-  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 128, ptr noundef %5)
-          to label %9 unwind label %10
+7:                                                ; preds = %1
+  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef align 8 dereferenceable_or_null(16) %6, i32 noundef 128, ptr noundef %5)
+          to label %8 unwind label %9
 
-9:                                                ; preds = %8
+8:                                                ; preds = %7
   ret void
 
-10:                                               ; preds = %8, %1
-  %11 = landingpad { ptr, i32 }
+9:                                                ; preds = %7, %1
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %3, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %4, align 4
-  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #4
-  br label %14
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %3, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %4, align 4
+  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef align 8 dereferenceable_or_null(16) %5) #4
+  br label %13
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+13:                                               ; preds = %9
+  %14 = load ptr, ptr %3, align 8
+  %15 = load i32, ptr %4, align 4
+  %16 = insertvalue { ptr, i32 } poison, ptr %14, 0
+  %17 = insertvalue { ptr, i32 } %16, i32 %15, 1
+  resume { ptr, i32 } %17
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN43SaveFilePreferencePREF_SAVE_FILENAMEFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #4
-  ret void
-}
-
-; Function Attrs: uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @__cxx_global_var_init.11() #3 section ".text.startup" {
-  call void @_ZN43OpenFilePreferencePREF_OPEN_FILENAMEFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) @_ZL50global_OpenFilePreferencePREF_OPEN_FILENAMEFactory)
-  %1 = call i32 @__cxa_atexit(ptr @_ZN43OpenFilePreferencePREF_OPEN_FILENAMEFactoryD2Ev, ptr @_ZL50global_OpenFilePreferencePREF_OPEN_FILENAMEFactory, ptr @__dso_handle) #4
+  call void @_ZN43OpenFilePreferencePREF_OPEN_FILENAMEFactoryC2Ev(ptr noundef align 8 dereferenceable_or_null(16) @_ZL50global_OpenFilePreferencePREF_OPEN_FILENAMEFactory)
+  %1 = call i32 @__cxa_atexit(ptr @_ZN17PreferenceFactoryD2Ev, ptr @_ZL50global_OpenFilePreferencePREF_OPEN_FILENAMEFactory, ptr @__dso_handle) #4
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN43OpenFilePreferencePREF_OPEN_FILENAMEFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN43OpenFilePreferencePREF_OPEN_FILENAMEFactoryC2Ev(ptr noundef align 8 dereferenceable_or_null(16) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  call void @_ZN17PreferenceFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  %6 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV43OpenFilePreferencePREF_OPEN_FILENAMEFactory, i32 0, i32 0, i32 2
-  store ptr %6, ptr %5, align 8
-  %7 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
-          to label %8 unwind label %10
+  call void @_ZN17PreferenceFactoryC2Ev(ptr noundef align 8 dereferenceable_or_null(16) %5)
+  store ptr getelementptr inbounds inrange(-16, 104) ({ [15 x ptr] }, ptr @_ZTV43OpenFilePreferencePREF_OPEN_FILENAMEFactory, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
+          to label %7 unwind label %9
 
-8:                                                ; preds = %1
-  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 16384, ptr noundef %5)
-          to label %9 unwind label %10
+7:                                                ; preds = %1
+  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef align 8 dereferenceable_or_null(16) %6, i32 noundef 16384, ptr noundef %5)
+          to label %8 unwind label %9
 
-9:                                                ; preds = %8
+8:                                                ; preds = %7
   ret void
 
-10:                                               ; preds = %8, %1
-  %11 = landingpad { ptr, i32 }
+9:                                                ; preds = %7, %1
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %3, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %4, align 4
-  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #4
-  br label %14
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %3, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %4, align 4
+  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef align 8 dereferenceable_or_null(16) %5) #4
+  br label %13
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+13:                                               ; preds = %9
+  %14 = load ptr, ptr %3, align 8
+  %15 = load i32, ptr %4, align 4
+  %16 = insertvalue { ptr, i32 } poison, ptr %14, 0
+  %17 = insertvalue { ptr, i32 } %16, i32 %15, 1
+  resume { ptr, i32 } %17
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN43OpenFilePreferencePREF_OPEN_FILENAMEFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #4
-  ret void
-}
-
-; Function Attrs: uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @__cxx_global_var_init.12() #3 section ".text.startup" {
-  call void @_ZN36DirNamePreferencePREF_DIRNAMEFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) @_ZL43global_DirNamePreferencePREF_DIRNAMEFactory)
-  %1 = call i32 @__cxa_atexit(ptr @_ZN36DirNamePreferencePREF_DIRNAMEFactoryD2Ev, ptr @_ZL43global_DirNamePreferencePREF_DIRNAMEFactory, ptr @__dso_handle) #4
+  call void @_ZN36DirNamePreferencePREF_DIRNAMEFactoryC2Ev(ptr noundef align 8 dereferenceable_or_null(16) @_ZL43global_DirNamePreferencePREF_DIRNAMEFactory)
+  %1 = call i32 @__cxa_atexit(ptr @_ZN17PreferenceFactoryD2Ev, ptr @_ZL43global_DirNamePreferencePREF_DIRNAMEFactory, ptr @__dso_handle) #4
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN36DirNamePreferencePREF_DIRNAMEFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN36DirNamePreferencePREF_DIRNAMEFactoryC2Ev(ptr noundef align 8 dereferenceable_or_null(16) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  call void @_ZN17PreferenceFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  %6 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV36DirNamePreferencePREF_DIRNAMEFactory, i32 0, i32 0, i32 2
-  store ptr %6, ptr %5, align 8
-  %7 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
-          to label %8 unwind label %10
+  call void @_ZN17PreferenceFactoryC2Ev(ptr noundef align 8 dereferenceable_or_null(16) %5)
+  store ptr getelementptr inbounds inrange(-16, 104) ({ [15 x ptr] }, ptr @_ZTV36DirNamePreferencePREF_DIRNAMEFactory, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
+          to label %7 unwind label %9
 
-8:                                                ; preds = %1
-  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 2048, ptr noundef %5)
-          to label %9 unwind label %10
+7:                                                ; preds = %1
+  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef align 8 dereferenceable_or_null(16) %6, i32 noundef 2048, ptr noundef %5)
+          to label %8 unwind label %9
 
-9:                                                ; preds = %8
+8:                                                ; preds = %7
   ret void
 
-10:                                               ; preds = %8, %1
-  %11 = landingpad { ptr, i32 }
+9:                                                ; preds = %7, %1
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %3, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %4, align 4
-  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #4
-  br label %14
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %3, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %4, align 4
+  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef align 8 dereferenceable_or_null(16) %5) #4
+  br label %13
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+13:                                               ; preds = %9
+  %14 = load ptr, ptr %3, align 8
+  %15 = load i32, ptr %4, align 4
+  %16 = insertvalue { ptr, i32 } poison, ptr %14, 0
+  %17 = insertvalue { ptr, i32 } %16, i32 %15, 1
+  resume { ptr, i32 } %17
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN36DirNamePreferencePREF_DIRNAMEFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #4
-  ret void
-}
-
-; Function Attrs: uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @__cxx_global_var_init.13() #3 section ".text.startup" {
-  call void @_ZN28UatPreferencePREF_UATFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) @_ZL35global_UatPreferencePREF_UATFactory)
-  %1 = call i32 @__cxa_atexit(ptr @_ZN28UatPreferencePREF_UATFactoryD2Ev, ptr @_ZL35global_UatPreferencePREF_UATFactory, ptr @__dso_handle) #4
+  call void @_ZN28UatPreferencePREF_UATFactoryC2Ev(ptr noundef align 8 dereferenceable_or_null(16) @_ZL35global_UatPreferencePREF_UATFactory)
+  %1 = call i32 @__cxa_atexit(ptr @_ZN17PreferenceFactoryD2Ev, ptr @_ZL35global_UatPreferencePREF_UATFactory, ptr @__dso_handle) #4
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN28UatPreferencePREF_UATFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN28UatPreferencePREF_UATFactoryC2Ev(ptr noundef align 8 dereferenceable_or_null(16) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  call void @_ZN17PreferenceFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  %6 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV28UatPreferencePREF_UATFactory, i32 0, i32 0, i32 2
-  store ptr %6, ptr %5, align 8
-  %7 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
-          to label %8 unwind label %10
+  call void @_ZN17PreferenceFactoryC2Ev(ptr noundef align 8 dereferenceable_or_null(16) %5)
+  store ptr getelementptr inbounds inrange(-16, 104) ({ [15 x ptr] }, ptr @_ZTV28UatPreferencePREF_UATFactory, i32 0, i32 0, i32 2), ptr %5, align 8
+  %6 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
+          to label %7 unwind label %9
 
-8:                                                ; preds = %1
-  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef 64, ptr noundef %5)
-          to label %9 unwind label %10
+7:                                                ; preds = %1
+  invoke void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef align 8 dereferenceable_or_null(16) %6, i32 noundef 64, ptr noundef %5)
+          to label %8 unwind label %9
 
-9:                                                ; preds = %8
+8:                                                ; preds = %7
   ret void
 
-10:                                               ; preds = %8, %1
-  %11 = landingpad { ptr, i32 }
+9:                                                ; preds = %7, %1
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %12 = extractvalue { ptr, i32 } %11, 0
-  store ptr %12, ptr %3, align 8
-  %13 = extractvalue { ptr, i32 } %11, 1
-  store i32 %13, ptr %4, align 4
-  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #4
-  br label %14
+  %11 = extractvalue { ptr, i32 } %10, 0
+  store ptr %11, ptr %3, align 8
+  %12 = extractvalue { ptr, i32 } %10, 1
+  store i32 %12, ptr %4, align 4
+  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef align 8 dereferenceable_or_null(16) %5) #4
+  br label %13
 
-14:                                               ; preds = %10
-  %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = insertvalue { ptr, i32 } poison, ptr %15, 0
-  %18 = insertvalue { ptr, i32 } %17, i32 %16, 1
-  resume { ptr, i32 } %18
+13:                                               ; preds = %9
+  %14 = load ptr, ptr %3, align 8
+  %15 = load i32, ptr %4, align 4
+  %16 = insertvalue { ptr, i32 } poison, ptr %14, 0
+  %17 = insertvalue { ptr, i32 } %16, i32 %15, 1
+  resume { ptr, i32 } %17
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN28UatPreferencePREF_UATFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
+; Function Attrs: nounwind null_pointer_is_valid
+declare void @_ZN17PreferenceFactoryD2Ev(ptr noundef align 8 dereferenceable_or_null(16)) unnamed_addr #5
+
+; Function Attrs: null_pointer_is_valid
+declare noundef ptr @_ZNK7QObject10metaObjectEv(ptr noundef align 8 dereferenceable_or_null(16)) unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare noundef ptr @_ZN7QObject11qt_metacastEPKc(ptr noundef align 8 dereferenceable_or_null(16), ptr noundef) unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare noundef i32 @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv(ptr noundef align 8 dereferenceable_or_null(16), i32 noundef, i32 noundef, ptr noundef) unnamed_addr #1
+
+; Function Attrs: nounwind null_pointer_is_valid
+declare void @_ZN7QObjectD2Ev(ptr noundef align 8 dereferenceable_or_null(16)) unnamed_addr #5
+
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN19WiresharkPreferenceD0Ev(ptr noundef align 8 dereferenceable_or_null(24) %0) unnamed_addr #6 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #4
+  call void @_ZN7QObjectD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %3) #4
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #22
   ret void
 }
 
-declare noundef ptr @_ZNK7QObject10metaObjectEv(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare noundef zeroext i1 @_ZN7QObject5eventEP6QEvent(ptr noundef align 8 dereferenceable_or_null(16), ptr noundef) unnamed_addr #1
 
-declare noundef ptr @_ZN7QObject11qt_metacastEPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare noundef zeroext i1 @_ZN7QObject11eventFilterEPS_P6QEvent(ptr noundef align 8 dereferenceable_or_null(16), ptr noundef, ptr noundef) unnamed_addr #1
 
-declare noundef i32 @_ZN7QObject11qt_metacallEN11QMetaObject4CallEiPPv(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, i32 noundef, ptr noundef) unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN7QObject10timerEventEP11QTimerEvent(ptr noundef align 8 dereferenceable_or_null(16), ptr noundef) unnamed_addr #1
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN19WiresharkPreferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN7QObject10childEventEP11QChildEvent(ptr noundef align 8 dereferenceable_or_null(16), ptr noundef) unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN7QObject11customEventEP6QEvent(ptr noundef align 8 dereferenceable_or_null(16), ptr noundef) unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN7QObject13connectNotifyERK11QMetaMethod(ptr noundef align 8 dereferenceable_or_null(16), ptr noundef align 1) unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN7QObject16disconnectNotifyERK11QMetaMethod(ptr noundef align 8 dereferenceable_or_null(16), ptr noundef align 1) unnamed_addr #1
+
+; Function Attrs: inlinehint mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN17PreferenceFactoryC2Ev(ptr noundef align 8 dereferenceable_or_null(16) %0) unnamed_addr #7 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #4
+  call void @_ZN7QObjectC2EPS_(ptr noundef align 8 dereferenceable_or_null(16) %3, ptr noundef null)
+  store ptr getelementptr inbounds inrange(-16, 104) ({ [15 x ptr] }, ptr @_ZTV17PreferenceFactory, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN19WiresharkPreferenceD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN19WiresharkPreferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #4
-  call void @_ZdlPv(ptr noundef %3) #13
-  ret void
-}
-
-declare noundef zeroext i1 @_ZN7QObject5eventEP6QEvent(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1
-
-declare noundef zeroext i1 @_ZN7QObject11eventFilterEPS_P6QEvent(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef) unnamed_addr #1
-
-declare void @_ZN7QObject10timerEventEP11QTimerEvent(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1
-
-declare void @_ZN7QObject10childEventEP11QChildEvent(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1
-
-declare void @_ZN7QObject11customEventEP6QEvent(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1
-
-declare void @_ZN7QObject13connectNotifyERK11QMetaMethod(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 1) unnamed_addr #1
-
-declare void @_ZN7QObject16disconnectNotifyERK11QMetaMethod(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 1) unnamed_addr #1
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN17PreferenceFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef null)
-  %4 = getelementptr inbounds { [15 x ptr] }, ptr @_ZTV17PreferenceFactory, i32 0, i32 0, i32 2
-  store ptr %4, ptr %3, align 8
-  ret void
-}
-
+; Function Attrs: null_pointer_is_valid
 declare noundef ptr @_ZN17PreferenceManager8instanceEv() #1
 
 declare i32 @__gxx_personality_v0(...)
 
-declare void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN17PreferenceManager12registerTypeEiP17PreferenceFactory(ptr noundef align 8 dereferenceable_or_null(16), i32 noundef, ptr noundef) #1
 
-; Function Attrs: nounwind
-declare void @_ZN17PreferenceFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #5
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN30BoolPreferencePREF_BOOLFactoryD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN30BoolPreferencePREF_BOOLFactoryD0Ev(ptr noundef align 8 dereferenceable_or_null(16) %0) unnamed_addr #6 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN30BoolPreferencePREF_BOOLFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #4
-  call void @_ZdlPv(ptr noundef %3) #13
+  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef align 8 dereferenceable_or_null(16) %3) #4
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 16) #22
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN30BoolPreferencePREF_BOOLFactory6createEP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef ptr @_ZN30BoolPreferencePREF_BOOLFactory6createEP7QObject(ptr noundef align 8 dereferenceable_or_null(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -1734,14 +1559,16 @@ define linkonce_odr noundef ptr @_ZN30BoolPreferencePREF_BOOLFactory6createEP7QO
   %7 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
-  %8 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
+  %8 = call noalias noundef ptr @_Znwm(i64 noundef 24) #23
   %9 = load ptr, ptr %4, align 8
-  invoke void @_ZN14BoolPreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef %9)
+  invoke void @_ZN14BoolPreferenceC2EP7QObject(ptr noundef align 8 dereferenceable_or_null(24) %8, ptr noundef %9)
           to label %10 unwind label %12
 
 10:                                               ; preds = %2
   store ptr %8, ptr %5, align 8
   %11 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
   ret ptr %11
 
 12:                                               ; preds = %2
@@ -1751,7 +1578,8 @@ define linkonce_odr noundef ptr @_ZN30BoolPreferencePREF_BOOLFactory6createEP7QO
   store ptr %14, ptr %6, align 8
   %15 = extractvalue { ptr, i32 } %13, 1
   store i32 %15, ptr %7, align 4
-  call void @_ZdlPv(ptr noundef %8) #13
+  call void @_ZdlPvm(ptr noundef %8, i64 noundef 24) #22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
   br label %16
 
 16:                                               ; preds = %12
@@ -1762,129 +1590,1291 @@ define linkonce_odr noundef ptr @_ZN30BoolPreferencePREF_BOOLFactory6createEP7QO
   resume { ptr, i32 } %20
 }
 
-; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) #6
+; Function Attrs: nounwind null_pointer_is_valid
+declare void @_ZN17PreferenceFactoryD1Ev(ptr noundef align 8 dereferenceable_or_null(16)) unnamed_addr #5
 
-; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) #7
+; Function Attrs: nounwind null_pointer_is_valid
+declare void @_ZN17PreferenceFactoryD0Ev(ptr noundef align 8 dereferenceable_or_null(16)) unnamed_addr #5
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN14BoolPreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
+declare void @__cxa_pure_virtual() unnamed_addr
+
+; Function Attrs: nobuiltin nounwind null_pointer_is_valid
+declare void @_ZdlPvm(ptr noundef, i64 noundef) #8
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+
+; Function Attrs: nobuiltin null_pointer_is_valid allocsize(0)
+declare noundef ptr @_Znwm(i64 noundef) #10
+
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN14BoolPreferenceC2EP7QObject(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
-  call void @_ZN19WiresharkPreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6)
-  %7 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTV14BoolPreference, i32 0, i32 0, i32 2
-  store ptr %7, ptr %5, align 8
+  call void @_ZN19WiresharkPreferenceC2EP7QObject(ptr noundef align 8 dereferenceable_or_null(24) %5, ptr noundef %6)
+  store ptr getelementptr inbounds inrange(-16, 120) ({ [17 x ptr] }, ptr @_ZTV14BoolPreference, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN14BoolPreferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN14BoolPreferenceD0Ev(ptr noundef align 8 dereferenceable_or_null(24) %0) unnamed_addr #6 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN19WiresharkPreferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #4
+  call void @_ZN7QObjectD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %3) #4
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #22
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN14BoolPreferenceD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN14BoolPreferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #4
-  call void @_ZdlPv(ptr noundef %3) #13
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN14BoolPreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(208) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef ptr @_ZN14BoolPreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef %1, ptr noundef align 8 dereferenceable(208) %2, ptr noundef align 8 dereferenceable(24) %3) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca %class.QVariant, align 8
   %10 = alloca %class.QString, align 8
+  %11 = alloca %struct.QArrayDataPointer, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %14 = load ptr, ptr %5, align 8
+  %15 = load ptr, ptr %8, align 8
+  %16 = call noundef ptr @_ZNK11QModelIndex5modelEv(ptr noundef align 8 dereferenceable_or_null(24) %15) #4
+  %17 = load ptr, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 24, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 24, ptr %11) #4
+  call void @_ZN9QtPrivateL18qMakeStringPrivateILx5EEE17QArrayDataPointerIDsERAT__KDs(ptr dead_on_unwind writable sret(%struct.QArrayDataPointer) align 8 %11, ptr noundef align 2 dereferenceable(10) @.str)
+  invoke void @_ZN7QStringC2EO17QArrayDataPointerIDsE(ptr noundef align 8 dereferenceable_or_null(24) %10, ptr noundef align 8 dereferenceable(24) %11)
+          to label %18 unwind label %29
+
+18:                                               ; preds = %4
+  invoke void @_ZN8QVariantC1ERK7QString(ptr noundef align 8 dereferenceable_or_null(32) %9, ptr noundef align 8 dereferenceable(24) %10)
+          to label %19 unwind label %33
+
+19:                                               ; preds = %18
+  %20 = load ptr, ptr %16, align 8
+  %21 = getelementptr inbounds ptr, ptr %20, i64 19
+  %22 = load ptr, ptr %21, align 8
+  %23 = invoke noundef zeroext i1 %22(ptr noundef align 8 dereferenceable_or_null(16) %16, ptr noundef align 8 dereferenceable(24) %17, ptr noundef align 8 dereferenceable(32) %9, i32 noundef 2)
+          to label %24 unwind label %37
+
+24:                                               ; preds = %19
+  call void @_ZN8QVariantD1Ev(ptr noundef align 8 dereferenceable_or_null(32) %9) #4
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %10) #4
+  call void @_ZN17QArrayDataPointerIDsED2Ev(ptr noundef align 8 dereferenceable_or_null(24) %11) #4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 32, ptr %9) #4
+  %25 = load ptr, ptr %6, align 8
+  %26 = load ptr, ptr %7, align 8
+  %27 = load ptr, ptr %8, align 8
+  %28 = call noundef ptr @_ZN19WiresharkPreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex(ptr noundef align 8 dereferenceable_or_null(24) %14, ptr noundef %25, ptr noundef align 8 dereferenceable(208) %26, ptr noundef align 8 dereferenceable(24) %27)
+  ret ptr %28
+
+29:                                               ; preds = %4
+  %30 = landingpad { ptr, i32 }
+          cleanup
+  %31 = extractvalue { ptr, i32 } %30, 0
+  store ptr %31, ptr %12, align 8
+  %32 = extractvalue { ptr, i32 } %30, 1
+  store i32 %32, ptr %13, align 4
+  br label %42
+
+33:                                               ; preds = %18
+  %34 = landingpad { ptr, i32 }
+          cleanup
+  %35 = extractvalue { ptr, i32 } %34, 0
+  store ptr %35, ptr %12, align 8
+  %36 = extractvalue { ptr, i32 } %34, 1
+  store i32 %36, ptr %13, align 4
+  br label %41
+
+37:                                               ; preds = %19
+  %38 = landingpad { ptr, i32 }
+          cleanup
+  %39 = extractvalue { ptr, i32 } %38, 0
+  store ptr %39, ptr %12, align 8
+  %40 = extractvalue { ptr, i32 } %38, 1
+  store i32 %40, ptr %13, align 4
+  call void @_ZN8QVariantD1Ev(ptr noundef align 8 dereferenceable_or_null(32) %9) #4
+  br label %41
+
+41:                                               ; preds = %37, %33
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %10) #4
+  br label %42
+
+42:                                               ; preds = %41, %29
+  call void @_ZN17QArrayDataPointerIDsED2Ev(ptr noundef align 8 dereferenceable_or_null(24) %11) #4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 32, ptr %9) #4
+  br label %43
+
+43:                                               ; preds = %42
+  %44 = load ptr, ptr %12, align 8
+  %45 = load i32, ptr %13, align 4
+  %46 = insertvalue { ptr, i32 } poison, ptr %44, 0
+  %47 = insertvalue { ptr, i32 } %46, i32 %45, 1
+  resume { ptr, i32 } %47
+}
+
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef ptr @_ZNK11QModelIndex5modelEv(ptr noundef align 8 dereferenceable_or_null(24) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.QModelIndex, ptr %3, i32 0, i32 3
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define internal void @_ZN9QtPrivateL18qMakeStringPrivateILx5EEE17QArrayDataPointerIDsERAT__KDs(ptr dead_on_unwind noalias writable sret(%struct.QArrayDataPointer) align 8 %0, ptr noundef align 2 dereferenceable(10) %1) #11 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
+  %6 = load ptr, ptr %4, align 8
+  %7 = getelementptr inbounds [5 x i16], ptr %6, i64 0, i64 0
+  store ptr %7, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8
+  call void @_ZN17QArrayDataPointerIDsEC2EP15QTypedArrayDataIDsEPDsx(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef null, ptr noundef %8, i64 noundef 4) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN7QStringC2EO17QArrayDataPointerIDsE(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef align 8 dereferenceable(24) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %class.QString, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  call void @_ZN17QArrayDataPointerIDsEC2EOS0_(ptr noundef align 8 dereferenceable_or_null(24) %6, ptr noundef align 8 dereferenceable(24) %7) #4
+  ret void
+}
+
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN8QVariantC1ERK7QString(ptr noundef align 8 dereferenceable_or_null(32), ptr noundef align 8 dereferenceable(24)) unnamed_addr #1
+
+; Function Attrs: nounwind null_pointer_is_valid
+declare void @_ZN8QVariantD1Ev(ptr noundef align 8 dereferenceable_or_null(32)) unnamed_addr #5
+
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.QString, ptr %3, i32 0, i32 0
+  call void @_ZN17QArrayDataPointerIDsED2Ev(ptr noundef align 8 dereferenceable_or_null(24) %4) #4
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN17QArrayDataPointerIDsED2Ev(ptr noundef align 8 dereferenceable_or_null(24) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef zeroext i1 @_ZN17QArrayDataPointerIDsE5derefEv(ptr noundef align 8 dereferenceable_or_null(24) %3) #4
+  br i1 %4, label %9, label %5
+
+5:                                                ; preds = %1
+  %6 = call noundef ptr @_ZN17QArrayDataPointerIDsEptEv(ptr noundef align 8 dereferenceable_or_null(24) %3) #4
+  call void @_ZN9QtPrivate12QPodArrayOpsIDsE10destroyAllEv(ptr noundef align 8 dereferenceable_or_null(24) %6) #4
+  %7 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %3, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  call void @_ZN15QTypedArrayDataIDsE10deallocateEP10QArrayData(ptr noundef %8) #4
+  br label %9
+
+9:                                                ; preds = %5, %1
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN17QArrayDataPointerIDsEC2EP15QTypedArrayDataIDsEPDsx(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #2 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store i64 %3, ptr %8, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %6, align 8
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %9, i32 0, i32 1
+  %13 = load ptr, ptr %7, align 8
+  store ptr %13, ptr %12, align 8
+  %14 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %9, i32 0, i32 2
+  %15 = load i64, ptr %8, align 8
+  store i64 %15, ptr %14, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN17QArrayDataPointerIDsEC2EOS0_(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef align 8 dereferenceable(24) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  store ptr %9, ptr %6, align 8
+  %10 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %5, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %11, i32 0, i32 1
+  %13 = load ptr, ptr %12, align 8
+  store ptr %13, ptr %10, align 8
+  %14 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %5, i32 0, i32 2
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %15, i32 0, i32 2
+  %17 = load i64, ptr %16, align 8
+  store i64 %17, ptr %14, align 8
+  %18 = load ptr, ptr %4, align 8
+  %19 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %18, i32 0, i32 0
+  store ptr null, ptr %19, align 8
+  %20 = load ptr, ptr %4, align 8
+  %21 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %20, i32 0, i32 1
+  store ptr null, ptr %21, align 8
+  %22 = load ptr, ptr %4, align 8
+  %23 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %22, i32 0, i32 2
+  store i64 0, ptr %23, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef zeroext i1 @_ZN17QArrayDataPointerIDsE5derefEv(ptr noundef align 8 dereferenceable_or_null(24) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %11
+
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %3, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  %10 = call noundef zeroext i1 @_ZN10QArrayData5derefEv(ptr noundef align 8 dereferenceable_or_null(16) %9) #4
+  br label %11
+
+11:                                               ; preds = %7, %1
+  %12 = phi i1 [ true, %1 ], [ %10, %7 ]
+  ret i1 %12
+}
+
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef ptr @_ZN17QArrayDataPointerIDsEptEv(ptr noundef align 8 dereferenceable_or_null(24) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN9QtPrivate12QPodArrayOpsIDsE10destroyAllEv(ptr noundef align 8 dereferenceable_or_null(24) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN15QTypedArrayDataIDsE10deallocateEP10QArrayData(ptr noundef %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %3, i64 noundef 2, i64 noundef 8) #4
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef zeroext i1 @_ZN10QArrayData5derefEv(ptr noundef align 8 dereferenceable_or_null(16) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %struct.QArrayData, ptr %3, i32 0, i32 0
+  %5 = call noundef zeroext i1 @_ZN19QBasicAtomicIntegerIiE5derefEv(ptr noundef align 4 dereferenceable_or_null(4) %4) #4
+  ret i1 %5
+}
+
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef zeroext i1 @_ZN19QBasicAtomicIntegerIiE5derefEv(ptr noundef align 4 dereferenceable_or_null(4) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.QBasicAtomicInteger, ptr %3, i32 0, i32 0
+  %5 = call noundef zeroext i1 @_ZN10QAtomicOpsIiE5derefIiEEbRSt6atomicIT_E(ptr noundef align 4 dereferenceable(4) %4) #4
+  ret i1 %5
+}
+
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef zeroext i1 @_ZN10QAtomicOpsIiE5derefIiEEbRSt6atomicIT_E(ptr noundef align 4 dereferenceable(4) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i32 @_ZNSt13__atomic_baseIiEmmEv(ptr noundef align 4 dereferenceable_or_null(4) %3) #4
+  %5 = icmp ne i32 %4, 0
+  ret i1 %5
+}
+
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef i32 @_ZNSt13__atomic_baseIiEmmEv(ptr noundef align 4 dereferenceable_or_null(4) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::__atomic_base", ptr %5, i32 0, i32 0
+  store i32 1, ptr %3, align 4
+  %7 = load i32, ptr %3, align 4
+  %8 = atomicrmw sub ptr %6, i32 %7 seq_cst, align 4
+  %9 = sub i32 %8, %7
+  store i32 %9, ptr %4, align 4
+  %10 = load i32, ptr %4, align 4
+  ret i32 %10
+}
+
+; Function Attrs: nounwind null_pointer_is_valid
+declare void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef, i64 noundef, i64 noundef) #5
+
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN34StringPreferencePREF_STRINGFactoryD0Ev(ptr noundef align 8 dereferenceable_or_null(16) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef align 8 dereferenceable_or_null(16) %3) #4
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 16) #22
+  ret void
+}
+
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef ptr @_ZN34StringPreferencePREF_STRINGFactory6createEP7QObject(ptr noundef align 8 dereferenceable_or_null(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
+  %8 = call noalias noundef ptr @_Znwm(i64 noundef 24) #23
+  %9 = load ptr, ptr %4, align 8
+  invoke void @_ZN16StringPreferenceC2EP7QObject(ptr noundef align 8 dereferenceable_or_null(24) %8, ptr noundef %9)
+          to label %10 unwind label %12
+
+10:                                               ; preds = %2
+  store ptr %8, ptr %5, align 8
+  %11 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
+  ret ptr %11
+
+12:                                               ; preds = %2
+  %13 = landingpad { ptr, i32 }
+          cleanup
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %6, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %7, align 4
+  call void @_ZdlPvm(ptr noundef %8, i64 noundef 24) #22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
+  br label %16
+
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %6, align 8
+  %18 = load i32, ptr %7, align 4
+  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
+  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
+  resume { ptr, i32 } %20
+}
+
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN16StringPreferenceC2EP7QObject(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZN19WiresharkPreferenceC2EP7QObject(ptr noundef align 8 dereferenceable_or_null(24) %5, ptr noundef %6)
+  store ptr getelementptr inbounds inrange(-16, 120) ({ [17 x ptr] }, ptr @_ZTV16StringPreference, i32 0, i32 0, i32 2), ptr %5, align 8
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN16StringPreferenceD0Ev(ptr noundef align 8 dereferenceable_or_null(24) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7QObjectD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %3) #4
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #22
+  ret void
+}
+
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef ptr @_ZN16StringPreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef %1, ptr noundef align 8 dereferenceable(208) %2, ptr noundef align 8 dereferenceable(24) %3) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %11 = call noalias noundef ptr @_Znwm(i64 noundef 40) #23
+  %12 = load ptr, ptr %6, align 8
+  invoke void @_ZN9QLineEditC1EP7QWidget(ptr noundef align 8 dereferenceable_or_null(40) %11, ptr noundef %12)
+          to label %13 unwind label %14
+
+13:                                               ; preds = %4
+  ret ptr %11
+
+14:                                               ; preds = %4
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %9, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %10, align 4
+  call void @_ZdlPvm(ptr noundef %11, i64 noundef 40) #22
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %9, align 8
+  %20 = load i32, ptr %10, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
+}
+
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN16StringPreference7setDataEP7QWidgetRK11QModelIndex(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef %1, ptr noundef align 8 dereferenceable(24) %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca %class.QString, align 8
+  %9 = alloca %class.QVariant, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #4
+  %12 = load ptr, ptr %5, align 8
+  store ptr %12, ptr %7, align 8
+  %13 = load ptr, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 32, ptr %9) #4
+  %14 = load ptr, ptr %6, align 8
+  %15 = call noundef ptr @_ZNK11QModelIndex5modelEv(ptr noundef align 8 dereferenceable_or_null(24) %14) #4
+  %16 = load ptr, ptr %6, align 8
+  %17 = load ptr, ptr %15, align 8
+  %18 = getelementptr inbounds ptr, ptr %17, i64 18
+  %19 = load ptr, ptr %18, align 8
+  call void %19(ptr dead_on_unwind writable sret(%class.QVariant) align 8 %9, ptr noundef align 8 dereferenceable_or_null(16) %15, ptr noundef align 8 dereferenceable(24) %16, i32 noundef 0)
+  invoke void @_ZNK8QVariant8toStringEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %8, ptr noundef align 8 dereferenceable_or_null(32) %9)
+          to label %20 unwind label %22
+
+20:                                               ; preds = %3
+  invoke void @_ZN9QLineEdit7setTextERK7QString(ptr noundef align 8 dereferenceable_or_null(40) %13, ptr noundef align 8 dereferenceable(24) %8)
+          to label %21 unwind label %26
+
+21:                                               ; preds = %20
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %8) #4
+  call void @_ZN8QVariantD1Ev(ptr noundef align 8 dereferenceable_or_null(32) %9) #4
+  call void @llvm.lifetime.end.p0(i64 32, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #4
+  ret void
+
+22:                                               ; preds = %3
+  %23 = landingpad { ptr, i32 }
+          cleanup
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %10, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %11, align 4
+  br label %30
+
+26:                                               ; preds = %20
+  %27 = landingpad { ptr, i32 }
+          cleanup
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %10, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %11, align 4
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %8) #4
+  br label %30
+
+30:                                               ; preds = %26, %22
+  call void @_ZN8QVariantD1Ev(ptr noundef align 8 dereferenceable_or_null(32) %9) #4
+  call void @llvm.lifetime.end.p0(i64 32, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #4
+  br label %31
+
+31:                                               ; preds = %30
+  %32 = load ptr, ptr %10, align 8
+  %33 = load i32, ptr %11, align 4
+  %34 = insertvalue { ptr, i32 } poison, ptr %32, 0
+  %35 = insertvalue { ptr, i32 } %34, i32 %33, 1
+  resume { ptr, i32 } %35
+}
+
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN16StringPreference12setModelDataEP7QWidgetP18QAbstractItemModelRK11QModelIndex(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef %1, ptr noundef %2, ptr noundef align 8 dereferenceable(24) %3) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca %class.QVariant, align 8
+  %11 = alloca %class.QString, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  %14 = load ptr, ptr %6, align 8
+  store ptr %14, ptr %9, align 8
+  %15 = load ptr, ptr %7, align 8
+  %16 = load ptr, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 24, ptr %11) #4
+  %17 = load ptr, ptr %9, align 8
+  call void @_ZNK9QLineEdit4textEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %11, ptr noundef align 8 dereferenceable_or_null(40) %17)
+  invoke void @_ZN8QVariantC1ERK7QString(ptr noundef align 8 dereferenceable_or_null(32) %10, ptr noundef align 8 dereferenceable(24) %11)
+          to label %18 unwind label %24
+
+18:                                               ; preds = %4
+  %19 = load ptr, ptr %15, align 8
+  %20 = getelementptr inbounds ptr, ptr %19, i64 19
+  %21 = load ptr, ptr %20, align 8
+  %22 = invoke noundef zeroext i1 %21(ptr noundef align 8 dereferenceable_or_null(16) %15, ptr noundef align 8 dereferenceable(24) %16, ptr noundef align 8 dereferenceable(32) %10, i32 noundef 2)
+          to label %23 unwind label %28
+
+23:                                               ; preds = %18
+  call void @_ZN8QVariantD1Ev(ptr noundef align 8 dereferenceable_or_null(32) %10) #4
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %11) #4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 32, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
+  ret void
+
+24:                                               ; preds = %4
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %12, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %13, align 4
+  br label %32
+
+28:                                               ; preds = %18
+  %29 = landingpad { ptr, i32 }
+          cleanup
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %12, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %13, align 4
+  call void @_ZN8QVariantD1Ev(ptr noundef align 8 dereferenceable_or_null(32) %10) #4
+  br label %32
+
+32:                                               ; preds = %28, %24
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %11) #4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 32, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
+  br label %33
+
+33:                                               ; preds = %32
+  %34 = load ptr, ptr %12, align 8
+  %35 = load i32, ptr %13, align 4
+  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
+  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
+  resume { ptr, i32 } %37
+}
+
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN9QLineEditC1EP7QWidget(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN9QLineEdit7setTextERK7QString(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef align 8 dereferenceable(24)) #1
+
+; Function Attrs: null_pointer_is_valid
+declare void @_ZNK8QVariant8toStringEv(ptr dead_on_unwind writable sret(%class.QString) align 8, ptr noundef align 8 dereferenceable_or_null(32)) #1
+
+; Function Attrs: null_pointer_is_valid
+declare void @_ZNK9QLineEdit4textEv(ptr dead_on_unwind writable sret(%class.QString) align 8, ptr noundef align 8 dereferenceable_or_null(40)) #1
+
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN34StringPreferencePREF_CUSTOMFactoryD0Ev(ptr noundef align 8 dereferenceable_or_null(16) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef align 8 dereferenceable_or_null(16) %3) #4
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 16) #22
+  ret void
+}
+
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef ptr @_ZN34StringPreferencePREF_CUSTOMFactory6createEP7QObject(ptr noundef align 8 dereferenceable_or_null(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
+  %8 = call noalias noundef ptr @_Znwm(i64 noundef 24) #23
+  %9 = load ptr, ptr %4, align 8
+  invoke void @_ZN16StringPreferenceC2EP7QObject(ptr noundef align 8 dereferenceable_or_null(24) %8, ptr noundef %9)
+          to label %10 unwind label %12
+
+10:                                               ; preds = %2
+  store ptr %8, ptr %5, align 8
+  %11 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
+  ret ptr %11
+
+12:                                               ; preds = %2
+  %13 = landingpad { ptr, i32 }
+          cleanup
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %6, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %7, align 4
+  call void @_ZdlPvm(ptr noundef %8, i64 noundef 24) #22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
+  br label %16
+
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %6, align 8
+  %18 = load i32, ptr %7, align 4
+  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
+  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
+  resume { ptr, i32 } %20
+}
+
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN37StringPreferencePREF_DISSECTORFactoryD0Ev(ptr noundef align 8 dereferenceable_or_null(16) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef align 8 dereferenceable_or_null(16) %3) #4
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 16) #22
+  ret void
+}
+
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef ptr @_ZN37StringPreferencePREF_DISSECTORFactory6createEP7QObject(ptr noundef align 8 dereferenceable_or_null(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
+  %8 = call noalias noundef ptr @_Znwm(i64 noundef 24) #23
+  %9 = load ptr, ptr %4, align 8
+  invoke void @_ZN16StringPreferenceC2EP7QObject(ptr noundef align 8 dereferenceable_or_null(24) %8, ptr noundef %9)
+          to label %10 unwind label %12
+
+10:                                               ; preds = %2
+  store ptr %8, ptr %5, align 8
+  %11 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
+  ret ptr %11
+
+12:                                               ; preds = %2
+  %13 = landingpad { ptr, i32 }
+          cleanup
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %6, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %7, align 4
+  call void @_ZdlPvm(ptr noundef %8, i64 noundef 24) #22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
+  br label %16
+
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %6, align 8
+  %18 = load i32, ptr %7, align 4
+  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
+  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
+  resume { ptr, i32 } %20
+}
+
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN38PasswordPreferencePREF_PASSWORDFactoryD0Ev(ptr noundef align 8 dereferenceable_or_null(16) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef align 8 dereferenceable_or_null(16) %3) #4
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 16) #22
+  ret void
+}
+
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef ptr @_ZN38PasswordPreferencePREF_PASSWORDFactory6createEP7QObject(ptr noundef align 8 dereferenceable_or_null(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
+  %8 = call noalias noundef ptr @_Znwm(i64 noundef 24) #23
+  %9 = load ptr, ptr %4, align 8
+  invoke void @_ZN18PasswordPreferenceC2EP7QObject(ptr noundef align 8 dereferenceable_or_null(24) %8, ptr noundef %9)
+          to label %10 unwind label %12
+
+10:                                               ; preds = %2
+  store ptr %8, ptr %5, align 8
+  %11 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
+  ret ptr %11
+
+12:                                               ; preds = %2
+  %13 = landingpad { ptr, i32 }
+          cleanup
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %6, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %7, align 4
+  call void @_ZdlPvm(ptr noundef %8, i64 noundef 24) #22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
+  br label %16
+
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %6, align 8
+  %18 = load i32, ptr %7, align 4
+  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
+  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
+  resume { ptr, i32 } %20
+}
+
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN18PasswordPreferenceC2EP7QObject(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZN16StringPreferenceC2EP7QObject(ptr noundef align 8 dereferenceable_or_null(24) %5, ptr noundef %6)
+  store ptr getelementptr inbounds inrange(-16, 120) ({ [17 x ptr] }, ptr @_ZTV18PasswordPreference, i32 0, i32 0, i32 2), ptr %5, align 8
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN18PasswordPreferenceD0Ev(ptr noundef align 8 dereferenceable_or_null(24) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7QObjectD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %3) #4
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #22
+  ret void
+}
+
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef ptr @_ZN18PasswordPreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef %1, ptr noundef align 8 dereferenceable(208) %2, ptr noundef align 8 dereferenceable(24) %3) unnamed_addr #0 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %10 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  %11 = load ptr, ptr %6, align 8
+  %12 = load ptr, ptr %7, align 8
+  %13 = load ptr, ptr %8, align 8
+  %14 = call noundef ptr @_ZN16StringPreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex(ptr noundef align 8 dereferenceable_or_null(24) %10, ptr noundef %11, ptr noundef align 8 dereferenceable(208) %12, ptr noundef align 8 dereferenceable(24) %13)
+  store ptr %14, ptr %9, align 8
+  %15 = load ptr, ptr %9, align 8
+  call void @_ZN9QLineEdit11setEchoModeENS_8EchoModeE(ptr noundef align 8 dereferenceable_or_null(40) %15, i32 noundef 3)
+  %16 = load ptr, ptr %9, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
+  ret ptr %16
+}
+
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN9QLineEdit11setEchoModeENS_8EchoModeE(ptr noundef align 8 dereferenceable_or_null(40), i32 noundef) #1
+
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN30UIntPreferencePREF_UINTFactoryD0Ev(ptr noundef align 8 dereferenceable_or_null(16) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef align 8 dereferenceable_or_null(16) %3) #4
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 16) #22
+  ret void
+}
+
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef ptr @_ZN30UIntPreferencePREF_UINTFactory6createEP7QObject(ptr noundef align 8 dereferenceable_or_null(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
+  %8 = call noalias noundef ptr @_Znwm(i64 noundef 24) #23
+  %9 = load ptr, ptr %4, align 8
+  invoke void @_ZN14UIntPreferenceC2EP7QObject(ptr noundef align 8 dereferenceable_or_null(24) %8, ptr noundef %9)
+          to label %10 unwind label %12
+
+10:                                               ; preds = %2
+  store ptr %8, ptr %5, align 8
+  %11 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
+  ret ptr %11
+
+12:                                               ; preds = %2
+  %13 = landingpad { ptr, i32 }
+          cleanup
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %6, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %7, align 4
+  call void @_ZdlPvm(ptr noundef %8, i64 noundef 24) #22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
+  br label %16
+
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %6, align 8
+  %18 = load i32, ptr %7, align 4
+  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
+  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
+  resume { ptr, i32 } %20
+}
+
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN14UIntPreferenceC2EP7QObject(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZN16StringPreferenceC2EP7QObject(ptr noundef align 8 dereferenceable_or_null(24) %5, ptr noundef %6)
+  store ptr getelementptr inbounds inrange(-16, 120) ({ [17 x ptr] }, ptr @_ZTV14UIntPreference, i32 0, i32 0, i32 2), ptr %5, align 8
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN14UIntPreferenceD0Ev(ptr noundef align 8 dereferenceable_or_null(24) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7QObjectD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %3) #4
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #22
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN30EnumPreferencePREF_ENUMFactoryD0Ev(ptr noundef align 8 dereferenceable_or_null(16) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef align 8 dereferenceable_or_null(16) %3) #4
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 16) #22
+  ret void
+}
+
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef ptr @_ZN30EnumPreferencePREF_ENUMFactory6createEP7QObject(ptr noundef align 8 dereferenceable_or_null(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
+  %8 = call noalias noundef ptr @_Znwm(i64 noundef 24) #23
+  %9 = load ptr, ptr %4, align 8
+  invoke void @_ZN14EnumPreferenceC2EP7QObject(ptr noundef align 8 dereferenceable_or_null(24) %8, ptr noundef %9)
+          to label %10 unwind label %12
+
+10:                                               ; preds = %2
+  store ptr %8, ptr %5, align 8
+  %11 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
+  ret ptr %11
+
+12:                                               ; preds = %2
+  %13 = landingpad { ptr, i32 }
+          cleanup
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %6, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %7, align 4
+  call void @_ZdlPvm(ptr noundef %8, i64 noundef 24) #22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
+  br label %16
+
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %6, align 8
+  %18 = load i32, ptr %7, align 4
+  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
+  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
+  resume { ptr, i32 } %20
+}
+
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN14EnumPreferenceC2EP7QObject(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZN19WiresharkPreferenceC2EP7QObject(ptr noundef align 8 dereferenceable_or_null(24) %5, ptr noundef %6)
+  store ptr getelementptr inbounds inrange(-16, 120) ({ [17 x ptr] }, ptr @_ZTV14EnumPreference, i32 0, i32 0, i32 2), ptr %5, align 8
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN14EnumPreferenceD0Ev(ptr noundef align 8 dereferenceable_or_null(24) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7QObjectD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %3) #4
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #22
+  ret void
+}
+
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef ptr @_ZN14EnumPreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef %1, ptr noundef align 8 dereferenceable(208) %2, ptr noundef align 8 dereferenceable(24) %3) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %11 = call noalias noundef ptr @_Znwm(i64 noundef 40) #23
+  %12 = load ptr, ptr %6, align 8
+  invoke void @_ZN9QComboBoxC1EP7QWidget(ptr noundef align 8 dereferenceable_or_null(40) %11, ptr noundef %12)
+          to label %13 unwind label %14
+
+13:                                               ; preds = %4
+  ret ptr %11
+
+14:                                               ; preds = %4
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %9, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %10, align 4
+  call void @_ZdlPvm(ptr noundef %11, i64 noundef 40) #22
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %9, align 8
+  %20 = load i32, ptr %10, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
+}
+
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN14EnumPreference7setDataEP7QWidgetRK11QModelIndex(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef %1, ptr noundef align 8 dereferenceable(24) %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca %class.QVariant, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca %class.QString, align 8
+  %14 = alloca %class.QVariant, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #4
+  %15 = load ptr, ptr %5, align 8
+  store ptr %15, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  %16 = load ptr, ptr %6, align 8
+  %17 = call noundef ptr @_ZNK11QModelIndex5modelEv(ptr noundef align 8 dereferenceable_or_null(24) %16) #4
+  %18 = load ptr, ptr %6, align 8
+  %19 = load ptr, ptr %17, align 8
+  %20 = getelementptr inbounds ptr, ptr %19, i64 18
+  %21 = load ptr, ptr %20, align 8
+  call void %21(ptr dead_on_unwind writable sret(%class.QVariant) align 8 %10, ptr noundef align 8 dereferenceable_or_null(16) %17, ptr noundef align 8 dereferenceable(24) %18, i32 noundef 256)
+  %22 = invoke noundef ptr @_ZN14VariantPointerI9PrefsItemE5asPtrE8QVariant(ptr noundef %10)
+          to label %23 unwind label %59
+
+23:                                               ; preds = %3
+  call void @_ZN8QVariantD1Ev(ptr noundef align 8 dereferenceable_or_null(32) %10) #4
+  store ptr %22, ptr %9, align 8
+  %24 = load ptr, ptr %9, align 8
+  %25 = call noundef ptr @_ZNK9PrefsItem7getPrefEv(ptr noundef align 8 dereferenceable_or_null(105) %24)
+  %26 = call ptr @prefs_get_enumvals(ptr noundef %25)
+  store ptr %26, ptr %8, align 8
+  br label %27
+
+27:                                               ; preds = %73, %23
+  %28 = load ptr, ptr %8, align 8
+  %29 = icmp ne ptr %28, null
+  br i1 %29, label %30, label %35
+
+30:                                               ; preds = %27
+  %31 = load ptr, ptr %8, align 8
+  %32 = getelementptr inbounds nuw %struct.enum_val_t, ptr %31, i32 0, i32 1
+  %33 = load ptr, ptr %32, align 8
+  %34 = icmp ne ptr %33, null
+  br label %35
+
+35:                                               ; preds = %30, %27
+  %36 = phi i1 [ false, %27 ], [ %34, %30 ]
+  br i1 %36, label %37, label %76
+
+37:                                               ; preds = %35
+  %38 = load ptr, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %13) #4
+  %39 = load ptr, ptr %8, align 8
+  %40 = getelementptr inbounds nuw %struct.enum_val_t, ptr %39, i32 0, i32 1
+  %41 = load ptr, ptr %40, align 8
+  call void @_ZN7QStringC2EPKc(ptr noundef align 8 dereferenceable_or_null(24) %13, ptr noundef %41)
+  call void @llvm.lifetime.start.p0(i64 32, ptr %14) #4
+  %42 = load ptr, ptr %8, align 8
+  %43 = getelementptr inbounds nuw %struct.enum_val_t, ptr %42, i32 0, i32 2
+  %44 = load i32, ptr %43, align 8
+  invoke void @_ZN8QVariantC1Ei(ptr noundef align 8 dereferenceable_or_null(32) %14, i32 noundef %44)
+          to label %45 unwind label %63
+
+45:                                               ; preds = %37
+  invoke void @_ZN9QComboBox7addItemERK7QStringRK8QVariant(ptr noundef align 8 dereferenceable_or_null(40) %38, ptr noundef align 8 dereferenceable(24) %13, ptr noundef align 8 dereferenceable(32) %14)
+          to label %46 unwind label %67
+
+46:                                               ; preds = %45
+  call void @_ZN8QVariantD1Ev(ptr noundef align 8 dereferenceable_or_null(32) %14) #4
+  call void @llvm.lifetime.end.p0(i64 32, ptr %14) #4
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %13) #4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %13) #4
+  %47 = load ptr, ptr %9, align 8
+  %48 = call noundef ptr @_ZNK9PrefsItem7getPrefEv(ptr noundef align 8 dereferenceable_or_null(105) %47)
+  %49 = call i32 @prefs_get_enum_value(ptr noundef %48, i32 noundef 1)
+  %50 = load ptr, ptr %8, align 8
+  %51 = getelementptr inbounds nuw %struct.enum_val_t, ptr %50, i32 0, i32 2
+  %52 = load i32, ptr %51, align 8
+  %53 = icmp eq i32 %49, %52
+  br i1 %53, label %54, label %72
+
+54:                                               ; preds = %46
+  %55 = load ptr, ptr %7, align 8
+  %56 = load ptr, ptr %7, align 8
+  %57 = call noundef i32 @_ZNK9QComboBox5countEv(ptr noundef align 8 dereferenceable_or_null(40) %56)
+  %58 = sub i32 %57, 1
+  call void @_ZN9QComboBox15setCurrentIndexEi(ptr noundef align 8 dereferenceable_or_null(40) %55, i32 noundef %58)
+  br label %72
+
+59:                                               ; preds = %3
+  %60 = landingpad { ptr, i32 }
+          cleanup
+  %61 = extractvalue { ptr, i32 } %60, 0
+  store ptr %61, ptr %11, align 8
+  %62 = extractvalue { ptr, i32 } %60, 1
+  store i32 %62, ptr %12, align 4
+  call void @_ZN8QVariantD1Ev(ptr noundef align 8 dereferenceable_or_null(32) %10) #4
+  br label %77
+
+63:                                               ; preds = %37
+  %64 = landingpad { ptr, i32 }
+          cleanup
+  %65 = extractvalue { ptr, i32 } %64, 0
+  store ptr %65, ptr %11, align 8
+  %66 = extractvalue { ptr, i32 } %64, 1
+  store i32 %66, ptr %12, align 4
+  br label %71
+
+67:                                               ; preds = %45
+  %68 = landingpad { ptr, i32 }
+          cleanup
+  %69 = extractvalue { ptr, i32 } %68, 0
+  store ptr %69, ptr %11, align 8
+  %70 = extractvalue { ptr, i32 } %68, 1
+  store i32 %70, ptr %12, align 4
+  call void @_ZN8QVariantD1Ev(ptr noundef align 8 dereferenceable_or_null(32) %14) #4
+  br label %71
+
+71:                                               ; preds = %67, %63
+  call void @llvm.lifetime.end.p0(i64 32, ptr %14) #4
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %13) #4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %13) #4
+  br label %77
+
+72:                                               ; preds = %54, %46
+  br label %73
+
+73:                                               ; preds = %72
+  %74 = load ptr, ptr %8, align 8
+  %75 = getelementptr %struct.enum_val_t, ptr %74, i32 1
+  store ptr %75, ptr %8, align 8
+  br label %27, !llvm.loop !6
+
+76:                                               ; preds = %35
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #4
+  ret void
+
+77:                                               ; preds = %71, %59
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #4
+  br label %78
+
+78:                                               ; preds = %77
+  %79 = load ptr, ptr %11, align 8
+  %80 = load i32, ptr %12, align 4
+  %81 = insertvalue { ptr, i32 } poison, ptr %79, 0
+  %82 = insertvalue { ptr, i32 } %81, i32 %80, 1
+  resume { ptr, i32 } %82
+}
+
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN14EnumPreference12setModelDataEP7QWidgetP18QAbstractItemModelRK11QModelIndex(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef %1, ptr noundef %2, ptr noundef align 8 dereferenceable(24) %3) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca %class.QVariant, align 8
   %11 = alloca ptr, align 8
   %12 = alloca i32, align 4
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
-  %13 = load ptr, ptr %5, align 8
-  %14 = load ptr, ptr %8, align 8
-  %15 = call noundef ptr @_ZNK11QModelIndex5modelEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #4
-  %16 = load ptr, ptr %8, align 8
-  call void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef @.str)
-  invoke void @_ZN8QVariantC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(24) %10)
-          to label %17 unwind label %27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  %13 = load ptr, ptr %6, align 8
+  store ptr %13, ptr %9, align 8
+  %14 = load ptr, ptr %7, align 8
+  %15 = load ptr, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr %10) #4
+  %16 = load ptr, ptr %9, align 8
+  %17 = load ptr, ptr %9, align 8
+  %18 = call noundef i32 @_ZNK9QComboBox12currentIndexEv(ptr noundef align 8 dereferenceable_or_null(40) %17)
+  call void @_ZNK9QComboBox8itemDataEii(ptr dead_on_unwind writable sret(%class.QVariant) align 8 %10, ptr noundef align 8 dereferenceable_or_null(40) %16, i32 noundef %18, i32 noundef 256)
+  %19 = load ptr, ptr %14, align 8
+  %20 = getelementptr inbounds ptr, ptr %19, i64 19
+  %21 = load ptr, ptr %20, align 8
+  %22 = invoke noundef zeroext i1 %21(ptr noundef align 8 dereferenceable_or_null(16) %14, ptr noundef align 8 dereferenceable(24) %15, ptr noundef align 8 dereferenceable(32) %10, i32 noundef 2)
+          to label %23 unwind label %24
 
-17:                                               ; preds = %4
-  %18 = load ptr, ptr %15, align 8
-  %19 = getelementptr inbounds ptr, ptr %18, i64 19
-  %20 = load ptr, ptr %19, align 8
-  %21 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 2)
-          to label %22 unwind label %31
+23:                                               ; preds = %4
+  call void @_ZN8QVariantD1Ev(ptr noundef align 8 dereferenceable_or_null(32) %10) #4
+  call void @llvm.lifetime.end.p0(i64 32, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
+  ret void
 
-22:                                               ; preds = %17
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #4
-  %23 = load ptr, ptr %6, align 8
-  %24 = load ptr, ptr %7, align 8
-  %25 = load ptr, ptr %8, align 8
-  %26 = call noundef ptr @_ZN19WiresharkPreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef %23, ptr noundef nonnull align 8 dereferenceable(208) %24, ptr noundef nonnull align 8 dereferenceable(24) %25)
-  ret ptr %26
-
-27:                                               ; preds = %4
-  %28 = landingpad { ptr, i32 }
+24:                                               ; preds = %4
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %29 = extractvalue { ptr, i32 } %28, 0
-  store ptr %29, ptr %11, align 8
-  %30 = extractvalue { ptr, i32 } %28, 1
-  store i32 %30, ptr %12, align 4
-  br label %35
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %11, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %12, align 4
+  call void @_ZN8QVariantD1Ev(ptr noundef align 8 dereferenceable_or_null(32) %10) #4
+  call void @llvm.lifetime.end.p0(i64 32, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
+  br label %28
 
-31:                                               ; preds = %17
-  %32 = landingpad { ptr, i32 }
-          cleanup
-  %33 = extractvalue { ptr, i32 } %32, 0
-  store ptr %33, ptr %11, align 8
-  %34 = extractvalue { ptr, i32 } %32, 1
-  store i32 %34, ptr %12, align 4
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #4
-  br label %35
-
-35:                                               ; preds = %31, %27
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #4
-  br label %36
-
-36:                                               ; preds = %35
-  %37 = load ptr, ptr %11, align 8
-  %38 = load i32, ptr %12, align 4
-  %39 = insertvalue { ptr, i32 } poison, ptr %37, 0
-  %40 = insertvalue { ptr, i32 } %39, i32 %38, 1
-  resume { ptr, i32 } %40
+28:                                               ; preds = %24
+  %29 = load ptr, ptr %11, align 8
+  %30 = load i32, ptr %12, align 4
+  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
+  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
+  resume { ptr, i32 } %32
 }
 
-; Function Attrs: nounwind
-declare void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #5
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN9QComboBoxC1EP7QWidget(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #1
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZNK11QModelIndex5modelEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #2 comdat align 2 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef ptr @_ZN14VariantPointerI9PrefsItemE5asPtrE8QVariant(ptr noundef %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = call noundef ptr @_ZNK8QVariant5valueIPvEET_v(ptr noundef align 8 dereferenceable_or_null(32) %0)
+  ret ptr %3
+}
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @prefs_get_enumvals(ptr noundef) #1
+
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef ptr @_ZNK9PrefsItem7getPrefEv(ptr noundef align 8 dereferenceable_or_null(105) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %class.QModelIndex, ptr %3, i32 0, i32 3
+  %4 = getelementptr inbounds nuw %class.PrefsItem, ptr %3, i32 0, i32 1
   %5 = load ptr, ptr %4, align 8
   ret ptr %5
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN9QComboBox7addItemERK7QStringRK8QVariant(ptr noundef align 8 dereferenceable_or_null(40) %0, ptr noundef align 8 dereferenceable(24) %1, ptr noundef align 8 dereferenceable(32) %2) #7 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = call noundef i32 @_ZNK9QComboBox5countEv(ptr noundef align 8 dereferenceable_or_null(40) %7)
+  %9 = load ptr, ptr %5, align 8
+  %10 = load ptr, ptr %6, align 8
+  call void @_ZN9QComboBox10insertItemEiRK7QStringRK8QVariant(ptr noundef align 8 dereferenceable_or_null(40) %7, i32 noundef %8, ptr noundef align 8 dereferenceable(24) %9, ptr noundef align 8 dereferenceable(32) %10)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN7QStringC2EPKc(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef %1) unnamed_addr #7 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %class.QString, align 8
@@ -1892,36 +2882,634 @@ define linkonce_odr void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 derefere
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
-  call void @_ZN14QByteArrayViewC2IPKcTnNSt9enable_ifIXsr9QtPrivate28IsCompatibleByteArrayPointerIT_EE5valueEbE4typeELb1EEERKS4_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(8) %4) #4
-  %8 = getelementptr inbounds { i64, ptr }, ptr %6, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 24, ptr %5) #4
+  call void @_ZN14QByteArrayViewC2IPKcTnNSt9enable_ifIXsr9QtPrivate28IsCompatibleByteArrayPointerIT_EE5valueEbE4typeELb1EEERKS4_(ptr noundef align 8 dereferenceable_or_null(16) %6, ptr noundef align 8 dereferenceable(8) %4) #4
+  %8 = getelementptr inbounds nuw { i64, ptr }, ptr %6, i32 0, i32 0
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds { i64, ptr }, ptr %6, i32 0, i32 1
+  %10 = getelementptr inbounds nuw { i64, ptr }, ptr %6, i32 0, i32 1
   %11 = load ptr, ptr %10, align 8
   call void @_ZN7QString8fromUtf8E14QByteArrayView(ptr dead_on_unwind writable sret(%class.QString) align 8 %5, i64 %9, ptr %11)
-  call void @_ZN7QStringC2EOS_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %5) #4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #4
+  call void @_ZN7QStringC2EOS_(ptr noundef align 8 dereferenceable_or_null(24) %7, ptr noundef align 8 dereferenceable(24) %5) #4
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %5) #4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %5) #4
   ret void
 }
 
-declare void @_ZN8QVariantC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN8QVariantC1Ei(ptr noundef align 8 dereferenceable_or_null(32), i32 noundef) unnamed_addr #1
 
-; Function Attrs: nounwind
-declare void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
+; Function Attrs: null_pointer_is_valid
+declare i32 @prefs_get_enum_value(ptr noundef, i32 noundef) #1
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN9QComboBox15setCurrentIndexEi(ptr noundef align 8 dereferenceable_or_null(40), i32 noundef) #1
+
+; Function Attrs: null_pointer_is_valid
+declare noundef i32 @_ZNK9QComboBox5countEv(ptr noundef align 8 dereferenceable_or_null(40)) #1
+
+; Function Attrs: inlinehint mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef ptr @_ZNK8QVariant5valueIPvEET_v(ptr noundef align 8 dereferenceable_or_null(32) %0) #7 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %class.QString, ptr %3, i32 0, i32 0
-  call void @_ZN17QArrayDataPointerIDsED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #4
+  %4 = call noundef ptr @_Z13qvariant_castIPvET_RK8QVariant(ptr noundef align 8 dereferenceable(32) %3)
+  ret ptr %4
+}
+
+; Function Attrs: inlinehint mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef ptr @_Z13qvariant_castIPvET_RK8QVariant(ptr noundef align 8 dereferenceable(32) %0) #7 comdat {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca %class.QMetaType, align 8
+  %5 = alloca %class.QMetaType, align 8
+  %6 = alloca %class.QMetaType, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca %class.QMetaType, align 8
+  %10 = alloca %class.QMetaType, align 8
+  store ptr %0, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #4
+  %11 = call ptr @_ZN9QMetaType8fromTypeIPvEES_v()
+  %12 = getelementptr inbounds nuw %class.QMetaType, ptr %4, i32 0, i32 0
+  store ptr %11, ptr %12, align 8
+  %13 = load ptr, ptr %3, align 8
+  %14 = getelementptr inbounds nuw %class.QVariant, ptr %13, i32 0, i32 0
+  %15 = call ptr @_ZNK8QVariant7Private4typeEv(ptr noundef align 8 dereferenceable_or_null(32) %14)
+  %16 = getelementptr inbounds nuw %class.QMetaType, ptr %5, i32 0, i32 0
+  store ptr %15, ptr %16, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %4, i64 8, i1 false)
+  %17 = getelementptr inbounds nuw %class.QMetaType, ptr %5, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds nuw %class.QMetaType, ptr %6, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8
+  %21 = call noundef zeroext i1 @_Zeq9QMetaTypeS_(ptr %18, ptr %20)
+  br i1 %21, label %22, label %27
+
+22:                                               ; preds = %1
+  %23 = load ptr, ptr %3, align 8
+  %24 = getelementptr inbounds nuw %class.QVariant, ptr %23, i32 0, i32 0
+  %25 = call noundef align 8 dereferenceable(8) ptr @_ZNK8QVariant7Private3getIPvEERKT_v(ptr noundef align 8 dereferenceable_or_null(32) %24)
+  %26 = load ptr, ptr %25, align 8
+  store ptr %26, ptr %2, align 8
+  store i32 1, ptr %7, align 4
+  br label %39
+
+27:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
+  store ptr null, ptr %8, align 8
+  %28 = load ptr, ptr %3, align 8
+  %29 = call ptr @_ZNK8QVariant8metaTypeEv(ptr noundef align 8 dereferenceable_or_null(32) %28)
+  %30 = getelementptr inbounds nuw %class.QMetaType, ptr %9, i32 0, i32 0
+  store ptr %29, ptr %30, align 8
+  %31 = load ptr, ptr %3, align 8
+  %32 = call noundef ptr @_ZNK8QVariant9constDataEv(ptr noundef align 8 dereferenceable_or_null(32) %31)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %4, i64 8, i1 false)
+  %33 = getelementptr inbounds nuw %class.QMetaType, ptr %9, i32 0, i32 0
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds nuw %class.QMetaType, ptr %10, i32 0, i32 0
+  %36 = load ptr, ptr %35, align 8
+  %37 = call noundef zeroext i1 @_ZN9QMetaType7convertES_PKvS_Pv(ptr %34, ptr noundef %32, ptr %36, ptr noundef %8)
+  %38 = load ptr, ptr %8, align 8
+  store ptr %38, ptr %2, align 8
+  store i32 1, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #4
+  br label %39
+
+39:                                               ; preds = %27, %22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #4
+  %40 = load ptr, ptr %2, align 8
+  ret ptr %40
+}
+
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr ptr @_ZN9QMetaType8fromTypeIPvEES_v() #0 comdat align 2 {
+  %1 = alloca %class.QMetaType, align 8
+  %2 = call noundef ptr @_ZN9QtPrivate25qMetaTypeInterfaceForTypeIPvEEPKNS_18QMetaTypeInterfaceEv()
+  call void @_ZN9QMetaTypeC2EPKN9QtPrivate18QMetaTypeInterfaceE(ptr noundef align 8 dereferenceable_or_null(8) %1, ptr noundef %2)
+  %3 = getelementptr inbounds nuw %class.QMetaType, ptr %1, i32 0, i32 0
+  %4 = load ptr, ptr %3, align 8
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef zeroext i1 @_Zeq9QMetaTypeS_(ptr %0, ptr %1) #0 comdat {
+  %3 = alloca i1, align 1
+  %4 = alloca %class.QMetaType, align 8
+  %5 = alloca %class.QMetaType, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = getelementptr inbounds nuw %class.QMetaType, ptr %4, i32 0, i32 0
+  store ptr %0, ptr %8, align 8
+  %9 = getelementptr inbounds nuw %class.QMetaType, ptr %5, i32 0, i32 0
+  store ptr %1, ptr %9, align 8
+  %10 = getelementptr inbounds nuw %class.QMetaType, ptr %4, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds nuw %class.QMetaType, ptr %5, i32 0, i32 0
+  %13 = load ptr, ptr %12, align 8
+  %14 = icmp eq ptr %11, %13
+  br i1 %14, label %15, label %16
+
+15:                                               ; preds = %2
+  store i1 true, ptr %3, align 1
+  br label %31
+
+16:                                               ; preds = %2
+  %17 = getelementptr inbounds nuw %class.QMetaType, ptr %4, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp ne ptr %18, null
+  br i1 %19, label %20, label %24
+
+20:                                               ; preds = %16
+  %21 = getelementptr inbounds nuw %class.QMetaType, ptr %5, i32 0, i32 0
+  %22 = load ptr, ptr %21, align 8
+  %23 = icmp ne ptr %22, null
+  br i1 %23, label %25, label %24
+
+24:                                               ; preds = %20, %16
+  store i1 false, ptr %3, align 1
+  br label %31
+
+25:                                               ; preds = %20
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  %26 = call noundef i32 @_ZNK9QMetaType2idEi(ptr noundef align 8 dereferenceable_or_null(8) %4, i32 noundef 0)
+  store i32 %26, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
+  %27 = call noundef i32 @_ZNK9QMetaType2idEi(ptr noundef align 8 dereferenceable_or_null(8) %5, i32 noundef 0)
+  store i32 %27, ptr %7, align 4
+  %28 = load i32, ptr %6, align 4
+  %29 = load i32, ptr %7, align 4
+  %30 = icmp eq i32 %28, %29
+  store i1 %30, ptr %3, align 1
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  br label %31
+
+31:                                               ; preds = %25, %24, %15
+  %32 = load i1, ptr %3, align 1
+  ret i1 %32
+}
+
+; Function Attrs: inlinehint mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr ptr @_ZNK8QVariant7Private4typeEv(ptr noundef align 8 dereferenceable_or_null(32) %0) #7 comdat align 2 {
+  %2 = alloca %class.QMetaType, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"struct.QVariant::Private", ptr %4, i32 0, i32 1
+  %6 = load i64, ptr %5, align 8
+  %7 = lshr i64 %6, 2
+  %8 = shl i64 %7, 2
+  %9 = inttoptr i64 %8 to ptr
+  call void @_ZN9QMetaTypeC2EPKN9QtPrivate18QMetaTypeInterfaceE(ptr noundef align 8 dereferenceable_or_null(8) %2, ptr noundef %9)
+  %10 = getelementptr inbounds nuw %class.QMetaType, ptr %2, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8
+  ret ptr %11
+}
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
+
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef align 8 dereferenceable(8) ptr @_ZNK8QVariant7Private3getIPvEERKT_v(ptr noundef align 8 dereferenceable_or_null(32) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNK8QVariant7Private7storageEv(ptr noundef align 8 dereferenceable_or_null(32) %3)
+  ret ptr %4
+}
+
+; Function Attrs: null_pointer_is_valid
+declare noundef zeroext i1 @_ZN9QMetaType7convertES_PKvS_Pv(ptr, ptr noundef, ptr, ptr noundef) #1
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @_ZNK8QVariant8metaTypeEv(ptr noundef align 8 dereferenceable_or_null(32)) #1
+
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef ptr @_ZNK8QVariant9constDataEv(ptr noundef align 8 dereferenceable_or_null(32) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.QVariant, ptr %3, i32 0, i32 0
+  %5 = call noundef ptr @_ZNK8QVariant7Private7storageEv(ptr noundef align 8 dereferenceable_or_null(32) %4)
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef ptr @_ZN9QtPrivate25qMetaTypeInterfaceForTypeIPvEEPKNS_18QMetaTypeInterfaceEv() #2 comdat {
+  ret ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE
+}
+
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN9QMetaTypeC2EPKN9QtPrivate18QMetaTypeInterfaceE(ptr noundef align 8 dereferenceable_or_null(8) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %class.QMetaType, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  store ptr %7, ptr %6, align 8
   ret void
 }
 
+; Function Attrs: inlinehint mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZZN9QtPrivate16QMetaTypeForTypeIPvE13getDefaultCtrEvENUlPKNS_18QMetaTypeInterfaceES1_E_8__invokeES5_S1_(ptr noundef %0, ptr noundef %1) #7 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %class.anon, align 1
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = load ptr, ptr %4, align 8
+  call void @_ZZN9QtPrivate16QMetaTypeForTypeIPvE13getDefaultCtrEvENKUlPKNS_18QMetaTypeInterfaceES1_E_clES5_S1_(ptr noundef align 1 dereferenceable_or_null(1) %5, ptr noundef %6, ptr noundef %7)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZZN9QtPrivate16QMetaTypeForTypeIPvE10getCopyCtrEvENUlPKNS_18QMetaTypeInterfaceES1_PKvE_8__invokeES5_S1_S7_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #7 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %class.anon.6, align 1
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = load ptr, ptr %6, align 8
+  call void @_ZZN9QtPrivate16QMetaTypeForTypeIPvE10getCopyCtrEvENKUlPKNS_18QMetaTypeInterfaceES1_PKvE_clES5_S1_S7_(ptr noundef align 1 dereferenceable_or_null(1) %7, ptr noundef %8, ptr noundef %9, ptr noundef %10)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZZN9QtPrivate16QMetaTypeForTypeIPvE10getMoveCtrEvENUlPKNS_18QMetaTypeInterfaceES1_S1_E_8__invokeES5_S1_S1_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #7 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %class.anon.8, align 1
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = load ptr, ptr %6, align 8
+  call void @_ZZN9QtPrivate16QMetaTypeForTypeIPvE10getMoveCtrEvENKUlPKNS_18QMetaTypeInterfaceES1_S1_E_clES5_S1_S1_(ptr noundef align 1 dereferenceable_or_null(1) %7, ptr noundef %8, ptr noundef %9, ptr noundef %10)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZZN9QtPrivate16QMetaTypeForTypeIPvE13getDefaultCtrEvENKUlPKNS_18QMetaTypeInterfaceES1_E_clES5_S1_(ptr noundef align 1 dereferenceable_or_null(1) %0, ptr noundef %1, ptr noundef %2) #6 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8
+  store ptr null, ptr %7, align 8
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZZN9QtPrivate16QMetaTypeForTypeIPvE10getCopyCtrEvENKUlPKNS_18QMetaTypeInterfaceES1_PKvE_clES5_S1_S7_(ptr noundef align 1 dereferenceable_or_null(1) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %9 = load ptr, ptr %7, align 8
+  %10 = load ptr, ptr %8, align 8
+  %11 = load ptr, ptr %10, align 8
+  store ptr %11, ptr %9, align 8
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZZN9QtPrivate16QMetaTypeForTypeIPvE10getMoveCtrEvENKUlPKNS_18QMetaTypeInterfaceES1_S1_E_clES5_S1_S1_(ptr noundef align 1 dereferenceable_or_null(1) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %9 = load ptr, ptr %7, align 8
+  %10 = load ptr, ptr %8, align 8
+  %11 = load ptr, ptr %10, align 8
+  store ptr %11, ptr %9, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef i32 @_ZNK9QMetaType2idEi(ptr noundef align 8 dereferenceable_or_null(8) %0, i32 noundef %1) #0 comdat align 2 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds nuw %class.QMetaType, ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp ne ptr %10, null
+  br i1 %11, label %12, label %26
+
+12:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  %13 = getelementptr inbounds nuw %class.QMetaType, ptr %8, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds nuw %"class.QtPrivate::QMetaTypeInterface", ptr %14, i32 0, i32 4
+  %16 = call noundef i32 @_ZNK19QBasicAtomicIntegerIiE11loadRelaxedEv(ptr noundef align 4 dereferenceable_or_null(4) %15) #4
+  store i32 %16, ptr %6, align 4
+  %17 = load i32, ptr %6, align 4
+  %18 = icmp ne i32 %17, 0
+  br i1 %18, label %19, label %21
+
+19:                                               ; preds = %12
+  %20 = load i32, ptr %6, align 4
+  store i32 %20, ptr %3, align 4
+  store i32 1, ptr %7, align 4
+  br label %22
+
+21:                                               ; preds = %12
+  store i32 0, ptr %7, align 4
+  br label %22
+
+22:                                               ; preds = %21, %19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  %23 = load i32, ptr %7, align 4
+  switch i32 %23, label %29 [
+    i32 0, label %24
+    i32 1, label %27
+  ]
+
+24:                                               ; preds = %22
+  %25 = call noundef i32 @_ZNK9QMetaType8idHelperEv(ptr noundef align 8 dereferenceable_or_null(8) %8)
+  store i32 %25, ptr %3, align 4
+  br label %27
+
+26:                                               ; preds = %2
+  store i32 0, ptr %3, align 4
+  br label %27
+
+27:                                               ; preds = %26, %24, %22
+  %28 = load i32, ptr %3, align 4
+  ret i32 %28
+
+29:                                               ; preds = %22
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef i32 @_ZNK19QBasicAtomicIntegerIiE11loadRelaxedEv(ptr noundef align 4 dereferenceable_or_null(4) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.QBasicAtomicInteger, ptr %3, i32 0, i32 0
+  %5 = call noundef i32 @_ZN10QAtomicOpsIiE11loadRelaxedIiEET_RKSt6atomicIS2_E(ptr noundef align 4 dereferenceable(4) %4) #4
+  ret i32 %5
+}
+
+; Function Attrs: null_pointer_is_valid
+declare noundef i32 @_ZNK9QMetaType8idHelperEv(ptr noundef align 8 dereferenceable_or_null(8)) #1
+
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef i32 @_ZN10QAtomicOpsIiE11loadRelaxedIiEET_RKSt6atomicIS2_E(ptr noundef align 4 dereferenceable(4) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i32 @_ZNKSt13__atomic_baseIiE4loadESt12memory_order(ptr noundef align 4 dereferenceable_or_null(4) %3, i32 noundef 0) #4
+  ret i32 %4
+}
+
+; Function Attrs: alwaysinline mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef i32 @_ZNKSt13__atomic_baseIiE4loadESt12memory_order(ptr noundef align 4 dereferenceable_or_null(4) %0, i32 noundef %1) #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i32 %1, ptr %4, align 4
+  %7 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #4
+  %8 = load i32, ptr %4, align 4
+  %9 = invoke noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %8, i32 noundef 65535)
+          to label %10 unwind label %43
+
+10:                                               ; preds = %2
+  store i32 %9, ptr %5, align 4
+  br label %11
+
+11:                                               ; preds = %10
+  %12 = load i32, ptr %5, align 4
+  %13 = icmp ne i32 %12, 3
+  %14 = xor i1 %13, true
+  %15 = zext i1 %14 to i64
+  %16 = call i64 @llvm.expect.i64(i64 %15, i64 0)
+  %17 = icmp ne i64 %16, 0
+  br i1 %17, label %18, label %19
+
+18:                                               ; preds = %11
+  call void @_ZSt21__glibcxx_assert_failPKciS0_S0_(ptr noundef @.str.15, i32 noundef 485, ptr noundef @__PRETTY_FUNCTION__._ZNKSt13__atomic_baseIiE4loadESt12memory_order, ptr noundef @.str.16) #24
+  unreachable
+
+19:                                               ; preds = %11
+  br label %20
+
+20:                                               ; preds = %19
+  br label %21
+
+21:                                               ; preds = %20
+  br label %22
+
+22:                                               ; preds = %21
+  %23 = load i32, ptr %5, align 4
+  %24 = icmp ne i32 %23, 4
+  %25 = xor i1 %24, true
+  %26 = zext i1 %25 to i64
+  %27 = call i64 @llvm.expect.i64(i64 %26, i64 0)
+  %28 = icmp ne i64 %27, 0
+  br i1 %28, label %29, label %30
+
+29:                                               ; preds = %22
+  call void @_ZSt21__glibcxx_assert_failPKciS0_S0_(ptr noundef @.str.15, i32 noundef 486, ptr noundef @__PRETTY_FUNCTION__._ZNKSt13__atomic_baseIiE4loadESt12memory_order, ptr noundef @.str.17) #24
+  unreachable
+
+30:                                               ; preds = %22
+  br label %31
+
+31:                                               ; preds = %30
+  br label %32
+
+32:                                               ; preds = %31
+  %33 = getelementptr inbounds nuw %"struct.std::__atomic_base", ptr %7, i32 0, i32 0
+  %34 = load i32, ptr %4, align 4
+  switch i32 %34, label %35 [
+    i32 1, label %37
+    i32 2, label %37
+    i32 5, label %39
+  ]
+
+35:                                               ; preds = %32
+  %36 = load atomic i32, ptr %33 monotonic, align 4
+  store i32 %36, ptr %6, align 4
+  br label %41
+
+37:                                               ; preds = %32, %32
+  %38 = load atomic i32, ptr %33 acquire, align 4
+  store i32 %38, ptr %6, align 4
+  br label %41
+
+39:                                               ; preds = %32
+  %40 = load atomic i32, ptr %33 seq_cst, align 4
+  store i32 %40, ptr %6, align 4
+  br label %41
+
+41:                                               ; preds = %39, %37, %35
+  %42 = load i32, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #4
+  ret i32 %42
+
+43:                                               ; preds = %2
+  %44 = landingpad { ptr, i32 }
+          catch ptr null
+  %45 = extractvalue { ptr, i32 } %44, 0
+  call void @__clang_call_terminate(ptr %45) #24
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %0, i32 noundef %1) #2 comdat {
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  store i32 %0, ptr %3, align 4
+  store i32 %1, ptr %4, align 4
+  %5 = load i32, ptr %3, align 4
+  %6 = load i32, ptr %4, align 4
+  %7 = and i32 %5, %6
+  ret i32 %7
+}
+
+; Function Attrs: noinline noreturn nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #13 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #4
+  call void @_ZSt9terminatev() #24
+  unreachable
+}
+
+declare ptr @__cxa_begin_catch(ptr)
+
+declare void @_ZSt9terminatev()
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #14
+
+; Function Attrs: noreturn nounwind null_pointer_is_valid
+declare void @_ZSt21__glibcxx_assert_failPKciS0_S0_(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #15
+
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef ptr @_ZNK8QVariant7Private7storageEv(ptr noundef align 8 dereferenceable_or_null(32) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.QVariant::Private", ptr %3, i32 0, i32 1
+  %5 = load i64, ptr %4, align 8
+  %6 = and i64 %5, 1
+  %7 = icmp ne i64 %6, 0
+  br i1 %7, label %8, label %12
+
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds nuw %"struct.QVariant::Private", ptr %3, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8
+  %11 = call noundef ptr @_ZN8QVariant13PrivateShared4dataEv(ptr noundef align 8 dereferenceable_or_null(8) %10)
+  br label %14
+
+12:                                               ; preds = %1
+  %13 = getelementptr inbounds nuw %"struct.QVariant::Private", ptr %3, i32 0, i32 0
+  br label %14
+
+14:                                               ; preds = %12, %8
+  %15 = phi ptr [ %11, %8 ], [ %13, %12 ]
+  ret ptr %15
+}
+
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef ptr @_ZN8QVariant13PrivateShared4dataEv(ptr noundef align 8 dereferenceable_or_null(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.QVariant::PrivateShared", ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 4
+  %6 = sext i32 %5 to i64
+  %7 = getelementptr i8, ptr %3, i64 %6
+  ret ptr %7
+}
+
+; Function Attrs: inlinehint mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN9QComboBox10insertItemEiRK7QStringRK8QVariant(ptr noundef align 8 dereferenceable_or_null(40) %0, i32 noundef %1, ptr noundef align 8 dereferenceable(24) %2, ptr noundef align 8 dereferenceable(32) %3) #7 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca %class.QIcon, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store i32 %1, ptr %6, align 4
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %12 = load ptr, ptr %5, align 8
+  %13 = load i32, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  call void @_ZN5QIconC1Ev(ptr noundef align 8 dereferenceable_or_null(8) %9) #4
+  %14 = load ptr, ptr %7, align 8
+  %15 = load ptr, ptr %8, align 8
+  invoke void @_ZN9QComboBox10insertItemEiRK5QIconRK7QStringRK8QVariant(ptr noundef align 8 dereferenceable_or_null(40) %12, i32 noundef %13, ptr noundef align 8 dereferenceable(8) %9, ptr noundef align 8 dereferenceable(24) %14, ptr noundef align 8 dereferenceable(32) %15)
+          to label %16 unwind label %17
+
+16:                                               ; preds = %4
+  call void @_ZN5QIconD1Ev(ptr noundef align 8 dereferenceable_or_null(8) %9) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
+  ret void
+
+17:                                               ; preds = %4
+  %18 = landingpad { ptr, i32 }
+          cleanup
+  %19 = extractvalue { ptr, i32 } %18, 0
+  store ptr %19, ptr %10, align 8
+  %20 = extractvalue { ptr, i32 } %18, 1
+  store i32 %20, ptr %11, align 4
+  call void @_ZN5QIconD1Ev(ptr noundef align 8 dereferenceable_or_null(8) %9) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
+  br label %21
+
+21:                                               ; preds = %17
+  %22 = load ptr, ptr %10, align 8
+  %23 = load i32, ptr %11, align 4
+  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
+  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
+  resume { ptr, i32 } %25
+}
+
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN9QComboBox10insertItemEiRK5QIconRK7QStringRK8QVariant(ptr noundef align 8 dereferenceable_or_null(40), i32 noundef, ptr noundef align 8 dereferenceable(8), ptr noundef align 8 dereferenceable(24), ptr noundef align 8 dereferenceable(32)) #1
+
+; Function Attrs: nounwind null_pointer_is_valid
+declare void @_ZN5QIconC1Ev(ptr noundef align 8 dereferenceable_or_null(8)) unnamed_addr #5
+
+; Function Attrs: nounwind null_pointer_is_valid
+declare void @_ZN5QIconD1Ev(ptr noundef align 8 dereferenceable_or_null(8)) unnamed_addr #5
+
+; Function Attrs: null_pointer_is_valid
 declare void @_ZN7QString8fromUtf8E14QByteArrayView(ptr dead_on_unwind writable sret(%class.QString) align 8, i64, ptr) #1
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN14QByteArrayViewC2IPKcTnNSt9enable_ifIXsr9QtPrivate28IsCompatibleByteArrayPointerIT_EE5valueEbE4typeELb1EEERKS4_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN14QByteArrayViewC2IPKcTnNSt9enable_ifIXsr9QtPrivate28IsCompatibleByteArrayPointerIT_EE5valueEbE4typeELb1EEERKS4_(ptr noundef align 8 dereferenceable_or_null(16) %0, ptr noundef align 8 dereferenceable(8) %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
@@ -1945,7 +3533,7 @@ define linkonce_odr void @_ZN14QByteArrayViewC2IPKcTnNSt9enable_ifIXsr9QtPrivate
 
 16:                                               ; preds = %15, %11
   %17 = phi i64 [ %14, %11 ], [ 0, %15 ]
-  invoke void @_ZN14QByteArrayViewC2IcTnNSt9enable_ifIXsr9QtPrivate20IsCompatibleByteTypeIT_EE5valueEbE4typeELb1EEEPKS2_x(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %7, i64 noundef %17)
+  invoke void @_ZN14QByteArrayViewC2IcTnNSt9enable_ifIXsr9QtPrivate20IsCompatibleByteTypeIT_EE5valueEbE4typeELb1EEEPKS2_x(ptr noundef align 8 dereferenceable_or_null(16) %5, ptr noundef %7, i64 noundef %17)
           to label %18 unwind label %19
 
 18:                                               ; preds = %16
@@ -1955,11 +3543,11 @@ define linkonce_odr void @_ZN14QByteArrayViewC2IPKcTnNSt9enable_ifIXsr9QtPrivate
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #15
+  call void @__clang_call_terminate(ptr %21) #24
   unreachable
 }
 
-; Function Attrs: mustprogress nounwind uwtable
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
 define linkonce_odr noundef i64 @_ZN14QByteArrayView19lengthHelperPointerIcEExPKT_(ptr noundef %0) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
@@ -1974,12 +3562,12 @@ define linkonce_odr noundef i64 @_ZN14QByteArrayView19lengthHelperPointerIcEExPK
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #15
+  call void @__clang_call_terminate(ptr %8) #24
   unreachable
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN14QByteArrayViewC2IcTnNSt9enable_ifIXsr9QtPrivate20IsCompatibleByteTypeIT_EE5valueEbE4typeELb1EEEPKS2_x(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #2 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN14QByteArrayViewC2IcTnNSt9enable_ifIXsr9QtPrivate20IsCompatibleByteTypeIT_EE5valueEbE4typeELb1EEEPKS2_x(ptr noundef align 8 dereferenceable_or_null(16) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #2 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
@@ -1987,28 +3575,17 @@ define linkonce_odr void @_ZN14QByteArrayViewC2IcTnNSt9enable_ifIXsr9QtPrivate20
   store ptr %1, ptr %5, align 8
   store i64 %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %class.QByteArrayView, ptr %7, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %class.QByteArrayView, ptr %7, i32 0, i32 0
   %9 = load i64, ptr %6, align 8
   store i64 %9, ptr %8, align 8
-  %10 = getelementptr inbounds %class.QByteArrayView, ptr %7, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %class.QByteArrayView, ptr %7, i32 0, i32 1
   %11 = load ptr, ptr %5, align 8
   %12 = call noundef ptr @_ZN14QByteArrayView10castHelperEPKc(ptr noundef %11) #4
   store ptr %12, ptr %10, align 8
   ret void
 }
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #8 comdat {
-  %2 = call ptr @__cxa_begin_catch(ptr %0) #4
-  call void @_ZSt9terminatev() #15
-  unreachable
-}
-
-declare ptr @__cxa_begin_catch(ptr)
-
-declare void @_ZSt9terminatev()
-
-; Function Attrs: mustprogress nounwind uwtable
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
 define linkonce_odr noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
@@ -2017,10 +3594,10 @@ define linkonce_odr noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %0
   ret i64 %4
 }
 
-; Function Attrs: nounwind
+; Function Attrs: nounwind null_pointer_is_valid
 declare i64 @strlen(ptr noundef) #5
 
-; Function Attrs: mustprogress nounwind uwtable
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
 define linkonce_odr noundef ptr @_ZN14QByteArrayView10castHelperEPKc(ptr noundef %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
@@ -2028,61 +3605,62 @@ define linkonce_odr noundef ptr @_ZN14QByteArrayView10castHelperEPKc(ptr noundef
   ret ptr %3
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN17QArrayDataPointerIDsEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN17QArrayDataPointerIDsEC2Ev(ptr noundef align 8 dereferenceable_or_null(24) %0) unnamed_addr #2 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.QArrayDataPointer, ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %3, i32 0, i32 0
   store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds %struct.QArrayDataPointer, ptr %3, i32 0, i32 1
+  %5 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %3, i32 0, i32 1
   store ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds %struct.QArrayDataPointer, ptr %3, i32 0, i32 2
+  %6 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %3, i32 0, i32 2
   store i64 0, ptr %6, align 8
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_Z5qSwapIDsEvR17QArrayDataPointerIT_ES3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #2 comdat {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_Z5qSwapIDsEvR17QArrayDataPointerIT_ES3_(ptr noundef align 8 dereferenceable(24) %0, ptr noundef align 8 dereferenceable(24) %1) #6 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
-  call void @_ZN17QArrayDataPointerIDsE4swapERS0_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) #4
+  call void @_ZN17QArrayDataPointerIDsE4swapERS0_(ptr noundef align 8 dereferenceable_or_null(24) %5, ptr noundef align 8 dereferenceable(24) %6) #4
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN17QArrayDataPointerIDsE4swapERS0_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #2 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN17QArrayDataPointerIDsE4swapERS0_(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef align 8 dereferenceable(24) %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.QArrayDataPointer, ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %5, i32 0, i32 0
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %struct.QArrayDataPointer, ptr %7, i32 0, i32 0
-  call void @_Z11qt_ptr_swapI15QTypedArrayDataIDsEEvRPT_S4_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8) #4
-  %9 = getelementptr inbounds %struct.QArrayDataPointer, ptr %5, i32 0, i32 1
+  %8 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %7, i32 0, i32 0
+  call void @_Z11qt_ptr_swapI15QTypedArrayDataIDsEEvRPT_S4_(ptr noundef align 8 dereferenceable(8) %6, ptr noundef align 8 dereferenceable(8) %8) #4
+  %9 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %5, i32 0, i32 1
   %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %struct.QArrayDataPointer, ptr %10, i32 0, i32 1
-  call void @_Z11qt_ptr_swapIDsEvRPT_S2_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %11) #4
-  %12 = getelementptr inbounds %struct.QArrayDataPointer, ptr %5, i32 0, i32 2
+  %11 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %10, i32 0, i32 1
+  call void @_Z11qt_ptr_swapIDsEvRPT_S2_(ptr noundef align 8 dereferenceable(8) %9, ptr noundef align 8 dereferenceable(8) %11) #4
+  %12 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %5, i32 0, i32 2
   %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds %struct.QArrayDataPointer, ptr %13, i32 0, i32 2
-  call void @_ZSt4swapIxENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %14) #4
+  %14 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %13, i32 0, i32 2
+  call void @_ZSt4swapIxENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef align 8 dereferenceable(8) %12, ptr noundef align 8 dereferenceable(8) %14) #4
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_Z11qt_ptr_swapI15QTypedArrayDataIDsEEvRPT_S4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #2 comdat {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_Z11qt_ptr_swapI15QTypedArrayDataIDsEEvRPT_S4_(ptr noundef align 8 dereferenceable(8) %0, ptr noundef align 8 dereferenceable(8) %1) #6 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
   %6 = load ptr, ptr %3, align 8
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %5, align 8
@@ -2093,16 +3671,18 @@ define linkonce_odr void @_Z11qt_ptr_swapI15QTypedArrayDataIDsEEvRPT_S4_(ptr nou
   %11 = load ptr, ptr %5, align 8
   %12 = load ptr, ptr %4, align 8
   store ptr %11, ptr %12, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_Z11qt_ptr_swapIDsEvRPT_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #2 comdat {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_Z11qt_ptr_swapIDsEvRPT_S2_(ptr noundef align 8 dereferenceable(8) %0, ptr noundef align 8 dereferenceable(8) %1) #6 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
   %6 = load ptr, ptr %3, align 8
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %5, align 8
@@ -2113,16 +3693,18 @@ define linkonce_odr void @_Z11qt_ptr_swapIDsEvRPT_S2_(ptr noundef nonnull align 
   %11 = load ptr, ptr %5, align 8
   %12 = load ptr, ptr %4, align 8
   store ptr %11, ptr %12, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZSt4swapIxENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #2 comdat {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZSt4swapIxENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef align 8 dereferenceable(8) %0, ptr noundef align 8 dereferenceable(8) %1) #6 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
   %6 = load ptr, ptr %3, align 8
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
@@ -2133,136 +3715,28 @@ define linkonce_odr void @_ZSt4swapIxENSt9enable_ifIXsr6__and_ISt6__not_ISt15__i
   %11 = load i64, ptr %5, align 8
   %12 = load ptr, ptr %4, align 8
   store i64 %11, ptr %12, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN17QArrayDataPointerIDsED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
+; Function Attrs: null_pointer_is_valid
+declare void @_ZNK9QComboBox8itemDataEii(ptr dead_on_unwind writable sret(%class.QVariant) align 8, ptr noundef align 8 dereferenceable_or_null(40), i32 noundef, i32 noundef) #1
+
+; Function Attrs: null_pointer_is_valid
+declare noundef i32 @_ZNK9QComboBox12currentIndexEv(ptr noundef align 8 dereferenceable_or_null(40)) #1
+
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN32RangePreferencePREF_RANGEFactoryD0Ev(ptr noundef align 8 dereferenceable_or_null(16) %0) unnamed_addr #6 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef zeroext i1 @_ZN17QArrayDataPointerIDsE5derefEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #4
-  br i1 %4, label %9, label %5
-
-5:                                                ; preds = %1
-  %6 = call noundef ptr @_ZN17QArrayDataPointerIDsEptEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #4
-  call void @_ZN9QtPrivate12QPodArrayOpsIDsE10destroyAllEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #4
-  %7 = getelementptr inbounds %struct.QArrayDataPointer, ptr %3, i32 0, i32 0
-  %8 = load ptr, ptr %7, align 8
-  call void @_ZN15QTypedArrayDataIDsE10deallocateEP10QArrayData(ptr noundef %8) #4
-  br label %9
-
-9:                                                ; preds = %5, %1
+  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef align 8 dereferenceable_or_null(16) %3) #4
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 16) #22
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZN17QArrayDataPointerIDsE5derefEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.QArrayDataPointer, ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
-  %6 = icmp ne ptr %5, null
-  br i1 %6, label %7, label %11
-
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %struct.QArrayDataPointer, ptr %3, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
-  %10 = call noundef zeroext i1 @_ZN10QArrayData5derefEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #4
-  br label %11
-
-11:                                               ; preds = %7, %1
-  %12 = phi i1 [ true, %1 ], [ %10, %7 ]
-  ret i1 %12
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN17QArrayDataPointerIDsEptEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  ret ptr %3
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN9QtPrivate12QPodArrayOpsIDsE10destroyAllEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN15QTypedArrayDataIDsE10deallocateEP10QArrayData(ptr noundef %0) #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %3, i64 noundef 2, i64 noundef 8) #4
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZN10QArrayData5derefEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.QArrayData, ptr %3, i32 0, i32 0
-  %5 = call noundef zeroext i1 @_ZN19QBasicAtomicIntegerIiE5derefEv(ptr noundef nonnull align 4 dereferenceable(4) %4) #4
-  ret i1 %5
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZN19QBasicAtomicIntegerIiE5derefEv(ptr noundef nonnull align 4 dereferenceable(4) %0) #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %class.QBasicAtomicInteger, ptr %3, i32 0, i32 0
-  %5 = call noundef zeroext i1 @_ZN10QAtomicOpsIiE5derefIiEEbRSt6atomicIT_E(ptr noundef nonnull align 4 dereferenceable(4) %4) #4
-  ret i1 %5
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZN10QAtomicOpsIiE5derefIiEEbRSt6atomicIT_E(ptr noundef nonnull align 4 dereferenceable(4) %0) #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef i32 @_ZNSt13__atomic_baseIiEmmEv(ptr noundef nonnull align 4 dereferenceable(4) %3) #4
-  %5 = icmp ne i32 %4, 0
-  ret i1 %5
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZNSt13__atomic_baseIiEmmEv(ptr noundef nonnull align 4 dereferenceable(4) %0) #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  %3 = alloca i32, align 4
-  %4 = alloca i32, align 4
-  store ptr %0, ptr %2, align 8
-  %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %"struct.std::__atomic_base", ptr %5, i32 0, i32 0
-  store i32 1, ptr %3, align 4
-  %7 = load i32, ptr %3, align 4
-  %8 = atomicrmw sub ptr %6, i32 %7 seq_cst, align 4
-  %9 = sub i32 %8, %7
-  store i32 %9, ptr %4, align 4
-  %10 = load i32, ptr %4, align 4
-  ret i32 %10
-}
-
-; Function Attrs: nounwind
-declare void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef, i64 noundef, i64 noundef) #5
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN34StringPreferencePREF_STRINGFactoryD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN34StringPreferencePREF_STRINGFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #4
-  call void @_ZdlPv(ptr noundef %3) #13
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN34StringPreferencePREF_STRINGFactory6createEP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef ptr @_ZN32RangePreferencePREF_RANGEFactory6createEP7QObject(ptr noundef align 8 dereferenceable_or_null(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -2270,14 +3744,16 @@ define linkonce_odr noundef ptr @_ZN34StringPreferencePREF_STRINGFactory6createE
   %7 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
-  %8 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
+  %8 = call noalias noundef ptr @_Znwm(i64 noundef 24) #23
   %9 = load ptr, ptr %4, align 8
-  invoke void @_ZN16StringPreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef %9)
+  invoke void @_ZN15RangePreferenceC2EP7QObject(ptr noundef align 8 dereferenceable_or_null(24) %8, ptr noundef %9)
           to label %10 unwind label %12
 
 10:                                               ; preds = %2
   store ptr %8, ptr %5, align 8
   %11 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
   ret ptr %11
 
 12:                                               ; preds = %2
@@ -2287,7 +3763,8 @@ define linkonce_odr noundef ptr @_ZN34StringPreferencePREF_STRINGFactory6createE
   store ptr %14, ptr %6, align 8
   %15 = extractvalue { ptr, i32 } %13, 1
   store i32 %15, ptr %7, align 4
-  call void @_ZdlPv(ptr noundef %8) #13
+  call void @_ZdlPvm(ptr noundef %8, i64 noundef 24) #22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
   br label %16
 
 16:                                               ; preds = %12
@@ -2298,41 +3775,31 @@ define linkonce_odr noundef ptr @_ZN34StringPreferencePREF_STRINGFactory6createE
   resume { ptr, i32 } %20
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN16StringPreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN15RangePreferenceC2EP7QObject(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
-  call void @_ZN19WiresharkPreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6)
-  %7 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTV16StringPreference, i32 0, i32 0, i32 2
-  store ptr %7, ptr %5, align 8
+  call void @_ZN19WiresharkPreferenceC2EP7QObject(ptr noundef align 8 dereferenceable_or_null(24) %5, ptr noundef %6)
+  store ptr getelementptr inbounds inrange(-16, 120) ({ [17 x ptr] }, ptr @_ZTV15RangePreference, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN16StringPreferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN15RangePreferenceD0Ev(ptr noundef align 8 dereferenceable_or_null(24) %0) unnamed_addr #6 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN19WiresharkPreferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #4
+  call void @_ZN7QObjectD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %3) #4
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #22
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN16StringPreferenceD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN16StringPreferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #4
-  call void @_ZdlPv(ptr noundef %3) #13
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN16StringPreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(208) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef ptr @_ZN15RangePreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef %1, ptr noundef align 8 dereferenceable(208) %2, ptr noundef align 8 dereferenceable(24) %3) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -2343,9 +3810,9 @@ define linkonce_odr noundef ptr @_ZN16StringPreference6editorEP7QWidgetRK20QStyl
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
-  %11 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #14
+  %11 = call noalias noundef ptr @_Znwm(i64 noundef 192) #23
   %12 = load ptr, ptr %6, align 8
-  invoke void @_ZN9QLineEditC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef %12)
+  invoke void @_ZN19RangeSyntaxLineEditC1EP7QWidget(ptr noundef align 8 dereferenceable_or_null(192) %11, ptr noundef %12)
           to label %13 unwind label %14
 
 13:                                               ; preds = %4
@@ -2358,7 +3825,7 @@ define linkonce_odr noundef ptr @_ZN16StringPreference6editorEP7QWidgetRK20QStyl
   store ptr %16, ptr %9, align 8
   %17 = extractvalue { ptr, i32 } %15, 1
   store i32 %17, ptr %10, align 4
-  call void @_ZdlPv(ptr noundef %11) #13
+  call void @_ZdlPvm(ptr noundef %11, i64 noundef 192) #22
   br label %18
 
 18:                                               ; preds = %14
@@ -2369,8 +3836,8 @@ define linkonce_odr noundef ptr @_ZN16StringPreference6editorEP7QWidgetRK20QStyl
   resume { ptr, i32 } %22
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN16StringPreference7setDataEP7QWidgetRK11QModelIndex(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN15RangePreference7setDataEP7QWidgetRK11QModelIndex(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef %1, ptr noundef align 8 dereferenceable(24) %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2382,26 +3849,32 @@ define linkonce_odr void @_ZN16StringPreference7setDataEP7QWidgetRK11QModelIndex
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #4
   %12 = load ptr, ptr %5, align 8
   store ptr %12, ptr %7, align 8
   %13 = load ptr, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 32, ptr %9) #4
   %14 = load ptr, ptr %6, align 8
-  %15 = call noundef ptr @_ZNK11QModelIndex5modelEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #4
+  %15 = call noundef ptr @_ZNK11QModelIndex5modelEv(ptr noundef align 8 dereferenceable_or_null(24) %14) #4
   %16 = load ptr, ptr %6, align 8
   %17 = load ptr, ptr %15, align 8
   %18 = getelementptr inbounds ptr, ptr %17, i64 18
   %19 = load ptr, ptr %18, align 8
-  call void %19(ptr dead_on_unwind writable sret(%class.QVariant) align 8 %9, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(24) %16, i32 noundef 0)
-  invoke void @_ZNK8QVariant8toStringEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
+  call void %19(ptr dead_on_unwind writable sret(%class.QVariant) align 8 %9, ptr noundef align 8 dereferenceable_or_null(16) %15, ptr noundef align 8 dereferenceable(24) %16, i32 noundef 0)
+  invoke void @_ZNK8QVariant8toStringEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %8, ptr noundef align 8 dereferenceable_or_null(32) %9)
           to label %20 unwind label %22
 
 20:                                               ; preds = %3
-  invoke void @_ZN9QLineEdit7setTextERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  invoke void @_ZN9QLineEdit7setTextERK7QString(ptr noundef align 8 dereferenceable_or_null(40) %13, ptr noundef align 8 dereferenceable(24) %8)
           to label %21 unwind label %26
 
 21:                                               ; preds = %20
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #4
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #4
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %8) #4
+  call void @_ZN8QVariantD1Ev(ptr noundef align 8 dereferenceable_or_null(32) %9) #4
+  call void @llvm.lifetime.end.p0(i64 32, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #4
   ret void
 
 22:                                               ; preds = %3
@@ -2420,11 +3893,14 @@ define linkonce_odr void @_ZN16StringPreference7setDataEP7QWidgetRK11QModelIndex
   store ptr %28, ptr %10, align 8
   %29 = extractvalue { ptr, i32 } %27, 1
   store i32 %29, ptr %11, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #4
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %8) #4
   br label %30
 
 30:                                               ; preds = %26, %22
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #4
+  call void @_ZN8QVariantD1Ev(ptr noundef align 8 dereferenceable_or_null(32) %9) #4
+  call void @llvm.lifetime.end.p0(i64 32, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #4
   br label %31
 
 31:                                               ; preds = %30
@@ -2435,8 +3911,8 @@ define linkonce_odr void @_ZN16StringPreference7setDataEP7QWidgetRK11QModelIndex
   resume { ptr, i32 } %35
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN16StringPreference12setModelDataEP7QWidgetP18QAbstractItemModelRK11QModelIndex(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN15RangePreference12setModelDataEP7QWidgetP18QAbstractItemModelRK11QModelIndex(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef %1, ptr noundef %2, ptr noundef align 8 dereferenceable(24) %3) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -2450,25 +3926,31 @@ define linkonce_odr void @_ZN16StringPreference12setModelDataEP7QWidgetP18QAbstr
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
   %14 = load ptr, ptr %6, align 8
   store ptr %14, ptr %9, align 8
   %15 = load ptr, ptr %7, align 8
   %16 = load ptr, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 24, ptr %11) #4
   %17 = load ptr, ptr %9, align 8
-  call void @_ZNK9QLineEdit4textEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %11, ptr noundef nonnull align 8 dereferenceable(40) %17)
-  invoke void @_ZN8QVariantC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(24) %11)
+  call void @_ZNK9QLineEdit4textEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %11, ptr noundef align 8 dereferenceable_or_null(40) %17)
+  invoke void @_ZN8QVariantC1ERK7QString(ptr noundef align 8 dereferenceable_or_null(32) %10, ptr noundef align 8 dereferenceable(24) %11)
           to label %18 unwind label %24
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %15, align 8
   %20 = getelementptr inbounds ptr, ptr %19, i64 19
   %21 = load ptr, ptr %20, align 8
-  %22 = invoke noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 2)
+  %22 = invoke noundef zeroext i1 %21(ptr noundef align 8 dereferenceable_or_null(16) %15, ptr noundef align 8 dereferenceable(24) %16, ptr noundef align 8 dereferenceable(32) %10, i32 noundef 2)
           to label %23 unwind label %28
 
 23:                                               ; preds = %18
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #4
+  call void @_ZN8QVariantD1Ev(ptr noundef align 8 dereferenceable_or_null(32) %10) #4
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %11) #4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 32, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
   ret void
 
 24:                                               ; preds = %4
@@ -2487,11 +3969,14 @@ define linkonce_odr void @_ZN16StringPreference12setModelDataEP7QWidgetP18QAbstr
   store ptr %30, ptr %12, align 8
   %31 = extractvalue { ptr, i32 } %29, 1
   store i32 %31, ptr %13, align 4
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #4
+  call void @_ZN8QVariantD1Ev(ptr noundef align 8 dereferenceable_or_null(32) %10) #4
   br label %32
 
 32:                                               ; preds = %28, %24
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #4
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %11) #4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 32, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
   br label %33
 
 33:                                               ; preds = %32
@@ -2502,26 +3987,21 @@ define linkonce_odr void @_ZN16StringPreference12setModelDataEP7QWidgetP18QAbstr
   resume { ptr, i32 } %37
 }
 
-declare void @_ZN9QLineEditC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN19RangeSyntaxLineEditC1EP7QWidget(ptr noundef align 8 dereferenceable_or_null(192), ptr noundef) unnamed_addr #1
 
-declare void @_ZN9QLineEdit7setTextERK7QString(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(24)) #1
-
-declare void @_ZNK8QVariant8toStringEv(ptr dead_on_unwind writable sret(%class.QString) align 8, ptr noundef nonnull align 8 dereferenceable(32)) #1
-
-declare void @_ZNK9QLineEdit4textEv(ptr dead_on_unwind writable sret(%class.QString) align 8, ptr noundef nonnull align 8 dereferenceable(40)) #1
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN34StringPreferencePREF_CUSTOMFactoryD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN42RangePreferencePREF_DECODE_AS_RANGEFactoryD0Ev(ptr noundef align 8 dereferenceable_or_null(16) %0) unnamed_addr #6 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN34StringPreferencePREF_CUSTOMFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #4
-  call void @_ZdlPv(ptr noundef %3) #13
+  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef align 8 dereferenceable_or_null(16) %3) #4
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 16) #22
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN34StringPreferencePREF_CUSTOMFactory6createEP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef ptr @_ZN42RangePreferencePREF_DECODE_AS_RANGEFactory6createEP7QObject(ptr noundef align 8 dereferenceable_or_null(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -2529,14 +4009,16 @@ define linkonce_odr noundef ptr @_ZN34StringPreferencePREF_CUSTOMFactory6createE
   %7 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
-  %8 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
+  %8 = call noalias noundef ptr @_Znwm(i64 noundef 24) #23
   %9 = load ptr, ptr %4, align 8
-  invoke void @_ZN16StringPreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef %9)
+  invoke void @_ZN15RangePreferenceC2EP7QObject(ptr noundef align 8 dereferenceable_or_null(24) %8, ptr noundef %9)
           to label %10 unwind label %12
 
 10:                                               ; preds = %2
   store ptr %8, ptr %5, align 8
   %11 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
   ret ptr %11
 
 12:                                               ; preds = %2
@@ -2546,7 +4028,8 @@ define linkonce_odr noundef ptr @_ZN34StringPreferencePREF_CUSTOMFactory6createE
   store ptr %14, ptr %6, align 8
   %15 = extractvalue { ptr, i32 } %13, 1
   store i32 %15, ptr %7, align 4
-  call void @_ZdlPv(ptr noundef %8) #13
+  call void @_ZdlPvm(ptr noundef %8, i64 noundef 24) #22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
   br label %16
 
 16:                                               ; preds = %12
@@ -2557,18 +4040,18 @@ define linkonce_odr noundef ptr @_ZN34StringPreferencePREF_CUSTOMFactory6createE
   resume { ptr, i32 } %20
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN37StringPreferencePREF_DISSECTORFactoryD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN32ColorPreferencePREF_COLORFactoryD0Ev(ptr noundef align 8 dereferenceable_or_null(16) %0) unnamed_addr #6 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN37StringPreferencePREF_DISSECTORFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #4
-  call void @_ZdlPv(ptr noundef %3) #13
+  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef align 8 dereferenceable_or_null(16) %3) #4
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 16) #22
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN37StringPreferencePREF_DISSECTORFactory6createEP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef ptr @_ZN32ColorPreferencePREF_COLORFactory6createEP7QObject(ptr noundef align 8 dereferenceable_or_null(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -2576,14 +4059,16 @@ define linkonce_odr noundef ptr @_ZN37StringPreferencePREF_DISSECTORFactory6crea
   %7 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
-  %8 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
+  %8 = call noalias noundef ptr @_Znwm(i64 noundef 24) #23
   %9 = load ptr, ptr %4, align 8
-  invoke void @_ZN16StringPreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef %9)
+  invoke void @_ZN15ColorPreferenceC2EP7QObject(ptr noundef align 8 dereferenceable_or_null(24) %8, ptr noundef %9)
           to label %10 unwind label %12
 
 10:                                               ; preds = %2
   store ptr %8, ptr %5, align 8
   %11 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
   ret ptr %11
 
 12:                                               ; preds = %2
@@ -2593,7 +4078,8 @@ define linkonce_odr noundef ptr @_ZN37StringPreferencePREF_DISSECTORFactory6crea
   store ptr %14, ptr %6, align 8
   %15 = extractvalue { ptr, i32 } %13, 1
   store i32 %15, ptr %7, align 4
-  call void @_ZdlPv(ptr noundef %8) #13
+  call void @_ZdlPvm(ptr noundef %8, i64 noundef 24) #22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
   br label %16
 
 16:                                               ; preds = %12
@@ -2604,1448 +4090,56 @@ define linkonce_odr noundef ptr @_ZN37StringPreferencePREF_DISSECTORFactory6crea
   resume { ptr, i32 } %20
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN38PasswordPreferencePREF_PASSWORDFactoryD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN38PasswordPreferencePREF_PASSWORDFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #4
-  call void @_ZdlPv(ptr noundef %3) #13
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN38PasswordPreferencePREF_PASSWORDFactory6createEP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca ptr, align 8
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %8 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #14
-  %9 = load ptr, ptr %4, align 8
-  invoke void @_ZN18PasswordPreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef %9)
-          to label %10 unwind label %12
-
-10:                                               ; preds = %2
-  store ptr %8, ptr %5, align 8
-  %11 = load ptr, ptr %5, align 8
-  ret ptr %11
-
-12:                                               ; preds = %2
-  %13 = landingpad { ptr, i32 }
-          cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %6, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %7, align 4
-  call void @_ZdlPv(ptr noundef %8) #13
-  br label %16
-
-16:                                               ; preds = %12
-  %17 = load ptr, ptr %6, align 8
-  %18 = load i32, ptr %7, align 4
-  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
-  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
-  resume { ptr, i32 } %20
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN18PasswordPreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN15ColorPreferenceC2EP7QObject(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
-  call void @_ZN16StringPreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6)
-  %7 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTV18PasswordPreference, i32 0, i32 0, i32 2
-  store ptr %7, ptr %5, align 8
+  call void @_ZN19WiresharkPreferenceC2EP7QObject(ptr noundef align 8 dereferenceable_or_null(24) %5, ptr noundef %6)
+  store ptr getelementptr inbounds inrange(-16, 120) ({ [17 x ptr] }, ptr @_ZTV15ColorPreference, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN18PasswordPreferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN15ColorPreferenceD0Ev(ptr noundef align 8 dereferenceable_or_null(24) %0) unnamed_addr #6 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN16StringPreferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #4
+  call void @_ZN7QObjectD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %3) #4
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #22
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN18PasswordPreferenceD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN18PasswordPreferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #4
-  call void @_ZdlPv(ptr noundef %3) #13
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN18PasswordPreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(208) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #0 comdat align 2 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef ptr @_ZN15ColorPreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef %1, ptr noundef align 8 dereferenceable(208) %2, ptr noundef align 8 dereferenceable(24) %3) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
-  %10 = load ptr, ptr %5, align 8
-  %11 = load ptr, ptr %6, align 8
-  %12 = load ptr, ptr %7, align 8
-  %13 = load ptr, ptr %8, align 8
-  %14 = call noundef ptr @_ZN16StringPreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(208) %12, ptr noundef nonnull align 8 dereferenceable(24) %13)
-  store ptr %14, ptr %9, align 8
-  %15 = load ptr, ptr %9, align 8
-  call void @_ZN9QLineEdit11setEchoModeENS_8EchoModeE(ptr noundef nonnull align 8 dereferenceable(40) %15, i32 noundef 3)
-  %16 = load ptr, ptr %9, align 8
-  ret ptr %16
-}
-
-declare void @_ZN9QLineEdit11setEchoModeENS_8EchoModeE(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) #1
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN30UIntPreferencePREF_UINTFactoryD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN30UIntPreferencePREF_UINTFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #4
-  call void @_ZdlPv(ptr noundef %3) #13
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN30UIntPreferencePREF_UINTFactory6createEP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca ptr, align 8
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %8 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #14
-  %9 = load ptr, ptr %4, align 8
-  invoke void @_ZN14UIntPreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef %9)
-          to label %10 unwind label %12
-
-10:                                               ; preds = %2
-  store ptr %8, ptr %5, align 8
-  %11 = load ptr, ptr %5, align 8
-  ret ptr %11
-
-12:                                               ; preds = %2
-  %13 = landingpad { ptr, i32 }
-          cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %6, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %7, align 4
-  call void @_ZdlPv(ptr noundef %8) #13
-  br label %16
-
-16:                                               ; preds = %12
-  %17 = load ptr, ptr %6, align 8
-  %18 = load i32, ptr %7, align 4
-  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
-  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
-  resume { ptr, i32 } %20
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN14UIntPreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
-  %3 = alloca ptr, align 8
-  %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZN16StringPreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6)
-  %7 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTV14UIntPreference, i32 0, i32 0, i32 2
-  store ptr %7, ptr %5, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN14UIntPreferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN16StringPreferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #4
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN14UIntPreferenceD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN14UIntPreferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #4
-  call void @_ZdlPv(ptr noundef %3) #13
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN30EnumPreferencePREF_ENUMFactoryD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN30EnumPreferencePREF_ENUMFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #4
-  call void @_ZdlPv(ptr noundef %3) #13
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN30EnumPreferencePREF_ENUMFactory6createEP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca ptr, align 8
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %8 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #14
-  %9 = load ptr, ptr %4, align 8
-  invoke void @_ZN14EnumPreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef %9)
-          to label %10 unwind label %12
-
-10:                                               ; preds = %2
-  store ptr %8, ptr %5, align 8
-  %11 = load ptr, ptr %5, align 8
-  ret ptr %11
-
-12:                                               ; preds = %2
-  %13 = landingpad { ptr, i32 }
-          cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %6, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %7, align 4
-  call void @_ZdlPv(ptr noundef %8) #13
-  br label %16
-
-16:                                               ; preds = %12
-  %17 = load ptr, ptr %6, align 8
-  %18 = load i32, ptr %7, align 4
-  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
-  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
-  resume { ptr, i32 } %20
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN14EnumPreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
-  %3 = alloca ptr, align 8
-  %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZN19WiresharkPreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6)
-  %7 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTV14EnumPreference, i32 0, i32 0, i32 2
-  store ptr %7, ptr %5, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN14EnumPreferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN19WiresharkPreferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #4
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN14EnumPreferenceD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN14EnumPreferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #4
-  call void @_ZdlPv(ptr noundef %3) #13
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN14EnumPreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(208) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %11 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #14
-  %12 = load ptr, ptr %6, align 8
-  invoke void @_ZN9QComboBoxC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %4
-  ret ptr %11
-
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %9, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %10, align 4
-  call void @_ZdlPv(ptr noundef %11) #13
-  br label %18
-
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %9, align 8
-  %20 = load i32, ptr %10, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN14EnumPreference7setDataEP7QWidgetRK11QModelIndex(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca %class.QVariant, align 8
-  %11 = alloca ptr, align 8
-  %12 = alloca i32, align 4
-  %13 = alloca %class.QString, align 8
-  %14 = alloca %class.QVariant, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %15 = load ptr, ptr %5, align 8
-  store ptr %15, ptr %7, align 8
-  %16 = load ptr, ptr %6, align 8
-  %17 = call noundef ptr @_ZNK11QModelIndex5modelEv(ptr noundef nonnull align 8 dereferenceable(24) %16) #4
-  %18 = load ptr, ptr %6, align 8
-  %19 = load ptr, ptr %17, align 8
-  %20 = getelementptr inbounds ptr, ptr %19, i64 18
-  %21 = load ptr, ptr %20, align 8
-  call void %21(ptr dead_on_unwind writable sret(%class.QVariant) align 8 %10, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(24) %18, i32 noundef 256)
-  %22 = invoke noundef ptr @_ZN14VariantPointerI9PrefsItemE5asPtrE8QVariant(ptr noundef %10)
-          to label %23 unwind label %59
-
-23:                                               ; preds = %3
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #4
-  store ptr %22, ptr %9, align 8
-  %24 = load ptr, ptr %9, align 8
-  %25 = call noundef ptr @_ZNK9PrefsItem7getPrefEv(ptr noundef nonnull align 8 dereferenceable(81) %24)
-  %26 = call ptr @prefs_get_enumvals(ptr noundef %25)
-  store ptr %26, ptr %8, align 8
-  br label %27
-
-27:                                               ; preds = %73, %23
-  %28 = load ptr, ptr %8, align 8
-  %29 = icmp ne ptr %28, null
-  br i1 %29, label %30, label %35
-
-30:                                               ; preds = %27
-  %31 = load ptr, ptr %8, align 8
-  %32 = getelementptr inbounds %struct.enum_val_t, ptr %31, i32 0, i32 1
-  %33 = load ptr, ptr %32, align 8
-  %34 = icmp ne ptr %33, null
-  br label %35
-
-35:                                               ; preds = %30, %27
-  %36 = phi i1 [ false, %27 ], [ %34, %30 ]
-  br i1 %36, label %37, label %76
-
-37:                                               ; preds = %35
-  %38 = load ptr, ptr %7, align 8
-  %39 = load ptr, ptr %8, align 8
-  %40 = getelementptr inbounds %struct.enum_val_t, ptr %39, i32 0, i32 1
-  %41 = load ptr, ptr %40, align 8
-  call void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef %41)
-  %42 = load ptr, ptr %8, align 8
-  %43 = getelementptr inbounds %struct.enum_val_t, ptr %42, i32 0, i32 2
-  %44 = load i32, ptr %43, align 8
-  invoke void @_ZN8QVariantC1Ei(ptr noundef nonnull align 8 dereferenceable(32) %14, i32 noundef %44)
-          to label %45 unwind label %63
-
-45:                                               ; preds = %37
-  invoke void @_ZN9QComboBox7addItemERK7QStringRK8QVariant(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(32) %14)
-          to label %46 unwind label %67
-
-46:                                               ; preds = %45
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #4
-  %47 = load ptr, ptr %9, align 8
-  %48 = call noundef ptr @_ZNK9PrefsItem7getPrefEv(ptr noundef nonnull align 8 dereferenceable(81) %47)
-  %49 = call i32 @prefs_get_enum_value(ptr noundef %48, i32 noundef 1)
-  %50 = load ptr, ptr %8, align 8
-  %51 = getelementptr inbounds %struct.enum_val_t, ptr %50, i32 0, i32 2
-  %52 = load i32, ptr %51, align 8
-  %53 = icmp eq i32 %49, %52
-  br i1 %53, label %54, label %72
-
-54:                                               ; preds = %46
-  %55 = load ptr, ptr %7, align 8
-  %56 = load ptr, ptr %7, align 8
-  %57 = call noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40) %56)
-  %58 = sub i32 %57, 1
-  call void @_ZN9QComboBox15setCurrentIndexEi(ptr noundef nonnull align 8 dereferenceable(40) %55, i32 noundef %58)
-  br label %72
-
-59:                                               ; preds = %3
-  %60 = landingpad { ptr, i32 }
-          cleanup
-  %61 = extractvalue { ptr, i32 } %60, 0
-  store ptr %61, ptr %11, align 8
-  %62 = extractvalue { ptr, i32 } %60, 1
-  store i32 %62, ptr %12, align 4
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #4
-  br label %77
-
-63:                                               ; preds = %37
-  %64 = landingpad { ptr, i32 }
-          cleanup
-  %65 = extractvalue { ptr, i32 } %64, 0
-  store ptr %65, ptr %11, align 8
-  %66 = extractvalue { ptr, i32 } %64, 1
-  store i32 %66, ptr %12, align 4
-  br label %71
-
-67:                                               ; preds = %45
-  %68 = landingpad { ptr, i32 }
-          cleanup
-  %69 = extractvalue { ptr, i32 } %68, 0
-  store ptr %69, ptr %11, align 8
-  %70 = extractvalue { ptr, i32 } %68, 1
-  store i32 %70, ptr %12, align 4
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #4
-  br label %71
-
-71:                                               ; preds = %67, %63
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #4
-  br label %77
-
-72:                                               ; preds = %54, %46
-  br label %73
-
-73:                                               ; preds = %72
-  %74 = load ptr, ptr %8, align 8
-  %75 = getelementptr %struct.enum_val_t, ptr %74, i32 1
-  store ptr %75, ptr %8, align 8
-  br label %27, !llvm.loop !4
-
-76:                                               ; preds = %35
-  ret void
-
-77:                                               ; preds = %71, %59
-  %78 = load ptr, ptr %11, align 8
-  %79 = load i32, ptr %12, align 4
-  %80 = insertvalue { ptr, i32 } poison, ptr %78, 0
-  %81 = insertvalue { ptr, i32 } %80, i32 %79, 1
-  resume { ptr, i32 } %81
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN14EnumPreference12setModelDataEP7QWidgetP18QAbstractItemModelRK11QModelIndex(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca %class.QVariant, align 8
-  %11 = alloca ptr, align 8
-  %12 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  %12 = call noalias noundef ptr @_Znwm(i64 noundef 40) #23
   %13 = load ptr, ptr %6, align 8
-  store ptr %13, ptr %9, align 8
-  %14 = load ptr, ptr %7, align 8
-  %15 = load ptr, ptr %8, align 8
-  %16 = load ptr, ptr %9, align 8
-  %17 = load ptr, ptr %9, align 8
-  %18 = call noundef i32 @_ZNK9QComboBox12currentIndexEv(ptr noundef nonnull align 8 dereferenceable(40) %17)
-  call void @_ZNK9QComboBox8itemDataEii(ptr dead_on_unwind writable sret(%class.QVariant) align 8 %10, ptr noundef nonnull align 8 dereferenceable(40) %16, i32 noundef %18, i32 noundef 256)
-  %19 = load ptr, ptr %14, align 8
-  %20 = getelementptr inbounds ptr, ptr %19, i64 19
-  %21 = load ptr, ptr %20, align 8
-  %22 = invoke noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 2)
-          to label %23 unwind label %24
-
-23:                                               ; preds = %4
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #4
-  ret void
-
-24:                                               ; preds = %4
-  %25 = landingpad { ptr, i32 }
-          cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %11, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %12, align 4
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #4
-  br label %28
-
-28:                                               ; preds = %24
-  %29 = load ptr, ptr %11, align 8
-  %30 = load i32, ptr %12, align 4
-  %31 = insertvalue { ptr, i32 } poison, ptr %29, 0
-  %32 = insertvalue { ptr, i32 } %31, i32 %30, 1
-  resume { ptr, i32 } %32
-}
-
-declare void @_ZN9QComboBoxC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) unnamed_addr #1
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN14VariantPointerI9PrefsItemE5asPtrE8QVariant(ptr noundef %0) #0 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = call noundef ptr @_ZNK8QVariant5valueIPvEET_v(ptr noundef nonnull align 8 dereferenceable(32) %0)
-  ret ptr %3
-}
-
-declare ptr @prefs_get_enumvals(ptr noundef) #1
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZNK9PrefsItem7getPrefEv(ptr noundef nonnull align 8 dereferenceable(81) %0) #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %class.PrefsItem, ptr %3, i32 0, i32 1
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN9QComboBox7addItemERK7QStringRK8QVariant(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) #0 comdat align 2 {
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = call noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40) %7)
-  %9 = load ptr, ptr %5, align 8
-  %10 = load ptr, ptr %6, align 8
-  call void @_ZN9QComboBox10insertItemEiRK7QStringRK8QVariant(ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef %8, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
-  ret void
-}
-
-declare void @_ZN8QVariantC1Ei(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) unnamed_addr #1
-
-declare i32 @prefs_get_enum_value(ptr noundef, i32 noundef) #1
-
-declare void @_ZN9QComboBox15setCurrentIndexEi(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) #1
-
-declare noundef i32 @_ZNK9QComboBox5countEv(ptr noundef nonnull align 8 dereferenceable(40)) #1
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZNK8QVariant5valueIPvEET_v(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef ptr @_Z13qvariant_castIPvET_RK8QVariant(ptr noundef nonnull align 8 dereferenceable(32) %3)
-  ret ptr %4
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_Z13qvariant_castIPvET_RK8QVariant(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 comdat {
-  %2 = alloca ptr, align 8
-  %3 = alloca ptr, align 8
-  %4 = alloca %class.QMetaType, align 8
-  %5 = alloca %class.QMetaType, align 8
-  %6 = alloca %class.QMetaType, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca %class.QMetaType, align 8
-  %9 = alloca %class.QMetaType, align 8
-  store ptr %0, ptr %3, align 8
-  %10 = call ptr @_ZN9QMetaType8fromTypeIPvEES_v()
-  %11 = getelementptr inbounds %class.QMetaType, ptr %4, i32 0, i32 0
-  store ptr %10, ptr %11, align 8
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %class.QVariant, ptr %12, i32 0, i32 0
-  %14 = call ptr @_ZNK8QVariant7Private4typeEv(ptr noundef nonnull align 8 dereferenceable(32) %13)
-  %15 = getelementptr inbounds %class.QMetaType, ptr %5, i32 0, i32 0
-  store ptr %14, ptr %15, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %4, i64 8, i1 false)
-  %16 = getelementptr inbounds %class.QMetaType, ptr %5, i32 0, i32 0
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds %class.QMetaType, ptr %6, i32 0, i32 0
-  %19 = load ptr, ptr %18, align 8
-  %20 = call noundef zeroext i1 @_Zeq9QMetaTypeS_(ptr %17, ptr %19)
-  br i1 %20, label %21, label %26
-
-21:                                               ; preds = %1
-  %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds %class.QVariant, ptr %22, i32 0, i32 0
-  %24 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8QVariant7Private3getIPvEERKT_v(ptr noundef nonnull align 8 dereferenceable(32) %23)
-  %25 = load ptr, ptr %24, align 8
-  store ptr %25, ptr %2, align 8
-  br label %38
-
-26:                                               ; preds = %1
-  store ptr null, ptr %7, align 8
-  %27 = load ptr, ptr %3, align 8
-  %28 = call ptr @_ZNK8QVariant8metaTypeEv(ptr noundef nonnull align 8 dereferenceable(32) %27)
-  %29 = getelementptr inbounds %class.QMetaType, ptr %8, i32 0, i32 0
-  store ptr %28, ptr %29, align 8
-  %30 = load ptr, ptr %3, align 8
-  %31 = call noundef ptr @_ZNK8QVariant9constDataEv(ptr noundef nonnull align 8 dereferenceable(32) %30)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %4, i64 8, i1 false)
-  %32 = getelementptr inbounds %class.QMetaType, ptr %8, i32 0, i32 0
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds %class.QMetaType, ptr %9, i32 0, i32 0
-  %35 = load ptr, ptr %34, align 8
-  %36 = call noundef zeroext i1 @_ZN9QMetaType7convertES_PKvS_Pv(ptr %33, ptr noundef %31, ptr %35, ptr noundef %7)
-  %37 = load ptr, ptr %7, align 8
-  store ptr %37, ptr %2, align 8
-  br label %38
-
-38:                                               ; preds = %26, %21
-  %39 = load ptr, ptr %2, align 8
-  ret ptr %39
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr ptr @_ZN9QMetaType8fromTypeIPvEES_v() #0 comdat align 2 {
-  %1 = alloca %class.QMetaType, align 8
-  %2 = call noundef ptr @_ZN9QtPrivate25qMetaTypeInterfaceForTypeIPvEEPKNS_18QMetaTypeInterfaceEv()
-  call void @_ZN9QMetaTypeC2EPKN9QtPrivate18QMetaTypeInterfaceE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2)
-  %3 = getelementptr inbounds %class.QMetaType, ptr %1, i32 0, i32 0
-  %4 = load ptr, ptr %3, align 8
-  ret ptr %4
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef zeroext i1 @_Zeq9QMetaTypeS_(ptr %0, ptr %1) #0 comdat {
-  %3 = alloca i1, align 1
-  %4 = alloca %class.QMetaType, align 8
-  %5 = alloca %class.QMetaType, align 8
-  %6 = alloca i32, align 4
-  %7 = alloca i32, align 4
-  %8 = getelementptr inbounds %class.QMetaType, ptr %4, i32 0, i32 0
-  store ptr %0, ptr %8, align 8
-  %9 = getelementptr inbounds %class.QMetaType, ptr %5, i32 0, i32 0
-  store ptr %1, ptr %9, align 8
-  %10 = getelementptr inbounds %class.QMetaType, ptr %4, i32 0, i32 0
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds %class.QMetaType, ptr %5, i32 0, i32 0
-  %13 = load ptr, ptr %12, align 8
-  %14 = icmp eq ptr %11, %13
-  br i1 %14, label %15, label %16
-
-15:                                               ; preds = %2
-  store i1 true, ptr %3, align 1
-  br label %31
-
-16:                                               ; preds = %2
-  %17 = getelementptr inbounds %class.QMetaType, ptr %4, i32 0, i32 0
-  %18 = load ptr, ptr %17, align 8
-  %19 = icmp ne ptr %18, null
-  br i1 %19, label %20, label %24
-
-20:                                               ; preds = %16
-  %21 = getelementptr inbounds %class.QMetaType, ptr %5, i32 0, i32 0
-  %22 = load ptr, ptr %21, align 8
-  %23 = icmp ne ptr %22, null
-  br i1 %23, label %25, label %24
-
-24:                                               ; preds = %20, %16
-  store i1 false, ptr %3, align 1
-  br label %31
-
-25:                                               ; preds = %20
-  %26 = call noundef i32 @_ZNK9QMetaType2idEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 0)
-  store i32 %26, ptr %6, align 4
-  %27 = call noundef i32 @_ZNK9QMetaType2idEi(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 0)
-  store i32 %27, ptr %7, align 4
-  %28 = load i32, ptr %6, align 4
-  %29 = load i32, ptr %7, align 4
-  %30 = icmp eq i32 %28, %29
-  store i1 %30, ptr %3, align 1
-  br label %31
-
-31:                                               ; preds = %25, %24, %15
-  %32 = load i1, ptr %3, align 1
-  ret i1 %32
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr ptr @_ZNK8QVariant7Private4typeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 comdat align 2 {
-  %2 = alloca %class.QMetaType, align 8
-  %3 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %"struct.QVariant::Private", ptr %4, i32 0, i32 1
-  %6 = load i64, ptr %5, align 8
-  %7 = lshr i64 %6, 2
-  %8 = shl i64 %7, 2
-  %9 = inttoptr i64 %8 to ptr
-  call void @_ZN9QMetaTypeC2EPKN9QtPrivate18QMetaTypeInterfaceE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %9)
-  %10 = getelementptr inbounds %class.QMetaType, ptr %2, i32 0, i32 0
-  %11 = load ptr, ptr %10, align 8
-  ret ptr %11
-}
-
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK8QVariant7Private3getIPvEERKT_v(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = call noundef ptr @_ZNK8QVariant7Private7storageEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
-  ret ptr %4
-}
-
-declare noundef zeroext i1 @_ZN9QMetaType7convertES_PKvS_Pv(ptr, ptr noundef, ptr, ptr noundef) #1
-
-declare ptr @_ZNK8QVariant8metaTypeEv(ptr noundef nonnull align 8 dereferenceable(32)) #1
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZNK8QVariant9constDataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %class.QVariant, ptr %3, i32 0, i32 0
-  %5 = call noundef ptr @_ZNK8QVariant7Private7storageEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN9QtPrivate25qMetaTypeInterfaceForTypeIPvEEPKNS_18QMetaTypeInterfaceEv() #2 comdat {
-  ret ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN9QMetaTypeC2EPKN9QtPrivate18QMetaTypeInterfaceE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
-  %3 = alloca ptr, align 8
-  %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %class.QMetaType, ptr %5, i32 0, i32 0
-  %7 = load ptr, ptr %4, align 8
-  store ptr %7, ptr %6, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZZN9QtPrivate16QMetaTypeForTypeIPvE13getDefaultCtrEvENUlPKNS_18QMetaTypeInterfaceES1_E_8__invokeES5_S1_(ptr noundef %0, ptr noundef %1) #0 comdat align 2 {
-  %3 = alloca ptr, align 8
-  %4 = alloca ptr, align 8
-  %5 = alloca %class.anon, align 1
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = load ptr, ptr %4, align 8
-  call void @_ZZN9QtPrivate16QMetaTypeForTypeIPvE13getDefaultCtrEvENKUlPKNS_18QMetaTypeInterfaceES1_E_clES5_S1_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6, ptr noundef %7)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZZN9QtPrivate16QMetaTypeForTypeIPvE10getCopyCtrEvENUlPKNS_18QMetaTypeInterfaceES1_PKvE_8__invokeES5_S1_S7_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 comdat align 2 {
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca %class.anon.6, align 1
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = load ptr, ptr %6, align 8
-  call void @_ZZN9QtPrivate16QMetaTypeForTypeIPvE10getCopyCtrEvENKUlPKNS_18QMetaTypeInterfaceES1_PKvE_clES5_S1_S7_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef %9, ptr noundef %10)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZZN9QtPrivate16QMetaTypeForTypeIPvE10getMoveCtrEvENUlPKNS_18QMetaTypeInterfaceES1_S1_E_8__invokeES5_S1_S1_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 comdat align 2 {
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca %class.anon.8, align 1
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %8 = load ptr, ptr %4, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = load ptr, ptr %6, align 8
-  call void @_ZZN9QtPrivate16QMetaTypeForTypeIPvE10getMoveCtrEvENKUlPKNS_18QMetaTypeInterfaceES1_S1_E_clES5_S1_S1_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef %9, ptr noundef %10)
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZZN9QtPrivate16QMetaTypeForTypeIPvE13getDefaultCtrEvENKUlPKNS_18QMetaTypeInterfaceES1_E_clES5_S1_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef %2) #2 comdat align 2 {
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %7 = load ptr, ptr %6, align 8
-  store ptr null, ptr %7, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZZN9QtPrivate16QMetaTypeForTypeIPvE10getCopyCtrEvENKUlPKNS_18QMetaTypeInterfaceES1_PKvE_clES5_S1_S7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #2 comdat align 2 {
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %9 = load ptr, ptr %7, align 8
-  %10 = load ptr, ptr %8, align 8
-  %11 = load ptr, ptr %10, align 8
-  store ptr %11, ptr %9, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZZN9QtPrivate16QMetaTypeForTypeIPvE10getMoveCtrEvENKUlPKNS_18QMetaTypeInterfaceES1_S1_E_clES5_S1_S1_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #2 comdat align 2 {
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %9 = load ptr, ptr %7, align 8
-  %10 = load ptr, ptr %8, align 8
-  %11 = load ptr, ptr %10, align 8
-  store ptr %11, ptr %9, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i32 @_ZNK9QMetaType2idEi(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1) #0 comdat align 2 {
-  %3 = alloca i32, align 4
-  %4 = alloca ptr, align 8
-  %5 = alloca i32, align 4
-  %6 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %class.QMetaType, ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
-  %10 = icmp ne ptr %9, null
-  br i1 %10, label %11, label %22
-
-11:                                               ; preds = %2
-  %12 = getelementptr inbounds %class.QMetaType, ptr %7, i32 0, i32 0
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds %"class.QtPrivate::QMetaTypeInterface", ptr %13, i32 0, i32 4
-  %15 = call noundef i32 @_ZNK19QBasicAtomicIntegerIiE11loadRelaxedEv(ptr noundef nonnull align 4 dereferenceable(4) %14) #4
-  store i32 %15, ptr %6, align 4
-  %16 = load i32, ptr %6, align 4
-  %17 = icmp ne i32 %16, 0
-  br i1 %17, label %18, label %20
-
-18:                                               ; preds = %11
-  %19 = load i32, ptr %6, align 4
-  store i32 %19, ptr %3, align 4
-  br label %23
-
-20:                                               ; preds = %11
-  %21 = call noundef i32 @_ZNK9QMetaType8idHelperEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  store i32 %21, ptr %3, align 4
-  br label %23
-
-22:                                               ; preds = %2
-  store i32 0, ptr %3, align 4
-  br label %23
-
-23:                                               ; preds = %22, %20, %18
-  %24 = load i32, ptr %3, align 4
-  ret i32 %24
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZNK19QBasicAtomicIntegerIiE11loadRelaxedEv(ptr noundef nonnull align 4 dereferenceable(4) %0) #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %class.QBasicAtomicInteger, ptr %3, i32 0, i32 0
-  %5 = call noundef i32 @_ZN10QAtomicOpsIiE11loadRelaxedIiEET_RKSt6atomicIS2_E(ptr noundef nonnull align 4 dereferenceable(4) %4) #4
-  ret i32 %5
-}
-
-declare noundef i32 @_ZNK9QMetaType8idHelperEv(ptr noundef nonnull align 8 dereferenceable(8)) #1
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZN10QAtomicOpsIiE11loadRelaxedIiEET_RKSt6atomicIS2_E(ptr noundef nonnull align 4 dereferenceable(4) %0) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = alloca ptr, align 8
-  %3 = alloca i32, align 4
-  %4 = alloca i32, align 4
-  %5 = alloca i32, align 4
-  %6 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  %7 = load ptr, ptr %6, align 8
-  store ptr %7, ptr %2, align 8
-  store i32 0, ptr %3, align 4
-  %8 = load ptr, ptr %2, align 8
-  %9 = load i32, ptr %3, align 4
-  %10 = invoke noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %9, i32 noundef 65535)
-          to label %11 unwind label %19
-
-11:                                               ; preds = %1
-  store i32 %10, ptr %4, align 4
-  %12 = load i32, ptr %3, align 4
-  switch i32 %12, label %13 [
-    i32 1, label %15
-    i32 2, label %15
-    i32 5, label %17
-  ]
-
-13:                                               ; preds = %11
-  %14 = load atomic i32, ptr %8 monotonic, align 4
-  store i32 %14, ptr %5, align 4
-  br label %22
-
-15:                                               ; preds = %11, %11
-  %16 = load atomic i32, ptr %8 acquire, align 4
-  store i32 %16, ptr %5, align 4
-  br label %22
-
-17:                                               ; preds = %11
-  %18 = load atomic i32, ptr %8 seq_cst, align 4
-  store i32 %18, ptr %5, align 4
-  br label %22
-
-19:                                               ; preds = %1
-  %20 = landingpad { ptr, i32 }
-          catch ptr null
-  %21 = extractvalue { ptr, i32 } %20, 0
-  call void @__clang_call_terminate(ptr %21) #15
-  unreachable
-
-22:                                               ; preds = %17, %15, %13
-  %23 = load i32, ptr %5, align 4
-  ret i32 %23
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZStanSt12memory_orderSt23__memory_order_modifier(i32 noundef %0, i32 noundef %1) #2 comdat {
-  %3 = alloca i32, align 4
-  %4 = alloca i32, align 4
-  store i32 %0, ptr %3, align 4
-  store i32 %1, ptr %4, align 4
-  %5 = load i32, ptr %3, align 4
-  %6 = load i32, ptr %4, align 4
-  %7 = and i32 %5, %6
-  ret i32 %7
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZNK8QVariant7Private7storageEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #0 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.QVariant::Private", ptr %3, i32 0, i32 1
-  %5 = load i64, ptr %4, align 8
-  %6 = and i64 %5, 1
-  %7 = icmp ne i64 %6, 0
-  br i1 %7, label %8, label %12
-
-8:                                                ; preds = %1
-  %9 = getelementptr inbounds %"struct.QVariant::Private", ptr %3, i32 0, i32 0
-  %10 = load ptr, ptr %9, align 8
-  %11 = call noundef ptr @_ZN8QVariant13PrivateShared4dataEv(ptr noundef nonnull align 8 dereferenceable(8) %10)
-  br label %14
-
-12:                                               ; preds = %1
-  %13 = getelementptr inbounds %"struct.QVariant::Private", ptr %3, i32 0, i32 0
-  br label %14
-
-14:                                               ; preds = %12, %8
-  %15 = phi ptr [ %11, %8 ], [ %13, %12 ]
-  ret ptr %15
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN8QVariant13PrivateShared4dataEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.QVariant::PrivateShared", ptr %3, i32 0, i32 1
-  %5 = load i32, ptr %4, align 4
-  %6 = sext i32 %5 to i64
-  %7 = getelementptr i8, ptr %3, i64 %6
-  ret ptr %7
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN9QComboBox10insertItemEiRK7QStringRK8QVariant(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %5 = alloca ptr, align 8
-  %6 = alloca i32, align 4
-  %7 = alloca ptr, align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca %class.QIcon, align 8
-  %10 = alloca ptr, align 8
-  %11 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %12 = load ptr, ptr %5, align 8
-  %13 = load i32, ptr %6, align 4
-  call void @_ZN5QIconC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #4
-  %14 = load ptr, ptr %7, align 8
-  %15 = load ptr, ptr %8, align 8
-  invoke void @_ZN9QComboBox10insertItemEiRK5QIconRK7QStringRK8QVariant(ptr noundef nonnull align 8 dereferenceable(40) %12, i32 noundef %13, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(32) %15)
-          to label %16 unwind label %17
-
-16:                                               ; preds = %4
-  call void @_ZN5QIconD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #4
-  ret void
-
-17:                                               ; preds = %4
-  %18 = landingpad { ptr, i32 }
-          cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %10, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %11, align 4
-  call void @_ZN5QIconD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #4
-  br label %21
-
-21:                                               ; preds = %17
-  %22 = load ptr, ptr %10, align 8
-  %23 = load i32, ptr %11, align 4
-  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
-  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
-  resume { ptr, i32 } %25
-}
-
-declare void @_ZN9QComboBox10insertItemEiRK5QIconRK7QStringRK8QVariant(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(32)) #1
-
-; Function Attrs: nounwind
-declare void @_ZN5QIconC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #5
-
-; Function Attrs: nounwind
-declare void @_ZN5QIconD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #5
-
-declare void @_ZNK9QComboBox8itemDataEii(ptr dead_on_unwind writable sret(%class.QVariant) align 8, ptr noundef nonnull align 8 dereferenceable(40), i32 noundef, i32 noundef) #1
-
-declare noundef i32 @_ZNK9QComboBox12currentIndexEv(ptr noundef nonnull align 8 dereferenceable(40)) #1
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN32RangePreferencePREF_RANGEFactoryD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN32RangePreferencePREF_RANGEFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #4
-  call void @_ZdlPv(ptr noundef %3) #13
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN32RangePreferencePREF_RANGEFactory6createEP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca ptr, align 8
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %8 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #14
-  %9 = load ptr, ptr %4, align 8
-  invoke void @_ZN15RangePreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef %9)
-          to label %10 unwind label %12
-
-10:                                               ; preds = %2
-  store ptr %8, ptr %5, align 8
-  %11 = load ptr, ptr %5, align 8
-  ret ptr %11
-
-12:                                               ; preds = %2
-  %13 = landingpad { ptr, i32 }
-          cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %6, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %7, align 4
-  call void @_ZdlPv(ptr noundef %8) #13
-  br label %16
-
-16:                                               ; preds = %12
-  %17 = load ptr, ptr %6, align 8
-  %18 = load i32, ptr %7, align 4
-  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
-  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
-  resume { ptr, i32 } %20
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN15RangePreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
-  %3 = alloca ptr, align 8
-  %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZN19WiresharkPreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6)
-  %7 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTV15RangePreference, i32 0, i32 0, i32 2
-  store ptr %7, ptr %5, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN15RangePreferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN19WiresharkPreferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #4
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN15RangePreferenceD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN15RangePreferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #4
-  call void @_ZdlPv(ptr noundef %3) #13
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN15RangePreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(208) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %11 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 192) #14
-  %12 = load ptr, ptr %6, align 8
-  invoke void @_ZN19RangeSyntaxLineEditC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(192) %11, ptr noundef %12)
-          to label %13 unwind label %14
-
-13:                                               ; preds = %4
-  ret ptr %11
-
-14:                                               ; preds = %4
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  %16 = extractvalue { ptr, i32 } %15, 0
-  store ptr %16, ptr %9, align 8
-  %17 = extractvalue { ptr, i32 } %15, 1
-  store i32 %17, ptr %10, align 4
-  call void @_ZdlPv(ptr noundef %11) #13
-  br label %18
-
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %9, align 8
-  %20 = load i32, ptr %10, align 4
-  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
-  resume { ptr, i32 } %22
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN15RangePreference7setDataEP7QWidgetRK11QModelIndex(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca %class.QString, align 8
-  %9 = alloca %class.QVariant, align 8
-  %10 = alloca ptr, align 8
-  %11 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store ptr %2, ptr %6, align 8
-  %12 = load ptr, ptr %5, align 8
-  store ptr %12, ptr %7, align 8
-  %13 = load ptr, ptr %7, align 8
-  %14 = load ptr, ptr %6, align 8
-  %15 = call noundef ptr @_ZNK11QModelIndex5modelEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #4
-  %16 = load ptr, ptr %6, align 8
-  %17 = load ptr, ptr %15, align 8
-  %18 = getelementptr inbounds ptr, ptr %17, i64 18
-  %19 = load ptr, ptr %18, align 8
-  call void %19(ptr dead_on_unwind writable sret(%class.QVariant) align 8 %9, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(24) %16, i32 noundef 0)
-  invoke void @_ZNK8QVariant8toStringEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-          to label %20 unwind label %22
-
-20:                                               ; preds = %3
-  invoke void @_ZN9QLineEdit7setTextERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(24) %8)
-          to label %21 unwind label %26
-
-21:                                               ; preds = %20
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #4
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #4
-  ret void
-
-22:                                               ; preds = %3
-  %23 = landingpad { ptr, i32 }
-          cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %10, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %11, align 4
-  br label %30
-
-26:                                               ; preds = %20
-  %27 = landingpad { ptr, i32 }
-          cleanup
-  %28 = extractvalue { ptr, i32 } %27, 0
-  store ptr %28, ptr %10, align 8
-  %29 = extractvalue { ptr, i32 } %27, 1
-  store i32 %29, ptr %11, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #4
-  br label %30
-
-30:                                               ; preds = %26, %22
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #4
-  br label %31
-
-31:                                               ; preds = %30
-  %32 = load ptr, ptr %10, align 8
-  %33 = load i32, ptr %11, align 4
-  %34 = insertvalue { ptr, i32 } poison, ptr %32, 0
-  %35 = insertvalue { ptr, i32 } %34, i32 %33, 1
-  resume { ptr, i32 } %35
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN15RangePreference12setModelDataEP7QWidgetP18QAbstractItemModelRK11QModelIndex(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca %class.QVariant, align 8
-  %11 = alloca %class.QString, align 8
-  %12 = alloca ptr, align 8
-  %13 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %14 = load ptr, ptr %6, align 8
-  store ptr %14, ptr %9, align 8
-  %15 = load ptr, ptr %7, align 8
-  %16 = load ptr, ptr %8, align 8
-  %17 = load ptr, ptr %9, align 8
-  call void @_ZNK9QLineEdit4textEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %11, ptr noundef nonnull align 8 dereferenceable(40) %17)
-  invoke void @_ZN8QVariantC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(24) %11)
-          to label %18 unwind label %24
-
-18:                                               ; preds = %4
-  %19 = load ptr, ptr %15, align 8
-  %20 = getelementptr inbounds ptr, ptr %19, i64 19
-  %21 = load ptr, ptr %20, align 8
-  %22 = invoke noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 2)
-          to label %23 unwind label %28
-
-23:                                               ; preds = %18
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #4
-  ret void
-
-24:                                               ; preds = %4
-  %25 = landingpad { ptr, i32 }
-          cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %12, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %13, align 4
-  br label %32
-
-28:                                               ; preds = %18
-  %29 = landingpad { ptr, i32 }
-          cleanup
-  %30 = extractvalue { ptr, i32 } %29, 0
-  store ptr %30, ptr %12, align 8
-  %31 = extractvalue { ptr, i32 } %29, 1
-  store i32 %31, ptr %13, align 4
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #4
-  br label %32
-
-32:                                               ; preds = %28, %24
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #4
-  br label %33
-
-33:                                               ; preds = %32
-  %34 = load ptr, ptr %12, align 8
-  %35 = load i32, ptr %13, align 4
-  %36 = insertvalue { ptr, i32 } poison, ptr %34, 0
-  %37 = insertvalue { ptr, i32 } %36, i32 %35, 1
-  resume { ptr, i32 } %37
-}
-
-declare void @_ZN19RangeSyntaxLineEditC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(192), ptr noundef) unnamed_addr #1
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN42RangePreferencePREF_DECODE_AS_RANGEFactoryD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN42RangePreferencePREF_DECODE_AS_RANGEFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #4
-  call void @_ZdlPv(ptr noundef %3) #13
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN42RangePreferencePREF_DECODE_AS_RANGEFactory6createEP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca ptr, align 8
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %8 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #14
-  %9 = load ptr, ptr %4, align 8
-  invoke void @_ZN15RangePreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef %9)
-          to label %10 unwind label %12
-
-10:                                               ; preds = %2
-  store ptr %8, ptr %5, align 8
-  %11 = load ptr, ptr %5, align 8
-  ret ptr %11
-
-12:                                               ; preds = %2
-  %13 = landingpad { ptr, i32 }
-          cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %6, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %7, align 4
-  call void @_ZdlPv(ptr noundef %8) #13
-  br label %16
-
-16:                                               ; preds = %12
-  %17 = load ptr, ptr %6, align 8
-  %18 = load i32, ptr %7, align 4
-  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
-  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
-  resume { ptr, i32 } %20
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN32ColorPreferencePREF_COLORFactoryD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN32ColorPreferencePREF_COLORFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #4
-  call void @_ZdlPv(ptr noundef %3) #13
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN32ColorPreferencePREF_COLORFactory6createEP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = alloca ptr, align 8
-  %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %8 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #14
-  %9 = load ptr, ptr %4, align 8
-  invoke void @_ZN15ColorPreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef %9)
-          to label %10 unwind label %12
-
-10:                                               ; preds = %2
-  store ptr %8, ptr %5, align 8
-  %11 = load ptr, ptr %5, align 8
-  ret ptr %11
-
-12:                                               ; preds = %2
-  %13 = landingpad { ptr, i32 }
-          cleanup
-  %14 = extractvalue { ptr, i32 } %13, 0
-  store ptr %14, ptr %6, align 8
-  %15 = extractvalue { ptr, i32 } %13, 1
-  store i32 %15, ptr %7, align 4
-  call void @_ZdlPv(ptr noundef %8) #13
-  br label %16
-
-16:                                               ; preds = %12
-  %17 = load ptr, ptr %6, align 8
-  %18 = load i32, ptr %7, align 4
-  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
-  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
-  resume { ptr, i32 } %20
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN15ColorPreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
-  %3 = alloca ptr, align 8
-  %4 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = load ptr, ptr %4, align 8
-  call void @_ZN19WiresharkPreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6)
-  %7 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTV15ColorPreference, i32 0, i32 0, i32 2
-  store ptr %7, ptr %5, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN15ColorPreferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN19WiresharkPreferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #4
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN15ColorPreferenceD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN15ColorPreferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #4
-  call void @_ZdlPv(ptr noundef %3) #13
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN15ColorPreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(208) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %5 = alloca ptr, align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca ptr, align 8
-  %10 = alloca ptr, align 8
-  %11 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store ptr %1, ptr %6, align 8
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %12 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #14
-  %13 = load ptr, ptr %6, align 8
-  invoke void @_ZN12QColorDialogC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef %13)
+  invoke void @_ZN12QColorDialogC1EP7QWidget(ptr noundef align 8 dereferenceable_or_null(40) %12, ptr noundef %13)
           to label %14 unwind label %18
 
 14:                                               ; preds = %4
   store ptr %12, ptr %9, align 8
   %15 = load ptr, ptr %9, align 8
-  call void @_ZN7QWidget17setWindowModalityEN2Qt14WindowModalityE(ptr noundef nonnull align 8 dereferenceable(40) %15, i32 noundef 2)
+  call void @_ZN7QWidget17setWindowModalityEN2Qt14WindowModalityE(ptr noundef align 8 dereferenceable_or_null(40) %15, i32 noundef 2)
   %16 = load ptr, ptr %9, align 8
-  call void @_ZN7QWidget4showEv(ptr noundef nonnull align 8 dereferenceable(40) %16)
+  call void @_ZN7QWidget4showEv(ptr noundef align 8 dereferenceable_or_null(40) %16)
   %17 = load ptr, ptr %9, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
   ret ptr %17
 
 18:                                               ; preds = %4
@@ -4055,7 +4149,8 @@ define linkonce_odr noundef ptr @_ZN15ColorPreference6editorEP7QWidgetRK20QStyle
   store ptr %20, ptr %10, align 8
   %21 = extractvalue { ptr, i32 } %19, 1
   store i32 %21, ptr %11, align 4
-  call void @_ZdlPv(ptr noundef %12) #13
+  call void @_ZdlPvm(ptr noundef %12, i64 noundef 40) #22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
   br label %22
 
 22:                                               ; preds = %18
@@ -4066,8 +4161,8 @@ define linkonce_odr noundef ptr @_ZN15ColorPreference6editorEP7QWidgetRK20QStyle
   resume { ptr, i32 } %26
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN15ColorPreference7setDataEP7QWidgetRK11QModelIndex(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN15ColorPreference7setDataEP7QWidgetRK11QModelIndex(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef %1, ptr noundef align 8 dereferenceable(24) %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4081,32 +4176,42 @@ define linkonce_odr void @_ZN15ColorPreference7setDataEP7QWidgetRK11QModelIndex(
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #4
   %14 = load ptr, ptr %5, align 8
   store ptr %14, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 24, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 24, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 32, ptr %11) #4
   %15 = load ptr, ptr %6, align 8
-  %16 = call noundef ptr @_ZNK11QModelIndex5modelEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #4
+  %16 = call noundef ptr @_ZNK11QModelIndex5modelEv(ptr noundef align 8 dereferenceable_or_null(24) %15) #4
   %17 = load ptr, ptr %6, align 8
   %18 = load ptr, ptr %16, align 8
   %19 = getelementptr inbounds ptr, ptr %18, i64 18
   %20 = load ptr, ptr %19, align 8
-  call void %20(ptr dead_on_unwind writable sret(%class.QVariant) align 8 %11, ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(24) %17, i32 noundef 0)
-  invoke void @_ZNK8QVariant8toStringEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %11)
+  call void %20(ptr dead_on_unwind writable sret(%class.QVariant) align 8 %11, ptr noundef align 8 dereferenceable_or_null(16) %16, ptr noundef align 8 dereferenceable(24) %17, i32 noundef 0)
+  invoke void @_ZNK8QVariant8toStringEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %10, ptr noundef align 8 dereferenceable_or_null(32) %11)
           to label %21 unwind label %25
 
 21:                                               ; preds = %3
-  invoke void @_ZplPKcRK7QString(ptr dead_on_unwind writable sret(%class.QString) align 8 %9, ptr noundef @.str.15, ptr noundef nonnull align 8 dereferenceable(24) %10)
+  invoke void @_ZplPKcRK7QString(ptr dead_on_unwind writable sret(%class.QString) align 8 %9, ptr noundef @.str.18, ptr noundef align 8 dereferenceable(24) %10)
           to label %22 unwind label %29
 
 22:                                               ; preds = %21
-  invoke void @_ZN6QColorC2ERK7QString(ptr noundef nonnull align 4 dereferenceable(14) %8, ptr noundef nonnull align 8 dereferenceable(24) %9)
+  invoke void @_ZN6QColorC2ERK7QString(ptr noundef align 4 dereferenceable_or_null(14) %8, ptr noundef align 8 dereferenceable(24) %9)
           to label %23 unwind label %33
 
 23:                                               ; preds = %22
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #4
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #4
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %9) #4
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %10) #4
+  call void @_ZN8QVariantD1Ev(ptr noundef align 8 dereferenceable_or_null(32) %11) #4
+  call void @llvm.lifetime.end.p0(i64 32, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %9) #4
   %24 = load ptr, ptr %7, align 8
-  call void @_ZN12QColorDialog15setCurrentColorERK6QColor(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull align 4 dereferenceable(14) %8)
+  call void @_ZN12QColorDialog15setCurrentColorERK6QColor(ptr noundef align 8 dereferenceable_or_null(40) %24, ptr noundef align 4 dereferenceable(14) %8)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #4
   ret void
 
 25:                                               ; preds = %3
@@ -4134,15 +4239,20 @@ define linkonce_odr void @_ZN15ColorPreference7setDataEP7QWidgetRK11QModelIndex(
   store ptr %35, ptr %12, align 8
   %36 = extractvalue { ptr, i32 } %34, 1
   store i32 %36, ptr %13, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #4
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %9) #4
   br label %37
 
 37:                                               ; preds = %33, %29
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #4
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %10) #4
   br label %38
 
 38:                                               ; preds = %37, %25
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #4
+  call void @_ZN8QVariantD1Ev(ptr noundef align 8 dereferenceable_or_null(32) %11) #4
+  call void @llvm.lifetime.end.p0(i64 32, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #4
   br label %39
 
 39:                                               ; preds = %38
@@ -4153,8 +4263,8 @@ define linkonce_odr void @_ZN15ColorPreference7setDataEP7QWidgetRK11QModelIndex(
   resume { ptr, i32 } %43
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN15ColorPreference12setModelDataEP7QWidgetP18QAbstractItemModelRK11QModelIndex(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN15ColorPreference12setModelDataEP7QWidgetP18QAbstractItemModelRK11QModelIndex(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef %1, ptr noundef %2, ptr noundef align 8 dereferenceable(24) %3) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -4163,88 +4273,100 @@ define linkonce_odr void @_ZN15ColorPreference12setModelDataEP7QWidgetP18QAbstra
   %10 = alloca %class.QVariant, align 8
   %11 = alloca %class.QString, align 8
   %12 = alloca %class.QColor, align 4
-  %13 = alloca ptr, align 8
-  %14 = alloca i32, align 4
+  %13 = alloca { i64, i64 }, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
-  %15 = load ptr, ptr %6, align 8
-  store ptr %15, ptr %9, align 8
-  %16 = load ptr, ptr %9, align 8
-  %17 = call noundef i32 @_ZNK7QDialog6resultEv(ptr noundef nonnull align 8 dereferenceable(40) %16)
-  %18 = icmp eq i32 %17, 1
-  br i1 %18, label %19, label %43
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  %16 = load ptr, ptr %6, align 8
+  store ptr %16, ptr %9, align 8
+  %17 = load ptr, ptr %9, align 8
+  %18 = call noundef i32 @_ZNK7QDialog6resultEv(ptr noundef align 8 dereferenceable_or_null(40) %17)
+  %19 = icmp eq i32 %18, 1
+  br i1 %19, label %20, label %40
 
-19:                                               ; preds = %4
-  %20 = load ptr, ptr %7, align 8
-  %21 = load ptr, ptr %8, align 8
-  %22 = load ptr, ptr %9, align 8
-  %23 = call { i64, i64 } @_ZNK12QColorDialog12currentColorEv(ptr noundef nonnull align 8 dereferenceable(40) %22)
-  %24 = getelementptr inbounds { i64, i64 }, ptr %12, i32 0, i32 0
-  %25 = extractvalue { i64, i64 } %23, 0
-  store i64 %25, ptr %24, align 4
-  %26 = getelementptr inbounds { i64, i64 }, ptr %12, i32 0, i32 1
-  %27 = extractvalue { i64, i64 } %23, 1
-  store i64 %27, ptr %26, align 4
-  call void @_ZNK6QColor4nameENS_10NameFormatE(ptr dead_on_unwind writable sret(%class.QString) align 8 %11, ptr noundef nonnull align 4 dereferenceable(14) %12, i32 noundef 0)
-  invoke void @_ZN8QVariantC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(24) %11)
-          to label %28 unwind label %34
+20:                                               ; preds = %4
+  %21 = load ptr, ptr %7, align 8
+  %22 = load ptr, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 24, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %12) #4
+  %23 = load ptr, ptr %9, align 8
+  %24 = call { i64, i64 } @_ZNK12QColorDialog12currentColorEv(ptr noundef align 8 dereferenceable_or_null(40) %23)
+  store { i64, i64 } %24, ptr %13, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %12, ptr align 8 %13, i64 14, i1 false)
+  call void @_ZNK6QColor4nameENS_10NameFormatE(ptr dead_on_unwind writable sret(%class.QString) align 8 %11, ptr noundef align 4 dereferenceable_or_null(14) %12, i32 noundef 0)
+  invoke void @_ZN8QVariantC1ERK7QString(ptr noundef align 8 dereferenceable_or_null(32) %10, ptr noundef align 8 dereferenceable(24) %11)
+          to label %25 unwind label %31
 
-28:                                               ; preds = %19
-  %29 = load ptr, ptr %20, align 8
-  %30 = getelementptr inbounds ptr, ptr %29, i64 19
-  %31 = load ptr, ptr %30, align 8
-  %32 = invoke noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 2)
-          to label %33 unwind label %38
+25:                                               ; preds = %20
+  %26 = load ptr, ptr %21, align 8
+  %27 = getelementptr inbounds ptr, ptr %26, i64 19
+  %28 = load ptr, ptr %27, align 8
+  %29 = invoke noundef zeroext i1 %28(ptr noundef align 8 dereferenceable_or_null(16) %21, ptr noundef align 8 dereferenceable(24) %22, ptr noundef align 8 dereferenceable(32) %10, i32 noundef 2)
+          to label %30 unwind label %35
 
-33:                                               ; preds = %28
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #4
-  br label %43
+30:                                               ; preds = %25
+  call void @_ZN8QVariantD1Ev(ptr noundef align 8 dereferenceable_or_null(32) %10) #4
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %11) #4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 32, ptr %10) #4
+  br label %40
 
-34:                                               ; preds = %19
-  %35 = landingpad { ptr, i32 }
+31:                                               ; preds = %20
+  %32 = landingpad { ptr, i32 }
           cleanup
-  %36 = extractvalue { ptr, i32 } %35, 0
-  store ptr %36, ptr %13, align 8
-  %37 = extractvalue { ptr, i32 } %35, 1
-  store i32 %37, ptr %14, align 4
-  br label %42
+  %33 = extractvalue { ptr, i32 } %32, 0
+  store ptr %33, ptr %14, align 8
+  %34 = extractvalue { ptr, i32 } %32, 1
+  store i32 %34, ptr %15, align 4
+  br label %39
 
-38:                                               ; preds = %28
-  %39 = landingpad { ptr, i32 }
+35:                                               ; preds = %25
+  %36 = landingpad { ptr, i32 }
           cleanup
-  %40 = extractvalue { ptr, i32 } %39, 0
-  store ptr %40, ptr %13, align 8
-  %41 = extractvalue { ptr, i32 } %39, 1
-  store i32 %41, ptr %14, align 4
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #4
-  br label %42
+  %37 = extractvalue { ptr, i32 } %36, 0
+  store ptr %37, ptr %14, align 8
+  %38 = extractvalue { ptr, i32 } %36, 1
+  store i32 %38, ptr %15, align 4
+  call void @_ZN8QVariantD1Ev(ptr noundef align 8 dereferenceable_or_null(32) %10) #4
+  br label %39
 
-42:                                               ; preds = %38, %34
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #4
-  br label %44
+39:                                               ; preds = %35, %31
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %11) #4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 32, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
+  br label %41
 
-43:                                               ; preds = %33, %4
+40:                                               ; preds = %30, %4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
   ret void
 
-44:                                               ; preds = %42
-  %45 = load ptr, ptr %13, align 8
-  %46 = load i32, ptr %14, align 4
-  %47 = insertvalue { ptr, i32 } poison, ptr %45, 0
-  %48 = insertvalue { ptr, i32 } %47, i32 %46, 1
-  resume { ptr, i32 } %48
+41:                                               ; preds = %39
+  %42 = load ptr, ptr %14, align 8
+  %43 = load i32, ptr %15, align 4
+  %44 = insertvalue { ptr, i32 } poison, ptr %42, 0
+  %45 = insertvalue { ptr, i32 } %44, i32 %43, 1
+  resume { ptr, i32 } %45
 }
 
-declare void @_ZN12QColorDialogC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN12QColorDialogC1EP7QWidget(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef) unnamed_addr #1
 
-declare void @_ZN7QWidget17setWindowModalityEN2Qt14WindowModalityE(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN7QWidget17setWindowModalityEN2Qt14WindowModalityE(ptr noundef align 8 dereferenceable_or_null(40), i32 noundef) #1
 
-declare void @_ZN7QWidget4showEv(ptr noundef nonnull align 8 dereferenceable(40)) #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN7QWidget4showEv(ptr noundef align 8 dereferenceable_or_null(40)) #1
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZplPKcRK7QString(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #0 comdat personality ptr @__gxx_personality_v0 {
+; Function Attrs: inlinehint mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZplPKcRK7QString(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, ptr noundef %1, ptr noundef align 8 dereferenceable(24) %2) #7 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4256,14 +4378,14 @@ define linkonce_odr void @_ZplPKcRK7QString(ptr dead_on_unwind noalias writable 
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   store i1 false, ptr %7, align 1
-  call void @_ZN14QByteArrayViewC2IPKcTnNSt9enable_ifIXsr9QtPrivate28IsCompatibleByteArrayPointerIT_EE5valueEbE4typeELb1EEERKS4_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(8) %5) #4
-  %11 = getelementptr inbounds { i64, ptr }, ptr %8, i32 0, i32 0
+  call void @_ZN14QByteArrayViewC2IPKcTnNSt9enable_ifIXsr9QtPrivate28IsCompatibleByteArrayPointerIT_EE5valueEbE4typeELb1EEERKS4_(ptr noundef align 8 dereferenceable_or_null(16) %8, ptr noundef align 8 dereferenceable(8) %5) #4
+  %11 = getelementptr inbounds nuw { i64, ptr }, ptr %8, i32 0, i32 0
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds { i64, ptr }, ptr %8, i32 0, i32 1
+  %13 = getelementptr inbounds nuw { i64, ptr }, ptr %8, i32 0, i32 1
   %14 = load ptr, ptr %13, align 8
   call void @_ZN7QString8fromUtf8E14QByteArrayView(ptr dead_on_unwind writable sret(%class.QString) align 8 %0, i64 %12, ptr %14)
   %15 = load ptr, ptr %6, align 8
-  %16 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringpLERKS_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %15)
+  %16 = invoke noundef align 8 dereferenceable(24) ptr @_ZN7QStringpLERKS_(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef align 8 dereferenceable(24) %15)
           to label %17 unwind label %19
 
 17:                                               ; preds = %3
@@ -4278,11 +4400,11 @@ define linkonce_odr void @_ZplPKcRK7QString(ptr dead_on_unwind noalias writable 
   store ptr %21, ptr %9, align 8
   %22 = extractvalue { ptr, i32 } %20, 1
   store i32 %22, ptr %10, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #4
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %0) #4
   br label %25
 
 23:                                               ; preds = %17
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #4
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %0) #4
   br label %24
 
 24:                                               ; preds = %23, %17
@@ -4296,63 +4418,69 @@ define linkonce_odr void @_ZplPKcRK7QString(ptr dead_on_unwind noalias writable 
   resume { ptr, i32 } %29
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN6QColorC2ERK7QString(ptr noundef nonnull align 4 dereferenceable(14) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN6QColorC2ERK7QString(ptr noundef align 4 dereferenceable_or_null(14) %0, ptr noundef align 8 dereferenceable(24) %1) unnamed_addr #7 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %class.QColor, ptr %5, i32 0, i32 1
-  call void @_ZN6QColor2CTC2Ev(ptr noundef nonnull align 2 dereferenceable(10) %6)
+  %6 = getelementptr inbounds nuw %class.QColor, ptr %5, i32 0, i32 1
+  call void @_ZN6QColor2CTC2Ev(ptr noundef align 2 dereferenceable_or_null(10) %6)
   %7 = load ptr, ptr %4, align 8
-  call void @_ZN6QColor13setNamedColorERK7QString(ptr noundef nonnull align 4 dereferenceable(14) %5, ptr noundef nonnull align 8 dereferenceable(24) %7)
+  call void @_ZN6QColor13setNamedColorERK7QString(ptr noundef align 4 dereferenceable_or_null(14) %5, ptr noundef align 8 dereferenceable(24) %7)
   ret void
 }
 
-declare void @_ZN12QColorDialog15setCurrentColorERK6QColor(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 4 dereferenceable(14)) #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN12QColorDialog15setCurrentColorERK6QColor(ptr noundef align 8 dereferenceable_or_null(40), ptr noundef align 4 dereferenceable(14)) #1
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringpLERKS_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef align 8 dereferenceable(24) ptr @_ZN7QStringpLERKS_(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef align 8 dereferenceable(24) %1) #7 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
-  %7 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QString6appendERKS_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  %7 = call noundef align 8 dereferenceable(24) ptr @_ZN7QString6appendERKS_(ptr noundef align 8 dereferenceable_or_null(24) %5, ptr noundef align 8 dereferenceable(24) %6)
   ret ptr %7
 }
 
-declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QString6appendERKS_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) #1
+; Function Attrs: null_pointer_is_valid
+declare noundef align 8 dereferenceable(24) ptr @_ZN7QString6appendERKS_(ptr noundef align 8 dereferenceable_or_null(24), ptr noundef align 8 dereferenceable(24)) #1
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6QColor2CTC2Ev(ptr noundef nonnull align 2 dereferenceable(10) %0) unnamed_addr #2 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN6QColor2CTC2Ev(ptr noundef align 2 dereferenceable_or_null(10) %0) unnamed_addr #2 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   ret void
 }
 
-declare void @_ZN6QColor13setNamedColorERK7QString(ptr noundef nonnull align 4 dereferenceable(14), ptr noundef nonnull align 8 dereferenceable(24)) #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN6QColor13setNamedColorERK7QString(ptr noundef align 4 dereferenceable_or_null(14), ptr noundef align 8 dereferenceable(24)) #1
 
-declare noundef i32 @_ZNK7QDialog6resultEv(ptr noundef nonnull align 8 dereferenceable(40)) #1
+; Function Attrs: null_pointer_is_valid
+declare noundef i32 @_ZNK7QDialog6resultEv(ptr noundef align 8 dereferenceable_or_null(40)) #1
 
-declare { i64, i64 } @_ZNK12QColorDialog12currentColorEv(ptr noundef nonnull align 8 dereferenceable(40)) #1
+; Function Attrs: null_pointer_is_valid
+declare { i64, i64 } @_ZNK12QColorDialog12currentColorEv(ptr noundef align 8 dereferenceable_or_null(40)) #1
 
-declare void @_ZNK6QColor4nameENS_10NameFormatE(ptr dead_on_unwind writable sret(%class.QString) align 8, ptr noundef nonnull align 4 dereferenceable(14), i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZNK6QColor4nameENS_10NameFormatE(ptr dead_on_unwind writable sret(%class.QString) align 8, ptr noundef align 4 dereferenceable_or_null(14), i32 noundef) #1
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN43SaveFilePreferencePREF_SAVE_FILENAMEFactoryD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN43SaveFilePreferencePREF_SAVE_FILENAMEFactoryD0Ev(ptr noundef align 8 dereferenceable_or_null(16) %0) unnamed_addr #6 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN43SaveFilePreferencePREF_SAVE_FILENAMEFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #4
-  call void @_ZdlPv(ptr noundef %3) #13
+  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef align 8 dereferenceable_or_null(16) %3) #4
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 16) #22
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN43SaveFilePreferencePREF_SAVE_FILENAMEFactory6createEP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef ptr @_ZN43SaveFilePreferencePREF_SAVE_FILENAMEFactory6createEP7QObject(ptr noundef align 8 dereferenceable_or_null(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -4360,14 +4488,16 @@ define linkonce_odr noundef ptr @_ZN43SaveFilePreferencePREF_SAVE_FILENAMEFactor
   %7 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
-  %8 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
+  %8 = call noalias noundef ptr @_Znwm(i64 noundef 24) #23
   %9 = load ptr, ptr %4, align 8
-  invoke void @_ZN18SaveFilePreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef %9)
+  invoke void @_ZN18SaveFilePreferenceC2EP7QObject(ptr noundef align 8 dereferenceable_or_null(24) %8, ptr noundef %9)
           to label %10 unwind label %12
 
 10:                                               ; preds = %2
   store ptr %8, ptr %5, align 8
   %11 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
   ret ptr %11
 
 12:                                               ; preds = %2
@@ -4377,7 +4507,8 @@ define linkonce_odr noundef ptr @_ZN43SaveFilePreferencePREF_SAVE_FILENAMEFactor
   store ptr %14, ptr %6, align 8
   %15 = extractvalue { ptr, i32 } %13, 1
   store i32 %15, ptr %7, align 4
-  call void @_ZdlPv(ptr noundef %8) #13
+  call void @_ZdlPvm(ptr noundef %8, i64 noundef 24) #22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
   br label %16
 
 16:                                               ; preds = %12
@@ -4388,41 +4519,31 @@ define linkonce_odr noundef ptr @_ZN43SaveFilePreferencePREF_SAVE_FILENAMEFactor
   resume { ptr, i32 } %20
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN18SaveFilePreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN18SaveFilePreferenceC2EP7QObject(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
-  call void @_ZN19WiresharkPreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6)
-  %7 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTV18SaveFilePreference, i32 0, i32 0, i32 2
-  store ptr %7, ptr %5, align 8
+  call void @_ZN19WiresharkPreferenceC2EP7QObject(ptr noundef align 8 dereferenceable_or_null(24) %5, ptr noundef %6)
+  store ptr getelementptr inbounds inrange(-16, 120) ({ [17 x ptr] }, ptr @_ZTV18SaveFilePreference, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN18SaveFilePreferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN18SaveFilePreferenceD0Ev(ptr noundef align 8 dereferenceable_or_null(24) %0) unnamed_addr #6 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN19WiresharkPreferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #4
+  call void @_ZN7QObjectD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %3) #4
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #22
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN18SaveFilePreferenceD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN18SaveFilePreferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #4
-  call void @_ZdlPv(ptr noundef %3) #13
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN18SaveFilePreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(208) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef ptr @_ZN18SaveFilePreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef %1, ptr noundef align 8 dereferenceable(208) %2, ptr noundef align 8 dereferenceable(24) %3) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -4443,71 +4564,84 @@ define linkonce_odr noundef ptr @_ZN18SaveFilePreference6editorEP7QWidgetRK20QSt
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
   %20 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %9) #4
   %21 = load ptr, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %10) #4
   %22 = load ptr, ptr @mainApp, align 8
-  %23 = call noundef ptr @_ZNK19WiresharkPreference9prefsItemEv(ptr noundef nonnull align 8 dereferenceable(24) %20)
-  %24 = call noundef ptr @_ZNK9PrefsItem7getPrefEv(ptr noundef nonnull align 8 dereferenceable(81) %23)
+  %23 = call noundef ptr @_ZNK19WiresharkPreference9prefsItemEv(ptr noundef align 8 dereferenceable_or_null(24) %20)
+  %24 = call noundef ptr @_ZNK9PrefsItem7getPrefEv(ptr noundef align 8 dereferenceable_or_null(105) %23)
   %25 = call ptr @prefs_get_title(ptr noundef %24)
-  call void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef %25)
-  invoke void @_ZN15MainApplication17windowTitleStringE7QString(ptr dead_on_unwind writable sret(%class.QString) align 8 %10, ptr noundef nonnull align 8 dereferenceable(216) %22, ptr noundef %11)
+  call void @_ZN7QStringC2EPKc(ptr noundef align 8 dereferenceable_or_null(24) %11, ptr noundef %25)
+  invoke void @_ZN15MainApplication17windowTitleStringE7QString(ptr dead_on_unwind writable sret(%class.QString) align 8 %10, ptr noundef align 8 dereferenceable_or_null(216) %22, ptr noundef %11)
           to label %26 unwind label %51
 
 26:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 24, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 32, ptr %15) #4
   %27 = load ptr, ptr %8, align 8
-  %28 = call noundef ptr @_ZNK11QModelIndex5modelEv(ptr noundef nonnull align 8 dereferenceable(24) %27) #4
+  %28 = call noundef ptr @_ZNK11QModelIndex5modelEv(ptr noundef align 8 dereferenceable_or_null(24) %27) #4
   %29 = load ptr, ptr %8, align 8
   %30 = load ptr, ptr %28, align 8
   %31 = getelementptr inbounds ptr, ptr %30, i64 18
   %32 = load ptr, ptr %31, align 8
-  invoke void %32(ptr dead_on_unwind writable sret(%class.QVariant) align 8 %15, ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(24) %29, i32 noundef 0)
+  invoke void %32(ptr dead_on_unwind writable sret(%class.QVariant) align 8 %15, ptr noundef align 8 dereferenceable_or_null(16) %28, ptr noundef align 8 dereferenceable(24) %29, i32 noundef 0)
           to label %33 unwind label %55
 
 33:                                               ; preds = %26
-  invoke void @_ZNK8QVariant8toStringEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %14, ptr noundef nonnull align 8 dereferenceable(32) %15)
+  invoke void @_ZNK8QVariant8toStringEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %14, ptr noundef align 8 dereferenceable_or_null(32) %15)
           to label %34 unwind label %59
 
 34:                                               ; preds = %33
-  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #4
-  call void @_ZN6QFlagsIN11QFileDialog6OptionEEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %17) #4
-  %35 = getelementptr inbounds %class.QFlags.14, ptr %17, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 24, ptr %16) #4
+  call void @_ZN7QStringC2Ev(ptr noundef align 8 dereferenceable_or_null(24) %16) #4
+  call void @_ZN6QFlagsIN11QFileDialog6OptionEEC2Ev(ptr noundef align 4 dereferenceable_or_null(4) %17) #4
+  %35 = getelementptr inbounds nuw %class.QFlags.14, ptr %17, i32 0, i32 0
   %36 = load i32, ptr %35, align 4
-  invoke void @_ZN19WiresharkFileDialog15getSaveFileNameEP7QWidgetRK7QStringS4_S4_PS2_6QFlagsIN11QFileDialog6OptionEE(ptr dead_on_unwind writable sret(%class.QString) align 8 %9, ptr noundef %21, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef null, i32 %36)
+  invoke void @_ZN19WiresharkFileDialog15getSaveFileNameEP7QWidgetRK7QStringS4_S4_PS2_6QFlagsIN11QFileDialog6OptionEE(ptr dead_on_unwind writable sret(%class.QString) align 8 %9, ptr noundef %21, ptr noundef align 8 dereferenceable(24) %10, ptr noundef align 8 dereferenceable(24) %14, ptr noundef align 8 dereferenceable(24) %16, ptr noundef null, i32 %36)
           to label %37 unwind label %63
 
 37:                                               ; preds = %34
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #4
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #4
-  %38 = invoke noundef zeroext i1 @_ZNK7QString7isEmptyEv(ptr noundef nonnull align 8 dereferenceable(24) %9)
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %16) #4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %16) #4
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %14) #4
+  call void @_ZN8QVariantD1Ev(ptr noundef align 8 dereferenceable_or_null(32) %15) #4
+  call void @llvm.lifetime.end.p0(i64 32, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %14) #4
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %10) #4
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %11) #4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %10) #4
+  %38 = invoke noundef zeroext i1 @_ZNK7QString7isEmptyEv(ptr noundef align 8 dereferenceable_or_null(24) %9)
           to label %39 unwind label %70
 
 39:                                               ; preds = %37
-  br i1 %38, label %83, label %40
+  br i1 %38, label %88, label %40
 
 40:                                               ; preds = %39
   %41 = load ptr, ptr %8, align 8
-  %42 = call noundef ptr @_ZNK11QModelIndex5modelEv(ptr noundef nonnull align 8 dereferenceable(24) %41) #4
+  %42 = call noundef ptr @_ZNK11QModelIndex5modelEv(ptr noundef align 8 dereferenceable_or_null(24) %41) #4
   %43 = load ptr, ptr %8, align 8
-  invoke void @_ZN4QDir18toNativeSeparatorsERK7QString(ptr dead_on_unwind writable sret(%class.QString) align 8 %19, ptr noundef nonnull align 8 dereferenceable(24) %9)
-          to label %44 unwind label %70
+  call void @llvm.lifetime.start.p0(i64 32, ptr %18) #4
+  call void @llvm.lifetime.start.p0(i64 24, ptr %19) #4
+  invoke void @_ZN4QDir18toNativeSeparatorsERK7QString(ptr dead_on_unwind writable sret(%class.QString) align 8 %19, ptr noundef align 8 dereferenceable(24) %9)
+          to label %44 unwind label %74
 
 44:                                               ; preds = %40
-  invoke void @_ZN8QVariantC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(24) %19)
-          to label %45 unwind label %74
+  invoke void @_ZN8QVariantC1ERK7QString(ptr noundef align 8 dereferenceable_or_null(32) %18, ptr noundef align 8 dereferenceable(24) %19)
+          to label %45 unwind label %78
 
 45:                                               ; preds = %44
   %46 = load ptr, ptr %42, align 8
   %47 = getelementptr inbounds ptr, ptr %46, i64 19
   %48 = load ptr, ptr %47, align 8
-  %49 = invoke noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull align 8 dereferenceable(32) %18, i32 noundef 2)
-          to label %50 unwind label %78
+  %49 = invoke noundef zeroext i1 %48(ptr noundef align 8 dereferenceable_or_null(16) %42, ptr noundef align 8 dereferenceable(24) %43, ptr noundef align 8 dereferenceable(32) %18, i32 noundef 2)
+          to label %50 unwind label %82
 
 50:                                               ; preds = %45
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #4
-  br label %83
+  call void @_ZN8QVariantD1Ev(ptr noundef align 8 dereferenceable_or_null(32) %18) #4
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %19) #4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 32, ptr %18) #4
+  br label %88
 
 51:                                               ; preds = %4
   %52 = landingpad { ptr, i32 }
@@ -4543,78 +4677,102 @@ define linkonce_odr noundef ptr @_ZN18SaveFilePreference6editorEP7QWidgetRK20QSt
   store ptr %65, ptr %12, align 8
   %66 = extractvalue { ptr, i32 } %64, 1
   store i32 %66, ptr %13, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #4
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %16) #4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %16) #4
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %14) #4
   br label %67
 
 67:                                               ; preds = %63, %59
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #4
+  call void @_ZN8QVariantD1Ev(ptr noundef align 8 dereferenceable_or_null(32) %15) #4
   br label %68
 
 68:                                               ; preds = %67, %55
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #4
+  call void @llvm.lifetime.end.p0(i64 32, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %14) #4
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %10) #4
   br label %69
 
 69:                                               ; preds = %68, %51
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #4
-  br label %89
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %11) #4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %10) #4
+  br label %94
 
-70:                                               ; preds = %40, %37
+70:                                               ; preds = %37
   %71 = landingpad { ptr, i32 }
           cleanup
   %72 = extractvalue { ptr, i32 } %71, 0
   store ptr %72, ptr %12, align 8
   %73 = extractvalue { ptr, i32 } %71, 1
   store i32 %73, ptr %13, align 4
-  br label %88
+  br label %93
 
-74:                                               ; preds = %44
+74:                                               ; preds = %40
   %75 = landingpad { ptr, i32 }
           cleanup
   %76 = extractvalue { ptr, i32 } %75, 0
   store ptr %76, ptr %12, align 8
   %77 = extractvalue { ptr, i32 } %75, 1
   store i32 %77, ptr %13, align 4
-  br label %82
+  br label %87
 
-78:                                               ; preds = %45
+78:                                               ; preds = %44
   %79 = landingpad { ptr, i32 }
           cleanup
   %80 = extractvalue { ptr, i32 } %79, 0
   store ptr %80, ptr %12, align 8
   %81 = extractvalue { ptr, i32 } %79, 1
   store i32 %81, ptr %13, align 4
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #4
-  br label %82
+  br label %86
 
-82:                                               ; preds = %78, %74
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #4
-  br label %88
+82:                                               ; preds = %45
+  %83 = landingpad { ptr, i32 }
+          cleanup
+  %84 = extractvalue { ptr, i32 } %83, 0
+  store ptr %84, ptr %12, align 8
+  %85 = extractvalue { ptr, i32 } %83, 1
+  store i32 %85, ptr %13, align 4
+  call void @_ZN8QVariantD1Ev(ptr noundef align 8 dereferenceable_or_null(32) %18) #4
+  br label %86
 
-83:                                               ; preds = %50, %39
-  %84 = load ptr, ptr %6, align 8
-  %85 = load ptr, ptr %7, align 8
-  %86 = load ptr, ptr %8, align 8
-  %87 = call noundef ptr @_ZN19WiresharkPreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef %84, ptr noundef nonnull align 8 dereferenceable(208) %85, ptr noundef nonnull align 8 dereferenceable(24) %86)
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #4
-  ret ptr %87
+86:                                               ; preds = %82, %78
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %19) #4
+  br label %87
 
-88:                                               ; preds = %82, %70
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #4
-  br label %89
+87:                                               ; preds = %86, %74
+  call void @llvm.lifetime.end.p0(i64 24, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 32, ptr %18) #4
+  br label %93
 
-89:                                               ; preds = %88, %69
-  %90 = load ptr, ptr %12, align 8
-  %91 = load i32, ptr %13, align 4
-  %92 = insertvalue { ptr, i32 } poison, ptr %90, 0
-  %93 = insertvalue { ptr, i32 } %92, i32 %91, 1
-  resume { ptr, i32 } %93
+88:                                               ; preds = %50, %39
+  %89 = load ptr, ptr %6, align 8
+  %90 = load ptr, ptr %7, align 8
+  %91 = load ptr, ptr %8, align 8
+  %92 = call noundef ptr @_ZN19WiresharkPreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex(ptr noundef align 8 dereferenceable_or_null(24) %20, ptr noundef %89, ptr noundef align 8 dereferenceable(208) %90, ptr noundef align 8 dereferenceable(24) %91)
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %9) #4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %9) #4
+  ret ptr %92
+
+93:                                               ; preds = %87, %70
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %9) #4
+  br label %94
+
+94:                                               ; preds = %93, %69
+  call void @llvm.lifetime.end.p0(i64 24, ptr %9) #4
+  br label %95
+
+95:                                               ; preds = %94
+  %96 = load ptr, ptr %12, align 8
+  %97 = load i32, ptr %13, align 4
+  %98 = insertvalue { ptr, i32 } poison, ptr %96, 0
+  %99 = insertvalue { ptr, i32 } %98, i32 %97, 1
+  resume { ptr, i32 } %99
 }
 
-declare void @_ZN19WiresharkFileDialog15getSaveFileNameEP7QWidgetRK7QStringS4_S4_PS2_6QFlagsIN11QFileDialog6OptionEE(ptr dead_on_unwind writable sret(%class.QString) align 8, ptr noundef, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, i32) #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN19WiresharkFileDialog15getSaveFileNameEP7QWidgetRK7QStringS4_S4_PS2_6QFlagsIN11QFileDialog6OptionEE(ptr dead_on_unwind writable sret(%class.QString) align 8, ptr noundef, ptr noundef align 8 dereferenceable(24), ptr noundef align 8 dereferenceable(24), ptr noundef align 8 dereferenceable(24), ptr noundef, i32) #1
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN15MainApplication17windowTitleStringE7QString(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, ptr noundef nonnull align 8 dereferenceable(216) %1, ptr noundef %2) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN15MainApplication17windowTitleStringE7QString(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, ptr noundef align 8 dereferenceable_or_null(216) %1, ptr noundef %2) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4626,19 +4784,21 @@ define linkonce_odr void @_ZN15MainApplication17windowTitleStringE7QString(ptr d
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %11 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %8) #4
   call void @llvm.memset.p0.i64(ptr align 8 %8, i8 0, i64 24, i1 false)
-  call void @_ZN5QListI7QStringEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #4
-  %12 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5QListI7QStringElsERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  call void @_ZN5QListI7QStringEC2Ev(ptr noundef align 8 dereferenceable_or_null(24) %8) #4
+  %12 = invoke noundef align 8 dereferenceable(24) ptr @_ZN5QListI7QStringElsERKS0_(ptr noundef align 8 dereferenceable_or_null(24) %8, ptr noundef align 8 dereferenceable(24) %2)
           to label %13 unwind label %15
 
 13:                                               ; preds = %3
-  call void @_ZN5QListI7QStringEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %12) #4
-  invoke void @_ZN15MainApplication17windowTitleStringE5QListI7QStringE(ptr dead_on_unwind writable sret(%class.QString) align 8 %0, ptr noundef nonnull align 8 dereferenceable(216) %11, ptr noundef %7)
+  call void @_ZN5QListI7QStringEC2ERKS1_(ptr noundef align 8 dereferenceable_or_null(24) %7, ptr noundef align 8 dereferenceable(24) %12) #4
+  invoke void @_ZN15MainApplication17windowTitleStringE5QListI7QStringE(ptr dead_on_unwind writable sret(%class.QString) align 8 %0, ptr noundef align 8 dereferenceable_or_null(216) %11, ptr noundef %7)
           to label %14 unwind label %19
 
 14:                                               ; preds = %13
-  call void @_ZN5QListI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #4
-  call void @_ZN5QListI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #4
+  call void @_ZN5QListI7QStringED2Ev(ptr noundef align 8 dereferenceable_or_null(24) %7) #4
+  call void @_ZN5QListI7QStringED2Ev(ptr noundef align 8 dereferenceable_or_null(24) %8) #4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %8) #4
   ret void
 
 15:                                               ; preds = %3
@@ -4657,11 +4817,12 @@ define linkonce_odr void @_ZN15MainApplication17windowTitleStringE7QString(ptr d
   store ptr %21, ptr %9, align 8
   %22 = extractvalue { ptr, i32 } %20, 1
   store i32 %22, ptr %10, align 4
-  call void @_ZN5QListI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #4
+  call void @_ZN5QListI7QStringED2Ev(ptr noundef align 8 dereferenceable_or_null(24) %7) #4
   br label %23
 
 23:                                               ; preds = %19, %15
-  call void @_ZN5QListI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #4
+  call void @_ZN5QListI7QStringED2Ev(ptr noundef align 8 dereferenceable_or_null(24) %8) #4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %8) #4
   br label %24
 
 24:                                               ; preds = %23
@@ -4672,342 +4833,386 @@ define linkonce_odr void @_ZN15MainApplication17windowTitleStringE7QString(ptr d
   resume { ptr, i32 } %28
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @prefs_get_title(ptr noundef) #1
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN7QStringC2Ev(ptr noundef align 8 dereferenceable_or_null(24) %0) unnamed_addr #6 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %class.QString, ptr %3, i32 0, i32 0
-  call void @_ZN17QArrayDataPointerIDsEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #4
+  %4 = getelementptr inbounds nuw %class.QString, ptr %3, i32 0, i32 0
+  call void @_ZN17QArrayDataPointerIDsEC2Ev(ptr noundef align 8 dereferenceable_or_null(24) %4) #4
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6QFlagsIN11QFileDialog6OptionEEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %0) unnamed_addr #2 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN6QFlagsIN11QFileDialog6OptionEEC2Ev(ptr noundef align 4 dereferenceable_or_null(4) %0) unnamed_addr #6 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %class.QFlags.14, ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %class.QFlags.14, ptr %3, i32 0, i32 0
   store i32 0, ptr %4, align 4
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZNK7QString7isEmptyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #2 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef zeroext i1 @_ZNK7QString7isEmptyEv(ptr noundef align 8 dereferenceable_or_null(24) %0) #6 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %class.QString, ptr %3, i32 0, i32 0
-  %5 = getelementptr inbounds %struct.QArrayDataPointer, ptr %4, i32 0, i32 2
+  %4 = getelementptr inbounds nuw %class.QString, ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %4, i32 0, i32 2
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
   ret i1 %7
 }
 
-declare void @_ZN4QDir18toNativeSeparatorsERK7QString(ptr dead_on_unwind writable sret(%class.QString) align 8, ptr noundef nonnull align 8 dereferenceable(24)) #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN4QDir18toNativeSeparatorsERK7QString(ptr dead_on_unwind writable sret(%class.QString) align 8, ptr noundef align 8 dereferenceable(24)) #1
 
-declare void @_ZN15MainApplication17windowTitleStringE5QListI7QStringE(ptr dead_on_unwind writable sret(%class.QString) align 8, ptr noundef nonnull align 8 dereferenceable(216), ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN15MainApplication17windowTitleStringE5QListI7QStringE(ptr dead_on_unwind writable sret(%class.QString) align 8, ptr noundef align 8 dereferenceable_or_null(216), ptr noundef) #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5QListI7QStringEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN5QListI7QStringEC2Ev(ptr noundef align 8 dereferenceable_or_null(24) %0) unnamed_addr #2 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %class.QList.15, ptr %3, i32 0, i32 0
-  call void @_ZN17QArrayDataPointerI7QStringEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #4
+  %4 = getelementptr inbounds nuw %class.QList.15, ptr %3, i32 0, i32 0
+  call void @_ZN17QArrayDataPointerI7QStringEC2Ev(ptr noundef align 8 dereferenceable_or_null(24) %4) #4
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZN5QListI7QStringElsERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef align 8 dereferenceable(24) ptr @_ZN5QListI7QStringElsERKS0_(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef align 8 dereferenceable(24) %1) #7 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
-  call void @_ZN5QListI7QStringE6appendERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  call void @_ZN5QListI7QStringE6appendERKS0_(ptr noundef align 8 dereferenceable_or_null(24) %5, ptr noundef align 8 dereferenceable(24) %6)
   ret ptr %5
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5QListI7QStringEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #2 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN5QListI7QStringEC2ERKS1_(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef align 8 dereferenceable(24) %1) unnamed_addr #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %class.QList.15, ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %class.QList.15, ptr %5, i32 0, i32 0
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %class.QList.15, ptr %7, i32 0, i32 0
-  call void @_ZN17QArrayDataPointerI7QStringEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8) #4
+  %8 = getelementptr inbounds nuw %class.QList.15, ptr %7, i32 0, i32 0
+  call void @_ZN17QArrayDataPointerI7QStringEC2ERKS1_(ptr noundef align 8 dereferenceable_or_null(24) %6, ptr noundef align 8 dereferenceable(24) %8) #4
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5QListI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN5QListI7QStringED2Ev(ptr noundef align 8 dereferenceable_or_null(24) %0) unnamed_addr #6 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %class.QList.15, ptr %3, i32 0, i32 0
-  call void @_ZN17QArrayDataPointerI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #4
+  %4 = getelementptr inbounds nuw %class.QList.15, ptr %3, i32 0, i32 0
+  call void @_ZN17QArrayDataPointerI7QStringED2Ev(ptr noundef align 8 dereferenceable_or_null(24) %4) #4
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN17QArrayDataPointerI7QStringEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN17QArrayDataPointerI7QStringEC2Ev(ptr noundef align 8 dereferenceable_or_null(24) %0) unnamed_addr #2 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %3, i32 0, i32 0
   store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %3, i32 0, i32 1
+  %5 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %3, i32 0, i32 1
   store ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %3, i32 0, i32 2
+  %6 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %3, i32 0, i32 2
   store i64 0, ptr %6, align 8
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN5QListI7QStringE6appendERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #0 comdat align 2 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN5QListI7QStringE6appendERKS0_(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef align 8 dereferenceable(24) %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
-  %7 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5QListI7QStringE11emplaceBackIJRKS0_EEERS0_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  %7 = call noundef align 8 dereferenceable(24) ptr @_ZN5QListI7QStringE11emplaceBackIJRKS0_EEERS0_DpOT_(ptr noundef align 8 dereferenceable_or_null(24) %5, ptr noundef align 8 dereferenceable(24) %6)
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZN5QListI7QStringE11emplaceBackIJRKS0_EEERS0_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #0 comdat align 2 {
+; Function Attrs: inlinehint mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef align 8 dereferenceable(24) ptr @_ZN5QListI7QStringE11emplaceBackIJRKS0_EEERS0_DpOT_(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef align 8 dereferenceable(24) %1) #7 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %class.QList.15, ptr %5, i32 0, i32 0
-  %7 = call noundef ptr @_ZN17QArrayDataPointerI7QStringEptEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #4
-  %8 = getelementptr inbounds %class.QList.15, ptr %5, i32 0, i32 0
-  %9 = call noundef ptr @_ZN17QArrayDataPointerI7QStringEptEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #4
-  %10 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %9, i32 0, i32 2
+  %6 = getelementptr inbounds nuw %class.QList.15, ptr %5, i32 0, i32 0
+  %7 = call noundef ptr @_ZN17QArrayDataPointerI7QStringEptEv(ptr noundef align 8 dereferenceable_or_null(24) %6) #4
+  %8 = getelementptr inbounds nuw %class.QList.15, ptr %5, i32 0, i32 0
+  %9 = call noundef ptr @_ZN17QArrayDataPointerI7QStringEptEv(ptr noundef align 8 dereferenceable_or_null(24) %8) #4
+  %10 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %9, i32 0, i32 2
   %11 = load i64, ptr %10, align 8
   %12 = load ptr, ptr %4, align 8
-  call void @_ZN9QtPrivate16QMovableArrayOpsI7QStringE7emplaceIJRKS1_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %7, i64 noundef %11, ptr noundef nonnull align 8 dereferenceable(24) %12)
-  %13 = getelementptr inbounds %class.QList.15, ptr %5, i32 0, i32 0
-  %14 = call noundef ptr @_ZN17QArrayDataPointerI7QStringE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #4
+  call void @_ZN9QtPrivate16QMovableArrayOpsI7QStringE7emplaceIJRKS1_EEEvxDpOT_(ptr noundef align 8 dereferenceable_or_null(24) %7, i64 noundef %11, ptr noundef align 8 dereferenceable(24) %12)
+  %13 = getelementptr inbounds nuw %class.QList.15, ptr %5, i32 0, i32 0
+  %14 = call noundef ptr @_ZN17QArrayDataPointerI7QStringE3endEv(ptr noundef align 8 dereferenceable_or_null(24) %13) #4
   %15 = getelementptr %class.QString, ptr %14, i64 -1
   ret ptr %15
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN17QArrayDataPointerI7QStringEptEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #2 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef ptr @_ZN17QArrayDataPointerI7QStringEptEv(ptr noundef align 8 dereferenceable_or_null(24) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN9QtPrivate16QMovableArrayOpsI7QStringE7emplaceIJRKS1_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN9QtPrivate16QMovableArrayOpsI7QStringE7emplaceIJRKS1_EEEvxDpOT_(ptr noundef align 8 dereferenceable_or_null(24) %0, i64 noundef %1, ptr noundef align 8 dereferenceable(24) %2) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i8, align 1
-  %8 = alloca %class.QString, align 8
-  %9 = alloca i8, align 1
-  %10 = alloca i32, align 4
-  %11 = alloca ptr, align 8
-  %12 = alloca i32, align 4
-  %13 = alloca %"struct.QtPrivate::QMovableArrayOps<QString>::Inserter", align 8
+  %8 = alloca i32, align 4
+  %9 = alloca %class.QString, align 8
+  %10 = alloca i8, align 1
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca %"struct.QtPrivate::QMovableArrayOps<QString>::Inserter", align 8
   store ptr %0, ptr %4, align 8
   store i64 %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
-  %14 = load ptr, ptr %4, align 8
-  %15 = call noundef zeroext i1 @_ZNK17QArrayDataPointerI7QStringE11needsDetachEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #4
-  %16 = zext i1 %15 to i8
-  store i8 %16, ptr %7, align 1
-  %17 = load i8, ptr %7, align 1
-  %18 = trunc i8 %17 to i1
-  br i1 %18, label %50, label %19
+  %15 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #4
+  %16 = call noundef zeroext i1 @_ZNK17QArrayDataPointerI7QStringE11needsDetachEv(ptr noundef align 8 dereferenceable_or_null(24) %15) #4
+  %17 = zext i1 %16 to i8
+  store i8 %17, ptr %7, align 1
+  %18 = load i8, ptr %7, align 1, !range !8, !noundef !9
+  %19 = trunc i8 %18 to i1
+  br i1 %19, label %51, label %20
 
-19:                                               ; preds = %3
-  %20 = load i64, ptr %5, align 8
-  %21 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %14, i32 0, i32 2
-  %22 = load i64, ptr %21, align 8
-  %23 = icmp eq i64 %20, %22
-  br i1 %23, label %24, label %33
+20:                                               ; preds = %3
+  %21 = load i64, ptr %5, align 8
+  %22 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %15, i32 0, i32 2
+  %23 = load i64, ptr %22, align 8
+  %24 = icmp eq i64 %21, %23
+  br i1 %24, label %25, label %34
 
-24:                                               ; preds = %19
-  %25 = call noundef i64 @_ZNK17QArrayDataPointerI7QStringE14freeSpaceAtEndEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #4
-  %26 = icmp ne i64 %25, 0
-  br i1 %26, label %27, label %33
+25:                                               ; preds = %20
+  %26 = call noundef i64 @_ZNK17QArrayDataPointerI7QStringE14freeSpaceAtEndEv(ptr noundef align 8 dereferenceable_or_null(24) %15) #4
+  %27 = icmp ne i64 %26, 0
+  br i1 %27, label %28, label %34
 
-27:                                               ; preds = %24
-  %28 = call noundef ptr @_ZN17QArrayDataPointerI7QStringE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #4
-  %29 = load ptr, ptr %6, align 8
-  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %29) #4
-  %30 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %14, i32 0, i32 2
-  %31 = load i64, ptr %30, align 8
-  %32 = add i64 %31, 1
-  store i64 %32, ptr %30, align 8
-  br label %90
+28:                                               ; preds = %25
+  %29 = call noundef ptr @_ZN17QArrayDataPointerI7QStringE3endEv(ptr noundef align 8 dereferenceable_or_null(24) %15) #4
+  %30 = load ptr, ptr %6, align 8
+  call void @_ZN7QStringC2ERKS_(ptr noundef align 8 dereferenceable_or_null(24) %29, ptr noundef align 8 dereferenceable(24) %30) #4
+  %31 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %15, i32 0, i32 2
+  %32 = load i64, ptr %31, align 8
+  %33 = add i64 %32, 1
+  store i64 %33, ptr %31, align 8
+  store i32 1, ptr %8, align 4
+  br label %96
 
-33:                                               ; preds = %24, %19
-  %34 = load i64, ptr %5, align 8
-  %35 = icmp eq i64 %34, 0
-  br i1 %35, label %36, label %49
+34:                                               ; preds = %25, %20
+  %35 = load i64, ptr %5, align 8
+  %36 = icmp eq i64 %35, 0
+  br i1 %36, label %37, label %50
 
-36:                                               ; preds = %33
-  %37 = call noundef i64 @_ZNK17QArrayDataPointerI7QStringE16freeSpaceAtBeginEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #4
-  %38 = icmp ne i64 %37, 0
-  br i1 %38, label %39, label %49
+37:                                               ; preds = %34
+  %38 = call noundef i64 @_ZNK17QArrayDataPointerI7QStringE16freeSpaceAtBeginEv(ptr noundef align 8 dereferenceable_or_null(24) %15) #4
+  %39 = icmp ne i64 %38, 0
+  br i1 %39, label %40, label %50
 
-39:                                               ; preds = %36
-  %40 = call noundef ptr @_ZN17QArrayDataPointerI7QStringE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #4
-  %41 = getelementptr %class.QString, ptr %40, i64 -1
-  %42 = load ptr, ptr %6, align 8
-  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(24) %42) #4
-  %43 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %14, i32 0, i32 1
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr %class.QString, ptr %44, i32 -1
-  store ptr %45, ptr %43, align 8
-  %46 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %14, i32 0, i32 2
-  %47 = load i64, ptr %46, align 8
-  %48 = add i64 %47, 1
-  store i64 %48, ptr %46, align 8
-  br label %90
+40:                                               ; preds = %37
+  %41 = call noundef ptr @_ZN17QArrayDataPointerI7QStringE5beginEv(ptr noundef align 8 dereferenceable_or_null(24) %15) #4
+  %42 = getelementptr %class.QString, ptr %41, i64 -1
+  %43 = load ptr, ptr %6, align 8
+  call void @_ZN7QStringC2ERKS_(ptr noundef align 8 dereferenceable_or_null(24) %42, ptr noundef align 8 dereferenceable(24) %43) #4
+  %44 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %15, i32 0, i32 1
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr %class.QString, ptr %45, i32 -1
+  store ptr %46, ptr %44, align 8
+  %47 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %15, i32 0, i32 2
+  %48 = load i64, ptr %47, align 8
+  %49 = add i64 %48, 1
+  store i64 %49, ptr %47, align 8
+  store i32 1, ptr %8, align 4
+  br label %96
 
-49:                                               ; preds = %36, %33
-  br label %50
+50:                                               ; preds = %37, %34
+  br label %51
 
-50:                                               ; preds = %49, %3
-  %51 = load ptr, ptr %6, align 8
-  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %51) #4
-  %52 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %14, i32 0, i32 2
-  %53 = load i64, ptr %52, align 8
-  %54 = icmp ne i64 %53, 0
-  br i1 %54, label %55, label %58
+51:                                               ; preds = %50, %3
+  call void @llvm.lifetime.start.p0(i64 24, ptr %9) #4
+  %52 = load ptr, ptr %6, align 8
+  call void @_ZN7QStringC2ERKS_(ptr noundef align 8 dereferenceable_or_null(24) %9, ptr noundef align 8 dereferenceable(24) %52) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #4
+  %53 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %15, i32 0, i32 2
+  %54 = load i64, ptr %53, align 8
+  %55 = icmp ne i64 %54, 0
+  br i1 %55, label %56, label %59
 
-55:                                               ; preds = %50
-  %56 = load i64, ptr %5, align 8
-  %57 = icmp eq i64 %56, 0
-  br label %58
+56:                                               ; preds = %51
+  %57 = load i64, ptr %5, align 8
+  %58 = icmp eq i64 %57, 0
+  br label %59
 
-58:                                               ; preds = %55, %50
-  %59 = phi i1 [ false, %50 ], [ %57, %55 ]
-  %60 = zext i1 %59 to i8
-  store i8 %60, ptr %9, align 1
-  %61 = load i8, ptr %9, align 1
-  %62 = trunc i8 %61 to i1
-  %63 = select i1 %62, i32 1, i32 0
-  store i32 %63, ptr %10, align 4
-  %64 = load i32, ptr %10, align 4
-  invoke void @_ZN17QArrayDataPointerI7QStringE13detachAndGrowEN10QArrayData14GrowthPositionExPPKS0_PS1_(ptr noundef nonnull align 8 dereferenceable(24) %14, i32 noundef %64, i64 noundef 1, ptr noundef null, ptr noundef null)
-          to label %65 unwind label %77
+59:                                               ; preds = %56, %51
+  %60 = phi i1 [ false, %51 ], [ %58, %56 ]
+  %61 = zext i1 %60 to i8
+  store i8 %61, ptr %10, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
+  %62 = load i8, ptr %10, align 1, !range !8, !noundef !9
+  %63 = trunc i8 %62 to i1
+  %64 = select i1 %63, i32 1, i32 0
+  store i32 %64, ptr %11, align 4
+  %65 = load i32, ptr %11, align 4
+  invoke void @_ZN17QArrayDataPointerI7QStringE13detachAndGrowEN10QArrayData14GrowthPositionExPPKS0_PS1_(ptr noundef align 8 dereferenceable_or_null(24) %15, i32 noundef %65, i64 noundef 1, ptr noundef null, ptr noundef null)
+          to label %66 unwind label %78
 
-65:                                               ; preds = %58
-  %66 = load i8, ptr %9, align 1
-  %67 = trunc i8 %66 to i1
-  br i1 %67, label %68, label %81
+66:                                               ; preds = %59
+  %67 = load i8, ptr %10, align 1, !range !8, !noundef !9
+  %68 = trunc i8 %67 to i1
+  br i1 %68, label %69, label %82
 
-68:                                               ; preds = %65
-  %69 = call noundef ptr @_ZN17QArrayDataPointerI7QStringE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %14) #4
-  %70 = getelementptr %class.QString, ptr %69, i64 -1
-  call void @_ZN7QStringC2EOS_(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr noundef nonnull align 8 dereferenceable(24) %8) #4
-  %71 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %14, i32 0, i32 1
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr %class.QString, ptr %72, i32 -1
-  store ptr %73, ptr %71, align 8
-  %74 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %14, i32 0, i32 2
-  %75 = load i64, ptr %74, align 8
-  %76 = add i64 %75, 1
-  store i64 %76, ptr %74, align 8
-  br label %89
+69:                                               ; preds = %66
+  %70 = call noundef ptr @_ZN17QArrayDataPointerI7QStringE5beginEv(ptr noundef align 8 dereferenceable_or_null(24) %15) #4
+  %71 = getelementptr %class.QString, ptr %70, i64 -1
+  call void @_ZN7QStringC2EOS_(ptr noundef align 8 dereferenceable_or_null(24) %71, ptr noundef align 8 dereferenceable(24) %9) #4
+  %72 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %15, i32 0, i32 1
+  %73 = load ptr, ptr %72, align 8
+  %74 = getelementptr %class.QString, ptr %73, i32 -1
+  store ptr %74, ptr %72, align 8
+  %75 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %15, i32 0, i32 2
+  %76 = load i64, ptr %75, align 8
+  %77 = add i64 %76, 1
+  store i64 %77, ptr %75, align 8
+  br label %95
 
-77:                                               ; preds = %81, %58
-  %78 = landingpad { ptr, i32 }
+78:                                               ; preds = %59
+  %79 = landingpad { ptr, i32 }
           cleanup
-  %79 = extractvalue { ptr, i32 } %78, 0
-  store ptr %79, ptr %11, align 8
-  %80 = extractvalue { ptr, i32 } %78, 1
-  store i32 %80, ptr %12, align 4
-  br label %91
+  %80 = extractvalue { ptr, i32 } %79, 0
+  store ptr %80, ptr %12, align 8
+  %81 = extractvalue { ptr, i32 } %79, 1
+  store i32 %81, ptr %13, align 4
+  br label %99
 
-81:                                               ; preds = %65
-  invoke void @_ZN9QtPrivate16QMovableArrayOpsI7QStringE8InserterC2EP17QArrayDataPointerIS1_E(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef %14)
-          to label %82 unwind label %77
+82:                                               ; preds = %66
+  call void @llvm.lifetime.start.p0(i64 40, ptr %14) #4
+  invoke void @_ZN9QtPrivate16QMovableArrayOpsI7QStringE8InserterC2EP17QArrayDataPointerIS1_E(ptr noundef align 8 dereferenceable_or_null(40) %14, ptr noundef %15)
+          to label %83 unwind label %86
 
-82:                                               ; preds = %81
-  %83 = load i64, ptr %5, align 8
-  invoke void @_ZN9QtPrivate16QMovableArrayOpsI7QStringE8Inserter9insertOneExOS1_(ptr noundef nonnull align 8 dereferenceable(40) %13, i64 noundef %83, ptr noundef nonnull align 8 dereferenceable(24) %8)
-          to label %84 unwind label %85
+83:                                               ; preds = %82
+  %84 = load i64, ptr %5, align 8
+  invoke void @_ZN9QtPrivate16QMovableArrayOpsI7QStringE8Inserter9insertOneExOS1_(ptr noundef align 8 dereferenceable_or_null(40) %14, i64 noundef %84, ptr noundef align 8 dereferenceable(24) %9)
+          to label %85 unwind label %90
 
-84:                                               ; preds = %82
-  call void @_ZN9QtPrivate16QMovableArrayOpsI7QStringE8InserterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %13) #4
-  br label %89
+85:                                               ; preds = %83
+  call void @_ZN9QtPrivate16QMovableArrayOpsI7QStringE8InserterD2Ev(ptr noundef align 8 dereferenceable_or_null(40) %14) #4
+  call void @llvm.lifetime.end.p0(i64 40, ptr %14) #4
+  br label %95
 
-85:                                               ; preds = %82
-  %86 = landingpad { ptr, i32 }
+86:                                               ; preds = %82
+  %87 = landingpad { ptr, i32 }
           cleanup
-  %87 = extractvalue { ptr, i32 } %86, 0
-  store ptr %87, ptr %11, align 8
-  %88 = extractvalue { ptr, i32 } %86, 1
-  store i32 %88, ptr %12, align 4
-  call void @_ZN9QtPrivate16QMovableArrayOpsI7QStringE8InserterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %13) #4
-  br label %91
+  %88 = extractvalue { ptr, i32 } %87, 0
+  store ptr %88, ptr %12, align 8
+  %89 = extractvalue { ptr, i32 } %87, 1
+  store i32 %89, ptr %13, align 4
+  br label %94
 
-89:                                               ; preds = %84, %68
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #4
-  br label %90
+90:                                               ; preds = %83
+  %91 = landingpad { ptr, i32 }
+          cleanup
+  %92 = extractvalue { ptr, i32 } %91, 0
+  store ptr %92, ptr %12, align 8
+  %93 = extractvalue { ptr, i32 } %91, 1
+  store i32 %93, ptr %13, align 4
+  call void @_ZN9QtPrivate16QMovableArrayOpsI7QStringE8InserterD2Ev(ptr noundef align 8 dereferenceable_or_null(40) %14) #4
+  br label %94
 
-90:                                               ; preds = %89, %39, %27
+94:                                               ; preds = %90, %86
+  call void @llvm.lifetime.end.p0(i64 40, ptr %14) #4
+  br label %99
+
+95:                                               ; preds = %85, %69
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #4
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %9) #4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %9) #4
+  store i32 0, ptr %8, align 4
+  br label %96
+
+96:                                               ; preds = %95, %40, %28
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #4
+  %97 = load i32, ptr %8, align 4
+  switch i32 %97, label %105 [
+    i32 0, label %98
+    i32 1, label %98
+  ]
+
+98:                                               ; preds = %96, %96
   ret void
 
-91:                                               ; preds = %85, %77
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #4
-  br label %92
+99:                                               ; preds = %94, %78
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #4
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %9) #4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #4
+  br label %100
 
-92:                                               ; preds = %91
-  %93 = load ptr, ptr %11, align 8
-  %94 = load i32, ptr %12, align 4
-  %95 = insertvalue { ptr, i32 } poison, ptr %93, 0
-  %96 = insertvalue { ptr, i32 } %95, i32 %94, 1
-  resume { ptr, i32 } %96
+100:                                              ; preds = %99
+  %101 = load ptr, ptr %12, align 8
+  %102 = load i32, ptr %13, align 4
+  %103 = insertvalue { ptr, i32 } poison, ptr %101, 0
+  %104 = insertvalue { ptr, i32 } %103, i32 %102, 1
+  resume { ptr, i32 } %104
+
+105:                                              ; preds = %96
+  unreachable
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN17QArrayDataPointerI7QStringE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #2 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef ptr @_ZN17QArrayDataPointerI7QStringE3endEv(ptr noundef align 8 dereferenceable_or_null(24) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef ptr @_ZN17QArrayDataPointerI7QStringE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #4
-  %5 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %3, i32 0, i32 2
+  %4 = call noundef ptr @_ZN17QArrayDataPointerI7QStringE4dataEv(ptr noundef align 8 dereferenceable_or_null(24) %3) #4
+  %5 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %3, i32 0, i32 2
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr %class.QString, ptr %4, i64 %6
   ret ptr %7
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZNK17QArrayDataPointerI7QStringE11needsDetachEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #2 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef zeroext i1 @_ZNK17QArrayDataPointerI7QStringE11needsDetachEv(ptr noundef align 8 dereferenceable_or_null(24) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ne ptr %5, null
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %3, i32 0, i32 0
   %9 = load ptr, ptr %8, align 8
-  %10 = call noundef zeroext i1 @_ZNK10QArrayData11needsDetachEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #4
+  %10 = call noundef zeroext i1 @_ZNK10QArrayData11needsDetachEv(ptr noundef align 8 dereferenceable_or_null(16) %9) #4
   br label %11
 
 11:                                               ; preds = %7, %1
@@ -5015,13 +5220,13 @@ define linkonce_odr noundef zeroext i1 @_ZNK17QArrayDataPointerI7QStringE11needs
   ret i1 %12
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZNK17QArrayDataPointerI7QStringE14freeSpaceAtEndEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #2 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef i64 @_ZNK17QArrayDataPointerI7QStringE14freeSpaceAtEndEv(ptr noundef align 8 dereferenceable_or_null(24) %0) #2 comdat align 2 {
   %2 = alloca i64, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %4, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %4, i32 0, i32 0
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %9
@@ -5031,12 +5236,12 @@ define linkonce_odr noundef i64 @_ZNK17QArrayDataPointerI7QStringE14freeSpaceAtE
   br label %18
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %4, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %4, i32 0, i32 0
   %11 = load ptr, ptr %10, align 8
-  %12 = call noundef i64 @_ZNK10QArrayData22constAllocatedCapacityEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #4
-  %13 = call noundef i64 @_ZNK17QArrayDataPointerI7QStringE16freeSpaceAtBeginEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #4
+  %12 = call noundef i64 @_ZNK10QArrayData22constAllocatedCapacityEv(ptr noundef align 8 dereferenceable_or_null(16) %11) #4
+  %13 = call noundef i64 @_ZNK17QArrayDataPointerI7QStringE16freeSpaceAtBeginEv(ptr noundef align 8 dereferenceable_or_null(24) %4) #4
   %14 = sub i64 %12, %13
-  %15 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %4, i32 0, i32 2
+  %15 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %4, i32 0, i32 2
   %16 = load i64, ptr %15, align 8
   %17 = sub i64 %14, %16
   store i64 %17, ptr %2, align 8
@@ -5047,27 +5252,27 @@ define linkonce_odr noundef i64 @_ZNK17QArrayDataPointerI7QStringE14freeSpaceAtE
   ret i64 %19
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #2 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN7QStringC2ERKS_(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef align 8 dereferenceable(24) %1) unnamed_addr #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %class.QString, ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %class.QString, ptr %5, i32 0, i32 0
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %class.QString, ptr %7, i32 0, i32 0
-  call void @_ZN17QArrayDataPointerIDsEC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8) #4
+  %8 = getelementptr inbounds nuw %class.QString, ptr %7, i32 0, i32 0
+  call void @_ZN17QArrayDataPointerIDsEC2ERKS0_(ptr noundef align 8 dereferenceable_or_null(24) %6, ptr noundef align 8 dereferenceable(24) %8) #4
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZNK17QArrayDataPointerI7QStringE16freeSpaceAtBeginEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #2 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef i64 @_ZNK17QArrayDataPointerI7QStringE16freeSpaceAtBeginEv(ptr noundef align 8 dereferenceable_or_null(24) %0) #2 comdat align 2 {
   %2 = alloca i64, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %4, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %4, i32 0, i32 0
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %9
@@ -5077,9 +5282,9 @@ define linkonce_odr noundef i64 @_ZNK17QArrayDataPointerI7QStringE16freeSpaceAtB
   br label %19
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %4, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %4, i32 0, i32 1
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %4, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %4, i32 0, i32 0
   %13 = load ptr, ptr %12, align 8
   %14 = call noundef ptr @_ZN15QTypedArrayDataI7QStringE9dataStartEP10QArrayDatax(ptr noundef %13, i64 noundef 8) #4
   %15 = ptrtoint ptr %11 to i64
@@ -5094,17 +5299,17 @@ define linkonce_odr noundef i64 @_ZNK17QArrayDataPointerI7QStringE16freeSpaceAtB
   ret i64 %20
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN17QArrayDataPointerI7QStringE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #2 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef ptr @_ZN17QArrayDataPointerI7QStringE5beginEv(ptr noundef align 8 dereferenceable_or_null(24) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef ptr @_ZN17QArrayDataPointerI7QStringE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #4
+  %4 = call noundef ptr @_ZN17QArrayDataPointerI7QStringE4dataEv(ptr noundef align 8 dereferenceable_or_null(24) %3) #4
   ret ptr %4
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN17QArrayDataPointerI7QStringE13detachAndGrowEN10QArrayData14GrowthPositionExPPKS0_PS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) #0 comdat align 2 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN17QArrayDataPointerI7QStringE13detachAndGrowEN10QArrayData14GrowthPositionExPPKS0_PS1_(ptr noundef align 8 dereferenceable_or_null(24) %0, i32 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) #0 comdat align 2 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i64, align 8
@@ -5112,108 +5317,128 @@ define linkonce_odr void @_ZN17QArrayDataPointerI7QStringE13detachAndGrowEN10QAr
   %10 = alloca ptr, align 8
   %11 = alloca i8, align 1
   %12 = alloca i8, align 1
+  %13 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store i32 %1, ptr %7, align 4
   store i64 %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   store ptr %4, ptr %10, align 8
-  %13 = load ptr, ptr %6, align 8
-  %14 = call noundef zeroext i1 @_ZNK17QArrayDataPointerI7QStringE11needsDetachEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #4
-  %15 = zext i1 %14 to i8
-  store i8 %15, ptr %11, align 1
+  %14 = load ptr, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #4
+  %15 = call noundef zeroext i1 @_ZNK17QArrayDataPointerI7QStringE11needsDetachEv(ptr noundef align 8 dereferenceable_or_null(24) %14) #4
+  %16 = zext i1 %15 to i8
+  store i8 %16, ptr %11, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #4
   store i8 0, ptr %12, align 1
-  %16 = load i8, ptr %11, align 1
-  %17 = trunc i8 %16 to i1
-  br i1 %17, label %42, label %18
+  %17 = load i8, ptr %11, align 1, !range !8, !noundef !9
+  %18 = trunc i8 %17 to i1
+  br i1 %18, label %43, label %19
 
-18:                                               ; preds = %5
-  %19 = load i64, ptr %8, align 8
-  %20 = icmp ne i64 %19, 0
-  br i1 %20, label %21, label %35
+19:                                               ; preds = %5
+  %20 = load i64, ptr %8, align 8
+  %21 = icmp ne i64 %20, 0
+  br i1 %21, label %22, label %36
 
-21:                                               ; preds = %18
-  %22 = load i32, ptr %7, align 4
-  %23 = icmp eq i32 %22, 1
-  br i1 %23, label %24, label %28
+22:                                               ; preds = %19
+  %23 = load i32, ptr %7, align 4
+  %24 = icmp eq i32 %23, 1
+  br i1 %24, label %25, label %29
 
-24:                                               ; preds = %21
-  %25 = call noundef i64 @_ZNK17QArrayDataPointerI7QStringE16freeSpaceAtBeginEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #4
-  %26 = load i64, ptr %8, align 8
-  %27 = icmp sge i64 %25, %26
-  br i1 %27, label %35, label %28
+25:                                               ; preds = %22
+  %26 = call noundef i64 @_ZNK17QArrayDataPointerI7QStringE16freeSpaceAtBeginEv(ptr noundef align 8 dereferenceable_or_null(24) %14) #4
+  %27 = load i64, ptr %8, align 8
+  %28 = icmp sge i64 %26, %27
+  br i1 %28, label %36, label %29
 
-28:                                               ; preds = %24, %21
-  %29 = load i32, ptr %7, align 4
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %31, label %36
+29:                                               ; preds = %25, %22
+  %30 = load i32, ptr %7, align 4
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %32, label %37
 
-31:                                               ; preds = %28
-  %32 = call noundef i64 @_ZNK17QArrayDataPointerI7QStringE14freeSpaceAtEndEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #4
-  %33 = load i64, ptr %8, align 8
-  %34 = icmp sge i64 %32, %33
-  br i1 %34, label %35, label %36
+32:                                               ; preds = %29
+  %33 = call noundef i64 @_ZNK17QArrayDataPointerI7QStringE14freeSpaceAtEndEv(ptr noundef align 8 dereferenceable_or_null(24) %14) #4
+  %34 = load i64, ptr %8, align 8
+  %35 = icmp sge i64 %33, %34
+  br i1 %35, label %36, label %37
 
-35:                                               ; preds = %31, %24, %18
-  br label %49
+36:                                               ; preds = %32, %25, %19
+  store i32 1, ptr %13, align 4
+  br label %51
 
-36:                                               ; preds = %31, %28
-  %37 = load i32, ptr %7, align 4
-  %38 = load i64, ptr %8, align 8
-  %39 = load ptr, ptr %9, align 8
-  %40 = call noundef zeroext i1 @_ZN17QArrayDataPointerI7QStringE20tryReadjustFreeSpaceEN10QArrayData14GrowthPositionExPPKS0_(ptr noundef nonnull align 8 dereferenceable(24) %13, i32 noundef %37, i64 noundef %38, ptr noundef %39)
-  %41 = zext i1 %40 to i8
-  store i8 %41, ptr %12, align 1
-  br label %42
+37:                                               ; preds = %32, %29
+  %38 = load i32, ptr %7, align 4
+  %39 = load i64, ptr %8, align 8
+  %40 = load ptr, ptr %9, align 8
+  %41 = call noundef zeroext i1 @_ZN17QArrayDataPointerI7QStringE20tryReadjustFreeSpaceEN10QArrayData14GrowthPositionExPPKS0_(ptr noundef align 8 dereferenceable_or_null(24) %14, i32 noundef %38, i64 noundef %39, ptr noundef %40)
+  %42 = zext i1 %41 to i8
+  store i8 %42, ptr %12, align 1
+  br label %43
 
-42:                                               ; preds = %36, %5
-  %43 = load i8, ptr %12, align 1
-  %44 = trunc i8 %43 to i1
-  br i1 %44, label %49, label %45
+43:                                               ; preds = %37, %5
+  %44 = load i8, ptr %12, align 1, !range !8, !noundef !9
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %50, label %46
 
-45:                                               ; preds = %42
-  %46 = load i32, ptr %7, align 4
-  %47 = load i64, ptr %8, align 8
-  %48 = load ptr, ptr %10, align 8
-  call void @_ZN17QArrayDataPointerI7QStringE17reallocateAndGrowEN10QArrayData14GrowthPositionExPS1_(ptr noundef nonnull align 8 dereferenceable(24) %13, i32 noundef %46, i64 noundef %47, ptr noundef %48)
-  br label %49
+46:                                               ; preds = %43
+  %47 = load i32, ptr %7, align 4
+  %48 = load i64, ptr %8, align 8
+  %49 = load ptr, ptr %10, align 8
+  call void @_ZN17QArrayDataPointerI7QStringE17reallocateAndGrowEN10QArrayData14GrowthPositionExPS1_(ptr noundef align 8 dereferenceable_or_null(24) %14, i32 noundef %47, i64 noundef %48, ptr noundef %49)
+  br label %50
 
-49:                                               ; preds = %45, %42, %35
+50:                                               ; preds = %46, %43
+  store i32 0, ptr %13, align 4
+  br label %51
+
+51:                                               ; preds = %50, %36
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #4
+  %52 = load i32, ptr %13, align 4
+  switch i32 %52, label %54 [
+    i32 0, label %53
+    i32 1, label %53
+  ]
+
+53:                                               ; preds = %51, %51
   ret void
+
+54:                                               ; preds = %51
+  unreachable
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN7QStringC2EOS_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #2 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN7QStringC2EOS_(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef align 8 dereferenceable(24) %1) unnamed_addr #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %class.QString, ptr %5, i32 0, i32 0
-  call void @_ZN17QArrayDataPointerIDsEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #4
-  %7 = getelementptr inbounds %class.QString, ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %class.QString, ptr %5, i32 0, i32 0
+  call void @_ZN17QArrayDataPointerIDsEC2Ev(ptr noundef align 8 dereferenceable_or_null(24) %6) #4
+  %7 = getelementptr inbounds nuw %class.QString, ptr %5, i32 0, i32 0
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %class.QString, ptr %8, i32 0, i32 0
-  call void @_Z5qSwapIDsEvR17QArrayDataPointerIT_ES3_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %9) #4
+  %9 = getelementptr inbounds nuw %class.QString, ptr %8, i32 0, i32 0
+  call void @_Z5qSwapIDsEvR17QArrayDataPointerIT_ES3_(ptr noundef align 8 dereferenceable(24) %7, ptr noundef align 8 dereferenceable(24) %9) #4
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN9QtPrivate16QMovableArrayOpsI7QStringE8InserterC2EP17QArrayDataPointerIS1_E(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN9QtPrivate16QMovableArrayOpsI7QStringE8InserterC2EP17QArrayDataPointerIS1_E(ptr noundef align 8 dereferenceable_or_null(40) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %"struct.QtPrivate::QMovableArrayOps<QString>::Inserter", ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.QtPrivate::QMovableArrayOps<QString>::Inserter", ptr %5, i32 0, i32 0
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
-  %8 = getelementptr inbounds %"struct.QtPrivate::QMovableArrayOps<QString>::Inserter", ptr %5, i32 0, i32 3
+  %8 = getelementptr inbounds nuw %"struct.QtPrivate::QMovableArrayOps<QString>::Inserter", ptr %5, i32 0, i32 3
   store i64 0, ptr %8, align 8
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN9QtPrivate16QMovableArrayOpsI7QStringE8Inserter9insertOneExOS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) #0 comdat align 2 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN9QtPrivate16QMovableArrayOpsI7QStringE8Inserter9insertOneExOS1_(ptr noundef align 8 dereferenceable_or_null(40) %0, i64 noundef %1, ptr noundef align 8 dereferenceable(24) %2) #0 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
@@ -5222,119 +5447,121 @@ define linkonce_odr void @_ZN9QtPrivate16QMovableArrayOpsI7QStringE8Inserter9ins
   store i64 %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %8 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #4
   %9 = load i64, ptr %5, align 8
-  %10 = call noundef ptr @_ZN9QtPrivate16QMovableArrayOpsI7QStringE8Inserter8displaceExx(ptr noundef nonnull align 8 dereferenceable(40) %8, i64 noundef %9, i64 noundef 1)
+  %10 = call noundef ptr @_ZN9QtPrivate16QMovableArrayOpsI7QStringE8Inserter8displaceExx(ptr noundef align 8 dereferenceable_or_null(40) %8, i64 noundef %9, i64 noundef 1)
   store ptr %10, ptr %7, align 8
   %11 = load ptr, ptr %7, align 8
   %12 = load ptr, ptr %6, align 8
-  call void @_ZN7QStringC2EOS_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %12) #4
-  %13 = getelementptr inbounds %"struct.QtPrivate::QMovableArrayOps<QString>::Inserter", ptr %8, i32 0, i32 1
+  call void @_ZN7QStringC2EOS_(ptr noundef align 8 dereferenceable_or_null(24) %11, ptr noundef align 8 dereferenceable(24) %12) #4
+  %13 = getelementptr inbounds nuw %"struct.QtPrivate::QMovableArrayOps<QString>::Inserter", ptr %8, i32 0, i32 1
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr %class.QString, ptr %14, i32 1
   store ptr %15, ptr %13, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #4
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN9QtPrivate16QMovableArrayOpsI7QStringE8InserterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #2 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN9QtPrivate16QMovableArrayOpsI7QStringE8InserterD2Ev(ptr noundef align 8 dereferenceable_or_null(40) %0) unnamed_addr #2 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.QtPrivate::QMovableArrayOps<QString>::Inserter", ptr %3, i32 0, i32 3
+  %4 = getelementptr inbounds nuw %"struct.QtPrivate::QMovableArrayOps<QString>::Inserter", ptr %3, i32 0, i32 3
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds %"struct.QtPrivate::QMovableArrayOps<QString>::Inserter", ptr %3, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.QtPrivate::QMovableArrayOps<QString>::Inserter", ptr %3, i32 0, i32 0
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %7, i32 0, i32 2
+  %8 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %7, i32 0, i32 2
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %9, %5
   store i64 %10, ptr %8, align 8
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZNK10QArrayData11needsDetachEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #2 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef zeroext i1 @_ZNK10QArrayData11needsDetachEv(ptr noundef align 8 dereferenceable_or_null(16) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.QArrayData, ptr %3, i32 0, i32 0
-  %5 = call noundef i32 @_ZNK19QBasicAtomicIntegerIiE11loadRelaxedEv(ptr noundef nonnull align 4 dereferenceable(4) %4) #4
+  %4 = getelementptr inbounds nuw %struct.QArrayData, ptr %3, i32 0, i32 0
+  %5 = call noundef i32 @_ZNK19QBasicAtomicIntegerIiE11loadRelaxedEv(ptr noundef align 4 dereferenceable_or_null(4) %4) #4
   %6 = icmp sgt i32 %5, 1
   ret i1 %6
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZNK10QArrayData22constAllocatedCapacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #2 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef i64 @_ZNK10QArrayData22constAllocatedCapacityEv(ptr noundef align 8 dereferenceable_or_null(16) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.QArrayData, ptr %3, i32 0, i32 2
+  %4 = getelementptr inbounds nuw %struct.QArrayData, ptr %3, i32 0, i32 2
   %5 = load i64, ptr %4, align 8
   ret i64 %5
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN17QArrayDataPointerIDsEC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #2 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN17QArrayDataPointerIDsEC2ERKS0_(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef align 8 dereferenceable(24) %1) unnamed_addr #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.QArrayDataPointer, ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %5, i32 0, i32 0
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %struct.QArrayDataPointer, ptr %7, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %7, i32 0, i32 0
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %6, align 8
-  %10 = getelementptr inbounds %struct.QArrayDataPointer, ptr %5, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %5, i32 0, i32 1
   %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %struct.QArrayDataPointer, ptr %11, i32 0, i32 1
+  %12 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %11, i32 0, i32 1
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %10, align 8
-  %14 = getelementptr inbounds %struct.QArrayDataPointer, ptr %5, i32 0, i32 2
+  %14 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %5, i32 0, i32 2
   %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %struct.QArrayDataPointer, ptr %15, i32 0, i32 2
+  %16 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %15, i32 0, i32 2
   %17 = load i64, ptr %16, align 8
   store i64 %17, ptr %14, align 8
-  call void @_ZN17QArrayDataPointerIDsE3refEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #4
+  call void @_ZN17QArrayDataPointerIDsE3refEv(ptr noundef align 8 dereferenceable_or_null(24) %5) #4
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN17QArrayDataPointerIDsE3refEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #2 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN17QArrayDataPointerIDsE3refEv(ptr noundef align 8 dereferenceable_or_null(24) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.QArrayDataPointer, ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ne ptr %5, null
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds %struct.QArrayDataPointer, ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %struct.QArrayDataPointer, ptr %3, i32 0, i32 0
   %9 = load ptr, ptr %8, align 8
-  %10 = call noundef zeroext i1 @_ZN10QArrayData3refEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #4
+  %10 = call noundef zeroext i1 @_ZN10QArrayData3refEv(ptr noundef align 8 dereferenceable_or_null(16) %9) #4
   br label %11
 
 11:                                               ; preds = %7, %1
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZN10QArrayData3refEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #2 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef zeroext i1 @_ZN10QArrayData3refEv(ptr noundef align 8 dereferenceable_or_null(16) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.QArrayData, ptr %3, i32 0, i32 0
-  %5 = call noundef zeroext i1 @_ZN19QBasicAtomicIntegerIiE3refEv(ptr noundef nonnull align 4 dereferenceable(4) %4) #4
+  %4 = getelementptr inbounds nuw %struct.QArrayData, ptr %3, i32 0, i32 0
+  %5 = call noundef zeroext i1 @_ZN19QBasicAtomicIntegerIiE3refEv(ptr noundef align 4 dereferenceable_or_null(4) %4) #4
   ret i1 true
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZN19QBasicAtomicIntegerIiE3refEv(ptr noundef nonnull align 4 dereferenceable(4) %0) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef zeroext i1 @_ZN19QBasicAtomicIntegerIiE3refEv(ptr noundef align 4 dereferenceable_or_null(4) %0) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %class.QBasicAtomicInteger, ptr %3, i32 0, i32 0
-  %5 = invoke noundef zeroext i1 @_ZN10QAtomicOpsIiE3refIiEEbRSt6atomicIT_E(ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %4 = getelementptr inbounds nuw %class.QBasicAtomicInteger, ptr %3, i32 0, i32 0
+  %5 = invoke noundef zeroext i1 @_ZN10QAtomicOpsIiE3refIiEEbRSt6atomicIT_E(ptr noundef align 4 dereferenceable(4) %4)
           to label %6 unwind label %7
 
 6:                                                ; preds = %1
@@ -5344,28 +5571,28 @@ define linkonce_odr noundef zeroext i1 @_ZN19QBasicAtomicIntegerIiE3refEv(ptr no
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #15
+  call void @__clang_call_terminate(ptr %9) #24
   unreachable
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZN10QAtomicOpsIiE3refIiEEbRSt6atomicIT_E(ptr noundef nonnull align 4 dereferenceable(4) %0) #2 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef zeroext i1 @_ZN10QAtomicOpsIiE3refIiEEbRSt6atomicIT_E(ptr noundef align 4 dereferenceable(4) %0) #6 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef i32 @_ZNSt13__atomic_baseIiEppEv(ptr noundef nonnull align 4 dereferenceable(4) %3) #4
+  %4 = call noundef i32 @_ZNSt13__atomic_baseIiEppEv(ptr noundef align 4 dereferenceable_or_null(4) %3) #4
   %5 = icmp ne i32 %4, 0
   ret i1 %5
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZNSt13__atomic_baseIiEppEv(ptr noundef nonnull align 4 dereferenceable(4) %0) #2 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef i32 @_ZNSt13__atomic_baseIiEppEv(ptr noundef align 4 dereferenceable_or_null(4) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds %"struct.std::__atomic_base", ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %"struct.std::__atomic_base", ptr %5, i32 0, i32 0
   store i32 1, ptr %3, align 4
   %7 = load i32, ptr %3, align 4
   %8 = atomicrmw add ptr %6, i32 %7 seq_cst, align 4
@@ -5375,13 +5602,14 @@ define linkonce_odr noundef i32 @_ZNSt13__atomic_baseIiEppEv(ptr noundef nonnull
   ret i32 %10
 }
 
-; Function Attrs: mustprogress nounwind uwtable
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
 define linkonce_odr noundef ptr @_ZN15QTypedArrayDataI7QStringE9dataStartEP10QArrayDatax(ptr noundef %0, i64 noundef %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %6 to i64
   %8 = add i64 %7, 16
@@ -5395,21 +5623,22 @@ define linkonce_odr noundef ptr @_ZN15QTypedArrayDataI7QStringE9dataStartEP10QAr
   %16 = inttoptr i64 %15 to ptr
   store ptr %16, ptr %5, align 8
   %17 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
   ret ptr %17
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN17QArrayDataPointerI7QStringE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #2 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef ptr @_ZN17QArrayDataPointerI7QStringE4dataEv(ptr noundef align 8 dereferenceable_or_null(24) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %3, i32 0, i32 1
   %5 = load ptr, ptr %4, align 8
   ret ptr %5
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef zeroext i1 @_ZN17QArrayDataPointerI7QStringE20tryReadjustFreeSpaceEN10QArrayData14GrowthPositionExPPKS0_(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i64 noundef %2, ptr noundef %3) #0 comdat align 2 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef zeroext i1 @_ZN17QArrayDataPointerI7QStringE20tryReadjustFreeSpaceEN10QArrayData14GrowthPositionExPPKS0_(ptr noundef align 8 dereferenceable_or_null(24) %0, i32 noundef %1, i64 noundef %2, ptr noundef %3) #0 comdat align 2 {
   %5 = alloca i1, align 1
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -5421,98 +5650,113 @@ define linkonce_odr noundef zeroext i1 @_ZN17QArrayDataPointerI7QStringE20tryRea
   %13 = alloca i64, align 8
   %14 = alloca i32, align 4
   %15 = alloca i64, align 8
+  %16 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store i32 %1, ptr %7, align 4
   store i64 %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
-  %16 = load ptr, ptr %6, align 8
-  %17 = call noundef i64 @_ZNK17QArrayDataPointerI7QStringE22constAllocatedCapacityEv(ptr noundef nonnull align 8 dereferenceable(24) %16) #4
-  store i64 %17, ptr %10, align 8
-  %18 = call noundef i64 @_ZNK17QArrayDataPointerI7QStringE16freeSpaceAtBeginEv(ptr noundef nonnull align 8 dereferenceable(24) %16) #4
-  store i64 %18, ptr %11, align 8
-  %19 = call noundef i64 @_ZNK17QArrayDataPointerI7QStringE14freeSpaceAtEndEv(ptr noundef nonnull align 8 dereferenceable(24) %16) #4
-  store i64 %19, ptr %12, align 8
+  %17 = load ptr, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  %18 = call noundef i64 @_ZNK17QArrayDataPointerI7QStringE22constAllocatedCapacityEv(ptr noundef align 8 dereferenceable_or_null(24) %17) #4
+  store i64 %18, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #4
+  %19 = call noundef i64 @_ZNK17QArrayDataPointerI7QStringE16freeSpaceAtBeginEv(ptr noundef align 8 dereferenceable_or_null(24) %17) #4
+  store i64 %19, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #4
+  %20 = call noundef i64 @_ZNK17QArrayDataPointerI7QStringE14freeSpaceAtEndEv(ptr noundef align 8 dereferenceable_or_null(24) %17) #4
+  store i64 %20, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
   store i64 0, ptr %13, align 8
-  %20 = load i32, ptr %7, align 4
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %34
+  %21 = load i32, ptr %7, align 4
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %23, label %35
 
-22:                                               ; preds = %4
-  %23 = load i64, ptr %11, align 8
-  %24 = load i64, ptr %8, align 8
-  %25 = icmp sge i64 %23, %24
-  br i1 %25, label %26, label %34
+23:                                               ; preds = %4
+  %24 = load i64, ptr %11, align 8
+  %25 = load i64, ptr %8, align 8
+  %26 = icmp sge i64 %24, %25
+  br i1 %26, label %27, label %35
 
-26:                                               ; preds = %22
-  %27 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %16, i32 0, i32 2
-  %28 = load i64, ptr %27, align 8
-  %29 = mul i64 3, %28
-  %30 = load i64, ptr %10, align 8
-  %31 = mul i64 2, %30
-  %32 = icmp slt i64 %29, %31
-  br i1 %32, label %33, label %34
+27:                                               ; preds = %23
+  %28 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %17, i32 0, i32 2
+  %29 = load i64, ptr %28, align 8
+  %30 = mul i64 3, %29
+  %31 = load i64, ptr %10, align 8
+  %32 = mul i64 2, %31
+  %33 = icmp slt i64 %30, %32
+  br i1 %33, label %34, label %35
 
-33:                                               ; preds = %26
-  br label %60
+34:                                               ; preds = %27
+  br label %61
 
-34:                                               ; preds = %26, %22, %4
-  %35 = load i32, ptr %7, align 4
-  %36 = icmp eq i32 %35, 1
-  br i1 %36, label %37, label %58
+35:                                               ; preds = %27, %23, %4
+  %36 = load i32, ptr %7, align 4
+  %37 = icmp eq i32 %36, 1
+  br i1 %37, label %38, label %59
 
-37:                                               ; preds = %34
-  %38 = load i64, ptr %12, align 8
-  %39 = load i64, ptr %8, align 8
-  %40 = icmp sge i64 %38, %39
-  br i1 %40, label %41, label %58
+38:                                               ; preds = %35
+  %39 = load i64, ptr %12, align 8
+  %40 = load i64, ptr %8, align 8
+  %41 = icmp sge i64 %39, %40
+  br i1 %41, label %42, label %59
 
-41:                                               ; preds = %37
-  %42 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %16, i32 0, i32 2
-  %43 = load i64, ptr %42, align 8
-  %44 = mul i64 3, %43
-  %45 = load i64, ptr %10, align 8
-  %46 = icmp slt i64 %44, %45
-  br i1 %46, label %47, label %58
+42:                                               ; preds = %38
+  %43 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %17, i32 0, i32 2
+  %44 = load i64, ptr %43, align 8
+  %45 = mul i64 3, %44
+  %46 = load i64, ptr %10, align 8
+  %47 = icmp slt i64 %45, %46
+  br i1 %47, label %48, label %59
 
-47:                                               ; preds = %41
-  %48 = load i64, ptr %8, align 8
+48:                                               ; preds = %42
+  %49 = load i64, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #4
   store i32 0, ptr %14, align 4
-  %49 = load i64, ptr %10, align 8
-  %50 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %16, i32 0, i32 2
-  %51 = load i64, ptr %50, align 8
-  %52 = sub i64 %49, %51
-  %53 = load i64, ptr %8, align 8
-  %54 = sub i64 %52, %53
-  %55 = sdiv i64 %54, 2
-  store i64 %55, ptr %15, align 8
-  %56 = call noundef i64 @_Z4qMaxIixEN11QTypeTraits6detail8PromotedIT_T0_NSt9enable_ifIXaaaaaaaaaaaaaasr3stdE15is_arithmetic_vIS3_Esr3stdE15is_arithmetic_vIS4_Eeqsr3stdE19is_floating_point_vIS3_Esr3stdE19is_floating_point_vIS4_Eeqsr3stdE11is_signed_vIS3_Esr3stdE11is_signed_vIS4_Entsr3stdE9is_same_vIS3_bEntsr3stdE9is_same_vIS4_bEntsr3stdE9is_same_vIS3_cEntsr3stdE9is_same_vIS4_cEEvE4typeEE4typeERKS3_RKS4_(ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
-  %57 = add i64 %48, %56
-  store i64 %57, ptr %13, align 8
-  br label %59
-
-58:                                               ; preds = %41, %37, %34
-  store i1 false, ptr %5, align 1
-  br label %65
-
-59:                                               ; preds = %47
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #4
+  %50 = load i64, ptr %10, align 8
+  %51 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %17, i32 0, i32 2
+  %52 = load i64, ptr %51, align 8
+  %53 = sub i64 %50, %52
+  %54 = load i64, ptr %8, align 8
+  %55 = sub i64 %53, %54
+  %56 = sdiv i64 %55, 2
+  store i64 %56, ptr %15, align 8
+  %57 = call noundef i64 @_Z4qMaxIixEN11QTypeTraits6detail8PromotedIT_T0_NSt9enable_ifIXaaaaaaaaaaaaaasr3stdE15is_arithmetic_vIS3_Esr3stdE15is_arithmetic_vIS4_Eeqsr3stdE19is_floating_point_vIS3_Esr3stdE19is_floating_point_vIS4_Eeqsr3stdE11is_signed_vIS3_Esr3stdE11is_signed_vIS4_Entsr3stdE9is_same_vIS3_bEntsr3stdE9is_same_vIS4_bEntsr3stdE9is_same_vIS3_cEntsr3stdE9is_same_vIS4_cEEvE4typeEE4typeERKS3_RKS4_(ptr noundef align 4 dereferenceable(4) %14, ptr noundef align 8 dereferenceable(8) %15)
+  %58 = add i64 %49, %57
+  store i64 %58, ptr %13, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #4
   br label %60
 
-60:                                               ; preds = %59, %33
-  %61 = load i64, ptr %13, align 8
-  %62 = load i64, ptr %11, align 8
-  %63 = sub i64 %61, %62
-  %64 = load ptr, ptr %9, align 8
-  call void @_ZN17QArrayDataPointerI7QStringE8relocateExPPKS0_(ptr noundef nonnull align 8 dereferenceable(24) %16, i64 noundef %63, ptr noundef %64)
-  store i1 true, ptr %5, align 1
-  br label %65
+59:                                               ; preds = %42, %38, %35
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %16, align 4
+  br label %66
 
-65:                                               ; preds = %60, %58
-  %66 = load i1, ptr %5, align 1
-  ret i1 %66
+60:                                               ; preds = %48
+  br label %61
+
+61:                                               ; preds = %60, %34
+  %62 = load i64, ptr %13, align 8
+  %63 = load i64, ptr %11, align 8
+  %64 = sub i64 %62, %63
+  %65 = load ptr, ptr %9, align 8
+  call void @_ZN17QArrayDataPointerI7QStringE8relocateExPPKS0_(ptr noundef align 8 dereferenceable_or_null(24) %17, i64 noundef %64, ptr noundef %65)
+  store i1 true, ptr %5, align 1
+  store i32 1, ptr %16, align 4
+  br label %66
+
+66:                                               ; preds = %61, %59
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  %67 = load i1, ptr %5, align 1
+  ret i1 %67
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN17QArrayDataPointerI7QStringE17reallocateAndGrowEN10QArrayData14GrowthPositionExPS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i64 noundef %2, ptr noundef %3) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress noinline null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN17QArrayDataPointerI7QStringE17reallocateAndGrowEN10QArrayData14GrowthPositionExPS1_(ptr noundef align 8 dereferenceable_or_null(24) %0, i32 noundef %1, i64 noundef %2, ptr noundef %3) #17 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i64, align 8
@@ -5536,7 +5780,7 @@ define linkonce_odr void @_ZN17QArrayDataPointerI7QStringE17reallocateAndGrowEN1
   br i1 %18, label %31, label %19
 
 19:                                               ; preds = %16
-  %20 = call noundef zeroext i1 @_ZNK17QArrayDataPointerI7QStringE11needsDetachEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #4
+  %20 = call noundef zeroext i1 @_ZNK17QArrayDataPointerI7QStringE11needsDetachEv(ptr noundef align 8 dereferenceable_or_null(24) %13) #4
   br i1 %20, label %31, label %21
 
 21:                                               ; preds = %19
@@ -5545,19 +5789,20 @@ define linkonce_odr void @_ZN17QArrayDataPointerI7QStringE17reallocateAndGrowEN1
   br i1 %23, label %24, label %31
 
 24:                                               ; preds = %21
-  %25 = call noundef ptr @_ZN17QArrayDataPointerI7QStringEptEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #4
-  %26 = call noundef i64 @_ZNK17QArrayDataPointerI7QStringE22constAllocatedCapacityEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #4
-  %27 = call noundef i64 @_ZNK17QArrayDataPointerI7QStringE14freeSpaceAtEndEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #4
+  %25 = call noundef ptr @_ZN17QArrayDataPointerI7QStringEptEv(ptr noundef align 8 dereferenceable_or_null(24) %13) #4
+  %26 = call noundef i64 @_ZNK17QArrayDataPointerI7QStringE22constAllocatedCapacityEv(ptr noundef align 8 dereferenceable_or_null(24) %13) #4
+  %27 = call noundef i64 @_ZNK17QArrayDataPointerI7QStringE14freeSpaceAtEndEv(ptr noundef align 8 dereferenceable_or_null(24) %13) #4
   %28 = sub i64 %26, %27
   %29 = load i64, ptr %7, align 8
   %30 = add i64 %28, %29
-  call void @_ZN9QtPrivate16QMovableArrayOpsI7QStringE10reallocateExN10QArrayData16AllocationOptionE(ptr noundef nonnull align 8 dereferenceable(24) %25, i64 noundef %30, i32 noundef 0)
-  br label %93
+  call void @_ZN9QtPrivate16QMovableArrayOpsI7QStringE10reallocateExN10QArrayData16AllocationOptionE(ptr noundef align 8 dereferenceable_or_null(24) %25, i64 noundef %30, i32 noundef 0)
+  br label %97
 
 31:                                               ; preds = %21, %19, %16, %4
+  call void @llvm.lifetime.start.p0(i64 24, ptr %9) #4
   %32 = load i64, ptr %7, align 8
   %33 = load i32, ptr %6, align 4
-  call void @_ZN17QArrayDataPointerI7QStringE12allocateGrowERKS1_xN10QArrayData14GrowthPositionE(ptr dead_on_unwind writable sret(%struct.QArrayDataPointer.18) align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %32, i32 noundef %33)
+  call void @_ZN17QArrayDataPointerI7QStringE12allocateGrowERKS1_xN10QArrayData14GrowthPositionE(ptr dead_on_unwind writable sret(%struct.QArrayDataPointer.18) align 8 %9, ptr noundef align 8 dereferenceable(24) %13, i64 noundef %32, i32 noundef %33)
   %34 = load i64, ptr %7, align 8
   %35 = icmp sgt i64 %34, 0
   br i1 %35, label %36, label %49
@@ -5566,26 +5811,25 @@ define linkonce_odr void @_ZN17QArrayDataPointerI7QStringE17reallocateAndGrowEN1
   br label %37
 
 37:                                               ; preds = %36
-  %38 = call noundef ptr @_ZN17QArrayDataPointerI7QStringE4dataEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #4
+  %38 = call noundef ptr @_ZN17QArrayDataPointerI7QStringE4dataEv(ptr noundef align 8 dereferenceable_or_null(24) %9) #4
   %39 = icmp ne ptr %38, null
   br i1 %39, label %46, label %40
 
 40:                                               ; preds = %37
-  invoke void @_Z9qBadAllocv() #16
+  invoke void @_Z9qBadAllocv() #25
           to label %41 unwind label %42
 
 41:                                               ; preds = %40
   unreachable
 
-42:                                               ; preds = %79, %72, %40
+42:                                               ; preds = %40
   %43 = landingpad { ptr, i32 }
           cleanup
   %44 = extractvalue { ptr, i32 } %43, 0
   store ptr %44, ptr %10, align 8
   %45 = extractvalue { ptr, i32 } %43, 1
   store i32 %45, ptr %11, align 4
-  call void @_ZN17QArrayDataPointerI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #4
-  br label %94
+  br label %98
 
 46:                                               ; preds = %37
   br label %47
@@ -5608,13 +5852,14 @@ define linkonce_odr void @_ZN17QArrayDataPointerI7QStringE17reallocateAndGrowEN1
   br label %54
 
 54:                                               ; preds = %53, %52
-  %55 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %13, i32 0, i32 2
+  %55 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %13, i32 0, i32 2
   %56 = load i64, ptr %55, align 8
   %57 = icmp ne i64 %56, 0
-  br i1 %57, label %58, label %87
+  br i1 %57, label %58, label %91
 
 58:                                               ; preds = %54
-  %59 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %13, i32 0, i32 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #4
+  %59 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %13, i32 0, i32 2
   %60 = load i64, ptr %59, align 8
   store i64 %60, ptr %12, align 8
   %61 = load i64, ptr %7, align 8
@@ -5629,81 +5874,98 @@ define linkonce_odr void @_ZN17QArrayDataPointerI7QStringE17reallocateAndGrowEN1
   br label %67
 
 67:                                               ; preds = %63, %58
-  %68 = call noundef zeroext i1 @_ZNK17QArrayDataPointerI7QStringE11needsDetachEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #4
+  %68 = call noundef zeroext i1 @_ZNK17QArrayDataPointerI7QStringE11needsDetachEv(ptr noundef align 8 dereferenceable_or_null(24) %13) #4
   br i1 %68, label %72, label %69
 
 69:                                               ; preds = %67
   %70 = load ptr, ptr %8, align 8
   %71 = icmp ne ptr %70, null
-  br i1 %71, label %72, label %79
+  br i1 %71, label %72, label %83
 
 72:                                               ; preds = %69, %67
-  %73 = call noundef ptr @_ZN17QArrayDataPointerI7QStringEptEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #4
-  %74 = call noundef ptr @_ZN17QArrayDataPointerI7QStringE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #4
-  %75 = call noundef ptr @_ZN17QArrayDataPointerI7QStringE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #4
+  %73 = call noundef ptr @_ZN17QArrayDataPointerI7QStringEptEv(ptr noundef align 8 dereferenceable_or_null(24) %9) #4
+  %74 = call noundef ptr @_ZN17QArrayDataPointerI7QStringE5beginEv(ptr noundef align 8 dereferenceable_or_null(24) %13) #4
+  %75 = call noundef ptr @_ZN17QArrayDataPointerI7QStringE5beginEv(ptr noundef align 8 dereferenceable_or_null(24) %13) #4
   %76 = load i64, ptr %12, align 8
   %77 = getelementptr %class.QString, ptr %75, i64 %76
-  invoke void @_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_(ptr noundef nonnull align 8 dereferenceable(24) %73, ptr noundef %74, ptr noundef %77)
-          to label %78 unwind label %42
+  invoke void @_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_(ptr noundef align 8 dereferenceable_or_null(24) %73, ptr noundef %74, ptr noundef %77)
+          to label %78 unwind label %79
 
 78:                                               ; preds = %72
-  br label %86
+  br label %90
 
-79:                                               ; preds = %69
-  %80 = call noundef ptr @_ZN17QArrayDataPointerI7QStringEptEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #4
-  %81 = call noundef ptr @_ZN17QArrayDataPointerI7QStringE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #4
-  %82 = call noundef ptr @_ZN17QArrayDataPointerI7QStringE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #4
-  %83 = load i64, ptr %12, align 8
-  %84 = getelementptr %class.QString, ptr %82, i64 %83
-  invoke void @_ZN9QtPrivate16QGenericArrayOpsI7QStringE10moveAppendEPS1_S3_(ptr noundef nonnull align 8 dereferenceable(24) %80, ptr noundef %81, ptr noundef %84)
-          to label %85 unwind label %42
+79:                                               ; preds = %83, %72
+  %80 = landingpad { ptr, i32 }
+          cleanup
+  %81 = extractvalue { ptr, i32 } %80, 0
+  store ptr %81, ptr %10, align 8
+  %82 = extractvalue { ptr, i32 } %80, 1
+  store i32 %82, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #4
+  br label %98
 
-85:                                               ; preds = %79
-  br label %86
+83:                                               ; preds = %69
+  %84 = call noundef ptr @_ZN17QArrayDataPointerI7QStringEptEv(ptr noundef align 8 dereferenceable_or_null(24) %9) #4
+  %85 = call noundef ptr @_ZN17QArrayDataPointerI7QStringE5beginEv(ptr noundef align 8 dereferenceable_or_null(24) %13) #4
+  %86 = call noundef ptr @_ZN17QArrayDataPointerI7QStringE5beginEv(ptr noundef align 8 dereferenceable_or_null(24) %13) #4
+  %87 = load i64, ptr %12, align 8
+  %88 = getelementptr %class.QString, ptr %86, i64 %87
+  invoke void @_ZN9QtPrivate16QGenericArrayOpsI7QStringE10moveAppendEPS1_S3_(ptr noundef align 8 dereferenceable_or_null(24) %84, ptr noundef %85, ptr noundef %88)
+          to label %89 unwind label %79
 
-86:                                               ; preds = %85, %78
-  br label %87
+89:                                               ; preds = %83
+  br label %90
 
-87:                                               ; preds = %86, %54
-  call void @_ZN17QArrayDataPointerI7QStringE4swapERS1_(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %9) #4
-  %88 = load ptr, ptr %8, align 8
-  %89 = icmp ne ptr %88, null
-  br i1 %89, label %90, label %92
+90:                                               ; preds = %89, %78
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #4
+  br label %91
 
-90:                                               ; preds = %87
-  %91 = load ptr, ptr %8, align 8
-  call void @_ZN17QArrayDataPointerI7QStringE4swapERS1_(ptr noundef nonnull align 8 dereferenceable(24) %91, ptr noundef nonnull align 8 dereferenceable(24) %9) #4
-  br label %92
+91:                                               ; preds = %90, %54
+  call void @_ZN17QArrayDataPointerI7QStringE4swapERS1_(ptr noundef align 8 dereferenceable_or_null(24) %13, ptr noundef align 8 dereferenceable(24) %9) #4
+  %92 = load ptr, ptr %8, align 8
+  %93 = icmp ne ptr %92, null
+  br i1 %93, label %94, label %96
 
-92:                                               ; preds = %90, %87
-  call void @_ZN17QArrayDataPointerI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #4
-  br label %93
+94:                                               ; preds = %91
+  %95 = load ptr, ptr %8, align 8
+  call void @_ZN17QArrayDataPointerI7QStringE4swapERS1_(ptr noundef align 8 dereferenceable_or_null(24) %95, ptr noundef align 8 dereferenceable(24) %9) #4
+  br label %96
 
-93:                                               ; preds = %92, %24
+96:                                               ; preds = %94, %91
+  call void @_ZN17QArrayDataPointerI7QStringED2Ev(ptr noundef align 8 dereferenceable_or_null(24) %9) #4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %9) #4
+  br label %97
+
+97:                                               ; preds = %96, %24
   ret void
 
-94:                                               ; preds = %42
-  %95 = load ptr, ptr %10, align 8
-  %96 = load i32, ptr %11, align 4
-  %97 = insertvalue { ptr, i32 } poison, ptr %95, 0
-  %98 = insertvalue { ptr, i32 } %97, i32 %96, 1
-  resume { ptr, i32 } %98
+98:                                               ; preds = %79, %42
+  call void @_ZN17QArrayDataPointerI7QStringED2Ev(ptr noundef align 8 dereferenceable_or_null(24) %9) #4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %9) #4
+  br label %99
+
+99:                                               ; preds = %98
+  %100 = load ptr, ptr %10, align 8
+  %101 = load i32, ptr %11, align 4
+  %102 = insertvalue { ptr, i32 } poison, ptr %100, 0
+  %103 = insertvalue { ptr, i32 } %102, i32 %101, 1
+  resume { ptr, i32 } %103
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZNK17QArrayDataPointerI7QStringE22constAllocatedCapacityEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #2 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef i64 @_ZNK17QArrayDataPointerI7QStringE22constAllocatedCapacityEv(ptr noundef align 8 dereferenceable_or_null(24) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ne ptr %5, null
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %3, i32 0, i32 0
   %9 = load ptr, ptr %8, align 8
-  %10 = call noundef i64 @_ZNK10QArrayData22constAllocatedCapacityEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #4
+  %10 = call noundef i64 @_ZNK10QArrayData22constAllocatedCapacityEv(ptr noundef align 8 dereferenceable_or_null(16) %9) #4
   br label %12
 
 11:                                               ; preds = %1
@@ -5714,18 +5976,20 @@ define linkonce_odr noundef i64 @_ZNK17QArrayDataPointerI7QStringE22constAllocat
   ret i64 %13
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_Z4qMaxIixEN11QTypeTraits6detail8PromotedIT_T0_NSt9enable_ifIXaaaaaaaaaaaaaasr3stdE15is_arithmetic_vIS3_Esr3stdE15is_arithmetic_vIS4_Eeqsr3stdE19is_floating_point_vIS3_Esr3stdE19is_floating_point_vIS4_Eeqsr3stdE11is_signed_vIS3_Esr3stdE11is_signed_vIS4_Entsr3stdE9is_same_vIS3_bEntsr3stdE9is_same_vIS4_bEntsr3stdE9is_same_vIS3_cEntsr3stdE9is_same_vIS4_cEEvE4typeEE4typeERKS3_RKS4_(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #2 comdat {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef i64 @_Z4qMaxIixEN11QTypeTraits6detail8PromotedIT_T0_NSt9enable_ifIXaaaaaaaaaaaaaasr3stdE15is_arithmetic_vIS3_Esr3stdE15is_arithmetic_vIS4_Eeqsr3stdE19is_floating_point_vIS3_Esr3stdE19is_floating_point_vIS4_Eeqsr3stdE11is_signed_vIS3_Esr3stdE11is_signed_vIS4_Entsr3stdE9is_same_vIS3_bEntsr3stdE9is_same_vIS4_bEntsr3stdE9is_same_vIS3_cEntsr3stdE9is_same_vIS4_cEEvE4typeEE4typeERKS3_RKS4_(ptr noundef align 4 dereferenceable(4) %0, ptr noundef align 8 dereferenceable(8) %1) #6 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
   %7 = load ptr, ptr %3, align 8
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
   store i64 %9, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #4
   %10 = load ptr, ptr %4, align 8
   %11 = load i64, ptr %10, align 8
   store i64 %11, ptr %6, align 8
@@ -5744,11 +6008,13 @@ define linkonce_odr noundef i64 @_Z4qMaxIixEN11QTypeTraits6detail8PromotedIT_T0_
 
 19:                                               ; preds = %17, %15
   %20 = phi i64 [ %16, %15 ], [ %18, %17 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
   ret i64 %20
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN17QArrayDataPointerI7QStringE8relocateExPPKS0_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN17QArrayDataPointerI7QStringE8relocateExPPKS0_(ptr noundef align 8 dereferenceable_or_null(24) %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
@@ -5757,14 +6023,15 @@ define linkonce_odr void @_ZN17QArrayDataPointerI7QStringE8relocateExPPKS0_(ptr 
   store i64 %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %8, i32 0, i32 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #4
+  %9 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %8, i32 0, i32 1
   %10 = load ptr, ptr %9, align 8
   %11 = load i64, ptr %5, align 8
   %12 = getelementptr %class.QString, ptr %10, i64 %11
   store ptr %12, ptr %7, align 8
-  %13 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %8, i32 0, i32 1
+  %13 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %8, i32 0, i32 1
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %8, i32 0, i32 2
+  %15 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %8, i32 0, i32 2
   %16 = load i64, ptr %15, align 8
   %17 = load ptr, ptr %7, align 8
   call void @_ZN9QtPrivate20q_relocate_overlap_nI7QStringxEEvPT_T0_S3_(ptr noundef %14, i64 noundef %16, ptr noundef %17)
@@ -5775,8 +6042,8 @@ define linkonce_odr void @_ZN17QArrayDataPointerI7QStringE8relocateExPPKS0_(ptr 
 20:                                               ; preds = %3
   %21 = load ptr, ptr %6, align 8
   %22 = load ptr, ptr %21, align 8
-  %23 = call noundef ptr @_ZN17QArrayDataPointerI7QStringE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #4
-  %24 = call noundef ptr @_ZN17QArrayDataPointerI7QStringE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #4
+  %23 = call noundef ptr @_ZN17QArrayDataPointerI7QStringE5beginEv(ptr noundef align 8 dereferenceable_or_null(24) %8) #4
+  %24 = call noundef ptr @_ZN17QArrayDataPointerI7QStringE3endEv(ptr noundef align 8 dereferenceable_or_null(24) %8) #4
   %25 = call noundef zeroext i1 @_ZN9QtPrivateL19q_points_into_rangeI7QStringSt4lessIvEEEbPKT_S6_S6_T0_(ptr noundef %22, ptr noundef %23, ptr noundef %24) #4
   br i1 %25, label %26, label %31
 
@@ -5790,12 +6057,13 @@ define linkonce_odr void @_ZN17QArrayDataPointerI7QStringE8relocateExPPKS0_(ptr 
 
 31:                                               ; preds = %26, %20, %3
   %32 = load ptr, ptr %7, align 8
-  %33 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %8, i32 0, i32 1
+  %33 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %8, i32 0, i32 1
   store ptr %32, ptr %33, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #4
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
 define linkonce_odr void @_ZN9QtPrivate20q_relocate_overlap_nI7QStringxEEvPT_T0_S3_(ptr noundef %0, i64 noundef %1, ptr noundef %2) #2 comdat {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -5824,21 +6092,21 @@ define linkonce_odr void @_ZN9QtPrivate20q_relocate_overlap_nI7QStringxEEvPT_T0_
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %16, %13, %9, %3
-  br label %25
+  br label %26
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr %6, align 8
   %22 = load ptr, ptr %4, align 8
   %23 = load i64, ptr %5, align 8
   %24 = mul i64 %23, 24
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %21, ptr align 1 %22, i64 %24, i1 false)
-  br label %25
+  %25 = call ptr @memmove.inline(ptr noundef %21, ptr noundef %22, i64 noundef %24) #4
+  br label %26
 
-25:                                               ; preds = %20, %19
+26:                                               ; preds = %20, %19
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
 define internal noundef zeroext i1 @_ZN9QtPrivateL19q_points_into_rangeI7QStringSt4lessIvEEEbPKT_S6_S6_T0_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 {
   %4 = alloca %"struct.std::less", align 1
   %5 = alloca ptr, align 8
@@ -5849,13 +6117,13 @@ define internal noundef zeroext i1 @_ZN9QtPrivateL19q_points_into_rangeI7QString
   store ptr %2, ptr %7, align 8
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
-  %10 = call noundef zeroext i1 @_ZNKSt4lessIvEclIK7QStringS3_EEbPT_PT0_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef %8, ptr noundef %9) #4
+  %10 = call noundef zeroext i1 @_ZNKSt4lessIvEclIK7QStringS3_EEbPT_PT0_(ptr noundef align 1 dereferenceable_or_null(1) %4, ptr noundef %8, ptr noundef %9) #4
   br i1 %10, label %15, label %11
 
 11:                                               ; preds = %3
   %12 = load ptr, ptr %5, align 8
   %13 = load ptr, ptr %7, align 8
-  %14 = call noundef zeroext i1 @_ZNKSt4lessIvEclIK7QStringS3_EEbPT_PT0_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef %12, ptr noundef %13) #4
+  %14 = call noundef zeroext i1 @_ZNKSt4lessIvEclIK7QStringS3_EEbPT_PT0_(ptr noundef align 1 dereferenceable_or_null(1) %4, ptr noundef %12, ptr noundef %13) #4
   br label %15
 
 15:                                               ; preds = %11, %3
@@ -5863,11 +6131,31 @@ define internal noundef zeroext i1 @_ZN9QtPrivateL19q_points_into_rangeI7QString
   ret i1 %16
 }
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
+; Function Attrs: alwaysinline mustprogress nounwind
+define internal ptr @memmove.inline(ptr %0, ptr %1, i64 %2) #18 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load i64, ptr %6, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = call i64 @llvm.objectsize.i64.p0(ptr %10, i1 false, i1 true, i1 true)
+  %12 = call ptr @__memmove_chk(ptr noundef %7, ptr noundef %8, i64 noundef %9, i64 noundef %11) #4
+  ret ptr %12
+}
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZNKSt4lessIvEclIK7QStringS3_EEbPT_PT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef %2) #2 comdat align 2 {
+; Function Attrs: nounwind null_pointer_is_valid
+declare ptr @__memmove_chk(ptr noundef, ptr noundef, i64 noundef, i64 noundef) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.objectsize.i64.p0(ptr, i1 immarg, i1 immarg, i1 immarg) #19
+
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef zeroext i1 @_ZNKSt4lessIvEclIK7QStringS3_EEbPT_PT0_(ptr noundef align 1 dereferenceable_or_null(1) %0, ptr noundef %1, ptr noundef %2) #2 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -5875,14 +6163,16 @@ define linkonce_odr noundef zeroext i1 @_ZNKSt4lessIvEclIK7QStringS3_EEbPT_PT0_(
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #4
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
-  %10 = call noundef zeroext i1 @_ZNKSt4lessIPK7QStringEclES2_S2_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef %9) #4
+  %10 = call noundef zeroext i1 @_ZNKSt4lessIPK7QStringEclES2_S2_(ptr noundef align 1 dereferenceable_or_null(1) %7, ptr noundef %8, ptr noundef %9) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #4
   ret i1 %10
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZNKSt4lessIPK7QStringEclES2_S2_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef %2) #2 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef zeroext i1 @_ZNKSt4lessIPK7QStringEclES2_S2_(ptr noundef align 1 dereferenceable_or_null(1) %0, ptr noundef %1, ptr noundef %2) #2 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -5897,8 +6187,8 @@ define linkonce_odr noundef zeroext i1 @_ZNKSt4lessIPK7QStringEclES2_S2_(ptr nou
   ret i1 %11
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN9QtPrivate16QMovableArrayOpsI7QStringE10reallocateExN10QArrayData16AllocationOptionE(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, i32 noundef %2) #0 comdat align 2 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN9QtPrivate16QMovableArrayOpsI7QStringE10reallocateExN10QArrayData16AllocationOptionE(ptr noundef align 8 dereferenceable_or_null(24) %0, i64 noundef %1, i32 noundef %2) #0 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
@@ -5907,48 +6197,53 @@ define linkonce_odr void @_ZN9QtPrivate16QMovableArrayOpsI7QStringE10reallocateE
   store i64 %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %8, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #4
+  %9 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %8, i32 0, i32 0
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %8, i32 0, i32 1
+  %11 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %8, i32 0, i32 1
   %12 = load ptr, ptr %11, align 8
   %13 = load i64, ptr %5, align 8
   %14 = load i32, ptr %6, align 4
   %15 = call { ptr, ptr } @_ZN15QTypedArrayDataI7QStringE19reallocateUnalignedEPS1_PS0_xN10QArrayData16AllocationOptionE(ptr noundef %10, ptr noundef %12, i64 noundef %13, i32 noundef %14)
-  %16 = getelementptr inbounds { ptr, ptr }, ptr %7, i32 0, i32 0
+  %16 = getelementptr inbounds nuw { ptr, ptr }, ptr %7, i32 0, i32 0
   %17 = extractvalue { ptr, ptr } %15, 0
   store ptr %17, ptr %16, align 8
-  %18 = getelementptr inbounds { ptr, ptr }, ptr %7, i32 0, i32 1
+  %18 = getelementptr inbounds nuw { ptr, ptr }, ptr %7, i32 0, i32 1
   %19 = extractvalue { ptr, ptr } %15, 1
   store ptr %19, ptr %18, align 8
   br label %20
 
 20:                                               ; preds = %3
-  %21 = getelementptr inbounds %"struct.std::pair", ptr %7, i32 0, i32 1
+  %21 = getelementptr inbounds nuw %"struct.std::pair", ptr %7, i32 0, i32 1
   %22 = load ptr, ptr %21, align 8
   %23 = icmp ne ptr %22, null
   br i1 %23, label %25, label %24
 
 24:                                               ; preds = %20
-  call void @_Z9qBadAllocv() #16
+  call void @_Z9qBadAllocv() #25
   unreachable
 
 25:                                               ; preds = %20
   br label %26
 
 26:                                               ; preds = %25
-  %27 = getelementptr inbounds %"struct.std::pair", ptr %7, i32 0, i32 0
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %8, i32 0, i32 0
-  store ptr %28, ptr %29, align 8
-  %30 = getelementptr inbounds %"struct.std::pair", ptr %7, i32 0, i32 1
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %8, i32 0, i32 1
-  store ptr %31, ptr %32, align 8
+  br label %27
+
+27:                                               ; preds = %26
+  %28 = getelementptr inbounds nuw %"struct.std::pair", ptr %7, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %8, i32 0, i32 0
+  store ptr %29, ptr %30, align 8
+  %31 = getelementptr inbounds nuw %"struct.std::pair", ptr %7, i32 0, i32 1
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %8, i32 0, i32 1
+  store ptr %32, ptr %33, align 8
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #4
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN17QArrayDataPointerI7QStringE12allocateGrowERKS1_xN10QArrayData14GrowthPositionE(ptr dead_on_unwind noalias writable sret(%struct.QArrayDataPointer.18) align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %2, i32 noundef %3) #0 comdat align 2 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN17QArrayDataPointerI7QStringE12allocateGrowERKS1_xN10QArrayData14GrowthPositionE(ptr dead_on_unwind noalias writable sret(%struct.QArrayDataPointer.18) align 8 %0, ptr noundef align 8 dereferenceable(24) %1, i64 noundef %2, i32 noundef %3) #0 comdat align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
@@ -5962,152 +6257,177 @@ define linkonce_odr void @_ZN17QArrayDataPointerI7QStringE12allocateGrowERKS1_xN
   %15 = alloca ptr, align 8
   %16 = alloca i8, align 1
   %17 = alloca i32, align 4
-  %18 = alloca i64, align 8
-  %19 = alloca %class.QFlags.4, align 4
+  %18 = alloca i32, align 4
+  %19 = alloca i64, align 8
+  %20 = alloca %class.QFlags.4, align 4
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   store i64 %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
-  %20 = load ptr, ptr %6, align 8
-  %21 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %20, i32 0, i32 2
-  %22 = load ptr, ptr %6, align 8
-  %23 = call noundef i64 @_ZNK17QArrayDataPointerI7QStringE22constAllocatedCapacityEv(ptr noundef nonnull align 8 dereferenceable(24) %22) #4
-  store i64 %23, ptr %10, align 8
-  %24 = call noundef nonnull align 8 dereferenceable(8) ptr @_Z4qMaxIxERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %10)
-  %25 = load i64, ptr %24, align 8
-  %26 = load i64, ptr %7, align 8
-  %27 = add i64 %25, %26
-  store i64 %27, ptr %9, align 8
-  %28 = load i32, ptr %8, align 4
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %30, label %33
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  %21 = load ptr, ptr %6, align 8
+  %22 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %21, i32 0, i32 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  %23 = load ptr, ptr %6, align 8
+  %24 = call noundef i64 @_ZNK17QArrayDataPointerI7QStringE22constAllocatedCapacityEv(ptr noundef align 8 dereferenceable_or_null(24) %23) #4
+  store i64 %24, ptr %10, align 8
+  %25 = call noundef align 8 dereferenceable(8) ptr @_Z4qMaxIxERKT_S2_S2_(ptr noundef align 8 dereferenceable(8) %22, ptr noundef align 8 dereferenceable(8) %10)
+  %26 = load i64, ptr %25, align 8
+  %27 = load i64, ptr %7, align 8
+  %28 = add i64 %26, %27
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  store i64 %28, ptr %9, align 8
+  %29 = load i32, ptr %8, align 4
+  %30 = icmp eq i32 %29, 0
+  br i1 %30, label %31, label %34
 
-30:                                               ; preds = %4
-  %31 = load ptr, ptr %6, align 8
-  %32 = call noundef i64 @_ZNK17QArrayDataPointerI7QStringE14freeSpaceAtEndEv(ptr noundef nonnull align 8 dereferenceable(24) %31) #4
-  br label %36
+31:                                               ; preds = %4
+  %32 = load ptr, ptr %6, align 8
+  %33 = call noundef i64 @_ZNK17QArrayDataPointerI7QStringE14freeSpaceAtEndEv(ptr noundef align 8 dereferenceable_or_null(24) %32) #4
+  br label %37
 
-33:                                               ; preds = %4
-  %34 = load ptr, ptr %6, align 8
-  %35 = call noundef i64 @_ZNK17QArrayDataPointerI7QStringE16freeSpaceAtBeginEv(ptr noundef nonnull align 8 dereferenceable(24) %34) #4
-  br label %36
+34:                                               ; preds = %4
+  %35 = load ptr, ptr %6, align 8
+  %36 = call noundef i64 @_ZNK17QArrayDataPointerI7QStringE16freeSpaceAtBeginEv(ptr noundef align 8 dereferenceable_or_null(24) %35) #4
+  br label %37
 
-36:                                               ; preds = %33, %30
-  %37 = phi i64 [ %32, %30 ], [ %35, %33 ]
-  %38 = load i64, ptr %9, align 8
-  %39 = sub i64 %38, %37
-  store i64 %39, ptr %9, align 8
-  %40 = load ptr, ptr %6, align 8
-  %41 = load i64, ptr %9, align 8
-  %42 = call noundef i64 @_ZNK17QArrayDataPointerI7QStringE14detachCapacityEx(ptr noundef nonnull align 8 dereferenceable(24) %40, i64 noundef %41) #4
-  store i64 %42, ptr %11, align 8
-  %43 = load i64, ptr %11, align 8
-  %44 = load ptr, ptr %6, align 8
-  %45 = call noundef i64 @_ZNK17QArrayDataPointerI7QStringE22constAllocatedCapacityEv(ptr noundef nonnull align 8 dereferenceable(24) %44) #4
-  %46 = icmp sgt i64 %43, %45
-  %47 = zext i1 %46 to i8
-  store i8 %47, ptr %12, align 1
-  %48 = load i64, ptr %11, align 8
-  %49 = load i8, ptr %12, align 1
-  %50 = trunc i8 %49 to i1
-  %51 = select i1 %50, i32 0, i32 1
-  %52 = call { ptr, ptr } @_ZN15QTypedArrayDataI7QStringE8allocateExN10QArrayData16AllocationOptionE(i64 noundef %48, i32 noundef %51)
-  %53 = getelementptr inbounds { ptr, ptr }, ptr %13, i32 0, i32 0
-  %54 = extractvalue { ptr, ptr } %52, 0
-  store ptr %54, ptr %53, align 8
-  %55 = getelementptr inbounds { ptr, ptr }, ptr %13, i32 0, i32 1
-  %56 = extractvalue { ptr, ptr } %52, 1
-  store ptr %56, ptr %55, align 8
-  %57 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EP15QTypedArrayDataI7QStringEPS1_EONSt13tuple_elementIXT_ESt4pairIT0_T1_EE4typeEOS9_(ptr noundef nonnull align 8 dereferenceable(16) %13) #4
-  store ptr %57, ptr %14, align 8
-  %58 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm1EP15QTypedArrayDataI7QStringEPS1_EONSt13tuple_elementIXT_ESt4pairIT0_T1_EE4typeEOS9_(ptr noundef nonnull align 8 dereferenceable(16) %13) #4
-  store ptr %58, ptr %15, align 8
-  %59 = load ptr, ptr %14, align 8
-  %60 = load ptr, ptr %59, align 8
-  %61 = icmp ne ptr %60, null
-  br i1 %61, label %62, label %66
+37:                                               ; preds = %34, %31
+  %38 = phi i64 [ %33, %31 ], [ %36, %34 ]
+  %39 = load i64, ptr %9, align 8
+  %40 = sub i64 %39, %38
+  store i64 %40, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #4
+  %41 = load ptr, ptr %6, align 8
+  %42 = load i64, ptr %9, align 8
+  %43 = call noundef i64 @_ZNK17QArrayDataPointerI7QStringE14detachCapacityEx(ptr noundef align 8 dereferenceable_or_null(24) %41, i64 noundef %42) #4
+  store i64 %43, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #4
+  %44 = load i64, ptr %11, align 8
+  %45 = load ptr, ptr %6, align 8
+  %46 = call noundef i64 @_ZNK17QArrayDataPointerI7QStringE22constAllocatedCapacityEv(ptr noundef align 8 dereferenceable_or_null(24) %45) #4
+  %47 = icmp sgt i64 %44, %46
+  %48 = zext i1 %47 to i8
+  store i8 %48, ptr %12, align 1
+  call void @llvm.lifetime.start.p0(i64 16, ptr %13) #4
+  %49 = load i64, ptr %11, align 8
+  %50 = load i8, ptr %12, align 1, !range !8, !noundef !9
+  %51 = trunc i8 %50 to i1
+  %52 = select i1 %51, i32 0, i32 1
+  %53 = call { ptr, ptr } @_ZN15QTypedArrayDataI7QStringE8allocateExN10QArrayData16AllocationOptionE(i64 noundef %49, i32 noundef %52)
+  %54 = getelementptr inbounds nuw { ptr, ptr }, ptr %13, i32 0, i32 0
+  %55 = extractvalue { ptr, ptr } %53, 0
+  store ptr %55, ptr %54, align 8
+  %56 = getelementptr inbounds nuw { ptr, ptr }, ptr %13, i32 0, i32 1
+  %57 = extractvalue { ptr, ptr } %53, 1
+  store ptr %57, ptr %56, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #4
+  %58 = call noundef align 8 dereferenceable(8) ptr @_ZSt3getILm0EP15QTypedArrayDataI7QStringEPS1_EONSt13tuple_elementIXT_ESt4pairIT0_T1_EE4typeEOS9_(ptr noundef align 8 dereferenceable(16) %13) #4
+  store ptr %58, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #4
+  %59 = call noundef align 8 dereferenceable(8) ptr @_ZSt3getILm1EP15QTypedArrayDataI7QStringEPS1_EONSt13tuple_elementIXT_ESt4pairIT0_T1_EE4typeEOS9_(ptr noundef align 8 dereferenceable(16) %13) #4
+  store ptr %59, ptr %15, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %16) #4
+  %60 = load ptr, ptr %14, align 8
+  %61 = load ptr, ptr %60, align 8
+  %62 = icmp ne ptr %61, null
+  br i1 %62, label %63, label %67
 
-62:                                               ; preds = %36
-  %63 = load ptr, ptr %15, align 8
-  %64 = load ptr, ptr %63, align 8
-  %65 = icmp ne ptr %64, null
-  br label %66
+63:                                               ; preds = %37
+  %64 = load ptr, ptr %15, align 8
+  %65 = load ptr, ptr %64, align 8
+  %66 = icmp ne ptr %65, null
+  br label %67
 
-66:                                               ; preds = %62, %36
-  %67 = phi i1 [ false, %36 ], [ %65, %62 ]
-  %68 = zext i1 %67 to i8
-  store i8 %68, ptr %16, align 1
-  %69 = load i8, ptr %16, align 1
-  %70 = trunc i8 %69 to i1
-  br i1 %70, label %76, label %71
+67:                                               ; preds = %63, %37
+  %68 = phi i1 [ false, %37 ], [ %66, %63 ]
+  %69 = zext i1 %68 to i8
+  store i8 %69, ptr %16, align 1
+  %70 = load i8, ptr %16, align 1, !range !8, !noundef !9
+  %71 = trunc i8 %70 to i1
+  br i1 %71, label %77, label %72
 
-71:                                               ; preds = %66
-  %72 = load ptr, ptr %14, align 8
-  %73 = load ptr, ptr %72, align 8
-  %74 = load ptr, ptr %15, align 8
-  %75 = load ptr, ptr %74, align 8
-  call void @_ZN17QArrayDataPointerI7QStringEC2EP15QTypedArrayDataIS0_EPS0_x(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %73, ptr noundef %75, i64 noundef 0) #4
-  br label %112
+72:                                               ; preds = %67
+  %73 = load ptr, ptr %14, align 8
+  %74 = load ptr, ptr %73, align 8
+  %75 = load ptr, ptr %15, align 8
+  %76 = load ptr, ptr %75, align 8
+  call void @_ZN17QArrayDataPointerI7QStringEC2EP15QTypedArrayDataIS0_EPS0_x(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef %74, ptr noundef %76, i64 noundef 0) #4
+  store i32 1, ptr %17, align 4
+  br label %113
 
-76:                                               ; preds = %66
-  %77 = load i32, ptr %8, align 4
-  %78 = icmp eq i32 %77, 1
-  br i1 %78, label %79, label %94
+77:                                               ; preds = %67
+  %78 = load i32, ptr %8, align 4
+  %79 = icmp eq i32 %78, 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #4
+  br i1 %79, label %80, label %95
 
-79:                                               ; preds = %76
-  %80 = load i64, ptr %7, align 8
-  store i32 0, ptr %17, align 4
-  %81 = load ptr, ptr %14, align 8
-  %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds %struct.QArrayData, ptr %82, i32 0, i32 2
-  %84 = load i64, ptr %83, align 8
-  %85 = load ptr, ptr %6, align 8
-  %86 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %85, i32 0, i32 2
-  %87 = load i64, ptr %86, align 8
-  %88 = sub i64 %84, %87
-  %89 = load i64, ptr %7, align 8
-  %90 = sub i64 %88, %89
-  %91 = sdiv i64 %90, 2
-  store i64 %91, ptr %18, align 8
-  %92 = call noundef i64 @_Z4qMaxIixEN11QTypeTraits6detail8PromotedIT_T0_NSt9enable_ifIXaaaaaaaaaaaaaasr3stdE15is_arithmetic_vIS3_Esr3stdE15is_arithmetic_vIS4_Eeqsr3stdE19is_floating_point_vIS3_Esr3stdE19is_floating_point_vIS4_Eeqsr3stdE11is_signed_vIS3_Esr3stdE11is_signed_vIS4_Entsr3stdE9is_same_vIS3_bEntsr3stdE9is_same_vIS4_bEntsr3stdE9is_same_vIS3_cEntsr3stdE9is_same_vIS4_cEEvE4typeEE4typeERKS3_RKS4_(ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 8 dereferenceable(8) %18)
-  %93 = add i64 %80, %92
-  br label %97
+80:                                               ; preds = %77
+  %81 = load i64, ptr %7, align 8
+  store i32 0, ptr %18, align 4
+  %82 = load ptr, ptr %14, align 8
+  %83 = load ptr, ptr %82, align 8
+  %84 = getelementptr inbounds nuw %struct.QArrayData, ptr %83, i32 0, i32 2
+  %85 = load i64, ptr %84, align 8
+  %86 = load ptr, ptr %6, align 8
+  %87 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %86, i32 0, i32 2
+  %88 = load i64, ptr %87, align 8
+  %89 = sub i64 %85, %88
+  %90 = load i64, ptr %7, align 8
+  %91 = sub i64 %89, %90
+  %92 = sdiv i64 %91, 2
+  store i64 %92, ptr %19, align 8
+  %93 = call noundef i64 @_Z4qMaxIixEN11QTypeTraits6detail8PromotedIT_T0_NSt9enable_ifIXaaaaaaaaaaaaaasr3stdE15is_arithmetic_vIS3_Esr3stdE15is_arithmetic_vIS4_Eeqsr3stdE19is_floating_point_vIS3_Esr3stdE19is_floating_point_vIS4_Eeqsr3stdE11is_signed_vIS3_Esr3stdE11is_signed_vIS4_Entsr3stdE9is_same_vIS3_bEntsr3stdE9is_same_vIS4_bEntsr3stdE9is_same_vIS3_cEntsr3stdE9is_same_vIS4_cEEvE4typeEE4typeERKS3_RKS4_(ptr noundef align 4 dereferenceable(4) %18, ptr noundef align 8 dereferenceable(8) %19)
+  %94 = add i64 %81, %93
+  br label %98
 
-94:                                               ; preds = %76
-  %95 = load ptr, ptr %6, align 8
-  %96 = call noundef i64 @_ZNK17QArrayDataPointerI7QStringE16freeSpaceAtBeginEv(ptr noundef nonnull align 8 dereferenceable(24) %95) #4
-  br label %97
+95:                                               ; preds = %77
+  %96 = load ptr, ptr %6, align 8
+  %97 = call noundef i64 @_ZNK17QArrayDataPointerI7QStringE16freeSpaceAtBeginEv(ptr noundef align 8 dereferenceable_or_null(24) %96) #4
+  br label %98
 
-97:                                               ; preds = %94, %79
-  %98 = phi i64 [ %93, %79 ], [ %96, %94 ]
-  %99 = load ptr, ptr %15, align 8
-  %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr %class.QString, ptr %100, i64 %98
-  store ptr %101, ptr %99, align 8
-  %102 = load ptr, ptr %6, align 8
-  %103 = call i32 @_ZNK17QArrayDataPointerI7QStringE5flagsEv(ptr noundef nonnull align 8 dereferenceable(24) %102) #4
-  %104 = getelementptr inbounds %class.QFlags.4, ptr %19, i32 0, i32 0
-  store i32 %103, ptr %104, align 4
-  %105 = load ptr, ptr %14, align 8
-  %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds %struct.QArrayData, ptr %106, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %107, ptr align 4 %19, i64 4, i1 false)
-  %108 = load ptr, ptr %14, align 8
-  %109 = load ptr, ptr %108, align 8
-  %110 = load ptr, ptr %15, align 8
-  %111 = load ptr, ptr %110, align 8
-  call void @_ZN17QArrayDataPointerI7QStringEC2EP15QTypedArrayDataIS0_EPS0_x(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %109, ptr noundef %111, i64 noundef 0) #4
-  br label %112
+98:                                               ; preds = %95, %80
+  %99 = phi i64 [ %94, %80 ], [ %97, %95 ]
+  %100 = load ptr, ptr %15, align 8
+  %101 = load ptr, ptr %100, align 8
+  %102 = getelementptr %class.QString, ptr %101, i64 %99
+  store ptr %102, ptr %100, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #4
+  %103 = load ptr, ptr %6, align 8
+  %104 = call i32 @_ZNK17QArrayDataPointerI7QStringE5flagsEv(ptr noundef align 8 dereferenceable_or_null(24) %103) #4
+  %105 = getelementptr inbounds nuw %class.QFlags.4, ptr %20, i32 0, i32 0
+  store i32 %104, ptr %105, align 4
+  %106 = load ptr, ptr %14, align 8
+  %107 = load ptr, ptr %106, align 8
+  %108 = getelementptr inbounds nuw %struct.QArrayData, ptr %107, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %108, ptr align 4 %20, i64 4, i1 false)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #4
+  %109 = load ptr, ptr %14, align 8
+  %110 = load ptr, ptr %109, align 8
+  %111 = load ptr, ptr %15, align 8
+  %112 = load ptr, ptr %111, align 8
+  call void @_ZN17QArrayDataPointerI7QStringEC2EP15QTypedArrayDataIS0_EPS0_x(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef %110, ptr noundef %112, i64 noundef 0) #4
+  store i32 1, ptr %17, align 4
+  br label %113
 
-112:                                              ; preds = %97, %71
+113:                                              ; preds = %98, %72
+  call void @llvm.lifetime.end.p0(i64 1, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
   ret void
 }
 
-; Function Attrs: cold noreturn
-declare void @_Z9qBadAllocv() #11
+; Function Attrs: cold noreturn null_pointer_is_valid
+declare void @_Z9qBadAllocv() #20
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef %2) #2 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef %1, ptr noundef %2) #2 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -6122,10 +6442,11 @@ define linkonce_odr void @_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendE
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %3
-  br label %30
+  br label %31
 
 13:                                               ; preds = %3
-  %14 = call noundef ptr @_ZN17QArrayDataPointerI7QStringE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #4
+  %14 = call noundef ptr @_ZN17QArrayDataPointerI7QStringE5beginEv(ptr noundef align 8 dereferenceable_or_null(24) %8) #4
   store ptr %14, ptr %7, align 8
   br label %15
 
@@ -6137,26 +6458,30 @@ define linkonce_odr void @_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendE
 
 19:                                               ; preds = %15
   %20 = load ptr, ptr %7, align 8
-  %21 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %8, i32 0, i32 2
+  %21 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %8, i32 0, i32 2
   %22 = load i64, ptr %21, align 8
   %23 = getelementptr %class.QString, ptr %20, i64 %22
   %24 = load ptr, ptr %5, align 8
-  call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %24) #4
+  call void @_ZN7QStringC2ERKS_(ptr noundef align 8 dereferenceable_or_null(24) %23, ptr noundef align 8 dereferenceable(24) %24) #4
   %25 = load ptr, ptr %5, align 8
   %26 = getelementptr %class.QString, ptr %25, i32 1
   store ptr %26, ptr %5, align 8
-  %27 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %8, i32 0, i32 2
+  %27 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %8, i32 0, i32 2
   %28 = load i64, ptr %27, align 8
   %29 = add i64 %28, 1
   store i64 %29, ptr %27, align 8
-  br label %15, !llvm.loop !6
+  br label %15, !llvm.loop !10
 
-30:                                               ; preds = %15, %12
+30:                                               ; preds = %15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #4
+  br label %31
+
+31:                                               ; preds = %30, %12
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN9QtPrivate16QGenericArrayOpsI7QStringE10moveAppendEPS1_S3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef %2) #2 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN9QtPrivate16QGenericArrayOpsI7QStringE10moveAppendEPS1_S3_(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef %1, ptr noundef %2) #2 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -6171,10 +6496,11 @@ define linkonce_odr void @_ZN9QtPrivate16QGenericArrayOpsI7QStringE10moveAppendE
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %3
-  br label %30
+  br label %31
 
 13:                                               ; preds = %3
-  %14 = call noundef ptr @_ZN17QArrayDataPointerI7QStringE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #4
+  %14 = call noundef ptr @_ZN17QArrayDataPointerI7QStringE5beginEv(ptr noundef align 8 dereferenceable_or_null(24) %8) #4
   store ptr %14, ptr %7, align 8
   br label %15
 
@@ -6186,61 +6512,65 @@ define linkonce_odr void @_ZN9QtPrivate16QGenericArrayOpsI7QStringE10moveAppendE
 
 19:                                               ; preds = %15
   %20 = load ptr, ptr %7, align 8
-  %21 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %8, i32 0, i32 2
+  %21 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %8, i32 0, i32 2
   %22 = load i64, ptr %21, align 8
   %23 = getelementptr %class.QString, ptr %20, i64 %22
   %24 = load ptr, ptr %5, align 8
-  call void @_ZN7QStringC2EOS_(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %24) #4
+  call void @_ZN7QStringC2EOS_(ptr noundef align 8 dereferenceable_or_null(24) %23, ptr noundef align 8 dereferenceable(24) %24) #4
   %25 = load ptr, ptr %5, align 8
   %26 = getelementptr %class.QString, ptr %25, i32 1
   store ptr %26, ptr %5, align 8
-  %27 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %8, i32 0, i32 2
+  %27 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %8, i32 0, i32 2
   %28 = load i64, ptr %27, align 8
   %29 = add i64 %28, 1
   store i64 %29, ptr %27, align 8
-  br label %15, !llvm.loop !7
+  br label %15, !llvm.loop !11
 
-30:                                               ; preds = %15, %12
+30:                                               ; preds = %15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #4
+  br label %31
+
+31:                                               ; preds = %30, %12
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN17QArrayDataPointerI7QStringE4swapERS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #2 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN17QArrayDataPointerI7QStringE4swapERS1_(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef align 8 dereferenceable(24) %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %5, i32 0, i32 0
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %7, i32 0, i32 0
-  call void @_Z11qt_ptr_swapI15QTypedArrayDataI7QStringEEvRPT_S5_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8) #4
-  %9 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %5, i32 0, i32 1
+  %8 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %7, i32 0, i32 0
+  call void @_Z11qt_ptr_swapI15QTypedArrayDataI7QStringEEvRPT_S5_(ptr noundef align 8 dereferenceable(8) %6, ptr noundef align 8 dereferenceable(8) %8) #4
+  %9 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %5, i32 0, i32 1
   %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %10, i32 0, i32 1
-  call void @_Z11qt_ptr_swapI7QStringEvRPT_S3_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %11) #4
-  %12 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %5, i32 0, i32 2
+  %11 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %10, i32 0, i32 1
+  call void @_Z11qt_ptr_swapI7QStringEvRPT_S3_(ptr noundef align 8 dereferenceable(8) %9, ptr noundef align 8 dereferenceable(8) %11) #4
+  %12 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %5, i32 0, i32 2
   %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %13, i32 0, i32 2
-  call void @_ZSt4swapIxENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %14) #4
+  %14 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %13, i32 0, i32 2
+  call void @_ZSt4swapIxENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(ptr noundef align 8 dereferenceable(8) %12, ptr noundef align 8 dereferenceable(8) %14) #4
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN17QArrayDataPointerI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN17QArrayDataPointerI7QStringED2Ev(ptr noundef align 8 dereferenceable_or_null(24) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef zeroext i1 @_ZN17QArrayDataPointerI7QStringE5derefEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #4
+  %4 = call noundef zeroext i1 @_ZN17QArrayDataPointerI7QStringE5derefEv(ptr noundef align 8 dereferenceable_or_null(24) %3) #4
   br i1 %4, label %10, label %5
 
 5:                                                ; preds = %1
-  %6 = call noundef ptr @_ZN17QArrayDataPointerI7QStringEptEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #4
-  invoke void @_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv(ptr noundef nonnull align 8 dereferenceable(24) %6)
+  %6 = call noundef ptr @_ZN17QArrayDataPointerI7QStringEptEv(ptr noundef align 8 dereferenceable_or_null(24) %3) #4
+  invoke void @_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv(ptr noundef align 8 dereferenceable_or_null(24) %6)
           to label %7 unwind label %11
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %3, i32 0, i32 0
   %9 = load ptr, ptr %8, align 8
   call void @_ZN15QTypedArrayDataI7QStringE10deallocateEP10QArrayData(ptr noundef %9) #4
   br label %10
@@ -6252,11 +6582,11 @@ define linkonce_odr void @_ZN17QArrayDataPointerI7QStringED2Ev(ptr noundef nonnu
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #15
+  call void @__clang_call_terminate(ptr %13) #24
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
 define linkonce_odr { ptr, ptr } @_ZN15QTypedArrayDataI7QStringE19reallocateUnalignedEPS1_PS0_xN10QArrayData16AllocationOptionE(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #0 comdat align 2 {
   %5 = alloca %"struct.std::pair", align 8
   %6 = alloca ptr, align 8
@@ -6270,39 +6600,45 @@ define linkonce_odr { ptr, ptr } @_ZN15QTypedArrayDataI7QStringE19reallocateUnal
   store ptr %1, ptr %7, align 8
   store i64 %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %10) #4
   %13 = load ptr, ptr %6, align 8
   %14 = load ptr, ptr %7, align 8
   %15 = load i64, ptr %8, align 8
   %16 = load i32, ptr %9, align 4
   %17 = call { ptr, ptr } @_ZN10QArrayData19reallocateUnalignedEPS_PvxxNS_16AllocationOptionE(ptr noundef %13, ptr noundef %14, i64 noundef 24, i64 noundef %15, i32 noundef %16) #4
-  %18 = getelementptr inbounds { ptr, ptr }, ptr %10, i32 0, i32 0
+  %18 = getelementptr inbounds nuw { ptr, ptr }, ptr %10, i32 0, i32 0
   %19 = extractvalue { ptr, ptr } %17, 0
   store ptr %19, ptr %18, align 8
-  %20 = getelementptr inbounds { ptr, ptr }, ptr %10, i32 0, i32 1
+  %20 = getelementptr inbounds nuw { ptr, ptr }, ptr %10, i32 0, i32 1
   %21 = extractvalue { ptr, ptr } %17, 1
   store ptr %21, ptr %20, align 8
-  %22 = getelementptr inbounds %"struct.std::pair.27", ptr %10, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #4
+  %22 = getelementptr inbounds nuw %"struct.std::pair.27", ptr %10, i32 0, i32 0
   %23 = load ptr, ptr %22, align 8
   store ptr %23, ptr %11, align 8
-  %24 = getelementptr inbounds %"struct.std::pair.27", ptr %10, i32 0, i32 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #4
+  %24 = getelementptr inbounds nuw %"struct.std::pair.27", ptr %10, i32 0, i32 1
   %25 = load ptr, ptr %24, align 8
   store ptr %25, ptr %12, align 8
-  %26 = call { ptr, ptr } @_Z9qMakePairIP15QTypedArrayDataI7QStringEPS1_EDcOT_OT0_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
-  %27 = getelementptr inbounds { ptr, ptr }, ptr %5, i32 0, i32 0
+  %26 = call { ptr, ptr } @_Z9qMakePairIP15QTypedArrayDataI7QStringEPS1_EDcOT_OT0_(ptr noundef align 8 dereferenceable(8) %11, ptr noundef align 8 dereferenceable(8) %12)
+  %27 = getelementptr inbounds nuw { ptr, ptr }, ptr %5, i32 0, i32 0
   %28 = extractvalue { ptr, ptr } %26, 0
   store ptr %28, ptr %27, align 8
-  %29 = getelementptr inbounds { ptr, ptr }, ptr %5, i32 0, i32 1
+  %29 = getelementptr inbounds nuw { ptr, ptr }, ptr %5, i32 0, i32 1
   %30 = extractvalue { ptr, ptr } %26, 1
   store ptr %30, ptr %29, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %10) #4
   %31 = load { ptr, ptr }, ptr %5, align 8
   ret { ptr, ptr } %31
 }
 
-; Function Attrs: nounwind
+; Function Attrs: nounwind null_pointer_is_valid
 declare { ptr, ptr } @_ZN10QArrayData19reallocateUnalignedEPS_PvxxNS_16AllocationOptionE(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i32 noundef) #5
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr { ptr, ptr } @_Z9qMakePairIP15QTypedArrayDataI7QStringEPS1_EDcOT_OT0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr { ptr, ptr } @_Z9qMakePairIP15QTypedArrayDataI7QStringEPS1_EDcOT_OT0_(ptr noundef align 8 dereferenceable(8) %0, ptr noundef align 8 dereferenceable(8) %1) #0 comdat {
   %3 = alloca %"struct.std::pair", align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -6310,19 +6646,19 @@ define linkonce_odr { ptr, ptr } @_Z9qMakePairIP15QTypedArrayDataI7QStringEPS1_E
   store ptr %1, ptr %5, align 8
   %6 = load ptr, ptr %4, align 8
   %7 = load ptr, ptr %5, align 8
-  %8 = call { ptr, ptr } @_ZSt9make_pairIP15QTypedArrayDataI7QStringEPS1_ESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS6_INS7_IT0_E4typeEE6__typeEEOS8_OSD_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
-  %9 = getelementptr inbounds { ptr, ptr }, ptr %3, i32 0, i32 0
+  %8 = call { ptr, ptr } @_ZSt9make_pairIP15QTypedArrayDataI7QStringEPS1_ESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS6_INS7_IT0_E4typeEE6__typeEEOS8_OSD_(ptr noundef align 8 dereferenceable(8) %6, ptr noundef align 8 dereferenceable(8) %7)
+  %9 = getelementptr inbounds nuw { ptr, ptr }, ptr %3, i32 0, i32 0
   %10 = extractvalue { ptr, ptr } %8, 0
   store ptr %10, ptr %9, align 8
-  %11 = getelementptr inbounds { ptr, ptr }, ptr %3, i32 0, i32 1
+  %11 = getelementptr inbounds nuw { ptr, ptr }, ptr %3, i32 0, i32 1
   %12 = extractvalue { ptr, ptr } %8, 1
   store ptr %12, ptr %11, align 8
   %13 = load { ptr, ptr }, ptr %3, align 8
   ret { ptr, ptr } %13
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr { ptr, ptr } @_ZSt9make_pairIP15QTypedArrayDataI7QStringEPS1_ESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS6_INS7_IT0_E4typeEE6__typeEEOS8_OSD_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #0 comdat {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr { ptr, ptr } @_ZSt9make_pairIP15QTypedArrayDataI7QStringEPS1_ESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS6_INS7_IT0_E4typeEE6__typeEEOS8_OSD_(ptr noundef align 8 dereferenceable(8) %0, ptr noundef align 8 dereferenceable(8) %1) #0 comdat {
   %3 = alloca %"struct.std::pair", align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -6330,13 +6666,13 @@ define linkonce_odr { ptr, ptr } @_ZSt9make_pairIP15QTypedArrayDataI7QStringEPS1
   store ptr %1, ptr %5, align 8
   %6 = load ptr, ptr %4, align 8
   %7 = load ptr, ptr %5, align 8
-  call void @_ZNSt4pairIP15QTypedArrayDataI7QStringEPS1_EC2IS3_S4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS8_S9_EEEbE4typeELb1EEEOS8_OS9_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  call void @_ZNSt4pairIP15QTypedArrayDataI7QStringEPS1_EC2IS3_S4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS8_S9_EEEbE4typeELb1EEEOS8_OS9_(ptr noundef align 8 dereferenceable_or_null(16) %3, ptr noundef align 8 dereferenceable(8) %6, ptr noundef align 8 dereferenceable(8) %7)
   %8 = load { ptr, ptr }, ptr %3, align 8
   ret { ptr, ptr } %8
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt4pairIP15QTypedArrayDataI7QStringEPS1_EC2IS3_S4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS8_S9_EEEbE4typeELb1EEEOS8_OS9_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #2 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZNSt4pairIP15QTypedArrayDataI7QStringEPS1_EC2IS3_S4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS8_S9_EEEbE4typeELb1EEEOS8_OS9_(ptr noundef align 8 dereferenceable_or_null(16) %0, ptr noundef align 8 dereferenceable(8) %1, ptr noundef align 8 dereferenceable(8) %2) unnamed_addr #2 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -6344,19 +6680,19 @@ define linkonce_odr void @_ZNSt4pairIP15QTypedArrayDataI7QStringEPS1_EC2IS3_S4_T
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"struct.std::pair", ptr %7, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::pair", ptr %7, i32 0, i32 0
   %9 = load ptr, ptr %5, align 8
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %8, align 8
-  %11 = getelementptr inbounds %"struct.std::pair", ptr %7, i32 0, i32 1
+  %11 = getelementptr inbounds nuw %"struct.std::pair", ptr %7, i32 0, i32 1
   %12 = load ptr, ptr %6, align 8
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %11, align 8
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_Z4qMaxIxERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #2 comdat {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef align 8 dereferenceable(8) ptr @_Z4qMaxIxERKT_S2_S2_(ptr noundef align 8 dereferenceable(8) %0, ptr noundef align 8 dereferenceable(8) %1) #6 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
@@ -6381,23 +6717,23 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_Z4qMaxIxERK
   ret ptr %15
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZNK17QArrayDataPointerI7QStringE14detachCapacityEx(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #2 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef i64 @_ZNK17QArrayDataPointerI7QStringE14detachCapacityEx(ptr noundef align 8 dereferenceable_or_null(24) %0, i64 noundef %1) #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %5, i32 0, i32 0
   %7 = load ptr, ptr %6, align 8
   %8 = icmp ne ptr %7, null
   br i1 %8, label %9, label %14
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %5, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %5, i32 0, i32 0
   %11 = load ptr, ptr %10, align 8
   %12 = load i64, ptr %4, align 8
-  %13 = call noundef i64 @_ZNK10QArrayData14detachCapacityEx(ptr noundef nonnull align 8 dereferenceable(16) %11, i64 noundef %12) #4
+  %13 = call noundef i64 @_ZNK10QArrayData14detachCapacityEx(ptr noundef align 8 dereferenceable_or_null(16) %11, i64 noundef %12) #4
   br label %16
 
 14:                                               ; preds = %2
@@ -6409,7 +6745,7 @@ define linkonce_odr noundef i64 @_ZNK17QArrayDataPointerI7QStringE14detachCapaci
   ret i64 %17
 }
 
-; Function Attrs: mustprogress uwtable
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
 define linkonce_odr { ptr, ptr } @_ZN15QTypedArrayDataI7QStringE8allocateExN10QArrayData16AllocationOptionE(i64 noundef %0, i32 noundef %1) #0 comdat align 2 {
   %3 = alloca %"struct.std::pair", align 8
   %4 = alloca i64, align 8
@@ -6420,6 +6756,8 @@ define linkonce_odr { ptr, ptr } @_ZN15QTypedArrayDataI7QStringE8allocateExN10QA
   %9 = alloca ptr, align 8
   store i64 %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #4
   %10 = load i64, ptr %4, align 8
   %11 = load i32, ptr %5, align 4
   %12 = call noalias noundef ptr @_ZN10QArrayData8allocateEPPS_xxxNS_16AllocationOptionE(ptr noundef %6, i64 noundef 24, i64 noundef 8, i64 noundef %10, i32 noundef %11) #4
@@ -6427,41 +6765,47 @@ define linkonce_odr { ptr, ptr } @_ZN15QTypedArrayDataI7QStringE8allocateExN10QA
   %13 = load ptr, ptr %7, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 8) ]
   store ptr %13, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
   %14 = load ptr, ptr %6, align 8
   store ptr %14, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
   %15 = load ptr, ptr %7, align 8
   store ptr %15, ptr %9, align 8
-  %16 = call { ptr, ptr } @_Z9qMakePairIP15QTypedArrayDataI7QStringEPS1_EDcOT_OT0_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
-  %17 = getelementptr inbounds { ptr, ptr }, ptr %3, i32 0, i32 0
+  %16 = call { ptr, ptr } @_Z9qMakePairIP15QTypedArrayDataI7QStringEPS1_EDcOT_OT0_(ptr noundef align 8 dereferenceable(8) %8, ptr noundef align 8 dereferenceable(8) %9)
+  %17 = getelementptr inbounds nuw { ptr, ptr }, ptr %3, i32 0, i32 0
   %18 = extractvalue { ptr, ptr } %16, 0
   store ptr %18, ptr %17, align 8
-  %19 = getelementptr inbounds { ptr, ptr }, ptr %3, i32 0, i32 1
+  %19 = getelementptr inbounds nuw { ptr, ptr }, ptr %3, i32 0, i32 1
   %20 = extractvalue { ptr, ptr } %16, 1
   store ptr %20, ptr %19, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #4
   %21 = load { ptr, ptr }, ptr %3, align 8
   ret { ptr, ptr } %21
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm0EP15QTypedArrayDataI7QStringEPS1_EONSt13tuple_elementIXT_ESt4pairIT0_T1_EE4typeEOS9_(ptr noundef nonnull align 8 dereferenceable(16) %0) #2 comdat {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef align 8 dereferenceable(8) ptr @_ZSt3getILm0EP15QTypedArrayDataI7QStringEPS1_EONSt13tuple_elementIXT_ESt4pairIT0_T1_EE4typeEOS9_(ptr noundef align 8 dereferenceable(16) %0) #2 comdat {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10__pair_getILm0EE10__move_getIP15QTypedArrayDataI7QStringEPS3_EEOT_OSt4pairIS7_T0_E(ptr noundef nonnull align 8 dereferenceable(16) %3) #4
+  %4 = call noundef align 8 dereferenceable(8) ptr @_ZNSt10__pair_getILm0EE10__move_getIP15QTypedArrayDataI7QStringEPS3_EEOT_OSt4pairIS7_T0_E(ptr noundef align 8 dereferenceable(16) %3) #4
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3getILm1EP15QTypedArrayDataI7QStringEPS1_EONSt13tuple_elementIXT_ESt4pairIT0_T1_EE4typeEOS9_(ptr noundef nonnull align 8 dereferenceable(16) %0) #2 comdat {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef align 8 dereferenceable(8) ptr @_ZSt3getILm1EP15QTypedArrayDataI7QStringEPS1_EONSt13tuple_elementIXT_ESt4pairIT0_T1_EE4typeEOS9_(ptr noundef align 8 dereferenceable(16) %0) #2 comdat {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10__pair_getILm1EE10__move_getIP15QTypedArrayDataI7QStringEPS3_EEOT0_OSt4pairIT_S7_E(ptr noundef nonnull align 8 dereferenceable(16) %3) #4
+  %4 = call noundef align 8 dereferenceable(8) ptr @_ZNSt10__pair_getILm1EE10__move_getIP15QTypedArrayDataI7QStringEPS3_EEOT0_OSt4pairIT_S7_E(ptr noundef align 8 dereferenceable(16) %3) #4
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN17QArrayDataPointerI7QStringEC2EP15QTypedArrayDataIS0_EPS0_x(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #2 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN17QArrayDataPointerI7QStringEC2EP15QTypedArrayDataIS0_EPS0_x(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #2 comdat align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -6471,48 +6815,48 @@ define linkonce_odr void @_ZN17QArrayDataPointerI7QStringEC2EP15QTypedArrayDataI
   store ptr %2, ptr %7, align 8
   store i64 %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %9, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %9, i32 0, i32 0
   %11 = load ptr, ptr %6, align 8
   store ptr %11, ptr %10, align 8
-  %12 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %9, i32 0, i32 1
+  %12 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %9, i32 0, i32 1
   %13 = load ptr, ptr %7, align 8
   store ptr %13, ptr %12, align 8
-  %14 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %9, i32 0, i32 2
+  %14 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %9, i32 0, i32 2
   %15 = load i64, ptr %8, align 8
   store i64 %15, ptr %14, align 8
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr i32 @_ZNK17QArrayDataPointerI7QStringE5flagsEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #2 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr i32 @_ZNK17QArrayDataPointerI7QStringE5flagsEv(ptr noundef align 8 dereferenceable_or_null(24) %0) #2 comdat align 2 {
   %2 = alloca %class.QFlags.4, align 4
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %4, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %4, i32 0, i32 0
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ne ptr %6, null
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %4, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %4, i32 0, i32 0
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds %struct.QArrayData, ptr %10, i32 0, i32 1
+  %11 = getelementptr inbounds nuw %struct.QArrayData, ptr %10, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %2, ptr align 4 %11, i64 4, i1 false)
   br label %13
 
 12:                                               ; preds = %1
-  call void @_ZN6QFlagsIN10QArrayData11ArrayOptionEEC2ES1_(ptr noundef nonnull align 4 dereferenceable(4) %2, i32 noundef 0) #4
+  call void @_ZN6QFlagsIN10QArrayData11ArrayOptionEEC2ES1_(ptr noundef align 4 dereferenceable_or_null(4) %2, i32 noundef 0) #4
   br label %13
 
 13:                                               ; preds = %12, %8
-  %14 = getelementptr inbounds %class.QFlags.4, ptr %2, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %class.QFlags.4, ptr %2, i32 0, i32 0
   %15 = load i32, ptr %14, align 4
   ret i32 %15
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZNK10QArrayData14detachCapacityEx(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) #2 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef i64 @_ZNK10QArrayData14detachCapacityEx(ptr noundef align 8 dereferenceable_or_null(16) %0, i64 noundef %1) #2 comdat align 2 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -6520,26 +6864,28 @@ define linkonce_odr noundef i64 @_ZNK10QArrayData14detachCapacityEx(ptr noundef 
   store ptr %0, ptr %4, align 8
   store i64 %1, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %struct.QArrayData, ptr %7, i32 0, i32 1
-  %9 = call i32 @_ZNK6QFlagsIN10QArrayData11ArrayOptionEEanES1_(ptr noundef nonnull align 4 dereferenceable(4) %8, i32 noundef 1) #4
-  %10 = getelementptr inbounds %class.QFlags.4, ptr %6, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  %8 = getelementptr inbounds nuw %struct.QArrayData, ptr %7, i32 0, i32 1
+  %9 = call i32 @_ZNK6QFlagsIN10QArrayData11ArrayOptionEEanES1_(ptr noundef align 4 dereferenceable_or_null(4) %8, i32 noundef 1) #4
+  %10 = getelementptr inbounds nuw %class.QFlags.4, ptr %6, i32 0, i32 0
   store i32 %9, ptr %10, align 4
-  %11 = call noundef i32 @_ZNK6QFlagsIN10QArrayData11ArrayOptionEEcvjEv(ptr noundef nonnull align 4 dereferenceable(4) %6) #4
+  %11 = call noundef i32 @_ZNK6QFlagsIN10QArrayData11ArrayOptionEEcvjEv(ptr noundef align 4 dereferenceable_or_null(4) %6) #4
   %12 = icmp ne i32 %11, 0
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %2
   %14 = load i64, ptr %5, align 8
-  %15 = call noundef i64 @_ZNK10QArrayData22constAllocatedCapacityEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #4
+  %15 = call noundef i64 @_ZNK10QArrayData22constAllocatedCapacityEv(ptr noundef align 8 dereferenceable_or_null(16) %7) #4
   %16 = icmp slt i64 %14, %15
   br label %17
 
 17:                                               ; preds = %13, %2
   %18 = phi i1 [ false, %2 ], [ %16, %13 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %17
-  %20 = call noundef i64 @_ZNK10QArrayData22constAllocatedCapacityEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #4
+  %20 = call noundef i64 @_ZNK10QArrayData22constAllocatedCapacityEv(ptr noundef align 8 dereferenceable_or_null(16) %7) #4
   store i64 %20, ptr %3, align 8
   br label %23
 
@@ -6553,8 +6899,8 @@ define linkonce_odr noundef i64 @_ZNK10QArrayData14detachCapacityEx(ptr noundef 
   ret i64 %24
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr i32 @_ZNK6QFlagsIN10QArrayData11ArrayOptionEEanES1_(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) #2 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr i32 @_ZNK6QFlagsIN10QArrayData11ArrayOptionEEanES1_(ptr noundef align 4 dereferenceable_or_null(4) %0, i32 noundef %1) #6 comdat align 2 {
   %3 = alloca %class.QFlags.4, align 4
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -6562,110 +6908,111 @@ define linkonce_odr i32 @_ZNK6QFlagsIN10QArrayData11ArrayOptionEEanES1_(ptr noun
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %class.QFlags.4, ptr %7, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %class.QFlags.4, ptr %7, i32 0, i32 0
   %9 = load i32, ptr %8, align 4
   %10 = load i32, ptr %5, align 4
   %11 = and i32 %9, %10
-  call void @_ZN5QFlagC2Ej(ptr noundef nonnull align 4 dereferenceable(4) %6, i32 noundef %11) #4
-  %12 = getelementptr inbounds %class.QFlag, ptr %6, i32 0, i32 0
+  call void @_ZN5QFlagC2Ej(ptr noundef align 4 dereferenceable_or_null(4) %6, i32 noundef %11) #4
+  %12 = getelementptr inbounds nuw %class.QFlag, ptr %6, i32 0, i32 0
   %13 = load i32, ptr %12, align 4
-  call void @_ZN6QFlagsIN10QArrayData11ArrayOptionEEC2E5QFlag(ptr noundef nonnull align 4 dereferenceable(4) %3, i32 %13) #4
-  %14 = getelementptr inbounds %class.QFlags.4, ptr %3, i32 0, i32 0
+  call void @_ZN6QFlagsIN10QArrayData11ArrayOptionEEC2E5QFlag(ptr noundef align 4 dereferenceable_or_null(4) %3, i32 %13) #4
+  %14 = getelementptr inbounds nuw %class.QFlags.4, ptr %3, i32 0, i32 0
   %15 = load i32, ptr %14, align 4
   ret i32 %15
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZNK6QFlagsIN10QArrayData11ArrayOptionEEcvjEv(ptr noundef nonnull align 4 dereferenceable(4) %0) #2 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef i32 @_ZNK6QFlagsIN10QArrayData11ArrayOptionEEcvjEv(ptr noundef align 4 dereferenceable_or_null(4) %0) #6 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %class.QFlags.4, ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %class.QFlags.4, ptr %3, i32 0, i32 0
   %5 = load i32, ptr %4, align 4
   ret i32 %5
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5QFlagC2Ej(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) unnamed_addr #2 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN5QFlagC2Ej(ptr noundef align 4 dereferenceable_or_null(4) %0, i32 noundef %1) unnamed_addr #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %class.QFlag, ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %class.QFlag, ptr %5, i32 0, i32 0
   %7 = load i32, ptr %4, align 4
   store i32 %7, ptr %6, align 4
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6QFlagsIN10QArrayData11ArrayOptionEEC2E5QFlag(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 %1) unnamed_addr #2 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN6QFlagsIN10QArrayData11ArrayOptionEEC2E5QFlag(ptr noundef align 4 dereferenceable_or_null(4) %0, i32 %1) unnamed_addr #6 comdat align 2 {
   %3 = alloca %class.QFlag, align 4
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds %class.QFlag, ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %class.QFlag, ptr %3, i32 0, i32 0
   store i32 %1, ptr %5, align 4
   store ptr %0, ptr %4, align 8
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %class.QFlags.4, ptr %6, i32 0, i32 0
-  %8 = call noundef i32 @_ZNK5QFlagcvjEv(ptr noundef nonnull align 4 dereferenceable(4) %3) #4
+  %7 = getelementptr inbounds nuw %class.QFlags.4, ptr %6, i32 0, i32 0
+  %8 = call noundef i32 @_ZNK5QFlagcvjEv(ptr noundef align 4 dereferenceable_or_null(4) %3) #4
   store i32 %8, ptr %7, align 4
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZNK5QFlagcvjEv(ptr noundef nonnull align 4 dereferenceable(4) %0) #2 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef i32 @_ZNK5QFlagcvjEv(ptr noundef align 4 dereferenceable_or_null(4) %0) #6 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %class.QFlag, ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %class.QFlag, ptr %3, i32 0, i32 0
   %5 = load i32, ptr %4, align 4
   ret i32 %5
 }
 
-; Function Attrs: nounwind
+; Function Attrs: nounwind null_pointer_is_valid
 declare noalias noundef ptr @_ZN10QArrayData8allocateEPPS_xxxNS_16AllocationOptionE(ptr noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #12
+declare void @llvm.assume(i1 noundef) #21
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10__pair_getILm0EE10__move_getIP15QTypedArrayDataI7QStringEPS3_EEOT_OSt4pairIS7_T0_E(ptr noundef nonnull align 8 dereferenceable(16) %0) #2 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef align 8 dereferenceable(8) ptr @_ZNSt10__pair_getILm0EE10__move_getIP15QTypedArrayDataI7QStringEPS3_EEOT_OSt4pairIS7_T0_E(ptr noundef align 8 dereferenceable(16) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::pair", ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %"struct.std::pair", ptr %3, i32 0, i32 0
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10__pair_getILm1EE10__move_getIP15QTypedArrayDataI7QStringEPS3_EEOT0_OSt4pairIT_S7_E(ptr noundef nonnull align 8 dereferenceable(16) %0) #2 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef align 8 dereferenceable(8) ptr @_ZNSt10__pair_getILm1EE10__move_getIP15QTypedArrayDataI7QStringEPS3_EEOT0_OSt4pairIT_S7_E(ptr noundef align 8 dereferenceable(16) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %"struct.std::pair", ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds nuw %"struct.std::pair", ptr %3, i32 0, i32 1
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6QFlagsIN10QArrayData11ArrayOptionEEC2ES1_(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) unnamed_addr #2 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN6QFlagsIN10QArrayData11ArrayOptionEEC2ES1_(ptr noundef align 4 dereferenceable_or_null(4) %0, i32 noundef %1) unnamed_addr #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %class.QFlags.4, ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %class.QFlags.4, ptr %5, i32 0, i32 0
   %7 = load i32, ptr %4, align 4
   store i32 %7, ptr %6, align 4
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_Z11qt_ptr_swapI15QTypedArrayDataI7QStringEEvRPT_S5_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #2 comdat {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_Z11qt_ptr_swapI15QTypedArrayDataI7QStringEEvRPT_S5_(ptr noundef align 8 dereferenceable(8) %0, ptr noundef align 8 dereferenceable(8) %1) #6 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
   %6 = load ptr, ptr %3, align 8
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %5, align 8
@@ -6676,16 +7023,18 @@ define linkonce_odr void @_Z11qt_ptr_swapI15QTypedArrayDataI7QStringEEvRPT_S5_(p
   %11 = load ptr, ptr %5, align 8
   %12 = load ptr, ptr %4, align 8
   store ptr %11, ptr %12, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_Z11qt_ptr_swapI7QStringEvRPT_S3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #2 comdat {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_Z11qt_ptr_swapI7QStringEvRPT_S3_(ptr noundef align 8 dereferenceable(8) %0, ptr noundef align 8 dereferenceable(8) %1) #6 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
   %6 = load ptr, ptr %3, align 8
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %5, align 8
@@ -6696,23 +7045,24 @@ define linkonce_odr void @_Z11qt_ptr_swapI7QStringEvRPT_S3_(ptr noundef nonnull 
   %11 = load ptr, ptr %5, align 8
   %12 = load ptr, ptr %4, align 8
   store ptr %11, ptr %12, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZN17QArrayDataPointerI7QStringE5derefEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #2 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef zeroext i1 @_ZN17QArrayDataPointerI7QStringE5derefEv(ptr noundef align 8 dereferenceable_or_null(24) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ne ptr %5, null
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %3, i32 0, i32 0
   %9 = load ptr, ptr %8, align 8
-  %10 = call noundef zeroext i1 @_ZN10QArrayData5derefEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #4
+  %10 = call noundef zeroext i1 @_ZN10QArrayData5derefEv(ptr noundef align 8 dereferenceable_or_null(16) %9) #4
   br label %11
 
 11:                                               ; preds = %7, %1
@@ -6720,18 +7070,18 @@ define linkonce_odr noundef zeroext i1 @_ZN17QArrayDataPointerI7QStringE5derefEv
   ret i1 %12
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #0 comdat align 2 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv(ptr noundef align 8 dereferenceable_or_null(24) %0) #0 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = call noundef ptr @_ZN17QArrayDataPointerI7QStringE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #4
-  %5 = call noundef ptr @_ZN17QArrayDataPointerI7QStringE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #4
+  %4 = call noundef ptr @_ZN17QArrayDataPointerI7QStringE5beginEv(ptr noundef align 8 dereferenceable_or_null(24) %3) #4
+  %5 = call noundef ptr @_ZN17QArrayDataPointerI7QStringE3endEv(ptr noundef align 8 dereferenceable_or_null(24) %3) #4
   call void @_ZSt7destroyIP7QStringEvT_S2_(ptr noundef %4, ptr noundef %5)
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
 define linkonce_odr void @_ZN15QTypedArrayDataI7QStringE10deallocateEP10QArrayData(ptr noundef %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
@@ -6740,8 +7090,8 @@ define linkonce_odr void @_ZN15QTypedArrayDataI7QStringE10deallocateEP10QArrayDa
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZSt7destroyIP7QStringEvT_S2_(ptr noundef %0, ptr noundef %1) #0 comdat {
+; Function Attrs: inlinehint mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZSt7destroyIP7QStringEvT_S2_(ptr noundef %0, ptr noundef %1) #7 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
@@ -6752,8 +7102,8 @@ define linkonce_odr void @_ZSt7destroyIP7QStringEvT_S2_(ptr noundef %0, ptr noun
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZSt8_DestroyIP7QStringEvT_S2_(ptr noundef %0, ptr noundef %1) #0 comdat {
+; Function Attrs: inlinehint mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZSt8_DestroyIP7QStringEvT_S2_(ptr noundef %0, ptr noundef %1) #7 comdat {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
@@ -6764,7 +7114,7 @@ define linkonce_odr void @_ZSt8_DestroyIP7QStringEvT_S2_(ptr noundef %0, ptr nou
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
 define linkonce_odr void @_ZNSt12_Destroy_auxILb0EE9__destroyIP7QStringEEvT_S4_(ptr noundef %0, ptr noundef %1) #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -6787,23 +7137,23 @@ define linkonce_odr void @_ZNSt12_Destroy_auxILb0EE9__destroyIP7QStringEEvT_S4_(
   %12 = load ptr, ptr %3, align 8
   %13 = getelementptr %class.QString, ptr %12, i32 1
   store ptr %13, ptr %3, align 8
-  br label %5, !llvm.loop !8
+  br label %5, !llvm.loop !12
 
 14:                                               ; preds = %5
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZSt8_DestroyI7QStringEvPT_(ptr noundef %0) #2 comdat {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZSt8_DestroyI7QStringEvPT_(ptr noundef %0) #6 comdat {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #4
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %3) #4
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZN9QtPrivate16QMovableArrayOpsI7QStringE8Inserter8displaceExx(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1, i64 noundef %2) #2 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef ptr @_ZN9QtPrivate16QMovableArrayOpsI7QStringE8Inserter8displaceExx(ptr noundef align 8 dereferenceable_or_null(40) %0, i64 noundef %1, i64 noundef %2) #2 comdat align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -6813,110 +7163,112 @@ define linkonce_odr noundef ptr @_ZN9QtPrivate16QMovableArrayOpsI7QStringE8Inser
   store i64 %2, ptr %6, align 8
   %8 = load ptr, ptr %4, align 8
   %9 = load i64, ptr %6, align 8
-  %10 = getelementptr inbounds %"struct.QtPrivate::QMovableArrayOps<QString>::Inserter", ptr %8, i32 0, i32 3
+  %10 = getelementptr inbounds nuw %"struct.QtPrivate::QMovableArrayOps<QString>::Inserter", ptr %8, i32 0, i32 3
   store i64 %9, ptr %10, align 8
-  %11 = getelementptr inbounds %"struct.QtPrivate::QMovableArrayOps<QString>::Inserter", ptr %8, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #4
+  %11 = getelementptr inbounds nuw %"struct.QtPrivate::QMovableArrayOps<QString>::Inserter", ptr %8, i32 0, i32 0
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %12, i32 0, i32 1
+  %13 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %12, i32 0, i32 1
   %14 = load ptr, ptr %13, align 8
   %15 = load i64, ptr %5, align 8
   %16 = getelementptr %class.QString, ptr %14, i64 %15
   store ptr %16, ptr %7, align 8
-  %17 = getelementptr inbounds %"struct.QtPrivate::QMovableArrayOps<QString>::Inserter", ptr %8, i32 0, i32 0
+  %17 = getelementptr inbounds nuw %"struct.QtPrivate::QMovableArrayOps<QString>::Inserter", ptr %8, i32 0, i32 0
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %18, i32 0, i32 1
+  %19 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %18, i32 0, i32 1
   %20 = load ptr, ptr %19, align 8
   %21 = load i64, ptr %5, align 8
   %22 = getelementptr %class.QString, ptr %20, i64 %21
-  %23 = getelementptr inbounds %"struct.QtPrivate::QMovableArrayOps<QString>::Inserter", ptr %8, i32 0, i32 1
+  %23 = getelementptr inbounds nuw %"struct.QtPrivate::QMovableArrayOps<QString>::Inserter", ptr %8, i32 0, i32 1
   store ptr %22, ptr %23, align 8
-  %24 = getelementptr inbounds %"struct.QtPrivate::QMovableArrayOps<QString>::Inserter", ptr %8, i32 0, i32 1
+  %24 = getelementptr inbounds nuw %"struct.QtPrivate::QMovableArrayOps<QString>::Inserter", ptr %8, i32 0, i32 1
   %25 = load ptr, ptr %24, align 8
   %26 = load i64, ptr %6, align 8
   %27 = getelementptr %class.QString, ptr %25, i64 %26
-  %28 = getelementptr inbounds %"struct.QtPrivate::QMovableArrayOps<QString>::Inserter", ptr %8, i32 0, i32 2
+  %28 = getelementptr inbounds nuw %"struct.QtPrivate::QMovableArrayOps<QString>::Inserter", ptr %8, i32 0, i32 2
   store ptr %27, ptr %28, align 8
-  %29 = getelementptr inbounds %"struct.QtPrivate::QMovableArrayOps<QString>::Inserter", ptr %8, i32 0, i32 0
+  %29 = getelementptr inbounds nuw %"struct.QtPrivate::QMovableArrayOps<QString>::Inserter", ptr %8, i32 0, i32 0
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %30, i32 0, i32 2
+  %31 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %30, i32 0, i32 2
   %32 = load i64, ptr %31, align 8
   %33 = load i64, ptr %5, align 8
   %34 = sub i64 %32, %33
-  %35 = getelementptr inbounds %"struct.QtPrivate::QMovableArrayOps<QString>::Inserter", ptr %8, i32 0, i32 4
+  %35 = getelementptr inbounds nuw %"struct.QtPrivate::QMovableArrayOps<QString>::Inserter", ptr %8, i32 0, i32 4
   store i64 %34, ptr %35, align 8
-  %36 = getelementptr inbounds %"struct.QtPrivate::QMovableArrayOps<QString>::Inserter", ptr %8, i32 0, i32 4
+  %36 = getelementptr inbounds nuw %"struct.QtPrivate::QMovableArrayOps<QString>::Inserter", ptr %8, i32 0, i32 4
   %37 = load i64, ptr %36, align 8
   %38 = mul i64 %37, 24
   store i64 %38, ptr %36, align 8
-  %39 = getelementptr inbounds %"struct.QtPrivate::QMovableArrayOps<QString>::Inserter", ptr %8, i32 0, i32 2
+  %39 = getelementptr inbounds nuw %"struct.QtPrivate::QMovableArrayOps<QString>::Inserter", ptr %8, i32 0, i32 2
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds %"struct.QtPrivate::QMovableArrayOps<QString>::Inserter", ptr %8, i32 0, i32 1
+  %41 = getelementptr inbounds nuw %"struct.QtPrivate::QMovableArrayOps<QString>::Inserter", ptr %8, i32 0, i32 1
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds %"struct.QtPrivate::QMovableArrayOps<QString>::Inserter", ptr %8, i32 0, i32 4
+  %43 = getelementptr inbounds nuw %"struct.QtPrivate::QMovableArrayOps<QString>::Inserter", ptr %8, i32 0, i32 4
   %44 = load i64, ptr %43, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %40, ptr align 1 %42, i64 %44, i1 false)
-  %45 = load ptr, ptr %7, align 8
-  ret ptr %45
+  %45 = call ptr @memmove.inline(ptr noundef %40, ptr noundef %42, i64 noundef %44) #4
+  %46 = load ptr, ptr %7, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #4
+  ret ptr %46
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN17QArrayDataPointerI7QStringEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #2 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN17QArrayDataPointerI7QStringEC2ERKS1_(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef align 8 dereferenceable(24) %1) unnamed_addr #2 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %5, i32 0, i32 0
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %7, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %7, i32 0, i32 0
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %6, align 8
-  %10 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %5, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %5, i32 0, i32 1
   %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %11, i32 0, i32 1
+  %12 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %11, i32 0, i32 1
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %10, align 8
-  %14 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %5, i32 0, i32 2
+  %14 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %5, i32 0, i32 2
   %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %15, i32 0, i32 2
+  %16 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %15, i32 0, i32 2
   %17 = load i64, ptr %16, align 8
   store i64 %17, ptr %14, align 8
-  call void @_ZN17QArrayDataPointerI7QStringE3refEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #4
+  call void @_ZN17QArrayDataPointerI7QStringE3refEv(ptr noundef align 8 dereferenceable_or_null(24) %5) #4
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN17QArrayDataPointerI7QStringE3refEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #2 comdat align 2 {
+; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN17QArrayDataPointerI7QStringE3refEv(ptr noundef align 8 dereferenceable_or_null(24) %0) #2 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %3, i32 0, i32 0
+  %4 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %3, i32 0, i32 0
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ne ptr %5, null
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds %struct.QArrayDataPointer.18, ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %struct.QArrayDataPointer.18, ptr %3, i32 0, i32 0
   %9 = load ptr, ptr %8, align 8
-  %10 = call noundef zeroext i1 @_ZN10QArrayData3refEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #4
+  %10 = call noundef zeroext i1 @_ZN10QArrayData3refEv(ptr noundef align 8 dereferenceable_or_null(16) %9) #4
   br label %11
 
 11:                                               ; preds = %7, %1
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN43OpenFilePreferencePREF_OPEN_FILENAMEFactoryD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN43OpenFilePreferencePREF_OPEN_FILENAMEFactoryD0Ev(ptr noundef align 8 dereferenceable_or_null(16) %0) unnamed_addr #6 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN43OpenFilePreferencePREF_OPEN_FILENAMEFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #4
-  call void @_ZdlPv(ptr noundef %3) #13
+  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef align 8 dereferenceable_or_null(16) %3) #4
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 16) #22
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN43OpenFilePreferencePREF_OPEN_FILENAMEFactory6createEP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef ptr @_ZN43OpenFilePreferencePREF_OPEN_FILENAMEFactory6createEP7QObject(ptr noundef align 8 dereferenceable_or_null(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -6924,14 +7276,16 @@ define linkonce_odr noundef ptr @_ZN43OpenFilePreferencePREF_OPEN_FILENAMEFactor
   %7 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
-  %8 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
+  %8 = call noalias noundef ptr @_Znwm(i64 noundef 24) #23
   %9 = load ptr, ptr %4, align 8
-  invoke void @_ZN18OpenFilePreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef %9)
+  invoke void @_ZN18OpenFilePreferenceC2EP7QObject(ptr noundef align 8 dereferenceable_or_null(24) %8, ptr noundef %9)
           to label %10 unwind label %12
 
 10:                                               ; preds = %2
   store ptr %8, ptr %5, align 8
   %11 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
   ret ptr %11
 
 12:                                               ; preds = %2
@@ -6941,7 +7295,8 @@ define linkonce_odr noundef ptr @_ZN43OpenFilePreferencePREF_OPEN_FILENAMEFactor
   store ptr %14, ptr %6, align 8
   %15 = extractvalue { ptr, i32 } %13, 1
   store i32 %15, ptr %7, align 4
-  call void @_ZdlPv(ptr noundef %8) #13
+  call void @_ZdlPvm(ptr noundef %8, i64 noundef 24) #22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
   br label %16
 
 16:                                               ; preds = %12
@@ -6952,41 +7307,31 @@ define linkonce_odr noundef ptr @_ZN43OpenFilePreferencePREF_OPEN_FILENAMEFactor
   resume { ptr, i32 } %20
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN18OpenFilePreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN18OpenFilePreferenceC2EP7QObject(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
-  call void @_ZN19WiresharkPreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6)
-  %7 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTV18OpenFilePreference, i32 0, i32 0, i32 2
-  store ptr %7, ptr %5, align 8
+  call void @_ZN19WiresharkPreferenceC2EP7QObject(ptr noundef align 8 dereferenceable_or_null(24) %5, ptr noundef %6)
+  store ptr getelementptr inbounds inrange(-16, 120) ({ [17 x ptr] }, ptr @_ZTV18OpenFilePreference, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN18OpenFilePreferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN18OpenFilePreferenceD0Ev(ptr noundef align 8 dereferenceable_or_null(24) %0) unnamed_addr #6 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN19WiresharkPreferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #4
+  call void @_ZN7QObjectD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %3) #4
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #22
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN18OpenFilePreferenceD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN18OpenFilePreferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #4
-  call void @_ZdlPv(ptr noundef %3) #13
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN18OpenFilePreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(208) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef ptr @_ZN18OpenFilePreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef %1, ptr noundef align 8 dereferenceable(208) %2, ptr noundef align 8 dereferenceable(24) %3) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -7007,68 +7352,81 @@ define linkonce_odr noundef ptr @_ZN18OpenFilePreference6editorEP7QWidgetRK20QSt
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
   %20 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %9) #4
   %21 = load ptr, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %10) #4
   %22 = load ptr, ptr @mainApp, align 8
-  %23 = call noundef ptr @_ZNK19WiresharkPreference9prefsItemEv(ptr noundef nonnull align 8 dereferenceable(24) %20)
-  %24 = call noundef ptr @_ZNK9PrefsItem7getPrefEv(ptr noundef nonnull align 8 dereferenceable(81) %23)
+  %23 = call noundef ptr @_ZNK19WiresharkPreference9prefsItemEv(ptr noundef align 8 dereferenceable_or_null(24) %20)
+  %24 = call noundef ptr @_ZNK9PrefsItem7getPrefEv(ptr noundef align 8 dereferenceable_or_null(105) %23)
   %25 = call ptr @prefs_get_title(ptr noundef %24)
-  call void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef %25)
-  invoke void @_ZN15MainApplication17windowTitleStringE7QString(ptr dead_on_unwind writable sret(%class.QString) align 8 %10, ptr noundef nonnull align 8 dereferenceable(216) %22, ptr noundef %11)
+  call void @_ZN7QStringC2EPKc(ptr noundef align 8 dereferenceable_or_null(24) %11, ptr noundef %25)
+  invoke void @_ZN15MainApplication17windowTitleStringE7QString(ptr dead_on_unwind writable sret(%class.QString) align 8 %10, ptr noundef align 8 dereferenceable_or_null(216) %22, ptr noundef %11)
           to label %26 unwind label %50
 
 26:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 24, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 32, ptr %15) #4
   %27 = load ptr, ptr %8, align 8
-  %28 = call noundef ptr @_ZNK11QModelIndex5modelEv(ptr noundef nonnull align 8 dereferenceable(24) %27) #4
+  %28 = call noundef ptr @_ZNK11QModelIndex5modelEv(ptr noundef align 8 dereferenceable_or_null(24) %27) #4
   %29 = load ptr, ptr %8, align 8
   %30 = load ptr, ptr %28, align 8
   %31 = getelementptr inbounds ptr, ptr %30, i64 18
   %32 = load ptr, ptr %31, align 8
-  invoke void %32(ptr dead_on_unwind writable sret(%class.QVariant) align 8 %15, ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(24) %29, i32 noundef 0)
+  invoke void %32(ptr dead_on_unwind writable sret(%class.QVariant) align 8 %15, ptr noundef align 8 dereferenceable_or_null(16) %28, ptr noundef align 8 dereferenceable(24) %29, i32 noundef 0)
           to label %33 unwind label %54
 
 33:                                               ; preds = %26
-  invoke void @_ZNK8QVariant8toStringEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %14, ptr noundef nonnull align 8 dereferenceable(32) %15)
+  invoke void @_ZNK8QVariant8toStringEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %14, ptr noundef align 8 dereferenceable_or_null(32) %15)
           to label %34 unwind label %58
 
 34:                                               ; preds = %33
-  call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #4
-  call void @_ZN6QFlagsIN11QFileDialog6OptionEEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %17) #4
-  %35 = getelementptr inbounds %class.QFlags.14, ptr %17, i32 0, i32 0
+  call void @llvm.lifetime.start.p0(i64 24, ptr %16) #4
+  call void @_ZN7QStringC2Ev(ptr noundef align 8 dereferenceable_or_null(24) %16) #4
+  call void @_ZN6QFlagsIN11QFileDialog6OptionEEC2Ev(ptr noundef align 4 dereferenceable_or_null(4) %17) #4
+  %35 = getelementptr inbounds nuw %class.QFlags.14, ptr %17, i32 0, i32 0
   %36 = load i32, ptr %35, align 4
-  invoke void @_ZN19WiresharkFileDialog15getOpenFileNameEP7QWidgetRK7QStringS4_S4_PS2_6QFlagsIN11QFileDialog6OptionEE(ptr dead_on_unwind writable sret(%class.QString) align 8 %9, ptr noundef %21, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef null, i32 %36)
+  invoke void @_ZN19WiresharkFileDialog15getOpenFileNameEP7QWidgetRK7QStringS4_S4_PS2_6QFlagsIN11QFileDialog6OptionEE(ptr dead_on_unwind writable sret(%class.QString) align 8 %9, ptr noundef %21, ptr noundef align 8 dereferenceable(24) %10, ptr noundef align 8 dereferenceable(24) %14, ptr noundef align 8 dereferenceable(24) %16, ptr noundef null, i32 %36)
           to label %37 unwind label %62
 
 37:                                               ; preds = %34
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #4
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #4
-  %38 = call noundef zeroext i1 @_ZNK7QString7isEmptyEv(ptr noundef nonnull align 8 dereferenceable(24) %9)
-  br i1 %38, label %82, label %39
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %16) #4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %16) #4
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %14) #4
+  call void @_ZN8QVariantD1Ev(ptr noundef align 8 dereferenceable_or_null(32) %15) #4
+  call void @llvm.lifetime.end.p0(i64 32, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %14) #4
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %10) #4
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %11) #4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %10) #4
+  %38 = call noundef zeroext i1 @_ZNK7QString7isEmptyEv(ptr noundef align 8 dereferenceable_or_null(24) %9)
+  br i1 %38, label %83, label %39
 
 39:                                               ; preds = %37
   %40 = load ptr, ptr %8, align 8
-  %41 = call noundef ptr @_ZNK11QModelIndex5modelEv(ptr noundef nonnull align 8 dereferenceable(24) %40) #4
+  %41 = call noundef ptr @_ZNK11QModelIndex5modelEv(ptr noundef align 8 dereferenceable_or_null(24) %40) #4
   %42 = load ptr, ptr %8, align 8
-  invoke void @_ZN4QDir18toNativeSeparatorsERK7QString(ptr dead_on_unwind writable sret(%class.QString) align 8 %19, ptr noundef nonnull align 8 dereferenceable(24) %9)
+  call void @llvm.lifetime.start.p0(i64 32, ptr %18) #4
+  call void @llvm.lifetime.start.p0(i64 24, ptr %19) #4
+  invoke void @_ZN4QDir18toNativeSeparatorsERK7QString(ptr dead_on_unwind writable sret(%class.QString) align 8 %19, ptr noundef align 8 dereferenceable(24) %9)
           to label %43 unwind label %69
 
 43:                                               ; preds = %39
-  invoke void @_ZN8QVariantC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(24) %19)
+  invoke void @_ZN8QVariantC1ERK7QString(ptr noundef align 8 dereferenceable_or_null(32) %18, ptr noundef align 8 dereferenceable(24) %19)
           to label %44 unwind label %73
 
 44:                                               ; preds = %43
   %45 = load ptr, ptr %41, align 8
   %46 = getelementptr inbounds ptr, ptr %45, i64 19
   %47 = load ptr, ptr %46, align 8
-  %48 = invoke noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(32) %18, i32 noundef 2)
+  %48 = invoke noundef zeroext i1 %47(ptr noundef align 8 dereferenceable_or_null(16) %41, ptr noundef align 8 dereferenceable(24) %42, ptr noundef align 8 dereferenceable(32) %18, i32 noundef 2)
           to label %49 unwind label %77
 
 49:                                               ; preds = %44
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #4
-  br label %82
+  call void @_ZN8QVariantD1Ev(ptr noundef align 8 dereferenceable_or_null(32) %18) #4
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %19) #4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 32, ptr %18) #4
+  br label %83
 
 50:                                               ; preds = %4
   %51 = landingpad { ptr, i32 }
@@ -7104,20 +7462,24 @@ define linkonce_odr noundef ptr @_ZN18OpenFilePreference6editorEP7QWidgetRK20QSt
   store ptr %64, ptr %12, align 8
   %65 = extractvalue { ptr, i32 } %63, 1
   store i32 %65, ptr %13, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #4
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %16) #4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %16) #4
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %14) #4
   br label %66
 
 66:                                               ; preds = %62, %58
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #4
+  call void @_ZN8QVariantD1Ev(ptr noundef align 8 dereferenceable_or_null(32) %15) #4
   br label %67
 
 67:                                               ; preds = %66, %54
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #4
+  call void @llvm.lifetime.end.p0(i64 32, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %14) #4
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %10) #4
   br label %68
 
 68:                                               ; preds = %67, %50
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #4
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %11) #4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %10) #4
   br label %88
 
 69:                                               ; preds = %39
@@ -7127,7 +7489,7 @@ define linkonce_odr noundef ptr @_ZN18OpenFilePreference6editorEP7QWidgetRK20QSt
   store ptr %71, ptr %12, align 8
   %72 = extractvalue { ptr, i32 } %70, 1
   store i32 %72, ptr %13, align 4
-  br label %87
+  br label %82
 
 73:                                               ; preds = %43
   %74 = landingpad { ptr, i32 }
@@ -7145,47 +7507,55 @@ define linkonce_odr noundef ptr @_ZN18OpenFilePreference6editorEP7QWidgetRK20QSt
   store ptr %79, ptr %12, align 8
   %80 = extractvalue { ptr, i32 } %78, 1
   store i32 %80, ptr %13, align 4
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #4
+  call void @_ZN8QVariantD1Ev(ptr noundef align 8 dereferenceable_or_null(32) %18) #4
   br label %81
 
 81:                                               ; preds = %77, %73
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #4
-  br label %87
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %19) #4
+  br label %82
 
-82:                                               ; preds = %49, %37
-  %83 = load ptr, ptr %6, align 8
-  %84 = load ptr, ptr %7, align 8
-  %85 = load ptr, ptr %8, align 8
-  %86 = call noundef ptr @_ZN19WiresharkPreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef %83, ptr noundef nonnull align 8 dereferenceable(208) %84, ptr noundef nonnull align 8 dereferenceable(24) %85)
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #4
-  ret ptr %86
-
-87:                                               ; preds = %81, %69
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #4
+82:                                               ; preds = %81, %69
+  call void @llvm.lifetime.end.p0(i64 24, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 32, ptr %18) #4
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %9) #4
   br label %88
 
-88:                                               ; preds = %87, %68
-  %89 = load ptr, ptr %12, align 8
-  %90 = load i32, ptr %13, align 4
-  %91 = insertvalue { ptr, i32 } poison, ptr %89, 0
-  %92 = insertvalue { ptr, i32 } %91, i32 %90, 1
-  resume { ptr, i32 } %92
+83:                                               ; preds = %49, %37
+  %84 = load ptr, ptr %6, align 8
+  %85 = load ptr, ptr %7, align 8
+  %86 = load ptr, ptr %8, align 8
+  %87 = call noundef ptr @_ZN19WiresharkPreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex(ptr noundef align 8 dereferenceable_or_null(24) %20, ptr noundef %84, ptr noundef align 8 dereferenceable(208) %85, ptr noundef align 8 dereferenceable(24) %86)
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %9) #4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %9) #4
+  ret ptr %87
+
+88:                                               ; preds = %82, %68
+  call void @llvm.lifetime.end.p0(i64 24, ptr %9) #4
+  br label %89
+
+89:                                               ; preds = %88
+  %90 = load ptr, ptr %12, align 8
+  %91 = load i32, ptr %13, align 4
+  %92 = insertvalue { ptr, i32 } poison, ptr %90, 0
+  %93 = insertvalue { ptr, i32 } %92, i32 %91, 1
+  resume { ptr, i32 } %93
 }
 
-declare void @_ZN19WiresharkFileDialog15getOpenFileNameEP7QWidgetRK7QStringS4_S4_PS2_6QFlagsIN11QFileDialog6OptionEE(ptr dead_on_unwind writable sret(%class.QString) align 8, ptr noundef, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, i32) #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN19WiresharkFileDialog15getOpenFileNameEP7QWidgetRK7QStringS4_S4_PS2_6QFlagsIN11QFileDialog6OptionEE(ptr dead_on_unwind writable sret(%class.QString) align 8, ptr noundef, ptr noundef align 8 dereferenceable(24), ptr noundef align 8 dereferenceable(24), ptr noundef align 8 dereferenceable(24), ptr noundef, i32) #1
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN36DirNamePreferencePREF_DIRNAMEFactoryD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN36DirNamePreferencePREF_DIRNAMEFactoryD0Ev(ptr noundef align 8 dereferenceable_or_null(16) %0) unnamed_addr #6 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN36DirNamePreferencePREF_DIRNAMEFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #4
-  call void @_ZdlPv(ptr noundef %3) #13
+  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef align 8 dereferenceable_or_null(16) %3) #4
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 16) #22
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN36DirNamePreferencePREF_DIRNAMEFactory6createEP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef ptr @_ZN36DirNamePreferencePREF_DIRNAMEFactory6createEP7QObject(ptr noundef align 8 dereferenceable_or_null(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -7193,14 +7563,16 @@ define linkonce_odr noundef ptr @_ZN36DirNamePreferencePREF_DIRNAMEFactory6creat
   %7 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
-  %8 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
+  %8 = call noalias noundef ptr @_Znwm(i64 noundef 24) #23
   %9 = load ptr, ptr %4, align 8
-  invoke void @_ZN17DirNamePreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef %9)
+  invoke void @_ZN17DirNamePreferenceC2EP7QObject(ptr noundef align 8 dereferenceable_or_null(24) %8, ptr noundef %9)
           to label %10 unwind label %12
 
 10:                                               ; preds = %2
   store ptr %8, ptr %5, align 8
   %11 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
   ret ptr %11
 
 12:                                               ; preds = %2
@@ -7210,7 +7582,8 @@ define linkonce_odr noundef ptr @_ZN36DirNamePreferencePREF_DIRNAMEFactory6creat
   store ptr %14, ptr %6, align 8
   %15 = extractvalue { ptr, i32 } %13, 1
   store i32 %15, ptr %7, align 4
-  call void @_ZdlPv(ptr noundef %8) #13
+  call void @_ZdlPvm(ptr noundef %8, i64 noundef 24) #22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
   br label %16
 
 16:                                               ; preds = %12
@@ -7221,41 +7594,31 @@ define linkonce_odr noundef ptr @_ZN36DirNamePreferencePREF_DIRNAMEFactory6creat
   resume { ptr, i32 } %20
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN17DirNamePreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN17DirNamePreferenceC2EP7QObject(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
-  call void @_ZN19WiresharkPreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6)
-  %7 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTV17DirNamePreference, i32 0, i32 0, i32 2
-  store ptr %7, ptr %5, align 8
+  call void @_ZN19WiresharkPreferenceC2EP7QObject(ptr noundef align 8 dereferenceable_or_null(24) %5, ptr noundef %6)
+  store ptr getelementptr inbounds inrange(-16, 120) ({ [17 x ptr] }, ptr @_ZTV17DirNamePreference, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN17DirNamePreferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN17DirNamePreferenceD0Ev(ptr noundef align 8 dereferenceable_or_null(24) %0) unnamed_addr #6 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN19WiresharkPreferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #4
+  call void @_ZN7QObjectD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %3) #4
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #22
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN17DirNamePreferenceD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN17DirNamePreferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #4
-  call void @_ZdlPv(ptr noundef %3) #13
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN17DirNamePreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(208) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef ptr @_ZN17DirNamePreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef %1, ptr noundef align 8 dereferenceable(208) %2, ptr noundef align 8 dereferenceable(24) %3) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -7275,66 +7638,77 @@ define linkonce_odr noundef ptr @_ZN17DirNamePreference6editorEP7QWidgetRK20QSty
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
   %19 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %9) #4
   %20 = load ptr, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr %10) #4
   %21 = load ptr, ptr @mainApp, align 8
-  %22 = call noundef ptr @_ZNK19WiresharkPreference9prefsItemEv(ptr noundef nonnull align 8 dereferenceable(24) %19)
-  %23 = call noundef ptr @_ZNK9PrefsItem7getPrefEv(ptr noundef nonnull align 8 dereferenceable(81) %22)
+  %22 = call noundef ptr @_ZNK19WiresharkPreference9prefsItemEv(ptr noundef align 8 dereferenceable_or_null(24) %19)
+  %23 = call noundef ptr @_ZNK9PrefsItem7getPrefEv(ptr noundef align 8 dereferenceable_or_null(105) %22)
   %24 = call ptr @prefs_get_title(ptr noundef %23)
-  call void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef %24)
-  invoke void @_ZN15MainApplication17windowTitleStringE7QString(ptr dead_on_unwind writable sret(%class.QString) align 8 %10, ptr noundef nonnull align 8 dereferenceable(216) %21, ptr noundef %11)
+  call void @_ZN7QStringC2EPKc(ptr noundef align 8 dereferenceable_or_null(24) %11, ptr noundef %24)
+  invoke void @_ZN15MainApplication17windowTitleStringE7QString(ptr dead_on_unwind writable sret(%class.QString) align 8 %10, ptr noundef align 8 dereferenceable_or_null(216) %21, ptr noundef %11)
           to label %25 unwind label %49
 
 25:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 24, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 32, ptr %15) #4
   %26 = load ptr, ptr %8, align 8
-  %27 = call noundef ptr @_ZNK11QModelIndex5modelEv(ptr noundef nonnull align 8 dereferenceable(24) %26) #4
+  %27 = call noundef ptr @_ZNK11QModelIndex5modelEv(ptr noundef align 8 dereferenceable_or_null(24) %26) #4
   %28 = load ptr, ptr %8, align 8
   %29 = load ptr, ptr %27, align 8
   %30 = getelementptr inbounds ptr, ptr %29, i64 18
   %31 = load ptr, ptr %30, align 8
-  invoke void %31(ptr dead_on_unwind writable sret(%class.QVariant) align 8 %15, ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(24) %28, i32 noundef 0)
+  invoke void %31(ptr dead_on_unwind writable sret(%class.QVariant) align 8 %15, ptr noundef align 8 dereferenceable_or_null(16) %27, ptr noundef align 8 dereferenceable(24) %28, i32 noundef 0)
           to label %32 unwind label %53
 
 32:                                               ; preds = %25
-  invoke void @_ZNK8QVariant8toStringEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %14, ptr noundef nonnull align 8 dereferenceable(32) %15)
+  invoke void @_ZNK8QVariant8toStringEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %14, ptr noundef align 8 dereferenceable_or_null(32) %15)
           to label %33 unwind label %57
 
 33:                                               ; preds = %32
-  call void @_ZN6QFlagsIN11QFileDialog6OptionEEC2ES1_(ptr noundef nonnull align 4 dereferenceable(4) %16, i32 noundef 1) #4
-  %34 = getelementptr inbounds %class.QFlags.14, ptr %16, i32 0, i32 0
+  call void @_ZN6QFlagsIN11QFileDialog6OptionEEC2ES1_(ptr noundef align 4 dereferenceable_or_null(4) %16, i32 noundef 1) #4
+  %34 = getelementptr inbounds nuw %class.QFlags.14, ptr %16, i32 0, i32 0
   %35 = load i32, ptr %34, align 4
-  invoke void @_ZN19WiresharkFileDialog20getExistingDirectoryEP7QWidgetRK7QStringS4_6QFlagsIN11QFileDialog6OptionEE(ptr dead_on_unwind writable sret(%class.QString) align 8 %9, ptr noundef %20, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %14, i32 %35)
+  invoke void @_ZN19WiresharkFileDialog20getExistingDirectoryEP7QWidgetRK7QStringS4_6QFlagsIN11QFileDialog6OptionEE(ptr dead_on_unwind writable sret(%class.QString) align 8 %9, ptr noundef %20, ptr noundef align 8 dereferenceable(24) %10, ptr noundef align 8 dereferenceable(24) %14, i32 %35)
           to label %36 unwind label %61
 
 36:                                               ; preds = %33
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #4
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #4
-  %37 = call noundef zeroext i1 @_ZNK7QString7isEmptyEv(ptr noundef nonnull align 8 dereferenceable(24) %9)
-  br i1 %37, label %81, label %38
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %14) #4
+  call void @_ZN8QVariantD1Ev(ptr noundef align 8 dereferenceable_or_null(32) %15) #4
+  call void @llvm.lifetime.end.p0(i64 32, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %14) #4
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %10) #4
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %11) #4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %10) #4
+  %37 = call noundef zeroext i1 @_ZNK7QString7isEmptyEv(ptr noundef align 8 dereferenceable_or_null(24) %9)
+  br i1 %37, label %82, label %38
 
 38:                                               ; preds = %36
   %39 = load ptr, ptr %8, align 8
-  %40 = call noundef ptr @_ZNK11QModelIndex5modelEv(ptr noundef nonnull align 8 dereferenceable(24) %39) #4
+  %40 = call noundef ptr @_ZNK11QModelIndex5modelEv(ptr noundef align 8 dereferenceable_or_null(24) %39) #4
   %41 = load ptr, ptr %8, align 8
-  invoke void @_ZN4QDir18toNativeSeparatorsERK7QString(ptr dead_on_unwind writable sret(%class.QString) align 8 %18, ptr noundef nonnull align 8 dereferenceable(24) %9)
+  call void @llvm.lifetime.start.p0(i64 32, ptr %17) #4
+  call void @llvm.lifetime.start.p0(i64 24, ptr %18) #4
+  invoke void @_ZN4QDir18toNativeSeparatorsERK7QString(ptr dead_on_unwind writable sret(%class.QString) align 8 %18, ptr noundef align 8 dereferenceable(24) %9)
           to label %42 unwind label %68
 
 42:                                               ; preds = %38
-  invoke void @_ZN8QVariantC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(24) %18)
+  invoke void @_ZN8QVariantC1ERK7QString(ptr noundef align 8 dereferenceable_or_null(32) %17, ptr noundef align 8 dereferenceable(24) %18)
           to label %43 unwind label %72
 
 43:                                               ; preds = %42
   %44 = load ptr, ptr %40, align 8
   %45 = getelementptr inbounds ptr, ptr %44, i64 19
   %46 = load ptr, ptr %45, align 8
-  %47 = invoke noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(32) %17, i32 noundef 2)
+  %47 = invoke noundef zeroext i1 %46(ptr noundef align 8 dereferenceable_or_null(16) %40, ptr noundef align 8 dereferenceable(24) %41, ptr noundef align 8 dereferenceable(32) %17, i32 noundef 2)
           to label %48 unwind label %76
 
 48:                                               ; preds = %43
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #4
-  br label %81
+  call void @_ZN8QVariantD1Ev(ptr noundef align 8 dereferenceable_or_null(32) %17) #4
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %18) #4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 32, ptr %17) #4
+  br label %82
 
 49:                                               ; preds = %4
   %50 = landingpad { ptr, i32 }
@@ -7370,19 +7744,22 @@ define linkonce_odr noundef ptr @_ZN17DirNamePreference6editorEP7QWidgetRK20QSty
   store ptr %63, ptr %12, align 8
   %64 = extractvalue { ptr, i32 } %62, 1
   store i32 %64, ptr %13, align 4
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #4
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %14) #4
   br label %65
 
 65:                                               ; preds = %61, %57
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #4
+  call void @_ZN8QVariantD1Ev(ptr noundef align 8 dereferenceable_or_null(32) %15) #4
   br label %66
 
 66:                                               ; preds = %65, %53
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #4
+  call void @llvm.lifetime.end.p0(i64 32, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %14) #4
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %10) #4
   br label %67
 
 67:                                               ; preds = %66, %49
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #4
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %11) #4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %10) #4
   br label %87
 
 68:                                               ; preds = %38
@@ -7392,7 +7769,7 @@ define linkonce_odr noundef ptr @_ZN17DirNamePreference6editorEP7QWidgetRK20QSty
   store ptr %70, ptr %12, align 8
   %71 = extractvalue { ptr, i32 } %69, 1
   store i32 %71, ptr %13, align 4
-  br label %86
+  br label %81
 
 72:                                               ; preds = %42
   %73 = landingpad { ptr, i32 }
@@ -7410,60 +7787,68 @@ define linkonce_odr noundef ptr @_ZN17DirNamePreference6editorEP7QWidgetRK20QSty
   store ptr %78, ptr %12, align 8
   %79 = extractvalue { ptr, i32 } %77, 1
   store i32 %79, ptr %13, align 4
-  call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #4
+  call void @_ZN8QVariantD1Ev(ptr noundef align 8 dereferenceable_or_null(32) %17) #4
   br label %80
 
 80:                                               ; preds = %76, %72
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #4
-  br label %86
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %18) #4
+  br label %81
 
-81:                                               ; preds = %48, %36
-  %82 = load ptr, ptr %6, align 8
-  %83 = load ptr, ptr %7, align 8
-  %84 = load ptr, ptr %8, align 8
-  %85 = call noundef ptr @_ZN19WiresharkPreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef %82, ptr noundef nonnull align 8 dereferenceable(208) %83, ptr noundef nonnull align 8 dereferenceable(24) %84)
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #4
-  ret ptr %85
-
-86:                                               ; preds = %80, %68
-  call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #4
+81:                                               ; preds = %80, %68
+  call void @llvm.lifetime.end.p0(i64 24, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 32, ptr %17) #4
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %9) #4
   br label %87
 
-87:                                               ; preds = %86, %67
-  %88 = load ptr, ptr %12, align 8
-  %89 = load i32, ptr %13, align 4
-  %90 = insertvalue { ptr, i32 } poison, ptr %88, 0
-  %91 = insertvalue { ptr, i32 } %90, i32 %89, 1
-  resume { ptr, i32 } %91
+82:                                               ; preds = %48, %36
+  %83 = load ptr, ptr %6, align 8
+  %84 = load ptr, ptr %7, align 8
+  %85 = load ptr, ptr %8, align 8
+  %86 = call noundef ptr @_ZN19WiresharkPreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex(ptr noundef align 8 dereferenceable_or_null(24) %19, ptr noundef %83, ptr noundef align 8 dereferenceable(208) %84, ptr noundef align 8 dereferenceable(24) %85)
+  call void @_ZN7QStringD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %9) #4
+  call void @llvm.lifetime.end.p0(i64 24, ptr %9) #4
+  ret ptr %86
+
+87:                                               ; preds = %81, %67
+  call void @llvm.lifetime.end.p0(i64 24, ptr %9) #4
+  br label %88
+
+88:                                               ; preds = %87
+  %89 = load ptr, ptr %12, align 8
+  %90 = load i32, ptr %13, align 4
+  %91 = insertvalue { ptr, i32 } poison, ptr %89, 0
+  %92 = insertvalue { ptr, i32 } %91, i32 %90, 1
+  resume { ptr, i32 } %92
 }
 
-declare void @_ZN19WiresharkFileDialog20getExistingDirectoryEP7QWidgetRK7QStringS4_6QFlagsIN11QFileDialog6OptionEE(ptr dead_on_unwind writable sret(%class.QString) align 8, ptr noundef, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), i32) #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN19WiresharkFileDialog20getExistingDirectoryEP7QWidgetRK7QStringS4_6QFlagsIN11QFileDialog6OptionEE(ptr dead_on_unwind writable sret(%class.QString) align 8, ptr noundef, ptr noundef align 8 dereferenceable(24), ptr noundef align 8 dereferenceable(24), i32) #1
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6QFlagsIN11QFileDialog6OptionEEC2ES1_(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1) unnamed_addr #2 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN6QFlagsIN11QFileDialog6OptionEEC2ES1_(ptr noundef align 4 dereferenceable_or_null(4) %0, i32 noundef %1) unnamed_addr #6 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %class.QFlags.14, ptr %5, i32 0, i32 0
+  %6 = getelementptr inbounds nuw %class.QFlags.14, ptr %5, i32 0, i32 0
   %7 = load i32, ptr %4, align 4
   store i32 %7, ptr %6, align 4
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN28UatPreferencePREF_UATFactoryD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN28UatPreferencePREF_UATFactoryD0Ev(ptr noundef align 8 dereferenceable_or_null(16) %0) unnamed_addr #6 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN28UatPreferencePREF_UATFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #4
-  call void @_ZdlPv(ptr noundef %3) #13
+  call void @_ZN17PreferenceFactoryD2Ev(ptr noundef align 8 dereferenceable_or_null(16) %3) #4
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 16) #22
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN28UatPreferencePREF_UATFactory6createEP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef ptr @_ZN28UatPreferencePREF_UATFactory6createEP7QObject(ptr noundef align 8 dereferenceable_or_null(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -7471,14 +7856,16 @@ define linkonce_odr noundef ptr @_ZN28UatPreferencePREF_UATFactory6createEP7QObj
   %7 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
-  %8 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
+  %8 = call noalias noundef ptr @_Znwm(i64 noundef 24) #23
   %9 = load ptr, ptr %4, align 8
-  invoke void @_ZN13UatPreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef %9)
+  invoke void @_ZN13UatPreferenceC2EP7QObject(ptr noundef align 8 dereferenceable_or_null(24) %8, ptr noundef %9)
           to label %10 unwind label %12
 
 10:                                               ; preds = %2
   store ptr %8, ptr %5, align 8
   %11 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
   ret ptr %11
 
 12:                                               ; preds = %2
@@ -7488,7 +7875,8 @@ define linkonce_odr noundef ptr @_ZN28UatPreferencePREF_UATFactory6createEP7QObj
   store ptr %14, ptr %6, align 8
   %15 = extractvalue { ptr, i32 } %13, 1
   store i32 %15, ptr %7, align 4
-  call void @_ZdlPv(ptr noundef %8) #13
+  call void @_ZdlPvm(ptr noundef %8, i64 noundef 24) #22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
   br label %16
 
 16:                                               ; preds = %12
@@ -7499,41 +7887,31 @@ define linkonce_odr noundef ptr @_ZN28UatPreferencePREF_UATFactory6createEP7QObj
   resume { ptr, i32 } %20
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN13UatPreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN13UatPreferenceC2EP7QObject(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
-  call void @_ZN19WiresharkPreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6)
-  %7 = getelementptr inbounds { [17 x ptr] }, ptr @_ZTV13UatPreference, i32 0, i32 0, i32 2
-  store ptr %7, ptr %5, align 8
+  call void @_ZN19WiresharkPreferenceC2EP7QObject(ptr noundef align 8 dereferenceable_or_null(24) %5, ptr noundef %6)
+  store ptr getelementptr inbounds inrange(-16, 120) ({ [17 x ptr] }, ptr @_ZTV13UatPreference, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN13UatPreferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
+; Function Attrs: inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable
+define linkonce_odr void @_ZN13UatPreferenceD0Ev(ptr noundef align 8 dereferenceable_or_null(24) %0) unnamed_addr #6 comdat align 2 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  call void @_ZN19WiresharkPreferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #4
+  call void @_ZN7QObjectD2Ev(ptr noundef align 8 dereferenceable_or_null(24) %3) #4
+  call void @_ZdlPvm(ptr noundef %3, i64 noundef 24) #22
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN13UatPreferenceD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
-  %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  call void @_ZN13UatPreferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #4
-  call void @_ZdlPv(ptr noundef %3) #13
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN13UatPreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(208) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
+define linkonce_odr noundef ptr @_ZN13UatPreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex(ptr noundef align 8 dereferenceable_or_null(24) %0, ptr noundef %1, ptr noundef align 8 dereferenceable(208) %2, ptr noundef align 8 dereferenceable(24) %3) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -7546,20 +7924,22 @@ define linkonce_odr noundef ptr @_ZN13UatPreference6editorEP7QWidgetRK20QStyleOp
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
   %12 = load ptr, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 120, ptr %9) #4
   %13 = load ptr, ptr %6, align 8
-  %14 = call noundef ptr @_ZNK19WiresharkPreference9prefsItemEv(ptr noundef nonnull align 8 dereferenceable(24) %12)
-  %15 = call noundef ptr @_ZNK9PrefsItem7getPrefEv(ptr noundef nonnull align 8 dereferenceable(81) %14)
+  %14 = call noundef ptr @_ZNK19WiresharkPreference9prefsItemEv(ptr noundef align 8 dereferenceable_or_null(24) %12)
+  %15 = call noundef ptr @_ZNK9PrefsItem7getPrefEv(ptr noundef align 8 dereferenceable_or_null(105) %14)
   %16 = call ptr @prefs_get_uat_value(ptr noundef %15)
-  call void @_ZN9UatDialogC1EP7QWidgetP8epan_uat(ptr noundef nonnull align 8 dereferenceable(112) %9, ptr noundef %13, ptr noundef %16)
-  %17 = invoke noundef i32 @_ZN7QDialog4execEv(ptr noundef nonnull align 8 dereferenceable(40) %9)
+  call void @_ZN9UatDialogC1EP7QWidgetP8epan_uat(ptr noundef align 8 dereferenceable_or_null(120) %9, ptr noundef %13, ptr noundef %16)
+  %17 = invoke noundef i32 @_ZN7QDialog4execEv(ptr noundef align 8 dereferenceable_or_null(40) %9)
           to label %18 unwind label %23
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %6, align 8
   %20 = load ptr, ptr %7, align 8
   %21 = load ptr, ptr %8, align 8
-  %22 = call noundef ptr @_ZN19WiresharkPreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef %19, ptr noundef nonnull align 8 dereferenceable(208) %20, ptr noundef nonnull align 8 dereferenceable(24) %21)
-  call void @_ZN9UatDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #4
+  %22 = call noundef ptr @_ZN19WiresharkPreference6editorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex(ptr noundef align 8 dereferenceable_or_null(24) %12, ptr noundef %19, ptr noundef align 8 dereferenceable(208) %20, ptr noundef align 8 dereferenceable(24) %21)
+  call void @_ZN9UatDialogD1Ev(ptr noundef align 8 dereferenceable_or_null(120) %9) #4
+  call void @llvm.lifetime.end.p0(i64 120, ptr %9) #4
   ret ptr %22
 
 23:                                               ; preds = %4
@@ -7569,7 +7949,8 @@ define linkonce_odr noundef ptr @_ZN13UatPreference6editorEP7QWidgetRK20QStyleOp
   store ptr %25, ptr %10, align 8
   %26 = extractvalue { ptr, i32 } %24, 1
   store i32 %26, ptr %11, align 4
-  call void @_ZN9UatDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %9) #4
+  call void @_ZN9UatDialogD1Ev(ptr noundef align 8 dereferenceable_or_null(120) %9) #4
+  call void @llvm.lifetime.end.p0(i64 120, ptr %9) #4
   br label %27
 
 27:                                               ; preds = %23
@@ -7580,16 +7961,19 @@ define linkonce_odr noundef ptr @_ZN13UatPreference6editorEP7QWidgetRK20QStyleOp
   resume { ptr, i32 } %31
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @prefs_get_uat_value(ptr noundef) #1
 
-declare void @_ZN9UatDialogC1EP7QWidgetP8epan_uat(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef, ptr noundef) unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @_ZN9UatDialogC1EP7QWidgetP8epan_uat(ptr noundef align 8 dereferenceable_or_null(120), ptr noundef, ptr noundef) unnamed_addr #1
 
-declare noundef i32 @_ZN7QDialog4execEv(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare noundef i32 @_ZN7QDialog4execEv(ptr noundef align 8 dereferenceable_or_null(40)) unnamed_addr #1
 
-; Function Attrs: nounwind
-declare void @_ZN9UatDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #5
+; Function Attrs: nounwind null_pointer_is_valid
+declare void @_ZN9UatDialogD1Ev(ptr noundef align 8 dereferenceable_or_null(120)) unnamed_addr #5
 
-; Function Attrs: uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @_GLOBAL__sub_I_wireshark_preference.cpp() #3 section ".text.startup" {
   call void @__cxx_global_var_init()
   call void @__cxx_global_var_init.1()
@@ -7608,32 +7992,45 @@ define internal void @_GLOBAL__sub_I_wireshark_preference.cpp() #3 section ".tex
   ret void
 }
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind }
-attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { cold noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #13 = { builtin nounwind }
-attributes #14 = { builtin allocsize(0) }
-attributes #15 = { noreturn nounwind }
-attributes #16 = { cold noreturn }
+attributes #5 = { nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { inlinehint mustprogress nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { inlinehint mustprogress null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nobuiltin nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nobuiltin null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { alwaysinline mustprogress nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { noinline noreturn nounwind null_pointer_is_valid sspstrong uwtable "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #15 = { noreturn nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #17 = { mustprogress noinline null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { alwaysinline mustprogress nounwind "min-legal-vector-width"="0" }
+attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #20 = { cold noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #22 = { builtin nounwind }
+attributes #23 = { builtin allocsize(0) }
+attributes #24 = { noreturn nounwind }
+attributes #25 = { cold noreturn }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}

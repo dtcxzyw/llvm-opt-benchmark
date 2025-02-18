@@ -6,8 +6,8 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
 %struct.true_false_string = type { ptr, ptr }
-%struct._value_string = type { i32, ptr }
 %struct._value_string_ext = type { ptr, i32, i32, ptr, ptr }
+%struct._value_string = type { i32, ptr }
 
 @proto_register_rtp_midi.hf = internal global [296 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_rtp_midi_bflag, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 2, i32 8, ptr @rtp_midi_cs_flag_b, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_jflag, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 2, i32 8, ptr @rtp_midi_cs_flag_j, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_zflag, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 2, i32 8, ptr @rtp_midi_cs_flag_z, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_pflag, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 2, i32 8, ptr @rtp_midi_cs_flag_p, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_shortlen, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 4, i32 1, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_longlen, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 5, i32 1, ptr null, i64 4095, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sflag, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 2, i32 8, ptr @rtp_midi_js_flag_s, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_yflag, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 2, i32 8, ptr @rtp_midi_js_flag_y, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_aflag, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 2, i32 8, ptr @rtp_midi_js_flag_a, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_hflag, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 2, i32 8, ptr @rtp_midi_js_flag_h, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_totchan, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 4, i32 1, ptr @rtp_midi_js_tot_channels, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_check_seq_num, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_deltatime1, %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 4, i32 2, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_deltatime2, %struct._header_field_info { ptr @.str.26, ptr @.str.27, i32 5, i32 2, ptr null, i64 32639, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_deltatime3, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 6, i32 2, ptr null, i64 8355711, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_deltatime4, %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 7, i32 2, ptr null, i64 2139062143, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_channel_status, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 4, i32 2, ptr @rtp_midi_channel_status, i64 240, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_common_status, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 4, i32 2, ptr @rtp_midi_common_status, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_channel, %struct._header_field_info { ptr @.str.36, ptr @.str.37, i32 4, i32 2, ptr @rtp_midi_channels, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_note, %struct._header_field_info { ptr @.str.38, ptr @.str.39, i32 4, i32 513, ptr @rtp_midi_note_values_ext, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_velocity, %struct._header_field_info { ptr @.str.40, ptr @.str.41, i32 4, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_pressure, %struct._header_field_info { ptr @.str.42, ptr @.str.43, i32 4, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_controller, %struct._header_field_info { ptr @.str.44, ptr @.str.45, i32 4, i32 513, ptr @rtp_midi_controller_values_ext, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_controller_value, %struct._header_field_info { ptr @.str.46, ptr @.str.47, i32 4, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_program, %struct._header_field_info { ptr @.str.48, ptr @.str.49, i32 4, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_channel_pressure, %struct._header_field_info { ptr @.str.42, ptr @.str.50, i32 4, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_pitch_bend, %struct._header_field_info { ptr @.str.51, ptr @.str.52, i32 5, i32 1, ptr null, i64 32639, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_manu_short, %struct._header_field_info { ptr @.str.53, ptr @.str.54, i32 4, i32 514, ptr @rtp_midi_manu_short_values_ext, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_manu_long, %struct._header_field_info { ptr @.str.55, ptr @.str.56, i32 5, i32 514, ptr @rtp_midi_manu_long_values_ext, i64 32639, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysjour_toc_s, %struct._header_field_info { ptr @.str.57, ptr @.str.58, i32 2, i32 16, ptr @rtp_midi_js_flag_s, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysjour_toc_d, %struct._header_field_info { ptr @.str.59, ptr @.str.60, i32 2, i32 16, ptr @rtp_midi_sj_flag_d, i64 16384, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysjour_toc_v, %struct._header_field_info { ptr @.str.61, ptr @.str.62, i32 2, i32 16, ptr @rtp_midi_sj_flag_v, i64 8192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysjour_toc_q, %struct._header_field_info { ptr @.str.63, ptr @.str.64, i32 2, i32 16, ptr @rtp_midi_sj_flag_q, i64 4096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysjour_toc_f, %struct._header_field_info { ptr @.str.65, ptr @.str.66, i32 2, i32 16, ptr @rtp_midi_sj_flag_f, i64 2048, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysjour_toc_x, %struct._header_field_info { ptr @.str.67, ptr @.str.68, i32 2, i32 16, ptr @rtp_midi_sj_flag_x, i64 1024, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysjour_len, %struct._header_field_info { ptr @.str.69, ptr @.str.70, i32 5, i32 1, ptr null, i64 1023, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_chanjour_sflag, %struct._header_field_info { ptr @.str.71, ptr @.str.72, i32 2, i32 24, ptr @rtp_midi_js_flag_s, i64 8388608, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_chanjour_chan, %struct._header_field_info { ptr @.str.36, ptr @.str.73, i32 6, i32 2, ptr @rtp_midi_channels, i64 7864320, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_chanjour_hflag, %struct._header_field_info { ptr @.str.74, ptr @.str.75, i32 2, i32 24, ptr @rtp_midi_js_flag_h, i64 262144, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_chanjour_len, %struct._header_field_info { ptr @.str.76, ptr @.str.77, i32 6, i32 1, ptr null, i64 261888, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_chanjour_toc_p, %struct._header_field_info { ptr @.str.78, ptr @.str.79, i32 2, i32 24, ptr @rtp_midi_cj_flag_p, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_chanjour_toc_c, %struct._header_field_info { ptr @.str.80, ptr @.str.81, i32 2, i32 24, ptr @rtp_midi_cj_flag_c, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_chanjour_toc_m, %struct._header_field_info { ptr @.str.82, ptr @.str.83, i32 2, i32 24, ptr @rtp_midi_cj_flag_m, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_chanjour_toc_w, %struct._header_field_info { ptr @.str.84, ptr @.str.85, i32 2, i32 24, ptr @rtp_midi_cj_flag_w, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_chanjour_toc_n, %struct._header_field_info { ptr @.str.86, ptr @.str.87, i32 2, i32 24, ptr @rtp_midi_cj_flag_n, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_chanjour_toc_e, %struct._header_field_info { ptr @.str.88, ptr @.str.89, i32 2, i32 24, ptr @rtp_midi_cj_flag_e, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_chanjour_toc_t, %struct._header_field_info { ptr @.str.90, ptr @.str.91, i32 2, i32 24, ptr @rtp_midi_cj_flag_t, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_chanjour_toc_a, %struct._header_field_info { ptr @.str.92, ptr @.str.93, i32 2, i32 24, ptr @rtp_midi_cj_flag_a, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_p_sflag, %struct._header_field_info { ptr @.str.94, ptr @.str.95, i32 2, i32 8, ptr @rtp_midi_js_flag_s, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_p_program, %struct._header_field_info { ptr @.str.96, ptr @.str.97, i32 4, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_p_bflag, %struct._header_field_info { ptr @.str.98, ptr @.str.99, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_p_bank_msb, %struct._header_field_info { ptr @.str.100, ptr @.str.101, i32 4, i32 2, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_p_xflag, %struct._header_field_info { ptr @.str.102, ptr @.str.103, i32 2, i32 8, ptr @rtp_midi_cj_chapter_p_log_flag_x, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_p_bank_lsb, %struct._header_field_info { ptr @.str.104, ptr @.str.105, i32 4, i32 2, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_c_sflag, %struct._header_field_info { ptr @.str.106, ptr @.str.107, i32 2, i32 8, ptr @rtp_midi_js_flag_s, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_c_length, %struct._header_field_info { ptr @.str.108, ptr @.str.109, i32 4, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_c_number, %struct._header_field_info { ptr @.str.110, ptr @.str.111, i32 4, i32 513, ptr @rtp_midi_controller_values_ext, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_c_aflag, %struct._header_field_info { ptr @.str.112, ptr @.str.113, i32 2, i32 8, ptr @rtp_midi_cj_chapter_c_flag_a, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_c_tflag, %struct._header_field_info { ptr @.str.114, ptr @.str.115, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_c_value, %struct._header_field_info { ptr @.str.116, ptr @.str.117, i32 4, i32 2, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_c_alt, %struct._header_field_info { ptr @.str.118, ptr @.str.119, i32 4, i32 2, ptr null, i64 63, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_m_sflag, %struct._header_field_info { ptr @.str.120, ptr @.str.121, i32 2, i32 16, ptr @rtp_midi_js_flag_s, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_m_pflag, %struct._header_field_info { ptr @.str.122, ptr @.str.123, i32 2, i32 16, ptr @rtp_midi_cj_chapter_m_flag_p, i64 16384, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_m_eflag, %struct._header_field_info { ptr @.str.124, ptr @.str.125, i32 2, i32 16, ptr @rtp_midi_cj_chapter_m_flag_e, i64 8192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_m_uflag, %struct._header_field_info { ptr @.str.126, ptr @.str.127, i32 2, i32 16, ptr @rtp_midi_cj_chapter_m_flag_u, i64 4096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_m_wflag, %struct._header_field_info { ptr @.str.128, ptr @.str.129, i32 2, i32 16, ptr @rtp_midi_cj_chapter_m_flag_w, i64 2048, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_m_zflag, %struct._header_field_info { ptr @.str.130, ptr @.str.131, i32 2, i32 16, ptr @rtp_midi_cj_chapter_m_flag_z, i64 1024, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_m_length, %struct._header_field_info { ptr @.str.132, ptr @.str.133, i32 5, i32 1, ptr null, i64 1023, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_m_qflag, %struct._header_field_info { ptr @.str.134, ptr @.str.135, i32 2, i32 8, ptr @rtp_midi_cj_chapter_m_flag_q, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_m_pending, %struct._header_field_info { ptr @.str.136, ptr @.str.137, i32 4, i32 2, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_m_log_sflag, %struct._header_field_info { ptr @.str.138, ptr @.str.139, i32 2, i32 8, ptr @rtp_midi_js_flag_s, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_m_log_pnum_lsb, %struct._header_field_info { ptr @.str.140, ptr @.str.141, i32 4, i32 2, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_m_log_qflag, %struct._header_field_info { ptr @.str.142, ptr @.str.143, i32 2, i32 8, ptr @rtp_midi_cj_chapter_m_log_flag_q, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_m_log_pnum_msb, %struct._header_field_info { ptr @.str.144, ptr @.str.145, i32 4, i32 2, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_m_log_jflag, %struct._header_field_info { ptr @.str.146, ptr @.str.147, i32 2, i32 8, ptr @rtp_midi_cj_chapter_m_log_flag_j, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_m_log_kflag, %struct._header_field_info { ptr @.str.148, ptr @.str.149, i32 2, i32 8, ptr @rtp_midi_cj_chapter_m_log_flag_k, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_m_log_lflag, %struct._header_field_info { ptr @.str.150, ptr @.str.151, i32 2, i32 8, ptr @rtp_midi_cj_chapter_m_log_flag_l, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_m_log_mflag, %struct._header_field_info { ptr @.str.152, ptr @.str.153, i32 2, i32 8, ptr @rtp_midi_cj_chapter_m_log_flag_m, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_m_log_nflag, %struct._header_field_info { ptr @.str.154, ptr @.str.155, i32 2, i32 8, ptr @rtp_midi_cj_chapter_m_log_flag_n, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_m_log_tflag, %struct._header_field_info { ptr @.str.156, ptr @.str.157, i32 2, i32 8, ptr @rtp_midi_cj_chapter_m_log_flag_t, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_m_log_vflag, %struct._header_field_info { ptr @.str.158, ptr @.str.159, i32 2, i32 8, ptr @rtp_midi_cj_chapter_m_log_flag_v, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_m_log_rflag, %struct._header_field_info { ptr @.str.160, ptr @.str.161, i32 2, i32 8, ptr @rtp_midi_cj_chapter_m_log_flag_r, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_m_log_msb_entry, %struct._header_field_info { ptr @.str.162, ptr @.str.163, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_m_log_msb_x, %struct._header_field_info { ptr @.str.164, ptr @.str.165, i32 2, i32 8, ptr @rtp_midi_cj_chapter_m_log_flag_x, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_m_log_msb, %struct._header_field_info { ptr @.str.166, ptr @.str.167, i32 4, i32 2, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_m_log_lsb_entry, %struct._header_field_info { ptr @.str.168, ptr @.str.169, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_m_log_lsb_x, %struct._header_field_info { ptr @.str.170, ptr @.str.171, i32 2, i32 8, ptr @rtp_midi_cj_chapter_m_log_flag_x, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_m_log_lsb, %struct._header_field_info { ptr @.str.172, ptr @.str.173, i32 4, i32 2, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_m_log_a_button_g, %struct._header_field_info { ptr @.str.174, ptr @.str.175, i32 2, i32 16, ptr @rtp_midi_cj_chapter_m_log_flag_g, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_m_log_a_button_x, %struct._header_field_info { ptr @.str.176, ptr @.str.177, i32 2, i32 16, ptr @rtp_midi_cj_chapter_m_log_flag_x, i64 16384, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_m_log_a_button, %struct._header_field_info { ptr @.str.178, ptr @.str.179, i32 5, i32 2, ptr null, i64 16383, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_m_log_a_button_full, %struct._header_field_info { ptr @.str.180, ptr @.str.181, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_m_log_c_button_g, %struct._header_field_info { ptr @.str.182, ptr @.str.183, i32 2, i32 16, ptr @rtp_midi_cj_chapter_m_log_flag_g, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_m_log_c_button_r, %struct._header_field_info { ptr @.str.184, ptr @.str.185, i32 2, i32 16, ptr @rtp_midi_cj_chapter_m_log_flag_r, i64 16384, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_m_log_c_button, %struct._header_field_info { ptr @.str.186, ptr @.str.187, i32 5, i32 2, ptr null, i64 16383, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_m_log_c_button_full, %struct._header_field_info { ptr @.str.188, ptr @.str.189, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_m_log_count_x, %struct._header_field_info { ptr @.str.190, ptr @.str.191, i32 2, i32 8, ptr @rtp_midi_cj_chapter_m_log_flag_x, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_m_log_count, %struct._header_field_info { ptr @.str.192, ptr @.str.193, i32 4, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_m_log_count_full, %struct._header_field_info { ptr @.str.194, ptr @.str.195, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_w_sflag, %struct._header_field_info { ptr @.str.196, ptr @.str.197, i32 2, i32 8, ptr @rtp_midi_js_flag_s, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_w_first, %struct._header_field_info { ptr @.str.198, ptr @.str.199, i32 4, i32 2, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_w_rflag, %struct._header_field_info { ptr @.str.200, ptr @.str.201, i32 2, i32 8, ptr @rtp_midi_cj_chapter_m_log_flag_r, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_w_second, %struct._header_field_info { ptr @.str.202, ptr @.str.203, i32 4, i32 2, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_n_bflag, %struct._header_field_info { ptr @.str.204, ptr @.str.205, i32 2, i32 16, ptr @rtp_midi_js_flag_s, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_n_len, %struct._header_field_info { ptr @.str.206, ptr @.str.207, i32 5, i32 1, ptr null, i64 32512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_n_low, %struct._header_field_info { ptr @.str.208, ptr @.str.209, i32 5, i32 1, ptr null, i64 240, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_n_high, %struct._header_field_info { ptr @.str.210, ptr @.str.211, i32 5, i32 1, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_n_log_sflag, %struct._header_field_info { ptr @.str.212, ptr @.str.213, i32 2, i32 8, ptr @rtp_midi_js_flag_s, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_n_log_notenum, %struct._header_field_info { ptr @.str.214, ptr @.str.215, i32 4, i32 513, ptr @rtp_midi_note_values_ext, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_n_log_yflag, %struct._header_field_info { ptr @.str.216, ptr @.str.217, i32 2, i32 8, ptr @rtp_midi_cj_chapter_n_log_flag_y, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_n_log_velocity, %struct._header_field_info { ptr @.str.218, ptr @.str.219, i32 4, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_n_log_octet, %struct._header_field_info { ptr @.str.220, ptr @.str.221, i32 4, i32 2, ptr null, i64 255, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_e_sflag, %struct._header_field_info { ptr @.str.222, ptr @.str.223, i32 2, i32 8, ptr @rtp_midi_js_flag_s, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_e_len, %struct._header_field_info { ptr @.str.224, ptr @.str.225, i32 4, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_e_log_sflag, %struct._header_field_info { ptr @.str.226, ptr @.str.227, i32 2, i32 8, ptr @rtp_midi_js_flag_s, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_e_log_notenum, %struct._header_field_info { ptr @.str.228, ptr @.str.229, i32 4, i32 513, ptr @rtp_midi_note_values_ext, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_e_log_vflag, %struct._header_field_info { ptr @.str.230, ptr @.str.231, i32 2, i32 8, ptr @rtp_midi_cj_chapter_e_log_flag_v, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_e_log_velocity, %struct._header_field_info { ptr @.str.232, ptr @.str.233, i32 4, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_e_log_count, %struct._header_field_info { ptr @.str.234, ptr @.str.235, i32 4, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_t_channel_aftertouch, %struct._header_field_info { ptr @.str.236, ptr @.str.237, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_t_sflag, %struct._header_field_info { ptr @.str.238, ptr @.str.239, i32 2, i32 8, ptr @rtp_midi_js_flag_s, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_t_pressure, %struct._header_field_info { ptr @.str.240, ptr @.str.241, i32 4, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_a_sflag, %struct._header_field_info { ptr @.str.242, ptr @.str.243, i32 2, i32 8, ptr @rtp_midi_js_flag_s, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_a_len, %struct._header_field_info { ptr @.str.244, ptr @.str.245, i32 4, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_a_log_sflag, %struct._header_field_info { ptr @.str.246, ptr @.str.247, i32 2, i32 8, ptr @rtp_midi_js_flag_s, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_a_log_notenum, %struct._header_field_info { ptr @.str.248, ptr @.str.249, i32 4, i32 513, ptr @rtp_midi_note_values_ext, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_a_log_xflag, %struct._header_field_info { ptr @.str.250, ptr @.str.251, i32 2, i32 8, ptr @rtp_midi_cj_chapter_a_log_flag_x, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_cj_chapter_a_log_pressure, %struct._header_field_info { ptr @.str.252, ptr @.str.253, i32 4, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_v, %struct._header_field_info { ptr @.str.254, ptr @.str.255, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_v_sflag, %struct._header_field_info { ptr @.str.256, ptr @.str.257, i32 2, i32 8, ptr @rtp_midi_js_flag_s, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_v_count, %struct._header_field_info { ptr @.str.258, ptr @.str.259, i32 4, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_d_simple_system_commands, %struct._header_field_info { ptr @.str.260, ptr @.str.261, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_d_sflag, %struct._header_field_info { ptr @.str.262, ptr @.str.263, i32 2, i32 8, ptr @rtp_midi_js_flag_s, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_d_bflag, %struct._header_field_info { ptr @.str.264, ptr @.str.265, i32 2, i32 8, ptr @rtp_midi_sj_chapter_d_flag_b, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_d_gflag, %struct._header_field_info { ptr @.str.266, ptr @.str.267, i32 2, i32 8, ptr @rtp_midi_sj_chapter_d_flag_g, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_d_hflag, %struct._header_field_info { ptr @.str.268, ptr @.str.269, i32 2, i32 8, ptr @rtp_midi_sj_chapter_d_flag_h, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_d_jflag, %struct._header_field_info { ptr @.str.270, ptr @.str.271, i32 2, i32 8, ptr @rtp_midi_sj_chapter_d_flag_j, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_d_kflag, %struct._header_field_info { ptr @.str.272, ptr @.str.273, i32 2, i32 8, ptr @rtp_midi_sj_chapter_d_flag_k, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_d_yflag, %struct._header_field_info { ptr @.str.274, ptr @.str.275, i32 2, i32 8, ptr @rtp_midi_sj_chapter_d_flag_y, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_d_zflag, %struct._header_field_info { ptr @.str.276, ptr @.str.277, i32 2, i32 8, ptr @rtp_midi_sj_chapter_d_flag_z, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_d_reset, %struct._header_field_info { ptr @.str.278, ptr @.str.279, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_d_reset_sflag, %struct._header_field_info { ptr @.str.280, ptr @.str.281, i32 2, i32 8, ptr @rtp_midi_js_flag_s, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_d_reset_count, %struct._header_field_info { ptr @.str.282, ptr @.str.283, i32 4, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_d_tune, %struct._header_field_info { ptr @.str.284, ptr @.str.285, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_d_tune_sflag, %struct._header_field_info { ptr @.str.286, ptr @.str.287, i32 2, i32 8, ptr @rtp_midi_js_flag_s, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_d_tune_count, %struct._header_field_info { ptr @.str.288, ptr @.str.289, i32 4, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_d_song_sel, %struct._header_field_info { ptr @.str.290, ptr @.str.291, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_d_song_sel_sflag, %struct._header_field_info { ptr @.str.292, ptr @.str.293, i32 2, i32 8, ptr @rtp_midi_js_flag_s, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_d_song_sel_value, %struct._header_field_info { ptr @.str.294, ptr @.str.295, i32 4, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_d_syscom_sflag, %struct._header_field_info { ptr @.str.296, ptr @.str.297, i32 2, i32 16, ptr @rtp_midi_js_flag_s, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_d_syscom_cflag, %struct._header_field_info { ptr @.str.298, ptr @.str.299, i32 2, i32 16, ptr @rtp_midi_sj_chapter_d_syscom_flag_c, i64 16384, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_d_syscom_vflag, %struct._header_field_info { ptr @.str.300, ptr @.str.301, i32 2, i32 16, ptr @rtp_midi_sj_chapter_d_syscom_flag_v, i64 8192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_d_syscom_lflag, %struct._header_field_info { ptr @.str.302, ptr @.str.303, i32 2, i32 16, ptr @rtp_midi_sj_chapter_d_syscom_flag_l, i64 4096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_d_syscom_dsz, %struct._header_field_info { ptr @.str.304, ptr @.str.305, i32 5, i32 1, ptr @rtp_midi_sj_chapter_d_syscom_dsz_values, i64 3072, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_d_syscom_length, %struct._header_field_info { ptr @.str.306, ptr @.str.307, i32 5, i32 1, ptr null, i64 1023, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_d_syscom_count, %struct._header_field_info { ptr @.str.308, ptr @.str.309, i32 4, i32 1, ptr null, i64 255, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_d_syscom_value, %struct._header_field_info { ptr @.str.310, ptr @.str.311, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_d_syscom_legal, %struct._header_field_info { ptr @.str.312, ptr @.str.313, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_d_syscom_data, %struct._header_field_info { ptr @.str.314, ptr @.str.315, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_d_sysreal_sflag, %struct._header_field_info { ptr @.str.316, ptr @.str.317, i32 2, i32 8, ptr @rtp_midi_js_flag_s, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_d_sysreal_cflag, %struct._header_field_info { ptr @.str.318, ptr @.str.319, i32 2, i32 8, ptr @rtp_midi_sj_chapter_d_syscom_flag_c, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_d_sysreal_lflag, %struct._header_field_info { ptr @.str.320, ptr @.str.321, i32 2, i32 8, ptr @rtp_midi_sj_chapter_d_syscom_flag_l, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_d_sysreal_length, %struct._header_field_info { ptr @.str.322, ptr @.str.323, i32 4, i32 1, ptr null, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_d_sysreal_count, %struct._header_field_info { ptr @.str.324, ptr @.str.325, i32 4, i32 1, ptr null, i64 255, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_d_sysreal_legal, %struct._header_field_info { ptr @.str.326, ptr @.str.327, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_d_sysreal_data, %struct._header_field_info { ptr @.str.328, ptr @.str.329, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_q_sflag, %struct._header_field_info { ptr @.str.330, ptr @.str.331, i32 2, i32 8, ptr @rtp_midi_js_flag_s, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_q_nflag, %struct._header_field_info { ptr @.str.332, ptr @.str.333, i32 2, i32 8, ptr @rtp_midi_sj_chapter_q_flag_n, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_q_dflag, %struct._header_field_info { ptr @.str.334, ptr @.str.335, i32 2, i32 8, ptr @rtp_midi_sj_chapter_q_flag_d, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_q_cflag, %struct._header_field_info { ptr @.str.336, ptr @.str.337, i32 2, i32 8, ptr @rtp_midi_sj_chapter_q_flag_c, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_q_tflag, %struct._header_field_info { ptr @.str.338, ptr @.str.339, i32 2, i32 8, ptr @rtp_midi_sj_chapter_q_flag_t, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_q_top, %struct._header_field_info { ptr @.str.340, ptr @.str.341, i32 4, i32 1, ptr null, i64 7, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_q_clock, %struct._header_field_info { ptr @.str.342, ptr @.str.343, i32 6, i32 1, ptr null, i64 524287, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_q_timetools, %struct._header_field_info { ptr @.str.344, ptr @.str.345, i32 6, i32 1, ptr null, i64 16777215, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_f_sflag, %struct._header_field_info { ptr @.str.346, ptr @.str.347, i32 2, i32 8, ptr @rtp_midi_js_flag_s, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_f_cflag, %struct._header_field_info { ptr @.str.348, ptr @.str.349, i32 2, i32 8, ptr @rtp_midi_sj_chapter_f_flag_c, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_f_pflag, %struct._header_field_info { ptr @.str.350, ptr @.str.351, i32 2, i32 8, ptr @rtp_midi_sj_chapter_f_flag_p, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_f_qflag, %struct._header_field_info { ptr @.str.352, ptr @.str.353, i32 2, i32 8, ptr @rtp_midi_sj_chapter_f_flag_q, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_f_dflag, %struct._header_field_info { ptr @.str.354, ptr @.str.355, i32 2, i32 8, ptr @rtp_midi_sj_chapter_f_flag_d, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_f_point, %struct._header_field_info { ptr @.str.356, ptr @.str.357, i32 4, i32 1, ptr null, i64 7, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_f_complete, %struct._header_field_info { ptr @.str.358, ptr @.str.359, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_f_partial, %struct._header_field_info { ptr @.str.360, ptr @.str.361, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_f_mt0, %struct._header_field_info { ptr @.str.362, ptr @.str.363, i32 7, i32 2, ptr null, i64 4026531840, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_f_mt1, %struct._header_field_info { ptr @.str.364, ptr @.str.365, i32 7, i32 2, ptr null, i64 251658240, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_f_mt2, %struct._header_field_info { ptr @.str.366, ptr @.str.367, i32 7, i32 2, ptr null, i64 15728640, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_f_mt3, %struct._header_field_info { ptr @.str.368, ptr @.str.369, i32 7, i32 2, ptr null, i64 983040, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_f_mt4, %struct._header_field_info { ptr @.str.370, ptr @.str.371, i32 7, i32 2, ptr null, i64 61440, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_f_mt5, %struct._header_field_info { ptr @.str.372, ptr @.str.373, i32 7, i32 2, ptr null, i64 3840, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_f_mt6, %struct._header_field_info { ptr @.str.374, ptr @.str.375, i32 7, i32 2, ptr null, i64 240, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_f_mt7, %struct._header_field_info { ptr @.str.376, ptr @.str.377, i32 7, i32 2, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_f_hr, %struct._header_field_info { ptr @.str.378, ptr @.str.379, i32 7, i32 2, ptr null, i64 4278190080, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_f_mn, %struct._header_field_info { ptr @.str.380, ptr @.str.381, i32 7, i32 2, ptr null, i64 16711680, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_f_sc, %struct._header_field_info { ptr @.str.382, ptr @.str.383, i32 7, i32 2, ptr null, i64 65280, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_f_fr, %struct._header_field_info { ptr @.str.384, ptr @.str.385, i32 7, i32 2, ptr null, i64 255, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_x_sflag, %struct._header_field_info { ptr @.str.386, ptr @.str.387, i32 2, i32 8, ptr @rtp_midi_js_flag_s, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_x_tflag, %struct._header_field_info { ptr @.str.388, ptr @.str.389, i32 2, i32 8, ptr @rtp_midi_sj_chapter_x_flag_t, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_x_cflag, %struct._header_field_info { ptr @.str.390, ptr @.str.391, i32 2, i32 8, ptr @rtp_midi_sj_chapter_x_flag_c, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_x_fflag, %struct._header_field_info { ptr @.str.392, ptr @.str.393, i32 2, i32 8, ptr @rtp_midi_sj_chapter_x_flag_f, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_x_dflag, %struct._header_field_info { ptr @.str.394, ptr @.str.395, i32 2, i32 8, ptr @rtp_midi_sj_chapter_x_flag_d, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_x_lflag, %struct._header_field_info { ptr @.str.396, ptr @.str.397, i32 2, i32 8, ptr @rtp_midi_sj_chapter_x_flag_l, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_x_sta, %struct._header_field_info { ptr @.str.398, ptr @.str.399, i32 4, i32 2, ptr null, i64 3, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_x_tcount, %struct._header_field_info { ptr @.str.400, ptr @.str.401, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_x_count, %struct._header_field_info { ptr @.str.402, ptr @.str.403, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_x_first1, %struct._header_field_info { ptr @.str.404, ptr @.str.405, i32 4, i32 2, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_x_first2, %struct._header_field_info { ptr @.str.406, ptr @.str.407, i32 5, i32 2, ptr null, i64 32639, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_x_first3, %struct._header_field_info { ptr @.str.408, ptr @.str.409, i32 6, i32 2, ptr null, i64 8355711, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_x_first4, %struct._header_field_info { ptr @.str.410, ptr @.str.411, i32 7, i32 2, ptr null, i64 2139062143, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_x_data, %struct._header_field_info { ptr @.str.412, ptr @.str.413, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sj_chapter_x_invalid_data, %struct._header_field_info { ptr @.str.414, ptr @.str.415, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_quarter_frame_type, %struct._header_field_info { ptr @.str.416, ptr @.str.417, i32 4, i32 2, ptr @rtp_midi_qft_values, i64 112, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_quarter_frame_value, %struct._header_field_info { ptr @.str.418, ptr @.str.419, i32 4, i32 2, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_spp, %struct._header_field_info { ptr @.str.420, ptr @.str.421, i32 5, i32 1, ptr null, i64 32639, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_song_select, %struct._header_field_info { ptr @.str.422, ptr @.str.423, i32 4, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_manu_data, %struct._header_field_info { ptr @.str.424, ptr @.str.425, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_edu_data, %struct._header_field_info { ptr @.str.426, ptr @.str.427, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_unknown_data, %struct._header_field_info { ptr @.str.428, ptr @.str.429, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_realtime, %struct._header_field_info { ptr @.str.430, ptr @.str.431, i32 4, i32 2, ptr @rtp_midi_sysex_common_rt, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_non_realtime, %struct._header_field_info { ptr @.str.432, ptr @.str.433, i32 4, i32 2, ptr @rtp_midi_sysex_common_nrt, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_device_id, %struct._header_field_info { ptr @.str.434, ptr @.str.435, i32 4, i32 2, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_nrt_sd_ext, %struct._header_field_info { ptr @.str.436, ptr @.str.437, i32 4, i32 2, ptr @rtp_midi_sysex_common_nrt_sd_ext, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_nrt_gi, %struct._header_field_info { ptr @.str.438, ptr @.str.439, i32 4, i32 2, ptr @rtp_midi_sysex_common_nrt_gi, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_nrt_fd, %struct._header_field_info { ptr @.str.440, ptr @.str.441, i32 4, i32 2, ptr @rtp_midi_sysex_common_nrt_fd, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_tuning, %struct._header_field_info { ptr @.str.442, ptr @.str.443, i32 4, i32 2, ptr @rtp_midi_sysex_common_tuning, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_nrt_gm, %struct._header_field_info { ptr @.str.444, ptr @.str.445, i32 4, i32 2, ptr @rtp_midi_sysex_common_nrt_gm, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_nrt_dls, %struct._header_field_info { ptr @.str.446, ptr @.str.447, i32 4, i32 2, ptr @rtp_midi_sysex_common_nrt_dls, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_rt_mtc, %struct._header_field_info { ptr @.str.448, ptr @.str.449, i32 4, i32 2, ptr @rtp_midi_sysex_common_rt_mtc, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_rt_sc, %struct._header_field_info { ptr @.str.450, ptr @.str.451, i32 4, i32 514, ptr @rtp_midi_sysex_common_rt_show_control_ext, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_rt_ni, %struct._header_field_info { ptr @.str.452, ptr @.str.453, i32 4, i32 2, ptr @rtp_midi_sysex_common_rt_notations, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_rt_dc, %struct._header_field_info { ptr @.str.454, ptr @.str.455, i32 4, i32 2, ptr @rtp_midi_sysex_common_rt_device_control, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_rt_mtc_cueing, %struct._header_field_info { ptr @.str.456, ptr @.str.457, i32 4, i32 2, ptr @rtp_midi_sysex_common_rt_mtc_cue, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_nrt_mtc, %struct._header_field_info { ptr @.str.458, ptr @.str.459, i32 4, i32 2, ptr @rtp_midi_sysex_common_nrt_mtc, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_rt_mmc_commands, %struct._header_field_info { ptr @.str.460, ptr @.str.461, i32 4, i32 2, ptr @rtp_midi_sysex_common_rt_mmc_commands, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_rt_mmc_responses, %struct._header_field_info { ptr @.str.462, ptr @.str.463, i32 4, i32 2, ptr @rtp_midi_sysex_common_rt_mmc_responses, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_nrt_gi_device_family, %struct._header_field_info { ptr @.str.464, ptr @.str.465, i32 5, i32 2, ptr null, i64 32639, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_nrt_gi_device_family_member, %struct._header_field_info { ptr @.str.466, ptr @.str.467, i32 5, i32 2, ptr null, i64 32639, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_nrt_gi_software_rev, %struct._header_field_info { ptr @.str.468, ptr @.str.469, i32 7, i32 2, ptr null, i64 2139062143, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_nrt_sd_packet_number, %struct._header_field_info { ptr @.str.470, ptr @.str.471, i32 4, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_nrt_sd_header_sn, %struct._header_field_info { ptr @.str.472, ptr @.str.473, i32 5, i32 1, ptr null, i64 32639, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_nrt_sd_header_sf, %struct._header_field_info { ptr @.str.474, ptr @.str.475, i32 4, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_nrt_sd_header_sp, %struct._header_field_info { ptr @.str.476, ptr @.str.477, i32 6, i32 1, ptr null, i64 8355711, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_nrt_sd_header_sl, %struct._header_field_info { ptr @.str.478, ptr @.str.479, i32 6, i32 1, ptr null, i64 8355711, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_nrt_sd_header_ls, %struct._header_field_info { ptr @.str.480, ptr @.str.481, i32 6, i32 1, ptr null, i64 8355711, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_nrt_sd_header_le, %struct._header_field_info { ptr @.str.482, ptr @.str.483, i32 6, i32 1, ptr null, i64 8355711, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_nrt_sd_header_lt, %struct._header_field_info { ptr @.str.484, ptr @.str.485, i32 4, i32 1, ptr @rtp_midi_sysex_common_nrt_sd_lt, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_nrt_sd_packet_count, %struct._header_field_info { ptr @.str.486, ptr @.str.487, i32 4, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_nrt_sd_packet_check, %struct._header_field_info { ptr @.str.488, ptr @.str.489, i32 4, i32 2, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_nrt_sd_packet_data, %struct._header_field_info { ptr @.str.490, ptr @.str.491, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_nrt_sd_ext_ln, %struct._header_field_info { ptr @.str.492, ptr @.str.493, i32 5, i32 1, ptr null, i64 32639, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_nrt_fd_device_id, %struct._header_field_info { ptr @.str.494, ptr @.str.495, i32 4, i32 2, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_nrt_fd_type, %struct._header_field_info { ptr @.str.496, ptr @.str.497, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_nrt_fd_name, %struct._header_field_info { ptr @.str.498, ptr @.str.499, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_nrt_fd_length, %struct._header_field_info { ptr @.str.500, ptr @.str.501, i32 7, i32 1, ptr null, i64 2139062143, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_nrt_fd_packet_num, %struct._header_field_info { ptr @.str.502, ptr @.str.503, i32 4, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_nrt_fd_byte_count, %struct._header_field_info { ptr @.str.504, ptr @.str.505, i32 4, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_nrt_fd_packet_data, %struct._header_field_info { ptr @.str.506, ptr @.str.507, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_nrt_fd_checksum, %struct._header_field_info { ptr @.str.508, ptr @.str.509, i32 4, i32 2, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_tune_program, %struct._header_field_info { ptr @.str.510, ptr @.str.511, i32 4, i32 2, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_tune_name, %struct._header_field_info { ptr @.str.512, ptr @.str.513, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_tune_freq, %struct._header_field_info { ptr @.str.514, ptr @.str.515, i32 6, i32 2, ptr null, i64 8355711, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_tune_checksum, %struct._header_field_info { ptr @.str.516, ptr @.str.517, i32 4, i32 2, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_tune_changes, %struct._header_field_info { ptr @.str.518, ptr @.str.519, i32 4, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_tune_note, %struct._header_field_info { ptr @.str.520, ptr @.str.521, i32 4, i32 513, ptr @rtp_midi_note_values_ext, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_rt_mtc_fm_type, %struct._header_field_info { ptr @.str.522, ptr @.str.523, i32 4, i32 2, ptr @rtp_midi_mtc_fm_type_values, i64 96, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_rt_mtc_fm_hr, %struct._header_field_info { ptr @.str.524, ptr @.str.525, i32 4, i32 1, ptr null, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_rt_mtc_fm_mn, %struct._header_field_info { ptr @.str.526, ptr @.str.527, i32 4, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_rt_mtc_fm_sc, %struct._header_field_info { ptr @.str.528, ptr @.str.529, i32 4, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_rt_mtc_fm_fr, %struct._header_field_info { ptr @.str.530, ptr @.str.531, i32 4, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_rt_mtc_ub_u1, %struct._header_field_info { ptr @.str.532, ptr @.str.533, i32 4, i32 2, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_rt_mtc_ub_u2, %struct._header_field_info { ptr @.str.534, ptr @.str.535, i32 4, i32 2, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_rt_mtc_ub_u3, %struct._header_field_info { ptr @.str.536, ptr @.str.537, i32 4, i32 2, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_rt_mtc_ub_u4, %struct._header_field_info { ptr @.str.538, ptr @.str.539, i32 4, i32 2, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_rt_mtc_ub_u5, %struct._header_field_info { ptr @.str.540, ptr @.str.541, i32 4, i32 2, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_rt_mtc_ub_u6, %struct._header_field_info { ptr @.str.542, ptr @.str.543, i32 4, i32 2, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_rt_mtc_ub_u7, %struct._header_field_info { ptr @.str.544, ptr @.str.545, i32 4, i32 2, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_rt_mtc_ub_u8, %struct._header_field_info { ptr @.str.546, ptr @.str.547, i32 4, i32 2, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_rt_mtc_ub_u9, %struct._header_field_info { ptr @.str.548, ptr @.str.549, i32 4, i32 2, ptr null, i64 3, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_nrt_mtc_type, %struct._header_field_info { ptr @.str.550, ptr @.str.551, i32 4, i32 2, ptr @rtp_midi_mtc_fm_type_values, i64 96, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_nrt_mtc_hr, %struct._header_field_info { ptr @.str.552, ptr @.str.553, i32 4, i32 1, ptr null, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_nrt_mtc_mn, %struct._header_field_info { ptr @.str.554, ptr @.str.555, i32 4, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_nrt_mtc_sc, %struct._header_field_info { ptr @.str.556, ptr @.str.557, i32 4, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_nrt_mtc_fr, %struct._header_field_info { ptr @.str.558, ptr @.str.559, i32 4, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_nrt_mtc_ff, %struct._header_field_info { ptr @.str.560, ptr @.str.561, i32 4, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_nrt_mtc_enl, %struct._header_field_info { ptr @.str.562, ptr @.str.563, i32 4, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_nrt_mtc_enm, %struct._header_field_info { ptr @.str.564, ptr @.str.565, i32 4, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_nrt_mtc_add, %struct._header_field_info { ptr @.str.566, ptr @.str.567, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_rt_mtc_cue_enl, %struct._header_field_info { ptr @.str.568, ptr @.str.569, i32 4, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_rt_mtc_cue_enm, %struct._header_field_info { ptr @.str.570, ptr @.str.571, i32 4, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_rt_mtc_cue_add, %struct._header_field_info { ptr @.str.572, ptr @.str.573, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_rt_ni_bar_num, %struct._header_field_info { ptr @.str.574, ptr @.str.575, i32 5, i32 2, ptr null, i64 32639, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_rt_ni_bytes, %struct._header_field_info { ptr @.str.576, ptr @.str.577, i32 4, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_rt_ni_numerator, %struct._header_field_info { ptr @.str.578, ptr @.str.579, i32 4, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_rt_ni_denominator, %struct._header_field_info { ptr @.str.580, ptr @.str.581, i32 4, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_rt_ni_midi_clocks, %struct._header_field_info { ptr @.str.582, ptr @.str.583, i32 4, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_rt_ni_32nds, %struct._header_field_info { ptr @.str.584, ptr @.str.585, i32 4, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_rt_dc_volume, %struct._header_field_info { ptr @.str.586, ptr @.str.587, i32 5, i32 1, ptr null, i64 32639, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rtp_midi_sysex_common_rt_dc_balance, %struct._header_field_info { ptr @.str.588, ptr @.str.589, i32 5, i32 1, ptr null, i64 32639, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_rtp_midi_bflag = internal global i32 0, align 4
@@ -51,7 +51,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_rtp_midi_totchan = internal global i32 0, align 4
 @.str.20 = private unnamed_addr constant [15 x i8] c"Total channels\00", align 1
 @.str.21 = private unnamed_addr constant [23 x i8] c"rtpmidi.total_channels\00", align 1
-@rtp_midi_js_tot_channels = internal constant [17 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.614 }, %struct._value_string { i32 1, ptr @.str.615 }, %struct._value_string { i32 2, ptr @.str.616 }, %struct._value_string { i32 3, ptr @.str.617 }, %struct._value_string { i32 4, ptr @.str.618 }, %struct._value_string { i32 5, ptr @.str.619 }, %struct._value_string { i32 6, ptr @.str.620 }, %struct._value_string { i32 7, ptr @.str.621 }, %struct._value_string { i32 8, ptr @.str.622 }, %struct._value_string { i32 9, ptr @.str.623 }, %struct._value_string { i32 10, ptr @.str.624 }, %struct._value_string { i32 11, ptr @.str.625 }, %struct._value_string { i32 12, ptr @.str.626 }, %struct._value_string { i32 13, ptr @.str.627 }, %struct._value_string { i32 14, ptr @.str.628 }, %struct._value_string { i32 15, ptr @.str.629 }, %struct._value_string zeroinitializer], align 16
 @hf_rtp_midi_check_seq_num = internal global i32 0, align 4
 @.str.22 = private unnamed_addr constant [25 x i8] c"Checkpoint Packet Seqnum\00", align 1
 @.str.23 = private unnamed_addr constant [22 x i8] c"rtpmidi.check_Seq_num\00", align 1
@@ -70,19 +69,16 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_rtp_midi_channel_status = internal global i32 0, align 4
 @.str.32 = private unnamed_addr constant [15 x i8] c"Channel Status\00", align 1
 @.str.33 = private unnamed_addr constant [23 x i8] c"rtpmidi.channel_status\00", align 1
-@rtp_midi_channel_status = internal constant [8 x %struct._value_string] [%struct._value_string { i32 8, ptr @.str.630 }, %struct._value_string { i32 9, ptr @.str.631 }, %struct._value_string { i32 10, ptr @.str.632 }, %struct._value_string { i32 11, ptr @.str.633 }, %struct._value_string { i32 12, ptr @.str.634 }, %struct._value_string { i32 13, ptr @.str.635 }, %struct._value_string { i32 14, ptr @.str.636 }, %struct._value_string zeroinitializer], align 16
 @hf_rtp_midi_common_status = internal global i32 0, align 4
 @.str.34 = private unnamed_addr constant [14 x i8] c"Common Status\00", align 1
 @.str.35 = private unnamed_addr constant [22 x i8] c"rtpmidi.common_status\00", align 1
-@rtp_midi_common_status = internal constant [17 x %struct._value_string] [%struct._value_string { i32 240, ptr @.str.637 }, %struct._value_string { i32 241, ptr @.str.638 }, %struct._value_string { i32 242, ptr @.str.420 }, %struct._value_string { i32 243, ptr @.str.422 }, %struct._value_string { i32 244, ptr @.str.639 }, %struct._value_string { i32 245, ptr @.str.640 }, %struct._value_string { i32 246, ptr @.str.641 }, %struct._value_string { i32 247, ptr @.str.642 }, %struct._value_string { i32 248, ptr @.str.643 }, %struct._value_string { i32 249, ptr @.str.644 }, %struct._value_string { i32 250, ptr @.str.645 }, %struct._value_string { i32 251, ptr @.str.646 }, %struct._value_string { i32 252, ptr @.str.647 }, %struct._value_string { i32 253, ptr @.str.648 }, %struct._value_string { i32 254, ptr @.str.649 }, %struct._value_string { i32 255, ptr @.str.650 }, %struct._value_string zeroinitializer], align 16
 @hf_rtp_midi_channel = internal global i32 0, align 4
 @.str.36 = private unnamed_addr constant [8 x i8] c"Channel\00", align 1
 @.str.37 = private unnamed_addr constant [16 x i8] c"rtpmidi.channel\00", align 1
-@rtp_midi_channels = internal constant [17 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.651 }, %struct._value_string { i32 1, ptr @.str.652 }, %struct._value_string { i32 2, ptr @.str.653 }, %struct._value_string { i32 3, ptr @.str.654 }, %struct._value_string { i32 4, ptr @.str.655 }, %struct._value_string { i32 5, ptr @.str.656 }, %struct._value_string { i32 6, ptr @.str.657 }, %struct._value_string { i32 7, ptr @.str.658 }, %struct._value_string { i32 8, ptr @.str.659 }, %struct._value_string { i32 9, ptr @.str.660 }, %struct._value_string { i32 10, ptr @.str.661 }, %struct._value_string { i32 11, ptr @.str.662 }, %struct._value_string { i32 12, ptr @.str.663 }, %struct._value_string { i32 13, ptr @.str.664 }, %struct._value_string { i32 14, ptr @.str.665 }, %struct._value_string { i32 15, ptr @.str.666 }, %struct._value_string zeroinitializer], align 16
 @hf_rtp_midi_note = internal global i32 0, align 4
 @.str.38 = private unnamed_addr constant [5 x i8] c"Note\00", align 1
 @.str.39 = private unnamed_addr constant [13 x i8] c"rtpmidi.note\00", align 1
-@rtp_midi_note_values_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 128, ptr @rtp_midi_note_values, ptr @.str.667 }, align 8
+@rtp_midi_note_values_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 128, ptr @rtp_midi_note_values, ptr @.str.671 }, align 8
 @hf_rtp_midi_velocity = internal global i32 0, align 4
 @.str.40 = private unnamed_addr constant [9 x i8] c"Velocity\00", align 1
 @.str.41 = private unnamed_addr constant [17 x i8] c"rtpmidi.velocity\00", align 1
@@ -92,7 +88,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_rtp_midi_controller = internal global i32 0, align 4
 @.str.44 = private unnamed_addr constant [11 x i8] c"Controller\00", align 1
 @.str.45 = private unnamed_addr constant [19 x i8] c"rtpmidi.controller\00", align 1
-@rtp_midi_controller_values_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 68, ptr @rtp_midi_controller_values, ptr @.str.796 }, align 8
+@rtp_midi_controller_values_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 68, ptr @rtp_midi_controller_values, ptr @.str.801 }, align 8
 @hf_rtp_midi_controller_value = internal global i32 0, align 4
 @.str.46 = private unnamed_addr constant [6 x i8] c"Value\00", align 1
 @.str.47 = private unnamed_addr constant [25 x i8] c"rtpmidi.controller_value\00", align 1
@@ -107,34 +103,34 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_rtp_midi_manu_short = internal global i32 0, align 4
 @.str.53 = private unnamed_addr constant [21 x i8] c"Manufacturer (short)\00", align 1
 @.str.54 = private unnamed_addr constant [27 x i8] c"rtpmidi.manufacturer_short\00", align 1
-@rtp_midi_manu_short_values_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 93, ptr @rtp_midi_manu_short_values, ptr @.str.865 }, align 8
+@rtp_midi_manu_short_values_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 93, ptr @rtp_midi_manu_short_values, ptr @.str.871 }, align 8
 @hf_rtp_midi_manu_long = internal global i32 0, align 4
 @.str.55 = private unnamed_addr constant [20 x i8] c"Manufacturer (long)\00", align 1
 @.str.56 = private unnamed_addr constant [26 x i8] c"rtpmidi.manufacturer_long\00", align 1
-@rtp_midi_manu_long_values_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 383, ptr @rtp_midi_manu_long_values, ptr @.str.959 }, align 8
+@rtp_midi_manu_long_values_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 383, ptr @rtp_midi_manu_long_values, ptr @.str.966 }, align 8
 @hf_rtp_midi_sysjour_toc_s = internal global i32 0, align 4
 @.str.57 = private unnamed_addr constant [26 x i8] c"System-Journal TOC-S-Flag\00", align 1
 @.str.58 = private unnamed_addr constant [22 x i8] c"rtpmidi.sysjour_toc_s\00", align 1
 @hf_rtp_midi_sysjour_toc_d = internal global i32 0, align 4
 @.str.59 = private unnamed_addr constant [26 x i8] c"System-Journal TOC-D-Flag\00", align 1
 @.str.60 = private unnamed_addr constant [22 x i8] c"rtpmidi.sysjour_toc_d\00", align 1
-@rtp_midi_sj_flag_d = internal constant %struct.true_false_string { ptr @.str.1338, ptr @.str.1339 }, align 8
+@rtp_midi_sj_flag_d = internal constant %struct.true_false_string { ptr @.str.1346, ptr @.str.1347 }, align 8
 @hf_rtp_midi_sysjour_toc_v = internal global i32 0, align 4
 @.str.61 = private unnamed_addr constant [26 x i8] c"System-Journal TOC-V-Flag\00", align 1
 @.str.62 = private unnamed_addr constant [22 x i8] c"rtpmidi.sysjour_toc_v\00", align 1
-@rtp_midi_sj_flag_v = internal constant %struct.true_false_string { ptr @.str.1340, ptr @.str.1341 }, align 8
+@rtp_midi_sj_flag_v = internal constant %struct.true_false_string { ptr @.str.1348, ptr @.str.1349 }, align 8
 @hf_rtp_midi_sysjour_toc_q = internal global i32 0, align 4
 @.str.63 = private unnamed_addr constant [26 x i8] c"System-Journal TOC-Q-Flag\00", align 1
 @.str.64 = private unnamed_addr constant [22 x i8] c"rtpmidi.sysjour_toc_q\00", align 1
-@rtp_midi_sj_flag_q = internal constant %struct.true_false_string { ptr @.str.1342, ptr @.str.1343 }, align 8
+@rtp_midi_sj_flag_q = internal constant %struct.true_false_string { ptr @.str.1350, ptr @.str.1351 }, align 8
 @hf_rtp_midi_sysjour_toc_f = internal global i32 0, align 4
 @.str.65 = private unnamed_addr constant [26 x i8] c"System-Journal TOC-F-Flag\00", align 1
 @.str.66 = private unnamed_addr constant [22 x i8] c"rtpmidi.sysjour_toc_f\00", align 1
-@rtp_midi_sj_flag_f = internal constant %struct.true_false_string { ptr @.str.1344, ptr @.str.1345 }, align 8
+@rtp_midi_sj_flag_f = internal constant %struct.true_false_string { ptr @.str.1352, ptr @.str.1353 }, align 8
 @hf_rtp_midi_sysjour_toc_x = internal global i32 0, align 4
 @.str.67 = private unnamed_addr constant [26 x i8] c"System-Journal TOC-X-Flag\00", align 1
 @.str.68 = private unnamed_addr constant [22 x i8] c"rtpmidi.sysjour_toc_x\00", align 1
-@rtp_midi_sj_flag_x = internal constant %struct.true_false_string { ptr @.str.1346, ptr @.str.1347 }, align 8
+@rtp_midi_sj_flag_x = internal constant %struct.true_false_string { ptr @.str.1354, ptr @.str.1355 }, align 8
 @hf_rtp_midi_sysjour_len = internal global i32 0, align 4
 @.str.69 = private unnamed_addr constant [22 x i8] c"System-Journal-Length\00", align 1
 @.str.70 = private unnamed_addr constant [24 x i8] c"rtpmidi.cmd_sysjour_len\00", align 1
@@ -152,35 +148,35 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_rtp_midi_chanjour_toc_p = internal global i32 0, align 4
 @.str.78 = private unnamed_addr constant [27 x i8] c"Channel-Journal TOC-P-Flag\00", align 1
 @.str.79 = private unnamed_addr constant [23 x i8] c"rtpmidi.chanjour_toc_p\00", align 1
-@rtp_midi_cj_flag_p = internal constant %struct.true_false_string { ptr @.str.1348, ptr @.str.1349 }, align 8
+@rtp_midi_cj_flag_p = internal constant %struct.true_false_string { ptr @.str.1356, ptr @.str.1357 }, align 8
 @hf_rtp_midi_chanjour_toc_c = internal global i32 0, align 4
 @.str.80 = private unnamed_addr constant [27 x i8] c"Channel-Journal TOC-C-Flag\00", align 1
 @.str.81 = private unnamed_addr constant [23 x i8] c"rtpmidi.chanjour_toc_c\00", align 1
-@rtp_midi_cj_flag_c = internal constant %struct.true_false_string { ptr @.str.1350, ptr @.str.1351 }, align 8
+@rtp_midi_cj_flag_c = internal constant %struct.true_false_string { ptr @.str.1358, ptr @.str.1359 }, align 8
 @hf_rtp_midi_chanjour_toc_m = internal global i32 0, align 4
 @.str.82 = private unnamed_addr constant [27 x i8] c"Channel-Journal TOC-M-Flag\00", align 1
 @.str.83 = private unnamed_addr constant [23 x i8] c"rtpmidi.chanjour_toc_m\00", align 1
-@rtp_midi_cj_flag_m = internal constant %struct.true_false_string { ptr @.str.1352, ptr @.str.1353 }, align 8
+@rtp_midi_cj_flag_m = internal constant %struct.true_false_string { ptr @.str.1360, ptr @.str.1361 }, align 8
 @hf_rtp_midi_chanjour_toc_w = internal global i32 0, align 4
 @.str.84 = private unnamed_addr constant [27 x i8] c"Channel-Journal TOC-W-Flag\00", align 1
 @.str.85 = private unnamed_addr constant [23 x i8] c"rtpmidi.chanjour_toc_w\00", align 1
-@rtp_midi_cj_flag_w = internal constant %struct.true_false_string { ptr @.str.1354, ptr @.str.1355 }, align 8
+@rtp_midi_cj_flag_w = internal constant %struct.true_false_string { ptr @.str.1362, ptr @.str.1363 }, align 8
 @hf_rtp_midi_chanjour_toc_n = internal global i32 0, align 4
 @.str.86 = private unnamed_addr constant [27 x i8] c"Channel-Journal TOC-N-Flag\00", align 1
 @.str.87 = private unnamed_addr constant [23 x i8] c"rtpmidi.chanjour_toc_n\00", align 1
-@rtp_midi_cj_flag_n = internal constant %struct.true_false_string { ptr @.str.1356, ptr @.str.1357 }, align 8
+@rtp_midi_cj_flag_n = internal constant %struct.true_false_string { ptr @.str.1364, ptr @.str.1365 }, align 8
 @hf_rtp_midi_chanjour_toc_e = internal global i32 0, align 4
 @.str.88 = private unnamed_addr constant [27 x i8] c"Channel-Journal TOC-E-Flag\00", align 1
 @.str.89 = private unnamed_addr constant [23 x i8] c"rtpmidi.chanjour_toc_e\00", align 1
-@rtp_midi_cj_flag_e = internal constant %struct.true_false_string { ptr @.str.1358, ptr @.str.1359 }, align 8
+@rtp_midi_cj_flag_e = internal constant %struct.true_false_string { ptr @.str.1366, ptr @.str.1367 }, align 8
 @hf_rtp_midi_chanjour_toc_t = internal global i32 0, align 4
 @.str.90 = private unnamed_addr constant [27 x i8] c"Channel-Journal TOC-T-Flag\00", align 1
 @.str.91 = private unnamed_addr constant [23 x i8] c"rtpmidi.chanjour_toc_t\00", align 1
-@rtp_midi_cj_flag_t = internal constant %struct.true_false_string { ptr @.str.1360, ptr @.str.1361 }, align 8
+@rtp_midi_cj_flag_t = internal constant %struct.true_false_string { ptr @.str.1368, ptr @.str.1369 }, align 8
 @hf_rtp_midi_chanjour_toc_a = internal global i32 0, align 4
 @.str.92 = private unnamed_addr constant [27 x i8] c"Channel-Journal TOC-A-Flag\00", align 1
 @.str.93 = private unnamed_addr constant [23 x i8] c"rtpmidi.chanjour_toc_a\00", align 1
-@rtp_midi_cj_flag_a = internal constant %struct.true_false_string { ptr @.str.1362, ptr @.str.1363 }, align 8
+@rtp_midi_cj_flag_a = internal constant %struct.true_false_string { ptr @.str.1370, ptr @.str.1371 }, align 8
 @hf_rtp_midi_cj_chapter_p_sflag = internal global i32 0, align 4
 @.str.94 = private unnamed_addr constant [17 x i8] c"Chapter P S-Flag\00", align 1
 @.str.95 = private unnamed_addr constant [27 x i8] c"rtpmidi.cj_chapter_p_sflag\00", align 1
@@ -196,7 +192,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_rtp_midi_cj_chapter_p_xflag = internal global i32 0, align 4
 @.str.102 = private unnamed_addr constant [17 x i8] c"Chapter P X-Flag\00", align 1
 @.str.103 = private unnamed_addr constant [27 x i8] c"rtpmidi.cj_chapter_p_xflag\00", align 1
-@rtp_midi_cj_chapter_p_log_flag_x = internal constant %struct.true_false_string { ptr @.str.1364, ptr @.str.1365 }, align 8
+@rtp_midi_cj_chapter_p_log_flag_x = internal constant %struct.true_false_string { ptr @.str.1372, ptr @.str.1373 }, align 8
 @hf_rtp_midi_cj_chapter_p_bank_lsb = internal global i32 0, align 4
 @.str.104 = private unnamed_addr constant [19 x i8] c"Chapter P Bank-LSB\00", align 1
 @.str.105 = private unnamed_addr constant [30 x i8] c"rtpmidi.cj_chapter_p_bank_lsb\00", align 1
@@ -212,7 +208,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_rtp_midi_cj_chapter_c_aflag = internal global i32 0, align 4
 @.str.112 = private unnamed_addr constant [17 x i8] c"Chapter C A-Flag\00", align 1
 @.str.113 = private unnamed_addr constant [27 x i8] c"rtpmidi.cj_chapter_c_aflag\00", align 1
-@rtp_midi_cj_chapter_c_flag_a = internal constant %struct.true_false_string { ptr @.str.1366, ptr @.str.1367 }, align 8
+@rtp_midi_cj_chapter_c_flag_a = internal constant %struct.true_false_string { ptr @.str.1374, ptr @.str.1375 }, align 8
 @hf_rtp_midi_cj_chapter_c_tflag = internal global i32 0, align 4
 @.str.114 = private unnamed_addr constant [17 x i8] c"Chapter C T-Flag\00", align 1
 @.str.115 = private unnamed_addr constant [27 x i8] c"rtpmidi.cj_chapter_c_tflag\00", align 1
@@ -228,30 +224,30 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_rtp_midi_cj_chapter_m_pflag = internal global i32 0, align 4
 @.str.122 = private unnamed_addr constant [17 x i8] c"Chapter M P-Flag\00", align 1
 @.str.123 = private unnamed_addr constant [27 x i8] c"rtpmidi.cj_chapter_m_pflag\00", align 1
-@rtp_midi_cj_chapter_m_flag_p = internal constant %struct.true_false_string { ptr @.str.1368, ptr @.str.1369 }, align 8
+@rtp_midi_cj_chapter_m_flag_p = internal constant %struct.true_false_string { ptr @.str.1376, ptr @.str.1377 }, align 8
 @hf_rtp_midi_cj_chapter_m_eflag = internal global i32 0, align 4
 @.str.124 = private unnamed_addr constant [17 x i8] c"Chapter M E-Flag\00", align 1
 @.str.125 = private unnamed_addr constant [27 x i8] c"rtpmidi.cj_chapter_m_eflag\00", align 1
-@rtp_midi_cj_chapter_m_flag_e = internal constant %struct.true_false_string { ptr @.str.1370, ptr @.str.1371 }, align 8
+@rtp_midi_cj_chapter_m_flag_e = internal constant %struct.true_false_string { ptr @.str.1378, ptr @.str.1379 }, align 8
 @hf_rtp_midi_cj_chapter_m_uflag = internal global i32 0, align 4
 @.str.126 = private unnamed_addr constant [17 x i8] c"Chapter M U-Flag\00", align 1
 @.str.127 = private unnamed_addr constant [27 x i8] c"rtpmidi.cj_chapter_m_uflag\00", align 1
-@rtp_midi_cj_chapter_m_flag_u = internal constant %struct.true_false_string { ptr @.str.1372, ptr @.str.1373 }, align 8
+@rtp_midi_cj_chapter_m_flag_u = internal constant %struct.true_false_string { ptr @.str.1380, ptr @.str.1381 }, align 8
 @hf_rtp_midi_cj_chapter_m_wflag = internal global i32 0, align 4
 @.str.128 = private unnamed_addr constant [17 x i8] c"Chapter M W-Flag\00", align 1
 @.str.129 = private unnamed_addr constant [27 x i8] c"rtpmidi.cj_chapter_m_wflag\00", align 1
-@rtp_midi_cj_chapter_m_flag_w = internal constant %struct.true_false_string { ptr @.str.1374, ptr @.str.1375 }, align 8
+@rtp_midi_cj_chapter_m_flag_w = internal constant %struct.true_false_string { ptr @.str.1382, ptr @.str.1383 }, align 8
 @hf_rtp_midi_cj_chapter_m_zflag = internal global i32 0, align 4
 @.str.130 = private unnamed_addr constant [17 x i8] c"Chapter M Z-Flag\00", align 1
 @.str.131 = private unnamed_addr constant [27 x i8] c"rtpmidi.cj_chapter_m_zflag\00", align 1
-@rtp_midi_cj_chapter_m_flag_z = internal constant %struct.true_false_string { ptr @.str.1376, ptr @.str.1377 }, align 8
+@rtp_midi_cj_chapter_m_flag_z = internal constant %struct.true_false_string { ptr @.str.1384, ptr @.str.1385 }, align 8
 @hf_rtp_midi_cj_chapter_m_length = internal global i32 0, align 4
 @.str.132 = private unnamed_addr constant [17 x i8] c"Chapter M Length\00", align 1
 @.str.133 = private unnamed_addr constant [28 x i8] c"rtpmidi.cj_chapter_m_length\00", align 1
 @hf_rtp_midi_cj_chapter_m_qflag = internal global i32 0, align 4
 @.str.134 = private unnamed_addr constant [17 x i8] c"Chapter M Q-Flag\00", align 1
 @.str.135 = private unnamed_addr constant [27 x i8] c"rtpmidi.cj_chapter_m_qflag\00", align 1
-@rtp_midi_cj_chapter_m_flag_q = internal constant %struct.true_false_string { ptr @.str.1378, ptr @.str.1379 }, align 8
+@rtp_midi_cj_chapter_m_flag_q = internal constant %struct.true_false_string { ptr @.str.1386, ptr @.str.1387 }, align 8
 @hf_rtp_midi_cj_chapter_m_pending = internal global i32 0, align 4
 @.str.136 = private unnamed_addr constant [18 x i8] c"Chapter M Pending\00", align 1
 @.str.137 = private unnamed_addr constant [29 x i8] c"rtpmidi.cj_chapter_m_pending\00", align 1
@@ -264,49 +260,49 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_rtp_midi_cj_chapter_m_log_qflag = internal global i32 0, align 4
 @.str.142 = private unnamed_addr constant [21 x i8] c"Chapter M Log Q-Flag\00", align 1
 @.str.143 = private unnamed_addr constant [31 x i8] c"rtpmidi.cj_chapter_m_log_qflag\00", align 1
-@rtp_midi_cj_chapter_m_log_flag_q = internal constant %struct.true_false_string { ptr @.str.1380, ptr @.str.1381 }, align 8
+@rtp_midi_cj_chapter_m_log_flag_q = internal constant %struct.true_false_string { ptr @.str.1388, ptr @.str.1389 }, align 8
 @hf_rtp_midi_cj_chapter_m_log_pnum_msb = internal global i32 0, align 4
 @.str.144 = private unnamed_addr constant [23 x i8] c"Chapter M Log PNUM-MSB\00", align 1
 @.str.145 = private unnamed_addr constant [34 x i8] c"rtpmidi.cj_chapter_m_log_pnum_msb\00", align 1
 @hf_rtp_midi_cj_chapter_m_log_jflag = internal global i32 0, align 4
 @.str.146 = private unnamed_addr constant [21 x i8] c"Chapter M Log J-Flag\00", align 1
 @.str.147 = private unnamed_addr constant [31 x i8] c"rtpmidi.cj_chapter_m_log_jflag\00", align 1
-@rtp_midi_cj_chapter_m_log_flag_j = internal constant %struct.true_false_string { ptr @.str.1382, ptr @.str.1383 }, align 8
+@rtp_midi_cj_chapter_m_log_flag_j = internal constant %struct.true_false_string { ptr @.str.1390, ptr @.str.1391 }, align 8
 @hf_rtp_midi_cj_chapter_m_log_kflag = internal global i32 0, align 4
 @.str.148 = private unnamed_addr constant [21 x i8] c"Chapter M Log K-Flag\00", align 1
 @.str.149 = private unnamed_addr constant [31 x i8] c"rtpmidi.cj_chapter_m_log_kflag\00", align 1
-@rtp_midi_cj_chapter_m_log_flag_k = internal constant %struct.true_false_string { ptr @.str.1384, ptr @.str.1385 }, align 8
+@rtp_midi_cj_chapter_m_log_flag_k = internal constant %struct.true_false_string { ptr @.str.1392, ptr @.str.1393 }, align 8
 @hf_rtp_midi_cj_chapter_m_log_lflag = internal global i32 0, align 4
 @.str.150 = private unnamed_addr constant [21 x i8] c"Chapter M Log L-Flag\00", align 1
 @.str.151 = private unnamed_addr constant [31 x i8] c"rtpmidi.cj_chapter_m_log_lflag\00", align 1
-@rtp_midi_cj_chapter_m_log_flag_l = internal constant %struct.true_false_string { ptr @.str.1386, ptr @.str.1387 }, align 8
+@rtp_midi_cj_chapter_m_log_flag_l = internal constant %struct.true_false_string { ptr @.str.1394, ptr @.str.1395 }, align 8
 @hf_rtp_midi_cj_chapter_m_log_mflag = internal global i32 0, align 4
 @.str.152 = private unnamed_addr constant [21 x i8] c"Chapter M Log M-Flag\00", align 1
 @.str.153 = private unnamed_addr constant [31 x i8] c"rtpmidi.cj_chapter_m_log_mflag\00", align 1
-@rtp_midi_cj_chapter_m_log_flag_m = internal constant %struct.true_false_string { ptr @.str.1388, ptr @.str.1389 }, align 8
+@rtp_midi_cj_chapter_m_log_flag_m = internal constant %struct.true_false_string { ptr @.str.1396, ptr @.str.1397 }, align 8
 @hf_rtp_midi_cj_chapter_m_log_nflag = internal global i32 0, align 4
 @.str.154 = private unnamed_addr constant [21 x i8] c"Chapter M Log N-Flag\00", align 1
 @.str.155 = private unnamed_addr constant [31 x i8] c"rtpmidi.cj_chapter_m_log_nflag\00", align 1
-@rtp_midi_cj_chapter_m_log_flag_n = internal constant %struct.true_false_string { ptr @.str.1390, ptr @.str.1391 }, align 8
+@rtp_midi_cj_chapter_m_log_flag_n = internal constant %struct.true_false_string { ptr @.str.1398, ptr @.str.1399 }, align 8
 @hf_rtp_midi_cj_chapter_m_log_tflag = internal global i32 0, align 4
 @.str.156 = private unnamed_addr constant [21 x i8] c"Chapter M Log T-Flag\00", align 1
 @.str.157 = private unnamed_addr constant [31 x i8] c"rtpmidi.cj_chapter_m_log_tflag\00", align 1
-@rtp_midi_cj_chapter_m_log_flag_t = internal constant %struct.true_false_string { ptr @.str.1392, ptr @.str.1393 }, align 8
+@rtp_midi_cj_chapter_m_log_flag_t = internal constant %struct.true_false_string { ptr @.str.1400, ptr @.str.1401 }, align 8
 @hf_rtp_midi_cj_chapter_m_log_vflag = internal global i32 0, align 4
 @.str.158 = private unnamed_addr constant [21 x i8] c"Chapter M Log V-Flag\00", align 1
 @.str.159 = private unnamed_addr constant [31 x i8] c"rtpmidi.cj_chapter_m_log_vflag\00", align 1
-@rtp_midi_cj_chapter_m_log_flag_v = internal constant %struct.true_false_string { ptr @.str.1394, ptr @.str.1395 }, align 8
+@rtp_midi_cj_chapter_m_log_flag_v = internal constant %struct.true_false_string { ptr @.str.1402, ptr @.str.1403 }, align 8
 @hf_rtp_midi_cj_chapter_m_log_rflag = internal global i32 0, align 4
 @.str.160 = private unnamed_addr constant [21 x i8] c"Chapter M Log R-Flag\00", align 1
 @.str.161 = private unnamed_addr constant [31 x i8] c"rtpmidi.cj_chapter_m_log_rflag\00", align 1
-@rtp_midi_cj_chapter_m_log_flag_r = internal constant %struct.true_false_string { ptr @.str.1396, ptr @.str.1397 }, align 8
+@rtp_midi_cj_chapter_m_log_flag_r = internal constant %struct.true_false_string { ptr @.str.1404, ptr @.str.1405 }, align 8
 @hf_rtp_midi_cj_chapter_m_log_msb_entry = internal global i32 0, align 4
 @.str.162 = private unnamed_addr constant [10 x i8] c"Entry MSB\00", align 1
 @.str.163 = private unnamed_addr constant [35 x i8] c"rtpmidi.cj_chapter_m_log_msb_entry\00", align 1
 @hf_rtp_midi_cj_chapter_m_log_msb_x = internal global i32 0, align 4
 @.str.164 = private unnamed_addr constant [25 x i8] c"Chapter M Log MSB X-Flag\00", align 1
 @.str.165 = private unnamed_addr constant [35 x i8] c"rtpmidi.cj_chapter_m_log_msb_xflag\00", align 1
-@rtp_midi_cj_chapter_m_log_flag_x = internal constant %struct.true_false_string { ptr @.str.1398, ptr @.str.1399 }, align 8
+@rtp_midi_cj_chapter_m_log_flag_x = internal constant %struct.true_false_string { ptr @.str.1406, ptr @.str.1407 }, align 8
 @hf_rtp_midi_cj_chapter_m_log_msb = internal global i32 0, align 4
 @.str.166 = private unnamed_addr constant [18 x i8] c"Chapter M Log MSB\00", align 1
 @.str.167 = private unnamed_addr constant [29 x i8] c"rtpmidi.cj_chapter_m_log_msb\00", align 1
@@ -322,7 +318,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_rtp_midi_cj_chapter_m_log_a_button_g = internal global i32 0, align 4
 @.str.174 = private unnamed_addr constant [30 x i8] c"Chapter M Log A-Button G-Flag\00", align 1
 @.str.175 = private unnamed_addr constant [40 x i8] c"rtpmidi.cj_chapter_m_log_a_button_gflag\00", align 1
-@rtp_midi_cj_chapter_m_log_flag_g = internal constant %struct.true_false_string { ptr @.str.1400, ptr @.str.1401 }, align 8
+@rtp_midi_cj_chapter_m_log_flag_g = internal constant %struct.true_false_string { ptr @.str.1408, ptr @.str.1409 }, align 8
 @hf_rtp_midi_cj_chapter_m_log_a_button_x = internal global i32 0, align 4
 @.str.176 = private unnamed_addr constant [30 x i8] c"Chapter M Log A-Button X-Flag\00", align 1
 @.str.177 = private unnamed_addr constant [40 x i8] c"rtpmidi.cj_chapter_m_log_a_button_xflag\00", align 1
@@ -386,7 +382,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_rtp_midi_cj_chapter_n_log_yflag = internal global i32 0, align 4
 @.str.216 = private unnamed_addr constant [21 x i8] c"Chapter N Log Y-Flag\00", align 1
 @.str.217 = private unnamed_addr constant [31 x i8] c"rtpmidi.cj_chapter_n_log_yflag\00", align 1
-@rtp_midi_cj_chapter_n_log_flag_y = internal constant %struct.true_false_string { ptr @.str.1402, ptr @.str.1403 }, align 8
+@rtp_midi_cj_chapter_n_log_flag_y = internal constant %struct.true_false_string { ptr @.str.1410, ptr @.str.1411 }, align 8
 @hf_rtp_midi_cj_chapter_n_log_velocity = internal global i32 0, align 4
 @.str.218 = private unnamed_addr constant [23 x i8] c"Chapter N Log Velocity\00", align 1
 @.str.219 = private unnamed_addr constant [34 x i8] c"rtpmidi.cj_chapter_n_log_velocity\00", align 1
@@ -408,7 +404,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_rtp_midi_cj_chapter_e_log_vflag = internal global i32 0, align 4
 @.str.230 = private unnamed_addr constant [21 x i8] c"Chapter N Log V-Flag\00", align 1
 @.str.231 = private unnamed_addr constant [31 x i8] c"rtpmidi.cj_chapter_n_log_vflag\00", align 1
-@rtp_midi_cj_chapter_e_log_flag_v = internal constant %struct.true_false_string { ptr @.str.1404, ptr @.str.1405 }, align 8
+@rtp_midi_cj_chapter_e_log_flag_v = internal constant %struct.true_false_string { ptr @.str.1412, ptr @.str.1413 }, align 8
 @hf_rtp_midi_cj_chapter_e_log_velocity = internal global i32 0, align 4
 @.str.232 = private unnamed_addr constant [23 x i8] c"Chapter E Log Velocity\00", align 1
 @.str.233 = private unnamed_addr constant [34 x i8] c"rtpmidi.cj_chapter_e_log_velocity\00", align 1
@@ -439,7 +435,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_rtp_midi_cj_chapter_a_log_xflag = internal global i32 0, align 4
 @.str.250 = private unnamed_addr constant [21 x i8] c"Chapter A Log X-Flag\00", align 1
 @.str.251 = private unnamed_addr constant [31 x i8] c"rtpmidi.cj_chapter_a_log_xflag\00", align 1
-@rtp_midi_cj_chapter_a_log_flag_x = internal constant %struct.true_false_string { ptr @.str.1406, ptr @.str.1407 }, align 8
+@rtp_midi_cj_chapter_a_log_flag_x = internal constant %struct.true_false_string { ptr @.str.1414, ptr @.str.1415 }, align 8
 @hf_rtp_midi_cj_chapter_a_log_pressure = internal global i32 0, align 4
 @.str.252 = private unnamed_addr constant [23 x i8] c"Chapter A Log Pressure\00", align 1
 @.str.253 = private unnamed_addr constant [34 x i8] c"rtpmidi.cj_chapter_a_log_pressure\00", align 1
@@ -461,31 +457,31 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_rtp_midi_sj_chapter_d_bflag = internal global i32 0, align 4
 @.str.264 = private unnamed_addr constant [17 x i8] c"Chapter D B-Flag\00", align 1
 @.str.265 = private unnamed_addr constant [27 x i8] c"rtpmidi.sj_chapter_d_bflag\00", align 1
-@rtp_midi_sj_chapter_d_flag_b = internal constant %struct.true_false_string { ptr @.str.1408, ptr @.str.1409 }, align 8
+@rtp_midi_sj_chapter_d_flag_b = internal constant %struct.true_false_string { ptr @.str.1416, ptr @.str.1417 }, align 8
 @hf_rtp_midi_sj_chapter_d_gflag = internal global i32 0, align 4
 @.str.266 = private unnamed_addr constant [17 x i8] c"Chapter D G-Flag\00", align 1
 @.str.267 = private unnamed_addr constant [27 x i8] c"rtpmidi.sj_chapter_d_gflag\00", align 1
-@rtp_midi_sj_chapter_d_flag_g = internal constant %struct.true_false_string { ptr @.str.1410, ptr @.str.1411 }, align 8
+@rtp_midi_sj_chapter_d_flag_g = internal constant %struct.true_false_string { ptr @.str.1418, ptr @.str.1419 }, align 8
 @hf_rtp_midi_sj_chapter_d_hflag = internal global i32 0, align 4
 @.str.268 = private unnamed_addr constant [17 x i8] c"Chapter D H-Flag\00", align 1
 @.str.269 = private unnamed_addr constant [27 x i8] c"rtpmidi.sj_chapter_d_hflag\00", align 1
-@rtp_midi_sj_chapter_d_flag_h = internal constant %struct.true_false_string { ptr @.str.1412, ptr @.str.1413 }, align 8
+@rtp_midi_sj_chapter_d_flag_h = internal constant %struct.true_false_string { ptr @.str.1420, ptr @.str.1421 }, align 8
 @hf_rtp_midi_sj_chapter_d_jflag = internal global i32 0, align 4
 @.str.270 = private unnamed_addr constant [17 x i8] c"Chapter D J-Flag\00", align 1
 @.str.271 = private unnamed_addr constant [27 x i8] c"rtpmidi.sj_chapter_d_jflag\00", align 1
-@rtp_midi_sj_chapter_d_flag_j = internal constant %struct.true_false_string { ptr @.str.1414, ptr @.str.1415 }, align 8
+@rtp_midi_sj_chapter_d_flag_j = internal constant %struct.true_false_string { ptr @.str.1422, ptr @.str.1423 }, align 8
 @hf_rtp_midi_sj_chapter_d_kflag = internal global i32 0, align 4
 @.str.272 = private unnamed_addr constant [17 x i8] c"Chapter D K-Flag\00", align 1
 @.str.273 = private unnamed_addr constant [27 x i8] c"rtpmidi.sj_chapter_d_kflag\00", align 1
-@rtp_midi_sj_chapter_d_flag_k = internal constant %struct.true_false_string { ptr @.str.1416, ptr @.str.1417 }, align 8
+@rtp_midi_sj_chapter_d_flag_k = internal constant %struct.true_false_string { ptr @.str.1424, ptr @.str.1425 }, align 8
 @hf_rtp_midi_sj_chapter_d_yflag = internal global i32 0, align 4
 @.str.274 = private unnamed_addr constant [17 x i8] c"Chapter D Y-Flag\00", align 1
 @.str.275 = private unnamed_addr constant [27 x i8] c"rtpmidi.sj_chapter_d_yflag\00", align 1
-@rtp_midi_sj_chapter_d_flag_y = internal constant %struct.true_false_string { ptr @.str.1418, ptr @.str.1419 }, align 8
+@rtp_midi_sj_chapter_d_flag_y = internal constant %struct.true_false_string { ptr @.str.1426, ptr @.str.1427 }, align 8
 @hf_rtp_midi_sj_chapter_d_zflag = internal global i32 0, align 4
 @.str.276 = private unnamed_addr constant [17 x i8] c"Chapter D Z-Flag\00", align 1
 @.str.277 = private unnamed_addr constant [27 x i8] c"rtpmidi.sj_chapter_d_zflag\00", align 1
-@rtp_midi_sj_chapter_d_flag_z = internal constant %struct.true_false_string { ptr @.str.1420, ptr @.str.1421 }, align 8
+@rtp_midi_sj_chapter_d_flag_z = internal constant %struct.true_false_string { ptr @.str.1428, ptr @.str.1429 }, align 8
 @hf_rtp_midi_sj_chapter_d_reset = internal global i32 0, align 4
 @.str.278 = private unnamed_addr constant [12 x i8] c"Reset Field\00", align 1
 @.str.279 = private unnamed_addr constant [27 x i8] c"rtpmidi.cj_chapter_d_reset\00", align 1
@@ -519,19 +515,18 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_rtp_midi_sj_chapter_d_syscom_cflag = internal global i32 0, align 4
 @.str.298 = private unnamed_addr constant [39 x i8] c"Chapter D System Common (F4/F5) C-Flag\00", align 1
 @.str.299 = private unnamed_addr constant [34 x i8] c"rtpmidi.sj_chapter_d_syscom_cflag\00", align 1
-@rtp_midi_sj_chapter_d_syscom_flag_c = internal constant %struct.true_false_string { ptr @.str.1390, ptr @.str.1391 }, align 8
+@rtp_midi_sj_chapter_d_syscom_flag_c = internal constant %struct.true_false_string { ptr @.str.1398, ptr @.str.1399 }, align 8
 @hf_rtp_midi_sj_chapter_d_syscom_vflag = internal global i32 0, align 4
 @.str.300 = private unnamed_addr constant [39 x i8] c"Chapter D System Common (F4/F5) V-Flag\00", align 1
 @.str.301 = private unnamed_addr constant [34 x i8] c"rtpmidi.sj_chapter_d_syscom_vflag\00", align 1
-@rtp_midi_sj_chapter_d_syscom_flag_v = internal constant %struct.true_false_string { ptr @.str.1422, ptr @.str.1423 }, align 8
+@rtp_midi_sj_chapter_d_syscom_flag_v = internal constant %struct.true_false_string { ptr @.str.1430, ptr @.str.1431 }, align 8
 @hf_rtp_midi_sj_chapter_d_syscom_lflag = internal global i32 0, align 4
 @.str.302 = private unnamed_addr constant [39 x i8] c"Chapter D System Common (F4/F5) L-Flag\00", align 1
 @.str.303 = private unnamed_addr constant [34 x i8] c"rtpmidi.sj_chapter_d_syscom_lflag\00", align 1
-@rtp_midi_sj_chapter_d_syscom_flag_l = internal constant %struct.true_false_string { ptr @.str.1424, ptr @.str.1425 }, align 8
+@rtp_midi_sj_chapter_d_syscom_flag_l = internal constant %struct.true_false_string { ptr @.str.1432, ptr @.str.1433 }, align 8
 @hf_rtp_midi_sj_chapter_d_syscom_dsz = internal global i32 0, align 4
 @.str.304 = private unnamed_addr constant [36 x i8] c"Chapter D System Common (F4/F5) DSZ\00", align 1
 @.str.305 = private unnamed_addr constant [32 x i8] c"rtpmidi.sj_chapter_d_syscom_dsz\00", align 1
-@rtp_midi_sj_chapter_d_syscom_dsz_values = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1426 }, %struct._value_string { i32 1, ptr @.str.1427 }, %struct._value_string { i32 2, ptr @.str.1428 }, %struct._value_string { i32 3, ptr @.str.1429 }, %struct._value_string zeroinitializer], align 16
 @hf_rtp_midi_sj_chapter_d_syscom_length = internal global i32 0, align 4
 @.str.306 = private unnamed_addr constant [39 x i8] c"Chapter D System Common (F4/F5) Length\00", align 1
 @.str.307 = private unnamed_addr constant [32 x i8] c"rtpmidi.sj_chapter_d_syscom_len\00", align 1
@@ -574,19 +569,19 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_rtp_midi_sj_chapter_q_nflag = internal global i32 0, align 4
 @.str.332 = private unnamed_addr constant [33 x i8] c"Chapter Q Sequencer State N-Flag\00", align 1
 @.str.333 = private unnamed_addr constant [27 x i8] c"rtpmidi.sj_chapter_q_nflag\00", align 1
-@rtp_midi_sj_chapter_q_flag_n = internal constant %struct.true_false_string { ptr @.str.1430, ptr @.str.1431 }, align 8
+@rtp_midi_sj_chapter_q_flag_n = internal constant %struct.true_false_string { ptr @.str.1439, ptr @.str.1440 }, align 8
 @hf_rtp_midi_sj_chapter_q_dflag = internal global i32 0, align 4
 @.str.334 = private unnamed_addr constant [33 x i8] c"Chapter Q Sequencer State D-Flag\00", align 1
 @.str.335 = private unnamed_addr constant [27 x i8] c"rtpmidi.sj_chapter_q_dflag\00", align 1
-@rtp_midi_sj_chapter_q_flag_d = internal constant %struct.true_false_string { ptr @.str.1432, ptr @.str.1433 }, align 8
+@rtp_midi_sj_chapter_q_flag_d = internal constant %struct.true_false_string { ptr @.str.1441, ptr @.str.1442 }, align 8
 @hf_rtp_midi_sj_chapter_q_cflag = internal global i32 0, align 4
 @.str.336 = private unnamed_addr constant [33 x i8] c"Chapter Q Sequencer State C-Flag\00", align 1
 @.str.337 = private unnamed_addr constant [27 x i8] c"rtpmidi.sj_chapter_q_cflag\00", align 1
-@rtp_midi_sj_chapter_q_flag_c = internal constant %struct.true_false_string { ptr @.str.1434, ptr @.str.1435 }, align 8
+@rtp_midi_sj_chapter_q_flag_c = internal constant %struct.true_false_string { ptr @.str.1443, ptr @.str.1444 }, align 8
 @hf_rtp_midi_sj_chapter_q_tflag = internal global i32 0, align 4
 @.str.338 = private unnamed_addr constant [33 x i8] c"Chapter Q Sequencer State T-Flag\00", align 1
 @.str.339 = private unnamed_addr constant [27 x i8] c"rtpmidi.sj_chapter_q_tflag\00", align 1
-@rtp_midi_sj_chapter_q_flag_t = internal constant %struct.true_false_string { ptr @.str.1436, ptr @.str.1437 }, align 8
+@rtp_midi_sj_chapter_q_flag_t = internal constant %struct.true_false_string { ptr @.str.1445, ptr @.str.1446 }, align 8
 @hf_rtp_midi_sj_chapter_q_top = internal global i32 0, align 4
 @.str.340 = private unnamed_addr constant [30 x i8] c"Chapter Q Sequencer State Top\00", align 1
 @.str.341 = private unnamed_addr constant [25 x i8] c"rtpmidi.sj_chapter_q_top\00", align 1
@@ -602,19 +597,19 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_rtp_midi_sj_chapter_f_cflag = internal global i32 0, align 4
 @.str.348 = private unnamed_addr constant [21 x i8] c"Chapter F MTC C-Flag\00", align 1
 @.str.349 = private unnamed_addr constant [27 x i8] c"rtpmidi.sj_chapter_f_cflag\00", align 1
-@rtp_midi_sj_chapter_f_flag_c = internal constant %struct.true_false_string { ptr @.str.1438, ptr @.str.1439 }, align 8
+@rtp_midi_sj_chapter_f_flag_c = internal constant %struct.true_false_string { ptr @.str.1447, ptr @.str.1448 }, align 8
 @hf_rtp_midi_sj_chapter_f_pflag = internal global i32 0, align 4
 @.str.350 = private unnamed_addr constant [21 x i8] c"Chapter F MTC P-Flag\00", align 1
 @.str.351 = private unnamed_addr constant [27 x i8] c"rtpmidi.sj_chapter_f_pflag\00", align 1
-@rtp_midi_sj_chapter_f_flag_p = internal constant %struct.true_false_string { ptr @.str.1440, ptr @.str.1441 }, align 8
+@rtp_midi_sj_chapter_f_flag_p = internal constant %struct.true_false_string { ptr @.str.1449, ptr @.str.1450 }, align 8
 @hf_rtp_midi_sj_chapter_f_qflag = internal global i32 0, align 4
 @.str.352 = private unnamed_addr constant [21 x i8] c"Chapter F MTC Q-Flag\00", align 1
 @.str.353 = private unnamed_addr constant [27 x i8] c"rtpmidi.sj_chapter_f_qflag\00", align 1
-@rtp_midi_sj_chapter_f_flag_q = internal constant %struct.true_false_string { ptr @.str.1442, ptr @.str.1443 }, align 8
+@rtp_midi_sj_chapter_f_flag_q = internal constant %struct.true_false_string { ptr @.str.1451, ptr @.str.1452 }, align 8
 @hf_rtp_midi_sj_chapter_f_dflag = internal global i32 0, align 4
 @.str.354 = private unnamed_addr constant [21 x i8] c"Chapter F MTC D-Flag\00", align 1
 @.str.355 = private unnamed_addr constant [27 x i8] c"rtpmidi.sj_chapter_f_dflag\00", align 1
-@rtp_midi_sj_chapter_f_flag_d = internal constant %struct.true_false_string { ptr @.str.1444, ptr @.str.1445 }, align 8
+@rtp_midi_sj_chapter_f_flag_d = internal constant %struct.true_false_string { ptr @.str.1453, ptr @.str.1454 }, align 8
 @hf_rtp_midi_sj_chapter_f_point = internal global i32 0, align 4
 @.str.356 = private unnamed_addr constant [20 x i8] c"Chapter F MTC Point\00", align 1
 @.str.357 = private unnamed_addr constant [27 x i8] c"rtpmidi.sj_chapter_f_point\00", align 1
@@ -666,23 +661,23 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_rtp_midi_sj_chapter_x_tflag = internal global i32 0, align 4
 @.str.388 = private unnamed_addr constant [23 x i8] c"Chapter X Sysex T-Flag\00", align 1
 @.str.389 = private unnamed_addr constant [27 x i8] c"rtpmidi.sj_chapter_x_tflag\00", align 1
-@rtp_midi_sj_chapter_x_flag_t = internal constant %struct.true_false_string { ptr @.str.1446, ptr @.str.1447 }, align 8
+@rtp_midi_sj_chapter_x_flag_t = internal constant %struct.true_false_string { ptr @.str.1455, ptr @.str.1456 }, align 8
 @hf_rtp_midi_sj_chapter_x_cflag = internal global i32 0, align 4
 @.str.390 = private unnamed_addr constant [23 x i8] c"Chapter X Sysex C-Flag\00", align 1
 @.str.391 = private unnamed_addr constant [27 x i8] c"rtpmidi.sj_chapter_x_cflag\00", align 1
-@rtp_midi_sj_chapter_x_flag_c = internal constant %struct.true_false_string { ptr @.str.1448, ptr @.str.1449 }, align 8
+@rtp_midi_sj_chapter_x_flag_c = internal constant %struct.true_false_string { ptr @.str.1457, ptr @.str.1458 }, align 8
 @hf_rtp_midi_sj_chapter_x_fflag = internal global i32 0, align 4
 @.str.392 = private unnamed_addr constant [23 x i8] c"Chapter X Sysex F-Flag\00", align 1
 @.str.393 = private unnamed_addr constant [27 x i8] c"rtpmidi.sj_chapter_x_fflag\00", align 1
-@rtp_midi_sj_chapter_x_flag_f = internal constant %struct.true_false_string { ptr @.str.1450, ptr @.str.1451 }, align 8
+@rtp_midi_sj_chapter_x_flag_f = internal constant %struct.true_false_string { ptr @.str.1459, ptr @.str.1460 }, align 8
 @hf_rtp_midi_sj_chapter_x_dflag = internal global i32 0, align 4
 @.str.394 = private unnamed_addr constant [23 x i8] c"Chapter X Sysex D-Flag\00", align 1
 @.str.395 = private unnamed_addr constant [27 x i8] c"rtpmidi.sj_chapter_x_dflag\00", align 1
-@rtp_midi_sj_chapter_x_flag_d = internal constant %struct.true_false_string { ptr @.str.1452, ptr @.str.1453 }, align 8
+@rtp_midi_sj_chapter_x_flag_d = internal constant %struct.true_false_string { ptr @.str.1461, ptr @.str.1462 }, align 8
 @hf_rtp_midi_sj_chapter_x_lflag = internal global i32 0, align 4
 @.str.396 = private unnamed_addr constant [23 x i8] c"Chapter X Sysex L-Flag\00", align 1
 @.str.397 = private unnamed_addr constant [27 x i8] c"rtpmidi.sj_chapter_x_lflag\00", align 1
-@rtp_midi_sj_chapter_x_flag_l = internal constant %struct.true_false_string { ptr @.str.1454, ptr @.str.1455 }, align 8
+@rtp_midi_sj_chapter_x_flag_l = internal constant %struct.true_false_string { ptr @.str.1463, ptr @.str.1464 }, align 8
 @hf_rtp_midi_sj_chapter_x_sta = internal global i32 0, align 4
 @.str.398 = private unnamed_addr constant [20 x i8] c"Chapter X Sysex STA\00", align 1
 @.str.399 = private unnamed_addr constant [25 x i8] c"rtpmidi.sj_chapter_x_sta\00", align 1
@@ -713,7 +708,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_rtp_midi_quarter_frame_type = internal global i32 0, align 4
 @.str.416 = private unnamed_addr constant [23 x i8] c"MTC-quarter-frame-type\00", align 1
 @.str.417 = private unnamed_addr constant [31 x i8] c"rtpmidi.mtc_quarter_frame_type\00", align 1
-@rtp_midi_qft_values = internal constant [9 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1456 }, %struct._value_string { i32 1, ptr @.str.1457 }, %struct._value_string { i32 2, ptr @.str.1458 }, %struct._value_string { i32 3, ptr @.str.1459 }, %struct._value_string { i32 4, ptr @.str.1460 }, %struct._value_string { i32 5, ptr @.str.1461 }, %struct._value_string { i32 6, ptr @.str.1462 }, %struct._value_string { i32 7, ptr @.str.1463 }, %struct._value_string zeroinitializer], align 16
 @hf_rtp_midi_quarter_frame_value = internal global i32 0, align 4
 @.str.418 = private unnamed_addr constant [24 x i8] c"MTC-quarter-frame-value\00", align 1
 @.str.419 = private unnamed_addr constant [32 x i8] c"rtpmidi.mtc_quarter_frame_value\00", align 1
@@ -735,62 +729,49 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_rtp_midi_sysex_common_realtime = internal global i32 0, align 4
 @.str.430 = private unnamed_addr constant [22 x i8] c"Sysex Common Realtime\00", align 1
 @.str.431 = private unnamed_addr constant [30 x i8] c"rtpmidi.sysex_common_realtime\00", align 1
-@rtp_midi_sysex_common_rt = internal constant [9 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.1464 }, %struct._value_string { i32 2, ptr @.str.1465 }, %struct._value_string { i32 3, ptr @.str.1466 }, %struct._value_string { i32 4, ptr @.str.1467 }, %struct._value_string { i32 5, ptr @.str.1468 }, %struct._value_string { i32 6, ptr @.str.1469 }, %struct._value_string { i32 7, ptr @.str.1470 }, %struct._value_string { i32 8, ptr @.str.1471 }, %struct._value_string zeroinitializer], align 16
 @hf_rtp_midi_sysex_common_non_realtime = internal global i32 0, align 4
 @.str.432 = private unnamed_addr constant [26 x i8] c"Sysex Common Non-Realtime\00", align 1
 @.str.433 = private unnamed_addr constant [34 x i8] c"rtpmidi.sysex_common_non_realtime\00", align 1
-@rtp_midi_sysex_common_nrt = internal constant [16 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.1472 }, %struct._value_string { i32 2, ptr @.str.1473 }, %struct._value_string { i32 3, ptr @.str.1474 }, %struct._value_string { i32 4, ptr @.str.1475 }, %struct._value_string { i32 5, ptr @.str.1476 }, %struct._value_string { i32 6, ptr @.str.1477 }, %struct._value_string { i32 7, ptr @.str.1478 }, %struct._value_string { i32 8, ptr @.str.1479 }, %struct._value_string { i32 9, ptr @.str.1480 }, %struct._value_string { i32 10, ptr @.str.1481 }, %struct._value_string { i32 123, ptr @.str.1482 }, %struct._value_string { i32 124, ptr @.str.1483 }, %struct._value_string { i32 125, ptr @.str.1484 }, %struct._value_string { i32 126, ptr @.str.1485 }, %struct._value_string { i32 127, ptr @.str.1486 }, %struct._value_string zeroinitializer], align 16
 @hf_rtp_midi_sysex_common_device_id = internal global i32 0, align 4
 @.str.434 = private unnamed_addr constant [23 x i8] c"Sysex Common Device ID\00", align 1
 @.str.435 = private unnamed_addr constant [31 x i8] c"rtpmidi.sysex_common_device_id\00", align 1
 @hf_rtp_midi_sysex_common_nrt_sd_ext = internal global i32 0, align 4
 @.str.436 = private unnamed_addr constant [48 x i8] c"Sysex Common Non-Realtime Sample Dump Extension\00", align 1
 @.str.437 = private unnamed_addr constant [50 x i8] c"rtpmidi.sysex_common_non_realtime_sample_dump_ext\00", align 1
-@rtp_midi_sysex_common_nrt_sd_ext = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.1487 }, %struct._value_string { i32 2, ptr @.str.1488 }, %struct._value_string zeroinitializer], align 16
 @hf_rtp_midi_sysex_common_nrt_gi = internal global i32 0, align 4
 @.str.438 = private unnamed_addr constant [46 x i8] c"Sysex Common Non-Realtime General Information\00", align 1
 @.str.439 = private unnamed_addr constant [54 x i8] c"rtpmidi.sysex_common_non_realtime_general_information\00", align 1
-@rtp_midi_sysex_common_nrt_gi = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.1489 }, %struct._value_string { i32 2, ptr @.str.1490 }, %struct._value_string zeroinitializer], align 16
 @hf_rtp_midi_sysex_common_nrt_fd = internal global i32 0, align 4
 @.str.440 = private unnamed_addr constant [36 x i8] c"Sysex Common Non-Realtime File Dump\00", align 1
 @.str.441 = private unnamed_addr constant [44 x i8] c"rtpmidi.sysex_common_non_realtime_file_dump\00", align 1
-@rtp_midi_sysex_common_nrt_fd = internal constant [4 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.1491 }, %struct._value_string { i32 2, ptr @.str.1492 }, %struct._value_string { i32 3, ptr @.str.1493 }, %struct._value_string zeroinitializer], align 16
 @hf_rtp_midi_sysex_common_tuning = internal global i32 0, align 4
 @.str.442 = private unnamed_addr constant [35 x i8] c"Sysex Common (Non-)Realtime Tuning\00", align 1
 @.str.443 = private unnamed_addr constant [28 x i8] c"rtpmidi.sysex_common_tuning\00", align 1
-@rtp_midi_sysex_common_tuning = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1494 }, %struct._value_string { i32 1, ptr @.str.1495 }, %struct._value_string { i32 2, ptr @.str.1496 }, %struct._value_string zeroinitializer], align 16
 @hf_rtp_midi_sysex_common_nrt_gm = internal global i32 0, align 4
 @.str.444 = private unnamed_addr constant [44 x i8] c"Sysex Common Non-Realtime General MIDI (GM)\00", align 1
 @.str.445 = private unnamed_addr constant [37 x i8] c"rtpmidi.sysex_common_non_realtime_gm\00", align 1
-@rtp_midi_sysex_common_nrt_gm = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.1497 }, %struct._value_string { i32 2, ptr @.str.1498 }, %struct._value_string zeroinitializer], align 16
 @hf_rtp_midi_sysex_common_nrt_dls = internal global i32 0, align 4
 @.str.446 = private unnamed_addr constant [52 x i8] c"Sysex Common Non-Realtime Downloadable Sounds (DLS)\00", align 1
 @.str.447 = private unnamed_addr constant [38 x i8] c"rtpmidi.sysex_common_non_realtime_dls\00", align 1
-@rtp_midi_sysex_common_nrt_dls = internal constant [5 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.1499 }, %struct._value_string { i32 2, ptr @.str.1500 }, %struct._value_string { i32 3, ptr @.str.1501 }, %struct._value_string { i32 4, ptr @.str.1502 }, %struct._value_string zeroinitializer], align 16
 @hf_rtp_midi_sysex_common_rt_mtc = internal global i32 0, align 4
 @.str.448 = private unnamed_addr constant [26 x i8] c"Sysex Common Realtime MTC\00", align 1
 @.str.449 = private unnamed_addr constant [34 x i8] c"rtpmidi.sysex_common_realtime_mtc\00", align 1
-@rtp_midi_sysex_common_rt_mtc = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.1503 }, %struct._value_string { i32 2, ptr @.str.1504 }, %struct._value_string zeroinitializer], align 16
 @hf_rtp_midi_sysex_common_rt_sc = internal global i32 0, align 4
 @.str.450 = private unnamed_addr constant [35 x i8] c"Sysex Common Realtime Show Control\00", align 1
 @.str.451 = private unnamed_addr constant [33 x i8] c"rtpmidi.sysex_common_realtime_sc\00", align 1
-@rtp_midi_sysex_common_rt_show_control_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 57, ptr @rtp_midi_sysex_common_rt_show_control, ptr @.str.1505 }, align 8
+@rtp_midi_sysex_common_rt_show_control_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 57, ptr @rtp_midi_sysex_common_rt_show_control, ptr @.str.1524 }, align 8
 @hf_rtp_midi_sysex_common_rt_ni = internal global i32 0, align 4
 @.str.452 = private unnamed_addr constant [43 x i8] c"Sysex Common Realtime Notation Information\00", align 1
 @.str.453 = private unnamed_addr constant [33 x i8] c"rtpmidi.sysex_common_realtime_ni\00", align 1
-@rtp_midi_sysex_common_rt_notations = internal constant [4 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.1563 }, %struct._value_string { i32 2, ptr @.str.1564 }, %struct._value_string { i32 66, ptr @.str.1565 }, %struct._value_string zeroinitializer], align 16
 @hf_rtp_midi_sysex_common_rt_dc = internal global i32 0, align 4
 @.str.454 = private unnamed_addr constant [37 x i8] c"Sysex Common Realtime Device Control\00", align 1
 @.str.455 = private unnamed_addr constant [33 x i8] c"rtpmidi.sysex_common_realtime_dc\00", align 1
-@rtp_midi_sysex_common_rt_device_control = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.1566 }, %struct._value_string { i32 2, ptr @.str.1567 }, %struct._value_string zeroinitializer], align 16
 @hf_rtp_midi_sysex_common_rt_mtc_cueing = internal global i32 0, align 4
 @.str.456 = private unnamed_addr constant [33 x i8] c"Sysex Common Realtime MTC Cueing\00", align 1
 @.str.457 = private unnamed_addr constant [32 x i8] c"rtpmidi.sysex_common_rt_mtc_cue\00", align 1
-@rtp_midi_sysex_common_rt_mtc_cue = internal constant [16 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1568 }, %struct._value_string { i32 1, ptr @.str.1569 }, %struct._value_string { i32 2, ptr @.str.1570 }, %struct._value_string { i32 3, ptr @.str.1571 }, %struct._value_string { i32 4, ptr @.str.1572 }, %struct._value_string { i32 5, ptr @.str.1573 }, %struct._value_string { i32 6, ptr @.str.1574 }, %struct._value_string { i32 7, ptr @.str.1575 }, %struct._value_string { i32 8, ptr @.str.1576 }, %struct._value_string { i32 9, ptr @.str.1577 }, %struct._value_string { i32 10, ptr @.str.1578 }, %struct._value_string { i32 11, ptr @.str.1579 }, %struct._value_string { i32 12, ptr @.str.1580 }, %struct._value_string { i32 13, ptr @.str.1581 }, %struct._value_string { i32 14, ptr @.str.1582 }, %struct._value_string zeroinitializer], align 16
 @hf_rtp_midi_sysex_common_nrt_mtc = internal global i32 0, align 4
 @.str.458 = private unnamed_addr constant [30 x i8] c"Sysex Common Non-Realtime MTC\00", align 1
 @.str.459 = private unnamed_addr constant [29 x i8] c"rtpmidi.sysex_common_nrt_mtc\00", align 1
-@rtp_midi_sysex_common_nrt_mtc = internal constant [16 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1568 }, %struct._value_string { i32 1, ptr @.str.1569 }, %struct._value_string { i32 2, ptr @.str.1570 }, %struct._value_string { i32 3, ptr @.str.1583 }, %struct._value_string { i32 4, ptr @.str.1584 }, %struct._value_string { i32 5, ptr @.str.1585 }, %struct._value_string { i32 6, ptr @.str.1586 }, %struct._value_string { i32 7, ptr @.str.1587 }, %struct._value_string { i32 8, ptr @.str.1588 }, %struct._value_string { i32 9, ptr @.str.1589 }, %struct._value_string { i32 10, ptr @.str.1590 }, %struct._value_string { i32 11, ptr @.str.1579 }, %struct._value_string { i32 12, ptr @.str.1580 }, %struct._value_string { i32 13, ptr @.str.1591 }, %struct._value_string { i32 14, ptr @.str.1582 }, %struct._value_string zeroinitializer], align 16
 @hf_rtp_midi_sysex_common_rt_mmc_commands = internal global i32 0, align 4
 @.str.460 = private unnamed_addr constant [47 x i8] c"Sysex Common Realtime Machine Control Commands\00", align 1
 @.str.461 = private unnamed_addr constant [39 x i8] c"rtpmidi.sysex_common_realtime_mmc_cmds\00", align 1
@@ -832,7 +813,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_rtp_midi_sysex_common_nrt_sd_header_lt = internal global i32 0, align 4
 @.str.484 = private unnamed_addr constant [48 x i8] c"Sysex Common Non-Realtime Sample Dump Loop Type\00", align 1
 @.str.485 = private unnamed_addr constant [56 x i8] c"rtpmidi.sysex_common_non_realtime_sample_dump_loop_type\00", align 1
-@rtp_midi_sysex_common_nrt_sd_lt = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1592 }, %struct._value_string { i32 1, ptr @.str.1593 }, %struct._value_string { i32 127, ptr @.str.1594 }, %struct._value_string zeroinitializer], align 16
 @hf_rtp_midi_sysex_common_nrt_sd_packet_count = internal global i32 0, align 4
 @.str.486 = private unnamed_addr constant [59 x i8] c"Sysex Common Non-Realtime Sample Dump Running Packet Count\00", align 1
 @.str.487 = private unnamed_addr constant [59 x i8] c"rtpmidi.sysex_common_non_realtime_sample_dump_packet_count\00", align 1
@@ -890,7 +870,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_rtp_midi_sysex_common_rt_mtc_fm_type = internal global i32 0, align 4
 @.str.522 = private unnamed_addr constant [44 x i8] c"Sysex Common Realtime MTC Full Message Type\00", align 1
 @.str.523 = private unnamed_addr constant [36 x i8] c"rtpmidi.sysex_common_rt_mtc_fm_type\00", align 1
-@rtp_midi_mtc_fm_type_values = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1595 }, %struct._value_string { i32 1, ptr @.str.1596 }, %struct._value_string { i32 2, ptr @.str.1597 }, %struct._value_string { i32 3, ptr @.str.1598 }, %struct._value_string zeroinitializer], align 16
 @hf_rtp_midi_sysex_common_rt_mtc_fm_hr = internal global i32 0, align 4
 @.str.524 = private unnamed_addr constant [44 x i8] c"Sysex Common Realtime MTC Full Message Hour\00", align 1
 @.str.525 = private unnamed_addr constant [36 x i8] c"rtpmidi.sysex_common_rt_mtc_fm_hour\00", align 1
@@ -1088,1105 +1067,1132 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.627 = private unnamed_addr constant [12 x i8] c"14 channels\00", align 1
 @.str.628 = private unnamed_addr constant [12 x i8] c"15 channels\00", align 1
 @.str.629 = private unnamed_addr constant [12 x i8] c"16 channels\00", align 1
-@.str.630 = private unnamed_addr constant [9 x i8] c"Note Off\00", align 1
-@.str.631 = private unnamed_addr constant [8 x i8] c"Note On\00", align 1
-@.str.632 = private unnamed_addr constant [24 x i8] c"Polyphonic Key Pressure\00", align 1
-@.str.633 = private unnamed_addr constant [15 x i8] c"Control Change\00", align 1
-@.str.634 = private unnamed_addr constant [15 x i8] c"Program Change\00", align 1
-@.str.635 = private unnamed_addr constant [17 x i8] c"Channel Pressure\00", align 1
-@.str.636 = private unnamed_addr constant [18 x i8] c"Pitch Bend Change\00", align 1
-@.str.637 = private unnamed_addr constant [65 x i8] c"SOX: Start Of System-Exclusive / End of System-Exclusive Segment\00", align 1
-@.str.638 = private unnamed_addr constant [18 x i8] c"MTC Quarter Frame\00", align 1
-@.str.639 = private unnamed_addr constant [25 x i8] c"Systems Exclusive Cancel\00", align 1
-@.str.640 = private unnamed_addr constant [15 x i8] c"Undefined 0xf5\00", align 1
-@.str.641 = private unnamed_addr constant [13 x i8] c"Tune Request\00", align 1
-@.str.642 = private unnamed_addr constant [65 x i8] c"EOX: Start of System-Exclusive Segment / End of System-Exclusive\00", align 1
-@.str.643 = private unnamed_addr constant [17 x i8] c"RT: Timing Clock\00", align 1
-@.str.644 = private unnamed_addr constant [14 x i8] c"RT: Midi Tick\00", align 1
-@.str.645 = private unnamed_addr constant [10 x i8] c"RT: Start\00", align 1
-@.str.646 = private unnamed_addr constant [13 x i8] c"RT: Continue\00", align 1
-@.str.647 = private unnamed_addr constant [9 x i8] c"RT: Stop\00", align 1
-@.str.648 = private unnamed_addr constant [19 x i8] c"RT: Undefined 0xfd\00", align 1
-@.str.649 = private unnamed_addr constant [19 x i8] c"RT: Active sensing\00", align 1
-@.str.650 = private unnamed_addr constant [18 x i8] c"RT: Systems reset\00", align 1
-@.str.651 = private unnamed_addr constant [10 x i8] c"Channel 1\00", align 1
-@.str.652 = private unnamed_addr constant [10 x i8] c"Channel 2\00", align 1
-@.str.653 = private unnamed_addr constant [10 x i8] c"Channel 3\00", align 1
-@.str.654 = private unnamed_addr constant [10 x i8] c"Channel 4\00", align 1
-@.str.655 = private unnamed_addr constant [10 x i8] c"Channel 5\00", align 1
-@.str.656 = private unnamed_addr constant [10 x i8] c"Channel 6\00", align 1
-@.str.657 = private unnamed_addr constant [10 x i8] c"Channel 7\00", align 1
-@.str.658 = private unnamed_addr constant [10 x i8] c"Channel 8\00", align 1
-@.str.659 = private unnamed_addr constant [10 x i8] c"Channel 9\00", align 1
-@.str.660 = private unnamed_addr constant [11 x i8] c"Channel 10\00", align 1
-@.str.661 = private unnamed_addr constant [11 x i8] c"Channel 11\00", align 1
-@.str.662 = private unnamed_addr constant [11 x i8] c"Channel 12\00", align 1
-@.str.663 = private unnamed_addr constant [11 x i8] c"Channel 13\00", align 1
-@.str.664 = private unnamed_addr constant [11 x i8] c"Channel 14\00", align 1
-@.str.665 = private unnamed_addr constant [11 x i8] c"Channel 15\00", align 1
-@.str.666 = private unnamed_addr constant [11 x i8] c"Channel 16\00", align 1
-@rtp_midi_note_values = internal constant [129 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.668 }, %struct._value_string { i32 1, ptr @.str.669 }, %struct._value_string { i32 2, ptr @.str.670 }, %struct._value_string { i32 3, ptr @.str.671 }, %struct._value_string { i32 4, ptr @.str.672 }, %struct._value_string { i32 5, ptr @.str.673 }, %struct._value_string { i32 6, ptr @.str.674 }, %struct._value_string { i32 7, ptr @.str.675 }, %struct._value_string { i32 8, ptr @.str.676 }, %struct._value_string { i32 9, ptr @.str.677 }, %struct._value_string { i32 10, ptr @.str.678 }, %struct._value_string { i32 11, ptr @.str.679 }, %struct._value_string { i32 12, ptr @.str.680 }, %struct._value_string { i32 13, ptr @.str.681 }, %struct._value_string { i32 14, ptr @.str.682 }, %struct._value_string { i32 15, ptr @.str.683 }, %struct._value_string { i32 16, ptr @.str.684 }, %struct._value_string { i32 17, ptr @.str.685 }, %struct._value_string { i32 18, ptr @.str.686 }, %struct._value_string { i32 19, ptr @.str.687 }, %struct._value_string { i32 20, ptr @.str.688 }, %struct._value_string { i32 21, ptr @.str.689 }, %struct._value_string { i32 22, ptr @.str.690 }, %struct._value_string { i32 23, ptr @.str.691 }, %struct._value_string { i32 24, ptr @.str.692 }, %struct._value_string { i32 25, ptr @.str.693 }, %struct._value_string { i32 26, ptr @.str.694 }, %struct._value_string { i32 27, ptr @.str.695 }, %struct._value_string { i32 28, ptr @.str.696 }, %struct._value_string { i32 29, ptr @.str.697 }, %struct._value_string { i32 30, ptr @.str.698 }, %struct._value_string { i32 31, ptr @.str.699 }, %struct._value_string { i32 32, ptr @.str.700 }, %struct._value_string { i32 33, ptr @.str.701 }, %struct._value_string { i32 34, ptr @.str.702 }, %struct._value_string { i32 35, ptr @.str.703 }, %struct._value_string { i32 36, ptr @.str.704 }, %struct._value_string { i32 37, ptr @.str.705 }, %struct._value_string { i32 38, ptr @.str.706 }, %struct._value_string { i32 39, ptr @.str.707 }, %struct._value_string { i32 40, ptr @.str.708 }, %struct._value_string { i32 41, ptr @.str.709 }, %struct._value_string { i32 42, ptr @.str.710 }, %struct._value_string { i32 43, ptr @.str.711 }, %struct._value_string { i32 44, ptr @.str.712 }, %struct._value_string { i32 45, ptr @.str.713 }, %struct._value_string { i32 46, ptr @.str.714 }, %struct._value_string { i32 47, ptr @.str.715 }, %struct._value_string { i32 48, ptr @.str.716 }, %struct._value_string { i32 49, ptr @.str.717 }, %struct._value_string { i32 50, ptr @.str.718 }, %struct._value_string { i32 51, ptr @.str.719 }, %struct._value_string { i32 52, ptr @.str.720 }, %struct._value_string { i32 53, ptr @.str.721 }, %struct._value_string { i32 54, ptr @.str.722 }, %struct._value_string { i32 55, ptr @.str.723 }, %struct._value_string { i32 56, ptr @.str.724 }, %struct._value_string { i32 57, ptr @.str.725 }, %struct._value_string { i32 58, ptr @.str.726 }, %struct._value_string { i32 59, ptr @.str.727 }, %struct._value_string { i32 60, ptr @.str.728 }, %struct._value_string { i32 61, ptr @.str.729 }, %struct._value_string { i32 62, ptr @.str.730 }, %struct._value_string { i32 63, ptr @.str.731 }, %struct._value_string { i32 64, ptr @.str.732 }, %struct._value_string { i32 65, ptr @.str.733 }, %struct._value_string { i32 66, ptr @.str.734 }, %struct._value_string { i32 67, ptr @.str.735 }, %struct._value_string { i32 68, ptr @.str.736 }, %struct._value_string { i32 69, ptr @.str.737 }, %struct._value_string { i32 70, ptr @.str.738 }, %struct._value_string { i32 71, ptr @.str.739 }, %struct._value_string { i32 72, ptr @.str.740 }, %struct._value_string { i32 73, ptr @.str.741 }, %struct._value_string { i32 74, ptr @.str.742 }, %struct._value_string { i32 75, ptr @.str.743 }, %struct._value_string { i32 76, ptr @.str.744 }, %struct._value_string { i32 77, ptr @.str.745 }, %struct._value_string { i32 78, ptr @.str.746 }, %struct._value_string { i32 79, ptr @.str.747 }, %struct._value_string { i32 80, ptr @.str.748 }, %struct._value_string { i32 81, ptr @.str.749 }, %struct._value_string { i32 82, ptr @.str.750 }, %struct._value_string { i32 83, ptr @.str.751 }, %struct._value_string { i32 84, ptr @.str.752 }, %struct._value_string { i32 85, ptr @.str.753 }, %struct._value_string { i32 86, ptr @.str.754 }, %struct._value_string { i32 87, ptr @.str.755 }, %struct._value_string { i32 88, ptr @.str.756 }, %struct._value_string { i32 89, ptr @.str.757 }, %struct._value_string { i32 90, ptr @.str.758 }, %struct._value_string { i32 91, ptr @.str.759 }, %struct._value_string { i32 92, ptr @.str.760 }, %struct._value_string { i32 93, ptr @.str.761 }, %struct._value_string { i32 94, ptr @.str.762 }, %struct._value_string { i32 95, ptr @.str.763 }, %struct._value_string { i32 96, ptr @.str.764 }, %struct._value_string { i32 97, ptr @.str.765 }, %struct._value_string { i32 98, ptr @.str.766 }, %struct._value_string { i32 99, ptr @.str.767 }, %struct._value_string { i32 100, ptr @.str.768 }, %struct._value_string { i32 101, ptr @.str.769 }, %struct._value_string { i32 102, ptr @.str.770 }, %struct._value_string { i32 103, ptr @.str.771 }, %struct._value_string { i32 104, ptr @.str.772 }, %struct._value_string { i32 105, ptr @.str.773 }, %struct._value_string { i32 106, ptr @.str.774 }, %struct._value_string { i32 107, ptr @.str.775 }, %struct._value_string { i32 108, ptr @.str.776 }, %struct._value_string { i32 109, ptr @.str.777 }, %struct._value_string { i32 110, ptr @.str.778 }, %struct._value_string { i32 111, ptr @.str.779 }, %struct._value_string { i32 112, ptr @.str.780 }, %struct._value_string { i32 113, ptr @.str.781 }, %struct._value_string { i32 114, ptr @.str.782 }, %struct._value_string { i32 115, ptr @.str.783 }, %struct._value_string { i32 116, ptr @.str.784 }, %struct._value_string { i32 117, ptr @.str.785 }, %struct._value_string { i32 118, ptr @.str.786 }, %struct._value_string { i32 119, ptr @.str.787 }, %struct._value_string { i32 120, ptr @.str.788 }, %struct._value_string { i32 121, ptr @.str.789 }, %struct._value_string { i32 122, ptr @.str.790 }, %struct._value_string { i32 123, ptr @.str.791 }, %struct._value_string { i32 124, ptr @.str.792 }, %struct._value_string { i32 125, ptr @.str.793 }, %struct._value_string { i32 126, ptr @.str.794 }, %struct._value_string { i32 127, ptr @.str.795 }, %struct._value_string zeroinitializer], align 16
-@.str.667 = private unnamed_addr constant [21 x i8] c"rtp_midi_note_values\00", align 1
-@.str.668 = private unnamed_addr constant [4 x i8] c"C-1\00", align 1
-@.str.669 = private unnamed_addr constant [5 x i8] c"C#-1\00", align 1
-@.str.670 = private unnamed_addr constant [4 x i8] c"D-1\00", align 1
-@.str.671 = private unnamed_addr constant [5 x i8] c"D#-1\00", align 1
-@.str.672 = private unnamed_addr constant [4 x i8] c"E-1\00", align 1
-@.str.673 = private unnamed_addr constant [4 x i8] c"F-1\00", align 1
-@.str.674 = private unnamed_addr constant [5 x i8] c"F#-1\00", align 1
-@.str.675 = private unnamed_addr constant [4 x i8] c"G-1\00", align 1
-@.str.676 = private unnamed_addr constant [5 x i8] c"G#-1\00", align 1
-@.str.677 = private unnamed_addr constant [4 x i8] c"A-1\00", align 1
-@.str.678 = private unnamed_addr constant [5 x i8] c"A#-1\00", align 1
-@.str.679 = private unnamed_addr constant [4 x i8] c"B-1\00", align 1
-@.str.680 = private unnamed_addr constant [3 x i8] c"C0\00", align 1
-@.str.681 = private unnamed_addr constant [4 x i8] c"C#0\00", align 1
-@.str.682 = private unnamed_addr constant [3 x i8] c"D0\00", align 1
-@.str.683 = private unnamed_addr constant [4 x i8] c"D#0\00", align 1
-@.str.684 = private unnamed_addr constant [3 x i8] c"E0\00", align 1
-@.str.685 = private unnamed_addr constant [3 x i8] c"F0\00", align 1
-@.str.686 = private unnamed_addr constant [4 x i8] c"F#0\00", align 1
-@.str.687 = private unnamed_addr constant [3 x i8] c"G0\00", align 1
-@.str.688 = private unnamed_addr constant [4 x i8] c"G#0\00", align 1
-@.str.689 = private unnamed_addr constant [3 x i8] c"A0\00", align 1
-@.str.690 = private unnamed_addr constant [4 x i8] c"A#0\00", align 1
-@.str.691 = private unnamed_addr constant [3 x i8] c"B0\00", align 1
-@.str.692 = private unnamed_addr constant [3 x i8] c"C1\00", align 1
-@.str.693 = private unnamed_addr constant [4 x i8] c"C#1\00", align 1
-@.str.694 = private unnamed_addr constant [3 x i8] c"D1\00", align 1
-@.str.695 = private unnamed_addr constant [4 x i8] c"D#1\00", align 1
-@.str.696 = private unnamed_addr constant [3 x i8] c"E1\00", align 1
-@.str.697 = private unnamed_addr constant [3 x i8] c"F1\00", align 1
-@.str.698 = private unnamed_addr constant [4 x i8] c"F#1\00", align 1
-@.str.699 = private unnamed_addr constant [3 x i8] c"G1\00", align 1
-@.str.700 = private unnamed_addr constant [4 x i8] c"G#1\00", align 1
-@.str.701 = private unnamed_addr constant [3 x i8] c"A1\00", align 1
-@.str.702 = private unnamed_addr constant [4 x i8] c"A#1\00", align 1
-@.str.703 = private unnamed_addr constant [3 x i8] c"B1\00", align 1
-@.str.704 = private unnamed_addr constant [3 x i8] c"C2\00", align 1
-@.str.705 = private unnamed_addr constant [4 x i8] c"C#2\00", align 1
-@.str.706 = private unnamed_addr constant [3 x i8] c"D2\00", align 1
-@.str.707 = private unnamed_addr constant [4 x i8] c"D#2\00", align 1
-@.str.708 = private unnamed_addr constant [3 x i8] c"E2\00", align 1
-@.str.709 = private unnamed_addr constant [3 x i8] c"F2\00", align 1
-@.str.710 = private unnamed_addr constant [4 x i8] c"F#2\00", align 1
-@.str.711 = private unnamed_addr constant [3 x i8] c"G2\00", align 1
-@.str.712 = private unnamed_addr constant [4 x i8] c"G#2\00", align 1
-@.str.713 = private unnamed_addr constant [3 x i8] c"A2\00", align 1
-@.str.714 = private unnamed_addr constant [4 x i8] c"A#2\00", align 1
-@.str.715 = private unnamed_addr constant [3 x i8] c"B2\00", align 1
-@.str.716 = private unnamed_addr constant [3 x i8] c"C3\00", align 1
-@.str.717 = private unnamed_addr constant [4 x i8] c"C#3\00", align 1
-@.str.718 = private unnamed_addr constant [3 x i8] c"D3\00", align 1
-@.str.719 = private unnamed_addr constant [4 x i8] c"D#3\00", align 1
-@.str.720 = private unnamed_addr constant [3 x i8] c"E3\00", align 1
-@.str.721 = private unnamed_addr constant [3 x i8] c"F3\00", align 1
-@.str.722 = private unnamed_addr constant [4 x i8] c"F#3\00", align 1
-@.str.723 = private unnamed_addr constant [3 x i8] c"G3\00", align 1
-@.str.724 = private unnamed_addr constant [4 x i8] c"G#3\00", align 1
-@.str.725 = private unnamed_addr constant [3 x i8] c"A3\00", align 1
-@.str.726 = private unnamed_addr constant [4 x i8] c"A#3\00", align 1
-@.str.727 = private unnamed_addr constant [3 x i8] c"B3\00", align 1
-@.str.728 = private unnamed_addr constant [3 x i8] c"C4\00", align 1
-@.str.729 = private unnamed_addr constant [4 x i8] c"C#4\00", align 1
-@.str.730 = private unnamed_addr constant [3 x i8] c"D4\00", align 1
-@.str.731 = private unnamed_addr constant [4 x i8] c"D#4\00", align 1
-@.str.732 = private unnamed_addr constant [3 x i8] c"E4\00", align 1
-@.str.733 = private unnamed_addr constant [3 x i8] c"F4\00", align 1
-@.str.734 = private unnamed_addr constant [4 x i8] c"F#4\00", align 1
-@.str.735 = private unnamed_addr constant [3 x i8] c"G4\00", align 1
-@.str.736 = private unnamed_addr constant [4 x i8] c"G#4\00", align 1
-@.str.737 = private unnamed_addr constant [3 x i8] c"A4\00", align 1
-@.str.738 = private unnamed_addr constant [4 x i8] c"A#4\00", align 1
-@.str.739 = private unnamed_addr constant [3 x i8] c"B4\00", align 1
-@.str.740 = private unnamed_addr constant [3 x i8] c"C5\00", align 1
-@.str.741 = private unnamed_addr constant [4 x i8] c"C#5\00", align 1
-@.str.742 = private unnamed_addr constant [3 x i8] c"D5\00", align 1
-@.str.743 = private unnamed_addr constant [4 x i8] c"D#5\00", align 1
-@.str.744 = private unnamed_addr constant [3 x i8] c"E5\00", align 1
-@.str.745 = private unnamed_addr constant [3 x i8] c"F5\00", align 1
-@.str.746 = private unnamed_addr constant [4 x i8] c"F#5\00", align 1
-@.str.747 = private unnamed_addr constant [3 x i8] c"G5\00", align 1
-@.str.748 = private unnamed_addr constant [4 x i8] c"G#5\00", align 1
-@.str.749 = private unnamed_addr constant [3 x i8] c"A5\00", align 1
-@.str.750 = private unnamed_addr constant [4 x i8] c"A#5\00", align 1
-@.str.751 = private unnamed_addr constant [3 x i8] c"B5\00", align 1
-@.str.752 = private unnamed_addr constant [3 x i8] c"C6\00", align 1
-@.str.753 = private unnamed_addr constant [4 x i8] c"C#6\00", align 1
-@.str.754 = private unnamed_addr constant [3 x i8] c"D6\00", align 1
-@.str.755 = private unnamed_addr constant [4 x i8] c"D#6\00", align 1
-@.str.756 = private unnamed_addr constant [3 x i8] c"E6\00", align 1
-@.str.757 = private unnamed_addr constant [3 x i8] c"F6\00", align 1
-@.str.758 = private unnamed_addr constant [4 x i8] c"F#6\00", align 1
-@.str.759 = private unnamed_addr constant [3 x i8] c"G6\00", align 1
-@.str.760 = private unnamed_addr constant [4 x i8] c"G#6\00", align 1
-@.str.761 = private unnamed_addr constant [3 x i8] c"A6\00", align 1
-@.str.762 = private unnamed_addr constant [4 x i8] c"A#6\00", align 1
-@.str.763 = private unnamed_addr constant [3 x i8] c"B6\00", align 1
-@.str.764 = private unnamed_addr constant [3 x i8] c"C7\00", align 1
-@.str.765 = private unnamed_addr constant [4 x i8] c"C#7\00", align 1
-@.str.766 = private unnamed_addr constant [3 x i8] c"D7\00", align 1
-@.str.767 = private unnamed_addr constant [4 x i8] c"D#7\00", align 1
-@.str.768 = private unnamed_addr constant [3 x i8] c"E7\00", align 1
-@.str.769 = private unnamed_addr constant [3 x i8] c"F7\00", align 1
-@.str.770 = private unnamed_addr constant [4 x i8] c"F#7\00", align 1
-@.str.771 = private unnamed_addr constant [3 x i8] c"G7\00", align 1
-@.str.772 = private unnamed_addr constant [4 x i8] c"G#7\00", align 1
-@.str.773 = private unnamed_addr constant [3 x i8] c"A7\00", align 1
-@.str.774 = private unnamed_addr constant [4 x i8] c"A#7\00", align 1
-@.str.775 = private unnamed_addr constant [3 x i8] c"B7\00", align 1
-@.str.776 = private unnamed_addr constant [3 x i8] c"C8\00", align 1
-@.str.777 = private unnamed_addr constant [4 x i8] c"C#8\00", align 1
-@.str.778 = private unnamed_addr constant [3 x i8] c"D8\00", align 1
-@.str.779 = private unnamed_addr constant [4 x i8] c"D#8\00", align 1
-@.str.780 = private unnamed_addr constant [3 x i8] c"E8\00", align 1
-@.str.781 = private unnamed_addr constant [3 x i8] c"F8\00", align 1
-@.str.782 = private unnamed_addr constant [4 x i8] c"F#8\00", align 1
-@.str.783 = private unnamed_addr constant [3 x i8] c"G8\00", align 1
-@.str.784 = private unnamed_addr constant [4 x i8] c"G#8\00", align 1
-@.str.785 = private unnamed_addr constant [3 x i8] c"A8\00", align 1
-@.str.786 = private unnamed_addr constant [4 x i8] c"A#8\00", align 1
-@.str.787 = private unnamed_addr constant [3 x i8] c"B8\00", align 1
-@.str.788 = private unnamed_addr constant [3 x i8] c"C9\00", align 1
-@.str.789 = private unnamed_addr constant [4 x i8] c"C#9\00", align 1
-@.str.790 = private unnamed_addr constant [3 x i8] c"D9\00", align 1
-@.str.791 = private unnamed_addr constant [4 x i8] c"D#9\00", align 1
-@.str.792 = private unnamed_addr constant [3 x i8] c"E9\00", align 1
-@.str.793 = private unnamed_addr constant [3 x i8] c"F9\00", align 1
-@.str.794 = private unnamed_addr constant [4 x i8] c"F#9\00", align 1
-@.str.795 = private unnamed_addr constant [3 x i8] c"G9\00", align 1
-@rtp_midi_controller_values = internal constant [69 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.797 }, %struct._value_string { i32 1, ptr @.str.798 }, %struct._value_string { i32 2, ptr @.str.799 }, %struct._value_string { i32 4, ptr @.str.800 }, %struct._value_string { i32 5, ptr @.str.801 }, %struct._value_string { i32 6, ptr @.str.802 }, %struct._value_string { i32 7, ptr @.str.803 }, %struct._value_string { i32 8, ptr @.str.804 }, %struct._value_string { i32 10, ptr @.str.805 }, %struct._value_string { i32 11, ptr @.str.806 }, %struct._value_string { i32 12, ptr @.str.807 }, %struct._value_string { i32 13, ptr @.str.808 }, %struct._value_string { i32 16, ptr @.str.809 }, %struct._value_string { i32 17, ptr @.str.810 }, %struct._value_string { i32 18, ptr @.str.811 }, %struct._value_string { i32 19, ptr @.str.812 }, %struct._value_string { i32 32, ptr @.str.813 }, %struct._value_string { i32 33, ptr @.str.814 }, %struct._value_string { i32 34, ptr @.str.815 }, %struct._value_string { i32 36, ptr @.str.816 }, %struct._value_string { i32 37, ptr @.str.817 }, %struct._value_string { i32 38, ptr @.str.818 }, %struct._value_string { i32 39, ptr @.str.819 }, %struct._value_string { i32 40, ptr @.str.820 }, %struct._value_string { i32 42, ptr @.str.821 }, %struct._value_string { i32 43, ptr @.str.822 }, %struct._value_string { i32 44, ptr @.str.823 }, %struct._value_string { i32 45, ptr @.str.824 }, %struct._value_string { i32 64, ptr @.str.825 }, %struct._value_string { i32 65, ptr @.str.826 }, %struct._value_string { i32 66, ptr @.str.827 }, %struct._value_string { i32 67, ptr @.str.828 }, %struct._value_string { i32 68, ptr @.str.829 }, %struct._value_string { i32 69, ptr @.str.830 }, %struct._value_string { i32 70, ptr @.str.831 }, %struct._value_string { i32 71, ptr @.str.832 }, %struct._value_string { i32 72, ptr @.str.833 }, %struct._value_string { i32 73, ptr @.str.834 }, %struct._value_string { i32 74, ptr @.str.835 }, %struct._value_string { i32 75, ptr @.str.836 }, %struct._value_string { i32 76, ptr @.str.837 }, %struct._value_string { i32 77, ptr @.str.838 }, %struct._value_string { i32 78, ptr @.str.839 }, %struct._value_string { i32 79, ptr @.str.840 }, %struct._value_string { i32 80, ptr @.str.841 }, %struct._value_string { i32 81, ptr @.str.842 }, %struct._value_string { i32 82, ptr @.str.843 }, %struct._value_string { i32 83, ptr @.str.844 }, %struct._value_string { i32 84, ptr @.str.845 }, %struct._value_string { i32 91, ptr @.str.846 }, %struct._value_string { i32 92, ptr @.str.847 }, %struct._value_string { i32 93, ptr @.str.848 }, %struct._value_string { i32 94, ptr @.str.849 }, %struct._value_string { i32 95, ptr @.str.850 }, %struct._value_string { i32 96, ptr @.str.851 }, %struct._value_string { i32 97, ptr @.str.852 }, %struct._value_string { i32 98, ptr @.str.853 }, %struct._value_string { i32 99, ptr @.str.854 }, %struct._value_string { i32 100, ptr @.str.855 }, %struct._value_string { i32 101, ptr @.str.856 }, %struct._value_string { i32 120, ptr @.str.857 }, %struct._value_string { i32 121, ptr @.str.858 }, %struct._value_string { i32 122, ptr @.str.859 }, %struct._value_string { i32 123, ptr @.str.860 }, %struct._value_string { i32 124, ptr @.str.861 }, %struct._value_string { i32 125, ptr @.str.862 }, %struct._value_string { i32 126, ptr @.str.863 }, %struct._value_string { i32 127, ptr @.str.864 }, %struct._value_string zeroinitializer], align 16
-@.str.796 = private unnamed_addr constant [27 x i8] c"rtp_midi_controller_values\00", align 1
-@.str.797 = private unnamed_addr constant [18 x i8] c"Bank Select (msb)\00", align 1
-@.str.798 = private unnamed_addr constant [32 x i8] c"Modulation Wheel Or Lever (msb)\00", align 1
-@.str.799 = private unnamed_addr constant [24 x i8] c"Breath Controller (msb)\00", align 1
-@.str.800 = private unnamed_addr constant [22 x i8] c"Foot Controller (msb)\00", align 1
-@.str.801 = private unnamed_addr constant [22 x i8] c"Portamento Time (msb)\00", align 1
-@.str.802 = private unnamed_addr constant [17 x i8] c"Data Entry (msb)\00", align 1
-@.str.803 = private unnamed_addr constant [21 x i8] c"Channel Volume (msb)\00", align 1
-@.str.804 = private unnamed_addr constant [14 x i8] c"Balance (msb)\00", align 1
-@.str.805 = private unnamed_addr constant [10 x i8] c"Pan (msb)\00", align 1
-@.str.806 = private unnamed_addr constant [28 x i8] c"Expression Controller (msb)\00", align 1
-@.str.807 = private unnamed_addr constant [23 x i8] c"Effect Control 1 (msb)\00", align 1
-@.str.808 = private unnamed_addr constant [23 x i8] c"Effect Control 2 (msb)\00", align 1
-@.str.809 = private unnamed_addr constant [35 x i8] c"General Purpose Controller 1 (msb)\00", align 1
-@.str.810 = private unnamed_addr constant [35 x i8] c"General Purpose Controller 2 (msb)\00", align 1
-@.str.811 = private unnamed_addr constant [35 x i8] c"General Purpose Controller 3 (msb)\00", align 1
-@.str.812 = private unnamed_addr constant [35 x i8] c"General Purpose Controller 4 (msb)\00", align 1
-@.str.813 = private unnamed_addr constant [18 x i8] c"Bank Select (lsb)\00", align 1
-@.str.814 = private unnamed_addr constant [32 x i8] c"Modulation Wheel Or Lever (lsb)\00", align 1
-@.str.815 = private unnamed_addr constant [24 x i8] c"Breath Controller (lsb)\00", align 1
-@.str.816 = private unnamed_addr constant [22 x i8] c"Foot Controller (lsb)\00", align 1
-@.str.817 = private unnamed_addr constant [22 x i8] c"Portamento Time (lsb)\00", align 1
-@.str.818 = private unnamed_addr constant [17 x i8] c"Data Entry (lsb)\00", align 1
-@.str.819 = private unnamed_addr constant [13 x i8] c"Volume (lsb)\00", align 1
-@.str.820 = private unnamed_addr constant [14 x i8] c"Balance (lsb)\00", align 1
-@.str.821 = private unnamed_addr constant [10 x i8] c"Pan (lsb)\00", align 1
-@.str.822 = private unnamed_addr constant [28 x i8] c"Expression Controller (lsb)\00", align 1
-@.str.823 = private unnamed_addr constant [23 x i8] c"Effect Control 1 (lsb)\00", align 1
-@.str.824 = private unnamed_addr constant [23 x i8] c"Effect Control 2 (lsb)\00", align 1
-@.str.825 = private unnamed_addr constant [13 x i8] c"Damper Pedal\00", align 1
-@.str.826 = private unnamed_addr constant [18 x i8] c"Portamento On/Off\00", align 1
-@.str.827 = private unnamed_addr constant [10 x i8] c"Sustenuto\00", align 1
-@.str.828 = private unnamed_addr constant [11 x i8] c"Soft Pedal\00", align 1
-@.str.829 = private unnamed_addr constant [18 x i8] c"Legato Footswitch\00", align 1
-@.str.830 = private unnamed_addr constant [7 x i8] c"Hold 2\00", align 1
-@.str.831 = private unnamed_addr constant [46 x i8] c"Sound Controller 1 (default: Sound Variation)\00", align 1
-@.str.832 = private unnamed_addr constant [56 x i8] c"Sound Controller 2 (default: Timbre/Harmonic Intensity)\00", align 1
-@.str.833 = private unnamed_addr constant [43 x i8] c"Sound Controller 3 (default: Release Time)\00", align 1
-@.str.834 = private unnamed_addr constant [42 x i8] c"Sound Controller 4 (default: Attack Time)\00", align 1
-@.str.835 = private unnamed_addr constant [41 x i8] c"Sound Controller 5 (default: Brightness)\00", align 1
-@.str.836 = private unnamed_addr constant [19 x i8] c"Sound Controller 6\00", align 1
-@.str.837 = private unnamed_addr constant [19 x i8] c"Sound Controller 7\00", align 1
-@.str.838 = private unnamed_addr constant [19 x i8] c"Sound Controller 8\00", align 1
-@.str.839 = private unnamed_addr constant [19 x i8] c"Sound Controller 9\00", align 1
-@.str.840 = private unnamed_addr constant [20 x i8] c"Sound Controller 10\00", align 1
-@.str.841 = private unnamed_addr constant [29 x i8] c"General Purpose Controller 5\00", align 1
-@.str.842 = private unnamed_addr constant [29 x i8] c"General Purpose Controller 6\00", align 1
-@.str.843 = private unnamed_addr constant [29 x i8] c"General Purpose Controller 7\00", align 1
-@.str.844 = private unnamed_addr constant [29 x i8] c"General Purpose Controller 8\00", align 1
-@.str.845 = private unnamed_addr constant [19 x i8] c"Portamento Control\00", align 1
-@.str.846 = private unnamed_addr constant [51 x i8] c"Effects 1 Depth (formerly: External Effects Depth)\00", align 1
-@.str.847 = private unnamed_addr constant [42 x i8] c"Effects 2 Depth (formerly: Tremolo Depth)\00", align 1
-@.str.848 = private unnamed_addr constant [41 x i8] c"Effects 3 Depth (formerly: Chorus Depth)\00", align 1
-@.str.849 = private unnamed_addr constant [51 x i8] c"Effects 4 Depth (formerly: Celeste (Detune) Depth)\00", align 1
-@.str.850 = private unnamed_addr constant [41 x i8] c"Effects 5 Depth (formerly: Phaser Depth)\00", align 1
-@.str.851 = private unnamed_addr constant [15 x i8] c"Data Increment\00", align 1
-@.str.852 = private unnamed_addr constant [15 x i8] c"Data Decrement\00", align 1
-@.str.853 = private unnamed_addr constant [31 x i8] c"Non-Registered Parameter (lsb)\00", align 1
-@.str.854 = private unnamed_addr constant [31 x i8] c"Non-Registered Parameter (msb)\00", align 1
-@.str.855 = private unnamed_addr constant [27 x i8] c"Registered Parameter (lsb)\00", align 1
-@.str.856 = private unnamed_addr constant [27 x i8] c"Registered Parameter (msb)\00", align 1
-@.str.857 = private unnamed_addr constant [14 x i8] c"All Sound Off\00", align 1
-@.str.858 = private unnamed_addr constant [22 x i8] c"Reset All Controllers\00", align 1
-@.str.859 = private unnamed_addr constant [14 x i8] c"Local Control\00", align 1
-@.str.860 = private unnamed_addr constant [14 x i8] c"All Notes Off\00", align 1
-@.str.861 = private unnamed_addr constant [14 x i8] c"Omni Mode Off\00", align 1
-@.str.862 = private unnamed_addr constant [13 x i8] c"Omni Mode On\00", align 1
-@.str.863 = private unnamed_addr constant [13 x i8] c"Mono Mode On\00", align 1
-@.str.864 = private unnamed_addr constant [13 x i8] c"Poly Mode On\00", align 1
-@rtp_midi_manu_short_values = internal constant [94 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.866 }, %struct._value_string { i32 1, ptr @.str.867 }, %struct._value_string { i32 2, ptr @.str.868 }, %struct._value_string { i32 3, ptr @.str.869 }, %struct._value_string { i32 4, ptr @.str.870 }, %struct._value_string { i32 5, ptr @.str.871 }, %struct._value_string { i32 6, ptr @.str.872 }, %struct._value_string { i32 7, ptr @.str.873 }, %struct._value_string { i32 8, ptr @.str.874 }, %struct._value_string { i32 9, ptr @.str.875 }, %struct._value_string { i32 10, ptr @.str.876 }, %struct._value_string { i32 11, ptr @.str.877 }, %struct._value_string { i32 12, ptr @.str.878 }, %struct._value_string { i32 13, ptr @.str.879 }, %struct._value_string { i32 14, ptr @.str.880 }, %struct._value_string { i32 15, ptr @.str.881 }, %struct._value_string { i32 16, ptr @.str.882 }, %struct._value_string { i32 17, ptr @.str.883 }, %struct._value_string { i32 18, ptr @.str.884 }, %struct._value_string { i32 19, ptr @.str.885 }, %struct._value_string { i32 20, ptr @.str.886 }, %struct._value_string { i32 21, ptr @.str.887 }, %struct._value_string { i32 22, ptr @.str.888 }, %struct._value_string { i32 23, ptr @.str.889 }, %struct._value_string { i32 24, ptr @.str.890 }, %struct._value_string { i32 25, ptr @.str.891 }, %struct._value_string { i32 26, ptr @.str.892 }, %struct._value_string { i32 27, ptr @.str.893 }, %struct._value_string { i32 28, ptr @.str.894 }, %struct._value_string { i32 29, ptr @.str.895 }, %struct._value_string { i32 31, ptr @.str.896 }, %struct._value_string { i32 32, ptr @.str.897 }, %struct._value_string { i32 33, ptr @.str.898 }, %struct._value_string { i32 34, ptr @.str.899 }, %struct._value_string { i32 35, ptr @.str.900 }, %struct._value_string { i32 36, ptr @.str.901 }, %struct._value_string { i32 37, ptr @.str.902 }, %struct._value_string { i32 38, ptr @.str.903 }, %struct._value_string { i32 39, ptr @.str.904 }, %struct._value_string { i32 40, ptr @.str.905 }, %struct._value_string { i32 41, ptr @.str.906 }, %struct._value_string { i32 42, ptr @.str.907 }, %struct._value_string { i32 43, ptr @.str.908 }, %struct._value_string { i32 44, ptr @.str.909 }, %struct._value_string { i32 45, ptr @.str.910 }, %struct._value_string { i32 46, ptr @.str.911 }, %struct._value_string { i32 47, ptr @.str.912 }, %struct._value_string { i32 48, ptr @.str.913 }, %struct._value_string { i32 49, ptr @.str.914 }, %struct._value_string { i32 50, ptr @.str.915 }, %struct._value_string { i32 51, ptr @.str.916 }, %struct._value_string { i32 52, ptr @.str.917 }, %struct._value_string { i32 53, ptr @.str.918 }, %struct._value_string { i32 54, ptr @.str.919 }, %struct._value_string { i32 55, ptr @.str.920 }, %struct._value_string { i32 56, ptr @.str.921 }, %struct._value_string { i32 57, ptr @.str.922 }, %struct._value_string { i32 58, ptr @.str.923 }, %struct._value_string { i32 59, ptr @.str.924 }, %struct._value_string { i32 60, ptr @.str.925 }, %struct._value_string { i32 61, ptr @.str.926 }, %struct._value_string { i32 62, ptr @.str.927 }, %struct._value_string { i32 63, ptr @.str.928 }, %struct._value_string { i32 64, ptr @.str.929 }, %struct._value_string { i32 65, ptr @.str.930 }, %struct._value_string { i32 66, ptr @.str.931 }, %struct._value_string { i32 67, ptr @.str.932 }, %struct._value_string { i32 68, ptr @.str.933 }, %struct._value_string { i32 69, ptr @.str.934 }, %struct._value_string { i32 70, ptr @.str.935 }, %struct._value_string { i32 71, ptr @.str.936 }, %struct._value_string { i32 72, ptr @.str.937 }, %struct._value_string { i32 73, ptr @.str.938 }, %struct._value_string { i32 74, ptr @.str.939 }, %struct._value_string { i32 75, ptr @.str.940 }, %struct._value_string { i32 76, ptr @.str.941 }, %struct._value_string { i32 77, ptr @.str.942 }, %struct._value_string { i32 78, ptr @.str.943 }, %struct._value_string { i32 80, ptr @.str.944 }, %struct._value_string { i32 81, ptr @.str.945 }, %struct._value_string { i32 82, ptr @.str.946 }, %struct._value_string { i32 83, ptr @.str.947 }, %struct._value_string { i32 84, ptr @.str.948 }, %struct._value_string { i32 85, ptr @.str.949 }, %struct._value_string { i32 86, ptr @.str.950 }, %struct._value_string { i32 87, ptr @.str.951 }, %struct._value_string { i32 89, ptr @.str.952 }, %struct._value_string { i32 90, ptr @.str.953 }, %struct._value_string { i32 92, ptr @.str.954 }, %struct._value_string { i32 95, ptr @.str.955 }, %struct._value_string { i32 125, ptr @.str.956 }, %struct._value_string { i32 126, ptr @.str.957 }, %struct._value_string { i32 127, ptr @.str.958 }, %struct._value_string zeroinitializer], align 16
-@.str.865 = private unnamed_addr constant [27 x i8] c"rtp_midi_manu_short_values\00", align 1
-@.str.866 = private unnamed_addr constant [12 x i8] c"< long id >\00", align 1
-@.str.867 = private unnamed_addr constant [20 x i8] c"Sequential Circuits\00", align 1
-@.str.868 = private unnamed_addr constant [16 x i8] c"Big Briar / IDP\00", align 1
-@.str.869 = private unnamed_addr constant [25 x i8] c"Voyetra / Octave-Plateau\00", align 1
-@.str.870 = private unnamed_addr constant [5 x i8] c"Moog\00", align 1
-@.str.871 = private unnamed_addr constant [17 x i8] c"Passport Designs\00", align 1
-@.str.872 = private unnamed_addr constant [8 x i8] c"Lexicon\00", align 1
-@.str.873 = private unnamed_addr constant [9 x i8] c"Kurzweil\00", align 1
-@.str.874 = private unnamed_addr constant [7 x i8] c"Fender\00", align 1
-@.str.875 = private unnamed_addr constant [11 x i8] c"Gulbransen\00", align 1
-@.str.876 = private unnamed_addr constant [14 x i8] c"AKG Acoustics\00", align 1
-@.str.877 = private unnamed_addr constant [12 x i8] c"Voyce Music\00", align 1
-@.str.878 = private unnamed_addr constant [15 x i8] c"Waveframe Corp\00", align 1
-@.str.879 = private unnamed_addr constant [22 x i8] c"ADA Signal Processors\00", align 1
-@.str.880 = private unnamed_addr constant [21 x i8] c"Garfield Electronics\00", align 1
-@.str.881 = private unnamed_addr constant [8 x i8] c"Ensoniq\00", align 1
-@.str.882 = private unnamed_addr constant [23 x i8] c"Oberheim / Gibson Labs\00", align 1
-@.str.883 = private unnamed_addr constant [15 x i8] c"Apple Computer\00", align 1
-@.str.884 = private unnamed_addr constant [31 x i8] c"Grey Matter Response / Simmons\00", align 1
-@.str.885 = private unnamed_addr constant [11 x i8] c"DigiDesign\00", align 1
-@.str.886 = private unnamed_addr constant [33 x i8] c"Fairlight / Palmtree Instruments\00", align 1
-@.str.887 = private unnamed_addr constant [10 x i8] c"JL Cooper\00", align 1
-@.str.888 = private unnamed_addr constant [7 x i8] c"Lowrey\00", align 1
-@.str.889 = private unnamed_addr constant [19 x i8] c"Linn / Adams-Smith\00", align 1
-@.str.890 = private unnamed_addr constant [12 x i8] c"Emu Systems\00", align 1
-@.str.891 = private unnamed_addr constant [16 x i8] c"Harmony Systems\00", align 1
-@.str.892 = private unnamed_addr constant [4 x i8] c"ART\00", align 1
-@.str.893 = private unnamed_addr constant [8 x i8] c"Baldwin\00", align 1
-@.str.894 = private unnamed_addr constant [9 x i8] c"Eventide\00", align 1
-@.str.895 = private unnamed_addr constant [13 x i8] c"Inventronics\00", align 1
-@.str.896 = private unnamed_addr constant [8 x i8] c"Clarity\00", align 1
-@.str.897 = private unnamed_addr constant [7 x i8] c"Passac\00", align 1
-@.str.898 = private unnamed_addr constant [9 x i8] c"S.I.E.L.\00", align 1
-@.str.899 = private unnamed_addr constant [10 x i8] c"SyntheAxe\00", align 1
-@.str.900 = private unnamed_addr constant [6 x i8] c"Stepp\00", align 1
-@.str.901 = private unnamed_addr constant [7 x i8] c"Hohner\00", align 1
-@.str.902 = private unnamed_addr constant [17 x i8] c"Crumar / Twister\00", align 1
-@.str.903 = private unnamed_addr constant [7 x i8] c"Solton\00", align 1
-@.str.904 = private unnamed_addr constant [15 x i8] c"Jellinghaus MS\00", align 1
-@.str.905 = private unnamed_addr constant [25 x i8] c"Southworks Music Systems\00", align 1
-@.str.906 = private unnamed_addr constant [4 x i8] c"PPG\00", align 1
-@.str.907 = private unnamed_addr constant [4 x i8] c"JEN\00", align 1
-@.str.908 = private unnamed_addr constant [25 x i8] c"SSL (Solid States Logic)\00", align 1
-@.str.909 = private unnamed_addr constant [16 x i8] c"Audio Veritrieb\00", align 1
-@.str.910 = private unnamed_addr constant [26 x i8] c"Neve / Hinton Instruments\00", align 1
-@.str.911 = private unnamed_addr constant [15 x i8] c"Soundtracs Ltd\00", align 1
-@.str.912 = private unnamed_addr constant [21 x i8] c"Elka / General Music\00", align 1
-@.str.913 = private unnamed_addr constant [9 x i8] c"Dynacord\00", align 1
-@.str.914 = private unnamed_addr constant [9 x i8] c"Viscount\00", align 1
-@.str.915 = private unnamed_addr constant [8 x i8] c"Drawmer\00", align 1
-@.str.916 = private unnamed_addr constant [27 x i8] c"Clavia Digital Instruments\00", align 1
-@.str.917 = private unnamed_addr constant [19 x i8] c"Audio Architecture\00", align 1
-@.str.918 = private unnamed_addr constant [19 x i8] c"General Music Corp\00", align 1
-@.str.919 = private unnamed_addr constant [18 x i8] c"Cheetah Marketing\00", align 1
-@.str.920 = private unnamed_addr constant [6 x i8] c"C.T.M\00", align 1
-@.str.921 = private unnamed_addr constant [11 x i8] c"Simmons UK\00", align 1
-@.str.922 = private unnamed_addr constant [23 x i8] c"Soundcraft Electronics\00", align 1
-@.str.923 = private unnamed_addr constant [15 x i8] c"Steinberg GmbH\00", align 1
-@.str.924 = private unnamed_addr constant [6 x i8] c"Wersi\00", align 1
-@.str.925 = private unnamed_addr constant [19 x i8] c"Avab Electronik Ab\00", align 1
-@.str.926 = private unnamed_addr constant [9 x i8] c"Digigram\00", align 1
-@.str.927 = private unnamed_addr constant [20 x i8] c"Waldorf Electronics\00", align 1
-@.str.928 = private unnamed_addr constant [10 x i8] c"Quasimidi\00", align 1
-@.str.929 = private unnamed_addr constant [6 x i8] c"Kawai\00", align 1
-@.str.930 = private unnamed_addr constant [7 x i8] c"Roland\00", align 1
-@.str.931 = private unnamed_addr constant [5 x i8] c"Korg\00", align 1
-@.str.932 = private unnamed_addr constant [7 x i8] c"Yamaha\00", align 1
-@.str.933 = private unnamed_addr constant [6 x i8] c"Casio\00", align 1
-@.str.934 = private unnamed_addr constant [10 x i8] c"Moridaira\00", align 1
-@.str.935 = private unnamed_addr constant [14 x i8] c"Kamiya Studio\00", align 1
-@.str.936 = private unnamed_addr constant [5 x i8] c"Akai\00", align 1
-@.str.937 = private unnamed_addr constant [13 x i8] c"Japan Victor\00", align 1
-@.str.938 = private unnamed_addr constant [9 x i8] c"Meisosha\00", align 1
-@.str.939 = private unnamed_addr constant [14 x i8] c"Hoshino Gakki\00", align 1
-@.str.940 = private unnamed_addr constant [8 x i8] c"Fujitsu\00", align 1
-@.str.941 = private unnamed_addr constant [5 x i8] c"Sony\00", align 1
-@.str.942 = private unnamed_addr constant [13 x i8] c"Nisshin Onpa\00", align 1
-@.str.943 = private unnamed_addr constant [5 x i8] c"TEAC\00", align 1
-@.str.944 = private unnamed_addr constant [20 x i8] c"Matsushita Electric\00", align 1
-@.str.945 = private unnamed_addr constant [7 x i8] c"Fostex\00", align 1
-@.str.946 = private unnamed_addr constant [5 x i8] c"Zoom\00", align 1
-@.str.947 = private unnamed_addr constant [19 x i8] c"Midori Electronics\00", align 1
-@.str.948 = private unnamed_addr constant [25 x i8] c"Matsushita Communication\00", align 1
-@.str.949 = private unnamed_addr constant [7 x i8] c"Suzuki\00", align 1
-@.str.950 = private unnamed_addr constant [5 x i8] c"Fuji\00", align 1
-@.str.951 = private unnamed_addr constant [23 x i8] c"Acoustic Technical Lab\00", align 1
-@.str.952 = private unnamed_addr constant [6 x i8] c"Faith\00", align 1
-@.str.953 = private unnamed_addr constant [21 x i8] c"Internet Corporation\00", align 1
-@.str.954 = private unnamed_addr constant [11 x i8] c"Seekers Co\00", align 1
-@.str.955 = private unnamed_addr constant [14 x i8] c"SD Card Assoc\00", align 1
-@.str.956 = private unnamed_addr constant [16 x i8] c"Educational Use\00", align 1
-@.str.957 = private unnamed_addr constant [23 x i8] c"Non-Realtime Universal\00", align 1
-@.str.958 = private unnamed_addr constant [19 x i8] c"Realtime Universal\00", align 1
-@rtp_midi_manu_long_values = internal constant [384 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.960 }, %struct._value_string { i32 2, ptr @.str.961 }, %struct._value_string { i32 3, ptr @.str.962 }, %struct._value_string { i32 4, ptr @.str.963 }, %struct._value_string { i32 5, ptr @.str.964 }, %struct._value_string { i32 6, ptr @.str.965 }, %struct._value_string { i32 7, ptr @.str.966 }, %struct._value_string { i32 8, ptr @.str.967 }, %struct._value_string { i32 9, ptr @.str.968 }, %struct._value_string { i32 10, ptr @.str.969 }, %struct._value_string { i32 11, ptr @.str.970 }, %struct._value_string { i32 12, ptr @.str.971 }, %struct._value_string { i32 13, ptr @.str.972 }, %struct._value_string { i32 14, ptr @.str.973 }, %struct._value_string { i32 15, ptr @.str.974 }, %struct._value_string { i32 16, ptr @.str.975 }, %struct._value_string { i32 17, ptr @.str.976 }, %struct._value_string { i32 18, ptr @.str.977 }, %struct._value_string { i32 19, ptr @.str.978 }, %struct._value_string { i32 20, ptr @.str.979 }, %struct._value_string { i32 21, ptr @.str.980 }, %struct._value_string { i32 22, ptr @.str.981 }, %struct._value_string { i32 23, ptr @.str.982 }, %struct._value_string { i32 24, ptr @.str.983 }, %struct._value_string { i32 25, ptr @.str.984 }, %struct._value_string { i32 26, ptr @.str.985 }, %struct._value_string { i32 27, ptr @.str.986 }, %struct._value_string { i32 28, ptr @.str.987 }, %struct._value_string { i32 29, ptr @.str.988 }, %struct._value_string { i32 30, ptr @.str.989 }, %struct._value_string { i32 31, ptr @.str.990 }, %struct._value_string { i32 32, ptr @.str.991 }, %struct._value_string { i32 33, ptr @.str.992 }, %struct._value_string { i32 34, ptr @.str.993 }, %struct._value_string { i32 35, ptr @.str.994 }, %struct._value_string { i32 36, ptr @.str.995 }, %struct._value_string { i32 37, ptr @.str.996 }, %struct._value_string { i32 38, ptr @.str.997 }, %struct._value_string { i32 39, ptr @.str.998 }, %struct._value_string { i32 40, ptr @.str.999 }, %struct._value_string { i32 41, ptr @.str.1000 }, %struct._value_string { i32 42, ptr @.str.1001 }, %struct._value_string { i32 43, ptr @.str.1002 }, %struct._value_string { i32 45, ptr @.str.1003 }, %struct._value_string { i32 46, ptr @.str.1004 }, %struct._value_string { i32 47, ptr @.str.1005 }, %struct._value_string { i32 48, ptr @.str.1006 }, %struct._value_string { i32 49, ptr @.str.1007 }, %struct._value_string { i32 50, ptr @.str.1008 }, %struct._value_string { i32 51, ptr @.str.1009 }, %struct._value_string { i32 52, ptr @.str.1010 }, %struct._value_string { i32 53, ptr @.str.1011 }, %struct._value_string { i32 55, ptr @.str.1012 }, %struct._value_string { i32 56, ptr @.str.1013 }, %struct._value_string { i32 57, ptr @.str.1014 }, %struct._value_string { i32 58, ptr @.str.1015 }, %struct._value_string { i32 59, ptr @.str.1016 }, %struct._value_string { i32 60, ptr @.str.1017 }, %struct._value_string { i32 61, ptr @.str.1018 }, %struct._value_string { i32 62, ptr @.str.1019 }, %struct._value_string { i32 63, ptr @.str.1020 }, %struct._value_string { i32 64, ptr @.str.1021 }, %struct._value_string { i32 65, ptr @.str.1022 }, %struct._value_string { i32 66, ptr @.str.1023 }, %struct._value_string { i32 67, ptr @.str.1024 }, %struct._value_string { i32 68, ptr @.str.1025 }, %struct._value_string { i32 69, ptr @.str.1026 }, %struct._value_string { i32 71, ptr @.str.1027 }, %struct._value_string { i32 72, ptr @.str.1028 }, %struct._value_string { i32 73, ptr @.str.1029 }, %struct._value_string { i32 74, ptr @.str.1030 }, %struct._value_string { i32 76, ptr @.str.1031 }, %struct._value_string { i32 77, ptr @.str.1032 }, %struct._value_string { i32 78, ptr @.str.1033 }, %struct._value_string { i32 79, ptr @.str.1028 }, %struct._value_string { i32 80, ptr @.str.1034 }, %struct._value_string { i32 81, ptr @.str.1035 }, %struct._value_string { i32 82, ptr @.str.1036 }, %struct._value_string { i32 83, ptr @.str.1037 }, %struct._value_string { i32 84, ptr @.str.1038 }, %struct._value_string { i32 85, ptr @.str.1039 }, %struct._value_string { i32 86, ptr @.str.1040 }, %struct._value_string { i32 87, ptr @.str.1041 }, %struct._value_string { i32 88, ptr @.str.1042 }, %struct._value_string { i32 89, ptr @.str.1043 }, %struct._value_string { i32 90, ptr @.str.1044 }, %struct._value_string { i32 91, ptr @.str.1045 }, %struct._value_string { i32 92, ptr @.str.1046 }, %struct._value_string { i32 94, ptr @.str.1047 }, %struct._value_string { i32 95, ptr @.str.1048 }, %struct._value_string { i32 96, ptr @.str.1049 }, %struct._value_string { i32 97, ptr @.str.1050 }, %struct._value_string { i32 98, ptr @.str.1051 }, %struct._value_string { i32 99, ptr @.str.1052 }, %struct._value_string { i32 100, ptr @.str.1053 }, %struct._value_string { i32 101, ptr @.str.1054 }, %struct._value_string { i32 102, ptr @.str.1055 }, %struct._value_string { i32 103, ptr @.str.1056 }, %struct._value_string { i32 104, ptr @.str.1057 }, %struct._value_string { i32 105, ptr @.str.1058 }, %struct._value_string { i32 106, ptr @.str.1059 }, %struct._value_string { i32 107, ptr @.str.1060 }, %struct._value_string { i32 108, ptr @.str.1061 }, %struct._value_string { i32 109, ptr @.str.1062 }, %struct._value_string { i32 110, ptr @.str.1063 }, %struct._value_string { i32 111, ptr @.str.1064 }, %struct._value_string { i32 112, ptr @.str.1065 }, %struct._value_string { i32 113, ptr @.str.1066 }, %struct._value_string { i32 114, ptr @.str.1067 }, %struct._value_string { i32 115, ptr @.str.1068 }, %struct._value_string { i32 116, ptr @.str.1069 }, %struct._value_string { i32 117, ptr @.str.1070 }, %struct._value_string { i32 118, ptr @.str.1071 }, %struct._value_string { i32 119, ptr @.str.1072 }, %struct._value_string { i32 120, ptr @.str.1073 }, %struct._value_string { i32 121, ptr @.str.1074 }, %struct._value_string { i32 122, ptr @.str.1075 }, %struct._value_string { i32 123, ptr @.str.1076 }, %struct._value_string { i32 124, ptr @.str.1077 }, %struct._value_string { i32 125, ptr @.str.1078 }, %struct._value_string { i32 126, ptr @.str.1079 }, %struct._value_string { i32 127, ptr @.str.1080 }, %struct._value_string { i32 256, ptr @.str.1081 }, %struct._value_string { i32 257, ptr @.str.1082 }, %struct._value_string { i32 258, ptr @.str.1083 }, %struct._value_string { i32 259, ptr @.str.1084 }, %struct._value_string { i32 260, ptr @.str.1085 }, %struct._value_string { i32 261, ptr @.str.1086 }, %struct._value_string { i32 262, ptr @.str.1087 }, %struct._value_string { i32 264, ptr @.str.1088 }, %struct._value_string { i32 265, ptr @.str.1089 }, %struct._value_string { i32 266, ptr @.str.1090 }, %struct._value_string { i32 267, ptr @.str.1091 }, %struct._value_string { i32 268, ptr @.str.1092 }, %struct._value_string { i32 269, ptr @.str.1093 }, %struct._value_string { i32 270, ptr @.str.1094 }, %struct._value_string { i32 271, ptr @.str.1095 }, %struct._value_string { i32 272, ptr @.str.1009 }, %struct._value_string { i32 273, ptr @.str.1096 }, %struct._value_string { i32 274, ptr @.str.1097 }, %struct._value_string { i32 275, ptr @.str.1098 }, %struct._value_string { i32 276, ptr @.str.1099 }, %struct._value_string { i32 277, ptr @.str.1100 }, %struct._value_string { i32 278, ptr @.str.1101 }, %struct._value_string { i32 279, ptr @.str.1102 }, %struct._value_string { i32 280, ptr @.str.1103 }, %struct._value_string { i32 281, ptr @.str.1104 }, %struct._value_string { i32 282, ptr @.str.1105 }, %struct._value_string { i32 283, ptr @.str.1106 }, %struct._value_string { i32 284, ptr @.str.1107 }, %struct._value_string { i32 285, ptr @.str.1108 }, %struct._value_string { i32 286, ptr @.str.1109 }, %struct._value_string { i32 287, ptr @.str.1110 }, %struct._value_string { i32 288, ptr @.str.1111 }, %struct._value_string { i32 289, ptr @.str.1112 }, %struct._value_string { i32 290, ptr @.str.1113 }, %struct._value_string { i32 291, ptr @.str.1114 }, %struct._value_string { i32 292, ptr @.str.1115 }, %struct._value_string { i32 293, ptr @.str.1116 }, %struct._value_string { i32 294, ptr @.str.1117 }, %struct._value_string { i32 295, ptr @.str.1118 }, %struct._value_string { i32 296, ptr @.str.1119 }, %struct._value_string { i32 297, ptr @.str.1120 }, %struct._value_string { i32 298, ptr @.str.1121 }, %struct._value_string { i32 299, ptr @.str.1122 }, %struct._value_string { i32 300, ptr @.str.1123 }, %struct._value_string { i32 301, ptr @.str.1124 }, %struct._value_string { i32 302, ptr @.str.1125 }, %struct._value_string { i32 303, ptr @.str.1126 }, %struct._value_string { i32 304, ptr @.str.1127 }, %struct._value_string { i32 305, ptr @.str.1128 }, %struct._value_string { i32 306, ptr @.str.1129 }, %struct._value_string { i32 307, ptr @.str.1130 }, %struct._value_string { i32 308, ptr @.str.1131 }, %struct._value_string { i32 309, ptr @.str.1132 }, %struct._value_string { i32 310, ptr @.str.1133 }, %struct._value_string { i32 311, ptr @.str.1134 }, %struct._value_string { i32 312, ptr @.str.1135 }, %struct._value_string { i32 313, ptr @.str.1136 }, %struct._value_string { i32 314, ptr @.str.1137 }, %struct._value_string { i32 315, ptr @.str.1138 }, %struct._value_string { i32 316, ptr @.str.1139 }, %struct._value_string { i32 317, ptr @.str.1140 }, %struct._value_string { i32 318, ptr @.str.1141 }, %struct._value_string { i32 319, ptr @.str.1142 }, %struct._value_string { i32 320, ptr @.str.1143 }, %struct._value_string { i32 321, ptr @.str.1144 }, %struct._value_string { i32 322, ptr @.str.1145 }, %struct._value_string { i32 323, ptr @.str.1146 }, %struct._value_string { i32 324, ptr @.str.1147 }, %struct._value_string { i32 325, ptr @.str.1148 }, %struct._value_string { i32 326, ptr @.str.1149 }, %struct._value_string { i32 327, ptr @.str.1150 }, %struct._value_string { i32 328, ptr @.str.1151 }, %struct._value_string { i32 329, ptr @.str.1152 }, %struct._value_string { i32 330, ptr @.str.1153 }, %struct._value_string { i32 331, ptr @.str.1154 }, %struct._value_string { i32 332, ptr @.str.1155 }, %struct._value_string { i32 333, ptr @.str.1156 }, %struct._value_string { i32 334, ptr @.str.1157 }, %struct._value_string { i32 335, ptr @.str.1158 }, %struct._value_string { i32 336, ptr @.str.1159 }, %struct._value_string { i32 337, ptr @.str.1160 }, %struct._value_string { i32 338, ptr @.str.1161 }, %struct._value_string { i32 339, ptr @.str.1162 }, %struct._value_string { i32 340, ptr @.str.1163 }, %struct._value_string { i32 341, ptr @.str.1164 }, %struct._value_string { i32 342, ptr @.str.1165 }, %struct._value_string { i32 343, ptr @.str.1166 }, %struct._value_string { i32 344, ptr @.str.1167 }, %struct._value_string { i32 345, ptr @.str.1168 }, %struct._value_string { i32 346, ptr @.str.1169 }, %struct._value_string { i32 347, ptr @.str.1170 }, %struct._value_string { i32 348, ptr @.str.1171 }, %struct._value_string { i32 349, ptr @.str.1172 }, %struct._value_string { i32 350, ptr @.str.1173 }, %struct._value_string { i32 351, ptr @.str.1174 }, %struct._value_string { i32 352, ptr @.str.1175 }, %struct._value_string { i32 353, ptr @.str.1176 }, %struct._value_string { i32 354, ptr @.str.1177 }, %struct._value_string { i32 355, ptr @.str.1178 }, %struct._value_string { i32 356, ptr @.str.1179 }, %struct._value_string { i32 357, ptr @.str.1180 }, %struct._value_string { i32 358, ptr @.str.1181 }, %struct._value_string { i32 359, ptr @.str.1182 }, %struct._value_string { i32 360, ptr @.str.1183 }, %struct._value_string { i32 361, ptr @.str.1184 }, %struct._value_string { i32 362, ptr @.str.1185 }, %struct._value_string { i32 363, ptr @.str.1186 }, %struct._value_string { i32 364, ptr @.str.1187 }, %struct._value_string { i32 365, ptr @.str.1188 }, %struct._value_string { i32 366, ptr @.str.1188 }, %struct._value_string { i32 367, ptr @.str.1188 }, %struct._value_string { i32 368, ptr @.str.1189 }, %struct._value_string { i32 369, ptr @.str.1190 }, %struct._value_string { i32 370, ptr @.str.1191 }, %struct._value_string { i32 371, ptr @.str.1192 }, %struct._value_string { i32 372, ptr @.str.1193 }, %struct._value_string { i32 373, ptr @.str.1194 }, %struct._value_string { i32 374, ptr @.str.1195 }, %struct._value_string { i32 375, ptr @.str.1196 }, %struct._value_string { i32 376, ptr @.str.1197 }, %struct._value_string { i32 377, ptr @.str.1198 }, %struct._value_string { i32 378, ptr @.str.1188 }, %struct._value_string { i32 8192, ptr @.str.1199 }, %struct._value_string { i32 8193, ptr @.str.1200 }, %struct._value_string { i32 8194, ptr @.str.1201 }, %struct._value_string { i32 8195, ptr @.str.1202 }, %struct._value_string { i32 8196, ptr @.str.1203 }, %struct._value_string { i32 8197, ptr @.str.1204 }, %struct._value_string { i32 8198, ptr @.str.1205 }, %struct._value_string { i32 8199, ptr @.str.1206 }, %struct._value_string { i32 8200, ptr @.str.1207 }, %struct._value_string { i32 8201, ptr @.str.1208 }, %struct._value_string { i32 8202, ptr @.str.1209 }, %struct._value_string { i32 8203, ptr @.str.1210 }, %struct._value_string { i32 8204, ptr @.str.1211 }, %struct._value_string { i32 8205, ptr @.str.1212 }, %struct._value_string { i32 8206, ptr @.str.1213 }, %struct._value_string { i32 8207, ptr @.str.1214 }, %struct._value_string { i32 8208, ptr @.str.1215 }, %struct._value_string { i32 8209, ptr @.str.1216 }, %struct._value_string { i32 8210, ptr @.str.1217 }, %struct._value_string { i32 8211, ptr @.str.1218 }, %struct._value_string { i32 8212, ptr @.str.1219 }, %struct._value_string { i32 8213, ptr @.str.1220 }, %struct._value_string { i32 8214, ptr @.str.1221 }, %struct._value_string { i32 8215, ptr @.str.1222 }, %struct._value_string { i32 8216, ptr @.str.1223 }, %struct._value_string { i32 8217, ptr @.str.1224 }, %struct._value_string { i32 8218, ptr @.str.1225 }, %struct._value_string { i32 8219, ptr @.str.1226 }, %struct._value_string { i32 8220, ptr @.str.1227 }, %struct._value_string { i32 8221, ptr @.str.1228 }, %struct._value_string { i32 8222, ptr @.str.1229 }, %struct._value_string { i32 8223, ptr @.str.1230 }, %struct._value_string { i32 8224, ptr @.str.1231 }, %struct._value_string { i32 8225, ptr @.str.1232 }, %struct._value_string { i32 8226, ptr @.str.1233 }, %struct._value_string { i32 8228, ptr @.str.1234 }, %struct._value_string { i32 8229, ptr @.str.1235 }, %struct._value_string { i32 8230, ptr @.str.1236 }, %struct._value_string { i32 8231, ptr @.str.1237 }, %struct._value_string { i32 8232, ptr @.str.1238 }, %struct._value_string { i32 8233, ptr @.str.1239 }, %struct._value_string { i32 8234, ptr @.str.1240 }, %struct._value_string { i32 8235, ptr @.str.1241 }, %struct._value_string { i32 8236, ptr @.str.1242 }, %struct._value_string { i32 8237, ptr @.str.1243 }, %struct._value_string { i32 8238, ptr @.str.1244 }, %struct._value_string { i32 8239, ptr @.str.1245 }, %struct._value_string { i32 8240, ptr @.str.1246 }, %struct._value_string { i32 8241, ptr @.str.1247 }, %struct._value_string { i32 8242, ptr @.str.1248 }, %struct._value_string { i32 8243, ptr @.str.1249 }, %struct._value_string { i32 8244, ptr @.str.1250 }, %struct._value_string { i32 8245, ptr @.str.1251 }, %struct._value_string { i32 8246, ptr @.str.1252 }, %struct._value_string { i32 8247, ptr @.str.1253 }, %struct._value_string { i32 8248, ptr @.str.1254 }, %struct._value_string { i32 8249, ptr @.str.1255 }, %struct._value_string { i32 8250, ptr @.str.1256 }, %struct._value_string { i32 8251, ptr @.str.1257 }, %struct._value_string { i32 8252, ptr @.str.1258 }, %struct._value_string { i32 8253, ptr @.str.1259 }, %struct._value_string { i32 8254, ptr @.str.1260 }, %struct._value_string { i32 8255, ptr @.str.1261 }, %struct._value_string { i32 8256, ptr @.str.1262 }, %struct._value_string { i32 8257, ptr @.str.1263 }, %struct._value_string { i32 8258, ptr @.str.1264 }, %struct._value_string { i32 8259, ptr @.str.1265 }, %struct._value_string { i32 8260, ptr @.str.1266 }, %struct._value_string { i32 8261, ptr @.str.1267 }, %struct._value_string { i32 8262, ptr @.str.1268 }, %struct._value_string { i32 8263, ptr @.str.1269 }, %struct._value_string { i32 8264, ptr @.str.1270 }, %struct._value_string { i32 8265, ptr @.str.1271 }, %struct._value_string { i32 8266, ptr @.str.1272 }, %struct._value_string { i32 8267, ptr @.str.1273 }, %struct._value_string { i32 8268, ptr @.str.1274 }, %struct._value_string { i32 8269, ptr @.str.1275 }, %struct._value_string { i32 8270, ptr @.str.1276 }, %struct._value_string { i32 8271, ptr @.str.1277 }, %struct._value_string { i32 8272, ptr @.str.1278 }, %struct._value_string { i32 8273, ptr @.str.1279 }, %struct._value_string { i32 8274, ptr @.str.1280 }, %struct._value_string { i32 8275, ptr @.str.1281 }, %struct._value_string { i32 8276, ptr @.str.1282 }, %struct._value_string { i32 8277, ptr @.str.1283 }, %struct._value_string { i32 8278, ptr @.str.1284 }, %struct._value_string { i32 8279, ptr @.str.1285 }, %struct._value_string { i32 8280, ptr @.str.1286 }, %struct._value_string { i32 8281, ptr @.str.1287 }, %struct._value_string { i32 8282, ptr @.str.1288 }, %struct._value_string { i32 8283, ptr @.str.1289 }, %struct._value_string { i32 8284, ptr @.str.1290 }, %struct._value_string { i32 8285, ptr @.str.1291 }, %struct._value_string { i32 8286, ptr @.str.1292 }, %struct._value_string { i32 8287, ptr @.str.1293 }, %struct._value_string { i32 8288, ptr @.str.1294 }, %struct._value_string { i32 8289, ptr @.str.1295 }, %struct._value_string { i32 8290, ptr @.str.1296 }, %struct._value_string { i32 8291, ptr @.str.1297 }, %struct._value_string { i32 8292, ptr @.str.1298 }, %struct._value_string { i32 8293, ptr @.str.1299 }, %struct._value_string { i32 8294, ptr @.str.1300 }, %struct._value_string { i32 8295, ptr @.str.1301 }, %struct._value_string { i32 8296, ptr @.str.1302 }, %struct._value_string { i32 8297, ptr @.str.1303 }, %struct._value_string { i32 8298, ptr @.str.1304 }, %struct._value_string { i32 8299, ptr @.str.1305 }, %struct._value_string { i32 8300, ptr @.str.1306 }, %struct._value_string { i32 8301, ptr @.str.1307 }, %struct._value_string { i32 8302, ptr @.str.1308 }, %struct._value_string { i32 8303, ptr @.str.1309 }, %struct._value_string { i32 8304, ptr @.str.1310 }, %struct._value_string { i32 8305, ptr @.str.1311 }, %struct._value_string { i32 8306, ptr @.str.1312 }, %struct._value_string { i32 8307, ptr @.str.1313 }, %struct._value_string { i32 8308, ptr @.str.1314 }, %struct._value_string { i32 8309, ptr @.str.1315 }, %struct._value_string { i32 8310, ptr @.str.1316 }, %struct._value_string { i32 8311, ptr @.str.1317 }, %struct._value_string { i32 8312, ptr @.str.1318 }, %struct._value_string { i32 8313, ptr @.str.1319 }, %struct._value_string { i32 8314, ptr @.str.1320 }, %struct._value_string { i32 8315, ptr @.str.1321 }, %struct._value_string { i32 8316, ptr @.str.1322 }, %struct._value_string { i32 8317, ptr @.str.1323 }, %struct._value_string { i32 8318, ptr @.str.1324 }, %struct._value_string { i32 8319, ptr @.str.1325 }, %struct._value_string { i32 8448, ptr @.str.1326 }, %struct._value_string { i32 8449, ptr @.str.1327 }, %struct._value_string { i32 8450, ptr @.str.1328 }, %struct._value_string { i32 8451, ptr @.str.1329 }, %struct._value_string { i32 8452, ptr @.str.1330 }, %struct._value_string { i32 8453, ptr @.str.1331 }, %struct._value_string { i32 8454, ptr @.str.1332 }, %struct._value_string { i32 8455, ptr @.str.1333 }, %struct._value_string { i32 8456, ptr @.str.1334 }, %struct._value_string { i32 16384, ptr @.str.1335 }, %struct._value_string { i32 16385, ptr @.str.1336 }, %struct._value_string { i32 16387, ptr @.str.1337 }, %struct._value_string zeroinitializer], align 16
-@.str.959 = private unnamed_addr constant [26 x i8] c"rtp_midi_manu_long_values\00", align 1
-@.str.960 = private unnamed_addr constant [24 x i8] c"Time Warner Interactive\00", align 1
-@.str.961 = private unnamed_addr constant [21 x i8] c"Advanced Gravis Comp\00", align 1
-@.str.962 = private unnamed_addr constant [13 x i8] c"Media Vision\00", align 1
-@.str.963 = private unnamed_addr constant [22 x i8] c"Dornes Research Group\00", align 1
-@.str.964 = private unnamed_addr constant [7 x i8] c"K-Muse\00", align 1
-@.str.965 = private unnamed_addr constant [8 x i8] c"Stypher\00", align 1
-@.str.966 = private unnamed_addr constant [26 x i8] c"Digital Music Corporation\00", align 1
-@.str.967 = private unnamed_addr constant [13 x i8] c"IOTA Systems\00", align 1
-@.str.968 = private unnamed_addr constant [20 x i8] c"New England Digital\00", align 1
-@.str.969 = private unnamed_addr constant [8 x i8] c"Artisyn\00", align 1
-@.str.970 = private unnamed_addr constant [17 x i8] c"IVL Technologies\00", align 1
-@.str.971 = private unnamed_addr constant [23 x i8] c"Southern Music Systems\00", align 1
-@.str.972 = private unnamed_addr constant [26 x i8] c"Lake Butler Sound Company\00", align 1
-@.str.973 = private unnamed_addr constant [7 x i8] c"Alesis\00", align 1
-@.str.974 = private unnamed_addr constant [15 x i8] c"Sound Creation\00", align 1
-@.str.975 = private unnamed_addr constant [16 x i8] c"DOD Electronics\00", align 1
-@.str.976 = private unnamed_addr constant [15 x i8] c"Studer-Editech\00", align 1
-@.str.977 = private unnamed_addr constant [6 x i8] c"Sonus\00", align 1
-@.str.978 = private unnamed_addr constant [25 x i8] c"Temporal Acuity Products\00", align 1
-@.str.979 = private unnamed_addr constant [18 x i8] c"Perfect Fretworks\00", align 1
-@.str.980 = private unnamed_addr constant [4 x i8] c"KAT\00", align 1
-@.str.981 = private unnamed_addr constant [7 x i8] c"Opcode\00", align 1
-@.str.982 = private unnamed_addr constant [10 x i8] c"Rane Corp\00", align 1
-@.str.983 = private unnamed_addr constant [26 x i8] c"Spatial Sound / Anadi Inc\00", align 1
-@.str.984 = private unnamed_addr constant [4 x i8] c"KMX\00", align 1
-@.str.985 = private unnamed_addr constant [22 x i8] c"Allen & Heath Brenell\00", align 1
-@.str.986 = private unnamed_addr constant [7 x i8] c"Peavey\00", align 1
-@.str.987 = private unnamed_addr constant [12 x i8] c"360 Systems\00", align 1
-@.str.988 = private unnamed_addr constant [32 x i8] c"Spectrum Design and Development\00", align 1
-@.str.989 = private unnamed_addr constant [14 x i8] c"Marquis Music\00", align 1
-@.str.990 = private unnamed_addr constant [13 x i8] c"Zeta Systems\00", align 1
-@.str.991 = private unnamed_addr constant [6 x i8] c"Axxes\00", align 1
-@.str.992 = private unnamed_addr constant [6 x i8] c"Orban\00", align 1
-@.str.993 = private unnamed_addr constant [18 x i8] c"Indian Valley Mfg\00", align 1
-@.str.994 = private unnamed_addr constant [7 x i8] c"Triton\00", align 1
-@.str.995 = private unnamed_addr constant [4 x i8] c"KTI\00", align 1
-@.str.996 = private unnamed_addr constant [23 x i8] c"Breakaway Technologies\00", align 1
-@.str.997 = private unnamed_addr constant [4 x i8] c"CAE\00", align 1
-@.str.998 = private unnamed_addr constant [21 x i8] c"Harrison Systems Inc\00", align 1
-@.str.999 = private unnamed_addr constant [22 x i8] c"Future Lab / Mark Kuo\00", align 1
-@.str.1000 = private unnamed_addr constant [14 x i8] c"Rocktron Corp\00", align 1
-@.str.1001 = private unnamed_addr constant [10 x i8] c"PianoDisc\00", align 1
-@.str.1002 = private unnamed_addr constant [22 x i8] c"Cannon Research Group\00", align 1
-@.str.1003 = private unnamed_addr constant [24 x i8] c"Rodgers Instrument Corp\00", align 1
-@.str.1004 = private unnamed_addr constant [15 x i8] c"Blue Sky Logic\00", align 1
-@.str.1005 = private unnamed_addr constant [19 x i8] c"Encore Electronics\00", align 1
-@.str.1006 = private unnamed_addr constant [7 x i8] c"Uptown\00", align 1
-@.str.1007 = private unnamed_addr constant [5 x i8] c"Voce\00", align 1
-@.str.1008 = private unnamed_addr constant [33 x i8] c"CTI Audio, Inc / Music Intel Dev\00", align 1
-@.str.1009 = private unnamed_addr constant [13 x i8] c"S&S Research\00", align 1
-@.str.1010 = private unnamed_addr constant [24 x i8] c"Broderbund Software Inc\00", align 1
-@.str.1011 = private unnamed_addr constant [15 x i8] c"Allen Organ Co\00", align 1
-@.str.1012 = private unnamed_addr constant [12 x i8] c"Music Quest\00", align 1
-@.str.1013 = private unnamed_addr constant [6 x i8] c"APHEX\00", align 1
-@.str.1014 = private unnamed_addr constant [16 x i8] c"Gallien Krueger\00", align 1
-@.str.1015 = private unnamed_addr constant [4 x i8] c"IBM\00", align 1
-@.str.1016 = private unnamed_addr constant [20 x i8] c"Mark of the Unicorn\00", align 1
-@.str.1017 = private unnamed_addr constant [30 x i8] c"Hotz Instruments Technologies\00", align 1
-@.str.1018 = private unnamed_addr constant [13 x i8] c"ETA Lighting\00", align 1
-@.str.1019 = private unnamed_addr constant [16 x i8] c"NSI Corporation\00", align 1
-@.str.1020 = private unnamed_addr constant [13 x i8] c"PAd Lib, Inc\00", align 1
-@.str.1021 = private unnamed_addr constant [22 x i8] c"Richmond Sound Design\00", align 1
-@.str.1022 = private unnamed_addr constant [10 x i8] c"Microsoft\00", align 1
-@.str.1023 = private unnamed_addr constant [23 x i8] c"The Software Toolworks\00", align 1
-@.str.1024 = private unnamed_addr constant [13 x i8] c"RJMG / Niche\00", align 1
-@.str.1025 = private unnamed_addr constant [7 x i8] c"Intone\00", align 1
-@.str.1026 = private unnamed_addr constant [21 x i8] c"Advanced Remote Tech\00", align 1
-@.str.1027 = private unnamed_addr constant [30 x i8] c"GT Electronics / Groove Tubes\00", align 1
-@.str.1028 = private unnamed_addr constant [10 x i8] c"InterMIDI\00", align 1
-@.str.1029 = private unnamed_addr constant [15 x i8] c"Timeline Vista\00", align 1
-@.str.1030 = private unnamed_addr constant [12 x i8] c"Mesa Boogie\00", align 1
-@.str.1031 = private unnamed_addr constant [20 x i8] c"Sequoia Development\00", align 1
-@.str.1032 = private unnamed_addr constant [19 x i8] c"Studio Electronics\00", align 1
-@.str.1033 = private unnamed_addr constant [9 x i8] c"Euphonix\00", align 1
-@.str.1034 = private unnamed_addr constant [15 x i8] c"MIDI Solutions\00", align 1
-@.str.1035 = private unnamed_addr constant [12 x i8] c"3DO Company\00", align 1
-@.str.1036 = private unnamed_addr constant [19 x i8] c"Lightwave Research\00", align 1
-@.str.1037 = private unnamed_addr constant [8 x i8] c"Micro-W\00", align 1
-@.str.1038 = private unnamed_addr constant [19 x i8] c"Spectral Synthesis\00", align 1
-@.str.1039 = private unnamed_addr constant [10 x i8] c"Lone Wolf\00", align 1
-@.str.1040 = private unnamed_addr constant [20 x i8] c"Studio Technologies\00", align 1
-@.str.1041 = private unnamed_addr constant [13 x i8] c"Peterson EMP\00", align 1
-@.str.1042 = private unnamed_addr constant [6 x i8] c"Atari\00", align 1
-@.str.1043 = private unnamed_addr constant [15 x i8] c"Marion Systems\00", align 1
-@.str.1044 = private unnamed_addr constant [13 x i8] c"Design Event\00", align 1
-@.str.1045 = private unnamed_addr constant [19 x i8] c"Winjammer Software\00", align 1
-@.str.1046 = private unnamed_addr constant [15 x i8] c"AT&T Bell Labs\00", align 1
-@.str.1047 = private unnamed_addr constant [9 x i8] c"Symetrix\00", align 1
-@.str.1048 = private unnamed_addr constant [15 x i8] c"MIDI the world\00", align 1
-@.str.1049 = private unnamed_addr constant [16 x i8] c"Desper Products\00", align 1
-@.str.1050 = private unnamed_addr constant [15 x i8] c"Micros 'n MIDI\00", align 1
-@.str.1051 = private unnamed_addr constant [15 x i8] c"Accodians Intl\00", align 1
-@.str.1052 = private unnamed_addr constant [10 x i8] c"EuPhonics\00", align 1
-@.str.1053 = private unnamed_addr constant [8 x i8] c"Musonix\00", align 1
-@.str.1054 = private unnamed_addr constant [21 x i8] c"Turtle Beach Systems\00", align 1
-@.str.1055 = private unnamed_addr constant [15 x i8] c"Mackie Designs\00", align 1
-@.str.1056 = private unnamed_addr constant [11 x i8] c"Compuserve\00", align 1
-@.str.1057 = private unnamed_addr constant [17 x i8] c"BES Technologies\00", align 1
-@.str.1058 = private unnamed_addr constant [16 x i8] c"QRS Music Rolls\00", align 1
-@.str.1059 = private unnamed_addr constant [10 x i8] c"P G Music\00", align 1
-@.str.1060 = private unnamed_addr constant [21 x i8] c"Sierra Semiconductor\00", align 1
-@.str.1061 = private unnamed_addr constant [21 x i8] c"EpiGraf Audio Visual\00", align 1
-@.str.1062 = private unnamed_addr constant [24 x i8] c"Electronics Diversified\00", align 1
-@.str.1063 = private unnamed_addr constant [10 x i8] c"Tune 1000\00", align 1
-@.str.1064 = private unnamed_addr constant [23 x i8] c"Advanced Micro Devices\00", align 1
-@.str.1065 = private unnamed_addr constant [12 x i8] c"Mediamation\00", align 1
-@.str.1066 = private unnamed_addr constant [13 x i8] c"Sabine Music\00", align 1
-@.str.1067 = private unnamed_addr constant [10 x i8] c"Woog Labs\00", align 1
-@.str.1068 = private unnamed_addr constant [11 x i8] c"Micropolis\00", align 1
-@.str.1069 = private unnamed_addr constant [28 x i8] c"Ta Horng Musical Instrument\00", align 1
-@.str.1070 = private unnamed_addr constant [24 x i8] c"e-Tek Labs (Forte Tech)\00", align 1
-@.str.1071 = private unnamed_addr constant [14 x i8] c"Electro-Voice\00", align 1
-@.str.1072 = private unnamed_addr constant [21 x i8] c"Midisoft Corporation\00", align 1
-@.str.1073 = private unnamed_addr constant [13 x i8] c"Q-Sound Labs\00", align 1
-@.str.1074 = private unnamed_addr constant [8 x i8] c"Westrex\00", align 1
-@.str.1075 = private unnamed_addr constant [7 x i8] c"NVidia\00", align 1
-@.str.1076 = private unnamed_addr constant [15 x i8] c"ESS Technology\00", align 1
-@.str.1077 = private unnamed_addr constant [22 x i8] c"MediaTrix Peripherals\00", align 1
-@.str.1078 = private unnamed_addr constant [15 x i8] c"Brooktree Corp\00", align 1
-@.str.1079 = private unnamed_addr constant [11 x i8] c"Otari Corp\00", align 1
-@.str.1080 = private unnamed_addr constant [16 x i8] c"Key Electronics\00", align 1
-@.str.1081 = private unnamed_addr constant [19 x i8] c"Shure Incorporated\00", align 1
-@.str.1082 = private unnamed_addr constant [11 x i8] c"Aura Sound\00", align 1
-@.str.1083 = private unnamed_addr constant [22 x i8] c"Crystal Semiconductor\00", align 1
-@.str.1084 = private unnamed_addr constant [20 x i8] c"Conexant (Rockwell)\00", align 1
-@.str.1085 = private unnamed_addr constant [17 x i8] c"Silicon Graphics\00", align 1
-@.str.1086 = private unnamed_addr constant [18 x i8] c"M-Audio (Midiman)\00", align 1
-@.str.1087 = private unnamed_addr constant [9 x i8] c"PreSonus\00", align 1
-@.str.1088 = private unnamed_addr constant [18 x i8] c"Topaz Enterprises\00", align 1
-@.str.1089 = private unnamed_addr constant [14 x i8] c"Cast Lighting\00", align 1
-@.str.1090 = private unnamed_addr constant [30 x i8] c"Microsoft (Consumer Division)\00", align 1
-@.str.1091 = private unnamed_addr constant [14 x i8] c"Sonic Foundry\00", align 1
-@.str.1092 = private unnamed_addr constant [22 x i8] c"Line 6 (Fast Forward)\00", align 1
-@.str.1093 = private unnamed_addr constant [12 x i8] c"Beatnik Inc\00", align 1
-@.str.1094 = private unnamed_addr constant [22 x i8] c"Van Koevering Company\00", align 1
-@.str.1095 = private unnamed_addr constant [20 x i8] c"DiAltech Systemsgit\00", align 1
-@.str.1096 = private unnamed_addr constant [16 x i8] c"VLSI Technology\00", align 1
-@.str.1097 = private unnamed_addr constant [19 x i8] c"Chromatic Research\00", align 1
-@.str.1098 = private unnamed_addr constant [9 x i8] c"Sapphire\00", align 1
-@.str.1099 = private unnamed_addr constant [5 x i8] c"IDRC\00", align 1
-@.str.1100 = private unnamed_addr constant [16 x i8] c"Justonic Tuning\00", align 1
-@.str.1101 = private unnamed_addr constant [21 x i8] c"TorComp Research Inc\00", align 1
-@.str.1102 = private unnamed_addr constant [11 x i8] c"NewTek Inc\00", align 1
-@.str.1103 = private unnamed_addr constant [16 x i8] c"Sound Sculpture\00", align 1
-@.str.1104 = private unnamed_addr constant [17 x i8] c"Walker Technical\00", align 1
-@.str.1105 = private unnamed_addr constant [16 x i8] c"Digital Harmony\00", align 1
-@.str.1106 = private unnamed_addr constant [21 x i8] c"InVision Interactive\00", align 1
-@.str.1107 = private unnamed_addr constant [16 x i8] c"T-Square Design\00", align 1
-@.str.1108 = private unnamed_addr constant [25 x i8] c"Nemesys Music Technology\00", align 1
-@.str.1109 = private unnamed_addr constant [31 x i8] c"DBX Professional (Harman Intl)\00", align 1
-@.str.1110 = private unnamed_addr constant [20 x i8] c"Syndyne Corporation\00", align 1
-@.str.1111 = private unnamed_addr constant [9 x i8] c"Bitheadz\00", align 1
-@.str.1112 = private unnamed_addr constant [24 x i8] c"Cakewalk Music Software\00", align 1
-@.str.1113 = private unnamed_addr constant [15 x i8] c"Analog Devices\00", align 1
-@.str.1114 = private unnamed_addr constant [23 x i8] c"National Semiconductor\00", align 1
-@.str.1115 = private unnamed_addr constant [12 x i8] c"Boom Theory\00", align 1
-@.str.1116 = private unnamed_addr constant [24 x i8] c"Virtual DSP Corporation\00", align 1
-@.str.1117 = private unnamed_addr constant [16 x i8] c"Antares Systems\00", align 1
-@.str.1118 = private unnamed_addr constant [15 x i8] c"Angel Software\00", align 1
-@.str.1119 = private unnamed_addr constant [15 x i8] c"St Louis Music\00", align 1
-@.str.1120 = private unnamed_addr constant [17 x i8] c"Lyrrus dba G-VOX\00", align 1
-@.str.1121 = private unnamed_addr constant [17 x i8] c"Ashley Audio Inc\00", align 1
-@.str.1122 = private unnamed_addr constant [14 x i8] c"Vari-Lite Inc\00", align 1
-@.str.1123 = private unnamed_addr constant [17 x i8] c"Summit Audio Inc\00", align 1
-@.str.1124 = private unnamed_addr constant [25 x i8] c"Aureal Semiconductor Inc\00", align 1
-@.str.1125 = private unnamed_addr constant [13 x i8] c"SeaSound LLC\00", align 1
-@.str.1126 = private unnamed_addr constant [14 x i8] c"U.S. Robotics\00", align 1
-@.str.1127 = private unnamed_addr constant [17 x i8] c"Aurisis Research\00", align 1
-@.str.1128 = private unnamed_addr constant [21 x i8] c"Nearfield Multimedia\00", align 1
-@.str.1129 = private unnamed_addr constant [8 x i8] c"FM7 Inc\00", align 1
-@.str.1130 = private unnamed_addr constant [15 x i8] c"Swivel Systems\00", align 1
-@.str.1131 = private unnamed_addr constant [26 x i8] c"Hyperactive Audio Systems\00", align 1
-@.str.1132 = private unnamed_addr constant [38 x i8] c"MidiLite (Castle Studios Productions)\00", align 1
-@.str.1133 = private unnamed_addr constant [21 x i8] c"Radikal Technologies\00", align 1
-@.str.1134 = private unnamed_addr constant [18 x i8] c"Roger Linn Design\00", align 1
-@.str.1135 = private unnamed_addr constant [30 x i8] c"TC-Helicon Vocal Technologies\00", align 1
-@.str.1136 = private unnamed_addr constant [18 x i8] c"Event Electronics\00", align 1
-@.str.1137 = private unnamed_addr constant [18 x i8] c"Sonic Network Inc\00", align 1
-@.str.1138 = private unnamed_addr constant [25 x i8] c"Realtime Music Solutions\00", align 1
-@.str.1139 = private unnamed_addr constant [15 x i8] c"Apogee Digital\00", align 1
-@.str.1140 = private unnamed_addr constant [22 x i8] c"Classical Organs, Inc\00", align 1
-@.str.1141 = private unnamed_addr constant [15 x i8] c"Microtools Inc\00", align 1
-@.str.1142 = private unnamed_addr constant [18 x i8] c"Numark Industries\00", align 1
-@.str.1143 = private unnamed_addr constant [26 x i8] c"Frontier Design Group LLC\00", align 1
-@.str.1144 = private unnamed_addr constant [14 x i8] c"Recordare LLC\00", align 1
-@.str.1145 = private unnamed_addr constant [11 x i8] c"Starr Labs\00", align 1
-@.str.1146 = private unnamed_addr constant [18 x i8] c"Voyager Sound Inc\00", align 1
-@.str.1147 = private unnamed_addr constant [14 x i8] c"Manifold Labs\00", align 1
-@.str.1148 = private unnamed_addr constant [10 x i8] c"Aviom Inc\00", align 1
-@.str.1149 = private unnamed_addr constant [22 x i8] c"Mixmeister Technology\00", align 1
-@.str.1150 = private unnamed_addr constant [18 x i8] c"Notation Software\00", align 1
-@.str.1151 = private unnamed_addr constant [25 x i8] c"Mercurial Communications\00", align 1
-@.str.1152 = private unnamed_addr constant [10 x i8] c"Wave Arts\00", align 1
-@.str.1153 = private unnamed_addr constant [25 x i8] c"Logic Sequencing Devices\00", align 1
-@.str.1154 = private unnamed_addr constant [18 x i8] c"Axess Electronics\00", align 1
-@.str.1155 = private unnamed_addr constant [14 x i8] c"Muse Research\00", align 1
-@.str.1156 = private unnamed_addr constant [10 x i8] c"Open Labs\00", align 1
-@.str.1157 = private unnamed_addr constant [18 x i8] c"Guillemot R&D Inc\00", align 1
-@.str.1158 = private unnamed_addr constant [20 x i8] c"Samson Technologies\00", align 1
-@.str.1159 = private unnamed_addr constant [28 x i8] c"Electronic Theatre Controls\00", align 1
-@.str.1160 = private unnamed_addr constant [19 x i8] c"Research In Motion\00", align 1
-@.str.1161 = private unnamed_addr constant [9 x i8] c"Mobileer\00", align 1
-@.str.1162 = private unnamed_addr constant [9 x i8] c"Synthogy\00", align 1
-@.str.1163 = private unnamed_addr constant [27 x i8] c"Lynx Studio Technology Inc\00", align 1
-@.str.1164 = private unnamed_addr constant [31 x i8] c"Damage Control Engineering LLC\00", align 1
-@.str.1165 = private unnamed_addr constant [21 x i8] c"Yost Engineering Inc\00", align 1
-@.str.1166 = private unnamed_addr constant [29 x i8] c"Brooks & Forsman Designs LLC\00", align 1
-@.str.1167 = private unnamed_addr constant [9 x i8] c"Magnekey\00", align 1
-@.str.1168 = private unnamed_addr constant [14 x i8] c"Garritan Corp\00", align 1
-@.str.1169 = private unnamed_addr constant [31 x i8] c"Ploque Art et Technologie, Inc\00", align 1
-@.str.1170 = private unnamed_addr constant [21 x i8] c"RJM Music Technology\00", align 1
-@.str.1171 = private unnamed_addr constant [26 x i8] c"Custom Solutions Software\00", align 1
-@.str.1172 = private unnamed_addr constant [14 x i8] c"Sonarcana LLC\00", align 1
-@.str.1173 = private unnamed_addr constant [10 x i8] c"Centrance\00", align 1
-@.str.1174 = private unnamed_addr constant [11 x i8] c"Kesumo LLC\00", align 1
-@.str.1175 = private unnamed_addr constant [8 x i8] c"Stanton\00", align 1
-@.str.1176 = private unnamed_addr constant [18 x i8] c"Livid Instruments\00", align 1
-@.str.1177 = private unnamed_addr constant [22 x i8] c"First Act / 745 Media\00", align 1
-@.str.1178 = private unnamed_addr constant [16 x i8] c"Pygraphics, Inc\00", align 1
-@.str.1179 = private unnamed_addr constant [25 x i8] c"Panadigm Innovations Ltd\00", align 1
-@.str.1180 = private unnamed_addr constant [19 x i8] c"Avedis Zildjian Co\00", align 1
-@.str.1181 = private unnamed_addr constant [19 x i8] c"Auvital Music Corp\00", align 1
-@.str.1182 = private unnamed_addr constant [25 x i8] c"Inspired Instruments Inc\00", align 1
-@.str.1183 = private unnamed_addr constant [20 x i8] c"Chris Grigg Designs\00", align 1
-@.str.1184 = private unnamed_addr constant [18 x i8] c"Slate Digital LLC\00", align 1
-@.str.1185 = private unnamed_addr constant [8 x i8] c"Mixware\00", align 1
-@.str.1186 = private unnamed_addr constant [15 x i8] c"Social Entropy\00", align 1
-@.str.1187 = private unnamed_addr constant [17 x i8] c"Source Audio LLC\00", align 1
-@.str.1188 = private unnamed_addr constant [9 x i8] c"reserved\00", align 1
-@.str.1189 = private unnamed_addr constant [18 x i8] c"American Audio/DJ\00", align 1
-@.str.1190 = private unnamed_addr constant [21 x i8] c"Mega Control Systems\00", align 1
-@.str.1191 = private unnamed_addr constant [17 x i8] c"Kilpatrick Audio\00", align 1
-@.str.1192 = private unnamed_addr constant [14 x i8] c"iKingdom Corp\00", align 1
-@.str.1193 = private unnamed_addr constant [14 x i8] c"Fractal Audio\00", align 1
-@.str.1194 = private unnamed_addr constant [22 x i8] c"NetLogic Microsystems\00", align 1
-@.str.1195 = private unnamed_addr constant [16 x i8] c"Music Computing\00", align 1
-@.str.1196 = private unnamed_addr constant [22 x i8] c"Nektar Technology Inc\00", align 1
-@.str.1197 = private unnamed_addr constant [24 x i8] c"Zenph Sound Innovations\00", align 1
-@.str.1198 = private unnamed_addr constant [16 x i8] c"DJTechTools.com\00", align 1
-@.str.1199 = private unnamed_addr constant [6 x i8] c"Dream\00", align 1
-@.str.1200 = private unnamed_addr constant [16 x i8] c"Strand Lighting\00", align 1
-@.str.1201 = private unnamed_addr constant [13 x i8] c"Amek Systems\00", align 1
-@.str.1202 = private unnamed_addr constant [27 x i8] c"Cas Di Risparmio Di Loreto\00", align 1
-@.str.1203 = private unnamed_addr constant [16 x i8] c"Bohm electronic\00", align 1
-@.str.1204 = private unnamed_addr constant [21 x i8] c"Syntec Digital Audio\00", align 1
-@.str.1205 = private unnamed_addr constant [14 x i8] c"Trident Audio\00", align 1
-@.str.1206 = private unnamed_addr constant [18 x i8] c"Real World Studio\00", align 1
-@.str.1207 = private unnamed_addr constant [20 x i8] c"Evolution Synthesis\00", align 1
-@.str.1208 = private unnamed_addr constant [15 x i8] c"Yes Technology\00", align 1
-@.str.1209 = private unnamed_addr constant [12 x i8] c"Audiomatica\00", align 1
-@.str.1210 = private unnamed_addr constant [19 x i8] c"Bontempi / Farfisa\00", align 1
-@.str.1211 = private unnamed_addr constant [19 x i8] c"F.B.T. Elettronica\00", align 1
-@.str.1212 = private unnamed_addr constant [9 x i8] c"Miditemp\00", align 1
-@.str.1213 = private unnamed_addr constant [25 x i8] c"LA Audio (Larking Audio)\00", align 1
-@.str.1214 = private unnamed_addr constant [25 x i8] c"Zero 88 Lighting Limited\00", align 1
-@.str.1215 = private unnamed_addr constant [29 x i8] c"Micon Audio Electronics GmbH\00", align 1
-@.str.1216 = private unnamed_addr constant [21 x i8] c"Forefront Technology\00", align 1
-@.str.1217 = private unnamed_addr constant [27 x i8] c"Studio Audio and Video Ltd\00", align 1
-@.str.1218 = private unnamed_addr constant [19 x i8] c"Kenton Electronics\00", align 1
-@.str.1219 = private unnamed_addr constant [31 x i8] c"Celco Division of Electrosonic\00", align 1
-@.str.1220 = private unnamed_addr constant [4 x i8] c"ADB\00", align 1
-@.str.1221 = private unnamed_addr constant [18 x i8] c"Marshall Products\00", align 1
-@.str.1222 = private unnamed_addr constant [4 x i8] c"DDA\00", align 1
-@.str.1223 = private unnamed_addr constant [4 x i8] c"BSS\00", align 1
-@.str.1224 = private unnamed_addr constant [23 x i8] c"MA Lighting Technology\00", align 1
-@.str.1225 = private unnamed_addr constant [6 x i8] c"Fatar\00", align 1
-@.str.1226 = private unnamed_addr constant [10 x i8] c"QSC Audio\00", align 1
-@.str.1227 = private unnamed_addr constant [22 x i8] c"Artisan Classic Organ\00", align 1
-@.str.1228 = private unnamed_addr constant [9 x i8] c"Rola Spa\00", align 1
-@.str.1229 = private unnamed_addr constant [15 x i8] c"Pinnacle Audio\00", align 1
-@.str.1230 = private unnamed_addr constant [15 x i8] c"TC Electronics\00", align 1
-@.str.1231 = private unnamed_addr constant [24 x i8] c"Doepfer Musikelektronik\00", align 1
-@.str.1232 = private unnamed_addr constant [24 x i8] c"Creative Technology Pte\00", align 1
-@.str.1233 = private unnamed_addr constant [17 x i8] c"Minami / Seiyddo\00", align 1
-@.str.1234 = private unnamed_addr constant [9 x i8] c"Goldstar\00", align 1
-@.str.1235 = private unnamed_addr constant [7 x i8] c"Samick\00", align 1
-@.str.1236 = private unnamed_addr constant [16 x i8] c"Penny and Giles\00", align 1
-@.str.1237 = private unnamed_addr constant [15 x i8] c"Acorn Computer\00", align 1
-@.str.1238 = private unnamed_addr constant [16 x i8] c"LSC Electronics\00", align 1
-@.str.1239 = private unnamed_addr constant [13 x i8] c"Novation EMS\00", align 1
-@.str.1240 = private unnamed_addr constant [22 x i8] c"Samkyung Mechatronics\00", align 1
-@.str.1241 = private unnamed_addr constant [22 x i8] c"Medeli Electronics Co\00", align 1
-@.str.1242 = private unnamed_addr constant [16 x i8] c"Charlie Lab SRL\00", align 1
-@.str.1243 = private unnamed_addr constant [27 x i8] c"Blue Chip Music Technology\00", align 1
-@.str.1244 = private unnamed_addr constant [12 x i8] c"BEE OH Corp\00", align 1
-@.str.1245 = private unnamed_addr constant [19 x i8] c"LG Semicon America\00", align 1
-@.str.1246 = private unnamed_addr constant [5 x i8] c"TESI\00", align 1
-@.str.1247 = private unnamed_addr constant [7 x i8] c"EMAGIC\00", align 1
-@.str.1248 = private unnamed_addr constant [15 x i8] c"Behringer GmbH\00", align 1
-@.str.1249 = private unnamed_addr constant [25 x i8] c"Access Music Electronics\00", align 1
-@.str.1250 = private unnamed_addr constant [9 x i8] c"Synoptic\00", align 1
-@.str.1251 = private unnamed_addr constant [15 x i8] c"Hanmesoft Corp\00", align 1
-@.str.1252 = private unnamed_addr constant [25 x i8] c"Terratec Electronic GmbH\00", align 1
-@.str.1253 = private unnamed_addr constant [10 x i8] c"Proel SpA\00", align 1
-@.str.1254 = private unnamed_addr constant [9 x i8] c"IBK MIDI\00", align 1
-@.str.1255 = private unnamed_addr constant [6 x i8] c"IRCAM\00", align 1
-@.str.1256 = private unnamed_addr constant [23 x i8] c"Propellerhead Software\00", align 1
-@.str.1257 = private unnamed_addr constant [22 x i8] c"Red Sound Systems Ltd\00", align 1
-@.str.1258 = private unnamed_addr constant [16 x i8] c"Elektron ESI AB\00", align 1
-@.str.1259 = private unnamed_addr constant [15 x i8] c"Sintefex Audio\00", align 1
-@.str.1260 = private unnamed_addr constant [21 x i8] c"MAM (Music and More)\00", align 1
-@.str.1261 = private unnamed_addr constant [12 x i8] c"Amsaro GmbH\00", align 1
-@.str.1262 = private unnamed_addr constant [27 x i8] c"CDS Advanced Technology BV\00", align 1
-@.str.1263 = private unnamed_addr constant [22 x i8] c"Touched By Sound GmbH\00", align 1
-@.str.1264 = private unnamed_addr constant [9 x i8] c"DSP Arts\00", align 1
-@.str.1265 = private unnamed_addr constant [21 x i8] c"Phil Rees Music Tech\00", align 1
-@.str.1266 = private unnamed_addr constant [25 x i8] c"Stamer Musikanlagen GmbH\00", align 1
-@.str.1267 = private unnamed_addr constant [35 x i8] c"Musical Muntaner S.A. dba Soundart\00", align 1
-@.str.1268 = private unnamed_addr constant [16 x i8] c"C-Mexx Software\00", align 1
-@.str.1269 = private unnamed_addr constant [20 x i8] c"Klavis Technologies\00", align 1
-@.str.1270 = private unnamed_addr constant [13 x i8] c"Noteheads AB\00", align 1
-@.str.1271 = private unnamed_addr constant [12 x i8] c"Algorithmix\00", align 1
-@.str.1272 = private unnamed_addr constant [15 x i8] c"Skrydstrup R&D\00", align 1
-@.str.1273 = private unnamed_addr constant [27 x i8] c"Professional Audio Company\00", align 1
-@.str.1274 = private unnamed_addr constant [16 x i8] c"DBTECH/MadWaves\00", align 1
-@.str.1275 = private unnamed_addr constant [8 x i8] c"Vermona\00", align 1
-@.str.1276 = private unnamed_addr constant [6 x i8] c"Nokia\00", align 1
-@.str.1277 = private unnamed_addr constant [10 x i8] c"Wave Idea\00", align 1
-@.str.1278 = private unnamed_addr constant [14 x i8] c"Hartmann GmbH\00", align 1
-@.str.1279 = private unnamed_addr constant [13 x i8] c"Lion's Track\00", align 1
-@.str.1280 = private unnamed_addr constant [17 x i8] c"Analogue Systems\00", align 1
-@.str.1281 = private unnamed_addr constant [12 x i8] c"Focal-JMlab\00", align 1
-@.str.1282 = private unnamed_addr constant [20 x i8] c"Ringway Electronics\00", align 1
-@.str.1283 = private unnamed_addr constant [30 x i8] c"Faith Technologies (Digiplug)\00", align 1
-@.str.1284 = private unnamed_addr constant [10 x i8] c"Showworks\00", align 1
-@.str.1285 = private unnamed_addr constant [19 x i8] c"Manikin Electronic\00", align 1
-@.str.1286 = private unnamed_addr constant [12 x i8] c"1 Come Tech\00", align 1
-@.str.1287 = private unnamed_addr constant [12 x i8] c"Phonic Corp\00", align 1
-@.str.1288 = private unnamed_addr constant [16 x i8] c"Lake Technology\00", align 1
-@.str.1289 = private unnamed_addr constant [22 x i8] c"Silansys Technologies\00", align 1
-@.str.1290 = private unnamed_addr constant [20 x i8] c"Winbond Electronics\00", align 1
-@.str.1291 = private unnamed_addr constant [34 x i8] c"Cinetix Medien und Interface GmbH\00", align 1
-@.str.1292 = private unnamed_addr constant [23 x i8] c"A&G Soluzioni Digitali\00", align 1
-@.str.1293 = private unnamed_addr constant [24 x i8] c"Sequentix Music Systems\00", align 1
-@.str.1294 = private unnamed_addr constant [15 x i8] c"Oram Pro Audio\00", align 1
-@.str.1295 = private unnamed_addr constant [8 x i8] c"Be4 Ltd\00", align 1
-@.str.1296 = private unnamed_addr constant [16 x i8] c"Infection Music\00", align 1
-@.str.1297 = private unnamed_addr constant [24 x i8] c"Central Music Co. (CME)\00", align 1
-@.str.1298 = private unnamed_addr constant [16 x i8] c"GenoQs Machines\00", align 1
-@.str.1299 = private unnamed_addr constant [9 x i8] c"Medialon\00", align 1
-@.str.1300 = private unnamed_addr constant [16 x i8] c"Waves Audio Ltd\00", align 1
-@.str.1301 = private unnamed_addr constant [12 x i8] c"Jerash Labs\00", align 1
-@.str.1302 = private unnamed_addr constant [8 x i8] c"Da Fact\00", align 1
-@.str.1303 = private unnamed_addr constant [13 x i8] c"Elby Designs\00", align 1
-@.str.1304 = private unnamed_addr constant [15 x i8] c"Spectral Audio\00", align 1
-@.str.1305 = private unnamed_addr constant [8 x i8] c"Arturia\00", align 1
-@.str.1306 = private unnamed_addr constant [6 x i8] c"Vixid\00", align 1
-@.str.1307 = private unnamed_addr constant [13 x i8] c"C-Thru Music\00", align 1
-@.str.1308 = private unnamed_addr constant [27 x i8] c"Ya Horng Electronic Co LTD\00", align 1
-@.str.1309 = private unnamed_addr constant [13 x i8] c"SM Pro Audio\00", align 1
-@.str.1310 = private unnamed_addr constant [13 x i8] c"OTO MACHINES\00", align 1
-@.str.1311 = private unnamed_addr constant [18 x i8] c"ELZAB S.A., G LAB\00", align 1
-@.str.1312 = private unnamed_addr constant [28 x i8] c"Blackstar Amplification Ltd\00", align 1
-@.str.1313 = private unnamed_addr constant [22 x i8] c"M3i Technologies GmbH\00", align 1
-@.str.1314 = private unnamed_addr constant [8 x i8] c"Gemalto\00", align 1
-@.str.1315 = private unnamed_addr constant [12 x i8] c"Prostage SL\00", align 1
-@.str.1316 = private unnamed_addr constant [20 x i8] c"Teenage Engineering\00", align 1
-@.str.1317 = private unnamed_addr constant [16 x i8] c"Tobias Erichsen\00", align 1
-@.str.1318 = private unnamed_addr constant [10 x i8] c"Nixer Ltd\00", align 1
-@.str.1319 = private unnamed_addr constant [23 x i8] c"Hanpin Electron Co Ltd\00", align 1
-@.str.1320 = private unnamed_addr constant [21 x i8] c"MIDI-hardware R.Sowa\00", align 1
-@.str.1321 = private unnamed_addr constant [28 x i8] c"Beyond Music Industrial Ltd\00", align 1
-@.str.1322 = private unnamed_addr constant [14 x i8] c"Kiss Box B.V.\00", align 1
-@.str.1323 = private unnamed_addr constant [30 x i8] c"Misa Digital Technologies Ltd\00", align 1
-@.str.1324 = private unnamed_addr constant [25 x i8] c"AI Musics Technology Inc\00", align 1
-@.str.1325 = private unnamed_addr constant [14 x i8] c"Serato Inc LP\00", align 1
-@.str.1326 = private unnamed_addr constant [25 x i8] c"Limex Music Handles GmbH\00", align 1
-@.str.1327 = private unnamed_addr constant [14 x i8] c"Kyodday/Tokai\00", align 1
-@.str.1328 = private unnamed_addr constant [20 x i8] c"Mutable Instruments\00", align 1
-@.str.1329 = private unnamed_addr constant [22 x i8] c"PreSonus Software Ltd\00", align 1
-@.str.1330 = private unnamed_addr constant [7 x i8] c"Xiring\00", align 1
-@.str.1331 = private unnamed_addr constant [30 x i8] c"Fairlight Instruments Pty Ltd\00", align 1
-@.str.1332 = private unnamed_addr constant [12 x i8] c"Musicom Lab\00", align 1
-@.str.1333 = private unnamed_addr constant [9 x i8] c"VacoLoco\00", align 1
-@.str.1334 = private unnamed_addr constant [24 x i8] c"RWA (Hong Kong) Limited\00", align 1
-@.str.1335 = private unnamed_addr constant [23 x i8] c"Crimson Technology Inc\00", align 1
-@.str.1336 = private unnamed_addr constant [21 x i8] c"Softbank Mobile Corp\00", align 1
-@.str.1337 = private unnamed_addr constant [18 x i8] c"D&M Holdings Inc.\00", align 1
-@.str.1338 = private unnamed_addr constant [26 x i8] c"Chapter D journal present\00", align 1
-@.str.1339 = private unnamed_addr constant [30 x i8] c"Chapter D journal NOT present\00", align 1
-@.str.1340 = private unnamed_addr constant [26 x i8] c"Chapter V journal present\00", align 1
-@.str.1341 = private unnamed_addr constant [30 x i8] c"Chapter V journal NOT present\00", align 1
-@.str.1342 = private unnamed_addr constant [26 x i8] c"Chapter Q journal present\00", align 1
-@.str.1343 = private unnamed_addr constant [30 x i8] c"Chapter Q journal NOT present\00", align 1
-@.str.1344 = private unnamed_addr constant [26 x i8] c"Chapter F journal present\00", align 1
-@.str.1345 = private unnamed_addr constant [30 x i8] c"Chapter F journal NOT present\00", align 1
-@.str.1346 = private unnamed_addr constant [26 x i8] c"Chapter X journal present\00", align 1
-@.str.1347 = private unnamed_addr constant [30 x i8] c"Chapter X journal NOT present\00", align 1
-@.str.1348 = private unnamed_addr constant [26 x i8] c"Chapter P journal present\00", align 1
-@.str.1349 = private unnamed_addr constant [30 x i8] c"Chapter P journal NOT present\00", align 1
-@.str.1350 = private unnamed_addr constant [26 x i8] c"Chapter C journal present\00", align 1
-@.str.1351 = private unnamed_addr constant [30 x i8] c"Chapter C journal NOT present\00", align 1
-@.str.1352 = private unnamed_addr constant [26 x i8] c"Chapter M journal present\00", align 1
-@.str.1353 = private unnamed_addr constant [30 x i8] c"Chapter M journal NOT present\00", align 1
-@.str.1354 = private unnamed_addr constant [26 x i8] c"Chapter W journal present\00", align 1
-@.str.1355 = private unnamed_addr constant [30 x i8] c"Chapter W journal NOT present\00", align 1
-@.str.1356 = private unnamed_addr constant [26 x i8] c"Chapter N journal present\00", align 1
-@.str.1357 = private unnamed_addr constant [30 x i8] c"Chapter N journal NOT present\00", align 1
-@.str.1358 = private unnamed_addr constant [26 x i8] c"Chapter E journal present\00", align 1
-@.str.1359 = private unnamed_addr constant [30 x i8] c"Chapter E journal NOT present\00", align 1
-@.str.1360 = private unnamed_addr constant [26 x i8] c"Chapter T journal present\00", align 1
-@.str.1361 = private unnamed_addr constant [30 x i8] c"Chapter T journal NOT present\00", align 1
-@.str.1362 = private unnamed_addr constant [26 x i8] c"Chapter A journal present\00", align 1
-@.str.1363 = private unnamed_addr constant [30 x i8] c"Chapter A journal NOT present\00", align 1
-@.str.1364 = private unnamed_addr constant [51 x i8] c"Reset all controllers received between MSB and LSB\00", align 1
-@.str.1365 = private unnamed_addr constant [54 x i8] c"NO Reset all controllers received between MSB and LSB\00", align 1
-@.str.1366 = private unnamed_addr constant [19 x i8] c"Alternative Coding\00", align 1
-@.str.1367 = private unnamed_addr constant [13 x i8] c"Value Coding\00", align 1
-@.str.1368 = private unnamed_addr constant [25 x i8] c"Pending field is encoded\00", align 1
-@.str.1369 = private unnamed_addr constant [29 x i8] c"Pending field is NOT encoded\00", align 1
-@.str.1370 = private unnamed_addr constant [37 x i8] c"Initiated transaction is in progress\00", align 1
-@.str.1371 = private unnamed_addr constant [27 x i8] c"NO transaction in progress\00", align 1
-@.str.1372 = private unnamed_addr constant [24 x i8] c"All parameters are RPNs\00", align 1
-@.str.1373 = private unnamed_addr constant [29 x i8] c"Parameters may include NRPNs\00", align 1
-@.str.1374 = private unnamed_addr constant [25 x i8] c"All parameters are NRPNs\00", align 1
-@.str.1375 = private unnamed_addr constant [28 x i8] c"Parameters may include RPNs\00", align 1
-@.str.1376 = private unnamed_addr constant [20 x i8] c"Only LSB parameters\00", align 1
-@.str.1377 = private unnamed_addr constant [30 x i8] c"Parameters may have LSB & MSB\00", align 1
-@.str.1378 = private unnamed_addr constant [25 x i8] c"Pending encodes NRPN MSB\00", align 1
-@.str.1379 = private unnamed_addr constant [24 x i8] c"Pending encodes RPN MSB\00", align 1
-@.str.1380 = private unnamed_addr constant [23 x i8] c"NRPN parameter encoded\00", align 1
-@.str.1381 = private unnamed_addr constant [22 x i8] c"RPN parameter encoded\00", align 1
-@.str.1382 = private unnamed_addr constant [24 x i8] c"ENTRY-MSB field present\00", align 1
-@.str.1383 = private unnamed_addr constant [28 x i8] c"ENTRY-MSB field NOT present\00", align 1
-@.str.1384 = private unnamed_addr constant [24 x i8] c"ENTRY-LSB field present\00", align 1
-@.str.1385 = private unnamed_addr constant [28 x i8] c"ENTRY-LSB field NOT present\00", align 1
-@.str.1386 = private unnamed_addr constant [23 x i8] c"A-Button field present\00", align 1
-@.str.1387 = private unnamed_addr constant [27 x i8] c"A-Button field NOT present\00", align 1
-@.str.1388 = private unnamed_addr constant [23 x i8] c"C-Button field present\00", align 1
-@.str.1389 = private unnamed_addr constant [27 x i8] c"C-Button field NOT present\00", align 1
-@.str.1390 = private unnamed_addr constant [20 x i8] c"Count field present\00", align 1
-@.str.1391 = private unnamed_addr constant [24 x i8] c"Count field NOT present\00", align 1
-@.str.1392 = private unnamed_addr constant [16 x i8] c"Count Tool used\00", align 1
-@.str.1393 = private unnamed_addr constant [20 x i8] c"Count Tool NOT used\00", align 1
-@.str.1394 = private unnamed_addr constant [16 x i8] c"Value Tool used\00", align 1
-@.str.1395 = private unnamed_addr constant [20 x i8] c"Value Tool NOT used\00", align 1
-@.str.1396 = private unnamed_addr constant [18 x i8] c"Reserved-Flag set\00", align 1
-@.str.1397 = private unnamed_addr constant [22 x i8] c"Reserved-Flag NOT set\00", align 1
-@.str.1398 = private unnamed_addr constant [57 x i8] c"Precedes most recent Control Change command for ctrl=121\00", align 1
-@.str.1399 = private unnamed_addr constant [65 x i8] c"Does not precede most recent Control Change command for ctrl=121\00", align 1
-@.str.1400 = private unnamed_addr constant [15 x i8] c"negative value\00", align 1
-@.str.1401 = private unnamed_addr constant [15 x i8] c"positive value\00", align 1
-@.str.1402 = private unnamed_addr constant [16 x i8] c"Execute Note-On\00", align 1
-@.str.1403 = private unnamed_addr constant [13 x i8] c"Skip Note-On\00", align 1
-@.str.1404 = private unnamed_addr constant [26 x i8] c"Encodes Note-Off velocity\00", align 1
-@.str.1405 = private unnamed_addr constant [26 x i8] c"Encodes Note-On/Off count\00", align 1
-@.str.1406 = private unnamed_addr constant [61 x i8] c"Precedes most recent Control Change command for ctrl=123-127\00", align 1
-@.str.1407 = private unnamed_addr constant [69 x i8] c"Does not precede most recent Control Change command for ctrl=123-127\00", align 1
-@.str.1408 = private unnamed_addr constant [20 x i8] c"Reset field present\00", align 1
-@.str.1409 = private unnamed_addr constant [24 x i8] c"Reset field NOT present\00", align 1
-@.str.1410 = private unnamed_addr constant [27 x i8] c"Tune request field present\00", align 1
-@.str.1411 = private unnamed_addr constant [31 x i8] c"Tune request field NOT present\00", align 1
-@.str.1412 = private unnamed_addr constant [26 x i8] c"Song select field present\00", align 1
-@.str.1413 = private unnamed_addr constant [30 x i8] c"Song select field NOT present\00", align 1
-@.str.1414 = private unnamed_addr constant [43 x i8] c"Undefined system common 0xF4 field present\00", align 1
-@.str.1415 = private unnamed_addr constant [47 x i8] c"Undefined system common 0xF4 field NOT present\00", align 1
-@.str.1416 = private unnamed_addr constant [43 x i8] c"Undefined system common 0xF5 field present\00", align 1
-@.str.1417 = private unnamed_addr constant [47 x i8] c"Undefined system common 0xF5 field NOT present\00", align 1
-@.str.1418 = private unnamed_addr constant [43 x i8] c"Undefined system common 0xF9 field present\00", align 1
-@.str.1419 = private unnamed_addr constant [47 x i8] c"Undefined system common 0xF9 field NOT present\00", align 1
-@.str.1420 = private unnamed_addr constant [43 x i8] c"Undefined system common 0xFD field present\00", align 1
-@.str.1421 = private unnamed_addr constant [47 x i8] c"Undefined system common 0xFD field NOT present\00", align 1
-@.str.1422 = private unnamed_addr constant [20 x i8] c"Value field present\00", align 1
-@.str.1423 = private unnamed_addr constant [24 x i8] c"Value field NOT present\00", align 1
-@.str.1424 = private unnamed_addr constant [20 x i8] c"Legal field present\00", align 1
-@.str.1425 = private unnamed_addr constant [24 x i8] c"Legal field NOT present\00", align 1
-@.str.1426 = private unnamed_addr constant [21 x i8] c"Command has 0 octets\00", align 1
-@.str.1427 = private unnamed_addr constant [20 x i8] c"Command has 1 octet\00", align 1
-@.str.1428 = private unnamed_addr constant [21 x i8] c"Command has 2 octets\00", align 1
-@.str.1429 = private unnamed_addr constant [29 x i8] c"Command has 3 or more octets\00", align 1
-@.str.1430 = private unnamed_addr constant [24 x i8] c"Active Start / Continue\00", align 1
-@.str.1431 = private unnamed_addr constant [32 x i8] c"NO active Start / Stop Continue\00", align 1
-@.str.1432 = private unnamed_addr constant [30 x i8] c"Song position already reached\00", align 1
-@.str.1433 = private unnamed_addr constant [32 x i8] c"Song position yet to be reached\00", align 1
-@.str.1434 = private unnamed_addr constant [20 x i8] c"Clock field present\00", align 1
-@.str.1435 = private unnamed_addr constant [24 x i8] c"Clock field NOT present\00", align 1
-@.str.1436 = private unnamed_addr constant [24 x i8] c"Timetools field present\00", align 1
-@.str.1437 = private unnamed_addr constant [28 x i8] c"Timetools field NOT present\00", align 1
-@.str.1438 = private unnamed_addr constant [23 x i8] c"Complete field present\00", align 1
-@.str.1439 = private unnamed_addr constant [27 x i8] c"Complete field NOT present\00", align 1
-@.str.1440 = private unnamed_addr constant [22 x i8] c"Partial field present\00", align 1
-@.str.1441 = private unnamed_addr constant [26 x i8] c"Partial field NOT present\00", align 1
-@.str.1442 = private unnamed_addr constant [39 x i8] c"Complete field contains quarter frames\00", align 1
-@.str.1443 = private unnamed_addr constant [42 x i8] c"Complete field contains full frame format\00", align 1
-@.str.1444 = private unnamed_addr constant [28 x i8] c"Tape head is moving reverse\00", align 1
-@.str.1445 = private unnamed_addr constant [41 x i8] c"Tape head is moving forward or undefined\00", align 1
-@.str.1446 = private unnamed_addr constant [21 x i8] c"TCOUNT field present\00", align 1
-@.str.1447 = private unnamed_addr constant [25 x i8] c"TCOUNT field NOT present\00", align 1
-@.str.1448 = private unnamed_addr constant [20 x i8] c"COUNT field present\00", align 1
-@.str.1449 = private unnamed_addr constant [24 x i8] c"COUNT field NOT present\00", align 1
-@.str.1450 = private unnamed_addr constant [20 x i8] c"FIRST field present\00", align 1
-@.str.1451 = private unnamed_addr constant [24 x i8] c"FIRST field NOT present\00", align 1
-@.str.1452 = private unnamed_addr constant [19 x i8] c"DATA field present\00", align 1
-@.str.1453 = private unnamed_addr constant [23 x i8] c"DATA field not present\00", align 1
-@.str.1454 = private unnamed_addr constant [15 x i8] c"List Tool used\00", align 1
-@.str.1455 = private unnamed_addr constant [18 x i8] c"Recency Tool used\00", align 1
-@.str.1456 = private unnamed_addr constant [22 x i8] c"Frame count LS nibble\00", align 1
-@.str.1457 = private unnamed_addr constant [22 x i8] c"Frame count MS nibble\00", align 1
-@.str.1458 = private unnamed_addr constant [24 x i8] c"Seconds count LS nibble\00", align 1
-@.str.1459 = private unnamed_addr constant [24 x i8] c"Seconds count MS nibble\00", align 1
-@.str.1460 = private unnamed_addr constant [24 x i8] c"Minutes count LS nibble\00", align 1
-@.str.1461 = private unnamed_addr constant [24 x i8] c"Minutes count MS nibble\00", align 1
-@.str.1462 = private unnamed_addr constant [22 x i8] c"Hours count LS nibble\00", align 1
-@.str.1463 = private unnamed_addr constant [22 x i8] c"Hours count MS nibble\00", align 1
-@.str.1464 = private unnamed_addr constant [32 x i8] c"Common RT: MIDI Time Code (MTC)\00", align 1
-@.str.1465 = private unnamed_addr constant [29 x i8] c"Common RT: MIDI Show Control\00", align 1
-@.str.1466 = private unnamed_addr constant [32 x i8] c"Common RT: Notation Information\00", align 1
-@.str.1467 = private unnamed_addr constant [26 x i8] c"Common RT: Device Control\00", align 1
-@.str.1468 = private unnamed_addr constant [32 x i8] c"Common RT: Real Time MTC Cueing\00", align 1
-@.str.1469 = private unnamed_addr constant [40 x i8] c"Common RT: MIDI Machine Control Command\00", align 1
-@.str.1470 = private unnamed_addr constant [41 x i8] c"Common RT: MIDI Machine Control Response\00", align 1
-@.str.1471 = private unnamed_addr constant [32 x i8] c"Common RT: MIDI Tuning Standard\00", align 1
-@.str.1472 = private unnamed_addr constant [31 x i8] c"Common NRT: Sample Dump Header\00", align 1
-@.str.1473 = private unnamed_addr constant [31 x i8] c"Common NRT: Sample Data Packet\00", align 1
-@.str.1474 = private unnamed_addr constant [32 x i8] c"Common NRT: Sample Dump Request\00", align 1
-@.str.1475 = private unnamed_addr constant [33 x i8] c"Common NRT: MIDI Time Code (MTC)\00", align 1
-@.str.1476 = private unnamed_addr constant [35 x i8] c"Common NRT: Sample Dump Extensions\00", align 1
-@.str.1477 = private unnamed_addr constant [32 x i8] c"Common NRT: General Information\00", align 1
-@.str.1478 = private unnamed_addr constant [22 x i8] c"Common NRT: File Dump\00", align 1
-@.str.1479 = private unnamed_addr constant [33 x i8] c"Common NRT: Midi Tuning Standard\00", align 1
-@.str.1480 = private unnamed_addr constant [30 x i8] c"Common NRT: General MIDI (GM)\00", align 1
-@.str.1481 = private unnamed_addr constant [38 x i8] c"Common NRT: Downloadable Sounds (DLS)\00", align 1
-@.str.1482 = private unnamed_addr constant [24 x i8] c"Common NRT: End Of File\00", align 1
-@.str.1483 = private unnamed_addr constant [17 x i8] c"Common NRT: Wait\00", align 1
-@.str.1484 = private unnamed_addr constant [19 x i8] c"Common NRT: Cancel\00", align 1
-@.str.1485 = private unnamed_addr constant [16 x i8] c"Common NRT: NAK\00", align 1
-@.str.1486 = private unnamed_addr constant [16 x i8] c"Common NRT: ACK\00", align 1
-@.str.1487 = private unnamed_addr constant [24 x i8] c"Loop Point Transmission\00", align 1
-@.str.1488 = private unnamed_addr constant [20 x i8] c"Loop Points Request\00", align 1
-@.str.1489 = private unnamed_addr constant [17 x i8] c"Identity Request\00", align 1
-@.str.1490 = private unnamed_addr constant [15 x i8] c"Identity Reply\00", align 1
-@.str.1491 = private unnamed_addr constant [7 x i8] c"Header\00", align 1
-@.str.1492 = private unnamed_addr constant [12 x i8] c"Data Packet\00", align 1
-@.str.1493 = private unnamed_addr constant [8 x i8] c"Request\00", align 1
-@.str.1494 = private unnamed_addr constant [18 x i8] c"Bulk Dump Request\00", align 1
-@.str.1495 = private unnamed_addr constant [16 x i8] c"Bulk Dump Reply\00", align 1
-@.str.1496 = private unnamed_addr constant [12 x i8] c"Note Change\00", align 1
-@.str.1497 = private unnamed_addr constant [23 x i8] c"General MIDI System On\00", align 1
-@.str.1498 = private unnamed_addr constant [24 x i8] c"General MIDI System Off\00", align 1
-@.str.1499 = private unnamed_addr constant [15 x i8] c"DLS Level 1 On\00", align 1
-@.str.1500 = private unnamed_addr constant [16 x i8] c"DLS Level 1 Off\00", align 1
-@.str.1501 = private unnamed_addr constant [33 x i8] c"DLS Level 1 Voice Allocation Off\00", align 1
-@.str.1502 = private unnamed_addr constant [32 x i8] c"DLS Level 1 Voice Allocation On\00", align 1
-@.str.1503 = private unnamed_addr constant [13 x i8] c"Full Message\00", align 1
-@.str.1504 = private unnamed_addr constant [10 x i8] c"User Bits\00", align 1
-@rtp_midi_sysex_common_rt_show_control = internal constant [58 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.1506 }, %struct._value_string { i32 1, ptr @.str.1507 }, %struct._value_string { i32 2, ptr @.str.1508 }, %struct._value_string { i32 3, ptr @.str.1509 }, %struct._value_string { i32 4, ptr @.str.1510 }, %struct._value_string { i32 5, ptr @.str.1511 }, %struct._value_string { i32 6, ptr @.str.1512 }, %struct._value_string { i32 16, ptr @.str.1513 }, %struct._value_string { i32 17, ptr @.str.1514 }, %struct._value_string { i32 18, ptr @.str.1515 }, %struct._value_string { i32 19, ptr @.str.1516 }, %struct._value_string { i32 20, ptr @.str.1517 }, %struct._value_string { i32 21, ptr @.str.1518 }, %struct._value_string { i32 22, ptr @.str.1519 }, %struct._value_string { i32 23, ptr @.str.1520 }, %struct._value_string { i32 24, ptr @.str.1521 }, %struct._value_string { i32 32, ptr @.str.1522 }, %struct._value_string { i32 33, ptr @.str.1523 }, %struct._value_string { i32 34, ptr @.str.1524 }, %struct._value_string { i32 35, ptr @.str.1525 }, %struct._value_string { i32 36, ptr @.str.1526 }, %struct._value_string { i32 37, ptr @.str.1527 }, %struct._value_string { i32 38, ptr @.str.1528 }, %struct._value_string { i32 39, ptr @.str.1529 }, %struct._value_string { i32 40, ptr @.str.1530 }, %struct._value_string { i32 41, ptr @.str.1531 }, %struct._value_string { i32 42, ptr @.str.1532 }, %struct._value_string { i32 48, ptr @.str.1533 }, %struct._value_string { i32 49, ptr @.str.1534 }, %struct._value_string { i32 50, ptr @.str.1535 }, %struct._value_string { i32 51, ptr @.str.1536 }, %struct._value_string { i32 52, ptr @.str.1537 }, %struct._value_string { i32 53, ptr @.str.1538 }, %struct._value_string { i32 54, ptr @.str.1539 }, %struct._value_string { i32 55, ptr @.str.1540 }, %struct._value_string { i32 56, ptr @.str.1541 }, %struct._value_string { i32 64, ptr @.str.1542 }, %struct._value_string { i32 65, ptr @.str.1543 }, %struct._value_string { i32 66, ptr @.str.1544 }, %struct._value_string { i32 67, ptr @.str.1545 }, %struct._value_string { i32 68, ptr @.str.1546 }, %struct._value_string { i32 69, ptr @.str.1547 }, %struct._value_string { i32 80, ptr @.str.1548 }, %struct._value_string { i32 81, ptr @.str.1549 }, %struct._value_string { i32 82, ptr @.str.1550 }, %struct._value_string { i32 83, ptr @.str.1551 }, %struct._value_string { i32 84, ptr @.str.1552 }, %struct._value_string { i32 85, ptr @.str.1553 }, %struct._value_string { i32 86, ptr @.str.1554 }, %struct._value_string { i32 87, ptr @.str.1555 }, %struct._value_string { i32 88, ptr @.str.1556 }, %struct._value_string { i32 96, ptr @.str.1557 }, %struct._value_string { i32 97, ptr @.str.1558 }, %struct._value_string { i32 98, ptr @.str.1559 }, %struct._value_string { i32 99, ptr @.str.1560 }, %struct._value_string { i32 100, ptr @.str.1561 }, %struct._value_string { i32 127, ptr @.str.1562 }, %struct._value_string zeroinitializer], align 16
-@.str.1505 = private unnamed_addr constant [38 x i8] c"rtp_midi_sysex_common_rt_show_control\00", align 1
-@.str.1506 = private unnamed_addr constant [11 x i8] c"Extensions\00", align 1
-@.str.1507 = private unnamed_addr constant [28 x i8] c"Lighting (General Category)\00", align 1
-@.str.1508 = private unnamed_addr constant [14 x i8] c"Moving Lights\00", align 1
-@.str.1509 = private unnamed_addr constant [15 x i8] c"Color Changers\00", align 1
-@.str.1510 = private unnamed_addr constant [8 x i8] c"Strobes\00", align 1
-@.str.1511 = private unnamed_addr constant [7 x i8] c"Lasers\00", align 1
-@.str.1512 = private unnamed_addr constant [8 x i8] c"Chasers\00", align 1
-@.str.1513 = private unnamed_addr constant [25 x i8] c"Sound (General Category)\00", align 1
-@.str.1514 = private unnamed_addr constant [6 x i8] c"Music\00", align 1
-@.str.1515 = private unnamed_addr constant [11 x i8] c"CD Players\00", align 1
-@.str.1516 = private unnamed_addr constant [15 x i8] c"EPROM Playback\00", align 1
-@.str.1517 = private unnamed_addr constant [19 x i8] c"Audio Tape Machine\00", align 1
-@.str.1518 = private unnamed_addr constant [10 x i8] c"Intercoms\00", align 1
-@.str.1519 = private unnamed_addr constant [11 x i8] c"Amplifiers\00", align 1
-@.str.1520 = private unnamed_addr constant [22 x i8] c"Audio Effects Devices\00", align 1
-@.str.1521 = private unnamed_addr constant [11 x i8] c"Equalizers\00", align 1
-@.str.1522 = private unnamed_addr constant [28 x i8] c"Machinery (General Category\00", align 1
-@.str.1523 = private unnamed_addr constant [8 x i8] c"Rigging\00", align 1
-@.str.1524 = private unnamed_addr constant [5 x i8] c"Flys\00", align 1
-@.str.1525 = private unnamed_addr constant [6 x i8] c"Lifts\00", align 1
-@.str.1526 = private unnamed_addr constant [11 x i8] c"Turntables\00", align 1
-@.str.1527 = private unnamed_addr constant [8 x i8] c"Trusses\00", align 1
-@.str.1528 = private unnamed_addr constant [7 x i8] c"Robots\00", align 1
-@.str.1529 = private unnamed_addr constant [10 x i8] c"Animation\00", align 1
-@.str.1530 = private unnamed_addr constant [7 x i8] c"Floats\00", align 1
-@.str.1531 = private unnamed_addr constant [11 x i8] c"Breakaways\00", align 1
-@.str.1532 = private unnamed_addr constant [7 x i8] c"Barges\00", align 1
-@.str.1533 = private unnamed_addr constant [24 x i8] c"Video (General Category\00", align 1
-@.str.1534 = private unnamed_addr constant [20 x i8] c"Video Tape Machines\00", align 1
-@.str.1535 = private unnamed_addr constant [24 x i8] c"Video Cassette Machines\00", align 1
-@.str.1536 = private unnamed_addr constant [19 x i8] c"Video Disc Players\00", align 1
-@.str.1537 = private unnamed_addr constant [16 x i8] c"Video Switchers\00", align 1
-@.str.1538 = private unnamed_addr constant [14 x i8] c"Video Effects\00", align 1
-@.str.1539 = private unnamed_addr constant [27 x i8] c"Video Character Generators\00", align 1
-@.str.1540 = private unnamed_addr constant [19 x i8] c"Video Still Stores\00", align 1
-@.str.1541 = private unnamed_addr constant [15 x i8] c"Video Monitors\00", align 1
-@.str.1542 = private unnamed_addr constant [22 x i8] c"Projections (General)\00", align 1
-@.str.1543 = private unnamed_addr constant [16 x i8] c"Film Projectors\00", align 1
-@.str.1544 = private unnamed_addr constant [17 x i8] c"Slide Projectors\00", align 1
-@.str.1545 = private unnamed_addr constant [17 x i8] c"Video Projectors\00", align 1
-@.str.1546 = private unnamed_addr constant [11 x i8] c"Dissolvers\00", align 1
-@.str.1547 = private unnamed_addr constant [17 x i8] c"Shutter Controls\00", align 1
-@.str.1548 = private unnamed_addr constant [26 x i8] c"Process Control (General)\00", align 1
-@.str.1549 = private unnamed_addr constant [14 x i8] c"Hydraulic Oil\00", align 1
-@.str.1550 = private unnamed_addr constant [4 x i8] c"H2O\00", align 1
-@.str.1551 = private unnamed_addr constant [4 x i8] c"CO2\00", align 1
-@.str.1552 = private unnamed_addr constant [15 x i8] c"Compressed Air\00", align 1
-@.str.1553 = private unnamed_addr constant [12 x i8] c"Natural Gas\00", align 1
-@.str.1554 = private unnamed_addr constant [4 x i8] c"Fog\00", align 1
-@.str.1555 = private unnamed_addr constant [6 x i8] c"Smoke\00", align 1
-@.str.1556 = private unnamed_addr constant [13 x i8] c"Cracked Haze\00", align 1
-@.str.1557 = private unnamed_addr constant [24 x i8] c"Pyro (General Category)\00", align 1
-@.str.1558 = private unnamed_addr constant [10 x i8] c"Fireworks\00", align 1
-@.str.1559 = private unnamed_addr constant [11 x i8] c"Explosions\00", align 1
-@.str.1560 = private unnamed_addr constant [6 x i8] c"Flame\00", align 1
-@.str.1561 = private unnamed_addr constant [11 x i8] c"Smoke Pots\00", align 1
-@.str.1562 = private unnamed_addr constant [10 x i8] c"All Types\00", align 1
-@.str.1563 = private unnamed_addr constant [11 x i8] c"Bar Number\00", align 1
-@.str.1564 = private unnamed_addr constant [27 x i8] c"Time Signature (Immediate)\00", align 1
-@.str.1565 = private unnamed_addr constant [25 x i8] c"Time Signature (Delayed)\00", align 1
-@.str.1566 = private unnamed_addr constant [14 x i8] c"Master Volume\00", align 1
-@.str.1567 = private unnamed_addr constant [15 x i8] c"Master Balance\00", align 1
-@.str.1568 = private unnamed_addr constant [8 x i8] c"Special\00", align 1
-@.str.1569 = private unnamed_addr constant [16 x i8] c"Punch In Points\00", align 1
-@.str.1570 = private unnamed_addr constant [17 x i8] c"Punch Out Points\00", align 1
-@.str.1571 = private unnamed_addr constant [16 x i8] c"(Reserved 0x03)\00", align 1
-@.str.1572 = private unnamed_addr constant [16 x i8] c"(Reserved 0x04)\00", align 1
-@.str.1573 = private unnamed_addr constant [19 x i8] c"Event Start Points\00", align 1
-@.str.1574 = private unnamed_addr constant [18 x i8] c"Event Stop Points\00", align 1
-@.str.1575 = private unnamed_addr constant [40 x i8] c"Event Start Points with additional Info\00", align 1
-@.str.1576 = private unnamed_addr constant [39 x i8] c"Event Stop Points with additional Info\00", align 1
-@.str.1577 = private unnamed_addr constant [16 x i8] c"(Reserved 0x09)\00", align 1
-@.str.1578 = private unnamed_addr constant [16 x i8] c"(Reserved 0x0a)\00", align 1
-@.str.1579 = private unnamed_addr constant [11 x i8] c"Cue Points\00", align 1
-@.str.1580 = private unnamed_addr constant [32 x i8] c"Cue Points with additional Info\00", align 1
-@.str.1581 = private unnamed_addr constant [16 x i8] c"(Reserved 0x0d)\00", align 1
-@.str.1582 = private unnamed_addr constant [30 x i8] c"Event Name in additional Info\00", align 1
-@.str.1583 = private unnamed_addr constant [23 x i8] c"Delete Punch In Points\00", align 1
-@.str.1584 = private unnamed_addr constant [24 x i8] c"Delete Punch Out Points\00", align 1
-@.str.1585 = private unnamed_addr constant [18 x i8] c"Event Start Point\00", align 1
-@.str.1586 = private unnamed_addr constant [17 x i8] c"Event Stop Point\00", align 1
-@.str.1587 = private unnamed_addr constant [39 x i8] c"Event Start Point with additional Info\00", align 1
-@.str.1588 = private unnamed_addr constant [38 x i8] c"Event Stop Point with additional Info\00", align 1
-@.str.1589 = private unnamed_addr constant [25 x i8] c"Delete Event Start Point\00", align 1
-@.str.1590 = private unnamed_addr constant [24 x i8] c"Delete Event Stop Point\00", align 1
-@.str.1591 = private unnamed_addr constant [17 x i8] c"Delete Cue Point\00", align 1
-@.str.1592 = private unnamed_addr constant [31 x i8] c"Forwards only (unidirectional)\00", align 1
-@.str.1593 = private unnamed_addr constant [36 x i8] c"Backwards/Forwards (bi-directional)\00", align 1
-@.str.1594 = private unnamed_addr constant [4 x i8] c"Off\00", align 1
-@.str.1595 = private unnamed_addr constant [17 x i8] c"24 Frames/Second\00", align 1
-@.str.1596 = private unnamed_addr constant [17 x i8] c"25 Frames/Second\00", align 1
-@.str.1597 = private unnamed_addr constant [30 x i8] c"30 Frames/Second (drop frame)\00", align 1
-@.str.1598 = private unnamed_addr constant [34 x i8] c"30 Frames/Second (non-drop frame)\00", align 1
-@.str.1599 = private unnamed_addr constant [16 x i8] c"Command Section\00", align 1
-@.str.1600 = private unnamed_addr constant [16 x i8] c"Journal Section\00", align 1
-@.str.1601 = private unnamed_addr constant [16 x i8] c"Channel-Journal\00", align 1
+@rtp_midi_js_tot_channels = internal constant [17 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.614 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.615 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.616 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.617 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.618 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.619 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.620 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.621 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.622 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.623 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.624 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.625 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.626 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.627 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.628 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.629 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.631 = private unnamed_addr constant [9 x i8] c"Note Off\00", align 1
+@.str.632 = private unnamed_addr constant [8 x i8] c"Note On\00", align 1
+@.str.633 = private unnamed_addr constant [24 x i8] c"Polyphonic Key Pressure\00", align 1
+@.str.634 = private unnamed_addr constant [15 x i8] c"Control Change\00", align 1
+@.str.635 = private unnamed_addr constant [15 x i8] c"Program Change\00", align 1
+@.str.636 = private unnamed_addr constant [17 x i8] c"Channel Pressure\00", align 1
+@.str.637 = private unnamed_addr constant [18 x i8] c"Pitch Bend Change\00", align 1
+@rtp_midi_channel_status = internal constant [8 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.631 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.632 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.633 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.634 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.635 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.636 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.637 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.639 = private unnamed_addr constant [65 x i8] c"SOX: Start Of System-Exclusive / End of System-Exclusive Segment\00", align 1
+@.str.640 = private unnamed_addr constant [18 x i8] c"MTC Quarter Frame\00", align 1
+@.str.641 = private unnamed_addr constant [25 x i8] c"Systems Exclusive Cancel\00", align 1
+@.str.642 = private unnamed_addr constant [15 x i8] c"Undefined 0xf5\00", align 1
+@.str.643 = private unnamed_addr constant [13 x i8] c"Tune Request\00", align 1
+@.str.644 = private unnamed_addr constant [65 x i8] c"EOX: Start of System-Exclusive Segment / End of System-Exclusive\00", align 1
+@.str.645 = private unnamed_addr constant [17 x i8] c"RT: Timing Clock\00", align 1
+@.str.646 = private unnamed_addr constant [14 x i8] c"RT: Midi Tick\00", align 1
+@.str.647 = private unnamed_addr constant [10 x i8] c"RT: Start\00", align 1
+@.str.648 = private unnamed_addr constant [13 x i8] c"RT: Continue\00", align 1
+@.str.649 = private unnamed_addr constant [9 x i8] c"RT: Stop\00", align 1
+@.str.650 = private unnamed_addr constant [19 x i8] c"RT: Undefined 0xfd\00", align 1
+@.str.651 = private unnamed_addr constant [19 x i8] c"RT: Active sensing\00", align 1
+@.str.652 = private unnamed_addr constant [18 x i8] c"RT: Systems reset\00", align 1
+@rtp_midi_common_status = internal constant [17 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 240, [4 x i8] zeroinitializer, ptr @.str.639 }, { i32, [4 x i8], ptr } { i32 241, [4 x i8] zeroinitializer, ptr @.str.640 }, { i32, [4 x i8], ptr } { i32 242, [4 x i8] zeroinitializer, ptr @.str.420 }, { i32, [4 x i8], ptr } { i32 243, [4 x i8] zeroinitializer, ptr @.str.422 }, { i32, [4 x i8], ptr } { i32 244, [4 x i8] zeroinitializer, ptr @.str.641 }, { i32, [4 x i8], ptr } { i32 245, [4 x i8] zeroinitializer, ptr @.str.642 }, { i32, [4 x i8], ptr } { i32 246, [4 x i8] zeroinitializer, ptr @.str.643 }, { i32, [4 x i8], ptr } { i32 247, [4 x i8] zeroinitializer, ptr @.str.644 }, { i32, [4 x i8], ptr } { i32 248, [4 x i8] zeroinitializer, ptr @.str.645 }, { i32, [4 x i8], ptr } { i32 249, [4 x i8] zeroinitializer, ptr @.str.646 }, { i32, [4 x i8], ptr } { i32 250, [4 x i8] zeroinitializer, ptr @.str.647 }, { i32, [4 x i8], ptr } { i32 251, [4 x i8] zeroinitializer, ptr @.str.648 }, { i32, [4 x i8], ptr } { i32 252, [4 x i8] zeroinitializer, ptr @.str.649 }, { i32, [4 x i8], ptr } { i32 253, [4 x i8] zeroinitializer, ptr @.str.650 }, { i32, [4 x i8], ptr } { i32 254, [4 x i8] zeroinitializer, ptr @.str.651 }, { i32, [4 x i8], ptr } { i32 255, [4 x i8] zeroinitializer, ptr @.str.652 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.654 = private unnamed_addr constant [10 x i8] c"Channel 1\00", align 1
+@.str.655 = private unnamed_addr constant [10 x i8] c"Channel 2\00", align 1
+@.str.656 = private unnamed_addr constant [10 x i8] c"Channel 3\00", align 1
+@.str.657 = private unnamed_addr constant [10 x i8] c"Channel 4\00", align 1
+@.str.658 = private unnamed_addr constant [10 x i8] c"Channel 5\00", align 1
+@.str.659 = private unnamed_addr constant [10 x i8] c"Channel 6\00", align 1
+@.str.660 = private unnamed_addr constant [10 x i8] c"Channel 7\00", align 1
+@.str.661 = private unnamed_addr constant [10 x i8] c"Channel 8\00", align 1
+@.str.662 = private unnamed_addr constant [10 x i8] c"Channel 9\00", align 1
+@.str.663 = private unnamed_addr constant [11 x i8] c"Channel 10\00", align 1
+@.str.664 = private unnamed_addr constant [11 x i8] c"Channel 11\00", align 1
+@.str.665 = private unnamed_addr constant [11 x i8] c"Channel 12\00", align 1
+@.str.666 = private unnamed_addr constant [11 x i8] c"Channel 13\00", align 1
+@.str.667 = private unnamed_addr constant [11 x i8] c"Channel 14\00", align 1
+@.str.668 = private unnamed_addr constant [11 x i8] c"Channel 15\00", align 1
+@.str.669 = private unnamed_addr constant [11 x i8] c"Channel 16\00", align 1
+@rtp_midi_channels = internal constant [17 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.654 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.655 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.656 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.657 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.658 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.659 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.660 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.661 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.662 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.663 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.664 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.665 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.666 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.667 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.668 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.669 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.671 = private unnamed_addr constant [21 x i8] c"rtp_midi_note_values\00", align 1
+@.str.672 = private unnamed_addr constant [4 x i8] c"C-1\00", align 1
+@.str.673 = private unnamed_addr constant [5 x i8] c"C#-1\00", align 1
+@.str.674 = private unnamed_addr constant [4 x i8] c"D-1\00", align 1
+@.str.675 = private unnamed_addr constant [5 x i8] c"D#-1\00", align 1
+@.str.676 = private unnamed_addr constant [4 x i8] c"E-1\00", align 1
+@.str.677 = private unnamed_addr constant [4 x i8] c"F-1\00", align 1
+@.str.678 = private unnamed_addr constant [5 x i8] c"F#-1\00", align 1
+@.str.679 = private unnamed_addr constant [4 x i8] c"G-1\00", align 1
+@.str.680 = private unnamed_addr constant [5 x i8] c"G#-1\00", align 1
+@.str.681 = private unnamed_addr constant [4 x i8] c"A-1\00", align 1
+@.str.682 = private unnamed_addr constant [5 x i8] c"A#-1\00", align 1
+@.str.683 = private unnamed_addr constant [4 x i8] c"B-1\00", align 1
+@.str.684 = private unnamed_addr constant [3 x i8] c"C0\00", align 1
+@.str.685 = private unnamed_addr constant [4 x i8] c"C#0\00", align 1
+@.str.686 = private unnamed_addr constant [3 x i8] c"D0\00", align 1
+@.str.687 = private unnamed_addr constant [4 x i8] c"D#0\00", align 1
+@.str.688 = private unnamed_addr constant [3 x i8] c"E0\00", align 1
+@.str.689 = private unnamed_addr constant [3 x i8] c"F0\00", align 1
+@.str.690 = private unnamed_addr constant [4 x i8] c"F#0\00", align 1
+@.str.691 = private unnamed_addr constant [3 x i8] c"G0\00", align 1
+@.str.692 = private unnamed_addr constant [4 x i8] c"G#0\00", align 1
+@.str.693 = private unnamed_addr constant [3 x i8] c"A0\00", align 1
+@.str.694 = private unnamed_addr constant [4 x i8] c"A#0\00", align 1
+@.str.695 = private unnamed_addr constant [3 x i8] c"B0\00", align 1
+@.str.696 = private unnamed_addr constant [3 x i8] c"C1\00", align 1
+@.str.697 = private unnamed_addr constant [4 x i8] c"C#1\00", align 1
+@.str.698 = private unnamed_addr constant [3 x i8] c"D1\00", align 1
+@.str.699 = private unnamed_addr constant [4 x i8] c"D#1\00", align 1
+@.str.700 = private unnamed_addr constant [3 x i8] c"E1\00", align 1
+@.str.701 = private unnamed_addr constant [3 x i8] c"F1\00", align 1
+@.str.702 = private unnamed_addr constant [4 x i8] c"F#1\00", align 1
+@.str.703 = private unnamed_addr constant [3 x i8] c"G1\00", align 1
+@.str.704 = private unnamed_addr constant [4 x i8] c"G#1\00", align 1
+@.str.705 = private unnamed_addr constant [3 x i8] c"A1\00", align 1
+@.str.706 = private unnamed_addr constant [4 x i8] c"A#1\00", align 1
+@.str.707 = private unnamed_addr constant [3 x i8] c"B1\00", align 1
+@.str.708 = private unnamed_addr constant [3 x i8] c"C2\00", align 1
+@.str.709 = private unnamed_addr constant [4 x i8] c"C#2\00", align 1
+@.str.710 = private unnamed_addr constant [3 x i8] c"D2\00", align 1
+@.str.711 = private unnamed_addr constant [4 x i8] c"D#2\00", align 1
+@.str.712 = private unnamed_addr constant [3 x i8] c"E2\00", align 1
+@.str.713 = private unnamed_addr constant [3 x i8] c"F2\00", align 1
+@.str.714 = private unnamed_addr constant [4 x i8] c"F#2\00", align 1
+@.str.715 = private unnamed_addr constant [3 x i8] c"G2\00", align 1
+@.str.716 = private unnamed_addr constant [4 x i8] c"G#2\00", align 1
+@.str.717 = private unnamed_addr constant [3 x i8] c"A2\00", align 1
+@.str.718 = private unnamed_addr constant [4 x i8] c"A#2\00", align 1
+@.str.719 = private unnamed_addr constant [3 x i8] c"B2\00", align 1
+@.str.720 = private unnamed_addr constant [3 x i8] c"C3\00", align 1
+@.str.721 = private unnamed_addr constant [4 x i8] c"C#3\00", align 1
+@.str.722 = private unnamed_addr constant [3 x i8] c"D3\00", align 1
+@.str.723 = private unnamed_addr constant [4 x i8] c"D#3\00", align 1
+@.str.724 = private unnamed_addr constant [3 x i8] c"E3\00", align 1
+@.str.725 = private unnamed_addr constant [3 x i8] c"F3\00", align 1
+@.str.726 = private unnamed_addr constant [4 x i8] c"F#3\00", align 1
+@.str.727 = private unnamed_addr constant [3 x i8] c"G3\00", align 1
+@.str.728 = private unnamed_addr constant [4 x i8] c"G#3\00", align 1
+@.str.729 = private unnamed_addr constant [3 x i8] c"A3\00", align 1
+@.str.730 = private unnamed_addr constant [4 x i8] c"A#3\00", align 1
+@.str.731 = private unnamed_addr constant [3 x i8] c"B3\00", align 1
+@.str.732 = private unnamed_addr constant [3 x i8] c"C4\00", align 1
+@.str.733 = private unnamed_addr constant [4 x i8] c"C#4\00", align 1
+@.str.734 = private unnamed_addr constant [3 x i8] c"D4\00", align 1
+@.str.735 = private unnamed_addr constant [4 x i8] c"D#4\00", align 1
+@.str.736 = private unnamed_addr constant [3 x i8] c"E4\00", align 1
+@.str.737 = private unnamed_addr constant [3 x i8] c"F4\00", align 1
+@.str.738 = private unnamed_addr constant [4 x i8] c"F#4\00", align 1
+@.str.739 = private unnamed_addr constant [3 x i8] c"G4\00", align 1
+@.str.740 = private unnamed_addr constant [4 x i8] c"G#4\00", align 1
+@.str.741 = private unnamed_addr constant [3 x i8] c"A4\00", align 1
+@.str.742 = private unnamed_addr constant [4 x i8] c"A#4\00", align 1
+@.str.743 = private unnamed_addr constant [3 x i8] c"B4\00", align 1
+@.str.744 = private unnamed_addr constant [3 x i8] c"C5\00", align 1
+@.str.745 = private unnamed_addr constant [4 x i8] c"C#5\00", align 1
+@.str.746 = private unnamed_addr constant [3 x i8] c"D5\00", align 1
+@.str.747 = private unnamed_addr constant [4 x i8] c"D#5\00", align 1
+@.str.748 = private unnamed_addr constant [3 x i8] c"E5\00", align 1
+@.str.749 = private unnamed_addr constant [3 x i8] c"F5\00", align 1
+@.str.750 = private unnamed_addr constant [4 x i8] c"F#5\00", align 1
+@.str.751 = private unnamed_addr constant [3 x i8] c"G5\00", align 1
+@.str.752 = private unnamed_addr constant [4 x i8] c"G#5\00", align 1
+@.str.753 = private unnamed_addr constant [3 x i8] c"A5\00", align 1
+@.str.754 = private unnamed_addr constant [4 x i8] c"A#5\00", align 1
+@.str.755 = private unnamed_addr constant [3 x i8] c"B5\00", align 1
+@.str.756 = private unnamed_addr constant [3 x i8] c"C6\00", align 1
+@.str.757 = private unnamed_addr constant [4 x i8] c"C#6\00", align 1
+@.str.758 = private unnamed_addr constant [3 x i8] c"D6\00", align 1
+@.str.759 = private unnamed_addr constant [4 x i8] c"D#6\00", align 1
+@.str.760 = private unnamed_addr constant [3 x i8] c"E6\00", align 1
+@.str.761 = private unnamed_addr constant [3 x i8] c"F6\00", align 1
+@.str.762 = private unnamed_addr constant [4 x i8] c"F#6\00", align 1
+@.str.763 = private unnamed_addr constant [3 x i8] c"G6\00", align 1
+@.str.764 = private unnamed_addr constant [4 x i8] c"G#6\00", align 1
+@.str.765 = private unnamed_addr constant [3 x i8] c"A6\00", align 1
+@.str.766 = private unnamed_addr constant [4 x i8] c"A#6\00", align 1
+@.str.767 = private unnamed_addr constant [3 x i8] c"B6\00", align 1
+@.str.768 = private unnamed_addr constant [3 x i8] c"C7\00", align 1
+@.str.769 = private unnamed_addr constant [4 x i8] c"C#7\00", align 1
+@.str.770 = private unnamed_addr constant [3 x i8] c"D7\00", align 1
+@.str.771 = private unnamed_addr constant [4 x i8] c"D#7\00", align 1
+@.str.772 = private unnamed_addr constant [3 x i8] c"E7\00", align 1
+@.str.773 = private unnamed_addr constant [3 x i8] c"F7\00", align 1
+@.str.774 = private unnamed_addr constant [4 x i8] c"F#7\00", align 1
+@.str.775 = private unnamed_addr constant [3 x i8] c"G7\00", align 1
+@.str.776 = private unnamed_addr constant [4 x i8] c"G#7\00", align 1
+@.str.777 = private unnamed_addr constant [3 x i8] c"A7\00", align 1
+@.str.778 = private unnamed_addr constant [4 x i8] c"A#7\00", align 1
+@.str.779 = private unnamed_addr constant [3 x i8] c"B7\00", align 1
+@.str.780 = private unnamed_addr constant [3 x i8] c"C8\00", align 1
+@.str.781 = private unnamed_addr constant [4 x i8] c"C#8\00", align 1
+@.str.782 = private unnamed_addr constant [3 x i8] c"D8\00", align 1
+@.str.783 = private unnamed_addr constant [4 x i8] c"D#8\00", align 1
+@.str.784 = private unnamed_addr constant [3 x i8] c"E8\00", align 1
+@.str.785 = private unnamed_addr constant [3 x i8] c"F8\00", align 1
+@.str.786 = private unnamed_addr constant [4 x i8] c"F#8\00", align 1
+@.str.787 = private unnamed_addr constant [3 x i8] c"G8\00", align 1
+@.str.788 = private unnamed_addr constant [4 x i8] c"G#8\00", align 1
+@.str.789 = private unnamed_addr constant [3 x i8] c"A8\00", align 1
+@.str.790 = private unnamed_addr constant [4 x i8] c"A#8\00", align 1
+@.str.791 = private unnamed_addr constant [3 x i8] c"B8\00", align 1
+@.str.792 = private unnamed_addr constant [3 x i8] c"C9\00", align 1
+@.str.793 = private unnamed_addr constant [4 x i8] c"C#9\00", align 1
+@.str.794 = private unnamed_addr constant [3 x i8] c"D9\00", align 1
+@.str.795 = private unnamed_addr constant [4 x i8] c"D#9\00", align 1
+@.str.796 = private unnamed_addr constant [3 x i8] c"E9\00", align 1
+@.str.797 = private unnamed_addr constant [3 x i8] c"F9\00", align 1
+@.str.798 = private unnamed_addr constant [4 x i8] c"F#9\00", align 1
+@.str.799 = private unnamed_addr constant [3 x i8] c"G9\00", align 1
+@rtp_midi_note_values = internal constant [129 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.672 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.673 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.674 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.675 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.676 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.677 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.678 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.679 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.680 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.681 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.682 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.683 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.684 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.685 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.686 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.687 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.688 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.689 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.690 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.691 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.692 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.693 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.694 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.695 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.696 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.697 }, { i32, [4 x i8], ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.698 }, { i32, [4 x i8], ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.699 }, { i32, [4 x i8], ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.700 }, { i32, [4 x i8], ptr } { i32 29, [4 x i8] zeroinitializer, ptr @.str.701 }, { i32, [4 x i8], ptr } { i32 30, [4 x i8] zeroinitializer, ptr @.str.702 }, { i32, [4 x i8], ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.703 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.704 }, { i32, [4 x i8], ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.705 }, { i32, [4 x i8], ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.706 }, { i32, [4 x i8], ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.707 }, { i32, [4 x i8], ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.708 }, { i32, [4 x i8], ptr } { i32 37, [4 x i8] zeroinitializer, ptr @.str.709 }, { i32, [4 x i8], ptr } { i32 38, [4 x i8] zeroinitializer, ptr @.str.710 }, { i32, [4 x i8], ptr } { i32 39, [4 x i8] zeroinitializer, ptr @.str.711 }, { i32, [4 x i8], ptr } { i32 40, [4 x i8] zeroinitializer, ptr @.str.712 }, { i32, [4 x i8], ptr } { i32 41, [4 x i8] zeroinitializer, ptr @.str.713 }, { i32, [4 x i8], ptr } { i32 42, [4 x i8] zeroinitializer, ptr @.str.714 }, { i32, [4 x i8], ptr } { i32 43, [4 x i8] zeroinitializer, ptr @.str.715 }, { i32, [4 x i8], ptr } { i32 44, [4 x i8] zeroinitializer, ptr @.str.716 }, { i32, [4 x i8], ptr } { i32 45, [4 x i8] zeroinitializer, ptr @.str.717 }, { i32, [4 x i8], ptr } { i32 46, [4 x i8] zeroinitializer, ptr @.str.718 }, { i32, [4 x i8], ptr } { i32 47, [4 x i8] zeroinitializer, ptr @.str.719 }, { i32, [4 x i8], ptr } { i32 48, [4 x i8] zeroinitializer, ptr @.str.720 }, { i32, [4 x i8], ptr } { i32 49, [4 x i8] zeroinitializer, ptr @.str.721 }, { i32, [4 x i8], ptr } { i32 50, [4 x i8] zeroinitializer, ptr @.str.722 }, { i32, [4 x i8], ptr } { i32 51, [4 x i8] zeroinitializer, ptr @.str.723 }, { i32, [4 x i8], ptr } { i32 52, [4 x i8] zeroinitializer, ptr @.str.724 }, { i32, [4 x i8], ptr } { i32 53, [4 x i8] zeroinitializer, ptr @.str.725 }, { i32, [4 x i8], ptr } { i32 54, [4 x i8] zeroinitializer, ptr @.str.726 }, { i32, [4 x i8], ptr } { i32 55, [4 x i8] zeroinitializer, ptr @.str.727 }, { i32, [4 x i8], ptr } { i32 56, [4 x i8] zeroinitializer, ptr @.str.728 }, { i32, [4 x i8], ptr } { i32 57, [4 x i8] zeroinitializer, ptr @.str.729 }, { i32, [4 x i8], ptr } { i32 58, [4 x i8] zeroinitializer, ptr @.str.730 }, { i32, [4 x i8], ptr } { i32 59, [4 x i8] zeroinitializer, ptr @.str.731 }, { i32, [4 x i8], ptr } { i32 60, [4 x i8] zeroinitializer, ptr @.str.732 }, { i32, [4 x i8], ptr } { i32 61, [4 x i8] zeroinitializer, ptr @.str.733 }, { i32, [4 x i8], ptr } { i32 62, [4 x i8] zeroinitializer, ptr @.str.734 }, { i32, [4 x i8], ptr } { i32 63, [4 x i8] zeroinitializer, ptr @.str.735 }, { i32, [4 x i8], ptr } { i32 64, [4 x i8] zeroinitializer, ptr @.str.736 }, { i32, [4 x i8], ptr } { i32 65, [4 x i8] zeroinitializer, ptr @.str.737 }, { i32, [4 x i8], ptr } { i32 66, [4 x i8] zeroinitializer, ptr @.str.738 }, { i32, [4 x i8], ptr } { i32 67, [4 x i8] zeroinitializer, ptr @.str.739 }, { i32, [4 x i8], ptr } { i32 68, [4 x i8] zeroinitializer, ptr @.str.740 }, { i32, [4 x i8], ptr } { i32 69, [4 x i8] zeroinitializer, ptr @.str.741 }, { i32, [4 x i8], ptr } { i32 70, [4 x i8] zeroinitializer, ptr @.str.742 }, { i32, [4 x i8], ptr } { i32 71, [4 x i8] zeroinitializer, ptr @.str.743 }, { i32, [4 x i8], ptr } { i32 72, [4 x i8] zeroinitializer, ptr @.str.744 }, { i32, [4 x i8], ptr } { i32 73, [4 x i8] zeroinitializer, ptr @.str.745 }, { i32, [4 x i8], ptr } { i32 74, [4 x i8] zeroinitializer, ptr @.str.746 }, { i32, [4 x i8], ptr } { i32 75, [4 x i8] zeroinitializer, ptr @.str.747 }, { i32, [4 x i8], ptr } { i32 76, [4 x i8] zeroinitializer, ptr @.str.748 }, { i32, [4 x i8], ptr } { i32 77, [4 x i8] zeroinitializer, ptr @.str.749 }, { i32, [4 x i8], ptr } { i32 78, [4 x i8] zeroinitializer, ptr @.str.750 }, { i32, [4 x i8], ptr } { i32 79, [4 x i8] zeroinitializer, ptr @.str.751 }, { i32, [4 x i8], ptr } { i32 80, [4 x i8] zeroinitializer, ptr @.str.752 }, { i32, [4 x i8], ptr } { i32 81, [4 x i8] zeroinitializer, ptr @.str.753 }, { i32, [4 x i8], ptr } { i32 82, [4 x i8] zeroinitializer, ptr @.str.754 }, { i32, [4 x i8], ptr } { i32 83, [4 x i8] zeroinitializer, ptr @.str.755 }, { i32, [4 x i8], ptr } { i32 84, [4 x i8] zeroinitializer, ptr @.str.756 }, { i32, [4 x i8], ptr } { i32 85, [4 x i8] zeroinitializer, ptr @.str.757 }, { i32, [4 x i8], ptr } { i32 86, [4 x i8] zeroinitializer, ptr @.str.758 }, { i32, [4 x i8], ptr } { i32 87, [4 x i8] zeroinitializer, ptr @.str.759 }, { i32, [4 x i8], ptr } { i32 88, [4 x i8] zeroinitializer, ptr @.str.760 }, { i32, [4 x i8], ptr } { i32 89, [4 x i8] zeroinitializer, ptr @.str.761 }, { i32, [4 x i8], ptr } { i32 90, [4 x i8] zeroinitializer, ptr @.str.762 }, { i32, [4 x i8], ptr } { i32 91, [4 x i8] zeroinitializer, ptr @.str.763 }, { i32, [4 x i8], ptr } { i32 92, [4 x i8] zeroinitializer, ptr @.str.764 }, { i32, [4 x i8], ptr } { i32 93, [4 x i8] zeroinitializer, ptr @.str.765 }, { i32, [4 x i8], ptr } { i32 94, [4 x i8] zeroinitializer, ptr @.str.766 }, { i32, [4 x i8], ptr } { i32 95, [4 x i8] zeroinitializer, ptr @.str.767 }, { i32, [4 x i8], ptr } { i32 96, [4 x i8] zeroinitializer, ptr @.str.768 }, { i32, [4 x i8], ptr } { i32 97, [4 x i8] zeroinitializer, ptr @.str.769 }, { i32, [4 x i8], ptr } { i32 98, [4 x i8] zeroinitializer, ptr @.str.770 }, { i32, [4 x i8], ptr } { i32 99, [4 x i8] zeroinitializer, ptr @.str.771 }, { i32, [4 x i8], ptr } { i32 100, [4 x i8] zeroinitializer, ptr @.str.772 }, { i32, [4 x i8], ptr } { i32 101, [4 x i8] zeroinitializer, ptr @.str.773 }, { i32, [4 x i8], ptr } { i32 102, [4 x i8] zeroinitializer, ptr @.str.774 }, { i32, [4 x i8], ptr } { i32 103, [4 x i8] zeroinitializer, ptr @.str.775 }, { i32, [4 x i8], ptr } { i32 104, [4 x i8] zeroinitializer, ptr @.str.776 }, { i32, [4 x i8], ptr } { i32 105, [4 x i8] zeroinitializer, ptr @.str.777 }, { i32, [4 x i8], ptr } { i32 106, [4 x i8] zeroinitializer, ptr @.str.778 }, { i32, [4 x i8], ptr } { i32 107, [4 x i8] zeroinitializer, ptr @.str.779 }, { i32, [4 x i8], ptr } { i32 108, [4 x i8] zeroinitializer, ptr @.str.780 }, { i32, [4 x i8], ptr } { i32 109, [4 x i8] zeroinitializer, ptr @.str.781 }, { i32, [4 x i8], ptr } { i32 110, [4 x i8] zeroinitializer, ptr @.str.782 }, { i32, [4 x i8], ptr } { i32 111, [4 x i8] zeroinitializer, ptr @.str.783 }, { i32, [4 x i8], ptr } { i32 112, [4 x i8] zeroinitializer, ptr @.str.784 }, { i32, [4 x i8], ptr } { i32 113, [4 x i8] zeroinitializer, ptr @.str.785 }, { i32, [4 x i8], ptr } { i32 114, [4 x i8] zeroinitializer, ptr @.str.786 }, { i32, [4 x i8], ptr } { i32 115, [4 x i8] zeroinitializer, ptr @.str.787 }, { i32, [4 x i8], ptr } { i32 116, [4 x i8] zeroinitializer, ptr @.str.788 }, { i32, [4 x i8], ptr } { i32 117, [4 x i8] zeroinitializer, ptr @.str.789 }, { i32, [4 x i8], ptr } { i32 118, [4 x i8] zeroinitializer, ptr @.str.790 }, { i32, [4 x i8], ptr } { i32 119, [4 x i8] zeroinitializer, ptr @.str.791 }, { i32, [4 x i8], ptr } { i32 120, [4 x i8] zeroinitializer, ptr @.str.792 }, { i32, [4 x i8], ptr } { i32 121, [4 x i8] zeroinitializer, ptr @.str.793 }, { i32, [4 x i8], ptr } { i32 122, [4 x i8] zeroinitializer, ptr @.str.794 }, { i32, [4 x i8], ptr } { i32 123, [4 x i8] zeroinitializer, ptr @.str.795 }, { i32, [4 x i8], ptr } { i32 124, [4 x i8] zeroinitializer, ptr @.str.796 }, { i32, [4 x i8], ptr } { i32 125, [4 x i8] zeroinitializer, ptr @.str.797 }, { i32, [4 x i8], ptr } { i32 126, [4 x i8] zeroinitializer, ptr @.str.798 }, { i32, [4 x i8], ptr } { i32 127, [4 x i8] zeroinitializer, ptr @.str.799 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.801 = private unnamed_addr constant [27 x i8] c"rtp_midi_controller_values\00", align 1
+@.str.802 = private unnamed_addr constant [18 x i8] c"Bank Select (msb)\00", align 1
+@.str.803 = private unnamed_addr constant [32 x i8] c"Modulation Wheel Or Lever (msb)\00", align 1
+@.str.804 = private unnamed_addr constant [24 x i8] c"Breath Controller (msb)\00", align 1
+@.str.805 = private unnamed_addr constant [22 x i8] c"Foot Controller (msb)\00", align 1
+@.str.806 = private unnamed_addr constant [22 x i8] c"Portamento Time (msb)\00", align 1
+@.str.807 = private unnamed_addr constant [17 x i8] c"Data Entry (msb)\00", align 1
+@.str.808 = private unnamed_addr constant [21 x i8] c"Channel Volume (msb)\00", align 1
+@.str.809 = private unnamed_addr constant [14 x i8] c"Balance (msb)\00", align 1
+@.str.810 = private unnamed_addr constant [10 x i8] c"Pan (msb)\00", align 1
+@.str.811 = private unnamed_addr constant [28 x i8] c"Expression Controller (msb)\00", align 1
+@.str.812 = private unnamed_addr constant [23 x i8] c"Effect Control 1 (msb)\00", align 1
+@.str.813 = private unnamed_addr constant [23 x i8] c"Effect Control 2 (msb)\00", align 1
+@.str.814 = private unnamed_addr constant [35 x i8] c"General Purpose Controller 1 (msb)\00", align 1
+@.str.815 = private unnamed_addr constant [35 x i8] c"General Purpose Controller 2 (msb)\00", align 1
+@.str.816 = private unnamed_addr constant [35 x i8] c"General Purpose Controller 3 (msb)\00", align 1
+@.str.817 = private unnamed_addr constant [35 x i8] c"General Purpose Controller 4 (msb)\00", align 1
+@.str.818 = private unnamed_addr constant [18 x i8] c"Bank Select (lsb)\00", align 1
+@.str.819 = private unnamed_addr constant [32 x i8] c"Modulation Wheel Or Lever (lsb)\00", align 1
+@.str.820 = private unnamed_addr constant [24 x i8] c"Breath Controller (lsb)\00", align 1
+@.str.821 = private unnamed_addr constant [22 x i8] c"Foot Controller (lsb)\00", align 1
+@.str.822 = private unnamed_addr constant [22 x i8] c"Portamento Time (lsb)\00", align 1
+@.str.823 = private unnamed_addr constant [17 x i8] c"Data Entry (lsb)\00", align 1
+@.str.824 = private unnamed_addr constant [13 x i8] c"Volume (lsb)\00", align 1
+@.str.825 = private unnamed_addr constant [14 x i8] c"Balance (lsb)\00", align 1
+@.str.826 = private unnamed_addr constant [10 x i8] c"Pan (lsb)\00", align 1
+@.str.827 = private unnamed_addr constant [28 x i8] c"Expression Controller (lsb)\00", align 1
+@.str.828 = private unnamed_addr constant [23 x i8] c"Effect Control 1 (lsb)\00", align 1
+@.str.829 = private unnamed_addr constant [23 x i8] c"Effect Control 2 (lsb)\00", align 1
+@.str.830 = private unnamed_addr constant [13 x i8] c"Damper Pedal\00", align 1
+@.str.831 = private unnamed_addr constant [18 x i8] c"Portamento On/Off\00", align 1
+@.str.832 = private unnamed_addr constant [10 x i8] c"Sustenuto\00", align 1
+@.str.833 = private unnamed_addr constant [11 x i8] c"Soft Pedal\00", align 1
+@.str.834 = private unnamed_addr constant [18 x i8] c"Legato Footswitch\00", align 1
+@.str.835 = private unnamed_addr constant [7 x i8] c"Hold 2\00", align 1
+@.str.836 = private unnamed_addr constant [46 x i8] c"Sound Controller 1 (default: Sound Variation)\00", align 1
+@.str.837 = private unnamed_addr constant [56 x i8] c"Sound Controller 2 (default: Timbre/Harmonic Intensity)\00", align 1
+@.str.838 = private unnamed_addr constant [43 x i8] c"Sound Controller 3 (default: Release Time)\00", align 1
+@.str.839 = private unnamed_addr constant [42 x i8] c"Sound Controller 4 (default: Attack Time)\00", align 1
+@.str.840 = private unnamed_addr constant [41 x i8] c"Sound Controller 5 (default: Brightness)\00", align 1
+@.str.841 = private unnamed_addr constant [19 x i8] c"Sound Controller 6\00", align 1
+@.str.842 = private unnamed_addr constant [19 x i8] c"Sound Controller 7\00", align 1
+@.str.843 = private unnamed_addr constant [19 x i8] c"Sound Controller 8\00", align 1
+@.str.844 = private unnamed_addr constant [19 x i8] c"Sound Controller 9\00", align 1
+@.str.845 = private unnamed_addr constant [20 x i8] c"Sound Controller 10\00", align 1
+@.str.846 = private unnamed_addr constant [29 x i8] c"General Purpose Controller 5\00", align 1
+@.str.847 = private unnamed_addr constant [29 x i8] c"General Purpose Controller 6\00", align 1
+@.str.848 = private unnamed_addr constant [29 x i8] c"General Purpose Controller 7\00", align 1
+@.str.849 = private unnamed_addr constant [29 x i8] c"General Purpose Controller 8\00", align 1
+@.str.850 = private unnamed_addr constant [19 x i8] c"Portamento Control\00", align 1
+@.str.851 = private unnamed_addr constant [51 x i8] c"Effects 1 Depth (formerly: External Effects Depth)\00", align 1
+@.str.852 = private unnamed_addr constant [42 x i8] c"Effects 2 Depth (formerly: Tremolo Depth)\00", align 1
+@.str.853 = private unnamed_addr constant [41 x i8] c"Effects 3 Depth (formerly: Chorus Depth)\00", align 1
+@.str.854 = private unnamed_addr constant [51 x i8] c"Effects 4 Depth (formerly: Celeste (Detune) Depth)\00", align 1
+@.str.855 = private unnamed_addr constant [41 x i8] c"Effects 5 Depth (formerly: Phaser Depth)\00", align 1
+@.str.856 = private unnamed_addr constant [15 x i8] c"Data Increment\00", align 1
+@.str.857 = private unnamed_addr constant [15 x i8] c"Data Decrement\00", align 1
+@.str.858 = private unnamed_addr constant [31 x i8] c"Non-Registered Parameter (lsb)\00", align 1
+@.str.859 = private unnamed_addr constant [31 x i8] c"Non-Registered Parameter (msb)\00", align 1
+@.str.860 = private unnamed_addr constant [27 x i8] c"Registered Parameter (lsb)\00", align 1
+@.str.861 = private unnamed_addr constant [27 x i8] c"Registered Parameter (msb)\00", align 1
+@.str.862 = private unnamed_addr constant [14 x i8] c"All Sound Off\00", align 1
+@.str.863 = private unnamed_addr constant [22 x i8] c"Reset All Controllers\00", align 1
+@.str.864 = private unnamed_addr constant [14 x i8] c"Local Control\00", align 1
+@.str.865 = private unnamed_addr constant [14 x i8] c"All Notes Off\00", align 1
+@.str.866 = private unnamed_addr constant [14 x i8] c"Omni Mode Off\00", align 1
+@.str.867 = private unnamed_addr constant [13 x i8] c"Omni Mode On\00", align 1
+@.str.868 = private unnamed_addr constant [13 x i8] c"Mono Mode On\00", align 1
+@.str.869 = private unnamed_addr constant [13 x i8] c"Poly Mode On\00", align 1
+@rtp_midi_controller_values = internal constant [69 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.802 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.803 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.804 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.805 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.806 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.807 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.808 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.809 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.810 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.811 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.812 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.813 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.814 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.815 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.816 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.817 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.818 }, { i32, [4 x i8], ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.819 }, { i32, [4 x i8], ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.820 }, { i32, [4 x i8], ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.821 }, { i32, [4 x i8], ptr } { i32 37, [4 x i8] zeroinitializer, ptr @.str.822 }, { i32, [4 x i8], ptr } { i32 38, [4 x i8] zeroinitializer, ptr @.str.823 }, { i32, [4 x i8], ptr } { i32 39, [4 x i8] zeroinitializer, ptr @.str.824 }, { i32, [4 x i8], ptr } { i32 40, [4 x i8] zeroinitializer, ptr @.str.825 }, { i32, [4 x i8], ptr } { i32 42, [4 x i8] zeroinitializer, ptr @.str.826 }, { i32, [4 x i8], ptr } { i32 43, [4 x i8] zeroinitializer, ptr @.str.827 }, { i32, [4 x i8], ptr } { i32 44, [4 x i8] zeroinitializer, ptr @.str.828 }, { i32, [4 x i8], ptr } { i32 45, [4 x i8] zeroinitializer, ptr @.str.829 }, { i32, [4 x i8], ptr } { i32 64, [4 x i8] zeroinitializer, ptr @.str.830 }, { i32, [4 x i8], ptr } { i32 65, [4 x i8] zeroinitializer, ptr @.str.831 }, { i32, [4 x i8], ptr } { i32 66, [4 x i8] zeroinitializer, ptr @.str.832 }, { i32, [4 x i8], ptr } { i32 67, [4 x i8] zeroinitializer, ptr @.str.833 }, { i32, [4 x i8], ptr } { i32 68, [4 x i8] zeroinitializer, ptr @.str.834 }, { i32, [4 x i8], ptr } { i32 69, [4 x i8] zeroinitializer, ptr @.str.835 }, { i32, [4 x i8], ptr } { i32 70, [4 x i8] zeroinitializer, ptr @.str.836 }, { i32, [4 x i8], ptr } { i32 71, [4 x i8] zeroinitializer, ptr @.str.837 }, { i32, [4 x i8], ptr } { i32 72, [4 x i8] zeroinitializer, ptr @.str.838 }, { i32, [4 x i8], ptr } { i32 73, [4 x i8] zeroinitializer, ptr @.str.839 }, { i32, [4 x i8], ptr } { i32 74, [4 x i8] zeroinitializer, ptr @.str.840 }, { i32, [4 x i8], ptr } { i32 75, [4 x i8] zeroinitializer, ptr @.str.841 }, { i32, [4 x i8], ptr } { i32 76, [4 x i8] zeroinitializer, ptr @.str.842 }, { i32, [4 x i8], ptr } { i32 77, [4 x i8] zeroinitializer, ptr @.str.843 }, { i32, [4 x i8], ptr } { i32 78, [4 x i8] zeroinitializer, ptr @.str.844 }, { i32, [4 x i8], ptr } { i32 79, [4 x i8] zeroinitializer, ptr @.str.845 }, { i32, [4 x i8], ptr } { i32 80, [4 x i8] zeroinitializer, ptr @.str.846 }, { i32, [4 x i8], ptr } { i32 81, [4 x i8] zeroinitializer, ptr @.str.847 }, { i32, [4 x i8], ptr } { i32 82, [4 x i8] zeroinitializer, ptr @.str.848 }, { i32, [4 x i8], ptr } { i32 83, [4 x i8] zeroinitializer, ptr @.str.849 }, { i32, [4 x i8], ptr } { i32 84, [4 x i8] zeroinitializer, ptr @.str.850 }, { i32, [4 x i8], ptr } { i32 91, [4 x i8] zeroinitializer, ptr @.str.851 }, { i32, [4 x i8], ptr } { i32 92, [4 x i8] zeroinitializer, ptr @.str.852 }, { i32, [4 x i8], ptr } { i32 93, [4 x i8] zeroinitializer, ptr @.str.853 }, { i32, [4 x i8], ptr } { i32 94, [4 x i8] zeroinitializer, ptr @.str.854 }, { i32, [4 x i8], ptr } { i32 95, [4 x i8] zeroinitializer, ptr @.str.855 }, { i32, [4 x i8], ptr } { i32 96, [4 x i8] zeroinitializer, ptr @.str.856 }, { i32, [4 x i8], ptr } { i32 97, [4 x i8] zeroinitializer, ptr @.str.857 }, { i32, [4 x i8], ptr } { i32 98, [4 x i8] zeroinitializer, ptr @.str.858 }, { i32, [4 x i8], ptr } { i32 99, [4 x i8] zeroinitializer, ptr @.str.859 }, { i32, [4 x i8], ptr } { i32 100, [4 x i8] zeroinitializer, ptr @.str.860 }, { i32, [4 x i8], ptr } { i32 101, [4 x i8] zeroinitializer, ptr @.str.861 }, { i32, [4 x i8], ptr } { i32 120, [4 x i8] zeroinitializer, ptr @.str.862 }, { i32, [4 x i8], ptr } { i32 121, [4 x i8] zeroinitializer, ptr @.str.863 }, { i32, [4 x i8], ptr } { i32 122, [4 x i8] zeroinitializer, ptr @.str.864 }, { i32, [4 x i8], ptr } { i32 123, [4 x i8] zeroinitializer, ptr @.str.865 }, { i32, [4 x i8], ptr } { i32 124, [4 x i8] zeroinitializer, ptr @.str.866 }, { i32, [4 x i8], ptr } { i32 125, [4 x i8] zeroinitializer, ptr @.str.867 }, { i32, [4 x i8], ptr } { i32 126, [4 x i8] zeroinitializer, ptr @.str.868 }, { i32, [4 x i8], ptr } { i32 127, [4 x i8] zeroinitializer, ptr @.str.869 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.871 = private unnamed_addr constant [27 x i8] c"rtp_midi_manu_short_values\00", align 1
+@.str.872 = private unnamed_addr constant [12 x i8] c"< long id >\00", align 1
+@.str.873 = private unnamed_addr constant [20 x i8] c"Sequential Circuits\00", align 1
+@.str.874 = private unnamed_addr constant [16 x i8] c"Big Briar / IDP\00", align 1
+@.str.875 = private unnamed_addr constant [25 x i8] c"Voyetra / Octave-Plateau\00", align 1
+@.str.876 = private unnamed_addr constant [5 x i8] c"Moog\00", align 1
+@.str.877 = private unnamed_addr constant [17 x i8] c"Passport Designs\00", align 1
+@.str.878 = private unnamed_addr constant [8 x i8] c"Lexicon\00", align 1
+@.str.879 = private unnamed_addr constant [9 x i8] c"Kurzweil\00", align 1
+@.str.880 = private unnamed_addr constant [7 x i8] c"Fender\00", align 1
+@.str.881 = private unnamed_addr constant [11 x i8] c"Gulbransen\00", align 1
+@.str.882 = private unnamed_addr constant [14 x i8] c"AKG Acoustics\00", align 1
+@.str.883 = private unnamed_addr constant [12 x i8] c"Voyce Music\00", align 1
+@.str.884 = private unnamed_addr constant [15 x i8] c"Waveframe Corp\00", align 1
+@.str.885 = private unnamed_addr constant [22 x i8] c"ADA Signal Processors\00", align 1
+@.str.886 = private unnamed_addr constant [21 x i8] c"Garfield Electronics\00", align 1
+@.str.887 = private unnamed_addr constant [8 x i8] c"Ensoniq\00", align 1
+@.str.888 = private unnamed_addr constant [23 x i8] c"Oberheim / Gibson Labs\00", align 1
+@.str.889 = private unnamed_addr constant [15 x i8] c"Apple Computer\00", align 1
+@.str.890 = private unnamed_addr constant [31 x i8] c"Grey Matter Response / Simmons\00", align 1
+@.str.891 = private unnamed_addr constant [11 x i8] c"DigiDesign\00", align 1
+@.str.892 = private unnamed_addr constant [33 x i8] c"Fairlight / Palmtree Instruments\00", align 1
+@.str.893 = private unnamed_addr constant [10 x i8] c"JL Cooper\00", align 1
+@.str.894 = private unnamed_addr constant [7 x i8] c"Lowrey\00", align 1
+@.str.895 = private unnamed_addr constant [19 x i8] c"Linn / Adams-Smith\00", align 1
+@.str.896 = private unnamed_addr constant [12 x i8] c"Emu Systems\00", align 1
+@.str.897 = private unnamed_addr constant [16 x i8] c"Harmony Systems\00", align 1
+@.str.898 = private unnamed_addr constant [4 x i8] c"ART\00", align 1
+@.str.899 = private unnamed_addr constant [8 x i8] c"Baldwin\00", align 1
+@.str.900 = private unnamed_addr constant [9 x i8] c"Eventide\00", align 1
+@.str.901 = private unnamed_addr constant [13 x i8] c"Inventronics\00", align 1
+@.str.902 = private unnamed_addr constant [8 x i8] c"Clarity\00", align 1
+@.str.903 = private unnamed_addr constant [7 x i8] c"Passac\00", align 1
+@.str.904 = private unnamed_addr constant [9 x i8] c"S.I.E.L.\00", align 1
+@.str.905 = private unnamed_addr constant [10 x i8] c"SyntheAxe\00", align 1
+@.str.906 = private unnamed_addr constant [6 x i8] c"Stepp\00", align 1
+@.str.907 = private unnamed_addr constant [7 x i8] c"Hohner\00", align 1
+@.str.908 = private unnamed_addr constant [17 x i8] c"Crumar / Twister\00", align 1
+@.str.909 = private unnamed_addr constant [7 x i8] c"Solton\00", align 1
+@.str.910 = private unnamed_addr constant [15 x i8] c"Jellinghaus MS\00", align 1
+@.str.911 = private unnamed_addr constant [25 x i8] c"Southworks Music Systems\00", align 1
+@.str.912 = private unnamed_addr constant [4 x i8] c"PPG\00", align 1
+@.str.913 = private unnamed_addr constant [4 x i8] c"JEN\00", align 1
+@.str.914 = private unnamed_addr constant [25 x i8] c"SSL (Solid States Logic)\00", align 1
+@.str.915 = private unnamed_addr constant [16 x i8] c"Audio Veritrieb\00", align 1
+@.str.916 = private unnamed_addr constant [26 x i8] c"Neve / Hinton Instruments\00", align 1
+@.str.917 = private unnamed_addr constant [15 x i8] c"Soundtracs Ltd\00", align 1
+@.str.918 = private unnamed_addr constant [21 x i8] c"Elka / General Music\00", align 1
+@.str.919 = private unnamed_addr constant [9 x i8] c"Dynacord\00", align 1
+@.str.920 = private unnamed_addr constant [9 x i8] c"Viscount\00", align 1
+@.str.921 = private unnamed_addr constant [8 x i8] c"Drawmer\00", align 1
+@.str.922 = private unnamed_addr constant [27 x i8] c"Clavia Digital Instruments\00", align 1
+@.str.923 = private unnamed_addr constant [19 x i8] c"Audio Architecture\00", align 1
+@.str.924 = private unnamed_addr constant [19 x i8] c"General Music Corp\00", align 1
+@.str.925 = private unnamed_addr constant [18 x i8] c"Cheetah Marketing\00", align 1
+@.str.926 = private unnamed_addr constant [6 x i8] c"C.T.M\00", align 1
+@.str.927 = private unnamed_addr constant [11 x i8] c"Simmons UK\00", align 1
+@.str.928 = private unnamed_addr constant [23 x i8] c"Soundcraft Electronics\00", align 1
+@.str.929 = private unnamed_addr constant [15 x i8] c"Steinberg GmbH\00", align 1
+@.str.930 = private unnamed_addr constant [6 x i8] c"Wersi\00", align 1
+@.str.931 = private unnamed_addr constant [19 x i8] c"Avab Electronik Ab\00", align 1
+@.str.932 = private unnamed_addr constant [9 x i8] c"Digigram\00", align 1
+@.str.933 = private unnamed_addr constant [20 x i8] c"Waldorf Electronics\00", align 1
+@.str.934 = private unnamed_addr constant [10 x i8] c"Quasimidi\00", align 1
+@.str.935 = private unnamed_addr constant [6 x i8] c"Kawai\00", align 1
+@.str.936 = private unnamed_addr constant [7 x i8] c"Roland\00", align 1
+@.str.937 = private unnamed_addr constant [5 x i8] c"Korg\00", align 1
+@.str.938 = private unnamed_addr constant [7 x i8] c"Yamaha\00", align 1
+@.str.939 = private unnamed_addr constant [6 x i8] c"Casio\00", align 1
+@.str.940 = private unnamed_addr constant [10 x i8] c"Moridaira\00", align 1
+@.str.941 = private unnamed_addr constant [14 x i8] c"Kamiya Studio\00", align 1
+@.str.942 = private unnamed_addr constant [5 x i8] c"Akai\00", align 1
+@.str.943 = private unnamed_addr constant [13 x i8] c"Japan Victor\00", align 1
+@.str.944 = private unnamed_addr constant [9 x i8] c"Meisosha\00", align 1
+@.str.945 = private unnamed_addr constant [14 x i8] c"Hoshino Gakki\00", align 1
+@.str.946 = private unnamed_addr constant [8 x i8] c"Fujitsu\00", align 1
+@.str.947 = private unnamed_addr constant [5 x i8] c"Sony\00", align 1
+@.str.948 = private unnamed_addr constant [13 x i8] c"Nisshin Onpa\00", align 1
+@.str.949 = private unnamed_addr constant [5 x i8] c"TEAC\00", align 1
+@.str.950 = private unnamed_addr constant [20 x i8] c"Matsushita Electric\00", align 1
+@.str.951 = private unnamed_addr constant [7 x i8] c"Fostex\00", align 1
+@.str.952 = private unnamed_addr constant [5 x i8] c"Zoom\00", align 1
+@.str.953 = private unnamed_addr constant [19 x i8] c"Midori Electronics\00", align 1
+@.str.954 = private unnamed_addr constant [25 x i8] c"Matsushita Communication\00", align 1
+@.str.955 = private unnamed_addr constant [7 x i8] c"Suzuki\00", align 1
+@.str.956 = private unnamed_addr constant [5 x i8] c"Fuji\00", align 1
+@.str.957 = private unnamed_addr constant [23 x i8] c"Acoustic Technical Lab\00", align 1
+@.str.958 = private unnamed_addr constant [6 x i8] c"Faith\00", align 1
+@.str.959 = private unnamed_addr constant [21 x i8] c"Internet Corporation\00", align 1
+@.str.960 = private unnamed_addr constant [11 x i8] c"Seekers Co\00", align 1
+@.str.961 = private unnamed_addr constant [14 x i8] c"SD Card Assoc\00", align 1
+@.str.962 = private unnamed_addr constant [16 x i8] c"Educational Use\00", align 1
+@.str.963 = private unnamed_addr constant [23 x i8] c"Non-Realtime Universal\00", align 1
+@.str.964 = private unnamed_addr constant [19 x i8] c"Realtime Universal\00", align 1
+@rtp_midi_manu_short_values = internal constant [94 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.872 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.873 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.874 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.875 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.876 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.877 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.878 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.879 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.880 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.881 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.882 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.883 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.884 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.885 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.886 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.887 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.888 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.889 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.890 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.891 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.892 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.893 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.894 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.895 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.896 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.897 }, { i32, [4 x i8], ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.898 }, { i32, [4 x i8], ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.899 }, { i32, [4 x i8], ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.900 }, { i32, [4 x i8], ptr } { i32 29, [4 x i8] zeroinitializer, ptr @.str.901 }, { i32, [4 x i8], ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.902 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.903 }, { i32, [4 x i8], ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.904 }, { i32, [4 x i8], ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.905 }, { i32, [4 x i8], ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.906 }, { i32, [4 x i8], ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.907 }, { i32, [4 x i8], ptr } { i32 37, [4 x i8] zeroinitializer, ptr @.str.908 }, { i32, [4 x i8], ptr } { i32 38, [4 x i8] zeroinitializer, ptr @.str.909 }, { i32, [4 x i8], ptr } { i32 39, [4 x i8] zeroinitializer, ptr @.str.910 }, { i32, [4 x i8], ptr } { i32 40, [4 x i8] zeroinitializer, ptr @.str.911 }, { i32, [4 x i8], ptr } { i32 41, [4 x i8] zeroinitializer, ptr @.str.912 }, { i32, [4 x i8], ptr } { i32 42, [4 x i8] zeroinitializer, ptr @.str.913 }, { i32, [4 x i8], ptr } { i32 43, [4 x i8] zeroinitializer, ptr @.str.914 }, { i32, [4 x i8], ptr } { i32 44, [4 x i8] zeroinitializer, ptr @.str.915 }, { i32, [4 x i8], ptr } { i32 45, [4 x i8] zeroinitializer, ptr @.str.916 }, { i32, [4 x i8], ptr } { i32 46, [4 x i8] zeroinitializer, ptr @.str.917 }, { i32, [4 x i8], ptr } { i32 47, [4 x i8] zeroinitializer, ptr @.str.918 }, { i32, [4 x i8], ptr } { i32 48, [4 x i8] zeroinitializer, ptr @.str.919 }, { i32, [4 x i8], ptr } { i32 49, [4 x i8] zeroinitializer, ptr @.str.920 }, { i32, [4 x i8], ptr } { i32 50, [4 x i8] zeroinitializer, ptr @.str.921 }, { i32, [4 x i8], ptr } { i32 51, [4 x i8] zeroinitializer, ptr @.str.922 }, { i32, [4 x i8], ptr } { i32 52, [4 x i8] zeroinitializer, ptr @.str.923 }, { i32, [4 x i8], ptr } { i32 53, [4 x i8] zeroinitializer, ptr @.str.924 }, { i32, [4 x i8], ptr } { i32 54, [4 x i8] zeroinitializer, ptr @.str.925 }, { i32, [4 x i8], ptr } { i32 55, [4 x i8] zeroinitializer, ptr @.str.926 }, { i32, [4 x i8], ptr } { i32 56, [4 x i8] zeroinitializer, ptr @.str.927 }, { i32, [4 x i8], ptr } { i32 57, [4 x i8] zeroinitializer, ptr @.str.928 }, { i32, [4 x i8], ptr } { i32 58, [4 x i8] zeroinitializer, ptr @.str.929 }, { i32, [4 x i8], ptr } { i32 59, [4 x i8] zeroinitializer, ptr @.str.930 }, { i32, [4 x i8], ptr } { i32 60, [4 x i8] zeroinitializer, ptr @.str.931 }, { i32, [4 x i8], ptr } { i32 61, [4 x i8] zeroinitializer, ptr @.str.932 }, { i32, [4 x i8], ptr } { i32 62, [4 x i8] zeroinitializer, ptr @.str.933 }, { i32, [4 x i8], ptr } { i32 63, [4 x i8] zeroinitializer, ptr @.str.934 }, { i32, [4 x i8], ptr } { i32 64, [4 x i8] zeroinitializer, ptr @.str.935 }, { i32, [4 x i8], ptr } { i32 65, [4 x i8] zeroinitializer, ptr @.str.936 }, { i32, [4 x i8], ptr } { i32 66, [4 x i8] zeroinitializer, ptr @.str.937 }, { i32, [4 x i8], ptr } { i32 67, [4 x i8] zeroinitializer, ptr @.str.938 }, { i32, [4 x i8], ptr } { i32 68, [4 x i8] zeroinitializer, ptr @.str.939 }, { i32, [4 x i8], ptr } { i32 69, [4 x i8] zeroinitializer, ptr @.str.940 }, { i32, [4 x i8], ptr } { i32 70, [4 x i8] zeroinitializer, ptr @.str.941 }, { i32, [4 x i8], ptr } { i32 71, [4 x i8] zeroinitializer, ptr @.str.942 }, { i32, [4 x i8], ptr } { i32 72, [4 x i8] zeroinitializer, ptr @.str.943 }, { i32, [4 x i8], ptr } { i32 73, [4 x i8] zeroinitializer, ptr @.str.944 }, { i32, [4 x i8], ptr } { i32 74, [4 x i8] zeroinitializer, ptr @.str.945 }, { i32, [4 x i8], ptr } { i32 75, [4 x i8] zeroinitializer, ptr @.str.946 }, { i32, [4 x i8], ptr } { i32 76, [4 x i8] zeroinitializer, ptr @.str.947 }, { i32, [4 x i8], ptr } { i32 77, [4 x i8] zeroinitializer, ptr @.str.948 }, { i32, [4 x i8], ptr } { i32 78, [4 x i8] zeroinitializer, ptr @.str.949 }, { i32, [4 x i8], ptr } { i32 80, [4 x i8] zeroinitializer, ptr @.str.950 }, { i32, [4 x i8], ptr } { i32 81, [4 x i8] zeroinitializer, ptr @.str.951 }, { i32, [4 x i8], ptr } { i32 82, [4 x i8] zeroinitializer, ptr @.str.952 }, { i32, [4 x i8], ptr } { i32 83, [4 x i8] zeroinitializer, ptr @.str.953 }, { i32, [4 x i8], ptr } { i32 84, [4 x i8] zeroinitializer, ptr @.str.954 }, { i32, [4 x i8], ptr } { i32 85, [4 x i8] zeroinitializer, ptr @.str.955 }, { i32, [4 x i8], ptr } { i32 86, [4 x i8] zeroinitializer, ptr @.str.956 }, { i32, [4 x i8], ptr } { i32 87, [4 x i8] zeroinitializer, ptr @.str.957 }, { i32, [4 x i8], ptr } { i32 89, [4 x i8] zeroinitializer, ptr @.str.958 }, { i32, [4 x i8], ptr } { i32 90, [4 x i8] zeroinitializer, ptr @.str.959 }, { i32, [4 x i8], ptr } { i32 92, [4 x i8] zeroinitializer, ptr @.str.960 }, { i32, [4 x i8], ptr } { i32 95, [4 x i8] zeroinitializer, ptr @.str.961 }, { i32, [4 x i8], ptr } { i32 125, [4 x i8] zeroinitializer, ptr @.str.962 }, { i32, [4 x i8], ptr } { i32 126, [4 x i8] zeroinitializer, ptr @.str.963 }, { i32, [4 x i8], ptr } { i32 127, [4 x i8] zeroinitializer, ptr @.str.964 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.966 = private unnamed_addr constant [26 x i8] c"rtp_midi_manu_long_values\00", align 1
+@.str.967 = private unnamed_addr constant [24 x i8] c"Time Warner Interactive\00", align 1
+@.str.968 = private unnamed_addr constant [21 x i8] c"Advanced Gravis Comp\00", align 1
+@.str.969 = private unnamed_addr constant [13 x i8] c"Media Vision\00", align 1
+@.str.970 = private unnamed_addr constant [22 x i8] c"Dornes Research Group\00", align 1
+@.str.971 = private unnamed_addr constant [7 x i8] c"K-Muse\00", align 1
+@.str.972 = private unnamed_addr constant [8 x i8] c"Stypher\00", align 1
+@.str.973 = private unnamed_addr constant [26 x i8] c"Digital Music Corporation\00", align 1
+@.str.974 = private unnamed_addr constant [13 x i8] c"IOTA Systems\00", align 1
+@.str.975 = private unnamed_addr constant [20 x i8] c"New England Digital\00", align 1
+@.str.976 = private unnamed_addr constant [8 x i8] c"Artisyn\00", align 1
+@.str.977 = private unnamed_addr constant [17 x i8] c"IVL Technologies\00", align 1
+@.str.978 = private unnamed_addr constant [23 x i8] c"Southern Music Systems\00", align 1
+@.str.979 = private unnamed_addr constant [26 x i8] c"Lake Butler Sound Company\00", align 1
+@.str.980 = private unnamed_addr constant [7 x i8] c"Alesis\00", align 1
+@.str.981 = private unnamed_addr constant [15 x i8] c"Sound Creation\00", align 1
+@.str.982 = private unnamed_addr constant [16 x i8] c"DOD Electronics\00", align 1
+@.str.983 = private unnamed_addr constant [15 x i8] c"Studer-Editech\00", align 1
+@.str.984 = private unnamed_addr constant [6 x i8] c"Sonus\00", align 1
+@.str.985 = private unnamed_addr constant [25 x i8] c"Temporal Acuity Products\00", align 1
+@.str.986 = private unnamed_addr constant [18 x i8] c"Perfect Fretworks\00", align 1
+@.str.987 = private unnamed_addr constant [4 x i8] c"KAT\00", align 1
+@.str.988 = private unnamed_addr constant [7 x i8] c"Opcode\00", align 1
+@.str.989 = private unnamed_addr constant [10 x i8] c"Rane Corp\00", align 1
+@.str.990 = private unnamed_addr constant [26 x i8] c"Spatial Sound / Anadi Inc\00", align 1
+@.str.991 = private unnamed_addr constant [4 x i8] c"KMX\00", align 1
+@.str.992 = private unnamed_addr constant [22 x i8] c"Allen & Heath Brenell\00", align 1
+@.str.993 = private unnamed_addr constant [7 x i8] c"Peavey\00", align 1
+@.str.994 = private unnamed_addr constant [12 x i8] c"360 Systems\00", align 1
+@.str.995 = private unnamed_addr constant [32 x i8] c"Spectrum Design and Development\00", align 1
+@.str.996 = private unnamed_addr constant [14 x i8] c"Marquis Music\00", align 1
+@.str.997 = private unnamed_addr constant [13 x i8] c"Zeta Systems\00", align 1
+@.str.998 = private unnamed_addr constant [6 x i8] c"Axxes\00", align 1
+@.str.999 = private unnamed_addr constant [6 x i8] c"Orban\00", align 1
+@.str.1000 = private unnamed_addr constant [18 x i8] c"Indian Valley Mfg\00", align 1
+@.str.1001 = private unnamed_addr constant [7 x i8] c"Triton\00", align 1
+@.str.1002 = private unnamed_addr constant [4 x i8] c"KTI\00", align 1
+@.str.1003 = private unnamed_addr constant [23 x i8] c"Breakaway Technologies\00", align 1
+@.str.1004 = private unnamed_addr constant [4 x i8] c"CAE\00", align 1
+@.str.1005 = private unnamed_addr constant [21 x i8] c"Harrison Systems Inc\00", align 1
+@.str.1006 = private unnamed_addr constant [22 x i8] c"Future Lab / Mark Kuo\00", align 1
+@.str.1007 = private unnamed_addr constant [14 x i8] c"Rocktron Corp\00", align 1
+@.str.1008 = private unnamed_addr constant [10 x i8] c"PianoDisc\00", align 1
+@.str.1009 = private unnamed_addr constant [22 x i8] c"Cannon Research Group\00", align 1
+@.str.1010 = private unnamed_addr constant [24 x i8] c"Rodgers Instrument Corp\00", align 1
+@.str.1011 = private unnamed_addr constant [15 x i8] c"Blue Sky Logic\00", align 1
+@.str.1012 = private unnamed_addr constant [19 x i8] c"Encore Electronics\00", align 1
+@.str.1013 = private unnamed_addr constant [7 x i8] c"Uptown\00", align 1
+@.str.1014 = private unnamed_addr constant [5 x i8] c"Voce\00", align 1
+@.str.1015 = private unnamed_addr constant [33 x i8] c"CTI Audio, Inc / Music Intel Dev\00", align 1
+@.str.1016 = private unnamed_addr constant [13 x i8] c"S&S Research\00", align 1
+@.str.1017 = private unnamed_addr constant [24 x i8] c"Broderbund Software Inc\00", align 1
+@.str.1018 = private unnamed_addr constant [15 x i8] c"Allen Organ Co\00", align 1
+@.str.1019 = private unnamed_addr constant [12 x i8] c"Music Quest\00", align 1
+@.str.1020 = private unnamed_addr constant [6 x i8] c"APHEX\00", align 1
+@.str.1021 = private unnamed_addr constant [16 x i8] c"Gallien Krueger\00", align 1
+@.str.1022 = private unnamed_addr constant [4 x i8] c"IBM\00", align 1
+@.str.1023 = private unnamed_addr constant [20 x i8] c"Mark of the Unicorn\00", align 1
+@.str.1024 = private unnamed_addr constant [30 x i8] c"Hotz Instruments Technologies\00", align 1
+@.str.1025 = private unnamed_addr constant [13 x i8] c"ETA Lighting\00", align 1
+@.str.1026 = private unnamed_addr constant [16 x i8] c"NSI Corporation\00", align 1
+@.str.1027 = private unnamed_addr constant [13 x i8] c"PAd Lib, Inc\00", align 1
+@.str.1028 = private unnamed_addr constant [22 x i8] c"Richmond Sound Design\00", align 1
+@.str.1029 = private unnamed_addr constant [10 x i8] c"Microsoft\00", align 1
+@.str.1030 = private unnamed_addr constant [23 x i8] c"The Software Toolworks\00", align 1
+@.str.1031 = private unnamed_addr constant [13 x i8] c"RJMG / Niche\00", align 1
+@.str.1032 = private unnamed_addr constant [7 x i8] c"Intone\00", align 1
+@.str.1033 = private unnamed_addr constant [21 x i8] c"Advanced Remote Tech\00", align 1
+@.str.1034 = private unnamed_addr constant [30 x i8] c"GT Electronics / Groove Tubes\00", align 1
+@.str.1035 = private unnamed_addr constant [10 x i8] c"InterMIDI\00", align 1
+@.str.1036 = private unnamed_addr constant [15 x i8] c"Timeline Vista\00", align 1
+@.str.1037 = private unnamed_addr constant [12 x i8] c"Mesa Boogie\00", align 1
+@.str.1038 = private unnamed_addr constant [20 x i8] c"Sequoia Development\00", align 1
+@.str.1039 = private unnamed_addr constant [19 x i8] c"Studio Electronics\00", align 1
+@.str.1040 = private unnamed_addr constant [9 x i8] c"Euphonix\00", align 1
+@.str.1041 = private unnamed_addr constant [15 x i8] c"MIDI Solutions\00", align 1
+@.str.1042 = private unnamed_addr constant [12 x i8] c"3DO Company\00", align 1
+@.str.1043 = private unnamed_addr constant [19 x i8] c"Lightwave Research\00", align 1
+@.str.1044 = private unnamed_addr constant [8 x i8] c"Micro-W\00", align 1
+@.str.1045 = private unnamed_addr constant [19 x i8] c"Spectral Synthesis\00", align 1
+@.str.1046 = private unnamed_addr constant [10 x i8] c"Lone Wolf\00", align 1
+@.str.1047 = private unnamed_addr constant [20 x i8] c"Studio Technologies\00", align 1
+@.str.1048 = private unnamed_addr constant [13 x i8] c"Peterson EMP\00", align 1
+@.str.1049 = private unnamed_addr constant [6 x i8] c"Atari\00", align 1
+@.str.1050 = private unnamed_addr constant [15 x i8] c"Marion Systems\00", align 1
+@.str.1051 = private unnamed_addr constant [13 x i8] c"Design Event\00", align 1
+@.str.1052 = private unnamed_addr constant [19 x i8] c"Winjammer Software\00", align 1
+@.str.1053 = private unnamed_addr constant [15 x i8] c"AT&T Bell Labs\00", align 1
+@.str.1054 = private unnamed_addr constant [9 x i8] c"Symetrix\00", align 1
+@.str.1055 = private unnamed_addr constant [15 x i8] c"MIDI the world\00", align 1
+@.str.1056 = private unnamed_addr constant [16 x i8] c"Desper Products\00", align 1
+@.str.1057 = private unnamed_addr constant [15 x i8] c"Micros 'n MIDI\00", align 1
+@.str.1058 = private unnamed_addr constant [15 x i8] c"Accodians Intl\00", align 1
+@.str.1059 = private unnamed_addr constant [10 x i8] c"EuPhonics\00", align 1
+@.str.1060 = private unnamed_addr constant [8 x i8] c"Musonix\00", align 1
+@.str.1061 = private unnamed_addr constant [21 x i8] c"Turtle Beach Systems\00", align 1
+@.str.1062 = private unnamed_addr constant [15 x i8] c"Mackie Designs\00", align 1
+@.str.1063 = private unnamed_addr constant [11 x i8] c"Compuserve\00", align 1
+@.str.1064 = private unnamed_addr constant [17 x i8] c"BES Technologies\00", align 1
+@.str.1065 = private unnamed_addr constant [16 x i8] c"QRS Music Rolls\00", align 1
+@.str.1066 = private unnamed_addr constant [10 x i8] c"P G Music\00", align 1
+@.str.1067 = private unnamed_addr constant [21 x i8] c"Sierra Semiconductor\00", align 1
+@.str.1068 = private unnamed_addr constant [21 x i8] c"EpiGraf Audio Visual\00", align 1
+@.str.1069 = private unnamed_addr constant [24 x i8] c"Electronics Diversified\00", align 1
+@.str.1070 = private unnamed_addr constant [10 x i8] c"Tune 1000\00", align 1
+@.str.1071 = private unnamed_addr constant [23 x i8] c"Advanced Micro Devices\00", align 1
+@.str.1072 = private unnamed_addr constant [12 x i8] c"Mediamation\00", align 1
+@.str.1073 = private unnamed_addr constant [13 x i8] c"Sabine Music\00", align 1
+@.str.1074 = private unnamed_addr constant [10 x i8] c"Woog Labs\00", align 1
+@.str.1075 = private unnamed_addr constant [11 x i8] c"Micropolis\00", align 1
+@.str.1076 = private unnamed_addr constant [28 x i8] c"Ta Horng Musical Instrument\00", align 1
+@.str.1077 = private unnamed_addr constant [24 x i8] c"e-Tek Labs (Forte Tech)\00", align 1
+@.str.1078 = private unnamed_addr constant [14 x i8] c"Electro-Voice\00", align 1
+@.str.1079 = private unnamed_addr constant [21 x i8] c"Midisoft Corporation\00", align 1
+@.str.1080 = private unnamed_addr constant [13 x i8] c"Q-Sound Labs\00", align 1
+@.str.1081 = private unnamed_addr constant [8 x i8] c"Westrex\00", align 1
+@.str.1082 = private unnamed_addr constant [7 x i8] c"NVidia\00", align 1
+@.str.1083 = private unnamed_addr constant [15 x i8] c"ESS Technology\00", align 1
+@.str.1084 = private unnamed_addr constant [22 x i8] c"MediaTrix Peripherals\00", align 1
+@.str.1085 = private unnamed_addr constant [15 x i8] c"Brooktree Corp\00", align 1
+@.str.1086 = private unnamed_addr constant [11 x i8] c"Otari Corp\00", align 1
+@.str.1087 = private unnamed_addr constant [16 x i8] c"Key Electronics\00", align 1
+@.str.1088 = private unnamed_addr constant [19 x i8] c"Shure Incorporated\00", align 1
+@.str.1089 = private unnamed_addr constant [11 x i8] c"Aura Sound\00", align 1
+@.str.1090 = private unnamed_addr constant [22 x i8] c"Crystal Semiconductor\00", align 1
+@.str.1091 = private unnamed_addr constant [20 x i8] c"Conexant (Rockwell)\00", align 1
+@.str.1092 = private unnamed_addr constant [17 x i8] c"Silicon Graphics\00", align 1
+@.str.1093 = private unnamed_addr constant [18 x i8] c"M-Audio (Midiman)\00", align 1
+@.str.1094 = private unnamed_addr constant [9 x i8] c"PreSonus\00", align 1
+@.str.1095 = private unnamed_addr constant [18 x i8] c"Topaz Enterprises\00", align 1
+@.str.1096 = private unnamed_addr constant [14 x i8] c"Cast Lighting\00", align 1
+@.str.1097 = private unnamed_addr constant [30 x i8] c"Microsoft (Consumer Division)\00", align 1
+@.str.1098 = private unnamed_addr constant [14 x i8] c"Sonic Foundry\00", align 1
+@.str.1099 = private unnamed_addr constant [22 x i8] c"Line 6 (Fast Forward)\00", align 1
+@.str.1100 = private unnamed_addr constant [12 x i8] c"Beatnik Inc\00", align 1
+@.str.1101 = private unnamed_addr constant [22 x i8] c"Van Koevering Company\00", align 1
+@.str.1102 = private unnamed_addr constant [20 x i8] c"DiAltech Systemsgit\00", align 1
+@.str.1103 = private unnamed_addr constant [16 x i8] c"VLSI Technology\00", align 1
+@.str.1104 = private unnamed_addr constant [19 x i8] c"Chromatic Research\00", align 1
+@.str.1105 = private unnamed_addr constant [9 x i8] c"Sapphire\00", align 1
+@.str.1106 = private unnamed_addr constant [5 x i8] c"IDRC\00", align 1
+@.str.1107 = private unnamed_addr constant [16 x i8] c"Justonic Tuning\00", align 1
+@.str.1108 = private unnamed_addr constant [21 x i8] c"TorComp Research Inc\00", align 1
+@.str.1109 = private unnamed_addr constant [11 x i8] c"NewTek Inc\00", align 1
+@.str.1110 = private unnamed_addr constant [16 x i8] c"Sound Sculpture\00", align 1
+@.str.1111 = private unnamed_addr constant [17 x i8] c"Walker Technical\00", align 1
+@.str.1112 = private unnamed_addr constant [16 x i8] c"Digital Harmony\00", align 1
+@.str.1113 = private unnamed_addr constant [21 x i8] c"InVision Interactive\00", align 1
+@.str.1114 = private unnamed_addr constant [16 x i8] c"T-Square Design\00", align 1
+@.str.1115 = private unnamed_addr constant [25 x i8] c"Nemesys Music Technology\00", align 1
+@.str.1116 = private unnamed_addr constant [31 x i8] c"DBX Professional (Harman Intl)\00", align 1
+@.str.1117 = private unnamed_addr constant [20 x i8] c"Syndyne Corporation\00", align 1
+@.str.1118 = private unnamed_addr constant [9 x i8] c"Bitheadz\00", align 1
+@.str.1119 = private unnamed_addr constant [24 x i8] c"Cakewalk Music Software\00", align 1
+@.str.1120 = private unnamed_addr constant [15 x i8] c"Analog Devices\00", align 1
+@.str.1121 = private unnamed_addr constant [23 x i8] c"National Semiconductor\00", align 1
+@.str.1122 = private unnamed_addr constant [12 x i8] c"Boom Theory\00", align 1
+@.str.1123 = private unnamed_addr constant [24 x i8] c"Virtual DSP Corporation\00", align 1
+@.str.1124 = private unnamed_addr constant [16 x i8] c"Antares Systems\00", align 1
+@.str.1125 = private unnamed_addr constant [15 x i8] c"Angel Software\00", align 1
+@.str.1126 = private unnamed_addr constant [15 x i8] c"St Louis Music\00", align 1
+@.str.1127 = private unnamed_addr constant [17 x i8] c"Lyrrus dba G-VOX\00", align 1
+@.str.1128 = private unnamed_addr constant [17 x i8] c"Ashley Audio Inc\00", align 1
+@.str.1129 = private unnamed_addr constant [14 x i8] c"Vari-Lite Inc\00", align 1
+@.str.1130 = private unnamed_addr constant [17 x i8] c"Summit Audio Inc\00", align 1
+@.str.1131 = private unnamed_addr constant [25 x i8] c"Aureal Semiconductor Inc\00", align 1
+@.str.1132 = private unnamed_addr constant [13 x i8] c"SeaSound LLC\00", align 1
+@.str.1133 = private unnamed_addr constant [14 x i8] c"U.S. Robotics\00", align 1
+@.str.1134 = private unnamed_addr constant [17 x i8] c"Aurisis Research\00", align 1
+@.str.1135 = private unnamed_addr constant [21 x i8] c"Nearfield Multimedia\00", align 1
+@.str.1136 = private unnamed_addr constant [8 x i8] c"FM7 Inc\00", align 1
+@.str.1137 = private unnamed_addr constant [15 x i8] c"Swivel Systems\00", align 1
+@.str.1138 = private unnamed_addr constant [26 x i8] c"Hyperactive Audio Systems\00", align 1
+@.str.1139 = private unnamed_addr constant [38 x i8] c"MidiLite (Castle Studios Productions)\00", align 1
+@.str.1140 = private unnamed_addr constant [21 x i8] c"Radikal Technologies\00", align 1
+@.str.1141 = private unnamed_addr constant [18 x i8] c"Roger Linn Design\00", align 1
+@.str.1142 = private unnamed_addr constant [30 x i8] c"TC-Helicon Vocal Technologies\00", align 1
+@.str.1143 = private unnamed_addr constant [18 x i8] c"Event Electronics\00", align 1
+@.str.1144 = private unnamed_addr constant [18 x i8] c"Sonic Network Inc\00", align 1
+@.str.1145 = private unnamed_addr constant [25 x i8] c"Realtime Music Solutions\00", align 1
+@.str.1146 = private unnamed_addr constant [15 x i8] c"Apogee Digital\00", align 1
+@.str.1147 = private unnamed_addr constant [22 x i8] c"Classical Organs, Inc\00", align 1
+@.str.1148 = private unnamed_addr constant [15 x i8] c"Microtools Inc\00", align 1
+@.str.1149 = private unnamed_addr constant [18 x i8] c"Numark Industries\00", align 1
+@.str.1150 = private unnamed_addr constant [26 x i8] c"Frontier Design Group LLC\00", align 1
+@.str.1151 = private unnamed_addr constant [14 x i8] c"Recordare LLC\00", align 1
+@.str.1152 = private unnamed_addr constant [11 x i8] c"Starr Labs\00", align 1
+@.str.1153 = private unnamed_addr constant [18 x i8] c"Voyager Sound Inc\00", align 1
+@.str.1154 = private unnamed_addr constant [14 x i8] c"Manifold Labs\00", align 1
+@.str.1155 = private unnamed_addr constant [10 x i8] c"Aviom Inc\00", align 1
+@.str.1156 = private unnamed_addr constant [22 x i8] c"Mixmeister Technology\00", align 1
+@.str.1157 = private unnamed_addr constant [18 x i8] c"Notation Software\00", align 1
+@.str.1158 = private unnamed_addr constant [25 x i8] c"Mercurial Communications\00", align 1
+@.str.1159 = private unnamed_addr constant [10 x i8] c"Wave Arts\00", align 1
+@.str.1160 = private unnamed_addr constant [25 x i8] c"Logic Sequencing Devices\00", align 1
+@.str.1161 = private unnamed_addr constant [18 x i8] c"Axess Electronics\00", align 1
+@.str.1162 = private unnamed_addr constant [14 x i8] c"Muse Research\00", align 1
+@.str.1163 = private unnamed_addr constant [10 x i8] c"Open Labs\00", align 1
+@.str.1164 = private unnamed_addr constant [18 x i8] c"Guillemot R&D Inc\00", align 1
+@.str.1165 = private unnamed_addr constant [20 x i8] c"Samson Technologies\00", align 1
+@.str.1166 = private unnamed_addr constant [28 x i8] c"Electronic Theatre Controls\00", align 1
+@.str.1167 = private unnamed_addr constant [19 x i8] c"Research In Motion\00", align 1
+@.str.1168 = private unnamed_addr constant [9 x i8] c"Mobileer\00", align 1
+@.str.1169 = private unnamed_addr constant [9 x i8] c"Synthogy\00", align 1
+@.str.1170 = private unnamed_addr constant [27 x i8] c"Lynx Studio Technology Inc\00", align 1
+@.str.1171 = private unnamed_addr constant [31 x i8] c"Damage Control Engineering LLC\00", align 1
+@.str.1172 = private unnamed_addr constant [21 x i8] c"Yost Engineering Inc\00", align 1
+@.str.1173 = private unnamed_addr constant [29 x i8] c"Brooks & Forsman Designs LLC\00", align 1
+@.str.1174 = private unnamed_addr constant [9 x i8] c"Magnekey\00", align 1
+@.str.1175 = private unnamed_addr constant [14 x i8] c"Garritan Corp\00", align 1
+@.str.1176 = private unnamed_addr constant [31 x i8] c"Ploque Art et Technologie, Inc\00", align 1
+@.str.1177 = private unnamed_addr constant [21 x i8] c"RJM Music Technology\00", align 1
+@.str.1178 = private unnamed_addr constant [26 x i8] c"Custom Solutions Software\00", align 1
+@.str.1179 = private unnamed_addr constant [14 x i8] c"Sonarcana LLC\00", align 1
+@.str.1180 = private unnamed_addr constant [10 x i8] c"Centrance\00", align 1
+@.str.1181 = private unnamed_addr constant [11 x i8] c"Kesumo LLC\00", align 1
+@.str.1182 = private unnamed_addr constant [8 x i8] c"Stanton\00", align 1
+@.str.1183 = private unnamed_addr constant [18 x i8] c"Livid Instruments\00", align 1
+@.str.1184 = private unnamed_addr constant [22 x i8] c"First Act / 745 Media\00", align 1
+@.str.1185 = private unnamed_addr constant [16 x i8] c"Pygraphics, Inc\00", align 1
+@.str.1186 = private unnamed_addr constant [25 x i8] c"Panadigm Innovations Ltd\00", align 1
+@.str.1187 = private unnamed_addr constant [19 x i8] c"Avedis Zildjian Co\00", align 1
+@.str.1188 = private unnamed_addr constant [19 x i8] c"Auvital Music Corp\00", align 1
+@.str.1189 = private unnamed_addr constant [25 x i8] c"Inspired Instruments Inc\00", align 1
+@.str.1190 = private unnamed_addr constant [20 x i8] c"Chris Grigg Designs\00", align 1
+@.str.1191 = private unnamed_addr constant [18 x i8] c"Slate Digital LLC\00", align 1
+@.str.1192 = private unnamed_addr constant [8 x i8] c"Mixware\00", align 1
+@.str.1193 = private unnamed_addr constant [15 x i8] c"Social Entropy\00", align 1
+@.str.1194 = private unnamed_addr constant [17 x i8] c"Source Audio LLC\00", align 1
+@.str.1195 = private unnamed_addr constant [9 x i8] c"reserved\00", align 1
+@.str.1196 = private unnamed_addr constant [18 x i8] c"American Audio/DJ\00", align 1
+@.str.1197 = private unnamed_addr constant [21 x i8] c"Mega Control Systems\00", align 1
+@.str.1198 = private unnamed_addr constant [17 x i8] c"Kilpatrick Audio\00", align 1
+@.str.1199 = private unnamed_addr constant [14 x i8] c"iKingdom Corp\00", align 1
+@.str.1200 = private unnamed_addr constant [14 x i8] c"Fractal Audio\00", align 1
+@.str.1201 = private unnamed_addr constant [22 x i8] c"NetLogic Microsystems\00", align 1
+@.str.1202 = private unnamed_addr constant [16 x i8] c"Music Computing\00", align 1
+@.str.1203 = private unnamed_addr constant [22 x i8] c"Nektar Technology Inc\00", align 1
+@.str.1204 = private unnamed_addr constant [24 x i8] c"Zenph Sound Innovations\00", align 1
+@.str.1205 = private unnamed_addr constant [16 x i8] c"DJTechTools.com\00", align 1
+@.str.1206 = private unnamed_addr constant [6 x i8] c"Dream\00", align 1
+@.str.1207 = private unnamed_addr constant [16 x i8] c"Strand Lighting\00", align 1
+@.str.1208 = private unnamed_addr constant [13 x i8] c"Amek Systems\00", align 1
+@.str.1209 = private unnamed_addr constant [27 x i8] c"Cas Di Risparmio Di Loreto\00", align 1
+@.str.1210 = private unnamed_addr constant [16 x i8] c"Bohm electronic\00", align 1
+@.str.1211 = private unnamed_addr constant [21 x i8] c"Syntec Digital Audio\00", align 1
+@.str.1212 = private unnamed_addr constant [14 x i8] c"Trident Audio\00", align 1
+@.str.1213 = private unnamed_addr constant [18 x i8] c"Real World Studio\00", align 1
+@.str.1214 = private unnamed_addr constant [20 x i8] c"Evolution Synthesis\00", align 1
+@.str.1215 = private unnamed_addr constant [15 x i8] c"Yes Technology\00", align 1
+@.str.1216 = private unnamed_addr constant [12 x i8] c"Audiomatica\00", align 1
+@.str.1217 = private unnamed_addr constant [19 x i8] c"Bontempi / Farfisa\00", align 1
+@.str.1218 = private unnamed_addr constant [19 x i8] c"F.B.T. Elettronica\00", align 1
+@.str.1219 = private unnamed_addr constant [9 x i8] c"Miditemp\00", align 1
+@.str.1220 = private unnamed_addr constant [25 x i8] c"LA Audio (Larking Audio)\00", align 1
+@.str.1221 = private unnamed_addr constant [25 x i8] c"Zero 88 Lighting Limited\00", align 1
+@.str.1222 = private unnamed_addr constant [29 x i8] c"Micon Audio Electronics GmbH\00", align 1
+@.str.1223 = private unnamed_addr constant [21 x i8] c"Forefront Technology\00", align 1
+@.str.1224 = private unnamed_addr constant [27 x i8] c"Studio Audio and Video Ltd\00", align 1
+@.str.1225 = private unnamed_addr constant [19 x i8] c"Kenton Electronics\00", align 1
+@.str.1226 = private unnamed_addr constant [31 x i8] c"Celco Division of Electrosonic\00", align 1
+@.str.1227 = private unnamed_addr constant [4 x i8] c"ADB\00", align 1
+@.str.1228 = private unnamed_addr constant [18 x i8] c"Marshall Products\00", align 1
+@.str.1229 = private unnamed_addr constant [4 x i8] c"DDA\00", align 1
+@.str.1230 = private unnamed_addr constant [4 x i8] c"BSS\00", align 1
+@.str.1231 = private unnamed_addr constant [23 x i8] c"MA Lighting Technology\00", align 1
+@.str.1232 = private unnamed_addr constant [6 x i8] c"Fatar\00", align 1
+@.str.1233 = private unnamed_addr constant [10 x i8] c"QSC Audio\00", align 1
+@.str.1234 = private unnamed_addr constant [22 x i8] c"Artisan Classic Organ\00", align 1
+@.str.1235 = private unnamed_addr constant [9 x i8] c"Rola Spa\00", align 1
+@.str.1236 = private unnamed_addr constant [15 x i8] c"Pinnacle Audio\00", align 1
+@.str.1237 = private unnamed_addr constant [15 x i8] c"TC Electronics\00", align 1
+@.str.1238 = private unnamed_addr constant [24 x i8] c"Doepfer Musikelektronik\00", align 1
+@.str.1239 = private unnamed_addr constant [24 x i8] c"Creative Technology Pte\00", align 1
+@.str.1240 = private unnamed_addr constant [17 x i8] c"Minami / Seiyddo\00", align 1
+@.str.1241 = private unnamed_addr constant [9 x i8] c"Goldstar\00", align 1
+@.str.1242 = private unnamed_addr constant [7 x i8] c"Samick\00", align 1
+@.str.1243 = private unnamed_addr constant [16 x i8] c"Penny and Giles\00", align 1
+@.str.1244 = private unnamed_addr constant [15 x i8] c"Acorn Computer\00", align 1
+@.str.1245 = private unnamed_addr constant [16 x i8] c"LSC Electronics\00", align 1
+@.str.1246 = private unnamed_addr constant [13 x i8] c"Novation EMS\00", align 1
+@.str.1247 = private unnamed_addr constant [22 x i8] c"Samkyung Mechatronics\00", align 1
+@.str.1248 = private unnamed_addr constant [22 x i8] c"Medeli Electronics Co\00", align 1
+@.str.1249 = private unnamed_addr constant [16 x i8] c"Charlie Lab SRL\00", align 1
+@.str.1250 = private unnamed_addr constant [27 x i8] c"Blue Chip Music Technology\00", align 1
+@.str.1251 = private unnamed_addr constant [12 x i8] c"BEE OH Corp\00", align 1
+@.str.1252 = private unnamed_addr constant [19 x i8] c"LG Semicon America\00", align 1
+@.str.1253 = private unnamed_addr constant [5 x i8] c"TESI\00", align 1
+@.str.1254 = private unnamed_addr constant [7 x i8] c"EMAGIC\00", align 1
+@.str.1255 = private unnamed_addr constant [15 x i8] c"Behringer GmbH\00", align 1
+@.str.1256 = private unnamed_addr constant [25 x i8] c"Access Music Electronics\00", align 1
+@.str.1257 = private unnamed_addr constant [9 x i8] c"Synoptic\00", align 1
+@.str.1258 = private unnamed_addr constant [15 x i8] c"Hanmesoft Corp\00", align 1
+@.str.1259 = private unnamed_addr constant [25 x i8] c"Terratec Electronic GmbH\00", align 1
+@.str.1260 = private unnamed_addr constant [10 x i8] c"Proel SpA\00", align 1
+@.str.1261 = private unnamed_addr constant [9 x i8] c"IBK MIDI\00", align 1
+@.str.1262 = private unnamed_addr constant [6 x i8] c"IRCAM\00", align 1
+@.str.1263 = private unnamed_addr constant [23 x i8] c"Propellerhead Software\00", align 1
+@.str.1264 = private unnamed_addr constant [22 x i8] c"Red Sound Systems Ltd\00", align 1
+@.str.1265 = private unnamed_addr constant [16 x i8] c"Elektron ESI AB\00", align 1
+@.str.1266 = private unnamed_addr constant [15 x i8] c"Sintefex Audio\00", align 1
+@.str.1267 = private unnamed_addr constant [21 x i8] c"MAM (Music and More)\00", align 1
+@.str.1268 = private unnamed_addr constant [12 x i8] c"Amsaro GmbH\00", align 1
+@.str.1269 = private unnamed_addr constant [27 x i8] c"CDS Advanced Technology BV\00", align 1
+@.str.1270 = private unnamed_addr constant [22 x i8] c"Touched By Sound GmbH\00", align 1
+@.str.1271 = private unnamed_addr constant [9 x i8] c"DSP Arts\00", align 1
+@.str.1272 = private unnamed_addr constant [21 x i8] c"Phil Rees Music Tech\00", align 1
+@.str.1273 = private unnamed_addr constant [25 x i8] c"Stamer Musikanlagen GmbH\00", align 1
+@.str.1274 = private unnamed_addr constant [35 x i8] c"Musical Muntaner S.A. dba Soundart\00", align 1
+@.str.1275 = private unnamed_addr constant [16 x i8] c"C-Mexx Software\00", align 1
+@.str.1276 = private unnamed_addr constant [20 x i8] c"Klavis Technologies\00", align 1
+@.str.1277 = private unnamed_addr constant [13 x i8] c"Noteheads AB\00", align 1
+@.str.1278 = private unnamed_addr constant [12 x i8] c"Algorithmix\00", align 1
+@.str.1279 = private unnamed_addr constant [15 x i8] c"Skrydstrup R&D\00", align 1
+@.str.1280 = private unnamed_addr constant [27 x i8] c"Professional Audio Company\00", align 1
+@.str.1281 = private unnamed_addr constant [16 x i8] c"DBTECH/MadWaves\00", align 1
+@.str.1282 = private unnamed_addr constant [8 x i8] c"Vermona\00", align 1
+@.str.1283 = private unnamed_addr constant [6 x i8] c"Nokia\00", align 1
+@.str.1284 = private unnamed_addr constant [10 x i8] c"Wave Idea\00", align 1
+@.str.1285 = private unnamed_addr constant [14 x i8] c"Hartmann GmbH\00", align 1
+@.str.1286 = private unnamed_addr constant [13 x i8] c"Lion's Track\00", align 1
+@.str.1287 = private unnamed_addr constant [17 x i8] c"Analogue Systems\00", align 1
+@.str.1288 = private unnamed_addr constant [12 x i8] c"Focal-JMlab\00", align 1
+@.str.1289 = private unnamed_addr constant [20 x i8] c"Ringway Electronics\00", align 1
+@.str.1290 = private unnamed_addr constant [30 x i8] c"Faith Technologies (Digiplug)\00", align 1
+@.str.1291 = private unnamed_addr constant [10 x i8] c"Showworks\00", align 1
+@.str.1292 = private unnamed_addr constant [19 x i8] c"Manikin Electronic\00", align 1
+@.str.1293 = private unnamed_addr constant [12 x i8] c"1 Come Tech\00", align 1
+@.str.1294 = private unnamed_addr constant [12 x i8] c"Phonic Corp\00", align 1
+@.str.1295 = private unnamed_addr constant [16 x i8] c"Lake Technology\00", align 1
+@.str.1296 = private unnamed_addr constant [22 x i8] c"Silansys Technologies\00", align 1
+@.str.1297 = private unnamed_addr constant [20 x i8] c"Winbond Electronics\00", align 1
+@.str.1298 = private unnamed_addr constant [34 x i8] c"Cinetix Medien und Interface GmbH\00", align 1
+@.str.1299 = private unnamed_addr constant [23 x i8] c"A&G Soluzioni Digitali\00", align 1
+@.str.1300 = private unnamed_addr constant [24 x i8] c"Sequentix Music Systems\00", align 1
+@.str.1301 = private unnamed_addr constant [15 x i8] c"Oram Pro Audio\00", align 1
+@.str.1302 = private unnamed_addr constant [8 x i8] c"Be4 Ltd\00", align 1
+@.str.1303 = private unnamed_addr constant [16 x i8] c"Infection Music\00", align 1
+@.str.1304 = private unnamed_addr constant [24 x i8] c"Central Music Co. (CME)\00", align 1
+@.str.1305 = private unnamed_addr constant [16 x i8] c"GenoQs Machines\00", align 1
+@.str.1306 = private unnamed_addr constant [9 x i8] c"Medialon\00", align 1
+@.str.1307 = private unnamed_addr constant [16 x i8] c"Waves Audio Ltd\00", align 1
+@.str.1308 = private unnamed_addr constant [12 x i8] c"Jerash Labs\00", align 1
+@.str.1309 = private unnamed_addr constant [8 x i8] c"Da Fact\00", align 1
+@.str.1310 = private unnamed_addr constant [13 x i8] c"Elby Designs\00", align 1
+@.str.1311 = private unnamed_addr constant [15 x i8] c"Spectral Audio\00", align 1
+@.str.1312 = private unnamed_addr constant [8 x i8] c"Arturia\00", align 1
+@.str.1313 = private unnamed_addr constant [6 x i8] c"Vixid\00", align 1
+@.str.1314 = private unnamed_addr constant [13 x i8] c"C-Thru Music\00", align 1
+@.str.1315 = private unnamed_addr constant [27 x i8] c"Ya Horng Electronic Co LTD\00", align 1
+@.str.1316 = private unnamed_addr constant [13 x i8] c"SM Pro Audio\00", align 1
+@.str.1317 = private unnamed_addr constant [13 x i8] c"OTO MACHINES\00", align 1
+@.str.1318 = private unnamed_addr constant [18 x i8] c"ELZAB S.A., G LAB\00", align 1
+@.str.1319 = private unnamed_addr constant [28 x i8] c"Blackstar Amplification Ltd\00", align 1
+@.str.1320 = private unnamed_addr constant [22 x i8] c"M3i Technologies GmbH\00", align 1
+@.str.1321 = private unnamed_addr constant [8 x i8] c"Gemalto\00", align 1
+@.str.1322 = private unnamed_addr constant [12 x i8] c"Prostage SL\00", align 1
+@.str.1323 = private unnamed_addr constant [20 x i8] c"Teenage Engineering\00", align 1
+@.str.1324 = private unnamed_addr constant [16 x i8] c"Tobias Erichsen\00", align 1
+@.str.1325 = private unnamed_addr constant [10 x i8] c"Nixer Ltd\00", align 1
+@.str.1326 = private unnamed_addr constant [23 x i8] c"Hanpin Electron Co Ltd\00", align 1
+@.str.1327 = private unnamed_addr constant [21 x i8] c"MIDI-hardware R.Sowa\00", align 1
+@.str.1328 = private unnamed_addr constant [28 x i8] c"Beyond Music Industrial Ltd\00", align 1
+@.str.1329 = private unnamed_addr constant [14 x i8] c"Kiss Box B.V.\00", align 1
+@.str.1330 = private unnamed_addr constant [30 x i8] c"Misa Digital Technologies Ltd\00", align 1
+@.str.1331 = private unnamed_addr constant [25 x i8] c"AI Musics Technology Inc\00", align 1
+@.str.1332 = private unnamed_addr constant [14 x i8] c"Serato Inc LP\00", align 1
+@.str.1333 = private unnamed_addr constant [25 x i8] c"Limex Music Handles GmbH\00", align 1
+@.str.1334 = private unnamed_addr constant [14 x i8] c"Kyodday/Tokai\00", align 1
+@.str.1335 = private unnamed_addr constant [20 x i8] c"Mutable Instruments\00", align 1
+@.str.1336 = private unnamed_addr constant [22 x i8] c"PreSonus Software Ltd\00", align 1
+@.str.1337 = private unnamed_addr constant [7 x i8] c"Xiring\00", align 1
+@.str.1338 = private unnamed_addr constant [30 x i8] c"Fairlight Instruments Pty Ltd\00", align 1
+@.str.1339 = private unnamed_addr constant [12 x i8] c"Musicom Lab\00", align 1
+@.str.1340 = private unnamed_addr constant [9 x i8] c"VacoLoco\00", align 1
+@.str.1341 = private unnamed_addr constant [24 x i8] c"RWA (Hong Kong) Limited\00", align 1
+@.str.1342 = private unnamed_addr constant [23 x i8] c"Crimson Technology Inc\00", align 1
+@.str.1343 = private unnamed_addr constant [21 x i8] c"Softbank Mobile Corp\00", align 1
+@.str.1344 = private unnamed_addr constant [18 x i8] c"D&M Holdings Inc.\00", align 1
+@rtp_midi_manu_long_values = internal constant [384 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.967 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.968 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.969 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.970 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.971 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.972 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.973 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.974 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.975 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.976 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.977 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.978 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.979 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.980 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.981 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.982 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.983 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.984 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.985 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.986 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.987 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.988 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.989 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.990 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.991 }, { i32, [4 x i8], ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.992 }, { i32, [4 x i8], ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.993 }, { i32, [4 x i8], ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.994 }, { i32, [4 x i8], ptr } { i32 29, [4 x i8] zeroinitializer, ptr @.str.995 }, { i32, [4 x i8], ptr } { i32 30, [4 x i8] zeroinitializer, ptr @.str.996 }, { i32, [4 x i8], ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.997 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.998 }, { i32, [4 x i8], ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.999 }, { i32, [4 x i8], ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.1000 }, { i32, [4 x i8], ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.1001 }, { i32, [4 x i8], ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.1002 }, { i32, [4 x i8], ptr } { i32 37, [4 x i8] zeroinitializer, ptr @.str.1003 }, { i32, [4 x i8], ptr } { i32 38, [4 x i8] zeroinitializer, ptr @.str.1004 }, { i32, [4 x i8], ptr } { i32 39, [4 x i8] zeroinitializer, ptr @.str.1005 }, { i32, [4 x i8], ptr } { i32 40, [4 x i8] zeroinitializer, ptr @.str.1006 }, { i32, [4 x i8], ptr } { i32 41, [4 x i8] zeroinitializer, ptr @.str.1007 }, { i32, [4 x i8], ptr } { i32 42, [4 x i8] zeroinitializer, ptr @.str.1008 }, { i32, [4 x i8], ptr } { i32 43, [4 x i8] zeroinitializer, ptr @.str.1009 }, { i32, [4 x i8], ptr } { i32 45, [4 x i8] zeroinitializer, ptr @.str.1010 }, { i32, [4 x i8], ptr } { i32 46, [4 x i8] zeroinitializer, ptr @.str.1011 }, { i32, [4 x i8], ptr } { i32 47, [4 x i8] zeroinitializer, ptr @.str.1012 }, { i32, [4 x i8], ptr } { i32 48, [4 x i8] zeroinitializer, ptr @.str.1013 }, { i32, [4 x i8], ptr } { i32 49, [4 x i8] zeroinitializer, ptr @.str.1014 }, { i32, [4 x i8], ptr } { i32 50, [4 x i8] zeroinitializer, ptr @.str.1015 }, { i32, [4 x i8], ptr } { i32 51, [4 x i8] zeroinitializer, ptr @.str.1016 }, { i32, [4 x i8], ptr } { i32 52, [4 x i8] zeroinitializer, ptr @.str.1017 }, { i32, [4 x i8], ptr } { i32 53, [4 x i8] zeroinitializer, ptr @.str.1018 }, { i32, [4 x i8], ptr } { i32 55, [4 x i8] zeroinitializer, ptr @.str.1019 }, { i32, [4 x i8], ptr } { i32 56, [4 x i8] zeroinitializer, ptr @.str.1020 }, { i32, [4 x i8], ptr } { i32 57, [4 x i8] zeroinitializer, ptr @.str.1021 }, { i32, [4 x i8], ptr } { i32 58, [4 x i8] zeroinitializer, ptr @.str.1022 }, { i32, [4 x i8], ptr } { i32 59, [4 x i8] zeroinitializer, ptr @.str.1023 }, { i32, [4 x i8], ptr } { i32 60, [4 x i8] zeroinitializer, ptr @.str.1024 }, { i32, [4 x i8], ptr } { i32 61, [4 x i8] zeroinitializer, ptr @.str.1025 }, { i32, [4 x i8], ptr } { i32 62, [4 x i8] zeroinitializer, ptr @.str.1026 }, { i32, [4 x i8], ptr } { i32 63, [4 x i8] zeroinitializer, ptr @.str.1027 }, { i32, [4 x i8], ptr } { i32 64, [4 x i8] zeroinitializer, ptr @.str.1028 }, { i32, [4 x i8], ptr } { i32 65, [4 x i8] zeroinitializer, ptr @.str.1029 }, { i32, [4 x i8], ptr } { i32 66, [4 x i8] zeroinitializer, ptr @.str.1030 }, { i32, [4 x i8], ptr } { i32 67, [4 x i8] zeroinitializer, ptr @.str.1031 }, { i32, [4 x i8], ptr } { i32 68, [4 x i8] zeroinitializer, ptr @.str.1032 }, { i32, [4 x i8], ptr } { i32 69, [4 x i8] zeroinitializer, ptr @.str.1033 }, { i32, [4 x i8], ptr } { i32 71, [4 x i8] zeroinitializer, ptr @.str.1034 }, { i32, [4 x i8], ptr } { i32 72, [4 x i8] zeroinitializer, ptr @.str.1035 }, { i32, [4 x i8], ptr } { i32 73, [4 x i8] zeroinitializer, ptr @.str.1036 }, { i32, [4 x i8], ptr } { i32 74, [4 x i8] zeroinitializer, ptr @.str.1037 }, { i32, [4 x i8], ptr } { i32 76, [4 x i8] zeroinitializer, ptr @.str.1038 }, { i32, [4 x i8], ptr } { i32 77, [4 x i8] zeroinitializer, ptr @.str.1039 }, { i32, [4 x i8], ptr } { i32 78, [4 x i8] zeroinitializer, ptr @.str.1040 }, { i32, [4 x i8], ptr } { i32 79, [4 x i8] zeroinitializer, ptr @.str.1035 }, { i32, [4 x i8], ptr } { i32 80, [4 x i8] zeroinitializer, ptr @.str.1041 }, { i32, [4 x i8], ptr } { i32 81, [4 x i8] zeroinitializer, ptr @.str.1042 }, { i32, [4 x i8], ptr } { i32 82, [4 x i8] zeroinitializer, ptr @.str.1043 }, { i32, [4 x i8], ptr } { i32 83, [4 x i8] zeroinitializer, ptr @.str.1044 }, { i32, [4 x i8], ptr } { i32 84, [4 x i8] zeroinitializer, ptr @.str.1045 }, { i32, [4 x i8], ptr } { i32 85, [4 x i8] zeroinitializer, ptr @.str.1046 }, { i32, [4 x i8], ptr } { i32 86, [4 x i8] zeroinitializer, ptr @.str.1047 }, { i32, [4 x i8], ptr } { i32 87, [4 x i8] zeroinitializer, ptr @.str.1048 }, { i32, [4 x i8], ptr } { i32 88, [4 x i8] zeroinitializer, ptr @.str.1049 }, { i32, [4 x i8], ptr } { i32 89, [4 x i8] zeroinitializer, ptr @.str.1050 }, { i32, [4 x i8], ptr } { i32 90, [4 x i8] zeroinitializer, ptr @.str.1051 }, { i32, [4 x i8], ptr } { i32 91, [4 x i8] zeroinitializer, ptr @.str.1052 }, { i32, [4 x i8], ptr } { i32 92, [4 x i8] zeroinitializer, ptr @.str.1053 }, { i32, [4 x i8], ptr } { i32 94, [4 x i8] zeroinitializer, ptr @.str.1054 }, { i32, [4 x i8], ptr } { i32 95, [4 x i8] zeroinitializer, ptr @.str.1055 }, { i32, [4 x i8], ptr } { i32 96, [4 x i8] zeroinitializer, ptr @.str.1056 }, { i32, [4 x i8], ptr } { i32 97, [4 x i8] zeroinitializer, ptr @.str.1057 }, { i32, [4 x i8], ptr } { i32 98, [4 x i8] zeroinitializer, ptr @.str.1058 }, { i32, [4 x i8], ptr } { i32 99, [4 x i8] zeroinitializer, ptr @.str.1059 }, { i32, [4 x i8], ptr } { i32 100, [4 x i8] zeroinitializer, ptr @.str.1060 }, { i32, [4 x i8], ptr } { i32 101, [4 x i8] zeroinitializer, ptr @.str.1061 }, { i32, [4 x i8], ptr } { i32 102, [4 x i8] zeroinitializer, ptr @.str.1062 }, { i32, [4 x i8], ptr } { i32 103, [4 x i8] zeroinitializer, ptr @.str.1063 }, { i32, [4 x i8], ptr } { i32 104, [4 x i8] zeroinitializer, ptr @.str.1064 }, { i32, [4 x i8], ptr } { i32 105, [4 x i8] zeroinitializer, ptr @.str.1065 }, { i32, [4 x i8], ptr } { i32 106, [4 x i8] zeroinitializer, ptr @.str.1066 }, { i32, [4 x i8], ptr } { i32 107, [4 x i8] zeroinitializer, ptr @.str.1067 }, { i32, [4 x i8], ptr } { i32 108, [4 x i8] zeroinitializer, ptr @.str.1068 }, { i32, [4 x i8], ptr } { i32 109, [4 x i8] zeroinitializer, ptr @.str.1069 }, { i32, [4 x i8], ptr } { i32 110, [4 x i8] zeroinitializer, ptr @.str.1070 }, { i32, [4 x i8], ptr } { i32 111, [4 x i8] zeroinitializer, ptr @.str.1071 }, { i32, [4 x i8], ptr } { i32 112, [4 x i8] zeroinitializer, ptr @.str.1072 }, { i32, [4 x i8], ptr } { i32 113, [4 x i8] zeroinitializer, ptr @.str.1073 }, { i32, [4 x i8], ptr } { i32 114, [4 x i8] zeroinitializer, ptr @.str.1074 }, { i32, [4 x i8], ptr } { i32 115, [4 x i8] zeroinitializer, ptr @.str.1075 }, { i32, [4 x i8], ptr } { i32 116, [4 x i8] zeroinitializer, ptr @.str.1076 }, { i32, [4 x i8], ptr } { i32 117, [4 x i8] zeroinitializer, ptr @.str.1077 }, { i32, [4 x i8], ptr } { i32 118, [4 x i8] zeroinitializer, ptr @.str.1078 }, { i32, [4 x i8], ptr } { i32 119, [4 x i8] zeroinitializer, ptr @.str.1079 }, { i32, [4 x i8], ptr } { i32 120, [4 x i8] zeroinitializer, ptr @.str.1080 }, { i32, [4 x i8], ptr } { i32 121, [4 x i8] zeroinitializer, ptr @.str.1081 }, { i32, [4 x i8], ptr } { i32 122, [4 x i8] zeroinitializer, ptr @.str.1082 }, { i32, [4 x i8], ptr } { i32 123, [4 x i8] zeroinitializer, ptr @.str.1083 }, { i32, [4 x i8], ptr } { i32 124, [4 x i8] zeroinitializer, ptr @.str.1084 }, { i32, [4 x i8], ptr } { i32 125, [4 x i8] zeroinitializer, ptr @.str.1085 }, { i32, [4 x i8], ptr } { i32 126, [4 x i8] zeroinitializer, ptr @.str.1086 }, { i32, [4 x i8], ptr } { i32 127, [4 x i8] zeroinitializer, ptr @.str.1087 }, { i32, [4 x i8], ptr } { i32 256, [4 x i8] zeroinitializer, ptr @.str.1088 }, { i32, [4 x i8], ptr } { i32 257, [4 x i8] zeroinitializer, ptr @.str.1089 }, { i32, [4 x i8], ptr } { i32 258, [4 x i8] zeroinitializer, ptr @.str.1090 }, { i32, [4 x i8], ptr } { i32 259, [4 x i8] zeroinitializer, ptr @.str.1091 }, { i32, [4 x i8], ptr } { i32 260, [4 x i8] zeroinitializer, ptr @.str.1092 }, { i32, [4 x i8], ptr } { i32 261, [4 x i8] zeroinitializer, ptr @.str.1093 }, { i32, [4 x i8], ptr } { i32 262, [4 x i8] zeroinitializer, ptr @.str.1094 }, { i32, [4 x i8], ptr } { i32 264, [4 x i8] zeroinitializer, ptr @.str.1095 }, { i32, [4 x i8], ptr } { i32 265, [4 x i8] zeroinitializer, ptr @.str.1096 }, { i32, [4 x i8], ptr } { i32 266, [4 x i8] zeroinitializer, ptr @.str.1097 }, { i32, [4 x i8], ptr } { i32 267, [4 x i8] zeroinitializer, ptr @.str.1098 }, { i32, [4 x i8], ptr } { i32 268, [4 x i8] zeroinitializer, ptr @.str.1099 }, { i32, [4 x i8], ptr } { i32 269, [4 x i8] zeroinitializer, ptr @.str.1100 }, { i32, [4 x i8], ptr } { i32 270, [4 x i8] zeroinitializer, ptr @.str.1101 }, { i32, [4 x i8], ptr } { i32 271, [4 x i8] zeroinitializer, ptr @.str.1102 }, { i32, [4 x i8], ptr } { i32 272, [4 x i8] zeroinitializer, ptr @.str.1016 }, { i32, [4 x i8], ptr } { i32 273, [4 x i8] zeroinitializer, ptr @.str.1103 }, { i32, [4 x i8], ptr } { i32 274, [4 x i8] zeroinitializer, ptr @.str.1104 }, { i32, [4 x i8], ptr } { i32 275, [4 x i8] zeroinitializer, ptr @.str.1105 }, { i32, [4 x i8], ptr } { i32 276, [4 x i8] zeroinitializer, ptr @.str.1106 }, { i32, [4 x i8], ptr } { i32 277, [4 x i8] zeroinitializer, ptr @.str.1107 }, { i32, [4 x i8], ptr } { i32 278, [4 x i8] zeroinitializer, ptr @.str.1108 }, { i32, [4 x i8], ptr } { i32 279, [4 x i8] zeroinitializer, ptr @.str.1109 }, { i32, [4 x i8], ptr } { i32 280, [4 x i8] zeroinitializer, ptr @.str.1110 }, { i32, [4 x i8], ptr } { i32 281, [4 x i8] zeroinitializer, ptr @.str.1111 }, { i32, [4 x i8], ptr } { i32 282, [4 x i8] zeroinitializer, ptr @.str.1112 }, { i32, [4 x i8], ptr } { i32 283, [4 x i8] zeroinitializer, ptr @.str.1113 }, { i32, [4 x i8], ptr } { i32 284, [4 x i8] zeroinitializer, ptr @.str.1114 }, { i32, [4 x i8], ptr } { i32 285, [4 x i8] zeroinitializer, ptr @.str.1115 }, { i32, [4 x i8], ptr } { i32 286, [4 x i8] zeroinitializer, ptr @.str.1116 }, { i32, [4 x i8], ptr } { i32 287, [4 x i8] zeroinitializer, ptr @.str.1117 }, { i32, [4 x i8], ptr } { i32 288, [4 x i8] zeroinitializer, ptr @.str.1118 }, { i32, [4 x i8], ptr } { i32 289, [4 x i8] zeroinitializer, ptr @.str.1119 }, { i32, [4 x i8], ptr } { i32 290, [4 x i8] zeroinitializer, ptr @.str.1120 }, { i32, [4 x i8], ptr } { i32 291, [4 x i8] zeroinitializer, ptr @.str.1121 }, { i32, [4 x i8], ptr } { i32 292, [4 x i8] zeroinitializer, ptr @.str.1122 }, { i32, [4 x i8], ptr } { i32 293, [4 x i8] zeroinitializer, ptr @.str.1123 }, { i32, [4 x i8], ptr } { i32 294, [4 x i8] zeroinitializer, ptr @.str.1124 }, { i32, [4 x i8], ptr } { i32 295, [4 x i8] zeroinitializer, ptr @.str.1125 }, { i32, [4 x i8], ptr } { i32 296, [4 x i8] zeroinitializer, ptr @.str.1126 }, { i32, [4 x i8], ptr } { i32 297, [4 x i8] zeroinitializer, ptr @.str.1127 }, { i32, [4 x i8], ptr } { i32 298, [4 x i8] zeroinitializer, ptr @.str.1128 }, { i32, [4 x i8], ptr } { i32 299, [4 x i8] zeroinitializer, ptr @.str.1129 }, { i32, [4 x i8], ptr } { i32 300, [4 x i8] zeroinitializer, ptr @.str.1130 }, { i32, [4 x i8], ptr } { i32 301, [4 x i8] zeroinitializer, ptr @.str.1131 }, { i32, [4 x i8], ptr } { i32 302, [4 x i8] zeroinitializer, ptr @.str.1132 }, { i32, [4 x i8], ptr } { i32 303, [4 x i8] zeroinitializer, ptr @.str.1133 }, { i32, [4 x i8], ptr } { i32 304, [4 x i8] zeroinitializer, ptr @.str.1134 }, { i32, [4 x i8], ptr } { i32 305, [4 x i8] zeroinitializer, ptr @.str.1135 }, { i32, [4 x i8], ptr } { i32 306, [4 x i8] zeroinitializer, ptr @.str.1136 }, { i32, [4 x i8], ptr } { i32 307, [4 x i8] zeroinitializer, ptr @.str.1137 }, { i32, [4 x i8], ptr } { i32 308, [4 x i8] zeroinitializer, ptr @.str.1138 }, { i32, [4 x i8], ptr } { i32 309, [4 x i8] zeroinitializer, ptr @.str.1139 }, { i32, [4 x i8], ptr } { i32 310, [4 x i8] zeroinitializer, ptr @.str.1140 }, { i32, [4 x i8], ptr } { i32 311, [4 x i8] zeroinitializer, ptr @.str.1141 }, { i32, [4 x i8], ptr } { i32 312, [4 x i8] zeroinitializer, ptr @.str.1142 }, { i32, [4 x i8], ptr } { i32 313, [4 x i8] zeroinitializer, ptr @.str.1143 }, { i32, [4 x i8], ptr } { i32 314, [4 x i8] zeroinitializer, ptr @.str.1144 }, { i32, [4 x i8], ptr } { i32 315, [4 x i8] zeroinitializer, ptr @.str.1145 }, { i32, [4 x i8], ptr } { i32 316, [4 x i8] zeroinitializer, ptr @.str.1146 }, { i32, [4 x i8], ptr } { i32 317, [4 x i8] zeroinitializer, ptr @.str.1147 }, { i32, [4 x i8], ptr } { i32 318, [4 x i8] zeroinitializer, ptr @.str.1148 }, { i32, [4 x i8], ptr } { i32 319, [4 x i8] zeroinitializer, ptr @.str.1149 }, { i32, [4 x i8], ptr } { i32 320, [4 x i8] zeroinitializer, ptr @.str.1150 }, { i32, [4 x i8], ptr } { i32 321, [4 x i8] zeroinitializer, ptr @.str.1151 }, { i32, [4 x i8], ptr } { i32 322, [4 x i8] zeroinitializer, ptr @.str.1152 }, { i32, [4 x i8], ptr } { i32 323, [4 x i8] zeroinitializer, ptr @.str.1153 }, { i32, [4 x i8], ptr } { i32 324, [4 x i8] zeroinitializer, ptr @.str.1154 }, { i32, [4 x i8], ptr } { i32 325, [4 x i8] zeroinitializer, ptr @.str.1155 }, { i32, [4 x i8], ptr } { i32 326, [4 x i8] zeroinitializer, ptr @.str.1156 }, { i32, [4 x i8], ptr } { i32 327, [4 x i8] zeroinitializer, ptr @.str.1157 }, { i32, [4 x i8], ptr } { i32 328, [4 x i8] zeroinitializer, ptr @.str.1158 }, { i32, [4 x i8], ptr } { i32 329, [4 x i8] zeroinitializer, ptr @.str.1159 }, { i32, [4 x i8], ptr } { i32 330, [4 x i8] zeroinitializer, ptr @.str.1160 }, { i32, [4 x i8], ptr } { i32 331, [4 x i8] zeroinitializer, ptr @.str.1161 }, { i32, [4 x i8], ptr } { i32 332, [4 x i8] zeroinitializer, ptr @.str.1162 }, { i32, [4 x i8], ptr } { i32 333, [4 x i8] zeroinitializer, ptr @.str.1163 }, { i32, [4 x i8], ptr } { i32 334, [4 x i8] zeroinitializer, ptr @.str.1164 }, { i32, [4 x i8], ptr } { i32 335, [4 x i8] zeroinitializer, ptr @.str.1165 }, { i32, [4 x i8], ptr } { i32 336, [4 x i8] zeroinitializer, ptr @.str.1166 }, { i32, [4 x i8], ptr } { i32 337, [4 x i8] zeroinitializer, ptr @.str.1167 }, { i32, [4 x i8], ptr } { i32 338, [4 x i8] zeroinitializer, ptr @.str.1168 }, { i32, [4 x i8], ptr } { i32 339, [4 x i8] zeroinitializer, ptr @.str.1169 }, { i32, [4 x i8], ptr } { i32 340, [4 x i8] zeroinitializer, ptr @.str.1170 }, { i32, [4 x i8], ptr } { i32 341, [4 x i8] zeroinitializer, ptr @.str.1171 }, { i32, [4 x i8], ptr } { i32 342, [4 x i8] zeroinitializer, ptr @.str.1172 }, { i32, [4 x i8], ptr } { i32 343, [4 x i8] zeroinitializer, ptr @.str.1173 }, { i32, [4 x i8], ptr } { i32 344, [4 x i8] zeroinitializer, ptr @.str.1174 }, { i32, [4 x i8], ptr } { i32 345, [4 x i8] zeroinitializer, ptr @.str.1175 }, { i32, [4 x i8], ptr } { i32 346, [4 x i8] zeroinitializer, ptr @.str.1176 }, { i32, [4 x i8], ptr } { i32 347, [4 x i8] zeroinitializer, ptr @.str.1177 }, { i32, [4 x i8], ptr } { i32 348, [4 x i8] zeroinitializer, ptr @.str.1178 }, { i32, [4 x i8], ptr } { i32 349, [4 x i8] zeroinitializer, ptr @.str.1179 }, { i32, [4 x i8], ptr } { i32 350, [4 x i8] zeroinitializer, ptr @.str.1180 }, { i32, [4 x i8], ptr } { i32 351, [4 x i8] zeroinitializer, ptr @.str.1181 }, { i32, [4 x i8], ptr } { i32 352, [4 x i8] zeroinitializer, ptr @.str.1182 }, { i32, [4 x i8], ptr } { i32 353, [4 x i8] zeroinitializer, ptr @.str.1183 }, { i32, [4 x i8], ptr } { i32 354, [4 x i8] zeroinitializer, ptr @.str.1184 }, { i32, [4 x i8], ptr } { i32 355, [4 x i8] zeroinitializer, ptr @.str.1185 }, { i32, [4 x i8], ptr } { i32 356, [4 x i8] zeroinitializer, ptr @.str.1186 }, { i32, [4 x i8], ptr } { i32 357, [4 x i8] zeroinitializer, ptr @.str.1187 }, { i32, [4 x i8], ptr } { i32 358, [4 x i8] zeroinitializer, ptr @.str.1188 }, { i32, [4 x i8], ptr } { i32 359, [4 x i8] zeroinitializer, ptr @.str.1189 }, { i32, [4 x i8], ptr } { i32 360, [4 x i8] zeroinitializer, ptr @.str.1190 }, { i32, [4 x i8], ptr } { i32 361, [4 x i8] zeroinitializer, ptr @.str.1191 }, { i32, [4 x i8], ptr } { i32 362, [4 x i8] zeroinitializer, ptr @.str.1192 }, { i32, [4 x i8], ptr } { i32 363, [4 x i8] zeroinitializer, ptr @.str.1193 }, { i32, [4 x i8], ptr } { i32 364, [4 x i8] zeroinitializer, ptr @.str.1194 }, { i32, [4 x i8], ptr } { i32 365, [4 x i8] zeroinitializer, ptr @.str.1195 }, { i32, [4 x i8], ptr } { i32 366, [4 x i8] zeroinitializer, ptr @.str.1195 }, { i32, [4 x i8], ptr } { i32 367, [4 x i8] zeroinitializer, ptr @.str.1195 }, { i32, [4 x i8], ptr } { i32 368, [4 x i8] zeroinitializer, ptr @.str.1196 }, { i32, [4 x i8], ptr } { i32 369, [4 x i8] zeroinitializer, ptr @.str.1197 }, { i32, [4 x i8], ptr } { i32 370, [4 x i8] zeroinitializer, ptr @.str.1198 }, { i32, [4 x i8], ptr } { i32 371, [4 x i8] zeroinitializer, ptr @.str.1199 }, { i32, [4 x i8], ptr } { i32 372, [4 x i8] zeroinitializer, ptr @.str.1200 }, { i32, [4 x i8], ptr } { i32 373, [4 x i8] zeroinitializer, ptr @.str.1201 }, { i32, [4 x i8], ptr } { i32 374, [4 x i8] zeroinitializer, ptr @.str.1202 }, { i32, [4 x i8], ptr } { i32 375, [4 x i8] zeroinitializer, ptr @.str.1203 }, { i32, [4 x i8], ptr } { i32 376, [4 x i8] zeroinitializer, ptr @.str.1204 }, { i32, [4 x i8], ptr } { i32 377, [4 x i8] zeroinitializer, ptr @.str.1205 }, { i32, [4 x i8], ptr } { i32 378, [4 x i8] zeroinitializer, ptr @.str.1195 }, { i32, [4 x i8], ptr } { i32 8192, [4 x i8] zeroinitializer, ptr @.str.1206 }, { i32, [4 x i8], ptr } { i32 8193, [4 x i8] zeroinitializer, ptr @.str.1207 }, { i32, [4 x i8], ptr } { i32 8194, [4 x i8] zeroinitializer, ptr @.str.1208 }, { i32, [4 x i8], ptr } { i32 8195, [4 x i8] zeroinitializer, ptr @.str.1209 }, { i32, [4 x i8], ptr } { i32 8196, [4 x i8] zeroinitializer, ptr @.str.1210 }, { i32, [4 x i8], ptr } { i32 8197, [4 x i8] zeroinitializer, ptr @.str.1211 }, { i32, [4 x i8], ptr } { i32 8198, [4 x i8] zeroinitializer, ptr @.str.1212 }, { i32, [4 x i8], ptr } { i32 8199, [4 x i8] zeroinitializer, ptr @.str.1213 }, { i32, [4 x i8], ptr } { i32 8200, [4 x i8] zeroinitializer, ptr @.str.1214 }, { i32, [4 x i8], ptr } { i32 8201, [4 x i8] zeroinitializer, ptr @.str.1215 }, { i32, [4 x i8], ptr } { i32 8202, [4 x i8] zeroinitializer, ptr @.str.1216 }, { i32, [4 x i8], ptr } { i32 8203, [4 x i8] zeroinitializer, ptr @.str.1217 }, { i32, [4 x i8], ptr } { i32 8204, [4 x i8] zeroinitializer, ptr @.str.1218 }, { i32, [4 x i8], ptr } { i32 8205, [4 x i8] zeroinitializer, ptr @.str.1219 }, { i32, [4 x i8], ptr } { i32 8206, [4 x i8] zeroinitializer, ptr @.str.1220 }, { i32, [4 x i8], ptr } { i32 8207, [4 x i8] zeroinitializer, ptr @.str.1221 }, { i32, [4 x i8], ptr } { i32 8208, [4 x i8] zeroinitializer, ptr @.str.1222 }, { i32, [4 x i8], ptr } { i32 8209, [4 x i8] zeroinitializer, ptr @.str.1223 }, { i32, [4 x i8], ptr } { i32 8210, [4 x i8] zeroinitializer, ptr @.str.1224 }, { i32, [4 x i8], ptr } { i32 8211, [4 x i8] zeroinitializer, ptr @.str.1225 }, { i32, [4 x i8], ptr } { i32 8212, [4 x i8] zeroinitializer, ptr @.str.1226 }, { i32, [4 x i8], ptr } { i32 8213, [4 x i8] zeroinitializer, ptr @.str.1227 }, { i32, [4 x i8], ptr } { i32 8214, [4 x i8] zeroinitializer, ptr @.str.1228 }, { i32, [4 x i8], ptr } { i32 8215, [4 x i8] zeroinitializer, ptr @.str.1229 }, { i32, [4 x i8], ptr } { i32 8216, [4 x i8] zeroinitializer, ptr @.str.1230 }, { i32, [4 x i8], ptr } { i32 8217, [4 x i8] zeroinitializer, ptr @.str.1231 }, { i32, [4 x i8], ptr } { i32 8218, [4 x i8] zeroinitializer, ptr @.str.1232 }, { i32, [4 x i8], ptr } { i32 8219, [4 x i8] zeroinitializer, ptr @.str.1233 }, { i32, [4 x i8], ptr } { i32 8220, [4 x i8] zeroinitializer, ptr @.str.1234 }, { i32, [4 x i8], ptr } { i32 8221, [4 x i8] zeroinitializer, ptr @.str.1235 }, { i32, [4 x i8], ptr } { i32 8222, [4 x i8] zeroinitializer, ptr @.str.1236 }, { i32, [4 x i8], ptr } { i32 8223, [4 x i8] zeroinitializer, ptr @.str.1237 }, { i32, [4 x i8], ptr } { i32 8224, [4 x i8] zeroinitializer, ptr @.str.1238 }, { i32, [4 x i8], ptr } { i32 8225, [4 x i8] zeroinitializer, ptr @.str.1239 }, { i32, [4 x i8], ptr } { i32 8226, [4 x i8] zeroinitializer, ptr @.str.1240 }, { i32, [4 x i8], ptr } { i32 8228, [4 x i8] zeroinitializer, ptr @.str.1241 }, { i32, [4 x i8], ptr } { i32 8229, [4 x i8] zeroinitializer, ptr @.str.1242 }, { i32, [4 x i8], ptr } { i32 8230, [4 x i8] zeroinitializer, ptr @.str.1243 }, { i32, [4 x i8], ptr } { i32 8231, [4 x i8] zeroinitializer, ptr @.str.1244 }, { i32, [4 x i8], ptr } { i32 8232, [4 x i8] zeroinitializer, ptr @.str.1245 }, { i32, [4 x i8], ptr } { i32 8233, [4 x i8] zeroinitializer, ptr @.str.1246 }, { i32, [4 x i8], ptr } { i32 8234, [4 x i8] zeroinitializer, ptr @.str.1247 }, { i32, [4 x i8], ptr } { i32 8235, [4 x i8] zeroinitializer, ptr @.str.1248 }, { i32, [4 x i8], ptr } { i32 8236, [4 x i8] zeroinitializer, ptr @.str.1249 }, { i32, [4 x i8], ptr } { i32 8237, [4 x i8] zeroinitializer, ptr @.str.1250 }, { i32, [4 x i8], ptr } { i32 8238, [4 x i8] zeroinitializer, ptr @.str.1251 }, { i32, [4 x i8], ptr } { i32 8239, [4 x i8] zeroinitializer, ptr @.str.1252 }, { i32, [4 x i8], ptr } { i32 8240, [4 x i8] zeroinitializer, ptr @.str.1253 }, { i32, [4 x i8], ptr } { i32 8241, [4 x i8] zeroinitializer, ptr @.str.1254 }, { i32, [4 x i8], ptr } { i32 8242, [4 x i8] zeroinitializer, ptr @.str.1255 }, { i32, [4 x i8], ptr } { i32 8243, [4 x i8] zeroinitializer, ptr @.str.1256 }, { i32, [4 x i8], ptr } { i32 8244, [4 x i8] zeroinitializer, ptr @.str.1257 }, { i32, [4 x i8], ptr } { i32 8245, [4 x i8] zeroinitializer, ptr @.str.1258 }, { i32, [4 x i8], ptr } { i32 8246, [4 x i8] zeroinitializer, ptr @.str.1259 }, { i32, [4 x i8], ptr } { i32 8247, [4 x i8] zeroinitializer, ptr @.str.1260 }, { i32, [4 x i8], ptr } { i32 8248, [4 x i8] zeroinitializer, ptr @.str.1261 }, { i32, [4 x i8], ptr } { i32 8249, [4 x i8] zeroinitializer, ptr @.str.1262 }, { i32, [4 x i8], ptr } { i32 8250, [4 x i8] zeroinitializer, ptr @.str.1263 }, { i32, [4 x i8], ptr } { i32 8251, [4 x i8] zeroinitializer, ptr @.str.1264 }, { i32, [4 x i8], ptr } { i32 8252, [4 x i8] zeroinitializer, ptr @.str.1265 }, { i32, [4 x i8], ptr } { i32 8253, [4 x i8] zeroinitializer, ptr @.str.1266 }, { i32, [4 x i8], ptr } { i32 8254, [4 x i8] zeroinitializer, ptr @.str.1267 }, { i32, [4 x i8], ptr } { i32 8255, [4 x i8] zeroinitializer, ptr @.str.1268 }, { i32, [4 x i8], ptr } { i32 8256, [4 x i8] zeroinitializer, ptr @.str.1269 }, { i32, [4 x i8], ptr } { i32 8257, [4 x i8] zeroinitializer, ptr @.str.1270 }, { i32, [4 x i8], ptr } { i32 8258, [4 x i8] zeroinitializer, ptr @.str.1271 }, { i32, [4 x i8], ptr } { i32 8259, [4 x i8] zeroinitializer, ptr @.str.1272 }, { i32, [4 x i8], ptr } { i32 8260, [4 x i8] zeroinitializer, ptr @.str.1273 }, { i32, [4 x i8], ptr } { i32 8261, [4 x i8] zeroinitializer, ptr @.str.1274 }, { i32, [4 x i8], ptr } { i32 8262, [4 x i8] zeroinitializer, ptr @.str.1275 }, { i32, [4 x i8], ptr } { i32 8263, [4 x i8] zeroinitializer, ptr @.str.1276 }, { i32, [4 x i8], ptr } { i32 8264, [4 x i8] zeroinitializer, ptr @.str.1277 }, { i32, [4 x i8], ptr } { i32 8265, [4 x i8] zeroinitializer, ptr @.str.1278 }, { i32, [4 x i8], ptr } { i32 8266, [4 x i8] zeroinitializer, ptr @.str.1279 }, { i32, [4 x i8], ptr } { i32 8267, [4 x i8] zeroinitializer, ptr @.str.1280 }, { i32, [4 x i8], ptr } { i32 8268, [4 x i8] zeroinitializer, ptr @.str.1281 }, { i32, [4 x i8], ptr } { i32 8269, [4 x i8] zeroinitializer, ptr @.str.1282 }, { i32, [4 x i8], ptr } { i32 8270, [4 x i8] zeroinitializer, ptr @.str.1283 }, { i32, [4 x i8], ptr } { i32 8271, [4 x i8] zeroinitializer, ptr @.str.1284 }, { i32, [4 x i8], ptr } { i32 8272, [4 x i8] zeroinitializer, ptr @.str.1285 }, { i32, [4 x i8], ptr } { i32 8273, [4 x i8] zeroinitializer, ptr @.str.1286 }, { i32, [4 x i8], ptr } { i32 8274, [4 x i8] zeroinitializer, ptr @.str.1287 }, { i32, [4 x i8], ptr } { i32 8275, [4 x i8] zeroinitializer, ptr @.str.1288 }, { i32, [4 x i8], ptr } { i32 8276, [4 x i8] zeroinitializer, ptr @.str.1289 }, { i32, [4 x i8], ptr } { i32 8277, [4 x i8] zeroinitializer, ptr @.str.1290 }, { i32, [4 x i8], ptr } { i32 8278, [4 x i8] zeroinitializer, ptr @.str.1291 }, { i32, [4 x i8], ptr } { i32 8279, [4 x i8] zeroinitializer, ptr @.str.1292 }, { i32, [4 x i8], ptr } { i32 8280, [4 x i8] zeroinitializer, ptr @.str.1293 }, { i32, [4 x i8], ptr } { i32 8281, [4 x i8] zeroinitializer, ptr @.str.1294 }, { i32, [4 x i8], ptr } { i32 8282, [4 x i8] zeroinitializer, ptr @.str.1295 }, { i32, [4 x i8], ptr } { i32 8283, [4 x i8] zeroinitializer, ptr @.str.1296 }, { i32, [4 x i8], ptr } { i32 8284, [4 x i8] zeroinitializer, ptr @.str.1297 }, { i32, [4 x i8], ptr } { i32 8285, [4 x i8] zeroinitializer, ptr @.str.1298 }, { i32, [4 x i8], ptr } { i32 8286, [4 x i8] zeroinitializer, ptr @.str.1299 }, { i32, [4 x i8], ptr } { i32 8287, [4 x i8] zeroinitializer, ptr @.str.1300 }, { i32, [4 x i8], ptr } { i32 8288, [4 x i8] zeroinitializer, ptr @.str.1301 }, { i32, [4 x i8], ptr } { i32 8289, [4 x i8] zeroinitializer, ptr @.str.1302 }, { i32, [4 x i8], ptr } { i32 8290, [4 x i8] zeroinitializer, ptr @.str.1303 }, { i32, [4 x i8], ptr } { i32 8291, [4 x i8] zeroinitializer, ptr @.str.1304 }, { i32, [4 x i8], ptr } { i32 8292, [4 x i8] zeroinitializer, ptr @.str.1305 }, { i32, [4 x i8], ptr } { i32 8293, [4 x i8] zeroinitializer, ptr @.str.1306 }, { i32, [4 x i8], ptr } { i32 8294, [4 x i8] zeroinitializer, ptr @.str.1307 }, { i32, [4 x i8], ptr } { i32 8295, [4 x i8] zeroinitializer, ptr @.str.1308 }, { i32, [4 x i8], ptr } { i32 8296, [4 x i8] zeroinitializer, ptr @.str.1309 }, { i32, [4 x i8], ptr } { i32 8297, [4 x i8] zeroinitializer, ptr @.str.1310 }, { i32, [4 x i8], ptr } { i32 8298, [4 x i8] zeroinitializer, ptr @.str.1311 }, { i32, [4 x i8], ptr } { i32 8299, [4 x i8] zeroinitializer, ptr @.str.1312 }, { i32, [4 x i8], ptr } { i32 8300, [4 x i8] zeroinitializer, ptr @.str.1313 }, { i32, [4 x i8], ptr } { i32 8301, [4 x i8] zeroinitializer, ptr @.str.1314 }, { i32, [4 x i8], ptr } { i32 8302, [4 x i8] zeroinitializer, ptr @.str.1315 }, { i32, [4 x i8], ptr } { i32 8303, [4 x i8] zeroinitializer, ptr @.str.1316 }, { i32, [4 x i8], ptr } { i32 8304, [4 x i8] zeroinitializer, ptr @.str.1317 }, { i32, [4 x i8], ptr } { i32 8305, [4 x i8] zeroinitializer, ptr @.str.1318 }, { i32, [4 x i8], ptr } { i32 8306, [4 x i8] zeroinitializer, ptr @.str.1319 }, { i32, [4 x i8], ptr } { i32 8307, [4 x i8] zeroinitializer, ptr @.str.1320 }, { i32, [4 x i8], ptr } { i32 8308, [4 x i8] zeroinitializer, ptr @.str.1321 }, { i32, [4 x i8], ptr } { i32 8309, [4 x i8] zeroinitializer, ptr @.str.1322 }, { i32, [4 x i8], ptr } { i32 8310, [4 x i8] zeroinitializer, ptr @.str.1323 }, { i32, [4 x i8], ptr } { i32 8311, [4 x i8] zeroinitializer, ptr @.str.1324 }, { i32, [4 x i8], ptr } { i32 8312, [4 x i8] zeroinitializer, ptr @.str.1325 }, { i32, [4 x i8], ptr } { i32 8313, [4 x i8] zeroinitializer, ptr @.str.1326 }, { i32, [4 x i8], ptr } { i32 8314, [4 x i8] zeroinitializer, ptr @.str.1327 }, { i32, [4 x i8], ptr } { i32 8315, [4 x i8] zeroinitializer, ptr @.str.1328 }, { i32, [4 x i8], ptr } { i32 8316, [4 x i8] zeroinitializer, ptr @.str.1329 }, { i32, [4 x i8], ptr } { i32 8317, [4 x i8] zeroinitializer, ptr @.str.1330 }, { i32, [4 x i8], ptr } { i32 8318, [4 x i8] zeroinitializer, ptr @.str.1331 }, { i32, [4 x i8], ptr } { i32 8319, [4 x i8] zeroinitializer, ptr @.str.1332 }, { i32, [4 x i8], ptr } { i32 8448, [4 x i8] zeroinitializer, ptr @.str.1333 }, { i32, [4 x i8], ptr } { i32 8449, [4 x i8] zeroinitializer, ptr @.str.1334 }, { i32, [4 x i8], ptr } { i32 8450, [4 x i8] zeroinitializer, ptr @.str.1335 }, { i32, [4 x i8], ptr } { i32 8451, [4 x i8] zeroinitializer, ptr @.str.1336 }, { i32, [4 x i8], ptr } { i32 8452, [4 x i8] zeroinitializer, ptr @.str.1337 }, { i32, [4 x i8], ptr } { i32 8453, [4 x i8] zeroinitializer, ptr @.str.1338 }, { i32, [4 x i8], ptr } { i32 8454, [4 x i8] zeroinitializer, ptr @.str.1339 }, { i32, [4 x i8], ptr } { i32 8455, [4 x i8] zeroinitializer, ptr @.str.1340 }, { i32, [4 x i8], ptr } { i32 8456, [4 x i8] zeroinitializer, ptr @.str.1341 }, { i32, [4 x i8], ptr } { i32 16384, [4 x i8] zeroinitializer, ptr @.str.1342 }, { i32, [4 x i8], ptr } { i32 16385, [4 x i8] zeroinitializer, ptr @.str.1343 }, { i32, [4 x i8], ptr } { i32 16387, [4 x i8] zeroinitializer, ptr @.str.1344 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1346 = private unnamed_addr constant [26 x i8] c"Chapter D journal present\00", align 1
+@.str.1347 = private unnamed_addr constant [30 x i8] c"Chapter D journal NOT present\00", align 1
+@.str.1348 = private unnamed_addr constant [26 x i8] c"Chapter V journal present\00", align 1
+@.str.1349 = private unnamed_addr constant [30 x i8] c"Chapter V journal NOT present\00", align 1
+@.str.1350 = private unnamed_addr constant [26 x i8] c"Chapter Q journal present\00", align 1
+@.str.1351 = private unnamed_addr constant [30 x i8] c"Chapter Q journal NOT present\00", align 1
+@.str.1352 = private unnamed_addr constant [26 x i8] c"Chapter F journal present\00", align 1
+@.str.1353 = private unnamed_addr constant [30 x i8] c"Chapter F journal NOT present\00", align 1
+@.str.1354 = private unnamed_addr constant [26 x i8] c"Chapter X journal present\00", align 1
+@.str.1355 = private unnamed_addr constant [30 x i8] c"Chapter X journal NOT present\00", align 1
+@.str.1356 = private unnamed_addr constant [26 x i8] c"Chapter P journal present\00", align 1
+@.str.1357 = private unnamed_addr constant [30 x i8] c"Chapter P journal NOT present\00", align 1
+@.str.1358 = private unnamed_addr constant [26 x i8] c"Chapter C journal present\00", align 1
+@.str.1359 = private unnamed_addr constant [30 x i8] c"Chapter C journal NOT present\00", align 1
+@.str.1360 = private unnamed_addr constant [26 x i8] c"Chapter M journal present\00", align 1
+@.str.1361 = private unnamed_addr constant [30 x i8] c"Chapter M journal NOT present\00", align 1
+@.str.1362 = private unnamed_addr constant [26 x i8] c"Chapter W journal present\00", align 1
+@.str.1363 = private unnamed_addr constant [30 x i8] c"Chapter W journal NOT present\00", align 1
+@.str.1364 = private unnamed_addr constant [26 x i8] c"Chapter N journal present\00", align 1
+@.str.1365 = private unnamed_addr constant [30 x i8] c"Chapter N journal NOT present\00", align 1
+@.str.1366 = private unnamed_addr constant [26 x i8] c"Chapter E journal present\00", align 1
+@.str.1367 = private unnamed_addr constant [30 x i8] c"Chapter E journal NOT present\00", align 1
+@.str.1368 = private unnamed_addr constant [26 x i8] c"Chapter T journal present\00", align 1
+@.str.1369 = private unnamed_addr constant [30 x i8] c"Chapter T journal NOT present\00", align 1
+@.str.1370 = private unnamed_addr constant [26 x i8] c"Chapter A journal present\00", align 1
+@.str.1371 = private unnamed_addr constant [30 x i8] c"Chapter A journal NOT present\00", align 1
+@.str.1372 = private unnamed_addr constant [51 x i8] c"Reset all controllers received between MSB and LSB\00", align 1
+@.str.1373 = private unnamed_addr constant [54 x i8] c"NO Reset all controllers received between MSB and LSB\00", align 1
+@.str.1374 = private unnamed_addr constant [19 x i8] c"Alternative Coding\00", align 1
+@.str.1375 = private unnamed_addr constant [13 x i8] c"Value Coding\00", align 1
+@.str.1376 = private unnamed_addr constant [25 x i8] c"Pending field is encoded\00", align 1
+@.str.1377 = private unnamed_addr constant [29 x i8] c"Pending field is NOT encoded\00", align 1
+@.str.1378 = private unnamed_addr constant [37 x i8] c"Initiated transaction is in progress\00", align 1
+@.str.1379 = private unnamed_addr constant [27 x i8] c"NO transaction in progress\00", align 1
+@.str.1380 = private unnamed_addr constant [24 x i8] c"All parameters are RPNs\00", align 1
+@.str.1381 = private unnamed_addr constant [29 x i8] c"Parameters may include NRPNs\00", align 1
+@.str.1382 = private unnamed_addr constant [25 x i8] c"All parameters are NRPNs\00", align 1
+@.str.1383 = private unnamed_addr constant [28 x i8] c"Parameters may include RPNs\00", align 1
+@.str.1384 = private unnamed_addr constant [20 x i8] c"Only LSB parameters\00", align 1
+@.str.1385 = private unnamed_addr constant [30 x i8] c"Parameters may have LSB & MSB\00", align 1
+@.str.1386 = private unnamed_addr constant [25 x i8] c"Pending encodes NRPN MSB\00", align 1
+@.str.1387 = private unnamed_addr constant [24 x i8] c"Pending encodes RPN MSB\00", align 1
+@.str.1388 = private unnamed_addr constant [23 x i8] c"NRPN parameter encoded\00", align 1
+@.str.1389 = private unnamed_addr constant [22 x i8] c"RPN parameter encoded\00", align 1
+@.str.1390 = private unnamed_addr constant [24 x i8] c"ENTRY-MSB field present\00", align 1
+@.str.1391 = private unnamed_addr constant [28 x i8] c"ENTRY-MSB field NOT present\00", align 1
+@.str.1392 = private unnamed_addr constant [24 x i8] c"ENTRY-LSB field present\00", align 1
+@.str.1393 = private unnamed_addr constant [28 x i8] c"ENTRY-LSB field NOT present\00", align 1
+@.str.1394 = private unnamed_addr constant [23 x i8] c"A-Button field present\00", align 1
+@.str.1395 = private unnamed_addr constant [27 x i8] c"A-Button field NOT present\00", align 1
+@.str.1396 = private unnamed_addr constant [23 x i8] c"C-Button field present\00", align 1
+@.str.1397 = private unnamed_addr constant [27 x i8] c"C-Button field NOT present\00", align 1
+@.str.1398 = private unnamed_addr constant [20 x i8] c"Count field present\00", align 1
+@.str.1399 = private unnamed_addr constant [24 x i8] c"Count field NOT present\00", align 1
+@.str.1400 = private unnamed_addr constant [16 x i8] c"Count Tool used\00", align 1
+@.str.1401 = private unnamed_addr constant [20 x i8] c"Count Tool NOT used\00", align 1
+@.str.1402 = private unnamed_addr constant [16 x i8] c"Value Tool used\00", align 1
+@.str.1403 = private unnamed_addr constant [20 x i8] c"Value Tool NOT used\00", align 1
+@.str.1404 = private unnamed_addr constant [18 x i8] c"Reserved-Flag set\00", align 1
+@.str.1405 = private unnamed_addr constant [22 x i8] c"Reserved-Flag NOT set\00", align 1
+@.str.1406 = private unnamed_addr constant [57 x i8] c"Precedes most recent Control Change command for ctrl=121\00", align 1
+@.str.1407 = private unnamed_addr constant [65 x i8] c"Does not precede most recent Control Change command for ctrl=121\00", align 1
+@.str.1408 = private unnamed_addr constant [15 x i8] c"negative value\00", align 1
+@.str.1409 = private unnamed_addr constant [15 x i8] c"positive value\00", align 1
+@.str.1410 = private unnamed_addr constant [16 x i8] c"Execute Note-On\00", align 1
+@.str.1411 = private unnamed_addr constant [13 x i8] c"Skip Note-On\00", align 1
+@.str.1412 = private unnamed_addr constant [26 x i8] c"Encodes Note-Off velocity\00", align 1
+@.str.1413 = private unnamed_addr constant [26 x i8] c"Encodes Note-On/Off count\00", align 1
+@.str.1414 = private unnamed_addr constant [61 x i8] c"Precedes most recent Control Change command for ctrl=123-127\00", align 1
+@.str.1415 = private unnamed_addr constant [69 x i8] c"Does not precede most recent Control Change command for ctrl=123-127\00", align 1
+@.str.1416 = private unnamed_addr constant [20 x i8] c"Reset field present\00", align 1
+@.str.1417 = private unnamed_addr constant [24 x i8] c"Reset field NOT present\00", align 1
+@.str.1418 = private unnamed_addr constant [27 x i8] c"Tune request field present\00", align 1
+@.str.1419 = private unnamed_addr constant [31 x i8] c"Tune request field NOT present\00", align 1
+@.str.1420 = private unnamed_addr constant [26 x i8] c"Song select field present\00", align 1
+@.str.1421 = private unnamed_addr constant [30 x i8] c"Song select field NOT present\00", align 1
+@.str.1422 = private unnamed_addr constant [43 x i8] c"Undefined system common 0xF4 field present\00", align 1
+@.str.1423 = private unnamed_addr constant [47 x i8] c"Undefined system common 0xF4 field NOT present\00", align 1
+@.str.1424 = private unnamed_addr constant [43 x i8] c"Undefined system common 0xF5 field present\00", align 1
+@.str.1425 = private unnamed_addr constant [47 x i8] c"Undefined system common 0xF5 field NOT present\00", align 1
+@.str.1426 = private unnamed_addr constant [43 x i8] c"Undefined system common 0xF9 field present\00", align 1
+@.str.1427 = private unnamed_addr constant [47 x i8] c"Undefined system common 0xF9 field NOT present\00", align 1
+@.str.1428 = private unnamed_addr constant [43 x i8] c"Undefined system common 0xFD field present\00", align 1
+@.str.1429 = private unnamed_addr constant [47 x i8] c"Undefined system common 0xFD field NOT present\00", align 1
+@.str.1430 = private unnamed_addr constant [20 x i8] c"Value field present\00", align 1
+@.str.1431 = private unnamed_addr constant [24 x i8] c"Value field NOT present\00", align 1
+@.str.1432 = private unnamed_addr constant [20 x i8] c"Legal field present\00", align 1
+@.str.1433 = private unnamed_addr constant [24 x i8] c"Legal field NOT present\00", align 1
+@.str.1434 = private unnamed_addr constant [21 x i8] c"Command has 0 octets\00", align 1
+@.str.1435 = private unnamed_addr constant [20 x i8] c"Command has 1 octet\00", align 1
+@.str.1436 = private unnamed_addr constant [21 x i8] c"Command has 2 octets\00", align 1
+@.str.1437 = private unnamed_addr constant [29 x i8] c"Command has 3 or more octets\00", align 1
+@rtp_midi_sj_chapter_d_syscom_dsz_values = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1434 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1435 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1436 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.1437 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1439 = private unnamed_addr constant [24 x i8] c"Active Start / Continue\00", align 1
+@.str.1440 = private unnamed_addr constant [32 x i8] c"NO active Start / Stop Continue\00", align 1
+@.str.1441 = private unnamed_addr constant [30 x i8] c"Song position already reached\00", align 1
+@.str.1442 = private unnamed_addr constant [32 x i8] c"Song position yet to be reached\00", align 1
+@.str.1443 = private unnamed_addr constant [20 x i8] c"Clock field present\00", align 1
+@.str.1444 = private unnamed_addr constant [24 x i8] c"Clock field NOT present\00", align 1
+@.str.1445 = private unnamed_addr constant [24 x i8] c"Timetools field present\00", align 1
+@.str.1446 = private unnamed_addr constant [28 x i8] c"Timetools field NOT present\00", align 1
+@.str.1447 = private unnamed_addr constant [23 x i8] c"Complete field present\00", align 1
+@.str.1448 = private unnamed_addr constant [27 x i8] c"Complete field NOT present\00", align 1
+@.str.1449 = private unnamed_addr constant [22 x i8] c"Partial field present\00", align 1
+@.str.1450 = private unnamed_addr constant [26 x i8] c"Partial field NOT present\00", align 1
+@.str.1451 = private unnamed_addr constant [39 x i8] c"Complete field contains quarter frames\00", align 1
+@.str.1452 = private unnamed_addr constant [42 x i8] c"Complete field contains full frame format\00", align 1
+@.str.1453 = private unnamed_addr constant [28 x i8] c"Tape head is moving reverse\00", align 1
+@.str.1454 = private unnamed_addr constant [41 x i8] c"Tape head is moving forward or undefined\00", align 1
+@.str.1455 = private unnamed_addr constant [21 x i8] c"TCOUNT field present\00", align 1
+@.str.1456 = private unnamed_addr constant [25 x i8] c"TCOUNT field NOT present\00", align 1
+@.str.1457 = private unnamed_addr constant [20 x i8] c"COUNT field present\00", align 1
+@.str.1458 = private unnamed_addr constant [24 x i8] c"COUNT field NOT present\00", align 1
+@.str.1459 = private unnamed_addr constant [20 x i8] c"FIRST field present\00", align 1
+@.str.1460 = private unnamed_addr constant [24 x i8] c"FIRST field NOT present\00", align 1
+@.str.1461 = private unnamed_addr constant [19 x i8] c"DATA field present\00", align 1
+@.str.1462 = private unnamed_addr constant [23 x i8] c"DATA field not present\00", align 1
+@.str.1463 = private unnamed_addr constant [15 x i8] c"List Tool used\00", align 1
+@.str.1464 = private unnamed_addr constant [18 x i8] c"Recency Tool used\00", align 1
+@.str.1465 = private unnamed_addr constant [22 x i8] c"Frame count LS nibble\00", align 1
+@.str.1466 = private unnamed_addr constant [22 x i8] c"Frame count MS nibble\00", align 1
+@.str.1467 = private unnamed_addr constant [24 x i8] c"Seconds count LS nibble\00", align 1
+@.str.1468 = private unnamed_addr constant [24 x i8] c"Seconds count MS nibble\00", align 1
+@.str.1469 = private unnamed_addr constant [24 x i8] c"Minutes count LS nibble\00", align 1
+@.str.1470 = private unnamed_addr constant [24 x i8] c"Minutes count MS nibble\00", align 1
+@.str.1471 = private unnamed_addr constant [22 x i8] c"Hours count LS nibble\00", align 1
+@.str.1472 = private unnamed_addr constant [22 x i8] c"Hours count MS nibble\00", align 1
+@rtp_midi_qft_values = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1465 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1466 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1467 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.1468 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.1469 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.1470 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.1471 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.1472 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1474 = private unnamed_addr constant [32 x i8] c"Common RT: MIDI Time Code (MTC)\00", align 1
+@.str.1475 = private unnamed_addr constant [29 x i8] c"Common RT: MIDI Show Control\00", align 1
+@.str.1476 = private unnamed_addr constant [32 x i8] c"Common RT: Notation Information\00", align 1
+@.str.1477 = private unnamed_addr constant [26 x i8] c"Common RT: Device Control\00", align 1
+@.str.1478 = private unnamed_addr constant [32 x i8] c"Common RT: Real Time MTC Cueing\00", align 1
+@.str.1479 = private unnamed_addr constant [40 x i8] c"Common RT: MIDI Machine Control Command\00", align 1
+@.str.1480 = private unnamed_addr constant [41 x i8] c"Common RT: MIDI Machine Control Response\00", align 1
+@.str.1481 = private unnamed_addr constant [32 x i8] c"Common RT: MIDI Tuning Standard\00", align 1
+@rtp_midi_sysex_common_rt = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1474 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1475 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.1476 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.1477 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.1478 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.1479 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.1480 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.1481 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1483 = private unnamed_addr constant [31 x i8] c"Common NRT: Sample Dump Header\00", align 1
+@.str.1484 = private unnamed_addr constant [31 x i8] c"Common NRT: Sample Data Packet\00", align 1
+@.str.1485 = private unnamed_addr constant [32 x i8] c"Common NRT: Sample Dump Request\00", align 1
+@.str.1486 = private unnamed_addr constant [33 x i8] c"Common NRT: MIDI Time Code (MTC)\00", align 1
+@.str.1487 = private unnamed_addr constant [35 x i8] c"Common NRT: Sample Dump Extensions\00", align 1
+@.str.1488 = private unnamed_addr constant [32 x i8] c"Common NRT: General Information\00", align 1
+@.str.1489 = private unnamed_addr constant [22 x i8] c"Common NRT: File Dump\00", align 1
+@.str.1490 = private unnamed_addr constant [33 x i8] c"Common NRT: Midi Tuning Standard\00", align 1
+@.str.1491 = private unnamed_addr constant [30 x i8] c"Common NRT: General MIDI (GM)\00", align 1
+@.str.1492 = private unnamed_addr constant [38 x i8] c"Common NRT: Downloadable Sounds (DLS)\00", align 1
+@.str.1493 = private unnamed_addr constant [24 x i8] c"Common NRT: End Of File\00", align 1
+@.str.1494 = private unnamed_addr constant [17 x i8] c"Common NRT: Wait\00", align 1
+@.str.1495 = private unnamed_addr constant [19 x i8] c"Common NRT: Cancel\00", align 1
+@.str.1496 = private unnamed_addr constant [16 x i8] c"Common NRT: NAK\00", align 1
+@.str.1497 = private unnamed_addr constant [16 x i8] c"Common NRT: ACK\00", align 1
+@rtp_midi_sysex_common_nrt = internal constant [16 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1483 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1484 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.1485 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.1486 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.1487 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.1488 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.1489 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.1490 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.1491 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.1492 }, { i32, [4 x i8], ptr } { i32 123, [4 x i8] zeroinitializer, ptr @.str.1493 }, { i32, [4 x i8], ptr } { i32 124, [4 x i8] zeroinitializer, ptr @.str.1494 }, { i32, [4 x i8], ptr } { i32 125, [4 x i8] zeroinitializer, ptr @.str.1495 }, { i32, [4 x i8], ptr } { i32 126, [4 x i8] zeroinitializer, ptr @.str.1496 }, { i32, [4 x i8], ptr } { i32 127, [4 x i8] zeroinitializer, ptr @.str.1497 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1499 = private unnamed_addr constant [24 x i8] c"Loop Point Transmission\00", align 1
+@.str.1500 = private unnamed_addr constant [20 x i8] c"Loop Points Request\00", align 1
+@rtp_midi_sysex_common_nrt_sd_ext = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1499 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1500 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1502 = private unnamed_addr constant [17 x i8] c"Identity Request\00", align 1
+@.str.1503 = private unnamed_addr constant [15 x i8] c"Identity Reply\00", align 1
+@rtp_midi_sysex_common_nrt_gi = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1502 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1503 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1505 = private unnamed_addr constant [7 x i8] c"Header\00", align 1
+@.str.1506 = private unnamed_addr constant [12 x i8] c"Data Packet\00", align 1
+@.str.1507 = private unnamed_addr constant [8 x i8] c"Request\00", align 1
+@rtp_midi_sysex_common_nrt_fd = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1505 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1506 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.1507 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1509 = private unnamed_addr constant [18 x i8] c"Bulk Dump Request\00", align 1
+@.str.1510 = private unnamed_addr constant [16 x i8] c"Bulk Dump Reply\00", align 1
+@.str.1511 = private unnamed_addr constant [12 x i8] c"Note Change\00", align 1
+@rtp_midi_sysex_common_tuning = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1509 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1510 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1511 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1513 = private unnamed_addr constant [23 x i8] c"General MIDI System On\00", align 1
+@.str.1514 = private unnamed_addr constant [24 x i8] c"General MIDI System Off\00", align 1
+@rtp_midi_sysex_common_nrt_gm = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1513 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1514 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1516 = private unnamed_addr constant [15 x i8] c"DLS Level 1 On\00", align 1
+@.str.1517 = private unnamed_addr constant [16 x i8] c"DLS Level 1 Off\00", align 1
+@.str.1518 = private unnamed_addr constant [33 x i8] c"DLS Level 1 Voice Allocation Off\00", align 1
+@.str.1519 = private unnamed_addr constant [32 x i8] c"DLS Level 1 Voice Allocation On\00", align 1
+@rtp_midi_sysex_common_nrt_dls = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1516 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1517 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.1518 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.1519 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1521 = private unnamed_addr constant [13 x i8] c"Full Message\00", align 1
+@.str.1522 = private unnamed_addr constant [10 x i8] c"User Bits\00", align 1
+@rtp_midi_sysex_common_rt_mtc = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1521 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1522 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1524 = private unnamed_addr constant [38 x i8] c"rtp_midi_sysex_common_rt_show_control\00", align 1
+@.str.1525 = private unnamed_addr constant [11 x i8] c"Extensions\00", align 1
+@.str.1526 = private unnamed_addr constant [28 x i8] c"Lighting (General Category)\00", align 1
+@.str.1527 = private unnamed_addr constant [14 x i8] c"Moving Lights\00", align 1
+@.str.1528 = private unnamed_addr constant [15 x i8] c"Color Changers\00", align 1
+@.str.1529 = private unnamed_addr constant [8 x i8] c"Strobes\00", align 1
+@.str.1530 = private unnamed_addr constant [7 x i8] c"Lasers\00", align 1
+@.str.1531 = private unnamed_addr constant [8 x i8] c"Chasers\00", align 1
+@.str.1532 = private unnamed_addr constant [25 x i8] c"Sound (General Category)\00", align 1
+@.str.1533 = private unnamed_addr constant [6 x i8] c"Music\00", align 1
+@.str.1534 = private unnamed_addr constant [11 x i8] c"CD Players\00", align 1
+@.str.1535 = private unnamed_addr constant [15 x i8] c"EPROM Playback\00", align 1
+@.str.1536 = private unnamed_addr constant [19 x i8] c"Audio Tape Machine\00", align 1
+@.str.1537 = private unnamed_addr constant [10 x i8] c"Intercoms\00", align 1
+@.str.1538 = private unnamed_addr constant [11 x i8] c"Amplifiers\00", align 1
+@.str.1539 = private unnamed_addr constant [22 x i8] c"Audio Effects Devices\00", align 1
+@.str.1540 = private unnamed_addr constant [11 x i8] c"Equalizers\00", align 1
+@.str.1541 = private unnamed_addr constant [28 x i8] c"Machinery (General Category\00", align 1
+@.str.1542 = private unnamed_addr constant [8 x i8] c"Rigging\00", align 1
+@.str.1543 = private unnamed_addr constant [5 x i8] c"Flys\00", align 1
+@.str.1544 = private unnamed_addr constant [6 x i8] c"Lifts\00", align 1
+@.str.1545 = private unnamed_addr constant [11 x i8] c"Turntables\00", align 1
+@.str.1546 = private unnamed_addr constant [8 x i8] c"Trusses\00", align 1
+@.str.1547 = private unnamed_addr constant [7 x i8] c"Robots\00", align 1
+@.str.1548 = private unnamed_addr constant [10 x i8] c"Animation\00", align 1
+@.str.1549 = private unnamed_addr constant [7 x i8] c"Floats\00", align 1
+@.str.1550 = private unnamed_addr constant [11 x i8] c"Breakaways\00", align 1
+@.str.1551 = private unnamed_addr constant [7 x i8] c"Barges\00", align 1
+@.str.1552 = private unnamed_addr constant [24 x i8] c"Video (General Category\00", align 1
+@.str.1553 = private unnamed_addr constant [20 x i8] c"Video Tape Machines\00", align 1
+@.str.1554 = private unnamed_addr constant [24 x i8] c"Video Cassette Machines\00", align 1
+@.str.1555 = private unnamed_addr constant [19 x i8] c"Video Disc Players\00", align 1
+@.str.1556 = private unnamed_addr constant [16 x i8] c"Video Switchers\00", align 1
+@.str.1557 = private unnamed_addr constant [14 x i8] c"Video Effects\00", align 1
+@.str.1558 = private unnamed_addr constant [27 x i8] c"Video Character Generators\00", align 1
+@.str.1559 = private unnamed_addr constant [19 x i8] c"Video Still Stores\00", align 1
+@.str.1560 = private unnamed_addr constant [15 x i8] c"Video Monitors\00", align 1
+@.str.1561 = private unnamed_addr constant [22 x i8] c"Projections (General)\00", align 1
+@.str.1562 = private unnamed_addr constant [16 x i8] c"Film Projectors\00", align 1
+@.str.1563 = private unnamed_addr constant [17 x i8] c"Slide Projectors\00", align 1
+@.str.1564 = private unnamed_addr constant [17 x i8] c"Video Projectors\00", align 1
+@.str.1565 = private unnamed_addr constant [11 x i8] c"Dissolvers\00", align 1
+@.str.1566 = private unnamed_addr constant [17 x i8] c"Shutter Controls\00", align 1
+@.str.1567 = private unnamed_addr constant [26 x i8] c"Process Control (General)\00", align 1
+@.str.1568 = private unnamed_addr constant [14 x i8] c"Hydraulic Oil\00", align 1
+@.str.1569 = private unnamed_addr constant [4 x i8] c"H2O\00", align 1
+@.str.1570 = private unnamed_addr constant [4 x i8] c"CO2\00", align 1
+@.str.1571 = private unnamed_addr constant [15 x i8] c"Compressed Air\00", align 1
+@.str.1572 = private unnamed_addr constant [12 x i8] c"Natural Gas\00", align 1
+@.str.1573 = private unnamed_addr constant [4 x i8] c"Fog\00", align 1
+@.str.1574 = private unnamed_addr constant [6 x i8] c"Smoke\00", align 1
+@.str.1575 = private unnamed_addr constant [13 x i8] c"Cracked Haze\00", align 1
+@.str.1576 = private unnamed_addr constant [24 x i8] c"Pyro (General Category)\00", align 1
+@.str.1577 = private unnamed_addr constant [10 x i8] c"Fireworks\00", align 1
+@.str.1578 = private unnamed_addr constant [11 x i8] c"Explosions\00", align 1
+@.str.1579 = private unnamed_addr constant [6 x i8] c"Flame\00", align 1
+@.str.1580 = private unnamed_addr constant [11 x i8] c"Smoke Pots\00", align 1
+@.str.1581 = private unnamed_addr constant [10 x i8] c"All Types\00", align 1
+@rtp_midi_sysex_common_rt_show_control = internal constant [58 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1525 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1526 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1527 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.1528 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.1529 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.1530 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.1531 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.1532 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.1533 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.1534 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.1535 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.1536 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.1537 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.1538 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.1539 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.1540 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.1541 }, { i32, [4 x i8], ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.1542 }, { i32, [4 x i8], ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.1543 }, { i32, [4 x i8], ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.1544 }, { i32, [4 x i8], ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.1545 }, { i32, [4 x i8], ptr } { i32 37, [4 x i8] zeroinitializer, ptr @.str.1546 }, { i32, [4 x i8], ptr } { i32 38, [4 x i8] zeroinitializer, ptr @.str.1547 }, { i32, [4 x i8], ptr } { i32 39, [4 x i8] zeroinitializer, ptr @.str.1548 }, { i32, [4 x i8], ptr } { i32 40, [4 x i8] zeroinitializer, ptr @.str.1549 }, { i32, [4 x i8], ptr } { i32 41, [4 x i8] zeroinitializer, ptr @.str.1550 }, { i32, [4 x i8], ptr } { i32 42, [4 x i8] zeroinitializer, ptr @.str.1551 }, { i32, [4 x i8], ptr } { i32 48, [4 x i8] zeroinitializer, ptr @.str.1552 }, { i32, [4 x i8], ptr } { i32 49, [4 x i8] zeroinitializer, ptr @.str.1553 }, { i32, [4 x i8], ptr } { i32 50, [4 x i8] zeroinitializer, ptr @.str.1554 }, { i32, [4 x i8], ptr } { i32 51, [4 x i8] zeroinitializer, ptr @.str.1555 }, { i32, [4 x i8], ptr } { i32 52, [4 x i8] zeroinitializer, ptr @.str.1556 }, { i32, [4 x i8], ptr } { i32 53, [4 x i8] zeroinitializer, ptr @.str.1557 }, { i32, [4 x i8], ptr } { i32 54, [4 x i8] zeroinitializer, ptr @.str.1558 }, { i32, [4 x i8], ptr } { i32 55, [4 x i8] zeroinitializer, ptr @.str.1559 }, { i32, [4 x i8], ptr } { i32 56, [4 x i8] zeroinitializer, ptr @.str.1560 }, { i32, [4 x i8], ptr } { i32 64, [4 x i8] zeroinitializer, ptr @.str.1561 }, { i32, [4 x i8], ptr } { i32 65, [4 x i8] zeroinitializer, ptr @.str.1562 }, { i32, [4 x i8], ptr } { i32 66, [4 x i8] zeroinitializer, ptr @.str.1563 }, { i32, [4 x i8], ptr } { i32 67, [4 x i8] zeroinitializer, ptr @.str.1564 }, { i32, [4 x i8], ptr } { i32 68, [4 x i8] zeroinitializer, ptr @.str.1565 }, { i32, [4 x i8], ptr } { i32 69, [4 x i8] zeroinitializer, ptr @.str.1566 }, { i32, [4 x i8], ptr } { i32 80, [4 x i8] zeroinitializer, ptr @.str.1567 }, { i32, [4 x i8], ptr } { i32 81, [4 x i8] zeroinitializer, ptr @.str.1568 }, { i32, [4 x i8], ptr } { i32 82, [4 x i8] zeroinitializer, ptr @.str.1569 }, { i32, [4 x i8], ptr } { i32 83, [4 x i8] zeroinitializer, ptr @.str.1570 }, { i32, [4 x i8], ptr } { i32 84, [4 x i8] zeroinitializer, ptr @.str.1571 }, { i32, [4 x i8], ptr } { i32 85, [4 x i8] zeroinitializer, ptr @.str.1572 }, { i32, [4 x i8], ptr } { i32 86, [4 x i8] zeroinitializer, ptr @.str.1573 }, { i32, [4 x i8], ptr } { i32 87, [4 x i8] zeroinitializer, ptr @.str.1574 }, { i32, [4 x i8], ptr } { i32 88, [4 x i8] zeroinitializer, ptr @.str.1575 }, { i32, [4 x i8], ptr } { i32 96, [4 x i8] zeroinitializer, ptr @.str.1576 }, { i32, [4 x i8], ptr } { i32 97, [4 x i8] zeroinitializer, ptr @.str.1577 }, { i32, [4 x i8], ptr } { i32 98, [4 x i8] zeroinitializer, ptr @.str.1578 }, { i32, [4 x i8], ptr } { i32 99, [4 x i8] zeroinitializer, ptr @.str.1579 }, { i32, [4 x i8], ptr } { i32 100, [4 x i8] zeroinitializer, ptr @.str.1580 }, { i32, [4 x i8], ptr } { i32 127, [4 x i8] zeroinitializer, ptr @.str.1581 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1583 = private unnamed_addr constant [11 x i8] c"Bar Number\00", align 1
+@.str.1584 = private unnamed_addr constant [27 x i8] c"Time Signature (Immediate)\00", align 1
+@.str.1585 = private unnamed_addr constant [25 x i8] c"Time Signature (Delayed)\00", align 1
+@rtp_midi_sysex_common_rt_notations = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1583 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1584 }, { i32, [4 x i8], ptr } { i32 66, [4 x i8] zeroinitializer, ptr @.str.1585 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1587 = private unnamed_addr constant [14 x i8] c"Master Volume\00", align 1
+@.str.1588 = private unnamed_addr constant [15 x i8] c"Master Balance\00", align 1
+@rtp_midi_sysex_common_rt_device_control = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1587 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1588 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1590 = private unnamed_addr constant [8 x i8] c"Special\00", align 1
+@.str.1591 = private unnamed_addr constant [16 x i8] c"Punch In Points\00", align 1
+@.str.1592 = private unnamed_addr constant [17 x i8] c"Punch Out Points\00", align 1
+@.str.1593 = private unnamed_addr constant [16 x i8] c"(Reserved 0x03)\00", align 1
+@.str.1594 = private unnamed_addr constant [16 x i8] c"(Reserved 0x04)\00", align 1
+@.str.1595 = private unnamed_addr constant [19 x i8] c"Event Start Points\00", align 1
+@.str.1596 = private unnamed_addr constant [18 x i8] c"Event Stop Points\00", align 1
+@.str.1597 = private unnamed_addr constant [40 x i8] c"Event Start Points with additional Info\00", align 1
+@.str.1598 = private unnamed_addr constant [39 x i8] c"Event Stop Points with additional Info\00", align 1
+@.str.1599 = private unnamed_addr constant [16 x i8] c"(Reserved 0x09)\00", align 1
+@.str.1600 = private unnamed_addr constant [16 x i8] c"(Reserved 0x0a)\00", align 1
+@.str.1601 = private unnamed_addr constant [11 x i8] c"Cue Points\00", align 1
+@.str.1602 = private unnamed_addr constant [32 x i8] c"Cue Points with additional Info\00", align 1
+@.str.1603 = private unnamed_addr constant [16 x i8] c"(Reserved 0x0d)\00", align 1
+@.str.1604 = private unnamed_addr constant [30 x i8] c"Event Name in additional Info\00", align 1
+@rtp_midi_sysex_common_rt_mtc_cue = internal constant [16 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1590 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1591 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1592 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.1593 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.1594 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.1595 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.1596 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.1597 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.1598 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.1599 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.1600 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.1601 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.1602 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.1603 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.1604 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1606 = private unnamed_addr constant [23 x i8] c"Delete Punch In Points\00", align 1
+@.str.1607 = private unnamed_addr constant [24 x i8] c"Delete Punch Out Points\00", align 1
+@.str.1608 = private unnamed_addr constant [18 x i8] c"Event Start Point\00", align 1
+@.str.1609 = private unnamed_addr constant [17 x i8] c"Event Stop Point\00", align 1
+@.str.1610 = private unnamed_addr constant [39 x i8] c"Event Start Point with additional Info\00", align 1
+@.str.1611 = private unnamed_addr constant [38 x i8] c"Event Stop Point with additional Info\00", align 1
+@.str.1612 = private unnamed_addr constant [25 x i8] c"Delete Event Start Point\00", align 1
+@.str.1613 = private unnamed_addr constant [24 x i8] c"Delete Event Stop Point\00", align 1
+@.str.1614 = private unnamed_addr constant [17 x i8] c"Delete Cue Point\00", align 1
+@rtp_midi_sysex_common_nrt_mtc = internal constant [16 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1590 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1591 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1592 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.1606 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.1607 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.1608 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.1609 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.1610 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.1611 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.1612 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.1613 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.1601 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.1602 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.1614 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.1604 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1616 = private unnamed_addr constant [31 x i8] c"Forwards only (unidirectional)\00", align 1
+@.str.1617 = private unnamed_addr constant [36 x i8] c"Backwards/Forwards (bi-directional)\00", align 1
+@.str.1618 = private unnamed_addr constant [4 x i8] c"Off\00", align 1
+@rtp_midi_sysex_common_nrt_sd_lt = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1616 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1617 }, { i32, [4 x i8], ptr } { i32 127, [4 x i8] zeroinitializer, ptr @.str.1618 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1620 = private unnamed_addr constant [17 x i8] c"24 Frames/Second\00", align 1
+@.str.1621 = private unnamed_addr constant [17 x i8] c"25 Frames/Second\00", align 1
+@.str.1622 = private unnamed_addr constant [30 x i8] c"30 Frames/Second (drop frame)\00", align 1
+@.str.1623 = private unnamed_addr constant [34 x i8] c"30 Frames/Second (non-drop frame)\00", align 1
+@rtp_midi_mtc_fm_type_values = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.1620 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1621 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.1622 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.1623 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.1625 = private unnamed_addr constant [16 x i8] c"Command Section\00", align 1
+@.str.1626 = private unnamed_addr constant [16 x i8] c"Journal Section\00", align 1
+@.str.1627 = private unnamed_addr constant [16 x i8] c"Channel-Journal\00", align 1
 @rtp_midi_unknown_value_hex = internal constant [20 x i8] c"unknown value: 0x%x\00", align 16
-@.str.1602 = private unnamed_addr constant [5 x i8] c", %s\00", align 1
+@.str.1628 = private unnamed_addr constant [5 x i8] c", %s\00", align 1
 @rtp_midi_unknown_value_dec = internal constant [18 x i8] c"unknown value: %d\00", align 16
-@.str.1603 = private unnamed_addr constant [22 x i8] c"%s (c=%d, n=%s, v=%d)\00", align 1
-@.str.1604 = private unnamed_addr constant [24 x i8] c", %s (c=%d, n=%s, v=%d)\00", align 1
+@.str.1629 = private unnamed_addr constant [22 x i8] c"%s (c=%d, n=%s, v=%d)\00", align 1
+@.str.1630 = private unnamed_addr constant [24 x i8] c", %s (c=%d, n=%s, v=%d)\00", align 1
 @rtp_midi_channel_status_special_off = internal constant [10 x i8] c"Note Off*\00", align 1
-@.str.1605 = private unnamed_addr constant [22 x i8] c"%s (c=%d, n=%s, p=%d)\00", align 1
-@.str.1606 = private unnamed_addr constant [24 x i8] c", %s (c=%d, n=%s, p=%d)\00", align 1
-@.str.1607 = private unnamed_addr constant [12 x i8] c"Unknown: %d\00", align 1
-@.str.1608 = private unnamed_addr constant [25 x i8] c"%s (c=%d, ctrl=%s, v=%d)\00", align 1
-@.str.1609 = private unnamed_addr constant [27 x i8] c", %s (c=%d, ctrl=%s, p=%d)\00", align 1
-@.str.1610 = private unnamed_addr constant [25 x i8] c"%s (c=%d, ctrl=%s, p=%d)\00", align 1
-@.str.1611 = private unnamed_addr constant [16 x i8] c"%s (c=%d, p=%d)\00", align 1
-@.str.1612 = private unnamed_addr constant [18 x i8] c", %s (c=%d, p=%d)\00", align 1
-@.str.1613 = private unnamed_addr constant [17 x i8] c"%s (c=%d, pb=%d)\00", align 1
-@.str.1614 = private unnamed_addr constant [19 x i8] c", %s (c=%d, pb=%d)\00", align 1
+@.str.1631 = private unnamed_addr constant [22 x i8] c"%s (c=%d, n=%s, p=%d)\00", align 1
+@.str.1632 = private unnamed_addr constant [24 x i8] c", %s (c=%d, n=%s, p=%d)\00", align 1
+@.str.1633 = private unnamed_addr constant [12 x i8] c"Unknown: %d\00", align 1
+@.str.1634 = private unnamed_addr constant [25 x i8] c"%s (c=%d, ctrl=%s, v=%d)\00", align 1
+@.str.1635 = private unnamed_addr constant [27 x i8] c", %s (c=%d, ctrl=%s, p=%d)\00", align 1
+@.str.1636 = private unnamed_addr constant [25 x i8] c"%s (c=%d, ctrl=%s, p=%d)\00", align 1
+@.str.1637 = private unnamed_addr constant [16 x i8] c"%s (c=%d, p=%d)\00", align 1
+@.str.1638 = private unnamed_addr constant [18 x i8] c", %s (c=%d, p=%d)\00", align 1
+@.str.1639 = private unnamed_addr constant [17 x i8] c"%s (c=%d, pb=%d)\00", align 1
+@.str.1640 = private unnamed_addr constant [19 x i8] c", %s (c=%d, pb=%d)\00", align 1
 @rtp_midi_common_status_sysex_segment_complete = internal constant [19 x i8] c"Full Sysex-Command\00", align 16
 @rtp_midi_common_status_sysex_segment_start = internal constant [23 x i8] c"Start of Sysex-Segment\00", align 16
 @rtp_midi_common_status_sysex_cancel = internal constant [13 x i8] c"Sysex-Cancel\00", align 1
-@.str.1615 = private unnamed_addr constant [15 x i8] c"Unknown 0x%02x\00", align 1
-@.str.1616 = private unnamed_addr constant [9 x i8] c"Note: %s\00", align 1
-@.str.1617 = private unnamed_addr constant [17 x i8] c"Educational data\00", align 1
-@.str.1618 = private unnamed_addr constant [10 x i8] c"%s (p=%d)\00", align 1
-@.str.1619 = private unnamed_addr constant [12 x i8] c", %s (p=%d)\00", align 1
-@.str.1620 = private unnamed_addr constant [10 x i8] c"%s (s=%d)\00", align 1
-@.str.1621 = private unnamed_addr constant [12 x i8] c", %s (s=%d)\00", align 1
-@.str.1622 = private unnamed_addr constant [6 x i8] c", %s)\00", align 1
+@.str.1641 = private unnamed_addr constant [15 x i8] c"Unknown 0x%02x\00", align 1
+@.str.1642 = private unnamed_addr constant [9 x i8] c"Note: %s\00", align 1
+@.str.1643 = private unnamed_addr constant [17 x i8] c"Educational data\00", align 1
+@.str.1644 = private unnamed_addr constant [10 x i8] c"%s (p=%d)\00", align 1
+@.str.1645 = private unnamed_addr constant [12 x i8] c", %s (p=%d)\00", align 1
+@.str.1646 = private unnamed_addr constant [10 x i8] c"%s (s=%d)\00", align 1
+@.str.1647 = private unnamed_addr constant [12 x i8] c", %s (s=%d)\00", align 1
+@.str.1648 = private unnamed_addr constant [6 x i8] c", %s)\00", align 1
 @rtp_midi_common_status_sysex_segment_end = internal constant [21 x i8] c"End of Sysex-Segment\00", align 16
 @rtp_midi_common_status_sysex_segment = internal constant [21 x i8] c"Middle Sysex-Segment\00", align 16
-@.str.1623 = private unnamed_addr constant [15 x i8] c"System-Journal\00", align 1
-@.str.1624 = private unnamed_addr constant [16 x i8] c"System-Chapters\00", align 1
+@.str.1649 = private unnamed_addr constant [15 x i8] c"System-Journal\00", align 1
+@.str.1650 = private unnamed_addr constant [16 x i8] c"System-Chapters\00", align 1
 @decode_system_journal.v_flags = internal constant [3 x ptr] [ptr @hf_rtp_midi_sj_chapter_v_sflag, ptr @hf_rtp_midi_sj_chapter_v_count, ptr null], align 16
 @decode_sj_chapter_d.chapter_d_flags = internal constant [9 x ptr] [ptr @hf_rtp_midi_sj_chapter_d_sflag, ptr @hf_rtp_midi_sj_chapter_d_bflag, ptr @hf_rtp_midi_sj_chapter_d_gflag, ptr @hf_rtp_midi_sj_chapter_d_hflag, ptr @hf_rtp_midi_sj_chapter_d_jflag, ptr @hf_rtp_midi_sj_chapter_d_kflag, ptr @hf_rtp_midi_sj_chapter_d_yflag, ptr @hf_rtp_midi_sj_chapter_d_zflag, ptr null], align 16
 @decode_sj_chapter_d.reset_flags = internal constant [3 x ptr] [ptr @hf_rtp_midi_sj_chapter_d_reset_sflag, ptr @hf_rtp_midi_sj_chapter_d_reset_count, ptr null], align 16
 @decode_sj_chapter_d.tune_flags = internal constant [3 x ptr] [ptr @hf_rtp_midi_sj_chapter_d_tune_sflag, ptr @hf_rtp_midi_sj_chapter_d_tune_count, ptr null], align 16
 @decode_sj_chapter_d.song_flags = internal constant [3 x ptr] [ptr @hf_rtp_midi_sj_chapter_d_song_sel_sflag, ptr @hf_rtp_midi_sj_chapter_d_song_sel_value, ptr null], align 16
-@.str.1625 = private unnamed_addr constant [19 x i8] c"System Common 0xF4\00", align 1
-@.str.1626 = private unnamed_addr constant [19 x i8] c"System Common 0xF5\00", align 1
-@.str.1627 = private unnamed_addr constant [19 x i8] c"System Common 0xF9\00", align 1
-@.str.1628 = private unnamed_addr constant [19 x i8] c"System Common 0xFD\00", align 1
-@.str.1629 = private unnamed_addr constant [25 x i8] c"Sequencer State Commands\00", align 1
-@.str.1630 = private unnamed_addr constant [29 x i8] c"MIDI Time Code Tape Position\00", align 1
+@.str.1651 = private unnamed_addr constant [19 x i8] c"System Common 0xF4\00", align 1
+@.str.1652 = private unnamed_addr constant [19 x i8] c"System Common 0xF5\00", align 1
+@.str.1653 = private unnamed_addr constant [19 x i8] c"System Common 0xF9\00", align 1
+@.str.1654 = private unnamed_addr constant [19 x i8] c"System Common 0xFD\00", align 1
+@.str.1655 = private unnamed_addr constant [25 x i8] c"Sequencer State Commands\00", align 1
+@.str.1656 = private unnamed_addr constant [29 x i8] c"MIDI Time Code Tape Position\00", align 1
 @decode_sj_chapter_f.fq_flags = internal constant [9 x ptr] [ptr @hf_rtp_midi_sj_chapter_f_mt0, ptr @hf_rtp_midi_sj_chapter_f_mt1, ptr @hf_rtp_midi_sj_chapter_f_mt2, ptr @hf_rtp_midi_sj_chapter_f_mt3, ptr @hf_rtp_midi_sj_chapter_f_mt4, ptr @hf_rtp_midi_sj_chapter_f_mt5, ptr @hf_rtp_midi_sj_chapter_f_mt6, ptr @hf_rtp_midi_sj_chapter_f_mt7, ptr null], align 16
 @decode_sj_chapter_f.f_flags = internal constant [5 x ptr] [ptr @hf_rtp_midi_sj_chapter_f_hr, ptr @hf_rtp_midi_sj_chapter_f_mn, ptr @hf_rtp_midi_sj_chapter_f_sc, ptr @hf_rtp_midi_sj_chapter_f_fr, ptr null], align 16
 @decode_sj_chapter_f.fp_flags = internal constant [9 x ptr] [ptr @hf_rtp_midi_sj_chapter_f_mt0, ptr @hf_rtp_midi_sj_chapter_f_mt1, ptr @hf_rtp_midi_sj_chapter_f_mt2, ptr @hf_rtp_midi_sj_chapter_f_mt3, ptr @hf_rtp_midi_sj_chapter_f_mt4, ptr @hf_rtp_midi_sj_chapter_f_mt5, ptr @hf_rtp_midi_sj_chapter_f_mt6, ptr @hf_rtp_midi_sj_chapter_f_mt7, ptr null], align 16
-@.str.1631 = private unnamed_addr constant [17 x i8] c"System Exclusive\00", align 1
-@.str.1632 = private unnamed_addr constant [28 x i8] c"Data field (sysex commands)\00", align 1
-@.str.1633 = private unnamed_addr constant [17 x i8] c"Channel-Chapters\00", align 1
-@.str.1634 = private unnamed_addr constant [12 x i8] c"Pitch Wheel\00", align 1
+@.str.1657 = private unnamed_addr constant [17 x i8] c"System Exclusive\00", align 1
+@.str.1658 = private unnamed_addr constant [28 x i8] c"Data field (sysex commands)\00", align 1
+@.str.1659 = private unnamed_addr constant [17 x i8] c"Channel-Chapters\00", align 1
+@.str.1660 = private unnamed_addr constant [12 x i8] c"Pitch Wheel\00", align 1
 @decode_channel_journal.flags_t = internal constant [3 x ptr] [ptr @hf_rtp_midi_cj_chapter_t_sflag, ptr @hf_rtp_midi_cj_chapter_t_pressure, ptr null], align 16
-@.str.1635 = private unnamed_addr constant [9 x i8] c"Log List\00", align 1
-@.str.1636 = private unnamed_addr constant [9 x i8] c"Log Item\00", align 1
-@.str.1637 = private unnamed_addr constant [17 x i8] c"Parameter System\00", align 1
+@.str.1661 = private unnamed_addr constant [9 x i8] c"Log List\00", align 1
+@.str.1662 = private unnamed_addr constant [9 x i8] c"Log Item\00", align 1
+@.str.1663 = private unnamed_addr constant [17 x i8] c"Parameter System\00", align 1
 @decode_cj_chapter_m.msb_flags = internal constant [3 x ptr] [ptr @hf_rtp_midi_cj_chapter_m_log_msb_x, ptr @hf_rtp_midi_cj_chapter_m_log_msb, ptr null], align 16
 @decode_cj_chapter_m.lsb_flags = internal constant [3 x ptr] [ptr @hf_rtp_midi_cj_chapter_m_log_lsb_x, ptr @hf_rtp_midi_cj_chapter_m_log_lsb, ptr null], align 16
 @decode_cj_chapter_m.button_flags = internal constant [4 x ptr] [ptr @hf_rtp_midi_cj_chapter_m_log_a_button_g, ptr @hf_rtp_midi_cj_chapter_m_log_a_button_x, ptr @hf_rtp_midi_cj_chapter_m_log_a_button, ptr null], align 16
-@decode_cj_chapter_m.button_flags.1638 = internal constant [4 x ptr] [ptr @hf_rtp_midi_cj_chapter_m_log_c_button_g, ptr @hf_rtp_midi_cj_chapter_m_log_c_button_r, ptr @hf_rtp_midi_cj_chapter_m_log_c_button, ptr null], align 16
+@decode_cj_chapter_m.button_flags.1664 = internal constant [4 x ptr] [ptr @hf_rtp_midi_cj_chapter_m_log_c_button_g, ptr @hf_rtp_midi_cj_chapter_m_log_c_button_r, ptr @hf_rtp_midi_cj_chapter_m_log_c_button, ptr null], align 16
 @decode_cj_chapter_m.log_flags = internal constant [3 x ptr] [ptr @hf_rtp_midi_cj_chapter_m_log_count_x, ptr @hf_rtp_midi_cj_chapter_m_log_count, ptr null], align 16
-@.str.1639 = private unnamed_addr constant [12 x i8] c"Note on/off\00", align 1
-@.str.1640 = private unnamed_addr constant [16 x i8] c"%s (n=%s, v=%d)\00", align 1
-@.str.1641 = private unnamed_addr constant [14 x i8] c"Offbit Octets\00", align 1
-@.str.1642 = private unnamed_addr constant [20 x i8] c"Note Command Extras\00", align 1
-@.str.1643 = private unnamed_addr constant [16 x i8] c"%s (n=%s, c=%d)\00", align 1
-@.str.1644 = private unnamed_addr constant [12 x i8] c"Note On/Off\00", align 1
-@.str.1645 = private unnamed_addr constant [16 x i8] c"Poly Aftertouch\00", align 1
-@.str.1646 = private unnamed_addr constant [16 x i8] c"%s (n=%s, p=%d)\00", align 1
+@.str.1665 = private unnamed_addr constant [12 x i8] c"Note on/off\00", align 1
+@.str.1666 = private unnamed_addr constant [16 x i8] c"%s (n=%s, v=%d)\00", align 1
+@.str.1667 = private unnamed_addr constant [14 x i8] c"Offbit Octets\00", align 1
+@.str.1668 = private unnamed_addr constant [20 x i8] c"Note Command Extras\00", align 1
+@.str.1669 = private unnamed_addr constant [16 x i8] c"%s (n=%s, c=%d)\00", align 1
+@.str.1670 = private unnamed_addr constant [12 x i8] c"Note On/Off\00", align 1
+@.str.1671 = private unnamed_addr constant [16 x i8] c"Poly Aftertouch\00", align 1
+@.str.1672 = private unnamed_addr constant [16 x i8] c"%s (n=%s, p=%d)\00", align 1
 @switch.table.dissect_rtp_midi = private unnamed_addr constant [4 x ptr] [ptr @hf_rtp_midi_sj_chapter_x_first1, ptr @hf_rtp_midi_sj_chapter_x_first2, ptr @hf_rtp_midi_sj_chapter_x_first3, ptr @hf_rtp_midi_sj_chapter_x_first4], align 8
 @switch.table.dissect_rtp_midi.39 = private unnamed_addr constant [4 x ptr] [ptr @hf_rtp_midi_deltatime1, ptr @hf_rtp_midi_deltatime2, ptr @hf_rtp_midi_deltatime3, ptr @hf_rtp_midi_deltatime4], align 8
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_rtp_midi() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.590, ptr noundef nonnull @.str.591, ptr noundef nonnull @.str.592) #2
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.590, ptr noundef nonnull @.str.591, ptr noundef nonnull @.str.592)
   store i32 %1, ptr @proto_rtp_midi, align 4
-  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_rtp_midi.hf, i32 noundef 296) #2
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_rtp_midi.ett, i32 noundef 55) #2
+  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_rtp_midi.hf, i32 noundef 296)
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_rtp_midi.ett, i32 noundef 55)
   %2 = load i32, ptr @proto_rtp_midi, align 4
-  %3 = tail call ptr @prefs_register_protocol(i32 noundef %2, ptr noundef null) #2
-  tail call void @prefs_register_obsolete_preference(ptr noundef %3, ptr noundef nonnull @.str.593) #2
+  %3 = tail call ptr @prefs_register_protocol(i32 noundef %2, ptr noundef null)
+  tail call void @prefs_register_obsolete_preference(ptr noundef %3, ptr noundef nonnull @.str.593)
   %4 = load i32, ptr @proto_rtp_midi, align 4
-  %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.592, ptr noundef nonnull @dissect_rtp_midi, i32 noundef %4) #2
+  %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.592, ptr noundef nonnull @dissect_rtp_midi, i32 noundef %4)
   store ptr %5, ptr @rtp_midi_handle, align 8
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @prefs_register_obsolete_preference(ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_rtp_midi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
-  tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.591) #2
+  tail call void @col_set_str(ptr noundef %6, i32 noundef 35, ptr noundef nonnull @.str.591)
   %7 = load ptr, ptr %5, align 8
-  tail call void @col_clear(ptr noundef %7, i32 noundef 25) #2
-  %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #2
+  tail call void @col_clear(ptr noundef %7, i32 noundef 25)
+  %8 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %9 = load i32, ptr @proto_rtp_midi, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %11 = load i32, ptr @ett_rtp_midi, align 4
-  %12 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %11) #2
+  %12 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %11)
   %13 = load i32, ptr @hf_rtp_midi_bflag, align 4
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %13, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #2
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %13, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %15 = load i32, ptr @hf_rtp_midi_jflag, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %15, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #2
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %15, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %17 = load i32, ptr @hf_rtp_midi_zflag, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %17, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #2
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %17, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %19 = load i32, ptr @hf_rtp_midi_pflag, align 4
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %19, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #2
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %19, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %21 = zext i8 %8 to i32
   %.not = icmp sgt i8 %8, -1
   br i1 %.not, label %26, label %22
 
 22:                                               ; preds = %4
-  %23 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #2
+  %23 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0)
   %24 = and i16 %23, 4095
   %25 = zext nneg i16 %24 to i32
   br label %28
@@ -2197,39 +2203,39 @@ define internal i32 @dissect_rtp_midi(ptr noundef %0, ptr noundef %1, ptr nounde
 
 28:                                               ; preds = %26, %22
   %hf_rtp_midi_shortlen.sink = phi ptr [ @hf_rtp_midi_shortlen, %26 ], [ @hf_rtp_midi_longlen, %22 ]
-  %.sink376 = phi i32 [ 1, %26 ], [ 2, %22 ]
-  %.0115 = phi i32 [ %27, %26 ], [ %25, %22 ]
+  %.sink389 = phi i32 [ 1, %26 ], [ 2, %22 ]
+  %.0128 = phi i32 [ %27, %26 ], [ %25, %22 ]
   %29 = load i32, ptr %hf_rtp_midi_shortlen.sink, align 4
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %29, ptr noundef %0, i32 noundef 0, i32 noundef %.sink376, i32 noundef 0) #2
-  %.not124 = icmp eq i32 %.0115, 0
-  br i1 %.not124, label %.loopexit231, label %31
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %29, ptr noundef %0, i32 noundef 0, i32 noundef %.sink389, i32 noundef 0)
+  %.not137 = icmp eq i32 %.0128, 0
+  br i1 %.not137, label %.thread232, label %31
 
 31:                                               ; preds = %28
   %32 = load i32, ptr @ett_rtp_midi_commands, align 4
-  %33 = tail call ptr @proto_tree_add_subtree(ptr noundef %12, ptr noundef %0, i32 noundef %.sink376, i32 noundef %.0115, i32 noundef %32, ptr noundef null, ptr noundef nonnull @.str.1599) #2
+  %33 = tail call ptr @proto_tree_add_subtree(ptr noundef %12, ptr noundef %0, i32 noundef %.sink389, i32 noundef %.0128, i32 noundef %32, ptr noundef null, ptr noundef nonnull @.str.1625)
   %34 = and i32 %21, 32
-  %.not131 = icmp eq i32 %34, 0
+  %.not140 = icmp eq i32 %34, 0
   br label %35
 
-35:                                               ; preds = %31, %866
-  %.2270 = phi i32 [ %.sink376, %31 ], [ %867, %866 ]
-  %.1116269 = phi i32 [ %.0115, %31 ], [ %868, %866 ]
-  %.0119268 = phi i32 [ 0, %31 ], [ %869, %866 ]
-  %.0202267 = phi i32 [ 0, %31 ], [ %.4206220, %866 ]
-  %.0207266 = phi i8 [ 0, %31 ], [ %.3210219, %866 ]
-  %.not130 = icmp eq i32 %.0119268, 0
-  %or.cond = select i1 %.not130, i1 %.not131, i1 false
+35:                                               ; preds = %31, %862
+  %.2120285 = phi i32 [ %.sink389, %31 ], [ %863, %862 ]
+  %.1129284 = phi i32 [ %.0128, %31 ], [ %864, %862 ]
+  %.0132283 = phi i32 [ 0, %31 ], [ %865, %862 ]
+  %.0209282 = phi i32 [ 0, %31 ], [ %.4226, %862 ]
+  %.0213281 = phi i8 [ 0, %31 ], [ %.3216225, %862 ]
+  %.not139 = icmp eq i32 %.0132283, 0
+  %or.cond = select i1 %.not139, i1 %.not140, i1 false
   br i1 %or.cond, label %.thread, label %.preheader
 
 36:                                               ; preds = %.preheader
   %exitcond.not.i = icmp eq i32 %43, 4
-  br i1 %exitcond.not.i, label %.sink.split, label %.preheader, !llvm.loop !4
+  br i1 %exitcond.not.i, label %.sink.split, label %.preheader, !llvm.loop !6
 
 .preheader:                                       ; preds = %35, %36
   %.03.i = phi i32 [ %42, %36 ], [ 0, %35 ]
   %.0302.i = phi i32 [ %43, %36 ], [ 0, %35 ]
-  %37 = add i32 %.0302.i, %.2270
-  %38 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %37) #2
+  %37 = add i32 %.0302.i, %.2120285
+  %38 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %37)
   %39 = shl i32 %.03.i, 7
   %40 = and i8 %38, 127
   %41 = zext nneg i8 %40 to i32
@@ -2240,79 +2246,79 @@ define internal i32 @dissect_rtp_midi(ptr noundef %0, ptr noundef %1, ptr nounde
 
 45:                                               ; preds = %.preheader
   %46 = icmp samesign ult i32 %.0302.i, 4
-  br i1 %46, label %switch.lookup411, label %50
+  br i1 %46, label %switch.lookup424, label %50
 
-switch.lookup411:                                 ; preds = %45
+switch.lookup424:                                 ; preds = %45
   %47 = zext nneg i32 %.0302.i to i64
-  %switch.gep412 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.dissect_rtp_midi.39, i64 0, i64 %47
-  %switch.load413 = load ptr, ptr %switch.gep412, align 8
-  %switch.offset414 = add nuw nsw i32 %.0302.i, 1
-  %switch.offset415 = add nuw nsw i32 %.0302.i, 1
+  %switch.gep425 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.dissect_rtp_midi.39, i64 0, i64 %47
+  %switch.load426 = load ptr, ptr %switch.gep425, align 8
+  %switch.offset427 = add nuw nsw i32 %.0302.i, 1
+  %switch.offset428 = add nuw nsw i32 %.0302.i, 1
   br label %.sink.split
 
-.sink.split:                                      ; preds = %36, %switch.lookup411
-  %hf_rtp_midi_deltatime4.sink = phi ptr [ %switch.load413, %switch.lookup411 ], [ @hf_rtp_midi_deltatime4, %36 ]
-  %.sink410 = phi i32 [ %switch.offset414, %switch.lookup411 ], [ 4, %36 ]
-  %.lcssa8.i.ph = phi i32 [ %switch.offset415, %switch.lookup411 ], [ 4, %36 ]
+.sink.split:                                      ; preds = %36, %switch.lookup424
+  %hf_rtp_midi_deltatime4.sink = phi ptr [ %switch.load426, %switch.lookup424 ], [ @hf_rtp_midi_deltatime4, %36 ]
+  %.sink423 = phi i32 [ %switch.offset427, %switch.lookup424 ], [ 4, %36 ]
+  %.lcssa8.i.ph = phi i32 [ %switch.offset428, %switch.lookup424 ], [ 4, %36 ]
   %48 = load i32, ptr %hf_rtp_midi_deltatime4.sink, align 4
-  %49 = tail call ptr @proto_tree_add_uint(ptr noundef %33, i32 noundef %48, ptr noundef %0, i32 noundef %.2270, i32 noundef %.sink410, i32 noundef %42) #2
+  %49 = tail call ptr @proto_tree_add_uint(ptr noundef %33, i32 noundef %48, ptr noundef %0, i32 noundef %.2120285, i32 noundef %.sink423, i32 noundef %42)
   br label %50
 
 50:                                               ; preds = %45, %.sink.split
   %.lcssa8.i = phi i32 [ %43, %45 ], [ %.lcssa8.i.ph, %.sink.split ]
-  %51 = add i32 %.lcssa8.i, %.2270
-  %52 = sub i32 %.1116269, %.lcssa8.i
-  %.not132 = icmp eq i32 %52, 0
-  br i1 %.not132, label %.loopexit231, label %.thread
+  %51 = add i32 %.lcssa8.i, %.2120285
+  %52 = sub i32 %.1129284, %.lcssa8.i
+  %.not141 = icmp eq i32 %52, 0
+  br i1 %.not141, label %.thread232, label %.thread
 
 .thread:                                          ; preds = %35, %50
-  %.3215 = phi i32 [ %51, %50 ], [ %.2270, %35 ]
-  %.2117214 = phi i32 [ %52, %50 ], [ %.1116269, %35 ]
-  %53 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.3215) #2
+  %.3121221 = phi i32 [ %51, %50 ], [ %.2120285, %35 ]
+  %.2130220 = phi i32 [ %52, %50 ], [ %.1129284, %35 ]
+  %53 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.3121221)
   %54 = icmp ugt i8 %53, -9
   br i1 %54, label %55, label %65
 
 55:                                               ; preds = %.thread
   %56 = zext i8 %53 to i32
-  %57 = tail call ptr @val_to_str(i32 noundef %56, ptr noundef nonnull @rtp_midi_common_status, ptr noundef nonnull @rtp_midi_unknown_value_hex) #2
+  %57 = tail call ptr @val_to_str(i32 noundef %56, ptr noundef nonnull @rtp_midi_common_status, ptr noundef nonnull @rtp_midi_unknown_value_hex)
   %58 = load i32, ptr @ett_rtp_midi_command, align 4
-  %59 = tail call ptr @proto_tree_add_subtree(ptr noundef %33, ptr noundef %0, i32 noundef %.3215, i32 noundef 1, i32 noundef %58, ptr noundef null, ptr noundef %57) #2
+  %59 = tail call ptr @proto_tree_add_subtree(ptr noundef %33, ptr noundef %0, i32 noundef %.3121221, i32 noundef 1, i32 noundef %58, ptr noundef null, ptr noundef %57)
   %60 = load i32, ptr @hf_rtp_midi_common_status, align 4
-  %61 = tail call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %60, ptr noundef %0, i32 noundef %.3215, i32 noundef 1, i32 noundef 0) #2
+  %61 = tail call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %60, ptr noundef %0, i32 noundef %.3121221, i32 noundef 1, i32 noundef 0)
   %62 = load ptr, ptr %5, align 8
-  br i1 %.not130, label %64, label %63
+  br i1 %.not139, label %64, label %63
 
 63:                                               ; preds = %55
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %62, i32 noundef 25, ptr noundef nonnull @.str.1602, ptr noundef %57) #2
-  br label %866
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %62, i32 noundef 25, ptr noundef nonnull @.str.1628, ptr noundef %57)
+  br label %862
 
 64:                                               ; preds = %55
-  tail call void @col_add_str(ptr noundef %62, i32 noundef 25, ptr noundef %57) #2
-  br label %866
+  tail call void @col_add_str(ptr noundef %62, i32 noundef 25, ptr noundef %57)
+  br label %862
 
 65:                                               ; preds = %.thread
-  %66 = icmp slt i8 %53, 0
-  br i1 %66, label %69, label %67
+  %66 = icmp sgt i8 %53, -1
+  br i1 %66, label %67, label %69
 
 67:                                               ; preds = %65
-  %68 = icmp sgt i8 %.0207266, -1
-  br i1 %68, label %decodemidi.exit.thread222, label %73
+  %68 = icmp sgt i8 %.0213281, -1
+  br i1 %68, label %.thread242, label %73
 
 69:                                               ; preds = %65
   %70 = icmp samesign ult i8 %53, -16
-  %spec.select = select i1 %70, i32 %.3215, i32 %.0202267
-  %spec.select229 = select i1 %70, i8 %53, i8 0
-  %71 = add i32 %.3215, 1
-  %72 = icmp eq i32 %.2117214, 1
+  %spec.select = select i1 %70, i32 %.3121221, i32 %.0209282
+  %spec.select245 = select i1 %70, i8 %53, i8 0
+  %71 = add i32 %.3121221, 1
+  %72 = icmp eq i32 %.2130220, 1
   br label %73
 
 73:                                               ; preds = %69, %67
-  %.2209 = phi i8 [ %.0207266, %67 ], [ %spec.select229, %69 ]
-  %.3205 = phi i32 [ %.0202267, %67 ], [ %spec.select, %69 ]
+  %.2215 = phi i8 [ %.0213281, %67 ], [ %spec.select245, %69 ]
+  %.3212 = phi i32 [ %.0209282, %67 ], [ %spec.select, %69 ]
   %.0145.i = phi i1 [ false, %67 ], [ %72, %69 ]
   %.0144.i = phi i32 [ 0, %67 ], [ 1, %69 ]
-  %.0142.i = phi i8 [ %.0207266, %67 ], [ %53, %69 ]
-  %.0140.i = phi i32 [ %.3215, %67 ], [ %71, %69 ]
+  %.0142.i = phi i8 [ %.0213281, %67 ], [ %53, %69 ]
+  %.0140.i = phi i32 [ %.3121221, %67 ], [ %71, %69 ]
   %74 = icmp samesign ult i8 %.0142.i, -16
   br i1 %74, label %75, label %286
 
@@ -2320,8 +2326,8 @@ switch.lookup411:                                 ; preds = %45
   %76 = lshr i8 %.0142.i, 4
   %77 = zext i8 %.0142.i to i32
   %78 = lshr i32 %77, 4
-  %79 = tail call ptr @val_to_str(i32 noundef %78, ptr noundef nonnull @rtp_midi_channel_status, ptr noundef nonnull @rtp_midi_unknown_value_hex) #2
-  %80 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0140.i) #2
+  %79 = tail call ptr @val_to_str(i32 noundef %78, ptr noundef nonnull @rtp_midi_channel_status, ptr noundef nonnull @rtp_midi_unknown_value_hex)
+  %80 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0140.i)
   switch i8 %76, label %default.unreachable.i [
     i8 8, label %81
     i8 9, label %112
@@ -2334,21 +2340,21 @@ switch.lookup411:                                 ; preds = %45
 
 81:                                               ; preds = %75
   %82 = zext i8 %80 to i32
-  %83 = tail call ptr @val_to_str_ext(i32 noundef %82, ptr noundef nonnull @rtp_midi_note_values_ext, ptr noundef nonnull @rtp_midi_unknown_value_dec) #2
+  %83 = tail call ptr @val_to_str_ext(i32 noundef %82, ptr noundef nonnull @rtp_midi_note_values_ext, ptr noundef nonnull @rtp_midi_unknown_value_dec)
   %84 = add i32 %.0140.i, 1
-  %85 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %84) #2
-  br i1 %66, label %96, label %86
+  %85 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %84)
+  br i1 %66, label %86, label %96
 
 86:                                               ; preds = %81
   %87 = load i32, ptr @ett_rtp_midi_command, align 4
   %88 = and i32 %77, 15
   %89 = add nuw nsw i32 %88, 1
   %90 = zext i8 %85 to i32
-  %91 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %33, ptr noundef %0, i32 noundef %.0140.i, i32 noundef 2, i32 noundef %87, ptr noundef null, ptr noundef nonnull @.str.1603, ptr noundef %79, i32 noundef %89, ptr noundef %83, i32 noundef %90) #2
+  %91 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %33, ptr noundef %0, i32 noundef %.0140.i, i32 noundef 2, i32 noundef %87, ptr noundef null, ptr noundef nonnull @.str.1629, ptr noundef %79, i32 noundef %89, ptr noundef %83, i32 noundef %90)
   %92 = load i32, ptr @hf_rtp_midi_channel_status, align 4
-  %93 = tail call ptr @proto_tree_add_item(ptr noundef %91, i32 noundef %92, ptr noundef %0, i32 noundef %.3205, i32 noundef 1, i32 noundef 0) #2
+  %93 = tail call ptr @proto_tree_add_item(ptr noundef %91, i32 noundef %92, ptr noundef %0, i32 noundef %.3212, i32 noundef 1, i32 noundef 0)
   %94 = load i32, ptr @hf_rtp_midi_channel, align 4
-  %95 = tail call ptr @proto_tree_add_item(ptr noundef %91, i32 noundef %94, ptr noundef %0, i32 noundef %.3205, i32 noundef 1, i32 noundef 0) #2
+  %95 = tail call ptr @proto_tree_add_item(ptr noundef %91, i32 noundef %94, ptr noundef %0, i32 noundef %.3212, i32 noundef 1, i32 noundef 0)
   br label %decode_note_off.exit
 
 96:                                               ; preds = %81
@@ -2357,45 +2363,45 @@ switch.lookup411:                                 ; preds = %45
   %99 = and i32 %77, 15
   %100 = add nuw nsw i32 %99, 1
   %101 = zext i8 %85 to i32
-  %102 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %33, ptr noundef %0, i32 noundef %97, i32 noundef 3, i32 noundef %98, ptr noundef null, ptr noundef nonnull @.str.1603, ptr noundef %79, i32 noundef %100, ptr noundef %83, i32 noundef %101) #2
+  %102 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %33, ptr noundef %0, i32 noundef %97, i32 noundef 3, i32 noundef %98, ptr noundef null, ptr noundef nonnull @.str.1629, ptr noundef %79, i32 noundef %100, ptr noundef %83, i32 noundef %101)
   %103 = load i32, ptr @hf_rtp_midi_channel_status, align 4
-  %104 = tail call ptr @proto_tree_add_item(ptr noundef %102, i32 noundef %103, ptr noundef %0, i32 noundef %97, i32 noundef 1, i32 noundef 0) #2
+  %104 = tail call ptr @proto_tree_add_item(ptr noundef %102, i32 noundef %103, ptr noundef %0, i32 noundef %97, i32 noundef 1, i32 noundef 0)
   %105 = load i32, ptr @hf_rtp_midi_channel, align 4
-  %106 = tail call ptr @proto_tree_add_item(ptr noundef %102, i32 noundef %105, ptr noundef %0, i32 noundef %97, i32 noundef 1, i32 noundef 0) #2
+  %106 = tail call ptr @proto_tree_add_item(ptr noundef %102, i32 noundef %105, ptr noundef %0, i32 noundef %97, i32 noundef 1, i32 noundef 0)
   br label %decode_note_off.exit
 
 decode_note_off.exit:                             ; preds = %86, %96
-  %.pre-phi311 = phi i32 [ %90, %86 ], [ %101, %96 ]
-  %.pre-phi310 = phi i32 [ %89, %86 ], [ %100, %96 ]
-  %.sink57.i198 = phi ptr [ %91, %86 ], [ %102, %96 ]
+  %.pre-phi324 = phi i32 [ %90, %86 ], [ %101, %96 ]
+  %.pre-phi323 = phi i32 [ %89, %86 ], [ %100, %96 ]
+  %.sink56.i205 = phi ptr [ %91, %86 ], [ %102, %96 ]
   %107 = load i32, ptr @hf_rtp_midi_note, align 4
-  %108 = tail call ptr @proto_tree_add_item(ptr noundef %.sink57.i198, i32 noundef %107, ptr noundef %0, i32 noundef %.0140.i, i32 noundef 1, i32 noundef 0) #2
+  %108 = tail call ptr @proto_tree_add_item(ptr noundef %.sink56.i205, i32 noundef %107, ptr noundef %0, i32 noundef %.0140.i, i32 noundef 1, i32 noundef 0)
   %109 = load i32, ptr @hf_rtp_midi_velocity, align 4
-  %110 = tail call ptr @proto_tree_add_item(ptr noundef %.sink57.i198, i32 noundef %109, ptr noundef %0, i32 noundef %84, i32 noundef 1, i32 noundef 0) #2
-  %.str.1603..str.1604.i200 = select i1 %.not130, ptr @.str.1603, ptr @.str.1604
+  %110 = tail call ptr @proto_tree_add_item(ptr noundef %.sink56.i205, i32 noundef %109, ptr noundef %0, i32 noundef %84, i32 noundef 1, i32 noundef 0)
+  %.str.1629..str.1630.i207 = select i1 %.not139, ptr @.str.1629, ptr @.str.1630
   %111 = load ptr, ptr %5, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %111, i32 noundef 25, ptr noundef nonnull %.str.1603..str.1604.i200, ptr noundef %79, i32 noundef %.pre-phi310, ptr noundef %83, i32 noundef %.pre-phi311) #2
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %111, i32 noundef 25, ptr noundef nonnull %.str.1629..str.1630.i207, ptr noundef %79, i32 noundef %.pre-phi323, ptr noundef %83, i32 noundef %.pre-phi324)
   br label %284
 
 112:                                              ; preds = %75
   %113 = zext i8 %80 to i32
-  %114 = tail call ptr @val_to_str_ext(i32 noundef %113, ptr noundef nonnull @rtp_midi_note_values_ext, ptr noundef nonnull @rtp_midi_unknown_value_dec) #2
+  %114 = tail call ptr @val_to_str_ext(i32 noundef %113, ptr noundef nonnull @rtp_midi_note_values_ext, ptr noundef nonnull @rtp_midi_unknown_value_dec)
   %115 = add i32 %.0140.i, 1
-  %116 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %115) #2
+  %116 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %115)
   %117 = zext i8 %116 to i32
   %118 = icmp eq i8 %116, 0
-  %spec.select.i195 = select i1 %118, ptr @rtp_midi_channel_status_special_off, ptr %79
-  br i1 %66, label %128, label %119
+  %spec.select.i203 = select i1 %118, ptr @rtp_midi_channel_status_special_off, ptr %79
+  br i1 %66, label %119, label %128
 
 119:                                              ; preds = %112
   %120 = load i32, ptr @ett_rtp_midi_command, align 4
   %121 = and i32 %77, 15
   %122 = add nuw nsw i32 %121, 1
-  %123 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %33, ptr noundef %0, i32 noundef %.0140.i, i32 noundef 2, i32 noundef %120, ptr noundef null, ptr noundef nonnull @.str.1603, ptr noundef %spec.select.i195, i32 noundef %122, ptr noundef %114, i32 noundef %117) #2
+  %123 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %33, ptr noundef %0, i32 noundef %.0140.i, i32 noundef 2, i32 noundef %120, ptr noundef null, ptr noundef nonnull @.str.1629, ptr noundef %spec.select.i203, i32 noundef %122, ptr noundef %114, i32 noundef %117)
   %124 = load i32, ptr @hf_rtp_midi_channel_status, align 4
-  %125 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %124, ptr noundef %0, i32 noundef %.3205, i32 noundef 1, i32 noundef 0) #2
+  %125 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %124, ptr noundef %0, i32 noundef %.3212, i32 noundef 1, i32 noundef 0)
   %126 = load i32, ptr @hf_rtp_midi_channel, align 4
-  %127 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %126, ptr noundef %0, i32 noundef %.3205, i32 noundef 1, i32 noundef 0) #2
+  %127 = tail call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %126, ptr noundef %0, i32 noundef %.3212, i32 noundef 1, i32 noundef 0)
   br label %decode_note_on.exit
 
 128:                                              ; preds = %112
@@ -2403,42 +2409,42 @@ decode_note_off.exit:                             ; preds = %86, %96
   %130 = load i32, ptr @ett_rtp_midi_command, align 4
   %131 = and i32 %77, 15
   %132 = add nuw nsw i32 %131, 1
-  %133 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %33, ptr noundef %0, i32 noundef %129, i32 noundef 3, i32 noundef %130, ptr noundef null, ptr noundef nonnull @.str.1603, ptr noundef %spec.select.i195, i32 noundef %132, ptr noundef %114, i32 noundef %117) #2
+  %133 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %33, ptr noundef %0, i32 noundef %129, i32 noundef 3, i32 noundef %130, ptr noundef null, ptr noundef nonnull @.str.1629, ptr noundef %spec.select.i203, i32 noundef %132, ptr noundef %114, i32 noundef %117)
   %134 = load i32, ptr @hf_rtp_midi_channel_status, align 4
-  %135 = tail call ptr @proto_tree_add_item(ptr noundef %133, i32 noundef %134, ptr noundef %0, i32 noundef %129, i32 noundef 1, i32 noundef 0) #2
+  %135 = tail call ptr @proto_tree_add_item(ptr noundef %133, i32 noundef %134, ptr noundef %0, i32 noundef %129, i32 noundef 1, i32 noundef 0)
   %136 = load i32, ptr @hf_rtp_midi_channel, align 4
-  %137 = tail call ptr @proto_tree_add_item(ptr noundef %133, i32 noundef %136, ptr noundef %0, i32 noundef %129, i32 noundef 1, i32 noundef 0) #2
+  %137 = tail call ptr @proto_tree_add_item(ptr noundef %133, i32 noundef %136, ptr noundef %0, i32 noundef %129, i32 noundef 1, i32 noundef 0)
   br label %decode_note_on.exit
 
 decode_note_on.exit:                              ; preds = %119, %128
-  %.pre-phi313 = phi i32 [ %122, %119 ], [ %132, %128 ]
-  %.sink58.i = phi ptr [ %123, %119 ], [ %133, %128 ]
+  %.pre-phi326 = phi i32 [ %122, %119 ], [ %132, %128 ]
+  %.sink57.i = phi ptr [ %123, %119 ], [ %133, %128 ]
   %138 = load i32, ptr @hf_rtp_midi_note, align 4
-  %139 = tail call ptr @proto_tree_add_item(ptr noundef %.sink58.i, i32 noundef %138, ptr noundef %0, i32 noundef %.0140.i, i32 noundef 1, i32 noundef 0) #2
+  %139 = tail call ptr @proto_tree_add_item(ptr noundef %.sink57.i, i32 noundef %138, ptr noundef %0, i32 noundef %.0140.i, i32 noundef 1, i32 noundef 0)
   %140 = load i32, ptr @hf_rtp_midi_velocity, align 4
-  %141 = tail call ptr @proto_tree_add_item(ptr noundef %.sink58.i, i32 noundef %140, ptr noundef %0, i32 noundef %115, i32 noundef 1, i32 noundef 0) #2
-  %.str.1603..str.1604.i = select i1 %.not130, ptr @.str.1603, ptr @.str.1604
+  %141 = tail call ptr @proto_tree_add_item(ptr noundef %.sink57.i, i32 noundef %140, ptr noundef %0, i32 noundef %115, i32 noundef 1, i32 noundef 0)
+  %.str.1629..str.1630.i = select i1 %.not139, ptr @.str.1629, ptr @.str.1630
   %142 = load ptr, ptr %5, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %142, i32 noundef 25, ptr noundef nonnull %.str.1603..str.1604.i, ptr noundef %spec.select.i195, i32 noundef %.pre-phi313, ptr noundef %114, i32 noundef %117) #2
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %142, i32 noundef 25, ptr noundef nonnull %.str.1629..str.1630.i, ptr noundef %spec.select.i203, i32 noundef %.pre-phi326, ptr noundef %114, i32 noundef %117)
   br label %284
 
 143:                                              ; preds = %75
   %144 = zext i8 %80 to i32
-  %145 = tail call ptr @val_to_str_ext(i32 noundef %144, ptr noundef nonnull @rtp_midi_note_values_ext, ptr noundef nonnull @rtp_midi_unknown_value_dec) #2
+  %145 = tail call ptr @val_to_str_ext(i32 noundef %144, ptr noundef nonnull @rtp_midi_note_values_ext, ptr noundef nonnull @rtp_midi_unknown_value_dec)
   %146 = add i32 %.0140.i, 1
-  %147 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %146) #2
-  br i1 %66, label %158, label %148
+  %147 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %146)
+  br i1 %66, label %148, label %158
 
 148:                                              ; preds = %143
   %149 = load i32, ptr @ett_rtp_midi_command, align 4
   %150 = and i32 %77, 15
   %151 = add nuw nsw i32 %150, 1
   %152 = zext i8 %147 to i32
-  %153 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %33, ptr noundef %0, i32 noundef %.0140.i, i32 noundef 2, i32 noundef %149, ptr noundef null, ptr noundef nonnull @.str.1605, ptr noundef %79, i32 noundef %151, ptr noundef %145, i32 noundef %152) #2
+  %153 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %33, ptr noundef %0, i32 noundef %.0140.i, i32 noundef 2, i32 noundef %149, ptr noundef null, ptr noundef nonnull @.str.1631, ptr noundef %79, i32 noundef %151, ptr noundef %145, i32 noundef %152)
   %154 = load i32, ptr @hf_rtp_midi_channel_status, align 4
-  %155 = tail call ptr @proto_tree_add_item(ptr noundef %153, i32 noundef %154, ptr noundef %0, i32 noundef %.3205, i32 noundef 1, i32 noundef 0) #2
+  %155 = tail call ptr @proto_tree_add_item(ptr noundef %153, i32 noundef %154, ptr noundef %0, i32 noundef %.3212, i32 noundef 1, i32 noundef 0)
   %156 = load i32, ptr @hf_rtp_midi_channel, align 4
-  %157 = tail call ptr @proto_tree_add_item(ptr noundef %153, i32 noundef %156, ptr noundef %0, i32 noundef %.3205, i32 noundef 1, i32 noundef 0) #2
+  %157 = tail call ptr @proto_tree_add_item(ptr noundef %153, i32 noundef %156, ptr noundef %0, i32 noundef %.3212, i32 noundef 1, i32 noundef 0)
   br label %decode_poly_pressure.exit
 
 158:                                              ; preds = %143
@@ -2447,43 +2453,43 @@ decode_note_on.exit:                              ; preds = %119, %128
   %161 = and i32 %77, 15
   %162 = add nuw nsw i32 %161, 1
   %163 = zext i8 %147 to i32
-  %164 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %33, ptr noundef %0, i32 noundef %159, i32 noundef 3, i32 noundef %160, ptr noundef null, ptr noundef nonnull @.str.1605, ptr noundef %79, i32 noundef %162, ptr noundef %145, i32 noundef %163) #2
+  %164 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %33, ptr noundef %0, i32 noundef %159, i32 noundef 3, i32 noundef %160, ptr noundef null, ptr noundef nonnull @.str.1631, ptr noundef %79, i32 noundef %162, ptr noundef %145, i32 noundef %163)
   %165 = load i32, ptr @hf_rtp_midi_channel_status, align 4
-  %166 = tail call ptr @proto_tree_add_item(ptr noundef %164, i32 noundef %165, ptr noundef %0, i32 noundef %159, i32 noundef 1, i32 noundef 0) #2
+  %166 = tail call ptr @proto_tree_add_item(ptr noundef %164, i32 noundef %165, ptr noundef %0, i32 noundef %159, i32 noundef 1, i32 noundef 0)
   %167 = load i32, ptr @hf_rtp_midi_channel, align 4
-  %168 = tail call ptr @proto_tree_add_item(ptr noundef %164, i32 noundef %167, ptr noundef %0, i32 noundef %159, i32 noundef 1, i32 noundef 0) #2
+  %168 = tail call ptr @proto_tree_add_item(ptr noundef %164, i32 noundef %167, ptr noundef %0, i32 noundef %159, i32 noundef 1, i32 noundef 0)
   br label %decode_poly_pressure.exit
 
 decode_poly_pressure.exit:                        ; preds = %148, %158
-  %.pre-phi316 = phi i32 [ %152, %148 ], [ %163, %158 ]
-  %.pre-phi315 = phi i32 [ %151, %148 ], [ %162, %158 ]
-  %.sink57.i193 = phi ptr [ %153, %148 ], [ %164, %158 ]
+  %.pre-phi329 = phi i32 [ %152, %148 ], [ %163, %158 ]
+  %.pre-phi328 = phi i32 [ %151, %148 ], [ %162, %158 ]
+  %.sink56.i201 = phi ptr [ %153, %148 ], [ %164, %158 ]
   %169 = load i32, ptr @hf_rtp_midi_note, align 4
-  %170 = tail call ptr @proto_tree_add_item(ptr noundef %.sink57.i193, i32 noundef %169, ptr noundef %0, i32 noundef %.0140.i, i32 noundef 1, i32 noundef 0) #2
+  %170 = tail call ptr @proto_tree_add_item(ptr noundef %.sink56.i201, i32 noundef %169, ptr noundef %0, i32 noundef %.0140.i, i32 noundef 1, i32 noundef 0)
   %171 = load i32, ptr @hf_rtp_midi_pressure, align 4
-  %172 = tail call ptr @proto_tree_add_item(ptr noundef %.sink57.i193, i32 noundef %171, ptr noundef %0, i32 noundef %146, i32 noundef 1, i32 noundef 0) #2
-  %.str.1605..str.1606.i = select i1 %.not130, ptr @.str.1605, ptr @.str.1606
+  %172 = tail call ptr @proto_tree_add_item(ptr noundef %.sink56.i201, i32 noundef %171, ptr noundef %0, i32 noundef %146, i32 noundef 1, i32 noundef 0)
+  %.str.1631..str.1632.i = select i1 %.not139, ptr @.str.1631, ptr @.str.1632
   %173 = load ptr, ptr %5, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %173, i32 noundef 25, ptr noundef nonnull %.str.1605..str.1606.i, ptr noundef %79, i32 noundef %.pre-phi315, ptr noundef %145, i32 noundef %.pre-phi316) #2
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %173, i32 noundef 25, ptr noundef nonnull %.str.1631..str.1632.i, ptr noundef %79, i32 noundef %.pre-phi328, ptr noundef %145, i32 noundef %.pre-phi329)
   br label %284
 
 174:                                              ; preds = %75
   %175 = zext i8 %80 to i32
-  %176 = tail call ptr @val_to_str_ext(i32 noundef %175, ptr noundef nonnull @rtp_midi_controller_values_ext, ptr noundef nonnull @.str.1607) #2
+  %176 = tail call ptr @val_to_str_ext(i32 noundef %175, ptr noundef nonnull @rtp_midi_controller_values_ext, ptr noundef nonnull @.str.1633)
   %177 = add i32 %.0140.i, 1
-  %178 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %177) #2
-  br i1 %66, label %189, label %179
+  %178 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %177)
+  br i1 %66, label %179, label %189
 
 179:                                              ; preds = %174
   %180 = load i32, ptr @ett_rtp_midi_command, align 4
   %181 = and i32 %77, 15
   %182 = add nuw nsw i32 %181, 1
   %183 = zext i8 %178 to i32
-  %184 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %33, ptr noundef %0, i32 noundef %.0140.i, i32 noundef 2, i32 noundef %180, ptr noundef null, ptr noundef nonnull @.str.1608, ptr noundef %79, i32 noundef %182, ptr noundef %176, i32 noundef %183) #2
+  %184 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %33, ptr noundef %0, i32 noundef %.0140.i, i32 noundef 2, i32 noundef %180, ptr noundef null, ptr noundef nonnull @.str.1634, ptr noundef %79, i32 noundef %182, ptr noundef %176, i32 noundef %183)
   %185 = load i32, ptr @hf_rtp_midi_channel_status, align 4
-  %186 = tail call ptr @proto_tree_add_item(ptr noundef %184, i32 noundef %185, ptr noundef %0, i32 noundef %.3205, i32 noundef 1, i32 noundef 0) #2
+  %186 = tail call ptr @proto_tree_add_item(ptr noundef %184, i32 noundef %185, ptr noundef %0, i32 noundef %.3212, i32 noundef 1, i32 noundef 0)
   %187 = load i32, ptr @hf_rtp_midi_channel, align 4
-  %188 = tail call ptr @proto_tree_add_item(ptr noundef %184, i32 noundef %187, ptr noundef %0, i32 noundef %.3205, i32 noundef 1, i32 noundef 0) #2
+  %188 = tail call ptr @proto_tree_add_item(ptr noundef %184, i32 noundef %187, ptr noundef %0, i32 noundef %.3212, i32 noundef 1, i32 noundef 0)
   br label %decode_control_change.exit
 
 189:                                              ; preds = %174
@@ -2492,39 +2498,39 @@ decode_poly_pressure.exit:                        ; preds = %148, %158
   %192 = and i32 %77, 15
   %193 = add nuw nsw i32 %192, 1
   %194 = zext i8 %178 to i32
-  %195 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %33, ptr noundef %0, i32 noundef %190, i32 noundef 3, i32 noundef %191, ptr noundef null, ptr noundef nonnull @.str.1608, ptr noundef %79, i32 noundef %193, ptr noundef %176, i32 noundef %194) #2
+  %195 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %33, ptr noundef %0, i32 noundef %190, i32 noundef 3, i32 noundef %191, ptr noundef null, ptr noundef nonnull @.str.1634, ptr noundef %79, i32 noundef %193, ptr noundef %176, i32 noundef %194)
   %196 = load i32, ptr @hf_rtp_midi_channel_status, align 4
-  %197 = tail call ptr @proto_tree_add_item(ptr noundef %195, i32 noundef %196, ptr noundef %0, i32 noundef %190, i32 noundef 1, i32 noundef 0) #2
+  %197 = tail call ptr @proto_tree_add_item(ptr noundef %195, i32 noundef %196, ptr noundef %0, i32 noundef %190, i32 noundef 1, i32 noundef 0)
   %198 = load i32, ptr @hf_rtp_midi_channel, align 4
-  %199 = tail call ptr @proto_tree_add_item(ptr noundef %195, i32 noundef %198, ptr noundef %0, i32 noundef %190, i32 noundef 1, i32 noundef 0) #2
+  %199 = tail call ptr @proto_tree_add_item(ptr noundef %195, i32 noundef %198, ptr noundef %0, i32 noundef %190, i32 noundef 1, i32 noundef 0)
   br label %decode_control_change.exit
 
 decode_control_change.exit:                       ; preds = %179, %189
-  %.pre-phi319 = phi i32 [ %183, %179 ], [ %194, %189 ]
-  %.pre-phi318 = phi i32 [ %182, %179 ], [ %193, %189 ]
-  %.sink57.i = phi ptr [ %184, %179 ], [ %195, %189 ]
+  %.pre-phi332 = phi i32 [ %183, %179 ], [ %194, %189 ]
+  %.pre-phi331 = phi i32 [ %182, %179 ], [ %193, %189 ]
+  %.sink56.i = phi ptr [ %184, %179 ], [ %195, %189 ]
   %200 = load i32, ptr @hf_rtp_midi_controller, align 4
-  %201 = tail call ptr @proto_tree_add_item(ptr noundef %.sink57.i, i32 noundef %200, ptr noundef %0, i32 noundef %.0140.i, i32 noundef 1, i32 noundef 0) #2
+  %201 = tail call ptr @proto_tree_add_item(ptr noundef %.sink56.i, i32 noundef %200, ptr noundef %0, i32 noundef %.0140.i, i32 noundef 1, i32 noundef 0)
   %202 = load i32, ptr @hf_rtp_midi_controller_value, align 4
-  %203 = tail call ptr @proto_tree_add_item(ptr noundef %.sink57.i, i32 noundef %202, ptr noundef %0, i32 noundef %177, i32 noundef 1, i32 noundef 0) #2
-  %.str.1610..str.1609.i = select i1 %.not130, ptr @.str.1610, ptr @.str.1609
+  %203 = tail call ptr @proto_tree_add_item(ptr noundef %.sink56.i, i32 noundef %202, ptr noundef %0, i32 noundef %177, i32 noundef 1, i32 noundef 0)
+  %.str.1636..str.1635.i = select i1 %.not139, ptr @.str.1636, ptr @.str.1635
   %204 = load ptr, ptr %5, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %204, i32 noundef 25, ptr noundef nonnull %.str.1610..str.1609.i, ptr noundef %79, i32 noundef %.pre-phi318, ptr noundef %176, i32 noundef %.pre-phi319) #2
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %204, i32 noundef 25, ptr noundef nonnull %.str.1636..str.1635.i, ptr noundef %79, i32 noundef %.pre-phi331, ptr noundef %176, i32 noundef %.pre-phi332)
   br label %284
 
 205:                                              ; preds = %75
-  br i1 %66, label %216, label %206
+  br i1 %66, label %206, label %216
 
 206:                                              ; preds = %205
   %207 = load i32, ptr @ett_rtp_midi_command, align 4
   %208 = and i32 %77, 15
   %209 = add nuw nsw i32 %208, 1
   %210 = zext i8 %80 to i32
-  %211 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %33, ptr noundef %0, i32 noundef %.0140.i, i32 noundef 1, i32 noundef %207, ptr noundef null, ptr noundef nonnull @.str.1611, ptr noundef %79, i32 noundef %209, i32 noundef %210) #2
+  %211 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %33, ptr noundef %0, i32 noundef %.0140.i, i32 noundef 1, i32 noundef %207, ptr noundef null, ptr noundef nonnull @.str.1637, ptr noundef %79, i32 noundef %209, i32 noundef %210)
   %212 = load i32, ptr @hf_rtp_midi_channel_status, align 4
-  %213 = tail call ptr @proto_tree_add_item(ptr noundef %211, i32 noundef %212, ptr noundef %0, i32 noundef %.3205, i32 noundef 1, i32 noundef 0) #2
+  %213 = tail call ptr @proto_tree_add_item(ptr noundef %211, i32 noundef %212, ptr noundef %0, i32 noundef %.3212, i32 noundef 1, i32 noundef 0)
   %214 = load i32, ptr @hf_rtp_midi_channel, align 4
-  %215 = tail call ptr @proto_tree_add_item(ptr noundef %211, i32 noundef %214, ptr noundef %0, i32 noundef %.3205, i32 noundef 1, i32 noundef 0) #2
+  %215 = tail call ptr @proto_tree_add_item(ptr noundef %211, i32 noundef %214, ptr noundef %0, i32 noundef %.3212, i32 noundef 1, i32 noundef 0)
   br label %decode_program_change.exit
 
 216:                                              ; preds = %205
@@ -2533,37 +2539,37 @@ decode_control_change.exit:                       ; preds = %179, %189
   %219 = and i32 %77, 15
   %220 = add nuw nsw i32 %219, 1
   %221 = zext i8 %80 to i32
-  %222 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %33, ptr noundef %0, i32 noundef %217, i32 noundef 2, i32 noundef %218, ptr noundef null, ptr noundef nonnull @.str.1611, ptr noundef %79, i32 noundef %220, i32 noundef %221) #2
+  %222 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %33, ptr noundef %0, i32 noundef %217, i32 noundef 2, i32 noundef %218, ptr noundef null, ptr noundef nonnull @.str.1637, ptr noundef %79, i32 noundef %220, i32 noundef %221)
   %223 = load i32, ptr @hf_rtp_midi_channel_status, align 4
-  %224 = tail call ptr @proto_tree_add_item(ptr noundef %222, i32 noundef %223, ptr noundef %0, i32 noundef %217, i32 noundef 1, i32 noundef 0) #2
+  %224 = tail call ptr @proto_tree_add_item(ptr noundef %222, i32 noundef %223, ptr noundef %0, i32 noundef %217, i32 noundef 1, i32 noundef 0)
   %225 = load i32, ptr @hf_rtp_midi_channel, align 4
-  %226 = tail call ptr @proto_tree_add_item(ptr noundef %222, i32 noundef %225, ptr noundef %0, i32 noundef %217, i32 noundef 1, i32 noundef 0) #2
+  %226 = tail call ptr @proto_tree_add_item(ptr noundef %222, i32 noundef %225, ptr noundef %0, i32 noundef %217, i32 noundef 1, i32 noundef 0)
   br label %decode_program_change.exit
 
 decode_program_change.exit:                       ; preds = %206, %216
-  %.pre-phi322 = phi i32 [ %210, %206 ], [ %221, %216 ]
-  %.pre-phi321 = phi i32 [ %209, %206 ], [ %220, %216 ]
-  %.sink.i188 = phi ptr [ %211, %206 ], [ %222, %216 ]
+  %.pre-phi335 = phi i32 [ %210, %206 ], [ %221, %216 ]
+  %.pre-phi334 = phi i32 [ %209, %206 ], [ %220, %216 ]
+  %.sink.i197 = phi ptr [ %211, %206 ], [ %222, %216 ]
   %227 = load i32, ptr @hf_rtp_midi_program, align 4
-  %228 = tail call ptr @proto_tree_add_item(ptr noundef %.sink.i188, i32 noundef %227, ptr noundef %0, i32 noundef %.0140.i, i32 noundef 1, i32 noundef 0) #2
-  %.str.1611..str.1612.i190 = select i1 %.not130, ptr @.str.1611, ptr @.str.1612
+  %228 = tail call ptr @proto_tree_add_item(ptr noundef %.sink.i197, i32 noundef %227, ptr noundef %0, i32 noundef %.0140.i, i32 noundef 1, i32 noundef 0)
+  %.str.1637..str.1638.i199 = select i1 %.not139, ptr @.str.1637, ptr @.str.1638
   %229 = load ptr, ptr %5, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %229, i32 noundef 25, ptr noundef nonnull %.str.1611..str.1612.i190, ptr noundef %79, i32 noundef %.pre-phi321, i32 noundef %.pre-phi322) #2
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %229, i32 noundef 25, ptr noundef nonnull %.str.1637..str.1638.i199, ptr noundef %79, i32 noundef %.pre-phi334, i32 noundef %.pre-phi335)
   br label %284
 
 230:                                              ; preds = %75
-  br i1 %66, label %241, label %231
+  br i1 %66, label %231, label %241
 
 231:                                              ; preds = %230
   %232 = load i32, ptr @ett_rtp_midi_command, align 4
   %233 = and i32 %77, 15
   %234 = add nuw nsw i32 %233, 1
   %235 = zext i8 %80 to i32
-  %236 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %33, ptr noundef %0, i32 noundef %.0140.i, i32 noundef 1, i32 noundef %232, ptr noundef null, ptr noundef nonnull @.str.1611, ptr noundef %79, i32 noundef %234, i32 noundef %235) #2
+  %236 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %33, ptr noundef %0, i32 noundef %.0140.i, i32 noundef 1, i32 noundef %232, ptr noundef null, ptr noundef nonnull @.str.1637, ptr noundef %79, i32 noundef %234, i32 noundef %235)
   %237 = load i32, ptr @hf_rtp_midi_channel_status, align 4
-  %238 = tail call ptr @proto_tree_add_item(ptr noundef %236, i32 noundef %237, ptr noundef %0, i32 noundef %.3205, i32 noundef 1, i32 noundef 0) #2
+  %238 = tail call ptr @proto_tree_add_item(ptr noundef %236, i32 noundef %237, ptr noundef %0, i32 noundef %.3212, i32 noundef 1, i32 noundef 0)
   %239 = load i32, ptr @hf_rtp_midi_channel, align 4
-  %240 = tail call ptr @proto_tree_add_item(ptr noundef %236, i32 noundef %239, ptr noundef %0, i32 noundef %.3205, i32 noundef 1, i32 noundef 0) #2
+  %240 = tail call ptr @proto_tree_add_item(ptr noundef %236, i32 noundef %239, ptr noundef %0, i32 noundef %.3212, i32 noundef 1, i32 noundef 0)
   br label %decode_channel_pressure.exit
 
 241:                                              ; preds = %230
@@ -2572,41 +2578,41 @@ decode_program_change.exit:                       ; preds = %206, %216
   %244 = and i32 %77, 15
   %245 = add nuw nsw i32 %244, 1
   %246 = zext i8 %80 to i32
-  %247 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %33, ptr noundef %0, i32 noundef %242, i32 noundef 2, i32 noundef %243, ptr noundef null, ptr noundef nonnull @.str.1611, ptr noundef %79, i32 noundef %245, i32 noundef %246) #2
+  %247 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %33, ptr noundef %0, i32 noundef %242, i32 noundef 2, i32 noundef %243, ptr noundef null, ptr noundef nonnull @.str.1637, ptr noundef %79, i32 noundef %245, i32 noundef %246)
   %248 = load i32, ptr @hf_rtp_midi_channel_status, align 4
-  %249 = tail call ptr @proto_tree_add_item(ptr noundef %247, i32 noundef %248, ptr noundef %0, i32 noundef %242, i32 noundef 1, i32 noundef 0) #2
+  %249 = tail call ptr @proto_tree_add_item(ptr noundef %247, i32 noundef %248, ptr noundef %0, i32 noundef %242, i32 noundef 1, i32 noundef 0)
   %250 = load i32, ptr @hf_rtp_midi_channel, align 4
-  %251 = tail call ptr @proto_tree_add_item(ptr noundef %247, i32 noundef %250, ptr noundef %0, i32 noundef %242, i32 noundef 1, i32 noundef 0) #2
+  %251 = tail call ptr @proto_tree_add_item(ptr noundef %247, i32 noundef %250, ptr noundef %0, i32 noundef %242, i32 noundef 1, i32 noundef 0)
   br label %decode_channel_pressure.exit
 
 decode_channel_pressure.exit:                     ; preds = %231, %241
-  %.pre-phi325 = phi i32 [ %235, %231 ], [ %246, %241 ]
-  %.pre-phi324 = phi i32 [ %234, %231 ], [ %245, %241 ]
-  %.sink.i186 = phi ptr [ %236, %231 ], [ %247, %241 ]
+  %.pre-phi338 = phi i32 [ %235, %231 ], [ %246, %241 ]
+  %.pre-phi337 = phi i32 [ %234, %231 ], [ %245, %241 ]
+  %.sink.i195 = phi ptr [ %236, %231 ], [ %247, %241 ]
   %252 = load i32, ptr @hf_rtp_midi_channel_pressure, align 4
-  %253 = tail call ptr @proto_tree_add_item(ptr noundef %.sink.i186, i32 noundef %252, ptr noundef %0, i32 noundef %.0140.i, i32 noundef 1, i32 noundef 0) #2
-  %.str.1611..str.1612.i = select i1 %.not130, ptr @.str.1611, ptr @.str.1612
+  %253 = tail call ptr @proto_tree_add_item(ptr noundef %.sink.i195, i32 noundef %252, ptr noundef %0, i32 noundef %.0140.i, i32 noundef 1, i32 noundef 0)
+  %.str.1637..str.1638.i = select i1 %.not139, ptr @.str.1637, ptr @.str.1638
   %254 = load ptr, ptr %5, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %254, i32 noundef 25, ptr noundef nonnull %.str.1611..str.1612.i, ptr noundef %79, i32 noundef %.pre-phi324, i32 noundef %.pre-phi325) #2
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %254, i32 noundef 25, ptr noundef nonnull %.str.1637..str.1638.i, ptr noundef %79, i32 noundef %.pre-phi337, i32 noundef %.pre-phi338)
   br label %284
 
 255:                                              ; preds = %75
   %256 = add i32 %.0140.i, 1
-  %257 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %256) #2
+  %257 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %256)
   %258 = shl i8 %80, 7
   %259 = or i8 %258, %257
-  br i1 %66, label %270, label %260
+  br i1 %66, label %260, label %270
 
 260:                                              ; preds = %255
   %261 = load i32, ptr @ett_rtp_midi_command, align 4
   %262 = and i32 %77, 15
   %263 = add nuw nsw i32 %262, 1
   %264 = zext i8 %259 to i32
-  %265 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %33, ptr noundef %0, i32 noundef %.0140.i, i32 noundef 2, i32 noundef %261, ptr noundef null, ptr noundef nonnull @.str.1613, ptr noundef %79, i32 noundef %263, i32 noundef %264) #2
+  %265 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %33, ptr noundef %0, i32 noundef %.0140.i, i32 noundef 2, i32 noundef %261, ptr noundef null, ptr noundef nonnull @.str.1639, ptr noundef %79, i32 noundef %263, i32 noundef %264)
   %266 = load i32, ptr @hf_rtp_midi_channel_status, align 4
-  %267 = tail call ptr @proto_tree_add_item(ptr noundef %265, i32 noundef %266, ptr noundef %0, i32 noundef %.3205, i32 noundef 1, i32 noundef 0) #2
+  %267 = tail call ptr @proto_tree_add_item(ptr noundef %265, i32 noundef %266, ptr noundef %0, i32 noundef %.3212, i32 noundef 1, i32 noundef 0)
   %268 = load i32, ptr @hf_rtp_midi_channel, align 4
-  %269 = tail call ptr @proto_tree_add_item(ptr noundef %265, i32 noundef %268, ptr noundef %0, i32 noundef %.3205, i32 noundef 1, i32 noundef 0) #2
+  %269 = tail call ptr @proto_tree_add_item(ptr noundef %265, i32 noundef %268, ptr noundef %0, i32 noundef %.3212, i32 noundef 1, i32 noundef 0)
   br label %decode_pitch_bend_change.exit
 
 270:                                              ; preds = %255
@@ -2615,22 +2621,22 @@ decode_channel_pressure.exit:                     ; preds = %231, %241
   %273 = and i32 %77, 15
   %274 = add nuw nsw i32 %273, 1
   %275 = zext i8 %259 to i32
-  %276 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %33, ptr noundef %0, i32 noundef %271, i32 noundef 3, i32 noundef %272, ptr noundef null, ptr noundef nonnull @.str.1613, ptr noundef %79, i32 noundef %274, i32 noundef %275) #2
+  %276 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %33, ptr noundef %0, i32 noundef %271, i32 noundef 3, i32 noundef %272, ptr noundef null, ptr noundef nonnull @.str.1639, ptr noundef %79, i32 noundef %274, i32 noundef %275)
   %277 = load i32, ptr @hf_rtp_midi_channel_status, align 4
-  %278 = tail call ptr @proto_tree_add_item(ptr noundef %276, i32 noundef %277, ptr noundef %0, i32 noundef %271, i32 noundef 1, i32 noundef 0) #2
+  %278 = tail call ptr @proto_tree_add_item(ptr noundef %276, i32 noundef %277, ptr noundef %0, i32 noundef %271, i32 noundef 1, i32 noundef 0)
   %279 = load i32, ptr @hf_rtp_midi_channel, align 4
-  %280 = tail call ptr @proto_tree_add_item(ptr noundef %276, i32 noundef %279, ptr noundef %0, i32 noundef %271, i32 noundef 1, i32 noundef 0) #2
+  %280 = tail call ptr @proto_tree_add_item(ptr noundef %276, i32 noundef %279, ptr noundef %0, i32 noundef %271, i32 noundef 1, i32 noundef 0)
   br label %decode_pitch_bend_change.exit
 
 decode_pitch_bend_change.exit:                    ; preds = %260, %270
-  %.pre-phi328 = phi i32 [ %264, %260 ], [ %275, %270 ]
-  %.pre-phi327 = phi i32 [ %263, %260 ], [ %274, %270 ]
+  %.pre-phi341 = phi i32 [ %264, %260 ], [ %275, %270 ]
+  %.pre-phi340 = phi i32 [ %263, %260 ], [ %274, %270 ]
   %.sink.i = phi ptr [ %265, %260 ], [ %276, %270 ]
   %281 = load i32, ptr @hf_rtp_midi_pitch_bend, align 4
-  %282 = tail call ptr @proto_tree_add_item(ptr noundef %.sink.i, i32 noundef %281, ptr noundef %0, i32 noundef %.0140.i, i32 noundef 2, i32 noundef 0) #2
-  %.str.1613..str.1614.i = select i1 %.not130, ptr @.str.1613, ptr @.str.1614
+  %282 = tail call ptr @proto_tree_add_item(ptr noundef %.sink.i, i32 noundef %281, ptr noundef %0, i32 noundef %.0140.i, i32 noundef 2, i32 noundef 0)
+  %.str.1639..str.1640.i = select i1 %.not139, ptr @.str.1639, ptr @.str.1640
   %283 = load ptr, ptr %5, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %283, i32 noundef 25, ptr noundef nonnull %.str.1613..str.1614.i, ptr noundef %79, i32 noundef %.pre-phi327, i32 noundef %.pre-phi328) #2
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %283, i32 noundef 25, ptr noundef nonnull %.str.1639..str.1640.i, ptr noundef %79, i32 noundef %.pre-phi340, i32 noundef %.pre-phi341)
   br label %284
 
 default.unreachable.i:                            ; preds = %75
@@ -2639,2468 +2645,2486 @@ default.unreachable.i:                            ; preds = %75
 284:                                              ; preds = %decode_pitch_bend_change.exit, %decode_channel_pressure.exit, %decode_program_change.exit, %decode_control_change.exit, %decode_poly_pressure.exit, %decode_note_on.exit, %decode_note_off.exit
   %.0143.i = phi i32 [ 2, %decode_pitch_bend_change.exit ], [ 1, %decode_channel_pressure.exit ], [ 1, %decode_program_change.exit ], [ 2, %decode_control_change.exit ], [ 2, %decode_poly_pressure.exit ], [ 2, %decode_note_on.exit ], [ 2, %decode_note_off.exit ]
   %285 = add nuw nsw i32 %.0143.i, %.0144.i
-  br label %866
+  br label %862
 
 286:                                              ; preds = %73
-  switch i8 %.0142.i, label %.thread.i133 [
+  switch i8 %.0142.i, label %.thread.i146 [
     i8 -16, label %287
-    i8 -15, label %747
-    i8 -14, label %762
-    i8 -13, label %778
-    i8 -12, label %790
-    i8 -11, label %810
-    i8 -10, label %830
-    i8 -9, label %840
+    i8 -15, label %746
+    i8 -14, label %761
+    i8 -13, label %777
+    i8 -12, label %789
+    i8 -11, label %808
+    i8 -10, label %827
+    i8 -9, label %837
   ]
 
 287:                                              ; preds = %286
-  %288 = tail call ptr @val_to_str(i32 noundef 247, ptr noundef nonnull @rtp_midi_common_status, ptr noundef nonnull @rtp_midi_unknown_value_hex) #2
-  br i1 %.0145.i, label %.thread.i174, label %.preheader.i173
+  %288 = tail call ptr @val_to_str(i32 noundef 247, ptr noundef nonnull @rtp_midi_common_status, ptr noundef nonnull @rtp_midi_unknown_value_hex)
+  br i1 %.0145.i, label %.thread.i185, label %.split.i184
 
-.preheader.i173:                                  ; preds = %287, %292
-  %.080.i = phi i32 [ %291, %292 ], [ 0, %287 ]
-  %289 = add i32 %.080.i, %.0140.i
-  %290 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %289) #2
-  %291 = add i32 %.080.i, 1
+.split.i184:                                      ; preds = %287, %292
+  %.081.i = phi i32 [ %291, %292 ], [ 0, %287 ]
+  %289 = add i32 %.081.i, %.0140.i
+  %290 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %289)
+  %291 = add i32 %.081.i, 1
   switch i8 %290, label %292 [
-    i8 -9, label %.thread.i174.loopexit
-    i8 -16, label %.thread.i174.loopexit433
-    i8 -12, label %.thread.i174
+    i8 -9, label %.thread.i185.loopexit
+    i8 -16, label %.thread.i185.loopexit446
+    i8 -12, label %.thread.i185
   ]
 
-292:                                              ; preds = %.preheader.i173
-  %293 = icmp sgt i8 %290, -1
-  br i1 %293, label %.preheader.i173, label %.thread.i174, !llvm.loop !6
+292:                                              ; preds = %.split.i184
+  %.not88.i = icmp sgt i8 %290, -1
+  br i1 %.not88.i, label %.split.i184, label %.thread.i185
 
-.thread.i174.loopexit:                            ; preds = %.preheader.i173
-  br label %.thread.i174
+.thread.i185.loopexit:                            ; preds = %.split.i184
+  br label %.thread.i185
 
-.thread.i174.loopexit433:                         ; preds = %.preheader.i173
-  br label %.thread.i174
+.thread.i185.loopexit446:                         ; preds = %.split.i184
+  br label %.thread.i185
 
-.thread.i174:                                     ; preds = %292, %.preheader.i173, %.thread.i174.loopexit433, %.thread.i174.loopexit, %287
-  %.182.i = phi ptr [ %288, %287 ], [ @rtp_midi_common_status_sysex_segment_complete, %.thread.i174.loopexit ], [ @rtp_midi_common_status_sysex_cancel, %.preheader.i173 ], [ %288, %292 ], [ @rtp_midi_common_status_sysex_segment_start, %.thread.i174.loopexit433 ]
-  %.1.i175 = phi i32 [ 0, %287 ], [ %291, %.thread.i174.loopexit ], [ %291, %.preheader.i173 ], [ %291, %292 ], [ %291, %.thread.i174.loopexit433 ]
-  %294 = add i32 %.1.i175, -1
-  %295 = add i32 %.0140.i, -1
-  %296 = add i32 %.1.i175, 1
-  %297 = load i32, ptr @ett_rtp_midi_command, align 4
-  %298 = tail call ptr @proto_tree_add_subtree(ptr noundef %33, ptr noundef %0, i32 noundef %295, i32 noundef %296, i32 noundef %297, ptr noundef null, ptr noundef %.182.i) #2
-  %299 = load i32, ptr @hf_rtp_midi_common_status, align 4
-  %300 = tail call ptr @proto_tree_add_item(ptr noundef %298, i32 noundef %299, ptr noundef %0, i32 noundef %295, i32 noundef 1, i32 noundef 0) #2
-  %301 = icmp sgt i32 %294, 1
-  br i1 %301, label %302, label %decode_sysex_common_nrt.exit.thread.i
+.thread.i185:                                     ; preds = %292, %.split.i184, %.thread.i185.loopexit446, %.thread.i185.loopexit, %287
+  %.184.i = phi ptr [ %288, %287 ], [ @rtp_midi_common_status_sysex_segment_complete, %.thread.i185.loopexit ], [ @rtp_midi_common_status_sysex_cancel, %.split.i184 ], [ %288, %292 ], [ @rtp_midi_common_status_sysex_segment_start, %.thread.i185.loopexit446 ]
+  %.182.i = phi i32 [ 0, %287 ], [ %291, %.thread.i185.loopexit ], [ %291, %.split.i184 ], [ %291, %292 ], [ %291, %.thread.i185.loopexit446 ]
+  %293 = add i32 %.182.i, -1
+  %294 = add i32 %.0140.i, -1
+  %295 = add i32 %.182.i, 1
+  %296 = load i32, ptr @ett_rtp_midi_command, align 4
+  %297 = tail call ptr @proto_tree_add_subtree(ptr noundef %33, ptr noundef %0, i32 noundef %294, i32 noundef %295, i32 noundef %296, ptr noundef null, ptr noundef %.184.i)
+  %298 = load i32, ptr @hf_rtp_midi_common_status, align 4
+  %299 = tail call ptr @proto_tree_add_item(ptr noundef %297, i32 noundef %298, ptr noundef %0, i32 noundef %294, i32 noundef 1, i32 noundef 0)
+  %300 = icmp sgt i32 %293, 1
+  br i1 %300, label %301, label %decode_sysex_common_nrt.exit.thread.i
 
-302:                                              ; preds = %.thread.i174
-  %303 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0140.i) #2
-  %304 = load i32, ptr @hf_rtp_midi_manu_short, align 4
-  %305 = tail call ptr @proto_tree_add_item(ptr noundef %298, i32 noundef %304, ptr noundef %0, i32 noundef %.0140.i, i32 noundef 1, i32 noundef 0) #2
-  %306 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0140.i) #2
-  %307 = add i32 %.0140.i, 1
-  %308 = add i32 %.1.i175, -2
-  switch i8 %306, label %735 [
-    i8 126, label %309
-    i8 127, label %570
-    i8 125, label %718
-    i8 0, label %723
+301:                                              ; preds = %.thread.i185
+  %302 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0140.i)
+  %303 = load i32, ptr @hf_rtp_midi_manu_short, align 4
+  %304 = tail call ptr @proto_tree_add_item(ptr noundef %297, i32 noundef %303, ptr noundef %0, i32 noundef %.0140.i, i32 noundef 1, i32 noundef 0)
+  %305 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0140.i)
+  %306 = add i32 %.0140.i, 1
+  %307 = add i32 %.182.i, -2
+  switch i8 %305, label %734 [
+    i8 126, label %308
+    i8 127, label %569
+    i8 125, label %717
+    i8 0, label %722
   ]
 
-309:                                              ; preds = %302
-  %310 = load i32, ptr @hf_rtp_midi_sysex_common_device_id, align 4
-  %311 = tail call ptr @proto_tree_add_item(ptr noundef %298, i32 noundef %310, ptr noundef %0, i32 noundef %307, i32 noundef 1, i32 noundef 0) #2
-  %312 = add i32 %.1.i175, -3
-  %313 = icmp eq i32 %312, 0
-  br i1 %313, label %decode_sysex_common_nrt.exit.thread.i, label %314
+308:                                              ; preds = %301
+  %309 = load i32, ptr @hf_rtp_midi_sysex_common_device_id, align 4
+  %310 = tail call ptr @proto_tree_add_item(ptr noundef %297, i32 noundef %309, ptr noundef %0, i32 noundef %306, i32 noundef 1, i32 noundef 0)
+  %311 = add i32 %.182.i, -3
+  %312 = icmp eq i32 %311, 0
+  br i1 %312, label %decode_sysex_common_nrt.exit.thread.i, label %313
 
-314:                                              ; preds = %309
-  %315 = add i32 %.0140.i, 2
-  %316 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %315) #2
-  %317 = zext i8 %316 to i32
-  %318 = tail call ptr @val_to_str(i32 noundef %317, ptr noundef nonnull @rtp_midi_sysex_common_nrt, ptr noundef nonnull @.str.1615) #2
-  %319 = load i32, ptr @ett_rtp_midi_sysex_common_nrt, align 4
-  %320 = tail call ptr @proto_tree_add_subtree(ptr noundef %298, ptr noundef %0, i32 noundef %315, i32 noundef %312, i32 noundef %319, ptr noundef null, ptr noundef %318) #2
-  %321 = load i32, ptr @hf_rtp_midi_sysex_common_non_realtime, align 4
-  %322 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %321, ptr noundef %0, i32 noundef %315, i32 noundef 1, i32 noundef 0) #2
-  %323 = add i32 %.0140.i, 3
-  %324 = add i32 %.1.i175, -4
-  switch i8 %316, label %decode_sysex_common_nrt_mtc.exit.thread.i.i [
-    i8 1, label %325
-    i8 2, label %346
-    i8 3, label %360
-    i8 4, label %363
-    i8 5, label %399
-    i8 6, label %427
-    i8 7, label %472
-    i8 8, label %526
-    i8 9, label %528
-    i8 10, label %533
-    i8 123, label %538
-    i8 124, label %543
-    i8 125, label %548
-    i8 126, label %553
-    i8 127, label %558
+313:                                              ; preds = %308
+  %314 = add i32 %.0140.i, 2
+  %315 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %314)
+  %316 = zext i8 %315 to i32
+  %317 = tail call ptr @val_to_str(i32 noundef %316, ptr noundef nonnull @rtp_midi_sysex_common_nrt, ptr noundef nonnull @.str.1641)
+  %318 = load i32, ptr @ett_rtp_midi_sysex_common_nrt, align 4
+  %319 = tail call ptr @proto_tree_add_subtree(ptr noundef %297, ptr noundef %0, i32 noundef %314, i32 noundef %311, i32 noundef %318, ptr noundef null, ptr noundef %317)
+  %320 = load i32, ptr @hf_rtp_midi_sysex_common_non_realtime, align 4
+  %321 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %320, ptr noundef %0, i32 noundef %314, i32 noundef 1, i32 noundef 0)
+  %322 = add i32 %.0140.i, 3
+  %323 = add i32 %.182.i, -4
+  switch i8 %315, label %decode_sysex_common_nrt_mtc.exit.thread.i.i [
+    i8 1, label %324
+    i8 2, label %345
+    i8 3, label %359
+    i8 4, label %362
+    i8 5, label %398
+    i8 6, label %426
+    i8 7, label %471
+    i8 8, label %525
+    i8 9, label %527
+    i8 10, label %532
+    i8 123, label %537
+    i8 124, label %542
+    i8 125, label %547
+    i8 126, label %552
+    i8 127, label %557
   ]
 
-325:                                              ; preds = %314
-  %326 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_sd_header_sn, align 4
-  %327 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %326, ptr noundef %0, i32 noundef %323, i32 noundef 2, i32 noundef 0) #2
-  %328 = add i32 %.0140.i, 5
-  %329 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_sd_header_sf, align 4
-  %330 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %329, ptr noundef %0, i32 noundef %328, i32 noundef 1, i32 noundef 0) #2
-  %331 = add i32 %.0140.i, 6
-  %332 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_sd_header_sp, align 4
-  %333 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %332, ptr noundef %0, i32 noundef %331, i32 noundef 3, i32 noundef 0) #2
-  %334 = add i32 %.0140.i, 9
-  %335 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_sd_header_sl, align 4
-  %336 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %335, ptr noundef %0, i32 noundef %334, i32 noundef 3, i32 noundef 0) #2
-  %337 = add i32 %.0140.i, 12
-  %338 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_sd_header_ls, align 4
-  %339 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %338, ptr noundef %0, i32 noundef %337, i32 noundef 3, i32 noundef 0) #2
-  %340 = add i32 %.0140.i, 15
-  %341 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_sd_header_le, align 4
-  %342 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %341, ptr noundef %0, i32 noundef %340, i32 noundef 3, i32 noundef 0) #2
-  %343 = add i32 %.0140.i, 18
-  %344 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_sd_header_lt, align 4
-  %345 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %344, ptr noundef %0, i32 noundef %343, i32 noundef 1, i32 noundef 0) #2
+324:                                              ; preds = %313
+  %325 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_sd_header_sn, align 4
+  %326 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %325, ptr noundef %0, i32 noundef %322, i32 noundef 2, i32 noundef 0)
+  %327 = add i32 %.0140.i, 5
+  %328 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_sd_header_sf, align 4
+  %329 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %328, ptr noundef %0, i32 noundef %327, i32 noundef 1, i32 noundef 0)
+  %330 = add i32 %.0140.i, 6
+  %331 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_sd_header_sp, align 4
+  %332 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %331, ptr noundef %0, i32 noundef %330, i32 noundef 3, i32 noundef 0)
+  %333 = add i32 %.0140.i, 9
+  %334 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_sd_header_sl, align 4
+  %335 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %334, ptr noundef %0, i32 noundef %333, i32 noundef 3, i32 noundef 0)
+  %336 = add i32 %.0140.i, 12
+  %337 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_sd_header_ls, align 4
+  %338 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %337, ptr noundef %0, i32 noundef %336, i32 noundef 3, i32 noundef 0)
+  %339 = add i32 %.0140.i, 15
+  %340 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_sd_header_le, align 4
+  %341 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %340, ptr noundef %0, i32 noundef %339, i32 noundef 3, i32 noundef 0)
+  %342 = add i32 %.0140.i, 18
+  %343 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_sd_header_lt, align 4
+  %344 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %343, ptr noundef %0, i32 noundef %342, i32 noundef 1, i32 noundef 0)
   br label %decode_sysex_common_nrt_mtc.exit.thread.i.i
 
-346:                                              ; preds = %314
-  %347 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_sd_packet_count, align 4
-  %348 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %347, ptr noundef %0, i32 noundef %323, i32 noundef 1, i32 noundef 0) #2
-  %349 = add i32 %.0140.i, 4
-  %350 = add i32 %.1.i175, -7
-  %351 = icmp ult i32 %350, -2
-  br i1 %351, label %352, label %decode_sysex_common_nrt_sd_packet.exit.i.i
+345:                                              ; preds = %313
+  %346 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_sd_packet_count, align 4
+  %347 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %346, ptr noundef %0, i32 noundef %322, i32 noundef 1, i32 noundef 0)
+  %348 = add i32 %.0140.i, 4
+  %349 = add i32 %.182.i, -7
+  %350 = icmp ult i32 %349, -2
+  br i1 %350, label %351, label %decode_sysex_common_nrt_sd_packet.exit.i.i
 
-352:                                              ; preds = %346
-  %353 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_sd_packet_data, align 4
-  %354 = add i32 %.1.i175, -6
-  %355 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %353, ptr noundef %0, i32 noundef %349, i32 noundef %354, i32 noundef 0) #2
-  %356 = add i32 %354, %349
+351:                                              ; preds = %345
+  %352 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_sd_packet_data, align 4
+  %353 = add i32 %.182.i, -6
+  %354 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %352, ptr noundef %0, i32 noundef %348, i32 noundef %353, i32 noundef 0)
+  %355 = add i32 %353, %348
   br label %decode_sysex_common_nrt_sd_packet.exit.i.i
 
-decode_sysex_common_nrt_sd_packet.exit.i.i:       ; preds = %352, %346
-  %.0.i.i.i183 = phi i32 [ %356, %352 ], [ %349, %346 ]
-  %357 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_sd_packet_check, align 4
-  %358 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %357, ptr noundef %0, i32 noundef %.0.i.i.i183, i32 noundef 1, i32 noundef 0) #2
-  %reass.sub = sub i32 %.0.i.i.i183, %.0140.i
-  %359 = add i32 %reass.sub, -2
+decode_sysex_common_nrt_sd_packet.exit.i.i:       ; preds = %351, %345
+  %.0.i.i.i193 = phi i32 [ %355, %351 ], [ %348, %345 ]
+  %356 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_sd_packet_check, align 4
+  %357 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %356, ptr noundef %0, i32 noundef %.0.i.i.i193, i32 noundef 1, i32 noundef 0)
+  %reass.sub = sub i32 %.0.i.i.i193, %.0140.i
+  %358 = add i32 %reass.sub, -2
   br label %decode_sysex_common_nrt_mtc.exit.i.i
 
-360:                                              ; preds = %314
-  %361 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_sd_header_sn, align 4
-  %362 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %361, ptr noundef %0, i32 noundef %323, i32 noundef 2, i32 noundef 0) #2
+359:                                              ; preds = %313
+  %360 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_sd_header_sn, align 4
+  %361 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %360, ptr noundef %0, i32 noundef %322, i32 noundef 2, i32 noundef 0)
   br label %decode_sysex_common_nrt_mtc.exit.thread.i.i
 
-363:                                              ; preds = %314
-  %364 = icmp eq i32 %324, 0
-  br i1 %364, label %decode_sysex_common_nrt.exit.thread.i, label %365
+362:                                              ; preds = %313
+  %363 = icmp eq i32 %323, 0
+  br i1 %363, label %decode_sysex_common_nrt.exit.thread.i, label %364
 
-365:                                              ; preds = %363
-  %366 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_mtc, align 4
-  %367 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %366, ptr noundef %0, i32 noundef %323, i32 noundef 1, i32 noundef 0) #2
-  %368 = add i32 %.0140.i, 4
-  %369 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_mtc_type, align 4
-  %370 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %369, ptr noundef %0, i32 noundef %368, i32 noundef 1, i32 noundef 0) #2
-  %371 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_mtc_hr, align 4
-  %372 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %371, ptr noundef %0, i32 noundef %368, i32 noundef 1, i32 noundef 0) #2
-  %373 = add i32 %.0140.i, 5
-  %374 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_mtc_mn, align 4
-  %375 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %374, ptr noundef %0, i32 noundef %373, i32 noundef 1, i32 noundef 0) #2
-  %376 = add i32 %.0140.i, 6
-  %377 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_mtc_sc, align 4
-  %378 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %377, ptr noundef %0, i32 noundef %376, i32 noundef 1, i32 noundef 0) #2
-  %379 = add i32 %.0140.i, 7
-  %380 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_mtc_fr, align 4
-  %381 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %380, ptr noundef %0, i32 noundef %379, i32 noundef 1, i32 noundef 0) #2
-  %382 = add i32 %.0140.i, 8
-  %383 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_mtc_ff, align 4
-  %384 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %383, ptr noundef %0, i32 noundef %382, i32 noundef 1, i32 noundef 0) #2
-  %385 = add i32 %.0140.i, 9
-  %386 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_mtc_enl, align 4
-  %387 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %386, ptr noundef %0, i32 noundef %385, i32 noundef 1, i32 noundef 0) #2
-  %388 = add i32 %.0140.i, 10
-  %389 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_mtc_enm, align 4
-  %390 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %389, ptr noundef %0, i32 noundef %388, i32 noundef 1, i32 noundef 0) #2
-  %391 = add i32 %.0140.i, 11
-  %392 = add i32 %.1.i175, -12
-  %.not.i.i.i182 = icmp eq i32 %392, 0
-  br i1 %.not.i.i.i182, label %397, label %393
+364:                                              ; preds = %362
+  %365 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_mtc, align 4
+  %366 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %365, ptr noundef %0, i32 noundef %322, i32 noundef 1, i32 noundef 0)
+  %367 = add i32 %.0140.i, 4
+  %368 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_mtc_type, align 4
+  %369 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %368, ptr noundef %0, i32 noundef %367, i32 noundef 1, i32 noundef 0)
+  %370 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_mtc_hr, align 4
+  %371 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %370, ptr noundef %0, i32 noundef %367, i32 noundef 1, i32 noundef 0)
+  %372 = add i32 %.0140.i, 5
+  %373 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_mtc_mn, align 4
+  %374 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %373, ptr noundef %0, i32 noundef %372, i32 noundef 1, i32 noundef 0)
+  %375 = add i32 %.0140.i, 6
+  %376 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_mtc_sc, align 4
+  %377 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %376, ptr noundef %0, i32 noundef %375, i32 noundef 1, i32 noundef 0)
+  %378 = add i32 %.0140.i, 7
+  %379 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_mtc_fr, align 4
+  %380 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %379, ptr noundef %0, i32 noundef %378, i32 noundef 1, i32 noundef 0)
+  %381 = add i32 %.0140.i, 8
+  %382 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_mtc_ff, align 4
+  %383 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %382, ptr noundef %0, i32 noundef %381, i32 noundef 1, i32 noundef 0)
+  %384 = add i32 %.0140.i, 9
+  %385 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_mtc_enl, align 4
+  %386 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %385, ptr noundef %0, i32 noundef %384, i32 noundef 1, i32 noundef 0)
+  %387 = add i32 %.0140.i, 10
+  %388 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_mtc_enm, align 4
+  %389 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %388, ptr noundef %0, i32 noundef %387, i32 noundef 1, i32 noundef 0)
+  %390 = add i32 %.0140.i, 11
+  %391 = add i32 %.182.i, -12
+  %.not.i.i.i192 = icmp eq i32 %391, 0
+  br i1 %.not.i.i.i192, label %396, label %392
 
-393:                                              ; preds = %365
-  %394 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_mtc_add, align 4
-  %395 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %394, ptr noundef %0, i32 noundef %391, i32 noundef %392, i32 noundef 0) #2
-  %396 = add i32 %308, %307
-  br label %397
+392:                                              ; preds = %364
+  %393 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_mtc_add, align 4
+  %394 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %393, ptr noundef %0, i32 noundef %390, i32 noundef %391, i32 noundef 0)
+  %395 = add i32 %307, %306
+  br label %396
 
-397:                                              ; preds = %393, %365
-  %.054.i.i.i = phi i32 [ %396, %393 ], [ %391, %365 ]
-  %398 = sub i32 %.054.i.i.i, %323
+396:                                              ; preds = %392, %364
+  %.054.i.i.i = phi i32 [ %395, %392 ], [ %390, %364 ]
+  %397 = sub i32 %.054.i.i.i, %322
   br label %decode_sysex_common_nrt_mtc.exit.i.i
 
-399:                                              ; preds = %314
-  %400 = icmp eq i32 %324, 0
-  br i1 %400, label %decode_sysex_common_nrt.exit.thread.i, label %401
+398:                                              ; preds = %313
+  %399 = icmp eq i32 %323, 0
+  br i1 %399, label %decode_sysex_common_nrt.exit.thread.i, label %400
 
-401:                                              ; preds = %399
-  %402 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %323) #2
-  %403 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_sd_ext, align 4
-  %404 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %403, ptr noundef %0, i32 noundef %323, i32 noundef 1, i32 noundef 0) #2
-  %405 = add i32 %.0140.i, 4
-  switch i8 %402, label %425 [
-    i8 1, label %406
-    i8 2, label %418
+400:                                              ; preds = %398
+  %401 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %322)
+  %402 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_sd_ext, align 4
+  %403 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %402, ptr noundef %0, i32 noundef %322, i32 noundef 1, i32 noundef 0)
+  %404 = add i32 %.0140.i, 4
+  switch i8 %401, label %424 [
+    i8 1, label %405
+    i8 2, label %417
   ]
 
-406:                                              ; preds = %401
-  %407 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_sd_header_sn, align 4
-  %408 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %407, ptr noundef %0, i32 noundef %405, i32 noundef 2, i32 noundef 0) #2
-  %409 = add i32 %.0140.i, 6
-  %410 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_sd_ext_ln, align 4
-  %411 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %410, ptr noundef %0, i32 noundef %409, i32 noundef 2, i32 noundef 0) #2
-  %412 = add i32 %.0140.i, 8
-  %413 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_sd_header_lt, align 4
-  %414 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %413, ptr noundef %0, i32 noundef %412, i32 noundef 1, i32 noundef 0) #2
-  %415 = add i32 %.0140.i, 9
-  %416 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_sd_header_ls, align 4
-  %417 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %416, ptr noundef %0, i32 noundef %415, i32 noundef 3, i32 noundef 0) #2
+405:                                              ; preds = %400
+  %406 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_sd_header_sn, align 4
+  %407 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %406, ptr noundef %0, i32 noundef %404, i32 noundef 2, i32 noundef 0)
+  %408 = add i32 %.0140.i, 6
+  %409 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_sd_ext_ln, align 4
+  %410 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %409, ptr noundef %0, i32 noundef %408, i32 noundef 2, i32 noundef 0)
+  %411 = add i32 %.0140.i, 8
+  %412 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_sd_header_lt, align 4
+  %413 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %412, ptr noundef %0, i32 noundef %411, i32 noundef 1, i32 noundef 0)
+  %414 = add i32 %.0140.i, 9
+  %415 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_sd_header_ls, align 4
+  %416 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %415, ptr noundef %0, i32 noundef %414, i32 noundef 3, i32 noundef 0)
   br label %.sink.split.i.i.i
 
-418:                                              ; preds = %401
-  %419 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_sd_header_sn, align 4
-  %420 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %419, ptr noundef %0, i32 noundef %405, i32 noundef 2, i32 noundef 0) #2
+417:                                              ; preds = %400
+  %418 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_sd_header_sn, align 4
+  %419 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %418, ptr noundef %0, i32 noundef %404, i32 noundef 2, i32 noundef 0)
   br label %.sink.split.i.i.i
 
-.sink.split.i.i.i:                                ; preds = %418, %406
-  %.sink4.i.i.i = phi i32 [ 3, %418 ], [ 9, %406 ]
-  %hf_rtp_midi_sysex_common_nrt_sd_ext_ln.sink.i.i.i = phi ptr [ @hf_rtp_midi_sysex_common_nrt_sd_ext_ln, %418 ], [ @hf_rtp_midi_sysex_common_nrt_sd_header_le, %406 ]
-  %.sink3.i.i.i = phi i32 [ 2, %418 ], [ 3, %406 ]
-  %.sink.i.i.i = phi i32 [ 5, %418 ], [ 12, %406 ]
-  %421 = add i32 %.sink4.i.i.i, %323
-  %422 = load i32, ptr %hf_rtp_midi_sysex_common_nrt_sd_ext_ln.sink.i.i.i, align 4
-  %423 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %422, ptr noundef %0, i32 noundef %421, i32 noundef %.sink3.i.i.i, i32 noundef 0) #2
-  %424 = add i32 %.sink.i.i.i, %323
-  br label %425
+.sink.split.i.i.i:                                ; preds = %417, %405
+  %.sink4.i.i.i = phi i32 [ 3, %417 ], [ 9, %405 ]
+  %hf_rtp_midi_sysex_common_nrt_sd_ext_ln.sink.i.i.i = phi ptr [ @hf_rtp_midi_sysex_common_nrt_sd_ext_ln, %417 ], [ @hf_rtp_midi_sysex_common_nrt_sd_header_le, %405 ]
+  %.sink3.i.i.i = phi i32 [ 2, %417 ], [ 3, %405 ]
+  %.sink.i.i.i = phi i32 [ 5, %417 ], [ 12, %405 ]
+  %420 = add i32 %.sink4.i.i.i, %322
+  %421 = load i32, ptr %hf_rtp_midi_sysex_common_nrt_sd_ext_ln.sink.i.i.i, align 4
+  %422 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %421, ptr noundef %0, i32 noundef %420, i32 noundef %.sink3.i.i.i, i32 noundef 0)
+  %423 = add i32 %.sink.i.i.i, %322
+  br label %424
 
-425:                                              ; preds = %.sink.split.i.i.i, %401
-  %.040.i.i.i = phi i32 [ %405, %401 ], [ %424, %.sink.split.i.i.i ]
-  %426 = sub i32 %.040.i.i.i, %323
+424:                                              ; preds = %.sink.split.i.i.i, %400
+  %.040.i.i.i = phi i32 [ %404, %400 ], [ %423, %.sink.split.i.i.i ]
+  %425 = sub i32 %.040.i.i.i, %322
   br label %decode_sysex_common_nrt_mtc.exit.i.i
 
-427:                                              ; preds = %314
-  %428 = icmp eq i32 %324, 0
-  br i1 %428, label %decode_sysex_common_nrt.exit.thread.i, label %429
+426:                                              ; preds = %313
+  %427 = icmp eq i32 %323, 0
+  br i1 %427, label %decode_sysex_common_nrt.exit.thread.i, label %428
 
-429:                                              ; preds = %427
-  %430 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %323) #2
-  %431 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_gi, align 4
-  %432 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %431, ptr noundef %0, i32 noundef %323, i32 noundef 1, i32 noundef 0) #2
-  %433 = icmp ne i8 %430, 2
-  %434 = icmp eq i32 %324, 1
-  %or.cond.i.i.i = or i1 %434, %433
-  br i1 %or.cond.i.i.i, label %decode_sysex_common_nrt_mtc.exit.thread.i.i, label %435
+428:                                              ; preds = %426
+  %429 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %322)
+  %430 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_gi, align 4
+  %431 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %430, ptr noundef %0, i32 noundef %322, i32 noundef 1, i32 noundef 0)
+  %432 = icmp ne i8 %429, 2
+  %433 = icmp eq i32 %323, 1
+  %or.cond.i.i.i = or i1 %433, %432
+  br i1 %or.cond.i.i.i, label %decode_sysex_common_nrt_mtc.exit.thread.i.i, label %434
 
-435:                                              ; preds = %429
-  %436 = add i32 %.0140.i, 4
-  %437 = load i32, ptr @hf_rtp_midi_manu_short, align 4
-  %438 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %437, ptr noundef %0, i32 noundef %436, i32 noundef 1, i32 noundef 0) #2
-  %439 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %436) #2
-  %440 = add i32 %.0140.i, 5
-  %441 = add i32 %.1.i175, -6
-  %442 = icmp eq i8 %439, 0
-  br i1 %442, label %443, label %450
+434:                                              ; preds = %428
+  %435 = add i32 %.0140.i, 4
+  %436 = load i32, ptr @hf_rtp_midi_manu_short, align 4
+  %437 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %436, ptr noundef %0, i32 noundef %435, i32 noundef 1, i32 noundef 0)
+  %438 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %435)
+  %439 = add i32 %.0140.i, 5
+  %440 = add i32 %.182.i, -6
+  %441 = icmp eq i8 %438, 0
+  br i1 %441, label %442, label %449
 
-443:                                              ; preds = %435
-  %444 = icmp samesign ult i32 %441, 2
-  br i1 %444, label %decode_sysex_common_nrt_mtc.exit.thread.i.i, label %445
+442:                                              ; preds = %434
+  %443 = icmp samesign ult i32 %440, 2
+  br i1 %443, label %decode_sysex_common_nrt_mtc.exit.thread.i.i, label %444
 
-445:                                              ; preds = %443
-  %446 = load i32, ptr @hf_rtp_midi_manu_long, align 4
-  %447 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %446, ptr noundef %0, i32 noundef %440, i32 noundef 2, i32 noundef 0) #2
-  %448 = add i32 %.0140.i, 7
-  %449 = add i32 %.1.i175, -8
-  br label %450
+444:                                              ; preds = %442
+  %445 = load i32, ptr @hf_rtp_midi_manu_long, align 4
+  %446 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %445, ptr noundef %0, i32 noundef %439, i32 noundef 2, i32 noundef 0)
+  %447 = add i32 %.0140.i, 7
+  %448 = add i32 %.182.i, -8
+  br label %449
 
-450:                                              ; preds = %445, %435
-  %.058.i.i.i = phi i32 [ %449, %445 ], [ %441, %435 ]
-  %.057.i.i.i = phi i32 [ %448, %445 ], [ %440, %435 ]
-  %.1.i.i.i181 = phi i32 [ 4, %445 ], [ 2, %435 ]
-  %451 = icmp samesign ult i32 %.058.i.i.i, 2
-  br i1 %451, label %decode_sysex_common_nrt_mtc.exit.thread.i.i, label %452
+449:                                              ; preds = %444, %434
+  %.061.i.i.i = phi i32 [ %448, %444 ], [ %440, %434 ]
+  %.060.i.i.i = phi i32 [ %447, %444 ], [ %439, %434 ]
+  %.2.i.i.i191 = phi i32 [ 4, %444 ], [ 2, %434 ]
+  %450 = icmp samesign ult i32 %.061.i.i.i, 2
+  br i1 %450, label %decode_sysex_common_nrt_mtc.exit.thread.i.i, label %451
 
-452:                                              ; preds = %450
-  %453 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_gi_device_family, align 4
-  %454 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %453, ptr noundef %0, i32 noundef %.057.i.i.i, i32 noundef 2, i32 noundef 0) #2
-  %455 = and i32 %.058.i.i.i, -2
-  %456 = icmp eq i32 %455, 2
-  br i1 %456, label %457, label %459
+451:                                              ; preds = %449
+  %452 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_gi_device_family, align 4
+  %453 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %452, ptr noundef %0, i32 noundef %.060.i.i.i, i32 noundef 2, i32 noundef 0)
+  %454 = and i32 %.061.i.i.i, -2
+  %455 = icmp eq i32 %454, 2
+  br i1 %455, label %456, label %458
 
-457:                                              ; preds = %452
-  %458 = add nuw nsw i32 %.1.i.i.i181, 2
+456:                                              ; preds = %451
+  %457 = add nuw nsw i32 %.2.i.i.i191, 2
   br label %decode_sysex_common_nrt_mtc.exit.thread.i.i
 
-459:                                              ; preds = %452
-  %460 = add i32 %.057.i.i.i, 2
-  %461 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_gi_device_family_member, align 4
-  %462 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %461, ptr noundef %0, i32 noundef %460, i32 noundef 2, i32 noundef 0) #2
-  %463 = and i32 %.058.i.i.i, -4
-  %464 = icmp eq i32 %463, 4
-  br i1 %464, label %465, label %467
+458:                                              ; preds = %451
+  %459 = add i32 %.060.i.i.i, 2
+  %460 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_gi_device_family_member, align 4
+  %461 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %460, ptr noundef %0, i32 noundef %459, i32 noundef 2, i32 noundef 0)
+  %462 = and i32 %.061.i.i.i, -4
+  %463 = icmp eq i32 %462, 4
+  br i1 %463, label %464, label %466
 
-465:                                              ; preds = %459
-  %466 = add nuw nsw i32 %.1.i.i.i181, 4
+464:                                              ; preds = %458
+  %465 = add nuw nsw i32 %.2.i.i.i191, 4
   br label %decode_sysex_common_nrt_mtc.exit.thread.i.i
 
-467:                                              ; preds = %459
-  %468 = add i32 %.057.i.i.i, 4
-  %469 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_gi_software_rev, align 4
-  %470 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %469, ptr noundef %0, i32 noundef %468, i32 noundef 4, i32 noundef 0) #2
-  %471 = or disjoint i32 %.1.i.i.i181, 8
+466:                                              ; preds = %458
+  %467 = add i32 %.060.i.i.i, 4
+  %468 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_gi_software_rev, align 4
+  %469 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %468, ptr noundef %0, i32 noundef %467, i32 noundef 4, i32 noundef 0)
+  %470 = or disjoint i32 %.2.i.i.i191, 8
   br label %decode_sysex_common_nrt_mtc.exit.thread.i.i
 
-472:                                              ; preds = %314
-  %473 = icmp eq i32 %324, 0
-  br i1 %473, label %decode_sysex_common_nrt.exit.thread.i, label %474
+471:                                              ; preds = %313
+  %472 = icmp eq i32 %323, 0
+  br i1 %472, label %decode_sysex_common_nrt.exit.thread.i, label %473
 
-474:                                              ; preds = %472
-  %475 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %323) #2
-  %476 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_fd, align 4
-  %477 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %476, ptr noundef %0, i32 noundef %323, i32 noundef 1, i32 noundef 0) #2
-  %478 = add i32 %.0140.i, 4
-  switch i8 %475, label %524 [
-    i8 1, label %479
-    i8 2, label %494
-    i8 3, label %512
+473:                                              ; preds = %471
+  %474 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %322)
+  %475 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_fd, align 4
+  %476 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %475, ptr noundef %0, i32 noundef %322, i32 noundef 1, i32 noundef 0)
+  %477 = add i32 %.0140.i, 4
+  switch i8 %474, label %523 [
+    i8 1, label %478
+    i8 2, label %493
+    i8 3, label %511
   ]
 
-479:                                              ; preds = %474
-  %480 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_fd_device_id, align 4
-  %481 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %480, ptr noundef %0, i32 noundef %478, i32 noundef 1, i32 noundef 0) #2
-  %482 = add i32 %.0140.i, 5
-  %483 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_fd_type, align 4
-  %484 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %483, ptr noundef %0, i32 noundef %482, i32 noundef 4, i32 noundef 0) #2
-  %485 = add i32 %.0140.i, 9
-  %486 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_fd_length, align 4
-  %487 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %486, ptr noundef %0, i32 noundef %485, i32 noundef 4, i32 noundef 0) #2
-  %488 = add i32 %.0140.i, 13
-  %489 = add i32 %.1.i175, -14
-  %.not81.i.i.i = icmp eq i32 %489, 0
-  br i1 %.not81.i.i.i, label %524, label %490
+478:                                              ; preds = %473
+  %479 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_fd_device_id, align 4
+  %480 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %479, ptr noundef %0, i32 noundef %477, i32 noundef 1, i32 noundef 0)
+  %481 = add i32 %.0140.i, 5
+  %482 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_fd_type, align 4
+  %483 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %482, ptr noundef %0, i32 noundef %481, i32 noundef 4, i32 noundef 0)
+  %484 = add i32 %.0140.i, 9
+  %485 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_fd_length, align 4
+  %486 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %485, ptr noundef %0, i32 noundef %484, i32 noundef 4, i32 noundef 0)
+  %487 = add i32 %.0140.i, 13
+  %488 = add i32 %.182.i, -14
+  %.not81.i.i.i = icmp eq i32 %488, 0
+  br i1 %.not81.i.i.i, label %523, label %489
 
-490:                                              ; preds = %479
-  %491 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_fd_name, align 4
-  %492 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %491, ptr noundef %0, i32 noundef %488, i32 noundef %489, i32 noundef 0) #2
-  %493 = add i32 %308, %307
-  br label %524
+489:                                              ; preds = %478
+  %490 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_fd_name, align 4
+  %491 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %490, ptr noundef %0, i32 noundef %487, i32 noundef %488, i32 noundef 0)
+  %492 = add i32 %307, %306
+  br label %523
 
-494:                                              ; preds = %474
-  %495 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_fd_packet_num, align 4
-  %496 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %495, ptr noundef %0, i32 noundef %478, i32 noundef 1, i32 noundef 0) #2
-  %497 = add i32 %.0140.i, 5
-  %498 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_fd_byte_count, align 4
-  %499 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %498, ptr noundef %0, i32 noundef %497, i32 noundef 1, i32 noundef 0) #2
-  %500 = add i32 %.0140.i, 6
-  %501 = add i32 %.1.i175, -9
-  %502 = icmp ult i32 %501, -2
-  br i1 %502, label %503, label %508
+493:                                              ; preds = %473
+  %494 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_fd_packet_num, align 4
+  %495 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %494, ptr noundef %0, i32 noundef %477, i32 noundef 1, i32 noundef 0)
+  %496 = add i32 %.0140.i, 5
+  %497 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_fd_byte_count, align 4
+  %498 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %497, ptr noundef %0, i32 noundef %496, i32 noundef 1, i32 noundef 0)
+  %499 = add i32 %.0140.i, 6
+  %500 = add i32 %.182.i, -9
+  %501 = icmp ult i32 %500, -2
+  br i1 %501, label %502, label %507
 
-503:                                              ; preds = %494
-  %504 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_fd_packet_data, align 4
-  %505 = add i32 %.1.i175, -8
-  %506 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %504, ptr noundef %0, i32 noundef %500, i32 noundef %505, i32 noundef 0) #2
-  %507 = add i32 %505, %500
-  br label %508
+502:                                              ; preds = %493
+  %503 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_fd_packet_data, align 4
+  %504 = add i32 %.182.i, -8
+  %505 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %503, ptr noundef %0, i32 noundef %499, i32 noundef %504, i32 noundef 0)
+  %506 = add i32 %504, %499
+  br label %507
 
-508:                                              ; preds = %503, %494
-  %.1.i123.i.i = phi i32 [ %507, %503 ], [ %500, %494 ]
-  %509 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_fd_checksum, align 4
-  %510 = tail call ptr @proto_tree_add_checksum(ptr noundef %320, ptr noundef %0, i32 noundef %.1.i123.i.i, i32 noundef %509, i32 noundef -1, ptr noundef null, ptr noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #2
-  %511 = add i32 %.1.i123.i.i, 1
-  br label %524
+507:                                              ; preds = %502, %493
+  %.1.i.i.i190 = phi i32 [ %506, %502 ], [ %499, %493 ]
+  %508 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_fd_checksum, align 4
+  %509 = tail call ptr @proto_tree_add_checksum(ptr noundef %319, ptr noundef %0, i32 noundef %.1.i.i.i190, i32 noundef %508, i32 noundef -1, ptr noundef null, ptr noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %510 = add i32 %.1.i.i.i190, 1
+  br label %523
 
-512:                                              ; preds = %474
-  %513 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_fd_device_id, align 4
-  %514 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %513, ptr noundef %0, i32 noundef %478, i32 noundef 1, i32 noundef 0) #2
-  %515 = add i32 %.0140.i, 5
-  %516 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_fd_type, align 4
-  %517 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %516, ptr noundef %0, i32 noundef %515, i32 noundef 4, i32 noundef 0) #2
-  %518 = add i32 %.0140.i, 9
-  %519 = add i32 %.1.i175, -10
-  %.not.i121.i.i = icmp eq i32 %519, 0
-  br i1 %.not.i121.i.i, label %524, label %520
+511:                                              ; preds = %473
+  %512 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_fd_device_id, align 4
+  %513 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %512, ptr noundef %0, i32 noundef %477, i32 noundef 1, i32 noundef 0)
+  %514 = add i32 %.0140.i, 5
+  %515 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_fd_type, align 4
+  %516 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %515, ptr noundef %0, i32 noundef %514, i32 noundef 4, i32 noundef 0)
+  %517 = add i32 %.0140.i, 9
+  %518 = add i32 %.182.i, -10
+  %.not.i121.i.i = icmp eq i32 %518, 0
+  br i1 %.not.i121.i.i, label %523, label %519
 
-520:                                              ; preds = %512
-  %521 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_fd_name, align 4
-  %522 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %521, ptr noundef %0, i32 noundef %518, i32 noundef %519, i32 noundef 0) #2
-  %523 = add i32 %308, %307
-  br label %524
+519:                                              ; preds = %511
+  %520 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_fd_name, align 4
+  %521 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %520, ptr noundef %0, i32 noundef %517, i32 noundef %518, i32 noundef 0)
+  %522 = add i32 %307, %306
+  br label %523
 
-524:                                              ; preds = %520, %512, %508, %490, %479, %474
-  %.075.i.i.i = phi i32 [ %493, %490 ], [ %488, %479 ], [ %511, %508 ], [ %523, %520 ], [ %518, %512 ], [ %478, %474 ]
-  %525 = sub i32 %.075.i.i.i, %323
+523:                                              ; preds = %519, %511, %507, %489, %478, %473
+  %.075.i.i.i = phi i32 [ %492, %489 ], [ %487, %478 ], [ %510, %507 ], [ %522, %519 ], [ %517, %511 ], [ %477, %473 ]
+  %524 = sub i32 %.075.i.i.i, %322
   br label %decode_sysex_common_nrt_mtc.exit.i.i
 
-526:                                              ; preds = %314
-  %527 = tail call fastcc i32 @decode_sysex_common_tuning(ptr noundef %0, ptr noundef %1, ptr noundef %320, i32 noundef %323, i32 noundef %324)
+525:                                              ; preds = %313
+  %526 = tail call fastcc i32 @decode_sysex_common_tuning(ptr noundef %0, ptr noundef %1, ptr noundef %319, i32 noundef %322, i32 noundef %323)
   br label %decode_sysex_common_nrt_mtc.exit.i.i
 
-528:                                              ; preds = %314
-  %529 = icmp eq i32 %324, 0
-  br i1 %529, label %decode_sysex_common_nrt.exit.thread.i, label %530
+527:                                              ; preds = %313
+  %528 = icmp eq i32 %323, 0
+  br i1 %528, label %decode_sysex_common_nrt.exit.thread.i, label %529
 
-530:                                              ; preds = %528
-  %531 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_gm, align 4
-  %532 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %531, ptr noundef %0, i32 noundef %323, i32 noundef 1, i32 noundef 0) #2
+529:                                              ; preds = %527
+  %530 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_gm, align 4
+  %531 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %530, ptr noundef %0, i32 noundef %322, i32 noundef 1, i32 noundef 0)
   br label %decode_sysex_common_nrt_mtc.exit.thread.i.i
 
-533:                                              ; preds = %314
-  %534 = icmp eq i32 %324, 0
-  br i1 %534, label %decode_sysex_common_nrt.exit.thread.i, label %535
+532:                                              ; preds = %313
+  %533 = icmp eq i32 %323, 0
+  br i1 %533, label %decode_sysex_common_nrt.exit.thread.i, label %534
 
-535:                                              ; preds = %533
-  %536 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_dls, align 4
-  %537 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %536, ptr noundef %0, i32 noundef %323, i32 noundef 1, i32 noundef 0) #2
+534:                                              ; preds = %532
+  %535 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_dls, align 4
+  %536 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %535, ptr noundef %0, i32 noundef %322, i32 noundef 1, i32 noundef 0)
   br label %decode_sysex_common_nrt_mtc.exit.thread.i.i
 
-538:                                              ; preds = %314
-  %539 = icmp eq i32 %324, 0
-  br i1 %539, label %decode_sysex_common_nrt.exit.thread.i, label %540
+537:                                              ; preds = %313
+  %538 = icmp eq i32 %323, 0
+  br i1 %538, label %decode_sysex_common_nrt.exit.thread.i, label %539
 
-540:                                              ; preds = %538
-  %541 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_sd_packet_number, align 4
-  %542 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %541, ptr noundef %0, i32 noundef %323, i32 noundef 1, i32 noundef 0) #2
+539:                                              ; preds = %537
+  %540 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_sd_packet_number, align 4
+  %541 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %540, ptr noundef %0, i32 noundef %322, i32 noundef 1, i32 noundef 0)
   br label %decode_sysex_common_nrt_mtc.exit.thread.i.i
 
-543:                                              ; preds = %314
-  %544 = icmp eq i32 %324, 0
-  br i1 %544, label %decode_sysex_common_nrt.exit.thread.i, label %545
+542:                                              ; preds = %313
+  %543 = icmp eq i32 %323, 0
+  br i1 %543, label %decode_sysex_common_nrt.exit.thread.i, label %544
 
-545:                                              ; preds = %543
-  %546 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_sd_packet_number, align 4
-  %547 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %546, ptr noundef %0, i32 noundef %323, i32 noundef 1, i32 noundef 0) #2
+544:                                              ; preds = %542
+  %545 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_sd_packet_number, align 4
+  %546 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %545, ptr noundef %0, i32 noundef %322, i32 noundef 1, i32 noundef 0)
   br label %decode_sysex_common_nrt_mtc.exit.thread.i.i
 
-548:                                              ; preds = %314
-  %549 = icmp eq i32 %324, 0
-  br i1 %549, label %decode_sysex_common_nrt.exit.thread.i, label %550
+547:                                              ; preds = %313
+  %548 = icmp eq i32 %323, 0
+  br i1 %548, label %decode_sysex_common_nrt.exit.thread.i, label %549
 
-550:                                              ; preds = %548
-  %551 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_sd_packet_number, align 4
-  %552 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %551, ptr noundef %0, i32 noundef %323, i32 noundef 1, i32 noundef 0) #2
+549:                                              ; preds = %547
+  %550 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_sd_packet_number, align 4
+  %551 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %550, ptr noundef %0, i32 noundef %322, i32 noundef 1, i32 noundef 0)
   br label %decode_sysex_common_nrt_mtc.exit.thread.i.i
 
-553:                                              ; preds = %314
-  %554 = icmp eq i32 %324, 0
-  br i1 %554, label %decode_sysex_common_nrt.exit.thread.i, label %555
+552:                                              ; preds = %313
+  %553 = icmp eq i32 %323, 0
+  br i1 %553, label %decode_sysex_common_nrt.exit.thread.i, label %554
 
-555:                                              ; preds = %553
-  %556 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_sd_packet_number, align 4
-  %557 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %556, ptr noundef %0, i32 noundef %323, i32 noundef 1, i32 noundef 0) #2
+554:                                              ; preds = %552
+  %555 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_sd_packet_number, align 4
+  %556 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %555, ptr noundef %0, i32 noundef %322, i32 noundef 1, i32 noundef 0)
   br label %decode_sysex_common_nrt_mtc.exit.thread.i.i
 
-558:                                              ; preds = %314
-  %559 = icmp eq i32 %324, 0
-  br i1 %559, label %decode_sysex_common_nrt.exit.thread.i, label %560
+557:                                              ; preds = %313
+  %558 = icmp eq i32 %323, 0
+  br i1 %558, label %decode_sysex_common_nrt.exit.thread.i, label %559
 
-560:                                              ; preds = %558
-  %561 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_sd_packet_number, align 4
-  %562 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %561, ptr noundef %0, i32 noundef %323, i32 noundef 1, i32 noundef 0) #2
+559:                                              ; preds = %557
+  %560 = load i32, ptr @hf_rtp_midi_sysex_common_nrt_sd_packet_number, align 4
+  %561 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %560, ptr noundef %0, i32 noundef %322, i32 noundef 1, i32 noundef 0)
   br label %decode_sysex_common_nrt_mtc.exit.thread.i.i
 
-decode_sysex_common_nrt_mtc.exit.i.i:             ; preds = %526, %524, %425, %397, %decode_sysex_common_nrt_sd_packet.exit.i.i
-  %.0.i.i180 = phi i32 [ %527, %526 ], [ %359, %decode_sysex_common_nrt_sd_packet.exit.i.i ], [ %398, %397 ], [ %426, %425 ], [ %525, %524 ]
-  %563 = icmp slt i32 %.0.i.i180, 0
-  br i1 %563, label %decodemidi.exit, label %decode_sysex_common_nrt_mtc.exit.thread.i.i
+decode_sysex_common_nrt_mtc.exit.i.i:             ; preds = %525, %523, %424, %396, %decode_sysex_common_nrt_sd_packet.exit.i.i
+  %.0.i.i189 = phi i32 [ %526, %525 ], [ %358, %decode_sysex_common_nrt_sd_packet.exit.i.i ], [ %397, %396 ], [ %425, %424 ], [ %524, %523 ]
+  %562 = icmp slt i32 %.0.i.i189, 0
+  br i1 %562, label %decodemidi.exit, label %decode_sysex_common_nrt_mtc.exit.thread.i.i
 
-decode_sysex_common_nrt_mtc.exit.thread.i.i:      ; preds = %decode_sysex_common_nrt_mtc.exit.i.i, %560, %555, %550, %545, %540, %535, %530, %467, %465, %457, %450, %443, %429, %360, %325, %314
-  %.0132.i.i = phi i32 [ %.0.i.i180, %decode_sysex_common_nrt_mtc.exit.i.i ], [ 1, %560 ], [ 1, %555 ], [ 1, %550 ], [ 1, %545 ], [ 1, %540 ], [ 1, %535 ], [ 1, %530 ], [ 1, %429 ], [ %471, %467 ], [ %.1.i.i.i181, %450 ], [ 2, %443 ], [ %466, %465 ], [ %458, %457 ], [ 16, %325 ], [ 2, %360 ], [ 0, %314 ]
-  %564 = add nuw i32 %.0132.i.i, 2
-  %.not.i.i179 = icmp eq i32 %324, %.0132.i.i
-  br i1 %.not.i.i179, label %decode_sysex_common_nrt.exit.thread.i, label %565
+decode_sysex_common_nrt_mtc.exit.thread.i.i:      ; preds = %decode_sysex_common_nrt_mtc.exit.i.i, %559, %554, %549, %544, %539, %534, %529, %466, %464, %456, %449, %442, %428, %359, %324, %313
+  %.0131.i.i = phi i32 [ %.0.i.i189, %decode_sysex_common_nrt_mtc.exit.i.i ], [ 1, %559 ], [ 1, %554 ], [ 1, %549 ], [ 1, %544 ], [ 1, %539 ], [ 1, %534 ], [ 1, %529 ], [ %457, %456 ], [ %465, %464 ], [ 2, %442 ], [ %.2.i.i.i191, %449 ], [ %470, %466 ], [ 1, %428 ], [ 16, %324 ], [ 2, %359 ], [ 0, %313 ]
+  %563 = add nuw i32 %.0131.i.i, 2
+  %.not.i.i188 = icmp eq i32 %323, %.0131.i.i
+  br i1 %.not.i.i188, label %decode_sysex_common_nrt.exit.thread.i, label %564
 
-565:                                              ; preds = %decode_sysex_common_nrt_mtc.exit.thread.i.i
-  %566 = sub nsw i32 %324, %.0132.i.i
-  %567 = add i32 %.0132.i.i, %323
-  %568 = load i32, ptr @hf_rtp_midi_unknown_data, align 4
-  %569 = tail call ptr @proto_tree_add_item(ptr noundef %320, i32 noundef %568, ptr noundef %0, i32 noundef %567, i32 noundef %566, i32 noundef 0) #2
+564:                                              ; preds = %decode_sysex_common_nrt_mtc.exit.thread.i.i
+  %565 = sub nsw i32 %323, %.0131.i.i
+  %566 = add i32 %.0131.i.i, %322
+  %567 = load i32, ptr @hf_rtp_midi_unknown_data, align 4
+  %568 = tail call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %567, ptr noundef %0, i32 noundef %566, i32 noundef %565, i32 noundef 0)
   br label %decode_sysex_common_nrt.exit.thread.i
 
-570:                                              ; preds = %302
-  %571 = load i32, ptr @hf_rtp_midi_sysex_common_device_id, align 4
-  %572 = tail call ptr @proto_tree_add_item(ptr noundef %298, i32 noundef %571, ptr noundef %0, i32 noundef %307, i32 noundef 1, i32 noundef 0) #2
-  %573 = add i32 %.1.i175, -3
-  %574 = icmp eq i32 %573, 0
-  br i1 %574, label %decode_sysex_common_nrt.exit.thread.i, label %575
+569:                                              ; preds = %301
+  %570 = load i32, ptr @hf_rtp_midi_sysex_common_device_id, align 4
+  %571 = tail call ptr @proto_tree_add_item(ptr noundef %297, i32 noundef %570, ptr noundef %0, i32 noundef %306, i32 noundef 1, i32 noundef 0)
+  %572 = add i32 %.182.i, -3
+  %573 = icmp eq i32 %572, 0
+  br i1 %573, label %decode_sysex_common_nrt.exit.thread.i, label %574
 
-575:                                              ; preds = %570
-  %576 = add i32 %.0140.i, 2
-  %577 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %576) #2
-  %578 = zext i8 %577 to i32
-  %579 = tail call ptr @val_to_str(i32 noundef %578, ptr noundef nonnull @rtp_midi_sysex_common_rt, ptr noundef nonnull @.str.1615) #2
-  %580 = load i32, ptr @ett_rtp_midi_sysex_common_rt, align 4
-  %581 = tail call ptr @proto_tree_add_subtree(ptr noundef %298, ptr noundef %0, i32 noundef %576, i32 noundef %573, i32 noundef %580, ptr noundef null, ptr noundef %579) #2
-  %582 = load i32, ptr @hf_rtp_midi_sysex_common_realtime, align 4
-  %583 = tail call ptr @proto_tree_add_item(ptr noundef %581, i32 noundef %582, ptr noundef %0, i32 noundef %576, i32 noundef 1, i32 noundef 0) #2
-  %584 = add i32 %.1.i175, -4
-  %585 = add i32 %.0140.i, 3
-  switch i8 %577, label %decode_sysex_common_rt_mtc.exit.thread.i.i [
-    i8 1, label %586
-    i8 2, label %626
-    i8 3, label %628
-    i8 4, label %671
-    i8 5, label %684
-    i8 6, label %703
-    i8 7, label %705
-    i8 8, label %707
+574:                                              ; preds = %569
+  %575 = add i32 %.0140.i, 2
+  %576 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %575)
+  %577 = zext i8 %576 to i32
+  %578 = tail call ptr @val_to_str(i32 noundef %577, ptr noundef nonnull @rtp_midi_sysex_common_rt, ptr noundef nonnull @.str.1641)
+  %579 = load i32, ptr @ett_rtp_midi_sysex_common_rt, align 4
+  %580 = tail call ptr @proto_tree_add_subtree(ptr noundef %297, ptr noundef %0, i32 noundef %575, i32 noundef %572, i32 noundef %579, ptr noundef null, ptr noundef %578)
+  %581 = load i32, ptr @hf_rtp_midi_sysex_common_realtime, align 4
+  %582 = tail call ptr @proto_tree_add_item(ptr noundef %580, i32 noundef %581, ptr noundef %0, i32 noundef %575, i32 noundef 1, i32 noundef 0)
+  %583 = add i32 %.182.i, -4
+  %584 = add i32 %.0140.i, 3
+  switch i8 %576, label %decode_sysex_common_rt_mtc.exit.thread.i.i [
+    i8 1, label %585
+    i8 2, label %625
+    i8 3, label %627
+    i8 4, label %670
+    i8 5, label %683
+    i8 6, label %702
+    i8 7, label %704
+    i8 8, label %706
   ]
 
-586:                                              ; preds = %575
-  %587 = icmp eq i32 %584, 0
-  br i1 %587, label %decode_sysex_common_nrt.exit.thread.i, label %588
+585:                                              ; preds = %574
+  %586 = icmp eq i32 %583, 0
+  br i1 %586, label %decode_sysex_common_nrt.exit.thread.i, label %587
 
-588:                                              ; preds = %586
-  %589 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %585) #2
-  %590 = load i32, ptr @hf_rtp_midi_sysex_common_rt_mtc, align 4
-  %591 = tail call ptr @proto_tree_add_item(ptr noundef %581, i32 noundef %590, ptr noundef %0, i32 noundef %585, i32 noundef 1, i32 noundef 0) #2
-  %592 = add i32 %.0140.i, 4
-  switch i8 %589, label %624 [
-    i8 1, label %593
-    i8 2, label %596
+587:                                              ; preds = %585
+  %588 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %584)
+  %589 = load i32, ptr @hf_rtp_midi_sysex_common_rt_mtc, align 4
+  %590 = tail call ptr @proto_tree_add_item(ptr noundef %580, i32 noundef %589, ptr noundef %0, i32 noundef %584, i32 noundef 1, i32 noundef 0)
+  %591 = add i32 %.0140.i, 4
+  switch i8 %588, label %623 [
+    i8 1, label %592
+    i8 2, label %595
   ]
 
-593:                                              ; preds = %588
-  %594 = load i32, ptr @hf_rtp_midi_sysex_common_rt_mtc_fm_type, align 4
-  %595 = tail call ptr @proto_tree_add_item(ptr noundef %581, i32 noundef %594, ptr noundef %0, i32 noundef %592, i32 noundef 1, i32 noundef 0) #2
-  br label %.sink.split.i.i91.i
+592:                                              ; preds = %587
+  %593 = load i32, ptr @hf_rtp_midi_sysex_common_rt_mtc_fm_type, align 4
+  %594 = tail call ptr @proto_tree_add_item(ptr noundef %580, i32 noundef %593, ptr noundef %0, i32 noundef %591, i32 noundef 1, i32 noundef 0)
+  br label %.sink.split.i.i94.i
 
-596:                                              ; preds = %588
-  %597 = load i32, ptr @hf_rtp_midi_sysex_common_rt_mtc_ub_u1, align 4
-  %598 = tail call ptr @proto_tree_add_item(ptr noundef %581, i32 noundef %597, ptr noundef %0, i32 noundef %592, i32 noundef 1, i32 noundef 0) #2
-  %599 = add i32 %.0140.i, 5
-  %600 = load i32, ptr @hf_rtp_midi_sysex_common_rt_mtc_ub_u2, align 4
-  %601 = tail call ptr @proto_tree_add_item(ptr noundef %581, i32 noundef %600, ptr noundef %0, i32 noundef %599, i32 noundef 1, i32 noundef 0) #2
-  %602 = add i32 %.0140.i, 6
-  %603 = load i32, ptr @hf_rtp_midi_sysex_common_rt_mtc_ub_u3, align 4
-  %604 = tail call ptr @proto_tree_add_item(ptr noundef %581, i32 noundef %603, ptr noundef %0, i32 noundef %602, i32 noundef 1, i32 noundef 0) #2
-  %605 = add i32 %.0140.i, 7
-  %606 = load i32, ptr @hf_rtp_midi_sysex_common_rt_mtc_ub_u4, align 4
-  %607 = tail call ptr @proto_tree_add_item(ptr noundef %581, i32 noundef %606, ptr noundef %0, i32 noundef %605, i32 noundef 1, i32 noundef 0) #2
-  %608 = add i32 %.0140.i, 8
-  %609 = load i32, ptr @hf_rtp_midi_sysex_common_rt_mtc_ub_u5, align 4
-  %610 = tail call ptr @proto_tree_add_item(ptr noundef %581, i32 noundef %609, ptr noundef %0, i32 noundef %608, i32 noundef 1, i32 noundef 0) #2
-  %611 = add i32 %.0140.i, 9
-  br label %.sink.split.i.i91.i
+595:                                              ; preds = %587
+  %596 = load i32, ptr @hf_rtp_midi_sysex_common_rt_mtc_ub_u1, align 4
+  %597 = tail call ptr @proto_tree_add_item(ptr noundef %580, i32 noundef %596, ptr noundef %0, i32 noundef %591, i32 noundef 1, i32 noundef 0)
+  %598 = add i32 %.0140.i, 5
+  %599 = load i32, ptr @hf_rtp_midi_sysex_common_rt_mtc_ub_u2, align 4
+  %600 = tail call ptr @proto_tree_add_item(ptr noundef %580, i32 noundef %599, ptr noundef %0, i32 noundef %598, i32 noundef 1, i32 noundef 0)
+  %601 = add i32 %.0140.i, 6
+  %602 = load i32, ptr @hf_rtp_midi_sysex_common_rt_mtc_ub_u3, align 4
+  %603 = tail call ptr @proto_tree_add_item(ptr noundef %580, i32 noundef %602, ptr noundef %0, i32 noundef %601, i32 noundef 1, i32 noundef 0)
+  %604 = add i32 %.0140.i, 7
+  %605 = load i32, ptr @hf_rtp_midi_sysex_common_rt_mtc_ub_u4, align 4
+  %606 = tail call ptr @proto_tree_add_item(ptr noundef %580, i32 noundef %605, ptr noundef %0, i32 noundef %604, i32 noundef 1, i32 noundef 0)
+  %607 = add i32 %.0140.i, 8
+  %608 = load i32, ptr @hf_rtp_midi_sysex_common_rt_mtc_ub_u5, align 4
+  %609 = tail call ptr @proto_tree_add_item(ptr noundef %580, i32 noundef %608, ptr noundef %0, i32 noundef %607, i32 noundef 1, i32 noundef 0)
+  %610 = add i32 %.0140.i, 9
+  br label %.sink.split.i.i94.i
 
-.sink.split.i.i91.i:                              ; preds = %596, %593
-  %hf_rtp_midi_sysex_common_rt_mtc_ub_u6.sink.i.i.i = phi ptr [ @hf_rtp_midi_sysex_common_rt_mtc_ub_u6, %596 ], [ @hf_rtp_midi_sysex_common_rt_mtc_fm_hr, %593 ]
-  %.sink11.i.i.i = phi i32 [ %611, %596 ], [ %592, %593 ]
-  %.sink9.i.i.i = phi i32 [ 7, %596 ], [ 2, %593 ]
-  %hf_rtp_midi_sysex_common_rt_mtc_ub_u7.sink.i.i.i = phi ptr [ @hf_rtp_midi_sysex_common_rt_mtc_ub_u7, %596 ], [ @hf_rtp_midi_sysex_common_rt_mtc_fm_mn, %593 ]
-  %.sink6.i.i.i = phi i32 [ 8, %596 ], [ 3, %593 ]
-  %hf_rtp_midi_sysex_common_rt_mtc_ub_u8.sink.i.i.i = phi ptr [ @hf_rtp_midi_sysex_common_rt_mtc_ub_u8, %596 ], [ @hf_rtp_midi_sysex_common_rt_mtc_fm_sc, %593 ]
-  %.sink3.i.i92.i = phi i32 [ 9, %596 ], [ 4, %593 ]
-  %hf_rtp_midi_sysex_common_rt_mtc_ub_u9.sink.i.i.i = phi ptr [ @hf_rtp_midi_sysex_common_rt_mtc_ub_u9, %596 ], [ @hf_rtp_midi_sysex_common_rt_mtc_fm_fr, %593 ]
-  %.sink.i.i93.i = phi i32 [ 10, %596 ], [ 5, %593 ]
-  %612 = load i32, ptr %hf_rtp_midi_sysex_common_rt_mtc_ub_u6.sink.i.i.i, align 4
-  %613 = tail call ptr @proto_tree_add_item(ptr noundef %581, i32 noundef %612, ptr noundef %0, i32 noundef %.sink11.i.i.i, i32 noundef 1, i32 noundef 0) #2
-  %614 = add i32 %.sink9.i.i.i, %585
-  %615 = load i32, ptr %hf_rtp_midi_sysex_common_rt_mtc_ub_u7.sink.i.i.i, align 4
-  %616 = tail call ptr @proto_tree_add_item(ptr noundef %581, i32 noundef %615, ptr noundef %0, i32 noundef %614, i32 noundef 1, i32 noundef 0) #2
-  %617 = add i32 %.sink6.i.i.i, %585
-  %618 = load i32, ptr %hf_rtp_midi_sysex_common_rt_mtc_ub_u8.sink.i.i.i, align 4
-  %619 = tail call ptr @proto_tree_add_item(ptr noundef %581, i32 noundef %618, ptr noundef %0, i32 noundef %617, i32 noundef 1, i32 noundef 0) #2
-  %620 = add i32 %.sink3.i.i92.i, %585
-  %621 = load i32, ptr %hf_rtp_midi_sysex_common_rt_mtc_ub_u9.sink.i.i.i, align 4
-  %622 = tail call ptr @proto_tree_add_item(ptr noundef %581, i32 noundef %621, ptr noundef %0, i32 noundef %620, i32 noundef 1, i32 noundef 0) #2
-  %623 = add i32 %.sink.i.i93.i, %585
-  br label %624
+.sink.split.i.i94.i:                              ; preds = %595, %592
+  %hf_rtp_midi_sysex_common_rt_mtc_ub_u6.sink.i.i.i = phi ptr [ @hf_rtp_midi_sysex_common_rt_mtc_ub_u6, %595 ], [ @hf_rtp_midi_sysex_common_rt_mtc_fm_hr, %592 ]
+  %.sink11.i.i.i = phi i32 [ %610, %595 ], [ %591, %592 ]
+  %.sink9.i.i.i = phi i32 [ 7, %595 ], [ 2, %592 ]
+  %hf_rtp_midi_sysex_common_rt_mtc_ub_u7.sink.i.i.i = phi ptr [ @hf_rtp_midi_sysex_common_rt_mtc_ub_u7, %595 ], [ @hf_rtp_midi_sysex_common_rt_mtc_fm_mn, %592 ]
+  %.sink6.i.i.i = phi i32 [ 8, %595 ], [ 3, %592 ]
+  %hf_rtp_midi_sysex_common_rt_mtc_ub_u8.sink.i.i.i = phi ptr [ @hf_rtp_midi_sysex_common_rt_mtc_ub_u8, %595 ], [ @hf_rtp_midi_sysex_common_rt_mtc_fm_sc, %592 ]
+  %.sink3.i.i95.i = phi i32 [ 9, %595 ], [ 4, %592 ]
+  %hf_rtp_midi_sysex_common_rt_mtc_ub_u9.sink.i.i.i = phi ptr [ @hf_rtp_midi_sysex_common_rt_mtc_ub_u9, %595 ], [ @hf_rtp_midi_sysex_common_rt_mtc_fm_fr, %592 ]
+  %.sink.i.i96.i = phi i32 [ 10, %595 ], [ 5, %592 ]
+  %611 = load i32, ptr %hf_rtp_midi_sysex_common_rt_mtc_ub_u6.sink.i.i.i, align 4
+  %612 = tail call ptr @proto_tree_add_item(ptr noundef %580, i32 noundef %611, ptr noundef %0, i32 noundef %.sink11.i.i.i, i32 noundef 1, i32 noundef 0)
+  %613 = add i32 %.sink9.i.i.i, %584
+  %614 = load i32, ptr %hf_rtp_midi_sysex_common_rt_mtc_ub_u7.sink.i.i.i, align 4
+  %615 = tail call ptr @proto_tree_add_item(ptr noundef %580, i32 noundef %614, ptr noundef %0, i32 noundef %613, i32 noundef 1, i32 noundef 0)
+  %616 = add i32 %.sink6.i.i.i, %584
+  %617 = load i32, ptr %hf_rtp_midi_sysex_common_rt_mtc_ub_u8.sink.i.i.i, align 4
+  %618 = tail call ptr @proto_tree_add_item(ptr noundef %580, i32 noundef %617, ptr noundef %0, i32 noundef %616, i32 noundef 1, i32 noundef 0)
+  %619 = add i32 %.sink3.i.i95.i, %584
+  %620 = load i32, ptr %hf_rtp_midi_sysex_common_rt_mtc_ub_u9.sink.i.i.i, align 4
+  %621 = tail call ptr @proto_tree_add_item(ptr noundef %580, i32 noundef %620, ptr noundef %0, i32 noundef %619, i32 noundef 1, i32 noundef 0)
+  %622 = add i32 %.sink.i.i96.i, %584
+  br label %623
 
-624:                                              ; preds = %.sink.split.i.i91.i, %588
-  %.067.i.i.i = phi i32 [ %592, %588 ], [ %623, %.sink.split.i.i91.i ]
-  %625 = sub i32 %.067.i.i.i, %585
+623:                                              ; preds = %.sink.split.i.i94.i, %587
+  %.067.i.i.i = phi i32 [ %591, %587 ], [ %622, %.sink.split.i.i94.i ]
+  %624 = sub i32 %.067.i.i.i, %584
   br label %decode_sysex_common_rt_mtc.exit.i.i
 
-626:                                              ; preds = %575
-  %627 = icmp eq i32 %584, 0
-  br i1 %627, label %decode_sysex_common_nrt.exit.thread.i, label %decode_sysex_common_rt_mtc.exit.thread.sink.split.i.i
+625:                                              ; preds = %574
+  %626 = icmp eq i32 %583, 0
+  br i1 %626, label %decode_sysex_common_nrt.exit.thread.i, label %decode_sysex_common_rt_mtc.exit.thread.sink.split.i.i
 
-628:                                              ; preds = %575
-  %629 = icmp eq i32 %584, 0
-  br i1 %629, label %decode_sysex_common_nrt.exit.thread.i, label %630
+627:                                              ; preds = %574
+  %628 = icmp eq i32 %583, 0
+  br i1 %628, label %decode_sysex_common_nrt.exit.thread.i, label %629
 
-630:                                              ; preds = %628
-  %631 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %585) #2
-  %632 = load i32, ptr @hf_rtp_midi_sysex_common_rt_ni, align 4
-  %633 = tail call ptr @proto_tree_add_item(ptr noundef %581, i32 noundef %632, ptr noundef %0, i32 noundef %585, i32 noundef 1, i32 noundef 0) #2
-  %634 = add i32 %.0140.i, 4
-  %635 = icmp eq i8 %631, 1
-  br i1 %635, label %636, label %640
+629:                                              ; preds = %627
+  %630 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %584)
+  %631 = load i32, ptr @hf_rtp_midi_sysex_common_rt_ni, align 4
+  %632 = tail call ptr @proto_tree_add_item(ptr noundef %580, i32 noundef %631, ptr noundef %0, i32 noundef %584, i32 noundef 1, i32 noundef 0)
+  %633 = add i32 %.0140.i, 4
+  %634 = icmp eq i8 %630, 1
+  br i1 %634, label %635, label %639
 
-636:                                              ; preds = %630
-  %637 = load i32, ptr @hf_rtp_midi_sysex_common_rt_ni_bar_num, align 4
-  %638 = tail call ptr @proto_tree_add_item(ptr noundef %581, i32 noundef %637, ptr noundef %0, i32 noundef %634, i32 noundef 2, i32 noundef 0) #2
-  %639 = add i32 %.0140.i, 6
+635:                                              ; preds = %629
+  %636 = load i32, ptr @hf_rtp_midi_sysex_common_rt_ni_bar_num, align 4
+  %637 = tail call ptr @proto_tree_add_item(ptr noundef %580, i32 noundef %636, ptr noundef %0, i32 noundef %633, i32 noundef 2, i32 noundef 0)
+  %638 = add i32 %.0140.i, 6
   br label %.loopexit.i.i.i
 
-640:                                              ; preds = %630
-  %641 = and i8 %631, -65
-  %or.cond.i.i89.i = icmp eq i8 %641, 2
-  br i1 %or.cond.i.i89.i, label %642, label %.loopexit.i.i.i
+639:                                              ; preds = %629
+  %640 = and i8 %630, -65
+  %or.cond.i.i93.i = icmp eq i8 %640, 2
+  br i1 %or.cond.i.i93.i, label %641, label %.loopexit.i.i.i
 
-642:                                              ; preds = %640
-  %643 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %634) #2
-  %644 = load i32, ptr @hf_rtp_midi_sysex_common_rt_ni_bytes, align 4
-  %645 = tail call ptr @proto_tree_add_item(ptr noundef %581, i32 noundef %644, ptr noundef %0, i32 noundef %634, i32 noundef 1, i32 noundef 0) #2
-  %646 = add i32 %.0140.i, 5
-  %647 = load i32, ptr @hf_rtp_midi_sysex_common_rt_ni_numerator, align 4
-  %648 = tail call ptr @proto_tree_add_item(ptr noundef %581, i32 noundef %647, ptr noundef %0, i32 noundef %646, i32 noundef 1, i32 noundef 0) #2
-  %649 = add i32 %.0140.i, 6
-  %650 = load i32, ptr @hf_rtp_midi_sysex_common_rt_ni_denominator, align 4
-  %651 = tail call ptr @proto_tree_add_item(ptr noundef %581, i32 noundef %650, ptr noundef %0, i32 noundef %649, i32 noundef 1, i32 noundef 0) #2
-  %652 = add i32 %.0140.i, 7
-  %653 = load i32, ptr @hf_rtp_midi_sysex_common_rt_ni_midi_clocks, align 4
-  %654 = tail call ptr @proto_tree_add_item(ptr noundef %581, i32 noundef %653, ptr noundef %0, i32 noundef %652, i32 noundef 1, i32 noundef 0) #2
-  %655 = add i32 %.0140.i, 8
-  %656 = load i32, ptr @hf_rtp_midi_sysex_common_rt_ni_32nds, align 4
-  %657 = tail call ptr @proto_tree_add_item(ptr noundef %581, i32 noundef %656, ptr noundef %0, i32 noundef %655, i32 noundef 1, i32 noundef 0) #2
-  %658 = add i32 %.0140.i, 9
-  %659 = icmp ugt i8 %643, 4
-  br i1 %659, label %.lr.ph.preheader.i.i.i, label %.loopexit.i.i.i
+641:                                              ; preds = %639
+  %642 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %633)
+  %643 = load i32, ptr @hf_rtp_midi_sysex_common_rt_ni_bytes, align 4
+  %644 = tail call ptr @proto_tree_add_item(ptr noundef %580, i32 noundef %643, ptr noundef %0, i32 noundef %633, i32 noundef 1, i32 noundef 0)
+  %645 = add i32 %.0140.i, 5
+  %646 = load i32, ptr @hf_rtp_midi_sysex_common_rt_ni_numerator, align 4
+  %647 = tail call ptr @proto_tree_add_item(ptr noundef %580, i32 noundef %646, ptr noundef %0, i32 noundef %645, i32 noundef 1, i32 noundef 0)
+  %648 = add i32 %.0140.i, 6
+  %649 = load i32, ptr @hf_rtp_midi_sysex_common_rt_ni_denominator, align 4
+  %650 = tail call ptr @proto_tree_add_item(ptr noundef %580, i32 noundef %649, ptr noundef %0, i32 noundef %648, i32 noundef 1, i32 noundef 0)
+  %651 = add i32 %.0140.i, 7
+  %652 = load i32, ptr @hf_rtp_midi_sysex_common_rt_ni_midi_clocks, align 4
+  %653 = tail call ptr @proto_tree_add_item(ptr noundef %580, i32 noundef %652, ptr noundef %0, i32 noundef %651, i32 noundef 1, i32 noundef 0)
+  %654 = add i32 %.0140.i, 8
+  %655 = load i32, ptr @hf_rtp_midi_sysex_common_rt_ni_32nds, align 4
+  %656 = tail call ptr @proto_tree_add_item(ptr noundef %580, i32 noundef %655, ptr noundef %0, i32 noundef %654, i32 noundef 1, i32 noundef 0)
+  %657 = add i32 %.0140.i, 9
+  %658 = icmp ugt i8 %642, 4
+  br i1 %658, label %.lr.ph.preheader.i.i.i, label %.loopexit.i.i.i
 
-.lr.ph.preheader.i.i.i:                           ; preds = %642
-  %660 = zext i8 %643 to i32
-  %661 = add nsw i32 %660, -4
+.lr.ph.preheader.i.i.i:                           ; preds = %641
+  %659 = zext i8 %642 to i32
+  %660 = add nsw i32 %659, -4
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
-  %.02.i.i.i = phi i32 [ %668, %.lr.ph.i.i.i ], [ %661, %.lr.ph.preheader.i.i.i ]
-  %.11.i.i.i = phi i32 [ %667, %.lr.ph.i.i.i ], [ %658, %.lr.ph.preheader.i.i.i ]
-  %662 = load i32, ptr @hf_rtp_midi_sysex_common_rt_ni_numerator, align 4
-  %663 = tail call ptr @proto_tree_add_item(ptr noundef %581, i32 noundef %662, ptr noundef %0, i32 noundef %.11.i.i.i, i32 noundef 1, i32 noundef 0) #2
-  %664 = add i32 %.11.i.i.i, 1
-  %665 = load i32, ptr @hf_rtp_midi_sysex_common_rt_ni_denominator, align 4
-  %666 = tail call ptr @proto_tree_add_item(ptr noundef %581, i32 noundef %665, ptr noundef %0, i32 noundef %664, i32 noundef 1, i32 noundef 0) #2
-  %667 = add i32 %.11.i.i.i, 2
-  %668 = add nsw i32 %.02.i.i.i, -2
-  %669 = icmp samesign ugt i32 %.02.i.i.i, 2
-  br i1 %669, label %.lr.ph.i.i.i, label %.loopexit.i.i.i, !llvm.loop !7
+  %.02.i.i.i = phi i32 [ %667, %.lr.ph.i.i.i ], [ %660, %.lr.ph.preheader.i.i.i ]
+  %.11.i.i.i = phi i32 [ %666, %.lr.ph.i.i.i ], [ %657, %.lr.ph.preheader.i.i.i ]
+  %661 = load i32, ptr @hf_rtp_midi_sysex_common_rt_ni_numerator, align 4
+  %662 = tail call ptr @proto_tree_add_item(ptr noundef %580, i32 noundef %661, ptr noundef %0, i32 noundef %.11.i.i.i, i32 noundef 1, i32 noundef 0)
+  %663 = add i32 %.11.i.i.i, 1
+  %664 = load i32, ptr @hf_rtp_midi_sysex_common_rt_ni_denominator, align 4
+  %665 = tail call ptr @proto_tree_add_item(ptr noundef %580, i32 noundef %664, ptr noundef %0, i32 noundef %663, i32 noundef 1, i32 noundef 0)
+  %666 = add i32 %.11.i.i.i, 2
+  %667 = add nsw i32 %.02.i.i.i, -2
+  %668 = icmp samesign ugt i32 %.02.i.i.i, 2
+  br i1 %668, label %.lr.ph.i.i.i, label %.loopexit.i.i.i, !llvm.loop !8
 
-.loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i, %642, %640, %636
-  %.057.i.i90.i = phi i32 [ %639, %636 ], [ %634, %640 ], [ %658, %642 ], [ %667, %.lr.ph.i.i.i ]
-  %670 = sub i32 %.057.i.i90.i, %585
+.loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i, %641, %639, %635
+  %.057.i.i.i = phi i32 [ %638, %635 ], [ %633, %639 ], [ %657, %641 ], [ %666, %.lr.ph.i.i.i ]
+  %669 = sub i32 %.057.i.i.i, %584
   br label %decode_sysex_common_rt_mtc.exit.i.i
 
-671:                                              ; preds = %575
-  %672 = icmp eq i32 %584, 0
-  br i1 %672, label %decode_sysex_common_nrt.exit.thread.i, label %673
+670:                                              ; preds = %574
+  %671 = icmp eq i32 %583, 0
+  br i1 %671, label %decode_sysex_common_nrt.exit.thread.i, label %672
 
-673:                                              ; preds = %671
-  %674 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %585) #2
-  %675 = load i32, ptr @hf_rtp_midi_sysex_common_rt_dc, align 4
-  %676 = tail call ptr @proto_tree_add_item(ptr noundef %581, i32 noundef %675, ptr noundef %0, i32 noundef %585, i32 noundef 1, i32 noundef 0) #2
-  %677 = add i32 %.0140.i, 4
-  switch i8 %674, label %682 [
+672:                                              ; preds = %670
+  %673 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %584)
+  %674 = load i32, ptr @hf_rtp_midi_sysex_common_rt_dc, align 4
+  %675 = tail call ptr @proto_tree_add_item(ptr noundef %580, i32 noundef %674, ptr noundef %0, i32 noundef %584, i32 noundef 1, i32 noundef 0)
+  %676 = add i32 %.0140.i, 4
+  switch i8 %673, label %681 [
     i8 1, label %.sink.split.i86.i.i
-    i8 2, label %678
+    i8 2, label %677
   ]
 
-678:                                              ; preds = %673
+677:                                              ; preds = %672
   br label %.sink.split.i86.i.i
 
-.sink.split.i86.i.i:                              ; preds = %678, %673
-  %hf_rtp_midi_sysex_common_rt_dc_balance.sink.i.i.i = phi ptr [ @hf_rtp_midi_sysex_common_rt_dc_balance, %678 ], [ @hf_rtp_midi_sysex_common_rt_dc_volume, %673 ]
-  %679 = load i32, ptr %hf_rtp_midi_sysex_common_rt_dc_balance.sink.i.i.i, align 4
-  %680 = tail call ptr @proto_tree_add_item(ptr noundef %581, i32 noundef %679, ptr noundef %0, i32 noundef %677, i32 noundef 2, i32 noundef 0) #2
-  %681 = add i32 %.0140.i, 6
-  br label %682
+.sink.split.i86.i.i:                              ; preds = %677, %672
+  %hf_rtp_midi_sysex_common_rt_dc_balance.sink.i.i.i = phi ptr [ @hf_rtp_midi_sysex_common_rt_dc_balance, %677 ], [ @hf_rtp_midi_sysex_common_rt_dc_volume, %672 ]
+  %678 = load i32, ptr %hf_rtp_midi_sysex_common_rt_dc_balance.sink.i.i.i, align 4
+  %679 = tail call ptr @proto_tree_add_item(ptr noundef %580, i32 noundef %678, ptr noundef %0, i32 noundef %676, i32 noundef 2, i32 noundef 0)
+  %680 = add i32 %.0140.i, 6
+  br label %681
 
-682:                                              ; preds = %.sink.split.i86.i.i, %673
-  %.020.i.i.i = phi i32 [ %677, %673 ], [ %681, %.sink.split.i86.i.i ]
-  %683 = sub i32 %.020.i.i.i, %585
+681:                                              ; preds = %.sink.split.i86.i.i, %672
+  %.020.i.i.i = phi i32 [ %676, %672 ], [ %680, %.sink.split.i86.i.i ]
+  %682 = sub i32 %.020.i.i.i, %584
   br label %decode_sysex_common_rt_mtc.exit.i.i
 
-684:                                              ; preds = %575
-  %685 = icmp eq i32 %584, 0
-  br i1 %685, label %decode_sysex_common_nrt.exit.thread.i, label %686
+683:                                              ; preds = %574
+  %684 = icmp eq i32 %583, 0
+  br i1 %684, label %decode_sysex_common_nrt.exit.thread.i, label %685
 
-686:                                              ; preds = %684
-  %687 = load i32, ptr @hf_rtp_midi_sysex_common_rt_mtc_cueing, align 4
-  %688 = tail call ptr @proto_tree_add_item(ptr noundef %581, i32 noundef %687, ptr noundef %0, i32 noundef %585, i32 noundef 1, i32 noundef 0) #2
-  %689 = add i32 %.0140.i, 4
-  %690 = load i32, ptr @hf_rtp_midi_sysex_common_rt_mtc_cue_enl, align 4
-  %691 = tail call ptr @proto_tree_add_item(ptr noundef %581, i32 noundef %690, ptr noundef %0, i32 noundef %689, i32 noundef 1, i32 noundef 0) #2
-  %692 = add i32 %.0140.i, 5
-  %693 = load i32, ptr @hf_rtp_midi_sysex_common_rt_mtc_cue_enm, align 4
-  %694 = tail call ptr @proto_tree_add_item(ptr noundef %581, i32 noundef %693, ptr noundef %0, i32 noundef %692, i32 noundef 1, i32 noundef 0) #2
-  %695 = add i32 %.0140.i, 6
-  %696 = add i32 %.1.i175, -7
-  %.not.i.i88.i = icmp eq i32 %696, 0
-  br i1 %.not.i.i88.i, label %701, label %697
+685:                                              ; preds = %683
+  %686 = load i32, ptr @hf_rtp_midi_sysex_common_rt_mtc_cueing, align 4
+  %687 = tail call ptr @proto_tree_add_item(ptr noundef %580, i32 noundef %686, ptr noundef %0, i32 noundef %584, i32 noundef 1, i32 noundef 0)
+  %688 = add i32 %.0140.i, 4
+  %689 = load i32, ptr @hf_rtp_midi_sysex_common_rt_mtc_cue_enl, align 4
+  %690 = tail call ptr @proto_tree_add_item(ptr noundef %580, i32 noundef %689, ptr noundef %0, i32 noundef %688, i32 noundef 1, i32 noundef 0)
+  %691 = add i32 %.0140.i, 5
+  %692 = load i32, ptr @hf_rtp_midi_sysex_common_rt_mtc_cue_enm, align 4
+  %693 = tail call ptr @proto_tree_add_item(ptr noundef %580, i32 noundef %692, ptr noundef %0, i32 noundef %691, i32 noundef 1, i32 noundef 0)
+  %694 = add i32 %.0140.i, 6
+  %695 = add i32 %.182.i, -7
+  %.not.i.i92.i = icmp eq i32 %695, 0
+  br i1 %.not.i.i92.i, label %700, label %696
 
-697:                                              ; preds = %686
-  %698 = load i32, ptr @hf_rtp_midi_sysex_common_rt_mtc_cue_add, align 4
-  %699 = tail call ptr @proto_tree_add_item(ptr noundef %581, i32 noundef %698, ptr noundef %0, i32 noundef %695, i32 noundef %696, i32 noundef 0) #2
-  %700 = add i32 %308, %307
-  br label %701
+696:                                              ; preds = %685
+  %697 = load i32, ptr @hf_rtp_midi_sysex_common_rt_mtc_cue_add, align 4
+  %698 = tail call ptr @proto_tree_add_item(ptr noundef %580, i32 noundef %697, ptr noundef %0, i32 noundef %694, i32 noundef %695, i32 noundef 0)
+  %699 = add i32 %307, %306
+  br label %700
 
-701:                                              ; preds = %697, %686
-  %.026.i.i.i = phi i32 [ %700, %697 ], [ %695, %686 ]
-  %702 = sub i32 %.026.i.i.i, %585
+700:                                              ; preds = %696, %685
+  %.026.i.i.i = phi i32 [ %699, %696 ], [ %694, %685 ]
+  %701 = sub i32 %.026.i.i.i, %584
   br label %decode_sysex_common_rt_mtc.exit.i.i
 
-703:                                              ; preds = %575
-  %704 = icmp eq i32 %584, 0
-  br i1 %704, label %decode_sysex_common_nrt.exit.thread.i, label %decode_sysex_common_rt_mtc.exit.thread.sink.split.i.i
+702:                                              ; preds = %574
+  %703 = icmp eq i32 %583, 0
+  br i1 %703, label %decode_sysex_common_nrt.exit.thread.i, label %decode_sysex_common_rt_mtc.exit.thread.sink.split.i.i
 
-705:                                              ; preds = %575
-  %706 = icmp eq i32 %584, 0
-  br i1 %706, label %decode_sysex_common_nrt.exit.thread.i, label %decode_sysex_common_rt_mtc.exit.thread.sink.split.i.i
+704:                                              ; preds = %574
+  %705 = icmp eq i32 %583, 0
+  br i1 %705, label %decode_sysex_common_nrt.exit.thread.i, label %decode_sysex_common_rt_mtc.exit.thread.sink.split.i.i
 
-707:                                              ; preds = %575
-  %708 = tail call fastcc i32 @decode_sysex_common_tuning(ptr noundef %0, ptr noundef %1, ptr noundef %581, i32 noundef %585, i32 noundef %584)
+706:                                              ; preds = %574
+  %707 = tail call fastcc i32 @decode_sysex_common_tuning(ptr noundef %0, ptr noundef %1, ptr noundef %580, i32 noundef %584, i32 noundef %583)
   br label %decode_sysex_common_rt_mtc.exit.i.i
 
-decode_sysex_common_rt_mtc.exit.i.i:              ; preds = %707, %701, %682, %.loopexit.i.i.i, %624
-  %.0.i86.i = phi i32 [ %708, %707 ], [ %625, %624 ], [ %670, %.loopexit.i.i.i ], [ %683, %682 ], [ %702, %701 ]
-  %709 = icmp slt i32 %.0.i86.i, 0
-  br i1 %709, label %decodemidi.exit, label %decode_sysex_common_rt_mtc.exit.thread.i.i
+decode_sysex_common_rt_mtc.exit.i.i:              ; preds = %706, %700, %681, %.loopexit.i.i.i, %623
+  %.0.i90.i = phi i32 [ %707, %706 ], [ %624, %623 ], [ %669, %.loopexit.i.i.i ], [ %682, %681 ], [ %701, %700 ]
+  %708 = icmp slt i32 %.0.i90.i, 0
+  br i1 %708, label %decodemidi.exit, label %decode_sysex_common_rt_mtc.exit.thread.i.i
 
-decode_sysex_common_rt_mtc.exit.thread.sink.split.i.i: ; preds = %705, %703, %626
-  %hf_rtp_midi_sysex_common_rt_mmc_responses.sink.i.i = phi ptr [ @hf_rtp_midi_sysex_common_rt_sc, %626 ], [ @hf_rtp_midi_sysex_common_rt_mmc_commands, %703 ], [ @hf_rtp_midi_sysex_common_rt_mmc_responses, %705 ]
-  %710 = load i32, ptr %hf_rtp_midi_sysex_common_rt_mmc_responses.sink.i.i, align 4
-  %711 = tail call ptr @proto_tree_add_item(ptr noundef %581, i32 noundef %710, ptr noundef %0, i32 noundef %585, i32 noundef 1, i32 noundef 0) #2
+decode_sysex_common_rt_mtc.exit.thread.sink.split.i.i: ; preds = %704, %702, %625
+  %hf_rtp_midi_sysex_common_rt_mmc_responses.sink.i.i = phi ptr [ @hf_rtp_midi_sysex_common_rt_sc, %625 ], [ @hf_rtp_midi_sysex_common_rt_mmc_commands, %702 ], [ @hf_rtp_midi_sysex_common_rt_mmc_responses, %704 ]
+  %709 = load i32, ptr %hf_rtp_midi_sysex_common_rt_mmc_responses.sink.i.i, align 4
+  %710 = tail call ptr @proto_tree_add_item(ptr noundef %580, i32 noundef %709, ptr noundef %0, i32 noundef %584, i32 noundef 1, i32 noundef 0)
   br label %decode_sysex_common_rt_mtc.exit.thread.i.i
 
-decode_sysex_common_rt_mtc.exit.thread.i.i:       ; preds = %decode_sysex_common_rt_mtc.exit.thread.sink.split.i.i, %decode_sysex_common_rt_mtc.exit.i.i, %575
-  %.092.i.i178 = phi i32 [ %.0.i86.i, %decode_sysex_common_rt_mtc.exit.i.i ], [ 0, %575 ], [ 1, %decode_sysex_common_rt_mtc.exit.thread.sink.split.i.i ]
-  %712 = add nuw i32 %.092.i.i178, 2
-  %.not.i87.i = icmp eq i32 %584, %.092.i.i178
-  br i1 %.not.i87.i, label %decode_sysex_common_nrt.exit.i, label %713
+decode_sysex_common_rt_mtc.exit.thread.i.i:       ; preds = %decode_sysex_common_rt_mtc.exit.thread.sink.split.i.i, %decode_sysex_common_rt_mtc.exit.i.i, %574
+  %.092.i.i187 = phi i32 [ %.0.i90.i, %decode_sysex_common_rt_mtc.exit.i.i ], [ 0, %574 ], [ 1, %decode_sysex_common_rt_mtc.exit.thread.sink.split.i.i ]
+  %711 = add nuw i32 %.092.i.i187, 2
+  %.not.i91.i = icmp eq i32 %583, %.092.i.i187
+  br i1 %.not.i91.i, label %decode_sysex_common_nrt.exit.i, label %712
 
-713:                                              ; preds = %decode_sysex_common_rt_mtc.exit.thread.i.i
-  %714 = sub nsw i32 %584, %.092.i.i178
-  %715 = add i32 %.092.i.i178, %585
-  %716 = load i32, ptr @hf_rtp_midi_unknown_data, align 4
-  %717 = tail call ptr @proto_tree_add_item(ptr noundef %581, i32 noundef %716, ptr noundef %0, i32 noundef %715, i32 noundef %714, i32 noundef 0) #2
+712:                                              ; preds = %decode_sysex_common_rt_mtc.exit.thread.i.i
+  %713 = sub nsw i32 %583, %.092.i.i187
+  %714 = add i32 %.092.i.i187, %584
+  %715 = load i32, ptr @hf_rtp_midi_unknown_data, align 4
+  %716 = tail call ptr @proto_tree_add_item(ptr noundef %580, i32 noundef %715, ptr noundef %0, i32 noundef %714, i32 noundef %713, i32 noundef 0)
   br label %decode_sysex_common_nrt.exit.i
 
-718:                                              ; preds = %302
-  %719 = load i32, ptr @ett_rtp_midi_sysex_edu, align 4
-  %720 = tail call ptr @proto_tree_add_subtree(ptr noundef %298, ptr noundef %0, i32 noundef %307, i32 noundef range(i32 1, 2147483647) %308, i32 noundef %719, ptr noundef null, ptr noundef nonnull @.str.1617) #2
-  %721 = load i32, ptr @hf_rtp_midi_edu_data, align 4
-  %722 = tail call ptr @proto_tree_add_item(ptr noundef %720, i32 noundef %721, ptr noundef %0, i32 noundef %307, i32 noundef range(i32 1, 2147483647) %308, i32 noundef 0) #2
+717:                                              ; preds = %301
+  %718 = load i32, ptr @ett_rtp_midi_sysex_edu, align 4
+  %719 = tail call ptr @proto_tree_add_subtree(ptr noundef %297, ptr noundef %0, i32 noundef %306, i32 noundef range(i32 1, 2147483647) %307, i32 noundef %718, ptr noundef null, ptr noundef nonnull @.str.1643)
+  %720 = load i32, ptr @hf_rtp_midi_edu_data, align 4
+  %721 = tail call ptr @proto_tree_add_item(ptr noundef %719, i32 noundef %720, ptr noundef %0, i32 noundef %306, i32 noundef range(i32 1, 2147483647) %307, i32 noundef 0)
   br label %decode_sysex_common_nrt.exit.thread.i
 
-723:                                              ; preds = %302
-  %724 = icmp samesign ugt i32 %308, 2
-  br i1 %724, label %725, label %decodemidi.exit
+722:                                              ; preds = %301
+  %723 = icmp samesign ugt i32 %307, 2
+  br i1 %723, label %724, label %decodemidi.exit
 
-725:                                              ; preds = %723
-  %726 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %307) #2
-  %727 = load i32, ptr @hf_rtp_midi_manu_long, align 4
-  %728 = tail call ptr @proto_tree_add_item(ptr noundef %298, i32 noundef %727, ptr noundef %0, i32 noundef %307, i32 noundef 2, i32 noundef 0) #2
-  %729 = add i32 %.0140.i, 3
-  %730 = add i32 %.1.i175, -4
-  %731 = load i32, ptr @ett_rtp_midi_sysex_manu, align 4
-  %732 = tail call ptr @proto_tree_add_subtree(ptr noundef %298, ptr noundef %0, i32 noundef %729, i32 noundef range(i32 1, 2147483647) %730, i32 noundef %731, ptr noundef null, ptr noundef nonnull @.str.424) #2
-  %733 = load i32, ptr @hf_rtp_midi_manu_data, align 4
-  %734 = tail call ptr @proto_tree_add_item(ptr noundef %732, i32 noundef %733, ptr noundef %0, i32 noundef %729, i32 noundef range(i32 1, 2147483647) %730, i32 noundef 0) #2
+724:                                              ; preds = %722
+  %725 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %306)
+  %726 = load i32, ptr @hf_rtp_midi_manu_long, align 4
+  %727 = tail call ptr @proto_tree_add_item(ptr noundef %297, i32 noundef %726, ptr noundef %0, i32 noundef %306, i32 noundef 2, i32 noundef 0)
+  %728 = add i32 %.0140.i, 3
+  %729 = add i32 %.182.i, -4
+  %730 = load i32, ptr @ett_rtp_midi_sysex_manu, align 4
+  %731 = tail call ptr @proto_tree_add_subtree(ptr noundef %297, ptr noundef %0, i32 noundef %728, i32 noundef range(i32 1, 2147483647) %729, i32 noundef %730, ptr noundef null, ptr noundef nonnull @.str.424)
+  %732 = load i32, ptr @hf_rtp_midi_manu_data, align 4
+  %733 = tail call ptr @proto_tree_add_item(ptr noundef %731, i32 noundef %732, ptr noundef %0, i32 noundef %728, i32 noundef range(i32 1, 2147483647) %729, i32 noundef 0)
   br label %decode_sysex_common_nrt.exit.thread.i
 
-735:                                              ; preds = %302
-  %736 = load i32, ptr @ett_rtp_midi_sysex_manu, align 4
-  %737 = tail call ptr @proto_tree_add_subtree(ptr noundef %298, ptr noundef %0, i32 noundef %307, i32 noundef range(i32 1, 2147483647) %308, i32 noundef %736, ptr noundef null, ptr noundef nonnull @.str.424) #2
-  %738 = load i32, ptr @hf_rtp_midi_manu_data, align 4
-  %739 = tail call ptr @proto_tree_add_item(ptr noundef %737, i32 noundef %738, ptr noundef %0, i32 noundef %307, i32 noundef range(i32 1, 2147483647) %308, i32 noundef 0) #2
+734:                                              ; preds = %301
+  %735 = load i32, ptr @ett_rtp_midi_sysex_manu, align 4
+  %736 = tail call ptr @proto_tree_add_subtree(ptr noundef %297, ptr noundef %0, i32 noundef %306, i32 noundef range(i32 1, 2147483647) %307, i32 noundef %735, ptr noundef null, ptr noundef nonnull @.str.424)
+  %737 = load i32, ptr @hf_rtp_midi_manu_data, align 4
+  %738 = tail call ptr @proto_tree_add_item(ptr noundef %736, i32 noundef %737, ptr noundef %0, i32 noundef %306, i32 noundef range(i32 1, 2147483647) %307, i32 noundef 0)
   br label %decode_sysex_common_nrt.exit.thread.i
 
-decode_sysex_common_nrt.exit.i:                   ; preds = %713, %decode_sysex_common_rt_mtc.exit.thread.i.i
-  %.079.i = phi i32 [ %308, %713 ], [ %712, %decode_sysex_common_rt_mtc.exit.thread.i.i ]
-  %740 = icmp slt i32 %.079.i, 0
-  br i1 %740, label %decodemidi.exit, label %decode_sysex_common_nrt.exit.thread.i
+decode_sysex_common_nrt.exit.i:                   ; preds = %712, %decode_sysex_common_rt_mtc.exit.thread.i.i
+  %.079.i = phi i32 [ %307, %712 ], [ %711, %decode_sysex_common_rt_mtc.exit.thread.i.i ]
+  %739 = icmp slt i32 %.079.i, 0
+  br i1 %739, label %decodemidi.exit, label %decode_sysex_common_nrt.exit.thread.i
 
-decode_sysex_common_nrt.exit.thread.i:            ; preds = %decode_sysex_common_nrt.exit.i, %735, %725, %718, %705, %703, %684, %671, %628, %626, %586, %570, %565, %decode_sysex_common_nrt_mtc.exit.thread.i.i, %558, %553, %548, %543, %538, %533, %528, %472, %427, %399, %363, %309, %.thread.i174
-  %.07898.i = phi i32 [ %307, %decode_sysex_common_nrt.exit.i ], [ %307, %705 ], [ %307, %703 ], [ %307, %684 ], [ %307, %671 ], [ %307, %628 ], [ %307, %626 ], [ %307, %586 ], [ %307, %570 ], [ %307, %565 ], [ %307, %decode_sysex_common_nrt_mtc.exit.thread.i.i ], [ %307, %558 ], [ %307, %553 ], [ %307, %548 ], [ %307, %543 ], [ %307, %538 ], [ %307, %533 ], [ %307, %528 ], [ %307, %472 ], [ %307, %427 ], [ %307, %399 ], [ %307, %363 ], [ %307, %309 ], [ %.0140.i, %.thread.i174 ], [ %307, %718 ], [ %729, %725 ], [ %307, %735 ]
-  %.07997.i = phi i32 [ %.079.i, %decode_sysex_common_nrt.exit.i ], [ 2, %705 ], [ 2, %703 ], [ 2, %684 ], [ 2, %671 ], [ 2, %628 ], [ 2, %626 ], [ 2, %586 ], [ 1, %570 ], [ %308, %565 ], [ %564, %decode_sysex_common_nrt_mtc.exit.thread.i.i ], [ 2, %558 ], [ 2, %553 ], [ 2, %548 ], [ 2, %543 ], [ 2, %538 ], [ 2, %533 ], [ 2, %528 ], [ 2, %472 ], [ 2, %427 ], [ 2, %399 ], [ 2, %363 ], [ 1, %309 ], [ 0, %.thread.i174 ], [ %308, %718 ], [ %730, %725 ], [ %308, %735 ]
-  %741 = add i32 %.07997.i, %.07898.i
-  %742 = load i32, ptr @hf_rtp_midi_common_status, align 4
-  %743 = tail call ptr @proto_tree_add_item(ptr noundef %298, i32 noundef %742, ptr noundef %0, i32 noundef %741, i32 noundef 1, i32 noundef 0) #2
-  %744 = load ptr, ptr %5, align 8
-  br i1 %.not130, label %746, label %745
+decode_sysex_common_nrt.exit.thread.i:            ; preds = %decode_sysex_common_nrt.exit.i, %734, %724, %717, %704, %702, %683, %670, %627, %625, %585, %569, %564, %decode_sysex_common_nrt_mtc.exit.thread.i.i, %557, %552, %547, %542, %537, %532, %527, %471, %426, %398, %362, %308, %.thread.i185
+  %.078102.i = phi i32 [ %306, %decode_sysex_common_nrt.exit.i ], [ %306, %704 ], [ %306, %702 ], [ %306, %683 ], [ %306, %670 ], [ %306, %627 ], [ %306, %625 ], [ %306, %585 ], [ %306, %569 ], [ %306, %564 ], [ %306, %decode_sysex_common_nrt_mtc.exit.thread.i.i ], [ %306, %557 ], [ %306, %552 ], [ %306, %547 ], [ %306, %542 ], [ %306, %537 ], [ %306, %532 ], [ %306, %527 ], [ %306, %471 ], [ %306, %426 ], [ %306, %398 ], [ %306, %362 ], [ %306, %308 ], [ %306, %717 ], [ %728, %724 ], [ %306, %734 ], [ %.0140.i, %.thread.i185 ]
+  %.079101.i = phi i32 [ %.079.i, %decode_sysex_common_nrt.exit.i ], [ 2, %704 ], [ 2, %702 ], [ 2, %683 ], [ 2, %670 ], [ 2, %627 ], [ 2, %625 ], [ 2, %585 ], [ 1, %569 ], [ %307, %564 ], [ %563, %decode_sysex_common_nrt_mtc.exit.thread.i.i ], [ 2, %557 ], [ 2, %552 ], [ 2, %547 ], [ 2, %542 ], [ 2, %537 ], [ 2, %532 ], [ 2, %527 ], [ 2, %471 ], [ 2, %426 ], [ 2, %398 ], [ 2, %362 ], [ 1, %308 ], [ %307, %717 ], [ %729, %724 ], [ %307, %734 ], [ 0, %.thread.i185 ]
+  %740 = add i32 %.079101.i, %.078102.i
+  %741 = load i32, ptr @hf_rtp_midi_common_status, align 4
+  %742 = tail call ptr @proto_tree_add_item(ptr noundef %297, i32 noundef %741, ptr noundef %0, i32 noundef %740, i32 noundef 1, i32 noundef 0)
+  %743 = load ptr, ptr %5, align 8
+  br i1 %.not139, label %745, label %744
+
+744:                                              ; preds = %decode_sysex_common_nrt.exit.thread.i
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %743, i32 noundef 25, ptr noundef nonnull @.str.1628, ptr noundef %.184.i)
+  br label %decodemidi.exit
 
 745:                                              ; preds = %decode_sysex_common_nrt.exit.thread.i
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %744, i32 noundef 25, ptr noundef nonnull @.str.1602, ptr noundef %.182.i) #2
+  tail call void @col_append_str(ptr noundef %743, i32 noundef 25, ptr noundef %.184.i)
   br label %decodemidi.exit
 
-746:                                              ; preds = %decode_sysex_common_nrt.exit.thread.i
-  tail call void @col_append_str(ptr noundef %744, i32 noundef 25, ptr noundef %.182.i) #2
+746:                                              ; preds = %286
+  %747 = tail call ptr @val_to_str(i32 noundef 241, ptr noundef nonnull @rtp_midi_common_status, ptr noundef nonnull @rtp_midi_unknown_value_hex)
+  %748 = add i32 %.0140.i, -1
+  %749 = load i32, ptr @ett_rtp_midi_command, align 4
+  %750 = tail call ptr @proto_tree_add_subtree(ptr noundef %33, ptr noundef %0, i32 noundef %748, i32 noundef 2, i32 noundef %749, ptr noundef null, ptr noundef %747)
+  %751 = load i32, ptr @hf_rtp_midi_common_status, align 4
+  %752 = tail call ptr @proto_tree_add_item(ptr noundef %750, i32 noundef %751, ptr noundef %0, i32 noundef %748, i32 noundef 1, i32 noundef 0)
+  %753 = load i32, ptr @hf_rtp_midi_quarter_frame_type, align 4
+  %754 = tail call ptr @proto_tree_add_item(ptr noundef %750, i32 noundef %753, ptr noundef %0, i32 noundef %.0140.i, i32 noundef 1, i32 noundef 0)
+  %755 = load i32, ptr @hf_rtp_midi_quarter_frame_value, align 4
+  %756 = add i32 %.0140.i, 1
+  %757 = tail call ptr @proto_tree_add_item(ptr noundef %750, i32 noundef %755, ptr noundef %0, i32 noundef %756, i32 noundef 1, i32 noundef 0)
+  %758 = load ptr, ptr %5, align 8
+  br i1 %.not139, label %760, label %759
+
+759:                                              ; preds = %746
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %758, i32 noundef 25, ptr noundef nonnull @.str.1628, ptr noundef %747)
+  br label %.thread.i146
+
+760:                                              ; preds = %746
+  tail call void @col_append_str(ptr noundef %758, i32 noundef 25, ptr noundef %747)
+  br label %.thread.i146
+
+761:                                              ; preds = %286
+  %762 = tail call ptr @val_to_str(i32 noundef 242, ptr noundef nonnull @rtp_midi_common_status, ptr noundef nonnull @rtp_midi_unknown_value_hex)
+  %763 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0140.i)
+  %764 = add i32 %.0140.i, 1
+  %765 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %764)
+  %766 = shl i8 %763, 7
+  %767 = or i8 %766, %765
+  %768 = add i32 %.0140.i, -1
+  %769 = load i32, ptr @ett_rtp_midi_command, align 4
+  %770 = zext i8 %767 to i32
+  %771 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %33, ptr noundef %0, i32 noundef %768, i32 noundef 3, i32 noundef %769, ptr noundef null, ptr noundef nonnull @.str.1644, ptr noundef %762, i32 noundef %770)
+  %772 = load i32, ptr @hf_rtp_midi_common_status, align 4
+  %773 = tail call ptr @proto_tree_add_item(ptr noundef %771, i32 noundef %772, ptr noundef %0, i32 noundef %768, i32 noundef 1, i32 noundef 0)
+  %774 = load i32, ptr @hf_rtp_midi_spp, align 4
+  %775 = tail call ptr @proto_tree_add_item(ptr noundef %771, i32 noundef %774, ptr noundef %0, i32 noundef %.0140.i, i32 noundef 2, i32 noundef 0)
+  %776 = load ptr, ptr %5, align 8
+  %.str.1644..str.1645.i = select i1 %.not139, ptr @.str.1644, ptr @.str.1645
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %776, i32 noundef 25, ptr noundef nonnull %.str.1644..str.1645.i, ptr noundef %762, i32 noundef %770)
+  br label %.thread.i146
+
+777:                                              ; preds = %286
+  %778 = tail call ptr @val_to_str(i32 noundef 243, ptr noundef nonnull @rtp_midi_common_status, ptr noundef nonnull @rtp_midi_unknown_value_hex)
+  %779 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0140.i)
+  %780 = add i32 %.0140.i, -1
+  %781 = load i32, ptr @ett_rtp_midi_command, align 4
+  %782 = zext i8 %779 to i32
+  %783 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %33, ptr noundef %0, i32 noundef %780, i32 noundef 2, i32 noundef %781, ptr noundef null, ptr noundef nonnull @.str.1646, ptr noundef %778, i32 noundef %782)
+  %784 = load i32, ptr @hf_rtp_midi_common_status, align 4
+  %785 = tail call ptr @proto_tree_add_item(ptr noundef %783, i32 noundef %784, ptr noundef %0, i32 noundef %780, i32 noundef 1, i32 noundef 0)
+  %786 = load i32, ptr @hf_rtp_midi_song_select, align 4
+  %787 = tail call ptr @proto_tree_add_item(ptr noundef %783, i32 noundef %786, ptr noundef %0, i32 noundef %.0140.i, i32 noundef 1, i32 noundef 0)
+  %788 = load ptr, ptr %5, align 8
+  %.str.1646..str.1647.i = select i1 %.not139, ptr @.str.1646, ptr @.str.1647
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %788, i32 noundef 25, ptr noundef nonnull %.str.1646..str.1647.i, ptr noundef %778, i32 noundef %782)
+  br label %.thread.i146
+
+789:                                              ; preds = %286
+  %790 = tail call ptr @val_to_str(i32 noundef 244, ptr noundef nonnull @rtp_midi_common_status, ptr noundef nonnull @rtp_midi_unknown_value_hex)
+  br i1 %.0145.i, label %.split32.us.i177, label %.split.i174
+
+.split.i174:                                      ; preds = %789, %.split.i174
+  %.028.i175 = phi i32 [ %793, %.split.i174 ], [ 0, %789 ]
+  %791 = add i32 %.028.i175, %.0140.i
+  %792 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %791)
+  %793 = add i32 %.028.i175, 1
+  %.not29.i176 = icmp sgt i8 %792, -1
+  br i1 %.not29.i176, label %.split.i174, label %.split32.us.i177
+
+.split32.us.i177:                                 ; preds = %.split.i174, %789
+  %.us-phi.i178 = phi i32 [ 0, %789 ], [ %793, %.split.i174 ]
+  %794 = add i32 %.0140.i, -1
+  %795 = add i32 %.us-phi.i178, 1
+  %796 = load i32, ptr @ett_rtp_midi_command, align 4
+  %797 = tail call ptr @proto_tree_add_subtree(ptr noundef %33, ptr noundef %0, i32 noundef %794, i32 noundef %795, i32 noundef %796, ptr noundef null, ptr noundef %790)
+  %798 = load i32, ptr @hf_rtp_midi_common_status, align 4
+  %799 = tail call ptr @proto_tree_add_item(ptr noundef %797, i32 noundef %798, ptr noundef %0, i32 noundef %794, i32 noundef 1, i32 noundef 0)
+  %800 = load i32, ptr @hf_rtp_midi_unknown_data, align 4
+  %801 = tail call ptr @proto_tree_add_item(ptr noundef %797, i32 noundef %800, ptr noundef %0, i32 noundef %.0140.i, i32 noundef %.us-phi.i178, i32 noundef 0)
+  %802 = load i32, ptr @hf_rtp_midi_common_status, align 4
+  %803 = add i32 %.us-phi.i178, %794
+  %804 = tail call ptr @proto_tree_add_item(ptr noundef %797, i32 noundef %802, ptr noundef %0, i32 noundef %803, i32 noundef 1, i32 noundef 0)
+  %805 = load ptr, ptr %5, align 8
+  br i1 %.not139, label %807, label %806
+
+806:                                              ; preds = %.split32.us.i177
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %805, i32 noundef 25, ptr noundef nonnull @.str.1628, ptr noundef %790)
   br label %decodemidi.exit
 
-747:                                              ; preds = %286
-  %748 = tail call ptr @val_to_str(i32 noundef 241, ptr noundef nonnull @rtp_midi_common_status, ptr noundef nonnull @rtp_midi_unknown_value_hex) #2
-  %749 = add i32 %.0140.i, -1
-  %750 = load i32, ptr @ett_rtp_midi_command, align 4
-  %751 = tail call ptr @proto_tree_add_subtree(ptr noundef %33, ptr noundef %0, i32 noundef %749, i32 noundef 2, i32 noundef %750, ptr noundef null, ptr noundef %748) #2
-  %752 = load i32, ptr @hf_rtp_midi_common_status, align 4
-  %753 = tail call ptr @proto_tree_add_item(ptr noundef %751, i32 noundef %752, ptr noundef %0, i32 noundef %749, i32 noundef 1, i32 noundef 0) #2
-  %754 = load i32, ptr @hf_rtp_midi_quarter_frame_type, align 4
-  %755 = tail call ptr @proto_tree_add_item(ptr noundef %751, i32 noundef %754, ptr noundef %0, i32 noundef %.0140.i, i32 noundef 1, i32 noundef 0) #2
-  %756 = load i32, ptr @hf_rtp_midi_quarter_frame_value, align 4
-  %757 = add i32 %.0140.i, 1
-  %758 = tail call ptr @proto_tree_add_item(ptr noundef %751, i32 noundef %756, ptr noundef %0, i32 noundef %757, i32 noundef 1, i32 noundef 0) #2
-  %759 = load ptr, ptr %5, align 8
-  br i1 %.not130, label %761, label %760
-
-760:                                              ; preds = %747
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %759, i32 noundef 25, ptr noundef nonnull @.str.1602, ptr noundef %748) #2
-  br label %.thread.i133
-
-761:                                              ; preds = %747
-  tail call void @col_append_str(ptr noundef %759, i32 noundef 25, ptr noundef %748) #2
-  br label %.thread.i133
-
-762:                                              ; preds = %286
-  %763 = tail call ptr @val_to_str(i32 noundef 242, ptr noundef nonnull @rtp_midi_common_status, ptr noundef nonnull @rtp_midi_unknown_value_hex) #2
-  %764 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0140.i) #2
-  %765 = add i32 %.0140.i, 1
-  %766 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %765) #2
-  %767 = shl i8 %764, 7
-  %768 = or i8 %767, %766
-  %769 = add i32 %.0140.i, -1
-  %770 = load i32, ptr @ett_rtp_midi_command, align 4
-  %771 = zext i8 %768 to i32
-  %772 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %33, ptr noundef %0, i32 noundef %769, i32 noundef 3, i32 noundef %770, ptr noundef null, ptr noundef nonnull @.str.1618, ptr noundef %763, i32 noundef %771) #2
-  %773 = load i32, ptr @hf_rtp_midi_common_status, align 4
-  %774 = tail call ptr @proto_tree_add_item(ptr noundef %772, i32 noundef %773, ptr noundef %0, i32 noundef %769, i32 noundef 1, i32 noundef 0) #2
-  %775 = load i32, ptr @hf_rtp_midi_spp, align 4
-  %776 = tail call ptr @proto_tree_add_item(ptr noundef %772, i32 noundef %775, ptr noundef %0, i32 noundef %.0140.i, i32 noundef 2, i32 noundef 0) #2
-  %777 = load ptr, ptr %5, align 8
-  %.str.1618..str.1619.i = select i1 %.not130, ptr @.str.1618, ptr @.str.1619
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %777, i32 noundef 25, ptr noundef nonnull %.str.1618..str.1619.i, ptr noundef %763, i32 noundef %771) #2
-  br label %.thread.i133
-
-778:                                              ; preds = %286
-  %779 = tail call ptr @val_to_str(i32 noundef 243, ptr noundef nonnull @rtp_midi_common_status, ptr noundef nonnull @rtp_midi_unknown_value_hex) #2
-  %780 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0140.i) #2
-  %781 = add i32 %.0140.i, -1
-  %782 = load i32, ptr @ett_rtp_midi_command, align 4
-  %783 = zext i8 %780 to i32
-  %784 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %33, ptr noundef %0, i32 noundef %781, i32 noundef 2, i32 noundef %782, ptr noundef null, ptr noundef nonnull @.str.1620, ptr noundef %779, i32 noundef %783) #2
-  %785 = load i32, ptr @hf_rtp_midi_common_status, align 4
-  %786 = tail call ptr @proto_tree_add_item(ptr noundef %784, i32 noundef %785, ptr noundef %0, i32 noundef %781, i32 noundef 1, i32 noundef 0) #2
-  %787 = load i32, ptr @hf_rtp_midi_song_select, align 4
-  %788 = tail call ptr @proto_tree_add_item(ptr noundef %784, i32 noundef %787, ptr noundef %0, i32 noundef %.0140.i, i32 noundef 1, i32 noundef 0) #2
-  %789 = load ptr, ptr %5, align 8
-  %.str.1620..str.1621.i = select i1 %.not130, ptr @.str.1620, ptr @.str.1621
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %789, i32 noundef 25, ptr noundef nonnull %.str.1620..str.1621.i, ptr noundef %779, i32 noundef %783) #2
-  br label %.thread.i133
-
-790:                                              ; preds = %286
-  %791 = tail call ptr @val_to_str(i32 noundef 244, ptr noundef nonnull @rtp_midi_common_status, ptr noundef nonnull @rtp_midi_unknown_value_hex) #2
-  br i1 %.0145.i, label %.loopexit.i166, label %.preheader.i164
-
-.preheader.i164:                                  ; preds = %790, %.preheader.i164
-  %.0.i165 = phi i32 [ %794, %.preheader.i164 ], [ 0, %790 ]
-  %792 = add i32 %.0.i165, %.0140.i
-  %793 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %792) #2
-  %794 = add i32 %.0.i165, 1
-  %795 = icmp sgt i8 %793, -1
-  br i1 %795, label %.preheader.i164, label %.loopexit.i166, !llvm.loop !8
-
-.loopexit.i166:                                   ; preds = %.preheader.i164, %790
-  %.1.i167 = phi i32 [ 0, %790 ], [ %794, %.preheader.i164 ]
-  %796 = add i32 %.0140.i, -1
-  %797 = add i32 %.1.i167, 1
-  %798 = load i32, ptr @ett_rtp_midi_command, align 4
-  %799 = tail call ptr @proto_tree_add_subtree(ptr noundef %33, ptr noundef %0, i32 noundef %796, i32 noundef %797, i32 noundef %798, ptr noundef null, ptr noundef %791) #2
-  %800 = load i32, ptr @hf_rtp_midi_common_status, align 4
-  %801 = tail call ptr @proto_tree_add_item(ptr noundef %799, i32 noundef %800, ptr noundef %0, i32 noundef %796, i32 noundef 1, i32 noundef 0) #2
-  %802 = load i32, ptr @hf_rtp_midi_unknown_data, align 4
-  %803 = tail call ptr @proto_tree_add_item(ptr noundef %799, i32 noundef %802, ptr noundef %0, i32 noundef %.0140.i, i32 noundef %.1.i167, i32 noundef 0) #2
-  %804 = load i32, ptr @hf_rtp_midi_common_status, align 4
-  %805 = add i32 %.1.i167, %796
-  %806 = tail call ptr @proto_tree_add_item(ptr noundef %799, i32 noundef %804, ptr noundef %0, i32 noundef %805, i32 noundef 1, i32 noundef 0) #2
-  %807 = load ptr, ptr %5, align 8
-  br i1 %.not130, label %809, label %808
-
-808:                                              ; preds = %.loopexit.i166
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %807, i32 noundef 25, ptr noundef nonnull @.str.1602, ptr noundef %791) #2
+807:                                              ; preds = %.split32.us.i177
+  tail call void @col_append_str(ptr noundef %805, i32 noundef 25, ptr noundef %790)
   br label %decodemidi.exit
 
-809:                                              ; preds = %.loopexit.i166
-  tail call void @col_append_str(ptr noundef %807, i32 noundef 25, ptr noundef %791) #2
+808:                                              ; preds = %286
+  %809 = tail call ptr @val_to_str(i32 noundef 245, ptr noundef nonnull @rtp_midi_common_status, ptr noundef nonnull @rtp_midi_unknown_value_hex)
+  br i1 %.0145.i, label %.split32.us.i, label %.split.i172
+
+.split.i172:                                      ; preds = %808, %.split.i172
+  %.028.i = phi i32 [ %812, %.split.i172 ], [ 0, %808 ]
+  %810 = add i32 %.028.i, %.0140.i
+  %811 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %810)
+  %812 = add i32 %.028.i, 1
+  %.not29.i = icmp sgt i8 %811, -1
+  br i1 %.not29.i, label %.split.i172, label %.split32.us.i
+
+.split32.us.i:                                    ; preds = %.split.i172, %808
+  %.us-phi.i = phi i32 [ 0, %808 ], [ %812, %.split.i172 ]
+  %813 = add i32 %.0140.i, -1
+  %814 = add i32 %.us-phi.i, 1
+  %815 = load i32, ptr @ett_rtp_midi_command, align 4
+  %816 = tail call ptr @proto_tree_add_subtree(ptr noundef %33, ptr noundef %0, i32 noundef %813, i32 noundef %814, i32 noundef %815, ptr noundef null, ptr noundef %809)
+  %817 = load i32, ptr @hf_rtp_midi_common_status, align 4
+  %818 = tail call ptr @proto_tree_add_item(ptr noundef %816, i32 noundef %817, ptr noundef %0, i32 noundef %813, i32 noundef 1, i32 noundef 0)
+  %819 = load i32, ptr @hf_rtp_midi_unknown_data, align 4
+  %820 = tail call ptr @proto_tree_add_item(ptr noundef %816, i32 noundef %819, ptr noundef %0, i32 noundef %.0140.i, i32 noundef %.us-phi.i, i32 noundef 0)
+  %821 = load i32, ptr @hf_rtp_midi_common_status, align 4
+  %822 = add i32 %.us-phi.i, %813
+  %823 = tail call ptr @proto_tree_add_item(ptr noundef %816, i32 noundef %821, ptr noundef %0, i32 noundef %822, i32 noundef 1, i32 noundef 0)
+  %824 = load ptr, ptr %5, align 8
+  br i1 %.not139, label %826, label %825
+
+825:                                              ; preds = %.split32.us.i
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %824, i32 noundef 25, ptr noundef nonnull @.str.1628, ptr noundef %809)
   br label %decodemidi.exit
 
-810:                                              ; preds = %286
-  %811 = tail call ptr @val_to_str(i32 noundef 245, ptr noundef nonnull @rtp_midi_common_status, ptr noundef nonnull @rtp_midi_unknown_value_hex) #2
-  br i1 %.0145.i, label %.loopexit.i, label %.preheader.i159
-
-.preheader.i159:                                  ; preds = %810, %.preheader.i159
-  %.0.i160 = phi i32 [ %814, %.preheader.i159 ], [ 0, %810 ]
-  %812 = add i32 %.0.i160, %.0140.i
-  %813 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %812) #2
-  %814 = add i32 %.0.i160, 1
-  %815 = icmp sgt i8 %813, -1
-  br i1 %815, label %.preheader.i159, label %.loopexit.i, !llvm.loop !9
-
-.loopexit.i:                                      ; preds = %.preheader.i159, %810
-  %.1.i161 = phi i32 [ 0, %810 ], [ %814, %.preheader.i159 ]
-  %816 = add i32 %.0140.i, -1
-  %817 = add i32 %.1.i161, 1
-  %818 = load i32, ptr @ett_rtp_midi_command, align 4
-  %819 = tail call ptr @proto_tree_add_subtree(ptr noundef %33, ptr noundef %0, i32 noundef %816, i32 noundef %817, i32 noundef %818, ptr noundef null, ptr noundef %811) #2
-  %820 = load i32, ptr @hf_rtp_midi_common_status, align 4
-  %821 = tail call ptr @proto_tree_add_item(ptr noundef %819, i32 noundef %820, ptr noundef %0, i32 noundef %816, i32 noundef 1, i32 noundef 0) #2
-  %822 = load i32, ptr @hf_rtp_midi_unknown_data, align 4
-  %823 = tail call ptr @proto_tree_add_item(ptr noundef %819, i32 noundef %822, ptr noundef %0, i32 noundef %.0140.i, i32 noundef %.1.i161, i32 noundef 0) #2
-  %824 = load i32, ptr @hf_rtp_midi_common_status, align 4
-  %825 = add i32 %.1.i161, %816
-  %826 = tail call ptr @proto_tree_add_item(ptr noundef %819, i32 noundef %824, ptr noundef %0, i32 noundef %825, i32 noundef 1, i32 noundef 0) #2
-  %827 = load ptr, ptr %5, align 8
-  br i1 %.not130, label %829, label %828
-
-828:                                              ; preds = %.loopexit.i
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %827, i32 noundef 25, ptr noundef nonnull @.str.1602, ptr noundef %811) #2
+826:                                              ; preds = %.split32.us.i
+  tail call void @col_append_str(ptr noundef %824, i32 noundef 25, ptr noundef %809)
   br label %decodemidi.exit
 
-829:                                              ; preds = %.loopexit.i
-  tail call void @col_append_str(ptr noundef %827, i32 noundef 25, ptr noundef %811) #2
-  br label %decodemidi.exit
+827:                                              ; preds = %286
+  %828 = tail call ptr @val_to_str(i32 noundef 246, ptr noundef nonnull @rtp_midi_common_status, ptr noundef nonnull @rtp_midi_unknown_value_hex)
+  %829 = add i32 %.0140.i, -1
+  %830 = load i32, ptr @ett_rtp_midi_command, align 4
+  %831 = tail call ptr @proto_tree_add_subtree(ptr noundef %33, ptr noundef %0, i32 noundef %829, i32 noundef 1, i32 noundef %830, ptr noundef null, ptr noundef %828)
+  %832 = load i32, ptr @hf_rtp_midi_common_status, align 4
+  %833 = tail call ptr @proto_tree_add_item(ptr noundef %831, i32 noundef %832, ptr noundef %0, i32 noundef %829, i32 noundef 1, i32 noundef 0)
+  %834 = load ptr, ptr %5, align 8
+  br i1 %.not139, label %836, label %835
 
-830:                                              ; preds = %286
-  %831 = tail call ptr @val_to_str(i32 noundef 246, ptr noundef nonnull @rtp_midi_common_status, ptr noundef nonnull @rtp_midi_unknown_value_hex) #2
-  %832 = add i32 %.0140.i, -1
-  %833 = load i32, ptr @ett_rtp_midi_command, align 4
-  %834 = tail call ptr @proto_tree_add_subtree(ptr noundef %33, ptr noundef %0, i32 noundef %832, i32 noundef 1, i32 noundef %833, ptr noundef null, ptr noundef %831) #2
-  %835 = load i32, ptr @hf_rtp_midi_common_status, align 4
-  %836 = tail call ptr @proto_tree_add_item(ptr noundef %834, i32 noundef %835, ptr noundef %0, i32 noundef %832, i32 noundef 1, i32 noundef 0) #2
-  %837 = load ptr, ptr %5, align 8
-  br i1 %.not130, label %839, label %838
+835:                                              ; preds = %827
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %834, i32 noundef 25, ptr noundef nonnull @.str.1648, ptr noundef %828)
+  br label %.thread.i146
 
-838:                                              ; preds = %830
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %837, i32 noundef 25, ptr noundef nonnull @.str.1622, ptr noundef %831) #2
-  br label %.thread.i133
+836:                                              ; preds = %827
+  tail call void @col_append_str(ptr noundef %834, i32 noundef 25, ptr noundef %828)
+  br label %.thread.i146
 
-839:                                              ; preds = %830
-  tail call void @col_append_str(ptr noundef %837, i32 noundef 25, ptr noundef %831) #2
-  br label %.thread.i133
+837:                                              ; preds = %286
+  %838 = tail call ptr @val_to_str(i32 noundef 247, ptr noundef nonnull @rtp_midi_common_status, ptr noundef nonnull @rtp_midi_unknown_value_hex)
+  br i1 %.0145.i, label %.thread.i168, label %.split.i
 
-840:                                              ; preds = %286
-  %841 = tail call ptr @val_to_str(i32 noundef 247, ptr noundef nonnull @rtp_midi_common_status, ptr noundef nonnull @rtp_midi_unknown_value_hex) #2
-  br i1 %.0145.i, label %.thread.i154, label %.preheader.i
-
-.preheader.i:                                     ; preds = %840, %845
-  %.032.i = phi i32 [ %844, %845 ], [ 0, %840 ]
-  %842 = add i32 %.032.i, %.0140.i
-  %843 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %842) #2
-  %844 = add i32 %.032.i, 1
-  switch i8 %843, label %845 [
-    i8 -9, label %.thread.i154.loopexit
-    i8 -16, label %.thread.i154.loopexit434
-    i8 -12, label %.thread.i154
+.split.i:                                         ; preds = %837, %842
+  %.032.i = phi i32 [ %841, %842 ], [ 0, %837 ]
+  %839 = add i32 %.032.i, %.0140.i
+  %840 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %839)
+  %841 = add i32 %.032.i, 1
+  switch i8 %840, label %842 [
+    i8 -9, label %.thread.i168.loopexit
+    i8 -16, label %.thread.i168.loopexit447
+    i8 -12, label %.thread.i168
   ]
 
-845:                                              ; preds = %.preheader.i
-  %846 = icmp sgt i8 %843, -1
-  br i1 %846, label %.preheader.i, label %.thread.i154, !llvm.loop !10
+842:                                              ; preds = %.split.i
+  %.not35.i = icmp sgt i8 %840, -1
+  br i1 %.not35.i, label %.split.i, label %.thread.i168
 
-.thread.i154.loopexit:                            ; preds = %.preheader.i
-  br label %.thread.i154
+.thread.i168.loopexit:                            ; preds = %.split.i
+  br label %.thread.i168
 
-.thread.i154.loopexit434:                         ; preds = %.preheader.i
-  br label %.thread.i154
+.thread.i168.loopexit447:                         ; preds = %.split.i
+  br label %.thread.i168
 
-.thread.i154:                                     ; preds = %845, %.preheader.i, %.thread.i154.loopexit434, %.thread.i154.loopexit, %840
-  %.133.i = phi i32 [ 0, %840 ], [ %844, %.thread.i154.loopexit ], [ %844, %.preheader.i ], [ %844, %845 ], [ %844, %.thread.i154.loopexit434 ]
-  %.1.i155 = phi ptr [ %841, %840 ], [ @rtp_midi_common_status_sysex_segment_end, %.thread.i154.loopexit ], [ @rtp_midi_common_status_sysex_cancel, %.preheader.i ], [ %841, %845 ], [ @rtp_midi_common_status_sysex_segment, %.thread.i154.loopexit434 ]
-  %847 = add i32 %.0140.i, -1
-  %848 = add i32 %.133.i, 1
-  %849 = load i32, ptr @ett_rtp_midi_command, align 4
-  %850 = tail call ptr @proto_tree_add_subtree(ptr noundef %33, ptr noundef %0, i32 noundef %847, i32 noundef %848, i32 noundef %849, ptr noundef null, ptr noundef %.1.i155) #2
-  %851 = load i32, ptr @hf_rtp_midi_common_status, align 4
-  %852 = tail call ptr @proto_tree_add_item(ptr noundef %850, i32 noundef %851, ptr noundef %0, i32 noundef %847, i32 noundef 1, i32 noundef 0) #2
-  %853 = load i32, ptr @hf_rtp_midi_unknown_data, align 4
-  %854 = add i32 %.133.i, -1
-  %855 = tail call ptr @proto_tree_add_item(ptr noundef %850, i32 noundef %853, ptr noundef %0, i32 noundef %.0140.i, i32 noundef %854, i32 noundef 0) #2
-  %856 = load i32, ptr @hf_rtp_midi_common_status, align 4
-  %857 = add i32 %.133.i, %847
-  %858 = tail call ptr @proto_tree_add_item(ptr noundef %850, i32 noundef %856, ptr noundef %0, i32 noundef %857, i32 noundef 1, i32 noundef 0) #2
-  %859 = load ptr, ptr %5, align 8
-  br i1 %.not130, label %861, label %860
+.thread.i168:                                     ; preds = %842, %.split.i, %.thread.i168.loopexit447, %.thread.i168.loopexit, %837
+  %.133.i = phi i32 [ 0, %837 ], [ %841, %.thread.i168.loopexit ], [ %841, %.split.i ], [ %841, %842 ], [ %841, %.thread.i168.loopexit447 ]
+  %.1.i169 = phi ptr [ %838, %837 ], [ @rtp_midi_common_status_sysex_segment_end, %.thread.i168.loopexit ], [ @rtp_midi_common_status_sysex_cancel, %.split.i ], [ %838, %842 ], [ @rtp_midi_common_status_sysex_segment, %.thread.i168.loopexit447 ]
+  %843 = add i32 %.0140.i, -1
+  %844 = add i32 %.133.i, 1
+  %845 = load i32, ptr @ett_rtp_midi_command, align 4
+  %846 = tail call ptr @proto_tree_add_subtree(ptr noundef %33, ptr noundef %0, i32 noundef %843, i32 noundef %844, i32 noundef %845, ptr noundef null, ptr noundef %.1.i169)
+  %847 = load i32, ptr @hf_rtp_midi_common_status, align 4
+  %848 = tail call ptr @proto_tree_add_item(ptr noundef %846, i32 noundef %847, ptr noundef %0, i32 noundef %843, i32 noundef 1, i32 noundef 0)
+  %849 = load i32, ptr @hf_rtp_midi_unknown_data, align 4
+  %850 = add i32 %.133.i, -1
+  %851 = tail call ptr @proto_tree_add_item(ptr noundef %846, i32 noundef %849, ptr noundef %0, i32 noundef %.0140.i, i32 noundef %850, i32 noundef 0)
+  %852 = load i32, ptr @hf_rtp_midi_common_status, align 4
+  %853 = add i32 %.133.i, %843
+  %854 = tail call ptr @proto_tree_add_item(ptr noundef %846, i32 noundef %852, ptr noundef %0, i32 noundef %853, i32 noundef 1, i32 noundef 0)
+  %855 = load ptr, ptr %5, align 8
+  br i1 %.not139, label %857, label %856
 
-860:                                              ; preds = %.thread.i154
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %859, i32 noundef 25, ptr noundef nonnull @.str.1602, ptr noundef %.1.i155) #2
+856:                                              ; preds = %.thread.i168
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %855, i32 noundef 25, ptr noundef nonnull @.str.1628, ptr noundef %.1.i169)
   br label %decodemidi.exit
 
-861:                                              ; preds = %.thread.i154
-  tail call void @col_append_str(ptr noundef %859, i32 noundef 25, ptr noundef %.1.i155) #2
+857:                                              ; preds = %.thread.i168
+  tail call void @col_append_str(ptr noundef %855, i32 noundef 25, ptr noundef %.1.i169)
   br label %decodemidi.exit
 
-.thread.i133:                                     ; preds = %839, %838, %761, %760, %778, %762, %286
-  %.1.ph.i = phi i32 [ 2, %762 ], [ 1, %778 ], [ 0, %286 ], [ 1, %760 ], [ 1, %761 ], [ 0, %838 ], [ 0, %839 ]
-  %862 = add nuw nsw i32 %.1.ph.i, %.0144.i
-  br label %866
+.thread.i146:                                     ; preds = %836, %835, %760, %759, %777, %761, %286
+  %.1.ph.i = phi i32 [ 2, %761 ], [ 1, %777 ], [ 0, %286 ], [ 1, %759 ], [ 1, %760 ], [ 0, %835 ], [ 0, %836 ]
+  %858 = add nuw nsw i32 %.1.ph.i, %.0144.i
+  br label %862
 
-decodemidi.exit:                                  ; preds = %decode_sysex_common_nrt_mtc.exit.i.i, %decode_sysex_common_rt_mtc.exit.i.i, %723, %decode_sysex_common_nrt.exit.i, %745, %746, %808, %809, %828, %829, %860, %861
-  %.1.i = phi i32 [ -1, %decode_sysex_common_nrt.exit.i ], [ %.1.i175, %746 ], [ %.1.i175, %745 ], [ -1, %723 ], [ -1, %decode_sysex_common_nrt_mtc.exit.i.i ], [ -1, %decode_sysex_common_rt_mtc.exit.i.i ], [ %.1.i167, %808 ], [ %.1.i167, %809 ], [ %.1.i161, %828 ], [ %.1.i161, %829 ], [ %.133.i, %860 ], [ %.133.i, %861 ]
+decodemidi.exit:                                  ; preds = %decode_sysex_common_nrt_mtc.exit.i.i, %decode_sysex_common_rt_mtc.exit.i.i, %722, %decode_sysex_common_nrt.exit.i, %744, %745, %806, %807, %825, %826, %856, %857
+  %.1.i = phi i32 [ -1, %decode_sysex_common_nrt.exit.i ], [ %.182.i, %745 ], [ %.182.i, %744 ], [ -1, %722 ], [ -1, %decode_sysex_common_nrt_mtc.exit.i.i ], [ -1, %decode_sysex_common_rt_mtc.exit.i.i ], [ %.us-phi.i178, %806 ], [ %.us-phi.i178, %807 ], [ %.us-phi.i, %825 ], [ %.us-phi.i, %826 ], [ %.133.i, %856 ], [ %.133.i, %857 ]
   %.1.fr.i = freeze i32 %.1.i
-  %863 = icmp slt i32 %.1.fr.i, 0
-  %864 = select i1 %863, i32 0, i32 %.0144.i
-  %spec.select.i = add nuw i32 %864, %.1.fr.i
-  %865 = icmp eq i32 %spec.select.i, -1
-  br i1 %865, label %decodemidi.exit.thread222, label %866
+  %859 = icmp slt i32 %.1.fr.i, 0
+  %860 = select i1 %859, i32 0, i32 %.0144.i
+  %spec.select.i = add nuw i32 %860, %.1.fr.i
+  %861 = icmp eq i32 %spec.select.i, -1
+  br i1 %861, label %.thread242, label %862
 
-866:                                              ; preds = %decodemidi.exit, %284, %64, %63, %.thread.i133
-  %.0.i221 = phi i32 [ %spec.select.i, %decodemidi.exit ], [ %862, %.thread.i133 ], [ 1, %63 ], [ 1, %64 ], [ %285, %284 ]
-  %.4206220 = phi i32 [ %.3205, %decodemidi.exit ], [ %.3205, %.thread.i133 ], [ %.0202267, %63 ], [ %.0202267, %64 ], [ %.3205, %284 ]
-  %.3210219 = phi i8 [ %.2209, %decodemidi.exit ], [ %.2209, %.thread.i133 ], [ %.0207266, %63 ], [ %.0207266, %64 ], [ %.2209, %284 ]
-  %867 = add i32 %.0.i221, %.3215
-  %868 = sub i32 %.2117214, %.0.i221
-  %869 = add i32 %.0119268, 1
-  %.not125 = icmp eq i32 %868, 0
-  br i1 %.not125, label %.loopexit231, label %35, !llvm.loop !11
+862:                                              ; preds = %decodemidi.exit, %284, %64, %63, %.thread.i146
+  %.0.i227 = phi i32 [ %spec.select.i, %decodemidi.exit ], [ %858, %.thread.i146 ], [ 1, %63 ], [ 1, %64 ], [ %285, %284 ]
+  %.4226 = phi i32 [ %.3212, %decodemidi.exit ], [ %.3212, %.thread.i146 ], [ %.0209282, %63 ], [ %.0209282, %64 ], [ %.3212, %284 ]
+  %.3216225 = phi i8 [ %.2215, %decodemidi.exit ], [ %.2215, %.thread.i146 ], [ %.0213281, %63 ], [ %.0213281, %64 ], [ %.2215, %284 ]
+  %863 = add i32 %.0.i227, %.3121221
+  %864 = sub i32 %.2130220, %.0.i227
+  %865 = add i32 %.0132283, 1
+  %.not138 = icmp eq i32 %864, 0
+  br i1 %.not138, label %.thread232, label %35, !llvm.loop !9
 
-.loopexit231:                                     ; preds = %50, %866, %28
-  %.1 = phi i32 [ %.sink376, %28 ], [ %51, %50 ], [ %867, %866 ]
-  %870 = and i32 %21, 64
-  %.not126 = icmp eq i32 %870, 0
-  br i1 %.not126, label %.loopexit, label %871
+.thread232:                                       ; preds = %50, %862, %28
+  %.1119 = phi i32 [ %.sink389, %28 ], [ %51, %50 ], [ %863, %862 ]
+  %866 = and i32 %21, 64
+  %.not142 = icmp eq i32 %866, 0
+  br i1 %.not142, label %.thread238, label %867
 
-871:                                              ; preds = %.loopexit231
-  %872 = load i32, ptr @ett_rtp_midi_journal, align 4
-  %873 = tail call ptr @proto_tree_add_subtree(ptr noundef %12, ptr noundef %0, i32 noundef %.1, i32 noundef -1, i32 noundef %872, ptr noundef null, ptr noundef nonnull @.str.1600) #2
-  %874 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1) #2
-  %875 = load i32, ptr @hf_rtp_midi_sflag, align 4
-  %876 = tail call ptr @proto_tree_add_item(ptr noundef %873, i32 noundef %875, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef 0) #2
-  %877 = load i32, ptr @hf_rtp_midi_yflag, align 4
-  %878 = tail call ptr @proto_tree_add_item(ptr noundef %873, i32 noundef %877, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef 0) #2
-  %879 = load i32, ptr @hf_rtp_midi_aflag, align 4
-  %880 = tail call ptr @proto_tree_add_item(ptr noundef %873, i32 noundef %879, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef 0) #2
-  %881 = load i32, ptr @hf_rtp_midi_hflag, align 4
-  %882 = tail call ptr @proto_tree_add_item(ptr noundef %873, i32 noundef %881, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef 0) #2
-  %883 = zext i8 %874 to i32
-  %884 = and i8 %874, 15
-  %885 = load i32, ptr @hf_rtp_midi_totchan, align 4
-  %886 = tail call ptr @proto_tree_add_item(ptr noundef %873, i32 noundef %885, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef 0) #2
-  %887 = add i32 %.1, 1
-  %888 = load i32, ptr @hf_rtp_midi_check_seq_num, align 4
-  %889 = tail call ptr @proto_tree_add_item(ptr noundef %873, i32 noundef %888, ptr noundef %0, i32 noundef %887, i32 noundef 2, i32 noundef 0) #2
-  %890 = add i32 %.1, 3
-  %891 = and i32 %883, 64
-  %.not127 = icmp eq i32 %891, 0
-  br i1 %.not127, label %1288, label %892
+867:                                              ; preds = %.thread232
+  %868 = load i32, ptr @ett_rtp_midi_journal, align 4
+  %869 = tail call ptr @proto_tree_add_subtree(ptr noundef %12, ptr noundef %0, i32 noundef %.1119, i32 noundef -1, i32 noundef %868, ptr noundef null, ptr noundef nonnull @.str.1626)
+  %870 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.1119)
+  %871 = load i32, ptr @hf_rtp_midi_sflag, align 4
+  %872 = tail call ptr @proto_tree_add_item(ptr noundef %869, i32 noundef %871, ptr noundef %0, i32 noundef %.1119, i32 noundef 1, i32 noundef 0)
+  %873 = load i32, ptr @hf_rtp_midi_yflag, align 4
+  %874 = tail call ptr @proto_tree_add_item(ptr noundef %869, i32 noundef %873, ptr noundef %0, i32 noundef %.1119, i32 noundef 1, i32 noundef 0)
+  %875 = load i32, ptr @hf_rtp_midi_aflag, align 4
+  %876 = tail call ptr @proto_tree_add_item(ptr noundef %869, i32 noundef %875, ptr noundef %0, i32 noundef %.1119, i32 noundef 1, i32 noundef 0)
+  %877 = load i32, ptr @hf_rtp_midi_hflag, align 4
+  %878 = tail call ptr @proto_tree_add_item(ptr noundef %869, i32 noundef %877, ptr noundef %0, i32 noundef %.1119, i32 noundef 1, i32 noundef 0)
+  %879 = zext i8 %870 to i32
+  %880 = and i8 %870, 15
+  %881 = load i32, ptr @hf_rtp_midi_totchan, align 4
+  %882 = tail call ptr @proto_tree_add_item(ptr noundef %869, i32 noundef %881, ptr noundef %0, i32 noundef %.1119, i32 noundef 1, i32 noundef 0)
+  %883 = add i32 %.1119, 1
+  %884 = load i32, ptr @hf_rtp_midi_check_seq_num, align 4
+  %885 = tail call ptr @proto_tree_add_item(ptr noundef %869, i32 noundef %884, ptr noundef %0, i32 noundef %883, i32 noundef 2, i32 noundef 0)
+  %886 = add i32 %.1119, 3
+  %887 = and i32 %879, 64
+  %.not143 = icmp eq i32 %887, 0
+  br i1 %.not143, label %1284, label %888
 
-892:                                              ; preds = %871
-  %893 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %890) #2
-  %894 = zext i16 %893 to i32
-  %895 = and i16 %893, 1023
-  %896 = zext nneg i16 %895 to i32
-  %897 = load i32, ptr @ett_rtp_midi_systemjournal, align 4
-  %898 = tail call ptr @proto_tree_add_subtree(ptr noundef %873, ptr noundef %0, i32 noundef %890, i32 noundef %896, i32 noundef %897, ptr noundef null, ptr noundef nonnull @.str.1623) #2
-  %899 = load i32, ptr @hf_rtp_midi_sysjour_toc_s, align 4
-  %900 = tail call ptr @proto_tree_add_item(ptr noundef %898, i32 noundef %899, ptr noundef %0, i32 noundef %890, i32 noundef 2, i32 noundef 0) #2
-  %901 = load i32, ptr @hf_rtp_midi_sysjour_toc_d, align 4
-  %902 = tail call ptr @proto_tree_add_item(ptr noundef %898, i32 noundef %901, ptr noundef %0, i32 noundef %890, i32 noundef 2, i32 noundef 0) #2
-  %903 = load i32, ptr @hf_rtp_midi_sysjour_toc_v, align 4
-  %904 = tail call ptr @proto_tree_add_item(ptr noundef %898, i32 noundef %903, ptr noundef %0, i32 noundef %890, i32 noundef 2, i32 noundef 0) #2
-  %905 = load i32, ptr @hf_rtp_midi_sysjour_toc_q, align 4
-  %906 = tail call ptr @proto_tree_add_item(ptr noundef %898, i32 noundef %905, ptr noundef %0, i32 noundef %890, i32 noundef 2, i32 noundef 0) #2
-  %907 = load i32, ptr @hf_rtp_midi_sysjour_toc_f, align 4
-  %908 = tail call ptr @proto_tree_add_item(ptr noundef %898, i32 noundef %907, ptr noundef %0, i32 noundef %890, i32 noundef 2, i32 noundef 0) #2
-  %909 = load i32, ptr @hf_rtp_midi_sysjour_toc_x, align 4
-  %910 = tail call ptr @proto_tree_add_item(ptr noundef %898, i32 noundef %909, ptr noundef %0, i32 noundef %890, i32 noundef 2, i32 noundef 0) #2
-  %911 = load i32, ptr @hf_rtp_midi_sysjour_len, align 4
-  %912 = tail call ptr @proto_tree_add_item(ptr noundef %898, i32 noundef %911, ptr noundef %0, i32 noundef %890, i32 noundef 2, i32 noundef 0) #2
-  %913 = add i32 %.1, 5
-  %914 = add nsw i32 %896, -2
-  %915 = load i32, ptr @ett_rtp_midi_systemchapters, align 4
-  %916 = tail call ptr @proto_tree_add_subtree(ptr noundef %898, ptr noundef %0, i32 noundef %913, i32 noundef %914, i32 noundef %915, ptr noundef null, ptr noundef nonnull @.str.1624) #2
-  %917 = and i32 %894, 16384
-  %.not.i134 = icmp eq i32 %917, 0
-  br i1 %.not.i134, label %1137, label %918
+888:                                              ; preds = %867
+  %889 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %886)
+  %890 = zext i16 %889 to i32
+  %891 = and i16 %889, 1023
+  %892 = zext nneg i16 %891 to i32
+  %893 = load i32, ptr @ett_rtp_midi_systemjournal, align 4
+  %894 = tail call ptr @proto_tree_add_subtree(ptr noundef %869, ptr noundef %0, i32 noundef %886, i32 noundef %892, i32 noundef %893, ptr noundef null, ptr noundef nonnull @.str.1649)
+  %895 = load i32, ptr @hf_rtp_midi_sysjour_toc_s, align 4
+  %896 = tail call ptr @proto_tree_add_item(ptr noundef %894, i32 noundef %895, ptr noundef %0, i32 noundef %886, i32 noundef 2, i32 noundef 0)
+  %897 = load i32, ptr @hf_rtp_midi_sysjour_toc_d, align 4
+  %898 = tail call ptr @proto_tree_add_item(ptr noundef %894, i32 noundef %897, ptr noundef %0, i32 noundef %886, i32 noundef 2, i32 noundef 0)
+  %899 = load i32, ptr @hf_rtp_midi_sysjour_toc_v, align 4
+  %900 = tail call ptr @proto_tree_add_item(ptr noundef %894, i32 noundef %899, ptr noundef %0, i32 noundef %886, i32 noundef 2, i32 noundef 0)
+  %901 = load i32, ptr @hf_rtp_midi_sysjour_toc_q, align 4
+  %902 = tail call ptr @proto_tree_add_item(ptr noundef %894, i32 noundef %901, ptr noundef %0, i32 noundef %886, i32 noundef 2, i32 noundef 0)
+  %903 = load i32, ptr @hf_rtp_midi_sysjour_toc_f, align 4
+  %904 = tail call ptr @proto_tree_add_item(ptr noundef %894, i32 noundef %903, ptr noundef %0, i32 noundef %886, i32 noundef 2, i32 noundef 0)
+  %905 = load i32, ptr @hf_rtp_midi_sysjour_toc_x, align 4
+  %906 = tail call ptr @proto_tree_add_item(ptr noundef %894, i32 noundef %905, ptr noundef %0, i32 noundef %886, i32 noundef 2, i32 noundef 0)
+  %907 = load i32, ptr @hf_rtp_midi_sysjour_len, align 4
+  %908 = tail call ptr @proto_tree_add_item(ptr noundef %894, i32 noundef %907, ptr noundef %0, i32 noundef %886, i32 noundef 2, i32 noundef 0)
+  %909 = add i32 %.1119, 5
+  %910 = add nsw i32 %892, -2
+  %911 = load i32, ptr @ett_rtp_midi_systemchapters, align 4
+  %912 = tail call ptr @proto_tree_add_subtree(ptr noundef %894, ptr noundef %0, i32 noundef %909, i32 noundef %910, i32 noundef %911, ptr noundef null, ptr noundef nonnull @.str.1650)
+  %913 = and i32 %890, 16384
+  %.not.i147 = icmp eq i32 %913, 0
+  br i1 %.not.i147, label %1133, label %914
 
-918:                                              ; preds = %892
-  %919 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %913) #2
-  %920 = load i32, ptr @hf_rtp_midi_sj_chapter_d_simple_system_commands, align 4
-  %921 = load i32, ptr @ett_rtp_midi_sj_chapter_d, align 4
-  %922 = tail call ptr @proto_tree_add_bitmask(ptr noundef %916, ptr noundef %0, i32 noundef %913, i32 noundef %920, i32 noundef %921, ptr noundef nonnull @decode_sj_chapter_d.chapter_d_flags, i32 noundef 0) #2
-  %923 = load i32, ptr @ett_rtp_midi_sj_chapter_d, align 4
-  %924 = tail call ptr @proto_item_add_subtree(ptr noundef %922, i32 noundef %923) #2
-  %925 = add i32 %.1, 6
-  %926 = zext i8 %919 to i32
-  %927 = and i32 %926, 64
-  %.not.i.i = icmp eq i32 %927, 0
-  br i1 %.not.i.i, label %933, label %928
+914:                                              ; preds = %888
+  %915 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %909)
+  %916 = load i32, ptr @hf_rtp_midi_sj_chapter_d_simple_system_commands, align 4
+  %917 = load i32, ptr @ett_rtp_midi_sj_chapter_d, align 4
+  %918 = tail call ptr @proto_tree_add_bitmask(ptr noundef %912, ptr noundef %0, i32 noundef %909, i32 noundef %916, i32 noundef %917, ptr noundef nonnull @decode_sj_chapter_d.chapter_d_flags, i32 noundef 0)
+  %919 = load i32, ptr @ett_rtp_midi_sj_chapter_d, align 4
+  %920 = tail call ptr @proto_item_add_subtree(ptr noundef %918, i32 noundef %919)
+  %921 = add i32 %.1119, 6
+  %922 = zext i8 %915 to i32
+  %923 = and i32 %922, 64
+  %.not.i.i = icmp eq i32 %923, 0
+  br i1 %.not.i.i, label %929, label %924
 
-928:                                              ; preds = %918
-  %929 = load i32, ptr @hf_rtp_midi_sj_chapter_d_reset, align 4
-  %930 = load i32, ptr @ett_rtp_midi_sj_chapter_d_field_b, align 4
-  %931 = tail call ptr @proto_tree_add_bitmask(ptr noundef %924, ptr noundef %0, i32 noundef %925, i32 noundef %929, i32 noundef %930, ptr noundef nonnull @decode_sj_chapter_d.reset_flags, i32 noundef 0) #2
-  %932 = add i32 %.1, 7
-  br label %933
+924:                                              ; preds = %914
+  %925 = load i32, ptr @hf_rtp_midi_sj_chapter_d_reset, align 4
+  %926 = load i32, ptr @ett_rtp_midi_sj_chapter_d_field_b, align 4
+  %927 = tail call ptr @proto_tree_add_bitmask(ptr noundef %920, ptr noundef %0, i32 noundef %921, i32 noundef %925, i32 noundef %926, ptr noundef nonnull @decode_sj_chapter_d.reset_flags, i32 noundef 0)
+  %928 = add i32 %.1119, 7
+  br label %929
 
-933:                                              ; preds = %928, %918
-  %.064.i.i = phi i32 [ %932, %928 ], [ %925, %918 ]
-  %934 = and i32 %926, 32
-  %.not73.i.i = icmp eq i32 %934, 0
-  br i1 %.not73.i.i, label %940, label %935
+929:                                              ; preds = %924, %914
+  %.064.i.i = phi i32 [ %928, %924 ], [ %921, %914 ]
+  %930 = and i32 %922, 32
+  %.not73.i.i = icmp eq i32 %930, 0
+  br i1 %.not73.i.i, label %936, label %931
 
-935:                                              ; preds = %933
-  %936 = load i32, ptr @hf_rtp_midi_sj_chapter_d_tune, align 4
-  %937 = load i32, ptr @ett_rtp_midi_sj_chapter_d_field_g, align 4
-  %938 = tail call ptr @proto_tree_add_bitmask(ptr noundef %924, ptr noundef %0, i32 noundef %.064.i.i, i32 noundef %936, i32 noundef %937, ptr noundef nonnull @decode_sj_chapter_d.tune_flags, i32 noundef 0) #2
-  %939 = add i32 %.064.i.i, 1
-  br label %940
+931:                                              ; preds = %929
+  %932 = load i32, ptr @hf_rtp_midi_sj_chapter_d_tune, align 4
+  %933 = load i32, ptr @ett_rtp_midi_sj_chapter_d_field_g, align 4
+  %934 = tail call ptr @proto_tree_add_bitmask(ptr noundef %920, ptr noundef %0, i32 noundef %.064.i.i, i32 noundef %932, i32 noundef %933, ptr noundef nonnull @decode_sj_chapter_d.tune_flags, i32 noundef 0)
+  %935 = add i32 %.064.i.i, 1
+  br label %936
 
-940:                                              ; preds = %935, %933
-  %.1.i.i = phi i32 [ %939, %935 ], [ %.064.i.i, %933 ]
-  %941 = and i32 %926, 16
-  %.not74.i.i = icmp eq i32 %941, 0
-  br i1 %.not74.i.i, label %947, label %942
+936:                                              ; preds = %931, %929
+  %.1.i.i = phi i32 [ %935, %931 ], [ %.064.i.i, %929 ]
+  %937 = and i32 %922, 16
+  %.not74.i.i = icmp eq i32 %937, 0
+  br i1 %.not74.i.i, label %943, label %938
 
-942:                                              ; preds = %940
-  %943 = load i32, ptr @hf_rtp_midi_sj_chapter_d_song_sel, align 4
-  %944 = load i32, ptr @ett_rtp_midi_sj_chapter_d_field_h, align 4
-  %945 = tail call ptr @proto_tree_add_bitmask(ptr noundef %924, ptr noundef %0, i32 noundef %.1.i.i, i32 noundef %943, i32 noundef %944, ptr noundef nonnull @decode_sj_chapter_d.song_flags, i32 noundef 0) #2
-  %946 = add i32 %.1.i.i, 1
-  br label %947
+938:                                              ; preds = %936
+  %939 = load i32, ptr @hf_rtp_midi_sj_chapter_d_song_sel, align 4
+  %940 = load i32, ptr @ett_rtp_midi_sj_chapter_d_field_h, align 4
+  %941 = tail call ptr @proto_tree_add_bitmask(ptr noundef %920, ptr noundef %0, i32 noundef %.1.i.i, i32 noundef %939, i32 noundef %940, ptr noundef nonnull @decode_sj_chapter_d.song_flags, i32 noundef 0)
+  %942 = add i32 %.1.i.i, 1
+  br label %943
 
-947:                                              ; preds = %942, %940
-  %.2.i.i = phi i32 [ %946, %942 ], [ %.1.i.i, %940 ]
-  %948 = and i32 %926, 8
-  %.not75.i.i = icmp eq i32 %948, 0
-  br i1 %.not75.i.i, label %1002, label %949
+943:                                              ; preds = %938, %936
+  %.2.i.i = phi i32 [ %942, %938 ], [ %.1.i.i, %936 ]
+  %944 = and i32 %922, 8
+  %.not75.i.i = icmp eq i32 %944, 0
+  br i1 %.not75.i.i, label %998, label %945
 
-949:                                              ; preds = %947
-  %950 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.2.i.i) #2
-  %951 = zext i16 %950 to i32
-  %952 = and i16 %950, 1023
-  %953 = zext nneg i16 %952 to i32
-  %954 = load i32, ptr @ett_rtp_midi_sj_chapter_d_field_j, align 4
-  %955 = tail call ptr @proto_tree_add_subtree(ptr noundef %924, ptr noundef %0, i32 noundef %.2.i.i, i32 noundef %953, i32 noundef %954, ptr noundef null, ptr noundef nonnull @.str.1625) #2
-  %956 = load i32, ptr @hf_rtp_midi_sj_chapter_d_syscom_sflag, align 4
-  %957 = tail call ptr @proto_tree_add_item(ptr noundef %955, i32 noundef %956, ptr noundef %0, i32 noundef %.2.i.i, i32 noundef 2, i32 noundef 0) #2
-  %958 = load i32, ptr @hf_rtp_midi_sj_chapter_d_syscom_cflag, align 4
-  %959 = tail call ptr @proto_tree_add_item(ptr noundef %955, i32 noundef %958, ptr noundef %0, i32 noundef %.2.i.i, i32 noundef 2, i32 noundef 0) #2
-  %960 = load i32, ptr @hf_rtp_midi_sj_chapter_d_syscom_vflag, align 4
-  %961 = tail call ptr @proto_tree_add_item(ptr noundef %955, i32 noundef %960, ptr noundef %0, i32 noundef %.2.i.i, i32 noundef 2, i32 noundef 0) #2
-  %962 = load i32, ptr @hf_rtp_midi_sj_chapter_d_syscom_lflag, align 4
-  %963 = tail call ptr @proto_tree_add_item(ptr noundef %955, i32 noundef %962, ptr noundef %0, i32 noundef %.2.i.i, i32 noundef 2, i32 noundef 0) #2
-  %964 = load i32, ptr @hf_rtp_midi_sj_chapter_d_syscom_dsz, align 4
-  %965 = tail call ptr @proto_tree_add_item(ptr noundef %955, i32 noundef %964, ptr noundef %0, i32 noundef %.2.i.i, i32 noundef 2, i32 noundef 0) #2
-  %966 = load i32, ptr @hf_rtp_midi_sj_chapter_d_syscom_length, align 4
-  %967 = tail call ptr @proto_tree_add_item(ptr noundef %955, i32 noundef %966, ptr noundef %0, i32 noundef %.2.i.i, i32 noundef 2, i32 noundef 0) #2
-  %968 = add i32 %.2.i.i, 2
-  %969 = add nsw i16 %952, -2
-  %970 = and i32 %951, 16384
-  %.not.i.i.i = icmp eq i32 %970, 0
-  br i1 %.not.i.i.i, label %976, label %971
+945:                                              ; preds = %943
+  %946 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.2.i.i)
+  %947 = zext i16 %946 to i32
+  %948 = and i16 %946, 1023
+  %949 = zext nneg i16 %948 to i32
+  %950 = load i32, ptr @ett_rtp_midi_sj_chapter_d_field_j, align 4
+  %951 = tail call ptr @proto_tree_add_subtree(ptr noundef %920, ptr noundef %0, i32 noundef %.2.i.i, i32 noundef %949, i32 noundef %950, ptr noundef null, ptr noundef nonnull @.str.1651)
+  %952 = load i32, ptr @hf_rtp_midi_sj_chapter_d_syscom_sflag, align 4
+  %953 = tail call ptr @proto_tree_add_item(ptr noundef %951, i32 noundef %952, ptr noundef %0, i32 noundef %.2.i.i, i32 noundef 2, i32 noundef 0)
+  %954 = load i32, ptr @hf_rtp_midi_sj_chapter_d_syscom_cflag, align 4
+  %955 = tail call ptr @proto_tree_add_item(ptr noundef %951, i32 noundef %954, ptr noundef %0, i32 noundef %.2.i.i, i32 noundef 2, i32 noundef 0)
+  %956 = load i32, ptr @hf_rtp_midi_sj_chapter_d_syscom_vflag, align 4
+  %957 = tail call ptr @proto_tree_add_item(ptr noundef %951, i32 noundef %956, ptr noundef %0, i32 noundef %.2.i.i, i32 noundef 2, i32 noundef 0)
+  %958 = load i32, ptr @hf_rtp_midi_sj_chapter_d_syscom_lflag, align 4
+  %959 = tail call ptr @proto_tree_add_item(ptr noundef %951, i32 noundef %958, ptr noundef %0, i32 noundef %.2.i.i, i32 noundef 2, i32 noundef 0)
+  %960 = load i32, ptr @hf_rtp_midi_sj_chapter_d_syscom_dsz, align 4
+  %961 = tail call ptr @proto_tree_add_item(ptr noundef %951, i32 noundef %960, ptr noundef %0, i32 noundef %.2.i.i, i32 noundef 2, i32 noundef 0)
+  %962 = load i32, ptr @hf_rtp_midi_sj_chapter_d_syscom_length, align 4
+  %963 = tail call ptr @proto_tree_add_item(ptr noundef %951, i32 noundef %962, ptr noundef %0, i32 noundef %.2.i.i, i32 noundef 2, i32 noundef 0)
+  %964 = add i32 %.2.i.i, 2
+  %965 = add nsw i16 %948, -2
+  %966 = and i32 %947, 16384
+  %.not.i.i.i = icmp eq i32 %966, 0
+  br i1 %.not.i.i.i, label %972, label %967
 
-971:                                              ; preds = %949
-  %972 = load i32, ptr @hf_rtp_midi_sj_chapter_d_syscom_count, align 4
-  %973 = tail call ptr @proto_tree_add_item(ptr noundef %955, i32 noundef %972, ptr noundef %0, i32 noundef %968, i32 noundef 1, i32 noundef 0) #2
-  %974 = add i32 %.2.i.i, 3
-  %975 = add nsw i16 %952, -3
-  br label %976
+967:                                              ; preds = %945
+  %968 = load i32, ptr @hf_rtp_midi_sj_chapter_d_syscom_count, align 4
+  %969 = tail call ptr @proto_tree_add_item(ptr noundef %951, i32 noundef %968, ptr noundef %0, i32 noundef %964, i32 noundef 1, i32 noundef 0)
+  %970 = add i32 %.2.i.i, 3
+  %971 = add nsw i16 %948, -3
+  br label %972
 
-976:                                              ; preds = %971, %949
-  %.064.i.i.i = phi i16 [ %975, %971 ], [ %969, %949 ]
-  %.0.i.i.i = phi i32 [ %974, %971 ], [ %968, %949 ]
-  %977 = and i32 %951, 8192
-  %.not67.i.i.i = icmp eq i32 %977, 0
-  br i1 %.not67.i.i.i, label %987, label %.preheader.i.i.i
+972:                                              ; preds = %967, %945
+  %.064.i.i.i = phi i16 [ %971, %967 ], [ %965, %945 ]
+  %.0.i.i.i = phi i32 [ %970, %967 ], [ %964, %945 ]
+  %973 = and i32 %947, 8192
+  %.not67.i.i.i = icmp eq i32 %973, 0
+  br i1 %.not67.i.i.i, label %983, label %.preheader.i.i.i
 
-.preheader.i.i.i:                                 ; preds = %976, %.preheader.i.i.i
-  %.063.i.i.i = phi i32 [ %980, %.preheader.i.i.i ], [ 0, %976 ]
-  %978 = add i32 %.063.i.i.i, %.0.i.i.i
-  %979 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %978) #2
-  %980 = add i32 %.063.i.i.i, 1
-  %.not68.i.i.i = icmp sgt i8 %979, -1
-  br i1 %.not68.i.i.i, label %.preheader.i.i.i, label %981
+.preheader.i.i.i:                                 ; preds = %972, %.preheader.i.i.i
+  %.063.i.i.i = phi i32 [ %976, %.preheader.i.i.i ], [ 0, %972 ]
+  %974 = add i32 %.063.i.i.i, %.0.i.i.i
+  %975 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %974)
+  %976 = add i32 %.063.i.i.i, 1
+  %.not68.i.i.i = icmp sgt i8 %975, -1
+  br i1 %.not68.i.i.i, label %.preheader.i.i.i, label %977
 
-981:                                              ; preds = %.preheader.i.i.i
-  %982 = load i32, ptr @hf_rtp_midi_sj_chapter_d_syscom_value, align 4
-  %983 = tail call ptr @proto_tree_add_item(ptr noundef %955, i32 noundef %982, ptr noundef %0, i32 noundef %.0.i.i.i, i32 noundef %980, i32 noundef 0) #2
-  %984 = add i32 %980, %.0.i.i.i
-  %985 = trunc i32 %980 to i16
-  %986 = sub i16 %.064.i.i.i, %985
-  br label %987
+977:                                              ; preds = %.preheader.i.i.i
+  %978 = load i32, ptr @hf_rtp_midi_sj_chapter_d_syscom_value, align 4
+  %979 = tail call ptr @proto_tree_add_item(ptr noundef %951, i32 noundef %978, ptr noundef %0, i32 noundef %.0.i.i.i, i32 noundef %976, i32 noundef 0)
+  %980 = add i32 %976, %.0.i.i.i
+  %981 = trunc i32 %976 to i16
+  %982 = sub i16 %.064.i.i.i, %981
+  br label %983
 
-987:                                              ; preds = %981, %976
-  %.165.i.i.i = phi i16 [ %986, %981 ], [ %.064.i.i.i, %976 ]
-  %.1.i.i.i = phi i32 [ %984, %981 ], [ %.0.i.i.i, %976 ]
-  %988 = and i32 %951, 4096
-  %.not69.i.i.i = icmp eq i32 %988, 0
-  br i1 %.not69.i.i.i, label %994, label %989
+983:                                              ; preds = %977, %972
+  %.165.i.i.i = phi i16 [ %982, %977 ], [ %.064.i.i.i, %972 ]
+  %.1.i.i.i = phi i32 [ %980, %977 ], [ %.0.i.i.i, %972 ]
+  %984 = and i32 %947, 4096
+  %.not69.i.i.i = icmp eq i32 %984, 0
+  br i1 %.not69.i.i.i, label %990, label %985
 
-989:                                              ; preds = %987
-  %990 = load i32, ptr @hf_rtp_midi_sj_chapter_d_syscom_legal, align 4
-  %991 = zext i16 %.165.i.i.i to i32
-  %992 = tail call ptr @proto_tree_add_item(ptr noundef %955, i32 noundef %990, ptr noundef %0, i32 noundef %.1.i.i.i, i32 noundef %991, i32 noundef 0) #2
-  %993 = add i32 %.1.i.i.i, %991
-  br label %994
+985:                                              ; preds = %983
+  %986 = load i32, ptr @hf_rtp_midi_sj_chapter_d_syscom_legal, align 4
+  %987 = zext i16 %.165.i.i.i to i32
+  %988 = tail call ptr @proto_tree_add_item(ptr noundef %951, i32 noundef %986, ptr noundef %0, i32 noundef %.1.i.i.i, i32 noundef %987, i32 noundef 0)
+  %989 = add i32 %.1.i.i.i, %987
+  br label %990
 
-994:                                              ; preds = %989, %987
-  %.2.i.i.i = phi i32 [ %993, %989 ], [ %.1.i.i.i, %987 ]
+990:                                              ; preds = %985, %983
+  %.2.i.i.i = phi i32 [ %989, %985 ], [ %.1.i.i.i, %983 ]
   %.not70.i.i.i = icmp eq i16 %.165.i.i.i, 0
-  br i1 %.not70.i.i.i, label %decode_sj_chapter_d_f4.exit.i.i, label %995
+  br i1 %.not70.i.i.i, label %decode_sj_chapter_d_f4.exit.i.i, label %991
 
-995:                                              ; preds = %994
-  %996 = zext i16 %.165.i.i.i to i32
-  %997 = load i32, ptr @hf_rtp_midi_sj_chapter_d_syscom_data, align 4
-  %998 = tail call ptr @proto_tree_add_item(ptr noundef %955, i32 noundef %997, ptr noundef %0, i32 noundef %.2.i.i.i, i32 noundef %996, i32 noundef 0) #2
-  %999 = add i32 %.2.i.i.i, %996
+991:                                              ; preds = %990
+  %992 = zext i16 %.165.i.i.i to i32
+  %993 = load i32, ptr @hf_rtp_midi_sj_chapter_d_syscom_data, align 4
+  %994 = tail call ptr @proto_tree_add_item(ptr noundef %951, i32 noundef %993, ptr noundef %0, i32 noundef %.2.i.i.i, i32 noundef %992, i32 noundef 0)
+  %995 = add i32 %.2.i.i.i, %992
   br label %decode_sj_chapter_d_f4.exit.i.i
 
-decode_sj_chapter_d_f4.exit.i.i:                  ; preds = %995, %994
-  %.3.i.i.i = phi i32 [ %999, %995 ], [ %.2.i.i.i, %994 ]
-  %1000 = sub i32 %.3.i.i.i, %.2.i.i
-  %1001 = icmp slt i32 %1000, 0
-  br i1 %1001, label %decode_sj_chapter_d.exit.i, label %1002
+decode_sj_chapter_d_f4.exit.i.i:                  ; preds = %991, %990
+  %.3.i.i.i = phi i32 [ %995, %991 ], [ %.2.i.i.i, %990 ]
+  %996 = sub i32 %.3.i.i.i, %.2.i.i
+  %997 = icmp slt i32 %996, 0
+  br i1 %997, label %decode_sj_chapter_d.exit.i, label %998
 
-1002:                                             ; preds = %decode_sj_chapter_d_f4.exit.i.i, %947
-  %.3.i.i = phi i32 [ %.2.i.i, %947 ], [ %.3.i.i.i, %decode_sj_chapter_d_f4.exit.i.i ]
-  %1003 = and i32 %926, 4
-  %.not76.i.i = icmp eq i32 %1003, 0
-  br i1 %.not76.i.i, label %1056, label %1004
+998:                                              ; preds = %decode_sj_chapter_d_f4.exit.i.i, %943
+  %.3.i.i = phi i32 [ %.2.i.i, %943 ], [ %.3.i.i.i, %decode_sj_chapter_d_f4.exit.i.i ]
+  %999 = and i32 %922, 4
+  %.not76.i.i = icmp eq i32 %999, 0
+  br i1 %.not76.i.i, label %1052, label %1000
 
-1004:                                             ; preds = %1002
-  %1005 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.3.i.i) #2
-  %1006 = zext i16 %1005 to i32
-  %1007 = and i16 %1005, 1023
-  %1008 = zext nneg i16 %1007 to i32
-  %1009 = load i32, ptr @ett_rtp_midi_sj_chapter_d_field_k, align 4
-  %1010 = tail call ptr @proto_tree_add_subtree(ptr noundef %924, ptr noundef %0, i32 noundef %.3.i.i, i32 noundef %1008, i32 noundef %1009, ptr noundef null, ptr noundef nonnull @.str.1626) #2
-  %1011 = load i32, ptr @hf_rtp_midi_sj_chapter_d_syscom_sflag, align 4
-  %1012 = tail call ptr @proto_tree_add_item(ptr noundef %1010, i32 noundef %1011, ptr noundef %0, i32 noundef %.3.i.i, i32 noundef 2, i32 noundef 0) #2
-  %1013 = load i32, ptr @hf_rtp_midi_sj_chapter_d_syscom_cflag, align 4
-  %1014 = tail call ptr @proto_tree_add_item(ptr noundef %1010, i32 noundef %1013, ptr noundef %0, i32 noundef %.3.i.i, i32 noundef 2, i32 noundef 0) #2
-  %1015 = load i32, ptr @hf_rtp_midi_sj_chapter_d_syscom_vflag, align 4
-  %1016 = tail call ptr @proto_tree_add_item(ptr noundef %1010, i32 noundef %1015, ptr noundef %0, i32 noundef %.3.i.i, i32 noundef 2, i32 noundef 0) #2
-  %1017 = load i32, ptr @hf_rtp_midi_sj_chapter_d_syscom_lflag, align 4
-  %1018 = tail call ptr @proto_tree_add_item(ptr noundef %1010, i32 noundef %1017, ptr noundef %0, i32 noundef %.3.i.i, i32 noundef 2, i32 noundef 0) #2
-  %1019 = load i32, ptr @hf_rtp_midi_sj_chapter_d_syscom_dsz, align 4
-  %1020 = tail call ptr @proto_tree_add_item(ptr noundef %1010, i32 noundef %1019, ptr noundef %0, i32 noundef %.3.i.i, i32 noundef 2, i32 noundef 0) #2
-  %1021 = load i32, ptr @hf_rtp_midi_sj_chapter_d_syscom_length, align 4
-  %1022 = tail call ptr @proto_tree_add_item(ptr noundef %1010, i32 noundef %1021, ptr noundef %0, i32 noundef %.3.i.i, i32 noundef 2, i32 noundef 0) #2
-  %1023 = add i32 %.3.i.i, 2
-  %1024 = add nsw i16 %1007, -2
-  %1025 = and i32 %1006, 16384
-  %.not.i79.i.i = icmp eq i32 %1025, 0
-  br i1 %.not.i79.i.i, label %1031, label %1026
+1000:                                             ; preds = %998
+  %1001 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.3.i.i)
+  %1002 = zext i16 %1001 to i32
+  %1003 = and i16 %1001, 1023
+  %1004 = zext nneg i16 %1003 to i32
+  %1005 = load i32, ptr @ett_rtp_midi_sj_chapter_d_field_k, align 4
+  %1006 = tail call ptr @proto_tree_add_subtree(ptr noundef %920, ptr noundef %0, i32 noundef %.3.i.i, i32 noundef %1004, i32 noundef %1005, ptr noundef null, ptr noundef nonnull @.str.1652)
+  %1007 = load i32, ptr @hf_rtp_midi_sj_chapter_d_syscom_sflag, align 4
+  %1008 = tail call ptr @proto_tree_add_item(ptr noundef %1006, i32 noundef %1007, ptr noundef %0, i32 noundef %.3.i.i, i32 noundef 2, i32 noundef 0)
+  %1009 = load i32, ptr @hf_rtp_midi_sj_chapter_d_syscom_cflag, align 4
+  %1010 = tail call ptr @proto_tree_add_item(ptr noundef %1006, i32 noundef %1009, ptr noundef %0, i32 noundef %.3.i.i, i32 noundef 2, i32 noundef 0)
+  %1011 = load i32, ptr @hf_rtp_midi_sj_chapter_d_syscom_vflag, align 4
+  %1012 = tail call ptr @proto_tree_add_item(ptr noundef %1006, i32 noundef %1011, ptr noundef %0, i32 noundef %.3.i.i, i32 noundef 2, i32 noundef 0)
+  %1013 = load i32, ptr @hf_rtp_midi_sj_chapter_d_syscom_lflag, align 4
+  %1014 = tail call ptr @proto_tree_add_item(ptr noundef %1006, i32 noundef %1013, ptr noundef %0, i32 noundef %.3.i.i, i32 noundef 2, i32 noundef 0)
+  %1015 = load i32, ptr @hf_rtp_midi_sj_chapter_d_syscom_dsz, align 4
+  %1016 = tail call ptr @proto_tree_add_item(ptr noundef %1006, i32 noundef %1015, ptr noundef %0, i32 noundef %.3.i.i, i32 noundef 2, i32 noundef 0)
+  %1017 = load i32, ptr @hf_rtp_midi_sj_chapter_d_syscom_length, align 4
+  %1018 = tail call ptr @proto_tree_add_item(ptr noundef %1006, i32 noundef %1017, ptr noundef %0, i32 noundef %.3.i.i, i32 noundef 2, i32 noundef 0)
+  %1019 = add i32 %.3.i.i, 2
+  %1020 = add nsw i16 %1003, -2
+  %1021 = and i32 %1002, 16384
+  %.not.i79.i.i = icmp eq i32 %1021, 0
+  br i1 %.not.i79.i.i, label %1027, label %1022
 
-1026:                                             ; preds = %1004
-  %1027 = load i32, ptr @hf_rtp_midi_sj_chapter_d_syscom_count, align 4
-  %1028 = tail call ptr @proto_tree_add_item(ptr noundef %1010, i32 noundef %1027, ptr noundef %0, i32 noundef %1023, i32 noundef 1, i32 noundef 0) #2
-  %1029 = add i32 %.3.i.i, 3
-  %1030 = add nsw i16 %1007, -3
-  br label %1031
+1022:                                             ; preds = %1000
+  %1023 = load i32, ptr @hf_rtp_midi_sj_chapter_d_syscom_count, align 4
+  %1024 = tail call ptr @proto_tree_add_item(ptr noundef %1006, i32 noundef %1023, ptr noundef %0, i32 noundef %1019, i32 noundef 1, i32 noundef 0)
+  %1025 = add i32 %.3.i.i, 3
+  %1026 = add nsw i16 %1003, -3
+  br label %1027
 
-1031:                                             ; preds = %1026, %1004
-  %.064.i80.i.i = phi i16 [ %1030, %1026 ], [ %1024, %1004 ]
-  %.0.i81.i.i = phi i32 [ %1029, %1026 ], [ %1023, %1004 ]
-  %1032 = and i32 %1006, 8192
-  %.not68.i82.i.i = icmp eq i32 %1032, 0
-  br i1 %.not68.i82.i.i, label %1042, label %.preheader.i83.i.i
+1027:                                             ; preds = %1022, %1000
+  %.064.i80.i.i = phi i16 [ %1026, %1022 ], [ %1020, %1000 ]
+  %.0.i81.i.i = phi i32 [ %1025, %1022 ], [ %1019, %1000 ]
+  %1028 = and i32 %1002, 8192
+  %.not68.i82.i.i = icmp eq i32 %1028, 0
+  br i1 %.not68.i82.i.i, label %1038, label %.preheader.i83.i.i
 
-.preheader.i83.i.i:                               ; preds = %1031, %.preheader.i83.i.i
-  %.063.i84.i.i = phi i32 [ %1035, %.preheader.i83.i.i ], [ 0, %1031 ]
-  %1033 = add i32 %.063.i84.i.i, %.0.i81.i.i
-  %1034 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1033) #2
-  %1035 = add i32 %.063.i84.i.i, 1
-  %.not69.i85.i.i = icmp sgt i8 %1034, -1
-  br i1 %.not69.i85.i.i, label %.preheader.i83.i.i, label %1036
+.preheader.i83.i.i:                               ; preds = %1027, %.preheader.i83.i.i
+  %.063.i84.i.i = phi i32 [ %1031, %.preheader.i83.i.i ], [ 0, %1027 ]
+  %1029 = add i32 %.063.i84.i.i, %.0.i81.i.i
+  %1030 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1029)
+  %1031 = add i32 %.063.i84.i.i, 1
+  %.not69.i85.i.i = icmp sgt i8 %1030, -1
+  br i1 %.not69.i85.i.i, label %.preheader.i83.i.i, label %1032
 
-1036:                                             ; preds = %.preheader.i83.i.i
-  %1037 = load i32, ptr @hf_rtp_midi_sj_chapter_d_syscom_value, align 4
-  %1038 = tail call ptr @proto_tree_add_item(ptr noundef %1010, i32 noundef %1037, ptr noundef %0, i32 noundef %.0.i81.i.i, i32 noundef %1035, i32 noundef 0) #2
-  %1039 = add i32 %1035, %.0.i81.i.i
-  %1040 = trunc i32 %1035 to i16
-  %1041 = sub i16 %.064.i80.i.i, %1040
-  br label %1042
+1032:                                             ; preds = %.preheader.i83.i.i
+  %1033 = load i32, ptr @hf_rtp_midi_sj_chapter_d_syscom_value, align 4
+  %1034 = tail call ptr @proto_tree_add_item(ptr noundef %1006, i32 noundef %1033, ptr noundef %0, i32 noundef %.0.i81.i.i, i32 noundef %1031, i32 noundef 0)
+  %1035 = add i32 %1031, %.0.i81.i.i
+  %1036 = trunc i32 %1031 to i16
+  %1037 = sub i16 %.064.i80.i.i, %1036
+  br label %1038
 
-1042:                                             ; preds = %1036, %1031
-  %.165.i86.i.i = phi i16 [ %1041, %1036 ], [ %.064.i80.i.i, %1031 ]
-  %.1.i87.i.i = phi i32 [ %1039, %1036 ], [ %.0.i81.i.i, %1031 ]
-  %1043 = and i32 %1006, 4096
-  %.not70.i88.i.i = icmp eq i32 %1043, 0
-  br i1 %.not70.i88.i.i, label %1048, label %.thread.i.i.i
+1038:                                             ; preds = %1032, %1027
+  %.165.i86.i.i = phi i16 [ %1037, %1032 ], [ %.064.i80.i.i, %1027 ]
+  %.1.i87.i.i = phi i32 [ %1035, %1032 ], [ %.0.i81.i.i, %1027 ]
+  %1039 = and i32 %1002, 4096
+  %.not70.i88.i.i = icmp eq i32 %1039, 0
+  br i1 %.not70.i88.i.i, label %1044, label %.thread.i.i.i
 
-.thread.i.i.i:                                    ; preds = %1042
-  %1044 = load i32, ptr @hf_rtp_midi_sj_chapter_d_syscom_legal, align 4
-  %1045 = zext i16 %.165.i86.i.i to i32
-  %1046 = tail call ptr @proto_tree_add_item(ptr noundef %1010, i32 noundef %1044, ptr noundef %0, i32 noundef %.1.i87.i.i, i32 noundef %1045, i32 noundef 0) #2
-  %1047 = add i32 %.1.i87.i.i, %1045
+.thread.i.i.i:                                    ; preds = %1038
+  %1040 = load i32, ptr @hf_rtp_midi_sj_chapter_d_syscom_legal, align 4
+  %1041 = zext i16 %.165.i86.i.i to i32
+  %1042 = tail call ptr @proto_tree_add_item(ptr noundef %1006, i32 noundef %1040, ptr noundef %0, i32 noundef %.1.i87.i.i, i32 noundef %1041, i32 noundef 0)
+  %1043 = add i32 %.1.i87.i.i, %1041
   br label %decode_sj_chapter_d_f5.exit.i.i
 
-1048:                                             ; preds = %1042
+1044:                                             ; preds = %1038
   %.not71.i.i.i = icmp eq i16 %.165.i86.i.i, 0
-  br i1 %.not71.i.i.i, label %decode_sj_chapter_d_f5.exit.i.i, label %1049
+  br i1 %.not71.i.i.i, label %decode_sj_chapter_d_f5.exit.i.i, label %1045
 
-1049:                                             ; preds = %1048
-  %1050 = zext i16 %.165.i86.i.i to i32
-  %1051 = load i32, ptr @hf_rtp_midi_sj_chapter_d_syscom_data, align 4
-  %1052 = tail call ptr @proto_tree_add_item(ptr noundef %1010, i32 noundef %1051, ptr noundef %0, i32 noundef %.1.i87.i.i, i32 noundef %1050, i32 noundef 0) #2
-  %1053 = add i32 %.1.i87.i.i, %1050
+1045:                                             ; preds = %1044
+  %1046 = zext i16 %.165.i86.i.i to i32
+  %1047 = load i32, ptr @hf_rtp_midi_sj_chapter_d_syscom_data, align 4
+  %1048 = tail call ptr @proto_tree_add_item(ptr noundef %1006, i32 noundef %1047, ptr noundef %0, i32 noundef %.1.i87.i.i, i32 noundef %1046, i32 noundef 0)
+  %1049 = add i32 %.1.i87.i.i, %1046
   br label %decode_sj_chapter_d_f5.exit.i.i
 
-decode_sj_chapter_d_f5.exit.i.i:                  ; preds = %1049, %1048, %.thread.i.i.i
-  %.3.i89.i.i = phi i32 [ %1053, %1049 ], [ %.1.i87.i.i, %1048 ], [ %1047, %.thread.i.i.i ]
-  %1054 = sub i32 %.3.i89.i.i, %.3.i.i
-  %1055 = icmp slt i32 %1054, 0
-  br i1 %1055, label %decode_sj_chapter_d.exit.i, label %1056
+decode_sj_chapter_d_f5.exit.i.i:                  ; preds = %1045, %1044, %.thread.i.i.i
+  %.3.i89.i.i = phi i32 [ %1049, %1045 ], [ %.1.i87.i.i, %1044 ], [ %1043, %.thread.i.i.i ]
+  %1050 = sub i32 %.3.i89.i.i, %.3.i.i
+  %1051 = icmp slt i32 %1050, 0
+  br i1 %1051, label %decode_sj_chapter_d.exit.i, label %1052
 
-1056:                                             ; preds = %decode_sj_chapter_d_f5.exit.i.i, %1002
-  %.4.i.i = phi i32 [ %.3.i.i, %1002 ], [ %.3.i89.i.i, %decode_sj_chapter_d_f5.exit.i.i ]
-  %1057 = and i32 %926, 2
-  %.not77.i.i = icmp eq i32 %1057, 0
-  br i1 %.not77.i.i, label %1095, label %1058
+1052:                                             ; preds = %decode_sj_chapter_d_f5.exit.i.i, %998
+  %.4.i.i = phi i32 [ %.3.i.i, %998 ], [ %.3.i89.i.i, %decode_sj_chapter_d_f5.exit.i.i ]
+  %1053 = and i32 %922, 2
+  %.not77.i.i = icmp eq i32 %1053, 0
+  br i1 %.not77.i.i, label %1091, label %1054
 
-1058:                                             ; preds = %1056
-  %1059 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.4.i.i) #2
-  %1060 = zext i8 %1059 to i32
-  %1061 = and i8 %1059, 31
-  %1062 = zext nneg i8 %1061 to i32
-  %1063 = load i32, ptr @ett_rtp_midi_sj_chapter_d_field_y, align 4
-  %1064 = tail call ptr @proto_tree_add_subtree(ptr noundef %924, ptr noundef %0, i32 noundef %.4.i.i, i32 noundef %1062, i32 noundef %1063, ptr noundef null, ptr noundef nonnull @.str.1627) #2
-  %1065 = load i32, ptr @hf_rtp_midi_sj_chapter_d_sysreal_sflag, align 4
-  %1066 = tail call ptr @proto_tree_add_item(ptr noundef %1064, i32 noundef %1065, ptr noundef %0, i32 noundef %.4.i.i, i32 noundef 1, i32 noundef 0) #2
-  %1067 = load i32, ptr @hf_rtp_midi_sj_chapter_d_sysreal_cflag, align 4
-  %1068 = tail call ptr @proto_tree_add_item(ptr noundef %1064, i32 noundef %1067, ptr noundef %0, i32 noundef %.4.i.i, i32 noundef 1, i32 noundef 0) #2
-  %1069 = load i32, ptr @hf_rtp_midi_sj_chapter_d_sysreal_lflag, align 4
-  %1070 = tail call ptr @proto_tree_add_item(ptr noundef %1064, i32 noundef %1069, ptr noundef %0, i32 noundef %.4.i.i, i32 noundef 1, i32 noundef 0) #2
-  %1071 = load i32, ptr @hf_rtp_midi_sj_chapter_d_sysreal_length, align 4
-  %1072 = tail call ptr @proto_tree_add_item(ptr noundef %1064, i32 noundef %1071, ptr noundef %0, i32 noundef %.4.i.i, i32 noundef 1, i32 noundef 0) #2
-  %1073 = add i32 %.4.i.i, 1
-  %1074 = add nsw i8 %1061, -1
-  %1075 = and i32 %1060, 64
-  %.not.i90.i.i = icmp eq i32 %1075, 0
-  br i1 %.not.i90.i.i, label %1081, label %1076
+1054:                                             ; preds = %1052
+  %1055 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.4.i.i)
+  %1056 = zext i8 %1055 to i32
+  %1057 = and i8 %1055, 31
+  %1058 = zext nneg i8 %1057 to i32
+  %1059 = load i32, ptr @ett_rtp_midi_sj_chapter_d_field_y, align 4
+  %1060 = tail call ptr @proto_tree_add_subtree(ptr noundef %920, ptr noundef %0, i32 noundef %.4.i.i, i32 noundef %1058, i32 noundef %1059, ptr noundef null, ptr noundef nonnull @.str.1653)
+  %1061 = load i32, ptr @hf_rtp_midi_sj_chapter_d_sysreal_sflag, align 4
+  %1062 = tail call ptr @proto_tree_add_item(ptr noundef %1060, i32 noundef %1061, ptr noundef %0, i32 noundef %.4.i.i, i32 noundef 1, i32 noundef 0)
+  %1063 = load i32, ptr @hf_rtp_midi_sj_chapter_d_sysreal_cflag, align 4
+  %1064 = tail call ptr @proto_tree_add_item(ptr noundef %1060, i32 noundef %1063, ptr noundef %0, i32 noundef %.4.i.i, i32 noundef 1, i32 noundef 0)
+  %1065 = load i32, ptr @hf_rtp_midi_sj_chapter_d_sysreal_lflag, align 4
+  %1066 = tail call ptr @proto_tree_add_item(ptr noundef %1060, i32 noundef %1065, ptr noundef %0, i32 noundef %.4.i.i, i32 noundef 1, i32 noundef 0)
+  %1067 = load i32, ptr @hf_rtp_midi_sj_chapter_d_sysreal_length, align 4
+  %1068 = tail call ptr @proto_tree_add_item(ptr noundef %1060, i32 noundef %1067, ptr noundef %0, i32 noundef %.4.i.i, i32 noundef 1, i32 noundef 0)
+  %1069 = add i32 %.4.i.i, 1
+  %1070 = add nsw i8 %1057, -1
+  %1071 = and i32 %1056, 64
+  %.not.i90.i.i = icmp eq i32 %1071, 0
+  br i1 %.not.i90.i.i, label %1077, label %1072
 
-1076:                                             ; preds = %1058
-  %1077 = load i32, ptr @hf_rtp_midi_sj_chapter_d_sysreal_count, align 4
-  %1078 = tail call ptr @proto_tree_add_item(ptr noundef %1064, i32 noundef %1077, ptr noundef %0, i32 noundef %1073, i32 noundef 1, i32 noundef 0) #2
-  %1079 = add i32 %.4.i.i, 2
-  %1080 = add nsw i8 %1061, -2
-  br label %1081
+1072:                                             ; preds = %1054
+  %1073 = load i32, ptr @hf_rtp_midi_sj_chapter_d_sysreal_count, align 4
+  %1074 = tail call ptr @proto_tree_add_item(ptr noundef %1060, i32 noundef %1073, ptr noundef %0, i32 noundef %1069, i32 noundef 1, i32 noundef 0)
+  %1075 = add i32 %.4.i.i, 2
+  %1076 = add nsw i8 %1057, -2
+  br label %1077
 
-1081:                                             ; preds = %1076, %1058
-  %.043.i.i.i = phi i32 [ %1079, %1076 ], [ %1073, %1058 ]
-  %.0.i91.i.i = phi i8 [ %1080, %1076 ], [ %1074, %1058 ]
-  %1082 = and i32 %1060, 32
-  %.not46.i.i.i = icmp eq i32 %1082, 0
-  br i1 %.not46.i.i.i, label %1087, label %.thread.i92.i.i
+1077:                                             ; preds = %1072, %1054
+  %.043.i.i.i = phi i32 [ %1075, %1072 ], [ %1069, %1054 ]
+  %.0.i91.i.i = phi i8 [ %1076, %1072 ], [ %1070, %1054 ]
+  %1078 = and i32 %1056, 32
+  %.not46.i.i.i = icmp eq i32 %1078, 0
+  br i1 %.not46.i.i.i, label %1083, label %.thread.i92.i.i
 
-.thread.i92.i.i:                                  ; preds = %1081
-  %1083 = load i32, ptr @hf_rtp_midi_sj_chapter_d_sysreal_legal, align 4
-  %1084 = zext i8 %.0.i91.i.i to i32
-  %1085 = tail call ptr @proto_tree_add_item(ptr noundef %1064, i32 noundef %1083, ptr noundef %0, i32 noundef %.043.i.i.i, i32 noundef %1084, i32 noundef 0) #2
-  %1086 = add i32 %.043.i.i.i, %1084
+.thread.i92.i.i:                                  ; preds = %1077
+  %1079 = load i32, ptr @hf_rtp_midi_sj_chapter_d_sysreal_legal, align 4
+  %1080 = zext i8 %.0.i91.i.i to i32
+  %1081 = tail call ptr @proto_tree_add_item(ptr noundef %1060, i32 noundef %1079, ptr noundef %0, i32 noundef %.043.i.i.i, i32 noundef %1080, i32 noundef 0)
+  %1082 = add i32 %.043.i.i.i, %1080
   br label %decode_sj_chapter_d_f9.exit.i.i
 
-1087:                                             ; preds = %1081
+1083:                                             ; preds = %1077
   %.not47.i.i.i = icmp eq i8 %.0.i91.i.i, 0
-  br i1 %.not47.i.i.i, label %decode_sj_chapter_d_f9.exit.i.i, label %1088
+  br i1 %.not47.i.i.i, label %decode_sj_chapter_d_f9.exit.i.i, label %1084
 
-1088:                                             ; preds = %1087
-  %1089 = zext i8 %.0.i91.i.i to i32
-  %1090 = load i32, ptr @hf_rtp_midi_sj_chapter_d_sysreal_data, align 4
-  %1091 = tail call ptr @proto_tree_add_item(ptr noundef %1064, i32 noundef %1090, ptr noundef %0, i32 noundef %.043.i.i.i, i32 noundef %1089, i32 noundef 0) #2
-  %1092 = add i32 %.043.i.i.i, %1089
+1084:                                             ; preds = %1083
+  %1085 = zext i8 %.0.i91.i.i to i32
+  %1086 = load i32, ptr @hf_rtp_midi_sj_chapter_d_sysreal_data, align 4
+  %1087 = tail call ptr @proto_tree_add_item(ptr noundef %1060, i32 noundef %1086, ptr noundef %0, i32 noundef %.043.i.i.i, i32 noundef %1085, i32 noundef 0)
+  %1088 = add i32 %.043.i.i.i, %1085
   br label %decode_sj_chapter_d_f9.exit.i.i
 
-decode_sj_chapter_d_f9.exit.i.i:                  ; preds = %1088, %1087, %.thread.i92.i.i
-  %.2.i93.i.i = phi i32 [ %1092, %1088 ], [ %.043.i.i.i, %1087 ], [ %1086, %.thread.i92.i.i ]
-  %1093 = sub i32 %.2.i93.i.i, %.4.i.i
-  %1094 = icmp slt i32 %1093, 0
-  br i1 %1094, label %decode_sj_chapter_d.exit.i, label %1095
+decode_sj_chapter_d_f9.exit.i.i:                  ; preds = %1084, %1083, %.thread.i92.i.i
+  %.2.i93.i.i = phi i32 [ %1088, %1084 ], [ %.043.i.i.i, %1083 ], [ %1082, %.thread.i92.i.i ]
+  %1089 = sub i32 %.2.i93.i.i, %.4.i.i
+  %1090 = icmp slt i32 %1089, 0
+  br i1 %1090, label %decode_sj_chapter_d.exit.i, label %1091
 
-1095:                                             ; preds = %decode_sj_chapter_d_f9.exit.i.i, %1056
-  %.5.i.i = phi i32 [ %.4.i.i, %1056 ], [ %.2.i93.i.i, %decode_sj_chapter_d_f9.exit.i.i ]
-  %1096 = and i32 %926, 1
-  %.not78.i.i = icmp eq i32 %1096, 0
-  br i1 %.not78.i.i, label %1134, label %1097
+1091:                                             ; preds = %decode_sj_chapter_d_f9.exit.i.i, %1052
+  %.5.i.i = phi i32 [ %.4.i.i, %1052 ], [ %.2.i93.i.i, %decode_sj_chapter_d_f9.exit.i.i ]
+  %1092 = and i32 %922, 1
+  %.not78.i.i = icmp eq i32 %1092, 0
+  br i1 %.not78.i.i, label %1130, label %1093
 
-1097:                                             ; preds = %1095
-  %1098 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.5.i.i) #2
-  %1099 = zext i8 %1098 to i32
-  %1100 = and i8 %1098, 31
-  %1101 = zext nneg i8 %1100 to i32
-  %1102 = load i32, ptr @ett_rtp_midi_sj_chapter_d_field_z, align 4
-  %1103 = tail call ptr @proto_tree_add_subtree(ptr noundef %924, ptr noundef %0, i32 noundef %.5.i.i, i32 noundef %1101, i32 noundef %1102, ptr noundef null, ptr noundef nonnull @.str.1628) #2
-  %1104 = load i32, ptr @hf_rtp_midi_sj_chapter_d_sysreal_sflag, align 4
-  %1105 = tail call ptr @proto_tree_add_item(ptr noundef %1103, i32 noundef %1104, ptr noundef %0, i32 noundef %.5.i.i, i32 noundef 1, i32 noundef 0) #2
-  %1106 = load i32, ptr @hf_rtp_midi_sj_chapter_d_sysreal_cflag, align 4
-  %1107 = tail call ptr @proto_tree_add_item(ptr noundef %1103, i32 noundef %1106, ptr noundef %0, i32 noundef %.5.i.i, i32 noundef 1, i32 noundef 0) #2
-  %1108 = load i32, ptr @hf_rtp_midi_sj_chapter_d_sysreal_lflag, align 4
-  %1109 = tail call ptr @proto_tree_add_item(ptr noundef %1103, i32 noundef %1108, ptr noundef %0, i32 noundef %.5.i.i, i32 noundef 1, i32 noundef 0) #2
-  %1110 = load i32, ptr @hf_rtp_midi_sj_chapter_d_sysreal_length, align 4
-  %1111 = tail call ptr @proto_tree_add_item(ptr noundef %1103, i32 noundef %1110, ptr noundef %0, i32 noundef %.5.i.i, i32 noundef 1, i32 noundef 0) #2
-  %1112 = add i32 %.5.i.i, 1
-  %1113 = add nsw i8 %1100, -1
-  %1114 = and i32 %1099, 64
-  %.not.i94.i.i = icmp eq i32 %1114, 0
-  br i1 %.not.i94.i.i, label %1120, label %1115
+1093:                                             ; preds = %1091
+  %1094 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.5.i.i)
+  %1095 = zext i8 %1094 to i32
+  %1096 = and i8 %1094, 31
+  %1097 = zext nneg i8 %1096 to i32
+  %1098 = load i32, ptr @ett_rtp_midi_sj_chapter_d_field_z, align 4
+  %1099 = tail call ptr @proto_tree_add_subtree(ptr noundef %920, ptr noundef %0, i32 noundef %.5.i.i, i32 noundef %1097, i32 noundef %1098, ptr noundef null, ptr noundef nonnull @.str.1654)
+  %1100 = load i32, ptr @hf_rtp_midi_sj_chapter_d_sysreal_sflag, align 4
+  %1101 = tail call ptr @proto_tree_add_item(ptr noundef %1099, i32 noundef %1100, ptr noundef %0, i32 noundef %.5.i.i, i32 noundef 1, i32 noundef 0)
+  %1102 = load i32, ptr @hf_rtp_midi_sj_chapter_d_sysreal_cflag, align 4
+  %1103 = tail call ptr @proto_tree_add_item(ptr noundef %1099, i32 noundef %1102, ptr noundef %0, i32 noundef %.5.i.i, i32 noundef 1, i32 noundef 0)
+  %1104 = load i32, ptr @hf_rtp_midi_sj_chapter_d_sysreal_lflag, align 4
+  %1105 = tail call ptr @proto_tree_add_item(ptr noundef %1099, i32 noundef %1104, ptr noundef %0, i32 noundef %.5.i.i, i32 noundef 1, i32 noundef 0)
+  %1106 = load i32, ptr @hf_rtp_midi_sj_chapter_d_sysreal_length, align 4
+  %1107 = tail call ptr @proto_tree_add_item(ptr noundef %1099, i32 noundef %1106, ptr noundef %0, i32 noundef %.5.i.i, i32 noundef 1, i32 noundef 0)
+  %1108 = add i32 %.5.i.i, 1
+  %1109 = add nsw i8 %1096, -1
+  %1110 = and i32 %1095, 64
+  %.not.i94.i.i = icmp eq i32 %1110, 0
+  br i1 %.not.i94.i.i, label %1116, label %1111
 
-1115:                                             ; preds = %1097
-  %1116 = load i32, ptr @hf_rtp_midi_sj_chapter_d_sysreal_count, align 4
-  %1117 = tail call ptr @proto_tree_add_item(ptr noundef %1103, i32 noundef %1116, ptr noundef %0, i32 noundef %1112, i32 noundef 1, i32 noundef 0) #2
-  %1118 = add i32 %.5.i.i, 2
-  %1119 = add nsw i8 %1100, -2
-  br label %1120
+1111:                                             ; preds = %1093
+  %1112 = load i32, ptr @hf_rtp_midi_sj_chapter_d_sysreal_count, align 4
+  %1113 = tail call ptr @proto_tree_add_item(ptr noundef %1099, i32 noundef %1112, ptr noundef %0, i32 noundef %1108, i32 noundef 1, i32 noundef 0)
+  %1114 = add i32 %.5.i.i, 2
+  %1115 = add nsw i8 %1096, -2
+  br label %1116
 
-1120:                                             ; preds = %1115, %1097
-  %.043.i95.i.i = phi i32 [ %1118, %1115 ], [ %1112, %1097 ]
-  %.0.i96.i.i = phi i8 [ %1119, %1115 ], [ %1113, %1097 ]
-  %1121 = and i32 %1099, 32
-  %.not46.i97.i.i = icmp eq i32 %1121, 0
-  br i1 %.not46.i97.i.i, label %1126, label %.thread.i98.i.i
+1116:                                             ; preds = %1111, %1093
+  %.043.i95.i.i = phi i32 [ %1114, %1111 ], [ %1108, %1093 ]
+  %.0.i96.i.i = phi i8 [ %1115, %1111 ], [ %1109, %1093 ]
+  %1117 = and i32 %1095, 32
+  %.not46.i97.i.i = icmp eq i32 %1117, 0
+  br i1 %.not46.i97.i.i, label %1122, label %.thread.i98.i.i
 
-.thread.i98.i.i:                                  ; preds = %1120
-  %1122 = load i32, ptr @hf_rtp_midi_sj_chapter_d_sysreal_legal, align 4
-  %1123 = zext i8 %.0.i96.i.i to i32
-  %1124 = tail call ptr @proto_tree_add_item(ptr noundef %1103, i32 noundef %1122, ptr noundef %0, i32 noundef %.043.i95.i.i, i32 noundef %1123, i32 noundef 0) #2
-  %1125 = add i32 %.043.i95.i.i, %1123
+.thread.i98.i.i:                                  ; preds = %1116
+  %1118 = load i32, ptr @hf_rtp_midi_sj_chapter_d_sysreal_legal, align 4
+  %1119 = zext i8 %.0.i96.i.i to i32
+  %1120 = tail call ptr @proto_tree_add_item(ptr noundef %1099, i32 noundef %1118, ptr noundef %0, i32 noundef %.043.i95.i.i, i32 noundef %1119, i32 noundef 0)
+  %1121 = add i32 %.043.i95.i.i, %1119
   br label %decode_sj_chapter_d_fd.exit.i.i
 
-1126:                                             ; preds = %1120
+1122:                                             ; preds = %1116
   %.not47.i100.i.i = icmp eq i8 %.0.i96.i.i, 0
-  br i1 %.not47.i100.i.i, label %decode_sj_chapter_d_fd.exit.i.i, label %1127
+  br i1 %.not47.i100.i.i, label %decode_sj_chapter_d_fd.exit.i.i, label %1123
 
-1127:                                             ; preds = %1126
-  %1128 = zext i8 %.0.i96.i.i to i32
-  %1129 = load i32, ptr @hf_rtp_midi_sj_chapter_d_sysreal_data, align 4
-  %1130 = tail call ptr @proto_tree_add_item(ptr noundef %1103, i32 noundef %1129, ptr noundef %0, i32 noundef %.043.i95.i.i, i32 noundef %1128, i32 noundef 0) #2
-  %1131 = add i32 %.043.i95.i.i, %1128
+1123:                                             ; preds = %1122
+  %1124 = zext i8 %.0.i96.i.i to i32
+  %1125 = load i32, ptr @hf_rtp_midi_sj_chapter_d_sysreal_data, align 4
+  %1126 = tail call ptr @proto_tree_add_item(ptr noundef %1099, i32 noundef %1125, ptr noundef %0, i32 noundef %.043.i95.i.i, i32 noundef %1124, i32 noundef 0)
+  %1127 = add i32 %.043.i95.i.i, %1124
   br label %decode_sj_chapter_d_fd.exit.i.i
 
-decode_sj_chapter_d_fd.exit.i.i:                  ; preds = %1127, %1126, %.thread.i98.i.i
-  %.2.i99.i.i = phi i32 [ %1131, %1127 ], [ %.043.i95.i.i, %1126 ], [ %1125, %.thread.i98.i.i ]
-  %1132 = sub i32 %.2.i99.i.i, %.5.i.i
-  %1133 = icmp slt i32 %1132, 0
-  br i1 %1133, label %decode_sj_chapter_d.exit.i, label %1134
+decode_sj_chapter_d_fd.exit.i.i:                  ; preds = %1123, %1122, %.thread.i98.i.i
+  %.2.i99.i.i = phi i32 [ %1127, %1123 ], [ %.043.i95.i.i, %1122 ], [ %1121, %.thread.i98.i.i ]
+  %1128 = sub i32 %.2.i99.i.i, %.5.i.i
+  %1129 = icmp slt i32 %1128, 0
+  br i1 %1129, label %decode_sj_chapter_d.exit.i, label %1130
 
-1134:                                             ; preds = %decode_sj_chapter_d_fd.exit.i.i, %1095
-  %.6.i.i = phi i32 [ %.5.i.i, %1095 ], [ %.2.i99.i.i, %decode_sj_chapter_d_fd.exit.i.i ]
-  %1135 = sub i32 %.6.i.i, %913
-  tail call void @proto_item_set_len(ptr noundef %922, i32 noundef %1135) #2
+1130:                                             ; preds = %decode_sj_chapter_d_fd.exit.i.i, %1091
+  %.6.i.i = phi i32 [ %.5.i.i, %1091 ], [ %.2.i99.i.i, %decode_sj_chapter_d_fd.exit.i.i ]
+  %1131 = sub i32 %.6.i.i, %909
+  tail call void @proto_item_set_len(ptr noundef %918, i32 noundef %1131)
   br label %decode_sj_chapter_d.exit.i
 
-decode_sj_chapter_d.exit.i:                       ; preds = %1134, %decode_sj_chapter_d_fd.exit.i.i, %decode_sj_chapter_d_f9.exit.i.i, %decode_sj_chapter_d_f5.exit.i.i, %decode_sj_chapter_d_f4.exit.i.i
-  %.0.i.i = phi i32 [ %1135, %1134 ], [ %1000, %decode_sj_chapter_d_f4.exit.i.i ], [ %1054, %decode_sj_chapter_d_f5.exit.i.i ], [ %1093, %decode_sj_chapter_d_f9.exit.i.i ], [ %1132, %decode_sj_chapter_d_fd.exit.i.i ]
-  %1136 = add i32 %.0.i.i, %913
-  br label %1137
+decode_sj_chapter_d.exit.i:                       ; preds = %1130, %decode_sj_chapter_d_fd.exit.i.i, %decode_sj_chapter_d_f9.exit.i.i, %decode_sj_chapter_d_f5.exit.i.i, %decode_sj_chapter_d_f4.exit.i.i
+  %.0.i.i = phi i32 [ %1131, %1130 ], [ %996, %decode_sj_chapter_d_f4.exit.i.i ], [ %1050, %decode_sj_chapter_d_f5.exit.i.i ], [ %1089, %decode_sj_chapter_d_f9.exit.i.i ], [ %1128, %decode_sj_chapter_d_fd.exit.i.i ]
+  %1132 = add i32 %.0.i.i, %909
+  br label %1133
 
-1137:                                             ; preds = %decode_sj_chapter_d.exit.i, %892
-  %.074.i = phi i32 [ %1136, %decode_sj_chapter_d.exit.i ], [ %913, %892 ]
-  %1138 = and i32 %894, 8192
-  %.not78.i = icmp eq i32 %1138, 0
-  br i1 %.not78.i, label %1144, label %1139
+1133:                                             ; preds = %decode_sj_chapter_d.exit.i, %888
+  %.074.i = phi i32 [ %1132, %decode_sj_chapter_d.exit.i ], [ %909, %888 ]
+  %1134 = and i32 %890, 8192
+  %.not78.i = icmp eq i32 %1134, 0
+  br i1 %.not78.i, label %1140, label %1135
 
-1139:                                             ; preds = %1137
-  %1140 = load i32, ptr @hf_rtp_midi_sj_chapter_v, align 4
-  %1141 = load i32, ptr @ett_rtp_midi_sj_chapter_v, align 4
-  %1142 = tail call ptr @proto_tree_add_bitmask(ptr noundef %916, ptr noundef %0, i32 noundef %.074.i, i32 noundef %1140, i32 noundef %1141, ptr noundef nonnull @decode_system_journal.v_flags, i32 noundef 0) #2
-  %1143 = add i32 %.074.i, 1
-  br label %1144
+1135:                                             ; preds = %1133
+  %1136 = load i32, ptr @hf_rtp_midi_sj_chapter_v, align 4
+  %1137 = load i32, ptr @ett_rtp_midi_sj_chapter_v, align 4
+  %1138 = tail call ptr @proto_tree_add_bitmask(ptr noundef %912, ptr noundef %0, i32 noundef %.074.i, i32 noundef %1136, i32 noundef %1137, ptr noundef nonnull @decode_system_journal.v_flags, i32 noundef 0)
+  %1139 = add i32 %.074.i, 1
+  br label %1140
 
-1144:                                             ; preds = %1139, %1137
-  %.1.i135 = phi i32 [ %1143, %1139 ], [ %.074.i, %1137 ]
-  %1145 = and i32 %894, 4096
-  %.not79.i = icmp eq i32 %1145, 0
-  br i1 %.not79.i, label %decode_sj_chapter_q.exit.i, label %1146
+1140:                                             ; preds = %1135, %1133
+  %.1.i148 = phi i32 [ %1139, %1135 ], [ %.074.i, %1133 ]
+  %1141 = and i32 %890, 4096
+  %.not79.i = icmp eq i32 %1141, 0
+  br i1 %.not79.i, label %decode_sj_chapter_q.exit.i, label %1142
 
-1146:                                             ; preds = %1144
-  %1147 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1.i135) #2
-  %1148 = and i8 %1147, 16
-  %.not.i83.i = icmp eq i8 %1148, 0
+1142:                                             ; preds = %1140
+  %1143 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.1.i148)
+  %1144 = and i8 %1143, 16
+  %.not.i83.i = icmp eq i8 %1144, 0
   %spec.select.i.i = select i1 %.not.i83.i, i32 1, i32 3
-  %.not43.i.i = icmp sgt i8 %1147, -1
-  %1149 = add nuw nsw i32 %spec.select.i.i, 3
-  %.1.i84.i = select i1 %.not43.i.i, i32 %spec.select.i.i, i32 %1149
-  %1150 = load i32, ptr @ett_rtp_midi_sj_chapter_q, align 4
-  %1151 = tail call ptr @proto_tree_add_subtree(ptr noundef %916, ptr noundef %0, i32 noundef %.1.i135, i32 noundef %.1.i84.i, i32 noundef %1150, ptr noundef null, ptr noundef nonnull @.str.1629) #2
-  %1152 = load i32, ptr @hf_rtp_midi_sj_chapter_q_sflag, align 4
-  %1153 = tail call ptr @proto_tree_add_item(ptr noundef %1151, i32 noundef %1152, ptr noundef %0, i32 noundef %.1.i135, i32 noundef 1, i32 noundef 0) #2
-  %1154 = load i32, ptr @hf_rtp_midi_sj_chapter_q_nflag, align 4
-  %1155 = tail call ptr @proto_tree_add_item(ptr noundef %1151, i32 noundef %1154, ptr noundef %0, i32 noundef %.1.i135, i32 noundef 1, i32 noundef 0) #2
-  %1156 = load i32, ptr @hf_rtp_midi_sj_chapter_q_dflag, align 4
-  %1157 = tail call ptr @proto_tree_add_item(ptr noundef %1151, i32 noundef %1156, ptr noundef %0, i32 noundef %.1.i135, i32 noundef 1, i32 noundef 0) #2
-  %1158 = load i32, ptr @hf_rtp_midi_sj_chapter_q_cflag, align 4
-  %1159 = tail call ptr @proto_tree_add_item(ptr noundef %1151, i32 noundef %1158, ptr noundef %0, i32 noundef %.1.i135, i32 noundef 1, i32 noundef 0) #2
-  %1160 = load i32, ptr @hf_rtp_midi_sj_chapter_q_tflag, align 4
-  %1161 = tail call ptr @proto_tree_add_item(ptr noundef %1151, i32 noundef %1160, ptr noundef %0, i32 noundef %.1.i135, i32 noundef 1, i32 noundef 0) #2
+  %.not43.i.i = icmp sgt i8 %1143, -1
+  %1145 = add nuw nsw i32 %spec.select.i.i, 3
+  %.1.i84.i = select i1 %.not43.i.i, i32 %spec.select.i.i, i32 %1145
+  %1146 = load i32, ptr @ett_rtp_midi_sj_chapter_q, align 4
+  %1147 = tail call ptr @proto_tree_add_subtree(ptr noundef %912, ptr noundef %0, i32 noundef %.1.i148, i32 noundef %.1.i84.i, i32 noundef %1146, ptr noundef null, ptr noundef nonnull @.str.1655)
+  %1148 = load i32, ptr @hf_rtp_midi_sj_chapter_q_sflag, align 4
+  %1149 = tail call ptr @proto_tree_add_item(ptr noundef %1147, i32 noundef %1148, ptr noundef %0, i32 noundef %.1.i148, i32 noundef 1, i32 noundef 0)
+  %1150 = load i32, ptr @hf_rtp_midi_sj_chapter_q_nflag, align 4
+  %1151 = tail call ptr @proto_tree_add_item(ptr noundef %1147, i32 noundef %1150, ptr noundef %0, i32 noundef %.1.i148, i32 noundef 1, i32 noundef 0)
+  %1152 = load i32, ptr @hf_rtp_midi_sj_chapter_q_dflag, align 4
+  %1153 = tail call ptr @proto_tree_add_item(ptr noundef %1147, i32 noundef %1152, ptr noundef %0, i32 noundef %.1.i148, i32 noundef 1, i32 noundef 0)
+  %1154 = load i32, ptr @hf_rtp_midi_sj_chapter_q_cflag, align 4
+  %1155 = tail call ptr @proto_tree_add_item(ptr noundef %1147, i32 noundef %1154, ptr noundef %0, i32 noundef %.1.i148, i32 noundef 1, i32 noundef 0)
+  %1156 = load i32, ptr @hf_rtp_midi_sj_chapter_q_tflag, align 4
+  %1157 = tail call ptr @proto_tree_add_item(ptr noundef %1147, i32 noundef %1156, ptr noundef %0, i32 noundef %.1.i148, i32 noundef 1, i32 noundef 0)
   %hf_rtp_midi_sj_chapter_q_top.val.i.i = load i32, ptr @hf_rtp_midi_sj_chapter_q_top, align 4
   %hf_rtp_midi_sj_chapter_q_clock.val.i.i = load i32, ptr @hf_rtp_midi_sj_chapter_q_clock, align 4
-  %1162 = select i1 %.not.i83.i, i32 %hf_rtp_midi_sj_chapter_q_top.val.i.i, i32 %hf_rtp_midi_sj_chapter_q_clock.val.i.i
-  %1163 = tail call ptr @proto_tree_add_item(ptr noundef %1151, i32 noundef %1162, ptr noundef %0, i32 noundef %.1.i135, i32 noundef %spec.select.i.i, i32 noundef 0) #2
-  %1164 = add i32 %spec.select.i.i, %.1.i135
-  br i1 %.not43.i.i, label %decode_sj_chapter_q.exit.i, label %1165
+  %1158 = select i1 %.not.i83.i, i32 %hf_rtp_midi_sj_chapter_q_top.val.i.i, i32 %hf_rtp_midi_sj_chapter_q_clock.val.i.i
+  %1159 = tail call ptr @proto_tree_add_item(ptr noundef %1147, i32 noundef %1158, ptr noundef %0, i32 noundef %.1.i148, i32 noundef %spec.select.i.i, i32 noundef 0)
+  %1160 = add i32 %spec.select.i.i, %.1.i148
+  br i1 %.not43.i.i, label %decode_sj_chapter_q.exit.i, label %1161
 
-1165:                                             ; preds = %1146
-  %1166 = load i32, ptr @hf_rtp_midi_sj_chapter_q_timetools, align 4
-  %1167 = tail call ptr @proto_tree_add_item(ptr noundef %1151, i32 noundef %1166, ptr noundef %0, i32 noundef %1164, i32 noundef 3, i32 noundef 0) #2
-  %1168 = add i32 %1164, 3
+1161:                                             ; preds = %1142
+  %1162 = load i32, ptr @hf_rtp_midi_sj_chapter_q_timetools, align 4
+  %1163 = tail call ptr @proto_tree_add_item(ptr noundef %1147, i32 noundef %1162, ptr noundef %0, i32 noundef %1160, i32 noundef 3, i32 noundef 0)
+  %1164 = add i32 %1160, 3
   br label %decode_sj_chapter_q.exit.i
 
-decode_sj_chapter_q.exit.i:                       ; preds = %1165, %1146, %1144
-  %.2.i = phi i32 [ %.1.i135, %1144 ], [ %1168, %1165 ], [ %1164, %1146 ]
-  %1169 = and i32 %894, 2048
-  %.not80.i = icmp eq i32 %1169, 0
-  br i1 %.not80.i, label %decode_sj_chapter_f.exit.i, label %1170
+decode_sj_chapter_q.exit.i:                       ; preds = %1161, %1142, %1140
+  %.2.i = phi i32 [ %.1.i148, %1140 ], [ %1164, %1161 ], [ %1160, %1142 ]
+  %1165 = and i32 %890, 2048
+  %.not80.i = icmp eq i32 %1165, 0
+  br i1 %.not80.i, label %decode_sj_chapter_f.exit.i, label %1166
 
-1170:                                             ; preds = %decode_sj_chapter_q.exit.i
-  %1171 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2.i) #2
-  %1172 = zext i8 %1171 to i32
-  %1173 = and i32 %1172, 64
-  %.not.i85.i = icmp eq i32 %1173, 0
+1166:                                             ; preds = %decode_sj_chapter_q.exit.i
+  %1167 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.2.i)
+  %1168 = zext i8 %1167 to i32
+  %1169 = and i32 %1168, 64
+  %.not.i85.i = icmp eq i32 %1169, 0
   %spec.select.i86.i = select i1 %.not.i85.i, i32 1, i32 5
-  %1174 = and i32 %1172, 32
-  %.not47.i.i = icmp eq i32 %1174, 0
-  %1175 = lshr exact i32 %1174, 3
-  %.1.i87.i = add nuw nsw i32 %spec.select.i86.i, %1175
-  %1176 = load i32, ptr @ett_rtp_midi_sj_chapter_f, align 4
-  %1177 = tail call ptr @proto_tree_add_subtree(ptr noundef %916, ptr noundef %0, i32 noundef %.2.i, i32 noundef %.1.i87.i, i32 noundef %1176, ptr noundef null, ptr noundef nonnull @.str.1630) #2
-  %1178 = load i32, ptr @hf_rtp_midi_sj_chapter_f_sflag, align 4
-  %1179 = tail call ptr @proto_tree_add_item(ptr noundef %1177, i32 noundef %1178, ptr noundef %0, i32 noundef %.2.i, i32 noundef 1, i32 noundef 0) #2
-  %1180 = load i32, ptr @hf_rtp_midi_sj_chapter_f_cflag, align 4
-  %1181 = tail call ptr @proto_tree_add_item(ptr noundef %1177, i32 noundef %1180, ptr noundef %0, i32 noundef %.2.i, i32 noundef 1, i32 noundef 0) #2
-  %1182 = load i32, ptr @hf_rtp_midi_sj_chapter_f_pflag, align 4
-  %1183 = tail call ptr @proto_tree_add_item(ptr noundef %1177, i32 noundef %1182, ptr noundef %0, i32 noundef %.2.i, i32 noundef 1, i32 noundef 0) #2
-  %1184 = load i32, ptr @hf_rtp_midi_sj_chapter_f_qflag, align 4
-  %1185 = tail call ptr @proto_tree_add_item(ptr noundef %1177, i32 noundef %1184, ptr noundef %0, i32 noundef %.2.i, i32 noundef 1, i32 noundef 0) #2
-  %1186 = load i32, ptr @hf_rtp_midi_sj_chapter_f_dflag, align 4
-  %1187 = tail call ptr @proto_tree_add_item(ptr noundef %1177, i32 noundef %1186, ptr noundef %0, i32 noundef %.2.i, i32 noundef 1, i32 noundef 0) #2
-  %1188 = load i32, ptr @hf_rtp_midi_sj_chapter_f_point, align 4
-  %1189 = tail call ptr @proto_tree_add_item(ptr noundef %1177, i32 noundef %1188, ptr noundef %0, i32 noundef %.2.i, i32 noundef 1, i32 noundef 0) #2
-  %1190 = add i32 %.2.i, 1
-  br i1 %.not.i85.i, label %1197, label %1191
+  %1170 = and i32 %1168, 32
+  %.not47.i.i = icmp eq i32 %1170, 0
+  %1171 = lshr exact i32 %1170, 3
+  %.1.i87.i = add nuw nsw i32 %spec.select.i86.i, %1171
+  %1172 = load i32, ptr @ett_rtp_midi_sj_chapter_f, align 4
+  %1173 = tail call ptr @proto_tree_add_subtree(ptr noundef %912, ptr noundef %0, i32 noundef %.2.i, i32 noundef %.1.i87.i, i32 noundef %1172, ptr noundef null, ptr noundef nonnull @.str.1656)
+  %1174 = load i32, ptr @hf_rtp_midi_sj_chapter_f_sflag, align 4
+  %1175 = tail call ptr @proto_tree_add_item(ptr noundef %1173, i32 noundef %1174, ptr noundef %0, i32 noundef %.2.i, i32 noundef 1, i32 noundef 0)
+  %1176 = load i32, ptr @hf_rtp_midi_sj_chapter_f_cflag, align 4
+  %1177 = tail call ptr @proto_tree_add_item(ptr noundef %1173, i32 noundef %1176, ptr noundef %0, i32 noundef %.2.i, i32 noundef 1, i32 noundef 0)
+  %1178 = load i32, ptr @hf_rtp_midi_sj_chapter_f_pflag, align 4
+  %1179 = tail call ptr @proto_tree_add_item(ptr noundef %1173, i32 noundef %1178, ptr noundef %0, i32 noundef %.2.i, i32 noundef 1, i32 noundef 0)
+  %1180 = load i32, ptr @hf_rtp_midi_sj_chapter_f_qflag, align 4
+  %1181 = tail call ptr @proto_tree_add_item(ptr noundef %1173, i32 noundef %1180, ptr noundef %0, i32 noundef %.2.i, i32 noundef 1, i32 noundef 0)
+  %1182 = load i32, ptr @hf_rtp_midi_sj_chapter_f_dflag, align 4
+  %1183 = tail call ptr @proto_tree_add_item(ptr noundef %1173, i32 noundef %1182, ptr noundef %0, i32 noundef %.2.i, i32 noundef 1, i32 noundef 0)
+  %1184 = load i32, ptr @hf_rtp_midi_sj_chapter_f_point, align 4
+  %1185 = tail call ptr @proto_tree_add_item(ptr noundef %1173, i32 noundef %1184, ptr noundef %0, i32 noundef %.2.i, i32 noundef 1, i32 noundef 0)
+  %1186 = add i32 %.2.i, 1
+  br i1 %.not.i85.i, label %1193, label %1187
 
-1191:                                             ; preds = %1170
-  %1192 = and i32 %1172, 16
-  %.not48.i.i = icmp eq i32 %1192, 0
-  %1193 = load i32, ptr @hf_rtp_midi_sj_chapter_f_complete, align 4
-  %1194 = load i32, ptr @ett_rtp_midi_sj_chapter_f_complete, align 4
+1187:                                             ; preds = %1166
+  %1188 = and i32 %1168, 16
+  %.not48.i.i = icmp eq i32 %1188, 0
+  %1189 = load i32, ptr @hf_rtp_midi_sj_chapter_f_complete, align 4
+  %1190 = load i32, ptr @ett_rtp_midi_sj_chapter_f_complete, align 4
   %decode_sj_chapter_f.f_flags.decode_sj_chapter_f.fq_flags.i.i = select i1 %.not48.i.i, ptr @decode_sj_chapter_f.f_flags, ptr @decode_sj_chapter_f.fq_flags
-  %1195 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1177, ptr noundef %0, i32 noundef %1190, i32 noundef %1193, i32 noundef %1194, ptr noundef nonnull %decode_sj_chapter_f.f_flags.decode_sj_chapter_f.fq_flags.i.i, i32 noundef 0) #2
-  %1196 = add i32 %.2.i, 5
-  br label %1197
+  %1191 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1173, ptr noundef %0, i32 noundef %1186, i32 noundef %1189, i32 noundef %1190, ptr noundef nonnull %decode_sj_chapter_f.f_flags.decode_sj_chapter_f.fq_flags.i.i, i32 noundef 0)
+  %1192 = add i32 %.2.i, 5
+  br label %1193
 
-1197:                                             ; preds = %1191, %1170
-  %.045.i.i = phi i32 [ %1196, %1191 ], [ %1190, %1170 ]
-  br i1 %.not47.i.i, label %decode_sj_chapter_f.exit.i, label %1198
+1193:                                             ; preds = %1187, %1166
+  %.045.i.i = phi i32 [ %1192, %1187 ], [ %1186, %1166 ]
+  br i1 %.not47.i.i, label %decode_sj_chapter_f.exit.i, label %1194
 
-1198:                                             ; preds = %1197
-  %1199 = load i32, ptr @hf_rtp_midi_sj_chapter_f_partial, align 4
-  %1200 = load i32, ptr @ett_rtp_midi_sj_chapter_f_partial, align 4
-  %1201 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1177, ptr noundef %0, i32 noundef %.045.i.i, i32 noundef %1199, i32 noundef %1200, ptr noundef nonnull @decode_sj_chapter_f.fp_flags, i32 noundef 0) #2
-  %1202 = add i32 %.045.i.i, 4
+1194:                                             ; preds = %1193
+  %1195 = load i32, ptr @hf_rtp_midi_sj_chapter_f_partial, align 4
+  %1196 = load i32, ptr @ett_rtp_midi_sj_chapter_f_partial, align 4
+  %1197 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1173, ptr noundef %0, i32 noundef %.045.i.i, i32 noundef %1195, i32 noundef %1196, ptr noundef nonnull @decode_sj_chapter_f.fp_flags, i32 noundef 0)
+  %1198 = add i32 %.045.i.i, 4
   br label %decode_sj_chapter_f.exit.i
 
-decode_sj_chapter_f.exit.i:                       ; preds = %1198, %1197, %decode_sj_chapter_q.exit.i
-  %.3.i = phi i32 [ %.2.i, %decode_sj_chapter_q.exit.i ], [ %1202, %1198 ], [ %.045.i.i, %1197 ]
-  %1203 = and i32 %894, 1024
-  %.not81.i = icmp eq i32 %1203, 0
-  br i1 %.not81.i, label %1284, label %1204
+decode_sj_chapter_f.exit.i:                       ; preds = %1194, %1193, %decode_sj_chapter_q.exit.i
+  %.3.i = phi i32 [ %.2.i, %decode_sj_chapter_q.exit.i ], [ %1198, %1194 ], [ %.045.i.i, %1193 ]
+  %1199 = and i32 %890, 1024
+  %.not81.i = icmp eq i32 %1199, 0
+  br i1 %.not81.i, label %1280, label %1200
 
-1204:                                             ; preds = %decode_sj_chapter_f.exit.i
-  %.neg.i = sub i32 %890, %.3.i
-  %1205 = add i32 %.neg.i, %896
-  %1206 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.3.i) #2
-  %1207 = load i32, ptr @ett_rtp_midi_sj_chapter_x, align 4
-  %1208 = tail call ptr @proto_tree_add_subtree(ptr noundef %916, ptr noundef %0, i32 noundef %.3.i, i32 noundef %1205, i32 noundef %1207, ptr noundef null, ptr noundef nonnull @.str.1631) #2
-  %1209 = load i32, ptr @hf_rtp_midi_sj_chapter_x_sflag, align 4
-  %1210 = tail call ptr @proto_tree_add_item(ptr noundef %1208, i32 noundef %1209, ptr noundef %0, i32 noundef %.3.i, i32 noundef 1, i32 noundef 0) #2
-  %1211 = load i32, ptr @hf_rtp_midi_sj_chapter_x_tflag, align 4
-  %1212 = tail call ptr @proto_tree_add_item(ptr noundef %1208, i32 noundef %1211, ptr noundef %0, i32 noundef %.3.i, i32 noundef 1, i32 noundef 0) #2
-  %1213 = load i32, ptr @hf_rtp_midi_sj_chapter_x_cflag, align 4
-  %1214 = tail call ptr @proto_tree_add_item(ptr noundef %1208, i32 noundef %1213, ptr noundef %0, i32 noundef %.3.i, i32 noundef 1, i32 noundef 0) #2
-  %1215 = load i32, ptr @hf_rtp_midi_sj_chapter_x_fflag, align 4
-  %1216 = tail call ptr @proto_tree_add_item(ptr noundef %1208, i32 noundef %1215, ptr noundef %0, i32 noundef %.3.i, i32 noundef 1, i32 noundef 0) #2
-  %1217 = load i32, ptr @hf_rtp_midi_sj_chapter_x_dflag, align 4
-  %1218 = tail call ptr @proto_tree_add_item(ptr noundef %1208, i32 noundef %1217, ptr noundef %0, i32 noundef %.3.i, i32 noundef 1, i32 noundef 0) #2
-  %1219 = load i32, ptr @hf_rtp_midi_sj_chapter_x_lflag, align 4
-  %1220 = tail call ptr @proto_tree_add_item(ptr noundef %1208, i32 noundef %1219, ptr noundef %0, i32 noundef %.3.i, i32 noundef 1, i32 noundef 0) #2
-  %1221 = load i32, ptr @hf_rtp_midi_sj_chapter_x_sta, align 4
-  %1222 = tail call ptr @proto_tree_add_item(ptr noundef %1208, i32 noundef %1221, ptr noundef %0, i32 noundef %.3.i, i32 noundef 1, i32 noundef 0) #2
-  %1223 = add i32 %.3.i, 1
-  %1224 = zext i8 %1206 to i32
-  %1225 = and i32 %1224, 64
-  %.not.i88.i = icmp eq i32 %1225, 0
-  br i1 %.not.i88.i, label %1230, label %1226
+1200:                                             ; preds = %decode_sj_chapter_f.exit.i
+  %.neg.i = sub i32 %886, %.3.i
+  %1201 = add i32 %.neg.i, %892
+  %1202 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.3.i)
+  %1203 = load i32, ptr @ett_rtp_midi_sj_chapter_x, align 4
+  %1204 = tail call ptr @proto_tree_add_subtree(ptr noundef %912, ptr noundef %0, i32 noundef %.3.i, i32 noundef %1201, i32 noundef %1203, ptr noundef null, ptr noundef nonnull @.str.1657)
+  %1205 = load i32, ptr @hf_rtp_midi_sj_chapter_x_sflag, align 4
+  %1206 = tail call ptr @proto_tree_add_item(ptr noundef %1204, i32 noundef %1205, ptr noundef %0, i32 noundef %.3.i, i32 noundef 1, i32 noundef 0)
+  %1207 = load i32, ptr @hf_rtp_midi_sj_chapter_x_tflag, align 4
+  %1208 = tail call ptr @proto_tree_add_item(ptr noundef %1204, i32 noundef %1207, ptr noundef %0, i32 noundef %.3.i, i32 noundef 1, i32 noundef 0)
+  %1209 = load i32, ptr @hf_rtp_midi_sj_chapter_x_cflag, align 4
+  %1210 = tail call ptr @proto_tree_add_item(ptr noundef %1204, i32 noundef %1209, ptr noundef %0, i32 noundef %.3.i, i32 noundef 1, i32 noundef 0)
+  %1211 = load i32, ptr @hf_rtp_midi_sj_chapter_x_fflag, align 4
+  %1212 = tail call ptr @proto_tree_add_item(ptr noundef %1204, i32 noundef %1211, ptr noundef %0, i32 noundef %.3.i, i32 noundef 1, i32 noundef 0)
+  %1213 = load i32, ptr @hf_rtp_midi_sj_chapter_x_dflag, align 4
+  %1214 = tail call ptr @proto_tree_add_item(ptr noundef %1204, i32 noundef %1213, ptr noundef %0, i32 noundef %.3.i, i32 noundef 1, i32 noundef 0)
+  %1215 = load i32, ptr @hf_rtp_midi_sj_chapter_x_lflag, align 4
+  %1216 = tail call ptr @proto_tree_add_item(ptr noundef %1204, i32 noundef %1215, ptr noundef %0, i32 noundef %.3.i, i32 noundef 1, i32 noundef 0)
+  %1217 = load i32, ptr @hf_rtp_midi_sj_chapter_x_sta, align 4
+  %1218 = tail call ptr @proto_tree_add_item(ptr noundef %1204, i32 noundef %1217, ptr noundef %0, i32 noundef %.3.i, i32 noundef 1, i32 noundef 0)
+  %1219 = add i32 %.3.i, 1
+  %1220 = zext i8 %1202 to i32
+  %1221 = and i32 %1220, 64
+  %.not.i88.i = icmp eq i32 %1221, 0
+  br i1 %.not.i88.i, label %1226, label %1222
 
-1226:                                             ; preds = %1204
-  %1227 = load i32, ptr @hf_rtp_midi_sj_chapter_x_tcount, align 4
-  %1228 = tail call ptr @proto_tree_add_item(ptr noundef %1208, i32 noundef %1227, ptr noundef %0, i32 noundef %1223, i32 noundef 1, i32 noundef 0) #2
-  %1229 = add i32 %.3.i, 2
-  br label %1230
+1222:                                             ; preds = %1200
+  %1223 = load i32, ptr @hf_rtp_midi_sj_chapter_x_tcount, align 4
+  %1224 = tail call ptr @proto_tree_add_item(ptr noundef %1204, i32 noundef %1223, ptr noundef %0, i32 noundef %1219, i32 noundef 1, i32 noundef 0)
+  %1225 = add i32 %.3.i, 2
+  br label %1226
 
-1230:                                             ; preds = %1226, %1204
-  %.0125.i.i = phi i32 [ %1229, %1226 ], [ %1223, %1204 ]
-  %.0122.i.i = phi i32 [ 2, %1226 ], [ 1, %1204 ]
-  %1231 = and i32 %1224, 32
-  %.not132.i.i = icmp eq i32 %1231, 0
-  br i1 %.not132.i.i, label %1237, label %1232
+1226:                                             ; preds = %1222, %1200
+  %.0128.i.i = phi i32 [ %1225, %1222 ], [ %1219, %1200 ]
+  %.0124.i.i = phi i32 [ 2, %1222 ], [ 1, %1200 ]
+  %1227 = and i32 %1220, 32
+  %.not136.i.i = icmp eq i32 %1227, 0
+  br i1 %.not136.i.i, label %1233, label %1228
 
-1232:                                             ; preds = %1230
-  %1233 = load i32, ptr @hf_rtp_midi_sj_chapter_x_count, align 4
-  %1234 = tail call ptr @proto_tree_add_item(ptr noundef %1208, i32 noundef %1233, ptr noundef %0, i32 noundef %.0125.i.i, i32 noundef 1, i32 noundef 0) #2
-  %1235 = add nuw nsw i32 %.0122.i.i, 1
-  %1236 = add i32 %.0125.i.i, 1
-  br label %1237
+1228:                                             ; preds = %1226
+  %1229 = load i32, ptr @hf_rtp_midi_sj_chapter_x_count, align 4
+  %1230 = tail call ptr @proto_tree_add_item(ptr noundef %1204, i32 noundef %1229, ptr noundef %0, i32 noundef %.0128.i.i, i32 noundef 1, i32 noundef 0)
+  %1231 = add nuw nsw i32 %.0124.i.i, 1
+  %1232 = add i32 %.0128.i.i, 1
+  br label %1233
 
-1237:                                             ; preds = %1232, %1230
-  %.1126.i.i = phi i32 [ %1236, %1232 ], [ %.0125.i.i, %1230 ]
-  %.1123.i.i = phi i32 [ %1235, %1232 ], [ %.0122.i.i, %1230 ]
-  %1238 = and i32 %1224, 16
-  %.not133.i.i = icmp eq i32 %1238, 0
-  br i1 %.not133.i.i, label %1258, label %.preheader.i.i
+1233:                                             ; preds = %1228, %1226
+  %.1129.i.i = phi i32 [ %1232, %1228 ], [ %.0128.i.i, %1226 ]
+  %.1125.i.i = phi i32 [ %1231, %1228 ], [ %.0124.i.i, %1226 ]
+  %1234 = and i32 %1220, 16
+  %.not137.i.i = icmp eq i32 %1234, 0
+  br i1 %.not137.i.i, label %1254, label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %1237
-  %.not134.i.i = icmp ult i32 %.1123.i.i, %1205
-  br i1 %.not134.i.i, label %decodemidi.exit.thread222, label %.preheader.split.i.i
+.preheader.i.i:                                   ; preds = %1233
+  %.not138.i.i = icmp ult i32 %.1125.i.i, %1201
+  br i1 %.not138.i.i, label %.thread242, label %.preheader.split.i.i
 
-.preheader.split.i.i:                             ; preds = %.preheader.i.i, %1241
-  %.03.i.i = phi i32 [ %1247, %1241 ], [ 0, %.preheader.i.i ]
-  %.01172.i.i = phi i32 [ %1246, %1241 ], [ 0, %.preheader.i.i ]
-  %1239 = add i32 %.03.i.i, %.1126.i.i
-  %1240 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %1239, i32 noundef 1) #2
-  %.not135.i.i = icmp eq i32 %1240, 0
-  br i1 %.not135.i.i, label %decodemidi.exit.thread222, label %1241
+.preheader.split.i.i:                             ; preds = %.preheader.i.i, %1237
+  %.01186.i.i = phi i32 [ %1243, %1237 ], [ 0, %.preheader.i.i ]
+  %.01195.i.i = phi i32 [ %1242, %1237 ], [ 0, %.preheader.i.i ]
+  %1235 = add i32 %.01186.i.i, %.1129.i.i
+  %1236 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef %1235, i32 noundef 1)
+  br i1 %1236, label %1237, label %.thread242
 
-1241:                                             ; preds = %.preheader.split.i.i
-  %1242 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1239) #2
-  %1243 = shl i32 %.01172.i.i, 7
-  %1244 = and i8 %1242, 127
-  %1245 = zext nneg i8 %1244 to i32
-  %1246 = or disjoint i32 %1243, %1245
-  %1247 = add nuw nsw i32 %.03.i.i, 1
-  %1248 = icmp slt i8 %1242, 0
-  %1249 = icmp samesign ult i32 %.03.i.i, 3
-  %or.cond.i.i = select i1 %1248, i1 %1249, i1 false
-  br i1 %or.cond.i.i, label %.preheader.split.i.i, label %1250, !llvm.loop !12
+1237:                                             ; preds = %.preheader.split.i.i
+  %1238 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1235)
+  %1239 = shl i32 %.01195.i.i, 7
+  %1240 = and i8 %1238, 127
+  %1241 = zext nneg i8 %1240 to i32
+  %1242 = or disjoint i32 %1239, %1241
+  %1243 = add nuw nsw i32 %.01186.i.i, 1
+  %1244 = icmp slt i8 %1238, 0
+  %1245 = icmp samesign ult i32 %.01186.i.i, 3
+  %or.cond.i.i = select i1 %1244, i1 %1245, i1 false
+  br i1 %or.cond.i.i, label %.preheader.split.i.i, label %1246, !llvm.loop !10
 
-1250:                                             ; preds = %1241
-  %1251 = icmp samesign ult i32 %.03.i.i, 4
-  br i1 %1251, label %switch.lookup, label %1255
+1246:                                             ; preds = %1237
+  %1247 = icmp samesign ult i32 %.01186.i.i, 4
+  br i1 %1247, label %switch.lookup, label %1251
 
-switch.lookup:                                    ; preds = %1250
-  %1252 = zext nneg i32 %.03.i.i to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.dissect_rtp_midi, i64 0, i64 %1252
+switch.lookup:                                    ; preds = %1246
+  %1248 = zext nneg i32 %.01186.i.i to i64
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.dissect_rtp_midi, i64 0, i64 %1248
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %switch.offset = add nuw nsw i32 %.03.i.i, 1
-  %1253 = load i32, ptr %switch.load, align 4
-  %1254 = tail call ptr @proto_tree_add_uint(ptr noundef %1208, i32 noundef %1253, ptr noundef %0, i32 noundef %.1126.i.i, i32 noundef %switch.offset, i32 noundef %1246) #2
-  br label %1255
+  %switch.offset = add nuw nsw i32 %.01186.i.i, 1
+  %1249 = load i32, ptr %switch.load, align 4
+  %1250 = tail call ptr @proto_tree_add_uint(ptr noundef %1204, i32 noundef %1249, ptr noundef %0, i32 noundef %.1129.i.i, i32 noundef %switch.offset, i32 noundef %1242)
+  br label %1251
 
-1255:                                             ; preds = %1250, %switch.lookup
-  %1256 = add i32 %1247, %.1123.i.i
-  %1257 = add i32 %1247, %.1126.i.i
-  br label %1258
+1251:                                             ; preds = %1246, %switch.lookup
+  %1252 = add i32 %1243, %.1125.i.i
+  %1253 = add i32 %1243, %.1129.i.i
+  br label %1254
 
-1258:                                             ; preds = %1255, %1237
-  %.2127.i.i = phi i32 [ %1257, %1255 ], [ %.1126.i.i, %1237 ]
-  %.2.i89.i = phi i32 [ %1256, %1255 ], [ %.1123.i.i, %1237 ]
-  %1259 = and i32 %1224, 8
-  %.not136.i.i = icmp eq i32 %1259, 0
-  br i1 %.not136.i.i, label %._crit_edge.thread.i.i, label %1260
+1254:                                             ; preds = %1251, %1233
+  %.2130.i.i = phi i32 [ %1253, %1251 ], [ %.1129.i.i, %1233 ]
+  %.2.i89.i = phi i32 [ %1252, %1251 ], [ %.1125.i.i, %1233 ]
+  %1255 = and i32 %1220, 8
+  %.not139.i.i = icmp eq i32 %1255, 0
+  br i1 %.not139.i.i, label %._crit_edge.thread.i.i, label %1256
 
-1260:                                             ; preds = %1258
-  %1261 = sub i32 %1205, %.2.i89.i
-  %1262 = load i32, ptr @ett_rtp_midi_sj_chapter_x_data, align 4
-  %1263 = tail call ptr @proto_tree_add_subtree(ptr noundef %1208, ptr noundef %0, i32 noundef %.2127.i.i, i32 noundef %1261, i32 noundef %1262, ptr noundef null, ptr noundef nonnull @.str.1632) #2
-  %1264 = icmp ult i32 %.2.i89.i, %1205
-  br i1 %1264, label %.lr.ph.i.outer.i, label %._crit_edge.thread.i.i
+1256:                                             ; preds = %1254
+  %1257 = sub i32 %1201, %.2.i89.i
+  %1258 = load i32, ptr @ett_rtp_midi_sj_chapter_x_data, align 4
+  %1259 = tail call ptr @proto_tree_add_subtree(ptr noundef %1204, ptr noundef %0, i32 noundef %.2130.i.i, i32 noundef %1257, i32 noundef %1258, ptr noundef null, ptr noundef nonnull @.str.1658)
+  %1260 = icmp ult i32 %.2.i89.i, %1201
+  br i1 %1260, label %.lr.ph.i.outer.i, label %._crit_edge.thread.i.i
 
-.lr.ph.i.outer.i:                                 ; preds = %1260, %.thread.i137
-  %.45.i.ph.i = phi i32 [ %1272, %.thread.i137 ], [ %.2.i89.i, %1260 ]
-  %.41294.i.ph.i = phi i32 [ %1265, %.thread.i137 ], [ %.2127.i.i, %1260 ]
+.lr.ph.i.outer.i:                                 ; preds = %1256, %.thread.i150
+  %.58.i.ph.i = phi i32 [ %1268, %.thread.i150 ], [ %.2.i89.i, %1256 ]
+  %.51337.i.ph.i = phi i32 [ %1261, %.thread.i150 ], [ %.2130.i.i, %1256 ]
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %1267, %.lr.ph.i.outer.i
-  %.01206.i.i = phi i32 [ %1268, %1267 ], [ 0, %.lr.ph.i.outer.i ]
-  %.45.i.i = phi i32 [ %1269, %1267 ], [ %.45.i.ph.i, %.lr.ph.i.outer.i ]
-  %1265 = add i32 %.01206.i.i, %.41294.i.ph.i
-  %1266 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1265) #2
-  %.not138.i.i = icmp sgt i8 %1266, -1
-  br i1 %.not138.i.i, label %1267, label %.thread.i137
+.lr.ph.i.i:                                       ; preds = %1263, %.lr.ph.i.outer.i
+  %.01229.i.i = phi i32 [ %1264, %1263 ], [ 0, %.lr.ph.i.outer.i ]
+  %.58.i.i = phi i32 [ %1265, %1263 ], [ %.58.i.ph.i, %.lr.ph.i.outer.i ]
+  %1261 = add i32 %.01229.i.i, %.51337.i.ph.i
+  %1262 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1261)
+  %.not141.i.i = icmp sgt i8 %1262, -1
+  br i1 %.not141.i.i, label %1263, label %.thread.i150
 
-1267:                                             ; preds = %.lr.ph.i.i
-  %1268 = add i32 %.01206.i.i, 1
-  %1269 = add i32 %.45.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %1269, %1205
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !13
+1263:                                             ; preds = %.lr.ph.i.i
+  %1264 = add i32 %.01229.i.i, 1
+  %1265 = add i32 %.58.i.i, 1
+  %exitcond.not.i.i = icmp eq i32 %1265, %1201
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !11
 
-.thread.i137:                                     ; preds = %.lr.ph.i.i
-  %1270 = load i32, ptr @hf_rtp_midi_sj_chapter_x_data, align 4
-  %1271 = tail call ptr @proto_tree_add_item(ptr noundef %1263, i32 noundef %1270, ptr noundef %0, i32 noundef %.41294.i.ph.i, i32 noundef %.01206.i.i, i32 noundef 0) #2
-  %1272 = add i32 %.45.i.i, 1
-  %exitcond.not.i3.i = icmp eq i32 %1272, %1205
-  br i1 %exitcond.not.i3.i, label %decode_sj_chapter_x.exit.i, label %.lr.ph.i.outer.i, !llvm.loop !13
+.thread.i150:                                     ; preds = %.lr.ph.i.i
+  %1266 = load i32, ptr @hf_rtp_midi_sj_chapter_x_data, align 4
+  %1267 = tail call ptr @proto_tree_add_item(ptr noundef %1259, i32 noundef %1266, ptr noundef %0, i32 noundef %.51337.i.ph.i, i32 noundef %.01229.i.i, i32 noundef 0)
+  %1268 = add i32 %.58.i.i, 1
+  %exitcond.not.i3.i = icmp eq i32 %1268, %1201
+  br i1 %exitcond.not.i3.i, label %decode_sj_chapter_x.exit.i, label %.lr.ph.i.outer.i, !llvm.loop !11
 
-._crit_edge.i.i:                                  ; preds = %1267
-  %.not137.i.i = icmp eq i32 %1268, 0
-  br i1 %.not137.i.i, label %decode_sj_chapter_x.exit.i, label %1273
+._crit_edge.i.i:                                  ; preds = %1263
+  %.not140.i.i = icmp eq i32 %1264, 0
+  br i1 %.not140.i.i, label %decode_sj_chapter_x.exit.i, label %1269
 
-1273:                                             ; preds = %._crit_edge.i.i
+1269:                                             ; preds = %._crit_edge.i.i
+  %1270 = load i32, ptr @hf_rtp_midi_sj_chapter_x_invalid_data, align 4
+  %1271 = tail call ptr @proto_tree_add_item(ptr noundef %1259, i32 noundef %1270, ptr noundef %0, i32 noundef %.51337.i.ph.i, i32 noundef %1264, i32 noundef 0)
+  br label %decode_sj_chapter_x.exit.i
+
+._crit_edge.thread.i.i:                           ; preds = %1256, %1254
+  %1272 = icmp ult i32 %.2.i89.i, %1201
+  br i1 %1272, label %1273, label %decode_sj_chapter_x.exit.i
+
+1273:                                             ; preds = %._crit_edge.thread.i.i
   %1274 = load i32, ptr @hf_rtp_midi_sj_chapter_x_invalid_data, align 4
-  %1275 = tail call ptr @proto_tree_add_item(ptr noundef %1263, i32 noundef %1274, ptr noundef %0, i32 noundef %.41294.i.ph.i, i32 noundef %1268, i32 noundef 0) #2
+  %1275 = sub nuw i32 %1201, %.2.i89.i
+  %1276 = tail call ptr @proto_tree_add_item(ptr noundef %1204, i32 noundef %1274, ptr noundef %0, i32 noundef %.2130.i.i, i32 noundef %1275, i32 noundef 0)
   br label %decode_sj_chapter_x.exit.i
 
-._crit_edge.thread.i.i:                           ; preds = %1260, %1258
-  %1276 = icmp ult i32 %.2.i89.i, %1205
-  br i1 %1276, label %1277, label %decode_sj_chapter_x.exit.i
+decode_sj_chapter_x.exit.i:                       ; preds = %.thread.i150, %1273, %._crit_edge.thread.i.i, %1269, %._crit_edge.i.i
+  %.1127.i.i = phi i32 [ %1201, %1273 ], [ %.2.i89.i, %._crit_edge.thread.i.i ], [ %1201, %1269 ], [ %1201, %._crit_edge.i.i ], [ %1201, %.thread.i150 ]
+  %1277 = icmp slt i32 %.1127.i.i, 0
+  br i1 %1277, label %decode_system_journal.exit, label %1278
 
-1277:                                             ; preds = %._crit_edge.thread.i.i
-  %1278 = load i32, ptr @hf_rtp_midi_sj_chapter_x_invalid_data, align 4
-  %1279 = sub nuw i32 %1205, %.2.i89.i
-  %1280 = tail call ptr @proto_tree_add_item(ptr noundef %1208, i32 noundef %1278, ptr noundef %0, i32 noundef %.2127.i.i, i32 noundef %1279, i32 noundef 0) #2
-  br label %decode_sj_chapter_x.exit.i
+1278:                                             ; preds = %decode_sj_chapter_x.exit.i
+  %1279 = add i32 %.1127.i.i, %.3.i
+  br label %1280
 
-decode_sj_chapter_x.exit.i:                       ; preds = %.thread.i137, %1277, %._crit_edge.thread.i.i, %1273, %._crit_edge.i.i
-  %.0124.i.i = phi i32 [ %1205, %1277 ], [ %.2.i89.i, %._crit_edge.thread.i.i ], [ %1205, %1273 ], [ %1205, %._crit_edge.i.i ], [ %1205, %.thread.i137 ]
-  %1281 = icmp slt i32 %.0124.i.i, 0
-  br i1 %1281, label %decode_system_journal.exit, label %1282
-
-1282:                                             ; preds = %decode_sj_chapter_x.exit.i
-  %1283 = add i32 %.0124.i.i, %.3.i
-  br label %1284
-
-1284:                                             ; preds = %1282, %decode_sj_chapter_f.exit.i
-  %.4.i = phi i32 [ %1283, %1282 ], [ %.3.i, %decode_sj_chapter_f.exit.i ]
-  %1285 = sub i32 %.4.i, %890
-  %.not82.i = icmp eq i32 %1285, %896
-  br i1 %.not82.i, label %decode_system_journal.exit.thread, label %decodemidi.exit.thread222
+1280:                                             ; preds = %1278, %decode_sj_chapter_f.exit.i
+  %.4.i = phi i32 [ %1279, %1278 ], [ %.3.i, %decode_sj_chapter_f.exit.i ]
+  %1281 = sub i32 %.4.i, %886
+  %.not82.i = icmp eq i32 %1281, %892
+  br i1 %.not82.i, label %decode_system_journal.exit.thread, label %.thread242
 
 decode_system_journal.exit:                       ; preds = %decode_sj_chapter_x.exit.i
-  %1286 = icmp eq i32 %.0124.i.i, -1
-  br i1 %1286, label %decodemidi.exit.thread222, label %decode_system_journal.exit.thread
+  %1282 = icmp eq i32 %.1127.i.i, -1
+  br i1 %1282, label %.thread242, label %decode_system_journal.exit.thread
 
-decode_system_journal.exit.thread:                ; preds = %1284, %decode_system_journal.exit
-  %.0.i136338 = phi i32 [ %.0124.i.i, %decode_system_journal.exit ], [ %896, %1284 ]
-  %1287 = add i32 %.0.i136338, %890
-  br label %1288
+decode_system_journal.exit.thread:                ; preds = %1280, %decode_system_journal.exit
+  %.0.i149351 = phi i32 [ %.1127.i.i, %decode_system_journal.exit ], [ %892, %1280 ]
+  %1283 = add i32 %.0.i149351, %886
+  br label %1284
 
-1288:                                             ; preds = %decode_system_journal.exit.thread, %871
-  %.5 = phi i32 [ %1287, %decode_system_journal.exit.thread ], [ %890, %871 ]
-  %1289 = and i32 %883, 32
-  %.not128 = icmp eq i32 %1289, 0
-  br i1 %.not128, label %.loopexit, label %1290
+1284:                                             ; preds = %decode_system_journal.exit.thread, %867
+  %.6 = phi i32 [ %1283, %decode_system_journal.exit.thread ], [ %886, %867 ]
+  %1285 = and i32 %879, 32
+  %.not144 = icmp eq i32 %1285, 0
+  br i1 %.not144, label %.thread238, label %1286
 
-1290:                                             ; preds = %1288
-  %1291 = load i32, ptr @ett_rtp_midi_channeljournals, align 4
-  %1292 = tail call ptr @proto_tree_add_subtree(ptr noundef %873, ptr noundef %0, i32 noundef %.5, i32 noundef -1, i32 noundef %1291, ptr noundef null, ptr noundef nonnull @.str.1601) #2
-  %narrow = add nuw nsw i8 %884, 1
-  %1293 = zext nneg i8 %narrow to i32
-  br label %1294
+1286:                                             ; preds = %1284
+  %1287 = load i32, ptr @ett_rtp_midi_channeljournals, align 4
+  %1288 = tail call ptr @proto_tree_add_subtree(ptr noundef %869, ptr noundef %0, i32 noundef %.6, i32 noundef -1, i32 noundef %1287, ptr noundef null, ptr noundef nonnull @.str.1627)
+  %narrow = add nuw nsw i8 %880, 1
+  %1289 = zext nneg i8 %narrow to i32
+  br label %1290
 
-1294:                                             ; preds = %1290, %decode_channel_journal.exit.thread
-  %.6272 = phi i32 [ %.5, %1290 ], [ %1704, %decode_channel_journal.exit.thread ]
-  %.0114271 = phi i32 [ 0, %1290 ], [ %1705, %decode_channel_journal.exit.thread ]
-  %1295 = tail call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %.6272) #2
-  %1296 = lshr i32 %1295, 8
-  %1297 = and i32 %1296, 1023
-  %1298 = load i32, ptr @ett_rtp_midi_channeljournal, align 4
-  %1299 = lshr i32 %1295, 19
-  %1300 = and i32 %1299, 15
-  %1301 = tail call ptr @val_to_str(i32 noundef %1300, ptr noundef nonnull @rtp_midi_channels, ptr noundef nonnull @rtp_midi_unknown_value_hex) #2
-  %1302 = tail call ptr @proto_tree_add_subtree(ptr noundef %1292, ptr noundef %0, i32 noundef %.6272, i32 noundef %1297, i32 noundef %1298, ptr noundef null, ptr noundef %1301) #2
-  %1303 = load i32, ptr @hf_rtp_midi_chanjour_sflag, align 4
-  %1304 = tail call ptr @proto_tree_add_item(ptr noundef %1302, i32 noundef %1303, ptr noundef %0, i32 noundef %.6272, i32 noundef 3, i32 noundef 0) #2
-  %1305 = load i32, ptr @hf_rtp_midi_chanjour_chan, align 4
-  %1306 = tail call ptr @proto_tree_add_item(ptr noundef %1302, i32 noundef %1305, ptr noundef %0, i32 noundef %.6272, i32 noundef 3, i32 noundef 0) #2
-  %1307 = load i32, ptr @hf_rtp_midi_chanjour_hflag, align 4
-  %1308 = tail call ptr @proto_tree_add_item(ptr noundef %1302, i32 noundef %1307, ptr noundef %0, i32 noundef %.6272, i32 noundef 3, i32 noundef 0) #2
-  %1309 = load i32, ptr @hf_rtp_midi_chanjour_len, align 4
-  %1310 = tail call ptr @proto_tree_add_item(ptr noundef %1302, i32 noundef %1309, ptr noundef %0, i32 noundef %.6272, i32 noundef 3, i32 noundef 0) #2
-  %1311 = load i32, ptr @hf_rtp_midi_chanjour_toc_p, align 4
-  %1312 = tail call ptr @proto_tree_add_item(ptr noundef %1302, i32 noundef %1311, ptr noundef %0, i32 noundef %.6272, i32 noundef 3, i32 noundef 0) #2
-  %1313 = load i32, ptr @hf_rtp_midi_chanjour_toc_c, align 4
-  %1314 = tail call ptr @proto_tree_add_item(ptr noundef %1302, i32 noundef %1313, ptr noundef %0, i32 noundef %.6272, i32 noundef 3, i32 noundef 0) #2
-  %1315 = load i32, ptr @hf_rtp_midi_chanjour_toc_m, align 4
-  %1316 = tail call ptr @proto_tree_add_item(ptr noundef %1302, i32 noundef %1315, ptr noundef %0, i32 noundef %.6272, i32 noundef 3, i32 noundef 0) #2
-  %1317 = load i32, ptr @hf_rtp_midi_chanjour_toc_w, align 4
-  %1318 = tail call ptr @proto_tree_add_item(ptr noundef %1302, i32 noundef %1317, ptr noundef %0, i32 noundef %.6272, i32 noundef 3, i32 noundef 0) #2
-  %1319 = load i32, ptr @hf_rtp_midi_chanjour_toc_n, align 4
-  %1320 = tail call ptr @proto_tree_add_item(ptr noundef %1302, i32 noundef %1319, ptr noundef %0, i32 noundef %.6272, i32 noundef 3, i32 noundef 0) #2
-  %1321 = load i32, ptr @hf_rtp_midi_chanjour_toc_e, align 4
-  %1322 = tail call ptr @proto_tree_add_item(ptr noundef %1302, i32 noundef %1321, ptr noundef %0, i32 noundef %.6272, i32 noundef 3, i32 noundef 0) #2
-  %1323 = load i32, ptr @hf_rtp_midi_chanjour_toc_t, align 4
-  %1324 = tail call ptr @proto_tree_add_item(ptr noundef %1302, i32 noundef %1323, ptr noundef %0, i32 noundef %.6272, i32 noundef 3, i32 noundef 0) #2
-  %1325 = load i32, ptr @hf_rtp_midi_chanjour_toc_a, align 4
-  %1326 = tail call ptr @proto_tree_add_item(ptr noundef %1302, i32 noundef %1325, ptr noundef %0, i32 noundef %.6272, i32 noundef 3, i32 noundef 0) #2
-  %1327 = add i32 %.6272, 3
-  %1328 = add nsw i32 %1297, -3
-  %1329 = load i32, ptr @ett_rtp_midi_channelchapters, align 4
-  %1330 = tail call ptr @proto_tree_add_subtree(ptr noundef %1302, ptr noundef %0, i32 noundef %1327, i32 noundef %1328, i32 noundef %1329, ptr noundef null, ptr noundef nonnull @.str.1633) #2
-  %1331 = and i32 %1295, 128
-  %.not.i138 = icmp eq i32 %1331, 0
-  br i1 %.not.i138, label %1350, label %1332
+1290:                                             ; preds = %1286, %decode_channel_journal.exit.thread
+  %.7287 = phi i32 [ %.6, %1286 ], [ %1700, %decode_channel_journal.exit.thread ]
+  %.0127286 = phi i32 [ 0, %1286 ], [ %1701, %decode_channel_journal.exit.thread ]
+  %1291 = tail call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %.7287)
+  %1292 = lshr i32 %1291, 8
+  %1293 = and i32 %1292, 1023
+  %1294 = load i32, ptr @ett_rtp_midi_channeljournal, align 4
+  %1295 = lshr i32 %1291, 19
+  %1296 = and i32 %1295, 15
+  %1297 = tail call ptr @val_to_str(i32 noundef %1296, ptr noundef nonnull @rtp_midi_channels, ptr noundef nonnull @rtp_midi_unknown_value_hex)
+  %1298 = tail call ptr @proto_tree_add_subtree(ptr noundef %1288, ptr noundef %0, i32 noundef %.7287, i32 noundef %1293, i32 noundef %1294, ptr noundef null, ptr noundef %1297)
+  %1299 = load i32, ptr @hf_rtp_midi_chanjour_sflag, align 4
+  %1300 = tail call ptr @proto_tree_add_item(ptr noundef %1298, i32 noundef %1299, ptr noundef %0, i32 noundef %.7287, i32 noundef 3, i32 noundef 0)
+  %1301 = load i32, ptr @hf_rtp_midi_chanjour_chan, align 4
+  %1302 = tail call ptr @proto_tree_add_item(ptr noundef %1298, i32 noundef %1301, ptr noundef %0, i32 noundef %.7287, i32 noundef 3, i32 noundef 0)
+  %1303 = load i32, ptr @hf_rtp_midi_chanjour_hflag, align 4
+  %1304 = tail call ptr @proto_tree_add_item(ptr noundef %1298, i32 noundef %1303, ptr noundef %0, i32 noundef %.7287, i32 noundef 3, i32 noundef 0)
+  %1305 = load i32, ptr @hf_rtp_midi_chanjour_len, align 4
+  %1306 = tail call ptr @proto_tree_add_item(ptr noundef %1298, i32 noundef %1305, ptr noundef %0, i32 noundef %.7287, i32 noundef 3, i32 noundef 0)
+  %1307 = load i32, ptr @hf_rtp_midi_chanjour_toc_p, align 4
+  %1308 = tail call ptr @proto_tree_add_item(ptr noundef %1298, i32 noundef %1307, ptr noundef %0, i32 noundef %.7287, i32 noundef 3, i32 noundef 0)
+  %1309 = load i32, ptr @hf_rtp_midi_chanjour_toc_c, align 4
+  %1310 = tail call ptr @proto_tree_add_item(ptr noundef %1298, i32 noundef %1309, ptr noundef %0, i32 noundef %.7287, i32 noundef 3, i32 noundef 0)
+  %1311 = load i32, ptr @hf_rtp_midi_chanjour_toc_m, align 4
+  %1312 = tail call ptr @proto_tree_add_item(ptr noundef %1298, i32 noundef %1311, ptr noundef %0, i32 noundef %.7287, i32 noundef 3, i32 noundef 0)
+  %1313 = load i32, ptr @hf_rtp_midi_chanjour_toc_w, align 4
+  %1314 = tail call ptr @proto_tree_add_item(ptr noundef %1298, i32 noundef %1313, ptr noundef %0, i32 noundef %.7287, i32 noundef 3, i32 noundef 0)
+  %1315 = load i32, ptr @hf_rtp_midi_chanjour_toc_n, align 4
+  %1316 = tail call ptr @proto_tree_add_item(ptr noundef %1298, i32 noundef %1315, ptr noundef %0, i32 noundef %.7287, i32 noundef 3, i32 noundef 0)
+  %1317 = load i32, ptr @hf_rtp_midi_chanjour_toc_e, align 4
+  %1318 = tail call ptr @proto_tree_add_item(ptr noundef %1298, i32 noundef %1317, ptr noundef %0, i32 noundef %.7287, i32 noundef 3, i32 noundef 0)
+  %1319 = load i32, ptr @hf_rtp_midi_chanjour_toc_t, align 4
+  %1320 = tail call ptr @proto_tree_add_item(ptr noundef %1298, i32 noundef %1319, ptr noundef %0, i32 noundef %.7287, i32 noundef 3, i32 noundef 0)
+  %1321 = load i32, ptr @hf_rtp_midi_chanjour_toc_a, align 4
+  %1322 = tail call ptr @proto_tree_add_item(ptr noundef %1298, i32 noundef %1321, ptr noundef %0, i32 noundef %.7287, i32 noundef 3, i32 noundef 0)
+  %1323 = add i32 %.7287, 3
+  %1324 = add nsw i32 %1293, -3
+  %1325 = load i32, ptr @ett_rtp_midi_channelchapters, align 4
+  %1326 = tail call ptr @proto_tree_add_subtree(ptr noundef %1298, ptr noundef %0, i32 noundef %1323, i32 noundef %1324, i32 noundef %1325, ptr noundef null, ptr noundef nonnull @.str.1659)
+  %1327 = and i32 %1291, 128
+  %.not.i151 = icmp eq i32 %1327, 0
+  br i1 %.not.i151, label %1346, label %1328
 
-1332:                                             ; preds = %1294
-  %1333 = load i32, ptr @ett_rtp_midi_cj_chapter_p, align 4
-  %1334 = tail call ptr @proto_tree_add_subtree(ptr noundef %1330, ptr noundef %0, i32 noundef %1327, i32 noundef 3, i32 noundef %1333, ptr noundef null, ptr noundef nonnull @.str.634) #2
-  %1335 = load i32, ptr @hf_rtp_midi_cj_chapter_p_sflag, align 4
-  %1336 = tail call ptr @proto_tree_add_item(ptr noundef %1334, i32 noundef %1335, ptr noundef %0, i32 noundef %1327, i32 noundef 1, i32 noundef 0) #2
-  %1337 = load i32, ptr @hf_rtp_midi_cj_chapter_p_program, align 4
-  %1338 = tail call ptr @proto_tree_add_item(ptr noundef %1334, i32 noundef %1337, ptr noundef %0, i32 noundef %1327, i32 noundef 1, i32 noundef 0) #2
-  %1339 = load i32, ptr @hf_rtp_midi_cj_chapter_p_bflag, align 4
-  %1340 = add i32 %.6272, 4
-  %1341 = tail call ptr @proto_tree_add_item(ptr noundef %1334, i32 noundef %1339, ptr noundef %0, i32 noundef %1340, i32 noundef 1, i32 noundef 0) #2
-  %1342 = load i32, ptr @hf_rtp_midi_cj_chapter_p_bank_msb, align 4
-  %1343 = tail call ptr @proto_tree_add_item(ptr noundef %1334, i32 noundef %1342, ptr noundef %0, i32 noundef %1340, i32 noundef 1, i32 noundef 0) #2
-  %1344 = load i32, ptr @hf_rtp_midi_cj_chapter_p_xflag, align 4
-  %1345 = add i32 %.6272, 5
-  %1346 = tail call ptr @proto_tree_add_item(ptr noundef %1334, i32 noundef %1344, ptr noundef %0, i32 noundef %1345, i32 noundef 1, i32 noundef 0) #2
-  %1347 = load i32, ptr @hf_rtp_midi_cj_chapter_p_bank_lsb, align 4
-  %1348 = tail call ptr @proto_tree_add_item(ptr noundef %1334, i32 noundef %1347, ptr noundef %0, i32 noundef %1345, i32 noundef 1, i32 noundef 0) #2
-  %1349 = add i32 %.6272, 6
-  br label %1350
+1328:                                             ; preds = %1290
+  %1329 = load i32, ptr @ett_rtp_midi_cj_chapter_p, align 4
+  %1330 = tail call ptr @proto_tree_add_subtree(ptr noundef %1326, ptr noundef %0, i32 noundef %1323, i32 noundef 3, i32 noundef %1329, ptr noundef null, ptr noundef nonnull @.str.635)
+  %1331 = load i32, ptr @hf_rtp_midi_cj_chapter_p_sflag, align 4
+  %1332 = tail call ptr @proto_tree_add_item(ptr noundef %1330, i32 noundef %1331, ptr noundef %0, i32 noundef %1323, i32 noundef 1, i32 noundef 0)
+  %1333 = load i32, ptr @hf_rtp_midi_cj_chapter_p_program, align 4
+  %1334 = tail call ptr @proto_tree_add_item(ptr noundef %1330, i32 noundef %1333, ptr noundef %0, i32 noundef %1323, i32 noundef 1, i32 noundef 0)
+  %1335 = load i32, ptr @hf_rtp_midi_cj_chapter_p_bflag, align 4
+  %1336 = add i32 %.7287, 4
+  %1337 = tail call ptr @proto_tree_add_item(ptr noundef %1330, i32 noundef %1335, ptr noundef %0, i32 noundef %1336, i32 noundef 1, i32 noundef 0)
+  %1338 = load i32, ptr @hf_rtp_midi_cj_chapter_p_bank_msb, align 4
+  %1339 = tail call ptr @proto_tree_add_item(ptr noundef %1330, i32 noundef %1338, ptr noundef %0, i32 noundef %1336, i32 noundef 1, i32 noundef 0)
+  %1340 = load i32, ptr @hf_rtp_midi_cj_chapter_p_xflag, align 4
+  %1341 = add i32 %.7287, 5
+  %1342 = tail call ptr @proto_tree_add_item(ptr noundef %1330, i32 noundef %1340, ptr noundef %0, i32 noundef %1341, i32 noundef 1, i32 noundef 0)
+  %1343 = load i32, ptr @hf_rtp_midi_cj_chapter_p_bank_lsb, align 4
+  %1344 = tail call ptr @proto_tree_add_item(ptr noundef %1330, i32 noundef %1343, ptr noundef %0, i32 noundef %1341, i32 noundef 1, i32 noundef 0)
+  %1345 = add i32 %.7287, 6
+  br label %1346
 
-1350:                                             ; preds = %1332, %1294
-  %.0157.i = phi i32 [ %1349, %1332 ], [ %1327, %1294 ]
-  %.0.i139 = phi i32 [ 6, %1332 ], [ 3, %1294 ]
-  %1351 = and i32 %1295, 64
-  %.not174.i = icmp eq i32 %1351, 0
-  br i1 %.not174.i, label %1390, label %1352
+1346:                                             ; preds = %1328, %1290
+  %.0157.i = phi i32 [ %1345, %1328 ], [ %1323, %1290 ]
+  %.0.i152 = phi i32 [ 6, %1328 ], [ 3, %1290 ]
+  %1347 = and i32 %1291, 64
+  %.not174.i = icmp eq i32 %1347, 0
+  br i1 %.not174.i, label %1386, label %1348
 
-1352:                                             ; preds = %1350
-  %1353 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0157.i) #2
-  %1354 = and i8 %1353, 127
-  %narrow.i.i = add nuw i8 %1354, 1
-  %1355 = zext i8 %narrow.i.i to i32
-  %1356 = shl nuw nsw i32 %1355, 1
-  %1357 = or disjoint i32 %1356, 1
-  %1358 = load i32, ptr @ett_rtp_midi_cj_chapter_c, align 4
-  %1359 = tail call ptr @proto_tree_add_subtree(ptr noundef %1330, ptr noundef %0, i32 noundef %.0157.i, i32 noundef %1357, i32 noundef %1358, ptr noundef null, ptr noundef nonnull @.str.633) #2
-  %1360 = load i32, ptr @hf_rtp_midi_cj_chapter_c_sflag, align 4
-  %1361 = tail call ptr @proto_tree_add_item(ptr noundef %1359, i32 noundef %1360, ptr noundef %0, i32 noundef %.0157.i, i32 noundef 1, i32 noundef 0) #2
-  %1362 = load i32, ptr @hf_rtp_midi_cj_chapter_c_length, align 4
-  %1363 = tail call ptr @proto_tree_add_item(ptr noundef %1359, i32 noundef %1362, ptr noundef %0, i32 noundef %.0157.i, i32 noundef 1, i32 noundef 0) #2
-  %1364 = add i32 %.0157.i, 1
-  %1365 = load i32, ptr @ett_rtp_midi_cj_chapter_c_loglist, align 4
-  %1366 = tail call ptr @proto_tree_add_subtree(ptr noundef %1359, ptr noundef %0, i32 noundef %1364, i32 noundef %1356, i32 noundef %1365, ptr noundef null, ptr noundef nonnull @.str.1635) #2
-  br label %1367
+1348:                                             ; preds = %1346
+  %1349 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0157.i)
+  %1350 = and i8 %1349, 127
+  %narrow.i.i = add nuw i8 %1350, 1
+  %1351 = zext i8 %narrow.i.i to i32
+  %1352 = shl nuw nsw i32 %1351, 1
+  %1353 = or disjoint i32 %1352, 1
+  %1354 = load i32, ptr @ett_rtp_midi_cj_chapter_c, align 4
+  %1355 = tail call ptr @proto_tree_add_subtree(ptr noundef %1326, ptr noundef %0, i32 noundef %.0157.i, i32 noundef %1353, i32 noundef %1354, ptr noundef null, ptr noundef nonnull @.str.634)
+  %1356 = load i32, ptr @hf_rtp_midi_cj_chapter_c_sflag, align 4
+  %1357 = tail call ptr @proto_tree_add_item(ptr noundef %1355, i32 noundef %1356, ptr noundef %0, i32 noundef %.0157.i, i32 noundef 1, i32 noundef 0)
+  %1358 = load i32, ptr @hf_rtp_midi_cj_chapter_c_length, align 4
+  %1359 = tail call ptr @proto_tree_add_item(ptr noundef %1355, i32 noundef %1358, ptr noundef %0, i32 noundef %.0157.i, i32 noundef 1, i32 noundef 0)
+  %1360 = add i32 %.0157.i, 1
+  %1361 = load i32, ptr @ett_rtp_midi_cj_chapter_c_loglist, align 4
+  %1362 = tail call ptr @proto_tree_add_subtree(ptr noundef %1355, ptr noundef %0, i32 noundef %1360, i32 noundef %1352, i32 noundef %1361, ptr noundef null, ptr noundef nonnull @.str.1661)
+  br label %1363
 
-1367:                                             ; preds = %1381, %1352
-  %.02.i.i = phi i32 [ 0, %1352 ], [ %1385, %1381 ]
-  %.0501.i.i = phi i32 [ %1364, %1352 ], [ %1384, %1381 ]
-  %1368 = load i32, ptr @ett_rtp_midi_cj_chapter_c_logitem, align 4
-  %1369 = tail call ptr @proto_tree_add_subtree(ptr noundef %1366, ptr noundef %0, i32 noundef %.0501.i.i, i32 noundef 2, i32 noundef %1368, ptr noundef null, ptr noundef nonnull @.str.1636) #2
-  %1370 = load i32, ptr @hf_rtp_midi_cj_chapter_c_sflag, align 4
-  %1371 = tail call ptr @proto_tree_add_item(ptr noundef %1369, i32 noundef %1370, ptr noundef %0, i32 noundef %.0501.i.i, i32 noundef 1, i32 noundef 0) #2
-  %1372 = load i32, ptr @hf_rtp_midi_cj_chapter_c_number, align 4
-  %1373 = tail call ptr @proto_tree_add_item(ptr noundef %1369, i32 noundef %1372, ptr noundef %0, i32 noundef %.0501.i.i, i32 noundef 1, i32 noundef 0) #2
-  %1374 = add i32 %.0501.i.i, 1
-  %1375 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1374) #2
-  %1376 = load i32, ptr @hf_rtp_midi_cj_chapter_c_aflag, align 4
-  %1377 = tail call ptr @proto_tree_add_item(ptr noundef %1369, i32 noundef %1376, ptr noundef %0, i32 noundef %1374, i32 noundef 1, i32 noundef 0) #2
-  %.not.i.i140 = icmp sgt i8 %1375, -1
-  br i1 %.not.i.i140, label %1381, label %1378
+1363:                                             ; preds = %1377, %1348
+  %.02.i.i = phi i32 [ 0, %1348 ], [ %1381, %1377 ]
+  %.0501.i.i = phi i32 [ %1360, %1348 ], [ %1380, %1377 ]
+  %1364 = load i32, ptr @ett_rtp_midi_cj_chapter_c_logitem, align 4
+  %1365 = tail call ptr @proto_tree_add_subtree(ptr noundef %1362, ptr noundef %0, i32 noundef %.0501.i.i, i32 noundef 2, i32 noundef %1364, ptr noundef null, ptr noundef nonnull @.str.1662)
+  %1366 = load i32, ptr @hf_rtp_midi_cj_chapter_c_sflag, align 4
+  %1367 = tail call ptr @proto_tree_add_item(ptr noundef %1365, i32 noundef %1366, ptr noundef %0, i32 noundef %.0501.i.i, i32 noundef 1, i32 noundef 0)
+  %1368 = load i32, ptr @hf_rtp_midi_cj_chapter_c_number, align 4
+  %1369 = tail call ptr @proto_tree_add_item(ptr noundef %1365, i32 noundef %1368, ptr noundef %0, i32 noundef %.0501.i.i, i32 noundef 1, i32 noundef 0)
+  %1370 = add i32 %.0501.i.i, 1
+  %1371 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1370)
+  %1372 = load i32, ptr @hf_rtp_midi_cj_chapter_c_aflag, align 4
+  %1373 = tail call ptr @proto_tree_add_item(ptr noundef %1365, i32 noundef %1372, ptr noundef %0, i32 noundef %1370, i32 noundef 1, i32 noundef 0)
+  %.not.i.i153 = icmp sgt i8 %1371, -1
+  br i1 %.not.i.i153, label %1377, label %1374
 
-1378:                                             ; preds = %1367
-  %1379 = load i32, ptr @hf_rtp_midi_cj_chapter_c_tflag, align 4
-  %1380 = tail call ptr @proto_tree_add_item(ptr noundef %1369, i32 noundef %1379, ptr noundef %0, i32 noundef %1374, i32 noundef 1, i32 noundef 0) #2
-  br label %1381
+1374:                                             ; preds = %1363
+  %1375 = load i32, ptr @hf_rtp_midi_cj_chapter_c_tflag, align 4
+  %1376 = tail call ptr @proto_tree_add_item(ptr noundef %1365, i32 noundef %1375, ptr noundef %0, i32 noundef %1370, i32 noundef 1, i32 noundef 0)
+  br label %1377
 
-1381:                                             ; preds = %1378, %1367
-  %hf_rtp_midi_cj_chapter_c_value.sink.i.i = phi ptr [ @hf_rtp_midi_cj_chapter_c_alt, %1378 ], [ @hf_rtp_midi_cj_chapter_c_value, %1367 ]
-  %1382 = load i32, ptr %hf_rtp_midi_cj_chapter_c_value.sink.i.i, align 4
-  %1383 = tail call ptr @proto_tree_add_item(ptr noundef %1369, i32 noundef %1382, ptr noundef %0, i32 noundef %1374, i32 noundef 1, i32 noundef 0) #2
-  %1384 = add i32 %.0501.i.i, 2
-  %1385 = add nuw nsw i32 %.02.i.i, 1
-  %exitcond.not.i.i141 = icmp eq i32 %1385, %1355
-  br i1 %exitcond.not.i.i141, label %decode_cj_chapter_c.exit.i, label %1367, !llvm.loop !14
+1377:                                             ; preds = %1374, %1363
+  %hf_rtp_midi_cj_chapter_c_value.sink.i.i = phi ptr [ @hf_rtp_midi_cj_chapter_c_alt, %1374 ], [ @hf_rtp_midi_cj_chapter_c_value, %1363 ]
+  %1378 = load i32, ptr %hf_rtp_midi_cj_chapter_c_value.sink.i.i, align 4
+  %1379 = tail call ptr @proto_tree_add_item(ptr noundef %1365, i32 noundef %1378, ptr noundef %0, i32 noundef %1370, i32 noundef 1, i32 noundef 0)
+  %1380 = add i32 %.0501.i.i, 2
+  %1381 = add nuw nsw i32 %.02.i.i, 1
+  %exitcond.not.i.i154 = icmp eq i32 %1381, %1351
+  br i1 %exitcond.not.i.i154, label %decode_cj_chapter_c.exit.i, label %1363, !llvm.loop !12
 
-decode_cj_chapter_c.exit.i:                       ; preds = %1381
-  %1386 = sub i32 %1384, %.0157.i
-  %1387 = icmp slt i32 %1386, 0
-  br i1 %1387, label %decode_channel_journal.exit, label %1388
+decode_cj_chapter_c.exit.i:                       ; preds = %1377
+  %1382 = sub i32 %1380, %.0157.i
+  %1383 = icmp slt i32 %1382, 0
+  br i1 %1383, label %decode_channel_journal.exit, label %1384
 
-1388:                                             ; preds = %decode_cj_chapter_c.exit.i
-  %1389 = add nuw i32 %1386, %.0.i139
-  br label %1390
+1384:                                             ; preds = %decode_cj_chapter_c.exit.i
+  %1385 = add nuw i32 %1382, %.0.i152
+  br label %1386
 
-1390:                                             ; preds = %1388, %1350
-  %.1158.i = phi i32 [ %1384, %1388 ], [ %.0157.i, %1350 ]
-  %.1.i142 = phi i32 [ %1389, %1388 ], [ %.0.i139, %1350 ]
-  %1391 = and i32 %1295, 32
-  %.not175.i = icmp eq i32 %1391, 0
-  br i1 %.not175.i, label %1520, label %1392
+1386:                                             ; preds = %1384, %1346
+  %.1158.i = phi i32 [ %1380, %1384 ], [ %.0157.i, %1346 ]
+  %.1.i155 = phi i32 [ %1385, %1384 ], [ %.0.i152, %1346 ]
+  %1387 = and i32 %1291, 32
+  %.not175.i = icmp eq i32 %1387, 0
+  br i1 %.not175.i, label %1516, label %1388
 
-1392:                                             ; preds = %1390
-  %1393 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.1158.i) #2
-  %1394 = zext i16 %1393 to i32
-  %1395 = and i32 %1394, 63
-  %1396 = add nsw i32 %1395, -2
-  %1397 = load i32, ptr @ett_rtp_midi_cj_chapter_m, align 4
-  %1398 = tail call ptr @proto_tree_add_subtree(ptr noundef %1330, ptr noundef %0, i32 noundef %.1158.i, i32 noundef %1396, i32 noundef %1397, ptr noundef null, ptr noundef nonnull @.str.1637) #2
-  %1399 = load i32, ptr @hf_rtp_midi_cj_chapter_m_sflag, align 4
-  %1400 = tail call ptr @proto_tree_add_item(ptr noundef %1398, i32 noundef %1399, ptr noundef %0, i32 noundef %.1158.i, i32 noundef 2, i32 noundef 0) #2
-  %1401 = load i32, ptr @hf_rtp_midi_cj_chapter_m_pflag, align 4
-  %1402 = tail call ptr @proto_tree_add_item(ptr noundef %1398, i32 noundef %1401, ptr noundef %0, i32 noundef %.1158.i, i32 noundef 2, i32 noundef 0) #2
-  %1403 = load i32, ptr @hf_rtp_midi_cj_chapter_m_eflag, align 4
-  %1404 = tail call ptr @proto_tree_add_item(ptr noundef %1398, i32 noundef %1403, ptr noundef %0, i32 noundef %.1158.i, i32 noundef 2, i32 noundef 0) #2
-  %1405 = load i32, ptr @hf_rtp_midi_cj_chapter_m_uflag, align 4
-  %1406 = tail call ptr @proto_tree_add_item(ptr noundef %1398, i32 noundef %1405, ptr noundef %0, i32 noundef %.1158.i, i32 noundef 2, i32 noundef 0) #2
-  %1407 = load i32, ptr @hf_rtp_midi_cj_chapter_m_wflag, align 4
-  %1408 = tail call ptr @proto_tree_add_item(ptr noundef %1398, i32 noundef %1407, ptr noundef %0, i32 noundef %.1158.i, i32 noundef 2, i32 noundef 0) #2
-  %1409 = load i32, ptr @hf_rtp_midi_cj_chapter_m_zflag, align 4
-  %1410 = tail call ptr @proto_tree_add_item(ptr noundef %1398, i32 noundef %1409, ptr noundef %0, i32 noundef %.1158.i, i32 noundef 2, i32 noundef 0) #2
-  %1411 = load i32, ptr @hf_rtp_midi_cj_chapter_m_length, align 4
-  %1412 = tail call ptr @proto_tree_add_item(ptr noundef %1398, i32 noundef %1411, ptr noundef %0, i32 noundef %.1158.i, i32 noundef 2, i32 noundef 0) #2
-  %1413 = add i32 %.1158.i, 2
-  %1414 = and i32 %1394, 16384
-  %.not.i182.i = icmp eq i32 %1414, 0
-  br i1 %.not.i182.i, label %1421, label %1415
+1388:                                             ; preds = %1386
+  %1389 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.1158.i)
+  %1390 = zext i16 %1389 to i32
+  %1391 = and i32 %1390, 63
+  %1392 = add nsw i32 %1391, -2
+  %1393 = load i32, ptr @ett_rtp_midi_cj_chapter_m, align 4
+  %1394 = tail call ptr @proto_tree_add_subtree(ptr noundef %1326, ptr noundef %0, i32 noundef %.1158.i, i32 noundef %1392, i32 noundef %1393, ptr noundef null, ptr noundef nonnull @.str.1663)
+  %1395 = load i32, ptr @hf_rtp_midi_cj_chapter_m_sflag, align 4
+  %1396 = tail call ptr @proto_tree_add_item(ptr noundef %1394, i32 noundef %1395, ptr noundef %0, i32 noundef %.1158.i, i32 noundef 2, i32 noundef 0)
+  %1397 = load i32, ptr @hf_rtp_midi_cj_chapter_m_pflag, align 4
+  %1398 = tail call ptr @proto_tree_add_item(ptr noundef %1394, i32 noundef %1397, ptr noundef %0, i32 noundef %.1158.i, i32 noundef 2, i32 noundef 0)
+  %1399 = load i32, ptr @hf_rtp_midi_cj_chapter_m_eflag, align 4
+  %1400 = tail call ptr @proto_tree_add_item(ptr noundef %1394, i32 noundef %1399, ptr noundef %0, i32 noundef %.1158.i, i32 noundef 2, i32 noundef 0)
+  %1401 = load i32, ptr @hf_rtp_midi_cj_chapter_m_uflag, align 4
+  %1402 = tail call ptr @proto_tree_add_item(ptr noundef %1394, i32 noundef %1401, ptr noundef %0, i32 noundef %.1158.i, i32 noundef 2, i32 noundef 0)
+  %1403 = load i32, ptr @hf_rtp_midi_cj_chapter_m_wflag, align 4
+  %1404 = tail call ptr @proto_tree_add_item(ptr noundef %1394, i32 noundef %1403, ptr noundef %0, i32 noundef %.1158.i, i32 noundef 2, i32 noundef 0)
+  %1405 = load i32, ptr @hf_rtp_midi_cj_chapter_m_zflag, align 4
+  %1406 = tail call ptr @proto_tree_add_item(ptr noundef %1394, i32 noundef %1405, ptr noundef %0, i32 noundef %.1158.i, i32 noundef 2, i32 noundef 0)
+  %1407 = load i32, ptr @hf_rtp_midi_cj_chapter_m_length, align 4
+  %1408 = tail call ptr @proto_tree_add_item(ptr noundef %1394, i32 noundef %1407, ptr noundef %0, i32 noundef %.1158.i, i32 noundef 2, i32 noundef 0)
+  %1409 = add i32 %.1158.i, 2
+  %1410 = and i32 %1390, 16384
+  %.not.i182.i = icmp eq i32 %1410, 0
+  br i1 %.not.i182.i, label %1417, label %1411
 
-1415:                                             ; preds = %1392
-  %1416 = load i32, ptr @hf_rtp_midi_cj_chapter_m_qflag, align 4
-  %1417 = tail call ptr @proto_tree_add_item(ptr noundef %1398, i32 noundef %1416, ptr noundef %0, i32 noundef %1413, i32 noundef 1, i32 noundef 0) #2
-  %1418 = load i32, ptr @hf_rtp_midi_cj_chapter_m_pending, align 4
-  %1419 = tail call ptr @proto_tree_add_item(ptr noundef %1398, i32 noundef %1418, ptr noundef %0, i32 noundef %1413, i32 noundef 1, i32 noundef 0) #2
-  %1420 = add i32 %.1158.i, 3
-  br label %1421
+1411:                                             ; preds = %1388
+  %1412 = load i32, ptr @hf_rtp_midi_cj_chapter_m_qflag, align 4
+  %1413 = tail call ptr @proto_tree_add_item(ptr noundef %1394, i32 noundef %1412, ptr noundef %0, i32 noundef %1409, i32 noundef 1, i32 noundef 0)
+  %1414 = load i32, ptr @hf_rtp_midi_cj_chapter_m_pending, align 4
+  %1415 = tail call ptr @proto_tree_add_item(ptr noundef %1394, i32 noundef %1414, ptr noundef %0, i32 noundef %1409, i32 noundef 1, i32 noundef 0)
+  %1416 = add i32 %.1158.i, 3
+  br label %1417
 
-1421:                                             ; preds = %1415, %1392
-  %.0.i.i143 = phi i32 [ %1420, %1415 ], [ %1413, %1392 ]
-  %1422 = and i32 %1394, 1024
-  %.not155.i.i = icmp ne i32 %1422, 0
-  %1423 = and i32 %1394, 6144
-  %1424 = icmp ne i32 %1423, 0
-  %1425 = and i1 %.not155.i.i, %1424
-  %1426 = select i1 %1425, i32 2, i32 3
-  %1427 = load i32, ptr @ett_rtp_midi_cj_chapter_m_loglist, align 4
-  %1428 = tail call ptr @proto_tree_add_subtree(ptr noundef %1398, ptr noundef %0, i32 noundef %.0.i.i143, i32 noundef %1396, i32 noundef %1427, ptr noundef null, ptr noundef nonnull @.str.1635) #2
-  %1429 = icmp samesign ugt i32 %1395, 2
-  br i1 %1429, label %.lr.ph.i.i147, label %decode_cj_chapter_m.exit.i
+1417:                                             ; preds = %1411, %1388
+  %.0.i.i156 = phi i32 [ %1416, %1411 ], [ %1409, %1388 ]
+  %1418 = and i32 %1390, 1024
+  %.not155.i.i = icmp ne i32 %1418, 0
+  %1419 = and i32 %1390, 6144
+  %1420 = icmp ne i32 %1419, 0
+  %1421 = and i1 %.not155.i.i, %1420
+  %1422 = select i1 %1421, i32 2, i32 3
+  %1423 = load i32, ptr @ett_rtp_midi_cj_chapter_m_loglist, align 4
+  %1424 = tail call ptr @proto_tree_add_subtree(ptr noundef %1394, ptr noundef %0, i32 noundef %.0.i.i156, i32 noundef %1392, i32 noundef %1423, ptr noundef null, ptr noundef nonnull @.str.1661)
+  %1425 = icmp samesign ugt i32 %1391, 2
+  br i1 %1425, label %.lr.ph.i.i160, label %decode_cj_chapter_m.exit.i
 
-.lr.ph.i.i147:                                    ; preds = %1421, %1514
-  %.12.i.i = phi i32 [ %.7.i.i, %1514 ], [ %.0.i.i143, %1421 ]
-  %.01481.i.i = phi i32 [ %.6154.i.i, %1514 ], [ %1396, %1421 ]
-  br i1 %1425, label %1430, label %1433
+.lr.ph.i.i160:                                    ; preds = %1417, %1510
+  %.12.i.i = phi i32 [ %.7.i.i, %1510 ], [ %.0.i.i156, %1417 ]
+  %.01481.i.i = phi i32 [ %.6154.i.i, %1510 ], [ %1392, %1417 ]
+  br i1 %1421, label %1426, label %1429
 
-1430:                                             ; preds = %.lr.ph.i.i147
-  %1431 = add i32 %.12.i.i, 1
-  %1432 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1431) #2
-  br label %1436
+1426:                                             ; preds = %.lr.ph.i.i160
+  %1427 = add i32 %.12.i.i, 1
+  %1428 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1427)
+  br label %1432
 
-1433:                                             ; preds = %.lr.ph.i.i147
-  %1434 = add i32 %.12.i.i, 2
-  %1435 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1434) #2
+1429:                                             ; preds = %.lr.ph.i.i160
+  %1430 = add i32 %.12.i.i, 2
+  %1431 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1430)
   %.pre.i.i = add i32 %.12.i.i, 1
-  br label %1436
+  br label %1432
 
-1436:                                             ; preds = %1433, %1430
-  %.pre-phi.i.i = phi i32 [ %.pre.i.i, %1433 ], [ %1431, %1430 ]
-  %.0142.i.i = phi i8 [ %1435, %1433 ], [ %1432, %1430 ]
-  %1437 = zext i8 %.0142.i.i to i32
+1432:                                             ; preds = %1429, %1426
+  %.pre-phi.i.i = phi i32 [ %.pre.i.i, %1429 ], [ %1427, %1426 ]
+  %.0142.i.i = phi i8 [ %1431, %1429 ], [ %1428, %1426 ]
+  %1433 = zext i8 %.0142.i.i to i32
   %.not156.i.i = icmp slt i8 %.0142.i.i, 0
   %.0142.lobit.i.i = lshr i8 %.0142.i.i, 7
-  %1438 = zext nneg i8 %.0142.lobit.i.i to i32
-  %spec.select.i.i148 = add nuw nsw i32 %1426, %1438
-  %1439 = and i32 %1437, 64
-  %.not157.i.i = icmp eq i32 %1439, 0
-  %1440 = lshr exact i32 %1439, 6
-  %.1144.i.i = add nuw nsw i32 %spec.select.i.i148, %1440
-  %1441 = and i32 %1437, 32
-  %.not158.i.i = icmp eq i32 %1441, 0
-  %1442 = lshr exact i32 %1441, 4
-  %.2145.i.i = add nuw nsw i32 %.1144.i.i, %1442
-  %1443 = and i32 %1437, 16
-  %.not159.i.i = icmp eq i32 %1443, 0
-  %1444 = lshr exact i32 %1443, 3
-  %.3146.i.i = add nuw nsw i32 %.2145.i.i, %1444
-  %1445 = and i32 %1437, 8
-  %.not160.i.i = icmp eq i32 %1445, 0
-  %1446 = lshr exact i32 %1445, 3
-  %.4147.i.i = add nuw nsw i32 %.3146.i.i, %1446
-  %1447 = load i32, ptr @ett_rtp_midi_cj_chapter_m_logitem, align 4
-  %1448 = tail call ptr @proto_tree_add_subtree(ptr noundef %1428, ptr noundef %0, i32 noundef %.12.i.i, i32 noundef %.4147.i.i, i32 noundef %1447, ptr noundef null, ptr noundef nonnull @.str.1636) #2
-  %1449 = load i32, ptr @hf_rtp_midi_cj_chapter_m_log_sflag, align 4
-  %1450 = tail call ptr @proto_tree_add_item(ptr noundef %1448, i32 noundef %1449, ptr noundef %0, i32 noundef %.12.i.i, i32 noundef 1, i32 noundef 0) #2
-  %1451 = load i32, ptr @hf_rtp_midi_cj_chapter_m_log_pnum_lsb, align 4
-  %1452 = tail call ptr @proto_tree_add_item(ptr noundef %1448, i32 noundef %1451, ptr noundef %0, i32 noundef %.12.i.i, i32 noundef 1, i32 noundef 0) #2
-  %1453 = add nsw i32 %.01481.i.i, -1
-  br i1 %1425, label %1461, label %1454
+  %1434 = zext nneg i8 %.0142.lobit.i.i to i32
+  %spec.select.i.i161 = add nuw nsw i32 %1422, %1434
+  %1435 = and i32 %1433, 64
+  %.not157.i.i = icmp eq i32 %1435, 0
+  %1436 = lshr exact i32 %1435, 6
+  %.1144.i.i = add nuw nsw i32 %spec.select.i.i161, %1436
+  %1437 = and i32 %1433, 32
+  %.not158.i.i = icmp eq i32 %1437, 0
+  %1438 = lshr exact i32 %1437, 4
+  %.2145.i.i = add nuw nsw i32 %.1144.i.i, %1438
+  %1439 = and i32 %1433, 16
+  %.not159.i.i = icmp eq i32 %1439, 0
+  %1440 = lshr exact i32 %1439, 3
+  %.3146.i.i = add nuw nsw i32 %.2145.i.i, %1440
+  %1441 = and i32 %1433, 8
+  %.not160.i.i = icmp eq i32 %1441, 0
+  %1442 = lshr exact i32 %1441, 3
+  %.4147.i.i = add nuw nsw i32 %.3146.i.i, %1442
+  %1443 = load i32, ptr @ett_rtp_midi_cj_chapter_m_logitem, align 4
+  %1444 = tail call ptr @proto_tree_add_subtree(ptr noundef %1424, ptr noundef %0, i32 noundef %.12.i.i, i32 noundef %.4147.i.i, i32 noundef %1443, ptr noundef null, ptr noundef nonnull @.str.1662)
+  %1445 = load i32, ptr @hf_rtp_midi_cj_chapter_m_log_sflag, align 4
+  %1446 = tail call ptr @proto_tree_add_item(ptr noundef %1444, i32 noundef %1445, ptr noundef %0, i32 noundef %.12.i.i, i32 noundef 1, i32 noundef 0)
+  %1447 = load i32, ptr @hf_rtp_midi_cj_chapter_m_log_pnum_lsb, align 4
+  %1448 = tail call ptr @proto_tree_add_item(ptr noundef %1444, i32 noundef %1447, ptr noundef %0, i32 noundef %.12.i.i, i32 noundef 1, i32 noundef 0)
+  %1449 = add nsw i32 %.01481.i.i, -1
+  br i1 %1421, label %1457, label %1450
 
-1454:                                             ; preds = %1436
-  %1455 = load i32, ptr @hf_rtp_midi_cj_chapter_m_log_qflag, align 4
-  %1456 = tail call ptr @proto_tree_add_item(ptr noundef %1448, i32 noundef %1455, ptr noundef %0, i32 noundef %.pre-phi.i.i, i32 noundef 1, i32 noundef 0) #2
-  %1457 = load i32, ptr @hf_rtp_midi_cj_chapter_m_log_pnum_msb, align 4
-  %1458 = tail call ptr @proto_tree_add_item(ptr noundef %1448, i32 noundef %1457, ptr noundef %0, i32 noundef %.pre-phi.i.i, i32 noundef 1, i32 noundef 0) #2
-  %1459 = add i32 %.12.i.i, 2
-  %1460 = add nsw i32 %.01481.i.i, -2
-  br label %1461
+1450:                                             ; preds = %1432
+  %1451 = load i32, ptr @hf_rtp_midi_cj_chapter_m_log_qflag, align 4
+  %1452 = tail call ptr @proto_tree_add_item(ptr noundef %1444, i32 noundef %1451, ptr noundef %0, i32 noundef %.pre-phi.i.i, i32 noundef 1, i32 noundef 0)
+  %1453 = load i32, ptr @hf_rtp_midi_cj_chapter_m_log_pnum_msb, align 4
+  %1454 = tail call ptr @proto_tree_add_item(ptr noundef %1444, i32 noundef %1453, ptr noundef %0, i32 noundef %.pre-phi.i.i, i32 noundef 1, i32 noundef 0)
+  %1455 = add i32 %.12.i.i, 2
+  %1456 = add nsw i32 %.01481.i.i, -2
+  br label %1457
 
-1461:                                             ; preds = %1454, %1436
-  %.1149.i.i = phi i32 [ %1453, %1436 ], [ %1460, %1454 ]
-  %.2.i.i149 = phi i32 [ %.pre-phi.i.i, %1436 ], [ %1459, %1454 ]
-  %1462 = load i32, ptr @hf_rtp_midi_cj_chapter_m_log_jflag, align 4
-  %1463 = tail call ptr @proto_tree_add_item(ptr noundef %1448, i32 noundef %1462, ptr noundef %0, i32 noundef %.2.i.i149, i32 noundef 1, i32 noundef 0) #2
-  %1464 = load i32, ptr @hf_rtp_midi_cj_chapter_m_log_kflag, align 4
-  %1465 = tail call ptr @proto_tree_add_item(ptr noundef %1448, i32 noundef %1464, ptr noundef %0, i32 noundef %.2.i.i149, i32 noundef 1, i32 noundef 0) #2
-  %1466 = load i32, ptr @hf_rtp_midi_cj_chapter_m_log_lflag, align 4
-  %1467 = tail call ptr @proto_tree_add_item(ptr noundef %1448, i32 noundef %1466, ptr noundef %0, i32 noundef %.2.i.i149, i32 noundef 1, i32 noundef 0) #2
-  %1468 = load i32, ptr @hf_rtp_midi_cj_chapter_m_log_mflag, align 4
-  %1469 = tail call ptr @proto_tree_add_item(ptr noundef %1448, i32 noundef %1468, ptr noundef %0, i32 noundef %.2.i.i149, i32 noundef 1, i32 noundef 0) #2
-  %1470 = load i32, ptr @hf_rtp_midi_cj_chapter_m_log_nflag, align 4
-  %1471 = tail call ptr @proto_tree_add_item(ptr noundef %1448, i32 noundef %1470, ptr noundef %0, i32 noundef %.2.i.i149, i32 noundef 1, i32 noundef 0) #2
-  %1472 = load i32, ptr @hf_rtp_midi_cj_chapter_m_log_tflag, align 4
-  %1473 = tail call ptr @proto_tree_add_item(ptr noundef %1448, i32 noundef %1472, ptr noundef %0, i32 noundef %.2.i.i149, i32 noundef 1, i32 noundef 0) #2
-  %1474 = load i32, ptr @hf_rtp_midi_cj_chapter_m_log_vflag, align 4
-  %1475 = tail call ptr @proto_tree_add_item(ptr noundef %1448, i32 noundef %1474, ptr noundef %0, i32 noundef %.2.i.i149, i32 noundef 1, i32 noundef 0) #2
-  %1476 = load i32, ptr @hf_rtp_midi_cj_chapter_m_log_rflag, align 4
-  %1477 = tail call ptr @proto_tree_add_item(ptr noundef %1448, i32 noundef %1476, ptr noundef %0, i32 noundef %.2.i.i149, i32 noundef 1, i32 noundef 0) #2
-  %1478 = add i32 %.2.i.i149, 1
-  %1479 = add nsw i32 %.1149.i.i, -1
-  br i1 %.not156.i.i, label %1480, label %1486
+1457:                                             ; preds = %1450, %1432
+  %.1149.i.i = phi i32 [ %1449, %1432 ], [ %1456, %1450 ]
+  %.2.i.i162 = phi i32 [ %.pre-phi.i.i, %1432 ], [ %1455, %1450 ]
+  %1458 = load i32, ptr @hf_rtp_midi_cj_chapter_m_log_jflag, align 4
+  %1459 = tail call ptr @proto_tree_add_item(ptr noundef %1444, i32 noundef %1458, ptr noundef %0, i32 noundef %.2.i.i162, i32 noundef 1, i32 noundef 0)
+  %1460 = load i32, ptr @hf_rtp_midi_cj_chapter_m_log_kflag, align 4
+  %1461 = tail call ptr @proto_tree_add_item(ptr noundef %1444, i32 noundef %1460, ptr noundef %0, i32 noundef %.2.i.i162, i32 noundef 1, i32 noundef 0)
+  %1462 = load i32, ptr @hf_rtp_midi_cj_chapter_m_log_lflag, align 4
+  %1463 = tail call ptr @proto_tree_add_item(ptr noundef %1444, i32 noundef %1462, ptr noundef %0, i32 noundef %.2.i.i162, i32 noundef 1, i32 noundef 0)
+  %1464 = load i32, ptr @hf_rtp_midi_cj_chapter_m_log_mflag, align 4
+  %1465 = tail call ptr @proto_tree_add_item(ptr noundef %1444, i32 noundef %1464, ptr noundef %0, i32 noundef %.2.i.i162, i32 noundef 1, i32 noundef 0)
+  %1466 = load i32, ptr @hf_rtp_midi_cj_chapter_m_log_nflag, align 4
+  %1467 = tail call ptr @proto_tree_add_item(ptr noundef %1444, i32 noundef %1466, ptr noundef %0, i32 noundef %.2.i.i162, i32 noundef 1, i32 noundef 0)
+  %1468 = load i32, ptr @hf_rtp_midi_cj_chapter_m_log_tflag, align 4
+  %1469 = tail call ptr @proto_tree_add_item(ptr noundef %1444, i32 noundef %1468, ptr noundef %0, i32 noundef %.2.i.i162, i32 noundef 1, i32 noundef 0)
+  %1470 = load i32, ptr @hf_rtp_midi_cj_chapter_m_log_vflag, align 4
+  %1471 = tail call ptr @proto_tree_add_item(ptr noundef %1444, i32 noundef %1470, ptr noundef %0, i32 noundef %.2.i.i162, i32 noundef 1, i32 noundef 0)
+  %1472 = load i32, ptr @hf_rtp_midi_cj_chapter_m_log_rflag, align 4
+  %1473 = tail call ptr @proto_tree_add_item(ptr noundef %1444, i32 noundef %1472, ptr noundef %0, i32 noundef %.2.i.i162, i32 noundef 1, i32 noundef 0)
+  %1474 = add i32 %.2.i.i162, 1
+  %1475 = add nsw i32 %.1149.i.i, -1
+  br i1 %.not156.i.i, label %1476, label %1482
 
-1480:                                             ; preds = %1461
-  %1481 = load i32, ptr @hf_rtp_midi_cj_chapter_m_log_msb_entry, align 4
-  %1482 = load i32, ptr @ett_rtp_midi_cj_chapter_m_log_msb, align 4
-  %1483 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1428, ptr noundef %0, i32 noundef %1478, i32 noundef %1481, i32 noundef %1482, ptr noundef nonnull @decode_cj_chapter_m.msb_flags, i32 noundef 0) #2
-  %1484 = add i32 %.2.i.i149, 2
-  %1485 = add nsw i32 %.1149.i.i, -2
-  br label %1486
+1476:                                             ; preds = %1457
+  %1477 = load i32, ptr @hf_rtp_midi_cj_chapter_m_log_msb_entry, align 4
+  %1478 = load i32, ptr @ett_rtp_midi_cj_chapter_m_log_msb, align 4
+  %1479 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1424, ptr noundef %0, i32 noundef %1474, i32 noundef %1477, i32 noundef %1478, ptr noundef nonnull @decode_cj_chapter_m.msb_flags, i32 noundef 0)
+  %1480 = add i32 %.2.i.i162, 2
+  %1481 = add nsw i32 %.1149.i.i, -2
+  br label %1482
 
-1486:                                             ; preds = %1480, %1461
-  %.2150.i.i = phi i32 [ %1485, %1480 ], [ %1479, %1461 ]
-  %.3.i.i150 = phi i32 [ %1484, %1480 ], [ %1478, %1461 ]
-  br i1 %.not157.i.i, label %1493, label %1487
+1482:                                             ; preds = %1476, %1457
+  %.2150.i.i = phi i32 [ %1481, %1476 ], [ %1475, %1457 ]
+  %.3.i.i163 = phi i32 [ %1480, %1476 ], [ %1474, %1457 ]
+  br i1 %.not157.i.i, label %1489, label %1483
 
-1487:                                             ; preds = %1486
-  %1488 = load i32, ptr @hf_rtp_midi_cj_chapter_m_log_lsb_entry, align 4
-  %1489 = load i32, ptr @ett_rtp_midi_cj_chapter_m_log_lsb, align 4
-  %1490 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1428, ptr noundef %0, i32 noundef %.3.i.i150, i32 noundef %1488, i32 noundef %1489, ptr noundef nonnull @decode_cj_chapter_m.lsb_flags, i32 noundef 0) #2
-  %1491 = add i32 %.3.i.i150, 1
-  %1492 = add nsw i32 %.2150.i.i, -1
-  br label %1493
+1483:                                             ; preds = %1482
+  %1484 = load i32, ptr @hf_rtp_midi_cj_chapter_m_log_lsb_entry, align 4
+  %1485 = load i32, ptr @ett_rtp_midi_cj_chapter_m_log_lsb, align 4
+  %1486 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1424, ptr noundef %0, i32 noundef %.3.i.i163, i32 noundef %1484, i32 noundef %1485, ptr noundef nonnull @decode_cj_chapter_m.lsb_flags, i32 noundef 0)
+  %1487 = add i32 %.3.i.i163, 1
+  %1488 = add nsw i32 %.2150.i.i, -1
+  br label %1489
 
-1493:                                             ; preds = %1487, %1486
-  %.3151.i.i = phi i32 [ %1492, %1487 ], [ %.2150.i.i, %1486 ]
-  %.4.i.i151 = phi i32 [ %1491, %1487 ], [ %.3.i.i150, %1486 ]
-  br i1 %.not158.i.i, label %1500, label %1494
+1489:                                             ; preds = %1483, %1482
+  %.3151.i.i = phi i32 [ %1488, %1483 ], [ %.2150.i.i, %1482 ]
+  %.4.i.i164 = phi i32 [ %1487, %1483 ], [ %.3.i.i163, %1482 ]
+  br i1 %.not158.i.i, label %1496, label %1490
 
-1494:                                             ; preds = %1493
-  %1495 = load i32, ptr @hf_rtp_midi_cj_chapter_m_log_a_button_full, align 4
-  %1496 = load i32, ptr @ett_rtp_midi_cj_chapter_m_log_a_button, align 4
-  %1497 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1428, ptr noundef %0, i32 noundef %.4.i.i151, i32 noundef %1495, i32 noundef %1496, ptr noundef nonnull @decode_cj_chapter_m.button_flags, i32 noundef 0) #2
-  %1498 = add i32 %.4.i.i151, 2
-  %1499 = add nsw i32 %.3151.i.i, -2
-  br label %1500
+1490:                                             ; preds = %1489
+  %1491 = load i32, ptr @hf_rtp_midi_cj_chapter_m_log_a_button_full, align 4
+  %1492 = load i32, ptr @ett_rtp_midi_cj_chapter_m_log_a_button, align 4
+  %1493 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1424, ptr noundef %0, i32 noundef %.4.i.i164, i32 noundef %1491, i32 noundef %1492, ptr noundef nonnull @decode_cj_chapter_m.button_flags, i32 noundef 0)
+  %1494 = add i32 %.4.i.i164, 2
+  %1495 = add nsw i32 %.3151.i.i, -2
+  br label %1496
 
-1500:                                             ; preds = %1494, %1493
-  %.4152.i.i = phi i32 [ %1499, %1494 ], [ %.3151.i.i, %1493 ]
-  %.5.i.i152 = phi i32 [ %1498, %1494 ], [ %.4.i.i151, %1493 ]
-  br i1 %.not159.i.i, label %1507, label %1501
+1496:                                             ; preds = %1490, %1489
+  %.4152.i.i = phi i32 [ %1495, %1490 ], [ %.3151.i.i, %1489 ]
+  %.5.i.i165 = phi i32 [ %1494, %1490 ], [ %.4.i.i164, %1489 ]
+  br i1 %.not159.i.i, label %1503, label %1497
 
-1501:                                             ; preds = %1500
-  %1502 = load i32, ptr @hf_rtp_midi_cj_chapter_m_log_c_button_full, align 4
-  %1503 = load i32, ptr @ett_rtp_midi_cj_chapter_m_log_c_button, align 4
-  %1504 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1428, ptr noundef %0, i32 noundef %.5.i.i152, i32 noundef %1502, i32 noundef %1503, ptr noundef nonnull @decode_cj_chapter_m.button_flags.1638, i32 noundef 0) #2
-  %1505 = add i32 %.5.i.i152, 2
-  %1506 = add nsw i32 %.4152.i.i, -2
-  br label %1507
+1497:                                             ; preds = %1496
+  %1498 = load i32, ptr @hf_rtp_midi_cj_chapter_m_log_c_button_full, align 4
+  %1499 = load i32, ptr @ett_rtp_midi_cj_chapter_m_log_c_button, align 4
+  %1500 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1424, ptr noundef %0, i32 noundef %.5.i.i165, i32 noundef %1498, i32 noundef %1499, ptr noundef nonnull @decode_cj_chapter_m.button_flags.1664, i32 noundef 0)
+  %1501 = add i32 %.5.i.i165, 2
+  %1502 = add nsw i32 %.4152.i.i, -2
+  br label %1503
 
-1507:                                             ; preds = %1501, %1500
-  %.5153.i.i = phi i32 [ %1506, %1501 ], [ %.4152.i.i, %1500 ]
-  %.6.i.i153 = phi i32 [ %1505, %1501 ], [ %.5.i.i152, %1500 ]
-  br i1 %.not160.i.i, label %1514, label %1508
+1503:                                             ; preds = %1497, %1496
+  %.5153.i.i = phi i32 [ %1502, %1497 ], [ %.4152.i.i, %1496 ]
+  %.6.i.i166 = phi i32 [ %1501, %1497 ], [ %.5.i.i165, %1496 ]
+  br i1 %.not160.i.i, label %1510, label %1504
 
-1508:                                             ; preds = %1507
-  %1509 = load i32, ptr @hf_rtp_midi_cj_chapter_m_log_count_full, align 4
-  %1510 = load i32, ptr @ett_rtp_midi_cj_chapter_m_log_count, align 4
-  %1511 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1428, ptr noundef %0, i32 noundef %.6.i.i153, i32 noundef %1509, i32 noundef %1510, ptr noundef nonnull @decode_cj_chapter_m.log_flags, i32 noundef 0) #2
-  %1512 = add i32 %.6.i.i153, 1
-  %1513 = add nsw i32 %.5153.i.i, -1
-  br label %1514
+1504:                                             ; preds = %1503
+  %1505 = load i32, ptr @hf_rtp_midi_cj_chapter_m_log_count_full, align 4
+  %1506 = load i32, ptr @ett_rtp_midi_cj_chapter_m_log_count, align 4
+  %1507 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1424, ptr noundef %0, i32 noundef %.6.i.i166, i32 noundef %1505, i32 noundef %1506, ptr noundef nonnull @decode_cj_chapter_m.log_flags, i32 noundef 0)
+  %1508 = add i32 %.6.i.i166, 1
+  %1509 = add nsw i32 %.5153.i.i, -1
+  br label %1510
 
-1514:                                             ; preds = %1508, %1507
-  %.6154.i.i = phi i32 [ %1513, %1508 ], [ %.5153.i.i, %1507 ]
-  %.7.i.i = phi i32 [ %1512, %1508 ], [ %.6.i.i153, %1507 ]
-  %1515 = icmp sgt i32 %.6154.i.i, 0
-  br i1 %1515, label %.lr.ph.i.i147, label %decode_cj_chapter_m.exit.i, !llvm.loop !15
+1510:                                             ; preds = %1504, %1503
+  %.6154.i.i = phi i32 [ %1509, %1504 ], [ %.5153.i.i, %1503 ]
+  %.7.i.i = phi i32 [ %1508, %1504 ], [ %.6.i.i166, %1503 ]
+  %1511 = icmp sgt i32 %.6154.i.i, 0
+  br i1 %1511, label %.lr.ph.i.i160, label %decode_cj_chapter_m.exit.i, !llvm.loop !13
 
-decode_cj_chapter_m.exit.i:                       ; preds = %1514, %1421
-  %.1.lcssa.i.i = phi i32 [ %.0.i.i143, %1421 ], [ %.7.i.i, %1514 ]
-  %1516 = sub i32 %.1.lcssa.i.i, %.1158.i
-  %1517 = icmp slt i32 %1516, 0
-  br i1 %1517, label %decode_channel_journal.exit, label %1518
+decode_cj_chapter_m.exit.i:                       ; preds = %1510, %1417
+  %.1.lcssa.i.i = phi i32 [ %.0.i.i156, %1417 ], [ %.7.i.i, %1510 ]
+  %1512 = sub i32 %.1.lcssa.i.i, %.1158.i
+  %1513 = icmp slt i32 %1512, 0
+  br i1 %1513, label %decode_channel_journal.exit, label %1514
 
-1518:                                             ; preds = %decode_cj_chapter_m.exit.i
-  %1519 = add i32 %1516, %.1.i142
-  br label %1520
+1514:                                             ; preds = %decode_cj_chapter_m.exit.i
+  %1515 = add i32 %1512, %.1.i155
+  br label %1516
 
-1520:                                             ; preds = %1518, %1390
-  %.2159.i = phi i32 [ %.1.lcssa.i.i, %1518 ], [ %.1158.i, %1390 ]
-  %.2.i144 = phi i32 [ %1519, %1518 ], [ %.1.i142, %1390 ]
-  %1521 = and i32 %1295, 16
-  %.not176.i = icmp eq i32 %1521, 0
-  br i1 %.not176.i, label %1536, label %1522
+1516:                                             ; preds = %1514, %1386
+  %.2159.i = phi i32 [ %.1.lcssa.i.i, %1514 ], [ %.1158.i, %1386 ]
+  %.2.i157 = phi i32 [ %1515, %1514 ], [ %.1.i155, %1386 ]
+  %1517 = and i32 %1291, 16
+  %.not176.i = icmp eq i32 %1517, 0
+  br i1 %.not176.i, label %1532, label %1518
 
-1522:                                             ; preds = %1520
-  %1523 = load i32, ptr @ett_rtp_midi_cj_chapter_w, align 4
-  %1524 = tail call ptr @proto_tree_add_subtree(ptr noundef %1330, ptr noundef %0, i32 noundef %.2159.i, i32 noundef 2, i32 noundef %1523, ptr noundef null, ptr noundef nonnull @.str.1634) #2
-  %1525 = load i32, ptr @hf_rtp_midi_cj_chapter_w_sflag, align 4
-  %1526 = tail call ptr @proto_tree_add_item(ptr noundef %1524, i32 noundef %1525, ptr noundef %0, i32 noundef %.2159.i, i32 noundef 1, i32 noundef 0) #2
-  %1527 = load i32, ptr @hf_rtp_midi_cj_chapter_w_first, align 4
-  %1528 = tail call ptr @proto_tree_add_item(ptr noundef %1524, i32 noundef %1527, ptr noundef %0, i32 noundef %.2159.i, i32 noundef 1, i32 noundef 0) #2
-  %1529 = add i32 %.2159.i, 1
-  %1530 = load i32, ptr @hf_rtp_midi_cj_chapter_w_rflag, align 4
-  %1531 = tail call ptr @proto_tree_add_item(ptr noundef %1524, i32 noundef %1530, ptr noundef %0, i32 noundef %1529, i32 noundef 1, i32 noundef 0) #2
-  %1532 = load i32, ptr @hf_rtp_midi_cj_chapter_w_second, align 4
-  %1533 = tail call ptr @proto_tree_add_item(ptr noundef %1524, i32 noundef %1532, ptr noundef %0, i32 noundef %1529, i32 noundef 1, i32 noundef 0) #2
-  %1534 = add i32 %.2159.i, 2
-  %1535 = add i32 %.2.i144, 2
-  br label %1536
+1518:                                             ; preds = %1516
+  %1519 = load i32, ptr @ett_rtp_midi_cj_chapter_w, align 4
+  %1520 = tail call ptr @proto_tree_add_subtree(ptr noundef %1326, ptr noundef %0, i32 noundef %.2159.i, i32 noundef 2, i32 noundef %1519, ptr noundef null, ptr noundef nonnull @.str.1660)
+  %1521 = load i32, ptr @hf_rtp_midi_cj_chapter_w_sflag, align 4
+  %1522 = tail call ptr @proto_tree_add_item(ptr noundef %1520, i32 noundef %1521, ptr noundef %0, i32 noundef %.2159.i, i32 noundef 1, i32 noundef 0)
+  %1523 = load i32, ptr @hf_rtp_midi_cj_chapter_w_first, align 4
+  %1524 = tail call ptr @proto_tree_add_item(ptr noundef %1520, i32 noundef %1523, ptr noundef %0, i32 noundef %.2159.i, i32 noundef 1, i32 noundef 0)
+  %1525 = add i32 %.2159.i, 1
+  %1526 = load i32, ptr @hf_rtp_midi_cj_chapter_w_rflag, align 4
+  %1527 = tail call ptr @proto_tree_add_item(ptr noundef %1520, i32 noundef %1526, ptr noundef %0, i32 noundef %1525, i32 noundef 1, i32 noundef 0)
+  %1528 = load i32, ptr @hf_rtp_midi_cj_chapter_w_second, align 4
+  %1529 = tail call ptr @proto_tree_add_item(ptr noundef %1520, i32 noundef %1528, ptr noundef %0, i32 noundef %1525, i32 noundef 1, i32 noundef 0)
+  %1530 = add i32 %.2159.i, 2
+  %1531 = add i32 %.2.i157, 2
+  br label %1532
 
-1536:                                             ; preds = %1522, %1520
-  %.3160.i = phi i32 [ %1534, %1522 ], [ %.2159.i, %1520 ]
-  %.3.i145 = phi i32 [ %1535, %1522 ], [ %.2.i144, %1520 ]
-  %1537 = and i32 %1295, 8
-  %.not177.i = icmp eq i32 %1537, 0
-  br i1 %.not177.i, label %1606, label %1538
+1532:                                             ; preds = %1518, %1516
+  %.3160.i = phi i32 [ %1530, %1518 ], [ %.2159.i, %1516 ]
+  %.3.i158 = phi i32 [ %1531, %1518 ], [ %.2.i157, %1516 ]
+  %1533 = and i32 %1291, 8
+  %.not177.i = icmp eq i32 %1533, 0
+  br i1 %.not177.i, label %1602, label %1534
 
-1538:                                             ; preds = %1536
-  %1539 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.3160.i) #2
-  %1540 = zext i16 %1539 to i32
-  %1541 = lshr i32 %1540, 8
-  %1542 = and i32 %1541, 127
-  %1543 = lshr i32 %1540, 4
-  %1544 = and i32 %1543, 15
-  %1545 = and i32 %1540, 15
-  %.not.i183.i = icmp samesign ugt i32 %1544, %1545
-  br i1 %.not.i183.i, label %1549, label %1546
+1534:                                             ; preds = %1532
+  %1535 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.3160.i)
+  %1536 = zext i16 %1535 to i32
+  %1537 = lshr i32 %1536, 8
+  %1538 = and i32 %1537, 127
+  %1539 = lshr i32 %1536, 4
+  %1540 = and i32 %1539, 15
+  %1541 = and i32 %1536, 15
+  %.not.i183.i = icmp samesign ugt i32 %1540, %1541
+  br i1 %.not.i183.i, label %1545, label %1542
 
-1546:                                             ; preds = %1538
-  %1547 = add nuw nsw i32 %1545, 1
-  %1548 = sub nuw nsw i32 %1547, %1544
-  br label %1551
+1542:                                             ; preds = %1534
+  %1543 = add nuw nsw i32 %1541, 1
+  %1544 = sub nuw nsw i32 %1543, %1540
+  br label %1547
 
-1549:                                             ; preds = %1538
-  %1550 = icmp eq i32 %1544, 15
-  %or.cond31.i.i = icmp samesign ult i32 %1545, 2
-  %or.cond101.i.i = and i1 %or.cond31.i.i, %1550
-  br i1 %or.cond101.i.i, label %1551, label %decodemidi.exit.thread222
+1545:                                             ; preds = %1534
+  %1546 = icmp eq i32 %1540, 15
+  %or.cond31.i.i = icmp samesign ult i32 %1541, 2
+  %or.cond101.i.i = and i1 %or.cond31.i.i, %1546
+  br i1 %or.cond101.i.i, label %1547, label %.thread242
 
-1551:                                             ; preds = %1549, %1546
-  %.092.i.i = phi i32 [ %1548, %1546 ], [ 0, %1549 ]
-  %1552 = icmp eq i32 %1542, 127
-  %1553 = icmp eq i32 %1544, 15
-  %or.cond5.i.i = and i1 %1552, %1553
-  %1554 = icmp eq i32 %1545, 0
-  %or.cond7.i.i = and i1 %1554, %or.cond5.i.i
-  %spec.select.i184.i = select i1 %or.cond7.i.i, i32 128, i32 %1542
-  %1555 = shl nuw nsw i32 %spec.select.i184.i, 1
-  %1556 = add nuw nsw i32 %1555, 2
-  %1557 = add nuw nsw i32 %1556, %.092.i.i
-  %1558 = load i32, ptr @ett_rtp_midi_cj_chapter_n, align 4
-  %1559 = tail call ptr @proto_tree_add_subtree(ptr noundef %1330, ptr noundef %0, i32 noundef %.3160.i, i32 noundef %1557, i32 noundef %1558, ptr noundef null, ptr noundef nonnull @.str.1639) #2
-  %1560 = load i32, ptr @hf_rtp_midi_cj_chapter_n_bflag, align 4
-  %1561 = tail call ptr @proto_tree_add_item(ptr noundef %1559, i32 noundef %1560, ptr noundef %0, i32 noundef %.3160.i, i32 noundef 2, i32 noundef 0) #2
-  %1562 = load i32, ptr @hf_rtp_midi_cj_chapter_n_len, align 4
-  %1563 = tail call ptr @proto_tree_add_item(ptr noundef %1559, i32 noundef %1562, ptr noundef %0, i32 noundef %.3160.i, i32 noundef 2, i32 noundef 0) #2
-  %1564 = load i32, ptr @hf_rtp_midi_cj_chapter_n_low, align 4
-  %1565 = tail call ptr @proto_tree_add_item(ptr noundef %1559, i32 noundef %1564, ptr noundef %0, i32 noundef %.3160.i, i32 noundef 2, i32 noundef 0) #2
-  %1566 = load i32, ptr @hf_rtp_midi_cj_chapter_n_high, align 4
-  %1567 = tail call ptr @proto_tree_add_item(ptr noundef %1559, i32 noundef %1566, ptr noundef %0, i32 noundef %.3160.i, i32 noundef 2, i32 noundef 0) #2
-  %1568 = add i32 %.3160.i, 2
+1547:                                             ; preds = %1545, %1542
+  %.092.i.i = phi i32 [ %1544, %1542 ], [ 0, %1545 ]
+  %1548 = icmp eq i32 %1538, 127
+  %1549 = icmp eq i32 %1540, 15
+  %or.cond5.i.i = and i1 %1548, %1549
+  %1550 = icmp eq i32 %1541, 0
+  %or.cond7.i.i = and i1 %1550, %or.cond5.i.i
+  %spec.select.i184.i = select i1 %or.cond7.i.i, i32 128, i32 %1538
+  %1551 = shl nuw nsw i32 %spec.select.i184.i, 1
+  %1552 = add nuw nsw i32 %1551, 2
+  %1553 = add nuw nsw i32 %1552, %.092.i.i
+  %1554 = load i32, ptr @ett_rtp_midi_cj_chapter_n, align 4
+  %1555 = tail call ptr @proto_tree_add_subtree(ptr noundef %1326, ptr noundef %0, i32 noundef %.3160.i, i32 noundef %1553, i32 noundef %1554, ptr noundef null, ptr noundef nonnull @.str.1665)
+  %1556 = load i32, ptr @hf_rtp_midi_cj_chapter_n_bflag, align 4
+  %1557 = tail call ptr @proto_tree_add_item(ptr noundef %1555, i32 noundef %1556, ptr noundef %0, i32 noundef %.3160.i, i32 noundef 2, i32 noundef 0)
+  %1558 = load i32, ptr @hf_rtp_midi_cj_chapter_n_len, align 4
+  %1559 = tail call ptr @proto_tree_add_item(ptr noundef %1555, i32 noundef %1558, ptr noundef %0, i32 noundef %.3160.i, i32 noundef 2, i32 noundef 0)
+  %1560 = load i32, ptr @hf_rtp_midi_cj_chapter_n_low, align 4
+  %1561 = tail call ptr @proto_tree_add_item(ptr noundef %1555, i32 noundef %1560, ptr noundef %0, i32 noundef %.3160.i, i32 noundef 2, i32 noundef 0)
+  %1562 = load i32, ptr @hf_rtp_midi_cj_chapter_n_high, align 4
+  %1563 = tail call ptr @proto_tree_add_item(ptr noundef %1555, i32 noundef %1562, ptr noundef %0, i32 noundef %.3160.i, i32 noundef 2, i32 noundef 0)
+  %1564 = add i32 %.3160.i, 2
   %.not100.i.i = icmp eq i32 %spec.select.i184.i, 0
-  br i1 %.not100.i.i, label %.loopexit2.i.i, label %1569
+  br i1 %.not100.i.i, label %.loopexit2.i.i, label %1565
 
-1569:                                             ; preds = %1551
-  %1570 = load i32, ptr @ett_rtp_midi_cj_chapter_n_loglist, align 4
-  %1571 = tail call ptr @proto_tree_add_subtree(ptr noundef %1559, ptr noundef %0, i32 noundef %1568, i32 noundef %1555, i32 noundef %1570, ptr noundef null, ptr noundef nonnull @.str.1635) #2
-  br label %1572
+1565:                                             ; preds = %1547
+  %1566 = load i32, ptr @ett_rtp_midi_cj_chapter_n_loglist, align 4
+  %1567 = tail call ptr @proto_tree_add_subtree(ptr noundef %1555, ptr noundef %0, i32 noundef %1564, i32 noundef %1551, i32 noundef %1566, ptr noundef null, ptr noundef nonnull @.str.1661)
+  br label %1568
 
-1572:                                             ; preds = %1572, %1569
-  %.05.i.i = phi i32 [ 0, %1569 ], [ %1592, %1572 ]
-  %.1914.i.i = phi i32 [ %1568, %1569 ], [ %1591, %1572 ]
-  %.0943.i.i = phi ptr [ %1571, %1569 ], [ %1582, %1572 ]
-  %1573 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1914.i.i) #2
-  %1574 = and i8 %1573, 127
-  %1575 = add i32 %.1914.i.i, 1
-  %1576 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1575) #2
-  %1577 = and i8 %1576, 127
-  %1578 = zext nneg i8 %1574 to i32
-  %1579 = tail call ptr @val_to_str_ext(i32 noundef %1578, ptr noundef nonnull @rtp_midi_note_values_ext, ptr noundef nonnull @rtp_midi_unknown_value_dec) #2
-  %1580 = load i32, ptr @ett_rtp_midi_cj_chapter_n_logitem, align 4
-  %1581 = zext nneg i8 %1577 to i32
-  %1582 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %.0943.i.i, ptr noundef %0, i32 noundef %.1914.i.i, i32 noundef 2, i32 noundef %1580, ptr noundef null, ptr noundef nonnull @.str.1640, ptr noundef nonnull @.str.631, ptr noundef %1579, i32 noundef %1581) #2
-  %1583 = load i32, ptr @hf_rtp_midi_cj_chapter_n_log_sflag, align 4
-  %1584 = tail call ptr @proto_tree_add_item(ptr noundef %1582, i32 noundef %1583, ptr noundef %0, i32 noundef %.1914.i.i, i32 noundef 1, i32 noundef 0) #2
-  %1585 = load i32, ptr @hf_rtp_midi_cj_chapter_n_log_notenum, align 4
-  %1586 = tail call ptr @proto_tree_add_item(ptr noundef %1582, i32 noundef %1585, ptr noundef %0, i32 noundef %.1914.i.i, i32 noundef 1, i32 noundef 0) #2
-  %1587 = load i32, ptr @hf_rtp_midi_cj_chapter_n_log_yflag, align 4
-  %1588 = tail call ptr @proto_tree_add_item(ptr noundef %1582, i32 noundef %1587, ptr noundef %0, i32 noundef %1575, i32 noundef 1, i32 noundef 0) #2
-  %1589 = load i32, ptr @hf_rtp_midi_cj_chapter_n_log_velocity, align 4
-  %1590 = tail call ptr @proto_tree_add_item(ptr noundef %1582, i32 noundef %1589, ptr noundef %0, i32 noundef %1575, i32 noundef 1, i32 noundef 0) #2
-  %1591 = add i32 %.1914.i.i, 2
-  %1592 = add nuw nsw i32 %.05.i.i, 1
-  %exitcond.not.i185.i = icmp eq i32 %1592, %spec.select.i184.i
-  br i1 %exitcond.not.i185.i, label %.loopexit2.i.i, label %1572, !llvm.loop !16
+1568:                                             ; preds = %1568, %1565
+  %.05.i.i = phi i32 [ 0, %1565 ], [ %1588, %1568 ]
+  %.1914.i.i = phi i32 [ %1564, %1565 ], [ %1587, %1568 ]
+  %.0943.i.i = phi ptr [ %1567, %1565 ], [ %1578, %1568 ]
+  %1569 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.1914.i.i)
+  %1570 = and i8 %1569, 127
+  %1571 = add i32 %.1914.i.i, 1
+  %1572 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1571)
+  %1573 = and i8 %1572, 127
+  %1574 = zext nneg i8 %1570 to i32
+  %1575 = tail call ptr @val_to_str_ext(i32 noundef %1574, ptr noundef nonnull @rtp_midi_note_values_ext, ptr noundef nonnull @rtp_midi_unknown_value_dec)
+  %1576 = load i32, ptr @ett_rtp_midi_cj_chapter_n_logitem, align 4
+  %1577 = zext nneg i8 %1573 to i32
+  %1578 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %.0943.i.i, ptr noundef %0, i32 noundef %.1914.i.i, i32 noundef 2, i32 noundef %1576, ptr noundef null, ptr noundef nonnull @.str.1666, ptr noundef nonnull @.str.632, ptr noundef %1575, i32 noundef %1577)
+  %1579 = load i32, ptr @hf_rtp_midi_cj_chapter_n_log_sflag, align 4
+  %1580 = tail call ptr @proto_tree_add_item(ptr noundef %1578, i32 noundef %1579, ptr noundef %0, i32 noundef %.1914.i.i, i32 noundef 1, i32 noundef 0)
+  %1581 = load i32, ptr @hf_rtp_midi_cj_chapter_n_log_notenum, align 4
+  %1582 = tail call ptr @proto_tree_add_item(ptr noundef %1578, i32 noundef %1581, ptr noundef %0, i32 noundef %.1914.i.i, i32 noundef 1, i32 noundef 0)
+  %1583 = load i32, ptr @hf_rtp_midi_cj_chapter_n_log_yflag, align 4
+  %1584 = tail call ptr @proto_tree_add_item(ptr noundef %1578, i32 noundef %1583, ptr noundef %0, i32 noundef %1571, i32 noundef 1, i32 noundef 0)
+  %1585 = load i32, ptr @hf_rtp_midi_cj_chapter_n_log_velocity, align 4
+  %1586 = tail call ptr @proto_tree_add_item(ptr noundef %1578, i32 noundef %1585, ptr noundef %0, i32 noundef %1571, i32 noundef 1, i32 noundef 0)
+  %1587 = add i32 %.1914.i.i, 2
+  %1588 = add nuw nsw i32 %.05.i.i, 1
+  %exitcond.not.i185.i = icmp eq i32 %1588, %spec.select.i184.i
+  br i1 %exitcond.not.i185.i, label %.loopexit2.i.i, label %1568, !llvm.loop !14
 
-.loopexit2.i.i:                                   ; preds = %1572, %1551
-  %.090.i.i = phi i32 [ %1568, %1551 ], [ %1591, %1572 ]
-  %1593 = icmp sgt i32 %.092.i.i, 0
-  br i1 %1593, label %1594, label %decode_cj_chapter_n.exit.i
+.loopexit2.i.i:                                   ; preds = %1568, %1547
+  %.090.i.i = phi i32 [ %1564, %1547 ], [ %1587, %1568 ]
+  %1589 = icmp sgt i32 %.092.i.i, 0
+  br i1 %1589, label %1590, label %decode_cj_chapter_n.exit.i
 
-1594:                                             ; preds = %.loopexit2.i.i
-  %1595 = load i32, ptr @ett_rtp_midi_cj_chapter_n_octets, align 4
-  %1596 = tail call ptr @proto_tree_add_subtree(ptr noundef %1559, ptr noundef %0, i32 noundef %.090.i.i, i32 noundef %spec.select.i184.i, i32 noundef %1595, ptr noundef null, ptr noundef nonnull @.str.1641) #2
-  br label %1597
+1590:                                             ; preds = %.loopexit2.i.i
+  %1591 = load i32, ptr @ett_rtp_midi_cj_chapter_n_octets, align 4
+  %1592 = tail call ptr @proto_tree_add_subtree(ptr noundef %1555, ptr noundef %0, i32 noundef %.090.i.i, i32 noundef %spec.select.i184.i, i32 noundef %1591, ptr noundef null, ptr noundef nonnull @.str.1667)
+  br label %1593
 
-1597:                                             ; preds = %1597, %1594
-  %.17.i.i = phi i32 [ 0, %1594 ], [ %1601, %1597 ]
-  %.36.i.i = phi i32 [ %.090.i.i, %1594 ], [ %1600, %1597 ]
-  %1598 = load i32, ptr @hf_rtp_midi_cj_chapter_n_log_octet, align 4
-  %1599 = tail call ptr @proto_tree_add_item(ptr noundef %1596, i32 noundef %1598, ptr noundef %0, i32 noundef %.36.i.i, i32 noundef 1, i32 noundef 0) #2
-  %1600 = add i32 %.36.i.i, 1
-  %1601 = add nuw nsw i32 %.17.i.i, 1
-  %exitcond9.not.i.i = icmp eq i32 %1601, %.092.i.i
-  br i1 %exitcond9.not.i.i, label %decode_cj_chapter_n.exit.i, label %1597, !llvm.loop !17
+1593:                                             ; preds = %1593, %1590
+  %.17.i.i = phi i32 [ 0, %1590 ], [ %1597, %1593 ]
+  %.36.i.i = phi i32 [ %.090.i.i, %1590 ], [ %1596, %1593 ]
+  %1594 = load i32, ptr @hf_rtp_midi_cj_chapter_n_log_octet, align 4
+  %1595 = tail call ptr @proto_tree_add_item(ptr noundef %1592, i32 noundef %1594, ptr noundef %0, i32 noundef %.36.i.i, i32 noundef 1, i32 noundef 0)
+  %1596 = add i32 %.36.i.i, 1
+  %1597 = add nuw nsw i32 %.17.i.i, 1
+  %exitcond9.not.i.i = icmp eq i32 %1597, %.092.i.i
+  br i1 %exitcond9.not.i.i, label %decode_cj_chapter_n.exit.i, label %1593, !llvm.loop !15
 
-decode_cj_chapter_n.exit.i:                       ; preds = %1597, %.loopexit2.i.i
-  %.2.i186.i = phi i32 [ %.090.i.i, %.loopexit2.i.i ], [ %1600, %1597 ]
-  %1602 = sub i32 %.2.i186.i, %.3160.i
-  %1603 = icmp slt i32 %1602, 0
-  br i1 %1603, label %decode_channel_journal.exit, label %1604
+decode_cj_chapter_n.exit.i:                       ; preds = %1593, %.loopexit2.i.i
+  %.2.i186.i = phi i32 [ %.090.i.i, %.loopexit2.i.i ], [ %1596, %1593 ]
+  %1598 = sub i32 %.2.i186.i, %.3160.i
+  %1599 = icmp slt i32 %1598, 0
+  br i1 %1599, label %decode_channel_journal.exit, label %1600
 
-1604:                                             ; preds = %decode_cj_chapter_n.exit.i
-  %1605 = add i32 %1602, %.3.i145
-  br label %1606
+1600:                                             ; preds = %decode_cj_chapter_n.exit.i
+  %1601 = add i32 %1598, %.3.i158
+  br label %1602
 
-1606:                                             ; preds = %1604, %1536
-  %.4161.i = phi i32 [ %.2.i186.i, %1604 ], [ %.3160.i, %1536 ]
-  %.4.i146 = phi i32 [ %1605, %1604 ], [ %.3.i145, %1536 ]
-  %1607 = and i32 %1295, 4
-  %.not178.i = icmp eq i32 %1607, 0
-  br i1 %.not178.i, label %1652, label %1608
+1602:                                             ; preds = %1600, %1532
+  %.4161.i = phi i32 [ %.2.i186.i, %1600 ], [ %.3160.i, %1532 ]
+  %.4.i159 = phi i32 [ %1601, %1600 ], [ %.3.i158, %1532 ]
+  %1603 = and i32 %1291, 4
+  %.not178.i = icmp eq i32 %1603, 0
+  br i1 %.not178.i, label %1648, label %1604
 
-1608:                                             ; preds = %1606
-  %1609 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.4161.i) #2
-  %1610 = and i8 %1609, 127
-  %narrow.i187.i = add nuw i8 %1610, 1
-  %1611 = zext i8 %narrow.i187.i to i32
-  %1612 = shl nuw nsw i32 %1611, 1
-  %1613 = or disjoint i32 %1612, 1
-  %1614 = load i32, ptr @ett_rtp_midi_cj_chapter_e, align 4
-  %1615 = tail call ptr @proto_tree_add_subtree(ptr noundef %1330, ptr noundef %0, i32 noundef %.4161.i, i32 noundef %1613, i32 noundef %1614, ptr noundef null, ptr noundef nonnull @.str.1642) #2
-  %1616 = load i32, ptr @hf_rtp_midi_cj_chapter_e_sflag, align 4
-  %1617 = tail call ptr @proto_tree_add_item(ptr noundef %1615, i32 noundef %1616, ptr noundef %0, i32 noundef %.4161.i, i32 noundef 1, i32 noundef 0) #2
-  %1618 = load i32, ptr @hf_rtp_midi_cj_chapter_e_len, align 4
-  %1619 = tail call ptr @proto_tree_add_item(ptr noundef %1615, i32 noundef %1618, ptr noundef %0, i32 noundef %.4161.i, i32 noundef 1, i32 noundef 0) #2
-  %1620 = add i32 %.4161.i, 1
-  %1621 = load i32, ptr @ett_rtp_midi_cj_chapter_e_loglist, align 4
-  %1622 = tail call ptr @proto_tree_add_subtree(ptr noundef %1615, ptr noundef %0, i32 noundef %1620, i32 noundef %1612, i32 noundef %1621, ptr noundef null, ptr noundef nonnull @.str.1635) #2
-  br label %1623
+1604:                                             ; preds = %1602
+  %1605 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.4161.i)
+  %1606 = and i8 %1605, 127
+  %narrow.i187.i = add nuw i8 %1606, 1
+  %1607 = zext i8 %narrow.i187.i to i32
+  %1608 = shl nuw nsw i32 %1607, 1
+  %1609 = or disjoint i32 %1608, 1
+  %1610 = load i32, ptr @ett_rtp_midi_cj_chapter_e, align 4
+  %1611 = tail call ptr @proto_tree_add_subtree(ptr noundef %1326, ptr noundef %0, i32 noundef %.4161.i, i32 noundef %1609, i32 noundef %1610, ptr noundef null, ptr noundef nonnull @.str.1668)
+  %1612 = load i32, ptr @hf_rtp_midi_cj_chapter_e_sflag, align 4
+  %1613 = tail call ptr @proto_tree_add_item(ptr noundef %1611, i32 noundef %1612, ptr noundef %0, i32 noundef %.4161.i, i32 noundef 1, i32 noundef 0)
+  %1614 = load i32, ptr @hf_rtp_midi_cj_chapter_e_len, align 4
+  %1615 = tail call ptr @proto_tree_add_item(ptr noundef %1611, i32 noundef %1614, ptr noundef %0, i32 noundef %.4161.i, i32 noundef 1, i32 noundef 0)
+  %1616 = add i32 %.4161.i, 1
+  %1617 = load i32, ptr @ett_rtp_midi_cj_chapter_e_loglist, align 4
+  %1618 = tail call ptr @proto_tree_add_subtree(ptr noundef %1611, ptr noundef %0, i32 noundef %1616, i32 noundef %1608, i32 noundef %1617, ptr noundef null, ptr noundef nonnull @.str.1661)
+  br label %1619
 
-1623:                                             ; preds = %1637, %1608
-  %.02.i188.i = phi i32 [ 0, %1608 ], [ %1647, %1637 ]
-  %.0591.i.i = phi i32 [ %1620, %1608 ], [ %1646, %1637 ]
-  %1624 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0591.i.i) #2
-  %1625 = and i8 %1624, 127
-  %1626 = add i32 %.0591.i.i, 1
-  %1627 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1626) #2
-  %1628 = and i8 %1627, 127
-  %1629 = zext nneg i8 %1625 to i32
-  %1630 = tail call ptr @val_to_str_ext(i32 noundef %1629, ptr noundef nonnull @rtp_midi_note_values_ext, ptr noundef nonnull @rtp_midi_unknown_value_dec) #2
-  %.not.i189.i = icmp sgt i8 %1627, -1
-  %1631 = load i32, ptr @ett_rtp_midi_cj_chapter_e_logitem, align 4
-  %1632 = zext nneg i8 %1628 to i32
-  br i1 %.not.i189.i, label %1635, label %1633
+1619:                                             ; preds = %1633, %1604
+  %.02.i188.i = phi i32 [ 0, %1604 ], [ %1643, %1633 ]
+  %.0591.i.i = phi i32 [ %1616, %1604 ], [ %1642, %1633 ]
+  %1620 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0591.i.i)
+  %1621 = and i8 %1620, 127
+  %1622 = add i32 %.0591.i.i, 1
+  %1623 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1622)
+  %1624 = and i8 %1623, 127
+  %1625 = zext nneg i8 %1621 to i32
+  %1626 = tail call ptr @val_to_str_ext(i32 noundef %1625, ptr noundef nonnull @rtp_midi_note_values_ext, ptr noundef nonnull @rtp_midi_unknown_value_dec)
+  %.not.i189.i = icmp sgt i8 %1623, -1
+  %1627 = load i32, ptr @ett_rtp_midi_cj_chapter_e_logitem, align 4
+  %1628 = zext nneg i8 %1624 to i32
+  br i1 %.not.i189.i, label %1631, label %1629
 
-1633:                                             ; preds = %1623
-  %1634 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1622, ptr noundef %0, i32 noundef %.0591.i.i, i32 noundef 2, i32 noundef %1631, ptr noundef null, ptr noundef nonnull @.str.1640, ptr noundef nonnull @.str.630, ptr noundef %1630, i32 noundef %1632) #2
-  br label %1637
+1629:                                             ; preds = %1619
+  %1630 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1618, ptr noundef %0, i32 noundef %.0591.i.i, i32 noundef 2, i32 noundef %1627, ptr noundef null, ptr noundef nonnull @.str.1666, ptr noundef nonnull @.str.631, ptr noundef %1626, i32 noundef %1628)
+  br label %1633
 
-1635:                                             ; preds = %1623
-  %1636 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1622, ptr noundef %0, i32 noundef %.0591.i.i, i32 noundef 2, i32 noundef %1631, ptr noundef null, ptr noundef nonnull @.str.1643, ptr noundef nonnull @.str.1644, ptr noundef %1630, i32 noundef %1632) #2
-  br label %1637
+1631:                                             ; preds = %1619
+  %1632 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1618, ptr noundef %0, i32 noundef %.0591.i.i, i32 noundef 2, i32 noundef %1627, ptr noundef null, ptr noundef nonnull @.str.1669, ptr noundef nonnull @.str.1670, ptr noundef %1626, i32 noundef %1628)
+  br label %1633
 
-1637:                                             ; preds = %1635, %1633
-  %hf_rtp_midi_cj_chapter_e_log_count.hf_rtp_midi_cj_chapter_e_log_velocity.i.i = phi ptr [ @hf_rtp_midi_cj_chapter_e_log_velocity, %1633 ], [ @hf_rtp_midi_cj_chapter_e_log_count, %1635 ]
-  %.060.i.i = phi ptr [ %1634, %1633 ], [ %1636, %1635 ]
-  %1638 = load i32, ptr @hf_rtp_midi_cj_chapter_e_log_sflag, align 4
-  %1639 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i.i, i32 noundef %1638, ptr noundef %0, i32 noundef %.0591.i.i, i32 noundef 1, i32 noundef 0) #2
-  %1640 = load i32, ptr @hf_rtp_midi_cj_chapter_e_log_notenum, align 4
-  %1641 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i.i, i32 noundef %1640, ptr noundef %0, i32 noundef %.0591.i.i, i32 noundef 1, i32 noundef 0) #2
-  %1642 = load i32, ptr @hf_rtp_midi_cj_chapter_e_log_vflag, align 4
-  %1643 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i.i, i32 noundef %1642, ptr noundef %0, i32 noundef %1626, i32 noundef 1, i32 noundef 0) #2
-  %1644 = load i32, ptr %hf_rtp_midi_cj_chapter_e_log_count.hf_rtp_midi_cj_chapter_e_log_velocity.i.i, align 4
-  %1645 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i.i, i32 noundef %1644, ptr noundef %0, i32 noundef %1626, i32 noundef 1, i32 noundef 0) #2
-  %1646 = add i32 %.0591.i.i, 2
-  %1647 = add nuw nsw i32 %.02.i188.i, 1
-  %exitcond.not.i190.i = icmp eq i32 %1647, %1611
-  br i1 %exitcond.not.i190.i, label %decode_cj_chapter_e.exit.i, label %1623, !llvm.loop !18
+1633:                                             ; preds = %1631, %1629
+  %hf_rtp_midi_cj_chapter_e_log_count.hf_rtp_midi_cj_chapter_e_log_velocity.i.i = phi ptr [ @hf_rtp_midi_cj_chapter_e_log_velocity, %1629 ], [ @hf_rtp_midi_cj_chapter_e_log_count, %1631 ]
+  %.060.i.i = phi ptr [ %1630, %1629 ], [ %1632, %1631 ]
+  %1634 = load i32, ptr @hf_rtp_midi_cj_chapter_e_log_sflag, align 4
+  %1635 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i.i, i32 noundef %1634, ptr noundef %0, i32 noundef %.0591.i.i, i32 noundef 1, i32 noundef 0)
+  %1636 = load i32, ptr @hf_rtp_midi_cj_chapter_e_log_notenum, align 4
+  %1637 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i.i, i32 noundef %1636, ptr noundef %0, i32 noundef %.0591.i.i, i32 noundef 1, i32 noundef 0)
+  %1638 = load i32, ptr @hf_rtp_midi_cj_chapter_e_log_vflag, align 4
+  %1639 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i.i, i32 noundef %1638, ptr noundef %0, i32 noundef %1622, i32 noundef 1, i32 noundef 0)
+  %1640 = load i32, ptr %hf_rtp_midi_cj_chapter_e_log_count.hf_rtp_midi_cj_chapter_e_log_velocity.i.i, align 4
+  %1641 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i.i, i32 noundef %1640, ptr noundef %0, i32 noundef %1622, i32 noundef 1, i32 noundef 0)
+  %1642 = add i32 %.0591.i.i, 2
+  %1643 = add nuw nsw i32 %.02.i188.i, 1
+  %exitcond.not.i190.i = icmp eq i32 %1643, %1607
+  br i1 %exitcond.not.i190.i, label %decode_cj_chapter_e.exit.i, label %1619, !llvm.loop !16
 
-decode_cj_chapter_e.exit.i:                       ; preds = %1637
-  %1648 = sub i32 %1646, %.4161.i
-  %1649 = icmp slt i32 %1648, 0
-  br i1 %1649, label %decode_channel_journal.exit, label %1650
+decode_cj_chapter_e.exit.i:                       ; preds = %1633
+  %1644 = sub i32 %1642, %.4161.i
+  %1645 = icmp slt i32 %1644, 0
+  br i1 %1645, label %decode_channel_journal.exit, label %1646
 
-1650:                                             ; preds = %decode_cj_chapter_e.exit.i
-  %1651 = add i32 %1648, %.4.i146
-  br label %1652
+1646:                                             ; preds = %decode_cj_chapter_e.exit.i
+  %1647 = add i32 %1644, %.4.i159
+  br label %1648
 
-1652:                                             ; preds = %1650, %1606
-  %.5162.i = phi i32 [ %1646, %1650 ], [ %.4161.i, %1606 ]
-  %.5.i = phi i32 [ %1651, %1650 ], [ %.4.i146, %1606 ]
-  %1653 = and i32 %1295, 2
-  %.not179.i = icmp eq i32 %1653, 0
-  br i1 %.not179.i, label %1660, label %1654
+1648:                                             ; preds = %1646, %1602
+  %.5162.i = phi i32 [ %1642, %1646 ], [ %.4161.i, %1602 ]
+  %.5.i = phi i32 [ %1647, %1646 ], [ %.4.i159, %1602 ]
+  %1649 = and i32 %1291, 2
+  %.not179.i = icmp eq i32 %1649, 0
+  br i1 %.not179.i, label %1656, label %1650
 
-1654:                                             ; preds = %1652
-  %1655 = load i32, ptr @hf_rtp_midi_cj_chapter_t_channel_aftertouch, align 4
-  %1656 = load i32, ptr @ett_rtp_midi_cj_chapter_t, align 4
-  %1657 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1330, ptr noundef %0, i32 noundef %.5162.i, i32 noundef %1655, i32 noundef %1656, ptr noundef nonnull @decode_channel_journal.flags_t, i32 noundef 0) #2
-  %1658 = add i32 %.5162.i, 1
-  %1659 = add i32 %.5.i, 1
-  br label %1660
+1650:                                             ; preds = %1648
+  %1651 = load i32, ptr @hf_rtp_midi_cj_chapter_t_channel_aftertouch, align 4
+  %1652 = load i32, ptr @ett_rtp_midi_cj_chapter_t, align 4
+  %1653 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1326, ptr noundef %0, i32 noundef %.5162.i, i32 noundef %1651, i32 noundef %1652, ptr noundef nonnull @decode_channel_journal.flags_t, i32 noundef 0)
+  %1654 = add i32 %.5162.i, 1
+  %1655 = add i32 %.5.i, 1
+  br label %1656
 
-1660:                                             ; preds = %1654, %1652
-  %.6163.i = phi i32 [ %1658, %1654 ], [ %.5162.i, %1652 ]
-  %.6.i = phi i32 [ %1659, %1654 ], [ %.5.i, %1652 ]
-  %1661 = and i32 %1295, 1
-  %.not180.i = icmp eq i32 %1661, 0
-  br i1 %.not180.i, label %1702, label %1662
+1656:                                             ; preds = %1650, %1648
+  %.6163.i = phi i32 [ %1654, %1650 ], [ %.5162.i, %1648 ]
+  %.6.i = phi i32 [ %1655, %1650 ], [ %.5.i, %1648 ]
+  %1657 = and i32 %1291, 1
+  %.not180.i = icmp eq i32 %1657, 0
+  br i1 %.not180.i, label %1698, label %1658
 
-1662:                                             ; preds = %1660
-  %1663 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.6163.i) #2
-  %1664 = and i8 %1663, 127
-  %narrow.i191.i = add nuw i8 %1664, 1
-  %1665 = zext i8 %narrow.i191.i to i32
-  %1666 = shl nuw nsw i32 %1665, 1
-  %1667 = or disjoint i32 %1666, 1
-  %1668 = load i32, ptr @ett_rtp_midi_cj_chapter_a, align 4
-  %1669 = tail call ptr @proto_tree_add_subtree(ptr noundef %1330, ptr noundef %0, i32 noundef %.6163.i, i32 noundef %1667, i32 noundef %1668, ptr noundef null, ptr noundef nonnull @.str.1645) #2
-  %1670 = load i32, ptr @hf_rtp_midi_cj_chapter_a_sflag, align 4
-  %1671 = tail call ptr @proto_tree_add_item(ptr noundef %1669, i32 noundef %1670, ptr noundef %0, i32 noundef %.6163.i, i32 noundef 1, i32 noundef 0) #2
-  %1672 = load i32, ptr @hf_rtp_midi_cj_chapter_a_len, align 4
-  %1673 = tail call ptr @proto_tree_add_item(ptr noundef %1669, i32 noundef %1672, ptr noundef %0, i32 noundef %.6163.i, i32 noundef 1, i32 noundef 0) #2
-  %1674 = add i32 %.6163.i, 1
-  %1675 = load i32, ptr @ett_rtp_midi_cj_chapter_a_loglist, align 4
-  %1676 = tail call ptr @proto_tree_add_subtree(ptr noundef %1669, ptr noundef %0, i32 noundef %1674, i32 noundef %1666, i32 noundef %1675, ptr noundef null, ptr noundef nonnull @.str.1635) #2
-  br label %1677
+1658:                                             ; preds = %1656
+  %1659 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.6163.i)
+  %1660 = and i8 %1659, 127
+  %narrow.i191.i = add nuw i8 %1660, 1
+  %1661 = zext i8 %narrow.i191.i to i32
+  %1662 = shl nuw nsw i32 %1661, 1
+  %1663 = or disjoint i32 %1662, 1
+  %1664 = load i32, ptr @ett_rtp_midi_cj_chapter_a, align 4
+  %1665 = tail call ptr @proto_tree_add_subtree(ptr noundef %1326, ptr noundef %0, i32 noundef %.6163.i, i32 noundef %1663, i32 noundef %1664, ptr noundef null, ptr noundef nonnull @.str.1671)
+  %1666 = load i32, ptr @hf_rtp_midi_cj_chapter_a_sflag, align 4
+  %1667 = tail call ptr @proto_tree_add_item(ptr noundef %1665, i32 noundef %1666, ptr noundef %0, i32 noundef %.6163.i, i32 noundef 1, i32 noundef 0)
+  %1668 = load i32, ptr @hf_rtp_midi_cj_chapter_a_len, align 4
+  %1669 = tail call ptr @proto_tree_add_item(ptr noundef %1665, i32 noundef %1668, ptr noundef %0, i32 noundef %.6163.i, i32 noundef 1, i32 noundef 0)
+  %1670 = add i32 %.6163.i, 1
+  %1671 = load i32, ptr @ett_rtp_midi_cj_chapter_a_loglist, align 4
+  %1672 = tail call ptr @proto_tree_add_subtree(ptr noundef %1665, ptr noundef %0, i32 noundef %1670, i32 noundef %1662, i32 noundef %1671, ptr noundef null, ptr noundef nonnull @.str.1661)
+  br label %1673
 
-1677:                                             ; preds = %1677, %1662
-  %.02.i192.i = phi i32 [ 0, %1662 ], [ %1697, %1677 ]
-  %.0481.i.i = phi i32 [ %1674, %1662 ], [ %1696, %1677 ]
-  %1678 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0481.i.i) #2
-  %1679 = and i8 %1678, 127
-  %1680 = add i32 %.0481.i.i, 1
-  %1681 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1680) #2
-  %1682 = and i8 %1681, 127
-  %1683 = zext nneg i8 %1679 to i32
-  %1684 = tail call ptr @val_to_str_ext(i32 noundef %1683, ptr noundef nonnull @rtp_midi_note_values_ext, ptr noundef nonnull @rtp_midi_unknown_value_dec) #2
-  %1685 = load i32, ptr @ett_rtp_midi_cj_chapter_a_logitem, align 4
-  %1686 = zext nneg i8 %1682 to i32
-  %1687 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1676, ptr noundef %0, i32 noundef %.0481.i.i, i32 noundef 2, i32 noundef %1685, ptr noundef null, ptr noundef nonnull @.str.1646, ptr noundef nonnull @.str.42, ptr noundef %1684, i32 noundef %1686) #2
-  %1688 = load i32, ptr @hf_rtp_midi_cj_chapter_a_log_sflag, align 4
-  %1689 = tail call ptr @proto_tree_add_item(ptr noundef %1687, i32 noundef %1688, ptr noundef %0, i32 noundef %.0481.i.i, i32 noundef 1, i32 noundef 0) #2
-  %1690 = load i32, ptr @hf_rtp_midi_cj_chapter_a_log_notenum, align 4
-  %1691 = tail call ptr @proto_tree_add_item(ptr noundef %1687, i32 noundef %1690, ptr noundef %0, i32 noundef %.0481.i.i, i32 noundef 1, i32 noundef 0) #2
-  %1692 = load i32, ptr @hf_rtp_midi_cj_chapter_a_log_xflag, align 4
-  %1693 = tail call ptr @proto_tree_add_item(ptr noundef %1687, i32 noundef %1692, ptr noundef %0, i32 noundef %1680, i32 noundef 1, i32 noundef 0) #2
-  %1694 = load i32, ptr @hf_rtp_midi_cj_chapter_a_log_pressure, align 4
-  %1695 = tail call ptr @proto_tree_add_item(ptr noundef %1687, i32 noundef %1694, ptr noundef %0, i32 noundef %1680, i32 noundef 1, i32 noundef 0) #2
-  %1696 = add i32 %.0481.i.i, 2
-  %1697 = add nuw nsw i32 %.02.i192.i, 1
-  %exitcond.not.i193.i = icmp eq i32 %1697, %1665
-  br i1 %exitcond.not.i193.i, label %decode_cj_chapter_a.exit.i, label %1677, !llvm.loop !19
+1673:                                             ; preds = %1673, %1658
+  %.02.i192.i = phi i32 [ 0, %1658 ], [ %1693, %1673 ]
+  %.0481.i.i = phi i32 [ %1670, %1658 ], [ %1692, %1673 ]
+  %1674 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0481.i.i)
+  %1675 = and i8 %1674, 127
+  %1676 = add i32 %.0481.i.i, 1
+  %1677 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1676)
+  %1678 = and i8 %1677, 127
+  %1679 = zext nneg i8 %1675 to i32
+  %1680 = tail call ptr @val_to_str_ext(i32 noundef %1679, ptr noundef nonnull @rtp_midi_note_values_ext, ptr noundef nonnull @rtp_midi_unknown_value_dec)
+  %1681 = load i32, ptr @ett_rtp_midi_cj_chapter_a_logitem, align 4
+  %1682 = zext nneg i8 %1678 to i32
+  %1683 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1672, ptr noundef %0, i32 noundef %.0481.i.i, i32 noundef 2, i32 noundef %1681, ptr noundef null, ptr noundef nonnull @.str.1672, ptr noundef nonnull @.str.42, ptr noundef %1680, i32 noundef %1682)
+  %1684 = load i32, ptr @hf_rtp_midi_cj_chapter_a_log_sflag, align 4
+  %1685 = tail call ptr @proto_tree_add_item(ptr noundef %1683, i32 noundef %1684, ptr noundef %0, i32 noundef %.0481.i.i, i32 noundef 1, i32 noundef 0)
+  %1686 = load i32, ptr @hf_rtp_midi_cj_chapter_a_log_notenum, align 4
+  %1687 = tail call ptr @proto_tree_add_item(ptr noundef %1683, i32 noundef %1686, ptr noundef %0, i32 noundef %.0481.i.i, i32 noundef 1, i32 noundef 0)
+  %1688 = load i32, ptr @hf_rtp_midi_cj_chapter_a_log_xflag, align 4
+  %1689 = tail call ptr @proto_tree_add_item(ptr noundef %1683, i32 noundef %1688, ptr noundef %0, i32 noundef %1676, i32 noundef 1, i32 noundef 0)
+  %1690 = load i32, ptr @hf_rtp_midi_cj_chapter_a_log_pressure, align 4
+  %1691 = tail call ptr @proto_tree_add_item(ptr noundef %1683, i32 noundef %1690, ptr noundef %0, i32 noundef %1676, i32 noundef 1, i32 noundef 0)
+  %1692 = add i32 %.0481.i.i, 2
+  %1693 = add nuw nsw i32 %.02.i192.i, 1
+  %exitcond.not.i193.i = icmp eq i32 %1693, %1661
+  br i1 %exitcond.not.i193.i, label %decode_cj_chapter_a.exit.i, label %1673, !llvm.loop !17
 
-decode_cj_chapter_a.exit.i:                       ; preds = %1677
-  %1698 = sub i32 %1696, %.6163.i
-  %1699 = icmp slt i32 %1698, 0
-  br i1 %1699, label %decode_channel_journal.exit, label %1700
+decode_cj_chapter_a.exit.i:                       ; preds = %1673
+  %1694 = sub i32 %1692, %.6163.i
+  %1695 = icmp slt i32 %1694, 0
+  br i1 %1695, label %decode_channel_journal.exit, label %1696
 
-1700:                                             ; preds = %decode_cj_chapter_a.exit.i
-  %1701 = add i32 %1698, %.6.i
-  br label %1702
+1696:                                             ; preds = %decode_cj_chapter_a.exit.i
+  %1697 = add i32 %1694, %.6.i
+  br label %1698
 
-1702:                                             ; preds = %1700, %1660
-  %.7.i = phi i32 [ %1701, %1700 ], [ %.6.i, %1660 ]
-  %.not181.i = icmp eq i32 %.7.i, %1297
-  br i1 %.not181.i, label %decode_channel_journal.exit.thread, label %decodemidi.exit.thread222
+1698:                                             ; preds = %1696, %1656
+  %.7.i = phi i32 [ %1697, %1696 ], [ %.6.i, %1656 ]
+  %.not181.i = icmp eq i32 %.7.i, %1293
+  br i1 %.not181.i, label %decode_channel_journal.exit.thread, label %.thread242
 
 decode_channel_journal.exit:                      ; preds = %decode_cj_chapter_c.exit.i, %decode_cj_chapter_m.exit.i, %decode_cj_chapter_n.exit.i, %decode_cj_chapter_e.exit.i, %decode_cj_chapter_a.exit.i
-  %.0156.i = phi i32 [ %1386, %decode_cj_chapter_c.exit.i ], [ %1516, %decode_cj_chapter_m.exit.i ], [ %1602, %decode_cj_chapter_n.exit.i ], [ %1648, %decode_cj_chapter_e.exit.i ], [ %1698, %decode_cj_chapter_a.exit.i ]
-  %1703 = icmp eq i32 %.0156.i, -1
-  br i1 %1703, label %decodemidi.exit.thread222, label %decode_channel_journal.exit.thread
+  %.0156.i = phi i32 [ %1382, %decode_cj_chapter_c.exit.i ], [ %1512, %decode_cj_chapter_m.exit.i ], [ %1598, %decode_cj_chapter_n.exit.i ], [ %1644, %decode_cj_chapter_e.exit.i ], [ %1694, %decode_cj_chapter_a.exit.i ]
+  %1699 = icmp eq i32 %.0156.i, -1
+  br i1 %1699, label %.thread242, label %decode_channel_journal.exit.thread
 
-decode_channel_journal.exit.thread:               ; preds = %1702, %decode_channel_journal.exit
-  %.0156.i340 = phi i32 [ %.0156.i, %decode_channel_journal.exit ], [ %1297, %1702 ]
-  %1704 = add i32 %.0156.i340, %.6272
-  %1705 = add nuw nsw i32 %.0114271, 1
-  %exitcond.not = icmp eq i32 %1705, %1293
-  br i1 %exitcond.not, label %.loopexit, label %1294, !llvm.loop !20
+decode_channel_journal.exit.thread:               ; preds = %1698, %decode_channel_journal.exit
+  %.0156.i353 = phi i32 [ %.0156.i, %decode_channel_journal.exit ], [ %1293, %1698 ]
+  %1700 = add i32 %.0156.i353, %.7287
+  %1701 = add nuw nsw i32 %.0127286, 1
+  %exitcond.not = icmp eq i32 %1701, %1289
+  br i1 %exitcond.not, label %.thread238, label %1290, !llvm.loop !18
 
-.loopexit:                                        ; preds = %decode_channel_journal.exit.thread, %1288, %.loopexit231
-  %1706 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
-  br label %decodemidi.exit.thread222
+.thread238:                                       ; preds = %decode_channel_journal.exit.thread, %1284, %.thread232
+  %1702 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  br label %.thread242
 
-decodemidi.exit.thread222:                        ; preds = %67, %decodemidi.exit, %.preheader.split.i.i, %1549, %1702, %decode_channel_journal.exit, %.preheader.i.i, %1284, %decode_system_journal.exit, %.loopexit
-  %.0 = phi i32 [ %1706, %.loopexit ], [ %890, %decode_system_journal.exit ], [ %890, %1284 ], [ %890, %.preheader.i.i ], [ %.6272, %decode_channel_journal.exit ], [ %.6272, %1702 ], [ %.6272, %1549 ], [ %890, %.preheader.split.i.i ], [ %.3215, %decodemidi.exit ], [ %.3215, %67 ]
-  ret i32 %.0
+.thread242:                                       ; preds = %decodemidi.exit, %67, %.preheader.split.i.i, %decode_channel_journal.exit, %1545, %1698, %.preheader.i.i, %1280, %decode_system_journal.exit, %.thread238
+  %.2 = phi i32 [ %1702, %.thread238 ], [ %886, %decode_system_journal.exit ], [ %886, %1280 ], [ %886, %.preheader.i.i ], [ %.7287, %1698 ], [ %.7287, %1545 ], [ %.7287, %decode_channel_journal.exit ], [ %886, %.preheader.split.i.i ], [ %.3121221, %67 ], [ %.3121221, %decodemidi.exit ]
+  ret i32 %.2
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_rtp_midi() local_unnamed_addr #0 {
   %1 = load ptr, ptr @rtp_midi_handle, align 8
-  tail call void @dissector_add_string(ptr noundef nonnull @.str.594, ptr noundef nonnull @.str.595, ptr noundef %1) #2
+  tail call void @dissector_add_string(ptr noundef nonnull @.str.594, ptr noundef nonnull @.str.595, ptr noundef %1)
   %2 = load ptr, ptr @rtp_midi_handle, align 8
-  tail call void @dissector_add_uint_range_with_preference(ptr noundef nonnull @.str.596, ptr noundef nonnull @.str.597, ptr noundef %2) #2
+  tail call void @dissector_add_uint_range_with_preference(ptr noundef nonnull @.str.596, ptr noundef nonnull @.str.597, ptr noundef %2)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_string(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint_range_with_preference(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @decode_sysex_common_tuning(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2147483645) %4) unnamed_addr #0 {
   %6 = icmp eq i32 %4, 0
   br i1 %6, label %55, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #2
+  %8 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %3)
   %9 = load i32, ptr @hf_rtp_midi_sysex_common_tuning, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #2
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0)
   %11 = add i32 %3, 1
   switch i8 %8, label %.loopexit [
     i8 0, label %12
@@ -5110,45 +5134,45 @@ define internal fastcc i32 @decode_sysex_common_tuning(ptr noundef %0, ptr nound
 
 12:                                               ; preds = %7
   %13 = load i32, ptr @hf_rtp_midi_sysex_common_tune_program, align 4
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #2
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0)
   %15 = add i32 %3, 2
   br label %.loopexit
 
 16:                                               ; preds = %7
   %17 = load i32, ptr @hf_rtp_midi_sysex_common_tune_program, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %17, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #2
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %17, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0)
   %19 = add i32 %3, 2
   %20 = load i32, ptr @hf_rtp_midi_sysex_common_tune_name, align 4
-  %21 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef %19, i32 noundef 16, i32 noundef 0) #2
+  %21 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef %19, i32 noundef 16, i32 noundef 0)
   %22 = add i32 %3, 18
   br label %23
 
 23:                                               ; preds = %16, %23
   %.178 = phi i32 [ %22, %16 ], [ %29, %23 ]
   %.07077 = phi i32 [ 0, %16 ], [ %30, %23 ]
-  %24 = tail call ptr @val_to_str_ext(i32 noundef %.07077, ptr noundef nonnull @rtp_midi_note_values_ext, ptr noundef nonnull @rtp_midi_unknown_value_dec) #2
+  %24 = tail call ptr @val_to_str_ext(i32 noundef %.07077, ptr noundef nonnull @rtp_midi_note_values_ext, ptr noundef nonnull @rtp_midi_unknown_value_dec)
   %25 = load i32, ptr @ett_rtp_midi_sysex_common_tune_note, align 4
-  %26 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.178, i32 noundef 3, i32 noundef %25, ptr noundef null, ptr noundef nonnull @.str.1616, ptr noundef %24) #2
+  %26 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.178, i32 noundef 3, i32 noundef %25, ptr noundef null, ptr noundef nonnull @.str.1642, ptr noundef %24)
   %27 = load i32, ptr @hf_rtp_midi_sysex_common_tune_freq, align 4
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %27, ptr noundef %0, i32 noundef %.178, i32 noundef 3, i32 noundef 0) #2
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %27, ptr noundef %0, i32 noundef %.178, i32 noundef 3, i32 noundef 0)
   %29 = add i32 %.178, 3
   %30 = add nuw nsw i32 %.07077, 1
   %exitcond79.not = icmp eq i32 %30, 128
-  br i1 %exitcond79.not, label %31, label %23, !llvm.loop !21
+  br i1 %exitcond79.not, label %31, label %23, !llvm.loop !19
 
 31:                                               ; preds = %23
   %32 = load i32, ptr @hf_rtp_midi_sysex_common_tune_checksum, align 4
-  %33 = tail call ptr @proto_tree_add_checksum(ptr noundef %2, ptr noundef %0, i32 noundef %29, i32 noundef %32, i32 noundef -1, ptr noundef null, ptr noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #2
+  %33 = tail call ptr @proto_tree_add_checksum(ptr noundef %2, ptr noundef %0, i32 noundef %29, i32 noundef %32, i32 noundef -1, ptr noundef null, ptr noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   %34 = add i32 %.178, 4
   br label %.loopexit
 
 35:                                               ; preds = %7
   %36 = load i32, ptr @hf_rtp_midi_sysex_common_tune_program, align 4
-  %37 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %36, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0) #2
+  %37 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %36, ptr noundef %0, i32 noundef %11, i32 noundef 1, i32 noundef 0)
   %38 = add i32 %3, 2
-  %39 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %38) #2
+  %39 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %38)
   %40 = load i32, ptr @hf_rtp_midi_sysex_common_tune_changes, align 4
-  %41 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %40, ptr noundef %0, i32 noundef %38, i32 noundef 1, i32 noundef 0) #2
+  %41 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %40, ptr noundef %0, i32 noundef %38, i32 noundef 1, i32 noundef 0)
   %42 = zext i8 %39 to i32
   %.273 = add i32 %3, 3
   %.not = icmp eq i8 %39, 0
@@ -5158,20 +5182,20 @@ define internal fastcc i32 @decode_sysex_common_tuning(ptr noundef %0, ptr nound
   %.276 = phi i32 [ %.2, %.lr.ph ], [ %.273, %35 ]
   %.2.in75 = phi i32 [ %50, %.lr.ph ], [ %3, %35 ]
   %.17174 = phi i32 [ %53, %.lr.ph ], [ 0, %35 ]
-  %43 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.276) #2
+  %43 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.276)
   %44 = zext i8 %43 to i32
-  %45 = tail call ptr @val_to_str_ext(i32 noundef %44, ptr noundef nonnull @rtp_midi_note_values_ext, ptr noundef nonnull @rtp_midi_unknown_value_dec) #2
+  %45 = tail call ptr @val_to_str_ext(i32 noundef %44, ptr noundef nonnull @rtp_midi_note_values_ext, ptr noundef nonnull @rtp_midi_unknown_value_dec)
   %46 = load i32, ptr @ett_rtp_midi_sysex_common_tune_note, align 4
-  %47 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.276, i32 noundef 3, i32 noundef %46, ptr noundef null, ptr noundef nonnull @.str.1616, ptr noundef %45) #2
+  %47 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.276, i32 noundef 3, i32 noundef %46, ptr noundef null, ptr noundef nonnull @.str.1642, ptr noundef %45)
   %48 = load i32, ptr @hf_rtp_midi_sysex_common_tune_note, align 4
-  %49 = tail call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %48, ptr noundef %0, i32 noundef %.276, i32 noundef 1, i32 noundef 0) #2
+  %49 = tail call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %48, ptr noundef %0, i32 noundef %.276, i32 noundef 1, i32 noundef 0)
   %50 = add i32 %.2.in75, 4
   %51 = load i32, ptr @hf_rtp_midi_sysex_common_tune_freq, align 4
-  %52 = tail call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %51, ptr noundef %0, i32 noundef %50, i32 noundef 3, i32 noundef 0) #2
+  %52 = tail call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %51, ptr noundef %0, i32 noundef %50, i32 noundef 3, i32 noundef 0)
   %53 = add nuw nsw i32 %.17174, 1
   %.2 = add i32 %.2.in75, 7
   %exitcond.not = icmp eq i32 %53, %42
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.lr.ph, %35, %7, %31, %12
   %.069 = phi i32 [ %15, %12 ], [ %34, %31 ], [ %11, %7 ], [ %.273, %35 ], [ %.2, %.lr.ph ]
@@ -5183,42 +5207,44 @@ define internal fastcc i32 @decode_sysex_common_tuning(ptr noundef %0, ptr nound
   ret i32 %.0
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_checksum(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @tvb_bytes_exist(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @tvb_bytes_exist(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_get_ntoh24(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}

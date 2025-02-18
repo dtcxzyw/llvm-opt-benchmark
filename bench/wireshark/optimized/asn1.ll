@@ -11,29 +11,26 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.5 = private unnamed_addr constant [57 x i8] c"(pd->ptype == ASN1_PAR_IRR) || (par->ptype == pd->ptype)\00", align 1
 @.str.6 = private unnamed_addr constant [5 x i8] c"!par\00", align 1
 @.str.7 = private unnamed_addr constant [10 x i8] c"lenE != 4\00", align 1
-@.str.8 = private unnamed_addr constant [15 x i8] c"lenE < len - 1\00", align 1
+@.str.8 = private unnamed_addr constant [11 x i8] c"lenE < len\00", align 1
 @.str.9 = private unnamed_addr constant [10 x i8] c"lenN <= 8\00", align 1
+@switch.table.asn1_get_real = private unnamed_addr constant [3 x double] [double 0x7FF0000000000000, double 0xFFF0000000000000, double 0x7FF8000000000000], align 8
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @asn1_ctx_init(ptr noundef writeonly captures(none) initializes((0, 208)) %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 {
+; Function Attrs: nofree nounwind null_pointer_is_valid sspstrong memory(argmem: readwrite) uwtable
+define void @asn1_ctx_init(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = zext i1 %2 to i8
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %6, i8 0, i64 200, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(208) %0, i8 noundef 0, i64 noundef 208, i1 noundef false) #11
   store i32 1094931544, ptr %0, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %1, ptr %7, align 4
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %5, ptr %8, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %3, ptr %9, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %1, ptr %6, align 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %5, ptr %7, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %3, ptr %8, align 8
   ret void
 }
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden zeroext i1 @asn1_ctx_check_signature(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
+define hidden zeroext i1 @asn1_ctx_check_signature(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -47,33 +44,33 @@ define hidden zeroext i1 @asn1_ctx_check_signature(ptr noundef readonly captures
   ret i1 %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @asn1_ctx_clean_external(ptr noundef writeonly captures(none) initializes((56, 120)) %0) local_unnamed_addr #0 {
+; Function Attrs: nofree nounwind null_pointer_is_valid sspstrong memory(argmem: readwrite) uwtable
+define hidden void @asn1_ctx_clean_external(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 0, i64 64, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %2, i8 noundef 0, i64 noundef 64, i1 noundef false) #11
   store i32 -1, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 -1, ptr %3, align 4
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @asn1_ctx_clean_epdv(ptr noundef writeonly captures(none) initializes((144, 200)) %0) local_unnamed_addr #0 {
+; Function Attrs: nofree nounwind null_pointer_is_valid sspstrong memory(argmem: readwrite) uwtable
+define hidden void @asn1_ctx_clean_epdv(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %2, i8 noundef 0, i64 noundef 56, i1 noundef false) #11
   store i32 -1, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i32 -1, ptr %3, align 8
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define hidden void @asn1_stack_frame_push(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define hidden void @asn1_stack_frame_push(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 408
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call noalias ptr @wmem_alloc0(ptr noundef %6, i64 noundef 24) #10
+  %7 = tail call noalias dereferenceable_or_null(24) ptr @wmem_alloc0(ptr noundef %6, i64 noundef 24) #12
   store ptr %1, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
@@ -83,27 +80,28 @@ define hidden void @asn1_stack_frame_push(ptr noundef captures(none) %0, ptr nou
   ret void
 }
 
-declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #4
+; Function Attrs: null_pointer_is_valid allocsize(1)
+declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-; Function Attrs: nounwind uwtable
-define hidden void @asn1_stack_frame_pop(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define hidden void @asn1_stack_frame_pop(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %6
 
 5:                                                ; preds = %2
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 61, ptr noundef nonnull @.str.2) #11
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 61, ptr noundef nonnull @.str.2) #13
   unreachable
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %4, align 8
-  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %1) #12
+  %8 = tail call i32 @strcmp(ptr noundef %7, ptr noundef %1) #14
   %.not5 = icmp eq i32 %8, 0
   br i1 %.not5, label %10, label %9
 
 9:                                                ; preds = %6
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 62, ptr noundef nonnull @.str.3) #11
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 62, ptr noundef nonnull @.str.3) #13
   unreachable
 
 10:                                               ; preds = %6
@@ -113,31 +111,31 @@ define hidden void @asn1_stack_frame_pop(ptr noundef captures(none) %0, ptr noun
   ret void
 }
 
-; Function Attrs: noreturn
-declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #5
+; Function Attrs: noreturn null_pointer_is_valid
+declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
+; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
-; Function Attrs: nounwind uwtable
-define hidden void @asn1_stack_frame_check(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define hidden void @asn1_stack_frame_check(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %7
 
 6:                                                ; preds = %3
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 70, ptr noundef nonnull @.str.2) #11
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 70, ptr noundef nonnull @.str.2) #13
   unreachable
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %5, align 8
-  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %1) #12
+  %9 = tail call i32 @strcmp(ptr noundef %8, ptr noundef %1) #14
   %.not18 = icmp eq i32 %9, 0
   br i1 %.not18, label %11, label %10
 
 10:                                               ; preds = %7
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 71, ptr noundef nonnull @.str.3) #11
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 71, ptr noundef nonnull @.str.3) #13
   unreachable
 
 11:                                               ; preds = %7
@@ -155,7 +153,7 @@ define hidden void @asn1_stack_frame_check(ptr noundef readonly captures(none) %
   br i1 %.not21, label %15, label %16
 
 15:                                               ; preds = %.lr.ph
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 75, ptr noundef nonnull @.str.4) #11
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 75, ptr noundef nonnull @.str.4) #13
   unreachable
 
 16:                                               ; preds = %.lr.ph
@@ -171,7 +169,7 @@ define hidden void @asn1_stack_frame_check(ptr noundef readonly captures(none) %
   br i1 %23, label %25, label %24
 
 24:                                               ; preds = %20
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 76, ptr noundef nonnull @.str.5) #11
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 76, ptr noundef nonnull @.str.5) #13
   unreachable
 
 25:                                               ; preds = %16, %20
@@ -181,7 +179,7 @@ define hidden void @asn1_stack_frame_check(ptr noundef readonly captures(none) %
   %.0 = load ptr, ptr %27, align 8
   %28 = load ptr, ptr %26, align 8
   %.not19 = icmp eq ptr %28, null
-  br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !4
+  br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %25, %11
   %.0.lcssa = phi ptr [ %.024, %11 ], [ %.0, %25 ]
@@ -189,22 +187,22 @@ define hidden void @asn1_stack_frame_check(ptr noundef readonly captures(none) %
   br i1 %.not20, label %30, label %29
 
 29:                                               ; preds = %._crit_edge
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 81, ptr noundef nonnull @.str.6) #11
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 81, ptr noundef nonnull @.str.6) #13
   unreachable
 
 30:                                               ; preds = %._crit_edge
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define hidden void @asn1_param_push_boolean(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #3 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define hidden void @asn1_param_push_boolean(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %5, label %6
 
 5:                                                ; preds = %2
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 100, ptr noundef nonnull @.str.2) #11
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 100, ptr noundef nonnull @.str.2) #13
   unreachable
 
 6:                                                ; preds = %2
@@ -212,7 +210,7 @@ define hidden void @asn1_param_push_boolean(ptr noundef readonly captures(none) 
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call noalias ptr @wmem_alloc0(ptr noundef %10, i64 noundef 32) #10
+  %11 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc0(ptr noundef %10, i64 noundef 32) #12
   %12 = load ptr, ptr %3, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   br label %14
@@ -222,7 +220,7 @@ define hidden void @asn1_param_push_boolean(ptr noundef readonly captures(none) 
   %15 = load ptr, ptr %.0.i, align 8
   %.not9.i = icmp eq ptr %15, null
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  br i1 %.not9.i, label %push_new_par.exit, label %14, !llvm.loop !6
+  br i1 %.not9.i, label %push_new_par.exit, label %14, !llvm.loop !8
 
 push_new_par.exit:                                ; preds = %14
   %17 = zext i1 %1 to i8
@@ -234,15 +232,15 @@ push_new_par.exit:                                ; preds = %14
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define hidden void @asn1_param_push_integer(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define hidden void @asn1_param_push_integer(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %5, label %6
 
 5:                                                ; preds = %2
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 100, ptr noundef nonnull @.str.2) #11
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 100, ptr noundef nonnull @.str.2) #13
   unreachable
 
 6:                                                ; preds = %2
@@ -250,7 +248,7 @@ define hidden void @asn1_param_push_integer(ptr noundef readonly captures(none) 
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call noalias ptr @wmem_alloc0(ptr noundef %10, i64 noundef 32) #10
+  %11 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc0(ptr noundef %10, i64 noundef 32) #12
   %12 = load ptr, ptr %3, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   br label %14
@@ -260,7 +258,7 @@ define hidden void @asn1_param_push_integer(ptr noundef readonly captures(none) 
   %15 = load ptr, ptr %.0.i, align 8
   %.not9.i = icmp eq ptr %15, null
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  br i1 %.not9.i, label %push_new_par.exit, label %14, !llvm.loop !6
+  br i1 %.not9.i, label %push_new_par.exit, label %14, !llvm.loop !8
 
 push_new_par.exit:                                ; preds = %14
   store ptr %11, ptr %.0.i, align 8
@@ -271,15 +269,15 @@ push_new_par.exit:                                ; preds = %14
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @asn1_param_get_boolean(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define hidden zeroext i1 @asn1_param_get_boolean(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %.val, null
   br i1 %.not.i, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 87, ptr noundef nonnull @.str.2) #11
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 87, ptr noundef nonnull @.str.2) #13
   unreachable
 
 5:                                                ; preds = %2
@@ -291,7 +289,7 @@ define hidden zeroext i1 @asn1_param_get_boolean(ptr noundef readonly captures(n
 .lr.ph.i:                                         ; preds = %5, %9
   %.03.i = phi ptr [ %.0.i, %9 ], [ %.01.i, %5 ]
   %7 = load ptr, ptr %.03.i, align 8
-  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %1) #12
+  %8 = tail call i32 @strcmp(ptr noundef %7, ptr noundef readonly %1) #14
   %.not12.i = icmp eq i32 %8, 0
   br i1 %.not12.i, label %get_par_by_name.exit, label %9
 
@@ -299,28 +297,28 @@ define hidden zeroext i1 @asn1_param_get_boolean(ptr noundef readonly captures(n
   %10 = getelementptr inbounds nuw i8, ptr %.03.i, i64 24
   %.0.i = load ptr, ptr %10, align 8
   %.not11.i = icmp eq ptr %.0.i, null
-  br i1 %.not11.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not11.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !9
 
 .loopexit:                                        ; preds = %9, %5
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 132, ptr noundef nonnull @.str.4) #11
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 132, ptr noundef nonnull @.str.4) #13
   unreachable
 
 get_par_by_name.exit:                             ; preds = %.lr.ph.i
   %11 = getelementptr inbounds nuw i8, ptr %.03.i, i64 16
-  %12 = load i8, ptr %11, align 8
-  %13 = trunc i8 %12 to i1
+  %12 = load i8, ptr %11, align 8, !range !10, !noundef !11
+  %13 = trunc nuw i8 %12 to i1
   ret i1 %13
 }
 
-; Function Attrs: nounwind uwtable
-define hidden i32 @asn1_param_get_integer(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define hidden i32 @asn1_param_get_integer(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %.val, null
   br i1 %.not.i, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 87, ptr noundef nonnull @.str.2) #11
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 87, ptr noundef nonnull @.str.2) #13
   unreachable
 
 5:                                                ; preds = %2
@@ -332,7 +330,7 @@ define hidden i32 @asn1_param_get_integer(ptr noundef readonly captures(none) %0
 .lr.ph.i:                                         ; preds = %5, %9
   %.03.i = phi ptr [ %.0.i, %9 ], [ %.01.i, %5 ]
   %7 = load ptr, ptr %.03.i, align 8
-  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %1) #12
+  %8 = tail call i32 @strcmp(ptr noundef %7, ptr noundef readonly %1) #14
   %.not12.i = icmp eq i32 %8, 0
   br i1 %.not12.i, label %get_par_by_name.exit, label %9
 
@@ -340,10 +338,10 @@ define hidden i32 @asn1_param_get_integer(ptr noundef readonly captures(none) %0
   %10 = getelementptr inbounds nuw i8, ptr %.03.i, i64 24
   %.0.i = load ptr, ptr %10, align 8
   %.not11.i = icmp eq ptr %.0.i, null
-  br i1 %.not11.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not11.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !9
 
 .loopexit:                                        ; preds = %9, %5
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 140, ptr noundef nonnull @.str.4) #11
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 140, ptr noundef nonnull @.str.4) #13
   unreachable
 
 get_par_by_name.exit:                             ; preds = %.lr.ph.i
@@ -352,15 +350,15 @@ get_par_by_name.exit:                             ; preds = %.lr.ph.i
   ret i32 %12
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rose_ctx_init(ptr noundef writeonly captures(none) initializes((0, 120)) %0) local_unnamed_addr #0 {
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, i8 0, i64 120, i1 false)
+; Function Attrs: nofree nounwind null_pointer_is_valid sspstrong memory(argmem: readwrite) uwtable
+define void @rose_ctx_init(ptr noundef %0) local_unnamed_addr #0 {
+  tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(120) %0, i8 noundef 0, i64 noundef 120, i1 noundef false) #11
   store i32 1380930373, ptr %0, align 8
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden zeroext i1 @rose_ctx_check_signature(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
+define hidden zeroext i1 @rose_ctx_check_signature(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -374,17 +372,17 @@ define hidden zeroext i1 @rose_ctx_check_signature(ptr noundef readonly captures
   ret i1 %6
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rose_ctx_clean_data(ptr noundef writeonly captures(none) initializes((80, 112)) %0) local_unnamed_addr #0 {
+; Function Attrs: nofree nounwind null_pointer_is_valid sspstrong memory(argmem: readwrite) uwtable
+define void @rose_ctx_clean_data(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %2, i8 noundef 0, i64 noundef 32, i1 noundef false) #11
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 -1, ptr %3, align 4
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @get_asn1_ctx(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
+define noundef ptr @get_asn1_ctx(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #1 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %asn1_ctx_check_signature.exit.thread, label %asn1_ctx_check_signature.exit
 
@@ -400,8 +398,8 @@ asn1_ctx_check_signature.exit.thread:             ; preds = %asn1_ctx_check_sign
   ret ptr %4
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @get_rose_ctx(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #7 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
+define ptr @get_rose_ctx(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #6 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %rose_ctx_check_signature.exit.thread, label %asn1_ctx_check_signature.exit
 
@@ -434,10 +432,10 @@ rose_ctx_check_signature.exit.thread:             ; preds = %rose_ctx_check_sign
   ret ptr %8
 }
 
-; Function Attrs: nounwind uwtable
-define hidden double @asn1_get_real(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define hidden double @asn1_get_real(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = icmp slt i32 %1, 1
-  br i1 %3, label %67, label %4
+  br i1 %3, label %68, label %4
 
 4:                                                ; preds = %2
   %5 = load i8, ptr %0, align 1
@@ -445,18 +443,18 @@ define hidden double @asn1_get_real(ptr noundef %0, i32 noundef %1) local_unname
   %7 = add nsw i32 %1, -1
   %8 = zext i8 %5 to i32
   %.not = icmp sgt i8 %5, -1
-  br i1 %.not, label %60, label %9
+  br i1 %.not, label %51, label %9
 
 9:                                                ; preds = %4
   %10 = and i32 %8, 64
-  %.not59 = icmp eq i32 %10, 0
+  %.not64 = icmp eq i32 %10, 0
   %11 = lshr i32 %8, 4
   %12 = and i32 %11, 3
   switch i32 %12, label %default.unreachable [
     i32 0, label %15
     i32 1, label %13
     i32 2, label %14
-    i32 3, label %67
+    i32 3, label %68
   ]
 
 13:                                               ; preds = %9
@@ -469,174 +467,188 @@ default.unreachable:                              ; preds = %9
   unreachable
 
 15:                                               ; preds = %9, %14, %13
-  %.050 = phi double [ 1.600000e+01, %14 ], [ 8.000000e+00, %13 ], [ 2.000000e+00, %9 ]
+  %.052 = phi double [ 1.600000e+01, %14 ], [ 8.000000e+00, %13 ], [ 2.000000e+00, %9 ]
   %16 = lshr i8 %5, 2
   %17 = and i8 %16, 3
   %18 = and i8 %5, 3
   %19 = add nuw nsw i8 %18, 1
   %20 = zext nneg i8 %19 to i32
-  %.not60 = icmp eq i8 %19, 4
-  br i1 %.not60, label %21, label %22
+  %.not65 = icmp eq i8 %19, 4
+  br i1 %.not65, label %21, label %22
 
 21:                                               ; preds = %15
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @.str.7) #11
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 229, ptr noundef nonnull @.str.7) #13
   unreachable
 
 22:                                               ; preds = %15
-  %23 = add nsw i32 %1, -2
-  %24 = icmp sgt i32 %23, %20
-  br i1 %24, label %26, label %25
+  %23 = icmp samesign ugt i32 %7, %20
+  br i1 %23, label %25, label %24
 
-25:                                               ; preds = %22
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 232, ptr noundef nonnull @.str.8) #11
+24:                                               ; preds = %22
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 232, ptr noundef nonnull @.str.8) #13
   unreachable
 
-26:                                               ; preds = %22
-  %27 = load i8, ptr %6, align 1
-  %.not61 = icmp slt i8 %27, 0
-  br i1 %.not61, label %.split.us, label %.split
+25:                                               ; preds = %22
+  %26 = load i8, ptr %6, align 1
+  %.not66 = icmp slt i8 %26, 0
+  br i1 %.not66, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %26, %.split.us
-  %.04766.us = phi i32 [ %32, %.split.us ], [ 0, %26 ]
-  %.04865.us = phi ptr [ %33, %.split.us ], [ %6, %26 ]
-  %.05364.us = phi i32 [ %34, %.split.us ], [ 0, %26 ]
-  %28 = shl i32 %.04766.us, 8
-  %29 = load i8, ptr %.04865.us, align 1
-  %30 = xor i8 %29, -1
-  %31 = zext i8 %30 to i32
-  %32 = or disjoint i32 %28, %31
-  %33 = getelementptr i8, ptr %.04865.us, i64 1
-  %34 = add nuw nsw i32 %.05364.us, 1
-  %exitcond80.not = icmp eq i32 %34, %20
-  br i1 %exitcond80.not, label %.split68.us, label %.split.us, !llvm.loop !8
+.split.us:                                        ; preds = %25, %.split.us
+  %.04872.us = phi i32 [ %31, %.split.us ], [ 0, %25 ]
+  %.05071.us = phi ptr [ %32, %.split.us ], [ %6, %25 ]
+  %.05670.us = phi i32 [ %33, %.split.us ], [ 0, %25 ]
+  %27 = shl i32 %.04872.us, 8
+  %28 = load i8, ptr %.05071.us, align 1
+  %29 = xor i8 %28, -1
+  %30 = zext i8 %29 to i32
+  %31 = or disjoint i32 %27, %30
+  %32 = getelementptr i8, ptr %.05071.us, i64 1
+  %33 = add nuw nsw i32 %.05670.us, 1
+  %exitcond86.not = icmp eq i32 %33, %20
+  br i1 %exitcond86.not, label %.split74.us, label %.split.us, !llvm.loop !12
 
-.split:                                           ; preds = %26, %.split
-  %.04766 = phi i32 [ %38, %.split ], [ 0, %26 ]
-  %.04865 = phi ptr [ %39, %.split ], [ %6, %26 ]
-  %.05364 = phi i32 [ %40, %.split ], [ 0, %26 ]
-  %35 = shl i32 %.04766, 8
-  %36 = load i8, ptr %.04865, align 1
-  %37 = zext i8 %36 to i32
-  %38 = or disjoint i32 %35, %37
-  %39 = getelementptr i8, ptr %.04865, i64 1
-  %40 = add nuw nsw i32 %.05364, 1
-  %exitcond.not = icmp eq i32 %40, %20
-  br i1 %exitcond.not, label %.split68.us, label %.split, !llvm.loop !8
+.split:                                           ; preds = %25, %.split
+  %.04872 = phi i32 [ %37, %.split ], [ 0, %25 ]
+  %.05071 = phi ptr [ %38, %.split ], [ %6, %25 ]
+  %.05670 = phi i32 [ %39, %.split ], [ 0, %25 ]
+  %34 = shl i32 %.04872, 8
+  %35 = load i8, ptr %.05071, align 1
+  %36 = zext i8 %35 to i32
+  %37 = or disjoint i32 %34, %36
+  %38 = getelementptr i8, ptr %.05071, i64 1
+  %39 = add nuw nsw i32 %.05670, 1
+  %exitcond.not = icmp eq i32 %39, %20
+  br i1 %exitcond.not, label %.split74.us, label %.split, !llvm.loop !12
 
-.split68.us:                                      ; preds = %.split, %.split.us
-  %.us-phi69 = phi i32 [ %32, %.split.us ], [ %38, %.split ]
-  %.pn82.in = and i8 %5, 3
-  %.pn82 = zext nneg i8 %.pn82.in to i64
-  %.pn = getelementptr i8, ptr %0, i64 %.pn82
+.split74.us:                                      ; preds = %.split, %.split.us
+  %.us-phi75 = phi i32 [ %31, %.split.us ], [ %37, %.split ]
+  %.pn88.in = and i8 %5, 3
+  %.pn88 = zext nneg i8 %.pn88.in to i64
+  %.pn = getelementptr i8, ptr %0, i64 %.pn88
   %.us-phi = getelementptr i8, ptr %.pn, i64 2
-  %.lobit = ashr i8 %27, 7
-  %41 = sext i8 %.lobit to i32
-  %spec.select = xor i32 %.us-phi69, %41
-  %42 = trunc i32 %7 to i8
-  %43 = sub i8 %42, %19
-  %44 = icmp ult i8 %43, 9
-  br i1 %44, label %.preheader, label %45
+  %.lobit = ashr i8 %26, 7
+  %40 = sext i8 %.lobit to i32
+  %spec.select = xor i32 %.us-phi75, %40
+  %41 = trunc i32 %7 to i8
+  %42 = sub i8 %41, %19
+  %43 = icmp ult i8 %42, 9
+  br i1 %43, label %.preheader, label %44
 
-.preheader:                                       ; preds = %.split68.us
-  %.not73 = icmp eq i8 %19, %42
-  br i1 %.not73, label %._crit_edge, label %.lr.ph.preheader
+.preheader:                                       ; preds = %.split74.us
+  %.not79 = icmp eq i8 %19, %41
+  br i1 %.not79, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %umax = zext nneg i8 %43 to i32
+  %umax = zext nneg i8 %42 to i32
   br label %.lr.ph
 
-45:                                               ; preds = %.split68.us
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 252, ptr noundef nonnull @.str.9) #11
+44:                                               ; preds = %.split74.us
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 252, ptr noundef nonnull @.str.9) #13
   unreachable
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.04672 = phi i64 [ %49, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.14971 = phi ptr [ %50, %.lr.ph ], [ %.us-phi, %.lr.ph.preheader ]
-  %.15470 = phi i32 [ %51, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %46 = shl i64 %.04672, 8
-  %47 = load i8, ptr %.14971, align 1
-  %48 = zext i8 %47 to i64
-  %49 = or disjoint i64 %46, %48
-  %50 = getelementptr i8, ptr %.14971, i64 1
-  %51 = add nuw nsw i32 %.15470, 1
-  %exitcond81.not = icmp eq i32 %51, %umax
-  br i1 %exitcond81.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !9
+  %.04778 = phi i64 [ %48, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.15177 = phi ptr [ %49, %.lr.ph ], [ %.us-phi, %.lr.ph.preheader ]
+  %.15776 = phi i32 [ %50, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %45 = shl i64 %.04778, 8
+  %46 = load i8, ptr %.15177, align 1
+  %47 = zext i8 %46 to i64
+  %48 = or disjoint i64 %45, %47
+  %49 = getelementptr i8, ptr %.15177, i64 1
+  %50 = add nuw nsw i32 %.15776, 1
+  %exitcond87.not = icmp eq i32 %50, %umax
+  br i1 %exitcond87.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !13
+
+51:                                               ; preds = %4
+  %.not63 = icmp samesign ult i8 %5, 64
+  br i1 %.not63, label %55, label %52
+
+52:                                               ; preds = %51
+  %53 = and i32 %8, 63
+  %54 = icmp samesign ult i32 %53, 3
+  br i1 %54, label %switch.lookup, label %68
+
+55:                                               ; preds = %51
+  %56 = zext nneg i32 %7 to i64
+  %57 = tail call noalias ptr @g_strndup(ptr noundef %6, i64 noundef %56)
+  %58 = tail call double @g_ascii_strtod(ptr noundef %57, ptr noundef null)
+  tail call void @g_free(ptr noundef %57)
+  br label %68
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %52 = uitofp i64 %49 to double
+  %59 = uitofp i64 %48 to double
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %.046.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %52, %._crit_edge.loopexit ]
-  %53 = fneg double %.046.lcssa
-  %54 = select i1 %.not59, double %.046.lcssa, double %53
-  %55 = zext nneg i8 %17 to i32
-  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %55) #10
-  %56 = fmul double %54, %ldexp
-  %57 = sitofp i32 %spec.select to double
-  %58 = tail call double @pow(double noundef %.050, double noundef %57) #10
-  %59 = fmul double %56, %58
-  br label %67
+  %.047.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %59, %._crit_edge.loopexit ]
+  %60 = fneg double %.047.lcssa
+  %61 = select i1 %.not64, double %.047.lcssa, double %60
+  %62 = zext nneg i8 %17 to i32
+  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %62)
+  %63 = fmul double %61, %ldexp
+  %64 = sitofp i32 %spec.select to double
+  %65 = tail call double @pow(double noundef %.052, double noundef %64) #11
+  %66 = fmul double %63, %65
+  br label %68
 
-60:                                               ; preds = %4
-  %.not58 = icmp samesign ult i8 %5, 64
-  br i1 %.not58, label %63, label %61
+switch.lookup:                                    ; preds = %52
+  %67 = zext nneg i32 %53 to i64
+  %switch.gep = getelementptr inbounds nuw [3 x double], ptr @switch.table.asn1_get_real, i64 0, i64 %67
+  %switch.load = load double, ptr %switch.gep, align 8
+  br label %68
 
-61:                                               ; preds = %60
-  %62 = and i32 %8, 63
-  %switch.selectcmp = icmp eq i32 %62, 1
-  %switch.select = select i1 %switch.selectcmp, double 0xFFF0000000000000, double 0.000000e+00
-  %switch.selectcmp62 = icmp eq i32 %62, 0
-  %switch.select63 = select i1 %switch.selectcmp62, double 0x7FF0000000000000, double %switch.select
-  br label %67
-
-63:                                               ; preds = %60
-  %64 = zext nneg i32 %7 to i64
-  %65 = tail call noalias ptr @g_strndup(ptr noundef %6, i64 noundef %64) #10
-  %66 = tail call double @g_ascii_strtod(ptr noundef %65, ptr noundef null) #10
-  tail call void @g_free(ptr noundef %65) #10
-  br label %67
-
-67:                                               ; preds = %._crit_edge, %63, %61, %9, %2
-  %.0 = phi double [ 0.000000e+00, %2 ], [ 0.000000e+00, %9 ], [ %59, %._crit_edge ], [ %66, %63 ], [ %switch.select63, %61 ]
+68:                                               ; preds = %switch.lookup, %52, %9, %55, %2, %._crit_edge
+  %.0 = phi double [ 0.000000e+00, %2 ], [ 0.000000e+00, %52 ], [ %58, %55 ], [ %66, %._crit_edge ], [ 0.000000e+00, %9 ], [ %switch.load, %switch.lookup ]
   ret double %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @pow(double noundef, double noundef) local_unnamed_addr #8
+; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(write)
+declare double @pow(double noundef, double noundef) local_unnamed_addr #7
 
-declare noalias ptr @g_strndup(ptr noundef, i64 noundef) local_unnamed_addr #4
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @g_strndup(ptr noundef, i64 noundef) local_unnamed_addr #8
 
-declare double @g_ascii_strtod(ptr noundef, ptr noundef) local_unnamed_addr #4
+; Function Attrs: null_pointer_is_valid
+declare double @g_ascii_strtod(ptr noundef, ptr noundef) local_unnamed_addr #8
 
-declare void @g_free(ptr noundef) local_unnamed_addr #4
+; Function Attrs: null_pointer_is_valid
+declare void @g_free(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree willreturn
 declare double @ldexp(double, i32) local_unnamed_addr #9
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree willreturn }
-attributes #10 = { nounwind }
-attributes #11 = { noreturn nounwind }
-attributes #12 = { nounwind willreturn memory(read) }
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+attributes #0 = { nofree nounwind null_pointer_is_valid sspstrong memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree willreturn }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { nounwind }
+attributes #12 = { allocsize(1) }
+attributes #13 = { noreturn }
+attributes #14 = { nounwind willreturn memory(read) }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}

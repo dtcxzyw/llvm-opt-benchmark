@@ -4,10 +4,8 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
 %struct.unit_name_string = type { ptr, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
@@ -66,7 +64,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_igrp = internal global i32 0, align 4
 @ett_igrp_vektor = internal global i32 0, align 4
 @ett_igrp_net = internal global i32 0, align 4
-@proto_register_igrp.ei = internal global [1 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_igrp_version, %struct.expert_field_info { ptr @.str.32, i32 150994944, i32 6291456, ptr @.str.33, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_igrp.ei = internal global [1 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_igrp_version, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.32, i32 150994944, i32 6291456, ptr @.str.33, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_igrp_version = internal global %struct.expert_field zeroinitializer, align 4
 @.str.32 = private unnamed_addr constant [21 x i8] c"igrp.version.invalid\00", align 1
 @.str.33 = private unnamed_addr constant [50 x i8] c"Unknown Version, The dissection may be inaccurate\00", align 1
@@ -84,9 +82,10 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.43 = private unnamed_addr constant [11 x i8] c" (Request)\00", align 1
 @.str.44 = private unnamed_addr constant [21 x i8] c"Entry for network %s\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_igrp() #0 {
   %1 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #4
   %2 = call i32 @proto_register_protocol(ptr noundef @.str.34, ptr noundef @.str.35, ptr noundef @.str.36)
   store i32 %2, ptr @proto_igrp, align 4
   %3 = load i32, ptr @proto_igrp, align 4
@@ -100,14 +99,20 @@ define hidden void @proto_register_igrp() #0 {
   store ptr %7, ptr %1, align 8
   %8 = load ptr, ptr %1, align 8
   call void @expert_register_field_array(ptr noundef %8, ptr noundef @proto_register_igrp.ei, i32 noundef 1)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #4
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_igrp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -130,17 +135,30 @@ define internal i32 @dissect_igrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 12, ptr %13, align 4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %15) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %16) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #4
   %22 = load ptr, ptr %6, align 8
-  %23 = getelementptr inbounds %struct._packet_info, ptr %22, i32 0, i32 1
+  %23 = getelementptr inbounds nuw %struct._packet_info, ptr %22, i32 0, i32 1
   %24 = load ptr, ptr %23, align 8
-  call void @col_set_str(ptr noundef %24, i32 noundef 34, ptr noundef @.str.35)
+  call void @col_set_str(ptr noundef %24, i32 noundef 35, ptr noundef @.str.35)
   %25 = load ptr, ptr %6, align 8
-  %26 = getelementptr inbounds %struct._packet_info, ptr %25, i32 0, i32 1
+  %26 = getelementptr inbounds nuw %struct._packet_info, ptr %25, i32 0, i32 1
   %27 = load ptr, ptr %26, align 8
   call void @col_clear(ptr noundef %27, i32 noundef 25)
   %28 = load ptr, ptr %5, align 8
-  %29 = call zeroext i8 @tvb_get_guint8(ptr noundef %28, i32 noundef 0)
+  %29 = call zeroext i8 @tvb_get_uint8(ptr noundef %28, i32 noundef 0)
   store i8 %29, ptr %9, align 1
   %30 = load i8, ptr %9, align 1
   %31 = zext i8 %30 to i32
@@ -151,21 +169,21 @@ define internal i32 @dissect_igrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 32:                                               ; preds = %4
   %33 = load ptr, ptr %6, align 8
-  %34 = getelementptr inbounds %struct._packet_info, ptr %33, i32 0, i32 1
+  %34 = getelementptr inbounds nuw %struct._packet_info, ptr %33, i32 0, i32 1
   %35 = load ptr, ptr %34, align 8
   call void @col_set_str(ptr noundef %35, i32 noundef 25, ptr noundef @.str.38)
   br label %44
 
 36:                                               ; preds = %4
   %37 = load ptr, ptr %6, align 8
-  %38 = getelementptr inbounds %struct._packet_info, ptr %37, i32 0, i32 1
+  %38 = getelementptr inbounds nuw %struct._packet_info, ptr %37, i32 0, i32 1
   %39 = load ptr, ptr %38, align 8
   call void @col_set_str(ptr noundef %39, i32 noundef 25, ptr noundef @.str.39)
   br label %44
 
 40:                                               ; preds = %4
   %41 = load ptr, ptr %6, align 8
-  %42 = getelementptr inbounds %struct._packet_info, ptr %41, i32 0, i32 1
+  %42 = getelementptr inbounds nuw %struct._packet_info, ptr %41, i32 0, i32 1
   %43 = load ptr, ptr %42, align 8
   call void @col_set_str(ptr noundef %43, i32 noundef 25, ptr noundef @.str.40)
   br label %44
@@ -252,16 +270,16 @@ define internal i32 @dissect_igrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %101 = call zeroext i16 @tvb_get_ntohs(ptr noundef %100, i32 noundef 8)
   store i16 %101, ptr %16, align 2
   %102 = load ptr, ptr %6, align 8
-  %103 = getelementptr inbounds %struct._packet_info, ptr %102, i32 0, i32 14
-  %104 = getelementptr inbounds %struct._address, ptr %103, i32 0, i32 0
+  %103 = getelementptr inbounds nuw %struct._packet_info, ptr %102, i32 0, i32 14
+  %104 = getelementptr inbounds nuw %struct._address, ptr %103, i32 0, i32 0
   %105 = load i32, ptr %104, align 8
   %106 = icmp eq i32 %105, 2
   br i1 %106, label %107, label %115
 
 107:                                              ; preds = %87
   %108 = load ptr, ptr %6, align 8
-  %109 = getelementptr inbounds %struct._packet_info, ptr %108, i32 0, i32 14
-  %110 = getelementptr inbounds %struct._address, ptr %109, i32 0, i32 2
+  %109 = getelementptr inbounds nuw %struct._packet_info, ptr %108, i32 0, i32 14
+  %110 = getelementptr inbounds nuw %struct._address, ptr %109, i32 0, i32 2
   %111 = load ptr, ptr %110, align 8
   store ptr %111, ptr %17, align 8
   %112 = load ptr, ptr %17, align 8
@@ -311,7 +329,7 @@ define internal i32 @dissect_igrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %139 = load i16, ptr %14, align 2
   %140 = add i16 %139, -1
   store i16 %140, ptr %14, align 2
-  br label %121, !llvm.loop !4
+  br label %121, !llvm.loop !6
 
 141:                                              ; preds = %121
   %142 = load ptr, ptr %19, align 8
@@ -349,7 +367,7 @@ define internal i32 @dissect_igrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %163 = load i16, ptr %15, align 2
   %164 = add i16 %163, -1
   store i16 %164, ptr %15, align 2
-  br label %146, !llvm.loop !6
+  br label %146, !llvm.loop !8
 
 165:                                              ; preds = %146
   %166 = load ptr, ptr %19, align 8
@@ -387,7 +405,7 @@ define internal i32 @dissect_igrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %187 = load i16, ptr %16, align 2
   %188 = add i16 %187, -1
   store i16 %188, ptr %16, align 2
-  br label %170, !llvm.loop !7
+  br label %170, !llvm.loop !9
 
 189:                                              ; preds = %170
   %190 = load ptr, ptr %19, align 8
@@ -400,47 +418,78 @@ define internal i32 @dissect_igrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 195:                                              ; preds = %189, %44
   %196 = load ptr, ptr %5, align 8
   %197 = call i32 @tvb_captured_length(ptr noundef %196)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #4
   ret i32 %197
 }
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #2
 
-declare ptr @expert_register_protocol(i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_register_protocol(i32 noundef) #2
 
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_igrp() #0 {
   %1 = load ptr, ptr @igrp_handle, align 8
   call void @dissector_add_uint(ptr noundef @.str.37, i32 noundef 9, ptr noundef %1)
   ret void
 }
 
-declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare void @col_clear(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_clear(ptr noundef, i32 noundef) #2
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_protocol_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_protocol_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) #2
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #2
 
-declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #2
 
-declare ptr @tvb_new_subset_length_caplen(ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_subset_length_caplen(ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_vektor_igrp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -452,6 +501,8 @@ define internal void @dissect_vektor_igrp(ptr noundef %0, ptr noundef %1, ptr no
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i8 %3, ptr %8, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 24, ptr %10) #4
   %11 = load i8, ptr %8, align 1
   %12 = zext i8 %11 to i32
   %13 = icmp ne i32 %12, 0
@@ -462,30 +513,30 @@ define internal void @dissect_vektor_igrp(ptr noundef %0, ptr noundef %1, ptr no
   %16 = getelementptr [4 x i8], ptr %9, i64 0, i64 0
   store i8 %15, ptr %16, align 4
   %17 = load ptr, ptr %6, align 8
-  %18 = call zeroext i8 @tvb_get_guint8(ptr noundef %17, i32 noundef 0)
+  %18 = call zeroext i8 @tvb_get_uint8(ptr noundef %17, i32 noundef 0)
   %19 = getelementptr [4 x i8], ptr %9, i64 0, i64 1
   store i8 %18, ptr %19, align 1
   %20 = load ptr, ptr %6, align 8
-  %21 = call zeroext i8 @tvb_get_guint8(ptr noundef %20, i32 noundef 1)
+  %21 = call zeroext i8 @tvb_get_uint8(ptr noundef %20, i32 noundef 1)
   %22 = getelementptr [4 x i8], ptr %9, i64 0, i64 2
   store i8 %21, ptr %22, align 2
   %23 = load ptr, ptr %6, align 8
-  %24 = call zeroext i8 @tvb_get_guint8(ptr noundef %23, i32 noundef 2)
+  %24 = call zeroext i8 @tvb_get_uint8(ptr noundef %23, i32 noundef 2)
   %25 = getelementptr [4 x i8], ptr %9, i64 0, i64 3
   store i8 %24, ptr %25, align 1
   br label %37
 
 26:                                               ; preds = %4
   %27 = load ptr, ptr %6, align 8
-  %28 = call zeroext i8 @tvb_get_guint8(ptr noundef %27, i32 noundef 0)
+  %28 = call zeroext i8 @tvb_get_uint8(ptr noundef %27, i32 noundef 0)
   %29 = getelementptr [4 x i8], ptr %9, i64 0, i64 0
   store i8 %28, ptr %29, align 4
   %30 = load ptr, ptr %6, align 8
-  %31 = call zeroext i8 @tvb_get_guint8(ptr noundef %30, i32 noundef 1)
+  %31 = call zeroext i8 @tvb_get_uint8(ptr noundef %30, i32 noundef 1)
   %32 = getelementptr [4 x i8], ptr %9, i64 0, i64 1
   store i8 %31, ptr %32, align 1
   %33 = load ptr, ptr %6, align 8
-  %34 = call zeroext i8 @tvb_get_guint8(ptr noundef %33, i32 noundef 2)
+  %34 = call zeroext i8 @tvb_get_uint8(ptr noundef %33, i32 noundef 2)
   %35 = getelementptr [4 x i8], ptr %9, i64 0, i64 2
   store i8 %34, ptr %35, align 2
   %36 = getelementptr [4 x i8], ptr %9, i64 0, i64 3
@@ -498,7 +549,7 @@ define internal void @dissect_vektor_igrp(ptr noundef %0, ptr noundef %1, ptr no
   %39 = load ptr, ptr %6, align 8
   %40 = load i32, ptr @ett_igrp_net, align 4
   %41 = load ptr, ptr %5, align 8
-  %42 = getelementptr inbounds %struct._packet_info, ptr %41, i32 0, i32 50
+  %42 = getelementptr inbounds nuw %struct._packet_info, ptr %41, i32 0, i32 51
   %43 = load ptr, ptr %42, align 8
   %44 = call ptr @address_to_str(ptr noundef %43, ptr noundef %10)
   %45 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %38, ptr noundef %39, i32 noundef 0, i32 noundef 14, i32 noundef %40, ptr noundef null, ptr noundef @.str.44, ptr noundef %44)
@@ -532,15 +583,19 @@ define internal void @dissect_vektor_igrp(ptr noundef %0, ptr noundef %1, ptr no
   %72 = load i32, ptr @hf_igrp_hop_count, align 4
   %73 = load ptr, ptr %6, align 8
   %74 = call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %72, ptr noundef %73, i32 noundef 13, i32 noundef 1, i32 noundef 0)
+  call void @llvm.lifetime.end.p0(i64 24, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret void
 }
 
-declare ptr @proto_tree_add_checksum(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_checksum(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare i32 @tvb_captured_length(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length(ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal void @set_address(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+; Function Attrs: inlinehint nounwind null_pointer_is_valid sspstrong uwtable
+define internal void @set_address(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #3 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -580,38 +635,46 @@ define internal void @set_address(ptr noundef %0, i32 noundef %1, i32 noundef %2
 19:                                               ; preds = %18, %13
   %20 = load i32, ptr %6, align 4
   %21 = load ptr, ptr %5, align 8
-  %22 = getelementptr inbounds %struct._address, ptr %21, i32 0, i32 0
+  %22 = getelementptr inbounds nuw %struct._address, ptr %21, i32 0, i32 0
   store i32 %20, ptr %22, align 8
   %23 = load i32, ptr %7, align 4
   %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds %struct._address, ptr %24, i32 0, i32 1
+  %25 = getelementptr inbounds nuw %struct._address, ptr %24, i32 0, i32 1
   store i32 %23, ptr %25, align 4
   %26 = load ptr, ptr %8, align 8
   %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %struct._address, ptr %27, i32 0, i32 2
+  %28 = getelementptr inbounds nuw %struct._address, ptr %27, i32 0, i32 2
   store ptr %26, ptr %28, align 8
   %29 = load ptr, ptr %5, align 8
-  %30 = getelementptr inbounds %struct._address, ptr %29, i32 0, i32 3
+  %30 = getelementptr inbounds nuw %struct._address, ptr %29, i32 0, i32 3
   store ptr null, ptr %30, align 8
   ret void
 }
 
-declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #2
 
-declare ptr @address_to_str(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @address_to_str(ptr noundef, ptr noundef) #2
 
-declare ptr @proto_tree_add_ipv4(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_ipv4(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

@@ -3,13 +3,10 @@ source_filename = "bench/wireshark/original/packet-e164.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct._value_string = type { i32, ptr }
 %struct._value_string_ext = type { ptr, i32, i32, ptr, ptr }
 %struct.expert_field = type { i32, i32 }
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.e164_info_t = type { i32, i32, ptr, i32 }
 
 @.str = private unnamed_addr constant [9 x i8] c"Reserved\00", align 1
@@ -232,7 +229,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.217 = private unnamed_addr constant [16 x i8] c"Kyrgyz Republic\00", align 1
 @.str.218 = private unnamed_addr constant [25 x i8] c"Uzbekistan (Republic of)\00", align 1
 @.str.219 = private unnamed_addr constant [35 x i8] c"Reserved for future global service\00", align 1
-@E164_country_code_value = hidden constant [308 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str }, %struct._value_string { i32 1, ptr @.str.1 }, %struct._value_string { i32 7, ptr @.str.2 }, %struct._value_string { i32 20, ptr @.str.3 }, %struct._value_string { i32 27, ptr @.str.4 }, %struct._value_string { i32 30, ptr @.str.5 }, %struct._value_string { i32 31, ptr @.str.6 }, %struct._value_string { i32 32, ptr @.str.7 }, %struct._value_string { i32 33, ptr @.str.8 }, %struct._value_string { i32 34, ptr @.str.9 }, %struct._value_string { i32 36, ptr @.str.10 }, %struct._value_string { i32 39, ptr @.str.11 }, %struct._value_string { i32 40, ptr @.str.12 }, %struct._value_string { i32 41, ptr @.str.13 }, %struct._value_string { i32 43, ptr @.str.14 }, %struct._value_string { i32 44, ptr @.str.15 }, %struct._value_string { i32 45, ptr @.str.16 }, %struct._value_string { i32 46, ptr @.str.17 }, %struct._value_string { i32 47, ptr @.str.18 }, %struct._value_string { i32 48, ptr @.str.19 }, %struct._value_string { i32 49, ptr @.str.20 }, %struct._value_string { i32 51, ptr @.str.21 }, %struct._value_string { i32 52, ptr @.str.22 }, %struct._value_string { i32 53, ptr @.str.23 }, %struct._value_string { i32 54, ptr @.str.24 }, %struct._value_string { i32 55, ptr @.str.25 }, %struct._value_string { i32 56, ptr @.str.26 }, %struct._value_string { i32 57, ptr @.str.27 }, %struct._value_string { i32 58, ptr @.str.28 }, %struct._value_string { i32 60, ptr @.str.29 }, %struct._value_string { i32 61, ptr @.str.30 }, %struct._value_string { i32 62, ptr @.str.31 }, %struct._value_string { i32 63, ptr @.str.32 }, %struct._value_string { i32 64, ptr @.str.33 }, %struct._value_string { i32 65, ptr @.str.34 }, %struct._value_string { i32 66, ptr @.str.35 }, %struct._value_string { i32 81, ptr @.str.36 }, %struct._value_string { i32 82, ptr @.str.37 }, %struct._value_string { i32 84, ptr @.str.38 }, %struct._value_string { i32 86, ptr @.str.39 }, %struct._value_string { i32 90, ptr @.str.40 }, %struct._value_string { i32 91, ptr @.str.41 }, %struct._value_string { i32 92, ptr @.str.42 }, %struct._value_string { i32 93, ptr @.str.43 }, %struct._value_string { i32 94, ptr @.str.44 }, %struct._value_string { i32 95, ptr @.str.45 }, %struct._value_string { i32 98, ptr @.str.46 }, %struct._value_string { i32 210, ptr @.str.47 }, %struct._value_string { i32 211, ptr @.str.48 }, %struct._value_string { i32 212, ptr @.str.49 }, %struct._value_string { i32 213, ptr @.str.50 }, %struct._value_string { i32 214, ptr @.str.47 }, %struct._value_string { i32 215, ptr @.str.47 }, %struct._value_string { i32 216, ptr @.str.51 }, %struct._value_string { i32 217, ptr @.str.47 }, %struct._value_string { i32 218, ptr @.str.52 }, %struct._value_string { i32 219, ptr @.str.47 }, %struct._value_string { i32 220, ptr @.str.53 }, %struct._value_string { i32 221, ptr @.str.54 }, %struct._value_string { i32 222, ptr @.str.55 }, %struct._value_string { i32 223, ptr @.str.56 }, %struct._value_string { i32 224, ptr @.str.57 }, %struct._value_string { i32 225, ptr @.str.58 }, %struct._value_string { i32 226, ptr @.str.59 }, %struct._value_string { i32 227, ptr @.str.60 }, %struct._value_string { i32 228, ptr @.str.61 }, %struct._value_string { i32 229, ptr @.str.62 }, %struct._value_string { i32 230, ptr @.str.63 }, %struct._value_string { i32 231, ptr @.str.64 }, %struct._value_string { i32 232, ptr @.str.65 }, %struct._value_string { i32 233, ptr @.str.66 }, %struct._value_string { i32 234, ptr @.str.67 }, %struct._value_string { i32 235, ptr @.str.68 }, %struct._value_string { i32 236, ptr @.str.69 }, %struct._value_string { i32 237, ptr @.str.70 }, %struct._value_string { i32 238, ptr @.str.71 }, %struct._value_string { i32 239, ptr @.str.72 }, %struct._value_string { i32 240, ptr @.str.73 }, %struct._value_string { i32 241, ptr @.str.74 }, %struct._value_string { i32 242, ptr @.str.75 }, %struct._value_string { i32 243, ptr @.str.76 }, %struct._value_string { i32 244, ptr @.str.77 }, %struct._value_string { i32 245, ptr @.str.78 }, %struct._value_string { i32 246, ptr @.str.79 }, %struct._value_string { i32 247, ptr @.str.80 }, %struct._value_string { i32 248, ptr @.str.81 }, %struct._value_string { i32 249, ptr @.str.82 }, %struct._value_string { i32 250, ptr @.str.83 }, %struct._value_string { i32 251, ptr @.str.84 }, %struct._value_string { i32 252, ptr @.str.85 }, %struct._value_string { i32 253, ptr @.str.86 }, %struct._value_string { i32 254, ptr @.str.87 }, %struct._value_string { i32 255, ptr @.str.88 }, %struct._value_string { i32 256, ptr @.str.89 }, %struct._value_string { i32 257, ptr @.str.90 }, %struct._value_string { i32 258, ptr @.str.91 }, %struct._value_string { i32 259, ptr @.str.47 }, %struct._value_string { i32 260, ptr @.str.92 }, %struct._value_string { i32 261, ptr @.str.93 }, %struct._value_string { i32 262, ptr @.str.94 }, %struct._value_string { i32 263, ptr @.str.95 }, %struct._value_string { i32 264, ptr @.str.96 }, %struct._value_string { i32 265, ptr @.str.97 }, %struct._value_string { i32 266, ptr @.str.98 }, %struct._value_string { i32 267, ptr @.str.99 }, %struct._value_string { i32 268, ptr @.str.100 }, %struct._value_string { i32 269, ptr @.str.101 }, %struct._value_string { i32 280, ptr @.str.47 }, %struct._value_string { i32 281, ptr @.str.47 }, %struct._value_string { i32 282, ptr @.str.47 }, %struct._value_string { i32 283, ptr @.str.47 }, %struct._value_string { i32 284, ptr @.str.47 }, %struct._value_string { i32 285, ptr @.str.47 }, %struct._value_string { i32 286, ptr @.str.47 }, %struct._value_string { i32 287, ptr @.str.47 }, %struct._value_string { i32 288, ptr @.str.47 }, %struct._value_string { i32 289, ptr @.str.47 }, %struct._value_string { i32 290, ptr @.str.80 }, %struct._value_string { i32 291, ptr @.str.102 }, %struct._value_string { i32 292, ptr @.str.47 }, %struct._value_string { i32 293, ptr @.str.47 }, %struct._value_string { i32 294, ptr @.str.47 }, %struct._value_string { i32 295, ptr @.str.47 }, %struct._value_string { i32 296, ptr @.str.47 }, %struct._value_string { i32 297, ptr @.str.103 }, %struct._value_string { i32 298, ptr @.str.104 }, %struct._value_string { i32 299, ptr @.str.105 }, %struct._value_string { i32 350, ptr @.str.106 }, %struct._value_string { i32 351, ptr @.str.107 }, %struct._value_string { i32 352, ptr @.str.108 }, %struct._value_string { i32 353, ptr @.str.109 }, %struct._value_string { i32 354, ptr @.str.110 }, %struct._value_string { i32 355, ptr @.str.111 }, %struct._value_string { i32 356, ptr @.str.112 }, %struct._value_string { i32 357, ptr @.str.113 }, %struct._value_string { i32 358, ptr @.str.114 }, %struct._value_string { i32 359, ptr @.str.115 }, %struct._value_string { i32 370, ptr @.str.116 }, %struct._value_string { i32 371, ptr @.str.117 }, %struct._value_string { i32 372, ptr @.str.118 }, %struct._value_string { i32 373, ptr @.str.119 }, %struct._value_string { i32 374, ptr @.str.120 }, %struct._value_string { i32 375, ptr @.str.121 }, %struct._value_string { i32 376, ptr @.str.122 }, %struct._value_string { i32 377, ptr @.str.123 }, %struct._value_string { i32 378, ptr @.str.124 }, %struct._value_string { i32 379, ptr @.str.125 }, %struct._value_string { i32 380, ptr @.str.126 }, %struct._value_string { i32 381, ptr @.str.127 }, %struct._value_string { i32 382, ptr @.str.128 }, %struct._value_string { i32 383, ptr @.str.47 }, %struct._value_string { i32 384, ptr @.str.47 }, %struct._value_string { i32 385, ptr @.str.129 }, %struct._value_string { i32 386, ptr @.str.130 }, %struct._value_string { i32 387, ptr @.str.131 }, %struct._value_string { i32 388, ptr @.str.132 }, %struct._value_string { i32 389, ptr @.str.133 }, %struct._value_string { i32 420, ptr @.str.134 }, %struct._value_string { i32 421, ptr @.str.135 }, %struct._value_string { i32 422, ptr @.str.47 }, %struct._value_string { i32 423, ptr @.str.136 }, %struct._value_string { i32 424, ptr @.str.47 }, %struct._value_string { i32 425, ptr @.str.47 }, %struct._value_string { i32 426, ptr @.str.47 }, %struct._value_string { i32 427, ptr @.str.47 }, %struct._value_string { i32 428, ptr @.str.47 }, %struct._value_string { i32 429, ptr @.str.47 }, %struct._value_string { i32 500, ptr @.str.137 }, %struct._value_string { i32 501, ptr @.str.138 }, %struct._value_string { i32 502, ptr @.str.139 }, %struct._value_string { i32 503, ptr @.str.140 }, %struct._value_string { i32 504, ptr @.str.141 }, %struct._value_string { i32 505, ptr @.str.142 }, %struct._value_string { i32 506, ptr @.str.143 }, %struct._value_string { i32 507, ptr @.str.144 }, %struct._value_string { i32 508, ptr @.str.145 }, %struct._value_string { i32 509, ptr @.str.146 }, %struct._value_string { i32 590, ptr @.str.147 }, %struct._value_string { i32 591, ptr @.str.148 }, %struct._value_string { i32 592, ptr @.str.149 }, %struct._value_string { i32 593, ptr @.str.150 }, %struct._value_string { i32 594, ptr @.str.151 }, %struct._value_string { i32 595, ptr @.str.152 }, %struct._value_string { i32 596, ptr @.str.153 }, %struct._value_string { i32 597, ptr @.str.154 }, %struct._value_string { i32 598, ptr @.str.155 }, %struct._value_string { i32 599, ptr @.str.156 }, %struct._value_string { i32 670, ptr @.str.157 }, %struct._value_string { i32 671, ptr @.str.47 }, %struct._value_string { i32 672, ptr @.str.158 }, %struct._value_string { i32 673, ptr @.str.159 }, %struct._value_string { i32 674, ptr @.str.160 }, %struct._value_string { i32 675, ptr @.str.161 }, %struct._value_string { i32 676, ptr @.str.162 }, %struct._value_string { i32 677, ptr @.str.163 }, %struct._value_string { i32 678, ptr @.str.164 }, %struct._value_string { i32 679, ptr @.str.165 }, %struct._value_string { i32 680, ptr @.str.166 }, %struct._value_string { i32 681, ptr @.str.167 }, %struct._value_string { i32 682, ptr @.str.168 }, %struct._value_string { i32 683, ptr @.str.169 }, %struct._value_string { i32 684, ptr @.str.47 }, %struct._value_string { i32 685, ptr @.str.170 }, %struct._value_string { i32 686, ptr @.str.171 }, %struct._value_string { i32 687, ptr @.str.172 }, %struct._value_string { i32 688, ptr @.str.173 }, %struct._value_string { i32 689, ptr @.str.174 }, %struct._value_string { i32 690, ptr @.str.175 }, %struct._value_string { i32 691, ptr @.str.176 }, %struct._value_string { i32 692, ptr @.str.177 }, %struct._value_string { i32 693, ptr @.str.47 }, %struct._value_string { i32 694, ptr @.str.47 }, %struct._value_string { i32 695, ptr @.str.47 }, %struct._value_string { i32 696, ptr @.str.47 }, %struct._value_string { i32 697, ptr @.str.47 }, %struct._value_string { i32 698, ptr @.str.47 }, %struct._value_string { i32 699, ptr @.str.47 }, %struct._value_string { i32 800, ptr @.str.178 }, %struct._value_string { i32 801, ptr @.str.47 }, %struct._value_string { i32 802, ptr @.str.47 }, %struct._value_string { i32 803, ptr @.str.47 }, %struct._value_string { i32 804, ptr @.str.47 }, %struct._value_string { i32 805, ptr @.str.47 }, %struct._value_string { i32 806, ptr @.str.47 }, %struct._value_string { i32 807, ptr @.str.47 }, %struct._value_string { i32 808, ptr @.str.179 }, %struct._value_string { i32 809, ptr @.str.47 }, %struct._value_string { i32 830, ptr @.str.47 }, %struct._value_string { i32 831, ptr @.str.47 }, %struct._value_string { i32 832, ptr @.str.47 }, %struct._value_string { i32 833, ptr @.str.47 }, %struct._value_string { i32 834, ptr @.str.47 }, %struct._value_string { i32 835, ptr @.str.47 }, %struct._value_string { i32 836, ptr @.str.47 }, %struct._value_string { i32 837, ptr @.str.47 }, %struct._value_string { i32 838, ptr @.str.47 }, %struct._value_string { i32 839, ptr @.str.47 }, %struct._value_string { i32 850, ptr @.str.180 }, %struct._value_string { i32 851, ptr @.str.47 }, %struct._value_string { i32 852, ptr @.str.181 }, %struct._value_string { i32 853, ptr @.str.182 }, %struct._value_string { i32 854, ptr @.str.47 }, %struct._value_string { i32 855, ptr @.str.183 }, %struct._value_string { i32 856, ptr @.str.184 }, %struct._value_string { i32 857, ptr @.str.47 }, %struct._value_string { i32 858, ptr @.str.47 }, %struct._value_string { i32 859, ptr @.str.47 }, %struct._value_string { i32 870, ptr @.str.185 }, %struct._value_string { i32 871, ptr @.str.47 }, %struct._value_string { i32 872, ptr @.str.47 }, %struct._value_string { i32 873, ptr @.str.47 }, %struct._value_string { i32 874, ptr @.str.47 }, %struct._value_string { i32 875, ptr @.str.186 }, %struct._value_string { i32 876, ptr @.str.186 }, %struct._value_string { i32 877, ptr @.str.186 }, %struct._value_string { i32 878, ptr @.str.187 }, %struct._value_string { i32 879, ptr @.str.188 }, %struct._value_string { i32 880, ptr @.str.189 }, %struct._value_string { i32 881, ptr @.str.190 }, %struct._value_string { i32 882, ptr @.str.191 }, %struct._value_string { i32 883, ptr @.str.191 }, %struct._value_string { i32 884, ptr @.str.47 }, %struct._value_string { i32 885, ptr @.str.47 }, %struct._value_string { i32 886, ptr @.str.192 }, %struct._value_string { i32 887, ptr @.str.47 }, %struct._value_string { i32 888, ptr @.str.193 }, %struct._value_string { i32 889, ptr @.str.47 }, %struct._value_string { i32 890, ptr @.str.47 }, %struct._value_string { i32 891, ptr @.str.47 }, %struct._value_string { i32 892, ptr @.str.47 }, %struct._value_string { i32 893, ptr @.str.47 }, %struct._value_string { i32 894, ptr @.str.47 }, %struct._value_string { i32 895, ptr @.str.47 }, %struct._value_string { i32 896, ptr @.str.47 }, %struct._value_string { i32 897, ptr @.str.47 }, %struct._value_string { i32 898, ptr @.str.47 }, %struct._value_string { i32 899, ptr @.str.47 }, %struct._value_string { i32 960, ptr @.str.194 }, %struct._value_string { i32 961, ptr @.str.195 }, %struct._value_string { i32 962, ptr @.str.196 }, %struct._value_string { i32 963, ptr @.str.197 }, %struct._value_string { i32 964, ptr @.str.198 }, %struct._value_string { i32 965, ptr @.str.199 }, %struct._value_string { i32 966, ptr @.str.200 }, %struct._value_string { i32 967, ptr @.str.201 }, %struct._value_string { i32 968, ptr @.str.202 }, %struct._value_string { i32 969, ptr @.str.203 }, %struct._value_string { i32 970, ptr @.str }, %struct._value_string { i32 971, ptr @.str.204 }, %struct._value_string { i32 972, ptr @.str.205 }, %struct._value_string { i32 973, ptr @.str.206 }, %struct._value_string { i32 974, ptr @.str.207 }, %struct._value_string { i32 975, ptr @.str.208 }, %struct._value_string { i32 976, ptr @.str.209 }, %struct._value_string { i32 977, ptr @.str.210 }, %struct._value_string { i32 978, ptr @.str.47 }, %struct._value_string { i32 979, ptr @.str.211 }, %struct._value_string { i32 990, ptr @.str.47 }, %struct._value_string { i32 991, ptr @.str.212 }, %struct._value_string { i32 992, ptr @.str.213 }, %struct._value_string { i32 993, ptr @.str.214 }, %struct._value_string { i32 994, ptr @.str.215 }, %struct._value_string { i32 995, ptr @.str.216 }, %struct._value_string { i32 996, ptr @.str.217 }, %struct._value_string { i32 997, ptr @.str.47 }, %struct._value_string { i32 998, ptr @.str.218 }, %struct._value_string { i32 999, ptr @.str.219 }, %struct._value_string zeroinitializer], align 16
+@E164_country_code_value = hidden constant [308 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.2 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.3 }, { i32, [4 x i8], ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.4 }, { i32, [4 x i8], ptr } { i32 30, [4 x i8] zeroinitializer, ptr @.str.5 }, { i32, [4 x i8], ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.6 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.7 }, { i32, [4 x i8], ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.8 }, { i32, [4 x i8], ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.9 }, { i32, [4 x i8], ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.10 }, { i32, [4 x i8], ptr } { i32 39, [4 x i8] zeroinitializer, ptr @.str.11 }, { i32, [4 x i8], ptr } { i32 40, [4 x i8] zeroinitializer, ptr @.str.12 }, { i32, [4 x i8], ptr } { i32 41, [4 x i8] zeroinitializer, ptr @.str.13 }, { i32, [4 x i8], ptr } { i32 43, [4 x i8] zeroinitializer, ptr @.str.14 }, { i32, [4 x i8], ptr } { i32 44, [4 x i8] zeroinitializer, ptr @.str.15 }, { i32, [4 x i8], ptr } { i32 45, [4 x i8] zeroinitializer, ptr @.str.16 }, { i32, [4 x i8], ptr } { i32 46, [4 x i8] zeroinitializer, ptr @.str.17 }, { i32, [4 x i8], ptr } { i32 47, [4 x i8] zeroinitializer, ptr @.str.18 }, { i32, [4 x i8], ptr } { i32 48, [4 x i8] zeroinitializer, ptr @.str.19 }, { i32, [4 x i8], ptr } { i32 49, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } { i32 51, [4 x i8] zeroinitializer, ptr @.str.21 }, { i32, [4 x i8], ptr } { i32 52, [4 x i8] zeroinitializer, ptr @.str.22 }, { i32, [4 x i8], ptr } { i32 53, [4 x i8] zeroinitializer, ptr @.str.23 }, { i32, [4 x i8], ptr } { i32 54, [4 x i8] zeroinitializer, ptr @.str.24 }, { i32, [4 x i8], ptr } { i32 55, [4 x i8] zeroinitializer, ptr @.str.25 }, { i32, [4 x i8], ptr } { i32 56, [4 x i8] zeroinitializer, ptr @.str.26 }, { i32, [4 x i8], ptr } { i32 57, [4 x i8] zeroinitializer, ptr @.str.27 }, { i32, [4 x i8], ptr } { i32 58, [4 x i8] zeroinitializer, ptr @.str.28 }, { i32, [4 x i8], ptr } { i32 60, [4 x i8] zeroinitializer, ptr @.str.29 }, { i32, [4 x i8], ptr } { i32 61, [4 x i8] zeroinitializer, ptr @.str.30 }, { i32, [4 x i8], ptr } { i32 62, [4 x i8] zeroinitializer, ptr @.str.31 }, { i32, [4 x i8], ptr } { i32 63, [4 x i8] zeroinitializer, ptr @.str.32 }, { i32, [4 x i8], ptr } { i32 64, [4 x i8] zeroinitializer, ptr @.str.33 }, { i32, [4 x i8], ptr } { i32 65, [4 x i8] zeroinitializer, ptr @.str.34 }, { i32, [4 x i8], ptr } { i32 66, [4 x i8] zeroinitializer, ptr @.str.35 }, { i32, [4 x i8], ptr } { i32 81, [4 x i8] zeroinitializer, ptr @.str.36 }, { i32, [4 x i8], ptr } { i32 82, [4 x i8] zeroinitializer, ptr @.str.37 }, { i32, [4 x i8], ptr } { i32 84, [4 x i8] zeroinitializer, ptr @.str.38 }, { i32, [4 x i8], ptr } { i32 86, [4 x i8] zeroinitializer, ptr @.str.39 }, { i32, [4 x i8], ptr } { i32 90, [4 x i8] zeroinitializer, ptr @.str.40 }, { i32, [4 x i8], ptr } { i32 91, [4 x i8] zeroinitializer, ptr @.str.41 }, { i32, [4 x i8], ptr } { i32 92, [4 x i8] zeroinitializer, ptr @.str.42 }, { i32, [4 x i8], ptr } { i32 93, [4 x i8] zeroinitializer, ptr @.str.43 }, { i32, [4 x i8], ptr } { i32 94, [4 x i8] zeroinitializer, ptr @.str.44 }, { i32, [4 x i8], ptr } { i32 95, [4 x i8] zeroinitializer, ptr @.str.45 }, { i32, [4 x i8], ptr } { i32 98, [4 x i8] zeroinitializer, ptr @.str.46 }, { i32, [4 x i8], ptr } { i32 210, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 211, [4 x i8] zeroinitializer, ptr @.str.48 }, { i32, [4 x i8], ptr } { i32 212, [4 x i8] zeroinitializer, ptr @.str.49 }, { i32, [4 x i8], ptr } { i32 213, [4 x i8] zeroinitializer, ptr @.str.50 }, { i32, [4 x i8], ptr } { i32 214, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 215, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 216, [4 x i8] zeroinitializer, ptr @.str.51 }, { i32, [4 x i8], ptr } { i32 217, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 218, [4 x i8] zeroinitializer, ptr @.str.52 }, { i32, [4 x i8], ptr } { i32 219, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 220, [4 x i8] zeroinitializer, ptr @.str.53 }, { i32, [4 x i8], ptr } { i32 221, [4 x i8] zeroinitializer, ptr @.str.54 }, { i32, [4 x i8], ptr } { i32 222, [4 x i8] zeroinitializer, ptr @.str.55 }, { i32, [4 x i8], ptr } { i32 223, [4 x i8] zeroinitializer, ptr @.str.56 }, { i32, [4 x i8], ptr } { i32 224, [4 x i8] zeroinitializer, ptr @.str.57 }, { i32, [4 x i8], ptr } { i32 225, [4 x i8] zeroinitializer, ptr @.str.58 }, { i32, [4 x i8], ptr } { i32 226, [4 x i8] zeroinitializer, ptr @.str.59 }, { i32, [4 x i8], ptr } { i32 227, [4 x i8] zeroinitializer, ptr @.str.60 }, { i32, [4 x i8], ptr } { i32 228, [4 x i8] zeroinitializer, ptr @.str.61 }, { i32, [4 x i8], ptr } { i32 229, [4 x i8] zeroinitializer, ptr @.str.62 }, { i32, [4 x i8], ptr } { i32 230, [4 x i8] zeroinitializer, ptr @.str.63 }, { i32, [4 x i8], ptr } { i32 231, [4 x i8] zeroinitializer, ptr @.str.64 }, { i32, [4 x i8], ptr } { i32 232, [4 x i8] zeroinitializer, ptr @.str.65 }, { i32, [4 x i8], ptr } { i32 233, [4 x i8] zeroinitializer, ptr @.str.66 }, { i32, [4 x i8], ptr } { i32 234, [4 x i8] zeroinitializer, ptr @.str.67 }, { i32, [4 x i8], ptr } { i32 235, [4 x i8] zeroinitializer, ptr @.str.68 }, { i32, [4 x i8], ptr } { i32 236, [4 x i8] zeroinitializer, ptr @.str.69 }, { i32, [4 x i8], ptr } { i32 237, [4 x i8] zeroinitializer, ptr @.str.70 }, { i32, [4 x i8], ptr } { i32 238, [4 x i8] zeroinitializer, ptr @.str.71 }, { i32, [4 x i8], ptr } { i32 239, [4 x i8] zeroinitializer, ptr @.str.72 }, { i32, [4 x i8], ptr } { i32 240, [4 x i8] zeroinitializer, ptr @.str.73 }, { i32, [4 x i8], ptr } { i32 241, [4 x i8] zeroinitializer, ptr @.str.74 }, { i32, [4 x i8], ptr } { i32 242, [4 x i8] zeroinitializer, ptr @.str.75 }, { i32, [4 x i8], ptr } { i32 243, [4 x i8] zeroinitializer, ptr @.str.76 }, { i32, [4 x i8], ptr } { i32 244, [4 x i8] zeroinitializer, ptr @.str.77 }, { i32, [4 x i8], ptr } { i32 245, [4 x i8] zeroinitializer, ptr @.str.78 }, { i32, [4 x i8], ptr } { i32 246, [4 x i8] zeroinitializer, ptr @.str.79 }, { i32, [4 x i8], ptr } { i32 247, [4 x i8] zeroinitializer, ptr @.str.80 }, { i32, [4 x i8], ptr } { i32 248, [4 x i8] zeroinitializer, ptr @.str.81 }, { i32, [4 x i8], ptr } { i32 249, [4 x i8] zeroinitializer, ptr @.str.82 }, { i32, [4 x i8], ptr } { i32 250, [4 x i8] zeroinitializer, ptr @.str.83 }, { i32, [4 x i8], ptr } { i32 251, [4 x i8] zeroinitializer, ptr @.str.84 }, { i32, [4 x i8], ptr } { i32 252, [4 x i8] zeroinitializer, ptr @.str.85 }, { i32, [4 x i8], ptr } { i32 253, [4 x i8] zeroinitializer, ptr @.str.86 }, { i32, [4 x i8], ptr } { i32 254, [4 x i8] zeroinitializer, ptr @.str.87 }, { i32, [4 x i8], ptr } { i32 255, [4 x i8] zeroinitializer, ptr @.str.88 }, { i32, [4 x i8], ptr } { i32 256, [4 x i8] zeroinitializer, ptr @.str.89 }, { i32, [4 x i8], ptr } { i32 257, [4 x i8] zeroinitializer, ptr @.str.90 }, { i32, [4 x i8], ptr } { i32 258, [4 x i8] zeroinitializer, ptr @.str.91 }, { i32, [4 x i8], ptr } { i32 259, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 260, [4 x i8] zeroinitializer, ptr @.str.92 }, { i32, [4 x i8], ptr } { i32 261, [4 x i8] zeroinitializer, ptr @.str.93 }, { i32, [4 x i8], ptr } { i32 262, [4 x i8] zeroinitializer, ptr @.str.94 }, { i32, [4 x i8], ptr } { i32 263, [4 x i8] zeroinitializer, ptr @.str.95 }, { i32, [4 x i8], ptr } { i32 264, [4 x i8] zeroinitializer, ptr @.str.96 }, { i32, [4 x i8], ptr } { i32 265, [4 x i8] zeroinitializer, ptr @.str.97 }, { i32, [4 x i8], ptr } { i32 266, [4 x i8] zeroinitializer, ptr @.str.98 }, { i32, [4 x i8], ptr } { i32 267, [4 x i8] zeroinitializer, ptr @.str.99 }, { i32, [4 x i8], ptr } { i32 268, [4 x i8] zeroinitializer, ptr @.str.100 }, { i32, [4 x i8], ptr } { i32 269, [4 x i8] zeroinitializer, ptr @.str.101 }, { i32, [4 x i8], ptr } { i32 280, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 281, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 282, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 283, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 284, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 285, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 286, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 287, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 288, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 289, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 290, [4 x i8] zeroinitializer, ptr @.str.80 }, { i32, [4 x i8], ptr } { i32 291, [4 x i8] zeroinitializer, ptr @.str.102 }, { i32, [4 x i8], ptr } { i32 292, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 293, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 294, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 295, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 296, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 297, [4 x i8] zeroinitializer, ptr @.str.103 }, { i32, [4 x i8], ptr } { i32 298, [4 x i8] zeroinitializer, ptr @.str.104 }, { i32, [4 x i8], ptr } { i32 299, [4 x i8] zeroinitializer, ptr @.str.105 }, { i32, [4 x i8], ptr } { i32 350, [4 x i8] zeroinitializer, ptr @.str.106 }, { i32, [4 x i8], ptr } { i32 351, [4 x i8] zeroinitializer, ptr @.str.107 }, { i32, [4 x i8], ptr } { i32 352, [4 x i8] zeroinitializer, ptr @.str.108 }, { i32, [4 x i8], ptr } { i32 353, [4 x i8] zeroinitializer, ptr @.str.109 }, { i32, [4 x i8], ptr } { i32 354, [4 x i8] zeroinitializer, ptr @.str.110 }, { i32, [4 x i8], ptr } { i32 355, [4 x i8] zeroinitializer, ptr @.str.111 }, { i32, [4 x i8], ptr } { i32 356, [4 x i8] zeroinitializer, ptr @.str.112 }, { i32, [4 x i8], ptr } { i32 357, [4 x i8] zeroinitializer, ptr @.str.113 }, { i32, [4 x i8], ptr } { i32 358, [4 x i8] zeroinitializer, ptr @.str.114 }, { i32, [4 x i8], ptr } { i32 359, [4 x i8] zeroinitializer, ptr @.str.115 }, { i32, [4 x i8], ptr } { i32 370, [4 x i8] zeroinitializer, ptr @.str.116 }, { i32, [4 x i8], ptr } { i32 371, [4 x i8] zeroinitializer, ptr @.str.117 }, { i32, [4 x i8], ptr } { i32 372, [4 x i8] zeroinitializer, ptr @.str.118 }, { i32, [4 x i8], ptr } { i32 373, [4 x i8] zeroinitializer, ptr @.str.119 }, { i32, [4 x i8], ptr } { i32 374, [4 x i8] zeroinitializer, ptr @.str.120 }, { i32, [4 x i8], ptr } { i32 375, [4 x i8] zeroinitializer, ptr @.str.121 }, { i32, [4 x i8], ptr } { i32 376, [4 x i8] zeroinitializer, ptr @.str.122 }, { i32, [4 x i8], ptr } { i32 377, [4 x i8] zeroinitializer, ptr @.str.123 }, { i32, [4 x i8], ptr } { i32 378, [4 x i8] zeroinitializer, ptr @.str.124 }, { i32, [4 x i8], ptr } { i32 379, [4 x i8] zeroinitializer, ptr @.str.125 }, { i32, [4 x i8], ptr } { i32 380, [4 x i8] zeroinitializer, ptr @.str.126 }, { i32, [4 x i8], ptr } { i32 381, [4 x i8] zeroinitializer, ptr @.str.127 }, { i32, [4 x i8], ptr } { i32 382, [4 x i8] zeroinitializer, ptr @.str.128 }, { i32, [4 x i8], ptr } { i32 383, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 384, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 385, [4 x i8] zeroinitializer, ptr @.str.129 }, { i32, [4 x i8], ptr } { i32 386, [4 x i8] zeroinitializer, ptr @.str.130 }, { i32, [4 x i8], ptr } { i32 387, [4 x i8] zeroinitializer, ptr @.str.131 }, { i32, [4 x i8], ptr } { i32 388, [4 x i8] zeroinitializer, ptr @.str.132 }, { i32, [4 x i8], ptr } { i32 389, [4 x i8] zeroinitializer, ptr @.str.133 }, { i32, [4 x i8], ptr } { i32 420, [4 x i8] zeroinitializer, ptr @.str.134 }, { i32, [4 x i8], ptr } { i32 421, [4 x i8] zeroinitializer, ptr @.str.135 }, { i32, [4 x i8], ptr } { i32 422, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 423, [4 x i8] zeroinitializer, ptr @.str.136 }, { i32, [4 x i8], ptr } { i32 424, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 425, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 426, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 427, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 428, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 429, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 500, [4 x i8] zeroinitializer, ptr @.str.137 }, { i32, [4 x i8], ptr } { i32 501, [4 x i8] zeroinitializer, ptr @.str.138 }, { i32, [4 x i8], ptr } { i32 502, [4 x i8] zeroinitializer, ptr @.str.139 }, { i32, [4 x i8], ptr } { i32 503, [4 x i8] zeroinitializer, ptr @.str.140 }, { i32, [4 x i8], ptr } { i32 504, [4 x i8] zeroinitializer, ptr @.str.141 }, { i32, [4 x i8], ptr } { i32 505, [4 x i8] zeroinitializer, ptr @.str.142 }, { i32, [4 x i8], ptr } { i32 506, [4 x i8] zeroinitializer, ptr @.str.143 }, { i32, [4 x i8], ptr } { i32 507, [4 x i8] zeroinitializer, ptr @.str.144 }, { i32, [4 x i8], ptr } { i32 508, [4 x i8] zeroinitializer, ptr @.str.145 }, { i32, [4 x i8], ptr } { i32 509, [4 x i8] zeroinitializer, ptr @.str.146 }, { i32, [4 x i8], ptr } { i32 590, [4 x i8] zeroinitializer, ptr @.str.147 }, { i32, [4 x i8], ptr } { i32 591, [4 x i8] zeroinitializer, ptr @.str.148 }, { i32, [4 x i8], ptr } { i32 592, [4 x i8] zeroinitializer, ptr @.str.149 }, { i32, [4 x i8], ptr } { i32 593, [4 x i8] zeroinitializer, ptr @.str.150 }, { i32, [4 x i8], ptr } { i32 594, [4 x i8] zeroinitializer, ptr @.str.151 }, { i32, [4 x i8], ptr } { i32 595, [4 x i8] zeroinitializer, ptr @.str.152 }, { i32, [4 x i8], ptr } { i32 596, [4 x i8] zeroinitializer, ptr @.str.153 }, { i32, [4 x i8], ptr } { i32 597, [4 x i8] zeroinitializer, ptr @.str.154 }, { i32, [4 x i8], ptr } { i32 598, [4 x i8] zeroinitializer, ptr @.str.155 }, { i32, [4 x i8], ptr } { i32 599, [4 x i8] zeroinitializer, ptr @.str.156 }, { i32, [4 x i8], ptr } { i32 670, [4 x i8] zeroinitializer, ptr @.str.157 }, { i32, [4 x i8], ptr } { i32 671, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 672, [4 x i8] zeroinitializer, ptr @.str.158 }, { i32, [4 x i8], ptr } { i32 673, [4 x i8] zeroinitializer, ptr @.str.159 }, { i32, [4 x i8], ptr } { i32 674, [4 x i8] zeroinitializer, ptr @.str.160 }, { i32, [4 x i8], ptr } { i32 675, [4 x i8] zeroinitializer, ptr @.str.161 }, { i32, [4 x i8], ptr } { i32 676, [4 x i8] zeroinitializer, ptr @.str.162 }, { i32, [4 x i8], ptr } { i32 677, [4 x i8] zeroinitializer, ptr @.str.163 }, { i32, [4 x i8], ptr } { i32 678, [4 x i8] zeroinitializer, ptr @.str.164 }, { i32, [4 x i8], ptr } { i32 679, [4 x i8] zeroinitializer, ptr @.str.165 }, { i32, [4 x i8], ptr } { i32 680, [4 x i8] zeroinitializer, ptr @.str.166 }, { i32, [4 x i8], ptr } { i32 681, [4 x i8] zeroinitializer, ptr @.str.167 }, { i32, [4 x i8], ptr } { i32 682, [4 x i8] zeroinitializer, ptr @.str.168 }, { i32, [4 x i8], ptr } { i32 683, [4 x i8] zeroinitializer, ptr @.str.169 }, { i32, [4 x i8], ptr } { i32 684, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 685, [4 x i8] zeroinitializer, ptr @.str.170 }, { i32, [4 x i8], ptr } { i32 686, [4 x i8] zeroinitializer, ptr @.str.171 }, { i32, [4 x i8], ptr } { i32 687, [4 x i8] zeroinitializer, ptr @.str.172 }, { i32, [4 x i8], ptr } { i32 688, [4 x i8] zeroinitializer, ptr @.str.173 }, { i32, [4 x i8], ptr } { i32 689, [4 x i8] zeroinitializer, ptr @.str.174 }, { i32, [4 x i8], ptr } { i32 690, [4 x i8] zeroinitializer, ptr @.str.175 }, { i32, [4 x i8], ptr } { i32 691, [4 x i8] zeroinitializer, ptr @.str.176 }, { i32, [4 x i8], ptr } { i32 692, [4 x i8] zeroinitializer, ptr @.str.177 }, { i32, [4 x i8], ptr } { i32 693, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 694, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 695, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 696, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 697, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 698, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 699, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 800, [4 x i8] zeroinitializer, ptr @.str.178 }, { i32, [4 x i8], ptr } { i32 801, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 802, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 803, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 804, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 805, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 806, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 807, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 808, [4 x i8] zeroinitializer, ptr @.str.179 }, { i32, [4 x i8], ptr } { i32 809, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 830, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 831, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 832, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 833, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 834, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 835, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 836, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 837, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 838, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 839, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 850, [4 x i8] zeroinitializer, ptr @.str.180 }, { i32, [4 x i8], ptr } { i32 851, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 852, [4 x i8] zeroinitializer, ptr @.str.181 }, { i32, [4 x i8], ptr } { i32 853, [4 x i8] zeroinitializer, ptr @.str.182 }, { i32, [4 x i8], ptr } { i32 854, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 855, [4 x i8] zeroinitializer, ptr @.str.183 }, { i32, [4 x i8], ptr } { i32 856, [4 x i8] zeroinitializer, ptr @.str.184 }, { i32, [4 x i8], ptr } { i32 857, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 858, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 859, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 870, [4 x i8] zeroinitializer, ptr @.str.185 }, { i32, [4 x i8], ptr } { i32 871, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 872, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 873, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 874, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 875, [4 x i8] zeroinitializer, ptr @.str.186 }, { i32, [4 x i8], ptr } { i32 876, [4 x i8] zeroinitializer, ptr @.str.186 }, { i32, [4 x i8], ptr } { i32 877, [4 x i8] zeroinitializer, ptr @.str.186 }, { i32, [4 x i8], ptr } { i32 878, [4 x i8] zeroinitializer, ptr @.str.187 }, { i32, [4 x i8], ptr } { i32 879, [4 x i8] zeroinitializer, ptr @.str.188 }, { i32, [4 x i8], ptr } { i32 880, [4 x i8] zeroinitializer, ptr @.str.189 }, { i32, [4 x i8], ptr } { i32 881, [4 x i8] zeroinitializer, ptr @.str.190 }, { i32, [4 x i8], ptr } { i32 882, [4 x i8] zeroinitializer, ptr @.str.191 }, { i32, [4 x i8], ptr } { i32 883, [4 x i8] zeroinitializer, ptr @.str.191 }, { i32, [4 x i8], ptr } { i32 884, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 885, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 886, [4 x i8] zeroinitializer, ptr @.str.192 }, { i32, [4 x i8], ptr } { i32 887, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 888, [4 x i8] zeroinitializer, ptr @.str.193 }, { i32, [4 x i8], ptr } { i32 889, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 890, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 891, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 892, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 893, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 894, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 895, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 896, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 897, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 898, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 899, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 960, [4 x i8] zeroinitializer, ptr @.str.194 }, { i32, [4 x i8], ptr } { i32 961, [4 x i8] zeroinitializer, ptr @.str.195 }, { i32, [4 x i8], ptr } { i32 962, [4 x i8] zeroinitializer, ptr @.str.196 }, { i32, [4 x i8], ptr } { i32 963, [4 x i8] zeroinitializer, ptr @.str.197 }, { i32, [4 x i8], ptr } { i32 964, [4 x i8] zeroinitializer, ptr @.str.198 }, { i32, [4 x i8], ptr } { i32 965, [4 x i8] zeroinitializer, ptr @.str.199 }, { i32, [4 x i8], ptr } { i32 966, [4 x i8] zeroinitializer, ptr @.str.200 }, { i32, [4 x i8], ptr } { i32 967, [4 x i8] zeroinitializer, ptr @.str.201 }, { i32, [4 x i8], ptr } { i32 968, [4 x i8] zeroinitializer, ptr @.str.202 }, { i32, [4 x i8], ptr } { i32 969, [4 x i8] zeroinitializer, ptr @.str.203 }, { i32, [4 x i8], ptr } { i32 970, [4 x i8] zeroinitializer, ptr @.str }, { i32, [4 x i8], ptr } { i32 971, [4 x i8] zeroinitializer, ptr @.str.204 }, { i32, [4 x i8], ptr } { i32 972, [4 x i8] zeroinitializer, ptr @.str.205 }, { i32, [4 x i8], ptr } { i32 973, [4 x i8] zeroinitializer, ptr @.str.206 }, { i32, [4 x i8], ptr } { i32 974, [4 x i8] zeroinitializer, ptr @.str.207 }, { i32, [4 x i8], ptr } { i32 975, [4 x i8] zeroinitializer, ptr @.str.208 }, { i32, [4 x i8], ptr } { i32 976, [4 x i8] zeroinitializer, ptr @.str.209 }, { i32, [4 x i8], ptr } { i32 977, [4 x i8] zeroinitializer, ptr @.str.210 }, { i32, [4 x i8], ptr } { i32 978, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 979, [4 x i8] zeroinitializer, ptr @.str.211 }, { i32, [4 x i8], ptr } { i32 990, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 991, [4 x i8] zeroinitializer, ptr @.str.212 }, { i32, [4 x i8], ptr } { i32 992, [4 x i8] zeroinitializer, ptr @.str.213 }, { i32, [4 x i8], ptr } { i32 993, [4 x i8] zeroinitializer, ptr @.str.214 }, { i32, [4 x i8], ptr } { i32 994, [4 x i8] zeroinitializer, ptr @.str.215 }, { i32, [4 x i8], ptr } { i32 995, [4 x i8] zeroinitializer, ptr @.str.216 }, { i32, [4 x i8], ptr } { i32 996, [4 x i8] zeroinitializer, ptr @.str.217 }, { i32, [4 x i8], ptr } { i32 997, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 998, [4 x i8] zeroinitializer, ptr @.str.218 }, { i32, [4 x i8], ptr } { i32 999, [4 x i8] zeroinitializer, ptr @.str.219 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
 @.str.220 = private unnamed_addr constant [3 x i8] c"us\00", align 1
 @.str.221 = private unnamed_addr constant [3 x i8] c"ru\00", align 1
 @.str.222 = private unnamed_addr constant [3 x i8] c"eg\00", align 1
@@ -428,7 +425,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.412 = private unnamed_addr constant [3 x i8] c"ge\00", align 1
 @.str.413 = private unnamed_addr constant [3 x i8] c"kg\00", align 1
 @.str.414 = private unnamed_addr constant [3 x i8] c"uz\00", align 1
-@E164_ISO3166_country_code_short_value = hidden constant [197 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.220 }, %struct._value_string { i32 7, ptr @.str.221 }, %struct._value_string { i32 20, ptr @.str.222 }, %struct._value_string { i32 27, ptr @.str.223 }, %struct._value_string { i32 30, ptr @.str.224 }, %struct._value_string { i32 31, ptr @.str.225 }, %struct._value_string { i32 32, ptr @.str.226 }, %struct._value_string { i32 33, ptr @.str.227 }, %struct._value_string { i32 34, ptr @.str.228 }, %struct._value_string { i32 36, ptr @.str.229 }, %struct._value_string { i32 39, ptr @.str.230 }, %struct._value_string { i32 40, ptr @.str.231 }, %struct._value_string { i32 41, ptr @.str.232 }, %struct._value_string { i32 43, ptr @.str.233 }, %struct._value_string { i32 44, ptr @.str.234 }, %struct._value_string { i32 45, ptr @.str.235 }, %struct._value_string { i32 46, ptr @.str.236 }, %struct._value_string { i32 47, ptr @.str.237 }, %struct._value_string { i32 48, ptr @.str.238 }, %struct._value_string { i32 49, ptr @.str.239 }, %struct._value_string { i32 51, ptr @.str.240 }, %struct._value_string { i32 52, ptr @.str.241 }, %struct._value_string { i32 53, ptr @.str.242 }, %struct._value_string { i32 54, ptr @.str.243 }, %struct._value_string { i32 55, ptr @.str.244 }, %struct._value_string { i32 56, ptr @.str.245 }, %struct._value_string { i32 57, ptr @.str.246 }, %struct._value_string { i32 58, ptr @.str.247 }, %struct._value_string { i32 60, ptr @.str.248 }, %struct._value_string { i32 61, ptr @.str.249 }, %struct._value_string { i32 62, ptr @.str.250 }, %struct._value_string { i32 63, ptr @.str.251 }, %struct._value_string { i32 64, ptr @.str.252 }, %struct._value_string { i32 65, ptr @.str.253 }, %struct._value_string { i32 66, ptr @.str.254 }, %struct._value_string { i32 81, ptr @.str.255 }, %struct._value_string { i32 82, ptr @.str.256 }, %struct._value_string { i32 84, ptr @.str.257 }, %struct._value_string { i32 86, ptr @.str.258 }, %struct._value_string { i32 90, ptr @.str.259 }, %struct._value_string { i32 91, ptr @.str.260 }, %struct._value_string { i32 92, ptr @.str.261 }, %struct._value_string { i32 93, ptr @.str.262 }, %struct._value_string { i32 94, ptr @.str.263 }, %struct._value_string { i32 98, ptr @.str.264 }, %struct._value_string { i32 95, ptr @.str.265 }, %struct._value_string { i32 212, ptr @.str.266 }, %struct._value_string { i32 213, ptr @.str.267 }, %struct._value_string { i32 216, ptr @.str.268 }, %struct._value_string { i32 218, ptr @.str.269 }, %struct._value_string { i32 220, ptr @.str.270 }, %struct._value_string { i32 221, ptr @.str.271 }, %struct._value_string { i32 222, ptr @.str.272 }, %struct._value_string { i32 223, ptr @.str.273 }, %struct._value_string { i32 224, ptr @.str.274 }, %struct._value_string { i32 225, ptr @.str.275 }, %struct._value_string { i32 226, ptr @.str.276 }, %struct._value_string { i32 227, ptr @.str.277 }, %struct._value_string { i32 228, ptr @.str.278 }, %struct._value_string { i32 229, ptr @.str.279 }, %struct._value_string { i32 230, ptr @.str.280 }, %struct._value_string { i32 231, ptr @.str.281 }, %struct._value_string { i32 232, ptr @.str.282 }, %struct._value_string { i32 233, ptr @.str.283 }, %struct._value_string { i32 234, ptr @.str.284 }, %struct._value_string { i32 235, ptr @.str.285 }, %struct._value_string { i32 236, ptr @.str.286 }, %struct._value_string { i32 237, ptr @.str.287 }, %struct._value_string { i32 238, ptr @.str.288 }, %struct._value_string { i32 239, ptr @.str.289 }, %struct._value_string { i32 240, ptr @.str.290 }, %struct._value_string { i32 241, ptr @.str.291 }, %struct._value_string { i32 242, ptr @.str.292 }, %struct._value_string { i32 243, ptr @.str.293 }, %struct._value_string { i32 244, ptr @.str.294 }, %struct._value_string { i32 245, ptr @.str.295 }, %struct._value_string { i32 248, ptr @.str.296 }, %struct._value_string { i32 249, ptr @.str.297 }, %struct._value_string { i32 250, ptr @.str.298 }, %struct._value_string { i32 251, ptr @.str.299 }, %struct._value_string { i32 252, ptr @.str.300 }, %struct._value_string { i32 253, ptr @.str.301 }, %struct._value_string { i32 254, ptr @.str.302 }, %struct._value_string { i32 255, ptr @.str.303 }, %struct._value_string { i32 256, ptr @.str.304 }, %struct._value_string { i32 257, ptr @.str.305 }, %struct._value_string { i32 258, ptr @.str.306 }, %struct._value_string { i32 260, ptr @.str.307 }, %struct._value_string { i32 261, ptr @.str.308 }, %struct._value_string { i32 262, ptr @.str.227 }, %struct._value_string { i32 263, ptr @.str.309 }, %struct._value_string { i32 264, ptr @.str.310 }, %struct._value_string { i32 265, ptr @.str.311 }, %struct._value_string { i32 266, ptr @.str.312 }, %struct._value_string { i32 267, ptr @.str.313 }, %struct._value_string { i32 268, ptr @.str.314 }, %struct._value_string { i32 269, ptr @.str.315 }, %struct._value_string { i32 290, ptr @.str.316 }, %struct._value_string { i32 291, ptr @.str.317 }, %struct._value_string { i32 297, ptr @.str.318 }, %struct._value_string { i32 298, ptr @.str.319 }, %struct._value_string { i32 299, ptr @.str.320 }, %struct._value_string { i32 350, ptr @.str.321 }, %struct._value_string { i32 351, ptr @.str.322 }, %struct._value_string { i32 352, ptr @.str.323 }, %struct._value_string { i32 353, ptr @.str.324 }, %struct._value_string { i32 354, ptr @.str.325 }, %struct._value_string { i32 355, ptr @.str.326 }, %struct._value_string { i32 356, ptr @.str.327 }, %struct._value_string { i32 357, ptr @.str.328 }, %struct._value_string { i32 358, ptr @.str.329 }, %struct._value_string { i32 359, ptr @.str.330 }, %struct._value_string { i32 370, ptr @.str.331 }, %struct._value_string { i32 371, ptr @.str.332 }, %struct._value_string { i32 372, ptr @.str.333 }, %struct._value_string { i32 373, ptr @.str.334 }, %struct._value_string { i32 374, ptr @.str.335 }, %struct._value_string { i32 375, ptr @.str.336 }, %struct._value_string { i32 376, ptr @.str.337 }, %struct._value_string { i32 377, ptr @.str.338 }, %struct._value_string { i32 378, ptr @.str.339 }, %struct._value_string { i32 379, ptr @.str.340 }, %struct._value_string { i32 380, ptr @.str.341 }, %struct._value_string { i32 385, ptr @.str.342 }, %struct._value_string { i32 386, ptr @.str.343 }, %struct._value_string { i32 387, ptr @.str.344 }, %struct._value_string { i32 420, ptr @.str.345 }, %struct._value_string { i32 421, ptr @.str.346 }, %struct._value_string { i32 423, ptr @.str.347 }, %struct._value_string { i32 500, ptr @.str.348 }, %struct._value_string { i32 501, ptr @.str.349 }, %struct._value_string { i32 502, ptr @.str.350 }, %struct._value_string { i32 503, ptr @.str.351 }, %struct._value_string { i32 504, ptr @.str.352 }, %struct._value_string { i32 505, ptr @.str.353 }, %struct._value_string { i32 506, ptr @.str.354 }, %struct._value_string { i32 507, ptr @.str.355 }, %struct._value_string { i32 508, ptr @.str.356 }, %struct._value_string { i32 509, ptr @.str.357 }, %struct._value_string { i32 590, ptr @.str.358 }, %struct._value_string { i32 591, ptr @.str.359 }, %struct._value_string { i32 592, ptr @.str.360 }, %struct._value_string { i32 593, ptr @.str.361 }, %struct._value_string { i32 594, ptr @.str.362 }, %struct._value_string { i32 595, ptr @.str.363 }, %struct._value_string { i32 596, ptr @.str.364 }, %struct._value_string { i32 597, ptr @.str.365 }, %struct._value_string { i32 598, ptr @.str.366 }, %struct._value_string { i32 673, ptr @.str.367 }, %struct._value_string { i32 682, ptr @.str.368 }, %struct._value_string { i32 670, ptr @.str.369 }, %struct._value_string { i32 674, ptr @.str.370 }, %struct._value_string { i32 675, ptr @.str.371 }, %struct._value_string { i32 676, ptr @.str.372 }, %struct._value_string { i32 677, ptr @.str.373 }, %struct._value_string { i32 678, ptr @.str.374 }, %struct._value_string { i32 679, ptr @.str.375 }, %struct._value_string { i32 680, ptr @.str.376 }, %struct._value_string { i32 681, ptr @.str.377 }, %struct._value_string { i32 683, ptr @.str.378 }, %struct._value_string { i32 685, ptr @.str.379 }, %struct._value_string { i32 686, ptr @.str.380 }, %struct._value_string { i32 687, ptr @.str.381 }, %struct._value_string { i32 688, ptr @.str.382 }, %struct._value_string { i32 689, ptr @.str.383 }, %struct._value_string { i32 690, ptr @.str.384 }, %struct._value_string { i32 691, ptr @.str.385 }, %struct._value_string { i32 692, ptr @.str.386 }, %struct._value_string { i32 850, ptr @.str.387 }, %struct._value_string { i32 852, ptr @.str.388 }, %struct._value_string { i32 853, ptr @.str.389 }, %struct._value_string { i32 855, ptr @.str.390 }, %struct._value_string { i32 856, ptr @.str.391 }, %struct._value_string { i32 880, ptr @.str.392 }, %struct._value_string { i32 960, ptr @.str.393 }, %struct._value_string { i32 961, ptr @.str.394 }, %struct._value_string { i32 962, ptr @.str.395 }, %struct._value_string { i32 963, ptr @.str.396 }, %struct._value_string { i32 964, ptr @.str.397 }, %struct._value_string { i32 965, ptr @.str.398 }, %struct._value_string { i32 966, ptr @.str.399 }, %struct._value_string { i32 967, ptr @.str.400 }, %struct._value_string { i32 968, ptr @.str.401 }, %struct._value_string { i32 971, ptr @.str.402 }, %struct._value_string { i32 972, ptr @.str.403 }, %struct._value_string { i32 973, ptr @.str.404 }, %struct._value_string { i32 974, ptr @.str.405 }, %struct._value_string { i32 975, ptr @.str.406 }, %struct._value_string { i32 976, ptr @.str.407 }, %struct._value_string { i32 977, ptr @.str.408 }, %struct._value_string { i32 992, ptr @.str.409 }, %struct._value_string { i32 993, ptr @.str.410 }, %struct._value_string { i32 994, ptr @.str.411 }, %struct._value_string { i32 995, ptr @.str.412 }, %struct._value_string { i32 996, ptr @.str.413 }, %struct._value_string { i32 998, ptr @.str.414 }, %struct._value_string zeroinitializer], align 16
+@E164_ISO3166_country_code_short_value = hidden constant [197 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.220 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.221 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.222 }, { i32, [4 x i8], ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.223 }, { i32, [4 x i8], ptr } { i32 30, [4 x i8] zeroinitializer, ptr @.str.224 }, { i32, [4 x i8], ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.225 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.226 }, { i32, [4 x i8], ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.227 }, { i32, [4 x i8], ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.228 }, { i32, [4 x i8], ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.229 }, { i32, [4 x i8], ptr } { i32 39, [4 x i8] zeroinitializer, ptr @.str.230 }, { i32, [4 x i8], ptr } { i32 40, [4 x i8] zeroinitializer, ptr @.str.231 }, { i32, [4 x i8], ptr } { i32 41, [4 x i8] zeroinitializer, ptr @.str.232 }, { i32, [4 x i8], ptr } { i32 43, [4 x i8] zeroinitializer, ptr @.str.233 }, { i32, [4 x i8], ptr } { i32 44, [4 x i8] zeroinitializer, ptr @.str.234 }, { i32, [4 x i8], ptr } { i32 45, [4 x i8] zeroinitializer, ptr @.str.235 }, { i32, [4 x i8], ptr } { i32 46, [4 x i8] zeroinitializer, ptr @.str.236 }, { i32, [4 x i8], ptr } { i32 47, [4 x i8] zeroinitializer, ptr @.str.237 }, { i32, [4 x i8], ptr } { i32 48, [4 x i8] zeroinitializer, ptr @.str.238 }, { i32, [4 x i8], ptr } { i32 49, [4 x i8] zeroinitializer, ptr @.str.239 }, { i32, [4 x i8], ptr } { i32 51, [4 x i8] zeroinitializer, ptr @.str.240 }, { i32, [4 x i8], ptr } { i32 52, [4 x i8] zeroinitializer, ptr @.str.241 }, { i32, [4 x i8], ptr } { i32 53, [4 x i8] zeroinitializer, ptr @.str.242 }, { i32, [4 x i8], ptr } { i32 54, [4 x i8] zeroinitializer, ptr @.str.243 }, { i32, [4 x i8], ptr } { i32 55, [4 x i8] zeroinitializer, ptr @.str.244 }, { i32, [4 x i8], ptr } { i32 56, [4 x i8] zeroinitializer, ptr @.str.245 }, { i32, [4 x i8], ptr } { i32 57, [4 x i8] zeroinitializer, ptr @.str.246 }, { i32, [4 x i8], ptr } { i32 58, [4 x i8] zeroinitializer, ptr @.str.247 }, { i32, [4 x i8], ptr } { i32 60, [4 x i8] zeroinitializer, ptr @.str.248 }, { i32, [4 x i8], ptr } { i32 61, [4 x i8] zeroinitializer, ptr @.str.249 }, { i32, [4 x i8], ptr } { i32 62, [4 x i8] zeroinitializer, ptr @.str.250 }, { i32, [4 x i8], ptr } { i32 63, [4 x i8] zeroinitializer, ptr @.str.251 }, { i32, [4 x i8], ptr } { i32 64, [4 x i8] zeroinitializer, ptr @.str.252 }, { i32, [4 x i8], ptr } { i32 65, [4 x i8] zeroinitializer, ptr @.str.253 }, { i32, [4 x i8], ptr } { i32 66, [4 x i8] zeroinitializer, ptr @.str.254 }, { i32, [4 x i8], ptr } { i32 81, [4 x i8] zeroinitializer, ptr @.str.255 }, { i32, [4 x i8], ptr } { i32 82, [4 x i8] zeroinitializer, ptr @.str.256 }, { i32, [4 x i8], ptr } { i32 84, [4 x i8] zeroinitializer, ptr @.str.257 }, { i32, [4 x i8], ptr } { i32 86, [4 x i8] zeroinitializer, ptr @.str.258 }, { i32, [4 x i8], ptr } { i32 90, [4 x i8] zeroinitializer, ptr @.str.259 }, { i32, [4 x i8], ptr } { i32 91, [4 x i8] zeroinitializer, ptr @.str.260 }, { i32, [4 x i8], ptr } { i32 92, [4 x i8] zeroinitializer, ptr @.str.261 }, { i32, [4 x i8], ptr } { i32 93, [4 x i8] zeroinitializer, ptr @.str.262 }, { i32, [4 x i8], ptr } { i32 94, [4 x i8] zeroinitializer, ptr @.str.263 }, { i32, [4 x i8], ptr } { i32 98, [4 x i8] zeroinitializer, ptr @.str.264 }, { i32, [4 x i8], ptr } { i32 95, [4 x i8] zeroinitializer, ptr @.str.265 }, { i32, [4 x i8], ptr } { i32 212, [4 x i8] zeroinitializer, ptr @.str.266 }, { i32, [4 x i8], ptr } { i32 213, [4 x i8] zeroinitializer, ptr @.str.267 }, { i32, [4 x i8], ptr } { i32 216, [4 x i8] zeroinitializer, ptr @.str.268 }, { i32, [4 x i8], ptr } { i32 218, [4 x i8] zeroinitializer, ptr @.str.269 }, { i32, [4 x i8], ptr } { i32 220, [4 x i8] zeroinitializer, ptr @.str.270 }, { i32, [4 x i8], ptr } { i32 221, [4 x i8] zeroinitializer, ptr @.str.271 }, { i32, [4 x i8], ptr } { i32 222, [4 x i8] zeroinitializer, ptr @.str.272 }, { i32, [4 x i8], ptr } { i32 223, [4 x i8] zeroinitializer, ptr @.str.273 }, { i32, [4 x i8], ptr } { i32 224, [4 x i8] zeroinitializer, ptr @.str.274 }, { i32, [4 x i8], ptr } { i32 225, [4 x i8] zeroinitializer, ptr @.str.275 }, { i32, [4 x i8], ptr } { i32 226, [4 x i8] zeroinitializer, ptr @.str.276 }, { i32, [4 x i8], ptr } { i32 227, [4 x i8] zeroinitializer, ptr @.str.277 }, { i32, [4 x i8], ptr } { i32 228, [4 x i8] zeroinitializer, ptr @.str.278 }, { i32, [4 x i8], ptr } { i32 229, [4 x i8] zeroinitializer, ptr @.str.279 }, { i32, [4 x i8], ptr } { i32 230, [4 x i8] zeroinitializer, ptr @.str.280 }, { i32, [4 x i8], ptr } { i32 231, [4 x i8] zeroinitializer, ptr @.str.281 }, { i32, [4 x i8], ptr } { i32 232, [4 x i8] zeroinitializer, ptr @.str.282 }, { i32, [4 x i8], ptr } { i32 233, [4 x i8] zeroinitializer, ptr @.str.283 }, { i32, [4 x i8], ptr } { i32 234, [4 x i8] zeroinitializer, ptr @.str.284 }, { i32, [4 x i8], ptr } { i32 235, [4 x i8] zeroinitializer, ptr @.str.285 }, { i32, [4 x i8], ptr } { i32 236, [4 x i8] zeroinitializer, ptr @.str.286 }, { i32, [4 x i8], ptr } { i32 237, [4 x i8] zeroinitializer, ptr @.str.287 }, { i32, [4 x i8], ptr } { i32 238, [4 x i8] zeroinitializer, ptr @.str.288 }, { i32, [4 x i8], ptr } { i32 239, [4 x i8] zeroinitializer, ptr @.str.289 }, { i32, [4 x i8], ptr } { i32 240, [4 x i8] zeroinitializer, ptr @.str.290 }, { i32, [4 x i8], ptr } { i32 241, [4 x i8] zeroinitializer, ptr @.str.291 }, { i32, [4 x i8], ptr } { i32 242, [4 x i8] zeroinitializer, ptr @.str.292 }, { i32, [4 x i8], ptr } { i32 243, [4 x i8] zeroinitializer, ptr @.str.293 }, { i32, [4 x i8], ptr } { i32 244, [4 x i8] zeroinitializer, ptr @.str.294 }, { i32, [4 x i8], ptr } { i32 245, [4 x i8] zeroinitializer, ptr @.str.295 }, { i32, [4 x i8], ptr } { i32 248, [4 x i8] zeroinitializer, ptr @.str.296 }, { i32, [4 x i8], ptr } { i32 249, [4 x i8] zeroinitializer, ptr @.str.297 }, { i32, [4 x i8], ptr } { i32 250, [4 x i8] zeroinitializer, ptr @.str.298 }, { i32, [4 x i8], ptr } { i32 251, [4 x i8] zeroinitializer, ptr @.str.299 }, { i32, [4 x i8], ptr } { i32 252, [4 x i8] zeroinitializer, ptr @.str.300 }, { i32, [4 x i8], ptr } { i32 253, [4 x i8] zeroinitializer, ptr @.str.301 }, { i32, [4 x i8], ptr } { i32 254, [4 x i8] zeroinitializer, ptr @.str.302 }, { i32, [4 x i8], ptr } { i32 255, [4 x i8] zeroinitializer, ptr @.str.303 }, { i32, [4 x i8], ptr } { i32 256, [4 x i8] zeroinitializer, ptr @.str.304 }, { i32, [4 x i8], ptr } { i32 257, [4 x i8] zeroinitializer, ptr @.str.305 }, { i32, [4 x i8], ptr } { i32 258, [4 x i8] zeroinitializer, ptr @.str.306 }, { i32, [4 x i8], ptr } { i32 260, [4 x i8] zeroinitializer, ptr @.str.307 }, { i32, [4 x i8], ptr } { i32 261, [4 x i8] zeroinitializer, ptr @.str.308 }, { i32, [4 x i8], ptr } { i32 262, [4 x i8] zeroinitializer, ptr @.str.227 }, { i32, [4 x i8], ptr } { i32 263, [4 x i8] zeroinitializer, ptr @.str.309 }, { i32, [4 x i8], ptr } { i32 264, [4 x i8] zeroinitializer, ptr @.str.310 }, { i32, [4 x i8], ptr } { i32 265, [4 x i8] zeroinitializer, ptr @.str.311 }, { i32, [4 x i8], ptr } { i32 266, [4 x i8] zeroinitializer, ptr @.str.312 }, { i32, [4 x i8], ptr } { i32 267, [4 x i8] zeroinitializer, ptr @.str.313 }, { i32, [4 x i8], ptr } { i32 268, [4 x i8] zeroinitializer, ptr @.str.314 }, { i32, [4 x i8], ptr } { i32 269, [4 x i8] zeroinitializer, ptr @.str.315 }, { i32, [4 x i8], ptr } { i32 290, [4 x i8] zeroinitializer, ptr @.str.316 }, { i32, [4 x i8], ptr } { i32 291, [4 x i8] zeroinitializer, ptr @.str.317 }, { i32, [4 x i8], ptr } { i32 297, [4 x i8] zeroinitializer, ptr @.str.318 }, { i32, [4 x i8], ptr } { i32 298, [4 x i8] zeroinitializer, ptr @.str.319 }, { i32, [4 x i8], ptr } { i32 299, [4 x i8] zeroinitializer, ptr @.str.320 }, { i32, [4 x i8], ptr } { i32 350, [4 x i8] zeroinitializer, ptr @.str.321 }, { i32, [4 x i8], ptr } { i32 351, [4 x i8] zeroinitializer, ptr @.str.322 }, { i32, [4 x i8], ptr } { i32 352, [4 x i8] zeroinitializer, ptr @.str.323 }, { i32, [4 x i8], ptr } { i32 353, [4 x i8] zeroinitializer, ptr @.str.324 }, { i32, [4 x i8], ptr } { i32 354, [4 x i8] zeroinitializer, ptr @.str.325 }, { i32, [4 x i8], ptr } { i32 355, [4 x i8] zeroinitializer, ptr @.str.326 }, { i32, [4 x i8], ptr } { i32 356, [4 x i8] zeroinitializer, ptr @.str.327 }, { i32, [4 x i8], ptr } { i32 357, [4 x i8] zeroinitializer, ptr @.str.328 }, { i32, [4 x i8], ptr } { i32 358, [4 x i8] zeroinitializer, ptr @.str.329 }, { i32, [4 x i8], ptr } { i32 359, [4 x i8] zeroinitializer, ptr @.str.330 }, { i32, [4 x i8], ptr } { i32 370, [4 x i8] zeroinitializer, ptr @.str.331 }, { i32, [4 x i8], ptr } { i32 371, [4 x i8] zeroinitializer, ptr @.str.332 }, { i32, [4 x i8], ptr } { i32 372, [4 x i8] zeroinitializer, ptr @.str.333 }, { i32, [4 x i8], ptr } { i32 373, [4 x i8] zeroinitializer, ptr @.str.334 }, { i32, [4 x i8], ptr } { i32 374, [4 x i8] zeroinitializer, ptr @.str.335 }, { i32, [4 x i8], ptr } { i32 375, [4 x i8] zeroinitializer, ptr @.str.336 }, { i32, [4 x i8], ptr } { i32 376, [4 x i8] zeroinitializer, ptr @.str.337 }, { i32, [4 x i8], ptr } { i32 377, [4 x i8] zeroinitializer, ptr @.str.338 }, { i32, [4 x i8], ptr } { i32 378, [4 x i8] zeroinitializer, ptr @.str.339 }, { i32, [4 x i8], ptr } { i32 379, [4 x i8] zeroinitializer, ptr @.str.340 }, { i32, [4 x i8], ptr } { i32 380, [4 x i8] zeroinitializer, ptr @.str.341 }, { i32, [4 x i8], ptr } { i32 385, [4 x i8] zeroinitializer, ptr @.str.342 }, { i32, [4 x i8], ptr } { i32 386, [4 x i8] zeroinitializer, ptr @.str.343 }, { i32, [4 x i8], ptr } { i32 387, [4 x i8] zeroinitializer, ptr @.str.344 }, { i32, [4 x i8], ptr } { i32 420, [4 x i8] zeroinitializer, ptr @.str.345 }, { i32, [4 x i8], ptr } { i32 421, [4 x i8] zeroinitializer, ptr @.str.346 }, { i32, [4 x i8], ptr } { i32 423, [4 x i8] zeroinitializer, ptr @.str.347 }, { i32, [4 x i8], ptr } { i32 500, [4 x i8] zeroinitializer, ptr @.str.348 }, { i32, [4 x i8], ptr } { i32 501, [4 x i8] zeroinitializer, ptr @.str.349 }, { i32, [4 x i8], ptr } { i32 502, [4 x i8] zeroinitializer, ptr @.str.350 }, { i32, [4 x i8], ptr } { i32 503, [4 x i8] zeroinitializer, ptr @.str.351 }, { i32, [4 x i8], ptr } { i32 504, [4 x i8] zeroinitializer, ptr @.str.352 }, { i32, [4 x i8], ptr } { i32 505, [4 x i8] zeroinitializer, ptr @.str.353 }, { i32, [4 x i8], ptr } { i32 506, [4 x i8] zeroinitializer, ptr @.str.354 }, { i32, [4 x i8], ptr } { i32 507, [4 x i8] zeroinitializer, ptr @.str.355 }, { i32, [4 x i8], ptr } { i32 508, [4 x i8] zeroinitializer, ptr @.str.356 }, { i32, [4 x i8], ptr } { i32 509, [4 x i8] zeroinitializer, ptr @.str.357 }, { i32, [4 x i8], ptr } { i32 590, [4 x i8] zeroinitializer, ptr @.str.358 }, { i32, [4 x i8], ptr } { i32 591, [4 x i8] zeroinitializer, ptr @.str.359 }, { i32, [4 x i8], ptr } { i32 592, [4 x i8] zeroinitializer, ptr @.str.360 }, { i32, [4 x i8], ptr } { i32 593, [4 x i8] zeroinitializer, ptr @.str.361 }, { i32, [4 x i8], ptr } { i32 594, [4 x i8] zeroinitializer, ptr @.str.362 }, { i32, [4 x i8], ptr } { i32 595, [4 x i8] zeroinitializer, ptr @.str.363 }, { i32, [4 x i8], ptr } { i32 596, [4 x i8] zeroinitializer, ptr @.str.364 }, { i32, [4 x i8], ptr } { i32 597, [4 x i8] zeroinitializer, ptr @.str.365 }, { i32, [4 x i8], ptr } { i32 598, [4 x i8] zeroinitializer, ptr @.str.366 }, { i32, [4 x i8], ptr } { i32 673, [4 x i8] zeroinitializer, ptr @.str.367 }, { i32, [4 x i8], ptr } { i32 682, [4 x i8] zeroinitializer, ptr @.str.368 }, { i32, [4 x i8], ptr } { i32 670, [4 x i8] zeroinitializer, ptr @.str.369 }, { i32, [4 x i8], ptr } { i32 674, [4 x i8] zeroinitializer, ptr @.str.370 }, { i32, [4 x i8], ptr } { i32 675, [4 x i8] zeroinitializer, ptr @.str.371 }, { i32, [4 x i8], ptr } { i32 676, [4 x i8] zeroinitializer, ptr @.str.372 }, { i32, [4 x i8], ptr } { i32 677, [4 x i8] zeroinitializer, ptr @.str.373 }, { i32, [4 x i8], ptr } { i32 678, [4 x i8] zeroinitializer, ptr @.str.374 }, { i32, [4 x i8], ptr } { i32 679, [4 x i8] zeroinitializer, ptr @.str.375 }, { i32, [4 x i8], ptr } { i32 680, [4 x i8] zeroinitializer, ptr @.str.376 }, { i32, [4 x i8], ptr } { i32 681, [4 x i8] zeroinitializer, ptr @.str.377 }, { i32, [4 x i8], ptr } { i32 683, [4 x i8] zeroinitializer, ptr @.str.378 }, { i32, [4 x i8], ptr } { i32 685, [4 x i8] zeroinitializer, ptr @.str.379 }, { i32, [4 x i8], ptr } { i32 686, [4 x i8] zeroinitializer, ptr @.str.380 }, { i32, [4 x i8], ptr } { i32 687, [4 x i8] zeroinitializer, ptr @.str.381 }, { i32, [4 x i8], ptr } { i32 688, [4 x i8] zeroinitializer, ptr @.str.382 }, { i32, [4 x i8], ptr } { i32 689, [4 x i8] zeroinitializer, ptr @.str.383 }, { i32, [4 x i8], ptr } { i32 690, [4 x i8] zeroinitializer, ptr @.str.384 }, { i32, [4 x i8], ptr } { i32 691, [4 x i8] zeroinitializer, ptr @.str.385 }, { i32, [4 x i8], ptr } { i32 692, [4 x i8] zeroinitializer, ptr @.str.386 }, { i32, [4 x i8], ptr } { i32 850, [4 x i8] zeroinitializer, ptr @.str.387 }, { i32, [4 x i8], ptr } { i32 852, [4 x i8] zeroinitializer, ptr @.str.388 }, { i32, [4 x i8], ptr } { i32 853, [4 x i8] zeroinitializer, ptr @.str.389 }, { i32, [4 x i8], ptr } { i32 855, [4 x i8] zeroinitializer, ptr @.str.390 }, { i32, [4 x i8], ptr } { i32 856, [4 x i8] zeroinitializer, ptr @.str.391 }, { i32, [4 x i8], ptr } { i32 880, [4 x i8] zeroinitializer, ptr @.str.392 }, { i32, [4 x i8], ptr } { i32 960, [4 x i8] zeroinitializer, ptr @.str.393 }, { i32, [4 x i8], ptr } { i32 961, [4 x i8] zeroinitializer, ptr @.str.394 }, { i32, [4 x i8], ptr } { i32 962, [4 x i8] zeroinitializer, ptr @.str.395 }, { i32, [4 x i8], ptr } { i32 963, [4 x i8] zeroinitializer, ptr @.str.396 }, { i32, [4 x i8], ptr } { i32 964, [4 x i8] zeroinitializer, ptr @.str.397 }, { i32, [4 x i8], ptr } { i32 965, [4 x i8] zeroinitializer, ptr @.str.398 }, { i32, [4 x i8], ptr } { i32 966, [4 x i8] zeroinitializer, ptr @.str.399 }, { i32, [4 x i8], ptr } { i32 967, [4 x i8] zeroinitializer, ptr @.str.400 }, { i32, [4 x i8], ptr } { i32 968, [4 x i8] zeroinitializer, ptr @.str.401 }, { i32, [4 x i8], ptr } { i32 971, [4 x i8] zeroinitializer, ptr @.str.402 }, { i32, [4 x i8], ptr } { i32 972, [4 x i8] zeroinitializer, ptr @.str.403 }, { i32, [4 x i8], ptr } { i32 973, [4 x i8] zeroinitializer, ptr @.str.404 }, { i32, [4 x i8], ptr } { i32 974, [4 x i8] zeroinitializer, ptr @.str.405 }, { i32, [4 x i8], ptr } { i32 975, [4 x i8] zeroinitializer, ptr @.str.406 }, { i32, [4 x i8], ptr } { i32 976, [4 x i8] zeroinitializer, ptr @.str.407 }, { i32, [4 x i8], ptr } { i32 977, [4 x i8] zeroinitializer, ptr @.str.408 }, { i32, [4 x i8], ptr } { i32 992, [4 x i8] zeroinitializer, ptr @.str.409 }, { i32, [4 x i8], ptr } { i32 993, [4 x i8] zeroinitializer, ptr @.str.410 }, { i32, [4 x i8], ptr } { i32 994, [4 x i8] zeroinitializer, ptr @.str.411 }, { i32, [4 x i8], ptr } { i32 995, [4 x i8] zeroinitializer, ptr @.str.412 }, { i32, [4 x i8], ptr } { i32 996, [4 x i8] zeroinitializer, ptr @.str.413 }, { i32, [4 x i8], ptr } { i32 998, [4 x i8] zeroinitializer, ptr @.str.414 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
 @.str.415 = private unnamed_addr constant [38 x i8] c"E164_ISO3166_country_code_short_value\00", align 1
 @E164_ISO3166_country_code_short_value_ext = hidden local_unnamed_addr global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 196, ptr @E164_ISO3166_country_code_short_value, ptr @.str.415 }, align 8
 @hf_E164_calling_party_number = internal global i32 0, align 4
@@ -438,11 +435,9 @@ target triple = "x86_64-pc-linux-gnu"
 @ei_E164_country_code_non_decimal = internal global %struct.expert_field zeroinitializer, align 4
 @hf_E164_identification_code = internal global i32 0, align 4
 @.str.416 = private unnamed_addr constant [6 x i8] c"%d %s\00", align 1
-@E164_GMSS_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 6, ptr @.str.437 }, %struct._value_string { i32 7, ptr @.str.437 }, %struct._value_string { i32 8, ptr @.str.438 }, %struct._value_string { i32 9, ptr @.str.438 }, %struct._value_string zeroinitializer], align 16
 @.str.417 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
 @ei_E164_identification_code_non_decimal = internal global %struct.expert_field zeroinitializer, align 4
-@E164_International_Networks_882_vals_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 28, ptr @E164_International_Networks_882_vals, ptr @.str.439 }, align 8
-@E164_International_Networks_883_vals = internal constant [13 x %struct._value_string] [%struct._value_string { i32 100, ptr @.str.468 }, %struct._value_string { i32 110, ptr @.str.469 }, %struct._value_string { i32 120, ptr @.str.470 }, %struct._value_string { i32 130, ptr @.str.471 }, %struct._value_string { i32 140, ptr @.str.472 }, %struct._value_string { i32 150, ptr @.str.473 }, %struct._value_string { i32 5100, ptr @.str.474 }, %struct._value_string { i32 5110, ptr @.str.475 }, %struct._value_string { i32 5120, ptr @.str.476 }, %struct._value_string { i32 5130, ptr @.str.477 }, %struct._value_string { i32 5140, ptr @.str.478 }, %struct._value_string { i32 5150, ptr @.str.479 }, %struct._value_string zeroinitializer], align 16
+@E164_International_Networks_882_vals_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 28, ptr @E164_International_Networks_882_vals, ptr @.str.440 }, align 8
 @hf_E164_isdn = internal global i32 0, align 4
 @proto_register_e164.hf = internal global [6 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_E164_calling_party_number, %struct._header_field_info { ptr @.str.418, ptr @.str.419, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_E164_called_party_number, %struct._header_field_info { ptr @.str.420, ptr @.str.421, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_E164_msisdn, %struct._header_field_info { ptr @.str.422, ptr @.str.423, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_E164_isdn, %struct._header_field_info { ptr @.str.424, ptr @.str.425, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_E164_identification_code, %struct._header_field_info { ptr @.str.426, ptr @.str.427, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_E164_country_code, %struct._header_field_info { ptr @.str.428, ptr @.str.429, i32 5, i32 513, ptr @E164_country_code_value_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @.str.418 = private unnamed_addr constant [34 x i8] c"E.164 Calling party number digits\00", align 1
@@ -457,10 +452,10 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.427 = private unnamed_addr constant [25 x i8] c"e164.identification_code\00", align 1
 @.str.428 = private unnamed_addr constant [13 x i8] c"Country Code\00", align 1
 @.str.429 = private unnamed_addr constant [18 x i8] c"e164.country_code\00", align 1
-@E164_country_code_value_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 307, ptr @E164_country_code_value, ptr @.str.482 }, align 8
+@E164_country_code_value_ext = internal global %struct._value_string_ext { ptr @_try_val_to_str_ext_init, i32 0, i32 307, ptr @E164_country_code_value, ptr @.str.485 }, align 8
 @proto_register_e164.ett_e164_array = internal global [1 x ptr] [ptr @ett_e164_msisdn], align 8
 @ett_e164_msisdn = internal global i32 0, align 4
-@proto_register_e164.ei = internal global [2 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_E164_country_code_non_decimal, %struct.expert_field_info { ptr @.str.430, i32 117440512, i32 6291456, ptr @.str.431, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_E164_identification_code_non_decimal, %struct.expert_field_info { ptr @.str.432, i32 117440512, i32 6291456, ptr @.str.433, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_e164.ei = internal global [2 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_E164_country_code_non_decimal, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.430, i32 117440512, i32 6291456, ptr @.str.431, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_E164_identification_code_non_decimal, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.432, i32 117440512, i32 6291456, ptr @.str.433, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @.str.430 = private unnamed_addr constant [30 x i8] c"e164.country_code.non_decimal\00", align 1
 @.str.431 = private unnamed_addr constant [41 x i8] c"Country Code contains non-decimal digits\00", align 1
 @.str.432 = private unnamed_addr constant [37 x i8] c"e164.identification_code.non_decimal\00", align 1
@@ -471,55 +466,58 @@ target triple = "x86_64-pc-linux-gnu"
 @proto_e164 = internal unnamed_addr global i32 0, align 4
 @.str.437 = private unnamed_addr constant [22 x i8] c"Iridium Satellite LLC\00", align 1
 @.str.438 = private unnamed_addr constant [11 x i8] c"Globalstar\00", align 1
-@E164_International_Networks_882_vals = internal constant [29 x %struct._value_string] [%struct._value_string { i32 10, ptr @.str.440 }, %struct._value_string { i32 12, ptr @.str.441 }, %struct._value_string { i32 13, ptr @.str.442 }, %struct._value_string { i32 15, ptr @.str.443 }, %struct._value_string { i32 16, ptr @.str.444 }, %struct._value_string { i32 20, ptr @.str.445 }, %struct._value_string { i32 22, ptr @.str.446 }, %struct._value_string { i32 23, ptr @.str.447 }, %struct._value_string { i32 24, ptr @.str.448 }, %struct._value_string { i32 28, ptr @.str.449 }, %struct._value_string { i32 31, ptr @.str.450 }, %struct._value_string { i32 32, ptr @.str.451 }, %struct._value_string { i32 33, ptr @.str.452 }, %struct._value_string { i32 34, ptr @.str.453 }, %struct._value_string { i32 35, ptr @.str.454 }, %struct._value_string { i32 36, ptr @.str.455 }, %struct._value_string { i32 37, ptr @.str.456 }, %struct._value_string { i32 39, ptr @.str.457 }, %struct._value_string { i32 40, ptr @.str.458 }, %struct._value_string { i32 41, ptr @.str.459 }, %struct._value_string { i32 42, ptr @.str.460 }, %struct._value_string { i32 43, ptr @.str.461 }, %struct._value_string { i32 45, ptr @.str.462 }, %struct._value_string { i32 46, ptr @.str.463 }, %struct._value_string { i32 47, ptr @.str.464 }, %struct._value_string { i32 97, ptr @.str.465 }, %struct._value_string { i32 98, ptr @.str.466 }, %struct._value_string { i32 99, ptr @.str.467 }, %struct._value_string zeroinitializer], align 16
-@.str.439 = private unnamed_addr constant [37 x i8] c"E164_International_Networks_882_vals\00", align 1
-@.str.440 = private unnamed_addr constant [26 x i8] c"Global Office Application\00", align 1
-@.str.441 = private unnamed_addr constant [45 x i8] c"HyperStream International (HSI) Data Network\00", align 1
-@.str.442 = private unnamed_addr constant [37 x i8] c"EMS Regional Mobile Satellite System\00", align 1
-@.str.443 = private unnamed_addr constant [33 x i8] c"Global international ATM Network\00", align 1
-@.str.444 = private unnamed_addr constant [21 x i8] c"Thuraya RMSS Network\00", align 1
-@.str.445 = private unnamed_addr constant [49 x i8] c"Garuda Mobile Telecommunication Satellite System\00", align 1
-@.str.446 = private unnamed_addr constant [32 x i8] c"Cable & Wireless Global Network\00", align 1
-@.str.447 = private unnamed_addr constant [20 x i8] c"Sita-Equant Network\00", align 1
-@.str.448 = private unnamed_addr constant [23 x i8] c"TeliaSonera Sverige AB\00", align 1
-@.str.449 = private unnamed_addr constant [43 x i8] c"Deutsche Telekom's Next Generation Network\00", align 1
-@.str.450 = private unnamed_addr constant [33 x i8] c"Global International ATM Network\00", align 1
-@.str.451 = private unnamed_addr constant [12 x i8] c"MCP network\00", align 1
-@.str.452 = private unnamed_addr constant [29 x i8] c"Oration Technologies Network\00", align 1
-@.str.453 = private unnamed_addr constant [13 x i8] c"BebbiCell AG\00", align 1
-@.str.454 = private unnamed_addr constant [14 x i8] c"Jasper System\00", align 1
-@.str.455 = private unnamed_addr constant [15 x i8] c"Jersey Telecom\00", align 1
-@.str.456 = private unnamed_addr constant [25 x i8] c"Cingular Wireless netwok\00", align 1
-@.str.457 = private unnamed_addr constant [15 x i8] c"Vodafone Malta\00", align 1
-@.str.458 = private unnamed_addr constant [18 x i8] c"Oy Communications\00", align 1
-@.str.459 = private unnamed_addr constant [12 x i8] c"Intermatica\00", align 1
-@.str.460 = private unnamed_addr constant [30 x i8] c"Seanet Maritime Communication\00", align 1
-@.str.461 = private unnamed_addr constant [8 x i8] c"Beeline\00", align 1
-@.str.462 = private unnamed_addr constant [15 x i8] c"Telecom Italia\00", align 1
-@.str.463 = private unnamed_addr constant [12 x i8] c"Tyntec GmbH\00", align 1
-@.str.464 = private unnamed_addr constant [10 x i8] c"Transatel\00", align 1
-@.str.465 = private unnamed_addr constant [25 x i8] c"Smart Communications Inc\00", align 1
-@.str.466 = private unnamed_addr constant [19 x i8] c"Onair GSM services\00", align 1
-@.str.467 = private unnamed_addr constant [43 x i8] c"Telenor GSM network - services in aircraft\00", align 1
-@.str.468 = private unnamed_addr constant [15 x i8] c"MediaLincc Ltd\00", align 1
-@.str.469 = private unnamed_addr constant [11 x i8] c"Aicent Inc\00", align 1
-@.str.470 = private unnamed_addr constant [21 x i8] c"Telenor Connexion AB\00", align 1
-@.str.471 = private unnamed_addr constant [22 x i8] c"France Telecom Orange\00", align 1
-@.str.472 = private unnamed_addr constant [35 x i8] c"Multiregional TransitTelecom (MTT)\00", align 1
-@.str.473 = private unnamed_addr constant [26 x i8] c"BodyTrace Netherlands B.V\00", align 1
-@.str.474 = private unnamed_addr constant [11 x i8] c"Voxbone SA\00", align 1
-@.str.475 = private unnamed_addr constant [18 x i8] c"Bandwidth.com Inc\00", align 1
-@.str.476 = private unnamed_addr constant [16 x i8] c"MTX Connect Ltd\00", align 1
-@.str.477 = private unnamed_addr constant [10 x i8] c"SIMPE Ltd\00", align 1
-@.str.478 = private unnamed_addr constant [13 x i8] c"Ellipsat Inc\00", align 1
-@.str.479 = private unnamed_addr constant [13 x i8] c"Wins Limited\00", align 1
-@.str.480 = private unnamed_addr constant [55 x i8] c"%s:%u: failed assertion \22DISSECTOR_ASSERT_NOT_REACHED\22\00", align 1
-@.str.481 = private unnamed_addr constant [30 x i8] c"epan/dissectors/packet-e164.c\00", align 1
-@.str.482 = private unnamed_addr constant [24 x i8] c"E164_country_code_value\00", align 1
+@E164_GMSS_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.437 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.437 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.438 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.438 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.440 = private unnamed_addr constant [37 x i8] c"E164_International_Networks_882_vals\00", align 1
+@.str.441 = private unnamed_addr constant [26 x i8] c"Global Office Application\00", align 1
+@.str.442 = private unnamed_addr constant [45 x i8] c"HyperStream International (HSI) Data Network\00", align 1
+@.str.443 = private unnamed_addr constant [37 x i8] c"EMS Regional Mobile Satellite System\00", align 1
+@.str.444 = private unnamed_addr constant [33 x i8] c"Global international ATM Network\00", align 1
+@.str.445 = private unnamed_addr constant [21 x i8] c"Thuraya RMSS Network\00", align 1
+@.str.446 = private unnamed_addr constant [49 x i8] c"Garuda Mobile Telecommunication Satellite System\00", align 1
+@.str.447 = private unnamed_addr constant [32 x i8] c"Cable & Wireless Global Network\00", align 1
+@.str.448 = private unnamed_addr constant [20 x i8] c"Sita-Equant Network\00", align 1
+@.str.449 = private unnamed_addr constant [23 x i8] c"TeliaSonera Sverige AB\00", align 1
+@.str.450 = private unnamed_addr constant [43 x i8] c"Deutsche Telekom's Next Generation Network\00", align 1
+@.str.451 = private unnamed_addr constant [33 x i8] c"Global International ATM Network\00", align 1
+@.str.452 = private unnamed_addr constant [12 x i8] c"MCP network\00", align 1
+@.str.453 = private unnamed_addr constant [29 x i8] c"Oration Technologies Network\00", align 1
+@.str.454 = private unnamed_addr constant [13 x i8] c"BebbiCell AG\00", align 1
+@.str.455 = private unnamed_addr constant [14 x i8] c"Jasper System\00", align 1
+@.str.456 = private unnamed_addr constant [15 x i8] c"Jersey Telecom\00", align 1
+@.str.457 = private unnamed_addr constant [25 x i8] c"Cingular Wireless netwok\00", align 1
+@.str.458 = private unnamed_addr constant [15 x i8] c"Vodafone Malta\00", align 1
+@.str.459 = private unnamed_addr constant [18 x i8] c"Oy Communications\00", align 1
+@.str.460 = private unnamed_addr constant [12 x i8] c"Intermatica\00", align 1
+@.str.461 = private unnamed_addr constant [30 x i8] c"Seanet Maritime Communication\00", align 1
+@.str.462 = private unnamed_addr constant [8 x i8] c"Beeline\00", align 1
+@.str.463 = private unnamed_addr constant [15 x i8] c"Telecom Italia\00", align 1
+@.str.464 = private unnamed_addr constant [12 x i8] c"Tyntec GmbH\00", align 1
+@.str.465 = private unnamed_addr constant [10 x i8] c"Transatel\00", align 1
+@.str.466 = private unnamed_addr constant [25 x i8] c"Smart Communications Inc\00", align 1
+@.str.467 = private unnamed_addr constant [19 x i8] c"Onair GSM services\00", align 1
+@.str.468 = private unnamed_addr constant [43 x i8] c"Telenor GSM network - services in aircraft\00", align 1
+@E164_International_Networks_882_vals = internal constant [29 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.441 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.442 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.443 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.444 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.445 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.446 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.447 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.448 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.449 }, { i32, [4 x i8], ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.450 }, { i32, [4 x i8], ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.451 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.452 }, { i32, [4 x i8], ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.453 }, { i32, [4 x i8], ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.454 }, { i32, [4 x i8], ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.455 }, { i32, [4 x i8], ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.456 }, { i32, [4 x i8], ptr } { i32 37, [4 x i8] zeroinitializer, ptr @.str.457 }, { i32, [4 x i8], ptr } { i32 39, [4 x i8] zeroinitializer, ptr @.str.458 }, { i32, [4 x i8], ptr } { i32 40, [4 x i8] zeroinitializer, ptr @.str.459 }, { i32, [4 x i8], ptr } { i32 41, [4 x i8] zeroinitializer, ptr @.str.460 }, { i32, [4 x i8], ptr } { i32 42, [4 x i8] zeroinitializer, ptr @.str.461 }, { i32, [4 x i8], ptr } { i32 43, [4 x i8] zeroinitializer, ptr @.str.462 }, { i32, [4 x i8], ptr } { i32 45, [4 x i8] zeroinitializer, ptr @.str.463 }, { i32, [4 x i8], ptr } { i32 46, [4 x i8] zeroinitializer, ptr @.str.464 }, { i32, [4 x i8], ptr } { i32 47, [4 x i8] zeroinitializer, ptr @.str.465 }, { i32, [4 x i8], ptr } { i32 97, [4 x i8] zeroinitializer, ptr @.str.466 }, { i32, [4 x i8], ptr } { i32 98, [4 x i8] zeroinitializer, ptr @.str.467 }, { i32, [4 x i8], ptr } { i32 99, [4 x i8] zeroinitializer, ptr @.str.468 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.470 = private unnamed_addr constant [15 x i8] c"MediaLincc Ltd\00", align 1
+@.str.471 = private unnamed_addr constant [11 x i8] c"Aicent Inc\00", align 1
+@.str.472 = private unnamed_addr constant [21 x i8] c"Telenor Connexion AB\00", align 1
+@.str.473 = private unnamed_addr constant [22 x i8] c"France Telecom Orange\00", align 1
+@.str.474 = private unnamed_addr constant [35 x i8] c"Multiregional TransitTelecom (MTT)\00", align 1
+@.str.475 = private unnamed_addr constant [26 x i8] c"BodyTrace Netherlands B.V\00", align 1
+@.str.476 = private unnamed_addr constant [11 x i8] c"Voxbone SA\00", align 1
+@.str.477 = private unnamed_addr constant [18 x i8] c"Bandwidth.com Inc\00", align 1
+@.str.478 = private unnamed_addr constant [16 x i8] c"MTX Connect Ltd\00", align 1
+@.str.479 = private unnamed_addr constant [10 x i8] c"SIMPE Ltd\00", align 1
+@.str.480 = private unnamed_addr constant [13 x i8] c"Ellipsat Inc\00", align 1
+@.str.481 = private unnamed_addr constant [13 x i8] c"Wins Limited\00", align 1
+@E164_International_Networks_883_vals = internal constant [13 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 100, [4 x i8] zeroinitializer, ptr @.str.470 }, { i32, [4 x i8], ptr } { i32 110, [4 x i8] zeroinitializer, ptr @.str.471 }, { i32, [4 x i8], ptr } { i32 120, [4 x i8] zeroinitializer, ptr @.str.472 }, { i32, [4 x i8], ptr } { i32 130, [4 x i8] zeroinitializer, ptr @.str.473 }, { i32, [4 x i8], ptr } { i32 140, [4 x i8] zeroinitializer, ptr @.str.474 }, { i32, [4 x i8], ptr } { i32 150, [4 x i8] zeroinitializer, ptr @.str.475 }, { i32, [4 x i8], ptr } { i32 5100, [4 x i8] zeroinitializer, ptr @.str.476 }, { i32, [4 x i8], ptr } { i32 5110, [4 x i8] zeroinitializer, ptr @.str.477 }, { i32, [4 x i8], ptr } { i32 5120, [4 x i8] zeroinitializer, ptr @.str.478 }, { i32, [4 x i8], ptr } { i32 5130, [4 x i8] zeroinitializer, ptr @.str.479 }, { i32, [4 x i8], ptr } { i32 5140, [4 x i8] zeroinitializer, ptr @.str.480 }, { i32, [4 x i8], ptr } { i32 5150, [4 x i8] zeroinitializer, ptr @.str.481 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.483 = private unnamed_addr constant [55 x i8] c"%s:%u: failed assertion \22DISSECTOR_ASSERT_NOT_REACHED\22\00", align 1
+@.str.484 = private unnamed_addr constant [30 x i8] c"epan/dissectors/packet-e164.c\00", align 1
+@.str.485 = private unnamed_addr constant [24 x i8] c"E164_country_code_value\00", align 1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #0
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @dissect_e164_number(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly byval(%struct.e164_info_t) align 8 captures(none) %4) local_unnamed_addr #1 {
   %6 = load i32, ptr %4, align 8
   switch i32 %6, label %12 [
@@ -535,7 +533,7 @@ define hidden void @dissect_e164_number(ptr noundef %0, ptr noundef %1, i32 noun
   %8 = load i32, ptr %hf_E164_called_party_number.sink, align 4
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %2, i32 noundef %3, ptr noundef %10) #5
+  %11 = tail call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %2, i32 noundef %3, ptr noundef %10)
   br label %12
 
 12:                                               ; preds = %.sink.split, %5
@@ -548,12 +546,12 @@ define hidden void @dissect_e164_number(ptr noundef %0, ptr noundef %1, i32 noun
   %17 = load i32, ptr @hf_E164_msisdn, align 4
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %17, ptr noundef %0, i32 noundef %2, i32 noundef %3, ptr noundef %19) #5
+  %20 = tail call ptr @proto_tree_add_string(ptr noundef %1, i32 noundef %17, ptr noundef %0, i32 noundef %2, i32 noundef %3, ptr noundef %19)
   %.not.i = icmp eq ptr %20, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %21
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %23 = load ptr, ptr %22, align 8
   %.not5.i = icmp eq ptr %23, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %24
@@ -569,11 +567,18 @@ proto_item_set_hidden.exit:                       ; preds = %24, %21, %16, %12
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @dissect_e164_cc(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
-  %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %2) #5
+  %5 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %2)
   switch i32 %3, label %.thread [
     i32 0, label %.preheader
     i32 1, label %12
@@ -585,19 +590,19 @@ define void @dissect_e164_cc(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.1208 = phi i32 [ %7, %.lr.ph ], [ %2, %.preheader ]
-  %7 = add i32 %.1208, 1
-  %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %7) #5
+  %.1203 = phi i32 [ %7, %.lr.ph ], [ %2, %.preheader ]
+  %7 = add i32 %.1203, 1
+  %8 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %7)
   %9 = icmp eq i8 %8, 0
-  br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !4
+  br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.1.lcssa = phi i32 [ %2, %.preheader ], [ %7, %.lr.ph ]
   %.0104.lcssa = phi i8 [ %5, %.preheader ], [ %8, %.lr.ph ]
-  %10 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.1.lcssa) #5
-  %.not107 = icmp ult i8 %.0104.lcssa, 16
+  %10 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.1.lcssa)
+  %.not = icmp ult i8 %.0104.lcssa, 16
   %11 = lshr i16 %10, 4
-  %spec.select = select i1 %.not107, i16 %10, i16 %11
+  %spec.select = select i1 %.not, i16 %10, i16 %11
   br label %39
 
 12:                                               ; preds = %4
@@ -605,42 +610,41 @@ define void @dissect_e164_cc(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32
   %14 = zext i8 %13 to i16
   %15 = shl nuw nsw i16 %14, 4
   %16 = add i32 %2, 1
-  %17 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %16, i32 noundef 1) #5
-  %.not = icmp eq i32 %17, 0
-  br i1 %.not, label %39, label %18
+  %17 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef %16, i32 noundef 1)
+  br i1 %17, label %18, label %39
 
 18:                                               ; preds = %12
-  %19 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %16) #5
+  %19 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %16)
   %20 = and i8 %19, 15
   %21 = zext nneg i8 %20 to i16
   %22 = or disjoint i16 %15, %21
   br label %39
 
 23:                                               ; preds = %4
-  %24 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %2) #5
+  %24 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %2)
   %25 = zext i8 %24 to i16
   %26 = shl nuw i16 %25, 8
   %27 = add i16 %26, -12288
   %28 = add i32 %2, 1
-  %29 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %28) #5
+  %29 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %28)
   %30 = zext i8 %29 to i16
   %31 = shl nuw nsw i16 %30, 4
   %32 = add nsw i16 %31, -768
   %33 = or i16 %32, %27
   %34 = add i32 %2, 2
-  %35 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %34) #5
+  %35 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %34)
   %36 = zext i8 %35 to i16
   %37 = add nsw i16 %36, -48
   %38 = or i16 %33, %37
   br label %39
 
 39:                                               ; preds = %._crit_edge, %12, %18, %23
-  %.0172 = phi i16 [ %38, %23 ], [ %15, %12 ], [ %22, %18 ], [ %spec.select, %._crit_edge ]
-  %.0105 = phi i32 [ %2, %23 ], [ %2, %12 ], [ %2, %18 ], [ %.1.lcssa, %._crit_edge ]
-  %40 = zext i16 %.0172 to i32
+  %.0167 = phi i16 [ %38, %23 ], [ %22, %18 ], [ %15, %12 ], [ %spec.select, %._crit_edge ]
+  %.0105 = phi i32 [ %2, %23 ], [ %2, %18 ], [ %2, %12 ], [ %.1.lcssa, %._crit_edge ]
+  %40 = zext i16 %.0167 to i32
   %41 = lshr i32 %40, 8
   %42 = and i32 %41, 15
-  switch i32 %42, label %.thread182 [
+  switch i32 %42, label %.thread177 [
     i32 0, label %.thread
     i32 1, label %.thread
     i32 2, label %43
@@ -654,9 +658,9 @@ define void @dissect_e164_cc(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32
   ]
 
 43:                                               ; preds = %39
-  %44 = trunc i16 %.0172 to i8
-  %trunc109 = and i8 %44, -16
-  switch i8 %trunc109, label %.thread182 [
+  %44 = trunc i16 %.0167 to i8
+  %trunc108 = and i8 %44, -16
+  switch i8 %trunc108, label %.thread177 [
     i8 112, label %select.unfold
     i8 0, label %select.unfold
   ]
@@ -664,7 +668,7 @@ define void @dissect_e164_cc(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32
 45:                                               ; preds = %39
   %46 = lshr i32 %40, 4
   %47 = and i32 %46, 15
-  switch i32 %47, label %.thread182 [
+  switch i32 %47, label %.thread177 [
     i32 0, label %select.unfold
     i32 1, label %select.unfold
     i32 2, label %select.unfold
@@ -677,30 +681,30 @@ define void @dissect_e164_cc(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32
 48:                                               ; preds = %39
   %49 = and i32 %40, 240
   %cond = icmp eq i32 %49, 32
-  br i1 %cond, label %.thread182, label %select.unfold
+  br i1 %cond, label %.thread177, label %select.unfold
 
 50:                                               ; preds = %39
-  %51 = trunc i16 %.0172 to i8
-  %trunc108 = and i8 %51, -16
-  switch i8 %trunc108, label %select.unfold [
-    i8 -112, label %.thread182
-    i8 0, label %.thread182
+  %51 = trunc i16 %.0167 to i8
+  %trunc107 = and i8 %51, -16
+  switch i8 %trunc107, label %select.unfold [
+    i8 -112, label %.thread177
+    i8 0, label %.thread177
   ]
 
 52:                                               ; preds = %39
-  %53 = trunc i16 %.0172 to i8
+  %53 = trunc i16 %.0167 to i8
   %trunc = and i8 %53, -16
   switch i8 %trunc, label %select.unfold [
-    i8 112, label %.thread182
-    i8 -128, label %.thread182
-    i8 -112, label %.thread182
+    i8 112, label %.thread177
+    i8 -128, label %.thread177
+    i8 -112, label %.thread177
   ]
 
 54:                                               ; preds = %39
   %55 = and i32 %40, 240
   %56 = add nsw i32 %55, -16
   %57 = lshr exact i32 %56, 4
-  switch i32 %57, label %.thread182 [
+  switch i32 %57, label %.thread177 [
     i32 0, label %select.unfold
     i32 1, label %select.unfold
     i32 3, label %select.unfold
@@ -710,7 +714,7 @@ define void @dissect_e164_cc(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32
 58:                                               ; preds = %39
   %59 = lshr i32 %40, 4
   %60 = and i32 %59, 15
-  switch i32 %60, label %.thread182 [
+  switch i32 %60, label %.thread177 [
     i32 0, label %select.unfold
     i32 1, label %select.unfold
     i32 2, label %select.unfold
@@ -721,355 +725,356 @@ define void @dissect_e164_cc(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32
   ]
 
 .thread:                                          ; preds = %4, %39, %39, %39
-  %.0105179 = phi i32 [ %.0105, %39 ], [ %.0105, %39 ], [ %.0105, %39 ], [ %2, %4 ]
-  %.0172178 = phi i16 [ %.0172, %39 ], [ %.0172, %39 ], [ %.0172, %39 ], [ 0, %4 ]
-  %61 = lshr i16 %.0172178, 8
-  br label %.thread182
+  %.0105174 = phi i32 [ %.0105, %39 ], [ %.0105, %39 ], [ %.0105, %39 ], [ %2, %4 ]
+  %.0167173 = phi i16 [ %.0167, %39 ], [ %.0167, %39 ], [ %.0167, %39 ], [ 0, %4 ]
+  %61 = lshr i16 %.0167173, 8
+  br label %.thread177
 
 select.unfold:                                    ; preds = %50, %43, %43, %52, %45, %45, %45, %45, %45, %45, %45, %48, %54, %54, %54, %54, %58, %58, %58, %58, %58, %58, %58
-  %62 = lshr i16 %.0172, 4
-  br label %.thread182
+  %62 = lshr i16 %.0167, 4
+  br label %.thread177
 
-.thread182:                                       ; preds = %50, %50, %43, %48, %39, %58, %54, %45, %52, %52, %52, %select.unfold, %.thread
-  %.0103187 = phi i32 [ 2, %select.unfold ], [ 1, %.thread ], [ 3, %52 ], [ 3, %52 ], [ 3, %52 ], [ 3, %43 ], [ 3, %45 ], [ 3, %54 ], [ 3, %58 ], [ 0, %39 ], [ 3, %48 ], [ 3, %50 ], [ 3, %50 ]
-  %.0105179186 = phi i32 [ %.0105, %select.unfold ], [ %.0105179, %.thread ], [ %.0105, %52 ], [ %.0105, %52 ], [ %.0105, %52 ], [ %.0105, %43 ], [ %.0105, %45 ], [ %.0105, %54 ], [ %.0105, %58 ], [ %.0105, %39 ], [ %.0105, %48 ], [ %.0105, %50 ], [ %.0105, %50 ]
-  %.1173 = phi i16 [ %62, %select.unfold ], [ %61, %.thread ], [ %.0172, %52 ], [ %.0172, %52 ], [ %.0172, %52 ], [ %.0172, %43 ], [ %.0172, %45 ], [ %.0172, %54 ], [ %.0172, %58 ], [ %.0172, %39 ], [ %.0172, %48 ], [ %.0172, %50 ], [ %.0172, %50 ]
+.thread177:                                       ; preds = %50, %50, %43, %48, %39, %58, %54, %45, %52, %52, %52, %select.unfold, %.thread
+  %.0103182 = phi i32 [ 2, %select.unfold ], [ 1, %.thread ], [ 3, %52 ], [ 3, %52 ], [ 3, %52 ], [ 3, %43 ], [ 3, %45 ], [ 3, %54 ], [ 3, %58 ], [ 0, %39 ], [ 3, %48 ], [ 3, %50 ], [ 3, %50 ]
+  %.0105174181 = phi i32 [ %.0105, %select.unfold ], [ %.0105174, %.thread ], [ %.0105, %52 ], [ %.0105, %52 ], [ %.0105, %52 ], [ %.0105, %43 ], [ %.0105, %45 ], [ %.0105, %54 ], [ %.0105, %58 ], [ %.0105, %39 ], [ %.0105, %48 ], [ %.0105, %50 ], [ %.0105, %50 ]
+  %.1168 = phi i16 [ %62, %select.unfold ], [ %61, %.thread ], [ %.0167, %52 ], [ %.0167, %52 ], [ %.0167, %52 ], [ %.0167, %43 ], [ %.0167, %45 ], [ %.0167, %54 ], [ %.0167, %58 ], [ %.0167, %39 ], [ %.0167, %48 ], [ %.0167, %50 ], [ %.0167, %50 ]
   %.0102 = phi i32 [ 1, %select.unfold ], [ 1, %.thread ], [ 2, %52 ], [ 2, %52 ], [ 2, %52 ], [ 2, %43 ], [ 2, %45 ], [ 2, %54 ], [ 2, %58 ], [ 2, %39 ], [ 2, %48 ], [ 2, %50 ], [ 2, %50 ]
-  %.not12.i = icmp eq i16 %.1173, 0
+  %.not12.i = icmp eq i16 %.1168, 0
   br i1 %.not12.i, label %convert_bcd_to_dec.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.thread182, %.lr.ph.i
-  %.016.i = phi i16 [ %68, %.lr.ph.i ], [ 1, %.thread182 ]
-  %.0915.i = phi i16 [ %66, %.lr.ph.i ], [ 0, %.thread182 ]
-  %.01014.i = phi i32 [ %spec.select.i, %.lr.ph.i ], [ 1, %.thread182 ]
-  %.01113.i = phi i16 [ %67, %.lr.ph.i ], [ %.1173, %.thread182 ]
+.lr.ph.i:                                         ; preds = %.thread177, %.lr.ph.i
+  %.016.i = phi i16 [ %68, %.lr.ph.i ], [ 1, %.thread177 ]
+  %.0915.i = phi i16 [ %66, %.lr.ph.i ], [ 0, %.thread177 ]
+  %.01014.i = phi i1 [ %spec.select.i, %.lr.ph.i ], [ true, %.thread177 ]
+  %.01113.i = phi i16 [ %67, %.lr.ph.i ], [ %.1168, %.thread177 ]
   %63 = and i16 %.01113.i, 15
-  %64 = icmp samesign ugt i16 %63, 9
-  %spec.select.i = select i1 %64, i32 0, i32 %.01014.i
+  %64 = icmp samesign ult i16 %63, 10
+  %spec.select.i = select i1 %64, i1 %.01014.i, i1 false
   %65 = mul i16 %63, %.016.i
   %66 = add i16 %65, %.0915.i
   %67 = lshr i16 %.01113.i, 4
   %68 = mul i16 %.016.i, 10
   %.not.i = icmp ult i16 %.01113.i, 16
-  br i1 %.not.i, label %convert_bcd_to_dec.exit.loopexit, label %.lr.ph.i, !llvm.loop !6
+  br i1 %.not.i, label %convert_bcd_to_dec.exit, label %.lr.ph.i, !llvm.loop !8
 
-convert_bcd_to_dec.exit.loopexit:                 ; preds = %.lr.ph.i
-  %69 = icmp eq i32 %spec.select.i, 0
-  br label %convert_bcd_to_dec.exit
+convert_bcd_to_dec.exit:                          ; preds = %.lr.ph.i, %.thread177
+  %.010.lcssa.i = phi i1 [ true, %.thread177 ], [ %spec.select.i, %.lr.ph.i ]
+  %.09.lcssa.i = phi i16 [ 0, %.thread177 ], [ %66, %.lr.ph.i ]
+  %69 = icmp eq i32 %3, 2
+  %70 = load i32, ptr @hf_E164_country_code, align 4
+  %71 = zext i16 %.09.lcssa.i to i32
+  %.0103182..0102 = select i1 %69, i32 %.0103182, i32 %.0102
+  %72 = tail call ptr @proto_tree_add_uint(ptr noundef %1, i32 noundef %70, ptr noundef %0, i32 noundef %.0105174181, i32 noundef %.0103182..0102, i32 noundef %71)
+  br i1 %.010.lcssa.i, label %75, label %73
 
-convert_bcd_to_dec.exit:                          ; preds = %convert_bcd_to_dec.exit.loopexit, %.thread182
-  %.010.lcssa.i = phi i1 [ false, %.thread182 ], [ %69, %convert_bcd_to_dec.exit.loopexit ]
-  %.09.lcssa.i = phi i16 [ 0, %.thread182 ], [ %66, %convert_bcd_to_dec.exit.loopexit ]
-  %70 = icmp eq i32 %3, 2
-  %71 = load i32, ptr @hf_E164_country_code, align 4
-  %72 = zext i16 %.09.lcssa.i to i32
-  %.0103187..0102 = select i1 %70, i32 %.0103187, i32 %.0102
-  %73 = tail call ptr @proto_tree_add_uint(ptr noundef %1, i32 noundef %71, ptr noundef %0, i32 noundef %.0105179186, i32 noundef %.0103187..0102, i32 noundef %72) #5
-  br i1 %.010.lcssa.i, label %74, label %76
+73:                                               ; preds = %convert_bcd_to_dec.exit
+  %74 = tail call ptr @expert_add_info(ptr noundef null, ptr noundef %72, ptr noundef nonnull @ei_E164_country_code_non_decimal)
+  br label %75
 
-74:                                               ; preds = %convert_bcd_to_dec.exit
-  %75 = tail call ptr @expert_add_info(ptr noundef null, ptr noundef %73, ptr noundef nonnull @ei_E164_country_code_non_decimal) #5
-  br label %76
+75:                                               ; preds = %73, %convert_bcd_to_dec.exit
+  switch i16 %.09.lcssa.i, label %222 [
+    i16 881, label %76
+    i16 882, label %99
+    i16 883, label %137
+  ]
 
-76:                                               ; preds = %74, %convert_bcd_to_dec.exit
-  switch i16 %.09.lcssa.i, label %225 [
-    i16 881, label %77
-    i16 882, label %100
-    i16 883, label %139
+76:                                               ; preds = %75
+  switch i32 %3, label %92 [
+    i32 0, label %77
+    i32 1, label %82
+    i32 2, label %87
   ]
 
 77:                                               ; preds = %76
-  switch i32 %3, label %93 [
-    i32 0, label %78
-    i32 1, label %83
-    i32 2, label %88
+  %78 = add i32 %.0105174181, 1
+  %79 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %78)
+  %80 = and i8 %79, 15
+  %81 = zext nneg i8 %80 to i16
+  br label %92
+
+82:                                               ; preds = %76
+  %83 = add i32 %.0105174181, 1
+  %84 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %83)
+  %85 = lshr i8 %84, 4
+  %86 = zext nneg i8 %85 to i16
+  br label %92
+
+87:                                               ; preds = %76
+  %88 = add i32 %.0105174181, %.0103182
+  %89 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %88)
+  %90 = zext i8 %89 to i16
+  %91 = add nsw i16 %90, -48
+  br label %92
+
+92:                                               ; preds = %87, %82, %77, %76
+  %.0169 = phi i16 [ 0, %76 ], [ %91, %87 ], [ %86, %82 ], [ %81, %77 ]
+  %93 = zext i16 %.0169 to i32
+  %94 = icmp ult i16 %.0169, 10
+  %95 = load i32, ptr @hf_E164_identification_code, align 4
+  %96 = add i32 %.0105174181, 1
+  %97 = tail call ptr @val_to_str_const(i32 noundef %93, ptr noundef nonnull @E164_GMSS_vals, ptr noundef nonnull @.str.417)
+  %98 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %95, ptr noundef %0, i32 noundef %96, i32 noundef 1, i32 noundef %93, ptr noundef nonnull @.str.416, i32 noundef %93, ptr noundef %97)
+  br i1 %94, label %222, label %.sink.split
+
+99:                                               ; preds = %75
+  switch i32 %3, label %convert_bcd_to_dec.exit122 [
+    i32 0, label %100
+    i32 1, label %105
+    i32 2, label %114
   ]
 
-78:                                               ; preds = %77
-  %79 = add i32 %.0105179186, 1
-  %80 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %79) #5
-  %81 = and i8 %80, 15
-  %82 = zext nneg i8 %81 to i16
-  br label %93
+100:                                              ; preds = %99
+  %101 = add i32 %.0105174181, 1
+  %102 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %101)
+  %103 = lshr i16 %102, 4
+  %104 = and i16 %103, 255
+  br label %125
 
-83:                                               ; preds = %77
-  %84 = add i32 %.0105179186, 1
-  %85 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %84) #5
-  %86 = lshr i8 %85, 4
-  %87 = zext nneg i8 %86 to i16
-  br label %93
+105:                                              ; preds = %99
+  %106 = add i32 %.0105174181, 1
+  %107 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %106)
+  %108 = and i8 %107, -16
+  %109 = add i32 %.0105174181, 2
+  %110 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %109)
+  %111 = and i8 %110, 15
+  %112 = or disjoint i8 %111, %108
+  %113 = zext i8 %112 to i16
+  br label %125
 
-88:                                               ; preds = %77
-  %89 = add i32 %.0105179186, %.0103187
-  %90 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %89) #5
-  %91 = zext i8 %90 to i16
-  %92 = add nsw i16 %91, -48
-  br label %93
+114:                                              ; preds = %99
+  %115 = add i32 %.0105174181, %.0103182
+  %116 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %115)
+  %117 = zext i8 %116 to i16
+  %118 = shl nuw nsw i16 %117, 4
+  %119 = add nsw i16 %118, -768
+  %120 = add i32 %115, 1
+  %121 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %120)
+  %122 = zext i8 %121 to i16
+  %123 = add nsw i16 %122, -48
+  %124 = or i16 %123, %119
+  br label %125
 
-93:                                               ; preds = %88, %83, %78, %77
-  %.0174 = phi i16 [ 0, %77 ], [ %92, %88 ], [ %87, %83 ], [ %82, %78 ]
-  %94 = zext i16 %.0174 to i32
-  %95 = icmp ult i16 %.0174, 10
-  %96 = load i32, ptr @hf_E164_identification_code, align 4
-  %97 = add i32 %.0105179186, 1
-  %98 = tail call ptr @val_to_str_const(i32 noundef %94, ptr noundef nonnull @E164_GMSS_vals, ptr noundef nonnull @.str.417) #5
-  %99 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %96, ptr noundef %0, i32 noundef %97, i32 noundef 1, i32 noundef %94, ptr noundef nonnull @.str.416, i32 noundef %94, ptr noundef %98) #5
-  br i1 %95, label %225, label %.sink.split
+125:                                              ; preds = %114, %105, %100
+  %.1170 = phi i16 [ %124, %114 ], [ %113, %105 ], [ %104, %100 ]
+  %.not12.i112 = icmp eq i16 %.1170, 0
+  br i1 %.not12.i112, label %convert_bcd_to_dec.exit122, label %.lr.ph.i113
 
-100:                                              ; preds = %76
-  switch i32 %3, label %convert_bcd_to_dec.exit127 [
-    i32 0, label %101
-    i32 1, label %106
-    i32 2, label %115
+.lr.ph.i113:                                      ; preds = %125, %.lr.ph.i113
+  %.016.i114 = phi i16 [ %131, %.lr.ph.i113 ], [ 1, %125 ]
+  %.0915.i115 = phi i16 [ %129, %.lr.ph.i113 ], [ 0, %125 ]
+  %.01014.i116 = phi i1 [ %spec.select.i118, %.lr.ph.i113 ], [ true, %125 ]
+  %.01113.i117 = phi i16 [ %130, %.lr.ph.i113 ], [ %.1170, %125 ]
+  %126 = and i16 %.01113.i117, 15
+  %127 = icmp samesign ult i16 %126, 10
+  %spec.select.i118 = select i1 %127, i1 %.01014.i116, i1 false
+  %128 = mul i16 %126, %.016.i114
+  %129 = add i16 %128, %.0915.i115
+  %130 = lshr i16 %.01113.i117, 4
+  %131 = mul i16 %.016.i114, 10
+  %.not.i119 = icmp ult i16 %.01113.i117, 16
+  br i1 %.not.i119, label %convert_bcd_to_dec.exit122.loopexit, label %.lr.ph.i113, !llvm.loop !8
+
+convert_bcd_to_dec.exit122.loopexit:              ; preds = %.lr.ph.i113
+  %132 = zext i16 %129 to i32
+  br label %convert_bcd_to_dec.exit122
+
+convert_bcd_to_dec.exit122:                       ; preds = %convert_bcd_to_dec.exit122.loopexit, %99, %125
+  %.010.lcssa.i120 = phi i1 [ true, %125 ], [ true, %99 ], [ %spec.select.i118, %convert_bcd_to_dec.exit122.loopexit ]
+  %.09.lcssa.i121 = phi i32 [ 0, %125 ], [ 0, %99 ], [ %132, %convert_bcd_to_dec.exit122.loopexit ]
+  %133 = load i32, ptr @hf_E164_identification_code, align 4
+  %134 = add i32 %.0105174181, 1
+  %135 = tail call ptr @val_to_str_ext_const(i32 noundef %.09.lcssa.i121, ptr noundef nonnull @E164_International_Networks_882_vals_ext, ptr noundef nonnull @.str.417)
+  %136 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %133, ptr noundef %0, i32 noundef %134, i32 noundef 2, i32 noundef %.09.lcssa.i121, ptr noundef nonnull @.str.416, i32 noundef %.09.lcssa.i121, ptr noundef %135)
+  br i1 %.010.lcssa.i120, label %222, label %.sink.split
+
+137:                                              ; preds = %75
+  switch i32 %3, label %convert_bcd_to_dec.exit144 [
+    i32 0, label %138
+    i32 1, label %142
+    i32 2, label %157
   ]
 
-101:                                              ; preds = %100
-  %102 = add i32 %.0105179186, 1
-  %103 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %102) #5
-  %104 = lshr i16 %103, 4
-  %105 = and i16 %104, 255
-  br label %126
+138:                                              ; preds = %137
+  %139 = add i32 %.0105174181, 1
+  %140 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %139)
+  %141 = and i16 %140, 4095
+  br label %174
 
-106:                                              ; preds = %100
-  %107 = add i32 %.0105179186, 1
-  %108 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %107) #5
-  %109 = and i8 %108, -16
-  %110 = add i32 %.0105179186, 2
-  %111 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %110) #5
-  %112 = and i8 %111, 15
-  %113 = or disjoint i8 %112, %109
-  %114 = zext i8 %113 to i16
-  br label %126
+142:                                              ; preds = %137
+  %143 = add i32 %.0105174181, 1
+  %144 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %143)
+  %145 = and i8 %144, -16
+  %146 = zext i8 %145 to i16
+  %147 = shl nuw nsw i16 %146, 4
+  %148 = add i32 %.0105174181, 2
+  %149 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %148)
+  %150 = shl i8 %149, 4
+  %151 = zext i8 %150 to i16
+  %152 = or disjoint i16 %147, %151
+  %153 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %148)
+  %154 = lshr i8 %153, 4
+  %155 = zext nneg i8 %154 to i16
+  %156 = or disjoint i16 %152, %155
+  br label %174
 
-115:                                              ; preds = %100
-  %116 = add i32 %.0105179186, %.0103187
-  %117 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %116) #5
-  %118 = zext i8 %117 to i16
-  %119 = shl nuw nsw i16 %118, 4
-  %120 = add nsw i16 %119, -768
-  %121 = add i32 %116, 1
-  %122 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %121) #5
-  %123 = zext i8 %122 to i16
-  %124 = add nsw i16 %123, -48
-  %125 = or i16 %124, %120
-  br label %126
+157:                                              ; preds = %137
+  %158 = add i32 %.0105174181, %.0103182
+  %159 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %158)
+  %160 = zext i8 %159 to i16
+  %161 = shl nuw i16 %160, 8
+  %162 = add i16 %161, -12288
+  %163 = add i32 %158, 1
+  %164 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %163)
+  %165 = zext i8 %164 to i16
+  %166 = shl nuw nsw i16 %165, 4
+  %167 = add nsw i16 %166, -768
+  %168 = or i16 %167, %162
+  %169 = add i32 %158, 2
+  %170 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %169)
+  %171 = zext i8 %170 to i16
+  %172 = add nsw i16 %171, -48
+  %173 = or i16 %168, %172
+  br label %174
 
-126:                                              ; preds = %115, %106, %101
-  %.1175 = phi i16 [ %125, %115 ], [ %114, %106 ], [ %105, %101 ]
-  %.not12.i117 = icmp eq i16 %.1175, 0
-  br i1 %.not12.i117, label %convert_bcd_to_dec.exit127, label %.lr.ph.i118
+174:                                              ; preds = %157, %142, %138
+  %.2 = phi i16 [ %173, %157 ], [ %156, %142 ], [ %141, %138 ]
+  %175 = and i16 %.2, 4080
+  %176 = icmp eq i16 %175, 1296
+  br i1 %176, label %177, label %209
 
-.lr.ph.i118:                                      ; preds = %126, %.lr.ph.i118
-  %.016.i119 = phi i16 [ %132, %.lr.ph.i118 ], [ 1, %126 ]
-  %.0915.i120 = phi i16 [ %130, %.lr.ph.i118 ], [ 0, %126 ]
-  %.01014.i121 = phi i32 [ %spec.select.i123, %.lr.ph.i118 ], [ 1, %126 ]
-  %.01113.i122 = phi i16 [ %131, %.lr.ph.i118 ], [ %.1175, %126 ]
-  %127 = and i16 %.01113.i122, 15
-  %128 = icmp samesign ugt i16 %127, 9
-  %spec.select.i123 = select i1 %128, i32 0, i32 %.01014.i121
-  %129 = mul i16 %127, %.016.i119
-  %130 = add i16 %129, %.0915.i120
-  %131 = lshr i16 %.01113.i122, 4
-  %132 = mul i16 %.016.i119, 10
-  %.not.i124 = icmp ult i16 %.01113.i122, 16
-  br i1 %.not.i124, label %convert_bcd_to_dec.exit127.loopexit, label %.lr.ph.i118, !llvm.loop !6
-
-convert_bcd_to_dec.exit127.loopexit:              ; preds = %.lr.ph.i118
-  %133 = zext i16 %130 to i32
-  %134 = icmp eq i32 %spec.select.i123, 0
-  br label %convert_bcd_to_dec.exit127
-
-convert_bcd_to_dec.exit127:                       ; preds = %convert_bcd_to_dec.exit127.loopexit, %100, %126
-  %.010.lcssa.i125 = phi i1 [ false, %126 ], [ false, %100 ], [ %134, %convert_bcd_to_dec.exit127.loopexit ]
-  %.09.lcssa.i126 = phi i32 [ 0, %126 ], [ 0, %100 ], [ %133, %convert_bcd_to_dec.exit127.loopexit ]
-  %135 = load i32, ptr @hf_E164_identification_code, align 4
-  %136 = add i32 %.0105179186, 1
-  %137 = tail call ptr @val_to_str_ext_const(i32 noundef %.09.lcssa.i126, ptr noundef nonnull @E164_International_Networks_882_vals_ext, ptr noundef nonnull @.str.417) #5
-  %138 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %135, ptr noundef %0, i32 noundef %136, i32 noundef 2, i32 noundef %.09.lcssa.i126, ptr noundef nonnull @.str.416, i32 noundef %.09.lcssa.i126, ptr noundef %137) #5
-  br i1 %.010.lcssa.i125, label %.sink.split, label %225
-
-139:                                              ; preds = %76
-  switch i32 %3, label %convert_bcd_to_dec.exit149 [
-    i32 0, label %140
-    i32 1, label %144
-    i32 2, label %159
-  ]
-
-140:                                              ; preds = %139
-  %141 = add i32 %.0105179186, 1
-  %142 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %141) #5
-  %143 = and i16 %142, 4095
-  br label %176
-
-144:                                              ; preds = %139
-  %145 = add i32 %.0105179186, 1
-  %146 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %145) #5
-  %147 = and i8 %146, -16
-  %148 = zext i8 %147 to i16
-  %149 = shl nuw nsw i16 %148, 4
-  %150 = add i32 %.0105179186, 2
-  %151 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %150) #5
-  %152 = shl i8 %151, 4
-  %153 = zext i8 %152 to i16
-  %154 = or disjoint i16 %149, %153
-  %155 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %150) #5
-  %156 = lshr i8 %155, 4
-  %157 = zext nneg i8 %156 to i16
-  %158 = or disjoint i16 %154, %157
-  br label %176
-
-159:                                              ; preds = %139
-  %160 = add i32 %.0105179186, %.0103187
-  %161 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %160) #5
-  %162 = zext i8 %161 to i16
-  %163 = shl nuw i16 %162, 8
-  %164 = add i16 %163, -12288
-  %165 = add i32 %160, 1
-  %166 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %165) #5
-  %167 = zext i8 %166 to i16
-  %168 = shl nuw nsw i16 %167, 4
-  %169 = add nsw i16 %168, -768
-  %170 = or i16 %169, %164
-  %171 = add i32 %160, 2
-  %172 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %171) #5
-  %173 = zext i8 %172 to i16
-  %174 = add nsw i16 %173, -48
-  %175 = or i16 %170, %174
-  br label %176
-
-176:                                              ; preds = %159, %144, %140
-  %.2 = phi i16 [ %175, %159 ], [ %158, %144 ], [ %143, %140 ]
-  %177 = and i16 %.2, 4080
-  %178 = icmp eq i16 %177, 1296
-  br i1 %178, label %179, label %211
-
-179:                                              ; preds = %176
-  %180 = shl i16 %.2, 4
+177:                                              ; preds = %174
+  %178 = shl i16 %.2, 4
   switch i32 %3, label %default.unreachable [
-    i32 0, label %181
-    i32 1, label %187
-    i32 2, label %193
+    i32 0, label %179
+    i32 1, label %185
+    i32 2, label %191
   ]
 
-181:                                              ; preds = %179
-  %182 = add i32 %.0105179186, 3
-  %183 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %182) #5
-  %184 = lshr i8 %183, 4
-  %185 = zext nneg i8 %184 to i16
-  %186 = or disjoint i16 %180, %185
-  br label %.lr.ph.i129.preheader
+179:                                              ; preds = %177
+  %180 = add i32 %.0105174181, 3
+  %181 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %180)
+  %182 = lshr i8 %181, 4
+  %183 = zext nneg i8 %182 to i16
+  %184 = or disjoint i16 %178, %183
+  br label %.lr.ph.i124.preheader
 
-.lr.ph.i129.preheader:                            ; preds = %193, %187, %181
-  %.01113.i133.ph = phi i16 [ %186, %181 ], [ %192, %187 ], [ %199, %193 ]
-  br label %.lr.ph.i129
+.lr.ph.i124.preheader:                            ; preds = %191, %185, %179
+  %.01113.i128.ph = phi i16 [ %184, %179 ], [ %190, %185 ], [ %197, %191 ]
+  br label %.lr.ph.i124
 
-187:                                              ; preds = %179
-  %188 = add i32 %.0105179186, 3
-  %189 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %188) #5
-  %190 = and i8 %189, 15
-  %191 = zext nneg i8 %190 to i16
-  %192 = or disjoint i16 %180, %191
-  br label %.lr.ph.i129.preheader
+185:                                              ; preds = %177
+  %186 = add i32 %.0105174181, 3
+  %187 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %186)
+  %188 = and i8 %187, 15
+  %189 = zext nneg i8 %188 to i16
+  %190 = or disjoint i16 %178, %189
+  br label %.lr.ph.i124.preheader
 
-193:                                              ; preds = %179
-  %194 = add i32 %.0105179186, %.0103187
-  %195 = add i32 %194, 3
-  %196 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %195) #5
-  %197 = zext i8 %196 to i16
-  %198 = add nsw i16 %197, -48
-  %199 = or i16 %198, %180
-  br label %.lr.ph.i129.preheader
+191:                                              ; preds = %177
+  %192 = add i32 %.0105174181, %.0103182
+  %193 = add i32 %192, 3
+  %194 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %193)
+  %195 = zext i8 %194 to i16
+  %196 = add nsw i16 %195, -48
+  %197 = or i16 %196, %178
+  br label %.lr.ph.i124.preheader
 
-default.unreachable:                              ; preds = %179
+default.unreachable:                              ; preds = %177
   unreachable
 
-.lr.ph.i129:                                      ; preds = %.lr.ph.i129.preheader, %.lr.ph.i129
-  %.016.i130 = phi i16 [ %205, %.lr.ph.i129 ], [ 1, %.lr.ph.i129.preheader ]
-  %.0915.i131 = phi i16 [ %203, %.lr.ph.i129 ], [ 0, %.lr.ph.i129.preheader ]
-  %.01014.i132 = phi i32 [ %spec.select.i134, %.lr.ph.i129 ], [ 1, %.lr.ph.i129.preheader ]
-  %.01113.i133 = phi i16 [ %204, %.lr.ph.i129 ], [ %.01113.i133.ph, %.lr.ph.i129.preheader ]
-  %200 = and i16 %.01113.i133, 15
-  %201 = icmp samesign ugt i16 %200, 9
-  %spec.select.i134 = select i1 %201, i32 0, i32 %.01014.i132
-  %202 = mul i16 %200, %.016.i130
-  %203 = add i16 %202, %.0915.i131
-  %204 = lshr i16 %.01113.i133, 4
-  %205 = mul i16 %.016.i130, 10
-  %.not.i135 = icmp ult i16 %.01113.i133, 16
-  br i1 %.not.i135, label %convert_bcd_to_dec.exit138, label %.lr.ph.i129, !llvm.loop !6
+.lr.ph.i124:                                      ; preds = %.lr.ph.i124.preheader, %.lr.ph.i124
+  %.016.i125 = phi i16 [ %203, %.lr.ph.i124 ], [ 1, %.lr.ph.i124.preheader ]
+  %.0915.i126 = phi i16 [ %201, %.lr.ph.i124 ], [ 0, %.lr.ph.i124.preheader ]
+  %.01014.i127 = phi i1 [ %spec.select.i129, %.lr.ph.i124 ], [ true, %.lr.ph.i124.preheader ]
+  %.01113.i128 = phi i16 [ %202, %.lr.ph.i124 ], [ %.01113.i128.ph, %.lr.ph.i124.preheader ]
+  %198 = and i16 %.01113.i128, 15
+  %199 = icmp samesign ult i16 %198, 10
+  %spec.select.i129 = select i1 %199, i1 %.01014.i127, i1 false
+  %200 = mul i16 %198, %.016.i125
+  %201 = add i16 %200, %.0915.i126
+  %202 = lshr i16 %.01113.i128, 4
+  %203 = mul i16 %.016.i125, 10
+  %.not.i130 = icmp ult i16 %.01113.i128, 16
+  br i1 %.not.i130, label %convert_bcd_to_dec.exit133, label %.lr.ph.i124, !llvm.loop !8
 
-convert_bcd_to_dec.exit138:                       ; preds = %.lr.ph.i129
-  %206 = load i32, ptr @hf_E164_identification_code, align 4
-  %207 = add i32 %.0105179186, 1
-  %208 = zext i16 %203 to i32
-  %209 = tail call ptr @val_to_str_const(i32 noundef %208, ptr noundef nonnull @E164_International_Networks_883_vals, ptr noundef nonnull @.str.417) #5
-  %210 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %206, ptr noundef %0, i32 noundef %207, i32 noundef 3, i32 noundef %208, ptr noundef nonnull @.str.416, i32 noundef %208, ptr noundef %209) #5
-  %.not112 = icmp eq i32 %spec.select.i134, 0
-  br i1 %.not112, label %.sink.split, label %225
+convert_bcd_to_dec.exit133:                       ; preds = %.lr.ph.i124
+  %204 = load i32, ptr @hf_E164_identification_code, align 4
+  %205 = add i32 %.0105174181, 1
+  %206 = zext i16 %201 to i32
+  %207 = tail call ptr @val_to_str_const(i32 noundef %206, ptr noundef nonnull @E164_International_Networks_883_vals, ptr noundef nonnull @.str.417)
+  %208 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %204, ptr noundef %0, i32 noundef %205, i32 noundef 3, i32 noundef %206, ptr noundef nonnull @.str.416, i32 noundef %206, ptr noundef %207)
+  br i1 %spec.select.i129, label %222, label %.sink.split
 
-211:                                              ; preds = %176
-  %.not12.i139 = icmp eq i16 %.2, 0
-  br i1 %.not12.i139, label %convert_bcd_to_dec.exit149, label %.lr.ph.i140
+209:                                              ; preds = %174
+  %.not12.i134 = icmp eq i16 %.2, 0
+  br i1 %.not12.i134, label %convert_bcd_to_dec.exit144, label %.lr.ph.i135
 
-.lr.ph.i140:                                      ; preds = %211, %.lr.ph.i140
-  %.016.i141 = phi i16 [ %217, %.lr.ph.i140 ], [ 1, %211 ]
-  %.0915.i142 = phi i16 [ %215, %.lr.ph.i140 ], [ 0, %211 ]
-  %.01014.i143 = phi i32 [ %spec.select.i145, %.lr.ph.i140 ], [ 1, %211 ]
-  %.01113.i144 = phi i16 [ %216, %.lr.ph.i140 ], [ %.2, %211 ]
-  %212 = and i16 %.01113.i144, 15
-  %213 = icmp samesign ugt i16 %212, 9
-  %spec.select.i145 = select i1 %213, i32 0, i32 %.01014.i143
-  %214 = mul i16 %212, %.016.i141
-  %215 = add i16 %214, %.0915.i142
-  %216 = lshr i16 %.01113.i144, 4
-  %217 = mul i16 %.016.i141, 10
-  %.not.i146 = icmp ult i16 %.01113.i144, 16
-  br i1 %.not.i146, label %convert_bcd_to_dec.exit149.loopexit, label %.lr.ph.i140, !llvm.loop !6
+.lr.ph.i135:                                      ; preds = %209, %.lr.ph.i135
+  %.016.i136 = phi i16 [ %215, %.lr.ph.i135 ], [ 1, %209 ]
+  %.0915.i137 = phi i16 [ %213, %.lr.ph.i135 ], [ 0, %209 ]
+  %.01014.i138 = phi i1 [ %spec.select.i140, %.lr.ph.i135 ], [ true, %209 ]
+  %.01113.i139 = phi i16 [ %214, %.lr.ph.i135 ], [ %.2, %209 ]
+  %210 = and i16 %.01113.i139, 15
+  %211 = icmp samesign ult i16 %210, 10
+  %spec.select.i140 = select i1 %211, i1 %.01014.i138, i1 false
+  %212 = mul i16 %210, %.016.i136
+  %213 = add i16 %212, %.0915.i137
+  %214 = lshr i16 %.01113.i139, 4
+  %215 = mul i16 %.016.i136, 10
+  %.not.i141 = icmp ult i16 %.01113.i139, 16
+  br i1 %.not.i141, label %convert_bcd_to_dec.exit144.loopexit, label %.lr.ph.i135, !llvm.loop !8
 
-convert_bcd_to_dec.exit149.loopexit:              ; preds = %.lr.ph.i140
-  %218 = zext i16 %215 to i32
-  %219 = icmp eq i32 %spec.select.i145, 0
-  br label %convert_bcd_to_dec.exit149
+convert_bcd_to_dec.exit144.loopexit:              ; preds = %.lr.ph.i135
+  %216 = zext i16 %213 to i32
+  br label %convert_bcd_to_dec.exit144
 
-convert_bcd_to_dec.exit149:                       ; preds = %convert_bcd_to_dec.exit149.loopexit, %139, %211
-  %.010.lcssa.i147 = phi i1 [ false, %211 ], [ false, %139 ], [ %219, %convert_bcd_to_dec.exit149.loopexit ]
-  %.09.lcssa.i148 = phi i32 [ 0, %211 ], [ 0, %139 ], [ %218, %convert_bcd_to_dec.exit149.loopexit ]
-  %220 = load i32, ptr @hf_E164_identification_code, align 4
-  %221 = add i32 %.0105179186, 1
-  %222 = tail call ptr @val_to_str_const(i32 noundef %.09.lcssa.i148, ptr noundef nonnull @E164_International_Networks_883_vals, ptr noundef nonnull @.str.417) #5
-  %223 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %220, ptr noundef %0, i32 noundef %221, i32 noundef 2, i32 noundef %.09.lcssa.i148, ptr noundef nonnull @.str.416, i32 noundef %.09.lcssa.i148, ptr noundef %222) #5
-  br i1 %.010.lcssa.i147, label %.sink.split, label %225
+convert_bcd_to_dec.exit144:                       ; preds = %convert_bcd_to_dec.exit144.loopexit, %137, %209
+  %.010.lcssa.i142 = phi i1 [ true, %209 ], [ true, %137 ], [ %spec.select.i140, %convert_bcd_to_dec.exit144.loopexit ]
+  %.09.lcssa.i143 = phi i32 [ 0, %209 ], [ 0, %137 ], [ %216, %convert_bcd_to_dec.exit144.loopexit ]
+  %217 = load i32, ptr @hf_E164_identification_code, align 4
+  %218 = add i32 %.0105174181, 1
+  %219 = tail call ptr @val_to_str_const(i32 noundef %.09.lcssa.i143, ptr noundef nonnull @E164_International_Networks_883_vals, ptr noundef nonnull @.str.417)
+  %220 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %217, ptr noundef %0, i32 noundef %218, i32 noundef 2, i32 noundef %.09.lcssa.i143, ptr noundef nonnull @.str.416, i32 noundef %.09.lcssa.i143, ptr noundef %219)
+  br i1 %.010.lcssa.i142, label %222, label %.sink.split
 
-.sink.split:                                      ; preds = %convert_bcd_to_dec.exit149, %convert_bcd_to_dec.exit138, %convert_bcd_to_dec.exit127, %93
-  %.sink = phi ptr [ %99, %93 ], [ %138, %convert_bcd_to_dec.exit127 ], [ %210, %convert_bcd_to_dec.exit138 ], [ %223, %convert_bcd_to_dec.exit149 ]
-  %224 = tail call ptr @expert_add_info(ptr noundef null, ptr noundef %.sink, ptr noundef nonnull @ei_E164_identification_code_non_decimal) #5
-  br label %225
+.sink.split:                                      ; preds = %convert_bcd_to_dec.exit144, %convert_bcd_to_dec.exit133, %convert_bcd_to_dec.exit122, %92
+  %.sink = phi ptr [ %98, %92 ], [ %136, %convert_bcd_to_dec.exit122 ], [ %208, %convert_bcd_to_dec.exit133 ], [ %220, %convert_bcd_to_dec.exit144 ]
+  %221 = tail call ptr @expert_add_info(ptr noundef null, ptr noundef %.sink, ptr noundef nonnull @ei_E164_identification_code_non_decimal)
+  br label %222
 
-225:                                              ; preds = %.sink.split, %76, %convert_bcd_to_dec.exit138, %convert_bcd_to_dec.exit149, %convert_bcd_to_dec.exit127, %93
+222:                                              ; preds = %.sink.split, %75, %convert_bcd_to_dec.exit133, %convert_bcd_to_dec.exit144, %convert_bcd_to_dec.exit122, %92
   ret void
 }
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #0
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #0
 
+; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #0
 
-declare i32 @tvb_bytes_exist(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @tvb_bytes_exist(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #0
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str_ext_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define ptr @dissect_e164_msisdn(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @hf_E164_msisdn, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
   switch i32 %4, label %9 [
     i32 2, label %dissect_e164.exit
     i32 1, label %8
@@ -1079,26 +1084,26 @@ define ptr @dissect_e164_msisdn(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   br label %dissect_e164.exit
 
 9:                                                ; preds = %5
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.480, ptr noundef nonnull @.str.481, i32 noundef 818) #6
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.483, ptr noundef nonnull @.str.484, i32 noundef 818) #6
   unreachable
 
 dissect_e164.exit:                                ; preds = %5, %8
   %.0.i = phi i32 [ -2147483580, %8 ], [ %4, %5 ]
-  %10 = tail call ptr @wmem_packet_scope() #5
-  %11 = call ptr @proto_tree_add_item_ret_display_string(ptr noundef %1, i32 noundef %7, ptr noundef %0, i32 noundef %2, i32 noundef %3, i32 noundef %.0.i, ptr noundef %10, ptr noundef nonnull %6) #5
+  %10 = tail call ptr @wmem_packet_scope()
+  %11 = call ptr @proto_tree_add_item_ret_display_string(ptr noundef %1, i32 noundef %7, ptr noundef %0, i32 noundef %2, i32 noundef %3, i32 noundef %.0.i, ptr noundef %10, ptr noundef nonnull %6)
   %12 = load i32, ptr @ett_e164_msisdn, align 4
-  %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #5
+  %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12)
   call void @dissect_e164_cc(ptr noundef %0, ptr noundef %13, i32 noundef %2, i32 noundef %4)
   %14 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
   ret ptr %14
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define ptr @dissect_e164_isdn(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = alloca ptr, align 8
   %7 = load i32, ptr @hf_E164_isdn, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
   switch i32 %4, label %9 [
     i32 2, label %dissect_e164.exit
     i32 1, label %8
@@ -1108,75 +1113,79 @@ define ptr @dissect_e164_isdn(ptr noundef %0, ptr noundef %1, i32 noundef %2, i3
   br label %dissect_e164.exit
 
 9:                                                ; preds = %5
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.480, ptr noundef nonnull @.str.481, i32 noundef 818) #6
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.483, ptr noundef nonnull @.str.484, i32 noundef 818) #6
   unreachable
 
 dissect_e164.exit:                                ; preds = %5, %8
   %.0.i = phi i32 [ -2147483580, %8 ], [ %4, %5 ]
-  %10 = tail call ptr @wmem_packet_scope() #5
-  %11 = call ptr @proto_tree_add_item_ret_display_string(ptr noundef %1, i32 noundef %7, ptr noundef %0, i32 noundef %2, i32 noundef %3, i32 noundef %.0.i, ptr noundef %10, ptr noundef nonnull %6) #5
+  %10 = tail call ptr @wmem_packet_scope()
+  %11 = call ptr @proto_tree_add_item_ret_display_string(ptr noundef %1, i32 noundef %7, ptr noundef %0, i32 noundef %2, i32 noundef %3, i32 noundef %.0.i, ptr noundef %10, ptr noundef nonnull %6)
   %12 = load i32, ptr @ett_e164_msisdn, align 4
-  %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #5
+  %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12)
   call void @dissect_e164_cc(ptr noundef %0, ptr noundef %13, i32 noundef %2, i32 noundef %4)
   %14 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
   ret ptr %14
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_e164() local_unnamed_addr #1 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.434, ptr noundef nonnull @.str.435, ptr noundef nonnull @.str.436) #5
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.434, ptr noundef nonnull @.str.435, ptr noundef nonnull @.str.436)
   store i32 %1, ptr @proto_e164, align 4
-  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_e164.hf, i32 noundef 6) #5
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_e164.ett_e164_array, i32 noundef 1) #5
+  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_e164.hf, i32 noundef 6)
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_e164.ett_e164_array, i32 noundef 1)
   %2 = load i32, ptr @proto_e164, align 4
-  %3 = tail call ptr @expert_register_protocol(i32 noundef %2) #5
-  tail call void @expert_register_field_array(ptr noundef %3, ptr noundef nonnull @proto_register_e164.ei, i32 noundef 2) #5
+  %3 = tail call ptr @expert_register_protocol(i32 noundef %2)
+  tail call void @expert_register_field_array(ptr noundef %3, ptr noundef nonnull @proto_register_e164.ei, i32 noundef 2)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #0
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #0
 
+; Function Attrs: null_pointer_is_valid
 declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
-; Function Attrs: noreturn
-declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #2
+; Function Attrs: noreturn null_pointer_is_valid
+declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #3
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item_ret_display_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_packet_scope() local_unnamed_addr #0
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.fshl.i8(i8, i8, i8) #3
+declare i8 @llvm.fshl.i8(i8, i8, i8) #4
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
-attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nounwind }
-attributes #6 = { noreturn nounwind }
+attributes #6 = { noreturn }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}

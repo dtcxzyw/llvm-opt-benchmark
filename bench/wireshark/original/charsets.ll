@@ -80,7 +80,7 @@ target triple = "x86_64-pc-linux-gnu"
 @cf_vec1 = internal constant [32 x i16] [i16 0, i16 461, i16 0, i16 268, i16 270, i16 282, i16 0, i16 486, i16 542, i16 463, i16 0, i16 488, i16 317, i16 0, i16 327, i16 465, i16 0, i16 0, i16 344, i16 352, i16 356, i16 467, i16 0, i16 0, i16 0, i16 0, i16 381, i16 0, i16 0, i16 0, i16 0, i16 0], align 16
 @cf_vec2 = internal constant [32 x i16] [i16 0, i16 462, i16 0, i16 269, i16 271, i16 283, i16 0, i16 487, i16 543, i16 464, i16 496, i16 489, i16 318, i16 0, i16 328, i16 466, i16 0, i16 0, i16 345, i16 353, i16 357, i16 468, i16 0, i16 0, i16 0, i16 0, i16 382, i16 0, i16 0, i16 0, i16 0, i16 0], align 16
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define ptr @get_ascii_string(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -92,8 +92,11 @@ define ptr @get_ascii_string(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
   %11 = load ptr, ptr %5, align 8
   store ptr %11, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
   store i64 0, ptr %9, align 8
   %12 = load ptr, ptr %4, align 8
   %13 = load i32, ptr %6, align 4
@@ -109,6 +112,7 @@ define ptr @get_ascii_string(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 
   br i1 %19, label %20, label %43
 
 20:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #8
   %21 = load ptr, ptr %5, align 8
   %22 = getelementptr i8, ptr %21, i32 1
   store ptr %22, ptr %5, align 8
@@ -149,7 +153,8 @@ define ptr @get_ascii_string(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 
   %41 = load i32, ptr %6, align 4
   %42 = add i32 %41, -1
   store i32 %42, ptr %6, align 4
-  br label %17, !llvm.loop !4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #8
+  br label %17, !llvm.loop !6
 
 43:                                               ; preds = %17
   %44 = load i64, ptr %9, align 8
@@ -166,18 +171,31 @@ define ptr @get_ascii_string(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 
 50:                                               ; preds = %46, %43
   %51 = load ptr, ptr %7, align 8
   %52 = call ptr @wmem_strbuf_finalize(ptr noundef %51)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
   ret ptr %52
 }
 
-declare noalias ptr @wmem_strbuf_new_sized(ptr noundef, i64 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @wmem_strbuf_append_len(ptr noundef, ptr noundef, i64 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @wmem_strbuf_new_sized(ptr noundef, i64 noundef) #2
 
-declare void @wmem_strbuf_append_unichar(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @wmem_strbuf_append_len(ptr noundef, ptr noundef, i64 noundef) #2
 
-declare ptr @wmem_strbuf_finalize(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @wmem_strbuf_append_unichar(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_strbuf_finalize(ptr noundef) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define ptr @get_utf_8_string(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -193,9 +211,10 @@ define ptr @get_utf_8_string(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 
   ret ptr %11
 }
 
-declare ptr @ws_utf8_make_valid(ptr noundef, ptr noundef, i64 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @ws_utf8_make_valid(ptr noundef, ptr noundef, i64 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define ptr @get_iso_646_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -207,6 +226,7 @@ define ptr @get_iso_646_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %7, align 4
   %13 = add i32 %12, 1
@@ -221,6 +241,7 @@ define ptr @get_iso_646_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
   br i1 %18, label %19, label %40
 
 19:                                               ; preds = %16
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #8
   %20 = load ptr, ptr %6, align 8
   %21 = load i8, ptr %20, align 1
   store i8 %21, ptr %10, align 1
@@ -252,15 +273,17 @@ define ptr @get_iso_646_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
   %38 = load i32, ptr %7, align 4
   %39 = add i32 %38, -1
   store i32 %39, ptr %7, align 4
-  br label %16, !llvm.loop !6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #8
+  br label %16, !llvm.loop !8
 
 40:                                               ; preds = %16
   %41 = load ptr, ptr %9, align 8
   %42 = call ptr @wmem_strbuf_finalize(ptr noundef %41)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
   ret ptr %42
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define ptr @get_8859_1_string(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -270,6 +293,7 @@ define ptr @get_8859_1_string(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
   %9 = load ptr, ptr %4, align 8
   %10 = load i32, ptr %6, align 4
   %11 = add i32 %10, 1
@@ -284,6 +308,7 @@ define ptr @get_8859_1_string(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0
   br i1 %16, label %17, label %35
 
 17:                                               ; preds = %14
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #8
   %18 = load ptr, ptr %5, align 8
   %19 = load i8, ptr %18, align 1
   store i8 %19, ptr %8, align 1
@@ -312,17 +337,20 @@ define ptr @get_8859_1_string(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0
   %33 = load i32, ptr %6, align 4
   %34 = add i32 %33, -1
   store i32 %34, ptr %6, align 4
-  br label %14, !llvm.loop !7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #8
+  br label %14, !llvm.loop !9
 
 35:                                               ; preds = %14
   %36 = load ptr, ptr %7, align 8
   %37 = call ptr @wmem_strbuf_finalize(ptr noundef %36)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
   ret ptr %37
 }
 
-declare void @wmem_strbuf_append_c(ptr noundef, i8 noundef signext) #1
+; Function Attrs: null_pointer_is_valid
+declare void @wmem_strbuf_append_c(ptr noundef, i8 noundef signext) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define ptr @get_unichar2_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -334,6 +362,7 @@ define ptr @get_unichar2_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %7, align 4
   %13 = add i32 %12, 1
@@ -348,6 +377,7 @@ define ptr @get_unichar2_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   br i1 %18, label %19, label %43
 
 19:                                               ; preds = %16
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #8
   %20 = load ptr, ptr %6, align 8
   %21 = load i8, ptr %20, align 1
   store i8 %21, ptr %10, align 1
@@ -382,15 +412,17 @@ define ptr @get_unichar2_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   %41 = load i32, ptr %7, align 4
   %42 = add i32 %41, -1
   store i32 %42, ptr %7, align 4
-  br label %16, !llvm.loop !8
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #8
+  br label %16, !llvm.loop !10
 
 43:                                               ; preds = %16
   %44 = load ptr, ptr %9, align 8
   %45 = call ptr @wmem_strbuf_finalize(ptr noundef %44)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
   ret ptr %45
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define ptr @get_ucs_2_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -403,7 +435,10 @@ define ptr @get_ucs_2_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %9) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #8
   store i32 0, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
   %12 = load ptr, ptr %5, align 8
   %13 = load i32, ptr %7, align 4
   %14 = add i32 %13, 1
@@ -501,7 +536,7 @@ define ptr @get_ucs_2_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32
   %69 = load i32, ptr %10, align 4
   %70 = add i32 %69, 2
   store i32 %70, ptr %10, align 4
-  br label %44, !llvm.loop !9
+  br label %44, !llvm.loop !11
 
 71:                                               ; preds = %44
   %72 = load i32, ptr %10, align 4
@@ -517,11 +552,14 @@ define ptr @get_ucs_2_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32
 77:                                               ; preds = %75, %71
   %78 = load ptr, ptr %11, align 8
   %79 = call ptr @wmem_strbuf_finalize(ptr noundef %78)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 2, ptr %9) #8
   ret ptr %79
 }
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i16 @pletoh16(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind null_pointer_is_valid sspstrong uwtable
+define internal zeroext i16 @pletoh16(ptr noundef %0) #3 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -541,8 +579,8 @@ define internal zeroext i16 @pletoh16(ptr noundef %0) #0 {
   ret i16 %16
 }
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i16 @pntoh16(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind null_pointer_is_valid sspstrong uwtable
+define internal zeroext i16 @pntoh16(ptr noundef %0) #3 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -562,9 +600,10 @@ define internal zeroext i16 @pntoh16(ptr noundef %0) #0 {
   ret i16 %16
 }
 
-declare void @wmem_strbuf_append_unichar_validated(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @wmem_strbuf_append_unichar_validated(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define ptr @get_utf_16_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -579,6 +618,11 @@ define ptr @get_utf_16_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i3
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %10) #8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %11) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #8
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %5, align 8
   %15 = load i32, ptr %7, align 4
@@ -788,7 +832,7 @@ define ptr @get_utf_16_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i3
   %139 = load i32, ptr %13, align 4
   %140 = add i32 %139, 2
   store i32 %140, ptr %13, align 4
-  br label %46, !llvm.loop !10
+  br label %46, !llvm.loop !12
 
 141:                                              ; preds = %81, %46
   %142 = load i32, ptr %13, align 4
@@ -804,10 +848,15 @@ define ptr @get_utf_16_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i3
 147:                                              ; preds = %145, %141
   %148 = load ptr, ptr %9, align 8
   %149 = call ptr @wmem_strbuf_finalize(ptr noundef %148)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 2, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 2, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
   ret ptr %149
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define ptr @get_ucs_4_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -820,7 +869,10 @@ define ptr @get_ucs_4_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #8
   store i32 0, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
   %12 = load ptr, ptr %5, align 8
   %13 = load i32, ptr %7, align 4
   %14 = add i32 %13, 1
@@ -915,7 +967,7 @@ define ptr @get_ucs_4_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32
   %66 = load i32, ptr %10, align 4
   %67 = add i32 %66, 4
   store i32 %67, ptr %10, align 4
-  br label %42, !llvm.loop !11
+  br label %42, !llvm.loop !13
 
 68:                                               ; preds = %42
   %69 = load i32, ptr %10, align 4
@@ -931,11 +983,14 @@ define ptr @get_ucs_4_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32
 74:                                               ; preds = %72, %68
   %75 = load ptr, ptr %11, align 8
   %76 = call ptr @wmem_strbuf_finalize(ptr noundef %75)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #8
   ret ptr %76
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @pletoh32(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @pletoh32(ptr noundef %0) #3 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -964,8 +1019,8 @@ define internal i32 @pletoh32(ptr noundef %0) #0 {
   ret i32 %25
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @pntoh32(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @pntoh32(ptr noundef %0) #3 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -994,7 +1049,7 @@ define internal i32 @pntoh32(ptr noundef %0) #0 {
   ret i32 %25
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define ptr @get_ts_23_038_7bits_string_packed(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1006,16 +1061,24 @@ define ptr @get_ts_23_038_7bits_string_packed(ptr noundef %0, ptr noundef %1, i3
   %12 = alloca i8, align 1
   %13 = alloca i8, align 1
   %14 = alloca ptr, align 8
-  %15 = alloca i32, align 4
+  %15 = alloca i8, align 1
   %16 = alloca i32, align 4
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #8
   store i8 0, ptr %13, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #8
   %17 = load ptr, ptr %6, align 8
   store ptr %17, ptr %14, align 8
-  store i32 0, ptr %15, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #8
+  store i8 0, ptr %15, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #8
   %18 = load ptr, ptr %5, align 8
   %19 = load i32, ptr %8, align 4
   %20 = add i32 %19, 1
@@ -1037,11 +1100,11 @@ define ptr @get_ts_23_038_7bits_string_packed(ptr noundef %0, ptr noundef %1, i3
   store i32 0, ptr %10, align 4
   br label %29
 
-29:                                               ; preds = %85, %28
+29:                                               ; preds = %89, %28
   %30 = load i32, ptr %10, align 4
   %31 = load i32, ptr %8, align 4
   %32 = icmp slt i32 %30, %31
-  br i1 %32, label %33, label %88
+  br i1 %32, label %33, label %92
 
 33:                                               ; preds = %29
   %34 = load ptr, ptr %6, align 8
@@ -1075,90 +1138,103 @@ define ptr @get_ts_23_038_7bits_string_packed(ptr noundef %0, ptr noundef %1, i3
 57:                                               ; preds = %33
   %58 = load i32, ptr %16, align 4
   %59 = icmp eq i32 %58, 7
-  br i1 %59, label %60, label %67
+  br i1 %59, label %60, label %69
 
 60:                                               ; preds = %57, %33
   %61 = load ptr, ptr %9, align 8
   %62 = load i8, ptr %12, align 1
-  %63 = load i32, ptr %15, align 4
-  %64 = call i32 @handle_ts_23_038_char(ptr noundef %61, i8 noundef zeroext %62, i32 noundef %63)
-  store i32 %64, ptr %15, align 4
-  %65 = load i32, ptr %10, align 4
-  %66 = add i32 %65, 1
-  store i32 %66, ptr %10, align 4
-  br label %67
+  %63 = load i8, ptr %15, align 1, !range !14, !noundef !15
+  %64 = trunc i8 %63 to i1
+  %65 = call zeroext i1 @handle_ts_23_038_char(ptr noundef %61, i8 noundef zeroext %62, i1 noundef zeroext %64)
+  %66 = zext i1 %65 to i8
+  store i8 %66, ptr %15, align 1
+  %67 = load i32, ptr %10, align 4
+  %68 = add i32 %67, 1
+  store i32 %68, ptr %10, align 4
+  br label %69
 
-67:                                               ; preds = %60, %57
-  %68 = load i32, ptr %16, align 4
-  %69 = icmp eq i32 %68, 1
-  br i1 %69, label %70, label %81
+69:                                               ; preds = %60, %57
+  %70 = load i32, ptr %16, align 4
+  %71 = icmp eq i32 %70, 1
+  br i1 %71, label %72, label %85
 
-70:                                               ; preds = %67
-  %71 = load i32, ptr %10, align 4
-  %72 = load i32, ptr %8, align 4
-  %73 = icmp slt i32 %71, %72
-  br i1 %73, label %74, label %81
+72:                                               ; preds = %69
+  %73 = load i32, ptr %10, align 4
+  %74 = load i32, ptr %8, align 4
+  %75 = icmp slt i32 %73, %74
+  br i1 %75, label %76, label %85
 
-74:                                               ; preds = %70
-  %75 = load ptr, ptr %9, align 8
-  %76 = load i8, ptr %13, align 1
-  %77 = load i32, ptr %15, align 4
-  %78 = call i32 @handle_ts_23_038_char(ptr noundef %75, i8 noundef zeroext %76, i32 noundef %77)
-  store i32 %78, ptr %15, align 4
-  %79 = load i32, ptr %10, align 4
-  %80 = add i32 %79, 1
-  store i32 %80, ptr %10, align 4
+76:                                               ; preds = %72
+  %77 = load ptr, ptr %9, align 8
+  %78 = load i8, ptr %13, align 1
+  %79 = load i8, ptr %15, align 1, !range !14, !noundef !15
+  %80 = trunc i8 %79 to i1
+  %81 = call zeroext i1 @handle_ts_23_038_char(ptr noundef %77, i8 noundef zeroext %78, i1 noundef zeroext %80)
+  %82 = zext i1 %81 to i8
+  store i8 %82, ptr %15, align 1
+  %83 = load i32, ptr %10, align 4
+  %84 = add i32 %83, 1
+  store i32 %84, ptr %10, align 4
   store i32 7, ptr %16, align 4
   store i8 0, ptr %13, align 1
-  br label %84
+  br label %88
 
-81:                                               ; preds = %70, %67
-  %82 = load i32, ptr %16, align 4
-  %83 = add i32 %82, -1
-  store i32 %83, ptr %16, align 4
-  br label %84
+85:                                               ; preds = %72, %69
+  %86 = load i32, ptr %16, align 4
+  %87 = add i32 %86, -1
+  store i32 %87, ptr %16, align 4
+  br label %88
 
-84:                                               ; preds = %81, %74
-  br label %85
+88:                                               ; preds = %85, %76
+  br label %89
 
-85:                                               ; preds = %84
-  %86 = load ptr, ptr %6, align 8
-  %87 = getelementptr i8, ptr %86, i32 1
-  store ptr %87, ptr %6, align 8
-  br label %29, !llvm.loop !12
+89:                                               ; preds = %88
+  %90 = load ptr, ptr %6, align 8
+  %91 = getelementptr i8, ptr %90, i32 1
+  store ptr %91, ptr %6, align 8
+  br label %29, !llvm.loop !16
 
-88:                                               ; preds = %29
-  %89 = load i32, ptr %15, align 4
-  %90 = icmp ne i32 %89, 0
-  br i1 %90, label %91, label %93
+92:                                               ; preds = %29
+  %93 = load i8, ptr %15, align 1, !range !14, !noundef !15
+  %94 = trunc i8 %93 to i1
+  br i1 %94, label %95, label %97
 
-91:                                               ; preds = %88
-  %92 = load ptr, ptr %9, align 8
-  call void @wmem_strbuf_append_unichar(ptr noundef %92, i32 noundef 65533)
-  br label %93
+95:                                               ; preds = %92
+  %96 = load ptr, ptr %9, align 8
+  call void @wmem_strbuf_append_unichar(ptr noundef %96, i32 noundef 65533)
+  br label %97
 
-93:                                               ; preds = %91, %88
-  %94 = load ptr, ptr %9, align 8
-  %95 = call ptr @wmem_strbuf_finalize(ptr noundef %94)
-  ret ptr %95
+97:                                               ; preds = %95, %92
+  %98 = load ptr, ptr %9, align 8
+  %99 = call ptr @wmem_strbuf_finalize(ptr noundef %98)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #8
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  ret ptr %99
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @handle_ts_23_038_char(ptr noundef %0, i8 noundef zeroext %1, i32 noundef %2) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @handle_ts_23_038_char(ptr noundef %0, i8 noundef zeroext %1, i1 noundef zeroext %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i8, align 1
-  %6 = alloca i32, align 4
+  %6 = alloca i8, align 1
   %7 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store i8 %1, ptr %5, align 1
-  store i32 %2, ptr %6, align 4
-  %8 = load i8, ptr %5, align 1
-  %9 = call i32 @char_is_escape(i8 noundef zeroext %8)
-  %10 = icmp ne i32 %9, 0
+  %8 = zext i1 %2 to i8
+  store i8 %8, ptr %6, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #8
+  %9 = load i8, ptr %5, align 1
+  %10 = call zeroext i1 @char_is_escape(i8 noundef zeroext %9)
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %3
-  store i32 1, ptr %6, align 4
+  store i8 1, ptr %6, align 1
   br label %32
 
 12:                                               ; preds = %3
@@ -1169,12 +1245,12 @@ define internal i32 @handle_ts_23_038_char(ptr noundef %0, i8 noundef zeroext %1
   br i1 %16, label %29, label %17
 
 17:                                               ; preds = %12
-  %18 = load i32, ptr %6, align 4
-  %19 = icmp ne i32 %18, 0
+  %18 = load i8, ptr %6, align 1, !range !14, !noundef !15
+  %19 = trunc i8 %18 to i1
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %17
-  store i32 0, ptr %6, align 4
+  store i8 0, ptr %6, align 1
   %21 = load i8, ptr %5, align 1
   %22 = call i32 @GSMext_to_UNICHAR(i8 noundef zeroext %21)
   store i32 %22, ptr %7, align 4
@@ -1201,22 +1277,27 @@ define internal i32 @handle_ts_23_038_char(ptr noundef %0, i8 noundef zeroext %1
   br label %32
 
 32:                                               ; preds = %31, %11
-  %33 = load i32, ptr %6, align 4
-  ret i32 %33
+  %33 = load i8, ptr %6, align 1, !range !14, !noundef !15
+  %34 = trunc i8 %33 to i1
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #8
+  ret i1 %34
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define ptr @get_ts_23_038_7bits_string_unpacked(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
-  %9 = alloca i32, align 4
+  %9 = alloca i8, align 1
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
-  store i32 0, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #8
+  store i8 0, ptr %9, align 1
   %10 = load ptr, ptr %4, align 8
   %11 = load i32, ptr %6, align 4
   %12 = add i32 %11, 1
@@ -1226,11 +1307,11 @@ define ptr @get_ts_23_038_7bits_string_unpacked(ptr noundef %0, ptr noundef %1, 
   store i32 0, ptr %8, align 4
   br label %15
 
-15:                                               ; preds = %26, %3
+15:                                               ; preds = %28, %3
   %16 = load i32, ptr %8, align 4
   %17 = load i32, ptr %6, align 4
   %18 = icmp slt i32 %16, %17
-  br i1 %18, label %19, label %29
+  br i1 %18, label %19, label %31
 
 19:                                               ; preds = %15
   %20 = load ptr, ptr %7, align 8
@@ -1238,24 +1319,29 @@ define ptr @get_ts_23_038_7bits_string_unpacked(ptr noundef %0, ptr noundef %1, 
   %22 = getelementptr i8, ptr %21, i32 1
   store ptr %22, ptr %5, align 8
   %23 = load i8, ptr %21, align 1
-  %24 = load i32, ptr %9, align 4
-  %25 = call i32 @handle_ts_23_038_char(ptr noundef %20, i8 noundef zeroext %23, i32 noundef %24)
-  store i32 %25, ptr %9, align 4
-  br label %26
+  %24 = load i8, ptr %9, align 1, !range !14, !noundef !15
+  %25 = trunc i8 %24 to i1
+  %26 = call zeroext i1 @handle_ts_23_038_char(ptr noundef %20, i8 noundef zeroext %23, i1 noundef zeroext %25)
+  %27 = zext i1 %26 to i8
+  store i8 %27, ptr %9, align 1
+  br label %28
 
-26:                                               ; preds = %19
-  %27 = load i32, ptr %8, align 4
-  %28 = add i32 %27, 1
-  store i32 %28, ptr %8, align 4
-  br label %15, !llvm.loop !13
+28:                                               ; preds = %19
+  %29 = load i32, ptr %8, align 4
+  %30 = add i32 %29, 1
+  store i32 %30, ptr %8, align 4
+  br label %15, !llvm.loop !17
 
-29:                                               ; preds = %15
-  %30 = load ptr, ptr %7, align 8
-  %31 = call ptr @wmem_strbuf_finalize(ptr noundef %30)
-  ret ptr %31
+31:                                               ; preds = %15
+  %32 = load ptr, ptr %7, align 8
+  %33 = call ptr @wmem_strbuf_finalize(ptr noundef %32)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  ret ptr %33
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define ptr @get_etsi_ts_102_221_annex_a_string(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -1266,256 +1352,295 @@ define ptr @get_etsi_ts_102_221_annex_a_string(ptr noundef %0, ptr noundef %1, i
   %10 = alloca i16, align 2
   %11 = alloca ptr, align 8
   %12 = alloca i32, align 4
-  %13 = alloca i32, align 4
-  %14 = alloca i8, align 1
-  %15 = alloca i16, align 2
+  %13 = alloca i8, align 1
+  %14 = alloca i32, align 4
+  %15 = alloca i8, align 1
+  %16 = alloca i16, align 2
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
-  store i32 0, ptr %13, align 4
-  %16 = load i32, ptr %7, align 4
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %23
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %10) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #8
+  store i8 0, ptr %13, align 1
+  %17 = load i32, ptr %7, align 4
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %19, label %24
 
-18:                                               ; preds = %3
-  %19 = load ptr, ptr %5, align 8
-  %20 = call noalias ptr @wmem_strbuf_new(ptr noundef %19, ptr noundef @.str)
-  store ptr %20, ptr %11, align 8
-  %21 = load ptr, ptr %11, align 8
-  %22 = call ptr @wmem_strbuf_finalize(ptr noundef %21)
-  store ptr %22, ptr %4, align 8
-  br label %162
+19:                                               ; preds = %3
+  %20 = load ptr, ptr %5, align 8
+  %21 = call noalias ptr @wmem_strbuf_new(ptr noundef %20, ptr noundef @.str)
+  store ptr %21, ptr %11, align 8
+  %22 = load ptr, ptr %11, align 8
+  %23 = call ptr @wmem_strbuf_finalize(ptr noundef %22)
+  store ptr %23, ptr %4, align 8
+  store i32 1, ptr %14, align 4
+  br label %168
 
-23:                                               ; preds = %3
-  %24 = load ptr, ptr %6, align 8
-  %25 = load i8, ptr %24, align 1
-  store i8 %25, ptr %8, align 1
-  %26 = load ptr, ptr %6, align 8
-  %27 = getelementptr i8, ptr %26, i32 1
-  store ptr %27, ptr %6, align 8
-  %28 = load i32, ptr %7, align 4
-  %29 = add i32 %28, -1
-  store i32 %29, ptr %7, align 4
-  %30 = load i8, ptr %8, align 1
-  %31 = zext i8 %30 to i32
-  %32 = icmp eq i32 %31, 128
-  br i1 %32, label %33, label %38
+24:                                               ; preds = %3
+  %25 = load ptr, ptr %6, align 8
+  %26 = load i8, ptr %25, align 1
+  store i8 %26, ptr %8, align 1
+  %27 = load ptr, ptr %6, align 8
+  %28 = getelementptr i8, ptr %27, i32 1
+  store ptr %28, ptr %6, align 8
+  %29 = load i32, ptr %7, align 4
+  %30 = add i32 %29, -1
+  store i32 %30, ptr %7, align 4
+  %31 = load i8, ptr %8, align 1
+  %32 = zext i8 %31 to i32
+  %33 = icmp eq i32 %32, 128
+  br i1 %33, label %34, label %39
 
-33:                                               ; preds = %23
-  %34 = load ptr, ptr %5, align 8
-  %35 = load ptr, ptr %6, align 8
-  %36 = load i32, ptr %7, align 4
-  %37 = call ptr @get_ucs_2_string(ptr noundef %34, ptr noundef %35, i32 noundef %36, i32 noundef 0)
-  store ptr %37, ptr %4, align 8
-  br label %162
+34:                                               ; preds = %24
+  %35 = load ptr, ptr %5, align 8
+  %36 = load ptr, ptr %6, align 8
+  %37 = load i32, ptr %7, align 4
+  %38 = call ptr @get_ucs_2_string(ptr noundef %35, ptr noundef %36, i32 noundef %37, i32 noundef 0)
+  store ptr %38, ptr %4, align 8
+  store i32 1, ptr %14, align 4
+  br label %168
 
-38:                                               ; preds = %23
-  %39 = load i32, ptr %7, align 4
-  %40 = icmp eq i32 %39, 0
-  br i1 %40, label %41, label %46
+39:                                               ; preds = %24
+  %40 = load i32, ptr %7, align 4
+  %41 = icmp eq i32 %40, 0
+  br i1 %41, label %42, label %47
 
-41:                                               ; preds = %38
-  %42 = load ptr, ptr %5, align 8
-  %43 = call noalias ptr @wmem_strbuf_new(ptr noundef %42, ptr noundef @.str)
-  store ptr %43, ptr %11, align 8
-  %44 = load ptr, ptr %11, align 8
-  %45 = call ptr @wmem_strbuf_finalize(ptr noundef %44)
-  store ptr %45, ptr %4, align 8
-  br label %162
+42:                                               ; preds = %39
+  %43 = load ptr, ptr %5, align 8
+  %44 = call noalias ptr @wmem_strbuf_new(ptr noundef %43, ptr noundef @.str)
+  store ptr %44, ptr %11, align 8
+  %45 = load ptr, ptr %11, align 8
+  %46 = call ptr @wmem_strbuf_finalize(ptr noundef %45)
+  store ptr %46, ptr %4, align 8
+  store i32 1, ptr %14, align 4
+  br label %168
 
-46:                                               ; preds = %38
-  %47 = load ptr, ptr %6, align 8
-  %48 = load i8, ptr %47, align 1
-  store i8 %48, ptr %9, align 1
-  %49 = load ptr, ptr %6, align 8
-  %50 = getelementptr i8, ptr %49, i32 1
-  store ptr %50, ptr %6, align 8
-  %51 = load i32, ptr %7, align 4
-  %52 = add i32 %51, -1
-  store i32 %52, ptr %7, align 4
-  %53 = load ptr, ptr %5, align 8
-  %54 = load i8, ptr %9, align 1
-  %55 = zext i8 %54 to i32
-  %56 = mul i32 2, %55
-  %57 = add i32 %56, 1
-  %58 = sext i32 %57 to i64
-  %59 = call noalias ptr @wmem_strbuf_new_sized(ptr noundef %53, i64 noundef %58)
-  store ptr %59, ptr %11, align 8
-  %60 = load i8, ptr %8, align 1
-  %61 = zext i8 %60 to i32
-  %62 = icmp eq i32 %61, 129
-  br i1 %62, label %63, label %79
+47:                                               ; preds = %39
+  %48 = load ptr, ptr %6, align 8
+  %49 = load i8, ptr %48, align 1
+  store i8 %49, ptr %9, align 1
+  %50 = load ptr, ptr %6, align 8
+  %51 = getelementptr i8, ptr %50, i32 1
+  store ptr %51, ptr %6, align 8
+  %52 = load i32, ptr %7, align 4
+  %53 = add i32 %52, -1
+  store i32 %53, ptr %7, align 4
+  %54 = load ptr, ptr %5, align 8
+  %55 = load i8, ptr %9, align 1
+  %56 = zext i8 %55 to i32
+  %57 = mul i32 2, %56
+  %58 = add i32 %57, 1
+  %59 = sext i32 %58 to i64
+  %60 = call noalias ptr @wmem_strbuf_new_sized(ptr noundef %54, i64 noundef %59)
+  store ptr %60, ptr %11, align 8
+  %61 = load i8, ptr %8, align 1
+  %62 = zext i8 %61 to i32
+  %63 = icmp eq i32 %62, 129
+  br i1 %63, label %64, label %80
 
-63:                                               ; preds = %46
-  %64 = load i32, ptr %7, align 4
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %66, label %69
+64:                                               ; preds = %47
+  %65 = load i32, ptr %7, align 4
+  %66 = icmp eq i32 %65, 0
+  br i1 %66, label %67, label %70
 
-66:                                               ; preds = %63
-  %67 = load ptr, ptr %11, align 8
-  %68 = call ptr @wmem_strbuf_finalize(ptr noundef %67)
-  store ptr %68, ptr %4, align 8
-  br label %162
+67:                                               ; preds = %64
+  %68 = load ptr, ptr %11, align 8
+  %69 = call ptr @wmem_strbuf_finalize(ptr noundef %68)
+  store ptr %69, ptr %4, align 8
+  store i32 1, ptr %14, align 4
+  br label %168
 
-69:                                               ; preds = %63
-  %70 = load ptr, ptr %6, align 8
-  %71 = load i8, ptr %70, align 1
-  %72 = zext i8 %71 to i32
-  %73 = shl i32 %72, 7
-  %74 = trunc i32 %73 to i16
-  store i16 %74, ptr %10, align 2
-  %75 = load ptr, ptr %6, align 8
-  %76 = getelementptr i8, ptr %75, i32 1
-  store ptr %76, ptr %6, align 8
-  %77 = load i32, ptr %7, align 4
-  %78 = add i32 %77, -1
-  store i32 %78, ptr %7, align 4
-  br label %120
-
-79:                                               ; preds = %46
-  %80 = load i8, ptr %8, align 1
-  %81 = zext i8 %80 to i32
-  %82 = icmp eq i32 %81, 130
-  br i1 %82, label %83, label %116
-
-83:                                               ; preds = %79
-  %84 = load i32, ptr %7, align 4
-  %85 = icmp eq i32 %84, 0
-  br i1 %85, label %86, label %89
-
-86:                                               ; preds = %83
-  %87 = load ptr, ptr %11, align 8
-  %88 = call ptr @wmem_strbuf_finalize(ptr noundef %87)
-  store ptr %88, ptr %4, align 8
-  br label %162
-
-89:                                               ; preds = %83
-  %90 = load ptr, ptr %6, align 8
-  %91 = load i8, ptr %90, align 1
-  %92 = zext i8 %91 to i32
-  %93 = shl i32 %92, 8
-  %94 = trunc i32 %93 to i16
-  store i16 %94, ptr %10, align 2
-  %95 = load ptr, ptr %6, align 8
-  %96 = getelementptr i8, ptr %95, i32 1
-  store ptr %96, ptr %6, align 8
-  %97 = load i32, ptr %7, align 4
-  %98 = add i32 %97, -1
-  store i32 %98, ptr %7, align 4
-  %99 = load i32, ptr %7, align 4
-  %100 = icmp eq i32 %99, 0
-  br i1 %100, label %101, label %104
-
-101:                                              ; preds = %89
-  %102 = load ptr, ptr %11, align 8
-  %103 = call ptr @wmem_strbuf_finalize(ptr noundef %102)
-  store ptr %103, ptr %4, align 8
-  br label %162
-
-104:                                              ; preds = %89
-  %105 = load ptr, ptr %6, align 8
-  %106 = load i8, ptr %105, align 1
-  %107 = zext i8 %106 to i32
-  %108 = load i16, ptr %10, align 2
-  %109 = zext i16 %108 to i32
-  %110 = or i32 %109, %107
-  %111 = trunc i32 %110 to i16
-  store i16 %111, ptr %10, align 2
-  %112 = load ptr, ptr %6, align 8
-  %113 = getelementptr i8, ptr %112, i32 1
-  store ptr %113, ptr %6, align 8
-  %114 = load i32, ptr %7, align 4
-  %115 = add i32 %114, -1
-  store i32 %115, ptr %7, align 4
-  br label %119
-
-116:                                              ; preds = %79
-  %117 = load ptr, ptr %11, align 8
-  %118 = call ptr @wmem_strbuf_finalize(ptr noundef %117)
-  store ptr %118, ptr %4, align 8
-  br label %162
-
-119:                                              ; preds = %104
-  br label %120
-
-120:                                              ; preds = %119, %69
-  store i32 0, ptr %12, align 4
+70:                                               ; preds = %64
+  %71 = load ptr, ptr %6, align 8
+  %72 = load i8, ptr %71, align 1
+  %73 = zext i8 %72 to i32
+  %74 = shl i32 %73, 7
+  %75 = trunc i32 %74 to i16
+  store i16 %75, ptr %10, align 2
+  %76 = load ptr, ptr %6, align 8
+  %77 = getelementptr i8, ptr %76, i32 1
+  store ptr %77, ptr %6, align 8
+  %78 = load i32, ptr %7, align 4
+  %79 = add i32 %78, -1
+  store i32 %79, ptr %7, align 4
   br label %121
 
-121:                                              ; preds = %156, %120
-  %122 = load i32, ptr %12, align 4
-  %123 = load i8, ptr %9, align 1
-  %124 = zext i8 %123 to i32
-  %125 = icmp ult i32 %122, %124
-  br i1 %125, label %126, label %159
+80:                                               ; preds = %47
+  %81 = load i8, ptr %8, align 1
+  %82 = zext i8 %81 to i32
+  %83 = icmp eq i32 %82, 130
+  br i1 %83, label %84, label %117
 
-126:                                              ; preds = %121
-  %127 = load i32, ptr %7, align 4
-  %128 = icmp eq i32 %127, 0
-  br i1 %128, label %129, label %132
+84:                                               ; preds = %80
+  %85 = load i32, ptr %7, align 4
+  %86 = icmp eq i32 %85, 0
+  br i1 %86, label %87, label %90
 
-129:                                              ; preds = %126
-  %130 = load ptr, ptr %11, align 8
-  %131 = call ptr @wmem_strbuf_finalize(ptr noundef %130)
-  store ptr %131, ptr %4, align 8
+87:                                               ; preds = %84
+  %88 = load ptr, ptr %11, align 8
+  %89 = call ptr @wmem_strbuf_finalize(ptr noundef %88)
+  store ptr %89, ptr %4, align 8
+  store i32 1, ptr %14, align 4
+  br label %168
+
+90:                                               ; preds = %84
+  %91 = load ptr, ptr %6, align 8
+  %92 = load i8, ptr %91, align 1
+  %93 = zext i8 %92 to i32
+  %94 = shl i32 %93, 8
+  %95 = trunc i32 %94 to i16
+  store i16 %95, ptr %10, align 2
+  %96 = load ptr, ptr %6, align 8
+  %97 = getelementptr i8, ptr %96, i32 1
+  store ptr %97, ptr %6, align 8
+  %98 = load i32, ptr %7, align 4
+  %99 = add i32 %98, -1
+  store i32 %99, ptr %7, align 4
+  %100 = load i32, ptr %7, align 4
+  %101 = icmp eq i32 %100, 0
+  br i1 %101, label %102, label %105
+
+102:                                              ; preds = %90
+  %103 = load ptr, ptr %11, align 8
+  %104 = call ptr @wmem_strbuf_finalize(ptr noundef %103)
+  store ptr %104, ptr %4, align 8
+  store i32 1, ptr %14, align 4
+  br label %168
+
+105:                                              ; preds = %90
+  %106 = load ptr, ptr %6, align 8
+  %107 = load i8, ptr %106, align 1
+  %108 = zext i8 %107 to i32
+  %109 = load i16, ptr %10, align 2
+  %110 = zext i16 %109 to i32
+  %111 = or i32 %110, %108
+  %112 = trunc i32 %111 to i16
+  store i16 %112, ptr %10, align 2
+  %113 = load ptr, ptr %6, align 8
+  %114 = getelementptr i8, ptr %113, i32 1
+  store ptr %114, ptr %6, align 8
+  %115 = load i32, ptr %7, align 4
+  %116 = add i32 %115, -1
+  store i32 %116, ptr %7, align 4
+  br label %120
+
+117:                                              ; preds = %80
+  %118 = load ptr, ptr %11, align 8
+  %119 = call ptr @wmem_strbuf_finalize(ptr noundef %118)
+  store ptr %119, ptr %4, align 8
+  store i32 1, ptr %14, align 4
+  br label %168
+
+120:                                              ; preds = %105
+  br label %121
+
+121:                                              ; preds = %120, %70
+  store i32 0, ptr %12, align 4
+  br label %122
+
+122:                                              ; preds = %162, %121
+  %123 = load i32, ptr %12, align 4
+  %124 = load i8, ptr %9, align 1
+  %125 = zext i8 %124 to i32
+  %126 = icmp ult i32 %123, %125
+  br i1 %126, label %127, label %165
+
+127:                                              ; preds = %122
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #8
+  %128 = load i32, ptr %7, align 4
+  %129 = icmp eq i32 %128, 0
+  br i1 %129, label %130, label %133
+
+130:                                              ; preds = %127
+  %131 = load ptr, ptr %11, align 8
+  %132 = call ptr @wmem_strbuf_finalize(ptr noundef %131)
+  store ptr %132, ptr %4, align 8
+  store i32 1, ptr %14, align 4
+  br label %159
+
+133:                                              ; preds = %127
+  %134 = load ptr, ptr %6, align 8
+  %135 = load i8, ptr %134, align 1
+  store i8 %135, ptr %15, align 1
+  %136 = load i8, ptr %15, align 1
+  %137 = zext i8 %136 to i32
+  %138 = and i32 %137, 128
+  %139 = icmp eq i32 %138, 0
+  br i1 %139, label %140, label %147
+
+140:                                              ; preds = %133
+  %141 = load ptr, ptr %11, align 8
+  %142 = load i8, ptr %15, align 1
+  %143 = load i8, ptr %13, align 1, !range !14, !noundef !15
+  %144 = trunc i8 %143 to i1
+  %145 = call zeroext i1 @handle_ts_23_038_char(ptr noundef %141, i8 noundef zeroext %142, i1 noundef zeroext %144)
+  %146 = zext i1 %145 to i8
+  store i8 %146, ptr %13, align 1
+  br label %158
+
+147:                                              ; preds = %133
+  call void @llvm.lifetime.start.p0(i64 2, ptr %16) #8
+  %148 = load i16, ptr %10, align 2
+  %149 = zext i16 %148 to i32
+  %150 = load i8, ptr %15, align 1
+  %151 = zext i8 %150 to i32
+  %152 = and i32 %151, 127
+  %153 = add i32 %149, %152
+  %154 = trunc i32 %153 to i16
+  store i16 %154, ptr %16, align 2
+  %155 = load ptr, ptr %11, align 8
+  %156 = load i16, ptr %16, align 2
+  %157 = zext i16 %156 to i32
+  call void @wmem_strbuf_append_unichar_validated(ptr noundef %155, i32 noundef %157)
+  call void @llvm.lifetime.end.p0(i64 2, ptr %16) #8
+  br label %158
+
+158:                                              ; preds = %147, %140
+  store i32 0, ptr %14, align 4
+  br label %159
+
+159:                                              ; preds = %158, %130
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #8
+  %160 = load i32, ptr %14, align 4
+  switch i32 %160, label %168 [
+    i32 0, label %161
+  ]
+
+161:                                              ; preds = %159
   br label %162
 
-132:                                              ; preds = %126
-  %133 = load ptr, ptr %6, align 8
-  %134 = load i8, ptr %133, align 1
-  store i8 %134, ptr %14, align 1
-  %135 = load i8, ptr %14, align 1
-  %136 = zext i8 %135 to i32
-  %137 = and i32 %136, 128
-  %138 = icmp eq i32 %137, 0
-  br i1 %138, label %139, label %144
+162:                                              ; preds = %161
+  %163 = load i32, ptr %12, align 4
+  %164 = add i32 %163, 1
+  store i32 %164, ptr %12, align 4
+  br label %122, !llvm.loop !18
 
-139:                                              ; preds = %132
-  %140 = load ptr, ptr %11, align 8
-  %141 = load i8, ptr %14, align 1
-  %142 = load i32, ptr %13, align 4
-  %143 = call i32 @handle_ts_23_038_char(ptr noundef %140, i8 noundef zeroext %141, i32 noundef %142)
-  store i32 %143, ptr %13, align 4
-  br label %155
+165:                                              ; preds = %122
+  %166 = load ptr, ptr %11, align 8
+  %167 = call ptr @wmem_strbuf_finalize(ptr noundef %166)
+  store ptr %167, ptr %4, align 8
+  store i32 1, ptr %14, align 4
+  br label %168
 
-144:                                              ; preds = %132
-  %145 = load i16, ptr %10, align 2
-  %146 = zext i16 %145 to i32
-  %147 = load i8, ptr %14, align 1
-  %148 = zext i8 %147 to i32
-  %149 = and i32 %148, 127
-  %150 = add i32 %146, %149
-  %151 = trunc i32 %150 to i16
-  store i16 %151, ptr %15, align 2
-  %152 = load ptr, ptr %11, align 8
-  %153 = load i16, ptr %15, align 2
-  %154 = zext i16 %153 to i32
-  call void @wmem_strbuf_append_unichar_validated(ptr noundef %152, i32 noundef %154)
-  br label %155
-
-155:                                              ; preds = %144, %139
-  br label %156
-
-156:                                              ; preds = %155
-  %157 = load i32, ptr %12, align 4
-  %158 = add i32 %157, 1
-  store i32 %158, ptr %12, align 4
-  br label %121, !llvm.loop !14
-
-159:                                              ; preds = %121
-  %160 = load ptr, ptr %11, align 8
-  %161 = call ptr @wmem_strbuf_finalize(ptr noundef %160)
-  store ptr %161, ptr %4, align 8
-  br label %162
-
-162:                                              ; preds = %159, %129, %116, %101, %86, %66, %41, %33, %18
-  %163 = load ptr, ptr %4, align 8
-  ret ptr %163
+168:                                              ; preds = %165, %159, %117, %102, %87, %67, %42, %34, %19
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 2, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #8
+  %169 = load ptr, ptr %4, align 8
+  ret ptr %169
 }
 
-declare noalias ptr @wmem_strbuf_new(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @wmem_strbuf_new(ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define ptr @get_ascii_7bits_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1532,9 +1657,16 @@ define ptr @get_ascii_7bits_string(ptr noundef %0, ptr noundef %1, i32 noundef %
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #8
   store i8 0, ptr %13, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #8
   %16 = load ptr, ptr %6, align 8
   store ptr %16, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #8
   %17 = load i32, ptr %7, align 4
   %18 = and i32 %17, 7
   store i32 %18, ptr %15, align 4
@@ -1638,15 +1770,22 @@ define ptr @get_ascii_7bits_string(ptr noundef %0, ptr noundef %1, i32 noundef %
   %79 = load ptr, ptr %6, align 8
   %80 = getelementptr i8, ptr %79, i32 1
   store ptr %80, ptr %6, align 8
-  br label %28, !llvm.loop !15
+  br label %28, !llvm.loop !19
 
 81:                                               ; preds = %28
   %82 = load ptr, ptr %9, align 8
   %83 = call ptr @wmem_strbuf_finalize(ptr noundef %82)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
   ret ptr %83
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define ptr @get_nonascii_unichar2_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1658,6 +1797,7 @@ define ptr @get_nonascii_unichar2_string(ptr noundef %0, ptr noundef %1, i32 nou
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %7, align 4
   %13 = add i32 %12, 1
@@ -1672,6 +1812,7 @@ define ptr @get_nonascii_unichar2_string(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %18, label %19, label %33
 
 19:                                               ; preds = %16
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #8
   %20 = load ptr, ptr %6, align 8
   %21 = load i8, ptr %20, align 1
   store i8 %21, ptr %10, align 1
@@ -1689,15 +1830,17 @@ define ptr @get_nonascii_unichar2_string(ptr noundef %0, ptr noundef %1, i32 nou
   %31 = load i32, ptr %7, align 4
   %32 = add i32 %31, -1
   store i32 %32, ptr %7, align 4
-  br label %16, !llvm.loop !16
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #8
+  br label %16, !llvm.loop !20
 
 33:                                               ; preds = %16
   %34 = load ptr, ptr %9, align 8
   %35 = call ptr @wmem_strbuf_finalize(ptr noundef %34)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
   ret ptr %35
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define ptr @get_gb18030_string(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -1707,37 +1850,42 @@ define ptr @get_gb18030_string(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #8
   store ptr @.str.1, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
   %9 = load ptr, ptr %7, align 8
   %10 = call ptr @g_iconv_open(ptr noundef @.str.2, ptr noundef %9)
   store ptr %10, ptr %8, align 8
-  %11 = inttoptr i64 -1 to ptr
-  %12 = icmp eq ptr %10, %11
-  br i1 %12, label %13, label %14
+  %11 = icmp eq ptr %10, inttoptr (i64 -1 to ptr)
+  br i1 %11, label %12, label %13
+
+12:                                               ; preds = %3
+  store ptr @.str.3, ptr %7, align 8
+  br label %16
 
 13:                                               ; preds = %3
-  store ptr @.str.3, ptr %7, align 8
-  br label %17
+  %14 = load ptr, ptr %8, align 8
+  %15 = call i32 @g_iconv_close(ptr noundef %14)
+  br label %16
 
-14:                                               ; preds = %3
-  %15 = load ptr, ptr %8, align 8
-  %16 = call i32 @g_iconv_close(ptr noundef %15)
-  br label %17
-
-17:                                               ; preds = %14, %13
-  %18 = load ptr, ptr %4, align 8
-  %19 = load ptr, ptr %5, align 8
-  %20 = load i32, ptr %6, align 4
-  %21 = load ptr, ptr %7, align 8
-  %22 = call ptr @get_string_enc_iconv(ptr noundef %18, ptr noundef %19, i32 noundef %20, ptr noundef %21)
-  ret ptr %22
+16:                                               ; preds = %13, %12
+  %17 = load ptr, ptr %4, align 8
+  %18 = load ptr, ptr %5, align 8
+  %19 = load i32, ptr %6, align 4
+  %20 = load ptr, ptr %7, align 8
+  %21 = call ptr @get_string_enc_iconv(ptr noundef %17, ptr noundef %18, i32 noundef %19, ptr noundef %20)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #8
+  ret ptr %21
 }
 
-declare ptr @g_iconv_open(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_iconv_open(ptr noundef, ptr noundef) #2
 
-declare i32 @g_iconv_close(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @g_iconv_close(ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal ptr @get_string_enc_iconv(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1758,192 +1906,210 @@ define internal ptr @get_string_enc_iconv(ptr noundef %0, ptr noundef %1, i32 no
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #8
   %20 = load ptr, ptr %8, align 8
   %21 = call ptr @g_iconv_open(ptr noundef @.str.2, ptr noundef %20)
   store ptr %21, ptr %9, align 8
-  %22 = inttoptr i64 -1 to ptr
-  %23 = icmp eq ptr %21, %22
-  br i1 %23, label %24, label %26
+  %22 = icmp eq ptr %21, inttoptr (i64 -1 to ptr)
+  br i1 %22, label %23, label %25
 
-24:                                               ; preds = %4
-  %25 = load ptr, ptr %8, align 8
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.5, ptr noundef %25) #5
+23:                                               ; preds = %4
+  %24 = load ptr, ptr %8, align 8
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.5, ptr noundef %24) #9
   unreachable
 
-26:                                               ; preds = %4
-  %27 = load i32, ptr %7, align 4
-  %28 = sext i32 %27 to i64
-  store i64 %28, ptr %10, align 8
-  %29 = load ptr, ptr %5, align 8
-  %30 = load i32, ptr %7, align 4
-  %31 = add i32 %30, 1
-  %32 = sext i32 %31 to i64
-  %33 = call noalias ptr @wmem_strbuf_new_sized(ptr noundef %29, i64 noundef %32)
-  store ptr %33, ptr %19, align 8
-  %34 = load i32, ptr %7, align 4
-  %35 = icmp sgt i32 8, %34
-  br i1 %35, label %36, label %37
+25:                                               ; preds = %4
+  %26 = load i32, ptr %7, align 4
+  %27 = sext i32 %26 to i64
+  store i64 %27, ptr %10, align 8
+  %28 = load ptr, ptr %5, align 8
+  %29 = load i32, ptr %7, align 4
+  %30 = add i32 %29, 1
+  %31 = sext i32 %30 to i64
+  %32 = call noalias ptr @wmem_strbuf_new_sized(ptr noundef %28, i64 noundef %31)
+  store ptr %32, ptr %19, align 8
+  %33 = load i32, ptr %7, align 4
+  %34 = icmp sgt i32 8, %33
+  br i1 %34, label %35, label %36
 
-36:                                               ; preds = %26
-  br label %39
+35:                                               ; preds = %25
+  br label %38
 
-37:                                               ; preds = %26
-  %38 = load i32, ptr %7, align 4
-  br label %39
+36:                                               ; preds = %25
+  %37 = load i32, ptr %7, align 4
+  br label %38
 
-39:                                               ; preds = %37, %36
-  %40 = phi i32 [ 8, %36 ], [ %38, %37 ]
-  %41 = sext i32 %40 to i64
-  store i64 %41, ptr %12, align 8
-  store i64 %41, ptr %11, align 8
-  %42 = load i64, ptr %11, align 8
-  %43 = call noalias ptr @g_malloc(i64 noundef %42) #6
-  store ptr %43, ptr %18, align 8
-  store ptr %43, ptr %17, align 8
-  br label %44
+38:                                               ; preds = %36, %35
+  %39 = phi i32 [ 8, %35 ], [ %37, %36 ]
+  %40 = sext i32 %39 to i64
+  store i64 %40, ptr %12, align 8
+  store i64 %40, ptr %11, align 8
+  %41 = load i64, ptr %11, align 8
+  %42 = call noalias ptr @g_malloc(i64 noundef %41) #10
+  store ptr %42, ptr %18, align 8
+  store ptr %42, ptr %17, align 8
+  br label %43
 
-44:                                               ; preds = %112, %39
-  %45 = load i64, ptr %10, align 8
-  %46 = icmp ugt i64 %45, 0
-  br i1 %46, label %47, label %113
+43:                                               ; preds = %110, %38
+  %44 = load i64, ptr %10, align 8
+  %45 = icmp ugt i64 %44, 0
+  br i1 %45, label %46, label %111
 
-47:                                               ; preds = %44
-  %48 = load ptr, ptr %9, align 8
-  %49 = call i64 @g_iconv(ptr noundef %48, ptr noundef %6, ptr noundef %10, ptr noundef %17, ptr noundef %11)
-  store i64 %49, ptr %14, align 8
-  %50 = load ptr, ptr %17, align 8
-  %51 = load ptr, ptr %18, align 8
+46:                                               ; preds = %43
+  %47 = load ptr, ptr %9, align 8
+  %48 = call i64 @g_iconv(ptr noundef %47, ptr noundef %6, ptr noundef %10, ptr noundef %17, ptr noundef %11)
+  store i64 %48, ptr %14, align 8
+  %49 = load ptr, ptr %17, align 8
+  %50 = load ptr, ptr %18, align 8
+  %51 = ptrtoint ptr %49 to i64
   %52 = ptrtoint ptr %50 to i64
-  %53 = ptrtoint ptr %51 to i64
-  %54 = sub i64 %52, %53
-  store i64 %54, ptr %13, align 8
-  %55 = load ptr, ptr %19, align 8
-  %56 = load ptr, ptr %18, align 8
-  %57 = load i64, ptr %13, align 8
-  call void @wmem_strbuf_append_len(ptr noundef %55, ptr noundef %56, i64 noundef %57)
-  %58 = load ptr, ptr %18, align 8
-  store ptr %58, ptr %17, align 8
-  %59 = load i64, ptr %12, align 8
-  store i64 %59, ptr %11, align 8
-  %60 = load i64, ptr %14, align 8
-  %61 = icmp eq i64 %60, -1
-  br i1 %61, label %62, label %111
+  %53 = sub i64 %51, %52
+  store i64 %53, ptr %13, align 8
+  %54 = load ptr, ptr %19, align 8
+  %55 = load ptr, ptr %18, align 8
+  %56 = load i64, ptr %13, align 8
+  call void @wmem_strbuf_append_len(ptr noundef %54, ptr noundef %55, i64 noundef %56)
+  %57 = load ptr, ptr %18, align 8
+  store ptr %57, ptr %17, align 8
+  %58 = load i64, ptr %12, align 8
+  store i64 %58, ptr %11, align 8
+  %59 = load i64, ptr %14, align 8
+  %60 = icmp eq i64 %59, -1
+  br i1 %60, label %61, label %109
 
-62:                                               ; preds = %47
-  %63 = call ptr @__errno_location() #7
-  %64 = load i32, ptr %63, align 4
-  switch i32 %64, label %105 [
-    i32 22, label %65
-    i32 7, label %67
-    i32 84, label %68
+61:                                               ; preds = %46
+  %62 = call ptr @__errno_location() #11
+  %63 = load i32, ptr %62, align 4
+  switch i32 %63, label %103 [
+    i32 22, label %64
+    i32 7, label %108
+    i32 84, label %66
   ]
 
-65:                                               ; preds = %62
-  %66 = load ptr, ptr %19, align 8
-  call void @wmem_strbuf_append_unichar(ptr noundef %66, i32 noundef 65533)
+64:                                               ; preds = %61
+  %65 = load ptr, ptr %19, align 8
+  call void @wmem_strbuf_append_unichar(ptr noundef %65, i32 noundef 65533)
   store i64 0, ptr %10, align 8
-  br label %110
+  br label %108
 
-67:                                               ; preds = %62
-  br label %110
-
-68:                                               ; preds = %62
-  %69 = call ptr @__errno_location() #7
-  store i32 22, ptr %69, align 4
+66:                                               ; preds = %61
+  %67 = call ptr @__errno_location() #11
+  store i32 22, ptr %67, align 4
   store i64 1, ptr %15, align 8
-  br label %70
+  br label %68
 
-70:                                               ; preds = %83, %68
-  %71 = load i64, ptr %14, align 8
-  %72 = icmp eq i64 %71, -1
-  br i1 %72, label %73, label %77
+68:                                               ; preds = %81, %66
+  %69 = load i64, ptr %14, align 8
+  %70 = icmp eq i64 %69, -1
+  br i1 %70, label %71, label %75
 
-73:                                               ; preds = %70
-  %74 = call ptr @__errno_location() #7
-  %75 = load i32, ptr %74, align 4
-  %76 = icmp eq i32 %75, 22
-  br label %77
+71:                                               ; preds = %68
+  %72 = call ptr @__errno_location() #11
+  %73 = load i32, ptr %72, align 4
+  %74 = icmp eq i32 %73, 22
+  br label %75
 
-77:                                               ; preds = %73, %70
-  %78 = phi i1 [ false, %70 ], [ %76, %73 ]
-  br i1 %78, label %79, label %86
+75:                                               ; preds = %71, %68
+  %76 = phi i1 [ false, %68 ], [ %74, %71 ]
+  br i1 %76, label %77, label %84
 
-79:                                               ; preds = %77
-  %80 = load i64, ptr %15, align 8
-  store i64 %80, ptr %16, align 8
-  %81 = load ptr, ptr %9, align 8
-  %82 = call i64 @g_iconv(ptr noundef %81, ptr noundef %6, ptr noundef %16, ptr noundef %17, ptr noundef %11)
-  store i64 %82, ptr %14, align 8
-  br label %83
+77:                                               ; preds = %75
+  %78 = load i64, ptr %15, align 8
+  store i64 %78, ptr %16, align 8
+  %79 = load ptr, ptr %9, align 8
+  %80 = call i64 @g_iconv(ptr noundef %79, ptr noundef %6, ptr noundef %16, ptr noundef %17, ptr noundef %11)
+  store i64 %80, ptr %14, align 8
+  br label %81
 
-83:                                               ; preds = %79
-  %84 = load i64, ptr %15, align 8
-  %85 = add i64 %84, 1
-  store i64 %85, ptr %15, align 8
-  br label %70, !llvm.loop !17
+81:                                               ; preds = %77
+  %82 = load i64, ptr %15, align 8
+  %83 = add i64 %82, 1
+  store i64 %83, ptr %15, align 8
+  br label %68, !llvm.loop !21
 
-86:                                               ; preds = %77
-  %87 = load i64, ptr %15, align 8
-  %88 = sub i64 %87, 1
-  %89 = icmp ugt i64 1, %88
-  br i1 %89, label %90, label %91
+84:                                               ; preds = %75
+  %85 = load i64, ptr %15, align 8
+  %86 = sub i64 %85, 1
+  %87 = icmp ugt i64 1, %86
+  br i1 %87, label %88, label %89
 
-90:                                               ; preds = %86
-  br label %94
+88:                                               ; preds = %84
+  br label %92
 
-91:                                               ; preds = %86
-  %92 = load i64, ptr %15, align 8
-  %93 = sub i64 %92, 1
-  br label %94
+89:                                               ; preds = %84
+  %90 = load i64, ptr %15, align 8
+  %91 = sub i64 %90, 1
+  br label %92
 
-94:                                               ; preds = %91, %90
-  %95 = phi i64 [ 1, %90 ], [ %93, %91 ]
-  store i64 %95, ptr %15, align 8
-  %96 = load i64, ptr %15, align 8
-  %97 = load ptr, ptr %6, align 8
-  %98 = getelementptr i8, ptr %97, i64 %96
-  store ptr %98, ptr %6, align 8
-  %99 = load i64, ptr %15, align 8
-  %100 = load i64, ptr %10, align 8
-  %101 = sub i64 %100, %99
-  store i64 %101, ptr %10, align 8
-  %102 = load ptr, ptr %19, align 8
-  call void @wmem_strbuf_append_unichar(ptr noundef %102, i32 noundef 65533)
-  %103 = load ptr, ptr %18, align 8
-  store ptr %103, ptr %17, align 8
-  %104 = load i64, ptr %12, align 8
-  store i64 %104, ptr %11, align 8
-  br label %110
+92:                                               ; preds = %89, %88
+  %93 = phi i64 [ 1, %88 ], [ %91, %89 ]
+  store i64 %93, ptr %15, align 8
+  %94 = load i64, ptr %15, align 8
+  %95 = load ptr, ptr %6, align 8
+  %96 = getelementptr i8, ptr %95, i64 %94
+  store ptr %96, ptr %6, align 8
+  %97 = load i64, ptr %15, align 8
+  %98 = load i64, ptr %10, align 8
+  %99 = sub i64 %98, %97
+  store i64 %99, ptr %10, align 8
+  %100 = load ptr, ptr %19, align 8
+  call void @wmem_strbuf_append_unichar(ptr noundef %100, i32 noundef 65533)
+  %101 = load ptr, ptr %18, align 8
+  store ptr %101, ptr %17, align 8
+  %102 = load i64, ptr %12, align 8
+  store i64 %102, ptr %11, align 8
+  br label %108
 
-105:                                              ; preds = %62
-  %106 = load ptr, ptr %18, align 8
-  call void @g_free(ptr noundef %106)
-  %107 = load ptr, ptr %9, align 8
-  %108 = call i32 @g_iconv_close(ptr noundef %107)
-  %109 = load ptr, ptr %8, align 8
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.6, ptr noundef %109) #5
+103:                                              ; preds = %61
+  %104 = load ptr, ptr %18, align 8
+  call void @g_free(ptr noundef %104)
+  %105 = load ptr, ptr %9, align 8
+  %106 = call i32 @g_iconv_close(ptr noundef %105)
+  %107 = load ptr, ptr %8, align 8
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.6, ptr noundef %107) #9
   unreachable
 
-110:                                              ; preds = %94, %67, %65
-  br label %112
+108:                                              ; preds = %92, %61, %64
+  br label %110
 
-111:                                              ; preds = %47
-  br label %112
+109:                                              ; preds = %46
+  br label %110
 
-112:                                              ; preds = %111, %110
-  br label %44, !llvm.loop !18
+110:                                              ; preds = %109, %108
+  br label %43, !llvm.loop !22
 
-113:                                              ; preds = %44
-  %114 = load ptr, ptr %18, align 8
-  call void @g_free(ptr noundef %114)
-  %115 = load ptr, ptr %9, align 8
-  %116 = call i32 @g_iconv_close(ptr noundef %115)
-  %117 = load ptr, ptr %19, align 8
-  %118 = call ptr @wmem_strbuf_finalize(ptr noundef %117)
-  ret ptr %118
+111:                                              ; preds = %43
+  %112 = load ptr, ptr %18, align 8
+  call void @g_free(ptr noundef %112)
+  %113 = load ptr, ptr %9, align 8
+  %114 = call i32 @g_iconv_close(ptr noundef %113)
+  %115 = load ptr, ptr %19, align 8
+  %116 = call ptr @wmem_strbuf_finalize(ptr noundef %115)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  ret ptr %116
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define ptr @get_euc_kr_string(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -1958,7 +2124,7 @@ define ptr @get_euc_kr_string(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0
   ret ptr %10
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define ptr @get_t61_string(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -1970,6 +2136,9 @@ define ptr @get_t61_string(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
   %11 = load ptr, ptr %4, align 8
   %12 = load i32, ptr %6, align 4
   %13 = add i32 %12, 1
@@ -2017,6 +2186,7 @@ define ptr @get_t61_string(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   br i1 %40, label %41, label %155
 
 41:                                               ; preds = %35
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #8
   %42 = load ptr, ptr %8, align 8
   %43 = load i8, ptr %42, align 1
   %44 = zext i8 %43 to i32
@@ -2157,6 +2327,7 @@ define ptr @get_t61_string(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %153 = load i32, ptr %7, align 4
   %154 = add i32 %153, 1
   store i32 %154, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #8
   br label %165
 
 155:                                              ; preds = %35, %30
@@ -2183,15 +2354,18 @@ define ptr @get_t61_string(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %168 = load i32, ptr %7, align 4
   %169 = add i32 %168, 1
   store i32 %169, ptr %7, align 4
-  br label %17, !llvm.loop !19
+  br label %17, !llvm.loop !23
 
 170:                                              ; preds = %17
   %171 = load ptr, ptr %9, align 8
   %172 = call ptr @wmem_strbuf_finalize(ptr noundef %171)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #8
   ret ptr %172
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define ptr @get_dect_standard_8bits_string(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -2202,6 +2376,9 @@ define ptr @get_dect_standard_8bits_string(ptr noundef %0, ptr noundef %1, i32 n
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
   %10 = load ptr, ptr %4, align 8
   %11 = load i32, ptr %6, align 4
   %12 = add i32 %11, 1
@@ -2270,27 +2447,29 @@ define ptr @get_dect_standard_8bits_string(ptr noundef %0, ptr noundef %1, i32 n
   %50 = load i32, ptr %7, align 4
   %51 = add i32 %50, 1
   store i32 %51, ptr %7, align 4
-  br label %16, !llvm.loop !20
+  br label %16, !llvm.loop !24
 
 52:                                               ; preds = %16
   %53 = load ptr, ptr %9, align 8
   %54 = call ptr @wmem_strbuf_finalize(ptr noundef %53)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #8
   ret ptr %54
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @char_is_escape(i8 noundef zeroext %0) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @char_is_escape(i8 noundef zeroext %0) #4 {
   %2 = alloca i8, align 1
   store i8 %0, ptr %2, align 1
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i32
   %5 = icmp eq i32 %4, 27
-  %6 = zext i1 %5 to i32
-  ret i32 %6
+  ret i1 %5
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @GSMext_to_UNICHAR(i8 noundef zeroext %0) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @GSMext_to_UNICHAR(i8 noundef zeroext %0) #4 {
   %2 = alloca i32, align 4
   %3 = alloca i8, align 1
   store i8 %0, ptr %3, align 1
@@ -2358,8 +2537,8 @@ define internal i32 @GSMext_to_UNICHAR(i8 noundef zeroext %0) #0 {
   ret i32 %18
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @GSM_to_UNICHAR(i8 noundef zeroext %0) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @GSM_to_UNICHAR(i8 noundef zeroext %0) #4 {
   %2 = alloca i32, align 4
   %3 = alloca i8, align 1
   store i8 %0, ptr %3, align 1
@@ -2386,48 +2565,58 @@ define internal i32 @GSM_to_UNICHAR(i8 noundef zeroext %0) #0 {
   ret i32 %15
 }
 
-; Function Attrs: noreturn
-declare void @proto_report_dissector_bug(ptr noundef, ...) #2
+; Function Attrs: noreturn null_pointer_is_valid
+declare void @proto_report_dissector_bug(ptr noundef, ...) #5
 
-; Function Attrs: allocsize(0)
-declare noalias ptr @g_malloc(i64 noundef) #3
+; Function Attrs: null_pointer_is_valid allocsize(0)
+declare noalias ptr @g_malloc(i64 noundef) #6
 
-declare i64 @g_iconv(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i64 @g_iconv(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind willreturn memory(none)
-declare ptr @__errno_location() #4
+; Function Attrs: nounwind null_pointer_is_valid willreturn memory(none)
+declare ptr @__errno_location() #7
 
-declare void @g_free(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @g_free(ptr noundef) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn }
-attributes #6 = { allocsize(0) }
-attributes #7 = { nounwind willreturn memory(none) }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind null_pointer_is_valid willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind }
+attributes #9 = { noreturn }
+attributes #10 = { allocsize(0) }
+attributes #11 = { nounwind willreturn memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = !{i8 0, i8 2}
+!15 = !{}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}

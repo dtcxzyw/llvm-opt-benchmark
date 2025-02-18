@@ -3,9 +3,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
 %struct.tlv_info_t = type { i8, i8, i8, i8, i32, i32 }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
@@ -32,7 +31,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_rep_req_channel_type_request = internal global i32 0, align 4
 @.str.12 = private unnamed_addr constant [21 x i8] c"Channel Type Request\00", align 1
 @.str.13 = private unnamed_addr constant [33 x i8] c"wmx.rep_req.channel_type.request\00", align 1
-@vals_channel_types = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.100 }, %struct._value_string { i32 1, ptr @.str.176 }, %struct._value_string { i32 2, ptr @.str.96 }, %struct._value_string { i32 3, ptr @.str.98 }, %struct._value_string zeroinitializer], align 16
 @hf_rep_req_channel_type_reserved = internal global i32 0, align 4
 @.str.14 = private unnamed_addr constant [34 x i8] c"wmx.rep_req.channel_type.reserved\00", align 1
 @hf_rep_req_preamble_effective_cinr_request = internal global i32 0, align 4
@@ -41,7 +39,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_rep_req_preamble_effective_cinr_req_bit0_1 = internal global i32 0, align 4
 @.str.17 = private unnamed_addr constant [43 x i8] c"Type Of Preamble Physical CINR Measurement\00", align 1
 @.str.18 = private unnamed_addr constant [51 x i8] c"wmx.rep_req.preamble_effective_cinr_request.bit0_1\00", align 1
-@vals_type_of_measurements = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.177 }, %struct._value_string { i32 1, ptr @.str.178 }, %struct._value_string { i32 2, ptr @.str.179 }, %struct._value_string { i32 3, ptr @.str.8 }, %struct._value_string zeroinitializer], align 16
 @hf_rep_req_preamble_effective_cinr_req_bit2_7 = internal global i32 0, align 4
 @.str.19 = private unnamed_addr constant [51 x i8] c"wmx.rep_req.preamble_effective_cinr_request.bit2_7\00", align 1
 @hf_rep_req_preamble_phy_cinr_request = internal global i32 0, align 4
@@ -55,7 +52,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_rep_req_preamble_phy_cinr_req_bit6 = internal global i32 0, align 4
 @.str.25 = private unnamed_addr constant [17 x i8] c"CINR Report Type\00", align 1
 @.str.26 = private unnamed_addr constant [43 x i8] c"wmx.rep_req.preamble_phy_cinr_request.bit6\00", align 1
-@vals_cinr_report_types = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.180 }, %struct._value_string { i32 1, ptr @.str.181 }, %struct._value_string zeroinitializer], align 16
 @hf_rep_req_preamble_phy_cinr_req_bit7 = internal global i32 0, align 4
 @.str.27 = private unnamed_addr constant [43 x i8] c"wmx.rep_req.preamble_phy_cinr_request.bit7\00", align 1
 @hf_rep_req_report_request = internal global i32 0, align 4
@@ -91,14 +87,12 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_rep_rsp_zone_spec_effective_cinr_rep_report_type = internal global i32 0, align 4
 @.str.48 = private unnamed_addr constant [22 x i8] c"Effective CINR Report\00", align 1
 @.str.49 = private unnamed_addr constant [56 x i8] c"wmx.rep_req.zone_spec_effective_cinr_report.report_type\00", align 1
-@vals_data_cinr_measurements = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.182 }, %struct._value_string { i32 1, ptr @.str.183 }, %struct._value_string zeroinitializer], align 16
 @hf_rep_req_zone_spec_effective_cinr_request = internal global i32 0, align 4
 @.str.50 = private unnamed_addr constant [37 x i8] c"Zone-specific Effective CINR Request\00", align 1
 @.str.51 = private unnamed_addr constant [45 x i8] c"wmx.rep_req.zone_spec_effective_cinr_request\00", align 1
 @hf_rep_req_zone_spec_effective_cinr_req_bit0_2 = internal global i32 0, align 4
 @.str.52 = private unnamed_addr constant [45 x i8] c"Type Of Zone On Which CINR Is To Be Reported\00", align 1
 @.str.53 = private unnamed_addr constant [52 x i8] c"wmx.rep_req.zone_spec_effective_cinr_request.bit0_2\00", align 1
-@vals_type_of_zones = internal constant [9 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.184 }, %struct._value_string { i32 1, ptr @.str.185 }, %struct._value_string { i32 2, ptr @.str.151 }, %struct._value_string { i32 3, ptr @.str.153 }, %struct._value_string { i32 4, ptr @.str.186 }, %struct._value_string { i32 5, ptr @.str.187 }, %struct._value_string { i32 6, ptr @.str.8 }, %struct._value_string { i32 7, ptr @.str.8 }, %struct._value_string zeroinitializer], align 16
 @hf_rep_req_zone_spec_effective_cinr_req_bit3 = internal global i32 0, align 4
 @.str.54 = private unnamed_addr constant [9 x i8] c"STC Zone\00", align 1
 @.str.55 = private unnamed_addr constant [50 x i8] c"wmx.rep_req.zone_spec_effective_cinr_request.bit3\00", align 1
@@ -297,32 +291,37 @@ target triple = "x86_64-pc-linux-gnu"
 @rep_rsp_handle = internal global ptr null, align 8
 @.str.175 = private unnamed_addr constant [12 x i8] c"wmx.mgmtmsg\00", align 1
 @.str.176 = private unnamed_addr constant [17 x i8] c"Band AMC Channel\00", align 1
-@.str.177 = private unnamed_addr constant [50 x i8] c"From Preamble For Frequency Reuse Configuration 1\00", align 1
-@.str.178 = private unnamed_addr constant [50 x i8] c"From Preamble For Frequency Reuse Configuration 3\00", align 1
-@.str.179 = private unnamed_addr constant [27 x i8] c"From Preamble For Band AMC\00", align 1
-@.str.180 = private unnamed_addr constant [18 x i8] c"Mean Of CINR Only\00", align 1
-@.str.181 = private unnamed_addr constant [41 x i8] c"Both Mean And Standard Deviation Of CINR\00", align 1
-@.str.182 = private unnamed_addr constant [23 x i8] c"From Pilot Subcarriers\00", align 1
-@.str.183 = private unnamed_addr constant [22 x i8] c"From Data Subcarriers\00", align 1
-@.str.184 = private unnamed_addr constant [30 x i8] c"PUSC Zone with 'use all SC=0'\00", align 1
-@.str.185 = private unnamed_addr constant [44 x i8] c"PUSC Zone with 'use all SC=1'/PUSC AAS Zone\00", align 1
-@.str.186 = private unnamed_addr constant [22 x i8] c"Safety Channel Region\00", align 1
-@.str.187 = private unnamed_addr constant [39 x i8] c"AMC Zone (only applicable to AAS zone)\00", align 1
-@.str.188 = private unnamed_addr constant [25 x i8] c"Report Request (REP-REQ)\00", align 1
-@.str.189 = private unnamed_addr constant [18 x i8] c"REP-REQ TLV error\00", align 1
-@.str.190 = private unnamed_addr constant [33 x i8] c"REP-REQ Report Request TLV error\00", align 1
-@.str.191 = private unnamed_addr constant [26 x i8] c"Report Response (REP-RSP)\00", align 1
-@.str.192 = private unnamed_addr constant [18 x i8] c"REP-RSP TLV error\00", align 1
-@.str.193 = private unnamed_addr constant [33 x i8] c"REP-RSP report subtype TLV error\00", align 1
-@.str.194 = private unnamed_addr constant [10 x i8] c" (%d dBm)\00", align 1
-@.str.195 = private unnamed_addr constant [34 x i8] c"REP-RSP channel subtype TLV error\00", align 1
-@.str.196 = private unnamed_addr constant [56 x i8] c"REP-RSP zone-specific phy CINR report subtype TLV error\00", align 1
-@.str.197 = private unnamed_addr constant [56 x i8] c"REP-RSP preamble physical CINR report subtype TLV error\00", align 1
-@.str.198 = private unnamed_addr constant [62 x i8] c"REP-RSP zone-specific effective CINR report subtype TLV error\00", align 1
-@.str.199 = private unnamed_addr constant [57 x i8] c"REP-RSP preamble effective CINR report subtype TLV error\00", align 1
-@.str.200 = private unnamed_addr constant [12 x i8] c" (%.1f dBm)\00", align 1
+@vals_channel_types = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.100 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.176 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.96 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.98 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.178 = private unnamed_addr constant [50 x i8] c"From Preamble For Frequency Reuse Configuration 1\00", align 1
+@.str.179 = private unnamed_addr constant [50 x i8] c"From Preamble For Frequency Reuse Configuration 3\00", align 1
+@.str.180 = private unnamed_addr constant [27 x i8] c"From Preamble For Band AMC\00", align 1
+@vals_type_of_measurements = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.178 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.179 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.180 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.8 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.182 = private unnamed_addr constant [18 x i8] c"Mean Of CINR Only\00", align 1
+@.str.183 = private unnamed_addr constant [41 x i8] c"Both Mean And Standard Deviation Of CINR\00", align 1
+@vals_cinr_report_types = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.182 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.183 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.185 = private unnamed_addr constant [23 x i8] c"From Pilot Subcarriers\00", align 1
+@.str.186 = private unnamed_addr constant [22 x i8] c"From Data Subcarriers\00", align 1
+@vals_data_cinr_measurements = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.185 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.186 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.188 = private unnamed_addr constant [30 x i8] c"PUSC Zone with 'use all SC=0'\00", align 1
+@.str.189 = private unnamed_addr constant [44 x i8] c"PUSC Zone with 'use all SC=1'/PUSC AAS Zone\00", align 1
+@.str.190 = private unnamed_addr constant [22 x i8] c"Safety Channel Region\00", align 1
+@.str.191 = private unnamed_addr constant [39 x i8] c"AMC Zone (only applicable to AAS zone)\00", align 1
+@vals_type_of_zones = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.188 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.189 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.151 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.153 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.190 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.191 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.8 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.8 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.193 = private unnamed_addr constant [25 x i8] c"Report Request (REP-REQ)\00", align 1
+@.str.194 = private unnamed_addr constant [18 x i8] c"REP-REQ TLV error\00", align 1
+@.str.195 = private unnamed_addr constant [33 x i8] c"REP-REQ Report Request TLV error\00", align 1
+@.str.196 = private unnamed_addr constant [26 x i8] c"Report Response (REP-RSP)\00", align 1
+@.str.197 = private unnamed_addr constant [18 x i8] c"REP-RSP TLV error\00", align 1
+@.str.198 = private unnamed_addr constant [33 x i8] c"REP-RSP report subtype TLV error\00", align 1
+@.str.199 = private unnamed_addr constant [10 x i8] c" (%d dBm)\00", align 1
+@.str.200 = private unnamed_addr constant [34 x i8] c"REP-RSP channel subtype TLV error\00", align 1
+@.str.201 = private unnamed_addr constant [56 x i8] c"REP-RSP zone-specific phy CINR report subtype TLV error\00", align 1
+@.str.202 = private unnamed_addr constant [56 x i8] c"REP-RSP preamble physical CINR report subtype TLV error\00", align 1
+@.str.203 = private unnamed_addr constant [62 x i8] c"REP-RSP zone-specific effective CINR report subtype TLV error\00", align 1
+@.str.204 = private unnamed_addr constant [57 x i8] c"REP-RSP preamble effective CINR report subtype TLV error\00", align 1
+@.str.205 = private unnamed_addr constant [12 x i8] c" (%.1f dBm)\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_mac_mgmt_msg_rep() #0 {
   %1 = call i32 @proto_register_protocol(ptr noundef @.str.170, ptr noundef @.str.171, ptr noundef @.str.172)
   store i32 %1, ptr @proto_mac_mgmt_msg_rep_decoder, align 4
@@ -338,15 +337,19 @@ define hidden void @proto_register_mac_mgmt_msg_rep() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mac_mgmt_msg_rep_req_decoder(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -370,7 +373,21 @@ define internal i32 @dissect_mac_mgmt_msg_rep_req_decoder(ptr noundef %0, ptr no
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   store i32 0, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #3
+  call void @llvm.lifetime.start.p0(i64 12, ptr %22) #3
   %23 = load ptr, ptr %5, align 8
   %24 = call i32 @tvb_reported_length(ptr noundef %23)
   store i32 %24, ptr %10, align 4
@@ -378,7 +395,7 @@ define internal i32 @dissect_mac_mgmt_msg_rep_req_decoder(ptr noundef %0, ptr no
   %26 = load i32, ptr @proto_mac_mgmt_msg_rep_decoder, align 4
   %27 = load ptr, ptr %5, align 8
   %28 = load i32, ptr %9, align 4
-  %29 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %25, i32 noundef %26, ptr noundef %27, i32 noundef %28, i32 noundef -1, ptr noundef @.str.188)
+  %29 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %25, i32 noundef %26, ptr noundef %27, i32 noundef %28, i32 noundef -1, ptr noundef @.str.193)
   store ptr %29, ptr %16, align 8
   %30 = load ptr, ptr %16, align 8
   %31 = load i32, ptr @ett_mac_mgmt_msg_rep_req_decoder, align 4
@@ -416,9 +433,9 @@ define internal i32 @dissect_mac_mgmt_msg_rep_req_decoder(ptr noundef %0, ptr no
 
 51:                                               ; preds = %48, %45, %37
   %52 = load ptr, ptr %6, align 8
-  %53 = getelementptr inbounds %struct._packet_info, ptr %52, i32 0, i32 1
+  %53 = getelementptr inbounds nuw %struct._packet_info, ptr %52, i32 0, i32 1
   %54 = load ptr, ptr %53, align 8
-  call void @col_append_sep_str(ptr noundef %54, i32 noundef 25, ptr noundef null, ptr noundef @.str.189)
+  call void @col_append_sep_str(ptr noundef %54, i32 noundef 25, ptr noundef null, ptr noundef @.str.194)
   %55 = load ptr, ptr %19, align 8
   %56 = load i32, ptr @hf_rep_invalid_tlv, align 4
   %57 = load ptr, ptr %5, align 8
@@ -489,9 +506,9 @@ define internal i32 @dissect_mac_mgmt_msg_rep_req_decoder(ptr noundef %0, ptr no
 
 100:                                              ; preds = %97, %94, %84
   %101 = load ptr, ptr %6, align 8
-  %102 = getelementptr inbounds %struct._packet_info, ptr %101, i32 0, i32 1
+  %102 = getelementptr inbounds nuw %struct._packet_info, ptr %101, i32 0, i32 1
   %103 = load ptr, ptr %102, align 8
-  call void @col_append_sep_str(ptr noundef %103, i32 noundef 25, ptr noundef null, ptr noundef @.str.190)
+  call void @col_append_sep_str(ptr noundef %103, i32 noundef 25, ptr noundef null, ptr noundef @.str.195)
   %104 = load ptr, ptr %20, align 8
   %105 = load i32, ptr @hf_rep_invalid_tlv, align 4
   %106 = load ptr, ptr %5, align 8
@@ -917,7 +934,7 @@ define internal i32 @dissect_mac_mgmt_msg_rep_req_decoder(ptr noundef %0, ptr no
   %480 = load i32, ptr %15, align 4
   %481 = add i32 %480, %479
   store i32 %481, ptr %15, align 4
-  br label %80, !llvm.loop !4
+  br label %80, !llvm.loop !6
 
 482:                                              ; preds = %100, %80
   br label %491
@@ -937,15 +954,29 @@ define internal i32 @dissect_mac_mgmt_msg_rep_req_decoder(ptr noundef %0, ptr no
   %493 = load i32, ptr %9, align 4
   %494 = add i32 %493, %492
   store i32 %494, ptr %9, align 4
-  br label %33, !llvm.loop !6
+  br label %33, !llvm.loop !8
 
 495:                                              ; preds = %51, %33
   %496 = load ptr, ptr %5, align 8
   %497 = call i32 @tvb_captured_length(ptr noundef %496)
+  call void @llvm.lifetime.end.p0(i64 12, ptr %22) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %497
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mac_mgmt_msg_rep_rsp_decoder(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -973,7 +1004,25 @@ define internal i32 @dissect_mac_mgmt_msg_rep_rsp_decoder(ptr noundef %0, ptr no
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   store i32 0, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #3
+  call void @llvm.lifetime.start.p0(i64 12, ptr %25) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %26) #3
   %27 = load ptr, ptr %5, align 8
   %28 = call i32 @tvb_reported_length(ptr noundef %27)
   store i32 %28, ptr %10, align 4
@@ -981,7 +1030,7 @@ define internal i32 @dissect_mac_mgmt_msg_rep_rsp_decoder(ptr noundef %0, ptr no
   %30 = load i32, ptr @proto_mac_mgmt_msg_rep_decoder, align 4
   %31 = load ptr, ptr %5, align 8
   %32 = load i32, ptr %9, align 4
-  %33 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %29, i32 noundef %30, ptr noundef %31, i32 noundef %32, i32 noundef -1, ptr noundef @.str.191)
+  %33 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %29, i32 noundef %30, ptr noundef %31, i32 noundef %32, i32 noundef -1, ptr noundef @.str.196)
   store ptr %33, ptr %18, align 8
   %34 = load ptr, ptr %18, align 8
   %35 = load i32, ptr @ett_mac_mgmt_msg_rep_rsp_decoder, align 4
@@ -1019,9 +1068,9 @@ define internal i32 @dissect_mac_mgmt_msg_rep_rsp_decoder(ptr noundef %0, ptr no
 
 55:                                               ; preds = %52, %49, %41
   %56 = load ptr, ptr %6, align 8
-  %57 = getelementptr inbounds %struct._packet_info, ptr %56, i32 0, i32 1
+  %57 = getelementptr inbounds nuw %struct._packet_info, ptr %56, i32 0, i32 1
   %58 = load ptr, ptr %57, align 8
-  call void @col_append_sep_str(ptr noundef %58, i32 noundef 25, ptr noundef null, ptr noundef @.str.192)
+  call void @col_append_sep_str(ptr noundef %58, i32 noundef 25, ptr noundef null, ptr noundef @.str.197)
   %59 = load ptr, ptr %22, align 8
   %60 = load i32, ptr @hf_rep_invalid_tlv, align 4
   %61 = load ptr, ptr %5, align 8
@@ -1098,9 +1147,9 @@ define internal i32 @dissect_mac_mgmt_msg_rep_rsp_decoder(ptr noundef %0, ptr no
 
 104:                                              ; preds = %101, %98, %88
   %105 = load ptr, ptr %6, align 8
-  %106 = getelementptr inbounds %struct._packet_info, ptr %105, i32 0, i32 1
+  %106 = getelementptr inbounds nuw %struct._packet_info, ptr %105, i32 0, i32 1
   %107 = load ptr, ptr %106, align 8
-  call void @col_append_sep_str(ptr noundef %107, i32 noundef 25, ptr noundef null, ptr noundef @.str.193)
+  call void @col_append_sep_str(ptr noundef %107, i32 noundef 25, ptr noundef null, ptr noundef @.str.198)
   %108 = load ptr, ptr %23, align 8
   %109 = load i32, ptr @hf_rep_invalid_tlv, align 4
   %110 = load ptr, ptr %5, align 8
@@ -1240,7 +1289,7 @@ define internal i32 @dissect_mac_mgmt_msg_rep_rsp_decoder(ptr noundef %0, ptr no
   %220 = load i32, ptr %9, align 4
   %221 = load i32, ptr %16, align 4
   %222 = add i32 %220, %221
-  %223 = call zeroext i8 @tvb_get_guint8(ptr noundef %219, i32 noundef %222)
+  %223 = call zeroext i8 @tvb_get_uint8(ptr noundef %219, i32 noundef %222)
   %224 = zext i8 %223 to i32
   %225 = sub i32 %224, 20
   store i32 %225, ptr %17, align 4
@@ -1255,7 +1304,7 @@ define internal i32 @dissect_mac_mgmt_msg_rep_rsp_decoder(ptr noundef %0, ptr no
 229:                                              ; preds = %228, %206
   %230 = load ptr, ptr %21, align 8
   %231 = load i32, ptr %17, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %230, ptr noundef @.str.194, i32 noundef %231)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %230, ptr noundef @.str.199, i32 noundef %231)
   %232 = load ptr, ptr %24, align 8
   %233 = load i32, ptr @hf_rep_rsp_report_type_cinr_report_deviation, align 4
   %234 = load ptr, ptr %5, align 8
@@ -1270,7 +1319,7 @@ define internal i32 @dissect_mac_mgmt_msg_rep_rsp_decoder(ptr noundef %0, ptr no
   %242 = load i32, ptr %16, align 4
   %243 = add i32 %241, %242
   %244 = add i32 %243, 1
-  %245 = call zeroext i8 @tvb_get_guint8(ptr noundef %240, i32 noundef %244)
+  %245 = call zeroext i8 @tvb_get_uint8(ptr noundef %240, i32 noundef %244)
   %246 = zext i8 %245 to i32
   %247 = sub i32 %246, 20
   store i32 %247, ptr %17, align 4
@@ -1285,7 +1334,7 @@ define internal i32 @dissect_mac_mgmt_msg_rep_rsp_decoder(ptr noundef %0, ptr no
 251:                                              ; preds = %250, %229
   %252 = load ptr, ptr %20, align 8
   %253 = load i32, ptr %17, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %252, ptr noundef @.str.194, i32 noundef %253)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %252, ptr noundef @.str.199, i32 noundef %253)
   br label %319
 
 254:                                              ; preds = %118
@@ -1315,7 +1364,7 @@ define internal i32 @dissect_mac_mgmt_msg_rep_rsp_decoder(ptr noundef %0, ptr no
   %275 = load i32, ptr %9, align 4
   %276 = load i32, ptr %16, align 4
   %277 = add i32 %275, %276
-  %278 = call zeroext i8 @tvb_get_guint8(ptr noundef %274, i32 noundef %277)
+  %278 = call zeroext i8 @tvb_get_uint8(ptr noundef %274, i32 noundef %277)
   %279 = zext i8 %278 to i32
   %280 = sub i32 %279, 123
   store i32 %280, ptr %17, align 4
@@ -1330,7 +1379,7 @@ define internal i32 @dissect_mac_mgmt_msg_rep_rsp_decoder(ptr noundef %0, ptr no
 284:                                              ; preds = %283, %254
   %285 = load ptr, ptr %20, align 8
   %286 = load i32, ptr %17, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %285, ptr noundef @.str.194, i32 noundef %286)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %285, ptr noundef @.str.199, i32 noundef %286)
   %287 = load ptr, ptr %24, align 8
   %288 = load i32, ptr @hf_rep_rsp_report_type_rssi_report_deviation, align 4
   %289 = load ptr, ptr %5, align 8
@@ -1345,7 +1394,7 @@ define internal i32 @dissect_mac_mgmt_msg_rep_rsp_decoder(ptr noundef %0, ptr no
   %297 = load i32, ptr %16, align 4
   %298 = add i32 %296, %297
   %299 = add i32 %298, 1
-  %300 = call zeroext i8 @tvb_get_guint8(ptr noundef %295, i32 noundef %299)
+  %300 = call zeroext i8 @tvb_get_uint8(ptr noundef %295, i32 noundef %299)
   %301 = zext i8 %300 to i32
   %302 = sub i32 %301, 123
   store i32 %302, ptr %17, align 4
@@ -1360,7 +1409,7 @@ define internal i32 @dissect_mac_mgmt_msg_rep_rsp_decoder(ptr noundef %0, ptr no
 306:                                              ; preds = %305, %284
   %307 = load ptr, ptr %20, align 8
   %308 = load i32, ptr %17, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %307, ptr noundef @.str.194, i32 noundef %308)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %307, ptr noundef @.str.199, i32 noundef %308)
   br label %319
 
 309:                                              ; preds = %118
@@ -1380,7 +1429,7 @@ define internal i32 @dissect_mac_mgmt_msg_rep_rsp_decoder(ptr noundef %0, ptr no
   %321 = load i32, ptr %16, align 4
   %322 = add i32 %321, %320
   store i32 %322, ptr %16, align 4
-  br label %84, !llvm.loop !7
+  br label %84, !llvm.loop !9
 
 323:                                              ; preds = %104, %84
   br label %1327
@@ -1433,9 +1482,9 @@ define internal i32 @dissect_mac_mgmt_msg_rep_rsp_decoder(ptr noundef %0, ptr no
 
 355:                                              ; preds = %352, %349, %339
   %356 = load ptr, ptr %6, align 8
-  %357 = getelementptr inbounds %struct._packet_info, ptr %356, i32 0, i32 1
+  %357 = getelementptr inbounds nuw %struct._packet_info, ptr %356, i32 0, i32 1
   %358 = load ptr, ptr %357, align 8
-  call void @col_append_sep_str(ptr noundef %358, i32 noundef 25, ptr noundef null, ptr noundef @.str.195)
+  call void @col_append_sep_str(ptr noundef %358, i32 noundef 25, ptr noundef null, ptr noundef @.str.200)
   %359 = load ptr, ptr %23, align 8
   %360 = load i32, ptr @hf_rep_invalid_tlv, align 4
   %361 = load ptr, ptr %5, align 8
@@ -1525,7 +1574,7 @@ define internal i32 @dissect_mac_mgmt_msg_rep_rsp_decoder(ptr noundef %0, ptr no
   %423 = load i32, ptr %16, align 4
   %424 = add i32 %423, %422
   store i32 %424, ptr %16, align 4
-  br label %335, !llvm.loop !8
+  br label %335, !llvm.loop !10
 
 425:                                              ; preds = %355, %335
   br label %1327
@@ -1578,9 +1627,9 @@ define internal i32 @dissect_mac_mgmt_msg_rep_rsp_decoder(ptr noundef %0, ptr no
 
 457:                                              ; preds = %454, %451, %441
   %458 = load ptr, ptr %6, align 8
-  %459 = getelementptr inbounds %struct._packet_info, ptr %458, i32 0, i32 1
+  %459 = getelementptr inbounds nuw %struct._packet_info, ptr %458, i32 0, i32 1
   %460 = load ptr, ptr %459, align 8
-  call void @col_append_sep_str(ptr noundef %460, i32 noundef 25, ptr noundef null, ptr noundef @.str.196)
+  call void @col_append_sep_str(ptr noundef %460, i32 noundef 25, ptr noundef null, ptr noundef @.str.201)
   %461 = load ptr, ptr %23, align 8
   %462 = load i32, ptr @hf_rep_invalid_tlv, align 4
   %463 = load ptr, ptr %5, align 8
@@ -1947,7 +1996,7 @@ define internal i32 @dissect_mac_mgmt_msg_rep_rsp_decoder(ptr noundef %0, ptr no
   %768 = load i32, ptr %16, align 4
   %769 = add i32 %768, %767
   store i32 %769, ptr %16, align 4
-  br label %437, !llvm.loop !9
+  br label %437, !llvm.loop !11
 
 770:                                              ; preds = %457, %437
   br label %1327
@@ -2000,9 +2049,9 @@ define internal i32 @dissect_mac_mgmt_msg_rep_rsp_decoder(ptr noundef %0, ptr no
 
 802:                                              ; preds = %799, %796, %786
   %803 = load ptr, ptr %6, align 8
-  %804 = getelementptr inbounds %struct._packet_info, ptr %803, i32 0, i32 1
+  %804 = getelementptr inbounds nuw %struct._packet_info, ptr %803, i32 0, i32 1
   %805 = load ptr, ptr %804, align 8
-  call void @col_append_sep_str(ptr noundef %805, i32 noundef 25, ptr noundef null, ptr noundef @.str.197)
+  call void @col_append_sep_str(ptr noundef %805, i32 noundef 25, ptr noundef null, ptr noundef @.str.202)
   %806 = load ptr, ptr %23, align 8
   %807 = load i32, ptr @hf_rep_invalid_tlv, align 4
   %808 = load ptr, ptr %5, align 8
@@ -2116,7 +2165,7 @@ define internal i32 @dissect_mac_mgmt_msg_rep_rsp_decoder(ptr noundef %0, ptr no
   %888 = load i32, ptr %16, align 4
   %889 = add i32 %888, %887
   store i32 %889, ptr %16, align 4
-  br label %782, !llvm.loop !10
+  br label %782, !llvm.loop !12
 
 890:                                              ; preds = %802, %782
   br label %1327
@@ -2169,9 +2218,9 @@ define internal i32 @dissect_mac_mgmt_msg_rep_rsp_decoder(ptr noundef %0, ptr no
 
 922:                                              ; preds = %919, %916, %906
   %923 = load ptr, ptr %6, align 8
-  %924 = getelementptr inbounds %struct._packet_info, ptr %923, i32 0, i32 1
+  %924 = getelementptr inbounds nuw %struct._packet_info, ptr %923, i32 0, i32 1
   %925 = load ptr, ptr %924, align 8
-  call void @col_append_sep_str(ptr noundef %925, i32 noundef 25, ptr noundef null, ptr noundef @.str.198)
+  call void @col_append_sep_str(ptr noundef %925, i32 noundef 25, ptr noundef null, ptr noundef @.str.203)
   %926 = load ptr, ptr %23, align 8
   %927 = load i32, ptr @hf_rep_invalid_tlv, align 4
   %928 = load ptr, ptr %5, align 8
@@ -2420,7 +2469,7 @@ define internal i32 @dissect_mac_mgmt_msg_rep_rsp_decoder(ptr noundef %0, ptr no
   %1138 = load i32, ptr %16, align 4
   %1139 = add i32 %1138, %1137
   store i32 %1139, ptr %16, align 4
-  br label %902, !llvm.loop !11
+  br label %902, !llvm.loop !13
 
 1140:                                             ; preds = %922, %902
   br label %1327
@@ -2473,9 +2522,9 @@ define internal i32 @dissect_mac_mgmt_msg_rep_rsp_decoder(ptr noundef %0, ptr no
 
 1172:                                             ; preds = %1169, %1166, %1156
   %1173 = load ptr, ptr %6, align 8
-  %1174 = getelementptr inbounds %struct._packet_info, ptr %1173, i32 0, i32 1
+  %1174 = getelementptr inbounds nuw %struct._packet_info, ptr %1173, i32 0, i32 1
   %1175 = load ptr, ptr %1174, align 8
-  call void @col_append_sep_str(ptr noundef %1175, i32 noundef 25, ptr noundef null, ptr noundef @.str.199)
+  call void @col_append_sep_str(ptr noundef %1175, i32 noundef 25, ptr noundef null, ptr noundef @.str.204)
   %1176 = load ptr, ptr %23, align 8
   %1177 = load i32, ptr @hf_rep_invalid_tlv, align 4
   %1178 = load ptr, ptr %5, align 8
@@ -2623,7 +2672,7 @@ define internal i32 @dissect_mac_mgmt_msg_rep_rsp_decoder(ptr noundef %0, ptr no
   %1297 = load i32, ptr %16, align 4
   %1298 = add i32 %1297, %1296
   store i32 %1298, ptr %16, align 4
-  br label %1152, !llvm.loop !12
+  br label %1152, !llvm.loop !14
 
 1299:                                             ; preds = %1172, %1152
   br label %1327
@@ -2639,7 +2688,7 @@ define internal i32 @dissect_mac_mgmt_msg_rep_rsp_decoder(ptr noundef %0, ptr no
   store ptr %1307, ptr %19, align 8
   %1308 = load ptr, ptr %5, align 8
   %1309 = load i32, ptr %9, align 4
-  %1310 = call zeroext i8 @tvb_get_guint8(ptr noundef %1308, i32 noundef %1309)
+  %1310 = call zeroext i8 @tvb_get_uint8(ptr noundef %1308, i32 noundef %1309)
   %1311 = zext i8 %1310 to i32
   store i32 %1311, ptr %12, align 4
   %1312 = load i32, ptr %12, align 4
@@ -2650,7 +2699,7 @@ define internal i32 @dissect_mac_mgmt_msg_rep_rsp_decoder(ptr noundef %0, ptr no
   %1316 = load ptr, ptr %19, align 8
   %1317 = load float, ptr %26, align 4
   %1318 = fpext float %1317 to double
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1316, ptr noundef @.str.200, double noundef %1318)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1316, ptr noundef @.str.205, double noundef %1318)
   br label %1327
 
 1319:                                             ; preds = %67
@@ -2668,15 +2717,33 @@ define internal i32 @dissect_mac_mgmt_msg_rep_rsp_decoder(ptr noundef %0, ptr no
   %1329 = load i32, ptr %9, align 4
   %1330 = add i32 %1329, %1328
   store i32 %1330, ptr %9, align 4
-  br label %37, !llvm.loop !13
+  br label %37, !llvm.loop !15
 
 1331:                                             ; preds = %55, %37
   %1332 = load ptr, ptr %5, align 8
   %1333 = call i32 @tvb_captured_length(ptr noundef %1332)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #3
+  call void @llvm.lifetime.end.p0(i64 12, ptr %25) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %1333
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_mac_mgmt_msg_rep() #0 {
   %1 = load ptr, ptr @rep_req_handle, align 8
   call void @dissector_add_uint(ptr noundef @.str.175, i32 noundef 36, ptr noundef %1)
@@ -2685,50 +2752,74 @@ define hidden void @proto_reg_handoff_mac_mgmt_msg_rep() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_protocol_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @init_tlv_info(ptr noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @get_tlv_type(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @get_tlv_length(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_append_sep_str(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @get_tlv_value_offset(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @add_tlv_subtree(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) #1
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #1
+
+; Function Attrs: null_pointer_is_valid
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}

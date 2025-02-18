@@ -3,9 +3,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
 %struct.true_false_string = type { ptr, ptr }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
@@ -14,15 +13,12 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_bvlc_type = internal global i32 0, align 4
 @.str = private unnamed_addr constant [5 x i8] c"Type\00", align 1
 @.str.1 = private unnamed_addr constant [10 x i8] c"bvlc.type\00", align 1
-@bvlc_types = internal constant [3 x %struct._value_string] [%struct._value_string { i32 129, ptr @.str.138 }, %struct._value_string { i32 130, ptr @.str.139 }, %struct._value_string zeroinitializer], align 16
 @hf_bvlc_function = internal global i32 0, align 4
 @.str.2 = private unnamed_addr constant [9 x i8] c"Function\00", align 1
 @.str.3 = private unnamed_addr constant [14 x i8] c"bvlc.function\00", align 1
-@bvlc_function_names = internal constant [14 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.140 }, %struct._value_string { i32 1, ptr @.str.141 }, %struct._value_string { i32 2, ptr @.str.142 }, %struct._value_string { i32 3, ptr @.str.143 }, %struct._value_string { i32 4, ptr @.str.144 }, %struct._value_string { i32 5, ptr @.str.145 }, %struct._value_string { i32 6, ptr @.str.146 }, %struct._value_string { i32 7, ptr @.str.147 }, %struct._value_string { i32 8, ptr @.str.148 }, %struct._value_string { i32 9, ptr @.str.149 }, %struct._value_string { i32 10, ptr @.str.150 }, %struct._value_string { i32 11, ptr @.str.151 }, %struct._value_string { i32 12, ptr @.str.152 }, %struct._value_string zeroinitializer], align 16
 @.str.4 = private unnamed_addr constant [14 x i8] c"BVLC Function\00", align 1
 @hf_bvlc_ipv6_function = internal global i32 0, align 4
 @.str.5 = private unnamed_addr constant [19 x i8] c"bvlc.function_ipv6\00", align 1
-@bvlc_ipv6_function_names = internal constant [14 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.140 }, %struct._value_string { i32 1, ptr @.str.150 }, %struct._value_string { i32 2, ptr @.str.151 }, %struct._value_string { i32 3, ptr @.str.153 }, %struct._value_string { i32 4, ptr @.str.154 }, %struct._value_string { i32 5, ptr @.str.155 }, %struct._value_string { i32 6, ptr @.str.156 }, %struct._value_string { i32 7, ptr @.str.157 }, %struct._value_string { i32 8, ptr @.str.144 }, %struct._value_string { i32 9, ptr @.str.145 }, %struct._value_string { i32 10, ptr @.str.148 }, %struct._value_string { i32 11, ptr @.str.158 }, %struct._value_string { i32 12, ptr @.str.149 }, %struct._value_string zeroinitializer], align 16
 @.str.6 = private unnamed_addr constant [19 x i8] c"BVLC Function IPV6\00", align 1
 @hf_bvlc_length = internal global i32 0, align 4
 @.str.7 = private unnamed_addr constant [12 x i8] c"BVLC-Length\00", align 1
@@ -39,10 +35,8 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_bvlc_result_ip4 = internal global i32 0, align 4
 @.str.16 = private unnamed_addr constant [7 x i8] c"Result\00", align 1
 @.str.17 = private unnamed_addr constant [12 x i8] c"bvlc.result\00", align 1
-@bvlc_result_names = internal constant [8 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.159 }, %struct._value_string { i32 16, ptr @.str.160 }, %struct._value_string { i32 32, ptr @.str.161 }, %struct._value_string { i32 48, ptr @.str.162 }, %struct._value_string { i32 64, ptr @.str.163 }, %struct._value_string { i32 80, ptr @.str.164 }, %struct._value_string { i32 96, ptr @.str.165 }, %struct._value_string zeroinitializer], align 16
 @.str.18 = private unnamed_addr constant [12 x i8] c"Result Code\00", align 1
 @hf_bvlc_result_ip6 = internal global i32 0, align 4
-@bvlc_ipv6_result_names = internal constant [7 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.159 }, %struct._value_string { i32 48, ptr @.str.166 }, %struct._value_string { i32 96, ptr @.str.167 }, %struct._value_string { i32 144, ptr @.str.162 }, %struct._value_string { i32 160, ptr @.str.164 }, %struct._value_string { i32 192, ptr @.str.165 }, %struct._value_string zeroinitializer], align 16
 @hf_bvlc_bdt_ip = internal global i32 0, align 4
 @.str.19 = private unnamed_addr constant [3 x i8] c"IP\00", align 1
 @.str.20 = private unnamed_addr constant [12 x i8] c"bvlc.bdt_ip\00", align 1
@@ -97,23 +91,23 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_bscvlc_control_data_option = internal global i32 0, align 4
 @.str.51 = private unnamed_addr constant [12 x i8] c"Data Option\00", align 1
 @.str.52 = private unnamed_addr constant [27 x i8] c"bscvlc.control_data_option\00", align 1
-@control_data_option_set_high = internal constant %struct.true_false_string { ptr @.str.168, ptr @.str.169 }, align 8
+@control_data_option_set_high = internal constant %struct.true_false_string { ptr @.str.173, ptr @.str.174 }, align 8
 @hf_bscvlc_control_destination_option = internal global i32 0, align 4
 @.str.53 = private unnamed_addr constant [19 x i8] c"Destination Option\00", align 1
 @.str.54 = private unnamed_addr constant [27 x i8] c"bscvlc.control_dest_option\00", align 1
-@control_destination_option_set_high = internal constant %struct.true_false_string { ptr @.str.170, ptr @.str.171 }, align 8
+@control_destination_option_set_high = internal constant %struct.true_false_string { ptr @.str.175, ptr @.str.176 }, align 8
 @hf_bscvlc_control_destination_address = internal global i32 0, align 4
 @.str.55 = private unnamed_addr constant [20 x i8] c"Destination Address\00", align 1
 @.str.56 = private unnamed_addr constant [28 x i8] c"bscvlc.control_dest_address\00", align 1
-@control_destination_address_set_high = internal constant %struct.true_false_string { ptr @.str.172, ptr @.str.173 }, align 8
+@control_destination_address_set_high = internal constant %struct.true_false_string { ptr @.str.177, ptr @.str.178 }, align 8
 @hf_bscvlc_control_origin_address = internal global i32 0, align 4
 @.str.57 = private unnamed_addr constant [15 x i8] c"Origin Address\00", align 1
 @.str.58 = private unnamed_addr constant [28 x i8] c"bscvlc.control_orig_address\00", align 1
-@control_orig_address_set_high = internal constant %struct.true_false_string { ptr @.str.174, ptr @.str.175 }, align 8
+@control_orig_address_set_high = internal constant %struct.true_false_string { ptr @.str.179, ptr @.str.180 }, align 8
 @hf_bscvlc_control_reserved = internal global i32 0, align 4
 @.str.59 = private unnamed_addr constant [9 x i8] c"Reserved\00", align 1
 @.str.60 = private unnamed_addr constant [24 x i8] c"bscvlc.control_reserved\00", align 1
-@control_reserved_set_high = internal constant %struct.true_false_string { ptr @.str.176, ptr @.str.177 }, align 8
+@control_reserved_set_high = internal constant %struct.true_false_string { ptr @.str.181, ptr @.str.182 }, align 8
 @hf_bscvlc_header = internal global i32 0, align 4
 @.str.61 = private unnamed_addr constant [19 x i8] c"Header Data Length\00", align 1
 @.str.62 = private unnamed_addr constant [14 x i8] c"bscvlc.header\00", align 1
@@ -132,18 +126,17 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_bscvlc_header_opt_type = internal global i32 0, align 4
 @.str.72 = private unnamed_addr constant [12 x i8] c"Header Type\00", align 1
 @.str.73 = private unnamed_addr constant [19 x i8] c"bscvlc.header_type\00", align 1
-@bscvlc_header_type_names = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.178 }, %struct._value_string { i32 31, ptr @.str.179 }, %struct._value_string zeroinitializer], align 16
 @hf_bscvlc_header_opt_data = internal global i32 0, align 4
 @.str.74 = private unnamed_addr constant [27 x i8] c"bscvlc.header_data_present\00", align 1
-@header_opt_data_set_high = internal constant %struct.true_false_string { ptr @.str.180, ptr @.str.181 }, align 8
+@header_opt_data_set_high = internal constant %struct.true_false_string { ptr @.str.186, ptr @.str.187 }, align 8
 @hf_bscvlc_header_opt_must_understand = internal global i32 0, align 4
 @.str.75 = private unnamed_addr constant [23 x i8] c"Header Must Understand\00", align 1
 @.str.76 = private unnamed_addr constant [25 x i8] c"bscvlc.header_understand\00", align 1
-@header_opt_must_understand_set_high = internal constant %struct.true_false_string { ptr @.str.182, ptr @.str.183 }, align 8
+@header_opt_must_understand_set_high = internal constant %struct.true_false_string { ptr @.str.188, ptr @.str.189 }, align 8
 @hf_bscvlc_header_opt_more = internal global i32 0, align 4
 @.str.77 = private unnamed_addr constant [12 x i8] c"Header More\00", align 1
 @.str.78 = private unnamed_addr constant [19 x i8] c"bscvlc.header_more\00", align 1
-@header_opt_more_set_high = internal constant %struct.true_false_string { ptr @.str.184, ptr @.str.185 }, align 8
+@header_opt_more_set_high = internal constant %struct.true_false_string { ptr @.str.190, ptr @.str.191 }, align 8
 @hf_bscvlc_vendor_id = internal global i32 0, align 4
 @.str.79 = private unnamed_addr constant [10 x i8] c"Vendor ID\00", align 1
 @.str.80 = private unnamed_addr constant [17 x i8] c"bscvlc.vendor_id\00", align 1
@@ -159,12 +152,10 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_bscvlc_hub_conn_state = internal global i32 0, align 4
 @.str.88 = private unnamed_addr constant [22 x i8] c"Hub Connection Status\00", align 1
 @.str.89 = private unnamed_addr constant [22 x i8] c"bscvlc.hub_conn_state\00", align 1
-@bscvlc_hub_conn_state_names = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.186 }, %struct._value_string { i32 1, ptr @.str.187 }, %struct._value_string { i32 2, ptr @.str.188 }, %struct._value_string zeroinitializer], align 16
 @.str.90 = private unnamed_addr constant [29 x i8] c"BSCVLC Hub Connection Status\00", align 1
 @hf_bscvlc_accept_conns = internal global i32 0, align 4
 @.str.91 = private unnamed_addr constant [24 x i8] c"Hub Accepts Connections\00", align 1
 @.str.92 = private unnamed_addr constant [20 x i8] c"bscvlc.accept_conns\00", align 1
-@bscvlc_hub_accept_conns_names = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.189 }, %struct._value_string { i32 1, ptr @.str.190 }, %struct._value_string zeroinitializer], align 16
 @.str.93 = private unnamed_addr constant [27 x i8] c"BSCVLC Accepts Connections\00", align 1
 @hf_bscvlc_max_bvlc_length = internal global i32 0, align 4
 @.str.94 = private unnamed_addr constant [17 x i8] c"Max. BVLC Length\00", align 1
@@ -176,19 +167,15 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.99 = private unnamed_addr constant [26 x i8] c"Max Supported NPDU Length\00", align 1
 @hf_bscvlc_function = internal global i32 0, align 4
 @.str.100 = private unnamed_addr constant [16 x i8] c"bscvlc.function\00", align 1
-@bscvlc_function_names = internal constant [14 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.140 }, %struct._value_string { i32 1, ptr @.str.191 }, %struct._value_string { i32 2, ptr @.str.153 }, %struct._value_string { i32 3, ptr @.str.155 }, %struct._value_string { i32 4, ptr @.str.192 }, %struct._value_string { i32 5, ptr @.str.193 }, %struct._value_string { i32 6, ptr @.str.194 }, %struct._value_string { i32 7, ptr @.str.195 }, %struct._value_string { i32 8, ptr @.str.196 }, %struct._value_string { i32 9, ptr @.str.197 }, %struct._value_string { i32 10, ptr @.str.198 }, %struct._value_string { i32 11, ptr @.str.199 }, %struct._value_string { i32 12, ptr @.str.200 }, %struct._value_string zeroinitializer], align 16
 @.str.101 = private unnamed_addr constant [16 x i8] c"BSCVLC Function\00", align 1
 @hf_bscvlc_result = internal global i32 0, align 4
 @.str.102 = private unnamed_addr constant [14 x i8] c"bscvlc.result\00", align 1
-@bscvlc_result_names = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.201 }, %struct._value_string { i32 1, ptr @.str.202 }, %struct._value_string zeroinitializer], align 16
 @hf_bscvlc_error_class = internal global i32 0, align 4
 @.str.103 = private unnamed_addr constant [12 x i8] c"Error Class\00", align 1
 @.str.104 = private unnamed_addr constant [19 x i8] c"bscvlc.error_class\00", align 1
-@BACnetErrorClass = internal constant [9 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.203 }, %struct._value_string { i32 1, ptr @.str.204 }, %struct._value_string { i32 2, ptr @.str.205 }, %struct._value_string { i32 3, ptr @.str.206 }, %struct._value_string { i32 4, ptr @.str.207 }, %struct._value_string { i32 5, ptr @.str.208 }, %struct._value_string { i32 6, ptr @.str.209 }, %struct._value_string { i32 7, ptr @.str.210 }, %struct._value_string zeroinitializer], align 16
 @hf_bscvlc_error_code = internal global i32 0, align 4
 @.str.105 = private unnamed_addr constant [11 x i8] c"Error Code\00", align 1
 @.str.106 = private unnamed_addr constant [18 x i8] c"bscvlc.error_code\00", align 1
-@BACnetErrorCode = internal constant [201 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.211 }, %struct._value_string { i32 1, ptr @.str.212 }, %struct._value_string { i32 2, ptr @.str.213 }, %struct._value_string { i32 3, ptr @.str.214 }, %struct._value_string { i32 4, ptr @.str.215 }, %struct._value_string { i32 5, ptr @.str.216 }, %struct._value_string { i32 6, ptr @.str.217 }, %struct._value_string { i32 7, ptr @.str.218 }, %struct._value_string { i32 8, ptr @.str.219 }, %struct._value_string { i32 9, ptr @.str.220 }, %struct._value_string { i32 10, ptr @.str.221 }, %struct._value_string { i32 11, ptr @.str.222 }, %struct._value_string { i32 12, ptr @.str.223 }, %struct._value_string { i32 13, ptr @.str.224 }, %struct._value_string { i32 14, ptr @.str.225 }, %struct._value_string { i32 15, ptr @.str.226 }, %struct._value_string { i32 16, ptr @.str.227 }, %struct._value_string { i32 17, ptr @.str.228 }, %struct._value_string { i32 18, ptr @.str.229 }, %struct._value_string { i32 19, ptr @.str.230 }, %struct._value_string { i32 20, ptr @.str.231 }, %struct._value_string { i32 21, ptr @.str.232 }, %struct._value_string { i32 22, ptr @.str.233 }, %struct._value_string { i32 23, ptr @.str.234 }, %struct._value_string { i32 24, ptr @.str.235 }, %struct._value_string { i32 25, ptr @.str.236 }, %struct._value_string { i32 26, ptr @.str.237 }, %struct._value_string { i32 27, ptr @.str.238 }, %struct._value_string { i32 28, ptr @.str.239 }, %struct._value_string { i32 29, ptr @.str.240 }, %struct._value_string { i32 30, ptr @.str.241 }, %struct._value_string { i32 31, ptr @.str.242 }, %struct._value_string { i32 32, ptr @.str.243 }, %struct._value_string { i32 33, ptr @.str.244 }, %struct._value_string { i32 34, ptr @.str.245 }, %struct._value_string { i32 35, ptr @.str.246 }, %struct._value_string { i32 36, ptr @.str.247 }, %struct._value_string { i32 37, ptr @.str.248 }, %struct._value_string { i32 38, ptr @.str.249 }, %struct._value_string { i32 39, ptr @.str.250 }, %struct._value_string { i32 40, ptr @.str.251 }, %struct._value_string { i32 41, ptr @.str.252 }, %struct._value_string { i32 42, ptr @.str.253 }, %struct._value_string { i32 43, ptr @.str.254 }, %struct._value_string { i32 44, ptr @.str.255 }, %struct._value_string { i32 45, ptr @.str.256 }, %struct._value_string { i32 46, ptr @.str.257 }, %struct._value_string { i32 47, ptr @.str.258 }, %struct._value_string { i32 48, ptr @.str.259 }, %struct._value_string { i32 49, ptr @.str.260 }, %struct._value_string { i32 50, ptr @.str.261 }, %struct._value_string { i32 51, ptr @.str.262 }, %struct._value_string { i32 52, ptr @.str.263 }, %struct._value_string { i32 53, ptr @.str.264 }, %struct._value_string { i32 54, ptr @.str.265 }, %struct._value_string { i32 55, ptr @.str.266 }, %struct._value_string { i32 56, ptr @.str.267 }, %struct._value_string { i32 57, ptr @.str.268 }, %struct._value_string { i32 58, ptr @.str.269 }, %struct._value_string { i32 59, ptr @.str.270 }, %struct._value_string { i32 60, ptr @.str.271 }, %struct._value_string { i32 61, ptr @.str.272 }, %struct._value_string { i32 62, ptr @.str.268 }, %struct._value_string { i32 63, ptr @.str.273 }, %struct._value_string { i32 64, ptr @.str.274 }, %struct._value_string { i32 65, ptr @.str.275 }, %struct._value_string { i32 66, ptr @.str.276 }, %struct._value_string { i32 67, ptr @.str.277 }, %struct._value_string { i32 68, ptr @.str.278 }, %struct._value_string { i32 69, ptr @.str.279 }, %struct._value_string { i32 70, ptr @.str.280 }, %struct._value_string { i32 71, ptr @.str.281 }, %struct._value_string { i32 72, ptr @.str.282 }, %struct._value_string { i32 73, ptr @.str.283 }, %struct._value_string { i32 74, ptr @.str.284 }, %struct._value_string { i32 75, ptr @.str.285 }, %struct._value_string { i32 76, ptr @.str.286 }, %struct._value_string { i32 77, ptr @.str.287 }, %struct._value_string { i32 78, ptr @.str.288 }, %struct._value_string { i32 79, ptr @.str.289 }, %struct._value_string { i32 80, ptr @.str.290 }, %struct._value_string { i32 81, ptr @.str.291 }, %struct._value_string { i32 82, ptr @.str.292 }, %struct._value_string { i32 83, ptr @.str.293 }, %struct._value_string { i32 84, ptr @.str.294 }, %struct._value_string { i32 85, ptr @.str.295 }, %struct._value_string { i32 86, ptr @.str.296 }, %struct._value_string { i32 87, ptr @.str.297 }, %struct._value_string { i32 88, ptr @.str.298 }, %struct._value_string { i32 89, ptr @.str.299 }, %struct._value_string { i32 90, ptr @.str.300 }, %struct._value_string { i32 91, ptr @.str.301 }, %struct._value_string { i32 92, ptr @.str.302 }, %struct._value_string { i32 93, ptr @.str.303 }, %struct._value_string { i32 94, ptr @.str.304 }, %struct._value_string { i32 95, ptr @.str.305 }, %struct._value_string { i32 96, ptr @.str.306 }, %struct._value_string { i32 97, ptr @.str.307 }, %struct._value_string { i32 98, ptr @.str.308 }, %struct._value_string { i32 99, ptr @.str.309 }, %struct._value_string { i32 100, ptr @.str.310 }, %struct._value_string { i32 101, ptr @.str.311 }, %struct._value_string { i32 102, ptr @.str.312 }, %struct._value_string { i32 103, ptr @.str.313 }, %struct._value_string { i32 104, ptr @.str.314 }, %struct._value_string { i32 105, ptr @.str.315 }, %struct._value_string { i32 106, ptr @.str.316 }, %struct._value_string { i32 107, ptr @.str.317 }, %struct._value_string { i32 108, ptr @.str.318 }, %struct._value_string { i32 109, ptr @.str.319 }, %struct._value_string { i32 110, ptr @.str.320 }, %struct._value_string { i32 111, ptr @.str.321 }, %struct._value_string { i32 112, ptr @.str.322 }, %struct._value_string { i32 113, ptr @.str.323 }, %struct._value_string { i32 114, ptr @.str.324 }, %struct._value_string { i32 115, ptr @.str.325 }, %struct._value_string { i32 116, ptr @.str.326 }, %struct._value_string { i32 117, ptr @.str.327 }, %struct._value_string { i32 118, ptr @.str.328 }, %struct._value_string { i32 119, ptr @.str.329 }, %struct._value_string { i32 120, ptr @.str.330 }, %struct._value_string { i32 121, ptr @.str.331 }, %struct._value_string { i32 122, ptr @.str.332 }, %struct._value_string { i32 123, ptr @.str.333 }, %struct._value_string { i32 124, ptr @.str.334 }, %struct._value_string { i32 125, ptr @.str.335 }, %struct._value_string { i32 126, ptr @.str.336 }, %struct._value_string { i32 127, ptr @.str.337 }, %struct._value_string { i32 128, ptr @.str.338 }, %struct._value_string { i32 129, ptr @.str.339 }, %struct._value_string { i32 130, ptr @.str.340 }, %struct._value_string { i32 131, ptr @.str.341 }, %struct._value_string { i32 132, ptr @.str.342 }, %struct._value_string { i32 133, ptr @.str.343 }, %struct._value_string { i32 134, ptr @.str.344 }, %struct._value_string { i32 135, ptr @.str.345 }, %struct._value_string { i32 136, ptr @.str.346 }, %struct._value_string { i32 137, ptr @.str.347 }, %struct._value_string { i32 138, ptr @.str.348 }, %struct._value_string { i32 139, ptr @.str.349 }, %struct._value_string { i32 140, ptr @.str.350 }, %struct._value_string { i32 141, ptr @.str.351 }, %struct._value_string { i32 142, ptr @.str.352 }, %struct._value_string { i32 143, ptr @.str.353 }, %struct._value_string { i32 144, ptr @.str.354 }, %struct._value_string { i32 145, ptr @.str.355 }, %struct._value_string { i32 146, ptr @.str.356 }, %struct._value_string { i32 147, ptr @.str.357 }, %struct._value_string { i32 148, ptr @.str.358 }, %struct._value_string { i32 149, ptr @.str.359 }, %struct._value_string { i32 150, ptr @.str.360 }, %struct._value_string { i32 151, ptr @.str.361 }, %struct._value_string { i32 152, ptr @.str.362 }, %struct._value_string { i32 153, ptr @.str.363 }, %struct._value_string { i32 154, ptr @.str.364 }, %struct._value_string { i32 155, ptr @.str.365 }, %struct._value_string { i32 156, ptr @.str.366 }, %struct._value_string { i32 157, ptr @.str.367 }, %struct._value_string { i32 158, ptr @.str.368 }, %struct._value_string { i32 159, ptr @.str.369 }, %struct._value_string { i32 160, ptr @.str.370 }, %struct._value_string { i32 161, ptr @.str.371 }, %struct._value_string { i32 162, ptr @.str.372 }, %struct._value_string { i32 163, ptr @.str.373 }, %struct._value_string { i32 164, ptr @.str.374 }, %struct._value_string { i32 165, ptr @.str.375 }, %struct._value_string { i32 166, ptr @.str.376 }, %struct._value_string { i32 167, ptr @.str.377 }, %struct._value_string { i32 168, ptr @.str.378 }, %struct._value_string { i32 169, ptr @.str.379 }, %struct._value_string { i32 170, ptr @.str.380 }, %struct._value_string { i32 171, ptr @.str.381 }, %struct._value_string { i32 172, ptr @.str.382 }, %struct._value_string { i32 173, ptr @.str.383 }, %struct._value_string { i32 174, ptr @.str.384 }, %struct._value_string { i32 175, ptr @.str.385 }, %struct._value_string { i32 176, ptr @.str.386 }, %struct._value_string { i32 177, ptr @.str.387 }, %struct._value_string { i32 178, ptr @.str.388 }, %struct._value_string { i32 179, ptr @.str.389 }, %struct._value_string { i32 180, ptr @.str.390 }, %struct._value_string { i32 181, ptr @.str.391 }, %struct._value_string { i32 182, ptr @.str.392 }, %struct._value_string { i32 183, ptr @.str.393 }, %struct._value_string { i32 184, ptr @.str.394 }, %struct._value_string { i32 185, ptr @.str.395 }, %struct._value_string { i32 186, ptr @.str.396 }, %struct._value_string { i32 187, ptr @.str.397 }, %struct._value_string { i32 188, ptr @.str.398 }, %struct._value_string { i32 189, ptr @.str.399 }, %struct._value_string { i32 190, ptr @.str.400 }, %struct._value_string { i32 191, ptr @.str.401 }, %struct._value_string { i32 192, ptr @.str.402 }, %struct._value_string { i32 193, ptr @.str.403 }, %struct._value_string { i32 194, ptr @.str.404 }, %struct._value_string { i32 195, ptr @.str.405 }, %struct._value_string { i32 196, ptr @.str.406 }, %struct._value_string { i32 197, ptr @.str.407 }, %struct._value_string { i32 198, ptr @.str.408 }, %struct._value_string { i32 199, ptr @.str.409 }, %struct._value_string zeroinitializer], align 16
 @hf_bscvlc_result_data = internal global i32 0, align 4
 @.str.107 = private unnamed_addr constant [12 x i8] c"Result Data\00", align 1
 @.str.108 = private unnamed_addr constant [19 x i8] c"bscvlc.result_data\00", align 1
@@ -240,292 +227,304 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.137 = private unnamed_addr constant [18 x i8] c"dc.bsc.bacnet.org\00", align 1
 @.str.138 = private unnamed_addr constant [20 x i8] c"BACnet/IP (Annex J)\00", align 1
 @.str.139 = private unnamed_addr constant [22 x i8] c"BACnet/IPV6 (Annex U)\00", align 1
-@.str.140 = private unnamed_addr constant [12 x i8] c"BVLC-Result\00", align 1
-@.str.141 = private unnamed_addr constant [35 x i8] c"Write-Broadcast-Distribution-Table\00", align 1
-@.str.142 = private unnamed_addr constant [34 x i8] c"Read-Broadcast-Distribution-Table\00", align 1
-@.str.143 = private unnamed_addr constant [38 x i8] c"Read-Broadcast-Distribution-Table-Ack\00", align 1
-@.str.144 = private unnamed_addr constant [15 x i8] c"Forwarded-NPDU\00", align 1
-@.str.145 = private unnamed_addr constant [24 x i8] c"Register-Foreign-Device\00", align 1
-@.str.146 = private unnamed_addr constant [26 x i8] c"Read-Foreign-Device-Table\00", align 1
-@.str.147 = private unnamed_addr constant [30 x i8] c"Read-Foreign-Device-Table-Ack\00", align 1
-@.str.148 = private unnamed_addr constant [34 x i8] c"Delete-Foreign-Device-Table-Entry\00", align 1
-@.str.149 = private unnamed_addr constant [32 x i8] c"Distribute-Broadcast-To-Network\00", align 1
-@.str.150 = private unnamed_addr constant [22 x i8] c"Original-Unicast-NPDU\00", align 1
-@.str.151 = private unnamed_addr constant [24 x i8] c"Original-Broadcast-NPDU\00", align 1
-@.str.152 = private unnamed_addr constant [13 x i8] c"Secured-BVLL\00", align 1
-@.str.153 = private unnamed_addr constant [19 x i8] c"Address-Resolution\00", align 1
-@.str.154 = private unnamed_addr constant [29 x i8] c"Forwarded-Address-Resolution\00", align 1
-@.str.155 = private unnamed_addr constant [23 x i8] c"Address-Resolution-ACK\00", align 1
-@.str.156 = private unnamed_addr constant [27 x i8] c"Virtual-Address-Resolution\00", align 1
-@.str.157 = private unnamed_addr constant [31 x i8] c"Virtual-Address-Resolution-ACK\00", align 1
-@.str.158 = private unnamed_addr constant [12 x i8] c"Secure-BVLL\00", align 1
-@.str.159 = private unnamed_addr constant [22 x i8] c"Successful completion\00", align 1
-@.str.160 = private unnamed_addr constant [39 x i8] c"Write-Broadcast-Distribution-Table NAK\00", align 1
-@.str.161 = private unnamed_addr constant [38 x i8] c"Read-Broadcast-Distribution-Table NAK\00", align 1
-@.str.162 = private unnamed_addr constant [28 x i8] c"Register-Foreign-Device NAK\00", align 1
-@.str.163 = private unnamed_addr constant [30 x i8] c"Read-Foreign-Device-Table NAK\00", align 1
-@.str.164 = private unnamed_addr constant [38 x i8] c"Delete-Foreign-Device-Table-Entry NAK\00", align 1
-@.str.165 = private unnamed_addr constant [36 x i8] c"Distribute-Broadcast-To-Network NAK\00", align 1
-@.str.166 = private unnamed_addr constant [23 x i8] c"Address-Resolution NAK\00", align 1
-@.str.167 = private unnamed_addr constant [31 x i8] c"Virtual-Address-Resolution NAK\00", align 1
-@.str.168 = private unnamed_addr constant [31 x i8] c"Data Options field is present.\00", align 1
-@.str.169 = private unnamed_addr constant [30 x i8] c"Data Options field is absent.\00", align 1
-@.str.170 = private unnamed_addr constant [38 x i8] c"Destination Options field is present.\00", align 1
-@.str.171 = private unnamed_addr constant [37 x i8] c"Destination Options field is absent.\00", align 1
-@.str.172 = private unnamed_addr constant [40 x i8] c"Destination Virtual Address is present.\00", align 1
-@.str.173 = private unnamed_addr constant [39 x i8] c"Destination Virtual Address is absent.\00", align 1
-@.str.174 = private unnamed_addr constant [40 x i8] c"Originating Virtual Address is present.\00", align 1
-@.str.175 = private unnamed_addr constant [39 x i8] c"Originating Virtual Address is absent.\00", align 1
-@.str.176 = private unnamed_addr constant [27 x i8] c"Shall be zero, but is not.\00", align 1
-@.str.177 = private unnamed_addr constant [27 x i8] c"Shall be zero and is zero.\00", align 1
-@.str.178 = private unnamed_addr constant [12 x i8] c"Secure Path\00", align 1
-@.str.179 = private unnamed_addr constant [26 x i8] c"Proprietary Header Option\00", align 1
-@.str.180 = private unnamed_addr constant [58 x i8] c"The 'Header Length' and 'Header Data' fields are present.\00", align 1
-@.str.181 = private unnamed_addr constant [57 x i8] c"The 'Header Length' and 'Header Data' fields are absent.\00", align 1
-@.str.182 = private unnamed_addr constant [65 x i8] c"This header option must be understood for consuming the message.\00", align 1
-@.str.183 = private unnamed_addr constant [53 x i8] c"This header option can be ignored if not understood.\00", align 1
-@.str.184 = private unnamed_addr constant [65 x i8] c"Another header option follows in the current header option list.\00", align 1
-@.str.185 = private unnamed_addr constant [66 x i8] c"This is the last header option in the current header option list.\00", align 1
-@.str.186 = private unnamed_addr constant [18 x i8] c"No hub connection\00", align 1
-@.str.187 = private unnamed_addr constant [25 x i8] c"Connected to primary hub\00", align 1
-@.str.188 = private unnamed_addr constant [26 x i8] c"Connected to failover hub\00", align 1
-@.str.189 = private unnamed_addr constant [55 x i8] c"The node does not support accepting direct connections\00", align 1
-@.str.190 = private unnamed_addr constant [47 x i8] c"The node supports accepting direct connections\00", align 1
-@.str.191 = private unnamed_addr constant [18 x i8] c"Encapsulated-NPDU\00", align 1
-@.str.192 = private unnamed_addr constant [14 x i8] c"Advertisement\00", align 1
-@.str.193 = private unnamed_addr constant [27 x i8] c"Advertisement-Solicitation\00", align 1
-@.str.194 = private unnamed_addr constant [16 x i8] c"Connect-Request\00", align 1
-@.str.195 = private unnamed_addr constant [15 x i8] c"Connect-Accept\00", align 1
-@.str.196 = private unnamed_addr constant [19 x i8] c"Disconnect-Request\00", align 1
-@.str.197 = private unnamed_addr constant [15 x i8] c"Disconnect-ACK\00", align 1
-@.str.198 = private unnamed_addr constant [18 x i8] c"Heartbeat-Request\00", align 1
-@.str.199 = private unnamed_addr constant [14 x i8] c"Heartbeat-ACK\00", align 1
-@.str.200 = private unnamed_addr constant [20 x i8] c"Proprietary-Message\00", align 1
-@.str.201 = private unnamed_addr constant [28 x i8] c"Successful completion (ACK)\00", align 1
-@.str.202 = private unnamed_addr constant [24 x i8] c"Completion failed (NAK)\00", align 1
-@.str.203 = private unnamed_addr constant [7 x i8] c"device\00", align 1
-@.str.204 = private unnamed_addr constant [7 x i8] c"object\00", align 1
-@.str.205 = private unnamed_addr constant [9 x i8] c"property\00", align 1
-@.str.206 = private unnamed_addr constant [10 x i8] c"resources\00", align 1
-@.str.207 = private unnamed_addr constant [9 x i8] c"security\00", align 1
-@.str.208 = private unnamed_addr constant [9 x i8] c"services\00", align 1
-@.str.209 = private unnamed_addr constant [3 x i8] c"vt\00", align 1
-@.str.210 = private unnamed_addr constant [14 x i8] c"communication\00", align 1
-@.str.211 = private unnamed_addr constant [6 x i8] c"other\00", align 1
-@.str.212 = private unnamed_addr constant [22 x i8] c"authentication-failed\00", align 1
-@.str.213 = private unnamed_addr constant [26 x i8] c"configuration-in-progress\00", align 1
-@.str.214 = private unnamed_addr constant [12 x i8] c"device-busy\00", align 1
-@.str.215 = private unnamed_addr constant [31 x i8] c"dynamic-creation-not-supported\00", align 1
-@.str.216 = private unnamed_addr constant [19 x i8] c"file-access-denied\00", align 1
-@.str.217 = private unnamed_addr constant [29 x i8] c"incompatible-security-levels\00", align 1
-@.str.218 = private unnamed_addr constant [24 x i8] c"inconsistent-parameters\00", align 1
-@.str.219 = private unnamed_addr constant [33 x i8] c"inconsistent-selection-criterion\00", align 1
-@.str.220 = private unnamed_addr constant [18 x i8] c"invalid-data-type\00", align 1
-@.str.221 = private unnamed_addr constant [27 x i8] c"invalid-file-access-method\00", align 1
-@.str.222 = private unnamed_addr constant [28 x i8] c"invalid-file-start-position\00", align 1
-@.str.223 = private unnamed_addr constant [22 x i8] c"invalid-operator-name\00", align 1
-@.str.224 = private unnamed_addr constant [28 x i8] c"invalid-parameter-data-type\00", align 1
-@.str.225 = private unnamed_addr constant [19 x i8] c"invalid-time-stamp\00", align 1
-@.str.226 = private unnamed_addr constant [21 x i8] c"key-generation-error\00", align 1
-@.str.227 = private unnamed_addr constant [27 x i8] c"missing-required-parameter\00", align 1
-@.str.228 = private unnamed_addr constant [29 x i8] c"no-objects-of-specified-type\00", align 1
-@.str.229 = private unnamed_addr constant [20 x i8] c"no-space-for-object\00", align 1
-@.str.230 = private unnamed_addr constant [29 x i8] c"no-space-to-add-list-element\00", align 1
-@.str.231 = private unnamed_addr constant [27 x i8] c"no-space-to-write-property\00", align 1
-@.str.232 = private unnamed_addr constant [25 x i8] c"no-vt-sessions-available\00", align 1
-@.str.233 = private unnamed_addr constant [23 x i8] c"property-is-not-a-list\00", align 1
-@.str.234 = private unnamed_addr constant [30 x i8] c"object-deletion-not-permitted\00", align 1
-@.str.235 = private unnamed_addr constant [33 x i8] c"object-identifier-already-exists\00", align 1
-@.str.236 = private unnamed_addr constant [20 x i8] c"operational-problem\00", align 1
-@.str.237 = private unnamed_addr constant [17 x i8] c"password-failure\00", align 1
-@.str.238 = private unnamed_addr constant [19 x i8] c"read-access-denied\00", align 1
-@.str.239 = private unnamed_addr constant [23 x i8] c"security-not-supported\00", align 1
-@.str.240 = private unnamed_addr constant [23 x i8] c"service-request-denied\00", align 1
-@.str.241 = private unnamed_addr constant [8 x i8] c"timeout\00", align 1
-@.str.242 = private unnamed_addr constant [15 x i8] c"unknown-object\00", align 1
-@.str.243 = private unnamed_addr constant [17 x i8] c"unknown-property\00", align 1
-@.str.244 = private unnamed_addr constant [20 x i8] c"removed enumeration\00", align 1
-@.str.245 = private unnamed_addr constant [17 x i8] c"unknown-vt-class\00", align 1
-@.str.246 = private unnamed_addr constant [19 x i8] c"unknown-vt-session\00", align 1
-@.str.247 = private unnamed_addr constant [24 x i8] c"unsupported-object-type\00", align 1
-@.str.248 = private unnamed_addr constant [19 x i8] c"value-out-of-range\00", align 1
-@.str.249 = private unnamed_addr constant [26 x i8] c"vt-session-already-closed\00", align 1
-@.str.250 = private unnamed_addr constant [31 x i8] c"vt-session-termination-failure\00", align 1
-@.str.251 = private unnamed_addr constant [20 x i8] c"write-access-denied\00", align 1
-@.str.252 = private unnamed_addr constant [28 x i8] c"character-set-not-supported\00", align 1
-@.str.253 = private unnamed_addr constant [20 x i8] c"invalid-array-index\00", align 1
-@.str.254 = private unnamed_addr constant [24 x i8] c"cov-subscription-failed\00", align 1
-@.str.255 = private unnamed_addr constant [17 x i8] c"not-cov-property\00", align 1
-@.str.256 = private unnamed_addr constant [37 x i8] c"optional-functionality-not-supported\00", align 1
-@.str.257 = private unnamed_addr constant [27 x i8] c"invalid-configuration-data\00", align 1
-@.str.258 = private unnamed_addr constant [23 x i8] c"datatype-not-supported\00", align 1
-@.str.259 = private unnamed_addr constant [15 x i8] c"duplicate-name\00", align 1
-@.str.260 = private unnamed_addr constant [20 x i8] c"duplicate-object-id\00", align 1
-@.str.261 = private unnamed_addr constant [25 x i8] c"property-is-not-an-array\00", align 1
-@.str.262 = private unnamed_addr constant [26 x i8] c"abort - buffer - overflow\00", align 1
-@.str.263 = private unnamed_addr constant [43 x i8] c"abort - invalid - apdu - in - this - state\00", align 1
-@.str.264 = private unnamed_addr constant [50 x i8] c"abort - preempted - by - higher - priority - task\00", align 1
-@.str.265 = private unnamed_addr constant [39 x i8] c"abort - segmentation - not - supported\00", align 1
-@.str.266 = private unnamed_addr constant [20 x i8] c"abort - proprietary\00", align 1
-@.str.267 = private unnamed_addr constant [14 x i8] c"abort - other\00", align 1
-@.str.268 = private unnamed_addr constant [23 x i8] c"reject - invalid - tag\00", align 1
-@.str.269 = private unnamed_addr constant [24 x i8] c"reject - network - down\00", align 1
-@.str.270 = private unnamed_addr constant [27 x i8] c"reject - buffer - overflow\00", align 1
-@.str.271 = private unnamed_addr constant [35 x i8] c"reject - inconsistent - parameters\00", align 1
-@.str.272 = private unnamed_addr constant [43 x i8] c"reject - invalid - parameter - data - type\00", align 1
-@.str.273 = private unnamed_addr constant [40 x i8] c"reject - missing - required - parameter\00", align 1
-@.str.274 = private unnamed_addr constant [38 x i8] c"reject - parameter - out - of - range\00", align 1
-@.str.275 = private unnamed_addr constant [32 x i8] c"reject - too - many - arguments\00", align 1
-@.str.276 = private unnamed_addr constant [33 x i8] c"reject - undefined - enumeration\00", align 1
-@.str.277 = private unnamed_addr constant [32 x i8] c"reject - unrecognized - service\00", align 1
-@.str.278 = private unnamed_addr constant [21 x i8] c"reject - proprietary\00", align 1
-@.str.279 = private unnamed_addr constant [15 x i8] c"reject - other\00", align 1
-@.str.280 = private unnamed_addr constant [17 x i8] c"unknown - device\00", align 1
-@.str.281 = private unnamed_addr constant [16 x i8] c"unknown - route\00", align 1
-@.str.282 = private unnamed_addr constant [26 x i8] c"value - not - initialized\00", align 1
-@.str.283 = private unnamed_addr constant [20 x i8] c"invalid-event-state\00", align 1
-@.str.284 = private unnamed_addr constant [20 x i8] c"no-alarm-configured\00", align 1
-@.str.285 = private unnamed_addr constant [16 x i8] c"log-buffer-full\00", align 1
-@.str.286 = private unnamed_addr constant [20 x i8] c"logged-value-purged\00", align 1
-@.str.287 = private unnamed_addr constant [22 x i8] c"no-property-specified\00", align 1
-@.str.288 = private unnamed_addr constant [37 x i8] c"not-configured-for-triggered-logging\00", align 1
-@.str.289 = private unnamed_addr constant [21 x i8] c"unknown-subscription\00", align 1
-@.str.290 = private unnamed_addr constant [23 x i8] c"parameter-out-of-range\00", align 1
-@.str.291 = private unnamed_addr constant [23 x i8] c"list-element-not-found\00", align 1
-@.str.292 = private unnamed_addr constant [5 x i8] c"busy\00", align 1
-@.str.293 = private unnamed_addr constant [23 x i8] c"communication-disabled\00", align 1
-@.str.294 = private unnamed_addr constant [8 x i8] c"success\00", align 1
-@.str.295 = private unnamed_addr constant [14 x i8] c"access-denied\00", align 1
-@.str.296 = private unnamed_addr constant [24 x i8] c"bad-destination-address\00", align 1
-@.str.297 = private unnamed_addr constant [26 x i8] c"bad-destination-device-id\00", align 1
-@.str.298 = private unnamed_addr constant [14 x i8] c"bad-signature\00", align 1
-@.str.299 = private unnamed_addr constant [19 x i8] c"bad-source-address\00", align 1
-@.str.300 = private unnamed_addr constant [14 x i8] c"bad-timestamp\00", align 1
-@.str.301 = private unnamed_addr constant [15 x i8] c"cannot-use-key\00", align 1
-@.str.302 = private unnamed_addr constant [25 x i8] c"cannot-verify-message-id\00", align 1
-@.str.303 = private unnamed_addr constant [21 x i8] c"correct-key-revision\00", align 1
-@.str.304 = private unnamed_addr constant [31 x i8] c"destination-device-id-required\00", align 1
-@.str.305 = private unnamed_addr constant [18 x i8] c"duplicate-message\00", align 1
-@.str.306 = private unnamed_addr constant [26 x i8] c"encryption-not-configured\00", align 1
-@.str.307 = private unnamed_addr constant [20 x i8] c"encryption-required\00", align 1
-@.str.308 = private unnamed_addr constant [14 x i8] c"incorrect-key\00", align 1
-@.str.309 = private unnamed_addr constant [17 x i8] c"invalid-key-data\00", align 1
-@.str.310 = private unnamed_addr constant [23 x i8] c"key-update-in-progress\00", align 1
-@.str.311 = private unnamed_addr constant [18 x i8] c"malformed-message\00", align 1
-@.str.312 = private unnamed_addr constant [15 x i8] c"not-key-server\00", align 1
-@.str.313 = private unnamed_addr constant [24 x i8] c"security-not-configured\00", align 1
-@.str.314 = private unnamed_addr constant [25 x i8] c"source-security-required\00", align 1
-@.str.315 = private unnamed_addr constant [14 x i8] c"too-many-keys\00", align 1
-@.str.316 = private unnamed_addr constant [28 x i8] c"unknown-authentication-type\00", align 1
-@.str.317 = private unnamed_addr constant [12 x i8] c"unknown-key\00", align 1
-@.str.318 = private unnamed_addr constant [21 x i8] c"unknown-key-revision\00", align 1
-@.str.319 = private unnamed_addr constant [23 x i8] c"unknown-source-message\00", align 1
-@.str.320 = private unnamed_addr constant [19 x i8] c"not-router-to-dnet\00", align 1
-@.str.321 = private unnamed_addr constant [12 x i8] c"router-busy\00", align 1
-@.str.322 = private unnamed_addr constant [24 x i8] c"unknown-network-message\00", align 1
-@.str.323 = private unnamed_addr constant [17 x i8] c"message-too-long\00", align 1
-@.str.324 = private unnamed_addr constant [15 x i8] c"security-error\00", align 1
-@.str.325 = private unnamed_addr constant [17 x i8] c"addressing-error\00", align 1
-@.str.326 = private unnamed_addr constant [17 x i8] c"write-bdt-failed\00", align 1
-@.str.327 = private unnamed_addr constant [16 x i8] c"read-bdt-failed\00", align 1
-@.str.328 = private unnamed_addr constant [31 x i8] c"register-foreign-device-failed\00", align 1
-@.str.329 = private unnamed_addr constant [16 x i8] c"read-fdt-failed\00", align 1
-@.str.330 = private unnamed_addr constant [24 x i8] c"delete-fdt-entry-failed\00", align 1
-@.str.331 = private unnamed_addr constant [28 x i8] c"distribute-broadcast-failed\00", align 1
-@.str.332 = private unnamed_addr constant [18 x i8] c"unknown-file-size\00", align 1
-@.str.333 = private unnamed_addr constant [20 x i8] c"abort-apdu-too-long\00", align 1
-@.str.334 = private unnamed_addr constant [38 x i8] c"abort-application-exceeded-reply-time\00", align 1
-@.str.335 = private unnamed_addr constant [23 x i8] c"abort-out-of-resources\00", align 1
-@.str.336 = private unnamed_addr constant [18 x i8] c"abort-tsm-timeout\00", align 1
-@.str.337 = private unnamed_addr constant [31 x i8] c"abort-window-size-out-of-range\00", align 1
-@.str.338 = private unnamed_addr constant [10 x i8] c"file-full\00", align 1
-@.str.339 = private unnamed_addr constant [27 x i8] c"inconsistent-configuration\00", align 1
-@.str.340 = private unnamed_addr constant [25 x i8] c"inconsistent-object-type\00", align 1
-@.str.341 = private unnamed_addr constant [15 x i8] c"internal-error\00", align 1
-@.str.342 = private unnamed_addr constant [15 x i8] c"not-configured\00", align 1
-@.str.343 = private unnamed_addr constant [14 x i8] c"out-of-memory\00", align 1
-@.str.344 = private unnamed_addr constant [15 x i8] c"value-too-long\00", align 1
-@.str.345 = private unnamed_addr constant [28 x i8] c"abort-insufficient-security\00", align 1
-@.str.346 = private unnamed_addr constant [21 x i8] c"abort-security-error\00", align 1
-@.str.347 = private unnamed_addr constant [16 x i8] c"duplicate-entry\00", align 1
-@.str.348 = private unnamed_addr constant [28 x i8] c"invalid-value-in-this-state\00", align 1
-@.str.349 = private unnamed_addr constant [32 x i8] c"invalid-operation-in-this-state\00", align 1
-@.str.350 = private unnamed_addr constant [23 x i8] c"list-item-not-numbered\00", align 1
-@.str.351 = private unnamed_addr constant [26 x i8] c"list-item-not-timestamped\00", align 1
-@.str.352 = private unnamed_addr constant [22 x i8] c"invalid-data-encoding\00", align 1
-@.str.353 = private unnamed_addr constant [22 x i8] c"bvlc-function-unknown\00", align 1
-@.str.354 = private unnamed_addr constant [34 x i8] c"bvlc-proprietary-function-unknown\00", align 1
-@.str.355 = private unnamed_addr constant [22 x i8] c"header-encoding-error\00", align 1
-@.str.356 = private unnamed_addr constant [22 x i8] c"header-not-understood\00", align 1
-@.str.357 = private unnamed_addr constant [19 x i8] c"message-incomplete\00", align 1
-@.str.358 = private unnamed_addr constant [20 x i8] c"not-a-bacnet-sc-hub\00", align 1
-@.str.359 = private unnamed_addr constant [17 x i8] c"payload-expected\00", align 1
-@.str.360 = private unnamed_addr constant [16 x i8] c"unexpected-data\00", align 1
-@.str.361 = private unnamed_addr constant [20 x i8] c"node-duplicate-vmac\00", align 1
-@.str.362 = private unnamed_addr constant [30 x i8] c"http-unexpected-response-code\00", align 1
-@.str.363 = private unnamed_addr constant [16 x i8] c"http-no-upgrade\00", align 1
-@.str.364 = private unnamed_addr constant [24 x i8] c"http-resource-not-local\00", align 1
-@.str.365 = private unnamed_addr constant [33 x i8] c"http-proxy-authentication-failed\00", align 1
-@.str.366 = private unnamed_addr constant [22 x i8] c"http-response-timeout\00", align 1
-@.str.367 = private unnamed_addr constant [27 x i8] c"http-response-syntax-error\00", align 1
-@.str.368 = private unnamed_addr constant [26 x i8] c"http-response-value-error\00", align 1
-@.str.369 = private unnamed_addr constant [29 x i8] c"http-response-missing-header\00", align 1
-@.str.370 = private unnamed_addr constant [28 x i8] c"http-websocket-header-error\00", align 1
-@.str.371 = private unnamed_addr constant [22 x i8] c"http-upgrade-required\00", align 1
-@.str.372 = private unnamed_addr constant [19 x i8] c"http-upgrade-error\00", align 1
-@.str.373 = private unnamed_addr constant [27 x i8] c"http-temporary-unavailable\00", align 1
-@.str.374 = private unnamed_addr constant [18 x i8] c"http-not-a-server\00", align 1
-@.str.375 = private unnamed_addr constant [11 x i8] c"http-error\00", align 1
-@.str.376 = private unnamed_addr constant [31 x i8] c"websocket-scheme-not-supported\00", align 1
-@.str.377 = private unnamed_addr constant [34 x i8] c"websocket-unknown-control-message\00", align 1
-@.str.378 = private unnamed_addr constant [22 x i8] c"websocket-close-error\00", align 1
-@.str.379 = private unnamed_addr constant [25 x i8] c"websocket-closed-by-peer\00", align 1
-@.str.380 = private unnamed_addr constant [26 x i8] c"websocket-endpoint-leaves\00", align 1
-@.str.381 = private unnamed_addr constant [25 x i8] c"websocket-protocol-error\00", align 1
-@.str.382 = private unnamed_addr constant [28 x i8] c"websocket-data-not-accepted\00", align 1
-@.str.383 = private unnamed_addr constant [28 x i8] c"websocket-closed-abnormally\00", align 1
-@.str.384 = private unnamed_addr constant [28 x i8] c"websocket-data-inconsistent\00", align 1
-@.str.385 = private unnamed_addr constant [30 x i8] c"websocket-data-against-policy\00", align 1
-@.str.386 = private unnamed_addr constant [25 x i8] c"websocket-frame-too-long\00", align 1
-@.str.387 = private unnamed_addr constant [28 x i8] c"websocket-extension-missing\00", align 1
-@.str.388 = private unnamed_addr constant [30 x i8] c"websocket-request-unavailable\00", align 1
-@.str.389 = private unnamed_addr constant [16 x i8] c"websocket-error\00", align 1
-@.str.390 = private unnamed_addr constant [29 x i8] c"tls-client-certificate-error\00", align 1
-@.str.391 = private unnamed_addr constant [29 x i8] c"tls-server-certificate-error\00", align 1
-@.str.392 = private unnamed_addr constant [33 x i8] c"tls-client-authentication-failed\00", align 1
-@.str.393 = private unnamed_addr constant [33 x i8] c"tls-server-authentication-failed\00", align 1
-@.str.394 = private unnamed_addr constant [31 x i8] c"tls-client-certificate-expired\00", align 1
-@.str.395 = private unnamed_addr constant [31 x i8] c"tls-server-certificate-expired\00", align 1
-@.str.396 = private unnamed_addr constant [31 x i8] c"tls-client-certificate-revoked\00", align 1
-@.str.397 = private unnamed_addr constant [31 x i8] c"tls-server-certificate-revoked\00", align 1
-@.str.398 = private unnamed_addr constant [10 x i8] c"tls-error\00", align 1
-@.str.399 = private unnamed_addr constant [16 x i8] c"dns-unavailable\00", align 1
-@.str.400 = private unnamed_addr constant [27 x i8] c"dns-name-resolution-failed\00", align 1
-@.str.401 = private unnamed_addr constant [21 x i8] c"dns-resolver-failure\00", align 1
-@.str.402 = private unnamed_addr constant [10 x i8] c"dns-error\00", align 1
-@.str.403 = private unnamed_addr constant [20 x i8] c"tcp-connect-timeout\00", align 1
-@.str.404 = private unnamed_addr constant [23 x i8] c"tcp-connection-refused\00", align 1
-@.str.405 = private unnamed_addr constant [20 x i8] c"tcp-closed-by-local\00", align 1
-@.str.406 = private unnamed_addr constant [17 x i8] c"tcp-closed-other\00", align 1
-@.str.407 = private unnamed_addr constant [10 x i8] c"tcp-error\00", align 1
-@.str.408 = private unnamed_addr constant [25 x i8] c"ip-address-not-reachable\00", align 1
-@.str.409 = private unnamed_addr constant [9 x i8] c"ip-error\00", align 1
-@.str.410 = private unnamed_addr constant [19 x i8] c" BVLC Function %s \00", align 1
-@.str.411 = private unnamed_addr constant [8 x i8] c"unknown\00", align 1
-@.str.412 = private unnamed_addr constant [52 x i8] c"%d of %d bytes (invalid length - expected %d bytes)\00", align 1
-@.str.413 = private unnamed_addr constant [36 x i8] c"%d of %d bytes BACnet packet length\00", align 1
-@.str.414 = private unnamed_addr constant [34 x i8] c" BSCVLC Function %s Message-ID %u\00", align 1
+@bvlc_types = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 129, [4 x i8] zeroinitializer, ptr @.str.138 }, { i32, [4 x i8], ptr } { i32 130, [4 x i8] zeroinitializer, ptr @.str.139 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.141 = private unnamed_addr constant [12 x i8] c"BVLC-Result\00", align 1
+@.str.142 = private unnamed_addr constant [35 x i8] c"Write-Broadcast-Distribution-Table\00", align 1
+@.str.143 = private unnamed_addr constant [34 x i8] c"Read-Broadcast-Distribution-Table\00", align 1
+@.str.144 = private unnamed_addr constant [38 x i8] c"Read-Broadcast-Distribution-Table-Ack\00", align 1
+@.str.145 = private unnamed_addr constant [15 x i8] c"Forwarded-NPDU\00", align 1
+@.str.146 = private unnamed_addr constant [24 x i8] c"Register-Foreign-Device\00", align 1
+@.str.147 = private unnamed_addr constant [26 x i8] c"Read-Foreign-Device-Table\00", align 1
+@.str.148 = private unnamed_addr constant [30 x i8] c"Read-Foreign-Device-Table-Ack\00", align 1
+@.str.149 = private unnamed_addr constant [34 x i8] c"Delete-Foreign-Device-Table-Entry\00", align 1
+@.str.150 = private unnamed_addr constant [32 x i8] c"Distribute-Broadcast-To-Network\00", align 1
+@.str.151 = private unnamed_addr constant [22 x i8] c"Original-Unicast-NPDU\00", align 1
+@.str.152 = private unnamed_addr constant [24 x i8] c"Original-Broadcast-NPDU\00", align 1
+@.str.153 = private unnamed_addr constant [13 x i8] c"Secured-BVLL\00", align 1
+@bvlc_function_names = internal constant [14 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.141 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.142 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.143 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.144 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.145 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.146 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.147 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.148 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.149 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.150 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.151 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.152 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.153 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.155 = private unnamed_addr constant [19 x i8] c"Address-Resolution\00", align 1
+@.str.156 = private unnamed_addr constant [29 x i8] c"Forwarded-Address-Resolution\00", align 1
+@.str.157 = private unnamed_addr constant [23 x i8] c"Address-Resolution-ACK\00", align 1
+@.str.158 = private unnamed_addr constant [27 x i8] c"Virtual-Address-Resolution\00", align 1
+@.str.159 = private unnamed_addr constant [31 x i8] c"Virtual-Address-Resolution-ACK\00", align 1
+@.str.160 = private unnamed_addr constant [12 x i8] c"Secure-BVLL\00", align 1
+@bvlc_ipv6_function_names = internal constant [14 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.141 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.151 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.152 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.155 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.156 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.157 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.158 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.159 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.145 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.146 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.149 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.160 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.150 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.162 = private unnamed_addr constant [22 x i8] c"Successful completion\00", align 1
+@.str.163 = private unnamed_addr constant [39 x i8] c"Write-Broadcast-Distribution-Table NAK\00", align 1
+@.str.164 = private unnamed_addr constant [38 x i8] c"Read-Broadcast-Distribution-Table NAK\00", align 1
+@.str.165 = private unnamed_addr constant [28 x i8] c"Register-Foreign-Device NAK\00", align 1
+@.str.166 = private unnamed_addr constant [30 x i8] c"Read-Foreign-Device-Table NAK\00", align 1
+@.str.167 = private unnamed_addr constant [38 x i8] c"Delete-Foreign-Device-Table-Entry NAK\00", align 1
+@.str.168 = private unnamed_addr constant [36 x i8] c"Distribute-Broadcast-To-Network NAK\00", align 1
+@bvlc_result_names = internal constant [8 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.162 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.163 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.164 }, { i32, [4 x i8], ptr } { i32 48, [4 x i8] zeroinitializer, ptr @.str.165 }, { i32, [4 x i8], ptr } { i32 64, [4 x i8] zeroinitializer, ptr @.str.166 }, { i32, [4 x i8], ptr } { i32 80, [4 x i8] zeroinitializer, ptr @.str.167 }, { i32, [4 x i8], ptr } { i32 96, [4 x i8] zeroinitializer, ptr @.str.168 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.170 = private unnamed_addr constant [23 x i8] c"Address-Resolution NAK\00", align 1
+@.str.171 = private unnamed_addr constant [31 x i8] c"Virtual-Address-Resolution NAK\00", align 1
+@bvlc_ipv6_result_names = internal constant [7 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.162 }, { i32, [4 x i8], ptr } { i32 48, [4 x i8] zeroinitializer, ptr @.str.170 }, { i32, [4 x i8], ptr } { i32 96, [4 x i8] zeroinitializer, ptr @.str.171 }, { i32, [4 x i8], ptr } { i32 144, [4 x i8] zeroinitializer, ptr @.str.165 }, { i32, [4 x i8], ptr } { i32 160, [4 x i8] zeroinitializer, ptr @.str.167 }, { i32, [4 x i8], ptr } { i32 192, [4 x i8] zeroinitializer, ptr @.str.168 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.173 = private unnamed_addr constant [31 x i8] c"Data Options field is present.\00", align 1
+@.str.174 = private unnamed_addr constant [30 x i8] c"Data Options field is absent.\00", align 1
+@.str.175 = private unnamed_addr constant [38 x i8] c"Destination Options field is present.\00", align 1
+@.str.176 = private unnamed_addr constant [37 x i8] c"Destination Options field is absent.\00", align 1
+@.str.177 = private unnamed_addr constant [40 x i8] c"Destination Virtual Address is present.\00", align 1
+@.str.178 = private unnamed_addr constant [39 x i8] c"Destination Virtual Address is absent.\00", align 1
+@.str.179 = private unnamed_addr constant [40 x i8] c"Originating Virtual Address is present.\00", align 1
+@.str.180 = private unnamed_addr constant [39 x i8] c"Originating Virtual Address is absent.\00", align 1
+@.str.181 = private unnamed_addr constant [27 x i8] c"Shall be zero, but is not.\00", align 1
+@.str.182 = private unnamed_addr constant [27 x i8] c"Shall be zero and is zero.\00", align 1
+@.str.183 = private unnamed_addr constant [12 x i8] c"Secure Path\00", align 1
+@.str.184 = private unnamed_addr constant [26 x i8] c"Proprietary Header Option\00", align 1
+@bscvlc_header_type_names = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.183 }, { i32, [4 x i8], ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.184 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.186 = private unnamed_addr constant [58 x i8] c"The 'Header Length' and 'Header Data' fields are present.\00", align 1
+@.str.187 = private unnamed_addr constant [57 x i8] c"The 'Header Length' and 'Header Data' fields are absent.\00", align 1
+@.str.188 = private unnamed_addr constant [65 x i8] c"This header option must be understood for consuming the message.\00", align 1
+@.str.189 = private unnamed_addr constant [53 x i8] c"This header option can be ignored if not understood.\00", align 1
+@.str.190 = private unnamed_addr constant [65 x i8] c"Another header option follows in the current header option list.\00", align 1
+@.str.191 = private unnamed_addr constant [66 x i8] c"This is the last header option in the current header option list.\00", align 1
+@.str.192 = private unnamed_addr constant [18 x i8] c"No hub connection\00", align 1
+@.str.193 = private unnamed_addr constant [25 x i8] c"Connected to primary hub\00", align 1
+@.str.194 = private unnamed_addr constant [26 x i8] c"Connected to failover hub\00", align 1
+@bscvlc_hub_conn_state_names = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.192 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.193 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.194 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.196 = private unnamed_addr constant [55 x i8] c"The node does not support accepting direct connections\00", align 1
+@.str.197 = private unnamed_addr constant [47 x i8] c"The node supports accepting direct connections\00", align 1
+@bscvlc_hub_accept_conns_names = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.196 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.197 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.199 = private unnamed_addr constant [18 x i8] c"Encapsulated-NPDU\00", align 1
+@.str.200 = private unnamed_addr constant [14 x i8] c"Advertisement\00", align 1
+@.str.201 = private unnamed_addr constant [27 x i8] c"Advertisement-Solicitation\00", align 1
+@.str.202 = private unnamed_addr constant [16 x i8] c"Connect-Request\00", align 1
+@.str.203 = private unnamed_addr constant [15 x i8] c"Connect-Accept\00", align 1
+@.str.204 = private unnamed_addr constant [19 x i8] c"Disconnect-Request\00", align 1
+@.str.205 = private unnamed_addr constant [15 x i8] c"Disconnect-ACK\00", align 1
+@.str.206 = private unnamed_addr constant [18 x i8] c"Heartbeat-Request\00", align 1
+@.str.207 = private unnamed_addr constant [14 x i8] c"Heartbeat-ACK\00", align 1
+@.str.208 = private unnamed_addr constant [20 x i8] c"Proprietary-Message\00", align 1
+@bscvlc_function_names = internal constant [14 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.141 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.199 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.155 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.157 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.200 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.201 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.202 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.203 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.204 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.205 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.206 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.207 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.208 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.210 = private unnamed_addr constant [28 x i8] c"Successful completion (ACK)\00", align 1
+@.str.211 = private unnamed_addr constant [24 x i8] c"Completion failed (NAK)\00", align 1
+@bscvlc_result_names = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.210 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.211 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.213 = private unnamed_addr constant [7 x i8] c"device\00", align 1
+@.str.214 = private unnamed_addr constant [7 x i8] c"object\00", align 1
+@.str.215 = private unnamed_addr constant [9 x i8] c"property\00", align 1
+@.str.216 = private unnamed_addr constant [10 x i8] c"resources\00", align 1
+@.str.217 = private unnamed_addr constant [9 x i8] c"security\00", align 1
+@.str.218 = private unnamed_addr constant [9 x i8] c"services\00", align 1
+@.str.219 = private unnamed_addr constant [3 x i8] c"vt\00", align 1
+@.str.220 = private unnamed_addr constant [14 x i8] c"communication\00", align 1
+@BACnetErrorClass = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.213 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.214 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.215 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.216 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.217 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.218 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.219 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.220 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.222 = private unnamed_addr constant [6 x i8] c"other\00", align 1
+@.str.223 = private unnamed_addr constant [22 x i8] c"authentication-failed\00", align 1
+@.str.224 = private unnamed_addr constant [26 x i8] c"configuration-in-progress\00", align 1
+@.str.225 = private unnamed_addr constant [12 x i8] c"device-busy\00", align 1
+@.str.226 = private unnamed_addr constant [31 x i8] c"dynamic-creation-not-supported\00", align 1
+@.str.227 = private unnamed_addr constant [19 x i8] c"file-access-denied\00", align 1
+@.str.228 = private unnamed_addr constant [29 x i8] c"incompatible-security-levels\00", align 1
+@.str.229 = private unnamed_addr constant [24 x i8] c"inconsistent-parameters\00", align 1
+@.str.230 = private unnamed_addr constant [33 x i8] c"inconsistent-selection-criterion\00", align 1
+@.str.231 = private unnamed_addr constant [18 x i8] c"invalid-data-type\00", align 1
+@.str.232 = private unnamed_addr constant [27 x i8] c"invalid-file-access-method\00", align 1
+@.str.233 = private unnamed_addr constant [28 x i8] c"invalid-file-start-position\00", align 1
+@.str.234 = private unnamed_addr constant [22 x i8] c"invalid-operator-name\00", align 1
+@.str.235 = private unnamed_addr constant [28 x i8] c"invalid-parameter-data-type\00", align 1
+@.str.236 = private unnamed_addr constant [19 x i8] c"invalid-time-stamp\00", align 1
+@.str.237 = private unnamed_addr constant [21 x i8] c"key-generation-error\00", align 1
+@.str.238 = private unnamed_addr constant [27 x i8] c"missing-required-parameter\00", align 1
+@.str.239 = private unnamed_addr constant [29 x i8] c"no-objects-of-specified-type\00", align 1
+@.str.240 = private unnamed_addr constant [20 x i8] c"no-space-for-object\00", align 1
+@.str.241 = private unnamed_addr constant [29 x i8] c"no-space-to-add-list-element\00", align 1
+@.str.242 = private unnamed_addr constant [27 x i8] c"no-space-to-write-property\00", align 1
+@.str.243 = private unnamed_addr constant [25 x i8] c"no-vt-sessions-available\00", align 1
+@.str.244 = private unnamed_addr constant [23 x i8] c"property-is-not-a-list\00", align 1
+@.str.245 = private unnamed_addr constant [30 x i8] c"object-deletion-not-permitted\00", align 1
+@.str.246 = private unnamed_addr constant [33 x i8] c"object-identifier-already-exists\00", align 1
+@.str.247 = private unnamed_addr constant [20 x i8] c"operational-problem\00", align 1
+@.str.248 = private unnamed_addr constant [17 x i8] c"password-failure\00", align 1
+@.str.249 = private unnamed_addr constant [19 x i8] c"read-access-denied\00", align 1
+@.str.250 = private unnamed_addr constant [23 x i8] c"security-not-supported\00", align 1
+@.str.251 = private unnamed_addr constant [23 x i8] c"service-request-denied\00", align 1
+@.str.252 = private unnamed_addr constant [8 x i8] c"timeout\00", align 1
+@.str.253 = private unnamed_addr constant [15 x i8] c"unknown-object\00", align 1
+@.str.254 = private unnamed_addr constant [17 x i8] c"unknown-property\00", align 1
+@.str.255 = private unnamed_addr constant [20 x i8] c"removed enumeration\00", align 1
+@.str.256 = private unnamed_addr constant [17 x i8] c"unknown-vt-class\00", align 1
+@.str.257 = private unnamed_addr constant [19 x i8] c"unknown-vt-session\00", align 1
+@.str.258 = private unnamed_addr constant [24 x i8] c"unsupported-object-type\00", align 1
+@.str.259 = private unnamed_addr constant [19 x i8] c"value-out-of-range\00", align 1
+@.str.260 = private unnamed_addr constant [26 x i8] c"vt-session-already-closed\00", align 1
+@.str.261 = private unnamed_addr constant [31 x i8] c"vt-session-termination-failure\00", align 1
+@.str.262 = private unnamed_addr constant [20 x i8] c"write-access-denied\00", align 1
+@.str.263 = private unnamed_addr constant [28 x i8] c"character-set-not-supported\00", align 1
+@.str.264 = private unnamed_addr constant [20 x i8] c"invalid-array-index\00", align 1
+@.str.265 = private unnamed_addr constant [24 x i8] c"cov-subscription-failed\00", align 1
+@.str.266 = private unnamed_addr constant [17 x i8] c"not-cov-property\00", align 1
+@.str.267 = private unnamed_addr constant [37 x i8] c"optional-functionality-not-supported\00", align 1
+@.str.268 = private unnamed_addr constant [27 x i8] c"invalid-configuration-data\00", align 1
+@.str.269 = private unnamed_addr constant [23 x i8] c"datatype-not-supported\00", align 1
+@.str.270 = private unnamed_addr constant [15 x i8] c"duplicate-name\00", align 1
+@.str.271 = private unnamed_addr constant [20 x i8] c"duplicate-object-id\00", align 1
+@.str.272 = private unnamed_addr constant [25 x i8] c"property-is-not-an-array\00", align 1
+@.str.273 = private unnamed_addr constant [26 x i8] c"abort - buffer - overflow\00", align 1
+@.str.274 = private unnamed_addr constant [43 x i8] c"abort - invalid - apdu - in - this - state\00", align 1
+@.str.275 = private unnamed_addr constant [50 x i8] c"abort - preempted - by - higher - priority - task\00", align 1
+@.str.276 = private unnamed_addr constant [39 x i8] c"abort - segmentation - not - supported\00", align 1
+@.str.277 = private unnamed_addr constant [20 x i8] c"abort - proprietary\00", align 1
+@.str.278 = private unnamed_addr constant [14 x i8] c"abort - other\00", align 1
+@.str.279 = private unnamed_addr constant [23 x i8] c"reject - invalid - tag\00", align 1
+@.str.280 = private unnamed_addr constant [24 x i8] c"reject - network - down\00", align 1
+@.str.281 = private unnamed_addr constant [27 x i8] c"reject - buffer - overflow\00", align 1
+@.str.282 = private unnamed_addr constant [35 x i8] c"reject - inconsistent - parameters\00", align 1
+@.str.283 = private unnamed_addr constant [43 x i8] c"reject - invalid - parameter - data - type\00", align 1
+@.str.284 = private unnamed_addr constant [40 x i8] c"reject - missing - required - parameter\00", align 1
+@.str.285 = private unnamed_addr constant [38 x i8] c"reject - parameter - out - of - range\00", align 1
+@.str.286 = private unnamed_addr constant [32 x i8] c"reject - too - many - arguments\00", align 1
+@.str.287 = private unnamed_addr constant [33 x i8] c"reject - undefined - enumeration\00", align 1
+@.str.288 = private unnamed_addr constant [32 x i8] c"reject - unrecognized - service\00", align 1
+@.str.289 = private unnamed_addr constant [21 x i8] c"reject - proprietary\00", align 1
+@.str.290 = private unnamed_addr constant [15 x i8] c"reject - other\00", align 1
+@.str.291 = private unnamed_addr constant [17 x i8] c"unknown - device\00", align 1
+@.str.292 = private unnamed_addr constant [16 x i8] c"unknown - route\00", align 1
+@.str.293 = private unnamed_addr constant [26 x i8] c"value - not - initialized\00", align 1
+@.str.294 = private unnamed_addr constant [20 x i8] c"invalid-event-state\00", align 1
+@.str.295 = private unnamed_addr constant [20 x i8] c"no-alarm-configured\00", align 1
+@.str.296 = private unnamed_addr constant [16 x i8] c"log-buffer-full\00", align 1
+@.str.297 = private unnamed_addr constant [20 x i8] c"logged-value-purged\00", align 1
+@.str.298 = private unnamed_addr constant [22 x i8] c"no-property-specified\00", align 1
+@.str.299 = private unnamed_addr constant [37 x i8] c"not-configured-for-triggered-logging\00", align 1
+@.str.300 = private unnamed_addr constant [21 x i8] c"unknown-subscription\00", align 1
+@.str.301 = private unnamed_addr constant [23 x i8] c"parameter-out-of-range\00", align 1
+@.str.302 = private unnamed_addr constant [23 x i8] c"list-element-not-found\00", align 1
+@.str.303 = private unnamed_addr constant [5 x i8] c"busy\00", align 1
+@.str.304 = private unnamed_addr constant [23 x i8] c"communication-disabled\00", align 1
+@.str.305 = private unnamed_addr constant [8 x i8] c"success\00", align 1
+@.str.306 = private unnamed_addr constant [14 x i8] c"access-denied\00", align 1
+@.str.307 = private unnamed_addr constant [24 x i8] c"bad-destination-address\00", align 1
+@.str.308 = private unnamed_addr constant [26 x i8] c"bad-destination-device-id\00", align 1
+@.str.309 = private unnamed_addr constant [14 x i8] c"bad-signature\00", align 1
+@.str.310 = private unnamed_addr constant [19 x i8] c"bad-source-address\00", align 1
+@.str.311 = private unnamed_addr constant [14 x i8] c"bad-timestamp\00", align 1
+@.str.312 = private unnamed_addr constant [15 x i8] c"cannot-use-key\00", align 1
+@.str.313 = private unnamed_addr constant [25 x i8] c"cannot-verify-message-id\00", align 1
+@.str.314 = private unnamed_addr constant [21 x i8] c"correct-key-revision\00", align 1
+@.str.315 = private unnamed_addr constant [31 x i8] c"destination-device-id-required\00", align 1
+@.str.316 = private unnamed_addr constant [18 x i8] c"duplicate-message\00", align 1
+@.str.317 = private unnamed_addr constant [26 x i8] c"encryption-not-configured\00", align 1
+@.str.318 = private unnamed_addr constant [20 x i8] c"encryption-required\00", align 1
+@.str.319 = private unnamed_addr constant [14 x i8] c"incorrect-key\00", align 1
+@.str.320 = private unnamed_addr constant [17 x i8] c"invalid-key-data\00", align 1
+@.str.321 = private unnamed_addr constant [23 x i8] c"key-update-in-progress\00", align 1
+@.str.322 = private unnamed_addr constant [18 x i8] c"malformed-message\00", align 1
+@.str.323 = private unnamed_addr constant [15 x i8] c"not-key-server\00", align 1
+@.str.324 = private unnamed_addr constant [24 x i8] c"security-not-configured\00", align 1
+@.str.325 = private unnamed_addr constant [25 x i8] c"source-security-required\00", align 1
+@.str.326 = private unnamed_addr constant [14 x i8] c"too-many-keys\00", align 1
+@.str.327 = private unnamed_addr constant [28 x i8] c"unknown-authentication-type\00", align 1
+@.str.328 = private unnamed_addr constant [12 x i8] c"unknown-key\00", align 1
+@.str.329 = private unnamed_addr constant [21 x i8] c"unknown-key-revision\00", align 1
+@.str.330 = private unnamed_addr constant [23 x i8] c"unknown-source-message\00", align 1
+@.str.331 = private unnamed_addr constant [19 x i8] c"not-router-to-dnet\00", align 1
+@.str.332 = private unnamed_addr constant [12 x i8] c"router-busy\00", align 1
+@.str.333 = private unnamed_addr constant [24 x i8] c"unknown-network-message\00", align 1
+@.str.334 = private unnamed_addr constant [17 x i8] c"message-too-long\00", align 1
+@.str.335 = private unnamed_addr constant [15 x i8] c"security-error\00", align 1
+@.str.336 = private unnamed_addr constant [17 x i8] c"addressing-error\00", align 1
+@.str.337 = private unnamed_addr constant [17 x i8] c"write-bdt-failed\00", align 1
+@.str.338 = private unnamed_addr constant [16 x i8] c"read-bdt-failed\00", align 1
+@.str.339 = private unnamed_addr constant [31 x i8] c"register-foreign-device-failed\00", align 1
+@.str.340 = private unnamed_addr constant [16 x i8] c"read-fdt-failed\00", align 1
+@.str.341 = private unnamed_addr constant [24 x i8] c"delete-fdt-entry-failed\00", align 1
+@.str.342 = private unnamed_addr constant [28 x i8] c"distribute-broadcast-failed\00", align 1
+@.str.343 = private unnamed_addr constant [18 x i8] c"unknown-file-size\00", align 1
+@.str.344 = private unnamed_addr constant [20 x i8] c"abort-apdu-too-long\00", align 1
+@.str.345 = private unnamed_addr constant [38 x i8] c"abort-application-exceeded-reply-time\00", align 1
+@.str.346 = private unnamed_addr constant [23 x i8] c"abort-out-of-resources\00", align 1
+@.str.347 = private unnamed_addr constant [18 x i8] c"abort-tsm-timeout\00", align 1
+@.str.348 = private unnamed_addr constant [31 x i8] c"abort-window-size-out-of-range\00", align 1
+@.str.349 = private unnamed_addr constant [10 x i8] c"file-full\00", align 1
+@.str.350 = private unnamed_addr constant [27 x i8] c"inconsistent-configuration\00", align 1
+@.str.351 = private unnamed_addr constant [25 x i8] c"inconsistent-object-type\00", align 1
+@.str.352 = private unnamed_addr constant [15 x i8] c"internal-error\00", align 1
+@.str.353 = private unnamed_addr constant [15 x i8] c"not-configured\00", align 1
+@.str.354 = private unnamed_addr constant [14 x i8] c"out-of-memory\00", align 1
+@.str.355 = private unnamed_addr constant [15 x i8] c"value-too-long\00", align 1
+@.str.356 = private unnamed_addr constant [28 x i8] c"abort-insufficient-security\00", align 1
+@.str.357 = private unnamed_addr constant [21 x i8] c"abort-security-error\00", align 1
+@.str.358 = private unnamed_addr constant [16 x i8] c"duplicate-entry\00", align 1
+@.str.359 = private unnamed_addr constant [28 x i8] c"invalid-value-in-this-state\00", align 1
+@.str.360 = private unnamed_addr constant [32 x i8] c"invalid-operation-in-this-state\00", align 1
+@.str.361 = private unnamed_addr constant [23 x i8] c"list-item-not-numbered\00", align 1
+@.str.362 = private unnamed_addr constant [26 x i8] c"list-item-not-timestamped\00", align 1
+@.str.363 = private unnamed_addr constant [22 x i8] c"invalid-data-encoding\00", align 1
+@.str.364 = private unnamed_addr constant [22 x i8] c"bvlc-function-unknown\00", align 1
+@.str.365 = private unnamed_addr constant [34 x i8] c"bvlc-proprietary-function-unknown\00", align 1
+@.str.366 = private unnamed_addr constant [22 x i8] c"header-encoding-error\00", align 1
+@.str.367 = private unnamed_addr constant [22 x i8] c"header-not-understood\00", align 1
+@.str.368 = private unnamed_addr constant [19 x i8] c"message-incomplete\00", align 1
+@.str.369 = private unnamed_addr constant [20 x i8] c"not-a-bacnet-sc-hub\00", align 1
+@.str.370 = private unnamed_addr constant [17 x i8] c"payload-expected\00", align 1
+@.str.371 = private unnamed_addr constant [16 x i8] c"unexpected-data\00", align 1
+@.str.372 = private unnamed_addr constant [20 x i8] c"node-duplicate-vmac\00", align 1
+@.str.373 = private unnamed_addr constant [30 x i8] c"http-unexpected-response-code\00", align 1
+@.str.374 = private unnamed_addr constant [16 x i8] c"http-no-upgrade\00", align 1
+@.str.375 = private unnamed_addr constant [24 x i8] c"http-resource-not-local\00", align 1
+@.str.376 = private unnamed_addr constant [33 x i8] c"http-proxy-authentication-failed\00", align 1
+@.str.377 = private unnamed_addr constant [22 x i8] c"http-response-timeout\00", align 1
+@.str.378 = private unnamed_addr constant [27 x i8] c"http-response-syntax-error\00", align 1
+@.str.379 = private unnamed_addr constant [26 x i8] c"http-response-value-error\00", align 1
+@.str.380 = private unnamed_addr constant [29 x i8] c"http-response-missing-header\00", align 1
+@.str.381 = private unnamed_addr constant [28 x i8] c"http-websocket-header-error\00", align 1
+@.str.382 = private unnamed_addr constant [22 x i8] c"http-upgrade-required\00", align 1
+@.str.383 = private unnamed_addr constant [19 x i8] c"http-upgrade-error\00", align 1
+@.str.384 = private unnamed_addr constant [27 x i8] c"http-temporary-unavailable\00", align 1
+@.str.385 = private unnamed_addr constant [18 x i8] c"http-not-a-server\00", align 1
+@.str.386 = private unnamed_addr constant [11 x i8] c"http-error\00", align 1
+@.str.387 = private unnamed_addr constant [31 x i8] c"websocket-scheme-not-supported\00", align 1
+@.str.388 = private unnamed_addr constant [34 x i8] c"websocket-unknown-control-message\00", align 1
+@.str.389 = private unnamed_addr constant [22 x i8] c"websocket-close-error\00", align 1
+@.str.390 = private unnamed_addr constant [25 x i8] c"websocket-closed-by-peer\00", align 1
+@.str.391 = private unnamed_addr constant [26 x i8] c"websocket-endpoint-leaves\00", align 1
+@.str.392 = private unnamed_addr constant [25 x i8] c"websocket-protocol-error\00", align 1
+@.str.393 = private unnamed_addr constant [28 x i8] c"websocket-data-not-accepted\00", align 1
+@.str.394 = private unnamed_addr constant [28 x i8] c"websocket-closed-abnormally\00", align 1
+@.str.395 = private unnamed_addr constant [28 x i8] c"websocket-data-inconsistent\00", align 1
+@.str.396 = private unnamed_addr constant [30 x i8] c"websocket-data-against-policy\00", align 1
+@.str.397 = private unnamed_addr constant [25 x i8] c"websocket-frame-too-long\00", align 1
+@.str.398 = private unnamed_addr constant [28 x i8] c"websocket-extension-missing\00", align 1
+@.str.399 = private unnamed_addr constant [30 x i8] c"websocket-request-unavailable\00", align 1
+@.str.400 = private unnamed_addr constant [16 x i8] c"websocket-error\00", align 1
+@.str.401 = private unnamed_addr constant [29 x i8] c"tls-client-certificate-error\00", align 1
+@.str.402 = private unnamed_addr constant [29 x i8] c"tls-server-certificate-error\00", align 1
+@.str.403 = private unnamed_addr constant [33 x i8] c"tls-client-authentication-failed\00", align 1
+@.str.404 = private unnamed_addr constant [33 x i8] c"tls-server-authentication-failed\00", align 1
+@.str.405 = private unnamed_addr constant [31 x i8] c"tls-client-certificate-expired\00", align 1
+@.str.406 = private unnamed_addr constant [31 x i8] c"tls-server-certificate-expired\00", align 1
+@.str.407 = private unnamed_addr constant [31 x i8] c"tls-client-certificate-revoked\00", align 1
+@.str.408 = private unnamed_addr constant [31 x i8] c"tls-server-certificate-revoked\00", align 1
+@.str.409 = private unnamed_addr constant [10 x i8] c"tls-error\00", align 1
+@.str.410 = private unnamed_addr constant [16 x i8] c"dns-unavailable\00", align 1
+@.str.411 = private unnamed_addr constant [27 x i8] c"dns-name-resolution-failed\00", align 1
+@.str.412 = private unnamed_addr constant [21 x i8] c"dns-resolver-failure\00", align 1
+@.str.413 = private unnamed_addr constant [10 x i8] c"dns-error\00", align 1
+@.str.414 = private unnamed_addr constant [20 x i8] c"tcp-connect-timeout\00", align 1
+@.str.415 = private unnamed_addr constant [23 x i8] c"tcp-connection-refused\00", align 1
+@.str.416 = private unnamed_addr constant [20 x i8] c"tcp-closed-by-local\00", align 1
+@.str.417 = private unnamed_addr constant [17 x i8] c"tcp-closed-other\00", align 1
+@.str.418 = private unnamed_addr constant [10 x i8] c"tcp-error\00", align 1
+@.str.419 = private unnamed_addr constant [25 x i8] c"ip-address-not-reachable\00", align 1
+@.str.420 = private unnamed_addr constant [9 x i8] c"ip-error\00", align 1
+@BACnetErrorCode = internal constant [201 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.222 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.223 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.224 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.225 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.226 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.227 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.228 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.229 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.230 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.231 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.232 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.233 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.234 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.235 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.236 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.237 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.238 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.239 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.240 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.241 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.242 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.243 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.244 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.245 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.246 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.247 }, { i32, [4 x i8], ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.248 }, { i32, [4 x i8], ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.249 }, { i32, [4 x i8], ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.250 }, { i32, [4 x i8], ptr } { i32 29, [4 x i8] zeroinitializer, ptr @.str.251 }, { i32, [4 x i8], ptr } { i32 30, [4 x i8] zeroinitializer, ptr @.str.252 }, { i32, [4 x i8], ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.253 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.254 }, { i32, [4 x i8], ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.255 }, { i32, [4 x i8], ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.256 }, { i32, [4 x i8], ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.257 }, { i32, [4 x i8], ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.258 }, { i32, [4 x i8], ptr } { i32 37, [4 x i8] zeroinitializer, ptr @.str.259 }, { i32, [4 x i8], ptr } { i32 38, [4 x i8] zeroinitializer, ptr @.str.260 }, { i32, [4 x i8], ptr } { i32 39, [4 x i8] zeroinitializer, ptr @.str.261 }, { i32, [4 x i8], ptr } { i32 40, [4 x i8] zeroinitializer, ptr @.str.262 }, { i32, [4 x i8], ptr } { i32 41, [4 x i8] zeroinitializer, ptr @.str.263 }, { i32, [4 x i8], ptr } { i32 42, [4 x i8] zeroinitializer, ptr @.str.264 }, { i32, [4 x i8], ptr } { i32 43, [4 x i8] zeroinitializer, ptr @.str.265 }, { i32, [4 x i8], ptr } { i32 44, [4 x i8] zeroinitializer, ptr @.str.266 }, { i32, [4 x i8], ptr } { i32 45, [4 x i8] zeroinitializer, ptr @.str.267 }, { i32, [4 x i8], ptr } { i32 46, [4 x i8] zeroinitializer, ptr @.str.268 }, { i32, [4 x i8], ptr } { i32 47, [4 x i8] zeroinitializer, ptr @.str.269 }, { i32, [4 x i8], ptr } { i32 48, [4 x i8] zeroinitializer, ptr @.str.270 }, { i32, [4 x i8], ptr } { i32 49, [4 x i8] zeroinitializer, ptr @.str.271 }, { i32, [4 x i8], ptr } { i32 50, [4 x i8] zeroinitializer, ptr @.str.272 }, { i32, [4 x i8], ptr } { i32 51, [4 x i8] zeroinitializer, ptr @.str.273 }, { i32, [4 x i8], ptr } { i32 52, [4 x i8] zeroinitializer, ptr @.str.274 }, { i32, [4 x i8], ptr } { i32 53, [4 x i8] zeroinitializer, ptr @.str.275 }, { i32, [4 x i8], ptr } { i32 54, [4 x i8] zeroinitializer, ptr @.str.276 }, { i32, [4 x i8], ptr } { i32 55, [4 x i8] zeroinitializer, ptr @.str.277 }, { i32, [4 x i8], ptr } { i32 56, [4 x i8] zeroinitializer, ptr @.str.278 }, { i32, [4 x i8], ptr } { i32 57, [4 x i8] zeroinitializer, ptr @.str.279 }, { i32, [4 x i8], ptr } { i32 58, [4 x i8] zeroinitializer, ptr @.str.280 }, { i32, [4 x i8], ptr } { i32 59, [4 x i8] zeroinitializer, ptr @.str.281 }, { i32, [4 x i8], ptr } { i32 60, [4 x i8] zeroinitializer, ptr @.str.282 }, { i32, [4 x i8], ptr } { i32 61, [4 x i8] zeroinitializer, ptr @.str.283 }, { i32, [4 x i8], ptr } { i32 62, [4 x i8] zeroinitializer, ptr @.str.279 }, { i32, [4 x i8], ptr } { i32 63, [4 x i8] zeroinitializer, ptr @.str.284 }, { i32, [4 x i8], ptr } { i32 64, [4 x i8] zeroinitializer, ptr @.str.285 }, { i32, [4 x i8], ptr } { i32 65, [4 x i8] zeroinitializer, ptr @.str.286 }, { i32, [4 x i8], ptr } { i32 66, [4 x i8] zeroinitializer, ptr @.str.287 }, { i32, [4 x i8], ptr } { i32 67, [4 x i8] zeroinitializer, ptr @.str.288 }, { i32, [4 x i8], ptr } { i32 68, [4 x i8] zeroinitializer, ptr @.str.289 }, { i32, [4 x i8], ptr } { i32 69, [4 x i8] zeroinitializer, ptr @.str.290 }, { i32, [4 x i8], ptr } { i32 70, [4 x i8] zeroinitializer, ptr @.str.291 }, { i32, [4 x i8], ptr } { i32 71, [4 x i8] zeroinitializer, ptr @.str.292 }, { i32, [4 x i8], ptr } { i32 72, [4 x i8] zeroinitializer, ptr @.str.293 }, { i32, [4 x i8], ptr } { i32 73, [4 x i8] zeroinitializer, ptr @.str.294 }, { i32, [4 x i8], ptr } { i32 74, [4 x i8] zeroinitializer, ptr @.str.295 }, { i32, [4 x i8], ptr } { i32 75, [4 x i8] zeroinitializer, ptr @.str.296 }, { i32, [4 x i8], ptr } { i32 76, [4 x i8] zeroinitializer, ptr @.str.297 }, { i32, [4 x i8], ptr } { i32 77, [4 x i8] zeroinitializer, ptr @.str.298 }, { i32, [4 x i8], ptr } { i32 78, [4 x i8] zeroinitializer, ptr @.str.299 }, { i32, [4 x i8], ptr } { i32 79, [4 x i8] zeroinitializer, ptr @.str.300 }, { i32, [4 x i8], ptr } { i32 80, [4 x i8] zeroinitializer, ptr @.str.301 }, { i32, [4 x i8], ptr } { i32 81, [4 x i8] zeroinitializer, ptr @.str.302 }, { i32, [4 x i8], ptr } { i32 82, [4 x i8] zeroinitializer, ptr @.str.303 }, { i32, [4 x i8], ptr } { i32 83, [4 x i8] zeroinitializer, ptr @.str.304 }, { i32, [4 x i8], ptr } { i32 84, [4 x i8] zeroinitializer, ptr @.str.305 }, { i32, [4 x i8], ptr } { i32 85, [4 x i8] zeroinitializer, ptr @.str.306 }, { i32, [4 x i8], ptr } { i32 86, [4 x i8] zeroinitializer, ptr @.str.307 }, { i32, [4 x i8], ptr } { i32 87, [4 x i8] zeroinitializer, ptr @.str.308 }, { i32, [4 x i8], ptr } { i32 88, [4 x i8] zeroinitializer, ptr @.str.309 }, { i32, [4 x i8], ptr } { i32 89, [4 x i8] zeroinitializer, ptr @.str.310 }, { i32, [4 x i8], ptr } { i32 90, [4 x i8] zeroinitializer, ptr @.str.311 }, { i32, [4 x i8], ptr } { i32 91, [4 x i8] zeroinitializer, ptr @.str.312 }, { i32, [4 x i8], ptr } { i32 92, [4 x i8] zeroinitializer, ptr @.str.313 }, { i32, [4 x i8], ptr } { i32 93, [4 x i8] zeroinitializer, ptr @.str.314 }, { i32, [4 x i8], ptr } { i32 94, [4 x i8] zeroinitializer, ptr @.str.315 }, { i32, [4 x i8], ptr } { i32 95, [4 x i8] zeroinitializer, ptr @.str.316 }, { i32, [4 x i8], ptr } { i32 96, [4 x i8] zeroinitializer, ptr @.str.317 }, { i32, [4 x i8], ptr } { i32 97, [4 x i8] zeroinitializer, ptr @.str.318 }, { i32, [4 x i8], ptr } { i32 98, [4 x i8] zeroinitializer, ptr @.str.319 }, { i32, [4 x i8], ptr } { i32 99, [4 x i8] zeroinitializer, ptr @.str.320 }, { i32, [4 x i8], ptr } { i32 100, [4 x i8] zeroinitializer, ptr @.str.321 }, { i32, [4 x i8], ptr } { i32 101, [4 x i8] zeroinitializer, ptr @.str.322 }, { i32, [4 x i8], ptr } { i32 102, [4 x i8] zeroinitializer, ptr @.str.323 }, { i32, [4 x i8], ptr } { i32 103, [4 x i8] zeroinitializer, ptr @.str.324 }, { i32, [4 x i8], ptr } { i32 104, [4 x i8] zeroinitializer, ptr @.str.325 }, { i32, [4 x i8], ptr } { i32 105, [4 x i8] zeroinitializer, ptr @.str.326 }, { i32, [4 x i8], ptr } { i32 106, [4 x i8] zeroinitializer, ptr @.str.327 }, { i32, [4 x i8], ptr } { i32 107, [4 x i8] zeroinitializer, ptr @.str.328 }, { i32, [4 x i8], ptr } { i32 108, [4 x i8] zeroinitializer, ptr @.str.329 }, { i32, [4 x i8], ptr } { i32 109, [4 x i8] zeroinitializer, ptr @.str.330 }, { i32, [4 x i8], ptr } { i32 110, [4 x i8] zeroinitializer, ptr @.str.331 }, { i32, [4 x i8], ptr } { i32 111, [4 x i8] zeroinitializer, ptr @.str.332 }, { i32, [4 x i8], ptr } { i32 112, [4 x i8] zeroinitializer, ptr @.str.333 }, { i32, [4 x i8], ptr } { i32 113, [4 x i8] zeroinitializer, ptr @.str.334 }, { i32, [4 x i8], ptr } { i32 114, [4 x i8] zeroinitializer, ptr @.str.335 }, { i32, [4 x i8], ptr } { i32 115, [4 x i8] zeroinitializer, ptr @.str.336 }, { i32, [4 x i8], ptr } { i32 116, [4 x i8] zeroinitializer, ptr @.str.337 }, { i32, [4 x i8], ptr } { i32 117, [4 x i8] zeroinitializer, ptr @.str.338 }, { i32, [4 x i8], ptr } { i32 118, [4 x i8] zeroinitializer, ptr @.str.339 }, { i32, [4 x i8], ptr } { i32 119, [4 x i8] zeroinitializer, ptr @.str.340 }, { i32, [4 x i8], ptr } { i32 120, [4 x i8] zeroinitializer, ptr @.str.341 }, { i32, [4 x i8], ptr } { i32 121, [4 x i8] zeroinitializer, ptr @.str.342 }, { i32, [4 x i8], ptr } { i32 122, [4 x i8] zeroinitializer, ptr @.str.343 }, { i32, [4 x i8], ptr } { i32 123, [4 x i8] zeroinitializer, ptr @.str.344 }, { i32, [4 x i8], ptr } { i32 124, [4 x i8] zeroinitializer, ptr @.str.345 }, { i32, [4 x i8], ptr } { i32 125, [4 x i8] zeroinitializer, ptr @.str.346 }, { i32, [4 x i8], ptr } { i32 126, [4 x i8] zeroinitializer, ptr @.str.347 }, { i32, [4 x i8], ptr } { i32 127, [4 x i8] zeroinitializer, ptr @.str.348 }, { i32, [4 x i8], ptr } { i32 128, [4 x i8] zeroinitializer, ptr @.str.349 }, { i32, [4 x i8], ptr } { i32 129, [4 x i8] zeroinitializer, ptr @.str.350 }, { i32, [4 x i8], ptr } { i32 130, [4 x i8] zeroinitializer, ptr @.str.351 }, { i32, [4 x i8], ptr } { i32 131, [4 x i8] zeroinitializer, ptr @.str.352 }, { i32, [4 x i8], ptr } { i32 132, [4 x i8] zeroinitializer, ptr @.str.353 }, { i32, [4 x i8], ptr } { i32 133, [4 x i8] zeroinitializer, ptr @.str.354 }, { i32, [4 x i8], ptr } { i32 134, [4 x i8] zeroinitializer, ptr @.str.355 }, { i32, [4 x i8], ptr } { i32 135, [4 x i8] zeroinitializer, ptr @.str.356 }, { i32, [4 x i8], ptr } { i32 136, [4 x i8] zeroinitializer, ptr @.str.357 }, { i32, [4 x i8], ptr } { i32 137, [4 x i8] zeroinitializer, ptr @.str.358 }, { i32, [4 x i8], ptr } { i32 138, [4 x i8] zeroinitializer, ptr @.str.359 }, { i32, [4 x i8], ptr } { i32 139, [4 x i8] zeroinitializer, ptr @.str.360 }, { i32, [4 x i8], ptr } { i32 140, [4 x i8] zeroinitializer, ptr @.str.361 }, { i32, [4 x i8], ptr } { i32 141, [4 x i8] zeroinitializer, ptr @.str.362 }, { i32, [4 x i8], ptr } { i32 142, [4 x i8] zeroinitializer, ptr @.str.363 }, { i32, [4 x i8], ptr } { i32 143, [4 x i8] zeroinitializer, ptr @.str.364 }, { i32, [4 x i8], ptr } { i32 144, [4 x i8] zeroinitializer, ptr @.str.365 }, { i32, [4 x i8], ptr } { i32 145, [4 x i8] zeroinitializer, ptr @.str.366 }, { i32, [4 x i8], ptr } { i32 146, [4 x i8] zeroinitializer, ptr @.str.367 }, { i32, [4 x i8], ptr } { i32 147, [4 x i8] zeroinitializer, ptr @.str.368 }, { i32, [4 x i8], ptr } { i32 148, [4 x i8] zeroinitializer, ptr @.str.369 }, { i32, [4 x i8], ptr } { i32 149, [4 x i8] zeroinitializer, ptr @.str.370 }, { i32, [4 x i8], ptr } { i32 150, [4 x i8] zeroinitializer, ptr @.str.371 }, { i32, [4 x i8], ptr } { i32 151, [4 x i8] zeroinitializer, ptr @.str.372 }, { i32, [4 x i8], ptr } { i32 152, [4 x i8] zeroinitializer, ptr @.str.373 }, { i32, [4 x i8], ptr } { i32 153, [4 x i8] zeroinitializer, ptr @.str.374 }, { i32, [4 x i8], ptr } { i32 154, [4 x i8] zeroinitializer, ptr @.str.375 }, { i32, [4 x i8], ptr } { i32 155, [4 x i8] zeroinitializer, ptr @.str.376 }, { i32, [4 x i8], ptr } { i32 156, [4 x i8] zeroinitializer, ptr @.str.377 }, { i32, [4 x i8], ptr } { i32 157, [4 x i8] zeroinitializer, ptr @.str.378 }, { i32, [4 x i8], ptr } { i32 158, [4 x i8] zeroinitializer, ptr @.str.379 }, { i32, [4 x i8], ptr } { i32 159, [4 x i8] zeroinitializer, ptr @.str.380 }, { i32, [4 x i8], ptr } { i32 160, [4 x i8] zeroinitializer, ptr @.str.381 }, { i32, [4 x i8], ptr } { i32 161, [4 x i8] zeroinitializer, ptr @.str.382 }, { i32, [4 x i8], ptr } { i32 162, [4 x i8] zeroinitializer, ptr @.str.383 }, { i32, [4 x i8], ptr } { i32 163, [4 x i8] zeroinitializer, ptr @.str.384 }, { i32, [4 x i8], ptr } { i32 164, [4 x i8] zeroinitializer, ptr @.str.385 }, { i32, [4 x i8], ptr } { i32 165, [4 x i8] zeroinitializer, ptr @.str.386 }, { i32, [4 x i8], ptr } { i32 166, [4 x i8] zeroinitializer, ptr @.str.387 }, { i32, [4 x i8], ptr } { i32 167, [4 x i8] zeroinitializer, ptr @.str.388 }, { i32, [4 x i8], ptr } { i32 168, [4 x i8] zeroinitializer, ptr @.str.389 }, { i32, [4 x i8], ptr } { i32 169, [4 x i8] zeroinitializer, ptr @.str.390 }, { i32, [4 x i8], ptr } { i32 170, [4 x i8] zeroinitializer, ptr @.str.391 }, { i32, [4 x i8], ptr } { i32 171, [4 x i8] zeroinitializer, ptr @.str.392 }, { i32, [4 x i8], ptr } { i32 172, [4 x i8] zeroinitializer, ptr @.str.393 }, { i32, [4 x i8], ptr } { i32 173, [4 x i8] zeroinitializer, ptr @.str.394 }, { i32, [4 x i8], ptr } { i32 174, [4 x i8] zeroinitializer, ptr @.str.395 }, { i32, [4 x i8], ptr } { i32 175, [4 x i8] zeroinitializer, ptr @.str.396 }, { i32, [4 x i8], ptr } { i32 176, [4 x i8] zeroinitializer, ptr @.str.397 }, { i32, [4 x i8], ptr } { i32 177, [4 x i8] zeroinitializer, ptr @.str.398 }, { i32, [4 x i8], ptr } { i32 178, [4 x i8] zeroinitializer, ptr @.str.399 }, { i32, [4 x i8], ptr } { i32 179, [4 x i8] zeroinitializer, ptr @.str.400 }, { i32, [4 x i8], ptr } { i32 180, [4 x i8] zeroinitializer, ptr @.str.401 }, { i32, [4 x i8], ptr } { i32 181, [4 x i8] zeroinitializer, ptr @.str.402 }, { i32, [4 x i8], ptr } { i32 182, [4 x i8] zeroinitializer, ptr @.str.403 }, { i32, [4 x i8], ptr } { i32 183, [4 x i8] zeroinitializer, ptr @.str.404 }, { i32, [4 x i8], ptr } { i32 184, [4 x i8] zeroinitializer, ptr @.str.405 }, { i32, [4 x i8], ptr } { i32 185, [4 x i8] zeroinitializer, ptr @.str.406 }, { i32, [4 x i8], ptr } { i32 186, [4 x i8] zeroinitializer, ptr @.str.407 }, { i32, [4 x i8], ptr } { i32 187, [4 x i8] zeroinitializer, ptr @.str.408 }, { i32, [4 x i8], ptr } { i32 188, [4 x i8] zeroinitializer, ptr @.str.409 }, { i32, [4 x i8], ptr } { i32 189, [4 x i8] zeroinitializer, ptr @.str.410 }, { i32, [4 x i8], ptr } { i32 190, [4 x i8] zeroinitializer, ptr @.str.411 }, { i32, [4 x i8], ptr } { i32 191, [4 x i8] zeroinitializer, ptr @.str.412 }, { i32, [4 x i8], ptr } { i32 192, [4 x i8] zeroinitializer, ptr @.str.413 }, { i32, [4 x i8], ptr } { i32 193, [4 x i8] zeroinitializer, ptr @.str.414 }, { i32, [4 x i8], ptr } { i32 194, [4 x i8] zeroinitializer, ptr @.str.415 }, { i32, [4 x i8], ptr } { i32 195, [4 x i8] zeroinitializer, ptr @.str.416 }, { i32, [4 x i8], ptr } { i32 196, [4 x i8] zeroinitializer, ptr @.str.417 }, { i32, [4 x i8], ptr } { i32 197, [4 x i8] zeroinitializer, ptr @.str.418 }, { i32, [4 x i8], ptr } { i32 198, [4 x i8] zeroinitializer, ptr @.str.419 }, { i32, [4 x i8], ptr } { i32 199, [4 x i8] zeroinitializer, ptr @.str.420 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.422 = private unnamed_addr constant [19 x i8] c" BVLC Function %s \00", align 1
+@.str.423 = private unnamed_addr constant [8 x i8] c"unknown\00", align 1
+@.str.424 = private unnamed_addr constant [52 x i8] c"%d of %d bytes (invalid length - expected %d bytes)\00", align 1
+@.str.425 = private unnamed_addr constant [36 x i8] c"%d of %d bytes BACnet packet length\00", align 1
+@.str.426 = private unnamed_addr constant [34 x i8] c" BSCVLC Function %s Message-ID %u\00", align 1
 @bscvlc_control_flags = internal constant [6 x ptr] [ptr @hf_bscvlc_control_data_option, ptr @hf_bscvlc_control_destination_option, ptr @hf_bscvlc_control_destination_address, ptr @hf_bscvlc_control_origin_address, ptr @hf_bscvlc_control_reserved, ptr null], align 16
-@.str.415 = private unnamed_addr constant [5 x i8] c"%02X\00", align 1
-@.str.416 = private unnamed_addr constant [9 x i8] c" SMAC %s\00", align 1
-@.str.417 = private unnamed_addr constant [9 x i8] c" DMAC %s\00", align 1
-@.str.418 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
-@.str.419 = private unnamed_addr constant [20 x i8] c"Destination Options\00", align 1
+@.str.427 = private unnamed_addr constant [5 x i8] c"%02X\00", align 1
+@.str.428 = private unnamed_addr constant [9 x i8] c" SMAC %s\00", align 1
+@.str.429 = private unnamed_addr constant [9 x i8] c" DMAC %s\00", align 1
+@.str.430 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
+@.str.431 = private unnamed_addr constant [20 x i8] c"Destination Options\00", align 1
 @bscvlc_header_flags = internal constant [5 x ptr] [ptr @hf_bscvlc_header_opt_type, ptr @hf_bscvlc_header_opt_data, ptr @hf_bscvlc_header_opt_must_understand, ptr @hf_bscvlc_header_opt_more, ptr null], align 16
-@.str.420 = private unnamed_addr constant [13 x i8] c"Data Options\00", align 1
-@.str.421 = private unnamed_addr constant [4 x i8] c" %s\00", align 1
+@.str.432 = private unnamed_addr constant [13 x i8] c"Data Options\00", align 1
+@.str.433 = private unnamed_addr constant [4 x i8] c" %s\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_bvlc() #0 {
   %1 = call i32 @proto_register_protocol(ptr noundef @.str.128, ptr noundef @.str.129, ptr noundef @.str.130)
   store i32 %1, ptr @proto_bvlc, align 4
@@ -555,15 +554,19 @@ define hidden void @proto_register_bvlc() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_bvlc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -572,71 +575,79 @@ define internal i32 @dissect_bvlc(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %9 = alloca ptr, align 8
   %10 = alloca i8, align 1
   %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
   store i32 0, ptr %11, align 4
-  %12 = load ptr, ptr %6, align 8
-  %13 = call zeroext i8 @tvb_get_guint8(ptr noundef %12, i32 noundef 0)
-  store i8 %13, ptr %10, align 1
-  %14 = load i8, ptr %10, align 1
-  %15 = zext i8 %14 to i32
-  %16 = call ptr @try_val_to_str(i32 noundef %15, ptr noundef @bvlc_types)
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %18, label %19
-
-18:                                               ; preds = %4
-  store i32 0, ptr %5, align 4
-  br label %42
+  %13 = load ptr, ptr %6, align 8
+  %14 = call zeroext i8 @tvb_get_uint8(ptr noundef %13, i32 noundef 0)
+  store i8 %14, ptr %10, align 1
+  %15 = load i8, ptr %10, align 1
+  %16 = zext i8 %15 to i32
+  %17 = call ptr @try_val_to_str(i32 noundef %16, ptr noundef @bvlc_types)
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %19, label %20
 
 19:                                               ; preds = %4
-  %20 = load ptr, ptr %7, align 8
-  %21 = getelementptr inbounds %struct._packet_info, ptr %20, i32 0, i32 1
-  %22 = load ptr, ptr %21, align 8
-  call void @col_set_str(ptr noundef %22, i32 noundef 34, ptr noundef @.str.129)
-  %23 = load ptr, ptr %7, align 8
-  %24 = getelementptr inbounds %struct._packet_info, ptr %23, i32 0, i32 1
-  %25 = load ptr, ptr %24, align 8
-  call void @col_set_str(ptr noundef %25, i32 noundef 25, ptr noundef @.str.128)
-  %26 = load i8, ptr %10, align 1
-  %27 = zext i8 %26 to i32
-  switch i32 %27, label %40 [
-    i32 129, label %28
-    i32 130, label %34
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %12, align 4
+  br label %43
+
+20:                                               ; preds = %4
+  %21 = load ptr, ptr %7, align 8
+  %22 = getelementptr inbounds nuw %struct._packet_info, ptr %21, i32 0, i32 1
+  %23 = load ptr, ptr %22, align 8
+  call void @col_set_str(ptr noundef %23, i32 noundef 35, ptr noundef @.str.129)
+  %24 = load ptr, ptr %7, align 8
+  %25 = getelementptr inbounds nuw %struct._packet_info, ptr %24, i32 0, i32 1
+  %26 = load ptr, ptr %25, align 8
+  call void @col_set_str(ptr noundef %26, i32 noundef 25, ptr noundef @.str.128)
+  %27 = load i8, ptr %10, align 1
+  %28 = zext i8 %27 to i32
+  switch i32 %28, label %41 [
+    i32 129, label %29
+    i32 130, label %35
   ]
 
-28:                                               ; preds = %19
-  %29 = load ptr, ptr %6, align 8
-  %30 = load ptr, ptr %7, align 8
-  %31 = load ptr, ptr %8, align 8
-  %32 = load ptr, ptr %9, align 8
-  %33 = call i32 @dissect_ipv4_bvlc(ptr noundef %29, ptr noundef %30, ptr noundef %31, ptr noundef %32)
-  store i32 %33, ptr %11, align 4
-  br label %40
+29:                                               ; preds = %20
+  %30 = load ptr, ptr %6, align 8
+  %31 = load ptr, ptr %7, align 8
+  %32 = load ptr, ptr %8, align 8
+  %33 = load ptr, ptr %9, align 8
+  %34 = call i32 @dissect_ipv4_bvlc(ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33)
+  store i32 %34, ptr %11, align 4
+  br label %41
 
-34:                                               ; preds = %19
-  %35 = load ptr, ptr %6, align 8
-  %36 = load ptr, ptr %7, align 8
-  %37 = load ptr, ptr %8, align 8
-  %38 = load ptr, ptr %9, align 8
-  %39 = call i32 @dissect_ipv6_bvlc(ptr noundef %35, ptr noundef %36, ptr noundef %37, ptr noundef %38)
-  store i32 %39, ptr %11, align 4
-  br label %40
+35:                                               ; preds = %20
+  %36 = load ptr, ptr %6, align 8
+  %37 = load ptr, ptr %7, align 8
+  %38 = load ptr, ptr %8, align 8
+  %39 = load ptr, ptr %9, align 8
+  %40 = call i32 @dissect_ipv6_bvlc(ptr noundef %36, ptr noundef %37, ptr noundef %38, ptr noundef %39)
+  store i32 %40, ptr %11, align 4
+  br label %41
 
-40:                                               ; preds = %34, %28, %19
-  %41 = load i32, ptr %11, align 4
-  store i32 %41, ptr %5, align 4
-  br label %42
+41:                                               ; preds = %20, %35, %29
+  %42 = load i32, ptr %11, align 4
+  store i32 %42, ptr %5, align 4
+  store i32 1, ptr %12, align 4
+  br label %43
 
-42:                                               ; preds = %40, %18
-  %43 = load i32, ptr %5, align 4
-  ret i32 %43
+43:                                               ; preds = %41, %19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #4
+  %44 = load i32, ptr %5, align 4
+  ret i32 %44
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector_table(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_bscvlc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -658,1034 +669,1099 @@ define internal i32 @dissect_bscvlc(ptr noundef %0, ptr noundef %1, ptr noundef 
   %22 = alloca [16 x i8], align 16
   %23 = alloca i32, align 4
   %24 = alloca i32, align 4
-  %25 = alloca i32, align 4
-  %26 = alloca i32, align 4
+  %25 = alloca i8, align 1
+  %26 = alloca i8, align 1
   %27 = alloca ptr, align 8
+  %28 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %18) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %19) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %20) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %21) #4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %22) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %25) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %26) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #4
   store i32 0, ptr %13, align 4
-  %28 = load ptr, ptr %6, align 8
-  %29 = load i32, ptr %13, align 4
-  %30 = call i32 @tvb_reported_length_remaining(ptr noundef %28, i32 noundef %29)
-  store i32 %30, ptr %16, align 4
-  %31 = load i32, ptr %16, align 4
-  %32 = icmp slt i32 %31, 4
-  br i1 %32, label %33, label %34
-
-33:                                               ; preds = %4
-  store i32 0, ptr %5, align 4
-  br label %738
+  %29 = load ptr, ptr %6, align 8
+  %30 = load i32, ptr %13, align 4
+  %31 = call i32 @tvb_reported_length_remaining(ptr noundef %29, i32 noundef %30)
+  store i32 %31, ptr %16, align 4
+  %32 = load i32, ptr %16, align 4
+  %33 = icmp slt i32 %32, 4
+  br i1 %33, label %34, label %35
 
 34:                                               ; preds = %4
-  %35 = load ptr, ptr %6, align 8
-  %36 = load i32, ptr %13, align 4
-  %37 = add i32 %36, 1
-  store i32 %37, ptr %13, align 4
-  %38 = call zeroext i8 @tvb_get_guint8(ptr noundef %35, i32 noundef %36)
-  store i8 %38, ptr %18, align 1
-  %39 = load ptr, ptr %6, align 8
-  %40 = load i32, ptr %13, align 4
-  %41 = add i32 %40, 1
-  store i32 %41, ptr %13, align 4
-  %42 = call zeroext i8 @tvb_get_guint8(ptr noundef %39, i32 noundef %40)
-  store i8 %42, ptr %19, align 1
-  %43 = load ptr, ptr %6, align 8
-  %44 = load i32, ptr %13, align 4
-  %45 = call zeroext i16 @tvb_get_guint16(ptr noundef %43, i32 noundef %44, i32 noundef 0)
-  %46 = zext i16 %45 to i32
-  store i32 %46, ptr %23, align 4
-  %47 = load i32, ptr %13, align 4
-  %48 = add i32 %47, 2
-  store i32 %48, ptr %13, align 4
-  %49 = load i32, ptr %13, align 4
-  store i32 %49, ptr %15, align 4
-  %50 = load i8, ptr %19, align 1
-  %51 = zext i8 %50 to i32
-  %52 = and i32 %51, 8
-  %53 = icmp ne i32 %52, 0
-  br i1 %53, label %54, label %57
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %28, align 4
+  br label %765
 
-54:                                               ; preds = %34
-  %55 = load i32, ptr %15, align 4
-  %56 = add i32 %55, 6
-  store i32 %56, ptr %15, align 4
-  br label %57
+35:                                               ; preds = %4
+  %36 = load ptr, ptr %6, align 8
+  %37 = load i32, ptr %13, align 4
+  %38 = add i32 %37, 1
+  store i32 %38, ptr %13, align 4
+  %39 = call zeroext i8 @tvb_get_uint8(ptr noundef %36, i32 noundef %37)
+  store i8 %39, ptr %18, align 1
+  %40 = load ptr, ptr %6, align 8
+  %41 = load i32, ptr %13, align 4
+  %42 = add i32 %41, 1
+  store i32 %42, ptr %13, align 4
+  %43 = call zeroext i8 @tvb_get_uint8(ptr noundef %40, i32 noundef %41)
+  store i8 %43, ptr %19, align 1
+  %44 = load ptr, ptr %6, align 8
+  %45 = load i32, ptr %13, align 4
+  %46 = call zeroext i16 @tvb_get_uint16(ptr noundef %44, i32 noundef %45, i32 noundef 0)
+  %47 = zext i16 %46 to i32
+  store i32 %47, ptr %23, align 4
+  %48 = load i32, ptr %13, align 4
+  %49 = add i32 %48, 2
+  store i32 %49, ptr %13, align 4
+  %50 = load i32, ptr %13, align 4
+  store i32 %50, ptr %15, align 4
+  %51 = load i8, ptr %19, align 1
+  %52 = zext i8 %51 to i32
+  %53 = and i32 %52, 8
+  %54 = icmp ne i32 %53, 0
+  br i1 %54, label %55, label %58
 
-57:                                               ; preds = %54, %34
-  %58 = load i8, ptr %19, align 1
-  %59 = zext i8 %58 to i32
-  %60 = and i32 %59, 4
-  %61 = icmp ne i32 %60, 0
-  br i1 %61, label %62, label %65
+55:                                               ; preds = %35
+  %56 = load i32, ptr %15, align 4
+  %57 = add i32 %56, 6
+  store i32 %57, ptr %15, align 4
+  br label %58
 
-62:                                               ; preds = %57
-  %63 = load i32, ptr %15, align 4
-  %64 = add i32 %63, 6
-  store i32 %64, ptr %15, align 4
-  br label %65
+58:                                               ; preds = %55, %35
+  %59 = load i8, ptr %19, align 1
+  %60 = zext i8 %59 to i32
+  %61 = and i32 %60, 4
+  %62 = icmp ne i32 %61, 0
+  br i1 %62, label %63, label %66
 
-65:                                               ; preds = %62, %57
-  %66 = load i8, ptr %19, align 1
-  %67 = zext i8 %66 to i32
-  %68 = and i32 %67, 2
-  %69 = icmp ne i32 %68, 0
-  br i1 %69, label %70, label %117
+63:                                               ; preds = %58
+  %64 = load i32, ptr %15, align 4
+  %65 = add i32 %64, 6
+  store i32 %65, ptr %15, align 4
+  br label %66
 
-70:                                               ; preds = %65
-  store i32 1, ptr %25, align 4
-  br label %71
+66:                                               ; preds = %63, %58
+  %67 = load i8, ptr %19, align 1
+  %68 = zext i8 %67 to i32
+  %69 = and i32 %68, 2
+  %70 = icmp ne i32 %69, 0
+  br i1 %70, label %71, label %122
 
-71:                                               ; preds = %115, %70
-  %72 = load ptr, ptr %6, align 8
-  %73 = load i32, ptr %15, align 4
-  %74 = call i32 @tvb_reported_length_remaining(ptr noundef %72, i32 noundef %73)
-  %75 = icmp sgt i32 %74, 0
-  br i1 %75, label %76, label %85
+71:                                               ; preds = %66
+  store i8 1, ptr %25, align 1
+  br label %72
 
-76:                                               ; preds = %71
-  %77 = load ptr, ptr %6, align 8
-  %78 = load i32, ptr %15, align 4
-  %79 = call zeroext i8 @tvb_get_guint8(ptr noundef %77, i32 noundef %78)
-  store i8 %79, ptr %21, align 1
-  %80 = zext i8 %79 to i32
-  %81 = icmp ne i32 %80, 0
-  br i1 %81, label %82, label %85
+72:                                               ; preds = %120, %71
+  %73 = load ptr, ptr %6, align 8
+  %74 = load i32, ptr %15, align 4
+  %75 = call i32 @tvb_reported_length_remaining(ptr noundef %73, i32 noundef %74)
+  %76 = icmp sgt i32 %75, 0
+  br i1 %76, label %77, label %86
 
-82:                                               ; preds = %76
-  %83 = load i32, ptr %25, align 4
-  %84 = icmp ne i32 %83, 0
-  br label %85
+77:                                               ; preds = %72
+  %78 = load ptr, ptr %6, align 8
+  %79 = load i32, ptr %15, align 4
+  %80 = call zeroext i8 @tvb_get_uint8(ptr noundef %78, i32 noundef %79)
+  store i8 %80, ptr %21, align 1
+  %81 = zext i8 %80 to i32
+  %82 = icmp ne i32 %81, 0
+  br i1 %82, label %83, label %86
 
-85:                                               ; preds = %82, %76, %71
-  %86 = phi i1 [ false, %76 ], [ false, %71 ], [ %84, %82 ]
-  br i1 %86, label %87, label %116
+83:                                               ; preds = %77
+  %84 = load i8, ptr %25, align 1, !range !6, !noundef !7
+  %85 = trunc i8 %84 to i1
+  br label %86
 
-87:                                               ; preds = %85
-  %88 = load i8, ptr %21, align 1
-  %89 = zext i8 %88 to i32
-  %90 = and i32 %89, 128
-  store i32 %90, ptr %25, align 4
-  %91 = load i8, ptr %21, align 1
-  %92 = zext i8 %91 to i32
-  %93 = and i32 %92, 32
-  store i32 %93, ptr %26, align 4
-  %94 = load i32, ptr %15, align 4
-  %95 = add i32 %94, 1
-  store i32 %95, ptr %15, align 4
-  %96 = load i32, ptr %26, align 4
+86:                                               ; preds = %83, %77, %72
+  %87 = phi i1 [ false, %77 ], [ false, %72 ], [ %85, %83 ]
+  br i1 %87, label %88, label %121
+
+88:                                               ; preds = %86
+  %89 = load i8, ptr %21, align 1
+  %90 = zext i8 %89 to i32
+  %91 = and i32 %90, 128
+  %92 = icmp ne i32 %91, 0
+  %93 = zext i1 %92 to i8
+  store i8 %93, ptr %25, align 1
+  %94 = load i8, ptr %21, align 1
+  %95 = zext i8 %94 to i32
+  %96 = and i32 %95, 32
   %97 = icmp ne i32 %96, 0
-  br i1 %97, label %98, label %115
+  %98 = zext i1 %97 to i8
+  store i8 %98, ptr %26, align 1
+  %99 = load i32, ptr %15, align 4
+  %100 = add i32 %99, 1
+  store i32 %100, ptr %15, align 4
+  %101 = load i8, ptr %26, align 1, !range !6, !noundef !7
+  %102 = trunc i8 %101 to i1
+  br i1 %102, label %103, label %120
 
-98:                                               ; preds = %87
-  %99 = load ptr, ptr %6, align 8
-  %100 = load i32, ptr %15, align 4
-  %101 = add i32 %100, 1
-  store i32 %101, ptr %15, align 4
-  %102 = call zeroext i8 @tvb_get_guint8(ptr noundef %99, i32 noundef %100)
-  %103 = zext i8 %102 to i32
-  %104 = shl i32 %103, 8
-  store i32 %104, ptr %17, align 4
-  %105 = load ptr, ptr %6, align 8
-  %106 = load i32, ptr %15, align 4
-  %107 = add i32 %106, 1
-  store i32 %107, ptr %15, align 4
-  %108 = call zeroext i8 @tvb_get_guint8(ptr noundef %105, i32 noundef %106)
-  %109 = zext i8 %108 to i32
-  %110 = load i32, ptr %17, align 4
-  %111 = add i32 %110, %109
-  store i32 %111, ptr %17, align 4
-  %112 = load i32, ptr %17, align 4
-  %113 = load i32, ptr %15, align 4
-  %114 = add i32 %113, %112
-  store i32 %114, ptr %15, align 4
-  br label %115
+103:                                              ; preds = %88
+  %104 = load ptr, ptr %6, align 8
+  %105 = load i32, ptr %15, align 4
+  %106 = add i32 %105, 1
+  store i32 %106, ptr %15, align 4
+  %107 = call zeroext i8 @tvb_get_uint8(ptr noundef %104, i32 noundef %105)
+  %108 = zext i8 %107 to i32
+  %109 = shl i32 %108, 8
+  store i32 %109, ptr %17, align 4
+  %110 = load ptr, ptr %6, align 8
+  %111 = load i32, ptr %15, align 4
+  %112 = add i32 %111, 1
+  store i32 %112, ptr %15, align 4
+  %113 = call zeroext i8 @tvb_get_uint8(ptr noundef %110, i32 noundef %111)
+  %114 = zext i8 %113 to i32
+  %115 = load i32, ptr %17, align 4
+  %116 = add i32 %115, %114
+  store i32 %116, ptr %17, align 4
+  %117 = load i32, ptr %17, align 4
+  %118 = load i32, ptr %15, align 4
+  %119 = add i32 %118, %117
+  store i32 %119, ptr %15, align 4
+  br label %120
 
-115:                                              ; preds = %98, %87
-  br label %71, !llvm.loop !4
+120:                                              ; preds = %103, %88
+  br label %72, !llvm.loop !8
 
-116:                                              ; preds = %85
-  br label %117
+121:                                              ; preds = %86
+  br label %122
 
-117:                                              ; preds = %116, %65
-  %118 = load i8, ptr %19, align 1
-  %119 = zext i8 %118 to i32
-  %120 = and i32 %119, 1
-  %121 = icmp ne i32 %120, 0
-  br i1 %121, label %122, label %169
+122:                                              ; preds = %121, %66
+  %123 = load i8, ptr %19, align 1
+  %124 = zext i8 %123 to i32
+  %125 = and i32 %124, 1
+  %126 = icmp ne i32 %125, 0
+  br i1 %126, label %127, label %178
 
-122:                                              ; preds = %117
-  store i32 1, ptr %25, align 4
-  br label %123
+127:                                              ; preds = %122
+  store i8 1, ptr %25, align 1
+  br label %128
 
-123:                                              ; preds = %167, %122
-  %124 = load ptr, ptr %6, align 8
-  %125 = load i32, ptr %15, align 4
-  %126 = call i32 @tvb_reported_length_remaining(ptr noundef %124, i32 noundef %125)
-  %127 = icmp sgt i32 %126, 0
-  br i1 %127, label %128, label %137
-
-128:                                              ; preds = %123
+128:                                              ; preds = %176, %127
   %129 = load ptr, ptr %6, align 8
   %130 = load i32, ptr %15, align 4
-  %131 = call zeroext i8 @tvb_get_guint8(ptr noundef %129, i32 noundef %130)
-  store i8 %131, ptr %21, align 1
-  %132 = zext i8 %131 to i32
-  %133 = icmp ne i32 %132, 0
-  br i1 %133, label %134, label %137
+  %131 = call i32 @tvb_reported_length_remaining(ptr noundef %129, i32 noundef %130)
+  %132 = icmp sgt i32 %131, 0
+  br i1 %132, label %133, label %142
 
-134:                                              ; preds = %128
-  %135 = load i32, ptr %25, align 4
-  %136 = icmp ne i32 %135, 0
-  br label %137
+133:                                              ; preds = %128
+  %134 = load ptr, ptr %6, align 8
+  %135 = load i32, ptr %15, align 4
+  %136 = call zeroext i8 @tvb_get_uint8(ptr noundef %134, i32 noundef %135)
+  store i8 %136, ptr %21, align 1
+  %137 = zext i8 %136 to i32
+  %138 = icmp ne i32 %137, 0
+  br i1 %138, label %139, label %142
 
-137:                                              ; preds = %134, %128, %123
-  %138 = phi i1 [ false, %128 ], [ false, %123 ], [ %136, %134 ]
-  br i1 %138, label %139, label %168
+139:                                              ; preds = %133
+  %140 = load i8, ptr %25, align 1, !range !6, !noundef !7
+  %141 = trunc i8 %140 to i1
+  br label %142
 
-139:                                              ; preds = %137
-  %140 = load i8, ptr %21, align 1
-  %141 = zext i8 %140 to i32
-  %142 = and i32 %141, 128
-  store i32 %142, ptr %25, align 4
-  %143 = load i8, ptr %21, align 1
-  %144 = zext i8 %143 to i32
-  %145 = and i32 %144, 32
-  store i32 %145, ptr %26, align 4
-  %146 = load i32, ptr %15, align 4
-  %147 = add i32 %146, 1
-  store i32 %147, ptr %15, align 4
-  %148 = load i32, ptr %26, align 4
-  %149 = icmp ne i32 %148, 0
-  br i1 %149, label %150, label %167
+142:                                              ; preds = %139, %133, %128
+  %143 = phi i1 [ false, %133 ], [ false, %128 ], [ %141, %139 ]
+  br i1 %143, label %144, label %177
 
-150:                                              ; preds = %139
-  %151 = load ptr, ptr %6, align 8
-  %152 = load i32, ptr %15, align 4
-  %153 = add i32 %152, 1
-  store i32 %153, ptr %15, align 4
-  %154 = call zeroext i8 @tvb_get_guint8(ptr noundef %151, i32 noundef %152)
-  %155 = zext i8 %154 to i32
-  %156 = shl i32 %155, 8
-  store i32 %156, ptr %17, align 4
-  %157 = load ptr, ptr %6, align 8
-  %158 = load i32, ptr %15, align 4
-  %159 = add i32 %158, 1
-  store i32 %159, ptr %15, align 4
-  %160 = call zeroext i8 @tvb_get_guint8(ptr noundef %157, i32 noundef %158)
-  %161 = zext i8 %160 to i32
-  %162 = load i32, ptr %17, align 4
-  %163 = add i32 %162, %161
-  store i32 %163, ptr %17, align 4
-  %164 = load i32, ptr %17, align 4
-  %165 = load i32, ptr %15, align 4
-  %166 = add i32 %165, %164
-  store i32 %166, ptr %15, align 4
-  br label %167
+144:                                              ; preds = %142
+  %145 = load i8, ptr %21, align 1
+  %146 = zext i8 %145 to i32
+  %147 = and i32 %146, 128
+  %148 = icmp ne i32 %147, 0
+  %149 = zext i1 %148 to i8
+  store i8 %149, ptr %25, align 1
+  %150 = load i8, ptr %21, align 1
+  %151 = zext i8 %150 to i32
+  %152 = and i32 %151, 32
+  %153 = icmp ne i32 %152, 0
+  %154 = zext i1 %153 to i8
+  store i8 %154, ptr %26, align 1
+  %155 = load i32, ptr %15, align 4
+  %156 = add i32 %155, 1
+  store i32 %156, ptr %15, align 4
+  %157 = load i8, ptr %26, align 1, !range !6, !noundef !7
+  %158 = trunc i8 %157 to i1
+  br i1 %158, label %159, label %176
 
-167:                                              ; preds = %150, %139
-  br label %123, !llvm.loop !6
+159:                                              ; preds = %144
+  %160 = load ptr, ptr %6, align 8
+  %161 = load i32, ptr %15, align 4
+  %162 = add i32 %161, 1
+  store i32 %162, ptr %15, align 4
+  %163 = call zeroext i8 @tvb_get_uint8(ptr noundef %160, i32 noundef %161)
+  %164 = zext i8 %163 to i32
+  %165 = shl i32 %164, 8
+  store i32 %165, ptr %17, align 4
+  %166 = load ptr, ptr %6, align 8
+  %167 = load i32, ptr %15, align 4
+  %168 = add i32 %167, 1
+  store i32 %168, ptr %15, align 4
+  %169 = call zeroext i8 @tvb_get_uint8(ptr noundef %166, i32 noundef %167)
+  %170 = zext i8 %169 to i32
+  %171 = load i32, ptr %17, align 4
+  %172 = add i32 %171, %170
+  store i32 %172, ptr %17, align 4
+  %173 = load i32, ptr %17, align 4
+  %174 = load i32, ptr %15, align 4
+  %175 = add i32 %174, %173
+  store i32 %175, ptr %15, align 4
+  br label %176
 
-168:                                              ; preds = %137
-  br label %169
+176:                                              ; preds = %159, %144
+  br label %128, !llvm.loop !10
 
-169:                                              ; preds = %168, %117
-  %170 = load i8, ptr %18, align 1
-  %171 = zext i8 %170 to i32
-  switch i32 %171, label %182 [
-    i32 0, label %172
-    i32 3, label %172
-    i32 12, label %172
-    i32 2, label %174
-    i32 5, label %174
-    i32 8, label %174
-    i32 9, label %174
-    i32 10, label %174
-    i32 11, label %174
-    i32 4, label %175
-    i32 6, label %178
-    i32 7, label %178
-    i32 1, label %181
+177:                                              ; preds = %142
+  br label %178
+
+178:                                              ; preds = %177, %122
+  %179 = load i8, ptr %18, align 1
+  %180 = zext i8 %179 to i32
+  switch i32 %180, label %191 [
+    i32 0, label %181
+    i32 3, label %181
+    i32 12, label %181
+    i32 2, label %183
+    i32 5, label %183
+    i32 8, label %183
+    i32 9, label %183
+    i32 10, label %183
+    i32 11, label %183
+    i32 4, label %184
+    i32 6, label %187
+    i32 7, label %187
+    i32 1, label %190
   ]
 
-172:                                              ; preds = %169, %169, %169
-  %173 = load i32, ptr %16, align 4
-  store i32 %173, ptr %15, align 4
-  br label %183
+181:                                              ; preds = %178, %178, %178
+  %182 = load i32, ptr %16, align 4
+  store i32 %182, ptr %15, align 4
+  br label %192
 
-174:                                              ; preds = %169, %169, %169, %169, %169, %169
-  br label %183
+183:                                              ; preds = %178, %178, %178, %178, %178, %178
+  br label %192
 
-175:                                              ; preds = %169
-  %176 = load i32, ptr %15, align 4
-  %177 = add i32 %176, 6
-  store i32 %177, ptr %15, align 4
-  br label %183
+184:                                              ; preds = %178
+  %185 = load i32, ptr %15, align 4
+  %186 = add i32 %185, 6
+  store i32 %186, ptr %15, align 4
+  br label %192
 
-178:                                              ; preds = %169, %169
-  %179 = load i32, ptr %15, align 4
-  %180 = add i32 %179, 26
-  store i32 %180, ptr %15, align 4
-  br label %183
+187:                                              ; preds = %178, %178
+  %188 = load i32, ptr %15, align 4
+  %189 = add i32 %188, 26
+  store i32 %189, ptr %15, align 4
+  br label %192
 
-181:                                              ; preds = %169
-  br label %182
+190:                                              ; preds = %178
+  br label %191
 
-182:                                              ; preds = %181, %169
-  br label %183
+191:                                              ; preds = %178, %190
+  br label %192
 
-183:                                              ; preds = %182, %178, %175, %174, %172
-  %184 = load ptr, ptr %7, align 8
-  %185 = getelementptr inbounds %struct._packet_info, ptr %184, i32 0, i32 1
-  %186 = load ptr, ptr %185, align 8
-  call void @col_set_str(ptr noundef %186, i32 noundef 34, ptr noundef @.str.132)
-  %187 = load ptr, ptr %7, align 8
-  %188 = getelementptr inbounds %struct._packet_info, ptr %187, i32 0, i32 1
-  %189 = load ptr, ptr %188, align 8
-  call void @col_set_str(ptr noundef %189, i32 noundef 25, ptr noundef @.str.131)
-  %190 = load ptr, ptr %7, align 8
-  %191 = getelementptr inbounds %struct._packet_info, ptr %190, i32 0, i32 1
-  %192 = load ptr, ptr %191, align 8
-  %193 = load i8, ptr %18, align 1
-  %194 = zext i8 %193 to i32
-  %195 = call ptr @val_to_str_const(i32 noundef %194, ptr noundef @bscvlc_function_names, ptr noundef @.str.411)
-  %196 = load i32, ptr %23, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %192, i32 noundef 25, ptr noundef @.str.414, ptr noundef %195, i32 noundef %196)
+192:                                              ; preds = %191, %187, %184, %183, %181
+  %193 = load ptr, ptr %7, align 8
+  %194 = getelementptr inbounds nuw %struct._packet_info, ptr %193, i32 0, i32 1
+  %195 = load ptr, ptr %194, align 8
+  call void @col_set_str(ptr noundef %195, i32 noundef 35, ptr noundef @.str.132)
+  %196 = load ptr, ptr %7, align 8
+  %197 = getelementptr inbounds nuw %struct._packet_info, ptr %196, i32 0, i32 1
+  %198 = load ptr, ptr %197, align 8
+  call void @col_set_str(ptr noundef %198, i32 noundef 25, ptr noundef @.str.131)
+  %199 = load ptr, ptr %7, align 8
+  %200 = getelementptr inbounds nuw %struct._packet_info, ptr %199, i32 0, i32 1
+  %201 = load ptr, ptr %200, align 8
+  %202 = load i8, ptr %18, align 1
+  %203 = zext i8 %202 to i32
+  %204 = call ptr @val_to_str_const(i32 noundef %203, ptr noundef @bscvlc_function_names, ptr noundef @.str.423)
+  %205 = load i32, ptr %23, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %201, i32 noundef 25, ptr noundef @.str.426, ptr noundef %204, i32 noundef %205)
   store i32 0, ptr %13, align 4
-  %197 = load ptr, ptr %8, align 8
-  %198 = load i32, ptr @proto_bscvlc, align 4
-  %199 = load ptr, ptr %6, align 8
-  %200 = load i32, ptr %15, align 4
-  %201 = call ptr @proto_tree_add_item(ptr noundef %197, i32 noundef %198, ptr noundef %199, i32 noundef 0, i32 noundef %200, i32 noundef 0)
-  store ptr %201, ptr %10, align 8
-  %202 = load ptr, ptr %10, align 8
-  %203 = load i32, ptr @ett_bvlc, align 4
-  %204 = call ptr @proto_item_add_subtree(ptr noundef %202, i32 noundef %203)
-  store ptr %204, ptr %11, align 8
-  %205 = load ptr, ptr %11, align 8
-  %206 = load i32, ptr @hf_bscvlc_function, align 4
-  %207 = load ptr, ptr %6, align 8
-  %208 = load i32, ptr %13, align 4
-  %209 = load i8, ptr %18, align 1
-  %210 = zext i8 %209 to i32
-  %211 = call ptr @proto_tree_add_uint(ptr noundef %205, i32 noundef %206, ptr noundef %207, i32 noundef %208, i32 noundef 1, i32 noundef %210)
-  %212 = load i32, ptr %13, align 4
-  %213 = add i32 %212, 1
-  store i32 %213, ptr %13, align 4
+  %206 = load ptr, ptr %8, align 8
+  %207 = load i32, ptr @proto_bscvlc, align 4
+  %208 = load ptr, ptr %6, align 8
+  %209 = load i32, ptr %15, align 4
+  %210 = call ptr @proto_tree_add_item(ptr noundef %206, i32 noundef %207, ptr noundef %208, i32 noundef 0, i32 noundef %209, i32 noundef 0)
+  store ptr %210, ptr %10, align 8
+  %211 = load ptr, ptr %10, align 8
+  %212 = load i32, ptr @ett_bvlc, align 4
+  %213 = call ptr @proto_item_add_subtree(ptr noundef %211, i32 noundef %212)
+  store ptr %213, ptr %11, align 8
   %214 = load ptr, ptr %11, align 8
-  %215 = load ptr, ptr %6, align 8
-  %216 = load i32, ptr %13, align 4
-  %217 = load i32, ptr @hf_bscvlc_control, align 4
-  %218 = load i32, ptr @ett_bscvlc_ctrl, align 4
-  %219 = call ptr @proto_tree_add_bitmask(ptr noundef %214, ptr noundef %215, i32 noundef %216, i32 noundef %217, i32 noundef %218, ptr noundef @bscvlc_control_flags, i32 noundef 0)
-  %220 = load i32, ptr %13, align 4
-  %221 = add i32 %220, 1
-  store i32 %221, ptr %13, align 4
-  %222 = load ptr, ptr %11, align 8
-  %223 = load i32, ptr @hf_bscvlc_msg_id, align 4
+  %215 = load i32, ptr @hf_bscvlc_function, align 4
+  %216 = load ptr, ptr %6, align 8
+  %217 = load i32, ptr %13, align 4
+  %218 = load i8, ptr %18, align 1
+  %219 = zext i8 %218 to i32
+  %220 = call ptr @proto_tree_add_uint(ptr noundef %214, i32 noundef %215, ptr noundef %216, i32 noundef %217, i32 noundef 1, i32 noundef %219)
+  %221 = load i32, ptr %13, align 4
+  %222 = add i32 %221, 1
+  store i32 %222, ptr %13, align 4
+  %223 = load ptr, ptr %11, align 8
   %224 = load ptr, ptr %6, align 8
   %225 = load i32, ptr %13, align 4
-  %226 = load i32, ptr %23, align 4
-  %227 = call ptr @proto_tree_add_uint(ptr noundef %222, i32 noundef %223, ptr noundef %224, i32 noundef %225, i32 noundef 2, i32 noundef %226)
-  %228 = load i32, ptr %13, align 4
-  %229 = add i32 %228, 2
-  store i32 %229, ptr %13, align 4
-  %230 = load i8, ptr %19, align 1
-  %231 = zext i8 %230 to i32
-  %232 = and i32 %231, 8
-  %233 = icmp ne i32 %232, 0
-  br i1 %233, label %234, label %269
+  %226 = load i32, ptr @hf_bscvlc_control, align 4
+  %227 = load i32, ptr @ett_bscvlc_ctrl, align 4
+  %228 = call ptr @proto_tree_add_bitmask(ptr noundef %223, ptr noundef %224, i32 noundef %225, i32 noundef %226, i32 noundef %227, ptr noundef @bscvlc_control_flags, i32 noundef 0)
+  %229 = load i32, ptr %13, align 4
+  %230 = add i32 %229, 1
+  store i32 %230, ptr %13, align 4
+  %231 = load ptr, ptr %11, align 8
+  %232 = load i32, ptr @hf_bscvlc_msg_id, align 4
+  %233 = load ptr, ptr %6, align 8
+  %234 = load i32, ptr %13, align 4
+  %235 = load i32, ptr %23, align 4
+  %236 = call ptr @proto_tree_add_uint(ptr noundef %231, i32 noundef %232, ptr noundef %233, i32 noundef %234, i32 noundef 2, i32 noundef %235)
+  %237 = load i32, ptr %13, align 4
+  %238 = add i32 %237, 2
+  store i32 %238, ptr %13, align 4
+  %239 = load i8, ptr %19, align 1
+  %240 = zext i8 %239 to i32
+  %241 = and i32 %240, 8
+  %242 = icmp ne i32 %241, 0
+  br i1 %242, label %243, label %283
 
-234:                                              ; preds = %183
+243:                                              ; preds = %192
   store i32 0, ptr %24, align 4
-  br label %235
+  br label %244
 
-235:                                              ; preds = %254, %234
-  %236 = load i32, ptr %24, align 4
-  %237 = icmp ult i32 %236, 6
-  br i1 %237, label %238, label %257
+244:                                              ; preds = %268, %243
+  %245 = load i32, ptr %24, align 4
+  %246 = icmp ult i32 %245, 6
+  br i1 %246, label %247, label %271
 
-238:                                              ; preds = %235
-  %239 = load i32, ptr %24, align 4
-  %240 = mul i32 %239, 2
-  %241 = zext i32 %240 to i64
-  %242 = getelementptr [16 x i8], ptr %22, i64 0, i64 %241
-  %243 = load i32, ptr %24, align 4
-  %244 = mul i32 %243, 2
-  %245 = zext i32 %244 to i64
-  %246 = sub i64 16, %245
-  %247 = load ptr, ptr %6, align 8
-  %248 = load i32, ptr %13, align 4
-  %249 = load i32, ptr %24, align 4
-  %250 = add i32 %248, %249
-  %251 = call zeroext i8 @tvb_get_guint8(ptr noundef %247, i32 noundef %250)
-  %252 = zext i8 %251 to i32
-  %253 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %242, i64 noundef %246, ptr noundef @.str.415, i32 noundef %252) #3
-  br label %254
+247:                                              ; preds = %244
+  %248 = load i32, ptr %24, align 4
+  %249 = mul i32 %248, 2
+  %250 = zext i32 %249 to i64
+  %251 = getelementptr [16 x i8], ptr %22, i64 0, i64 %250
+  %252 = load i32, ptr %24, align 4
+  %253 = mul i32 %252, 2
+  %254 = zext i32 %253 to i64
+  %255 = sub i64 16, %254
+  %256 = load i32, ptr %24, align 4
+  %257 = mul i32 %256, 2
+  %258 = zext i32 %257 to i64
+  %259 = getelementptr [16 x i8], ptr %22, i64 0, i64 %258
+  %260 = call i64 @llvm.objectsize.i64.p0(ptr %259, i1 false, i1 true, i1 true)
+  %261 = load ptr, ptr %6, align 8
+  %262 = load i32, ptr %13, align 4
+  %263 = load i32, ptr %24, align 4
+  %264 = add i32 %262, %263
+  %265 = call zeroext i8 @tvb_get_uint8(ptr noundef %261, i32 noundef %264)
+  %266 = zext i8 %265 to i32
+  %267 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %251, i64 noundef %255, i32 noundef 2, i64 noundef %260, ptr noundef @.str.427, i32 noundef %266)
+  br label %268
 
-254:                                              ; preds = %238
-  %255 = load i32, ptr %24, align 4
-  %256 = add i32 %255, 1
-  store i32 %256, ptr %24, align 4
-  br label %235, !llvm.loop !7
+268:                                              ; preds = %247
+  %269 = load i32, ptr %24, align 4
+  %270 = add i32 %269, 1
+  store i32 %270, ptr %24, align 4
+  br label %244, !llvm.loop !11
 
-257:                                              ; preds = %235
-  %258 = load ptr, ptr %7, align 8
-  %259 = getelementptr inbounds %struct._packet_info, ptr %258, i32 0, i32 1
-  %260 = load ptr, ptr %259, align 8
-  %261 = getelementptr inbounds [16 x i8], ptr %22, i64 0, i64 0
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %260, i32 noundef 25, ptr noundef @.str.416, ptr noundef %261)
-  %262 = load ptr, ptr %11, align 8
-  %263 = load i32, ptr @hf_bscvlc_orig_vmac, align 4
-  %264 = load ptr, ptr %6, align 8
-  %265 = load i32, ptr %13, align 4
-  %266 = call ptr @proto_tree_add_item(ptr noundef %262, i32 noundef %263, ptr noundef %264, i32 noundef %265, i32 noundef 6, i32 noundef 0)
-  %267 = load i32, ptr %13, align 4
-  %268 = add i32 %267, 6
-  store i32 %268, ptr %13, align 4
-  br label %269
+271:                                              ; preds = %244
+  %272 = load ptr, ptr %7, align 8
+  %273 = getelementptr inbounds nuw %struct._packet_info, ptr %272, i32 0, i32 1
+  %274 = load ptr, ptr %273, align 8
+  %275 = getelementptr inbounds [16 x i8], ptr %22, i64 0, i64 0
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %274, i32 noundef 25, ptr noundef @.str.428, ptr noundef %275)
+  %276 = load ptr, ptr %11, align 8
+  %277 = load i32, ptr @hf_bscvlc_orig_vmac, align 4
+  %278 = load ptr, ptr %6, align 8
+  %279 = load i32, ptr %13, align 4
+  %280 = call ptr @proto_tree_add_item(ptr noundef %276, i32 noundef %277, ptr noundef %278, i32 noundef %279, i32 noundef 6, i32 noundef 0)
+  %281 = load i32, ptr %13, align 4
+  %282 = add i32 %281, 6
+  store i32 %282, ptr %13, align 4
+  br label %283
 
-269:                                              ; preds = %257, %183
-  %270 = load i8, ptr %19, align 1
-  %271 = zext i8 %270 to i32
-  %272 = and i32 %271, 4
-  %273 = icmp ne i32 %272, 0
-  br i1 %273, label %274, label %309
+283:                                              ; preds = %271, %192
+  %284 = load i8, ptr %19, align 1
+  %285 = zext i8 %284 to i32
+  %286 = and i32 %285, 4
+  %287 = icmp ne i32 %286, 0
+  br i1 %287, label %288, label %328
 
-274:                                              ; preds = %269
+288:                                              ; preds = %283
   store i32 0, ptr %24, align 4
-  br label %275
+  br label %289
 
-275:                                              ; preds = %294, %274
-  %276 = load i32, ptr %24, align 4
-  %277 = icmp ult i32 %276, 6
-  br i1 %277, label %278, label %297
+289:                                              ; preds = %313, %288
+  %290 = load i32, ptr %24, align 4
+  %291 = icmp ult i32 %290, 6
+  br i1 %291, label %292, label %316
 
-278:                                              ; preds = %275
-  %279 = load i32, ptr %24, align 4
-  %280 = mul i32 %279, 2
-  %281 = zext i32 %280 to i64
-  %282 = getelementptr [16 x i8], ptr %22, i64 0, i64 %281
-  %283 = load i32, ptr %24, align 4
-  %284 = mul i32 %283, 2
-  %285 = zext i32 %284 to i64
-  %286 = sub i64 16, %285
-  %287 = load ptr, ptr %6, align 8
-  %288 = load i32, ptr %13, align 4
-  %289 = load i32, ptr %24, align 4
-  %290 = add i32 %288, %289
-  %291 = call zeroext i8 @tvb_get_guint8(ptr noundef %287, i32 noundef %290)
-  %292 = zext i8 %291 to i32
-  %293 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %282, i64 noundef %286, ptr noundef @.str.415, i32 noundef %292) #3
-  br label %294
-
-294:                                              ; preds = %278
-  %295 = load i32, ptr %24, align 4
-  %296 = add i32 %295, 1
-  store i32 %296, ptr %24, align 4
-  br label %275, !llvm.loop !8
-
-297:                                              ; preds = %275
-  %298 = load ptr, ptr %7, align 8
-  %299 = getelementptr inbounds %struct._packet_info, ptr %298, i32 0, i32 1
-  %300 = load ptr, ptr %299, align 8
-  %301 = getelementptr inbounds [16 x i8], ptr %22, i64 0, i64 0
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %300, i32 noundef 25, ptr noundef @.str.417, ptr noundef %301)
-  %302 = load ptr, ptr %11, align 8
-  %303 = load i32, ptr @hf_bscvlc_dest_vmac, align 4
-  %304 = load ptr, ptr %6, align 8
-  %305 = load i32, ptr %13, align 4
-  %306 = call ptr @proto_tree_add_item(ptr noundef %302, i32 noundef %303, ptr noundef %304, i32 noundef %305, i32 noundef 6, i32 noundef 0)
+292:                                              ; preds = %289
+  %293 = load i32, ptr %24, align 4
+  %294 = mul i32 %293, 2
+  %295 = zext i32 %294 to i64
+  %296 = getelementptr [16 x i8], ptr %22, i64 0, i64 %295
+  %297 = load i32, ptr %24, align 4
+  %298 = mul i32 %297, 2
+  %299 = zext i32 %298 to i64
+  %300 = sub i64 16, %299
+  %301 = load i32, ptr %24, align 4
+  %302 = mul i32 %301, 2
+  %303 = zext i32 %302 to i64
+  %304 = getelementptr [16 x i8], ptr %22, i64 0, i64 %303
+  %305 = call i64 @llvm.objectsize.i64.p0(ptr %304, i1 false, i1 true, i1 true)
+  %306 = load ptr, ptr %6, align 8
   %307 = load i32, ptr %13, align 4
-  %308 = add i32 %307, 6
-  store i32 %308, ptr %13, align 4
-  br label %309
-
-309:                                              ; preds = %297, %269
-  %310 = load i8, ptr %19, align 1
+  %308 = load i32, ptr %24, align 4
+  %309 = add i32 %307, %308
+  %310 = call zeroext i8 @tvb_get_uint8(ptr noundef %306, i32 noundef %309)
   %311 = zext i8 %310 to i32
-  %312 = and i32 %311, 2
-  %313 = icmp ne i32 %312, 0
-  br i1 %313, label %314, label %395
+  %312 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %296, i64 noundef %300, i32 noundef 2, i64 noundef %305, ptr noundef @.str.427, i32 noundef %311)
+  br label %313
 
-314:                                              ; preds = %309
-  store i32 1, ptr %25, align 4
-  br label %315
+313:                                              ; preds = %292
+  %314 = load i32, ptr %24, align 4
+  %315 = add i32 %314, 1
+  store i32 %315, ptr %24, align 4
+  br label %289, !llvm.loop !12
 
-315:                                              ; preds = %393, %314
-  %316 = load ptr, ptr %6, align 8
-  %317 = load i32, ptr %13, align 4
-  %318 = call i32 @tvb_reported_length_remaining(ptr noundef %316, i32 noundef %317)
-  %319 = icmp sgt i32 %318, 0
-  br i1 %319, label %320, label %329
+316:                                              ; preds = %289
+  %317 = load ptr, ptr %7, align 8
+  %318 = getelementptr inbounds nuw %struct._packet_info, ptr %317, i32 0, i32 1
+  %319 = load ptr, ptr %318, align 8
+  %320 = getelementptr inbounds [16 x i8], ptr %22, i64 0, i64 0
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %319, i32 noundef 25, ptr noundef @.str.429, ptr noundef %320)
+  %321 = load ptr, ptr %11, align 8
+  %322 = load i32, ptr @hf_bscvlc_dest_vmac, align 4
+  %323 = load ptr, ptr %6, align 8
+  %324 = load i32, ptr %13, align 4
+  %325 = call ptr @proto_tree_add_item(ptr noundef %321, i32 noundef %322, ptr noundef %323, i32 noundef %324, i32 noundef 6, i32 noundef 0)
+  %326 = load i32, ptr %13, align 4
+  %327 = add i32 %326, 6
+  store i32 %327, ptr %13, align 4
+  br label %328
 
-320:                                              ; preds = %315
-  %321 = load ptr, ptr %6, align 8
-  %322 = load i32, ptr %13, align 4
-  %323 = call zeroext i8 @tvb_get_guint8(ptr noundef %321, i32 noundef %322)
-  store i8 %323, ptr %21, align 1
-  %324 = zext i8 %323 to i32
-  %325 = icmp ne i32 %324, 0
-  br i1 %325, label %326, label %329
+328:                                              ; preds = %316, %283
+  %329 = load i8, ptr %19, align 1
+  %330 = zext i8 %329 to i32
+  %331 = and i32 %330, 2
+  %332 = icmp ne i32 %331, 0
+  br i1 %332, label %333, label %418
 
-326:                                              ; preds = %320
-  %327 = load i32, ptr %25, align 4
-  %328 = icmp ne i32 %327, 0
-  br label %329
+333:                                              ; preds = %328
+  store i8 1, ptr %25, align 1
+  br label %334
 
-329:                                              ; preds = %326, %320, %315
-  %330 = phi i1 [ false, %320 ], [ false, %315 ], [ %328, %326 ]
-  br i1 %330, label %331, label %394
+334:                                              ; preds = %416, %333
+  %335 = load ptr, ptr %6, align 8
+  %336 = load i32, ptr %13, align 4
+  %337 = call i32 @tvb_reported_length_remaining(ptr noundef %335, i32 noundef %336)
+  %338 = icmp sgt i32 %337, 0
+  br i1 %338, label %339, label %348
 
-331:                                              ; preds = %329
-  %332 = load i8, ptr %21, align 1
-  %333 = zext i8 %332 to i32
-  %334 = and i32 %333, 128
-  store i32 %334, ptr %25, align 4
-  %335 = load i8, ptr %21, align 1
-  %336 = zext i8 %335 to i32
-  %337 = and i32 %336, 32
-  store i32 %337, ptr %26, align 4
-  %338 = load i32, ptr %13, align 4
-  store i32 %338, ptr %14, align 4
-  %339 = load i32, ptr %13, align 4
-  %340 = add i32 %339, 1
-  store i32 %340, ptr %13, align 4
-  %341 = load i32, ptr %26, align 4
-  %342 = icmp ne i32 %341, 0
-  br i1 %342, label %343, label %360
+339:                                              ; preds = %334
+  %340 = load ptr, ptr %6, align 8
+  %341 = load i32, ptr %13, align 4
+  %342 = call zeroext i8 @tvb_get_uint8(ptr noundef %340, i32 noundef %341)
+  store i8 %342, ptr %21, align 1
+  %343 = zext i8 %342 to i32
+  %344 = icmp ne i32 %343, 0
+  br i1 %344, label %345, label %348
 
-343:                                              ; preds = %331
-  %344 = load ptr, ptr %6, align 8
-  %345 = load i32, ptr %13, align 4
-  %346 = add i32 %345, 1
-  store i32 %346, ptr %13, align 4
-  %347 = call zeroext i8 @tvb_get_guint8(ptr noundef %344, i32 noundef %345)
-  %348 = zext i8 %347 to i32
-  %349 = shl i32 %348, 8
-  store i32 %349, ptr %17, align 4
-  %350 = load ptr, ptr %6, align 8
-  %351 = load i32, ptr %13, align 4
-  %352 = add i32 %351, 1
-  store i32 %352, ptr %13, align 4
-  %353 = call zeroext i8 @tvb_get_guint8(ptr noundef %350, i32 noundef %351)
-  %354 = zext i8 %353 to i32
-  %355 = load i32, ptr %17, align 4
-  %356 = add i32 %355, %354
-  store i32 %356, ptr %17, align 4
-  %357 = load i32, ptr %17, align 4
-  %358 = load i32, ptr %13, align 4
-  %359 = add i32 %358, %357
-  store i32 %359, ptr %13, align 4
-  br label %360
+345:                                              ; preds = %339
+  %346 = load i8, ptr %25, align 1, !range !6, !noundef !7
+  %347 = trunc i8 %346 to i1
+  br label %348
 
-360:                                              ; preds = %343, %331
-  %361 = load ptr, ptr %11, align 8
-  %362 = load ptr, ptr %6, align 8
-  %363 = load i32, ptr %14, align 4
-  %364 = load i32, ptr %13, align 4
-  %365 = load i32, ptr %14, align 4
-  %366 = sub i32 %364, %365
-  %367 = load i32, ptr @ett_bscvlc_hdr, align 4
-  %368 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %361, ptr noundef %362, i32 noundef %363, i32 noundef %366, i32 noundef %367, ptr noundef null, ptr noundef @.str.418, ptr noundef @.str.419)
-  store ptr %368, ptr %27, align 8
-  %369 = load ptr, ptr %27, align 8
-  %370 = load ptr, ptr %6, align 8
-  %371 = load i32, ptr %14, align 4
-  %372 = load i32, ptr @hf_bscvlc_header, align 4
-  %373 = load i32, ptr @ett_bscvlc_hdr, align 4
-  %374 = load i8, ptr %21, align 1
-  %375 = zext i8 %374 to i64
-  %376 = call ptr @proto_tree_add_bitmask_value(ptr noundef %369, ptr noundef %370, i32 noundef %371, i32 noundef %372, i32 noundef %373, ptr noundef @bscvlc_header_flags, i64 noundef %375)
-  %377 = load i32, ptr %26, align 4
-  %378 = icmp ne i32 %377, 0
-  br i1 %378, label %379, label %393
+348:                                              ; preds = %345, %339, %334
+  %349 = phi i1 [ false, %339 ], [ false, %334 ], [ %347, %345 ]
+  br i1 %349, label %350, label %417
 
-379:                                              ; preds = %360
-  %380 = load ptr, ptr %27, align 8
-  %381 = load i32, ptr @hf_bscvlc_header_length, align 4
-  %382 = load ptr, ptr %6, align 8
-  %383 = load i32, ptr %14, align 4
-  %384 = add i32 %383, 1
-  %385 = call ptr @proto_tree_add_item(ptr noundef %380, i32 noundef %381, ptr noundef %382, i32 noundef %384, i32 noundef 2, i32 noundef 0)
-  %386 = load ptr, ptr %27, align 8
-  %387 = load i32, ptr @hf_bscvlc_header_data, align 4
-  %388 = load ptr, ptr %6, align 8
-  %389 = load i32, ptr %14, align 4
-  %390 = add i32 %389, 3
-  %391 = load i32, ptr %17, align 4
-  %392 = call ptr @proto_tree_add_item(ptr noundef %386, i32 noundef %387, ptr noundef %388, i32 noundef %390, i32 noundef %391, i32 noundef 0)
-  br label %393
+350:                                              ; preds = %348
+  %351 = load i8, ptr %21, align 1
+  %352 = zext i8 %351 to i32
+  %353 = and i32 %352, 128
+  %354 = icmp ne i32 %353, 0
+  %355 = zext i1 %354 to i8
+  store i8 %355, ptr %25, align 1
+  %356 = load i8, ptr %21, align 1
+  %357 = zext i8 %356 to i32
+  %358 = and i32 %357, 32
+  %359 = icmp ne i32 %358, 0
+  %360 = zext i1 %359 to i8
+  store i8 %360, ptr %26, align 1
+  %361 = load i32, ptr %13, align 4
+  store i32 %361, ptr %14, align 4
+  %362 = load i32, ptr %13, align 4
+  %363 = add i32 %362, 1
+  store i32 %363, ptr %13, align 4
+  %364 = load i8, ptr %26, align 1, !range !6, !noundef !7
+  %365 = trunc i8 %364 to i1
+  br i1 %365, label %366, label %383
 
-393:                                              ; preds = %379, %360
-  br label %315, !llvm.loop !9
+366:                                              ; preds = %350
+  %367 = load ptr, ptr %6, align 8
+  %368 = load i32, ptr %13, align 4
+  %369 = add i32 %368, 1
+  store i32 %369, ptr %13, align 4
+  %370 = call zeroext i8 @tvb_get_uint8(ptr noundef %367, i32 noundef %368)
+  %371 = zext i8 %370 to i32
+  %372 = shl i32 %371, 8
+  store i32 %372, ptr %17, align 4
+  %373 = load ptr, ptr %6, align 8
+  %374 = load i32, ptr %13, align 4
+  %375 = add i32 %374, 1
+  store i32 %375, ptr %13, align 4
+  %376 = call zeroext i8 @tvb_get_uint8(ptr noundef %373, i32 noundef %374)
+  %377 = zext i8 %376 to i32
+  %378 = load i32, ptr %17, align 4
+  %379 = add i32 %378, %377
+  store i32 %379, ptr %17, align 4
+  %380 = load i32, ptr %17, align 4
+  %381 = load i32, ptr %13, align 4
+  %382 = add i32 %381, %380
+  store i32 %382, ptr %13, align 4
+  br label %383
 
-394:                                              ; preds = %329
-  br label %395
+383:                                              ; preds = %366, %350
+  %384 = load ptr, ptr %11, align 8
+  %385 = load ptr, ptr %6, align 8
+  %386 = load i32, ptr %14, align 4
+  %387 = load i32, ptr %13, align 4
+  %388 = load i32, ptr %14, align 4
+  %389 = sub i32 %387, %388
+  %390 = load i32, ptr @ett_bscvlc_hdr, align 4
+  %391 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %384, ptr noundef %385, i32 noundef %386, i32 noundef %389, i32 noundef %390, ptr noundef null, ptr noundef @.str.430, ptr noundef @.str.431)
+  store ptr %391, ptr %27, align 8
+  %392 = load ptr, ptr %27, align 8
+  %393 = load ptr, ptr %6, align 8
+  %394 = load i32, ptr %14, align 4
+  %395 = load i32, ptr @hf_bscvlc_header, align 4
+  %396 = load i32, ptr @ett_bscvlc_hdr, align 4
+  %397 = load i8, ptr %21, align 1
+  %398 = zext i8 %397 to i64
+  %399 = call ptr @proto_tree_add_bitmask_value(ptr noundef %392, ptr noundef %393, i32 noundef %394, i32 noundef %395, i32 noundef %396, ptr noundef @bscvlc_header_flags, i64 noundef %398)
+  %400 = load i8, ptr %26, align 1, !range !6, !noundef !7
+  %401 = trunc i8 %400 to i1
+  br i1 %401, label %402, label %416
 
-395:                                              ; preds = %394, %309
-  %396 = load i8, ptr %19, align 1
-  %397 = zext i8 %396 to i32
-  %398 = and i32 %397, 1
-  %399 = icmp ne i32 %398, 0
-  br i1 %399, label %400, label %481
+402:                                              ; preds = %383
+  %403 = load ptr, ptr %27, align 8
+  %404 = load i32, ptr @hf_bscvlc_header_length, align 4
+  %405 = load ptr, ptr %6, align 8
+  %406 = load i32, ptr %14, align 4
+  %407 = add i32 %406, 1
+  %408 = call ptr @proto_tree_add_item(ptr noundef %403, i32 noundef %404, ptr noundef %405, i32 noundef %407, i32 noundef 2, i32 noundef 0)
+  %409 = load ptr, ptr %27, align 8
+  %410 = load i32, ptr @hf_bscvlc_header_data, align 4
+  %411 = load ptr, ptr %6, align 8
+  %412 = load i32, ptr %14, align 4
+  %413 = add i32 %412, 3
+  %414 = load i32, ptr %17, align 4
+  %415 = call ptr @proto_tree_add_item(ptr noundef %409, i32 noundef %410, ptr noundef %411, i32 noundef %413, i32 noundef %414, i32 noundef 0)
+  br label %416
 
-400:                                              ; preds = %395
-  store i32 1, ptr %25, align 4
-  br label %401
+416:                                              ; preds = %402, %383
+  br label %334, !llvm.loop !13
 
-401:                                              ; preds = %479, %400
-  %402 = load ptr, ptr %6, align 8
-  %403 = load i32, ptr %13, align 4
-  %404 = call i32 @tvb_reported_length_remaining(ptr noundef %402, i32 noundef %403)
-  %405 = icmp sgt i32 %404, 0
-  br i1 %405, label %406, label %415
+417:                                              ; preds = %348
+  br label %418
 
-406:                                              ; preds = %401
-  %407 = load ptr, ptr %6, align 8
-  %408 = load i32, ptr %13, align 4
-  %409 = call zeroext i8 @tvb_get_guint8(ptr noundef %407, i32 noundef %408)
-  store i8 %409, ptr %21, align 1
-  %410 = zext i8 %409 to i32
-  %411 = icmp ne i32 %410, 0
-  br i1 %411, label %412, label %415
+418:                                              ; preds = %417, %328
+  %419 = load i8, ptr %19, align 1
+  %420 = zext i8 %419 to i32
+  %421 = and i32 %420, 1
+  %422 = icmp ne i32 %421, 0
+  br i1 %422, label %423, label %508
 
-412:                                              ; preds = %406
-  %413 = load i32, ptr %25, align 4
-  %414 = icmp ne i32 %413, 0
-  br label %415
+423:                                              ; preds = %418
+  store i8 1, ptr %25, align 1
+  br label %424
 
-415:                                              ; preds = %412, %406, %401
-  %416 = phi i1 [ false, %406 ], [ false, %401 ], [ %414, %412 ]
-  br i1 %416, label %417, label %480
+424:                                              ; preds = %506, %423
+  %425 = load ptr, ptr %6, align 8
+  %426 = load i32, ptr %13, align 4
+  %427 = call i32 @tvb_reported_length_remaining(ptr noundef %425, i32 noundef %426)
+  %428 = icmp sgt i32 %427, 0
+  br i1 %428, label %429, label %438
 
-417:                                              ; preds = %415
-  %418 = load i8, ptr %21, align 1
-  %419 = zext i8 %418 to i32
-  %420 = and i32 %419, 128
-  store i32 %420, ptr %25, align 4
-  %421 = load i8, ptr %21, align 1
-  %422 = zext i8 %421 to i32
-  %423 = and i32 %422, 32
-  store i32 %423, ptr %26, align 4
-  %424 = load i32, ptr %13, align 4
-  store i32 %424, ptr %14, align 4
-  %425 = load i32, ptr %13, align 4
-  %426 = add i32 %425, 1
-  store i32 %426, ptr %13, align 4
-  %427 = load i32, ptr %26, align 4
-  %428 = icmp ne i32 %427, 0
-  br i1 %428, label %429, label %446
-
-429:                                              ; preds = %417
+429:                                              ; preds = %424
   %430 = load ptr, ptr %6, align 8
   %431 = load i32, ptr %13, align 4
-  %432 = add i32 %431, 1
-  store i32 %432, ptr %13, align 4
-  %433 = call zeroext i8 @tvb_get_guint8(ptr noundef %430, i32 noundef %431)
-  %434 = zext i8 %433 to i32
-  %435 = shl i32 %434, 8
-  store i32 %435, ptr %17, align 4
-  %436 = load ptr, ptr %6, align 8
-  %437 = load i32, ptr %13, align 4
-  %438 = add i32 %437, 1
-  store i32 %438, ptr %13, align 4
-  %439 = call zeroext i8 @tvb_get_guint8(ptr noundef %436, i32 noundef %437)
-  %440 = zext i8 %439 to i32
-  %441 = load i32, ptr %17, align 4
-  %442 = add i32 %441, %440
-  store i32 %442, ptr %17, align 4
-  %443 = load i32, ptr %17, align 4
-  %444 = load i32, ptr %13, align 4
-  %445 = add i32 %444, %443
-  store i32 %445, ptr %13, align 4
-  br label %446
+  %432 = call zeroext i8 @tvb_get_uint8(ptr noundef %430, i32 noundef %431)
+  store i8 %432, ptr %21, align 1
+  %433 = zext i8 %432 to i32
+  %434 = icmp ne i32 %433, 0
+  br i1 %434, label %435, label %438
 
-446:                                              ; preds = %429, %417
-  %447 = load ptr, ptr %11, align 8
-  %448 = load ptr, ptr %6, align 8
-  %449 = load i32, ptr %14, align 4
-  %450 = load i32, ptr %13, align 4
-  %451 = load i32, ptr %14, align 4
-  %452 = sub i32 %450, %451
-  %453 = load i32, ptr @ett_bscvlc_hdr, align 4
-  %454 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %447, ptr noundef %448, i32 noundef %449, i32 noundef %452, i32 noundef %453, ptr noundef null, ptr noundef @.str.418, ptr noundef @.str.420)
-  store ptr %454, ptr %27, align 8
-  %455 = load ptr, ptr %27, align 8
-  %456 = load ptr, ptr %6, align 8
-  %457 = load i32, ptr %14, align 4
-  %458 = load i32, ptr @hf_bscvlc_header, align 4
-  %459 = load i32, ptr @ett_bscvlc_hdr, align 4
-  %460 = load i8, ptr %21, align 1
-  %461 = zext i8 %460 to i64
-  %462 = call ptr @proto_tree_add_bitmask_value(ptr noundef %455, ptr noundef %456, i32 noundef %457, i32 noundef %458, i32 noundef %459, ptr noundef @bscvlc_header_flags, i64 noundef %461)
-  %463 = load i32, ptr %26, align 4
-  %464 = icmp ne i32 %463, 0
-  br i1 %464, label %465, label %479
+435:                                              ; preds = %429
+  %436 = load i8, ptr %25, align 1, !range !6, !noundef !7
+  %437 = trunc i8 %436 to i1
+  br label %438
 
-465:                                              ; preds = %446
-  %466 = load ptr, ptr %27, align 8
-  %467 = load i32, ptr @hf_bscvlc_header_length, align 4
-  %468 = load ptr, ptr %6, align 8
-  %469 = load i32, ptr %14, align 4
-  %470 = add i32 %469, 1
-  %471 = call ptr @proto_tree_add_item(ptr noundef %466, i32 noundef %467, ptr noundef %468, i32 noundef %470, i32 noundef 2, i32 noundef 0)
-  %472 = load ptr, ptr %27, align 8
-  %473 = load i32, ptr @hf_bscvlc_header_data, align 4
-  %474 = load ptr, ptr %6, align 8
-  %475 = load i32, ptr %14, align 4
-  %476 = add i32 %475, 3
-  %477 = load i32, ptr %17, align 4
-  %478 = call ptr @proto_tree_add_item(ptr noundef %472, i32 noundef %473, ptr noundef %474, i32 noundef %476, i32 noundef %477, i32 noundef 0)
-  br label %479
+438:                                              ; preds = %435, %429, %424
+  %439 = phi i1 [ false, %429 ], [ false, %424 ], [ %437, %435 ]
+  br i1 %439, label %440, label %507
 
-479:                                              ; preds = %465, %446
-  br label %401, !llvm.loop !10
+440:                                              ; preds = %438
+  %441 = load i8, ptr %21, align 1
+  %442 = zext i8 %441 to i32
+  %443 = and i32 %442, 128
+  %444 = icmp ne i32 %443, 0
+  %445 = zext i1 %444 to i8
+  store i8 %445, ptr %25, align 1
+  %446 = load i8, ptr %21, align 1
+  %447 = zext i8 %446 to i32
+  %448 = and i32 %447, 32
+  %449 = icmp ne i32 %448, 0
+  %450 = zext i1 %449 to i8
+  store i8 %450, ptr %26, align 1
+  %451 = load i32, ptr %13, align 4
+  store i32 %451, ptr %14, align 4
+  %452 = load i32, ptr %13, align 4
+  %453 = add i32 %452, 1
+  store i32 %453, ptr %13, align 4
+  %454 = load i8, ptr %26, align 1, !range !6, !noundef !7
+  %455 = trunc i8 %454 to i1
+  br i1 %455, label %456, label %473
 
-480:                                              ; preds = %415
-  br label %481
+456:                                              ; preds = %440
+  %457 = load ptr, ptr %6, align 8
+  %458 = load i32, ptr %13, align 4
+  %459 = add i32 %458, 1
+  store i32 %459, ptr %13, align 4
+  %460 = call zeroext i8 @tvb_get_uint8(ptr noundef %457, i32 noundef %458)
+  %461 = zext i8 %460 to i32
+  %462 = shl i32 %461, 8
+  store i32 %462, ptr %17, align 4
+  %463 = load ptr, ptr %6, align 8
+  %464 = load i32, ptr %13, align 4
+  %465 = add i32 %464, 1
+  store i32 %465, ptr %13, align 4
+  %466 = call zeroext i8 @tvb_get_uint8(ptr noundef %463, i32 noundef %464)
+  %467 = zext i8 %466 to i32
+  %468 = load i32, ptr %17, align 4
+  %469 = add i32 %468, %467
+  store i32 %469, ptr %17, align 4
+  %470 = load i32, ptr %17, align 4
+  %471 = load i32, ptr %13, align 4
+  %472 = add i32 %471, %470
+  store i32 %472, ptr %13, align 4
+  br label %473
 
-481:                                              ; preds = %480, %395
-  %482 = load i8, ptr %18, align 1
-  %483 = zext i8 %482 to i32
-  switch i32 %483, label %713 [
-    i32 2, label %484
-    i32 5, label %484
-    i32 8, label %484
-    i32 9, label %484
-    i32 10, label %484
-    i32 11, label %484
-    i32 0, label %485
-    i32 3, label %551
-    i32 4, label %569
-    i32 6, label %606
-    i32 7, label %643
-    i32 12, label %680
-    i32 1, label %712
+473:                                              ; preds = %456, %440
+  %474 = load ptr, ptr %11, align 8
+  %475 = load ptr, ptr %6, align 8
+  %476 = load i32, ptr %14, align 4
+  %477 = load i32, ptr %13, align 4
+  %478 = load i32, ptr %14, align 4
+  %479 = sub i32 %477, %478
+  %480 = load i32, ptr @ett_bscvlc_hdr, align 4
+  %481 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %474, ptr noundef %475, i32 noundef %476, i32 noundef %479, i32 noundef %480, ptr noundef null, ptr noundef @.str.430, ptr noundef @.str.432)
+  store ptr %481, ptr %27, align 8
+  %482 = load ptr, ptr %27, align 8
+  %483 = load ptr, ptr %6, align 8
+  %484 = load i32, ptr %14, align 4
+  %485 = load i32, ptr @hf_bscvlc_header, align 4
+  %486 = load i32, ptr @ett_bscvlc_hdr, align 4
+  %487 = load i8, ptr %21, align 1
+  %488 = zext i8 %487 to i64
+  %489 = call ptr @proto_tree_add_bitmask_value(ptr noundef %482, ptr noundef %483, i32 noundef %484, i32 noundef %485, i32 noundef %486, ptr noundef @bscvlc_header_flags, i64 noundef %488)
+  %490 = load i8, ptr %26, align 1, !range !6, !noundef !7
+  %491 = trunc i8 %490 to i1
+  br i1 %491, label %492, label %506
+
+492:                                              ; preds = %473
+  %493 = load ptr, ptr %27, align 8
+  %494 = load i32, ptr @hf_bscvlc_header_length, align 4
+  %495 = load ptr, ptr %6, align 8
+  %496 = load i32, ptr %14, align 4
+  %497 = add i32 %496, 1
+  %498 = call ptr @proto_tree_add_item(ptr noundef %493, i32 noundef %494, ptr noundef %495, i32 noundef %497, i32 noundef 2, i32 noundef 0)
+  %499 = load ptr, ptr %27, align 8
+  %500 = load i32, ptr @hf_bscvlc_header_data, align 4
+  %501 = load ptr, ptr %6, align 8
+  %502 = load i32, ptr %14, align 4
+  %503 = add i32 %502, 3
+  %504 = load i32, ptr %17, align 4
+  %505 = call ptr @proto_tree_add_item(ptr noundef %499, i32 noundef %500, ptr noundef %501, i32 noundef %503, i32 noundef %504, i32 noundef 0)
+  br label %506
+
+506:                                              ; preds = %492, %473
+  br label %424, !llvm.loop !14
+
+507:                                              ; preds = %438
+  br label %508
+
+508:                                              ; preds = %507, %418
+  %509 = load i8, ptr %18, align 1
+  %510 = zext i8 %509 to i32
+  switch i32 %510, label %740 [
+    i32 2, label %511
+    i32 5, label %511
+    i32 8, label %511
+    i32 9, label %511
+    i32 10, label %511
+    i32 11, label %511
+    i32 0, label %512
+    i32 3, label %578
+    i32 4, label %596
+    i32 6, label %633
+    i32 7, label %670
+    i32 12, label %707
+    i32 1, label %739
   ]
 
-484:                                              ; preds = %481, %481, %481, %481, %481, %481
-  br label %714
+511:                                              ; preds = %508, %508, %508, %508, %508, %508
+  br label %741
 
-485:                                              ; preds = %481
-  %486 = load ptr, ptr %11, align 8
-  %487 = load ptr, ptr %6, align 8
-  %488 = load i32, ptr %13, align 4
-  %489 = load i32, ptr %16, align 4
-  %490 = load i32, ptr %13, align 4
-  %491 = sub i32 %489, %490
-  %492 = load i32, ptr @ett_bscvlc_hdr, align 4
-  %493 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %486, ptr noundef %487, i32 noundef %488, i32 noundef %491, i32 noundef %492, ptr noundef null, ptr noundef @.str.418, ptr noundef @.str.140)
-  store ptr %493, ptr %27, align 8
-  %494 = load ptr, ptr %27, align 8
-  %495 = load i32, ptr @hf_bscvlc_function, align 4
-  %496 = load ptr, ptr %6, align 8
-  %497 = load i32, ptr %13, align 4
-  %498 = call ptr @proto_tree_add_item(ptr noundef %494, i32 noundef %495, ptr noundef %496, i32 noundef %497, i32 noundef 1, i32 noundef 0)
-  %499 = load i32, ptr %13, align 4
-  %500 = add i32 %499, 1
-  store i32 %500, ptr %13, align 4
-  %501 = load ptr, ptr %27, align 8
-  %502 = load i32, ptr @hf_bscvlc_result, align 4
-  %503 = load ptr, ptr %6, align 8
-  %504 = load i32, ptr %13, align 4
-  %505 = call ptr @proto_tree_add_item(ptr noundef %501, i32 noundef %502, ptr noundef %503, i32 noundef %504, i32 noundef 1, i32 noundef 0)
-  %506 = load ptr, ptr %6, align 8
-  %507 = load i32, ptr %13, align 4
-  %508 = call zeroext i8 @tvb_get_guint8(ptr noundef %506, i32 noundef %507)
-  store i8 %508, ptr %20, align 1
-  %509 = load i32, ptr %13, align 4
-  %510 = add i32 %509, 1
-  store i32 %510, ptr %13, align 4
-  %511 = load ptr, ptr %7, align 8
-  %512 = getelementptr inbounds %struct._packet_info, ptr %511, i32 0, i32 1
-  %513 = load ptr, ptr %512, align 8
-  %514 = load i8, ptr %20, align 1
-  %515 = zext i8 %514 to i32
-  %516 = call ptr @val_to_str_const(i32 noundef %515, ptr noundef @bscvlc_result_names, ptr noundef @.str.411)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %513, i32 noundef 25, ptr noundef @.str.421, ptr noundef %516)
-  %517 = load i8, ptr %20, align 1
-  %518 = icmp ne i8 %517, 0
-  br i1 %518, label %519, label %549
+512:                                              ; preds = %508
+  %513 = load ptr, ptr %11, align 8
+  %514 = load ptr, ptr %6, align 8
+  %515 = load i32, ptr %13, align 4
+  %516 = load i32, ptr %16, align 4
+  %517 = load i32, ptr %13, align 4
+  %518 = sub i32 %516, %517
+  %519 = load i32, ptr @ett_bscvlc_hdr, align 4
+  %520 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %513, ptr noundef %514, i32 noundef %515, i32 noundef %518, i32 noundef %519, ptr noundef null, ptr noundef @.str.430, ptr noundef @.str.141)
+  store ptr %520, ptr %27, align 8
+  %521 = load ptr, ptr %27, align 8
+  %522 = load i32, ptr @hf_bscvlc_function, align 4
+  %523 = load ptr, ptr %6, align 8
+  %524 = load i32, ptr %13, align 4
+  %525 = call ptr @proto_tree_add_item(ptr noundef %521, i32 noundef %522, ptr noundef %523, i32 noundef %524, i32 noundef 1, i32 noundef 0)
+  %526 = load i32, ptr %13, align 4
+  %527 = add i32 %526, 1
+  store i32 %527, ptr %13, align 4
+  %528 = load ptr, ptr %27, align 8
+  %529 = load i32, ptr @hf_bscvlc_result, align 4
+  %530 = load ptr, ptr %6, align 8
+  %531 = load i32, ptr %13, align 4
+  %532 = call ptr @proto_tree_add_item(ptr noundef %528, i32 noundef %529, ptr noundef %530, i32 noundef %531, i32 noundef 1, i32 noundef 0)
+  %533 = load ptr, ptr %6, align 8
+  %534 = load i32, ptr %13, align 4
+  %535 = call zeroext i8 @tvb_get_uint8(ptr noundef %533, i32 noundef %534)
+  store i8 %535, ptr %20, align 1
+  %536 = load i32, ptr %13, align 4
+  %537 = add i32 %536, 1
+  store i32 %537, ptr %13, align 4
+  %538 = load ptr, ptr %7, align 8
+  %539 = getelementptr inbounds nuw %struct._packet_info, ptr %538, i32 0, i32 1
+  %540 = load ptr, ptr %539, align 8
+  %541 = load i8, ptr %20, align 1
+  %542 = zext i8 %541 to i32
+  %543 = call ptr @val_to_str_const(i32 noundef %542, ptr noundef @bscvlc_result_names, ptr noundef @.str.423)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %540, i32 noundef 25, ptr noundef @.str.433, ptr noundef %543)
+  %544 = load i8, ptr %20, align 1
+  %545 = icmp ne i8 %544, 0
+  br i1 %545, label %546, label %576
 
-519:                                              ; preds = %485
-  %520 = load ptr, ptr %27, align 8
-  %521 = load i32, ptr @hf_bscvlc_header_marker, align 4
-  %522 = load ptr, ptr %6, align 8
-  %523 = load i32, ptr %13, align 4
-  %524 = call ptr @proto_tree_add_item(ptr noundef %520, i32 noundef %521, ptr noundef %522, i32 noundef %523, i32 noundef 1, i32 noundef 0)
-  %525 = load i32, ptr %13, align 4
-  %526 = add i32 %525, 1
-  store i32 %526, ptr %13, align 4
-  %527 = load ptr, ptr %27, align 8
-  %528 = load i32, ptr @hf_bscvlc_error_class, align 4
-  %529 = load ptr, ptr %6, align 8
-  %530 = load i32, ptr %13, align 4
-  %531 = call ptr @proto_tree_add_item(ptr noundef %527, i32 noundef %528, ptr noundef %529, i32 noundef %530, i32 noundef 2, i32 noundef 0)
-  %532 = load i32, ptr %13, align 4
-  %533 = add i32 %532, 2
-  store i32 %533, ptr %13, align 4
-  %534 = load ptr, ptr %27, align 8
-  %535 = load i32, ptr @hf_bscvlc_error_code, align 4
-  %536 = load ptr, ptr %6, align 8
-  %537 = load i32, ptr %13, align 4
-  %538 = call ptr @proto_tree_add_item(ptr noundef %534, i32 noundef %535, ptr noundef %536, i32 noundef %537, i32 noundef 2, i32 noundef 0)
-  %539 = load i32, ptr %13, align 4
-  %540 = add i32 %539, 2
-  store i32 %540, ptr %13, align 4
-  %541 = load ptr, ptr %27, align 8
-  %542 = load i32, ptr @hf_bscvlc_result_data, align 4
-  %543 = load ptr, ptr %6, align 8
-  %544 = load i32, ptr %13, align 4
-  %545 = load i32, ptr %16, align 4
-  %546 = load i32, ptr %13, align 4
-  %547 = sub i32 %545, %546
-  %548 = call ptr @proto_tree_add_item(ptr noundef %541, i32 noundef %542, ptr noundef %543, i32 noundef %544, i32 noundef %547, i32 noundef 0)
-  br label %549
+546:                                              ; preds = %512
+  %547 = load ptr, ptr %27, align 8
+  %548 = load i32, ptr @hf_bscvlc_header_marker, align 4
+  %549 = load ptr, ptr %6, align 8
+  %550 = load i32, ptr %13, align 4
+  %551 = call ptr @proto_tree_add_item(ptr noundef %547, i32 noundef %548, ptr noundef %549, i32 noundef %550, i32 noundef 1, i32 noundef 0)
+  %552 = load i32, ptr %13, align 4
+  %553 = add i32 %552, 1
+  store i32 %553, ptr %13, align 4
+  %554 = load ptr, ptr %27, align 8
+  %555 = load i32, ptr @hf_bscvlc_error_class, align 4
+  %556 = load ptr, ptr %6, align 8
+  %557 = load i32, ptr %13, align 4
+  %558 = call ptr @proto_tree_add_item(ptr noundef %554, i32 noundef %555, ptr noundef %556, i32 noundef %557, i32 noundef 2, i32 noundef 0)
+  %559 = load i32, ptr %13, align 4
+  %560 = add i32 %559, 2
+  store i32 %560, ptr %13, align 4
+  %561 = load ptr, ptr %27, align 8
+  %562 = load i32, ptr @hf_bscvlc_error_code, align 4
+  %563 = load ptr, ptr %6, align 8
+  %564 = load i32, ptr %13, align 4
+  %565 = call ptr @proto_tree_add_item(ptr noundef %561, i32 noundef %562, ptr noundef %563, i32 noundef %564, i32 noundef 2, i32 noundef 0)
+  %566 = load i32, ptr %13, align 4
+  %567 = add i32 %566, 2
+  store i32 %567, ptr %13, align 4
+  %568 = load ptr, ptr %27, align 8
+  %569 = load i32, ptr @hf_bscvlc_result_data, align 4
+  %570 = load ptr, ptr %6, align 8
+  %571 = load i32, ptr %13, align 4
+  %572 = load i32, ptr %16, align 4
+  %573 = load i32, ptr %13, align 4
+  %574 = sub i32 %572, %573
+  %575 = call ptr @proto_tree_add_item(ptr noundef %568, i32 noundef %569, ptr noundef %570, i32 noundef %571, i32 noundef %574, i32 noundef 0)
+  br label %576
 
-549:                                              ; preds = %519, %485
-  %550 = load i32, ptr %16, align 4
-  store i32 %550, ptr %13, align 4
-  br label %714
+576:                                              ; preds = %546, %512
+  %577 = load i32, ptr %16, align 4
+  store i32 %577, ptr %13, align 4
+  br label %741
 
-551:                                              ; preds = %481
-  %552 = load ptr, ptr %11, align 8
-  %553 = load ptr, ptr %6, align 8
-  %554 = load i32, ptr %13, align 4
-  %555 = load i32, ptr %16, align 4
-  %556 = load i32, ptr %13, align 4
-  %557 = sub i32 %555, %556
-  %558 = load i32, ptr @ett_bscvlc_hdr, align 4
-  %559 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %552, ptr noundef %553, i32 noundef %554, i32 noundef %557, i32 noundef %558, ptr noundef null, ptr noundef @.str.418, ptr noundef @.str.155)
-  store ptr %559, ptr %27, align 8
-  %560 = load ptr, ptr %27, align 8
-  %561 = load i32, ptr @hf_bscvlc_uris, align 4
-  %562 = load ptr, ptr %6, align 8
-  %563 = load i32, ptr %13, align 4
-  %564 = load i32, ptr %16, align 4
-  %565 = load i32, ptr %13, align 4
-  %566 = sub i32 %564, %565
-  %567 = call ptr @proto_tree_add_item(ptr noundef %560, i32 noundef %561, ptr noundef %562, i32 noundef %563, i32 noundef %566, i32 noundef 0)
-  %568 = load i32, ptr %16, align 4
-  store i32 %568, ptr %13, align 4
-  br label %714
-
-569:                                              ; preds = %481
-  %570 = load ptr, ptr %11, align 8
-  %571 = load ptr, ptr %6, align 8
-  %572 = load i32, ptr %13, align 4
-  %573 = load i32, ptr %16, align 4
-  %574 = load i32, ptr %13, align 4
-  %575 = sub i32 %573, %574
-  %576 = load i32, ptr @ett_bscvlc_hdr, align 4
-  %577 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %570, ptr noundef %571, i32 noundef %572, i32 noundef %575, i32 noundef %576, ptr noundef null, ptr noundef @.str.418, ptr noundef @.str.192)
-  store ptr %577, ptr %27, align 8
-  %578 = load ptr, ptr %27, align 8
-  %579 = load i32, ptr @hf_bscvlc_hub_conn_state, align 4
+578:                                              ; preds = %508
+  %579 = load ptr, ptr %11, align 8
   %580 = load ptr, ptr %6, align 8
   %581 = load i32, ptr %13, align 4
-  %582 = call ptr @proto_tree_add_item(ptr noundef %578, i32 noundef %579, ptr noundef %580, i32 noundef %581, i32 noundef 1, i32 noundef 0)
+  %582 = load i32, ptr %16, align 4
   %583 = load i32, ptr %13, align 4
-  %584 = add i32 %583, 1
-  store i32 %584, ptr %13, align 4
-  %585 = load ptr, ptr %27, align 8
-  %586 = load i32, ptr @hf_bscvlc_accept_conns, align 4
-  %587 = load ptr, ptr %6, align 8
-  %588 = load i32, ptr %13, align 4
-  %589 = call ptr @proto_tree_add_item(ptr noundef %585, i32 noundef %586, ptr noundef %587, i32 noundef %588, i32 noundef 1, i32 noundef 0)
+  %584 = sub i32 %582, %583
+  %585 = load i32, ptr @ett_bscvlc_hdr, align 4
+  %586 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %579, ptr noundef %580, i32 noundef %581, i32 noundef %584, i32 noundef %585, ptr noundef null, ptr noundef @.str.430, ptr noundef @.str.157)
+  store ptr %586, ptr %27, align 8
+  %587 = load ptr, ptr %27, align 8
+  %588 = load i32, ptr @hf_bscvlc_uris, align 4
+  %589 = load ptr, ptr %6, align 8
   %590 = load i32, ptr %13, align 4
-  %591 = add i32 %590, 1
-  store i32 %591, ptr %13, align 4
-  %592 = load ptr, ptr %27, align 8
-  %593 = load i32, ptr @hf_bscvlc_max_bvlc_length, align 4
-  %594 = load ptr, ptr %6, align 8
-  %595 = load i32, ptr %13, align 4
-  %596 = call ptr @proto_tree_add_item(ptr noundef %592, i32 noundef %593, ptr noundef %594, i32 noundef %595, i32 noundef 2, i32 noundef 0)
-  %597 = load i32, ptr %13, align 4
-  %598 = add i32 %597, 2
-  store i32 %598, ptr %13, align 4
-  %599 = load ptr, ptr %27, align 8
-  %600 = load i32, ptr @hf_bscvlc_max_npdu_length, align 4
-  %601 = load ptr, ptr %6, align 8
-  %602 = load i32, ptr %13, align 4
-  %603 = call ptr @proto_tree_add_item(ptr noundef %599, i32 noundef %600, ptr noundef %601, i32 noundef %602, i32 noundef 2, i32 noundef 0)
-  %604 = load i32, ptr %13, align 4
-  %605 = add i32 %604, 2
-  store i32 %605, ptr %13, align 4
-  br label %714
+  %591 = load i32, ptr %16, align 4
+  %592 = load i32, ptr %13, align 4
+  %593 = sub i32 %591, %592
+  %594 = call ptr @proto_tree_add_item(ptr noundef %587, i32 noundef %588, ptr noundef %589, i32 noundef %590, i32 noundef %593, i32 noundef 0)
+  %595 = load i32, ptr %16, align 4
+  store i32 %595, ptr %13, align 4
+  br label %741
 
-606:                                              ; preds = %481
-  %607 = load ptr, ptr %11, align 8
-  %608 = load ptr, ptr %6, align 8
-  %609 = load i32, ptr %13, align 4
-  %610 = load i32, ptr %16, align 4
-  %611 = load i32, ptr %13, align 4
-  %612 = sub i32 %610, %611
-  %613 = load i32, ptr @ett_bscvlc_hdr, align 4
-  %614 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %607, ptr noundef %608, i32 noundef %609, i32 noundef %612, i32 noundef %613, ptr noundef null, ptr noundef @.str.418, ptr noundef @.str.194)
-  store ptr %614, ptr %27, align 8
-  %615 = load ptr, ptr %27, align 8
-  %616 = load i32, ptr @hf_bscvlc_connect_vmac, align 4
-  %617 = load ptr, ptr %6, align 8
-  %618 = load i32, ptr %13, align 4
-  %619 = call ptr @proto_tree_add_item(ptr noundef %615, i32 noundef %616, ptr noundef %617, i32 noundef %618, i32 noundef 6, i32 noundef 0)
-  %620 = load i32, ptr %13, align 4
-  %621 = add i32 %620, 6
-  store i32 %621, ptr %13, align 4
-  %622 = load ptr, ptr %27, align 8
-  %623 = load i32, ptr @hf_bscvlc_connect_uuid, align 4
-  %624 = load ptr, ptr %6, align 8
-  %625 = load i32, ptr %13, align 4
-  %626 = call ptr @proto_tree_add_item(ptr noundef %622, i32 noundef %623, ptr noundef %624, i32 noundef %625, i32 noundef 16, i32 noundef 0)
-  %627 = load i32, ptr %13, align 4
-  %628 = add i32 %627, 16
-  store i32 %628, ptr %13, align 4
-  %629 = load ptr, ptr %27, align 8
-  %630 = load i32, ptr @hf_bscvlc_max_bvlc_length, align 4
-  %631 = load ptr, ptr %6, align 8
-  %632 = load i32, ptr %13, align 4
-  %633 = call ptr @proto_tree_add_item(ptr noundef %629, i32 noundef %630, ptr noundef %631, i32 noundef %632, i32 noundef 2, i32 noundef 0)
-  %634 = load i32, ptr %13, align 4
-  %635 = add i32 %634, 2
-  store i32 %635, ptr %13, align 4
-  %636 = load ptr, ptr %27, align 8
-  %637 = load i32, ptr @hf_bscvlc_max_npdu_length, align 4
-  %638 = load ptr, ptr %6, align 8
-  %639 = load i32, ptr %13, align 4
-  %640 = call ptr @proto_tree_add_item(ptr noundef %636, i32 noundef %637, ptr noundef %638, i32 noundef %639, i32 noundef 2, i32 noundef 0)
-  %641 = load i32, ptr %13, align 4
-  %642 = add i32 %641, 2
-  store i32 %642, ptr %13, align 4
-  br label %714
+596:                                              ; preds = %508
+  %597 = load ptr, ptr %11, align 8
+  %598 = load ptr, ptr %6, align 8
+  %599 = load i32, ptr %13, align 4
+  %600 = load i32, ptr %16, align 4
+  %601 = load i32, ptr %13, align 4
+  %602 = sub i32 %600, %601
+  %603 = load i32, ptr @ett_bscvlc_hdr, align 4
+  %604 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %597, ptr noundef %598, i32 noundef %599, i32 noundef %602, i32 noundef %603, ptr noundef null, ptr noundef @.str.430, ptr noundef @.str.200)
+  store ptr %604, ptr %27, align 8
+  %605 = load ptr, ptr %27, align 8
+  %606 = load i32, ptr @hf_bscvlc_hub_conn_state, align 4
+  %607 = load ptr, ptr %6, align 8
+  %608 = load i32, ptr %13, align 4
+  %609 = call ptr @proto_tree_add_item(ptr noundef %605, i32 noundef %606, ptr noundef %607, i32 noundef %608, i32 noundef 1, i32 noundef 0)
+  %610 = load i32, ptr %13, align 4
+  %611 = add i32 %610, 1
+  store i32 %611, ptr %13, align 4
+  %612 = load ptr, ptr %27, align 8
+  %613 = load i32, ptr @hf_bscvlc_accept_conns, align 4
+  %614 = load ptr, ptr %6, align 8
+  %615 = load i32, ptr %13, align 4
+  %616 = call ptr @proto_tree_add_item(ptr noundef %612, i32 noundef %613, ptr noundef %614, i32 noundef %615, i32 noundef 1, i32 noundef 0)
+  %617 = load i32, ptr %13, align 4
+  %618 = add i32 %617, 1
+  store i32 %618, ptr %13, align 4
+  %619 = load ptr, ptr %27, align 8
+  %620 = load i32, ptr @hf_bscvlc_max_bvlc_length, align 4
+  %621 = load ptr, ptr %6, align 8
+  %622 = load i32, ptr %13, align 4
+  %623 = call ptr @proto_tree_add_item(ptr noundef %619, i32 noundef %620, ptr noundef %621, i32 noundef %622, i32 noundef 2, i32 noundef 0)
+  %624 = load i32, ptr %13, align 4
+  %625 = add i32 %624, 2
+  store i32 %625, ptr %13, align 4
+  %626 = load ptr, ptr %27, align 8
+  %627 = load i32, ptr @hf_bscvlc_max_npdu_length, align 4
+  %628 = load ptr, ptr %6, align 8
+  %629 = load i32, ptr %13, align 4
+  %630 = call ptr @proto_tree_add_item(ptr noundef %626, i32 noundef %627, ptr noundef %628, i32 noundef %629, i32 noundef 2, i32 noundef 0)
+  %631 = load i32, ptr %13, align 4
+  %632 = add i32 %631, 2
+  store i32 %632, ptr %13, align 4
+  br label %741
 
-643:                                              ; preds = %481
-  %644 = load ptr, ptr %11, align 8
-  %645 = load ptr, ptr %6, align 8
-  %646 = load i32, ptr %13, align 4
-  %647 = load i32, ptr %16, align 4
-  %648 = load i32, ptr %13, align 4
-  %649 = sub i32 %647, %648
-  %650 = load i32, ptr @ett_bscvlc_hdr, align 4
-  %651 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %644, ptr noundef %645, i32 noundef %646, i32 noundef %649, i32 noundef %650, ptr noundef null, ptr noundef @.str.418, ptr noundef @.str.195)
-  store ptr %651, ptr %27, align 8
-  %652 = load ptr, ptr %27, align 8
-  %653 = load i32, ptr @hf_bscvlc_connect_vmac, align 4
-  %654 = load ptr, ptr %6, align 8
-  %655 = load i32, ptr %13, align 4
-  %656 = call ptr @proto_tree_add_item(ptr noundef %652, i32 noundef %653, ptr noundef %654, i32 noundef %655, i32 noundef 6, i32 noundef 0)
-  %657 = load i32, ptr %13, align 4
-  %658 = add i32 %657, 6
-  store i32 %658, ptr %13, align 4
-  %659 = load ptr, ptr %27, align 8
-  %660 = load i32, ptr @hf_bscvlc_connect_uuid, align 4
-  %661 = load ptr, ptr %6, align 8
-  %662 = load i32, ptr %13, align 4
-  %663 = call ptr @proto_tree_add_item(ptr noundef %659, i32 noundef %660, ptr noundef %661, i32 noundef %662, i32 noundef 16, i32 noundef 0)
-  %664 = load i32, ptr %13, align 4
-  %665 = add i32 %664, 16
-  store i32 %665, ptr %13, align 4
-  %666 = load ptr, ptr %27, align 8
-  %667 = load i32, ptr @hf_bscvlc_max_bvlc_length, align 4
-  %668 = load ptr, ptr %6, align 8
-  %669 = load i32, ptr %13, align 4
-  %670 = call ptr @proto_tree_add_item(ptr noundef %666, i32 noundef %667, ptr noundef %668, i32 noundef %669, i32 noundef 2, i32 noundef 0)
-  %671 = load i32, ptr %13, align 4
-  %672 = add i32 %671, 2
-  store i32 %672, ptr %13, align 4
-  %673 = load ptr, ptr %27, align 8
-  %674 = load i32, ptr @hf_bscvlc_max_npdu_length, align 4
-  %675 = load ptr, ptr %6, align 8
-  %676 = load i32, ptr %13, align 4
-  %677 = call ptr @proto_tree_add_item(ptr noundef %673, i32 noundef %674, ptr noundef %675, i32 noundef %676, i32 noundef 2, i32 noundef 0)
-  %678 = load i32, ptr %13, align 4
-  %679 = add i32 %678, 2
-  store i32 %679, ptr %13, align 4
-  br label %714
+633:                                              ; preds = %508
+  %634 = load ptr, ptr %11, align 8
+  %635 = load ptr, ptr %6, align 8
+  %636 = load i32, ptr %13, align 4
+  %637 = load i32, ptr %16, align 4
+  %638 = load i32, ptr %13, align 4
+  %639 = sub i32 %637, %638
+  %640 = load i32, ptr @ett_bscvlc_hdr, align 4
+  %641 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %634, ptr noundef %635, i32 noundef %636, i32 noundef %639, i32 noundef %640, ptr noundef null, ptr noundef @.str.430, ptr noundef @.str.202)
+  store ptr %641, ptr %27, align 8
+  %642 = load ptr, ptr %27, align 8
+  %643 = load i32, ptr @hf_bscvlc_connect_vmac, align 4
+  %644 = load ptr, ptr %6, align 8
+  %645 = load i32, ptr %13, align 4
+  %646 = call ptr @proto_tree_add_item(ptr noundef %642, i32 noundef %643, ptr noundef %644, i32 noundef %645, i32 noundef 6, i32 noundef 0)
+  %647 = load i32, ptr %13, align 4
+  %648 = add i32 %647, 6
+  store i32 %648, ptr %13, align 4
+  %649 = load ptr, ptr %27, align 8
+  %650 = load i32, ptr @hf_bscvlc_connect_uuid, align 4
+  %651 = load ptr, ptr %6, align 8
+  %652 = load i32, ptr %13, align 4
+  %653 = call ptr @proto_tree_add_item(ptr noundef %649, i32 noundef %650, ptr noundef %651, i32 noundef %652, i32 noundef 16, i32 noundef 0)
+  %654 = load i32, ptr %13, align 4
+  %655 = add i32 %654, 16
+  store i32 %655, ptr %13, align 4
+  %656 = load ptr, ptr %27, align 8
+  %657 = load i32, ptr @hf_bscvlc_max_bvlc_length, align 4
+  %658 = load ptr, ptr %6, align 8
+  %659 = load i32, ptr %13, align 4
+  %660 = call ptr @proto_tree_add_item(ptr noundef %656, i32 noundef %657, ptr noundef %658, i32 noundef %659, i32 noundef 2, i32 noundef 0)
+  %661 = load i32, ptr %13, align 4
+  %662 = add i32 %661, 2
+  store i32 %662, ptr %13, align 4
+  %663 = load ptr, ptr %27, align 8
+  %664 = load i32, ptr @hf_bscvlc_max_npdu_length, align 4
+  %665 = load ptr, ptr %6, align 8
+  %666 = load i32, ptr %13, align 4
+  %667 = call ptr @proto_tree_add_item(ptr noundef %663, i32 noundef %664, ptr noundef %665, i32 noundef %666, i32 noundef 2, i32 noundef 0)
+  %668 = load i32, ptr %13, align 4
+  %669 = add i32 %668, 2
+  store i32 %669, ptr %13, align 4
+  br label %741
 
-680:                                              ; preds = %481
-  %681 = load ptr, ptr %11, align 8
-  %682 = load ptr, ptr %6, align 8
-  %683 = load i32, ptr %13, align 4
-  %684 = load i32, ptr %16, align 4
-  %685 = load i32, ptr %13, align 4
-  %686 = sub i32 %684, %685
-  %687 = load i32, ptr @ett_bscvlc_hdr, align 4
-  %688 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %681, ptr noundef %682, i32 noundef %683, i32 noundef %686, i32 noundef %687, ptr noundef null, ptr noundef @.str.418, ptr noundef @.str.200)
-  store ptr %688, ptr %27, align 8
-  %689 = load ptr, ptr %27, align 8
-  %690 = load i32, ptr @hf_bscvlc_vendor_id, align 4
-  %691 = load ptr, ptr %6, align 8
-  %692 = load i32, ptr %13, align 4
-  %693 = call ptr @proto_tree_add_item(ptr noundef %689, i32 noundef %690, ptr noundef %691, i32 noundef %692, i32 noundef 2, i32 noundef 0)
-  %694 = load i32, ptr %13, align 4
-  %695 = add i32 %694, 2
-  store i32 %695, ptr %13, align 4
-  %696 = load ptr, ptr %27, align 8
-  %697 = load i32, ptr @hf_bscvlc_proprietary_opt_type, align 4
-  %698 = load ptr, ptr %6, align 8
-  %699 = load i32, ptr %13, align 4
-  %700 = call ptr @proto_tree_add_item(ptr noundef %696, i32 noundef %697, ptr noundef %698, i32 noundef %699, i32 noundef 1, i32 noundef 0)
-  %701 = load i32, ptr %13, align 4
-  %702 = add i32 %701, 1
-  store i32 %702, ptr %13, align 4
-  %703 = load ptr, ptr %27, align 8
-  %704 = load i32, ptr @hf_bscvlc_proprietary_data, align 4
-  %705 = load ptr, ptr %6, align 8
-  %706 = load i32, ptr %13, align 4
-  %707 = load i32, ptr %16, align 4
-  %708 = load i32, ptr %13, align 4
-  %709 = sub i32 %707, %708
-  %710 = call ptr @proto_tree_add_item(ptr noundef %703, i32 noundef %704, ptr noundef %705, i32 noundef %706, i32 noundef %709, i32 noundef 0)
+670:                                              ; preds = %508
+  %671 = load ptr, ptr %11, align 8
+  %672 = load ptr, ptr %6, align 8
+  %673 = load i32, ptr %13, align 4
+  %674 = load i32, ptr %16, align 4
+  %675 = load i32, ptr %13, align 4
+  %676 = sub i32 %674, %675
+  %677 = load i32, ptr @ett_bscvlc_hdr, align 4
+  %678 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %671, ptr noundef %672, i32 noundef %673, i32 noundef %676, i32 noundef %677, ptr noundef null, ptr noundef @.str.430, ptr noundef @.str.203)
+  store ptr %678, ptr %27, align 8
+  %679 = load ptr, ptr %27, align 8
+  %680 = load i32, ptr @hf_bscvlc_connect_vmac, align 4
+  %681 = load ptr, ptr %6, align 8
+  %682 = load i32, ptr %13, align 4
+  %683 = call ptr @proto_tree_add_item(ptr noundef %679, i32 noundef %680, ptr noundef %681, i32 noundef %682, i32 noundef 6, i32 noundef 0)
+  %684 = load i32, ptr %13, align 4
+  %685 = add i32 %684, 6
+  store i32 %685, ptr %13, align 4
+  %686 = load ptr, ptr %27, align 8
+  %687 = load i32, ptr @hf_bscvlc_connect_uuid, align 4
+  %688 = load ptr, ptr %6, align 8
+  %689 = load i32, ptr %13, align 4
+  %690 = call ptr @proto_tree_add_item(ptr noundef %686, i32 noundef %687, ptr noundef %688, i32 noundef %689, i32 noundef 16, i32 noundef 0)
+  %691 = load i32, ptr %13, align 4
+  %692 = add i32 %691, 16
+  store i32 %692, ptr %13, align 4
+  %693 = load ptr, ptr %27, align 8
+  %694 = load i32, ptr @hf_bscvlc_max_bvlc_length, align 4
+  %695 = load ptr, ptr %6, align 8
+  %696 = load i32, ptr %13, align 4
+  %697 = call ptr @proto_tree_add_item(ptr noundef %693, i32 noundef %694, ptr noundef %695, i32 noundef %696, i32 noundef 2, i32 noundef 0)
+  %698 = load i32, ptr %13, align 4
+  %699 = add i32 %698, 2
+  store i32 %699, ptr %13, align 4
+  %700 = load ptr, ptr %27, align 8
+  %701 = load i32, ptr @hf_bscvlc_max_npdu_length, align 4
+  %702 = load ptr, ptr %6, align 8
+  %703 = load i32, ptr %13, align 4
+  %704 = call ptr @proto_tree_add_item(ptr noundef %700, i32 noundef %701, ptr noundef %702, i32 noundef %703, i32 noundef 2, i32 noundef 0)
+  %705 = load i32, ptr %13, align 4
+  %706 = add i32 %705, 2
+  store i32 %706, ptr %13, align 4
+  br label %741
+
+707:                                              ; preds = %508
+  %708 = load ptr, ptr %11, align 8
+  %709 = load ptr, ptr %6, align 8
+  %710 = load i32, ptr %13, align 4
   %711 = load i32, ptr %16, align 4
-  store i32 %711, ptr %13, align 4
-  br label %714
-
-712:                                              ; preds = %481
-  br label %713
-
-713:                                              ; preds = %712, %481
-  br label %714
-
-714:                                              ; preds = %713, %680, %643, %606, %569, %551, %549, %484
-  %715 = load i32, ptr %16, align 4
-  %716 = load i32, ptr %13, align 4
-  %717 = sub i32 %715, %716
-  store i32 %717, ptr %17, align 4
+  %712 = load i32, ptr %13, align 4
+  %713 = sub i32 %711, %712
+  %714 = load i32, ptr @ett_bscvlc_hdr, align 4
+  %715 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %708, ptr noundef %709, i32 noundef %710, i32 noundef %713, i32 noundef %714, ptr noundef null, ptr noundef @.str.430, ptr noundef @.str.208)
+  store ptr %715, ptr %27, align 8
+  %716 = load ptr, ptr %27, align 8
+  %717 = load i32, ptr @hf_bscvlc_vendor_id, align 4
   %718 = load ptr, ptr %6, align 8
   %719 = load i32, ptr %13, align 4
-  %720 = load i32, ptr %17, align 4
-  %721 = call ptr @tvb_new_subset_length(ptr noundef %718, i32 noundef %719, i32 noundef %720)
-  store ptr %721, ptr %12, align 8
-  %722 = load ptr, ptr @bscvlc_dissector_table, align 8
-  %723 = load i8, ptr %18, align 1
-  %724 = zext i8 %723 to i32
-  %725 = load ptr, ptr %12, align 8
-  %726 = load ptr, ptr %7, align 8
-  %727 = load ptr, ptr %8, align 8
-  %728 = call i32 @dissector_try_uint(ptr noundef %722, i32 noundef %724, ptr noundef %725, ptr noundef %726, ptr noundef %727)
-  %729 = icmp ne i32 %728, 0
-  br i1 %729, label %735, label %730
+  %720 = call ptr @proto_tree_add_item(ptr noundef %716, i32 noundef %717, ptr noundef %718, i32 noundef %719, i32 noundef 2, i32 noundef 0)
+  %721 = load i32, ptr %13, align 4
+  %722 = add i32 %721, 2
+  store i32 %722, ptr %13, align 4
+  %723 = load ptr, ptr %27, align 8
+  %724 = load i32, ptr @hf_bscvlc_proprietary_opt_type, align 4
+  %725 = load ptr, ptr %6, align 8
+  %726 = load i32, ptr %13, align 4
+  %727 = call ptr @proto_tree_add_item(ptr noundef %723, i32 noundef %724, ptr noundef %725, i32 noundef %726, i32 noundef 1, i32 noundef 0)
+  %728 = load i32, ptr %13, align 4
+  %729 = add i32 %728, 1
+  store i32 %729, ptr %13, align 4
+  %730 = load ptr, ptr %27, align 8
+  %731 = load i32, ptr @hf_bscvlc_proprietary_data, align 4
+  %732 = load ptr, ptr %6, align 8
+  %733 = load i32, ptr %13, align 4
+  %734 = load i32, ptr %16, align 4
+  %735 = load i32, ptr %13, align 4
+  %736 = sub i32 %734, %735
+  %737 = call ptr @proto_tree_add_item(ptr noundef %730, i32 noundef %731, ptr noundef %732, i32 noundef %733, i32 noundef %736, i32 noundef 0)
+  %738 = load i32, ptr %16, align 4
+  store i32 %738, ptr %13, align 4
+  br label %741
 
-730:                                              ; preds = %714
-  %731 = load ptr, ptr %12, align 8
-  %732 = load ptr, ptr %7, align 8
-  %733 = load ptr, ptr %8, align 8
-  %734 = call i32 @call_data_dissector(ptr noundef %731, ptr noundef %732, ptr noundef %733)
-  br label %735
+739:                                              ; preds = %508
+  br label %740
 
-735:                                              ; preds = %730, %714
-  %736 = load ptr, ptr %6, align 8
-  %737 = call i32 @tvb_reported_length(ptr noundef %736)
-  store i32 %737, ptr %5, align 4
-  br label %738
+740:                                              ; preds = %508, %739
+  br label %741
 
-738:                                              ; preds = %735, %33
-  %739 = load i32, ptr %5, align 4
-  ret i32 %739
+741:                                              ; preds = %740, %707, %670, %633, %596, %578, %576, %511
+  %742 = load i32, ptr %16, align 4
+  %743 = load i32, ptr %13, align 4
+  %744 = sub i32 %742, %743
+  store i32 %744, ptr %17, align 4
+  %745 = load ptr, ptr %6, align 8
+  %746 = load i32, ptr %13, align 4
+  %747 = load i32, ptr %17, align 4
+  %748 = call ptr @tvb_new_subset_length(ptr noundef %745, i32 noundef %746, i32 noundef %747)
+  store ptr %748, ptr %12, align 8
+  %749 = load ptr, ptr @bscvlc_dissector_table, align 8
+  %750 = load i8, ptr %18, align 1
+  %751 = zext i8 %750 to i32
+  %752 = load ptr, ptr %12, align 8
+  %753 = load ptr, ptr %7, align 8
+  %754 = load ptr, ptr %8, align 8
+  %755 = call i32 @dissector_try_uint(ptr noundef %749, i32 noundef %751, ptr noundef %752, ptr noundef %753, ptr noundef %754)
+  %756 = icmp ne i32 %755, 0
+  br i1 %756, label %762, label %757
+
+757:                                              ; preds = %741
+  %758 = load ptr, ptr %12, align 8
+  %759 = load ptr, ptr %7, align 8
+  %760 = load ptr, ptr %8, align 8
+  %761 = call i32 @call_data_dissector(ptr noundef %758, ptr noundef %759, ptr noundef %760)
+  br label %762
+
+762:                                              ; preds = %757, %741
+  %763 = load ptr, ptr %6, align 8
+  %764 = call i32 @tvb_reported_length(ptr noundef %763)
+  store i32 %764, ptr %5, align 4
+  store i32 1, ptr %28, align 4
+  br label %765
+
+765:                                              ; preds = %762, %34
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %26) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %25) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %22) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %21) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %20) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  %766 = load i32, ptr %5, align 4
+  ret i32 %766
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_bvlc() #0 {
   %1 = load ptr, ptr @bvlc_handle, align 8
   call void @dissector_add_uint_with_preference(ptr noundef @.str.134, i32 noundef 47808, ptr noundef %1)
@@ -1696,17 +1772,25 @@ define hidden void @proto_reg_handoff_bvlc() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_string(ptr noundef, ptr noundef, ptr noundef) #1
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #1
+
+; Function Attrs: null_pointer_is_valid
 declare ptr @try_val_to_str(i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ipv4_bvlc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -1727,411 +1811,441 @@ define internal i32 @dissect_ipv4_bvlc(ptr noundef %0, ptr noundef %1, ptr nound
   %21 = alloca i32, align 4
   %22 = alloca i32, align 4
   %23 = alloca ptr, align 8
+  %24 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %17) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %18) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %19) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %20) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #4
   store i32 0, ptr %16, align 4
-  %24 = load ptr, ptr %6, align 8
-  %25 = load i32, ptr %16, align 4
-  %26 = call zeroext i8 @tvb_get_guint8(ptr noundef %24, i32 noundef %25)
-  store i8 %26, ptr %17, align 1
-  %27 = load ptr, ptr %6, align 8
-  %28 = load i32, ptr %16, align 4
-  %29 = add i32 %28, 1
-  %30 = call zeroext i8 @tvb_get_guint8(ptr noundef %27, i32 noundef %29)
-  store i8 %30, ptr %18, align 1
-  %31 = load ptr, ptr %6, align 8
-  %32 = load i32, ptr %16, align 4
-  %33 = add i32 %32, 2
-  %34 = call zeroext i16 @tvb_get_ntohs(ptr noundef %31, i32 noundef %33)
-  store i16 %34, ptr %20, align 2
-  %35 = load ptr, ptr %6, align 8
-  %36 = load i32, ptr %16, align 4
-  %37 = call i32 @tvb_reported_length_remaining(ptr noundef %35, i32 noundef %36)
-  store i32 %37, ptr %22, align 4
-  %38 = load i8, ptr %18, align 1
-  %39 = zext i8 %38 to i32
-  %40 = icmp sgt i32 %39, 8
-  br i1 %40, label %41, label %42
-
-41:                                               ; preds = %4
-  store i16 4, ptr %19, align 2
-  br label %50
+  %25 = load ptr, ptr %6, align 8
+  %26 = load i32, ptr %16, align 4
+  %27 = call zeroext i8 @tvb_get_uint8(ptr noundef %25, i32 noundef %26)
+  store i8 %27, ptr %17, align 1
+  %28 = load ptr, ptr %6, align 8
+  %29 = load i32, ptr %16, align 4
+  %30 = add i32 %29, 1
+  %31 = call zeroext i8 @tvb_get_uint8(ptr noundef %28, i32 noundef %30)
+  store i8 %31, ptr %18, align 1
+  %32 = load ptr, ptr %6, align 8
+  %33 = load i32, ptr %16, align 4
+  %34 = add i32 %33, 2
+  %35 = call zeroext i16 @tvb_get_ntohs(ptr noundef %32, i32 noundef %34)
+  store i16 %35, ptr %20, align 2
+  %36 = load ptr, ptr %6, align 8
+  %37 = load i32, ptr %16, align 4
+  %38 = call i32 @tvb_reported_length_remaining(ptr noundef %36, i32 noundef %37)
+  store i32 %38, ptr %22, align 4
+  %39 = load i8, ptr %18, align 1
+  %40 = zext i8 %39 to i32
+  %41 = icmp sgt i32 %40, 8
+  br i1 %41, label %42, label %43
 
 42:                                               ; preds = %4
-  %43 = load i8, ptr %18, align 1
-  %44 = zext i8 %43 to i32
-  %45 = icmp eq i32 %44, 4
-  br i1 %45, label %46, label %47
+  store i16 4, ptr %19, align 2
+  br label %51
 
-46:                                               ; preds = %42
+43:                                               ; preds = %4
+  %44 = load i8, ptr %18, align 1
+  %45 = zext i8 %44 to i32
+  %46 = icmp eq i32 %45, 4
+  br i1 %46, label %47, label %48
+
+47:                                               ; preds = %43
   store i16 10, ptr %19, align 2
-  br label %49
-
-47:                                               ; preds = %42
-  %48 = load i16, ptr %20, align 2
-  store i16 %48, ptr %19, align 2
-  br label %49
-
-49:                                               ; preds = %47, %46
   br label %50
 
-50:                                               ; preds = %49, %41
-  %51 = load i16, ptr %19, align 2
-  %52 = zext i16 %51 to i32
-  %53 = icmp slt i32 %52, 4
-  br i1 %53, label %60, label %54
+48:                                               ; preds = %43
+  %49 = load i16, ptr %20, align 2
+  store i16 %49, ptr %19, align 2
+  br label %50
 
-54:                                               ; preds = %50
-  %55 = load i16, ptr %19, align 2
-  %56 = zext i16 %55 to i32
-  %57 = load i16, ptr %20, align 2
-  %58 = zext i16 %57 to i32
-  %59 = icmp sgt i32 %56, %58
-  br i1 %59, label %60, label %61
+50:                                               ; preds = %48, %47
+  br label %51
 
-60:                                               ; preds = %54, %50
+51:                                               ; preds = %50, %42
+  %52 = load i16, ptr %19, align 2
+  %53 = zext i16 %52 to i32
+  %54 = icmp slt i32 %53, 4
+  br i1 %54, label %61, label %55
+
+55:                                               ; preds = %51
+  %56 = load i16, ptr %19, align 2
+  %57 = zext i16 %56 to i32
+  %58 = load i16, ptr %20, align 2
+  %59 = zext i16 %58 to i32
+  %60 = icmp sgt i32 %57, %59
+  br i1 %60, label %61, label %62
+
+61:                                               ; preds = %55, %51
   store i32 0, ptr %5, align 4
-  br label %307
+  store i32 1, ptr %24, align 4
+  br label %308
 
-61:                                               ; preds = %54
-  %62 = load ptr, ptr %7, align 8
-  %63 = getelementptr inbounds %struct._packet_info, ptr %62, i32 0, i32 1
-  %64 = load ptr, ptr %63, align 8
-  %65 = load i8, ptr %18, align 1
-  %66 = zext i8 %65 to i32
-  %67 = call ptr @val_to_str_const(i32 noundef %66, ptr noundef @bvlc_function_names, ptr noundef @.str.411)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %64, i32 noundef 25, ptr noundef @.str.410, ptr noundef %67)
-  %68 = load ptr, ptr %8, align 8
-  %69 = load i32, ptr @proto_bvlc, align 4
-  %70 = load ptr, ptr %6, align 8
-  %71 = load i16, ptr %19, align 2
-  %72 = zext i16 %71 to i32
-  %73 = call ptr @proto_tree_add_item(ptr noundef %68, i32 noundef %69, ptr noundef %70, i32 noundef 0, i32 noundef %72, i32 noundef 0)
-  store ptr %73, ptr %10, align 8
-  %74 = load ptr, ptr %10, align 8
-  %75 = load i32, ptr @ett_bvlc, align 4
-  %76 = call ptr @proto_item_add_subtree(ptr noundef %74, i32 noundef %75)
-  store ptr %76, ptr %13, align 8
-  %77 = load ptr, ptr %13, align 8
-  %78 = load i32, ptr @hf_bvlc_type, align 4
-  %79 = load ptr, ptr %6, align 8
-  %80 = load i32, ptr %16, align 4
-  %81 = load i8, ptr %17, align 1
-  %82 = zext i8 %81 to i32
-  %83 = call ptr @proto_tree_add_uint(ptr noundef %77, i32 noundef %78, ptr noundef %79, i32 noundef %80, i32 noundef 1, i32 noundef %82)
-  %84 = load i32, ptr %16, align 4
-  %85 = add i32 %84, 1
-  store i32 %85, ptr %16, align 4
-  %86 = load ptr, ptr %13, align 8
-  %87 = load i32, ptr @hf_bvlc_function, align 4
-  %88 = load ptr, ptr %6, align 8
-  %89 = load i32, ptr %16, align 4
-  %90 = load i8, ptr %18, align 1
-  %91 = zext i8 %90 to i32
-  %92 = call ptr @proto_tree_add_uint(ptr noundef %86, i32 noundef %87, ptr noundef %88, i32 noundef %89, i32 noundef 1, i32 noundef %91)
-  %93 = load i32, ptr %16, align 4
-  %94 = add i32 %93, 1
-  store i32 %94, ptr %16, align 4
-  %95 = load i32, ptr %22, align 4
-  %96 = load i16, ptr %20, align 2
-  %97 = zext i16 %96 to i32
-  %98 = icmp ne i32 %95, %97
-  br i1 %98, label %99, label %112
+62:                                               ; preds = %55
+  %63 = load ptr, ptr %7, align 8
+  %64 = getelementptr inbounds nuw %struct._packet_info, ptr %63, i32 0, i32 1
+  %65 = load ptr, ptr %64, align 8
+  %66 = load i8, ptr %18, align 1
+  %67 = zext i8 %66 to i32
+  %68 = call ptr @val_to_str_const(i32 noundef %67, ptr noundef @bvlc_function_names, ptr noundef @.str.423)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %65, i32 noundef 25, ptr noundef @.str.422, ptr noundef %68)
+  %69 = load ptr, ptr %8, align 8
+  %70 = load i32, ptr @proto_bvlc, align 4
+  %71 = load ptr, ptr %6, align 8
+  %72 = load i16, ptr %19, align 2
+  %73 = zext i16 %72 to i32
+  %74 = call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %70, ptr noundef %71, i32 noundef 0, i32 noundef %73, i32 noundef 0)
+  store ptr %74, ptr %10, align 8
+  %75 = load ptr, ptr %10, align 8
+  %76 = load i32, ptr @ett_bvlc, align 4
+  %77 = call ptr @proto_item_add_subtree(ptr noundef %75, i32 noundef %76)
+  store ptr %77, ptr %13, align 8
+  %78 = load ptr, ptr %13, align 8
+  %79 = load i32, ptr @hf_bvlc_type, align 4
+  %80 = load ptr, ptr %6, align 8
+  %81 = load i32, ptr %16, align 4
+  %82 = load i8, ptr %17, align 1
+  %83 = zext i8 %82 to i32
+  %84 = call ptr @proto_tree_add_uint(ptr noundef %78, i32 noundef %79, ptr noundef %80, i32 noundef %81, i32 noundef 1, i32 noundef %83)
+  %85 = load i32, ptr %16, align 4
+  %86 = add i32 %85, 1
+  store i32 %86, ptr %16, align 4
+  %87 = load ptr, ptr %13, align 8
+  %88 = load i32, ptr @hf_bvlc_function, align 4
+  %89 = load ptr, ptr %6, align 8
+  %90 = load i32, ptr %16, align 4
+  %91 = load i8, ptr %18, align 1
+  %92 = zext i8 %91 to i32
+  %93 = call ptr @proto_tree_add_uint(ptr noundef %87, i32 noundef %88, ptr noundef %89, i32 noundef %90, i32 noundef 1, i32 noundef %92)
+  %94 = load i32, ptr %16, align 4
+  %95 = add i32 %94, 1
+  store i32 %95, ptr %16, align 4
+  %96 = load i32, ptr %22, align 4
+  %97 = load i16, ptr %20, align 2
+  %98 = zext i16 %97 to i32
+  %99 = icmp ne i32 %96, %98
+  br i1 %99, label %100, label %113
 
-99:                                               ; preds = %61
-  %100 = load ptr, ptr %13, align 8
-  %101 = load i32, ptr @hf_bvlc_length, align 4
-  %102 = load ptr, ptr %6, align 8
-  %103 = load i32, ptr %16, align 4
-  %104 = load i16, ptr %19, align 2
-  %105 = zext i16 %104 to i32
-  %106 = load i16, ptr %19, align 2
-  %107 = zext i16 %106 to i32
-  %108 = load i16, ptr %20, align 2
-  %109 = zext i16 %108 to i32
-  %110 = load i32, ptr %22, align 4
-  %111 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %100, i32 noundef %101, ptr noundef %102, i32 noundef %103, i32 noundef 2, i32 noundef %105, ptr noundef @.str.412, i32 noundef %107, i32 noundef %109, i32 noundef %110)
-  br label %124
+100:                                              ; preds = %62
+  %101 = load ptr, ptr %13, align 8
+  %102 = load i32, ptr @hf_bvlc_length, align 4
+  %103 = load ptr, ptr %6, align 8
+  %104 = load i32, ptr %16, align 4
+  %105 = load i16, ptr %19, align 2
+  %106 = zext i16 %105 to i32
+  %107 = load i16, ptr %19, align 2
+  %108 = zext i16 %107 to i32
+  %109 = load i16, ptr %20, align 2
+  %110 = zext i16 %109 to i32
+  %111 = load i32, ptr %22, align 4
+  %112 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %101, i32 noundef %102, ptr noundef %103, i32 noundef %104, i32 noundef 2, i32 noundef %106, ptr noundef @.str.424, i32 noundef %108, i32 noundef %110, i32 noundef %111)
+  br label %125
 
-112:                                              ; preds = %61
-  %113 = load ptr, ptr %13, align 8
-  %114 = load i32, ptr @hf_bvlc_length, align 4
-  %115 = load ptr, ptr %6, align 8
-  %116 = load i32, ptr %16, align 4
-  %117 = load i16, ptr %19, align 2
-  %118 = zext i16 %117 to i32
-  %119 = load i16, ptr %19, align 2
-  %120 = zext i16 %119 to i32
-  %121 = load i16, ptr %20, align 2
-  %122 = zext i16 %121 to i32
-  %123 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %113, i32 noundef %114, ptr noundef %115, i32 noundef %116, i32 noundef 2, i32 noundef %118, ptr noundef @.str.413, i32 noundef %120, i32 noundef %122)
-  br label %124
+113:                                              ; preds = %62
+  %114 = load ptr, ptr %13, align 8
+  %115 = load i32, ptr @hf_bvlc_length, align 4
+  %116 = load ptr, ptr %6, align 8
+  %117 = load i32, ptr %16, align 4
+  %118 = load i16, ptr %19, align 2
+  %119 = zext i16 %118 to i32
+  %120 = load i16, ptr %19, align 2
+  %121 = zext i16 %120 to i32
+  %122 = load i16, ptr %20, align 2
+  %123 = zext i16 %122 to i32
+  %124 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %114, i32 noundef %115, ptr noundef %116, i32 noundef %117, i32 noundef 2, i32 noundef %119, ptr noundef @.str.425, i32 noundef %121, i32 noundef %123)
+  br label %125
 
-124:                                              ; preds = %112, %99
-  %125 = load i32, ptr %16, align 4
-  %126 = add i32 %125, 2
-  store i32 %126, ptr %16, align 4
-  %127 = load i8, ptr %18, align 1
-  %128 = zext i8 %127 to i32
-  switch i32 %128, label %279 [
-    i32 0, label %129
-    i32 1, label %135
-    i32 3, label %135
-    i32 2, label %176
+125:                                              ; preds = %113, %100
+  %126 = load i32, ptr %16, align 4
+  %127 = add i32 %126, 2
+  store i32 %127, ptr %16, align 4
+  %128 = load i8, ptr %18, align 1
+  %129 = zext i8 %128 to i32
+  switch i32 %129, label %280 [
+    i32 0, label %130
+    i32 1, label %136
+    i32 3, label %136
+    i32 2, label %281
     i32 5, label %177
-    i32 6, label %183
-    i32 7, label %184
-    i32 8, label %232
-    i32 12, label %245
-    i32 4, label %266
+    i32 6, label %281
+    i32 7, label %183
+    i32 8, label %231
+    i32 12, label %244
+    i32 4, label %267
   ]
 
-129:                                              ; preds = %124
-  %130 = load ptr, ptr %13, align 8
-  %131 = load i32, ptr @hf_bvlc_result_ip4, align 4
-  %132 = load ptr, ptr %6, align 8
-  %133 = load i32, ptr %16, align 4
-  %134 = call ptr @proto_tree_add_item(ptr noundef %130, i32 noundef %131, ptr noundef %132, i32 noundef %133, i32 noundef 2, i32 noundef 0)
-  br label %280
+130:                                              ; preds = %125
+  %131 = load ptr, ptr %13, align 8
+  %132 = load i32, ptr @hf_bvlc_result_ip4, align 4
+  %133 = load ptr, ptr %6, align 8
+  %134 = load i32, ptr %16, align 4
+  %135 = call ptr @proto_tree_add_item(ptr noundef %131, i32 noundef %132, ptr noundef %133, i32 noundef %134, i32 noundef 2, i32 noundef 0)
+  br label %281
 
-135:                                              ; preds = %124, %124
-  %136 = load ptr, ptr %13, align 8
-  %137 = load i32, ptr @proto_bvlc, align 4
-  %138 = load ptr, ptr %6, align 8
-  %139 = load i32, ptr %16, align 4
-  %140 = load i16, ptr %19, align 2
-  %141 = zext i16 %140 to i32
-  %142 = sub i32 %141, 4
-  %143 = call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %137, ptr noundef %138, i32 noundef %139, i32 noundef %142, i32 noundef 0)
-  store ptr %143, ptr %11, align 8
-  %144 = load ptr, ptr %11, align 8
-  %145 = load i32, ptr @ett_bdt, align 4
-  %146 = call ptr @proto_item_add_subtree(ptr noundef %144, i32 noundef %145)
-  store ptr %146, ptr %14, align 8
-  br label %147
+136:                                              ; preds = %125, %125
+  %137 = load ptr, ptr %13, align 8
+  %138 = load i32, ptr @proto_bvlc, align 4
+  %139 = load ptr, ptr %6, align 8
+  %140 = load i32, ptr %16, align 4
+  %141 = load i16, ptr %19, align 2
+  %142 = zext i16 %141 to i32
+  %143 = sub i32 %142, 4
+  %144 = call ptr @proto_tree_add_item(ptr noundef %137, i32 noundef %138, ptr noundef %139, i32 noundef %140, i32 noundef %143, i32 noundef 0)
+  store ptr %144, ptr %11, align 8
+  %145 = load ptr, ptr %11, align 8
+  %146 = load i32, ptr @ett_bdt, align 4
+  %147 = call ptr @proto_item_add_subtree(ptr noundef %145, i32 noundef %146)
+  store ptr %147, ptr %14, align 8
+  br label %148
 
-147:                                              ; preds = %153, %135
-  %148 = load i16, ptr %19, align 2
-  %149 = zext i16 %148 to i32
-  %150 = load i32, ptr %16, align 4
-  %151 = sub i32 %149, %150
-  %152 = icmp sgt i32 %151, 9
-  br i1 %152, label %153, label %175
+148:                                              ; preds = %154, %136
+  %149 = load i16, ptr %19, align 2
+  %150 = zext i16 %149 to i32
+  %151 = load i32, ptr %16, align 4
+  %152 = sub i32 %150, %151
+  %153 = icmp sgt i32 %152, 9
+  br i1 %153, label %154, label %176
 
-153:                                              ; preds = %147
-  %154 = load ptr, ptr %14, align 8
-  %155 = load i32, ptr @hf_bvlc_bdt_ip, align 4
-  %156 = load ptr, ptr %6, align 8
-  %157 = load i32, ptr %16, align 4
-  %158 = call ptr @proto_tree_add_item(ptr noundef %154, i32 noundef %155, ptr noundef %156, i32 noundef %157, i32 noundef 4, i32 noundef 0)
-  %159 = load i32, ptr %16, align 4
-  %160 = add i32 %159, 4
-  store i32 %160, ptr %16, align 4
-  %161 = load ptr, ptr %14, align 8
-  %162 = load i32, ptr @hf_bvlc_bdt_port, align 4
-  %163 = load ptr, ptr %6, align 8
-  %164 = load i32, ptr %16, align 4
-  %165 = call ptr @proto_tree_add_item(ptr noundef %161, i32 noundef %162, ptr noundef %163, i32 noundef %164, i32 noundef 2, i32 noundef 0)
-  %166 = load i32, ptr %16, align 4
-  %167 = add i32 %166, 2
-  store i32 %167, ptr %16, align 4
-  %168 = load ptr, ptr %14, align 8
-  %169 = load i32, ptr @hf_bvlc_bdt_mask, align 4
-  %170 = load ptr, ptr %6, align 8
-  %171 = load i32, ptr %16, align 4
-  %172 = call ptr @proto_tree_add_item(ptr noundef %168, i32 noundef %169, ptr noundef %170, i32 noundef %171, i32 noundef 4, i32 noundef 0)
-  %173 = load i32, ptr %16, align 4
-  %174 = add i32 %173, 4
-  store i32 %174, ptr %16, align 4
-  br label %147, !llvm.loop !11
+154:                                              ; preds = %148
+  %155 = load ptr, ptr %14, align 8
+  %156 = load i32, ptr @hf_bvlc_bdt_ip, align 4
+  %157 = load ptr, ptr %6, align 8
+  %158 = load i32, ptr %16, align 4
+  %159 = call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %156, ptr noundef %157, i32 noundef %158, i32 noundef 4, i32 noundef 0)
+  %160 = load i32, ptr %16, align 4
+  %161 = add i32 %160, 4
+  store i32 %161, ptr %16, align 4
+  %162 = load ptr, ptr %14, align 8
+  %163 = load i32, ptr @hf_bvlc_bdt_port, align 4
+  %164 = load ptr, ptr %6, align 8
+  %165 = load i32, ptr %16, align 4
+  %166 = call ptr @proto_tree_add_item(ptr noundef %162, i32 noundef %163, ptr noundef %164, i32 noundef %165, i32 noundef 2, i32 noundef 0)
+  %167 = load i32, ptr %16, align 4
+  %168 = add i32 %167, 2
+  store i32 %168, ptr %16, align 4
+  %169 = load ptr, ptr %14, align 8
+  %170 = load i32, ptr @hf_bvlc_bdt_mask, align 4
+  %171 = load ptr, ptr %6, align 8
+  %172 = load i32, ptr %16, align 4
+  %173 = call ptr @proto_tree_add_item(ptr noundef %169, i32 noundef %170, ptr noundef %171, i32 noundef %172, i32 noundef 4, i32 noundef 0)
+  %174 = load i32, ptr %16, align 4
+  %175 = add i32 %174, 4
+  store i32 %175, ptr %16, align 4
+  br label %148, !llvm.loop !15
 
-175:                                              ; preds = %147
-  br label %280
+176:                                              ; preds = %148
+  br label %281
 
-176:                                              ; preds = %124
-  br label %280
-
-177:                                              ; preds = %124
+177:                                              ; preds = %125
   %178 = load ptr, ptr %13, align 8
   %179 = load i32, ptr @hf_bvlc_reg_ttl, align 4
   %180 = load ptr, ptr %6, align 8
   %181 = load i32, ptr %16, align 4
   %182 = call ptr @proto_tree_add_item(ptr noundef %178, i32 noundef %179, ptr noundef %180, i32 noundef %181, i32 noundef 2, i32 noundef 0)
-  br label %280
+  br label %281
 
-183:                                              ; preds = %124
-  br label %280
+183:                                              ; preds = %125
+  %184 = load ptr, ptr %13, align 8
+  %185 = load i32, ptr @proto_bvlc, align 4
+  %186 = load ptr, ptr %6, align 8
+  %187 = load i32, ptr %16, align 4
+  %188 = load i16, ptr %19, align 2
+  %189 = zext i16 %188 to i32
+  %190 = sub i32 %189, 4
+  %191 = call ptr @proto_tree_add_item(ptr noundef %184, i32 noundef %185, ptr noundef %186, i32 noundef %187, i32 noundef %190, i32 noundef 0)
+  store ptr %191, ptr %12, align 8
+  %192 = load ptr, ptr %12, align 8
+  %193 = load i32, ptr @ett_fdt, align 4
+  %194 = call ptr @proto_item_add_subtree(ptr noundef %192, i32 noundef %193)
+  store ptr %194, ptr %15, align 8
+  br label %195
 
-184:                                              ; preds = %124
-  %185 = load ptr, ptr %13, align 8
-  %186 = load i32, ptr @proto_bvlc, align 4
-  %187 = load ptr, ptr %6, align 8
-  %188 = load i32, ptr %16, align 4
-  %189 = load i16, ptr %19, align 2
-  %190 = zext i16 %189 to i32
-  %191 = sub i32 %190, 4
-  %192 = call ptr @proto_tree_add_item(ptr noundef %185, i32 noundef %186, ptr noundef %187, i32 noundef %188, i32 noundef %191, i32 noundef 0)
-  store ptr %192, ptr %12, align 8
-  %193 = load ptr, ptr %12, align 8
-  %194 = load i32, ptr @ett_fdt, align 4
-  %195 = call ptr @proto_item_add_subtree(ptr noundef %193, i32 noundef %194)
-  store ptr %195, ptr %15, align 8
-  br label %196
+195:                                              ; preds = %201, %183
+  %196 = load i16, ptr %19, align 2
+  %197 = zext i16 %196 to i32
+  %198 = load i32, ptr %16, align 4
+  %199 = sub i32 %197, %198
+  %200 = icmp sgt i32 %199, 9
+  br i1 %200, label %201, label %230
 
-196:                                              ; preds = %202, %184
-  %197 = load i16, ptr %19, align 2
-  %198 = zext i16 %197 to i32
-  %199 = load i32, ptr %16, align 4
-  %200 = sub i32 %198, %199
-  %201 = icmp sgt i32 %200, 9
-  br i1 %201, label %202, label %231
+201:                                              ; preds = %195
+  %202 = load ptr, ptr %15, align 8
+  %203 = load i32, ptr @hf_bvlc_fdt_ip, align 4
+  %204 = load ptr, ptr %6, align 8
+  %205 = load i32, ptr %16, align 4
+  %206 = call ptr @proto_tree_add_item(ptr noundef %202, i32 noundef %203, ptr noundef %204, i32 noundef %205, i32 noundef 4, i32 noundef 0)
+  %207 = load i32, ptr %16, align 4
+  %208 = add i32 %207, 4
+  store i32 %208, ptr %16, align 4
+  %209 = load ptr, ptr %15, align 8
+  %210 = load i32, ptr @hf_bvlc_fdt_port, align 4
+  %211 = load ptr, ptr %6, align 8
+  %212 = load i32, ptr %16, align 4
+  %213 = call ptr @proto_tree_add_item(ptr noundef %209, i32 noundef %210, ptr noundef %211, i32 noundef %212, i32 noundef 2, i32 noundef 0)
+  %214 = load i32, ptr %16, align 4
+  %215 = add i32 %214, 2
+  store i32 %215, ptr %16, align 4
+  %216 = load ptr, ptr %15, align 8
+  %217 = load i32, ptr @hf_bvlc_fdt_ttl, align 4
+  %218 = load ptr, ptr %6, align 8
+  %219 = load i32, ptr %16, align 4
+  %220 = call ptr @proto_tree_add_item(ptr noundef %216, i32 noundef %217, ptr noundef %218, i32 noundef %219, i32 noundef 2, i32 noundef 0)
+  %221 = load i32, ptr %16, align 4
+  %222 = add i32 %221, 2
+  store i32 %222, ptr %16, align 4
+  %223 = load ptr, ptr %15, align 8
+  %224 = load i32, ptr @hf_bvlc_fdt_timeout, align 4
+  %225 = load ptr, ptr %6, align 8
+  %226 = load i32, ptr %16, align 4
+  %227 = call ptr @proto_tree_add_item(ptr noundef %223, i32 noundef %224, ptr noundef %225, i32 noundef %226, i32 noundef 2, i32 noundef 0)
+  %228 = load i32, ptr %16, align 4
+  %229 = add i32 %228, 2
+  store i32 %229, ptr %16, align 4
+  br label %195, !llvm.loop !16
 
-202:                                              ; preds = %196
-  %203 = load ptr, ptr %15, align 8
-  %204 = load i32, ptr @hf_bvlc_fdt_ip, align 4
-  %205 = load ptr, ptr %6, align 8
-  %206 = load i32, ptr %16, align 4
-  %207 = call ptr @proto_tree_add_item(ptr noundef %203, i32 noundef %204, ptr noundef %205, i32 noundef %206, i32 noundef 4, i32 noundef 0)
-  %208 = load i32, ptr %16, align 4
-  %209 = add i32 %208, 4
-  store i32 %209, ptr %16, align 4
-  %210 = load ptr, ptr %15, align 8
-  %211 = load i32, ptr @hf_bvlc_fdt_port, align 4
-  %212 = load ptr, ptr %6, align 8
-  %213 = load i32, ptr %16, align 4
-  %214 = call ptr @proto_tree_add_item(ptr noundef %210, i32 noundef %211, ptr noundef %212, i32 noundef %213, i32 noundef 2, i32 noundef 0)
-  %215 = load i32, ptr %16, align 4
-  %216 = add i32 %215, 2
-  store i32 %216, ptr %16, align 4
-  %217 = load ptr, ptr %15, align 8
-  %218 = load i32, ptr @hf_bvlc_fdt_ttl, align 4
-  %219 = load ptr, ptr %6, align 8
-  %220 = load i32, ptr %16, align 4
-  %221 = call ptr @proto_tree_add_item(ptr noundef %217, i32 noundef %218, ptr noundef %219, i32 noundef %220, i32 noundef 2, i32 noundef 0)
-  %222 = load i32, ptr %16, align 4
-  %223 = add i32 %222, 2
-  store i32 %223, ptr %16, align 4
-  %224 = load ptr, ptr %15, align 8
-  %225 = load i32, ptr @hf_bvlc_fdt_timeout, align 4
-  %226 = load ptr, ptr %6, align 8
-  %227 = load i32, ptr %16, align 4
-  %228 = call ptr @proto_tree_add_item(ptr noundef %224, i32 noundef %225, ptr noundef %226, i32 noundef %227, i32 noundef 2, i32 noundef 0)
-  %229 = load i32, ptr %16, align 4
-  %230 = add i32 %229, 2
-  store i32 %230, ptr %16, align 4
-  br label %196, !llvm.loop !12
+230:                                              ; preds = %195
+  br label %281
 
-231:                                              ; preds = %196
-  br label %280
+231:                                              ; preds = %125
+  %232 = load ptr, ptr %13, align 8
+  %233 = load i32, ptr @hf_bvlc_fdt_ip, align 4
+  %234 = load ptr, ptr %6, align 8
+  %235 = load i32, ptr %16, align 4
+  %236 = call ptr @proto_tree_add_item(ptr noundef %232, i32 noundef %233, ptr noundef %234, i32 noundef %235, i32 noundef 4, i32 noundef 0)
+  %237 = load i32, ptr %16, align 4
+  %238 = add i32 %237, 4
+  store i32 %238, ptr %16, align 4
+  %239 = load ptr, ptr %13, align 8
+  %240 = load i32, ptr @hf_bvlc_fdt_port, align 4
+  %241 = load ptr, ptr %6, align 8
+  %242 = load i32, ptr %16, align 4
+  %243 = call ptr @proto_tree_add_item(ptr noundef %239, i32 noundef %240, ptr noundef %241, i32 noundef %242, i32 noundef 2, i32 noundef 0)
+  br label %281
 
-232:                                              ; preds = %124
-  %233 = load ptr, ptr %13, align 8
-  %234 = load i32, ptr @hf_bvlc_fdt_ip, align 4
-  %235 = load ptr, ptr %6, align 8
-  %236 = load i32, ptr %16, align 4
-  %237 = call ptr @proto_tree_add_item(ptr noundef %233, i32 noundef %234, ptr noundef %235, i32 noundef %236, i32 noundef 4, i32 noundef 0)
-  %238 = load i32, ptr %16, align 4
-  %239 = add i32 %238, 4
-  store i32 %239, ptr %16, align 4
-  %240 = load ptr, ptr %13, align 8
-  %241 = load i32, ptr @hf_bvlc_fdt_port, align 4
-  %242 = load ptr, ptr %6, align 8
-  %243 = load i32, ptr %16, align 4
-  %244 = call ptr @proto_tree_add_item(ptr noundef %240, i32 noundef %241, ptr noundef %242, i32 noundef %243, i32 noundef 2, i32 noundef 0)
-  br label %280
+244:                                              ; preds = %125
+  %245 = load ptr, ptr %6, align 8
+  %246 = load ptr, ptr %7, align 8
+  %247 = load ptr, ptr %8, align 8
+  %248 = load i32, ptr %16, align 4
+  %249 = call i32 @bacnet_dissect_sec_wrapper(ptr noundef %245, ptr noundef %246, ptr noundef %247, i32 noundef %248, ptr noundef null)
+  store i32 %249, ptr %16, align 4
+  %250 = load i32, ptr %16, align 4
+  %251 = icmp slt i32 %250, 0
+  br i1 %251, label %252, label %259
 
-245:                                              ; preds = %124
-  %246 = load ptr, ptr %6, align 8
-  %247 = load ptr, ptr %7, align 8
-  %248 = load ptr, ptr %8, align 8
-  %249 = load i32, ptr %16, align 4
-  %250 = call i32 @bacnet_dissect_sec_wrapper(ptr noundef %246, ptr noundef %247, ptr noundef %248, i32 noundef %249, ptr noundef null)
-  store i32 %250, ptr %16, align 4
-  %251 = load i32, ptr %16, align 4
-  %252 = icmp slt i32 %251, 0
-  br i1 %252, label %253, label %260
+252:                                              ; preds = %244
+  %253 = load ptr, ptr %6, align 8
+  %254 = load ptr, ptr %7, align 8
+  %255 = load ptr, ptr %8, align 8
+  %256 = call i32 @call_data_dissector(ptr noundef %253, ptr noundef %254, ptr noundef %255)
+  %257 = load ptr, ptr %6, align 8
+  %258 = call i32 @tvb_captured_length(ptr noundef %257)
+  store i32 %258, ptr %5, align 4
+  store i32 1, ptr %24, align 4
+  br label %308
 
-253:                                              ; preds = %245
-  %254 = load ptr, ptr %6, align 8
-  %255 = load ptr, ptr %7, align 8
-  %256 = load ptr, ptr %8, align 8
-  %257 = call i32 @call_data_dissector(ptr noundef %254, ptr noundef %255, ptr noundef %256)
-  %258 = load ptr, ptr %6, align 8
-  %259 = call i32 @tvb_captured_length(ptr noundef %258)
-  store i32 %259, ptr %5, align 4
-  br label %307
-
-260:                                              ; preds = %245
+259:                                              ; preds = %244
+  %260 = load ptr, ptr %7, align 8
+  call void @increment_dissection_depth(ptr noundef %260)
   %261 = load ptr, ptr %6, align 8
   %262 = load ptr, ptr %7, align 8
   %263 = load ptr, ptr %8, align 8
   %264 = load ptr, ptr %9, align 8
   %265 = call i32 @dissect_ipv4_bvlc(ptr noundef %261, ptr noundef %262, ptr noundef %263, ptr noundef %264)
-  br label %280
+  %266 = load ptr, ptr %7, align 8
+  call void @decrement_dissection_depth(ptr noundef %266)
+  br label %281
 
-266:                                              ; preds = %124
-  %267 = load ptr, ptr %13, align 8
-  %268 = load i32, ptr @hf_bvlc_fwd_ip, align 4
-  %269 = load ptr, ptr %6, align 8
-  %270 = load i32, ptr %16, align 4
-  %271 = call ptr @proto_tree_add_item(ptr noundef %267, i32 noundef %268, ptr noundef %269, i32 noundef %270, i32 noundef 4, i32 noundef 0)
-  %272 = load i32, ptr %16, align 4
-  %273 = add i32 %272, 4
-  store i32 %273, ptr %16, align 4
-  %274 = load ptr, ptr %13, align 8
-  %275 = load i32, ptr @hf_bvlc_fwd_port, align 4
-  %276 = load ptr, ptr %6, align 8
-  %277 = load i32, ptr %16, align 4
-  %278 = call ptr @proto_tree_add_item(ptr noundef %274, i32 noundef %275, ptr noundef %276, i32 noundef %277, i32 noundef 2, i32 noundef 0)
-  br label %280
+267:                                              ; preds = %125
+  %268 = load ptr, ptr %13, align 8
+  %269 = load i32, ptr @hf_bvlc_fwd_ip, align 4
+  %270 = load ptr, ptr %6, align 8
+  %271 = load i32, ptr %16, align 4
+  %272 = call ptr @proto_tree_add_item(ptr noundef %268, i32 noundef %269, ptr noundef %270, i32 noundef %271, i32 noundef 4, i32 noundef 0)
+  %273 = load i32, ptr %16, align 4
+  %274 = add i32 %273, 4
+  store i32 %274, ptr %16, align 4
+  %275 = load ptr, ptr %13, align 8
+  %276 = load i32, ptr @hf_bvlc_fwd_port, align 4
+  %277 = load ptr, ptr %6, align 8
+  %278 = load i32, ptr %16, align 4
+  %279 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %276, ptr noundef %277, i32 noundef %278, i32 noundef 2, i32 noundef 0)
+  br label %281
 
-279:                                              ; preds = %124
-  br label %280
+280:                                              ; preds = %125
+  br label %281
 
-280:                                              ; preds = %279, %266, %260, %232, %231, %183, %177, %176, %175, %129
-  %281 = load i16, ptr %20, align 2
-  %282 = zext i16 %281 to i32
-  %283 = load i16, ptr %19, align 2
-  %284 = zext i16 %283 to i32
-  %285 = sub i32 %282, %284
-  store i32 %285, ptr %21, align 4
-  %286 = load ptr, ptr %6, align 8
-  %287 = load i16, ptr %19, align 2
-  %288 = zext i16 %287 to i32
-  %289 = load i32, ptr %21, align 4
-  %290 = call ptr @tvb_new_subset_length(ptr noundef %286, i32 noundef %288, i32 noundef %289)
-  store ptr %290, ptr %23, align 8
-  %291 = load ptr, ptr @bvlc_dissector_table, align 8
-  %292 = load i8, ptr %18, align 1
-  %293 = zext i8 %292 to i32
-  %294 = load ptr, ptr %23, align 8
-  %295 = load ptr, ptr %7, align 8
-  %296 = load ptr, ptr %8, align 8
-  %297 = call i32 @dissector_try_uint(ptr noundef %291, i32 noundef %293, ptr noundef %294, ptr noundef %295, ptr noundef %296)
-  %298 = icmp ne i32 %297, 0
-  br i1 %298, label %304, label %299
+281:                                              ; preds = %280, %267, %259, %231, %230, %125, %177, %125, %176, %130
+  %282 = load i16, ptr %20, align 2
+  %283 = zext i16 %282 to i32
+  %284 = load i16, ptr %19, align 2
+  %285 = zext i16 %284 to i32
+  %286 = sub i32 %283, %285
+  store i32 %286, ptr %21, align 4
+  %287 = load ptr, ptr %6, align 8
+  %288 = load i16, ptr %19, align 2
+  %289 = zext i16 %288 to i32
+  %290 = load i32, ptr %21, align 4
+  %291 = call ptr @tvb_new_subset_length(ptr noundef %287, i32 noundef %289, i32 noundef %290)
+  store ptr %291, ptr %23, align 8
+  %292 = load ptr, ptr @bvlc_dissector_table, align 8
+  %293 = load i8, ptr %18, align 1
+  %294 = zext i8 %293 to i32
+  %295 = load ptr, ptr %23, align 8
+  %296 = load ptr, ptr %7, align 8
+  %297 = load ptr, ptr %8, align 8
+  %298 = call i32 @dissector_try_uint(ptr noundef %292, i32 noundef %294, ptr noundef %295, ptr noundef %296, ptr noundef %297)
+  %299 = icmp ne i32 %298, 0
+  br i1 %299, label %305, label %300
 
-299:                                              ; preds = %280
-  %300 = load ptr, ptr %23, align 8
-  %301 = load ptr, ptr %7, align 8
-  %302 = load ptr, ptr %8, align 8
-  %303 = call i32 @call_data_dissector(ptr noundef %300, ptr noundef %301, ptr noundef %302)
-  br label %304
+300:                                              ; preds = %281
+  %301 = load ptr, ptr %23, align 8
+  %302 = load ptr, ptr %7, align 8
+  %303 = load ptr, ptr %8, align 8
+  %304 = call i32 @call_data_dissector(ptr noundef %301, ptr noundef %302, ptr noundef %303)
+  br label %305
 
-304:                                              ; preds = %299, %280
-  %305 = load ptr, ptr %6, align 8
-  %306 = call i32 @tvb_reported_length(ptr noundef %305)
-  store i32 %306, ptr %5, align 4
-  br label %307
+305:                                              ; preds = %300, %281
+  %306 = load ptr, ptr %6, align 8
+  %307 = call i32 @tvb_reported_length(ptr noundef %306)
+  store i32 %307, ptr %5, align 4
+  store i32 1, ptr %24, align 4
+  br label %308
 
-307:                                              ; preds = %304, %253, %60
-  %308 = load i32, ptr %5, align 4
-  ret i32 %308
+308:                                              ; preds = %305, %252, %61
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %20) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %17) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  %309 = load i32, ptr %5, align 4
+  ret i32 %309
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ipv6_bvlc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -2148,276 +2262,285 @@ define internal i32 @dissect_ipv6_bvlc(ptr noundef %0, ptr noundef %1, ptr nound
   %17 = alloca i32, align 4
   %18 = alloca i32, align 4
   %19 = alloca ptr, align 8
+  %20 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %15) #4
   store i16 0, ptr %15, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %16) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #4
   store i32 0, ptr %12, align 4
-  %20 = load ptr, ptr %6, align 8
-  %21 = load i32, ptr %12, align 4
-  %22 = call zeroext i8 @tvb_get_guint8(ptr noundef %20, i32 noundef %21)
-  store i8 %22, ptr %13, align 1
-  %23 = load ptr, ptr %6, align 8
-  %24 = load i32, ptr %12, align 4
-  %25 = add i32 %24, 1
-  %26 = call zeroext i8 @tvb_get_guint8(ptr noundef %23, i32 noundef %25)
-  store i8 %26, ptr %14, align 1
-  %27 = load ptr, ptr %6, align 8
-  %28 = load i32, ptr %12, align 4
-  %29 = add i32 %28, 2
-  %30 = call zeroext i16 @tvb_get_ntohs(ptr noundef %27, i32 noundef %29)
-  store i16 %30, ptr %16, align 2
-  %31 = load ptr, ptr %6, align 8
-  %32 = load i32, ptr %12, align 4
-  %33 = call i32 @tvb_reported_length_remaining(ptr noundef %31, i32 noundef %32)
-  store i32 %33, ptr %18, align 4
-  %34 = load i8, ptr %14, align 1
-  %35 = zext i8 %34 to i32
-  switch i32 %35, label %43 [
-    i32 0, label %36
-    i32 9, label %36
-    i32 1, label %37
-    i32 2, label %38
-    i32 6, label %38
-    i32 12, label %38
-    i32 3, label %39
-    i32 5, label %39
-    i32 7, label %39
-    i32 4, label %40
-    i32 8, label %41
-    i32 10, label %41
-    i32 11, label %42
+  %21 = load ptr, ptr %6, align 8
+  %22 = load i32, ptr %12, align 4
+  %23 = call zeroext i8 @tvb_get_uint8(ptr noundef %21, i32 noundef %22)
+  store i8 %23, ptr %13, align 1
+  %24 = load ptr, ptr %6, align 8
+  %25 = load i32, ptr %12, align 4
+  %26 = add i32 %25, 1
+  %27 = call zeroext i8 @tvb_get_uint8(ptr noundef %24, i32 noundef %26)
+  store i8 %27, ptr %14, align 1
+  %28 = load ptr, ptr %6, align 8
+  %29 = load i32, ptr %12, align 4
+  %30 = add i32 %29, 2
+  %31 = call zeroext i16 @tvb_get_ntohs(ptr noundef %28, i32 noundef %30)
+  store i16 %31, ptr %16, align 2
+  %32 = load ptr, ptr %6, align 8
+  %33 = load i32, ptr %12, align 4
+  %34 = call i32 @tvb_reported_length_remaining(ptr noundef %32, i32 noundef %33)
+  store i32 %34, ptr %18, align 4
+  %35 = load i8, ptr %14, align 1
+  %36 = zext i8 %35 to i32
+  switch i32 %36, label %44 [
+    i32 0, label %37
+    i32 9, label %37
+    i32 1, label %38
+    i32 2, label %39
+    i32 6, label %39
+    i32 12, label %39
+    i32 3, label %40
+    i32 5, label %40
+    i32 7, label %40
+    i32 4, label %41
+    i32 8, label %42
+    i32 10, label %42
+    i32 11, label %43
   ]
 
-36:                                               ; preds = %4, %4
+37:                                               ; preds = %4, %4
   store i16 9, ptr %15, align 2
-  br label %44
+  br label %45
 
-37:                                               ; preds = %4
+38:                                               ; preds = %4
   store i16 10, ptr %15, align 2
-  br label %44
-
-38:                                               ; preds = %4, %4, %4
-  store i16 7, ptr %15, align 2
-  br label %44
+  br label %45
 
 39:                                               ; preds = %4, %4, %4
+  store i16 7, ptr %15, align 2
+  br label %45
+
+40:                                               ; preds = %4, %4, %4
   store i16 10, ptr %15, align 2
-  br label %44
+  br label %45
 
-40:                                               ; preds = %4
+41:                                               ; preds = %4
   store i16 28, ptr %15, align 2
-  br label %44
+  br label %45
 
-41:                                               ; preds = %4, %4
+42:                                               ; preds = %4, %4
   store i16 25, ptr %15, align 2
-  br label %44
-
-42:                                               ; preds = %4
-  store i16 4, ptr %15, align 2
-  br label %44
+  br label %45
 
 43:                                               ; preds = %4
-  br label %44
+  store i16 4, ptr %15, align 2
+  br label %45
 
-44:                                               ; preds = %43, %42, %41, %40, %39, %38, %37, %36
-  %45 = load i16, ptr %15, align 2
-  %46 = zext i16 %45 to i32
-  %47 = load i16, ptr %16, align 2
-  %48 = zext i16 %47 to i32
-  %49 = icmp sgt i32 %46, %48
-  br i1 %49, label %50, label %51
+44:                                               ; preds = %4
+  br label %45
 
-50:                                               ; preds = %44
+45:                                               ; preds = %44, %43, %42, %41, %40, %39, %38, %37
+  %46 = load i16, ptr %15, align 2
+  %47 = zext i16 %46 to i32
+  %48 = load i16, ptr %16, align 2
+  %49 = zext i16 %48 to i32
+  %50 = icmp sgt i32 %47, %49
+  br i1 %50, label %51, label %52
+
+51:                                               ; preds = %45
   store i32 0, ptr %5, align 4
-  br label %256
+  store i32 1, ptr %20, align 4
+  br label %258
 
-51:                                               ; preds = %44
-  %52 = load ptr, ptr %7, align 8
-  %53 = getelementptr inbounds %struct._packet_info, ptr %52, i32 0, i32 1
-  %54 = load ptr, ptr %53, align 8
-  %55 = load i8, ptr %14, align 1
-  %56 = zext i8 %55 to i32
-  %57 = call ptr @val_to_str_const(i32 noundef %56, ptr noundef @bvlc_ipv6_function_names, ptr noundef @.str.411)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %54, i32 noundef 25, ptr noundef @.str.410, ptr noundef %57)
-  %58 = load ptr, ptr %8, align 8
-  %59 = load i32, ptr @proto_bvlc, align 4
-  %60 = load ptr, ptr %6, align 8
-  %61 = load i16, ptr %15, align 2
-  %62 = zext i16 %61 to i32
-  %63 = call ptr @proto_tree_add_item(ptr noundef %58, i32 noundef %59, ptr noundef %60, i32 noundef 0, i32 noundef %62, i32 noundef 0)
-  store ptr %63, ptr %10, align 8
-  %64 = load ptr, ptr %10, align 8
-  %65 = load i32, ptr @ett_bvlc, align 4
-  %66 = call ptr @proto_item_add_subtree(ptr noundef %64, i32 noundef %65)
-  store ptr %66, ptr %11, align 8
-  %67 = load ptr, ptr %11, align 8
-  %68 = load i32, ptr @hf_bvlc_type, align 4
-  %69 = load ptr, ptr %6, align 8
-  %70 = load i32, ptr %12, align 4
-  %71 = load i8, ptr %13, align 1
-  %72 = zext i8 %71 to i32
-  %73 = call ptr @proto_tree_add_uint(ptr noundef %67, i32 noundef %68, ptr noundef %69, i32 noundef %70, i32 noundef 1, i32 noundef %72)
-  %74 = load i32, ptr %12, align 4
-  %75 = add i32 %74, 1
-  store i32 %75, ptr %12, align 4
-  %76 = load ptr, ptr %11, align 8
-  %77 = load i32, ptr @hf_bvlc_ipv6_function, align 4
-  %78 = load ptr, ptr %6, align 8
-  %79 = load i32, ptr %12, align 4
-  %80 = load i8, ptr %14, align 1
-  %81 = zext i8 %80 to i32
-  %82 = call ptr @proto_tree_add_uint(ptr noundef %76, i32 noundef %77, ptr noundef %78, i32 noundef %79, i32 noundef 1, i32 noundef %81)
-  %83 = load i32, ptr %12, align 4
-  %84 = add i32 %83, 1
-  store i32 %84, ptr %12, align 4
-  %85 = load i32, ptr %18, align 4
-  %86 = load i16, ptr %16, align 2
-  %87 = zext i16 %86 to i32
-  %88 = icmp ne i32 %85, %87
-  br i1 %88, label %89, label %102
+52:                                               ; preds = %45
+  %53 = load ptr, ptr %7, align 8
+  %54 = getelementptr inbounds nuw %struct._packet_info, ptr %53, i32 0, i32 1
+  %55 = load ptr, ptr %54, align 8
+  %56 = load i8, ptr %14, align 1
+  %57 = zext i8 %56 to i32
+  %58 = call ptr @val_to_str_const(i32 noundef %57, ptr noundef @bvlc_ipv6_function_names, ptr noundef @.str.423)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %55, i32 noundef 25, ptr noundef @.str.422, ptr noundef %58)
+  %59 = load ptr, ptr %8, align 8
+  %60 = load i32, ptr @proto_bvlc, align 4
+  %61 = load ptr, ptr %6, align 8
+  %62 = load i16, ptr %15, align 2
+  %63 = zext i16 %62 to i32
+  %64 = call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %60, ptr noundef %61, i32 noundef 0, i32 noundef %63, i32 noundef 0)
+  store ptr %64, ptr %10, align 8
+  %65 = load ptr, ptr %10, align 8
+  %66 = load i32, ptr @ett_bvlc, align 4
+  %67 = call ptr @proto_item_add_subtree(ptr noundef %65, i32 noundef %66)
+  store ptr %67, ptr %11, align 8
+  %68 = load ptr, ptr %11, align 8
+  %69 = load i32, ptr @hf_bvlc_type, align 4
+  %70 = load ptr, ptr %6, align 8
+  %71 = load i32, ptr %12, align 4
+  %72 = load i8, ptr %13, align 1
+  %73 = zext i8 %72 to i32
+  %74 = call ptr @proto_tree_add_uint(ptr noundef %68, i32 noundef %69, ptr noundef %70, i32 noundef %71, i32 noundef 1, i32 noundef %73)
+  %75 = load i32, ptr %12, align 4
+  %76 = add i32 %75, 1
+  store i32 %76, ptr %12, align 4
+  %77 = load ptr, ptr %11, align 8
+  %78 = load i32, ptr @hf_bvlc_ipv6_function, align 4
+  %79 = load ptr, ptr %6, align 8
+  %80 = load i32, ptr %12, align 4
+  %81 = load i8, ptr %14, align 1
+  %82 = zext i8 %81 to i32
+  %83 = call ptr @proto_tree_add_uint(ptr noundef %77, i32 noundef %78, ptr noundef %79, i32 noundef %80, i32 noundef 1, i32 noundef %82)
+  %84 = load i32, ptr %12, align 4
+  %85 = add i32 %84, 1
+  store i32 %85, ptr %12, align 4
+  %86 = load i32, ptr %18, align 4
+  %87 = load i16, ptr %16, align 2
+  %88 = zext i16 %87 to i32
+  %89 = icmp ne i32 %86, %88
+  br i1 %89, label %90, label %103
 
-89:                                               ; preds = %51
-  %90 = load ptr, ptr %11, align 8
-  %91 = load i32, ptr @hf_bvlc_length, align 4
-  %92 = load ptr, ptr %6, align 8
-  %93 = load i32, ptr %12, align 4
-  %94 = load i16, ptr %15, align 2
-  %95 = zext i16 %94 to i32
-  %96 = load i16, ptr %15, align 2
-  %97 = zext i16 %96 to i32
-  %98 = load i16, ptr %16, align 2
-  %99 = zext i16 %98 to i32
-  %100 = load i32, ptr %18, align 4
-  %101 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %90, i32 noundef %91, ptr noundef %92, i32 noundef %93, i32 noundef 2, i32 noundef %95, ptr noundef @.str.412, i32 noundef %97, i32 noundef %99, i32 noundef %100)
-  br label %114
+90:                                               ; preds = %52
+  %91 = load ptr, ptr %11, align 8
+  %92 = load i32, ptr @hf_bvlc_length, align 4
+  %93 = load ptr, ptr %6, align 8
+  %94 = load i32, ptr %12, align 4
+  %95 = load i16, ptr %15, align 2
+  %96 = zext i16 %95 to i32
+  %97 = load i16, ptr %15, align 2
+  %98 = zext i16 %97 to i32
+  %99 = load i16, ptr %16, align 2
+  %100 = zext i16 %99 to i32
+  %101 = load i32, ptr %18, align 4
+  %102 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %91, i32 noundef %92, ptr noundef %93, i32 noundef %94, i32 noundef 2, i32 noundef %96, ptr noundef @.str.424, i32 noundef %98, i32 noundef %100, i32 noundef %101)
+  br label %115
 
-102:                                              ; preds = %51
-  %103 = load ptr, ptr %11, align 8
-  %104 = load i32, ptr @hf_bvlc_length, align 4
-  %105 = load ptr, ptr %6, align 8
-  %106 = load i32, ptr %12, align 4
-  %107 = load i16, ptr %15, align 2
-  %108 = zext i16 %107 to i32
-  %109 = load i16, ptr %15, align 2
-  %110 = zext i16 %109 to i32
-  %111 = load i16, ptr %16, align 2
-  %112 = zext i16 %111 to i32
-  %113 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %103, i32 noundef %104, ptr noundef %105, i32 noundef %106, i32 noundef 2, i32 noundef %108, ptr noundef @.str.413, i32 noundef %110, i32 noundef %112)
-  br label %114
+103:                                              ; preds = %52
+  %104 = load ptr, ptr %11, align 8
+  %105 = load i32, ptr @hf_bvlc_length, align 4
+  %106 = load ptr, ptr %6, align 8
+  %107 = load i32, ptr %12, align 4
+  %108 = load i16, ptr %15, align 2
+  %109 = zext i16 %108 to i32
+  %110 = load i16, ptr %15, align 2
+  %111 = zext i16 %110 to i32
+  %112 = load i16, ptr %16, align 2
+  %113 = zext i16 %112 to i32
+  %114 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %104, i32 noundef %105, ptr noundef %106, i32 noundef %107, i32 noundef 2, i32 noundef %109, ptr noundef @.str.425, i32 noundef %111, i32 noundef %113)
+  br label %115
 
-114:                                              ; preds = %102, %89
-  %115 = load i32, ptr %12, align 4
-  %116 = add i32 %115, 2
-  store i32 %116, ptr %12, align 4
-  %117 = load i8, ptr %14, align 1
-  %118 = zext i8 %117 to i32
-  %119 = icmp ne i32 %118, 11
-  br i1 %119, label %120, label %128
+115:                                              ; preds = %103, %90
+  %116 = load i32, ptr %12, align 4
+  %117 = add i32 %116, 2
+  store i32 %117, ptr %12, align 4
+  %118 = load i8, ptr %14, align 1
+  %119 = zext i8 %118 to i32
+  %120 = icmp ne i32 %119, 11
+  br i1 %120, label %121, label %129
 
-120:                                              ; preds = %114
-  %121 = load ptr, ptr %11, align 8
-  %122 = load i32, ptr @hf_bvlc_virt_source, align 4
-  %123 = load ptr, ptr %6, align 8
-  %124 = load i32, ptr %12, align 4
-  %125 = call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %122, ptr noundef %123, i32 noundef %124, i32 noundef 3, i32 noundef 0)
-  %126 = load i32, ptr %12, align 4
-  %127 = add i32 %126, 3
-  store i32 %127, ptr %12, align 4
-  br label %128
+121:                                              ; preds = %115
+  %122 = load ptr, ptr %11, align 8
+  %123 = load i32, ptr @hf_bvlc_virt_source, align 4
+  %124 = load ptr, ptr %6, align 8
+  %125 = load i32, ptr %12, align 4
+  %126 = call ptr @proto_tree_add_item(ptr noundef %122, i32 noundef %123, ptr noundef %124, i32 noundef %125, i32 noundef 3, i32 noundef 0)
+  %127 = load i32, ptr %12, align 4
+  %128 = add i32 %127, 3
+  store i32 %128, ptr %12, align 4
+  br label %129
 
-128:                                              ; preds = %120, %114
-  %129 = load i8, ptr %14, align 1
-  %130 = zext i8 %129 to i32
-  switch i32 %130, label %230 [
-    i32 0, label %131
-    i32 1, label %139
-    i32 3, label %139
-    i32 5, label %139
-    i32 7, label %139
-    i32 4, label %147
-    i32 8, label %169
-    i32 6, label %184
+129:                                              ; preds = %121, %115
+  %130 = load i8, ptr %14, align 1
+  %131 = zext i8 %130 to i32
+  switch i32 %131, label %232 [
+    i32 0, label %132
+    i32 1, label %140
+    i32 3, label %140
+    i32 5, label %140
+    i32 7, label %140
+    i32 4, label %148
+    i32 8, label %170
+    i32 6, label %233
     i32 9, label %185
     i32 10, label %193
     i32 11, label %208
-    i32 2, label %229
-    i32 12, label %229
+    i32 2, label %231
+    i32 12, label %231
   ]
 
-131:                                              ; preds = %128
-  %132 = load ptr, ptr %11, align 8
-  %133 = load i32, ptr @hf_bvlc_result_ip6, align 4
-  %134 = load ptr, ptr %6, align 8
-  %135 = load i32, ptr %12, align 4
-  %136 = call ptr @proto_tree_add_item(ptr noundef %132, i32 noundef %133, ptr noundef %134, i32 noundef %135, i32 noundef 2, i32 noundef 0)
-  %137 = load i32, ptr %12, align 4
-  %138 = add i32 %137, 2
-  store i32 %138, ptr %12, align 4
-  br label %231
+132:                                              ; preds = %129
+  %133 = load ptr, ptr %11, align 8
+  %134 = load i32, ptr @hf_bvlc_result_ip6, align 4
+  %135 = load ptr, ptr %6, align 8
+  %136 = load i32, ptr %12, align 4
+  %137 = call ptr @proto_tree_add_item(ptr noundef %133, i32 noundef %134, ptr noundef %135, i32 noundef %136, i32 noundef 2, i32 noundef 0)
+  %138 = load i32, ptr %12, align 4
+  %139 = add i32 %138, 2
+  store i32 %139, ptr %12, align 4
+  br label %233
 
-139:                                              ; preds = %128, %128, %128, %128
-  %140 = load ptr, ptr %11, align 8
-  %141 = load i32, ptr @hf_bvlc_virt_dest, align 4
-  %142 = load ptr, ptr %6, align 8
-  %143 = load i32, ptr %12, align 4
-  %144 = call ptr @proto_tree_add_item(ptr noundef %140, i32 noundef %141, ptr noundef %142, i32 noundef %143, i32 noundef 3, i32 noundef 0)
-  %145 = load i32, ptr %12, align 4
-  %146 = add i32 %145, 3
-  store i32 %146, ptr %12, align 4
-  br label %231
+140:                                              ; preds = %129, %129, %129, %129
+  %141 = load ptr, ptr %11, align 8
+  %142 = load i32, ptr @hf_bvlc_virt_dest, align 4
+  %143 = load ptr, ptr %6, align 8
+  %144 = load i32, ptr %12, align 4
+  %145 = call ptr @proto_tree_add_item(ptr noundef %141, i32 noundef %142, ptr noundef %143, i32 noundef %144, i32 noundef 3, i32 noundef 0)
+  %146 = load i32, ptr %12, align 4
+  %147 = add i32 %146, 3
+  store i32 %147, ptr %12, align 4
+  br label %233
 
-147:                                              ; preds = %128
-  %148 = load ptr, ptr %11, align 8
-  %149 = load i32, ptr @hf_bvlc_virt_dest, align 4
-  %150 = load ptr, ptr %6, align 8
-  %151 = load i32, ptr %12, align 4
-  %152 = call ptr @proto_tree_add_item(ptr noundef %148, i32 noundef %149, ptr noundef %150, i32 noundef %151, i32 noundef 3, i32 noundef 0)
-  %153 = load i32, ptr %12, align 4
-  %154 = add i32 %153, 3
-  store i32 %154, ptr %12, align 4
-  %155 = load ptr, ptr %11, align 8
-  %156 = load i32, ptr @hf_bvlc_orig_source_addr, align 4
-  %157 = load ptr, ptr %6, align 8
-  %158 = load i32, ptr %12, align 4
-  %159 = call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %156, ptr noundef %157, i32 noundef %158, i32 noundef 16, i32 noundef 0)
-  %160 = load i32, ptr %12, align 4
-  %161 = add i32 %160, 16
-  store i32 %161, ptr %12, align 4
-  %162 = load ptr, ptr %11, align 8
-  %163 = load i32, ptr @hf_bvlc_orig_source_port, align 4
-  %164 = load ptr, ptr %6, align 8
-  %165 = load i32, ptr %12, align 4
-  %166 = call ptr @proto_tree_add_item(ptr noundef %162, i32 noundef %163, ptr noundef %164, i32 noundef %165, i32 noundef 2, i32 noundef 0)
-  %167 = load i32, ptr %12, align 4
-  %168 = add i32 %167, 2
-  store i32 %168, ptr %12, align 4
-  br label %231
+148:                                              ; preds = %129
+  %149 = load ptr, ptr %11, align 8
+  %150 = load i32, ptr @hf_bvlc_virt_dest, align 4
+  %151 = load ptr, ptr %6, align 8
+  %152 = load i32, ptr %12, align 4
+  %153 = call ptr @proto_tree_add_item(ptr noundef %149, i32 noundef %150, ptr noundef %151, i32 noundef %152, i32 noundef 3, i32 noundef 0)
+  %154 = load i32, ptr %12, align 4
+  %155 = add i32 %154, 3
+  store i32 %155, ptr %12, align 4
+  %156 = load ptr, ptr %11, align 8
+  %157 = load i32, ptr @hf_bvlc_orig_source_addr, align 4
+  %158 = load ptr, ptr %6, align 8
+  %159 = load i32, ptr %12, align 4
+  %160 = call ptr @proto_tree_add_item(ptr noundef %156, i32 noundef %157, ptr noundef %158, i32 noundef %159, i32 noundef 16, i32 noundef 0)
+  %161 = load i32, ptr %12, align 4
+  %162 = add i32 %161, 16
+  store i32 %162, ptr %12, align 4
+  %163 = load ptr, ptr %11, align 8
+  %164 = load i32, ptr @hf_bvlc_orig_source_port, align 4
+  %165 = load ptr, ptr %6, align 8
+  %166 = load i32, ptr %12, align 4
+  %167 = call ptr @proto_tree_add_item(ptr noundef %163, i32 noundef %164, ptr noundef %165, i32 noundef %166, i32 noundef 2, i32 noundef 0)
+  %168 = load i32, ptr %12, align 4
+  %169 = add i32 %168, 2
+  store i32 %169, ptr %12, align 4
+  br label %233
 
-169:                                              ; preds = %128
-  %170 = load ptr, ptr %11, align 8
-  %171 = load i32, ptr @hf_bvlc_orig_source_addr, align 4
-  %172 = load ptr, ptr %6, align 8
-  %173 = load i32, ptr %12, align 4
-  %174 = call ptr @proto_tree_add_item(ptr noundef %170, i32 noundef %171, ptr noundef %172, i32 noundef %173, i32 noundef 16, i32 noundef 0)
-  %175 = load i32, ptr %12, align 4
-  %176 = add i32 %175, 16
-  store i32 %176, ptr %12, align 4
-  %177 = load ptr, ptr %11, align 8
-  %178 = load i32, ptr @hf_bvlc_orig_source_port, align 4
-  %179 = load ptr, ptr %6, align 8
-  %180 = load i32, ptr %12, align 4
-  %181 = call ptr @proto_tree_add_item(ptr noundef %177, i32 noundef %178, ptr noundef %179, i32 noundef %180, i32 noundef 2, i32 noundef 0)
-  %182 = load i32, ptr %12, align 4
-  %183 = add i32 %182, 2
-  store i32 %183, ptr %12, align 4
-  br label %231
+170:                                              ; preds = %129
+  %171 = load ptr, ptr %11, align 8
+  %172 = load i32, ptr @hf_bvlc_orig_source_addr, align 4
+  %173 = load ptr, ptr %6, align 8
+  %174 = load i32, ptr %12, align 4
+  %175 = call ptr @proto_tree_add_item(ptr noundef %171, i32 noundef %172, ptr noundef %173, i32 noundef %174, i32 noundef 16, i32 noundef 0)
+  %176 = load i32, ptr %12, align 4
+  %177 = add i32 %176, 16
+  store i32 %177, ptr %12, align 4
+  %178 = load ptr, ptr %11, align 8
+  %179 = load i32, ptr @hf_bvlc_orig_source_port, align 4
+  %180 = load ptr, ptr %6, align 8
+  %181 = load i32, ptr %12, align 4
+  %182 = call ptr @proto_tree_add_item(ptr noundef %178, i32 noundef %179, ptr noundef %180, i32 noundef %181, i32 noundef 2, i32 noundef 0)
+  %183 = load i32, ptr %12, align 4
+  %184 = add i32 %183, 2
+  store i32 %184, ptr %12, align 4
+  br label %233
 
-184:                                              ; preds = %128
-  br label %231
-
-185:                                              ; preds = %128
+185:                                              ; preds = %129
   %186 = load ptr, ptr %11, align 8
   %187 = load i32, ptr @hf_bvlc_reg_ttl, align 4
   %188 = load ptr, ptr %6, align 8
@@ -2426,9 +2549,9 @@ define internal i32 @dissect_ipv6_bvlc(ptr noundef %0, ptr noundef %1, ptr nound
   %191 = load i32, ptr %12, align 4
   %192 = add i32 %191, 2
   store i32 %192, ptr %12, align 4
-  br label %231
+  br label %233
 
-193:                                              ; preds = %128
+193:                                              ; preds = %129
   %194 = load ptr, ptr %11, align 8
   %195 = load i32, ptr @hf_bvlc_fdt_ipv6, align 4
   %196 = load ptr, ptr %6, align 8
@@ -2445,9 +2568,9 @@ define internal i32 @dissect_ipv6_bvlc(ptr noundef %0, ptr noundef %1, ptr nound
   %206 = load i32, ptr %12, align 4
   %207 = add i32 %206, 2
   store i32 %207, ptr %12, align 4
-  br label %231
+  br label %233
 
-208:                                              ; preds = %128
+208:                                              ; preds = %129
   %209 = load ptr, ptr %6, align 8
   %210 = load ptr, ptr %7, align 8
   %211 = load ptr, ptr %8, align 8
@@ -2466,117 +2589,168 @@ define internal i32 @dissect_ipv6_bvlc(ptr noundef %0, ptr noundef %1, ptr nound
   %221 = load ptr, ptr %6, align 8
   %222 = call i32 @tvb_captured_length(ptr noundef %221)
   store i32 %222, ptr %5, align 4
-  br label %256
+  store i32 1, ptr %20, align 4
+  br label %258
 
 223:                                              ; preds = %208
-  %224 = load ptr, ptr %6, align 8
-  %225 = load ptr, ptr %7, align 8
-  %226 = load ptr, ptr %8, align 8
-  %227 = load ptr, ptr %9, align 8
-  %228 = call i32 @dissect_ipv6_bvlc(ptr noundef %224, ptr noundef %225, ptr noundef %226, ptr noundef %227)
-  br label %231
+  %224 = load ptr, ptr %7, align 8
+  call void @increment_dissection_depth(ptr noundef %224)
+  %225 = load ptr, ptr %6, align 8
+  %226 = load ptr, ptr %7, align 8
+  %227 = load ptr, ptr %8, align 8
+  %228 = load ptr, ptr %9, align 8
+  %229 = call i32 @dissect_ipv6_bvlc(ptr noundef %225, ptr noundef %226, ptr noundef %227, ptr noundef %228)
+  %230 = load ptr, ptr %7, align 8
+  call void @decrement_dissection_depth(ptr noundef %230)
+  br label %233
 
-229:                                              ; preds = %128, %128
-  br label %230
+231:                                              ; preds = %129, %129
+  br label %232
 
-230:                                              ; preds = %229, %128
-  br label %231
+232:                                              ; preds = %129, %231
+  br label %233
 
-231:                                              ; preds = %230, %223, %193, %185, %184, %169, %147, %139, %131
-  %232 = load i16, ptr %16, align 2
-  %233 = zext i16 %232 to i32
-  %234 = load i32, ptr %12, align 4
-  %235 = sub i32 %233, %234
-  store i32 %235, ptr %17, align 4
-  %236 = load ptr, ptr %6, align 8
-  %237 = load i32, ptr %12, align 4
-  %238 = load i32, ptr %17, align 4
-  %239 = call ptr @tvb_new_subset_length(ptr noundef %236, i32 noundef %237, i32 noundef %238)
-  store ptr %239, ptr %19, align 8
-  %240 = load ptr, ptr @bvlc_ipv6_dissector_table, align 8
-  %241 = load i8, ptr %14, align 1
-  %242 = zext i8 %241 to i32
-  %243 = load ptr, ptr %19, align 8
-  %244 = load ptr, ptr %7, align 8
-  %245 = load ptr, ptr %8, align 8
-  %246 = call i32 @dissector_try_uint(ptr noundef %240, i32 noundef %242, ptr noundef %243, ptr noundef %244, ptr noundef %245)
-  %247 = icmp ne i32 %246, 0
-  br i1 %247, label %253, label %248
+233:                                              ; preds = %232, %223, %129, %193, %185, %170, %148, %140, %132
+  %234 = load i16, ptr %16, align 2
+  %235 = zext i16 %234 to i32
+  %236 = load i32, ptr %12, align 4
+  %237 = sub i32 %235, %236
+  store i32 %237, ptr %17, align 4
+  %238 = load ptr, ptr %6, align 8
+  %239 = load i32, ptr %12, align 4
+  %240 = load i32, ptr %17, align 4
+  %241 = call ptr @tvb_new_subset_length(ptr noundef %238, i32 noundef %239, i32 noundef %240)
+  store ptr %241, ptr %19, align 8
+  %242 = load ptr, ptr @bvlc_ipv6_dissector_table, align 8
+  %243 = load i8, ptr %14, align 1
+  %244 = zext i8 %243 to i32
+  %245 = load ptr, ptr %19, align 8
+  %246 = load ptr, ptr %7, align 8
+  %247 = load ptr, ptr %8, align 8
+  %248 = call i32 @dissector_try_uint(ptr noundef %242, i32 noundef %244, ptr noundef %245, ptr noundef %246, ptr noundef %247)
+  %249 = icmp ne i32 %248, 0
+  br i1 %249, label %255, label %250
 
-248:                                              ; preds = %231
-  %249 = load ptr, ptr %19, align 8
-  %250 = load ptr, ptr %7, align 8
-  %251 = load ptr, ptr %8, align 8
-  %252 = call i32 @call_data_dissector(ptr noundef %249, ptr noundef %250, ptr noundef %251)
-  br label %253
+250:                                              ; preds = %233
+  %251 = load ptr, ptr %19, align 8
+  %252 = load ptr, ptr %7, align 8
+  %253 = load ptr, ptr %8, align 8
+  %254 = call i32 @call_data_dissector(ptr noundef %251, ptr noundef %252, ptr noundef %253)
+  br label %255
 
-253:                                              ; preds = %248, %231
-  %254 = load ptr, ptr %6, align 8
-  %255 = call i32 @tvb_reported_length(ptr noundef %254)
-  store i32 %255, ptr %5, align 4
-  br label %256
+255:                                              ; preds = %250, %233
+  %256 = load ptr, ptr %6, align 8
+  %257 = call i32 @tvb_reported_length(ptr noundef %256)
+  store i32 %257, ptr %5, align 4
+  store i32 1, ptr %20, align 4
+  br label %258
 
-256:                                              ; preds = %253, %216, %50
-  %257 = load i32, ptr %5, align 4
-  ret i32 %257
+258:                                              ; preds = %255, %216, %51
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  %259 = load i32, ptr %5, align 4
+  ret i32 %259
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @bacnet_dissect_sec_wrapper(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
+declare void @increment_dissection_depth(ptr noundef) #1
+
+; Function Attrs: null_pointer_is_valid
+declare void @decrement_dissection_depth(ptr noundef) #1
+
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissector_try_uint(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length(ptr noundef) #1
 
-declare zeroext i16 @tvb_get_guint16(ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_uint16(ptr noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind
-declare i32 @snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #2
+; Function Attrs: null_pointer_is_valid
+declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) #1
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.objectsize.i64.p0(ptr, i1 immarg, i1 immarg, i1 immarg) #3
+
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_bitmask_value(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}

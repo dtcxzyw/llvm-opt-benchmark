@@ -3,41 +3,34 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
 %struct.true_false_string = type { ptr, ptr }
-%struct._rpc_proc_list = type { i32, ptr, ptr }
-%struct._vsff = type { i32, ptr, ptr, ptr }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._value_string = type { i32, ptr }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
-%struct._frame_data = type { i32, i32, i32, i32, i64, ptr, ptr, ptr, i16, i16, %struct.nstime_t, %struct.nstime_t, i32, i32, i8 }
-%struct._rpc_call_info_value = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, %struct.nstime_t, ptr }
+%struct._frame_data = type <{ i32, i32, i32, i32, i32, [4 x i8], i64, ptr, ptr, ptr, i8, i16, [5 x i8], %struct.nstime_t, %struct.nstime_t, i32, i32 }>
+%struct._rpc_call_info_value = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i8, %struct.nstime_t, ptr }
 
 @proto_register_mount.hf = internal global [54 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_mount_procedure_v1, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 7, i32 1, ptr @mount1_proc_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mount_procedure_v2, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 7, i32 1, ptr @mount2_proc_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mount_procedure_v3, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 7, i32 1, ptr @mount3_proc_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sgi_mount_procedure_v1, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 7, i32 1, ptr @sgi_mount1_proc_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mount_path, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mount3_status, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 7, i32 1, ptr @mount3_mountstat3, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mount_mountlist_hostname, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mount_mountlist_directory, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mount_mountlist, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mount_groups_group, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mount_groups, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mount_has_options, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mount_options, %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mount_exportlist_directory, %struct._header_field_info { ptr @.str.14, ptr @.str.26, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mount_exportlist, %struct._header_field_info { ptr @.str.27, ptr @.str.28, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mount_pathconf_link_max, %struct._header_field_info { ptr @.str.29, ptr @.str.30, i32 7, i32 1, ptr null, i64 0, ptr @.str.31, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mount_pathconf_max_canon, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 5, i32 1, ptr null, i64 0, ptr @.str.34, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mount_pathconf_max_input, %struct._header_field_info { ptr @.str.35, ptr @.str.36, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mount_pathconf_name_max, %struct._header_field_info { ptr @.str.37, ptr @.str.38, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mount_pathconf_path_max, %struct._header_field_info { ptr @.str.39, ptr @.str.40, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mount_pathconf_pipe_buf, %struct._header_field_info { ptr @.str.41, ptr @.str.42, i32 5, i32 1, ptr null, i64 0, ptr @.str.43, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mount_pathconf_vdisable, %struct._header_field_info { ptr @.str.44, ptr @.str.45, i32 4, i32 2, ptr null, i64 0, ptr @.str.46, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mount_pathconf_mask, %struct._header_field_info { ptr @.str.47, ptr @.str.48, i32 5, i32 2, ptr null, i64 0, ptr @.str.49, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mount_pathconf_error_all, %struct._header_field_info { ptr @.str.50, ptr @.str.51, i32 2, i32 16, ptr @tos_error_all, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mount_pathconf_error_link_max, %struct._header_field_info { ptr @.str.52, ptr @.str.53, i32 2, i32 16, ptr @tos_error_link_max, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mount_pathconf_error_max_canon, %struct._header_field_info { ptr @.str.54, ptr @.str.55, i32 2, i32 16, ptr @tos_error_max_canon, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mount_pathconf_error_max_input, %struct._header_field_info { ptr @.str.56, ptr @.str.57, i32 2, i32 16, ptr @tos_error_max_input, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mount_pathconf_error_name_max, %struct._header_field_info { ptr @.str.58, ptr @.str.59, i32 2, i32 16, ptr @tos_error_name_max, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mount_pathconf_error_path_max, %struct._header_field_info { ptr @.str.60, ptr @.str.61, i32 2, i32 16, ptr @tos_error_path_max, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mount_pathconf_error_pipe_buf, %struct._header_field_info { ptr @.str.62, ptr @.str.63, i32 2, i32 16, ptr @tos_error_pipe_buf, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mount_pathconf_chown_restricted, %struct._header_field_info { ptr @.str.64, ptr @.str.65, i32 2, i32 16, ptr @tos_chown_restricted, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mount_pathconf_no_trunc, %struct._header_field_info { ptr @.str.66, ptr @.str.67, i32 2, i32 16, ptr @tos_no_trunc, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mount_pathconf_error_vdisable, %struct._header_field_info { ptr @.str.68, ptr @.str.69, i32 2, i32 16, ptr @tos_error_vdisable, i64 512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mount_statvfs_bsize, %struct._header_field_info { ptr @.str.70, ptr @.str.71, i32 7, i32 1, ptr null, i64 0, ptr @.str.72, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mount_statvfs_frsize, %struct._header_field_info { ptr @.str.73, ptr @.str.74, i32 7, i32 1, ptr null, i64 0, ptr @.str.75, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mount_statvfs_blocks, %struct._header_field_info { ptr @.str.76, ptr @.str.77, i32 7, i32 1, ptr null, i64 0, ptr @.str.78, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mount_statvfs_bfree, %struct._header_field_info { ptr @.str.79, ptr @.str.80, i32 7, i32 1, ptr null, i64 0, ptr @.str.81, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mount_statvfs_bavail, %struct._header_field_info { ptr @.str.82, ptr @.str.83, i32 7, i32 1, ptr null, i64 0, ptr @.str.84, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mount_statvfs_files, %struct._header_field_info { ptr @.str.85, ptr @.str.86, i32 7, i32 1, ptr null, i64 0, ptr @.str.87, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mount_statvfs_ffree, %struct._header_field_info { ptr @.str.88, ptr @.str.89, i32 7, i32 1, ptr null, i64 0, ptr @.str.90, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mount_statvfs_favail, %struct._header_field_info { ptr @.str.91, ptr @.str.92, i32 7, i32 1, ptr null, i64 0, ptr @.str.93, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mount_statvfs_fsid, %struct._header_field_info { ptr @.str.94, ptr @.str.95, i32 7, i32 1, ptr null, i64 0, ptr @.str.96, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mount_statvfs_basetype, %struct._header_field_info { ptr @.str.97, ptr @.str.98, i32 26, i32 0, ptr null, i64 0, ptr @.str.99, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mount_statvfs_flag, %struct._header_field_info { ptr @.str.100, ptr @.str.101, i32 7, i32 2, ptr null, i64 0, ptr @.str.102, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mount_statvfs_flag_rdonly, %struct._header_field_info { ptr @.str.103, ptr @.str.104, i32 2, i32 32, ptr @tos_st_rdonly, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mount_statvfs_flag_nosuid, %struct._header_field_info { ptr @.str.105, ptr @.str.106, i32 2, i32 32, ptr @tos_st_nosuid, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mount_statvfs_flag_notrunc, %struct._header_field_info { ptr @.str.107, ptr @.str.108, i32 2, i32 32, ptr @tos_st_notrunc, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mount_statvfs_flag_nodev, %struct._header_field_info { ptr @.str.109, ptr @.str.110, i32 2, i32 32, ptr @tos_st_nodev, i64 536870912, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mount_statvfs_flag_grpid, %struct._header_field_info { ptr @.str.111, ptr @.str.112, i32 2, i32 32, ptr @tos_st_grpid, i64 1073741824, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mount_statvfs_flag_local, %struct._header_field_info { ptr @.str.113, ptr @.str.114, i32 2, i32 32, ptr @tos_st_local, i64 2147483648, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mount_statvfs_namemax, %struct._header_field_info { ptr @.str.37, ptr @.str.115, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mount_statvfs_fstr, %struct._header_field_info { ptr @.str.116, ptr @.str.117, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mount_flavors, %struct._header_field_info { ptr @.str.118, ptr @.str.119, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_mount_flavor, %struct._header_field_info { ptr @.str.120, ptr @.str.121, i32 7, i32 1, ptr @rpc_auth_flavor, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_mount_procedure_v1 = internal global i32 0, align 4
 @.str = private unnamed_addr constant [13 x i8] c"V1 Procedure\00", align 1
 @.str.1 = private unnamed_addr constant [19 x i8] c"mount.procedure_v1\00", align 1
-@mount1_proc_vals = internal constant [8 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.128 }, %struct._value_string { i32 1, ptr @.str.129 }, %struct._value_string { i32 2, ptr @.str.130 }, %struct._value_string { i32 3, ptr @.str.131 }, %struct._value_string { i32 4, ptr @.str.132 }, %struct._value_string { i32 5, ptr @.str.133 }, %struct._value_string { i32 6, ptr @.str.134 }, %struct._value_string zeroinitializer], align 16
 @hf_mount_procedure_v2 = internal global i32 0, align 4
 @.str.2 = private unnamed_addr constant [13 x i8] c"V2 Procedure\00", align 1
 @.str.3 = private unnamed_addr constant [19 x i8] c"mount.procedure_v2\00", align 1
-@mount2_proc_vals = internal constant [9 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.128 }, %struct._value_string { i32 1, ptr @.str.129 }, %struct._value_string { i32 2, ptr @.str.130 }, %struct._value_string { i32 3, ptr @.str.131 }, %struct._value_string { i32 4, ptr @.str.132 }, %struct._value_string { i32 5, ptr @.str.133 }, %struct._value_string { i32 6, ptr @.str.134 }, %struct._value_string { i32 7, ptr @.str.135 }, %struct._value_string zeroinitializer], align 16
 @hf_mount_procedure_v3 = internal global i32 0, align 4
 @.str.4 = private unnamed_addr constant [13 x i8] c"V3 Procedure\00", align 1
 @.str.5 = private unnamed_addr constant [19 x i8] c"mount.procedure_v3\00", align 1
-@mount3_proc_vals = internal constant [7 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.128 }, %struct._value_string { i32 1, ptr @.str.129 }, %struct._value_string { i32 2, ptr @.str.130 }, %struct._value_string { i32 3, ptr @.str.131 }, %struct._value_string { i32 4, ptr @.str.132 }, %struct._value_string { i32 5, ptr @.str.133 }, %struct._value_string zeroinitializer], align 16
 @hf_sgi_mount_procedure_v1 = internal global i32 0, align 4
 @.str.6 = private unnamed_addr constant [17 x i8] c"SGI V1 procedure\00", align 1
 @.str.7 = private unnamed_addr constant [23 x i8] c"mount.procedure_sgi_v1\00", align 1
-@sgi_mount1_proc_vals = internal constant [10 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.128 }, %struct._value_string { i32 1, ptr @.str.129 }, %struct._value_string { i32 2, ptr @.str.130 }, %struct._value_string { i32 3, ptr @.str.131 }, %struct._value_string { i32 4, ptr @.str.132 }, %struct._value_string { i32 5, ptr @.str.133 }, %struct._value_string { i32 6, ptr @.str.134 }, %struct._value_string { i32 99, ptr @.str.136 }, %struct._value_string { i32 100, ptr @.str.137 }, %struct._value_string zeroinitializer], align 16
 @hf_mount_path = internal global i32 0, align 4
 @.str.8 = private unnamed_addr constant [5 x i8] c"Path\00", align 1
 @.str.9 = private unnamed_addr constant [11 x i8] c"mount.path\00", align 1
 @hf_mount3_status = internal global i32 0, align 4
 @.str.10 = private unnamed_addr constant [7 x i8] c"Status\00", align 1
 @.str.11 = private unnamed_addr constant [13 x i8] c"mount.status\00", align 1
-@mount3_mountstat3 = internal constant [11 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.138 }, %struct._value_string { i32 1, ptr @.str.139 }, %struct._value_string { i32 2, ptr @.str.140 }, %struct._value_string { i32 5, ptr @.str.141 }, %struct._value_string { i32 13, ptr @.str.142 }, %struct._value_string { i32 20, ptr @.str.143 }, %struct._value_string { i32 22, ptr @.str.144 }, %struct._value_string { i32 63, ptr @.str.145 }, %struct._value_string { i32 10004, ptr @.str.146 }, %struct._value_string { i32 10006, ptr @.str.147 }, %struct._value_string zeroinitializer], align 16
 @hf_mount_mountlist_hostname = internal global i32 0, align 4
 @.str.12 = private unnamed_addr constant [9 x i8] c"Hostname\00", align 1
 @.str.13 = private unnamed_addr constant [20 x i8] c"mount.dump.hostname\00", align 1
@@ -96,43 +89,43 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_mount_pathconf_error_all = internal global i32 0, align 4
 @.str.50 = private unnamed_addr constant [10 x i8] c"ERROR_ALL\00", align 1
 @.str.51 = private unnamed_addr constant [30 x i8] c"mount.pathconf.mask.error_all\00", align 1
-@tos_error_all = internal constant %struct.true_false_string { ptr @.str.148, ptr @.str.149 }, align 8
+@tos_error_all = internal constant %struct.true_false_string { ptr @.str.153, ptr @.str.154 }, align 8
 @hf_mount_pathconf_error_link_max = internal global i32 0, align 4
 @.str.52 = private unnamed_addr constant [15 x i8] c"ERROR_LINK_MAX\00", align 1
 @.str.53 = private unnamed_addr constant [35 x i8] c"mount.pathconf.mask.error_link_max\00", align 1
-@tos_error_link_max = internal constant %struct.true_false_string { ptr @.str.150, ptr @.str.151 }, align 8
+@tos_error_link_max = internal constant %struct.true_false_string { ptr @.str.155, ptr @.str.156 }, align 8
 @hf_mount_pathconf_error_max_canon = internal global i32 0, align 4
 @.str.54 = private unnamed_addr constant [16 x i8] c"ERROR_MAX_CANON\00", align 1
 @.str.55 = private unnamed_addr constant [36 x i8] c"mount.pathconf.mask.error_max_canon\00", align 1
-@tos_error_max_canon = internal constant %struct.true_false_string { ptr @.str.152, ptr @.str.153 }, align 8
+@tos_error_max_canon = internal constant %struct.true_false_string { ptr @.str.157, ptr @.str.158 }, align 8
 @hf_mount_pathconf_error_max_input = internal global i32 0, align 4
 @.str.56 = private unnamed_addr constant [16 x i8] c"ERROR_MAX_INPUT\00", align 1
 @.str.57 = private unnamed_addr constant [36 x i8] c"mount.pathconf.mask.error_max_input\00", align 1
-@tos_error_max_input = internal constant %struct.true_false_string { ptr @.str.154, ptr @.str.155 }, align 8
+@tos_error_max_input = internal constant %struct.true_false_string { ptr @.str.159, ptr @.str.160 }, align 8
 @hf_mount_pathconf_error_name_max = internal global i32 0, align 4
 @.str.58 = private unnamed_addr constant [15 x i8] c"ERROR_NAME_MAX\00", align 1
 @.str.59 = private unnamed_addr constant [35 x i8] c"mount.pathconf.mask.error_name_max\00", align 1
-@tos_error_name_max = internal constant %struct.true_false_string { ptr @.str.156, ptr @.str.157 }, align 8
+@tos_error_name_max = internal constant %struct.true_false_string { ptr @.str.161, ptr @.str.162 }, align 8
 @hf_mount_pathconf_error_path_max = internal global i32 0, align 4
 @.str.60 = private unnamed_addr constant [15 x i8] c"ERROR_PATH_MAX\00", align 1
 @.str.61 = private unnamed_addr constant [35 x i8] c"mount.pathconf.mask.error_path_max\00", align 1
-@tos_error_path_max = internal constant %struct.true_false_string { ptr @.str.158, ptr @.str.159 }, align 8
+@tos_error_path_max = internal constant %struct.true_false_string { ptr @.str.163, ptr @.str.164 }, align 8
 @hf_mount_pathconf_error_pipe_buf = internal global i32 0, align 4
 @.str.62 = private unnamed_addr constant [15 x i8] c"ERROR_PIPE_BUF\00", align 1
 @.str.63 = private unnamed_addr constant [35 x i8] c"mount.pathconf.mask.error_pipe_buf\00", align 1
-@tos_error_pipe_buf = internal constant %struct.true_false_string { ptr @.str.160, ptr @.str.161 }, align 8
+@tos_error_pipe_buf = internal constant %struct.true_false_string { ptr @.str.165, ptr @.str.166 }, align 8
 @hf_mount_pathconf_chown_restricted = internal global i32 0, align 4
 @.str.64 = private unnamed_addr constant [17 x i8] c"CHOWN_RESTRICTED\00", align 1
 @.str.65 = private unnamed_addr constant [37 x i8] c"mount.pathconf.mask.chown_restricted\00", align 1
-@tos_chown_restricted = internal constant %struct.true_false_string { ptr @.str.162, ptr @.str.163 }, align 8
+@tos_chown_restricted = internal constant %struct.true_false_string { ptr @.str.167, ptr @.str.168 }, align 8
 @hf_mount_pathconf_no_trunc = internal global i32 0, align 4
 @.str.66 = private unnamed_addr constant [9 x i8] c"NO_TRUNC\00", align 1
 @.str.67 = private unnamed_addr constant [29 x i8] c"mount.pathconf.mask.no_trunc\00", align 1
-@tos_no_trunc = internal constant %struct.true_false_string { ptr @.str.164, ptr @.str.165 }, align 8
+@tos_no_trunc = internal constant %struct.true_false_string { ptr @.str.169, ptr @.str.170 }, align 8
 @hf_mount_pathconf_error_vdisable = internal global i32 0, align 4
 @.str.68 = private unnamed_addr constant [15 x i8] c"ERROR_VDISABLE\00", align 1
 @.str.69 = private unnamed_addr constant [35 x i8] c"mount.pathconf.mask.error_vdisable\00", align 1
-@tos_error_vdisable = internal constant %struct.true_false_string { ptr @.str.166, ptr @.str.167 }, align 8
+@tos_error_vdisable = internal constant %struct.true_false_string { ptr @.str.171, ptr @.str.172 }, align 8
 @hf_mount_statvfs_bsize = internal global i32 0, align 4
 @.str.70 = private unnamed_addr constant [11 x i8] c"Block size\00", align 1
 @.str.71 = private unnamed_addr constant [22 x i8] c"mount.statvfs.f_bsize\00", align 1
@@ -180,27 +173,27 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_mount_statvfs_flag_rdonly = internal global i32 0, align 4
 @.str.103 = private unnamed_addr constant [10 x i8] c"ST_RDONLY\00", align 1
 @.str.104 = private unnamed_addr constant [31 x i8] c"mount.statvfs.f_flag.st_rdonly\00", align 1
-@tos_st_rdonly = internal constant %struct.true_false_string { ptr @.str.168, ptr @.str.169 }, align 8
+@tos_st_rdonly = internal constant %struct.true_false_string { ptr @.str.173, ptr @.str.174 }, align 8
 @hf_mount_statvfs_flag_nosuid = internal global i32 0, align 4
 @.str.105 = private unnamed_addr constant [10 x i8] c"ST_NOSUID\00", align 1
 @.str.106 = private unnamed_addr constant [31 x i8] c"mount.statvfs.f_flag.st_nosuid\00", align 1
-@tos_st_nosuid = internal constant %struct.true_false_string { ptr @.str.170, ptr @.str.171 }, align 8
+@tos_st_nosuid = internal constant %struct.true_false_string { ptr @.str.175, ptr @.str.176 }, align 8
 @hf_mount_statvfs_flag_notrunc = internal global i32 0, align 4
 @.str.107 = private unnamed_addr constant [11 x i8] c"ST_NOTRUNC\00", align 1
 @.str.108 = private unnamed_addr constant [32 x i8] c"mount.statvfs.f_flag.st_notrunc\00", align 1
-@tos_st_notrunc = internal constant %struct.true_false_string { ptr @.str.172, ptr @.str.173 }, align 8
+@tos_st_notrunc = internal constant %struct.true_false_string { ptr @.str.177, ptr @.str.178 }, align 8
 @hf_mount_statvfs_flag_nodev = internal global i32 0, align 4
 @.str.109 = private unnamed_addr constant [9 x i8] c"ST_NODEV\00", align 1
 @.str.110 = private unnamed_addr constant [30 x i8] c"mount.statvfs.f_flag.st_nodev\00", align 1
-@tos_st_nodev = internal constant %struct.true_false_string { ptr @.str.174, ptr @.str.175 }, align 8
+@tos_st_nodev = internal constant %struct.true_false_string { ptr @.str.179, ptr @.str.180 }, align 8
 @hf_mount_statvfs_flag_grpid = internal global i32 0, align 4
 @.str.111 = private unnamed_addr constant [9 x i8] c"ST_GRPID\00", align 1
 @.str.112 = private unnamed_addr constant [30 x i8] c"mount.statvfs.f_flag.st_grpid\00", align 1
-@tos_st_grpid = internal constant %struct.true_false_string { ptr @.str.176, ptr @.str.177 }, align 8
+@tos_st_grpid = internal constant %struct.true_false_string { ptr @.str.181, ptr @.str.182 }, align 8
 @hf_mount_statvfs_flag_local = internal global i32 0, align 4
 @.str.113 = private unnamed_addr constant [9 x i8] c"ST_LOCAL\00", align 1
 @.str.114 = private unnamed_addr constant [30 x i8] c"mount.statvfs.f_flag.st_local\00", align 1
-@tos_st_local = internal constant %struct.true_false_string { ptr @.str.178, ptr @.str.179 }, align 8
+@tos_st_local = internal constant %struct.true_false_string { ptr @.str.183, ptr @.str.184 }, align 8
 @hf_mount_statvfs_namemax = internal global i32 0, align 4
 @.str.115 = private unnamed_addr constant [24 x i8] c"mount.statvfs.f_namemax\00", align 1
 @hf_mount_statvfs_fstr = internal global i32 0, align 4
@@ -228,8 +221,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.126 = private unnamed_addr constant [10 x i8] c"SGI MOUNT\00", align 1
 @.str.127 = private unnamed_addr constant [9 x i8] c"sgimount\00", align 1
 @proto_sgi_mount = internal global i32 0, align 4
-@mount_vers_info = internal constant [3 x %struct._rpc_proc_list] [%struct._rpc_proc_list { i32 1, ptr @mount1_proc, ptr @hf_mount_procedure_v1 }, %struct._rpc_proc_list { i32 2, ptr @mount2_proc, ptr @hf_mount_procedure_v2 }, %struct._rpc_proc_list { i32 3, ptr @mount3_proc, ptr @hf_mount_procedure_v3 }], align 16
-@sgi_mount_vers_info = internal constant [1 x %struct._rpc_proc_list] [%struct._rpc_proc_list { i32 1, ptr @sgi_mount1_proc, ptr @hf_sgi_mount_procedure_v1 }], align 16
 @.str.128 = private unnamed_addr constant [5 x i8] c"NULL\00", align 1
 @.str.129 = private unnamed_addr constant [4 x i8] c"MNT\00", align 1
 @.str.130 = private unnamed_addr constant [5 x i8] c"DUMP\00", align 1
@@ -237,69 +228,76 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.132 = private unnamed_addr constant [8 x i8] c"UMNTALL\00", align 1
 @.str.133 = private unnamed_addr constant [7 x i8] c"EXPORT\00", align 1
 @.str.134 = private unnamed_addr constant [10 x i8] c"EXPORTALL\00", align 1
-@.str.135 = private unnamed_addr constant [9 x i8] c"PATHCONF\00", align 1
-@.str.136 = private unnamed_addr constant [11 x i8] c"EXPORTLIST\00", align 1
-@.str.137 = private unnamed_addr constant [8 x i8] c"STATVFS\00", align 1
-@.str.138 = private unnamed_addr constant [3 x i8] c"OK\00", align 1
-@.str.139 = private unnamed_addr constant [9 x i8] c"ERR_PERM\00", align 1
-@.str.140 = private unnamed_addr constant [10 x i8] c"ERR_NOENT\00", align 1
-@.str.141 = private unnamed_addr constant [7 x i8] c"ERR_IO\00", align 1
-@.str.142 = private unnamed_addr constant [11 x i8] c"ERR_ACCESS\00", align 1
-@.str.143 = private unnamed_addr constant [11 x i8] c"ERR_NOTDIR\00", align 1
-@.str.144 = private unnamed_addr constant [10 x i8] c"ERR_INVAL\00", align 1
-@.str.145 = private unnamed_addr constant [16 x i8] c"ERR_NAMETOOLONG\00", align 1
-@.str.146 = private unnamed_addr constant [12 x i8] c"ERR_NOTSUPP\00", align 1
-@.str.147 = private unnamed_addr constant [16 x i8] c"ERR_SERVERFAULT\00", align 1
-@.str.148 = private unnamed_addr constant [17 x i8] c"All info invalid\00", align 1
-@.str.149 = private unnamed_addr constant [23 x i8] c"Some or all info valid\00", align 1
-@.str.150 = private unnamed_addr constant [17 x i8] c"LINK_MAX invalid\00", align 1
-@.str.151 = private unnamed_addr constant [15 x i8] c"LINK_MAX valid\00", align 1
-@.str.152 = private unnamed_addr constant [18 x i8] c"MAX_CANON invalid\00", align 1
-@.str.153 = private unnamed_addr constant [16 x i8] c"MAX_CANON valid\00", align 1
-@.str.154 = private unnamed_addr constant [18 x i8] c"MAX_INPUT invalid\00", align 1
-@.str.155 = private unnamed_addr constant [16 x i8] c"MAX_INPUT valid\00", align 1
-@.str.156 = private unnamed_addr constant [17 x i8] c"NAME_MAX invalid\00", align 1
-@.str.157 = private unnamed_addr constant [15 x i8] c"NAME_MAX valid\00", align 1
-@.str.158 = private unnamed_addr constant [17 x i8] c"PATH_MAX invalid\00", align 1
-@.str.159 = private unnamed_addr constant [15 x i8] c"PATH_MAX valid\00", align 1
-@.str.160 = private unnamed_addr constant [17 x i8] c"PIPE_BUF invalid\00", align 1
-@.str.161 = private unnamed_addr constant [15 x i8] c"PIPE_BUF valid\00", align 1
-@.str.162 = private unnamed_addr constant [58 x i8] c"Only a privileged user can change the ownership of a file\00", align 1
-@.str.163 = private unnamed_addr constant [36 x i8] c"Users may give away their own files\00", align 1
-@.str.164 = private unnamed_addr constant [47 x i8] c"File names that are too long will get an error\00", align 1
-@.str.165 = private unnamed_addr constant [47 x i8] c"File names that are too long will be truncated\00", align 1
-@.str.166 = private unnamed_addr constant [17 x i8] c"VDISABLE invalid\00", align 1
-@.str.167 = private unnamed_addr constant [15 x i8] c"VDISABLE valid\00", align 1
-@.str.168 = private unnamed_addr constant [22 x i8] c"Read-only file system\00", align 1
-@.str.169 = private unnamed_addr constant [23 x i8] c"Read/Write file system\00", align 1
-@.str.170 = private unnamed_addr constant [41 x i8] c"Does not support setuid/setgid semantics\00", align 1
-@.str.171 = private unnamed_addr constant [33 x i8] c"Supports setuid/setgid semantics\00", align 1
-@.str.172 = private unnamed_addr constant [49 x i8] c"Does not truncate filenames longer than NAME_MAX\00", align 1
-@.str.173 = private unnamed_addr constant [41 x i8] c"Truncates filenames longer than NAME_MAX\00", align 1
-@.str.174 = private unnamed_addr constant [34 x i8] c"Disallows opening of device files\00", align 1
-@.str.175 = private unnamed_addr constant [31 x i8] c"Allows opening of device files\00", align 1
-@.str.176 = private unnamed_addr constant [33 x i8] c"Group ID assigned from directory\00", align 1
-@.str.177 = private unnamed_addr constant [37 x i8] c"Group ID not assigned from directory\00", align 1
-@.str.178 = private unnamed_addr constant [21 x i8] c"File system is local\00", align 1
-@.str.179 = private unnamed_addr constant [25 x i8] c"File system is not local\00", align 1
-@mount1_proc = internal constant [8 x %struct._vsff] [%struct._vsff { i32 0, ptr @.str.128, ptr @dissect_rpc_void, ptr @dissect_rpc_void }, %struct._vsff { i32 1, ptr @.str.129, ptr @dissect_mount_dirpath_call, ptr @dissect_mount1_mnt_reply }, %struct._vsff { i32 2, ptr @.str.130, ptr @dissect_rpc_void, ptr @dissect_mount_dump_reply }, %struct._vsff { i32 3, ptr @.str.131, ptr @dissect_mount_dirpath_call, ptr @dissect_rpc_void }, %struct._vsff { i32 4, ptr @.str.132, ptr @dissect_rpc_void, ptr @dissect_rpc_void }, %struct._vsff { i32 5, ptr @.str.133, ptr @dissect_rpc_void, ptr @dissect_mount_export_reply }, %struct._vsff { i32 6, ptr @.str.134, ptr @dissect_rpc_void, ptr @dissect_mount_export_reply }, %struct._vsff zeroinitializer], align 16
-@mount2_proc = internal constant [9 x %struct._vsff] [%struct._vsff { i32 0, ptr @.str.128, ptr @dissect_rpc_void, ptr @dissect_rpc_void }, %struct._vsff { i32 1, ptr @.str.129, ptr @dissect_mount_dirpath_call, ptr @dissect_mount1_mnt_reply }, %struct._vsff { i32 2, ptr @.str.130, ptr @dissect_rpc_void, ptr @dissect_mount_dump_reply }, %struct._vsff { i32 3, ptr @.str.131, ptr @dissect_mount_dirpath_call, ptr @dissect_rpc_void }, %struct._vsff { i32 4, ptr @.str.132, ptr @dissect_rpc_void, ptr @dissect_rpc_void }, %struct._vsff { i32 5, ptr @.str.133, ptr @dissect_rpc_void, ptr @dissect_mount_export_reply }, %struct._vsff { i32 6, ptr @.str.134, ptr @dissect_rpc_void, ptr @dissect_mount_export_reply }, %struct._vsff { i32 7, ptr @.str.135, ptr @dissect_mount_dirpath_call, ptr @dissect_mount_pathconf_reply }, %struct._vsff zeroinitializer], align 16
-@mount3_proc = internal constant [7 x %struct._vsff] [%struct._vsff { i32 0, ptr @.str.128, ptr @dissect_rpc_void, ptr @dissect_rpc_void }, %struct._vsff { i32 1, ptr @.str.129, ptr @dissect_mount_dirpath_call, ptr @dissect_mount3_mnt_reply }, %struct._vsff { i32 2, ptr @.str.130, ptr @dissect_rpc_void, ptr @dissect_mount_dump_reply }, %struct._vsff { i32 3, ptr @.str.131, ptr @dissect_mount_dirpath_call, ptr @dissect_rpc_void }, %struct._vsff { i32 4, ptr @.str.132, ptr @dissect_rpc_void, ptr @dissect_rpc_void }, %struct._vsff { i32 5, ptr @.str.133, ptr @dissect_rpc_void, ptr @dissect_mount_export_reply }, %struct._vsff zeroinitializer], align 16
-@nfs_file_name_snooping = external global i32, align 4
-@.str.180 = private unnamed_addr constant [4 x i8] c" %s\00", align 1
-@.str.181 = private unnamed_addr constant [8 x i8] c"fhandle\00", align 1
-@.str.182 = private unnamed_addr constant [10 x i8] c" Error:%s\00", align 1
-@.str.183 = private unnamed_addr constant [17 x i8] c"Unknown (0x%08X)\00", align 1
-@.str.184 = private unnamed_addr constant [24 x i8] c"Mount List Entry: %s:%s\00", align 1
-@.str.185 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
-@.str.186 = private unnamed_addr constant [14 x i8] c"Groups: empty\00", align 1
-@.str.187 = private unnamed_addr constant [28 x i8] c"Export List Entry: %s -> %s\00", align 1
+@mount1_proc_vals = internal constant [8 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.128 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.129 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.130 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.131 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.132 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.133 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.134 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.136 = private unnamed_addr constant [9 x i8] c"PATHCONF\00", align 1
+@mount2_proc_vals = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.128 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.129 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.130 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.131 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.132 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.133 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.134 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.136 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@mount3_proc_vals = internal constant [7 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.128 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.129 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.130 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.131 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.132 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.133 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.139 = private unnamed_addr constant [11 x i8] c"EXPORTLIST\00", align 1
+@.str.140 = private unnamed_addr constant [8 x i8] c"STATVFS\00", align 1
+@sgi_mount1_proc_vals = internal constant [10 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.128 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.129 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.130 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.131 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.132 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.133 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.134 }, { i32, [4 x i8], ptr } { i32 99, [4 x i8] zeroinitializer, ptr @.str.139 }, { i32, [4 x i8], ptr } { i32 100, [4 x i8] zeroinitializer, ptr @.str.140 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.142 = private unnamed_addr constant [3 x i8] c"OK\00", align 1
+@.str.143 = private unnamed_addr constant [9 x i8] c"ERR_PERM\00", align 1
+@.str.144 = private unnamed_addr constant [10 x i8] c"ERR_NOENT\00", align 1
+@.str.145 = private unnamed_addr constant [7 x i8] c"ERR_IO\00", align 1
+@.str.146 = private unnamed_addr constant [11 x i8] c"ERR_ACCESS\00", align 1
+@.str.147 = private unnamed_addr constant [11 x i8] c"ERR_NOTDIR\00", align 1
+@.str.148 = private unnamed_addr constant [10 x i8] c"ERR_INVAL\00", align 1
+@.str.149 = private unnamed_addr constant [16 x i8] c"ERR_NAMETOOLONG\00", align 1
+@.str.150 = private unnamed_addr constant [12 x i8] c"ERR_NOTSUPP\00", align 1
+@.str.151 = private unnamed_addr constant [16 x i8] c"ERR_SERVERFAULT\00", align 1
+@mount3_mountstat3 = internal constant [11 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.142 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.143 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.144 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.145 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.146 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.147 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.148 }, { i32, [4 x i8], ptr } { i32 63, [4 x i8] zeroinitializer, ptr @.str.149 }, { i32, [4 x i8], ptr } { i32 10004, [4 x i8] zeroinitializer, ptr @.str.150 }, { i32, [4 x i8], ptr } { i32 10006, [4 x i8] zeroinitializer, ptr @.str.151 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.153 = private unnamed_addr constant [17 x i8] c"All info invalid\00", align 1
+@.str.154 = private unnamed_addr constant [23 x i8] c"Some or all info valid\00", align 1
+@.str.155 = private unnamed_addr constant [17 x i8] c"LINK_MAX invalid\00", align 1
+@.str.156 = private unnamed_addr constant [15 x i8] c"LINK_MAX valid\00", align 1
+@.str.157 = private unnamed_addr constant [18 x i8] c"MAX_CANON invalid\00", align 1
+@.str.158 = private unnamed_addr constant [16 x i8] c"MAX_CANON valid\00", align 1
+@.str.159 = private unnamed_addr constant [18 x i8] c"MAX_INPUT invalid\00", align 1
+@.str.160 = private unnamed_addr constant [16 x i8] c"MAX_INPUT valid\00", align 1
+@.str.161 = private unnamed_addr constant [17 x i8] c"NAME_MAX invalid\00", align 1
+@.str.162 = private unnamed_addr constant [15 x i8] c"NAME_MAX valid\00", align 1
+@.str.163 = private unnamed_addr constant [17 x i8] c"PATH_MAX invalid\00", align 1
+@.str.164 = private unnamed_addr constant [15 x i8] c"PATH_MAX valid\00", align 1
+@.str.165 = private unnamed_addr constant [17 x i8] c"PIPE_BUF invalid\00", align 1
+@.str.166 = private unnamed_addr constant [15 x i8] c"PIPE_BUF valid\00", align 1
+@.str.167 = private unnamed_addr constant [58 x i8] c"Only a privileged user can change the ownership of a file\00", align 1
+@.str.168 = private unnamed_addr constant [36 x i8] c"Users may give away their own files\00", align 1
+@.str.169 = private unnamed_addr constant [47 x i8] c"File names that are too long will get an error\00", align 1
+@.str.170 = private unnamed_addr constant [47 x i8] c"File names that are too long will be truncated\00", align 1
+@.str.171 = private unnamed_addr constant [17 x i8] c"VDISABLE invalid\00", align 1
+@.str.172 = private unnamed_addr constant [15 x i8] c"VDISABLE valid\00", align 1
+@.str.173 = private unnamed_addr constant [22 x i8] c"Read-only file system\00", align 1
+@.str.174 = private unnamed_addr constant [23 x i8] c"Read/Write file system\00", align 1
+@.str.175 = private unnamed_addr constant [41 x i8] c"Does not support setuid/setgid semantics\00", align 1
+@.str.176 = private unnamed_addr constant [33 x i8] c"Supports setuid/setgid semantics\00", align 1
+@.str.177 = private unnamed_addr constant [49 x i8] c"Does not truncate filenames longer than NAME_MAX\00", align 1
+@.str.178 = private unnamed_addr constant [41 x i8] c"Truncates filenames longer than NAME_MAX\00", align 1
+@.str.179 = private unnamed_addr constant [34 x i8] c"Disallows opening of device files\00", align 1
+@.str.180 = private unnamed_addr constant [31 x i8] c"Allows opening of device files\00", align 1
+@.str.181 = private unnamed_addr constant [33 x i8] c"Group ID assigned from directory\00", align 1
+@.str.182 = private unnamed_addr constant [37 x i8] c"Group ID not assigned from directory\00", align 1
+@.str.183 = private unnamed_addr constant [21 x i8] c"File system is local\00", align 1
+@.str.184 = private unnamed_addr constant [25 x i8] c"File system is not local\00", align 1
+@mount_vers_info = internal constant [3 x { i32, [4 x i8], ptr, ptr }] [{ i32, [4 x i8], ptr, ptr } { i32 1, [4 x i8] zeroinitializer, ptr @mount1_proc, ptr @hf_mount_procedure_v1 }, { i32, [4 x i8], ptr, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @mount2_proc, ptr @hf_mount_procedure_v2 }, { i32, [4 x i8], ptr, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @mount3_proc, ptr @hf_mount_procedure_v3 }], align 16
+@mount1_proc = internal constant [8 x { i32, [4 x i8], ptr, ptr, ptr }] [{ i32, [4 x i8], ptr, ptr, ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.128, ptr @dissect_rpc_void, ptr @dissect_rpc_void }, { i32, [4 x i8], ptr, ptr, ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.129, ptr @dissect_mount_dirpath_call, ptr @dissect_mount1_mnt_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.130, ptr @dissect_rpc_void, ptr @dissect_mount_dump_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.131, ptr @dissect_mount_dirpath_call, ptr @dissect_rpc_void }, { i32, [4 x i8], ptr, ptr, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.132, ptr @dissect_rpc_void, ptr @dissect_rpc_void }, { i32, [4 x i8], ptr, ptr, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.133, ptr @dissect_rpc_void, ptr @dissect_mount_export_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.134, ptr @dissect_rpc_void, ptr @dissect_mount_export_reply }, { i32, [4 x i8], ptr, ptr, ptr } zeroinitializer], align 16
+@nfs_file_name_snooping = external global i8, align 1
+@.str.187 = private unnamed_addr constant [4 x i8] c" %s\00", align 1
+@.str.188 = private unnamed_addr constant [8 x i8] c"fhandle\00", align 1
+@.str.189 = private unnamed_addr constant [10 x i8] c" Error:%s\00", align 1
+@.str.190 = private unnamed_addr constant [17 x i8] c"Unknown (0x%08X)\00", align 1
+@.str.191 = private unnamed_addr constant [24 x i8] c"Mount List Entry: %s:%s\00", align 1
+@.str.192 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@.str.193 = private unnamed_addr constant [14 x i8] c"Groups: empty\00", align 1
+@.str.194 = private unnamed_addr constant [28 x i8] c"Export List Entry: %s -> %s\00", align 1
+@mount2_proc = internal constant [9 x { i32, [4 x i8], ptr, ptr, ptr }] [{ i32, [4 x i8], ptr, ptr, ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.128, ptr @dissect_rpc_void, ptr @dissect_rpc_void }, { i32, [4 x i8], ptr, ptr, ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.129, ptr @dissect_mount_dirpath_call, ptr @dissect_mount1_mnt_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.130, ptr @dissect_rpc_void, ptr @dissect_mount_dump_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.131, ptr @dissect_mount_dirpath_call, ptr @dissect_rpc_void }, { i32, [4 x i8], ptr, ptr, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.132, ptr @dissect_rpc_void, ptr @dissect_rpc_void }, { i32, [4 x i8], ptr, ptr, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.133, ptr @dissect_rpc_void, ptr @dissect_mount_export_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.134, ptr @dissect_rpc_void, ptr @dissect_mount_export_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.136, ptr @dissect_mount_dirpath_call, ptr @dissect_mount_pathconf_reply }, { i32, [4 x i8], ptr, ptr, ptr } zeroinitializer], align 16
 @dissect_mount_pathconf_reply.flags = internal constant [11 x ptr] [ptr @hf_mount_pathconf_error_all, ptr @hf_mount_pathconf_error_link_max, ptr @hf_mount_pathconf_error_max_canon, ptr @hf_mount_pathconf_error_max_input, ptr @hf_mount_pathconf_error_name_max, ptr @hf_mount_pathconf_error_path_max, ptr @hf_mount_pathconf_error_pipe_buf, ptr @hf_mount_pathconf_chown_restricted, ptr @hf_mount_pathconf_no_trunc, ptr @hf_mount_pathconf_error_vdisable, ptr null], align 16
-@sgi_mount1_proc = internal constant [10 x %struct._vsff] [%struct._vsff { i32 0, ptr @.str.128, ptr @dissect_rpc_void, ptr @dissect_rpc_void }, %struct._vsff { i32 1, ptr @.str.129, ptr @dissect_mount_dirpath_call, ptr @dissect_mount1_mnt_reply }, %struct._vsff { i32 2, ptr @.str.130, ptr @dissect_rpc_void, ptr @dissect_mount_dump_reply }, %struct._vsff { i32 3, ptr @.str.131, ptr @dissect_mount_dirpath_call, ptr @dissect_rpc_void }, %struct._vsff { i32 4, ptr @.str.132, ptr @dissect_rpc_void, ptr @dissect_rpc_void }, %struct._vsff { i32 5, ptr @.str.133, ptr @dissect_rpc_void, ptr @dissect_mount_export_reply }, %struct._vsff { i32 6, ptr @.str.134, ptr @dissect_rpc_void, ptr @dissect_mount_export_reply }, %struct._vsff { i32 99, ptr @.str.136, ptr @dissect_rpc_void, ptr @dissect_mount_exportlist_reply }, %struct._vsff { i32 100, ptr @.str.137, ptr @dissect_mount_dirpath_call, ptr @dissect_mount_statvfs_reply }, %struct._vsff zeroinitializer], align 16
-@.str.188 = private unnamed_addr constant [25 x i8] c"Export List Entry: %s %s\00", align 1
+@mount3_proc = internal constant [7 x { i32, [4 x i8], ptr, ptr, ptr }] [{ i32, [4 x i8], ptr, ptr, ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.128, ptr @dissect_rpc_void, ptr @dissect_rpc_void }, { i32, [4 x i8], ptr, ptr, ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.129, ptr @dissect_mount_dirpath_call, ptr @dissect_mount3_mnt_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.130, ptr @dissect_rpc_void, ptr @dissect_mount_dump_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.131, ptr @dissect_mount_dirpath_call, ptr @dissect_rpc_void }, { i32, [4 x i8], ptr, ptr, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.132, ptr @dissect_rpc_void, ptr @dissect_rpc_void }, { i32, [4 x i8], ptr, ptr, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.133, ptr @dissect_rpc_void, ptr @dissect_mount_export_reply }, { i32, [4 x i8], ptr, ptr, ptr } zeroinitializer], align 16
+@sgi_mount_vers_info = internal constant [1 x { i32, [4 x i8], ptr, ptr }] [{ i32, [4 x i8], ptr, ptr } { i32 1, [4 x i8] zeroinitializer, ptr @sgi_mount1_proc, ptr @hf_sgi_mount_procedure_v1 }], align 16
+@sgi_mount1_proc = internal constant [10 x { i32, [4 x i8], ptr, ptr, ptr }] [{ i32, [4 x i8], ptr, ptr, ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.128, ptr @dissect_rpc_void, ptr @dissect_rpc_void }, { i32, [4 x i8], ptr, ptr, ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.129, ptr @dissect_mount_dirpath_call, ptr @dissect_mount1_mnt_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.130, ptr @dissect_rpc_void, ptr @dissect_mount_dump_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.131, ptr @dissect_mount_dirpath_call, ptr @dissect_rpc_void }, { i32, [4 x i8], ptr, ptr, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.132, ptr @dissect_rpc_void, ptr @dissect_rpc_void }, { i32, [4 x i8], ptr, ptr, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.133, ptr @dissect_rpc_void, ptr @dissect_mount_export_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.134, ptr @dissect_rpc_void, ptr @dissect_mount_export_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 99, [4 x i8] zeroinitializer, ptr @.str.139, ptr @dissect_rpc_void, ptr @dissect_mount_exportlist_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 100, [4 x i8] zeroinitializer, ptr @.str.140, ptr @dissect_mount_dirpath_call, ptr @dissect_mount_statvfs_reply }, { i32, [4 x i8], ptr, ptr, ptr } zeroinitializer], align 16
+@.str.199 = private unnamed_addr constant [25 x i8] c"Export List Entry: %s %s\00", align 1
 @dissect_mount_statvfs_reply.flags = internal constant [7 x ptr] [ptr @hf_mount_statvfs_flag_rdonly, ptr @hf_mount_statvfs_flag_nosuid, ptr @hf_mount_statvfs_flag_notrunc, ptr @hf_mount_statvfs_flag_nodev, ptr @hf_mount_statvfs_flag_grpid, ptr @hf_mount_statvfs_flag_local, ptr null], align 16
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_mount() #0 {
   %1 = call i32 @proto_register_protocol(ptr noundef @.str.122, ptr noundef @.str.123, ptr noundef @.str.124)
   store i32 %1, ptr @proto_mount, align 4
@@ -311,13 +309,16 @@ define hidden void @proto_register_mount() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_mount() #0 {
   %1 = load i32, ptr @proto_mount, align 4
   %2 = load i32, ptr @ett_mount, align 4
@@ -328,11 +329,13 @@ define hidden void @proto_reg_handoff_mount() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @rpc_init_prog(i32 noundef, i32 noundef, i32 noundef, i64 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_rpc_void(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mount_dirpath_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -350,13 +353,15 @@ define internal i32 @dissect_mount_dirpath_call(ptr noundef %0, ptr noundef %1, 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
   store ptr null, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
   store i32 0, ptr %10, align 4
   %17 = load ptr, ptr %6, align 8
-  %18 = getelementptr inbounds %struct._packet_info, ptr %17, i32 0, i32 8
+  %18 = getelementptr inbounds nuw %struct._packet_info, ptr %17, i32 0, i32 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds %struct._frame_data, ptr %19, i32 0, i32 9
-  %21 = load i16, ptr %20, align 2
+  %20 = getelementptr inbounds nuw %struct._frame_data, ptr %19, i32 0, i32 11
+  %21 = load i16, ptr %20, align 1
   %22 = lshr i16 %21, 3
   %23 = and i16 %22, 1
   %24 = zext i16 %23 to i32
@@ -364,27 +369,29 @@ define internal i32 @dissect_mount_dirpath_call(ptr noundef %0, ptr noundef %1, 
   br i1 %25, label %94, label %26
 
 26:                                               ; preds = %4
-  %27 = load i32, ptr @nfs_file_name_snooping, align 4
-  %28 = icmp ne i32 %27, 0
+  %27 = load i8, ptr @nfs_file_name_snooping, align 1, !range !6, !noundef !7
+  %28 = trunc i8 %27 to i1
   br i1 %28, label %29, label %94
 
 29:                                               ; preds = %26
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
   %30 = load ptr, ptr %8, align 8
   store ptr %30, ptr %11, align 8
   %31 = load ptr, ptr %11, align 8
-  %32 = getelementptr inbounds %struct._rpc_call_info_value, ptr %31, i32 0, i32 9
-  %33 = load i32, ptr %32, align 4
-  %34 = icmp ne i32 %33, 0
+  %32 = getelementptr inbounds nuw %struct._rpc_call_info_value, ptr %31, i32 0, i32 9
+  %33 = load i8, ptr %32, align 4, !range !6, !noundef !7
+  %34 = trunc i8 %33 to i1
   br i1 %34, label %35, label %93
 
 35:                                               ; preds = %29
   %36 = load ptr, ptr %11, align 8
-  %37 = getelementptr inbounds %struct._rpc_call_info_value, ptr %36, i32 0, i32 4
+  %37 = getelementptr inbounds nuw %struct._rpc_call_info_value, ptr %36, i32 0, i32 4
   %38 = load i32, ptr %37, align 8
   %39 = icmp eq i32 %38, 1
   br i1 %39, label %40, label %93
 
 40:                                               ; preds = %35
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #5
   %41 = load ptr, ptr %5, align 8
   %42 = load i32, ptr %10, align 4
   %43 = call i32 @tvb_get_ntohl(ptr noundef %41, i32 noundef %42)
@@ -394,15 +401,19 @@ define internal i32 @dissect_mount_dirpath_call(ptr noundef %0, ptr noundef %1, 
   br i1 %45, label %46, label %92
 
 46:                                               ; preds = %40
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #5
   %47 = load ptr, ptr %6, align 8
-  %48 = getelementptr inbounds %struct._packet_info, ptr %47, i32 0, i32 50
+  %48 = getelementptr inbounds nuw %struct._packet_info, ptr %47, i32 0, i32 51
   %49 = load ptr, ptr %48, align 8
   %50 = load ptr, ptr %6, align 8
-  %51 = getelementptr inbounds %struct._packet_info, ptr %50, i32 0, i32 17
+  %51 = getelementptr inbounds nuw %struct._packet_info, ptr %50, i32 0, i32 17
   %52 = call ptr @address_to_str(ptr noundef %49, ptr noundef %51)
   store ptr %52, ptr %13, align 8
   %53 = load ptr, ptr %13, align 8
-  %54 = call i64 @strlen(ptr noundef %53) #3
+  %54 = call i64 @strlen(ptr noundef %53) #6
   %55 = trunc i64 %54 to i32
   store i32 %55, ptr %15, align 4
   %56 = load i32, ptr %15, align 4
@@ -412,12 +423,12 @@ define internal i32 @dissect_mount_dirpath_call(ptr noundef %0, ptr noundef %1, 
   %60 = add i32 %59, 1
   store i32 %60, ptr %16, align 4
   %61 = load ptr, ptr %6, align 8
-  %62 = getelementptr inbounds %struct._packet_info, ptr %61, i32 0, i32 50
+  %62 = getelementptr inbounds nuw %struct._packet_info, ptr %61, i32 0, i32 51
   %63 = load ptr, ptr %62, align 8
   %64 = load ptr, ptr %13, align 8
   %65 = load i32, ptr %16, align 4
   %66 = sext i32 %65 to i64
-  %67 = call noalias ptr @wmem_realloc(ptr noundef %63, ptr noundef %64, i64 noundef %66)
+  %67 = call ptr @wmem_realloc(ptr noundef %63, ptr noundef %64, i64 noundef %66) #7
   store ptr %67, ptr %13, align 8
   %68 = load ptr, ptr %13, align 8
   %69 = load i32, ptr %15, align 4
@@ -443,18 +454,24 @@ define internal i32 @dissect_mount_dirpath_call(ptr noundef %0, ptr noundef %1, 
   %85 = load ptr, ptr %14, align 8
   store i8 0, ptr %85, align 1
   %86 = load ptr, ptr %11, align 8
-  %87 = getelementptr inbounds %struct._rpc_call_info_value, ptr %86, i32 0, i32 5
+  %87 = getelementptr inbounds nuw %struct._rpc_call_info_value, ptr %86, i32 0, i32 5
   %88 = load i32, ptr %87, align 4
   %89 = load ptr, ptr %5, align 8
   %90 = load i32, ptr %16, align 4
   %91 = load ptr, ptr %13, align 8
   call void @nfs_name_snoop_add_name(i32 noundef %88, ptr noundef %89, i32 noundef -1, i32 noundef %90, i32 noundef 0, i32 noundef 0, ptr noundef %91)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
   br label %92
 
 92:                                               ; preds = %46, %40
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #5
   br label %93
 
 93:                                               ; preds = %92, %35, %29
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   br label %94
 
 94:                                               ; preds = %93, %26, %4
@@ -465,15 +482,17 @@ define internal i32 @dissect_mount_dirpath_call(ptr noundef %0, ptr noundef %1, 
   %99 = call i32 @dissect_rpc_string(ptr noundef %95, ptr noundef %96, i32 noundef %97, i32 noundef %98, ptr noundef %9)
   store i32 %99, ptr %10, align 4
   %100 = load ptr, ptr %6, align 8
-  %101 = getelementptr inbounds %struct._packet_info, ptr %100, i32 0, i32 1
+  %101 = getelementptr inbounds nuw %struct._packet_info, ptr %100, i32 0, i32 1
   %102 = load ptr, ptr %101, align 8
   %103 = load ptr, ptr %9, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %102, i32 noundef 25, ptr noundef @.str.180, ptr noundef %103)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %102, i32 noundef 25, ptr noundef @.str.187, ptr noundef %103)
   %104 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
   ret i32 %104
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mount1_mnt_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -491,7 +510,7 @@ define internal i32 @dissect_mount1_mnt_reply(ptr noundef %0, ptr noundef %1, pt
   ret i32 %13
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mount_dump_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -508,7 +527,7 @@ define internal i32 @dissect_mount_dump_reply(ptr noundef %0, ptr noundef %1, pt
   ret i32 %12
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mount_export_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -525,24 +544,37 @@ define internal i32 @dissect_mount_export_reply(ptr noundef %0, ptr noundef %1, 
   ret i32 %12
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @address_to_str(ptr noundef, ptr noundef) #1
 
-; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #2
+; Function Attrs: nounwind null_pointer_is_valid willreturn memory(read)
+declare i64 @strlen(ptr noundef) #3
 
-declare noalias ptr @wmem_realloc(ptr noundef, ptr noundef, i64 noundef) #1
+; Function Attrs: null_pointer_is_valid allocsize(2)
+declare ptr @wmem_realloc(ptr noundef, ptr noundef, i64 noundef) #4
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_memcpy(ptr noundef, ptr noundef, i32 noundef, i64 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @nfs_name_snoop_add_name(i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_rpc_string(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_fhstatus(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -555,6 +587,7 @@ define internal i32 @dissect_fhstatus(ptr noundef %0, i32 noundef %1, ptr nounde
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   store ptr %4, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
   %12 = load ptr, ptr %6, align 8
   %13 = load i32, ptr %7, align 4
   %14 = call i32 @tvb_get_ntohl(ptr noundef %12, i32 noundef %13)
@@ -576,33 +609,38 @@ define internal i32 @dissect_fhstatus(ptr noundef %0, i32 noundef %1, ptr nounde
   %24 = load ptr, ptr %8, align 8
   %25 = load ptr, ptr %9, align 8
   %26 = load ptr, ptr %10, align 8
-  %27 = call i32 @dissect_fhandle(ptr noundef %22, i32 noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef @.str.181, ptr noundef null, ptr noundef %26)
+  %27 = call i32 @dissect_fhandle(ptr noundef %22, i32 noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef @.str.188, ptr noundef null, ptr noundef %26)
   store i32 %27, ptr %7, align 4
   br label %34
 
 28:                                               ; preds = %5
   %29 = load ptr, ptr %8, align 8
-  %30 = getelementptr inbounds %struct._packet_info, ptr %29, i32 0, i32 1
+  %30 = getelementptr inbounds nuw %struct._packet_info, ptr %29, i32 0, i32 1
   %31 = load ptr, ptr %30, align 8
   %32 = load i32, ptr %11, align 4
-  %33 = call ptr @val_to_str(i32 noundef %32, ptr noundef @mount3_mountstat3, ptr noundef @.str.183)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %31, i32 noundef 25, ptr noundef @.str.182, ptr noundef %33)
+  %33 = call ptr @val_to_str(i32 noundef %32, ptr noundef @mount3_mountstat3, ptr noundef @.str.190)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %31, i32 noundef 25, ptr noundef @.str.189, ptr noundef %33)
   br label %34
 
 34:                                               ; preds = %28, %21
   %35 = load i32, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
   ret i32 %35
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_rpc_uint32(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_fhandle(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_rpc_list(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mountlist(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -619,8 +657,13 @@ define internal i32 @dissect_mountlist(ptr noundef %0, i32 noundef %1, ptr nound
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   store ptr %4, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
   %16 = load i32, ptr %7, align 4
   store i32 %16, ptr %13, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #5
   %17 = load ptr, ptr %9, align 8
   %18 = load i32, ptr @hf_mount_mountlist, align 4
   %19 = load ptr, ptr %6, align 8
@@ -651,7 +694,7 @@ define internal i32 @dissect_mountlist(ptr noundef %0, i32 noundef %1, ptr nound
   %38 = load ptr, ptr %11, align 8
   %39 = load ptr, ptr %14, align 8
   %40 = load ptr, ptr %15, align 8
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %38, ptr noundef @.str.184, ptr noundef %39, ptr noundef %40)
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %38, ptr noundef @.str.191, ptr noundef %39, ptr noundef %40)
   %41 = load ptr, ptr %11, align 8
   %42 = load i32, ptr %7, align 4
   %43 = load i32, ptr %13, align 4
@@ -661,18 +704,27 @@ define internal i32 @dissect_mountlist(ptr noundef %0, i32 noundef %1, ptr nound
 
 45:                                               ; preds = %37, %5
   %46 = load i32, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret i32 %46
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_item_set_text(ptr noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_item_set_len(ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_exportlist(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -693,12 +745,21 @@ define internal i32 @dissect_exportlist(ptr noundef %0, i32 noundef %1, ptr noun
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   store ptr %4, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
   store ptr null, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
   store ptr null, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
   %20 = load i32, ptr %7, align 4
   store i32 %20, ptr %13, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #5
   store ptr null, ptr %15, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #5
   store ptr null, ptr %16, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #5
   %21 = load ptr, ptr %9, align 8
   %22 = icmp ne ptr %21, null
   br i1 %22, label %23, label %32
@@ -736,9 +797,9 @@ define internal i32 @dissect_exportlist(ptr noundef %0, i32 noundef %1, ptr noun
   %46 = call ptr @proto_item_add_subtree(ptr noundef %44, i32 noundef %45)
   store ptr %46, ptr %16, align 8
   %47 = load ptr, ptr %8, align 8
-  %48 = getelementptr inbounds %struct._packet_info, ptr %47, i32 0, i32 50
+  %48 = getelementptr inbounds nuw %struct._packet_info, ptr %47, i32 0, i32 51
   %49 = load ptr, ptr %48, align 8
-  %50 = call noalias ptr @wmem_strbuf_new(ptr noundef %49, ptr noundef @.str.185)
+  %50 = call noalias ptr @wmem_strbuf_new(ptr noundef %49, ptr noundef @.str.192)
   store ptr %50, ptr %18, align 8
   %51 = load ptr, ptr %6, align 8
   %52 = load ptr, ptr %8, align 8
@@ -760,7 +821,7 @@ define internal i32 @dissect_exportlist(ptr noundef %0, i32 noundef %1, ptr noun
 
 64:                                               ; preds = %59
   %65 = load ptr, ptr %15, align 8
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %65, ptr noundef @.str.186)
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %65, ptr noundef @.str.193)
   br label %66
 
 66:                                               ; preds = %64, %59
@@ -782,20 +843,20 @@ define internal i32 @dissect_exportlist(ptr noundef %0, i32 noundef %1, ptr noun
 76:                                               ; preds = %71
   %77 = load ptr, ptr %11, align 8
   %78 = load ptr, ptr %8, align 8
-  %79 = getelementptr inbounds %struct._packet_info, ptr %78, i32 0, i32 50
+  %79 = getelementptr inbounds nuw %struct._packet_info, ptr %78, i32 0, i32 51
   %80 = load ptr, ptr %79, align 8
   %81 = load ptr, ptr %17, align 8
   %82 = load ptr, ptr %17, align 8
-  %83 = call i64 @strlen(ptr noundef %82) #3
+  %83 = call i64 @strlen(ptr noundef %82) #6
   %84 = call ptr @format_text(ptr noundef %80, ptr noundef %81, i64 noundef %83)
   %85 = load ptr, ptr %8, align 8
-  %86 = getelementptr inbounds %struct._packet_info, ptr %85, i32 0, i32 50
+  %86 = getelementptr inbounds nuw %struct._packet_info, ptr %85, i32 0, i32 51
   %87 = load ptr, ptr %86, align 8
   %88 = load ptr, ptr %19, align 8
   %89 = load ptr, ptr %19, align 8
-  %90 = call i64 @strlen(ptr noundef %89) #3
+  %90 = call i64 @strlen(ptr noundef %89) #6
   %91 = call ptr @format_text(ptr noundef %87, ptr noundef %88, i64 noundef %90)
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %77, ptr noundef @.str.187, ptr noundef %84, ptr noundef %91)
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %77, ptr noundef @.str.194, ptr noundef %84, ptr noundef %91)
   %92 = load ptr, ptr %11, align 8
   %93 = load i32, ptr %7, align 4
   %94 = load i32, ptr %13, align 4
@@ -805,12 +866,22 @@ define internal i32 @dissect_exportlist(ptr noundef %0, i32 noundef %1, ptr noun
 
 96:                                               ; preds = %76, %71
   %97 = load i32, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret i32 %97
 }
 
+; Function Attrs: null_pointer_is_valid
 declare noalias ptr @wmem_strbuf_new(ptr noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_group(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -824,8 +895,10 @@ define internal i32 @dissect_group(ptr noundef %0, i32 noundef %1, ptr noundef %
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   store ptr %4, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
   %13 = load ptr, ptr %10, align 8
   store ptr %13, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
   %14 = load ptr, ptr %6, align 8
   %15 = load ptr, ptr %9, align 8
   %16 = load i32, ptr @hf_mount_groups_group, align 4
@@ -847,20 +920,27 @@ define internal i32 @dissect_group(ptr noundef %0, i32 noundef %1, ptr noundef %
   %26 = load ptr, ptr %12, align 8
   call void @wmem_strbuf_append(ptr noundef %25, ptr noundef %26)
   %27 = load i32, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret i32 %27
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_strbuf_finalize(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @format_text(ptr noundef, ptr noundef, i64 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i64 @wmem_strbuf_get_len(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @wmem_strbuf_append_c(ptr noundef, i8 noundef signext) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @wmem_strbuf_append(ptr noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mount_pathconf_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -872,6 +952,8 @@ define internal i32 @dissect_mount_pathconf_reply(ptr noundef %0, ptr noundef %1
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %10, align 4
@@ -1048,14 +1130,18 @@ define internal i32 @dissect_mount_pathconf_reply(ptr noundef %0, ptr noundef %1
   %146 = add i32 %145, 8
   store i32 %146, ptr %10, align 4
   %147 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %147
 }
 
+; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mount3_mnt_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1070,6 +1156,11 @@ define internal i32 @dissect_mount3_mnt_reply(ptr noundef %0, ptr noundef %1, pt
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
   store i32 0, ptr %13, align 4
   %14 = load ptr, ptr %6, align 8
   %15 = load ptr, ptr %5, align 8
@@ -1089,7 +1180,7 @@ define internal i32 @dissect_mount3_mnt_reply(ptr noundef %0, ptr noundef %1, pt
   %24 = load ptr, ptr %6, align 8
   %25 = load ptr, ptr %7, align 8
   %26 = load ptr, ptr %8, align 8
-  %27 = call i32 @dissect_nfs3_fh(ptr noundef %22, i32 noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef @.str.181, ptr noundef null, ptr noundef %26)
+  %27 = call i32 @dissect_nfs3_fh(ptr noundef %22, i32 noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef @.str.188, ptr noundef null, ptr noundef %26)
   store i32 %27, ptr %13, align 4
   %28 = load ptr, ptr %5, align 8
   %29 = load i32, ptr %13, align 4
@@ -1133,7 +1224,7 @@ define internal i32 @dissect_mount3_mnt_reply(ptr noundef %0, ptr noundef %1, pt
   %56 = load i32, ptr %12, align 4
   %57 = add i32 %56, 1
   store i32 %57, ptr %12, align 4
-  br label %39, !llvm.loop !4
+  br label %39, !llvm.loop !8
 
 58:                                               ; preds = %39
   br label %60
@@ -1143,10 +1234,15 @@ define internal i32 @dissect_mount3_mnt_reply(ptr noundef %0, ptr noundef %1, pt
 
 60:                                               ; preds = %59, %58
   %61 = load i32, ptr %13, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %61
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mountstat3(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -1161,6 +1257,7 @@ define internal i32 @dissect_mountstat3(ptr noundef %0, ptr noundef %1, ptr noun
   store i32 %3, ptr %10, align 4
   store i32 %4, ptr %11, align 4
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
   %14 = load ptr, ptr %8, align 8
   %15 = load i32, ptr %10, align 4
   %16 = call i32 @tvb_get_ntohl(ptr noundef %14, i32 noundef %15)
@@ -1171,11 +1268,11 @@ define internal i32 @dissect_mountstat3(ptr noundef %0, ptr noundef %1, ptr noun
 
 19:                                               ; preds = %6
   %20 = load ptr, ptr %7, align 8
-  %21 = getelementptr inbounds %struct._packet_info, ptr %20, i32 0, i32 1
+  %21 = getelementptr inbounds nuw %struct._packet_info, ptr %20, i32 0, i32 1
   %22 = load ptr, ptr %21, align 8
   %23 = load i32, ptr %13, align 4
-  %24 = call ptr @val_to_str(i32 noundef %23, ptr noundef @mount3_mountstat3, ptr noundef @.str.183)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %22, i32 noundef 25, ptr noundef @.str.182, ptr noundef %24)
+  %24 = call ptr @val_to_str(i32 noundef %23, ptr noundef @mount3_mountstat3, ptr noundef @.str.190)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %22, i32 noundef 25, ptr noundef @.str.189, ptr noundef %24)
   br label %25
 
 25:                                               ; preds = %19, %6
@@ -1189,14 +1286,17 @@ define internal i32 @dissect_mountstat3(ptr noundef %0, ptr noundef %1, ptr noun
   %32 = load ptr, ptr %12, align 8
   store i32 %31, ptr %32, align 4
   %33 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
   ret i32 %33
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_nfs3_fh(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mount_exportlist_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1213,7 +1313,7 @@ define internal i32 @dissect_mount_exportlist_reply(ptr noundef %0, ptr noundef 
   ret i32 %12
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mount_statvfs_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1224,6 +1324,7 @@ define internal i32 @dissect_mount_statvfs_reply(ptr noundef %0, ptr noundef %1,
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %7, align 8
@@ -1293,7 +1394,7 @@ define internal i32 @dissect_mount_statvfs_reply(ptr noundef %0, ptr noundef %1,
   %67 = load ptr, ptr %7, align 8
   %68 = load i32, ptr @hf_mount_statvfs_basetype, align 4
   %69 = load i32, ptr %9, align 4
-  %70 = call i32 @dissect_rpc_bytes(ptr noundef %66, ptr noundef %67, i32 noundef %68, i32 noundef %69, i32 noundef 16, i32 noundef 1, ptr noundef null)
+  %70 = call i32 @dissect_rpc_bytes(ptr noundef %66, ptr noundef %67, i32 noundef %68, i32 noundef %69, i32 noundef 16, i1 noundef zeroext true, ptr noundef null)
   %71 = load i32, ptr %9, align 4
   %72 = add i32 %71, 16
   store i32 %72, ptr %9, align 4
@@ -1301,7 +1402,7 @@ define internal i32 @dissect_mount_statvfs_reply(ptr noundef %0, ptr noundef %1,
   %74 = load ptr, ptr %7, align 8
   %75 = load i32, ptr @hf_mount_statvfs_fstr, align 4
   %76 = load i32, ptr %9, align 4
-  %77 = call i32 @dissect_rpc_bytes(ptr noundef %73, ptr noundef %74, i32 noundef %75, i32 noundef %76, i32 noundef 32, i32 noundef 0, ptr noundef null)
+  %77 = call i32 @dissect_rpc_bytes(ptr noundef %73, ptr noundef %74, i32 noundef %75, i32 noundef %76, i32 noundef 32, i1 noundef zeroext false, ptr noundef null)
   %78 = load i32, ptr %9, align 4
   %79 = add i32 %78, 32
   store i32 %79, ptr %9, align 4
@@ -1331,10 +1432,11 @@ define internal i32 @dissect_mount_statvfs_reply(ptr noundef %0, ptr noundef %1,
   %101 = add i32 %100, 4
   store i32 %101, ptr %9, align 4
   %102 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %102
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_sgi_exportlist(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -1351,10 +1453,15 @@ define internal i32 @dissect_sgi_exportlist(ptr noundef %0, i32 noundef %1, ptr 
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   store ptr %4, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
   store ptr null, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
   store ptr null, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
   %16 = load i32, ptr %7, align 4
   store i32 %16, ptr %13, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #5
   %17 = load ptr, ptr %9, align 8
   %18 = icmp ne ptr %17, null
   br i1 %18, label %19, label %32
@@ -1407,7 +1514,7 @@ define internal i32 @dissect_sgi_exportlist(ptr noundef %0, i32 noundef %1, ptr 
   %51 = load ptr, ptr %11, align 8
   %52 = load ptr, ptr %14, align 8
   %53 = load ptr, ptr %15, align 8
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %51, ptr noundef @.str.188, ptr noundef %52, ptr noundef %53)
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %51, ptr noundef @.str.199, ptr noundef %52, ptr noundef %53)
   %54 = load ptr, ptr %11, align 8
   %55 = load i32, ptr %7, align 4
   %56 = load i32, ptr %13, align 4
@@ -1417,23 +1524,38 @@ define internal i32 @dissect_sgi_exportlist(ptr noundef %0, i32 noundef %1, ptr 
 
 58:                                               ; preds = %50, %32
   %59 = load i32, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
   ret i32 %59
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_rpc_bool(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
 
-declare i32 @dissect_rpc_bytes(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_rpc_bytes(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(read) }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind null_pointer_is_valid willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
+attributes #6 = { nounwind willreturn memory(read) }
+attributes #7 = { allocsize(2) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}

@@ -88,84 +88,88 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.53 = private unnamed_addr constant [21 x i8] c"Dynamically assigned\00", align 1
 @.str.54 = private unnamed_addr constant [13 x i8] c"JPEG message\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_jpeg() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38) #2
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38)
   store i32 %1, ptr @proto_jpeg, align 4
-  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_jpeg.hf, i32 noundef 18) #2
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_jpeg.ett, i32 noundef 1) #2
+  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_jpeg.hf, i32 noundef 18)
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_jpeg.ett, i32 noundef 1)
   %2 = load i32, ptr @proto_jpeg, align 4
-  %3 = tail call ptr @register_dissector(ptr noundef nonnull @.str.38, ptr noundef nonnull @dissect_jpeg, i32 noundef %2) #2
+  %3 = tail call ptr @register_dissector(ptr noundef nonnull @.str.38, ptr noundef nonnull @dissect_jpeg, i32 noundef %2)
   store ptr %3, ptr @jpeg_handle, align 8
   %4 = load i32, ptr @proto_jpeg, align 4
-  tail call void @register_ber_oid_dissector_handle(ptr noundef nonnull @.str.39, ptr noundef %3, i32 noundef %4, ptr noundef nonnull @.str.40) #2
+  tail call void @register_ber_oid_dissector_handle(ptr noundef nonnull @.str.39, ptr noundef %3, i32 noundef %4, ptr noundef nonnull @.str.40)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_jpeg(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
-  tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.37) #2
+  tail call void @col_set_str(ptr noundef %6, i32 noundef 35, ptr noundef nonnull @.str.37)
   %7 = load ptr, ptr %5, align 8
-  tail call void @col_set_str(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.54) #2
+  tail call void @col_set_str(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.54)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %79, label %8
 
 8:                                                ; preds = %4
   %9 = load i32, ptr @proto_jpeg, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %11 = load i32, ptr @ett_jpeg, align 4
-  %12 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %11) #2
+  %12 = tail call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %11)
   %13 = load i32, ptr @hf_rtp_jpeg_main_hdr, align 4
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %13, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef 0) #2
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %13, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef 0)
   %15 = load i32, ptr @ett_jpeg, align 4
-  %16 = tail call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %15) #2
+  %16 = tail call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %15)
   %17 = load i32, ptr @hf_rtp_jpeg_main_hdr_ts, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %17, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #2
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %17, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %19 = load i32, ptr @hf_rtp_jpeg_main_hdr_offs, align 4
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %19, ptr noundef %0, i32 noundef 1, i32 noundef 3, i32 noundef 0) #2
-  %21 = tail call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef 1) #2
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %19, ptr noundef %0, i32 noundef 1, i32 noundef 3, i32 noundef 0)
+  %21 = tail call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef 1)
   %22 = load i32, ptr @hf_rtp_jpeg_main_hdr_type, align 4
-  %23 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %22, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #2
-  %24 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #2
+  %23 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %22, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0)
+  %24 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 4)
   %25 = load i32, ptr @hf_rtp_jpeg_main_hdr_q, align 4
-  %26 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %25, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0) #2
-  %27 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 5) #2
-  %28 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 6) #2
+  %26 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %25, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0)
+  %27 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 5)
+  %28 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 6)
   %29 = zext i8 %28 to i32
   %30 = shl nuw nsw i32 %29, 3
   %31 = load i32, ptr @hf_rtp_jpeg_main_hdr_width, align 4
-  %32 = tail call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %31, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef %30) #2
-  %33 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 7) #2
+  %32 = tail call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %31, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef %30)
+  %33 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 7)
   %34 = zext i8 %33 to i32
   %35 = shl nuw nsw i32 %34, 3
   %36 = load i32, ptr @hf_rtp_jpeg_main_hdr_height, align 4
-  %37 = tail call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %36, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef %35) #2
+  %37 = tail call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %36, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef %35)
   %or.cond = icmp sgt i8 %24, 63
   br i1 %or.cond, label %38, label %51
 
 38:                                               ; preds = %8
   %39 = load i32, ptr @hf_rtp_jpeg_restart_hdr, align 4
-  %40 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %39, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0) #2
+  %40 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %39, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0)
   %41 = load i32, ptr @ett_jpeg, align 4
-  %42 = tail call ptr @proto_item_add_subtree(ptr noundef %40, i32 noundef %41) #2
+  %42 = tail call ptr @proto_item_add_subtree(ptr noundef %40, i32 noundef %41)
   %43 = load i32, ptr @hf_rtp_jpeg_restart_hdr_interval, align 4
-  %44 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %43, ptr noundef %0, i32 noundef 8, i32 noundef 2, i32 noundef 0) #2
+  %44 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %43, ptr noundef %0, i32 noundef 8, i32 noundef 2, i32 noundef 0)
   %45 = load i32, ptr @hf_rtp_jpeg_restart_hdr_f, align 4
-  %46 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %45, ptr noundef %0, i32 noundef 10, i32 noundef 2, i32 noundef 0) #2
+  %46 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %45, ptr noundef %0, i32 noundef 10, i32 noundef 2, i32 noundef 0)
   %47 = load i32, ptr @hf_rtp_jpeg_restart_hdr_l, align 4
-  %48 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %47, ptr noundef %0, i32 noundef 10, i32 noundef 2, i32 noundef 0) #2
+  %48 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %47, ptr noundef %0, i32 noundef 10, i32 noundef 2, i32 noundef 0)
   %49 = load i32, ptr @hf_rtp_jpeg_restart_hdr_count, align 4
-  %50 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %49, ptr noundef %0, i32 noundef 10, i32 noundef 2, i32 noundef 0) #2
+  %50 = tail call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %49, ptr noundef %0, i32 noundef 10, i32 noundef 2, i32 noundef 0)
   br label %51
 
 51:                                               ; preds = %38, %8
@@ -177,18 +181,18 @@ define internal i32 @dissect_jpeg(ptr noundef %0, ptr noundef readonly captures(
 
 54:                                               ; preds = %51
   %55 = load i32, ptr @hf_rtp_jpeg_qtable_hdr, align 4
-  %56 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %55, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #2
+  %56 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %55, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0)
   %57 = load i32, ptr @ett_jpeg, align 4
-  %58 = tail call ptr @proto_item_add_subtree(ptr noundef %56, i32 noundef %57) #2
+  %58 = tail call ptr @proto_item_add_subtree(ptr noundef %56, i32 noundef %57)
   %59 = load i32, ptr @hf_rtp_jpeg_qtable_hdr_mbz, align 4
-  %60 = tail call ptr @proto_tree_add_item(ptr noundef %58, i32 noundef %59, ptr noundef %0, i32 noundef %.0, i32 noundef 1, i32 noundef 0) #2
+  %60 = tail call ptr @proto_tree_add_item(ptr noundef %58, i32 noundef %59, ptr noundef %0, i32 noundef %.0, i32 noundef 1, i32 noundef 0)
   %61 = or disjoint i32 %.0, 1
   %62 = load i32, ptr @hf_rtp_jpeg_qtable_hdr_prec, align 4
-  %63 = tail call ptr @proto_tree_add_item(ptr noundef %58, i32 noundef %62, ptr noundef %0, i32 noundef %61, i32 noundef 1, i32 noundef 0) #2
+  %63 = tail call ptr @proto_tree_add_item(ptr noundef %58, i32 noundef %62, ptr noundef %0, i32 noundef %61, i32 noundef 1, i32 noundef 0)
   %64 = or disjoint i32 %.0, 2
   %65 = load i32, ptr @hf_rtp_jpeg_qtable_hdr_length, align 4
-  %66 = tail call ptr @proto_tree_add_item(ptr noundef %58, i32 noundef %65, ptr noundef %0, i32 noundef %64, i32 noundef 2, i32 noundef 0) #2
-  %67 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %64) #2
+  %66 = tail call ptr @proto_tree_add_item(ptr noundef %58, i32 noundef %65, ptr noundef %0, i32 noundef %64, i32 noundef 2, i32 noundef 0)
+  %67 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %64)
   %68 = add nuw nsw i32 %.0, 4
   %69 = zext i16 %67 to i32
   %.not105 = icmp eq i16 %67, 0
@@ -196,63 +200,75 @@ define internal i32 @dissect_jpeg(ptr noundef %0, ptr noundef readonly captures(
 
 70:                                               ; preds = %54
   %71 = load i32, ptr @hf_rtp_jpeg_qtable_hdr_data, align 4
-  %72 = tail call ptr @proto_tree_add_item(ptr noundef %58, i32 noundef %71, ptr noundef %0, i32 noundef %68, i32 noundef %69, i32 noundef 0) #2
+  %72 = tail call ptr @proto_tree_add_item(ptr noundef %58, i32 noundef %71, ptr noundef %0, i32 noundef %68, i32 noundef %69, i32 noundef 0)
   %73 = add nuw nsw i32 %68, %69
   br label %74
 
 74:                                               ; preds = %70, %54
   %.2 = phi i32 [ %73, %70 ], [ %68, %54 ]
   %75 = add nuw nsw i32 %69, 4
-  tail call void @proto_item_set_len(ptr noundef %56, i32 noundef %75) #2
+  tail call void @proto_item_set_len(ptr noundef %56, i32 noundef %75)
   br label %76
 
 76:                                               ; preds = %74, %51
   %.1 = phi i32 [ %.2, %74 ], [ %.0, %51 ]
   %77 = load i32, ptr @hf_rtp_jpeg_payload, align 4
-  %78 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %77, ptr noundef %0, i32 noundef %.1, i32 noundef -1, i32 noundef 0) #2
+  %78 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %77, ptr noundef %0, i32 noundef %.1, i32 noundef -1, i32 noundef 0)
   br label %79
 
 79:                                               ; preds = %76, %4
-  %80 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
+  %80 = tail call i32 @tvb_captured_length(ptr noundef %0)
   ret i32 %80
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @register_ber_oid_dissector_handle(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_jpeg() local_unnamed_addr #0 {
   %1 = load ptr, ptr @jpeg_handle, align 8
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.41, i32 noundef 26, ptr noundef %1) #2
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.41, i32 noundef 26, ptr noundef %1)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_get_ntoh24(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}

@@ -5,8 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
 %struct._value_string = type { i32, ptr }
 %struct._e_guid_t = type { i32, i16, i16, [8 x i8] }
-%struct._dcerpc_sub_dissector = type { i16, ptr, ptr, ptr }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
@@ -69,19 +68,19 @@ target triple = "x86_64-pc-linux-gnu"
 @proto_oxid = internal global i32 0, align 4
 @uuid_oxid = internal global %struct._e_guid_t { i32 -1711472956, i16 21088, i16 4123, [8 x i8] c"\BB\CB\00\AA\00!4z" }, align 4
 @ver_oxid = internal global i16 0, align 2
-@oxid_dissectors = internal global [7 x %struct._dcerpc_sub_dissector] [%struct._dcerpc_sub_dissector { i16 0, ptr @.str.35, ptr null, ptr null }, %struct._dcerpc_sub_dissector { i16 1, ptr @.str.36, ptr @dissect_oxid_simple_ping_rqst, ptr @dissect_oxid_simple_ping_resp }, %struct._dcerpc_sub_dissector { i16 2, ptr @.str.37, ptr @dissect_oxid_complex_ping_rqst, ptr @dissect_oxid_complex_ping_resp }, %struct._dcerpc_sub_dissector { i16 3, ptr @.str.38, ptr null, ptr @dissect_oxid_server_alive_resp }, %struct._dcerpc_sub_dissector { i16 4, ptr @.str.39, ptr @dissect_oxid_resolve_oxid2_rqst, ptr @dissect_oxid_resolve_oxid2_resp }, %struct._dcerpc_sub_dissector { i16 5, ptr @.str.40, ptr null, ptr @dissect_oxid_server_alive2_resp }, %struct._dcerpc_sub_dissector zeroinitializer], align 16
 @.str.35 = private unnamed_addr constant [12 x i8] c"ResolveOxid\00", align 1
 @.str.36 = private unnamed_addr constant [11 x i8] c"SimplePing\00", align 1
 @.str.37 = private unnamed_addr constant [12 x i8] c"ComplexPing\00", align 1
 @.str.38 = private unnamed_addr constant [12 x i8] c"ServerAlive\00", align 1
 @.str.39 = private unnamed_addr constant [13 x i8] c"ResolveOxid2\00", align 1
 @.str.40 = private unnamed_addr constant [13 x i8] c"ServerAlive2\00", align 1
-@.str.41 = private unnamed_addr constant [7 x i8] c" -> %s\00", align 1
+@oxid_dissectors = internal constant [7 x { i16, [6 x i8], ptr, ptr, ptr }] [{ i16, [6 x i8], ptr, ptr, ptr } { i16 0, [6 x i8] zeroinitializer, ptr @.str.35, ptr null, ptr null }, { i16, [6 x i8], ptr, ptr, ptr } { i16 1, [6 x i8] zeroinitializer, ptr @.str.36, ptr @dissect_oxid_simple_ping_rqst, ptr @dissect_oxid_simple_ping_resp }, { i16, [6 x i8], ptr, ptr, ptr } { i16 2, [6 x i8] zeroinitializer, ptr @.str.37, ptr @dissect_oxid_complex_ping_rqst, ptr @dissect_oxid_complex_ping_resp }, { i16, [6 x i8], ptr, ptr, ptr } { i16 3, [6 x i8] zeroinitializer, ptr @.str.38, ptr null, ptr @dissect_oxid_server_alive_resp }, { i16, [6 x i8], ptr, ptr, ptr } { i16 4, [6 x i8] zeroinitializer, ptr @.str.39, ptr @dissect_oxid_resolve_oxid2_rqst, ptr @dissect_oxid_resolve_oxid2_resp }, { i16, [6 x i8], ptr, ptr, ptr } { i16 5, [6 x i8] zeroinitializer, ptr @.str.40, ptr null, ptr @dissect_oxid_server_alive2_resp }, { i16, [6 x i8], ptr, ptr, ptr } zeroinitializer], align 16
+@.str.42 = private unnamed_addr constant [7 x i8] c" -> %s\00", align 1
 @dcom_hresult_vals = external constant [0 x %struct._value_string], align 8
-@.str.42 = private unnamed_addr constant [17 x i8] c"Unknown (0x%08x)\00", align 1
-@.str.43 = private unnamed_addr constant [27 x i8] c" AddToSet=%u DelFromSet=%u\00", align 1
+@.str.43 = private unnamed_addr constant [17 x i8] c"Unknown (0x%08x)\00", align 1
+@.str.44 = private unnamed_addr constant [27 x i8] c" AddToSet=%u DelFromSet=%u\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_oxid() #0 {
   %1 = call i32 @proto_register_protocol(ptr noundef @.str.32, ptr noundef @.str.33, ptr noundef @.str.34)
   store i32 %1, ptr @proto_oxid, align 4
@@ -91,13 +90,16 @@ define hidden void @proto_register_oxid() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_oxid() #0 {
   %1 = load i32, ptr @proto_oxid, align 4
   %2 = load i32, ptr @ett_oxid, align 4
@@ -107,9 +109,10 @@ define hidden void @proto_reg_handoff_oxid() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @dcerpc_init_uuid(i32 noundef, i32 noundef, ptr noundef, i16 noundef zeroext, ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_oxid_simple_ping_rqst(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -136,7 +139,7 @@ define internal i32 @dissect_oxid_simple_ping_rqst(ptr noundef %0, i32 noundef %
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_oxid_simple_ping_resp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -151,6 +154,7 @@ define internal i32 @dissect_oxid_simple_ping_resp(ptr noundef %0, i32 noundef %
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
   %16 = load ptr, ptr %9, align 8
@@ -160,16 +164,17 @@ define internal i32 @dissect_oxid_simple_ping_resp(ptr noundef %0, i32 noundef %
   %20 = call i32 @dissect_dcom_HRESULT(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, ptr noundef %13)
   store i32 %20, ptr %8, align 4
   %21 = load ptr, ptr %9, align 8
-  %22 = getelementptr inbounds %struct._packet_info, ptr %21, i32 0, i32 1
+  %22 = getelementptr inbounds nuw %struct._packet_info, ptr %21, i32 0, i32 1
   %23 = load ptr, ptr %22, align 8
   %24 = load i32, ptr %13, align 4
-  %25 = call ptr @val_to_str(i32 noundef %24, ptr noundef @dcom_hresult_vals, ptr noundef @.str.42)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef @.str.41, ptr noundef %25)
+  %25 = call ptr @val_to_str(i32 noundef %24, ptr noundef @dcom_hresult_vals, ptr noundef @.str.43)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef @.str.42, ptr noundef %25)
   %26 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #3
   ret i32 %26
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_oxid_complex_ping_rqst(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -188,6 +193,11 @@ define internal i32 @dissect_oxid_complex_ping_rqst(ptr noundef %0, i32 noundef 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 2, ptr %14) #3
+  call void @llvm.lifetime.start.p0(i64 2, ptr %15) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #3
   %18 = load ptr, ptr %7, align 8
   %19 = load i32, ptr %8, align 4
   %20 = load ptr, ptr %9, align 8
@@ -225,13 +235,13 @@ define internal i32 @dissect_oxid_complex_ping_rqst(ptr noundef %0, i32 noundef 
   %49 = call i32 @dissect_ndr_uint16(ptr noundef %42, i32 noundef %43, ptr noundef %44, ptr noundef %45, ptr noundef %46, ptr noundef %47, i32 noundef %48, ptr noundef %15)
   store i32 %49, ptr %8, align 4
   %50 = load ptr, ptr %9, align 8
-  %51 = getelementptr inbounds %struct._packet_info, ptr %50, i32 0, i32 1
+  %51 = getelementptr inbounds nuw %struct._packet_info, ptr %50, i32 0, i32 1
   %52 = load ptr, ptr %51, align 8
   %53 = load i16, ptr %14, align 2
   %54 = zext i16 %53 to i32
   %55 = load i16, ptr %15, align 2
   %56 = zext i16 %55 to i32
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %52, i32 noundef 25, ptr noundef @.str.43, i32 noundef %54, i32 noundef %56)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %52, i32 noundef 25, ptr noundef @.str.44, i32 noundef %54, i32 noundef %56)
   %57 = load ptr, ptr %7, align 8
   %58 = load i32, ptr %8, align 4
   %59 = load ptr, ptr %9, align 8
@@ -272,7 +282,7 @@ define internal i32 @dissect_oxid_complex_ping_rqst(ptr noundef %0, i32 noundef 
   %85 = load i32, ptr @hf_oxid_oid, align 4
   %86 = call i32 @dissect_ndr_duint32(ptr noundef %79, i32 noundef %80, ptr noundef %81, ptr noundef %82, ptr noundef %83, ptr noundef %84, i32 noundef %85, ptr noundef null)
   store i32 %86, ptr %8, align 4
-  br label %74, !llvm.loop !4
+  br label %74, !llvm.loop !6
 
 87:                                               ; preds = %74
   br label %88
@@ -318,17 +328,22 @@ define internal i32 @dissect_oxid_complex_ping_rqst(ptr noundef %0, i32 noundef 
   %117 = load i32, ptr @hf_oxid_oid, align 4
   %118 = call i32 @dissect_ndr_duint32(ptr noundef %111, i32 noundef %112, ptr noundef %113, ptr noundef %114, ptr noundef %115, ptr noundef %116, i32 noundef %117, ptr noundef null)
   store i32 %118, ptr %8, align 4
-  br label %106, !llvm.loop !6
+  br label %106, !llvm.loop !8
 
 119:                                              ; preds = %106
   br label %120
 
 120:                                              ; preds = %119, %88
   %121 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 2, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 2, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #3
   ret i32 %121
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_oxid_complex_ping_resp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -344,6 +359,8 @@ define internal i32 @dissect_oxid_complex_ping_resp(ptr noundef %0, i32 noundef 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #3
   %15 = load ptr, ptr %7, align 8
   %16 = load i32, ptr %8, align 4
   %17 = load ptr, ptr %9, align 8
@@ -371,16 +388,18 @@ define internal i32 @dissect_oxid_complex_ping_resp(ptr noundef %0, i32 noundef 
   %37 = call i32 @dissect_dcom_HRESULT(ptr noundef %31, i32 noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, ptr noundef %36, ptr noundef %14)
   store i32 %37, ptr %8, align 4
   %38 = load ptr, ptr %9, align 8
-  %39 = getelementptr inbounds %struct._packet_info, ptr %38, i32 0, i32 1
+  %39 = getelementptr inbounds nuw %struct._packet_info, ptr %38, i32 0, i32 1
   %40 = load ptr, ptr %39, align 8
   %41 = load i32, ptr %14, align 4
-  %42 = call ptr @val_to_str(i32 noundef %41, ptr noundef @dcom_hresult_vals, ptr noundef @.str.42)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %40, i32 noundef 25, ptr noundef @.str.41, ptr noundef %42)
+  %42 = call ptr @val_to_str(i32 noundef %41, ptr noundef @dcom_hresult_vals, ptr noundef @.str.43)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %40, i32 noundef 25, ptr noundef @.str.42, ptr noundef %42)
   %43 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #3
   ret i32 %43
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_oxid_server_alive_resp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -395,6 +414,7 @@ define internal i32 @dissect_oxid_server_alive_resp(ptr noundef %0, i32 noundef 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
   %16 = load ptr, ptr %9, align 8
@@ -404,16 +424,17 @@ define internal i32 @dissect_oxid_server_alive_resp(ptr noundef %0, i32 noundef 
   %20 = call i32 @dissect_dcom_HRESULT(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, ptr noundef %13)
   store i32 %20, ptr %8, align 4
   %21 = load ptr, ptr %9, align 8
-  %22 = getelementptr inbounds %struct._packet_info, ptr %21, i32 0, i32 1
+  %22 = getelementptr inbounds nuw %struct._packet_info, ptr %21, i32 0, i32 1
   %23 = load ptr, ptr %22, align 8
   %24 = load i32, ptr %13, align 4
-  %25 = call ptr @val_to_str(i32 noundef %24, ptr noundef @dcom_hresult_vals, ptr noundef @.str.42)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef @.str.41, ptr noundef %25)
+  %25 = call ptr @val_to_str(i32 noundef %24, ptr noundef @dcom_hresult_vals, ptr noundef @.str.43)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef @.str.42, ptr noundef %25)
   %26 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #3
   ret i32 %26
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_oxid_resolve_oxid2_rqst(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -429,6 +450,8 @@ define internal i32 @dissect_oxid_resolve_oxid2_rqst(ptr noundef %0, i32 noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #3
   %15 = load ptr, ptr %7, align 8
   %16 = load i32, ptr %8, align 4
   %17 = load ptr, ptr %9, align 8
@@ -474,14 +497,16 @@ define internal i32 @dissect_oxid_resolve_oxid2_rqst(ptr noundef %0, i32 noundef
   %49 = load i32, ptr @hf_oxid_protseqs, align 4
   %50 = call i32 @dissect_ndr_uint16(ptr noundef %43, i32 noundef %44, ptr noundef %45, ptr noundef %46, ptr noundef %47, ptr noundef %48, i32 noundef %49, ptr noundef %13)
   store i32 %50, ptr %8, align 4
-  br label %38, !llvm.loop !7
+  br label %38, !llvm.loop !9
 
 51:                                               ; preds = %38
   %52 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #3
   ret i32 %52
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_oxid_resolve_oxid2_resp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -502,6 +527,13 @@ define internal i32 @dissect_oxid_resolve_oxid2_resp(ptr noundef %0, i32 noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.start.p0(i64 16, ptr %15) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #3
+  call void @llvm.lifetime.start.p0(i64 2, ptr %17) #3
+  call void @llvm.lifetime.start.p0(i64 2, ptr %18) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #3
   %20 = load ptr, ptr %7, align 8
   %21 = load i32, ptr %8, align 4
   %22 = load ptr, ptr %9, align 8
@@ -570,16 +602,23 @@ define internal i32 @dissect_oxid_resolve_oxid2_resp(ptr noundef %0, i32 noundef
   %75 = call i32 @dissect_dcom_HRESULT(ptr noundef %69, i32 noundef %70, ptr noundef %71, ptr noundef %72, ptr noundef %73, ptr noundef %74, ptr noundef %19)
   store i32 %75, ptr %8, align 4
   %76 = load ptr, ptr %9, align 8
-  %77 = getelementptr inbounds %struct._packet_info, ptr %76, i32 0, i32 1
+  %77 = getelementptr inbounds nuw %struct._packet_info, ptr %76, i32 0, i32 1
   %78 = load ptr, ptr %77, align 8
   %79 = load i32, ptr %19, align 4
-  %80 = call ptr @val_to_str(i32 noundef %79, ptr noundef @dcom_hresult_vals, ptr noundef @.str.42)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %78, i32 noundef 25, ptr noundef @.str.41, ptr noundef %80)
+  %80 = call ptr @val_to_str(i32 noundef %79, ptr noundef @dcom_hresult_vals, ptr noundef @.str.43)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %78, i32 noundef 25, ptr noundef @.str.42, ptr noundef %80)
   %81 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #3
+  call void @llvm.lifetime.end.p0(i64 2, ptr %18) #3
+  call void @llvm.lifetime.end.p0(i64 2, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #3
   ret i32 %81
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_oxid_server_alive2_resp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -595,6 +634,8 @@ define internal i32 @dissect_oxid_server_alive2_resp(ptr noundef %0, i32 noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 2, ptr %14) #3
   %15 = load ptr, ptr %7, align 8
   %16 = load i32, ptr %8, align 4
   %17 = load ptr, ptr %9, align 8
@@ -635,43 +676,67 @@ define internal i32 @dissect_oxid_server_alive2_resp(ptr noundef %0, i32 noundef
   %49 = add i32 %48, 8
   store i32 %49, ptr %8, align 4
   %50 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #3
   ret i32 %50
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_ndr_duint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_dcom_HRESULT(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_ndr_uint16(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_dcom_dcerpc_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_dcom_dcerpc_array_size(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_dcom_DUALSTRINGARRAY(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_dcom_UUID(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_ndr_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_dcom_COMVERSION(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_dcerpc_uint64(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

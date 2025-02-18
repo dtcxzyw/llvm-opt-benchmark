@@ -5,8 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
 %struct._value_string_ext = type { ptr, i32, i32, ptr, ptr }
 %struct.true_false_string = type { ptr, ptr }
-%struct._value_string = type { i32, ptr }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
@@ -35,18 +34,15 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_mqttsn_topic_id_type = internal global i32 0, align 4
 @.str.12 = private unnamed_addr constant [14 x i8] c"Topic ID Type\00", align 1
 @.str.13 = private unnamed_addr constant [21 x i8] c"mqttsn.topic.id.type\00", align 1
-@mqttsn_typeid_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.87 }, %struct._value_string { i32 1, ptr @.str.88 }, %struct._value_string { i32 2, ptr @.str.89 }, %struct._value_string { i32 3, ptr @.str.90 }, %struct._value_string zeroinitializer], align 16
 @hf_mqttsn_qos = internal global i32 0, align 4
 @.str.14 = private unnamed_addr constant [4 x i8] c"QoS\00", align 1
 @.str.15 = private unnamed_addr constant [11 x i8] c"mqttsn.qos\00", align 1
-@mqttsn_qos_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.91 }, %struct._value_string { i32 1, ptr @.str.92 }, %struct._value_string { i32 2, ptr @.str.93 }, %struct._value_string { i32 3, ptr @.str.94 }, %struct._value_string zeroinitializer], align 16
 @hf_mqttsn_retain = internal global i32 0, align 4
 @.str.16 = private unnamed_addr constant [7 x i8] c"Retain\00", align 1
 @.str.17 = private unnamed_addr constant [14 x i8] c"mqttsn.retain\00", align 1
 @hf_mqttsn_return_code = internal global i32 0, align 4
 @.str.18 = private unnamed_addr constant [12 x i8] c"Return Code\00", align 1
 @.str.19 = private unnamed_addr constant [19 x i8] c"mqttsn.return.code\00", align 1
-@mqttsn_return_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.95 }, %struct._value_string { i32 1, ptr @.str.96 }, %struct._value_string { i32 2, ptr @.str.97 }, %struct._value_string { i32 3, ptr @.str.98 }, %struct._value_string zeroinitializer], align 16
 @hf_mqttsn_gw_id = internal global i32 0, align 4
 @.str.20 = private unnamed_addr constant [11 x i8] c"Gateway ID\00", align 1
 @.str.21 = private unnamed_addr constant [13 x i8] c"mqttsn.gw.id\00", align 1
@@ -107,7 +103,6 @@ target triple = "x86_64-pc-linux-gnu"
 @proto_mqttsn = internal global i32 0, align 4
 @mqttsn_handle = internal global ptr null, align 8
 @.str.56 = private unnamed_addr constant [9 x i8] c"udp.port\00", align 1
-@mqttsn_msgtype_vals = internal constant [32 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.58 }, %struct._value_string { i32 1, ptr @.str.59 }, %struct._value_string { i32 2, ptr @.str.60 }, %struct._value_string { i32 3, ptr @.str.61 }, %struct._value_string { i32 4, ptr @.str.62 }, %struct._value_string { i32 5, ptr @.str.63 }, %struct._value_string { i32 6, ptr @.str.64 }, %struct._value_string { i32 7, ptr @.str.40 }, %struct._value_string { i32 8, ptr @.str.65 }, %struct._value_string { i32 9, ptr @.str.42 }, %struct._value_string { i32 10, ptr @.str.66 }, %struct._value_string { i32 11, ptr @.str.67 }, %struct._value_string { i32 12, ptr @.str.68 }, %struct._value_string { i32 13, ptr @.str.69 }, %struct._value_string { i32 14, ptr @.str.70 }, %struct._value_string { i32 15, ptr @.str.71 }, %struct._value_string { i32 16, ptr @.str.72 }, %struct._value_string { i32 17, ptr @.str.73 }, %struct._value_string { i32 18, ptr @.str.74 }, %struct._value_string { i32 19, ptr @.str.75 }, %struct._value_string { i32 20, ptr @.str.76 }, %struct._value_string { i32 21, ptr @.str.77 }, %struct._value_string { i32 22, ptr @.str.78 }, %struct._value_string { i32 23, ptr @.str.79 }, %struct._value_string { i32 24, ptr @.str.80 }, %struct._value_string { i32 25, ptr @.str.81 }, %struct._value_string { i32 26, ptr @.str.82 }, %struct._value_string { i32 27, ptr @.str.83 }, %struct._value_string { i32 28, ptr @.str.84 }, %struct._value_string { i32 29, ptr @.str.85 }, %struct._value_string { i32 254, ptr @.str.86 }, %struct._value_string zeroinitializer], align 16
 @.str.57 = private unnamed_addr constant [20 x i8] c"mqttsn_msgtype_vals\00", align 1
 @.str.58 = private unnamed_addr constant [18 x i8] c"Advertise Gateway\00", align 1
 @.str.59 = private unnamed_addr constant [15 x i8] c"Search Gateway\00", align 1
@@ -138,21 +133,25 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.84 = private unnamed_addr constant [20 x i8] c"Will Message Update\00", align 1
 @.str.85 = private unnamed_addr constant [22 x i8] c"Will Message Response\00", align 1
 @.str.86 = private unnamed_addr constant [21 x i8] c"Encapsulated Message\00", align 1
-@.str.87 = private unnamed_addr constant [10 x i8] c"Normal ID\00", align 1
-@.str.88 = private unnamed_addr constant [15 x i8] c"Pre-defined ID\00", align 1
-@.str.89 = private unnamed_addr constant [17 x i8] c"Short Topic Name\00", align 1
-@.str.90 = private unnamed_addr constant [9 x i8] c"Reserved\00", align 1
-@.str.91 = private unnamed_addr constant [16 x i8] c"Fire and Forget\00", align 1
-@.str.92 = private unnamed_addr constant [21 x i8] c"Acknowledged deliver\00", align 1
-@.str.93 = private unnamed_addr constant [17 x i8] c"Assured Delivery\00", align 1
-@.str.94 = private unnamed_addr constant [23 x i8] c"No Connection required\00", align 1
-@.str.95 = private unnamed_addr constant [9 x i8] c"Accepted\00", align 1
-@.str.96 = private unnamed_addr constant [21 x i8] c"Rejected: Congestion\00", align 1
-@.str.97 = private unnamed_addr constant [27 x i8] c"Rejected: invalid topic ID\00", align 1
-@.str.98 = private unnamed_addr constant [24 x i8] c"Rejected: not supported\00", align 1
-@.str.99 = private unnamed_addr constant [17 x i8] c"Unknown (0x%02x)\00", align 1
+@mqttsn_msgtype_vals = internal constant [32 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.58 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.59 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.60 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.61 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.62 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.63 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.64 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.40 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.65 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.42 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.66 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.67 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.68 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.69 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.70 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.71 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.72 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.73 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.74 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.75 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.76 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.77 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.78 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.79 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.80 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.81 }, { i32, [4 x i8], ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.82 }, { i32, [4 x i8], ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.83 }, { i32, [4 x i8], ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.84 }, { i32, [4 x i8], ptr } { i32 29, [4 x i8] zeroinitializer, ptr @.str.85 }, { i32, [4 x i8], ptr } { i32 254, [4 x i8] zeroinitializer, ptr @.str.86 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.88 = private unnamed_addr constant [10 x i8] c"Normal ID\00", align 1
+@.str.89 = private unnamed_addr constant [15 x i8] c"Pre-defined ID\00", align 1
+@.str.90 = private unnamed_addr constant [17 x i8] c"Short Topic Name\00", align 1
+@.str.91 = private unnamed_addr constant [9 x i8] c"Reserved\00", align 1
+@mqttsn_typeid_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.88 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.89 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.90 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.91 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.93 = private unnamed_addr constant [16 x i8] c"Fire and Forget\00", align 1
+@.str.94 = private unnamed_addr constant [21 x i8] c"Acknowledged deliver\00", align 1
+@.str.95 = private unnamed_addr constant [17 x i8] c"Assured Delivery\00", align 1
+@.str.96 = private unnamed_addr constant [23 x i8] c"No Connection required\00", align 1
+@mqttsn_qos_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.93 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.94 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.95 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.96 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.98 = private unnamed_addr constant [9 x i8] c"Accepted\00", align 1
+@.str.99 = private unnamed_addr constant [21 x i8] c"Rejected: Congestion\00", align 1
+@.str.100 = private unnamed_addr constant [27 x i8] c"Rejected: invalid topic ID\00", align 1
+@.str.101 = private unnamed_addr constant [24 x i8] c"Rejected: not supported\00", align 1
+@mqttsn_return_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.98 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.99 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.100 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.101 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.103 = private unnamed_addr constant [17 x i8] c"Unknown (0x%02x)\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_mqttsn() #0 {
   %1 = call i32 @proto_register_protocol(ptr noundef @.str.53, ptr noundef @.str.54, ptr noundef @.str.55)
   store i32 %1, ptr @proto_mqttsn, align 4
@@ -165,11 +164,13 @@ define hidden void @proto_register_mqttsn() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_mqttsn(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -181,40 +182,42 @@ define internal i32 @dissect_mqttsn(ptr noundef %0, ptr noundef %1, ptr noundef 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   store i32 0, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #3
   %11 = load ptr, ptr %5, align 8
-  %12 = call zeroext i8 @tvb_get_guint8(ptr noundef %11, i32 noundef 0)
+  %12 = call zeroext i8 @tvb_get_uint8(ptr noundef %11, i32 noundef 0)
   %13 = zext i8 %12 to i32
   %14 = icmp ne i32 %13, 1
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %4
   %16 = load ptr, ptr %5, align 8
-  %17 = call zeroext i8 @tvb_get_guint8(ptr noundef %16, i32 noundef 1)
+  %17 = call zeroext i8 @tvb_get_uint8(ptr noundef %16, i32 noundef 1)
   store i8 %17, ptr %10, align 1
   br label %21
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %5, align 8
-  %20 = call zeroext i8 @tvb_get_guint8(ptr noundef %19, i32 noundef 3)
+  %20 = call zeroext i8 @tvb_get_uint8(ptr noundef %19, i32 noundef 3)
   store i8 %20, ptr %10, align 1
   br label %21
 
 21:                                               ; preds = %18, %15
   %22 = load ptr, ptr %6, align 8
-  %23 = getelementptr inbounds %struct._packet_info, ptr %22, i32 0, i32 1
+  %23 = getelementptr inbounds nuw %struct._packet_info, ptr %22, i32 0, i32 1
   %24 = load ptr, ptr %23, align 8
-  call void @col_set_str(ptr noundef %24, i32 noundef 34, ptr noundef @.str.54)
+  call void @col_set_str(ptr noundef %24, i32 noundef 35, ptr noundef @.str.54)
   %25 = load ptr, ptr %6, align 8
-  %26 = getelementptr inbounds %struct._packet_info, ptr %25, i32 0, i32 1
+  %26 = getelementptr inbounds nuw %struct._packet_info, ptr %25, i32 0, i32 1
   %27 = load ptr, ptr %26, align 8
   call void @col_clear(ptr noundef %27, i32 noundef 25)
   %28 = load ptr, ptr %6, align 8
-  %29 = getelementptr inbounds %struct._packet_info, ptr %28, i32 0, i32 1
+  %29 = getelementptr inbounds nuw %struct._packet_info, ptr %28, i32 0, i32 1
   %30 = load ptr, ptr %29, align 8
   %31 = load i8, ptr %10, align 1
   %32 = zext i8 %31 to i32
-  %33 = call ptr @val_to_str_ext(i32 noundef %32, ptr noundef @mqttsn_msgtype_vals_ext, ptr noundef @.str.99)
+  %33 = call ptr @val_to_str_ext(i32 noundef %32, ptr noundef @mqttsn_msgtype_vals_ext, ptr noundef @.str.103)
   call void @col_add_str(ptr noundef %30, i32 noundef 25, ptr noundef %33)
   %34 = load ptr, ptr %5, align 8
   %35 = load ptr, ptr %6, align 8
@@ -223,35 +226,49 @@ define internal i32 @dissect_mqttsn(ptr noundef %0, ptr noundef %1, ptr noundef 
   call void @dissect_mqttsn_packet(ptr noundef %34, ptr noundef %35, ptr noundef %36, i32 noundef %37)
   %38 = load ptr, ptr %5, align 8
   %39 = call i32 @tvb_captured_length(ptr noundef %38)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %39
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_mqttsn() #0 {
   %1 = load ptr, ptr @mqttsn_handle, align 8
   call void @dissector_add_for_decode_as_with_preference(ptr noundef @.str.56, ptr noundef %1)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_for_decode_as_with_preference(ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #1
+
+; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_clear(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_mqttsn_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -269,10 +286,13 @@ define internal void @dissect_mqttsn_packet(ptr noundef %0, ptr noundef %1, ptr 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   store i32 0, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 2, ptr %11) #3
   %17 = load ptr, ptr %5, align 8
   %18 = load i32, ptr %8, align 4
-  %19 = call zeroext i8 @tvb_get_guint8(ptr noundef %17, i32 noundef %18)
+  %19 = call zeroext i8 @tvb_get_uint8(ptr noundef %17, i32 noundef %18)
   %20 = zext i8 %19 to i16
   store i16 %20, ptr %11, align 2
   %21 = load i16, ptr %11, align 2
@@ -302,17 +322,22 @@ define internal void @dissect_mqttsn_packet(ptr noundef %0, ptr noundef %1, ptr 
   %38 = icmp ne i32 %37, 0
   %39 = select i1 %38, i32 3, i32 1
   %40 = add i32 %36, %39
-  %41 = call zeroext i8 @tvb_get_guint8(ptr noundef %35, i32 noundef %40)
+  %41 = call zeroext i8 @tvb_get_uint8(ptr noundef %35, i32 noundef %40)
   store i8 %41, ptr %10, align 1
   %42 = load ptr, ptr %7, align 8
   %43 = icmp ne ptr %42, null
-  br i1 %43, label %44, label %485
+  br i1 %43, label %44, label %484
 
 44:                                               ; preds = %29
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #3
   store ptr null, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #3
   store ptr null, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #3
   store ptr null, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #3
   store ptr null, ptr %15, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #3
   store ptr null, ptr %16, align 8
   %45 = load i32, ptr %8, align 4
   %46 = icmp eq i32 %45, 0
@@ -469,7 +494,7 @@ define internal void @dissect_mqttsn_packet(ptr noundef %0, ptr noundef %1, ptr 
 160:                                              ; preds = %159, %148, %122, %101
   %161 = load i8, ptr %10, align 1
   %162 = zext i8 %161 to i32
-  switch i32 %162, label %483 [
+  switch i32 %162, label %482 [
     i32 0, label %163
     i32 1, label %176
     i32 2, label %182
@@ -491,13 +516,13 @@ define internal void @dissect_mqttsn_packet(ptr noundef %0, ptr noundef %1, ptr 
     i32 19, label %367
     i32 21, label %387
     i32 22, label %393
-    i32 23, label %409
-    i32 24, label %410
-    i32 26, label %422
-    i32 28, label %432
-    i32 27, label %442
-    i32 29, label %442
-    i32 254, label %448
+    i32 23, label %483
+    i32 24, label %409
+    i32 26, label %421
+    i32 28, label %431
+    i32 27, label %441
+    i32 29, label %441
+    i32 254, label %447
   ]
 
 163:                                              ; preds = %160
@@ -514,7 +539,7 @@ define internal void @dissect_mqttsn_packet(ptr noundef %0, ptr noundef %1, ptr 
   %173 = load ptr, ptr %5, align 8
   %174 = load i32, ptr %8, align 4
   %175 = call ptr @proto_tree_add_item(ptr noundef %171, i32 noundef %172, ptr noundef %173, i32 noundef %174, i32 noundef 2, i32 noundef 0)
-  br label %484
+  br label %483
 
 176:                                              ; preds = %160
   %177 = load ptr, ptr %15, align 8
@@ -522,7 +547,7 @@ define internal void @dissect_mqttsn_packet(ptr noundef %0, ptr noundef %1, ptr 
   %179 = load ptr, ptr %5, align 8
   %180 = load i32, ptr %8, align 4
   %181 = call ptr @proto_tree_add_item(ptr noundef %177, i32 noundef %178, ptr noundef %179, i32 noundef %180, i32 noundef 1, i32 noundef 0)
-  br label %484
+  br label %483
 
 182:                                              ; preds = %160
   %183 = load ptr, ptr %15, align 8
@@ -552,7 +577,7 @@ define internal void @dissect_mqttsn_packet(ptr noundef %0, ptr noundef %1, ptr 
   br label %204
 
 204:                                              ; preds = %194, %182
-  br label %484
+  br label %483
 
 205:                                              ; preds = %160
   %206 = load ptr, ptr %15, align 8
@@ -580,7 +605,7 @@ define internal void @dissect_mqttsn_packet(ptr noundef %0, ptr noundef %1, ptr 
   %226 = load i32, ptr %8, align 4
   %227 = sub i32 %225, %226
   %228 = call ptr @proto_tree_add_item(ptr noundef %220, i32 noundef %221, ptr noundef %222, i32 noundef %223, i32 noundef %227, i32 noundef 0)
-  br label %484
+  br label %483
 
 229:                                              ; preds = %160
   %230 = load ptr, ptr %15, align 8
@@ -588,10 +613,10 @@ define internal void @dissect_mqttsn_packet(ptr noundef %0, ptr noundef %1, ptr 
   %232 = load ptr, ptr %5, align 8
   %233 = load i32, ptr %8, align 4
   %234 = call ptr @proto_tree_add_item(ptr noundef %230, i32 noundef %231, ptr noundef %232, i32 noundef %233, i32 noundef 1, i32 noundef 0)
-  br label %484
+  br label %483
 
 235:                                              ; preds = %160, %160
-  br label %484
+  br label %483
 
 236:                                              ; preds = %160
   %237 = load ptr, ptr %15, align 8
@@ -603,7 +628,7 @@ define internal void @dissect_mqttsn_packet(ptr noundef %0, ptr noundef %1, ptr 
   %243 = load i32, ptr %8, align 4
   %244 = sub i32 %242, %243
   %245 = call ptr @proto_tree_add_item(ptr noundef %237, i32 noundef %238, ptr noundef %239, i32 noundef %240, i32 noundef %244, i32 noundef 0)
-  br label %484
+  br label %483
 
 246:                                              ; preds = %160
   %247 = load ptr, ptr %15, align 8
@@ -615,7 +640,7 @@ define internal void @dissect_mqttsn_packet(ptr noundef %0, ptr noundef %1, ptr 
   %253 = load i32, ptr %8, align 4
   %254 = sub i32 %252, %253
   %255 = call ptr @proto_tree_add_item(ptr noundef %247, i32 noundef %248, ptr noundef %249, i32 noundef %250, i32 noundef %254, i32 noundef 0)
-  br label %484
+  br label %483
 
 256:                                              ; preds = %160
   %257 = load ptr, ptr %15, align 8
@@ -643,7 +668,7 @@ define internal void @dissect_mqttsn_packet(ptr noundef %0, ptr noundef %1, ptr 
   %277 = load i32, ptr %8, align 4
   %278 = sub i32 %276, %277
   %279 = call ptr @proto_tree_add_item(ptr noundef %271, i32 noundef %272, ptr noundef %273, i32 noundef %274, i32 noundef %278, i32 noundef 0)
-  br label %484
+  br label %483
 
 280:                                              ; preds = %160
   %281 = load ptr, ptr %15, align 8
@@ -667,7 +692,7 @@ define internal void @dissect_mqttsn_packet(ptr noundef %0, ptr noundef %1, ptr 
   %297 = load ptr, ptr %5, align 8
   %298 = load i32, ptr %8, align 4
   %299 = call ptr @proto_tree_add_item(ptr noundef %295, i32 noundef %296, ptr noundef %297, i32 noundef %298, i32 noundef 1, i32 noundef 0)
-  br label %484
+  br label %483
 
 300:                                              ; preds = %160
   %301 = load ptr, ptr %15, align 8
@@ -695,7 +720,7 @@ define internal void @dissect_mqttsn_packet(ptr noundef %0, ptr noundef %1, ptr 
   %321 = load i32, ptr %8, align 4
   %322 = sub i32 %320, %321
   %323 = call ptr @proto_tree_add_item(ptr noundef %315, i32 noundef %316, ptr noundef %317, i32 noundef %318, i32 noundef %322, i32 noundef 0)
-  br label %484
+  br label %483
 
 324:                                              ; preds = %160
   %325 = load ptr, ptr %15, align 8
@@ -719,7 +744,7 @@ define internal void @dissect_mqttsn_packet(ptr noundef %0, ptr noundef %1, ptr 
   %341 = load ptr, ptr %5, align 8
   %342 = load i32, ptr %8, align 4
   %343 = call ptr @proto_tree_add_item(ptr noundef %339, i32 noundef %340, ptr noundef %341, i32 noundef %342, i32 noundef 1, i32 noundef 0)
-  br label %484
+  br label %483
 
 344:                                              ; preds = %160, %160, %160
   %345 = load ptr, ptr %15, align 8
@@ -727,7 +752,7 @@ define internal void @dissect_mqttsn_packet(ptr noundef %0, ptr noundef %1, ptr 
   %347 = load ptr, ptr %5, align 8
   %348 = load i32, ptr %8, align 4
   %349 = call ptr @proto_tree_add_item(ptr noundef %345, i32 noundef %346, ptr noundef %347, i32 noundef %348, i32 noundef 2, i32 noundef 0)
-  br label %484
+  br label %483
 
 350:                                              ; preds = %160, %160
   %351 = load ptr, ptr %15, align 8
@@ -747,7 +772,7 @@ define internal void @dissect_mqttsn_packet(ptr noundef %0, ptr noundef %1, ptr 
   %364 = load i32, ptr %8, align 4
   %365 = sub i32 %363, %364
   %366 = call ptr @proto_tree_add_item(ptr noundef %358, i32 noundef %359, ptr noundef %360, i32 noundef %361, i32 noundef %365, i32 noundef 0)
-  br label %484
+  br label %483
 
 367:                                              ; preds = %160
   %368 = load ptr, ptr %15, align 8
@@ -771,7 +796,7 @@ define internal void @dissect_mqttsn_packet(ptr noundef %0, ptr noundef %1, ptr 
   %384 = load ptr, ptr %5, align 8
   %385 = load i32, ptr %8, align 4
   %386 = call ptr @proto_tree_add_item(ptr noundef %382, i32 noundef %383, ptr noundef %384, i32 noundef %385, i32 noundef 1, i32 noundef 0)
-  br label %484
+  br label %483
 
 387:                                              ; preds = %160
   %388 = load ptr, ptr %15, align 8
@@ -779,7 +804,7 @@ define internal void @dissect_mqttsn_packet(ptr noundef %0, ptr noundef %1, ptr 
   %390 = load ptr, ptr %5, align 8
   %391 = load i32, ptr %8, align 4
   %392 = call ptr @proto_tree_add_item(ptr noundef %388, i32 noundef %389, ptr noundef %390, i32 noundef %391, i32 noundef 2, i32 noundef 0)
-  br label %484
+  br label %483
 
 393:                                              ; preds = %160
   %394 = load i32, ptr %8, align 4
@@ -801,137 +826,156 @@ define internal void @dissect_mqttsn_packet(ptr noundef %0, ptr noundef %1, ptr 
   br label %408
 
 408:                                              ; preds = %398, %393
-  br label %484
-
-409:                                              ; preds = %160
-  br label %484
-
-410:                                              ; preds = %160
-  %411 = load i32, ptr %8, align 4
-  %412 = load i16, ptr %11, align 2
-  %413 = zext i16 %412 to i32
-  %414 = icmp slt i32 %411, %413
-  br i1 %414, label %415, label %421
-
-415:                                              ; preds = %410
-  %416 = load ptr, ptr %15, align 8
-  %417 = load i32, ptr @hf_mqttsn_sleep_timer, align 4
-  %418 = load ptr, ptr %5, align 8
-  %419 = load i32, ptr %8, align 4
-  %420 = call ptr @proto_tree_add_item(ptr noundef %416, i32 noundef %417, ptr noundef %418, i32 noundef %419, i32 noundef 2, i32 noundef 0)
-  br label %421
-
-421:                                              ; preds = %415, %410
-  br label %484
-
-422:                                              ; preds = %160
-  %423 = load ptr, ptr %15, align 8
-  %424 = load i32, ptr @hf_mqttsn_will_topic, align 4
-  %425 = load ptr, ptr %5, align 8
-  %426 = load i32, ptr %8, align 4
-  %427 = load i16, ptr %11, align 2
-  %428 = zext i16 %427 to i32
-  %429 = load i32, ptr %8, align 4
-  %430 = sub i32 %428, %429
-  %431 = call ptr @proto_tree_add_item(ptr noundef %423, i32 noundef %424, ptr noundef %425, i32 noundef %426, i32 noundef %430, i32 noundef 0)
-  br label %484
-
-432:                                              ; preds = %160
-  %433 = load ptr, ptr %15, align 8
-  %434 = load i32, ptr @hf_mqttsn_will_msg, align 4
-  %435 = load ptr, ptr %5, align 8
-  %436 = load i32, ptr %8, align 4
-  %437 = load i16, ptr %11, align 2
-  %438 = zext i16 %437 to i32
-  %439 = load i32, ptr %8, align 4
-  %440 = sub i32 %438, %439
-  %441 = call ptr @proto_tree_add_item(ptr noundef %433, i32 noundef %434, ptr noundef %435, i32 noundef %436, i32 noundef %440, i32 noundef 0)
-  br label %484
-
-442:                                              ; preds = %160, %160
-  %443 = load ptr, ptr %15, align 8
-  %444 = load i32, ptr @hf_mqttsn_return_code, align 4
-  %445 = load ptr, ptr %5, align 8
-  %446 = load i32, ptr %8, align 4
-  %447 = call ptr @proto_tree_add_item(ptr noundef %443, i32 noundef %444, ptr noundef %445, i32 noundef %446, i32 noundef 1, i32 noundef 0)
-  br label %484
-
-448:                                              ; preds = %160
-  %449 = load ptr, ptr %15, align 8
-  %450 = load i32, ptr @hf_mqttsn_control_info, align 4
-  %451 = load ptr, ptr %5, align 8
-  %452 = load i32, ptr %8, align 4
-  %453 = call ptr @proto_tree_add_item(ptr noundef %449, i32 noundef %450, ptr noundef %451, i32 noundef %452, i32 noundef 1, i32 noundef 0)
-  %454 = load i32, ptr %8, align 4
-  %455 = add i32 %454, 1
-  store i32 %455, ptr %8, align 4
-  %456 = load ptr, ptr %15, align 8
-  %457 = load i32, ptr @hf_mqttsn_wireless_node_id, align 4
-  %458 = load ptr, ptr %5, align 8
-  %459 = load i32, ptr %8, align 4
-  %460 = load i16, ptr %11, align 2
-  %461 = zext i16 %460 to i32
-  %462 = load i32, ptr %8, align 4
-  %463 = sub i32 %461, %462
-  %464 = call ptr @proto_tree_add_item(ptr noundef %456, i32 noundef %457, ptr noundef %458, i32 noundef %459, i32 noundef %463, i32 noundef 0)
-  %465 = load i16, ptr %11, align 2
-  %466 = zext i16 %465 to i32
-  %467 = load i32, ptr %8, align 4
-  %468 = sub i32 %466, %467
-  %469 = load i32, ptr %8, align 4
-  %470 = add i32 %469, %468
-  store i32 %470, ptr %8, align 4
-  %471 = load ptr, ptr %5, align 8
-  %472 = load i32, ptr %8, align 4
-  %473 = call i32 @tvb_reported_length_remaining(ptr noundef %471, i32 noundef %472)
-  %474 = icmp sgt i32 %473, 0
-  br i1 %474, label %475, label %482
-
-475:                                              ; preds = %448
-  %476 = load ptr, ptr %6, align 8
-  call void @increment_dissection_depth(ptr noundef %476)
-  %477 = load ptr, ptr %5, align 8
-  %478 = load ptr, ptr %6, align 8
-  %479 = load ptr, ptr %15, align 8
-  %480 = load i32, ptr %8, align 4
-  call void @dissect_mqttsn_packet(ptr noundef %477, ptr noundef %478, ptr noundef %479, i32 noundef %480)
-  %481 = load ptr, ptr %6, align 8
-  call void @decrement_dissection_depth(ptr noundef %481)
-  br label %482
-
-482:                                              ; preds = %475, %448
   br label %483
 
-483:                                              ; preds = %482, %160
+409:                                              ; preds = %160
+  %410 = load i32, ptr %8, align 4
+  %411 = load i16, ptr %11, align 2
+  %412 = zext i16 %411 to i32
+  %413 = icmp slt i32 %410, %412
+  br i1 %413, label %414, label %420
+
+414:                                              ; preds = %409
+  %415 = load ptr, ptr %15, align 8
+  %416 = load i32, ptr @hf_mqttsn_sleep_timer, align 4
+  %417 = load ptr, ptr %5, align 8
+  %418 = load i32, ptr %8, align 4
+  %419 = call ptr @proto_tree_add_item(ptr noundef %415, i32 noundef %416, ptr noundef %417, i32 noundef %418, i32 noundef 2, i32 noundef 0)
+  br label %420
+
+420:                                              ; preds = %414, %409
+  br label %483
+
+421:                                              ; preds = %160
+  %422 = load ptr, ptr %15, align 8
+  %423 = load i32, ptr @hf_mqttsn_will_topic, align 4
+  %424 = load ptr, ptr %5, align 8
+  %425 = load i32, ptr %8, align 4
+  %426 = load i16, ptr %11, align 2
+  %427 = zext i16 %426 to i32
+  %428 = load i32, ptr %8, align 4
+  %429 = sub i32 %427, %428
+  %430 = call ptr @proto_tree_add_item(ptr noundef %422, i32 noundef %423, ptr noundef %424, i32 noundef %425, i32 noundef %429, i32 noundef 0)
+  br label %483
+
+431:                                              ; preds = %160
+  %432 = load ptr, ptr %15, align 8
+  %433 = load i32, ptr @hf_mqttsn_will_msg, align 4
+  %434 = load ptr, ptr %5, align 8
+  %435 = load i32, ptr %8, align 4
+  %436 = load i16, ptr %11, align 2
+  %437 = zext i16 %436 to i32
+  %438 = load i32, ptr %8, align 4
+  %439 = sub i32 %437, %438
+  %440 = call ptr @proto_tree_add_item(ptr noundef %432, i32 noundef %433, ptr noundef %434, i32 noundef %435, i32 noundef %439, i32 noundef 0)
+  br label %483
+
+441:                                              ; preds = %160, %160
+  %442 = load ptr, ptr %15, align 8
+  %443 = load i32, ptr @hf_mqttsn_return_code, align 4
+  %444 = load ptr, ptr %5, align 8
+  %445 = load i32, ptr %8, align 4
+  %446 = call ptr @proto_tree_add_item(ptr noundef %442, i32 noundef %443, ptr noundef %444, i32 noundef %445, i32 noundef 1, i32 noundef 0)
+  br label %483
+
+447:                                              ; preds = %160
+  %448 = load ptr, ptr %15, align 8
+  %449 = load i32, ptr @hf_mqttsn_control_info, align 4
+  %450 = load ptr, ptr %5, align 8
+  %451 = load i32, ptr %8, align 4
+  %452 = call ptr @proto_tree_add_item(ptr noundef %448, i32 noundef %449, ptr noundef %450, i32 noundef %451, i32 noundef 1, i32 noundef 0)
+  %453 = load i32, ptr %8, align 4
+  %454 = add i32 %453, 1
+  store i32 %454, ptr %8, align 4
+  %455 = load ptr, ptr %15, align 8
+  %456 = load i32, ptr @hf_mqttsn_wireless_node_id, align 4
+  %457 = load ptr, ptr %5, align 8
+  %458 = load i32, ptr %8, align 4
+  %459 = load i16, ptr %11, align 2
+  %460 = zext i16 %459 to i32
+  %461 = load i32, ptr %8, align 4
+  %462 = sub i32 %460, %461
+  %463 = call ptr @proto_tree_add_item(ptr noundef %455, i32 noundef %456, ptr noundef %457, i32 noundef %458, i32 noundef %462, i32 noundef 0)
+  %464 = load i16, ptr %11, align 2
+  %465 = zext i16 %464 to i32
+  %466 = load i32, ptr %8, align 4
+  %467 = sub i32 %465, %466
+  %468 = load i32, ptr %8, align 4
+  %469 = add i32 %468, %467
+  store i32 %469, ptr %8, align 4
+  %470 = load ptr, ptr %5, align 8
+  %471 = load i32, ptr %8, align 4
+  %472 = call i32 @tvb_reported_length_remaining(ptr noundef %470, i32 noundef %471)
+  %473 = icmp sgt i32 %472, 0
+  br i1 %473, label %474, label %481
+
+474:                                              ; preds = %447
+  %475 = load ptr, ptr %6, align 8
+  call void @increment_dissection_depth(ptr noundef %475)
+  %476 = load ptr, ptr %5, align 8
+  %477 = load ptr, ptr %6, align 8
+  %478 = load ptr, ptr %15, align 8
+  %479 = load i32, ptr %8, align 4
+  call void @dissect_mqttsn_packet(ptr noundef %476, ptr noundef %477, ptr noundef %478, i32 noundef %479)
+  %480 = load ptr, ptr %6, align 8
+  call void @decrement_dissection_depth(ptr noundef %480)
+  br label %481
+
+481:                                              ; preds = %474, %447
+  br label %482
+
+482:                                              ; preds = %160, %481
+  br label %483
+
+483:                                              ; preds = %482, %441, %431, %421, %420, %160, %408, %387, %367, %350, %344, %324, %300, %280, %256, %246, %236, %235, %229, %205, %204, %176, %163
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
   br label %484
 
-484:                                              ; preds = %483, %442, %432, %422, %421, %409, %408, %387, %367, %350, %344, %324, %300, %280, %256, %246, %236, %235, %229, %205, %204, %176, %163
-  br label %485
-
-485:                                              ; preds = %484, %29
+484:                                              ; preds = %483, %29
+  call void @llvm.lifetime.end.p0(i64 2, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @increment_dissection_depth(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @decrement_dissection_depth(ptr noundef) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}

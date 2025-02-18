@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
 %struct.reassembly_table = type { ptr, ptr, ptr, ptr, ptr }
 %struct.reassembly_table_functions = type { ptr, ptr, ptr, ptr, ptr, ptr }
 %struct._fragment_items = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
@@ -20,7 +19,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_openvpn_opcode = internal global i32 0, align 4
 @.str.4 = private unnamed_addr constant [7 x i8] c"Opcode\00", align 1
 @.str.5 = private unnamed_addr constant [15 x i8] c"openvpn.opcode\00", align 1
-@openvpn_message_types = internal constant [12 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.77 }, %struct._value_string { i32 2, ptr @.str.78 }, %struct._value_string { i32 3, ptr @.str.79 }, %struct._value_string { i32 4, ptr @.str.80 }, %struct._value_string { i32 5, ptr @.str.81 }, %struct._value_string { i32 6, ptr @.str.82 }, %struct._value_string { i32 7, ptr @.str.83 }, %struct._value_string { i32 8, ptr @.str.84 }, %struct._value_string { i32 9, ptr @.str.85 }, %struct._value_string { i32 10, ptr @.str.86 }, %struct._value_string { i32 11, ptr @.str.87 }, %struct._value_string zeroinitializer], align 16
 @hf_openvpn_keyid = internal global i32 0, align 4
 @.str.6 = private unnamed_addr constant [7 x i8] c"Key ID\00", align 1
 @.str.7 = private unnamed_addr constant [14 x i8] c"openvpn.keyid\00", align 1
@@ -114,23 +112,23 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.59 = private unnamed_addr constant [28 x i8] c"tls_auth_detection_override\00", align 1
 @.str.60 = private unnamed_addr constant [28 x i8] c"override tls-auth detection\00", align 1
 @.str.61 = private unnamed_addr constant [92 x i8] c"If tls-auth detection fails, you can choose to override detection and set tls-auth yourself\00", align 1
-@pref_tls_auth_override = internal global i32 0, align 4
+@pref_tls_auth_override = internal global i8 0, align 1
 @.str.62 = private unnamed_addr constant [10 x i8] c"tls_crypt\00", align 1
 @.str.63 = private unnamed_addr constant [17 x i8] c"assume tls-crypt\00", align 1
 @.str.64 = private unnamed_addr constant [37 x i8] c"Assume the connection uses tls-crypt\00", align 1
-@pref_tls_crypt_override = internal global i32 0, align 4
+@pref_tls_crypt_override = internal global i8 0, align 1
 @.str.65 = private unnamed_addr constant [9 x i8] c"tls_auth\00", align 1
 @.str.66 = private unnamed_addr constant [17 x i8] c"--tls-auth used?\00", align 1
 @.str.67 = private unnamed_addr constant [85 x i8] c"If the parameter --tls-auth is used, the following preferences must also be defined.\00", align 1
-@pref_tls_auth = internal global i32 0, align 4
+@pref_tls_auth = internal global i8 0, align 1
 @.str.68 = private unnamed_addr constant [19 x i8] c"tls_auth_hmac_size\00", align 1
 @.str.69 = private unnamed_addr constant [33 x i8] c"size of the HMAC header in bytes\00", align 1
 @.str.70 = private unnamed_addr constant [230 x i8] c"If the parameter --tls-auth is used, a HMAC header is being inserted.\0AThe default HMAC algorithm is SHA-1 which generates a 160 bit HMAC, therefore 20 bytes should be ok.\0AThe value must be between 20 (160 bits) and 64 (512 bits).\00", align 1
 @tls_auth_hmac_size = internal global i32 20, align 4
 @.str.71 = private unnamed_addr constant [12 x i8] c"long_format\00", align 1
 @.str.72 = private unnamed_addr constant [68 x i8] c"packet-id for replay protection includes optional time_t timestamp?\00", align 1
-@.str.73 = private unnamed_addr constant [296 x i8] c"If the parameter --tls-auth is used, an additional packet-id for replay protection is inserted after the HMAC signature. This field can either be 4 bytes or 8 bytes including an optional time_t timestamp long.\0A This option is only evaluated if tls_auth_hmac_size > 0.\0A The default value is TRUE.\00", align 1
-@pref_long_format = internal global i32 1, align 4
+@.str.73 = private unnamed_addr constant [296 x i8] c"If the parameter --tls-auth is used, an additional packet-id for replay protection is inserted after the HMAC signature. This field can either be 4 bytes or 8 bytes including an optional time_t timestamp long.\0A This option is only evaluated if tls_auth_hmac_size > 0.\0A The default value is true.\00", align 1
+@pref_long_format = internal global i8 1, align 1
 @.str.74 = private unnamed_addr constant [4 x i8] c"tls\00", align 1
 @tls_handle = internal unnamed_addr global ptr null, align 8
 @.str.75 = private unnamed_addr constant [9 x i8] c"tcp.port\00", align 1
@@ -146,153 +144,163 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.85 = private unnamed_addr constant [10 x i8] c"P_DATA_V2\00", align 1
 @.str.86 = private unnamed_addr constant [31 x i8] c"P_CONTROL_HARD_RESET_CLIENT_V3\00", align 1
 @.str.87 = private unnamed_addr constant [17 x i8] c"P_CONTROL_WKC_V1\00", align 1
-@.str.88 = private unnamed_addr constant [16 x i8] c"MessageType: %s\00", align 1
-@.str.89 = private unnamed_addr constant [20 x i8] c"Unknown Messagetype\00", align 1
-@.str.90 = private unnamed_addr constant [25 x i8] c", Opcode: %s, Key ID: %d\00", align 1
-@.str.91 = private unnamed_addr constant [17 x i8] c"Unknown (0x%02x)\00", align 1
-@.str.92 = private unnamed_addr constant [17 x i8] c" [opcode/key_id]\00", align 1
-@.str.93 = private unnamed_addr constant [16 x i8] c"Packet-ID Array\00", align 1
-@.str.94 = private unnamed_addr constant [16 x i8] c"Data (%d bytes)\00", align 1
-@.str.95 = private unnamed_addr constant [30 x i8] c"Wrapped client key (%d bytes)\00", align 1
-@.str.96 = private unnamed_addr constant [28 x i8] c"Message fragment (%d bytes)\00", align 1
-@.str.97 = private unnamed_addr constant [20 x i8] c"Reassembled Message\00", align 1
+@openvpn_message_types = internal constant [12 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.77 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.78 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.79 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.80 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.81 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.82 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.83 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.84 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.85 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.86 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.87 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.89 = private unnamed_addr constant [16 x i8] c"MessageType: %s\00", align 1
+@.str.90 = private unnamed_addr constant [20 x i8] c"Unknown Messagetype\00", align 1
+@.str.91 = private unnamed_addr constant [25 x i8] c", Opcode: %s, Key ID: %d\00", align 1
+@.str.92 = private unnamed_addr constant [17 x i8] c"Unknown (0x%02x)\00", align 1
+@.str.93 = private unnamed_addr constant [17 x i8] c" [opcode/key_id]\00", align 1
+@.str.94 = private unnamed_addr constant [16 x i8] c"Packet-ID Array\00", align 1
+@.str.95 = private unnamed_addr constant [16 x i8] c"Data (%d bytes)\00", align 1
+@.str.96 = private unnamed_addr constant [30 x i8] c"Wrapped client key (%d bytes)\00", align 1
+@.str.97 = private unnamed_addr constant [16 x i8] c"OpenVPN Message\00", align 1
 @openvpn_frag_items = internal constant %struct._fragment_items { ptr @ett_openvpn_fragment, ptr @ett_openvpn_fragments, ptr @hf_openvpn_fragments, ptr @hf_openvpn_fragment, ptr @hf_openvpn_fragment_overlap, ptr @hf_openvpn_fragment_overlap_conflicts, ptr @hf_openvpn_fragment_multiple_tails, ptr @hf_openvpn_fragment_too_long_fragment, ptr @hf_openvpn_fragment_error, ptr @hf_openvpn_fragment_count, ptr @hf_openvpn_reassembled_in, ptr @hf_openvpn_reassembled_length, ptr null, ptr @.str.34 }, align 8
-@.str.98 = private unnamed_addr constant [23 x i8] c" (Message Reassembled \00", align 1
-@.str.99 = private unnamed_addr constant [24 x i8] c" (Message fragment %d) \00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_openvpn() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56) #2
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56)
   store i32 %1, ptr @proto_openvpn, align 4
-  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_openvpn.hf, i32 noundef 27) #2
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_openvpn.ett, i32 noundef 7) #2
+  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_openvpn.hf, i32 noundef 27)
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_openvpn.ett, i32 noundef 7)
   %2 = load i32, ptr @proto_openvpn, align 4
-  %3 = tail call ptr @register_dissector(ptr noundef nonnull @.str.57, ptr noundef nonnull @dissect_openvpn_udp, i32 noundef %2) #2
+  %3 = tail call ptr @register_dissector(ptr noundef nonnull @.str.57, ptr noundef nonnull @dissect_openvpn_udp, i32 noundef %2)
   store ptr %3, ptr @openvpn_udp_handle, align 8
   %4 = load i32, ptr @proto_openvpn, align 4
-  %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.58, ptr noundef nonnull @dissect_openvpn_tcp, i32 noundef %4) #2
+  %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.58, ptr noundef nonnull @dissect_openvpn_tcp, i32 noundef %4)
   store ptr %5, ptr @openvpn_tcp_handle, align 8
-  tail call void @reassembly_table_register(ptr noundef nonnull @msg_reassembly_table, ptr noundef nonnull @addresses_reassembly_table_functions) #2
+  tail call void @reassembly_table_register(ptr noundef nonnull @msg_reassembly_table, ptr noundef nonnull @addresses_reassembly_table_functions)
   %6 = load i32, ptr @proto_openvpn, align 4
-  %7 = tail call ptr @prefs_register_protocol(i32 noundef %6, ptr noundef null) #2
-  tail call void @prefs_register_bool_preference(ptr noundef %7, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.61, ptr noundef nonnull @pref_tls_auth_override) #2
-  tail call void @prefs_register_bool_preference(ptr noundef %7, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.64, ptr noundef nonnull @pref_tls_crypt_override) #2
-  tail call void @prefs_register_bool_preference(ptr noundef %7, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.67, ptr noundef nonnull @pref_tls_auth) #2
-  tail call void @prefs_register_uint_preference(ptr noundef %7, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.70, i32 noundef 10, ptr noundef nonnull @tls_auth_hmac_size) #2
-  tail call void @prefs_register_bool_preference(ptr noundef %7, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.73, ptr noundef nonnull @pref_long_format) #2
+  %7 = tail call ptr @prefs_register_protocol(i32 noundef %6, ptr noundef null)
+  tail call void @prefs_register_bool_preference(ptr noundef %7, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.61, ptr noundef nonnull @pref_tls_auth_override)
+  tail call void @prefs_register_bool_preference(ptr noundef %7, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.64, ptr noundef nonnull @pref_tls_crypt_override)
+  tail call void @prefs_register_bool_preference(ptr noundef %7, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.67, ptr noundef nonnull @pref_tls_auth)
+  tail call void @prefs_register_uint_preference(ptr noundef %7, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.70, i32 noundef 10, ptr noundef nonnull @tls_auth_hmac_size)
+  tail call void @prefs_register_bool_preference(ptr noundef %7, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.73, ptr noundef nonnull @pref_long_format)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openvpn_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @proto_openvpn, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %7 = load i32, ptr @ett_openvpn, align 4
-  %8 = tail call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %7) #2
+  %8 = tail call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %7)
   %9 = tail call fastcc i32 @dissect_openvpn_msg_common(ptr noundef %0, ptr noundef %1, ptr noundef %8, ptr noundef %2, i32 noundef 0)
   ret i32 %9
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openvpn_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, i32 noundef 2, ptr noundef nonnull @get_msg_length, ptr noundef nonnull @dissect_openvpn_msg_tcp, ptr noundef %3) #2
-  %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
+  tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, i32 noundef 2, ptr noundef nonnull @get_msg_length, ptr noundef nonnull @dissect_openvpn_msg_tcp, ptr noundef %3)
+  %5 = tail call i32 @tvb_captured_length(ptr noundef %0)
   ret i32 %5
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @reassembly_table_register(ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @prefs_register_uint_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_openvpn() local_unnamed_addr #0 {
   %1 = load i32, ptr @proto_openvpn, align 4
-  %2 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.74, i32 noundef %1) #2
+  %2 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.74, i32 noundef %1)
   store ptr %2, ptr @tls_handle, align 8
   %3 = load ptr, ptr @openvpn_tcp_handle, align 8
-  tail call void @dissector_add_uint_with_preference(ptr noundef nonnull @.str.75, i32 noundef 1194, ptr noundef %3) #2
+  tail call void @dissector_add_uint_with_preference(ptr noundef nonnull @.str.75, i32 noundef 1194, ptr noundef %3)
   %4 = load ptr, ptr @openvpn_udp_handle, align 8
-  tail call void @dissector_add_uint_with_preference(ptr noundef nonnull @.str.76, i32 noundef 1194, ptr noundef %4) #2
+  tail call void @dissector_add_uint_with_preference(ptr noundef nonnull @.str.76, i32 noundef 1194, ptr noundef %4)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_openvpn_msg_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 3) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
-  tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.55) #2
+  tail call void @col_set_str(ptr noundef %7, i32 noundef 35, ptr noundef nonnull @.str.55)
   %8 = load ptr, ptr %6, align 8
-  tail call void @col_clear(ptr noundef %8, i32 noundef 25) #2
+  tail call void @col_clear(ptr noundef %8, i32 noundef 25)
   %9 = shl nuw nsw i32 %4, 3
-  %10 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %9, i32 noundef 5) #2
+  %10 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %9, i32 noundef 5)
   %11 = zext i8 %10 to i32
   %12 = load ptr, ptr %6, align 8
-  %13 = tail call ptr @val_to_str_const(i32 noundef %11, ptr noundef nonnull @openvpn_message_types, ptr noundef nonnull @.str.89) #2
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %12, i32 noundef 25, ptr noundef nonnull @.str.88, ptr noundef %13) #2
+  %13 = tail call ptr @val_to_str_const(i32 noundef %11, ptr noundef nonnull @openvpn_message_types, ptr noundef nonnull @.str.90)
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %12, i32 noundef 25, ptr noundef nonnull @.str.89, ptr noundef %13)
   %14 = or disjoint i32 %9, 5
-  %15 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %14, i32 noundef 3) #2
+  %15 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %14, i32 noundef 3)
   %16 = zext i8 %15 to i32
-  %17 = tail call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @openvpn_message_types, ptr noundef nonnull @.str.91) #2
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.90, ptr noundef %17, i32 noundef %16) #2
+  %17 = tail call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @openvpn_message_types, ptr noundef nonnull @.str.92)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.91, ptr noundef %17, i32 noundef %16)
   %18 = load i32, ptr @hf_openvpn_pdu_type, align 4
-  %19 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %18, ptr noundef %0, i32 noundef %4, i32 noundef 1, i32 noundef 0) #2
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %19, ptr noundef nonnull @.str.92) #2
+  %19 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %18, ptr noundef %0, i32 noundef %4, i32 noundef 1, i32 noundef 0)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %19, ptr noundef nonnull @.str.93)
   %20 = load i32, ptr @ett_openvpn_type, align 4
-  %21 = tail call ptr @proto_item_add_subtree(ptr noundef %19, i32 noundef %20) #2
+  %21 = tail call ptr @proto_item_add_subtree(ptr noundef %19, i32 noundef %20)
   %22 = load i32, ptr @hf_openvpn_opcode, align 4
-  %23 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %22, ptr noundef %0, i32 noundef %4, i32 noundef 1, i32 noundef 0) #2
+  %23 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %22, ptr noundef %0, i32 noundef %4, i32 noundef 1, i32 noundef 0)
   %24 = load i32, ptr @hf_openvpn_keyid, align 4
-  %25 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %24, ptr noundef %0, i32 noundef %4, i32 noundef 1, i32 noundef 0) #2
+  %25 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %24, ptr noundef %0, i32 noundef %4, i32 noundef 1, i32 noundef 0)
   %26 = add nuw nsw i32 %4, 1
   switch i8 %10, label %31 [
     i8 9, label %27
-    i8 6, label %122
+    i8 6, label %120
   ]
 
 27:                                               ; preds = %5
   %28 = load i32, ptr @hf_openvpn_peerid, align 4
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %28, ptr noundef %0, i32 noundef %26, i32 noundef 3, i32 noundef 0) #2
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %28, ptr noundef %0, i32 noundef %26, i32 noundef 3, i32 noundef 0)
   %30 = or disjoint i32 %4, 4
-  br label %122
+  br label %120
 
 31:                                               ; preds = %5
   %32 = shl nuw nsw i32 %26, 3
   %33 = add nuw nsw i32 %32, 32
-  %34 = tail call i32 @tvb_get_bits32(ptr noundef %0, i32 noundef %33, i32 noundef 32, i32 noundef 0) #2
+  %34 = tail call i32 @tvb_get_bits32(ptr noundef %0, i32 noundef %33, i32 noundef 32, i32 noundef 0)
   %35 = load i32, ptr @hf_openvpn_sessionid, align 4
-  %36 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %35, ptr noundef %0, i32 noundef %26, i32 noundef 8, i32 noundef 0) #2
+  %36 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %35, ptr noundef %0, i32 noundef %26, i32 noundef 8, i32 noundef 0)
   %37 = add nuw nsw i32 %4, 9
-  %38 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %37) #2
-  %39 = load i32, ptr @pref_tls_auth_override, align 4
-  %40 = icmp eq i32 %39, 0
+  %38 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %37)
+  %39 = load i8, ptr @pref_tls_auth_override, align 1, !range !6, !noundef !7
+  %40 = icmp eq i8 %39, 0
   br i1 %40, label %41, label %56
 
 41:                                               ; preds = %31
-  %.not218 = icmp eq i8 %38, 0
-  br i1 %.not218, label %55, label %42
+  %.not179 = icmp eq i8 %38, 0
+  br i1 %.not179, label %55, label %42
 
 42:                                               ; preds = %41
-  %43 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %37) #2
+  %43 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %37)
   %44 = and i32 %43, 255
   %45 = icmp eq i32 %44, 0
   %spec.select.i = zext i1 %45 to i32
@@ -307,344 +315,322 @@ define internal fastcc i32 @dissect_openvpn_msg_common(ptr noundef %0, ptr nound
   %53 = zext i1 %52 to i32
   %.2.i = add nuw nsw i32 %51, %53
   %.3.i = add nuw nsw i32 %.2.i, %.1.i
-  %54 = icmp samesign ugt i32 %.3.i, 1
-  br i1 %54, label %55, label %59
+  %54 = icmp samesign ult i32 %.3.i, 2
+  br i1 %54, label %59, label %55
 
 55:                                               ; preds = %42, %41
   br label %59
 
 56:                                               ; preds = %31
-  %57 = load i32, ptr @pref_tls_auth, align 4
-  %58 = icmp eq i32 %57, 1
+  %57 = load i8, ptr @pref_tls_auth, align 1, !range !6, !noundef !7
+  %58 = trunc nuw i8 %57 to i1
   br label %59
 
 59:                                               ; preds = %42, %55, %56
-  %.0202 = phi i1 [ false, %55 ], [ %58, %56 ], [ true, %42 ]
+  %.0168 = phi i1 [ false, %55 ], [ %58, %56 ], [ true, %42 ]
   %60 = and i8 %10, -2
   %or.cond4 = icmp eq i8 %60, 10
-  %61 = load i32, ptr @pref_tls_crypt_override, align 4
-  %.fr = freeze i32 %61
-  %62 = icmp eq i32 %.fr, 1
-  %or.cond6 = or i1 %or.cond4, %62
-  %not.or.cond6 = xor i1 %or.cond6, true
-  %63 = select i1 %not.or.cond6, i1 %.0202, i1 false
-  br i1 %63, label %.thread, label %69
+  br i1 %or.cond4, label %.thread191, label %61
 
-.thread:                                          ; preds = %59
-  %64 = load i32, ptr @hf_openvpn_hmac, align 4
-  %65 = load i32, ptr @tls_auth_hmac_size, align 4
-  %66 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %64, ptr noundef %0, i32 noundef %37, i32 noundef %65, i32 noundef 0) #2
+61:                                               ; preds = %59
+  %62 = load i8, ptr @pref_tls_crypt_override, align 1, !range !6, !noundef !7
+  %63 = trunc nuw i8 %62 to i1
+  br i1 %63, label %.thread191, label %64
+
+64:                                               ; preds = %61
+  br i1 %.0168, label %65, label %88
+
+65:                                               ; preds = %64
+  %66 = load i32, ptr @hf_openvpn_hmac, align 4
   %67 = load i32, ptr @tls_auth_hmac_size, align 4
-  %68 = add i32 %67, %37
-  br label %70
+  %68 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %66, ptr noundef %0, i32 noundef %37, i32 noundef %67, i32 noundef 0)
+  %69 = load i32, ptr @tls_auth_hmac_size, align 4
+  %70 = add i32 %69, %37
+  br label %.thread191
 
-69:                                               ; preds = %59
-  br i1 %or.cond6, label %70, label %88
-
-70:                                               ; preds = %.thread, %69
-  %.1232 = phi i32 [ %68, %.thread ], [ %37, %69 ]
-  %71 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1232) #2
+.thread191:                                       ; preds = %61, %59, %65
+  %.1167197 = phi i32 [ %70, %65 ], [ %37, %59 ], [ %37, %61 ]
+  %.0173190195 = phi i1 [ false, %65 ], [ true, %59 ], [ true, %61 ]
+  %71 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1167197)
   %72 = icmp sgt i32 %71, 7
   br i1 %72, label %73, label %83
 
-73:                                               ; preds = %70
+73:                                               ; preds = %.thread191
   %74 = load i32, ptr @hf_openvpn_pid, align 4
-  %75 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %74, ptr noundef %0, i32 noundef %.1232, i32 noundef 4, i32 noundef 0) #2
-  %76 = add i32 %.1232, 4
-  %77 = load i32, ptr @pref_long_format, align 4
-  %78 = icmp ne i32 %77, 0
-  %or.cond10 = or i1 %or.cond6, %78
-  br i1 %or.cond10, label %79, label %83
+  %75 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %74, ptr noundef %0, i32 noundef %.1167197, i32 noundef 4, i32 noundef 0)
+  %76 = add i32 %.1167197, 4
+  %77 = load i8, ptr @pref_long_format, align 1, !range !6, !noundef !7
+  %78 = trunc nuw i8 %77 to i1
+  %brmerge184 = or i1 %.0173190195, %78
+  br i1 %brmerge184, label %79, label %83
 
 79:                                               ; preds = %73
   %80 = load i32, ptr @hf_openvpn_net_time, align 4
-  %81 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %80, ptr noundef %0, i32 noundef %76, i32 noundef 4, i32 noundef 0) #2
-  %82 = add i32 %.1232, 8
+  %81 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %80, ptr noundef %0, i32 noundef %76, i32 noundef 4, i32 noundef 0)
+  %82 = add i32 %.1167197, 8
   br label %83
 
-83:                                               ; preds = %79, %73, %70
-  %.3 = phi i32 [ %82, %79 ], [ %76, %73 ], [ %.1232, %70 ]
-  br i1 %or.cond6, label %.thread233, label %88
+83:                                               ; preds = %73, %79, %.thread191
+  %.3 = phi i32 [ %82, %79 ], [ %.1167197, %.thread191 ], [ %76, %73 ]
+  br i1 %.0173190195, label %.thread210, label %88
 
-.thread233:                                       ; preds = %83
+.thread210:                                       ; preds = %83
   %84 = load i32, ptr @hf_openvpn_hmac, align 4
-  %85 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %84, ptr noundef %0, i32 noundef %.3, i32 noundef 32, i32 noundef 0) #2
+  %85 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %84, ptr noundef %0, i32 noundef %.3, i32 noundef 32, i32 noundef 0)
   %86 = add i32 %.3, 32
-  %87 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %86) #2
-  br label %112
+  %87 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %86)
+  br label %120
 
-88:                                               ; preds = %83, %69
-  %.2 = phi i32 [ %.3, %83 ], [ %37, %69 ]
-  %89 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2) #2
+88:                                               ; preds = %64, %83
+  %.2 = phi i32 [ %.3, %83 ], [ %37, %64 ]
+  %89 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2)
   %90 = icmp slt i32 %89, 1
-  %or.cond12.not = or i1 %or.cond6, %90
-  br i1 %or.cond12.not, label %switch.early.test, label %91
+  br i1 %90, label %112, label %91
 
 91:                                               ; preds = %88
-  %92 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2) #2
+  %92 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.2)
   %93 = zext i8 %92 to i32
   %94 = load i32, ptr @hf_openvpn_mpid_arraylength, align 4
-  %95 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %94, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #2
+  %95 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %94, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0)
   %96 = add i32 %.2, 1
-  %.not221 = icmp eq i8 %92, 0
-  br i1 %.not221, label %switch.early.test, label %97
+  %.not180 = icmp eq i8 %92, 0
+  br i1 %.not180, label %112, label %97
 
 97:                                               ; preds = %91
   %98 = load i32, ptr @ett_openvpn_packetarray, align 4
-  %99 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %96, i32 noundef 0, i32 noundef %98, ptr noundef null, ptr noundef nonnull @.str.93) #2
+  %99 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %96, i32 noundef 0, i32 noundef %98, ptr noundef null, ptr noundef nonnull @.str.94)
   br label %100
 
 100:                                              ; preds = %97, %100
-  %.5251 = phi i32 [ %96, %97 ], [ %103, %100 ]
-  %.0206250 = phi i32 [ 0, %97 ], [ %104, %100 ]
+  %.6205 = phi i32 [ %96, %97 ], [ %103, %100 ]
+  %.0172204 = phi i32 [ 0, %97 ], [ %104, %100 ]
   %101 = load i32, ptr @hf_openvpn_mpid_arrayelement, align 4
-  %102 = tail call ptr @proto_tree_add_item(ptr noundef %99, i32 noundef %101, ptr noundef %0, i32 noundef %.5251, i32 noundef 4, i32 noundef 0) #2
-  %103 = add i32 %.5251, 4
-  %104 = add nuw nsw i32 %.0206250, 1
+  %102 = tail call ptr @proto_tree_add_item(ptr noundef %99, i32 noundef %101, ptr noundef %0, i32 noundef %.6205, i32 noundef 4, i32 noundef 0)
+  %103 = add i32 %.6205, 4
+  %104 = add nuw nsw i32 %.0172204, 1
   %exitcond.not = icmp eq i32 %104, %93
-  br i1 %exitcond.not, label %105, label %100, !llvm.loop !4
+  br i1 %exitcond.not, label %105, label %100, !llvm.loop !8
 
 105:                                              ; preds = %100
-  %106 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %103) #2
+  %106 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %103)
   %107 = icmp sgt i32 %106, 7
   br i1 %107, label %108, label %112
 
 108:                                              ; preds = %105
   %109 = load i32, ptr @hf_openvpn_rsessionid, align 4
-  %110 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %109, ptr noundef %0, i32 noundef %103, i32 noundef 8, i32 noundef 0) #2
-  %111 = add i32 %.5251, 12
+  %110 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %109, ptr noundef %0, i32 noundef %103, i32 noundef 8, i32 noundef 0)
+  %111 = add i32 %.6205, 12
   br label %112
 
-112:                                              ; preds = %.thread233, %108, %105
-  %.4 = phi i32 [ %111, %108 ], [ %103, %105 ], [ %86, %.thread233 ]
-  br i1 %62, label %122, label %switch.early.test
+112:                                              ; preds = %91, %108, %105, %88
+  %.4 = phi i32 [ %.2, %88 ], [ %111, %108 ], [ %103, %105 ], [ %96, %91 ]
+  %.not181 = icmp eq i8 %10, 5
+  br i1 %.not181, label %120, label %113
 
-switch.early.test:                                ; preds = %88, %91, %112
-  %.4238 = phi i32 [ %.4, %112 ], [ %.2, %88 ], [ %96, %91 ]
-  switch i8 %10, label %113 [
-    i8 11, label %122
-    i8 10, label %122
-    i8 5, label %122
-  ]
-
-113:                                              ; preds = %switch.early.test
-  %114 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.4238) #2
+113:                                              ; preds = %112
+  %114 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.4)
   %115 = icmp sgt i32 %114, 3
-  br i1 %115, label %116, label %122
+  br i1 %115, label %116, label %120
 
 116:                                              ; preds = %113
-  %117 = shl i32 %.4238, 3
-  %118 = tail call i32 @tvb_get_bits32(ptr noundef %0, i32 noundef %117, i32 noundef 32, i32 noundef 0) #2
-  %119 = load i32, ptr @hf_openvpn_mpid, align 4
-  %120 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %119, ptr noundef %0, i32 noundef %.4238, i32 noundef 4, i32 noundef 0) #2
-  %121 = add i32 %.4238, 4
-  br label %122
+  %117 = load i32, ptr @hf_openvpn_mpid, align 4
+  %118 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %117, ptr noundef %0, i32 noundef %.4, i32 noundef 4, i32 noundef 0)
+  %119 = add i32 %.4, 4
+  br label %120
 
-122:                                              ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %112, %5, %113, %116, %27
-  %.0210 = phi i32 [ -1, %27 ], [ %34, %116 ], [ %34, %113 ], [ %34, %switch.early.test ], [ -1, %5 ], [ %34, %112 ], [ %34, %switch.early.test ], [ %34, %switch.early.test ]
-  %.0208 = phi i32 [ -1, %27 ], [ %118, %116 ], [ -1, %113 ], [ -1, %switch.early.test ], [ -1, %5 ], [ -1, %112 ], [ -1, %switch.early.test ], [ -1, %switch.early.test ]
-  %.0201 = phi i32 [ %30, %27 ], [ %121, %116 ], [ %.4238, %113 ], [ %.4238, %switch.early.test ], [ %26, %5 ], [ %.4, %112 ], [ %.4238, %switch.early.test ], [ %.4238, %switch.early.test ]
-  %123 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0201) #2
-  %124 = icmp eq i32 %123, 0
-  br i1 %124, label %190, label %125
+120:                                              ; preds = %.thread210, %112, %5, %113, %116, %27
+  %.0174 = phi i32 [ -1, %27 ], [ %34, %116 ], [ %34, %113 ], [ %34, %112 ], [ -1, %5 ], [ %34, %.thread210 ]
+  %.0166 = phi i32 [ %30, %27 ], [ %119, %116 ], [ %.4, %113 ], [ %.4, %112 ], [ %26, %5 ], [ %86, %.thread210 ]
+  %121 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0166)
+  %122 = icmp eq i32 %121, 0
+  br i1 %122, label %173, label %123
 
-125:                                              ; preds = %122
-  %126 = and i8 %10, -2
-  %or.cond16 = icmp eq i8 %126, 10
-  %127 = icmp ne i32 %123, 1
-  %or.cond18 = and i1 %or.cond16, %127
-  br i1 %or.cond18, label %.thread239, label %133
+123:                                              ; preds = %120
+  %124 = and i8 %10, -2
+  %or.cond6 = icmp eq i8 %124, 10
+  %125 = icmp ne i32 %121, 1
+  %or.cond8 = and i1 %or.cond6, %125
+  br i1 %or.cond8, label %.thread198, label %131
 
-.thread239:                                       ; preds = %125
-  %128 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
-  %129 = add i32 %128, -2
-  %130 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %129) #2
-  %131 = zext i16 %130 to i32
-  %132 = sub i32 %123, %131
-  br label %134
+.thread198:                                       ; preds = %123
+  %126 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %127 = add i32 %126, -2
+  %128 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %127)
+  %129 = zext i16 %128 to i32
+  %130 = sub i32 %121, %129
+  br label %132
 
-133:                                              ; preds = %125
-  %.not223 = icmp eq i8 %10, 4
-  br i1 %.not223, label %152, label %134
+131:                                              ; preds = %123
+  %.not182 = icmp eq i8 %10, 4
+  br i1 %.not182, label %150, label %132
 
-134:                                              ; preds = %.thread239, %133
-  %.0204244 = phi i32 [ %131, %.thread239 ], [ -1, %133 ]
-  %.0205243 = phi i32 [ %132, %.thread239 ], [ %123, %133 ]
-  %135 = load i32, ptr @ett_openvpn_data, align 4
-  %136 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.0201, i32 noundef %.0205243, i32 noundef %135, ptr noundef null, ptr noundef nonnull @.str.94, i32 noundef %.0205243) #2
-  %137 = load i32, ptr @hf_openvpn_data, align 4
-  %138 = tail call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %137, ptr noundef %0, i32 noundef %.0201, i32 noundef %.0205243, i32 noundef 0) #2
-  %139 = icmp sgt i32 %.0204244, 0
-  br i1 %139, label %140, label %190
+132:                                              ; preds = %.thread198, %131
+  %.0170203 = phi i32 [ %129, %.thread198 ], [ -1, %131 ]
+  %.0171202 = phi i32 [ %130, %.thread198 ], [ %121, %131 ]
+  %133 = load i32, ptr @ett_openvpn_data, align 4
+  %134 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.0166, i32 noundef %.0171202, i32 noundef %133, ptr noundef null, ptr noundef nonnull @.str.95, i32 noundef %.0171202)
+  %135 = load i32, ptr @hf_openvpn_data, align 4
+  %136 = tail call ptr @proto_tree_add_item(ptr noundef %134, i32 noundef %135, ptr noundef %0, i32 noundef %.0166, i32 noundef %.0171202, i32 noundef 0)
+  %137 = icmp sgt i32 %.0170203, 0
+  br i1 %137, label %138, label %173
 
-140:                                              ; preds = %134
-  %141 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
-  %142 = sub i32 %141, %.0204244
-  %143 = load i32, ptr @ett_openvpn_wkc, align 4
-  %144 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %142) #2
-  %145 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.0201, i32 noundef %.0205243, i32 noundef %143, ptr noundef null, ptr noundef nonnull @.str.95, i32 noundef %144) #2
-  %146 = load i32, ptr @hf_openvpn_wkc_data, align 4
-  %147 = tail call ptr @proto_tree_add_item(ptr noundef %145, i32 noundef %146, ptr noundef %0, i32 noundef %142, i32 noundef %.0204244, i32 noundef 0) #2
-  %148 = load i32, ptr @hf_openvpn_wkc_length, align 4
-  %149 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
-  %150 = add i32 %149, -2
-  %151 = tail call ptr @proto_tree_add_item(ptr noundef %145, i32 noundef %148, ptr noundef %0, i32 noundef %150, i32 noundef 2, i32 noundef 0) #2
-  br label %190
+138:                                              ; preds = %132
+  %139 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %140 = sub i32 %139, %.0170203
+  %141 = load i32, ptr @ett_openvpn_wkc, align 4
+  %142 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %140)
+  %143 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.0166, i32 noundef %.0171202, i32 noundef %141, ptr noundef null, ptr noundef nonnull @.str.96, i32 noundef %142)
+  %144 = load i32, ptr @hf_openvpn_wkc_data, align 4
+  %145 = tail call ptr @proto_tree_add_item(ptr noundef %143, i32 noundef %144, ptr noundef %0, i32 noundef %140, i32 noundef %.0170203, i32 noundef 0)
+  %146 = load i32, ptr @hf_openvpn_wkc_length, align 4
+  %147 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %148 = add i32 %147, -2
+  %149 = tail call ptr @proto_tree_add_item(ptr noundef %143, i32 noundef %146, ptr noundef %0, i32 noundef %148, i32 noundef 2, i32 noundef 0)
+  br label %173
 
-152:                                              ; preds = %133
-  %153 = icmp eq i32 %123, 100
-  %154 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %155 = load i32, ptr %154, align 8
-  store i32 1, ptr %154, align 8
-  %156 = zext i1 %153 to i32
-  %157 = tail call ptr @fragment_add_seq_next(ptr noundef nonnull @msg_reassembly_table, ptr noundef %0, i32 noundef %.0201, ptr noundef %1, i32 noundef %.0210, ptr noundef null, i32 noundef %123, i32 noundef %156) #2
-  %158 = icmp eq ptr %157, null
-  br i1 %158, label %.thread247.critedge, label %159
+150:                                              ; preds = %131
+  %151 = tail call ptr @find_or_create_conversation_by_id(ptr noundef %1, i32 noundef 47, i32 noundef %.0174)
+  %152 = load i32, ptr @proto_openvpn, align 4
+  %153 = tail call ptr @conversation_get_proto_data(ptr noundef %151, i32 noundef %152)
+  %.not183 = icmp eq ptr %153, null
+  br i1 %.not183, label %154, label %157
 
-159:                                              ; preds = %152
-  %160 = load ptr, ptr %157, align 8
-  %.not225 = icmp eq ptr %160, null
-  br i1 %.not225, label %.thread245, label %161
+154:                                              ; preds = %150
+  %155 = tail call ptr @streaming_reassembly_info_new()
+  %156 = load i32, ptr @proto_openvpn, align 4
+  tail call void @conversation_add_proto_data(ptr noundef %151, i32 noundef %156, ptr noundef %155)
+  br label %157
 
-161:                                              ; preds = %159
-  %162 = load i32, ptr @ett_openvpn_data, align 4
-  %163 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0201) #2
-  %164 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.0201, i32 noundef -1, i32 noundef %162, ptr noundef null, ptr noundef nonnull @.str.96, i32 noundef %163) #2
-  %165 = load i32, ptr @hf_openvpn_fragment_bytes, align 4
-  %166 = tail call ptr @proto_tree_add_item(ptr noundef %164, i32 noundef %165, ptr noundef %0, i32 noundef %.0201, i32 noundef -1, i32 noundef 0) #2
-  br label %.thread245
+157:                                              ; preds = %154, %150
+  %.0165 = phi ptr [ %153, %150 ], [ %155, %154 ]
+  %158 = getelementptr i8, ptr %1, i64 20
+  %.val = load i32, ptr %158, align 4
+  %159 = getelementptr i8, ptr %1, i64 376
+  %.val187 = load i8, ptr %159, align 8
+  %160 = zext i32 %.val to i64
+  %161 = shl nuw i64 %160, 32
+  %162 = zext i8 %.val187 to i64
+  %163 = shl nuw nsw i64 %162, 24
+  %164 = tail call i32 @tvb_raw_offset(ptr noundef %0)
+  %165 = sext i32 %164 to i64
+  %166 = sext i32 %.0166 to i64
+  %167 = or disjoint i64 %163, %161
+  %168 = add nsw i64 %165, %166
+  %169 = add i64 %168, %167
+  %170 = load ptr, ptr @tls_handle, align 8
+  %171 = load i32, ptr @hf_openvpn_fragment_bytes, align 4
+  %172 = tail call i32 @reassemble_streaming_data_and_call_subdissector(ptr noundef %0, ptr noundef %1, i32 noundef %.0166, i32 noundef %121, ptr noundef %2, ptr noundef %3, ptr noundef nonnull byval(%struct.reassembly_table) align 8 @msg_reassembly_table, ptr noundef %.0165, i64 noundef %169, ptr noundef %170, ptr noundef %3, ptr noundef null, ptr noundef nonnull @.str.97, ptr noundef nonnull @openvpn_frag_items, i32 noundef %171)
+  br label %173
 
-.thread245:                                       ; preds = %161, %159
-  br i1 %153, label %172, label %167
-
-167:                                              ; preds = %.thread245
-  %168 = tail call ptr @process_reassembled_data(ptr noundef %0, i32 noundef %.0201, ptr noundef nonnull %1, ptr noundef nonnull @.str.97, ptr noundef nonnull %157, ptr noundef nonnull @openvpn_frag_items, ptr noundef null, ptr noundef %2) #2
-  %169 = load ptr, ptr %157, align 8
-  %.not228 = icmp eq ptr %169, null
-  br i1 %.not228, label %186, label %170
-
-170:                                              ; preds = %167
-  %171 = load ptr, ptr %6, align 8
-  tail call void @col_append_str(ptr noundef %171, i32 noundef 25, ptr noundef nonnull @.str.98) #2
-  br label %186
-
-172:                                              ; preds = %.thread245
-  %173 = load ptr, ptr %6, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %173, i32 noundef 25, ptr noundef nonnull @.str.99, i32 noundef %.0208) #2
-  %174 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %175 = load i32, ptr %174, align 4
-  %176 = getelementptr inbounds nuw i8, ptr %157, i64 40
-  %177 = load i32, ptr %176, align 8
-  %.not227 = icmp eq i32 %175, %177
-  br i1 %.not227, label %.thread247, label %178
-
-178:                                              ; preds = %172
-  %179 = load i32, ptr @hf_openvpn_reassembled_in, align 4
-  %180 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %179, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %177) #2
-  br label %.thread247
-
-.thread247.critedge:                              ; preds = %152
-  %181 = load i32, ptr @ett_openvpn_data, align 4
-  %182 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0201) #2
-  %183 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.0201, i32 noundef -1, i32 noundef %181, ptr noundef null, ptr noundef nonnull @.str.96, i32 noundef %182) #2
-  %184 = load i32, ptr @hf_openvpn_fragment_bytes, align 4
-  %185 = tail call ptr @proto_tree_add_item(ptr noundef %183, i32 noundef %184, ptr noundef %0, i32 noundef %.0201, i32 noundef -1, i32 noundef 0) #2
-  br label %.thread247
-
-.thread247:                                       ; preds = %.thread247.critedge, %178, %172
-  store i32 %155, ptr %154, align 8
-  br label %190
-
-186:                                              ; preds = %170, %167
-  store i32 %155, ptr %154, align 8
-  %.not229 = icmp eq ptr %168, null
-  br i1 %.not229, label %190, label %187
-
-187:                                              ; preds = %186
-  %188 = load ptr, ptr @tls_handle, align 8
-  %189 = tail call i32 @call_dissector(ptr noundef %188, ptr noundef nonnull %168, ptr noundef nonnull %1, ptr noundef %3) #2
-  br label %190
-
-190:                                              ; preds = %186, %187, %.thread247, %134, %140, %122
-  %191 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
-  ret i32 %191
+173:                                              ; preds = %132, %138, %120, %157
+  %174 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  ret i32 %174
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare zeroext i8 @tvb_get_bits8(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_get_bits32(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @fragment_add_seq_next(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @find_or_create_conversation_by_id(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @process_reassembled_data(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @streaming_reassembly_info_new() local_unnamed_addr #1
 
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @reassemble_streaming_data_and_call_subdissector(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef byval(%struct.reassembly_table) align 8, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_raw_offset(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 2, 65538) i32 @get_msg_length(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
-  %5 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %2) #2
+  %5 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %2)
   %6 = zext i16 %5 to i32
   %7 = add nuw nsw i32 %6, 2
   ret i32 %7
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_openvpn_msg_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @proto_openvpn, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %7 = load i32, ptr @ett_openvpn, align 4
-  %8 = tail call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %7) #2
+  %8 = tail call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %7)
   %9 = load i32, ptr @hf_openvpn_plen, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0) #2
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0)
   %11 = tail call fastcc i32 @dissect_openvpn_msg_common(ptr noundef %0, ptr noundef %1, ptr noundef %8, ptr noundef %2, i32 noundef 2)
   ret i32 %11
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}

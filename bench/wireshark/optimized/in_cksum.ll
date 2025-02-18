@@ -5,7 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.vec_t = type { ptr, i32 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define range(i32 0, 65536) i32 @in_cksum_ret_partial(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %.not198 = icmp eq i32 %1, 0
   br i1 %.not198, label %._crit_edge206, label %.lr.ph205
@@ -25,9 +25,9 @@ define range(i32 0, 65536) i32 @in_cksum_ret_partial(ptr noundef readonly captur
   br i1 %or.cond, label %7, label %13
 
 7:                                                ; preds = %5
-  %.sroa.10.0.extract.shift = lshr i32 %.0143201, 16
+  %.sroa.12.0.extract.shift = lshr i32 %.0143201, 16
   %8 = and i32 %.0143201, 65535
-  %9 = add nuw nsw i32 %8, %.sroa.10.0.extract.shift
+  %9 = add nuw nsw i32 %8, %.sroa.12.0.extract.shift
   %10 = icmp samesign ugt i32 %9, 65535
   %11 = add nsw i32 %9, -65535
   %spec.select = select i1 %10, i32 %11, i32 %9
@@ -49,11 +49,11 @@ define range(i32 0, 65536) i32 @in_cksum_ret_partial(ptr noundef readonly captur
 
 20:                                               ; preds = %17
   %21 = load i8, ptr %18, align 1
-  %.sroa.5.0.insert.ext = zext i8 %21 to i32
-  %.sroa.5.0.insert.shift = shl nuw nsw i32 %.sroa.5.0.insert.ext, 8
+  %.sroa.7.0.insert.ext = zext i8 %21 to i32
+  %.sroa.7.0.insert.shift = shl nuw nsw i32 %.sroa.7.0.insert.ext, 8
   %.sroa.026.0.insert.ext = zext i8 %.sroa.026.0203 to i32
   %.sroa.026.0.insert.insert = add i32 %.1144, %.sroa.026.0.insert.ext
-  %22 = add i32 %.sroa.026.0.insert.insert, %.sroa.5.0.insert.shift
+  %22 = add i32 %.sroa.026.0.insert.insert, %.sroa.7.0.insert.shift
   %23 = getelementptr i8, ptr %18, i64 1
   %24 = add i32 %15, -1
   br label %25
@@ -70,9 +70,9 @@ define range(i32 0, 65536) i32 @in_cksum_ret_partial(ptr noundef readonly captur
   br i1 %or.cond3.not, label %40, label %30
 
 30:                                               ; preds = %25
-  %.sroa.10.0.extract.shift14 = lshr i32 %.4147, 16
+  %.sroa.12.0.extract.shift14 = lshr i32 %.4147, 16
   %31 = and i32 %.4147, 65535
-  %32 = add nuw nsw i32 %31, %.sroa.10.0.extract.shift14
+  %32 = add nuw nsw i32 %31, %.sroa.12.0.extract.shift14
   %33 = icmp samesign ugt i32 %32, 65535
   %34 = shl nuw nsw i32 %32, 8
   %35 = add nsw i32 %34, -16776960
@@ -168,7 +168,7 @@ define range(i32 0, 65536) i32 @in_cksum_ret_partial(ptr noundef readonly captur
   %108 = getelementptr i8, ptr %.2152179, i64 32
   %109 = add nsw i32 %44, -32
   %110 = icmp samesign ugt i32 %44, 31
-  br i1 %110, label %.lr.ph, label %.preheader, !llvm.loop !4
+  br i1 %110, label %.lr.ph, label %.preheader, !llvm.loop !6
 
 .lr.ph186:                                        ; preds = %.preheader, %.lr.ph186
   %.5185 = phi i32 [ %111, %.lr.ph186 ], [ %.4.lcssa, %.preheader ]
@@ -192,7 +192,7 @@ define range(i32 0, 65536) i32 @in_cksum_ret_partial(ptr noundef readonly captur
   %126 = add i32 %122, %125
   %127 = getelementptr i8, ptr %.3153183, i64 8
   %128 = icmp samesign ugt i32 %.5185, 15
-  br i1 %128, label %.lr.ph186, label %._crit_edge, !llvm.loop !6
+  br i1 %128, label %.lr.ph186, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph186, %.preheader
   %.3153.lcssa = phi ptr [ %.2152.lcssa, %.preheader ], [ %127, %.lr.ph186 ]
@@ -203,9 +203,9 @@ define range(i32 0, 65536) i32 @in_cksum_ret_partial(ptr noundef readonly captur
   br i1 %or.cond5, label %162, label %130
 
 130:                                              ; preds = %._crit_edge
-  %.sroa.10.0.extract.shift16 = lshr i32 %.8.lcssa, 16
+  %.sroa.12.0.extract.shift16 = lshr i32 %.8.lcssa, 16
   %131 = and i32 %.8.lcssa, 65535
-  %132 = add nuw nsw i32 %131, %.sroa.10.0.extract.shift16
+  %132 = add nuw nsw i32 %131, %.sroa.12.0.extract.shift16
   %133 = icmp samesign ugt i32 %132, 65535
   %134 = add nsw i32 %132, -65535
   %spec.select177 = select i1 %133, i32 %134, i32 %132
@@ -227,7 +227,7 @@ define range(i32 0, 65536) i32 @in_cksum_ret_partial(ptr noundef readonly captur
   %142 = add i32 %.10191, %141
   %143 = add nsw i32 %138, -2
   %144 = icmp samesign ugt i32 %138, 1
-  br i1 %144, label %.lr.ph193, label %._crit_edge194.loopexit, !llvm.loop !7
+  br i1 %144, label %.lr.ph193, label %._crit_edge194.loopexit, !llvm.loop !9
 
 ._crit_edge194.loopexit:                          ; preds = %.lr.ph193
   %145 = add nsw i32 %.5.lcssa, -4
@@ -241,9 +241,9 @@ define range(i32 0, 65536) i32 @in_cksum_ret_partial(ptr noundef readonly captur
   br i1 %or.cond3.not, label %158, label %147
 
 147:                                              ; preds = %._crit_edge194
-  %.sroa.10.0.extract.shift18 = lshr i32 %.10.lcssa, 16
+  %.sroa.12.0.extract.shift18 = lshr i32 %.10.lcssa, 16
   %148 = and i32 %.10.lcssa, 65535
-  %149 = add nuw nsw i32 %148, %.sroa.10.0.extract.shift18
+  %149 = add nuw nsw i32 %148, %.sroa.12.0.extract.shift18
   %150 = icmp samesign ugt i32 %149, 65535
   %151 = shl nuw nsw i32 %149, 8
   %152 = add nsw i32 %151, -16776960
@@ -253,11 +253,11 @@ define range(i32 0, 65536) i32 @in_cksum_ret_partial(ptr noundef readonly captur
 
 155:                                              ; preds = %147
   %156 = load i8, ptr %.4154.lcssa, align 1
-  %.sroa.5.0.insert.ext36 = zext i8 %156 to i32
-  %.sroa.5.0.insert.shift37 = shl nuw nsw i32 %.sroa.5.0.insert.ext36, 8
+  %.sroa.7.0.insert.ext36 = zext i8 %156 to i32
+  %.sroa.7.0.insert.shift37 = shl nuw nsw i32 %.sroa.7.0.insert.ext36, 8
   %.sroa.026.0.insert.ext28 = zext i8 %.sroa.026.2 to i32
   %.sroa.026.0.insert.insert30 = or disjoint i32 %153, %.sroa.026.0.insert.ext28
-  %157 = add nuw nsw i32 %.sroa.026.0.insert.insert30, %.sroa.5.0.insert.shift37
+  %157 = add nuw nsw i32 %.sroa.026.0.insert.insert30, %.sroa.7.0.insert.shift37
   br label %162
 
 158:                                              ; preds = %._crit_edge194
@@ -275,7 +275,7 @@ define range(i32 0, 65536) i32 @in_cksum_ret_partial(ptr noundef readonly captur
   %163 = getelementptr i8, ptr %.0155200, i64 16
   %164 = add i32 %.0156199, -1
   %.not = icmp eq i32 %164, 0
-  br i1 %.not, label %._crit_edge206.loopexit, label %5, !llvm.loop !8
+  br i1 %.not, label %._crit_edge206.loopexit, label %5, !llvm.loop !10
 
 ._crit_edge206.loopexit:                          ; preds = %162
   %165 = icmp eq i32 %.1141, -1
@@ -286,9 +286,9 @@ define range(i32 0, 65536) i32 @in_cksum_ret_partial(ptr noundef readonly captur
 
 ._crit_edge206:                                   ; preds = %._crit_edge206.loopexit, %3
   %.12 = phi i32 [ 0, %3 ], [ %168, %._crit_edge206.loopexit ]
-  %.sroa.10.0.extract.shift20 = lshr i32 %.12, 16
+  %.sroa.12.0.extract.shift20 = lshr i32 %.12, 16
   %169 = and i32 %.12, 65535
-  %170 = add nuw nsw i32 %169, %.sroa.10.0.extract.shift20
+  %170 = add nuw nsw i32 %169, %.sroa.12.0.extract.shift20
   %171 = icmp samesign ugt i32 %170, 65535
   %172 = zext i1 %171 to i32
   %.13 = add nuw nsw i32 %170, %172
@@ -297,39 +297,50 @@ define range(i32 0, 65536) i32 @in_cksum_ret_partial(ptr noundef readonly captur
   ret i32 %174
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 65536) i32 @in_cksum(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(readwrite, inaccessiblemem: none) uwtable
+define range(i32 0, 65536) i32 @in_cksum(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = tail call i32 @in_cksum_ret_partial(ptr noundef %0, i32 noundef %1, ptr noundef null)
   ret i32 %3
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define zeroext i16 @ip_checksum(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(readwrite, inaccessiblemem: none) uwtable
+define zeroext i16 @ip_checksum(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = alloca [1 x %struct.vec_t], align 16
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
   store ptr %0, ptr %3, align 16
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %1, ptr %4, align 8
   %5 = call i32 @in_cksum_ret_partial(ptr noundef nonnull %3, i32 noundef 1, ptr noundef null)
   %6 = trunc nuw i32 %5 to i16
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
   ret i16 %6
 }
 
-; Function Attrs: nounwind uwtable
-define zeroext i16 @ip_checksum_tvb(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define zeroext i16 @ip_checksum_tvb(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = alloca [1 x %struct.vec_t], align 16
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %2, ptr %5, align 8
-  %6 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %1, i32 noundef %2) #6
+  %6 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %1, i32 noundef %2)
   store ptr %6, ptr %4, align 16
   %7 = call i32 @in_cksum_ret_partial(ptr noundef nonnull %4, i32 noundef 1, ptr noundef null)
   %8 = trunc nuw i32 %7 to i16
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
   ret i16 %8
 }
 
-declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden zeroext i16 @in_cksum_shouldbe(i16 noundef zeroext %0, i16 noundef zeroext %1) local_unnamed_addr #4 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
+define hidden zeroext i16 @in_cksum_shouldbe(i16 noundef zeroext %0, i16 noundef zeroext %1) local_unnamed_addr #5 {
   %3 = zext i16 %0 to i32
   %rev = tail call i16 @llvm.bswap.i16(i16 %1)
   %4 = zext i16 %rev to i32
@@ -337,31 +348,37 @@ define hidden zeroext i16 @in_cksum_shouldbe(i16 noundef zeroext %0, i16 noundef
   %6 = and i32 %5, 65535
   %7 = lshr i32 %5, 16
   %8 = add nuw nsw i32 %6, %7
-  %9 = lshr i32 %8, 16
-  %10 = add nuw nsw i32 %9, %8
-  %11 = trunc i32 %10 to i16
-  ret i16 %11
+  %9 = and i32 %8, 65535
+  %10 = lshr i32 %8, 16
+  %11 = add nuw nsw i32 %9, %10
+  %12 = icmp eq i32 %11, 65535
+  %13 = trunc i32 %11 to i16
+  %14 = select i1 %12, i16 0, i16 %13
+  ret i16 %14
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #5
+declare i16 @llvm.bswap.i16(i16) #6
 
-attributes #0 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind }
+attributes #0 = { nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

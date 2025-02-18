@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._uat_field_t = type { ptr, ptr, i32, %struct.anon, %struct.anon.0, ptr, ptr, ptr }
 %struct.anon = type { ptr, ptr, ptr }
 %struct.anon.0 = type { ptr, ptr, ptr }
 %struct.lbmpdm_tcp_tag_entry_t = type { ptr, i32, i32 }
@@ -35,71 +34,78 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.14 = private unnamed_addr constant [22 x i8] c"use_lbmpdm_tcp_domain\00", align 1
 @.str.15 = private unnamed_addr constant [25 x i8] c"Use LBMPDM-TCP tag table\00", align 1
 @.str.16 = private unnamed_addr constant [74 x i8] c"Use table of LBMPDM-TCP tags to decode the packet instead of above values\00", align 1
-@global_lbmpdm_tcp_use_tag = internal global i32 0, align 4
+@global_lbmpdm_tcp_use_tag = internal global i8 0, align 1
 @.str.17 = private unnamed_addr constant [27 x i8] c"LBMPDM-TCP tag definitions\00", align 1
 @.str.18 = private unnamed_addr constant [19 x i8] c"lbmpdm_tcp_domains\00", align 1
 @lbmpdm_tcp_tag_entry = internal global ptr null, align 8
 @lbmpdm_tcp_tag_count = internal global i32 0, align 4
-@lbmpdm_tcp_tag_array = internal global [4 x %struct._uat_field_t] [%struct._uat_field_t { ptr @.str.26, ptr @.str.27, i32 1, %struct.anon { ptr @uat_fld_chk_str, ptr @lbmpdm_tcp_tag_name_set_cb, ptr @lbmpdm_tcp_tag_name_tostr_cb }, %struct.anon.0 zeroinitializer, ptr null, ptr @.str.27, ptr null }, %struct._uat_field_t { ptr @.str.8, ptr @.str.28, i32 1, %struct.anon { ptr @uat_fld_chk_num_dec, ptr @lbmpdm_tcp_tag_port_low_set_cb, ptr @lbmpdm_tcp_tag_port_low_tostr_cb }, %struct.anon.0 zeroinitializer, ptr null, ptr @.str.28, ptr null }, %struct._uat_field_t { ptr @.str.11, ptr @.str.29, i32 1, %struct.anon { ptr @uat_fld_chk_num_dec, ptr @lbmpdm_tcp_tag_port_high_set_cb, ptr @lbmpdm_tcp_tag_port_high_tostr_cb }, %struct.anon.0 zeroinitializer, ptr null, ptr @.str.29, ptr null }, %struct._uat_field_t zeroinitializer], align 16
 @.str.19 = private unnamed_addr constant [20 x i8] c"tnw_lbmpdm_tcp_tags\00", align 1
 @.str.20 = private unnamed_addr constant [16 x i8] c"LBMPDM-TCP Tags\00", align 1
 @.str.21 = private unnamed_addr constant [34 x i8] c"A table to define LBMPDM-TCP tags\00", align 1
 @lbmpdm_tcp_dissector_handle = internal unnamed_addr global ptr null, align 8
-@proto_reg_handoff_lbmpdm_tcp.already_registered = internal unnamed_addr global i1 false, align 4
+@proto_reg_handoff_lbmpdm_tcp.already_registered = internal unnamed_addr global i1 false, align 1
 @.str.22 = private unnamed_addr constant [9 x i8] c"tcp.port\00", align 1
 @.str.23 = private unnamed_addr constant [4 x i8] c"tcp\00", align 1
 @.str.24 = private unnamed_addr constant [16 x i8] c"LBMPDM over TCP\00", align 1
 @lbmpdm_tcp_port_low = internal unnamed_addr global i32 14371, align 4
 @lbmpdm_tcp_port_high = internal unnamed_addr global i32 14390, align 4
-@lbmpdm_tcp_use_tag = internal unnamed_addr global i32 0, align 4
+@lbmpdm_tcp_use_tag = internal unnamed_addr global i8 0, align 1
 @.str.25 = private unnamed_addr constant [24 x i8] c"Tag name can't be empty\00", align 1
 @.str.26 = private unnamed_addr constant [5 x i8] c"name\00", align 1
 @.str.27 = private unnamed_addr constant [9 x i8] c"Tag name\00", align 1
 @.str.28 = private unnamed_addr constant [9 x i8] c"Port low\00", align 1
 @.str.29 = private unnamed_addr constant [10 x i8] c"Port high\00", align 1
-@.str.30 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
-@.str.31 = private unnamed_addr constant [3 x i8] c"%u\00", align 1
-@.str.32 = private unnamed_addr constant [10 x i8] c"[Tag: %s]\00", align 1
-@.str.33 = private unnamed_addr constant [30 x i8] c"LBMPDM-TCP Protocol (Tag: %s)\00", align 1
-@.str.34 = private unnamed_addr constant [20 x i8] c"LBMPDM-TCP Protocol\00", align 1
+@lbmpdm_tcp_tag_array = internal global [4 x { ptr, ptr, i32, [4 x i8], %struct.anon, %struct.anon.0, ptr, ptr, ptr }] [{ ptr, ptr, i32, [4 x i8], %struct.anon, %struct.anon.0, ptr, ptr, ptr } { ptr @.str.26, ptr @.str.27, i32 1, [4 x i8] zeroinitializer, %struct.anon { ptr @uat_fld_chk_str, ptr @lbmpdm_tcp_tag_name_set_cb, ptr @lbmpdm_tcp_tag_name_tostr_cb }, %struct.anon.0 zeroinitializer, ptr null, ptr @.str.27, ptr null }, { ptr, ptr, i32, [4 x i8], %struct.anon, %struct.anon.0, ptr, ptr, ptr } { ptr @.str.8, ptr @.str.28, i32 1, [4 x i8] zeroinitializer, %struct.anon { ptr @uat_fld_chk_num_dec, ptr @lbmpdm_tcp_tag_port_low_set_cb, ptr @lbmpdm_tcp_tag_port_low_tostr_cb }, %struct.anon.0 zeroinitializer, ptr null, ptr @.str.28, ptr null }, { ptr, ptr, i32, [4 x i8], %struct.anon, %struct.anon.0, ptr, ptr, ptr } { ptr @.str.11, ptr @.str.29, i32 1, [4 x i8] zeroinitializer, %struct.anon { ptr @uat_fld_chk_num_dec, ptr @lbmpdm_tcp_tag_port_high_set_cb, ptr @lbmpdm_tcp_tag_port_high_tostr_cb }, %struct.anon.0 zeroinitializer, ptr null, ptr @.str.29, ptr null }, { ptr, ptr, i32, [4 x i8], %struct.anon, %struct.anon.0, ptr, ptr, ptr } zeroinitializer], align 16
+@.str.31 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@.str.32 = private unnamed_addr constant [3 x i8] c"%u\00", align 1
+@.str.33 = private unnamed_addr constant [10 x i8] c"[Tag: %s]\00", align 1
+@.str.34 = private unnamed_addr constant [30 x i8] c"LBMPDM-TCP Protocol (Tag: %s)\00", align 1
+@.str.35 = private unnamed_addr constant [20 x i8] c"LBMPDM-TCP Protocol\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_lbmpdm_tcp() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6) #4
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6)
   store i32 %1, ptr @lbmpdm_tcp_protocol_handle, align 4
-  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_lbmpdm_tcp.hf, i32 noundef 2) #4
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_lbmpdm_tcp.ett, i32 noundef 1) #4
+  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_lbmpdm_tcp.hf, i32 noundef 2)
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_lbmpdm_tcp.ett, i32 noundef 1)
   %2 = load i32, ptr @lbmpdm_tcp_protocol_handle, align 4
-  %3 = tail call ptr @prefs_register_protocol_subtree(ptr noundef nonnull @.str.7, i32 noundef %2, ptr noundef nonnull @proto_reg_handoff_lbmpdm_tcp) #4
-  tail call void @prefs_register_uint_preference(ptr noundef %3, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 10, ptr noundef nonnull @global_lbmpdm_tcp_port_low) #4
-  tail call void @prefs_register_uint_preference(ptr noundef %3, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 10, ptr noundef nonnull @global_lbmpdm_tcp_port_high) #4
-  tail call void @prefs_register_bool_preference(ptr noundef %3, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, ptr noundef nonnull @global_lbmpdm_tcp_use_tag) #4
-  %4 = tail call ptr @uat_new(ptr noundef nonnull @.str.17, i64 noundef 16, ptr noundef nonnull @.str.18, i1 noundef zeroext true, ptr noundef nonnull @lbmpdm_tcp_tag_entry, ptr noundef nonnull @lbmpdm_tcp_tag_count, i32 noundef 1, ptr noundef null, ptr noundef nonnull @lbmpdm_tcp_tag_copy_cb, ptr noundef nonnull @lbmpdm_tcp_tag_update_cb, ptr noundef nonnull @lbmpdm_tcp_tag_free_cb, ptr noundef null, ptr noundef null, ptr noundef nonnull @lbmpdm_tcp_tag_array) #4
-  tail call void @prefs_register_uat_preference(ptr noundef %3, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, ptr noundef %4) #4
+  %3 = tail call ptr @prefs_register_protocol_subtree(ptr noundef nonnull @.str.7, i32 noundef %2, ptr noundef nonnull @proto_reg_handoff_lbmpdm_tcp)
+  tail call void @prefs_register_uint_preference(ptr noundef %3, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 10, ptr noundef nonnull @global_lbmpdm_tcp_port_low)
+  tail call void @prefs_register_uint_preference(ptr noundef %3, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 10, ptr noundef nonnull @global_lbmpdm_tcp_port_high)
+  tail call void @prefs_register_bool_preference(ptr noundef %3, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, ptr noundef nonnull @global_lbmpdm_tcp_use_tag)
+  %4 = tail call ptr @uat_new(ptr noundef nonnull @.str.17, i64 noundef 16, ptr noundef nonnull @.str.18, i1 noundef zeroext true, ptr noundef nonnull @lbmpdm_tcp_tag_entry, ptr noundef nonnull @lbmpdm_tcp_tag_count, i32 noundef 1, ptr noundef null, ptr noundef nonnull @lbmpdm_tcp_tag_copy_cb, ptr noundef nonnull @lbmpdm_tcp_tag_update_cb, ptr noundef nonnull @lbmpdm_tcp_tag_free_cb, ptr noundef null, ptr noundef null, ptr noundef nonnull @lbmpdm_tcp_tag_array)
+  tail call void @prefs_register_uat_preference(ptr noundef %3, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, ptr noundef %4)
   %5 = load i32, ptr @lbmpdm_tcp_protocol_handle, align 4
-  %6 = tail call ptr @register_dissector(ptr noundef nonnull @.str.6, ptr noundef nonnull @dissect_lbmpdm_tcp, i32 noundef %5) #4
+  %6 = tail call ptr @register_dissector(ptr noundef nonnull @.str.6, ptr noundef nonnull @dissect_lbmpdm_tcp, i32 noundef %5)
   store ptr %6, ptr @lbmpdm_tcp_dissector_handle, align 8
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @prefs_register_protocol_subtree(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @prefs_register_protocol_subtree(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_lbmpdm_tcp() #0 {
-  %.b = load i1, ptr @proto_reg_handoff_lbmpdm_tcp.already_registered, align 4
-  br i1 %.b, label %4, label %1
+  %.b1 = load i1, ptr @proto_reg_handoff_lbmpdm_tcp.already_registered, align 1
+  br i1 %.b1, label %4, label %1
 
 1:                                                ; preds = %0
   %2 = load ptr, ptr @lbmpdm_tcp_dissector_handle, align 8
-  tail call void @dissector_add_for_decode_as_with_preference(ptr noundef nonnull @.str.22, ptr noundef %2) #4
+  tail call void @dissector_add_for_decode_as_with_preference(ptr noundef nonnull @.str.22, ptr noundef %2)
   %3 = load i32, ptr @lbmpdm_tcp_protocol_handle, align 4
-  tail call void @heur_dissector_add(ptr noundef nonnull @.str.23, ptr noundef nonnull @test_lbmpdm_tcp_packet, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.6, i32 noundef %3, i32 noundef 1) #4
+  tail call void @heur_dissector_add(ptr noundef nonnull @.str.23, ptr noundef nonnull @test_lbmpdm_tcp_packet, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.6, i32 noundef %3, i32 noundef 1)
   br label %4
 
 4:                                                ; preds = %1, %0
@@ -114,22 +120,25 @@ define hidden void @proto_reg_handoff_lbmpdm_tcp() #0 {
   br label %8
 
 8:                                                ; preds = %7, %4
-  %9 = load i32, ptr @global_lbmpdm_tcp_use_tag, align 4
-  store i32 %9, ptr @lbmpdm_tcp_use_tag, align 4
-  store i1 true, ptr @proto_reg_handoff_lbmpdm_tcp.already_registered, align 4
+  %9 = load i8, ptr @global_lbmpdm_tcp_use_tag, align 1, !range !6, !noundef !7
+  store i8 %9, ptr @lbmpdm_tcp_use_tag, align 1
+  store i1 true, ptr @proto_reg_handoff_lbmpdm_tcp.already_registered, align 1
   ret void
 }
 
-declare void @prefs_register_uint_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @prefs_register_uint_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef ptr @lbmpdm_tcp_tag_copy_cb(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 16)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = load ptr, ptr %1, align 8
-  %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #4
+  %5 = tail call noalias ptr @g_strdup(ptr noundef %4)
   store ptr %5, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8
@@ -142,22 +151,22 @@ define internal noundef ptr @lbmpdm_tcp_tag_copy_cb(ptr noundef returned writeon
   ret ptr %0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef zeroext i1 @lbmpdm_tcp_tag_update_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.sink.split, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @g_strchug(ptr noundef nonnull %3) #4
-  %7 = tail call ptr @g_strchomp(ptr noundef %6) #4
+  %6 = tail call ptr @g_strchug(ptr noundef nonnull %3)
+  %7 = tail call ptr @g_strchomp(ptr noundef %6)
   %8 = load ptr, ptr %0, align 8
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, 0
   br i1 %10, label %.sink.split, label %12
 
 .sink.split:                                      ; preds = %5, %2
-  %11 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.25) #4
+  %11 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.25)
   store ptr %11, ptr %1, align 8
   br label %12
 
@@ -166,14 +175,14 @@ define internal noundef zeroext i1 @lbmpdm_tcp_tag_update_cb(ptr noundef readonl
   ret i1 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @lbmpdm_tcp_tag_free_cb(ptr noundef captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
 
 3:                                                ; preds = %1
-  tail call void @g_free(ptr noundef nonnull %2) #4
+  tail call void @g_free(ptr noundef nonnull %2)
   store ptr null, ptr %0, align 8
   br label %4
 
@@ -181,96 +190,105 @@ define internal void @lbmpdm_tcp_tag_free_cb(ptr noundef captures(none) %0) #0 {
   ret void
 }
 
-declare void @prefs_register_uat_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @prefs_register_uat_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_lbmpdm_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
-  tail call void @col_add_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.5) #4
+  tail call void @col_set_str(ptr noundef %6, i32 noundef 35, ptr noundef nonnull @.str.5)
   %7 = load ptr, ptr %5, align 8
-  tail call void @col_clear(ptr noundef %7, i32 noundef 25) #4
-  %8 = load i32, ptr @lbmpdm_tcp_use_tag, align 4
-  %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %lbmpdm_tcp_tag_find.exit.thread, label %.preheader.i.i
+  tail call void @col_clear(ptr noundef %7, i32 noundef 25)
+  %8 = load i8, ptr @lbmpdm_tcp_use_tag, align 1, !range !6, !noundef !7
+  %9 = trunc nuw i8 %8 to i1
+  br i1 %9, label %.preheader.i.i, label %lbmpdm_tcp_tag_find.exit.thread
 
 .preheader.i.i:                                   ; preds = %4
-  %9 = load i32, ptr @lbmpdm_tcp_tag_count, align 4
-  %.not24.i.i = icmp eq i32 %9, 0
-  br i1 %.not24.i.i, label %lbmpdm_tcp_tag_find.exit.thread, label %.lr.ph.i.i
+  %10 = load i32, ptr @lbmpdm_tcp_tag_count, align 4
+  %.not23.i.i = icmp eq i32 %10, 0
+  br i1 %.not23.i.i, label %lbmpdm_tcp_tag_find.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
-  %10 = load ptr, ptr @lbmpdm_tcp_tag_entry, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 284
-  %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 288
-  %wide.trip.count.i.i = zext i32 %9 to i64
-  br label %14
+  %11 = load ptr, ptr @lbmpdm_tcp_tag_entry, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 284
+  %13 = load i32, ptr %12, align 4
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 288
+  %wide.trip.count.i.i = zext i32 %10 to i64
+  br label %15
 
-14:                                               ; preds = %26, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
-  %15 = getelementptr %struct.lbmpdm_tcp_tag_entry_t, ptr %10, i64 %indvars.iv.i.i
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = load i32, ptr %16, align 8
-  %.not15.i.i = icmp ult i32 %12, %17
-  br i1 %.not15.i.i, label %21, label %18
+15:                                               ; preds = %27, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %27 ]
+  %16 = getelementptr %struct.lbmpdm_tcp_tag_entry_t, ptr %11, i64 %indvars.iv.i.i
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %18 = load i32, ptr %17, align 8
+  %.not.i.i = icmp ult i32 %13, %18
+  br i1 %.not.i.i, label %22, label %19
 
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds nuw i8, ptr %15, i64 12
-  %20 = load i32, ptr %19, align 4
-  %.not16.i.i = icmp ugt i32 %12, %20
-  br i1 %.not16.i.i, label %21, label %lbmpdm_tcp_tag_locate.exit.i
+19:                                               ; preds = %15
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 12
+  %21 = load i32, ptr %20, align 4
+  %.not15.i.i = icmp ugt i32 %13, %21
+  br i1 %.not15.i.i, label %22, label %lbmpdm_tcp_tag_locate.exit.i
 
-21:                                               ; preds = %18, %14
-  %22 = load i32, ptr %13, align 8
-  %.not17.i.i = icmp ult i32 %22, %17
-  br i1 %.not17.i.i, label %26, label %23
+22:                                               ; preds = %19, %15
+  %23 = load i32, ptr %14, align 8
+  %.not16.i.i = icmp ult i32 %23, %18
+  br i1 %.not16.i.i, label %27, label %24
 
-23:                                               ; preds = %21
-  %24 = getelementptr inbounds nuw i8, ptr %15, i64 12
-  %25 = load i32, ptr %24, align 4
-  %.not18.i.i = icmp ugt i32 %22, %25
-  br i1 %.not18.i.i, label %26, label %lbmpdm_tcp_tag_locate.exit.i
+24:                                               ; preds = %22
+  %25 = getelementptr inbounds nuw i8, ptr %16, i64 12
+  %26 = load i32, ptr %25, align 4
+  %.not17.i.i = icmp ugt i32 %23, %26
+  br i1 %.not17.i.i, label %27, label %lbmpdm_tcp_tag_locate.exit.i
 
-26:                                               ; preds = %23, %21
+27:                                               ; preds = %24, %22
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %lbmpdm_tcp_tag_find.exit.thread, label %14, !llvm.loop !4
+  br i1 %exitcond.not.i.i, label %lbmpdm_tcp_tag_find.exit.thread, label %15, !llvm.loop !8
 
-lbmpdm_tcp_tag_locate.exit.i:                     ; preds = %23, %18
-  %.not5.i = icmp eq ptr %15, null
-  br i1 %.not5.i, label %lbmpdm_tcp_tag_find.exit.thread, label %lbmpdm_tcp_tag_find.exit
+lbmpdm_tcp_tag_locate.exit.i:                     ; preds = %24, %19
+  %.not.i = icmp eq ptr %16, null
+  br i1 %.not.i, label %lbmpdm_tcp_tag_find.exit.thread, label %lbmpdm_tcp_tag_find.exit
 
 lbmpdm_tcp_tag_find.exit:                         ; preds = %lbmpdm_tcp_tag_locate.exit.i
-  %27 = load ptr, ptr %15, align 8
-  %.not11 = icmp eq ptr %27, null
-  br i1 %.not11, label %lbmpdm_tcp_tag_find.exit.thread, label %28
+  %28 = load ptr, ptr %16, align 8
+  %.not = icmp eq ptr %28, null
+  br i1 %.not, label %lbmpdm_tcp_tag_find.exit.thread, label %29
 
-28:                                               ; preds = %lbmpdm_tcp_tag_find.exit
-  %29 = load ptr, ptr %5, align 8
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %29, i32 noundef 25, ptr noundef nonnull @.str.32, ptr noundef nonnull %27) #4
+29:                                               ; preds = %lbmpdm_tcp_tag_find.exit
+  %30 = load ptr, ptr %5, align 8
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %30, i32 noundef 25, ptr noundef nonnull @.str.33, ptr noundef nonnull %28)
   br label %lbmpdm_tcp_tag_find.exit.thread
 
-lbmpdm_tcp_tag_find.exit.thread:                  ; preds = %26, %.preheader.i.i, %lbmpdm_tcp_tag_locate.exit.i, %4, %28, %lbmpdm_tcp_tag_find.exit
-  %30 = load ptr, ptr %5, align 8
-  tail call void @col_set_fence(ptr noundef %30, i32 noundef 25) #4
-  %31 = tail call i32 @lbmpdm_get_minimum_length() #4
-  tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, i32 noundef %31, ptr noundef nonnull @get_lbmpdm_tcp_pdu_length, ptr noundef nonnull @dissect_lbmpdm_tcp_pdu, ptr noundef null) #4
-  %32 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
-  ret i32 %32
+lbmpdm_tcp_tag_find.exit.thread:                  ; preds = %27, %.preheader.i.i, %lbmpdm_tcp_tag_locate.exit.i, %4, %29, %lbmpdm_tcp_tag_find.exit
+  %31 = load ptr, ptr %5, align 8
+  tail call void @col_set_fence(ptr noundef %31, i32 noundef 25)
+  %32 = tail call i32 @lbmpdm_get_minimum_length()
+  tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, i32 noundef %32, ptr noundef nonnull @get_lbmpdm_tcp_pdu_length, ptr noundef nonnull @dissect_lbmpdm_tcp_pdu, ptr noundef null)
+  %33 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  ret i32 %33
 }
 
-declare void @dissector_add_for_decode_as_with_preference(ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_add_for_decode_as_with_preference(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @test_lbmpdm_tcp_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
+; Function Attrs: null_pointer_is_valid
+declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal noundef zeroext i1 @test_lbmpdm_tcp_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
   store i32 0, ptr %5, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
   store i32 0, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %8 = load i32, ptr %7, align 8
@@ -280,140 +298,146 @@ define internal range(i32 0, 2) i32 @test_lbmpdm_tcp_packet(ptr noundef %0, ptr 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %11 = load i32, ptr %10, align 8
-  %.not19 = icmp eq i32 %11, 2
-  br i1 %.not19, label %12, label %lbmpdm_tcp_tag_find.exit.thread
+  %.not20 = icmp eq i32 %11, 2
+  br i1 %.not20, label %12, label %lbmpdm_tcp_tag_find.exit.thread
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 236
   %14 = load i32, ptr %13, align 4
-  %.not20 = icmp eq i32 %14, 4
-  br i1 %.not20, label %15, label %lbmpdm_tcp_tag_find.exit.thread
+  %.not21 = icmp eq i32 %14, 4
+  br i1 %.not21, label %15, label %lbmpdm_tcp_tag_find.exit.thread
 
 15:                                               ; preds = %12
-  %16 = call i32 @lbmpdm_verify_payload(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef nonnull %6) #4
-  %.not21 = icmp eq i32 %16, 0
-  br i1 %.not21, label %lbmpdm_tcp_tag_find.exit.thread, label %17
+  %16 = call zeroext i1 @lbmpdm_verify_payload(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  br i1 %16, label %17, label %lbmpdm_tcp_tag_find.exit.thread
 
 17:                                               ; preds = %15
-  %18 = load i32, ptr @lbmpdm_tcp_use_tag, align 4
-  %.not22 = icmp eq i32 %18, 0
-  br i1 %.not22, label %38, label %.preheader.i.i
+  %18 = load i8, ptr @lbmpdm_tcp_use_tag, align 1, !range !6, !noundef !7
+  %19 = trunc nuw i8 %18 to i1
+  br i1 %19, label %.preheader.i.i, label %39
 
 .preheader.i.i:                                   ; preds = %17
-  %19 = load i32, ptr @lbmpdm_tcp_tag_count, align 4
-  %.not24.i.i = icmp eq i32 %19, 0
-  br i1 %.not24.i.i, label %lbmpdm_tcp_tag_find.exit.thread, label %.lr.ph.i.i
+  %20 = load i32, ptr @lbmpdm_tcp_tag_count, align 4
+  %.not23.i.i = icmp eq i32 %20, 0
+  br i1 %.not23.i.i, label %lbmpdm_tcp_tag_find.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
-  %20 = load ptr, ptr @lbmpdm_tcp_tag_entry, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 284
-  %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 288
-  %wide.trip.count.i.i = zext i32 %19 to i64
-  br label %24
+  %21 = load ptr, ptr @lbmpdm_tcp_tag_entry, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 284
+  %23 = load i32, ptr %22, align 4
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 288
+  %wide.trip.count.i.i = zext i32 %20 to i64
+  br label %25
 
-24:                                               ; preds = %36, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %36 ]
-  %25 = getelementptr %struct.lbmpdm_tcp_tag_entry_t, ptr %20, i64 %indvars.iv.i.i
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %27 = load i32, ptr %26, align 8
-  %.not15.i.i = icmp ult i32 %22, %27
-  br i1 %.not15.i.i, label %31, label %28
+25:                                               ; preds = %37, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %37 ]
+  %26 = getelementptr %struct.lbmpdm_tcp_tag_entry_t, ptr %21, i64 %indvars.iv.i.i
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %28 = load i32, ptr %27, align 8
+  %.not.i.i = icmp ult i32 %23, %28
+  br i1 %.not.i.i, label %32, label %29
 
-28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw i8, ptr %25, i64 12
-  %30 = load i32, ptr %29, align 4
-  %.not16.i.i = icmp ugt i32 %22, %30
-  br i1 %.not16.i.i, label %31, label %lbmpdm_tcp_tag_locate.exit.i
+29:                                               ; preds = %25
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 12
+  %31 = load i32, ptr %30, align 4
+  %.not15.i.i = icmp ugt i32 %23, %31
+  br i1 %.not15.i.i, label %32, label %lbmpdm_tcp_tag_locate.exit.i
 
-31:                                               ; preds = %28, %24
-  %32 = load i32, ptr %23, align 8
-  %.not17.i.i = icmp ult i32 %32, %27
-  br i1 %.not17.i.i, label %36, label %33
+32:                                               ; preds = %29, %25
+  %33 = load i32, ptr %24, align 8
+  %.not16.i.i = icmp ult i32 %33, %28
+  br i1 %.not16.i.i, label %37, label %34
 
-33:                                               ; preds = %31
-  %34 = getelementptr inbounds nuw i8, ptr %25, i64 12
-  %35 = load i32, ptr %34, align 4
-  %.not18.i.i = icmp ugt i32 %32, %35
-  br i1 %.not18.i.i, label %36, label %lbmpdm_tcp_tag_locate.exit.i
+34:                                               ; preds = %32
+  %35 = getelementptr inbounds nuw i8, ptr %26, i64 12
+  %36 = load i32, ptr %35, align 4
+  %.not17.i.i = icmp ugt i32 %33, %36
+  br i1 %.not17.i.i, label %37, label %lbmpdm_tcp_tag_locate.exit.i
 
-36:                                               ; preds = %33, %31
+37:                                               ; preds = %34, %32
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %lbmpdm_tcp_tag_find.exit.thread, label %24, !llvm.loop !4
+  br i1 %exitcond.not.i.i, label %lbmpdm_tcp_tag_find.exit.thread, label %25, !llvm.loop !8
 
-lbmpdm_tcp_tag_locate.exit.i:                     ; preds = %33, %28
-  %.not5.i = icmp eq ptr %25, null
-  br i1 %.not5.i, label %lbmpdm_tcp_tag_find.exit.thread, label %lbmpdm_tcp_tag_find.exit
+lbmpdm_tcp_tag_locate.exit.i:                     ; preds = %34, %29
+  %.not.i = icmp eq ptr %26, null
+  br i1 %.not.i, label %lbmpdm_tcp_tag_find.exit.thread, label %lbmpdm_tcp_tag_find.exit
 
 lbmpdm_tcp_tag_find.exit:                         ; preds = %lbmpdm_tcp_tag_locate.exit.i
-  %37 = load ptr, ptr %25, align 8
-  %.not27 = icmp eq ptr %37, null
-  br i1 %.not27, label %lbmpdm_tcp_tag_find.exit.thread, label %lbmpdm_tcp_tag_find.exit.thread.sink.split
+  %38 = load ptr, ptr %26, align 8
+  %.not26 = icmp eq ptr %38, null
+  br i1 %.not26, label %lbmpdm_tcp_tag_find.exit.thread, label %lbmpdm_tcp_tag_find.exit.thread.sink.split
 
-38:                                               ; preds = %17
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 284
-  %40 = load i32, ptr %39, align 4
-  %41 = load i32, ptr @lbmpdm_tcp_port_low, align 4
-  %.not23 = icmp ult i32 %40, %41
-  %42 = load i32, ptr @lbmpdm_tcp_port_high, align 4
-  %.not24 = icmp ugt i32 %40, %42
-  %or.cond = select i1 %.not23, i1 true, i1 %.not24
-  br i1 %or.cond, label %43, label %lbmpdm_tcp_tag_find.exit.thread.sink.split
+39:                                               ; preds = %17
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 284
+  %41 = load i32, ptr %40, align 4
+  %42 = load i32, ptr @lbmpdm_tcp_port_low, align 4
+  %.not22 = icmp ult i32 %41, %42
+  %43 = load i32, ptr @lbmpdm_tcp_port_high, align 4
+  %.not23 = icmp ugt i32 %41, %43
+  %or.cond = select i1 %.not22, i1 true, i1 %.not23
+  br i1 %or.cond, label %44, label %lbmpdm_tcp_tag_find.exit.thread.sink.split
 
-43:                                               ; preds = %38
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 288
-  %45 = load i32, ptr %44, align 8
-  %.not25 = icmp ult i32 %45, %41
-  %.not26 = icmp ugt i32 %45, %42
-  %or.cond28 = select i1 %.not25, i1 true, i1 %.not26
-  br i1 %or.cond28, label %lbmpdm_tcp_tag_find.exit.thread, label %lbmpdm_tcp_tag_find.exit.thread.sink.split
+44:                                               ; preds = %39
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 288
+  %46 = load i32, ptr %45, align 8
+  %.not24 = icmp ult i32 %46, %42
+  %.not25 = icmp ugt i32 %46, %43
+  %or.cond27 = select i1 %.not24, i1 true, i1 %.not25
+  br i1 %or.cond27, label %lbmpdm_tcp_tag_find.exit.thread, label %lbmpdm_tcp_tag_find.exit.thread.sink.split
 
-lbmpdm_tcp_tag_find.exit.thread.sink.split:       ; preds = %38, %43, %lbmpdm_tcp_tag_find.exit
-  %46 = call i32 @dissect_lbmpdm_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
+lbmpdm_tcp_tag_find.exit.thread.sink.split:       ; preds = %39, %44, %lbmpdm_tcp_tag_find.exit
+  %47 = call i32 @dissect_lbmpdm_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
   br label %lbmpdm_tcp_tag_find.exit.thread
 
-lbmpdm_tcp_tag_find.exit.thread:                  ; preds = %36, %lbmpdm_tcp_tag_find.exit.thread.sink.split, %.preheader.i.i, %lbmpdm_tcp_tag_locate.exit.i, %43, %lbmpdm_tcp_tag_find.exit, %15, %9, %12, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %12 ], [ 0, %9 ], [ 0, %15 ], [ 0, %lbmpdm_tcp_tag_find.exit ], [ 0, %43 ], [ 0, %lbmpdm_tcp_tag_locate.exit.i ], [ 0, %.preheader.i.i ], [ 1, %lbmpdm_tcp_tag_find.exit.thread.sink.split ], [ 0, %36 ]
-  ret i32 %.0
+lbmpdm_tcp_tag_find.exit.thread:                  ; preds = %37, %lbmpdm_tcp_tag_find.exit.thread.sink.split, %.preheader.i.i, %lbmpdm_tcp_tag_locate.exit.i, %44, %lbmpdm_tcp_tag_find.exit, %15, %9, %12, %4
+  %.0 = phi i1 [ false, %4 ], [ false, %12 ], [ false, %9 ], [ false, %15 ], [ false, %lbmpdm_tcp_tag_find.exit ], [ false, %44 ], [ false, %lbmpdm_tcp_tag_locate.exit.i ], [ false, %.preheader.i.i ], [ true, %lbmpdm_tcp_tag_find.exit.thread.sink.split ], [ false, %37 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
+  ret i1 %.0
 }
 
-declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
 
-declare ptr @g_strchomp(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_strchomp(ptr noundef) local_unnamed_addr #2
 
-declare ptr @g_strchug(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_strchug(ptr noundef) local_unnamed_addr #2
 
-declare void @g_free(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @g_free(ptr noundef) local_unnamed_addr #2
 
-declare zeroext i1 @uat_fld_chk_str(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @uat_fld_chk_str(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @lbmpdm_tcp_tag_name_set_cb(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = zext i32 %2 to i64
-  %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #4
+  %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6)
   %8 = load ptr, ptr %0, align 8
-  tail call void @g_free(ptr noundef %8) #4
+  tail call void @g_free(ptr noundef %8)
   store ptr %7, ptr %0, align 8
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @lbmpdm_tcp_tag_name_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call noalias ptr @g_strdup(ptr noundef nonnull %6) #4
+  %8 = tail call noalias ptr @g_strdup(ptr noundef nonnull %6)
   store ptr %8, ptr %1, align 8
   %9 = load ptr, ptr %0, align 8
-  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #5
+  %10 = tail call i64 @strlen(ptr noundef %9) #8
   %11 = trunc i64 %10 to i32
   br label %14
 
 12:                                               ; preds = %5
-  %13 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.30) #4
+  %13 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.31)
   store ptr %13, ptr %1, align 8
   br label %14
 
@@ -423,399 +447,441 @@ define internal void @lbmpdm_tcp_tag_name_tostr_cb(ptr noundef readonly captures
   ret void
 }
 
-declare zeroext i1 @uat_fld_chk_num_dec(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @uat_fld_chk_num_dec(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @lbmpdm_tcp_tag_port_low_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = zext i32 %2 to i64
-  %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #4
+  %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = tail call zeroext i1 @ws_strtou32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #4
-  tail call void @g_free(ptr noundef %7) #4
+  %9 = tail call zeroext i1 @ws_strtou32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8)
+  tail call void @g_free(ptr noundef %7)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @lbmpdm_tcp_tag_port_low_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
-  %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.31, i32 noundef %7) #4
+  %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.32, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #5
+  %9 = tail call i64 @strlen(ptr noundef %8) #8
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @lbmpdm_tcp_tag_port_high_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = zext i32 %2 to i64
-  %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #4
+  %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %9 = tail call zeroext i1 @ws_strtou32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #4
-  tail call void @g_free(ptr noundef %7) #4
+  %9 = tail call zeroext i1 @ws_strtou32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8)
+  tail call void @g_free(ptr noundef %7)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @lbmpdm_tcp_tag_port_high_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i32, ptr %6, align 4
-  %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.31, i32 noundef %7) #4
+  %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.32, i32 noundef %7)
   store ptr %8, ptr %1, align 8
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #5
+  %9 = tail call i64 @strlen(ptr noundef %8) #8
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr %2, align 4
   ret void
 }
 
-declare noalias ptr @g_strndup(ptr noundef, i64 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @g_strndup(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
+; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
-declare zeroext i1 @ws_strtou32(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @ws_strtou32(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare void @col_set_fence(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_fence(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @lbmpdm_get_minimum_length() local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @lbmpdm_get_minimum_length() local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @get_lbmpdm_tcp_pdu_length(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
   store i32 0, ptr %6, align 4
-  %7 = call i32 @lbmpdm_verify_payload(ptr noundef %1, i32 noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %6) #4
-  %.not = icmp eq i32 %7, 0
+  %7 = call zeroext i1 @lbmpdm_verify_payload(ptr noundef %1, i32 noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.pre = load i32, ptr %6, align 4
-  %8 = select i1 %.not, i32 0, i32 %.pre
+  %8 = select i1 %7, i32 %.pre, i32 0
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
   ret i32 %8
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_lbmpdm_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
-  %5 = load i32, ptr @lbmpdm_tcp_use_tag, align 4
-  %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %lbmpdm_tcp_tag_find.exit.thread, label %.preheader.i.i
+  %5 = load i8, ptr @lbmpdm_tcp_use_tag, align 1, !range !6, !noundef !7
+  %6 = trunc nuw i8 %5 to i1
+  br i1 %6, label %.preheader.i.i, label %lbmpdm_tcp_tag_find.exit.thread
 
 .preheader.i.i:                                   ; preds = %4
-  %6 = load i32, ptr @lbmpdm_tcp_tag_count, align 4
-  %.not24.i.i = icmp eq i32 %6, 0
-  br i1 %.not24.i.i, label %lbmpdm_tcp_tag_find.exit.thread, label %.lr.ph.i.i
+  %7 = load i32, ptr @lbmpdm_tcp_tag_count, align 4
+  %.not23.i.i = icmp eq i32 %7, 0
+  br i1 %.not23.i.i, label %lbmpdm_tcp_tag_find.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
-  %7 = load ptr, ptr @lbmpdm_tcp_tag_entry, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 284
-  %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 288
-  %wide.trip.count.i.i = zext i32 %6 to i64
-  br label %11
+  %8 = load ptr, ptr @lbmpdm_tcp_tag_entry, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 284
+  %10 = load i32, ptr %9, align 4
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 288
+  %wide.trip.count.i.i = zext i32 %7 to i64
+  br label %12
 
-11:                                               ; preds = %23, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %23 ]
-  %12 = getelementptr %struct.lbmpdm_tcp_tag_entry_t, ptr %7, i64 %indvars.iv.i.i
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %14 = load i32, ptr %13, align 8
-  %.not15.i.i = icmp ult i32 %9, %14
-  br i1 %.not15.i.i, label %18, label %15
+12:                                               ; preds = %24, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %24 ]
+  %13 = getelementptr %struct.lbmpdm_tcp_tag_entry_t, ptr %8, i64 %indvars.iv.i.i
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %15 = load i32, ptr %14, align 8
+  %.not.i.i = icmp ult i32 %10, %15
+  br i1 %.not.i.i, label %19, label %16
 
-15:                                               ; preds = %11
-  %16 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  %17 = load i32, ptr %16, align 4
-  %.not16.i.i = icmp ugt i32 %9, %17
-  br i1 %.not16.i.i, label %18, label %lbmpdm_tcp_tag_locate.exit.i
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 12
+  %18 = load i32, ptr %17, align 4
+  %.not15.i.i = icmp ugt i32 %10, %18
+  br i1 %.not15.i.i, label %19, label %lbmpdm_tcp_tag_locate.exit.i
 
-18:                                               ; preds = %15, %11
-  %19 = load i32, ptr %10, align 8
-  %.not17.i.i = icmp ult i32 %19, %14
-  br i1 %.not17.i.i, label %23, label %20
+19:                                               ; preds = %16, %12
+  %20 = load i32, ptr %11, align 8
+  %.not16.i.i = icmp ult i32 %20, %15
+  br i1 %.not16.i.i, label %24, label %21
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  %22 = load i32, ptr %21, align 4
-  %.not18.i.i = icmp ugt i32 %19, %22
-  br i1 %.not18.i.i, label %23, label %lbmpdm_tcp_tag_locate.exit.i
+21:                                               ; preds = %19
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 12
+  %23 = load i32, ptr %22, align 4
+  %.not17.i.i = icmp ugt i32 %20, %23
+  br i1 %.not17.i.i, label %24, label %lbmpdm_tcp_tag_locate.exit.i
 
-23:                                               ; preds = %20, %18
+24:                                               ; preds = %21, %19
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %lbmpdm_tcp_tag_find.exit.thread, label %11, !llvm.loop !4
+  br i1 %exitcond.not.i.i, label %lbmpdm_tcp_tag_find.exit.thread, label %12, !llvm.loop !8
 
-lbmpdm_tcp_tag_locate.exit.i:                     ; preds = %20, %15
-  %.not5.i = icmp eq ptr %12, null
-  br i1 %.not5.i, label %lbmpdm_tcp_tag_find.exit.thread, label %lbmpdm_tcp_tag_find.exit
+lbmpdm_tcp_tag_locate.exit.i:                     ; preds = %21, %16
+  %.not.i = icmp eq ptr %13, null
+  br i1 %.not.i, label %lbmpdm_tcp_tag_find.exit.thread, label %lbmpdm_tcp_tag_find.exit
 
 lbmpdm_tcp_tag_find.exit:                         ; preds = %lbmpdm_tcp_tag_locate.exit.i
-  %24 = load ptr, ptr %12, align 8
-  %.not31 = icmp eq ptr %24, null
-  br i1 %.not31, label %lbmpdm_tcp_tag_find.exit.thread, label %25
+  %25 = load ptr, ptr %13, align 8
+  %.not = icmp eq ptr %25, null
+  br i1 %.not, label %lbmpdm_tcp_tag_find.exit.thread, label %26
 
-25:                                               ; preds = %lbmpdm_tcp_tag_find.exit
-  %26 = load i32, ptr @lbmpdm_tcp_protocol_handle, align 4
-  %27 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %26, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.33, ptr noundef nonnull %24) #4
-  br label %30
+26:                                               ; preds = %lbmpdm_tcp_tag_find.exit
+  %27 = load i32, ptr @lbmpdm_tcp_protocol_handle, align 4
+  %28 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %27, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.34, ptr noundef nonnull %25)
+  br label %31
 
-lbmpdm_tcp_tag_find.exit.thread:                  ; preds = %23, %.preheader.i.i, %lbmpdm_tcp_tag_locate.exit.i, %4, %lbmpdm_tcp_tag_find.exit
-  %28 = load i32, ptr @lbmpdm_tcp_protocol_handle, align 4
-  %29 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %28, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.34) #4
-  br label %30
+lbmpdm_tcp_tag_find.exit.thread:                  ; preds = %24, %.preheader.i.i, %lbmpdm_tcp_tag_locate.exit.i, %4, %lbmpdm_tcp_tag_find.exit
+  %29 = load i32, ptr @lbmpdm_tcp_protocol_handle, align 4
+  %30 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %29, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.35)
+  br label %31
 
-30:                                               ; preds = %lbmpdm_tcp_tag_find.exit.thread, %25
-  %.not3145 = phi i1 [ false, %25 ], [ true, %lbmpdm_tcp_tag_find.exit.thread ]
-  %.02943 = phi ptr [ %24, %25 ], [ null, %lbmpdm_tcp_tag_find.exit.thread ]
-  %.0 = phi ptr [ %27, %25 ], [ %29, %lbmpdm_tcp_tag_find.exit.thread ]
-  %31 = load i32, ptr @ett_lbmpdm_tcp, align 4
-  %32 = tail call ptr @proto_item_add_subtree(ptr noundef %.0, i32 noundef %31) #4
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 284
-  %35 = load i32, ptr %34, align 4
-  %36 = trunc i32 %35 to i16
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 232
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 288
-  %39 = load i32, ptr %38, align 8
-  %40 = trunc i32 %39 to i16
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %42 = load i32, ptr %41, align 4
-  %43 = and i32 %35, 65535
-  %44 = and i32 %39, 65535
-  %45 = tail call ptr @find_conversation(i32 noundef %42, ptr noundef nonnull %33, ptr noundef nonnull %37, i32 noundef 2, i32 noundef %43, i32 noundef %44, i32 noundef 0) #4
-  %46 = icmp eq ptr %45, null
-  br i1 %46, label %47, label %49
+31:                                               ; preds = %lbmpdm_tcp_tag_find.exit.thread, %26
+  %.not43 = phi i1 [ false, %26 ], [ true, %lbmpdm_tcp_tag_find.exit.thread ]
+  %.02941 = phi ptr [ %25, %26 ], [ null, %lbmpdm_tcp_tag_find.exit.thread ]
+  %.0 = phi ptr [ %28, %26 ], [ %30, %lbmpdm_tcp_tag_find.exit.thread ]
+  %32 = load i32, ptr @ett_lbmpdm_tcp, align 4
+  %33 = tail call ptr @proto_item_add_subtree(ptr noundef %.0, i32 noundef %32)
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 284
+  %36 = load i32, ptr %35, align 4
+  %37 = trunc i32 %36 to i16
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 288
+  %40 = load i32, ptr %39, align 8
+  %41 = trunc i32 %40 to i16
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %43 = load i32, ptr %42, align 4
+  %44 = and i32 %36, 65535
+  %45 = and i32 %40, 65535
+  %46 = tail call ptr @find_conversation(i32 noundef %43, ptr noundef nonnull %34, ptr noundef nonnull %38, i32 noundef 2, i32 noundef %44, i32 noundef %45, i32 noundef 0)
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %48, label %50
 
-47:                                               ; preds = %30
-  %48 = tail call nonnull ptr @conversation_new(i32 noundef %42, ptr noundef nonnull %33, ptr noundef nonnull %37, i32 noundef 2, i32 noundef %43, i32 noundef %44, i32 noundef 0) #4
-  br label %49
+48:                                               ; preds = %31
+  %49 = tail call ptr @conversation_new(i32 noundef %43, ptr noundef nonnull %34, ptr noundef nonnull %38, i32 noundef 2, i32 noundef %44, i32 noundef %45, i32 noundef 0)
+  br label %50
 
-49:                                               ; preds = %47, %30
-  %.0.i34 = phi ptr [ %48, %47 ], [ %45, %30 ]
-  %50 = load i32, ptr @lbmpdm_tcp_protocol_handle, align 4
-  %51 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %.0.i34, i32 noundef %50) #4
-  %.not.i35 = icmp eq ptr %51, null
-  br i1 %.not.i35, label %52, label %105
+50:                                               ; preds = %48, %31
+  %.0.i33 = phi ptr [ %49, %48 ], [ %46, %31 ]
+  %51 = load i32, ptr @lbmpdm_tcp_protocol_handle, align 4
+  %52 = tail call ptr @conversation_get_proto_data(ptr noundef %.0.i33, i32 noundef %51)
+  %.not.i34 = icmp eq ptr %52, null
+  br i1 %.not.i34, label %53, label %lbmtcp_transport_add.exit.thread
 
-52:                                               ; preds = %49
-  %53 = tail call ptr @wmem_file_scope() #4
-  %54 = tail call noalias ptr @wmem_alloc(ptr noundef %53, i64 noundef 72) #4
-  %55 = tail call ptr @wmem_file_scope() #4
-  %56 = load i32, ptr %33, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 212
-  %58 = load i32, ptr %57, align 4
-  %59 = getelementptr inbounds nuw i8, ptr %1, i64 216
-  %60 = load ptr, ptr %59, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %54, i8 0, i64 24, i1 false)
-  store i32 %56, ptr %54, align 8
-  %61 = icmp eq i32 %58, 0
-  br i1 %61, label %copy_address_wmem.exit.i, label %62
+53:                                               ; preds = %50
+  %54 = tail call ptr @wmem_file_scope()
+  %55 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc(ptr noundef %54, i64 noundef 72) #9
+  %56 = tail call ptr @wmem_file_scope()
+  %57 = load i32, ptr %34, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 212
+  %59 = load i32, ptr %58, align 4
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 216
+  %61 = load ptr, ptr %60, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %55, i8 0, i64 24, i1 false)
+  store i32 %57, ptr %55, align 8
+  %62 = icmp eq i32 %59, 0
+  br i1 %62, label %copy_address_wmem.exit.i, label %63
 
-62:                                               ; preds = %52
-  %63 = sext i32 %58 to i64
-  %64 = tail call noalias ptr @wmem_memdup(ptr noundef %55, ptr noundef %60, i64 noundef %63) #4
-  %65 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  store ptr %64, ptr %65, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  store ptr %64, ptr %66, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %54, i64 4
-  store i32 %58, ptr %67, align 4
+63:                                               ; preds = %53
+  %64 = sext i32 %59 to i64
+  %65 = tail call ptr @wmem_memdup(ptr noundef %56, ptr noundef %61, i64 noundef %64) #10
+  %66 = getelementptr inbounds nuw i8, ptr %55, i64 16
+  store ptr %65, ptr %66, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  store ptr %65, ptr %67, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %55, i64 4
+  store i32 %59, ptr %68, align 4
   br label %copy_address_wmem.exit.i
 
-copy_address_wmem.exit.i:                         ; preds = %62, %52
-  %68 = phi ptr [ null, %52 ], [ %64, %62 ]
-  %69 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  store i16 %36, ptr %69, align 8
-  %70 = tail call ptr @wmem_file_scope() #4
-  %71 = getelementptr inbounds nuw i8, ptr %54, i64 32
-  %72 = load i32, ptr %37, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 236
-  %74 = load i32, ptr %73, align 4
-  %75 = getelementptr inbounds nuw i8, ptr %1, i64 240
-  %76 = load ptr, ptr %75, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %71, i8 0, i64 24, i1 false)
-  store i32 %72, ptr %71, align 8
-  %77 = icmp eq i32 %74, 0
-  br i1 %77, label %copy_address_wmem.exit30.i, label %78
+copy_address_wmem.exit.i:                         ; preds = %63, %53
+  %69 = phi ptr [ null, %53 ], [ %65, %63 ]
+  %70 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  store i16 %37, ptr %70, align 8
+  %71 = tail call ptr @wmem_file_scope()
+  %72 = getelementptr inbounds nuw i8, ptr %55, i64 32
+  %73 = load i32, ptr %38, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 236
+  %75 = load i32, ptr %74, align 4
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 240
+  %77 = load ptr, ptr %76, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %72, i8 0, i64 24, i1 false)
+  store i32 %73, ptr %72, align 8
+  %78 = icmp eq i32 %75, 0
+  br i1 %78, label %copy_address_wmem.exit30.i, label %79
 
-78:                                               ; preds = %copy_address_wmem.exit.i
-  %79 = sext i32 %74 to i64
-  %80 = tail call noalias ptr @wmem_memdup(ptr noundef %70, ptr noundef %76, i64 noundef %79) #4
-  %81 = getelementptr inbounds nuw i8, ptr %54, i64 48
-  store ptr %80, ptr %81, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %54, i64 40
-  store ptr %80, ptr %82, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %54, i64 36
-  store i32 %74, ptr %83, align 4
+79:                                               ; preds = %copy_address_wmem.exit.i
+  %80 = sext i32 %75 to i64
+  %81 = tail call ptr @wmem_memdup(ptr noundef %71, ptr noundef %77, i64 noundef %80) #10
+  %82 = getelementptr inbounds nuw i8, ptr %55, i64 48
+  store ptr %81, ptr %82, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %55, i64 40
+  store ptr %81, ptr %83, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %55, i64 36
+  store i32 %75, ptr %84, align 4
   br label %copy_address_wmem.exit30.i
 
-copy_address_wmem.exit30.i:                       ; preds = %78, %copy_address_wmem.exit.i
-  %84 = phi ptr [ null, %copy_address_wmem.exit.i ], [ %80, %78 ]
-  %85 = getelementptr inbounds nuw i8, ptr %54, i64 56
-  store i16 %40, ptr %85, align 8
-  %86 = icmp sgt i32 %56, %72
-  br i1 %86, label %.critedge17.i.i, label %87
+copy_address_wmem.exit30.i:                       ; preds = %79, %copy_address_wmem.exit.i
+  %85 = phi ptr [ null, %copy_address_wmem.exit.i ], [ %81, %79 ]
+  %86 = getelementptr inbounds nuw i8, ptr %55, i64 56
+  store i16 %41, ptr %86, align 8
+  %87 = icmp sgt i32 %57, %73
+  br i1 %87, label %.critedge17.i.i, label %88
 
-87:                                               ; preds = %copy_address_wmem.exit30.i
-  %88 = icmp slt i32 %56, %72
-  br i1 %88, label %lbmtcp_order_key.exit.i, label %89
+88:                                               ; preds = %copy_address_wmem.exit30.i
+  %89 = icmp slt i32 %57, %73
+  br i1 %89, label %lbmtcp_transport_add.exit, label %90
 
-89:                                               ; preds = %87
-  %90 = icmp sgt i32 %58, %74
-  br i1 %90, label %.critedge17.i.i, label %91
+90:                                               ; preds = %88
+  %91 = icmp sgt i32 %59, %75
+  br i1 %91, label %.critedge17.i.i, label %92
 
-91:                                               ; preds = %89
-  %92 = icmp slt i32 %58, %74
-  br i1 %92, label %lbmtcp_order_key.exit.i, label %93
+92:                                               ; preds = %90
+  %93 = icmp slt i32 %59, %75
+  br i1 %93, label %lbmtcp_transport_add.exit, label %94
 
-93:                                               ; preds = %91
-  br i1 %61, label %cmp_address.exit.thread.thread24.i.i, label %cmp_address.exit.i.i
+94:                                               ; preds = %92
+  br i1 %62, label %cmp_address.exit.thread.thread24.i.i, label %cmp_address.exit.i.i
 
-cmp_address.exit.i.i:                             ; preds = %93
-  %94 = sext i32 %58 to i64
-  %95 = tail call i32 @memcmp(ptr noundef %68, ptr noundef %84, i64 noundef %94) #5
-  %96 = icmp sgt i32 %95, 0
-  br i1 %96, label %.critedge17.i.i, label %cmp_address.exit.thread.i.i
+cmp_address.exit.i.i:                             ; preds = %94
+  %95 = sext i32 %59 to i64
+  %96 = tail call i32 @memcmp(ptr noundef %69, ptr noundef %85, i64 noundef %95) #8
+  %97 = icmp sgt i32 %96, 0
+  br i1 %97, label %.critedge17.i.i, label %cmp_address.exit.thread.i.i
 
 cmp_address.exit.thread.i.i:                      ; preds = %cmp_address.exit.i.i
-  %97 = icmp eq i32 %95, 0
-  %.not.i.i = icmp ugt i16 %36, %40
-  %or.cond.i = and i1 %.not.i.i, %97
-  br i1 %or.cond.i, label %.critedge17.i.i, label %lbmtcp_order_key.exit.i
+  %98 = icmp eq i32 %96, 0
+  %99 = icmp ugt i16 %37, %41
+  %or.cond.i = and i1 %99, %98
+  br i1 %or.cond.i, label %.critedge17.i.i, label %lbmtcp_transport_add.exit
 
-cmp_address.exit.thread.thread24.i.i:             ; preds = %93
-  %.not.i.old.i = icmp ugt i16 %36, %40
-  br i1 %.not.i.old.i, label %.critedge17.i.i, label %lbmtcp_order_key.exit.i
+cmp_address.exit.thread.thread24.i.i:             ; preds = %94
+  %.old.i = icmp ugt i16 %37, %41
+  br i1 %.old.i, label %.critedge17.i.i, label %lbmtcp_transport_add.exit
 
-.critedge17.i.i:                                  ; preds = %cmp_address.exit.thread.thread24.i.i, %cmp_address.exit.thread.i.i, %cmp_address.exit.i.i, %89, %copy_address_wmem.exit30.i
-  store i32 %56, ptr %71, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %54, i64 36
-  store i32 %58, ptr %98, align 4
-  %99 = getelementptr inbounds nuw i8, ptr %54, i64 40
-  store ptr %68, ptr %99, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %54, i64 48
-  store ptr null, ptr %100, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  store ptr null, ptr %101, align 8
-  store i16 %36, ptr %85, align 8
-  store i16 %40, ptr %69, align 8
-  br label %lbmtcp_order_key.exit.i
+.critedge17.i.i:                                  ; preds = %cmp_address.exit.thread.thread24.i.i, %cmp_address.exit.thread.i.i, %cmp_address.exit.i.i, %90, %copy_address_wmem.exit30.i
+  store i32 %57, ptr %72, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %55, i64 36
+  store i32 %59, ptr %100, align 4
+  %101 = getelementptr inbounds nuw i8, ptr %55, i64 40
+  store ptr %69, ptr %101, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %55, i64 48
+  store ptr null, ptr %102, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %55, i64 16
+  store ptr null, ptr %103, align 8
+  store i16 %37, ptr %86, align 8
+  store i16 %41, ptr %70, align 8
+  br label %lbmtcp_transport_add.exit
 
-lbmtcp_order_key.exit.i:                          ; preds = %.critedge17.i.i, %cmp_address.exit.thread.thread24.i.i, %cmp_address.exit.thread.i.i, %91, %87
-  %102 = tail call i64 @lbm_channel_assign(i8 noundef zeroext 32) #4
-  %103 = getelementptr inbounds nuw i8, ptr %54, i64 64
-  store i64 %102, ptr %103, align 8
-  %104 = load i32, ptr @lbmpdm_tcp_protocol_handle, align 4
-  tail call void @conversation_add_proto_data(ptr noundef nonnull %.0.i34, i32 noundef %104, ptr noundef nonnull %54) #4
-  br label %105
+lbmtcp_transport_add.exit:                        ; preds = %88, %92, %cmp_address.exit.thread.i.i, %cmp_address.exit.thread.thread24.i.i, %.critedge17.i.i
+  %104 = tail call i64 @lbm_channel_assign(i8 noundef zeroext 32)
+  %105 = getelementptr inbounds nuw i8, ptr %55, i64 64
+  store i64 %104, ptr %105, align 8
+  %106 = load i32, ptr @lbmpdm_tcp_protocol_handle, align 4
+  tail call void @conversation_add_proto_data(ptr noundef %.0.i33, i32 noundef %106, ptr noundef %55)
+  %.not31 = icmp eq ptr %55, null
+  br i1 %.not31, label %109, label %lbmtcp_transport_add.exit.thread
 
-105:                                              ; preds = %49, %lbmtcp_order_key.exit.i
-  %.027.i = phi ptr [ %54, %lbmtcp_order_key.exit.i ], [ %51, %49 ]
-  %106 = getelementptr inbounds nuw i8, ptr %.027.i, i64 64
-  %107 = load i64, ptr %106, align 8
-  br i1 %.not3145, label %proto_item_set_generated.exit, label %108
+lbmtcp_transport_add.exit.thread:                 ; preds = %50, %lbmtcp_transport_add.exit
+  %.027.i47 = phi ptr [ %55, %lbmtcp_transport_add.exit ], [ %52, %50 ]
+  %107 = getelementptr inbounds nuw i8, ptr %.027.i47, i64 64
+  %108 = load i64, ptr %107, align 8
+  br label %109
 
-108:                                              ; preds = %105
-  %109 = load i32, ptr @hf_lbmpdm_tcp_tag, align 4
-  %110 = tail call ptr @proto_tree_add_string(ptr noundef %32, i32 noundef %109, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %.02943) #4
-  %.not.i36 = icmp eq ptr %110, null
-  br i1 %.not.i36, label %proto_item_set_generated.exit, label %111
+109:                                              ; preds = %lbmtcp_transport_add.exit.thread, %lbmtcp_transport_add.exit
+  %.028 = phi i64 [ %108, %lbmtcp_transport_add.exit.thread ], [ -1, %lbmtcp_transport_add.exit ]
+  br i1 %.not43, label %proto_item_set_generated.exit, label %110
 
-111:                                              ; preds = %108
-  %112 = getelementptr inbounds nuw i8, ptr %110, i64 32
-  %113 = load ptr, ptr %112, align 8
-  %.not5.i37 = icmp eq ptr %113, null
-  br i1 %.not5.i37, label %proto_item_set_generated.exit, label %114
+110:                                              ; preds = %109
+  %111 = load i32, ptr @hf_lbmpdm_tcp_tag, align 4
+  %112 = tail call ptr @proto_tree_add_string(ptr noundef %33, i32 noundef %111, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %.02941)
+  %.not.i35 = icmp eq ptr %112, null
+  br i1 %.not.i35, label %proto_item_set_generated.exit, label %113
 
-114:                                              ; preds = %111
-  %115 = getelementptr inbounds nuw i8, ptr %113, i64 28
-  %116 = load i32, ptr %115, align 4
-  %117 = or i32 %116, 2
-  store i32 %117, ptr %115, align 4
+113:                                              ; preds = %110
+  %114 = getelementptr inbounds nuw i8, ptr %112, i64 40
+  %115 = load ptr, ptr %114, align 8
+  %.not5.i = icmp eq ptr %115, null
+  br i1 %.not5.i, label %proto_item_set_generated.exit, label %116
+
+116:                                              ; preds = %113
+  %117 = getelementptr inbounds nuw i8, ptr %115, i64 28
+  %118 = load i32, ptr %117, align 4
+  %119 = or i32 %118, 2
+  store i32 %119, ptr %117, align 4
   br label %proto_item_set_generated.exit
 
-proto_item_set_generated.exit:                    ; preds = %114, %111, %108, %105
-  %.not33 = icmp eq i64 %107, -1
-  br i1 %.not33, label %proto_item_set_generated.exit40, label %118
+proto_item_set_generated.exit:                    ; preds = %116, %113, %110, %109
+  %.not32 = icmp eq i64 %.028, -1
+  br i1 %.not32, label %proto_item_set_generated.exit38, label %120
 
-118:                                              ; preds = %proto_item_set_generated.exit
-  %119 = load i32, ptr @hf_lbmpdm_tcp_channel, align 4
-  %120 = tail call ptr @proto_tree_add_uint64(ptr noundef %32, i32 noundef %119, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %107) #4
-  %.not.i38 = icmp eq ptr %120, null
-  br i1 %.not.i38, label %proto_item_set_generated.exit40, label %121
+120:                                              ; preds = %proto_item_set_generated.exit
+  %121 = load i32, ptr @hf_lbmpdm_tcp_channel, align 4
+  %122 = tail call ptr @proto_tree_add_uint64(ptr noundef %33, i32 noundef %121, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %.028)
+  %.not.i36 = icmp eq ptr %122, null
+  br i1 %.not.i36, label %proto_item_set_generated.exit38, label %123
 
-121:                                              ; preds = %118
-  %122 = getelementptr inbounds nuw i8, ptr %120, i64 32
-  %123 = load ptr, ptr %122, align 8
-  %.not5.i39 = icmp eq ptr %123, null
-  br i1 %.not5.i39, label %proto_item_set_generated.exit40, label %124
+123:                                              ; preds = %120
+  %124 = getelementptr inbounds nuw i8, ptr %122, i64 40
+  %125 = load ptr, ptr %124, align 8
+  %.not5.i37 = icmp eq ptr %125, null
+  br i1 %.not5.i37, label %proto_item_set_generated.exit38, label %126
 
-124:                                              ; preds = %121
-  %125 = getelementptr inbounds nuw i8, ptr %123, i64 28
-  %126 = load i32, ptr %125, align 4
-  %127 = or i32 %126, 2
-  store i32 %127, ptr %125, align 4
-  br label %proto_item_set_generated.exit40
+126:                                              ; preds = %123
+  %127 = getelementptr inbounds nuw i8, ptr %125, i64 28
+  %128 = load i32, ptr %127, align 4
+  %129 = or i32 %128, 2
+  store i32 %129, ptr %127, align 4
+  br label %proto_item_set_generated.exit38
 
-proto_item_set_generated.exit40:                  ; preds = %124, %121, %118, %proto_item_set_generated.exit
-  %128 = tail call i32 @lbmpdm_dissect_lbmpdm_payload(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %107) #4
-  ret i32 %128
+proto_item_set_generated.exit38:                  ; preds = %126, %123, %120, %proto_item_set_generated.exit
+  %130 = tail call i32 @lbmpdm_dissect_lbmpdm_payload(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, i64 noundef %.028)
+  ret i32 %130
 }
 
-declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
 
-declare i32 @lbmpdm_verify_payload(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @lbmpdm_verify_payload(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_protocol_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_protocol_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_uint64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
-declare i32 @lbmpdm_dissect_lbmpdm_payload(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @lbmpdm_dissect_lbmpdm_payload(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @find_conversation(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @find_conversation(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare nonnull ptr @conversation_new(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @conversation_new(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid allocsize(1)
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #4
 
-declare ptr @wmem_file_scope() local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_file_scope() local_unnamed_addr #2
 
-declare i64 @lbm_channel_assign(i8 noundef zeroext) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i64 @lbm_channel_assign(i8 noundef zeroext) local_unnamed_addr #2
 
-declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare noalias ptr @wmem_memdup(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid allocsize(2)
+declare ptr @wmem_memdup(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #4 = { nounwind }
-attributes #5 = { nounwind willreturn memory(read) }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { nounwind }
+attributes #8 = { nounwind willreturn memory(read) }
+attributes #9 = { allocsize(1) }
+attributes #10 = { allocsize(2) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}

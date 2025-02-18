@@ -3,23 +3,18 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
-%struct._rpc_proc_list = type { i32, ptr, ptr }
-%struct._vsff = type { i32, ptr, ptr, ptr }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
 
-@proto_register_pcnfsd.hf = internal global [18 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_pcnfsd_procedure_v1, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 7, i32 1, ptr @pcnfsd1_proc_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pcnfsd_procedure_v2, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 7, i32 1, ptr @pcnfsd2_proc_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pcnfsd_auth_client, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pcnfsd_auth_ident_obscure, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 26, i32 0, ptr null, i64 0, ptr @.str.8, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pcnfsd_auth_ident_clear, %struct._header_field_info { ptr @.str.9, ptr @.str.10, i32 26, i32 0, ptr null, i64 0, ptr @.str.11, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pcnfsd_auth_password, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pcnfsd_auth_password_obscure, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 26, i32 0, ptr null, i64 0, ptr @.str.16, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pcnfsd_auth_password_clear, %struct._header_field_info { ptr @.str.17, ptr @.str.18, i32 26, i32 0, ptr null, i64 0, ptr @.str.19, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pcnfsd_comment, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pcnfsd_status, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 7, i32 1, ptr null, i64 0, ptr @.str.24, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pcnfsd_uid, %struct._header_field_info { ptr @.str.25, ptr @.str.26, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pcnfsd_gid, %struct._header_field_info { ptr @.str.27, ptr @.str.28, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pcnfsd_gids_count, %struct._header_field_info { ptr @.str.29, ptr @.str.30, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pcnfsd_homedir, %struct._header_field_info { ptr @.str.31, ptr @.str.32, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pcnfsd_def_umask, %struct._header_field_info { ptr @.str.33, ptr @.str.34, i32 7, i32 3, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pcnfsd_mapreq, %struct._header_field_info { ptr @.str.35, ptr @.str.36, i32 7, i32 1, ptr @names_mapreq, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pcnfsd_mapreq_status, %struct._header_field_info { ptr @.str.24, ptr @.str.37, i32 7, i32 1, ptr @names_maprstat, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pcnfsd_username, %struct._header_field_info { ptr @.str.38, ptr @.str.39, i32 26, i32 0, ptr null, i64 0, ptr @.str.39, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
+@proto_register_pcnfsd.hf = internal global [18 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_pcnfsd_procedure_v1, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 7, i32 1, ptr @pcnfsd1_proc_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pcnfsd_procedure_v2, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 7, i32 1, ptr @pcnfsd2_proc_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pcnfsd_auth_client, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pcnfsd_auth_ident_obscure, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 26, i32 0, ptr null, i64 0, ptr @.str.8, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pcnfsd_auth_ident_clear, %struct._header_field_info { ptr @.str.9, ptr @.str.10, i32 26, i32 0, ptr null, i64 0, ptr @.str.11, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pcnfsd_auth_password, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pcnfsd_auth_password_obscure, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 26, i32 0, ptr null, i64 0, ptr @.str.16, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pcnfsd_auth_password_clear, %struct._header_field_info { ptr @.str.17, ptr @.str.18, i32 26, i32 0, ptr null, i64 0, ptr @.str.19, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pcnfsd_comment, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pcnfsd_status, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pcnfsd_uid, %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pcnfsd_gid, %struct._header_field_info { ptr @.str.26, ptr @.str.27, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pcnfsd_gids_count, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pcnfsd_homedir, %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pcnfsd_def_umask, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 7, i32 3, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pcnfsd_mapreq, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 7, i32 1, ptr @names_mapreq, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pcnfsd_mapreq_status, %struct._header_field_info { ptr @.str.36, ptr @.str.37, i32 7, i32 1, ptr @names_maprstat, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pcnfsd_username, %struct._header_field_info { ptr @.str.38, ptr @.str.39, i32 26, i32 0, ptr null, i64 0, ptr @.str.39, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_pcnfsd_procedure_v1 = internal global i32 0, align 4
 @.str = private unnamed_addr constant [13 x i8] c"V1 Procedure\00", align 1
 @.str.1 = private unnamed_addr constant [20 x i8] c"pcnfsd.procedure_v1\00", align 1
-@pcnfsd1_proc_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.43 }, %struct._value_string { i32 1, ptr @.str.44 }, %struct._value_string { i32 2, ptr @.str.45 }, %struct._value_string { i32 3, ptr @.str.46 }, %struct._value_string zeroinitializer], align 16
 @hf_pcnfsd_procedure_v2 = internal global i32 0, align 4
 @.str.2 = private unnamed_addr constant [13 x i8] c"V2 Procedure\00", align 1
 @.str.3 = private unnamed_addr constant [20 x i8] c"pcnfsd.procedure_v2\00", align 1
-@pcnfsd2_proc_vals = internal constant [16 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.43 }, %struct._value_string { i32 1, ptr @.str.47 }, %struct._value_string { i32 2, ptr @.str.45 }, %struct._value_string { i32 3, ptr @.str.46 }, %struct._value_string { i32 4, ptr @.str.48 }, %struct._value_string { i32 5, ptr @.str.49 }, %struct._value_string { i32 6, ptr @.str.50 }, %struct._value_string { i32 7, ptr @.str.51 }, %struct._value_string { i32 8, ptr @.str.52 }, %struct._value_string { i32 9, ptr @.str.53 }, %struct._value_string { i32 10, ptr @.str.54 }, %struct._value_string { i32 11, ptr @.str.55 }, %struct._value_string { i32 12, ptr @.str.56 }, %struct._value_string { i32 13, ptr @.str.44 }, %struct._value_string { i32 14, ptr @.str.57 }, %struct._value_string zeroinitializer], align 16
 @hf_pcnfsd_auth_client = internal global i32 0, align 4
 @.str.4 = private unnamed_addr constant [22 x i8] c"Authentication Client\00", align 1
 @.str.5 = private unnamed_addr constant [19 x i8] c"pcnfsd.auth.client\00", align 1
@@ -48,29 +43,27 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_pcnfsd_status = internal global i32 0, align 4
 @.str.22 = private unnamed_addr constant [13 x i8] c"Reply Status\00", align 1
 @.str.23 = private unnamed_addr constant [14 x i8] c"pcnfsd.status\00", align 1
-@.str.24 = private unnamed_addr constant [7 x i8] c"Status\00", align 1
 @hf_pcnfsd_uid = internal global i32 0, align 4
-@.str.25 = private unnamed_addr constant [8 x i8] c"User ID\00", align 1
-@.str.26 = private unnamed_addr constant [11 x i8] c"pcnfsd.uid\00", align 1
+@.str.24 = private unnamed_addr constant [8 x i8] c"User ID\00", align 1
+@.str.25 = private unnamed_addr constant [11 x i8] c"pcnfsd.uid\00", align 1
 @hf_pcnfsd_gid = internal global i32 0, align 4
-@.str.27 = private unnamed_addr constant [9 x i8] c"Group ID\00", align 1
-@.str.28 = private unnamed_addr constant [11 x i8] c"pcnfsd.gid\00", align 1
+@.str.26 = private unnamed_addr constant [9 x i8] c"Group ID\00", align 1
+@.str.27 = private unnamed_addr constant [11 x i8] c"pcnfsd.gid\00", align 1
 @hf_pcnfsd_gids_count = internal global i32 0, align 4
-@.str.29 = private unnamed_addr constant [15 x i8] c"Group ID Count\00", align 1
-@.str.30 = private unnamed_addr constant [18 x i8] c"pcnfsd.gids.count\00", align 1
+@.str.28 = private unnamed_addr constant [15 x i8] c"Group ID Count\00", align 1
+@.str.29 = private unnamed_addr constant [18 x i8] c"pcnfsd.gids.count\00", align 1
 @hf_pcnfsd_homedir = internal global i32 0, align 4
-@.str.31 = private unnamed_addr constant [15 x i8] c"Home Directory\00", align 1
-@.str.32 = private unnamed_addr constant [15 x i8] c"pcnfsd.homedir\00", align 1
+@.str.30 = private unnamed_addr constant [15 x i8] c"Home Directory\00", align 1
+@.str.31 = private unnamed_addr constant [15 x i8] c"pcnfsd.homedir\00", align 1
 @hf_pcnfsd_def_umask = internal global i32 0, align 4
-@.str.33 = private unnamed_addr constant [10 x i8] c"def_umask\00", align 1
-@.str.34 = private unnamed_addr constant [17 x i8] c"pcnfsd.def_umask\00", align 1
+@.str.32 = private unnamed_addr constant [10 x i8] c"def_umask\00", align 1
+@.str.33 = private unnamed_addr constant [17 x i8] c"pcnfsd.def_umask\00", align 1
 @hf_pcnfsd_mapreq = internal global i32 0, align 4
-@.str.35 = private unnamed_addr constant [8 x i8] c"Request\00", align 1
-@.str.36 = private unnamed_addr constant [14 x i8] c"pcnfsd.mapreq\00", align 1
-@names_mapreq = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.58 }, %struct._value_string { i32 1, ptr @.str.59 }, %struct._value_string { i32 2, ptr @.str.60 }, %struct._value_string { i32 3, ptr @.str.61 }, %struct._value_string zeroinitializer], align 16
+@.str.34 = private unnamed_addr constant [8 x i8] c"Request\00", align 1
+@.str.35 = private unnamed_addr constant [14 x i8] c"pcnfsd.mapreq\00", align 1
 @hf_pcnfsd_mapreq_status = internal global i32 0, align 4
+@.str.36 = private unnamed_addr constant [7 x i8] c"Status\00", align 1
 @.str.37 = private unnamed_addr constant [21 x i8] c"pcnfsd.mapreq_status\00", align 1
-@names_maprstat = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.62 }, %struct._value_string { i32 1, ptr @.str.63 }, %struct._value_string { i32 2, ptr @.str.64 }, %struct._value_string zeroinitializer], align 16
 @hf_pcnfsd_username = internal global i32 0, align 4
 @.str.38 = private unnamed_addr constant [10 x i8] c"User name\00", align 1
 @.str.39 = private unnamed_addr constant [16 x i8] c"pcnfsd.username\00", align 1
@@ -83,40 +76,44 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.41 = private unnamed_addr constant [7 x i8] c"PCNFSD\00", align 1
 @.str.42 = private unnamed_addr constant [7 x i8] c"pcnfsd\00", align 1
 @proto_pcnfsd = internal global i32 0, align 4
-@pcnfsd_vers_info = internal constant [2 x %struct._rpc_proc_list] [%struct._rpc_proc_list { i32 1, ptr @pcnfsd1_proc, ptr @hf_pcnfsd_procedure_v1 }, %struct._rpc_proc_list { i32 2, ptr @pcnfsd2_proc, ptr @hf_pcnfsd_procedure_v2 }], align 16
 @.str.43 = private unnamed_addr constant [5 x i8] c"NULL\00", align 1
 @.str.44 = private unnamed_addr constant [5 x i8] c"AUTH\00", align 1
 @.str.45 = private unnamed_addr constant [8 x i8] c"PR_INIT\00", align 1
 @.str.46 = private unnamed_addr constant [9 x i8] c"PR_START\00", align 1
-@.str.47 = private unnamed_addr constant [5 x i8] c"INFO\00", align 1
-@.str.48 = private unnamed_addr constant [8 x i8] c"PR_LIST\00", align 1
-@.str.49 = private unnamed_addr constant [9 x i8] c"PR_QUEUE\00", align 1
-@.str.50 = private unnamed_addr constant [10 x i8] c"PR_STATUS\00", align 1
-@.str.51 = private unnamed_addr constant [10 x i8] c"PR_CANCEL\00", align 1
-@.str.52 = private unnamed_addr constant [9 x i8] c"PR_ADMIN\00", align 1
-@.str.53 = private unnamed_addr constant [11 x i8] c"PR_REQUEUE\00", align 1
-@.str.54 = private unnamed_addr constant [8 x i8] c"PR_HOLD\00", align 1
-@.str.55 = private unnamed_addr constant [11 x i8] c"PR_RELEASE\00", align 1
-@.str.56 = private unnamed_addr constant [6 x i8] c"MAPID\00", align 1
-@.str.57 = private unnamed_addr constant [6 x i8] c"ALERT\00", align 1
-@.str.58 = private unnamed_addr constant [12 x i8] c"MAP_REQ_UID\00", align 1
-@.str.59 = private unnamed_addr constant [12 x i8] c"MAP_REQ_GID\00", align 1
-@.str.60 = private unnamed_addr constant [14 x i8] c"MAP_REQ_UNAME\00", align 1
-@.str.61 = private unnamed_addr constant [14 x i8] c"MAP_REQ_GNAME\00", align 1
-@.str.62 = private unnamed_addr constant [11 x i8] c"MAP_RES_OK\00", align 1
-@.str.63 = private unnamed_addr constant [16 x i8] c"MAP_RES_UNKNOWN\00", align 1
-@.str.64 = private unnamed_addr constant [15 x i8] c"MAP_RES_DENIED\00", align 1
-@pcnfsd1_proc = internal constant [5 x %struct._vsff] [%struct._vsff { i32 0, ptr @.str.43, ptr @dissect_rpc_void, ptr @dissect_rpc_void }, %struct._vsff { i32 1, ptr @.str.44, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 2, ptr @.str.45, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 3, ptr @.str.46, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff zeroinitializer], align 16
-@pcnfsd2_proc = internal constant [16 x %struct._vsff] [%struct._vsff { i32 0, ptr @.str.43, ptr @dissect_rpc_void, ptr @dissect_rpc_void }, %struct._vsff { i32 1, ptr @.str.47, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 2, ptr @.str.45, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 3, ptr @.str.46, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 4, ptr @.str.48, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 5, ptr @.str.49, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 6, ptr @.str.50, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 7, ptr @.str.51, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 8, ptr @.str.52, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 9, ptr @.str.53, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 10, ptr @.str.54, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 11, ptr @.str.55, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff { i32 12, ptr @.str.56, ptr @dissect_pcnfsd2_mapid_call, ptr @dissect_pcnfsd2_mapid_reply }, %struct._vsff { i32 13, ptr @.str.44, ptr @dissect_pcnfsd2_auth_call, ptr @dissect_pcnfsd2_auth_reply }, %struct._vsff { i32 14, ptr @.str.57, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, %struct._vsff zeroinitializer], align 16
-@.str.65 = private unnamed_addr constant [21 x i8] c"Authentication Ident\00", align 1
-@.str.66 = private unnamed_addr constant [8 x i8] c"<EMPTY>\00", align 1
-@.str.67 = private unnamed_addr constant [25 x i8] c"Authentication Ident: %s\00", align 1
-@.str.68 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
-@.str.69 = private unnamed_addr constant [24 x i8] c"Authentication Password\00", align 1
-@.str.70 = private unnamed_addr constant [28 x i8] c"Authentication Password: %s\00", align 1
-@.str.71 = private unnamed_addr constant [14 x i8] c"Group IDs: %d\00", align 1
+@pcnfsd1_proc_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.43 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.44 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.45 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.46 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.48 = private unnamed_addr constant [5 x i8] c"INFO\00", align 1
+@.str.49 = private unnamed_addr constant [8 x i8] c"PR_LIST\00", align 1
+@.str.50 = private unnamed_addr constant [9 x i8] c"PR_QUEUE\00", align 1
+@.str.51 = private unnamed_addr constant [10 x i8] c"PR_STATUS\00", align 1
+@.str.52 = private unnamed_addr constant [10 x i8] c"PR_CANCEL\00", align 1
+@.str.53 = private unnamed_addr constant [9 x i8] c"PR_ADMIN\00", align 1
+@.str.54 = private unnamed_addr constant [11 x i8] c"PR_REQUEUE\00", align 1
+@.str.55 = private unnamed_addr constant [8 x i8] c"PR_HOLD\00", align 1
+@.str.56 = private unnamed_addr constant [11 x i8] c"PR_RELEASE\00", align 1
+@.str.57 = private unnamed_addr constant [6 x i8] c"MAPID\00", align 1
+@.str.58 = private unnamed_addr constant [6 x i8] c"ALERT\00", align 1
+@pcnfsd2_proc_vals = internal constant [16 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.43 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.48 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.45 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.46 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.49 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.50 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.51 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.52 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.53 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.54 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.55 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.56 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.57 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.44 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.58 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.60 = private unnamed_addr constant [12 x i8] c"MAP_REQ_UID\00", align 1
+@.str.61 = private unnamed_addr constant [12 x i8] c"MAP_REQ_GID\00", align 1
+@.str.62 = private unnamed_addr constant [14 x i8] c"MAP_REQ_UNAME\00", align 1
+@.str.63 = private unnamed_addr constant [14 x i8] c"MAP_REQ_GNAME\00", align 1
+@names_mapreq = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.60 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.61 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.62 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.63 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.65 = private unnamed_addr constant [11 x i8] c"MAP_RES_OK\00", align 1
+@.str.66 = private unnamed_addr constant [16 x i8] c"MAP_RES_UNKNOWN\00", align 1
+@.str.67 = private unnamed_addr constant [15 x i8] c"MAP_RES_DENIED\00", align 1
+@names_maprstat = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.65 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.66 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.67 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@pcnfsd_vers_info = internal constant [2 x { i32, [4 x i8], ptr, ptr }] [{ i32, [4 x i8], ptr, ptr } { i32 1, [4 x i8] zeroinitializer, ptr @pcnfsd1_proc, ptr @hf_pcnfsd_procedure_v1 }, { i32, [4 x i8], ptr, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @pcnfsd2_proc, ptr @hf_pcnfsd_procedure_v2 }], align 16
+@pcnfsd1_proc = internal constant [5 x { i32, [4 x i8], ptr, ptr, ptr }] [{ i32, [4 x i8], ptr, ptr, ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.43, ptr @dissect_rpc_void, ptr @dissect_rpc_void }, { i32, [4 x i8], ptr, ptr, ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.44, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.45, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.46, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } zeroinitializer], align 16
+@pcnfsd2_proc = internal constant [16 x { i32, [4 x i8], ptr, ptr, ptr }] [{ i32, [4 x i8], ptr, ptr, ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.43, ptr @dissect_rpc_void, ptr @dissect_rpc_void }, { i32, [4 x i8], ptr, ptr, ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.48, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.45, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.46, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.49, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.50, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.51, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.52, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.53, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.54, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.55, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.56, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.57, ptr @dissect_pcnfsd2_mapid_call, ptr @dissect_pcnfsd2_mapid_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.44, ptr @dissect_pcnfsd2_auth_call, ptr @dissect_pcnfsd2_auth_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.58, ptr @dissect_rpc_unknown, ptr @dissect_rpc_unknown }, { i32, [4 x i8], ptr, ptr, ptr } zeroinitializer], align 16
+@.str.72 = private unnamed_addr constant [21 x i8] c"Authentication Ident\00", align 1
+@.str.73 = private unnamed_addr constant [8 x i8] c"<EMPTY>\00", align 1
+@.str.74 = private unnamed_addr constant [25 x i8] c"Authentication Ident: %s\00", align 1
+@.str.75 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@.str.76 = private unnamed_addr constant [24 x i8] c"Authentication Password\00", align 1
+@.str.77 = private unnamed_addr constant [28 x i8] c"Authentication Password: %s\00", align 1
+@.str.78 = private unnamed_addr constant [14 x i8] c"Group IDs: %d\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_pcnfsd() #0 {
   %1 = call i32 @proto_register_protocol(ptr noundef @.str.40, ptr noundef @.str.41, ptr noundef @.str.42)
   store i32 %1, ptr @proto_pcnfsd, align 4
@@ -126,13 +123,16 @@ define hidden void @proto_register_pcnfsd() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_pcnfsd() #0 {
   %1 = load i32, ptr @proto_pcnfsd, align 4
   %2 = load i32, ptr @ett_pcnfsd, align 4
@@ -140,13 +140,16 @@ define hidden void @proto_reg_handoff_pcnfsd() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @rpc_init_prog(i32 noundef, i32 noundef, i32 noundef, i64 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_rpc_void(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_rpc_unknown(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_pcnfsd2_mapid_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -157,6 +160,7 @@ define internal i32 @dissect_pcnfsd2_mapid_call(ptr noundef %0, ptr noundef %1, 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %7, align 8
@@ -171,10 +175,11 @@ define internal i32 @dissect_pcnfsd2_mapid_call(ptr noundef %0, ptr noundef %1, 
   %19 = call i32 @dissect_rpc_list(ptr noundef %15, ptr noundef %16, ptr noundef %17, i32 noundef %18, ptr noundef @dissect_pcnfsd2_dissect_mapreq_arg_item, ptr noundef null)
   store i32 %19, ptr %9, align 4
   %20 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_pcnfsd2_mapid_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -185,6 +190,7 @@ define internal i32 @dissect_pcnfsd2_mapid_reply(ptr noundef %0, ptr noundef %1,
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %7, align 8
@@ -199,10 +205,11 @@ define internal i32 @dissect_pcnfsd2_mapid_reply(ptr noundef %0, ptr noundef %1,
   %19 = call i32 @dissect_rpc_list(ptr noundef %15, ptr noundef %16, ptr noundef %17, i32 noundef %18, ptr noundef @dissect_pcnfsd2_dissect_mapreq_res_item, ptr noundef null)
   store i32 %19, ptr %9, align 4
   %20 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_pcnfsd2_auth_call(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -221,10 +228,19 @@ define internal i32 @dissect_pcnfsd2_auth_call(ptr noundef %0, ptr noundef %1, p
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
   store ptr null, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
   store ptr null, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #5
   store ptr null, ptr %15, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #5
   store ptr null, ptr %16, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #5
   store i32 0, ptr %17, align 4
   %18 = load ptr, ptr %5, align 8
   %19 = load ptr, ptr %7, align 8
@@ -236,7 +252,7 @@ define internal i32 @dissect_pcnfsd2_auth_call(ptr noundef %0, ptr noundef %1, p
   %24 = load ptr, ptr %5, align 8
   %25 = load i32, ptr %17, align 4
   %26 = load i32, ptr @ett_pcnfsd_auth_ident, align 4
-  %27 = call ptr @proto_tree_add_subtree(ptr noundef %23, ptr noundef %24, i32 noundef %25, i32 noundef -1, i32 noundef %26, ptr noundef %12, ptr noundef @.str.65)
+  %27 = call ptr @proto_tree_add_subtree(ptr noundef %23, ptr noundef %24, i32 noundef %25, i32 noundef -1, i32 noundef %26, ptr noundef %12, ptr noundef @.str.72)
   store ptr %27, ptr %13, align 8
   %28 = load ptr, ptr %5, align 8
   %29 = load ptr, ptr %13, align 8
@@ -255,17 +271,17 @@ define internal i32 @dissect_pcnfsd2_auth_call(ptr noundef %0, ptr noundef %1, p
 
 39:                                               ; preds = %4
   %40 = load ptr, ptr %10, align 8
-  %41 = call i32 @strcmp(ptr noundef %40, ptr noundef @.str.66) #3
+  %41 = call i32 @strcmp(ptr noundef %40, ptr noundef @.str.73) #6
   %42 = icmp ne i32 %41, 0
   br i1 %42, label %43, label %52
 
 43:                                               ; preds = %39
   %44 = load ptr, ptr %6, align 8
-  %45 = getelementptr inbounds %struct._packet_info, ptr %44, i32 0, i32 50
+  %45 = getelementptr inbounds nuw %struct._packet_info, ptr %44, i32 0, i32 51
   %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr %10, align 8
   %48 = load ptr, ptr %10, align 8
-  %49 = call i64 @strlen(ptr noundef %48) #3
+  %49 = call i64 @strlen(ptr noundef %48) #6
   %50 = trunc i64 %49 to i32
   %51 = call ptr @pcnfsd_decode_obscure(ptr noundef %46, ptr noundef %47, i32 noundef %50)
   store ptr %51, ptr %11, align 8
@@ -288,7 +304,7 @@ define internal i32 @dissect_pcnfsd2_auth_call(ptr noundef %0, ptr noundef %1, p
   %61 = load i32, ptr %17, align 4
   %62 = add i32 %61, 4
   %63 = load ptr, ptr %11, align 8
-  %64 = call i64 @strlen(ptr noundef %63) #3
+  %64 = call i64 @strlen(ptr noundef %63) #6
   %65 = trunc i64 %64 to i32
   %66 = load ptr, ptr %11, align 8
   %67 = call ptr @proto_tree_add_string(ptr noundef %58, i32 noundef %59, ptr noundef %60, i32 noundef %62, i32 noundef %65, ptr noundef %66)
@@ -305,7 +321,7 @@ define internal i32 @dissect_pcnfsd2_auth_call(ptr noundef %0, ptr noundef %1, p
 72:                                               ; preds = %69
   %73 = load ptr, ptr %12, align 8
   %74 = load ptr, ptr %10, align 8
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %73, ptr noundef @.str.67, ptr noundef %74)
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %73, ptr noundef @.str.74, ptr noundef %74)
   br label %75
 
 75:                                               ; preds = %72, %69
@@ -314,7 +330,7 @@ define internal i32 @dissect_pcnfsd2_auth_call(ptr noundef %0, ptr noundef %1, p
   %77 = load ptr, ptr %7, align 8
   %78 = load i32, ptr @hf_pcnfsd_auth_password, align 4
   %79 = load ptr, ptr %5, align 8
-  %80 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %77, i32 noundef %78, ptr noundef %79, i32 noundef 0, i32 noundef 0, ptr noundef @.str.68, ptr noundef @.str.69)
+  %80 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %77, i32 noundef %78, ptr noundef %79, i32 noundef 0, i32 noundef 0, ptr noundef @.str.75, ptr noundef @.str.76)
   store ptr %80, ptr %15, align 8
   %81 = load ptr, ptr %15, align 8
   %82 = load i32, ptr @ett_pcnfsd_auth_password, align 4
@@ -345,17 +361,17 @@ define internal i32 @dissect_pcnfsd2_auth_call(ptr noundef %0, ptr noundef %1, p
 
 99:                                               ; preds = %96
   %100 = load ptr, ptr %14, align 8
-  %101 = call i32 @strcmp(ptr noundef %100, ptr noundef @.str.66) #3
+  %101 = call i32 @strcmp(ptr noundef %100, ptr noundef @.str.73) #6
   %102 = icmp ne i32 %101, 0
   br i1 %102, label %103, label %112
 
 103:                                              ; preds = %99
   %104 = load ptr, ptr %6, align 8
-  %105 = getelementptr inbounds %struct._packet_info, ptr %104, i32 0, i32 50
+  %105 = getelementptr inbounds nuw %struct._packet_info, ptr %104, i32 0, i32 51
   %106 = load ptr, ptr %105, align 8
   %107 = load ptr, ptr %14, align 8
   %108 = load ptr, ptr %14, align 8
-  %109 = call i64 @strlen(ptr noundef %108) #3
+  %109 = call i64 @strlen(ptr noundef %108) #6
   %110 = trunc i64 %109 to i32
   %111 = call ptr @pcnfsd_decode_obscure(ptr noundef %106, ptr noundef %107, i32 noundef %110)
   br label %112
@@ -372,7 +388,7 @@ define internal i32 @dissect_pcnfsd2_auth_call(ptr noundef %0, ptr noundef %1, p
   %119 = load i32, ptr %17, align 4
   %120 = add i32 %119, 4
   %121 = load ptr, ptr %14, align 8
-  %122 = call i64 @strlen(ptr noundef %121) #3
+  %122 = call i64 @strlen(ptr noundef %121) #6
   %123 = trunc i64 %122 to i32
   %124 = load ptr, ptr %14, align 8
   %125 = call ptr @proto_tree_add_string(ptr noundef %116, i32 noundef %117, ptr noundef %118, i32 noundef %120, i32 noundef %123, ptr noundef %124)
@@ -389,7 +405,7 @@ define internal i32 @dissect_pcnfsd2_auth_call(ptr noundef %0, ptr noundef %1, p
 130:                                              ; preds = %127
   %131 = load ptr, ptr %15, align 8
   %132 = load ptr, ptr %14, align 8
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %131, ptr noundef @.str.70, ptr noundef %132)
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %131, ptr noundef @.str.77, ptr noundef %132)
   br label %133
 
 133:                                              ; preds = %130, %127
@@ -402,10 +418,19 @@ define internal i32 @dissect_pcnfsd2_auth_call(ptr noundef %0, ptr noundef %1, p
   %139 = call i32 @dissect_rpc_string(ptr noundef %135, ptr noundef %136, i32 noundef %137, i32 noundef %138, ptr noundef null)
   store i32 %139, ptr %17, align 4
   %140 = load i32, ptr %17, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %140
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_pcnfsd2_auth_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -419,6 +444,10 @@ define internal i32 @dissect_pcnfsd2_auth_reply(ptr noundef %0, ptr noundef %1, 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #5
   store i32 0, ptr %12, align 4
   %13 = load ptr, ptr %5, align 8
   %14 = load ptr, ptr %7, align 8
@@ -451,7 +480,7 @@ define internal i32 @dissect_pcnfsd2_auth_reply(ptr noundef %0, ptr noundef %1, 
   %37 = add i32 4, %36
   %38 = load i32, ptr @ett_pcnfsd_gids, align 4
   %39 = load i32, ptr %9, align 4
-  %40 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %32, ptr noundef %33, i32 noundef %34, i32 noundef %37, i32 noundef %38, ptr noundef null, ptr noundef @.str.71, i32 noundef %39)
+  %40 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %32, ptr noundef %33, i32 noundef %34, i32 noundef %37, i32 noundef %38, ptr noundef null, ptr noundef @.str.78, i32 noundef %39)
   store ptr %40, ptr %10, align 8
   %41 = load ptr, ptr %10, align 8
   %42 = load i32, ptr @hf_pcnfsd_gids_count, align 4
@@ -483,7 +512,7 @@ define internal i32 @dissect_pcnfsd2_auth_reply(ptr noundef %0, ptr noundef %1, 
   %59 = load i32, ptr %11, align 4
   %60 = add i32 %59, 1
   store i32 %60, ptr %11, align 4
-  br label %48, !llvm.loop !4
+  br label %48, !llvm.loop !6
 
 61:                                               ; preds = %48
   %62 = load ptr, ptr %5, align 8
@@ -505,14 +534,23 @@ define internal i32 @dissect_pcnfsd2_auth_reply(ptr noundef %0, ptr noundef %1, 
   %76 = call i32 @dissect_rpc_string(ptr noundef %72, ptr noundef %73, i32 noundef %74, i32 noundef %75, ptr noundef null)
   store i32 %76, ptr %12, align 4
   %77 = load i32, ptr %12, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %77
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_rpc_string(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_rpc_list(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_pcnfsd2_dissect_mapreq_arg_item(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -547,11 +585,16 @@ define internal i32 @dissect_pcnfsd2_dissect_mapreq_arg_item(ptr noundef %0, i32
   ret i32 %27
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_rpc_uint32(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_pcnfsd_username(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -567,7 +610,7 @@ define internal i32 @dissect_pcnfsd_username(ptr noundef %0, i32 noundef %1, ptr
   ret i32 %11
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_pcnfsd2_dissect_mapreq_res_item(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -610,14 +653,16 @@ define internal i32 @dissect_pcnfsd2_dissect_mapreq_res_item(ptr noundef %0, i32
   ret i32 %34
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_item_set_len(ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #2
+; Function Attrs: nounwind null_pointer_is_valid willreturn memory(read)
+declare i32 @strcmp(ptr noundef, ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal ptr @pcnfsd_decode_obscure(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -627,10 +672,12 @@ define internal ptr @pcnfsd_decode_obscure(ptr noundef %0, ptr noundef %1, i32 n
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
   %9 = load ptr, ptr %4, align 8
   %10 = load i32, ptr %6, align 4
   %11 = sext i32 %10 to i64
-  %12 = call noalias ptr @wmem_alloc(ptr noundef %9, i64 noundef %11)
+  %12 = call noalias ptr @wmem_alloc(ptr noundef %9, i64 noundef %11) #7
   store ptr %12, ptr %7, align 8
   %13 = load ptr, ptr %7, align 8
   store ptr %13, ptr %8, align 8
@@ -662,41 +709,56 @@ define internal ptr @pcnfsd_decode_obscure(ptr noundef %0, ptr noundef %1, i32 n
   %30 = load ptr, ptr %8, align 8
   %31 = getelementptr i8, ptr %30, i32 1
   store ptr %31, ptr %8, align 8
-  br label %14, !llvm.loop !6
+  br label %14, !llvm.loop !8
 
 32:                                               ; preds = %14
   %33 = load ptr, ptr %7, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
   ret ptr %33
 }
 
-; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #2
+; Function Attrs: nounwind null_pointer_is_valid willreturn memory(read)
+declare i64 @strlen(ptr noundef) #3
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_item_set_text(ptr noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_string_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
 
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) #1
+; Function Attrs: null_pointer_is_valid allocsize(1)
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) #4
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(read) }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind null_pointer_is_valid willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
+attributes #6 = { nounwind willreturn memory(read) }
+attributes #7 = { allocsize(1) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}

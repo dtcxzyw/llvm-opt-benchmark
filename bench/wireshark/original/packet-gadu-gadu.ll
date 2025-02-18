@@ -3,24 +3,21 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
 %struct.gadu_gadu_conv_data = type { i32 }
-%struct._proto_node = type { ptr, ptr, ptr, ptr, ptr, ptr }
+%struct._proto_node = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.field_info = type { ptr, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, i32, i32 }
 
 @proto_register_gadu_gadu.hf = internal global [60 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_gadu_gadu_header_type_recv, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 7, i32 2, ptr @gadu_gadu_packets_type_recv, i64 0, ptr @.str.2, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_header_type_send, %struct._header_field_info { ptr @.str, ptr @.str.3, i32 7, i32 2, ptr @gadu_gadu_packets_type_send, i64 0, ptr @.str.4, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_header_length, %struct._header_field_info { ptr @.str.5, ptr @.str.6, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_login_uin, %struct._header_field_info { ptr @.str.7, ptr @.str.8, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_login_hash_type, %struct._header_field_info { ptr @.str.9, ptr @.str.10, i32 4, i32 2, ptr @gadu_gadu_hash_type_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_login_hash, %struct._header_field_info { ptr @.str.11, ptr @.str.12, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_login_status, %struct._header_field_info { ptr @.str.13, ptr @.str.14, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_login_protocol, %struct._header_field_info { ptr @.str.15, ptr @.str.16, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_login_version, %struct._header_field_info { ptr @.str.17, ptr @.str.18, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_login_local_ip, %struct._header_field_info { ptr @.str.19, ptr @.str.20, i32 32, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_login_local_port, %struct._header_field_info { ptr @.str.21, ptr @.str.22, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_login80_lang, %struct._header_field_info { ptr @.str.23, ptr @.str.24, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_userdata_uin, %struct._header_field_info { ptr @.str.25, ptr @.str.26, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_userdata_attr_name, %struct._header_field_info { ptr @.str.27, ptr @.str.28, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_userdata_attr_type, %struct._header_field_info { ptr @.str.29, ptr @.str.30, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_userdata_attr_value, %struct._header_field_info { ptr @.str.31, ptr @.str.32, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_typing_notify_type, %struct._header_field_info { ptr @.str.33, ptr @.str.34, i32 5, i32 2, ptr @gadu_gadu_typing_notify_type_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_typing_notify_uin, %struct._header_field_info { ptr @.str.35, ptr @.str.36, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_msg_uin, %struct._header_field_info { ptr @.str.37, ptr @.str.38, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_msg_sender, %struct._header_field_info { ptr @.str.39, ptr @.str.40, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_msg_recipient, %struct._header_field_info { ptr @.str.41, ptr @.str.42, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_msg_seq, %struct._header_field_info { ptr @.str.43, ptr @.str.44, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_msg_time, %struct._header_field_info { ptr @.str.45, ptr @.str.46, i32 24, i32 18, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_msg_class, %struct._header_field_info { ptr @.str.47, ptr @.str.48, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_msg_text, %struct._header_field_info { ptr @.str.49, ptr @.str.50, i32 27, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_msg80_offset_plain, %struct._header_field_info { ptr @.str.51, ptr @.str.52, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_msg80_offset_attr, %struct._header_field_info { ptr @.str.53, ptr @.str.54, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_msg_ack_status, %struct._header_field_info { ptr @.str.55, ptr @.str.56, i32 7, i32 2, ptr @gadu_gadu_msg_ack_status_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_msg_ack_recipient, %struct._header_field_info { ptr @.str.41, ptr @.str.57, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_msg_ack_seq, %struct._header_field_info { ptr @.str.43, ptr @.str.58, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_status_uin, %struct._header_field_info { ptr @.str.25, ptr @.str.59, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_status_status, %struct._header_field_info { ptr @.str.60, ptr @.str.61, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_status_ip, %struct._header_field_info { ptr @.str.62, ptr @.str.63, i32 32, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_status_port, %struct._header_field_info { ptr @.str.64, ptr @.str.65, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_status_version, %struct._header_field_info { ptr @.str.66, ptr @.str.67, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_status_img_size, %struct._header_field_info { ptr @.str.68, ptr @.str.69, i32 4, i32 1, ptr null, i64 0, ptr @.str.70, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_status_descr, %struct._header_field_info { ptr @.str.71, ptr @.str.72, i32 27, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dcc_type, %struct._header_field_info { ptr @.str.73, ptr @.str.74, i32 7, i32 2, ptr @gadu_gadu_dcc_type_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dcc_id, %struct._header_field_info { ptr @.str.75, ptr @.str.76, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dcc_uin_to, %struct._header_field_info { ptr @.str.77, ptr @.str.78, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dcc_uin_from, %struct._header_field_info { ptr @.str.79, ptr @.str.80, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dcc_filename, %struct._header_field_info { ptr @.str.81, ptr @.str.82, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_new_status_status, %struct._header_field_info { ptr @.str.60, ptr @.str.83, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_new_status_desc, %struct._header_field_info { ptr @.str.71, ptr @.str.84, i32 27, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_userlist_request_type, %struct._header_field_info { ptr @.str.85, ptr @.str.86, i32 7, i32 2, ptr @gadu_gadu_userlist_request_type_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_userlist_version, %struct._header_field_info { ptr @.str.87, ptr @.str.88, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_userlist_format, %struct._header_field_info { ptr @.str.89, ptr @.str.90, i32 4, i32 2, ptr @gadu_gadu_userlist_request_format_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_userlist_reply_type, %struct._header_field_info { ptr @.str.91, ptr @.str.92, i32 7, i32 2, ptr @gadu_gadu_userlist_reply_type_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_userlist, %struct._header_field_info { ptr @.str.93, ptr @.str.94, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_pubdir_request_type, %struct._header_field_info { ptr @.str.85, ptr @.str.95, i32 4, i32 2, ptr @gadu_gadu_pubdir_type_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_pubdir_request_seq, %struct._header_field_info { ptr @.str.96, ptr @.str.97, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_pubdir_request_str, %struct._header_field_info { ptr @.str.98, ptr @.str.99, i32 27, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_pubdir_reply_type, %struct._header_field_info { ptr @.str.91, ptr @.str.100, i32 4, i32 2, ptr @gadu_gadu_pubdir_type_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_pubdir_reply_seq, %struct._header_field_info { ptr @.str.101, ptr @.str.102, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_pubdir_reply_str, %struct._header_field_info { ptr @.str.103, ptr @.str.104, i32 27, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_contact_uin, %struct._header_field_info { ptr @.str.25, ptr @.str.105, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_contact_uin_str, %struct._header_field_info { ptr @.str.25, ptr @.str.106, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_contact_type, %struct._header_field_info { ptr @.str.107, ptr @.str.108, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_welcome_seed, %struct._header_field_info { ptr @.str.109, ptr @.str.110, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gadu_gadu_data, %struct._header_field_info { ptr @.str.111, ptr @.str.112, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_gadu_gadu_header_type_recv = internal global i32 0, align 4
 @.str = private unnamed_addr constant [12 x i8] c"Packet Type\00", align 1
 @.str.1 = private unnamed_addr constant [15 x i8] c"gadu-gadu.recv\00", align 1
-@gadu_gadu_packets_type_recv = internal constant [42 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.122 }, %struct._value_string { i32 2, ptr @.str.123 }, %struct._value_string { i32 3, ptr @.str.124 }, %struct._value_string { i32 5, ptr @.str.125 }, %struct._value_string { i32 7, ptr @.str.126 }, %struct._value_string { i32 8, ptr @.str.127 }, %struct._value_string { i32 9, ptr @.str.128 }, %struct._value_string { i32 10, ptr @.str.129 }, %struct._value_string { i32 11, ptr @.str.130 }, %struct._value_string { i32 12, ptr @.str.131 }, %struct._value_string { i32 13, ptr @.str.132 }, %struct._value_string { i32 14, ptr @.str.133 }, %struct._value_string { i32 15, ptr @.str.134 }, %struct._value_string { i32 16, ptr @.str.135 }, %struct._value_string { i32 17, ptr @.str.136 }, %struct._value_string { i32 20, ptr @.str.137 }, %struct._value_string { i32 22, ptr @.str.138 }, %struct._value_string { i32 23, ptr @.str.139 }, %struct._value_string { i32 24, ptr @.str.140 }, %struct._value_string { i32 31, ptr @.str.141 }, %struct._value_string { i32 32, ptr @.str.142 }, %struct._value_string { i32 33, ptr @.str.143 }, %struct._value_string { i32 34, ptr @.str.144 }, %struct._value_string { i32 35, ptr @.str.145 }, %struct._value_string { i32 37, ptr @.str.146 }, %struct._value_string { i32 39, ptr @.str.147 }, %struct._value_string { i32 42, ptr @.str.148 }, %struct._value_string { i32 43, ptr @.str.149 }, %struct._value_string { i32 44, ptr @.str.150 }, %struct._value_string { i32 46, ptr @.str.151 }, %struct._value_string { i32 48, ptr @.str.152 }, %struct._value_string { i32 53, ptr @.str.153 }, %struct._value_string { i32 54, ptr @.str.154 }, %struct._value_string { i32 55, ptr @.str.155 }, %struct._value_string { i32 65, ptr @.str.156 }, %struct._value_string { i32 67, ptr @.str.157 }, %struct._value_string { i32 68, ptr @.str.158 }, %struct._value_string { i32 89, ptr @.str.159 }, %struct._value_string { i32 90, ptr @.str.160 }, %struct._value_string { i32 91, ptr @.str.161 }, %struct._value_string { i32 92, ptr @.str.162 }, %struct._value_string zeroinitializer], align 16
 @.str.2 = private unnamed_addr constant [19 x i8] c"Packet Type (recv)\00", align 1
 @hf_gadu_gadu_header_type_send = internal global i32 0, align 4
 @.str.3 = private unnamed_addr constant [15 x i8] c"gadu-gadu.send\00", align 1
-@gadu_gadu_packets_type_send = internal constant [38 x %struct._value_string] [%struct._value_string { i32 2, ptr @.str.163 }, %struct._value_string { i32 7, ptr @.str.126 }, %struct._value_string { i32 8, ptr @.str.127 }, %struct._value_string { i32 11, ptr @.str.164 }, %struct._value_string { i32 12, ptr @.str.165 }, %struct._value_string { i32 13, ptr @.str.166 }, %struct._value_string { i32 14, ptr @.str.167 }, %struct._value_string { i32 15, ptr @.str.168 }, %struct._value_string { i32 16, ptr @.str.169 }, %struct._value_string { i32 18, ptr @.str.170 }, %struct._value_string { i32 19, ptr @.str.171 }, %struct._value_string { i32 20, ptr @.str.172 }, %struct._value_string { i32 21, ptr @.str.173 }, %struct._value_string { i32 22, ptr @.str.174 }, %struct._value_string { i32 25, ptr @.str.175 }, %struct._value_string { i32 31, ptr @.str.141 }, %struct._value_string { i32 32, ptr @.str.142 }, %struct._value_string { i32 33, ptr @.str.143 }, %struct._value_string { i32 34, ptr @.str.144 }, %struct._value_string { i32 35, ptr @.str.176 }, %struct._value_string { i32 36, ptr @.str.177 }, %struct._value_string { i32 37, ptr @.str.178 }, %struct._value_string { i32 40, ptr @.str.179 }, %struct._value_string { i32 41, ptr @.str.180 }, %struct._value_string { i32 45, ptr @.str.181 }, %struct._value_string { i32 47, ptr @.str.182 }, %struct._value_string { i32 49, ptr @.str.183 }, %struct._value_string { i32 56, ptr @.str.184 }, %struct._value_string { i32 64, ptr @.str.185 }, %struct._value_string { i32 70, ptr @.str.186 }, %struct._value_string { i32 89, ptr @.str.159 }, %struct._value_string { i32 98, ptr @.str.187 }, %struct._value_string { i32 99, ptr @.str.188 }, %struct._value_string { i32 120, ptr @.str.189 }, %struct._value_string { i32 123, ptr @.str.190 }, %struct._value_string { i32 124, ptr @.str.191 }, %struct._value_string { i32 131, ptr @.str.192 }, %struct._value_string zeroinitializer], align 16
 @.str.4 = private unnamed_addr constant [19 x i8] c"Packet Type (send)\00", align 1
 @hf_gadu_gadu_header_length = internal global i32 0, align 4
 @.str.5 = private unnamed_addr constant [14 x i8] c"Packet Length\00", align 1
@@ -31,7 +28,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_gadu_gadu_login_hash_type = internal global i32 0, align 4
 @.str.9 = private unnamed_addr constant [16 x i8] c"Login hash type\00", align 1
 @.str.10 = private unnamed_addr constant [26 x i8] c"gadu-gadu.login.hash_type\00", align 1
-@gadu_gadu_hash_type_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.193 }, %struct._value_string { i32 2, ptr @.str.194 }, %struct._value_string zeroinitializer], align 16
 @hf_gadu_gadu_login_hash = internal global i32 0, align 4
 @.str.11 = private unnamed_addr constant [11 x i8] c"Login hash\00", align 1
 @.str.12 = private unnamed_addr constant [21 x i8] c"gadu-gadu.login.hash\00", align 1
@@ -68,7 +64,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_gadu_gadu_typing_notify_type = internal global i32 0, align 4
 @.str.33 = private unnamed_addr constant [19 x i8] c"Typing notify type\00", align 1
 @.str.34 = private unnamed_addr constant [29 x i8] c"gadu-gadu.typing_notify.type\00", align 1
-@gadu_gadu_typing_notify_type_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.195 }, %struct._value_string { i32 0, ptr @.str.196 }, %struct._value_string zeroinitializer], align 16
 @hf_gadu_gadu_typing_notify_uin = internal global i32 0, align 4
 @.str.35 = private unnamed_addr constant [24 x i8] c"Typing notify recipient\00", align 1
 @.str.36 = private unnamed_addr constant [28 x i8] c"gadu-gadu.typing_notify.uin\00", align 1
@@ -102,7 +97,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_gadu_gadu_msg_ack_status = internal global i32 0, align 4
 @.str.55 = private unnamed_addr constant [15 x i8] c"Message status\00", align 1
 @.str.56 = private unnamed_addr constant [25 x i8] c"gadu-gadu.msg_ack.status\00", align 1
-@gadu_gadu_msg_ack_status_vals = internal constant [6 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.197 }, %struct._value_string { i32 2, ptr @.str.198 }, %struct._value_string { i32 3, ptr @.str.199 }, %struct._value_string { i32 4, ptr @.str.200 }, %struct._value_string { i32 6, ptr @.str.201 }, %struct._value_string zeroinitializer], align 16
 @hf_gadu_gadu_msg_ack_recipient = internal global i32 0, align 4
 @.str.57 = private unnamed_addr constant [28 x i8] c"gadu-gadu.msg_ack.recipient\00", align 1
 @hf_gadu_gadu_msg_ack_seq = internal global i32 0, align 4
@@ -131,7 +125,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_dcc_type = internal global i32 0, align 4
 @.str.73 = private unnamed_addr constant [23 x i8] c"Direct connection type\00", align 1
 @.str.74 = private unnamed_addr constant [19 x i8] c"gadu-gadu.dcc.type\00", align 1
-@gadu_gadu_dcc_type_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.202 }, %struct._value_string { i32 4, ptr @.str.203 }, %struct._value_string zeroinitializer], align 16
 @hf_dcc_id = internal global i32 0, align 4
 @.str.75 = private unnamed_addr constant [21 x i8] c"Direct connection id\00", align 1
 @.str.76 = private unnamed_addr constant [17 x i8] c"gadu-gadu.dcc.id\00", align 1
@@ -151,24 +144,20 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_gadu_gadu_userlist_request_type = internal global i32 0, align 4
 @.str.85 = private unnamed_addr constant [13 x i8] c"Request type\00", align 1
 @.str.86 = private unnamed_addr constant [32 x i8] c"gadu-gadu.userlist.request_type\00", align 1
-@gadu_gadu_userlist_request_type_vals = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.204 }, %struct._value_string { i32 1, ptr @.str.205 }, %struct._value_string { i32 2, ptr @.str.206 }, %struct._value_string zeroinitializer], align 16
 @hf_gadu_gadu_userlist_version = internal global i32 0, align 4
 @.str.87 = private unnamed_addr constant [17 x i8] c"Userlist version\00", align 1
 @.str.88 = private unnamed_addr constant [27 x i8] c"gadu-gadu.userlist.version\00", align 1
 @hf_gadu_gadu_userlist_format = internal global i32 0, align 4
 @.str.89 = private unnamed_addr constant [16 x i8] c"Userlist format\00", align 1
 @.str.90 = private unnamed_addr constant [26 x i8] c"gadu-gadu.userlist.format\00", align 1
-@gadu_gadu_userlist_request_format_vals = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.207 }, %struct._value_string { i32 1, ptr @.str.208 }, %struct._value_string { i32 2, ptr @.str.209 }, %struct._value_string zeroinitializer], align 16
 @hf_gadu_gadu_userlist_reply_type = internal global i32 0, align 4
 @.str.91 = private unnamed_addr constant [11 x i8] c"Reply type\00", align 1
 @.str.92 = private unnamed_addr constant [30 x i8] c"gadu-gadu.userlist.reply_type\00", align 1
-@gadu_gadu_userlist_reply_type_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.204 }, %struct._value_string { i32 2, ptr @.str.205 }, %struct._value_string { i32 6, ptr @.str.206 }, %struct._value_string { i32 4, ptr @.str.210 }, %struct._value_string zeroinitializer], align 16
 @hf_gadu_gadu_userlist = internal global i32 0, align 4
 @.str.93 = private unnamed_addr constant [18 x i8] c"Userlist XML data\00", align 1
 @.str.94 = private unnamed_addr constant [19 x i8] c"gadu-gadu.userlist\00", align 1
 @hf_gadu_gadu_pubdir_request_type = internal global i32 0, align 4
 @.str.95 = private unnamed_addr constant [30 x i8] c"gadu-gadu.pubdir.request_type\00", align 1
-@gadu_gadu_pubdir_type_vals = internal constant [4 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.211 }, %struct._value_string { i32 2, ptr @.str.212 }, %struct._value_string { i32 3, ptr @.str.213 }, %struct._value_string zeroinitializer], align 16
 @hf_gadu_gadu_pubdir_request_seq = internal global i32 0, align 4
 @.str.96 = private unnamed_addr constant [17 x i8] c"Request sequence\00", align 1
 @.str.97 = private unnamed_addr constant [29 x i8] c"gadu-gadu.pubdir.request_seq\00", align 1
@@ -206,7 +195,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.116 = private unnamed_addr constant [10 x i8] c"desegment\00", align 1
 @.str.117 = private unnamed_addr constant [61 x i8] c"Reassemble Gadu-Gadu messages spanning multiple TCP segments\00", align 1
 @.str.118 = private unnamed_addr constant [209 x i8] c"Whether the Gadu-Gadu dissector should reassemble messages spanning multiple TCP segments.To use this option, you must also enable \22Allow subdissectors to reassemble TCP streams\22 in the TCP protocol settings.\00", align 1
-@gadu_gadu_desegment = internal global i32 1, align 4
+@gadu_gadu_desegment = internal global i8 1, align 1
 @.str.119 = private unnamed_addr constant [9 x i8] c"gadugadu\00", align 1
 @gadu_gadu_handle = internal global ptr null, align 8
 @.str.120 = private unnamed_addr constant [9 x i8] c"tcp.port\00", align 1
@@ -253,142 +242,153 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.160 = private unnamed_addr constant [15 x i8] c"GG_OWN_MESSAGE\00", align 1
 @.str.161 = private unnamed_addr constant [21 x i8] c"GG_OWN_RESOURCE_INFO\00", align 1
 @.str.162 = private unnamed_addr constant [23 x i8] c"GG_USERLIST100_VERSION\00", align 1
-@.str.163 = private unnamed_addr constant [14 x i8] c"GG_NEW_STATUS\00", align 1
-@.str.164 = private unnamed_addr constant [12 x i8] c"GG_SEND_MSG\00", align 1
-@.str.165 = private unnamed_addr constant [9 x i8] c"GG_LOGIN\00", align 1
-@.str.166 = private unnamed_addr constant [14 x i8] c"GG_ADD_NOTIFY\00", align 1
-@.str.167 = private unnamed_addr constant [17 x i8] c"GG_REMOVE_NOTIFY\00", align 1
-@.str.168 = private unnamed_addr constant [16 x i8] c"GG_NOTIFY_FIRST\00", align 1
-@.str.169 = private unnamed_addr constant [15 x i8] c"GG_NOTIFY_LAST\00", align 1
-@.str.170 = private unnamed_addr constant [14 x i8] c"GG_LIST_EMPTY\00", align 1
-@.str.171 = private unnamed_addr constant [13 x i8] c"GG_LOGIN_EXT\00", align 1
-@.str.172 = private unnamed_addr constant [20 x i8] c"GG_PUBDIR50_REQUEST\00", align 1
-@.str.173 = private unnamed_addr constant [11 x i8] c"GG_LOGIN60\00", align 1
-@.str.174 = private unnamed_addr constant [20 x i8] c"GG_USERLIST_REQUEST\00", align 1
-@.str.175 = private unnamed_addr constant [11 x i8] c"GG_LOGIN70\00", align 1
-@.str.176 = private unnamed_addr constant [19 x i8] c"GG_DCC7_ID_REQUEST\00", align 1
-@.str.177 = private unnamed_addr constant [18 x i8] c"GG_DCC7_ID_DUNNO1\00", align 1
-@.str.178 = private unnamed_addr constant [17 x i8] c"GG_DCC7_ID_ABORT\00", align 1
-@.str.179 = private unnamed_addr constant [20 x i8] c"GG_NEW_STATUS80BETA\00", align 1
-@.str.180 = private unnamed_addr constant [15 x i8] c"GG_LOGIN80BETA\00", align 1
-@.str.181 = private unnamed_addr constant [14 x i8] c"GG_SEND_MSG80\00", align 1
-@.str.182 = private unnamed_addr constant [22 x i8] c"GG_USERLIST_REQUEST80\00", align 1
-@.str.183 = private unnamed_addr constant [11 x i8] c"GG_LOGIN80\00", align 1
-@.str.184 = private unnamed_addr constant [16 x i8] c"GG_NEW_STATUS80\00", align 1
-@.str.185 = private unnamed_addr constant [23 x i8] c"GG_USERLIST100_REQUEST\00", align 1
-@.str.186 = private unnamed_addr constant [16 x i8] c"GG_RECV_MSG_ACK\00", align 1
-@.str.187 = private unnamed_addr constant [18 x i8] c"GG_OWN_DISCONNECT\00", align 1
-@.str.188 = private unnamed_addr constant [17 x i8] c"GG_NEW_STATUS105\00", align 1
-@.str.189 = private unnamed_addr constant [13 x i8] c"GG_NOTIFY105\00", align 1
-@.str.190 = private unnamed_addr constant [17 x i8] c"GG_ADD_NOTIFY105\00", align 1
-@.str.191 = private unnamed_addr constant [20 x i8] c"GG_REMOVE_NOTIFY105\00", align 1
-@.str.192 = private unnamed_addr constant [12 x i8] c"GG_LOGIN105\00", align 1
-@.str.193 = private unnamed_addr constant [10 x i8] c"GG32 hash\00", align 1
-@.str.194 = private unnamed_addr constant [10 x i8] c"SHA1 hash\00", align 1
-@.str.195 = private unnamed_addr constant [15 x i8] c"Typing started\00", align 1
-@.str.196 = private unnamed_addr constant [15 x i8] c"Typing stopped\00", align 1
-@.str.197 = private unnamed_addr constant [16 x i8] c"Message blocked\00", align 1
-@.str.198 = private unnamed_addr constant [18 x i8] c"Message delivered\00", align 1
-@.str.199 = private unnamed_addr constant [15 x i8] c"Message queued\00", align 1
-@.str.200 = private unnamed_addr constant [35 x i8] c"Message not delivered (queue full)\00", align 1
-@.str.201 = private unnamed_addr constant [27 x i8] c"CTCP Message not delivered\00", align 1
-@.str.202 = private unnamed_addr constant [19 x i8] c"Voice transmission\00", align 1
-@.str.203 = private unnamed_addr constant [18 x i8] c"File transmission\00", align 1
-@.str.204 = private unnamed_addr constant [13 x i8] c"Userlist put\00", align 1
-@.str.205 = private unnamed_addr constant [20 x i8] c"Userlist put (more)\00", align 1
-@.str.206 = private unnamed_addr constant [13 x i8] c"Userlist get\00", align 1
-@.str.207 = private unnamed_addr constant [5 x i8] c"None\00", align 1
-@.str.208 = private unnamed_addr constant [14 x i8] c"Classic (7.0)\00", align 1
-@.str.209 = private unnamed_addr constant [11 x i8] c"XML (10.0)\00", align 1
-@.str.210 = private unnamed_addr constant [20 x i8] c"Userlist get (more)\00", align 1
-@.str.211 = private unnamed_addr constant [23 x i8] c"Public directory write\00", align 1
-@.str.212 = private unnamed_addr constant [22 x i8] c"Public directory read\00", align 1
-@.str.213 = private unnamed_addr constant [24 x i8] c"Public directory search\00", align 1
-@.str.214 = private unnamed_addr constant [26 x i8] c"Unknown recv packet: %.2x\00", align 1
-@.str.215 = private unnamed_addr constant [26 x i8] c"Unknown send packet: %.2x\00", align 1
-@.str.216 = private unnamed_addr constant [14 x i8] c"Disconnecting\00", align 1
-@.str.217 = private unnamed_addr constant [32 x i8] c"Disconnect acknowledge (< 10.0)\00", align 1
-@.str.218 = private unnamed_addr constant [22 x i8] c"Login success (< 8.0)\00", align 1
-@.str.219 = private unnamed_addr constant [20 x i8] c"Login success (8.0)\00", align 1
-@.str.220 = private unnamed_addr constant [19 x i8] c"Login fail (< 8.0)\00", align 1
-@.str.221 = private unnamed_addr constant [17 x i8] c"Login fail (8.0)\00", align 1
-@.str.222 = private unnamed_addr constant [16 x i8] c"Contact details\00", align 1
-@.str.223 = private unnamed_addr constant [14 x i8] c"Typing notify\00", align 1
-@.str.224 = private unnamed_addr constant [24 x i8] c"Receive message (< 8.0)\00", align 1
-@.str.225 = private unnamed_addr constant [22 x i8] c"Receive message (8.0)\00", align 1
-@.str.226 = private unnamed_addr constant [29 x i8] c"Message acknowledge (server)\00", align 1
-@.str.227 = private unnamed_addr constant [21 x i8] c"Receive status (6.0)\00", align 1
-@.str.228 = private unnamed_addr constant [21 x i8] c"Receive status (7.7)\00", align 1
-@.str.229 = private unnamed_addr constant [21 x i8] c"Receive status (8.0)\00", align 1
-@.str.230 = private unnamed_addr constant [26 x i8] c"Receive status list (8.0)\00", align 1
-@.str.231 = private unnamed_addr constant [27 x i8] c"Direct connection id reply\00", align 1
-@.str.232 = private unnamed_addr constant [8 x i8] c"Welcome\00", align 1
-@.str.233 = private unnamed_addr constant [21 x i8] c"Userlist reply (8.0)\00", align 1
-@.str.234 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
-@.str.235 = private unnamed_addr constant [26 x i8] c"[Decompression succeeded]\00", align 1
-@.str.236 = private unnamed_addr constant [22 x i8] c"Uncompressed userlist\00", align 1
-@.str.237 = private unnamed_addr constant [43 x i8] c"[Error: Decompression failed] (or no zlib)\00", align 1
-@.str.238 = private unnamed_addr constant [22 x i8] c"Userlist reply (10.0)\00", align 1
-@.str.239 = private unnamed_addr constant [24 x i8] c"Userlist version (10.0)\00", align 1
-@.str.240 = private unnamed_addr constant [23 x i8] c"Public directory reply\00", align 1
-@.str.241 = private unnamed_addr constant [19 x i8] c"XML action message\00", align 1
-@.str.242 = private unnamed_addr constant [22 x i8] c"Login request (< 6.0)\00", align 1
-@.str.243 = private unnamed_addr constant [7 x i8] c"0x%.8x\00", align 1
-@gadu_gadu_version_vals = internal constant [26 x %struct._value_string] [%struct._value_string { i32 46, ptr @.str.245 }, %struct._value_string { i32 45, ptr @.str.246 }, %struct._value_string { i32 42, ptr @.str.247 }, %struct._value_string { i32 41, ptr @.str.248 }, %struct._value_string { i32 40, ptr @.str.249 }, %struct._value_string { i32 39, ptr @.str.250 }, %struct._value_string { i32 38, ptr @.str.251 }, %struct._value_string { i32 37, ptr @.str.252 }, %struct._value_string { i32 36, ptr @.str.253 }, %struct._value_string { i32 34, ptr @.str.254 }, %struct._value_string { i32 33, ptr @.str.255 }, %struct._value_string { i32 32, ptr @.str.256 }, %struct._value_string { i32 30, ptr @.str.257 }, %struct._value_string { i32 28, ptr @.str.258 }, %struct._value_string { i32 27, ptr @.str.259 }, %struct._value_string { i32 25, ptr @.str.260 }, %struct._value_string { i32 24, ptr @.str.261 }, %struct._value_string { i32 23, ptr @.str.262 }, %struct._value_string { i32 22, ptr @.str.263 }, %struct._value_string { i32 21, ptr @.str.264 }, %struct._value_string { i32 20, ptr @.str.265 }, %struct._value_string { i32 17, ptr @.str.266 }, %struct._value_string { i32 16, ptr @.str.267 }, %struct._value_string { i32 15, ptr @.str.268 }, %struct._value_string { i32 11, ptr @.str.269 }, %struct._value_string zeroinitializer], align 16
-@.str.244 = private unnamed_addr constant [15 x i8] c"Unknown (0x%x)\00", align 1
-@.str.245 = private unnamed_addr constant [27 x i8] c"Gadu-Gadu 8.0 (build 8283)\00", align 1
-@.str.246 = private unnamed_addr constant [27 x i8] c"Gadu-Gadu 8.0 (build 4881)\00", align 1
-@.str.247 = private unnamed_addr constant [27 x i8] c"Gadu-Gadu 7.7 (build 3315)\00", align 1
-@.str.248 = private unnamed_addr constant [27 x i8] c"Gadu-Gadu 7.6 (build 1688)\00", align 1
-@.str.249 = private unnamed_addr constant [29 x i8] c"Gadu-Gadu 7.5.0 (build 2201)\00", align 1
-@.str.250 = private unnamed_addr constant [25 x i8] c"Gadu-Gadu 7.0 (build 22)\00", align 1
-@.str.251 = private unnamed_addr constant [25 x i8] c"Gadu-Gadu 7.0 (build 20)\00", align 1
-@.str.252 = private unnamed_addr constant [24 x i8] c"Gadu-Gadu 7.0 (build 1)\00", align 1
-@.str.253 = private unnamed_addr constant [46 x i8] c"Gadu-Gadu 6.1 (build 155) or 7.6 (build 1359)\00", align 1
-@.str.254 = private unnamed_addr constant [26 x i8] c"Gadu-Gadu 6.0 (build 140)\00", align 1
-@.str.255 = private unnamed_addr constant [26 x i8] c"Gadu-Gadu 6.0 (build 133)\00", align 1
-@.str.256 = private unnamed_addr constant [14 x i8] c"Gadu-Gadu 6.0\00", align 1
-@.str.257 = private unnamed_addr constant [31 x i8] c"Gadu-Gadu 5.7 beta (build 121)\00", align 1
-@.str.258 = private unnamed_addr constant [19 x i8] c"Gadu_Gadu 5.7 beta\00", align 1
-@.str.259 = private unnamed_addr constant [16 x i8] c"Gadu-Gadu 5.0.5\00", align 1
-@.str.260 = private unnamed_addr constant [16 x i8] c"Gadu-Gadu 5.0.3\00", align 1
-@.str.261 = private unnamed_addr constant [30 x i8] c"Gadu-Gadu 5.0.1, 5.0.0, 4.9.3\00", align 1
-@.str.262 = private unnamed_addr constant [16 x i8] c"Gadu-Gadu 4.9.2\00", align 1
-@.str.263 = private unnamed_addr constant [16 x i8] c"Gadu-Gadu 4.9.1\00", align 1
-@.str.264 = private unnamed_addr constant [16 x i8] c"Gadu-Gadu 4.8.9\00", align 1
-@.str.265 = private unnamed_addr constant [23 x i8] c"Gadu-Gadu 4.8.3, 4.8.1\00", align 1
-@.str.266 = private unnamed_addr constant [24 x i8] c"Gadu-Gadu 4.6.10, 4.6.1\00", align 1
-@.str.267 = private unnamed_addr constant [49 x i8] c"Gadu-Gadu 4.5.22, 4.5.21, 4.5.19, 4.5.17, 4.5.15\00", align 1
-@.str.268 = private unnamed_addr constant [17 x i8] c"Gadu-Gadu 4.5.12\00", align 1
-@.str.269 = private unnamed_addr constant [41 x i8] c"Gadu-Gadu 4.0.30, 4.0.29, 4.0.28, 4.0.25\00", align 1
-@.str.270 = private unnamed_addr constant [20 x i8] c"Login request (7.0)\00", align 1
-@.str.271 = private unnamed_addr constant [20 x i8] c"Login request (8.0)\00", align 1
-@.str.272 = private unnamed_addr constant [20 x i8] c"Notify list (empty)\00", align 1
-@.str.273 = private unnamed_addr constant [12 x i8] c"Notify list\00", align 1
-@.str.274 = private unnamed_addr constant [12 x i8] c"Contact: %u\00", align 1
-@.str.275 = private unnamed_addr constant [19 x i8] c"Notify list (last)\00", align 1
-@.str.276 = private unnamed_addr constant [19 x i8] c"Notify list (10.5)\00", align 1
-@.str.277 = private unnamed_addr constant [10 x i8] c"Contact: \00", align 1
-@.str.278 = private unnamed_addr constant [16 x i8] c"Notify list add\00", align 1
-@.str.279 = private unnamed_addr constant [23 x i8] c"Notify list add (10.5)\00", align 1
-@.str.280 = private unnamed_addr constant [19 x i8] c"Notify list remove\00", align 1
-@.str.281 = private unnamed_addr constant [26 x i8] c"Notify list remove (10.5)\00", align 1
-@.str.282 = private unnamed_addr constant [5 x i8] c"Ping\00", align 1
-@.str.283 = private unnamed_addr constant [21 x i8] c"Send message (< 8.0)\00", align 1
-@.str.284 = private unnamed_addr constant [19 x i8] c"Send message (8.0)\00", align 1
-@.str.285 = private unnamed_addr constant [29 x i8] c"Message acknowledge (client)\00", align 1
-@.str.286 = private unnamed_addr constant [19 x i8] c"New status (< 8.0)\00", align 1
-@.str.287 = private unnamed_addr constant [17 x i8] c"New status (8.0)\00", align 1
-@.str.288 = private unnamed_addr constant [29 x i8] c"Direct connection id request\00", align 1
-@.str.289 = private unnamed_addr constant [22 x i8] c"Direct connection new\00", align 1
-@.str.290 = private unnamed_addr constant [24 x i8] c"Direct connection abort\00", align 1
-@.str.291 = private unnamed_addr constant [23 x i8] c"Userlist request (8.0)\00", align 1
-@.str.292 = private unnamed_addr constant [24 x i8] c"Userlist request (10.0)\00", align 1
-@.str.293 = private unnamed_addr constant [25 x i8] c"Public directory request\00", align 1
+@gadu_gadu_packets_type_recv = internal constant [42 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.122 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.123 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.124 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.125 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.126 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.127 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.128 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.129 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.130 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.131 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.132 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.133 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.134 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.135 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.136 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.137 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.138 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.139 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.140 }, { i32, [4 x i8], ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.141 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.142 }, { i32, [4 x i8], ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.143 }, { i32, [4 x i8], ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.144 }, { i32, [4 x i8], ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.145 }, { i32, [4 x i8], ptr } { i32 37, [4 x i8] zeroinitializer, ptr @.str.146 }, { i32, [4 x i8], ptr } { i32 39, [4 x i8] zeroinitializer, ptr @.str.147 }, { i32, [4 x i8], ptr } { i32 42, [4 x i8] zeroinitializer, ptr @.str.148 }, { i32, [4 x i8], ptr } { i32 43, [4 x i8] zeroinitializer, ptr @.str.149 }, { i32, [4 x i8], ptr } { i32 44, [4 x i8] zeroinitializer, ptr @.str.150 }, { i32, [4 x i8], ptr } { i32 46, [4 x i8] zeroinitializer, ptr @.str.151 }, { i32, [4 x i8], ptr } { i32 48, [4 x i8] zeroinitializer, ptr @.str.152 }, { i32, [4 x i8], ptr } { i32 53, [4 x i8] zeroinitializer, ptr @.str.153 }, { i32, [4 x i8], ptr } { i32 54, [4 x i8] zeroinitializer, ptr @.str.154 }, { i32, [4 x i8], ptr } { i32 55, [4 x i8] zeroinitializer, ptr @.str.155 }, { i32, [4 x i8], ptr } { i32 65, [4 x i8] zeroinitializer, ptr @.str.156 }, { i32, [4 x i8], ptr } { i32 67, [4 x i8] zeroinitializer, ptr @.str.157 }, { i32, [4 x i8], ptr } { i32 68, [4 x i8] zeroinitializer, ptr @.str.158 }, { i32, [4 x i8], ptr } { i32 89, [4 x i8] zeroinitializer, ptr @.str.159 }, { i32, [4 x i8], ptr } { i32 90, [4 x i8] zeroinitializer, ptr @.str.160 }, { i32, [4 x i8], ptr } { i32 91, [4 x i8] zeroinitializer, ptr @.str.161 }, { i32, [4 x i8], ptr } { i32 92, [4 x i8] zeroinitializer, ptr @.str.162 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.164 = private unnamed_addr constant [14 x i8] c"GG_NEW_STATUS\00", align 1
+@.str.165 = private unnamed_addr constant [12 x i8] c"GG_SEND_MSG\00", align 1
+@.str.166 = private unnamed_addr constant [9 x i8] c"GG_LOGIN\00", align 1
+@.str.167 = private unnamed_addr constant [14 x i8] c"GG_ADD_NOTIFY\00", align 1
+@.str.168 = private unnamed_addr constant [17 x i8] c"GG_REMOVE_NOTIFY\00", align 1
+@.str.169 = private unnamed_addr constant [16 x i8] c"GG_NOTIFY_FIRST\00", align 1
+@.str.170 = private unnamed_addr constant [15 x i8] c"GG_NOTIFY_LAST\00", align 1
+@.str.171 = private unnamed_addr constant [14 x i8] c"GG_LIST_EMPTY\00", align 1
+@.str.172 = private unnamed_addr constant [13 x i8] c"GG_LOGIN_EXT\00", align 1
+@.str.173 = private unnamed_addr constant [20 x i8] c"GG_PUBDIR50_REQUEST\00", align 1
+@.str.174 = private unnamed_addr constant [11 x i8] c"GG_LOGIN60\00", align 1
+@.str.175 = private unnamed_addr constant [20 x i8] c"GG_USERLIST_REQUEST\00", align 1
+@.str.176 = private unnamed_addr constant [11 x i8] c"GG_LOGIN70\00", align 1
+@.str.177 = private unnamed_addr constant [19 x i8] c"GG_DCC7_ID_REQUEST\00", align 1
+@.str.178 = private unnamed_addr constant [18 x i8] c"GG_DCC7_ID_DUNNO1\00", align 1
+@.str.179 = private unnamed_addr constant [17 x i8] c"GG_DCC7_ID_ABORT\00", align 1
+@.str.180 = private unnamed_addr constant [20 x i8] c"GG_NEW_STATUS80BETA\00", align 1
+@.str.181 = private unnamed_addr constant [15 x i8] c"GG_LOGIN80BETA\00", align 1
+@.str.182 = private unnamed_addr constant [14 x i8] c"GG_SEND_MSG80\00", align 1
+@.str.183 = private unnamed_addr constant [22 x i8] c"GG_USERLIST_REQUEST80\00", align 1
+@.str.184 = private unnamed_addr constant [11 x i8] c"GG_LOGIN80\00", align 1
+@.str.185 = private unnamed_addr constant [16 x i8] c"GG_NEW_STATUS80\00", align 1
+@.str.186 = private unnamed_addr constant [23 x i8] c"GG_USERLIST100_REQUEST\00", align 1
+@.str.187 = private unnamed_addr constant [16 x i8] c"GG_RECV_MSG_ACK\00", align 1
+@.str.188 = private unnamed_addr constant [18 x i8] c"GG_OWN_DISCONNECT\00", align 1
+@.str.189 = private unnamed_addr constant [17 x i8] c"GG_NEW_STATUS105\00", align 1
+@.str.190 = private unnamed_addr constant [13 x i8] c"GG_NOTIFY105\00", align 1
+@.str.191 = private unnamed_addr constant [17 x i8] c"GG_ADD_NOTIFY105\00", align 1
+@.str.192 = private unnamed_addr constant [20 x i8] c"GG_REMOVE_NOTIFY105\00", align 1
+@.str.193 = private unnamed_addr constant [12 x i8] c"GG_LOGIN105\00", align 1
+@gadu_gadu_packets_type_send = internal constant [38 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.164 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.126 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.127 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.165 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.166 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.167 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.168 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.169 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.170 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.171 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.172 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.173 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.174 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.175 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.176 }, { i32, [4 x i8], ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.141 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.142 }, { i32, [4 x i8], ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.143 }, { i32, [4 x i8], ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.144 }, { i32, [4 x i8], ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.177 }, { i32, [4 x i8], ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.178 }, { i32, [4 x i8], ptr } { i32 37, [4 x i8] zeroinitializer, ptr @.str.179 }, { i32, [4 x i8], ptr } { i32 40, [4 x i8] zeroinitializer, ptr @.str.180 }, { i32, [4 x i8], ptr } { i32 41, [4 x i8] zeroinitializer, ptr @.str.181 }, { i32, [4 x i8], ptr } { i32 45, [4 x i8] zeroinitializer, ptr @.str.182 }, { i32, [4 x i8], ptr } { i32 47, [4 x i8] zeroinitializer, ptr @.str.183 }, { i32, [4 x i8], ptr } { i32 49, [4 x i8] zeroinitializer, ptr @.str.184 }, { i32, [4 x i8], ptr } { i32 56, [4 x i8] zeroinitializer, ptr @.str.185 }, { i32, [4 x i8], ptr } { i32 64, [4 x i8] zeroinitializer, ptr @.str.186 }, { i32, [4 x i8], ptr } { i32 70, [4 x i8] zeroinitializer, ptr @.str.187 }, { i32, [4 x i8], ptr } { i32 89, [4 x i8] zeroinitializer, ptr @.str.159 }, { i32, [4 x i8], ptr } { i32 98, [4 x i8] zeroinitializer, ptr @.str.188 }, { i32, [4 x i8], ptr } { i32 99, [4 x i8] zeroinitializer, ptr @.str.189 }, { i32, [4 x i8], ptr } { i32 120, [4 x i8] zeroinitializer, ptr @.str.190 }, { i32, [4 x i8], ptr } { i32 123, [4 x i8] zeroinitializer, ptr @.str.191 }, { i32, [4 x i8], ptr } { i32 124, [4 x i8] zeroinitializer, ptr @.str.192 }, { i32, [4 x i8], ptr } { i32 131, [4 x i8] zeroinitializer, ptr @.str.193 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.195 = private unnamed_addr constant [10 x i8] c"GG32 hash\00", align 1
+@.str.196 = private unnamed_addr constant [10 x i8] c"SHA1 hash\00", align 1
+@gadu_gadu_hash_type_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.195 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.196 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.198 = private unnamed_addr constant [15 x i8] c"Typing started\00", align 1
+@.str.199 = private unnamed_addr constant [15 x i8] c"Typing stopped\00", align 1
+@gadu_gadu_typing_notify_type_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.198 }, { i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.199 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.201 = private unnamed_addr constant [16 x i8] c"Message blocked\00", align 1
+@.str.202 = private unnamed_addr constant [18 x i8] c"Message delivered\00", align 1
+@.str.203 = private unnamed_addr constant [15 x i8] c"Message queued\00", align 1
+@.str.204 = private unnamed_addr constant [35 x i8] c"Message not delivered (queue full)\00", align 1
+@.str.205 = private unnamed_addr constant [27 x i8] c"CTCP Message not delivered\00", align 1
+@gadu_gadu_msg_ack_status_vals = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.201 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.202 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.203 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.204 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.205 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.207 = private unnamed_addr constant [19 x i8] c"Voice transmission\00", align 1
+@.str.208 = private unnamed_addr constant [18 x i8] c"File transmission\00", align 1
+@gadu_gadu_dcc_type_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.207 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.208 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.210 = private unnamed_addr constant [13 x i8] c"Userlist put\00", align 1
+@.str.211 = private unnamed_addr constant [20 x i8] c"Userlist put (more)\00", align 1
+@.str.212 = private unnamed_addr constant [13 x i8] c"Userlist get\00", align 1
+@gadu_gadu_userlist_request_type_vals = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.210 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.211 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.212 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.214 = private unnamed_addr constant [5 x i8] c"None\00", align 1
+@.str.215 = private unnamed_addr constant [14 x i8] c"Classic (7.0)\00", align 1
+@.str.216 = private unnamed_addr constant [11 x i8] c"XML (10.0)\00", align 1
+@gadu_gadu_userlist_request_format_vals = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.214 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.215 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.216 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.218 = private unnamed_addr constant [20 x i8] c"Userlist get (more)\00", align 1
+@gadu_gadu_userlist_reply_type_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.210 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.211 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.212 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.218 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.220 = private unnamed_addr constant [23 x i8] c"Public directory write\00", align 1
+@.str.221 = private unnamed_addr constant [22 x i8] c"Public directory read\00", align 1
+@.str.222 = private unnamed_addr constant [24 x i8] c"Public directory search\00", align 1
+@gadu_gadu_pubdir_type_vals = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.220 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.221 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.222 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.224 = private unnamed_addr constant [26 x i8] c"Unknown recv packet: %.2x\00", align 1
+@.str.225 = private unnamed_addr constant [26 x i8] c"Unknown send packet: %.2x\00", align 1
+@.str.226 = private unnamed_addr constant [14 x i8] c"Disconnecting\00", align 1
+@.str.227 = private unnamed_addr constant [32 x i8] c"Disconnect acknowledge (< 10.0)\00", align 1
+@.str.228 = private unnamed_addr constant [22 x i8] c"Login success (< 8.0)\00", align 1
+@.str.229 = private unnamed_addr constant [20 x i8] c"Login success (8.0)\00", align 1
+@.str.230 = private unnamed_addr constant [19 x i8] c"Login fail (< 8.0)\00", align 1
+@.str.231 = private unnamed_addr constant [17 x i8] c"Login fail (8.0)\00", align 1
+@.str.232 = private unnamed_addr constant [16 x i8] c"Contact details\00", align 1
+@.str.233 = private unnamed_addr constant [14 x i8] c"Typing notify\00", align 1
+@.str.234 = private unnamed_addr constant [24 x i8] c"Receive message (< 8.0)\00", align 1
+@.str.235 = private unnamed_addr constant [22 x i8] c"Receive message (8.0)\00", align 1
+@.str.236 = private unnamed_addr constant [29 x i8] c"Message acknowledge (server)\00", align 1
+@.str.237 = private unnamed_addr constant [21 x i8] c"Receive status (6.0)\00", align 1
+@.str.238 = private unnamed_addr constant [21 x i8] c"Receive status (7.7)\00", align 1
+@.str.239 = private unnamed_addr constant [21 x i8] c"Receive status (8.0)\00", align 1
+@.str.240 = private unnamed_addr constant [26 x i8] c"Receive status list (8.0)\00", align 1
+@.str.241 = private unnamed_addr constant [27 x i8] c"Direct connection id reply\00", align 1
+@.str.242 = private unnamed_addr constant [8 x i8] c"Welcome\00", align 1
+@.str.243 = private unnamed_addr constant [21 x i8] c"Userlist reply (8.0)\00", align 1
+@.str.244 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
+@.str.245 = private unnamed_addr constant [26 x i8] c"[Decompression succeeded]\00", align 1
+@.str.246 = private unnamed_addr constant [22 x i8] c"Uncompressed userlist\00", align 1
+@.str.247 = private unnamed_addr constant [43 x i8] c"[Error: Decompression failed] (or no zlib)\00", align 1
+@.str.248 = private unnamed_addr constant [22 x i8] c"Userlist reply (10.0)\00", align 1
+@.str.249 = private unnamed_addr constant [24 x i8] c"Userlist version (10.0)\00", align 1
+@.str.250 = private unnamed_addr constant [23 x i8] c"Public directory reply\00", align 1
+@.str.251 = private unnamed_addr constant [19 x i8] c"XML action message\00", align 1
+@.str.252 = private unnamed_addr constant [22 x i8] c"Login request (< 6.0)\00", align 1
+@.str.253 = private unnamed_addr constant [7 x i8] c"0x%.8x\00", align 1
+@.str.254 = private unnamed_addr constant [15 x i8] c"Unknown (0x%x)\00", align 1
+@.str.255 = private unnamed_addr constant [27 x i8] c"Gadu-Gadu 8.0 (build 8283)\00", align 1
+@.str.256 = private unnamed_addr constant [27 x i8] c"Gadu-Gadu 8.0 (build 4881)\00", align 1
+@.str.257 = private unnamed_addr constant [27 x i8] c"Gadu-Gadu 7.7 (build 3315)\00", align 1
+@.str.258 = private unnamed_addr constant [27 x i8] c"Gadu-Gadu 7.6 (build 1688)\00", align 1
+@.str.259 = private unnamed_addr constant [29 x i8] c"Gadu-Gadu 7.5.0 (build 2201)\00", align 1
+@.str.260 = private unnamed_addr constant [25 x i8] c"Gadu-Gadu 7.0 (build 22)\00", align 1
+@.str.261 = private unnamed_addr constant [25 x i8] c"Gadu-Gadu 7.0 (build 20)\00", align 1
+@.str.262 = private unnamed_addr constant [24 x i8] c"Gadu-Gadu 7.0 (build 1)\00", align 1
+@.str.263 = private unnamed_addr constant [46 x i8] c"Gadu-Gadu 6.1 (build 155) or 7.6 (build 1359)\00", align 1
+@.str.264 = private unnamed_addr constant [26 x i8] c"Gadu-Gadu 6.0 (build 140)\00", align 1
+@.str.265 = private unnamed_addr constant [26 x i8] c"Gadu-Gadu 6.0 (build 133)\00", align 1
+@.str.266 = private unnamed_addr constant [14 x i8] c"Gadu-Gadu 6.0\00", align 1
+@.str.267 = private unnamed_addr constant [31 x i8] c"Gadu-Gadu 5.7 beta (build 121)\00", align 1
+@.str.268 = private unnamed_addr constant [19 x i8] c"Gadu_Gadu 5.7 beta\00", align 1
+@.str.269 = private unnamed_addr constant [16 x i8] c"Gadu-Gadu 5.0.5\00", align 1
+@.str.270 = private unnamed_addr constant [16 x i8] c"Gadu-Gadu 5.0.3\00", align 1
+@.str.271 = private unnamed_addr constant [30 x i8] c"Gadu-Gadu 5.0.1, 5.0.0, 4.9.3\00", align 1
+@.str.272 = private unnamed_addr constant [16 x i8] c"Gadu-Gadu 4.9.2\00", align 1
+@.str.273 = private unnamed_addr constant [16 x i8] c"Gadu-Gadu 4.9.1\00", align 1
+@.str.274 = private unnamed_addr constant [16 x i8] c"Gadu-Gadu 4.8.9\00", align 1
+@.str.275 = private unnamed_addr constant [23 x i8] c"Gadu-Gadu 4.8.3, 4.8.1\00", align 1
+@.str.276 = private unnamed_addr constant [24 x i8] c"Gadu-Gadu 4.6.10, 4.6.1\00", align 1
+@.str.277 = private unnamed_addr constant [49 x i8] c"Gadu-Gadu 4.5.22, 4.5.21, 4.5.19, 4.5.17, 4.5.15\00", align 1
+@.str.278 = private unnamed_addr constant [17 x i8] c"Gadu-Gadu 4.5.12\00", align 1
+@.str.279 = private unnamed_addr constant [41 x i8] c"Gadu-Gadu 4.0.30, 4.0.29, 4.0.28, 4.0.25\00", align 1
+@gadu_gadu_version_vals = internal constant [26 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 46, [4 x i8] zeroinitializer, ptr @.str.255 }, { i32, [4 x i8], ptr } { i32 45, [4 x i8] zeroinitializer, ptr @.str.256 }, { i32, [4 x i8], ptr } { i32 42, [4 x i8] zeroinitializer, ptr @.str.257 }, { i32, [4 x i8], ptr } { i32 41, [4 x i8] zeroinitializer, ptr @.str.258 }, { i32, [4 x i8], ptr } { i32 40, [4 x i8] zeroinitializer, ptr @.str.259 }, { i32, [4 x i8], ptr } { i32 39, [4 x i8] zeroinitializer, ptr @.str.260 }, { i32, [4 x i8], ptr } { i32 38, [4 x i8] zeroinitializer, ptr @.str.261 }, { i32, [4 x i8], ptr } { i32 37, [4 x i8] zeroinitializer, ptr @.str.262 }, { i32, [4 x i8], ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.263 }, { i32, [4 x i8], ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.264 }, { i32, [4 x i8], ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.265 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.266 }, { i32, [4 x i8], ptr } { i32 30, [4 x i8] zeroinitializer, ptr @.str.267 }, { i32, [4 x i8], ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.268 }, { i32, [4 x i8], ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.269 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.270 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.271 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.272 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.273 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.274 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.275 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.276 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.277 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.278 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.279 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.281 = private unnamed_addr constant [20 x i8] c"Login request (7.0)\00", align 1
+@.str.282 = private unnamed_addr constant [20 x i8] c"Login request (8.0)\00", align 1
+@.str.283 = private unnamed_addr constant [20 x i8] c"Notify list (empty)\00", align 1
+@.str.284 = private unnamed_addr constant [12 x i8] c"Notify list\00", align 1
+@.str.285 = private unnamed_addr constant [12 x i8] c"Contact: %u\00", align 1
+@.str.286 = private unnamed_addr constant [19 x i8] c"Notify list (last)\00", align 1
+@.str.287 = private unnamed_addr constant [19 x i8] c"Notify list (10.5)\00", align 1
+@.str.288 = private unnamed_addr constant [10 x i8] c"Contact: \00", align 1
+@.str.289 = private unnamed_addr constant [16 x i8] c"Notify list add\00", align 1
+@.str.290 = private unnamed_addr constant [23 x i8] c"Notify list add (10.5)\00", align 1
+@.str.291 = private unnamed_addr constant [19 x i8] c"Notify list remove\00", align 1
+@.str.292 = private unnamed_addr constant [26 x i8] c"Notify list remove (10.5)\00", align 1
+@.str.293 = private unnamed_addr constant [5 x i8] c"Ping\00", align 1
+@.str.294 = private unnamed_addr constant [21 x i8] c"Send message (< 8.0)\00", align 1
+@.str.295 = private unnamed_addr constant [19 x i8] c"Send message (8.0)\00", align 1
+@.str.296 = private unnamed_addr constant [29 x i8] c"Message acknowledge (client)\00", align 1
+@.str.297 = private unnamed_addr constant [19 x i8] c"New status (< 8.0)\00", align 1
+@.str.298 = private unnamed_addr constant [17 x i8] c"New status (8.0)\00", align 1
+@.str.299 = private unnamed_addr constant [29 x i8] c"Direct connection id request\00", align 1
+@.str.300 = private unnamed_addr constant [22 x i8] c"Direct connection new\00", align 1
+@.str.301 = private unnamed_addr constant [24 x i8] c"Direct connection abort\00", align 1
+@.str.302 = private unnamed_addr constant [23 x i8] c"Userlist request (8.0)\00", align 1
+@.str.303 = private unnamed_addr constant [24 x i8] c"Userlist request (10.0)\00", align 1
+@.str.304 = private unnamed_addr constant [25 x i8] c"Public directory request\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_gadu_gadu() #0 {
   %1 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #6
   %2 = call i32 @proto_register_protocol(ptr noundef @.str.113, ptr noundef @.str.114, ptr noundef @.str.115)
   store i32 %2, ptr @proto_gadu_gadu, align 4
   %3 = load i32, ptr @proto_gadu_gadu, align 4
@@ -402,22 +402,32 @@ define hidden void @proto_register_gadu_gadu() #0 {
   %7 = load i32, ptr @proto_gadu_gadu, align 4
   %8 = call ptr @register_dissector(ptr noundef @.str.119, ptr noundef @dissect_gadu_gadu, i32 noundef %7)
   store ptr %8, ptr @gadu_gadu_handle, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #6
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) #2
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #2
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -429,89 +439,93 @@ define internal i32 @dissect_gadu_gadu(ptr noundef %0, ptr noundef %1, ptr nound
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   %10 = load ptr, ptr %7, align 8
-  %11 = getelementptr inbounds %struct._packet_info, ptr %10, i32 0, i32 23
+  %11 = getelementptr inbounds nuw %struct._packet_info, ptr %10, i32 0, i32 24
   %12 = load i32, ptr %11, align 4
   %13 = load ptr, ptr %7, align 8
-  %14 = getelementptr inbounds %struct._packet_info, ptr %13, i32 0, i32 25
+  %14 = getelementptr inbounds nuw %struct._packet_info, ptr %13, i32 0, i32 26
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %12, %15
   br i1 %16, label %17, label %28
 
 17:                                               ; preds = %4
   %18 = load ptr, ptr %7, align 8
-  %19 = getelementptr inbounds %struct._packet_info, ptr %18, i32 0, i32 24
+  %19 = getelementptr inbounds nuw %struct._packet_info, ptr %18, i32 0, i32 25
   %20 = load i32, ptr %19, align 8
   %21 = load ptr, ptr %7, align 8
-  %22 = getelementptr inbounds %struct._packet_info, ptr %21, i32 0, i32 25
+  %22 = getelementptr inbounds nuw %struct._packet_info, ptr %21, i32 0, i32 26
   %23 = load i32, ptr %22, align 4
   %24 = icmp ne i32 %20, %23
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %17
   %26 = load ptr, ptr %7, align 8
-  %27 = getelementptr inbounds %struct._packet_info, ptr %26, i32 0, i32 36
+  %27 = getelementptr inbounds nuw %struct._packet_info, ptr %26, i32 0, i32 37
   store i32 1, ptr %27, align 4
   br label %49
 
 28:                                               ; preds = %17, %4
   %29 = load ptr, ptr %7, align 8
-  %30 = getelementptr inbounds %struct._packet_info, ptr %29, i32 0, i32 23
+  %30 = getelementptr inbounds nuw %struct._packet_info, ptr %29, i32 0, i32 24
   %31 = load i32, ptr %30, align 4
   %32 = load ptr, ptr %7, align 8
-  %33 = getelementptr inbounds %struct._packet_info, ptr %32, i32 0, i32 25
+  %33 = getelementptr inbounds nuw %struct._packet_info, ptr %32, i32 0, i32 26
   %34 = load i32, ptr %33, align 4
   %35 = icmp ne i32 %31, %34
   br i1 %35, label %36, label %47
 
 36:                                               ; preds = %28
   %37 = load ptr, ptr %7, align 8
-  %38 = getelementptr inbounds %struct._packet_info, ptr %37, i32 0, i32 24
+  %38 = getelementptr inbounds nuw %struct._packet_info, ptr %37, i32 0, i32 25
   %39 = load i32, ptr %38, align 8
   %40 = load ptr, ptr %7, align 8
-  %41 = getelementptr inbounds %struct._packet_info, ptr %40, i32 0, i32 25
+  %41 = getelementptr inbounds nuw %struct._packet_info, ptr %40, i32 0, i32 26
   %42 = load i32, ptr %41, align 4
   %43 = icmp eq i32 %39, %42
   br i1 %43, label %44, label %47
 
 44:                                               ; preds = %36
   %45 = load ptr, ptr %7, align 8
-  %46 = getelementptr inbounds %struct._packet_info, ptr %45, i32 0, i32 36
+  %46 = getelementptr inbounds nuw %struct._packet_info, ptr %45, i32 0, i32 37
   store i32 0, ptr %46, align 4
   br label %48
 
 47:                                               ; preds = %36, %28
   store i32 0, ptr %5, align 4
-  br label %63
+  br label %64
 
 48:                                               ; preds = %44
   br label %49
 
 49:                                               ; preds = %48, %25
   %50 = load ptr, ptr %7, align 8
-  %51 = getelementptr inbounds %struct._packet_info, ptr %50, i32 0, i32 1
+  %51 = getelementptr inbounds nuw %struct._packet_info, ptr %50, i32 0, i32 1
   %52 = load ptr, ptr %51, align 8
-  call void @col_set_str(ptr noundef %52, i32 noundef 34, ptr noundef @.str.114)
+  call void @col_set_str(ptr noundef %52, i32 noundef 35, ptr noundef @.str.114)
   %53 = load ptr, ptr %7, align 8
-  %54 = getelementptr inbounds %struct._packet_info, ptr %53, i32 0, i32 1
+  %54 = getelementptr inbounds nuw %struct._packet_info, ptr %53, i32 0, i32 1
   %55 = load ptr, ptr %54, align 8
   call void @col_clear(ptr noundef %55, i32 noundef 25)
   %56 = load ptr, ptr %6, align 8
   %57 = load ptr, ptr %7, align 8
   %58 = load ptr, ptr %8, align 8
-  %59 = load i32, ptr @gadu_gadu_desegment, align 4
-  %60 = load ptr, ptr %9, align 8
-  call void @tcp_dissect_pdus(ptr noundef %56, ptr noundef %57, ptr noundef %58, i32 noundef %59, i32 noundef 8, ptr noundef @get_gadu_gadu_pdu_len, ptr noundef @dissect_gadu_gadu_pdu, ptr noundef %60)
-  %61 = load ptr, ptr %6, align 8
-  %62 = call i32 @tvb_captured_length(ptr noundef %61)
-  store i32 %62, ptr %5, align 4
-  br label %63
+  %59 = load i8, ptr @gadu_gadu_desegment, align 1, !range !6, !noundef !7
+  %60 = trunc i8 %59 to i1
+  %61 = load ptr, ptr %9, align 8
+  call void @tcp_dissect_pdus(ptr noundef %56, ptr noundef %57, ptr noundef %58, i1 noundef zeroext %60, i32 noundef 8, ptr noundef @get_gadu_gadu_pdu_len, ptr noundef @dissect_gadu_gadu_pdu, ptr noundef %61)
+  %62 = load ptr, ptr %6, align 8
+  %63 = call i32 @tvb_captured_length(ptr noundef %62)
+  store i32 %63, ptr %5, align 4
+  br label %64
 
-63:                                               ; preds = %49, %47
-  %64 = load i32, ptr %5, align 4
-  ret i32 %64
+64:                                               ; preds = %49, %47
+  %65 = load i32, ptr %5, align 4
+  ret i32 %65
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_gadu_gadu() #0 {
   %1 = load ptr, ptr @gadu_gadu_handle, align 8
   call void @dissector_add_uint_with_preference(ptr noundef @.str.120, i32 noundef 8074, ptr noundef %1)
@@ -521,17 +535,22 @@ define hidden void @proto_reg_handoff_gadu_gadu() #0 {
   ret void
 }
 
-declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) #2
 
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare void @col_clear(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_clear(ptr noundef, i32 noundef) #2
 
-declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @get_gadu_gadu_pdu_len(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -542,6 +561,7 @@ define internal i32 @get_gadu_gadu_pdu_len(ptr noundef %0, ptr noundef %1, i32 n
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
   %10 = load ptr, ptr %6, align 8
   %11 = load i32, ptr %7, align 4
   %12 = add i32 %11, 4
@@ -549,10 +569,11 @@ define internal i32 @get_gadu_gadu_pdu_len(ptr noundef %0, ptr noundef %1, i32 n
   store i32 %13, ptr %9, align 4
   %14 = load i32, ptr %9, align 4
   %15 = add i32 %14, 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -568,10 +589,13 @@ define internal i32 @dissect_gadu_gadu_pdu(ptr noundef %0, ptr noundef %1, ptr n
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
   store ptr null, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
   store i32 0, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #6
   %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds %struct._packet_info, ptr %15, i32 0, i32 1
+  %16 = getelementptr inbounds nuw %struct._packet_info, ptr %15, i32 0, i32 1
   %17 = load ptr, ptr %16, align 8
   call void @col_clear(ptr noundef %17, i32 noundef 25)
   %18 = load ptr, ptr %7, align 8
@@ -579,6 +603,7 @@ define internal i32 @dissect_gadu_gadu_pdu(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %19, label %20, label %28
 
 20:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #6
   %21 = load ptr, ptr %7, align 8
   %22 = load i32, ptr @proto_gadu_gadu, align 4
   %23 = load ptr, ptr %5, align 8
@@ -588,6 +613,7 @@ define internal i32 @dissect_gadu_gadu_pdu(ptr noundef %0, ptr noundef %1, ptr n
   %26 = load i32, ptr @ett_gadu_gadu, align 4
   %27 = call ptr @proto_item_add_subtree(ptr noundef %25, i32 noundef %26)
   store ptr %27, ptr %9, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #6
   br label %28
 
 28:                                               ; preds = %20, %4
@@ -597,7 +623,7 @@ define internal i32 @dissect_gadu_gadu_pdu(ptr noundef %0, ptr noundef %1, ptr n
   store i32 %31, ptr %11, align 4
   %32 = load ptr, ptr %9, align 8
   %33 = load ptr, ptr %6, align 8
-  %34 = getelementptr inbounds %struct._packet_info, ptr %33, i32 0, i32 36
+  %34 = getelementptr inbounds nuw %struct._packet_info, ptr %33, i32 0, i32 37
   %35 = load i32, ptr %34, align 4
   %36 = icmp eq i32 %35, 1
   br i1 %36, label %37, label %39
@@ -627,7 +653,7 @@ define internal i32 @dissect_gadu_gadu_pdu(ptr noundef %0, ptr noundef %1, ptr n
   %54 = add i32 %53, 4
   store i32 %54, ptr %10, align 4
   %55 = load ptr, ptr %6, align 8
-  %56 = getelementptr inbounds %struct._packet_info, ptr %55, i32 0, i32 36
+  %56 = getelementptr inbounds nuw %struct._packet_info, ptr %55, i32 0, i32 37
   %57 = load i32, ptr %56, align 4
   %58 = icmp eq i32 %57, 1
   br i1 %58, label %59, label %211
@@ -879,7 +905,8 @@ define internal i32 @dissect_gadu_gadu_pdu(ptr noundef %0, ptr noundef %1, ptr n
 193:                                              ; preds = %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59
   br label %194
 
-194:                                              ; preds = %193, %59
+194:                                              ; preds = %59, %193
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #6
   %195 = load i32, ptr %11, align 4
   %196 = call ptr @try_val_to_str(i32 noundef %195, ptr noundef @gadu_gadu_packets_type_recv)
   store ptr %196, ptr %13, align 8
@@ -889,7 +916,7 @@ define internal i32 @dissect_gadu_gadu_pdu(ptr noundef %0, ptr noundef %1, ptr n
 
 199:                                              ; preds = %194
   %200 = load ptr, ptr %6, align 8
-  %201 = getelementptr inbounds %struct._packet_info, ptr %200, i32 0, i32 1
+  %201 = getelementptr inbounds nuw %struct._packet_info, ptr %200, i32 0, i32 1
   %202 = load ptr, ptr %201, align 8
   %203 = load ptr, ptr %13, align 8
   call void @col_set_str(ptr noundef %202, i32 noundef 25, ptr noundef %203)
@@ -897,13 +924,14 @@ define internal i32 @dissect_gadu_gadu_pdu(ptr noundef %0, ptr noundef %1, ptr n
 
 204:                                              ; preds = %194
   %205 = load ptr, ptr %6, align 8
-  %206 = getelementptr inbounds %struct._packet_info, ptr %205, i32 0, i32 1
+  %206 = getelementptr inbounds nuw %struct._packet_info, ptr %205, i32 0, i32 1
   %207 = load ptr, ptr %206, align 8
   %208 = load i32, ptr %11, align 4
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %207, i32 noundef 25, ptr noundef @.str.214, i32 noundef %208)
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %207, i32 noundef 25, ptr noundef @.str.224, i32 noundef %208)
   br label %209
 
 209:                                              ; preds = %204, %199
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #6
   br label %210
 
 210:                                              ; preds = %209, %187, %181, %175, %169, %163, %157, %151, %145, %139, %133, %127, %121, %115, %109, %103, %97, %91, %85, %79, %73, %67, %61
@@ -1170,7 +1198,8 @@ define internal i32 @dissect_gadu_gadu_pdu(ptr noundef %0, ptr noundef %1, ptr n
 357:                                              ; preds = %211, %211, %211, %211, %211, %211, %211, %211, %211, %211, %211, %211, %211
   br label %358
 
-358:                                              ; preds = %357, %211
+358:                                              ; preds = %211, %357
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #6
   %359 = load i32, ptr %11, align 4
   %360 = call ptr @try_val_to_str(i32 noundef %359, ptr noundef @gadu_gadu_packets_type_send)
   store ptr %360, ptr %14, align 8
@@ -1180,7 +1209,7 @@ define internal i32 @dissect_gadu_gadu_pdu(ptr noundef %0, ptr noundef %1, ptr n
 
 363:                                              ; preds = %358
   %364 = load ptr, ptr %6, align 8
-  %365 = getelementptr inbounds %struct._packet_info, ptr %364, i32 0, i32 1
+  %365 = getelementptr inbounds nuw %struct._packet_info, ptr %364, i32 0, i32 1
   %366 = load ptr, ptr %365, align 8
   %367 = load ptr, ptr %14, align 8
   call void @col_set_str(ptr noundef %366, i32 noundef 25, ptr noundef %367)
@@ -1188,13 +1217,14 @@ define internal i32 @dissect_gadu_gadu_pdu(ptr noundef %0, ptr noundef %1, ptr n
 
 368:                                              ; preds = %358
   %369 = load ptr, ptr %6, align 8
-  %370 = getelementptr inbounds %struct._packet_info, ptr %369, i32 0, i32 1
+  %370 = getelementptr inbounds nuw %struct._packet_info, ptr %369, i32 0, i32 1
   %371 = load ptr, ptr %370, align 8
   %372 = load i32, ptr %11, align 4
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %371, i32 noundef 25, ptr noundef @.str.215, i32 noundef %372)
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %371, i32 noundef 25, ptr noundef @.str.225, i32 noundef %372)
   br label %373
 
 373:                                              ; preds = %368, %363
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #6
   br label %374
 
 374:                                              ; preds = %373, %351, %345, %339, %333, %327, %321, %315, %309, %303, %297, %291, %285, %279, %273, %267, %261, %255, %249, %243, %237, %231, %225, %219, %213
@@ -1218,18 +1248,25 @@ define internal i32 @dissect_gadu_gadu_pdu(ptr noundef %0, ptr noundef %1, ptr n
 386:                                              ; preds = %380, %375
   %387 = load ptr, ptr %5, align 8
   %388 = call i32 @tvb_captured_length(ptr noundef %387)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
   ret i32 %388
 }
 
-declare i32 @tvb_captured_length(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length(ptr noundef) #2
 
-declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_disconnecting(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1240,14 +1277,14 @@ define internal i32 @dissect_gadu_gadu_disconnecting(ptr noundef %0, ptr noundef
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds %struct._packet_info, ptr %9, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %struct._packet_info, ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %10, align 8
-  call void @col_set_str(ptr noundef %11, i32 noundef 25, ptr noundef @.str.216)
+  call void @col_set_str(ptr noundef %11, i32 noundef 25, ptr noundef @.str.226)
   %12 = load i32, ptr %8, align 4
   ret i32 %12
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_disconnect_ack(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1258,14 +1295,14 @@ define internal i32 @dissect_gadu_gadu_disconnect_ack(ptr noundef %0, ptr nounde
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds %struct._packet_info, ptr %9, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %struct._packet_info, ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %10, align 8
-  call void @col_set_str(ptr noundef %11, i32 noundef 25, ptr noundef @.str.217)
+  call void @col_set_str(ptr noundef %11, i32 noundef 25, ptr noundef @.str.227)
   %12 = load i32, ptr %8, align 4
   ret i32 %12
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_login_ok(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1276,14 +1313,14 @@ define internal i32 @dissect_gadu_gadu_login_ok(ptr noundef %0, ptr noundef %1, 
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds %struct._packet_info, ptr %9, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %struct._packet_info, ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %10, align 8
-  call void @col_set_str(ptr noundef %11, i32 noundef 25, ptr noundef @.str.218)
+  call void @col_set_str(ptr noundef %11, i32 noundef 25, ptr noundef @.str.228)
   %12 = load i32, ptr %8, align 4
   ret i32 %12
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_login_ok80(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1294,9 +1331,9 @@ define internal i32 @dissect_gadu_gadu_login_ok80(ptr noundef %0, ptr noundef %1
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds %struct._packet_info, ptr %9, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %struct._packet_info, ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %10, align 8
-  call void @col_set_str(ptr noundef %11, i32 noundef 25, ptr noundef @.str.219)
+  call void @col_set_str(ptr noundef %11, i32 noundef 25, ptr noundef @.str.229)
   %12 = load ptr, ptr %7, align 8
   %13 = load i32, ptr @hf_gadu_gadu_data, align 4
   %14 = load ptr, ptr %5, align 8
@@ -1309,7 +1346,7 @@ define internal i32 @dissect_gadu_gadu_login_ok80(ptr noundef %0, ptr noundef %1
   ret i32 %19
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_login_failed(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1320,14 +1357,14 @@ define internal i32 @dissect_gadu_gadu_login_failed(ptr noundef %0, ptr noundef 
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds %struct._packet_info, ptr %9, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %struct._packet_info, ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %10, align 8
-  call void @col_set_str(ptr noundef %11, i32 noundef 25, ptr noundef @.str.220)
+  call void @col_set_str(ptr noundef %11, i32 noundef 25, ptr noundef @.str.230)
   %12 = load i32, ptr %8, align 4
   ret i32 %12
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_login80_failed(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1338,9 +1375,9 @@ define internal i32 @dissect_gadu_gadu_login80_failed(ptr noundef %0, ptr nounde
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds %struct._packet_info, ptr %9, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %struct._packet_info, ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %10, align 8
-  call void @col_set_str(ptr noundef %11, i32 noundef 25, ptr noundef @.str.221)
+  call void @col_set_str(ptr noundef %11, i32 noundef 25, ptr noundef @.str.231)
   %12 = load ptr, ptr %7, align 8
   %13 = load i32, ptr @hf_gadu_gadu_data, align 4
   %14 = load ptr, ptr %5, align 8
@@ -1353,7 +1390,7 @@ define internal i32 @dissect_gadu_gadu_login80_failed(ptr noundef %0, ptr nounde
   ret i32 %19
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_user_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1369,10 +1406,11 @@ define internal i32 @dissect_gadu_gadu_user_data(ptr noundef %0, ptr noundef %1,
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
   %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds %struct._packet_info, ptr %15, i32 0, i32 1
+  %16 = getelementptr inbounds nuw %struct._packet_info, ptr %15, i32 0, i32 1
   %17 = load ptr, ptr %16, align 8
-  call void @col_set_str(ptr noundef %17, i32 noundef 25, ptr noundef @.str.222)
+  call void @col_set_str(ptr noundef %17, i32 noundef 25, ptr noundef @.str.232)
   %18 = load i32, ptr %8, align 4
   %19 = add i32 %18, 4
   store i32 %19, ptr %8, align 4
@@ -1393,6 +1431,7 @@ define internal i32 @dissect_gadu_gadu_user_data(ptr noundef %0, ptr noundef %1,
   br i1 %28, label %29, label %103
 
 29:                                               ; preds = %25
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
   %30 = load ptr, ptr %7, align 8
   %31 = load i32, ptr @hf_gadu_gadu_userdata_uin, align 4
   %32 = load ptr, ptr %5, align 8
@@ -1418,6 +1457,10 @@ define internal i32 @dissect_gadu_gadu_user_data(ptr noundef %0, ptr noundef %1,
   br i1 %45, label %46, label %102
 
 46:                                               ; preds = %42
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #6
   %47 = load ptr, ptr %5, align 8
   %48 = load i32, ptr %8, align 4
   %49 = call i32 @tvb_get_letohl(ptr noundef %47, i32 noundef %48)
@@ -1426,7 +1469,7 @@ define internal i32 @dissect_gadu_gadu_user_data(ptr noundef %0, ptr noundef %1,
   %51 = add i32 %50, 4
   store i32 %51, ptr %8, align 4
   %52 = load ptr, ptr %6, align 8
-  %53 = getelementptr inbounds %struct._packet_info, ptr %52, i32 0, i32 50
+  %53 = getelementptr inbounds nuw %struct._packet_info, ptr %52, i32 0, i32 51
   %54 = load ptr, ptr %53, align 8
   %55 = load ptr, ptr %5, align 8
   %56 = load i32, ptr %8, align 4
@@ -1462,7 +1505,7 @@ define internal i32 @dissect_gadu_gadu_user_data(ptr noundef %0, ptr noundef %1,
   %82 = add i32 %81, 4
   store i32 %82, ptr %8, align 4
   %83 = load ptr, ptr %6, align 8
-  %84 = getelementptr inbounds %struct._packet_info, ptr %83, i32 0, i32 50
+  %84 = getelementptr inbounds nuw %struct._packet_info, ptr %83, i32 0, i32 51
   %85 = load ptr, ptr %84, align 8
   %86 = load ptr, ptr %5, align 8
   %87 = load i32, ptr %8, align 4
@@ -1482,17 +1525,23 @@ define internal i32 @dissect_gadu_gadu_user_data(ptr noundef %0, ptr noundef %1,
   %100 = load i32, ptr %8, align 4
   %101 = add i32 %100, %99
   store i32 %101, ptr %8, align 4
-  br label %42, !llvm.loop !4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #6
+  br label %42, !llvm.loop !8
 
 102:                                              ; preds = %42
-  br label %25, !llvm.loop !6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
+  br label %25, !llvm.loop !10
 
 103:                                              ; preds = %25
   %104 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
   ret i32 %104
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_typing_notify(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1503,9 +1552,9 @@ define internal i32 @dissect_gadu_gadu_typing_notify(ptr noundef %0, ptr noundef
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds %struct._packet_info, ptr %9, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %struct._packet_info, ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %10, align 8
-  call void @col_set_str(ptr noundef %11, i32 noundef 25, ptr noundef @.str.223)
+  call void @col_set_str(ptr noundef %11, i32 noundef 25, ptr noundef @.str.233)
   %12 = load ptr, ptr %7, align 8
   %13 = load i32, ptr @hf_gadu_gadu_typing_notify_type, align 4
   %14 = load ptr, ptr %5, align 8
@@ -1526,7 +1575,7 @@ define internal i32 @dissect_gadu_gadu_typing_notify(ptr noundef %0, ptr noundef
   ret i32 %26
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_recv_msg(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1538,10 +1587,12 @@ define internal i32 @dissect_gadu_gadu_recv_msg(ptr noundef %0, ptr noundef %1, 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds %struct._packet_info, ptr %11, i32 0, i32 1
+  %12 = getelementptr inbounds nuw %struct._packet_info, ptr %11, i32 0, i32 1
   %13 = load ptr, ptr %12, align 8
-  call void @col_set_str(ptr noundef %13, i32 noundef 25, ptr noundef @.str.224)
+  call void @col_set_str(ptr noundef %13, i32 noundef 25, ptr noundef @.str.234)
   %14 = load ptr, ptr %6, align 8
   %15 = call ptr @gadu_gadu_get_conversation_data(ptr noundef %14)
   store ptr %15, ptr %9, align 8
@@ -1553,7 +1604,7 @@ define internal i32 @dissect_gadu_gadu_recv_msg(ptr noundef %0, ptr noundef %1, 
   %19 = load i32, ptr @hf_gadu_gadu_msg_recipient, align 4
   %20 = load ptr, ptr %5, align 8
   %21 = load ptr, ptr %9, align 8
-  %22 = getelementptr inbounds %struct.gadu_gadu_conv_data, ptr %21, i32 0, i32 0
+  %22 = getelementptr inbounds nuw %struct.gadu_gadu_conv_data, ptr %21, i32 0, i32 0
   %23 = load i32, ptr %22, align 4
   %24 = call ptr @proto_tree_add_uint(ptr noundef %18, i32 noundef %19, ptr noundef %20, i32 noundef 0, i32 noundef 0, i32 noundef %23)
   store ptr %24, ptr %10, align 8
@@ -1563,7 +1614,7 @@ define internal i32 @dissect_gadu_gadu_recv_msg(ptr noundef %0, ptr noundef %1, 
   %27 = load i32, ptr @hf_gadu_gadu_msg_uin, align 4
   %28 = load ptr, ptr %5, align 8
   %29 = load ptr, ptr %9, align 8
-  %30 = getelementptr inbounds %struct.gadu_gadu_conv_data, ptr %29, i32 0, i32 0
+  %30 = getelementptr inbounds nuw %struct.gadu_gadu_conv_data, ptr %29, i32 0, i32 0
   %31 = load i32, ptr %30, align 4
   %32 = call ptr @proto_tree_add_uint(ptr noundef %26, i32 noundef %27, ptr noundef %28, i32 noundef 0, i32 noundef 0, i32 noundef %31)
   store ptr %32, ptr %10, align 8
@@ -1626,10 +1677,12 @@ define internal i32 @dissect_gadu_gadu_recv_msg(ptr noundef %0, ptr noundef %1, 
   %78 = call i32 @dissect_gadu_gadu_msg_attr(ptr noundef %75, ptr noundef %76, i32 noundef %77)
   store i32 %78, ptr %8, align 4
   %79 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
   ret i32 %79
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_recv_msg80(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1641,10 +1694,12 @@ define internal i32 @dissect_gadu_gadu_recv_msg80(ptr noundef %0, ptr noundef %1
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds %struct._packet_info, ptr %11, i32 0, i32 1
+  %12 = getelementptr inbounds nuw %struct._packet_info, ptr %11, i32 0, i32 1
   %13 = load ptr, ptr %12, align 8
-  call void @col_set_str(ptr noundef %13, i32 noundef 25, ptr noundef @.str.225)
+  call void @col_set_str(ptr noundef %13, i32 noundef 25, ptr noundef @.str.235)
   %14 = load ptr, ptr %6, align 8
   %15 = call ptr @gadu_gadu_get_conversation_data(ptr noundef %14)
   store ptr %15, ptr %9, align 8
@@ -1656,7 +1711,7 @@ define internal i32 @dissect_gadu_gadu_recv_msg80(ptr noundef %0, ptr noundef %1
   %19 = load i32, ptr @hf_gadu_gadu_msg_recipient, align 4
   %20 = load ptr, ptr %5, align 8
   %21 = load ptr, ptr %9, align 8
-  %22 = getelementptr inbounds %struct.gadu_gadu_conv_data, ptr %21, i32 0, i32 0
+  %22 = getelementptr inbounds nuw %struct.gadu_gadu_conv_data, ptr %21, i32 0, i32 0
   %23 = load i32, ptr %22, align 4
   %24 = call ptr @proto_tree_add_uint(ptr noundef %18, i32 noundef %19, ptr noundef %20, i32 noundef 0, i32 noundef 0, i32 noundef %23)
   store ptr %24, ptr %10, align 8
@@ -1666,7 +1721,7 @@ define internal i32 @dissect_gadu_gadu_recv_msg80(ptr noundef %0, ptr noundef %1
   %27 = load i32, ptr @hf_gadu_gadu_msg_uin, align 4
   %28 = load ptr, ptr %5, align 8
   %29 = load ptr, ptr %9, align 8
-  %30 = getelementptr inbounds %struct.gadu_gadu_conv_data, ptr %29, i32 0, i32 0
+  %30 = getelementptr inbounds nuw %struct.gadu_gadu_conv_data, ptr %29, i32 0, i32 0
   %31 = load i32, ptr %30, align 4
   %32 = call ptr @proto_tree_add_uint(ptr noundef %26, i32 noundef %27, ptr noundef %28, i32 noundef 0, i32 noundef 0, i32 noundef %31)
   store ptr %32, ptr %10, align 8
@@ -1734,10 +1789,12 @@ define internal i32 @dissect_gadu_gadu_recv_msg80(ptr noundef %0, ptr noundef %1
   %83 = add i32 %82, 4
   store i32 %83, ptr %8, align 4
   %84 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
   ret i32 %84
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_send_msg_ack(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1748,9 +1805,9 @@ define internal i32 @dissect_gadu_gadu_send_msg_ack(ptr noundef %0, ptr noundef 
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds %struct._packet_info, ptr %9, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %struct._packet_info, ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %10, align 8
-  call void @col_set_str(ptr noundef %11, i32 noundef 25, ptr noundef @.str.226)
+  call void @col_set_str(ptr noundef %11, i32 noundef 25, ptr noundef @.str.236)
   %12 = load ptr, ptr %7, align 8
   %13 = load i32, ptr @hf_gadu_gadu_msg_ack_status, align 4
   %14 = load ptr, ptr %5, align 8
@@ -1779,7 +1836,7 @@ define internal i32 @dissect_gadu_gadu_send_msg_ack(ptr noundef %0, ptr noundef 
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_status60(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1791,10 +1848,12 @@ define internal i32 @dissect_gadu_gadu_status60(ptr noundef %0, ptr noundef %1, 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #6
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds %struct._packet_info, ptr %11, i32 0, i32 1
+  %12 = getelementptr inbounds nuw %struct._packet_info, ptr %11, i32 0, i32 1
   %13 = load ptr, ptr %12, align 8
-  call void @col_set_str(ptr noundef %13, i32 noundef 25, ptr noundef @.str.227)
+  call void @col_set_str(ptr noundef %13, i32 noundef 25, ptr noundef @.str.237)
   %14 = load ptr, ptr %5, align 8
   %15 = load i32, ptr %8, align 4
   %16 = call i32 @tvb_get_letohl(ptr noundef %14, i32 noundef %15)
@@ -1811,7 +1870,7 @@ define internal i32 @dissect_gadu_gadu_status60(ptr noundef %0, ptr noundef %1, 
   store i32 %25, ptr %8, align 4
   %26 = load ptr, ptr %5, align 8
   %27 = load i32, ptr %8, align 4
-  %28 = call zeroext i8 @tvb_get_guint8(ptr noundef %26, i32 noundef %27)
+  %28 = call zeroext i8 @tvb_get_uint8(ptr noundef %26, i32 noundef %27)
   store i8 %28, ptr %10, align 1
   %29 = load ptr, ptr %7, align 8
   %30 = load i32, ptr @hf_gadu_gadu_status_status, align 4
@@ -1863,25 +1922,26 @@ define internal i32 @dissect_gadu_gadu_status60(ptr noundef %0, ptr noundef %1, 
   store i32 %70, ptr %8, align 4
   %71 = load i8, ptr %10, align 1
   %72 = zext i8 %71 to i32
-  %73 = call i32 @gadu_gadu_status_has_descr(i32 noundef %72)
-  %74 = icmp ne i32 %73, 0
-  br i1 %74, label %75, label %81
+  %73 = call zeroext i1 @gadu_gadu_status_has_descr(i32 noundef %72)
+  br i1 %73, label %74, label %80
 
-75:                                               ; preds = %4
-  %76 = load ptr, ptr %5, align 8
-  %77 = load i32, ptr @hf_gadu_gadu_status_descr, align 4
-  %78 = load ptr, ptr %7, align 8
-  %79 = load i32, ptr %8, align 4
-  %80 = call i32 @dissect_gadu_gadu_stringz_cp1250(ptr noundef %76, i32 noundef %77, ptr noundef %78, i32 noundef %79)
-  store i32 %80, ptr %8, align 4
-  br label %81
+74:                                               ; preds = %4
+  %75 = load ptr, ptr %5, align 8
+  %76 = load i32, ptr @hf_gadu_gadu_status_descr, align 4
+  %77 = load ptr, ptr %7, align 8
+  %78 = load i32, ptr %8, align 4
+  %79 = call i32 @dissect_gadu_gadu_stringz_cp1250(ptr noundef %75, i32 noundef %76, ptr noundef %77, i32 noundef %78)
+  store i32 %79, ptr %8, align 4
+  br label %80
 
-81:                                               ; preds = %75, %4
-  %82 = load i32, ptr %8, align 4
-  ret i32 %82
+80:                                               ; preds = %74, %4
+  %81 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
+  ret i32 %81
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_status77(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1893,10 +1953,12 @@ define internal i32 @dissect_gadu_gadu_status77(ptr noundef %0, ptr noundef %1, 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #6
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds %struct._packet_info, ptr %11, i32 0, i32 1
+  %12 = getelementptr inbounds nuw %struct._packet_info, ptr %11, i32 0, i32 1
   %13 = load ptr, ptr %12, align 8
-  call void @col_set_str(ptr noundef %13, i32 noundef 25, ptr noundef @.str.228)
+  call void @col_set_str(ptr noundef %13, i32 noundef 25, ptr noundef @.str.238)
   %14 = load ptr, ptr %5, align 8
   %15 = load i32, ptr %8, align 4
   %16 = call i32 @tvb_get_letohl(ptr noundef %14, i32 noundef %15)
@@ -1913,7 +1975,7 @@ define internal i32 @dissect_gadu_gadu_status77(ptr noundef %0, ptr noundef %1, 
   store i32 %25, ptr %8, align 4
   %26 = load ptr, ptr %5, align 8
   %27 = load i32, ptr %8, align 4
-  %28 = call zeroext i8 @tvb_get_guint8(ptr noundef %26, i32 noundef %27)
+  %28 = call zeroext i8 @tvb_get_uint8(ptr noundef %26, i32 noundef %27)
   store i8 %28, ptr %10, align 1
   %29 = load ptr, ptr %7, align 8
   %30 = load i32, ptr @hf_gadu_gadu_status_status, align 4
@@ -1973,25 +2035,26 @@ define internal i32 @dissect_gadu_gadu_status77(ptr noundef %0, ptr noundef %1, 
   store i32 %77, ptr %8, align 4
   %78 = load i8, ptr %10, align 1
   %79 = zext i8 %78 to i32
-  %80 = call i32 @gadu_gadu_status_has_descr(i32 noundef %79)
-  %81 = icmp ne i32 %80, 0
-  br i1 %81, label %82, label %88
+  %80 = call zeroext i1 @gadu_gadu_status_has_descr(i32 noundef %79)
+  br i1 %80, label %81, label %87
 
-82:                                               ; preds = %4
-  %83 = load ptr, ptr %5, align 8
-  %84 = load i32, ptr @hf_gadu_gadu_status_descr, align 4
-  %85 = load ptr, ptr %7, align 8
-  %86 = load i32, ptr %8, align 4
-  %87 = call i32 @dissect_gadu_gadu_stringz_cp1250(ptr noundef %83, i32 noundef %84, ptr noundef %85, i32 noundef %86)
-  store i32 %87, ptr %8, align 4
-  br label %88
+81:                                               ; preds = %4
+  %82 = load ptr, ptr %5, align 8
+  %83 = load i32, ptr @hf_gadu_gadu_status_descr, align 4
+  %84 = load ptr, ptr %7, align 8
+  %85 = load i32, ptr %8, align 4
+  %86 = call i32 @dissect_gadu_gadu_stringz_cp1250(ptr noundef %82, i32 noundef %83, ptr noundef %84, i32 noundef %85)
+  store i32 %86, ptr %8, align 4
+  br label %87
 
-88:                                               ; preds = %82, %4
-  %89 = load i32, ptr %8, align 4
-  ret i32 %89
+87:                                               ; preds = %81, %4
+  %88 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
+  ret i32 %88
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_status80(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2002,9 +2065,9 @@ define internal i32 @dissect_gadu_gadu_status80(ptr noundef %0, ptr noundef %1, 
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds %struct._packet_info, ptr %9, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %struct._packet_info, ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %10, align 8
-  call void @col_set_str(ptr noundef %11, i32 noundef 25, ptr noundef @.str.229)
+  call void @col_set_str(ptr noundef %11, i32 noundef 25, ptr noundef @.str.239)
   %12 = load ptr, ptr %7, align 8
   %13 = load i32, ptr @hf_gadu_gadu_status_uin, align 4
   %14 = load ptr, ptr %5, align 8
@@ -2079,7 +2142,7 @@ define internal i32 @dissect_gadu_gadu_status80(ptr noundef %0, ptr noundef %1, 
   ret i32 %73
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_notify_reply80(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2090,14 +2153,14 @@ define internal i32 @dissect_gadu_gadu_notify_reply80(ptr noundef %0, ptr nounde
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds %struct._packet_info, ptr %9, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %struct._packet_info, ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %10, align 8
-  call void @col_set_str(ptr noundef %11, i32 noundef 25, ptr noundef @.str.230)
+  call void @col_set_str(ptr noundef %11, i32 noundef 25, ptr noundef @.str.240)
   %12 = load i32, ptr %8, align 4
   ret i32 %12
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_dcc7_id_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2108,9 +2171,9 @@ define internal i32 @dissect_gadu_gadu_dcc7_id_reply(ptr noundef %0, ptr noundef
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds %struct._packet_info, ptr %9, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %struct._packet_info, ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %10, align 8
-  call void @col_set_str(ptr noundef %11, i32 noundef 25, ptr noundef @.str.231)
+  call void @col_set_str(ptr noundef %11, i32 noundef 25, ptr noundef @.str.241)
   %12 = load ptr, ptr %7, align 8
   %13 = load i32, ptr @hf_dcc_type, align 4
   %14 = load ptr, ptr %5, align 8
@@ -2131,7 +2194,7 @@ define internal i32 @dissect_gadu_gadu_dcc7_id_reply(ptr noundef %0, ptr noundef
   ret i32 %26
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_welcome(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2142,9 +2205,9 @@ define internal i32 @dissect_gadu_gadu_welcome(ptr noundef %0, ptr noundef %1, p
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds %struct._packet_info, ptr %9, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %struct._packet_info, ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %10, align 8
-  call void @col_set_str(ptr noundef %11, i32 noundef 25, ptr noundef @.str.232)
+  call void @col_set_str(ptr noundef %11, i32 noundef 25, ptr noundef @.str.242)
   %12 = load ptr, ptr %7, align 8
   %13 = load i32, ptr @hf_gadu_gadu_welcome_seed, align 4
   %14 = load ptr, ptr %5, align 8
@@ -2157,7 +2220,7 @@ define internal i32 @dissect_gadu_gadu_welcome(ptr noundef %0, ptr noundef %1, p
   ret i32 %19
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_userlist_reply80(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2168,13 +2231,14 @@ define internal i32 @dissect_gadu_gadu_userlist_reply80(ptr noundef %0, ptr noun
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #6
   %10 = load ptr, ptr %6, align 8
-  %11 = getelementptr inbounds %struct._packet_info, ptr %10, i32 0, i32 1
+  %11 = getelementptr inbounds nuw %struct._packet_info, ptr %10, i32 0, i32 1
   %12 = load ptr, ptr %11, align 8
-  call void @col_set_str(ptr noundef %12, i32 noundef 25, ptr noundef @.str.233)
+  call void @col_set_str(ptr noundef %12, i32 noundef 25, ptr noundef @.str.243)
   %13 = load ptr, ptr %5, align 8
   %14 = load i32, ptr %8, align 4
-  %15 = call zeroext i8 @tvb_get_guint8(ptr noundef %13, i32 noundef %14)
+  %15 = call zeroext i8 @tvb_get_uint8(ptr noundef %13, i32 noundef %14)
   store i8 %15, ptr %9, align 1
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr @hf_gadu_gadu_userlist_reply_type, align 4
@@ -2199,12 +2263,13 @@ define internal i32 @dissect_gadu_gadu_userlist_reply80(ptr noundef %0, ptr noun
   store i32 %30, ptr %8, align 4
   br label %31
 
-31:                                               ; preds = %25, %4
+31:                                               ; preds = %4, %25
   %32 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #6
   ret i32 %32
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_userlist_reply100(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2216,13 +2281,15 @@ define internal i32 @dissect_gadu_gadu_userlist_reply100(ptr noundef %0, ptr nou
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #6
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds %struct._packet_info, ptr %11, i32 0, i32 1
+  %12 = getelementptr inbounds nuw %struct._packet_info, ptr %11, i32 0, i32 1
   %13 = load ptr, ptr %12, align 8
-  call void @col_set_str(ptr noundef %13, i32 noundef 25, ptr noundef @.str.238)
+  call void @col_set_str(ptr noundef %13, i32 noundef 25, ptr noundef @.str.248)
   %14 = load ptr, ptr %5, align 8
   %15 = load i32, ptr %8, align 4
-  %16 = call zeroext i8 @tvb_get_guint8(ptr noundef %14, i32 noundef %15)
+  %16 = call zeroext i8 @tvb_get_uint8(ptr noundef %14, i32 noundef %15)
   store i8 %16, ptr %9, align 1
   %17 = load ptr, ptr %7, align 8
   %18 = load i32, ptr @hf_gadu_gadu_userlist_reply_type, align 4
@@ -2242,7 +2309,7 @@ define internal i32 @dissect_gadu_gadu_userlist_reply100(ptr noundef %0, ptr nou
   store i32 %30, ptr %8, align 4
   %31 = load ptr, ptr %5, align 8
   %32 = load i32, ptr %8, align 4
-  %33 = call zeroext i8 @tvb_get_guint8(ptr noundef %31, i32 noundef %32)
+  %33 = call zeroext i8 @tvb_get_uint8(ptr noundef %31, i32 noundef %32)
   store i8 %33, ptr %10, align 1
   %34 = load ptr, ptr %7, align 8
   %35 = load i32, ptr @hf_gadu_gadu_userlist_format, align 4
@@ -2284,12 +2351,14 @@ define internal i32 @dissect_gadu_gadu_userlist_reply100(ptr noundef %0, ptr nou
 60:                                               ; preds = %54, %50
   br label %61
 
-61:                                               ; preds = %60, %4
+61:                                               ; preds = %4, %60
   %62 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #6
   ret i32 %62
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_userlist_version100(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2300,9 +2369,9 @@ define internal i32 @dissect_gadu_gadu_userlist_version100(ptr noundef %0, ptr n
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds %struct._packet_info, ptr %9, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %struct._packet_info, ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %10, align 8
-  call void @col_set_str(ptr noundef %11, i32 noundef 25, ptr noundef @.str.239)
+  call void @col_set_str(ptr noundef %11, i32 noundef 25, ptr noundef @.str.249)
   %12 = load ptr, ptr %7, align 8
   %13 = load i32, ptr @hf_gadu_gadu_userlist_version, align 4
   %14 = load ptr, ptr %5, align 8
@@ -2315,7 +2384,7 @@ define internal i32 @dissect_gadu_gadu_userlist_version100(ptr noundef %0, ptr n
   ret i32 %19
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_pubdir50_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2326,10 +2395,11 @@ define internal i32 @dissect_gadu_gadu_pubdir50_reply(ptr noundef %0, ptr nounde
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
   %10 = load ptr, ptr %6, align 8
-  %11 = getelementptr inbounds %struct._packet_info, ptr %10, i32 0, i32 1
+  %11 = getelementptr inbounds nuw %struct._packet_info, ptr %10, i32 0, i32 1
   %12 = load ptr, ptr %11, align 8
-  call void @col_set_str(ptr noundef %12, i32 noundef 25, ptr noundef @.str.240)
+  call void @col_set_str(ptr noundef %12, i32 noundef 25, ptr noundef @.str.250)
   %13 = load ptr, ptr %7, align 8
   %14 = load i32, ptr @hf_gadu_gadu_pubdir_reply_type, align 4
   %15 = load ptr, ptr %5, align 8
@@ -2351,7 +2421,7 @@ define internal i32 @dissect_gadu_gadu_pubdir50_reply(ptr noundef %0, ptr nounde
 27:                                               ; preds = %32, %4
   %28 = load ptr, ptr %5, align 8
   %29 = load i32, ptr %8, align 4
-  %30 = call i32 @tvb_find_guint8(ptr noundef %28, i32 noundef %29, i32 noundef -1, i8 noundef zeroext 0)
+  %30 = call i32 @tvb_find_uint8(ptr noundef %28, i32 noundef %29, i32 noundef -1, i8 noundef zeroext 0)
   store i32 %30, ptr %9, align 4
   %31 = icmp sgt i32 %30, 0
   br i1 %31, label %32, label %44
@@ -2369,14 +2439,15 @@ define internal i32 @dissect_gadu_gadu_pubdir50_reply(ptr noundef %0, ptr nounde
   %42 = load i32, ptr %9, align 4
   %43 = add i32 %42, 1
   store i32 %43, ptr %8, align 4
-  br label %27, !llvm.loop !7
+  br label %27, !llvm.loop !11
 
 44:                                               ; preds = %27
   %45 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
   ret i32 %45
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_xml_action(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2388,10 +2459,12 @@ define internal i32 @dissect_gadu_gadu_xml_action(ptr noundef %0, ptr noundef %1
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds %struct._packet_info, ptr %11, i32 0, i32 1
+  %12 = getelementptr inbounds nuw %struct._packet_info, ptr %11, i32 0, i32 1
   %13 = load ptr, ptr %12, align 8
-  call void @col_set_str(ptr noundef %13, i32 noundef 25, ptr noundef @.str.241)
+  call void @col_set_str(ptr noundef %13, i32 noundef 25, ptr noundef @.str.251)
   %14 = load ptr, ptr %5, align 8
   %15 = load i32, ptr %8, align 4
   %16 = call ptr @tvb_new_subset_remaining(ptr noundef %14, i32 noundef %15)
@@ -2405,14 +2478,18 @@ define internal i32 @dissect_gadu_gadu_xml_action(ptr noundef %0, ptr noundef %1
   %22 = load i32, ptr %8, align 4
   %23 = load i32, ptr %10, align 4
   %24 = add i32 %22, %23
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
   ret i32 %24
 }
 
-declare ptr @try_val_to_str(i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @try_val_to_str(i32 noundef, ptr noundef) #2
 
-declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_login(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2425,10 +2502,13 @@ define internal i32 @dissect_gadu_gadu_login(ptr noundef %0, ptr noundef %1, ptr
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #6
   %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds %struct._packet_info, ptr %12, i32 0, i32 1
+  %13 = getelementptr inbounds nuw %struct._packet_info, ptr %12, i32 0, i32 1
   %14 = load ptr, ptr %13, align 8
-  call void @col_set_str(ptr noundef %14, i32 noundef 25, ptr noundef @.str.242)
+  call void @col_set_str(ptr noundef %14, i32 noundef 25, ptr noundef @.str.252)
   %15 = load ptr, ptr %5, align 8
   %16 = load i32, ptr %8, align 4
   %17 = call i32 @tvb_get_letohl(ptr noundef %15, i32 noundef %16)
@@ -2464,7 +2544,7 @@ define internal i32 @dissect_gadu_gadu_login(ptr noundef %0, ptr noundef %1, ptr
   %43 = load ptr, ptr %5, align 8
   %44 = load i32, ptr %8, align 4
   %45 = call i32 @tvb_get_letohl(ptr noundef %43, i32 noundef %44)
-  %46 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %38, i32 noundef %39, ptr noundef %40, i32 noundef %41, i32 noundef 4, ptr noundef %42, ptr noundef @.str.243, i32 noundef %45)
+  %46 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %38, i32 noundef %39, ptr noundef %40, i32 noundef %41, i32 noundef 4, ptr noundef %42, ptr noundef @.str.253, i32 noundef %45)
   %47 = load i32, ptr %8, align 4
   %48 = add i32 %47, 4
   store i32 %48, ptr %8, align 4
@@ -2498,10 +2578,13 @@ define internal i32 @dissect_gadu_gadu_login(ptr noundef %0, ptr noundef %1, ptr
   %73 = add i32 %72, 2
   store i32 %73, ptr %8, align 4
   %74 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
   ret i32 %74
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_login70(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2512,10 +2595,11 @@ define internal i32 @dissect_gadu_gadu_login70(ptr noundef %0, ptr noundef %1, p
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
   %10 = load ptr, ptr %6, align 8
-  %11 = getelementptr inbounds %struct._packet_info, ptr %10, i32 0, i32 1
+  %11 = getelementptr inbounds nuw %struct._packet_info, ptr %10, i32 0, i32 1
   %12 = load ptr, ptr %11, align 8
-  call void @col_set_str(ptr noundef %12, i32 noundef 25, ptr noundef @.str.270)
+  call void @col_set_str(ptr noundef %12, i32 noundef 25, ptr noundef @.str.281)
   %13 = load ptr, ptr %5, align 8
   %14 = load i32, ptr %8, align 4
   %15 = call i32 @tvb_get_letohl(ptr noundef %13, i32 noundef %14)
@@ -2576,10 +2660,11 @@ define internal i32 @dissect_gadu_gadu_login70(ptr noundef %0, ptr noundef %1, p
   %63 = add i32 %62, 2
   store i32 %63, ptr %8, align 4
   %64 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
   ret i32 %64
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_login80(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2590,10 +2675,11 @@ define internal i32 @dissect_gadu_gadu_login80(ptr noundef %0, ptr noundef %1, p
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
   %10 = load ptr, ptr %6, align 8
-  %11 = getelementptr inbounds %struct._packet_info, ptr %10, i32 0, i32 1
+  %11 = getelementptr inbounds nuw %struct._packet_info, ptr %10, i32 0, i32 1
   %12 = load ptr, ptr %11, align 8
-  call void @col_set_str(ptr noundef %12, i32 noundef 25, ptr noundef @.str.271)
+  call void @col_set_str(ptr noundef %12, i32 noundef 25, ptr noundef @.str.282)
   %13 = load ptr, ptr %5, align 8
   %14 = load i32, ptr %8, align 4
   %15 = call i32 @tvb_get_letohl(ptr noundef %13, i32 noundef %14)
@@ -2631,10 +2717,11 @@ define internal i32 @dissect_gadu_gadu_login80(ptr noundef %0, ptr noundef %1, p
   %43 = add i32 %42, 4
   store i32 %43, ptr %8, align 4
   %44 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
   ret i32 %44
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_list_empty(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2645,14 +2732,14 @@ define internal i32 @dissect_gadu_gadu_list_empty(ptr noundef %0, ptr noundef %1
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds %struct._packet_info, ptr %9, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %struct._packet_info, ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %10, align 8
-  call void @col_set_str(ptr noundef %11, i32 noundef 25, ptr noundef @.str.272)
+  call void @col_set_str(ptr noundef %11, i32 noundef 25, ptr noundef @.str.283)
   %12 = load i32, ptr %8, align 4
   ret i32 %12
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_notify_first(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2663,9 +2750,9 @@ define internal i32 @dissect_gadu_gadu_notify_first(ptr noundef %0, ptr noundef 
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds %struct._packet_info, ptr %9, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %struct._packet_info, ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %10, align 8
-  call void @col_set_str(ptr noundef %11, i32 noundef 25, ptr noundef @.str.273)
+  call void @col_set_str(ptr noundef %11, i32 noundef 25, ptr noundef @.str.284)
   %12 = load ptr, ptr %5, align 8
   %13 = load ptr, ptr %6, align 8
   %14 = load ptr, ptr %7, align 8
@@ -2674,7 +2761,7 @@ define internal i32 @dissect_gadu_gadu_notify_first(ptr noundef %0, ptr noundef 
   ret i32 %16
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_notify_last(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2685,9 +2772,9 @@ define internal i32 @dissect_gadu_gadu_notify_last(ptr noundef %0, ptr noundef %
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds %struct._packet_info, ptr %9, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %struct._packet_info, ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %10, align 8
-  call void @col_set_str(ptr noundef %11, i32 noundef 25, ptr noundef @.str.275)
+  call void @col_set_str(ptr noundef %11, i32 noundef 25, ptr noundef @.str.286)
   %12 = load ptr, ptr %5, align 8
   %13 = load ptr, ptr %6, align 8
   %14 = load ptr, ptr %7, align 8
@@ -2696,7 +2783,7 @@ define internal i32 @dissect_gadu_gadu_notify_last(ptr noundef %0, ptr noundef %
   ret i32 %16
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_notify105(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2711,9 +2798,9 @@ define internal i32 @dissect_gadu_gadu_notify105(ptr noundef %0, ptr noundef %1,
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
   %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds %struct._packet_info, ptr %13, i32 0, i32 1
+  %14 = getelementptr inbounds nuw %struct._packet_info, ptr %13, i32 0, i32 1
   %15 = load ptr, ptr %14, align 8
-  call void @col_set_str(ptr noundef %15, i32 noundef 25, ptr noundef @.str.276)
+  call void @col_set_str(ptr noundef %15, i32 noundef 25, ptr noundef @.str.287)
   br label %16
 
 16:                                               ; preds = %21, %4
@@ -2724,13 +2811,17 @@ define internal i32 @dissect_gadu_gadu_notify105(ptr noundef %0, ptr noundef %1,
   br i1 %20, label %21, label %39
 
 21:                                               ; preds = %16
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
   %22 = load i32, ptr %8, align 4
   store i32 %22, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #6
   %23 = load ptr, ptr %7, align 8
   %24 = load ptr, ptr %5, align 8
   %25 = load i32, ptr %8, align 4
   %26 = load i32, ptr @ett_gadu_gadu_contact, align 4
-  %27 = call ptr @proto_tree_add_subtree(ptr noundef %23, ptr noundef %24, i32 noundef %25, i32 noundef 0, i32 noundef %26, ptr noundef %11, ptr noundef @.str.277)
+  %27 = call ptr @proto_tree_add_subtree(ptr noundef %23, ptr noundef %24, i32 noundef %25, i32 noundef 0, i32 noundef %26, ptr noundef %11, ptr noundef @.str.288)
   store ptr %27, ptr %10, align 8
   %28 = load ptr, ptr %5, align 8
   %29 = load ptr, ptr %6, align 8
@@ -2740,20 +2831,24 @@ define internal i32 @dissect_gadu_gadu_notify105(ptr noundef %0, ptr noundef %1,
   store i32 %32, ptr %8, align 4
   %33 = load ptr, ptr %11, align 8
   %34 = load ptr, ptr %12, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %33, ptr noundef @.str.234, ptr noundef %34)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %33, ptr noundef @.str.244, ptr noundef %34)
   %35 = load ptr, ptr %11, align 8
   %36 = load i32, ptr %8, align 4
   %37 = load i32, ptr %9, align 4
   %38 = sub i32 %36, %37
   call void @proto_item_set_len(ptr noundef %35, i32 noundef %38)
-  br label %16, !llvm.loop !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
+  br label %16, !llvm.loop !12
 
 39:                                               ; preds = %16
   %40 = load i32, ptr %8, align 4
   ret i32 %40
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_add_notify(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2764,9 +2859,9 @@ define internal i32 @dissect_gadu_gadu_add_notify(ptr noundef %0, ptr noundef %1
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds %struct._packet_info, ptr %9, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %struct._packet_info, ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %10, align 8
-  call void @col_set_str(ptr noundef %11, i32 noundef 25, ptr noundef @.str.278)
+  call void @col_set_str(ptr noundef %11, i32 noundef 25, ptr noundef @.str.289)
   %12 = load ptr, ptr %7, align 8
   %13 = load i32, ptr @hf_gadu_gadu_contact_uin, align 4
   %14 = load ptr, ptr %5, align 8
@@ -2787,7 +2882,7 @@ define internal i32 @dissect_gadu_gadu_add_notify(ptr noundef %0, ptr noundef %1
   ret i32 %26
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_add_notify105(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2798,9 +2893,9 @@ define internal i32 @dissect_gadu_gadu_add_notify105(ptr noundef %0, ptr noundef
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds %struct._packet_info, ptr %9, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %struct._packet_info, ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %10, align 8
-  call void @col_set_str(ptr noundef %11, i32 noundef 25, ptr noundef @.str.279)
+  call void @col_set_str(ptr noundef %11, i32 noundef 25, ptr noundef @.str.290)
   %12 = load ptr, ptr %5, align 8
   %13 = load ptr, ptr %6, align 8
   %14 = load ptr, ptr %7, align 8
@@ -2809,7 +2904,7 @@ define internal i32 @dissect_gadu_gadu_add_notify105(ptr noundef %0, ptr noundef
   ret i32 %16
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_remove_notify(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2820,9 +2915,9 @@ define internal i32 @dissect_gadu_gadu_remove_notify(ptr noundef %0, ptr noundef
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds %struct._packet_info, ptr %9, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %struct._packet_info, ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %10, align 8
-  call void @col_set_str(ptr noundef %11, i32 noundef 25, ptr noundef @.str.280)
+  call void @col_set_str(ptr noundef %11, i32 noundef 25, ptr noundef @.str.291)
   %12 = load ptr, ptr %7, align 8
   %13 = load i32, ptr @hf_gadu_gadu_contact_uin, align 4
   %14 = load ptr, ptr %5, align 8
@@ -2843,7 +2938,7 @@ define internal i32 @dissect_gadu_gadu_remove_notify(ptr noundef %0, ptr noundef
   ret i32 %26
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_remove_notify105(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2854,9 +2949,9 @@ define internal i32 @dissect_gadu_gadu_remove_notify105(ptr noundef %0, ptr noun
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds %struct._packet_info, ptr %9, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %struct._packet_info, ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %10, align 8
-  call void @col_set_str(ptr noundef %11, i32 noundef 25, ptr noundef @.str.281)
+  call void @col_set_str(ptr noundef %11, i32 noundef 25, ptr noundef @.str.292)
   %12 = load ptr, ptr %5, align 8
   %13 = load ptr, ptr %6, align 8
   %14 = load ptr, ptr %7, align 8
@@ -2865,7 +2960,7 @@ define internal i32 @dissect_gadu_gadu_remove_notify105(ptr noundef %0, ptr noun
   ret i32 %16
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_ping(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2876,14 +2971,14 @@ define internal i32 @dissect_gadu_gadu_ping(ptr noundef %0, ptr noundef %1, ptr 
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds %struct._packet_info, ptr %9, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %struct._packet_info, ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %10, align 8
-  call void @col_set_str(ptr noundef %11, i32 noundef 25, ptr noundef @.str.282)
+  call void @col_set_str(ptr noundef %11, i32 noundef 25, ptr noundef @.str.293)
   %12 = load i32, ptr %8, align 4
   ret i32 %12
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_send_msg(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2895,10 +2990,12 @@ define internal i32 @dissect_gadu_gadu_send_msg(ptr noundef %0, ptr noundef %1, 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds %struct._packet_info, ptr %11, i32 0, i32 1
+  %12 = getelementptr inbounds nuw %struct._packet_info, ptr %11, i32 0, i32 1
   %13 = load ptr, ptr %12, align 8
-  call void @col_set_str(ptr noundef %13, i32 noundef 25, ptr noundef @.str.283)
+  call void @col_set_str(ptr noundef %13, i32 noundef 25, ptr noundef @.str.294)
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr @hf_gadu_gadu_msg_uin, align 4
   %16 = load ptr, ptr %5, align 8
@@ -2926,7 +3023,7 @@ define internal i32 @dissect_gadu_gadu_send_msg(ptr noundef %0, ptr noundef %1, 
   %32 = load i32, ptr @hf_gadu_gadu_msg_sender, align 4
   %33 = load ptr, ptr %5, align 8
   %34 = load ptr, ptr %9, align 8
-  %35 = getelementptr inbounds %struct.gadu_gadu_conv_data, ptr %34, i32 0, i32 0
+  %35 = getelementptr inbounds nuw %struct.gadu_gadu_conv_data, ptr %34, i32 0, i32 0
   %36 = load i32, ptr %35, align 4
   %37 = call ptr @proto_tree_add_uint(ptr noundef %31, i32 noundef %32, ptr noundef %33, i32 noundef 0, i32 noundef 0, i32 noundef %36)
   store ptr %37, ptr %10, align 8
@@ -2936,7 +3033,7 @@ define internal i32 @dissect_gadu_gadu_send_msg(ptr noundef %0, ptr noundef %1, 
   %40 = load i32, ptr @hf_gadu_gadu_msg_uin, align 4
   %41 = load ptr, ptr %5, align 8
   %42 = load ptr, ptr %9, align 8
-  %43 = getelementptr inbounds %struct.gadu_gadu_conv_data, ptr %42, i32 0, i32 0
+  %43 = getelementptr inbounds nuw %struct.gadu_gadu_conv_data, ptr %42, i32 0, i32 0
   %44 = load i32, ptr %43, align 4
   %45 = call ptr @proto_tree_add_uint(ptr noundef %39, i32 noundef %40, ptr noundef %41, i32 noundef 0, i32 noundef 0, i32 noundef %44)
   store ptr %45, ptr %10, align 8
@@ -2959,7 +3056,7 @@ define internal i32 @dissect_gadu_gadu_send_msg(ptr noundef %0, ptr noundef %1, 
   %57 = load i32, ptr @hf_gadu_gadu_msg_time, align 4
   %58 = load ptr, ptr %5, align 8
   %59 = load ptr, ptr %6, align 8
-  %60 = getelementptr inbounds %struct._packet_info, ptr %59, i32 0, i32 4
+  %60 = getelementptr inbounds nuw %struct._packet_info, ptr %59, i32 0, i32 4
   %61 = call ptr @proto_tree_add_time(ptr noundef %56, i32 noundef %57, ptr noundef %58, i32 noundef 0, i32 noundef 0, ptr noundef %60)
   store ptr %61, ptr %10, align 8
   %62 = load ptr, ptr %10, align 8
@@ -2984,10 +3081,12 @@ define internal i32 @dissect_gadu_gadu_send_msg(ptr noundef %0, ptr noundef %1, 
   %78 = call i32 @dissect_gadu_gadu_msg_attr(ptr noundef %75, ptr noundef %76, i32 noundef %77)
   store i32 %78, ptr %8, align 4
   %79 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
   ret i32 %79
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_send_msg80(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2999,10 +3098,12 @@ define internal i32 @dissect_gadu_gadu_send_msg80(ptr noundef %0, ptr noundef %1
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds %struct._packet_info, ptr %11, i32 0, i32 1
+  %12 = getelementptr inbounds nuw %struct._packet_info, ptr %11, i32 0, i32 1
   %13 = load ptr, ptr %12, align 8
-  call void @col_set_str(ptr noundef %13, i32 noundef 25, ptr noundef @.str.284)
+  call void @col_set_str(ptr noundef %13, i32 noundef 25, ptr noundef @.str.295)
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr @hf_gadu_gadu_msg_uin, align 4
   %16 = load ptr, ptr %5, align 8
@@ -3030,7 +3131,7 @@ define internal i32 @dissect_gadu_gadu_send_msg80(ptr noundef %0, ptr noundef %1
   %32 = load i32, ptr @hf_gadu_gadu_msg_sender, align 4
   %33 = load ptr, ptr %5, align 8
   %34 = load ptr, ptr %9, align 8
-  %35 = getelementptr inbounds %struct.gadu_gadu_conv_data, ptr %34, i32 0, i32 0
+  %35 = getelementptr inbounds nuw %struct.gadu_gadu_conv_data, ptr %34, i32 0, i32 0
   %36 = load i32, ptr %35, align 4
   %37 = call ptr @proto_tree_add_uint(ptr noundef %31, i32 noundef %32, ptr noundef %33, i32 noundef 0, i32 noundef 0, i32 noundef %36)
   store ptr %37, ptr %10, align 8
@@ -3040,7 +3141,7 @@ define internal i32 @dissect_gadu_gadu_send_msg80(ptr noundef %0, ptr noundef %1
   %40 = load i32, ptr @hf_gadu_gadu_msg_uin, align 4
   %41 = load ptr, ptr %5, align 8
   %42 = load ptr, ptr %9, align 8
-  %43 = getelementptr inbounds %struct.gadu_gadu_conv_data, ptr %42, i32 0, i32 0
+  %43 = getelementptr inbounds nuw %struct.gadu_gadu_conv_data, ptr %42, i32 0, i32 0
   %44 = load i32, ptr %43, align 4
   %45 = call ptr @proto_tree_add_uint(ptr noundef %39, i32 noundef %40, ptr noundef %41, i32 noundef 0, i32 noundef 0, i32 noundef %44)
   store ptr %45, ptr %10, align 8
@@ -3063,7 +3164,7 @@ define internal i32 @dissect_gadu_gadu_send_msg80(ptr noundef %0, ptr noundef %1
   %57 = load i32, ptr @hf_gadu_gadu_msg_time, align 4
   %58 = load ptr, ptr %5, align 8
   %59 = load ptr, ptr %6, align 8
-  %60 = getelementptr inbounds %struct._packet_info, ptr %59, i32 0, i32 4
+  %60 = getelementptr inbounds nuw %struct._packet_info, ptr %59, i32 0, i32 4
   %61 = call ptr @proto_tree_add_time(ptr noundef %56, i32 noundef %57, ptr noundef %58, i32 noundef 0, i32 noundef 0, ptr noundef %60)
   store ptr %61, ptr %10, align 8
   %62 = load ptr, ptr %10, align 8
@@ -3093,10 +3194,12 @@ define internal i32 @dissect_gadu_gadu_send_msg80(ptr noundef %0, ptr noundef %1
   %83 = add i32 %82, 4
   store i32 %83, ptr %8, align 4
   %84 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
   ret i32 %84
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_recv_msg_ack(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3107,9 +3210,9 @@ define internal i32 @dissect_gadu_gadu_recv_msg_ack(ptr noundef %0, ptr noundef 
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds %struct._packet_info, ptr %9, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %struct._packet_info, ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %10, align 8
-  call void @col_set_str(ptr noundef %11, i32 noundef 25, ptr noundef @.str.285)
+  call void @col_set_str(ptr noundef %11, i32 noundef 25, ptr noundef @.str.296)
   %12 = load ptr, ptr %7, align 8
   %13 = load i32, ptr @hf_gadu_gadu_msg_ack_seq, align 4
   %14 = load ptr, ptr %5, align 8
@@ -3122,7 +3225,7 @@ define internal i32 @dissect_gadu_gadu_recv_msg_ack(ptr noundef %0, ptr noundef 
   ret i32 %19
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_new_status(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3133,10 +3236,11 @@ define internal i32 @dissect_gadu_gadu_new_status(ptr noundef %0, ptr noundef %1
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
   %10 = load ptr, ptr %6, align 8
-  %11 = getelementptr inbounds %struct._packet_info, ptr %10, i32 0, i32 1
+  %11 = getelementptr inbounds nuw %struct._packet_info, ptr %10, i32 0, i32 1
   %12 = load ptr, ptr %11, align 8
-  call void @col_set_str(ptr noundef %12, i32 noundef 25, ptr noundef @.str.286)
+  call void @col_set_str(ptr noundef %12, i32 noundef 25, ptr noundef @.str.297)
   %13 = load ptr, ptr %5, align 8
   %14 = load i32, ptr %8, align 4
   %15 = call i32 @tvb_get_letohl(ptr noundef %13, i32 noundef %14)
@@ -3151,25 +3255,25 @@ define internal i32 @dissect_gadu_gadu_new_status(ptr noundef %0, ptr noundef %1
   store i32 %22, ptr %8, align 4
   %23 = load i32, ptr %9, align 4
   %24 = and i32 %23, 255
-  %25 = call i32 @gadu_gadu_status_has_descr(i32 noundef %24)
-  %26 = icmp ne i32 %25, 0
-  br i1 %26, label %27, label %33
+  %25 = call zeroext i1 @gadu_gadu_status_has_descr(i32 noundef %24)
+  br i1 %25, label %26, label %32
 
-27:                                               ; preds = %4
-  %28 = load ptr, ptr %5, align 8
-  %29 = load i32, ptr @hf_gadu_gadu_status_descr, align 4
-  %30 = load ptr, ptr %7, align 8
-  %31 = load i32, ptr %8, align 4
-  %32 = call i32 @dissect_gadu_gadu_stringz_cp1250(ptr noundef %28, i32 noundef %29, ptr noundef %30, i32 noundef %31)
-  store i32 %32, ptr %8, align 4
-  br label %33
+26:                                               ; preds = %4
+  %27 = load ptr, ptr %5, align 8
+  %28 = load i32, ptr @hf_gadu_gadu_status_descr, align 4
+  %29 = load ptr, ptr %7, align 8
+  %30 = load i32, ptr %8, align 4
+  %31 = call i32 @dissect_gadu_gadu_stringz_cp1250(ptr noundef %27, i32 noundef %28, ptr noundef %29, i32 noundef %30)
+  store i32 %31, ptr %8, align 4
+  br label %32
 
-33:                                               ; preds = %27, %4
-  %34 = load i32, ptr %8, align 4
-  ret i32 %34
+32:                                               ; preds = %26, %4
+  %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
+  ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_new_status80(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3180,9 +3284,9 @@ define internal i32 @dissect_gadu_gadu_new_status80(ptr noundef %0, ptr noundef 
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds %struct._packet_info, ptr %9, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %struct._packet_info, ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %10, align 8
-  call void @col_set_str(ptr noundef %11, i32 noundef 25, ptr noundef @.str.287)
+  call void @col_set_str(ptr noundef %11, i32 noundef 25, ptr noundef @.str.298)
   %12 = load ptr, ptr %7, align 8
   %13 = load i32, ptr @hf_gadu_gadu_new_status_status, align 4
   %14 = load ptr, ptr %5, align 8
@@ -3209,7 +3313,7 @@ define internal i32 @dissect_gadu_gadu_new_status80(ptr noundef %0, ptr noundef 
   ret i32 %31
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_dcc7_id_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3220,9 +3324,9 @@ define internal i32 @dissect_gadu_gadu_dcc7_id_request(ptr noundef %0, ptr nound
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds %struct._packet_info, ptr %9, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %struct._packet_info, ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %10, align 8
-  call void @col_set_str(ptr noundef %11, i32 noundef 25, ptr noundef @.str.288)
+  call void @col_set_str(ptr noundef %11, i32 noundef 25, ptr noundef @.str.299)
   %12 = load ptr, ptr %7, align 8
   %13 = load i32, ptr @hf_dcc_type, align 4
   %14 = load ptr, ptr %5, align 8
@@ -3235,7 +3339,7 @@ define internal i32 @dissect_gadu_gadu_dcc7_id_request(ptr noundef %0, ptr nound
   ret i32 %19
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_dcc7_new(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3246,9 +3350,9 @@ define internal i32 @dissect_gadu_gadu_dcc7_new(ptr noundef %0, ptr noundef %1, 
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds %struct._packet_info, ptr %9, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %struct._packet_info, ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %10, align 8
-  call void @col_set_str(ptr noundef %11, i32 noundef 25, ptr noundef @.str.289)
+  call void @col_set_str(ptr noundef %11, i32 noundef 25, ptr noundef @.str.300)
   %12 = load ptr, ptr %7, align 8
   %13 = load i32, ptr @hf_dcc_id, align 4
   %14 = load ptr, ptr %5, align 8
@@ -3293,7 +3397,7 @@ define internal i32 @dissect_gadu_gadu_dcc7_new(ptr noundef %0, ptr noundef %1, 
   ret i32 %47
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_dcc7_id_abort(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3304,9 +3408,9 @@ define internal i32 @dissect_gadu_gadu_dcc7_id_abort(ptr noundef %0, ptr noundef
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds %struct._packet_info, ptr %9, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %struct._packet_info, ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %10, align 8
-  call void @col_set_str(ptr noundef %11, i32 noundef 25, ptr noundef @.str.290)
+  call void @col_set_str(ptr noundef %11, i32 noundef 25, ptr noundef @.str.301)
   %12 = load ptr, ptr %7, align 8
   %13 = load i32, ptr @hf_dcc_id, align 4
   %14 = load ptr, ptr %5, align 8
@@ -3335,7 +3439,7 @@ define internal i32 @dissect_gadu_gadu_dcc7_id_abort(ptr noundef %0, ptr noundef
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_userlist_request80(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3347,13 +3451,15 @@ define internal i32 @dissect_gadu_gadu_userlist_request80(ptr noundef %0, ptr no
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #6
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds %struct._packet_info, ptr %11, i32 0, i32 1
+  %12 = getelementptr inbounds nuw %struct._packet_info, ptr %11, i32 0, i32 1
   %13 = load ptr, ptr %12, align 8
-  call void @col_set_str(ptr noundef %13, i32 noundef 25, ptr noundef @.str.291)
+  call void @col_set_str(ptr noundef %13, i32 noundef 25, ptr noundef @.str.302)
   %14 = load ptr, ptr %5, align 8
   %15 = load i32, ptr %8, align 4
-  %16 = call zeroext i8 @tvb_get_guint8(ptr noundef %14, i32 noundef %15)
+  %16 = call zeroext i8 @tvb_get_uint8(ptr noundef %14, i32 noundef %15)
   store i8 %16, ptr %9, align 1
   %17 = load ptr, ptr %7, align 8
   %18 = load i32, ptr @hf_gadu_gadu_userlist_request_type, align 4
@@ -3385,12 +3491,14 @@ define internal i32 @dissect_gadu_gadu_userlist_request80(ptr noundef %0, ptr no
   store i32 %36, ptr %8, align 4
   br label %37
 
-37:                                               ; preds = %31, %4
+37:                                               ; preds = %4, %31
   %38 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #6
   ret i32 %38
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_userlist_request100(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3402,13 +3510,15 @@ define internal i32 @dissect_gadu_gadu_userlist_request100(ptr noundef %0, ptr n
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #6
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #6
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds %struct._packet_info, ptr %11, i32 0, i32 1
+  %12 = getelementptr inbounds nuw %struct._packet_info, ptr %11, i32 0, i32 1
   %13 = load ptr, ptr %12, align 8
-  call void @col_set_str(ptr noundef %13, i32 noundef 25, ptr noundef @.str.292)
+  call void @col_set_str(ptr noundef %13, i32 noundef 25, ptr noundef @.str.303)
   %14 = load ptr, ptr %5, align 8
   %15 = load i32, ptr %8, align 4
-  %16 = call zeroext i8 @tvb_get_guint8(ptr noundef %14, i32 noundef %15)
+  %16 = call zeroext i8 @tvb_get_uint8(ptr noundef %14, i32 noundef %15)
   store i8 %16, ptr %9, align 1
   %17 = load ptr, ptr %7, align 8
   %18 = load i32, ptr @hf_gadu_gadu_userlist_request_type, align 4
@@ -3428,7 +3538,7 @@ define internal i32 @dissect_gadu_gadu_userlist_request100(ptr noundef %0, ptr n
   store i32 %30, ptr %8, align 4
   %31 = load ptr, ptr %5, align 8
   %32 = load i32, ptr %8, align 4
-  %33 = call zeroext i8 @tvb_get_guint8(ptr noundef %31, i32 noundef %32)
+  %33 = call zeroext i8 @tvb_get_uint8(ptr noundef %31, i32 noundef %32)
   store i8 %33, ptr %10, align 1
   %34 = load ptr, ptr %7, align 8
   %35 = load i32, ptr @hf_gadu_gadu_userlist_format, align 4
@@ -3470,12 +3580,14 @@ define internal i32 @dissect_gadu_gadu_userlist_request100(ptr noundef %0, ptr n
 60:                                               ; preds = %54, %50
   br label %61
 
-61:                                               ; preds = %60, %4
+61:                                               ; preds = %4, %60
   %62 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #6
   ret i32 %62
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_pubdir50_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3486,10 +3598,11 @@ define internal i32 @dissect_gadu_gadu_pubdir50_request(ptr noundef %0, ptr noun
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
   %10 = load ptr, ptr %6, align 8
-  %11 = getelementptr inbounds %struct._packet_info, ptr %10, i32 0, i32 1
+  %11 = getelementptr inbounds nuw %struct._packet_info, ptr %10, i32 0, i32 1
   %12 = load ptr, ptr %11, align 8
-  call void @col_set_str(ptr noundef %12, i32 noundef 25, ptr noundef @.str.293)
+  call void @col_set_str(ptr noundef %12, i32 noundef 25, ptr noundef @.str.304)
   %13 = load ptr, ptr %7, align 8
   %14 = load i32, ptr @hf_gadu_gadu_pubdir_request_type, align 4
   %15 = load ptr, ptr %5, align 8
@@ -3511,7 +3624,7 @@ define internal i32 @dissect_gadu_gadu_pubdir50_request(ptr noundef %0, ptr noun
 27:                                               ; preds = %32, %4
   %28 = load ptr, ptr %5, align 8
   %29 = load i32, ptr %8, align 4
-  %30 = call i32 @tvb_find_guint8(ptr noundef %28, i32 noundef %29, i32 noundef -1, i8 noundef zeroext 0)
+  %30 = call i32 @tvb_find_uint8(ptr noundef %28, i32 noundef %29, i32 noundef -1, i8 noundef zeroext 0)
   store i32 %30, ptr %9, align 4
   %31 = icmp sgt i32 %30, 0
   br i1 %31, label %32, label %44
@@ -3529,52 +3642,62 @@ define internal i32 @dissect_gadu_gadu_pubdir50_request(ptr noundef %0, ptr noun
   %42 = load i32, ptr %9, align 4
   %43 = add i32 %42, 1
   store i32 %43, ptr %8, align 4
-  br label %27, !llvm.loop !9
+  br label %27, !llvm.loop !13
 
 44:                                               ; preds = %27
   %45 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
   ret i32 %45
 }
 
-declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #2
 
-declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal ptr @gadu_gadu_get_conversation_data(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = call ptr @find_conversation_pinfo(ptr noundef %5, i32 noundef 0)
-  store ptr %6, ptr %4, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = icmp ne ptr %7, null
-  br i1 %8, label %9, label %13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #6
+  %6 = load ptr, ptr %3, align 8
+  %7 = call ptr @find_conversation_pinfo(ptr noundef %6, i32 noundef 0)
+  store ptr %7, ptr %4, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %14
 
-9:                                                ; preds = %1
-  %10 = load ptr, ptr %4, align 8
-  %11 = load i32, ptr @proto_gadu_gadu, align 4
-  %12 = call ptr @conversation_get_proto_data(ptr noundef %10, i32 noundef %11)
-  store ptr %12, ptr %2, align 8
-  br label %14
+10:                                               ; preds = %1
+  %11 = load ptr, ptr %4, align 8
+  %12 = load i32, ptr @proto_gadu_gadu, align 4
+  %13 = call ptr @conversation_get_proto_data(ptr noundef %11, i32 noundef %12)
+  store ptr %13, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %15
 
-13:                                               ; preds = %1
+14:                                               ; preds = %1
   store ptr null, ptr %2, align 8
-  br label %14
+  store i32 1, ptr %5, align 4
+  br label %15
 
-14:                                               ; preds = %13, %9
-  %15 = load ptr, ptr %2, align 8
-  ret ptr %15
+15:                                               ; preds = %14, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #6
+  %16 = load ptr, ptr %2, align 8
+  ret ptr %16
 }
 
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal void @proto_item_set_generated(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind null_pointer_is_valid sspstrong uwtable
+define internal void @proto_item_set_generated(ptr noundef %0) #3 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -3586,22 +3709,22 @@ define internal void @proto_item_set_generated(ptr noundef %0) #0 {
 
 6:                                                ; preds = %5
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct._proto_node, ptr %7, i32 0, i32 4
+  %8 = getelementptr inbounds nuw %struct._proto_node, ptr %7, i32 0, i32 5
   %9 = load ptr, ptr %8, align 8
   %10 = icmp ne ptr %9, null
   br i1 %10, label %11, label %22
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct._proto_node, ptr %12, i32 0, i32 4
+  %13 = getelementptr inbounds nuw %struct._proto_node, ptr %12, i32 0, i32 5
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds %struct.field_info, ptr %14, i32 0, i32 6
+  %15 = getelementptr inbounds nuw %struct.field_info, ptr %14, i32 0, i32 6
   %16 = load i32, ptr %15, align 4
   %17 = or i32 %16, 2
   %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds %struct._proto_node, ptr %18, i32 0, i32 4
+  %19 = getelementptr inbounds nuw %struct._proto_node, ptr %18, i32 0, i32 5
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds %struct.field_info, ptr %20, i32 0, i32 6
+  %21 = getelementptr inbounds nuw %struct.field_info, ptr %20, i32 0, i32 6
   store i32 %17, ptr %21, align 4
   br label %22
 
@@ -3615,8 +3738,8 @@ define internal void @proto_item_set_generated(ptr noundef %0) #0 {
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @proto_item_set_hidden(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind null_pointer_is_valid sspstrong uwtable
+define internal void @proto_item_set_hidden(ptr noundef %0) #3 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -3628,22 +3751,22 @@ define internal void @proto_item_set_hidden(ptr noundef %0) #0 {
 
 6:                                                ; preds = %5
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct._proto_node, ptr %7, i32 0, i32 4
+  %8 = getelementptr inbounds nuw %struct._proto_node, ptr %7, i32 0, i32 5
   %9 = load ptr, ptr %8, align 8
   %10 = icmp ne ptr %9, null
   br i1 %10, label %11, label %22
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct._proto_node, ptr %12, i32 0, i32 4
+  %13 = getelementptr inbounds nuw %struct._proto_node, ptr %12, i32 0, i32 5
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds %struct.field_info, ptr %14, i32 0, i32 6
+  %15 = getelementptr inbounds nuw %struct.field_info, ptr %14, i32 0, i32 6
   %16 = load i32, ptr %15, align 4
   %17 = or i32 %16, 1
   %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds %struct._proto_node, ptr %18, i32 0, i32 4
+  %19 = getelementptr inbounds nuw %struct._proto_node, ptr %18, i32 0, i32 5
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds %struct.field_info, ptr %20, i32 0, i32 6
+  %21 = getelementptr inbounds nuw %struct.field_info, ptr %20, i32 0, i32 6
   store i32 %17, ptr %21, align 4
   br label %22
 
@@ -3657,7 +3780,7 @@ define internal void @proto_item_set_hidden(ptr noundef %0) #0 {
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_stringz_cp1250(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -3668,6 +3791,7 @@ define internal i32 @dissect_gadu_gadu_stringz_cp1250(ptr noundef %0, i32 nounde
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
   %10 = load ptr, ptr %5, align 8
   %11 = load i32, ptr %8, align 4
   %12 = call i32 @gadu_gadu_strsize(ptr noundef %10, i32 noundef %11)
@@ -3681,11 +3805,12 @@ define internal i32 @dissect_gadu_gadu_stringz_cp1250(ptr noundef %0, i32 nounde
   %19 = load i32, ptr %8, align 4
   %20 = load i32, ptr %9, align 4
   %21 = add i32 %19, %20
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_gadu_gadu_msg_attr(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @dissect_gadu_gadu_msg_attr(ptr noundef %0, ptr noundef %1, i32 noundef %2) #4 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -3696,20 +3821,23 @@ define internal i32 @dissect_gadu_gadu_msg_attr(ptr noundef %0, ptr noundef %1, 
   ret i32 %7
 }
 
-declare ptr @find_conversation_pinfo(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @find_conversation_pinfo(ptr noundef, i32 noundef) #2
 
-declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @gadu_gadu_strsize(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #6
   %6 = load ptr, ptr %3, align 8
   %7 = load i32, ptr %4, align 4
-  %8 = call i32 @tvb_find_guint8(ptr noundef %6, i32 noundef %7, i32 noundef -1, i8 noundef zeroext 0)
+  %8 = call i32 @tvb_find_uint8(ptr noundef %6, i32 noundef %7, i32 noundef -1, i8 noundef zeroext 0)
   store i32 %8, ptr %5, align 4
   %9 = load i32, ptr %5, align 4
   %10 = icmp eq i32 %9, -1
@@ -3727,15 +3855,18 @@ define internal i32 @gadu_gadu_strsize(ptr noundef %0, i32 noundef %1) #0 {
   %17 = load i32, ptr %4, align 4
   %18 = sub i32 %16, %17
   %19 = add i32 %18, 1
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #6
   ret i32 %19
 }
 
-declare i32 @tvb_find_guint8(ptr noundef, i32 noundef, i32 noundef, i8 noundef zeroext) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_find_uint8(ptr noundef, i32 noundef, i32 noundef, i8 noundef zeroext) #2
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal i32 @gadu_gadu_status_has_descr(i32 noundef %0) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @gadu_gadu_status_has_descr(i32 noundef %0) #4 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4
   %3 = load i32, ptr %2, align 4
@@ -3769,11 +3900,10 @@ define internal i32 @gadu_gadu_status_has_descr(i32 noundef %0) #0 {
 
 20:                                               ; preds = %17, %14, %11, %8, %5, %1
   %21 = phi i1 [ true, %14 ], [ true, %11 ], [ true, %8 ], [ true, %5 ], [ true, %1 ], [ %19, %17 ]
-  %22 = zext i1 %21 to i32
-  ret i32 %22
+  ret i1 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_uint32_string_utf8(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -3785,8 +3915,10 @@ define internal i32 @dissect_gadu_gadu_uint32_string_utf8(ptr noundef %0, i32 no
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
   %11 = load i32, ptr %8, align 4
   store i32 %11, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
   %12 = load ptr, ptr %5, align 8
   %13 = load i32, ptr %8, align 4
   %14 = call i32 @tvb_get_letohl(ptr noundef %12, i32 noundef %13)
@@ -3807,10 +3939,12 @@ define internal i32 @dissect_gadu_gadu_uint32_string_utf8(ptr noundef %0, i32 no
   %26 = sub i32 %24, %25
   %27 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %21, ptr noundef %22, i32 noundef %23, i32 noundef %26, i32 noundef 2)
   %28 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
   ret i32 %28
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_userlist_xml_compressed(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -3819,84 +3953,96 @@ define internal i32 @dissect_gadu_gadu_userlist_xml_compressed(ptr noundef %0, p
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
-  %12 = load ptr, ptr %6, align 8
-  %13 = load i32, ptr %9, align 4
-  %14 = call i32 @tvb_reported_length_remaining(ptr noundef %12, i32 noundef %13)
-  store i32 %14, ptr %10, align 4
-  %15 = load i32, ptr %10, align 4
-  %16 = icmp sle i32 %15, 0
-  br i1 %16, label %17, label %19
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
+  %13 = load ptr, ptr %6, align 8
+  %14 = load i32, ptr %9, align 4
+  %15 = call i32 @tvb_reported_length_remaining(ptr noundef %13, i32 noundef %14)
+  store i32 %15, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #6
+  %16 = load i32, ptr %10, align 4
+  %17 = icmp sle i32 %16, 0
+  br i1 %17, label %18, label %20
 
-17:                                               ; preds = %4
-  %18 = load i32, ptr %9, align 4
-  store i32 %18, ptr %5, align 4
-  br label %52
+18:                                               ; preds = %4
+  %19 = load i32, ptr %9, align 4
+  store i32 %19, ptr %5, align 4
+  store i32 1, ptr %12, align 4
+  br label %53
 
-19:                                               ; preds = %4
-  %20 = load ptr, ptr %6, align 8
+20:                                               ; preds = %4
   %21 = load ptr, ptr %6, align 8
-  %22 = load i32, ptr %9, align 4
-  %23 = load i32, ptr %10, align 4
-  %24 = call ptr @tvb_child_uncompress(ptr noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef %23)
-  store ptr %24, ptr %11, align 8
-  %25 = icmp ne ptr %24, null
-  br i1 %25, label %26, label %40
+  %22 = load ptr, ptr %6, align 8
+  %23 = load i32, ptr %9, align 4
+  %24 = load i32, ptr %10, align 4
+  %25 = call ptr @tvb_child_uncompress_zlib(ptr noundef %21, ptr noundef %22, i32 noundef %23, i32 noundef %24)
+  store ptr %25, ptr %11, align 8
+  %26 = icmp ne ptr %25, null
+  br i1 %26, label %27, label %41
 
-26:                                               ; preds = %19
-  %27 = load ptr, ptr %8, align 8
-  %28 = load i32, ptr @hf_gadu_gadu_userlist, align 4
-  %29 = load ptr, ptr %6, align 8
-  %30 = load i32, ptr %9, align 4
-  %31 = load i32, ptr %10, align 4
-  %32 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %27, i32 noundef %28, ptr noundef %29, i32 noundef %30, i32 noundef %31, ptr noundef null, ptr noundef @.str.234, ptr noundef @.str.235)
-  %33 = load ptr, ptr %7, align 8
-  %34 = load ptr, ptr %11, align 8
-  call void @add_new_data_source(ptr noundef %33, ptr noundef %34, ptr noundef @.str.236)
-  %35 = load ptr, ptr @xml_handle, align 8
-  %36 = load ptr, ptr %11, align 8
-  %37 = load ptr, ptr %7, align 8
-  %38 = load ptr, ptr %8, align 8
-  %39 = call i32 @call_dissector_only(ptr noundef %35, ptr noundef %36, ptr noundef %37, ptr noundef %38, ptr noundef null)
-  br label %47
+27:                                               ; preds = %20
+  %28 = load ptr, ptr %8, align 8
+  %29 = load i32, ptr @hf_gadu_gadu_userlist, align 4
+  %30 = load ptr, ptr %6, align 8
+  %31 = load i32, ptr %9, align 4
+  %32 = load i32, ptr %10, align 4
+  %33 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %28, i32 noundef %29, ptr noundef %30, i32 noundef %31, i32 noundef %32, ptr noundef null, ptr noundef @.str.244, ptr noundef @.str.245)
+  %34 = load ptr, ptr %7, align 8
+  %35 = load ptr, ptr %11, align 8
+  call void @add_new_data_source(ptr noundef %34, ptr noundef %35, ptr noundef @.str.246)
+  %36 = load ptr, ptr @xml_handle, align 8
+  %37 = load ptr, ptr %11, align 8
+  %38 = load ptr, ptr %7, align 8
+  %39 = load ptr, ptr %8, align 8
+  %40 = call i32 @call_dissector_only(ptr noundef %36, ptr noundef %37, ptr noundef %38, ptr noundef %39, ptr noundef null)
+  br label %48
 
-40:                                               ; preds = %19
-  %41 = load ptr, ptr %8, align 8
-  %42 = load i32, ptr @hf_gadu_gadu_userlist, align 4
-  %43 = load ptr, ptr %6, align 8
-  %44 = load i32, ptr %9, align 4
-  %45 = load i32, ptr %10, align 4
-  %46 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %41, i32 noundef %42, ptr noundef %43, i32 noundef %44, i32 noundef %45, ptr noundef null, ptr noundef @.str.234, ptr noundef @.str.237)
-  br label %47
+41:                                               ; preds = %20
+  %42 = load ptr, ptr %8, align 8
+  %43 = load i32, ptr @hf_gadu_gadu_userlist, align 4
+  %44 = load ptr, ptr %6, align 8
+  %45 = load i32, ptr %9, align 4
+  %46 = load i32, ptr %10, align 4
+  %47 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %42, i32 noundef %43, ptr noundef %44, i32 noundef %45, i32 noundef %46, ptr noundef null, ptr noundef @.str.244, ptr noundef @.str.247)
+  br label %48
 
-47:                                               ; preds = %40, %26
-  %48 = load i32, ptr %10, align 4
-  %49 = load i32, ptr %9, align 4
-  %50 = add i32 %49, %48
-  store i32 %50, ptr %9, align 4
-  %51 = load i32, ptr %9, align 4
-  store i32 %51, ptr %5, align 4
-  br label %52
+48:                                               ; preds = %41, %27
+  %49 = load i32, ptr %10, align 4
+  %50 = load i32, ptr %9, align 4
+  %51 = add i32 %50, %49
+  store i32 %51, ptr %9, align 4
+  %52 = load i32, ptr %9, align 4
+  store i32 %52, ptr %5, align 4
+  store i32 1, ptr %12, align 4
+  br label %53
 
-52:                                               ; preds = %47, %17
-  %53 = load i32, ptr %5, align 4
-  ret i32 %53
+53:                                               ; preds = %48, %18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
+  %54 = load i32, ptr %5, align 4
+  ret i32 %54
 }
 
-declare ptr @tvb_child_uncompress(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_child_uncompress_zlib(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_bytes_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_bytes_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #2
 
-declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare i32 @call_dissector_only(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @call_dissector_only(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal ptr @gadu_gadu_create_conversation(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
@@ -3904,8 +4050,10 @@ define internal ptr @gadu_gadu_create_conversation(ptr noundef %0, i32 noundef %
   %6 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #6
   %7 = load ptr, ptr %3, align 8
-  %8 = call nonnull ptr @find_or_create_conversation(ptr noundef %7)
+  %8 = call ptr @find_or_create_conversation(ptr noundef %7)
   store ptr %8, ptr %5, align 8
   %9 = load ptr, ptr %5, align 8
   %10 = load i32, ptr @proto_gadu_gadu, align 4
@@ -3917,11 +4065,11 @@ define internal ptr @gadu_gadu_create_conversation(ptr noundef %0, i32 noundef %
 
 14:                                               ; preds = %2
   %15 = call ptr @wmem_file_scope()
-  %16 = call noalias ptr @wmem_alloc(ptr noundef %15, i64 noundef 4)
+  %16 = call noalias ptr @wmem_alloc(ptr noundef %15, i64 noundef 4) #7
   store ptr %16, ptr %6, align 8
   %17 = load i32, ptr %4, align 4
   %18 = load ptr, ptr %6, align 8
-  %19 = getelementptr inbounds %struct.gadu_gadu_conv_data, ptr %18, i32 0, i32 0
+  %19 = getelementptr inbounds nuw %struct.gadu_gadu_conv_data, ptr %18, i32 0, i32 0
   store i32 %17, ptr %19, align 4
   %20 = load ptr, ptr %5, align 8
   %21 = load i32, ptr @proto_gadu_gadu, align 4
@@ -3931,10 +4079,12 @@ define internal ptr @gadu_gadu_create_conversation(ptr noundef %0, i32 noundef %
 
 23:                                               ; preds = %14, %2
   %24 = load ptr, ptr %6, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #6
   ret ptr %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal ptr @_tvb_memcpy_reverse(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3945,6 +4095,7 @@ define internal ptr @_tvb_memcpy_reverse(ptr noundef %0, ptr noundef %1, i32 nou
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store i64 %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
   %10 = load ptr, ptr %6, align 8
   store ptr %10, ptr %9, align 8
   br label %11
@@ -3960,7 +4111,7 @@ define internal ptr @_tvb_memcpy_reverse(ptr noundef %0, ptr noundef %1, i32 nou
   store i64 %16, ptr %8, align 8
   %17 = load ptr, ptr %5, align 8
   %18 = load i32, ptr %7, align 4
-  %19 = call zeroext i8 @tvb_get_guint8(ptr noundef %17, i32 noundef %18)
+  %19 = call zeroext i8 @tvb_get_uint8(ptr noundef %17, i32 noundef %18)
   %20 = load ptr, ptr %9, align 8
   %21 = load i64, ptr %8, align 8
   %22 = getelementptr i8, ptr %20, i64 %21
@@ -3968,14 +4119,15 @@ define internal ptr @_tvb_memcpy_reverse(ptr noundef %0, ptr noundef %1, i32 nou
   %23 = load i32, ptr %7, align 4
   %24 = add i32 %23, 1
   store i32 %24, ptr %7, align 4
-  br label %11, !llvm.loop !10
+  br label %11, !llvm.loop !14
 
 25:                                               ; preds = %11
   %26 = load ptr, ptr %6, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
   ret ptr %26
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_login_protocol(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -3985,6 +4137,8 @@ define internal i32 @dissect_gadu_gadu_login_protocol(ptr noundef %0, ptr nounde
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #6
   %9 = load ptr, ptr %4, align 8
   %10 = load i32, ptr %6, align 4
   %11 = call i32 @tvb_get_letohl(ptr noundef %9, i32 noundef %10)
@@ -4000,7 +4154,7 @@ define internal i32 @dissect_gadu_gadu_login_protocol(ptr noundef %0, ptr nounde
   %20 = load ptr, ptr %4, align 8
   %21 = load i32, ptr %6, align 4
   %22 = load i32, ptr %8, align 4
-  %23 = call ptr @val_to_str(i32 noundef %22, ptr noundef @gadu_gadu_version_vals, ptr noundef @.str.244)
+  %23 = call ptr @val_to_str(i32 noundef %22, ptr noundef @gadu_gadu_version_vals, ptr noundef @.str.254)
   %24 = call ptr @proto_tree_add_string(ptr noundef %18, i32 noundef %19, ptr noundef %20, i32 noundef %21, i32 noundef 4, ptr noundef %23)
   store ptr %24, ptr %7, align 8
   %25 = load ptr, ptr %7, align 8
@@ -4009,20 +4163,27 @@ define internal i32 @dissect_gadu_gadu_login_protocol(ptr noundef %0, ptr nounde
   %27 = add i32 %26, 4
   store i32 %27, ptr %6, align 4
   %28 = load i32, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #6
   ret i32 %28
 }
 
-declare nonnull ptr @find_or_create_conversation(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @find_or_create_conversation(ptr noundef) #2
 
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) #1
+; Function Attrs: null_pointer_is_valid allocsize(1)
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) #5
 
-declare ptr @wmem_file_scope() #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_file_scope() #2
 
-declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_login_hash(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -4033,9 +4194,12 @@ define internal i32 @dissect_gadu_gadu_login_hash(ptr noundef %0, ptr noundef %1
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #6
   %10 = load ptr, ptr %4, align 8
   %11 = load i32, ptr %6, align 4
-  %12 = call zeroext i8 @tvb_get_guint8(ptr noundef %10, i32 noundef %11)
+  %12 = call zeroext i8 @tvb_get_uint8(ptr noundef %10, i32 noundef %11)
   store i8 %12, ptr %7, align 1
   %13 = load ptr, ptr %5, align 8
   %14 = load i32, ptr @hf_gadu_gadu_login_hash_type, align 4
@@ -4065,7 +4229,7 @@ define internal i32 @dissect_gadu_gadu_login_hash(ptr noundef %0, ptr noundef %1
   %32 = load ptr, ptr %4, align 8
   %33 = load i32, ptr %6, align 4
   %34 = call i32 @tvb_get_letohl(ptr noundef %32, i32 noundef %33)
-  %35 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %27, i32 noundef %28, ptr noundef %29, i32 noundef %30, i32 noundef 4, ptr noundef %31, ptr noundef @.str.243, i32 noundef %34)
+  %35 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %27, i32 noundef %28, ptr noundef %29, i32 noundef %30, i32 noundef 4, ptr noundef %31, ptr noundef @.str.253, i32 noundef %34)
   store i32 4, ptr %9, align 4
   br label %36
 
@@ -4079,7 +4243,7 @@ define internal i32 @dissect_gadu_gadu_login_hash(ptr noundef %0, ptr noundef %1
   %41 = load i32, ptr %6, align 4
   %42 = load i32, ptr %9, align 4
   %43 = add i32 %41, %42
-  %44 = call zeroext i8 @tvb_get_guint8(ptr noundef %40, i32 noundef %43)
+  %44 = call zeroext i8 @tvb_get_uint8(ptr noundef %40, i32 noundef %43)
   %45 = icmp ne i8 %44, 0
   br i1 %45, label %46, label %53
 
@@ -4099,7 +4263,7 @@ define internal i32 @dissect_gadu_gadu_login_hash(ptr noundef %0, ptr noundef %1
   %55 = load i32, ptr %9, align 4
   %56 = add i32 %55, 1
   store i32 %56, ptr %9, align 4
-  br label %36, !llvm.loop !11
+  br label %36, !llvm.loop !15
 
 57:                                               ; preds = %46, %36
   br label %92
@@ -4123,7 +4287,7 @@ define internal i32 @dissect_gadu_gadu_login_hash(ptr noundef %0, ptr noundef %1
   %69 = load i32, ptr %6, align 4
   %70 = load i32, ptr %9, align 4
   %71 = add i32 %69, %70
-  %72 = call zeroext i8 @tvb_get_guint8(ptr noundef %68, i32 noundef %71)
+  %72 = call zeroext i8 @tvb_get_uint8(ptr noundef %68, i32 noundef %71)
   %73 = icmp ne i8 %72, 0
   br i1 %73, label %74, label %81
 
@@ -4143,7 +4307,7 @@ define internal i32 @dissect_gadu_gadu_login_hash(ptr noundef %0, ptr noundef %1
   %83 = load i32, ptr %9, align 4
   %84 = add i32 %83, 1
   store i32 %84, ptr %9, align 4
-  br label %64, !llvm.loop !12
+  br label %64, !llvm.loop !16
 
 85:                                               ; preds = %74, %64
   br label %92
@@ -4161,10 +4325,13 @@ define internal i32 @dissect_gadu_gadu_login_hash(ptr noundef %0, ptr noundef %1
   %94 = add i32 %93, 64
   store i32 %94, ptr %6, align 4
   %95 = load i32, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #6
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #6
   ret i32 %95
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_notify_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4176,6 +4343,7 @@ define internal i32 @dissect_gadu_gadu_notify_common(ptr noundef %0, ptr noundef
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #6
   br label %11
 
 11:                                               ; preds = %16, %4
@@ -4186,6 +4354,7 @@ define internal i32 @dissect_gadu_gadu_notify_common(ptr noundef %0, ptr noundef
   br i1 %15, label %16, label %40
 
 16:                                               ; preds = %11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #6
   %17 = load ptr, ptr %5, align 8
   %18 = load i32, ptr %8, align 4
   %19 = call i32 @tvb_get_letohl(ptr noundef %17, i32 noundef %18)
@@ -4195,7 +4364,7 @@ define internal i32 @dissect_gadu_gadu_notify_common(ptr noundef %0, ptr noundef
   %22 = load i32, ptr %8, align 4
   %23 = load i32, ptr @ett_gadu_gadu_contact, align 4
   %24 = load i32, ptr %10, align 4
-  %25 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef 5, i32 noundef %23, ptr noundef null, ptr noundef @.str.274, i32 noundef %24)
+  %25 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef 5, i32 noundef %23, ptr noundef null, ptr noundef @.str.285, i32 noundef %24)
   store ptr %25, ptr %9, align 8
   %26 = load ptr, ptr %9, align 8
   %27 = load i32, ptr @hf_gadu_gadu_contact_uin, align 4
@@ -4213,18 +4382,22 @@ define internal i32 @dissect_gadu_gadu_notify_common(ptr noundef %0, ptr noundef
   %38 = load i32, ptr %8, align 4
   %39 = add i32 %38, 1
   store i32 %39, ptr %8, align 4
-  br label %11, !llvm.loop !13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #6
+  br label %11, !llvm.loop !17
 
 40:                                               ; preds = %11
   %41 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #6
   ret i32 %41
 }
 
-declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #2
 
-declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gadu_gadu_notify105_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -4238,6 +4411,8 @@ define internal i32 @dissect_gadu_gadu_notify105_common(ptr noundef %0, ptr noun
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store ptr %4, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %11) #6
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #6
   %13 = load ptr, ptr %8, align 8
   %14 = load i32, ptr @hf_gadu_gadu_data, align 4
   %15 = load ptr, ptr %6, align 8
@@ -4248,14 +4423,14 @@ define internal i32 @dissect_gadu_gadu_notify105_common(ptr noundef %0, ptr noun
   store i32 %19, ptr %9, align 4
   %20 = load ptr, ptr %6, align 8
   %21 = load i32, ptr %9, align 4
-  %22 = call zeroext i8 @tvb_get_guint8(ptr noundef %20, i32 noundef %21)
+  %22 = call zeroext i8 @tvb_get_uint8(ptr noundef %20, i32 noundef %21)
   %23 = zext i8 %22 to i16
   store i16 %23, ptr %11, align 2
   %24 = load i32, ptr %9, align 4
   %25 = add i32 %24, 1
   store i32 %25, ptr %9, align 4
   %26 = load ptr, ptr %7, align 8
-  %27 = getelementptr inbounds %struct._packet_info, ptr %26, i32 0, i32 50
+  %27 = getelementptr inbounds nuw %struct._packet_info, ptr %26, i32 0, i32 51
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %6, align 8
   %30 = load i32, ptr %9, align 4
@@ -4298,31 +4473,46 @@ define internal i32 @dissect_gadu_gadu_notify105_common(ptr noundef %0, ptr noun
   %60 = add i32 %59, 1
   store i32 %60, ptr %9, align 4
   %61 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #6
+  call void @llvm.lifetime.end.p0(i64 2, ptr %11) #6
   ret i32 %61
 }
 
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #2
 
-declare void @proto_item_set_len(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_set_len(ptr noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind }
+attributes #7 = { allocsize(1) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}

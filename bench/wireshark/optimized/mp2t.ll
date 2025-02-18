@@ -3,525 +3,620 @@ source_filename = "bench/wireshark/original/mp2t.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.file_type_subtype_info = type { ptr, ptr, ptr, ptr, i32, i64, ptr, ptr, ptr, ptr }
 %struct.supported_block_type = type { i32, i32, i64, ptr }
 
 @mp2t_file_type_subtype = internal unnamed_addr global i32 -1, align 4
-@mp2t_info = internal constant %struct.file_type_subtype_info { ptr @.str.1, ptr @.str.2, ptr @.str.2, ptr @.str.3, i32 0, i64 1, ptr @mp2t_blocks_supported, ptr @mp2t_dump_can_write_encap, ptr @mp2t_dump_open, ptr null }, align 8
 @.str = private unnamed_addr constant [10 x i8] c"MPEG_2_TS\00", align 1
 @.str.1 = private unnamed_addr constant [23 x i8] c"MPEG2 transport stream\00", align 1
 @.str.2 = private unnamed_addr constant [5 x i8] c"mp2t\00", align 1
-@.str.3 = private unnamed_addr constant [7 x i8] c"ts;mpg\00", align 1
+@.str.3 = private unnamed_addr constant [12 x i8] c"ts;m2ts;mpg\00", align 1
 @mp2t_blocks_supported = internal constant [1 x %struct.supported_block_type] [%struct.supported_block_type { i32 5, i32 2, i64 0, ptr null }], align 16
+@mp2t_info = internal constant { ptr, ptr, ptr, ptr, i8, [7 x i8], i64, ptr, ptr, ptr, ptr } { ptr @.str.1, ptr @.str.2, ptr @.str.2, ptr @.str.3, i8 0, [7 x i8] zeroinitializer, i64 1, ptr @mp2t_blocks_supported, ptr @mp2t_dump_can_write_encap, ptr @mp2t_dump_open, ptr null }, align 8
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden range(i32 -1, 2) i32 @mp2t_open(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [228 x i8], align 16
   %5 = alloca [228 x i8], align 16
   %6 = alloca [228 x i8], align 16
+  call void @llvm.lifetime.start.p0(i64 228, ptr nonnull %6) #7
   %7 = load ptr, ptr %0, align 8
-  %8 = call i32 @wtap_read_bytes(ptr noundef %7, ptr noundef nonnull %6, i32 noundef 188, ptr noundef %1, ptr noundef %2) #6
-  %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %9, label %.preheader73
+  %8 = call zeroext i1 @wtap_read_bytes(ptr noundef %7, ptr noundef nonnull %6, i32 noundef 188, ptr noundef %1, ptr noundef %2)
+  br i1 %8, label %.preheader125, label %9
 
 9:                                                ; preds = %3
   %10 = load i32, ptr %1, align 4
-  %.not61 = icmp ne i32 %10, -12
-  %. = sext i1 %.not61 to i32
+  %.not = icmp ne i32 %10, -12
+  %. = sext i1 %.not to i32
   br label %mp2t_bits_per_second.exit.thread
 
-.preheader73:                                     ; preds = %3, %19
+.preheader125:                                    ; preds = %3, %19
   %indvars.iv = phi i64 [ %indvars.iv.next, %19 ], [ 0, %3 ]
   %11 = getelementptr [228 x i8], ptr %6, i64 0, i64 %indvars.iv
   %12 = load i8, ptr %11, align 1
   %13 = icmp eq i8 %12, 71
-  br i1 %13, label %14, label %19
+  br i1 %13, label %.preheader122, label %19
 
-14:                                               ; preds = %.preheader73
-  %15 = trunc nuw nsw i64 %indvars.iv to i32
-  %16 = load ptr, ptr %0, align 8
-  %17 = call i64 @file_seek(ptr noundef %16, i64 noundef %indvars.iv, i32 noundef 0, ptr noundef %1) #6
-  %18 = icmp eq i64 %17, -1
-  br i1 %18, label %mp2t_bits_per_second.exit.thread, label %.preheader72
+.preheader122:                                    ; preds = %.preheader125
+  %14 = load ptr, ptr %0, align 8
+  %15 = and i64 %indvars.iv, 4294967295
+  %16 = call i64 @file_seek(ptr noundef %14, i64 noundef %15, i32 noundef 0, ptr noundef %1)
+  %17 = icmp eq i64 %16, -1
+  br i1 %17, label %mp2t_bits_per_second.exit.thread, label %.preheader120.preheader
 
-19:                                               ; preds = %.preheader73
+.preheader120.preheader:                          ; preds = %.preheader122
+  %18 = trunc nuw nsw i64 %indvars.iv to i32
+  br label %.preheader120
+
+19:                                               ; preds = %.preheader125
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 188
-  br i1 %exitcond.not, label %mp2t_bits_per_second.exit.thread, label %.preheader73, !llvm.loop !4
+  br i1 %exitcond.not, label %mp2t_bits_per_second.exit.thread, label %.preheader125, !llvm.loop !6
 
-.preheader72:                                     ; preds = %14, %43
-  %.057 = phi i32 [ %.259, %43 ], [ 0, %14 ]
-  %.054 = phi i8 [ %.3, %43 ], [ 0, %14 ]
-  %20 = load ptr, ptr %0, align 8
-  %21 = zext i8 %.054 to i32
-  %22 = add nuw nsw i32 %21, 188
-  %23 = call i32 @wtap_read_bytes(ptr noundef %20, ptr noundef nonnull %6, i32 noundef %22, ptr noundef %1, ptr noundef %2) #6
-  %.not62 = icmp eq i32 %23, 0
-  br i1 %.not62, label %24, label %28
+.preheader120:                                    ; preds = %.preheader120.preheader, %54
+  %20 = phi i64 [ %60, %54 ], [ %15, %.preheader120.preheader ]
+  %.096166 = phi i8 [ %58, %54 ], [ 0, %.preheader120.preheader ]
+  %.097165 = phi i32 [ %.198, %54 ], [ 0, %.preheader120.preheader ]
+  %.0104164 = phi i32 [ %56, %54 ], [ %18, %.preheader120.preheader ]
+  br label %21
 
-24:                                               ; preds = %.preheader72
-  %25 = load i32, ptr %1, align 4
-  %.not63 = icmp eq i32 %25, -12
-  br i1 %.not63, label %26, label %mp2t_bits_per_second.exit.thread
+21:                                               ; preds = %.preheader120, %73
+  %.198 = phi i32 [ %.3100, %73 ], [ %.097165, %.preheader120 ]
+  %.1 = phi i8 [ %.4, %73 ], [ %.096166, %.preheader120 ]
+  %22 = load ptr, ptr %0, align 8
+  %23 = zext i8 %.1 to i32
+  %24 = add nuw nsw i32 %23, 188
+  %25 = call zeroext i1 @wtap_read_bytes(ptr noundef %22, ptr noundef nonnull %6, i32 noundef %24, ptr noundef %1, ptr noundef %2)
+  br i1 %25, label %30, label %26
 
-26:                                               ; preds = %24
-  %27 = icmp samesign ult i32 %.057, 2
-  br i1 %27, label %mp2t_bits_per_second.exit.thread, label %.loopexit
+26:                                               ; preds = %21
+  %27 = load i32, ptr %1, align 4
+  %.not108 = icmp eq i32 %27, -12
+  br i1 %.not108, label %28, label %mp2t_bits_per_second.exit.thread
 
-28:                                               ; preds = %.preheader72
-  %29 = load i8, ptr %6, align 16
-  %30 = icmp eq i8 %29, 71
-  br i1 %30, label %31, label %33
+28:                                               ; preds = %26
+  %29 = icmp samesign ult i32 %.198, 2
+  br i1 %29, label %mp2t_bits_per_second.exit.thread, label %.loopexit
 
-31:                                               ; preds = %28
-  %32 = add nuw nsw i32 %.057, 1
-  br label %43
+30:                                               ; preds = %21
+  %31 = load i8, ptr %6, align 16
+  %32 = icmp eq i8 %31, 71
+  br i1 %32, label %33, label %35
 
-33:                                               ; preds = %28
-  %.not64 = icmp eq i8 %.054, 0
-  br i1 %.not64, label %.preheader, label %mp2t_bits_per_second.exit.thread
+33:                                               ; preds = %30
+  %34 = add nuw nsw i32 %.198, 1
+  br label %73
 
-.preheader:                                       ; preds = %33, %42
-  %indvars.iv113 = phi i64 [ %indvars.iv.next114, %42 ], [ 0, %33 ]
-  %34 = getelementptr [228 x i8], ptr %6, i64 0, i64 %indvars.iv113
-  %35 = load i8, ptr %34, align 1
-  %36 = icmp eq i8 %35, 71
-  br i1 %36, label %37, label %42
+35:                                               ; preds = %30
+  %.not109 = icmp eq i8 %.1, 0
+  br i1 %.not109, label %.preheader, label %36
 
-37:                                               ; preds = %.preheader
-  %38 = load ptr, ptr %0, align 8
-  %39 = call i64 @file_seek(ptr noundef %38, i64 noundef %indvars.iv, i32 noundef 0, ptr noundef %1) #6
-  %40 = icmp eq i64 %39, -1
-  br i1 %40, label %mp2t_bits_per_second.exit.thread, label %.thread
+36:                                               ; preds = %35
+  %37 = icmp ult i32 %.0104164, %23
+  br i1 %37, label %38, label %mp2t_bits_per_second.exit.thread
 
-.thread:                                          ; preds = %37
-  %41 = trunc i64 %indvars.iv113 to i8
-  br label %43
+38:                                               ; preds = %36
+  %39 = add nuw nsw i32 %.0104164, 1
+  %40 = add i8 %.1, -1
+  %41 = load ptr, ptr %0, align 8
+  %42 = zext nneg i32 %39 to i64
+  %43 = call i64 @file_seek(ptr noundef %41, i64 noundef %42, i32 noundef 0, ptr noundef %1)
+  %44 = icmp eq i64 %43, -1
+  br i1 %44, label %mp2t_bits_per_second.exit.thread, label %45
 
-42:                                               ; preds = %.preheader
-  %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
-  %exitcond116.not = icmp eq i64 %indvars.iv.next114, 40
-  br i1 %exitcond116.not, label %mp2t_bits_per_second.exit.thread, label %.preheader, !llvm.loop !6
+45:                                               ; preds = %38
+  %46 = load ptr, ptr %0, align 8
+  %47 = call zeroext i1 @wtap_read_bytes(ptr noundef %46, ptr noundef nonnull %6, i32 noundef 188, ptr noundef %1, ptr noundef %2)
+  br i1 %47, label %.preheader119, label %49
 
-43:                                               ; preds = %.thread, %31
-  %.259 = phi i32 [ %32, %31 ], [ 0, %.thread ]
-  %.3 = phi i8 [ %.054, %31 ], [ %41, %.thread ]
-  %44 = icmp ult i32 %.259, 10
-  br i1 %44, label %.preheader72, label %.loopexit, !llvm.loop !7
+.preheader119:                                    ; preds = %45
+  %.not171 = icmp eq i8 %40, 0
+  br i1 %.not171, label %mp2t_bits_per_second.exit.thread, label %.lr.ph.preheader
 
-.loopexit:                                        ; preds = %43, %26
-  %.1 = phi i8 [ %.054, %26 ], [ %.3, %43 ]
-  %45 = load ptr, ptr %0, align 8
-  %46 = call i64 @file_seek(ptr noundef %45, i64 noundef %indvars.iv, i32 noundef 0, ptr noundef %1) #6
-  %47 = icmp eq i64 %46, -1
-  br i1 %47, label %mp2t_bits_per_second.exit.thread, label %48
+.lr.ph.preheader:                                 ; preds = %.preheader119
+  %48 = zext i8 %40 to i64
+  br label %.lr.ph
 
-48:                                               ; preds = %.loopexit
-  call void @llvm.lifetime.start.p0(i64 228, ptr nonnull %5)
-  %49 = zext i8 %.1 to i32
-  %50 = add nuw nsw i32 %49, 188
-  %51 = getelementptr inbounds nuw i8, ptr %5, i64 3
-  %52 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %53 = getelementptr inbounds nuw i8, ptr %5, i64 5
-  %54 = getelementptr inbounds nuw i8, ptr %5, i64 6
-  %55 = getelementptr inbounds nuw i8, ptr %5, i64 7
-  %56 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %57 = getelementptr inbounds nuw i8, ptr %5, i64 9
-  %58 = getelementptr inbounds nuw i8, ptr %5, i64 10
-  %59 = getelementptr inbounds nuw i8, ptr %5, i64 11
-  %60 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %61 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  br label %62
+49:                                               ; preds = %45
+  %50 = load i32, ptr %1, align 4
+  %.not110 = icmp ne i32 %50, -12
+  %.112 = sext i1 %.not110 to i32
+  br label %mp2t_bits_per_second.exit.thread
 
-62:                                               ; preds = %.backedge.i.i, %48
-  %63 = phi i32 [ 1, %48 ], [ %78, %.backedge.i.i ]
-  %.176.i = phi i32 [ %15, %48 ], [ %64, %.backedge.i.i ]
-  %64 = add nuw nsw i32 %.176.i, 1
-  %65 = load ptr, ptr %0, align 8
-  %66 = call i32 @wtap_read_bytes_or_eof(ptr noundef %65, ptr noundef nonnull %5, i32 noundef %50, ptr noundef %1, ptr noundef %2) #6
-  %.not.i.i = icmp eq i32 %66, 0
-  br i1 %.not.i.i, label %79, label %67
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %63
+  %indvars.iv216 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next217, %63 ]
+  %51 = getelementptr [228 x i8], ptr %6, i64 0, i64 %indvars.iv216
+  %52 = load i8, ptr %51, align 1
+  %53 = icmp eq i8 %52, 71
+  br i1 %53, label %54, label %63
 
-67:                                               ; preds = %62
-  %68 = load i8, ptr %5, align 16
-  %.not16.i.i = icmp eq i8 %68, 71
-  br i1 %.not16.i.i, label %69, label %.backedge.i.i
+54:                                               ; preds = %.lr.ph
+  %55 = trunc nuw nsw i64 %indvars.iv216 to i32
+  %56 = add nuw nsw i32 %39, %55
+  %57 = trunc i64 %indvars.iv216 to i8
+  %58 = sub i8 %40, %57
+  %59 = load ptr, ptr %0, align 8
+  %60 = zext i32 %56 to i64
+  %61 = call i64 @file_seek(ptr noundef %59, i64 noundef %60, i32 noundef 0, ptr noundef %1)
+  %62 = icmp eq i64 %61, -1
+  br i1 %62, label %mp2t_bits_per_second.exit.thread, label %.preheader120
 
-69:                                               ; preds = %67
-  %70 = load i8, ptr %51, align 1
-  %71 = and i8 %70, 32
-  %72 = icmp eq i8 %71, 0
-  %73 = load i8, ptr %52, align 4
-  %74 = icmp ult i8 %73, 7
-  %or.cond.i.i = select i1 %72, i1 true, i1 %74
-  br i1 %or.cond.i.i, label %.backedge.i.i, label %75
+63:                                               ; preds = %.lr.ph
+  %indvars.iv.next217 = add nuw nsw i64 %indvars.iv216, 1
+  %exitcond219.not = icmp eq i64 %indvars.iv.next217, %48
+  br i1 %exitcond219.not, label %mp2t_bits_per_second.exit.thread, label %.lr.ph, !llvm.loop !8
 
-75:                                               ; preds = %69
-  %76 = load i8, ptr %53, align 1
-  %77 = and i8 %76, 16
-  %.not17.not.i.i = icmp eq i8 %77, 0
-  br i1 %.not17.not.i.i, label %.backedge.i.i, label %82
+.preheader:                                       ; preds = %35, %72
+  %indvars.iv212 = phi i64 [ %indvars.iv.next213, %72 ], [ 0, %35 ]
+  %64 = getelementptr [228 x i8], ptr %6, i64 0, i64 %indvars.iv212
+  %65 = load i8, ptr %64, align 1
+  %66 = icmp eq i8 %65, 71
+  br i1 %66, label %67, label %72
 
-.backedge.i.i:                                    ; preds = %75, %69, %67
-  %78 = add nuw nsw i32 %63, 1
-  %exitcond.not.i.i = icmp eq i32 %63, 100
-  br i1 %exitcond.not.i.i, label %79, label %62, !llvm.loop !8
+67:                                               ; preds = %.preheader
+  %68 = load ptr, ptr %0, align 8
+  %69 = call i64 @file_seek(ptr noundef %68, i64 noundef %20, i32 noundef 0, ptr noundef %1)
+  %70 = icmp eq i64 %69, -1
+  br i1 %70, label %mp2t_bits_per_second.exit.thread, label %.thread
 
-79:                                               ; preds = %.backedge.i.i, %62
-  call void @llvm.lifetime.end.p0(i64 228, ptr nonnull %5)
-  %80 = load i32, ptr %1, align 4
-  switch i32 %80, label %81 [
+.thread:                                          ; preds = %67
+  %71 = trunc i64 %indvars.iv212 to i8
+  br label %73
+
+72:                                               ; preds = %.preheader
+  %indvars.iv.next213 = add nuw nsw i64 %indvars.iv212, 1
+  %exitcond215.not = icmp eq i64 %indvars.iv.next213, 40
+  br i1 %exitcond215.not, label %mp2t_bits_per_second.exit.thread, label %.preheader, !llvm.loop !9
+
+73:                                               ; preds = %.thread, %33
+  %.3100 = phi i32 [ %34, %33 ], [ 0, %.thread ]
+  %.4 = phi i8 [ %.1, %33 ], [ %71, %.thread ]
+  %74 = icmp ult i32 %.3100, 10
+  br i1 %74, label %21, label %.loopexit, !llvm.loop !10
+
+.loopexit:                                        ; preds = %73, %28
+  %.2 = phi i8 [ %.1, %28 ], [ %.4, %73 ]
+  %75 = load ptr, ptr %0, align 8
+  %76 = call i64 @file_seek(ptr noundef %75, i64 noundef %20, i32 noundef 0, ptr noundef %1)
+  %77 = icmp eq i64 %76, -1
+  br i1 %77, label %mp2t_bits_per_second.exit.thread, label %78
+
+78:                                               ; preds = %.loopexit
+  call void @llvm.lifetime.start.p0(i64 228, ptr nonnull %5) #7
+  %79 = zext i8 %.2 to i32
+  %80 = add nuw nsw i32 %79, 188
+  %81 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  %82 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %83 = getelementptr inbounds nuw i8, ptr %5, i64 5
+  %84 = getelementptr inbounds nuw i8, ptr %5, i64 6
+  %85 = getelementptr inbounds nuw i8, ptr %5, i64 7
+  %86 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %5, i64 9
+  %88 = getelementptr inbounds nuw i8, ptr %5, i64 10
+  %89 = getelementptr inbounds nuw i8, ptr %5, i64 11
+  %90 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %91 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  br label %92
+
+92:                                               ; preds = %.backedge.i.i, %78
+  %93 = phi i32 [ 1, %78 ], [ %108, %.backedge.i.i ]
+  %.171.i = phi i32 [ %.0104164, %78 ], [ %94, %.backedge.i.i ]
+  %94 = add i32 %.171.i, 1
+  %95 = load ptr, ptr %0, align 8
+  %96 = call zeroext i1 @wtap_read_bytes_or_eof(ptr noundef %95, ptr noundef nonnull %5, i32 noundef %80, ptr noundef %1, ptr noundef %2)
+  br i1 %96, label %97, label %109
+
+97:                                               ; preds = %92
+  %98 = load i8, ptr %5, align 16
+  %.not.i.i = icmp eq i8 %98, 71
+  br i1 %.not.i.i, label %99, label %.backedge.i.i
+
+99:                                               ; preds = %97
+  %100 = load i8, ptr %81, align 1
+  %101 = and i8 %100, 32
+  %102 = icmp eq i8 %101, 0
+  %103 = load i8, ptr %82, align 4
+  %104 = icmp ult i8 %103, 7
+  %or.cond.i.i = select i1 %102, i1 true, i1 %104
+  br i1 %or.cond.i.i, label %.backedge.i.i, label %105
+
+105:                                              ; preds = %99
+  %106 = load i8, ptr %83, align 1
+  %107 = and i8 %106, 16
+  %.not16.not.i.i = icmp eq i8 %107, 0
+  br i1 %.not16.not.i.i, label %.backedge.i.i, label %112
+
+.backedge.i.i:                                    ; preds = %105, %99, %97
+  %108 = add nuw nsw i32 %93, 1
+  %exitcond.not.i.i = icmp eq i32 %93, 100
+  br i1 %exitcond.not.i.i, label %109, label %92, !llvm.loop !11
+
+109:                                              ; preds = %.backedge.i.i, %92
+  call void @llvm.lifetime.end.p0(i64 228, ptr nonnull %5) #7
+  %110 = load i32, ptr %1, align 4
+  switch i32 %110, label %111 [
     i32 -12, label %mp2t_bits_per_second.exit.thread
     i32 0, label %mp2t_bits_per_second.exit
   ]
 
-81:                                               ; preds = %79
+111:                                              ; preds = %109
   br label %mp2t_bits_per_second.exit.thread
 
-82:                                               ; preds = %75
-  %83 = load i8, ptr %54, align 2
-  %84 = zext i8 %83 to i64
-  %85 = shl nuw nsw i64 %84, 32
-  %86 = load i8, ptr %55, align 1
-  %87 = zext i8 %86 to i64
-  %88 = shl nuw nsw i64 %87, 24
-  %89 = or disjoint i64 %88, %85
-  %90 = load i8, ptr %56, align 8
-  %91 = zext i8 %90 to i64
-  %92 = shl nuw nsw i64 %91, 16
-  %93 = or disjoint i64 %89, %92
-  %94 = load i8, ptr %57, align 1
-  %95 = zext i8 %94 to i64
-  %96 = shl nuw nsw i64 %95, 8
-  %97 = or disjoint i64 %93, %96
-  %98 = load i8, ptr %58, align 2
-  %99 = zext i8 %98 to i64
-  %100 = or disjoint i64 %97, %99
-  %101 = lshr i64 %100, 7
-  %.val5.i.i.i = load i8, ptr %59, align 1
-  %102 = shl nuw nsw i64 %99, 8
-  %103 = zext i8 %.val5.i.i.i to i64
-  %.masked.i.i.i = and i64 %102, 256
-  %104 = or disjoint i64 %.masked.i.i.i, %103
-  %105 = mul nuw nsw i64 %101, 300
-  %106 = add nuw nsw i64 %105, %104
-  %.val.i.i = load i8, ptr %60, align 1
-  %.val18.i.i = load i8, ptr %61, align 2
-  %107 = zext i8 %.val.i.i to i16
-  %108 = shl nuw i16 %107, 8
-  %109 = zext i8 %.val18.i.i to i16
-  %.masked.i.i = and i16 %108, 256
-  %110 = or disjoint i16 %.masked.i.i, %109
-  call void @llvm.lifetime.end.p0(i64 228, ptr nonnull %5)
-  %111 = getelementptr inbounds nuw i8, ptr %4, i64 3
-  %112 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %113 = getelementptr inbounds nuw i8, ptr %4, i64 5
-  %114 = getelementptr inbounds nuw i8, ptr %4, i64 6
-  %115 = getelementptr inbounds nuw i8, ptr %4, i64 7
-  %116 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %117 = getelementptr inbounds nuw i8, ptr %4, i64 9
-  %118 = getelementptr inbounds nuw i8, ptr %4, i64 10
-  %119 = getelementptr inbounds nuw i8, ptr %4, i64 11
-  %120 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %121 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  br label %122
+112:                                              ; preds = %105
+  %113 = load i8, ptr %84, align 2
+  %114 = zext i8 %113 to i64
+  %115 = shl nuw nsw i64 %114, 32
+  %116 = load i8, ptr %85, align 1
+  %117 = zext i8 %116 to i64
+  %118 = shl nuw nsw i64 %117, 24
+  %119 = or disjoint i64 %118, %115
+  %120 = load i8, ptr %86, align 8
+  %121 = zext i8 %120 to i64
+  %122 = shl nuw nsw i64 %121, 16
+  %123 = or disjoint i64 %119, %122
+  %124 = load i8, ptr %87, align 1
+  %125 = zext i8 %124 to i64
+  %126 = shl nuw nsw i64 %125, 8
+  %127 = or disjoint i64 %123, %126
+  %128 = load i8, ptr %88, align 2
+  %129 = zext i8 %128 to i64
+  %130 = or disjoint i64 %127, %129
+  %131 = lshr i64 %130, 7
+  %.val5.i.i.i = load i8, ptr %89, align 1
+  %132 = shl nuw nsw i64 %129, 8
+  %133 = zext i8 %.val5.i.i.i to i64
+  %.masked.i.i.i = and i64 %132, 256
+  %134 = or disjoint i64 %.masked.i.i.i, %133
+  %135 = mul nuw nsw i64 %131, 300
+  %136 = add nuw nsw i64 %135, %134
+  %.val.i.i = load i8, ptr %90, align 1
+  %.val17.i.i = load i8, ptr %91, align 2
+  %137 = zext i8 %.val.i.i to i16
+  %138 = shl nuw i16 %137, 8
+  %139 = zext i8 %.val17.i.i to i16
+  %.masked.i.i = and i16 %138, 256
+  %140 = or disjoint i16 %.masked.i.i, %139
+  call void @llvm.lifetime.end.p0(i64 228, ptr nonnull %5) #7
+  %141 = getelementptr inbounds nuw i8, ptr %4, i64 3
+  %142 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %143 = getelementptr inbounds nuw i8, ptr %4, i64 5
+  %144 = getelementptr inbounds nuw i8, ptr %4, i64 6
+  %145 = getelementptr inbounds nuw i8, ptr %4, i64 7
+  %146 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %4, i64 9
+  %148 = getelementptr inbounds nuw i8, ptr %4, i64 10
+  %149 = getelementptr inbounds nuw i8, ptr %4, i64 11
+  %150 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %151 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  br label %152
 
-122:                                              ; preds = %143, %82
-  %.05678.i = phi i32 [ %64, %82 ], [ %125, %143 ]
-  call void @llvm.lifetime.start.p0(i64 228, ptr nonnull %4)
-  br label %123
+152:                                              ; preds = %173, %112
+  %.05373.i = phi i32 [ %94, %112 ], [ %155, %173 ]
+  call void @llvm.lifetime.start.p0(i64 228, ptr nonnull %4) #7
+  br label %153
 
-123:                                              ; preds = %.backedge.i38.i, %122
-  %124 = phi i32 [ 1, %122 ], [ %139, %.backedge.i38.i ]
-  %.377.i = phi i32 [ %.05678.i, %122 ], [ %125, %.backedge.i38.i ]
-  %125 = add i32 %.377.i, 1
-  %126 = load ptr, ptr %0, align 8
-  %127 = call i32 @wtap_read_bytes_or_eof(ptr noundef %126, ptr noundef nonnull %4, i32 noundef %50, ptr noundef %1, ptr noundef %2) #6
-  %.not.i36.i = icmp eq i32 %127, 0
-  br i1 %.not.i36.i, label %140, label %128
+153:                                              ; preds = %.backedge.i36.i, %152
+  %154 = phi i32 [ 1, %152 ], [ %169, %.backedge.i36.i ]
+  %.372.i = phi i32 [ %.05373.i, %152 ], [ %155, %.backedge.i36.i ]
+  %155 = add i32 %.372.i, 1
+  %156 = load ptr, ptr %0, align 8
+  %157 = call zeroext i1 @wtap_read_bytes_or_eof(ptr noundef %156, ptr noundef nonnull %4, i32 noundef %80, ptr noundef %1, ptr noundef %2)
+  br i1 %157, label %158, label %170
 
-128:                                              ; preds = %123
-  %129 = load i8, ptr %4, align 16
-  %.not16.i37.i = icmp eq i8 %129, 71
-  br i1 %.not16.i37.i, label %130, label %.backedge.i38.i
+158:                                              ; preds = %153
+  %159 = load i8, ptr %4, align 16
+  %.not.i35.i = icmp eq i8 %159, 71
+  br i1 %.not.i35.i, label %160, label %.backedge.i36.i
 
-130:                                              ; preds = %128
-  %131 = load i8, ptr %111, align 1
-  %132 = and i8 %131, 32
-  %133 = icmp eq i8 %132, 0
-  %134 = load i8, ptr %112, align 4
-  %135 = icmp ult i8 %134, 7
-  %or.cond.i39.i = select i1 %133, i1 true, i1 %135
-  br i1 %or.cond.i39.i, label %.backedge.i38.i, label %136
+160:                                              ; preds = %158
+  %161 = load i8, ptr %141, align 1
+  %162 = and i8 %161, 32
+  %163 = icmp eq i8 %162, 0
+  %164 = load i8, ptr %142, align 4
+  %165 = icmp ult i8 %164, 7
+  %or.cond.i37.i = select i1 %163, i1 true, i1 %165
+  br i1 %or.cond.i37.i, label %.backedge.i36.i, label %166
 
-136:                                              ; preds = %130
-  %137 = load i8, ptr %113, align 1
-  %138 = and i8 %137, 16
-  %.not17.not.i40.i = icmp eq i8 %138, 0
-  br i1 %.not17.not.i40.i, label %.backedge.i38.i, label %143
+166:                                              ; preds = %160
+  %167 = load i8, ptr %143, align 1
+  %168 = and i8 %167, 16
+  %.not16.not.i38.i = icmp eq i8 %168, 0
+  br i1 %.not16.not.i38.i, label %.backedge.i36.i, label %173
 
-.backedge.i38.i:                                  ; preds = %136, %130, %128
-  %139 = add nuw nsw i32 %124, 1
-  %exitcond.not.i35.i = icmp eq i32 %124, 100
-  br i1 %exitcond.not.i35.i, label %140, label %123, !llvm.loop !8
+.backedge.i36.i:                                  ; preds = %166, %160, %158
+  %169 = add nuw nsw i32 %154, 1
+  %exitcond.not.i33.i = icmp eq i32 %154, 100
+  br i1 %exitcond.not.i33.i, label %170, label %153, !llvm.loop !11
 
-140:                                              ; preds = %.backedge.i38.i, %123
-  call void @llvm.lifetime.end.p0(i64 228, ptr nonnull %4)
-  %141 = load i32, ptr %1, align 4
-  switch i32 %141, label %142 [
+170:                                              ; preds = %.backedge.i36.i, %153
+  call void @llvm.lifetime.end.p0(i64 228, ptr nonnull %4) #7
+  %171 = load i32, ptr %1, align 4
+  switch i32 %171, label %172 [
     i32 -12, label %mp2t_bits_per_second.exit.thread
     i32 0, label %mp2t_bits_per_second.exit
   ]
 
-142:                                              ; preds = %140
+172:                                              ; preds = %170
   br label %mp2t_bits_per_second.exit.thread
 
-143:                                              ; preds = %136
-  %144 = load i8, ptr %114, align 2
-  %145 = load i8, ptr %115, align 1
-  %146 = load i8, ptr %116, align 8
-  %147 = load i8, ptr %117, align 1
-  %148 = load i8, ptr %118, align 2
-  %.val5.i.i42.i = load i8, ptr %119, align 1
-  %.val.i44.i = load i8, ptr %120, align 1
-  %.val18.i45.i = load i8, ptr %121, align 2
-  %149 = zext i8 %.val.i44.i to i16
-  %150 = shl nuw i16 %149, 8
-  %151 = zext i8 %.val18.i45.i to i16
-  %.masked.i46.i = and i16 %150, 256
-  %152 = or disjoint i16 %.masked.i46.i, %151
-  call void @llvm.lifetime.end.p0(i64 228, ptr nonnull %4)
-  %153 = icmp ne i16 %110, %152
-  %154 = icmp eq i32 %.377.i, %.176.i
-  %155 = select i1 %153, i1 true, i1 %154
-  br i1 %155, label %122, label %156, !llvm.loop !9
+173:                                              ; preds = %166
+  %174 = load i8, ptr %144, align 2
+  %175 = load i8, ptr %145, align 1
+  %176 = load i8, ptr %146, align 8
+  %177 = load i8, ptr %147, align 1
+  %178 = load i8, ptr %148, align 2
+  %.val5.i.i40.i = load i8, ptr %149, align 1
+  %.val.i42.i = load i8, ptr %150, align 1
+  %.val17.i43.i = load i8, ptr %151, align 2
+  %179 = zext i8 %.val.i42.i to i16
+  %180 = shl nuw i16 %179, 8
+  %181 = zext i8 %.val17.i43.i to i16
+  %.masked.i44.i = and i16 %180, 256
+  %182 = or disjoint i16 %.masked.i44.i, %181
+  call void @llvm.lifetime.end.p0(i64 228, ptr nonnull %4) #7
+  %183 = icmp ne i16 %140, %182
+  %184 = icmp eq i32 %.372.i, %.171.i
+  %185 = select i1 %183, i1 true, i1 %184
+  br i1 %185, label %152, label %186, !llvm.loop !12
 
-156:                                              ; preds = %143
-  %157 = zext i8 %144 to i64
-  %158 = shl nuw nsw i64 %157, 32
-  %159 = zext i8 %145 to i64
-  %160 = shl nuw nsw i64 %159, 24
-  %161 = or disjoint i64 %160, %158
-  %162 = zext i8 %146 to i64
-  %163 = shl nuw nsw i64 %162, 16
-  %164 = or disjoint i64 %161, %163
-  %165 = zext i8 %147 to i64
-  %166 = shl nuw nsw i64 %165, 8
-  %167 = or disjoint i64 %164, %166
-  %168 = zext i8 %148 to i64
-  %169 = or disjoint i64 %167, %168
-  %170 = lshr i64 %169, 7
-  %171 = shl nuw nsw i64 %168, 8
-  %172 = zext i8 %.val5.i.i42.i to i64
-  %.masked.i.i43.le.i = and i64 %171, 256
-  %173 = or disjoint i64 %.masked.i.i43.le.i, %172
-  %174 = mul nuw nsw i64 %170, 300
-  %175 = add nuw nsw i64 %174, %173
-  %.not31.i = icmp samesign ugt i64 %175, %106
-  br i1 %.not31.i, label %176, label %mp2t_bits_per_second.exit.thread
+186:                                              ; preds = %173
+  %187 = zext i8 %174 to i64
+  %188 = shl nuw nsw i64 %187, 32
+  %189 = zext i8 %175 to i64
+  %190 = shl nuw nsw i64 %189, 24
+  %191 = or disjoint i64 %190, %188
+  %192 = zext i8 %176 to i64
+  %193 = shl nuw nsw i64 %192, 16
+  %194 = or disjoint i64 %191, %193
+  %195 = zext i8 %177 to i64
+  %196 = shl nuw nsw i64 %195, 8
+  %197 = or disjoint i64 %194, %196
+  %198 = zext i8 %178 to i64
+  %199 = or disjoint i64 %197, %198
+  %200 = lshr i64 %199, 7
+  %201 = shl nuw nsw i64 %198, 8
+  %202 = zext i8 %.val5.i.i40.i to i64
+  %.masked.i.i41.le.i = and i64 %201, 256
+  %203 = or disjoint i64 %.masked.i.i41.le.i, %202
+  %204 = mul nuw nsw i64 %200, 300
+  %205 = add nuw nsw i64 %204, %203
+  %.not30.i = icmp samesign ugt i64 %205, %136
+  br i1 %.not30.i, label %206, label %mp2t_bits_per_second.exit.thread
 
-176:                                              ; preds = %156
-  %177 = sub nuw nsw i64 %175, %106
-  %178 = sub i32 %.377.i, %.176.i
-  %179 = zext i32 %178 to i64
-  %180 = mul i64 %179, 40608000000
-  %181 = udiv i64 %180, %177
-  %182 = icmp ugt i64 %177, %180
-  br i1 %182, label %mp2t_bits_per_second.exit.thread, label %mp2t_bits_per_second.exit
+206:                                              ; preds = %186
+  %207 = sub nuw nsw i64 %205, %136
+  %208 = sub i32 %.372.i, %.171.i
+  %209 = zext i32 %208 to i64
+  %210 = mul i64 %209, 40608000000
+  %211 = udiv i64 %210, %207
+  %212 = icmp ugt i64 %207, %210
+  br i1 %212, label %mp2t_bits_per_second.exit.thread, label %mp2t_bits_per_second.exit
 
-mp2t_bits_per_second.exit:                        ; preds = %140, %79, %176
-  %.066 = phi i64 [ %181, %176 ], [ 26970350, %79 ], [ 26970350, %140 ]
-  %183 = load ptr, ptr %0, align 8
-  %184 = call i64 @file_seek(ptr noundef %183, i64 noundef %indvars.iv, i32 noundef 0, ptr noundef %1) #6
-  %185 = icmp eq i64 %184, -1
-  br i1 %185, label %mp2t_bits_per_second.exit.thread, label %186
+mp2t_bits_per_second.exit:                        ; preds = %170, %109, %206
+  %.0113 = phi i64 [ %211, %206 ], [ 26970350, %109 ], [ 26970350, %170 ]
+  %213 = call i32 @llvm.umin.i32(i32 %.0104164, i32 %79)
+  %214 = sub i32 %.0104164, %213
+  %215 = load ptr, ptr %0, align 8
+  %216 = zext i32 %214 to i64
+  %217 = call i64 @file_seek(ptr noundef %215, i64 noundef %216, i32 noundef 0, ptr noundef %1)
+  %218 = icmp eq i64 %217, -1
+  br i1 %218, label %mp2t_bits_per_second.exit.thread, label %219
 
-186:                                              ; preds = %mp2t_bits_per_second.exit
-  %187 = load i32, ptr @mp2t_file_type_subtype, align 4
-  %188 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %187, ptr %188, align 4
-  %189 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store i32 138, ptr %189, align 8
-  %190 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  store i32 9, ptr %190, align 4
-  %191 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr @mp2t_read, ptr %191, align 8
-  %192 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store ptr @mp2t_seek_read, ptr %192, align 8
-  %193 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %193, align 8
-  %194 = call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #7
-  %195 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr %194, ptr %195, align 8
-  store i32 %15, ptr %194, align 8
-  %196 = getelementptr inbounds nuw i8, ptr %194, i64 16
-  store i8 %.1, ptr %196, align 8
-  %197 = getelementptr inbounds nuw i8, ptr %194, i64 8
-  store i64 %.066, ptr %197, align 8
+219:                                              ; preds = %mp2t_bits_per_second.exit
+  %220 = trunc nuw i32 %213 to i8
+  %221 = sub i8 %.2, %220
+  %222 = load i32, ptr @mp2t_file_type_subtype, align 4
+  %223 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %222, ptr %223, align 4
+  %224 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store i32 138, ptr %224, align 8
+  %225 = getelementptr inbounds nuw i8, ptr %0, i64 148
+  store i32 9, ptr %225, align 4
+  %226 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store ptr @mp2t_read, ptr %226, align 8
+  %227 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store ptr @mp2t_seek_read, ptr %227, align 8
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 0, ptr %228, align 8
+  %229 = call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #8
+  %230 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store ptr %229, ptr %230, align 8
+  %231 = getelementptr inbounds nuw i8, ptr %229, i64 8
+  store i32 %214, ptr %231, align 8
+  %232 = getelementptr inbounds nuw i8, ptr %229, i64 13
+  store i8 %221, ptr %232, align 1
+  %233 = getelementptr inbounds nuw i8, ptr %229, i64 12
+  store i8 %220, ptr %233, align 4
+  store i64 %.0113, ptr %229, align 8
   br label %mp2t_bits_per_second.exit.thread
 
-mp2t_bits_per_second.exit.thread:                 ; preds = %19, %37, %33, %42, %176, %156, %140, %79, %81, %142, %mp2t_bits_per_second.exit, %.loopexit, %26, %24, %14, %9, %186
-  %.0 = phi i32 [ 1, %186 ], [ %., %9 ], [ -1, %14 ], [ -1, %24 ], [ 0, %26 ], [ -1, %.loopexit ], [ -1, %mp2t_bits_per_second.exit ], [ 0, %156 ], [ 0, %140 ], [ 0, %79 ], [ -1, %81 ], [ -1, %142 ], [ -1, %176 ], [ 0, %42 ], [ -1, %37 ], [ 0, %33 ], [ 0, %19 ]
+mp2t_bits_per_second.exit.thread:                 ; preds = %19, %54, %38, %36, %.preheader119, %67, %63, %72, %.preheader122, %206, %186, %170, %109, %111, %172, %mp2t_bits_per_second.exit, %.loopexit, %49, %28, %26, %9, %219
+  %.0 = phi i32 [ 1, %219 ], [ %., %9 ], [ -1, %26 ], [ 0, %28 ], [ %.112, %49 ], [ -1, %.loopexit ], [ -1, %mp2t_bits_per_second.exit ], [ 0, %186 ], [ 0, %170 ], [ 0, %109 ], [ -1, %111 ], [ -1, %172 ], [ -1, %206 ], [ -1, %.preheader122 ], [ 0, %72 ], [ 0, %63 ], [ -1, %67 ], [ 0, %.preheader119 ], [ -1, %54 ], [ -1, %38 ], [ 0, %36 ], [ 0, %19 ]
+  call void @llvm.lifetime.end.p0(i64 228, ptr nonnull %6) #7
   ret i32 %.0
 }
 
-declare i32 @wtap_read_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @wtap_read_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @mp2t_read(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5) #0 {
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %8 = load ptr, ptr %7, align 8
-  %9 = load ptr, ptr %0, align 8
-  %10 = tail call i64 @file_tell(ptr noundef %9) #6
-  store i64 %10, ptr %5, align 8
-  %11 = load ptr, ptr %0, align 8
-  tail call void @ws_buffer_assure_space(ptr noundef %2, i64 noundef 188) #6
-  %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %14 = load i64, ptr %13, align 8
-  %15 = getelementptr i8, ptr %12, i64 %14
-  %16 = tail call i32 @wtap_read_bytes_or_eof(ptr noundef %11, ptr noundef %15, i32 noundef 188, ptr noundef %3, ptr noundef %4) #6
-  %.not.i = icmp eq i32 %16, 0
-  br i1 %.not.i, label %mp2t_read_packet.exit.thread, label %17
+; Function Attrs: null_pointer_is_valid
+declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-17:                                               ; preds = %6
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal noundef zeroext i1 @mp2t_read(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) %4) #0 {
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %7 = load ptr, ptr %6, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %9 = load i8, ptr %8, align 4
+  %.not = icmp eq i8 %9, 0
+  br i1 %.not, label %14, label %10
+
+10:                                               ; preds = %5
+  %11 = zext i8 %9 to i32
+  %12 = load ptr, ptr %0, align 8
+  %13 = tail call zeroext i1 @wtap_read_bytes_or_eof(ptr noundef %12, ptr noundef null, i32 noundef %11, ptr noundef %2, ptr noundef %3)
+  br i1 %13, label %14, label %mp2t_read_packet.exit
+
+14:                                               ; preds = %10, %5
+  %15 = load ptr, ptr %0, align 8
+  %16 = tail call i64 @file_tell(ptr noundef %15)
+  store i64 %16, ptr %4, align 8
+  %17 = load ptr, ptr %0, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 280
+  tail call void @ws_buffer_assure_space(ptr noundef nonnull %18, i64 noundef 188)
+  %.val.i = load ptr, ptr %18, align 8
+  %19 = getelementptr i8, ptr %1, i64 296
+  %.val19.i = load i64, ptr %19, align 8
+  %20 = getelementptr i8, ptr %.val.i, i64 %.val19.i
+  %21 = tail call zeroext i1 @wtap_read_bytes_or_eof(ptr noundef %17, ptr noundef %20, i32 noundef 188, ptr noundef %2, ptr noundef %3)
+  br i1 %21, label %22, label %mp2t_read_packet.exit
+
+22:                                               ; preds = %14
   store i32 0, ptr %1, align 8
-  %18 = tail call ptr @wtap_block_create(i32 noundef 5) #6
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %23 = tail call ptr @wtap_block_create(i32 noundef 5)
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  store ptr %23, ptr %24, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i32 1, ptr %25, align 4
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %27 = load i32, ptr %26, align 8
+  %28 = zext i32 %27 to i64
+  %29 = sub i64 %16, %28
+  %30 = shl i64 %29, 3
+  %31 = load i64, ptr %7, align 8
+  %32 = udiv i64 %30, %31
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i64 %32, ptr %33, align 8
+  %34 = load i64, ptr %7, align 8
+  %35 = urem i64 %30, %34
+  %36 = mul i64 %35, 1000000000
+  %37 = udiv i64 %36, %34
+  %38 = trunc i64 %37 to i32
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i32 %38, ptr %39, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  store i32 188, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 68
+  store i32 188, ptr %41, align 4
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 13
+  %43 = load i8, ptr %42, align 1
+  %.not22 = icmp eq i8 %43, 0
+  br i1 %.not22, label %48, label %44
+
+44:                                               ; preds = %22
+  %45 = zext i8 %43 to i32
+  %46 = load ptr, ptr %0, align 8
+  %47 = tail call zeroext i1 @wtap_read_bytes(ptr noundef %46, ptr noundef null, i32 noundef %45, ptr noundef %2, ptr noundef %3)
+  br i1 %47, label %48, label %mp2t_read_packet.exit
+
+48:                                               ; preds = %44, %22
+  br label %mp2t_read_packet.exit
+
+mp2t_read_packet.exit:                            ; preds = %14, %44, %10, %48
+  %.0 = phi i1 [ true, %48 ], [ false, %10 ], [ false, %44 ], [ false, %14 ]
+  ret i1 %.0
+}
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal noundef zeroext i1 @mp2t_seek_read(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = load ptr, ptr %6, align 8
+  %8 = tail call i64 @file_seek(ptr noundef %7, i64 noundef %1, i32 noundef 0, ptr noundef %3)
+  %9 = icmp eq i64 %8, -1
+  br i1 %9, label %40, label %10
+
+10:                                               ; preds = %5
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %12 = load ptr, ptr %11, align 8
+  %13 = load ptr, ptr %6, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 280
+  tail call void @ws_buffer_assure_space(ptr noundef nonnull %14, i64 noundef 188)
+  %.val.i = load ptr, ptr %14, align 8
+  %15 = getelementptr i8, ptr %2, i64 296
+  %.val19.i = load i64, ptr %15, align 8
+  %16 = getelementptr i8, ptr %.val.i, i64 %.val19.i
+  %17 = tail call zeroext i1 @wtap_read_bytes_or_eof(ptr noundef %13, ptr noundef %16, i32 noundef 188, ptr noundef %3, ptr noundef %4)
+  br i1 %17, label %mp2t_read_packet.exit.thread, label %mp2t_read_packet.exit
+
+mp2t_read_packet.exit.thread:                     ; preds = %10
+  store i32 0, ptr %2, align 8
+  %18 = tail call ptr @wtap_block_create(i32 noundef 5)
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 232
   store ptr %18, ptr %19, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 1, ptr %20, align 4
-  %21 = load i32, ptr %8, align 8
-  %22 = zext i32 %21 to i64
-  %23 = sub i64 %10, %22
-  %24 = shl i64 %23, 3
-  %25 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %26 = load i64, ptr %25, align 8
-  %27 = udiv i64 %24, %26
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %22 = load i32, ptr %21, align 8
+  %23 = zext i32 %22 to i64
+  %24 = sub i64 %1, %23
+  %25 = shl i64 %24, 3
+  %26 = load i64, ptr %12, align 8
+  %27 = udiv i64 %25, %26
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %27, ptr %28, align 8
-  %29 = load i64, ptr %25, align 8
-  %30 = urem i64 %24, %29
+  %29 = load i64, ptr %12, align 8
+  %30 = urem i64 %25, %29
   %31 = mul i64 %30, 1000000000
   %32 = udiv i64 %31, %29
   %33 = trunc i64 %32 to i32
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %33, ptr %34, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i32 188, ptr %35, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 68
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 68
   store i32 188, ptr %36, align 4
-  %37 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %38 = load i8, ptr %37, align 8
-  %.not16 = icmp eq i8 %38, 0
-  br i1 %.not16, label %43, label %39
+  br label %40
 
-39:                                               ; preds = %17
-  %40 = zext i8 %38 to i32
-  %41 = load ptr, ptr %0, align 8
-  %42 = tail call i32 @wtap_read_bytes(ptr noundef %41, ptr noundef null, i32 noundef %40, ptr noundef %3, ptr noundef %4) #6
-  %.not17 = icmp eq i32 %42, 0
-  br i1 %.not17, label %mp2t_read_packet.exit.thread, label %43
+mp2t_read_packet.exit:                            ; preds = %10
+  %37 = load i32, ptr %3, align 4
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %39, label %40
 
-43:                                               ; preds = %39, %17
-  br label %mp2t_read_packet.exit.thread
+39:                                               ; preds = %mp2t_read_packet.exit
+  store i32 -12, ptr %3, align 4
+  br label %40
 
-mp2t_read_packet.exit.thread:                     ; preds = %6, %39, %43
-  %.0 = phi i32 [ 1, %43 ], [ 0, %39 ], [ 0, %6 ]
-  ret i32 %.0
+40:                                               ; preds = %mp2t_read_packet.exit.thread, %mp2t_read_packet.exit, %39, %5
+  %.0 = phi i1 [ false, %5 ], [ false, %39 ], [ false, %mp2t_read_packet.exit ], [ true, %mp2t_read_packet.exit.thread ]
+  ret i1 %.0
 }
 
-; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @mp2t_seek_read(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %1, i32 noundef 0, ptr noundef %4) #6
-  %10 = icmp eq i64 %9, -1
-  br i1 %10, label %43, label %11
+; Function Attrs: null_pointer_is_valid allocsize(0)
+declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #3
 
-11:                                               ; preds = %6
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %13 = load ptr, ptr %12, align 8
-  %14 = load ptr, ptr %7, align 8
-  tail call void @ws_buffer_assure_space(ptr noundef %3, i64 noundef 188) #6
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %17 = load i64, ptr %16, align 8
-  %18 = getelementptr i8, ptr %15, i64 %17
-  %19 = tail call i32 @wtap_read_bytes_or_eof(ptr noundef %14, ptr noundef %18, i32 noundef 188, ptr noundef %4, ptr noundef %5) #6
-  %.not.i = icmp eq i32 %19, 0
-  br i1 %.not.i, label %39, label %mp2t_read_packet.exit
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-mp2t_read_packet.exit:                            ; preds = %11
-  store i32 0, ptr %2, align 8
-  %20 = tail call ptr @wtap_block_create(i32 noundef 5) #6
-  %21 = getelementptr inbounds nuw i8, ptr %2, i64 232
-  store ptr %20, ptr %21, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 1, ptr %22, align 4
-  %23 = load i32, ptr %13, align 8
-  %24 = zext i32 %23 to i64
-  %25 = sub i64 %1, %24
-  %26 = shl i64 %25, 3
-  %27 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %28 = load i64, ptr %27, align 8
-  %29 = udiv i64 %26, %28
-  %30 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 %29, ptr %30, align 8
-  %31 = load i64, ptr %27, align 8
-  %32 = urem i64 %26, %31
-  %33 = mul i64 %32, 1000000000
-  %34 = udiv i64 %33, %31
-  %35 = trunc i64 %34 to i32
-  %36 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i32 %35, ptr %36, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  store i32 188, ptr %37, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %2, i64 68
-  store i32 188, ptr %38, align 4
-  br label %43
-
-39:                                               ; preds = %11
-  %40 = load i32, ptr %4, align 4
-  %41 = icmp eq i32 %40, 0
-  br i1 %41, label %42, label %43
-
-42:                                               ; preds = %39
-  store i32 -12, ptr %4, align 4
-  br label %43
-
-43:                                               ; preds = %mp2t_read_packet.exit, %39, %42, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %42 ], [ 0, %39 ], [ 1, %mp2t_read_packet.exit ]
-  ret i32 %.0
-}
-
-; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #2
-
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @register_mp2t() local_unnamed_addr #0 {
-  %1 = tail call i32 @wtap_register_file_type_subtype(ptr noundef nonnull @mp2t_info) #6
+  %1 = tail call i32 @wtap_register_file_type_subtype(ptr noundef nonnull @mp2t_info)
   store i32 %1, ptr @mp2t_file_type_subtype, align 4
-  tail call void @wtap_register_backwards_compatibility_lua_name(ptr noundef nonnull @.str, i32 noundef %1) #6
+  tail call void @wtap_register_backwards_compatibility_lua_name(ptr noundef nonnull @.str, i32 noundef %1)
   ret void
 }
 
-declare i32 @wtap_register_file_type_subtype(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @wtap_register_file_type_subtype(ptr noundef) local_unnamed_addr #2
 
-declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @wtap_read_bytes_or_eof(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @wtap_read_bytes_or_eof(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i64 @file_tell(ptr noundef) local_unnamed_addr #2
 
-declare void @ws_buffer_assure_space(ptr noundef, i64 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @ws_buffer_assure_space(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @wtap_block_create(i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @wtap_block_create(i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef range(i32 -9, 1) i32 @mp2t_dump_can_write_encap(i32 noundef %0) #3 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
+define internal noundef range(i32 -9, 1) i32 @mp2t_dump_can_write_encap(i32 noundef %0) #4 {
   %switch.selectcmp = icmp eq i32 %0, 138
   %switch.select = select i1 %switch.selectcmp, i32 0, i32 -8
   %switch.selectcmp4 = icmp eq i32 %0, -1
@@ -529,15 +624,15 @@ define internal noundef range(i32 -9, 1) i32 @mp2t_dump_can_write_encap(i32 noun
   ret i32 %switch.select5
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @mp2t_dump_open(ptr noundef writeonly captures(none) initializes((64, 72)) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #4 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
+define internal noundef zeroext i1 @mp2t_dump_open(ptr noundef writeonly captures(none) initializes((64, 72)) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr @mp2t_dump, ptr %4, align 8
-  ret i32 1
+  ret i1 true
 }
 
-; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @mp2t_dump(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @mp2t_dump(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #0 {
   %6 = load i32, ptr %1, align 8
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %8, label %7
@@ -551,8 +646,8 @@ define internal range(i32 0, 2) i32 @mp2t_dump(ptr noundef %0, ptr noundef reado
   %10 = load i32, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %12 = load i32, ptr %11, align 8
-  %.not9 = icmp eq i32 %10, %12
-  br i1 %.not9, label %14, label %13
+  %.not10 = icmp eq i32 %10, %12
+  br i1 %.not10, label %14, label %13
 
 13:                                               ; preds = %8
   store i32 -9, ptr %3, align 4
@@ -562,42 +657,42 @@ define internal range(i32 0, 2) i32 @mp2t_dump(ptr noundef %0, ptr noundef reado
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %16 = load i32, ptr %15, align 8
   %17 = zext i32 %16 to i64
-  %18 = tail call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef %2, i64 noundef %17, ptr noundef %3) #6
-  %.not10 = icmp ne i32 %18, 0
-  %. = zext i1 %.not10 to i32
+  %18 = tail call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef %2, i64 noundef %17, ptr noundef %3)
   br label %19
 
 19:                                               ; preds = %14, %13, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %13 ], [ %., %14 ]
-  ret i32 %.0
+  %.0 = phi i1 [ false, %7 ], [ false, %13 ], [ %18, %14 ]
+  ret i1 %.0
 }
 
-declare i32 @wtap_dump_file_write(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @wtap_dump_file_write(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #6
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind }
+attributes #8 = { allocsize(0) }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nounwind }
-attributes #7 = { nounwind allocsize(0,1) }
-
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}

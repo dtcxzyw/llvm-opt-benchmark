@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
 %struct.nstime_t = type { i64, i32 }
 
 @proto_register_vssmonitoring.hf = internal global [3 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_vssmonitoring_time, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 24, i32 18, ptr null, i64 0, ptr @.str.2, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_vssmonitoring_clksrc, %struct._header_field_info { ptr @.str.3, ptr @.str.4, i32 4, i32 1, ptr @clksrc_vals, i64 0, ptr @.str.5, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_vssmonitoring_srcport, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 5, i32 1, ptr null, i64 0, ptr @.str.8, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
@@ -16,7 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_vssmonitoring_clksrc = internal global i32 0, align 4
 @.str.3 = private unnamed_addr constant [13 x i8] c"Clock Source\00", align 1
 @.str.4 = private unnamed_addr constant [21 x i8] c"vssmonitoring.clksrc\00", align 1
-@clksrc_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.22 }, %struct._value_string { i32 1, ptr @.str.23 }, %struct._value_string { i32 2, ptr @.str.24 }, %struct._value_string { i32 3, ptr @.str.25 }, %struct._value_string zeroinitializer], align 16
 @.str.5 = private unnamed_addr constant [28 x i8] c"VSS Monitoring Clock Source\00", align 1
 @hf_vssmonitoring_srcport = internal global i32 0, align 4
 @.str.6 = private unnamed_addr constant [9 x i8] c"Src Port\00", align 1
@@ -32,11 +30,11 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.13 = private unnamed_addr constant [26 x i8] c"dissect_portstamping_only\00", align 1
 @.str.14 = private unnamed_addr constant [41 x i8] c"Dissect trailers with only port stamping\00", align 1
 @.str.15 = private unnamed_addr constant [176 x i8] c"Whether the VSS Monitoring dissector should attempt to dissect trailers with no timestamp, only port stamping.  Note that this can result in a large number of false positives.\00", align 1
-@vss_dissect_portstamping_only = internal global i32 0, align 4
+@vss_dissect_portstamping_only = internal global i8 0, align 1
 @.str.16 = private unnamed_addr constant [20 x i8] c"two_byte_portstamps\00", align 1
 @.str.17 = private unnamed_addr constant [21 x i8] c"Two byte port stamps\00", align 1
 @.str.18 = private unnamed_addr constant [119 x i8] c"Whether the VSS Monitoring dissector should assume that the port stamp is two bytes, instead of the standard one byte.\00", align 1
-@vss_two_byte_portstamps = internal global i32 0, align 4
+@vss_two_byte_portstamps = internal global i8 0, align 1
 @.str.19 = private unnamed_addr constant [12 x i8] c"eth.trailer\00", align 1
 @.str.20 = private unnamed_addr constant [32 x i8] c"VSS Monitoring ethernet trailer\00", align 1
 @.str.21 = private unnamed_addr constant [18 x i8] c"vssmonitoring_eth\00", align 1
@@ -44,204 +42,227 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.23 = private unnamed_addr constant [4 x i8] c"NTP\00", align 1
 @.str.24 = private unnamed_addr constant [4 x i8] c"GPS\00", align 1
 @.str.25 = private unnamed_addr constant [4 x i8] c"PTP\00", align 1
-@.str.26 = private unnamed_addr constant [34 x i8] c", Timestamp: %02d:%02d:%02d.%09ld\00", align 1
-@.str.27 = private unnamed_addr constant [33 x i8] c", Timestamp: <Not representable>\00", align 1
-@.str.28 = private unnamed_addr constant [18 x i8] c", Source Port: %d\00", align 1
+@clksrc_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.22 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.23 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.24 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.25 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.27 = private unnamed_addr constant [34 x i8] c", Timestamp: %02d:%02d:%02d.%09ld\00", align 1
+@.str.28 = private unnamed_addr constant [33 x i8] c", Timestamp: <Not representable>\00", align 1
+@.str.29 = private unnamed_addr constant [18 x i8] c", Source Port: %d\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_vssmonitoring() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11) #3
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11)
   store i32 %1, ptr @proto_vssmonitoring, align 4
-  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_vssmonitoring.hf, i32 noundef 3) #3
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_vssmonitoring.ett, i32 noundef 1) #3
+  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_vssmonitoring.hf, i32 noundef 3)
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_vssmonitoring.ett, i32 noundef 1)
   %2 = load i32, ptr @proto_vssmonitoring, align 4
-  %3 = tail call ptr @prefs_register_protocol(i32 noundef %2, ptr noundef null) #3
-  tail call void @prefs_register_obsolete_preference(ptr noundef %3, ptr noundef nonnull @.str.12) #3
-  tail call void @prefs_register_bool_preference(ptr noundef %3, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, ptr noundef nonnull @vss_dissect_portstamping_only) #3
-  tail call void @prefs_register_bool_preference(ptr noundef %3, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, ptr noundef nonnull @vss_two_byte_portstamps) #3
+  %3 = tail call ptr @prefs_register_protocol(i32 noundef %2, ptr noundef null)
+  tail call void @prefs_register_obsolete_preference(ptr noundef %3, ptr noundef nonnull @.str.12)
+  tail call void @prefs_register_bool_preference(ptr noundef %3, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, ptr noundef nonnull @vss_dissect_portstamping_only)
+  tail call void @prefs_register_bool_preference(ptr noundef %3, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, ptr noundef nonnull @vss_two_byte_portstamps)
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @prefs_register_obsolete_preference(ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @prefs_register_obsolete_preference(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_vssmonitoring() local_unnamed_addr #0 {
   %1 = load i32, ptr @proto_vssmonitoring, align 4
-  tail call void @heur_dissector_add(ptr noundef nonnull @.str.19, ptr noundef nonnull @dissect_vssmonitoring, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, i32 noundef %1, i32 noundef 1) #3
+  tail call void @heur_dissector_add(ptr noundef nonnull @.str.19, ptr noundef nonnull @dissect_vssmonitoring, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, i32 noundef %1, i32 noundef 1)
   ret void
 }
 
-declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
-define internal range(i32 0, 12) i32 @dissect_vssmonitoring(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal noundef zeroext i1 @dissect_vssmonitoring(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct.nstime_t, align 8
   %6 = alloca i32, align 4
-  %7 = load i32, ptr @vss_two_byte_portstamps, align 4
-  %.not = icmp eq i32 %7, 0
-  %8 = select i1 %.not, i32 1, i32 2
+  %7 = load i8, ptr @vss_two_byte_portstamps, align 1, !range !6, !noundef !7
+  %8 = trunc nuw i8 %7 to i1
+  %9 = select i1 %8, i32 2, i32 1
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #4
   store i32 0, ptr %6, align 4
-  %9 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
-  %10 = or disjoint i32 %8, 12
-  %11 = icmp ugt i32 %9, %10
-  br i1 %11, label %69, label %12
+  %10 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %11 = or disjoint i32 %9, 12
+  %12 = icmp ugt i32 %10, %11
+  br i1 %12, label %.thread71, label %13
 
-12:                                               ; preds = %4
-  %13 = and i32 %9, 3
-  %.not59 = icmp eq i32 %13, 0
-  %.not60 = icmp eq i32 %13, %8
-  %or.cond = select i1 %.not59, i1 true, i1 %.not60
-  br i1 %or.cond, label %14, label %69
+13:                                               ; preds = %4
+  %14 = and i32 %10, 3
+  %.not = icmp eq i32 %14, 0
+  %.not56 = icmp eq i32 %14, %9
+  %or.cond58 = select i1 %.not, i1 true, i1 %.not56
+  br i1 %or.cond58, label %15, label %.thread71
 
-14:                                               ; preds = %12
-  %15 = icmp samesign ult i32 %9, 8
-  br i1 %15, label %38, label %16
+15:                                               ; preds = %13
+  %16 = icmp samesign ult i32 %10, 8
+  br i1 %16, label %39, label %17
 
-16:                                               ; preds = %14
-  %17 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #3
-  %18 = zext i32 %17 to i64
-  store i64 %18, ptr %5, align 8
-  %19 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 4) #3
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %21 = lshr i32 %19, 30
-  %22 = and i32 %19, 1073741823
-  store i32 %22, ptr %20, align 8
-  %23 = icmp eq i32 %17, 0
-  br i1 %23, label %69, label %24
+17:                                               ; preds = %15
+  %18 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0)
+  %19 = zext i32 %18 to i64
+  store i64 %19, ptr %5, align 8
+  %20 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 4)
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %22 = lshr i32 %20, 30
+  %23 = and i32 %20, 1073741823
+  store i32 %23, ptr %21, align 8
+  %24 = icmp eq i32 %18, 0
+  br i1 %24, label %.thread71, label %25
 
-24:                                               ; preds = %16
-  %25 = icmp ugt i32 %17, 3600
-  br i1 %25, label %26, label %37
+25:                                               ; preds = %17
+  %26 = icmp ugt i32 %18, 3600
+  br i1 %26, label %27, label %38
 
-26:                                               ; preds = %24
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %28 = load i64, ptr %27, align 8
-  %29 = icmp slt i64 %28, %18
-  %30 = icmp samesign ugt i32 %22, 999999999
-  br i1 %29, label %31, label %34
+27:                                               ; preds = %25
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %29 = load i64, ptr %28, align 8
+  %30 = icmp slt i64 %29, %19
+  %31 = icmp samesign ugt i32 %23, 999999999
+  br i1 %30, label %32, label %35
 
-31:                                               ; preds = %26
-  %32 = sub i64 %18, %28
-  %33 = icmp sgt i64 %32, 2592000
-  %or.cond85 = select i1 %33, i1 true, i1 %30
-  br i1 %or.cond85, label %69, label %40
+32:                                               ; preds = %27
+  %33 = sub i64 %19, %29
+  %34 = icmp sgt i64 %33, 2592000
+  %or.cond76 = select i1 %34, i1 true, i1 %31
+  br i1 %or.cond76, label %.thread71, label %42
 
-34:                                               ; preds = %26
-  %35 = sub nsw i64 %28, %18
-  %36 = icmp sgt i64 %35, 2592000
-  %or.cond86 = select i1 %36, i1 true, i1 %30
-  br i1 %or.cond86, label %69, label %40
+35:                                               ; preds = %27
+  %36 = sub nsw i64 %29, %19
+  %37 = icmp sgt i64 %36, 2592000
+  %or.cond77 = select i1 %37, i1 true, i1 %31
+  br i1 %or.cond77, label %.thread71, label %42
 
-37:                                               ; preds = %24
-  %.old.old = icmp samesign ugt i32 %22, 999999999
-  br i1 %.old.old, label %69, label %40
+38:                                               ; preds = %25
+  %.old.old = icmp samesign ugt i32 %23, 999999999
+  br i1 %.old.old, label %.thread71, label %42
 
-38:                                               ; preds = %14
-  %39 = load i32, ptr @vss_dissect_portstamping_only, align 4
-  %.not61 = icmp eq i32 %39, 0
-  %or.cond64 = or i1 %.not59, %.not61
-  br i1 %or.cond64, label %69, label %40
+39:                                               ; preds = %15
+  %40 = load i8, ptr @vss_dissect_portstamping_only, align 1, !range !6, !noundef !7
+  %41 = trunc nuw i8 %40 to i1
+  %.not59 = xor i1 %41, true
+  %or.cond60 = or i1 %.not, %.not59
+  br i1 %or.cond60, label %.thread71, label %42
 
-40:                                               ; preds = %34, %31, %38, %37
-  %.047 = phi i32 [ %21, %37 ], [ 0, %38 ], [ %21, %31 ], [ %21, %34 ]
-  %.not62 = icmp eq ptr %2, null
-  br i1 %.not62, label %.thread73, label %41
+42:                                               ; preds = %35, %32, %39, %38
+  %.045 = phi i32 [ %22, %38 ], [ 0, %39 ], [ %22, %32 ], [ %22, %35 ]
+  %.not78 = icmp eq ptr %2, null
+  br i1 %.not78, label %.thread71, label %43
 
-41:                                               ; preds = %40
-  %42 = load i32, ptr @proto_vssmonitoring, align 4
-  %43 = and i32 %9, 11
-  %44 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %42, ptr noundef %0, i32 noundef 0, i32 noundef %43, i32 noundef 0) #3
-  %45 = load i32, ptr @ett_vssmonitoring, align 4
-  %46 = tail call ptr @proto_item_add_subtree(ptr noundef %44, i32 noundef %45) #3
-  br i1 %15, label %63, label %47
+43:                                               ; preds = %42
+  %44 = load i32, ptr @proto_vssmonitoring, align 4
+  %45 = and i32 %10, 11
+  %46 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %44, ptr noundef %0, i32 noundef 0, i32 noundef %45, i32 noundef 0)
+  %47 = load i32, ptr @ett_vssmonitoring, align 4
+  %48 = tail call ptr @proto_item_add_subtree(ptr noundef %46, i32 noundef %47)
+  br i1 %16, label %65, label %49
 
-47:                                               ; preds = %41
-  %48 = load i32, ptr @hf_vssmonitoring_time, align 4
-  %49 = call ptr @proto_tree_add_time(ptr noundef %46, i32 noundef %48, ptr noundef %0, i32 noundef 0, i32 noundef 8, ptr noundef nonnull %5) #3
-  %50 = load i32, ptr @hf_vssmonitoring_clksrc, align 4
-  %51 = call ptr @proto_tree_add_uint(ptr noundef %46, i32 noundef %50, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef %.047) #3
-  %52 = call ptr @localtime(ptr noundef nonnull %5) #3
-  %.not63 = icmp eq ptr %52, null
-  br i1 %.not63, label %62, label %53
+49:                                               ; preds = %43
+  %50 = load i32, ptr @hf_vssmonitoring_time, align 4
+  %51 = call ptr @proto_tree_add_time(ptr noundef %48, i32 noundef %50, ptr noundef %0, i32 noundef 0, i32 noundef 8, ptr noundef nonnull %5)
+  %52 = load i32, ptr @hf_vssmonitoring_clksrc, align 4
+  %53 = call ptr @proto_tree_add_uint(ptr noundef %48, i32 noundef %52, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef %.045)
+  %54 = call ptr @localtime(ptr noundef nonnull %5) #4
+  %.not57 = icmp eq ptr %54, null
+  br i1 %.not57, label %64, label %55
 
-53:                                               ; preds = %47
-  %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %55 = load i32, ptr %54, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %52, i64 4
-  %57 = load i32, ptr %56, align 4
-  %58 = load i32, ptr %52, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %60 = load i32, ptr %59, align 8
-  %61 = sext i32 %60 to i64
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %44, ptr noundef nonnull @.str.26, i32 noundef %55, i32 noundef %57, i32 noundef %58, i64 noundef %61) #3
-  br label %63
+55:                                               ; preds = %49
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  %57 = load i32, ptr %56, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %54, i64 4
+  %59 = load i32, ptr %58, align 4
+  %60 = load i32, ptr %54, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %62 = load i32, ptr %61, align 8
+  %63 = sext i32 %62 to i64
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %46, ptr noundef nonnull @.str.27, i32 noundef %57, i32 noundef %59, i32 noundef %60, i64 noundef %63)
+  br label %65
 
-62:                                               ; preds = %47
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %44, ptr noundef nonnull @.str.27) #3
-  br label %63
+64:                                               ; preds = %49
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %46, ptr noundef nonnull @.str.28)
+  br label %65
 
-63:                                               ; preds = %41, %62, %53
-  %.050 = phi i32 [ 0, %41 ], [ 8, %53 ], [ 8, %62 ]
-  br i1 %.not60, label %64, label %69
+65:                                               ; preds = %43, %64, %55
+  %.048 = phi i32 [ 0, %43 ], [ 8, %55 ], [ 8, %64 ]
+  br i1 %.not56, label %66, label %.thread71
 
-.thread73:                                        ; preds = %40
-  %.mux70 = select i1 %15, i32 0, i32 8
-  br i1 %.not60, label %.thread80, label %69
+66:                                               ; preds = %65
+  %67 = load i32, ptr @hf_vssmonitoring_srcport, align 4
+  %68 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %48, i32 noundef %67, ptr noundef %0, i32 noundef %.048, i32 noundef %9, i32 noundef 0, ptr noundef nonnull %6)
+  %69 = load i32, ptr %6, align 4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %46, ptr noundef nonnull @.str.29, i32 noundef %69)
+  br label %.thread71
 
-64:                                               ; preds = %63
-  %65 = load i32, ptr @hf_vssmonitoring_srcport, align 4
-  %66 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %46, i32 noundef %65, ptr noundef %0, i32 noundef %.050, i32 noundef %8, i32 noundef 0, ptr noundef nonnull %6) #3
-  %67 = load i32, ptr %6, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %44, ptr noundef nonnull @.str.28, i32 noundef %67) #3
-  br label %.thread80
-
-.thread80:                                        ; preds = %.thread73, %64
-  %.0507984 = phi i32 [ %.050, %64 ], [ %.mux70, %.thread73 ]
-  %68 = or disjoint i32 %.0507984, %8
-  br label %69
-
-69:                                               ; preds = %.thread73, %63, %.thread80, %38, %37, %34, %31, %16, %12, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %12 ], [ 0, %16 ], [ 0, %31 ], [ 0, %34 ], [ 0, %37 ], [ 0, %38 ], [ %68, %.thread80 ], [ %.050, %63 ], [ %.mux70, %.thread73 ]
-  ret i32 %.0
+.thread71:                                        ; preds = %42, %65, %66, %39, %38, %35, %32, %17, %13, %4
+  %.0 = phi i1 [ false, %4 ], [ false, %13 ], [ false, %17 ], [ false, %32 ], [ false, %35 ], [ false, %38 ], [ false, %39 ], [ true, %66 ], [ true, %65 ], [ true, %42 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #4
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #4
+  ret i1 %.0
 }
 
-declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #2
 
-declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind
-declare ptr @localtime(ptr noundef) local_unnamed_addr #2
+; Function Attrs: nounwind null_pointer_is_valid
+declare ptr @localtime(ptr noundef) local_unnamed_addr #3
 
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}

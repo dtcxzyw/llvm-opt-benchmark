@@ -1,32 +1,32 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct._value_string = type { i32, ptr }
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
 %struct.true_false_string = type { ptr, ptr }
+%struct._value_string_ext = type { ptr, i32, i32, ptr, ptr }
 %struct._e_guid_t = type { i32, i16, i16, [8 x i8] }
-%struct._dcerpc_sub_dissector = type { i16, ptr, ptr, ptr }
-%struct._dcerpc_info = type { ptr, i32, i64, i8, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr }
+%struct._dcerpc_info = type { ptr, i32, i64, i8, i8, i8, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, %struct.anon }
+%struct.anon = type { i8, ptr, ptr, ptr, i8 }
 %struct._dcerpc_call_value = type { %struct._e_guid_t, i16, %struct._e_guid_t, i16, i32, %struct.nstime_t, i32, i32, ptr, ptr, ptr, i32 }
 %struct.nstime_t = type { i64, i32 }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon.0, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
-%struct.anon = type { i8, [3 x i8] }
+%struct.anon.0 = type { i8, [3 x i8] }
 
 @.str = private unnamed_addr constant [23 x i8] c"DNS_CLIENT_VERSION_W2K\00", align 1
 @.str.1 = private unnamed_addr constant [26 x i8] c"DNS_CLIENT_VERSION_DOTNET\00", align 1
 @.str.2 = private unnamed_addr constant [28 x i8] c"DNS_CLIENT_VERSION_LONGHORN\00", align 1
-@dnsserver_DNS_RPC_CLIENT_VERSION_vals = hidden constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str }, %struct._value_string { i32 6, ptr @.str.1 }, %struct._value_string { i32 7, ptr @.str.2 }, %struct._value_string zeroinitializer], align 16
+@dnsserver_DNS_RPC_CLIENT_VERSION_vals = hidden constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.1 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.2 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
 @.str.3 = private unnamed_addr constant [25 x i8] c"DNS_RPC_BOOT_METHOD_FILE\00", align 1
 @.str.4 = private unnamed_addr constant [29 x i8] c"DNS_RPC_BOOT_METHOD_REGISTRY\00", align 1
 @.str.5 = private unnamed_addr constant [30 x i8] c"DNS_RPC_BOOT_METHOD_DIRECTORY\00", align 1
-@dnsserver_DNS_RPC_BOOT_METHOD_vals = hidden constant [4 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.3 }, %struct._value_string { i32 2, ptr @.str.4 }, %struct._value_string { i32 3, ptr @.str.5 }, %struct._value_string zeroinitializer], align 16
+@dnsserver_DNS_RPC_BOOT_METHOD_vals = hidden constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.3 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.4 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.5 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
 @.str.6 = private unnamed_addr constant [25 x i8] c"DNS_ALLOW_RFC_NAMES_ONLY\00", align 1
 @.str.7 = private unnamed_addr constant [23 x i8] c"DNS_ALLOW_NONRFC_NAMES\00", align 1
 @.str.8 = private unnamed_addr constant [26 x i8] c"DNS_ALLOW_MULTIBYTE_NAMES\00", align 1
 @.str.9 = private unnamed_addr constant [20 x i8] c"DNS_ALLOW_ALL_NAMES\00", align 1
-@dnsserver_DNS_NAME_CHECK_FLAGS_vals = hidden constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.6 }, %struct._value_string { i32 1, ptr @.str.7 }, %struct._value_string { i32 2, ptr @.str.8 }, %struct._value_string { i32 3, ptr @.str.9 }, %struct._value_string zeroinitializer], align 16
+@dnsserver_DNS_NAME_CHECK_FLAGS_vals = hidden constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.6 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.7 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.8 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.9 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
 @.str.10 = private unnamed_addr constant [14 x i8] c"DNS_TYPE_ZERO\00", align 1
 @.str.11 = private unnamed_addr constant [11 x i8] c"DNS_TYPE_A\00", align 1
 @.str.12 = private unnamed_addr constant [12 x i8] c"DNS_TYPE_NS\00", align 1
@@ -65,7 +65,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.45 = private unnamed_addr constant [13 x i8] c"DNS_TYPE_ALL\00", align 1
 @.str.46 = private unnamed_addr constant [14 x i8] c"DNS_TYPE_WINS\00", align 1
 @.str.47 = private unnamed_addr constant [15 x i8] c"DNS_TYPE_WINSR\00", align 1
-@dnsserver_DNS_RECORD_TYPE_vals = hidden constant [39 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.10 }, %struct._value_string { i32 1, ptr @.str.11 }, %struct._value_string { i32 2, ptr @.str.12 }, %struct._value_string { i32 3, ptr @.str.13 }, %struct._value_string { i32 4, ptr @.str.14 }, %struct._value_string { i32 5, ptr @.str.15 }, %struct._value_string { i32 6, ptr @.str.16 }, %struct._value_string { i32 7, ptr @.str.17 }, %struct._value_string { i32 8, ptr @.str.18 }, %struct._value_string { i32 9, ptr @.str.19 }, %struct._value_string { i32 10, ptr @.str.20 }, %struct._value_string { i32 11, ptr @.str.21 }, %struct._value_string { i32 12, ptr @.str.22 }, %struct._value_string { i32 13, ptr @.str.23 }, %struct._value_string { i32 14, ptr @.str.24 }, %struct._value_string { i32 15, ptr @.str.25 }, %struct._value_string { i32 16, ptr @.str.26 }, %struct._value_string { i32 17, ptr @.str.27 }, %struct._value_string { i32 18, ptr @.str.28 }, %struct._value_string { i32 19, ptr @.str.29 }, %struct._value_string { i32 20, ptr @.str.30 }, %struct._value_string { i32 21, ptr @.str.31 }, %struct._value_string { i32 22, ptr @.str.32 }, %struct._value_string { i32 23, ptr @.str.33 }, %struct._value_string { i32 24, ptr @.str.34 }, %struct._value_string { i32 25, ptr @.str.35 }, %struct._value_string { i32 26, ptr @.str.36 }, %struct._value_string { i32 27, ptr @.str.37 }, %struct._value_string { i32 28, ptr @.str.38 }, %struct._value_string { i32 29, ptr @.str.39 }, %struct._value_string { i32 30, ptr @.str.40 }, %struct._value_string { i32 33, ptr @.str.41 }, %struct._value_string { i32 34, ptr @.str.42 }, %struct._value_string { i32 35, ptr @.str.43 }, %struct._value_string { i32 36, ptr @.str.44 }, %struct._value_string { i32 255, ptr @.str.45 }, %struct._value_string { i32 65281, ptr @.str.46 }, %struct._value_string { i32 65282, ptr @.str.47 }, %struct._value_string zeroinitializer], align 16
+@dnsserver_DNS_RECORD_TYPE_vals = hidden constant [39 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.10 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.11 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.12 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.13 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.14 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.15 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.16 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.17 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.18 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.19 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.21 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.22 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.23 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.24 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.25 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.26 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.27 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.28 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.29 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.30 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.31 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.32 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.33 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.34 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.35 }, { i32, [4 x i8], ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.36 }, { i32, [4 x i8], ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.37 }, { i32, [4 x i8], ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.38 }, { i32, [4 x i8], ptr } { i32 29, [4 x i8] zeroinitializer, ptr @.str.39 }, { i32, [4 x i8], ptr } { i32 30, [4 x i8] zeroinitializer, ptr @.str.40 }, { i32, [4 x i8], ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.41 }, { i32, [4 x i8], ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.42 }, { i32, [4 x i8], ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.43 }, { i32, [4 x i8], ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.44 }, { i32, [4 x i8], ptr } { i32 255, [4 x i8] zeroinitializer, ptr @.str.45 }, { i32, [4 x i8], ptr } { i32 65281, [4 x i8] zeroinitializer, ptr @.str.46 }, { i32, [4 x i8], ptr } { i32 65282, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
 @.str.48 = private unnamed_addr constant [19 x i8] c"DNSSRV_TYPEID_NULL\00", align 1
 @.str.49 = private unnamed_addr constant [20 x i8] c"DNSSRV_TYPEID_DWORD\00", align 1
 @.str.50 = private unnamed_addr constant [20 x i8] c"DNSSRV_TYPEID_LPSTR\00", align 1
@@ -111,68 +111,68 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.90 = private unnamed_addr constant [28 x i8] c"DNSSRV_TYPEID_AUTOCONFIGURE\00", align 1
 @.str.91 = private unnamed_addr constant [31 x i8] c"DNSSRV_TYPEID_UTF8_STRING_LIST\00", align 1
 @.str.92 = private unnamed_addr constant [34 x i8] c"DNSSRV_TYPEID_UNICODE_STRING_LIST\00", align 1
-@dnsserver_DnssrvRpcTypeId_vals = hidden constant [46 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.48 }, %struct._value_string { i32 1, ptr @.str.49 }, %struct._value_string { i32 2, ptr @.str.50 }, %struct._value_string { i32 3, ptr @.str.51 }, %struct._value_string { i32 4, ptr @.str.52 }, %struct._value_string { i32 5, ptr @.str.53 }, %struct._value_string { i32 6, ptr @.str.54 }, %struct._value_string { i32 7, ptr @.str.55 }, %struct._value_string { i32 8, ptr @.str.56 }, %struct._value_string { i32 9, ptr @.str.57 }, %struct._value_string { i32 10, ptr @.str.58 }, %struct._value_string { i32 11, ptr @.str.59 }, %struct._value_string { i32 12, ptr @.str.60 }, %struct._value_string { i32 13, ptr @.str.61 }, %struct._value_string { i32 14, ptr @.str.62 }, %struct._value_string { i32 15, ptr @.str.63 }, %struct._value_string { i32 16, ptr @.str.64 }, %struct._value_string { i32 17, ptr @.str.65 }, %struct._value_string { i32 18, ptr @.str.66 }, %struct._value_string { i32 19, ptr @.str.67 }, %struct._value_string { i32 20, ptr @.str.68 }, %struct._value_string { i32 21, ptr @.str.69 }, %struct._value_string { i32 22, ptr @.str.70 }, %struct._value_string { i32 23, ptr @.str.71 }, %struct._value_string { i32 24, ptr @.str.72 }, %struct._value_string { i32 25, ptr @.str.73 }, %struct._value_string { i32 26, ptr @.str.74 }, %struct._value_string { i32 27, ptr @.str.75 }, %struct._value_string { i32 28, ptr @.str.76 }, %struct._value_string { i32 29, ptr @.str.77 }, %struct._value_string { i32 30, ptr @.str.78 }, %struct._value_string { i32 31, ptr @.str.79 }, %struct._value_string { i32 32, ptr @.str.80 }, %struct._value_string { i32 33, ptr @.str.81 }, %struct._value_string { i32 34, ptr @.str.82 }, %struct._value_string { i32 35, ptr @.str.83 }, %struct._value_string { i32 36, ptr @.str.84 }, %struct._value_string { i32 37, ptr @.str.85 }, %struct._value_string { i32 38, ptr @.str.86 }, %struct._value_string { i32 39, ptr @.str.87 }, %struct._value_string { i32 40, ptr @.str.88 }, %struct._value_string { i32 41, ptr @.str.89 }, %struct._value_string { i32 42, ptr @.str.90 }, %struct._value_string { i32 43, ptr @.str.91 }, %struct._value_string { i32 44, ptr @.str.92 }, %struct._value_string zeroinitializer], align 16
-@ett_dnsserver_DNS_RPC_NAME = internal global i32 -1, align 4
-@hf_dnsserver_DNS_RPC_NAME_NameLength = internal global i32 -1, align 4
-@hf_dnsserver_DNS_RPC_NAME_name = internal global i32 -1, align 4
-@ett_dnsserver_DNS_RPC_VERSION = internal global i32 -1, align 4
+@dnsserver_DnssrvRpcTypeId_vals = hidden constant [46 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.48 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.49 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.50 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.51 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.52 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.53 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.54 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.55 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.56 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.57 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.58 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.59 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.60 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.61 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.62 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.63 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.64 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.65 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.66 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.67 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.68 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.69 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.70 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.71 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.72 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.73 }, { i32, [4 x i8], ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.74 }, { i32, [4 x i8], ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.75 }, { i32, [4 x i8], ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.76 }, { i32, [4 x i8], ptr } { i32 29, [4 x i8] zeroinitializer, ptr @.str.77 }, { i32, [4 x i8], ptr } { i32 30, [4 x i8] zeroinitializer, ptr @.str.78 }, { i32, [4 x i8], ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.79 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.80 }, { i32, [4 x i8], ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.81 }, { i32, [4 x i8], ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.82 }, { i32, [4 x i8], ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.83 }, { i32, [4 x i8], ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.84 }, { i32, [4 x i8], ptr } { i32 37, [4 x i8] zeroinitializer, ptr @.str.85 }, { i32, [4 x i8], ptr } { i32 38, [4 x i8] zeroinitializer, ptr @.str.86 }, { i32, [4 x i8], ptr } { i32 39, [4 x i8] zeroinitializer, ptr @.str.87 }, { i32, [4 x i8], ptr } { i32 40, [4 x i8] zeroinitializer, ptr @.str.88 }, { i32, [4 x i8], ptr } { i32 41, [4 x i8] zeroinitializer, ptr @.str.89 }, { i32, [4 x i8], ptr } { i32 42, [4 x i8] zeroinitializer, ptr @.str.90 }, { i32, [4 x i8], ptr } { i32 43, [4 x i8] zeroinitializer, ptr @.str.91 }, { i32, [4 x i8], ptr } { i32 44, [4 x i8] zeroinitializer, ptr @.str.92 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@ett_dnsserver_DNS_RPC_NAME = internal global i32 0, align 4
+@hf_dnsserver_DNS_RPC_NAME_NameLength = internal global i32 0, align 4
+@hf_dnsserver_DNS_RPC_NAME_name = internal global i32 0, align 4
+@ett_dnsserver_DNS_RPC_VERSION = internal global i32 0, align 4
 @dnsserver_dissect_bitmap_DNS_LOG_LEVELS.dnsserver_DNS_LOG_LEVELS_fields = internal constant [12 x ptr] [ptr @hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_QUERY, ptr @hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_NOTIFY, ptr @hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_UPDATE, ptr @hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_QUESTIONS, ptr @hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_ANSWERS, ptr @hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_SEND, ptr @hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_RECV, ptr @hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_UDP, ptr @hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_TCP, ptr @hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_FULL_PACKETS, ptr @hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_WRITE_THROUGH, ptr null], align 16
-@hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_QUERY = internal global i32 -1, align 4
-@hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_NOTIFY = internal global i32 -1, align 4
-@hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_UPDATE = internal global i32 -1, align 4
-@hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_QUESTIONS = internal global i32 -1, align 4
-@hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_ANSWERS = internal global i32 -1, align 4
-@hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_SEND = internal global i32 -1, align 4
-@hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_RECV = internal global i32 -1, align 4
-@hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_UDP = internal global i32 -1, align 4
-@hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_TCP = internal global i32 -1, align 4
-@hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_FULL_PACKETS = internal global i32 -1, align 4
-@hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_WRITE_THROUGH = internal global i32 -1, align 4
-@ett_dnsserver_DNS_LOG_LEVELS = internal global i32 -1, align 4
+@hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_QUERY = internal global i32 0, align 4
+@hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_NOTIFY = internal global i32 0, align 4
+@hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_UPDATE = internal global i32 0, align 4
+@hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_QUESTIONS = internal global i32 0, align 4
+@hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_ANSWERS = internal global i32 0, align 4
+@hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_SEND = internal global i32 0, align 4
+@hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_RECV = internal global i32 0, align 4
+@hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_UDP = internal global i32 0, align 4
+@hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_TCP = internal global i32 0, align 4
+@hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_FULL_PACKETS = internal global i32 0, align 4
+@hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_WRITE_THROUGH = internal global i32 0, align 4
+@ett_dnsserver_DNS_LOG_LEVELS = internal global i32 0, align 4
 @.str.93 = private unnamed_addr constant [18 x i8] c": (No values set)\00", align 1
 @.str.94 = private unnamed_addr constant [26 x i8] c"Unknown bitmap value 0x%x\00", align 1
 @dnsserver_dissect_bitmap_DNS_RPC_PROTOCOLS.dnsserver_DNS_RPC_PROTOCOLS_fields = internal constant [4 x ptr] [ptr @hf_dnsserver_DNS_RPC_PROTOCOLS_DNS_RPC_USE_TCPIP, ptr @hf_dnsserver_DNS_RPC_PROTOCOLS_DNS_RPC_USE_NAMED_PIPE, ptr @hf_dnsserver_DNS_RPC_PROTOCOLS_DNS_RPC_USE_LPC, ptr null], align 16
-@hf_dnsserver_DNS_RPC_PROTOCOLS_DNS_RPC_USE_TCPIP = internal global i32 -1, align 4
-@hf_dnsserver_DNS_RPC_PROTOCOLS_DNS_RPC_USE_NAMED_PIPE = internal global i32 -1, align 4
-@hf_dnsserver_DNS_RPC_PROTOCOLS_DNS_RPC_USE_LPC = internal global i32 -1, align 4
-@ett_dnsserver_DNS_RPC_PROTOCOLS = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_PROTOCOLS_DNS_RPC_USE_TCPIP = internal global i32 0, align 4
+@hf_dnsserver_DNS_RPC_PROTOCOLS_DNS_RPC_USE_NAMED_PIPE = internal global i32 0, align 4
+@hf_dnsserver_DNS_RPC_PROTOCOLS_DNS_RPC_USE_LPC = internal global i32 0, align 4
+@ett_dnsserver_DNS_RPC_PROTOCOLS = internal global i32 0, align 4
 @dnsserver_dissect_bitmap_DNS_SELECT_FLAGS.dnsserver_DNS_SELECT_FLAGS_fields = internal constant [8 x ptr] [ptr @hf_dnsserver_DNS_SELECT_FLAGS_DNS_RPC_VIEW_AUTHORITY_DATA, ptr @hf_dnsserver_DNS_SELECT_FLAGS_DNS_RPC_VIEW_CACHE_DATA, ptr @hf_dnsserver_DNS_SELECT_FLAGS_DNS_RPC_VIEW_GLUE_DATA, ptr @hf_dnsserver_DNS_SELECT_FLAGS_DNS_RPC_VIEW_ROOT_HINT_DATA, ptr @hf_dnsserver_DNS_SELECT_FLAGS_DNS_RPC_VIEW_ADDITIONAL_DATA, ptr @hf_dnsserver_DNS_SELECT_FLAGS_DNS_RPC_VIEW_NO_CHILDREN, ptr @hf_dnsserver_DNS_SELECT_FLAGS_DNS_RPC_VIEW_ONLY_CHILDREN, ptr null], align 16
-@hf_dnsserver_DNS_SELECT_FLAGS_DNS_RPC_VIEW_AUTHORITY_DATA = internal global i32 -1, align 4
-@hf_dnsserver_DNS_SELECT_FLAGS_DNS_RPC_VIEW_CACHE_DATA = internal global i32 -1, align 4
-@hf_dnsserver_DNS_SELECT_FLAGS_DNS_RPC_VIEW_GLUE_DATA = internal global i32 -1, align 4
-@hf_dnsserver_DNS_SELECT_FLAGS_DNS_RPC_VIEW_ROOT_HINT_DATA = internal global i32 -1, align 4
-@hf_dnsserver_DNS_SELECT_FLAGS_DNS_RPC_VIEW_ADDITIONAL_DATA = internal global i32 -1, align 4
-@hf_dnsserver_DNS_SELECT_FLAGS_DNS_RPC_VIEW_NO_CHILDREN = internal global i32 -1, align 4
-@hf_dnsserver_DNS_SELECT_FLAGS_DNS_RPC_VIEW_ONLY_CHILDREN = internal global i32 -1, align 4
-@ett_dnsserver_DNS_SELECT_FLAGS = internal global i32 -1, align 4
+@hf_dnsserver_DNS_SELECT_FLAGS_DNS_RPC_VIEW_AUTHORITY_DATA = internal global i32 0, align 4
+@hf_dnsserver_DNS_SELECT_FLAGS_DNS_RPC_VIEW_CACHE_DATA = internal global i32 0, align 4
+@hf_dnsserver_DNS_SELECT_FLAGS_DNS_RPC_VIEW_GLUE_DATA = internal global i32 0, align 4
+@hf_dnsserver_DNS_SELECT_FLAGS_DNS_RPC_VIEW_ROOT_HINT_DATA = internal global i32 0, align 4
+@hf_dnsserver_DNS_SELECT_FLAGS_DNS_RPC_VIEW_ADDITIONAL_DATA = internal global i32 0, align 4
+@hf_dnsserver_DNS_SELECT_FLAGS_DNS_RPC_VIEW_NO_CHILDREN = internal global i32 0, align 4
+@hf_dnsserver_DNS_SELECT_FLAGS_DNS_RPC_VIEW_ONLY_CHILDREN = internal global i32 0, align 4
+@ett_dnsserver_DNS_SELECT_FLAGS = internal global i32 0, align 4
 @dnsserver_dissect_bitmap_DNS_RPC_NODE_FLAGS.dnsserver_DNS_RPC_NODE_FLAGS_fields = internal constant [13 x ptr] [ptr @hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_CACHE_DATA, ptr @hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_ZONE_ROOT, ptr @hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_AUTH_ZONE_ROOT, ptr @hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_ZONE_DELEGATION, ptr @hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_RECOR_DEFAULT_TTL, ptr @hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_RECORD_TTL_CHANGE, ptr @hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_RECORD_CREATE_PTR, ptr @hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_NODE_STICKY, ptr @hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_NODE_COMPLETE, ptr @hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_OPEN_ACL, ptr @hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_AGING_ON, ptr @hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_SUPPRESS_NOTIFY, ptr null], align 16
-@hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_CACHE_DATA = internal global i32 -1, align 4
-@hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_ZONE_ROOT = internal global i32 -1, align 4
-@hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_AUTH_ZONE_ROOT = internal global i32 -1, align 4
-@hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_ZONE_DELEGATION = internal global i32 -1, align 4
-@hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_RECOR_DEFAULT_TTL = internal global i32 -1, align 4
-@hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_RECORD_TTL_CHANGE = internal global i32 -1, align 4
-@hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_RECORD_CREATE_PTR = internal global i32 -1, align 4
-@hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_NODE_STICKY = internal global i32 -1, align 4
-@hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_NODE_COMPLETE = internal global i32 -1, align 4
-@hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_OPEN_ACL = internal global i32 -1, align 4
-@hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_AGING_ON = internal global i32 -1, align 4
-@hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_SUPPRESS_NOTIFY = internal global i32 -1, align 4
-@ett_dnsserver_DNS_RPC_NODE_FLAGS = internal global i32 -1, align 4
-@ett_dnsserver_DNS_RPC_RECORD_NODE_NAME = internal global i32 -1, align 4
-@ett_dnsserver_DNS_RPC_RECORD = internal global i32 -1, align 4
-@ett_dnsserver_DNS_RPC_NODE = internal global i32 -1, align 4
-@ett_dnsserver_IP4_ARRAY = internal global i32 -1, align 4
-@ett_dnsserver_DNS_RPC_SERVER_INFO_DOTNET = internal global i32 -1, align 4
-@ett_dnsserver_DNS_RECORD_BUFFER = internal global i32 -1, align 4
-@proto_register_dcerpc_dnsserver.hf = internal global [142 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_dnsserver_DNSSRV_RPC_UNION_ServerInfoDotnet, %struct._header_field_info { ptr @.str.95, ptr @.str.96, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNSSRV_RPC_UNION_dword, %struct._header_field_info { ptr @.str.97, ptr @.str.98, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNSSRV_RPC_UNION_null, %struct._header_field_info { ptr @.str.99, ptr @.str.100, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_ANSWERS, %struct._header_field_info { ptr @.str.101, ptr @.str.102, i32 2, i32 32, ptr @DNS_LOG_LEVELS_DNS_LOG_LEVEL_ANSWERS_tfs, i64 512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_FULL_PACKETS, %struct._header_field_info { ptr @.str.103, ptr @.str.104, i32 2, i32 32, ptr @DNS_LOG_LEVELS_DNS_LOG_LEVEL_FULL_PACKETS_tfs, i64 16777216, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_NOTIFY, %struct._header_field_info { ptr @.str.105, ptr @.str.106, i32 2, i32 32, ptr @DNS_LOG_LEVELS_DNS_LOG_LEVEL_NOTIFY_tfs, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_QUERY, %struct._header_field_info { ptr @.str.107, ptr @.str.108, i32 2, i32 32, ptr @DNS_LOG_LEVELS_DNS_LOG_LEVEL_QUERY_tfs, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_QUESTIONS, %struct._header_field_info { ptr @.str.109, ptr @.str.110, i32 2, i32 32, ptr @DNS_LOG_LEVELS_DNS_LOG_LEVEL_QUESTIONS_tfs, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_RECV, %struct._header_field_info { ptr @.str.111, ptr @.str.112, i32 2, i32 32, ptr @DNS_LOG_LEVELS_DNS_LOG_LEVEL_RECV_tfs, i64 8192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_SEND, %struct._header_field_info { ptr @.str.113, ptr @.str.114, i32 2, i32 32, ptr @DNS_LOG_LEVELS_DNS_LOG_LEVEL_SEND_tfs, i64 4096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_TCP, %struct._header_field_info { ptr @.str.115, ptr @.str.116, i32 2, i32 32, ptr @DNS_LOG_LEVELS_DNS_LOG_LEVEL_TCP_tfs, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_UDP, %struct._header_field_info { ptr @.str.117, ptr @.str.118, i32 2, i32 32, ptr @DNS_LOG_LEVELS_DNS_LOG_LEVEL_UDP_tfs, i64 16384, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_UPDATE, %struct._header_field_info { ptr @.str.119, ptr @.str.120, i32 2, i32 32, ptr @DNS_LOG_LEVELS_DNS_LOG_LEVEL_UPDATE_tfs, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_WRITE_THROUGH, %struct._header_field_info { ptr @.str.121, ptr @.str.122, i32 2, i32 32, ptr @DNS_LOG_LEVELS_DNS_LOG_LEVEL_WRITE_THROUGH_tfs, i64 2147483648, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RECORD_BUFFER_rpc_node, %struct._header_field_info { ptr @.str.123, ptr @.str.124, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_NAME_Name, %struct._header_field_info { ptr @.str.125, ptr @.str.126, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_NAME_NameLength, %struct._header_field_info { ptr @.str.127, ptr @.str.128, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_NAME_name, %struct._header_field_info { ptr @.str.125, ptr @.str.129, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_NODE_Childcount, %struct._header_field_info { ptr @.str.130, ptr @.str.131, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_AGING_ON, %struct._header_field_info { ptr @.str.132, ptr @.str.133, i32 2, i32 32, ptr @DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_AGING_ON_tfs, i64 131072, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_AUTH_ZONE_ROOT, %struct._header_field_info { ptr @.str.134, ptr @.str.135, i32 2, i32 32, ptr @DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_AUTH_ZONE_ROOT_tfs, i64 536870912, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_CACHE_DATA, %struct._header_field_info { ptr @.str.136, ptr @.str.137, i32 2, i32 32, ptr @DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_CACHE_DATA_tfs, i64 2147483648, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_NODE_COMPLETE, %struct._header_field_info { ptr @.str.138, ptr @.str.139, i32 2, i32 32, ptr @DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_NODE_COMPLETE_tfs, i64 8388608, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_NODE_STICKY, %struct._header_field_info { ptr @.str.140, ptr @.str.141, i32 2, i32 32, ptr @DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_NODE_STICKY_tfs, i64 16777216, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_OPEN_ACL, %struct._header_field_info { ptr @.str.142, ptr @.str.143, i32 2, i32 32, ptr @DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_OPEN_ACL_tfs, i64 262144, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_RECORD_CREATE_PTR, %struct._header_field_info { ptr @.str.144, ptr @.str.145, i32 2, i32 32, ptr @DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_RECORD_CREATE_PTR_tfs, i64 33554432, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_RECORD_TTL_CHANGE, %struct._header_field_info { ptr @.str.146, ptr @.str.147, i32 2, i32 32, ptr @DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_RECORD_TTL_CHANGE_tfs, i64 67108864, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_RECOR_DEFAULT_TTL, %struct._header_field_info { ptr @.str.148, ptr @.str.149, i32 2, i32 32, ptr @DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_RECOR_DEFAULT_TTL_tfs, i64 134217728, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_SUPPRESS_NOTIFY, %struct._header_field_info { ptr @.str.150, ptr @.str.151, i32 2, i32 32, ptr @DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_SUPPRESS_NOTIFY_tfs, i64 65536, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_ZONE_DELEGATION, %struct._header_field_info { ptr @.str.152, ptr @.str.153, i32 2, i32 32, ptr @DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_ZONE_DELEGATION_tfs, i64 268435456, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_ZONE_ROOT, %struct._header_field_info { ptr @.str.154, ptr @.str.155, i32 2, i32 32, ptr @DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_ZONE_ROOT_tfs, i64 1073741824, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_NODE_Flags, %struct._header_field_info { ptr @.str.156, ptr @.str.157, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_NODE_Length, %struct._header_field_info { ptr @.str.158, ptr @.str.159, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_NODE_NodeName, %struct._header_field_info { ptr @.str.160, ptr @.str.161, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_NODE_RecordCount, %struct._header_field_info { ptr @.str.162, ptr @.str.163, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_NODE_records, %struct._header_field_info { ptr @.str.164, ptr @.str.165, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_PROTOCOLS_DNS_RPC_USE_LPC, %struct._header_field_info { ptr @.str.166, ptr @.str.167, i32 2, i32 32, ptr @DNS_RPC_PROTOCOLS_DNS_RPC_USE_LPC_tfs, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_PROTOCOLS_DNS_RPC_USE_NAMED_PIPE, %struct._header_field_info { ptr @.str.168, ptr @.str.169, i32 2, i32 32, ptr @DNS_RPC_PROTOCOLS_DNS_RPC_USE_NAMED_PIPE_tfs, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_PROTOCOLS_DNS_RPC_USE_TCPIP, %struct._header_field_info { ptr @.str.170, ptr @.str.171, i32 2, i32 32, ptr @DNS_RPC_PROTOCOLS_DNS_RPC_USE_TCPIP_tfs, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_RECORD_DataLength, %struct._header_field_info { ptr @.str.172, ptr @.str.173, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_RECORD_Flags, %struct._header_field_info { ptr @.str.156, ptr @.str.174, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_RECORD_NODE_NAME_Name, %struct._header_field_info { ptr @.str.125, ptr @.str.175, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_RECORD_Serial, %struct._header_field_info { ptr @.str.176, ptr @.str.177, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_RECORD_TimeStamp, %struct._header_field_info { ptr @.str.178, ptr @.str.179, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_RECORD_TtlSeconds, %struct._header_field_info { ptr @.str.180, ptr @.str.181, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_RECORD_Type, %struct._header_field_info { ptr @.str.182, ptr @.str.183, i32 5, i32 1, ptr @dnsserver_DNS_RECORD_TYPE_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_RECORD_UNION_NodeName, %struct._header_field_info { ptr @.str.160, ptr @.str.184, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_RECORD_record, %struct._header_field_info { ptr @.str.185, ptr @.str.186, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_RECORD_reserved, %struct._header_field_info { ptr @.str.187, ptr @.str.188, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_AddressAnswerLimit, %struct._header_field_info { ptr @.str.189, ptr @.str.190, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_AdminConfigured, %struct._header_field_info { ptr @.str.191, ptr @.str.192, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_AllowUpdate, %struct._header_field_info { ptr @.str.193, ptr @.str.194, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_AutoCacheUpdate, %struct._header_field_info { ptr @.str.195, ptr @.str.196, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_AutoReverseZones, %struct._header_field_info { ptr @.str.197, ptr @.str.198, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_BindSecondaries, %struct._header_field_info { ptr @.str.199, ptr @.str.200, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_BootMethod, %struct._header_field_info { ptr @.str.201, ptr @.str.202, i32 4, i32 1, ptr @dnsserver_DNS_RPC_BOOT_METHOD_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DebugLevel, %struct._header_field_info { ptr @.str.203, ptr @.str.204, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DefaultAgingState, %struct._header_field_info { ptr @.str.205, ptr @.str.206, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DefaultNoRefreshInterval, %struct._header_field_info { ptr @.str.207, ptr @.str.208, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DefaultRefreshInterval, %struct._header_field_info { ptr @.str.209, ptr @.str.210, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DomainDirectoryPartition, %struct._header_field_info { ptr @.str.211, ptr @.str.212, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DomainName, %struct._header_field_info { ptr @.str.213, ptr @.str.214, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DsAvailable, %struct._header_field_info { ptr @.str.215, ptr @.str.216, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DsContainer, %struct._header_field_info { ptr @.str.217, ptr @.str.218, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DsDomainVersion, %struct._header_field_info { ptr @.str.219, ptr @.str.220, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DsDsaVersion, %struct._header_field_info { ptr @.str.221, ptr @.str.222, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DsForestVersion, %struct._header_field_info { ptr @.str.223, ptr @.str.224, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DsPollingInterval, %struct._header_field_info { ptr @.str.225, ptr @.str.226, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_EventLogLevel, %struct._header_field_info { ptr @.str.227, ptr @.str.228, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_ForestDirectoryPartition, %struct._header_field_info { ptr @.str.229, ptr @.str.230, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_ForestName, %struct._header_field_info { ptr @.str.231, ptr @.str.232, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_ForwardDelegations, %struct._header_field_info { ptr @.str.233, ptr @.str.234, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_ForwardTimeout, %struct._header_field_info { ptr @.str.235, ptr @.str.236, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_Forwarders, %struct._header_field_info { ptr @.str.237, ptr @.str.238, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_LastScavengeTime, %struct._header_field_info { ptr @.str.239, ptr @.str.240, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_ListenAddrs, %struct._header_field_info { ptr @.str.241, ptr @.str.242, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_LocalNetPriority, %struct._header_field_info { ptr @.str.243, ptr @.str.244, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_LocalNetPriorityNetmask, %struct._header_field_info { ptr @.str.245, ptr @.str.246, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_LogFileMaxSize, %struct._header_field_info { ptr @.str.247, ptr @.str.248, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_LogFilePath, %struct._header_field_info { ptr @.str.249, ptr @.str.250, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_LogFilter, %struct._header_field_info { ptr @.str.251, ptr @.str.252, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_LogLevel, %struct._header_field_info { ptr @.str.253, ptr @.str.254, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_LooseWildcarding, %struct._header_field_info { ptr @.str.255, ptr @.str.256, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_MaxCacheTtl, %struct._header_field_info { ptr @.str.257, ptr @.str.258, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_NameCheckFlag, %struct._header_field_info { ptr @.str.259, ptr @.str.260, i32 7, i32 1, ptr @dnsserver_DNS_NAME_CHECK_FLAGS_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_NoRecursion, %struct._header_field_info { ptr @.str.261, ptr @.str.262, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_RecurseAfterForwarding, %struct._header_field_info { ptr @.str.263, ptr @.str.264, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_RecursionRetry, %struct._header_field_info { ptr @.str.265, ptr @.str.266, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_RecursionTimeout, %struct._header_field_info { ptr @.str.267, ptr @.str.268, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_RoundRobin, %struct._header_field_info { ptr @.str.269, ptr @.str.270, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_RpcProtocol, %struct._header_field_info { ptr @.str.271, ptr @.str.272, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_RpcStructureVersion, %struct._header_field_info { ptr @.str.273, ptr @.str.274, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_ScavengingInterval, %struct._header_field_info { ptr @.str.275, ptr @.str.276, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_SecureResponses, %struct._header_field_info { ptr @.str.277, ptr @.str.278, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_ServerAddrs, %struct._header_field_info { ptr @.str.279, ptr @.str.280, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_ServerName, %struct._header_field_info { ptr @.str.281, ptr @.str.282, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_StrictFileParsing, %struct._header_field_info { ptr @.str.283, ptr @.str.284, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_Version, %struct._header_field_info { ptr @.str.285, ptr @.str.286, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_WriteAuthorityNs, %struct._header_field_info { ptr @.str.287, ptr @.str.288, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_extension0, %struct._header_field_info { ptr @.str.289, ptr @.str.290, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_extension1, %struct._header_field_info { ptr @.str.291, ptr @.str.292, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_extension2, %struct._header_field_info { ptr @.str.293, ptr @.str.294, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_extension3, %struct._header_field_info { ptr @.str.295, ptr @.str.296, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_extension4, %struct._header_field_info { ptr @.str.297, ptr @.str.298, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_extension5, %struct._header_field_info { ptr @.str.299, ptr @.str.300, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_reserve_array, %struct._header_field_info { ptr @.str.301, ptr @.str.302, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_reserve_array2, %struct._header_field_info { ptr @.str.303, ptr @.str.304, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_reserved0, %struct._header_field_info { ptr @.str.305, ptr @.str.306, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_VERSION_OSMajorVersion, %struct._header_field_info { ptr @.str.307, ptr @.str.308, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_VERSION_OSMinorVersion, %struct._header_field_info { ptr @.str.309, ptr @.str.310, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_VERSION_ServicePackVersion, %struct._header_field_info { ptr @.str.311, ptr @.str.312, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_SELECT_FLAGS_DNS_RPC_VIEW_ADDITIONAL_DATA, %struct._header_field_info { ptr @.str.313, ptr @.str.314, i32 2, i32 32, ptr @DNS_SELECT_FLAGS_DNS_RPC_VIEW_ADDITIONAL_DATA_tfs, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_SELECT_FLAGS_DNS_RPC_VIEW_AUTHORITY_DATA, %struct._header_field_info { ptr @.str.315, ptr @.str.316, i32 2, i32 32, ptr @DNS_SELECT_FLAGS_DNS_RPC_VIEW_AUTHORITY_DATA_tfs, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_SELECT_FLAGS_DNS_RPC_VIEW_CACHE_DATA, %struct._header_field_info { ptr @.str.317, ptr @.str.318, i32 2, i32 32, ptr @DNS_SELECT_FLAGS_DNS_RPC_VIEW_CACHE_DATA_tfs, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_SELECT_FLAGS_DNS_RPC_VIEW_GLUE_DATA, %struct._header_field_info { ptr @.str.319, ptr @.str.320, i32 2, i32 32, ptr @DNS_SELECT_FLAGS_DNS_RPC_VIEW_GLUE_DATA_tfs, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_SELECT_FLAGS_DNS_RPC_VIEW_NO_CHILDREN, %struct._header_field_info { ptr @.str.321, ptr @.str.322, i32 2, i32 32, ptr @DNS_SELECT_FLAGS_DNS_RPC_VIEW_NO_CHILDREN_tfs, i64 65536, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_SELECT_FLAGS_DNS_RPC_VIEW_ONLY_CHILDREN, %struct._header_field_info { ptr @.str.323, ptr @.str.324, i32 2, i32 32, ptr @DNS_SELECT_FLAGS_DNS_RPC_VIEW_ONLY_CHILDREN_tfs, i64 131072, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_SELECT_FLAGS_DNS_RPC_VIEW_ROOT_HINT_DATA, %struct._header_field_info { ptr @.str.325, ptr @.str.326, i32 2, i32 32, ptr @DNS_SELECT_FLAGS_DNS_RPC_VIEW_ROOT_HINT_DATA_tfs, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DnssrvEnumRecords2_buffer_length, %struct._header_field_info { ptr @.str.327, ptr @.str.328, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DnssrvEnumRecords2_client_version, %struct._header_field_info { ptr @.str.329, ptr @.str.330, i32 7, i32 1, ptr @dnsserver_DNS_RPC_CLIENT_VERSION_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DnssrvEnumRecords2_filter_start, %struct._header_field_info { ptr @.str.331, ptr @.str.332, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DnssrvEnumRecords2_filter_stop, %struct._header_field_info { ptr @.str.333, ptr @.str.334, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DnssrvEnumRecords2_node_name, %struct._header_field_info { ptr @.str.335, ptr @.str.336, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DnssrvEnumRecords2_record_buffer, %struct._header_field_info { ptr @.str.337, ptr @.str.338, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DnssrvEnumRecords2_record_buffer_, %struct._header_field_info { ptr @.str.339, ptr @.str.340, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DnssrvEnumRecords2_record_type, %struct._header_field_info { ptr @.str.341, ptr @.str.342, i32 5, i32 1, ptr @dnsserver_DNS_RECORD_TYPE_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DnssrvEnumRecords2_select_flag, %struct._header_field_info { ptr @.str.343, ptr @.str.344, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DnssrvEnumRecords2_server_name, %struct._header_field_info { ptr @.str.345, ptr @.str.346, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DnssrvEnumRecords2_setting_flags, %struct._header_field_info { ptr @.str.347, ptr @.str.348, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DnssrvEnumRecords2_start_child, %struct._header_field_info { ptr @.str.349, ptr @.str.350, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DnssrvEnumRecords2_zone, %struct._header_field_info { ptr @.str.351, ptr @.str.352, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DnssrvQuery2_client_version, %struct._header_field_info { ptr @.str.329, ptr @.str.353, i32 7, i32 1, ptr @dnsserver_DNS_RPC_CLIENT_VERSION_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DnssrvQuery2_data, %struct._header_field_info { ptr @.str.354, ptr @.str.355, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DnssrvQuery2_operation, %struct._header_field_info { ptr @.str.356, ptr @.str.357, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DnssrvQuery2_server_name, %struct._header_field_info { ptr @.str.345, ptr @.str.358, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DnssrvQuery2_setting_flags, %struct._header_field_info { ptr @.str.347, ptr @.str.359, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DnssrvQuery2_type_id, %struct._header_field_info { ptr @.str.360, ptr @.str.361, i32 7, i32 1, ptr @dnsserver_DnssrvRpcTypeId_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DnssrvQuery2_zone, %struct._header_field_info { ptr @.str.351, ptr @.str.362, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_IP4_ARRAY_AddrArray, %struct._header_field_info { ptr @.str.363, ptr @.str.364, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_IP4_ARRAY_AddrCount, %struct._header_field_info { ptr @.str.365, ptr @.str.366, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_opnum, %struct._header_field_info { ptr @.str.356, ptr @.str.367, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_status, %struct._header_field_info { ptr @.str.368, ptr @.str.369, i32 7, i32 2, ptr @NT_errors, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
-@hf_dnsserver_DNSSRV_RPC_UNION_ServerInfoDotnet = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_CACHE_DATA = internal global i32 0, align 4
+@hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_ZONE_ROOT = internal global i32 0, align 4
+@hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_AUTH_ZONE_ROOT = internal global i32 0, align 4
+@hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_ZONE_DELEGATION = internal global i32 0, align 4
+@hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_RECOR_DEFAULT_TTL = internal global i32 0, align 4
+@hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_RECORD_TTL_CHANGE = internal global i32 0, align 4
+@hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_RECORD_CREATE_PTR = internal global i32 0, align 4
+@hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_NODE_STICKY = internal global i32 0, align 4
+@hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_NODE_COMPLETE = internal global i32 0, align 4
+@hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_OPEN_ACL = internal global i32 0, align 4
+@hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_AGING_ON = internal global i32 0, align 4
+@hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_SUPPRESS_NOTIFY = internal global i32 0, align 4
+@ett_dnsserver_DNS_RPC_NODE_FLAGS = internal global i32 0, align 4
+@ett_dnsserver_DNS_RPC_RECORD_NODE_NAME = internal global i32 0, align 4
+@ett_dnsserver_DNS_RPC_RECORD = internal global i32 0, align 4
+@ett_dnsserver_DNS_RPC_NODE = internal global i32 0, align 4
+@ett_dnsserver_IP4_ARRAY = internal global i32 0, align 4
+@ett_dnsserver_DNS_RPC_SERVER_INFO_DOTNET = internal global i32 0, align 4
+@ett_dnsserver_DNS_RECORD_BUFFER = internal global i32 0, align 4
+@proto_register_dcerpc_dnsserver.hf = internal global [142 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_dnsserver_DNSSRV_RPC_UNION_ServerInfoDotnet, %struct._header_field_info { ptr @.str.95, ptr @.str.96, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNSSRV_RPC_UNION_dword, %struct._header_field_info { ptr @.str.97, ptr @.str.98, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNSSRV_RPC_UNION_null, %struct._header_field_info { ptr @.str.99, ptr @.str.100, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_ANSWERS, %struct._header_field_info { ptr @.str.101, ptr @.str.102, i32 2, i32 32, ptr @DNS_LOG_LEVELS_DNS_LOG_LEVEL_ANSWERS_tfs, i64 512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_FULL_PACKETS, %struct._header_field_info { ptr @.str.103, ptr @.str.104, i32 2, i32 32, ptr @DNS_LOG_LEVELS_DNS_LOG_LEVEL_FULL_PACKETS_tfs, i64 16777216, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_NOTIFY, %struct._header_field_info { ptr @.str.105, ptr @.str.106, i32 2, i32 32, ptr @DNS_LOG_LEVELS_DNS_LOG_LEVEL_NOTIFY_tfs, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_QUERY, %struct._header_field_info { ptr @.str.107, ptr @.str.108, i32 2, i32 32, ptr @DNS_LOG_LEVELS_DNS_LOG_LEVEL_QUERY_tfs, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_QUESTIONS, %struct._header_field_info { ptr @.str.109, ptr @.str.110, i32 2, i32 32, ptr @DNS_LOG_LEVELS_DNS_LOG_LEVEL_QUESTIONS_tfs, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_RECV, %struct._header_field_info { ptr @.str.111, ptr @.str.112, i32 2, i32 32, ptr @DNS_LOG_LEVELS_DNS_LOG_LEVEL_RECV_tfs, i64 8192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_SEND, %struct._header_field_info { ptr @.str.113, ptr @.str.114, i32 2, i32 32, ptr @DNS_LOG_LEVELS_DNS_LOG_LEVEL_SEND_tfs, i64 4096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_TCP, %struct._header_field_info { ptr @.str.115, ptr @.str.116, i32 2, i32 32, ptr @DNS_LOG_LEVELS_DNS_LOG_LEVEL_TCP_tfs, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_UDP, %struct._header_field_info { ptr @.str.117, ptr @.str.118, i32 2, i32 32, ptr @DNS_LOG_LEVELS_DNS_LOG_LEVEL_UDP_tfs, i64 16384, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_UPDATE, %struct._header_field_info { ptr @.str.119, ptr @.str.120, i32 2, i32 32, ptr @DNS_LOG_LEVELS_DNS_LOG_LEVEL_UPDATE_tfs, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_LOG_LEVELS_DNS_LOG_LEVEL_WRITE_THROUGH, %struct._header_field_info { ptr @.str.121, ptr @.str.122, i32 2, i32 32, ptr @DNS_LOG_LEVELS_DNS_LOG_LEVEL_WRITE_THROUGH_tfs, i64 2147483648, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RECORD_BUFFER_rpc_node, %struct._header_field_info { ptr @.str.123, ptr @.str.124, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_NAME_Name, %struct._header_field_info { ptr @.str.125, ptr @.str.126, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_NAME_NameLength, %struct._header_field_info { ptr @.str.127, ptr @.str.128, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_NAME_name, %struct._header_field_info { ptr @.str.125, ptr @.str.129, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_NODE_Childcount, %struct._header_field_info { ptr @.str.130, ptr @.str.131, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_AGING_ON, %struct._header_field_info { ptr @.str.132, ptr @.str.133, i32 2, i32 32, ptr @DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_AGING_ON_tfs, i64 131072, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_AUTH_ZONE_ROOT, %struct._header_field_info { ptr @.str.134, ptr @.str.135, i32 2, i32 32, ptr @DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_AUTH_ZONE_ROOT_tfs, i64 536870912, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_CACHE_DATA, %struct._header_field_info { ptr @.str.136, ptr @.str.137, i32 2, i32 32, ptr @DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_CACHE_DATA_tfs, i64 2147483648, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_NODE_COMPLETE, %struct._header_field_info { ptr @.str.138, ptr @.str.139, i32 2, i32 32, ptr @DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_NODE_COMPLETE_tfs, i64 8388608, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_NODE_STICKY, %struct._header_field_info { ptr @.str.140, ptr @.str.141, i32 2, i32 32, ptr @DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_NODE_STICKY_tfs, i64 16777216, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_OPEN_ACL, %struct._header_field_info { ptr @.str.142, ptr @.str.143, i32 2, i32 32, ptr @DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_OPEN_ACL_tfs, i64 262144, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_RECORD_CREATE_PTR, %struct._header_field_info { ptr @.str.144, ptr @.str.145, i32 2, i32 32, ptr @DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_RECORD_CREATE_PTR_tfs, i64 33554432, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_RECORD_TTL_CHANGE, %struct._header_field_info { ptr @.str.146, ptr @.str.147, i32 2, i32 32, ptr @DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_RECORD_TTL_CHANGE_tfs, i64 67108864, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_RECOR_DEFAULT_TTL, %struct._header_field_info { ptr @.str.148, ptr @.str.149, i32 2, i32 32, ptr @DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_RECOR_DEFAULT_TTL_tfs, i64 134217728, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_SUPPRESS_NOTIFY, %struct._header_field_info { ptr @.str.150, ptr @.str.151, i32 2, i32 32, ptr @DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_SUPPRESS_NOTIFY_tfs, i64 65536, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_ZONE_DELEGATION, %struct._header_field_info { ptr @.str.152, ptr @.str.153, i32 2, i32 32, ptr @DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_ZONE_DELEGATION_tfs, i64 268435456, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_ZONE_ROOT, %struct._header_field_info { ptr @.str.154, ptr @.str.155, i32 2, i32 32, ptr @DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_ZONE_ROOT_tfs, i64 1073741824, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_NODE_Flags, %struct._header_field_info { ptr @.str.156, ptr @.str.157, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_NODE_Length, %struct._header_field_info { ptr @.str.158, ptr @.str.159, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_NODE_NodeName, %struct._header_field_info { ptr @.str.160, ptr @.str.161, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_NODE_RecordCount, %struct._header_field_info { ptr @.str.162, ptr @.str.163, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_NODE_records, %struct._header_field_info { ptr @.str.164, ptr @.str.165, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_PROTOCOLS_DNS_RPC_USE_LPC, %struct._header_field_info { ptr @.str.166, ptr @.str.167, i32 2, i32 32, ptr @DNS_RPC_PROTOCOLS_DNS_RPC_USE_LPC_tfs, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_PROTOCOLS_DNS_RPC_USE_NAMED_PIPE, %struct._header_field_info { ptr @.str.168, ptr @.str.169, i32 2, i32 32, ptr @DNS_RPC_PROTOCOLS_DNS_RPC_USE_NAMED_PIPE_tfs, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_PROTOCOLS_DNS_RPC_USE_TCPIP, %struct._header_field_info { ptr @.str.170, ptr @.str.171, i32 2, i32 32, ptr @DNS_RPC_PROTOCOLS_DNS_RPC_USE_TCPIP_tfs, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_RECORD_DataLength, %struct._header_field_info { ptr @.str.172, ptr @.str.173, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_RECORD_Flags, %struct._header_field_info { ptr @.str.156, ptr @.str.174, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_RECORD_NODE_NAME_Name, %struct._header_field_info { ptr @.str.125, ptr @.str.175, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_RECORD_Serial, %struct._header_field_info { ptr @.str.176, ptr @.str.177, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_RECORD_TimeStamp, %struct._header_field_info { ptr @.str.178, ptr @.str.179, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_RECORD_TtlSeconds, %struct._header_field_info { ptr @.str.180, ptr @.str.181, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_RECORD_Type, %struct._header_field_info { ptr @.str.182, ptr @.str.183, i32 5, i32 1, ptr @dnsserver_DNS_RECORD_TYPE_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_RECORD_UNION_NodeName, %struct._header_field_info { ptr @.str.160, ptr @.str.184, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_RECORD_record, %struct._header_field_info { ptr @.str.185, ptr @.str.186, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_RECORD_reserved, %struct._header_field_info { ptr @.str.187, ptr @.str.188, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_AddressAnswerLimit, %struct._header_field_info { ptr @.str.189, ptr @.str.190, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_AdminConfigured, %struct._header_field_info { ptr @.str.191, ptr @.str.192, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_AllowUpdate, %struct._header_field_info { ptr @.str.193, ptr @.str.194, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_AutoCacheUpdate, %struct._header_field_info { ptr @.str.195, ptr @.str.196, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_AutoReverseZones, %struct._header_field_info { ptr @.str.197, ptr @.str.198, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_BindSecondaries, %struct._header_field_info { ptr @.str.199, ptr @.str.200, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_BootMethod, %struct._header_field_info { ptr @.str.201, ptr @.str.202, i32 4, i32 1, ptr @dnsserver_DNS_RPC_BOOT_METHOD_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DebugLevel, %struct._header_field_info { ptr @.str.203, ptr @.str.204, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DefaultAgingState, %struct._header_field_info { ptr @.str.205, ptr @.str.206, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DefaultNoRefreshInterval, %struct._header_field_info { ptr @.str.207, ptr @.str.208, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DefaultRefreshInterval, %struct._header_field_info { ptr @.str.209, ptr @.str.210, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DomainDirectoryPartition, %struct._header_field_info { ptr @.str.211, ptr @.str.212, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DomainName, %struct._header_field_info { ptr @.str.213, ptr @.str.214, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DsAvailable, %struct._header_field_info { ptr @.str.215, ptr @.str.216, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DsContainer, %struct._header_field_info { ptr @.str.217, ptr @.str.218, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DsDomainVersion, %struct._header_field_info { ptr @.str.219, ptr @.str.220, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DsDsaVersion, %struct._header_field_info { ptr @.str.221, ptr @.str.222, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DsForestVersion, %struct._header_field_info { ptr @.str.223, ptr @.str.224, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DsPollingInterval, %struct._header_field_info { ptr @.str.225, ptr @.str.226, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_EventLogLevel, %struct._header_field_info { ptr @.str.227, ptr @.str.228, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_ForestDirectoryPartition, %struct._header_field_info { ptr @.str.229, ptr @.str.230, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_ForestName, %struct._header_field_info { ptr @.str.231, ptr @.str.232, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_ForwardDelegations, %struct._header_field_info { ptr @.str.233, ptr @.str.234, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_ForwardTimeout, %struct._header_field_info { ptr @.str.235, ptr @.str.236, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_Forwarders, %struct._header_field_info { ptr @.str.237, ptr @.str.238, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_LastScavengeTime, %struct._header_field_info { ptr @.str.239, ptr @.str.240, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_ListenAddrs, %struct._header_field_info { ptr @.str.241, ptr @.str.242, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_LocalNetPriority, %struct._header_field_info { ptr @.str.243, ptr @.str.244, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_LocalNetPriorityNetmask, %struct._header_field_info { ptr @.str.245, ptr @.str.246, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_LogFileMaxSize, %struct._header_field_info { ptr @.str.247, ptr @.str.248, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_LogFilePath, %struct._header_field_info { ptr @.str.249, ptr @.str.250, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_LogFilter, %struct._header_field_info { ptr @.str.251, ptr @.str.252, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_LogLevel, %struct._header_field_info { ptr @.str.253, ptr @.str.254, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_LooseWildcarding, %struct._header_field_info { ptr @.str.255, ptr @.str.256, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_MaxCacheTtl, %struct._header_field_info { ptr @.str.257, ptr @.str.258, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_NameCheckFlag, %struct._header_field_info { ptr @.str.259, ptr @.str.260, i32 7, i32 1, ptr @dnsserver_DNS_NAME_CHECK_FLAGS_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_NoRecursion, %struct._header_field_info { ptr @.str.261, ptr @.str.262, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_RecurseAfterForwarding, %struct._header_field_info { ptr @.str.263, ptr @.str.264, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_RecursionRetry, %struct._header_field_info { ptr @.str.265, ptr @.str.266, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_RecursionTimeout, %struct._header_field_info { ptr @.str.267, ptr @.str.268, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_RoundRobin, %struct._header_field_info { ptr @.str.269, ptr @.str.270, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_RpcProtocol, %struct._header_field_info { ptr @.str.271, ptr @.str.272, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_RpcStructureVersion, %struct._header_field_info { ptr @.str.273, ptr @.str.274, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_ScavengingInterval, %struct._header_field_info { ptr @.str.275, ptr @.str.276, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_SecureResponses, %struct._header_field_info { ptr @.str.277, ptr @.str.278, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_ServerAddrs, %struct._header_field_info { ptr @.str.279, ptr @.str.280, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_ServerName, %struct._header_field_info { ptr @.str.281, ptr @.str.282, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_StrictFileParsing, %struct._header_field_info { ptr @.str.283, ptr @.str.284, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_Version, %struct._header_field_info { ptr @.str.285, ptr @.str.286, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_WriteAuthorityNs, %struct._header_field_info { ptr @.str.287, ptr @.str.288, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_extension0, %struct._header_field_info { ptr @.str.289, ptr @.str.290, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_extension1, %struct._header_field_info { ptr @.str.291, ptr @.str.292, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_extension2, %struct._header_field_info { ptr @.str.293, ptr @.str.294, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_extension3, %struct._header_field_info { ptr @.str.295, ptr @.str.296, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_extension4, %struct._header_field_info { ptr @.str.297, ptr @.str.298, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_extension5, %struct._header_field_info { ptr @.str.299, ptr @.str.300, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_reserve_array, %struct._header_field_info { ptr @.str.301, ptr @.str.302, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_reserve_array2, %struct._header_field_info { ptr @.str.303, ptr @.str.304, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_reserved0, %struct._header_field_info { ptr @.str.305, ptr @.str.306, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_VERSION_OSMajorVersion, %struct._header_field_info { ptr @.str.307, ptr @.str.308, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_VERSION_OSMinorVersion, %struct._header_field_info { ptr @.str.309, ptr @.str.310, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_RPC_VERSION_ServicePackVersion, %struct._header_field_info { ptr @.str.311, ptr @.str.312, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_SELECT_FLAGS_DNS_RPC_VIEW_ADDITIONAL_DATA, %struct._header_field_info { ptr @.str.313, ptr @.str.314, i32 2, i32 32, ptr @DNS_SELECT_FLAGS_DNS_RPC_VIEW_ADDITIONAL_DATA_tfs, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_SELECT_FLAGS_DNS_RPC_VIEW_AUTHORITY_DATA, %struct._header_field_info { ptr @.str.315, ptr @.str.316, i32 2, i32 32, ptr @DNS_SELECT_FLAGS_DNS_RPC_VIEW_AUTHORITY_DATA_tfs, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_SELECT_FLAGS_DNS_RPC_VIEW_CACHE_DATA, %struct._header_field_info { ptr @.str.317, ptr @.str.318, i32 2, i32 32, ptr @DNS_SELECT_FLAGS_DNS_RPC_VIEW_CACHE_DATA_tfs, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_SELECT_FLAGS_DNS_RPC_VIEW_GLUE_DATA, %struct._header_field_info { ptr @.str.319, ptr @.str.320, i32 2, i32 32, ptr @DNS_SELECT_FLAGS_DNS_RPC_VIEW_GLUE_DATA_tfs, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_SELECT_FLAGS_DNS_RPC_VIEW_NO_CHILDREN, %struct._header_field_info { ptr @.str.321, ptr @.str.322, i32 2, i32 32, ptr @DNS_SELECT_FLAGS_DNS_RPC_VIEW_NO_CHILDREN_tfs, i64 65536, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_SELECT_FLAGS_DNS_RPC_VIEW_ONLY_CHILDREN, %struct._header_field_info { ptr @.str.323, ptr @.str.324, i32 2, i32 32, ptr @DNS_SELECT_FLAGS_DNS_RPC_VIEW_ONLY_CHILDREN_tfs, i64 131072, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DNS_SELECT_FLAGS_DNS_RPC_VIEW_ROOT_HINT_DATA, %struct._header_field_info { ptr @.str.325, ptr @.str.326, i32 2, i32 32, ptr @DNS_SELECT_FLAGS_DNS_RPC_VIEW_ROOT_HINT_DATA_tfs, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DnssrvEnumRecords2_buffer_length, %struct._header_field_info { ptr @.str.327, ptr @.str.328, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DnssrvEnumRecords2_client_version, %struct._header_field_info { ptr @.str.329, ptr @.str.330, i32 7, i32 1, ptr @dnsserver_DNS_RPC_CLIENT_VERSION_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DnssrvEnumRecords2_filter_start, %struct._header_field_info { ptr @.str.331, ptr @.str.332, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DnssrvEnumRecords2_filter_stop, %struct._header_field_info { ptr @.str.333, ptr @.str.334, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DnssrvEnumRecords2_node_name, %struct._header_field_info { ptr @.str.335, ptr @.str.336, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DnssrvEnumRecords2_record_buffer, %struct._header_field_info { ptr @.str.337, ptr @.str.338, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DnssrvEnumRecords2_record_buffer_, %struct._header_field_info { ptr @.str.339, ptr @.str.340, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DnssrvEnumRecords2_record_type, %struct._header_field_info { ptr @.str.341, ptr @.str.342, i32 5, i32 1, ptr @dnsserver_DNS_RECORD_TYPE_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DnssrvEnumRecords2_select_flag, %struct._header_field_info { ptr @.str.343, ptr @.str.344, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DnssrvEnumRecords2_server_name, %struct._header_field_info { ptr @.str.345, ptr @.str.346, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DnssrvEnumRecords2_setting_flags, %struct._header_field_info { ptr @.str.347, ptr @.str.348, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DnssrvEnumRecords2_start_child, %struct._header_field_info { ptr @.str.349, ptr @.str.350, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DnssrvEnumRecords2_zone, %struct._header_field_info { ptr @.str.351, ptr @.str.352, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DnssrvQuery2_client_version, %struct._header_field_info { ptr @.str.329, ptr @.str.353, i32 7, i32 1, ptr @dnsserver_DNS_RPC_CLIENT_VERSION_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DnssrvQuery2_data, %struct._header_field_info { ptr @.str.354, ptr @.str.355, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DnssrvQuery2_operation, %struct._header_field_info { ptr @.str.356, ptr @.str.357, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DnssrvQuery2_server_name, %struct._header_field_info { ptr @.str.345, ptr @.str.358, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DnssrvQuery2_setting_flags, %struct._header_field_info { ptr @.str.347, ptr @.str.359, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DnssrvQuery2_type_id, %struct._header_field_info { ptr @.str.360, ptr @.str.361, i32 7, i32 1, ptr @dnsserver_DnssrvRpcTypeId_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_DnssrvQuery2_zone, %struct._header_field_info { ptr @.str.351, ptr @.str.362, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_IP4_ARRAY_AddrArray, %struct._header_field_info { ptr @.str.363, ptr @.str.364, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_IP4_ARRAY_AddrCount, %struct._header_field_info { ptr @.str.365, ptr @.str.366, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_opnum, %struct._header_field_info { ptr @.str.356, ptr @.str.367, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dnsserver_status, %struct._header_field_info { ptr @.str.368, ptr @.str.369, i32 7, i32 514, ptr @NT_errors_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
+@hf_dnsserver_DNSSRV_RPC_UNION_ServerInfoDotnet = internal global i32 0, align 4
 @.str.95 = private unnamed_addr constant [17 x i8] c"ServerInfoDotnet\00", align 1
 @.str.96 = private unnamed_addr constant [44 x i8] c"dnsserver.DNSSRV_RPC_UNION.ServerInfoDotnet\00", align 1
-@hf_dnsserver_DNSSRV_RPC_UNION_dword = internal global i32 -1, align 4
+@hf_dnsserver_DNSSRV_RPC_UNION_dword = internal global i32 0, align 4
 @.str.97 = private unnamed_addr constant [6 x i8] c"Dword\00", align 1
 @.str.98 = private unnamed_addr constant [33 x i8] c"dnsserver.DNSSRV_RPC_UNION.dword\00", align 1
-@hf_dnsserver_DNSSRV_RPC_UNION_null = internal global i32 -1, align 4
+@hf_dnsserver_DNSSRV_RPC_UNION_null = internal global i32 0, align 4
 @.str.99 = private unnamed_addr constant [5 x i8] c"Null\00", align 1
 @.str.100 = private unnamed_addr constant [32 x i8] c"dnsserver.DNSSRV_RPC_UNION.null\00", align 1
 @.str.101 = private unnamed_addr constant [22 x i8] c"DNS LOG LEVEL ANSWERS\00", align 1
@@ -208,16 +208,16 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.121 = private unnamed_addr constant [28 x i8] c"DNS LOG LEVEL WRITE THROUGH\00", align 1
 @.str.122 = private unnamed_addr constant [53 x i8] c"dnsserver.DNS_LOG_LEVELS.DNS_LOG_LEVEL_WRITE_THROUGH\00", align 1
 @DNS_LOG_LEVELS_DNS_LOG_LEVEL_WRITE_THROUGH_tfs = internal constant %struct.true_false_string { ptr @.str.412, ptr @.str.413 }, align 8
-@hf_dnsserver_DNS_RECORD_BUFFER_rpc_node = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RECORD_BUFFER_rpc_node = internal global i32 0, align 4
 @.str.123 = private unnamed_addr constant [9 x i8] c"Rpc Node\00", align 1
 @.str.124 = private unnamed_addr constant [37 x i8] c"dnsserver.DNS_RECORD_BUFFER.rpc_node\00", align 1
-@hf_dnsserver_DNS_RPC_NAME_Name = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_NAME_Name = internal global i32 0, align 4
 @.str.125 = private unnamed_addr constant [5 x i8] c"Name\00", align 1
 @.str.126 = private unnamed_addr constant [28 x i8] c"dnsserver.DNS_RPC_NAME.Name\00", align 1
 @.str.127 = private unnamed_addr constant [11 x i8] c"NameLength\00", align 1
 @.str.128 = private unnamed_addr constant [34 x i8] c"dnsserver.DNS_RPC_NAME.NameLength\00", align 1
 @.str.129 = private unnamed_addr constant [28 x i8] c"dnsserver.DNS_RPC_NAME.name\00", align 1
-@hf_dnsserver_DNS_RPC_NODE_Childcount = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_NODE_Childcount = internal global i32 0, align 4
 @.str.130 = private unnamed_addr constant [11 x i8] c"Childcount\00", align 1
 @.str.131 = private unnamed_addr constant [34 x i8] c"dnsserver.DNS_RPC_NODE.Childcount\00", align 1
 @.str.132 = private unnamed_addr constant [22 x i8] c"DNS RPC FLAG AGING ON\00", align 1
@@ -256,19 +256,19 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.154 = private unnamed_addr constant [23 x i8] c"DNS RPC FLAG ZONE ROOT\00", align 1
 @.str.155 = private unnamed_addr constant [52 x i8] c"dnsserver.DNS_RPC_NODE_FLAGS.DNS_RPC_FLAG_ZONE_ROOT\00", align 1
 @DNS_RPC_NODE_FLAGS_DNS_RPC_FLAG_ZONE_ROOT_tfs = internal constant %struct.true_false_string { ptr @.str.436, ptr @.str.437 }, align 8
-@hf_dnsserver_DNS_RPC_NODE_Flags = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_NODE_Flags = internal global i32 0, align 4
 @.str.156 = private unnamed_addr constant [6 x i8] c"Flags\00", align 1
 @.str.157 = private unnamed_addr constant [29 x i8] c"dnsserver.DNS_RPC_NODE.Flags\00", align 1
-@hf_dnsserver_DNS_RPC_NODE_Length = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_NODE_Length = internal global i32 0, align 4
 @.str.158 = private unnamed_addr constant [7 x i8] c"Length\00", align 1
 @.str.159 = private unnamed_addr constant [30 x i8] c"dnsserver.DNS_RPC_NODE.Length\00", align 1
-@hf_dnsserver_DNS_RPC_NODE_NodeName = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_NODE_NodeName = internal global i32 0, align 4
 @.str.160 = private unnamed_addr constant [9 x i8] c"NodeName\00", align 1
 @.str.161 = private unnamed_addr constant [32 x i8] c"dnsserver.DNS_RPC_NODE.NodeName\00", align 1
-@hf_dnsserver_DNS_RPC_NODE_RecordCount = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_NODE_RecordCount = internal global i32 0, align 4
 @.str.162 = private unnamed_addr constant [12 x i8] c"RecordCount\00", align 1
 @.str.163 = private unnamed_addr constant [35 x i8] c"dnsserver.DNS_RPC_NODE.RecordCount\00", align 1
-@hf_dnsserver_DNS_RPC_NODE_records = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_NODE_records = internal global i32 0, align 4
 @.str.164 = private unnamed_addr constant [8 x i8] c"Records\00", align 1
 @.str.165 = private unnamed_addr constant [31 x i8] c"dnsserver.DNS_RPC_NODE.records\00", align 1
 @.str.166 = private unnamed_addr constant [16 x i8] c"DNS RPC USE LPC\00", align 1
@@ -280,217 +280,217 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.170 = private unnamed_addr constant [18 x i8] c"DNS RPC USE TCPIP\00", align 1
 @.str.171 = private unnamed_addr constant [46 x i8] c"dnsserver.DNS_RPC_PROTOCOLS.DNS_RPC_USE_TCPIP\00", align 1
 @DNS_RPC_PROTOCOLS_DNS_RPC_USE_TCPIP_tfs = internal constant %struct.true_false_string { ptr @.str.442, ptr @.str.443 }, align 8
-@hf_dnsserver_DNS_RPC_RECORD_DataLength = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_RECORD_DataLength = internal global i32 0, align 4
 @.str.172 = private unnamed_addr constant [11 x i8] c"DataLength\00", align 1
 @.str.173 = private unnamed_addr constant [36 x i8] c"dnsserver.DNS_RPC_RECORD.DataLength\00", align 1
-@hf_dnsserver_DNS_RPC_RECORD_Flags = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_RECORD_Flags = internal global i32 0, align 4
 @.str.174 = private unnamed_addr constant [31 x i8] c"dnsserver.DNS_RPC_RECORD.Flags\00", align 1
-@hf_dnsserver_DNS_RPC_RECORD_NODE_NAME_Name = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_RECORD_NODE_NAME_Name = internal global i32 0, align 4
 @.str.175 = private unnamed_addr constant [40 x i8] c"dnsserver.DNS_RPC_RECORD_NODE_NAME.Name\00", align 1
-@hf_dnsserver_DNS_RPC_RECORD_Serial = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_RECORD_Serial = internal global i32 0, align 4
 @.str.176 = private unnamed_addr constant [7 x i8] c"Serial\00", align 1
 @.str.177 = private unnamed_addr constant [32 x i8] c"dnsserver.DNS_RPC_RECORD.Serial\00", align 1
-@hf_dnsserver_DNS_RPC_RECORD_TimeStamp = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_RECORD_TimeStamp = internal global i32 0, align 4
 @.str.178 = private unnamed_addr constant [10 x i8] c"TimeStamp\00", align 1
 @.str.179 = private unnamed_addr constant [35 x i8] c"dnsserver.DNS_RPC_RECORD.TimeStamp\00", align 1
-@hf_dnsserver_DNS_RPC_RECORD_TtlSeconds = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_RECORD_TtlSeconds = internal global i32 0, align 4
 @.str.180 = private unnamed_addr constant [11 x i8] c"TtlSeconds\00", align 1
 @.str.181 = private unnamed_addr constant [36 x i8] c"dnsserver.DNS_RPC_RECORD.TtlSeconds\00", align 1
-@hf_dnsserver_DNS_RPC_RECORD_Type = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_RECORD_Type = internal global i32 0, align 4
 @.str.182 = private unnamed_addr constant [5 x i8] c"Type\00", align 1
 @.str.183 = private unnamed_addr constant [30 x i8] c"dnsserver.DNS_RPC_RECORD.Type\00", align 1
-@hf_dnsserver_DNS_RPC_RECORD_UNION_NodeName = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_RECORD_UNION_NodeName = internal global i32 0, align 4
 @.str.184 = private unnamed_addr constant [40 x i8] c"dnsserver.DNS_RPC_RECORD_UNION.NodeName\00", align 1
-@hf_dnsserver_DNS_RPC_RECORD_record = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_RECORD_record = internal global i32 0, align 4
 @.str.185 = private unnamed_addr constant [7 x i8] c"Record\00", align 1
 @.str.186 = private unnamed_addr constant [32 x i8] c"dnsserver.DNS_RPC_RECORD.record\00", align 1
-@hf_dnsserver_DNS_RPC_RECORD_reserved = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_RECORD_reserved = internal global i32 0, align 4
 @.str.187 = private unnamed_addr constant [9 x i8] c"Reserved\00", align 1
 @.str.188 = private unnamed_addr constant [34 x i8] c"dnsserver.DNS_RPC_RECORD.reserved\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_AddressAnswerLimit = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_AddressAnswerLimit = internal global i32 0, align 4
 @.str.189 = private unnamed_addr constant [19 x i8] c"AddressAnswerLimit\00", align 1
 @.str.190 = private unnamed_addr constant [56 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.AddressAnswerLimit\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_AdminConfigured = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_AdminConfigured = internal global i32 0, align 4
 @.str.191 = private unnamed_addr constant [16 x i8] c"AdminConfigured\00", align 1
 @.str.192 = private unnamed_addr constant [53 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.AdminConfigured\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_AllowUpdate = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_AllowUpdate = internal global i32 0, align 4
 @.str.193 = private unnamed_addr constant [12 x i8] c"AllowUpdate\00", align 1
 @.str.194 = private unnamed_addr constant [49 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.AllowUpdate\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_AutoCacheUpdate = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_AutoCacheUpdate = internal global i32 0, align 4
 @.str.195 = private unnamed_addr constant [16 x i8] c"AutoCacheUpdate\00", align 1
 @.str.196 = private unnamed_addr constant [53 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.AutoCacheUpdate\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_AutoReverseZones = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_AutoReverseZones = internal global i32 0, align 4
 @.str.197 = private unnamed_addr constant [17 x i8] c"AutoReverseZones\00", align 1
 @.str.198 = private unnamed_addr constant [54 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.AutoReverseZones\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_BindSecondaries = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_BindSecondaries = internal global i32 0, align 4
 @.str.199 = private unnamed_addr constant [16 x i8] c"BindSecondaries\00", align 1
 @.str.200 = private unnamed_addr constant [53 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.BindSecondaries\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_BootMethod = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_BootMethod = internal global i32 0, align 4
 @.str.201 = private unnamed_addr constant [11 x i8] c"BootMethod\00", align 1
 @.str.202 = private unnamed_addr constant [48 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.BootMethod\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DebugLevel = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DebugLevel = internal global i32 0, align 4
 @.str.203 = private unnamed_addr constant [11 x i8] c"DebugLevel\00", align 1
 @.str.204 = private unnamed_addr constant [48 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.DebugLevel\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DefaultAgingState = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DefaultAgingState = internal global i32 0, align 4
 @.str.205 = private unnamed_addr constant [18 x i8] c"DefaultAgingState\00", align 1
 @.str.206 = private unnamed_addr constant [55 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.DefaultAgingState\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DefaultNoRefreshInterval = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DefaultNoRefreshInterval = internal global i32 0, align 4
 @.str.207 = private unnamed_addr constant [25 x i8] c"DefaultNoRefreshInterval\00", align 1
 @.str.208 = private unnamed_addr constant [62 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.DefaultNoRefreshInterval\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DefaultRefreshInterval = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DefaultRefreshInterval = internal global i32 0, align 4
 @.str.209 = private unnamed_addr constant [23 x i8] c"DefaultRefreshInterval\00", align 1
 @.str.210 = private unnamed_addr constant [60 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.DefaultRefreshInterval\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DomainDirectoryPartition = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DomainDirectoryPartition = internal global i32 0, align 4
 @.str.211 = private unnamed_addr constant [25 x i8] c"DomainDirectoryPartition\00", align 1
 @.str.212 = private unnamed_addr constant [62 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.DomainDirectoryPartition\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DomainName = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DomainName = internal global i32 0, align 4
 @.str.213 = private unnamed_addr constant [11 x i8] c"DomainName\00", align 1
 @.str.214 = private unnamed_addr constant [48 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.DomainName\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DsAvailable = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DsAvailable = internal global i32 0, align 4
 @.str.215 = private unnamed_addr constant [12 x i8] c"DsAvailable\00", align 1
 @.str.216 = private unnamed_addr constant [49 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.DsAvailable\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DsContainer = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DsContainer = internal global i32 0, align 4
 @.str.217 = private unnamed_addr constant [12 x i8] c"DsContainer\00", align 1
 @.str.218 = private unnamed_addr constant [49 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.DsContainer\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DsDomainVersion = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DsDomainVersion = internal global i32 0, align 4
 @.str.219 = private unnamed_addr constant [16 x i8] c"DsDomainVersion\00", align 1
 @.str.220 = private unnamed_addr constant [53 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.DsDomainVersion\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DsDsaVersion = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DsDsaVersion = internal global i32 0, align 4
 @.str.221 = private unnamed_addr constant [13 x i8] c"DsDsaVersion\00", align 1
 @.str.222 = private unnamed_addr constant [50 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.DsDsaVersion\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DsForestVersion = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DsForestVersion = internal global i32 0, align 4
 @.str.223 = private unnamed_addr constant [16 x i8] c"DsForestVersion\00", align 1
 @.str.224 = private unnamed_addr constant [53 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.DsForestVersion\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DsPollingInterval = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DsPollingInterval = internal global i32 0, align 4
 @.str.225 = private unnamed_addr constant [18 x i8] c"DsPollingInterval\00", align 1
 @.str.226 = private unnamed_addr constant [55 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.DsPollingInterval\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_EventLogLevel = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_EventLogLevel = internal global i32 0, align 4
 @.str.227 = private unnamed_addr constant [14 x i8] c"EventLogLevel\00", align 1
 @.str.228 = private unnamed_addr constant [51 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.EventLogLevel\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_ForestDirectoryPartition = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_ForestDirectoryPartition = internal global i32 0, align 4
 @.str.229 = private unnamed_addr constant [25 x i8] c"ForestDirectoryPartition\00", align 1
 @.str.230 = private unnamed_addr constant [62 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.ForestDirectoryPartition\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_ForestName = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_ForestName = internal global i32 0, align 4
 @.str.231 = private unnamed_addr constant [11 x i8] c"ForestName\00", align 1
 @.str.232 = private unnamed_addr constant [48 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.ForestName\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_ForwardDelegations = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_ForwardDelegations = internal global i32 0, align 4
 @.str.233 = private unnamed_addr constant [19 x i8] c"ForwardDelegations\00", align 1
 @.str.234 = private unnamed_addr constant [56 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.ForwardDelegations\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_ForwardTimeout = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_ForwardTimeout = internal global i32 0, align 4
 @.str.235 = private unnamed_addr constant [15 x i8] c"ForwardTimeout\00", align 1
 @.str.236 = private unnamed_addr constant [52 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.ForwardTimeout\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_Forwarders = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_Forwarders = internal global i32 0, align 4
 @.str.237 = private unnamed_addr constant [11 x i8] c"Forwarders\00", align 1
 @.str.238 = private unnamed_addr constant [48 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.Forwarders\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_LastScavengeTime = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_LastScavengeTime = internal global i32 0, align 4
 @.str.239 = private unnamed_addr constant [17 x i8] c"LastScavengeTime\00", align 1
 @.str.240 = private unnamed_addr constant [54 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.LastScavengeTime\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_ListenAddrs = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_ListenAddrs = internal global i32 0, align 4
 @.str.241 = private unnamed_addr constant [12 x i8] c"ListenAddrs\00", align 1
 @.str.242 = private unnamed_addr constant [49 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.ListenAddrs\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_LocalNetPriority = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_LocalNetPriority = internal global i32 0, align 4
 @.str.243 = private unnamed_addr constant [17 x i8] c"LocalNetPriority\00", align 1
 @.str.244 = private unnamed_addr constant [54 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.LocalNetPriority\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_LocalNetPriorityNetmask = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_LocalNetPriorityNetmask = internal global i32 0, align 4
 @.str.245 = private unnamed_addr constant [24 x i8] c"LocalNetPriorityNetmask\00", align 1
 @.str.246 = private unnamed_addr constant [61 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.LocalNetPriorityNetmask\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_LogFileMaxSize = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_LogFileMaxSize = internal global i32 0, align 4
 @.str.247 = private unnamed_addr constant [15 x i8] c"LogFileMaxSize\00", align 1
 @.str.248 = private unnamed_addr constant [52 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.LogFileMaxSize\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_LogFilePath = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_LogFilePath = internal global i32 0, align 4
 @.str.249 = private unnamed_addr constant [12 x i8] c"LogFilePath\00", align 1
 @.str.250 = private unnamed_addr constant [49 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.LogFilePath\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_LogFilter = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_LogFilter = internal global i32 0, align 4
 @.str.251 = private unnamed_addr constant [10 x i8] c"LogFilter\00", align 1
 @.str.252 = private unnamed_addr constant [47 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.LogFilter\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_LogLevel = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_LogLevel = internal global i32 0, align 4
 @.str.253 = private unnamed_addr constant [9 x i8] c"LogLevel\00", align 1
 @.str.254 = private unnamed_addr constant [46 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.LogLevel\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_LooseWildcarding = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_LooseWildcarding = internal global i32 0, align 4
 @.str.255 = private unnamed_addr constant [17 x i8] c"LooseWildcarding\00", align 1
 @.str.256 = private unnamed_addr constant [54 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.LooseWildcarding\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_MaxCacheTtl = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_MaxCacheTtl = internal global i32 0, align 4
 @.str.257 = private unnamed_addr constant [12 x i8] c"MaxCacheTtl\00", align 1
 @.str.258 = private unnamed_addr constant [49 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.MaxCacheTtl\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_NameCheckFlag = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_NameCheckFlag = internal global i32 0, align 4
 @.str.259 = private unnamed_addr constant [14 x i8] c"NameCheckFlag\00", align 1
 @.str.260 = private unnamed_addr constant [51 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.NameCheckFlag\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_NoRecursion = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_NoRecursion = internal global i32 0, align 4
 @.str.261 = private unnamed_addr constant [12 x i8] c"NoRecursion\00", align 1
 @.str.262 = private unnamed_addr constant [49 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.NoRecursion\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_RecurseAfterForwarding = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_RecurseAfterForwarding = internal global i32 0, align 4
 @.str.263 = private unnamed_addr constant [23 x i8] c"RecurseAfterForwarding\00", align 1
 @.str.264 = private unnamed_addr constant [60 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.RecurseAfterForwarding\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_RecursionRetry = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_RecursionRetry = internal global i32 0, align 4
 @.str.265 = private unnamed_addr constant [15 x i8] c"RecursionRetry\00", align 1
 @.str.266 = private unnamed_addr constant [52 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.RecursionRetry\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_RecursionTimeout = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_RecursionTimeout = internal global i32 0, align 4
 @.str.267 = private unnamed_addr constant [17 x i8] c"RecursionTimeout\00", align 1
 @.str.268 = private unnamed_addr constant [54 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.RecursionTimeout\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_RoundRobin = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_RoundRobin = internal global i32 0, align 4
 @.str.269 = private unnamed_addr constant [11 x i8] c"RoundRobin\00", align 1
 @.str.270 = private unnamed_addr constant [48 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.RoundRobin\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_RpcProtocol = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_RpcProtocol = internal global i32 0, align 4
 @.str.271 = private unnamed_addr constant [12 x i8] c"RpcProtocol\00", align 1
 @.str.272 = private unnamed_addr constant [49 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.RpcProtocol\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_RpcStructureVersion = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_RpcStructureVersion = internal global i32 0, align 4
 @.str.273 = private unnamed_addr constant [20 x i8] c"RpcStructureVersion\00", align 1
 @.str.274 = private unnamed_addr constant [57 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.RpcStructureVersion\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_ScavengingInterval = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_ScavengingInterval = internal global i32 0, align 4
 @.str.275 = private unnamed_addr constant [19 x i8] c"ScavengingInterval\00", align 1
 @.str.276 = private unnamed_addr constant [56 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.ScavengingInterval\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_SecureResponses = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_SecureResponses = internal global i32 0, align 4
 @.str.277 = private unnamed_addr constant [16 x i8] c"SecureResponses\00", align 1
 @.str.278 = private unnamed_addr constant [53 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.SecureResponses\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_ServerAddrs = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_ServerAddrs = internal global i32 0, align 4
 @.str.279 = private unnamed_addr constant [12 x i8] c"ServerAddrs\00", align 1
 @.str.280 = private unnamed_addr constant [49 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.ServerAddrs\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_ServerName = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_ServerName = internal global i32 0, align 4
 @.str.281 = private unnamed_addr constant [11 x i8] c"ServerName\00", align 1
 @.str.282 = private unnamed_addr constant [48 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.ServerName\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_StrictFileParsing = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_StrictFileParsing = internal global i32 0, align 4
 @.str.283 = private unnamed_addr constant [18 x i8] c"StrictFileParsing\00", align 1
 @.str.284 = private unnamed_addr constant [55 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.StrictFileParsing\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_Version = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_Version = internal global i32 0, align 4
 @.str.285 = private unnamed_addr constant [8 x i8] c"Version\00", align 1
 @.str.286 = private unnamed_addr constant [45 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.Version\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_WriteAuthorityNs = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_WriteAuthorityNs = internal global i32 0, align 4
 @.str.287 = private unnamed_addr constant [17 x i8] c"WriteAuthorityNs\00", align 1
 @.str.288 = private unnamed_addr constant [54 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.WriteAuthorityNs\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_extension0 = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_extension0 = internal global i32 0, align 4
 @.str.289 = private unnamed_addr constant [11 x i8] c"Extension0\00", align 1
 @.str.290 = private unnamed_addr constant [48 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.extension0\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_extension1 = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_extension1 = internal global i32 0, align 4
 @.str.291 = private unnamed_addr constant [11 x i8] c"Extension1\00", align 1
 @.str.292 = private unnamed_addr constant [48 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.extension1\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_extension2 = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_extension2 = internal global i32 0, align 4
 @.str.293 = private unnamed_addr constant [11 x i8] c"Extension2\00", align 1
 @.str.294 = private unnamed_addr constant [48 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.extension2\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_extension3 = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_extension3 = internal global i32 0, align 4
 @.str.295 = private unnamed_addr constant [11 x i8] c"Extension3\00", align 1
 @.str.296 = private unnamed_addr constant [48 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.extension3\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_extension4 = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_extension4 = internal global i32 0, align 4
 @.str.297 = private unnamed_addr constant [11 x i8] c"Extension4\00", align 1
 @.str.298 = private unnamed_addr constant [48 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.extension4\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_extension5 = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_extension5 = internal global i32 0, align 4
 @.str.299 = private unnamed_addr constant [11 x i8] c"Extension5\00", align 1
 @.str.300 = private unnamed_addr constant [48 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.extension5\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_reserve_array = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_reserve_array = internal global i32 0, align 4
 @.str.301 = private unnamed_addr constant [14 x i8] c"Reserve Array\00", align 1
 @.str.302 = private unnamed_addr constant [51 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.reserve_array\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_reserve_array2 = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_reserve_array2 = internal global i32 0, align 4
 @.str.303 = private unnamed_addr constant [15 x i8] c"Reserve Array2\00", align 1
 @.str.304 = private unnamed_addr constant [52 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.reserve_array2\00", align 1
-@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_reserved0 = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_reserved0 = internal global i32 0, align 4
 @.str.305 = private unnamed_addr constant [10 x i8] c"Reserved0\00", align 1
 @.str.306 = private unnamed_addr constant [47 x i8] c"dnsserver.DNS_RPC_SERVER_INFO_DOTNET.reserved0\00", align 1
-@hf_dnsserver_DNS_RPC_VERSION_OSMajorVersion = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_VERSION_OSMajorVersion = internal global i32 0, align 4
 @.str.307 = private unnamed_addr constant [15 x i8] c"OSMajorVersion\00", align 1
 @.str.308 = private unnamed_addr constant [41 x i8] c"dnsserver.DNS_RPC_VERSION.OSMajorVersion\00", align 1
-@hf_dnsserver_DNS_RPC_VERSION_OSMinorVersion = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_VERSION_OSMinorVersion = internal global i32 0, align 4
 @.str.309 = private unnamed_addr constant [15 x i8] c"OSMinorVersion\00", align 1
 @.str.310 = private unnamed_addr constant [41 x i8] c"dnsserver.DNS_RPC_VERSION.OSMinorVersion\00", align 1
-@hf_dnsserver_DNS_RPC_VERSION_ServicePackVersion = internal global i32 -1, align 4
+@hf_dnsserver_DNS_RPC_VERSION_ServicePackVersion = internal global i32 0, align 4
 @.str.311 = private unnamed_addr constant [19 x i8] c"ServicePackVersion\00", align 1
 @.str.312 = private unnamed_addr constant [45 x i8] c"dnsserver.DNS_RPC_VERSION.ServicePackVersion\00", align 1
 @.str.313 = private unnamed_addr constant [29 x i8] c"DNS RPC VIEW ADDITIONAL DATA\00", align 1
@@ -514,85 +514,84 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.325 = private unnamed_addr constant [28 x i8] c"DNS RPC VIEW ROOT HINT DATA\00", align 1
 @.str.326 = private unnamed_addr constant [55 x i8] c"dnsserver.DNS_SELECT_FLAGS.DNS_RPC_VIEW_ROOT_HINT_DATA\00", align 1
 @DNS_SELECT_FLAGS_DNS_RPC_VIEW_ROOT_HINT_DATA_tfs = internal constant %struct.true_false_string { ptr @.str.456, ptr @.str.457 }, align 8
-@hf_dnsserver_DnssrvEnumRecords2_buffer_length = internal global i32 -1, align 4
+@hf_dnsserver_DnssrvEnumRecords2_buffer_length = internal global i32 0, align 4
 @.str.327 = private unnamed_addr constant [14 x i8] c"Buffer Length\00", align 1
 @.str.328 = private unnamed_addr constant [43 x i8] c"dnsserver.DnssrvEnumRecords2.buffer_length\00", align 1
-@hf_dnsserver_DnssrvEnumRecords2_client_version = internal global i32 -1, align 4
+@hf_dnsserver_DnssrvEnumRecords2_client_version = internal global i32 0, align 4
 @.str.329 = private unnamed_addr constant [15 x i8] c"Client Version\00", align 1
 @.str.330 = private unnamed_addr constant [44 x i8] c"dnsserver.DnssrvEnumRecords2.client_version\00", align 1
-@hf_dnsserver_DnssrvEnumRecords2_filter_start = internal global i32 -1, align 4
+@hf_dnsserver_DnssrvEnumRecords2_filter_start = internal global i32 0, align 4
 @.str.331 = private unnamed_addr constant [13 x i8] c"Filter Start\00", align 1
 @.str.332 = private unnamed_addr constant [42 x i8] c"dnsserver.DnssrvEnumRecords2.filter_start\00", align 1
-@hf_dnsserver_DnssrvEnumRecords2_filter_stop = internal global i32 -1, align 4
+@hf_dnsserver_DnssrvEnumRecords2_filter_stop = internal global i32 0, align 4
 @.str.333 = private unnamed_addr constant [12 x i8] c"Filter Stop\00", align 1
 @.str.334 = private unnamed_addr constant [41 x i8] c"dnsserver.DnssrvEnumRecords2.filter_stop\00", align 1
-@hf_dnsserver_DnssrvEnumRecords2_node_name = internal global i32 -1, align 4
+@hf_dnsserver_DnssrvEnumRecords2_node_name = internal global i32 0, align 4
 @.str.335 = private unnamed_addr constant [10 x i8] c"Node Name\00", align 1
 @.str.336 = private unnamed_addr constant [39 x i8] c"dnsserver.DnssrvEnumRecords2.node_name\00", align 1
-@hf_dnsserver_DnssrvEnumRecords2_record_buffer = internal global i32 -1, align 4
+@hf_dnsserver_DnssrvEnumRecords2_record_buffer = internal global i32 0, align 4
 @.str.337 = private unnamed_addr constant [14 x i8] c"Record Buffer\00", align 1
 @.str.338 = private unnamed_addr constant [43 x i8] c"dnsserver.DnssrvEnumRecords2.record_buffer\00", align 1
-@hf_dnsserver_DnssrvEnumRecords2_record_buffer_ = internal global i32 -1, align 4
+@hf_dnsserver_DnssrvEnumRecords2_record_buffer_ = internal global i32 0, align 4
 @.str.339 = private unnamed_addr constant [18 x i8] c"Subcontext length\00", align 1
 @.str.340 = private unnamed_addr constant [40 x i8] c"dnsserver.DnssrvEnumRecords2.subcontext\00", align 1
-@hf_dnsserver_DnssrvEnumRecords2_record_type = internal global i32 -1, align 4
+@hf_dnsserver_DnssrvEnumRecords2_record_type = internal global i32 0, align 4
 @.str.341 = private unnamed_addr constant [12 x i8] c"Record Type\00", align 1
 @.str.342 = private unnamed_addr constant [41 x i8] c"dnsserver.DnssrvEnumRecords2.record_type\00", align 1
-@hf_dnsserver_DnssrvEnumRecords2_select_flag = internal global i32 -1, align 4
+@hf_dnsserver_DnssrvEnumRecords2_select_flag = internal global i32 0, align 4
 @.str.343 = private unnamed_addr constant [12 x i8] c"Select Flag\00", align 1
 @.str.344 = private unnamed_addr constant [41 x i8] c"dnsserver.DnssrvEnumRecords2.select_flag\00", align 1
-@hf_dnsserver_DnssrvEnumRecords2_server_name = internal global i32 -1, align 4
+@hf_dnsserver_DnssrvEnumRecords2_server_name = internal global i32 0, align 4
 @.str.345 = private unnamed_addr constant [12 x i8] c"Server Name\00", align 1
 @.str.346 = private unnamed_addr constant [41 x i8] c"dnsserver.DnssrvEnumRecords2.server_name\00", align 1
-@hf_dnsserver_DnssrvEnumRecords2_setting_flags = internal global i32 -1, align 4
+@hf_dnsserver_DnssrvEnumRecords2_setting_flags = internal global i32 0, align 4
 @.str.347 = private unnamed_addr constant [14 x i8] c"Setting Flags\00", align 1
 @.str.348 = private unnamed_addr constant [43 x i8] c"dnsserver.DnssrvEnumRecords2.setting_flags\00", align 1
-@hf_dnsserver_DnssrvEnumRecords2_start_child = internal global i32 -1, align 4
+@hf_dnsserver_DnssrvEnumRecords2_start_child = internal global i32 0, align 4
 @.str.349 = private unnamed_addr constant [12 x i8] c"Start Child\00", align 1
 @.str.350 = private unnamed_addr constant [41 x i8] c"dnsserver.DnssrvEnumRecords2.start_child\00", align 1
-@hf_dnsserver_DnssrvEnumRecords2_zone = internal global i32 -1, align 4
+@hf_dnsserver_DnssrvEnumRecords2_zone = internal global i32 0, align 4
 @.str.351 = private unnamed_addr constant [5 x i8] c"Zone\00", align 1
 @.str.352 = private unnamed_addr constant [34 x i8] c"dnsserver.DnssrvEnumRecords2.zone\00", align 1
-@hf_dnsserver_DnssrvQuery2_client_version = internal global i32 -1, align 4
+@hf_dnsserver_DnssrvQuery2_client_version = internal global i32 0, align 4
 @.str.353 = private unnamed_addr constant [38 x i8] c"dnsserver.DnssrvQuery2.client_version\00", align 1
-@hf_dnsserver_DnssrvQuery2_data = internal global i32 -1, align 4
+@hf_dnsserver_DnssrvQuery2_data = internal global i32 0, align 4
 @.str.354 = private unnamed_addr constant [5 x i8] c"Data\00", align 1
 @.str.355 = private unnamed_addr constant [28 x i8] c"dnsserver.DnssrvQuery2.data\00", align 1
-@hf_dnsserver_DnssrvQuery2_operation = internal global i32 -1, align 4
+@hf_dnsserver_DnssrvQuery2_operation = internal global i32 0, align 4
 @.str.356 = private unnamed_addr constant [10 x i8] c"Operation\00", align 1
 @.str.357 = private unnamed_addr constant [33 x i8] c"dnsserver.DnssrvQuery2.operation\00", align 1
-@hf_dnsserver_DnssrvQuery2_server_name = internal global i32 -1, align 4
+@hf_dnsserver_DnssrvQuery2_server_name = internal global i32 0, align 4
 @.str.358 = private unnamed_addr constant [35 x i8] c"dnsserver.DnssrvQuery2.server_name\00", align 1
-@hf_dnsserver_DnssrvQuery2_setting_flags = internal global i32 -1, align 4
+@hf_dnsserver_DnssrvQuery2_setting_flags = internal global i32 0, align 4
 @.str.359 = private unnamed_addr constant [37 x i8] c"dnsserver.DnssrvQuery2.setting_flags\00", align 1
-@hf_dnsserver_DnssrvQuery2_type_id = internal global i32 -1, align 4
+@hf_dnsserver_DnssrvQuery2_type_id = internal global i32 0, align 4
 @.str.360 = private unnamed_addr constant [8 x i8] c"Type Id\00", align 1
 @.str.361 = private unnamed_addr constant [31 x i8] c"dnsserver.DnssrvQuery2.type_id\00", align 1
-@hf_dnsserver_DnssrvQuery2_zone = internal global i32 -1, align 4
+@hf_dnsserver_DnssrvQuery2_zone = internal global i32 0, align 4
 @.str.362 = private unnamed_addr constant [28 x i8] c"dnsserver.DnssrvQuery2.zone\00", align 1
-@hf_dnsserver_IP4_ARRAY_AddrArray = internal global i32 -1, align 4
+@hf_dnsserver_IP4_ARRAY_AddrArray = internal global i32 0, align 4
 @.str.363 = private unnamed_addr constant [10 x i8] c"AddrArray\00", align 1
 @.str.364 = private unnamed_addr constant [30 x i8] c"dnsserver.IP4_ARRAY.AddrArray\00", align 1
-@hf_dnsserver_IP4_ARRAY_AddrCount = internal global i32 -1, align 4
+@hf_dnsserver_IP4_ARRAY_AddrCount = internal global i32 0, align 4
 @.str.365 = private unnamed_addr constant [10 x i8] c"AddrCount\00", align 1
 @.str.366 = private unnamed_addr constant [30 x i8] c"dnsserver.IP4_ARRAY.AddrCount\00", align 1
-@hf_dnsserver_opnum = internal global i32 -1, align 4
+@hf_dnsserver_opnum = internal global i32 0, align 4
 @.str.367 = private unnamed_addr constant [16 x i8] c"dnsserver.opnum\00", align 1
-@hf_dnsserver_status = internal global i32 -1, align 4
+@hf_dnsserver_status = internal global i32 0, align 4
 @.str.368 = private unnamed_addr constant [9 x i8] c"NT Error\00", align 1
 @.str.369 = private unnamed_addr constant [17 x i8] c"dnsserver.status\00", align 1
-@NT_errors = external constant [0 x %struct._value_string], align 8
+@NT_errors_ext = external global %struct._value_string_ext, align 8
 @proto_register_dcerpc_dnsserver.ett = internal global [15 x ptr] [ptr @ett_dcerpc_dnsserver, ptr @ett_dnsserver_DNS_RPC_VERSION, ptr @ett_dnsserver_DNS_LOG_LEVELS, ptr @ett_dnsserver_DNS_RPC_PROTOCOLS, ptr @ett_dnsserver_DNS_SELECT_FLAGS, ptr @ett_dnsserver_DNS_RPC_NODE_FLAGS, ptr @ett_dnsserver_DNS_RPC_NAME, ptr @ett_dnsserver_DNS_RPC_RECORD_NODE_NAME, ptr @ett_dnsserver_DNS_RPC_RECORD_UNION, ptr @ett_dnsserver_DNS_RPC_RECORD, ptr @ett_dnsserver_DNS_RPC_NODE, ptr @ett_dnsserver_IP4_ARRAY, ptr @ett_dnsserver_DNS_RPC_SERVER_INFO_DOTNET, ptr @ett_dnsserver_DNSSRV_RPC_UNION, ptr @ett_dnsserver_DNS_RECORD_BUFFER], align 16
-@ett_dcerpc_dnsserver = internal global i32 -1, align 4
-@ett_dnsserver_DNS_RPC_RECORD_UNION = internal global i32 -1, align 4
-@ett_dnsserver_DNSSRV_RPC_UNION = internal global i32 -1, align 4
+@ett_dcerpc_dnsserver = internal global i32 0, align 4
+@ett_dnsserver_DNS_RPC_RECORD_UNION = internal global i32 0, align 4
+@ett_dnsserver_DNSSRV_RPC_UNION = internal global i32 0, align 4
 @.str.370 = private unnamed_addr constant [11 x i8] c"DNS Server\00", align 1
 @.str.371 = private unnamed_addr constant [10 x i8] c"DNSSERVER\00", align 1
 @.str.372 = private unnamed_addr constant [10 x i8] c"dnsserver\00", align 1
-@proto_dcerpc_dnsserver = internal global i32 -1, align 4
+@proto_dcerpc_dnsserver = internal global i32 0, align 4
 @uuid_dcerpc_dnsserver = internal global %struct._e_guid_t { i32 1353433764, i16 22349, i16 16563, [8 x i8] c"\9Df\EEO\D5\FB\A0v" }, align 4
 @ver_dcerpc_dnsserver = internal global i16 5, align 2
-@dnsserver_dissectors = internal global [11 x %struct._dcerpc_sub_dissector] [%struct._dcerpc_sub_dissector { i16 0, ptr @.str.458, ptr @dnsserver_dissect_DnssrvOperation_request, ptr @dnsserver_dissect_DnssrvOperation_response }, %struct._dcerpc_sub_dissector { i16 1, ptr @.str.459, ptr @dnsserver_dissect_DnssrvQuery_request, ptr @dnsserver_dissect_DnssrvQuery_response }, %struct._dcerpc_sub_dissector { i16 2, ptr @.str.460, ptr @dnsserver_dissect_DnssrvComplexOperation_request, ptr @dnsserver_dissect_DnssrvComplexOperation_response }, %struct._dcerpc_sub_dissector { i16 3, ptr @.str.461, ptr @dnsserver_dissect_DnssrvEnumRecords_request, ptr @dnsserver_dissect_DnssrvEnumRecords_response }, %struct._dcerpc_sub_dissector { i16 4, ptr @.str.462, ptr @dnsserver_dissect_DnssrvUpdateRecord_request, ptr @dnsserver_dissect_DnssrvUpdateRecord_response }, %struct._dcerpc_sub_dissector { i16 5, ptr @.str.463, ptr @dnsserver_dissect_DnssrvOperation2_request, ptr @dnsserver_dissect_DnssrvOperation2_response }, %struct._dcerpc_sub_dissector { i16 6, ptr @.str.464, ptr @dnsserver_dissect_DnssrvQuery2_request, ptr @dnsserver_dissect_DnssrvQuery2_response }, %struct._dcerpc_sub_dissector { i16 7, ptr @.str.465, ptr @dnsserver_dissect_DnssrvComplexOperation2_request, ptr @dnsserver_dissect_DnssrvComplexOperation2_response }, %struct._dcerpc_sub_dissector { i16 8, ptr @.str.466, ptr @dnsserver_dissect_DnssrvEnumRecords2_request, ptr @dnsserver_dissect_DnssrvEnumRecords2_response }, %struct._dcerpc_sub_dissector { i16 9, ptr @.str.467, ptr @dnsserver_dissect_DnssrvUpdateRecord2_request, ptr @dnsserver_dissect_DnssrvUpdateRecord2_response }, %struct._dcerpc_sub_dissector zeroinitializer], align 16
 @.str.373 = private unnamed_addr constant [21 x i8] c"DNS_RPC_RECORD_UNION\00", align 1
 @node_record_count = internal global i16 0, align 2
 @.str.374 = private unnamed_addr constant [30 x i8] c"Pointer to ServerName (uint8)\00", align 1
@@ -689,24 +688,25 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.465 = private unnamed_addr constant [24 x i8] c"DnssrvComplexOperation2\00", align 1
 @.str.466 = private unnamed_addr constant [19 x i8] c"DnssrvEnumRecords2\00", align 1
 @.str.467 = private unnamed_addr constant [20 x i8] c"DnssrvUpdateRecord2\00", align 1
-@.str.468 = private unnamed_addr constant [12 x i8] c", Error: %s\00", align 1
-@.str.469 = private unnamed_addr constant [25 x i8] c"Unknown NT status 0x%08x\00", align 1
-@.str.470 = private unnamed_addr constant [32 x i8] c"Pointer to Server Name (uint16)\00", align 1
-@.str.471 = private unnamed_addr constant [24 x i8] c"Pointer to Zone (uint8)\00", align 1
-@.str.472 = private unnamed_addr constant [29 x i8] c"Pointer to Operation (uint8)\00", align 1
-@.str.473 = private unnamed_addr constant [37 x i8] c"Pointer to Type Id (DnssrvRpcTypeId)\00", align 1
-@.str.474 = private unnamed_addr constant [35 x i8] c"Pointer to Data (DNSSRV_RPC_UNION)\00", align 1
-@.str.475 = private unnamed_addr constant [17 x i8] c"DNSSRV_RPC_UNION\00", align 1
-@.str.476 = private unnamed_addr constant [24 x i8] c"Pointer to Null (uint8)\00", align 1
-@.str.477 = private unnamed_addr constant [57 x i8] c"Pointer to ServerInfoDotnet (DNS_RPC_SERVER_INFO_DOTNET)\00", align 1
-@.str.478 = private unnamed_addr constant [29 x i8] c"Pointer to Node Name (uint8)\00", align 1
-@.str.479 = private unnamed_addr constant [31 x i8] c"Pointer to Start Child (uint8)\00", align 1
-@.str.480 = private unnamed_addr constant [32 x i8] c"Pointer to Filter Start (uint8)\00", align 1
-@.str.481 = private unnamed_addr constant [31 x i8] c"Pointer to Filter Stop (uint8)\00", align 1
-@.str.482 = private unnamed_addr constant [34 x i8] c"Pointer to Buffer Length (uint32)\00", align 1
-@.str.483 = private unnamed_addr constant [40 x i8] c"Pointer to Record Buffer (DNS_RPC_NODE)\00", align 1
+@dnsserver_dissectors = internal constant [11 x { i16, [6 x i8], ptr, ptr, ptr }] [{ i16, [6 x i8], ptr, ptr, ptr } { i16 0, [6 x i8] zeroinitializer, ptr @.str.458, ptr @dnsserver_dissect_DnssrvOperation_request, ptr @dnsserver_dissect_DnssrvOperation_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 1, [6 x i8] zeroinitializer, ptr @.str.459, ptr @dnsserver_dissect_DnssrvQuery_request, ptr @dnsserver_dissect_DnssrvQuery_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 2, [6 x i8] zeroinitializer, ptr @.str.460, ptr @dnsserver_dissect_DnssrvComplexOperation_request, ptr @dnsserver_dissect_DnssrvComplexOperation_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 3, [6 x i8] zeroinitializer, ptr @.str.461, ptr @dnsserver_dissect_DnssrvEnumRecords_request, ptr @dnsserver_dissect_DnssrvEnumRecords_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 4, [6 x i8] zeroinitializer, ptr @.str.462, ptr @dnsserver_dissect_DnssrvUpdateRecord_request, ptr @dnsserver_dissect_DnssrvUpdateRecord_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 5, [6 x i8] zeroinitializer, ptr @.str.463, ptr @dnsserver_dissect_DnssrvOperation2_request, ptr @dnsserver_dissect_DnssrvOperation2_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 6, [6 x i8] zeroinitializer, ptr @.str.464, ptr @dnsserver_dissect_DnssrvQuery2_request, ptr @dnsserver_dissect_DnssrvQuery2_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 7, [6 x i8] zeroinitializer, ptr @.str.465, ptr @dnsserver_dissect_DnssrvComplexOperation2_request, ptr @dnsserver_dissect_DnssrvComplexOperation2_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 8, [6 x i8] zeroinitializer, ptr @.str.466, ptr @dnsserver_dissect_DnssrvEnumRecords2_request, ptr @dnsserver_dissect_DnssrvEnumRecords2_response }, { i16, [6 x i8], ptr, ptr, ptr } { i16 9, [6 x i8] zeroinitializer, ptr @.str.467, ptr @dnsserver_dissect_DnssrvUpdateRecord2_request, ptr @dnsserver_dissect_DnssrvUpdateRecord2_response }, { i16, [6 x i8], ptr, ptr, ptr } zeroinitializer], align 16
+@.str.469 = private unnamed_addr constant [12 x i8] c", Error: %s\00", align 1
+@.str.470 = private unnamed_addr constant [25 x i8] c"Unknown NT status 0x%08x\00", align 1
+@.str.471 = private unnamed_addr constant [32 x i8] c"Pointer to Server Name (uint16)\00", align 1
+@.str.472 = private unnamed_addr constant [24 x i8] c"Pointer to Zone (uint8)\00", align 1
+@.str.473 = private unnamed_addr constant [29 x i8] c"Pointer to Operation (uint8)\00", align 1
+@.str.474 = private unnamed_addr constant [37 x i8] c"Pointer to Type Id (DnssrvRpcTypeId)\00", align 1
+@.str.475 = private unnamed_addr constant [35 x i8] c"Pointer to Data (DNSSRV_RPC_UNION)\00", align 1
+@.str.476 = private unnamed_addr constant [17 x i8] c"DNSSRV_RPC_UNION\00", align 1
+@.str.477 = private unnamed_addr constant [24 x i8] c"Pointer to Null (uint8)\00", align 1
+@.str.478 = private unnamed_addr constant [57 x i8] c"Pointer to ServerInfoDotnet (DNS_RPC_SERVER_INFO_DOTNET)\00", align 1
+@.str.479 = private unnamed_addr constant [29 x i8] c"Pointer to Node Name (uint8)\00", align 1
+@.str.480 = private unnamed_addr constant [31 x i8] c"Pointer to Start Child (uint8)\00", align 1
+@.str.481 = private unnamed_addr constant [32 x i8] c"Pointer to Filter Start (uint8)\00", align 1
+@.str.482 = private unnamed_addr constant [31 x i8] c"Pointer to Filter Stop (uint8)\00", align 1
+@.str.483 = private unnamed_addr constant [34 x i8] c"Pointer to Buffer Length (uint32)\00", align 1
+@.str.484 = private unnamed_addr constant [40 x i8] c"Pointer to Record Buffer (DNS_RPC_NODE)\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dnsserver_dissect_struct_DNS_RPC_NAME(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
@@ -721,6 +721,7 @@ define hidden i32 @dnsserver_dissect_struct_DNS_RPC_NAME(ptr noundef %0, i32 nou
   %19 = alloca ptr, align 8
   %20 = alloca i32, align 4
   %21 = alloca i8, align 1
+  %22 = alloca i32, align 4
   store ptr %0, ptr %10, align 8
   store i32 %1, ptr %11, align 4
   store ptr %2, ptr %12, align 8
@@ -729,84 +730,104 @@ define hidden i32 @dnsserver_dissect_struct_DNS_RPC_NAME(ptr noundef %0, i32 nou
   store ptr %5, ptr %15, align 8
   store i32 %6, ptr %16, align 4
   store i32 %7, ptr %17, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #4
   store ptr null, ptr %19, align 8
-  %22 = load ptr, ptr %14, align 8
-  %23 = getelementptr inbounds %struct._dcerpc_info, ptr %22, i32 0, i32 4
-  %24 = load i32, ptr %23, align 4
-  %25 = icmp ne i32 %24, 0
-  br i1 %25, label %26, label %28
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %21) #4
+  %23 = load ptr, ptr %14, align 8
+  %24 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %23, i32 0, i32 4
+  %25 = load i8, ptr %24, align 1, !range !6, !noundef !7
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %27, label %29
 
-26:                                               ; preds = %8
-  %27 = load i32, ptr %11, align 4
-  store i32 %27, ptr %9, align 4
-  br label %66
+27:                                               ; preds = %8
+  %28 = load i32, ptr %11, align 4
+  store i32 %28, ptr %9, align 4
+  store i32 1, ptr %22, align 4
+  br label %67
 
-28:                                               ; preds = %8
-  %29 = load i32, ptr %11, align 4
-  store i32 %29, ptr %20, align 4
-  %30 = load ptr, ptr %13, align 8
-  %31 = icmp ne ptr %30, null
-  br i1 %31, label %32, label %41
+29:                                               ; preds = %8
+  %30 = load i32, ptr %11, align 4
+  store i32 %30, ptr %20, align 4
+  %31 = load ptr, ptr %13, align 8
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %33, label %42
 
-32:                                               ; preds = %28
-  %33 = load ptr, ptr %13, align 8
-  %34 = load i32, ptr %16, align 4
-  %35 = load ptr, ptr %10, align 8
-  %36 = load i32, ptr %11, align 4
-  %37 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %34, ptr noundef %35, i32 noundef %36, i32 noundef -1, i32 noundef 1)
-  store ptr %37, ptr %18, align 8
-  %38 = load ptr, ptr %18, align 8
-  %39 = load i32, ptr @ett_dnsserver_DNS_RPC_NAME, align 4
-  %40 = call ptr @proto_item_add_subtree(ptr noundef %38, i32 noundef %39)
-  store ptr %40, ptr %19, align 8
-  br label %41
+33:                                               ; preds = %29
+  %34 = load ptr, ptr %13, align 8
+  %35 = load i32, ptr %16, align 4
+  %36 = load ptr, ptr %10, align 8
+  %37 = load i32, ptr %11, align 4
+  %38 = call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %35, ptr noundef %36, i32 noundef %37, i32 noundef -1, i32 noundef 0)
+  store ptr %38, ptr %18, align 8
+  %39 = load ptr, ptr %18, align 8
+  %40 = load i32, ptr @ett_dnsserver_DNS_RPC_NAME, align 4
+  %41 = call ptr @proto_item_add_subtree(ptr noundef %39, i32 noundef %40)
+  store ptr %41, ptr %19, align 8
+  br label %42
 
-41:                                               ; preds = %32, %28
-  %42 = load ptr, ptr %10, align 8
-  %43 = load i32, ptr %11, align 4
-  %44 = load ptr, ptr %12, align 8
-  %45 = load ptr, ptr %19, align 8
-  %46 = load ptr, ptr %14, align 8
-  %47 = load ptr, ptr %15, align 8
-  %48 = load i32, ptr @hf_dnsserver_DNS_RPC_NAME_NameLength, align 4
-  %49 = call i32 @dissect_ndr_uint8(ptr noundef %42, i32 noundef %43, ptr noundef %44, ptr noundef %45, ptr noundef %46, ptr noundef %47, i32 noundef %48, ptr noundef %21)
-  store i32 %49, ptr %11, align 4
-  %50 = load ptr, ptr %19, align 8
-  %51 = load i32, ptr @hf_dnsserver_DNS_RPC_NAME_name, align 4
-  %52 = load ptr, ptr %10, align 8
-  %53 = load i32, ptr %11, align 4
-  %54 = load i8, ptr %21, align 1
-  %55 = zext i8 %54 to i32
-  %56 = call ptr @proto_tree_add_item(ptr noundef %50, i32 noundef %51, ptr noundef %52, i32 noundef %53, i32 noundef %55, i32 noundef 2)
-  %57 = load i8, ptr %21, align 1
-  %58 = zext i8 %57 to i32
-  %59 = load i32, ptr %11, align 4
-  %60 = add i32 %59, %58
-  store i32 %60, ptr %11, align 4
-  %61 = load ptr, ptr %18, align 8
-  %62 = load i32, ptr %11, align 4
-  %63 = load i32, ptr %20, align 4
-  %64 = sub i32 %62, %63
-  call void @proto_item_set_len(ptr noundef %61, i32 noundef %64)
-  %65 = load i32, ptr %11, align 4
-  store i32 %65, ptr %9, align 4
-  br label %66
+42:                                               ; preds = %33, %29
+  %43 = load ptr, ptr %10, align 8
+  %44 = load i32, ptr %11, align 4
+  %45 = load ptr, ptr %12, align 8
+  %46 = load ptr, ptr %19, align 8
+  %47 = load ptr, ptr %14, align 8
+  %48 = load ptr, ptr %15, align 8
+  %49 = load i32, ptr @hf_dnsserver_DNS_RPC_NAME_NameLength, align 4
+  %50 = call i32 @dissect_ndr_uint8(ptr noundef %43, i32 noundef %44, ptr noundef %45, ptr noundef %46, ptr noundef %47, ptr noundef %48, i32 noundef %49, ptr noundef %21)
+  store i32 %50, ptr %11, align 4
+  %51 = load ptr, ptr %19, align 8
+  %52 = load i32, ptr @hf_dnsserver_DNS_RPC_NAME_name, align 4
+  %53 = load ptr, ptr %10, align 8
+  %54 = load i32, ptr %11, align 4
+  %55 = load i8, ptr %21, align 1
+  %56 = zext i8 %55 to i32
+  %57 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %52, ptr noundef %53, i32 noundef %54, i32 noundef %56, i32 noundef 2)
+  %58 = load i8, ptr %21, align 1
+  %59 = zext i8 %58 to i32
+  %60 = load i32, ptr %11, align 4
+  %61 = add i32 %60, %59
+  store i32 %61, ptr %11, align 4
+  %62 = load ptr, ptr %18, align 8
+  %63 = load i32, ptr %11, align 4
+  %64 = load i32, ptr %20, align 4
+  %65 = sub i32 %63, %64
+  call void @proto_item_set_len(ptr noundef %62, i32 noundef %65)
+  %66 = load i32, ptr %11, align 4
+  store i32 %66, ptr %9, align 4
+  store i32 1, ptr %22, align 4
+  br label %67
 
-66:                                               ; preds = %41, %26
-  %67 = load i32, ptr %9, align 4
-  ret i32 %67
+67:                                               ; preds = %42, %27
+  call void @llvm.lifetime.end.p0(i64 1, ptr %21) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  %68 = load i32, ptr %9, align 4
+  ret i32 %68
 }
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare i32 @dissect_ndr_uint8(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #2
 
-declare void @proto_item_set_len(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_uint8(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_set_len(ptr noundef, i32 noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dnsserver_dissect_enum_DNS_RPC_CLIENT_VERSION(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -825,6 +846,7 @@ define hidden i32 @dnsserver_dissect_enum_DNS_RPC_CLIENT_VERSION(ptr noundef %0,
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store ptr %7, ptr %16, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #4
   store i32 0, ptr %17, align 4
   %18 = load ptr, ptr %16, align 8
   %19 = icmp ne ptr %18, null
@@ -858,12 +880,14 @@ define hidden i32 @dnsserver_dissect_enum_DNS_RPC_CLIENT_VERSION(ptr noundef %0,
 
 37:                                               ; preds = %34, %23
   %38 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #4
   ret i32 %38
 }
 
-declare i32 @dissect_ndr_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dnsserver_dissect_struct_DNS_RPC_VERSION(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -884,12 +908,15 @@ define hidden i32 @dnsserver_dissect_struct_DNS_RPC_VERSION(ptr noundef %0, i32 
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 4
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp ne i32 %22, 0
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 4
+  %22 = load i8, ptr %21, align 1, !range !6, !noundef !7
+  %23 = trunc i8 %22 to i1
   br i1 %23, label %33, label %24
 
 24:                                               ; preds = %8
@@ -959,9 +986,9 @@ define hidden i32 @dnsserver_dissect_struct_DNS_RPC_VERSION(ptr noundef %0, i32 
   %71 = sub i32 %69, %70
   call void @proto_item_set_len(ptr noundef %68, i32 noundef %71)
   %72 = load ptr, ptr %13, align 8
-  %73 = getelementptr inbounds %struct._dcerpc_info, ptr %72, i32 0, i32 14
+  %73 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %72, i32 0, i32 14
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds %struct._dcerpc_call_value, ptr %74, i32 0, i32 11
+  %75 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %74, i32 0, i32 11
   %76 = load i32, ptr %75, align 8
   %77 = and i32 %76, 1
   %78 = icmp ne i32 %77, 0
@@ -969,9 +996,9 @@ define hidden i32 @dnsserver_dissect_struct_DNS_RPC_VERSION(ptr noundef %0, i32 
 
 79:                                               ; preds = %46
   %80 = load ptr, ptr %13, align 8
-  %81 = getelementptr inbounds %struct._dcerpc_info, ptr %80, i32 0, i32 4
-  %82 = load i32, ptr %81, align 4
-  %83 = icmp ne i32 %82, 0
+  %81 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %80, i32 0, i32 4
+  %82 = load i8, ptr %81, align 1, !range !6, !noundef !7
+  %83 = trunc i8 %82 to i1
   br i1 %83, label %93, label %84
 
 84:                                               ; preds = %79
@@ -995,10 +1022,13 @@ define hidden i32 @dnsserver_dissect_struct_DNS_RPC_VERSION(ptr noundef %0, i32 
 
 94:                                               ; preds = %93, %46
   %95 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %95
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_VERSION_OSMajorVersion(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1025,7 +1055,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_VERSION_OSMajorVersion(pt
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_VERSION_OSMinorVersion(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1052,7 +1082,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_VERSION_OSMinorVersion(pt
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_VERSION_ServicePackVersion(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1079,7 +1109,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_VERSION_ServicePackVersio
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dnsserver_dissect_enum_DNS_RPC_BOOT_METHOD(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -1098,6 +1128,7 @@ define hidden i32 @dnsserver_dissect_enum_DNS_RPC_BOOT_METHOD(ptr noundef %0, i3
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store ptr %7, ptr %16, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %17) #4
   store i8 0, ptr %17, align 1
   %18 = load ptr, ptr %16, align 8
   %19 = icmp ne ptr %18, null
@@ -1131,10 +1162,11 @@ define hidden i32 @dnsserver_dissect_enum_DNS_RPC_BOOT_METHOD(ptr noundef %0, i3
 
 37:                                               ; preds = %34, %23
   %38 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %17) #4
   ret i32 %38
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dnsserver_dissect_bitmap_DNS_LOG_LEVELS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -1154,10 +1186,12 @@ define hidden i32 @dnsserver_dissect_bitmap_DNS_LOG_LEVELS(ptr noundef %0, i32 n
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #4
   %19 = load ptr, ptr %13, align 8
-  %20 = getelementptr inbounds %struct._dcerpc_info, ptr %19, i32 0, i32 4
-  %21 = load i32, ptr %20, align 4
-  %22 = icmp ne i32 %21, 0
+  %20 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %19, i32 0, i32 4
+  %21 = load i8, ptr %20, align 1, !range !6, !noundef !7
+  %22 = trunc i8 %21 to i1
   br i1 %22, label %32, label %23
 
 23:                                               ; preds = %8
@@ -1225,14 +1259,18 @@ define hidden i32 @dnsserver_dissect_bitmap_DNS_LOG_LEVELS(ptr noundef %0, i32 n
 
 66:                                               ; preds = %61, %57
   %67 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %67
 }
 
-declare ptr @proto_tree_add_bitmask_with_flags(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_bitmask_with_flags(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dnsserver_dissect_bitmap_DNS_RPC_PROTOCOLS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -1252,10 +1290,12 @@ define hidden i32 @dnsserver_dissect_bitmap_DNS_RPC_PROTOCOLS(ptr noundef %0, i3
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #4
   %19 = load ptr, ptr %13, align 8
-  %20 = getelementptr inbounds %struct._dcerpc_info, ptr %19, i32 0, i32 4
-  %21 = load i32, ptr %20, align 4
-  %22 = icmp ne i32 %21, 0
+  %20 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %19, i32 0, i32 4
+  %21 = load i8, ptr %20, align 1, !range !6, !noundef !7
+  %22 = trunc i8 %21 to i1
   br i1 %22, label %32, label %23
 
 23:                                               ; preds = %8
@@ -1323,10 +1363,12 @@ define hidden i32 @dnsserver_dissect_bitmap_DNS_RPC_PROTOCOLS(ptr noundef %0, i3
 
 66:                                               ; preds = %61, %57
   %67 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %67
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dnsserver_dissect_enum_DNS_NAME_CHECK_FLAGS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -1345,6 +1387,7 @@ define hidden i32 @dnsserver_dissect_enum_DNS_NAME_CHECK_FLAGS(ptr noundef %0, i
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store ptr %7, ptr %16, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #4
   store i32 0, ptr %17, align 4
   %18 = load ptr, ptr %16, align 8
   %19 = icmp ne ptr %18, null
@@ -1378,10 +1421,11 @@ define hidden i32 @dnsserver_dissect_enum_DNS_NAME_CHECK_FLAGS(ptr noundef %0, i
 
 37:                                               ; preds = %34, %23
   %38 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #4
   ret i32 %38
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dnsserver_dissect_enum_DNS_RECORD_TYPE(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -1400,6 +1444,7 @@ define hidden i32 @dnsserver_dissect_enum_DNS_RECORD_TYPE(ptr noundef %0, i32 no
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store ptr %7, ptr %16, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %17) #4
   store i16 0, ptr %17, align 2
   %18 = load ptr, ptr %16, align 8
   %19 = icmp ne ptr %18, null
@@ -1433,12 +1478,14 @@ define hidden i32 @dnsserver_dissect_enum_DNS_RECORD_TYPE(ptr noundef %0, i32 no
 
 37:                                               ; preds = %34, %23
   %38 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %17) #4
   ret i32 %38
 }
 
-declare i32 @dissect_ndr_uint16(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_uint16(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dnsserver_dissect_bitmap_DNS_SELECT_FLAGS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -1458,10 +1505,12 @@ define hidden i32 @dnsserver_dissect_bitmap_DNS_SELECT_FLAGS(ptr noundef %0, i32
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #4
   %19 = load ptr, ptr %13, align 8
-  %20 = getelementptr inbounds %struct._dcerpc_info, ptr %19, i32 0, i32 4
-  %21 = load i32, ptr %20, align 4
-  %22 = icmp ne i32 %21, 0
+  %20 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %19, i32 0, i32 4
+  %21 = load i8, ptr %20, align 1, !range !6, !noundef !7
+  %22 = trunc i8 %21 to i1
   br i1 %22, label %32, label %23
 
 23:                                               ; preds = %8
@@ -1529,10 +1578,12 @@ define hidden i32 @dnsserver_dissect_bitmap_DNS_SELECT_FLAGS(ptr noundef %0, i32
 
 66:                                               ; preds = %61, %57
   %67 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %67
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dnsserver_dissect_bitmap_DNS_RPC_NODE_FLAGS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -1552,10 +1603,12 @@ define hidden i32 @dnsserver_dissect_bitmap_DNS_RPC_NODE_FLAGS(ptr noundef %0, i
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #4
   %19 = load ptr, ptr %13, align 8
-  %20 = getelementptr inbounds %struct._dcerpc_info, ptr %19, i32 0, i32 4
-  %21 = load i32, ptr %20, align 4
-  %22 = icmp ne i32 %21, 0
+  %20 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %19, i32 0, i32 4
+  %21 = load i8, ptr %20, align 1, !range !6, !noundef !7
+  %22 = trunc i8 %21 to i1
   br i1 %22, label %32, label %23
 
 23:                                               ; preds = %8
@@ -1623,10 +1676,12 @@ define hidden i32 @dnsserver_dissect_bitmap_DNS_RPC_NODE_FLAGS(ptr noundef %0, i
 
 66:                                               ; preds = %61, %57
   %67 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %67
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dnsserver_dissect_struct_DNS_RPC_RECORD_NODE_NAME(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -1647,8 +1702,11 @@ define hidden i32 @dnsserver_dissect_struct_DNS_RPC_RECORD_NODE_NAME(ptr noundef
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
   %20 = load i32, ptr %10, align 4
   store i32 %20, ptr %19, align 4
   %21 = load ptr, ptr %12, align 8
@@ -1683,10 +1741,13 @@ define hidden i32 @dnsserver_dissect_struct_DNS_RPC_RECORD_NODE_NAME(ptr noundef
   %43 = sub i32 %41, %42
   call void @proto_item_set_len(ptr noundef %40, i32 noundef %43)
   %44 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %44
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_RECORD_NODE_NAME_Name(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1713,7 +1774,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_RECORD_NODE_NAME_Name(ptr
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dnsserver_dissect_struct_DNS_RPC_RECORD(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -1735,13 +1796,17 @@ define hidden i32 @dnsserver_dissect_struct_DNS_RPC_RECORD(ptr noundef %0, i32 n
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %17) #4
   store i16 0, ptr %17, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #4
   store ptr null, ptr %19, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #4
   %21 = load ptr, ptr %13, align 8
-  %22 = getelementptr inbounds %struct._dcerpc_info, ptr %21, i32 0, i32 4
-  %23 = load i32, ptr %22, align 4
-  %24 = icmp ne i32 %23, 0
+  %22 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %21, i32 0, i32 4
+  %23 = load i8, ptr %22, align 1, !range !6, !noundef !7
+  %24 = trunc i8 %23 to i1
   br i1 %24, label %34, label %25
 
 25:                                               ; preds = %8
@@ -1851,9 +1916,9 @@ define hidden i32 @dnsserver_dissect_struct_DNS_RPC_RECORD(ptr noundef %0, i32 n
   %107 = sub i32 %105, %106
   call void @proto_item_set_len(ptr noundef %104, i32 noundef %107)
   %108 = load ptr, ptr %13, align 8
-  %109 = getelementptr inbounds %struct._dcerpc_info, ptr %108, i32 0, i32 14
+  %109 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %108, i32 0, i32 14
   %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds %struct._dcerpc_call_value, ptr %110, i32 0, i32 11
+  %111 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %110, i32 0, i32 11
   %112 = load i32, ptr %111, align 8
   %113 = and i32 %112, 1
   %114 = icmp ne i32 %113, 0
@@ -1861,9 +1926,9 @@ define hidden i32 @dnsserver_dissect_struct_DNS_RPC_RECORD(ptr noundef %0, i32 n
 
 115:                                              ; preds = %47
   %116 = load ptr, ptr %13, align 8
-  %117 = getelementptr inbounds %struct._dcerpc_info, ptr %116, i32 0, i32 4
-  %118 = load i32, ptr %117, align 4
-  %119 = icmp ne i32 %118, 0
+  %117 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %116, i32 0, i32 4
+  %118 = load i8, ptr %117, align 1, !range !6, !noundef !7
+  %119 = trunc i8 %118 to i1
   br i1 %119, label %129, label %120
 
 120:                                              ; preds = %115
@@ -1887,10 +1952,14 @@ define hidden i32 @dnsserver_dissect_struct_DNS_RPC_RECORD(ptr noundef %0, i32 n
 
 130:                                              ; preds = %129, %47
   %131 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %17) #4
   ret i32 %131
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_RECORD_DataLength(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1917,7 +1986,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_RECORD_DataLength(ptr nou
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_RECORD_Type(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
@@ -1947,7 +2016,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_RECORD_Type(ptr noundef %
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_RECORD_Flags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1974,7 +2043,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_RECORD_Flags(ptr noundef 
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_RECORD_Serial(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2001,7 +2070,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_RECORD_Serial(ptr noundef
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_RECORD_TtlSeconds(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2028,7 +2097,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_RECORD_TtlSeconds(ptr nou
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_RECORD_TimeStamp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2055,7 +2124,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_RECORD_TimeStamp(ptr noun
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_RECORD_reserved(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2082,7 +2151,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_RECORD_reserved(ptr nound
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_RECORD_record(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
@@ -2114,7 +2183,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_RECORD_record(ptr noundef
   ret i32 %26
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dnsserver_dissect_struct_DNS_RPC_NODE(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -2135,12 +2204,15 @@ define hidden i32 @dnsserver_dissect_struct_DNS_RPC_NODE(ptr noundef %0, i32 nou
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 4
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp ne i32 %22, 0
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 4
+  %22 = load i8, ptr %21, align 1, !range !6, !noundef !7
+  %23 = trunc i8 %22 to i1
   br i1 %23, label %33, label %24
 
 24:                                               ; preds = %8
@@ -2234,9 +2306,9 @@ define hidden i32 @dnsserver_dissect_struct_DNS_RPC_NODE(ptr noundef %0, i32 nou
   %92 = sub i32 %90, %91
   call void @proto_item_set_len(ptr noundef %89, i32 noundef %92)
   %93 = load ptr, ptr %13, align 8
-  %94 = getelementptr inbounds %struct._dcerpc_info, ptr %93, i32 0, i32 14
+  %94 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %93, i32 0, i32 14
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds %struct._dcerpc_call_value, ptr %95, i32 0, i32 11
+  %96 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %95, i32 0, i32 11
   %97 = load i32, ptr %96, align 8
   %98 = and i32 %97, 1
   %99 = icmp ne i32 %98, 0
@@ -2244,9 +2316,9 @@ define hidden i32 @dnsserver_dissect_struct_DNS_RPC_NODE(ptr noundef %0, i32 nou
 
 100:                                              ; preds = %46
   %101 = load ptr, ptr %13, align 8
-  %102 = getelementptr inbounds %struct._dcerpc_info, ptr %101, i32 0, i32 4
-  %103 = load i32, ptr %102, align 4
-  %104 = icmp ne i32 %103, 0
+  %102 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %101, i32 0, i32 4
+  %103 = load i8, ptr %102, align 1, !range !6, !noundef !7
+  %104 = trunc i8 %103 to i1
   br i1 %104, label %114, label %105
 
 105:                                              ; preds = %100
@@ -2270,10 +2342,13 @@ define hidden i32 @dnsserver_dissect_struct_DNS_RPC_NODE(ptr noundef %0, i32 nou
 
 115:                                              ; preds = %114, %46
   %116 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %116
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_NODE_Length(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2300,7 +2375,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_NODE_Length(ptr noundef %
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_NODE_RecordCount(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
@@ -2316,9 +2391,9 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_NODE_RecordCount(ptr noun
   store ptr %4, ptr %12, align 8
   store ptr %5, ptr %13, align 8
   %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 4
-  %16 = load i32, ptr %15, align 4
-  %17 = icmp ne i32 %16, 0
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 4
+  %16 = load i8, ptr %15, align 1, !range !6, !noundef !7
+  %17 = trunc i8 %16 to i1
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %6
@@ -2345,7 +2420,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_NODE_RecordCount(ptr noun
   ret i32 %31
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_NODE_Flags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2372,7 +2447,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_NODE_Flags(ptr noundef %0
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_NODE_Childcount(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2399,7 +2474,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_NODE_Childcount(ptr nound
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_NODE_NodeName(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2426,7 +2501,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_NODE_NodeName(ptr noundef
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_NODE_records(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
@@ -2442,9 +2517,9 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_NODE_records(ptr noundef 
   store ptr %4, ptr %12, align 8
   store ptr %5, ptr %13, align 8
   %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 4
-  %16 = load i32, ptr %15, align 4
-  %17 = icmp ne i32 %16, 0
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 4
+  %16 = load i8, ptr %15, align 1, !range !6, !noundef !7
+  %17 = trunc i8 %16 to i1
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %6
@@ -2471,7 +2546,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_NODE_records(ptr noundef 
   %31 = load ptr, ptr %13, align 8
   %32 = call i32 @dnsserver_dissect_element_DNS_RPC_NODE_records_(ptr noundef %26, i32 noundef %27, ptr noundef %28, ptr noundef %29, ptr noundef %30, ptr noundef %31)
   store i32 %32, ptr %9, align 4
-  br label %21, !llvm.loop !4
+  br label %21, !llvm.loop !8
 
 33:                                               ; preds = %21
   %34 = load i32, ptr %9, align 4
@@ -2483,7 +2558,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_NODE_records(ptr noundef 
   ret i32 %36
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dnsserver_dissect_struct_IP4_ARRAY(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -2504,12 +2579,15 @@ define hidden i32 @dnsserver_dissect_struct_IP4_ARRAY(ptr noundef %0, i32 nounde
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 4
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp ne i32 %22, 0
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 4
+  %22 = load i8, ptr %21, align 1, !range !6, !noundef !7
+  %23 = trunc i8 %22 to i1
   br i1 %23, label %33, label %24
 
 24:                                               ; preds = %8
@@ -2571,9 +2649,9 @@ define hidden i32 @dnsserver_dissect_struct_IP4_ARRAY(ptr noundef %0, i32 nounde
   %64 = sub i32 %62, %63
   call void @proto_item_set_len(ptr noundef %61, i32 noundef %64)
   %65 = load ptr, ptr %13, align 8
-  %66 = getelementptr inbounds %struct._dcerpc_info, ptr %65, i32 0, i32 14
+  %66 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %65, i32 0, i32 14
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds %struct._dcerpc_call_value, ptr %67, i32 0, i32 11
+  %68 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %67, i32 0, i32 11
   %69 = load i32, ptr %68, align 8
   %70 = and i32 %69, 1
   %71 = icmp ne i32 %70, 0
@@ -2581,9 +2659,9 @@ define hidden i32 @dnsserver_dissect_struct_IP4_ARRAY(ptr noundef %0, i32 nounde
 
 72:                                               ; preds = %46
   %73 = load ptr, ptr %13, align 8
-  %74 = getelementptr inbounds %struct._dcerpc_info, ptr %73, i32 0, i32 4
-  %75 = load i32, ptr %74, align 4
-  %76 = icmp ne i32 %75, 0
+  %74 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %73, i32 0, i32 4
+  %75 = load i8, ptr %74, align 1, !range !6, !noundef !7
+  %76 = trunc i8 %75 to i1
   br i1 %76, label %86, label %77
 
 77:                                               ; preds = %72
@@ -2607,10 +2685,13 @@ define hidden i32 @dnsserver_dissect_struct_IP4_ARRAY(ptr noundef %0, i32 nounde
 
 87:                                               ; preds = %86, %46
   %88 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %88
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_IP4_ARRAY_AddrCount(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2637,7 +2718,7 @@ define internal i32 @dnsserver_dissect_element_IP4_ARRAY_AddrCount(ptr noundef %
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_IP4_ARRAY_AddrArray(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -2663,7 +2744,7 @@ define internal i32 @dnsserver_dissect_element_IP4_ARRAY_AddrArray(ptr noundef %
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dnsserver_dissect_struct_DNS_RPC_SERVER_INFO_DOTNET(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -2684,12 +2765,15 @@ define hidden i32 @dnsserver_dissect_struct_DNS_RPC_SERVER_INFO_DOTNET(ptr nound
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 14
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 14
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds %struct._dcerpc_call_value, ptr %22, i32 0, i32 11
+  %23 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %22, i32 0, i32 11
   %24 = load i32, ptr %23, align 8
   %25 = and i32 %24, 1
   %26 = icmp ne i32 %25, 0
@@ -2697,9 +2781,9 @@ define hidden i32 @dnsserver_dissect_struct_DNS_RPC_SERVER_INFO_DOTNET(ptr nound
 
 27:                                               ; preds = %8
   %28 = load ptr, ptr %13, align 8
-  %29 = getelementptr inbounds %struct._dcerpc_info, ptr %28, i32 0, i32 4
-  %30 = load i32, ptr %29, align 4
-  %31 = icmp ne i32 %30, 0
+  %29 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %28, i32 0, i32 4
+  %30 = load i8, ptr %29, align 1, !range !6, !noundef !7
+  %31 = trunc i8 %30 to i1
   br i1 %31, label %41, label %32
 
 32:                                               ; preds = %27
@@ -2723,9 +2807,9 @@ define hidden i32 @dnsserver_dissect_struct_DNS_RPC_SERVER_INFO_DOTNET(ptr nound
 
 42:                                               ; preds = %8
   %43 = load ptr, ptr %13, align 8
-  %44 = getelementptr inbounds %struct._dcerpc_info, ptr %43, i32 0, i32 4
-  %45 = load i32, ptr %44, align 4
-  %46 = icmp ne i32 %45, 0
+  %44 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %43, i32 0, i32 4
+  %45 = load i8, ptr %44, align 1, !range !6, !noundef !7
+  %46 = trunc i8 %45 to i1
   br i1 %46, label %56, label %47
 
 47:                                               ; preds = %42
@@ -3246,9 +3330,9 @@ define hidden i32 @dnsserver_dissect_struct_DNS_RPC_SERVER_INFO_DOTNET(ptr nound
   %487 = sub i32 %485, %486
   call void @proto_item_set_len(ptr noundef %484, i32 noundef %487)
   %488 = load ptr, ptr %13, align 8
-  %489 = getelementptr inbounds %struct._dcerpc_info, ptr %488, i32 0, i32 14
+  %489 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %488, i32 0, i32 14
   %490 = load ptr, ptr %489, align 8
-  %491 = getelementptr inbounds %struct._dcerpc_call_value, ptr %490, i32 0, i32 11
+  %491 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %490, i32 0, i32 11
   %492 = load i32, ptr %491, align 8
   %493 = and i32 %492, 1
   %494 = icmp ne i32 %493, 0
@@ -3256,9 +3340,9 @@ define hidden i32 @dnsserver_dissect_struct_DNS_RPC_SERVER_INFO_DOTNET(ptr nound
 
 495:                                              ; preds = %70
   %496 = load ptr, ptr %13, align 8
-  %497 = getelementptr inbounds %struct._dcerpc_info, ptr %496, i32 0, i32 14
+  %497 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %496, i32 0, i32 14
   %498 = load ptr, ptr %497, align 8
-  %499 = getelementptr inbounds %struct._dcerpc_call_value, ptr %498, i32 0, i32 11
+  %499 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %498, i32 0, i32 11
   %500 = load i32, ptr %499, align 8
   %501 = and i32 %500, 1
   %502 = icmp ne i32 %501, 0
@@ -3266,9 +3350,9 @@ define hidden i32 @dnsserver_dissect_struct_DNS_RPC_SERVER_INFO_DOTNET(ptr nound
 
 503:                                              ; preds = %495
   %504 = load ptr, ptr %13, align 8
-  %505 = getelementptr inbounds %struct._dcerpc_info, ptr %504, i32 0, i32 4
-  %506 = load i32, ptr %505, align 4
-  %507 = icmp ne i32 %506, 0
+  %505 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %504, i32 0, i32 4
+  %506 = load i8, ptr %505, align 1, !range !6, !noundef !7
+  %507 = trunc i8 %506 to i1
   br i1 %507, label %517, label %508
 
 508:                                              ; preds = %503
@@ -3292,9 +3376,9 @@ define hidden i32 @dnsserver_dissect_struct_DNS_RPC_SERVER_INFO_DOTNET(ptr nound
 
 518:                                              ; preds = %495
   %519 = load ptr, ptr %13, align 8
-  %520 = getelementptr inbounds %struct._dcerpc_info, ptr %519, i32 0, i32 4
-  %521 = load i32, ptr %520, align 4
-  %522 = icmp ne i32 %521, 0
+  %520 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %519, i32 0, i32 4
+  %521 = load i8, ptr %520, align 1, !range !6, !noundef !7
+  %522 = trunc i8 %521 to i1
   br i1 %522, label %532, label %523
 
 523:                                              ; preds = %518
@@ -3321,10 +3405,13 @@ define hidden i32 @dnsserver_dissect_struct_DNS_RPC_SERVER_INFO_DOTNET(ptr nound
 
 534:                                              ; preds = %533, %70
   %535 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %535
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_RpcStructureVersion(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3351,7 +3438,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_RpcStr
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_reserved0(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3378,7 +3465,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_reserv
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_Version(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3405,7 +3492,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_Versio
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_BootMethod(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3432,7 +3519,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_BootMe
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_AdminConfigured(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3459,7 +3546,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_AdminC
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_AllowUpdate(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3486,7 +3573,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_AllowU
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_DsAvailable(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3513,7 +3600,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_DsAvai
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_ServerName(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3540,7 +3627,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_Server
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_DsContainer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3567,7 +3654,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_DsCont
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_ServerAddrs(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3594,7 +3681,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_Server
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_ListenAddrs(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3621,7 +3708,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_Listen
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_Forwarders(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3648,7 +3735,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_Forwar
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_LogFilter(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3675,7 +3762,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_LogFil
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_LogFilePath(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3702,7 +3789,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_LogFil
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_DomainName(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3729,7 +3816,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_Domain
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_ForestName(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3756,7 +3843,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_Forest
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_DomainDirectoryPartition(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3783,7 +3870,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_Domain
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_ForestDirectoryPartition(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3810,7 +3897,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_Forest
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_extension0(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3837,7 +3924,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_extens
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_extension1(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3864,7 +3951,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_extens
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_extension2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3891,7 +3978,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_extens
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_extension3(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3918,7 +4005,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_extens
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_extension4(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3945,7 +4032,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_extens
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_extension5(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3972,7 +4059,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_extens
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_LogLevel(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3999,7 +4086,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_LogLev
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_DebugLevel(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4026,7 +4113,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_DebugL
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_ForwardTimeout(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4053,7 +4140,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_Forwar
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_RpcProtocol(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4080,7 +4167,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_RpcPro
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_NameCheckFlag(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4107,7 +4194,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_NameCh
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_AddressAnswerLimit(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4134,7 +4221,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_Addres
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_RecursionRetry(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4161,7 +4248,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_Recurs
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_RecursionTimeout(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4188,7 +4275,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_Recurs
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_MaxCacheTtl(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4215,7 +4302,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_MaxCac
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_DsPollingInterval(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4242,7 +4329,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_DsPoll
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_LocalNetPriorityNetmask(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4269,7 +4356,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_LocalN
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_ScavengingInterval(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4296,7 +4383,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_Scaven
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_DefaultRefreshInterval(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4323,7 +4410,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_Defaul
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_DefaultNoRefreshInterval(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4350,7 +4437,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_Defaul
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_LastScavengeTime(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4377,7 +4464,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_LastSc
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_EventLogLevel(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4404,7 +4491,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_EventL
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_LogFileMaxSize(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4431,7 +4518,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_LogFil
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_DsForestVersion(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4458,7 +4545,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_DsFore
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_DsDomainVersion(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4485,7 +4572,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_DsDoma
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_DsDsaVersion(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4512,7 +4599,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_DsDsaV
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_reserve_array(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4527,6 +4614,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_reserv
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   br label %14
 
@@ -4550,14 +4638,15 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_reserv
   %26 = load i32, ptr %13, align 4
   %27 = add i32 %26, 1
   store i32 %27, ptr %13, align 4
-  br label %14, !llvm.loop !6
+  br label %14, !llvm.loop !10
 
 28:                                               ; preds = %14
   %29 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %29
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_AutoReverseZones(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4584,7 +4673,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_AutoRe
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_AutoCacheUpdate(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4611,7 +4700,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_AutoCa
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_RecurseAfterForwarding(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4638,7 +4727,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_Recurs
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_ForwardDelegations(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4665,7 +4754,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_Forwar
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_NoRecursion(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4692,7 +4781,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_NoRecu
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_SecureResponses(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4719,7 +4808,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_Secure
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_RoundRobin(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4746,7 +4835,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_RoundR
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_LocalNetPriority(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4773,7 +4862,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_LocalN
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_BindSecondaries(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4800,7 +4889,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_BindSe
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_WriteAuthorityNs(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4827,7 +4916,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_WriteA
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_StrictFileParsing(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4854,7 +4943,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_Strict
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_LooseWildcarding(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4881,7 +4970,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_LooseW
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_DefaultAgingState(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4908,7 +4997,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_Defaul
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_reserve_array2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -4923,6 +5012,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_reserv
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
   br label %14
 
@@ -4946,14 +5036,15 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_reserv
   %26 = load i32, ptr %13, align 4
   %27 = add i32 %26, 1
   store i32 %27, ptr %13, align 4
-  br label %14, !llvm.loop !7
+  br label %14, !llvm.loop !11
 
 28:                                               ; preds = %14
   %29 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %29
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dnsserver_dissect_enum_DnssrvRpcTypeId(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -4972,6 +5063,7 @@ define hidden i32 @dnsserver_dissect_enum_DnssrvRpcTypeId(ptr noundef %0, i32 no
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store ptr %7, ptr %16, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #4
   store i32 0, ptr %17, align 4
   %18 = load ptr, ptr %16, align 8
   %19 = icmp ne ptr %18, null
@@ -5005,10 +5097,11 @@ define hidden i32 @dnsserver_dissect_enum_DnssrvRpcTypeId(ptr noundef %0, i32 no
 
 37:                                               ; preds = %34, %23
   %38 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #4
   ret i32 %38
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dnsserver_dissect_struct_DNS_RECORD_BUFFER(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -5029,12 +5122,15 @@ define hidden i32 @dnsserver_dissect_struct_DNS_RECORD_BUFFER(ptr noundef %0, i3
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds %struct._dcerpc_info, ptr %20, i32 0, i32 4
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp ne i32 %22, 0
+  %21 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %20, i32 0, i32 4
+  %22 = load i8, ptr %21, align 1, !range !6, !noundef !7
+  %23 = trunc i8 %22 to i1
   br i1 %23, label %33, label %24
 
 24:                                               ; preds = %8
@@ -5088,9 +5184,9 @@ define hidden i32 @dnsserver_dissect_struct_DNS_RECORD_BUFFER(ptr noundef %0, i3
   %57 = sub i32 %55, %56
   call void @proto_item_set_len(ptr noundef %54, i32 noundef %57)
   %58 = load ptr, ptr %13, align 8
-  %59 = getelementptr inbounds %struct._dcerpc_info, ptr %58, i32 0, i32 14
+  %59 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %58, i32 0, i32 14
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds %struct._dcerpc_call_value, ptr %60, i32 0, i32 11
+  %61 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %60, i32 0, i32 11
   %62 = load i32, ptr %61, align 8
   %63 = and i32 %62, 1
   %64 = icmp ne i32 %63, 0
@@ -5098,9 +5194,9 @@ define hidden i32 @dnsserver_dissect_struct_DNS_RECORD_BUFFER(ptr noundef %0, i3
 
 65:                                               ; preds = %46
   %66 = load ptr, ptr %13, align 8
-  %67 = getelementptr inbounds %struct._dcerpc_info, ptr %66, i32 0, i32 4
-  %68 = load i32, ptr %67, align 4
-  %69 = icmp ne i32 %68, 0
+  %67 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %66, i32 0, i32 4
+  %68 = load i8, ptr %67, align 1, !range !6, !noundef !7
+  %69 = trunc i8 %68 to i1
   br i1 %69, label %79, label %70
 
 70:                                               ; preds = %65
@@ -5124,10 +5220,13 @@ define hidden i32 @dnsserver_dissect_struct_DNS_RECORD_BUFFER(ptr noundef %0, i3
 
 80:                                               ; preds = %79, %46
   %81 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %81
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RECORD_BUFFER_rpc_node(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5154,7 +5253,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RECORD_BUFFER_rpc_node(ptr no
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_dcerpc_dnsserver() #0 {
   %1 = call i32 @proto_register_protocol(ptr noundef @.str.370, ptr noundef @.str.371, ptr noundef @.str.372)
   store i32 %1, ptr @proto_dcerpc_dnsserver, align 4
@@ -5164,13 +5263,16 @@ define hidden void @proto_register_dcerpc_dnsserver() #0 {
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_dcerpc_dnsserver() #0 {
   %1 = load i32, ptr @proto_dcerpc_dnsserver, align 4
   %2 = load i32, ptr @ett_dcerpc_dnsserver, align 4
@@ -5180,15 +5282,19 @@ define hidden void @proto_reg_handoff_dcerpc_dnsserver() #0 {
   ret void
 }
 
-declare void @dcerpc_init_uuid(i32 noundef, i32 noundef, ptr noundef, i16 noundef zeroext, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dcerpc_init_uuid(i32 noundef, i32 noundef, ptr noundef, i16 noundef zeroext, ptr noundef, i32 noundef) #2
 
-declare i32 @PIDL_dissect_uint8(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @PIDL_dissect_uint8(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-declare i32 @PIDL_dissect_uint16(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @PIDL_dissect_uint16(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-declare i32 @PIDL_dissect_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @PIDL_dissect_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_DNS_RPC_RECORD_UNION(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -5210,8 +5316,12 @@ define internal i32 @dnsserver_dissect_DNS_RPC_RECORD_UNION(ptr noundef %0, i32 
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #4
   %21 = load i32, ptr %10, align 4
   store i32 %21, ptr %19, align 4
   %22 = load ptr, ptr %12, align 8
@@ -5253,19 +5363,24 @@ define internal i32 @dnsserver_dissect_DNS_RPC_RECORD_UNION(ptr noundef %0, i32 
   store i32 %47, ptr %10, align 4
   br label %48
 
-48:                                               ; preds = %40, %30
+48:                                               ; preds = %30, %40
   %49 = load ptr, ptr %17, align 8
   %50 = load i32, ptr %10, align 4
   %51 = load i32, ptr %19, align 4
   %52 = sub i32 %50, %51
   call void @proto_item_set_len(ptr noundef %49, i32 noundef %52)
   %53 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %53
 }
 
-declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_RECORD_UNION_NodeName(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5292,7 +5407,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_RECORD_UNION_NodeName(ptr
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_NODE_records_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5319,9 +5434,10 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_NODE_records_(ptr noundef
   ret i32 %21
 }
 
-declare i32 @dissect_ndr_ucarray(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_ucarray(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_IP4_ARRAY_AddrArray_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5348,9 +5464,10 @@ define internal i32 @dnsserver_dissect_element_IP4_ARRAY_AddrArray_(ptr noundef 
   ret i32 %21
 }
 
-declare i32 @dissect_ndr_embedded_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_embedded_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_ServerName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5365,6 +5482,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_Server
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
   %16 = load ptr, ptr %9, align 8
@@ -5372,18 +5490,20 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_Server
   %18 = load ptr, ptr %11, align 8
   %19 = load ptr, ptr %12, align 8
   %20 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_ServerName, align 4
-  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 1, i32 noundef %20, i32 noundef 0, ptr noundef %13)
+  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 1, i32 noundef %20, i1 noundef zeroext false, ptr noundef %13)
   store i32 %21, ptr %8, align 4
   %22 = load ptr, ptr %10, align 8
   %23 = load ptr, ptr %13, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.375, ptr noundef %23)
   %24 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
   ret i32 %24
 }
 
-declare i32 @dissect_ndr_cvstring(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_cvstring(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_DsContainer_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5398,6 +5518,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_DsCont
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
   %16 = load ptr, ptr %9, align 8
@@ -5405,16 +5526,17 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_DsCont
   %18 = load ptr, ptr %11, align 8
   %19 = load ptr, ptr %12, align 8
   %20 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DsContainer, align 4
-  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i32 noundef 0, ptr noundef %13)
+  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i1 noundef zeroext false, ptr noundef %13)
   store i32 %21, ptr %8, align 4
   %22 = load ptr, ptr %10, align 8
   %23 = load ptr, ptr %13, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.375, ptr noundef %23)
   %24 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_ServerAddrs_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5441,7 +5563,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_Server
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_ListenAddrs_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5468,7 +5590,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_Listen
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_Forwarders_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5495,7 +5617,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_Forwar
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_LogFilter_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5522,7 +5644,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_LogFil
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_LogFilePath_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5537,6 +5659,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_LogFil
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
   %16 = load ptr, ptr %9, align 8
@@ -5544,16 +5667,17 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_LogFil
   %18 = load ptr, ptr %11, align 8
   %19 = load ptr, ptr %12, align 8
   %20 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_LogFilePath, align 4
-  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i32 noundef 0, ptr noundef %13)
+  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i1 noundef zeroext false, ptr noundef %13)
   store i32 %21, ptr %8, align 4
   %22 = load ptr, ptr %10, align 8
   %23 = load ptr, ptr %13, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.375, ptr noundef %23)
   %24 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_DomainName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5568,6 +5692,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_Domain
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
   %16 = load ptr, ptr %9, align 8
@@ -5575,16 +5700,17 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_Domain
   %18 = load ptr, ptr %11, align 8
   %19 = load ptr, ptr %12, align 8
   %20 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DomainName, align 4
-  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 1, i32 noundef %20, i32 noundef 0, ptr noundef %13)
+  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 1, i32 noundef %20, i1 noundef zeroext false, ptr noundef %13)
   store i32 %21, ptr %8, align 4
   %22 = load ptr, ptr %10, align 8
   %23 = load ptr, ptr %13, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.375, ptr noundef %23)
   %24 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_ForestName_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5599,6 +5725,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_Forest
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
   %16 = load ptr, ptr %9, align 8
@@ -5606,16 +5733,17 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_Forest
   %18 = load ptr, ptr %11, align 8
   %19 = load ptr, ptr %12, align 8
   %20 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_ForestName, align 4
-  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 1, i32 noundef %20, i32 noundef 0, ptr noundef %13)
+  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 1, i32 noundef %20, i1 noundef zeroext false, ptr noundef %13)
   store i32 %21, ptr %8, align 4
   %22 = load ptr, ptr %10, align 8
   %23 = load ptr, ptr %13, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.375, ptr noundef %23)
   %24 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_DomainDirectoryPartition_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5630,6 +5758,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_Domain
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
   %16 = load ptr, ptr %9, align 8
@@ -5637,16 +5766,17 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_Domain
   %18 = load ptr, ptr %11, align 8
   %19 = load ptr, ptr %12, align 8
   %20 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_DomainDirectoryPartition, align 4
-  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 1, i32 noundef %20, i32 noundef 0, ptr noundef %13)
+  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 1, i32 noundef %20, i1 noundef zeroext false, ptr noundef %13)
   store i32 %21, ptr %8, align 4
   %22 = load ptr, ptr %10, align 8
   %23 = load ptr, ptr %13, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.375, ptr noundef %23)
   %24 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_ForestDirectoryPartition_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5661,6 +5791,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_Forest
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
   %16 = load ptr, ptr %9, align 8
@@ -5668,16 +5799,17 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_Forest
   %18 = load ptr, ptr %11, align 8
   %19 = load ptr, ptr %12, align 8
   %20 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_ForestDirectoryPartition, align 4
-  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 1, i32 noundef %20, i32 noundef 0, ptr noundef %13)
+  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 1, i32 noundef %20, i1 noundef zeroext false, ptr noundef %13)
   store i32 %21, ptr %8, align 4
   %22 = load ptr, ptr %10, align 8
   %23 = load ptr, ptr %13, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.375, ptr noundef %23)
   %24 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_extension0_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5692,6 +5824,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_extens
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
   %16 = load ptr, ptr %9, align 8
@@ -5699,16 +5832,17 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_extens
   %18 = load ptr, ptr %11, align 8
   %19 = load ptr, ptr %12, align 8
   %20 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_extension0, align 4
-  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 1, i32 noundef %20, i32 noundef 0, ptr noundef %13)
+  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 1, i32 noundef %20, i1 noundef zeroext false, ptr noundef %13)
   store i32 %21, ptr %8, align 4
   %22 = load ptr, ptr %10, align 8
   %23 = load ptr, ptr %13, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.375, ptr noundef %23)
   %24 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_extension1_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5723,6 +5857,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_extens
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
   %16 = load ptr, ptr %9, align 8
@@ -5730,16 +5865,17 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_extens
   %18 = load ptr, ptr %11, align 8
   %19 = load ptr, ptr %12, align 8
   %20 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_extension1, align 4
-  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 1, i32 noundef %20, i32 noundef 0, ptr noundef %13)
+  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 1, i32 noundef %20, i1 noundef zeroext false, ptr noundef %13)
   store i32 %21, ptr %8, align 4
   %22 = load ptr, ptr %10, align 8
   %23 = load ptr, ptr %13, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.375, ptr noundef %23)
   %24 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_extension2_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5754,6 +5890,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_extens
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
   %16 = load ptr, ptr %9, align 8
@@ -5761,16 +5898,17 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_extens
   %18 = load ptr, ptr %11, align 8
   %19 = load ptr, ptr %12, align 8
   %20 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_extension2, align 4
-  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 1, i32 noundef %20, i32 noundef 0, ptr noundef %13)
+  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 1, i32 noundef %20, i1 noundef zeroext false, ptr noundef %13)
   store i32 %21, ptr %8, align 4
   %22 = load ptr, ptr %10, align 8
   %23 = load ptr, ptr %13, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.375, ptr noundef %23)
   %24 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_extension3_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5785,6 +5923,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_extens
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
   %16 = load ptr, ptr %9, align 8
@@ -5792,16 +5931,17 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_extens
   %18 = load ptr, ptr %11, align 8
   %19 = load ptr, ptr %12, align 8
   %20 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_extension3, align 4
-  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 1, i32 noundef %20, i32 noundef 0, ptr noundef %13)
+  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 1, i32 noundef %20, i1 noundef zeroext false, ptr noundef %13)
   store i32 %21, ptr %8, align 4
   %22 = load ptr, ptr %10, align 8
   %23 = load ptr, ptr %13, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.375, ptr noundef %23)
   %24 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_extension4_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5816,6 +5956,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_extens
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
   %16 = load ptr, ptr %9, align 8
@@ -5823,16 +5964,17 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_extens
   %18 = load ptr, ptr %11, align 8
   %19 = load ptr, ptr %12, align 8
   %20 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_extension4, align 4
-  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 1, i32 noundef %20, i32 noundef 0, ptr noundef %13)
+  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 1, i32 noundef %20, i1 noundef zeroext false, ptr noundef %13)
   store i32 %21, ptr %8, align 4
   %22 = load ptr, ptr %10, align 8
   %23 = load ptr, ptr %13, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.375, ptr noundef %23)
   %24 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_extension5_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5847,6 +5989,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_extens
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
   %16 = load ptr, ptr %9, align 8
@@ -5854,16 +5997,17 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_extens
   %18 = load ptr, ptr %11, align 8
   %19 = load ptr, ptr %12, align 8
   %20 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_extension5, align 4
-  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 1, i32 noundef %20, i32 noundef 0, ptr noundef %13)
+  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 1, i32 noundef %20, i1 noundef zeroext false, ptr noundef %13)
   store i32 %21, ptr %8, align 4
   %22 = load ptr, ptr %10, align 8
   %23 = load ptr, ptr %13, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.375, ptr noundef %23)
   %24 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_reserve_array_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5890,7 +6034,7 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_reserv
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_reserve_array2_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5917,8 +6061,8 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_reserv
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dnsserver_dissect_DnssrvOperation_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @dnsserver_dissect_DnssrvOperation_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -5932,13 +6076,13 @@ define internal i32 @dnsserver_dissect_DnssrvOperation_request(ptr noundef %0, i
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.458, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_DnssrvOperation_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5953,8 +6097,9 @@ define internal i32 @dnsserver_dissect_DnssrvOperation_response(ptr noundef %0, 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.458, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -5971,20 +6116,21 @@ define internal i32 @dnsserver_dissect_DnssrvOperation_response(ptr noundef %0, 
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @NT_errors, ptr noundef @.str.469)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.468, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @NT_errors_ext, ptr noundef @.str.470)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.469, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dnsserver_dissect_DnssrvQuery_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @dnsserver_dissect_DnssrvQuery_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -5998,13 +6144,13 @@ define internal i32 @dnsserver_dissect_DnssrvQuery_request(ptr noundef %0, i32 n
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.459, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_DnssrvQuery_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6019,8 +6165,9 @@ define internal i32 @dnsserver_dissect_DnssrvQuery_response(ptr noundef %0, i32 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.459, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -6037,20 +6184,21 @@ define internal i32 @dnsserver_dissect_DnssrvQuery_response(ptr noundef %0, i32 
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @NT_errors, ptr noundef @.str.469)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.468, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @NT_errors_ext, ptr noundef @.str.470)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.469, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dnsserver_dissect_DnssrvComplexOperation_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @dnsserver_dissect_DnssrvComplexOperation_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -6064,13 +6212,13 @@ define internal i32 @dnsserver_dissect_DnssrvComplexOperation_request(ptr nounde
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.460, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_DnssrvComplexOperation_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6085,8 +6233,9 @@ define internal i32 @dnsserver_dissect_DnssrvComplexOperation_response(ptr nound
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.460, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -6103,20 +6252,21 @@ define internal i32 @dnsserver_dissect_DnssrvComplexOperation_response(ptr nound
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @NT_errors, ptr noundef @.str.469)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.468, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @NT_errors_ext, ptr noundef @.str.470)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.469, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dnsserver_dissect_DnssrvEnumRecords_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @dnsserver_dissect_DnssrvEnumRecords_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -6130,13 +6280,13 @@ define internal i32 @dnsserver_dissect_DnssrvEnumRecords_request(ptr noundef %0,
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.461, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_DnssrvEnumRecords_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6151,8 +6301,9 @@ define internal i32 @dnsserver_dissect_DnssrvEnumRecords_response(ptr noundef %0
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.461, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -6169,20 +6320,21 @@ define internal i32 @dnsserver_dissect_DnssrvEnumRecords_response(ptr noundef %0
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @NT_errors, ptr noundef @.str.469)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.468, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @NT_errors_ext, ptr noundef @.str.470)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.469, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dnsserver_dissect_DnssrvUpdateRecord_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @dnsserver_dissect_DnssrvUpdateRecord_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -6196,13 +6348,13 @@ define internal i32 @dnsserver_dissect_DnssrvUpdateRecord_request(ptr noundef %0
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.462, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_DnssrvUpdateRecord_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6217,8 +6369,9 @@ define internal i32 @dnsserver_dissect_DnssrvUpdateRecord_response(ptr noundef %
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.462, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -6235,20 +6388,21 @@ define internal i32 @dnsserver_dissect_DnssrvUpdateRecord_response(ptr noundef %
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @NT_errors, ptr noundef @.str.469)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.468, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @NT_errors_ext, ptr noundef @.str.470)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.469, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dnsserver_dissect_DnssrvOperation2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @dnsserver_dissect_DnssrvOperation2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -6262,13 +6416,13 @@ define internal i32 @dnsserver_dissect_DnssrvOperation2_request(ptr noundef %0, 
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.463, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_DnssrvOperation2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6283,8 +6437,9 @@ define internal i32 @dnsserver_dissect_DnssrvOperation2_response(ptr noundef %0,
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.463, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -6301,19 +6456,20 @@ define internal i32 @dnsserver_dissect_DnssrvOperation2_response(ptr noundef %0,
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @NT_errors, ptr noundef @.str.469)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.468, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @NT_errors_ext, ptr noundef @.str.470)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.469, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_DnssrvQuery2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6328,7 +6484,7 @@ define internal i32 @dnsserver_dissect_DnssrvQuery2_request(ptr noundef %0, i32 
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.464, ptr %14, align 8
   %15 = load ptr, ptr %7, align 8
   %16 = load i32, ptr %8, align 4
@@ -6409,7 +6565,7 @@ define internal i32 @dnsserver_dissect_DnssrvQuery2_request(ptr noundef %0, i32 
   ret i32 %80
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_DnssrvQuery2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6424,8 +6580,9 @@ define internal i32 @dnsserver_dissect_DnssrvQuery2_response(ptr noundef %0, i32
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.464, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -6472,20 +6629,21 @@ define internal i32 @dnsserver_dissect_DnssrvQuery2_response(ptr noundef %0, i32
 
 52:                                               ; preds = %6
   %53 = load ptr, ptr %9, align 8
-  %54 = getelementptr inbounds %struct._packet_info, ptr %53, i32 0, i32 1
+  %54 = getelementptr inbounds nuw %struct._packet_info, ptr %53, i32 0, i32 1
   %55 = load ptr, ptr %54, align 8
   %56 = load i32, ptr %13, align 4
-  %57 = call ptr @val_to_str(i32 noundef %56, ptr noundef @NT_errors, ptr noundef @.str.469)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %55, i32 noundef 25, ptr noundef @.str.468, ptr noundef %57)
+  %57 = call ptr @val_to_str_ext(i32 noundef %56, ptr noundef @NT_errors_ext, ptr noundef @.str.470)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %55, i32 noundef 25, ptr noundef @.str.469, ptr noundef %57)
   br label %58
 
 58:                                               ; preds = %52, %6
   %59 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %59
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dnsserver_dissect_DnssrvComplexOperation2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @dnsserver_dissect_DnssrvComplexOperation2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -6499,13 +6657,13 @@ define internal i32 @dnsserver_dissect_DnssrvComplexOperation2_request(ptr nound
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.465, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_DnssrvComplexOperation2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6520,8 +6678,9 @@ define internal i32 @dnsserver_dissect_DnssrvComplexOperation2_response(ptr noun
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.465, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -6538,19 +6697,20 @@ define internal i32 @dnsserver_dissect_DnssrvComplexOperation2_response(ptr noun
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @NT_errors, ptr noundef @.str.469)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.468, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @NT_errors_ext, ptr noundef @.str.470)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.469, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_DnssrvEnumRecords2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6565,7 +6725,7 @@ define internal i32 @dnsserver_dissect_DnssrvEnumRecords2_request(ptr noundef %0
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.466, ptr %14, align 8
   %15 = load ptr, ptr %7, align 8
   %16 = load i32, ptr %8, align 4
@@ -6721,7 +6881,7 @@ define internal i32 @dnsserver_dissect_DnssrvEnumRecords2_request(ptr noundef %0
   ret i32 %145
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_DnssrvEnumRecords2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6736,8 +6896,9 @@ define internal i32 @dnsserver_dissect_DnssrvEnumRecords2_response(ptr noundef %
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.466, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -6784,20 +6945,21 @@ define internal i32 @dnsserver_dissect_DnssrvEnumRecords2_response(ptr noundef %
 
 52:                                               ; preds = %6
   %53 = load ptr, ptr %9, align 8
-  %54 = getelementptr inbounds %struct._packet_info, ptr %53, i32 0, i32 1
+  %54 = getelementptr inbounds nuw %struct._packet_info, ptr %53, i32 0, i32 1
   %55 = load ptr, ptr %54, align 8
   %56 = load i32, ptr %13, align 4
-  %57 = call ptr @val_to_str(i32 noundef %56, ptr noundef @NT_errors, ptr noundef @.str.469)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %55, i32 noundef 25, ptr noundef @.str.468, ptr noundef %57)
+  %57 = call ptr @val_to_str_ext(i32 noundef %56, ptr noundef @NT_errors_ext, ptr noundef @.str.470)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %55, i32 noundef 25, ptr noundef @.str.469, ptr noundef %57)
   br label %58
 
 58:                                               ; preds = %52, %6
   %59 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %59
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dnsserver_dissect_DnssrvUpdateRecord2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @dnsserver_dissect_DnssrvUpdateRecord2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -6811,13 +6973,13 @@ define internal i32 @dnsserver_dissect_DnssrvUpdateRecord2_request(ptr noundef %
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds %struct._dcerpc_info, ptr %13, i32 0, i32 15
+  %14 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %13, i32 0, i32 15
   store ptr @.str.467, ptr %14, align 8
   %15 = load i32, ptr %8, align 4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_DnssrvUpdateRecord2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6832,8 +6994,9 @@ define internal i32 @dnsserver_dissect_DnssrvUpdateRecord2_response(ptr noundef 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._dcerpc_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %14, i32 0, i32 15
   store ptr @.str.467, ptr %15, align 8
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
@@ -6850,25 +7013,29 @@ define internal i32 @dnsserver_dissect_DnssrvUpdateRecord2_response(ptr noundef 
 
 26:                                               ; preds = %6
   %27 = load ptr, ptr %9, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 1
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %13, align 4
-  %31 = call ptr @val_to_str(i32 noundef %30, ptr noundef @NT_errors, ptr noundef @.str.469)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.468, ptr noundef %31)
+  %31 = call ptr @val_to_str_ext(i32 noundef %30, ptr noundef @NT_errors_ext, ptr noundef @.str.470)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef @.str.469, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %26, %6
   %33 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %33
 }
 
-declare i32 @dissect_ntstatus(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ntstatus(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
-declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #2
 
-declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DnssrvQuery2_client_version(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6895,9 +7062,10 @@ define internal i32 @dnsserver_dissect_element_DnssrvQuery2_client_version(ptr n
   ret i32 %21
 }
 
-declare i32 @dissect_deferred_pointers(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_deferred_pointers(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DnssrvQuery2_setting_flags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6924,7 +7092,7 @@ define internal i32 @dnsserver_dissect_element_DnssrvQuery2_setting_flags(ptr no
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DnssrvQuery2_server_name(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6945,13 +7113,13 @@ define internal i32 @dnsserver_dissect_element_DnssrvQuery2_server_name(ptr noun
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = load i32, ptr @hf_dnsserver_DnssrvQuery2_server_name, align 4
-  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @dnsserver_dissect_element_DnssrvQuery2_server_name_, i32 noundef 2, ptr noundef @.str.470, i32 noundef %19)
+  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @dnsserver_dissect_element_DnssrvQuery2_server_name_, i32 noundef 2, ptr noundef @.str.471, i32 noundef %19)
   store i32 %20, ptr %8, align 4
   %21 = load i32, ptr %8, align 4
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DnssrvQuery2_zone(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6972,13 +7140,13 @@ define internal i32 @dnsserver_dissect_element_DnssrvQuery2_zone(ptr noundef %0,
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = load i32, ptr @hf_dnsserver_DnssrvQuery2_zone, align 4
-  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @dnsserver_dissect_element_DnssrvQuery2_zone_, i32 noundef 2, ptr noundef @.str.471, i32 noundef %19)
+  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @dnsserver_dissect_element_DnssrvQuery2_zone_, i32 noundef 2, ptr noundef @.str.472, i32 noundef %19)
   store i32 %20, ptr %8, align 4
   %21 = load i32, ptr %8, align 4
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DnssrvQuery2_operation(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -6999,15 +7167,16 @@ define internal i32 @dnsserver_dissect_element_DnssrvQuery2_operation(ptr nounde
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = load i32, ptr @hf_dnsserver_DnssrvQuery2_operation, align 4
-  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @dnsserver_dissect_element_DnssrvQuery2_operation_, i32 noundef 2, ptr noundef @.str.472, i32 noundef %19)
+  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @dnsserver_dissect_element_DnssrvQuery2_operation_, i32 noundef 2, ptr noundef @.str.473, i32 noundef %19)
   store i32 %20, ptr %8, align 4
   %21 = load i32, ptr %8, align 4
   ret i32 %21
 }
 
-declare i32 @dissect_ndr_toplevel_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_toplevel_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DnssrvQuery2_server_name_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7022,6 +7191,7 @@ define internal i32 @dnsserver_dissect_element_DnssrvQuery2_server_name_(ptr nou
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
   %16 = load ptr, ptr %9, align 8
@@ -7029,16 +7199,17 @@ define internal i32 @dnsserver_dissect_element_DnssrvQuery2_server_name_(ptr nou
   %18 = load ptr, ptr %11, align 8
   %19 = load ptr, ptr %12, align 8
   %20 = load i32, ptr @hf_dnsserver_DnssrvQuery2_server_name, align 4
-  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i32 noundef 0, ptr noundef %13)
+  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i1 noundef zeroext false, ptr noundef %13)
   store i32 %21, ptr %8, align 4
   %22 = load ptr, ptr %10, align 8
   %23 = load ptr, ptr %13, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.375, ptr noundef %23)
   %24 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DnssrvQuery2_zone_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7053,6 +7224,7 @@ define internal i32 @dnsserver_dissect_element_DnssrvQuery2_zone_(ptr noundef %0
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
   %16 = load ptr, ptr %9, align 8
@@ -7060,16 +7232,17 @@ define internal i32 @dnsserver_dissect_element_DnssrvQuery2_zone_(ptr noundef %0
   %18 = load ptr, ptr %11, align 8
   %19 = load ptr, ptr %12, align 8
   %20 = load i32, ptr @hf_dnsserver_DnssrvQuery2_zone, align 4
-  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 1, i32 noundef %20, i32 noundef 0, ptr noundef %13)
+  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 1, i32 noundef %20, i1 noundef zeroext false, ptr noundef %13)
   store i32 %21, ptr %8, align 4
   %22 = load ptr, ptr %10, align 8
   %23 = load ptr, ptr %13, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.375, ptr noundef %23)
   %24 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DnssrvQuery2_operation_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7084,6 +7257,7 @@ define internal i32 @dnsserver_dissect_element_DnssrvQuery2_operation_(ptr nound
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
   %16 = load ptr, ptr %9, align 8
@@ -7091,16 +7265,17 @@ define internal i32 @dnsserver_dissect_element_DnssrvQuery2_operation_(ptr nound
   %18 = load ptr, ptr %11, align 8
   %19 = load ptr, ptr %12, align 8
   %20 = load i32, ptr @hf_dnsserver_DnssrvQuery2_operation, align 4
-  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 1, i32 noundef %20, i32 noundef 0, ptr noundef %13)
+  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 1, i32 noundef %20, i1 noundef zeroext false, ptr noundef %13)
   store i32 %21, ptr %8, align 4
   %22 = load ptr, ptr %10, align 8
   %23 = load ptr, ptr %13, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.375, ptr noundef %23)
   %24 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DnssrvQuery2_type_id(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7121,13 +7296,13 @@ define internal i32 @dnsserver_dissect_element_DnssrvQuery2_type_id(ptr noundef 
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = load i32, ptr @hf_dnsserver_DnssrvQuery2_type_id, align 4
-  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @dnsserver_dissect_element_DnssrvQuery2_type_id_, i32 noundef 1, ptr noundef @.str.473, i32 noundef %19)
+  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @dnsserver_dissect_element_DnssrvQuery2_type_id_, i32 noundef 1, ptr noundef @.str.474, i32 noundef %19)
   store i32 %20, ptr %8, align 4
   %21 = load i32, ptr %8, align 4
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DnssrvQuery2_data(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7148,13 +7323,13 @@ define internal i32 @dnsserver_dissect_element_DnssrvQuery2_data(ptr noundef %0,
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = load i32, ptr @hf_dnsserver_DnssrvQuery2_data, align 4
-  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @dnsserver_dissect_element_DnssrvQuery2_data_, i32 noundef 1, ptr noundef @.str.474, i32 noundef %19)
+  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @dnsserver_dissect_element_DnssrvQuery2_data_, i32 noundef 1, ptr noundef @.str.475, i32 noundef %19)
   store i32 %20, ptr %8, align 4
   %21 = load i32, ptr %8, align 4
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DnssrvQuery2_type_id_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7181,7 +7356,7 @@ define internal i32 @dnsserver_dissect_element_DnssrvQuery2_type_id_(ptr noundef
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DnssrvQuery2_data_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7208,7 +7383,7 @@ define internal i32 @dnsserver_dissect_element_DnssrvQuery2_data_(ptr noundef %0
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_DNSSRV_RPC_UNION(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
@@ -7230,8 +7405,12 @@ define internal i32 @dnsserver_dissect_DNSSRV_RPC_UNION(ptr noundef %0, i32 noun
   store ptr %5, ptr %14, align 8
   store i32 %6, ptr %15, align 4
   store i32 %7, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   store ptr null, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   store ptr null, ptr %18, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #4
   %21 = load i32, ptr %10, align 4
   store i32 %21, ptr %19, align 4
   %22 = load ptr, ptr %12, align 8
@@ -7243,7 +7422,7 @@ define internal i32 @dnsserver_dissect_DNSSRV_RPC_UNION(ptr noundef %0, i32 noun
   %26 = load ptr, ptr %9, align 8
   %27 = load i32, ptr %10, align 4
   %28 = load i32, ptr @ett_dnsserver_DNSSRV_RPC_UNION, align 4
-  %29 = call ptr @proto_tree_add_subtree(ptr noundef %25, ptr noundef %26, i32 noundef %27, i32 noundef -1, i32 noundef %28, ptr noundef %17, ptr noundef @.str.475)
+  %29 = call ptr @proto_tree_add_subtree(ptr noundef %25, ptr noundef %26, i32 noundef %27, i32 noundef -1, i32 noundef %28, ptr noundef %17, ptr noundef @.str.476)
   store ptr %29, ptr %18, align 8
   br label %30
 
@@ -7258,9 +7437,9 @@ define internal i32 @dnsserver_dissect_DNSSRV_RPC_UNION(ptr noundef %0, i32 noun
   %38 = call i32 @dissect_ndr_uint32(ptr noundef %31, i32 noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, ptr noundef %36, i32 noundef %37, ptr noundef %20)
   store i32 %38, ptr %10, align 4
   %39 = load ptr, ptr %13, align 8
-  %40 = getelementptr inbounds %struct._dcerpc_info, ptr %39, i32 0, i32 14
+  %40 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %39, i32 0, i32 14
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds %struct._dcerpc_call_value, ptr %41, i32 0, i32 11
+  %42 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %41, i32 0, i32 11
   %43 = load i32, ptr %42, align 8
   %44 = and i32 %43, 1
   %45 = icmp ne i32 %44, 0
@@ -7268,9 +7447,9 @@ define internal i32 @dnsserver_dissect_DNSSRV_RPC_UNION(ptr noundef %0, i32 noun
 
 46:                                               ; preds = %30
   %47 = load ptr, ptr %13, align 8
-  %48 = getelementptr inbounds %struct._dcerpc_info, ptr %47, i32 0, i32 4
-  %49 = load i32, ptr %48, align 4
-  %50 = icmp ne i32 %49, 0
+  %48 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %47, i32 0, i32 4
+  %49 = load i8, ptr %48, align 1, !range !6, !noundef !7
+  %50 = trunc i8 %49 to i1
   br i1 %50, label %60, label %51
 
 51:                                               ; preds = %46
@@ -7294,9 +7473,9 @@ define internal i32 @dnsserver_dissect_DNSSRV_RPC_UNION(ptr noundef %0, i32 noun
 
 61:                                               ; preds = %30
   %62 = load ptr, ptr %13, align 8
-  %63 = getelementptr inbounds %struct._dcerpc_info, ptr %62, i32 0, i32 4
-  %64 = load i32, ptr %63, align 4
-  %65 = icmp ne i32 %64, 0
+  %63 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %62, i32 0, i32 4
+  %64 = load i8, ptr %63, align 1, !range !6, !noundef !7
+  %65 = trunc i8 %64 to i1
   br i1 %65, label %75, label %66
 
 66:                                               ; preds = %61
@@ -7359,17 +7538,21 @@ define internal i32 @dnsserver_dissect_DNSSRV_RPC_UNION(ptr noundef %0, i32 noun
   store i32 %101, ptr %10, align 4
   br label %102
 
-102:                                              ; preds = %94, %86, %78, %76
+102:                                              ; preds = %76, %94, %86, %78
   %103 = load ptr, ptr %17, align 8
   %104 = load i32, ptr %10, align 4
   %105 = load i32, ptr %19, align 4
   %106 = sub i32 %104, %105
   call void @proto_item_set_len(ptr noundef %103, i32 noundef %106)
   %107 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
   ret i32 %107
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNSSRV_RPC_UNION_null(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7390,13 +7573,13 @@ define internal i32 @dnsserver_dissect_element_DNSSRV_RPC_UNION_null(ptr noundef
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = load i32, ptr @hf_dnsserver_DNSSRV_RPC_UNION_null, align 4
-  %20 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @dnsserver_dissect_element_DNSSRV_RPC_UNION_null_, i32 noundef 2, ptr noundef @.str.476, i32 noundef %19)
+  %20 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @dnsserver_dissect_element_DNSSRV_RPC_UNION_null_, i32 noundef 2, ptr noundef @.str.477, i32 noundef %19)
   store i32 %20, ptr %8, align 4
   %21 = load i32, ptr %8, align 4
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNSSRV_RPC_UNION_dword(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7423,7 +7606,7 @@ define internal i32 @dnsserver_dissect_element_DNSSRV_RPC_UNION_dword(ptr nounde
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNSSRV_RPC_UNION_ServerInfoDotnet(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7444,13 +7627,13 @@ define internal i32 @dnsserver_dissect_element_DNSSRV_RPC_UNION_ServerInfoDotnet
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = load i32, ptr @hf_dnsserver_DNSSRV_RPC_UNION_ServerInfoDotnet, align 4
-  %20 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @dnsserver_dissect_element_DNSSRV_RPC_UNION_ServerInfoDotnet_, i32 noundef 2, ptr noundef @.str.477, i32 noundef %19)
+  %20 = call i32 @dissect_ndr_embedded_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @dnsserver_dissect_element_DNSSRV_RPC_UNION_ServerInfoDotnet_, i32 noundef 2, ptr noundef @.str.478, i32 noundef %19)
   store i32 %20, ptr %8, align 4
   %21 = load i32, ptr %8, align 4
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNSSRV_RPC_UNION_null_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7477,7 +7660,7 @@ define internal i32 @dnsserver_dissect_element_DNSSRV_RPC_UNION_null_(ptr nounde
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DNSSRV_RPC_UNION_ServerInfoDotnet_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7504,7 +7687,7 @@ define internal i32 @dnsserver_dissect_element_DNSSRV_RPC_UNION_ServerInfoDotnet
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_client_version(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7531,7 +7714,7 @@ define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_client_version
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_setting_flags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7558,7 +7741,7 @@ define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_setting_flags(
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_server_name(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7579,13 +7762,13 @@ define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_server_name(pt
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = load i32, ptr @hf_dnsserver_DnssrvEnumRecords2_server_name, align 4
-  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @dnsserver_dissect_element_DnssrvEnumRecords2_server_name_, i32 noundef 2, ptr noundef @.str.470, i32 noundef %19)
+  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @dnsserver_dissect_element_DnssrvEnumRecords2_server_name_, i32 noundef 2, ptr noundef @.str.471, i32 noundef %19)
   store i32 %20, ptr %8, align 4
   %21 = load i32, ptr %8, align 4
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_zone(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7606,13 +7789,13 @@ define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_zone(ptr nound
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = load i32, ptr @hf_dnsserver_DnssrvEnumRecords2_zone, align 4
-  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @dnsserver_dissect_element_DnssrvEnumRecords2_zone_, i32 noundef 2, ptr noundef @.str.471, i32 noundef %19)
+  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @dnsserver_dissect_element_DnssrvEnumRecords2_zone_, i32 noundef 2, ptr noundef @.str.472, i32 noundef %19)
   store i32 %20, ptr %8, align 4
   %21 = load i32, ptr %8, align 4
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_node_name(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7633,13 +7816,13 @@ define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_node_name(ptr 
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = load i32, ptr @hf_dnsserver_DnssrvEnumRecords2_node_name, align 4
-  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @dnsserver_dissect_element_DnssrvEnumRecords2_node_name_, i32 noundef 2, ptr noundef @.str.478, i32 noundef %19)
+  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @dnsserver_dissect_element_DnssrvEnumRecords2_node_name_, i32 noundef 2, ptr noundef @.str.479, i32 noundef %19)
   store i32 %20, ptr %8, align 4
   %21 = load i32, ptr %8, align 4
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_start_child(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7660,13 +7843,13 @@ define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_start_child(pt
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = load i32, ptr @hf_dnsserver_DnssrvEnumRecords2_start_child, align 4
-  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @dnsserver_dissect_element_DnssrvEnumRecords2_start_child_, i32 noundef 2, ptr noundef @.str.479, i32 noundef %19)
+  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @dnsserver_dissect_element_DnssrvEnumRecords2_start_child_, i32 noundef 2, ptr noundef @.str.480, i32 noundef %19)
   store i32 %20, ptr %8, align 4
   %21 = load i32, ptr %8, align 4
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_record_type(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7693,7 +7876,7 @@ define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_record_type(pt
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_select_flag(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7720,7 +7903,7 @@ define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_select_flag(pt
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_filter_start(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7741,13 +7924,13 @@ define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_filter_start(p
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = load i32, ptr @hf_dnsserver_DnssrvEnumRecords2_filter_start, align 4
-  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @dnsserver_dissect_element_DnssrvEnumRecords2_filter_start_, i32 noundef 2, ptr noundef @.str.480, i32 noundef %19)
+  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @dnsserver_dissect_element_DnssrvEnumRecords2_filter_start_, i32 noundef 2, ptr noundef @.str.481, i32 noundef %19)
   store i32 %20, ptr %8, align 4
   %21 = load i32, ptr %8, align 4
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_filter_stop(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7768,13 +7951,13 @@ define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_filter_stop(pt
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = load i32, ptr @hf_dnsserver_DnssrvEnumRecords2_filter_stop, align 4
-  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @dnsserver_dissect_element_DnssrvEnumRecords2_filter_stop_, i32 noundef 2, ptr noundef @.str.481, i32 noundef %19)
+  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @dnsserver_dissect_element_DnssrvEnumRecords2_filter_stop_, i32 noundef 2, ptr noundef @.str.482, i32 noundef %19)
   store i32 %20, ptr %8, align 4
   %21 = load i32, ptr %8, align 4
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_server_name_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7789,6 +7972,7 @@ define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_server_name_(p
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
   %16 = load ptr, ptr %9, align 8
@@ -7796,16 +7980,17 @@ define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_server_name_(p
   %18 = load ptr, ptr %11, align 8
   %19 = load ptr, ptr %12, align 8
   %20 = load i32, ptr @hf_dnsserver_DnssrvEnumRecords2_server_name, align 4
-  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i32 noundef 0, ptr noundef %13)
+  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 2, i32 noundef %20, i1 noundef zeroext false, ptr noundef %13)
   store i32 %21, ptr %8, align 4
   %22 = load ptr, ptr %10, align 8
   %23 = load ptr, ptr %13, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.375, ptr noundef %23)
   %24 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_zone_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7820,6 +8005,7 @@ define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_zone_(ptr noun
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
   %16 = load ptr, ptr %9, align 8
@@ -7827,16 +8013,17 @@ define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_zone_(ptr noun
   %18 = load ptr, ptr %11, align 8
   %19 = load ptr, ptr %12, align 8
   %20 = load i32, ptr @hf_dnsserver_DnssrvEnumRecords2_zone, align 4
-  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 1, i32 noundef %20, i32 noundef 0, ptr noundef %13)
+  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 1, i32 noundef %20, i1 noundef zeroext false, ptr noundef %13)
   store i32 %21, ptr %8, align 4
   %22 = load ptr, ptr %10, align 8
   %23 = load ptr, ptr %13, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.375, ptr noundef %23)
   %24 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_node_name_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7851,6 +8038,7 @@ define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_node_name_(ptr
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
   %16 = load ptr, ptr %9, align 8
@@ -7858,16 +8046,17 @@ define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_node_name_(ptr
   %18 = load ptr, ptr %11, align 8
   %19 = load ptr, ptr %12, align 8
   %20 = load i32, ptr @hf_dnsserver_DnssrvEnumRecords2_node_name, align 4
-  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 1, i32 noundef %20, i32 noundef 0, ptr noundef %13)
+  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 1, i32 noundef %20, i1 noundef zeroext false, ptr noundef %13)
   store i32 %21, ptr %8, align 4
   %22 = load ptr, ptr %10, align 8
   %23 = load ptr, ptr %13, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.375, ptr noundef %23)
   %24 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_start_child_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7882,6 +8071,7 @@ define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_start_child_(p
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
   %16 = load ptr, ptr %9, align 8
@@ -7889,16 +8079,17 @@ define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_start_child_(p
   %18 = load ptr, ptr %11, align 8
   %19 = load ptr, ptr %12, align 8
   %20 = load i32, ptr @hf_dnsserver_DnssrvEnumRecords2_start_child, align 4
-  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 1, i32 noundef %20, i32 noundef 0, ptr noundef %13)
+  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 1, i32 noundef %20, i1 noundef zeroext false, ptr noundef %13)
   store i32 %21, ptr %8, align 4
   %22 = load ptr, ptr %10, align 8
   %23 = load ptr, ptr %13, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.375, ptr noundef %23)
   %24 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_filter_start_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7913,6 +8104,7 @@ define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_filter_start_(
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
   %16 = load ptr, ptr %9, align 8
@@ -7920,16 +8112,17 @@ define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_filter_start_(
   %18 = load ptr, ptr %11, align 8
   %19 = load ptr, ptr %12, align 8
   %20 = load i32, ptr @hf_dnsserver_DnssrvEnumRecords2_filter_start, align 4
-  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 1, i32 noundef %20, i32 noundef 0, ptr noundef %13)
+  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 1, i32 noundef %20, i1 noundef zeroext false, ptr noundef %13)
   store i32 %21, ptr %8, align 4
   %22 = load ptr, ptr %10, align 8
   %23 = load ptr, ptr %13, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.375, ptr noundef %23)
   %24 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_filter_stop_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7944,6 +8137,7 @@ define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_filter_stop_(p
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr %8, align 4
   %16 = load ptr, ptr %9, align 8
@@ -7951,16 +8145,17 @@ define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_filter_stop_(p
   %18 = load ptr, ptr %11, align 8
   %19 = load ptr, ptr %12, align 8
   %20 = load i32, ptr @hf_dnsserver_DnssrvEnumRecords2_filter_stop, align 4
-  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 1, i32 noundef %20, i32 noundef 0, ptr noundef %13)
+  %21 = call i32 @dissect_ndr_cvstring(ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, i32 noundef 1, i32 noundef %20, i1 noundef zeroext false, ptr noundef %13)
   store i32 %21, ptr %8, align 4
   %22 = load ptr, ptr %10, align 8
   %23 = load ptr, ptr %13, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.375, ptr noundef %23)
   %24 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_buffer_length(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -7981,13 +8176,13 @@ define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_buffer_length(
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = load i32, ptr @hf_dnsserver_DnssrvEnumRecords2_buffer_length, align 4
-  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @dnsserver_dissect_element_DnssrvEnumRecords2_buffer_length_, i32 noundef 1, ptr noundef @.str.482, i32 noundef %19)
+  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @dnsserver_dissect_element_DnssrvEnumRecords2_buffer_length_, i32 noundef 1, ptr noundef @.str.483, i32 noundef %19)
   store i32 %20, ptr %8, align 4
   %21 = load i32, ptr %8, align 4
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_record_buffer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -8008,13 +8203,13 @@ define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_record_buffer(
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = load i32, ptr @hf_dnsserver_DnssrvEnumRecords2_record_buffer, align 4
-  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @dnsserver_dissect_element_DnssrvEnumRecords2_record_buffer_, i32 noundef 2, ptr noundef @.str.483, i32 noundef %19)
+  %20 = call i32 @dissect_ndr_toplevel_pointer(ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef @dnsserver_dissect_element_DnssrvEnumRecords2_record_buffer_, i32 noundef 2, ptr noundef @.str.484, i32 noundef %19)
   store i32 %20, ptr %8, align 4
   %21 = load i32, ptr %8, align 4
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_buffer_length_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -8041,7 +8236,7 @@ define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_buffer_length_
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_record_buffer_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -8059,72 +8254,84 @@ define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_record_buffer_
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #4
   %17 = load ptr, ptr %11, align 8
-  %18 = getelementptr inbounds %struct._dcerpc_info, ptr %17, i32 0, i32 4
-  %19 = load i32, ptr %18, align 4
-  store i32 %19, ptr %14, align 4
-  %20 = load i32, ptr %14, align 4
-  %21 = icmp ne i32 %20, 0
-  br i1 %21, label %62, label %22
+  %18 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %17, i32 0, i32 4
+  %19 = load i8, ptr %18, align 1, !range !6, !noundef !7
+  %20 = trunc i8 %19 to i1
+  %21 = zext i1 %20 to i32
+  store i32 %21, ptr %14, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #4
+  %22 = load i32, ptr %14, align 4
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %64, label %24
 
-22:                                               ; preds = %6
-  %23 = load ptr, ptr %11, align 8
-  %24 = getelementptr inbounds %struct._dcerpc_info, ptr %23, i32 0, i32 14
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds %struct._dcerpc_call_value, ptr %25, i32 0, i32 11
-  %27 = load i32, ptr %26, align 8
-  store i32 %27, ptr %16, align 4
-  %28 = load ptr, ptr %7, align 8
-  %29 = load i32, ptr %8, align 4
-  %30 = load ptr, ptr %9, align 8
-  %31 = load ptr, ptr %10, align 8
-  %32 = load ptr, ptr %11, align 8
-  %33 = load ptr, ptr %12, align 8
-  %34 = load i32, ptr @hf_dnsserver_DnssrvEnumRecords2_record_buffer_, align 4
-  %35 = call i32 @dissect_ndr_uint3264(ptr noundef %28, i32 noundef %29, ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, i32 noundef %34, ptr noundef %13)
-  store i32 %35, ptr %8, align 4
-  %36 = load ptr, ptr %11, align 8
-  %37 = getelementptr inbounds %struct._dcerpc_info, ptr %36, i32 0, i32 14
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds %struct._dcerpc_call_value, ptr %38, i32 0, i32 11
-  %40 = load i32, ptr %39, align 8
-  %41 = and i32 %40, -2
-  store i32 %41, ptr %39, align 8
-  %42 = load ptr, ptr %7, align 8
-  %43 = load i32, ptr %8, align 4
-  %44 = load i64, ptr %13, align 8
-  %45 = trunc i64 %44 to i32
-  %46 = call ptr @tvb_new_subset_length_caplen(ptr noundef %42, i32 noundef %43, i32 noundef %45, i32 noundef -1)
-  store ptr %46, ptr %15, align 8
-  %47 = load ptr, ptr %15, align 8
-  %48 = load ptr, ptr %9, align 8
-  %49 = load ptr, ptr %10, align 8
-  %50 = load ptr, ptr %11, align 8
-  %51 = load ptr, ptr %12, align 8
-  %52 = call i32 @dnsserver_dissect_element_DnssrvEnumRecords2_record_buffer__(ptr noundef %47, i32 noundef 0, ptr noundef %48, ptr noundef %49, ptr noundef %50, ptr noundef %51)
-  %53 = load i64, ptr %13, align 8
-  %54 = trunc i64 %53 to i32
-  %55 = load i32, ptr %8, align 4
-  %56 = add i32 %55, %54
-  store i32 %56, ptr %8, align 4
-  %57 = load i32, ptr %16, align 4
-  %58 = load ptr, ptr %11, align 8
-  %59 = getelementptr inbounds %struct._dcerpc_info, ptr %58, i32 0, i32 14
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds %struct._dcerpc_call_value, ptr %60, i32 0, i32 11
-  store i32 %57, ptr %61, align 8
-  br label %62
+24:                                               ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #4
+  %25 = load ptr, ptr %11, align 8
+  %26 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %25, i32 0, i32 14
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %27, i32 0, i32 11
+  %29 = load i32, ptr %28, align 8
+  store i32 %29, ptr %16, align 4
+  %30 = load ptr, ptr %7, align 8
+  %31 = load i32, ptr %8, align 4
+  %32 = load ptr, ptr %9, align 8
+  %33 = load ptr, ptr %10, align 8
+  %34 = load ptr, ptr %11, align 8
+  %35 = load ptr, ptr %12, align 8
+  %36 = load i32, ptr @hf_dnsserver_DnssrvEnumRecords2_record_buffer_, align 4
+  %37 = call i32 @dissect_ndr_uint3264(ptr noundef %30, i32 noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, i32 noundef %36, ptr noundef %13)
+  store i32 %37, ptr %8, align 4
+  %38 = load ptr, ptr %11, align 8
+  %39 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %38, i32 0, i32 14
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %40, i32 0, i32 11
+  %42 = load i32, ptr %41, align 8
+  %43 = and i32 %42, -2
+  store i32 %43, ptr %41, align 8
+  %44 = load ptr, ptr %7, align 8
+  %45 = load i32, ptr %8, align 4
+  %46 = load i64, ptr %13, align 8
+  %47 = trunc i64 %46 to i32
+  %48 = call ptr @tvb_new_subset_length_caplen(ptr noundef %44, i32 noundef %45, i32 noundef %47, i32 noundef -1)
+  store ptr %48, ptr %15, align 8
+  %49 = load ptr, ptr %15, align 8
+  %50 = load ptr, ptr %9, align 8
+  %51 = load ptr, ptr %10, align 8
+  %52 = load ptr, ptr %11, align 8
+  %53 = load ptr, ptr %12, align 8
+  %54 = call i32 @dnsserver_dissect_element_DnssrvEnumRecords2_record_buffer__(ptr noundef %49, i32 noundef 0, ptr noundef %50, ptr noundef %51, ptr noundef %52, ptr noundef %53)
+  %55 = load i64, ptr %13, align 8
+  %56 = trunc i64 %55 to i32
+  %57 = load i32, ptr %8, align 4
+  %58 = add i32 %57, %56
+  store i32 %58, ptr %8, align 4
+  %59 = load i32, ptr %16, align 4
+  %60 = load ptr, ptr %11, align 8
+  %61 = getelementptr inbounds nuw %struct._dcerpc_info, ptr %60, i32 0, i32 14
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds nuw %struct._dcerpc_call_value, ptr %62, i32 0, i32 11
+  store i32 %59, ptr %63, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #4
+  br label %64
 
-62:                                               ; preds = %22, %6
-  %63 = load i32, ptr %8, align 4
-  ret i32 %63
+64:                                               ; preds = %24, %6
+  %65 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
+  ret i32 %65
 }
 
-declare i32 @dissect_ndr_uint3264(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_ndr_uint3264(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @tvb_new_subset_length_caplen(ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_subset_length_caplen(ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_record_buffer__(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -8151,16 +8358,23 @@ define internal i32 @dnsserver_dissect_element_DnssrvEnumRecords2_record_buffer_
   ret i32 %21
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}

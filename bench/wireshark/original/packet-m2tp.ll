@@ -3,8 +3,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
@@ -13,14 +12,12 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_m2tp_version = internal global i32 0, align 4
 @.str = private unnamed_addr constant [8 x i8] c"Version\00", align 1
 @.str.1 = private unnamed_addr constant [13 x i8] c"m2tp.version\00", align 1
-@m2tp_protocol_version_values = internal constant [2 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.40 }, %struct._value_string zeroinitializer], align 16
 @hf_m2tp_reserved = internal global i32 0, align 4
 @.str.2 = private unnamed_addr constant [9 x i8] c"Reserved\00", align 1
 @.str.3 = private unnamed_addr constant [14 x i8] c"m2tp.reserved\00", align 1
 @hf_m2tp_message_class = internal global i32 0, align 4
 @.str.4 = private unnamed_addr constant [14 x i8] c"Message class\00", align 1
 @.str.5 = private unnamed_addr constant [19 x i8] c"m2tp.message_class\00", align 1
-@m2tp_message_class_values = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.41 }, %struct._value_string { i32 3, ptr @.str.42 }, %struct._value_string { i32 6, ptr @.str.43 }, %struct._value_string { i32 255, ptr @.str.44 }, %struct._value_string zeroinitializer], align 16
 @hf_m2tp_message_type = internal global i32 0, align 4
 @.str.6 = private unnamed_addr constant [13 x i8] c"Message Type\00", align 1
 @.str.7 = private unnamed_addr constant [18 x i8] c"m2tp.message_type\00", align 1
@@ -30,7 +27,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_m2tp_parameter_tag = internal global i32 0, align 4
 @.str.10 = private unnamed_addr constant [14 x i8] c"Parameter Tag\00", align 1
 @.str.11 = private unnamed_addr constant [19 x i8] c"m2tp.parameter_tag\00", align 1
-@m2tp_parameter_tag_values = internal constant [10 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.18 }, %struct._value_string { i32 2, ptr @.str.22 }, %struct._value_string { i32 3, ptr @.str.20 }, %struct._value_string { i32 4, ptr @.str.45 }, %struct._value_string { i32 7, ptr @.str.46 }, %struct._value_string { i32 9, ptr @.str.47 }, %struct._value_string { i32 10, ptr @.str.32 }, %struct._value_string { i32 12, ptr @.str.48 }, %struct._value_string { i32 13, ptr @.str.49 }, %struct._value_string zeroinitializer], align 16
 @hf_m2tp_parameter_length = internal global i32 0, align 4
 @.str.12 = private unnamed_addr constant [17 x i8] c"Parameter length\00", align 1
 @.str.13 = private unnamed_addr constant [22 x i8] c"m2tp.parameter_length\00", align 1
@@ -46,11 +42,9 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_m2tp_user = internal global i32 0, align 4
 @.str.20 = private unnamed_addr constant [21 x i8] c"M2tp User Identifier\00", align 1
 @.str.21 = private unnamed_addr constant [21 x i8] c"m2tp.user_identifier\00", align 1
-@m2tp_user_identifier_values = internal constant [4 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.50 }, %struct._value_string { i32 2, ptr @.str.51 }, %struct._value_string { i32 3, ptr @.str.52 }, %struct._value_string zeroinitializer], align 16
 @hf_m2tp_master_slave = internal global i32 0, align 4
 @.str.22 = private unnamed_addr constant [23 x i8] c"Master Slave Indicator\00", align 1
 @.str.23 = private unnamed_addr constant [18 x i8] c"m2tp.master_slave\00", align 1
-@m2tp_mode_values = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.53 }, %struct._value_string { i32 2, ptr @.str.54 }, %struct._value_string zeroinitializer], align 16
 @hf_m2tp_info_string = internal global i32 0, align 4
 @.str.24 = private unnamed_addr constant [12 x i8] c"Info string\00", align 1
 @.str.25 = private unnamed_addr constant [17 x i8] c"m2tp.info_string\00", align 1
@@ -63,7 +57,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_m2tp_error_code = internal global i32 0, align 4
 @.str.30 = private unnamed_addr constant [11 x i8] c"Error code\00", align 1
 @.str.31 = private unnamed_addr constant [16 x i8] c"m2tp.error_code\00", align 1
-@m2tp_error_code_values = internal constant [10 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.55 }, %struct._value_string { i32 2, ptr @.str.56 }, %struct._value_string { i32 3, ptr @.str.57 }, %struct._value_string { i32 4, ptr @.str.58 }, %struct._value_string { i32 5, ptr @.str.59 }, %struct._value_string { i32 6, ptr @.str.60 }, %struct._value_string { i32 7, ptr @.str.61 }, %struct._value_string { i32 8, ptr @.str.62 }, %struct._value_string { i32 9, ptr @.str.63 }, %struct._value_string zeroinitializer], align 16
 @hf_m2tp_reason = internal global i32 0, align 4
 @.str.32 = private unnamed_addr constant [7 x i8] c"Reason\00", align 1
 @.str.33 = private unnamed_addr constant [12 x i8] c"m2tp.reason\00", align 1
@@ -80,69 +73,75 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.38 = private unnamed_addr constant [9 x i8] c"sctp.ppi\00", align 1
 @.str.39 = private unnamed_addr constant [10 x i8] c"sctp.port\00", align 1
 @.str.40 = private unnamed_addr constant [10 x i8] c"Release 1\00", align 1
-@.str.41 = private unnamed_addr constant [20 x i8] c"Management Messages\00", align 1
-@.str.42 = private unnamed_addr constant [30 x i8] c"SG State Maintenance Messages\00", align 1
-@.str.43 = private unnamed_addr constant [30 x i8] c"MTP2 User Adaptation Messages\00", align 1
-@.str.44 = private unnamed_addr constant [19 x i8] c"User Data Messages\00", align 1
-@.str.45 = private unnamed_addr constant [5 x i8] c"Info\00", align 1
-@.str.46 = private unnamed_addr constant [23 x i8] c"Diagnostic Information\00", align 1
-@.str.47 = private unnamed_addr constant [15 x i8] c"Heartbeat Data\00", align 1
-@.str.48 = private unnamed_addr constant [11 x i8] c"Error Code\00", align 1
-@.str.49 = private unnamed_addr constant [14 x i8] c"Protocol Data\00", align 1
-@.str.50 = private unnamed_addr constant [5 x i8] c"MTP2\00", align 1
-@.str.51 = private unnamed_addr constant [6 x i8] c"Q.921\00", align 1
-@.str.52 = private unnamed_addr constant [12 x i8] c"Frame Relay\00", align 1
-@.str.53 = private unnamed_addr constant [7 x i8] c"Master\00", align 1
-@.str.54 = private unnamed_addr constant [6 x i8] c"Slave\00", align 1
-@.str.55 = private unnamed_addr constant [16 x i8] c"Invalid Version\00", align 1
-@.str.56 = private unnamed_addr constant [29 x i8] c"Invalid Interface Identifier\00", align 1
-@.str.57 = private unnamed_addr constant [36 x i8] c"Invalid Adaptation Layer Identifier\00", align 1
-@.str.58 = private unnamed_addr constant [21 x i8] c"Invalid Message Type\00", align 1
-@.str.59 = private unnamed_addr constant [30 x i8] c"Invalid Traffic Handling Mode\00", align 1
-@.str.60 = private unnamed_addr constant [19 x i8] c"Unexpected Message\00", align 1
-@.str.61 = private unnamed_addr constant [15 x i8] c"Protocol Error\00", align 1
-@.str.62 = private unnamed_addr constant [26 x i8] c"Invalid Stream Identified\00", align 1
-@.str.63 = private unnamed_addr constant [40 x i8] c"Incompatible Master Slave Configuration\00", align 1
-@.str.64 = private unnamed_addr constant [4 x i8] c"%s \00", align 1
-@m2tp_message_class_type_acro_values = internal constant [9 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.67 }, %struct._value_string { i32 65281, ptr @.str.68 }, %struct._value_string { i32 769, ptr @.str.69 }, %struct._value_string { i32 770, ptr @.str.70 }, %struct._value_string { i32 771, ptr @.str.71 }, %struct._value_string { i32 772, ptr @.str.72 }, %struct._value_string { i32 773, ptr @.str.73 }, %struct._value_string { i32 774, ptr @.str.74 }, %struct._value_string zeroinitializer], align 16
-@.str.65 = private unnamed_addr constant [9 x i8] c"reserved\00", align 1
-@.str.66 = private unnamed_addr constant [8 x i8] c"%u (%s)\00", align 1
-@m2tp_message_class_type_values = internal constant [9 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.75 }, %struct._value_string { i32 65281, ptr @.str.76 }, %struct._value_string { i32 769, ptr @.str.77 }, %struct._value_string { i32 770, ptr @.str.78 }, %struct._value_string { i32 771, ptr @.str.79 }, %struct._value_string { i32 772, ptr @.str.80 }, %struct._value_string { i32 773, ptr @.str.81 }, %struct._value_string { i32 774, ptr @.str.82 }, %struct._value_string zeroinitializer], align 16
-@.str.67 = private unnamed_addr constant [4 x i8] c"ERR\00", align 1
-@.str.68 = private unnamed_addr constant [5 x i8] c"DATA\00", align 1
-@.str.69 = private unnamed_addr constant [7 x i8] c"ASP_UP\00", align 1
-@.str.70 = private unnamed_addr constant [9 x i8] c"ASP_DOWN\00", align 1
-@.str.71 = private unnamed_addr constant [5 x i8] c"BEAT\00", align 1
-@.str.72 = private unnamed_addr constant [11 x i8] c"ASP_UP_ACK\00", align 1
-@.str.73 = private unnamed_addr constant [13 x i8] c"ASP_DOWN_ACK\00", align 1
-@.str.74 = private unnamed_addr constant [9 x i8] c"BEAT_ACK\00", align 1
-@.str.75 = private unnamed_addr constant [12 x i8] c"Error (ERR)\00", align 1
-@.str.76 = private unnamed_addr constant [20 x i8] c"Payload data (DATA)\00", align 1
-@.str.77 = private unnamed_addr constant [12 x i8] c"ASP up (UP)\00", align 1
-@.str.78 = private unnamed_addr constant [16 x i8] c"ASP down (DOWN)\00", align 1
-@.str.79 = private unnamed_addr constant [17 x i8] c"Heartbeat (BEAT)\00", align 1
-@.str.80 = private unnamed_addr constant [20 x i8] c"ASP up ack (UP ACK)\00", align 1
-@.str.81 = private unnamed_addr constant [24 x i8] c"ASP down ack (DOWN ACK)\00", align 1
-@.str.82 = private unnamed_addr constant [25 x i8] c"Heartbeat ack (BEAT ACK)\00", align 1
-@.str.83 = private unnamed_addr constant [21 x i8] c"Incomplete parameter\00", align 1
-@.str.84 = private unnamed_addr constant [26 x i8] c"Interface Identifier (%u)\00", align 1
-@.str.85 = private unnamed_addr constant [28 x i8] c"Master Slave Indicator (%s)\00", align 1
-@.str.86 = private unnamed_addr constant [8 x i8] c"unknown\00", align 1
-@.str.87 = private unnamed_addr constant [26 x i8] c"M2TP User Identifier (%u)\00", align 1
-@.str.88 = private unnamed_addr constant [17 x i8] c"Info String (%s)\00", align 1
-@.str.89 = private unnamed_addr constant [35 x i8] c"Diagnostic information (%u byte%s)\00", align 1
-@.str.90 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
-@.str.91 = private unnamed_addr constant [2 x i8] c"s\00", align 1
-@.str.92 = private unnamed_addr constant [27 x i8] c"Heartbeat data (%u byte%s)\00", align 1
-@.str.93 = private unnamed_addr constant [22 x i8] c"Reason parameter (%s)\00", align 1
-@m2tp_reason_code_values = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.94 }, %struct._value_string { i32 2, ptr @.str.95 }, %struct._value_string zeroinitializer], align 16
-@.str.94 = private unnamed_addr constant [17 x i8] c"Management Order\00", align 1
-@.str.95 = private unnamed_addr constant [12 x i8] c"MTP Release\00", align 1
-@.str.96 = private unnamed_addr constant [26 x i8] c"Error code parameter (%s)\00", align 1
-@.str.97 = private unnamed_addr constant [28 x i8] c"Protocol data (SS7 message)\00", align 1
-@.str.98 = private unnamed_addr constant [42 x i8] c"Parameter with tag %u and %u byte%s value\00", align 1
+@m2tp_protocol_version_values = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.40 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.42 = private unnamed_addr constant [20 x i8] c"Management Messages\00", align 1
+@.str.43 = private unnamed_addr constant [30 x i8] c"SG State Maintenance Messages\00", align 1
+@.str.44 = private unnamed_addr constant [30 x i8] c"MTP2 User Adaptation Messages\00", align 1
+@.str.45 = private unnamed_addr constant [19 x i8] c"User Data Messages\00", align 1
+@m2tp_message_class_values = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.42 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.43 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.44 }, { i32, [4 x i8], ptr } { i32 255, [4 x i8] zeroinitializer, ptr @.str.45 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.47 = private unnamed_addr constant [5 x i8] c"Info\00", align 1
+@.str.48 = private unnamed_addr constant [23 x i8] c"Diagnostic Information\00", align 1
+@.str.49 = private unnamed_addr constant [15 x i8] c"Heartbeat Data\00", align 1
+@.str.50 = private unnamed_addr constant [11 x i8] c"Error Code\00", align 1
+@.str.51 = private unnamed_addr constant [14 x i8] c"Protocol Data\00", align 1
+@m2tp_parameter_tag_values = internal constant [10 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.18 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.22 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.47 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.48 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.49 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.32 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.50 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.51 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.53 = private unnamed_addr constant [5 x i8] c"MTP2\00", align 1
+@.str.54 = private unnamed_addr constant [6 x i8] c"Q.921\00", align 1
+@.str.55 = private unnamed_addr constant [12 x i8] c"Frame Relay\00", align 1
+@m2tp_user_identifier_values = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.53 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.54 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.55 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.57 = private unnamed_addr constant [7 x i8] c"Master\00", align 1
+@.str.58 = private unnamed_addr constant [6 x i8] c"Slave\00", align 1
+@m2tp_mode_values = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.57 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.58 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.60 = private unnamed_addr constant [16 x i8] c"Invalid Version\00", align 1
+@.str.61 = private unnamed_addr constant [29 x i8] c"Invalid Interface Identifier\00", align 1
+@.str.62 = private unnamed_addr constant [36 x i8] c"Invalid Adaptation Layer Identifier\00", align 1
+@.str.63 = private unnamed_addr constant [21 x i8] c"Invalid Message Type\00", align 1
+@.str.64 = private unnamed_addr constant [30 x i8] c"Invalid Traffic Handling Mode\00", align 1
+@.str.65 = private unnamed_addr constant [19 x i8] c"Unexpected Message\00", align 1
+@.str.66 = private unnamed_addr constant [15 x i8] c"Protocol Error\00", align 1
+@.str.67 = private unnamed_addr constant [26 x i8] c"Invalid Stream Identified\00", align 1
+@.str.68 = private unnamed_addr constant [40 x i8] c"Incompatible Master Slave Configuration\00", align 1
+@m2tp_error_code_values = internal constant [10 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.60 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.61 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.62 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.63 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.64 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.65 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.66 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.67 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.68 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.70 = private unnamed_addr constant [4 x i8] c"%s \00", align 1
+@.str.71 = private unnamed_addr constant [9 x i8] c"reserved\00", align 1
+@.str.72 = private unnamed_addr constant [8 x i8] c"%u (%s)\00", align 1
+@.str.73 = private unnamed_addr constant [4 x i8] c"ERR\00", align 1
+@.str.74 = private unnamed_addr constant [5 x i8] c"DATA\00", align 1
+@.str.75 = private unnamed_addr constant [7 x i8] c"ASP_UP\00", align 1
+@.str.76 = private unnamed_addr constant [9 x i8] c"ASP_DOWN\00", align 1
+@.str.77 = private unnamed_addr constant [5 x i8] c"BEAT\00", align 1
+@.str.78 = private unnamed_addr constant [11 x i8] c"ASP_UP_ACK\00", align 1
+@.str.79 = private unnamed_addr constant [13 x i8] c"ASP_DOWN_ACK\00", align 1
+@.str.80 = private unnamed_addr constant [9 x i8] c"BEAT_ACK\00", align 1
+@m2tp_message_class_type_acro_values = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.73 }, { i32, [4 x i8], ptr } { i32 65281, [4 x i8] zeroinitializer, ptr @.str.74 }, { i32, [4 x i8], ptr } { i32 769, [4 x i8] zeroinitializer, ptr @.str.75 }, { i32, [4 x i8], ptr } { i32 770, [4 x i8] zeroinitializer, ptr @.str.76 }, { i32, [4 x i8], ptr } { i32 771, [4 x i8] zeroinitializer, ptr @.str.77 }, { i32, [4 x i8], ptr } { i32 772, [4 x i8] zeroinitializer, ptr @.str.78 }, { i32, [4 x i8], ptr } { i32 773, [4 x i8] zeroinitializer, ptr @.str.79 }, { i32, [4 x i8], ptr } { i32 774, [4 x i8] zeroinitializer, ptr @.str.80 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.82 = private unnamed_addr constant [12 x i8] c"Error (ERR)\00", align 1
+@.str.83 = private unnamed_addr constant [20 x i8] c"Payload data (DATA)\00", align 1
+@.str.84 = private unnamed_addr constant [12 x i8] c"ASP up (UP)\00", align 1
+@.str.85 = private unnamed_addr constant [16 x i8] c"ASP down (DOWN)\00", align 1
+@.str.86 = private unnamed_addr constant [17 x i8] c"Heartbeat (BEAT)\00", align 1
+@.str.87 = private unnamed_addr constant [20 x i8] c"ASP up ack (UP ACK)\00", align 1
+@.str.88 = private unnamed_addr constant [24 x i8] c"ASP down ack (DOWN ACK)\00", align 1
+@.str.89 = private unnamed_addr constant [25 x i8] c"Heartbeat ack (BEAT ACK)\00", align 1
+@m2tp_message_class_type_values = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.82 }, { i32, [4 x i8], ptr } { i32 65281, [4 x i8] zeroinitializer, ptr @.str.83 }, { i32, [4 x i8], ptr } { i32 769, [4 x i8] zeroinitializer, ptr @.str.84 }, { i32, [4 x i8], ptr } { i32 770, [4 x i8] zeroinitializer, ptr @.str.85 }, { i32, [4 x i8], ptr } { i32 771, [4 x i8] zeroinitializer, ptr @.str.86 }, { i32, [4 x i8], ptr } { i32 772, [4 x i8] zeroinitializer, ptr @.str.87 }, { i32, [4 x i8], ptr } { i32 773, [4 x i8] zeroinitializer, ptr @.str.88 }, { i32, [4 x i8], ptr } { i32 774, [4 x i8] zeroinitializer, ptr @.str.89 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.91 = private unnamed_addr constant [21 x i8] c"Incomplete parameter\00", align 1
+@.str.92 = private unnamed_addr constant [26 x i8] c"Interface Identifier (%u)\00", align 1
+@.str.93 = private unnamed_addr constant [28 x i8] c"Master Slave Indicator (%s)\00", align 1
+@.str.94 = private unnamed_addr constant [8 x i8] c"unknown\00", align 1
+@.str.95 = private unnamed_addr constant [26 x i8] c"M2TP User Identifier (%u)\00", align 1
+@.str.96 = private unnamed_addr constant [17 x i8] c"Info String (%s)\00", align 1
+@.str.97 = private unnamed_addr constant [35 x i8] c"Diagnostic information (%u byte%s)\00", align 1
+@.str.98 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@.str.99 = private unnamed_addr constant [2 x i8] c"s\00", align 1
+@.str.100 = private unnamed_addr constant [27 x i8] c"Heartbeat data (%u byte%s)\00", align 1
+@.str.101 = private unnamed_addr constant [22 x i8] c"Reason parameter (%s)\00", align 1
+@.str.102 = private unnamed_addr constant [17 x i8] c"Management Order\00", align 1
+@.str.103 = private unnamed_addr constant [12 x i8] c"MTP Release\00", align 1
+@m2tp_reason_code_values = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.102 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.103 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.105 = private unnamed_addr constant [26 x i8] c"Error code parameter (%s)\00", align 1
+@.str.106 = private unnamed_addr constant [28 x i8] c"Protocol data (SS7 message)\00", align 1
+@.str.107 = private unnamed_addr constant [42 x i8] c"Parameter with tag %u and %u byte%s value\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_m2tp() #0 {
   %1 = call i32 @proto_register_protocol(ptr noundef @.str.34, ptr noundef @.str.35, ptr noundef @.str.36)
   store i32 %1, ptr @proto_m2tp, align 4
@@ -155,15 +154,19 @@ define hidden void @proto_register_m2tp() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_m2tp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -175,10 +178,12 @@ define internal i32 @dissect_m2tp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds %struct._packet_info, ptr %11, i32 0, i32 1
+  %12 = getelementptr inbounds nuw %struct._packet_info, ptr %11, i32 0, i32 1
   %13 = load ptr, ptr %12, align 8
-  call void @col_set_str(ptr noundef %13, i32 noundef 34, ptr noundef @.str.35)
+  call void @col_set_str(ptr noundef %13, i32 noundef 35, ptr noundef @.str.35)
   %14 = load ptr, ptr %7, align 8
   %15 = load i32, ptr @proto_m2tp, align 4
   %16 = load ptr, ptr %5, align 8
@@ -196,10 +201,12 @@ define internal i32 @dissect_m2tp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   call void @dissect_m2tp_message(ptr noundef %21, ptr noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25)
   %26 = load ptr, ptr %5, align 8
   %27 = call i32 @tvb_captured_length(ptr noundef %26)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
   ret i32 %27
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_m2tp() #0 {
   %1 = load i32, ptr @proto_m2tp, align 4
   %2 = call ptr @find_dissector_add_dependency(ptr noundef @.str.37, i32 noundef %1)
@@ -211,17 +218,25 @@ define hidden void @proto_reg_handoff_m2tp() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_m2tp_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -239,6 +254,12 @@ define internal void @dissect_m2tp_message(ptr noundef %0, ptr noundef %1, ptr n
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   store ptr %4, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #4
   store i32 0, ptr %11, align 4
   %17 = load ptr, ptr %6, align 8
   %18 = load i32, ptr %11, align 4
@@ -289,17 +310,28 @@ define internal void @dissect_m2tp_message(ptr noundef %0, ptr noundef %1, ptr n
   %51 = load i32, ptr %11, align 4
   %52 = add i32 %51, %50
   store i32 %52, ptr %11, align 4
-  br label %25, !llvm.loop !4
+  br label %25, !llvm.loop !6
 
 53:                                               ; preds = %25
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_m2tp_common_header(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -312,23 +344,28 @@ define internal void @dissect_m2tp_common_header(ptr noundef %0, ptr noundef %1,
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
   %12 = load ptr, ptr %4, align 8
-  %13 = call zeroext i8 @tvb_get_guint8(ptr noundef %12, i32 noundef 0)
+  %13 = call zeroext i8 @tvb_get_uint8(ptr noundef %12, i32 noundef 0)
   store i8 %13, ptr %7, align 1
   %14 = load ptr, ptr %4, align 8
-  %15 = call zeroext i8 @tvb_get_guint8(ptr noundef %14, i32 noundef 1)
+  %15 = call zeroext i8 @tvb_get_uint8(ptr noundef %14, i32 noundef 1)
   store i8 %15, ptr %8, align 1
   %16 = load ptr, ptr %4, align 8
-  %17 = call zeroext i8 @tvb_get_guint8(ptr noundef %16, i32 noundef 2)
+  %17 = call zeroext i8 @tvb_get_uint8(ptr noundef %16, i32 noundef 2)
   store i8 %17, ptr %9, align 1
   %18 = load ptr, ptr %4, align 8
-  %19 = call zeroext i8 @tvb_get_guint8(ptr noundef %18, i32 noundef 3)
+  %19 = call zeroext i8 @tvb_get_uint8(ptr noundef %18, i32 noundef 3)
   store i8 %19, ptr %10, align 1
   %20 = load ptr, ptr %4, align 8
   %21 = call i32 @tvb_get_ntohl(ptr noundef %20, i32 noundef 4)
   store i32 %21, ptr %11, align 4
   %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %struct._packet_info, ptr %22, i32 0, i32 1
+  %23 = getelementptr inbounds nuw %struct._packet_info, ptr %22, i32 0, i32 1
   %24 = load ptr, ptr %23, align 8
   %25 = load i8, ptr %9, align 1
   %26 = zext i8 %25 to i32
@@ -336,8 +373,8 @@ define internal void @dissect_m2tp_common_header(ptr noundef %0, ptr noundef %1,
   %28 = load i8, ptr %10, align 1
   %29 = zext i8 %28 to i32
   %30 = add i32 %27, %29
-  %31 = call ptr @val_to_str_const(i32 noundef %30, ptr noundef @m2tp_message_class_type_acro_values, ptr noundef @.str.65)
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %24, i32 noundef 25, ptr noundef @.str.64, ptr noundef %31)
+  %31 = call ptr @val_to_str_const(i32 noundef %30, ptr noundef @m2tp_message_class_type_acro_values, ptr noundef @.str.71)
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %24, i32 noundef 25, ptr noundef @.str.70, ptr noundef %31)
   %32 = load ptr, ptr %6, align 8
   %33 = icmp ne ptr %32, null
   br i1 %33, label %34, label %73
@@ -374,8 +411,8 @@ define internal void @dissect_m2tp_common_header(ptr noundef %0, ptr noundef %1,
   %63 = load i8, ptr %10, align 1
   %64 = zext i8 %63 to i32
   %65 = add i32 %62, %64
-  %66 = call ptr @val_to_str_const(i32 noundef %65, ptr noundef @m2tp_message_class_type_values, ptr noundef @.str.65)
-  %67 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %53, i32 noundef %54, ptr noundef %55, i32 noundef 3, i32 noundef 1, i32 noundef %57, ptr noundef @.str.66, i32 noundef %59, ptr noundef %66)
+  %66 = call ptr @val_to_str_const(i32 noundef %65, ptr noundef @m2tp_message_class_type_values, ptr noundef @.str.71)
+  %67 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %53, i32 noundef %54, ptr noundef %55, i32 noundef 3, i32 noundef 1, i32 noundef %57, ptr noundef @.str.72, i32 noundef %59, ptr noundef %66)
   %68 = load ptr, ptr %6, align 8
   %69 = load i32, ptr @hf_m2tp_message_length, align 4
   %70 = load ptr, ptr %4, align 8
@@ -384,42 +421,54 @@ define internal void @dissect_m2tp_common_header(ptr noundef %0, ptr noundef %1,
   br label %73
 
 73:                                               ; preds = %34, %3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #4
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
-define internal i32 @nr_of_padding_bytes(i32 noundef %0) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @nr_of_padding_bytes(i32 noundef %0) #3 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
   store i32 %0, ptr %3, align 4
-  %5 = load i32, ptr %3, align 4
-  %6 = urem i32 %5, 4
-  store i32 %6, ptr %4, align 4
-  %7 = load i32, ptr %4, align 4
-  %8 = icmp eq i32 %7, 0
-  br i1 %8, label %9, label %10
-
-9:                                                ; preds = %1
-  store i32 0, ptr %2, align 4
-  br label %13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #4
+  %6 = load i32, ptr %3, align 4
+  %7 = urem i32 %6, 4
+  store i32 %7, ptr %4, align 4
+  %8 = load i32, ptr %4, align 4
+  %9 = icmp eq i32 %8, 0
+  br i1 %9, label %10, label %11
 
 10:                                               ; preds = %1
-  %11 = load i32, ptr %4, align 4
-  %12 = sub i32 4, %11
-  store i32 %12, ptr %2, align 4
-  br label %13
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %14
 
-13:                                               ; preds = %10, %9
-  %14 = load i32, ptr %2, align 4
-  ret i32 %14
+11:                                               ; preds = %1
+  %12 = load i32, ptr %4, align 4
+  %13 = sub i32 4, %12
+  store i32 %13, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %14
+
+14:                                               ; preds = %11, %10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #4
+  %15 = load i32, ptr %2, align 4
+  ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_m2tp_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -437,7 +486,13 @@ define internal void @dissect_m2tp_parameter(ptr noundef %0, ptr noundef %1, ptr
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   store ptr %4, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #4
   store ptr null, ptr %15, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #4
   store ptr null, ptr %16, align 8
   %17 = load ptr, ptr %6, align 8
   %18 = call zeroext i16 @tvb_get_ntohs(ptr noundef %17, i32 noundef 0)
@@ -467,7 +522,7 @@ define internal void @dissect_m2tp_parameter(ptr noundef %0, ptr noundef %1, ptr
   %36 = load i16, ptr %14, align 2
   %37 = zext i16 %36 to i32
   %38 = load i32, ptr @ett_m2tp_parameter, align 4
-  %39 = call ptr @proto_tree_add_subtree(ptr noundef %34, ptr noundef %35, i32 noundef 0, i32 noundef %37, i32 noundef %38, ptr noundef %15, ptr noundef @.str.83)
+  %39 = call ptr @proto_tree_add_subtree(ptr noundef %34, ptr noundef %35, i32 noundef 0, i32 noundef %37, i32 noundef %38, ptr noundef %15, ptr noundef @.str.91)
   store ptr %39, ptr %16, align 8
   %40 = load ptr, ptr %16, align 8
   %41 = load i32, ptr @hf_m2tp_parameter_tag, align 4
@@ -604,24 +659,37 @@ define internal void @dissect_m2tp_parameter(ptr noundef %0, ptr noundef %1, ptr
   br label %124
 
 124:                                              ; preds = %114, %110, %107
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %11) #4
   ret void
 }
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_m2tp_interface_identifier_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -632,6 +700,7 @@ define internal void @dissect_m2tp_interface_identifier_parameter(ptr noundef %0
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
   %10 = load ptr, ptr %7, align 8
   %11 = icmp ne ptr %10, null
   br i1 %11, label %12, label %22
@@ -647,14 +716,15 @@ define internal void @dissect_m2tp_interface_identifier_parameter(ptr noundef %0
   %19 = call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %16, ptr noundef %17, i32 noundef 4, i32 noundef 4, i32 noundef %18)
   %20 = load ptr, ptr %8, align 8
   %21 = load i32, ptr %9, align 4
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %20, ptr noundef @.str.84, i32 noundef %21)
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %20, ptr noundef @.str.92, i32 noundef %21)
   br label %22
 
 22:                                               ; preds = %12, %4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_m2tp_master_slave_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -665,6 +735,7 @@ define internal void @dissect_m2tp_master_slave_parameter(ptr noundef %0, ptr no
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
   %10 = load ptr, ptr %7, align 8
   %11 = icmp ne ptr %10, null
   br i1 %11, label %12, label %23
@@ -680,15 +751,16 @@ define internal void @dissect_m2tp_master_slave_parameter(ptr noundef %0, ptr no
   %19 = call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %16, ptr noundef %17, i32 noundef 4, i32 noundef 4, i32 noundef %18)
   %20 = load ptr, ptr %8, align 8
   %21 = load i32, ptr %9, align 4
-  %22 = call ptr @val_to_str_const(i32 noundef %21, ptr noundef @m2tp_mode_values, ptr noundef @.str.86)
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %20, ptr noundef @.str.85, ptr noundef %22)
+  %22 = call ptr @val_to_str_const(i32 noundef %21, ptr noundef @m2tp_mode_values, ptr noundef @.str.94)
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %20, ptr noundef @.str.93, ptr noundef %22)
   br label %23
 
 23:                                               ; preds = %12, %4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_m2tp_user_identifier_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -699,6 +771,7 @@ define internal void @dissect_m2tp_user_identifier_parameter(ptr noundef %0, ptr
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
   %10 = load ptr, ptr %7, align 8
   %11 = icmp ne ptr %10, null
   br i1 %11, label %12, label %22
@@ -714,14 +787,15 @@ define internal void @dissect_m2tp_user_identifier_parameter(ptr noundef %0, ptr
   %19 = call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %16, ptr noundef %17, i32 noundef 4, i32 noundef 4, i32 noundef %18)
   %20 = load ptr, ptr %8, align 8
   %21 = load i32, ptr %9, align 4
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %20, ptr noundef @.str.87, i32 noundef %21)
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %20, ptr noundef @.str.95, i32 noundef %21)
   br label %22
 
 22:                                               ; preds = %12, %4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_m2tp_info_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -734,6 +808,9 @@ define internal void @dissect_m2tp_info_parameter(ptr noundef %0, ptr noundef %1
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #4
   %12 = load ptr, ptr %7, align 8
   %13 = icmp ne ptr %12, null
   br i1 %13, label %14, label %32
@@ -753,19 +830,22 @@ define internal void @dissect_m2tp_info_parameter(ptr noundef %0, ptr noundef %1
   %24 = load i16, ptr %10, align 2
   %25 = zext i16 %24 to i32
   %26 = load ptr, ptr %6, align 8
-  %27 = getelementptr inbounds %struct._packet_info, ptr %26, i32 0, i32 50
+  %27 = getelementptr inbounds nuw %struct._packet_info, ptr %26, i32 0, i32 51
   %28 = load ptr, ptr %27, align 8
   %29 = call ptr @proto_tree_add_item_ret_string(ptr noundef %21, i32 noundef %22, ptr noundef %23, i32 noundef 4, i32 noundef %25, i32 noundef 0, ptr noundef %28, ptr noundef %11)
   %30 = load ptr, ptr %8, align 8
   %31 = load ptr, ptr %11, align 8
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %30, ptr noundef @.str.88, ptr noundef %31)
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %30, ptr noundef @.str.96, ptr noundef %31)
   br label %32
 
 32:                                               ; preds = %14, %4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %9) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_m2tp_diagnostic_information_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -777,6 +857,8 @@ define internal void @dissect_m2tp_diagnostic_information_parameter(ptr noundef 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %10) #4
   %11 = load ptr, ptr %7, align 8
   %12 = icmp ne ptr %11, null
   br i1 %12, label %13, label %33
@@ -802,15 +884,17 @@ define internal void @dissect_m2tp_diagnostic_information_parameter(ptr noundef 
   %29 = load i16, ptr %10, align 2
   %30 = zext i16 %29 to i32
   %31 = icmp eq i32 %30, 1
-  %32 = select i1 %31, ptr @.str.90, ptr @.str.91
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %26, ptr noundef @.str.89, i32 noundef %28, ptr noundef %32)
+  %32 = select i1 %31, ptr @.str.98, ptr @.str.99
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %26, ptr noundef @.str.97, i32 noundef %28, ptr noundef %32)
   br label %33
 
 33:                                               ; preds = %13, %4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %9) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_m2tp_heartbeat_data_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -822,6 +906,8 @@ define internal void @dissect_m2tp_heartbeat_data_parameter(ptr noundef %0, ptr 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %10) #4
   %11 = load ptr, ptr %7, align 8
   %12 = icmp ne ptr %11, null
   br i1 %12, label %13, label %33
@@ -847,15 +933,17 @@ define internal void @dissect_m2tp_heartbeat_data_parameter(ptr noundef %0, ptr 
   %29 = load i16, ptr %10, align 2
   %30 = zext i16 %29 to i32
   %31 = icmp eq i32 %30, 1
-  %32 = select i1 %31, ptr @.str.90, ptr @.str.91
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %26, ptr noundef @.str.92, i32 noundef %28, ptr noundef %32)
+  %32 = select i1 %31, ptr @.str.98, ptr @.str.99
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %26, ptr noundef @.str.100, i32 noundef %28, ptr noundef %32)
   br label %33
 
 33:                                               ; preds = %13, %4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %9) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_m2tp_reason_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -866,6 +954,7 @@ define internal void @dissect_m2tp_reason_parameter(ptr noundef %0, ptr noundef 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
   %10 = load ptr, ptr %7, align 8
   %11 = icmp ne ptr %10, null
   br i1 %11, label %12, label %23
@@ -881,15 +970,16 @@ define internal void @dissect_m2tp_reason_parameter(ptr noundef %0, ptr noundef 
   %19 = call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %16, ptr noundef %17, i32 noundef 4, i32 noundef 4, i32 noundef %18)
   %20 = load ptr, ptr %8, align 8
   %21 = load i32, ptr %9, align 4
-  %22 = call ptr @val_to_str_const(i32 noundef %21, ptr noundef @m2tp_reason_code_values, ptr noundef @.str.86)
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %20, ptr noundef @.str.93, ptr noundef %22)
+  %22 = call ptr @val_to_str_const(i32 noundef %21, ptr noundef @m2tp_reason_code_values, ptr noundef @.str.94)
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %20, ptr noundef @.str.101, ptr noundef %22)
   br label %23
 
 23:                                               ; preds = %12, %4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_m2tp_error_code_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -900,6 +990,7 @@ define internal void @dissect_m2tp_error_code_parameter(ptr noundef %0, ptr noun
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
   %10 = load ptr, ptr %7, align 8
   %11 = icmp ne ptr %10, null
   br i1 %11, label %12, label %23
@@ -915,15 +1006,16 @@ define internal void @dissect_m2tp_error_code_parameter(ptr noundef %0, ptr noun
   %19 = call ptr @proto_tree_add_uint(ptr noundef %15, i32 noundef %16, ptr noundef %17, i32 noundef 4, i32 noundef 4, i32 noundef %18)
   %20 = load ptr, ptr %8, align 8
   %21 = load i32, ptr %9, align 4
-  %22 = call ptr @val_to_str_const(i32 noundef %21, ptr noundef @m2tp_error_code_values, ptr noundef @.str.86)
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %20, ptr noundef @.str.96, ptr noundef %22)
+  %22 = call ptr @val_to_str_const(i32 noundef %21, ptr noundef @m2tp_error_code_values, ptr noundef @.str.94)
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %20, ptr noundef @.str.105, ptr noundef %22)
   br label %23
 
 23:                                               ; preds = %12, %4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_m2tp_protocol_data_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -941,6 +1033,10 @@ define internal void @dissect_m2tp_protocol_data_parameter(ptr noundef %0, ptr n
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %15) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #4
   %17 = load ptr, ptr %7, align 8
   %18 = call zeroext i16 @tvb_get_ntohs(ptr noundef %17, i32 noundef 2)
   store i16 %18, ptr %13, align 2
@@ -970,7 +1066,7 @@ define internal void @dissect_m2tp_protocol_data_parameter(ptr noundef %0, ptr n
 
 38:                                               ; preds = %6
   %39 = load ptr, ptr %10, align 8
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %39, ptr noundef @.str.97)
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %39, ptr noundef @.str.106)
   %40 = load ptr, ptr %10, align 8
   %41 = load ptr, ptr %10, align 8
   %42 = call i32 @proto_item_get_len(ptr noundef %41)
@@ -994,10 +1090,14 @@ define internal void @dissect_m2tp_protocol_data_parameter(ptr noundef %0, ptr n
   br label %58
 
 58:                                               ; preds = %38, %6
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_m2tp_unknown_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1010,6 +1110,9 @@ define internal void @dissect_m2tp_unknown_parameter(ptr noundef %0, ptr noundef
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %11) #4
   %12 = load ptr, ptr %7, align 8
   %13 = icmp ne ptr %12, null
   br i1 %13, label %14, label %38
@@ -1040,32 +1143,45 @@ define internal void @dissect_m2tp_unknown_parameter(ptr noundef %0, ptr noundef
   %34 = load i16, ptr %11, align 2
   %35 = zext i16 %34 to i32
   %36 = icmp eq i32 %35, 1
-  %37 = select i1 %36, ptr @.str.90, ptr @.str.91
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %29, ptr noundef @.str.98, i32 noundef %31, i32 noundef %33, ptr noundef %37)
+  %37 = select i1 %36, ptr @.str.98, ptr @.str.99
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %29, ptr noundef @.str.107, i32 noundef %31, i32 noundef %33, ptr noundef %37)
   br label %38
 
 38:                                               ; preds = %14, %4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %9) #4
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_item_set_text(ptr noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item_ret_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_item_set_len(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_item_get_len(ptr noundef) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}

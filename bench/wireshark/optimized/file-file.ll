@@ -71,44 +71,49 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.38 = private unnamed_addr constant [16 x i8] c"FTAP_ENCAP = %d\00", align 1
 @dissect_file_record.catch_spec.39 = internal constant [1 x %struct.except_id_t] [%struct.except_id_t { i64 1, i64 0 }], align 16
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @register_file_record_end_routine(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call ptr @g_slist_append(ptr noundef %4, ptr noundef %1) #4
+  %5 = tail call ptr @g_slist_append(ptr noundef %4, ptr noundef %1)
   store ptr %5, ptr %3, align 8
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @g_slist_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_file() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.26) #4
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.26)
   store i32 %1, ptr @proto_file, align 4
-  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_file.hf, i32 noundef 10) #4
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_file.ett, i32 noundef 1) #4
+  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_file.hf, i32 noundef 10)
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_file.ett, i32 noundef 1)
   %2 = load i32, ptr @proto_file, align 4
-  %3 = tail call ptr @register_dissector(ptr noundef nonnull @.str.26, ptr noundef nonnull @dissect_file_record, i32 noundef %2) #4
+  %3 = tail call ptr @register_dissector(ptr noundef nonnull @.str.26, ptr noundef nonnull @dissect_file_record, i32 noundef %2)
   %4 = load i32, ptr @proto_file, align 4
-  %5 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, i32 noundef %4, i32 noundef 7, i32 noundef 1) #4
+  %5 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, i32 noundef %4, i32 noundef 7, i32 noundef 1)
   store ptr %5, ptr @file_encap_dissector_table, align 8
   %6 = load i32, ptr @proto_file, align 4
-  tail call void @proto_set_cant_toggle(i32 noundef %6) #4
-  %7 = tail call i32 @register_tap(ptr noundef nonnull @.str.26) #4
+  tail call void @proto_set_cant_toggle(i32 noundef %6)
+  %7 = tail call i32 @register_tap(ptr noundef nonnull @.str.26)
   store i32 %7, ptr @file_tap, align 4
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_file_record(ptr noundef %0, ptr noundef initializes((0, 8)) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -121,23 +126,25 @@ define internal i32 @dissect_file_record(ptr noundef %0, ptr noundef initializes
   %13 = alloca i32, align 4
   %14 = alloca %struct.except_stacknode, align 8
   %15 = alloca %struct.except_catch, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store volatile ptr null, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store volatile ptr null, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store volatile ptr %2, ptr %7, align 8
   store ptr @.str.25, ptr %1, align 8
   %.0..0..0..0.75 = load volatile ptr, ptr %7, align 8
   %16 = load i32, ptr @proto_file, align 4
-  %17 = call i32 @proto_field_is_referenced(ptr noundef %.0..0..0..0.75, i32 noundef %16) #4
-  %.not = icmp eq i32 %17, 0
-  br i1 %.not, label %18, label %19
+  %17 = call zeroext i1 @proto_field_is_referenced(ptr noundef %.0..0..0..0.75, i32 noundef %16)
+  br i1 %17, label %19, label %18
 
 18:                                               ; preds = %4
   store volatile ptr null, ptr %7, align 8
   br label %.loopexit
 
 19:                                               ; preds = %4
-  %20 = call i32 @tvb_captured_length(ptr noundef %0) #4
-  %21 = call i32 @tvb_reported_length(ptr noundef %0) #4
+  %20 = call i32 @tvb_captured_length(ptr noundef %0)
+  %21 = call i32 @tvb_reported_length(ptr noundef %0)
   %22 = icmp eq i32 %20, 1
   %23 = select i1 %22, ptr @.str.29, ptr @.str.30
   %24 = icmp eq i32 %21, 1
@@ -146,13 +153,13 @@ define internal i32 @dissect_file_record(ptr noundef %0, ptr noundef initializes
   %26 = load i32, ptr @proto_file, align 4
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %28 = load i32, ptr %27, align 4
-  %29 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %.0..0..0..0.76, i32 noundef %26, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.31, i32 noundef %28, i32 noundef %21, ptr noundef nonnull %25) #4
+  %29 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %.0..0..0..0.76, i32 noundef %26, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.31, i32 noundef %28, i32 noundef %21, ptr noundef nonnull %25)
   store volatile ptr %29, ptr %5, align 8
   %.0..0..0..0.89 = load volatile ptr, ptr %5, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.0..0..0..0.89, ptr noundef nonnull @.str.32, i32 noundef %20, ptr noundef nonnull %23) #4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.0..0..0..0.89, ptr noundef nonnull @.str.32, i32 noundef %20, ptr noundef nonnull %23)
   %.0..0..0..0.90 = load volatile ptr, ptr %5, align 8
   %30 = load i32, ptr @ett_file, align 4
-  %31 = call ptr @proto_item_add_subtree(ptr noundef %.0..0..0..0.90, i32 noundef %30) #4
+  %31 = call ptr @proto_item_add_subtree(ptr noundef %.0..0..0..0.90, i32 noundef %30)
   store volatile ptr %31, ptr %6, align 8
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %33 = load ptr, ptr %32, align 8
@@ -165,35 +172,35 @@ define internal i32 @dissect_file_record(ptr noundef %0, ptr noundef initializes
   %37 = load i32, ptr @hf_file_ftap_encap, align 4
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 72
   %39 = load i32, ptr %38, align 8
-  %40 = call ptr @proto_tree_add_int(ptr noundef %.0..0..0..0.79, i32 noundef %37, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %39) #4
+  %40 = call ptr @proto_tree_add_int(ptr noundef %.0..0..0..0.79, i32 noundef %37, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %39)
   br label %41
 
 41:                                               ; preds = %36, %19
   %.0..0..0..0.80 = load volatile ptr, ptr %6, align 8
   %42 = load i32, ptr @hf_file_record_number, align 4
   %43 = load i32, ptr %27, align 4
-  %44 = call ptr @proto_tree_add_uint(ptr noundef %.0..0..0..0.80, i32 noundef %42, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %43) #4
+  %44 = call ptr @proto_tree_add_uint(ptr noundef %.0..0..0..0.80, i32 noundef %42, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %43)
   %.0..0..0..0.81 = load volatile ptr, ptr %6, align 8
   %45 = load i32, ptr @hf_file_record_len, align 4
   %46 = shl i32 %21, 3
-  %47 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.0..0..0..0.81, i32 noundef %45, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %21, ptr noundef nonnull @.str.33, i32 noundef %21, ptr noundef nonnull %25, i32 noundef %46) #4
+  %47 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.0..0..0..0.81, i32 noundef %45, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %21, ptr noundef nonnull @.str.33, i32 noundef %21, ptr noundef nonnull %25, i32 noundef %46)
   %.0..0..0..0.82 = load volatile ptr, ptr %6, align 8
   %48 = load i32, ptr @hf_file_marked, align 4
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 50
-  %52 = load i16, ptr %51, align 2
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 57
+  %52 = load i16, ptr %51, align 1
   %53 = lshr i16 %52, 4
   %54 = and i16 %53, 1
   %55 = zext nneg i16 %54 to i64
-  %56 = call ptr @proto_tree_add_boolean(ptr noundef %.0..0..0..0.82, i32 noundef %48, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %55) #4
+  %56 = call ptr @proto_tree_add_boolean(ptr noundef %.0..0..0..0.82, i32 noundef %48, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %55)
   store volatile ptr %56, ptr %5, align 8
   %.0..0..0..0.91 = load volatile ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %.0..0..0..0.91, null
   br i1 %.not.i, label %proto_item_set_generated.exit, label %57
 
 57:                                               ; preds = %41
-  %58 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.91, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.91, i64 40
   %59 = load ptr, ptr %58, align 8
   %.not5.i = icmp eq ptr %59, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %60
@@ -209,104 +216,108 @@ proto_item_set_generated.exit:                    ; preds = %41, %57, %60
   %.0..0..0..0.83 = load volatile ptr, ptr %6, align 8
   %64 = load i32, ptr @hf_file_ignored, align 4
   %65 = load ptr, ptr %49, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 50
-  %67 = load i16, ptr %66, align 2
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 57
+  %67 = load i16, ptr %66, align 1
   %68 = lshr i16 %67, 6
   %69 = and i16 %68, 1
   %70 = zext nneg i16 %69 to i64
-  %71 = call ptr @proto_tree_add_boolean(ptr noundef %.0..0..0..0.83, i32 noundef %64, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %70) #4
+  %71 = call ptr @proto_tree_add_boolean(ptr noundef %.0..0..0..0.83, i32 noundef %64, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %70)
   store volatile ptr %71, ptr %5, align 8
   %.0..0..0..0.92 = load volatile ptr, ptr %5, align 8
-  %.not.i185 = icmp eq ptr %.0..0..0..0.92, null
-  br i1 %.not.i185, label %proto_item_set_generated.exit187, label %72
+  %.not.i182 = icmp eq ptr %.0..0..0..0.92, null
+  br i1 %.not.i182, label %proto_item_set_generated.exit184, label %72
 
 72:                                               ; preds = %proto_item_set_generated.exit
-  %73 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.92, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.92, i64 40
   %74 = load ptr, ptr %73, align 8
-  %.not5.i186 = icmp eq ptr %74, null
-  br i1 %.not5.i186, label %proto_item_set_generated.exit187, label %75
+  %.not5.i183 = icmp eq ptr %74, null
+  br i1 %.not5.i183, label %proto_item_set_generated.exit184, label %75
 
 75:                                               ; preds = %72
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 28
   %77 = load i32, ptr %76, align 4
   %78 = or i32 %77, 2
   store i32 %78, ptr %76, align 4
-  br label %proto_item_set_generated.exit187
+  br label %proto_item_set_generated.exit184
 
-proto_item_set_generated.exit187:                 ; preds = %proto_item_set_generated.exit, %72, %75
+proto_item_set_generated.exit184:                 ; preds = %proto_item_set_generated.exit, %72, %75
   %79 = load ptr, ptr %49, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %81 = load ptr, ptr %80, align 8
-  %.not164 = icmp eq ptr %81, null
-  br i1 %.not164, label %.loopexit, label %82
+  %.not = icmp eq ptr %81, null
+  br i1 %.not, label %.loopexit, label %82
 
-82:                                               ; preds = %proto_item_set_generated.exit187
-  %83 = call i32 @g_slist_length(ptr noundef nonnull %81) #4
+82:                                               ; preds = %proto_item_set_generated.exit184
+  %83 = call i32 @g_slist_length(ptr noundef nonnull %81)
   %.0..0..0..0.84 = load volatile ptr, ptr %6, align 8
   %84 = load i32, ptr @hf_file_num_p_prot_data, align 4
-  %85 = call ptr @proto_tree_add_uint(ptr noundef %.0..0..0..0.84, i32 noundef %84, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %83) #4
-  %.not.i188 = icmp eq ptr %85, null
-  br i1 %.not.i188, label %proto_item_set_generated.exit190, label %86
+  %85 = call ptr @proto_tree_add_uint(ptr noundef %.0..0..0..0.84, i32 noundef %84, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %83)
+  %.not.i185 = icmp eq ptr %85, null
+  br i1 %.not.i185, label %proto_item_set_generated.exit187, label %86
 
 86:                                               ; preds = %82
-  %87 = getelementptr inbounds nuw i8, ptr %85, i64 32
+  %87 = getelementptr inbounds nuw i8, ptr %85, i64 40
   %88 = load ptr, ptr %87, align 8
-  %.not5.i189 = icmp eq ptr %88, null
-  br i1 %.not5.i189, label %proto_item_set_generated.exit190, label %89
+  %.not5.i186 = icmp eq ptr %88, null
+  br i1 %.not5.i186, label %proto_item_set_generated.exit187, label %89
 
 89:                                               ; preds = %86
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 28
   %91 = load i32, ptr %90, align 4
   %92 = or i32 %91, 2
   store i32 %92, ptr %90, align 4
-  br label %proto_item_set_generated.exit190
+  br label %proto_item_set_generated.exit187
 
-proto_item_set_generated.exit190:                 ; preds = %82, %86, %89
-  %.not204 = icmp eq i32 %83, 0
-  br i1 %.not204, label %.loopexit, label %.lr.ph
+proto_item_set_generated.exit187:                 ; preds = %82, %86, %89
+  %.not201 = icmp eq i32 %83, 0
+  br i1 %.not201, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %proto_item_set_generated.exit190, %.lr.ph
-  %.0159200 = phi i32 [ %97, %.lr.ph ], [ 0, %proto_item_set_generated.exit190 ]
-  %93 = call ptr @wmem_file_scope() #4
-  %94 = call ptr @p_get_proto_name_and_key(ptr noundef %93, ptr noundef nonnull %1, i32 noundef %.0159200) #4
+.lr.ph:                                           ; preds = %proto_item_set_generated.exit187, %.lr.ph
+  %.0159197 = phi i32 [ %97, %.lr.ph ], [ 0, %proto_item_set_generated.exit187 ]
+  %93 = call ptr @wmem_file_scope()
+  %94 = call ptr @p_get_proto_name_and_key(ptr noundef %93, ptr noundef %1, i32 noundef %.0159197)
   %.0..0..0..0.85 = load volatile ptr, ptr %6, align 8
   %95 = load i32, ptr @hf_file_proto_name_and_key, align 4
-  %96 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %.0..0..0..0.85, i32 noundef %95, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %94, ptr noundef nonnull @.str.34, ptr noundef %94) #4
-  %97 = add nuw i32 %.0159200, 1
+  %96 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %.0..0..0..0.85, i32 noundef %95, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %94, ptr noundef nonnull @.str.34, ptr noundef %94)
+  %97 = add nuw i32 %.0159197, 1
   %exitcond.not = icmp eq i32 %97, %83
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !4
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
-.loopexit:                                        ; preds = %.lr.ph, %proto_item_set_generated.exit190, %proto_item_set_generated.exit187, %18
+.loopexit:                                        ; preds = %.lr.ph, %proto_item_set_generated.exit187, %proto_item_set_generated.exit184, %18
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 50
-  %101 = load i16, ptr %100, align 2
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 57
+  %101 = load i16, ptr %100, align 1
   %102 = and i16 %101, 64
-  %.not165 = icmp eq i16 %102, 0
-  br i1 %.not165, label %108, label %103
+  %.not164 = icmp eq i16 %102, 0
+  br i1 %.not164, label %108, label %103
 
 103:                                              ; preds = %.loopexit
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %105 = load ptr, ptr %104, align 8
-  call void @col_set_str(ptr noundef %105, i32 noundef 25, ptr noundef nonnull @.str.35) #4
+  call void @col_set_str(ptr noundef %105, i32 noundef 25, ptr noundef nonnull @.str.35)
   %.0..0..0..0.77 = load volatile ptr, ptr %7, align 8
   %106 = load i32, ptr @hf_file_ignored, align 4
-  %107 = call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_boolean_format(ptr noundef %.0..0..0..0.77, i32 noundef %106, ptr noundef %0, i32 noundef 0, i32 noundef -1, i64 noundef 1, ptr noundef nonnull @.str.36) #4
+  %107 = call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_boolean_format(ptr noundef %.0..0..0..0.77, i32 noundef %106, ptr noundef %0, i32 noundef 0, i32 noundef -1, i64 noundef 1, ptr noundef nonnull @.str.36)
   br label %320
 
 108:                                              ; preds = %.loopexit
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store volatile i32 0, ptr %9, align 4
-  call void @except_setup_try(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull @dissect_file_record.catch_spec, i64 noundef 1) #4
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #5
+  call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %11) #5
+  call void @except_setup_try(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull @dissect_file_record.catch_spec, i64 noundef 1)
   %109 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  %110 = call i32 @_setjmp(ptr noundef nonnull %109) #5
-  %.not166 = icmp eq i32 %110, 0
+  %110 = call i32 @_setjmp(ptr noundef nonnull %109) #6
+  %.not165 = icmp eq i32 %110, 0
   %111 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %.sink = select i1 %.not166, ptr null, ptr %111
+  %.sink = select i1 %.not165, ptr null, ptr %111
   store volatile ptr %.sink, ptr %8, align 8
   %.0..0..0..0.30 = load volatile i32, ptr %9, align 4
   %112 = and i32 %.0..0..0..0.30, 1
-  %.not167 = icmp eq i32 %112, 0
-  br i1 %.not167, label %115, label %113
+  %.not166 = icmp eq i32 %112, 0
+  br i1 %.not166, label %115, label %113
 
 113:                                              ; preds = %108
   %.0..0..0..0.31 = load volatile i32, ptr %9, align 4
@@ -331,27 +342,27 @@ proto_item_set_generated.exit190:                 ; preds = %82, %86, %89
   %121 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %122 = load ptr, ptr %121, align 8
   %123 = load i32, ptr %122, align 8
-  %.not168 = icmp eq i32 %123, 0
-  br i1 %.not168, label %124, label %129
+  %.not167 = icmp eq i32 %123, 0
+  br i1 %.not167, label %124, label %129
 
 124:                                              ; preds = %120
   %125 = load ptr, ptr @file_encap_dissector_table, align 8
   %126 = getelementptr inbounds nuw i8, ptr %122, i64 72
   %127 = load i32, ptr %126, align 8
-  %128 = call i32 @dissector_try_uint(ptr noundef %125, i32 noundef %127, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) #4
-  %.not169 = icmp eq i32 %128, 0
-  br i1 %.not169, label %129, label %137
+  %128 = call i32 @dissector_try_uint(ptr noundef %125, i32 noundef %127, ptr noundef %0, ptr noundef %1, ptr noundef %2)
+  %.not168 = icmp eq i32 %128, 0
+  br i1 %.not168, label %129, label %137
 
 129:                                              ; preds = %124, %120
   %130 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %131 = load ptr, ptr %130, align 8
-  call void @col_set_str(ptr noundef %131, i32 noundef 34, ptr noundef nonnull @.str.37) #4
+  call void @col_set_str(ptr noundef %131, i32 noundef 35, ptr noundef nonnull @.str.37)
   %132 = load ptr, ptr %130, align 8
   %133 = load ptr, ptr %121, align 8
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 72
   %135 = load i32, ptr %134, align 8
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %132, i32 noundef 25, ptr noundef nonnull @.str.38, i32 noundef %135) #4
-  %136 = call i32 @call_data_dissector(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) #4
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %132, i32 noundef 25, ptr noundef nonnull @.str.38, i32 noundef %135)
+  %136 = call i32 @call_data_dissector(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %137
 
 137:                                              ; preds = %124, %129, %118, %115
@@ -361,8 +372,8 @@ proto_item_set_generated.exit190:                 ; preds = %82, %86, %89
 
 139:                                              ; preds = %137
   %.0..0..0..0.38 = load volatile ptr, ptr %8, align 8
-  %.not170 = icmp eq ptr %.0..0..0..0.38, null
-  br i1 %.not170, label %174, label %140
+  %.not169 = icmp eq ptr %.0..0..0..0.38, null
+  br i1 %.not169, label %174, label %140
 
 140:                                              ; preds = %139
   %.0..0..0..0.39 = load volatile ptr, ptr %8, align 8
@@ -423,110 +434,116 @@ proto_item_set_generated.exit190:                 ; preds = %82, %86, %89
   %.0..0..0..0.47 = load volatile ptr, ptr %8, align 8
   %172 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.47, i64 16
   %173 = load volatile ptr, ptr %172, align 8
-  call void @show_exception(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %171, ptr noundef %173) #4
+  call void @show_exception(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %171, ptr noundef %173)
   br label %174
 
 174:                                              ; preds = %168, %164, %139, %137
   %.0..0..0..0.36 = load volatile i32, ptr %9, align 4
   %175 = and i32 %.0..0..0..0.36, 1
-  %.not171 = icmp eq i32 %175, 0
-  br i1 %.not171, label %176, label %178
+  %.not170 = icmp eq i32 %175, 0
+  br i1 %.not170, label %176, label %178
 
 176:                                              ; preds = %174
   %.0..0..0..0.48 = load volatile ptr, ptr %8, align 8
-  %.not172 = icmp eq ptr %.0..0..0..0.48, null
-  br i1 %.not172, label %178, label %177
+  %.not171 = icmp eq ptr %.0..0..0..0.48, null
+  br i1 %.not171, label %178, label %177
 
 177:                                              ; preds = %176
   %.0..0..0..0.49 = load volatile ptr, ptr %8, align 8
-  call void @except_rethrow(ptr noundef %.0..0..0..0.49) #6
+  call void @except_rethrow(ptr noundef %.0..0..0..0.49) #7
   unreachable
 
 178:                                              ; preds = %176, %174
   %179 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %180 = load volatile ptr, ptr %179, align 8
-  call void @except_free(ptr noundef %180) #4
-  %181 = call ptr @except_pop() #4
+  call void @except_free(ptr noundef %180)
+  %181 = call ptr @except_pop()
+  call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %11) #5
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   %.0..0..0..0.78 = load volatile ptr, ptr %7, align 8
   %182 = load i32, ptr @hf_file_protocols, align 4
-  %183 = call i32 @proto_field_is_referenced(ptr noundef %.0..0..0..0.78, i32 noundef %182) #4
-  %.not173 = icmp eq i32 %183, 0
-  br i1 %.not173, label %proto_item_set_generated.exit193, label %184
+  %183 = call zeroext i1 @proto_field_is_referenced(ptr noundef %.0..0..0..0.78, i32 noundef %182)
+  br i1 %183, label %184, label %proto_item_set_generated.exit190
 
 184:                                              ; preds = %178
   %185 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %186 = load ptr, ptr %185, align 8
-  %187 = call noalias ptr @wmem_strbuf_new(ptr noundef %186, ptr noundef nonnull @.str.29) #4
+  %187 = call noalias ptr @wmem_strbuf_new(ptr noundef %186, ptr noundef nonnull @.str.29)
   %188 = getelementptr inbounds nuw i8, ptr %1, i64 360
   %189 = load ptr, ptr %188, align 8
-  %190 = call ptr @wmem_list_head(ptr noundef %189) #4
-  %191 = call ptr @wmem_list_frame_next(ptr noundef %190) #4
-  %.not174 = icmp eq ptr %191, null
-  br i1 %.not174, label %._crit_edge, label %192
+  %190 = call ptr @wmem_list_head(ptr noundef %189)
+  %191 = call ptr @wmem_list_frame_next(ptr noundef %190)
+  %.not172 = icmp eq ptr %191, null
+  br i1 %.not172, label %._crit_edge, label %192
 
 192:                                              ; preds = %184
-  %193 = call ptr @wmem_list_frame_data(ptr noundef nonnull %191) #4
+  %193 = call ptr @wmem_list_frame_data(ptr noundef nonnull %191)
   %194 = ptrtoint ptr %193 to i64
   %195 = trunc i64 %194 to i32
-  %196 = call ptr @proto_get_protocol_filter_name(i32 noundef %195) #4
-  call void @wmem_strbuf_append(ptr noundef %187, ptr noundef %196) #4
-  %197 = call ptr @wmem_list_frame_next(ptr noundef nonnull %191) #4
-  %.not175201 = icmp eq ptr %197, null
-  br i1 %.not175201, label %._crit_edge, label %.lr.ph203
+  %196 = call ptr @proto_get_protocol_filter_name(i32 noundef %195)
+  call void @wmem_strbuf_append(ptr noundef %187, ptr noundef %196)
+  %197 = call ptr @wmem_list_frame_next(ptr noundef nonnull %191)
+  %.not173198 = icmp eq ptr %197, null
+  br i1 %.not173198, label %._crit_edge, label %.lr.ph200
 
-.lr.ph203:                                        ; preds = %192, %.lr.ph203
-  %.1202 = phi ptr [ %202, %.lr.ph203 ], [ %197, %192 ]
-  call void @wmem_strbuf_append_c(ptr noundef %187, i8 noundef signext 58) #4
-  %198 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.1202) #4
+.lr.ph200:                                        ; preds = %192, %.lr.ph200
+  %.1199 = phi ptr [ %202, %.lr.ph200 ], [ %197, %192 ]
+  call void @wmem_strbuf_append_c(ptr noundef %187, i8 noundef signext 58)
+  %198 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.1199)
   %199 = ptrtoint ptr %198 to i64
   %200 = trunc i64 %199 to i32
-  %201 = call ptr @proto_get_protocol_filter_name(i32 noundef %200) #4
-  call void @wmem_strbuf_append(ptr noundef %187, ptr noundef %201) #4
-  %202 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.1202) #4
-  %.not175 = icmp eq ptr %202, null
-  br i1 %.not175, label %._crit_edge, label %.lr.ph203, !llvm.loop !6
+  %201 = call ptr @proto_get_protocol_filter_name(i32 noundef %200)
+  call void @wmem_strbuf_append(ptr noundef %187, ptr noundef %201)
+  %202 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.1199)
+  %.not173 = icmp eq ptr %202, null
+  br i1 %.not173, label %._crit_edge, label %.lr.ph200, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %.lr.ph203, %184, %192
+._crit_edge:                                      ; preds = %.lr.ph200, %184, %192
   %.0..0..0..0.86 = load volatile ptr, ptr %6, align 8
   %203 = load i32, ptr @hf_file_protocols, align 4
-  %204 = call ptr @wmem_strbuf_get_str(ptr noundef %187) #4
-  %205 = call ptr @proto_tree_add_string(ptr noundef %.0..0..0..0.86, i32 noundef %203, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %204) #4
+  %204 = call ptr @wmem_strbuf_get_str(ptr noundef %187)
+  %205 = call ptr @proto_tree_add_string(ptr noundef %.0..0..0..0.86, i32 noundef %203, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %204)
   store volatile ptr %205, ptr %5, align 8
   %.0..0..0..0.93 = load volatile ptr, ptr %5, align 8
-  %.not.i191 = icmp eq ptr %.0..0..0..0.93, null
-  br i1 %.not.i191, label %proto_item_set_generated.exit193, label %206
+  %.not.i188 = icmp eq ptr %.0..0..0..0.93, null
+  br i1 %.not.i188, label %proto_item_set_generated.exit190, label %206
 
 206:                                              ; preds = %._crit_edge
-  %207 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.93, i64 32
+  %207 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.93, i64 40
   %208 = load ptr, ptr %207, align 8
-  %.not5.i192 = icmp eq ptr %208, null
-  br i1 %.not5.i192, label %proto_item_set_generated.exit193, label %209
+  %.not5.i189 = icmp eq ptr %208, null
+  br i1 %.not5.i189, label %proto_item_set_generated.exit190, label %209
 
 209:                                              ; preds = %206
   %210 = getelementptr inbounds nuw i8, ptr %208, i64 28
   %211 = load i32, ptr %210, align 4
   %212 = or i32 %211, 2
   store i32 %212, ptr %210, align 4
-  br label %proto_item_set_generated.exit193
+  br label %proto_item_set_generated.exit190
 
-proto_item_set_generated.exit193:                 ; preds = %209, %206, %._crit_edge, %178
-  %213 = call i32 @have_postdissector() #4
-  %.not176 = icmp eq i32 %213, 0
-  br i1 %.not176, label %272, label %214
+proto_item_set_generated.exit190:                 ; preds = %209, %206, %._crit_edge, %178
+  %213 = call zeroext i1 @have_postdissector()
+  br i1 %213, label %214, label %272
 
-214:                                              ; preds = %proto_item_set_generated.exit193
+214:                                              ; preds = %proto_item_set_generated.exit190
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
   store volatile i32 0, ptr %13, align 4
-  call void @except_setup_try(ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @dissect_file_record.catch_spec.39, i64 noundef 1) #4
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #5
+  call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %15) #5
+  call void @except_setup_try(ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @dissect_file_record.catch_spec.39, i64 noundef 1)
   %215 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  %216 = call i32 @_setjmp(ptr noundef nonnull %215) #5
-  %.not177 = icmp eq i32 %216, 0
+  %216 = call i32 @_setjmp(ptr noundef nonnull %215) #6
+  %.not174 = icmp eq i32 %216, 0
   %217 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %.sink207 = select i1 %.not177, ptr null, ptr %217
-  store volatile ptr %.sink207, ptr %12, align 8
+  %.sink204 = select i1 %.not174, ptr null, ptr %217
+  store volatile ptr %.sink204, ptr %12, align 8
   %.0..0..0..0. = load volatile i32, ptr %13, align 4
   %218 = and i32 %.0..0..0..0., 1
-  %.not178 = icmp eq i32 %218, 0
-  br i1 %.not178, label %221, label %219
+  %.not175 = icmp eq i32 %218, 0
+  br i1 %.not175, label %221, label %219
 
 219:                                              ; preds = %214
   %.0..0..0..0.1 = load volatile i32, ptr %13, align 4
@@ -548,7 +565,7 @@ proto_item_set_generated.exit193:                 ; preds = %209, %206, %._crit_
   br i1 %225, label %226, label %227
 
 226:                                              ; preds = %224
-  call void @call_all_postdissectors(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) #4
+  call void @call_all_postdissectors(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %227
 
 227:                                              ; preds = %226, %224, %221
@@ -558,8 +575,8 @@ proto_item_set_generated.exit193:                 ; preds = %209, %206, %._crit_
 
 229:                                              ; preds = %227
   %.0..0..0..0.8 = load volatile ptr, ptr %12, align 8
-  %.not179 = icmp eq ptr %.0..0..0..0.8, null
-  br i1 %.not179, label %264, label %230
+  %.not176 = icmp eq ptr %.0..0..0..0.8, null
+  br i1 %.not176, label %264, label %230
 
 230:                                              ; preds = %229
   %.0..0..0..0.9 = load volatile ptr, ptr %12, align 8
@@ -620,238 +637,295 @@ proto_item_set_generated.exit193:                 ; preds = %209, %206, %._crit_
   %.0..0..0..0.17 = load volatile ptr, ptr %12, align 8
   %262 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.17, i64 16
   %263 = load volatile ptr, ptr %262, align 8
-  call void @show_exception(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %261, ptr noundef %263) #4
+  call void @show_exception(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %261, ptr noundef %263)
   br label %264
 
 264:                                              ; preds = %258, %254, %229, %227
   %.0..0..0..0.6 = load volatile i32, ptr %13, align 4
   %265 = and i32 %.0..0..0..0.6, 1
-  %.not180 = icmp eq i32 %265, 0
-  br i1 %.not180, label %266, label %268
+  %.not177 = icmp eq i32 %265, 0
+  br i1 %.not177, label %266, label %268
 
 266:                                              ; preds = %264
   %.0..0..0..0.18 = load volatile ptr, ptr %12, align 8
-  %.not181 = icmp eq ptr %.0..0..0..0.18, null
-  br i1 %.not181, label %268, label %267
+  %.not178 = icmp eq ptr %.0..0..0..0.18, null
+  br i1 %.not178, label %268, label %267
 
 267:                                              ; preds = %266
   %.0..0..0..0.19 = load volatile ptr, ptr %12, align 8
-  call void @except_rethrow(ptr noundef %.0..0..0..0.19) #6
+  call void @except_rethrow(ptr noundef %.0..0..0..0.19) #7
   unreachable
 
 268:                                              ; preds = %266, %264
   %269 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %270 = load volatile ptr, ptr %269, align 8
-  call void @except_free(ptr noundef %270) #4
-  %271 = call ptr @except_pop() #4
+  call void @except_free(ptr noundef %270)
+  %271 = call ptr @except_pop()
+  call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %15) #5
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   br label %272
 
-272:                                              ; preds = %268, %proto_item_set_generated.exit193
+272:                                              ; preds = %268, %proto_item_set_generated.exit190
   %273 = load ptr, ptr %98, align 8
-  %274 = getelementptr inbounds nuw i8, ptr %273, i64 50
-  %275 = load i16, ptr %274, align 2
+  %274 = getelementptr inbounds nuw i8, ptr %273, i64 57
+  %275 = load i16, ptr %274, align 1
   %276 = and i16 %275, 512
-  %.not182 = icmp eq i16 %276, 0
-  br i1 %.not182, label %287, label %277
+  %.not179 = icmp eq i16 %276, 0
+  br i1 %.not179, label %287, label %277
 
 277:                                              ; preds = %272
   %278 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %279 = load ptr, ptr %278, align 8
-  %280 = call ptr @color_filters_colorize_packet(ptr noundef %279) #4
+  %280 = call ptr @color_filters_colorize_packet(ptr noundef %279)
   %281 = load ptr, ptr %98, align 8
-  %282 = getelementptr inbounds nuw i8, ptr %281, i64 40
+  %282 = getelementptr inbounds nuw i8, ptr %281, i64 48
   store ptr %280, ptr %282, align 8
   %283 = load ptr, ptr %98, align 8
-  %284 = getelementptr inbounds nuw i8, ptr %283, i64 50
-  %285 = load i16, ptr %284, align 2
+  %284 = getelementptr inbounds nuw i8, ptr %283, i64 57
+  %285 = load i16, ptr %284, align 1
   %286 = and i16 %285, -513
-  store i16 %286, ptr %284, align 2
+  store i16 %286, ptr %284, align 1
   br label %290
 
 287:                                              ; preds = %272
-  %288 = getelementptr inbounds nuw i8, ptr %273, i64 40
+  %288 = getelementptr inbounds nuw i8, ptr %273, i64 48
   %289 = load ptr, ptr %288, align 8
   br label %290
 
 290:                                              ; preds = %287, %277
   %.0158 = phi ptr [ %280, %277 ], [ %289, %287 ]
-  %.not183 = icmp eq ptr %.0158, null
-  br i1 %.not183, label %proto_item_set_generated.exit199, label %291
+  %.not180 = icmp eq ptr %.0158, null
+  br i1 %.not180, label %proto_item_set_generated.exit196, label %291
 
 291:                                              ; preds = %290
   %292 = load ptr, ptr %98, align 8
-  %293 = getelementptr inbounds nuw i8, ptr %292, i64 40
+  %293 = getelementptr inbounds nuw i8, ptr %292, i64 48
   store ptr %.0158, ptr %293, align 8
   %.0..0..0..0.87 = load volatile ptr, ptr %6, align 8
   %294 = load i32, ptr @hf_file_color_filter_name, align 4
   %295 = load ptr, ptr %.0158, align 8
-  %296 = call ptr @proto_tree_add_string(ptr noundef %.0..0..0..0.87, i32 noundef %294, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %295) #4
-  %.not.i194 = icmp eq ptr %296, null
-  br i1 %.not.i194, label %proto_item_set_generated.exit196, label %297
+  %296 = call ptr @proto_tree_add_string(ptr noundef %.0..0..0..0.87, i32 noundef %294, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %295)
+  %.not.i191 = icmp eq ptr %296, null
+  br i1 %.not.i191, label %proto_item_set_generated.exit193, label %297
 
 297:                                              ; preds = %291
-  %298 = getelementptr inbounds nuw i8, ptr %296, i64 32
+  %298 = getelementptr inbounds nuw i8, ptr %296, i64 40
   %299 = load ptr, ptr %298, align 8
-  %.not5.i195 = icmp eq ptr %299, null
-  br i1 %.not5.i195, label %proto_item_set_generated.exit196, label %300
+  %.not5.i192 = icmp eq ptr %299, null
+  br i1 %.not5.i192, label %proto_item_set_generated.exit193, label %300
 
 300:                                              ; preds = %297
   %301 = getelementptr inbounds nuw i8, ptr %299, i64 28
   %302 = load i32, ptr %301, align 4
   %303 = or i32 %302, 2
   store i32 %303, ptr %301, align 4
-  br label %proto_item_set_generated.exit196
+  br label %proto_item_set_generated.exit193
 
-proto_item_set_generated.exit196:                 ; preds = %291, %297, %300
+proto_item_set_generated.exit193:                 ; preds = %291, %297, %300
   %.0..0..0..0.88 = load volatile ptr, ptr %6, align 8
   %304 = load i32, ptr @hf_file_color_filter_text, align 4
   %305 = getelementptr inbounds nuw i8, ptr %.0158, i64 8
   %306 = load ptr, ptr %305, align 8
-  %307 = call ptr @proto_tree_add_string(ptr noundef %.0..0..0..0.88, i32 noundef %304, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %306) #4
-  %.not.i197 = icmp eq ptr %307, null
-  br i1 %.not.i197, label %proto_item_set_generated.exit199, label %308
+  %307 = call ptr @proto_tree_add_string(ptr noundef %.0..0..0..0.88, i32 noundef %304, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %306)
+  %.not.i194 = icmp eq ptr %307, null
+  br i1 %.not.i194, label %proto_item_set_generated.exit196, label %308
 
-308:                                              ; preds = %proto_item_set_generated.exit196
-  %309 = getelementptr inbounds nuw i8, ptr %307, i64 32
+308:                                              ; preds = %proto_item_set_generated.exit193
+  %309 = getelementptr inbounds nuw i8, ptr %307, i64 40
   %310 = load ptr, ptr %309, align 8
-  %.not5.i198 = icmp eq ptr %310, null
-  br i1 %.not5.i198, label %proto_item_set_generated.exit199, label %311
+  %.not5.i195 = icmp eq ptr %310, null
+  br i1 %.not5.i195, label %proto_item_set_generated.exit196, label %311
 
 311:                                              ; preds = %308
   %312 = getelementptr inbounds nuw i8, ptr %310, i64 28
   %313 = load i32, ptr %312, align 4
   %314 = or i32 %313, 2
   store i32 %314, ptr %312, align 4
-  br label %proto_item_set_generated.exit199
+  br label %proto_item_set_generated.exit196
 
-proto_item_set_generated.exit199:                 ; preds = %311, %308, %proto_item_set_generated.exit196, %290
+proto_item_set_generated.exit196:                 ; preds = %311, %308, %proto_item_set_generated.exit193, %290
   %315 = load i32, ptr @file_tap, align 4
-  call void @tap_queue_packet(i32 noundef %315, ptr noundef nonnull %1, ptr noundef null) #4
+  call void @tap_queue_packet(i32 noundef %315, ptr noundef %1, ptr noundef null)
   %316 = getelementptr inbounds nuw i8, ptr %1, i64 400
   %317 = load ptr, ptr %316, align 8
-  %.not184 = icmp eq ptr %317, null
-  br i1 %.not184, label %320, label %318
+  %.not181 = icmp eq ptr %317, null
+  br i1 %.not181, label %320, label %318
 
-318:                                              ; preds = %proto_item_set_generated.exit199
-  call void @g_slist_foreach(ptr noundef nonnull %317, ptr noundef nonnull @call_file_record_end_routine, ptr noundef null) #4
+318:                                              ; preds = %proto_item_set_generated.exit196
+  call void @g_slist_foreach(ptr noundef nonnull %317, ptr noundef nonnull @call_file_record_end_routine, ptr noundef null)
   %319 = load ptr, ptr %316, align 8
-  call void @g_slist_free(ptr noundef %319) #4
+  call void @g_slist_free(ptr noundef %319)
   store ptr null, ptr %316, align 8
   br label %320
 
-320:                                              ; preds = %proto_item_set_generated.exit199, %318, %103
-  %321 = call i32 @tvb_captured_length(ptr noundef %0) #4
+320:                                              ; preds = %proto_item_set_generated.exit196, %318, %103
+  %321 = call i32 @tvb_captured_length(ptr noundef %0)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   ret i32 %321
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector_table(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_set_cant_toggle(i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @register_tap(ptr noundef) local_unnamed_addr #1
 
-declare i32 @proto_field_is_referenced(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @proto_field_is_referenced(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_protocol_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_int(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @g_slist_length(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @p_get_proto_name_and_key(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_file_scope() local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_string_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_boolean_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @except_setup_try(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind returns_twice
-declare i32 @_setjmp(ptr noundef) local_unnamed_addr #2
+; Function Attrs: nounwind null_pointer_is_valid returns_twice
+declare i32 @_setjmp(ptr noundef) local_unnamed_addr #3
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissector_try_uint(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @show_exception(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: noreturn
-declare void @except_rethrow(ptr noundef) local_unnamed_addr #3
+; Function Attrs: noreturn null_pointer_is_valid
+declare void @except_rethrow(ptr noundef) local_unnamed_addr #4
 
+; Function Attrs: null_pointer_is_valid
 declare void @except_free(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @except_pop() local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare noalias ptr @wmem_strbuf_new(ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_list_frame_next(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_list_head(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @wmem_strbuf_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_get_protocol_filter_name(i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_list_frame_data(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @wmem_strbuf_append_c(ptr noundef, i8 noundef signext) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_strbuf_get_str(ptr noundef) local_unnamed_addr #1
 
-declare i32 @have_postdissector() local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @have_postdissector() local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @call_all_postdissectors(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @color_filters_colorize_packet(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @tap_queue_packet(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @g_slist_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @call_file_record_end_routine(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
-  tail call void %0() #4
+  tail call void %0()
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @g_slist_free(ptr noundef) local_unnamed_addr #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind returns_twice "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
-attributes #5 = { nounwind returns_twice }
-attributes #6 = { noreturn nounwind }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind null_pointer_is_valid returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
+attributes #6 = { nounwind returns_twice }
+attributes #7 = { noreturn }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}

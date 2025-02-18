@@ -1,20 +1,19 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct._tap_param = type { i32, ptr, ptr, ptr, i32 }
-%struct._stat_tap_table_ui = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, i64, ptr, ptr, i32 }
 %struct._stat_tap_table_item = type { i32, i32, ptr, ptr }
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
 %struct.true_false_string = type { ptr, ptr }
 %struct._stat_tap_table_item_type = type { i32, %union.anon, %union.anon.0 }
 %union.anon = type { ptr }
 %union.anon.0 = type { ptr }
+%struct._stat_tap_table_ui = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, i64, ptr, ptr, i32 }
+%struct._value_string = type { i32, ptr }
 %struct._tap_npm_rec_t = type { i8, i16, ptr }
 %struct._stat_data_t = type { ptr, ptr }
 %struct._GArray = type { ptr, i32 }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
@@ -28,19 +27,19 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_data_flags = internal global i32 0, align 4
 @ett_results_flags = internal global i32 0, align 4
 @ett_onoffarray = internal global i32 0, align 4
-@proto_register_npm.npm_stat_params = internal global [1 x %struct._tap_param] [%struct._tap_param { i32 4, ptr @.str, ptr @.str.1, ptr null, i32 1 }], align 16
+@proto_register_npm.npm_stat_params = internal global [1 x { i32, [4 x i8], ptr, ptr, ptr, i8, [7 x i8] }] [{ i32, [4 x i8], ptr, ptr, ptr, i8, [7 x i8] } { i32 4, [4 x i8] zeroinitializer, ptr @.str, ptr @.str.1, ptr null, i8 1, [7 x i8] zeroinitializer }], align 16
 @.str = private unnamed_addr constant [7 x i8] c"filter\00", align 1
 @.str.1 = private unnamed_addr constant [7 x i8] c"Filter\00", align 1
-@proto_register_npm.npm_stat_table = internal global %struct._stat_tap_table_ui { i32 2, ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @npm_stat_init, ptr @npm_stat_packet, ptr @npm_stat_reset, ptr null, ptr null, i64 10, ptr @npm_stat_fields, i64 1, ptr @proto_register_npm.npm_stat_params, ptr null, i32 0 }, align 8
+@proto_register_npm.npm_stat_table = internal global { i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, i64, ptr, ptr, i32, [4 x i8] } { i32 2, [4 x i8] zeroinitializer, ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @npm_stat_init, ptr @npm_stat_packet, ptr @npm_stat_reset, ptr null, ptr null, i64 10, ptr @npm_stat_fields, i64 1, ptr @proto_register_npm.npm_stat_params, ptr null, i32 0, [4 x i8] zeroinitializer }, align 8
 @.str.2 = private unnamed_addr constant [24 x i8] c"NetPerfMeter Statistics\00", align 1
 @.str.3 = private unnamed_addr constant [4 x i8] c"npm\00", align 1
 @.str.4 = private unnamed_addr constant [9 x i8] c"npm,stat\00", align 1
-@npm_stat_fields = internal global [10 x %struct._stat_tap_table_item] [%struct._stat_tap_table_item { i32 3, i32 0, ptr @.str.26, ptr @.str.27 }, %struct._stat_tap_table_item { i32 1, i32 1, ptr @.str.28, ptr @.str.29 }, %struct._stat_tap_table_item { i32 1, i32 1, ptr @.str.30, ptr @.str.31 }, %struct._stat_tap_table_item { i32 1, i32 1, ptr @.str.32, ptr @.str.29 }, %struct._stat_tap_table_item { i32 1, i32 1, ptr @.str.33, ptr @.str.31 }, %struct._stat_tap_table_item { i32 4, i32 0, ptr @.str.34, ptr @.str.35 }, %struct._stat_tap_table_item { i32 4, i32 0, ptr @.str.36, ptr @.str.35 }, %struct._stat_tap_table_item { i32 4, i32 0, ptr @.str.37, ptr @.str.35 }, %struct._stat_tap_table_item { i32 4, i32 0, ptr @.str.38, ptr @.str.39 }, %struct._stat_tap_table_item { i32 4, i32 0, ptr @.str.40, ptr @.str.39 }], align 16
+@npm_stat_fields = internal global [10 x %struct._stat_tap_table_item] [%struct._stat_tap_table_item { i32 3, i32 0, ptr @.str.27, ptr @.str.28 }, %struct._stat_tap_table_item { i32 1, i32 1, ptr @.str.29, ptr @.str.30 }, %struct._stat_tap_table_item { i32 1, i32 1, ptr @.str.31, ptr @.str.32 }, %struct._stat_tap_table_item { i32 1, i32 1, ptr @.str.33, ptr @.str.30 }, %struct._stat_tap_table_item { i32 1, i32 1, ptr @.str.34, ptr @.str.32 }, %struct._stat_tap_table_item { i32 4, i32 0, ptr @.str.35, ptr @.str.36 }, %struct._stat_tap_table_item { i32 4, i32 0, ptr @.str.37, ptr @.str.36 }, %struct._stat_tap_table_item { i32 4, i32 0, ptr @.str.38, ptr @.str.36 }, %struct._stat_tap_table_item { i32 4, i32 0, ptr @.str.39, ptr @.str.40 }, %struct._stat_tap_table_item { i32 4, i32 0, ptr @.str.41, ptr @.str.40 }], align 16
 @.str.5 = private unnamed_addr constant [22 x i8] c"NetPerfMeter Protocol\00", align 1
 @.str.6 = private unnamed_addr constant [13 x i8] c"NetPerfMeter\00", align 1
 @.str.7 = private unnamed_addr constant [13 x i8] c"netperfmeter\00", align 1
 @proto_npm = internal global i32 0, align 4
-@hf = internal global [64 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_message_type, %struct._header_field_info { ptr @.str.41, ptr @.str.42, i32 4, i32 1, ptr @message_type_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_message_flags, %struct._header_field_info { ptr @.str.43, ptr @.str.44, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_message_length, %struct._header_field_info { ptr @.str.45, ptr @.str.46, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_acknowledge_flowid, %struct._header_field_info { ptr @.str.47, ptr @.str.48, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_acknowledge_measurementid, %struct._header_field_info { ptr @.str.49, ptr @.str.50, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_acknowledge_streamid, %struct._header_field_info { ptr @.str.51, ptr @.str.52, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_acknowledge_status, %struct._header_field_info { ptr @.str.53, ptr @.str.54, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_flowid, %struct._header_field_info { ptr @.str.47, ptr @.str.55, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_measurementid, %struct._header_field_info { ptr @.str.49, ptr @.str.56, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_streamid, %struct._header_field_info { ptr @.str.51, ptr @.str.57, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_protocol, %struct._header_field_info { ptr @.str.58, ptr @.str.59, i32 4, i32 1, ptr @proto_type_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_flags, %struct._header_field_info { ptr @.str.43, ptr @.str.60, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_description, %struct._header_field_info { ptr @.str.61, ptr @.str.62, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_ordered, %struct._header_field_info { ptr @.str.63, ptr @.str.64, i32 23, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_reliable, %struct._header_field_info { ptr @.str.65, ptr @.str.66, i32 23, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_retranstrials, %struct._header_field_info { ptr @.str.67, ptr @.str.68, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_frameraterng, %struct._header_field_info { ptr @.str.69, ptr @.str.70, i32 4, i32 1, ptr @rng_type_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_framerate1, %struct._header_field_info { ptr @.str.71, ptr @.str.72, i32 23, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_framerate2, %struct._header_field_info { ptr @.str.73, ptr @.str.74, i32 23, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_framerate3, %struct._header_field_info { ptr @.str.75, ptr @.str.76, i32 23, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_framerate4, %struct._header_field_info { ptr @.str.77, ptr @.str.78, i32 23, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_framesizerng, %struct._header_field_info { ptr @.str.79, ptr @.str.80, i32 4, i32 1, ptr @rng_type_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_framesize1, %struct._header_field_info { ptr @.str.81, ptr @.str.82, i32 23, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_framesize2, %struct._header_field_info { ptr @.str.83, ptr @.str.84, i32 23, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_framesize3, %struct._header_field_info { ptr @.str.85, ptr @.str.86, i32 23, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_framesize4, %struct._header_field_info { ptr @.str.87, ptr @.str.88, i32 23, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_rcvbuffersize, %struct._header_field_info { ptr @.str.89, ptr @.str.90, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_sndbuffersize, %struct._header_field_info { ptr @.str.91, ptr @.str.92, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_maxmsgsize, %struct._header_field_info { ptr @.str.93, ptr @.str.94, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_cmt, %struct._header_field_info { ptr @.str.95, ptr @.str.96, i32 4, i32 2, ptr @cmt_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_ccid, %struct._header_field_info { ptr @.str.97, ptr @.str.98, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_onoffevents, %struct._header_field_info { ptr @.str.99, ptr @.str.100, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_onoffeventarray, %struct._header_field_info { ptr @.str.101, ptr @.str.102, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_flag_debug, %struct._header_field_info { ptr @.str.103, ptr @.str.104, i32 2, i32 8, ptr @tfs_set_notset, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_flag_nodelay, %struct._header_field_info { ptr @.str.105, ptr @.str.106, i32 2, i32 8, ptr @tfs_set_notset, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_flag_repeatonoff, %struct._header_field_info { ptr @.str.107, ptr @.str.108, i32 2, i32 8, ptr @tfs_set_notset, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_removeflow_flowid, %struct._header_field_info { ptr @.str.47, ptr @.str.109, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_removeflow_measurementid, %struct._header_field_info { ptr @.str.49, ptr @.str.110, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_removeflow_streamid, %struct._header_field_info { ptr @.str.51, ptr @.str.111, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_identifyflow_flowid, %struct._header_field_info { ptr @.str.47, ptr @.str.112, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_identifyflow_magicnumber, %struct._header_field_info { ptr @.str.113, ptr @.str.114, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_identifyflow_measurementid, %struct._header_field_info { ptr @.str.49, ptr @.str.115, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_identifyflow_streamid, %struct._header_field_info { ptr @.str.51, ptr @.str.116, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_identifyflow_flag_compress_vectors, %struct._header_field_info { ptr @.str.117, ptr @.str.118, i32 2, i32 8, ptr @tfs_set_notset, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_identifyflow_flag_no_vectors, %struct._header_field_info { ptr @.str.119, ptr @.str.120, i32 2, i32 8, ptr @tfs_set_notset, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_data_flowid, %struct._header_field_info { ptr @.str.47, ptr @.str.121, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_data_measurementid, %struct._header_field_info { ptr @.str.49, ptr @.str.122, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_data_streamid, %struct._header_field_info { ptr @.str.51, ptr @.str.123, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_data_padding, %struct._header_field_info { ptr @.str.124, ptr @.str.125, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_data_frameid, %struct._header_field_info { ptr @.str.126, ptr @.str.127, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_data_packetseqnumber, %struct._header_field_info { ptr @.str.128, ptr @.str.129, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_data_byteseqnumber, %struct._header_field_info { ptr @.str.130, ptr @.str.131, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_data_timestamp, %struct._header_field_info { ptr @.str.132, ptr @.str.133, i32 24, i32 19, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_data_payload, %struct._header_field_info { ptr @.str.134, ptr @.str.135, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_data_flag_frame_begin, %struct._header_field_info { ptr @.str.136, ptr @.str.137, i32 2, i32 8, ptr @tfs_set_notset, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_data_flag_frame_end, %struct._header_field_info { ptr @.str.138, ptr @.str.139, i32 2, i32 8, ptr @tfs_set_notset, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_start_measurementid, %struct._header_field_info { ptr @.str.49, ptr @.str.140, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_start_flag_compress_vectors, %struct._header_field_info { ptr @.str.117, ptr @.str.141, i32 2, i32 8, ptr @tfs_set_notset, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_start_flag_compress_scalars, %struct._header_field_info { ptr @.str.142, ptr @.str.143, i32 2, i32 8, ptr @tfs_set_notset, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_start_flag_no_vectors, %struct._header_field_info { ptr @.str.119, ptr @.str.144, i32 2, i32 8, ptr @tfs_set_notset, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_start_flag_no_scalars, %struct._header_field_info { ptr @.str.145, ptr @.str.146, i32 2, i32 8, ptr @tfs_set_notset, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stop_measurementid, %struct._header_field_info { ptr @.str.49, ptr @.str.147, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_results_data, %struct._header_field_info { ptr @.str.148, ptr @.str.149, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_results_flag_eof, %struct._header_field_info { ptr @.str.150, ptr @.str.151, i32 2, i32 8, ptr @tfs_set_notset, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
+@hf = internal global [64 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_message_type, %struct._header_field_info { ptr @.str.42, ptr @.str.43, i32 4, i32 1, ptr @message_type_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_message_flags, %struct._header_field_info { ptr @.str.44, ptr @.str.45, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_message_length, %struct._header_field_info { ptr @.str.46, ptr @.str.47, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_acknowledge_flowid, %struct._header_field_info { ptr @.str.48, ptr @.str.49, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_acknowledge_measurementid, %struct._header_field_info { ptr @.str.50, ptr @.str.51, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_acknowledge_streamid, %struct._header_field_info { ptr @.str.52, ptr @.str.53, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_acknowledge_status, %struct._header_field_info { ptr @.str.54, ptr @.str.55, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_flowid, %struct._header_field_info { ptr @.str.48, ptr @.str.56, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_measurementid, %struct._header_field_info { ptr @.str.50, ptr @.str.57, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_streamid, %struct._header_field_info { ptr @.str.52, ptr @.str.58, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_protocol, %struct._header_field_info { ptr @.str.59, ptr @.str.60, i32 4, i32 1, ptr @proto_type_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_flags, %struct._header_field_info { ptr @.str.44, ptr @.str.61, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_description, %struct._header_field_info { ptr @.str.62, ptr @.str.63, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_ordered, %struct._header_field_info { ptr @.str.64, ptr @.str.65, i32 23, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_reliable, %struct._header_field_info { ptr @.str.66, ptr @.str.67, i32 23, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_retranstrials, %struct._header_field_info { ptr @.str.68, ptr @.str.69, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_frameraterng, %struct._header_field_info { ptr @.str.70, ptr @.str.71, i32 4, i32 1, ptr @rng_type_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_framerate1, %struct._header_field_info { ptr @.str.72, ptr @.str.73, i32 23, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_framerate2, %struct._header_field_info { ptr @.str.74, ptr @.str.75, i32 23, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_framerate3, %struct._header_field_info { ptr @.str.76, ptr @.str.77, i32 23, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_framerate4, %struct._header_field_info { ptr @.str.78, ptr @.str.79, i32 23, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_framesizerng, %struct._header_field_info { ptr @.str.80, ptr @.str.81, i32 4, i32 1, ptr @rng_type_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_framesize1, %struct._header_field_info { ptr @.str.82, ptr @.str.83, i32 23, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_framesize2, %struct._header_field_info { ptr @.str.84, ptr @.str.85, i32 23, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_framesize3, %struct._header_field_info { ptr @.str.86, ptr @.str.87, i32 23, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_framesize4, %struct._header_field_info { ptr @.str.88, ptr @.str.89, i32 23, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_rcvbuffersize, %struct._header_field_info { ptr @.str.90, ptr @.str.91, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_sndbuffersize, %struct._header_field_info { ptr @.str.92, ptr @.str.93, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_maxmsgsize, %struct._header_field_info { ptr @.str.94, ptr @.str.95, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_cmt, %struct._header_field_info { ptr @.str.96, ptr @.str.97, i32 4, i32 2, ptr @cmt_values, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_ccid, %struct._header_field_info { ptr @.str.98, ptr @.str.99, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_onoffevents, %struct._header_field_info { ptr @.str.100, ptr @.str.101, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_onoffeventarray, %struct._header_field_info { ptr @.str.102, ptr @.str.103, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_flag_debug, %struct._header_field_info { ptr @.str.104, ptr @.str.105, i32 2, i32 8, ptr @tfs_set_notset, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_flag_nodelay, %struct._header_field_info { ptr @.str.106, ptr @.str.107, i32 2, i32 8, ptr @tfs_set_notset, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_addflow_flag_repeatonoff, %struct._header_field_info { ptr @.str.108, ptr @.str.109, i32 2, i32 8, ptr @tfs_set_notset, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_removeflow_flowid, %struct._header_field_info { ptr @.str.48, ptr @.str.110, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_removeflow_measurementid, %struct._header_field_info { ptr @.str.50, ptr @.str.111, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_removeflow_streamid, %struct._header_field_info { ptr @.str.52, ptr @.str.112, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_identifyflow_flowid, %struct._header_field_info { ptr @.str.48, ptr @.str.113, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_identifyflow_magicnumber, %struct._header_field_info { ptr @.str.114, ptr @.str.115, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_identifyflow_measurementid, %struct._header_field_info { ptr @.str.50, ptr @.str.116, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_identifyflow_streamid, %struct._header_field_info { ptr @.str.52, ptr @.str.117, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_identifyflow_flag_compress_vectors, %struct._header_field_info { ptr @.str.118, ptr @.str.119, i32 2, i32 8, ptr @tfs_set_notset, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_identifyflow_flag_no_vectors, %struct._header_field_info { ptr @.str.120, ptr @.str.121, i32 2, i32 8, ptr @tfs_set_notset, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_data_flowid, %struct._header_field_info { ptr @.str.48, ptr @.str.122, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_data_measurementid, %struct._header_field_info { ptr @.str.50, ptr @.str.123, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_data_streamid, %struct._header_field_info { ptr @.str.52, ptr @.str.124, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_data_padding, %struct._header_field_info { ptr @.str.125, ptr @.str.126, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_data_frameid, %struct._header_field_info { ptr @.str.127, ptr @.str.128, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_data_packetseqnumber, %struct._header_field_info { ptr @.str.129, ptr @.str.130, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_data_byteseqnumber, %struct._header_field_info { ptr @.str.131, ptr @.str.132, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_data_timestamp, %struct._header_field_info { ptr @.str.133, ptr @.str.134, i32 24, i32 19, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_data_payload, %struct._header_field_info { ptr @.str.135, ptr @.str.136, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_data_flag_frame_begin, %struct._header_field_info { ptr @.str.137, ptr @.str.138, i32 2, i32 8, ptr @tfs_set_notset, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_data_flag_frame_end, %struct._header_field_info { ptr @.str.139, ptr @.str.140, i32 2, i32 8, ptr @tfs_set_notset, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_start_measurementid, %struct._header_field_info { ptr @.str.50, ptr @.str.141, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_start_flag_compress_vectors, %struct._header_field_info { ptr @.str.118, ptr @.str.142, i32 2, i32 8, ptr @tfs_set_notset, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_start_flag_compress_scalars, %struct._header_field_info { ptr @.str.143, ptr @.str.144, i32 2, i32 8, ptr @tfs_set_notset, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_start_flag_no_vectors, %struct._header_field_info { ptr @.str.120, ptr @.str.145, i32 2, i32 8, ptr @tfs_set_notset, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_start_flag_no_scalars, %struct._header_field_info { ptr @.str.146, ptr @.str.147, i32 2, i32 8, ptr @tfs_set_notset, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_stop_measurementid, %struct._header_field_info { ptr @.str.50, ptr @.str.148, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_results_data, %struct._header_field_info { ptr @.str.149, ptr @.str.150, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_results_flag_eof, %struct._header_field_info { ptr @.str.151, ptr @.str.152, i32 2, i32 8, ptr @tfs_set_notset, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @tap_npm = internal global i32 -1, align 4
 @npm_handle = internal global ptr null, align 8
 @.str.8 = private unnamed_addr constant [9 x i8] c"sctp.ppi\00", align 1
@@ -53,7 +52,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.15 = private unnamed_addr constant [5 x i8] c"dccp\00", align 1
 @.str.16 = private unnamed_addr constant [23 x i8] c"NetPerfMeter over DCCP\00", align 1
 @.str.17 = private unnamed_addr constant [18 x i8] c"netperfmeter_dccp\00", align 1
-@message_type_values = internal constant [9 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.18 }, %struct._value_string { i32 2, ptr @.str.19 }, %struct._value_string { i32 3, ptr @.str.20 }, %struct._value_string { i32 4, ptr @.str.21 }, %struct._value_string { i32 5, ptr @.str.22 }, %struct._value_string { i32 6, ptr @.str.23 }, %struct._value_string { i32 7, ptr @.str.24 }, %struct._value_string { i32 8, ptr @.str.25 }, %struct._value_string zeroinitializer], align 16
 @.str.18 = private unnamed_addr constant [25 x i8] c"NetPerfMeter Acknowledge\00", align 1
 @.str.19 = private unnamed_addr constant [22 x i8] c"NetPerfMeter Add Flow\00", align 1
 @.str.20 = private unnamed_addr constant [25 x i8] c"NetPerfMeter Remove Flow\00", align 1
@@ -62,224 +60,225 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.23 = private unnamed_addr constant [31 x i8] c"NetPerfMeter Start Measurement\00", align 1
 @.str.24 = private unnamed_addr constant [30 x i8] c"NetPerfMeter Stop Measurement\00", align 1
 @.str.25 = private unnamed_addr constant [21 x i8] c"NetPerfMeter Results\00", align 1
+@message_type_values = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.18 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.19 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.21 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.22 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.23 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.24 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.25 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
 @npm_total_msgs = internal global i64 0, align 8
 @npm_total_bytes = internal global i64 0, align 8
-@.str.26 = private unnamed_addr constant [26 x i8] c"NetPerfMeter Message Type\00", align 1
-@.str.27 = private unnamed_addr constant [6 x i8] c"%-25s\00", align 1
-@.str.28 = private unnamed_addr constant [10 x i8] c"Messages \00", align 1
-@.str.29 = private unnamed_addr constant [3 x i8] c"%u\00", align 1
-@.str.30 = private unnamed_addr constant [19 x i8] c"Messages Share (%)\00", align 1
-@.str.31 = private unnamed_addr constant [9 x i8] c"%1.3f %%\00", align 1
-@.str.32 = private unnamed_addr constant [10 x i8] c"Bytes (B)\00", align 1
-@.str.33 = private unnamed_addr constant [17 x i8] c"Bytes Share (%) \00", align 1
-@.str.34 = private unnamed_addr constant [15 x i8] c"First Seen (s)\00", align 1
-@.str.35 = private unnamed_addr constant [6 x i8] c"%1.6f\00", align 1
-@.str.36 = private unnamed_addr constant [14 x i8] c"Last Seen (s)\00", align 1
-@.str.37 = private unnamed_addr constant [13 x i8] c"Interval (s)\00", align 1
-@.str.38 = private unnamed_addr constant [21 x i8] c"Message Rate (Msg/s)\00", align 1
-@.str.39 = private unnamed_addr constant [6 x i8] c"%1.2f\00", align 1
-@.str.40 = private unnamed_addr constant [16 x i8] c"Byte Rate (B/s)\00", align 1
+@.str.27 = private unnamed_addr constant [26 x i8] c"NetPerfMeter Message Type\00", align 1
+@.str.28 = private unnamed_addr constant [6 x i8] c"%-25s\00", align 1
+@.str.29 = private unnamed_addr constant [10 x i8] c"Messages \00", align 1
+@.str.30 = private unnamed_addr constant [3 x i8] c"%u\00", align 1
+@.str.31 = private unnamed_addr constant [19 x i8] c"Messages Share (%)\00", align 1
+@.str.32 = private unnamed_addr constant [9 x i8] c"%1.3f %%\00", align 1
+@.str.33 = private unnamed_addr constant [10 x i8] c"Bytes (B)\00", align 1
+@.str.34 = private unnamed_addr constant [17 x i8] c"Bytes Share (%) \00", align 1
+@.str.35 = private unnamed_addr constant [15 x i8] c"First Seen (s)\00", align 1
+@.str.36 = private unnamed_addr constant [6 x i8] c"%1.6f\00", align 1
+@.str.37 = private unnamed_addr constant [14 x i8] c"Last Seen (s)\00", align 1
+@.str.38 = private unnamed_addr constant [13 x i8] c"Interval (s)\00", align 1
+@.str.39 = private unnamed_addr constant [21 x i8] c"Message Rate (Msg/s)\00", align 1
+@.str.40 = private unnamed_addr constant [6 x i8] c"%1.2f\00", align 1
+@.str.41 = private unnamed_addr constant [16 x i8] c"Byte Rate (B/s)\00", align 1
 @hf_message_type = internal global i32 0, align 4
-@.str.41 = private unnamed_addr constant [5 x i8] c"Type\00", align 1
-@.str.42 = private unnamed_addr constant [26 x i8] c"netperfmeter.message_type\00", align 1
+@.str.42 = private unnamed_addr constant [5 x i8] c"Type\00", align 1
+@.str.43 = private unnamed_addr constant [26 x i8] c"netperfmeter.message_type\00", align 1
 @hf_message_flags = internal global i32 0, align 4
-@.str.43 = private unnamed_addr constant [6 x i8] c"Flags\00", align 1
-@.str.44 = private unnamed_addr constant [27 x i8] c"netperfmeter.message_flags\00", align 1
+@.str.44 = private unnamed_addr constant [6 x i8] c"Flags\00", align 1
+@.str.45 = private unnamed_addr constant [27 x i8] c"netperfmeter.message_flags\00", align 1
 @hf_message_length = internal global i32 0, align 4
-@.str.45 = private unnamed_addr constant [7 x i8] c"Length\00", align 1
-@.str.46 = private unnamed_addr constant [28 x i8] c"netperfmeter.message_length\00", align 1
+@.str.46 = private unnamed_addr constant [7 x i8] c"Length\00", align 1
+@.str.47 = private unnamed_addr constant [28 x i8] c"netperfmeter.message_length\00", align 1
 @hf_acknowledge_flowid = internal global i32 0, align 4
-@.str.47 = private unnamed_addr constant [8 x i8] c"Flow ID\00", align 1
-@.str.48 = private unnamed_addr constant [32 x i8] c"netperfmeter.acknowledge_flowid\00", align 1
+@.str.48 = private unnamed_addr constant [8 x i8] c"Flow ID\00", align 1
+@.str.49 = private unnamed_addr constant [32 x i8] c"netperfmeter.acknowledge_flowid\00", align 1
 @hf_acknowledge_measurementid = internal global i32 0, align 4
-@.str.49 = private unnamed_addr constant [15 x i8] c"Measurement ID\00", align 1
-@.str.50 = private unnamed_addr constant [39 x i8] c"netperfmeter.acknowledge_measurementid\00", align 1
+@.str.50 = private unnamed_addr constant [15 x i8] c"Measurement ID\00", align 1
+@.str.51 = private unnamed_addr constant [39 x i8] c"netperfmeter.acknowledge_measurementid\00", align 1
 @hf_acknowledge_streamid = internal global i32 0, align 4
-@.str.51 = private unnamed_addr constant [10 x i8] c"Stream ID\00", align 1
-@.str.52 = private unnamed_addr constant [34 x i8] c"netperfmeter.acknowledge_streamid\00", align 1
+@.str.52 = private unnamed_addr constant [10 x i8] c"Stream ID\00", align 1
+@.str.53 = private unnamed_addr constant [34 x i8] c"netperfmeter.acknowledge_streamid\00", align 1
 @hf_acknowledge_status = internal global i32 0, align 4
-@.str.53 = private unnamed_addr constant [7 x i8] c"Status\00", align 1
-@.str.54 = private unnamed_addr constant [32 x i8] c"netperfmeter.acknowledge_status\00", align 1
+@.str.54 = private unnamed_addr constant [7 x i8] c"Status\00", align 1
+@.str.55 = private unnamed_addr constant [32 x i8] c"netperfmeter.acknowledge_status\00", align 1
 @hf_addflow_flowid = internal global i32 0, align 4
-@.str.55 = private unnamed_addr constant [28 x i8] c"netperfmeter.addflow_flowid\00", align 1
+@.str.56 = private unnamed_addr constant [28 x i8] c"netperfmeter.addflow_flowid\00", align 1
 @hf_addflow_measurementid = internal global i32 0, align 4
-@.str.56 = private unnamed_addr constant [35 x i8] c"netperfmeter.addflow_measurementid\00", align 1
+@.str.57 = private unnamed_addr constant [35 x i8] c"netperfmeter.addflow_measurementid\00", align 1
 @hf_addflow_streamid = internal global i32 0, align 4
-@.str.57 = private unnamed_addr constant [30 x i8] c"netperfmeter.addflow_streamid\00", align 1
+@.str.58 = private unnamed_addr constant [30 x i8] c"netperfmeter.addflow_streamid\00", align 1
 @hf_addflow_protocol = internal global i32 0, align 4
-@.str.58 = private unnamed_addr constant [9 x i8] c"Protocol\00", align 1
-@.str.59 = private unnamed_addr constant [30 x i8] c"netperfmeter.addflow_protocol\00", align 1
-@proto_type_values = internal constant [6 x %struct._value_string] [%struct._value_string { i32 6, ptr @.str.152 }, %struct._value_string { i32 8, ptr @.str.153 }, %struct._value_string { i32 17, ptr @.str.154 }, %struct._value_string { i32 33, ptr @.str.155 }, %struct._value_string { i32 132, ptr @.str.156 }, %struct._value_string zeroinitializer], align 16
+@.str.59 = private unnamed_addr constant [9 x i8] c"Protocol\00", align 1
+@.str.60 = private unnamed_addr constant [30 x i8] c"netperfmeter.addflow_protocol\00", align 1
 @hf_addflow_flags = internal global i32 0, align 4
-@.str.60 = private unnamed_addr constant [27 x i8] c"netperfmeter.addflow_flags\00", align 1
+@.str.61 = private unnamed_addr constant [27 x i8] c"netperfmeter.addflow_flags\00", align 1
 @hf_addflow_description = internal global i32 0, align 4
-@.str.61 = private unnamed_addr constant [12 x i8] c"Description\00", align 1
-@.str.62 = private unnamed_addr constant [33 x i8] c"netperfmeter.addflow_description\00", align 1
+@.str.62 = private unnamed_addr constant [12 x i8] c"Description\00", align 1
+@.str.63 = private unnamed_addr constant [33 x i8] c"netperfmeter.addflow_description\00", align 1
 @hf_addflow_ordered = internal global i32 0, align 4
-@.str.63 = private unnamed_addr constant [8 x i8] c"Ordered\00", align 1
-@.str.64 = private unnamed_addr constant [29 x i8] c"netperfmeter.addflow_ordered\00", align 1
+@.str.64 = private unnamed_addr constant [8 x i8] c"Ordered\00", align 1
+@.str.65 = private unnamed_addr constant [29 x i8] c"netperfmeter.addflow_ordered\00", align 1
 @hf_addflow_reliable = internal global i32 0, align 4
-@.str.65 = private unnamed_addr constant [9 x i8] c"Reliable\00", align 1
-@.str.66 = private unnamed_addr constant [30 x i8] c"netperfmeter.addflow_reliable\00", align 1
+@.str.66 = private unnamed_addr constant [9 x i8] c"Reliable\00", align 1
+@.str.67 = private unnamed_addr constant [30 x i8] c"netperfmeter.addflow_reliable\00", align 1
 @hf_addflow_retranstrials = internal global i32 0, align 4
-@.str.67 = private unnamed_addr constant [22 x i8] c"Retransmission Trials\00", align 1
-@.str.68 = private unnamed_addr constant [35 x i8] c"netperfmeter.addflow_retranstrials\00", align 1
+@.str.68 = private unnamed_addr constant [22 x i8] c"Retransmission Trials\00", align 1
+@.str.69 = private unnamed_addr constant [35 x i8] c"netperfmeter.addflow_retranstrials\00", align 1
 @hf_addflow_frameraterng = internal global i32 0, align 4
-@.str.69 = private unnamed_addr constant [15 x i8] c"Frame Rate RNG\00", align 1
-@.str.70 = private unnamed_addr constant [34 x i8] c"netperfmeter.addflow_frameraterng\00", align 1
-@rng_type_values = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.157 }, %struct._value_string { i32 1, ptr @.str.158 }, %struct._value_string { i32 2, ptr @.str.159 }, %struct._value_string zeroinitializer], align 16
+@.str.70 = private unnamed_addr constant [15 x i8] c"Frame Rate RNG\00", align 1
+@.str.71 = private unnamed_addr constant [34 x i8] c"netperfmeter.addflow_frameraterng\00", align 1
 @hf_addflow_framerate1 = internal global i32 0, align 4
-@.str.71 = private unnamed_addr constant [13 x i8] c"Frame Rate 1\00", align 1
-@.str.72 = private unnamed_addr constant [32 x i8] c"netperfmeter.addflow_framerate1\00", align 1
+@.str.72 = private unnamed_addr constant [13 x i8] c"Frame Rate 1\00", align 1
+@.str.73 = private unnamed_addr constant [32 x i8] c"netperfmeter.addflow_framerate1\00", align 1
 @hf_addflow_framerate2 = internal global i32 0, align 4
-@.str.73 = private unnamed_addr constant [13 x i8] c"Frame Rate 2\00", align 1
-@.str.74 = private unnamed_addr constant [32 x i8] c"netperfmeter.addflow_framerate2\00", align 1
+@.str.74 = private unnamed_addr constant [13 x i8] c"Frame Rate 2\00", align 1
+@.str.75 = private unnamed_addr constant [32 x i8] c"netperfmeter.addflow_framerate2\00", align 1
 @hf_addflow_framerate3 = internal global i32 0, align 4
-@.str.75 = private unnamed_addr constant [13 x i8] c"Frame Rate 3\00", align 1
-@.str.76 = private unnamed_addr constant [32 x i8] c"netperfmeter.addflow_framerate3\00", align 1
+@.str.76 = private unnamed_addr constant [13 x i8] c"Frame Rate 3\00", align 1
+@.str.77 = private unnamed_addr constant [32 x i8] c"netperfmeter.addflow_framerate3\00", align 1
 @hf_addflow_framerate4 = internal global i32 0, align 4
-@.str.77 = private unnamed_addr constant [13 x i8] c"Frame Rate 4\00", align 1
-@.str.78 = private unnamed_addr constant [32 x i8] c"netperfmeter.addflow_framerate4\00", align 1
+@.str.78 = private unnamed_addr constant [13 x i8] c"Frame Rate 4\00", align 1
+@.str.79 = private unnamed_addr constant [32 x i8] c"netperfmeter.addflow_framerate4\00", align 1
 @hf_addflow_framesizerng = internal global i32 0, align 4
-@.str.79 = private unnamed_addr constant [15 x i8] c"Frame Size RNG\00", align 1
-@.str.80 = private unnamed_addr constant [34 x i8] c"netperfmeter.addflow_framesizerng\00", align 1
+@.str.80 = private unnamed_addr constant [15 x i8] c"Frame Size RNG\00", align 1
+@.str.81 = private unnamed_addr constant [34 x i8] c"netperfmeter.addflow_framesizerng\00", align 1
 @hf_addflow_framesize1 = internal global i32 0, align 4
-@.str.81 = private unnamed_addr constant [13 x i8] c"Frame Size 1\00", align 1
-@.str.82 = private unnamed_addr constant [32 x i8] c"netperfmeter.addflow_framesize1\00", align 1
+@.str.82 = private unnamed_addr constant [13 x i8] c"Frame Size 1\00", align 1
+@.str.83 = private unnamed_addr constant [32 x i8] c"netperfmeter.addflow_framesize1\00", align 1
 @hf_addflow_framesize2 = internal global i32 0, align 4
-@.str.83 = private unnamed_addr constant [13 x i8] c"Frame Size 2\00", align 1
-@.str.84 = private unnamed_addr constant [32 x i8] c"netperfmeter.addflow_framesize2\00", align 1
+@.str.84 = private unnamed_addr constant [13 x i8] c"Frame Size 2\00", align 1
+@.str.85 = private unnamed_addr constant [32 x i8] c"netperfmeter.addflow_framesize2\00", align 1
 @hf_addflow_framesize3 = internal global i32 0, align 4
-@.str.85 = private unnamed_addr constant [13 x i8] c"Frame Size 3\00", align 1
-@.str.86 = private unnamed_addr constant [32 x i8] c"netperfmeter.addflow_framesize3\00", align 1
+@.str.86 = private unnamed_addr constant [13 x i8] c"Frame Size 3\00", align 1
+@.str.87 = private unnamed_addr constant [32 x i8] c"netperfmeter.addflow_framesize3\00", align 1
 @hf_addflow_framesize4 = internal global i32 0, align 4
-@.str.87 = private unnamed_addr constant [13 x i8] c"Frame Size 4\00", align 1
-@.str.88 = private unnamed_addr constant [32 x i8] c"netperfmeter.addflow_framesize4\00", align 1
+@.str.88 = private unnamed_addr constant [13 x i8] c"Frame Size 4\00", align 1
+@.str.89 = private unnamed_addr constant [32 x i8] c"netperfmeter.addflow_framesize4\00", align 1
 @hf_addflow_rcvbuffersize = internal global i32 0, align 4
-@.str.89 = private unnamed_addr constant [20 x i8] c"Receive Buffer Size\00", align 1
-@.str.90 = private unnamed_addr constant [35 x i8] c"netperfmeter.addflow_rcvbuffersize\00", align 1
+@.str.90 = private unnamed_addr constant [20 x i8] c"Receive Buffer Size\00", align 1
+@.str.91 = private unnamed_addr constant [35 x i8] c"netperfmeter.addflow_rcvbuffersize\00", align 1
 @hf_addflow_sndbuffersize = internal global i32 0, align 4
-@.str.91 = private unnamed_addr constant [17 x i8] c"Send Buffer Size\00", align 1
-@.str.92 = private unnamed_addr constant [35 x i8] c"netperfmeter.addflow_sndbuffersize\00", align 1
+@.str.92 = private unnamed_addr constant [17 x i8] c"Send Buffer Size\00", align 1
+@.str.93 = private unnamed_addr constant [35 x i8] c"netperfmeter.addflow_sndbuffersize\00", align 1
 @hf_addflow_maxmsgsize = internal global i32 0, align 4
-@.str.93 = private unnamed_addr constant [18 x i8] c"Max. Message Size\00", align 1
-@.str.94 = private unnamed_addr constant [32 x i8] c"netperfmeter.addflow_maxmsgsize\00", align 1
+@.str.94 = private unnamed_addr constant [18 x i8] c"Max. Message Size\00", align 1
+@.str.95 = private unnamed_addr constant [32 x i8] c"netperfmeter.addflow_maxmsgsize\00", align 1
 @hf_addflow_cmt = internal global i32 0, align 4
-@.str.95 = private unnamed_addr constant [4 x i8] c"CMT\00", align 1
-@.str.96 = private unnamed_addr constant [25 x i8] c"netperfmeter.addflow_cmt\00", align 1
-@cmt_values = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.160 }, %struct._value_string { i32 1, ptr @.str.95 }, %struct._value_string { i32 2, ptr @.str.161 }, %struct._value_string { i32 3, ptr @.str.162 }, %struct._value_string { i32 4, ptr @.str.163 }, %struct._value_string zeroinitializer], align 16
+@.str.96 = private unnamed_addr constant [4 x i8] c"CMT\00", align 1
+@.str.97 = private unnamed_addr constant [25 x i8] c"netperfmeter.addflow_cmt\00", align 1
 @hf_addflow_ccid = internal global i32 0, align 4
-@.str.97 = private unnamed_addr constant [5 x i8] c"CCID\00", align 1
-@.str.98 = private unnamed_addr constant [26 x i8] c"netperfmeter.addflow_ccid\00", align 1
+@.str.98 = private unnamed_addr constant [5 x i8] c"CCID\00", align 1
+@.str.99 = private unnamed_addr constant [26 x i8] c"netperfmeter.addflow_ccid\00", align 1
 @hf_addflow_onoffevents = internal global i32 0, align 4
-@.str.99 = private unnamed_addr constant [14 x i8] c"On/Off Events\00", align 1
-@.str.100 = private unnamed_addr constant [33 x i8] c"netperfmeter.addflow_onoffevents\00", align 1
+@.str.100 = private unnamed_addr constant [14 x i8] c"On/Off Events\00", align 1
+@.str.101 = private unnamed_addr constant [33 x i8] c"netperfmeter.addflow_onoffevents\00", align 1
 @hf_addflow_onoffeventarray = internal global i32 0, align 4
-@.str.101 = private unnamed_addr constant [13 x i8] c"On/Off Event\00", align 1
-@.str.102 = private unnamed_addr constant [37 x i8] c"netperfmeter.addflow_onoffeventarray\00", align 1
+@.str.102 = private unnamed_addr constant [13 x i8] c"On/Off Event\00", align 1
+@.str.103 = private unnamed_addr constant [37 x i8] c"netperfmeter.addflow_onoffeventarray\00", align 1
 @hf_addflow_flag_debug = internal global i32 0, align 4
-@.str.103 = private unnamed_addr constant [6 x i8] c"Debug\00", align 1
-@.str.104 = private unnamed_addr constant [33 x i8] c"netperfmeter.addflow_flags.debug\00", align 1
+@.str.104 = private unnamed_addr constant [6 x i8] c"Debug\00", align 1
+@.str.105 = private unnamed_addr constant [33 x i8] c"netperfmeter.addflow_flags.debug\00", align 1
 @tfs_set_notset = external constant %struct.true_false_string, align 8
 @hf_addflow_flag_nodelay = internal global i32 0, align 4
-@.str.105 = private unnamed_addr constant [9 x i8] c"No Delay\00", align 1
-@.str.106 = private unnamed_addr constant [35 x i8] c"netperfmeter.addflow_flags.nodelay\00", align 1
+@.str.106 = private unnamed_addr constant [9 x i8] c"No Delay\00", align 1
+@.str.107 = private unnamed_addr constant [35 x i8] c"netperfmeter.addflow_flags.nodelay\00", align 1
 @hf_addflow_flag_repeatonoff = internal global i32 0, align 4
-@.str.107 = private unnamed_addr constant [14 x i8] c"Repeat On/Off\00", align 1
-@.str.108 = private unnamed_addr constant [39 x i8] c"netperfmeter.addflow_flags.repeatonoff\00", align 1
+@.str.108 = private unnamed_addr constant [14 x i8] c"Repeat On/Off\00", align 1
+@.str.109 = private unnamed_addr constant [39 x i8] c"netperfmeter.addflow_flags.repeatonoff\00", align 1
 @hf_removeflow_flowid = internal global i32 0, align 4
-@.str.109 = private unnamed_addr constant [31 x i8] c"netperfmeter.removeflow_flowid\00", align 1
+@.str.110 = private unnamed_addr constant [31 x i8] c"netperfmeter.removeflow_flowid\00", align 1
 @hf_removeflow_measurementid = internal global i32 0, align 4
-@.str.110 = private unnamed_addr constant [38 x i8] c"netperfmeter.removeflow_measurementid\00", align 1
+@.str.111 = private unnamed_addr constant [38 x i8] c"netperfmeter.removeflow_measurementid\00", align 1
 @hf_removeflow_streamid = internal global i32 0, align 4
-@.str.111 = private unnamed_addr constant [33 x i8] c"netperfmeter.removeflow_streamid\00", align 1
+@.str.112 = private unnamed_addr constant [33 x i8] c"netperfmeter.removeflow_streamid\00", align 1
 @hf_identifyflow_flowid = internal global i32 0, align 4
-@.str.112 = private unnamed_addr constant [33 x i8] c"netperfmeter.identifyflow_flowid\00", align 1
+@.str.113 = private unnamed_addr constant [33 x i8] c"netperfmeter.identifyflow_flowid\00", align 1
 @hf_identifyflow_magicnumber = internal global i32 0, align 4
-@.str.113 = private unnamed_addr constant [13 x i8] c"Magic Number\00", align 1
-@.str.114 = private unnamed_addr constant [38 x i8] c"netperfmeter.identifyflow_magicnumber\00", align 1
+@.str.114 = private unnamed_addr constant [13 x i8] c"Magic Number\00", align 1
+@.str.115 = private unnamed_addr constant [38 x i8] c"netperfmeter.identifyflow_magicnumber\00", align 1
 @hf_identifyflow_measurementid = internal global i32 0, align 4
-@.str.115 = private unnamed_addr constant [40 x i8] c"netperfmeter.identifyflow_measurementid\00", align 1
+@.str.116 = private unnamed_addr constant [40 x i8] c"netperfmeter.identifyflow_measurementid\00", align 1
 @hf_identifyflow_streamid = internal global i32 0, align 4
-@.str.116 = private unnamed_addr constant [35 x i8] c"netperfmeter.identifyflow_streamid\00", align 1
+@.str.117 = private unnamed_addr constant [35 x i8] c"netperfmeter.identifyflow_streamid\00", align 1
 @hf_identifyflow_flag_compress_vectors = internal global i32 0, align 4
-@.str.117 = private unnamed_addr constant [17 x i8] c"Compress Vectors\00", align 1
-@.str.118 = private unnamed_addr constant [48 x i8] c"netperfmeter.dentifyflow_flags.compress_vectors\00", align 1
+@.str.118 = private unnamed_addr constant [17 x i8] c"Compress Vectors\00", align 1
+@.str.119 = private unnamed_addr constant [48 x i8] c"netperfmeter.dentifyflow_flags.compress_vectors\00", align 1
 @hf_identifyflow_flag_no_vectors = internal global i32 0, align 4
-@.str.119 = private unnamed_addr constant [11 x i8] c"No Vectors\00", align 1
-@.str.120 = private unnamed_addr constant [42 x i8] c"netperfmeter.dentifyflow_flags.no_vectors\00", align 1
+@.str.120 = private unnamed_addr constant [11 x i8] c"No Vectors\00", align 1
+@.str.121 = private unnamed_addr constant [42 x i8] c"netperfmeter.dentifyflow_flags.no_vectors\00", align 1
 @hf_data_flowid = internal global i32 0, align 4
-@.str.121 = private unnamed_addr constant [25 x i8] c"netperfmeter.data_flowid\00", align 1
+@.str.122 = private unnamed_addr constant [25 x i8] c"netperfmeter.data_flowid\00", align 1
 @hf_data_measurementid = internal global i32 0, align 4
-@.str.122 = private unnamed_addr constant [32 x i8] c"netperfmeter.data_measurementid\00", align 1
+@.str.123 = private unnamed_addr constant [32 x i8] c"netperfmeter.data_measurementid\00", align 1
 @hf_data_streamid = internal global i32 0, align 4
-@.str.123 = private unnamed_addr constant [27 x i8] c"netperfmeter.data_streamid\00", align 1
+@.str.124 = private unnamed_addr constant [27 x i8] c"netperfmeter.data_streamid\00", align 1
 @hf_data_padding = internal global i32 0, align 4
-@.str.124 = private unnamed_addr constant [8 x i8] c"Padding\00", align 1
-@.str.125 = private unnamed_addr constant [26 x i8] c"netperfmeter.data_padding\00", align 1
+@.str.125 = private unnamed_addr constant [8 x i8] c"Padding\00", align 1
+@.str.126 = private unnamed_addr constant [26 x i8] c"netperfmeter.data_padding\00", align 1
 @hf_data_frameid = internal global i32 0, align 4
-@.str.126 = private unnamed_addr constant [9 x i8] c"Frame ID\00", align 1
-@.str.127 = private unnamed_addr constant [26 x i8] c"netperfmeter.data_frameid\00", align 1
+@.str.127 = private unnamed_addr constant [9 x i8] c"Frame ID\00", align 1
+@.str.128 = private unnamed_addr constant [26 x i8] c"netperfmeter.data_frameid\00", align 1
 @hf_data_packetseqnumber = internal global i32 0, align 4
-@.str.128 = private unnamed_addr constant [18 x i8] c"Packet Seq Number\00", align 1
-@.str.129 = private unnamed_addr constant [34 x i8] c"netperfmeter.data_packetseqnumber\00", align 1
+@.str.129 = private unnamed_addr constant [18 x i8] c"Packet Seq Number\00", align 1
+@.str.130 = private unnamed_addr constant [34 x i8] c"netperfmeter.data_packetseqnumber\00", align 1
 @hf_data_byteseqnumber = internal global i32 0, align 4
-@.str.130 = private unnamed_addr constant [16 x i8] c"Byte Seq Number\00", align 1
-@.str.131 = private unnamed_addr constant [32 x i8] c"netperfmeter.data_byteseqnumber\00", align 1
+@.str.131 = private unnamed_addr constant [16 x i8] c"Byte Seq Number\00", align 1
+@.str.132 = private unnamed_addr constant [32 x i8] c"netperfmeter.data_byteseqnumber\00", align 1
 @hf_data_timestamp = internal global i32 0, align 4
-@.str.132 = private unnamed_addr constant [11 x i8] c"Time Stamp\00", align 1
-@.str.133 = private unnamed_addr constant [28 x i8] c"netperfmeter.data_timestamp\00", align 1
+@.str.133 = private unnamed_addr constant [11 x i8] c"Time Stamp\00", align 1
+@.str.134 = private unnamed_addr constant [28 x i8] c"netperfmeter.data_timestamp\00", align 1
 @hf_data_payload = internal global i32 0, align 4
-@.str.134 = private unnamed_addr constant [8 x i8] c"Payload\00", align 1
-@.str.135 = private unnamed_addr constant [26 x i8] c"netperfmeter.data_payload\00", align 1
+@.str.135 = private unnamed_addr constant [8 x i8] c"Payload\00", align 1
+@.str.136 = private unnamed_addr constant [26 x i8] c"netperfmeter.data_payload\00", align 1
 @hf_data_flag_frame_begin = internal global i32 0, align 4
-@.str.136 = private unnamed_addr constant [15 x i8] c"Begin of Frame\00", align 1
-@.str.137 = private unnamed_addr constant [36 x i8] c"netperfmeter.data_flags.frame_begin\00", align 1
+@.str.137 = private unnamed_addr constant [15 x i8] c"Begin of Frame\00", align 1
+@.str.138 = private unnamed_addr constant [36 x i8] c"netperfmeter.data_flags.frame_begin\00", align 1
 @hf_data_flag_frame_end = internal global i32 0, align 4
-@.str.138 = private unnamed_addr constant [13 x i8] c"End of Frame\00", align 1
-@.str.139 = private unnamed_addr constant [34 x i8] c"netperfmeter.data_flags.frame_end\00", align 1
+@.str.139 = private unnamed_addr constant [13 x i8] c"End of Frame\00", align 1
+@.str.140 = private unnamed_addr constant [34 x i8] c"netperfmeter.data_flags.frame_end\00", align 1
 @hf_start_measurementid = internal global i32 0, align 4
-@.str.140 = private unnamed_addr constant [33 x i8] c"netperfmeter.start_measurementid\00", align 1
+@.str.141 = private unnamed_addr constant [33 x i8] c"netperfmeter.start_measurementid\00", align 1
 @hf_start_flag_compress_vectors = internal global i32 0, align 4
-@.str.141 = private unnamed_addr constant [42 x i8] c"netperfmeter.start_flags.compress_vectors\00", align 1
+@.str.142 = private unnamed_addr constant [42 x i8] c"netperfmeter.start_flags.compress_vectors\00", align 1
 @hf_start_flag_compress_scalars = internal global i32 0, align 4
-@.str.142 = private unnamed_addr constant [17 x i8] c"Compress Scalars\00", align 1
-@.str.143 = private unnamed_addr constant [42 x i8] c"netperfmeter.start_flags.compress_scalars\00", align 1
+@.str.143 = private unnamed_addr constant [17 x i8] c"Compress Scalars\00", align 1
+@.str.144 = private unnamed_addr constant [42 x i8] c"netperfmeter.start_flags.compress_scalars\00", align 1
 @hf_start_flag_no_vectors = internal global i32 0, align 4
-@.str.144 = private unnamed_addr constant [36 x i8] c"netperfmeter.start_flags.no_vectors\00", align 1
+@.str.145 = private unnamed_addr constant [36 x i8] c"netperfmeter.start_flags.no_vectors\00", align 1
 @hf_start_flag_no_scalars = internal global i32 0, align 4
-@.str.145 = private unnamed_addr constant [11 x i8] c"No Scalars\00", align 1
-@.str.146 = private unnamed_addr constant [36 x i8] c"netperfmeter.start_flags.no_scalars\00", align 1
+@.str.146 = private unnamed_addr constant [11 x i8] c"No Scalars\00", align 1
+@.str.147 = private unnamed_addr constant [36 x i8] c"netperfmeter.start_flags.no_scalars\00", align 1
 @hf_stop_measurementid = internal global i32 0, align 4
-@.str.147 = private unnamed_addr constant [32 x i8] c"netperfmeter.stop_measurementid\00", align 1
+@.str.148 = private unnamed_addr constant [32 x i8] c"netperfmeter.stop_measurementid\00", align 1
 @hf_results_data = internal global i32 0, align 4
-@.str.148 = private unnamed_addr constant [5 x i8] c"Data\00", align 1
-@.str.149 = private unnamed_addr constant [26 x i8] c"netperfmeter.results_data\00", align 1
+@.str.149 = private unnamed_addr constant [5 x i8] c"Data\00", align 1
+@.str.150 = private unnamed_addr constant [26 x i8] c"netperfmeter.results_data\00", align 1
 @hf_results_flag_eof = internal global i32 0, align 4
-@.str.150 = private unnamed_addr constant [12 x i8] c"End of File\00", align 1
-@.str.151 = private unnamed_addr constant [31 x i8] c"netperfmeter.results_flags.eof\00", align 1
-@.str.152 = private unnamed_addr constant [4 x i8] c"TCP\00", align 1
-@.str.153 = private unnamed_addr constant [6 x i8] c"MPTCP\00", align 1
-@.str.154 = private unnamed_addr constant [4 x i8] c"UDP\00", align 1
-@.str.155 = private unnamed_addr constant [5 x i8] c"DCCP\00", align 1
-@.str.156 = private unnamed_addr constant [5 x i8] c"SCTP\00", align 1
-@.str.157 = private unnamed_addr constant [9 x i8] c"Constant\00", align 1
-@.str.158 = private unnamed_addr constant [8 x i8] c"Uniform\00", align 1
-@.str.159 = private unnamed_addr constant [17 x i8] c"Neg. Exponential\00", align 1
-@.str.160 = private unnamed_addr constant [4 x i8] c"Off\00", align 1
-@.str.161 = private unnamed_addr constant [9 x i8] c"CMT/RPv1\00", align 1
-@.str.162 = private unnamed_addr constant [9 x i8] c"CMT/RPv2\00", align 1
-@.str.163 = private unnamed_addr constant [11 x i8] c"MPTCP-Like\00", align 1
-@.str.164 = private unnamed_addr constant [34 x i8] c"Unknown NetPerfMeter message type\00", align 1
-@.str.165 = private unnamed_addr constant [4 x i8] c"%s \00", align 1
-@.str.166 = private unnamed_addr constant [8 x i8] c"%1.3f%%\00", align 1
-@.str.167 = private unnamed_addr constant [6 x i8] c"%u ms\00", align 1
-@.str.168 = private unnamed_addr constant [10 x i8] c"%u trials\00", align 1
-@.str.169 = private unnamed_addr constant [19 x i8] c"%1.3f s: set to %s\00", align 1
-@.str.170 = private unnamed_addr constant [4 x i8] c"OFF\00", align 1
-@.str.171 = private unnamed_addr constant [3 x i8] c"ON\00", align 1
+@.str.151 = private unnamed_addr constant [12 x i8] c"End of File\00", align 1
+@.str.152 = private unnamed_addr constant [31 x i8] c"netperfmeter.results_flags.eof\00", align 1
+@.str.153 = private unnamed_addr constant [4 x i8] c"TCP\00", align 1
+@.str.154 = private unnamed_addr constant [6 x i8] c"MPTCP\00", align 1
+@.str.155 = private unnamed_addr constant [4 x i8] c"UDP\00", align 1
+@.str.156 = private unnamed_addr constant [5 x i8] c"DCCP\00", align 1
+@.str.157 = private unnamed_addr constant [5 x i8] c"SCTP\00", align 1
+@proto_type_values = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.153 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.154 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.155 }, { i32, [4 x i8], ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.156 }, { i32, [4 x i8], ptr } { i32 132, [4 x i8] zeroinitializer, ptr @.str.157 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.159 = private unnamed_addr constant [9 x i8] c"Constant\00", align 1
+@.str.160 = private unnamed_addr constant [8 x i8] c"Uniform\00", align 1
+@.str.161 = private unnamed_addr constant [17 x i8] c"Neg. Exponential\00", align 1
+@rng_type_values = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.159 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.160 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.161 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.163 = private unnamed_addr constant [4 x i8] c"Off\00", align 1
+@.str.164 = private unnamed_addr constant [9 x i8] c"CMT/RPv1\00", align 1
+@.str.165 = private unnamed_addr constant [9 x i8] c"CMT/RPv2\00", align 1
+@.str.166 = private unnamed_addr constant [11 x i8] c"MPTCP-Like\00", align 1
+@cmt_values = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.163 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.96 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.164 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.165 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.166 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.168 = private unnamed_addr constant [34 x i8] c"Unknown NetPerfMeter message type\00", align 1
+@.str.169 = private unnamed_addr constant [4 x i8] c"%s \00", align 1
+@.str.170 = private unnamed_addr constant [8 x i8] c"%1.3f%%\00", align 1
+@.str.171 = private unnamed_addr constant [6 x i8] c"%u ms\00", align 1
+@.str.172 = private unnamed_addr constant [10 x i8] c"%u trials\00", align 1
+@.str.173 = private unnamed_addr constant [19 x i8] c"%1.3f s: set to %s\00", align 1
+@.str.174 = private unnamed_addr constant [4 x i8] c"OFF\00", align 1
+@.str.175 = private unnamed_addr constant [3 x i8] c"ON\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_npm() #0 {
   %1 = call i32 @proto_register_protocol(ptr noundef @.str.5, ptr noundef @.str.6, ptr noundef @.str.7)
   store i32 %1, ptr @proto_npm, align 4
@@ -295,7 +294,7 @@ define hidden void @proto_register_npm() #0 {
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @npm_stat_init(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
@@ -303,138 +302,164 @@ define internal void @npm_stat_init(ptr noundef %0) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca [10 x %struct._stat_tap_table_item_type], align 16
+  %8 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #7
   store ptr @.str.2, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #7
   store i32 10, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #7
   store i32 0, ptr %6, align 4
-  %8 = load ptr, ptr %2, align 8
-  %9 = load ptr, ptr %3, align 8
-  %10 = call ptr @stat_tap_find_table(ptr noundef %8, ptr noundef %9)
-  store ptr %10, ptr %5, align 8
-  %11 = load ptr, ptr %5, align 8
-  %12 = icmp ne ptr %11, null
-  br i1 %12, label %13, label %24
+  call void @llvm.lifetime.start.p0(i64 240, ptr %7) #7
+  %9 = load ptr, ptr %2, align 8
+  %10 = load ptr, ptr %3, align 8
+  %11 = call ptr @stat_tap_find_table(ptr noundef %9, ptr noundef %10)
+  store ptr %11, ptr %5, align 8
+  %12 = load ptr, ptr %5, align 8
+  %13 = icmp ne ptr %12, null
+  br i1 %13, label %14, label %25
 
-13:                                               ; preds = %1
-  %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds %struct._stat_tap_table_ui, ptr %14, i32 0, i32 6
-  %16 = load ptr, ptr %15, align 8
-  %17 = icmp ne ptr %16, null
-  br i1 %17, label %18, label %23
+14:                                               ; preds = %1
+  %15 = load ptr, ptr %2, align 8
+  %16 = getelementptr inbounds nuw %struct._stat_tap_table_ui, ptr %15, i32 0, i32 6
+  %17 = load ptr, ptr %16, align 8
+  %18 = icmp ne ptr %17, null
+  br i1 %18, label %19, label %24
 
-18:                                               ; preds = %13
-  %19 = load ptr, ptr %2, align 8
-  %20 = getelementptr inbounds %struct._stat_tap_table_ui, ptr %19, i32 0, i32 6
-  %21 = load ptr, ptr %20, align 8
-  %22 = load ptr, ptr %5, align 8
-  call void %21(ptr noundef %22)
-  br label %23
+19:                                               ; preds = %14
+  %20 = load ptr, ptr %2, align 8
+  %21 = getelementptr inbounds nuw %struct._stat_tap_table_ui, ptr %20, i32 0, i32 6
+  %22 = load ptr, ptr %21, align 8
+  %23 = load ptr, ptr %5, align 8
+  call void %22(ptr noundef %23)
+  br label %24
 
-23:                                               ; preds = %18, %13
-  br label %90
+24:                                               ; preds = %19, %14
+  store i32 1, ptr %8, align 4
+  br label %93
 
-24:                                               ; preds = %1
-  %25 = load ptr, ptr %3, align 8
-  %26 = load i32, ptr %4, align 4
-  %27 = call ptr @stat_tap_init_table(ptr noundef %25, i32 noundef %26, i32 noundef 0, ptr noundef null)
-  store ptr %27, ptr %5, align 8
-  %28 = load ptr, ptr %2, align 8
-  %29 = load ptr, ptr %5, align 8
-  call void @stat_tap_add_table(ptr noundef %28, ptr noundef %29)
-  %30 = getelementptr inbounds [10 x %struct._stat_tap_table_item_type], ptr %7, i64 0, i64 0
-  call void @llvm.memset.p0.i64(ptr align 16 %30, i8 0, i64 240, i1 false)
-  br label %31
+25:                                               ; preds = %1
+  %26 = load ptr, ptr %3, align 8
+  %27 = load i32, ptr %4, align 4
+  %28 = call ptr @stat_tap_init_table(ptr noundef %26, i32 noundef %27, i32 noundef 0, ptr noundef null)
+  store ptr %28, ptr %5, align 8
+  %29 = load ptr, ptr %2, align 8
+  %30 = load ptr, ptr %5, align 8
+  call void @stat_tap_add_table(ptr noundef %29, ptr noundef %30)
+  %31 = getelementptr inbounds [10 x %struct._stat_tap_table_item_type], ptr %7, i64 0, i64 0
+  %32 = call ptr @memset.inline(ptr noundef %31, i32 noundef 0, i64 noundef 240) #7
+  br label %33
 
-31:                                               ; preds = %38, %24
-  %32 = load i32, ptr %6, align 4
-  %33 = sext i32 %32 to i64
-  %34 = getelementptr [9 x %struct._value_string], ptr @message_type_values, i64 0, i64 %33
-  %35 = getelementptr inbounds %struct._value_string, ptr %34, i32 0, i32 1
-  %36 = load ptr, ptr %35, align 8
-  %37 = icmp ne ptr %36, null
-  br i1 %37, label %38, label %90
+33:                                               ; preds = %40, %25
+  %34 = load i32, ptr %6, align 4
+  %35 = sext i32 %34 to i64
+  %36 = getelementptr [9 x %struct._value_string], ptr @message_type_values, i64 0, i64 %35
+  %37 = getelementptr inbounds nuw %struct._value_string, ptr %36, i32 0, i32 1
+  %38 = load ptr, ptr %37, align 8
+  %39 = icmp ne ptr %38, null
+  br i1 %39, label %40, label %92
 
-38:                                               ; preds = %31
-  %39 = getelementptr [10 x %struct._stat_tap_table_item_type], ptr %7, i64 0, i64 0
-  %40 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %39, i32 0, i32 0
-  store i32 3, ptr %40, align 16
-  %41 = load i32, ptr %6, align 4
-  %42 = sext i32 %41 to i64
-  %43 = getelementptr [9 x %struct._value_string], ptr @message_type_values, i64 0, i64 %42
-  %44 = getelementptr inbounds %struct._value_string, ptr %43, i32 0, i32 1
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr [10 x %struct._stat_tap_table_item_type], ptr %7, i64 0, i64 0
-  %47 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %46, i32 0, i32 1
-  store ptr %45, ptr %47, align 8
-  %48 = getelementptr [10 x %struct._stat_tap_table_item_type], ptr %7, i64 0, i64 1
-  %49 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %48, i32 0, i32 0
-  store i32 1, ptr %49, align 8
+40:                                               ; preds = %33
+  %41 = getelementptr [10 x %struct._stat_tap_table_item_type], ptr %7, i64 0, i64 0
+  %42 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %41, i32 0, i32 0
+  store i32 3, ptr %42, align 16
+  %43 = load i32, ptr %6, align 4
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr [9 x %struct._value_string], ptr @message_type_values, i64 0, i64 %44
+  %46 = getelementptr inbounds nuw %struct._value_string, ptr %45, i32 0, i32 1
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr [10 x %struct._stat_tap_table_item_type], ptr %7, i64 0, i64 0
+  %49 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %48, i32 0, i32 1
+  store ptr %47, ptr %49, align 8
   %50 = getelementptr [10 x %struct._stat_tap_table_item_type], ptr %7, i64 0, i64 1
-  %51 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %50, i32 0, i32 1
-  store i32 0, ptr %51, align 8
-  %52 = getelementptr [10 x %struct._stat_tap_table_item_type], ptr %7, i64 0, i64 2
-  %53 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %52, i32 0, i32 0
-  store i32 0, ptr %53, align 16
+  %51 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %50, i32 0, i32 0
+  store i32 1, ptr %51, align 8
+  %52 = getelementptr [10 x %struct._stat_tap_table_item_type], ptr %7, i64 0, i64 1
+  %53 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %52, i32 0, i32 1
+  store i32 0, ptr %53, align 8
   %54 = getelementptr [10 x %struct._stat_tap_table_item_type], ptr %7, i64 0, i64 2
-  %55 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %54, i32 0, i32 1
-  store double -1.000000e+00, ptr %55, align 8
-  %56 = getelementptr [10 x %struct._stat_tap_table_item_type], ptr %7, i64 0, i64 3
-  %57 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %56, i32 0, i32 0
-  store i32 1, ptr %57, align 8
+  %55 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %54, i32 0, i32 0
+  store i32 0, ptr %55, align 16
+  %56 = getelementptr [10 x %struct._stat_tap_table_item_type], ptr %7, i64 0, i64 2
+  %57 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %56, i32 0, i32 1
+  store double -1.000000e+00, ptr %57, align 8
   %58 = getelementptr [10 x %struct._stat_tap_table_item_type], ptr %7, i64 0, i64 3
-  %59 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %58, i32 0, i32 1
-  store i32 0, ptr %59, align 8
-  %60 = getelementptr [10 x %struct._stat_tap_table_item_type], ptr %7, i64 0, i64 4
-  %61 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %60, i32 0, i32 0
-  store i32 0, ptr %61, align 16
+  %59 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %58, i32 0, i32 0
+  store i32 1, ptr %59, align 8
+  %60 = getelementptr [10 x %struct._stat_tap_table_item_type], ptr %7, i64 0, i64 3
+  %61 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %60, i32 0, i32 1
+  store i32 0, ptr %61, align 8
   %62 = getelementptr [10 x %struct._stat_tap_table_item_type], ptr %7, i64 0, i64 4
-  %63 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %62, i32 0, i32 1
-  store double -1.000000e+00, ptr %63, align 8
-  %64 = getelementptr [10 x %struct._stat_tap_table_item_type], ptr %7, i64 0, i64 5
-  %65 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %64, i32 0, i32 0
-  store i32 0, ptr %65, align 8
+  %63 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %62, i32 0, i32 0
+  store i32 0, ptr %63, align 16
+  %64 = getelementptr [10 x %struct._stat_tap_table_item_type], ptr %7, i64 0, i64 4
+  %65 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %64, i32 0, i32 1
+  store double -1.000000e+00, ptr %65, align 8
   %66 = getelementptr [10 x %struct._stat_tap_table_item_type], ptr %7, i64 0, i64 5
-  %67 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %66, i32 0, i32 1
-  store double 0x7FEFFFFFFFFFFFFF, ptr %67, align 8
-  %68 = getelementptr [10 x %struct._stat_tap_table_item_type], ptr %7, i64 0, i64 6
-  %69 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %68, i32 0, i32 0
-  store i32 0, ptr %69, align 16
+  %67 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %66, i32 0, i32 0
+  store i32 0, ptr %67, align 8
+  %68 = getelementptr [10 x %struct._stat_tap_table_item_type], ptr %7, i64 0, i64 5
+  %69 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %68, i32 0, i32 1
+  store double 0x7FEFFFFFFFFFFFFF, ptr %69, align 8
   %70 = getelementptr [10 x %struct._stat_tap_table_item_type], ptr %7, i64 0, i64 6
-  %71 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %70, i32 0, i32 1
-  store double 0x10000000000000, ptr %71, align 8
-  %72 = getelementptr [10 x %struct._stat_tap_table_item_type], ptr %7, i64 0, i64 7
-  %73 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %72, i32 0, i32 0
-  store i32 0, ptr %73, align 8
+  %71 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %70, i32 0, i32 0
+  store i32 0, ptr %71, align 16
+  %72 = getelementptr [10 x %struct._stat_tap_table_item_type], ptr %7, i64 0, i64 6
+  %73 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %72, i32 0, i32 1
+  store double 0x10000000000000, ptr %73, align 8
   %74 = getelementptr [10 x %struct._stat_tap_table_item_type], ptr %7, i64 0, i64 7
-  %75 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %74, i32 0, i32 1
-  store double -1.000000e+00, ptr %75, align 8
-  %76 = getelementptr [10 x %struct._stat_tap_table_item_type], ptr %7, i64 0, i64 8
-  %77 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %76, i32 0, i32 0
-  store i32 0, ptr %77, align 16
+  %75 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %74, i32 0, i32 0
+  store i32 0, ptr %75, align 8
+  %76 = getelementptr [10 x %struct._stat_tap_table_item_type], ptr %7, i64 0, i64 7
+  %77 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %76, i32 0, i32 1
+  store double -1.000000e+00, ptr %77, align 8
   %78 = getelementptr [10 x %struct._stat_tap_table_item_type], ptr %7, i64 0, i64 8
-  %79 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %78, i32 0, i32 1
-  store double -1.000000e+00, ptr %79, align 8
-  %80 = getelementptr [10 x %struct._stat_tap_table_item_type], ptr %7, i64 0, i64 9
-  %81 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %80, i32 0, i32 0
-  store i32 0, ptr %81, align 8
+  %79 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %78, i32 0, i32 0
+  store i32 0, ptr %79, align 16
+  %80 = getelementptr [10 x %struct._stat_tap_table_item_type], ptr %7, i64 0, i64 8
+  %81 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %80, i32 0, i32 1
+  store double -1.000000e+00, ptr %81, align 8
   %82 = getelementptr [10 x %struct._stat_tap_table_item_type], ptr %7, i64 0, i64 9
-  %83 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %82, i32 0, i32 1
-  store double -1.000000e+00, ptr %83, align 8
-  %84 = load ptr, ptr %5, align 8
-  %85 = load i32, ptr %6, align 4
-  %86 = load i32, ptr %4, align 4
-  %87 = getelementptr inbounds [10 x %struct._stat_tap_table_item_type], ptr %7, i64 0, i64 0
-  call void @stat_tap_init_table_row(ptr noundef %84, i32 noundef %85, i32 noundef %86, ptr noundef %87)
-  %88 = load i32, ptr %6, align 4
-  %89 = add i32 %88, 1
-  store i32 %89, ptr %6, align 4
-  br label %31, !llvm.loop !4
+  %83 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %82, i32 0, i32 0
+  store i32 0, ptr %83, align 8
+  %84 = getelementptr [10 x %struct._stat_tap_table_item_type], ptr %7, i64 0, i64 9
+  %85 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %84, i32 0, i32 1
+  store double -1.000000e+00, ptr %85, align 8
+  %86 = load ptr, ptr %5, align 8
+  %87 = load i32, ptr %6, align 4
+  %88 = load i32, ptr %4, align 4
+  %89 = getelementptr inbounds [10 x %struct._stat_tap_table_item_type], ptr %7, i64 0, i64 0
+  call void @stat_tap_init_table_row(ptr noundef %86, i32 noundef %87, i32 noundef %88, ptr noundef %89)
+  %90 = load i32, ptr %6, align 4
+  %91 = add i32 %90, 1
+  store i32 %91, ptr %6, align 4
+  br label %33, !llvm.loop !6
 
-90:                                               ; preds = %31, %23
+92:                                               ; preds = %33
+  store i32 0, ptr %8, align 4
+  br label %93
+
+93:                                               ; preds = %92, %24
+  call void @llvm.lifetime.end.p0(i64 240, ptr %7) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #7
+  %94 = load i32, ptr %8, align 4
+  switch i32 %94, label %96 [
+    i32 0, label %95
+    i32 1, label %95
+  ]
+
+95:                                               ; preds = %93, %93
   ret void
+
+96:                                               ; preds = %93
+  unreachable
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @npm_stat_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -454,358 +479,387 @@ define internal i32 @npm_stat_packet(ptr noundef %0, ptr noundef %1, ptr noundef
   %21 = alloca double, align 8
   %22 = alloca i32, align 4
   %23 = alloca i32, align 4
+  %24 = alloca i32, align 4
   store ptr %0, ptr %7, align 8
   store ptr %1, ptr %8, align 8
   store ptr %2, ptr %9, align 8
   store ptr %3, ptr %10, align 8
   store i32 %4, ptr %11, align 4
-  %24 = load ptr, ptr %7, align 8
-  store ptr %24, ptr %12, align 8
-  %25 = load ptr, ptr %10, align 8
-  store ptr %25, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #7
+  %25 = load ptr, ptr %7, align 8
+  store ptr %25, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
+  %26 = load ptr, ptr %10, align 8
+  store ptr %26, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #7
   store i32 0, ptr %19, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #7
   store double -1.000000e+00, ptr %20, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #7
   store double -1.000000e+00, ptr %21, align 8
-  %26 = load ptr, ptr %13, align 8
-  %27 = getelementptr inbounds %struct._tap_npm_rec_t, ptr %26, i32 0, i32 2
-  %28 = load ptr, ptr %27, align 8
-  %29 = call i32 @str_to_val_idx(ptr noundef %28, ptr noundef @message_type_values)
-  store i32 %29, ptr %16, align 4
-  %30 = load i32, ptr %16, align 4
-  %31 = icmp slt i32 %30, 0
-  br i1 %31, label %32, label %33
-
-32:                                               ; preds = %5
-  store i32 0, ptr %6, align 4
-  br label %263
+  %27 = load ptr, ptr %13, align 8
+  %28 = getelementptr inbounds nuw %struct._tap_npm_rec_t, ptr %27, i32 0, i32 2
+  %29 = load ptr, ptr %28, align 8
+  %30 = call i32 @str_to_val_idx(ptr noundef %29, ptr noundef @message_type_values)
+  store i32 %30, ptr %16, align 4
+  %31 = load i32, ptr %16, align 4
+  %32 = icmp slt i32 %31, 0
+  br i1 %32, label %33, label %34
 
 33:                                               ; preds = %5
-  %34 = load ptr, ptr %12, align 8
-  %35 = getelementptr inbounds %struct._stat_data_t, ptr %34, i32 0, i32 0
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds %struct._stat_tap_table_ui, ptr %36, i32 0, i32 13
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds %struct._GArray, ptr %38, i32 0, i32 0
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr ptr, ptr %40, i64 0
-  %42 = load ptr, ptr %41, align 8
-  store ptr %42, ptr %14, align 8
-  %43 = load i64, ptr @npm_total_msgs, align 8
-  %44 = add i64 %43, 1
-  store i64 %44, ptr @npm_total_msgs, align 8
-  %45 = load ptr, ptr %14, align 8
-  %46 = load i32, ptr %16, align 4
-  %47 = call ptr @stat_tap_get_field_data(ptr noundef %45, i32 noundef %46, i32 noundef 1)
-  store ptr %47, ptr %15, align 8
-  %48 = load ptr, ptr %15, align 8
-  %49 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %48, i32 0, i32 1
-  %50 = load i32, ptr %49, align 8
-  %51 = add i32 %50, 1
-  store i32 %51, ptr %49, align 8
-  %52 = load ptr, ptr %15, align 8
-  %53 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %52, i32 0, i32 1
-  %54 = load i32, ptr %53, align 8
-  %55 = zext i32 %54 to i64
-  store i64 %55, ptr %17, align 8
-  %56 = load ptr, ptr %14, align 8
-  %57 = load i32, ptr %16, align 4
-  %58 = load ptr, ptr %15, align 8
-  call void @stat_tap_set_field_data(ptr noundef %56, i32 noundef %57, i32 noundef 1, ptr noundef %58)
-  %59 = load ptr, ptr %13, align 8
-  %60 = getelementptr inbounds %struct._tap_npm_rec_t, ptr %59, i32 0, i32 1
-  %61 = load i16, ptr %60, align 2
-  %62 = zext i16 %61 to i64
-  %63 = load i64, ptr @npm_total_bytes, align 8
-  %64 = add i64 %63, %62
-  store i64 %64, ptr @npm_total_bytes, align 8
-  %65 = load ptr, ptr %14, align 8
-  %66 = load i32, ptr %16, align 4
-  %67 = call ptr @stat_tap_get_field_data(ptr noundef %65, i32 noundef %66, i32 noundef 3)
-  store ptr %67, ptr %15, align 8
-  %68 = load ptr, ptr %13, align 8
-  %69 = getelementptr inbounds %struct._tap_npm_rec_t, ptr %68, i32 0, i32 1
-  %70 = load i16, ptr %69, align 2
-  %71 = zext i16 %70 to i32
-  %72 = load ptr, ptr %15, align 8
-  %73 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %72, i32 0, i32 1
-  %74 = load i32, ptr %73, align 8
-  %75 = add i32 %74, %71
-  store i32 %75, ptr %73, align 8
-  %76 = load ptr, ptr %15, align 8
-  %77 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %76, i32 0, i32 1
-  %78 = load i32, ptr %77, align 8
-  %79 = zext i32 %78 to i64
-  store i64 %79, ptr %18, align 8
-  %80 = load ptr, ptr %14, align 8
-  %81 = load i32, ptr %16, align 4
-  %82 = load ptr, ptr %15, align 8
-  call void @stat_tap_set_field_data(ptr noundef %80, i32 noundef %81, i32 noundef 3, ptr noundef %82)
-  br label %83
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %22, align 4
+  br label %264
 
-83:                                               ; preds = %90, %33
-  %84 = load i32, ptr %19, align 4
-  %85 = sext i32 %84 to i64
-  %86 = getelementptr [9 x %struct._value_string], ptr @message_type_values, i64 0, i64 %85
-  %87 = getelementptr inbounds %struct._value_string, ptr %86, i32 0, i32 1
-  %88 = load ptr, ptr %87, align 8
-  %89 = icmp ne ptr %88, null
-  br i1 %89, label %90, label %137
+34:                                               ; preds = %5
+  %35 = load ptr, ptr %12, align 8
+  %36 = getelementptr inbounds nuw %struct._stat_data_t, ptr %35, i32 0, i32 0
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds nuw %struct._stat_tap_table_ui, ptr %37, i32 0, i32 13
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds nuw %struct._GArray, ptr %39, i32 0, i32 0
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr ptr, ptr %41, i64 0
+  %43 = load ptr, ptr %42, align 8
+  store ptr %43, ptr %14, align 8
+  %44 = load i64, ptr @npm_total_msgs, align 8
+  %45 = add i64 %44, 1
+  store i64 %45, ptr @npm_total_msgs, align 8
+  %46 = load ptr, ptr %14, align 8
+  %47 = load i32, ptr %16, align 4
+  %48 = call ptr @stat_tap_get_field_data(ptr noundef %46, i32 noundef %47, i32 noundef 1)
+  store ptr %48, ptr %15, align 8
+  %49 = load ptr, ptr %15, align 8
+  %50 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %49, i32 0, i32 1
+  %51 = load i32, ptr %50, align 8
+  %52 = add i32 %51, 1
+  store i32 %52, ptr %50, align 8
+  %53 = load ptr, ptr %15, align 8
+  %54 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %53, i32 0, i32 1
+  %55 = load i32, ptr %54, align 8
+  %56 = zext i32 %55 to i64
+  store i64 %56, ptr %17, align 8
+  %57 = load ptr, ptr %14, align 8
+  %58 = load i32, ptr %16, align 4
+  %59 = load ptr, ptr %15, align 8
+  call void @stat_tap_set_field_data(ptr noundef %57, i32 noundef %58, i32 noundef 1, ptr noundef %59)
+  %60 = load ptr, ptr %13, align 8
+  %61 = getelementptr inbounds nuw %struct._tap_npm_rec_t, ptr %60, i32 0, i32 1
+  %62 = load i16, ptr %61, align 2
+  %63 = zext i16 %62 to i64
+  %64 = load i64, ptr @npm_total_bytes, align 8
+  %65 = add i64 %64, %63
+  store i64 %65, ptr @npm_total_bytes, align 8
+  %66 = load ptr, ptr %14, align 8
+  %67 = load i32, ptr %16, align 4
+  %68 = call ptr @stat_tap_get_field_data(ptr noundef %66, i32 noundef %67, i32 noundef 3)
+  store ptr %68, ptr %15, align 8
+  %69 = load ptr, ptr %13, align 8
+  %70 = getelementptr inbounds nuw %struct._tap_npm_rec_t, ptr %69, i32 0, i32 1
+  %71 = load i16, ptr %70, align 2
+  %72 = zext i16 %71 to i32
+  %73 = load ptr, ptr %15, align 8
+  %74 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %73, i32 0, i32 1
+  %75 = load i32, ptr %74, align 8
+  %76 = add i32 %75, %72
+  store i32 %76, ptr %74, align 8
+  %77 = load ptr, ptr %15, align 8
+  %78 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %77, i32 0, i32 1
+  %79 = load i32, ptr %78, align 8
+  %80 = zext i32 %79 to i64
+  store i64 %80, ptr %18, align 8
+  %81 = load ptr, ptr %14, align 8
+  %82 = load i32, ptr %16, align 4
+  %83 = load ptr, ptr %15, align 8
+  call void @stat_tap_set_field_data(ptr noundef %81, i32 noundef %82, i32 noundef 3, ptr noundef %83)
+  br label %84
 
-90:                                               ; preds = %83
-  %91 = load ptr, ptr %14, align 8
-  %92 = load i32, ptr %19, align 4
-  %93 = call ptr @stat_tap_get_field_data(ptr noundef %91, i32 noundef %92, i32 noundef 1)
-  store ptr %93, ptr %15, align 8
-  %94 = load ptr, ptr %15, align 8
-  %95 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %94, i32 0, i32 1
-  %96 = load i32, ptr %95, align 8
-  store i32 %96, ptr %22, align 4
-  %97 = load ptr, ptr %14, align 8
-  %98 = load i32, ptr %19, align 4
-  %99 = call ptr @stat_tap_get_field_data(ptr noundef %97, i32 noundef %98, i32 noundef 3)
-  store ptr %99, ptr %15, align 8
-  %100 = load ptr, ptr %15, align 8
-  %101 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %100, i32 0, i32 1
-  %102 = load i32, ptr %101, align 8
-  store i32 %102, ptr %23, align 4
-  %103 = load ptr, ptr %14, align 8
-  %104 = load i32, ptr %19, align 4
-  %105 = call ptr @stat_tap_get_field_data(ptr noundef %103, i32 noundef %104, i32 noundef 2)
-  store ptr %105, ptr %15, align 8
-  %106 = load ptr, ptr %15, align 8
-  %107 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %106, i32 0, i32 0
-  store i32 4, ptr %107, align 8
-  %108 = load i32, ptr %22, align 4
-  %109 = uitofp i32 %108 to double
-  %110 = fmul double 1.000000e+02, %109
-  %111 = load i64, ptr @npm_total_msgs, align 8
-  %112 = uitofp i64 %111 to double
-  %113 = fdiv double %110, %112
-  %114 = load ptr, ptr %15, align 8
-  %115 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %114, i32 0, i32 1
-  store double %113, ptr %115, align 8
-  %116 = load ptr, ptr %14, align 8
-  %117 = load i32, ptr %19, align 4
-  %118 = load ptr, ptr %15, align 8
-  call void @stat_tap_set_field_data(ptr noundef %116, i32 noundef %117, i32 noundef 2, ptr noundef %118)
-  %119 = load ptr, ptr %14, align 8
-  %120 = load i32, ptr %19, align 4
-  %121 = call ptr @stat_tap_get_field_data(ptr noundef %119, i32 noundef %120, i32 noundef 4)
-  store ptr %121, ptr %15, align 8
-  %122 = load ptr, ptr %15, align 8
-  %123 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %122, i32 0, i32 0
-  store i32 4, ptr %123, align 8
-  %124 = load i32, ptr %23, align 4
-  %125 = uitofp i32 %124 to double
-  %126 = fmul double 1.000000e+02, %125
-  %127 = load i64, ptr @npm_total_bytes, align 8
-  %128 = uitofp i64 %127 to double
-  %129 = fdiv double %126, %128
-  %130 = load ptr, ptr %15, align 8
-  %131 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %130, i32 0, i32 1
-  store double %129, ptr %131, align 8
-  %132 = load ptr, ptr %14, align 8
-  %133 = load i32, ptr %19, align 4
-  %134 = load ptr, ptr %15, align 8
-  call void @stat_tap_set_field_data(ptr noundef %132, i32 noundef %133, i32 noundef 4, ptr noundef %134)
-  %135 = load i32, ptr %19, align 4
-  %136 = add i32 %135, 1
-  store i32 %136, ptr %19, align 4
-  br label %83, !llvm.loop !6
+84:                                               ; preds = %91, %34
+  %85 = load i32, ptr %19, align 4
+  %86 = sext i32 %85 to i64
+  %87 = getelementptr [9 x %struct._value_string], ptr @message_type_values, i64 0, i64 %86
+  %88 = getelementptr inbounds nuw %struct._value_string, ptr %87, i32 0, i32 1
+  %89 = load ptr, ptr %88, align 8
+  %90 = icmp ne ptr %89, null
+  br i1 %90, label %91, label %138
 
-137:                                              ; preds = %83
-  %138 = load ptr, ptr %8, align 8
-  %139 = getelementptr inbounds %struct._packet_info, ptr %138, i32 0, i32 2
-  %140 = load i32, ptr %139, align 8
-  %141 = and i32 %140, 1
-  %142 = icmp ne i32 %141, 0
-  br i1 %142, label %143, label %174
+91:                                               ; preds = %84
+  %92 = load ptr, ptr %14, align 8
+  %93 = load i32, ptr %19, align 4
+  %94 = call ptr @stat_tap_get_field_data(ptr noundef %92, i32 noundef %93, i32 noundef 1)
+  store ptr %94, ptr %15, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #7
+  %95 = load ptr, ptr %15, align 8
+  %96 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %95, i32 0, i32 1
+  %97 = load i32, ptr %96, align 8
+  store i32 %97, ptr %23, align 4
+  %98 = load ptr, ptr %14, align 8
+  %99 = load i32, ptr %19, align 4
+  %100 = call ptr @stat_tap_get_field_data(ptr noundef %98, i32 noundef %99, i32 noundef 3)
+  store ptr %100, ptr %15, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #7
+  %101 = load ptr, ptr %15, align 8
+  %102 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %101, i32 0, i32 1
+  %103 = load i32, ptr %102, align 8
+  store i32 %103, ptr %24, align 4
+  %104 = load ptr, ptr %14, align 8
+  %105 = load i32, ptr %19, align 4
+  %106 = call ptr @stat_tap_get_field_data(ptr noundef %104, i32 noundef %105, i32 noundef 2)
+  store ptr %106, ptr %15, align 8
+  %107 = load ptr, ptr %15, align 8
+  %108 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %107, i32 0, i32 0
+  store i32 4, ptr %108, align 8
+  %109 = load i32, ptr %23, align 4
+  %110 = uitofp i32 %109 to double
+  %111 = fmul double 1.000000e+02, %110
+  %112 = load i64, ptr @npm_total_msgs, align 8
+  %113 = uitofp i64 %112 to double
+  %114 = fdiv double %111, %113
+  %115 = load ptr, ptr %15, align 8
+  %116 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %115, i32 0, i32 1
+  store double %114, ptr %116, align 8
+  %117 = load ptr, ptr %14, align 8
+  %118 = load i32, ptr %19, align 4
+  %119 = load ptr, ptr %15, align 8
+  call void @stat_tap_set_field_data(ptr noundef %117, i32 noundef %118, i32 noundef 2, ptr noundef %119)
+  %120 = load ptr, ptr %14, align 8
+  %121 = load i32, ptr %19, align 4
+  %122 = call ptr @stat_tap_get_field_data(ptr noundef %120, i32 noundef %121, i32 noundef 4)
+  store ptr %122, ptr %15, align 8
+  %123 = load ptr, ptr %15, align 8
+  %124 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %123, i32 0, i32 0
+  store i32 4, ptr %124, align 8
+  %125 = load i32, ptr %24, align 4
+  %126 = uitofp i32 %125 to double
+  %127 = fmul double 1.000000e+02, %126
+  %128 = load i64, ptr @npm_total_bytes, align 8
+  %129 = uitofp i64 %128 to double
+  %130 = fdiv double %127, %129
+  %131 = load ptr, ptr %15, align 8
+  %132 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %131, i32 0, i32 1
+  store double %130, ptr %132, align 8
+  %133 = load ptr, ptr %14, align 8
+  %134 = load i32, ptr %19, align 4
+  %135 = load ptr, ptr %15, align 8
+  call void @stat_tap_set_field_data(ptr noundef %133, i32 noundef %134, i32 noundef 4, ptr noundef %135)
+  %136 = load i32, ptr %19, align 4
+  %137 = add i32 %136, 1
+  store i32 %137, ptr %19, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #7
+  br label %84, !llvm.loop !8
 
-143:                                              ; preds = %137
-  %144 = load ptr, ptr %14, align 8
-  %145 = load i32, ptr %16, align 4
-  %146 = call ptr @stat_tap_get_field_data(ptr noundef %144, i32 noundef %145, i32 noundef 5)
-  store ptr %146, ptr %15, align 8
-  %147 = load ptr, ptr %15, align 8
-  %148 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %147, i32 0, i32 0
-  store i32 4, ptr %148, align 8
-  %149 = load ptr, ptr %15, align 8
-  %150 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %149, i32 0, i32 1
-  %151 = load double, ptr %150, align 8
-  %152 = load ptr, ptr %8, align 8
-  %153 = getelementptr inbounds %struct._packet_info, ptr %152, i32 0, i32 5
-  %154 = call double @nstime_to_sec(ptr noundef %153)
-  %155 = fcmp olt double %151, %154
-  br i1 %155, label %156, label %160
+138:                                              ; preds = %84
+  %139 = load ptr, ptr %8, align 8
+  %140 = getelementptr inbounds nuw %struct._packet_info, ptr %139, i32 0, i32 2
+  %141 = load i32, ptr %140, align 8
+  %142 = and i32 %141, 1
+  %143 = icmp ne i32 %142, 0
+  br i1 %143, label %144, label %175
 
-156:                                              ; preds = %143
-  %157 = load ptr, ptr %15, align 8
-  %158 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %157, i32 0, i32 1
-  %159 = load double, ptr %158, align 8
-  br label %164
+144:                                              ; preds = %138
+  %145 = load ptr, ptr %14, align 8
+  %146 = load i32, ptr %16, align 4
+  %147 = call ptr @stat_tap_get_field_data(ptr noundef %145, i32 noundef %146, i32 noundef 5)
+  store ptr %147, ptr %15, align 8
+  %148 = load ptr, ptr %15, align 8
+  %149 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %148, i32 0, i32 0
+  store i32 4, ptr %149, align 8
+  %150 = load ptr, ptr %15, align 8
+  %151 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %150, i32 0, i32 1
+  %152 = load double, ptr %151, align 8
+  %153 = load ptr, ptr %8, align 8
+  %154 = getelementptr inbounds nuw %struct._packet_info, ptr %153, i32 0, i32 5
+  %155 = call double @nstime_to_sec(ptr noundef %154)
+  %156 = fcmp olt double %152, %155
+  br i1 %156, label %157, label %161
 
-160:                                              ; preds = %143
-  %161 = load ptr, ptr %8, align 8
-  %162 = getelementptr inbounds %struct._packet_info, ptr %161, i32 0, i32 5
-  %163 = call double @nstime_to_sec(ptr noundef %162)
-  br label %164
+157:                                              ; preds = %144
+  %158 = load ptr, ptr %15, align 8
+  %159 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %158, i32 0, i32 1
+  %160 = load double, ptr %159, align 8
+  br label %165
 
-164:                                              ; preds = %160, %156
-  %165 = phi double [ %159, %156 ], [ %163, %160 ]
-  %166 = load ptr, ptr %15, align 8
-  %167 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %166, i32 0, i32 1
-  store double %165, ptr %167, align 8
-  %168 = load ptr, ptr %15, align 8
-  %169 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %168, i32 0, i32 1
-  %170 = load double, ptr %169, align 8
-  store double %170, ptr %20, align 8
-  %171 = load ptr, ptr %14, align 8
-  %172 = load i32, ptr %16, align 4
-  %173 = load ptr, ptr %15, align 8
-  call void @stat_tap_set_field_data(ptr noundef %171, i32 noundef %172, i32 noundef 5, ptr noundef %173)
-  br label %174
+161:                                              ; preds = %144
+  %162 = load ptr, ptr %8, align 8
+  %163 = getelementptr inbounds nuw %struct._packet_info, ptr %162, i32 0, i32 5
+  %164 = call double @nstime_to_sec(ptr noundef %163)
+  br label %165
 
-174:                                              ; preds = %164, %137
-  %175 = load ptr, ptr %8, align 8
-  %176 = getelementptr inbounds %struct._packet_info, ptr %175, i32 0, i32 2
-  %177 = load i32, ptr %176, align 8
-  %178 = and i32 %177, 1
-  %179 = icmp ne i32 %178, 0
-  br i1 %179, label %180, label %211
+165:                                              ; preds = %161, %157
+  %166 = phi double [ %160, %157 ], [ %164, %161 ]
+  %167 = load ptr, ptr %15, align 8
+  %168 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %167, i32 0, i32 1
+  store double %166, ptr %168, align 8
+  %169 = load ptr, ptr %15, align 8
+  %170 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %169, i32 0, i32 1
+  %171 = load double, ptr %170, align 8
+  store double %171, ptr %20, align 8
+  %172 = load ptr, ptr %14, align 8
+  %173 = load i32, ptr %16, align 4
+  %174 = load ptr, ptr %15, align 8
+  call void @stat_tap_set_field_data(ptr noundef %172, i32 noundef %173, i32 noundef 5, ptr noundef %174)
+  br label %175
 
-180:                                              ; preds = %174
-  %181 = load ptr, ptr %14, align 8
-  %182 = load i32, ptr %16, align 4
-  %183 = call ptr @stat_tap_get_field_data(ptr noundef %181, i32 noundef %182, i32 noundef 6)
-  store ptr %183, ptr %15, align 8
-  %184 = load ptr, ptr %15, align 8
-  %185 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %184, i32 0, i32 0
-  store i32 4, ptr %185, align 8
-  %186 = load ptr, ptr %15, align 8
-  %187 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %186, i32 0, i32 1
-  %188 = load double, ptr %187, align 8
-  %189 = load ptr, ptr %8, align 8
-  %190 = getelementptr inbounds %struct._packet_info, ptr %189, i32 0, i32 5
-  %191 = call double @nstime_to_sec(ptr noundef %190)
-  %192 = fcmp ogt double %188, %191
-  br i1 %192, label %193, label %197
+175:                                              ; preds = %165, %138
+  %176 = load ptr, ptr %8, align 8
+  %177 = getelementptr inbounds nuw %struct._packet_info, ptr %176, i32 0, i32 2
+  %178 = load i32, ptr %177, align 8
+  %179 = and i32 %178, 1
+  %180 = icmp ne i32 %179, 0
+  br i1 %180, label %181, label %212
 
-193:                                              ; preds = %180
-  %194 = load ptr, ptr %15, align 8
-  %195 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %194, i32 0, i32 1
-  %196 = load double, ptr %195, align 8
-  br label %201
+181:                                              ; preds = %175
+  %182 = load ptr, ptr %14, align 8
+  %183 = load i32, ptr %16, align 4
+  %184 = call ptr @stat_tap_get_field_data(ptr noundef %182, i32 noundef %183, i32 noundef 6)
+  store ptr %184, ptr %15, align 8
+  %185 = load ptr, ptr %15, align 8
+  %186 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %185, i32 0, i32 0
+  store i32 4, ptr %186, align 8
+  %187 = load ptr, ptr %15, align 8
+  %188 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %187, i32 0, i32 1
+  %189 = load double, ptr %188, align 8
+  %190 = load ptr, ptr %8, align 8
+  %191 = getelementptr inbounds nuw %struct._packet_info, ptr %190, i32 0, i32 5
+  %192 = call double @nstime_to_sec(ptr noundef %191)
+  %193 = fcmp ogt double %189, %192
+  br i1 %193, label %194, label %198
 
-197:                                              ; preds = %180
-  %198 = load ptr, ptr %8, align 8
-  %199 = getelementptr inbounds %struct._packet_info, ptr %198, i32 0, i32 5
-  %200 = call double @nstime_to_sec(ptr noundef %199)
-  br label %201
+194:                                              ; preds = %181
+  %195 = load ptr, ptr %15, align 8
+  %196 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %195, i32 0, i32 1
+  %197 = load double, ptr %196, align 8
+  br label %202
 
-201:                                              ; preds = %197, %193
-  %202 = phi double [ %196, %193 ], [ %200, %197 ]
-  %203 = load ptr, ptr %15, align 8
-  %204 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %203, i32 0, i32 1
-  store double %202, ptr %204, align 8
-  %205 = load ptr, ptr %15, align 8
-  %206 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %205, i32 0, i32 1
-  %207 = load double, ptr %206, align 8
-  store double %207, ptr %21, align 8
-  %208 = load ptr, ptr %14, align 8
-  %209 = load i32, ptr %16, align 4
-  %210 = load ptr, ptr %15, align 8
-  call void @stat_tap_set_field_data(ptr noundef %208, i32 noundef %209, i32 noundef 6, ptr noundef %210)
-  br label %211
+198:                                              ; preds = %181
+  %199 = load ptr, ptr %8, align 8
+  %200 = getelementptr inbounds nuw %struct._packet_info, ptr %199, i32 0, i32 5
+  %201 = call double @nstime_to_sec(ptr noundef %200)
+  br label %202
 
-211:                                              ; preds = %201, %174
-  %212 = load double, ptr %21, align 8
-  %213 = load double, ptr %20, align 8
-  %214 = fsub double %212, %213
-  %215 = fcmp ogt double %214, 0.000000e+00
-  br i1 %215, label %216, label %262
+202:                                              ; preds = %198, %194
+  %203 = phi double [ %197, %194 ], [ %201, %198 ]
+  %204 = load ptr, ptr %15, align 8
+  %205 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %204, i32 0, i32 1
+  store double %203, ptr %205, align 8
+  %206 = load ptr, ptr %15, align 8
+  %207 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %206, i32 0, i32 1
+  %208 = load double, ptr %207, align 8
+  store double %208, ptr %21, align 8
+  %209 = load ptr, ptr %14, align 8
+  %210 = load i32, ptr %16, align 4
+  %211 = load ptr, ptr %15, align 8
+  call void @stat_tap_set_field_data(ptr noundef %209, i32 noundef %210, i32 noundef 6, ptr noundef %211)
+  br label %212
 
-216:                                              ; preds = %211
-  %217 = load ptr, ptr %14, align 8
-  %218 = load i32, ptr %16, align 4
-  %219 = call ptr @stat_tap_get_field_data(ptr noundef %217, i32 noundef %218, i32 noundef 7)
-  store ptr %219, ptr %15, align 8
-  %220 = load ptr, ptr %15, align 8
-  %221 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %220, i32 0, i32 0
-  store i32 4, ptr %221, align 8
-  %222 = load double, ptr %21, align 8
-  %223 = load double, ptr %20, align 8
-  %224 = fsub double %222, %223
-  %225 = load ptr, ptr %15, align 8
-  %226 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %225, i32 0, i32 1
-  store double %224, ptr %226, align 8
-  %227 = load ptr, ptr %14, align 8
-  %228 = load i32, ptr %16, align 4
-  %229 = load ptr, ptr %15, align 8
-  call void @stat_tap_set_field_data(ptr noundef %227, i32 noundef %228, i32 noundef 7, ptr noundef %229)
-  %230 = load ptr, ptr %14, align 8
-  %231 = load i32, ptr %16, align 4
-  %232 = call ptr @stat_tap_get_field_data(ptr noundef %230, i32 noundef %231, i32 noundef 8)
-  store ptr %232, ptr %15, align 8
-  %233 = load ptr, ptr %15, align 8
-  %234 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %233, i32 0, i32 0
-  store i32 4, ptr %234, align 8
-  %235 = load i64, ptr %17, align 8
-  %236 = uitofp i64 %235 to double
-  %237 = load double, ptr %21, align 8
-  %238 = load double, ptr %20, align 8
-  %239 = fsub double %237, %238
-  %240 = fdiv double %236, %239
-  %241 = load ptr, ptr %15, align 8
-  %242 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %241, i32 0, i32 1
-  store double %240, ptr %242, align 8
-  %243 = load ptr, ptr %14, align 8
-  %244 = load i32, ptr %16, align 4
-  %245 = load ptr, ptr %15, align 8
-  call void @stat_tap_set_field_data(ptr noundef %243, i32 noundef %244, i32 noundef 8, ptr noundef %245)
-  %246 = load ptr, ptr %14, align 8
-  %247 = load i32, ptr %16, align 4
-  %248 = call ptr @stat_tap_get_field_data(ptr noundef %246, i32 noundef %247, i32 noundef 9)
-  store ptr %248, ptr %15, align 8
-  %249 = load ptr, ptr %15, align 8
-  %250 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %249, i32 0, i32 0
-  store i32 4, ptr %250, align 8
-  %251 = load i64, ptr %18, align 8
-  %252 = uitofp i64 %251 to double
-  %253 = load double, ptr %21, align 8
-  %254 = load double, ptr %20, align 8
-  %255 = fsub double %253, %254
-  %256 = fdiv double %252, %255
-  %257 = load ptr, ptr %15, align 8
-  %258 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %257, i32 0, i32 1
-  store double %256, ptr %258, align 8
-  %259 = load ptr, ptr %14, align 8
-  %260 = load i32, ptr %16, align 4
-  %261 = load ptr, ptr %15, align 8
-  call void @stat_tap_set_field_data(ptr noundef %259, i32 noundef %260, i32 noundef 9, ptr noundef %261)
-  br label %262
+212:                                              ; preds = %202, %175
+  %213 = load double, ptr %21, align 8
+  %214 = load double, ptr %20, align 8
+  %215 = fsub double %213, %214
+  %216 = fcmp ogt double %215, 0.000000e+00
+  br i1 %216, label %217, label %263
 
-262:                                              ; preds = %216, %211
-  store i32 1, ptr %6, align 4
+217:                                              ; preds = %212
+  %218 = load ptr, ptr %14, align 8
+  %219 = load i32, ptr %16, align 4
+  %220 = call ptr @stat_tap_get_field_data(ptr noundef %218, i32 noundef %219, i32 noundef 7)
+  store ptr %220, ptr %15, align 8
+  %221 = load ptr, ptr %15, align 8
+  %222 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %221, i32 0, i32 0
+  store i32 4, ptr %222, align 8
+  %223 = load double, ptr %21, align 8
+  %224 = load double, ptr %20, align 8
+  %225 = fsub double %223, %224
+  %226 = load ptr, ptr %15, align 8
+  %227 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %226, i32 0, i32 1
+  store double %225, ptr %227, align 8
+  %228 = load ptr, ptr %14, align 8
+  %229 = load i32, ptr %16, align 4
+  %230 = load ptr, ptr %15, align 8
+  call void @stat_tap_set_field_data(ptr noundef %228, i32 noundef %229, i32 noundef 7, ptr noundef %230)
+  %231 = load ptr, ptr %14, align 8
+  %232 = load i32, ptr %16, align 4
+  %233 = call ptr @stat_tap_get_field_data(ptr noundef %231, i32 noundef %232, i32 noundef 8)
+  store ptr %233, ptr %15, align 8
+  %234 = load ptr, ptr %15, align 8
+  %235 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %234, i32 0, i32 0
+  store i32 4, ptr %235, align 8
+  %236 = load i64, ptr %17, align 8
+  %237 = uitofp i64 %236 to double
+  %238 = load double, ptr %21, align 8
+  %239 = load double, ptr %20, align 8
+  %240 = fsub double %238, %239
+  %241 = fdiv double %237, %240
+  %242 = load ptr, ptr %15, align 8
+  %243 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %242, i32 0, i32 1
+  store double %241, ptr %243, align 8
+  %244 = load ptr, ptr %14, align 8
+  %245 = load i32, ptr %16, align 4
+  %246 = load ptr, ptr %15, align 8
+  call void @stat_tap_set_field_data(ptr noundef %244, i32 noundef %245, i32 noundef 8, ptr noundef %246)
+  %247 = load ptr, ptr %14, align 8
+  %248 = load i32, ptr %16, align 4
+  %249 = call ptr @stat_tap_get_field_data(ptr noundef %247, i32 noundef %248, i32 noundef 9)
+  store ptr %249, ptr %15, align 8
+  %250 = load ptr, ptr %15, align 8
+  %251 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %250, i32 0, i32 0
+  store i32 4, ptr %251, align 8
+  %252 = load i64, ptr %18, align 8
+  %253 = uitofp i64 %252 to double
+  %254 = load double, ptr %21, align 8
+  %255 = load double, ptr %20, align 8
+  %256 = fsub double %254, %255
+  %257 = fdiv double %253, %256
+  %258 = load ptr, ptr %15, align 8
+  %259 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %258, i32 0, i32 1
+  store double %257, ptr %259, align 8
+  %260 = load ptr, ptr %14, align 8
+  %261 = load i32, ptr %16, align 4
+  %262 = load ptr, ptr %15, align 8
+  call void @stat_tap_set_field_data(ptr noundef %260, i32 noundef %261, i32 noundef 9, ptr noundef %262)
   br label %263
 
-263:                                              ; preds = %262, %32
-  %264 = load i32, ptr %6, align 4
-  ret i32 %264
+263:                                              ; preds = %217, %212
+  store i32 1, ptr %6, align 4
+  store i32 1, ptr %22, align 4
+  br label %264
+
+264:                                              ; preds = %263, %33
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #7
+  %265 = load i32, ptr %6, align 4
+  ret i32 %265
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @npm_stat_reset(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #7
   store i32 0, ptr %3, align 4
   br label %5
 
 5:                                                ; preds = %98, %1
   %6 = load i32, ptr %3, align 4
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct._stat_tap_table, ptr %7, i32 0, i32 3
+  %8 = getelementptr inbounds nuw %struct._stat_tap_table, ptr %7, i32 0, i32 3
   %9 = load i32, ptr %8, align 4
   %10 = icmp ult i32 %6, %9
   br i1 %10, label %11, label %101
@@ -816,7 +870,7 @@ define internal void @npm_stat_reset(ptr noundef %0) #0 {
   %14 = call ptr @stat_tap_get_field_data(ptr noundef %12, i32 noundef %13, i32 noundef 1)
   store ptr %14, ptr %4, align 8
   %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %15, i32 0, i32 1
+  %16 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %15, i32 0, i32 1
   store i32 0, ptr %16, align 8
   %17 = load ptr, ptr %2, align 8
   %18 = load i32, ptr %3, align 4
@@ -827,10 +881,10 @@ define internal void @npm_stat_reset(ptr noundef %0) #0 {
   %22 = call ptr @stat_tap_get_field_data(ptr noundef %20, i32 noundef %21, i32 noundef 2)
   store ptr %22, ptr %4, align 8
   %23 = load ptr, ptr %4, align 8
-  %24 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %23, i32 0, i32 0
+  %24 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %23, i32 0, i32 0
   store i32 0, ptr %24, align 8
   %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %25, i32 0, i32 1
+  %26 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %25, i32 0, i32 1
   store double -1.000000e+00, ptr %26, align 8
   %27 = load ptr, ptr %2, align 8
   %28 = load i32, ptr %3, align 4
@@ -841,7 +895,7 @@ define internal void @npm_stat_reset(ptr noundef %0) #0 {
   %32 = call ptr @stat_tap_get_field_data(ptr noundef %30, i32 noundef %31, i32 noundef 3)
   store ptr %32, ptr %4, align 8
   %33 = load ptr, ptr %4, align 8
-  %34 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %33, i32 0, i32 1
+  %34 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %33, i32 0, i32 1
   store i32 0, ptr %34, align 8
   %35 = load ptr, ptr %2, align 8
   %36 = load i32, ptr %3, align 4
@@ -852,10 +906,10 @@ define internal void @npm_stat_reset(ptr noundef %0) #0 {
   %40 = call ptr @stat_tap_get_field_data(ptr noundef %38, i32 noundef %39, i32 noundef 4)
   store ptr %40, ptr %4, align 8
   %41 = load ptr, ptr %4, align 8
-  %42 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %41, i32 0, i32 0
+  %42 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %41, i32 0, i32 0
   store i32 0, ptr %42, align 8
   %43 = load ptr, ptr %4, align 8
-  %44 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %43, i32 0, i32 1
+  %44 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %43, i32 0, i32 1
   store double -1.000000e+00, ptr %44, align 8
   %45 = load ptr, ptr %2, align 8
   %46 = load i32, ptr %3, align 4
@@ -866,10 +920,10 @@ define internal void @npm_stat_reset(ptr noundef %0) #0 {
   %50 = call ptr @stat_tap_get_field_data(ptr noundef %48, i32 noundef %49, i32 noundef 5)
   store ptr %50, ptr %4, align 8
   %51 = load ptr, ptr %4, align 8
-  %52 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %51, i32 0, i32 0
+  %52 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %51, i32 0, i32 0
   store i32 0, ptr %52, align 8
   %53 = load ptr, ptr %4, align 8
-  %54 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %53, i32 0, i32 1
+  %54 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %53, i32 0, i32 1
   store double 0x7FEFFFFFFFFFFFFF, ptr %54, align 8
   %55 = load ptr, ptr %2, align 8
   %56 = load i32, ptr %3, align 4
@@ -880,10 +934,10 @@ define internal void @npm_stat_reset(ptr noundef %0) #0 {
   %60 = call ptr @stat_tap_get_field_data(ptr noundef %58, i32 noundef %59, i32 noundef 6)
   store ptr %60, ptr %4, align 8
   %61 = load ptr, ptr %4, align 8
-  %62 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %61, i32 0, i32 0
+  %62 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %61, i32 0, i32 0
   store i32 0, ptr %62, align 8
   %63 = load ptr, ptr %4, align 8
-  %64 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %63, i32 0, i32 1
+  %64 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %63, i32 0, i32 1
   store double 0x10000000000000, ptr %64, align 8
   %65 = load ptr, ptr %2, align 8
   %66 = load i32, ptr %3, align 4
@@ -894,10 +948,10 @@ define internal void @npm_stat_reset(ptr noundef %0) #0 {
   %70 = call ptr @stat_tap_get_field_data(ptr noundef %68, i32 noundef %69, i32 noundef 7)
   store ptr %70, ptr %4, align 8
   %71 = load ptr, ptr %4, align 8
-  %72 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %71, i32 0, i32 0
+  %72 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %71, i32 0, i32 0
   store i32 0, ptr %72, align 8
   %73 = load ptr, ptr %4, align 8
-  %74 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %73, i32 0, i32 1
+  %74 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %73, i32 0, i32 1
   store double -1.000000e+00, ptr %74, align 8
   %75 = load ptr, ptr %2, align 8
   %76 = load i32, ptr %3, align 4
@@ -908,10 +962,10 @@ define internal void @npm_stat_reset(ptr noundef %0) #0 {
   %80 = call ptr @stat_tap_get_field_data(ptr noundef %78, i32 noundef %79, i32 noundef 8)
   store ptr %80, ptr %4, align 8
   %81 = load ptr, ptr %4, align 8
-  %82 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %81, i32 0, i32 0
+  %82 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %81, i32 0, i32 0
   store i32 0, ptr %82, align 8
   %83 = load ptr, ptr %4, align 8
-  %84 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %83, i32 0, i32 1
+  %84 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %83, i32 0, i32 1
   store double -1.000000e+00, ptr %84, align 8
   %85 = load ptr, ptr %2, align 8
   %86 = load i32, ptr %3, align 4
@@ -922,10 +976,10 @@ define internal void @npm_stat_reset(ptr noundef %0) #0 {
   %90 = call ptr @stat_tap_get_field_data(ptr noundef %88, i32 noundef %89, i32 noundef 9)
   store ptr %90, ptr %4, align 8
   %91 = load ptr, ptr %4, align 8
-  %92 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %91, i32 0, i32 0
+  %92 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %91, i32 0, i32 0
   store i32 0, ptr %92, align 8
   %93 = load ptr, ptr %4, align 8
-  %94 = getelementptr inbounds %struct._stat_tap_table_item_type, ptr %93, i32 0, i32 1
+  %94 = getelementptr inbounds nuw %struct._stat_tap_table_item_type, ptr %93, i32 0, i32 1
   store double -1.000000e+00, ptr %94, align 8
   %95 = load ptr, ptr %2, align 8
   %96 = load i32, ptr %3, align 4
@@ -937,27 +991,35 @@ define internal void @npm_stat_reset(ptr noundef %0) #0 {
   %99 = load i32, ptr %3, align 4
   %100 = add i32 %99, 1
   store i32 %100, ptr %3, align 4
-  br label %5, !llvm.loop !7
+  br label %5, !llvm.loop !9
 
 101:                                              ; preds = %5
   store i64 0, ptr @npm_total_msgs, align 8
   store i64 0, ptr @npm_total_bytes, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #7
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @register_tap(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @register_stat_tap_table_ui(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_npm(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -969,10 +1031,12 @@ define internal i32 @dissect_npm(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds %struct._packet_info, ptr %11, i32 0, i32 1
+  %12 = getelementptr inbounds nuw %struct._packet_info, ptr %11, i32 0, i32 1
   %13 = load ptr, ptr %12, align 8
-  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %13, i32 noundef 34, ptr noundef null, ptr noundef @.str.6)
+  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %13, i32 noundef 35, ptr noundef null, ptr noundef @.str.6)
   %14 = load ptr, ptr %7, align 8
   %15 = icmp ne ptr %14, null
   br i1 %15, label %16, label %24
@@ -998,10 +1062,12 @@ define internal i32 @dissect_npm(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %27 = load ptr, ptr %6, align 8
   %28 = load ptr, ptr %10, align 8
   call void @dissect_npm_message(ptr noundef %26, ptr noundef %27, ptr noundef %28)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
   ret i32 1
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_npm() #0 {
   %1 = load ptr, ptr @npm_handle, align 8
   call void @dissector_add_uint(ptr noundef @.str.8, i32 noundef 688485893, ptr noundef %1)
@@ -1012,176 +1078,254 @@ define hidden void @proto_reg_handoff_npm() #0 {
   %4 = load ptr, ptr @npm_handle, align 8
   call void @dissector_add_uint(ptr noundef @.str.8, i32 noundef 37, ptr noundef %4)
   %5 = load i32, ptr @proto_npm, align 4
-  call void @heur_dissector_add(ptr noundef @.str.9, ptr noundef @heur_dissect_npm, ptr noundef @.str.10, ptr noundef @.str.11, i32 noundef %5, i32 noundef 1)
+  call void @heur_dissector_add(ptr noundef @.str.9, ptr noundef @dissect_npm_heur, ptr noundef @.str.10, ptr noundef @.str.11, i32 noundef %5, i32 noundef 1)
   %6 = load i32, ptr @proto_npm, align 4
-  call void @heur_dissector_add(ptr noundef @.str.12, ptr noundef @heur_dissect_npm, ptr noundef @.str.13, ptr noundef @.str.14, i32 noundef %6, i32 noundef 1)
+  call void @heur_dissector_add(ptr noundef @.str.12, ptr noundef @dissect_npm_heur, ptr noundef @.str.13, ptr noundef @.str.14, i32 noundef %6, i32 noundef 1)
   %7 = load i32, ptr @proto_npm, align 4
-  call void @heur_dissector_add(ptr noundef @.str.15, ptr noundef @heur_dissect_npm, ptr noundef @.str.16, ptr noundef @.str.17, i32 noundef %7, i32 noundef 1)
+  call void @heur_dissector_add(ptr noundef @.str.15, ptr noundef @dissect_npm_heur, ptr noundef @.str.16, ptr noundef @.str.17, i32 noundef %7, i32 noundef 1)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
-define internal i32 @heur_dissect_npm(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = alloca i32, align 4
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @dissect_npm_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i1, align 1
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
-  %11 = alloca i8, align 1
-  %12 = alloca i32, align 4
-  %13 = alloca i8, align 1
+  %11 = alloca i32, align 4
+  %12 = alloca i8, align 1
+  %13 = alloca i32, align 4
+  %14 = alloca i8, align 1
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
-  %14 = load ptr, ptr %6, align 8
-  %15 = call i32 @tvb_captured_length(ptr noundef %14)
-  store i32 %15, ptr %10, align 4
-  %16 = load i32, ptr %10, align 4
-  %17 = icmp ult i32 %16, 4
-  br i1 %17, label %18, label %19
-
-18:                                               ; preds = %4
-  store i32 0, ptr %5, align 4
-  br label %71
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #7
+  %15 = load ptr, ptr %6, align 8
+  %16 = call i32 @tvb_captured_length(ptr noundef %15)
+  store i32 %16, ptr %10, align 4
+  %17 = load i32, ptr %10, align 4
+  %18 = icmp ult i32 %17, 4
+  br i1 %18, label %19, label %20
 
 19:                                               ; preds = %4
-  %20 = load ptr, ptr %6, align 8
-  %21 = call zeroext i8 @tvb_get_guint8(ptr noundef %20, i32 noundef 0)
-  store i8 %21, ptr %11, align 1
-  %22 = load i8, ptr %11, align 1
-  %23 = zext i8 %22 to i32
-  switch i32 %23, label %64 [
-    i32 5, label %24
-    i32 4, label %54
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %11, align 4
+  br label %79
+
+20:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #7
+  %21 = load ptr, ptr %6, align 8
+  %22 = call zeroext i8 @tvb_get_uint8(ptr noundef %21, i32 noundef 0)
+  store i8 %22, ptr %12, align 1
+  %23 = load i8, ptr %12, align 1
+  %24 = zext i8 %23 to i32
+  switch i32 %24, label %71 [
+    i32 5, label %25
+    i32 4, label %61
   ]
 
-24:                                               ; preds = %19
-  %25 = load i32, ptr %10, align 4
-  %26 = icmp ult i32 %25, 56
-  br i1 %26, label %27, label %28
+25:                                               ; preds = %20
+  %26 = load i32, ptr %10, align 4
+  %27 = icmp ult i32 %26, 56
+  br i1 %27, label %28, label %29
 
-27:                                               ; preds = %24
-  store i32 0, ptr %5, align 4
-  br label %71
+28:                                               ; preds = %25
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %11, align 4
+  br label %78
 
-28:                                               ; preds = %24
-  store i32 0, ptr %12, align 4
-  br label %29
+29:                                               ; preds = %25
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #7
+  store i32 0, ptr %13, align 4
+  br label %30
 
-29:                                               ; preds = %50, %28
-  %30 = load i32, ptr %12, align 4
-  %31 = icmp slt i32 %30, 8
-  br i1 %31, label %32, label %53
+30:                                               ; preds = %55, %29
+  %31 = load i32, ptr %13, align 4
+  %32 = icmp slt i32 %31, 8
+  br i1 %32, label %34, label %33
 
-32:                                               ; preds = %29
-  %33 = load ptr, ptr %6, align 8
-  %34 = load i32, ptr %12, align 4
-  %35 = add i32 48, %34
-  %36 = call zeroext i8 @tvb_get_guint8(ptr noundef %33, i32 noundef %35)
-  store i8 %36, ptr %13, align 1
-  %37 = load i8, ptr %13, align 1
-  %38 = zext i8 %37 to i32
-  %39 = load i32, ptr %12, align 4
-  %40 = add i32 30, %39
-  %41 = icmp ne i32 %38, %40
-  br i1 %41, label %42, label %49
+33:                                               ; preds = %30
+  store i32 3, ptr %11, align 4
+  br label %58
 
-42:                                               ; preds = %32
-  %43 = load i8, ptr %13, align 1
-  %44 = zext i8 %43 to i32
-  %45 = load i32, ptr %12, align 4
-  %46 = sub i32 127, %45
-  %47 = icmp ne i32 %44, %46
-  br i1 %47, label %48, label %49
+34:                                               ; preds = %30
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #7
+  %35 = load ptr, ptr %6, align 8
+  %36 = load i32, ptr %13, align 4
+  %37 = add i32 48, %36
+  %38 = call zeroext i8 @tvb_get_uint8(ptr noundef %35, i32 noundef %37)
+  store i8 %38, ptr %14, align 1
+  %39 = load i8, ptr %14, align 1
+  %40 = zext i8 %39 to i32
+  %41 = load i32, ptr %13, align 4
+  %42 = add i32 30, %41
+  %43 = icmp ne i32 %40, %42
+  br i1 %43, label %44, label %51
 
-48:                                               ; preds = %42
-  store i32 0, ptr %5, align 4
-  br label %71
+44:                                               ; preds = %34
+  %45 = load i8, ptr %14, align 1
+  %46 = zext i8 %45 to i32
+  %47 = load i32, ptr %13, align 4
+  %48 = sub i32 127, %47
+  %49 = icmp ne i32 %46, %48
+  br i1 %49, label %50, label %51
 
-49:                                               ; preds = %42, %32
-  br label %50
+50:                                               ; preds = %44
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %11, align 4
+  br label %52
 
-50:                                               ; preds = %49
-  %51 = load i32, ptr %12, align 4
-  %52 = add i32 %51, 1
-  store i32 %52, ptr %12, align 4
-  br label %29, !llvm.loop !8
+51:                                               ; preds = %44, %34
+  store i32 0, ptr %11, align 4
+  br label %52
 
-53:                                               ; preds = %29
-  br label %65
+52:                                               ; preds = %51, %50
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #7
+  %53 = load i32, ptr %11, align 4
+  switch i32 %53, label %58 [
+    i32 0, label %54
+  ]
 
-54:                                               ; preds = %19
-  %55 = load i32, ptr %10, align 4
-  %56 = icmp ult i32 %55, 26
-  br i1 %56, label %57, label %58
+54:                                               ; preds = %52
+  br label %55
 
-57:                                               ; preds = %54
-  store i32 0, ptr %5, align 4
-  br label %71
+55:                                               ; preds = %54
+  %56 = load i32, ptr %13, align 4
+  %57 = add i32 %56, 1
+  store i32 %57, ptr %13, align 4
+  br label %30, !llvm.loop !10
 
-58:                                               ; preds = %54
-  %59 = load ptr, ptr %6, align 8
-  %60 = call i64 @tvb_get_ntoh64(ptr noundef %59, i32 noundef 8)
-  %61 = icmp ne i64 %60, 5462289835349534580
-  br i1 %61, label %62, label %63
+58:                                               ; preds = %52, %33
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #7
+  %59 = load i32, ptr %11, align 4
+  switch i32 %59, label %78 [
+    i32 3, label %60
+  ]
 
-62:                                               ; preds = %58
-  store i32 0, ptr %5, align 4
-  br label %71
+60:                                               ; preds = %58
+  br label %72
 
-63:                                               ; preds = %58
-  br label %65
+61:                                               ; preds = %20
+  %62 = load i32, ptr %10, align 4
+  %63 = icmp ult i32 %62, 26
+  br i1 %63, label %64, label %65
 
-64:                                               ; preds = %19
-  store i32 0, ptr %5, align 4
-  br label %71
+64:                                               ; preds = %61
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %11, align 4
+  br label %78
 
-65:                                               ; preds = %63, %53
+65:                                               ; preds = %61
   %66 = load ptr, ptr %6, align 8
-  %67 = load ptr, ptr %7, align 8
-  %68 = load ptr, ptr %8, align 8
-  %69 = load ptr, ptr %9, align 8
-  %70 = call i32 @dissect_npm(ptr noundef %66, ptr noundef %67, ptr noundef %68, ptr noundef %69)
-  store i32 %70, ptr %5, align 4
-  br label %71
+  %67 = call i64 @tvb_get_ntoh64(ptr noundef %66, i32 noundef 8)
+  %68 = icmp ne i64 %67, 5462289835349534580
+  br i1 %68, label %69, label %70
 
-71:                                               ; preds = %65, %64, %62, %57, %48, %27, %18
-  %72 = load i32, ptr %5, align 4
-  ret i32 %72
+69:                                               ; preds = %65
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %11, align 4
+  br label %78
+
+70:                                               ; preds = %65
+  br label %72
+
+71:                                               ; preds = %20
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %11, align 4
+  br label %78
+
+72:                                               ; preds = %70, %60
+  %73 = load ptr, ptr %6, align 8
+  %74 = load ptr, ptr %7, align 8
+  %75 = load ptr, ptr %8, align 8
+  %76 = load ptr, ptr %9, align 8
+  %77 = call i32 @dissect_npm(ptr noundef %73, ptr noundef %74, ptr noundef %75, ptr noundef %76)
+  store i1 true, ptr %5, align 1
+  store i32 1, ptr %11, align 4
+  br label %78
+
+78:                                               ; preds = %72, %71, %69, %64, %58, %28
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #7
+  br label %79
+
+79:                                               ; preds = %78, %19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #7
+  %80 = load i1, ptr %5, align 1
+  ret i1 %80
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare ptr @stat_tap_find_table(ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @stat_tap_init_table(ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @stat_tap_add_table(ptr noundef, ptr noundef) #1
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+; Function Attrs: alwaysinline nounwind
+define internal ptr @memset.inline(ptr %0, i32 %1, i64 %2) #3 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i32, ptr %5, align 4
+  %9 = load i64, ptr %6, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = call i64 @llvm.objectsize.i64.p0(ptr %10, i1 false, i1 true, i1 true)
+  %12 = call ptr @__memset_chk(ptr noundef %7, i32 noundef %8, i64 noundef %9, i64 noundef %11) #7
+  ret ptr %12
+}
 
+; Function Attrs: null_pointer_is_valid
 declare void @stat_tap_init_table_row(ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: nounwind null_pointer_is_valid
+declare ptr @__memset_chk(ptr noundef, i32 noundef, i64 noundef, i64 noundef) #4
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.objectsize.i64.p0(ptr, i1 immarg, i1 immarg, i1 immarg) #5
+
+; Function Attrs: null_pointer_is_valid
 declare i32 @str_to_val_idx(ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @stat_tap_get_field_data(ptr noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @stat_tap_set_field_data(ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare double @nstime_to_sec(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_append_sep_fstr(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_npm_message(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -1191,40 +1335,42 @@ define internal void @dissect_npm_message(ptr noundef %0, ptr noundef %1, ptr no
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds %struct._packet_info, ptr %9, i32 0, i32 50
+  %10 = getelementptr inbounds nuw %struct._packet_info, ptr %9, i32 0, i32 51
   %11 = load ptr, ptr %10, align 8
-  %12 = call noalias ptr @wmem_alloc0(ptr noundef %11, i64 noundef 16)
+  %12 = call noalias ptr @wmem_alloc0(ptr noundef %11, i64 noundef 16) #8
   store ptr %12, ptr %8, align 8
   %13 = load ptr, ptr %4, align 8
-  %14 = call zeroext i8 @tvb_get_guint8(ptr noundef %13, i32 noundef 0)
+  %14 = call zeroext i8 @tvb_get_uint8(ptr noundef %13, i32 noundef 0)
   %15 = load ptr, ptr %8, align 8
-  %16 = getelementptr inbounds %struct._tap_npm_rec_t, ptr %15, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %struct._tap_npm_rec_t, ptr %15, i32 0, i32 0
   store i8 %14, ptr %16, align 8
   %17 = load ptr, ptr %4, align 8
   %18 = call zeroext i16 @tvb_get_ntohs(ptr noundef %17, i32 noundef 2)
   %19 = load ptr, ptr %8, align 8
-  %20 = getelementptr inbounds %struct._tap_npm_rec_t, ptr %19, i32 0, i32 1
+  %20 = getelementptr inbounds nuw %struct._tap_npm_rec_t, ptr %19, i32 0, i32 1
   store i16 %18, ptr %20, align 2
   %21 = load ptr, ptr %8, align 8
-  %22 = getelementptr inbounds %struct._tap_npm_rec_t, ptr %21, i32 0, i32 0
+  %22 = getelementptr inbounds nuw %struct._tap_npm_rec_t, ptr %21, i32 0, i32 0
   %23 = load i8, ptr %22, align 8
   %24 = zext i8 %23 to i32
-  %25 = call ptr @val_to_str_const(i32 noundef %24, ptr noundef @message_type_values, ptr noundef @.str.164)
+  %25 = call ptr @val_to_str_const(i32 noundef %24, ptr noundef @message_type_values, ptr noundef @.str.168)
   %26 = load ptr, ptr %8, align 8
-  %27 = getelementptr inbounds %struct._tap_npm_rec_t, ptr %26, i32 0, i32 2
+  %27 = getelementptr inbounds nuw %struct._tap_npm_rec_t, ptr %26, i32 0, i32 2
   store ptr %25, ptr %27, align 8
   %28 = load i32, ptr @tap_npm, align 4
   %29 = load ptr, ptr %5, align 8
   %30 = load ptr, ptr %8, align 8
   call void @tap_queue_packet(i32 noundef %28, ptr noundef %29, ptr noundef %30)
   %31 = load ptr, ptr %5, align 8
-  %32 = getelementptr inbounds %struct._packet_info, ptr %31, i32 0, i32 1
+  %32 = getelementptr inbounds nuw %struct._packet_info, ptr %31, i32 0, i32 1
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %8, align 8
-  %35 = getelementptr inbounds %struct._tap_npm_rec_t, ptr %34, i32 0, i32 2
+  %35 = getelementptr inbounds nuw %struct._tap_npm_rec_t, ptr %34, i32 0, i32 2
   %36 = load ptr, ptr %35, align 8
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %33, i32 noundef 25, ptr noundef @.str.165, ptr noundef %36)
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %33, i32 noundef 25, ptr noundef @.str.169, ptr noundef %36)
   %37 = load ptr, ptr %6, align 8
   %38 = load i32, ptr @hf_message_type, align 4
   %39 = load ptr, ptr %4, align 8
@@ -1239,7 +1385,7 @@ define internal void @dissect_npm_message(ptr noundef %0, ptr noundef %1, ptr no
   %47 = load ptr, ptr %4, align 8
   %48 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %46, ptr noundef %47, i32 noundef 2, i32 noundef 2, i32 noundef 0)
   %49 = load ptr, ptr %8, align 8
-  %50 = getelementptr inbounds %struct._tap_npm_rec_t, ptr %49, i32 0, i32 0
+  %50 = getelementptr inbounds nuw %struct._tap_npm_rec_t, ptr %49, i32 0, i32 0
   %51 = load i8, ptr %50, align 8
   %52 = zext i8 %51 to i32
   switch i32 %52, label %82 [
@@ -1306,23 +1452,31 @@ define internal void @dissect_npm_message(ptr noundef %0, ptr noundef %1, ptr no
   call void @dissect_npm_results_message(ptr noundef %79, ptr noundef %80, ptr noundef %81)
   br label %82
 
-82:                                               ; preds = %78, %75, %71, %67, %63, %60, %56, %53, %3
+82:                                               ; preds = %3, %78, %75, %71, %67, %63, %60, %56, %53
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
   ret void
 }
 
-declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) #1
+; Function Attrs: null_pointer_is_valid allocsize(1)
+declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) #6
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @tap_queue_packet(i32 noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_npm_acknowledge_message(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -1347,7 +1501,7 @@ define internal void @dissect_npm_acknowledge_message(ptr noundef %0, ptr nounde
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_npm_add_flow_message(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -1362,6 +1516,13 @@ define internal void @dissect_npm_add_flow_message(ptr noundef %0, ptr noundef %
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 2, ptr %11) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #7
   %14 = load ptr, ptr %6, align 8
   %15 = load i32, ptr @ett_addflow_flags, align 4
   %16 = call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %15)
@@ -1415,7 +1576,7 @@ define internal void @dissect_npm_add_flow_message(ptr noundef %0, ptr noundef %
   %63 = uitofp i32 %62 to double
   %64 = fmul double 1.000000e+02, %63
   %65 = fdiv double %64, 0x41EFFFFFFFE00000
-  %66 = call ptr (ptr, i32, ptr, i32, i32, double, ptr, ...) @proto_tree_add_double_format_value(ptr noundef %53, i32 noundef %54, ptr noundef %55, i32 noundef 52, i32 noundef 4, double noundef %60, ptr noundef @.str.166, double noundef %65)
+  %66 = call ptr (ptr, i32, ptr, i32, i32, double, ptr, ...) @proto_tree_add_double_format_value(ptr noundef %53, i32 noundef %54, ptr noundef %55, i32 noundef 52, i32 noundef 4, double noundef %60, ptr noundef @.str.170, double noundef %65)
   %67 = load ptr, ptr %5, align 8
   %68 = load i32, ptr @hf_addflow_reliable, align 4
   %69 = load ptr, ptr %4, align 8
@@ -1429,7 +1590,7 @@ define internal void @dissect_npm_add_flow_message(ptr noundef %0, ptr noundef %
   %77 = uitofp i32 %76 to double
   %78 = fmul double 1.000000e+02, %77
   %79 = fdiv double %78, 0x41EFFFFFFFE00000
-  %80 = call ptr (ptr, i32, ptr, i32, i32, double, ptr, ...) @proto_tree_add_double_format_value(ptr noundef %67, i32 noundef %68, ptr noundef %69, i32 noundef 56, i32 noundef 4, double noundef %74, ptr noundef @.str.166, double noundef %79)
+  %80 = call ptr (ptr, i32, ptr, i32, i32, double, ptr, ...) @proto_tree_add_double_format_value(ptr noundef %67, i32 noundef %68, ptr noundef %69, i32 noundef 56, i32 noundef 4, double noundef %74, ptr noundef @.str.170, double noundef %79)
   %81 = load ptr, ptr %4, align 8
   %82 = call i32 @tvb_get_ntohl(ptr noundef %81, i32 noundef 60)
   store i32 %82, ptr %7, align 4
@@ -1440,7 +1601,7 @@ define internal void @dissect_npm_add_flow_message(ptr noundef %0, ptr noundef %
   %87 = load i32, ptr %7, align 4
   %88 = and i32 %87, -2147483648
   %89 = icmp ne i32 %88, 0
-  %90 = select i1 %89, ptr @.str.167, ptr @.str.168
+  %90 = select i1 %89, ptr @.str.171, ptr @.str.172
   %91 = load i32, ptr %7, align 4
   %92 = and i32 %91, 2147483647
   %93 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %83, i32 noundef %84, ptr noundef %85, i32 noundef 60, i32 noundef 4, i32 noundef %86, ptr noundef %90, i32 noundef %92)
@@ -1556,24 +1717,31 @@ define internal void @dissect_npm_add_flow_message(ptr noundef %0, ptr noundef %
   %192 = load i32, ptr %13, align 4
   %193 = and i32 %192, 1
   %194 = icmp ne i32 %193, 0
-  %195 = select i1 %194, ptr @.str.170, ptr @.str.171
-  %196 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %180, i32 noundef %181, ptr noundef %182, i32 noundef %187, i32 noundef 4, i32 noundef %188, ptr noundef @.str.169, double noundef %191, ptr noundef %195)
+  %195 = select i1 %194, ptr @.str.174, ptr @.str.175
+  %196 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %180, i32 noundef %181, ptr noundef %182, i32 noundef %187, i32 noundef 4, i32 noundef %188, ptr noundef @.str.173, double noundef %191, ptr noundef %195)
   br label %197
 
 197:                                              ; preds = %172
   %198 = load i32, ptr %13, align 4
   %199 = add i32 %198, 1
   store i32 %199, ptr %13, align 4
-  br label %167, !llvm.loop !9
+  br label %167, !llvm.loop !11
 
 200:                                              ; preds = %167
   br label %201
 
 201:                                              ; preds = %200, %3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 2, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #7
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_npm_remove_flow_message(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -1594,7 +1762,7 @@ define internal void @dissect_npm_remove_flow_message(ptr noundef %0, ptr nounde
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_npm_identify_flow_message(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -1603,6 +1771,7 @@ define internal void @dissect_npm_identify_flow_message(ptr noundef %0, ptr noun
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
   %8 = load ptr, ptr %6, align 8
   %9 = load i32, ptr @ett_identifyflow_flags, align 4
   %10 = call ptr @proto_item_add_subtree(ptr noundef %8, i32 noundef %9)
@@ -1631,10 +1800,11 @@ define internal void @dissect_npm_identify_flow_message(ptr noundef %0, ptr noun
   %32 = load i32, ptr @hf_identifyflow_streamid, align 4
   %33 = load ptr, ptr %4, align 8
   %34 = call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %32, ptr noundef %33, i32 noundef 24, i32 noundef 2, i32 noundef 0)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_npm_data_message(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -1646,9 +1816,13 @@ define internal void @dissect_npm_data_message(ptr noundef %0, ptr noundef %1, p
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  call void @llvm.lifetime.start.p0(i64 2, ptr %8) #7
   %11 = load ptr, ptr %4, align 8
   %12 = call zeroext i16 @tvb_get_ntohs(ptr noundef %11, i32 noundef 2)
   store i16 %12, ptr %8, align 2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 16, ptr %10) #7
   %13 = load ptr, ptr %6, align 8
   %14 = load i32, ptr @ett_data_flags, align 4
   %15 = call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %14)
@@ -1694,16 +1868,16 @@ define internal void @dissect_npm_data_message(ptr noundef %0, ptr noundef %1, p
   store i64 %53, ptr %9, align 8
   %54 = load i64, ptr %9, align 8
   %55 = udiv i64 %54, 1000000
-  %56 = getelementptr inbounds %struct.nstime_t, ptr %10, i32 0, i32 0
+  %56 = getelementptr inbounds nuw %struct.nstime_t, ptr %10, i32 0, i32 0
   store i64 %55, ptr %56, align 8
   %57 = load i64, ptr %9, align 8
-  %58 = getelementptr inbounds %struct.nstime_t, ptr %10, i32 0, i32 0
+  %58 = getelementptr inbounds nuw %struct.nstime_t, ptr %10, i32 0, i32 0
   %59 = load i64, ptr %58, align 8
   %60 = mul i64 1000000, %59
   %61 = sub i64 %57, %60
   %62 = mul i64 %61, 1000
   %63 = trunc i64 %62 to i32
-  %64 = getelementptr inbounds %struct.nstime_t, ptr %10, i32 0, i32 1
+  %64 = getelementptr inbounds nuw %struct.nstime_t, ptr %10, i32 0, i32 1
   store i32 %63, ptr %64, align 8
   %65 = load ptr, ptr %5, align 8
   %66 = load i32, ptr @hf_data_timestamp, align 4
@@ -1725,10 +1899,14 @@ define internal void @dissect_npm_data_message(ptr noundef %0, ptr noundef %1, p
   br label %80
 
 80:                                               ; preds = %72, %3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 2, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_npm_start_message(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -1737,6 +1915,7 @@ define internal void @dissect_npm_start_message(ptr noundef %0, ptr noundef %1, 
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
   %8 = load ptr, ptr %6, align 8
   %9 = load i32, ptr @ett_start_flags, align 4
   %10 = call ptr @proto_item_add_subtree(ptr noundef %8, i32 noundef %9)
@@ -1761,10 +1940,11 @@ define internal void @dissect_npm_start_message(ptr noundef %0, ptr noundef %1, 
   %28 = load i32, ptr @hf_start_measurementid, align 4
   %29 = load ptr, ptr %4, align 8
   %30 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %28, ptr noundef %29, i32 noundef 8, i32 noundef 8, i32 noundef 0)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_npm_stop_message(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -1777,7 +1957,7 @@ define internal void @dissect_npm_stop_message(ptr noundef %0, ptr noundef %1) #
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_npm_results_message(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -1787,6 +1967,7 @@ define internal void @dissect_npm_results_message(ptr noundef %0, ptr noundef %1
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
   %9 = load ptr, ptr %6, align 8
   %10 = load i32, ptr @ett_data_flags, align 4
   %11 = call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10)
@@ -1795,6 +1976,7 @@ define internal void @dissect_npm_results_message(ptr noundef %0, ptr noundef %1
   %13 = load i32, ptr @hf_results_flag_eof, align 4
   %14 = load ptr, ptr %4, align 8
   %15 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %13, ptr noundef %14, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  call void @llvm.lifetime.start.p0(i64 2, ptr %8) #7
   %16 = load ptr, ptr %4, align 8
   %17 = call zeroext i16 @tvb_get_ntohs(ptr noundef %16, i32 noundef 2)
   store i16 %17, ptr %8, align 2
@@ -1814,36 +1996,53 @@ define internal void @dissect_npm_results_message(ptr noundef %0, ptr noundef %1
   br label %29
 
 29:                                               ; preds = %21, %3
+  call void @llvm.lifetime.end.p0(i64 2, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_double_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, double noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i64 @tvb_get_ntoh64(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { alwaysinline nounwind "min-legal-vector-width"="0" }
+attributes #4 = { nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind }
+attributes #8 = { allocsize(1) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

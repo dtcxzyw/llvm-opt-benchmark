@@ -5,9 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 
@@ -173,7 +170,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_mp4_sidx_reference_type = internal global i32 0, align 4
 @.str.99 = private unnamed_addr constant [15 x i8] c"Reference Type\00", align 1
 @.str.100 = private unnamed_addr constant [24 x i8] c"mp4.sidx.reference_type\00", align 1
-@mp4_sidx_reference_type_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.122 }, %struct._value_string { i32 1, ptr @.str.123 }, %struct._value_string zeroinitializer], align 16
 @hf_mp4_sidx_reference_size = internal global i32 0, align 4
 @.str.101 = private unnamed_addr constant [15 x i8] c"Reference size\00", align 1
 @.str.102 = private unnamed_addr constant [24 x i8] c"mp4.sidx.reference_size\00", align 1
@@ -193,7 +189,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_mp4_box = internal global i32 0, align 4
 @ett_mp4_full_box_flags = internal global i32 0, align 4
 @ett_mp4_entry = internal global i32 0, align 4
-@proto_register_mp4.ei = internal global [3 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_mp4_box_too_large, %struct.expert_field_info { ptr @.str.110, i32 150994944, i32 6291456, ptr @.str.111, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_mp4_too_many_rec_lvls, %struct.expert_field_info { ptr @.str.112, i32 83886080, i32 6291456, ptr @.str.113, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_mp4_mvhd_next_tid_unknown, %struct.expert_field_info { ptr @.str.114, i32 150994944, i32 2097152, ptr @.str.115, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_mp4.ei = internal global [3 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_mp4_box_too_large, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.110, i32 150994944, i32 6291456, ptr @.str.111, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_mp4_too_many_rec_lvls, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.112, i32 83886080, i32 6291456, ptr @.str.113, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_mp4_mvhd_next_tid_unknown, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.114, i32 150994944, i32 2097152, ptr @.str.115, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_mp4_box_too_large = internal global %struct.expert_field zeroinitializer, align 4
 @.str.110 = private unnamed_addr constant [18 x i8] c"mp4.box_too_large\00", align 1
 @.str.111 = private unnamed_addr constant [60 x i8] c"box size too large, dissection of this box is not supported\00", align 1
@@ -213,127 +209,137 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.121 = private unnamed_addr constant [11 x i8] c"wtap_encap\00", align 1
 @.str.122 = private unnamed_addr constant [6 x i8] c"Movie\00", align 1
 @.str.123 = private unnamed_addr constant [6 x i8] c"Index\00", align 1
-@box_types = internal constant [38 x %struct._value_string] [%struct._value_string { i32 1718909296, ptr @.str.125 }, %struct._value_string { i32 1836019574, ptr @.str.126 }, %struct._value_string { i32 1836476516, ptr @.str.127 }, %struct._value_string { i32 1953653099, ptr @.str.128 }, %struct._value_string { i32 1953196132, ptr @.str.129 }, %struct._value_string { i32 1835297121, ptr @.str.130 }, %struct._value_string { i32 1835296868, ptr @.str.131 }, %struct._value_string { i32 1751411826, ptr @.str.132 }, %struct._value_string { i32 1835626086, ptr @.str.133 }, %struct._value_string { i32 1986881636, ptr @.str.134 }, %struct._value_string { i32 1936549988, ptr @.str.135 }, %struct._value_string { i32 1684631142, ptr @.str.136 }, %struct._value_string { i32 1685218662, ptr @.str.137 }, %struct._value_string { i32 1937007212, ptr @.str.138 }, %struct._value_string { i32 1937011827, ptr @.str.139 }, %struct._value_string { i32 1668576371, ptr @.str.140 }, %struct._value_string { i32 1937011556, ptr @.str.141 }, %struct._value_string { i32 1937011578, ptr @.str.142 }, %struct._value_string { i32 1937013298, ptr @.str.143 }, %struct._value_string { i32 1937011555, ptr @.str.144 }, %struct._value_string { i32 1937007471, ptr @.str.145 }, %struct._value_string { i32 1937011571, ptr @.str.146 }, %struct._value_string { i32 1836475768, ptr @.str.147 }, %struct._value_string { i32 1836019558, ptr @.str.148 }, %struct._value_string { i32 1835362404, ptr @.str.149 }, %struct._value_string { i32 1953654136, ptr @.str.150 }, %struct._value_string { i32 1835427940, ptr @.str.151 }, %struct._value_string { i32 1953653094, ptr @.str.152 }, %struct._value_string { i32 1952868452, ptr @.str.153 }, %struct._value_string { i32 1953658222, ptr @.str.154 }, %struct._value_string { i32 1835295092, ptr @.str.155 }, %struct._value_string { i32 1969517665, ptr @.str.156 }, %struct._value_string { i32 1970433056, ptr @.str.157 }, %struct._value_string { i32 1701082227, ptr @.str.158 }, %struct._value_string { i32 1701606260, ptr @.str.159 }, %struct._value_string { i32 1936286840, ptr @.str.160 }, %struct._value_string { i32 1937013104, ptr @.str.161 }, %struct._value_string zeroinitializer], align 16
-@.str.124 = private unnamed_addr constant [4 x i8] c"MP4\00", align 1
-@.str.125 = private unnamed_addr constant [14 x i8] c"File Type Box\00", align 1
-@.str.126 = private unnamed_addr constant [10 x i8] c"Movie Box\00", align 1
-@.str.127 = private unnamed_addr constant [17 x i8] c"Movie Header Box\00", align 1
-@.str.128 = private unnamed_addr constant [10 x i8] c"Track Box\00", align 1
-@.str.129 = private unnamed_addr constant [17 x i8] c"Track Header Box\00", align 1
-@.str.130 = private unnamed_addr constant [10 x i8] c"Media Box\00", align 1
-@.str.131 = private unnamed_addr constant [17 x i8] c"Media Header Box\00", align 1
-@.str.132 = private unnamed_addr constant [22 x i8] c"Handler Reference Box\00", align 1
-@.str.133 = private unnamed_addr constant [22 x i8] c"Media Information Box\00", align 1
-@.str.134 = private unnamed_addr constant [23 x i8] c"Video Media Header Box\00", align 1
-@.str.135 = private unnamed_addr constant [23 x i8] c"Sound Media Header Box\00", align 1
-@.str.136 = private unnamed_addr constant [21 x i8] c"Data Information Box\00", align 1
-@.str.137 = private unnamed_addr constant [19 x i8] c"Data Reference Box\00", align 1
-@.str.138 = private unnamed_addr constant [20 x i8] c"Sample to Group Box\00", align 1
-@.str.139 = private unnamed_addr constant [28 x i8] c"Decoding Time To Sample Box\00", align 1
-@.str.140 = private unnamed_addr constant [31 x i8] c"Composition Time To Sample Box\00", align 1
-@.str.141 = private unnamed_addr constant [23 x i8] c"Sample Description Box\00", align 1
-@.str.142 = private unnamed_addr constant [16 x i8] c"Sample Size Box\00", align 1
-@.str.143 = private unnamed_addr constant [24 x i8] c"Compact Sample Size Box\00", align 1
-@.str.144 = private unnamed_addr constant [20 x i8] c"Sample To Chunk Box\00", align 1
-@.str.145 = private unnamed_addr constant [17 x i8] c"Chunk Offset Box\00", align 1
-@.str.146 = private unnamed_addr constant [18 x i8] c"Sync Sample Table\00", align 1
-@.str.147 = private unnamed_addr constant [18 x i8] c"Movie Extends Box\00", align 1
-@.str.148 = private unnamed_addr constant [19 x i8] c"Movie Fragment Box\00", align 1
-@.str.149 = private unnamed_addr constant [25 x i8] c"Movie Extends Header Box\00", align 1
-@.str.150 = private unnamed_addr constant [18 x i8] c"Track Extends Box\00", align 1
-@.str.151 = private unnamed_addr constant [26 x i8] c"Movie Fragment Header Box\00", align 1
-@.str.152 = private unnamed_addr constant [19 x i8] c"Track Fragment Box\00", align 1
-@.str.153 = private unnamed_addr constant [26 x i8] c"Track Fragment Header Box\00", align 1
-@.str.154 = private unnamed_addr constant [23 x i8] c"Track Fragment Run Box\00", align 1
-@.str.155 = private unnamed_addr constant [15 x i8] c"Media Data Box\00", align 1
-@.str.156 = private unnamed_addr constant [14 x i8] c"User Data Box\00", align 1
-@.str.157 = private unnamed_addr constant [8 x i8] c"URL Box\00", align 1
-@.str.158 = private unnamed_addr constant [9 x i8] c"Edit Box\00", align 1
-@.str.159 = private unnamed_addr constant [14 x i8] c"Edit List Box\00", align 1
-@.str.160 = private unnamed_addr constant [18 x i8] c"Segment Index Box\00", align 1
-@.str.161 = private unnamed_addr constant [17 x i8] c"Segment Type Box\00", align 1
-@.str.162 = private unnamed_addr constant [8 x i8] c"%s (%s)\00", align 1
-@.str.163 = private unnamed_addr constant [8 x i8] c"unknown\00", align 1
-@.str.164 = private unnamed_addr constant [31 x i8] c" (actual size is in largesize)\00", align 1
+@mp4_sidx_reference_type_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.122 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.123 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.125 = private unnamed_addr constant [4 x i8] c"MP4\00", align 1
+@.str.126 = private unnamed_addr constant [14 x i8] c"File Type Box\00", align 1
+@.str.127 = private unnamed_addr constant [10 x i8] c"Movie Box\00", align 1
+@.str.128 = private unnamed_addr constant [17 x i8] c"Movie Header Box\00", align 1
+@.str.129 = private unnamed_addr constant [10 x i8] c"Track Box\00", align 1
+@.str.130 = private unnamed_addr constant [17 x i8] c"Track Header Box\00", align 1
+@.str.131 = private unnamed_addr constant [10 x i8] c"Media Box\00", align 1
+@.str.132 = private unnamed_addr constant [17 x i8] c"Media Header Box\00", align 1
+@.str.133 = private unnamed_addr constant [22 x i8] c"Handler Reference Box\00", align 1
+@.str.134 = private unnamed_addr constant [22 x i8] c"Media Information Box\00", align 1
+@.str.135 = private unnamed_addr constant [23 x i8] c"Video Media Header Box\00", align 1
+@.str.136 = private unnamed_addr constant [23 x i8] c"Sound Media Header Box\00", align 1
+@.str.137 = private unnamed_addr constant [21 x i8] c"Data Information Box\00", align 1
+@.str.138 = private unnamed_addr constant [19 x i8] c"Data Reference Box\00", align 1
+@.str.139 = private unnamed_addr constant [20 x i8] c"Sample to Group Box\00", align 1
+@.str.140 = private unnamed_addr constant [28 x i8] c"Decoding Time To Sample Box\00", align 1
+@.str.141 = private unnamed_addr constant [31 x i8] c"Composition Time To Sample Box\00", align 1
+@.str.142 = private unnamed_addr constant [23 x i8] c"Sample Description Box\00", align 1
+@.str.143 = private unnamed_addr constant [16 x i8] c"Sample Size Box\00", align 1
+@.str.144 = private unnamed_addr constant [24 x i8] c"Compact Sample Size Box\00", align 1
+@.str.145 = private unnamed_addr constant [20 x i8] c"Sample To Chunk Box\00", align 1
+@.str.146 = private unnamed_addr constant [17 x i8] c"Chunk Offset Box\00", align 1
+@.str.147 = private unnamed_addr constant [18 x i8] c"Sync Sample Table\00", align 1
+@.str.148 = private unnamed_addr constant [18 x i8] c"Movie Extends Box\00", align 1
+@.str.149 = private unnamed_addr constant [19 x i8] c"Movie Fragment Box\00", align 1
+@.str.150 = private unnamed_addr constant [25 x i8] c"Movie Extends Header Box\00", align 1
+@.str.151 = private unnamed_addr constant [18 x i8] c"Track Extends Box\00", align 1
+@.str.152 = private unnamed_addr constant [26 x i8] c"Movie Fragment Header Box\00", align 1
+@.str.153 = private unnamed_addr constant [19 x i8] c"Track Fragment Box\00", align 1
+@.str.154 = private unnamed_addr constant [26 x i8] c"Track Fragment Header Box\00", align 1
+@.str.155 = private unnamed_addr constant [23 x i8] c"Track Fragment Run Box\00", align 1
+@.str.156 = private unnamed_addr constant [15 x i8] c"Media Data Box\00", align 1
+@.str.157 = private unnamed_addr constant [14 x i8] c"User Data Box\00", align 1
+@.str.158 = private unnamed_addr constant [8 x i8] c"URL Box\00", align 1
+@.str.159 = private unnamed_addr constant [9 x i8] c"Edit Box\00", align 1
+@.str.160 = private unnamed_addr constant [14 x i8] c"Edit List Box\00", align 1
+@.str.161 = private unnamed_addr constant [18 x i8] c"Segment Index Box\00", align 1
+@.str.162 = private unnamed_addr constant [17 x i8] c"Segment Type Box\00", align 1
+@box_types = internal constant [38 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1718909296, [4 x i8] zeroinitializer, ptr @.str.126 }, { i32, [4 x i8], ptr } { i32 1836019574, [4 x i8] zeroinitializer, ptr @.str.127 }, { i32, [4 x i8], ptr } { i32 1836476516, [4 x i8] zeroinitializer, ptr @.str.128 }, { i32, [4 x i8], ptr } { i32 1953653099, [4 x i8] zeroinitializer, ptr @.str.129 }, { i32, [4 x i8], ptr } { i32 1953196132, [4 x i8] zeroinitializer, ptr @.str.130 }, { i32, [4 x i8], ptr } { i32 1835297121, [4 x i8] zeroinitializer, ptr @.str.131 }, { i32, [4 x i8], ptr } { i32 1835296868, [4 x i8] zeroinitializer, ptr @.str.132 }, { i32, [4 x i8], ptr } { i32 1751411826, [4 x i8] zeroinitializer, ptr @.str.133 }, { i32, [4 x i8], ptr } { i32 1835626086, [4 x i8] zeroinitializer, ptr @.str.134 }, { i32, [4 x i8], ptr } { i32 1986881636, [4 x i8] zeroinitializer, ptr @.str.135 }, { i32, [4 x i8], ptr } { i32 1936549988, [4 x i8] zeroinitializer, ptr @.str.136 }, { i32, [4 x i8], ptr } { i32 1684631142, [4 x i8] zeroinitializer, ptr @.str.137 }, { i32, [4 x i8], ptr } { i32 1685218662, [4 x i8] zeroinitializer, ptr @.str.138 }, { i32, [4 x i8], ptr } { i32 1937007212, [4 x i8] zeroinitializer, ptr @.str.139 }, { i32, [4 x i8], ptr } { i32 1937011827, [4 x i8] zeroinitializer, ptr @.str.140 }, { i32, [4 x i8], ptr } { i32 1668576371, [4 x i8] zeroinitializer, ptr @.str.141 }, { i32, [4 x i8], ptr } { i32 1937011556, [4 x i8] zeroinitializer, ptr @.str.142 }, { i32, [4 x i8], ptr } { i32 1937011578, [4 x i8] zeroinitializer, ptr @.str.143 }, { i32, [4 x i8], ptr } { i32 1937013298, [4 x i8] zeroinitializer, ptr @.str.144 }, { i32, [4 x i8], ptr } { i32 1937011555, [4 x i8] zeroinitializer, ptr @.str.145 }, { i32, [4 x i8], ptr } { i32 1937007471, [4 x i8] zeroinitializer, ptr @.str.146 }, { i32, [4 x i8], ptr } { i32 1937011571, [4 x i8] zeroinitializer, ptr @.str.147 }, { i32, [4 x i8], ptr } { i32 1836475768, [4 x i8] zeroinitializer, ptr @.str.148 }, { i32, [4 x i8], ptr } { i32 1836019558, [4 x i8] zeroinitializer, ptr @.str.149 }, { i32, [4 x i8], ptr } { i32 1835362404, [4 x i8] zeroinitializer, ptr @.str.150 }, { i32, [4 x i8], ptr } { i32 1953654136, [4 x i8] zeroinitializer, ptr @.str.151 }, { i32, [4 x i8], ptr } { i32 1835427940, [4 x i8] zeroinitializer, ptr @.str.152 }, { i32, [4 x i8], ptr } { i32 1953653094, [4 x i8] zeroinitializer, ptr @.str.153 }, { i32, [4 x i8], ptr } { i32 1952868452, [4 x i8] zeroinitializer, ptr @.str.154 }, { i32, [4 x i8], ptr } { i32 1953658222, [4 x i8] zeroinitializer, ptr @.str.155 }, { i32, [4 x i8], ptr } { i32 1835295092, [4 x i8] zeroinitializer, ptr @.str.156 }, { i32, [4 x i8], ptr } { i32 1969517665, [4 x i8] zeroinitializer, ptr @.str.157 }, { i32, [4 x i8], ptr } { i32 1970433056, [4 x i8] zeroinitializer, ptr @.str.158 }, { i32, [4 x i8], ptr } { i32 1701082227, [4 x i8] zeroinitializer, ptr @.str.159 }, { i32, [4 x i8], ptr } { i32 1701606260, [4 x i8] zeroinitializer, ptr @.str.160 }, { i32, [4 x i8], ptr } { i32 1936286840, [4 x i8] zeroinitializer, ptr @.str.161 }, { i32, [4 x i8], ptr } { i32 1937013104, [4 x i8] zeroinitializer, ptr @.str.162 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.164 = private unnamed_addr constant [8 x i8] c"%s (%s)\00", align 1
+@.str.165 = private unnamed_addr constant [8 x i8] c"unknown\00", align 1
+@.str.166 = private unnamed_addr constant [31 x i8] c" (actual size is in largesize)\00", align 1
 @mvhd_timescale = internal unnamed_addr global i32 0, align 4
-@.str.165 = private unnamed_addr constant [34 x i8] c"Timescale: %d units in one second\00", align 1
-@.str.166 = private unnamed_addr constant [29 x i8] c"Duration: no timescale (%lu)\00", align 1
-@.str.167 = private unnamed_addr constant [27 x i8] c"Duration: %f seconds (%lu)\00", align 1
+@.str.167 = private unnamed_addr constant [34 x i8] c"Timescale: %d units in one second\00", align 1
+@.str.168 = private unnamed_addr constant [29 x i8] c"Duration: no timescale (%lu)\00", align 1
+@.str.169 = private unnamed_addr constant [27 x i8] c"Duration: %f seconds (%lu)\00", align 1
 @dissect_mp4_tkhd_body.flags = internal constant [5 x ptr] [ptr @hf_mp4_tkhd_flags_enabled, ptr @hf_mp4_tkhd_flags_in_movie, ptr @hf_mp4_tkhd_flags_in_preview, ptr @hf_mp4_tkhd_flags_size_is_aspect_ratio, ptr null], align 16
-@.str.168 = private unnamed_addr constant [18 x i8] c"Sample size: %u%s\00", align 1
-@.str.169 = private unnamed_addr constant [32 x i8] c" (samples have different sizes)\00", align 1
-@.str.170 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
-@.str.171 = private unnamed_addr constant [25 x i8] c"Entry %u: Entry size: %u\00", align 1
-@.str.172 = private unnamed_addr constant [10 x i8] c"Entry %u:\00", align 1
-@.str.173 = private unnamed_addr constant [70 x i8] c" First chunk: %u; Samples per chunk: %u; Sample description index: %u\00", align 1
+@.str.170 = private unnamed_addr constant [18 x i8] c"Sample size: %u%s\00", align 1
+@.str.171 = private unnamed_addr constant [32 x i8] c" (samples have different sizes)\00", align 1
+@.str.172 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@.str.173 = private unnamed_addr constant [25 x i8] c"Entry %u: Entry size: %u\00", align 1
+@.str.174 = private unnamed_addr constant [10 x i8] c"Entry %u:\00", align 1
+@.str.175 = private unnamed_addr constant [70 x i8] c" First chunk: %u; Samples per chunk: %u; Sample description index: %u\00", align 1
 @dissect_mp4_url_body.flags_fields = internal constant [2 x ptr] [ptr @hf_mp4_url_flags_media_data_location, ptr null], align 16
-@.str.174 = private unnamed_addr constant [36 x i8] c" Sample count: %u, Sample delta: %d\00", align 1
-@.str.175 = private unnamed_addr constant [26 x i8] c"Entry %u: Chunk offset %u\00", align 1
-@.str.176 = private unnamed_addr constant [37 x i8] c" Sample count: %u, Sample offset: %d\00", align 1
-@.str.177 = private unnamed_addr constant [27 x i8] c"Segment duration: %s (%lu)\00", align 1
-@.str.178 = private unnamed_addr constant [21 x i8] c"Media time: %s (%ld)\00", align 1
-@.str.179 = private unnamed_addr constant [57 x i8] c" Segment duration: %s; Media time: %s; Media rate: %d.%d\00", align 1
-@.str.180 = private unnamed_addr constant [13 x i8] c"no timescale\00", align 1
+@.str.176 = private unnamed_addr constant [36 x i8] c" Sample count: %u, Sample delta: %d\00", align 1
+@.str.177 = private unnamed_addr constant [26 x i8] c"Entry %u: Chunk offset %u\00", align 1
+@.str.178 = private unnamed_addr constant [37 x i8] c" Sample count: %u, Sample offset: %d\00", align 1
+@.str.179 = private unnamed_addr constant [27 x i8] c"Segment duration: %s (%lu)\00", align 1
+@.str.180 = private unnamed_addr constant [21 x i8] c"Media time: %s (%ld)\00", align 1
+@.str.181 = private unnamed_addr constant [57 x i8] c" Segment duration: %s; Media time: %s; Media rate: %d.%d\00", align 1
+@.str.182 = private unnamed_addr constant [13 x i8] c"no timescale\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_mp4() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.117) #5
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.117)
   store i32 %1, ptr @proto_mp4, align 4
-  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_mp4.hf, i32 noundef 65) #5
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_mp4.ett, i32 noundef 4) #5
+  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_mp4.hf, i32 noundef 65)
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_mp4.ett, i32 noundef 4)
   %2 = load i32, ptr @proto_mp4, align 4
-  %3 = tail call ptr @expert_register_protocol(i32 noundef %2) #5
-  tail call void @expert_register_field_array(ptr noundef %3, ptr noundef nonnull @proto_register_mp4.ei, i32 noundef 3) #5
+  %3 = tail call ptr @expert_register_protocol(i32 noundef %2)
+  tail call void @expert_register_field_array(ptr noundef %3, ptr noundef nonnull @proto_register_mp4.ei, i32 noundef 3)
   %4 = load i32, ptr @proto_mp4, align 4
-  %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.117, ptr noundef nonnull @dissect_mp4, i32 noundef %4) #5
+  %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.117, ptr noundef nonnull @dissect_mp4, i32 noundef %4)
   store ptr %5, ptr @mp4_handle, align 8
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #2
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_mp4(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
-  %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
+  %5 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %6 = icmp ult i32 %5, 8
   br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 4) #5
-  %9 = tail call ptr @try_val_to_str(i32 noundef %8, ptr noundef nonnull @box_types) #5
+  %8 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 4)
+  %9 = tail call ptr @try_val_to_str(i32 noundef %8, ptr noundef nonnull @box_types)
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.loopexit, label %11
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
-  tail call void @col_set_str(ptr noundef %13, i32 noundef 34, ptr noundef nonnull @.str.124) #5
+  tail call void @col_set_str(ptr noundef %13, i32 noundef 35, ptr noundef nonnull @.str.125)
   %14 = load ptr, ptr %12, align 8
-  tail call void @col_clear(ptr noundef %14, i32 noundef 25) #5
+  tail call void @col_clear(ptr noundef %14, i32 noundef 25)
   %15 = load i32, ptr @proto_mp4, align 4
-  %16 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
-  %17 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef 0, i32 noundef %16, ptr noundef nonnull @.str.124) #5
+  %16 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %17 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef 0, i32 noundef %16, ptr noundef nonnull @.str.125)
   %18 = load i32, ptr @ett_mp4, align 4
-  %19 = tail call ptr @proto_item_add_subtree(ptr noundef %17, i32 noundef %18) #5
-  %20 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #5
+  %19 = tail call ptr @proto_item_add_subtree(ptr noundef %17, i32 noundef %18)
+  %20 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %.lr.ph, label %.loopexit
 
 22:                                               ; preds = %.lr.ph
   %23 = add i32 %26, %.01921
-  %24 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %23) #5
+  %24 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %23)
   %25 = icmp sgt i32 %24, 0
-  br i1 %25, label %.lr.ph, label %.loopexit, !llvm.loop !4
+  br i1 %25, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
 .lr.ph:                                           ; preds = %11, %22
   %.01921 = phi i32 [ %23, %22 ], [ 0, %11 ]
@@ -346,41 +352,55 @@ define internal noundef i32 @dissect_mp4(ptr noundef %0, ptr noundef %1, ptr nou
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_mp4() local_unnamed_addr #0 {
   %1 = load ptr, ptr @mp4_handle, align 8
-  tail call void @dissector_add_string(ptr noundef nonnull @.str.118, ptr noundef nonnull @.str.119, ptr noundef %1) #5
+  tail call void @dissector_add_string(ptr noundef nonnull @.str.118, ptr noundef nonnull @.str.119, ptr noundef %1)
   %2 = load ptr, ptr @mp4_handle, align 8
-  tail call void @dissector_add_string(ptr noundef nonnull @.str.118, ptr noundef nonnull @.str.120, ptr noundef %2) #5
+  tail call void @dissector_add_string(ptr noundef nonnull @.str.118, ptr noundef nonnull @.str.120, ptr noundef %2)
   %3 = load ptr, ptr @mp4_handle, align 8
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.121, i32 noundef 209, ptr noundef %3) #5
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.121, i32 noundef 209, ptr noundef %3)
   ret void
 }
 
-declare void @dissector_add_string(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_add_string(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #2
 
-declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @try_val_to_str(i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @try_val_to_str(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_protocol_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_protocol_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc range(i32 -1, -2147483648) i32 @dissect_mp4_box(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
-  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %2) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
+  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %2)
   %8 = zext i32 %7 to i64
   %9 = icmp ne i32 %7, 1
   %10 = icmp ult i32 %7, 8
@@ -389,31 +409,31 @@ define internal fastcc range(i32 -1, -2147483648) i32 @dissect_mp4_box(i32 nound
 
 11:                                               ; preds = %5
   %12 = add i32 %2, 4
-  %13 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %12) #5
+  %13 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %12)
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 408
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call ptr @tvb_get_string_enc(ptr noundef %15, ptr noundef %1, i32 noundef %12, i32 noundef 4, i32 noundef 0) #5
+  %16 = tail call ptr @tvb_get_string_enc(ptr noundef %15, ptr noundef %1, i32 noundef %12, i32 noundef 4, i32 noundef 0)
   %17 = load i32, ptr @ett_mp4_box, align 4
-  %18 = tail call ptr @val_to_str_const(i32 noundef %13, ptr noundef nonnull @box_types, ptr noundef nonnull @.str.163) #5
-  %19 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef -1, i32 noundef %17, ptr noundef nonnull %6, ptr noundef nonnull @.str.162, ptr noundef %18, ptr noundef %16) #5
+  %18 = tail call ptr @val_to_str_const(i32 noundef %13, ptr noundef nonnull @box_types, ptr noundef nonnull @.str.165)
+  %19 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef -1, i32 noundef %17, ptr noundef nonnull %6, ptr noundef nonnull @.str.164, ptr noundef %18, ptr noundef %16)
   %20 = load i32, ptr @hf_mp4_box_size, align 4
-  %21 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %20, ptr noundef %1, i32 noundef %2, i32 noundef 4, i32 noundef 0) #5
+  %21 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %20, ptr noundef %1, i32 noundef %2, i32 noundef 4, i32 noundef 0)
   %22 = icmp eq i32 %7, 1
   br i1 %22, label %26, label %23
 
 23:                                               ; preds = %11
   %24 = load i32, ptr @hf_mp4_box_type_str, align 4
-  %25 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %24, ptr noundef %1, i32 noundef %12, i32 noundef 4, i32 noundef 0) #5
+  %25 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %24, ptr noundef %1, i32 noundef %12, i32 noundef 4, i32 noundef 0)
   br label %33
 
 26:                                               ; preds = %11
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %21, ptr noundef nonnull @.str.164) #5
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %21, ptr noundef nonnull @.str.166)
   %27 = load i32, ptr @hf_mp4_box_type_str, align 4
-  %28 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %27, ptr noundef %1, i32 noundef %12, i32 noundef 4, i32 noundef 0) #5
+  %28 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %27, ptr noundef %1, i32 noundef %12, i32 noundef 4, i32 noundef 0)
   %29 = add i32 %2, 8
-  %30 = call i64 @tvb_get_ntoh64(ptr noundef %1, i32 noundef %29) #5
+  %30 = call i64 @tvb_get_ntoh64(ptr noundef %1, i32 noundef %29)
   %31 = load i32, ptr @hf_mp4_box_largesize, align 4
-  %32 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %31, ptr noundef %1, i32 noundef %29, i32 noundef 8, i32 noundef 0) #5
+  %32 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %31, ptr noundef %1, i32 noundef %29, i32 noundef 8, i32 noundef 0)
   br label %33
 
 33:                                               ; preds = %23, %26
@@ -425,20 +445,20 @@ define internal fastcc range(i32 -1, -2147483648) i32 @dissect_mp4_box(i32 nound
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %33
-  %37 = call ptr @expert_add_info(ptr noundef nonnull %3, ptr noundef %.0152, ptr noundef nonnull @ei_mp4_box_too_large) #5
+  %37 = call ptr @expert_add_info(ptr noundef %3, ptr noundef %.0152, ptr noundef nonnull @ei_mp4_box_too_large)
   br label %.loopexit
 
 38:                                               ; preds = %33
   %39 = load ptr, ptr %6, align 8
   %40 = trunc nuw nsw i64 %.0153 to i32
-  call void @proto_item_set_len(ptr noundef %39, i32 noundef %40) #5
+  call void @proto_item_set_len(ptr noundef %39, i32 noundef %40)
   %41 = sub nsw i32 %40, %.sink
   %42 = add i32 %0, 1
   %43 = icmp ugt i32 %42, 20
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %38
-  %45 = call ptr @proto_tree_add_expert(ptr noundef %4, ptr noundef nonnull %3, ptr noundef nonnull @ei_mp4_too_many_rec_lvls, ptr noundef %1, i32 noundef %2, i32 noundef %40) #5
+  %45 = call ptr @proto_tree_add_expert(ptr noundef %4, ptr noundef %3, ptr noundef nonnull @ei_mp4_too_many_rec_lvls, ptr noundef %1, i32 noundef %2, i32 noundef %40)
   br label %.loopexit
 
 46:                                               ; preds = %38
@@ -477,7 +497,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @dissect_mp4_box(i32 nound
   br label %.loopexit
 
 48:                                               ; preds = %46
-  call fastcc void @dissect_mp4_mvhd_body(ptr noundef %1, i32 noundef %34, ptr noundef nonnull %3, ptr noundef %19)
+  call fastcc void @dissect_mp4_mvhd_body(ptr noundef %1, i32 noundef %34, ptr noundef %3, ptr noundef %19)
   br label %.loopexit
 
 49:                                               ; preds = %46
@@ -501,7 +521,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @dissect_mp4_box(i32 nound
   br label %.loopexit
 
 54:                                               ; preds = %46
-  call fastcc void @dissect_mp4_dref_body(ptr noundef %1, i32 noundef %34, ptr noundef nonnull %3, i32 noundef %42, ptr noundef %19)
+  call fastcc void @dissect_mp4_dref_body(ptr noundef %1, i32 noundef %34, ptr noundef %3, i32 noundef %42, ptr noundef %19)
   br label %.loopexit
 
 55:                                               ; preds = %46
@@ -509,7 +529,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @dissect_mp4_box(i32 nound
   br label %.loopexit
 
 56:                                               ; preds = %46
-  call fastcc void @dissect_mp4_stsd_body(ptr noundef %1, i32 noundef %34, ptr noundef nonnull %3, i32 noundef %42, ptr noundef %19)
+  call fastcc void @dissect_mp4_stsd_body(ptr noundef %1, i32 noundef %34, ptr noundef %3, i32 noundef %42, ptr noundef %19)
   br label %.loopexit
 
 57:                                               ; preds = %46
@@ -525,7 +545,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @dissect_mp4_box(i32 nound
   br label %.loopexit
 
 60:                                               ; preds = %46
-  call fastcc void @dissect_mp4_elst_body(ptr noundef %1, i32 noundef %34, ptr noundef nonnull %3, ptr noundef %19)
+  call fastcc void @dissect_mp4_elst_body(ptr noundef %1, i32 noundef %34, ptr noundef %3, ptr noundef %19)
   br label %.loopexit
 
 61:                                               ; preds = %46
@@ -540,7 +560,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @dissect_mp4_box(i32 nound
   %65 = add i32 %68, %.1157
   %66 = sub i32 %65, %2
   %67 = icmp slt i32 %66, %40
-  br i1 %67, label %.lr.ph, label %.loopexit, !llvm.loop !6
+  br i1 %67, label %.lr.ph, label %.loopexit, !llvm.loop !8
 
 .lr.ph:                                           ; preds = %62, %64
   %.1157 = phi i32 [ %65, %64 ], [ %34, %62 ]
@@ -550,34 +570,44 @@ define internal fastcc range(i32 -1, -2147483648) i32 @dissect_mp4_box(i32 nound
 
 .loopexit:                                        ; preds = %64, %.lr.ph, %62, %47, %48, %49, %50, %51, %52, %53, %54, %55, %56, %57, %58, %59, %60, %61, %46, %5, %44, %36
   %.0 = phi i32 [ -1, %36 ], [ -1, %44 ], [ -1, %5 ], [ %40, %46 ], [ %40, %61 ], [ %40, %60 ], [ %40, %59 ], [ %40, %58 ], [ %40, %57 ], [ %40, %56 ], [ %40, %55 ], [ %40, %54 ], [ %40, %53 ], [ %40, %52 ], [ %40, %51 ], [ %40, %50 ], [ %40, %49 ], [ %40, %48 ], [ %40, %47 ], [ %40, %62 ], [ %40, %.lr.ph ], [ %40, %64 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
   ret i32 %.0
 }
 
-declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare i64 @tvb_get_ntoh64(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i64 @tvb_get_ntoh64(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_mp4_ftyp_body(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mp4_ftyp_brand, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %5, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0) #5
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %5, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 0)
   %7 = add i32 %1, 4
   %8 = load i32, ptr @hf_mp4_ftyp_ver, align 4
-  %9 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %8, ptr noundef %0, i32 noundef %7, i32 noundef 4, i32 noundef 0) #5
+  %9 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %8, ptr noundef %0, i32 noundef %7, i32 noundef 4, i32 noundef 0)
   %10 = icmp sgt i32 %2, 8
   br i1 %10, label %.lr.ph.preheader, label %._crit_edge
 
@@ -588,47 +618,47 @@ define internal fastcc void @dissect_mp4_ftyp_body(ptr noundef %0, i32 noundef %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.01 = phi i32 [ %14, %.lr.ph ], [ %11, %.lr.ph.preheader ]
   %12 = load i32, ptr @hf_mp4_ftyp_add_brand, align 4
-  %13 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %12, ptr noundef %0, i32 noundef %.01, i32 noundef 4, i32 noundef 0) #5
+  %13 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %12, ptr noundef %0, i32 noundef %.01, i32 noundef 4, i32 noundef 0)
   %14 = add i32 %.01, 4
   %15 = sub i32 %14, %1
   %16 = icmp slt i32 %15, %2
-  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !7
+  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_mp4_mvhd_body(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
-  %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #5
+  %5 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1)
   %6 = load i32, ptr @hf_mp4_full_box_ver, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #5
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0)
   %8 = add i32 %1, 1
   %9 = load i32, ptr @hf_mp4_full_box_flags, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %9, ptr noundef %0, i32 noundef %8, i32 noundef 3, i32 noundef 0) #5
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %9, ptr noundef %0, i32 noundef %8, i32 noundef 3, i32 noundef 0)
   %11 = add i32 %1, 4
   %12 = icmp eq i8 %5, 0
   %13 = select i1 %12, i32 4, i32 8
   %14 = load i32, ptr @hf_mp4_mvhd_creat_time, align 4
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %14, ptr noundef %0, i32 noundef %11, i32 noundef %13, i32 noundef 38) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %14, ptr noundef %0, i32 noundef %11, i32 noundef %13, i32 noundef 38)
   %16 = add i32 %13, %11
   %17 = load i32, ptr @hf_mp4_mvhd_mod_time, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %17, ptr noundef %0, i32 noundef %16, i32 noundef %13, i32 noundef 38) #5
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %17, ptr noundef %0, i32 noundef %16, i32 noundef %13, i32 noundef 38)
   %19 = add i32 %16, %13
-  %20 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %19) #5
+  %20 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %19)
   store i32 %20, ptr @mvhd_timescale, align 4
   %21 = load i32, ptr @hf_mp4_mvhd_timescale, align 4
-  %22 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %3, i32 noundef %21, ptr noundef %0, i32 noundef %19, i32 noundef 4, i32 noundef %20, ptr noundef nonnull @.str.165, i32 noundef %20) #5
+  %22 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %3, i32 noundef %21, ptr noundef %0, i32 noundef %19, i32 noundef 4, i32 noundef %20, ptr noundef nonnull @.str.167, i32 noundef %20)
   %23 = add i32 %19, 4
   br i1 %12, label %24, label %27
 
 24:                                               ; preds = %4
-  %25 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %23) #5
+  %25 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %23)
   %26 = zext i32 %25 to i64
   br label %29
 
 27:                                               ; preds = %4
-  %28 = tail call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %23) #5
+  %28 = tail call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %23)
   br label %29
 
 29:                                               ; preds = %27, %24
@@ -639,22 +669,22 @@ define internal fastcc void @dissect_mp4_mvhd_body(ptr noundef %0, i32 noundef %
   br i1 %31, label %33, label %35
 
 33:                                               ; preds = %29
-  %34 = tail call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_uint64_format(ptr noundef %3, i32 noundef %32, ptr noundef %0, i32 noundef %23, i32 noundef %13, i64 noundef %.0, ptr noundef nonnull @.str.166, i64 noundef %.0) #5
+  %34 = tail call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_uint64_format(ptr noundef %3, i32 noundef %32, ptr noundef %0, i32 noundef %23, i32 noundef %13, i64 noundef %.0, ptr noundef nonnull @.str.168, i64 noundef %.0)
   br label %40
 
 35:                                               ; preds = %29
   %36 = uitofp i64 %.0 to double
   %37 = uitofp i32 %30 to double
   %38 = fdiv double %36, %37
-  %39 = tail call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_uint64_format(ptr noundef %3, i32 noundef %32, ptr noundef %0, i32 noundef %23, i32 noundef %13, i64 noundef %.0, ptr noundef nonnull @.str.167, double noundef %38, i64 noundef %.0) #5
+  %39 = tail call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_uint64_format(ptr noundef %3, i32 noundef %32, ptr noundef %0, i32 noundef %23, i32 noundef %13, i64 noundef %.0, ptr noundef nonnull @.str.169, double noundef %38, i64 noundef %.0)
   br label %40
 
 40:                                               ; preds = %35, %33
   %41 = add i32 %23, %13
-  %42 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %41) #5
+  %42 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %41)
   %43 = uitofp i16 %42 to double
   %44 = add i32 %41, 2
-  %45 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %44) #5
+  %45 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %44)
   %46 = icmp eq i16 %45, 0
   br i1 %46, label %make_fract.exit, label %47
 
@@ -673,12 +703,12 @@ make_fract.exit:                                  ; preds = %40, %47
   %.0.i = phi double [ %55, %47 ], [ 0.000000e+00, %40 ]
   %56 = fadd double %.0.i, %43
   %57 = load i32, ptr @hf_mp4_mvhd_rate, align 4
-  %58 = tail call ptr @proto_tree_add_double(ptr noundef %3, i32 noundef %57, ptr noundef %0, i32 noundef %41, i32 noundef 4, double noundef %56) #5
+  %58 = tail call ptr @proto_tree_add_double(ptr noundef %3, i32 noundef %57, ptr noundef %0, i32 noundef %41, i32 noundef 4, double noundef %56)
   %59 = add i32 %41, 4
-  %60 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %59) #5
+  %60 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %59)
   %61 = uitofp i8 %60 to double
   %62 = add i32 %41, 5
-  %63 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %62) #5
+  %63 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %62)
   %64 = icmp eq i8 %63, 0
   br i1 %64, label %make_fract.exit81, label %65
 
@@ -697,64 +727,64 @@ make_fract.exit81:                                ; preds = %make_fract.exit, %6
   %.0.i80 = phi double [ %73, %65 ], [ 0.000000e+00, %make_fract.exit ]
   %74 = fadd double %.0.i80, %61
   %75 = load i32, ptr @hf_mp4_mvhd_vol, align 4
-  %76 = tail call ptr @proto_tree_add_double(ptr noundef %3, i32 noundef %75, ptr noundef %0, i32 noundef %59, i32 noundef 4, double noundef %74) #5
+  %76 = tail call ptr @proto_tree_add_double(ptr noundef %3, i32 noundef %75, ptr noundef %0, i32 noundef %59, i32 noundef 4, double noundef %74)
   %77 = add i32 %41, 76
-  %78 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %77) #5
+  %78 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %77)
   %79 = load i32, ptr @hf_mp4_mvhd_next_tid, align 4
-  %80 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %79, ptr noundef %0, i32 noundef %77, i32 noundef 4, i32 noundef 0) #5
+  %80 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %79, ptr noundef %0, i32 noundef %77, i32 noundef 4, i32 noundef 0)
   %81 = icmp eq i32 %78, -1
   br i1 %81, label %82, label %84
 
 82:                                               ; preds = %make_fract.exit81
-  %83 = tail call ptr @expert_add_info(ptr noundef %2, ptr noundef %80, ptr noundef nonnull @ei_mp4_mvhd_next_tid_unknown) #5
+  %83 = tail call ptr @expert_add_info(ptr noundef %2, ptr noundef %80, ptr noundef nonnull @ei_mp4_mvhd_next_tid_unknown)
   br label %84
 
 84:                                               ; preds = %82, %make_fract.exit81
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_mp4_mfhd_body(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_mp4_full_box_ver, align 4
-  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #5
+  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0)
   %6 = add i32 %1, 1
   %7 = load i32, ptr @hf_mp4_full_box_flags, align 4
-  %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %6, i32 noundef 3, i32 noundef 0) #5
+  %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %6, i32 noundef 3, i32 noundef 0)
   %9 = add i32 %1, 4
   %10 = load i32, ptr @hf_mp4_mfhd_seq_num, align 4
-  %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef %9, i32 noundef 4, i32 noundef 0) #5
+  %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef %9, i32 noundef 4, i32 noundef 0)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_mp4_tkhd_body(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #5
+  %4 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1)
   %5 = load i32, ptr @hf_mp4_full_box_ver, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #5
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0)
   %7 = add i32 %1, 1
   %8 = load i32, ptr @hf_mp4_full_box_flags, align 4
   %9 = load i32, ptr @ett_mp4_full_box_flags, align 4
-  %10 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef nonnull @dissect_mp4_tkhd_body.flags, i32 noundef 0) #5
+  %10 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef nonnull @dissect_mp4_tkhd_body.flags, i32 noundef 0)
   %11 = add i32 %1, 4
   %12 = icmp eq i8 %4, 0
   %13 = select i1 %12, i32 4, i32 8
   %14 = load i32, ptr @hf_mp4_tkhd_creat_time, align 4
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef %11, i32 noundef %13, i32 noundef 38) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef %11, i32 noundef %13, i32 noundef 38)
   %16 = add i32 %13, %11
   %17 = load i32, ptr @hf_mp4_tkhd_mod_time, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %17, ptr noundef %0, i32 noundef %16, i32 noundef %13, i32 noundef 38) #5
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %17, ptr noundef %0, i32 noundef %16, i32 noundef %13, i32 noundef 38)
   %19 = add i32 %16, %13
   %20 = load i32, ptr @hf_mp4_tkhd_track_id, align 4
-  %21 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef %19, i32 noundef 4, i32 noundef 0) #5
+  %21 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef %19, i32 noundef 4, i32 noundef 0)
   %22 = add i32 %19, 8
   %23 = load i32, ptr @hf_mp4_tkhd_duration, align 4
-  %24 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %23, ptr noundef %0, i32 noundef %22, i32 noundef %13, i32 noundef 0) #5
+  %24 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %23, ptr noundef %0, i32 noundef %22, i32 noundef %13, i32 noundef 0)
   %25 = add i32 %22, %13
   %26 = add i32 %25, 52
-  %27 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %26) #5
+  %27 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %26)
   %28 = uitofp i16 %27 to double
   %29 = add i32 %25, 54
-  %30 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %29) #5
+  %30 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %29)
   %31 = icmp eq i16 %30, 0
   br i1 %31, label %make_fract.exit, label %32
 
@@ -773,11 +803,11 @@ make_fract.exit:                                  ; preds = %3, %32
   %.0.i = phi double [ %40, %32 ], [ 0.000000e+00, %3 ]
   %41 = fadd double %.0.i, %28
   %42 = load i32, ptr @hf_mp4_tkhd_width, align 4
-  %43 = tail call ptr @proto_tree_add_double(ptr noundef %2, i32 noundef %42, ptr noundef %0, i32 noundef %26, i32 noundef 4, double noundef %41) #5
+  %43 = tail call ptr @proto_tree_add_double(ptr noundef %2, i32 noundef %42, ptr noundef %0, i32 noundef %26, i32 noundef 4, double noundef %41)
   %44 = add i32 %25, 56
-  %45 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %44) #5
+  %45 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %44)
   %46 = add i32 %25, 58
-  %47 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %46) #5
+  %47 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %46)
   %48 = icmp eq i16 %47, 0
   br i1 %48, label %make_fract.exit58, label %49
 
@@ -797,27 +827,27 @@ make_fract.exit58:                                ; preds = %make_fract.exit, %4
   %58 = uitofp i16 %45 to double
   %59 = fadd double %.0.i57, %58
   %60 = load i32, ptr @hf_mp4_tkhd_height, align 4
-  %61 = tail call ptr @proto_tree_add_double(ptr noundef %2, i32 noundef %60, ptr noundef %0, i32 noundef %44, i32 noundef 4, double noundef %59) #5
+  %61 = tail call ptr @proto_tree_add_double(ptr noundef %2, i32 noundef %60, ptr noundef %0, i32 noundef %44, i32 noundef 4, double noundef %59)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_mp4_stsz_body(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_mp4_full_box_ver, align 4
-  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #5
+  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0)
   %6 = add i32 %1, 1
   %7 = load i32, ptr @hf_mp4_full_box_flags, align 4
-  %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %6, i32 noundef 3, i32 noundef 0) #5
+  %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %6, i32 noundef 3, i32 noundef 0)
   %9 = add i32 %1, 4
-  %10 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %9) #5
+  %10 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %9)
   %11 = load i32, ptr @hf_mp4_stsz_sample_size, align 4
   %12 = icmp ne i32 %10, 0
-  %13 = select i1 %12, ptr @.str.170, ptr @.str.169
-  %14 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %11, ptr noundef %0, i32 noundef %9, i32 noundef 4, i32 noundef %10, ptr noundef nonnull @.str.168, i32 noundef %10, ptr noundef nonnull %13) #5
+  %13 = select i1 %12, ptr @.str.172, ptr @.str.171
+  %14 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %11, ptr noundef %0, i32 noundef %9, i32 noundef 4, i32 noundef %10, ptr noundef nonnull @.str.170, i32 noundef %10, ptr noundef nonnull %13)
   %15 = add i32 %1, 8
-  %16 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %15) #5
+  %16 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %15)
   %17 = load i32, ptr @hf_mp4_stsz_sample_count, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %17, ptr noundef %0, i32 noundef %15, i32 noundef 4, i32 noundef 0) #5
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %17, ptr noundef %0, i32 noundef %15, i32 noundef 4, i32 noundef 0)
   %.not391 = icmp eq i32 %16, 0
   %or.cond = select i1 %12, i1 true, i1 %.not391
   br i1 %or.cond, label %._crit_edge, label %.lr.ph.preheader
@@ -829,33 +859,34 @@ define internal fastcc void @dissect_mp4_stsz_body(ptr noundef %0, i32 noundef %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.0373 = phi i32 [ %24, %.lr.ph ], [ 1, %.lr.ph.preheader ]
   %.0382 = phi i32 [ %23, %.lr.ph ], [ %19, %.lr.ph.preheader ]
-  %20 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0382) #5
+  %20 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0382)
   %21 = load i32, ptr @hf_mp4_stsz_entry_size, align 4
-  %22 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %21, ptr noundef %0, i32 noundef %.0382, i32 noundef 4, i32 noundef %20, ptr noundef nonnull @.str.171, i32 noundef %.0373, i32 noundef %20) #5
+  %22 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %21, ptr noundef %0, i32 noundef %.0382, i32 noundef 4, i32 noundef %20, ptr noundef nonnull @.str.173, i32 noundef %.0373, i32 noundef %20)
   %23 = add i32 %.0382, 4
   %24 = add i32 %.0373, 1
   %.not39 = icmp ugt i32 %24, %16
-  br i1 %.not39, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not39, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_mp4_stsc_body(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
   %9 = load i32, ptr @hf_mp4_full_box_ver, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #5
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0)
   %11 = add i32 %1, 1
   %12 = load i32, ptr @hf_mp4_full_box_flags, align 4
-  %13 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %11, i32 noundef 3, i32 noundef 0) #5
+  %13 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %11, i32 noundef 3, i32 noundef 0)
   %14 = add i32 %1, 4
   %15 = load i32, ptr @hf_mp4_stsc_entry_count, align 4
-  %16 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef %14, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %4) #5
+  %16 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef %14, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %4)
   %17 = load i32, ptr %4, align 4
   %.not1 = icmp eq i32 %17, 0
   br i1 %.not1, label %._crit_edge, label %.lr.ph.preheader
@@ -867,59 +898,68 @@ define internal fastcc void @dissect_mp4_stsc_body(ptr noundef %0, i32 noundef %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.03 = phi i32 [ %29, %.lr.ph ], [ %18, %.lr.ph.preheader ]
   %.0262 = phi i32 [ %34, %.lr.ph ], [ 1, %.lr.ph.preheader ]
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
   %19 = load i32, ptr @ett_mp4_entry, align 4
-  %20 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.03, i32 noundef 12, i32 noundef %19, ptr noundef nonnull %5, ptr noundef nonnull @.str.172, i32 noundef %.0262) #5
+  %20 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.03, i32 noundef 12, i32 noundef %19, ptr noundef nonnull %5, ptr noundef nonnull @.str.174, i32 noundef %.0262)
   %21 = load i32, ptr @hf_mp4_stsc_first_chunk, align 4
-  %22 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %20, i32 noundef %21, ptr noundef %0, i32 noundef %.03, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %6) #5
+  %22 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %20, i32 noundef %21, ptr noundef %0, i32 noundef %.03, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %6)
   %23 = add i32 %.03, 4
   %24 = load i32, ptr @hf_mp4_stsc_samples_per_chunk, align 4
-  %25 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %20, i32 noundef %24, ptr noundef %0, i32 noundef %23, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %7) #5
+  %25 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %20, i32 noundef %24, ptr noundef %0, i32 noundef %23, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %7)
   %26 = add i32 %.03, 8
   %27 = load i32, ptr @hf_mp4_stsc_sample_description_index, align 4
-  %28 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %20, i32 noundef %27, ptr noundef %0, i32 noundef %26, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %8) #5
+  %28 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %20, i32 noundef %27, ptr noundef %0, i32 noundef %26, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %8)
   %29 = add i32 %.03, 12
   %30 = load ptr, ptr %5, align 8
   %31 = load i32, ptr %6, align 4
   %32 = load i32, ptr %7, align 4
   %33 = load i32, ptr %8, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %30, ptr noundef nonnull @.str.173, i32 noundef %31, i32 noundef %32, i32 noundef %33) #5
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %30, ptr noundef nonnull @.str.175, i32 noundef %31, i32 noundef %32, i32 noundef %33)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
   %34 = add i32 %.0262, 1
   %35 = load i32, ptr %4, align 4
   %.not = icmp ugt i32 %34, %35
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_mp4_hdlr_body(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_mp4_full_box_ver, align 4
-  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #5
+  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0)
   %6 = add i32 %1, 1
   %7 = load i32, ptr @hf_mp4_full_box_flags, align 4
-  %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %6, i32 noundef 3, i32 noundef 0) #5
+  %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %6, i32 noundef 3, i32 noundef 0)
   %9 = add i32 %1, 8
   %10 = load i32, ptr @hf_mp4_hdlr_type, align 4
-  %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef %9, i32 noundef 4, i32 noundef 0) #5
+  %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef %9, i32 noundef 4, i32 noundef 0)
   %12 = add i32 %1, 24
-  %13 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %12) #5
+  %13 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %12)
   %14 = load i32, ptr @hf_mp4_hdlr_name, align 4
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef %12, i32 noundef %13, i32 noundef 2) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef %12, i32 noundef %13, i32 noundef 2)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_mp4_dref_body(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_mp4_full_box_ver, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #5
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0)
   %8 = add i32 %1, 1
   %9 = load i32, ptr @hf_mp4_full_box_flags, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %9, ptr noundef %0, i32 noundef %8, i32 noundef 3, i32 noundef 0) #5
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %9, ptr noundef %0, i32 noundef %8, i32 noundef 3, i32 noundef 0)
   %11 = add i32 %1, 4
-  %12 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %11) #5
+  %12 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %11)
   %13 = load i32, ptr @hf_mp4_dref_entry_cnt, align 4
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %13, ptr noundef %0, i32 noundef %11, i32 noundef 4, i32 noundef 0) #5
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %13, ptr noundef %0, i32 noundef %11, i32 noundef 4, i32 noundef 0)
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
@@ -938,35 +978,35 @@ define internal fastcc void @dissect_mp4_dref_body(ptr noundef %0, i32 noundef %
   %19 = add i32 %16, %.026
   %20 = add nuw i32 %.02325, 1
   %exitcond.not = icmp eq i32 %20, %12
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %18, %.lr.ph, %5
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_mp4_url_body(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_mp4_full_box_ver, align 4
-  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #5
+  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0)
   %6 = add i32 %1, 1
-  %7 = tail call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %6) #5
+  %7 = tail call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %6)
   %8 = load i32, ptr @hf_mp4_full_box_flags, align 4
   %9 = load i32, ptr @ett_mp4_full_box_flags, align 4
-  %10 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef %6, i32 noundef %8, i32 noundef %9, ptr noundef nonnull @dissect_mp4_url_body.flags_fields, i32 noundef 0) #5
+  %10 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef %6, i32 noundef %8, i32 noundef %9, ptr noundef nonnull @dissect_mp4_url_body.flags_fields, i32 noundef 0)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_mp4_stsd_body(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_mp4_full_box_ver, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #5
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0)
   %8 = add i32 %1, 1
   %9 = load i32, ptr @hf_mp4_full_box_flags, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %9, ptr noundef %0, i32 noundef %8, i32 noundef 3, i32 noundef 0) #5
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %9, ptr noundef %0, i32 noundef %8, i32 noundef 3, i32 noundef 0)
   %11 = add i32 %1, 4
-  %12 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %11) #5
+  %12 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %11)
   %13 = load i32, ptr @hf_mp4_stsd_entry_cnt, align 4
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %13, ptr noundef %0, i32 noundef %11, i32 noundef 4, i32 noundef 0) #5
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %13, ptr noundef %0, i32 noundef %11, i32 noundef 4, i32 noundef 0)
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
@@ -985,26 +1025,27 @@ define internal fastcc void @dissect_mp4_stsd_body(ptr noundef %0, i32 noundef %
   %19 = add i32 %16, %.024
   %20 = add nuw i32 %.02123, 1
   %exitcond.not = icmp eq i32 %20, %12
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %18, %.lr.ph, %5
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_mp4_stts_body(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
   %8 = load i32, ptr @hf_mp4_full_box_ver, align 4
-  %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #5
+  %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0)
   %10 = add i32 %1, 1
   %11 = load i32, ptr @hf_mp4_full_box_flags, align 4
-  %12 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %11, ptr noundef %0, i32 noundef %10, i32 noundef 3, i32 noundef 0) #5
+  %12 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %11, ptr noundef %0, i32 noundef %10, i32 noundef 3, i32 noundef 0)
   %13 = add i32 %1, 4
   %14 = load i32, ptr @hf_mp4_stts_entry_cnt, align 4
-  %15 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %4) #5
+  %15 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %4)
   %16 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -1013,37 +1054,45 @@ define internal fastcc void @dissect_mp4_stts_body(ptr noundef %0, i32 noundef %
   %.0.in2 = phi i32 [ %.0, %.lr.ph ], [ %1, %3 ]
   %.0221 = phi i32 [ %18, %.lr.ph ], [ 0, %3 ]
   %.0 = add i32 %.0.in2, 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
   %17 = load i32, ptr @ett_mp4_entry, align 4
   %18 = add nuw i32 %.0221, 1
-  %19 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.0, i32 noundef 8, i32 noundef %17, ptr noundef nonnull %5, ptr noundef nonnull @.str.172, i32 noundef %18) #5
+  %19 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.0, i32 noundef 8, i32 noundef %17, ptr noundef nonnull %5, ptr noundef nonnull @.str.174, i32 noundef %18)
   %20 = load i32, ptr @hf_mp4_stts_sample_count, align 4
-  %21 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %19, i32 noundef %20, ptr noundef %0, i32 noundef %.0, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %6) #5
+  %21 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %19, i32 noundef %20, ptr noundef %0, i32 noundef %.0, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %6)
   %22 = add i32 %.0.in2, 12
   %23 = load i32, ptr @hf_mp4_stts_sample_delta, align 4
-  %24 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %19, i32 noundef %23, ptr noundef %0, i32 noundef %22, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %7) #5
+  %24 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %19, i32 noundef %23, ptr noundef %0, i32 noundef %22, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %7)
   %25 = load ptr, ptr %5, align 8
   %26 = load i32, ptr %6, align 4
   %27 = load i32, ptr %7, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %25, ptr noundef nonnull @.str.174, i32 noundef %26, i32 noundef %27) #5
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %25, ptr noundef nonnull @.str.176, i32 noundef %26, i32 noundef %27)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
   %28 = load i32, ptr %4, align 4
   %29 = icmp ult i32 %18, %28
-  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_mp4_stco_body(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
   %5 = load i32, ptr @hf_mp4_full_box_ver, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #5
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0)
   %7 = add i32 %1, 1
   %8 = load i32, ptr @hf_mp4_full_box_flags, align 4
-  %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %7, i32 noundef 3, i32 noundef 0) #5
+  %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %7, i32 noundef 3, i32 noundef 0)
   %10 = add i32 %1, 4
   %11 = load i32, ptr @hf_mp4_stco_entry_cnt, align 4
-  %12 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %11, ptr noundef %0, i32 noundef %10, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %4) #5
+  %12 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %11, ptr noundef %0, i32 noundef %10, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %4)
   %13 = load i32, ptr %4, align 4
   %.not1 = icmp eq i32 %13, 0
   br i1 %.not1, label %._crit_edge, label %.lr.ph.preheader
@@ -1055,34 +1104,36 @@ define internal fastcc void @dissect_mp4_stco_body(ptr noundef %0, i32 noundef %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.03 = phi i32 [ %18, %.lr.ph ], [ %14, %.lr.ph.preheader ]
   %.0192 = phi i32 [ %19, %.lr.ph ], [ 1, %.lr.ph.preheader ]
-  %15 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.03) #5
+  %15 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.03)
   %16 = load i32, ptr @hf_mp4_stco_chunk_offset, align 4
-  %17 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %16, ptr noundef %0, i32 noundef %.03, i32 noundef 4, i32 noundef %15, ptr noundef nonnull @.str.175, i32 noundef %.0192, i32 noundef %15) #5
+  %17 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %16, ptr noundef %0, i32 noundef %.03, i32 noundef 4, i32 noundef %15, ptr noundef nonnull @.str.177, i32 noundef %.0192, i32 noundef %15)
   %18 = add i32 %.03, 4
   %19 = add i32 %.0192, 1
   %20 = load i32, ptr %4, align 4
   %.not = icmp ugt i32 %19, %20
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_mp4_ctts_body(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
+  %8 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1)
   %9 = load i32, ptr @hf_mp4_full_box_ver, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #5
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0)
   %11 = add i32 %1, 1
   %12 = load i32, ptr @hf_mp4_full_box_flags, align 4
-  %13 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %11, i32 noundef 3, i32 noundef 0) #5
+  %13 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %11, i32 noundef 3, i32 noundef 0)
   %14 = add i32 %1, 4
   %15 = load i32, ptr @hf_mp4_stts_entry_cnt, align 4
-  %16 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef %14, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %4) #5
+  %16 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef %14, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %4)
   %17 = icmp eq i8 %8, 1
   %18 = load i32, ptr @hf_mp4_ctts_sample_offset_signed, align 4
   %19 = load i32, ptr @hf_mp4_ctts_sample_offset_unsigned, align 4
@@ -1095,26 +1146,33 @@ define internal fastcc void @dissect_mp4_ctts_body(ptr noundef %0, i32 noundef %
   %.0.in2 = phi i32 [ %.0, %.lr.ph ], [ %1, %3 ]
   %.0231 = phi i32 [ %23, %.lr.ph ], [ 0, %3 ]
   %.0 = add i32 %.0.in2, 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
   %22 = load i32, ptr @ett_mp4_entry, align 4
   %23 = add nuw i32 %.0231, 1
-  %24 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.0, i32 noundef 8, i32 noundef %22, ptr noundef nonnull %5, ptr noundef nonnull @.str.172, i32 noundef %23) #5
+  %24 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.0, i32 noundef 8, i32 noundef %22, ptr noundef nonnull %5, ptr noundef nonnull @.str.174, i32 noundef %23)
   %25 = load i32, ptr @hf_mp4_ctts_sample_count, align 4
-  %26 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %24, i32 noundef %25, ptr noundef %0, i32 noundef %.0, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %6) #5
+  %26 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %24, i32 noundef %25, ptr noundef %0, i32 noundef %.0, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %6)
   %27 = add i32 %.0.in2, 12
-  %28 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %24, i32 noundef %20, ptr noundef %0, i32 noundef %27, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %7) #5
+  %28 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %24, i32 noundef %20, ptr noundef %0, i32 noundef %27, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %7)
   %29 = load ptr, ptr %5, align 8
   %30 = load i32, ptr %6, align 4
   %31 = load i32, ptr %7, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %29, ptr noundef nonnull @.str.176, i32 noundef %30, i32 noundef %31) #5
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %29, ptr noundef nonnull @.str.178, i32 noundef %30, i32 noundef %31)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
   %32 = load i32, ptr %4, align 4
   %33 = icmp ult i32 %23, %32
-  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_mp4_elst_body(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.nstime_t, align 8
   %6 = alloca %struct.nstime_t, align 8
@@ -1122,15 +1180,16 @@ define internal fastcc void @dissect_mp4_elst_body(ptr noundef %0, i32 noundef %
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #5
+  %11 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1)
   %12 = load i32, ptr @hf_mp4_full_box_ver, align 4
-  %13 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %12, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #5
+  %13 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %12, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0)
   %14 = add i32 %1, 1
   %15 = load i32, ptr @hf_mp4_full_box_flags, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %15, ptr noundef %0, i32 noundef %14, i32 noundef 3, i32 noundef 0) #5
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %15, ptr noundef %0, i32 noundef %14, i32 noundef 3, i32 noundef 0)
   %17 = add i32 %1, 4
   %18 = load i32, ptr @hf_mp4_elst_entry_cnt, align 4
-  %19 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %3, i32 noundef %18, ptr noundef %0, i32 noundef %17, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %7) #5
+  %19 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %3, i32 noundef %18, ptr noundef %0, i32 noundef %17, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %7)
   %20 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -1147,30 +1206,33 @@ define internal fastcc void @dissect_mp4_elst_body(ptr noundef %0, i32 noundef %
 27:                                               ; preds = %.lr.ph, %timescaled_val_to_str.exit58
   %.061 = phi i32 [ %21, %.lr.ph ], [ %80, %timescaled_val_to_str.exit58 ]
   %.05560 = phi i32 [ 0, %.lr.ph ], [ %29, %timescaled_val_to_str.exit58 ]
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #5
   %28 = load i32, ptr @ett_mp4_entry, align 4
   %29 = add nuw i32 %.05560, 1
-  %30 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %3, ptr noundef %0, i32 noundef %.061, i32 noundef 8, i32 noundef %28, ptr noundef nonnull %8, ptr noundef nonnull @.str.172, i32 noundef %29) #5
+  %30 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %3, ptr noundef %0, i32 noundef %.061, i32 noundef 8, i32 noundef %28, ptr noundef nonnull %8, ptr noundef nonnull @.str.174, i32 noundef %29)
   br i1 %22, label %31, label %33
 
 31:                                               ; preds = %27
-  %32 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %.061) #5
+  %32 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %.061)
   br label %36
 
 33:                                               ; preds = %27
-  %34 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.061) #5
+  %34 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.061)
   %35 = zext i32 %34 to i64
   br label %36
 
 36:                                               ; preds = %33, %31
   %.056 = phi i64 [ %32, %31 ], [ %35, %33 ]
   %37 = load ptr, ptr %24, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #5
   %38 = load i32, ptr @mvhd_timescale, align 4
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %36
-  %41 = call noalias ptr @wmem_strdup(ptr noundef %37, ptr noundef nonnull @.str.180) #5
+  %41 = call noalias ptr @wmem_strdup(ptr noundef %37, ptr noundef nonnull @.str.182)
   br label %timescaled_val_to_str.exit
 
 42:                                               ; preds = %36
@@ -1182,36 +1244,36 @@ define internal fastcc void @dissect_mp4_elst_body(ptr noundef %0, i32 noundef %
   %47 = trunc nuw i64 %45 to i32
   %48 = mul i32 %46, %47
   store i32 %48, ptr %25, align 8
-  %49 = call ptr @rel_time_to_str(ptr noundef %37, ptr noundef nonnull %6) #5
+  %49 = call ptr @rel_time_to_str(ptr noundef %37, ptr noundef nonnull %6)
   br label %timescaled_val_to_str.exit
 
 timescaled_val_to_str.exit:                       ; preds = %40, %42
   %.0.i = phi ptr [ %41, %40 ], [ %49, %42 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #5
   %50 = load i32, ptr @hf_mp4_elst_segment_duration, align 4
-  %51 = call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_uint64_format(ptr noundef %30, i32 noundef %50, ptr noundef %0, i32 noundef %.061, i32 noundef %23, i64 noundef %.056, ptr noundef nonnull @.str.177, ptr noundef %.0.i, i64 noundef %.056) #5
+  %51 = call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_uint64_format(ptr noundef %30, i32 noundef %50, ptr noundef %0, i32 noundef %.061, i32 noundef %23, i64 noundef %.056, ptr noundef nonnull @.str.179, ptr noundef %.0.i, i64 noundef %.056)
   %52 = add i32 %.061, %23
   br i1 %22, label %53, label %55
 
 53:                                               ; preds = %timescaled_val_to_str.exit
-  %54 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %52) #5
+  %54 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %52)
   br label %58
 
 55:                                               ; preds = %timescaled_val_to_str.exit
-  %56 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %52) #5
+  %56 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %52)
   %57 = zext i32 %56 to i64
   br label %58
 
 58:                                               ; preds = %55, %53
   %.054 = phi i64 [ %54, %53 ], [ %57, %55 ]
   %59 = load ptr, ptr %24, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #5
   %60 = load i32, ptr @mvhd_timescale, align 4
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %58
-  %63 = call noalias ptr @wmem_strdup(ptr noundef %59, ptr noundef nonnull @.str.180) #5
+  %63 = call noalias ptr @wmem_strdup(ptr noundef %59, ptr noundef nonnull @.str.182)
   br label %timescaled_val_to_str.exit58
 
 64:                                               ; preds = %58
@@ -1223,48 +1285,52 @@ timescaled_val_to_str.exit:                       ; preds = %40, %42
   %69 = trunc nuw i64 %67 to i32
   %70 = mul i32 %68, %69
   store i32 %70, ptr %26, align 8
-  %71 = call ptr @rel_time_to_str(ptr noundef %59, ptr noundef nonnull %5) #5
+  %71 = call ptr @rel_time_to_str(ptr noundef %59, ptr noundef nonnull %5)
   br label %timescaled_val_to_str.exit58
 
 timescaled_val_to_str.exit58:                     ; preds = %62, %64
   %.0.i57 = phi ptr [ %63, %62 ], [ %71, %64 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #5
   %72 = load i32, ptr @hf_mp4_elst_media_time, align 4
-  %73 = call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_int64_format(ptr noundef %30, i32 noundef %72, ptr noundef %0, i32 noundef %52, i32 noundef %23, i64 noundef %.054, ptr noundef nonnull @.str.178, ptr noundef %.0.i57, i64 noundef %.054) #5
+  %73 = call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_int64_format(ptr noundef %30, i32 noundef %72, ptr noundef %0, i32 noundef %52, i32 noundef %23, i64 noundef %.054, ptr noundef nonnull @.str.180, ptr noundef %.0.i57, i64 noundef %.054)
   %74 = add i32 %52, %23
   %75 = load i32, ptr @hf_mp4_elst_media_rate_integer, align 4
-  %76 = call ptr @proto_tree_add_item_ret_int(ptr noundef %30, i32 noundef %75, ptr noundef %0, i32 noundef %74, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %9) #5
+  %76 = call ptr @proto_tree_add_item_ret_int(ptr noundef %30, i32 noundef %75, ptr noundef %0, i32 noundef %74, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %9)
   %77 = add i32 %74, 2
   %78 = load i32, ptr @hf_mp4_elst_media_rate_fraction, align 4
-  %79 = call ptr @proto_tree_add_item_ret_int(ptr noundef %30, i32 noundef %78, ptr noundef %0, i32 noundef %77, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %10) #5
+  %79 = call ptr @proto_tree_add_item_ret_int(ptr noundef %30, i32 noundef %78, ptr noundef %0, i32 noundef %77, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %10)
   %80 = add i32 %74, 4
   %81 = load ptr, ptr %8, align 8
   %82 = load i32, ptr %9, align 4
   %83 = load i32, ptr %10, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %81, ptr noundef nonnull @.str.179, ptr noundef %.0.i, ptr noundef %.0.i57, i32 noundef %82, i32 noundef %83) #5
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %81, ptr noundef nonnull @.str.181, ptr noundef %.0.i, ptr noundef %.0.i57, i32 noundef %82, i32 noundef %83)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #5
   %84 = load i32, ptr %7, align 4
   %85 = icmp ult i32 %29, %84
-  br i1 %85, label %27, label %._crit_edge, !llvm.loop !15
+  br i1 %85, label %27, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %timescaled_val_to_str.exit58, %4
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_mp4_sidx_body(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #5
+  %5 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1)
   %6 = load i32, ptr @hf_mp4_full_box_ver, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #5
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0)
   %8 = add i32 %1, 1
   %9 = load i32, ptr @hf_mp4_full_box_flags, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef %8, i32 noundef 3, i32 noundef 0) #5
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef %8, i32 noundef 3, i32 noundef 0)
   %11 = add i32 %1, 4
   %12 = load i32, ptr @hf_mp4_sidx_reference_id, align 4
-  %13 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %11, i32 noundef 4, i32 noundef 0) #5
+  %13 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %11, i32 noundef 4, i32 noundef 0)
   %14 = add i32 %1, 8
   %15 = load i32, ptr @hf_mp4_sidx_timescale, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef %14, i32 noundef 4, i32 noundef 0) #5
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef %14, i32 noundef 4, i32 noundef 0)
   %17 = add i32 %1, 12
   %18 = icmp eq i8 %5, 0
   %. = select i1 %18, i32 4, i32 8
@@ -1273,19 +1339,19 @@ define internal fastcc void @dissect_mp4_sidx_body(ptr noundef %0, i32 noundef %
   %hf_mp4_sidx_earliest_presentation_time_v0.val = load i32, ptr @hf_mp4_sidx_earliest_presentation_time_v0, align 4
   %hf_mp4_sidx_earliest_presentation_time.val = load i32, ptr @hf_mp4_sidx_earliest_presentation_time, align 4
   %19 = select i1 %18, i32 %hf_mp4_sidx_earliest_presentation_time_v0.val, i32 %hf_mp4_sidx_earliest_presentation_time.val
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef %17, i32 noundef %., i32 noundef 0) #5
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef %17, i32 noundef %., i32 noundef 0)
   %21 = add i32 %1, %.14
   %hf_mp4_sidx_first_offset_v0.val = load i32, ptr @hf_mp4_sidx_first_offset_v0, align 4
   %hf_mp4_sidx_first_offset.val = load i32, ptr @hf_mp4_sidx_first_offset, align 4
   %22 = select i1 %18, i32 %hf_mp4_sidx_first_offset_v0.val, i32 %hf_mp4_sidx_first_offset.val
-  %23 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %22, ptr noundef %0, i32 noundef %21, i32 noundef %., i32 noundef 0) #5
+  %23 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %22, ptr noundef %0, i32 noundef %21, i32 noundef %., i32 noundef 0)
   %24 = add i32 %1, %.16
   %25 = load i32, ptr @hf_mp4_sidx_reserved, align 4
-  %26 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %25, ptr noundef %0, i32 noundef %24, i32 noundef 2, i32 noundef 0) #5
+  %26 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %25, ptr noundef %0, i32 noundef %24, i32 noundef 2, i32 noundef 0)
   %27 = add i32 %24, 2
-  %28 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %27, i32 noundef 0) #5
+  %28 = tail call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %27, i32 noundef 0)
   %29 = load i32, ptr @hf_mp4_sidx_entry_cnt, align 4
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %29, ptr noundef %0, i32 noundef %27, i32 noundef 2, i32 noundef 0) #5
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %29, ptr noundef %0, i32 noundef %27, i32 noundef 2, i32 noundef 0)
   %.not2 = icmp eq i16 %28, 0
   br i1 %.not2, label %._crit_edge, label %.lr.ph.preheader
 
@@ -1298,97 +1364,109 @@ define internal fastcc void @dissect_mp4_sidx_body(ptr noundef %0, i32 noundef %
   %.1.in4 = phi i32 [ %41, %.lr.ph ], [ %24, %.lr.ph.preheader ]
   %.0683 = phi i16 [ %48, %.lr.ph ], [ 1, %.lr.ph.preheader ]
   %31 = zext i16 %.0683 to i32
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
   %32 = load i32, ptr @ett_mp4_entry, align 4
-  %33 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.15, i32 noundef 8, i32 noundef %32, ptr noundef nonnull %4, ptr noundef nonnull @.str.172, i32 noundef %31) #5
+  %33 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.15, i32 noundef 8, i32 noundef %32, ptr noundef nonnull %4, ptr noundef nonnull @.str.174, i32 noundef %31)
   %34 = load i32, ptr @hf_mp4_sidx_reference_type, align 4
-  %35 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %34, ptr noundef %0, i32 noundef %.15, i32 noundef 4, i32 noundef 0) #5
+  %35 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %34, ptr noundef %0, i32 noundef %.15, i32 noundef 4, i32 noundef 0)
   %36 = load i32, ptr @hf_mp4_sidx_reference_size, align 4
-  %37 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %36, ptr noundef %0, i32 noundef %.15, i32 noundef 4, i32 noundef 0) #5
+  %37 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %36, ptr noundef %0, i32 noundef %.15, i32 noundef 4, i32 noundef 0)
   %38 = add i32 %.1.in4, 8
   %39 = load i32, ptr @hf_mp4_sidx_subsegment_duration, align 4
-  %40 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %39, ptr noundef %0, i32 noundef %38, i32 noundef 4, i32 noundef 0) #5
+  %40 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %39, ptr noundef %0, i32 noundef %38, i32 noundef 4, i32 noundef 0)
   %41 = add i32 %.1.in4, 12
   %42 = load i32, ptr @hf_mp4_sidx_starts_with_sap, align 4
-  %43 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %42, ptr noundef %0, i32 noundef %41, i32 noundef 4, i32 noundef 0) #5
+  %43 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %42, ptr noundef %0, i32 noundef %41, i32 noundef 4, i32 noundef 0)
   %44 = load i32, ptr @hf_mp4_sidx_sap_type, align 4
-  %45 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %44, ptr noundef %0, i32 noundef %41, i32 noundef 4, i32 noundef 0) #5
+  %45 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %44, ptr noundef %0, i32 noundef %41, i32 noundef 4, i32 noundef 0)
   %46 = load i32, ptr @hf_mp4_sidx_sap_delta_time, align 4
-  %47 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %46, ptr noundef %0, i32 noundef %41, i32 noundef 4, i32 noundef 0) #5
+  %47 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %46, ptr noundef %0, i32 noundef %41, i32 noundef 4, i32 noundef 0)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
   %48 = add i16 %.0683, 1
   %.1 = add i32 %.1.in4, 16
   %.not = icmp ugt i16 %48, %28
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
 }
 
-declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_uint64_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint64_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_double(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, double noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_double(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, double noundef) local_unnamed_addr #2
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @tvb_get_ntoh24(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_ntoh24(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @exp(double noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(write)
+declare double @exp(double noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @log(double noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(write)
+declare double @log(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.floor.f64(double) #3
+declare double @llvm.floor.f64(double) #4
 
-declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @tvb_strsize(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_strsize(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_int64_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_int64_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_item_ret_int(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item_ret_int(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @rel_time_to_str(ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @rel_time_to_str(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare zeroext i16 @tvb_get_guint16(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_uint16(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}

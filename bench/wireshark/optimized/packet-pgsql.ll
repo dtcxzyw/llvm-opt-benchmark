@@ -5,8 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
-%struct._gssapi_encrypt_info = type { i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._gssapi_encrypt_info = type { i16, ptr, ptr, ptr, ptr, ptr, i8 }
 
 @proto_register_pgsql.hf = internal global [60 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_frontend, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 2, i32 0, ptr null, i64 0, ptr @.str.2, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_type, %struct._header_field_info { ptr @.str.3, ptr @.str.4, i32 26, i32 0, ptr null, i64 0, ptr @.str.5, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_length, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 7, i32 1, ptr null, i64 0, ptr @.str.8, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_version_major, %struct._header_field_info { ptr @.str.9, ptr @.str.10, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_version_minor, %struct._header_field_info { ptr @.str.11, ptr @.str.12, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_request_code, %struct._header_field_info { ptr @.str.13, ptr @.str.14, i32 7, i32 1, ptr @request_code_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_supported_minor_version, %struct._header_field_info { ptr @.str.15, ptr @.str.16, i32 7, i32 1, ptr null, i64 0, ptr @.str.17, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_number_nonsupported_options, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_nonsupported_option, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 27, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_parameter_name, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 27, i32 0, ptr null, i64 0, ptr @.str.24, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_parameter_value, %struct._header_field_info { ptr @.str.25, ptr @.str.26, i32 27, i32 0, ptr null, i64 0, ptr @.str.27, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_query, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 27, i32 0, ptr null, i64 0, ptr @.str.30, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_passwd, %struct._header_field_info { ptr @.str.31, ptr @.str.32, i32 27, i32 0, ptr null, i64 0, ptr @.str.33, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_authtype, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 7, i32 1, ptr @auth_types, i64 0, ptr @.str.36, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_salt, %struct._header_field_info { ptr @.str.37, ptr @.str.38, i32 30, i32 0, ptr null, i64 0, ptr @.str.39, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gssapi_sspi_data, %struct._header_field_info { ptr @.str.40, ptr @.str.41, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sasl_auth_mech, %struct._header_field_info { ptr @.str.42, ptr @.str.43, i32 27, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sasl_auth_data_length, %struct._header_field_info { ptr @.str.44, ptr @.str.45, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_sasl_auth_data, %struct._header_field_info { ptr @.str.46, ptr @.str.47, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_statement, %struct._header_field_info { ptr @.str.48, ptr @.str.49, i32 27, i32 0, ptr null, i64 0, ptr @.str.50, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_portal, %struct._header_field_info { ptr @.str.51, ptr @.str.52, i32 27, i32 0, ptr null, i64 0, ptr @.str.53, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_return, %struct._header_field_info { ptr @.str.54, ptr @.str.55, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_tag, %struct._header_field_info { ptr @.str.56, ptr @.str.57, i32 27, i32 0, ptr null, i64 0, ptr @.str.58, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_status, %struct._header_field_info { ptr @.str.59, ptr @.str.60, i32 4, i32 1, ptr @status_vals, i64 0, ptr @.str.61, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_copydata, %struct._header_field_info { ptr @.str.62, ptr @.str.63, i32 30, i32 0, ptr null, i64 0, ptr @.str.64, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_error, %struct._header_field_info { ptr @.str.65, ptr @.str.66, i32 27, i32 0, ptr null, i64 0, ptr @.str.67, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pid, %struct._header_field_info { ptr @.str.68, ptr @.str.69, i32 7, i32 1, ptr null, i64 0, ptr @.str.70, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_key, %struct._header_field_info { ptr @.str.71, ptr @.str.72, i32 7, i32 1, ptr null, i64 0, ptr @.str.73, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_condition, %struct._header_field_info { ptr @.str.74, ptr @.str.75, i32 27, i32 0, ptr null, i64 0, ptr @.str.76, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_text, %struct._header_field_info { ptr @.str.77, ptr @.str.78, i32 27, i32 0, ptr null, i64 0, ptr @.str.79, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_tableoid, %struct._header_field_info { ptr @.str.80, ptr @.str.81, i32 7, i32 1, ptr null, i64 0, ptr @.str.82, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_typeoid, %struct._header_field_info { ptr @.str.83, ptr @.str.84, i32 7, i32 1, ptr null, i64 0, ptr @.str.85, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_oid, %struct._header_field_info { ptr @.str.86, ptr @.str.87, i32 7, i32 1, ptr null, i64 0, ptr @.str.88, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_format, %struct._header_field_info { ptr @.str.89, ptr @.str.90, i32 5, i32 1, ptr @format_vals, i64 0, ptr @.str.91, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_field_count, %struct._header_field_info { ptr @.str.92, ptr @.str.93, i32 5, i32 1, ptr null, i64 0, ptr @.str.94, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_val_name, %struct._header_field_info { ptr @.str.95, ptr @.str.96, i32 27, i32 0, ptr null, i64 0, ptr @.str.97, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_val_idx, %struct._header_field_info { ptr @.str.98, ptr @.str.99, i32 7, i32 1, ptr null, i64 0, ptr @.str.100, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_val_length, %struct._header_field_info { ptr @.str.101, ptr @.str.102, i32 15, i32 1, ptr null, i64 0, ptr @.str.103, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_val_data, %struct._header_field_info { ptr @.str.104, ptr @.str.105, i32 30, i32 0, ptr null, i64 0, ptr @.str.106, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_val_mod, %struct._header_field_info { ptr @.str.107, ptr @.str.108, i32 15, i32 1, ptr null, i64 0, ptr @.str.109, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_severity, %struct._header_field_info { ptr @.str.110, ptr @.str.111, i32 27, i32 0, ptr null, i64 0, ptr @.str.112, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_code, %struct._header_field_info { ptr @.str.113, ptr @.str.114, i32 27, i32 0, ptr null, i64 0, ptr @.str.115, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_message, %struct._header_field_info { ptr @.str.116, ptr @.str.117, i32 27, i32 0, ptr null, i64 0, ptr @.str.118, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_detail, %struct._header_field_info { ptr @.str.119, ptr @.str.120, i32 27, i32 0, ptr null, i64 0, ptr @.str.121, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_hint, %struct._header_field_info { ptr @.str.122, ptr @.str.123, i32 27, i32 0, ptr null, i64 0, ptr @.str.124, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_position, %struct._header_field_info { ptr @.str.125, ptr @.str.126, i32 27, i32 0, ptr null, i64 0, ptr @.str.127, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_internal_position, %struct._header_field_info { ptr @.str.128, ptr @.str.129, i32 27, i32 0, ptr null, i64 0, ptr @.str.130, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_internal_query, %struct._header_field_info { ptr @.str.131, ptr @.str.132, i32 27, i32 0, ptr null, i64 0, ptr @.str.133, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_where, %struct._header_field_info { ptr @.str.134, ptr @.str.135, i32 27, i32 0, ptr null, i64 0, ptr @.str.136, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_schema_name, %struct._header_field_info { ptr @.str.137, ptr @.str.138, i32 27, i32 0, ptr null, i64 0, ptr @.str.139, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_table_name, %struct._header_field_info { ptr @.str.140, ptr @.str.141, i32 27, i32 0, ptr null, i64 0, ptr @.str.142, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_column_name, %struct._header_field_info { ptr @.str.143, ptr @.str.144, i32 27, i32 0, ptr null, i64 0, ptr @.str.145, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_type_name, %struct._header_field_info { ptr @.str.3, ptr @.str.146, i32 27, i32 0, ptr null, i64 0, ptr @.str.147, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_constraint_name, %struct._header_field_info { ptr @.str.148, ptr @.str.149, i32 27, i32 0, ptr null, i64 0, ptr @.str.150, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_file, %struct._header_field_info { ptr @.str.151, ptr @.str.152, i32 27, i32 0, ptr null, i64 0, ptr @.str.153, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_line, %struct._header_field_info { ptr @.str.154, ptr @.str.155, i32 27, i32 0, ptr null, i64 0, ptr @.str.156, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_routine, %struct._header_field_info { ptr @.str.157, ptr @.str.158, i32 27, i32 0, ptr null, i64 0, ptr @.str.159, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ssl_response, %struct._header_field_info { ptr @.str.160, ptr @.str.161, i32 3, i32 2, ptr @ssl_response_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gssenc_response, %struct._header_field_info { ptr @.str.162, ptr @.str.163, i32 3, i32 2, ptr @gssenc_response_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_gssapi_encrypted_payload, %struct._header_field_info { ptr @.str.164, ptr @.str.165, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_frontend = internal global i32 0, align 4
@@ -30,7 +29,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_request_code = internal global i32 0, align 4
 @.str.13 = private unnamed_addr constant [13 x i8] c"Request code\00", align 1
 @.str.14 = private unnamed_addr constant [19 x i8] c"pgsql.request_code\00", align 1
-@request_code_vals = internal constant [4 x %struct._value_string] [%struct._value_string { i32 80877102, ptr @.str.174 }, %struct._value_string { i32 80877103, ptr @.str.175 }, %struct._value_string { i32 80877104, ptr @.str.176 }, %struct._value_string zeroinitializer], align 16
 @hf_supported_minor_version = internal global i32 0, align 4
 @.str.15 = private unnamed_addr constant [24 x i8] c"Supported minor version\00", align 1
 @.str.16 = private unnamed_addr constant [30 x i8] c"pgsql.version_supported_minor\00", align 1
@@ -60,7 +58,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_authtype = internal global i32 0, align 4
 @.str.34 = private unnamed_addr constant [20 x i8] c"Authentication type\00", align 1
 @.str.35 = private unnamed_addr constant [15 x i8] c"pgsql.authtype\00", align 1
-@auth_types = internal constant [14 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.177 }, %struct._value_string { i32 1, ptr @.str.178 }, %struct._value_string { i32 2, ptr @.str.179 }, %struct._value_string { i32 3, ptr @.str.180 }, %struct._value_string { i32 4, ptr @.str.181 }, %struct._value_string { i32 5, ptr @.str.182 }, %struct._value_string { i32 6, ptr @.str.183 }, %struct._value_string { i32 7, ptr @.str.184 }, %struct._value_string { i32 8, ptr @.str.185 }, %struct._value_string { i32 9, ptr @.str.186 }, %struct._value_string { i32 10, ptr @.str.187 }, %struct._value_string { i32 11, ptr @.str.188 }, %struct._value_string { i32 12, ptr @.str.189 }, %struct._value_string zeroinitializer], align 16
 @.str.36 = private unnamed_addr constant [53 x i8] c"The type of authentication requested by the backend.\00", align 1
 @hf_salt = internal global i32 0, align 4
 @.str.37 = private unnamed_addr constant [11 x i8] c"Salt value\00", align 1
@@ -96,7 +93,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_status = internal global i32 0, align 4
 @.str.59 = private unnamed_addr constant [7 x i8] c"Status\00", align 1
 @.str.60 = private unnamed_addr constant [13 x i8] c"pgsql.status\00", align 1
-@status_vals = internal constant [4 x %struct._value_string] [%struct._value_string { i32 73, ptr @.str.190 }, %struct._value_string { i32 84, ptr @.str.191 }, %struct._value_string { i32 69, ptr @.str.192 }, %struct._value_string zeroinitializer], align 16
 @.str.61 = private unnamed_addr constant [39 x i8] c"The transaction status of the backend.\00", align 1
 @hf_copydata = internal global i32 0, align 4
 @.str.62 = private unnamed_addr constant [10 x i8] c"Copy data\00", align 1
@@ -137,7 +133,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_format = internal global i32 0, align 4
 @.str.89 = private unnamed_addr constant [7 x i8] c"Format\00", align 1
 @.str.90 = private unnamed_addr constant [13 x i8] c"pgsql.format\00", align 1
-@format_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.77 }, %struct._value_string { i32 1, ptr @.str.193 }, %struct._value_string zeroinitializer], align 16
 @.str.91 = private unnamed_addr constant [20 x i8] c"A format specifier.\00", align 1
 @hf_field_count = internal global i32 0, align 4
 @.str.92 = private unnamed_addr constant [12 x i8] c"Field count\00", align 1
@@ -233,11 +228,9 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_ssl_response = internal global i32 0, align 4
 @.str.160 = private unnamed_addr constant [13 x i8] c"SSL Response\00", align 1
 @.str.161 = private unnamed_addr constant [19 x i8] c"pgsql.ssl_response\00", align 1
-@ssl_response_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 78, ptr @.str.194 }, %struct._value_string { i32 83, ptr @.str.195 }, %struct._value_string zeroinitializer], align 16
 @hf_gssenc_response = internal global i32 0, align 4
 @.str.162 = private unnamed_addr constant [24 x i8] c"GSSAPI Encrypt Response\00", align 1
 @.str.163 = private unnamed_addr constant [22 x i8] c"pgsql.gssenc_response\00", align 1
-@gssenc_response_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 71, ptr @.str.196 }, %struct._value_string { i32 78, ptr @.str.197 }, %struct._value_string zeroinitializer], align 16
 @hf_gssapi_encrypted_payload = internal global i32 0, align 4
 @.str.164 = private unnamed_addr constant [26 x i8] c"GSS-API encrypted payload\00", align 1
 @.str.165 = private unnamed_addr constant [31 x i8] c"pgsql.gssapi.encrypted_payload\00", align 1
@@ -261,309 +254,364 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.174 = private unnamed_addr constant [14 x i8] c"CancelRequest\00", align 1
 @.str.175 = private unnamed_addr constant [11 x i8] c"SSLRequest\00", align 1
 @.str.176 = private unnamed_addr constant [14 x i8] c"GSSENCRequest\00", align 1
-@.str.177 = private unnamed_addr constant [8 x i8] c"Success\00", align 1
-@.str.178 = private unnamed_addr constant [12 x i8] c"Kerberos V4\00", align 1
-@.str.179 = private unnamed_addr constant [12 x i8] c"Kerberos V5\00", align 1
-@.str.180 = private unnamed_addr constant [19 x i8] c"Plaintext password\00", align 1
-@.str.181 = private unnamed_addr constant [19 x i8] c"crypt()ed password\00", align 1
-@.str.182 = private unnamed_addr constant [13 x i8] c"MD5 password\00", align 1
-@.str.183 = private unnamed_addr constant [16 x i8] c"SCM credentials\00", align 1
-@.str.184 = private unnamed_addr constant [7 x i8] c"GSSAPI\00", align 1
-@.str.185 = private unnamed_addr constant [21 x i8] c"GSSAPI/SSPI continue\00", align 1
-@.str.186 = private unnamed_addr constant [5 x i8] c"SSPI\00", align 1
-@.str.187 = private unnamed_addr constant [5 x i8] c"SASL\00", align 1
-@.str.188 = private unnamed_addr constant [14 x i8] c"SASL continue\00", align 1
-@.str.189 = private unnamed_addr constant [14 x i8] c"SASL complete\00", align 1
-@.str.190 = private unnamed_addr constant [5 x i8] c"Idle\00", align 1
-@.str.191 = private unnamed_addr constant [17 x i8] c"In a transaction\00", align 1
-@.str.192 = private unnamed_addr constant [24 x i8] c"In a failed transaction\00", align 1
-@.str.193 = private unnamed_addr constant [7 x i8] c"Binary\00", align 1
-@.str.194 = private unnamed_addr constant [25 x i8] c"Unwilling to perform SSL\00", align 1
-@.str.195 = private unnamed_addr constant [23 x i8] c"Willing to perform SSL\00", align 1
-@.str.196 = private unnamed_addr constant [37 x i8] c"Willing to perform GSSAPI encryption\00", align 1
-@.str.197 = private unnamed_addr constant [39 x i8] c"Unwilling to perform GSSAPI encryption\00", align 1
-@first_message = internal unnamed_addr global i1 false, align 4
-@.str.198 = private unnamed_addr constant [2 x i8] c">\00", align 1
-@.str.199 = private unnamed_addr constant [2 x i8] c"<\00", align 1
-@.str.200 = private unnamed_addr constant [13 x i8] c"SSL response\00", align 1
-@.str.201 = private unnamed_addr constant [21 x i8] c"GSS encrypt response\00", align 1
-@.str.202 = private unnamed_addr constant [15 x i8] c"Cancel request\00", align 1
-@.str.203 = private unnamed_addr constant [12 x i8] c"SSL request\00", align 1
-@.str.204 = private unnamed_addr constant [20 x i8] c"GSS encrypt request\00", align 1
-@.str.205 = private unnamed_addr constant [16 x i8] c"Startup message\00", align 1
-@.str.206 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
-@.str.207 = private unnamed_addr constant [28 x i8] c"SASLInitialResponse message\00", align 1
-@.str.208 = private unnamed_addr constant [21 x i8] c"SASLResponse message\00", align 1
-@.str.209 = private unnamed_addr constant [20 x i8] c"GSSResponse message\00", align 1
-@.str.210 = private unnamed_addr constant [17 x i8] c"Password message\00", align 1
-@fe_messages = internal constant [15 x %struct._value_string] [%struct._value_string { i32 112, ptr @.str.214 }, %struct._value_string { i32 81, ptr @.str.215 }, %struct._value_string { i32 80, ptr @.str.216 }, %struct._value_string { i32 66, ptr @.str.217 }, %struct._value_string { i32 69, ptr @.str.218 }, %struct._value_string { i32 68, ptr @.str.219 }, %struct._value_string { i32 67, ptr @.str.220 }, %struct._value_string { i32 72, ptr @.str.221 }, %struct._value_string { i32 83, ptr @.str.222 }, %struct._value_string { i32 70, ptr @.str.223 }, %struct._value_string { i32 100, ptr @.str.62 }, %struct._value_string { i32 99, ptr @.str.224 }, %struct._value_string { i32 102, ptr @.str.225 }, %struct._value_string { i32 88, ptr @.str.226 }, %struct._value_string zeroinitializer], align 16
-@be_messages = internal constant [24 x %struct._value_string] [%struct._value_string { i32 82, ptr @.str.227 }, %struct._value_string { i32 75, ptr @.str.228 }, %struct._value_string { i32 83, ptr @.str.229 }, %struct._value_string { i32 49, ptr @.str.230 }, %struct._value_string { i32 50, ptr @.str.231 }, %struct._value_string { i32 51, ptr @.str.232 }, %struct._value_string { i32 67, ptr @.str.233 }, %struct._value_string { i32 116, ptr @.str.234 }, %struct._value_string { i32 84, ptr @.str.235 }, %struct._value_string { i32 68, ptr @.str.236 }, %struct._value_string { i32 73, ptr @.str.237 }, %struct._value_string { i32 110, ptr @.str.238 }, %struct._value_string { i32 69, ptr @.str.65 }, %struct._value_string { i32 78, ptr @.str.239 }, %struct._value_string { i32 115, ptr @.str.240 }, %struct._value_string { i32 90, ptr @.str.241 }, %struct._value_string { i32 65, ptr @.str.242 }, %struct._value_string { i32 86, ptr @.str.243 }, %struct._value_string { i32 71, ptr @.str.244 }, %struct._value_string { i32 72, ptr @.str.245 }, %struct._value_string { i32 100, ptr @.str.62 }, %struct._value_string { i32 99, ptr @.str.224 }, %struct._value_string { i32 118, ptr @.str.246 }, %struct._value_string zeroinitializer], align 16
-@.str.211 = private unnamed_addr constant [5 x i8] c"%s%c\00", align 1
-@.str.212 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
-@.str.213 = private unnamed_addr constant [2 x i8] c"/\00", align 1
+@request_code_vals = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 80877102, [4 x i8] zeroinitializer, ptr @.str.174 }, { i32, [4 x i8], ptr } { i32 80877103, [4 x i8] zeroinitializer, ptr @.str.175 }, { i32, [4 x i8], ptr } { i32 80877104, [4 x i8] zeroinitializer, ptr @.str.176 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.178 = private unnamed_addr constant [8 x i8] c"Success\00", align 1
+@.str.179 = private unnamed_addr constant [12 x i8] c"Kerberos V4\00", align 1
+@.str.180 = private unnamed_addr constant [12 x i8] c"Kerberos V5\00", align 1
+@.str.181 = private unnamed_addr constant [19 x i8] c"Plaintext password\00", align 1
+@.str.182 = private unnamed_addr constant [19 x i8] c"crypt()ed password\00", align 1
+@.str.183 = private unnamed_addr constant [13 x i8] c"MD5 password\00", align 1
+@.str.184 = private unnamed_addr constant [16 x i8] c"SCM credentials\00", align 1
+@.str.185 = private unnamed_addr constant [7 x i8] c"GSSAPI\00", align 1
+@.str.186 = private unnamed_addr constant [21 x i8] c"GSSAPI/SSPI continue\00", align 1
+@.str.187 = private unnamed_addr constant [5 x i8] c"SSPI\00", align 1
+@.str.188 = private unnamed_addr constant [5 x i8] c"SASL\00", align 1
+@.str.189 = private unnamed_addr constant [14 x i8] c"SASL continue\00", align 1
+@.str.190 = private unnamed_addr constant [14 x i8] c"SASL complete\00", align 1
+@auth_types = internal constant [14 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.178 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.179 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.180 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.181 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.182 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.183 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.184 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.185 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.186 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.187 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.188 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.189 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.190 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.192 = private unnamed_addr constant [5 x i8] c"Idle\00", align 1
+@.str.193 = private unnamed_addr constant [17 x i8] c"In a transaction\00", align 1
+@.str.194 = private unnamed_addr constant [24 x i8] c"In a failed transaction\00", align 1
+@status_vals = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 73, [4 x i8] zeroinitializer, ptr @.str.192 }, { i32, [4 x i8], ptr } { i32 84, [4 x i8] zeroinitializer, ptr @.str.193 }, { i32, [4 x i8], ptr } { i32 69, [4 x i8] zeroinitializer, ptr @.str.194 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.196 = private unnamed_addr constant [7 x i8] c"Binary\00", align 1
+@format_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.77 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.196 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.198 = private unnamed_addr constant [25 x i8] c"Unwilling to perform SSL\00", align 1
+@.str.199 = private unnamed_addr constant [23 x i8] c"Willing to perform SSL\00", align 1
+@ssl_response_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 78, [4 x i8] zeroinitializer, ptr @.str.198 }, { i32, [4 x i8], ptr } { i32 83, [4 x i8] zeroinitializer, ptr @.str.199 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.201 = private unnamed_addr constant [37 x i8] c"Willing to perform GSSAPI encryption\00", align 1
+@.str.202 = private unnamed_addr constant [39 x i8] c"Unwilling to perform GSSAPI encryption\00", align 1
+@gssenc_response_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 71, [4 x i8] zeroinitializer, ptr @.str.201 }, { i32, [4 x i8], ptr } { i32 78, [4 x i8] zeroinitializer, ptr @.str.202 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@first_message = internal unnamed_addr global i1 false, align 1
+@.str.204 = private unnamed_addr constant [2 x i8] c">\00", align 1
+@.str.205 = private unnamed_addr constant [2 x i8] c"<\00", align 1
+@.str.206 = private unnamed_addr constant [13 x i8] c"SSL response\00", align 1
+@.str.207 = private unnamed_addr constant [21 x i8] c"GSS encrypt response\00", align 1
+@.str.208 = private unnamed_addr constant [15 x i8] c"Cancel request\00", align 1
+@.str.209 = private unnamed_addr constant [12 x i8] c"SSL request\00", align 1
+@.str.210 = private unnamed_addr constant [20 x i8] c"GSS encrypt request\00", align 1
+@.str.211 = private unnamed_addr constant [16 x i8] c"Startup message\00", align 1
+@.str.212 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
+@.str.213 = private unnamed_addr constant [28 x i8] c"SASLInitialResponse message\00", align 1
+@.str.214 = private unnamed_addr constant [21 x i8] c"SASLResponse message\00", align 1
+@.str.215 = private unnamed_addr constant [20 x i8] c"GSSResponse message\00", align 1
+@.str.216 = private unnamed_addr constant [17 x i8] c"Password message\00", align 1
+@.str.217 = private unnamed_addr constant [5 x i8] c"%s%c\00", align 1
+@.str.218 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@.str.219 = private unnamed_addr constant [2 x i8] c"/\00", align 1
 @g_ascii_table = external local_unnamed_addr constant ptr, align 8
-@.str.214 = private unnamed_addr constant [23 x i8] c"Authentication message\00", align 1
-@.str.215 = private unnamed_addr constant [13 x i8] c"Simple query\00", align 1
-@.str.216 = private unnamed_addr constant [6 x i8] c"Parse\00", align 1
-@.str.217 = private unnamed_addr constant [5 x i8] c"Bind\00", align 1
-@.str.218 = private unnamed_addr constant [8 x i8] c"Execute\00", align 1
-@.str.219 = private unnamed_addr constant [9 x i8] c"Describe\00", align 1
-@.str.220 = private unnamed_addr constant [6 x i8] c"Close\00", align 1
-@.str.221 = private unnamed_addr constant [6 x i8] c"Flush\00", align 1
-@.str.222 = private unnamed_addr constant [5 x i8] c"Sync\00", align 1
-@.str.223 = private unnamed_addr constant [14 x i8] c"Function call\00", align 1
-@.str.224 = private unnamed_addr constant [16 x i8] c"Copy completion\00", align 1
-@.str.225 = private unnamed_addr constant [13 x i8] c"Copy failure\00", align 1
-@.str.226 = private unnamed_addr constant [12 x i8] c"Termination\00", align 1
-@.str.227 = private unnamed_addr constant [23 x i8] c"Authentication request\00", align 1
-@.str.228 = private unnamed_addr constant [17 x i8] c"Backend key data\00", align 1
-@.str.229 = private unnamed_addr constant [17 x i8] c"Parameter status\00", align 1
-@.str.230 = private unnamed_addr constant [17 x i8] c"Parse completion\00", align 1
-@.str.231 = private unnamed_addr constant [16 x i8] c"Bind completion\00", align 1
-@.str.232 = private unnamed_addr constant [17 x i8] c"Close completion\00", align 1
-@.str.233 = private unnamed_addr constant [19 x i8] c"Command completion\00", align 1
-@.str.234 = private unnamed_addr constant [22 x i8] c"Parameter description\00", align 1
-@.str.235 = private unnamed_addr constant [16 x i8] c"Row description\00", align 1
-@.str.236 = private unnamed_addr constant [9 x i8] c"Data row\00", align 1
-@.str.237 = private unnamed_addr constant [12 x i8] c"Empty query\00", align 1
-@.str.238 = private unnamed_addr constant [8 x i8] c"No data\00", align 1
-@.str.239 = private unnamed_addr constant [7 x i8] c"Notice\00", align 1
-@.str.240 = private unnamed_addr constant [17 x i8] c"Portal suspended\00", align 1
-@.str.241 = private unnamed_addr constant [16 x i8] c"Ready for query\00", align 1
-@.str.242 = private unnamed_addr constant [13 x i8] c"Notification\00", align 1
-@.str.243 = private unnamed_addr constant [23 x i8] c"Function call response\00", align 1
-@.str.244 = private unnamed_addr constant [16 x i8] c"CopyIn response\00", align 1
-@.str.245 = private unnamed_addr constant [17 x i8] c"CopyOut response\00", align 1
-@.str.246 = private unnamed_addr constant [27 x i8] c"Negotiate protocol version\00", align 1
-@.str.247 = private unnamed_addr constant [8 x i8] c"NTLMSSP\00", align 1
-@.str.248 = private unnamed_addr constant [15 x i8] c"Parameters: %d\00", align 1
-@.str.249 = private unnamed_addr constant [22 x i8] c"Parameter formats: %d\00", align 1
-@.str.250 = private unnamed_addr constant [21 x i8] c"Parameter values: %d\00", align 1
-@.str.251 = private unnamed_addr constant [19 x i8] c"Result formats: %d\00", align 1
-@.str.252 = private unnamed_addr constant [9 x i8] c"all rows\00", align 1
-@.str.253 = private unnamed_addr constant [8 x i8] c"%d rows\00", align 1
-@.str.254 = private unnamed_addr constant [12 x i8] c"Columns: %d\00", align 1
-@.str.255 = private unnamed_addr constant [26 x i8] c"GSS-API encrypted message\00", align 1
-@.str.256 = private unnamed_addr constant [18 x i8] c"Decrypted GSS-API\00", align 1
-@switch.table.dissect_pgsql_msg = private unnamed_addr constant [3 x ptr] [ptr @.str.207, ptr @.str.208, ptr @.str.209], align 8
+@.str.220 = private unnamed_addr constant [23 x i8] c"Authentication message\00", align 1
+@.str.221 = private unnamed_addr constant [13 x i8] c"Simple query\00", align 1
+@.str.222 = private unnamed_addr constant [6 x i8] c"Parse\00", align 1
+@.str.223 = private unnamed_addr constant [5 x i8] c"Bind\00", align 1
+@.str.224 = private unnamed_addr constant [8 x i8] c"Execute\00", align 1
+@.str.225 = private unnamed_addr constant [9 x i8] c"Describe\00", align 1
+@.str.226 = private unnamed_addr constant [6 x i8] c"Close\00", align 1
+@.str.227 = private unnamed_addr constant [6 x i8] c"Flush\00", align 1
+@.str.228 = private unnamed_addr constant [5 x i8] c"Sync\00", align 1
+@.str.229 = private unnamed_addr constant [14 x i8] c"Function call\00", align 1
+@.str.230 = private unnamed_addr constant [16 x i8] c"Copy completion\00", align 1
+@.str.231 = private unnamed_addr constant [13 x i8] c"Copy failure\00", align 1
+@.str.232 = private unnamed_addr constant [12 x i8] c"Termination\00", align 1
+@fe_messages = internal constant [15 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 112, [4 x i8] zeroinitializer, ptr @.str.220 }, { i32, [4 x i8], ptr } { i32 81, [4 x i8] zeroinitializer, ptr @.str.221 }, { i32, [4 x i8], ptr } { i32 80, [4 x i8] zeroinitializer, ptr @.str.222 }, { i32, [4 x i8], ptr } { i32 66, [4 x i8] zeroinitializer, ptr @.str.223 }, { i32, [4 x i8], ptr } { i32 69, [4 x i8] zeroinitializer, ptr @.str.224 }, { i32, [4 x i8], ptr } { i32 68, [4 x i8] zeroinitializer, ptr @.str.225 }, { i32, [4 x i8], ptr } { i32 67, [4 x i8] zeroinitializer, ptr @.str.226 }, { i32, [4 x i8], ptr } { i32 72, [4 x i8] zeroinitializer, ptr @.str.227 }, { i32, [4 x i8], ptr } { i32 83, [4 x i8] zeroinitializer, ptr @.str.228 }, { i32, [4 x i8], ptr } { i32 70, [4 x i8] zeroinitializer, ptr @.str.229 }, { i32, [4 x i8], ptr } { i32 100, [4 x i8] zeroinitializer, ptr @.str.62 }, { i32, [4 x i8], ptr } { i32 99, [4 x i8] zeroinitializer, ptr @.str.230 }, { i32, [4 x i8], ptr } { i32 102, [4 x i8] zeroinitializer, ptr @.str.231 }, { i32, [4 x i8], ptr } { i32 88, [4 x i8] zeroinitializer, ptr @.str.232 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.234 = private unnamed_addr constant [23 x i8] c"Authentication request\00", align 1
+@.str.235 = private unnamed_addr constant [17 x i8] c"Backend key data\00", align 1
+@.str.236 = private unnamed_addr constant [17 x i8] c"Parameter status\00", align 1
+@.str.237 = private unnamed_addr constant [17 x i8] c"Parse completion\00", align 1
+@.str.238 = private unnamed_addr constant [16 x i8] c"Bind completion\00", align 1
+@.str.239 = private unnamed_addr constant [17 x i8] c"Close completion\00", align 1
+@.str.240 = private unnamed_addr constant [19 x i8] c"Command completion\00", align 1
+@.str.241 = private unnamed_addr constant [22 x i8] c"Parameter description\00", align 1
+@.str.242 = private unnamed_addr constant [16 x i8] c"Row description\00", align 1
+@.str.243 = private unnamed_addr constant [9 x i8] c"Data row\00", align 1
+@.str.244 = private unnamed_addr constant [12 x i8] c"Empty query\00", align 1
+@.str.245 = private unnamed_addr constant [8 x i8] c"No data\00", align 1
+@.str.246 = private unnamed_addr constant [7 x i8] c"Notice\00", align 1
+@.str.247 = private unnamed_addr constant [17 x i8] c"Portal suspended\00", align 1
+@.str.248 = private unnamed_addr constant [16 x i8] c"Ready for query\00", align 1
+@.str.249 = private unnamed_addr constant [13 x i8] c"Notification\00", align 1
+@.str.250 = private unnamed_addr constant [23 x i8] c"Function call response\00", align 1
+@.str.251 = private unnamed_addr constant [16 x i8] c"CopyIn response\00", align 1
+@.str.252 = private unnamed_addr constant [17 x i8] c"CopyOut response\00", align 1
+@.str.253 = private unnamed_addr constant [27 x i8] c"Negotiate protocol version\00", align 1
+@be_messages = internal constant [24 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 82, [4 x i8] zeroinitializer, ptr @.str.234 }, { i32, [4 x i8], ptr } { i32 75, [4 x i8] zeroinitializer, ptr @.str.235 }, { i32, [4 x i8], ptr } { i32 83, [4 x i8] zeroinitializer, ptr @.str.236 }, { i32, [4 x i8], ptr } { i32 49, [4 x i8] zeroinitializer, ptr @.str.237 }, { i32, [4 x i8], ptr } { i32 50, [4 x i8] zeroinitializer, ptr @.str.238 }, { i32, [4 x i8], ptr } { i32 51, [4 x i8] zeroinitializer, ptr @.str.239 }, { i32, [4 x i8], ptr } { i32 67, [4 x i8] zeroinitializer, ptr @.str.240 }, { i32, [4 x i8], ptr } { i32 116, [4 x i8] zeroinitializer, ptr @.str.241 }, { i32, [4 x i8], ptr } { i32 84, [4 x i8] zeroinitializer, ptr @.str.242 }, { i32, [4 x i8], ptr } { i32 68, [4 x i8] zeroinitializer, ptr @.str.243 }, { i32, [4 x i8], ptr } { i32 73, [4 x i8] zeroinitializer, ptr @.str.244 }, { i32, [4 x i8], ptr } { i32 110, [4 x i8] zeroinitializer, ptr @.str.245 }, { i32, [4 x i8], ptr } { i32 69, [4 x i8] zeroinitializer, ptr @.str.65 }, { i32, [4 x i8], ptr } { i32 78, [4 x i8] zeroinitializer, ptr @.str.246 }, { i32, [4 x i8], ptr } { i32 115, [4 x i8] zeroinitializer, ptr @.str.247 }, { i32, [4 x i8], ptr } { i32 90, [4 x i8] zeroinitializer, ptr @.str.248 }, { i32, [4 x i8], ptr } { i32 65, [4 x i8] zeroinitializer, ptr @.str.249 }, { i32, [4 x i8], ptr } { i32 86, [4 x i8] zeroinitializer, ptr @.str.250 }, { i32, [4 x i8], ptr } { i32 71, [4 x i8] zeroinitializer, ptr @.str.251 }, { i32, [4 x i8], ptr } { i32 72, [4 x i8] zeroinitializer, ptr @.str.252 }, { i32, [4 x i8], ptr } { i32 100, [4 x i8] zeroinitializer, ptr @.str.62 }, { i32, [4 x i8], ptr } { i32 99, [4 x i8] zeroinitializer, ptr @.str.230 }, { i32, [4 x i8], ptr } { i32 118, [4 x i8] zeroinitializer, ptr @.str.253 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.255 = private unnamed_addr constant [8 x i8] c"NTLMSSP\00", align 1
+@.str.256 = private unnamed_addr constant [15 x i8] c"Parameters: %d\00", align 1
+@.str.257 = private unnamed_addr constant [22 x i8] c"Parameter formats: %d\00", align 1
+@.str.258 = private unnamed_addr constant [21 x i8] c"Parameter values: %d\00", align 1
+@.str.259 = private unnamed_addr constant [19 x i8] c"Result formats: %d\00", align 1
+@.str.260 = private unnamed_addr constant [9 x i8] c"all rows\00", align 1
+@.str.261 = private unnamed_addr constant [8 x i8] c"%d rows\00", align 1
+@.str.262 = private unnamed_addr constant [12 x i8] c"Columns: %d\00", align 1
+@.str.263 = private unnamed_addr constant [26 x i8] c"GSS-API encrypted message\00", align 1
+@.str.264 = private unnamed_addr constant [18 x i8] c"Decrypted GSS-API\00", align 1
+@switch.table.dissect_pgsql_msg = private unnamed_addr constant [3 x ptr] [ptr @.str.213, ptr @.str.214, ptr @.str.215], align 8
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_pgsql() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.166, ptr noundef nonnull @.str.167, ptr noundef nonnull @.str.168) #4
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.166, ptr noundef nonnull @.str.167, ptr noundef nonnull @.str.168)
   store i32 %1, ptr @proto_pgsql, align 4
-  %2 = tail call ptr @register_dissector(ptr noundef nonnull @.str.168, ptr noundef nonnull @dissect_pgsql, i32 noundef %1) #4
+  %2 = tail call ptr @register_dissector(ptr noundef nonnull @.str.168, ptr noundef nonnull @dissect_pgsql, i32 noundef %1)
   store ptr %2, ptr @pgsql_handle, align 8
   %3 = load i32, ptr @proto_pgsql, align 4
-  tail call void @proto_register_field_array(i32 noundef %3, ptr noundef nonnull @proto_register_pgsql.hf, i32 noundef 60) #4
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_pgsql.ett, i32 noundef 2) #4
+  tail call void @proto_register_field_array(i32 noundef %3, ptr noundef nonnull @proto_register_pgsql.hf, i32 noundef 60)
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_pgsql.ett, i32 noundef 2)
   %4 = load i32, ptr @proto_pgsql, align 4
-  %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.169, ptr noundef nonnull @dissect_pgsql_gssapi, i32 noundef %4) #4
+  %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.169, ptr noundef nonnull @dissect_pgsql_gssapi, i32 noundef %4)
   store ptr %5, ptr @pgsql_gssapi_handle, align 8
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_pgsql(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  store i1 false, ptr @first_message, align 4
-  %5 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #4
+  store i1 false, ptr @first_message, align 1
+  %5 = tail call ptr @find_or_create_conversation(ptr noundef %1)
   %6 = load i32, ptr @proto_pgsql, align 4
-  %7 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %5, i32 noundef %6) #4
-  %8 = tail call i32 @tvb_ascii_isprint(ptr noundef %0, i32 noundef 0, i32 noundef 1) #4
-  %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %9, label %18
+  %7 = tail call ptr @conversation_get_proto_data(ptr noundef %5, i32 noundef %6)
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 292
+  %9 = load i32, ptr %8, align 4
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 288
+  %11 = load i32, ptr %10, align 8
+  %12 = icmp eq i32 %9, %11
+  br i1 %12, label %13, label %26
 
-9:                                                ; preds = %4
-  %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #4
-  %.not61 = icmp eq i8 %10, 0
-  br i1 %.not61, label %18, label %11
+13:                                               ; preds = %4
+  %14 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
+  %15 = icmp eq i8 %14, 22
+  br i1 %15, label %16, label %26
 
-11:                                               ; preds = %9
-  %.not62 = icmp eq ptr %7, null
-  br i1 %.not62, label %77, label %12
+16:                                               ; preds = %13
+  %.not = icmp eq ptr %7, null
+  br i1 %.not, label %23, label %17
 
-12:                                               ; preds = %11
-  %13 = load ptr, ptr %7, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %15 = load i32, ptr %14, align 4
-  %16 = tail call ptr @wmem_tree_lookup32_le(ptr noundef %13, i32 noundef %15) #4
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %77, label %18
-
-18:                                               ; preds = %12, %9, %4
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 292
+17:                                               ; preds = %16
+  %18 = load ptr, ptr %7, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 288
-  %22 = load i32, ptr %21, align 8
-  %23 = icmp eq i32 %20, %22
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %25 = load ptr, ptr %24, align 8
-  tail call void @col_set_str(ptr noundef %25, i32 noundef 34, ptr noundef nonnull @.str.167) #4
-  %26 = load ptr, ptr %24, align 8
-  %27 = select i1 %23, ptr @.str.198, ptr @.str.199
-  tail call void @col_set_str(ptr noundef %26, i32 noundef 25, ptr noundef nonnull %27) #4
-  %28 = icmp eq ptr %7, null
-  %or.cond = select i1 %28, i1 true, i1 %23
-  br i1 %or.cond, label %75, label %29
+  %21 = tail call ptr @wmem_tree_lookup32_le(ptr noundef %18, i32 noundef %20)
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %23, label %26
 
-29:                                               ; preds = %18
-  %30 = load ptr, ptr %7, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %32 = load i32, ptr %31, align 4
-  %33 = tail call ptr @wmem_tree_lookup32_le(ptr noundef %30, i32 noundef %32) #4
-  %34 = ptrtoint ptr %33 to i64
-  %35 = trunc i64 %34 to i32
-  switch i32 %35, label %75 [
-    i32 5, label %36
-    i32 6, label %54
+23:                                               ; preds = %17, %16
+  %24 = load ptr, ptr @tls_handle, align 8
+  %25 = load ptr, ptr @pgsql_handle, align 8
+  tail call void @tls_set_appdata_dissector(ptr noundef %24, ptr noundef %1, ptr noundef %25)
+  br label %26
+
+26:                                               ; preds = %23, %17, %13, %4
+  %27 = tail call zeroext i1 @tvb_ascii_isprint(ptr noundef %0, i32 noundef 0, i32 noundef 1)
+  br i1 %27, label %37, label %28
+
+28:                                               ; preds = %26
+  %29 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
+  %.not66 = icmp eq i8 %29, 0
+  br i1 %.not66, label %37, label %30
+
+30:                                               ; preds = %28
+  %.not67 = icmp eq ptr %7, null
+  br i1 %.not67, label %90, label %31
+
+31:                                               ; preds = %30
+  %32 = load ptr, ptr %7, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %34 = load i32, ptr %33, align 4
+  %35 = tail call ptr @wmem_tree_lookup32_le(ptr noundef %32, i32 noundef %34)
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %90, label %37
+
+37:                                               ; preds = %31, %28, %26
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %39 = load ptr, ptr %38, align 8
+  tail call void @col_set_str(ptr noundef %39, i32 noundef 35, ptr noundef nonnull @.str.167)
+  %40 = load ptr, ptr %38, align 8
+  %41 = select i1 %12, ptr @.str.204, ptr @.str.205
+  tail call void @col_set_str(ptr noundef %40, i32 noundef 25, ptr noundef nonnull %41)
+  %.not68 = icmp eq ptr %7, null
+  %brmerge = or i1 %.not68, %12
+  br i1 %brmerge, label %88, label %42
+
+42:                                               ; preds = %37
+  %43 = load ptr, ptr %7, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %45 = load i32, ptr %44, align 4
+  %46 = tail call ptr @wmem_tree_lookup32_le(ptr noundef %43, i32 noundef %45)
+  %47 = ptrtoint ptr %46 to i64
+  %48 = trunc i64 %47 to i32
+  switch i32 %48, label %88 [
+    i32 5, label %49
+    i32 6, label %67
   ]
 
-36:                                               ; preds = %29
-  %37 = load ptr, ptr %7, align 8
-  %38 = load i32, ptr %31, align 4
-  %39 = add i32 %38, 1
-  tail call void @wmem_tree_insert32(ptr noundef %37, i32 noundef %39, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
-  %40 = load i32, ptr @proto_pgsql, align 4
-  %41 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %40, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
-  %42 = load i32, ptr @ett_pgsql, align 4
-  %43 = tail call ptr @proto_item_add_subtree(ptr noundef %41, i32 noundef %42) #4
-  %44 = load i32, ptr @hf_type, align 4
-  %45 = tail call ptr @proto_tree_add_string(ptr noundef %43, i32 noundef %44, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.200) #4
-  %46 = load i32, ptr @hf_ssl_response, align 4
-  %47 = tail call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %46, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
-  %48 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #4
-  switch i8 %48, label %.sink.split [
-    i8 83, label %49
-    i8 69, label %53
+49:                                               ; preds = %42
+  %50 = load ptr, ptr %7, align 8
+  %51 = load i32, ptr %44, align 4
+  %52 = add i32 %51, 1
+  tail call void @wmem_tree_insert32(ptr noundef %50, i32 noundef %52, ptr noundef nonnull inttoptr (i64 1 to ptr))
+  %53 = load i32, ptr @proto_pgsql, align 4
+  %54 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %53, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  %55 = load i32, ptr @ett_pgsql, align 4
+  %56 = tail call ptr @proto_item_add_subtree(ptr noundef %54, i32 noundef %55)
+  %57 = load i32, ptr @hf_type, align 4
+  %58 = tail call ptr @proto_tree_add_string(ptr noundef %56, i32 noundef %57, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.206)
+  %59 = load i32, ptr @hf_ssl_response, align 4
+  %60 = tail call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %59, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+  %61 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
+  switch i8 %61, label %.sink.split [
+    i8 83, label %62
+    i8 69, label %66
   ]
 
-49:                                               ; preds = %36
-  %50 = load ptr, ptr @tls_handle, align 8
-  %51 = load ptr, ptr @pgsql_handle, align 8
-  %52 = tail call i32 @ssl_starttls_ack(ptr noundef %50, ptr noundef nonnull %1, ptr noundef %51) #4
+62:                                               ; preds = %49
+  %63 = load ptr, ptr @tls_handle, align 8
+  %64 = load ptr, ptr @pgsql_handle, align 8
+  %65 = tail call i32 @ssl_starttls_ack(ptr noundef %63, ptr noundef %1, ptr noundef %64)
   br label %.sink.split
 
-53:                                               ; preds = %36
-  tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 1, i32 noundef 5, ptr noundef nonnull @pgsql_length, ptr noundef nonnull @dissect_pgsql_msg, ptr noundef %3) #4
+66:                                               ; preds = %49
+  tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, i32 noundef 5, ptr noundef nonnull @pgsql_length, ptr noundef nonnull @dissect_pgsql_msg, ptr noundef %3)
   br label %.sink.split
 
-54:                                               ; preds = %29
-  %55 = load ptr, ptr %7, align 8
-  %56 = load i32, ptr %31, align 4
-  %57 = add i32 %56, 1
-  tail call void @wmem_tree_insert32(ptr noundef %55, i32 noundef %57, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
-  %58 = load i32, ptr @proto_pgsql, align 4
-  %59 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %58, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
-  %60 = load i32, ptr @ett_pgsql, align 4
-  %61 = tail call ptr @proto_item_add_subtree(ptr noundef %59, i32 noundef %60) #4
-  %62 = load i32, ptr @hf_type, align 4
-  %63 = tail call ptr @proto_tree_add_string(ptr noundef %61, i32 noundef %62, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.201) #4
-  %64 = load i32, ptr @hf_gssenc_response, align 4
-  %65 = tail call ptr @proto_tree_add_item(ptr noundef %61, i32 noundef %64, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
-  %66 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #4
-  switch i8 %66, label %.sink.split [
-    i8 69, label %67
-    i8 71, label %68
+67:                                               ; preds = %42
+  %68 = load ptr, ptr %7, align 8
+  %69 = load i32, ptr %44, align 4
+  %70 = add i32 %69, 1
+  tail call void @wmem_tree_insert32(ptr noundef %68, i32 noundef %70, ptr noundef nonnull inttoptr (i64 1 to ptr))
+  %71 = load i32, ptr @proto_pgsql, align 4
+  %72 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %71, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  %73 = load i32, ptr @ett_pgsql, align 4
+  %74 = tail call ptr @proto_item_add_subtree(ptr noundef %72, i32 noundef %73)
+  %75 = load i32, ptr @hf_type, align 4
+  %76 = tail call ptr @proto_tree_add_string(ptr noundef %74, i32 noundef %75, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.207)
+  %77 = load i32, ptr @hf_gssenc_response, align 4
+  %78 = tail call ptr @proto_tree_add_item(ptr noundef %74, i32 noundef %77, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+  %79 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
+  switch i8 %79, label %.sink.split [
+    i8 69, label %80
+    i8 71, label %81
   ]
 
-67:                                               ; preds = %54
-  tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 1, i32 noundef 5, ptr noundef nonnull @pgsql_length, ptr noundef nonnull @dissect_pgsql_msg, ptr noundef %3) #4
+80:                                               ; preds = %67
+  tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, i32 noundef 5, ptr noundef nonnull @pgsql_length, ptr noundef nonnull @dissect_pgsql_msg, ptr noundef %3)
   br label %.sink.split
 
-68:                                               ; preds = %54
-  %69 = load ptr, ptr %7, align 8
-  %70 = load i32, ptr %31, align 4
-  %71 = add i32 %70, 1
-  tail call void @wmem_tree_insert32(ptr noundef %69, i32 noundef %71, ptr noundef nonnull inttoptr (i64 4 to ptr)) #4
-  %72 = load i32, ptr %31, align 4
-  %73 = add i32 %72, 1
-  %74 = load ptr, ptr @pgsql_gssapi_handle, align 8
-  tail call void @conversation_set_dissector_from_frame_number(ptr noundef nonnull %5, i32 noundef %73, ptr noundef %74) #4
+81:                                               ; preds = %67
+  %82 = load ptr, ptr %7, align 8
+  %83 = load i32, ptr %44, align 4
+  %84 = add i32 %83, 1
+  tail call void @wmem_tree_insert32(ptr noundef %82, i32 noundef %84, ptr noundef nonnull inttoptr (i64 4 to ptr))
+  %85 = load i32, ptr %44, align 4
+  %86 = add i32 %85, 1
+  %87 = load ptr, ptr @pgsql_gssapi_handle, align 8
+  tail call void @conversation_set_dissector_from_frame_number(ptr noundef %5, i32 noundef %86, ptr noundef %87)
   br label %.sink.split
 
-75:                                               ; preds = %29, %18
-  tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 1, i32 noundef 5, ptr noundef nonnull @pgsql_length, ptr noundef nonnull @dissect_pgsql_msg, ptr noundef %3) #4
+88:                                               ; preds = %42, %37
+  tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, i32 noundef 5, ptr noundef nonnull @pgsql_length, ptr noundef nonnull @dissect_pgsql_msg, ptr noundef %3)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %67, %68, %54, %49, %53, %36, %75
-  %76 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
-  br label %77
+.sink.split:                                      ; preds = %80, %81, %67, %62, %66, %49, %88
+  %89 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  br label %90
 
-77:                                               ; preds = %.sink.split, %11, %12
-  %.0 = phi i32 [ 0, %12 ], [ 0, %11 ], [ %76, %.sink.split ]
+90:                                               ; preds = %.sink.split, %30, %31
+  %.0 = phi i32 [ 0, %31 ], [ 0, %30 ], [ %89, %.sink.split ]
   ret i32 %.0
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_pgsql_gssapi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, i32 noundef 4, ptr noundef nonnull @pgsql_gssapi_length, ptr noundef nonnull @dissect_pgsql_gssapi_wrap, ptr noundef %3) #4
-  %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
+  tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, i32 noundef 4, ptr noundef nonnull @pgsql_gssapi_length, ptr noundef nonnull @dissect_pgsql_gssapi_wrap, ptr noundef %3)
+  %5 = tail call i32 @tvb_captured_length(ptr noundef %0)
   ret i32 %5
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_pgsql() local_unnamed_addr #0 {
   %1 = load ptr, ptr @pgsql_handle, align 8
-  tail call void @dissector_add_uint_with_preference(ptr noundef nonnull @.str.170, i32 noundef 5432, ptr noundef %1) #4
+  tail call void @dissector_add_uint_with_preference(ptr noundef nonnull @.str.170, i32 noundef 5432, ptr noundef %1)
   %2 = load i32, ptr @proto_pgsql, align 4
-  %3 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.171, i32 noundef %2) #4
+  %3 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.171, i32 noundef %2)
   store ptr %3, ptr @tls_handle, align 8
   %4 = load i32, ptr @proto_pgsql, align 4
-  %5 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.172, i32 noundef %4) #4
+  %5 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.172, i32 noundef %4)
   store ptr %5, ptr @gssapi_handle, align 8
   %6 = load i32, ptr @proto_pgsql, align 4
-  %7 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.173, i32 noundef %6) #4
+  %7 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.173, i32 noundef %6)
   store ptr %7, ptr @ntlmssp_handle, align 8
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare nonnull ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
+; Function Attrs: null_pointer_is_valid
+declare ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
 declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare i32 @tvb_ascii_isprint(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
-
+; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_tree_lookup32_le(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
+declare void @tls_set_appdata_dissector(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @tvb_ascii_isprint(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @wmem_tree_insert32(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @ssl_starttls_ack(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @pgsql_length(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
-  %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %2) #4
+  %5 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %2)
   %.not = icmp ne i8 %5, 0
   %spec.select = zext i1 %.not to i32
   %6 = add i32 %2, %spec.select
-  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %6) #4
+  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %6)
   %8 = add i32 %7, %spec.select
   ret i32 %8
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_pgsql_msg(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -571,17 +619,17 @@ define internal i32 @dissect_pgsql_msg(ptr noundef %0, ptr noundef %1, ptr nound
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  %11 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #4
+  %11 = tail call ptr @find_or_create_conversation(ptr noundef %1)
   %12 = load i32, ptr @proto_pgsql, align 4
-  %13 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %11, i32 noundef %12) #4
+  %13 = tail call ptr @conversation_get_proto_data(ptr noundef %11, i32 noundef %12)
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %14, label %25
 
 14:                                               ; preds = %4
-  %15 = tail call ptr @wmem_file_scope() #4
-  %16 = tail call noalias ptr @wmem_alloc(ptr noundef %15, i64 noundef 16) #4
-  %17 = tail call ptr @wmem_file_scope() #4
-  %18 = tail call noalias ptr @wmem_tree_new(ptr noundef %17) #4
+  %15 = tail call ptr @wmem_file_scope()
+  %16 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %15, i64 noundef 16) #5
+  %17 = tail call ptr @wmem_file_scope()
+  %18 = tail call noalias ptr @wmem_tree_new(ptr noundef %17)
   store ptr %18, ptr %16, align 8
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 292
   %20 = load i32, ptr %19, align 4
@@ -589,9 +637,9 @@ define internal i32 @dissect_pgsql_msg(ptr noundef %0, ptr noundef %1, ptr nound
   store i32 %20, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %23 = load i32, ptr %22, align 4
-  tail call void @wmem_tree_insert32(ptr noundef %18, i32 noundef %23, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
+  tail call void @wmem_tree_insert32(ptr noundef %18, i32 noundef %23, ptr noundef nonnull inttoptr (i64 1 to ptr))
   %24 = load i32, ptr @proto_pgsql, align 4
-  tail call void @conversation_add_proto_data(ptr noundef nonnull %11, i32 noundef %24, ptr noundef nonnull %16) #4
+  tail call void @conversation_add_proto_data(ptr noundef %11, i32 noundef %24, ptr noundef %16)
   br label %25
 
 25:                                               ; preds = %14, %4
@@ -601,11 +649,11 @@ define internal i32 @dissect_pgsql_msg(ptr noundef %0, ptr noundef %1, ptr nound
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %29 = load i32, ptr %28, align 8
   %30 = icmp eq i32 %27, %29
-  %31 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #4
+  %31 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %32 = zext i8 %31 to i32
   %.not76 = icmp ne i8 %31, 0
   %spec.select = zext i1 %.not76 to i32
-  %33 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %spec.select) #4
+  %33 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %spec.select)
   br i1 %30, label %34, label %56
 
 34:                                               ; preds = %25
@@ -615,7 +663,7 @@ define internal i32 @dissect_pgsql_msg(ptr noundef %0, ptr noundef %1, ptr nound
   ]
 
 35:                                               ; preds = %34
-  %36 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 4) #4
+  %36 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 4)
   %37 = icmp eq i32 %33, 16
   %38 = icmp eq i32 %36, 80877102
   %or.cond = select i1 %37, i1 %38, i1 false
@@ -634,14 +682,14 @@ define internal i32 @dissect_pgsql_msg(ptr noundef %0, ptr noundef %1, ptr nound
 
 44:                                               ; preds = %42
   %45 = icmp eq i32 %36, 196608
-  %.str.205..str.206 = select i1 %45, ptr @.str.205, ptr @.str.206
+  %.str.211..str.212 = select i1 %45, ptr @.str.211, ptr @.str.212
   br label %59
 
 46:                                               ; preds = %34
   %47 = load ptr, ptr %.0, align 8
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %49 = load i32, ptr %48, align 4
-  %50 = tail call ptr @wmem_tree_lookup32_le(ptr noundef %47, i32 noundef %49) #4
+  %50 = tail call ptr @wmem_tree_lookup32_le(ptr noundef %47, i32 noundef %49)
   %51 = ptrtoint ptr %50 to i64
   %52 = trunc i64 %51 to i32
   %switch.tableidx = add i32 %52, -2
@@ -649,11 +697,11 @@ define internal i32 @dissect_pgsql_msg(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %53, label %switch.lookup, label %59
 
 54:                                               ; preds = %34
-  %55 = tail call ptr @val_to_str_const(i32 noundef %32, ptr noundef nonnull @fe_messages, ptr noundef nonnull @.str.206) #4
+  %55 = tail call ptr @val_to_str_const(i32 noundef %32, ptr noundef nonnull @fe_messages, ptr noundef nonnull @.str.212)
   br label %59
 
 56:                                               ; preds = %25
-  %57 = tail call ptr @val_to_str_const(i32 noundef %32, ptr noundef nonnull @be_messages, ptr noundef nonnull @.str.206) #4
+  %57 = tail call ptr @val_to_str_const(i32 noundef %32, ptr noundef nonnull @be_messages, ptr noundef nonnull @.str.212)
   br label %59
 
 switch.lookup:                                    ; preds = %46
@@ -662,12 +710,12 @@ switch.lookup:                                    ; preds = %46
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %59
 
-59:                                               ; preds = %46, %switch.lookup, %44, %42, %39, %35, %54, %56
-  %.073 = phi ptr [ %55, %54 ], [ %57, %56 ], [ @.str.202, %35 ], [ @.str.203, %39 ], [ @.str.204, %42 ], [ %.str.205..str.206, %44 ], [ %switch.load, %switch.lookup ], [ @.str.210, %46 ]
+59:                                               ; preds = %46, %switch.lookup, %35, %39, %42, %44, %54, %56
+  %.1 = phi ptr [ %55, %54 ], [ %57, %56 ], [ @.str.208, %35 ], [ @.str.209, %39 ], [ @.str.210, %42 ], [ %.str.211..str.212, %44 ], [ %switch.load, %switch.lookup ], [ @.str.216, %46 ]
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %61 = load ptr, ptr %60, align 8
-  %.b = load i1, ptr @first_message, align 4
-  %62 = select i1 %.b, ptr @.str.213, ptr @.str.212
+  %.b = load i1, ptr @first_message, align 1
+  %62 = select i1 %.b, ptr @.str.219, ptr @.str.218
   %63 = load ptr, ptr @g_ascii_table, align 8
   %64 = zext i8 %31 to i64
   %65 = getelementptr i16, ptr %63, i64 %64
@@ -675,24 +723,24 @@ switch.lookup:                                    ; preds = %46
   %67 = and i16 %66, 64
   %.not77 = icmp eq i16 %67, 0
   %68 = select i1 %.not77, i32 63, i32 %32
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %61, i32 noundef 25, ptr noundef nonnull @.str.211, ptr noundef nonnull %62, i32 noundef %68) #4
-  store i1 true, ptr @first_message, align 4
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %61, i32 noundef 25, ptr noundef nonnull @.str.217, ptr noundef nonnull %62, i32 noundef %68)
+  store i1 true, ptr @first_message, align 1
   %69 = load i32, ptr @proto_pgsql, align 4
-  %70 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %69, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
+  %70 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %69, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %71 = load i32, ptr @ett_pgsql, align 4
-  %72 = tail call ptr @proto_item_add_subtree(ptr noundef %70, i32 noundef %71) #4
+  %72 = tail call ptr @proto_item_add_subtree(ptr noundef %70, i32 noundef %71)
   %73 = load i32, ptr @hf_type, align 4
-  %74 = tail call ptr @proto_tree_add_string(ptr noundef %72, i32 noundef %73, ptr noundef %0, i32 noundef 0, i32 noundef %spec.select, ptr noundef %.073) #4
+  %74 = tail call ptr @proto_tree_add_string(ptr noundef %72, i32 noundef %73, ptr noundef %0, i32 noundef 0, i32 noundef %spec.select, ptr noundef %.1)
   %75 = load i32, ptr @hf_length, align 4
-  %76 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %75, ptr noundef %0, i32 noundef %spec.select, i32 noundef 4, i32 noundef 0) #4
+  %76 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %75, ptr noundef %0, i32 noundef %spec.select, i32 noundef 4, i32 noundef 0)
   %77 = load i32, ptr @hf_frontend, align 4
   %78 = zext i1 %30 to i64
-  %79 = tail call ptr @proto_tree_add_boolean(ptr noundef %72, i32 noundef %77, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %78) #4
+  %79 = tail call ptr @proto_tree_add_boolean(ptr noundef %72, i32 noundef %77, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %78)
   %.not.i = icmp eq ptr %79, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %80
 
 80:                                               ; preds = %59
-  %81 = getelementptr inbounds nuw i8, ptr %79, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 40
   %82 = load ptr, ptr %81, align 8
   %.not5.i = icmp eq ptr %82, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %83
@@ -709,8 +757,8 @@ proto_item_set_hidden.exit:                       ; preds = %59, %80, %83
   br i1 %30, label %88, label %298
 
 88:                                               ; preds = %proto_item_set_hidden.exit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #6
   switch i8 %31, label %dissect_pgsql_fe_msg.exit [
     i8 112, label %89
     i8 81, label %126
@@ -729,7 +777,7 @@ proto_item_set_hidden.exit:                       ; preds = %59, %80, %83
   %90 = load ptr, ptr %.0, align 8
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %92 = load i32, ptr %91, align 4
-  %93 = tail call ptr @wmem_tree_lookup32_le(ptr noundef %90, i32 noundef %92) #4
+  %93 = tail call ptr @wmem_tree_lookup32_le(ptr noundef %90, i32 noundef %92)
   %94 = ptrtoint ptr %93 to i64
   %95 = trunc i64 %94 to i32
   switch i32 %95, label %122 [
@@ -739,12 +787,12 @@ proto_item_set_hidden.exit:                       ; preds = %59, %80, %83
   ]
 
 96:                                               ; preds = %89
-  %97 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef range(i32 4, 6) 5) #4
+  %97 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef range(i32 4, 6) 5)
   %98 = load i32, ptr @hf_sasl_auth_mech, align 4
-  %99 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %98, ptr noundef %0, i32 noundef range(i32 4, 6) 5, i32 noundef %97, i32 noundef 0) #4
+  %99 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %98, ptr noundef %0, i32 noundef range(i32 4, 6) 5, i32 noundef %97, i32 noundef 0)
   %100 = add i32 %97, 5
   %101 = load i32, ptr @hf_sasl_auth_data_length, align 4
-  %102 = call ptr @proto_tree_add_item_ret_int(ptr noundef %72, i32 noundef %101, ptr noundef %0, i32 noundef %100, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %10) #4
+  %102 = call ptr @proto_tree_add_item_ret_int(ptr noundef %72, i32 noundef %101, ptr noundef %0, i32 noundef %100, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %10)
   %103 = load i32, ptr %10, align 4
   %.not267.i = icmp eq i32 %103, 0
   br i1 %.not267.i, label %dissect_pgsql_fe_msg.exit, label %104
@@ -752,58 +800,58 @@ proto_item_set_hidden.exit:                       ; preds = %59, %80, %83
 104:                                              ; preds = %96
   %105 = add i32 %97, 9
   %106 = load i32, ptr @hf_sasl_auth_data, align 4
-  %107 = call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %106, ptr noundef %0, i32 noundef %105, i32 noundef %103, i32 noundef 0) #4
+  %107 = call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %106, ptr noundef %0, i32 noundef %105, i32 noundef %103, i32 noundef 0)
   br label %dissect_pgsql_fe_msg.exit
 
 108:                                              ; preds = %89
   %109 = load i32, ptr @hf_sasl_auth_data, align 4
   %110 = add i32 %33, -4
-  %111 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %109, ptr noundef %0, i32 noundef range(i32 4, 6) 5, i32 noundef %110, i32 noundef 0) #4
+  %111 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %109, ptr noundef %0, i32 noundef range(i32 4, 6) 5, i32 noundef %110, i32 noundef 0)
   br label %dissect_pgsql_fe_msg.exit
 
 112:                                              ; preds = %89
   %113 = add i32 %33, -4
-  %114 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef range(i32 4, 6) 5, i32 noundef %113) #4
-  %115 = tail call i32 @tvb_strneql(ptr noundef %114, i32 noundef 0, ptr noundef nonnull @.str.247, i64 noundef 7) #4
+  %114 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef range(i32 4, 6) 5, i32 noundef %113)
+  %115 = tail call i32 @tvb_strneql(ptr noundef %114, i32 noundef 0, ptr noundef nonnull @.str.255, i64 noundef 7)
   %116 = icmp eq i32 %115, 0
   %ntlmssp_handle.val.i = load ptr, ptr @ntlmssp_handle, align 8
   %gssapi_handle.val.i = load ptr, ptr @gssapi_handle, align 8
   %.0.i = select i1 %116, ptr %ntlmssp_handle.val.i, ptr %gssapi_handle.val.i
-  %117 = tail call i32 @call_dissector_only(ptr noundef %.0.i, ptr noundef %114, ptr noundef nonnull %1, ptr noundef %72, ptr noundef null) #4
-  %118 = tail call i32 @tvb_reported_length_remaining(ptr noundef %114, i32 noundef %117) #4
+  %117 = tail call i32 @call_dissector_only(ptr noundef %.0.i, ptr noundef %114, ptr noundef %1, ptr noundef %72, ptr noundef null)
+  %118 = tail call i32 @tvb_reported_length_remaining(ptr noundef %114, i32 noundef %117)
   %.not.i78 = icmp eq i32 %118, 0
   br i1 %.not.i78, label %dissect_pgsql_fe_msg.exit, label %119
 
 119:                                              ; preds = %112
   %120 = load i32, ptr @hf_gssapi_sspi_data, align 4
-  %121 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %120, ptr noundef %114, i32 noundef %117, i32 noundef %118, i32 noundef 0) #4
+  %121 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %120, ptr noundef %114, i32 noundef %117, i32 noundef %118, i32 noundef 0)
   br label %dissect_pgsql_fe_msg.exit
 
 122:                                              ; preds = %89
-  %123 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef range(i32 4, 6) 5) #4
+  %123 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef range(i32 4, 6) 5)
   %124 = load i32, ptr @hf_passwd, align 4
-  %125 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %124, ptr noundef %0, i32 noundef range(i32 4, 6) 5, i32 noundef %123, i32 noundef 0) #4
+  %125 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %124, ptr noundef %0, i32 noundef range(i32 4, 6) 5, i32 noundef %123, i32 noundef 0)
   br label %dissect_pgsql_fe_msg.exit
 
 126:                                              ; preds = %88
-  %127 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef range(i32 4, 6) 5) #4
+  %127 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef range(i32 4, 6) 5)
   %128 = load i32, ptr @hf_query, align 4
-  %129 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %128, ptr noundef %0, i32 noundef range(i32 4, 6) 5, i32 noundef %127, i32 noundef 0) #4
+  %129 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %128, ptr noundef %0, i32 noundef range(i32 4, 6) 5, i32 noundef %127, i32 noundef 0)
   br label %dissect_pgsql_fe_msg.exit
 
 130:                                              ; preds = %88
-  %131 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef range(i32 4, 6) 5) #4
+  %131 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef range(i32 4, 6) 5)
   %132 = load i32, ptr @hf_statement, align 4
-  %133 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %132, ptr noundef %0, i32 noundef range(i32 4, 6) 5, i32 noundef %131, i32 noundef 0) #4
+  %133 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %132, ptr noundef %0, i32 noundef range(i32 4, 6) 5, i32 noundef %131, i32 noundef 0)
   %134 = add i32 %131, 5
-  %135 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %134) #4
+  %135 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %134)
   %136 = load i32, ptr @hf_query, align 4
-  %137 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %136, ptr noundef %0, i32 noundef %134, i32 noundef %135, i32 noundef 0) #4
+  %137 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %136, ptr noundef %0, i32 noundef %134, i32 noundef %135, i32 noundef 0)
   %138 = add i32 %135, %134
-  %139 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %138) #4
+  %139 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %138)
   %140 = zext i16 %139 to i32
   %141 = load i32, ptr @ett_values, align 4
-  %142 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %72, ptr noundef %0, i32 noundef %138, i32 noundef 2, i32 noundef %141, ptr noundef null, ptr noundef nonnull @.str.248, i32 noundef %140) #4
+  %142 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %72, ptr noundef %0, i32 noundef %138, i32 noundef 2, i32 noundef %141, ptr noundef null, ptr noundef nonnull @.str.256, i32 noundef %140)
   %.not319.i = icmp eq i16 %139, 0
   br i1 %.not319.i, label %dissect_pgsql_fe_msg.exit, label %.lr.ph311.preheader.i
 
@@ -816,24 +864,24 @@ proto_item_set_hidden.exit:                       ; preds = %59, %80, %83
   %.0253308.i = phi i32 [ %144, %.lr.ph311.i ], [ %140, %.lr.ph311.preheader.i ]
   %144 = add nsw i32 %.0253308.i, -1
   %145 = load i32, ptr @hf_typeoid, align 4
-  %146 = tail call ptr @proto_tree_add_item(ptr noundef %142, i32 noundef %145, ptr noundef %0, i32 noundef %.0252309.i, i32 noundef 4, i32 noundef 0) #4
+  %146 = tail call ptr @proto_tree_add_item(ptr noundef %142, i32 noundef %145, ptr noundef %0, i32 noundef %.0252309.i, i32 noundef 4, i32 noundef 0)
   %147 = add i32 %.0252309.i, 4
   %148 = icmp samesign ugt i32 %.0253308.i, 1
-  br i1 %148, label %.lr.ph311.i, label %dissect_pgsql_fe_msg.exit, !llvm.loop !4
+  br i1 %148, label %.lr.ph311.i, label %dissect_pgsql_fe_msg.exit, !llvm.loop !6
 
 149:                                              ; preds = %88
-  %150 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef range(i32 4, 6) 5) #4
+  %150 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef range(i32 4, 6) 5)
   %151 = load i32, ptr @hf_portal, align 4
-  %152 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %151, ptr noundef %0, i32 noundef range(i32 4, 6) 5, i32 noundef %150, i32 noundef 0) #4
+  %152 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %151, ptr noundef %0, i32 noundef range(i32 4, 6) 5, i32 noundef %150, i32 noundef 0)
   %153 = add i32 %150, 5
-  %154 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %153) #4
+  %154 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %153)
   %155 = load i32, ptr @hf_statement, align 4
-  %156 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %155, ptr noundef %0, i32 noundef %153, i32 noundef %154, i32 noundef 0) #4
+  %156 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %155, ptr noundef %0, i32 noundef %153, i32 noundef %154, i32 noundef 0)
   %157 = add i32 %154, %153
-  %158 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %157) #4
+  %158 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %157)
   %159 = zext i16 %158 to i32
   %160 = load i32, ptr @ett_values, align 4
-  %161 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %72, ptr noundef %0, i32 noundef %157, i32 noundef 2, i32 noundef %160, ptr noundef null, ptr noundef nonnull @.str.249, i32 noundef %159) #4
+  %161 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %72, ptr noundef %0, i32 noundef %157, i32 noundef 2, i32 noundef %160, ptr noundef null, ptr noundef nonnull @.str.257, i32 noundef %159)
   %.1288.i = add i32 %157, 2
   %.not315.i = icmp eq i16 %158, 0
   br i1 %.not315.i, label %._crit_edge293.i, label %.lr.ph292.i
@@ -843,18 +891,18 @@ proto_item_set_hidden.exit:                       ; preds = %59, %80, %83
   %.1254289.i = phi i32 [ %162, %.lr.ph292.i ], [ %159, %149 ]
   %162 = add nsw i32 %.1254289.i, -1
   %163 = load i32, ptr @hf_format, align 4
-  %164 = tail call ptr @proto_tree_add_item(ptr noundef %161, i32 noundef %163, ptr noundef %0, i32 noundef %.1290.i, i32 noundef 2, i32 noundef 0) #4
+  %164 = tail call ptr @proto_tree_add_item(ptr noundef %161, i32 noundef %163, ptr noundef %0, i32 noundef %.1290.i, i32 noundef 2, i32 noundef 0)
   %.1.i = add i32 %.1290.i, 2
   %165 = icmp samesign ugt i32 %.1254289.i, 1
-  br i1 %165, label %.lr.ph292.i, label %._crit_edge293.i, !llvm.loop !6
+  br i1 %165, label %.lr.ph292.i, label %._crit_edge293.i, !llvm.loop !8
 
 ._crit_edge293.i:                                 ; preds = %.lr.ph292.i, %149
   %.1.in.lcssa.i = phi i32 [ %157, %149 ], [ %.1290.i, %.lr.ph292.i ]
   %.1.lcssa.i = phi i32 [ %.1288.i, %149 ], [ %.1.i, %.lr.ph292.i ]
-  %166 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.1.lcssa.i) #4
+  %166 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.1.lcssa.i)
   %167 = zext i16 %166 to i32
   %168 = load i32, ptr @ett_values, align 4
-  %169 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %72, ptr noundef %0, i32 noundef %.1.lcssa.i, i32 noundef 2, i32 noundef %168, ptr noundef null, ptr noundef nonnull @.str.250, i32 noundef %167) #4
+  %169 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %72, ptr noundef %0, i32 noundef %.1.lcssa.i, i32 noundef 2, i32 noundef %168, ptr noundef null, ptr noundef nonnull @.str.258, i32 noundef %167)
   %170 = add i32 %.1.in.lcssa.i, 4
   %.not316.i = icmp eq i16 %166, 0
   br i1 %.not316.i, label %._crit_edge301.i, label %.lr.ph300.i
@@ -863,30 +911,30 @@ proto_item_set_hidden.exit:                       ; preds = %59, %80, %83
   %.in317.i = phi i32 [ %171, %181 ], [ %167, %._crit_edge293.i ]
   %.2298.i = phi i32 [ %.3.i, %181 ], [ %170, %._crit_edge293.i ]
   %171 = add nsw i32 %.in317.i, -1
-  %172 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.2298.i) #4
+  %172 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.2298.i)
   %173 = load i32, ptr @hf_val_length, align 4
-  %174 = tail call ptr @proto_tree_add_int(ptr noundef %169, i32 noundef %173, ptr noundef %0, i32 noundef %.2298.i, i32 noundef 4, i32 noundef %172) #4
+  %174 = tail call ptr @proto_tree_add_int(ptr noundef %169, i32 noundef %173, ptr noundef %0, i32 noundef %.2298.i, i32 noundef 4, i32 noundef %172)
   %175 = add i32 %.2298.i, 4
   %176 = icmp sgt i32 %172, 0
   br i1 %176, label %177, label %181
 
 177:                                              ; preds = %.lr.ph300.i
   %178 = load i32, ptr @hf_val_data, align 4
-  %179 = tail call ptr @proto_tree_add_item(ptr noundef %169, i32 noundef %178, ptr noundef %0, i32 noundef %175, i32 noundef %172, i32 noundef 0) #4
+  %179 = tail call ptr @proto_tree_add_item(ptr noundef %169, i32 noundef %178, ptr noundef %0, i32 noundef %175, i32 noundef %172, i32 noundef 0)
   %180 = add i32 %172, %175
   br label %181
 
 181:                                              ; preds = %177, %.lr.ph300.i
   %.3.i = phi i32 [ %180, %177 ], [ %175, %.lr.ph300.i ]
   %182 = icmp samesign ugt i32 %.in317.i, 1
-  br i1 %182, label %.lr.ph300.i, label %._crit_edge301.i, !llvm.loop !7
+  br i1 %182, label %.lr.ph300.i, label %._crit_edge301.i, !llvm.loop !9
 
 ._crit_edge301.i:                                 ; preds = %181, %._crit_edge293.i
   %.2.lcssa.i = phi i32 [ %170, %._crit_edge293.i ], [ %.3.i, %181 ]
-  %183 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.2.lcssa.i) #4
+  %183 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.2.lcssa.i)
   %184 = zext i16 %183 to i32
   %185 = load i32, ptr @ett_values, align 4
-  %186 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %72, ptr noundef %0, i32 noundef %.2.lcssa.i, i32 noundef 2, i32 noundef %185, ptr noundef null, ptr noundef nonnull @.str.251, i32 noundef %184) #4
+  %186 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %72, ptr noundef %0, i32 noundef %.2.lcssa.i, i32 noundef 2, i32 noundef %185, ptr noundef null, ptr noundef nonnull @.str.259, i32 noundef %184)
   %.not318.i = icmp eq i16 %183, 0
   br i1 %.not318.i, label %dissect_pgsql_fe_msg.exit, label %.lr.ph307.i
 
@@ -896,43 +944,43 @@ proto_item_set_hidden.exit:                       ; preds = %59, %80, %83
   %187 = add nsw i32 %.3256304.i, -1
   %.4.i = add i32 %.4.in305.i, 2
   %188 = load i32, ptr @hf_format, align 4
-  %189 = tail call ptr @proto_tree_add_item(ptr noundef %186, i32 noundef %188, ptr noundef %0, i32 noundef %.4.i, i32 noundef 2, i32 noundef 0) #4
+  %189 = tail call ptr @proto_tree_add_item(ptr noundef %186, i32 noundef %188, ptr noundef %0, i32 noundef %.4.i, i32 noundef 2, i32 noundef 0)
   %190 = icmp samesign ugt i32 %.3256304.i, 1
-  br i1 %190, label %.lr.ph307.i, label %dissect_pgsql_fe_msg.exit, !llvm.loop !8
+  br i1 %190, label %.lr.ph307.i, label %dissect_pgsql_fe_msg.exit, !llvm.loop !10
 
 191:                                              ; preds = %88
-  %192 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef range(i32 4, 6) 5) #4
+  %192 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef range(i32 4, 6) 5)
   %193 = load i32, ptr @hf_portal, align 4
-  %194 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %193, ptr noundef %0, i32 noundef range(i32 4, 6) 5, i32 noundef %192, i32 noundef 0) #4
+  %194 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %193, ptr noundef %0, i32 noundef range(i32 4, 6) 5, i32 noundef %192, i32 noundef 0)
   %195 = add i32 %192, 5
-  %196 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %195) #4
+  %196 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %195)
   %197 = icmp eq i32 %196, 0
   %198 = load i32, ptr @hf_return, align 4
   br i1 %197, label %199, label %201
 
 199:                                              ; preds = %191
-  %200 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %72, i32 noundef %198, ptr noundef %0, i32 noundef %195, i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.252) #4
+  %200 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %72, i32 noundef %198, ptr noundef %0, i32 noundef %195, i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.260)
   br label %dissect_pgsql_fe_msg.exit
 
 201:                                              ; preds = %191
-  %202 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %72, i32 noundef %198, ptr noundef %0, i32 noundef %195, i32 noundef 4, i32 noundef %196, ptr noundef nonnull @.str.253, i32 noundef %196) #4
+  %202 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %72, i32 noundef %198, ptr noundef %0, i32 noundef %195, i32 noundef 4, i32 noundef %196, ptr noundef nonnull @.str.261, i32 noundef %196)
   br label %dissect_pgsql_fe_msg.exit
 
 203:                                              ; preds = %88, %88
-  %204 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef range(i32 4, 6) 5) #4
+  %204 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef range(i32 4, 6) 5)
   %205 = icmp eq i8 %204, 80
   %hf_portal.val.i = load i32, ptr @hf_portal, align 4
   %hf_statement.val.i = load i32, ptr @hf_statement, align 4
   %.4257.i = select i1 %205, i32 %hf_portal.val.i, i32 %hf_statement.val.i
   %206 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %207 = load ptr, ptr %206, align 8
-  %208 = call ptr @tvb_get_stringz_enc(ptr noundef %207, ptr noundef %0, i32 noundef 6, ptr noundef nonnull %9, i32 noundef 0) #4
+  %208 = call ptr @tvb_get_stringz_enc(ptr noundef %207, ptr noundef %0, i32 noundef 6, ptr noundef nonnull %9, i32 noundef 0)
   %209 = load i32, ptr %9, align 4
-  %210 = call ptr @proto_tree_add_string(ptr noundef %72, i32 noundef %.4257.i, ptr noundef %0, i32 noundef 6, i32 noundef %209, ptr noundef %208) #4
+  %210 = call ptr @proto_tree_add_string(ptr noundef %72, i32 noundef %.4257.i, ptr noundef %0, i32 noundef 6, i32 noundef %209, ptr noundef %208)
   br label %dissect_pgsql_fe_msg.exit
 
 211:                                              ; preds = %88
-  %212 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef range(i32 4, 6) 4) #4
+  %212 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef range(i32 4, 6) 4)
   switch i32 %212, label %dissect_pgsql_fe_msg.exit [
     i32 196608, label %213
     i32 80877103, label %240
@@ -943,14 +991,14 @@ proto_item_set_hidden.exit:                       ; preds = %59, %80, %83
 213:                                              ; preds = %211
   %214 = add i32 %33, -8
   %215 = load i32, ptr @hf_version_major, align 4
-  %216 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %215, ptr noundef %0, i32 noundef range(i32 4, 6) 4, i32 noundef 2, i32 noundef 0) #4
+  %216 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %215, ptr noundef %0, i32 noundef range(i32 4, 6) 4, i32 noundef 2, i32 noundef 0)
   %217 = load i32, ptr @hf_version_minor, align 4
-  %218 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %217, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0) #4
+  %218 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %217, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0)
   %219 = icmp sgt i32 %214, 0
   br i1 %219, label %.lr.ph282.i.preheader, label %dissect_pgsql_fe_msg.exit
 
 .lr.ph282.i.preheader:                            ; preds = %213
-  %220 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef 8) #4
+  %220 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef 8)
   %221 = sub i32 %214, %220
   %222 = icmp slt i32 %221, 1
   br i1 %222, label %dissect_pgsql_fe_msg.exit, label %.lr.ph
@@ -960,18 +1008,18 @@ proto_item_set_hidden.exit:                       ; preds = %59, %80, %83
   %224 = phi i32 [ %237, %.lr.ph282.backedge.i ], [ %220, %.lr.ph282.i.preheader ]
   %.5279.i91 = phi i32 [ %232, %.lr.ph282.backedge.i ], [ 8, %.lr.ph282.i.preheader ]
   %225 = load i32, ptr @hf_parameter_name, align 4
-  %226 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %225, ptr noundef %0, i32 noundef %.5279.i91, i32 noundef %224, i32 noundef 0) #4
+  %226 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %225, ptr noundef %0, i32 noundef %.5279.i91, i32 noundef %224, i32 noundef 0)
   %227 = add i32 %224, %.5279.i91
-  %228 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %227) #4
+  %228 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %227)
   %229 = load i32, ptr @hf_parameter_value, align 4
-  %230 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %229, ptr noundef %0, i32 noundef %227, i32 noundef %228, i32 noundef 0) #4
+  %230 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %229, ptr noundef %0, i32 noundef %227, i32 noundef %228, i32 noundef 0)
   %231 = sub i32 %223, %228
   %232 = add i32 %227, %228
   %233 = icmp eq i32 %231, 1
   br i1 %233, label %234, label %236
 
 234:                                              ; preds = %.lr.ph
-  %235 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %232) #4
+  %235 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %232)
   %.not314.i = icmp eq i8 %235, 0
   br i1 %.not314.i, label %dissect_pgsql_fe_msg.exit, label %.lr.ph282.backedge.i
 
@@ -980,57 +1028,57 @@ proto_item_set_hidden.exit:                       ; preds = %59, %80, %83
   br i1 %.old.i, label %.lr.ph282.backedge.i, label %dissect_pgsql_fe_msg.exit
 
 .lr.ph282.backedge.i:                             ; preds = %236, %234
-  %237 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %232) #4
+  %237 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %232)
   %238 = sub i32 %231, %237
   %239 = icmp slt i32 %238, 1
-  br i1 %239, label %dissect_pgsql_fe_msg.exit, label %.lr.ph, !llvm.loop !9
+  br i1 %239, label %dissect_pgsql_fe_msg.exit, label %.lr.ph, !llvm.loop !11
 
 240:                                              ; preds = %211
   %241 = load i32, ptr @hf_request_code, align 4
-  %242 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %241, ptr noundef %0, i32 noundef range(i32 4, 6) 4, i32 noundef 4, i32 noundef 0) #4
+  %242 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %241, ptr noundef %0, i32 noundef range(i32 4, 6) 4, i32 noundef 4, i32 noundef 0)
   %243 = load ptr, ptr %.0, align 8
   %244 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %245 = load i32, ptr %244, align 4
-  tail call void @wmem_tree_insert32(ptr noundef %243, i32 noundef %245, ptr noundef nonnull inttoptr (i64 5 to ptr)) #4
+  tail call void @wmem_tree_insert32(ptr noundef %243, i32 noundef %245, ptr noundef nonnull inttoptr (i64 5 to ptr))
   br label %dissect_pgsql_fe_msg.exit
 
 246:                                              ; preds = %211
   %247 = load i32, ptr @hf_request_code, align 4
-  %248 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %247, ptr noundef %0, i32 noundef range(i32 4, 6) 4, i32 noundef 4, i32 noundef 0) #4
+  %248 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %247, ptr noundef %0, i32 noundef range(i32 4, 6) 4, i32 noundef 4, i32 noundef 0)
   %249 = load ptr, ptr %.0, align 8
   %250 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %251 = load i32, ptr %250, align 4
-  tail call void @wmem_tree_insert32(ptr noundef %249, i32 noundef %251, ptr noundef nonnull inttoptr (i64 6 to ptr)) #4
+  tail call void @wmem_tree_insert32(ptr noundef %249, i32 noundef %251, ptr noundef nonnull inttoptr (i64 6 to ptr))
   br label %dissect_pgsql_fe_msg.exit
 
 252:                                              ; preds = %211
   %253 = load i32, ptr @hf_request_code, align 4
-  %254 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %253, ptr noundef %0, i32 noundef range(i32 4, 6) 4, i32 noundef 4, i32 noundef 0) #4
+  %254 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %253, ptr noundef %0, i32 noundef range(i32 4, 6) 4, i32 noundef 4, i32 noundef 0)
   %255 = load i32, ptr @hf_pid, align 4
-  %256 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %255, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0) #4
+  %256 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %255, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0)
   %257 = load i32, ptr @hf_key, align 4
-  %258 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %257, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef 0) #4
+  %258 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %257, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef 0)
   br label %dissect_pgsql_fe_msg.exit
 
 259:                                              ; preds = %88
   %260 = load i32, ptr @hf_copydata, align 4
   %261 = add i32 %33, -4
-  %262 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %260, ptr noundef %0, i32 noundef range(i32 4, 6) 5, i32 noundef %261, i32 noundef 0) #4
+  %262 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %260, ptr noundef %0, i32 noundef range(i32 4, 6) 5, i32 noundef %261, i32 noundef 0)
   br label %dissect_pgsql_fe_msg.exit
 
 263:                                              ; preds = %88
-  %264 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef range(i32 4, 6) 5) #4
+  %264 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef range(i32 4, 6) 5)
   %265 = load i32, ptr @hf_error, align 4
-  %266 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %265, ptr noundef %0, i32 noundef range(i32 4, 6) 5, i32 noundef %264, i32 noundef 0) #4
+  %266 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %265, ptr noundef %0, i32 noundef range(i32 4, 6) 5, i32 noundef %264, i32 noundef 0)
   br label %dissect_pgsql_fe_msg.exit
 
 267:                                              ; preds = %88
   %268 = load i32, ptr @hf_oid, align 4
-  %269 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %268, ptr noundef %0, i32 noundef range(i32 4, 6) 5, i32 noundef 4, i32 noundef 0) #4
-  %270 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 9) #4
+  %269 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %268, ptr noundef %0, i32 noundef range(i32 4, 6) 5, i32 noundef 4, i32 noundef 0)
+  %270 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 9)
   %271 = zext i16 %270 to i32
   %272 = load i32, ptr @ett_values, align 4
-  %273 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %72, ptr noundef %0, i32 noundef 9, i32 noundef 2, i32 noundef %272, ptr noundef null, ptr noundef nonnull @.str.249, i32 noundef %271) #4
+  %273 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %72, ptr noundef %0, i32 noundef 9, i32 noundef 2, i32 noundef %272, ptr noundef null, ptr noundef nonnull @.str.257, i32 noundef %271)
   %.not312.i = icmp eq i16 %270, 0
   br i1 %.not312.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -1039,17 +1087,17 @@ proto_item_set_hidden.exit:                       ; preds = %59, %80, %83
   %.5258270.i = phi i32 [ %274, %.lr.ph.i ], [ %271, %267 ]
   %274 = add nsw i32 %.5258270.i, -1
   %275 = load i32, ptr @hf_format, align 4
-  %276 = tail call ptr @proto_tree_add_item(ptr noundef %273, i32 noundef %275, ptr noundef %0, i32 noundef %.6271.i, i32 noundef 2, i32 noundef 0) #4
+  %276 = tail call ptr @proto_tree_add_item(ptr noundef %273, i32 noundef %275, ptr noundef %0, i32 noundef %.6271.i, i32 noundef 2, i32 noundef 0)
   %277 = add nuw nsw i32 %.6271.i, 2
   %278 = icmp samesign ugt i32 %.5258270.i, 1
-  br i1 %278, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !10
+  br i1 %278, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %267
   %.6.lcssa.i = phi i32 [ 11, %267 ], [ %277, %.lr.ph.i ]
-  %279 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.6.lcssa.i) #4
+  %279 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.6.lcssa.i)
   %280 = zext i16 %279 to i32
   %281 = load i32, ptr @ett_values, align 4
-  %282 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %72, ptr noundef %0, i32 noundef %.6.lcssa.i, i32 noundef 2, i32 noundef %281, ptr noundef null, ptr noundef nonnull @.str.250, i32 noundef %280) #4
+  %282 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %72, ptr noundef %0, i32 noundef %.6.lcssa.i, i32 noundef 2, i32 noundef %281, ptr noundef null, ptr noundef nonnull @.str.258, i32 noundef %280)
   %283 = add i32 %.6.lcssa.i, 2
   %.not313.i = icmp eq i16 %279, 0
   br i1 %.not313.i, label %._crit_edge275.i, label %.lr.ph274.i
@@ -1058,40 +1106,40 @@ proto_item_set_hidden.exit:                       ; preds = %59, %80, %83
   %.in.i = phi i32 [ %284, %294 ], [ %280, %._crit_edge.i ]
   %.7272.i = phi i32 [ %.8.i, %294 ], [ %283, %._crit_edge.i ]
   %284 = add nsw i32 %.in.i, -1
-  %285 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.7272.i) #4
+  %285 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.7272.i)
   %286 = load i32, ptr @hf_val_length, align 4
-  %287 = tail call ptr @proto_tree_add_item(ptr noundef %282, i32 noundef %286, ptr noundef %0, i32 noundef %.7272.i, i32 noundef 4, i32 noundef 0) #4
+  %287 = tail call ptr @proto_tree_add_item(ptr noundef %282, i32 noundef %286, ptr noundef %0, i32 noundef %.7272.i, i32 noundef 4, i32 noundef 0)
   %288 = add i32 %.7272.i, 4
   %289 = icmp sgt i32 %285, 0
   br i1 %289, label %290, label %294
 
 290:                                              ; preds = %.lr.ph274.i
   %291 = load i32, ptr @hf_val_data, align 4
-  %292 = tail call ptr @proto_tree_add_item(ptr noundef %282, i32 noundef %291, ptr noundef %0, i32 noundef %288, i32 noundef %285, i32 noundef 0) #4
+  %292 = tail call ptr @proto_tree_add_item(ptr noundef %282, i32 noundef %291, ptr noundef %0, i32 noundef %288, i32 noundef %285, i32 noundef 0)
   %293 = add i32 %285, %288
   br label %294
 
 294:                                              ; preds = %290, %.lr.ph274.i
   %.8.i = phi i32 [ %293, %290 ], [ %288, %.lr.ph274.i ]
   %295 = icmp samesign ugt i32 %.in.i, 1
-  br i1 %295, label %.lr.ph274.i, label %._crit_edge275.i, !llvm.loop !11
+  br i1 %295, label %.lr.ph274.i, label %._crit_edge275.i, !llvm.loop !13
 
 ._crit_edge275.i:                                 ; preds = %294, %._crit_edge.i
   %.7.lcssa.i = phi i32 [ %283, %._crit_edge.i ], [ %.8.i, %294 ]
   %296 = load i32, ptr @hf_format, align 4
-  %297 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %296, ptr noundef %0, i32 noundef %.7.lcssa.i, i32 noundef 2, i32 noundef 0) #4
+  %297 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %296, ptr noundef %0, i32 noundef %.7.lcssa.i, i32 noundef 2, i32 noundef 0)
   br label %dissect_pgsql_fe_msg.exit
 
 dissect_pgsql_fe_msg.exit:                        ; preds = %236, %234, %.lr.ph282.backedge.i, %.lr.ph307.i, %.lr.ph311.i, %.lr.ph282.i.preheader, %88, %96, %104, %108, %112, %119, %122, %126, %130, %._crit_edge301.i, %199, %201, %203, %211, %213, %240, %246, %252, %259, %263, %._crit_edge275.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
   br label %512
 
 298:                                              ; preds = %proto_item_set_hidden.exit
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
   switch i8 %31, label %dissect_pgsql_be_msg.exit [
     i8 82, label %299
     i8 75, label %336
@@ -1113,7 +1161,7 @@ dissect_pgsql_fe_msg.exit:                        ; preds = %236, %234, %.lr.ph2
 
 299:                                              ; preds = %298
   %300 = load i32, ptr @hf_authtype, align 4
-  %301 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %72, i32 noundef %300, ptr noundef %0, i32 noundef range(i32 4, 6) 5, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %8) #4
+  %301 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %72, i32 noundef %300, ptr noundef %0, i32 noundef range(i32 4, 6) 5, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %8)
   %302 = load i32, ptr %8, align 4
   switch i32 %302, label %dissect_pgsql_be_msg.exit [
     i32 4, label %303
@@ -1131,83 +1179,83 @@ dissect_pgsql_fe_msg.exit:                        ; preds = %236, %234, %.lr.ph2
   %305 = select i1 %304, i32 2, i32 4
   store i32 %305, ptr %6, align 4
   %306 = load i32, ptr @hf_salt, align 4
-  %307 = call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %306, ptr noundef %0, i32 noundef 9, i32 noundef %305, i32 noundef 0) #4
+  %307 = call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %306, ptr noundef %0, i32 noundef 9, i32 noundef %305, i32 noundef 0)
   br label %dissect_pgsql_be_msg.exit
 
 308:                                              ; preds = %299
   %309 = load i32, ptr @hf_gssapi_sspi_data, align 4
   %310 = add i32 %33, -8
-  %311 = call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %309, ptr noundef %0, i32 noundef range(i32 4, 6) 5, i32 noundef %310, i32 noundef 0) #4
+  %311 = call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %309, ptr noundef %0, i32 noundef range(i32 4, 6) 5, i32 noundef %310, i32 noundef 0)
   br label %312
 
 312:                                              ; preds = %308, %299, %299
   %313 = load ptr, ptr %.0, align 8
   %314 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %315 = load i32, ptr %314, align 4
-  call void @wmem_tree_insert32(ptr noundef %313, i32 noundef %315, ptr noundef nonnull inttoptr (i64 4 to ptr)) #4
+  call void @wmem_tree_insert32(ptr noundef %313, i32 noundef %315, ptr noundef nonnull inttoptr (i64 4 to ptr))
   br label %dissect_pgsql_be_msg.exit
 
 316:                                              ; preds = %299
   %317 = load ptr, ptr %.0, align 8
   %318 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %319 = load i32, ptr %318, align 4
-  call void @wmem_tree_insert32(ptr noundef %317, i32 noundef %319, ptr noundef nonnull inttoptr (i64 2 to ptr)) #4
+  call void @wmem_tree_insert32(ptr noundef %317, i32 noundef %319, ptr noundef nonnull inttoptr (i64 2 to ptr))
   %320 = icmp ugt i32 %33, 9
   br i1 %320, label %.lr.ph242.i, label %dissect_pgsql_be_msg.exit
 
 .lr.ph242.i:                                      ; preds = %316, %.lr.ph242.i
   %.0199241.i = phi i32 [ %325, %.lr.ph242.i ], [ 9, %316 ]
-  %321 = call i32 @tvb_strsize(ptr noundef %0, i32 noundef %.0199241.i) #4
+  %321 = call i32 @tvb_strsize(ptr noundef %0, i32 noundef %.0199241.i)
   store i32 %321, ptr %6, align 4
   %322 = load i32, ptr @hf_sasl_auth_mech, align 4
-  %323 = call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %322, ptr noundef %0, i32 noundef %.0199241.i, i32 noundef %321, i32 noundef 0) #4
+  %323 = call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %322, ptr noundef %0, i32 noundef %.0199241.i, i32 noundef %321, i32 noundef 0)
   %324 = load i32, ptr %6, align 4
   %325 = add i32 %324, %.0199241.i
   %326 = icmp ult i32 %325, %33
-  br i1 %326, label %.lr.ph242.i, label %dissect_pgsql_be_msg.exit, !llvm.loop !12
+  br i1 %326, label %.lr.ph242.i, label %dissect_pgsql_be_msg.exit, !llvm.loop !14
 
 327:                                              ; preds = %299, %299
   %328 = load ptr, ptr %.0, align 8
   %329 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %330 = load i32, ptr %329, align 4
-  call void @wmem_tree_insert32(ptr noundef %328, i32 noundef %330, ptr noundef nonnull inttoptr (i64 3 to ptr)) #4
+  call void @wmem_tree_insert32(ptr noundef %328, i32 noundef %330, ptr noundef nonnull inttoptr (i64 3 to ptr))
   %331 = icmp ugt i32 %33, 9
   br i1 %331, label %332, label %dissect_pgsql_be_msg.exit
 
 332:                                              ; preds = %327
   %333 = load i32, ptr @hf_sasl_auth_data, align 4
   %334 = add i32 %33, -8
-  %335 = call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %333, ptr noundef %0, i32 noundef 9, i32 noundef %334, i32 noundef 0) #4
+  %335 = call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %333, ptr noundef %0, i32 noundef 9, i32 noundef %334, i32 noundef 0)
   br label %dissect_pgsql_be_msg.exit
 
 336:                                              ; preds = %298
   %337 = load i32, ptr @hf_pid, align 4
-  %338 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %337, ptr noundef %0, i32 noundef range(i32 4, 6) 5, i32 noundef 4, i32 noundef 0) #4
+  %338 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %337, ptr noundef %0, i32 noundef range(i32 4, 6) 5, i32 noundef 4, i32 noundef 0)
   %339 = load i32, ptr @hf_key, align 4
-  %340 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %339, ptr noundef %0, i32 noundef 9, i32 noundef 4, i32 noundef 0) #4
+  %340 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %339, ptr noundef %0, i32 noundef 9, i32 noundef 4, i32 noundef 0)
   br label %dissect_pgsql_be_msg.exit
 
 341:                                              ; preds = %298
   %342 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %343 = load ptr, ptr %342, align 8
-  %344 = call ptr @tvb_get_stringz_enc(ptr noundef %343, ptr noundef %0, i32 noundef range(i32 4, 6) 5, ptr noundef nonnull %6, i32 noundef 0) #4
+  %344 = call ptr @tvb_get_stringz_enc(ptr noundef %343, ptr noundef %0, i32 noundef range(i32 4, 6) 5, ptr noundef nonnull %6, i32 noundef 0)
   %345 = load i32, ptr @hf_parameter_name, align 4
   %346 = load i32, ptr %6, align 4
-  %347 = call ptr @proto_tree_add_string(ptr noundef %72, i32 noundef %345, ptr noundef %0, i32 noundef range(i32 4, 6) 5, i32 noundef %346, ptr noundef %344) #4
+  %347 = call ptr @proto_tree_add_string(ptr noundef %72, i32 noundef %345, ptr noundef %0, i32 noundef range(i32 4, 6) 5, i32 noundef %346, ptr noundef %344)
   %348 = load i32, ptr %6, align 4
   %349 = add i32 %348, 5
   %350 = load ptr, ptr %342, align 8
-  %351 = call ptr @tvb_get_stringz_enc(ptr noundef %350, ptr noundef %0, i32 noundef %349, ptr noundef nonnull %5, i32 noundef 0) #4
+  %351 = call ptr @tvb_get_stringz_enc(ptr noundef %350, ptr noundef %0, i32 noundef %349, ptr noundef nonnull %5, i32 noundef 0)
   %352 = load i32, ptr @hf_parameter_value, align 4
   %353 = load i32, ptr %5, align 4
-  %354 = call ptr @proto_tree_add_string(ptr noundef %72, i32 noundef %352, ptr noundef %0, i32 noundef %349, i32 noundef %353, ptr noundef %351) #4
+  %354 = call ptr @proto_tree_add_string(ptr noundef %72, i32 noundef %352, ptr noundef %0, i32 noundef %349, i32 noundef %353, ptr noundef %351)
   br label %dissect_pgsql_be_msg.exit
 
 355:                                              ; preds = %298
-  %356 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef range(i32 4, 6) 5) #4
+  %356 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef range(i32 4, 6) 5)
   %357 = zext i16 %356 to i32
   %358 = load i32, ptr @ett_values, align 4
-  %359 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %72, ptr noundef %0, i32 noundef range(i32 4, 6) 5, i32 noundef 2, i32 noundef %358, ptr noundef null, ptr noundef nonnull @.str.248, i32 noundef %357) #4
+  %359 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %72, ptr noundef %0, i32 noundef range(i32 4, 6) 5, i32 noundef 2, i32 noundef %358, ptr noundef null, ptr noundef nonnull @.str.256, i32 noundef %357)
   %.not244.i = icmp eq i16 %356, 0
   br i1 %.not244.i, label %dissect_pgsql_be_msg.exit, label %.lr.ph239.i
 
@@ -1216,17 +1264,17 @@ dissect_pgsql_fe_msg.exit:                        ; preds = %236, %234, %.lr.ph2
   %.1238.i = phi i32 [ %363, %.lr.ph239.i ], [ 7, %355 ]
   %360 = add nsw i32 %.in258.i, -1
   %361 = load i32, ptr @hf_typeoid, align 4
-  %362 = tail call ptr @proto_tree_add_item(ptr noundef %359, i32 noundef %361, ptr noundef %0, i32 noundef %.1238.i, i32 noundef 4, i32 noundef 0) #4
+  %362 = tail call ptr @proto_tree_add_item(ptr noundef %359, i32 noundef %361, ptr noundef %0, i32 noundef %.1238.i, i32 noundef 4, i32 noundef 0)
   %363 = add nuw nsw i32 %.1238.i, 4
   %364 = icmp samesign ugt i32 %.in258.i, 1
-  br i1 %364, label %.lr.ph239.i, label %dissect_pgsql_be_msg.exit, !llvm.loop !13
+  br i1 %364, label %.lr.ph239.i, label %dissect_pgsql_be_msg.exit, !llvm.loop !15
 
 365:                                              ; preds = %298
-  %366 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef range(i32 4, 6) 5) #4
+  %366 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef range(i32 4, 6) 5)
   %367 = load i32, ptr @hf_field_count, align 4
-  %368 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %367, ptr noundef %0, i32 noundef range(i32 4, 6) 5, i32 noundef 2, i32 noundef 0) #4
+  %368 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %367, ptr noundef %0, i32 noundef range(i32 4, 6) 5, i32 noundef 2, i32 noundef 0)
   %369 = load i32, ptr @ett_values, align 4
-  %370 = tail call ptr @proto_item_add_subtree(ptr noundef %368, i32 noundef %369) #4
+  %370 = tail call ptr @proto_item_add_subtree(ptr noundef %368, i32 noundef %369)
   %.not243.i = icmp eq i16 %366, 0
   br i1 %.not243.i, label %dissect_pgsql_be_msg.exit, label %.lr.ph233.preheader.i
 
@@ -1238,39 +1286,39 @@ dissect_pgsql_fe_msg.exit:                        ; preds = %236, %234, %.lr.ph2
   %.in257.i = phi i32 [ %372, %.lr.ph233.i ], [ %371, %.lr.ph233.preheader.i ]
   %.2232.i = phi i32 [ %396, %.lr.ph233.i ], [ 7, %.lr.ph233.preheader.i ]
   %372 = add nsw i32 %.in257.i, -1
-  %373 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %.2232.i) #4
+  %373 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %.2232.i)
   %374 = load i32, ptr @hf_val_name, align 4
-  %375 = tail call ptr @proto_tree_add_item(ptr noundef %370, i32 noundef %374, ptr noundef %0, i32 noundef %.2232.i, i32 noundef %373, i32 noundef 0) #4
+  %375 = tail call ptr @proto_tree_add_item(ptr noundef %370, i32 noundef %374, ptr noundef %0, i32 noundef %.2232.i, i32 noundef %373, i32 noundef 0)
   %376 = load i32, ptr @ett_values, align 4
-  %377 = tail call ptr @proto_item_add_subtree(ptr noundef %375, i32 noundef %376) #4
+  %377 = tail call ptr @proto_item_add_subtree(ptr noundef %375, i32 noundef %376)
   %378 = add i32 %373, %.2232.i
   %379 = load i32, ptr @hf_tableoid, align 4
-  %380 = tail call ptr @proto_tree_add_item(ptr noundef %377, i32 noundef %379, ptr noundef %0, i32 noundef %378, i32 noundef 4, i32 noundef 0) #4
+  %380 = tail call ptr @proto_tree_add_item(ptr noundef %377, i32 noundef %379, ptr noundef %0, i32 noundef %378, i32 noundef 4, i32 noundef 0)
   %381 = add i32 %378, 4
   %382 = load i32, ptr @hf_val_idx, align 4
-  %383 = tail call ptr @proto_tree_add_item(ptr noundef %377, i32 noundef %382, ptr noundef %0, i32 noundef %381, i32 noundef 2, i32 noundef 0) #4
+  %383 = tail call ptr @proto_tree_add_item(ptr noundef %377, i32 noundef %382, ptr noundef %0, i32 noundef %381, i32 noundef 2, i32 noundef 0)
   %384 = add i32 %378, 6
   %385 = load i32, ptr @hf_typeoid, align 4
-  %386 = tail call ptr @proto_tree_add_item(ptr noundef %377, i32 noundef %385, ptr noundef %0, i32 noundef %384, i32 noundef 4, i32 noundef 0) #4
+  %386 = tail call ptr @proto_tree_add_item(ptr noundef %377, i32 noundef %385, ptr noundef %0, i32 noundef %384, i32 noundef 4, i32 noundef 0)
   %387 = add i32 %378, 10
   %388 = load i32, ptr @hf_val_length, align 4
-  %389 = tail call ptr @proto_tree_add_item(ptr noundef %377, i32 noundef %388, ptr noundef %0, i32 noundef %387, i32 noundef 2, i32 noundef 0) #4
+  %389 = tail call ptr @proto_tree_add_item(ptr noundef %377, i32 noundef %388, ptr noundef %0, i32 noundef %387, i32 noundef 2, i32 noundef 0)
   %390 = add i32 %378, 12
   %391 = load i32, ptr @hf_val_mod, align 4
-  %392 = tail call ptr @proto_tree_add_item(ptr noundef %377, i32 noundef %391, ptr noundef %0, i32 noundef %390, i32 noundef 4, i32 noundef 0) #4
+  %392 = tail call ptr @proto_tree_add_item(ptr noundef %377, i32 noundef %391, ptr noundef %0, i32 noundef %390, i32 noundef 4, i32 noundef 0)
   %393 = add i32 %378, 16
   %394 = load i32, ptr @hf_format, align 4
-  %395 = tail call ptr @proto_tree_add_item(ptr noundef %377, i32 noundef %394, ptr noundef %0, i32 noundef %393, i32 noundef 2, i32 noundef 0) #4
+  %395 = tail call ptr @proto_tree_add_item(ptr noundef %377, i32 noundef %394, ptr noundef %0, i32 noundef %393, i32 noundef 2, i32 noundef 0)
   %396 = add i32 %378, 18
   %397 = icmp samesign ugt i32 %.in257.i, 1
-  br i1 %397, label %.lr.ph233.i, label %dissect_pgsql_be_msg.exit, !llvm.loop !14
+  br i1 %397, label %.lr.ph233.i, label %dissect_pgsql_be_msg.exit, !llvm.loop !16
 
 398:                                              ; preds = %298
-  %399 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef range(i32 4, 6) 5) #4
+  %399 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef range(i32 4, 6) 5)
   %400 = load i32, ptr @hf_field_count, align 4
-  %401 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %400, ptr noundef %0, i32 noundef range(i32 4, 6) 5, i32 noundef 2, i32 noundef 0) #4
+  %401 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %400, ptr noundef %0, i32 noundef range(i32 4, 6) 5, i32 noundef 2, i32 noundef 0)
   %402 = load i32, ptr @ett_values, align 4
-  %403 = tail call ptr @proto_item_add_subtree(ptr noundef %401, i32 noundef %402) #4
+  %403 = tail call ptr @proto_item_add_subtree(ptr noundef %401, i32 noundef %402)
   %.not.i81 = icmp eq i16 %399, 0
   br i1 %.not.i81, label %dissect_pgsql_be_msg.exit, label %.lr.ph225.preheader.i
 
@@ -1282,33 +1330,33 @@ dissect_pgsql_fe_msg.exit:                        ; preds = %236, %234, %.lr.ph2
   %.in256.i = phi i32 [ %405, %415 ], [ %404, %.lr.ph225.preheader.i ]
   %.3224.i = phi i32 [ %.4.i82, %415 ], [ 7, %.lr.ph225.preheader.i ]
   %405 = add nsw i32 %.in256.i, -1
-  %406 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.3224.i) #4
+  %406 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.3224.i)
   %407 = load i32, ptr @hf_val_length, align 4
-  %408 = tail call ptr @proto_tree_add_int(ptr noundef %403, i32 noundef %407, ptr noundef %0, i32 noundef %.3224.i, i32 noundef 4, i32 noundef %406) #4
+  %408 = tail call ptr @proto_tree_add_int(ptr noundef %403, i32 noundef %407, ptr noundef %0, i32 noundef %.3224.i, i32 noundef 4, i32 noundef %406)
   %409 = add i32 %.3224.i, 4
   %410 = icmp sgt i32 %406, 0
   br i1 %410, label %411, label %415
 
 411:                                              ; preds = %.lr.ph225.i
   %412 = load i32, ptr @hf_val_data, align 4
-  %413 = tail call ptr @proto_tree_add_item(ptr noundef %403, i32 noundef %412, ptr noundef %0, i32 noundef %409, i32 noundef %406, i32 noundef 0) #4
+  %413 = tail call ptr @proto_tree_add_item(ptr noundef %403, i32 noundef %412, ptr noundef %0, i32 noundef %409, i32 noundef %406, i32 noundef 0)
   %414 = add i32 %406, %409
   br label %415
 
 415:                                              ; preds = %411, %.lr.ph225.i
   %.4.i82 = phi i32 [ %414, %411 ], [ %409, %.lr.ph225.i ]
   %416 = icmp samesign ugt i32 %.in256.i, 1
-  br i1 %416, label %.lr.ph225.i, label %dissect_pgsql_be_msg.exit, !llvm.loop !15
+  br i1 %416, label %.lr.ph225.i, label %dissect_pgsql_be_msg.exit, !llvm.loop !17
 
 417:                                              ; preds = %298
-  %418 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef range(i32 4, 6) 5) #4
+  %418 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef range(i32 4, 6) 5)
   %419 = load i32, ptr @hf_tag, align 4
-  %420 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %419, ptr noundef %0, i32 noundef range(i32 4, 6) 5, i32 noundef %418, i32 noundef 0) #4
+  %420 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %419, ptr noundef %0, i32 noundef range(i32 4, 6) 5, i32 noundef %418, i32 noundef 0)
   br label %dissect_pgsql_be_msg.exit
 
 421:                                              ; preds = %298
   %422 = load i32, ptr @hf_status, align 4
-  %423 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %422, ptr noundef %0, i32 noundef range(i32 4, 6) 5, i32 noundef 1, i32 noundef 0) #4
+  %423 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %422, ptr noundef %0, i32 noundef range(i32 4, 6) 5, i32 noundef 1, i32 noundef 0)
   br label %dissect_pgsql_be_msg.exit
 
 424:                                              ; preds = %298, %298
@@ -1323,14 +1371,14 @@ dissect_pgsql_fe_msg.exit:                        ; preds = %236, %234, %.lr.ph2
 428:                                              ; preds = %452, %.lr.ph218.i
   %.0217.i = phi i32 [ %425, %.lr.ph218.i ], [ %458, %452 ]
   %.5216.i = phi i32 [ %87, %.lr.ph218.i ], [ %459, %452 ]
-  %429 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.5216.i) #4
+  %429 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.5216.i)
   %430 = icmp eq i8 %429, 0
   br i1 %430, label %dissect_pgsql_be_msg.exit, label %431
 
 431:                                              ; preds = %428
   %432 = load ptr, ptr %427, align 8
   %433 = add i32 %.5216.i, 1
-  %434 = call ptr @tvb_get_stringz_enc(ptr noundef %432, ptr noundef %0, i32 noundef %433, ptr noundef nonnull %6, i32 noundef 0) #4
+  %434 = call ptr @tvb_get_stringz_enc(ptr noundef %432, ptr noundef %0, i32 noundef %433, ptr noundef nonnull %6, i32 noundef 0)
   switch i8 %429, label %452 [
     i8 83, label %435
     i8 67, label %436
@@ -1407,37 +1455,37 @@ dissect_pgsql_fe_msg.exit:                        ; preds = %236, %234, %.lr.ph2
   %453 = load i32, ptr %.in255.i, align 4
   %454 = load i32, ptr %6, align 4
   %455 = add i32 %454, 1
-  %456 = call ptr @proto_tree_add_string(ptr noundef %72, i32 noundef %453, ptr noundef %0, i32 noundef %.5216.i, i32 noundef %455, ptr noundef %434) #4
+  %456 = call ptr @proto_tree_add_string(ptr noundef %72, i32 noundef %453, ptr noundef %0, i32 noundef %.5216.i, i32 noundef %455, ptr noundef %434)
   %457 = load i32, ptr %6, align 4
   %reass.sub.i = add nsw i32 %.0217.i, -2
   %458 = sub i32 %reass.sub.i, %457
   %459 = add i32 %457, %433
   %460 = icmp sgt i32 %458, 0
-  br i1 %460, label %428, label %dissect_pgsql_be_msg.exit, !llvm.loop !16
+  br i1 %460, label %428, label %dissect_pgsql_be_msg.exit, !llvm.loop !18
 
 461:                                              ; preds = %298
   %462 = load i32, ptr @hf_pid, align 4
-  %463 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %462, ptr noundef %0, i32 noundef range(i32 4, 6) 5, i32 noundef 4, i32 noundef 0) #4
-  %464 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef 9) #4
+  %463 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %462, ptr noundef %0, i32 noundef range(i32 4, 6) 5, i32 noundef 4, i32 noundef 0)
+  %464 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef 9)
   %465 = load i32, ptr @hf_condition, align 4
-  %466 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %465, ptr noundef %0, i32 noundef 9, i32 noundef %464, i32 noundef 0) #4
+  %466 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %465, ptr noundef %0, i32 noundef 9, i32 noundef %464, i32 noundef 0)
   %467 = add i32 %464, 9
-  %468 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %467) #4
+  %468 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %467)
   %469 = icmp sgt i32 %468, 1
   br i1 %469, label %470, label %dissect_pgsql_be_msg.exit
 
 470:                                              ; preds = %461
   %471 = load i32, ptr @hf_text, align 4
-  %472 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %471, ptr noundef %0, i32 noundef %467, i32 noundef %468, i32 noundef 0) #4
+  %472 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %471, ptr noundef %0, i32 noundef %467, i32 noundef %468, i32 noundef 0)
   br label %dissect_pgsql_be_msg.exit
 
 473:                                              ; preds = %298, %298
   %474 = load i32, ptr @hf_format, align 4
-  %475 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %474, ptr noundef %0, i32 noundef range(i32 4, 6) 5, i32 noundef 1, i32 noundef 0) #4
-  %476 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 6) #4
+  %475 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %474, ptr noundef %0, i32 noundef range(i32 4, 6) 5, i32 noundef 1, i32 noundef 0)
+  %476 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 6)
   %477 = zext i16 %476 to i32
   %478 = load i32, ptr @ett_values, align 4
-  %479 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %72, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef %478, ptr noundef null, ptr noundef nonnull @.str.254, i32 noundef %477) #4
+  %479 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %72, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef %478, ptr noundef null, ptr noundef nonnull @.str.262, i32 noundef %477)
   %480 = icmp ugt i16 %476, 2
   br i1 %480, label %.lr.ph215.i, label %dissect_pgsql_be_msg.exit
 
@@ -1446,129 +1494,154 @@ dissect_pgsql_fe_msg.exit:                        ; preds = %236, %234, %.lr.ph2
   %.6214.i = phi i32 [ %484, %.lr.ph215.i ], [ 8, %473 ]
   %481 = add nsw i32 %.in.i80, -1
   %482 = load i32, ptr @hf_format, align 4
-  %483 = tail call ptr @proto_tree_add_item(ptr noundef %479, i32 noundef %482, ptr noundef %0, i32 noundef %.6214.i, i32 noundef 2, i32 noundef 0) #4
+  %483 = tail call ptr @proto_tree_add_item(ptr noundef %479, i32 noundef %482, ptr noundef %0, i32 noundef %.6214.i, i32 noundef 2, i32 noundef 0)
   %484 = add nuw nsw i32 %.6214.i, 2
   %485 = icmp samesign ugt i32 %.in.i80, 3
-  br i1 %485, label %.lr.ph215.i, label %dissect_pgsql_be_msg.exit, !llvm.loop !17
+  br i1 %485, label %.lr.ph215.i, label %dissect_pgsql_be_msg.exit, !llvm.loop !19
 
 486:                                              ; preds = %298
   %487 = load i32, ptr @hf_copydata, align 4
   %488 = add i32 %33, -4
-  %489 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %487, ptr noundef %0, i32 noundef range(i32 4, 6) 5, i32 noundef %488, i32 noundef 0) #4
+  %489 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %487, ptr noundef %0, i32 noundef range(i32 4, 6) 5, i32 noundef %488, i32 noundef 0)
   br label %dissect_pgsql_be_msg.exit
 
 490:                                              ; preds = %298
-  %491 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef range(i32 4, 6) 5) #4
+  %491 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef range(i32 4, 6) 5)
   %492 = load i32, ptr @hf_val_length, align 4
-  %493 = tail call ptr @proto_tree_add_int(ptr noundef %72, i32 noundef %492, ptr noundef %0, i32 noundef range(i32 4, 6) 5, i32 noundef 4, i32 noundef %491) #4
+  %493 = tail call ptr @proto_tree_add_int(ptr noundef %72, i32 noundef %492, ptr noundef %0, i32 noundef range(i32 4, 6) 5, i32 noundef 4, i32 noundef %491)
   %494 = icmp sgt i32 %491, 0
   br i1 %494, label %495, label %dissect_pgsql_be_msg.exit
 
 495:                                              ; preds = %490
   %496 = load i32, ptr @hf_val_data, align 4
-  %497 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %496, ptr noundef %0, i32 noundef 9, i32 noundef %491, i32 noundef 0) #4
+  %497 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %496, ptr noundef %0, i32 noundef 9, i32 noundef %491, i32 noundef 0)
   br label %dissect_pgsql_be_msg.exit
 
 498:                                              ; preds = %298
   %499 = load i32, ptr @hf_supported_minor_version, align 4
-  %500 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %499, ptr noundef %0, i32 noundef range(i32 4, 6) 5, i32 noundef 4, i32 noundef 0) #4
+  %500 = tail call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %499, ptr noundef %0, i32 noundef range(i32 4, 6) 5, i32 noundef 4, i32 noundef 0)
   %501 = load i32, ptr @hf_number_nonsupported_options, align 4
-  %502 = call ptr @proto_tree_add_item_ret_int(ptr noundef %72, i32 noundef %501, ptr noundef %0, i32 noundef 9, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %7) #4
+  %502 = call ptr @proto_tree_add_item_ret_int(ptr noundef %72, i32 noundef %501, ptr noundef %0, i32 noundef 9, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %7)
   %.pr.i = load i32, ptr %7, align 4
   %503 = icmp sgt i32 %.pr.i, 0
   br i1 %503, label %.lr.ph.i79, label %dissect_pgsql_be_msg.exit
 
 .lr.ph.i79:                                       ; preds = %498, %.lr.ph.i79
   %.7213.i = phi i32 [ %508, %.lr.ph.i79 ], [ 13, %498 ]
-  %504 = call i32 @tvb_strsize(ptr noundef %0, i32 noundef %.7213.i) #4
+  %504 = call i32 @tvb_strsize(ptr noundef %0, i32 noundef %.7213.i)
   store i32 %504, ptr %6, align 4
   %505 = load i32, ptr @hf_nonsupported_option, align 4
-  %506 = call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %505, ptr noundef %0, i32 noundef %.7213.i, i32 noundef %504, i32 noundef 0) #4
+  %506 = call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %505, ptr noundef %0, i32 noundef %.7213.i, i32 noundef %504, i32 noundef 0)
   %507 = load i32, ptr %6, align 4
   %508 = add i32 %507, %.7213.i
   %509 = load i32, ptr %7, align 4
   %510 = add i32 %509, -1
   store i32 %510, ptr %7, align 4
   %511 = icmp sgt i32 %510, 0
-  br i1 %511, label %.lr.ph.i79, label %dissect_pgsql_be_msg.exit, !llvm.loop !18
+  br i1 %511, label %.lr.ph.i79, label %dissect_pgsql_be_msg.exit, !llvm.loop !20
 
 dissect_pgsql_be_msg.exit:                        ; preds = %.lr.ph.i79, %.lr.ph215.i, %428, %452, %415, %.lr.ph233.i, %.lr.ph239.i, %.lr.ph242.i, %298, %299, %303, %312, %316, %327, %332, %336, %341, %355, %365, %398, %417, %421, %424, %461, %470, %473, %486, %490, %495, %498
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
   br label %512
 
 512:                                              ; preds = %dissect_pgsql_be_msg.exit, %dissect_pgsql_fe_msg.exit
-  %513 = call i32 @tvb_captured_length(ptr noundef %0) #4
+  %513 = call i32 @tvb_captured_length(ptr noundef %0)
   ret i32 %513
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @conversation_set_dissector_from_frame_number(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid allocsize(1)
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_file_scope() local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare noalias ptr @wmem_tree_new(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_strsize(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item_ret_int(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_strneql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @call_dissector_only(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_int(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_get_stringz_enc(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @pgsql_gssapi_length(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
-  %5 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %2) #4
+  %5 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %2)
   %6 = add i32 %5, 4
   ret i32 %6
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_pgsql_gssapi_wrap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._gssapi_encrypt_info, align 8
-  %6 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #4
+  %6 = tail call ptr @find_or_create_conversation(ptr noundef %1)
   %7 = load i32, ptr @proto_pgsql, align 4
-  %8 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %6, i32 noundef %7) #4
+  %8 = tail call ptr @conversation_get_proto_data(ptr noundef %6, i32 noundef %7)
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %20
 
 9:                                                ; preds = %4
-  %10 = tail call ptr @wmem_file_scope() #4
-  %11 = tail call noalias ptr @wmem_alloc0(ptr noundef %10, i64 noundef 16) #4
-  %12 = tail call ptr @wmem_file_scope() #4
-  %13 = tail call noalias ptr @wmem_tree_new(ptr noundef %12) #4
+  %10 = tail call ptr @wmem_file_scope()
+  %11 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc0(ptr noundef %10, i64 noundef 16) #5
+  %12 = tail call ptr @wmem_file_scope()
+  %13 = tail call noalias ptr @wmem_tree_new(ptr noundef %12)
   store ptr %13, ptr %11, align 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 292
   %15 = load i32, ptr %14, align 4
@@ -1576,9 +1649,9 @@ define internal i32 @dissect_pgsql_gssapi_wrap(ptr noundef %0, ptr noundef %1, p
   store i32 %15, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %18 = load i32, ptr %17, align 4
-  tail call void @wmem_tree_insert32(ptr noundef %13, i32 noundef %18, ptr noundef nonnull inttoptr (i64 4 to ptr)) #4
+  tail call void @wmem_tree_insert32(ptr noundef %13, i32 noundef %18, ptr noundef nonnull inttoptr (i64 4 to ptr))
   %19 = load i32, ptr @proto_pgsql, align 4
-  tail call void @conversation_add_proto_data(ptr noundef nonnull %6, i32 noundef %19, ptr noundef nonnull %11) #4
+  tail call void @conversation_add_proto_data(ptr noundef %6, i32 noundef %19, ptr noundef %11)
   br label %20
 
 20:                                               ; preds = %9, %4
@@ -1590,113 +1663,120 @@ define internal i32 @dissect_pgsql_gssapi_wrap(ptr noundef %0, ptr noundef %1, p
   %25 = icmp eq i32 %22, %24
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %27 = load ptr, ptr %26, align 8
-  tail call void @col_set_str(ptr noundef %27, i32 noundef 34, ptr noundef nonnull @.str.167) #4
+  tail call void @col_set_str(ptr noundef %27, i32 noundef 35, ptr noundef nonnull @.str.167)
   %28 = load ptr, ptr %26, align 8
-  %29 = select i1 %25, ptr @.str.198, ptr @.str.199
-  tail call void @col_set_str(ptr noundef %28, i32 noundef 25, ptr noundef nonnull %29) #4
+  %29 = select i1 %25, ptr @.str.204, ptr @.str.205
+  tail call void @col_set_str(ptr noundef %28, i32 noundef 25, ptr noundef nonnull %29)
   %30 = load i32, ptr @proto_pgsql, align 4
-  %31 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %30, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
+  %31 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %30, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %32 = load i32, ptr @ett_pgsql, align 4
-  %33 = tail call ptr @proto_item_add_subtree(ptr noundef %31, i32 noundef %32) #4
+  %33 = tail call ptr @proto_item_add_subtree(ptr noundef %31, i32 noundef %32)
   %34 = load i32, ptr @hf_type, align 4
-  %35 = tail call ptr @proto_tree_add_string(ptr noundef %33, i32 noundef %34, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.255) #4
+  %35 = tail call ptr @proto_tree_add_string(ptr noundef %33, i32 noundef %34, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.263)
   %36 = load i32, ptr @hf_length, align 4
-  %37 = tail call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %36, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
+  %37 = tail call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %36, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0)
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #6
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 noundef 0, i64 noundef 56, i1 noundef false) #6
   store i16 1, ptr %5, align 8
-  %38 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 4) #4
+  %38 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 4)
   %39 = load ptr, ptr @gssapi_handle, align 8
-  %40 = call i32 @call_dissector_with_data(ptr noundef %39, ptr noundef %38, ptr noundef %1, ptr noundef %33, ptr noundef nonnull %5) #4
+  %40 = call i32 @call_dissector_with_data(ptr noundef %39, ptr noundef %38, ptr noundef %1, ptr noundef %33, ptr noundef nonnull %5)
   %41 = icmp eq i32 %40, 0
-  br i1 %41, label %60, label %42
+  br i1 %41, label %61, label %42
 
 42:                                               ; preds = %20
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %44 = load i32, ptr %43, align 8
-  %.not50 = icmp eq i32 %44, 0
-  %45 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %46 = load ptr, ptr %45, align 8
-  %.not51 = icmp eq ptr %46, null
-  br i1 %.not50, label %53, label %47
+  %44 = load i8, ptr %43, align 8, !range !21, !noundef !22
+  %45 = trunc nuw i8 %44 to i1
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %47 = load ptr, ptr %46, align 8
+  %.not52 = icmp eq ptr %47, null
+  br i1 %45, label %48, label %54
 
-47:                                               ; preds = %42
-  br i1 %.not51, label %50, label %48
+48:                                               ; preds = %42
+  br i1 %.not52, label %51, label %49
 
-48:                                               ; preds = %47
-  call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef nonnull %46, ptr noundef nonnull @.str.256) #4
-  %49 = call i32 @dissect_pgsql_msg(ptr noundef nonnull %46, ptr noundef nonnull %1, ptr noundef %33, ptr poison)
-  br label %60
+49:                                               ; preds = %48
+  call void @add_new_data_source(ptr noundef %1, ptr noundef nonnull %47, ptr noundef nonnull @.str.264)
+  %50 = call i32 @dissect_pgsql_msg(ptr noundef nonnull %47, ptr noundef %1, ptr noundef %33, ptr poison)
+  br label %61
 
-50:                                               ; preds = %47
-  %51 = load i32, ptr @hf_gssapi_encrypted_payload, align 4
-  %52 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %51, ptr noundef %38, i32 noundef %40, i32 noundef -1, i32 noundef 0) #4
-  br label %60
+51:                                               ; preds = %48
+  %52 = load i32, ptr @hf_gssapi_encrypted_payload, align 4
+  %53 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %52, ptr noundef %38, i32 noundef %40, i32 noundef -1, i32 noundef 0)
+  br label %61
 
-53:                                               ; preds = %42
-  br i1 %.not51, label %54, label %56
+54:                                               ; preds = %42
+  br i1 %.not52, label %55, label %57
 
-54:                                               ; preds = %53
-  %55 = call ptr @tvb_new_subset_remaining(ptr noundef %38, i32 noundef %40) #4
-  br label %56
+55:                                               ; preds = %54
+  %56 = call ptr @tvb_new_subset_remaining(ptr noundef %38, i32 noundef %40)
+  br label %57
 
-56:                                               ; preds = %53, %54
-  %.0 = phi ptr [ %55, %54 ], [ %46, %53 ]
-  %57 = call i32 @tvb_reported_length(ptr noundef %.0) #4
-  %.not52 = icmp eq i32 %57, 0
-  br i1 %.not52, label %60, label %58
+57:                                               ; preds = %54, %55
+  %.0 = phi ptr [ %56, %55 ], [ %47, %54 ]
+  %58 = call i32 @tvb_reported_length(ptr noundef %.0)
+  %.not51 = icmp eq i32 %58, 0
+  br i1 %.not51, label %61, label %59
 
-58:                                               ; preds = %56
-  %59 = call i32 @dissect_pgsql_msg(ptr noundef %.0, ptr noundef nonnull %1, ptr noundef %33, ptr poison)
-  br label %60
+59:                                               ; preds = %57
+  %60 = call i32 @dissect_pgsql_msg(ptr noundef %.0, ptr noundef %1, ptr noundef %33, ptr poison)
+  br label %61
 
-60:                                               ; preds = %50, %48, %58, %56, %20
-  %61 = call i32 @tvb_captured_length(ptr noundef %0) #4
-  ret i32 %61
+61:                                               ; preds = %51, %49, %59, %57, %20
+  %62 = call i32 @tvb_captured_length(ptr noundef %0)
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #6
+  ret i32 %62
 }
 
-declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid allocsize(1)
+declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
-
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @call_dissector_with_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { allocsize(1) }
+attributes #6 = { nounwind }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nounwind }
-
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = !{i8 0, i8 2}
+!22 = !{}

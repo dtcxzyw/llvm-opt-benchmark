@@ -5,8 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
-%struct._usb_setup_dissector_table_t = type { i8, ptr }
 
 @proto_register_usbms_bot.hf = internal global [15 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_usbms_bot_dCBWSignature, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbms_bot_dCBWTag, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbms_bot_dCBWDataTransferLength, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbms_bot_dCBWFlags, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbms_bot_dCBWTarget, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 4, i32 5, ptr null, i64 112, ptr @.str.10, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbms_bot_dCBWLUN, %struct._header_field_info { ptr @.str.11, ptr @.str.12, i32 4, i32 2, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbms_bot_dCBWCBLength, %struct._header_field_info { ptr @.str.13, ptr @.str.14, i32 4, i32 2, ptr null, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbms_bot_dCSWSignature, %struct._header_field_info { ptr @.str, ptr @.str.15, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbms_bot_dCSWDataResidue, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbms_bot_dCSWStatus, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 4, i32 2, ptr @status_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbms_bot_request, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 4, i32 2, ptr @setup_request_names_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbms_bot_value, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbms_bot_index, %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbms_bot_length, %struct._header_field_info { ptr @.str.26, ptr @.str.27, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbms_bot_maxlun, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_usbms_bot_dCBWSignature = internal global i32 0, align 4
@@ -39,11 +37,9 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_usbms_bot_dCSWStatus = internal global i32 0, align 4
 @.str.18 = private unnamed_addr constant [7 x i8] c"Status\00", align 1
 @.str.19 = private unnamed_addr constant [17 x i8] c"usbms.dCSWStatus\00", align 1
-@status_vals = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.38 }, %struct._value_string { i32 1, ptr @.str.39 }, %struct._value_string { i32 2, ptr @.str.40 }, %struct._value_string zeroinitializer], align 16
 @hf_usbms_bot_request = internal global i32 0, align 4
 @.str.20 = private unnamed_addr constant [9 x i8] c"bRequest\00", align 1
 @.str.21 = private unnamed_addr constant [21 x i8] c"usbms.setup.bRequest\00", align 1
-@setup_request_names_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 255, ptr @.str.41 }, %struct._value_string { i32 254, ptr @.str.42 }, %struct._value_string zeroinitializer], align 16
 @hf_usbms_bot_value = internal global i32 0, align 4
 @.str.22 = private unnamed_addr constant [7 x i8] c"wValue\00", align 1
 @.str.23 = private unnamed_addr constant [19 x i8] c"usbms.setup.wValue\00", align 1
@@ -56,7 +52,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_usbms_bot_maxlun = internal global i32 0, align 4
 @.str.28 = private unnamed_addr constant [8 x i8] c"Max LUN\00", align 1
 @.str.29 = private unnamed_addr constant [19 x i8] c"usbms.setup.maxlun\00", align 1
-@proto_register_usbms_bot.usbms_bot_subtrees = internal global [1 x ptr] [ptr @ett_usbms_bot], align 8
+@proto_register_usbms_bot.usbms_bot_ett = internal global [1 x ptr] [ptr @ett_usbms_bot], align 8
 @ett_usbms_bot = internal global i32 0, align 4
 @.str.30 = private unnamed_addr constant [17 x i8] c"USB Mass Storage\00", align 1
 @.str.31 = private unnamed_addr constant [6 x i8] c"USBMS\00", align 1
@@ -72,203 +68,218 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.38 = private unnamed_addr constant [15 x i8] c"Command Passed\00", align 1
 @.str.39 = private unnamed_addr constant [15 x i8] c"Command Failed\00", align 1
 @.str.40 = private unnamed_addr constant [12 x i8] c"Phase Error\00", align 1
-@.str.41 = private unnamed_addr constant [6 x i8] c"RESET\00", align 1
-@.str.42 = private unnamed_addr constant [12 x i8] c"GET MAX LUN\00", align 1
-@setup_dissectors = internal unnamed_addr constant [3 x %struct._usb_setup_dissector_table_t] [%struct._usb_setup_dissector_table_t { i8 -1, ptr @dissect_usbms_bot_reset }, %struct._usb_setup_dissector_table_t { i8 -2, ptr @dissect_usbms_bot_get_max_lun }, %struct._usb_setup_dissector_table_t zeroinitializer], align 16
-@.str.43 = private unnamed_addr constant [6 x i8] c"%s %s\00", align 1
-@.str.44 = private unnamed_addr constant [16 x i8] c"Unknown type %x\00", align 1
-@.str.45 = private unnamed_addr constant [8 x i8] c"Request\00", align 1
-@.str.46 = private unnamed_addr constant [9 x i8] c"Response\00", align 1
+@status_vals = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.38 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.39 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.40 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.42 = private unnamed_addr constant [6 x i8] c"RESET\00", align 1
+@.str.43 = private unnamed_addr constant [12 x i8] c"GET MAX LUN\00", align 1
+@setup_request_names_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 255, [4 x i8] zeroinitializer, ptr @.str.42 }, { i32, [4 x i8], ptr } { i32 254, [4 x i8] zeroinitializer, ptr @.str.43 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.45 = private unnamed_addr constant [6 x i8] c"%s %s\00", align 1
+@.str.46 = private unnamed_addr constant [16 x i8] c"Unknown type %x\00", align 1
+@.str.47 = private unnamed_addr constant [8 x i8] c"Request\00", align 1
+@.str.48 = private unnamed_addr constant [9 x i8] c"Response\00", align 1
+@setup_dissectors = internal unnamed_addr constant [3 x { i8, [7 x i8], ptr }] [{ i8, [7 x i8], ptr } { i8 -1, [7 x i8] zeroinitializer, ptr @dissect_usbms_bot_reset }, { i8, [7 x i8], ptr } { i8 -2, [7 x i8] zeroinitializer, ptr @dissect_usbms_bot_get_max_lun }, { i8, [7 x i8], ptr } zeroinitializer], align 16
+@dissect_usbms_bot_bulk_heur.usbc = internal constant [4 x i8] c"USBC", align 1
+@dissect_usbms_bot_bulk_heur.usbs = internal constant [4 x i8] c"USBS", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_usbms_bot() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32) #3
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32)
   store i32 %1, ptr @proto_usbms_bot, align 4
-  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_usbms_bot.hf, i32 noundef 15) #3
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_usbms_bot.usbms_bot_subtrees, i32 noundef 1) #3
+  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_usbms_bot.hf, i32 noundef 15)
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_usbms_bot.usbms_bot_ett, i32 noundef 1)
   %2 = load i32, ptr @proto_usbms_bot, align 4
-  %3 = tail call ptr @register_dissector(ptr noundef nonnull @.str.32, ptr noundef nonnull @dissect_usbms_bot_bulk, i32 noundef %2) #3
+  %3 = tail call ptr @register_dissector(ptr noundef nonnull @.str.32, ptr noundef nonnull @dissect_usbms_bot_bulk, i32 noundef %2)
   store ptr %3, ptr @usbms_bot_bulk_handle, align 8
   %4 = load i32, ptr @proto_usbms_bot, align 4
-  %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.33, ptr noundef nonnull @dissect_usbms_bot_control, i32 noundef %4) #3
+  %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.33, ptr noundef nonnull @dissect_usbms_bot_control, i32 noundef %4)
   store ptr %5, ptr @usbms_bot_control_handle, align 8
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_usbms_bot_bulk(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @dissect_usbms_bot_bulk(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = icmp eq ptr %3, null
-  br i1 %5, label %83, label %6
+  br i1 %5, label %92, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %8 = load ptr, ptr %7, align 8
-  %.not = icmp eq ptr %8, null
-  br i1 %.not, label %9, label %18
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %92, label %10
 
-9:                                                ; preds = %6
-  %10 = tail call ptr @wmem_file_scope() #3
-  %11 = tail call noalias ptr @wmem_alloc(ptr noundef %10, i64 noundef 16) #3
-  %12 = tail call ptr @wmem_file_scope() #3
-  %13 = tail call noalias ptr @wmem_tree_new(ptr noundef %12) #3
-  store ptr %13, ptr %11, align 8
-  %14 = tail call ptr @wmem_file_scope() #3
-  %15 = tail call noalias ptr @wmem_tree_new(ptr noundef %14) #3
-  %16 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr %15, ptr %16, align 8
-  store ptr %11, ptr %7, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i32 4, ptr %17, align 8
-  br label %21
+10:                                               ; preds = %6
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %12 = load ptr, ptr %11, align 8
+  %.not = icmp eq ptr %12, null
+  br i1 %.not, label %13, label %25
 
-18:                                               ; preds = %6
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %20 = load i32, ptr %19, align 8
-  %.not87 = icmp eq i32 %20, 4
-  br i1 %.not87, label %21, label %83
+13:                                               ; preds = %10
+  %14 = tail call ptr @wmem_file_scope()
+  %15 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %14, i64 noundef 16) #4
+  %16 = tail call ptr @wmem_file_scope()
+  %17 = tail call noalias ptr @wmem_tree_new(ptr noundef %16)
+  store ptr %17, ptr %15, align 8
+  %18 = tail call ptr @wmem_file_scope()
+  %19 = tail call noalias ptr @wmem_tree_new(ptr noundef %18)
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  store ptr %19, ptr %20, align 8
+  %21 = load ptr, ptr %7, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
+  store ptr %15, ptr %22, align 8
+  %23 = load ptr, ptr %7, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 40
+  store i32 4, ptr %24, align 8
+  br label %28
 
-21:                                               ; preds = %18, %9
-  %.082 = phi ptr [ %8, %18 ], [ %11, %9 ]
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 284
-  %23 = load i32, ptr %22, align 4
-  %24 = icmp eq i32 %23, -1
-  %25 = zext i1 %24 to i32
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %27 = load ptr, ptr %26, align 8
-  tail call void @col_set_str(ptr noundef %27, i32 noundef 34, ptr noundef nonnull @.str.31) #3
-  %28 = load ptr, ptr %26, align 8
-  tail call void @col_clear(ptr noundef %28, i32 noundef 25) #3
-  %29 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
-  br i1 %24, label %30, label %35
+25:                                               ; preds = %10
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %27 = load i32, ptr %26, align 8
+  %.not89 = icmp eq i32 %27, 4
+  br i1 %.not89, label %28, label %92
 
-30:                                               ; preds = %21
-  %31 = icmp eq i32 %29, 31
-  br i1 %31, label %usbms_bot_bulk_is_cbw.exit, label %usbms_bot_bulk_is_csw.exit.thread
+28:                                               ; preds = %25, %13
+  %.083 = phi ptr [ %12, %25 ], [ %15, %13 ]
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 284
+  %30 = load i32, ptr %29, align 4
+  %31 = icmp eq i32 %30, -1
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %33 = load ptr, ptr %32, align 8
+  tail call void @col_set_str(ptr noundef %33, i32 noundef 35, ptr noundef nonnull @.str.31)
+  %34 = load ptr, ptr %32, align 8
+  tail call void @col_clear(ptr noundef %34, i32 noundef 25)
+  %35 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  br i1 %31, label %36, label %42
 
-usbms_bot_bulk_is_cbw.exit:                       ; preds = %30
-  %32 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 0) #3
-  %.not101 = icmp eq i32 %32, 1128420181
-  br i1 %.not101, label %33, label %usbms_bot_bulk_is_csw.exit.thread
+36:                                               ; preds = %28
+  %37 = icmp eq i32 %35, 31
+  br i1 %37, label %usbms_bot_bulk_is_cbw.exit, label %usbms_bot_bulk_is_csw.exit.thread
 
-33:                                               ; preds = %usbms_bot_bulk_is_cbw.exit
-  %34 = tail call fastcc i32 @dissect_usbms_bot_cbw(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %.082)
-  br label %83
+usbms_bot_bulk_is_cbw.exit:                       ; preds = %36
+  %38 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 0)
+  %39 = icmp eq i32 %38, 1128420181
+  br i1 %39, label %40, label %usbms_bot_bulk_is_csw.exit.thread
 
-35:                                               ; preds = %21
-  %36 = icmp eq i32 %29, 13
-  br i1 %36, label %usbms_bot_bulk_is_csw.exit, label %usbms_bot_bulk_is_csw.exit.thread
+40:                                               ; preds = %usbms_bot_bulk_is_cbw.exit
+  %41 = tail call fastcc i32 @dissect_usbms_bot_cbw(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %.083)
+  br label %92
 
-usbms_bot_bulk_is_csw.exit:                       ; preds = %35
-  %37 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 0) #3
-  %.not102 = icmp eq i32 %37, 1396855637
-  br i1 %.not102, label %38, label %usbms_bot_bulk_is_csw.exit.thread
+42:                                               ; preds = %28
+  %43 = icmp eq i32 %35, 13
+  br i1 %43, label %usbms_bot_bulk_is_csw.exit, label %usbms_bot_bulk_is_csw.exit.thread
 
-38:                                               ; preds = %usbms_bot_bulk_is_csw.exit
-  %39 = tail call fastcc i32 @dissect_usbms_bot_csw(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %.082)
-  br label %83
+usbms_bot_bulk_is_csw.exit:                       ; preds = %42
+  %44 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 0)
+  %45 = icmp eq i32 %44, 1396855637
+  br i1 %45, label %46, label %usbms_bot_bulk_is_csw.exit.thread
 
-usbms_bot_bulk_is_csw.exit.thread:                ; preds = %usbms_bot_bulk_is_cbw.exit, %30, %35, %usbms_bot_bulk_is_csw.exit
-  %40 = getelementptr inbounds nuw i8, ptr %.082, i64 8
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %43 = load i32, ptr %42, align 4
-  %44 = add i32 %43, -1
-  %45 = tail call ptr @wmem_tree_lookup32_le(ptr noundef %41, i32 noundef %44) #3
-  %.not90 = icmp eq ptr %45, null
-  br i1 %.not90, label %46, label %52
+46:                                               ; preds = %usbms_bot_bulk_is_csw.exit
+  %47 = tail call fastcc i32 @dissect_usbms_bot_csw(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %.083)
+  br label %92
 
-46:                                               ; preds = %usbms_bot_bulk_is_csw.exit.thread
-  %47 = load i32, ptr @proto_usbms_bot, align 4
-  %48 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %47, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.30) #3
-  %49 = load i32, ptr @ett_usbms_bot, align 4
-  %50 = tail call ptr @proto_item_add_subtree(ptr noundef %48, i32 noundef %49) #3
-  %51 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
-  br label %83
+usbms_bot_bulk_is_csw.exit.thread:                ; preds = %usbms_bot_bulk_is_cbw.exit, %36, %42, %usbms_bot_bulk_is_csw.exit
+  %48 = getelementptr inbounds nuw i8, ptr %.083, i64 8
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %51 = load i32, ptr %50, align 4
+  %52 = add i32 %51, -1
+  %53 = tail call ptr @wmem_tree_lookup32_le(ptr noundef %49, i32 noundef %52)
+  %.not90 = icmp eq ptr %53, null
+  br i1 %.not90, label %54, label %60
 
-52:                                               ; preds = %usbms_bot_bulk_is_csw.exit.thread
-  %53 = load ptr, ptr %.082, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %55 = load i16, ptr %54, align 8
-  %56 = zext i16 %55 to i32
-  %57 = tail call ptr @wmem_tree_lookup32(ptr noundef %53, i32 noundef %56) #3
-  %.not91 = icmp eq ptr %57, null
-  br i1 %.not91, label %58, label %60
+54:                                               ; preds = %usbms_bot_bulk_is_csw.exit.thread
+  %55 = load i32, ptr @proto_usbms_bot, align 4
+  %56 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %55, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.30)
+  %57 = load i32, ptr @ett_usbms_bot, align 4
+  %58 = tail call ptr @proto_item_add_subtree(ptr noundef %56, i32 noundef %57)
+  %59 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  br label %92
 
-58:                                               ; preds = %52
+60:                                               ; preds = %usbms_bot_bulk_is_csw.exit.thread
+  %61 = load ptr, ptr %.083, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %63 = load i16, ptr %62, align 8
+  %64 = zext i16 %63 to i32
+  %65 = tail call ptr @wmem_tree_lookup32(ptr noundef %61, i32 noundef %64)
+  %.not91 = icmp eq ptr %65, null
+  br i1 %.not91, label %66, label %68
+
+66:                                               ; preds = %60
   tail call fastcc void @create_usbms_bot_protocol_tree(ptr noundef %0, ptr noundef %2)
-  %59 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
-  br label %83
+  %67 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  br label %92
 
-60:                                               ; preds = %52
-  %61 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %62 = load i32, ptr %61, align 8
-  %63 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 0, i32 noundef %62) #3
-  %64 = load i32, ptr %61, align 8
-  br i1 %24, label %65, label %usbms_bot_bulk_is_cbw.exit96.thread
+68:                                               ; preds = %60
+  %69 = getelementptr inbounds nuw i8, ptr %53, i64 16
+  %70 = load i32, ptr %69, align 8
+  %71 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 0, i32 noundef %70)
+  %72 = load i32, ptr %69, align 8
+  br i1 %31, label %73, label %usbms_bot_bulk_is_cbw.exit92.thread
 
-65:                                               ; preds = %60
-  %66 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
-  %67 = add i32 %64, 31
-  %68 = icmp eq i32 %66, %67
-  br i1 %68, label %usbms_bot_bulk_is_cbw.exit96, label %.usbms_bot_bulk_is_cbw.exit96.thread_crit_edge
+73:                                               ; preds = %68
+  %74 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %75 = add i32 %72, 31
+  %76 = icmp eq i32 %74, %75
+  br i1 %76, label %usbms_bot_bulk_is_cbw.exit92, label %.usbms_bot_bulk_is_cbw.exit92.thread_crit_edge
 
-.usbms_bot_bulk_is_cbw.exit96.thread_crit_edge:   ; preds = %65
-  %.pre = load i32, ptr %61, align 8
-  br label %usbms_bot_bulk_is_cbw.exit96.thread
+.usbms_bot_bulk_is_cbw.exit92.thread_crit_edge:   ; preds = %73
+  %.pre = load i32, ptr %69, align 8
+  br label %usbms_bot_bulk_is_cbw.exit92.thread
 
-usbms_bot_bulk_is_cbw.exit96:                     ; preds = %65
-  %69 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %64) #3
-  %.not103 = icmp eq i32 %69, 1128420181
-  %.pre104 = load i32, ptr %61, align 8
-  br i1 %.not103, label %70, label %usbms_bot_bulk_is_cbw.exit96.thread
+usbms_bot_bulk_is_cbw.exit92:                     ; preds = %73
+  %77 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %72)
+  %78 = icmp eq i32 %77, 1128420181
+  %.pre94 = load i32, ptr %69, align 8
+  br i1 %78, label %79, label %usbms_bot_bulk_is_cbw.exit92.thread
 
-70:                                               ; preds = %usbms_bot_bulk_is_cbw.exit96
-  %71 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.pre104, i32 noundef 31) #3
-  tail call void @dissect_scsi_payload(ptr noundef %63, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %25, ptr noundef nonnull %45, ptr noundef nonnull %57, i32 noundef 0) #3
-  %72 = tail call fastcc i32 @dissect_usbms_bot_cbw(ptr noundef %71, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %.082)
-  %73 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
-  br label %83
+79:                                               ; preds = %usbms_bot_bulk_is_cbw.exit92
+  %80 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.pre94, i32 noundef 31)
+  tail call void @dissect_scsi_payload(ptr noundef %71, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, ptr noundef nonnull %53, ptr noundef nonnull %65, i32 noundef 0)
+  %81 = tail call fastcc i32 @dissect_usbms_bot_cbw(ptr noundef %80, ptr noundef %1, ptr noundef %2, ptr noundef %.083)
+  %82 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  br label %92
 
-usbms_bot_bulk_is_cbw.exit96.thread:              ; preds = %.usbms_bot_bulk_is_cbw.exit96.thread_crit_edge, %60, %usbms_bot_bulk_is_cbw.exit96
-  %74 = phi i32 [ %.pre, %.usbms_bot_bulk_is_cbw.exit96.thread_crit_edge ], [ %64, %60 ], [ %.pre104, %usbms_bot_bulk_is_cbw.exit96 ]
-  %75 = tail call fastcc i32 @usbms_bot_bulk_is_csw(ptr noundef %0, i32 noundef %74, i32 noundef %25)
-  %.not93 = icmp eq i32 %75, 0
-  br i1 %.not93, label %81, label %76
+usbms_bot_bulk_is_cbw.exit92.thread:              ; preds = %.usbms_bot_bulk_is_cbw.exit92.thread_crit_edge, %68, %usbms_bot_bulk_is_cbw.exit92
+  %83 = phi i32 [ %.pre, %.usbms_bot_bulk_is_cbw.exit92.thread_crit_edge ], [ %72, %68 ], [ %.pre94, %usbms_bot_bulk_is_cbw.exit92 ]
+  %84 = tail call fastcc zeroext i1 @usbms_bot_bulk_is_csw(ptr noundef %0, i32 noundef %83, i1 noundef zeroext %31)
+  br i1 %84, label %85, label %90
 
-76:                                               ; preds = %usbms_bot_bulk_is_cbw.exit96.thread
-  %77 = load i32, ptr %61, align 8
-  %78 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %77, i32 noundef 13) #3
-  tail call void @dissect_scsi_payload(ptr noundef %63, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %25, ptr noundef nonnull %45, ptr noundef nonnull %57, i32 noundef 0) #3
-  %79 = tail call fastcc i32 @dissect_usbms_bot_csw(ptr noundef %78, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %.082)
-  %80 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
-  br label %83
+85:                                               ; preds = %usbms_bot_bulk_is_cbw.exit92.thread
+  %86 = load i32, ptr %69, align 8
+  %87 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %86, i32 noundef 13)
+  tail call void @dissect_scsi_payload(ptr noundef %71, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %31, ptr noundef nonnull %53, ptr noundef nonnull %65, i32 noundef 0)
+  %88 = tail call fastcc i32 @dissect_usbms_bot_csw(ptr noundef %87, ptr noundef %1, ptr noundef %2, ptr noundef %.083)
+  %89 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  br label %92
 
-81:                                               ; preds = %usbms_bot_bulk_is_cbw.exit96.thread
+90:                                               ; preds = %usbms_bot_bulk_is_cbw.exit92.thread
   tail call fastcc void @create_usbms_bot_protocol_tree(ptr noundef %0, ptr noundef %2)
-  tail call void @dissect_scsi_payload(ptr noundef %63, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %25, ptr noundef nonnull %45, ptr noundef nonnull %57, i32 noundef 0) #3
-  %82 = tail call i32 @tvb_captured_length(ptr noundef %63) #3
-  br label %83
+  tail call void @dissect_scsi_payload(ptr noundef %71, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %31, ptr noundef nonnull %53, ptr noundef nonnull %65, i32 noundef 0)
+  %91 = tail call i32 @tvb_captured_length(ptr noundef %71)
+  br label %92
 
-83:                                               ; preds = %18, %4, %81, %76, %70, %58, %46, %38, %33
-  %.0 = phi i32 [ %34, %33 ], [ %39, %38 ], [ %73, %70 ], [ %80, %76 ], [ %82, %81 ], [ %59, %58 ], [ %51, %46 ], [ 0, %4 ], [ 0, %18 ]
+92:                                               ; preds = %25, %6, %4, %90, %85, %79, %66, %54, %46, %40
+  %.0 = phi i32 [ %41, %40 ], [ %47, %46 ], [ %82, %79 ], [ %89, %85 ], [ %91, %90 ], [ %67, %66 ], [ %59, %54 ], [ 0, %4 ], [ 0, %6 ], [ 0, %25 ]
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_usbms_bot_control(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %.thread, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.thread, label %10
@@ -277,148 +288,150 @@ define internal i32 @dissect_usbms_bot_control(ptr noundef %0, ptr noundef %1, p
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, -1
-  %14 = zext i1 %13 to i32
-  %15 = getelementptr inbounds nuw i8, ptr %8, i64 29
-  %16 = load i8, ptr %15, align 1
-  %17 = icmp eq i8 %16, -1
-  br i1 %17, label %._crit_edge, label %.lr.ph
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 29
+  %15 = load i8, ptr %14, align 1
+  %16 = icmp eq i8 %15, -1
+  br i1 %16, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %10, %20
-  %.0334246 = phi ptr [ %21, %20 ], [ @setup_dissectors, %10 ]
-  %18 = getelementptr i8, ptr %.0334246, i64 24
-  %19 = load ptr, ptr %18, align 8
-  %.not = icmp eq ptr %19, null
-  br i1 %.not, label %.thread, label %20, !llvm.loop !4
+.lr.ph:                                           ; preds = %10, %19
+  %.0334246 = phi ptr [ %20, %19 ], [ @setup_dissectors, %10 ]
+  %17 = getelementptr i8, ptr %.0334246, i64 24
+  %18 = load ptr, ptr %17, align 8
+  %.not = icmp eq ptr %18, null
+  br i1 %.not, label %.thread, label %19, !llvm.loop !6
 
-20:                                               ; preds = %.lr.ph
-  %21 = getelementptr i8, ptr %.0334246, i64 16
-  %22 = load i8, ptr %21, align 8
-  %23 = icmp eq i8 %22, %16
-  br i1 %23, label %._crit_edge, label %.lr.ph, !llvm.loop !4
+19:                                               ; preds = %.lr.ph
+  %20 = getelementptr i8, ptr %.0334246, i64 16
+  %21 = load i8, ptr %20, align 8
+  %22 = icmp eq i8 %21, %15
+  br i1 %22, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %20, %10
-  %.lcssa = phi ptr [ @dissect_usbms_bot_reset, %10 ], [ %19, %20 ]
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %25 = load ptr, ptr %24, align 8
-  tail call void @col_set_str(ptr noundef %25, i32 noundef 34, ptr noundef nonnull @.str.31) #3
-  %26 = load i32, ptr @proto_usbms_bot, align 4
-  %27 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %26, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.30) #3
-  %28 = load i32, ptr @ett_usbms_bot, align 4
-  %29 = tail call ptr @proto_item_add_subtree(ptr noundef %27, i32 noundef %28) #3
-  %30 = load ptr, ptr %24, align 8
-  %31 = load i8, ptr %15, align 1
-  %32 = zext i8 %31 to i32
-  %33 = tail call ptr @val_to_str(i32 noundef %32, ptr noundef nonnull @setup_request_names_vals, ptr noundef nonnull @.str.44) #3
-  %34 = select i1 %13, ptr @.str.45, ptr @.str.46
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %30, i32 noundef 25, ptr noundef nonnull @.str.43, ptr noundef %33, ptr noundef nonnull %34) #3
-  br i1 %13, label %35, label %38
+._crit_edge:                                      ; preds = %19, %10
+  %.lcssa = phi ptr [ @dissect_usbms_bot_reset, %10 ], [ %18, %19 ]
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %24 = load ptr, ptr %23, align 8
+  tail call void @col_set_str(ptr noundef %24, i32 noundef 35, ptr noundef nonnull @.str.31)
+  %25 = load i32, ptr @proto_usbms_bot, align 4
+  %26 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %25, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.30)
+  %27 = load i32, ptr @ett_usbms_bot, align 4
+  %28 = tail call ptr @proto_item_add_subtree(ptr noundef %26, i32 noundef %27)
+  %29 = load ptr, ptr %23, align 8
+  %30 = load i8, ptr %14, align 1
+  %31 = zext i8 %30 to i32
+  %32 = tail call ptr @val_to_str(i32 noundef %31, ptr noundef nonnull @setup_request_names_vals, ptr noundef nonnull @.str.46)
+  %33 = select i1 %13, ptr @.str.47, ptr @.str.48
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %29, i32 noundef 25, ptr noundef nonnull @.str.45, ptr noundef %32, ptr noundef nonnull %33)
+  br i1 %13, label %34, label %37
 
-35:                                               ; preds = %._crit_edge
-  %36 = load i32, ptr @hf_usbms_bot_request, align 4
-  %37 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %36, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648) #3
-  br label %38
+34:                                               ; preds = %._crit_edge
+  %35 = load i32, ptr @hf_usbms_bot_request, align 4
+  %36 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %35, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648)
+  br label %37
 
-38:                                               ; preds = %35, %._crit_edge
-  %.032 = phi i32 [ 1, %35 ], [ 0, %._crit_edge ]
-  tail call void %.lcssa(ptr noundef nonnull %1, ptr noundef %29, ptr noundef %0, i32 noundef %.032, i32 noundef %14, ptr noundef nonnull %8, ptr noundef nonnull %3) #3
-  %39 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
+37:                                               ; preds = %34, %._crit_edge
+  %.032 = phi i32 [ 1, %34 ], [ 0, %._crit_edge ]
+  tail call void %.lcssa(ptr noundef %1, ptr noundef %28, ptr noundef %0, i32 noundef %.032, i1 noundef zeroext %13, ptr noundef nonnull %8, ptr noundef nonnull %3)
+  %38 = tail call i32 @tvb_captured_length(ptr noundef %0)
   br label %.thread
 
-.thread:                                          ; preds = %.lr.ph, %4, %6, %38
-  %.0 = phi i32 [ %39, %38 ], [ 0, %6 ], [ 0, %4 ], [ 0, %.lr.ph ]
+.thread:                                          ; preds = %.lr.ph, %4, %6, %37
+  %.0 = phi i32 [ %38, %37 ], [ 0, %6 ], [ 0, %4 ], [ 0, %.lr.ph ]
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_usbms_bot() local_unnamed_addr #0 {
   %1 = load ptr, ptr @usbms_bot_bulk_handle, align 8
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.34, i32 noundef 80, ptr noundef %1) #3
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.34, i32 noundef 80, ptr noundef %1)
   %2 = load ptr, ptr @usbms_bot_control_handle, align 8
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.33, i32 noundef 80, ptr noundef %2) #3
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.33, i32 noundef 80, ptr noundef %2)
   %3 = load i32, ptr @proto_usbms_bot, align 4
-  tail call void @heur_dissector_add(ptr noundef nonnull @.str.35, ptr noundef nonnull @dissect_usbms_bot_bulk_heur, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37, i32 noundef %3, i32 noundef 1) #3
+  tail call void @heur_dissector_add(ptr noundef nonnull @.str.35, ptr noundef nonnull @dissect_usbms_bot_bulk_heur, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37, i32 noundef %3, i32 noundef 1)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_usbms_bot_bulk_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #0 {
-  %5 = alloca [4 x i8], align 4
-  %6 = alloca [4 x i8], align 4
-  store i32 1128420181, ptr %5, align 4
-  store i32 1396855637, ptr %6, align 4
-  %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
-  %8 = icmp ult i32 %7, 4
-  br i1 %8, label %17, label %9
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal noundef zeroext i1 @dissect_usbms_bot_bulk_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #0 {
+  %5 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %6 = icmp ult i32 %5, 4
+  br i1 %6, label %15, label %7
 
-9:                                                ; preds = %4
-  %10 = call i32 @tvb_memeql(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, i64 noundef 4) #3
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %15, label %12
+7:                                                ; preds = %4
+  %8 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @dissect_usbms_bot_bulk_heur.usbc, i64 noundef 4)
+  %9 = icmp eq i32 %8, 0
+  br i1 %9, label %13, label %10
 
-12:                                               ; preds = %9
-  %13 = call i32 @tvb_memeql(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %6, i64 noundef 4) #3
-  %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %17
+10:                                               ; preds = %7
+  %11 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @dissect_usbms_bot_bulk_heur.usbs, i64 noundef 4)
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %13, label %15
 
-15:                                               ; preds = %12, %9
-  %16 = call i32 @dissect_usbms_bot_bulk(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  br label %17
+13:                                               ; preds = %10, %7
+  %14 = tail call i32 @dissect_usbms_bot_bulk(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
+  br label %15
 
-17:                                               ; preds = %12, %4, %15
-  %.0 = phi i32 [ 1, %15 ], [ 0, %4 ], [ 0, %12 ]
-  ret i32 %.0
+15:                                               ; preds = %10, %4, %13
+  %.0 = phi i1 [ true, %13 ], [ false, %4 ], [ false, %10 ]
+  ret i1 %.0
 }
 
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid allocsize(1)
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_file_scope() local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare noalias ptr @wmem_tree_new(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_usbms_bot_cbw(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @proto_usbms_bot, align 4
-  %6 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.30) #3
+  %6 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.30)
   %7 = load i32, ptr @ett_usbms_bot, align 4
-  %8 = tail call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %7) #3
+  %8 = tail call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %7)
   %9 = load i32, ptr @hf_usbms_bot_dCBWSignature, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648) #3
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648)
   %11 = load i32, ptr @hf_usbms_bot_dCBWTag, align 4
-  %12 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %11, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef -2147483648) #3
+  %12 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %11, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef -2147483648)
   %13 = load i32, ptr @hf_usbms_bot_dCBWDataTransferLength, align 4
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %13, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef -2147483648) #3
-  %15 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #3
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %13, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef -2147483648)
+  %15 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8)
   %16 = load i32, ptr @hf_usbms_bot_dCBWFlags, align 4
-  %17 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %16, ptr noundef %0, i32 noundef 12, i32 noundef 1, i32 noundef -2147483648) #3
-  %18 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 12) #3
+  %17 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %16, ptr noundef %0, i32 noundef 12, i32 noundef 1, i32 noundef -2147483648)
+  %18 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 12)
   %19 = load i32, ptr @hf_usbms_bot_dCBWTarget, align 4
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %19, ptr noundef %0, i32 noundef 13, i32 noundef 1, i32 noundef -2147483648) #3
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %19, ptr noundef %0, i32 noundef 13, i32 noundef 1, i32 noundef -2147483648)
   %21 = load i32, ptr @hf_usbms_bot_dCBWLUN, align 4
-  %22 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %21, ptr noundef %0, i32 noundef 13, i32 noundef 1, i32 noundef -2147483648) #3
-  %23 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 13) #3
+  %22 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %21, ptr noundef %0, i32 noundef 13, i32 noundef 1, i32 noundef -2147483648)
+  %23 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 13)
   %24 = and i8 %23, 15
   %25 = load ptr, ptr %3, align 8
   %26 = zext nneg i8 %24 to i32
-  %27 = tail call ptr @wmem_tree_lookup32(ptr noundef %25, i32 noundef %26) #3
+  %27 = tail call ptr @wmem_tree_lookup32(ptr noundef %25, i32 noundef %26)
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %28, label %33
 
 28:                                               ; preds = %4
-  %29 = tail call ptr @wmem_file_scope() #3
-  %30 = tail call noalias ptr @wmem_alloc(ptr noundef %29, i64 noundef 16) #3
+  %29 = tail call ptr @wmem_file_scope()
+  %30 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %29, i64 noundef 16) #4
   store i8 -1, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr null, ptr %31, align 8
   %32 = load ptr, ptr %3, align 8
-  tail call void @wmem_tree_insert32(ptr noundef %32, i32 noundef %26, ptr noundef nonnull %30) #3
+  tail call void @wmem_tree_insert32(ptr noundef %32, i32 noundef %26, ptr noundef %30)
   br label %33
 
 33:                                               ; preds = %28, %4
@@ -427,13 +440,13 @@ define internal fastcc i32 @dissect_usbms_bot_cbw(ptr noundef %0, ptr noundef %1
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %37 = load i32, ptr %36, align 4
-  %38 = tail call ptr @wmem_tree_lookup32(ptr noundef %35, i32 noundef %37) #3
+  %38 = tail call ptr @wmem_tree_lookup32(ptr noundef %35, i32 noundef %37)
   %.not91 = icmp eq ptr %38, null
   br i1 %.not91, label %39, label %56
 
 39:                                               ; preds = %33
-  %40 = tail call ptr @wmem_file_scope() #3
-  %41 = tail call noalias ptr @wmem_alloc(ptr noundef %40, i64 noundef 72) #3
+  %40 = tail call ptr @wmem_file_scope()
+  %41 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc(ptr noundef %40, i64 noundef 72) #4
   %42 = zext nneg i8 %24 to i16
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i16 %42, ptr %43, align 8
@@ -463,22 +476,22 @@ define internal fastcc i32 @dissect_usbms_bot_cbw(ptr noundef %0, ptr noundef %1
   %54 = getelementptr inbounds nuw i8, ptr %41, i64 64
   store ptr null, ptr %54, align 8
   %55 = load ptr, ptr %34, align 8
-  tail call void @wmem_tree_insert32(ptr noundef %55, i32 noundef %50, ptr noundef nonnull %41) #3
+  tail call void @wmem_tree_insert32(ptr noundef %55, i32 noundef %50, ptr noundef %41)
   br label %56
 
 56:                                               ; preds = %39, %33
   %.0 = phi ptr [ %38, %33 ], [ %41, %39 ]
   %57 = load i32, ptr @hf_usbms_bot_dCBWCBLength, align 4
-  %58 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %57, ptr noundef %0, i32 noundef 14, i32 noundef 1, i32 noundef -2147483648) #3
-  %59 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 14) #3
+  %58 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %57, ptr noundef %0, i32 noundef 14, i32 noundef 1, i32 noundef -2147483648)
+  %59 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 14)
   %60 = and i8 %59, 31
   %61 = zext nneg i8 %60 to i32
-  %62 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 15) #3
+  %62 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 15)
   %63 = icmp slt i32 %62, %61
   br i1 %63, label %64, label %66
 
 64:                                               ; preds = %56
-  %65 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 15) #3
+  %65 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 15)
   br label %66
 
 66:                                               ; preds = %64, %56
@@ -487,57 +500,55 @@ define internal fastcc i32 @dissect_usbms_bot_cbw(ptr noundef %0, ptr noundef %1
   br i1 %.not94, label %69, label %67
 
 67:                                               ; preds = %66
-  %68 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef 15, i32 noundef %.087, i32 noundef %61) #3
-  tail call void @dissect_scsi_cdb(ptr noundef %68, ptr noundef nonnull %1, ptr noundef %2, i32 noundef -1, ptr noundef nonnull %.0, ptr noundef nonnull %.086) #3
+  %68 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef 15, i32 noundef %.087, i32 noundef %61)
+  tail call void @dissect_scsi_cdb(ptr noundef %68, ptr noundef %1, ptr noundef %2, i32 noundef -1, ptr noundef %.0, ptr noundef %.086)
   br label %69
 
 69:                                               ; preds = %67, %66
-  %70 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
+  %70 = tail call i32 @tvb_captured_length(ptr noundef %0)
   ret i32 %70
 }
 
-; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @usbms_bot_bulk_is_csw(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
-  %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %4, label %12
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal fastcc zeroext i1 @usbms_bot_bulk_is_csw(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
+  br i1 %2, label %11, label %4
 
 4:                                                ; preds = %3
-  %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
+  %5 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %6 = add i32 %1, 13
   %7 = icmp eq i32 %5, %6
-  br i1 %7, label %8, label %12
+  br i1 %7, label %8, label %11
 
 8:                                                ; preds = %4
-  %9 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %1) #3
+  %9 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %1)
   %10 = icmp eq i32 %9, 1396855637
-  %11 = zext i1 %10 to i32
-  br label %12
+  br label %11
 
-12:                                               ; preds = %8, %4, %3
-  %13 = phi i32 [ 0, %4 ], [ 0, %3 ], [ %11, %8 ]
-  ret i32 %13
+11:                                               ; preds = %8, %4, %3
+  %12 = phi i1 [ false, %4 ], [ false, %3 ], [ %10, %8 ]
+  ret i1 %12
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_usbms_bot_csw(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @proto_usbms_bot, align 4
-  %6 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.30) #3
+  %6 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.30)
   %7 = load i32, ptr @ett_usbms_bot, align 4
-  %8 = tail call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %7) #3
+  %8 = tail call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %7)
   %9 = load i32, ptr @hf_usbms_bot_dCSWSignature, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648) #3
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648)
   %11 = load i32, ptr @hf_usbms_bot_dCBWTag, align 4
-  %12 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %11, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef -2147483648) #3
+  %12 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %11, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef -2147483648)
   %13 = load i32, ptr @hf_usbms_bot_dCSWDataResidue, align 4
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %13, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef -2147483648) #3
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %13, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef -2147483648)
   %15 = load i32, ptr @hf_usbms_bot_dCSWStatus, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %15, ptr noundef %0, i32 noundef 12, i32 noundef 1, i32 noundef -2147483648) #3
-  %17 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 12) #3
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %15, ptr noundef %0, i32 noundef 12, i32 noundef 1, i32 noundef -2147483648)
+  %17 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 12)
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %21 = load i32, ptr %20, align 4
-  %22 = tail call ptr @wmem_tree_lookup32_le(ptr noundef %19, i32 noundef %21) #3
+  %22 = tail call ptr @wmem_tree_lookup32_le(ptr noundef %19, i32 noundef %21)
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %32, label %23
 
@@ -549,126 +560,146 @@ define internal fastcc i32 @dissect_usbms_bot_csw(ptr noundef %0, ptr noundef %1
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %28 = load i16, ptr %27, align 8
   %29 = zext i16 %28 to i32
-  %30 = tail call ptr @wmem_tree_lookup32(ptr noundef %26, i32 noundef %29) #3
+  %30 = tail call ptr @wmem_tree_lookup32(ptr noundef %26, i32 noundef %29)
   %.not43 = icmp eq ptr %30, null
   br i1 %.not43, label %32, label %31
 
 31:                                               ; preds = %23
   %.not44 = icmp eq i8 %17, 0
   %. = select i1 %.not44, i8 0, i8 2
-  tail call void @dissect_scsi_rsp(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %22, ptr noundef nonnull %30, i8 noundef zeroext %.) #3
+  tail call void @dissect_scsi_rsp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %22, ptr noundef nonnull %30, i8 noundef zeroext %.)
   br label %32
 
 32:                                               ; preds = %23, %4, %31
-  %33 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
+  %33 = tail call i32 @tvb_captured_length(ptr noundef %0)
   ret i32 %33
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_tree_lookup32_le(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @create_usbms_bot_protocol_tree(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @proto_usbms_bot, align 4
-  %4 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.30) #3
+  %4 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %1, i32 noundef %3, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.30)
   %5 = load i32, ptr @ett_usbms_bot, align 4
-  %6 = tail call ptr @proto_item_add_subtree(ptr noundef %4, i32 noundef %5) #3
+  %6 = tail call ptr @proto_item_add_subtree(ptr noundef %4, i32 noundef %5)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_tree_lookup32(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare void @dissect_scsi_payload(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissect_scsi_payload(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @wmem_tree_insert32(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_new_subset_length_caplen(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissect_scsi_cdb(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissect_scsi_rsp(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_protocol_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
-define internal void @dissect_usbms_bot_reset(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #0 {
-  %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %17, label %8
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal void @dissect_usbms_bot_reset(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #0 {
+  br i1 %4, label %8, label %17
 
 8:                                                ; preds = %7
   %9 = load i32, ptr @hf_usbms_bot_value, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef -2147483648) #3
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef -2147483648)
   %11 = add i32 %3, 2
   %12 = load i32, ptr @hf_usbms_bot_index, align 4
-  %13 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %12, ptr noundef %2, i32 noundef %11, i32 noundef 2, i32 noundef -2147483648) #3
+  %13 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %12, ptr noundef %2, i32 noundef %11, i32 noundef 2, i32 noundef -2147483648)
   %14 = add i32 %3, 4
   %15 = load i32, ptr @hf_usbms_bot_length, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %15, ptr noundef %2, i32 noundef %14, i32 noundef 2, i32 noundef -2147483648) #3
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %15, ptr noundef %2, i32 noundef %14, i32 noundef 2, i32 noundef -2147483648)
   br label %17
 
 17:                                               ; preds = %7, %8
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @dissect_usbms_bot_get_max_lun(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #0 {
-  %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %17, label %8
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal void @dissect_usbms_bot_get_max_lun(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #0 {
+  br i1 %4, label %8, label %17
 
 8:                                                ; preds = %7
   %9 = load i32, ptr @hf_usbms_bot_value, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef -2147483648) #3
+  %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %9, ptr noundef %2, i32 noundef %3, i32 noundef 2, i32 noundef -2147483648)
   %11 = add i32 %3, 2
   %12 = load i32, ptr @hf_usbms_bot_index, align 4
-  %13 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %12, ptr noundef %2, i32 noundef %11, i32 noundef 2, i32 noundef -2147483648) #3
+  %13 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %12, ptr noundef %2, i32 noundef %11, i32 noundef 2, i32 noundef -2147483648)
   %14 = add i32 %3, 4
   %15 = load i32, ptr @hf_usbms_bot_length, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %15, ptr noundef %2, i32 noundef %14, i32 noundef 2, i32 noundef -2147483648) #3
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %15, ptr noundef %2, i32 noundef %14, i32 noundef 2, i32 noundef -2147483648)
   br label %20
 
 17:                                               ; preds = %7
   %18 = load i32, ptr @hf_usbms_bot_maxlun, align 4
-  %19 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %18, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef -2147483648) #3
+  %19 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %18, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef -2147483648)
   br label %20
 
 20:                                               ; preds = %17, %8
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_memeql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { allocsize(1) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}

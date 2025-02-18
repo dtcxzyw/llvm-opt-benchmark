@@ -5,11 +5,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
 %struct.true_false_string = type { ptr, ptr }
 %struct._range_string = type { i64, i64, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
 
 @.str = private unnamed_addr constant [10 x i8] c"ethertype\00", align 1
@@ -33,7 +30,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_homeplug_mehdr_metype = internal global i32 0, align 4
 @.str.11 = private unnamed_addr constant [15 x i8] c"MAC Entry Type\00", align 1
 @.str.12 = private unnamed_addr constant [22 x i8] c"homeplug.mehdr.metype\00", align 1
-@homeplug_metype_vals = internal constant [17 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.15 }, %struct._value_string { i32 1, ptr @.str.20 }, %struct._value_string { i32 2, ptr @.str.44 }, %struct._value_string { i32 3, ptr @.str.42 }, %struct._value_string { i32 4, ptr @.str.52 }, %struct._value_string { i32 5, ptr @.str.58 }, %struct._value_string { i32 6, ptr @.str.60 }, %struct._value_string { i32 7, ptr @.str.64 }, %struct._value_string { i32 8, ptr @.str.66 }, %struct._value_string { i32 25, ptr @.str.88 }, %struct._value_string { i32 26, ptr @.str.187 }, %struct._value_string { i32 27, ptr @.str.3 }, %struct._value_string { i32 28, ptr @.str.293 }, %struct._value_string { i32 29, ptr @.str.294 }, %struct._value_string { i32 30, ptr @.str.295 }, %struct._value_string { i32 31, ptr @.str.254 }, %struct._value_string zeroinitializer], align 16
 @hf_homeplug_melen = internal global i32 0, align 4
 @.str.13 = private unnamed_addr constant [28 x i8] c"MAC Management Entry Length\00", align 1
 @.str.14 = private unnamed_addr constant [15 x i8] c"homeplug.melen\00", align 1
@@ -68,7 +64,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_homeplug_cer_mod = internal global i32 0, align 4
 @.str.33 = private unnamed_addr constant [18 x i8] c"Modulation Method\00", align 1
 @.str.34 = private unnamed_addr constant [17 x i8] c"homeplug.cer.mod\00", align 1
-@homeplug_cer_mod_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.296 }, %struct._value_string { i32 1, ptr @.str.297 }, %struct._value_string { i32 2, ptr @.str.298 }, %struct._value_string { i32 3, ptr @.str.3 }, %struct._value_string zeroinitializer], align 16
 @hf_homeplug_cer_vt11 = internal global i32 0, align 4
 @.str.35 = private unnamed_addr constant [25 x i8] c"Valid Tone Flags [83-80]\00", align 1
 @.str.36 = private unnamed_addr constant [18 x i8] c"homeplug.cer.vt11\00", align 1
@@ -312,11 +307,11 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_homeplug_ns_netw_ctrl_ac = internal global i32 0, align 4
 @.str.192 = private unnamed_addr constant [15 x i8] c"Action Control\00", align 1
 @.str.193 = private unnamed_addr constant [15 x i8] c"homeplug.ns.ac\00", align 1
-@homeplug_ns_ac_vals = internal constant %struct.true_false_string { ptr @.str.299, ptr @.str.300 }, align 8
+@homeplug_ns_ac_vals = internal constant %struct.true_false_string { ptr @.str.301, ptr @.str.302 }, align 8
 @hf_homeplug_ns_netw_ctrl_icid = internal global i32 0, align 4
 @.str.194 = private unnamed_addr constant [6 x i8] c"IC_ID\00", align 1
 @.str.195 = private unnamed_addr constant [17 x i8] c"homeplug.ns.icid\00", align 1
-@homeplug_ns_icid_vals = internal constant [7 x %struct._range_string] [%struct._range_string { i64 0, i64 0, ptr @.str.301 }, %struct._range_string { i64 1, i64 1, ptr @.str.302 }, %struct._range_string { i64 2, i64 2, ptr @.str.303 }, %struct._range_string { i64 3, i64 3, ptr @.str.304 }, %struct._range_string { i64 4, i64 4, ptr @.str.305 }, %struct._range_string { i64 5, i64 127, ptr @.str.3 }, %struct._range_string zeroinitializer], align 16
+@homeplug_ns_icid_vals = internal constant [7 x %struct._range_string] [%struct._range_string { i64 0, i64 0, ptr @.str.303 }, %struct._range_string { i64 1, i64 1, ptr @.str.304 }, %struct._range_string { i64 2, i64 2, ptr @.str.305 }, %struct._range_string { i64 3, i64 3, ptr @.str.306 }, %struct._range_string { i64 4, i64 4, ptr @.str.307 }, %struct._range_string { i64 5, i64 127, ptr @.str.3 }, %struct._range_string zeroinitializer], align 16
 @hf_homeplug_ns_bytes40_robo = internal global i32 0, align 4
 @.str.196 = private unnamed_addr constant [28 x i8] c"Bytes in 40 symbols in ROBO\00", align 1
 @.str.197 = private unnamed_addr constant [25 x i8] c"homeplug.ns.bytes40_robo\00", align 1
@@ -344,12 +339,11 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_homeplug_ns_buf_in_use = internal global i32 0, align 4
 @.str.212 = private unnamed_addr constant [14 x i8] c"Buffer in use\00", align 1
 @.str.213 = private unnamed_addr constant [23 x i8] c"homeplug.ns.buf_in_use\00", align 1
-@homeplug_ns_buf_in_use_vals = internal constant %struct.true_false_string { ptr @.str.307, ptr @.str.308 }, align 8
+@homeplug_ns_buf_in_use_vals = internal constant %struct.true_false_string { ptr @.str.309, ptr @.str.310 }, align 8
 @.str.214 = private unnamed_addr constant [35 x i8] c"Buffer in use (1) or Available (0)\00", align 1
 @hf_homeplug_ns_prio = internal global i32 0, align 4
 @.str.215 = private unnamed_addr constant [9 x i8] c"Priority\00", align 1
 @.str.216 = private unnamed_addr constant [17 x i8] c"homeplug.ns.prio\00", align 1
-@homeplug_txprio_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.309 }, %struct._value_string { i32 1, ptr @.str.310 }, %struct._value_string { i32 2, ptr @.str.311 }, %struct._value_string { i32 3, ptr @.str.312 }, %struct._value_string zeroinitializer], align 16
 @hf_homeplug_ns_msdu_len = internal global i32 0, align 4
 @.str.217 = private unnamed_addr constant [12 x i8] c"MSDU Length\00", align 1
 @.str.218 = private unnamed_addr constant [21 x i8] c"homeplug.ns.msdu_len\00", align 1
@@ -366,12 +360,12 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_homeplug_bcn_network = internal global i32 0, align 4
 @.str.226 = private unnamed_addr constant [8 x i8] c"Network\00", align 1
 @.str.227 = private unnamed_addr constant [21 x i8] c"homeplug.bcn.network\00", align 1
-@homeplug_bc_network_vals = internal constant %struct.true_false_string { ptr @.str.313, ptr @.str.314 }, align 8
+@homeplug_bc_network_vals = internal constant %struct.true_false_string { ptr @.str.316, ptr @.str.317 }, align 8
 @.str.228 = private unnamed_addr constant [44 x i8] c"Local (0) or Network Bridge (1) Information\00", align 1
 @hf_homeplug_bcn_return = internal global i32 0, align 4
 @.str.229 = private unnamed_addr constant [11 x i8] c"Return/Set\00", align 1
 @.str.230 = private unnamed_addr constant [20 x i8] c"homeplug.bcn.return\00", align 1
-@homeplug_bc_return_vals = internal constant %struct.true_false_string { ptr @.str.315, ptr @.str.316 }, align 8
+@homeplug_bc_return_vals = internal constant %struct.true_false_string { ptr @.str.318, ptr @.str.319 }, align 8
 @.str.231 = private unnamed_addr constant [58 x i8] c"From host: Return (1) or set bridging characteristics (0)\00", align 1
 @hf_homeplug_bcn_rsvd = internal global i32 0, align 4
 @.str.232 = private unnamed_addr constant [18 x i8] c"homeplug.bcn.rsvd\00", align 1
@@ -431,14 +425,13 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_homeplug_stc_cftop = internal global i32 0, align 4
 @.str.270 = private unnamed_addr constant [43 x i8] c"Contention Free Transmit Override Priority\00", align 1
 @.str.271 = private unnamed_addr constant [19 x i8] c"homeplug.stc.cftop\00", align 1
-@homeplug_stc_cftop_vals = internal constant %struct.true_false_string { ptr @.str.311, ptr @.str.312 }, align 8
+@homeplug_stc_cftop_vals = internal constant %struct.true_false_string { ptr @.str.313, ptr @.str.314 }, align 8
 @.str.272 = private unnamed_addr constant [65 x i8] c"Transmit subsequent contention free frames with CA2/CA3 priority\00", align 1
 @hf_homeplug_stc_rsvd1 = internal global i32 0, align 4
 @.str.273 = private unnamed_addr constant [19 x i8] c"homeplug.stc.rsvd1\00", align 1
 @hf_homeplug_stc_retry = internal global i32 0, align 4
 @.str.274 = private unnamed_addr constant [14 x i8] c"Retry Control\00", align 1
 @.str.275 = private unnamed_addr constant [19 x i8] c"homeplug.stc.retry\00", align 1
-@homeplug_stc_retry_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.317 }, %struct._value_string { i32 1, ptr @.str.318 }, %struct._value_string { i32 2, ptr @.str.319 }, %struct._value_string { i32 3, ptr @.str.3 }, %struct._value_string zeroinitializer], align 16
 @hf_homeplug_stc_rsvd2 = internal global i32 0, align 4
 @.str.276 = private unnamed_addr constant [19 x i8] c"homeplug.stc.rsvd2\00", align 1
 @hf_homeplug_stc_dder = internal global i32 0, align 4
@@ -480,7 +473,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_homeplug_bridge = internal global i32 0, align 4
 @ett_homeplug_bcl = internal global i32 0, align 4
 @ett_homeplug_stc = internal global i32 0, align 4
-@proto_register_homeplug.ei = internal global [1 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_homeplug_tone_map_not_exist, %struct.expert_field_info { ptr @.str.288, i32 150994944, i32 6291456, ptr @.str.289, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_homeplug.ei = internal global [1 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_homeplug_tone_map_not_exist, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.288, i32 150994944, i32 6291456, ptr @.str.289, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_homeplug_tone_map_not_exist = internal global %struct.expert_field zeroinitializer, align 4
 @.str.288 = private unnamed_addr constant [28 x i8] c"homeplug.tone_map_not_exist\00", align 1
 @.str.289 = private unnamed_addr constant [24 x i8] c"Tone Map does not exist\00", align 1
@@ -491,162 +484,173 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.293 = private unnamed_addr constant [23 x i8] c"Performance Statistics\00", align 1
 @.str.294 = private unnamed_addr constant [20 x i8] c"Set Local Overrides\00", align 1
 @.str.295 = private unnamed_addr constant [25 x i8] c"Bridging Characteristics\00", align 1
-@.str.296 = private unnamed_addr constant [16 x i8] c"ROBO Modulation\00", align 1
-@.str.297 = private unnamed_addr constant [17 x i8] c"DBPSK Modulation\00", align 1
-@.str.298 = private unnamed_addr constant [17 x i8] c"DQPSK Modulation\00", align 1
-@.str.299 = private unnamed_addr constant [44 x i8] c"(from host) Return basic network statistics\00", align 1
-@.str.300 = private unnamed_addr constant [43 x i8] c"(from host) Clear basic network statistics\00", align 1
-@.str.301 = private unnamed_addr constant [10 x i8] c"INT5130A1\00", align 1
-@.str.302 = private unnamed_addr constant [21 x i8] c"INT51X1 (USB Option)\00", align 1
-@.str.303 = private unnamed_addr constant [21 x i8] c"INT51X1 (PHY Option)\00", align 1
-@.str.304 = private unnamed_addr constant [26 x i8] c"INT51X1 (Host/DTE Option)\00", align 1
-@.str.305 = private unnamed_addr constant [10 x i8] c"INT5130A2\00", align 1
-@.str.306 = private unnamed_addr constant [5 x i8] c"%.3f\00", align 1
-@.str.307 = private unnamed_addr constant [17 x i8] c"Buffer is in use\00", align 1
-@.str.308 = private unnamed_addr constant [20 x i8] c"Buffer is available\00", align 1
-@.str.309 = private unnamed_addr constant [4 x i8] c"CA0\00", align 1
-@.str.310 = private unnamed_addr constant [4 x i8] c"CA1\00", align 1
-@.str.311 = private unnamed_addr constant [4 x i8] c"CA2\00", align 1
-@.str.312 = private unnamed_addr constant [4 x i8] c"CA3\00", align 1
-@.str.313 = private unnamed_addr constant [27 x i8] c"Network bridge information\00", align 1
-@.str.314 = private unnamed_addr constant [25 x i8] c"Local bridge information\00", align 1
-@.str.315 = private unnamed_addr constant [32 x i8] c"Return bridging characteristics\00", align 1
-@.str.316 = private unnamed_addr constant [29 x i8] c"Set bridging characteristics\00", align 1
-@.str.317 = private unnamed_addr constant [11 x i8] c"No retries\00", align 1
-@.str.318 = private unnamed_addr constant [15 x i8] c"One retry only\00", align 1
-@.str.319 = private unnamed_addr constant [38 x i8] c"Normal retries based on specification\00", align 1
-@.str.320 = private unnamed_addr constant [15 x i8] c"MAC Management\00", align 1
+@homeplug_metype_vals = internal constant [17 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.15 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.20 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.44 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.42 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.52 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.58 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.60 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.64 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.66 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.88 }, { i32, [4 x i8], ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.187 }, { i32, [4 x i8], ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.3 }, { i32, [4 x i8], ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.293 }, { i32, [4 x i8], ptr } { i32 29, [4 x i8] zeroinitializer, ptr @.str.294 }, { i32, [4 x i8], ptr } { i32 30, [4 x i8] zeroinitializer, ptr @.str.295 }, { i32, [4 x i8], ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.254 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.297 = private unnamed_addr constant [16 x i8] c"ROBO Modulation\00", align 1
+@.str.298 = private unnamed_addr constant [17 x i8] c"DBPSK Modulation\00", align 1
+@.str.299 = private unnamed_addr constant [17 x i8] c"DQPSK Modulation\00", align 1
+@homeplug_cer_mod_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.297 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.298 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.299 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.3 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.301 = private unnamed_addr constant [44 x i8] c"(from host) Return basic network statistics\00", align 1
+@.str.302 = private unnamed_addr constant [43 x i8] c"(from host) Clear basic network statistics\00", align 1
+@.str.303 = private unnamed_addr constant [10 x i8] c"INT5130A1\00", align 1
+@.str.304 = private unnamed_addr constant [21 x i8] c"INT51X1 (USB Option)\00", align 1
+@.str.305 = private unnamed_addr constant [21 x i8] c"INT51X1 (PHY Option)\00", align 1
+@.str.306 = private unnamed_addr constant [26 x i8] c"INT51X1 (Host/DTE Option)\00", align 1
+@.str.307 = private unnamed_addr constant [10 x i8] c"INT5130A2\00", align 1
+@.str.308 = private unnamed_addr constant [5 x i8] c"%.3f\00", align 1
+@.str.309 = private unnamed_addr constant [17 x i8] c"Buffer is in use\00", align 1
+@.str.310 = private unnamed_addr constant [20 x i8] c"Buffer is available\00", align 1
+@.str.311 = private unnamed_addr constant [4 x i8] c"CA0\00", align 1
+@.str.312 = private unnamed_addr constant [4 x i8] c"CA1\00", align 1
+@.str.313 = private unnamed_addr constant [4 x i8] c"CA2\00", align 1
+@.str.314 = private unnamed_addr constant [4 x i8] c"CA3\00", align 1
+@homeplug_txprio_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.311 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.312 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.313 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.314 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.316 = private unnamed_addr constant [27 x i8] c"Network bridge information\00", align 1
+@.str.317 = private unnamed_addr constant [25 x i8] c"Local bridge information\00", align 1
+@.str.318 = private unnamed_addr constant [32 x i8] c"Return bridging characteristics\00", align 1
+@.str.319 = private unnamed_addr constant [29 x i8] c"Set bridging characteristics\00", align 1
+@.str.320 = private unnamed_addr constant [11 x i8] c"No retries\00", align 1
+@.str.321 = private unnamed_addr constant [15 x i8] c"One retry only\00", align 1
+@.str.322 = private unnamed_addr constant [38 x i8] c"Normal retries based on specification\00", align 1
+@homeplug_stc_retry_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.320 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.321 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.322 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.3 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.324 = private unnamed_addr constant [15 x i8] c"MAC Management\00", align 1
 @homeplug_ne = internal unnamed_addr global i8 0, align 1
 @homeplug_metype = internal unnamed_addr global i8 0, align 1
 @homeplug_melen = internal unnamed_addr global i8 0, align 1
-@.str.321 = private unnamed_addr constant [3 x i8] c", \00", align 1
-@.str.322 = private unnamed_addr constant [13 x i8] c"Unknown 0x%x\00", align 1
-@.str.323 = private unnamed_addr constant [14 x i8] c"Load Firmware\00", align 1
-@.str.324 = private unnamed_addr constant [28 x i8] c"Loader Get Firmware Version\00", align 1
-@.str.325 = private unnamed_addr constant [22 x i8] c"Loader Start Firmware\00", align 1
-@.str.326 = private unnamed_addr constant [20 x i8] c"Loader Write Memory\00", align 1
-@.str.327 = private unnamed_addr constant [19 x i8] c"Loader Read Memory\00", align 1
-@.str.328 = private unnamed_addr constant [16 x i8] c"Loader Read NVM\00", align 1
-@.str.329 = private unnamed_addr constant [17 x i8] c"Loader Write NVM\00", align 1
-@.str.330 = private unnamed_addr constant [13 x i8] c"Loader Reset\00", align 1
-@.str.331 = private unnamed_addr constant [23 x i8] c"Loader Get Module Data\00", align 1
-@.str.332 = private unnamed_addr constant [23 x i8] c"Loader Set Module Data\00", align 1
-@.str.333 = private unnamed_addr constant [21 x i8] c"Loader Commit Module\00", align 1
-@.str.334 = private unnamed_addr constant [25 x i8] c"Loader Erase Module Data\00", align 1
-@.str.335 = private unnamed_addr constant [25 x i8] c"Loader Erase NVM Sectors\00", align 1
-@.str.336 = private unnamed_addr constant [26 x i8] c"Loader Get NVM Parameters\00", align 1
-@.str.337 = private unnamed_addr constant [26 x i8] c"Loader Set NVM Parameters\00", align 1
-@.str.338 = private unnamed_addr constant [33 x i8] c"Host Request: Get Device Version\00", align 1
-@.str.339 = private unnamed_addr constant [35 x i8] c"Host Request: Get Firmware Version\00", align 1
-@.str.340 = private unnamed_addr constant [49 x i8] c"Host Request: Get Network Encryption Key Request\00", align 1
-@.str.341 = private unnamed_addr constant [49 x i8] c"Host Request: Get/ Clear Local Bridge Proxy List\00", align 1
-@.str.342 = private unnamed_addr constant [43 x i8] c"Host Request: Non-volatile Database Status\00", align 1
-@.str.343 = private unnamed_addr constant [38 x i8] c"Host Request: Get Remote Bridge Table\00", align 1
-@.str.344 = private unnamed_addr constant [47 x i8] c"Host Request: Get/Set Logical Network Mappings\00", align 1
-@.str.345 = private unnamed_addr constant [39 x i8] c"Host Request: Get/Set Spectral Scaling\00", align 1
-@.str.346 = private unnamed_addr constant [44 x i8] c"Host Request: MAC Reset to Secondary Loader\00", align 1
-@.str.347 = private unnamed_addr constant [24 x i8] c"Host Request: MAC Reset\00", align 1
-@.str.348 = private unnamed_addr constant [34 x i8] c"Host Response: Get Device Version\00", align 1
-@.str.349 = private unnamed_addr constant [36 x i8] c"Host Response: Get Firmware Version\00", align 1
-@.str.350 = private unnamed_addr constant [27 x i8] c"Host Response: Invalid MME\00", align 1
-@.str.351 = private unnamed_addr constant [10 x i8] c" Extended\00", align 1
-@.str.352 = private unnamed_addr constant [7 x i8] c" Basic\00", align 1
-@.str.353 = private unnamed_addr constant [13 x i8] c"Tone Map #%d\00", align 1
-@.str.354 = private unnamed_addr constant [28 x i8] c"Tone Map #%d does not exist\00", align 1
-@.str.355 = private unnamed_addr constant [16 x i8] c"TX_BFR_%d_STATE\00", align 1
-@.str.356 = private unnamed_addr constant [9 x i8] c" Network\00", align 1
-@.str.357 = private unnamed_addr constant [7 x i8] c" Local\00", align 1
-@.str.358 = private unnamed_addr constant [11 x i8] c"Bridge #%d\00", align 1
+@.str.325 = private unnamed_addr constant [3 x i8] c", \00", align 1
+@.str.326 = private unnamed_addr constant [13 x i8] c"Unknown 0x%x\00", align 1
+@.str.327 = private unnamed_addr constant [14 x i8] c"Load Firmware\00", align 1
+@.str.328 = private unnamed_addr constant [28 x i8] c"Loader Get Firmware Version\00", align 1
+@.str.329 = private unnamed_addr constant [22 x i8] c"Loader Start Firmware\00", align 1
+@.str.330 = private unnamed_addr constant [20 x i8] c"Loader Write Memory\00", align 1
+@.str.331 = private unnamed_addr constant [19 x i8] c"Loader Read Memory\00", align 1
+@.str.332 = private unnamed_addr constant [16 x i8] c"Loader Read NVM\00", align 1
+@.str.333 = private unnamed_addr constant [17 x i8] c"Loader Write NVM\00", align 1
+@.str.334 = private unnamed_addr constant [13 x i8] c"Loader Reset\00", align 1
+@.str.335 = private unnamed_addr constant [23 x i8] c"Loader Get Module Data\00", align 1
+@.str.336 = private unnamed_addr constant [23 x i8] c"Loader Set Module Data\00", align 1
+@.str.337 = private unnamed_addr constant [21 x i8] c"Loader Commit Module\00", align 1
+@.str.338 = private unnamed_addr constant [25 x i8] c"Loader Erase Module Data\00", align 1
+@.str.339 = private unnamed_addr constant [25 x i8] c"Loader Erase NVM Sectors\00", align 1
+@.str.340 = private unnamed_addr constant [26 x i8] c"Loader Get NVM Parameters\00", align 1
+@.str.341 = private unnamed_addr constant [26 x i8] c"Loader Set NVM Parameters\00", align 1
+@.str.342 = private unnamed_addr constant [33 x i8] c"Host Request: Get Device Version\00", align 1
+@.str.343 = private unnamed_addr constant [35 x i8] c"Host Request: Get Firmware Version\00", align 1
+@.str.344 = private unnamed_addr constant [49 x i8] c"Host Request: Get Network Encryption Key Request\00", align 1
+@.str.345 = private unnamed_addr constant [49 x i8] c"Host Request: Get/ Clear Local Bridge Proxy List\00", align 1
+@.str.346 = private unnamed_addr constant [43 x i8] c"Host Request: Non-volatile Database Status\00", align 1
+@.str.347 = private unnamed_addr constant [38 x i8] c"Host Request: Get Remote Bridge Table\00", align 1
+@.str.348 = private unnamed_addr constant [47 x i8] c"Host Request: Get/Set Logical Network Mappings\00", align 1
+@.str.349 = private unnamed_addr constant [39 x i8] c"Host Request: Get/Set Spectral Scaling\00", align 1
+@.str.350 = private unnamed_addr constant [44 x i8] c"Host Request: MAC Reset to Secondary Loader\00", align 1
+@.str.351 = private unnamed_addr constant [24 x i8] c"Host Request: MAC Reset\00", align 1
+@.str.352 = private unnamed_addr constant [34 x i8] c"Host Response: Get Device Version\00", align 1
+@.str.353 = private unnamed_addr constant [36 x i8] c"Host Response: Get Firmware Version\00", align 1
+@.str.354 = private unnamed_addr constant [27 x i8] c"Host Response: Invalid MME\00", align 1
+@.str.355 = private unnamed_addr constant [10 x i8] c" Extended\00", align 1
+@.str.356 = private unnamed_addr constant [7 x i8] c" Basic\00", align 1
+@.str.357 = private unnamed_addr constant [13 x i8] c"Tone Map #%d\00", align 1
+@.str.358 = private unnamed_addr constant [28 x i8] c"Tone Map #%d does not exist\00", align 1
+@.str.359 = private unnamed_addr constant [16 x i8] c"TX_BFR_%d_STATE\00", align 1
+@.str.360 = private unnamed_addr constant [9 x i8] c" Network\00", align 1
+@.str.361 = private unnamed_addr constant [7 x i8] c" Local\00", align 1
+@.str.362 = private unnamed_addr constant [11 x i8] c"Bridge #%d\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_homeplug() local_unnamed_addr #0 {
   %1 = load ptr, ptr @homeplug_handle, align 8
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str, i32 noundef 34939, ptr noundef %1) #4
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str, i32 noundef 34939, ptr noundef %1)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_homeplug() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.290, ptr noundef nonnull @.str.291, ptr noundef nonnull @.str.292) #4
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.290, ptr noundef nonnull @.str.291, ptr noundef nonnull @.str.292)
   store i32 %1, ptr @proto_homeplug, align 4
-  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_homeplug.hf, i32 noundef 146) #4
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_homeplug.ett, i32 noundef 21) #4
+  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_homeplug.hf, i32 noundef 146)
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_homeplug.ett, i32 noundef 21)
   %2 = load i32, ptr @proto_homeplug, align 4
-  %3 = tail call ptr @expert_register_protocol(i32 noundef %2) #4
-  tail call void @expert_register_field_array(ptr noundef %3, ptr noundef nonnull @proto_register_homeplug.ei, i32 noundef 1) #4
+  %3 = tail call ptr @expert_register_protocol(i32 noundef %2)
+  tail call void @expert_register_field_array(ptr noundef %3, ptr noundef nonnull @proto_register_homeplug.ei, i32 noundef 1)
   %4 = load i32, ptr @proto_homeplug, align 4
-  %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.292, ptr noundef nonnull @dissect_homeplug, i32 noundef %4) #4
+  %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.292, ptr noundef nonnull @dissect_homeplug, i32 noundef %4)
   store ptr %5, ptr @homeplug_handle, align 8
   ret void
 }
 
-; Function Attrs: nofree nounwind uwtable
-define internal void @homeplug_fmt_mhz(ptr noundef writeonly captures(none) %0, i32 noundef %1) #2 {
+; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
+define internal void @homeplug_fmt_mhz(ptr noundef %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to float
   %4 = fdiv float %3, 4.200000e+01
   %5 = fpext float %4 to double
-  %6 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.306, double noundef %5) #4
+  %6 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.308, double noundef %5)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_homeplug(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
-  tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.291) #4
+  tail call void @col_set_str(ptr noundef %6, i32 noundef 35, ptr noundef nonnull @.str.291)
   %7 = load ptr, ptr %5, align 8
-  tail call void @col_set_str(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.320) #4
+  tail call void @col_set_str(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.324)
   %8 = load i32, ptr @proto_homeplug, align 4
-  %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
+  %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %10 = load i32, ptr @ett_homeplug, align 4
-  %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10) #4
+  %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10)
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call ptr @ptvcursor_new(ptr noundef %13, ptr noundef %11, ptr noundef %0, i32 noundef 0) #4
+  %14 = tail call ptr @ptvcursor_new(ptr noundef %13, ptr noundef %11, ptr noundef %0, i32 noundef 0)
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %20, label %15
 
 15:                                               ; preds = %4
-  %16 = tail call ptr @ptvcursor_tvbuff(ptr noundef nonnull %14) #4
-  %17 = tail call i32 @ptvcursor_current_offset(ptr noundef nonnull %14) #4
-  %18 = tail call i32 @tvb_reported_length_remaining(ptr noundef %16, i32 noundef %17) #4
+  %16 = tail call ptr @ptvcursor_tvbuff(ptr noundef nonnull %14)
+  %17 = tail call i32 @ptvcursor_current_offset(ptr noundef nonnull %14)
+  %18 = tail call i32 @tvb_reported_length_remaining(ptr noundef %16, i32 noundef %17)
   %19 = icmp slt i32 %18, 1
   br i1 %19, label %check_tvb_length.exit, label %20
 
 20:                                               ; preds = %4, %15
-  %21 = tail call ptr @ptvcursor_tree(ptr noundef %14) #4
+  %21 = tail call ptr @ptvcursor_tree(ptr noundef %14)
   %.not.i21 = icmp eq ptr %21, null
   br i1 %.not.i21, label %dissect_homeplug_mctrl.exit, label %22
 
 22:                                               ; preds = %20
   %23 = load i32, ptr @hf_homeplug_mctrl, align 4
-  %24 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %14, i32 noundef %23, i32 noundef 1, i32 noundef 0) #4
-  %25 = tail call ptr @ptvcursor_tvbuff(ptr noundef %14) #4
-  %26 = tail call i32 @ptvcursor_current_offset(ptr noundef %14) #4
-  %27 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %25, i32 noundef %26) #4
+  %24 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %14, i32 noundef %23, i32 noundef 1, i32 noundef 0)
+  %25 = tail call ptr @ptvcursor_tvbuff(ptr noundef %14)
+  %26 = tail call i32 @ptvcursor_current_offset(ptr noundef %14)
+  %27 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %25, i32 noundef %26)
   %28 = and i8 %27, 127
   store i8 %28, ptr @homeplug_ne, align 1
   %29 = load i32, ptr @ett_homeplug_mctrl, align 4
-  %30 = tail call ptr @ptvcursor_push_subtree(ptr noundef %14, ptr noundef %24, i32 noundef %29) #4
+  %30 = tail call ptr @ptvcursor_push_subtree(ptr noundef %14, ptr noundef %24, i32 noundef %29)
   %31 = load i32, ptr @hf_homeplug_mctrl_reserved, align 4
-  %32 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %14, i32 noundef %31, i32 noundef 1, i32 noundef 0) #4
+  %32 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %14, i32 noundef %31, i32 noundef 1, i32 noundef 0)
   %33 = load i32, ptr @hf_homeplug_mctrl_ne, align 4
-  %34 = tail call ptr @ptvcursor_add(ptr noundef %14, i32 noundef %33, i32 noundef 1, i32 noundef 0) #4
-  tail call void @ptvcursor_pop_subtree(ptr noundef %14) #4
+  %34 = tail call ptr @ptvcursor_add(ptr noundef %14, i32 noundef %33, i32 noundef 1, i32 noundef 0)
+  tail call void @ptvcursor_pop_subtree(ptr noundef %14)
   br label %dissect_homeplug_mctrl.exit
 
 dissect_homeplug_mctrl.exit:                      ; preds = %20, %22
@@ -656,7 +660,7 @@ dissect_homeplug_mctrl.exit:                      ; preds = %20, %22
 
 36:                                               ; preds = %dissect_homeplug_mctrl.exit
   %37 = load ptr, ptr %5, align 8
-  tail call void @col_clear(ptr noundef %37, i32 noundef 25) #4
+  tail call void @col_clear(ptr noundef %37, i32 noundef 25)
   %.pr.pre = load i8, ptr @homeplug_ne, align 1
   %38 = icmp eq i8 %.pr.pre, 0
   br i1 %38, label %check_tvb_length.exit, label %.lr.ph
@@ -665,56 +669,56 @@ dissect_homeplug_mctrl.exit:                      ; preds = %20, %22
   br i1 %.not.i, label %44, label %39
 
 39:                                               ; preds = %.lr.ph
-  %40 = tail call ptr @ptvcursor_tvbuff(ptr noundef nonnull %14) #4
-  %41 = tail call i32 @ptvcursor_current_offset(ptr noundef nonnull %14) #4
-  %42 = tail call i32 @tvb_reported_length_remaining(ptr noundef %40, i32 noundef %41) #4
+  %40 = tail call ptr @ptvcursor_tvbuff(ptr noundef nonnull %14)
+  %41 = tail call i32 @ptvcursor_current_offset(ptr noundef nonnull %14)
+  %42 = tail call i32 @tvb_reported_length_remaining(ptr noundef %40, i32 noundef %41)
   %43 = icmp slt i32 %42, 1
   br i1 %43, label %check_tvb_length.exit, label %44
 
 44:                                               ; preds = %.lr.ph, %39
-  %45 = tail call ptr @ptvcursor_tree(ptr noundef %14) #4
+  %45 = tail call ptr @ptvcursor_tree(ptr noundef %14)
   %.not.i26 = icmp eq ptr %45, null
   br i1 %.not.i26, label %dissect_homeplug_mehdr.exit, label %46
 
 46:                                               ; preds = %44
   %47 = load i32, ptr @hf_homeplug_mehdr, align 4
-  %48 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %14, i32 noundef %47, i32 noundef 1, i32 noundef 0) #4
-  %49 = tail call ptr @ptvcursor_tvbuff(ptr noundef %14) #4
-  %50 = tail call i32 @ptvcursor_current_offset(ptr noundef %14) #4
-  %51 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %49, i32 noundef %50) #4
+  %48 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %14, i32 noundef %47, i32 noundef 1, i32 noundef 0)
+  %49 = tail call ptr @ptvcursor_tvbuff(ptr noundef %14)
+  %50 = tail call i32 @ptvcursor_current_offset(ptr noundef %14)
+  %51 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %49, i32 noundef %50)
   %52 = and i8 %51, 31
   store i8 %52, ptr @homeplug_metype, align 1
   %53 = load i32, ptr @ett_homeplug_mehdr, align 4
-  %54 = tail call ptr @ptvcursor_push_subtree(ptr noundef %14, ptr noundef %48, i32 noundef %53) #4
+  %54 = tail call ptr @ptvcursor_push_subtree(ptr noundef %14, ptr noundef %48, i32 noundef %53)
   %55 = load i32, ptr @hf_homeplug_mehdr_mev, align 4
-  %56 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %14, i32 noundef %55, i32 noundef 1, i32 noundef 0) #4
+  %56 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %14, i32 noundef %55, i32 noundef 1, i32 noundef 0)
   %57 = load i32, ptr @hf_homeplug_mehdr_metype, align 4
-  %58 = tail call ptr @ptvcursor_add(ptr noundef %14, i32 noundef %57, i32 noundef 1, i32 noundef 0) #4
-  tail call void @ptvcursor_pop_subtree(ptr noundef %14) #4
+  %58 = tail call ptr @ptvcursor_add(ptr noundef %14, i32 noundef %57, i32 noundef 1, i32 noundef 0)
+  tail call void @ptvcursor_pop_subtree(ptr noundef %14)
   br label %dissect_homeplug_mehdr.exit
 
 dissect_homeplug_mehdr.exit:                      ; preds = %44, %46
   br i1 %.not.i, label %64, label %59
 
 59:                                               ; preds = %dissect_homeplug_mehdr.exit
-  %60 = tail call ptr @ptvcursor_tvbuff(ptr noundef nonnull %14) #4
-  %61 = tail call i32 @ptvcursor_current_offset(ptr noundef nonnull %14) #4
-  %62 = tail call i32 @tvb_reported_length_remaining(ptr noundef %60, i32 noundef %61) #4
+  %60 = tail call ptr @ptvcursor_tvbuff(ptr noundef nonnull %14)
+  %61 = tail call i32 @ptvcursor_current_offset(ptr noundef nonnull %14)
+  %62 = tail call i32 @tvb_reported_length_remaining(ptr noundef %60, i32 noundef %61)
   %63 = icmp slt i32 %62, 1
   br i1 %63, label %check_tvb_length.exit, label %64
 
 64:                                               ; preds = %dissect_homeplug_mehdr.exit, %59
-  %65 = tail call ptr @ptvcursor_tree(ptr noundef %14) #4
+  %65 = tail call ptr @ptvcursor_tree(ptr noundef %14)
   %.not.i31 = icmp eq ptr %65, null
   br i1 %.not.i31, label %dissect_homeplug_melen.exit, label %66
 
 66:                                               ; preds = %64
-  %67 = tail call ptr @ptvcursor_tvbuff(ptr noundef %14) #4
-  %68 = tail call i32 @ptvcursor_current_offset(ptr noundef %14) #4
-  %69 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %67, i32 noundef %68) #4
+  %67 = tail call ptr @ptvcursor_tvbuff(ptr noundef %14)
+  %68 = tail call i32 @ptvcursor_current_offset(ptr noundef %14)
+  %69 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %67, i32 noundef %68)
   store i8 %69, ptr @homeplug_melen, align 1
   %70 = load i32, ptr @hf_homeplug_melen, align 4
-  %71 = tail call ptr @ptvcursor_add(ptr noundef %14, i32 noundef %70, i32 noundef 1, i32 noundef 0) #4
+  %71 = tail call ptr @ptvcursor_add(ptr noundef %14, i32 noundef %70, i32 noundef 1, i32 noundef 0)
   br label %dissect_homeplug_melen.exit
 
 dissect_homeplug_melen.exit:                      ; preds = %64, %66
@@ -723,35 +727,40 @@ dissect_homeplug_melen.exit:                      ; preds = %64, %66
   %73 = add i8 %72, -1
   store i8 %73, ptr @homeplug_ne, align 1
   %.not20 = icmp eq i8 %73, 0
-  br i1 %.not20, label %check_tvb_length.exit, label %.lr.ph, !llvm.loop !4
+  br i1 %.not20, label %check_tvb_length.exit, label %.lr.ph, !llvm.loop !6
 
 check_tvb_length.exit:                            ; preds = %dissect_homeplug_melen.exit, %39, %59, %dissect_homeplug_mctrl.exit, %36, %15
-  tail call void @ptvcursor_free(ptr noundef %14) #4
-  %74 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
+  tail call void @ptvcursor_free(ptr noundef %14)
+  %74 = tail call i32 @tvb_captured_length(ptr noundef %0)
   ret i32 %74
 }
 
-; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+; Function Attrs: nofree null_pointer_is_valid
+declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @ptvcursor_new(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_homeplug_mme(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load i8, ptr @homeplug_metype, align 1
   %6 = zext nneg i8 %5 to i32
-  %7 = tail call ptr @val_to_str(i32 noundef %6, ptr noundef nonnull @homeplug_metype_vals, ptr noundef nonnull @.str.322) #4
-  tail call void @col_append_sep_str(ptr noundef %4, i32 noundef 25, ptr noundef nonnull @.str.321, ptr noundef %7) #4
+  %7 = tail call ptr @val_to_str(i32 noundef %6, ptr noundef nonnull @homeplug_metype_vals, ptr noundef nonnull @.str.326)
+  tail call void @col_append_sep_str(ptr noundef %4, i32 noundef 25, ptr noundef nonnull @.str.325, ptr noundef %7)
   %8 = load i8, ptr @homeplug_metype, align 1
   switch i8 %8, label %686 [
     i8 0, label %9
@@ -774,7 +783,7 @@ define internal fastcc void @dissect_homeplug_mme(ptr noundef %0, ptr noundef %1
   ]
 
 9:                                                ; preds = %2
-  %10 = tail call ptr @ptvcursor_tree(ptr noundef %0) #4
+  %10 = tail call ptr @ptvcursor_tree(ptr noundef %0)
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %dissect_homeplug_rce.exit, label %11
 
@@ -782,18 +791,18 @@ define internal fastcc void @dissect_homeplug_mme(ptr noundef %0, ptr noundef %1
   %12 = load i32, ptr @hf_homeplug_rce, align 4
   %13 = load i8, ptr @homeplug_melen, align 1
   %14 = zext i8 %13 to i32
-  %15 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %12, i32 noundef %14, i32 noundef 0) #4
+  %15 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %12, i32 noundef %14, i32 noundef 0)
   %16 = load i32, ptr @ett_homeplug_rce, align 4
-  %17 = tail call ptr @ptvcursor_push_subtree(ptr noundef %0, ptr noundef %15, i32 noundef %16) #4
+  %17 = tail call ptr @ptvcursor_push_subtree(ptr noundef %0, ptr noundef %15, i32 noundef %16)
   %18 = load i32, ptr @hf_homeplug_rce_cev, align 4
-  %19 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %18, i32 noundef 1, i32 noundef 0) #4
+  %19 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %18, i32 noundef 1, i32 noundef 0)
   %20 = load i32, ptr @hf_homeplug_rce_rsvd, align 4
-  %21 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %20, i32 noundef 1, i32 noundef 0) #4
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #4
+  %21 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %20, i32 noundef 1, i32 noundef 0)
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0)
   br label %dissect_homeplug_rce.exit
 
 22:                                               ; preds = %2
-  %23 = tail call ptr @ptvcursor_tree(ptr noundef %0) #4
+  %23 = tail call ptr @ptvcursor_tree(ptr noundef %0)
   %.not.i33 = icmp eq ptr %23, null
   br i1 %.not.i33, label %dissect_homeplug_rce.exit, label %24
 
@@ -801,69 +810,69 @@ define internal fastcc void @dissect_homeplug_mme(ptr noundef %0, ptr noundef %1
   %25 = load i32, ptr @hf_homeplug_cer, align 4
   %26 = load i8, ptr @homeplug_melen, align 1
   %27 = zext i8 %26 to i32
-  %28 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %25, i32 noundef %27, i32 noundef 0) #4
+  %28 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %25, i32 noundef %27, i32 noundef 0)
   %29 = load i32, ptr @ett_homeplug_cer, align 4
-  %30 = tail call ptr @ptvcursor_push_subtree(ptr noundef %0, ptr noundef %28, i32 noundef %29) #4
+  %30 = tail call ptr @ptvcursor_push_subtree(ptr noundef %0, ptr noundef %28, i32 noundef %29)
   %31 = load i32, ptr @hf_homeplug_cer_cerv, align 4
-  %32 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %31, i32 noundef 1, i32 noundef 0) #4
+  %32 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %31, i32 noundef 1, i32 noundef 0)
   %33 = load i32, ptr @hf_homeplug_cer_rsvd1, align 4
-  %34 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %33, i32 noundef 2, i32 noundef 0) #4
+  %34 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %33, i32 noundef 2, i32 noundef 0)
   %35 = load i32, ptr @hf_homeplug_cer_rxtmi, align 4
-  %36 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %35, i32 noundef 1, i32 noundef 0) #4
+  %36 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %35, i32 noundef 1, i32 noundef 0)
   br label %37
 
 37:                                               ; preds = %37, %24
   %.02427.i = phi i8 [ 0, %24 ], [ %40, %37 ]
   %38 = load i32, ptr @hf_homeplug_cer_vt, align 4
-  %39 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %38, i32 noundef 1, i32 noundef 0) #4
+  %39 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %38, i32 noundef 1, i32 noundef 0)
   %40 = add nuw nsw i8 %.02427.i, 1
   %exitcond.not.i = icmp eq i8 %40, 10
-  br i1 %exitcond.not.i, label %41, label %37, !llvm.loop !6
+  br i1 %exitcond.not.i, label %41, label %37, !llvm.loop !8
 
 41:                                               ; preds = %37
   %42 = load i32, ptr @hf_homeplug_cer_rate, align 4
-  %43 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %42, i32 noundef 1, i32 noundef 0) #4
+  %43 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %42, i32 noundef 1, i32 noundef 0)
   %44 = load i32, ptr @hf_homeplug_cer_bp, align 4
-  %45 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %44, i32 noundef 1, i32 noundef 0) #4
-  %46 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #4
-  %47 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #4
-  %48 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %46, i32 noundef %47) #4
+  %45 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %44, i32 noundef 1, i32 noundef 0)
+  %46 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0)
+  %47 = tail call i32 @ptvcursor_current_offset(ptr noundef %0)
+  %48 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %46, i32 noundef %47)
   %49 = and i8 %48, 64
   %50 = load i32, ptr @hf_homeplug_cer_mod, align 4
-  %51 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %50, i32 noundef 1, i32 noundef 0) #4
+  %51 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %50, i32 noundef 1, i32 noundef 0)
   %52 = load i32, ptr @hf_homeplug_cer_vt11, align 4
-  %53 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %52, i32 noundef 1, i32 noundef 0) #4
+  %53 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %52, i32 noundef 1, i32 noundef 0)
   %54 = load i32, ptr @hf_homeplug_cer_rsvd2, align 4
-  %55 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %54, i32 noundef 1, i32 noundef 0) #4
+  %55 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %54, i32 noundef 1, i32 noundef 0)
   %.not25.i = icmp eq i8 %49, 0
   br i1 %.not25.i, label %.loopexit.i, label %56
 
 56:                                               ; preds = %41
-  %57 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #4
-  %58 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #4
-  %59 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %57, i32 noundef %58) #4
+  %57 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0)
+  %58 = tail call i32 @ptvcursor_current_offset(ptr noundef %0)
+  %59 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %57, i32 noundef %58)
   %60 = and i8 %59, 127
   %61 = load i32, ptr @hf_homeplug_cer_nbdas, align 4
-  %62 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %61, i32 noundef 1, i32 noundef 0) #4
+  %62 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %61, i32 noundef 1, i32 noundef 0)
   %.not2628.i = icmp eq i8 %60, 0
   br i1 %.not2628.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %56, %.lr.ph.i
   %.029.i = phi i8 [ %65, %.lr.ph.i ], [ %60, %56 ]
   %63 = load i32, ptr @hf_homeplug_cer_bda, align 4
-  %64 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %63, i32 noundef 6, i32 noundef 0) #4
+  %64 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %63, i32 noundef 6, i32 noundef 0)
   %65 = add nsw i8 %.029.i, -1
   %.not26.i = icmp eq i8 %65, 0
-  br i1 %.not26.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not26.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !9
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %56, %41
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #4
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0)
   br label %dissect_homeplug_rce.exit
 
 66:                                               ; preds = %2
   %67 = load ptr, ptr %3, align 8
-  tail call void @col_set_str(ptr noundef %67, i32 noundef 25, ptr noundef nonnull @.str.44) #4
-  %68 = tail call ptr @ptvcursor_tree(ptr noundef %0) #4
+  tail call void @col_set_str(ptr noundef %67, i32 noundef 25, ptr noundef nonnull @.str.44)
+  %68 = tail call ptr @ptvcursor_tree(ptr noundef %0)
   %.not.i34 = icmp eq ptr %68, null
   br i1 %.not.i34, label %dissect_homeplug_rce.exit, label %69
 
@@ -871,27 +880,27 @@ define internal fastcc void @dissect_homeplug_mme(ptr noundef %0, ptr noundef %1
   %70 = load i32, ptr @hf_homeplug_vs, align 4
   %71 = load i8, ptr @homeplug_melen, align 1
   %72 = zext i8 %71 to i32
-  %73 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %70, i32 noundef %72, i32 noundef 0) #4
+  %73 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %70, i32 noundef %72, i32 noundef 0)
   %74 = load i32, ptr @ett_homeplug_vs, align 4
-  %75 = tail call ptr @ptvcursor_push_subtree(ptr noundef %0, ptr noundef %73, i32 noundef %74) #4
+  %75 = tail call ptr @ptvcursor_push_subtree(ptr noundef %0, ptr noundef %73, i32 noundef %74)
   %76 = load i32, ptr @hf_homeplug_vs_oui, align 4
-  %77 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %76, i32 noundef 3, i32 noundef 0) #4
+  %77 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %76, i32 noundef 3, i32 noundef 0)
   %78 = load i32, ptr @hf_homeplug_vs_mid, align 4
-  %79 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %78, i32 noundef 1, i32 noundef 0) #4
+  %79 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %78, i32 noundef 1, i32 noundef 0)
   %80 = load i32, ptr @ett_homeplug_vs_mid, align 4
-  %81 = tail call ptr @ptvcursor_push_subtree(ptr noundef %0, ptr noundef %79, i32 noundef %80) #4
+  %81 = tail call ptr @ptvcursor_push_subtree(ptr noundef %0, ptr noundef %79, i32 noundef %80)
   %82 = load i32, ptr @hf_homeplug_vs_dir, align 4
-  %83 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %82, i32 noundef 1, i32 noundef 0) #4
+  %83 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %82, i32 noundef 1, i32 noundef 0)
   %84 = load i32, ptr @hf_homeplug_vs_mid, align 4
-  %85 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %84, i32 noundef 1, i32 noundef 0) #4
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #4
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #4
+  %85 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %84, i32 noundef 1, i32 noundef 0)
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0)
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0)
   br label %dissect_homeplug_rce.exit
 
 86:                                               ; preds = %2
   %87 = load ptr, ptr %3, align 8
-  tail call void @col_set_str(ptr noundef %87, i32 noundef 25, ptr noundef nonnull @.str.42) #4
-  %88 = tail call ptr @ptvcursor_tree(ptr noundef %0) #4
+  tail call void @col_set_str(ptr noundef %87, i32 noundef 25, ptr noundef nonnull @.str.42)
+  %88 = tail call ptr @ptvcursor_tree(ptr noundef %0)
   %.not.i35 = icmp eq ptr %88, null
   br i1 %.not.i35, label %dissect_homeplug_rce.exit, label %89
 
@@ -899,13 +908,13 @@ define internal fastcc void @dissect_homeplug_mme(ptr noundef %0, ptr noundef %1
   %90 = load i32, ptr @hf_homeplug_rba, align 4
   %91 = load i8, ptr @homeplug_melen, align 1
   %92 = zext i8 %91 to i32
-  %93 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %90, i32 noundef %92, i32 noundef 0) #4
+  %93 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %90, i32 noundef %92, i32 noundef 0)
   br label %dissect_homeplug_rce.exit
 
 94:                                               ; preds = %2
   %95 = load ptr, ptr %3, align 8
-  tail call void @col_set_str(ptr noundef %95, i32 noundef 25, ptr noundef nonnull @.str.52) #4
-  %96 = tail call ptr @ptvcursor_tree(ptr noundef %0) #4
+  tail call void @col_set_str(ptr noundef %95, i32 noundef 25, ptr noundef nonnull @.str.52)
+  %96 = tail call ptr @ptvcursor_tree(ptr noundef %0)
   %.not.i36 = icmp eq ptr %96, null
   br i1 %.not.i36, label %dissect_homeplug_rce.exit, label %97
 
@@ -913,20 +922,20 @@ define internal fastcc void @dissect_homeplug_mme(ptr noundef %0, ptr noundef %1
   %98 = load i32, ptr @hf_homeplug_snk, align 4
   %99 = load i8, ptr @homeplug_melen, align 1
   %100 = zext i8 %99 to i32
-  %101 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %98, i32 noundef %100, i32 noundef 0) #4
+  %101 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %98, i32 noundef %100, i32 noundef 0)
   %102 = load i32, ptr @ett_homeplug_snk, align 4
-  %103 = tail call ptr @ptvcursor_push_subtree(ptr noundef %0, ptr noundef %101, i32 noundef %102) #4
+  %103 = tail call ptr @ptvcursor_push_subtree(ptr noundef %0, ptr noundef %101, i32 noundef %102)
   %104 = load i32, ptr @hf_homeplug_snk_eks, align 4
-  %105 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %104, i32 noundef 1, i32 noundef 0) #4
+  %105 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %104, i32 noundef 1, i32 noundef 0)
   %106 = load i32, ptr @hf_homeplug_snk_nek, align 4
-  %107 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %106, i32 noundef 8, i32 noundef 0) #4
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #4
+  %107 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %106, i32 noundef 8, i32 noundef 0)
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0)
   br label %dissect_homeplug_rce.exit
 
 108:                                              ; preds = %2
   %109 = load ptr, ptr %3, align 8
-  tail call void @col_set_str(ptr noundef %109, i32 noundef 25, ptr noundef nonnull @.str.58) #4
-  %110 = tail call ptr @ptvcursor_tree(ptr noundef %0) #4
+  tail call void @col_set_str(ptr noundef %109, i32 noundef 25, ptr noundef nonnull @.str.58)
+  %110 = tail call ptr @ptvcursor_tree(ptr noundef %0)
   %.not.i37 = icmp eq ptr %110, null
   br i1 %.not.i37, label %dissect_homeplug_rce.exit, label %111
 
@@ -934,13 +943,13 @@ define internal fastcc void @dissect_homeplug_mme(ptr noundef %0, ptr noundef %1
   %112 = load i32, ptr @hf_homeplug_mwr, align 4
   %113 = load i8, ptr @homeplug_melen, align 1
   %114 = zext i8 %113 to i32
-  %115 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %112, i32 noundef %114, i32 noundef 0) #4
+  %115 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %112, i32 noundef %114, i32 noundef 0)
   br label %dissect_homeplug_rce.exit
 
 116:                                              ; preds = %2
   %117 = load ptr, ptr %3, align 8
-  tail call void @col_set_str(ptr noundef %117, i32 noundef 25, ptr noundef nonnull @.str.60) #4
-  %118 = tail call ptr @ptvcursor_tree(ptr noundef %0) #4
+  tail call void @col_set_str(ptr noundef %117, i32 noundef 25, ptr noundef nonnull @.str.60)
+  %118 = tail call ptr @ptvcursor_tree(ptr noundef %0)
   %.not.i38 = icmp eq ptr %118, null
   br i1 %.not.i38, label %dissect_homeplug_rce.exit, label %119
 
@@ -948,11 +957,11 @@ define internal fastcc void @dissect_homeplug_mme(ptr noundef %0, ptr noundef %1
   %120 = load i32, ptr @hf_homeplug_cnk, align 4
   %121 = load i8, ptr @homeplug_melen, align 1
   %122 = zext i8 %121 to i32
-  %123 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %120, i32 noundef %122, i32 noundef 0) #4
+  %123 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %120, i32 noundef %122, i32 noundef 0)
   br label %dissect_homeplug_rce.exit
 
 124:                                              ; preds = %2
-  %125 = tail call ptr @ptvcursor_tree(ptr noundef %0) #4
+  %125 = tail call ptr @ptvcursor_tree(ptr noundef %0)
   %.not.i39 = icmp eq ptr %125, null
   br i1 %.not.i39, label %dissect_homeplug_rce.exit, label %126
 
@@ -960,11 +969,11 @@ define internal fastcc void @dissect_homeplug_mme(ptr noundef %0, ptr noundef %1
   %127 = load i32, ptr @hf_homeplug_rps, align 4
   %128 = load i8, ptr @homeplug_melen, align 1
   %129 = zext i8 %128 to i32
-  %130 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %127, i32 noundef %129, i32 noundef 0) #4
+  %130 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %127, i32 noundef %129, i32 noundef 0)
   br label %dissect_homeplug_rce.exit
 
 131:                                              ; preds = %2
-  %132 = tail call ptr @ptvcursor_tree(ptr noundef %0) #4
+  %132 = tail call ptr @ptvcursor_tree(ptr noundef %0)
   %.not.i40 = icmp eq ptr %132, null
   br i1 %.not.i40, label %dissect_homeplug_rce.exit, label %133
 
@@ -972,34 +981,34 @@ define internal fastcc void @dissect_homeplug_mme(ptr noundef %0, ptr noundef %1
   %134 = load i32, ptr @hf_homeplug_psr, align 4
   %135 = load i8, ptr @homeplug_melen, align 1
   %136 = zext i8 %135 to i32
-  %137 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %134, i32 noundef %136, i32 noundef 0) #4
+  %137 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %134, i32 noundef %136, i32 noundef 0)
   %138 = load i32, ptr @ett_homeplug_psr, align 4
-  %139 = tail call ptr @ptvcursor_push_subtree(ptr noundef %0, ptr noundef %137, i32 noundef %138) #4
+  %139 = tail call ptr @ptvcursor_push_subtree(ptr noundef %0, ptr noundef %137, i32 noundef %138)
   %140 = load i32, ptr @hf_homeplug_psr_txack, align 4
-  %141 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %140, i32 noundef 2, i32 noundef 0) #4
+  %141 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %140, i32 noundef 2, i32 noundef 0)
   %142 = load i32, ptr @hf_homeplug_psr_txnack, align 4
-  %143 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %142, i32 noundef 2, i32 noundef 0) #4
+  %143 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %142, i32 noundef 2, i32 noundef 0)
   %144 = load i32, ptr @hf_homeplug_psr_txfail, align 4
-  %145 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %144, i32 noundef 2, i32 noundef 0) #4
+  %145 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %144, i32 noundef 2, i32 noundef 0)
   %146 = load i32, ptr @hf_homeplug_psr_txcloss, align 4
-  %147 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %146, i32 noundef 2, i32 noundef 0) #4
+  %147 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %146, i32 noundef 2, i32 noundef 0)
   %148 = load i32, ptr @hf_homeplug_psr_txcoll, align 4
-  %149 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %148, i32 noundef 2, i32 noundef 0) #4
+  %149 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %148, i32 noundef 2, i32 noundef 0)
   %150 = load i32, ptr @hf_homeplug_psr_txca3lat, align 4
-  %151 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %150, i32 noundef 2, i32 noundef 0) #4
+  %151 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %150, i32 noundef 2, i32 noundef 0)
   %152 = load i32, ptr @hf_homeplug_psr_txca2lat, align 4
-  %153 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %152, i32 noundef 2, i32 noundef 0) #4
+  %153 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %152, i32 noundef 2, i32 noundef 0)
   %154 = load i32, ptr @hf_homeplug_psr_txca1lat, align 4
-  %155 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %154, i32 noundef 2, i32 noundef 0) #4
+  %155 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %154, i32 noundef 2, i32 noundef 0)
   %156 = load i32, ptr @hf_homeplug_psr_txca0lat, align 4
-  %157 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %156, i32 noundef 2, i32 noundef 0) #4
+  %157 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %156, i32 noundef 2, i32 noundef 0)
   %158 = load i32, ptr @hf_homeplug_psr_rxbp40, align 4
-  %159 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %158, i32 noundef 4, i32 noundef 0) #4
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #4
+  %159 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %158, i32 noundef 4, i32 noundef 0)
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0)
   br label %dissect_homeplug_rce.exit
 
 160:                                              ; preds = %2
-  %161 = tail call ptr @ptvcursor_tree(ptr noundef %0) #4
+  %161 = tail call ptr @ptvcursor_tree(ptr noundef %0)
   %.not.i41 = icmp eq ptr %161, null
   br i1 %.not.i41, label %dissect_homeplug_rce.exit, label %162
 
@@ -1007,33 +1016,33 @@ define internal fastcc void @dissect_homeplug_mme(ptr noundef %0, ptr noundef %1
   %163 = load i32, ptr @hf_homeplug_slp, align 4
   %164 = load i8, ptr @homeplug_melen, align 1
   %165 = zext i8 %164 to i32
-  %166 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %163, i32 noundef %165, i32 noundef 0) #4
+  %166 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %163, i32 noundef %165, i32 noundef 0)
   %167 = load i32, ptr @ett_homeplug_slp, align 4
-  %168 = tail call ptr @ptvcursor_push_subtree(ptr noundef %0, ptr noundef %166, i32 noundef %167) #4
+  %168 = tail call ptr @ptvcursor_push_subtree(ptr noundef %0, ptr noundef %166, i32 noundef %167)
   %169 = load i32, ptr @hf_homeplug_slp_ma, align 4
-  %170 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %169, i32 noundef 6, i32 noundef 0) #4
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #4
+  %170 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %169, i32 noundef 6, i32 noundef 0)
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0)
   br label %dissect_homeplug_rce.exit
 
 171:                                              ; preds = %2
   %172 = load ptr, ptr %3, align 8
-  tail call void @col_set_str(ptr noundef %172, i32 noundef 25, ptr noundef nonnull @.str.323) #4
-  %173 = tail call ptr @ptvcursor_tree(ptr noundef %0) #4
+  tail call void @col_set_str(ptr noundef %172, i32 noundef 25, ptr noundef nonnull @.str.327)
+  %173 = tail call ptr @ptvcursor_tree(ptr noundef %0)
   %.not.i42 = icmp eq ptr %173, null
   br i1 %.not.i42, label %dissect_homeplug_rce.exit, label %174
 
 174:                                              ; preds = %171
   %175 = load i32, ptr @hf_homeplug_loader, align 4
-  %176 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %175, i32 noundef -1, i32 noundef 0) #4
+  %176 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %175, i32 noundef -1, i32 noundef 0)
   %177 = load i32, ptr @ett_homeplug_loader, align 4
-  %178 = tail call ptr @ptvcursor_push_subtree(ptr noundef %0, ptr noundef %176, i32 noundef %177) #4
-  %179 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #4
-  %180 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #4
-  %181 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %179, i32 noundef %180) #4
-  %182 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #4
-  %183 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #4
+  %178 = tail call ptr @ptvcursor_push_subtree(ptr noundef %0, ptr noundef %176, i32 noundef %177)
+  %179 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0)
+  %180 = tail call i32 @ptvcursor_current_offset(ptr noundef %0)
+  %181 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %179, i32 noundef %180)
+  %182 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0)
+  %183 = tail call i32 @ptvcursor_current_offset(ptr noundef %0)
   %184 = add i32 %183, 1
-  %185 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %182, i32 noundef %184) #4
+  %185 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %182, i32 noundef %184)
   %186 = zext i16 %185 to i32
   switch i8 %181, label %425 [
     i8 1, label %187
@@ -1054,358 +1063,358 @@ define internal fastcc void @dissect_homeplug_mme(ptr noundef %0, ptr noundef %1
 
 187:                                              ; preds = %174
   %188 = load ptr, ptr %3, align 8
-  tail call void @col_set_str(ptr noundef %188, i32 noundef 25, ptr noundef nonnull @.str.324) #4
+  tail call void @col_set_str(ptr noundef %188, i32 noundef 25, ptr noundef nonnull @.str.328)
   %189 = load i32, ptr @hf_homeplug_loader_gdfv, align 4
-  %190 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %189, i32 noundef 1, i32 noundef 0) #4
+  %190 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %189, i32 noundef 1, i32 noundef 0)
   %191 = load i32, ptr @hf_homeplug_loader_length, align 4
-  %192 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %191, i32 noundef 2, i32 noundef 0) #4
+  %192 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %191, i32 noundef 2, i32 noundef 0)
   %.not139.i = icmp eq i16 %185, 0
   br i1 %.not139.i, label %428, label %193
 
 193:                                              ; preds = %187
   %194 = load i32, ptr @hf_homeplug_loader_status, align 4
-  %195 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %194, i32 noundef 1, i32 noundef 0) #4
+  %195 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %194, i32 noundef 1, i32 noundef 0)
   %196 = load i32, ptr @hf_homeplug_loader_version, align 4
-  %197 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %196, i32 noundef -1, i32 noundef 0) #4
+  %197 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %196, i32 noundef -1, i32 noundef 0)
   br label %428
 
 198:                                              ; preds = %174
   %199 = load ptr, ptr %3, align 8
-  tail call void @col_set_str(ptr noundef %199, i32 noundef 25, ptr noundef nonnull @.str.325) #4
+  tail call void @col_set_str(ptr noundef %199, i32 noundef 25, ptr noundef nonnull @.str.329)
   %200 = load i32, ptr @hf_homeplug_loader_lsf, align 4
-  %201 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %200, i32 noundef 1, i32 noundef 0) #4
+  %201 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %200, i32 noundef 1, i32 noundef 0)
   %202 = load i32, ptr @hf_homeplug_loader_length, align 4
-  %203 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %202, i32 noundef 2, i32 noundef 0) #4
+  %203 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %202, i32 noundef 2, i32 noundef 0)
   br label %428
 
 204:                                              ; preds = %174
   %205 = load ptr, ptr %3, align 8
-  tail call void @col_set_str(ptr noundef %205, i32 noundef 25, ptr noundef nonnull @.str.326) #4
+  tail call void @col_set_str(ptr noundef %205, i32 noundef 25, ptr noundef nonnull @.str.330)
   %206 = load i32, ptr @hf_homeplug_loader_lwm, align 4
-  %207 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %206, i32 noundef 1, i32 noundef 0) #4
+  %207 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %206, i32 noundef 1, i32 noundef 0)
   %208 = load i32, ptr @hf_homeplug_loader_length, align 4
-  %209 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %208, i32 noundef 2, i32 noundef 0) #4
+  %209 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %208, i32 noundef 2, i32 noundef 0)
   %210 = icmp eq i16 %185, 7
   br i1 %210, label %211, label %214
 
 211:                                              ; preds = %204
   %212 = load i32, ptr @hf_homeplug_loader_status, align 4
-  %213 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %212, i32 noundef 1, i32 noundef 0) #4
+  %213 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %212, i32 noundef 1, i32 noundef 0)
   br label %214
 
 214:                                              ; preds = %211, %204
   %215 = load i32, ptr @hf_homeplug_loader_data_address, align 4
-  %216 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %215, i32 noundef 4, i32 noundef 0) #4
-  %217 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #4
-  %218 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #4
-  %219 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %217, i32 noundef %218) #4
+  %216 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %215, i32 noundef 4, i32 noundef 0)
+  %217 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0)
+  %218 = tail call i32 @ptvcursor_current_offset(ptr noundef %0)
+  %219 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %217, i32 noundef %218)
   %220 = load i32, ptr @hf_homeplug_loader_data_length, align 4
-  %221 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %220, i32 noundef 2, i32 noundef 0) #4
+  %221 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %220, i32 noundef 2, i32 noundef 0)
   br i1 %210, label %428, label %222
 
 222:                                              ; preds = %214
   %223 = zext i16 %219 to i32
   %224 = load i32, ptr @hf_homeplug_loader_data, align 4
-  %225 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %224, i32 noundef %223, i32 noundef 0) #4
+  %225 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %224, i32 noundef %223, i32 noundef 0)
   br label %428
 
 226:                                              ; preds = %174
   %227 = load ptr, ptr %3, align 8
-  tail call void @col_set_str(ptr noundef %227, i32 noundef 25, ptr noundef nonnull @.str.327) #4
+  tail call void @col_set_str(ptr noundef %227, i32 noundef 25, ptr noundef nonnull @.str.331)
   %228 = load i32, ptr @hf_homeplug_loader_lrm, align 4
-  %229 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %228, i32 noundef 1, i32 noundef 0) #4
+  %229 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %228, i32 noundef 1, i32 noundef 0)
   %230 = load i32, ptr @hf_homeplug_loader_length, align 4
-  %231 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %230, i32 noundef 2, i32 noundef 0) #4
+  %231 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %230, i32 noundef 2, i32 noundef 0)
   %.not137.i = icmp eq i16 %185, 6
   br i1 %.not137.i, label %235, label %232
 
 232:                                              ; preds = %226
   %233 = load i32, ptr @hf_homeplug_loader_status, align 4
-  %234 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %233, i32 noundef 1, i32 noundef 0) #4
+  %234 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %233, i32 noundef 1, i32 noundef 0)
   br label %235
 
 235:                                              ; preds = %232, %226
   %236 = load i32, ptr @hf_homeplug_loader_data_address, align 4
-  %237 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %236, i32 noundef 4, i32 noundef 0) #4
-  %238 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #4
-  %239 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #4
-  %240 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %238, i32 noundef %239) #4
+  %237 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %236, i32 noundef 4, i32 noundef 0)
+  %238 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0)
+  %239 = tail call i32 @ptvcursor_current_offset(ptr noundef %0)
+  %240 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %238, i32 noundef %239)
   %241 = load i32, ptr @hf_homeplug_loader_data_length, align 4
-  %242 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %241, i32 noundef 2, i32 noundef 0) #4
+  %242 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %241, i32 noundef 2, i32 noundef 0)
   br i1 %.not137.i, label %428, label %243
 
 243:                                              ; preds = %235
   %244 = zext i16 %240 to i32
   %245 = load i32, ptr @hf_homeplug_loader_data, align 4
-  %246 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %245, i32 noundef %244, i32 noundef 0) #4
+  %246 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %245, i32 noundef %244, i32 noundef 0)
   br label %428
 
 247:                                              ; preds = %174
   %248 = load ptr, ptr %3, align 8
-  tail call void @col_set_str(ptr noundef %248, i32 noundef 25, ptr noundef nonnull @.str.328) #4
+  tail call void @col_set_str(ptr noundef %248, i32 noundef 25, ptr noundef nonnull @.str.332)
   %249 = load i32, ptr @hf_homeplug_loader_lrnvm, align 4
-  %250 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %249, i32 noundef 1, i32 noundef 0) #4
+  %250 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %249, i32 noundef 1, i32 noundef 0)
   %251 = load i32, ptr @hf_homeplug_loader_length, align 4
-  %252 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %251, i32 noundef 2, i32 noundef 0) #4
+  %252 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %251, i32 noundef 2, i32 noundef 0)
   %.not136.i = icmp eq i16 %185, 7
   br i1 %.not136.i, label %256, label %253
 
 253:                                              ; preds = %247
   %254 = load i32, ptr @hf_homeplug_loader_status, align 4
-  %255 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %254, i32 noundef 1, i32 noundef 0) #4
+  %255 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %254, i32 noundef 1, i32 noundef 0)
   br label %256
 
 256:                                              ; preds = %253, %247
   %257 = load i32, ptr @hf_homeplug_loader_data_address, align 4
-  %258 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %257, i32 noundef 4, i32 noundef 0) #4
-  %259 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #4
-  %260 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #4
-  %261 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %259, i32 noundef %260) #4
+  %258 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %257, i32 noundef 4, i32 noundef 0)
+  %259 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0)
+  %260 = tail call i32 @ptvcursor_current_offset(ptr noundef %0)
+  %261 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %259, i32 noundef %260)
   %262 = load i32, ptr @hf_homeplug_loader_data_length, align 4
-  %263 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %262, i32 noundef 2, i32 noundef 0) #4
+  %263 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %262, i32 noundef 2, i32 noundef 0)
   br i1 %.not136.i, label %428, label %264
 
 264:                                              ; preds = %256
   %265 = zext i16 %261 to i32
   %266 = load i32, ptr @hf_homeplug_loader_data, align 4
-  %267 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %266, i32 noundef %265, i32 noundef 0) #4
+  %267 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %266, i32 noundef %265, i32 noundef 0)
   br label %428
 
 268:                                              ; preds = %174
   %269 = load ptr, ptr %3, align 8
-  tail call void @col_set_str(ptr noundef %269, i32 noundef 25, ptr noundef nonnull @.str.329) #4
+  tail call void @col_set_str(ptr noundef %269, i32 noundef 25, ptr noundef nonnull @.str.333)
   %270 = load i32, ptr @hf_homeplug_loader_lwnvm, align 4
-  %271 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %270, i32 noundef 1, i32 noundef 0) #4
+  %271 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %270, i32 noundef 1, i32 noundef 0)
   %272 = load i32, ptr @hf_homeplug_loader_length, align 4
-  %273 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %272, i32 noundef 2, i32 noundef 0) #4
+  %273 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %272, i32 noundef 2, i32 noundef 0)
   %274 = icmp eq i16 %185, 7
   br i1 %274, label %275, label %278
 
 275:                                              ; preds = %268
   %276 = load i32, ptr @hf_homeplug_loader_status, align 4
-  %277 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %276, i32 noundef 1, i32 noundef 0) #4
+  %277 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %276, i32 noundef 1, i32 noundef 0)
   br label %278
 
 278:                                              ; preds = %275, %268
   %279 = load i32, ptr @hf_homeplug_loader_data_address, align 4
-  %280 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %279, i32 noundef 4, i32 noundef 0) #4
-  %281 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #4
-  %282 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #4
-  %283 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %281, i32 noundef %282) #4
+  %280 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %279, i32 noundef 4, i32 noundef 0)
+  %281 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0)
+  %282 = tail call i32 @ptvcursor_current_offset(ptr noundef %0)
+  %283 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %281, i32 noundef %282)
   %284 = load i32, ptr @hf_homeplug_loader_data_length, align 4
-  %285 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %284, i32 noundef 2, i32 noundef 0) #4
+  %285 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %284, i32 noundef 2, i32 noundef 0)
   br i1 %274, label %428, label %286
 
 286:                                              ; preds = %278
   %287 = zext i16 %283 to i32
   %288 = load i32, ptr @hf_homeplug_loader_data, align 4
-  %289 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %288, i32 noundef %287, i32 noundef 0) #4
+  %289 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %288, i32 noundef %287, i32 noundef 0)
   br label %428
 
 290:                                              ; preds = %174
   %291 = load ptr, ptr %3, align 8
-  tail call void @col_set_str(ptr noundef %291, i32 noundef 25, ptr noundef nonnull @.str.330) #4
+  tail call void @col_set_str(ptr noundef %291, i32 noundef 25, ptr noundef nonnull @.str.334)
   %292 = load i32, ptr @hf_homeplug_loader_lreset, align 4
-  %293 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %292, i32 noundef 1, i32 noundef 0) #4
+  %293 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %292, i32 noundef 1, i32 noundef 0)
   %294 = load i32, ptr @hf_homeplug_loader_length, align 4
-  %295 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %294, i32 noundef 2, i32 noundef 0) #4
+  %295 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %294, i32 noundef 2, i32 noundef 0)
   br label %428
 
 296:                                              ; preds = %174
   %297 = load ptr, ptr %3, align 8
-  tail call void @col_set_str(ptr noundef %297, i32 noundef 25, ptr noundef nonnull @.str.331) #4
+  tail call void @col_set_str(ptr noundef %297, i32 noundef 25, ptr noundef nonnull @.str.335)
   %298 = load i32, ptr @hf_homeplug_loader_gmd, align 4
-  %299 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %298, i32 noundef 1, i32 noundef 0) #4
+  %299 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %298, i32 noundef 1, i32 noundef 0)
   %300 = load i32, ptr @hf_homeplug_loader_length, align 4
-  %301 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %300, i32 noundef 2, i32 noundef 0) #4
+  %301 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %300, i32 noundef 2, i32 noundef 0)
   %.not134.i = icmp eq i16 %185, 10
   br i1 %.not134.i, label %.critedge.i, label %302
 
 302:                                              ; preds = %296
   %303 = load i32, ptr @hf_homeplug_loader_status, align 4
-  %304 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %303, i32 noundef 1, i32 noundef 0) #4
+  %304 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %303, i32 noundef 1, i32 noundef 0)
   %305 = load i32, ptr @hf_homeplug_loader_module_id, align 4
-  %306 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %305, i32 noundef 4, i32 noundef 0) #4
+  %306 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %305, i32 noundef 4, i32 noundef 0)
   %307 = load i32, ptr @hf_homeplug_loader_module_offset, align 4
-  %308 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %307, i32 noundef 4, i32 noundef 0) #4
+  %308 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %307, i32 noundef 4, i32 noundef 0)
   %309 = load i32, ptr @hf_homeplug_loader_module_size, align 4
-  %310 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %309, i32 noundef 4, i32 noundef 0) #4
+  %310 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %309, i32 noundef 4, i32 noundef 0)
   %311 = load i32, ptr @hf_homeplug_loader_data, align 4
   %312 = add nsw i32 %186, -13
-  %313 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %311, i32 noundef %312, i32 noundef 0) #4
+  %313 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %311, i32 noundef %312, i32 noundef 0)
   br label %428
 
 .critedge.i:                                      ; preds = %296
   %314 = load i32, ptr @hf_homeplug_loader_module_id, align 4
-  %315 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %314, i32 noundef 4, i32 noundef 0) #4
+  %315 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %314, i32 noundef 4, i32 noundef 0)
   %316 = load i32, ptr @hf_homeplug_loader_module_offset, align 4
-  %317 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %316, i32 noundef 4, i32 noundef 0) #4
+  %317 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %316, i32 noundef 4, i32 noundef 0)
   %318 = load i32, ptr @hf_homeplug_loader_data_length, align 4
-  %319 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %318, i32 noundef 2, i32 noundef 0) #4
+  %319 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %318, i32 noundef 2, i32 noundef 0)
   br label %428
 
 320:                                              ; preds = %174
   %321 = load ptr, ptr %3, align 8
-  tail call void @col_set_str(ptr noundef %321, i32 noundef 25, ptr noundef nonnull @.str.332) #4
+  tail call void @col_set_str(ptr noundef %321, i32 noundef 25, ptr noundef nonnull @.str.336)
   %322 = load i32, ptr @hf_homeplug_loader_smd, align 4
-  %323 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %322, i32 noundef 1, i32 noundef 0) #4
+  %323 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %322, i32 noundef 1, i32 noundef 0)
   %324 = load i32, ptr @hf_homeplug_loader_length, align 4
-  %325 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %324, i32 noundef 2, i32 noundef 0) #4
+  %325 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %324, i32 noundef 2, i32 noundef 0)
   %326 = icmp eq i16 %185, 13
   br i1 %326, label %327, label %330
 
 327:                                              ; preds = %320
   %328 = load i32, ptr @hf_homeplug_loader_status, align 4
-  %329 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %328, i32 noundef 1, i32 noundef 0) #4
+  %329 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %328, i32 noundef 1, i32 noundef 0)
   br label %330
 
 330:                                              ; preds = %327, %320
   %331 = load i32, ptr @hf_homeplug_loader_module_id, align 4
-  %332 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %331, i32 noundef 4, i32 noundef 0) #4
+  %332 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %331, i32 noundef 4, i32 noundef 0)
   %333 = load i32, ptr @hf_homeplug_loader_module_offset, align 4
-  %334 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %333, i32 noundef 4, i32 noundef 0) #4
-  %335 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #4
-  %336 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #4
-  %337 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %335, i32 noundef %336) #4
+  %334 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %333, i32 noundef 4, i32 noundef 0)
+  %335 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0)
+  %336 = tail call i32 @ptvcursor_current_offset(ptr noundef %0)
+  %337 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %335, i32 noundef %336)
   br i1 %326, label %344, label %338
 
 338:                                              ; preds = %330
   %339 = zext i16 %337 to i32
   %340 = load i32, ptr @hf_homeplug_loader_data_length, align 4
-  %341 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %340, i32 noundef 2, i32 noundef 0) #4
+  %341 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %340, i32 noundef 2, i32 noundef 0)
   %342 = load i32, ptr @hf_homeplug_loader_data, align 4
-  %343 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %342, i32 noundef %339, i32 noundef 0) #4
+  %343 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %342, i32 noundef %339, i32 noundef 0)
   br label %428
 
 344:                                              ; preds = %330
   %345 = load i32, ptr @hf_homeplug_loader_module_size, align 4
-  %346 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %345, i32 noundef 4, i32 noundef 0) #4
+  %346 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %345, i32 noundef 4, i32 noundef 0)
   br label %428
 
 347:                                              ; preds = %174
   %348 = load ptr, ptr %3, align 8
-  tail call void @col_set_str(ptr noundef %348, i32 noundef 25, ptr noundef nonnull @.str.333) #4
+  tail call void @col_set_str(ptr noundef %348, i32 noundef 25, ptr noundef nonnull @.str.337)
   %349 = load i32, ptr @hf_homeplug_loader_cm, align 4
-  %350 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %349, i32 noundef 1, i32 noundef 0) #4
+  %350 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %349, i32 noundef 1, i32 noundef 0)
   %351 = load i32, ptr @hf_homeplug_loader_length, align 4
-  %352 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %351, i32 noundef 2, i32 noundef 0) #4
+  %352 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %351, i32 noundef 2, i32 noundef 0)
   %353 = icmp eq i16 %185, 5
   br i1 %353, label %354, label %357
 
 354:                                              ; preds = %347
   %355 = load i32, ptr @hf_homeplug_loader_status, align 4
-  %356 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %355, i32 noundef 1, i32 noundef 0) #4
+  %356 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %355, i32 noundef 1, i32 noundef 0)
   br label %357
 
 357:                                              ; preds = %354, %347
   %358 = load i32, ptr @hf_homeplug_loader_module_id, align 4
-  %359 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %358, i32 noundef 4, i32 noundef 0) #4
+  %359 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %358, i32 noundef 4, i32 noundef 0)
   br label %428
 
 360:                                              ; preds = %174
   %361 = load ptr, ptr %3, align 8
-  tail call void @col_set_str(ptr noundef %361, i32 noundef 25, ptr noundef nonnull @.str.334) #4
+  tail call void @col_set_str(ptr noundef %361, i32 noundef 25, ptr noundef nonnull @.str.338)
   %362 = load i32, ptr @hf_homeplug_loader_lemd, align 4
-  %363 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %362, i32 noundef 1, i32 noundef 0) #4
+  %363 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %362, i32 noundef 1, i32 noundef 0)
   %364 = load i32, ptr @hf_homeplug_loader_length, align 4
-  %365 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %364, i32 noundef 2, i32 noundef 0) #4
+  %365 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %364, i32 noundef 2, i32 noundef 0)
   %366 = icmp eq i16 %185, 9
   br i1 %366, label %367, label %370
 
 367:                                              ; preds = %360
   %368 = load i32, ptr @hf_homeplug_loader_status, align 4
-  %369 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %368, i32 noundef 1, i32 noundef 0) #4
+  %369 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %368, i32 noundef 1, i32 noundef 0)
   br label %370
 
 370:                                              ; preds = %367, %360
   %371 = load i32, ptr @hf_homeplug_loader_module_id, align 4
-  %372 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %371, i32 noundef 4, i32 noundef 0) #4
+  %372 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %371, i32 noundef 4, i32 noundef 0)
   br label %428
 
 373:                                              ; preds = %174
   %374 = load ptr, ptr %3, align 8
-  tail call void @col_set_str(ptr noundef %374, i32 noundef 25, ptr noundef nonnull @.str.335) #4
+  tail call void @col_set_str(ptr noundef %374, i32 noundef 25, ptr noundef nonnull @.str.339)
   %375 = load i32, ptr @hf_homeplug_loader_lenvms, align 4
-  %376 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %375, i32 noundef 1, i32 noundef 0) #4
+  %376 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %375, i32 noundef 1, i32 noundef 0)
   %377 = load i32, ptr @hf_homeplug_loader_length, align 4
-  %378 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %377, i32 noundef 2, i32 noundef 0) #4
+  %378 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %377, i32 noundef 2, i32 noundef 0)
   %379 = icmp eq i16 %185, 9
   br i1 %379, label %380, label %383
 
 380:                                              ; preds = %373
   %381 = load i32, ptr @hf_homeplug_loader_status, align 4
-  %382 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %381, i32 noundef 1, i32 noundef 0) #4
+  %382 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %381, i32 noundef 1, i32 noundef 0)
   br label %383
 
 383:                                              ; preds = %380, %373
   %384 = load i32, ptr @hf_homeplug_loader_data_address, align 4
-  %385 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %384, i32 noundef 4, i32 noundef 0) #4
+  %385 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %384, i32 noundef 4, i32 noundef 0)
   %386 = load i32, ptr @hf_homeplug_loader_module_size, align 4
-  %387 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %386, i32 noundef 4, i32 noundef 0) #4
+  %387 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %386, i32 noundef 4, i32 noundef 0)
   br label %428
 
 388:                                              ; preds = %174
   %389 = load ptr, ptr %3, align 8
-  tail call void @col_set_str(ptr noundef %389, i32 noundef 25, ptr noundef nonnull @.str.336) #4
+  tail call void @col_set_str(ptr noundef %389, i32 noundef 25, ptr noundef nonnull @.str.340)
   %390 = load i32, ptr @hf_homeplug_loader_gnvmp, align 4
-  %391 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %390, i32 noundef 1, i32 noundef 0) #4
+  %391 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %390, i32 noundef 1, i32 noundef 0)
   %392 = load i32, ptr @hf_homeplug_loader_length, align 4
-  %393 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %392, i32 noundef 2, i32 noundef 0) #4
+  %393 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %392, i32 noundef 2, i32 noundef 0)
   %394 = icmp eq i16 %185, 17
   br i1 %394, label %395, label %428
 
 395:                                              ; preds = %388
   %396 = load i32, ptr @hf_homeplug_loader_status, align 4
-  %397 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %396, i32 noundef 1, i32 noundef 0) #4
+  %397 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %396, i32 noundef 1, i32 noundef 0)
   %398 = load i32, ptr @hf_homeplug_loader_nvmp_type, align 4
-  %399 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %398, i32 noundef 4, i32 noundef 0) #4
+  %399 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %398, i32 noundef 4, i32 noundef 0)
   %400 = load i32, ptr @hf_homeplug_loader_nvmp_pagesize, align 4
-  %401 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %400, i32 noundef 4, i32 noundef 0) #4
+  %401 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %400, i32 noundef 4, i32 noundef 0)
   %402 = load i32, ptr @hf_homeplug_loader_nvmp_blocksize, align 4
-  %403 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %402, i32 noundef 4, i32 noundef 0) #4
+  %403 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %402, i32 noundef 4, i32 noundef 0)
   %404 = load i32, ptr @hf_homeplug_loader_nvmp_memorysize, align 4
-  %405 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %404, i32 noundef 4, i32 noundef 0) #4
+  %405 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %404, i32 noundef 4, i32 noundef 0)
   br label %428
 
 406:                                              ; preds = %174
   %407 = load ptr, ptr %3, align 8
-  tail call void @col_set_str(ptr noundef %407, i32 noundef 25, ptr noundef nonnull @.str.337) #4
+  tail call void @col_set_str(ptr noundef %407, i32 noundef 25, ptr noundef nonnull @.str.341)
   %408 = load i32, ptr @hf_homeplug_loader_snvmp, align 4
-  %409 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %408, i32 noundef 1, i32 noundef 0) #4
+  %409 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %408, i32 noundef 1, i32 noundef 0)
   %410 = load i32, ptr @hf_homeplug_loader_length, align 4
-  %411 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %410, i32 noundef 2, i32 noundef 0) #4
+  %411 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %410, i32 noundef 2, i32 noundef 0)
   %412 = icmp eq i16 %185, 17
   br i1 %412, label %413, label %416
 
 413:                                              ; preds = %406
   %414 = load i32, ptr @hf_homeplug_loader_status, align 4
-  %415 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %414, i32 noundef 1, i32 noundef 0) #4
+  %415 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %414, i32 noundef 1, i32 noundef 0)
   br label %416
 
 416:                                              ; preds = %413, %406
   %417 = load i32, ptr @hf_homeplug_loader_nvmp_type, align 4
-  %418 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %417, i32 noundef 4, i32 noundef 0) #4
+  %418 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %417, i32 noundef 4, i32 noundef 0)
   %419 = load i32, ptr @hf_homeplug_loader_nvmp_pagesize, align 4
-  %420 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %419, i32 noundef 4, i32 noundef 0) #4
+  %420 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %419, i32 noundef 4, i32 noundef 0)
   %421 = load i32, ptr @hf_homeplug_loader_nvmp_blocksize, align 4
-  %422 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %421, i32 noundef 4, i32 noundef 0) #4
+  %422 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %421, i32 noundef 4, i32 noundef 0)
   %423 = load i32, ptr @hf_homeplug_loader_nvmp_memorysize, align 4
-  %424 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %423, i32 noundef 4, i32 noundef 0) #4
+  %424 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %423, i32 noundef 4, i32 noundef 0)
   br label %428
 
 425:                                              ; preds = %174
   %426 = load i32, ptr @hf_homeplug_loader_mid, align 4
-  %427 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %426, i32 noundef 1, i32 noundef 0) #4
+  %427 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %426, i32 noundef 1, i32 noundef 0)
   br label %428
 
 428:                                              ; preds = %425, %416, %395, %388, %383, %370, %357, %344, %338, %.critedge.i, %302, %290, %286, %278, %264, %256, %243, %235, %222, %214, %198, %193, %187
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #4
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0)
   br label %dissect_homeplug_rce.exit
 
 429:                                              ; preds = %2
   %430 = load ptr, ptr %3, align 8
-  tail call void @col_set_str(ptr noundef %430, i32 noundef 25, ptr noundef nonnull @.str.149) #4
-  %431 = tail call ptr @ptvcursor_tree(ptr noundef %0) #4
+  tail call void @col_set_str(ptr noundef %430, i32 noundef 25, ptr noundef nonnull @.str.149)
+  %431 = tail call ptr @ptvcursor_tree(ptr noundef %0)
   %.not.i43 = icmp eq ptr %431, null
   br i1 %.not.i43, label %dissect_homeplug_rce.exit, label %432
 
@@ -1413,16 +1422,16 @@ define internal fastcc void @dissect_homeplug_mme(ptr noundef %0, ptr noundef %1
   %433 = load i32, ptr @hf_homeplug_hreq, align 4
   %434 = load i8, ptr @homeplug_melen, align 1
   %435 = zext i8 %434 to i32
-  %436 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %433, i32 noundef %435, i32 noundef 0) #4
+  %436 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %433, i32 noundef %435, i32 noundef 0)
   %437 = load i32, ptr @ett_homeplug_hreq, align 4
-  %438 = tail call ptr @ptvcursor_push_subtree(ptr noundef %0, ptr noundef %436, i32 noundef %437) #4
-  %439 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #4
-  %440 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #4
-  %441 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %439, i32 noundef %440) #4
-  %442 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #4
-  %443 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #4
+  %438 = tail call ptr @ptvcursor_push_subtree(ptr noundef %0, ptr noundef %436, i32 noundef %437)
+  %439 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0)
+  %440 = tail call i32 @ptvcursor_current_offset(ptr noundef %0)
+  %441 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %439, i32 noundef %440)
+  %442 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0)
+  %443 = tail call i32 @ptvcursor_current_offset(ptr noundef %0)
   %444 = add i32 %443, 1
-  %445 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %442, i32 noundef %444) #4
+  %445 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %442, i32 noundef %444)
   switch i8 %441, label %.sink.split.i [
     i8 1, label %.sink.split.sink.split.i
     i8 32, label %446
@@ -1462,36 +1471,36 @@ define internal fastcc void @dissect_homeplug_mme(ptr noundef %0, ptr noundef %1
 
 454:                                              ; preds = %432
   %455 = load ptr, ptr %3, align 8
-  tail call void @col_set_str(ptr noundef %455, i32 noundef 25, ptr noundef nonnull @.str.347) #4
+  tail call void @col_set_str(ptr noundef %455, i32 noundef 25, ptr noundef nonnull @.str.351)
   %456 = load i32, ptr @hf_homeplug_hreq_reset, align 4
-  %457 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %456, i32 noundef 1, i32 noundef 0) #4
+  %457 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %456, i32 noundef 1, i32 noundef 0)
   %458 = load i32, ptr @hf_homeplug_hreq_reset_type, align 4
-  %459 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %458, i32 noundef 1, i32 noundef 0) #4
+  %459 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %458, i32 noundef 1, i32 noundef 0)
   %460 = icmp eq i16 %445, 4
   br i1 %460, label %.sink.split.i, label %464
 
 .sink.split.sink.split.i:                         ; preds = %453, %452, %451, %450, %449, %448, %447, %446, %432
-  %.str.338.sink.i = phi ptr [ @.str.339, %446 ], [ @.str.340, %447 ], [ @.str.341, %448 ], [ @.str.342, %449 ], [ @.str.343, %450 ], [ @.str.344, %451 ], [ @.str.345, %452 ], [ @.str.346, %453 ], [ @.str.338, %432 ]
+  %.str.342.sink.i = phi ptr [ @.str.343, %446 ], [ @.str.344, %447 ], [ @.str.345, %448 ], [ @.str.346, %449 ], [ @.str.347, %450 ], [ @.str.348, %451 ], [ @.str.349, %452 ], [ @.str.350, %453 ], [ @.str.342, %432 ]
   %hf_homeplug_hreq_reset_delay.sink.ph.i = phi ptr [ @hf_homeplug_hreq_gfv, %446 ], [ @hf_homeplug_hreq_gnek, %447 ], [ @hf_homeplug_hreq_gclbpl, %448 ], [ @hf_homeplug_hreq_nvds, %449 ], [ @hf_homeplug_hreq_grbt, %450 ], [ @hf_homeplug_hreq_gslnm, %451 ], [ @hf_homeplug_hreq_gsss, %452 ], [ @hf_homeplug_hreq_rsl, %453 ], [ @hf_homeplug_hreq_gdv, %432 ]
   %461 = load ptr, ptr %3, align 8
-  tail call void @col_set_str(ptr noundef %461, i32 noundef 25, ptr noundef nonnull %.str.338.sink.i) #4
+  tail call void @col_set_str(ptr noundef %461, i32 noundef 25, ptr noundef nonnull %.str.342.sink.i)
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.sink.split.sink.split.i, %454, %432
   %hf_homeplug_hreq_reset_delay.sink.i = phi ptr [ @hf_homeplug_hreq_reset_delay, %454 ], [ @hf_homeplug_hreq_mid, %432 ], [ %hf_homeplug_hreq_reset_delay.sink.ph.i, %.sink.split.sink.split.i ]
   %.sink33.i = phi i32 [ 2, %454 ], [ 1, %432 ], [ 1, %.sink.split.sink.split.i ]
   %462 = load i32, ptr %hf_homeplug_hreq_reset_delay.sink.i, align 4
-  %463 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %462, i32 noundef %.sink33.i, i32 noundef 0) #4
+  %463 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %462, i32 noundef %.sink33.i, i32 noundef 0)
   br label %464
 
 464:                                              ; preds = %.sink.split.i, %454
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #4
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0)
   br label %dissect_homeplug_rce.exit
 
 465:                                              ; preds = %2
   %466 = load ptr, ptr %3, align 8
-  tail call void @col_set_str(ptr noundef %466, i32 noundef 25, ptr noundef nonnull @.str.174) #4
-  %467 = tail call ptr @ptvcursor_tree(ptr noundef %0) #4
+  tail call void @col_set_str(ptr noundef %466, i32 noundef 25, ptr noundef nonnull @.str.174)
+  %467 = tail call ptr @ptvcursor_tree(ptr noundef %0)
   %.not.i44 = icmp eq ptr %467, null
   br i1 %.not.i44, label %dissect_homeplug_rce.exit, label %468
 
@@ -1499,12 +1508,12 @@ define internal fastcc void @dissect_homeplug_mme(ptr noundef %0, ptr noundef %1
   %469 = load i32, ptr @hf_homeplug_hrsp, align 4
   %470 = load i8, ptr @homeplug_melen, align 1
   %471 = zext i8 %470 to i32
-  %472 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %469, i32 noundef %471, i32 noundef 0) #4
+  %472 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %469, i32 noundef %471, i32 noundef 0)
   %473 = load i32, ptr @ett_homeplug_hrsp, align 4
-  %474 = tail call ptr @ptvcursor_push_subtree(ptr noundef %0, ptr noundef %472, i32 noundef %473) #4
-  %475 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #4
-  %476 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #4
-  %477 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %475, i32 noundef %476) #4
+  %474 = tail call ptr @ptvcursor_push_subtree(ptr noundef %0, ptr noundef %472, i32 noundef %473)
+  %475 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0)
+  %476 = tail call i32 @ptvcursor_current_offset(ptr noundef %0)
+  %477 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %475, i32 noundef %476)
   switch i8 %477, label %494 [
     i8 1, label %478
     i8 32, label %482
@@ -1514,44 +1523,44 @@ define internal fastcc void @dissect_homeplug_mme(ptr noundef %0, ptr noundef %1
 
 478:                                              ; preds = %468
   %479 = load ptr, ptr %3, align 8
-  tail call void @col_set_str(ptr noundef %479, i32 noundef 25, ptr noundef nonnull @.str.348) #4
+  tail call void @col_set_str(ptr noundef %479, i32 noundef 25, ptr noundef nonnull @.str.352)
   %480 = load i32, ptr @hf_homeplug_hrsp_gdvr, align 4
-  %481 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %480, i32 noundef 1, i32 noundef 0) #4
+  %481 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %480, i32 noundef 1, i32 noundef 0)
   br label %494
 
 482:                                              ; preds = %468
   %483 = load ptr, ptr %3, align 8
-  tail call void @col_set_str(ptr noundef %483, i32 noundef 25, ptr noundef nonnull @.str.349) #4
+  tail call void @col_set_str(ptr noundef %483, i32 noundef 25, ptr noundef nonnull @.str.353)
   %484 = load i32, ptr @hf_homeplug_hrsp_gfvr, align 4
-  %485 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %484, i32 noundef 1, i32 noundef 0) #4
+  %485 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %484, i32 noundef 1, i32 noundef 0)
   br label %494
 
 486:                                              ; preds = %468
   %487 = load ptr, ptr %3, align 8
-  tail call void @col_set_str(ptr noundef %487, i32 noundef 25, ptr noundef nonnull @.str.156) #4
+  tail call void @col_set_str(ptr noundef %487, i32 noundef 25, ptr noundef nonnull @.str.156)
   %488 = load i32, ptr @hf_homeplug_hrsp_gnekr, align 4
-  %489 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %488, i32 noundef 1, i32 noundef 0) #4
+  %489 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %488, i32 noundef 1, i32 noundef 0)
   %490 = load i32, ptr @hf_homeplug_hrsp_gnekr_select, align 4
-  %491 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %490, i32 noundef 1, i32 noundef 0) #4
+  %491 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %490, i32 noundef 1, i32 noundef 0)
   br label %494
 
 492:                                              ; preds = %468
   %493 = load ptr, ptr %3, align 8
-  tail call void @col_set_str(ptr noundef %493, i32 noundef 25, ptr noundef nonnull @.str.350) #4
+  tail call void @col_set_str(ptr noundef %493, i32 noundef 25, ptr noundef nonnull @.str.354)
   br label %494
 
 494:                                              ; preds = %492, %486, %482, %478, %468
   %hf_homeplug_hrsp_mid.sink.i = phi ptr [ @hf_homeplug_hrsp_invalid, %492 ], [ @hf_homeplug_hrsp_gnekr_key, %486 ], [ @hf_homeplug_hrsp_version, %482 ], [ @hf_homeplug_hrsp_version, %478 ], [ @hf_homeplug_hrsp_mid, %468 ]
   %.sink20.i = phi i32 [ 1, %492 ], [ 8, %486 ], [ -1, %482 ], [ -1, %478 ], [ 1, %468 ]
   %495 = load i32, ptr %hf_homeplug_hrsp_mid.sink.i, align 4
-  %496 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %495, i32 noundef %.sink20.i, i32 noundef 0) #4
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #4
+  %496 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %495, i32 noundef %.sink20.i, i32 noundef 0)
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0)
   br label %dissect_homeplug_rce.exit
 
 497:                                              ; preds = %2
   %498 = load ptr, ptr %3, align 8
-  tail call void @col_set_str(ptr noundef %498, i32 noundef 25, ptr noundef nonnull @.str.62) #4
-  %499 = tail call ptr @ptvcursor_tree(ptr noundef %0) #4
+  tail call void @col_set_str(ptr noundef %498, i32 noundef 25, ptr noundef nonnull @.str.62)
+  %499 = tail call ptr @ptvcursor_tree(ptr noundef %0)
   %.not.i45 = icmp eq ptr %499, null
   br i1 %.not.i45, label %dissect_homeplug_rce.exit, label %500
 
@@ -1559,16 +1568,16 @@ define internal fastcc void @dissect_homeplug_mme(ptr noundef %0, ptr noundef %1
   %501 = load i32, ptr @hf_homeplug_htag, align 4
   %502 = load i8, ptr @homeplug_melen, align 1
   %503 = zext i8 %502 to i32
-  %504 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %501, i32 noundef %503, i32 noundef 0) #4
+  %504 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %501, i32 noundef %503, i32 noundef 0)
   br label %dissect_homeplug_rce.exit
 
 505:                                              ; preds = %2
   %506 = load i8, ptr @homeplug_melen, align 1
   %507 = icmp ugt i8 %506, -58
   %508 = load ptr, ptr %3, align 8
-  %509 = select i1 %507, ptr @.str.351, ptr @.str.352
-  tail call void @col_append_str(ptr noundef %508, i32 noundef 25, ptr noundef nonnull %509) #4
-  %510 = tail call ptr @ptvcursor_tree(ptr noundef %0) #4
+  %509 = select i1 %507, ptr @.str.355, ptr @.str.356
+  tail call void @col_append_str(ptr noundef %508, i32 noundef 25, ptr noundef nonnull %509)
+  %510 = tail call ptr @ptvcursor_tree(ptr noundef %0)
   %.not.i46 = icmp eq ptr %510, null
   br i1 %.not.i46, label %dissect_homeplug_rce.exit, label %511
 
@@ -1577,17 +1586,17 @@ define internal fastcc void @dissect_homeplug_mme(ptr noundef %0, ptr noundef %1
   %513 = load i8, ptr @homeplug_melen, align 1
   %514 = zext i8 %513 to i32
   %515 = load i32, ptr @ett_homeplug_ns, align 4
-  %516 = tail call ptr @ptvcursor_add_with_subtree(ptr noundef %0, i32 noundef %512, i32 noundef %514, i32 noundef 0, i32 noundef %515) #4
-  %517 = tail call ptr @ptvcursor_tree(ptr noundef %0) #4
+  %516 = tail call ptr @ptvcursor_add_with_subtree(ptr noundef %0, i32 noundef %512, i32 noundef %514, i32 noundef 0, i32 noundef %515)
+  %517 = tail call ptr @ptvcursor_tree(ptr noundef %0)
   %518 = load i32, ptr @hf_homeplug_ns_extended, align 4
-  %519 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #4
+  %519 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0)
   %520 = zext i1 %507 to i64
-  %521 = tail call ptr @proto_tree_add_boolean(ptr noundef %517, i32 noundef %518, ptr noundef %519, i32 noundef 0, i32 noundef 0, i64 noundef %520) #4
+  %521 = tail call ptr @proto_tree_add_boolean(ptr noundef %517, i32 noundef %518, ptr noundef %519, i32 noundef 0, i32 noundef 0, i64 noundef %520)
   %.not.i.i = icmp eq ptr %521, null
   br i1 %.not.i.i, label %proto_item_set_generated.exit.i, label %522
 
 522:                                              ; preds = %511
-  %523 = getelementptr inbounds nuw i8, ptr %521, i64 32
+  %523 = getelementptr inbounds nuw i8, ptr %521, i64 40
   %524 = load ptr, ptr %523, align 8
   %.not5.i.i = icmp eq ptr %524, null
   br i1 %.not5.i.i, label %proto_item_set_generated.exit.i, label %525
@@ -1601,30 +1610,30 @@ define internal fastcc void @dissect_homeplug_mme(ptr noundef %0, ptr noundef %1
 
 proto_item_set_generated.exit.i:                  ; preds = %525, %522, %511
   %529 = load i32, ptr @hf_homeplug_ns_netw_ctrl_ac, align 4
-  %530 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %529, i32 noundef 1, i32 noundef 0) #4
+  %530 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %529, i32 noundef 1, i32 noundef 0)
   %531 = load i32, ptr @hf_homeplug_ns_netw_ctrl_icid, align 4
-  %532 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %531, i32 noundef 1, i32 noundef 0) #4
+  %532 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %531, i32 noundef 1, i32 noundef 0)
   %533 = load i32, ptr @hf_homeplug_ns_bytes40_robo, align 4
-  %534 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %533, i32 noundef 2, i32 noundef -2147483648) #4
+  %534 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %533, i32 noundef 2, i32 noundef -2147483648)
   %535 = load i32, ptr @hf_homeplug_ns_mhz, align 4
-  %536 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %535, i32 noundef 2, i32 noundef 0) #4
+  %536 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %535, i32 noundef 2, i32 noundef 0)
   %537 = load i32, ptr @hf_homeplug_ns_fails_robo, align 4
-  %538 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %537, i32 noundef 2, i32 noundef -2147483648) #4
+  %538 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %537, i32 noundef 2, i32 noundef -2147483648)
   %539 = load i32, ptr @hf_homeplug_ns_drops_robo, align 4
-  %540 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %539, i32 noundef 2, i32 noundef -2147483648) #4
+  %540 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %539, i32 noundef 2, i32 noundef -2147483648)
   br label %541
 
 541:                                              ; preds = %573, %proto_item_set_generated.exit.i
   %indvars.iv.i = phi i32 [ 0, %proto_item_set_generated.exit.i ], [ %indvars.iv.next.pre-phi.i, %573 ]
-  %542 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #4
-  %543 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #4
-  %544 = tail call i32 @tvb_get_ntoh24(ptr noundef %542, i32 noundef %543) #4
+  %542 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0)
+  %543 = tail call i32 @ptvcursor_current_offset(ptr noundef %0)
+  %544 = tail call i32 @tvb_get_ntoh24(ptr noundef %542, i32 noundef %543)
   %545 = zext i32 %544 to i64
   %546 = shl nuw nsw i64 %545, 24
-  %547 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #4
-  %548 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #4
+  %547 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0)
+  %548 = tail call i32 @ptvcursor_current_offset(ptr noundef %0)
   %549 = add i32 %548, 3
-  %550 = tail call i32 @tvb_get_ntoh24(ptr noundef %547, i32 noundef %549) #4
+  %550 = tail call i32 @tvb_get_ntoh24(ptr noundef %547, i32 noundef %549)
   %551 = zext i32 %550 to i64
   %552 = or i64 %546, %551
   %.not51.i = icmp eq i64 %552, 1073741824
@@ -1633,32 +1642,32 @@ proto_item_set_generated.exit.i:                  ; preds = %525, %522, %511
 553:                                              ; preds = %541
   %554 = load i32, ptr @ett_homeplug_tone, align 4
   %555 = add nuw nsw i32 %indvars.iv.i, 1
-  %556 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %554, ptr noundef nonnull @.str.353, i32 noundef %555) #4
+  %556 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %554, ptr noundef nonnull @.str.357, i32 noundef %555)
   %557 = load i32, ptr @hf_homeplug_ns_netw_da, align 4
-  %558 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %557, i32 noundef 6, i32 noundef 0) #4
+  %558 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %557, i32 noundef 6, i32 noundef 0)
   %559 = load i32, ptr @hf_homeplug_ns_bytes40, align 4
-  %560 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %559, i32 noundef 2, i32 noundef -2147483648) #4
+  %560 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %559, i32 noundef 2, i32 noundef -2147483648)
   %561 = load i32, ptr @hf_homeplug_ns_mhz, align 4
-  %562 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %561, i32 noundef 2, i32 noundef 0) #4
+  %562 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %561, i32 noundef 2, i32 noundef 0)
   %563 = load i32, ptr @hf_homeplug_ns_fails, align 4
-  %564 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %563, i32 noundef 2, i32 noundef -2147483648) #4
+  %564 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %563, i32 noundef 2, i32 noundef -2147483648)
   %565 = load i32, ptr @hf_homeplug_ns_drops, align 4
-  %566 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %565, i32 noundef 2, i32 noundef -2147483648) #4
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #4
+  %566 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %565, i32 noundef 2, i32 noundef -2147483648)
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0)
   br label %573
 
 567:                                              ; preds = %541
-  %568 = tail call ptr @ptvcursor_tree(ptr noundef %0) #4
-  %569 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #4
-  %570 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #4
+  %568 = tail call ptr @ptvcursor_tree(ptr noundef %0)
+  %569 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0)
+  %570 = tail call i32 @ptvcursor_current_offset(ptr noundef %0)
   %571 = add nuw nsw i32 %indvars.iv.i, 1
-  %572 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %568, ptr noundef %1, ptr noundef nonnull @ei_homeplug_tone_map_not_exist, ptr noundef %569, i32 noundef %570, i32 noundef 12, ptr noundef nonnull @.str.354, i32 noundef %571) #4
+  %572 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %568, ptr noundef %1, ptr noundef nonnull @ei_homeplug_tone_map_not_exist, ptr noundef %569, i32 noundef %570, i32 noundef 12, ptr noundef nonnull @.str.358, i32 noundef %571)
   br label %573
 
 573:                                              ; preds = %567, %553
   %indvars.iv.next.pre-phi.i = phi i32 [ %571, %567 ], [ %555, %553 ]
   %exitcond.not.i47 = icmp eq i32 %indvars.iv.next.pre-phi.i, 15
-  br i1 %exitcond.not.i47, label %574, label %541, !llvm.loop !8
+  br i1 %exitcond.not.i47, label %574, label %541, !llvm.loop !10
 
 574:                                              ; preds = %573
   br i1 %507, label %.preheader.i, label %.loopexit.i48
@@ -1666,60 +1675,60 @@ proto_item_set_generated.exit.i:                  ; preds = %525, %522, %511
 .preheader.i:                                     ; preds = %574, %.preheader.i
   %indvars.iv54.i = phi i32 [ %indvars.iv.next55.i, %.preheader.i ], [ 0, %574 ]
   %575 = load i32, ptr @ett_homeplug_tx_bfr_state, align 4
-  %576 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %575, ptr noundef nonnull @.str.355, i32 noundef %indvars.iv54.i) #4
+  %576 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %575, ptr noundef nonnull @.str.359, i32 noundef %indvars.iv54.i)
   %577 = load i32, ptr @hf_homeplug_ns_buf_in_use, align 4
-  %578 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %577, i32 noundef 1, i32 noundef 0) #4
+  %578 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %577, i32 noundef 1, i32 noundef 0)
   %579 = load i32, ptr @hf_homeplug_ns_prio, align 4
-  %580 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %579, i32 noundef 1, i32 noundef 0) #4
+  %580 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %579, i32 noundef 1, i32 noundef 0)
   %581 = load i32, ptr @hf_homeplug_ns_msdu_len, align 4
-  %582 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %581, i32 noundef 1, i32 noundef 0) #4
+  %582 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %581, i32 noundef 1, i32 noundef 0)
   %583 = load i32, ptr @hf_homeplug_ns_seqn, align 4
-  %584 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %583, i32 noundef 1, i32 noundef 0) #4
+  %584 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %583, i32 noundef 1, i32 noundef 0)
   %585 = load i32, ptr @hf_homeplug_ns_toneidx, align 4
-  %586 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %585, i32 noundef 1, i32 noundef 0) #4
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #4
+  %586 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %585, i32 noundef 1, i32 noundef 0)
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0)
   %indvars.iv.next55.i = add nuw nsw i32 %indvars.iv54.i, 1
   %exitcond57.not.i = icmp eq i32 %indvars.iv.next55.i, 6
   br i1 %exitcond57.not.i, label %.loopexit.i48, label %.preheader.i
 
 .loopexit.i48:                                    ; preds = %.preheader.i, %574
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #4
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0)
   br label %dissect_homeplug_rce.exit
 
 587:                                              ; preds = %2
-  %588 = tail call ptr @ptvcursor_tree(ptr noundef %0) #4
+  %588 = tail call ptr @ptvcursor_tree(ptr noundef %0)
   %.not.i49 = icmp eq ptr %588, null
   br i1 %.not.i49, label %dissect_homeplug_rce.exit, label %589
 
 589:                                              ; preds = %587
-  %590 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #4
-  %591 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #4
-  %592 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %590, i32 noundef %591) #4
-  %593 = load ptr, ptr %3, align 8
+  %590 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0)
+  %591 = tail call i32 @ptvcursor_current_offset(ptr noundef %0)
+  %592 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %590, i32 noundef %591)
   %.not7.i = icmp sgt i8 %592, -1
-  %594 = select i1 %.not7.i, ptr @.str.357, ptr @.str.356
-  tail call void @col_append_str(ptr noundef %593, i32 noundef 25, ptr noundef nonnull %594) #4
+  %593 = load ptr, ptr %3, align 8
+  %594 = select i1 %.not7.i, ptr @.str.361, ptr @.str.360
+  tail call void @col_append_str(ptr noundef %593, i32 noundef 25, ptr noundef nonnull %594)
   %595 = load i8, ptr @homeplug_melen, align 1
   %596 = zext i8 %595 to i32
   br i1 %.not7.i, label %630, label %597
 
 597:                                              ; preds = %589
   %598 = load i32, ptr @hf_homeplug_bcn, align 4
-  %599 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %598, i32 noundef %596, i32 noundef 0) #4
+  %599 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %598, i32 noundef %596, i32 noundef 0)
   %600 = load i32, ptr @ett_homeplug_bcn, align 4
-  %601 = tail call ptr @ptvcursor_push_subtree(ptr noundef %0, ptr noundef %599, i32 noundef %600) #4
+  %601 = tail call ptr @ptvcursor_push_subtree(ptr noundef %0, ptr noundef %599, i32 noundef %600)
   %602 = load i32, ptr @hf_homeplug_bcn_network, align 4
-  %603 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %602, i32 noundef 1, i32 noundef 0) #4
+  %603 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %602, i32 noundef 1, i32 noundef 0)
   %604 = load i32, ptr @hf_homeplug_bcn_return, align 4
-  %605 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %604, i32 noundef 1, i32 noundef 0) #4
+  %605 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %604, i32 noundef 1, i32 noundef 0)
   %606 = load i32, ptr @hf_homeplug_bcn_rsvd, align 4
-  %607 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %606, i32 noundef 1, i32 noundef 0) #4
-  %608 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #4
-  %609 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #4
-  %610 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %608, i32 noundef %609) #4
+  %607 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %606, i32 noundef 1, i32 noundef 0)
+  %608 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0)
+  %609 = tail call i32 @ptvcursor_current_offset(ptr noundef %0)
+  %610 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %608, i32 noundef %609)
   %611 = and i8 %610, 15
   %612 = load i32, ptr @hf_homeplug_bcn_fbn, align 4
-  %613 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %612, i32 noundef 1, i32 noundef 0) #4
+  %613 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %612, i32 noundef 1, i32 noundef 0)
   %614 = zext nneg i8 %611 to i32
   br label %615
 
@@ -1728,62 +1737,62 @@ proto_item_set_generated.exit.i:                  ; preds = %525, %522, %511
   %indvars.iv.i.i = phi i32 [ 0, %597 ], [ 1, %._crit_edge.i.i ]
   %617 = load i32, ptr @ett_homeplug_bridge, align 4
   %618 = add nuw nsw i32 %indvars.iv.i.i, %614
-  %619 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %617, ptr noundef nonnull @.str.358, i32 noundef %618) #4
+  %619 = tail call ptr (ptr, i32, i32, ptr, ...) @ptvcursor_add_text_with_subtree(ptr noundef %0, i32 noundef -1, i32 noundef %617, ptr noundef nonnull @.str.362, i32 noundef %618)
   %620 = load i32, ptr @hf_homeplug_bcn_brda, align 4
-  %621 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %620, i32 noundef 6, i32 noundef 0) #4
-  %622 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #4
-  %623 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #4
-  %624 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %622, i32 noundef %623) #4
+  %621 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %620, i32 noundef 6, i32 noundef 0)
+  %622 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0)
+  %623 = tail call i32 @ptvcursor_current_offset(ptr noundef %0)
+  %624 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %622, i32 noundef %623)
   %625 = load i32, ptr @hf_homeplug_bcn_bp_das, align 4
-  %626 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %625, i32 noundef 1, i32 noundef 0) #4
+  %626 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %625, i32 noundef 1, i32 noundef 0)
   %.not.i.i50 = icmp eq i8 %624, 0
   br i1 %.not.i.i50, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %615, %.lr.ph.i.i
   %.02325.i.i = phi i8 [ %629, %.lr.ph.i.i ], [ 0, %615 ]
   %627 = load i32, ptr @hf_homeplug_bcn_bp_da, align 4
-  %628 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %627, i32 noundef 6, i32 noundef 0) #4
+  %628 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %627, i32 noundef 6, i32 noundef 0)
   %629 = add nuw i8 %.02325.i.i, 1
   %exitcond.not.i.i = icmp eq i8 %629, %624
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !11
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %615
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #4
-  br i1 %616, label %615, label %.sink.split.i51, !llvm.loop !10
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0)
+  br i1 %616, label %615, label %.sink.split.i51, !llvm.loop !12
 
 630:                                              ; preds = %589
   %631 = load i32, ptr @hf_homeplug_bcl, align 4
-  %632 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %631, i32 noundef %596, i32 noundef 0) #4
+  %632 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %631, i32 noundef %596, i32 noundef 0)
   %633 = load i32, ptr @ett_homeplug_bcl, align 4
-  %634 = tail call ptr @ptvcursor_push_subtree(ptr noundef %0, ptr noundef %632, i32 noundef %633) #4
+  %634 = tail call ptr @ptvcursor_push_subtree(ptr noundef %0, ptr noundef %632, i32 noundef %633)
   %635 = load i32, ptr @hf_homeplug_bcl_network, align 4
-  %636 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %635, i32 noundef 1, i32 noundef 0) #4
+  %636 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %635, i32 noundef 1, i32 noundef 0)
   %637 = load i32, ptr @hf_homeplug_bcl_return, align 4
-  %638 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %637, i32 noundef 1, i32 noundef 0) #4
+  %638 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %637, i32 noundef 1, i32 noundef 0)
   %639 = load i32, ptr @hf_homeplug_bcl_rsvd, align 4
-  %640 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %639, i32 noundef 1, i32 noundef 0) #4
-  %641 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #4
-  %642 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #4
-  %643 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %641, i32 noundef %642) #4
+  %640 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %639, i32 noundef 1, i32 noundef 0)
+  %641 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0)
+  %642 = tail call i32 @ptvcursor_current_offset(ptr noundef %0)
+  %643 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %641, i32 noundef %642)
   %644 = load i32, ptr @hf_homeplug_bcl_hprox_das, align 4
-  %645 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %644, i32 noundef 1, i32 noundef 0) #4
+  %645 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %644, i32 noundef 1, i32 noundef 0)
   %.not.i8.i = icmp eq i8 %643, 0
   br i1 %.not.i8.i, label %.sink.split.i51, label %.lr.ph.i9.i
 
 .lr.ph.i9.i:                                      ; preds = %630, %.lr.ph.i9.i
   %.013.i.i = phi i8 [ %648, %.lr.ph.i9.i ], [ 0, %630 ]
   %646 = load i32, ptr @hf_homeplug_bcl_hpbda, align 4
-  %647 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %646, i32 noundef 6, i32 noundef 0) #4
+  %647 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %646, i32 noundef 6, i32 noundef 0)
   %648 = add nuw i8 %.013.i.i, 1
   %exitcond.not.i10.i = icmp eq i8 %648, %643
-  br i1 %exitcond.not.i10.i, label %.sink.split.i51, label %.lr.ph.i9.i, !llvm.loop !11
+  br i1 %exitcond.not.i10.i, label %.sink.split.i51, label %.lr.ph.i9.i, !llvm.loop !13
 
 .sink.split.i51:                                  ; preds = %._crit_edge.i.i, %.lr.ph.i9.i, %630
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #4
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0)
   br label %dissect_homeplug_rce.exit
 
 649:                                              ; preds = %2
-  %650 = tail call ptr @ptvcursor_tree(ptr noundef %0) #4
+  %650 = tail call ptr @ptvcursor_tree(ptr noundef %0)
   %.not.i52 = icmp eq ptr %650, null
   br i1 %.not.i52, label %dissect_homeplug_rce.exit, label %651
 
@@ -1791,108 +1800,129 @@ proto_item_set_generated.exit.i:                  ; preds = %525, %522, %511
   %652 = load i32, ptr @hf_homeplug_stc, align 4
   %653 = load i8, ptr @homeplug_melen, align 1
   %654 = zext i8 %653 to i32
-  %655 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %652, i32 noundef %654, i32 noundef 0) #4
+  %655 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %652, i32 noundef %654, i32 noundef 0)
   %656 = load i32, ptr @ett_homeplug_stc, align 4
-  %657 = tail call ptr @ptvcursor_push_subtree(ptr noundef %0, ptr noundef %655, i32 noundef %656) #4
+  %657 = tail call ptr @ptvcursor_push_subtree(ptr noundef %0, ptr noundef %655, i32 noundef %656)
   %658 = load i32, ptr @hf_homeplug_stc_lco, align 4
-  %659 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %658, i32 noundef 1, i32 noundef 0) #4
+  %659 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %658, i32 noundef 1, i32 noundef 0)
   %660 = load i32, ptr @hf_homeplug_stc_encf, align 4
-  %661 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %660, i32 noundef 1, i32 noundef 0) #4
+  %661 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %660, i32 noundef 1, i32 noundef 0)
   %662 = load i32, ptr @hf_homeplug_stc_txprio, align 4
-  %663 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %662, i32 noundef 1, i32 noundef 0) #4
+  %663 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %662, i32 noundef 1, i32 noundef 0)
   %664 = load i32, ptr @hf_homeplug_stc_rexp, align 4
-  %665 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %664, i32 noundef 1, i32 noundef 0) #4
+  %665 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %664, i32 noundef 1, i32 noundef 0)
   %666 = load i32, ptr @hf_homeplug_stc_txcf, align 4
-  %667 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %666, i32 noundef 1, i32 noundef 0) #4
+  %667 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %666, i32 noundef 1, i32 noundef 0)
   %668 = load i32, ptr @hf_homeplug_stc_cftop, align 4
-  %669 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %668, i32 noundef 1, i32 noundef 0) #4
+  %669 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %668, i32 noundef 1, i32 noundef 0)
   %670 = load i32, ptr @hf_homeplug_stc_rsvd1, align 4
-  %671 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %670, i32 noundef 1, i32 noundef 0) #4
+  %671 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %670, i32 noundef 1, i32 noundef 0)
   %672 = load i32, ptr @hf_homeplug_stc_retry, align 4
-  %673 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %672, i32 noundef 1, i32 noundef 0) #4
+  %673 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %672, i32 noundef 1, i32 noundef 0)
   %674 = load i32, ptr @hf_homeplug_stc_rsvd2, align 4
-  %675 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %674, i32 noundef 1, i32 noundef 0) #4
+  %675 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %674, i32 noundef 1, i32 noundef 0)
   %676 = load i32, ptr @hf_homeplug_stc_dder, align 4
-  %677 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %676, i32 noundef 1, i32 noundef 0) #4
+  %677 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %676, i32 noundef 1, i32 noundef 0)
   %678 = load i32, ptr @hf_homeplug_stc_dur, align 4
-  %679 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %678, i32 noundef 1, i32 noundef 0) #4
+  %679 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %678, i32 noundef 1, i32 noundef 0)
   %680 = load i32, ptr @hf_homeplug_stc_ebp, align 4
-  %681 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %680, i32 noundef 1, i32 noundef 0) #4
+  %681 = tail call ptr @ptvcursor_add_no_advance(ptr noundef %0, i32 noundef %680, i32 noundef 1, i32 noundef 0)
   %682 = load i32, ptr @hf_homeplug_stc_dees, align 4
-  %683 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %682, i32 noundef 1, i32 noundef 0) #4
+  %683 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %682, i32 noundef 1, i32 noundef 0)
   %684 = load i32, ptr @hf_homeplug_stc_txeks, align 4
-  %685 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %684, i32 noundef 1, i32 noundef 0) #4
-  tail call void @ptvcursor_pop_subtree(ptr noundef %0) #4
+  %685 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %684, i32 noundef 1, i32 noundef 0)
+  tail call void @ptvcursor_pop_subtree(ptr noundef %0)
   br label %dissect_homeplug_rce.exit
 
 686:                                              ; preds = %2
   %687 = load i32, ptr @hf_homeplug_data, align 4
   %688 = load i8, ptr @homeplug_melen, align 1
   %689 = zext i8 %688 to i32
-  %690 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %687, i32 noundef %689, i32 noundef 0) #4
+  %690 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %687, i32 noundef %689, i32 noundef 0)
   br label %dissect_homeplug_rce.exit
 
 dissect_homeplug_rce.exit:                        ; preds = %651, %649, %.sink.split.i51, %587, %.loopexit.i48, %505, %500, %497, %494, %465, %464, %429, %428, %171, %162, %160, %133, %131, %126, %124, %119, %116, %111, %108, %97, %94, %89, %86, %69, %66, %.loopexit.i, %22, %11, %9, %686
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @ptvcursor_free(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @ptvcursor_tvbuff(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @ptvcursor_current_offset(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @ptvcursor_tree(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @ptvcursor_add_no_advance(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @ptvcursor_push_subtree(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @ptvcursor_add(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @ptvcursor_pop_subtree(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_append_sep_str(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @ptvcursor_add_with_subtree(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_get_ntoh24(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @ptvcursor_add_text_with_subtree(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}

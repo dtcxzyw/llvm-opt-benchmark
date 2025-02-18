@@ -3,8 +3,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
@@ -17,7 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_cmpp_Command_Id = internal global i32 0, align 4
 @.str.3 = private unnamed_addr constant [11 x i8] c"Command Id\00", align 1
 @.str.4 = private unnamed_addr constant [16 x i8] c"cmpp.Command_Id\00", align 1
-@vals_command_Id = internal constant [33 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.136 }, %struct._value_string { i32 -2147483647, ptr @.str.137 }, %struct._value_string { i32 2, ptr @.str.138 }, %struct._value_string { i32 -2147483646, ptr @.str.139 }, %struct._value_string { i32 4, ptr @.str.140 }, %struct._value_string { i32 -2147483644, ptr @.str.141 }, %struct._value_string { i32 5, ptr @.str.142 }, %struct._value_string { i32 -2147483643, ptr @.str.143 }, %struct._value_string { i32 6, ptr @.str.144 }, %struct._value_string { i32 -2147483642, ptr @.str.144 }, %struct._value_string { i32 7, ptr @.str.145 }, %struct._value_string { i32 -2147483641, ptr @.str.146 }, %struct._value_string { i32 8, ptr @.str.147 }, %struct._value_string { i32 -2147483640, ptr @.str.148 }, %struct._value_string { i32 9, ptr @.str.149 }, %struct._value_string { i32 -2147483639, ptr @.str.150 }, %struct._value_string { i32 16, ptr @.str.151 }, %struct._value_string { i32 17, ptr @.str.152 }, %struct._value_string { i32 18, ptr @.str.153 }, %struct._value_string { i32 19, ptr @.str.154 }, %struct._value_string { i32 20, ptr @.str.155 }, %struct._value_string { i32 21, ptr @.str.156 }, %struct._value_string { i32 22, ptr @.str.157 }, %struct._value_string { i32 23, ptr @.str.158 }, %struct._value_string { i32 -2147483632, ptr @.str.159 }, %struct._value_string { i32 -2147483631, ptr @.str.160 }, %struct._value_string { i32 -2147483630, ptr @.str.161 }, %struct._value_string { i32 -2147483629, ptr @.str.162 }, %struct._value_string { i32 -2147483628, ptr @.str.163 }, %struct._value_string { i32 -2147483627, ptr @.str.164 }, %struct._value_string { i32 -2147483626, ptr @.str.165 }, %struct._value_string { i32 -2147483625, ptr @.str.166 }, %struct._value_string zeroinitializer], align 16
 @.str.5 = private unnamed_addr constant [32 x i8] c"Command Id of the CMPP messages\00", align 1
 @hf_cmpp_Sequence_Id = internal global i32 0, align 4
 @.str.6 = private unnamed_addr constant [12 x i8] c"Sequence Id\00", align 1
@@ -42,7 +40,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_cmpp_connect_resp_status = internal global i32 0, align 4
 @.str.21 = private unnamed_addr constant [24 x i8] c"Connect Response Status\00", align 1
 @.str.22 = private unnamed_addr constant [25 x i8] c"cmpp.connect_resp.Status\00", align 1
-@vals_connect_resp_status = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.167 }, %struct._value_string { i32 1, ptr @.str.168 }, %struct._value_string { i32 2, ptr @.str.169 }, %struct._value_string { i32 3, ptr @.str.170 }, %struct._value_string { i32 4, ptr @.str.171 }, %struct._value_string zeroinitializer], align 16
 @.str.23 = private unnamed_addr constant [55 x i8] c"Response Status, Value higher then 4 means other error\00", align 1
 @hf_cmpp_connect_resp_AuthenticatorISMG = internal global i32 0, align 4
 @.str.24 = private unnamed_addr constant [25 x i8] c"SIMG Authenticate result\00", align 1
@@ -85,7 +82,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_cmpp_submit_Fee_UserType = internal global i32 0, align 4
 @.str.52 = private unnamed_addr constant [22 x i8] c"Charging Informations\00", align 1
 @.str.53 = private unnamed_addr constant [25 x i8] c"cmpp.submit.Fee_UserType\00", align 1
-@vals_submit_Fee_UserType = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.172 }, %struct._value_string { i32 1, ptr @.str.173 }, %struct._value_string { i32 2, ptr @.str.174 }, %struct._value_string { i32 3, ptr @.str.175 }, %struct._value_string zeroinitializer], align 16
 @.str.54 = private unnamed_addr constant [66 x i8] c"Charging Informations, if value is 3, this field will not be used\00", align 1
 @hf_cmpp_submit_Fee_terminal_Id = internal global i32 0, align 4
 @.str.55 = private unnamed_addr constant [16 x i8] c"Fee Terminal ID\00", align 1
@@ -106,7 +102,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_cmpp_Msg_Fmt = internal global i32 0, align 4
 @.str.67 = private unnamed_addr constant [15 x i8] c"Message Format\00", align 1
 @.str.68 = private unnamed_addr constant [13 x i8] c"cmpp.Msg_Fmt\00", align 1
-@vals_Msg_Fmt = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.176 }, %struct._value_string { i32 3, ptr @.str.177 }, %struct._value_string { i32 4, ptr @.str.178 }, %struct._value_string { i32 8, ptr @.str.179 }, %struct._value_string { i32 15, ptr @.str.180 }, %struct._value_string zeroinitializer], align 16
 @hf_cmpp_submit_Msg_src = internal global i32 0, align 4
 @.str.69 = private unnamed_addr constant [21 x i8] c"Message Source SP_Id\00", align 1
 @.str.70 = private unnamed_addr constant [20 x i8] c"cmpp.submit.Msg_src\00", align 1
@@ -154,7 +149,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_cmpp_submit_resp_Result = internal global i32 0, align 4
 @.str.101 = private unnamed_addr constant [7 x i8] c"Result\00", align 1
 @.str.102 = private unnamed_addr constant [24 x i8] c"cmpp.submit_resp.Result\00", align 1
-@vals_Submit_Resp_Result = internal constant [15 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.167 }, %struct._value_string { i32 1, ptr @.str.181 }, %struct._value_string { i32 2, ptr @.str.182 }, %struct._value_string { i32 3, ptr @.str.183 }, %struct._value_string { i32 4, ptr @.str.184 }, %struct._value_string { i32 5, ptr @.str.185 }, %struct._value_string { i32 6, ptr @.str.186 }, %struct._value_string { i32 7, ptr @.str.187 }, %struct._value_string { i32 8, ptr @.str.188 }, %struct._value_string { i32 9, ptr @.str.189 }, %struct._value_string { i32 10, ptr @.str.190 }, %struct._value_string { i32 11, ptr @.str.191 }, %struct._value_string { i32 12, ptr @.str.192 }, %struct._value_string { i32 13, ptr @.str.193 }, %struct._value_string zeroinitializer], align 16
 @.str.103 = private unnamed_addr constant [14 x i8] c"Submit Result\00", align 1
 @hf_cmpp_deliver_Dest_Id = internal global i32 0, align 4
 @.str.104 = private unnamed_addr constant [15 x i8] c"Destination ID\00", align 1
@@ -192,7 +186,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.128 = private unnamed_addr constant [16 x i8] c"Sequence number\00", align 1
 @hf_cmpp_deliver_resp_Result = internal global i32 0, align 4
 @.str.129 = private unnamed_addr constant [25 x i8] c"cmpp.deliver_resp.Result\00", align 1
-@vals_Deliver_Resp_Result = internal constant [10 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.167 }, %struct._value_string { i32 1, ptr @.str.181 }, %struct._value_string { i32 2, ptr @.str.182 }, %struct._value_string { i32 3, ptr @.str.183 }, %struct._value_string { i32 4, ptr @.str.184 }, %struct._value_string { i32 5, ptr @.str.185 }, %struct._value_string { i32 6, ptr @.str.186 }, %struct._value_string { i32 7, ptr @.str.187 }, %struct._value_string { i32 8, ptr @.str.188 }, %struct._value_string zeroinitializer], align 16
 @.str.130 = private unnamed_addr constant [15 x i8] c"Deliver Result\00", align 1
 @proto_register_cmpp.ett = internal global [3 x ptr] [ptr @ett_cmpp, ptr @ett_msg_id, ptr @ett_deliver_report], align 16
 @ett_cmpp = internal global i32 0, align 4
@@ -236,42 +229,48 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.164 = private unnamed_addr constant [31 x i8] c"CMPP_PUSH_MT_ROUTE_UPDATE_RESP\00", align 1
 @.str.165 = private unnamed_addr constant [31 x i8] c"CMPP_PUSH_MO_ROUTE_UPDATE_RESP\00", align 1
 @.str.166 = private unnamed_addr constant [23 x i8] c"CMPP_GET_MO_ROUTE_RESP\00", align 1
-@.str.167 = private unnamed_addr constant [8 x i8] c"Correct\00", align 1
-@.str.168 = private unnamed_addr constant [24 x i8] c"Message structure error\00", align 1
-@.str.169 = private unnamed_addr constant [23 x i8] c"Illegal source address\00", align 1
-@.str.170 = private unnamed_addr constant [19 x i8] c"Authenticate error\00", align 1
-@.str.171 = private unnamed_addr constant [17 x i8] c"Version too high\00", align 1
-@.str.172 = private unnamed_addr constant [28 x i8] c"Charging destination MSISDN\00", align 1
-@.str.173 = private unnamed_addr constant [23 x i8] c"Charging source MSISDN\00", align 1
-@.str.174 = private unnamed_addr constant [12 x i8] c"Charging SP\00", align 1
-@.str.175 = private unnamed_addr constant [40 x i8] c"Unuse, Charge info from Fee_terminal_Id\00", align 1
-@.str.176 = private unnamed_addr constant [6 x i8] c"ASCII\00", align 1
-@.str.177 = private unnamed_addr constant [19 x i8] c"Short message card\00", align 1
-@.str.178 = private unnamed_addr constant [12 x i8] c"Binary data\00", align 1
-@.str.179 = private unnamed_addr constant [14 x i8] c"UCS2 encoding\00", align 1
-@.str.180 = private unnamed_addr constant [12 x i8] c"GB encoding\00", align 1
-@.str.181 = private unnamed_addr constant [21 x i8] c"Message format error\00", align 1
-@.str.182 = private unnamed_addr constant [14 x i8] c"Command error\00", align 1
-@.str.183 = private unnamed_addr constant [19 x i8] c"Repeat sequence id\00", align 1
-@.str.184 = private unnamed_addr constant [25 x i8] c"Incorrect message length\00", align 1
-@.str.185 = private unnamed_addr constant [19 x i8] c"Incorrect fee code\00", align 1
-@.str.186 = private unnamed_addr constant [17 x i8] c"Message too long\00", align 1
-@.str.187 = private unnamed_addr constant [21 x i8] c"Incorrect service id\00", align 1
-@.str.188 = private unnamed_addr constant [16 x i8] c"Bandwidth error\00", align 1
-@.str.189 = private unnamed_addr constant [46 x i8] c"Gateway does not service this charging number\00", align 1
-@.str.190 = private unnamed_addr constant [17 x i8] c"Incorrect Src_Id\00", align 1
-@.str.191 = private unnamed_addr constant [18 x i8] c"Incorrect Msg_src\00", align 1
-@.str.192 = private unnamed_addr constant [26 x i8] c"Incorrect Fee_terminal_Id\00", align 1
-@.str.193 = private unnamed_addr constant [27 x i8] c"Incorrect Dest_terminal_Id\00", align 1
-@cmpp_desegment = internal global i32 1, align 4
-@.str.194 = private unnamed_addr constant [32 x i8] c"(Unknown CMPP Operation 0x%08X)\00", align 1
-@.str.195 = private unnamed_addr constant [5 x i8] c"%s. \00", align 1
-@.str.196 = private unnamed_addr constant [9 x i8] c"MD5 Hash\00", align 1
-@.str.197 = private unnamed_addr constant [10 x i8] c"%02u.%02u\00", align 1
-@.str.198 = private unnamed_addr constant [25 x i8] c"%02u/%02u %02u:%02u:%02u\00", align 1
-@.str.199 = private unnamed_addr constant [13 x i8] c"SMS Messages\00", align 1
+@vals_command_Id = internal constant [33 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.136 }, { i32, [4 x i8], ptr } { i32 -2147483647, [4 x i8] zeroinitializer, ptr @.str.137 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.138 }, { i32, [4 x i8], ptr } { i32 -2147483646, [4 x i8] zeroinitializer, ptr @.str.139 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.140 }, { i32, [4 x i8], ptr } { i32 -2147483644, [4 x i8] zeroinitializer, ptr @.str.141 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.142 }, { i32, [4 x i8], ptr } { i32 -2147483643, [4 x i8] zeroinitializer, ptr @.str.143 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.144 }, { i32, [4 x i8], ptr } { i32 -2147483642, [4 x i8] zeroinitializer, ptr @.str.144 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.145 }, { i32, [4 x i8], ptr } { i32 -2147483641, [4 x i8] zeroinitializer, ptr @.str.146 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.147 }, { i32, [4 x i8], ptr } { i32 -2147483640, [4 x i8] zeroinitializer, ptr @.str.148 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.149 }, { i32, [4 x i8], ptr } { i32 -2147483639, [4 x i8] zeroinitializer, ptr @.str.150 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.151 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.152 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.153 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.154 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.155 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.156 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.157 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.158 }, { i32, [4 x i8], ptr } { i32 -2147483632, [4 x i8] zeroinitializer, ptr @.str.159 }, { i32, [4 x i8], ptr } { i32 -2147483631, [4 x i8] zeroinitializer, ptr @.str.160 }, { i32, [4 x i8], ptr } { i32 -2147483630, [4 x i8] zeroinitializer, ptr @.str.161 }, { i32, [4 x i8], ptr } { i32 -2147483629, [4 x i8] zeroinitializer, ptr @.str.162 }, { i32, [4 x i8], ptr } { i32 -2147483628, [4 x i8] zeroinitializer, ptr @.str.163 }, { i32, [4 x i8], ptr } { i32 -2147483627, [4 x i8] zeroinitializer, ptr @.str.164 }, { i32, [4 x i8], ptr } { i32 -2147483626, [4 x i8] zeroinitializer, ptr @.str.165 }, { i32, [4 x i8], ptr } { i32 -2147483625, [4 x i8] zeroinitializer, ptr @.str.166 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.168 = private unnamed_addr constant [8 x i8] c"Correct\00", align 1
+@.str.169 = private unnamed_addr constant [24 x i8] c"Message structure error\00", align 1
+@.str.170 = private unnamed_addr constant [23 x i8] c"Illegal source address\00", align 1
+@.str.171 = private unnamed_addr constant [19 x i8] c"Authenticate error\00", align 1
+@.str.172 = private unnamed_addr constant [17 x i8] c"Version too high\00", align 1
+@vals_connect_resp_status = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.168 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.169 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.170 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.171 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.172 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.174 = private unnamed_addr constant [28 x i8] c"Charging destination MSISDN\00", align 1
+@.str.175 = private unnamed_addr constant [23 x i8] c"Charging source MSISDN\00", align 1
+@.str.176 = private unnamed_addr constant [12 x i8] c"Charging SP\00", align 1
+@.str.177 = private unnamed_addr constant [40 x i8] c"Unuse, Charge info from Fee_terminal_Id\00", align 1
+@vals_submit_Fee_UserType = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.174 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.175 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.176 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.177 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.179 = private unnamed_addr constant [6 x i8] c"ASCII\00", align 1
+@.str.180 = private unnamed_addr constant [19 x i8] c"Short message card\00", align 1
+@.str.181 = private unnamed_addr constant [12 x i8] c"Binary data\00", align 1
+@.str.182 = private unnamed_addr constant [14 x i8] c"UCS2 encoding\00", align 1
+@.str.183 = private unnamed_addr constant [12 x i8] c"GB encoding\00", align 1
+@vals_Msg_Fmt = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.179 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.180 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.181 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.182 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.183 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.185 = private unnamed_addr constant [21 x i8] c"Message format error\00", align 1
+@.str.186 = private unnamed_addr constant [14 x i8] c"Command error\00", align 1
+@.str.187 = private unnamed_addr constant [19 x i8] c"Repeat sequence id\00", align 1
+@.str.188 = private unnamed_addr constant [25 x i8] c"Incorrect message length\00", align 1
+@.str.189 = private unnamed_addr constant [19 x i8] c"Incorrect fee code\00", align 1
+@.str.190 = private unnamed_addr constant [17 x i8] c"Message too long\00", align 1
+@.str.191 = private unnamed_addr constant [21 x i8] c"Incorrect service id\00", align 1
+@.str.192 = private unnamed_addr constant [16 x i8] c"Bandwidth error\00", align 1
+@.str.193 = private unnamed_addr constant [46 x i8] c"Gateway does not service this charging number\00", align 1
+@.str.194 = private unnamed_addr constant [17 x i8] c"Incorrect Src_Id\00", align 1
+@.str.195 = private unnamed_addr constant [18 x i8] c"Incorrect Msg_src\00", align 1
+@.str.196 = private unnamed_addr constant [26 x i8] c"Incorrect Fee_terminal_Id\00", align 1
+@.str.197 = private unnamed_addr constant [27 x i8] c"Incorrect Dest_terminal_Id\00", align 1
+@vals_Submit_Resp_Result = internal constant [15 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.168 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.185 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.186 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.187 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.188 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.189 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.190 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.191 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.192 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.193 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.194 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.195 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.196 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.197 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@vals_Deliver_Resp_Result = internal constant [10 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.168 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.185 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.186 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.187 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.188 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.189 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.190 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.191 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.192 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@cmpp_desegment = internal global i8 1, align 1
+@.str.200 = private unnamed_addr constant [32 x i8] c"(Unknown CMPP Operation 0x%08X)\00", align 1
+@.str.201 = private unnamed_addr constant [5 x i8] c"%s. \00", align 1
+@.str.202 = private unnamed_addr constant [9 x i8] c"MD5 Hash\00", align 1
+@.str.203 = private unnamed_addr constant [10 x i8] c"%02u.%02u\00", align 1
+@.str.204 = private unnamed_addr constant [25 x i8] c"%02u/%02u %02u:%02u:%02u\00", align 1
+@.str.205 = private unnamed_addr constant [13 x i8] c"SMS Messages\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_cmpp() #0 {
   %1 = call i32 @proto_register_protocol(ptr noundef @.str.131, ptr noundef @.str.132, ptr noundef @.str.133)
   store i32 %1, ptr @proto_cmpp, align 4
@@ -284,15 +283,19 @@ define hidden void @proto_register_cmpp() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_cmpp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -302,92 +305,113 @@ define internal i32 @dissect_cmpp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
-  %13 = load ptr, ptr %6, align 8
-  %14 = call i32 @tvb_captured_length(ptr noundef %13)
-  store i32 %14, ptr %12, align 4
-  %15 = load i32, ptr %12, align 4
-  %16 = icmp ult i32 %15, 12
-  br i1 %16, label %17, label %18
-
-17:                                               ; preds = %4
-  store i32 0, ptr %5, align 4
-  br label %45
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
+  %14 = load ptr, ptr %6, align 8
+  %15 = call i32 @tvb_captured_length(ptr noundef %14)
+  store i32 %15, ptr %12, align 4
+  %16 = load i32, ptr %12, align 4
+  %17 = icmp ult i32 %16, 12
+  br i1 %17, label %18, label %19
 
 18:                                               ; preds = %4
-  %19 = load ptr, ptr %6, align 8
-  %20 = call i32 @tvb_get_ntohl(ptr noundef %19, i32 noundef 0)
-  store i32 %20, ptr %10, align 4
-  %21 = load ptr, ptr %6, align 8
-  %22 = call i32 @tvb_get_ntohl(ptr noundef %21, i32 noundef 4)
-  store i32 %22, ptr %11, align 4
-  %23 = load i32, ptr %10, align 4
-  %24 = icmp ult i32 %23, 12
-  br i1 %24, label %28, label %25
-
-25:                                               ; preds = %18
-  %26 = load i32, ptr %10, align 4
-  %27 = icmp ugt i32 %26, 1000
-  br i1 %27, label %28, label %29
-
-28:                                               ; preds = %25, %18
   store i32 0, ptr %5, align 4
-  br label %45
+  store i32 1, ptr %13, align 4
+  br label %47
 
-29:                                               ; preds = %25
-  %30 = load i32, ptr %11, align 4
-  %31 = call ptr @try_val_to_str(i32 noundef %30, ptr noundef @vals_command_Id)
-  %32 = icmp eq ptr %31, null
-  br i1 %32, label %33, label %34
+19:                                               ; preds = %4
+  %20 = load ptr, ptr %6, align 8
+  %21 = call i32 @tvb_get_ntohl(ptr noundef %20, i32 noundef 0)
+  store i32 %21, ptr %10, align 4
+  %22 = load ptr, ptr %6, align 8
+  %23 = call i32 @tvb_get_ntohl(ptr noundef %22, i32 noundef 4)
+  store i32 %23, ptr %11, align 4
+  %24 = load i32, ptr %10, align 4
+  %25 = icmp ult i32 %24, 12
+  br i1 %25, label %29, label %26
 
-33:                                               ; preds = %29
+26:                                               ; preds = %19
+  %27 = load i32, ptr %10, align 4
+  %28 = icmp ugt i32 %27, 1000
+  br i1 %28, label %29, label %30
+
+29:                                               ; preds = %26, %19
   store i32 0, ptr %5, align 4
-  br label %45
+  store i32 1, ptr %13, align 4
+  br label %47
 
-34:                                               ; preds = %29
-  %35 = load ptr, ptr %7, align 8
-  %36 = getelementptr inbounds %struct._packet_info, ptr %35, i32 0, i32 1
-  %37 = load ptr, ptr %36, align 8
-  call void @col_clear(ptr noundef %37, i32 noundef 25)
-  %38 = load ptr, ptr %6, align 8
-  %39 = load ptr, ptr %7, align 8
-  %40 = load ptr, ptr %8, align 8
-  %41 = load i32, ptr @cmpp_desegment, align 4
-  %42 = load ptr, ptr %9, align 8
-  call void @tcp_dissect_pdus(ptr noundef %38, ptr noundef %39, ptr noundef %40, i32 noundef %41, i32 noundef 12, ptr noundef @get_cmpp_pdu_len, ptr noundef @dissect_cmpp_tcp_pdu, ptr noundef %42)
-  %43 = load ptr, ptr %6, align 8
-  %44 = call i32 @tvb_reported_length(ptr noundef %43)
-  store i32 %44, ptr %5, align 4
-  br label %45
+30:                                               ; preds = %26
+  %31 = load i32, ptr %11, align 4
+  %32 = call ptr @try_val_to_str(i32 noundef %31, ptr noundef @vals_command_Id)
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %34, label %35
 
-45:                                               ; preds = %34, %33, %28, %17
-  %46 = load i32, ptr %5, align 4
-  ret i32 %46
+34:                                               ; preds = %30
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %13, align 4
+  br label %47
+
+35:                                               ; preds = %30
+  %36 = load ptr, ptr %7, align 8
+  %37 = getelementptr inbounds nuw %struct._packet_info, ptr %36, i32 0, i32 1
+  %38 = load ptr, ptr %37, align 8
+  call void @col_clear(ptr noundef %38, i32 noundef 25)
+  %39 = load ptr, ptr %6, align 8
+  %40 = load ptr, ptr %7, align 8
+  %41 = load ptr, ptr %8, align 8
+  %42 = load i8, ptr @cmpp_desegment, align 1, !range !6, !noundef !7
+  %43 = trunc i8 %42 to i1
+  %44 = load ptr, ptr %9, align 8
+  call void @tcp_dissect_pdus(ptr noundef %39, ptr noundef %40, ptr noundef %41, i1 noundef zeroext %43, i32 noundef 12, ptr noundef @get_cmpp_pdu_len, ptr noundef @dissect_cmpp_tcp_pdu, ptr noundef %44)
+  %45 = load ptr, ptr %6, align 8
+  %46 = call i32 @tvb_reported_length(ptr noundef %45)
+  store i32 %46, ptr %5, align 4
+  store i32 1, ptr %13, align 4
+  br label %47
+
+47:                                               ; preds = %35, %34, %29, %18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  %48 = load i32, ptr %5, align 4
+  ret i32 %48
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_cmpp() #0 {
   %1 = load ptr, ptr @cmpp_handle, align 8
   call void @dissector_add_uint_range_with_preference(ptr noundef @.str.134, ptr noundef @.str.135, ptr noundef %1)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint_range_with_preference(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @try_val_to_str(i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_clear(ptr noundef, i32 noundef) #1
 
-declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @get_cmpp_pdu_len(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -403,7 +427,7 @@ define internal i32 @get_cmpp_pdu_len(ptr noundef %0, ptr noundef %1, i32 nounde
   ret i32 %11
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_cmpp_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -416,167 +440,193 @@ define internal i32 @dissect_cmpp_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr no
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   %15 = alloca ptr, align 8
+  %16 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
-  %16 = load ptr, ptr %6, align 8
-  %17 = call i32 @tvb_captured_length(ptr noundef %16)
-  store i32 %17, ptr %13, align 4
-  %18 = load i32, ptr %13, align 4
-  %19 = icmp ult i32 %18, 12
-  br i1 %19, label %20, label %21
-
-20:                                               ; preds = %4
-  store i32 0, ptr %5, align 4
-  br label %92
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #3
+  %17 = load ptr, ptr %6, align 8
+  %18 = call i32 @tvb_captured_length(ptr noundef %17)
+  store i32 %18, ptr %13, align 4
+  %19 = load i32, ptr %13, align 4
+  %20 = icmp ult i32 %19, 12
+  br i1 %20, label %21, label %22
 
 21:                                               ; preds = %4
-  %22 = load ptr, ptr %6, align 8
-  %23 = call i32 @tvb_get_ntohl(ptr noundef %22, i32 noundef 0)
-  store i32 %23, ptr %14, align 4
-  %24 = load ptr, ptr %6, align 8
-  %25 = call i32 @tvb_get_ntohl(ptr noundef %24, i32 noundef 4)
-  store i32 %25, ptr %12, align 4
-  %26 = load i32, ptr %12, align 4
-  %27 = call ptr @try_val_to_str(i32 noundef %26, ptr noundef @vals_command_Id)
-  %28 = icmp eq ptr %27, null
-  br i1 %28, label %29, label %30
-
-29:                                               ; preds = %21
   store i32 0, ptr %5, align 4
-  br label %92
+  store i32 1, ptr %16, align 4
+  br label %93
 
-30:                                               ; preds = %21
-  %31 = load i32, ptr %12, align 4
-  %32 = call ptr @val_to_str(i32 noundef %31, ptr noundef @vals_command_Id, ptr noundef @.str.194)
-  store ptr %32, ptr %15, align 8
-  %33 = load i32, ptr %13, align 4
-  %34 = load i32, ptr %14, align 4
-  %35 = icmp ult i32 %33, %34
-  br i1 %35, label %36, label %37
+22:                                               ; preds = %4
+  %23 = load ptr, ptr %6, align 8
+  %24 = call i32 @tvb_get_ntohl(ptr noundef %23, i32 noundef 0)
+  store i32 %24, ptr %14, align 4
+  %25 = load ptr, ptr %6, align 8
+  %26 = call i32 @tvb_get_ntohl(ptr noundef %25, i32 noundef 4)
+  store i32 %26, ptr %12, align 4
+  %27 = load i32, ptr %12, align 4
+  %28 = call ptr @try_val_to_str(i32 noundef %27, ptr noundef @vals_command_Id)
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %30, label %31
 
-36:                                               ; preds = %30
+30:                                               ; preds = %22
   store i32 0, ptr %5, align 4
-  br label %92
+  store i32 1, ptr %16, align 4
+  br label %93
 
-37:                                               ; preds = %30
-  %38 = load ptr, ptr %7, align 8
-  %39 = getelementptr inbounds %struct._packet_info, ptr %38, i32 0, i32 1
-  %40 = load ptr, ptr %39, align 8
-  call void @col_set_str(ptr noundef %40, i32 noundef 34, ptr noundef @.str.132)
-  %41 = load ptr, ptr %7, align 8
-  %42 = getelementptr inbounds %struct._packet_info, ptr %41, i32 0, i32 1
-  %43 = load ptr, ptr %42, align 8
-  %44 = load ptr, ptr %15, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %43, i32 noundef 25, ptr noundef @.str.195, ptr noundef %44)
-  %45 = load ptr, ptr %8, align 8
-  %46 = icmp ne ptr %45, null
-  br i1 %46, label %47, label %89
+31:                                               ; preds = %22
+  %32 = load i32, ptr %12, align 4
+  %33 = call ptr @val_to_str(i32 noundef %32, ptr noundef @vals_command_Id, ptr noundef @.str.200)
+  store ptr %33, ptr %15, align 8
+  %34 = load i32, ptr %13, align 4
+  %35 = load i32, ptr %14, align 4
+  %36 = icmp ult i32 %34, %35
+  br i1 %36, label %37, label %38
 
-47:                                               ; preds = %37
-  %48 = load ptr, ptr %8, align 8
-  %49 = load i32, ptr @proto_cmpp, align 4
-  %50 = load ptr, ptr %6, align 8
-  %51 = call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %49, ptr noundef %50, i32 noundef 0, i32 noundef -1, i32 noundef 0)
-  store ptr %51, ptr %10, align 8
-  %52 = load ptr, ptr %10, align 8
-  %53 = load i32, ptr @ett_cmpp, align 4
-  %54 = call ptr @proto_item_add_subtree(ptr noundef %52, i32 noundef %53)
-  store ptr %54, ptr %11, align 8
-  %55 = load ptr, ptr %11, align 8
-  %56 = load ptr, ptr %6, align 8
-  %57 = load i32, ptr @hf_cmpp_Total_Length, align 4
-  %58 = call i32 @cmpp_uint4(ptr noundef %55, ptr noundef %56, i32 noundef %57, i32 noundef 0)
-  %59 = load ptr, ptr %11, align 8
-  %60 = load ptr, ptr %6, align 8
-  %61 = load i32, ptr @hf_cmpp_Command_Id, align 4
-  %62 = call i32 @cmpp_uint4(ptr noundef %59, ptr noundef %60, i32 noundef %61, i32 noundef 4)
-  %63 = load ptr, ptr %11, align 8
-  %64 = load ptr, ptr %6, align 8
-  %65 = load i32, ptr @hf_cmpp_Sequence_Id, align 4
-  %66 = call i32 @cmpp_uint4(ptr noundef %63, ptr noundef %64, i32 noundef %65, i32 noundef 8)
-  %67 = load i32, ptr %12, align 4
-  switch i32 %67, label %87 [
-    i32 1, label %68
-    i32 -2147483647, label %71
-    i32 2, label %74
-    i32 -2147483646, label %74
-    i32 4, label %75
-    i32 -2147483644, label %78
-    i32 5, label %81
-    i32 -2147483643, label %84
+37:                                               ; preds = %31
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %16, align 4
+  br label %93
+
+38:                                               ; preds = %31
+  %39 = load ptr, ptr %7, align 8
+  %40 = getelementptr inbounds nuw %struct._packet_info, ptr %39, i32 0, i32 1
+  %41 = load ptr, ptr %40, align 8
+  call void @col_set_str(ptr noundef %41, i32 noundef 35, ptr noundef @.str.132)
+  %42 = load ptr, ptr %7, align 8
+  %43 = getelementptr inbounds nuw %struct._packet_info, ptr %42, i32 0, i32 1
+  %44 = load ptr, ptr %43, align 8
+  %45 = load ptr, ptr %15, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %44, i32 noundef 25, ptr noundef @.str.201, ptr noundef %45)
+  %46 = load ptr, ptr %8, align 8
+  %47 = icmp ne ptr %46, null
+  br i1 %47, label %48, label %90
+
+48:                                               ; preds = %38
+  %49 = load ptr, ptr %8, align 8
+  %50 = load i32, ptr @proto_cmpp, align 4
+  %51 = load ptr, ptr %6, align 8
+  %52 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %50, ptr noundef %51, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  store ptr %52, ptr %10, align 8
+  %53 = load ptr, ptr %10, align 8
+  %54 = load i32, ptr @ett_cmpp, align 4
+  %55 = call ptr @proto_item_add_subtree(ptr noundef %53, i32 noundef %54)
+  store ptr %55, ptr %11, align 8
+  %56 = load ptr, ptr %11, align 8
+  %57 = load ptr, ptr %6, align 8
+  %58 = load i32, ptr @hf_cmpp_Total_Length, align 4
+  %59 = call i32 @cmpp_uint4(ptr noundef %56, ptr noundef %57, i32 noundef %58, i32 noundef 0)
+  %60 = load ptr, ptr %11, align 8
+  %61 = load ptr, ptr %6, align 8
+  %62 = load i32, ptr @hf_cmpp_Command_Id, align 4
+  %63 = call i32 @cmpp_uint4(ptr noundef %60, ptr noundef %61, i32 noundef %62, i32 noundef 4)
+  %64 = load ptr, ptr %11, align 8
+  %65 = load ptr, ptr %6, align 8
+  %66 = load i32, ptr @hf_cmpp_Sequence_Id, align 4
+  %67 = call i32 @cmpp_uint4(ptr noundef %64, ptr noundef %65, i32 noundef %66, i32 noundef 8)
+  %68 = load i32, ptr %12, align 4
+  switch i32 %68, label %88 [
+    i32 1, label %69
+    i32 -2147483647, label %72
+    i32 2, label %75
+    i32 -2147483646, label %75
+    i32 4, label %76
+    i32 -2147483644, label %79
+    i32 5, label %82
+    i32 -2147483643, label %85
   ]
 
-68:                                               ; preds = %47
-  %69 = load ptr, ptr %11, align 8
-  %70 = load ptr, ptr %6, align 8
-  call void @cmpp_connect(ptr noundef %69, ptr noundef %70)
-  br label %88
-
-71:                                               ; preds = %47
-  %72 = load ptr, ptr %11, align 8
-  %73 = load ptr, ptr %6, align 8
-  call void @cmpp_connect_resp(ptr noundef %72, ptr noundef %73)
-  br label %88
-
-74:                                               ; preds = %47, %47
-  br label %88
-
-75:                                               ; preds = %47
-  %76 = load ptr, ptr %11, align 8
-  %77 = load ptr, ptr %6, align 8
-  call void @cmpp_submit(ptr noundef %76, ptr noundef %77)
-  br label %88
-
-78:                                               ; preds = %47
-  %79 = load ptr, ptr %11, align 8
-  %80 = load ptr, ptr %6, align 8
-  call void @cmpp_submit_resp(ptr noundef %79, ptr noundef %80)
-  br label %88
-
-81:                                               ; preds = %47
-  %82 = load ptr, ptr %11, align 8
-  %83 = load ptr, ptr %6, align 8
-  call void @cmpp_deliver(ptr noundef %82, ptr noundef %83)
-  br label %88
-
-84:                                               ; preds = %47
-  %85 = load ptr, ptr %11, align 8
-  %86 = load ptr, ptr %6, align 8
-  call void @cmpp_deliver_resp(ptr noundef %85, ptr noundef %86)
-  br label %88
-
-87:                                               ; preds = %47
-  br label %88
-
-88:                                               ; preds = %87, %84, %81, %78, %75, %74, %71, %68
+69:                                               ; preds = %48
+  %70 = load ptr, ptr %11, align 8
+  %71 = load ptr, ptr %6, align 8
+  call void @cmpp_connect(ptr noundef %70, ptr noundef %71)
   br label %89
 
-89:                                               ; preds = %88, %37
-  %90 = load ptr, ptr %6, align 8
-  %91 = call i32 @tvb_reported_length(ptr noundef %90)
-  store i32 %91, ptr %5, align 4
-  br label %92
+72:                                               ; preds = %48
+  %73 = load ptr, ptr %11, align 8
+  %74 = load ptr, ptr %6, align 8
+  call void @cmpp_connect_resp(ptr noundef %73, ptr noundef %74)
+  br label %89
 
-92:                                               ; preds = %89, %36, %29, %20
-  %93 = load i32, ptr %5, align 4
-  ret i32 %93
+75:                                               ; preds = %48, %48
+  br label %89
+
+76:                                               ; preds = %48
+  %77 = load ptr, ptr %11, align 8
+  %78 = load ptr, ptr %6, align 8
+  call void @cmpp_submit(ptr noundef %77, ptr noundef %78)
+  br label %89
+
+79:                                               ; preds = %48
+  %80 = load ptr, ptr %11, align 8
+  %81 = load ptr, ptr %6, align 8
+  call void @cmpp_submit_resp(ptr noundef %80, ptr noundef %81)
+  br label %89
+
+82:                                               ; preds = %48
+  %83 = load ptr, ptr %11, align 8
+  %84 = load ptr, ptr %6, align 8
+  call void @cmpp_deliver(ptr noundef %83, ptr noundef %84)
+  br label %89
+
+85:                                               ; preds = %48
+  %86 = load ptr, ptr %11, align 8
+  %87 = load ptr, ptr %6, align 8
+  call void @cmpp_deliver_resp(ptr noundef %86, ptr noundef %87)
+  br label %89
+
+88:                                               ; preds = %48
+  br label %89
+
+89:                                               ; preds = %88, %85, %82, %79, %76, %75, %72, %69
+  br label %90
+
+90:                                               ; preds = %89, %38
+  %91 = load ptr, ptr %6, align 8
+  %92 = call i32 @tvb_reported_length(ptr noundef %91)
+  store i32 %92, ptr %5, align 4
+  store i32 1, ptr %16, align 4
+  br label %93
+
+93:                                               ; preds = %90, %37, %30, %21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  %94 = load i32, ptr %5, align 4
+  ret i32 %94
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length(ptr noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @cmpp_uint4(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -587,6 +637,7 @@ define internal i32 @cmpp_uint4(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   %10 = load ptr, ptr %6, align 8
   %11 = load i32, ptr %8, align 4
   %12 = call i32 @tvb_get_ntohl(ptr noundef %10, i32 noundef %11)
@@ -598,16 +649,18 @@ define internal i32 @cmpp_uint4(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   %17 = load i32, ptr %9, align 4
   %18 = call ptr @proto_tree_add_uint(ptr noundef %13, i32 noundef %14, ptr noundef %15, i32 noundef %16, i32 noundef 4, i32 noundef %17)
   %19 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %19
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @cmpp_connect(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #3
   store i32 12, ptr %5, align 4
   %6 = load ptr, ptr %3, align 8
   %7 = load ptr, ptr %4, align 8
@@ -621,7 +674,7 @@ define internal void @cmpp_connect(ptr noundef %0, ptr noundef %1) #0 {
   %14 = load i32, ptr @hf_cmpp_connect_AuthenticatorSource, align 4
   %15 = load ptr, ptr %4, align 8
   %16 = load i32, ptr %5, align 4
-  %17 = call ptr @proto_tree_add_string(ptr noundef %13, i32 noundef %14, ptr noundef %15, i32 noundef %16, i32 noundef 16, ptr noundef @.str.196)
+  %17 = call ptr @proto_tree_add_string(ptr noundef %13, i32 noundef %14, ptr noundef %15, i32 noundef %16, i32 noundef 16, ptr noundef @.str.202)
   %18 = load i32, ptr %5, align 4
   %19 = add i32 %18, 16
   store i32 %19, ptr %5, align 4
@@ -638,16 +691,18 @@ define internal void @cmpp_connect(ptr noundef %0, ptr noundef %1) #0 {
   %29 = load i32, ptr @hf_cmpp_connect_Timestamp, align 4
   %30 = load i32, ptr %5, align 4
   %31 = call ptr @cmpp_timestamp(ptr noundef %27, ptr noundef %28, i32 noundef %29, i32 noundef %30)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #3
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @cmpp_connect_resp(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #3
   store i32 12, ptr %5, align 4
   %6 = load ptr, ptr %3, align 8
   %7 = load ptr, ptr %4, align 8
@@ -661,7 +716,7 @@ define internal void @cmpp_connect_resp(ptr noundef %0, ptr noundef %1) #0 {
   %14 = load i32, ptr @hf_cmpp_connect_resp_AuthenticatorISMG, align 4
   %15 = load ptr, ptr %4, align 8
   %16 = load i32, ptr %5, align 4
-  %17 = call ptr @proto_tree_add_string(ptr noundef %13, i32 noundef %14, ptr noundef %15, i32 noundef %16, i32 noundef 16, ptr noundef @.str.196)
+  %17 = call ptr @proto_tree_add_string(ptr noundef %13, i32 noundef %14, ptr noundef %15, i32 noundef %16, i32 noundef 16, ptr noundef @.str.202)
   %18 = load i32, ptr %5, align 4
   %19 = add i32 %18, 16
   store i32 %19, ptr %5, align 4
@@ -670,10 +725,11 @@ define internal void @cmpp_connect_resp(ptr noundef %0, ptr noundef %1) #0 {
   %22 = load i32, ptr @hf_cmpp_Version, align 4
   %23 = load i32, ptr %5, align 4
   %24 = call ptr @cmpp_version(ptr noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef %23)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #3
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @cmpp_submit(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -683,6 +739,10 @@ define internal void @cmpp_submit(ptr noundef %0, ptr noundef %1) #0 {
   %8 = alloca i8, align 1
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #3
   store i32 12, ptr %5, align 4
   %9 = load ptr, ptr %3, align 8
   %10 = load ptr, ptr %4, align 8
@@ -712,7 +772,7 @@ define internal void @cmpp_submit(ptr noundef %0, ptr noundef %1) #0 {
   %30 = load ptr, ptr %4, align 8
   %31 = load i32, ptr @hf_cmpp_submit_Registered_Delivery, align 4
   %32 = load i32, ptr %5, align 4
-  %33 = call i32 @cmpp_boolean(ptr noundef %29, ptr noundef %30, i32 noundef %31, i32 noundef %32)
+  %33 = call zeroext i1 @cmpp_boolean(ptr noundef %29, ptr noundef %30, i32 noundef %31, i32 noundef %32)
   %34 = load i32, ptr %5, align 4
   %35 = add i32 %34, 1
   store i32 %35, ptr %5, align 4
@@ -752,7 +812,7 @@ define internal void @cmpp_submit(ptr noundef %0, ptr noundef %1) #0 {
   %65 = load ptr, ptr %4, align 8
   %66 = load i32, ptr @hf_cmpp_submit_Fee_terminal_type, align 4
   %67 = load i32, ptr %5, align 4
-  %68 = call i32 @cmpp_boolean(ptr noundef %64, ptr noundef %65, i32 noundef %66, i32 noundef %67)
+  %68 = call zeroext i1 @cmpp_boolean(ptr noundef %64, ptr noundef %65, i32 noundef %66, i32 noundef %67)
   %69 = load i32, ptr %5, align 4
   %70 = add i32 %69, 1
   store i32 %70, ptr %5, align 4
@@ -862,14 +922,14 @@ define internal void @cmpp_submit(ptr noundef %0, ptr noundef %1) #0 {
   %155 = load i32, ptr %6, align 4
   %156 = add i32 %155, 1
   store i32 %156, ptr %6, align 4
-  br label %141, !llvm.loop !4
+  br label %141, !llvm.loop !8
 
 157:                                              ; preds = %141
   %158 = load ptr, ptr %3, align 8
   %159 = load ptr, ptr %4, align 8
   %160 = load i32, ptr @hf_cmpp_submit_Dest_terminal_type, align 4
   %161 = load i32, ptr %5, align 4
-  %162 = call i32 @cmpp_boolean(ptr noundef %158, ptr noundef %159, i32 noundef %160, i32 noundef %161)
+  %162 = call zeroext i1 @cmpp_boolean(ptr noundef %158, ptr noundef %159, i32 noundef %160, i32 noundef %161)
   %163 = load i32, ptr %5, align 4
   %164 = add i32 %163, 1
   store i32 %164, ptr %5, align 4
@@ -888,7 +948,7 @@ define internal void @cmpp_submit(ptr noundef %0, ptr noundef %1) #0 {
   %175 = load i32, ptr %5, align 4
   %176 = load i8, ptr %8, align 1
   %177 = zext i8 %176 to i32
-  %178 = call ptr @proto_tree_add_string(ptr noundef %172, i32 noundef %173, ptr noundef %174, i32 noundef %175, i32 noundef %177, ptr noundef @.str.199)
+  %178 = call ptr @proto_tree_add_string(ptr noundef %172, i32 noundef %173, ptr noundef %174, i32 noundef %175, i32 noundef %177, ptr noundef @.str.205)
   %179 = load i8, ptr %8, align 1
   %180 = zext i8 %179 to i32
   %181 = load i32, ptr %5, align 4
@@ -899,16 +959,21 @@ define internal void @cmpp_submit(ptr noundef %0, ptr noundef %1) #0 {
   %185 = load i32, ptr @hf_cmpp_LinkID, align 4
   %186 = load i32, ptr %5, align 4
   %187 = call ptr @cmpp_octet_string(ptr noundef %183, ptr noundef %184, i32 noundef %185, i32 noundef %186, i32 noundef 20)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #3
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @cmpp_submit_resp(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #3
   store i32 12, ptr %5, align 4
   %6 = load ptr, ptr %3, align 8
   %7 = load ptr, ptr %4, align 8
@@ -923,18 +988,22 @@ define internal void @cmpp_submit_resp(ptr noundef %0, ptr noundef %1) #0 {
   %14 = load i32, ptr @hf_cmpp_submit_resp_Result, align 4
   %15 = load i32, ptr %5, align 4
   %16 = call i32 @cmpp_uint4(ptr noundef %12, ptr noundef %13, i32 noundef %14, i32 noundef %15)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #3
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @cmpp_deliver(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  %7 = alloca i32, align 4
+  %7 = alloca i8, align 1
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #3
   store i32 12, ptr %5, align 4
   %8 = load ptr, ptr %3, align 8
   %9 = load ptr, ptr %4, align 8
@@ -996,7 +1065,7 @@ define internal void @cmpp_deliver(ptr noundef %0, ptr noundef %1) #0 {
   %57 = load ptr, ptr %4, align 8
   %58 = load i32, ptr @hf_cmpp_deliver_Src_terminal_type, align 4
   %59 = load i32, ptr %5, align 4
-  %60 = call i32 @cmpp_boolean(ptr noundef %56, ptr noundef %57, i32 noundef %58, i32 noundef %59)
+  %60 = call zeroext i1 @cmpp_boolean(ptr noundef %56, ptr noundef %57, i32 noundef %58, i32 noundef %59)
   %61 = load i32, ptr %5, align 4
   %62 = add i32 %61, 1
   store i32 %62, ptr %5, align 4
@@ -1004,62 +1073,69 @@ define internal void @cmpp_deliver(ptr noundef %0, ptr noundef %1) #0 {
   %64 = load ptr, ptr %4, align 8
   %65 = load i32, ptr @hf_cmpp_deliver_Registered_Delivery, align 4
   %66 = load i32, ptr %5, align 4
-  %67 = call i32 @cmpp_boolean(ptr noundef %63, ptr noundef %64, i32 noundef %65, i32 noundef %66)
-  store i32 %67, ptr %7, align 4
-  %68 = load i32, ptr %5, align 4
-  %69 = add i32 %68, 1
-  store i32 %69, ptr %5, align 4
-  %70 = load ptr, ptr %3, align 8
-  %71 = load ptr, ptr %4, align 8
-  %72 = load i32, ptr @hf_cmpp_Msg_Length, align 4
-  %73 = load i32, ptr %5, align 4
-  %74 = call zeroext i8 @cmpp_uint1(ptr noundef %70, ptr noundef %71, i32 noundef %72, i32 noundef %73)
-  %75 = zext i8 %74 to i32
-  store i32 %75, ptr %6, align 4
-  %76 = load i32, ptr %5, align 4
-  %77 = add i32 %76, 1
-  store i32 %77, ptr %5, align 4
-  %78 = load i32, ptr %7, align 4
-  %79 = icmp eq i32 %78, 0
-  br i1 %79, label %80, label %87
+  %67 = call zeroext i1 @cmpp_boolean(ptr noundef %63, ptr noundef %64, i32 noundef %65, i32 noundef %66)
+  %68 = zext i1 %67 to i8
+  store i8 %68, ptr %7, align 1
+  %69 = load i32, ptr %5, align 4
+  %70 = add i32 %69, 1
+  store i32 %70, ptr %5, align 4
+  %71 = load ptr, ptr %3, align 8
+  %72 = load ptr, ptr %4, align 8
+  %73 = load i32, ptr @hf_cmpp_Msg_Length, align 4
+  %74 = load i32, ptr %5, align 4
+  %75 = call zeroext i8 @cmpp_uint1(ptr noundef %71, ptr noundef %72, i32 noundef %73, i32 noundef %74)
+  %76 = zext i8 %75 to i32
+  store i32 %76, ptr %6, align 4
+  %77 = load i32, ptr %5, align 4
+  %78 = add i32 %77, 1
+  store i32 %78, ptr %5, align 4
+  %79 = load i8, ptr %7, align 1, !range !6, !noundef !7
+  %80 = trunc i8 %79 to i1
+  %81 = zext i1 %80 to i32
+  %82 = icmp eq i32 %81, 0
+  br i1 %82, label %83, label %90
 
-80:                                               ; preds = %2
-  %81 = load ptr, ptr %3, align 8
-  %82 = load i32, ptr @hf_cmpp_Msg_Content, align 4
-  %83 = load ptr, ptr %4, align 8
-  %84 = load i32, ptr %5, align 4
-  %85 = load i32, ptr %6, align 4
-  %86 = call ptr @proto_tree_add_string(ptr noundef %81, i32 noundef %82, ptr noundef %83, i32 noundef %84, i32 noundef %85, ptr noundef @.str.199)
-  br label %92
+83:                                               ; preds = %2
+  %84 = load ptr, ptr %3, align 8
+  %85 = load i32, ptr @hf_cmpp_Msg_Content, align 4
+  %86 = load ptr, ptr %4, align 8
+  %87 = load i32, ptr %5, align 4
+  %88 = load i32, ptr %6, align 4
+  %89 = call ptr @proto_tree_add_string(ptr noundef %84, i32 noundef %85, ptr noundef %86, i32 noundef %87, i32 noundef %88, ptr noundef @.str.205)
+  br label %95
 
-87:                                               ; preds = %2
-  %88 = load ptr, ptr %3, align 8
-  %89 = load ptr, ptr %4, align 8
-  %90 = load i32, ptr @hf_cmpp_deliver_Report, align 4
-  %91 = load i32, ptr %5, align 4
-  call void @cmpp_deliver_report(ptr noundef %88, ptr noundef %89, i32 noundef %90, i32 noundef %91)
-  br label %92
-
-92:                                               ; preds = %87, %80
-  %93 = load i32, ptr %6, align 4
+90:                                               ; preds = %2
+  %91 = load ptr, ptr %3, align 8
+  %92 = load ptr, ptr %4, align 8
+  %93 = load i32, ptr @hf_cmpp_deliver_Report, align 4
   %94 = load i32, ptr %5, align 4
-  %95 = add i32 %94, %93
-  store i32 %95, ptr %5, align 4
-  %96 = load ptr, ptr %3, align 8
-  %97 = load ptr, ptr %4, align 8
-  %98 = load i32, ptr @hf_cmpp_LinkID, align 4
-  %99 = load i32, ptr %5, align 4
-  %100 = call ptr @cmpp_octet_string(ptr noundef %96, ptr noundef %97, i32 noundef %98, i32 noundef %99, i32 noundef 20)
+  call void @cmpp_deliver_report(ptr noundef %91, ptr noundef %92, i32 noundef %93, i32 noundef %94)
+  br label %95
+
+95:                                               ; preds = %90, %83
+  %96 = load i32, ptr %6, align 4
+  %97 = load i32, ptr %5, align 4
+  %98 = add i32 %97, %96
+  store i32 %98, ptr %5, align 4
+  %99 = load ptr, ptr %3, align 8
+  %100 = load ptr, ptr %4, align 8
+  %101 = load i32, ptr @hf_cmpp_LinkID, align 4
+  %102 = load i32, ptr %5, align 4
+  %103 = call ptr @cmpp_octet_string(ptr noundef %99, ptr noundef %100, i32 noundef %101, i32 noundef %102, i32 noundef 20)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #3
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @cmpp_deliver_resp(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #3
   store i32 12, ptr %5, align 4
   %6 = load ptr, ptr %3, align 8
   %7 = load ptr, ptr %4, align 8
@@ -1074,12 +1150,14 @@ define internal void @cmpp_deliver_resp(ptr noundef %0, ptr noundef %1) #0 {
   %14 = load i32, ptr @hf_cmpp_deliver_resp_Result, align 4
   %15 = load i32, ptr %5, align 4
   %16 = call i32 @cmpp_uint4(ptr noundef %12, ptr noundef %13, i32 noundef %14, i32 noundef %15)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #3
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal ptr @cmpp_octet_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -1092,6 +1170,7 @@ define internal ptr @cmpp_octet_string(ptr noundef %0, ptr noundef %1, i32 nound
   store i32 %2, ptr %8, align 4
   store i32 %3, ptr %9, align 4
   store i32 %4, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
   %12 = load ptr, ptr %6, align 8
   %13 = load i32, ptr %8, align 4
   %14 = load ptr, ptr %7, align 8
@@ -1100,12 +1179,14 @@ define internal ptr @cmpp_octet_string(ptr noundef %0, ptr noundef %1, i32 nound
   %17 = call ptr @wmem_packet_scope()
   %18 = call ptr @proto_tree_add_item_ret_string(ptr noundef %12, i32 noundef %13, ptr noundef %14, i32 noundef %15, i32 noundef %16, i32 noundef 0, ptr noundef %17, ptr noundef %11)
   %19 = load ptr, ptr %11, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
   ret ptr %19
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal ptr @cmpp_version(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1119,9 +1200,13 @@ define internal ptr @cmpp_version(ptr noundef %0, ptr noundef %1, i32 noundef %2
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #3
   %13 = load ptr, ptr %6, align 8
   %14 = load i32, ptr %8, align 4
-  %15 = call zeroext i8 @tvb_get_guint8(ptr noundef %13, i32 noundef %14)
+  %15 = call zeroext i8 @tvb_get_uint8(ptr noundef %13, i32 noundef %14)
   store i8 %15, ptr %9, align 1
   %16 = load i8, ptr %9, align 1
   %17 = sext i8 %16 to i32
@@ -1139,7 +1224,7 @@ define internal ptr @cmpp_version(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %27 = sext i8 %26 to i32
   %28 = load i8, ptr %11, align 1
   %29 = sext i8 %28 to i32
-  %30 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %25, ptr noundef @.str.197, i32 noundef %27, i32 noundef %29)
+  %30 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %25, ptr noundef @.str.203, i32 noundef %27, i32 noundef %29)
   store ptr %30, ptr %12, align 8
   %31 = load ptr, ptr %5, align 8
   %32 = load i32, ptr %7, align 4
@@ -1148,10 +1233,14 @@ define internal ptr @cmpp_version(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %35 = load ptr, ptr %12, align 8
   %36 = call ptr @proto_tree_add_string(ptr noundef %31, i32 noundef %32, ptr noundef %33, i32 noundef %34, i32 noundef 1, ptr noundef %35)
   %37 = load ptr, ptr %12, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #3
   ret ptr %37
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal ptr @cmpp_timestamp(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1168,6 +1257,13 @@ define internal ptr @cmpp_timestamp(ptr noundef %0, ptr noundef %1, i32 noundef 
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #3
   %16 = load ptr, ptr %6, align 8
   %17 = load i32, ptr %8, align 4
   %18 = call i32 @tvb_get_ntohl(ptr noundef %16, i32 noundef %17)
@@ -1212,7 +1308,7 @@ define internal ptr @cmpp_timestamp(ptr noundef %0, ptr noundef %1, i32 noundef 
   %48 = sext i8 %47 to i32
   %49 = load i8, ptr %13, align 1
   %50 = sext i8 %49 to i32
-  %51 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %40, ptr noundef @.str.198, i32 noundef %42, i32 noundef %44, i32 noundef %46, i32 noundef %48, i32 noundef %50)
+  %51 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %40, ptr noundef @.str.204, i32 noundef %42, i32 noundef %44, i32 noundef %46, i32 noundef %48, i32 noundef %50)
   store ptr %51, ptr %15, align 8
   %52 = load ptr, ptr %5, align 8
   %53 = load i32, ptr %7, align 4
@@ -1221,18 +1317,29 @@ define internal ptr @cmpp_timestamp(ptr noundef %0, ptr noundef %1, i32 noundef 
   %56 = load ptr, ptr %15, align 8
   %57 = call ptr @proto_tree_add_string(ptr noundef %52, i32 noundef %53, ptr noundef %54, i32 noundef %55, i32 noundef 4, ptr noundef %56)
   %58 = load ptr, ptr %15, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #3
   ret ptr %58
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item_ret_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_packet_scope() #1
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @cmpp_msg_id(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1251,6 +1358,15 @@ define internal void @cmpp_msg_id(ptr noundef %0, ptr noundef %1, i32 noundef %2
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #3
   %18 = load ptr, ptr %5, align 8
   %19 = load i32, ptr %7, align 4
   %20 = load ptr, ptr %6, align 8
@@ -1263,7 +1379,7 @@ define internal void @cmpp_msg_id(ptr noundef %0, ptr noundef %1, i32 noundef %2
   store ptr %25, ptr %16, align 8
   %26 = load ptr, ptr %6, align 8
   %27 = load i32, ptr %8, align 4
-  %28 = call zeroext i8 @tvb_get_guint8(ptr noundef %26, i32 noundef %27)
+  %28 = call zeroext i8 @tvb_get_uint8(ptr noundef %26, i32 noundef %27)
   %29 = zext i8 %28 to i32
   %30 = and i32 %29, 240
   %31 = ashr i32 %30, 4
@@ -1280,7 +1396,7 @@ define internal void @cmpp_msg_id(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %40 = load ptr, ptr %6, align 8
   %41 = load i32, ptr %8, align 4
   %42 = add i32 %41, 1
-  %43 = call zeroext i8 @tvb_get_guint8(ptr noundef %40, i32 noundef %42)
+  %43 = call zeroext i8 @tvb_get_uint8(ptr noundef %40, i32 noundef %42)
   %44 = zext i8 %43 to i32
   %45 = and i32 %44, 124
   %46 = ashr i32 %45, 2
@@ -1315,7 +1431,7 @@ define internal void @cmpp_msg_id(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %72 = zext i8 %71 to i32
   %73 = load i8, ptr %13, align 1
   %74 = zext i8 %73 to i32
-  %75 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %64, ptr noundef @.str.198, i32 noundef %66, i32 noundef %68, i32 noundef %70, i32 noundef %72, i32 noundef %74)
+  %75 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %64, ptr noundef @.str.204, i32 noundef %66, i32 noundef %68, i32 noundef %70, i32 noundef %72, i32 noundef %74)
   store ptr %75, ptr %17, align 8
   %76 = load ptr, ptr %6, align 8
   %77 = load i32, ptr %8, align 4
@@ -1343,10 +1459,19 @@ define internal void @cmpp_msg_id(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %98 = load i32, ptr %8, align 4
   %99 = add i32 %98, 6
   %100 = call zeroext i16 @cmpp_uint2(ptr noundef %95, ptr noundef %96, i32 noundef %97, i32 noundef %99)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #3
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal zeroext i8 @cmpp_uint1(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1357,9 +1482,10 @@ define internal zeroext i8 @cmpp_uint1(ptr noundef %0, ptr noundef %1, i32 nound
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #3
   %10 = load ptr, ptr %6, align 8
   %11 = load i32, ptr %8, align 4
-  %12 = call zeroext i8 @tvb_get_guint8(ptr noundef %10, i32 noundef %11)
+  %12 = call zeroext i8 @tvb_get_uint8(ptr noundef %10, i32 noundef %11)
   store i8 %12, ptr %9, align 1
   %13 = load ptr, ptr %5, align 8
   %14 = load i32, ptr %7, align 4
@@ -1369,53 +1495,60 @@ define internal zeroext i8 @cmpp_uint1(ptr noundef %0, ptr noundef %1, i32 nound
   %18 = zext i8 %17 to i32
   %19 = call ptr @proto_tree_add_uint(ptr noundef %13, i32 noundef %14, ptr noundef %15, i32 noundef %16, i32 noundef 1, i32 noundef %18)
   %20 = load i8, ptr %9, align 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #3
   ret i8 %20
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @cmpp_boolean(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
-  %5 = alloca i32, align 4
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @cmpp_boolean(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
+  %5 = alloca i1, align 1
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i8, align 1
+  %11 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store i32 %2, ptr %8, align 4
   store i32 %3, ptr %9, align 4
-  %11 = load ptr, ptr %7, align 8
-  %12 = load i32, ptr %9, align 4
-  %13 = call zeroext i8 @tvb_get_guint8(ptr noundef %11, i32 noundef %12)
-  store i8 %13, ptr %10, align 1
-  %14 = load ptr, ptr %6, align 8
-  %15 = load i32, ptr %8, align 4
-  %16 = load ptr, ptr %7, align 8
-  %17 = load i32, ptr %9, align 4
-  %18 = load i8, ptr %10, align 1
-  %19 = sext i8 %18 to i64
-  %20 = call ptr @proto_tree_add_boolean(ptr noundef %14, i32 noundef %15, ptr noundef %16, i32 noundef %17, i32 noundef 1, i64 noundef %19)
-  %21 = load i8, ptr %10, align 1
-  %22 = sext i8 %21 to i32
-  %23 = icmp eq i32 %22, 1
-  br i1 %23, label %24, label %25
-
-24:                                               ; preds = %4
-  store i32 1, ptr %5, align 4
-  br label %26
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #3
+  %12 = load ptr, ptr %7, align 8
+  %13 = load i32, ptr %9, align 4
+  %14 = call zeroext i8 @tvb_get_uint8(ptr noundef %12, i32 noundef %13)
+  store i8 %14, ptr %10, align 1
+  %15 = load ptr, ptr %6, align 8
+  %16 = load i32, ptr %8, align 4
+  %17 = load ptr, ptr %7, align 8
+  %18 = load i32, ptr %9, align 4
+  %19 = load i8, ptr %10, align 1
+  %20 = sext i8 %19 to i64
+  %21 = call ptr @proto_tree_add_boolean(ptr noundef %15, i32 noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef 1, i64 noundef %20)
+  %22 = load i8, ptr %10, align 1
+  %23 = sext i8 %22 to i32
+  %24 = icmp eq i32 %23, 1
+  br i1 %24, label %25, label %26
 
 25:                                               ; preds = %4
-  store i32 0, ptr %5, align 4
-  br label %26
+  store i1 true, ptr %5, align 1
+  store i32 1, ptr %11, align 4
+  br label %27
 
-26:                                               ; preds = %25, %24
-  %27 = load i32, ptr %5, align 4
-  ret i32 %27
+26:                                               ; preds = %4
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %11, align 4
+  br label %27
+
+27:                                               ; preds = %26, %25
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #3
+  %28 = load i1, ptr %5, align 1
+  ret i1 %28
 }
 
+; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal zeroext i16 @cmpp_uint2(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1426,6 +1559,7 @@ define internal zeroext i16 @cmpp_uint2(ptr noundef %0, ptr noundef %1, i32 noun
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %9) #3
   %10 = load ptr, ptr %6, align 8
   %11 = load i32, ptr %8, align 4
   %12 = call zeroext i16 @tvb_get_ntohs(ptr noundef %10, i32 noundef %11)
@@ -1438,12 +1572,14 @@ define internal zeroext i16 @cmpp_uint2(ptr noundef %0, ptr noundef %1, i32 noun
   %18 = zext i16 %17 to i32
   %19 = call ptr @proto_tree_add_uint(ptr noundef %13, i32 noundef %14, ptr noundef %15, i32 noundef %16, i32 noundef 2, i32 noundef %18)
   %20 = load i16, ptr %9, align 2
+  call void @llvm.lifetime.end.p0(i64 2, ptr %9) #3
   ret i16 %20
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @cmpp_deliver_report(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1455,6 +1591,8 @@ define internal void @cmpp_deliver_report(ptr noundef %0, ptr noundef %1, i32 no
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %7, align 4
   %13 = load ptr, ptr %6, align 8
@@ -1510,17 +1648,25 @@ define internal void @cmpp_deliver_report(ptr noundef %0, ptr noundef %1, i32 no
   %55 = load i32, ptr @hf_cmpp_deliver_Report_SMSC_sequence, align 4
   %56 = load i32, ptr %8, align 4
   %57 = call i32 @cmpp_uint4(ptr noundef %53, ptr noundef %54, i32 noundef %55, i32 noundef %56)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
   ret void
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}

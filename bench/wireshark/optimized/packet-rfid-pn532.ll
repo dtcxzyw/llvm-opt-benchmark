@@ -6,12 +6,8 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
 %struct._value_string_ext = type { ptr, i32, i32, ptr, ptr }
-%struct._value_string = type { i32, ptr }
 %struct.true_false_string = type { ptr, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
-%struct.enum_val_t = type { ptr, ptr, i32 }
 %struct._wmem_tree_key_t = type { i32, ptr }
 
 @proto_register_pn532.hf = internal global [177 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_pn532_command, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 4, i32 514, ptr @pn532_commands_ext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_direction, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 4, i32 2, ptr @pn532_directions, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_status_nad_present, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 4, i32 2, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_status_mi, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 4, i32 2, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_status_error_code, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 4, i32 2, ptr @pn532_errors, i64 63, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_error, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 4, i32 2, ptr @pn532_errors, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_BrTy, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 4, i32 2, ptr @pn532_brtypes, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_MaxTg, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_Tg, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 12, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_NbTg, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_payload_length, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 12, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_ic_version, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 4, i32 2, ptr null, i64 0, ptr @.str.24, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_fw_version, %struct._header_field_info { ptr @.str.25, ptr @.str.26, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_fw_revision, %struct._header_field_info { ptr @.str.27, ptr @.str.28, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_fw_support, %struct._header_field_info { ptr @.str.29, ptr @.str.30, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_fw_support_rfu, %struct._header_field_info { ptr @.str.31, ptr @.str.32, i32 4, i32 2, ptr null, i64 248, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_fw_support_iso_018092, %struct._header_field_info { ptr @.str.33, ptr @.str.34, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_fw_support_iso_iec_14443_type_b, %struct._header_field_info { ptr @.str.35, ptr @.str.36, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_fw_support_iso_iec_14443_type_a, %struct._header_field_info { ptr @.str.37, ptr @.str.38, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_14443a_uid, %struct._header_field_info { ptr @.str.39, ptr @.str.40, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_sam_mode, %struct._header_field_info { ptr @.str.41, ptr @.str.42, i32 4, i32 2, ptr @pn532_sam_modes, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_sam_timeout, %struct._header_field_info { ptr @.str.43, ptr @.str.44, i32 4, i32 6, ptr @sam_timeout_base, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_sam_irq, %struct._header_field_info { ptr @.str.45, ptr @.str.46, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_config, %struct._header_field_info { ptr @.str.47, ptr @.str.48, i32 4, i32 2, ptr @pn532_config_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_config_not_used, %struct._header_field_info { ptr @.str.49, ptr @.str.50, i32 4, i32 2, ptr null, i64 252, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_config_auto_rfca, %struct._header_field_info { ptr @.str.51, ptr @.str.52, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_config_rf, %struct._header_field_info { ptr @.str.53, ptr @.str.54, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_config_rfu, %struct._header_field_info { ptr @.str.31, ptr @.str.55, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_config_atr_res_timeout, %struct._header_field_info { ptr @.str.56, ptr @.str.57, i32 4, i32 2, ptr @pn532_config_timeout_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_config_timeout_non_dep, %struct._header_field_info { ptr @.str.58, ptr @.str.59, i32 4, i32 2, ptr @pn532_config_timeout_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_config_max_rty_com, %struct._header_field_info { ptr @.str.60, ptr @.str.61, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_config_max_rty_atr, %struct._header_field_info { ptr @.str.62, ptr @.str.63, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_config_max_rty_psl, %struct._header_field_info { ptr @.str.64, ptr @.str.65, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_config_max_rty_passive_activation, %struct._header_field_info { ptr @.str.66, ptr @.str.67, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_afi, %struct._header_field_info { ptr @.str.68, ptr @.str.69, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_polling_method, %struct._header_field_info { ptr @.str.70, ptr @.str.71, i32 4, i32 1, ptr @pn532_polling_method_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_config_ciu_rf_cfg, %struct._header_field_info { ptr @.str.72, ptr @.str.73, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_config_ciu_gs_n_on, %struct._header_field_info { ptr @.str.74, ptr @.str.75, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_config_ciu_gs_n_off, %struct._header_field_info { ptr @.str.76, ptr @.str.77, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_config_ciu_cw_gs_p, %struct._header_field_info { ptr @.str.78, ptr @.str.79, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_config_ciu_demon_rf_on, %struct._header_field_info { ptr @.str.80, ptr @.str.81, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_config_ciu_demon_rf_off, %struct._header_field_info { ptr @.str.82, ptr @.str.83, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_config_ciu_rx_threshold, %struct._header_field_info { ptr @.str.84, ptr @.str.85, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_config_ciu_mod_width, %struct._header_field_info { ptr @.str.86, ptr @.str.87, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_config_ciu_mod_gs_p, %struct._header_field_info { ptr @.str.88, ptr @.str.89, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_config_ciu_mif_nfc, %struct._header_field_info { ptr @.str.90, ptr @.str.91, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_config_ciu_tx_bit_phase, %struct._header_field_info { ptr @.str.92, ptr @.str.93, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_config_212_kbps, %struct._header_field_info { ptr @.str.94, ptr @.str.95, i32 6, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_config_424_kbps, %struct._header_field_info { ptr @.str.96, ptr @.str.97, i32 6, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_config_848_kbps, %struct._header_field_info { ptr @.str.98, ptr @.str.99, i32 6, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_state, %struct._header_field_info { ptr @.str.100, ptr @.str.101, i32 4, i32 2, ptr @pn532_state_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_brit_nu_7, %struct._header_field_info { ptr @.str.102, ptr @.str.103, i32 4, i32 2, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_brit_speed_initiator, %struct._header_field_info { ptr @.str.104, ptr @.str.105, i32 4, i32 2, ptr @pn532_speed_vals, i64 112, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_brit_nu_3, %struct._header_field_info { ptr @.str.102, ptr @.str.106, i32 4, i32 2, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_brit_speed_target, %struct._header_field_info { ptr @.str.107, ptr @.str.108, i32 4, i32 2, ptr @pn532_speed_vals, i64 7, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_tg_response, %struct._header_field_info { ptr @.str.109, ptr @.str.110, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_initiator_command, %struct._header_field_info { ptr @.str.111, ptr @.str.112, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_data_out, %struct._header_field_info { ptr @.str.113, ptr @.str.114, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_data_in, %struct._header_field_info { ptr @.str.115, ptr @.str.116, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_gt, %struct._header_field_info { ptr @.str.117, ptr @.str.118, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_gi, %struct._header_field_info { ptr @.str.119, ptr @.str.120, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_mode_nu_3_7, %struct._header_field_info { ptr @.str.102, ptr @.str.121, i32 4, i32 2, ptr null, i64 248, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_mode_picc_only, %struct._header_field_info { ptr @.str.122, ptr @.str.123, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_mode_dep_only, %struct._header_field_info { ptr @.str.124, ptr @.str.125, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_mode_passive_only, %struct._header_field_info { ptr @.str.126, ptr @.str.127, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_mode_mifare_parameters, %struct._header_field_info { ptr @.str.128, ptr @.str.129, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_mode_mifare_parameters_sens_res, %struct._header_field_info { ptr @.str.130, ptr @.str.131, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_mode_mifare_parameters_nfc_id_1t, %struct._header_field_info { ptr @.str.132, ptr @.str.133, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_mode_mifare_parameters_sel_res, %struct._header_field_info { ptr @.str.134, ptr @.str.135, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_mode_felica_parameters, %struct._header_field_info { ptr @.str.136, ptr @.str.137, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_mode_felica_parameters_nfc_id_2t, %struct._header_field_info { ptr @.str.138, ptr @.str.139, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_mode_felica_parameters_pad, %struct._header_field_info { ptr @.str.140, ptr @.str.141, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_mode_felica_parameters_system_code, %struct._header_field_info { ptr @.str.142, ptr @.str.143, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_mode_nfc_id_3t, %struct._header_field_info { ptr @.str.144, ptr @.str.145, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_mode_gt, %struct._header_field_info { ptr @.str.117, ptr @.str.146, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_mode_gt_length, %struct._header_field_info { ptr @.str.147, ptr @.str.148, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_mode_tk, %struct._header_field_info { ptr @.str.149, ptr @.str.150, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_mode_tk_length, %struct._header_field_info { ptr @.str.151, ptr @.str.152, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_mode_nu_7, %struct._header_field_info { ptr @.str.102, ptr @.str.153, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_mode_baudrate, %struct._header_field_info { ptr @.str.154, ptr @.str.155, i32 4, i32 2, ptr @pn532_speed_vals, i64 112, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_mode_iso_iec_14443_4_picc, %struct._header_field_info { ptr @.str.156, ptr @.str.157, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_mode_dep, %struct._header_field_info { ptr @.str.158, ptr @.str.159, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_mode_framing_type, %struct._header_field_info { ptr @.str.160, ptr @.str.161, i32 4, i32 2, ptr @pn532_framing_type_vals, i64 3, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_brit, %struct._header_field_info { ptr @.str.162, ptr @.str.163, i32 4, i32 2, ptr @pn532_speed_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_brti, %struct._header_field_info { ptr @.str.164, ptr @.str.165, i32 4, i32 2, ptr @pn532_speed_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_txmode_nu_7, %struct._header_field_info { ptr @.str.102, ptr @.str.166, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_txmode_tx_speed, %struct._header_field_info { ptr @.str.167, ptr @.str.168, i32 4, i32 2, ptr @pn532_txspeed_vals, i64 112, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_txmode_nu_2_3, %struct._header_field_info { ptr @.str.102, ptr @.str.169, i32 4, i32 2, ptr null, i64 192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_txmode_tx_framing, %struct._header_field_info { ptr @.str.170, ptr @.str.171, i32 4, i32 2, ptr @pn532_txframing_vals, i64 3, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_baudrate, %struct._header_field_info { ptr @.str.154, ptr @.str.172, i32 4, i32 2, ptr @pn532_baudrate_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_flags, %struct._header_field_info { ptr @.str.173, ptr @.str.174, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_flags_rfu_7, %struct._header_field_info { ptr @.str.31, ptr @.str.175, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_flags_remove_preamble_and_postamble, %struct._header_field_info { ptr @.str.176, ptr @.str.177, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_flags_iso_14443_4_picc_emulation, %struct._header_field_info { ptr @.str.178, ptr @.str.179, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_flags_automatic_rats, %struct._header_field_info { ptr @.str.180, ptr @.str.181, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_flags_rfu_3, %struct._header_field_info { ptr @.str.31, ptr @.str.182, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_flags_automatic_atr_res, %struct._header_field_info { ptr @.str.183, ptr @.str.184, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_flags_did_used, %struct._header_field_info { ptr @.str.185, ptr @.str.186, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_flags_nad_used, %struct._header_field_info { ptr @.str.187, ptr @.str.188, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_wakeup_enable, %struct._header_field_info { ptr @.str.189, ptr @.str.190, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_target, %struct._header_field_info { ptr @.str.191, ptr @.str.192, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_generate_irq, %struct._header_field_info { ptr @.str.193, ptr @.str.194, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_register_address, %struct._header_field_info { ptr @.str.195, ptr @.str.196, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_register_value, %struct._header_field_info { ptr @.str.197, ptr @.str.198, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_field, %struct._header_field_info { ptr @.str.199, ptr @.str.200, i32 2, i32 0, ptr @tfs_present_not_present, i64 0, ptr @.str.201, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_brrx, %struct._header_field_info { ptr @.str.202, ptr @.str.203, i32 4, i32 2, ptr @pn532_speed_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_brtx, %struct._header_field_info { ptr @.str.204, ptr @.str.205, i32 4, i32 2, ptr @pn532_speed_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_type, %struct._header_field_info { ptr @.str.206, ptr @.str.207, i32 4, i32 2, ptr @pn532_type_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_sam_status, %struct._header_field_info { ptr @.str.208, ptr @.str.209, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_wakeup_enable_i2c, %struct._header_field_info { ptr @.str.210, ptr @.str.211, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_wakeup_enable_gpio, %struct._header_field_info { ptr @.str.212, ptr @.str.213, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_wakeup_enable_spi, %struct._header_field_info { ptr @.str.214, ptr @.str.215, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_wakeup_enable_hsu, %struct._header_field_info { ptr @.str.216, ptr @.str.217, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_wakeup_enable_rf_level_detector, %struct._header_field_info { ptr @.str.218, ptr @.str.219, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_wakeup_enable_rfu_2, %struct._header_field_info { ptr @.str.31, ptr @.str.220, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_wakeup_enable_int_1, %struct._header_field_info { ptr @.str.210, ptr @.str.221, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_wakeup_enable_int_0, %struct._header_field_info { ptr @.str.210, ptr @.str.222, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_gpio_ioi1, %struct._header_field_info { ptr @.str.223, ptr @.str.224, i32 4, i32 2, ptr null, i64 255, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_gpio_p3, %struct._header_field_info { ptr @.str.225, ptr @.str.226, i32 4, i32 2, ptr null, i64 255, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_gpio_p7, %struct._header_field_info { ptr @.str.227, ptr @.str.228, i32 4, i32 2, ptr null, i64 255, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_poll_number, %struct._header_field_info { ptr @.str.229, ptr @.str.230, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_period, %struct._header_field_info { ptr @.str.231, ptr @.str.232, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_autopoll_type, %struct._header_field_info { ptr @.str.206, ptr @.str.233, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_target_data, %struct._header_field_info { ptr @.str.234, ptr @.str.235, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_target_data_length, %struct._header_field_info { ptr @.str.236, ptr @.str.237, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_autopoll_type_act, %struct._header_field_info { ptr @.str.238, ptr @.str.239, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_autopoll_type_dep, %struct._header_field_info { ptr @.str.158, ptr @.str.240, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_autopoll_type_tcl, %struct._header_field_info { ptr @.str.241, ptr @.str.242, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_autopoll_type_mf_fe, %struct._header_field_info { ptr @.str.243, ptr @.str.244, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_autopoll_type_not_used, %struct._header_field_info { ptr @.str.49, ptr @.str.245, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_autopoll_type_baudrate_and_modulation, %struct._header_field_info { ptr @.str.246, ptr @.str.247, i32 4, i32 2, ptr @pn532_brtypes, i64 7, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_nfc_id_3i, %struct._header_field_info { ptr @.str.248, ptr @.str.249, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_next_not_used_2_7, %struct._header_field_info { ptr @.str.102, ptr @.str.250, i32 2, i32 8, ptr null, i64 252, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_next_gi, %struct._header_field_info { ptr @.str.119, ptr @.str.251, i32 2, i32 8, ptr @tfs_present_not_present, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_next_nfc_id_3i, %struct._header_field_info { ptr @.str.248, ptr @.str.252, i32 2, i32 8, ptr @tfs_present_not_present, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_nfc_id_3t, %struct._header_field_info { ptr @.str.144, ptr @.str.253, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_communication_mode, %struct._header_field_info { ptr @.str.254, ptr @.str.255, i32 4, i32 2, ptr @pn532_communication_mode_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_activation_baudrate, %struct._header_field_info { ptr @.str.154, ptr @.str.256, i32 4, i32 2, ptr @pn532_speed_vals, i64 112, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_jump_next_not_used_3_7, %struct._header_field_info { ptr @.str.102, ptr @.str.257, i32 2, i32 8, ptr null, i64 248, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_jump_next_gi, %struct._header_field_info { ptr @.str.119, ptr @.str.258, i32 2, i32 8, ptr @tfs_present_not_present, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_jump_next_nfc_id_3i, %struct._header_field_info { ptr @.str.248, ptr @.str.259, i32 2, i32 8, ptr @tfs_present_not_present, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_jump_next_passive_initiator_data, %struct._header_field_info { ptr @.str.260, ptr @.str.261, i32 2, i32 8, ptr @tfs_present_not_present, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_passive_initiator_data, %struct._header_field_info { ptr @.str.260, ptr @.str.262, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_did_target, %struct._header_field_info { ptr @.str.263, ptr @.str.264, i32 4, i32 5, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_send_bit_rate_target, %struct._header_field_info { ptr @.str.265, ptr @.str.266, i32 4, i32 4, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_receive_bit_rate_target, %struct._header_field_info { ptr @.str.267, ptr @.str.268, i32 4, i32 4, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_timeout, %struct._header_field_info { ptr @.str.269, ptr @.str.270, i32 4, i32 4, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_optional_parameters, %struct._header_field_info { ptr @.str.271, ptr @.str.272, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_test_number, %struct._header_field_info { ptr @.str.273, ptr @.str.274, i32 4, i32 2, ptr @pn532_test_number_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_parameters, %struct._header_field_info { ptr @.str.275, ptr @.str.276, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_parameters_length, %struct._header_field_info { ptr @.str.277, ptr @.str.278, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_sens_res, %struct._header_field_info { ptr @.str.130, ptr @.str.279, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_sel_res, %struct._header_field_info { ptr @.str.134, ptr @.str.280, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_nfc_id_length, %struct._header_field_info { ptr @.str.281, ptr @.str.282, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_nfc_id_1, %struct._header_field_info { ptr @.str.283, ptr @.str.284, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_ats_length, %struct._header_field_info { ptr @.str.285, ptr @.str.286, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_ats, %struct._header_field_info { ptr @.str.287, ptr @.str.288, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_pol_res_length, %struct._header_field_info { ptr @.str.289, ptr @.str.290, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_response_code, %struct._header_field_info { ptr @.str.291, ptr @.str.292, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_nfc_id_2t, %struct._header_field_info { ptr @.str.138, ptr @.str.293, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_pad, %struct._header_field_info { ptr @.str.140, ptr @.str.294, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_syst_code, %struct._header_field_info { ptr @.str.295, ptr @.str.296, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_atqb_response, %struct._header_field_info { ptr @.str.297, ptr @.str.298, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_attrib_res_length, %struct._header_field_info { ptr @.str.299, ptr @.str.300, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_attrib_res, %struct._header_field_info { ptr @.str.301, ptr @.str.302, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_jewel_id, %struct._header_field_info { ptr @.str.303, ptr @.str.304, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_response_for, %struct._header_field_info { ptr @.str.305, ptr @.str.306, i32 35, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_diagnose_baudrate, %struct._header_field_info { ptr @.str.307, ptr @.str.308, i32 4, i32 2, ptr @pn532_diagnose_baudrate_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_reply_delay, %struct._header_field_info { ptr @.str.309, ptr @.str.310, i32 4, i32 6, ptr @replay_delay_base, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_ciu_tx_mode, %struct._header_field_info { ptr @.str.311, ptr @.str.312, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_ciu_rx_mode, %struct._header_field_info { ptr @.str.313, ptr @.str.314, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_diagnose_number_of_fails, %struct._header_field_info { ptr @.str.315, ptr @.str.316, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_diagnose_result, %struct._header_field_info { ptr @.str.317, ptr @.str.318, i32 2, i32 0, ptr @tfs_ok_error, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_andet_bot, %struct._header_field_info { ptr @.str.319, ptr @.str.320, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_andet_up, %struct._header_field_info { ptr @.str.321, ptr @.str.322, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_andet_ith, %struct._header_field_info { ptr @.str.323, ptr @.str.324, i32 2, i32 8, ptr null, i64 62, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_pn532_andet_en, %struct._header_field_info { ptr @.str.325, ptr @.str.326, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
@@ -22,7 +18,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_pn532_direction = internal global i32 0, align 4
 @.str.2 = private unnamed_addr constant [10 x i8] c"Direction\00", align 1
 @.str.3 = private unnamed_addr constant [10 x i8] c"pn532.tfi\00", align 1
-@pn532_directions = internal constant [3 x %struct._value_string] [%struct._value_string { i32 212, ptr @.str.414 }, %struct._value_string { i32 213, ptr @.str.415 }, %struct._value_string zeroinitializer], align 16
 @hf_pn532_status_nad_present = internal global i32 0, align 4
 @.str.4 = private unnamed_addr constant [12 x i8] c"NAD Present\00", align 1
 @.str.5 = private unnamed_addr constant [25 x i8] c"pn532.status.nad_present\00", align 1
@@ -32,14 +27,12 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_pn532_status_error_code = internal global i32 0, align 4
 @.str.8 = private unnamed_addr constant [11 x i8] c"Error Code\00", align 1
 @.str.9 = private unnamed_addr constant [24 x i8] c"pn532.status.error_code\00", align 1
-@pn532_errors = internal constant [28 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.416 }, %struct._value_string { i32 1, ptr @.str.417 }, %struct._value_string { i32 2, ptr @.str.418 }, %struct._value_string { i32 3, ptr @.str.419 }, %struct._value_string { i32 4, ptr @.str.420 }, %struct._value_string { i32 5, ptr @.str.421 }, %struct._value_string { i32 6, ptr @.str.422 }, %struct._value_string { i32 7, ptr @.str.423 }, %struct._value_string { i32 9, ptr @.str.424 }, %struct._value_string { i32 10, ptr @.str.425 }, %struct._value_string { i32 11, ptr @.str.426 }, %struct._value_string { i32 13, ptr @.str.427 }, %struct._value_string { i32 14, ptr @.str.428 }, %struct._value_string { i32 16, ptr @.str.429 }, %struct._value_string { i32 18, ptr @.str.430 }, %struct._value_string { i32 19, ptr @.str.431 }, %struct._value_string { i32 20, ptr @.str.432 }, %struct._value_string { i32 35, ptr @.str.433 }, %struct._value_string { i32 37, ptr @.str.434 }, %struct._value_string { i32 38, ptr @.str.435 }, %struct._value_string { i32 39, ptr @.str.436 }, %struct._value_string { i32 41, ptr @.str.437 }, %struct._value_string { i32 42, ptr @.str.438 }, %struct._value_string { i32 43, ptr @.str.439 }, %struct._value_string { i32 44, ptr @.str.440 }, %struct._value_string { i32 45, ptr @.str.441 }, %struct._value_string { i32 46, ptr @.str.442 }, %struct._value_string zeroinitializer], align 16
 @hf_pn532_error = internal global i32 0, align 4
 @.str.10 = private unnamed_addr constant [11 x i8] c"Last Error\00", align 1
 @.str.11 = private unnamed_addr constant [17 x i8] c"pn532.last_error\00", align 1
 @hf_pn532_BrTy = internal global i32 0, align 4
 @.str.12 = private unnamed_addr constant [25 x i8] c"Baud Rate and Modulation\00", align 1
 @.str.13 = private unnamed_addr constant [11 x i8] c"pn532.BrTy\00", align 1
-@pn532_brtypes = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.443 }, %struct._value_string { i32 1, ptr @.str.444 }, %struct._value_string { i32 2, ptr @.str.445 }, %struct._value_string { i32 3, ptr @.str.446 }, %struct._value_string { i32 4, ptr @.str.447 }, %struct._value_string zeroinitializer], align 16
 @hf_pn532_MaxTg = internal global i32 0, align 4
 @.str.14 = private unnamed_addr constant [26 x i8] c"Maximum Number of Targets\00", align 1
 @.str.15 = private unnamed_addr constant [12 x i8] c"pn532.MaxTg\00", align 1
@@ -83,7 +76,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_pn532_sam_mode = internal global i32 0, align 4
 @.str.41 = private unnamed_addr constant [9 x i8] c"SAM Mode\00", align 1
 @.str.42 = private unnamed_addr constant [15 x i8] c"pn532.sam.mode\00", align 1
-@pn532_sam_modes = internal constant [5 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.448 }, %struct._value_string { i32 2, ptr @.str.449 }, %struct._value_string { i32 3, ptr @.str.450 }, %struct._value_string { i32 4, ptr @.str.451 }, %struct._value_string zeroinitializer], align 16
 @hf_pn532_sam_timeout = internal global i32 0, align 4
 @.str.43 = private unnamed_addr constant [12 x i8] c"SAM Timeout\00", align 1
 @.str.44 = private unnamed_addr constant [18 x i8] c"pn532.sam.timeout\00", align 1
@@ -93,7 +85,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_pn532_config = internal global i32 0, align 4
 @.str.47 = private unnamed_addr constant [12 x i8] c"Config Item\00", align 1
 @.str.48 = private unnamed_addr constant [13 x i8] c"pn532.config\00", align 1
-@pn532_config_vals = internal constant [9 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.455 }, %struct._value_string { i32 2, ptr @.str.456 }, %struct._value_string { i32 4, ptr @.str.457 }, %struct._value_string { i32 5, ptr @.str.458 }, %struct._value_string { i32 10, ptr @.str.459 }, %struct._value_string { i32 11, ptr @.str.460 }, %struct._value_string { i32 12, ptr @.str.461 }, %struct._value_string { i32 13, ptr @.str.462 }, %struct._value_string zeroinitializer], align 16
 @hf_pn532_config_not_used = internal global i32 0, align 4
 @.str.49 = private unnamed_addr constant [9 x i8] c"Not used\00", align 1
 @.str.50 = private unnamed_addr constant [22 x i8] c"pn532.config.not_used\00", align 1
@@ -108,7 +99,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_pn532_config_atr_res_timeout = internal global i32 0, align 4
 @.str.56 = private unnamed_addr constant [16 x i8] c"ATR Res Timeout\00", align 1
 @.str.57 = private unnamed_addr constant [29 x i8] c"pn532.config.atr_res_timeout\00", align 1
-@pn532_config_timeout_vals = internal constant [18 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.463 }, %struct._value_string { i32 1, ptr @.str.464 }, %struct._value_string { i32 2, ptr @.str.465 }, %struct._value_string { i32 3, ptr @.str.466 }, %struct._value_string { i32 4, ptr @.str.467 }, %struct._value_string { i32 5, ptr @.str.468 }, %struct._value_string { i32 6, ptr @.str.469 }, %struct._value_string { i32 7, ptr @.str.470 }, %struct._value_string { i32 8, ptr @.str.471 }, %struct._value_string { i32 9, ptr @.str.472 }, %struct._value_string { i32 10, ptr @.str.473 }, %struct._value_string { i32 11, ptr @.str.474 }, %struct._value_string { i32 12, ptr @.str.475 }, %struct._value_string { i32 13, ptr @.str.476 }, %struct._value_string { i32 14, ptr @.str.477 }, %struct._value_string { i32 15, ptr @.str.478 }, %struct._value_string { i32 16, ptr @.str.479 }, %struct._value_string zeroinitializer], align 16
 @hf_pn532_config_timeout_non_dep = internal global i32 0, align 4
 @.str.58 = private unnamed_addr constant [38 x i8] c"TimeOut during non-DEP communications\00", align 1
 @.str.59 = private unnamed_addr constant [29 x i8] c"pn532.config.timeout_non_dep\00", align 1
@@ -130,7 +120,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_pn532_polling_method = internal global i32 0, align 4
 @.str.70 = private unnamed_addr constant [15 x i8] c"Polling Method\00", align 1
 @.str.71 = private unnamed_addr constant [21 x i8] c"pn532.polling_method\00", align 1
-@pn532_polling_method_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.480 }, %struct._value_string { i32 1, ptr @.str.481 }, %struct._value_string zeroinitializer], align 16
 @hf_pn532_config_ciu_rf_cfg = internal global i32 0, align 4
 @.str.72 = private unnamed_addr constant [11 x i8] c"CIU RF Cfg\00", align 1
 @.str.73 = private unnamed_addr constant [17 x i8] c"pn532.ciu_rf_cfg\00", align 1
@@ -176,14 +165,12 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_pn532_state = internal global i32 0, align 4
 @.str.100 = private unnamed_addr constant [6 x i8] c"State\00", align 1
 @.str.101 = private unnamed_addr constant [12 x i8] c"pn532.state\00", align 1
-@pn532_state_vals = internal constant [7 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.482 }, %struct._value_string { i32 1, ptr @.str.483 }, %struct._value_string { i32 2, ptr @.str.484 }, %struct._value_string { i32 128, ptr @.str.485 }, %struct._value_string { i32 129, ptr @.str.486 }, %struct._value_string { i32 130, ptr @.str.487 }, %struct._value_string zeroinitializer], align 16
 @hf_pn532_brit_nu_7 = internal global i32 0, align 4
 @.str.102 = private unnamed_addr constant [9 x i8] c"Not Used\00", align 1
 @.str.103 = private unnamed_addr constant [22 x i8] c"pn532.brit.not_used.7\00", align 1
 @hf_pn532_brit_speed_initiator = internal global i32 0, align 4
 @.str.104 = private unnamed_addr constant [16 x i8] c"Speed Initiator\00", align 1
 @.str.105 = private unnamed_addr constant [27 x i8] c"pn532.brit.speed_initiator\00", align 1
-@pn532_speed_vals = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.488 }, %struct._value_string { i32 1, ptr @.str.489 }, %struct._value_string { i32 2, ptr @.str.490 }, %struct._value_string zeroinitializer], align 16
 @hf_pn532_brit_nu_3 = internal global i32 0, align 4
 @.str.106 = private unnamed_addr constant [22 x i8] c"pn532.brit.not_used.3\00", align 1
 @hf_pn532_brit_speed_target = internal global i32 0, align 4
@@ -270,7 +257,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_pn532_mode_framing_type = internal global i32 0, align 4
 @.str.160 = private unnamed_addr constant [13 x i8] c"Framing Type\00", align 1
 @.str.161 = private unnamed_addr constant [24 x i8] c"pn532.mode.framing_type\00", align 1
-@pn532_framing_type_vals = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.491 }, %struct._value_string { i32 1, ptr @.str.238 }, %struct._value_string { i32 2, ptr @.str.492 }, %struct._value_string zeroinitializer], align 16
 @hf_pn532_brit = internal global i32 0, align 4
 @.str.162 = private unnamed_addr constant [5 x i8] c"BRit\00", align 1
 @.str.163 = private unnamed_addr constant [11 x i8] c"pn532.brit\00", align 1
@@ -282,16 +268,13 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_pn532_txmode_tx_speed = internal global i32 0, align 4
 @.str.167 = private unnamed_addr constant [9 x i8] c"Tx Speed\00", align 1
 @.str.168 = private unnamed_addr constant [21 x i8] c"pn532.txmode.txspeed\00", align 1
-@pn532_txspeed_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.488 }, %struct._value_string { i32 1, ptr @.str.489 }, %struct._value_string { i32 2, ptr @.str.490 }, %struct._value_string { i32 3, ptr @.str.493 }, %struct._value_string zeroinitializer], align 16
 @hf_pn532_txmode_nu_2_3 = internal global i32 0, align 4
 @.str.169 = private unnamed_addr constant [26 x i8] c"pn532.txmode.not_used.2_3\00", align 1
 @hf_pn532_txmode_tx_framing = internal global i32 0, align 4
 @.str.170 = private unnamed_addr constant [11 x i8] c"Tx Framing\00", align 1
 @.str.171 = private unnamed_addr constant [24 x i8] c"pn532.txmode.tx_framing\00", align 1
-@pn532_txframing_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.491 }, %struct._value_string { i32 2, ptr @.str.492 }, %struct._value_string zeroinitializer], align 16
 @hf_pn532_baudrate = internal global i32 0, align 4
 @.str.172 = private unnamed_addr constant [15 x i8] c"pn532.baudrate\00", align 1
-@pn532_baudrate_vals = internal constant [10 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.494 }, %struct._value_string { i32 1, ptr @.str.495 }, %struct._value_string { i32 2, ptr @.str.496 }, %struct._value_string { i32 3, ptr @.str.497 }, %struct._value_string { i32 4, ptr @.str.498 }, %struct._value_string { i32 5, ptr @.str.499 }, %struct._value_string { i32 6, ptr @.str.500 }, %struct._value_string { i32 7, ptr @.str.501 }, %struct._value_string { i32 8, ptr @.str.502 }, %struct._value_string zeroinitializer], align 16
 @hf_pn532_flags = internal global i32 0, align 4
 @.str.173 = private unnamed_addr constant [6 x i8] c"Flags\00", align 1
 @.str.174 = private unnamed_addr constant [12 x i8] c"pn532.flags\00", align 1
@@ -346,7 +329,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_pn532_type = internal global i32 0, align 4
 @.str.206 = private unnamed_addr constant [5 x i8] c"Type\00", align 1
 @.str.207 = private unnamed_addr constant [11 x i8] c"pn532.type\00", align 1
-@pn532_type_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.503 }, %struct._value_string { i32 1, ptr @.str.504 }, %struct._value_string { i32 2, ptr @.str.505 }, %struct._value_string { i32 16, ptr @.str.506 }, %struct._value_string zeroinitializer], align 16
 @hf_pn532_sam_status = internal global i32 0, align 4
 @.str.208 = private unnamed_addr constant [11 x i8] c"SAM Status\00", align 1
 @.str.209 = private unnamed_addr constant [17 x i8] c"pn532.sam.status\00", align 1
@@ -424,7 +406,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_pn532_communication_mode = internal global i32 0, align 4
 @.str.254 = private unnamed_addr constant [19 x i8] c"Communication Mode\00", align 1
 @.str.255 = private unnamed_addr constant [25 x i8] c"pn532.communication_mode\00", align 1
-@pn532_communication_mode_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.507 }, %struct._value_string { i32 1, ptr @.str.238 }, %struct._value_string zeroinitializer], align 16
 @hf_pn532_activation_baudrate = internal global i32 0, align 4
 @.str.256 = private unnamed_addr constant [26 x i8] c"pn532.activation_baudrate\00", align 1
 @hf_pn532_jump_next_not_used_3_7 = internal global i32 0, align 4
@@ -456,7 +437,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_pn532_test_number = internal global i32 0, align 4
 @.str.273 = private unnamed_addr constant [12 x i8] c"Test Number\00", align 1
 @.str.274 = private unnamed_addr constant [18 x i8] c"pn532.test_number\00", align 1
-@pn532_test_number_vals = internal constant [8 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.508 }, %struct._value_string { i32 1, ptr @.str.509 }, %struct._value_string { i32 2, ptr @.str.510 }, %struct._value_string { i32 4, ptr @.str.511 }, %struct._value_string { i32 5, ptr @.str.512 }, %struct._value_string { i32 6, ptr @.str.513 }, %struct._value_string { i32 7, ptr @.str.514 }, %struct._value_string zeroinitializer], align 16
 @hf_pn532_parameters = internal global i32 0, align 4
 @.str.275 = private unnamed_addr constant [11 x i8] c"Parameters\00", align 1
 @.str.276 = private unnamed_addr constant [26 x i8] c"pn532.diagnose_parameters\00", align 1
@@ -510,7 +490,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_pn532_diagnose_baudrate = internal global i32 0, align 4
 @.str.307 = private unnamed_addr constant [18 x i8] c"Diagnose Baudrate\00", align 1
 @.str.308 = private unnamed_addr constant [24 x i8] c"pn532.diagnose_baudrate\00", align 1
-@pn532_diagnose_baudrate_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.489 }, %struct._value_string { i32 2, ptr @.str.490 }, %struct._value_string zeroinitializer], align 16
 @hf_pn532_reply_delay = internal global i32 0, align 4
 @.str.309 = private unnamed_addr constant [12 x i8] c"Reply Delay\00", align 1
 @.str.310 = private unnamed_addr constant [22 x i8] c"pn532.sam.reply_delay\00", align 1
@@ -539,7 +518,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_pn532_andet_en = internal global i32 0, align 4
 @.str.325 = private unnamed_addr constant [9 x i8] c"Andet En\00", align 1
 @.str.326 = private unnamed_addr constant [15 x i8] c"pn532.andet.en\00", align 1
-@proto_register_pn532.ei = internal global [2 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_unknown_data, %struct.expert_field_info { ptr @.str.327, i32 150994944, i32 4194304, ptr @.str.328, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_unexpected_data, %struct.expert_field_info { ptr @.str.329, i32 150994944, i32 6291456, ptr @.str.330, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_pn532.ei = internal global [2 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_unknown_data, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.327, i32 150994944, i32 4194304, ptr @.str.328, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_unexpected_data, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.329, i32 150994944, i32 6291456, ptr @.str.330, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_unknown_data = internal global %struct.expert_field zeroinitializer, align 4
 @.str.327 = private unnamed_addr constant [26 x i8] c"pn532.expert.unknown_data\00", align 1
 @.str.328 = private unnamed_addr constant [13 x i8] c"Unknown data\00", align 1
@@ -558,7 +537,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_pn532_felica_parameters = internal global i32 0, align 4
 @ett_pn532_wakeup_enable = internal global i32 0, align 4
 @ett_pn532_autopoll_type = internal global i32 0, align 4
-@proto_register_pn532.sub_enum_vals = internal constant [5 x %struct.enum_val_t] [%struct.enum_val_t { ptr @.str.331, ptr @.str.332, i32 0 }, %struct.enum_val_t { ptr @.str.333, ptr @.str.334, i32 1 }, %struct.enum_val_t { ptr @.str.335, ptr @.str.336, i32 2 }, %struct.enum_val_t { ptr @.str.337, ptr @.str.338, i32 3 }, %struct.enum_val_t zeroinitializer], align 16
+@proto_register_pn532.sub_enum_vals = internal constant [5 x { ptr, ptr, i32, [4 x i8] }] [{ ptr, ptr, i32, [4 x i8] } { ptr @.str.331, ptr @.str.332, i32 0, [4 x i8] zeroinitializer }, { ptr, ptr, i32, [4 x i8] } { ptr @.str.333, ptr @.str.334, i32 1, [4 x i8] zeroinitializer }, { ptr, ptr, i32, [4 x i8] } { ptr @.str.335, ptr @.str.336, i32 2, [4 x i8] zeroinitializer }, { ptr, ptr, i32, [4 x i8] } { ptr @.str.337, ptr @.str.338, i32 3, [4 x i8] zeroinitializer }, { ptr, ptr, i32, [4 x i8] } zeroinitializer], align 16
 @.str.331 = private unnamed_addr constant [5 x i8] c"data\00", align 1
 @.str.332 = private unnamed_addr constant [5 x i8] c"Data\00", align 1
 @.str.333 = private unnamed_addr constant [7 x i8] c"felica\00", align 1
@@ -585,7 +564,6 @@ target triple = "x86_64-pc-linux-gnu"
 @sub_handles.1 = internal unnamed_addr global ptr null, align 8
 @sub_handles.2 = internal unnamed_addr global ptr null, align 16
 @sub_handles.3 = internal unnamed_addr global ptr null, align 8
-@pn532_commands = internal constant [65 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.350 }, %struct._value_string { i32 1, ptr @.str.351 }, %struct._value_string { i32 2, ptr @.str.352 }, %struct._value_string { i32 3, ptr @.str.353 }, %struct._value_string { i32 4, ptr @.str.354 }, %struct._value_string { i32 5, ptr @.str.355 }, %struct._value_string { i32 6, ptr @.str.356 }, %struct._value_string { i32 7, ptr @.str.357 }, %struct._value_string { i32 8, ptr @.str.358 }, %struct._value_string { i32 9, ptr @.str.359 }, %struct._value_string { i32 12, ptr @.str.360 }, %struct._value_string { i32 13, ptr @.str.361 }, %struct._value_string { i32 14, ptr @.str.362 }, %struct._value_string { i32 15, ptr @.str.363 }, %struct._value_string { i32 16, ptr @.str.364 }, %struct._value_string { i32 17, ptr @.str.365 }, %struct._value_string { i32 18, ptr @.str.366 }, %struct._value_string { i32 19, ptr @.str.367 }, %struct._value_string { i32 20, ptr @.str.368 }, %struct._value_string { i32 21, ptr @.str.369 }, %struct._value_string { i32 22, ptr @.str.370 }, %struct._value_string { i32 23, ptr @.str.371 }, %struct._value_string { i32 50, ptr @.str.372 }, %struct._value_string { i32 51, ptr @.str.373 }, %struct._value_string { i32 64, ptr @.str.374 }, %struct._value_string { i32 65, ptr @.str.375 }, %struct._value_string { i32 66, ptr @.str.376 }, %struct._value_string { i32 67, ptr @.str.377 }, %struct._value_string { i32 68, ptr @.str.378 }, %struct._value_string { i32 69, ptr @.str.379 }, %struct._value_string { i32 70, ptr @.str.380 }, %struct._value_string { i32 71, ptr @.str.381 }, %struct._value_string { i32 74, ptr @.str.382 }, %struct._value_string { i32 75, ptr @.str.383 }, %struct._value_string { i32 78, ptr @.str.384 }, %struct._value_string { i32 79, ptr @.str.385 }, %struct._value_string { i32 80, ptr @.str.386 }, %struct._value_string { i32 81, ptr @.str.387 }, %struct._value_string { i32 82, ptr @.str.388 }, %struct._value_string { i32 83, ptr @.str.389 }, %struct._value_string { i32 84, ptr @.str.390 }, %struct._value_string { i32 85, ptr @.str.391 }, %struct._value_string { i32 86, ptr @.str.392 }, %struct._value_string { i32 87, ptr @.str.393 }, %struct._value_string { i32 88, ptr @.str.394 }, %struct._value_string { i32 89, ptr @.str.395 }, %struct._value_string { i32 96, ptr @.str.396 }, %struct._value_string { i32 97, ptr @.str.397 }, %struct._value_string { i32 134, ptr @.str.398 }, %struct._value_string { i32 135, ptr @.str.399 }, %struct._value_string { i32 136, ptr @.str.400 }, %struct._value_string { i32 137, ptr @.str.401 }, %struct._value_string { i32 138, ptr @.str.402 }, %struct._value_string { i32 139, ptr @.str.403 }, %struct._value_string { i32 140, ptr @.str.404 }, %struct._value_string { i32 141, ptr @.str.405 }, %struct._value_string { i32 142, ptr @.str.406 }, %struct._value_string { i32 143, ptr @.str.407 }, %struct._value_string { i32 144, ptr @.str.408 }, %struct._value_string { i32 145, ptr @.str.409 }, %struct._value_string { i32 146, ptr @.str.410 }, %struct._value_string { i32 147, ptr @.str.411 }, %struct._value_string { i32 148, ptr @.str.412 }, %struct._value_string { i32 149, ptr @.str.413 }, %struct._value_string zeroinitializer], align 16
 @.str.349 = private unnamed_addr constant [15 x i8] c"pn532_commands\00", align 1
 @.str.350 = private unnamed_addr constant [9 x i8] c"Diagnose\00", align 1
 @.str.351 = private unnamed_addr constant [20 x i8] c"Diagnose (Response)\00", align 1
@@ -651,221 +629,259 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.411 = private unnamed_addr constant [29 x i8] c"TgSetGeneralBytes (Response)\00", align 1
 @.str.412 = private unnamed_addr constant [14 x i8] c"TgSetMetaData\00", align 1
 @.str.413 = private unnamed_addr constant [25 x i8] c"TgSetMetaData (Response)\00", align 1
-@.str.414 = private unnamed_addr constant [14 x i8] c"Host to PN532\00", align 1
-@.str.415 = private unnamed_addr constant [14 x i8] c"PN532 to Host\00", align 1
-@.str.416 = private unnamed_addr constant [9 x i8] c"No Error\00", align 1
-@.str.417 = private unnamed_addr constant [9 x i8] c"Time Out\00", align 1
-@.str.418 = private unnamed_addr constant [30 x i8] c"CRC Error detected by the CIU\00", align 1
-@.str.419 = private unnamed_addr constant [33 x i8] c"Parity Error detected by the CIU\00", align 1
-@.str.420 = private unnamed_addr constant [38 x i8] c"Erroneous Bit Count has been detected\00", align 1
-@.str.421 = private unnamed_addr constant [38 x i8] c"Framing error during Mifare operation\00", align 1
-@.str.422 = private unnamed_addr constant [23 x i8] c"Abnormal Bit-Collision\00", align 1
-@.str.423 = private unnamed_addr constant [39 x i8] c"Communication Buffer Size Insufficient\00", align 1
-@.str.424 = private unnamed_addr constant [48 x i8] c"RF Buffer overflow has been detected by the CIU\00", align 1
-@.str.425 = private unnamed_addr constant [95 x i8] c"In active communication mode, the RF field has not been switched on in time by the counterpart\00", align 1
-@.str.426 = private unnamed_addr constant [18 x i8] c"RF Protocol Error\00", align 1
-@.str.427 = private unnamed_addr constant [18 x i8] c"Temperature Error\00", align 1
-@.str.428 = private unnamed_addr constant [25 x i8] c"Internal Buffer Overflow\00", align 1
-@.str.429 = private unnamed_addr constant [18 x i8] c"Invalid Parameter\00", align 1
-@.str.430 = private unnamed_addr constant [93 x i8] c"The PN532 configured in target mode does not support the command received from the initiator\00", align 1
-@.str.431 = private unnamed_addr constant [20 x i8] c"Invalid Data Format\00", align 1
-@.str.432 = private unnamed_addr constant [21 x i8] c"Authentication Error\00", align 1
-@.str.433 = private unnamed_addr constant [24 x i8] c"UID Check Byte is Wrong\00", align 1
-@.str.434 = private unnamed_addr constant [21 x i8] c"Invalid Device State\00", align 1
-@.str.435 = private unnamed_addr constant [44 x i8] c"Operation not allowed in this configuration\00", align 1
-@.str.436 = private unnamed_addr constant [21 x i8] c"Unacceptable Command\00", align 1
-@.str.437 = private unnamed_addr constant [66 x i8] c"The PN532 configured as target has been released by its initiator\00", align 1
-@.str.438 = private unnamed_addr constant [30 x i8] c"ID of the card does not match\00", align 1
-@.str.439 = private unnamed_addr constant [42 x i8] c"Card previously activated has disappeared\00", align 1
-@.str.440 = private unnamed_addr constant [88 x i8] c"Mismatch between the NFCID3 initiator and the NFCID3 target in DEP 212/424 kbps passive\00", align 1
-@.str.441 = private unnamed_addr constant [37 x i8] c"Over-current event has been detected\00", align 1
-@.str.442 = private unnamed_addr constant [25 x i8] c"NAD missing in DEP frame\00", align 1
-@.str.443 = private unnamed_addr constant [28 x i8] c"ISO/IEC 14443-A at 106 kbps\00", align 1
-@.str.444 = private unnamed_addr constant [19 x i8] c"FeliCa at 212 kbps\00", align 1
-@.str.445 = private unnamed_addr constant [19 x i8] c"FeliCa at 424 kbps\00", align 1
-@.str.446 = private unnamed_addr constant [28 x i8] c"ISO/IEC 14443-B at 106 kbps\00", align 1
-@.str.447 = private unnamed_addr constant [35 x i8] c"InnoVision Jewel/Topaz at 106 kbps\00", align 1
-@.str.448 = private unnamed_addr constant [12 x i8] c"Normal Mode\00", align 1
-@.str.449 = private unnamed_addr constant [18 x i8] c"Virtual Card Mode\00", align 1
-@.str.450 = private unnamed_addr constant [16 x i8] c"Wired Card Mode\00", align 1
-@.str.451 = private unnamed_addr constant [15 x i8] c"Dual Card Mode\00", align 1
-@.str.452 = private unnamed_addr constant [19 x i8] c"No timeout control\00", align 1
-@.str.453 = private unnamed_addr constant [6 x i8] c"%u ms\00", align 1
-@.str.454 = private unnamed_addr constant [10 x i8] c"%u.%03u s\00", align 1
-@.str.455 = private unnamed_addr constant [9 x i8] c"RF Field\00", align 1
-@.str.456 = private unnamed_addr constant [16 x i8] c"Various Timings\00", align 1
-@.str.457 = private unnamed_addr constant [12 x i8] c"Max Rty COM\00", align 1
-@.str.458 = private unnamed_addr constant [12 x i8] c"Max Retries\00", align 1
-@.str.459 = private unnamed_addr constant [49 x i8] c"Analog settings for the baudrate 106 kbps type A\00", align 1
-@.str.460 = private unnamed_addr constant [46 x i8] c"Analog settings for the baudrate 212/424 kbps\00", align 1
-@.str.461 = private unnamed_addr constant [31 x i8] c"Analog settings for the type B\00", align 1
-@.str.462 = private unnamed_addr constant [80 x i8] c"Analog settings for baudrates 212/424 and 848 kbps with ISO/IEC14443-4 protocol\00", align 1
-@.str.463 = private unnamed_addr constant [11 x i8] c"No Timeout\00", align 1
-@.str.464 = private unnamed_addr constant [7 x i8] c"100 us\00", align 1
-@.str.465 = private unnamed_addr constant [7 x i8] c"200 us\00", align 1
-@.str.466 = private unnamed_addr constant [7 x i8] c"400 us\00", align 1
-@.str.467 = private unnamed_addr constant [7 x i8] c"800 us\00", align 1
-@.str.468 = private unnamed_addr constant [7 x i8] c"1.6 ms\00", align 1
-@.str.469 = private unnamed_addr constant [7 x i8] c"3.2 ms\00", align 1
-@.str.470 = private unnamed_addr constant [7 x i8] c"6.4 ms\00", align 1
-@.str.471 = private unnamed_addr constant [8 x i8] c"12.8 ms\00", align 1
-@.str.472 = private unnamed_addr constant [8 x i8] c"25.6 ms\00", align 1
-@.str.473 = private unnamed_addr constant [8 x i8] c"51.2 ms\00", align 1
-@.str.474 = private unnamed_addr constant [9 x i8] c"102.4 ms\00", align 1
-@.str.475 = private unnamed_addr constant [9 x i8] c"204.8 ms\00", align 1
-@.str.476 = private unnamed_addr constant [9 x i8] c"409.6 ms\00", align 1
-@.str.477 = private unnamed_addr constant [9 x i8] c"819.2 ms\00", align 1
-@.str.478 = private unnamed_addr constant [9 x i8] c"1.64 sec\00", align 1
-@.str.479 = private unnamed_addr constant [9 x i8] c"3.28 sec\00", align 1
-@.str.480 = private unnamed_addr constant [18 x i8] c"Timeslot Approach\00", align 1
-@.str.481 = private unnamed_addr constant [23 x i8] c"Probabilistic Approach\00", align 1
-@.str.482 = private unnamed_addr constant [22 x i8] c"TG Idle / TG Released\00", align 1
-@.str.483 = private unnamed_addr constant [13 x i8] c"TG Activated\00", align 1
-@.str.484 = private unnamed_addr constant [14 x i8] c"TG Deselected\00", align 1
-@.str.485 = private unnamed_addr constant [14 x i8] c"PICC Released\00", align 1
-@.str.486 = private unnamed_addr constant [15 x i8] c"PICC Activated\00", align 1
-@.str.487 = private unnamed_addr constant [16 x i8] c"PICC Deselected\00", align 1
-@.str.488 = private unnamed_addr constant [9 x i8] c"106 kbps\00", align 1
-@.str.489 = private unnamed_addr constant [9 x i8] c"212 kbps\00", align 1
-@.str.490 = private unnamed_addr constant [9 x i8] c"424 kbps\00", align 1
-@.str.491 = private unnamed_addr constant [7 x i8] c"Mifare\00", align 1
-@.str.492 = private unnamed_addr constant [7 x i8] c"FeliCa\00", align 1
-@.str.493 = private unnamed_addr constant [9 x i8] c"848 kbps\00", align 1
-@.str.494 = private unnamed_addr constant [10 x i8] c"9.6 kbaud\00", align 1
-@.str.495 = private unnamed_addr constant [11 x i8] c"19.2 kbaud\00", align 1
-@.str.496 = private unnamed_addr constant [11 x i8] c"38.4 kbaud\00", align 1
-@.str.497 = private unnamed_addr constant [11 x i8] c"57.6 kbaud\00", align 1
-@.str.498 = private unnamed_addr constant [12 x i8] c"115.2 kbaud\00", align 1
-@.str.499 = private unnamed_addr constant [12 x i8] c"230.4 kbaud\00", align 1
-@.str.500 = private unnamed_addr constant [12 x i8] c"460.8 kbaud\00", align 1
-@.str.501 = private unnamed_addr constant [12 x i8] c"921.6 kbaud\00", align 1
-@.str.502 = private unnamed_addr constant [12 x i8] c"1.288 Mbaud\00", align 1
-@.str.503 = private unnamed_addr constant [84 x i8] c"Mifare, ISO/IEC14443-3 Type A, ISO/IEC14443-3 Type B, ISO/IEC18092 passive 106 kbps\00", align 1
-@.str.504 = private unnamed_addr constant [25 x i8] c"ISO/IEC18092 Active Mode\00", align 1
-@.str.505 = private unnamed_addr constant [21 x i8] c"Innovision Jewel Tag\00", align 1
-@.str.506 = private unnamed_addr constant [42 x i8] c"FeliCa, ISO/IEC18092 passive 212/424 kbps\00", align 1
-@.str.507 = private unnamed_addr constant [13 x i8] c"Passive Mode\00", align 1
-@.str.508 = private unnamed_addr constant [24 x i8] c"Communication Line Test\00", align 1
-@.str.509 = private unnamed_addr constant [9 x i8] c"ROM Test\00", align 1
-@.str.510 = private unnamed_addr constant [9 x i8] c"RAM Test\00", align 1
-@.str.511 = private unnamed_addr constant [23 x i8] c"Polling Test to Target\00", align 1
-@.str.512 = private unnamed_addr constant [15 x i8] c"Echo Back Test\00", align 1
-@.str.513 = private unnamed_addr constant [65 x i8] c"Attention Request Test or ISO/IEC14443-4 card presence detection\00", align 1
-@.str.514 = private unnamed_addr constant [18 x i8] c"Self Antenna Test\00", align 1
-@.str.515 = private unnamed_addr constant [16 x i8] c"Unknown command\00", align 1
-@.str.516 = private unnamed_addr constant [7 x i8] c" %u/%u\00", align 1
+@pn532_commands = internal constant [65 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.350 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.351 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.352 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.353 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.354 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.355 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.356 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.357 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.358 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.359 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.360 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.361 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.362 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.363 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.364 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.365 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.366 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.367 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.368 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.369 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.370 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.371 }, { i32, [4 x i8], ptr } { i32 50, [4 x i8] zeroinitializer, ptr @.str.372 }, { i32, [4 x i8], ptr } { i32 51, [4 x i8] zeroinitializer, ptr @.str.373 }, { i32, [4 x i8], ptr } { i32 64, [4 x i8] zeroinitializer, ptr @.str.374 }, { i32, [4 x i8], ptr } { i32 65, [4 x i8] zeroinitializer, ptr @.str.375 }, { i32, [4 x i8], ptr } { i32 66, [4 x i8] zeroinitializer, ptr @.str.376 }, { i32, [4 x i8], ptr } { i32 67, [4 x i8] zeroinitializer, ptr @.str.377 }, { i32, [4 x i8], ptr } { i32 68, [4 x i8] zeroinitializer, ptr @.str.378 }, { i32, [4 x i8], ptr } { i32 69, [4 x i8] zeroinitializer, ptr @.str.379 }, { i32, [4 x i8], ptr } { i32 70, [4 x i8] zeroinitializer, ptr @.str.380 }, { i32, [4 x i8], ptr } { i32 71, [4 x i8] zeroinitializer, ptr @.str.381 }, { i32, [4 x i8], ptr } { i32 74, [4 x i8] zeroinitializer, ptr @.str.382 }, { i32, [4 x i8], ptr } { i32 75, [4 x i8] zeroinitializer, ptr @.str.383 }, { i32, [4 x i8], ptr } { i32 78, [4 x i8] zeroinitializer, ptr @.str.384 }, { i32, [4 x i8], ptr } { i32 79, [4 x i8] zeroinitializer, ptr @.str.385 }, { i32, [4 x i8], ptr } { i32 80, [4 x i8] zeroinitializer, ptr @.str.386 }, { i32, [4 x i8], ptr } { i32 81, [4 x i8] zeroinitializer, ptr @.str.387 }, { i32, [4 x i8], ptr } { i32 82, [4 x i8] zeroinitializer, ptr @.str.388 }, { i32, [4 x i8], ptr } { i32 83, [4 x i8] zeroinitializer, ptr @.str.389 }, { i32, [4 x i8], ptr } { i32 84, [4 x i8] zeroinitializer, ptr @.str.390 }, { i32, [4 x i8], ptr } { i32 85, [4 x i8] zeroinitializer, ptr @.str.391 }, { i32, [4 x i8], ptr } { i32 86, [4 x i8] zeroinitializer, ptr @.str.392 }, { i32, [4 x i8], ptr } { i32 87, [4 x i8] zeroinitializer, ptr @.str.393 }, { i32, [4 x i8], ptr } { i32 88, [4 x i8] zeroinitializer, ptr @.str.394 }, { i32, [4 x i8], ptr } { i32 89, [4 x i8] zeroinitializer, ptr @.str.395 }, { i32, [4 x i8], ptr } { i32 96, [4 x i8] zeroinitializer, ptr @.str.396 }, { i32, [4 x i8], ptr } { i32 97, [4 x i8] zeroinitializer, ptr @.str.397 }, { i32, [4 x i8], ptr } { i32 134, [4 x i8] zeroinitializer, ptr @.str.398 }, { i32, [4 x i8], ptr } { i32 135, [4 x i8] zeroinitializer, ptr @.str.399 }, { i32, [4 x i8], ptr } { i32 136, [4 x i8] zeroinitializer, ptr @.str.400 }, { i32, [4 x i8], ptr } { i32 137, [4 x i8] zeroinitializer, ptr @.str.401 }, { i32, [4 x i8], ptr } { i32 138, [4 x i8] zeroinitializer, ptr @.str.402 }, { i32, [4 x i8], ptr } { i32 139, [4 x i8] zeroinitializer, ptr @.str.403 }, { i32, [4 x i8], ptr } { i32 140, [4 x i8] zeroinitializer, ptr @.str.404 }, { i32, [4 x i8], ptr } { i32 141, [4 x i8] zeroinitializer, ptr @.str.405 }, { i32, [4 x i8], ptr } { i32 142, [4 x i8] zeroinitializer, ptr @.str.406 }, { i32, [4 x i8], ptr } { i32 143, [4 x i8] zeroinitializer, ptr @.str.407 }, { i32, [4 x i8], ptr } { i32 144, [4 x i8] zeroinitializer, ptr @.str.408 }, { i32, [4 x i8], ptr } { i32 145, [4 x i8] zeroinitializer, ptr @.str.409 }, { i32, [4 x i8], ptr } { i32 146, [4 x i8] zeroinitializer, ptr @.str.410 }, { i32, [4 x i8], ptr } { i32 147, [4 x i8] zeroinitializer, ptr @.str.411 }, { i32, [4 x i8], ptr } { i32 148, [4 x i8] zeroinitializer, ptr @.str.412 }, { i32, [4 x i8], ptr } { i32 149, [4 x i8] zeroinitializer, ptr @.str.413 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.415 = private unnamed_addr constant [14 x i8] c"Host to PN532\00", align 1
+@.str.416 = private unnamed_addr constant [14 x i8] c"PN532 to Host\00", align 1
+@pn532_directions = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 212, [4 x i8] zeroinitializer, ptr @.str.415 }, { i32, [4 x i8], ptr } { i32 213, [4 x i8] zeroinitializer, ptr @.str.416 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.418 = private unnamed_addr constant [9 x i8] c"No Error\00", align 1
+@.str.419 = private unnamed_addr constant [9 x i8] c"Time Out\00", align 1
+@.str.420 = private unnamed_addr constant [30 x i8] c"CRC Error detected by the CIU\00", align 1
+@.str.421 = private unnamed_addr constant [33 x i8] c"Parity Error detected by the CIU\00", align 1
+@.str.422 = private unnamed_addr constant [38 x i8] c"Erroneous Bit Count has been detected\00", align 1
+@.str.423 = private unnamed_addr constant [38 x i8] c"Framing error during Mifare operation\00", align 1
+@.str.424 = private unnamed_addr constant [23 x i8] c"Abnormal Bit-Collision\00", align 1
+@.str.425 = private unnamed_addr constant [39 x i8] c"Communication Buffer Size Insufficient\00", align 1
+@.str.426 = private unnamed_addr constant [48 x i8] c"RF Buffer overflow has been detected by the CIU\00", align 1
+@.str.427 = private unnamed_addr constant [95 x i8] c"In active communication mode, the RF field has not been switched on in time by the counterpart\00", align 1
+@.str.428 = private unnamed_addr constant [18 x i8] c"RF Protocol Error\00", align 1
+@.str.429 = private unnamed_addr constant [18 x i8] c"Temperature Error\00", align 1
+@.str.430 = private unnamed_addr constant [25 x i8] c"Internal Buffer Overflow\00", align 1
+@.str.431 = private unnamed_addr constant [18 x i8] c"Invalid Parameter\00", align 1
+@.str.432 = private unnamed_addr constant [93 x i8] c"The PN532 configured in target mode does not support the command received from the initiator\00", align 1
+@.str.433 = private unnamed_addr constant [20 x i8] c"Invalid Data Format\00", align 1
+@.str.434 = private unnamed_addr constant [21 x i8] c"Authentication Error\00", align 1
+@.str.435 = private unnamed_addr constant [24 x i8] c"UID Check Byte is Wrong\00", align 1
+@.str.436 = private unnamed_addr constant [21 x i8] c"Invalid Device State\00", align 1
+@.str.437 = private unnamed_addr constant [44 x i8] c"Operation not allowed in this configuration\00", align 1
+@.str.438 = private unnamed_addr constant [21 x i8] c"Unacceptable Command\00", align 1
+@.str.439 = private unnamed_addr constant [66 x i8] c"The PN532 configured as target has been released by its initiator\00", align 1
+@.str.440 = private unnamed_addr constant [30 x i8] c"ID of the card does not match\00", align 1
+@.str.441 = private unnamed_addr constant [42 x i8] c"Card previously activated has disappeared\00", align 1
+@.str.442 = private unnamed_addr constant [88 x i8] c"Mismatch between the NFCID3 initiator and the NFCID3 target in DEP 212/424 kbps passive\00", align 1
+@.str.443 = private unnamed_addr constant [37 x i8] c"Over-current event has been detected\00", align 1
+@.str.444 = private unnamed_addr constant [25 x i8] c"NAD missing in DEP frame\00", align 1
+@pn532_errors = internal constant [28 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.418 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.419 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.420 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.421 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.422 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.423 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.424 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.425 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.426 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.427 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.428 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.429 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.430 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.431 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.432 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.433 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.434 }, { i32, [4 x i8], ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.435 }, { i32, [4 x i8], ptr } { i32 37, [4 x i8] zeroinitializer, ptr @.str.436 }, { i32, [4 x i8], ptr } { i32 38, [4 x i8] zeroinitializer, ptr @.str.437 }, { i32, [4 x i8], ptr } { i32 39, [4 x i8] zeroinitializer, ptr @.str.438 }, { i32, [4 x i8], ptr } { i32 41, [4 x i8] zeroinitializer, ptr @.str.439 }, { i32, [4 x i8], ptr } { i32 42, [4 x i8] zeroinitializer, ptr @.str.440 }, { i32, [4 x i8], ptr } { i32 43, [4 x i8] zeroinitializer, ptr @.str.441 }, { i32, [4 x i8], ptr } { i32 44, [4 x i8] zeroinitializer, ptr @.str.442 }, { i32, [4 x i8], ptr } { i32 45, [4 x i8] zeroinitializer, ptr @.str.443 }, { i32, [4 x i8], ptr } { i32 46, [4 x i8] zeroinitializer, ptr @.str.444 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.446 = private unnamed_addr constant [28 x i8] c"ISO/IEC 14443-A at 106 kbps\00", align 1
+@.str.447 = private unnamed_addr constant [19 x i8] c"FeliCa at 212 kbps\00", align 1
+@.str.448 = private unnamed_addr constant [19 x i8] c"FeliCa at 424 kbps\00", align 1
+@.str.449 = private unnamed_addr constant [28 x i8] c"ISO/IEC 14443-B at 106 kbps\00", align 1
+@.str.450 = private unnamed_addr constant [35 x i8] c"InnoVision Jewel/Topaz at 106 kbps\00", align 1
+@pn532_brtypes = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.446 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.447 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.448 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.449 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.450 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.452 = private unnamed_addr constant [12 x i8] c"Normal Mode\00", align 1
+@.str.453 = private unnamed_addr constant [18 x i8] c"Virtual Card Mode\00", align 1
+@.str.454 = private unnamed_addr constant [16 x i8] c"Wired Card Mode\00", align 1
+@.str.455 = private unnamed_addr constant [15 x i8] c"Dual Card Mode\00", align 1
+@pn532_sam_modes = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.452 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.453 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.454 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.455 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.457 = private unnamed_addr constant [19 x i8] c"No timeout control\00", align 1
+@.str.458 = private unnamed_addr constant [6 x i8] c"%u ms\00", align 1
+@.str.459 = private unnamed_addr constant [10 x i8] c"%u.%03u s\00", align 1
+@.str.460 = private unnamed_addr constant [9 x i8] c"RF Field\00", align 1
+@.str.461 = private unnamed_addr constant [16 x i8] c"Various Timings\00", align 1
+@.str.462 = private unnamed_addr constant [12 x i8] c"Max Rty COM\00", align 1
+@.str.463 = private unnamed_addr constant [12 x i8] c"Max Retries\00", align 1
+@.str.464 = private unnamed_addr constant [49 x i8] c"Analog settings for the baudrate 106 kbps type A\00", align 1
+@.str.465 = private unnamed_addr constant [46 x i8] c"Analog settings for the baudrate 212/424 kbps\00", align 1
+@.str.466 = private unnamed_addr constant [31 x i8] c"Analog settings for the type B\00", align 1
+@.str.467 = private unnamed_addr constant [80 x i8] c"Analog settings for baudrates 212/424 and 848 kbps with ISO/IEC14443-4 protocol\00", align 1
+@pn532_config_vals = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.460 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.461 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.462 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.463 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.464 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.465 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.466 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.467 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.469 = private unnamed_addr constant [11 x i8] c"No Timeout\00", align 1
+@.str.470 = private unnamed_addr constant [7 x i8] c"100 us\00", align 1
+@.str.471 = private unnamed_addr constant [7 x i8] c"200 us\00", align 1
+@.str.472 = private unnamed_addr constant [7 x i8] c"400 us\00", align 1
+@.str.473 = private unnamed_addr constant [7 x i8] c"800 us\00", align 1
+@.str.474 = private unnamed_addr constant [7 x i8] c"1.6 ms\00", align 1
+@.str.475 = private unnamed_addr constant [7 x i8] c"3.2 ms\00", align 1
+@.str.476 = private unnamed_addr constant [7 x i8] c"6.4 ms\00", align 1
+@.str.477 = private unnamed_addr constant [8 x i8] c"12.8 ms\00", align 1
+@.str.478 = private unnamed_addr constant [8 x i8] c"25.6 ms\00", align 1
+@.str.479 = private unnamed_addr constant [8 x i8] c"51.2 ms\00", align 1
+@.str.480 = private unnamed_addr constant [9 x i8] c"102.4 ms\00", align 1
+@.str.481 = private unnamed_addr constant [9 x i8] c"204.8 ms\00", align 1
+@.str.482 = private unnamed_addr constant [9 x i8] c"409.6 ms\00", align 1
+@.str.483 = private unnamed_addr constant [9 x i8] c"819.2 ms\00", align 1
+@.str.484 = private unnamed_addr constant [9 x i8] c"1.64 sec\00", align 1
+@.str.485 = private unnamed_addr constant [9 x i8] c"3.28 sec\00", align 1
+@pn532_config_timeout_vals = internal constant [18 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.469 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.470 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.471 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.472 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.473 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.474 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.475 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.476 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.477 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.478 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.479 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.480 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.481 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.482 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.483 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.484 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.485 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.487 = private unnamed_addr constant [18 x i8] c"Timeslot Approach\00", align 1
+@.str.488 = private unnamed_addr constant [23 x i8] c"Probabilistic Approach\00", align 1
+@pn532_polling_method_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.487 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.488 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.490 = private unnamed_addr constant [22 x i8] c"TG Idle / TG Released\00", align 1
+@.str.491 = private unnamed_addr constant [13 x i8] c"TG Activated\00", align 1
+@.str.492 = private unnamed_addr constant [14 x i8] c"TG Deselected\00", align 1
+@.str.493 = private unnamed_addr constant [14 x i8] c"PICC Released\00", align 1
+@.str.494 = private unnamed_addr constant [15 x i8] c"PICC Activated\00", align 1
+@.str.495 = private unnamed_addr constant [16 x i8] c"PICC Deselected\00", align 1
+@pn532_state_vals = internal constant [7 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.490 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.491 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.492 }, { i32, [4 x i8], ptr } { i32 128, [4 x i8] zeroinitializer, ptr @.str.493 }, { i32, [4 x i8], ptr } { i32 129, [4 x i8] zeroinitializer, ptr @.str.494 }, { i32, [4 x i8], ptr } { i32 130, [4 x i8] zeroinitializer, ptr @.str.495 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.497 = private unnamed_addr constant [9 x i8] c"106 kbps\00", align 1
+@.str.498 = private unnamed_addr constant [9 x i8] c"212 kbps\00", align 1
+@.str.499 = private unnamed_addr constant [9 x i8] c"424 kbps\00", align 1
+@pn532_speed_vals = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.497 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.498 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.499 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.501 = private unnamed_addr constant [7 x i8] c"Mifare\00", align 1
+@.str.502 = private unnamed_addr constant [7 x i8] c"FeliCa\00", align 1
+@pn532_framing_type_vals = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.501 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.238 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.502 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.504 = private unnamed_addr constant [9 x i8] c"848 kbps\00", align 1
+@pn532_txspeed_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.497 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.498 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.499 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.504 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@pn532_txframing_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.501 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.502 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.507 = private unnamed_addr constant [10 x i8] c"9.6 kbaud\00", align 1
+@.str.508 = private unnamed_addr constant [11 x i8] c"19.2 kbaud\00", align 1
+@.str.509 = private unnamed_addr constant [11 x i8] c"38.4 kbaud\00", align 1
+@.str.510 = private unnamed_addr constant [11 x i8] c"57.6 kbaud\00", align 1
+@.str.511 = private unnamed_addr constant [12 x i8] c"115.2 kbaud\00", align 1
+@.str.512 = private unnamed_addr constant [12 x i8] c"230.4 kbaud\00", align 1
+@.str.513 = private unnamed_addr constant [12 x i8] c"460.8 kbaud\00", align 1
+@.str.514 = private unnamed_addr constant [12 x i8] c"921.6 kbaud\00", align 1
+@.str.515 = private unnamed_addr constant [12 x i8] c"1.288 Mbaud\00", align 1
+@pn532_baudrate_vals = internal constant [10 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.507 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.508 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.509 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.510 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.511 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.512 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.513 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.514 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.515 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.517 = private unnamed_addr constant [84 x i8] c"Mifare, ISO/IEC14443-3 Type A, ISO/IEC14443-3 Type B, ISO/IEC18092 passive 106 kbps\00", align 1
+@.str.518 = private unnamed_addr constant [25 x i8] c"ISO/IEC18092 Active Mode\00", align 1
+@.str.519 = private unnamed_addr constant [21 x i8] c"Innovision Jewel Tag\00", align 1
+@.str.520 = private unnamed_addr constant [42 x i8] c"FeliCa, ISO/IEC18092 passive 212/424 kbps\00", align 1
+@pn532_type_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.517 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.518 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.519 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.520 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.522 = private unnamed_addr constant [13 x i8] c"Passive Mode\00", align 1
+@pn532_communication_mode_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.522 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.238 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.524 = private unnamed_addr constant [24 x i8] c"Communication Line Test\00", align 1
+@.str.525 = private unnamed_addr constant [9 x i8] c"ROM Test\00", align 1
+@.str.526 = private unnamed_addr constant [9 x i8] c"RAM Test\00", align 1
+@.str.527 = private unnamed_addr constant [23 x i8] c"Polling Test to Target\00", align 1
+@.str.528 = private unnamed_addr constant [15 x i8] c"Echo Back Test\00", align 1
+@.str.529 = private unnamed_addr constant [65 x i8] c"Attention Request Test or ISO/IEC14443-4 card presence detection\00", align 1
+@.str.530 = private unnamed_addr constant [18 x i8] c"Self Antenna Test\00", align 1
+@pn532_test_number_vals = internal constant [8 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.524 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.525 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.526 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.527 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.528 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.529 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.530 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@pn532_diagnose_baudrate_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.498 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.499 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.533 = private unnamed_addr constant [16 x i8] c"Unknown command\00", align 1
+@.str.534 = private unnamed_addr constant [7 x i8] c" %u/%u\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_pn532() local_unnamed_addr #0 {
-  %1 = tail call ptr @wmem_epan_scope() #5
-  %2 = tail call ptr @wmem_file_scope() #5
-  %3 = tail call noalias ptr @wmem_tree_new_autoreset(ptr noundef %1, ptr noundef %2) #5
+  %1 = tail call ptr @wmem_epan_scope()
+  %2 = tail call ptr @wmem_file_scope()
+  %3 = tail call noalias ptr @wmem_tree_new_autoreset(ptr noundef %1, ptr noundef %2)
   store ptr %3, ptr @command_info, align 8
-  %4 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.339, ptr noundef nonnull @.str.340, ptr noundef nonnull @.str.341) #5
+  %4 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.339, ptr noundef nonnull @.str.340, ptr noundef nonnull @.str.341)
   store i32 %4, ptr @proto_pn532, align 4
-  tail call void @proto_register_field_array(i32 noundef %4, ptr noundef nonnull @proto_register_pn532.hf, i32 noundef 177) #5
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_pn532.ett, i32 noundef 11) #5
+  tail call void @proto_register_field_array(i32 noundef %4, ptr noundef nonnull @proto_register_pn532.hf, i32 noundef 177)
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_pn532.ett, i32 noundef 11)
   %5 = load i32, ptr @proto_pn532, align 4
-  %6 = tail call ptr @expert_register_protocol(i32 noundef %5) #5
-  tail call void @expert_register_field_array(ptr noundef %6, ptr noundef nonnull @proto_register_pn532.ei, i32 noundef 2) #5
+  %6 = tail call ptr @expert_register_protocol(i32 noundef %5)
+  tail call void @expert_register_field_array(ptr noundef %6, ptr noundef nonnull @proto_register_pn532.ei, i32 noundef 2)
   %7 = load i32, ptr @proto_pn532, align 4
-  %8 = tail call ptr @prefs_register_protocol(i32 noundef %7, ptr noundef null) #5
-  tail call void @prefs_register_static_text_preference(ptr noundef %8, ptr noundef nonnull @.str.342, ptr noundef nonnull @.str.343, ptr noundef nonnull @.str.344) #5
-  tail call void @prefs_register_enum_preference(ptr noundef %8, ptr noundef nonnull @.str.345, ptr noundef nonnull @.str.346, ptr noundef nonnull @.str.347, ptr noundef nonnull @sub_selected, ptr noundef nonnull @proto_register_pn532.sub_enum_vals, i32 noundef 0) #5
+  %8 = tail call ptr @prefs_register_protocol(i32 noundef %7, ptr noundef null)
+  tail call void @prefs_register_static_text_preference(ptr noundef %8, ptr noundef nonnull @.str.342, ptr noundef nonnull @.str.343, ptr noundef nonnull @.str.344)
+  tail call void @prefs_register_enum_preference(ptr noundef %8, ptr noundef nonnull @.str.345, ptr noundef nonnull @.str.346, ptr noundef nonnull @.str.347, ptr noundef nonnull @sub_selected, ptr noundef nonnull @proto_register_pn532.sub_enum_vals, i1 noundef zeroext false)
   %9 = load i32, ptr @proto_pn532, align 4
-  %10 = tail call ptr @register_dissector(ptr noundef nonnull @.str.341, ptr noundef nonnull @dissect_pn532, i32 noundef %9) #5
+  %10 = tail call ptr @register_dissector(ptr noundef nonnull @.str.341, ptr noundef nonnull @dissect_pn532, i32 noundef %9)
   store ptr %10, ptr @pn532_handle, align 8
   ret void
 }
 
-; Function Attrs: nofree nounwind uwtable
-define internal void @sam_timeout_base(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
+define internal void @sam_timeout_base(ptr noundef %0, i32 noundef %1) #2 {
   %3 = icmp eq i32 %1, 0
-  br i1 %3, label %4, label %5
+  br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %0, ptr noundef nonnull align 1 dereferenceable(19) @.str.452, i64 19, i1 false)
-  br label %14
+  %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.457)
+  br label %15
 
-5:                                                ; preds = %2
-  %6 = icmp ult i32 %1, 20
-  %7 = mul i32 %1, 50
-  br i1 %6, label %8, label %10
+6:                                                ; preds = %2
+  %7 = icmp ult i32 %1, 20
+  %8 = mul i32 %1, 50
+  br i1 %7, label %9, label %11
 
-8:                                                ; preds = %5
-  %9 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.453, i32 noundef %7) #5
-  br label %14
+9:                                                ; preds = %6
+  %10 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.458, i32 noundef %8)
+  br label %15
 
-10:                                               ; preds = %5
-  %11 = udiv i32 %7, 1000
-  %12 = urem i32 %7, 1000
-  %13 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.454, i32 noundef %11, i32 noundef %12) #5
-  br label %14
+11:                                               ; preds = %6
+  %12 = udiv i32 %8, 1000
+  %13 = urem i32 %8, 1000
+  %14 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.459, i32 noundef %12, i32 noundef %13)
+  br label %15
 
-14:                                               ; preds = %8, %10, %4
+15:                                               ; preds = %9, %11, %4
   ret void
 }
 
-; Function Attrs: nofree nounwind uwtable
-define internal void @replay_delay_base(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
+; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
+define internal void @replay_delay_base(ptr noundef %0, i32 noundef %1) #2 {
   %3 = mul i32 %1, 500
   %4 = udiv i32 %3, 1000
   %5 = urem i32 %3, 1000
-  %6 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.454, i32 noundef %4, i32 noundef %5) #5
+  %6 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.459, i32 noundef %4, i32 noundef %5)
   ret void
 }
 
-declare noalias ptr @wmem_tree_new_autoreset(ptr noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @wmem_tree_new_autoreset(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @wmem_epan_scope() local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_epan_scope() local_unnamed_addr #3
 
-declare ptr @wmem_file_scope() local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_file_scope() local_unnamed_addr #3
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #3
 
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @prefs_register_static_text_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare void @prefs_register_static_text_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare void @prefs_register_enum_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare void @prefs_register_enum_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_pn532(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
   %5 = alloca [5 x %struct._wmem_tree_key_t], align 16
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
   %10 = icmp eq ptr %3, null
   br i1 %10, label %969, label %11
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
-  tail call void @col_set_str(ptr noundef %13, i32 noundef 34, ptr noundef nonnull @.str.340) #5
+  tail call void @col_set_str(ptr noundef %13, i32 noundef 35, ptr noundef nonnull @.str.340)
   %14 = load i32, ptr @proto_pn532, align 4
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #5
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %16 = load i32, ptr @ett_pn532, align 4
-  %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16) #5
+  %17 = tail call ptr @proto_item_add_subtree(ptr noundef %15, i32 noundef %16)
   %18 = load i32, ptr @hf_pn532_direction, align 4
-  %19 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %18, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #5
+  %19 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %18, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %20 = load i32, ptr @hf_pn532_command, align 4
-  %21 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %20, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #5
-  %22 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #5
+  %21 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %20, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  %22 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
   %23 = load ptr, ptr %12, align 8
   %24 = zext i8 %22 to i32
-  %25 = tail call ptr @val_to_str_ext_const(i32 noundef %24, ptr noundef nonnull @pn532_commands_ext, ptr noundef nonnull @.str.515) #5
-  tail call void @col_set_str(ptr noundef %23, i32 noundef 25, ptr noundef %25) #5
+  %25 = tail call ptr @val_to_str_ext_const(i32 noundef %24, ptr noundef nonnull @pn532_commands_ext, ptr noundef nonnull @.str.533)
+  tail call void @col_set_str(ptr noundef %23, i32 noundef 25, ptr noundef %25)
   %26 = load i16, ptr %3, align 8
   %27 = zext i16 %26 to i32
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 2
@@ -901,8 +917,8 @@ define internal i32 @dissect_pn532(ptr noundef %0, ptr noundef %1, ptr noundef %
   store ptr null, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 50
-  %48 = load i16, ptr %47, align 2
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 57
+  %48 = load i16, ptr %47, align 1
   %49 = and i16 %48, 8
   %.not = icmp eq i16 %49, 0
   %50 = and i32 %24, 1
@@ -911,8 +927,8 @@ define internal i32 @dissect_pn532(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %or.cond, label %.thread, label %61
 
 .thread:                                          ; preds = %11
-  %51 = call ptr @wmem_file_scope() #5
-  %52 = call noalias ptr @wmem_alloc(ptr noundef %51, i64 noundef 28) #5
+  %51 = call ptr @wmem_file_scope()
+  %52 = call noalias dereferenceable_or_null(28) ptr @wmem_alloc(ptr noundef %51, i64 noundef 28) #7
   store i32 %27, ptr %52, align 4
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   store i32 %30, ptr %53, align 4
@@ -926,7 +942,7 @@ define internal i32 @dissect_pn532(ptr noundef %0, ptr noundef %1, ptr noundef %
   %58 = getelementptr inbounds nuw i8, ptr %52, i64 20
   store i32 0, ptr %58, align 4
   %59 = load ptr, ptr @command_info, align 8
-  call void @wmem_tree_insert32_array(ptr noundef %59, ptr noundef nonnull %5, ptr noundef nonnull %52) #5
+  call void @wmem_tree_insert32_array(ptr noundef %59, ptr noundef nonnull %5, ptr noundef %52)
   store i32 %27, ptr %6, align 4
   store i32 %30, ptr %7, align 4
   store i32 %33, ptr %8, align 4
@@ -951,13 +967,13 @@ define internal i32 @dissect_pn532(ptr noundef %0, ptr noundef %1, ptr noundef %
   store i32 0, ptr %41, align 16
   store ptr null, ptr %42, align 8
   %63 = load ptr, ptr @command_info, align 8
-  %64 = call ptr @wmem_tree_lookup32_array(ptr noundef %63, ptr noundef nonnull %5) #5
+  %64 = call ptr @wmem_tree_lookup32_array(ptr noundef %63, ptr noundef nonnull %5)
   %.not1312 = icmp eq ptr %64, null
   br i1 %.not1312, label %proto_item_set_generated.exit, label %65
 
 65:                                               ; preds = %62
   %66 = load i32, ptr %34, align 4
-  %67 = call ptr @wmem_tree_lookup32_le(ptr noundef nonnull %64, i32 noundef %66) #5
+  %67 = call ptr @wmem_tree_lookup32_le(ptr noundef nonnull %64, i32 noundef %66)
   %.not1313 = icmp eq ptr %67, null
   br i1 %.not1313, label %proto_item_set_generated.exit, label %68
 
@@ -969,8 +985,8 @@ define internal i32 @dissect_pn532(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 72:                                               ; preds = %68
   %73 = load ptr, ptr %45, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 50
-  %75 = load i16, ptr %74, align 2
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 57
+  %75 = load i16, ptr %74, align 1
   %76 = and i16 %75, 8
   %.not1314 = icmp eq i16 %76, 0
   br i1 %.not1314, label %77, label %.thread1339
@@ -982,15 +998,15 @@ define internal i32 @dissect_pn532(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 .thread1339:                                      ; preds = %68, %72, %77
   %79 = load i32, ptr @hf_pn532_response_for, align 4
-  %80 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 2) #5
+  %80 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 2)
   %81 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %82 = load i32, ptr %81, align 4
-  %83 = call ptr @proto_tree_add_uint(ptr noundef %17, i32 noundef %79, ptr noundef %0, i32 noundef 2, i32 noundef %80, i32 noundef %82) #5
+  %83 = call ptr @proto_tree_add_uint(ptr noundef %17, i32 noundef %79, ptr noundef %0, i32 noundef 2, i32 noundef %80, i32 noundef %82)
   %.not.i = icmp eq ptr %83, null
   br i1 %.not.i, label %proto_item_set_generated.exit, label %84
 
 84:                                               ; preds = %.thread1339
-  %85 = getelementptr inbounds nuw i8, ptr %83, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %83, i64 40
   %86 = load ptr, ptr %85, align 8
   %.not5.i = icmp eq ptr %86, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %87
@@ -1072,24 +1088,24 @@ proto_item_set_generated.exit:                    ; preds = %87, %84, %.thread13
   ]
 
 .preheader1346:                                   ; preds = %proto_item_set_generated.exit
-  %91 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 2) #5
+  %91 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 2)
   %92 = icmp sgt i32 %91, 2
   br i1 %92, label %.lr.ph1366, label %.loopexit
 
 .preheader1344:                                   ; preds = %proto_item_set_generated.exit
-  %93 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 2) #5
+  %93 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 2)
   %94 = icmp sgt i32 %93, 0
   br i1 %94, label %.lr.ph1369, label %.loopexit
 
 .preheader:                                       ; preds = %proto_item_set_generated.exit
-  %95 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 2) #5
+  %95 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 2)
   %96 = icmp sgt i32 %95, 1
   br i1 %96, label %.lr.ph1372, label %.loopexit
 
 97:                                               ; preds = %proto_item_set_generated.exit
   %98 = load i32, ptr @hf_pn532_test_number, align 4
-  %99 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %98, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
-  %100 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #5
+  %99 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %98, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
+  %100 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
   %.not1332 = icmp eq ptr %.1, null
   br i1 %.not1332, label %104, label %101
 
@@ -1101,8 +1117,8 @@ proto_item_set_generated.exit:                    ; preds = %87, %84, %.thread13
 
 104:                                              ; preds = %101, %97
   %105 = load i32, ptr @hf_pn532_parameters_length, align 4
-  %106 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %105, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #5
-  %107 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #5
+  %106 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %105, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
+  %107 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 3)
   switch i8 %100, label %132 [
     i8 0, label %108
     i8 4, label %113
@@ -1116,40 +1132,40 @@ proto_item_set_generated.exit:                    ; preds = %87, %84, %.thread13
 108:                                              ; preds = %104
   %109 = load i32, ptr @hf_pn532_data_in, align 4
   %110 = zext i8 %107 to i32
-  %111 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %109, ptr noundef %0, i32 noundef 4, i32 noundef %110, i32 noundef 0) #5
+  %111 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %109, ptr noundef %0, i32 noundef 4, i32 noundef %110, i32 noundef 0)
   %112 = add nuw nsw i32 %110, 4
   br label %.loopexit
 
 113:                                              ; preds = %104
   %114 = load i32, ptr @hf_pn532_diagnose_baudrate, align 4
-  %115 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %114, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #5
+  %115 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %114, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0)
   br label %.loopexit
 
 116:                                              ; preds = %104
   %117 = load i32, ptr @hf_pn532_reply_delay, align 4
-  %118 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %117, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #5
+  %118 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %117, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0)
   %119 = load i32, ptr @hf_pn532_ciu_tx_mode, align 4
-  %120 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %119, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0) #5
+  %120 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %119, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0)
   %121 = load i32, ptr @hf_pn532_ciu_rx_mode, align 4
-  %122 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %121, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0) #5
+  %122 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %121, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0)
   br label %.loopexit
 
 123:                                              ; preds = %104
   %124 = load i32, ptr @hf_pn532_andet_bot, align 4
-  %125 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %124, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #5
+  %125 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %124, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0)
   %126 = load i32, ptr @hf_pn532_andet_up, align 4
-  %127 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %126, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #5
+  %127 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %126, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0)
   %128 = load i32, ptr @hf_pn532_andet_ith, align 4
-  %129 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %128, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #5
+  %129 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %128, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0)
   %130 = load i32, ptr @hf_pn532_andet_en, align 4
-  %131 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %130, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #5
+  %131 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %130, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0)
   br label %.loopexit
 
 132:                                              ; preds = %104
   %133 = load i32, ptr @hf_pn532_parameters, align 4
-  %134 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 4) #5
-  %135 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %133, ptr noundef %0, i32 noundef 4, i32 noundef %134, i32 noundef 0) #5
-  %136 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 4) #5
+  %134 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 4)
+  %135 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %133, ptr noundef %0, i32 noundef 4, i32 noundef %134, i32 noundef 0)
+  %136 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 4)
   %137 = add i32 %136, 4
   br label %.loopexit
 
@@ -1171,13 +1187,13 @@ proto_item_set_generated.exit:                    ; preds = %87, %84, %.thread13
 
 147:                                              ; preds = %138, %139, %143
   %.01288 = phi i32 [ %146, %143 ], [ -1, %139 ], [ -1, %138 ]
-  %148 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 2) #5
+  %148 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 2)
   %149 = icmp sgt i32 %148, 0
   br i1 %149, label %150, label %.loopexit
 
 150:                                              ; preds = %147
   %151 = load i32, ptr @hf_pn532_parameters_length, align 4
-  %152 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %151, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
+  %152 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %151, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   switch i32 %.01288, label %169 [
     i32 0, label %153
     i32 1, label %163
@@ -1190,63 +1206,63 @@ proto_item_set_generated.exit:                    ; preds = %87, %84, %.thread13
 
 153:                                              ; preds = %150
   %154 = load i32, ptr @hf_pn532_test_number, align 4
-  %155 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %154, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #5
+  %155 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %154, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
   %156 = load i32, ptr @hf_pn532_parameters_length, align 4
-  %157 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %156, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #5
-  %158 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 4) #5
+  %157 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %156, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0)
+  %158 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 4)
   %159 = load i32, ptr @hf_pn532_data_out, align 4
   %160 = and i32 %158, 255
-  %161 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %159, ptr noundef %0, i32 noundef 5, i32 noundef %160, i32 noundef 0) #5
+  %161 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %159, ptr noundef %0, i32 noundef 5, i32 noundef %160, i32 noundef 0)
   %162 = add nuw nsw i32 %160, 5
   br label %.loopexit
 
 163:                                              ; preds = %150, %150, %150, %150
   %164 = load i32, ptr @hf_pn532_diagnose_result, align 4
-  %165 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %164, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #5
+  %165 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %164, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
   br label %.loopexit
 
 166:                                              ; preds = %150
   %167 = load i32, ptr @hf_pn532_diagnose_number_of_fails, align 4
-  %168 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %167, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #5
+  %168 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %167, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
   br label %.loopexit
 
 169:                                              ; preds = %150
   %170 = load i32, ptr @hf_pn532_parameters, align 4
-  %171 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 3) #5
-  %172 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %170, ptr noundef %0, i32 noundef 3, i32 noundef %171, i32 noundef 0) #5
-  %173 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 3) #5
+  %171 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 3)
+  %172 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %170, ptr noundef %0, i32 noundef 3, i32 noundef %171, i32 noundef 0)
+  %173 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 3)
   %174 = add i32 %173, 3
   br label %.loopexit
 
 175:                                              ; preds = %proto_item_set_generated.exit
   %176 = load i32, ptr @hf_pn532_ic_version, align 4
-  %177 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %176, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
+  %177 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %176, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %178 = load i32, ptr @hf_pn532_fw_version, align 4
-  %179 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %178, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #5
+  %179 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %178, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
   %180 = load i32, ptr @hf_pn532_fw_revision, align 4
-  %181 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %180, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #5
+  %181 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %180, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0)
   %182 = load i32, ptr @hf_pn532_fw_support, align 4
-  %183 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %182, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0) #5
+  %183 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %182, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0)
   %184 = load i32, ptr @ett_pn532_fw_support, align 4
-  %185 = call ptr @proto_item_add_subtree(ptr noundef %183, i32 noundef %184) #5
+  %185 = call ptr @proto_item_add_subtree(ptr noundef %183, i32 noundef %184)
   %186 = load i32, ptr @hf_pn532_fw_support_rfu, align 4
-  %187 = call ptr @proto_tree_add_item(ptr noundef %185, i32 noundef %186, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0) #5
+  %187 = call ptr @proto_tree_add_item(ptr noundef %185, i32 noundef %186, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0)
   %188 = load i32, ptr @hf_pn532_fw_support_iso_018092, align 4
-  %189 = call ptr @proto_tree_add_item(ptr noundef %185, i32 noundef %188, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0) #5
+  %189 = call ptr @proto_tree_add_item(ptr noundef %185, i32 noundef %188, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0)
   %190 = load i32, ptr @hf_pn532_fw_support_iso_iec_14443_type_b, align 4
-  %191 = call ptr @proto_tree_add_item(ptr noundef %185, i32 noundef %190, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0) #5
+  %191 = call ptr @proto_tree_add_item(ptr noundef %185, i32 noundef %190, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0)
   %192 = load i32, ptr @hf_pn532_fw_support_iso_iec_14443_type_a, align 4
-  %193 = call ptr @proto_tree_add_item(ptr noundef %185, i32 noundef %192, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0) #5
+  %193 = call ptr @proto_tree_add_item(ptr noundef %185, i32 noundef %192, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0)
   br label %.loopexit
 
 194:                                              ; preds = %proto_item_set_generated.exit
   %195 = load i32, ptr @hf_pn532_error, align 4
-  %196 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %195, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
+  %196 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %195, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %197 = load i32, ptr @hf_pn532_field, align 4
-  %198 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %197, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #5
+  %198 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %197, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
   %199 = load i32, ptr @hf_pn532_NbTg, align 4
-  %200 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %199, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #5
-  %201 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #5
+  %200 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %199, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0)
+  %201 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 4)
   %202 = zext i8 %201 to i32
   %.not13301374 = icmp eq i8 %201, 0
   br i1 %.not13301374, label %._crit_edge, label %.lr.ph1376
@@ -1255,150 +1271,150 @@ proto_item_set_generated.exit:                    ; preds = %87, %84, %.thread13
   %203 = phi i32 [ %221, %.lr.ph1376 ], [ 1, %194 ]
   %.112911375 = phi i32 [ %219, %.lr.ph1376 ], [ 5, %194 ]
   %204 = load i32, ptr @hf_pn532_target, align 4
-  %205 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %204, ptr noundef %0, i32 noundef %.112911375, i32 noundef 4, i32 noundef 0) #5
+  %205 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %204, ptr noundef %0, i32 noundef %.112911375, i32 noundef 4, i32 noundef 0)
   %206 = load i32, ptr @ett_pn532_target, align 4
-  %207 = call ptr @proto_item_add_subtree(ptr noundef %205, i32 noundef %206) #5
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %205, ptr noundef nonnull @.str.516, i32 noundef %203, i32 noundef %202) #5
+  %207 = call ptr @proto_item_add_subtree(ptr noundef %205, i32 noundef %206)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %205, ptr noundef nonnull @.str.534, i32 noundef %203, i32 noundef %202)
   %208 = load i32, ptr @hf_pn532_Tg, align 4
-  %209 = call ptr @proto_tree_add_item(ptr noundef %207, i32 noundef %208, ptr noundef %0, i32 noundef %.112911375, i32 noundef 1, i32 noundef 0) #5
+  %209 = call ptr @proto_tree_add_item(ptr noundef %207, i32 noundef %208, ptr noundef %0, i32 noundef %.112911375, i32 noundef 1, i32 noundef 0)
   %210 = add nuw nsw i32 %.112911375, 1
   %211 = load i32, ptr @hf_pn532_brrx, align 4
-  %212 = call ptr @proto_tree_add_item(ptr noundef %207, i32 noundef %211, ptr noundef %0, i32 noundef %210, i32 noundef 1, i32 noundef 0) #5
+  %212 = call ptr @proto_tree_add_item(ptr noundef %207, i32 noundef %211, ptr noundef %0, i32 noundef %210, i32 noundef 1, i32 noundef 0)
   %213 = add nuw nsw i32 %.112911375, 2
   %214 = load i32, ptr @hf_pn532_brtx, align 4
-  %215 = call ptr @proto_tree_add_item(ptr noundef %207, i32 noundef %214, ptr noundef %0, i32 noundef %213, i32 noundef 1, i32 noundef 0) #5
+  %215 = call ptr @proto_tree_add_item(ptr noundef %207, i32 noundef %214, ptr noundef %0, i32 noundef %213, i32 noundef 1, i32 noundef 0)
   %216 = add i32 %.112911375, 3
   %217 = load i32, ptr @hf_pn532_type, align 4
-  %218 = call ptr @proto_tree_add_item(ptr noundef %207, i32 noundef %217, ptr noundef %0, i32 noundef %216, i32 noundef 1, i32 noundef 0) #5
+  %218 = call ptr @proto_tree_add_item(ptr noundef %207, i32 noundef %217, ptr noundef %0, i32 noundef %216, i32 noundef 1, i32 noundef 0)
   %219 = add i32 %.112911375, 4
   %220 = add nuw nsw i32 %203, 1
   %221 = and i32 %220, 255
   %.not1330 = icmp samesign ugt i32 %221, %202
-  br i1 %.not1330, label %._crit_edge, label %.lr.ph1376, !llvm.loop !4
+  br i1 %.not1330, label %._crit_edge, label %.lr.ph1376, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph1376, %194
   %.11291.lcssa = phi i32 [ 5, %194 ], [ %219, %.lr.ph1376 ]
   %222 = load i32, ptr @hf_pn532_sam_status, align 4
-  %223 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %222, ptr noundef %0, i32 noundef %.11291.lcssa, i32 noundef 1, i32 noundef 0) #5
+  %223 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %222, ptr noundef %0, i32 noundef %.11291.lcssa, i32 noundef 1, i32 noundef 0)
   %224 = add i32 %.11291.lcssa, 1
   br label %.loopexit
 
 .lr.ph1372:                                       ; preds = %.preheader, %.lr.ph1372
   %.212921371 = phi i32 [ %227, %.lr.ph1372 ], [ 2, %.preheader ]
   %225 = load i32, ptr @hf_pn532_register_address, align 4
-  %226 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %225, ptr noundef %0, i32 noundef %.212921371, i32 noundef 2, i32 noundef 0) #5
+  %226 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %225, ptr noundef %0, i32 noundef %.212921371, i32 noundef 2, i32 noundef 0)
   %227 = add i32 %.212921371, 2
-  %228 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %227) #5
+  %228 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %227)
   %229 = icmp sgt i32 %228, 1
-  br i1 %229, label %.lr.ph1372, label %.loopexit, !llvm.loop !6
+  br i1 %229, label %.lr.ph1372, label %.loopexit, !llvm.loop !8
 
 .lr.ph1369:                                       ; preds = %.preheader1344, %.lr.ph1369
   %.31368 = phi i32 [ %232, %.lr.ph1369 ], [ 2, %.preheader1344 ]
   %230 = load i32, ptr @hf_pn532_register_value, align 4
-  %231 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %230, ptr noundef %0, i32 noundef %.31368, i32 noundef 1, i32 noundef 0) #5
+  %231 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %230, ptr noundef %0, i32 noundef %.31368, i32 noundef 1, i32 noundef 0)
   %232 = add i32 %.31368, 1
-  %233 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %232) #5
+  %233 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %232)
   %234 = icmp sgt i32 %233, 0
-  br i1 %234, label %.lr.ph1369, label %.loopexit, !llvm.loop !7
+  br i1 %234, label %.lr.ph1369, label %.loopexit, !llvm.loop !9
 
 .lr.ph1366:                                       ; preds = %.preheader1346, %.lr.ph1366
   %.41365 = phi i32 [ %240, %.lr.ph1366 ], [ 2, %.preheader1346 ]
   %235 = load i32, ptr @hf_pn532_register_address, align 4
-  %236 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %235, ptr noundef %0, i32 noundef %.41365, i32 noundef 2, i32 noundef 0) #5
+  %236 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %235, ptr noundef %0, i32 noundef %.41365, i32 noundef 2, i32 noundef 0)
   %237 = add i32 %.41365, 2
   %238 = load i32, ptr @hf_pn532_register_value, align 4
-  %239 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %238, ptr noundef %0, i32 noundef %237, i32 noundef 1, i32 noundef 0) #5
+  %239 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %238, ptr noundef %0, i32 noundef %237, i32 noundef 1, i32 noundef 0)
   %240 = add i32 %.41365, 3
-  %241 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %240) #5
+  %241 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %240)
   %242 = icmp sgt i32 %241, 2
-  br i1 %242, label %.lr.ph1366, label %.loopexit, !llvm.loop !8
+  br i1 %242, label %.lr.ph1366, label %.loopexit, !llvm.loop !10
 
 243:                                              ; preds = %proto_item_set_generated.exit
   %244 = load i32, ptr @hf_pn532_gpio_p3, align 4
-  %245 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %244, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
+  %245 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %244, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %246 = load i32, ptr @hf_pn532_gpio_p7, align 4
-  %247 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %246, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #5
+  %247 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %246, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
   %248 = load i32, ptr @hf_pn532_gpio_ioi1, align 4
-  %249 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %248, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #5
+  %249 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %248, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0)
   br label %.loopexit
 
 250:                                              ; preds = %proto_item_set_generated.exit
   %251 = load i32, ptr @hf_pn532_gpio_p3, align 4
-  %252 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %251, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
+  %252 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %251, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %253 = load i32, ptr @hf_pn532_gpio_p7, align 4
-  %254 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %253, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #5
+  %254 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %253, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
   br label %.loopexit
 
 255:                                              ; preds = %proto_item_set_generated.exit
   %256 = load i32, ptr @hf_pn532_baudrate, align 4
-  %257 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %256, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
+  %257 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %256, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   br label %.loopexit
 
 258:                                              ; preds = %proto_item_set_generated.exit
   %259 = load i32, ptr @hf_pn532_flags, align 4
-  %260 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %259, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
+  %260 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %259, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %261 = load i32, ptr @ett_pn532_flags, align 4
-  %262 = call ptr @proto_item_add_subtree(ptr noundef %260, i32 noundef %261) #5
+  %262 = call ptr @proto_item_add_subtree(ptr noundef %260, i32 noundef %261)
   %263 = load i32, ptr @hf_pn532_flags_rfu_7, align 4
-  %264 = call ptr @proto_tree_add_item(ptr noundef %262, i32 noundef %263, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
+  %264 = call ptr @proto_tree_add_item(ptr noundef %262, i32 noundef %263, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %265 = load i32, ptr @hf_pn532_flags_remove_preamble_and_postamble, align 4
-  %266 = call ptr @proto_tree_add_item(ptr noundef %262, i32 noundef %265, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
+  %266 = call ptr @proto_tree_add_item(ptr noundef %262, i32 noundef %265, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %267 = load i32, ptr @hf_pn532_flags_iso_14443_4_picc_emulation, align 4
-  %268 = call ptr @proto_tree_add_item(ptr noundef %262, i32 noundef %267, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
+  %268 = call ptr @proto_tree_add_item(ptr noundef %262, i32 noundef %267, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %269 = load i32, ptr @hf_pn532_flags_automatic_rats, align 4
-  %270 = call ptr @proto_tree_add_item(ptr noundef %262, i32 noundef %269, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
+  %270 = call ptr @proto_tree_add_item(ptr noundef %262, i32 noundef %269, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %271 = load i32, ptr @hf_pn532_flags_rfu_3, align 4
-  %272 = call ptr @proto_tree_add_item(ptr noundef %262, i32 noundef %271, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
+  %272 = call ptr @proto_tree_add_item(ptr noundef %262, i32 noundef %271, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %273 = load i32, ptr @hf_pn532_flags_automatic_atr_res, align 4
-  %274 = call ptr @proto_tree_add_item(ptr noundef %262, i32 noundef %273, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
+  %274 = call ptr @proto_tree_add_item(ptr noundef %262, i32 noundef %273, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %275 = load i32, ptr @hf_pn532_flags_did_used, align 4
-  %276 = call ptr @proto_tree_add_item(ptr noundef %262, i32 noundef %275, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
+  %276 = call ptr @proto_tree_add_item(ptr noundef %262, i32 noundef %275, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %277 = load i32, ptr @hf_pn532_flags_nad_used, align 4
-  %278 = call ptr @proto_tree_add_item(ptr noundef %262, i32 noundef %277, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
+  %278 = call ptr @proto_tree_add_item(ptr noundef %262, i32 noundef %277, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   br label %.loopexit
 
 279:                                              ; preds = %proto_item_set_generated.exit
   %280 = load i32, ptr @hf_pn532_sam_mode, align 4
-  %281 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %280, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
+  %281 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %280, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %282 = load i32, ptr @hf_pn532_sam_timeout, align 4
-  %283 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %282, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #5
-  %284 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 4) #5
+  %283 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %282, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
+  %284 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 4)
   %285 = icmp sgt i32 %284, 0
   br i1 %285, label %286, label %.loopexit
 
 286:                                              ; preds = %279
   %287 = load i32, ptr @hf_pn532_sam_irq, align 4
-  %288 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %287, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #5
+  %288 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %287, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0)
   br label %.loopexit
 
 289:                                              ; preds = %proto_item_set_generated.exit
   %290 = load i32, ptr @hf_pn532_wakeup_enable, align 4
-  %291 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %290, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
+  %291 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %290, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %292 = load i32, ptr @ett_pn532_wakeup_enable, align 4
-  %293 = call ptr @proto_item_add_subtree(ptr noundef %291, i32 noundef %292) #5
+  %293 = call ptr @proto_item_add_subtree(ptr noundef %291, i32 noundef %292)
   %294 = load i32, ptr @hf_pn532_wakeup_enable_i2c, align 4
-  %295 = call ptr @proto_tree_add_item(ptr noundef %293, i32 noundef %294, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
+  %295 = call ptr @proto_tree_add_item(ptr noundef %293, i32 noundef %294, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %296 = load i32, ptr @hf_pn532_wakeup_enable_gpio, align 4
-  %297 = call ptr @proto_tree_add_item(ptr noundef %293, i32 noundef %296, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
+  %297 = call ptr @proto_tree_add_item(ptr noundef %293, i32 noundef %296, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %298 = load i32, ptr @hf_pn532_wakeup_enable_spi, align 4
-  %299 = call ptr @proto_tree_add_item(ptr noundef %293, i32 noundef %298, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
+  %299 = call ptr @proto_tree_add_item(ptr noundef %293, i32 noundef %298, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %300 = load i32, ptr @hf_pn532_wakeup_enable_hsu, align 4
-  %301 = call ptr @proto_tree_add_item(ptr noundef %293, i32 noundef %300, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
+  %301 = call ptr @proto_tree_add_item(ptr noundef %293, i32 noundef %300, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %302 = load i32, ptr @hf_pn532_wakeup_enable_rf_level_detector, align 4
-  %303 = call ptr @proto_tree_add_item(ptr noundef %293, i32 noundef %302, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
+  %303 = call ptr @proto_tree_add_item(ptr noundef %293, i32 noundef %302, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %304 = load i32, ptr @hf_pn532_wakeup_enable_rfu_2, align 4
-  %305 = call ptr @proto_tree_add_item(ptr noundef %293, i32 noundef %304, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
+  %305 = call ptr @proto_tree_add_item(ptr noundef %293, i32 noundef %304, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %306 = load i32, ptr @hf_pn532_wakeup_enable_int_1, align 4
-  %307 = call ptr @proto_tree_add_item(ptr noundef %293, i32 noundef %306, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
+  %307 = call ptr @proto_tree_add_item(ptr noundef %293, i32 noundef %306, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %308 = load i32, ptr @hf_pn532_wakeup_enable_int_0, align 4
-  %309 = call ptr @proto_tree_add_item(ptr noundef %293, i32 noundef %308, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
-  %310 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 3) #5
+  %309 = call ptr @proto_tree_add_item(ptr noundef %293, i32 noundef %308, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
+  %310 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 3)
   %311 = icmp sgt i32 %310, 0
   br i1 %311, label %312, label %.loopexit
 
 312:                                              ; preds = %289
   %313 = load i32, ptr @hf_pn532_generate_irq, align 4
-  %314 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %313, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #5
+  %314 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %313, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
   br label %.loopexit
 
 315:                                              ; preds = %proto_item_set_generated.exit
@@ -1407,8 +1423,8 @@ proto_item_set_generated.exit:                    ; preds = %87, %84, %.thread13
 
 316:                                              ; preds = %proto_item_set_generated.exit
   %317 = load i32, ptr @hf_pn532_config, align 4
-  %318 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %317, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
-  %319 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #5
+  %318 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %317, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
+  %319 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
   switch i8 %319, label %407 [
     i8 1, label %320
     i8 2, label %327
@@ -1422,140 +1438,140 @@ proto_item_set_generated.exit:                    ; preds = %87, %84, %.thread13
 
 320:                                              ; preds = %316
   %321 = load i32, ptr @hf_pn532_config_not_used, align 4
-  %322 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %321, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #5
+  %322 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %321, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
   %323 = load i32, ptr @hf_pn532_config_auto_rfca, align 4
-  %324 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %323, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #5
+  %324 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %323, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
   %325 = load i32, ptr @hf_pn532_config_rf, align 4
-  %326 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %325, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #5
+  %326 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %325, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
   br label %.loopexit
 
 327:                                              ; preds = %316
   %328 = load i32, ptr @hf_pn532_config_rfu, align 4
-  %329 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %328, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #5
+  %329 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %328, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
   %330 = load i32, ptr @hf_pn532_config_atr_res_timeout, align 4
-  %331 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %330, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #5
+  %331 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %330, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0)
   %332 = load i32, ptr @hf_pn532_config_timeout_non_dep, align 4
-  %333 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %332, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0) #5
+  %333 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %332, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0)
   br label %.loopexit
 
 334:                                              ; preds = %316
   %335 = load i32, ptr @hf_pn532_config_max_rty_com, align 4
-  %336 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %335, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #5
+  %336 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %335, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
   br label %.loopexit
 
 337:                                              ; preds = %316
   %338 = load i32, ptr @hf_pn532_config_max_rty_atr, align 4
-  %339 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %338, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #5
+  %339 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %338, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
   %340 = load i32, ptr @hf_pn532_config_max_rty_psl, align 4
-  %341 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %340, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #5
+  %341 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %340, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0)
   %342 = load i32, ptr @hf_pn532_config_max_rty_passive_activation, align 4
-  %343 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %342, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0) #5
+  %343 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %342, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0)
   br label %.loopexit
 
 344:                                              ; preds = %316, %316
   %345 = load i32, ptr @hf_pn532_config_ciu_rf_cfg, align 4
-  %346 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %345, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #5
+  %346 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %345, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
   %347 = load i32, ptr @hf_pn532_config_ciu_gs_n_on, align 4
-  %348 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %347, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #5
+  %348 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %347, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0)
   %349 = load i32, ptr @hf_pn532_config_ciu_cw_gs_p, align 4
-  %350 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %349, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0) #5
+  %350 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %349, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0)
   %351 = load i32, ptr @hf_pn532_config_ciu_mod_gs_p, align 4
-  %352 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %351, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0) #5
+  %352 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %351, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0)
   %353 = load i32, ptr @hf_pn532_config_ciu_demon_rf_on, align 4
-  %354 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %353, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #5
+  %354 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %353, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0)
   %355 = load i32, ptr @hf_pn532_config_ciu_rx_threshold, align 4
-  %356 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %355, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef 0) #5
+  %356 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %355, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef 0)
   %357 = load i32, ptr @hf_pn532_config_ciu_demon_rf_off, align 4
-  %358 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %357, ptr noundef %0, i32 noundef 9, i32 noundef 1, i32 noundef 0) #5
+  %358 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %357, ptr noundef %0, i32 noundef 9, i32 noundef 1, i32 noundef 0)
   %359 = load i32, ptr @hf_pn532_config_ciu_gs_n_off, align 4
-  %360 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %359, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef 0) #5
+  %360 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %359, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef 0)
   %361 = icmp eq i8 %319, 10
   br i1 %361, label %362, label %.loopexit
 
 362:                                              ; preds = %344
   %363 = load i32, ptr @hf_pn532_config_ciu_mod_width, align 4
-  %364 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %363, ptr noundef %0, i32 noundef 11, i32 noundef 1, i32 noundef 0) #5
+  %364 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %363, ptr noundef %0, i32 noundef 11, i32 noundef 1, i32 noundef 0)
   %365 = load i32, ptr @hf_pn532_config_ciu_mif_nfc, align 4
-  %366 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %365, ptr noundef %0, i32 noundef 12, i32 noundef 1, i32 noundef 0) #5
+  %366 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %365, ptr noundef %0, i32 noundef 12, i32 noundef 1, i32 noundef 0)
   %367 = load i32, ptr @hf_pn532_config_ciu_tx_bit_phase, align 4
-  %368 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %367, ptr noundef %0, i32 noundef 13, i32 noundef 1, i32 noundef 0) #5
+  %368 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %367, ptr noundef %0, i32 noundef 13, i32 noundef 1, i32 noundef 0)
   br label %.loopexit
 
 369:                                              ; preds = %316
   %370 = load i32, ptr @hf_pn532_config_ciu_gs_n_on, align 4
-  %371 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %370, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #5
+  %371 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %370, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
   %372 = load i32, ptr @hf_pn532_config_ciu_mod_gs_p, align 4
-  %373 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %372, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #5
+  %373 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %372, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0)
   %374 = load i32, ptr @hf_pn532_config_ciu_rx_threshold, align 4
-  %375 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %374, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0) #5
+  %375 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %374, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0)
   br label %.loopexit
 
 376:                                              ; preds = %316
   %377 = load i32, ptr @hf_pn532_config_212_kbps, align 4
-  %378 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %377, ptr noundef %0, i32 noundef 3, i32 noundef 3, i32 noundef 0) #5
+  %378 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %377, ptr noundef %0, i32 noundef 3, i32 noundef 3, i32 noundef 0)
   %379 = load i32, ptr @ett_pn532_config_212_kbps, align 4
-  %380 = call ptr @proto_item_add_subtree(ptr noundef %378, i32 noundef %379) #5
+  %380 = call ptr @proto_item_add_subtree(ptr noundef %378, i32 noundef %379)
   %381 = load i32, ptr @hf_pn532_config_ciu_rx_threshold, align 4
-  %382 = call ptr @proto_tree_add_item(ptr noundef %380, i32 noundef %381, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #5
+  %382 = call ptr @proto_tree_add_item(ptr noundef %380, i32 noundef %381, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
   %383 = load i32, ptr @hf_pn532_config_ciu_mod_width, align 4
-  %384 = call ptr @proto_tree_add_item(ptr noundef %380, i32 noundef %383, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #5
+  %384 = call ptr @proto_tree_add_item(ptr noundef %380, i32 noundef %383, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0)
   %385 = load i32, ptr @hf_pn532_config_ciu_mif_nfc, align 4
-  %386 = call ptr @proto_tree_add_item(ptr noundef %380, i32 noundef %385, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0) #5
+  %386 = call ptr @proto_tree_add_item(ptr noundef %380, i32 noundef %385, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0)
   %387 = load i32, ptr @hf_pn532_config_424_kbps, align 4
-  %388 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %387, ptr noundef %0, i32 noundef 6, i32 noundef 3, i32 noundef 0) #5
+  %388 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %387, ptr noundef %0, i32 noundef 6, i32 noundef 3, i32 noundef 0)
   %389 = load i32, ptr @ett_pn532_config_424_kbps, align 4
-  %390 = call ptr @proto_item_add_subtree(ptr noundef %388, i32 noundef %389) #5
+  %390 = call ptr @proto_item_add_subtree(ptr noundef %388, i32 noundef %389)
   %391 = load i32, ptr @hf_pn532_config_ciu_rx_threshold, align 4
-  %392 = call ptr @proto_tree_add_item(ptr noundef %390, i32 noundef %391, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0) #5
+  %392 = call ptr @proto_tree_add_item(ptr noundef %390, i32 noundef %391, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0)
   %393 = load i32, ptr @hf_pn532_config_ciu_mod_width, align 4
-  %394 = call ptr @proto_tree_add_item(ptr noundef %390, i32 noundef %393, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #5
+  %394 = call ptr @proto_tree_add_item(ptr noundef %390, i32 noundef %393, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0)
   %395 = load i32, ptr @hf_pn532_config_ciu_mif_nfc, align 4
-  %396 = call ptr @proto_tree_add_item(ptr noundef %390, i32 noundef %395, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef 0) #5
+  %396 = call ptr @proto_tree_add_item(ptr noundef %390, i32 noundef %395, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef 0)
   %397 = load i32, ptr @hf_pn532_config_848_kbps, align 4
-  %398 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %397, ptr noundef %0, i32 noundef 9, i32 noundef 3, i32 noundef 0) #5
+  %398 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %397, ptr noundef %0, i32 noundef 9, i32 noundef 3, i32 noundef 0)
   %399 = load i32, ptr @ett_pn532_config_848_kbps, align 4
-  %400 = call ptr @proto_item_add_subtree(ptr noundef %398, i32 noundef %399) #5
+  %400 = call ptr @proto_item_add_subtree(ptr noundef %398, i32 noundef %399)
   %401 = load i32, ptr @hf_pn532_config_ciu_rx_threshold, align 4
-  %402 = call ptr @proto_tree_add_item(ptr noundef %400, i32 noundef %401, ptr noundef %0, i32 noundef 9, i32 noundef 1, i32 noundef 0) #5
+  %402 = call ptr @proto_tree_add_item(ptr noundef %400, i32 noundef %401, ptr noundef %0, i32 noundef 9, i32 noundef 1, i32 noundef 0)
   %403 = load i32, ptr @hf_pn532_config_ciu_mod_width, align 4
-  %404 = call ptr @proto_tree_add_item(ptr noundef %400, i32 noundef %403, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef 0) #5
+  %404 = call ptr @proto_tree_add_item(ptr noundef %400, i32 noundef %403, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef 0)
   %405 = load i32, ptr @hf_pn532_config_ciu_mif_nfc, align 4
-  %406 = call ptr @proto_tree_add_item(ptr noundef %400, i32 noundef %405, ptr noundef %0, i32 noundef 11, i32 noundef 1, i32 noundef 0) #5
+  %406 = call ptr @proto_tree_add_item(ptr noundef %400, i32 noundef %405, ptr noundef %0, i32 noundef 11, i32 noundef 1, i32 noundef 0)
   br label %.loopexit
 
 407:                                              ; preds = %316
-  %408 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 3) #5
-  %409 = call ptr @proto_tree_add_expert(ptr noundef %17, ptr noundef nonnull %1, ptr noundef nonnull @ei_unknown_data, ptr noundef %0, i32 noundef 3, i32 noundef %408) #5
-  %410 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 3) #5
+  %408 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 3)
+  %409 = call ptr @proto_tree_add_expert(ptr noundef %17, ptr noundef %1, ptr noundef nonnull @ei_unknown_data, ptr noundef %0, i32 noundef 3, i32 noundef %408)
+  %410 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 3)
   %411 = add i32 %410, 3
   br label %.loopexit
 
 412:                                              ; preds = %proto_item_set_generated.exit
   %413 = load i32, ptr @hf_pn532_txmode_nu_7, align 4
-  %414 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %413, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
+  %414 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %413, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %415 = load i32, ptr @hf_pn532_txmode_tx_speed, align 4
-  %416 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %415, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
+  %416 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %415, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %417 = load i32, ptr @hf_pn532_txmode_nu_2_3, align 4
-  %418 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %417, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
+  %418 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %417, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %419 = load i32, ptr @hf_pn532_txmode_tx_framing, align 4
-  %420 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %419, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
+  %420 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %419, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   br label %.loopexit
 
 421:                                              ; preds = %proto_item_set_generated.exit, %proto_item_set_generated.exit
   %422 = load i32, ptr @hf_pn532_communication_mode, align 4
-  %423 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %422, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
+  %423 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %422, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %424 = load i32, ptr @hf_pn532_activation_baudrate, align 4
-  %425 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %424, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #5
-  %426 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #5
+  %425 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %424, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
+  %426 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 3)
   %427 = load i32, ptr @hf_pn532_jump_next_not_used_3_7, align 4
-  %428 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %427, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #5
+  %428 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %427, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0)
   %429 = load i32, ptr @hf_pn532_jump_next_passive_initiator_data, align 4
-  %430 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %429, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #5
+  %430 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %429, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0)
   %431 = load i32, ptr @hf_pn532_jump_next_gi, align 4
-  %432 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %431, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #5
+  %432 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %431, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0)
   %433 = load i32, ptr @hf_pn532_jump_next_nfc_id_3i, align 4
-  %434 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %433, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #5
-  %435 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #5
+  %434 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %433, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0)
+  %435 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 4)
   %436 = zext i8 %435 to i32
   %437 = and i32 %436, 1
   %.not1327 = icmp eq i32 %437, 0
@@ -1566,7 +1582,7 @@ proto_item_set_generated.exit:                    ; preds = %87, %84, %.thread13
   %439 = load i32, ptr @hf_pn532_passive_initiator_data, align 4
   %. = select i1 %438, i32 4, i32 5
   %.1400 = select i1 %438, i32 9, i32 10
-  %440 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %439, ptr noundef %0, i32 noundef 5, i32 noundef %., i32 noundef 0) #5
+  %440 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %439, ptr noundef %0, i32 noundef 5, i32 noundef %., i32 noundef 0)
   br label %441
 
 441:                                              ; preds = %.sink.split, %421
@@ -1577,7 +1593,7 @@ proto_item_set_generated.exit:                    ; preds = %87, %84, %.thread13
 
 443:                                              ; preds = %441
   %444 = load i32, ptr @hf_pn532_nfc_id_3i, align 4
-  %445 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %444, ptr noundef %0, i32 noundef %.5, i32 noundef 10, i32 noundef 0) #5
+  %445 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %444, ptr noundef %0, i32 noundef %.5, i32 noundef 10, i32 noundef 0)
   %446 = add nuw nsw i32 %.5, 10
   br label %447
 
@@ -1589,38 +1605,38 @@ proto_item_set_generated.exit:                    ; preds = %87, %84, %.thread13
 
 449:                                              ; preds = %447
   %450 = load i32, ptr @hf_pn532_gi, align 4
-  %451 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.6) #5
-  %452 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %450, ptr noundef %0, i32 noundef %.6, i32 noundef %451, i32 noundef 0) #5
-  %453 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.6) #5
+  %451 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.6)
+  %452 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %450, ptr noundef %0, i32 noundef %.6, i32 noundef %451, i32 noundef 0)
+  %453 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.6)
   %454 = add i32 %453, %.6
   br label %.loopexit
 
 455:                                              ; preds = %proto_item_set_generated.exit, %proto_item_set_generated.exit
   call fastcc void @dissect_status(ptr noundef %17, ptr noundef %0)
   %456 = load i32, ptr @hf_pn532_Tg, align 4
-  %457 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %456, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #5
+  %457 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %456, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
   %458 = load i32, ptr @hf_pn532_nfc_id_3t, align 4
-  %459 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %458, ptr noundef %0, i32 noundef 4, i32 noundef 10, i32 noundef 0) #5
+  %459 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %458, ptr noundef %0, i32 noundef 4, i32 noundef 10, i32 noundef 0)
   %460 = load i32, ptr @hf_pn532_did_target, align 4
-  %461 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %460, ptr noundef %0, i32 noundef 14, i32 noundef 1, i32 noundef 0) #5
+  %461 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %460, ptr noundef %0, i32 noundef 14, i32 noundef 1, i32 noundef 0)
   %462 = load i32, ptr @hf_pn532_send_bit_rate_target, align 4
-  %463 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %462, ptr noundef %0, i32 noundef 15, i32 noundef 1, i32 noundef 0) #5
+  %463 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %462, ptr noundef %0, i32 noundef 15, i32 noundef 1, i32 noundef 0)
   %464 = load i32, ptr @hf_pn532_receive_bit_rate_target, align 4
-  %465 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %464, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0) #5
+  %465 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %464, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0)
   %466 = load i32, ptr @hf_pn532_timeout, align 4
-  %467 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %466, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0) #5
+  %467 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %466, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0)
   %468 = load i32, ptr @hf_pn532_optional_parameters, align 4
-  %469 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %468, ptr noundef %0, i32 noundef 18, i32 noundef 1, i32 noundef 0) #5
+  %469 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %468, ptr noundef %0, i32 noundef 18, i32 noundef 1, i32 noundef 0)
   %470 = load i32, ptr @hf_pn532_gt, align 4
-  %471 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %470, ptr noundef %0, i32 noundef 19, i32 noundef 10, i32 noundef 0) #5
+  %471 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %470, ptr noundef %0, i32 noundef 19, i32 noundef 10, i32 noundef 0)
   br label %.loopexit
 
 472:                                              ; preds = %proto_item_set_generated.exit
   %473 = load i32, ptr @hf_pn532_MaxTg, align 4
-  %474 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %473, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
+  %474 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %473, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %475 = load i32, ptr @hf_pn532_BrTy, align 4
-  %476 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %475, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #5
-  %477 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #5
+  %476 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %475, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
+  %477 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 3)
   %.not1326 = icmp eq ptr %.1, null
   br i1 %.not1326, label %481, label %478
 
@@ -1639,41 +1655,41 @@ proto_item_set_generated.exit:                    ; preds = %87, %84, %.thread13
   ]
 
 .preheader1348:                                   ; preds = %481
-  %482 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 4) #5
+  %482 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 4)
   %483 = icmp sgt i32 %482, 3
   br i1 %483, label %.lr.ph1363, label %.loopexit
 
 .lr.ph1363:                                       ; preds = %.preheader1348, %.lr.ph1363
   %.71362 = phi i32 [ %486, %.lr.ph1363 ], [ 4, %.preheader1348 ]
   %484 = load i32, ptr @hf_pn532_14443a_uid, align 4
-  %485 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %484, ptr noundef %0, i32 noundef 6, i32 noundef 4, i32 noundef 0) #5
+  %485 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %484, ptr noundef %0, i32 noundef 6, i32 noundef 4, i32 noundef 0)
   %486 = add i32 %.71362, 4
-  %487 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %486) #5
+  %487 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %486)
   %488 = icmp sgt i32 %487, 3
-  br i1 %488, label %.lr.ph1363, label %.loopexit, !llvm.loop !9
+  br i1 %488, label %.lr.ph1363, label %.loopexit, !llvm.loop !11
 
 489:                                              ; preds = %481, %481
-  %490 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 4, i32 noundef 5) #5
+  %490 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 4, i32 noundef 5)
   %491 = load ptr, ptr @sub_handles.1, align 8
-  %492 = call i32 @call_dissector(ptr noundef %491, ptr noundef %490, ptr noundef nonnull %1, ptr noundef %2) #5
+  %492 = call i32 @call_dissector(ptr noundef %491, ptr noundef %490, ptr noundef %1, ptr noundef %2)
   br label %.loopexit
 
 493:                                              ; preds = %481
   %494 = load i32, ptr @hf_pn532_afi, align 4
-  %495 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %494, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #5
-  %496 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 5) #5
+  %495 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %494, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0)
+  %496 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 5)
   %497 = icmp sgt i32 %496, 0
   br i1 %497, label %498, label %.loopexit
 
 498:                                              ; preds = %493
   %499 = load i32, ptr @hf_pn532_polling_method, align 4
-  %500 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %499, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0) #5
+  %500 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %499, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0)
   br label %.loopexit
 
 501:                                              ; preds = %proto_item_set_generated.exit
   %502 = load i32, ptr @hf_pn532_NbTg, align 4
-  %503 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %502, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
-  %504 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #5
+  %503 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %502, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
+  %504 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
   %.not1323 = icmp eq ptr %.1, null
   br i1 %.not1323, label %513, label %505
 
@@ -1692,13 +1708,13 @@ proto_item_set_generated.exit:                    ; preds = %87, %84, %.thread13
 513:                                              ; preds = %501, %505, %509
   %.01287 = phi i32 [ %512, %509 ], [ -1, %505 ], [ -1, %501 ]
   %514 = load i32, ptr @hf_pn532_BrTy, align 4
-  %515 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 3) #5
-  %516 = call ptr @proto_tree_add_uint(ptr noundef %17, i32 noundef %514, ptr noundef %0, i32 noundef 3, i32 noundef %515, i32 noundef %.01287) #5
+  %515 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 3)
+  %516 = call ptr @proto_tree_add_uint(ptr noundef %17, i32 noundef %514, ptr noundef %0, i32 noundef 3, i32 noundef %515, i32 noundef %.01287)
   %.not.i1333 = icmp eq ptr %516, null
   br i1 %.not.i1333, label %proto_item_set_generated.exit1335, label %517
 
 517:                                              ; preds = %513
-  %518 = getelementptr inbounds nuw i8, ptr %516, i64 32
+  %518 = getelementptr inbounds nuw i8, ptr %516, i64 40
   %519 = load ptr, ptr %518, align 8
   %.not5.i1334 = icmp eq ptr %519, null
   br i1 %.not5.i1334, label %proto_item_set_generated.exit1335, label %520
@@ -1719,13 +1735,13 @@ proto_item_set_generated.exit1335:                ; preds = %513, %517, %520
   %525 = phi i32 [ %611, %609 ], [ 1, %proto_item_set_generated.exit1335 ]
   %.81359 = phi i32 [ %.9, %609 ], [ 3, %proto_item_set_generated.exit1335 ]
   %526 = load i32, ptr @hf_pn532_target, align 4
-  %527 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.81359) #5
-  %528 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %526, ptr noundef %0, i32 noundef %.81359, i32 noundef %527, i32 noundef 0) #5
+  %527 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.81359)
+  %528 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %526, ptr noundef %0, i32 noundef %.81359, i32 noundef %527, i32 noundef 0)
   %529 = load i32, ptr @ett_pn532_target, align 4
-  %530 = call ptr @proto_item_add_subtree(ptr noundef %528, i32 noundef %529) #5
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %528, ptr noundef nonnull @.str.516, i32 noundef %525, i32 noundef %524) #5
+  %530 = call ptr @proto_item_add_subtree(ptr noundef %528, i32 noundef %529)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %528, ptr noundef nonnull @.str.534, i32 noundef %525, i32 noundef %524)
   %531 = load i32, ptr @hf_pn532_Tg, align 4
-  %532 = call ptr @proto_tree_add_item(ptr noundef %530, i32 noundef %531, ptr noundef %0, i32 noundef %.81359, i32 noundef 1, i32 noundef 0) #5
+  %532 = call ptr @proto_tree_add_item(ptr noundef %530, i32 noundef %531, ptr noundef %0, i32 noundef %.81359, i32 noundef 1, i32 noundef 0)
   %533 = add i32 %.81359, 1
   switch i32 %.01287, label %604 [
     i32 0, label %534
@@ -1737,95 +1753,95 @@ proto_item_set_generated.exit1335:                ; preds = %513, %517, %520
 
 534:                                              ; preds = %.lr.ph1360
   %535 = load i32, ptr @hf_pn532_sens_res, align 4
-  %536 = call ptr @proto_tree_add_item(ptr noundef %530, i32 noundef %535, ptr noundef %0, i32 noundef %533, i32 noundef 2, i32 noundef 0) #5
+  %536 = call ptr @proto_tree_add_item(ptr noundef %530, i32 noundef %535, ptr noundef %0, i32 noundef %533, i32 noundef 2, i32 noundef 0)
   %537 = add i32 %.81359, 3
   %538 = load i32, ptr @hf_pn532_sel_res, align 4
-  %539 = call ptr @proto_tree_add_item(ptr noundef %530, i32 noundef %538, ptr noundef %0, i32 noundef %537, i32 noundef 1, i32 noundef 0) #5
+  %539 = call ptr @proto_tree_add_item(ptr noundef %530, i32 noundef %538, ptr noundef %0, i32 noundef %537, i32 noundef 1, i32 noundef 0)
   %540 = add i32 %.81359, 4
   %541 = load i32, ptr @hf_pn532_nfc_id_length, align 4
-  %542 = call ptr @proto_tree_add_item(ptr noundef %530, i32 noundef %541, ptr noundef %0, i32 noundef %540, i32 noundef 1, i32 noundef 0) #5
-  %543 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %540) #5
+  %542 = call ptr @proto_tree_add_item(ptr noundef %530, i32 noundef %541, ptr noundef %0, i32 noundef %540, i32 noundef 1, i32 noundef 0)
+  %543 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %540)
   %544 = add i32 %.81359, 5
   %545 = load i32, ptr @hf_pn532_nfc_id_1, align 4
   %546 = zext i8 %543 to i32
-  %547 = call ptr @proto_tree_add_item(ptr noundef %530, i32 noundef %545, ptr noundef %0, i32 noundef %544, i32 noundef %546, i32 noundef 0) #5
+  %547 = call ptr @proto_tree_add_item(ptr noundef %530, i32 noundef %545, ptr noundef %0, i32 noundef %544, i32 noundef %546, i32 noundef 0)
   %548 = add i32 %544, %546
-  %549 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %548) #5
+  %549 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %548)
   %.not1325 = icmp eq i32 %549, 0
   br i1 %.not1325, label %609, label %550
 
 550:                                              ; preds = %534
   %551 = load i32, ptr @hf_pn532_ats_length, align 4
-  %552 = call ptr @proto_tree_add_item(ptr noundef %530, i32 noundef %551, ptr noundef %0, i32 noundef %548, i32 noundef 1, i32 noundef 0) #5
-  %553 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %548) #5
+  %552 = call ptr @proto_tree_add_item(ptr noundef %530, i32 noundef %551, ptr noundef %0, i32 noundef %548, i32 noundef 1, i32 noundef 0)
+  %553 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %548)
   %554 = add i32 %548, 1
   %555 = load i32, ptr @hf_pn532_ats, align 4
   %556 = zext i8 %553 to i32
   %557 = add nsw i32 %556, -1
-  %558 = call ptr @proto_tree_add_item(ptr noundef %530, i32 noundef %555, ptr noundef %0, i32 noundef %554, i32 noundef %557, i32 noundef 0) #5
+  %558 = call ptr @proto_tree_add_item(ptr noundef %530, i32 noundef %555, ptr noundef %0, i32 noundef %554, i32 noundef %557, i32 noundef 0)
   %559 = add i32 %548, %556
   br label %609
 
 560:                                              ; preds = %.lr.ph1360, %.lr.ph1360
   %561 = load i32, ptr @hf_pn532_pol_res_length, align 4
-  %562 = call ptr @proto_tree_add_item(ptr noundef %530, i32 noundef %561, ptr noundef %0, i32 noundef %533, i32 noundef 1, i32 noundef 0) #5
+  %562 = call ptr @proto_tree_add_item(ptr noundef %530, i32 noundef %561, ptr noundef %0, i32 noundef %533, i32 noundef 1, i32 noundef 0)
   %563 = add i32 %.81359, 2
   %564 = load i32, ptr @hf_pn532_response_code, align 4
-  %565 = call ptr @proto_tree_add_item(ptr noundef %530, i32 noundef %564, ptr noundef %0, i32 noundef %563, i32 noundef 1, i32 noundef 0) #5
+  %565 = call ptr @proto_tree_add_item(ptr noundef %530, i32 noundef %564, ptr noundef %0, i32 noundef %563, i32 noundef 1, i32 noundef 0)
   %566 = add i32 %.81359, 3
   %567 = load i32, ptr @hf_pn532_nfc_id_2t, align 4
-  %568 = call ptr @proto_tree_add_item(ptr noundef %530, i32 noundef %567, ptr noundef %0, i32 noundef %566, i32 noundef 8, i32 noundef 0) #5
+  %568 = call ptr @proto_tree_add_item(ptr noundef %530, i32 noundef %567, ptr noundef %0, i32 noundef %566, i32 noundef 8, i32 noundef 0)
   %569 = add i32 %.81359, 11
   %570 = load i32, ptr @hf_pn532_pad, align 4
-  %571 = call ptr @proto_tree_add_item(ptr noundef %530, i32 noundef %570, ptr noundef %0, i32 noundef %569, i32 noundef 8, i32 noundef 0) #5
+  %571 = call ptr @proto_tree_add_item(ptr noundef %530, i32 noundef %570, ptr noundef %0, i32 noundef %569, i32 noundef 8, i32 noundef 0)
   %572 = add i32 %.81359, 19
-  %573 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %572) #5
+  %573 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %572)
   %574 = icmp sgt i32 %573, 1
   br i1 %574, label %575, label %579
 
 575:                                              ; preds = %560
   %576 = load i32, ptr @hf_pn532_syst_code, align 4
-  %577 = call ptr @proto_tree_add_item(ptr noundef %530, i32 noundef %576, ptr noundef %0, i32 noundef %572, i32 noundef 2, i32 noundef 0) #5
+  %577 = call ptr @proto_tree_add_item(ptr noundef %530, i32 noundef %576, ptr noundef %0, i32 noundef %572, i32 noundef 2, i32 noundef 0)
   %578 = add i32 %.81359, 21
   br label %609
 
 579:                                              ; preds = %560
-  %580 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %572) #5
+  %580 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %572)
   %581 = icmp eq i32 %580, 1
   br i1 %581, label %582, label %609
 
 582:                                              ; preds = %579
-  %583 = call ptr @proto_tree_add_expert(ptr noundef %17, ptr noundef %1, ptr noundef nonnull @ei_unexpected_data, ptr noundef %0, i32 noundef %572, i32 noundef 1) #5
+  %583 = call ptr @proto_tree_add_expert(ptr noundef %17, ptr noundef %1, ptr noundef nonnull @ei_unexpected_data, ptr noundef %0, i32 noundef %572, i32 noundef 1)
   %584 = add i32 %.81359, 20
   br label %609
 
 585:                                              ; preds = %.lr.ph1360
   %586 = load i32, ptr @hf_pn532_atqb_response, align 4
-  %587 = call ptr @proto_tree_add_item(ptr noundef %530, i32 noundef %586, ptr noundef %0, i32 noundef %533, i32 noundef 12, i32 noundef 0) #5
+  %587 = call ptr @proto_tree_add_item(ptr noundef %530, i32 noundef %586, ptr noundef %0, i32 noundef %533, i32 noundef 12, i32 noundef 0)
   %588 = add i32 %.81359, 13
   %589 = load i32, ptr @hf_pn532_attrib_res_length, align 4
-  %590 = call ptr @proto_tree_add_item(ptr noundef %530, i32 noundef %589, ptr noundef %0, i32 noundef %588, i32 noundef 1, i32 noundef 0) #5
-  %591 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %588) #5
+  %590 = call ptr @proto_tree_add_item(ptr noundef %530, i32 noundef %589, ptr noundef %0, i32 noundef %588, i32 noundef 1, i32 noundef 0)
+  %591 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %588)
   %592 = add i32 %.81359, 14
   %593 = load i32, ptr @hf_pn532_attrib_res, align 4
   %594 = zext i8 %591 to i32
-  %595 = call ptr @proto_tree_add_item(ptr noundef %530, i32 noundef %593, ptr noundef %0, i32 noundef %592, i32 noundef %594, i32 noundef 0) #5
+  %595 = call ptr @proto_tree_add_item(ptr noundef %530, i32 noundef %593, ptr noundef %0, i32 noundef %592, i32 noundef %594, i32 noundef 0)
   %596 = add i32 %592, %594
   br label %609
 
 597:                                              ; preds = %.lr.ph1360
   %598 = load i32, ptr @hf_pn532_sens_res, align 4
-  %599 = call ptr @proto_tree_add_item(ptr noundef %530, i32 noundef %598, ptr noundef %0, i32 noundef %533, i32 noundef 2, i32 noundef 0) #5
+  %599 = call ptr @proto_tree_add_item(ptr noundef %530, i32 noundef %598, ptr noundef %0, i32 noundef %533, i32 noundef 2, i32 noundef 0)
   %600 = add i32 %.81359, 3
   %601 = load i32, ptr @hf_pn532_jewel_id, align 4
-  %602 = call ptr @proto_tree_add_item(ptr noundef %530, i32 noundef %601, ptr noundef %0, i32 noundef %600, i32 noundef 4, i32 noundef 0) #5
+  %602 = call ptr @proto_tree_add_item(ptr noundef %530, i32 noundef %601, ptr noundef %0, i32 noundef %600, i32 noundef 4, i32 noundef 0)
   %603 = add i32 %.81359, 7
   br label %609
 
 604:                                              ; preds = %.lr.ph1360
-  %605 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %533) #5
-  %606 = call ptr @proto_tree_add_expert(ptr noundef %17, ptr noundef %1, ptr noundef nonnull @ei_unknown_data, ptr noundef %0, i32 noundef %533, i32 noundef %605) #5
-  %607 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %533) #5
+  %605 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %533)
+  %606 = call ptr @proto_tree_add_expert(ptr noundef %17, ptr noundef %1, ptr noundef nonnull @ei_unknown_data, ptr noundef %0, i32 noundef %533, i32 noundef %605)
+  %607 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %533)
   %608 = add i32 %607, %533
   br label %609
 
@@ -1834,18 +1850,18 @@ proto_item_set_generated.exit1335:                ; preds = %513, %517, %520
   %610 = add nuw nsw i32 %525, 1
   %611 = and i32 %610, 255
   %.not1324 = icmp samesign ugt i32 %611, %524
-  br i1 %.not1324, label %.loopexit, label %.lr.ph1360, !llvm.loop !10
+  br i1 %.not1324, label %.loopexit, label %.lr.ph1360, !llvm.loop !12
 
 612:                                              ; preds = %proto_item_set_generated.exit
   %613 = load i32, ptr @hf_pn532_Tg, align 4
-  %614 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %613, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
+  %614 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %613, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %615 = load i32, ptr @hf_pn532_next_not_used_2_7, align 4
-  %616 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %615, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #5
+  %616 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %615, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
   %617 = load i32, ptr @hf_pn532_next_gi, align 4
-  %618 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %617, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #5
+  %618 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %617, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
   %619 = load i32, ptr @hf_pn532_next_nfc_id_3i, align 4
-  %620 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %619, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #5
-  %621 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #5
+  %620 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %619, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
+  %621 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 3)
   %622 = zext i8 %621 to i32
   %623 = and i32 %622, 1
   %.not1321 = icmp eq i32 %623, 0
@@ -1853,7 +1869,7 @@ proto_item_set_generated.exit1335:                ; preds = %513, %517, %520
 
 624:                                              ; preds = %612
   %625 = load i32, ptr @hf_pn532_nfc_id_3i, align 4
-  %626 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %625, ptr noundef %0, i32 noundef 4, i32 noundef 10, i32 noundef 0) #5
+  %626 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %625, ptr noundef %0, i32 noundef 4, i32 noundef 10, i32 noundef 0)
   br label %627
 
 627:                                              ; preds = %624, %612
@@ -1864,37 +1880,37 @@ proto_item_set_generated.exit1335:                ; preds = %513, %517, %520
 
 629:                                              ; preds = %627
   %630 = load i32, ptr @hf_pn532_gi, align 4
-  %631 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.10) #5
-  %632 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %630, ptr noundef %0, i32 noundef %.10, i32 noundef %631, i32 noundef 0) #5
-  %633 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.10) #5
+  %631 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.10)
+  %632 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %630, ptr noundef %0, i32 noundef %.10, i32 noundef %631, i32 noundef 0)
+  %633 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.10)
   %634 = add i32 %633, %.10
   br label %.loopexit
 
 635:                                              ; preds = %proto_item_set_generated.exit
   call fastcc void @dissect_status(ptr noundef %17, ptr noundef %0)
   %636 = load i32, ptr @hf_pn532_nfc_id_3t, align 4
-  %637 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %636, ptr noundef %0, i32 noundef 3, i32 noundef 10, i32 noundef 0) #5
+  %637 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %636, ptr noundef %0, i32 noundef 3, i32 noundef 10, i32 noundef 0)
   %638 = load i32, ptr @hf_pn532_did_target, align 4
-  %639 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %638, ptr noundef %0, i32 noundef 13, i32 noundef 1, i32 noundef 0) #5
+  %639 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %638, ptr noundef %0, i32 noundef 13, i32 noundef 1, i32 noundef 0)
   %640 = load i32, ptr @hf_pn532_send_bit_rate_target, align 4
-  %641 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %640, ptr noundef %0, i32 noundef 14, i32 noundef 1, i32 noundef 0) #5
+  %641 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %640, ptr noundef %0, i32 noundef 14, i32 noundef 1, i32 noundef 0)
   %642 = load i32, ptr @hf_pn532_receive_bit_rate_target, align 4
-  %643 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %642, ptr noundef %0, i32 noundef 15, i32 noundef 1, i32 noundef 0) #5
+  %643 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %642, ptr noundef %0, i32 noundef 15, i32 noundef 1, i32 noundef 0)
   %644 = load i32, ptr @hf_pn532_timeout, align 4
-  %645 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %644, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0) #5
+  %645 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %644, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0)
   %646 = load i32, ptr @hf_pn532_optional_parameters, align 4
-  %647 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %646, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0) #5
+  %647 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %646, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0)
   %648 = load i32, ptr @hf_pn532_gt, align 4
-  %649 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %648, ptr noundef %0, i32 noundef 18, i32 noundef 10, i32 noundef 0) #5
+  %649 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %648, ptr noundef %0, i32 noundef 18, i32 noundef 10, i32 noundef 0)
   br label %.loopexit
 
 650:                                              ; preds = %proto_item_set_generated.exit
   %651 = load i32, ptr @hf_pn532_Tg, align 4
-  %652 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %651, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
+  %652 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %651, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %653 = load i32, ptr @hf_pn532_brit, align 4
-  %654 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %653, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #5
+  %654 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %653, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
   %655 = load i32, ptr @hf_pn532_brti, align 4
-  %656 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %655, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #5
+  %656 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %655, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0)
   br label %.loopexit
 
 657:                                              ; preds = %proto_item_set_generated.exit
@@ -1903,7 +1919,7 @@ proto_item_set_generated.exit1335:                ; preds = %513, %517, %520
 
 658:                                              ; preds = %proto_item_set_generated.exit
   %659 = load i32, ptr @hf_pn532_Tg, align 4
-  %660 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %659, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
+  %660 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %659, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %661 = load i32, ptr @sub_selected, align 4
   switch i32 %661, label %675 [
     i32 2, label %662
@@ -1911,28 +1927,28 @@ proto_item_set_generated.exit1335:                ; preds = %513, %517, %520
   ]
 
 662:                                              ; preds = %658
-  %663 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 3) #5
+  %663 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 3)
   %664 = load ptr, ptr @sub_handles.2, align 16
-  %665 = call i32 @call_dissector(ptr noundef %664, ptr noundef %663, ptr noundef nonnull %1, ptr noundef %2) #5
-  %666 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 3) #5
+  %665 = call i32 @call_dissector(ptr noundef %664, ptr noundef %663, ptr noundef %1, ptr noundef %2)
+  %666 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 3)
   %667 = add i32 %666, 3
   br label %.loopexit
 
 668:                                              ; preds = %658
-  %669 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 3) #5
+  %669 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 3)
   %670 = getelementptr inbounds nuw i8, ptr %1, i64 348
   store i32 0, ptr %670, align 4
   %671 = load ptr, ptr @sub_handles.3, align 8
-  %672 = call i32 @call_dissector(ptr noundef %671, ptr noundef %669, ptr noundef nonnull %1, ptr noundef %2) #5
-  %673 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 3) #5
+  %672 = call i32 @call_dissector(ptr noundef %671, ptr noundef %669, ptr noundef %1, ptr noundef %2)
+  %673 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 3)
   %674 = add i32 %673, 3
   br label %.loopexit
 
 675:                                              ; preds = %658
   %676 = load i32, ptr @hf_pn532_data_out, align 4
-  %677 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 3) #5
-  %678 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %676, ptr noundef %0, i32 noundef 3, i32 noundef %677, i32 noundef 0) #5
-  %679 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 3) #5
+  %677 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 3)
+  %678 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %676, ptr noundef %0, i32 noundef 3, i32 noundef %677, i32 noundef 0)
+  %679 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 3)
   %680 = add i32 %679, 3
   br label %.loopexit
 
@@ -1943,20 +1959,20 @@ proto_item_set_generated.exit1335:                ; preds = %513, %517, %520
   br i1 %683, label %684, label %691
 
 684:                                              ; preds = %681
-  %685 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 3) #5
+  %685 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 3)
   %686 = getelementptr inbounds nuw i8, ptr %1, i64 348
   store i32 1, ptr %686, align 4
   %687 = load ptr, ptr @sub_handles.3, align 8
-  %688 = call i32 @call_dissector(ptr noundef %687, ptr noundef %685, ptr noundef nonnull %1, ptr noundef %2) #5
-  %689 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 3) #5
+  %688 = call i32 @call_dissector(ptr noundef %687, ptr noundef %685, ptr noundef %1, ptr noundef %2)
+  %689 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 3)
   %690 = add i32 %689, 3
   br label %.loopexit
 
 691:                                              ; preds = %681
   %692 = load i32, ptr @hf_pn532_data_in, align 4
-  %693 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 3) #5
-  %694 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %692, ptr noundef %0, i32 noundef 3, i32 noundef %693, i32 noundef 0) #5
-  %695 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 3) #5
+  %693 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 3)
+  %694 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %692, ptr noundef %0, i32 noundef 3, i32 noundef %693, i32 noundef 0)
+  %695 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 3)
   %696 = add i32 %695, 3
   br label %.loopexit
 
@@ -1967,17 +1983,17 @@ proto_item_set_generated.exit1335:                ; preds = %513, %517, %520
 
 700:                                              ; preds = %697
   %701 = load i32, ptr @hf_pn532_payload_length, align 4
-  %702 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %701, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
-  %703 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 3) #5
+  %702 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %701, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
+  %703 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 3)
   %704 = load ptr, ptr @sub_handles.1, align 8
-  %705 = call i32 @call_dissector(ptr noundef %704, ptr noundef %703, ptr noundef nonnull %1, ptr noundef %2) #5
+  %705 = call i32 @call_dissector(ptr noundef %704, ptr noundef %703, ptr noundef %1, ptr noundef %2)
   br label %.loopexit
 
 706:                                              ; preds = %697
   %707 = load i32, ptr @hf_pn532_data_out, align 4
-  %708 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 2) #5
-  %709 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %707, ptr noundef %0, i32 noundef 2, i32 noundef %708, i32 noundef 0) #5
-  %710 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 2) #5
+  %708 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 2)
+  %709 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %707, ptr noundef %0, i32 noundef 2, i32 noundef %708, i32 noundef 0)
+  %710 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 2)
   %711 = add i32 %710, 2
   br label %.loopexit
 
@@ -1989,86 +2005,86 @@ proto_item_set_generated.exit1335:                ; preds = %513, %517, %520
 
 715:                                              ; preds = %712
   %716 = load i32, ptr @hf_pn532_payload_length, align 4
-  %717 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %716, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #5
-  %718 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 4) #5
+  %717 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %716, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
+  %718 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 4)
   %719 = load ptr, ptr @sub_handles.1, align 8
-  %720 = call i32 @call_dissector(ptr noundef %719, ptr noundef %718, ptr noundef nonnull %1, ptr noundef %2) #5
+  %720 = call i32 @call_dissector(ptr noundef %719, ptr noundef %718, ptr noundef %1, ptr noundef %2)
   br label %.loopexit
 
 721:                                              ; preds = %712
   %722 = load i32, ptr @hf_pn532_data_in, align 4
-  %723 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 3) #5
-  %724 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %722, ptr noundef %0, i32 noundef 3, i32 noundef %723, i32 noundef 0) #5
-  %725 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 3) #5
+  %723 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 3)
+  %724 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %722, ptr noundef %0, i32 noundef 3, i32 noundef %723, i32 noundef 0)
+  %725 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 3)
   %726 = add i32 %725, 3
   br label %.loopexit
 
 727:                                              ; preds = %proto_item_set_generated.exit, %proto_item_set_generated.exit, %proto_item_set_generated.exit
   %728 = load i32, ptr @hf_pn532_Tg, align 4
-  %729 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %728, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
+  %729 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %728, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   br label %.loopexit
 
 730:                                              ; preds = %proto_item_set_generated.exit, %proto_item_set_generated.exit, %proto_item_set_generated.exit
   %731 = load i32, ptr @hf_pn532_status_nad_present, align 4
-  %732 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %731, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
+  %732 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %731, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %733 = load i32, ptr @hf_pn532_status_mi, align 4
-  %734 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %733, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
+  %734 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %733, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %735 = load i32, ptr @hf_pn532_status_error_code, align 4
-  %736 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %735, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
+  %736 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %735, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   br label %.loopexit
 
 737:                                              ; preds = %proto_item_set_generated.exit
   %738 = load i32, ptr @hf_pn532_poll_number, align 4
-  %739 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %738, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
+  %739 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %738, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %740 = load i32, ptr @hf_pn532_period, align 4
-  %741 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %740, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #5
+  %741 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %740, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
   %742 = load i32, ptr @hf_pn532_autopoll_type, align 4
-  %743 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %742, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #5
+  %743 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %742, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0)
   %744 = load i32, ptr @ett_pn532_autopoll_type, align 4
-  %745 = call ptr @proto_item_add_subtree(ptr noundef %743, i32 noundef %744) #5
+  %745 = call ptr @proto_item_add_subtree(ptr noundef %743, i32 noundef %744)
   %746 = load i32, ptr @hf_pn532_autopoll_type_act, align 4
-  %747 = call ptr @proto_tree_add_item(ptr noundef %745, i32 noundef %746, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #5
+  %747 = call ptr @proto_tree_add_item(ptr noundef %745, i32 noundef %746, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0)
   %748 = load i32, ptr @hf_pn532_autopoll_type_dep, align 4
-  %749 = call ptr @proto_tree_add_item(ptr noundef %745, i32 noundef %748, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #5
+  %749 = call ptr @proto_tree_add_item(ptr noundef %745, i32 noundef %748, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0)
   %750 = load i32, ptr @hf_pn532_autopoll_type_tcl, align 4
-  %751 = call ptr @proto_tree_add_item(ptr noundef %745, i32 noundef %750, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #5
+  %751 = call ptr @proto_tree_add_item(ptr noundef %745, i32 noundef %750, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0)
   %752 = load i32, ptr @hf_pn532_autopoll_type_mf_fe, align 4
-  %753 = call ptr @proto_tree_add_item(ptr noundef %745, i32 noundef %752, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #5
+  %753 = call ptr @proto_tree_add_item(ptr noundef %745, i32 noundef %752, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0)
   %754 = load i32, ptr @hf_pn532_autopoll_type_not_used, align 4
-  %755 = call ptr @proto_tree_add_item(ptr noundef %745, i32 noundef %754, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #5
+  %755 = call ptr @proto_tree_add_item(ptr noundef %745, i32 noundef %754, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0)
   %756 = load i32, ptr @hf_pn532_autopoll_type_baudrate_and_modulation, align 4
-  %757 = call ptr @proto_tree_add_item(ptr noundef %745, i32 noundef %756, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #5
-  %758 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 5) #5
+  %757 = call ptr @proto_tree_add_item(ptr noundef %745, i32 noundef %756, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0)
+  %758 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 5)
   %759 = icmp sgt i32 %758, 0
   br i1 %759, label %.lr.ph1356, label %.loopexit
 
 .lr.ph1356:                                       ; preds = %737, %.lr.ph1356
   %.111355 = phi i32 [ %776, %.lr.ph1356 ], [ 5, %737 ]
   %760 = load i32, ptr @hf_pn532_autopoll_type, align 4
-  %761 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %760, ptr noundef %0, i32 noundef %.111355, i32 noundef 1, i32 noundef 0) #5
+  %761 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %760, ptr noundef %0, i32 noundef %.111355, i32 noundef 1, i32 noundef 0)
   %762 = load i32, ptr @ett_pn532_autopoll_type, align 4
-  %763 = call ptr @proto_item_add_subtree(ptr noundef %761, i32 noundef %762) #5
+  %763 = call ptr @proto_item_add_subtree(ptr noundef %761, i32 noundef %762)
   %764 = load i32, ptr @hf_pn532_autopoll_type_act, align 4
-  %765 = call ptr @proto_tree_add_item(ptr noundef %763, i32 noundef %764, ptr noundef %0, i32 noundef %.111355, i32 noundef 1, i32 noundef 0) #5
+  %765 = call ptr @proto_tree_add_item(ptr noundef %763, i32 noundef %764, ptr noundef %0, i32 noundef %.111355, i32 noundef 1, i32 noundef 0)
   %766 = load i32, ptr @hf_pn532_autopoll_type_dep, align 4
-  %767 = call ptr @proto_tree_add_item(ptr noundef %763, i32 noundef %766, ptr noundef %0, i32 noundef %.111355, i32 noundef 1, i32 noundef 0) #5
+  %767 = call ptr @proto_tree_add_item(ptr noundef %763, i32 noundef %766, ptr noundef %0, i32 noundef %.111355, i32 noundef 1, i32 noundef 0)
   %768 = load i32, ptr @hf_pn532_autopoll_type_tcl, align 4
-  %769 = call ptr @proto_tree_add_item(ptr noundef %763, i32 noundef %768, ptr noundef %0, i32 noundef %.111355, i32 noundef 1, i32 noundef 0) #5
+  %769 = call ptr @proto_tree_add_item(ptr noundef %763, i32 noundef %768, ptr noundef %0, i32 noundef %.111355, i32 noundef 1, i32 noundef 0)
   %770 = load i32, ptr @hf_pn532_autopoll_type_mf_fe, align 4
-  %771 = call ptr @proto_tree_add_item(ptr noundef %763, i32 noundef %770, ptr noundef %0, i32 noundef %.111355, i32 noundef 1, i32 noundef 0) #5
+  %771 = call ptr @proto_tree_add_item(ptr noundef %763, i32 noundef %770, ptr noundef %0, i32 noundef %.111355, i32 noundef 1, i32 noundef 0)
   %772 = load i32, ptr @hf_pn532_autopoll_type_not_used, align 4
-  %773 = call ptr @proto_tree_add_item(ptr noundef %763, i32 noundef %772, ptr noundef %0, i32 noundef %.111355, i32 noundef 1, i32 noundef 0) #5
+  %773 = call ptr @proto_tree_add_item(ptr noundef %763, i32 noundef %772, ptr noundef %0, i32 noundef %.111355, i32 noundef 1, i32 noundef 0)
   %774 = load i32, ptr @hf_pn532_autopoll_type_baudrate_and_modulation, align 4
-  %775 = call ptr @proto_tree_add_item(ptr noundef %763, i32 noundef %774, ptr noundef %0, i32 noundef %.111355, i32 noundef 1, i32 noundef 0) #5
+  %775 = call ptr @proto_tree_add_item(ptr noundef %763, i32 noundef %774, ptr noundef %0, i32 noundef %.111355, i32 noundef 1, i32 noundef 0)
   %776 = add i32 %.111355, 1
-  %777 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %776) #5
+  %777 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %776)
   %778 = icmp sgt i32 %777, 0
-  br i1 %778, label %.lr.ph1356, label %.loopexit, !llvm.loop !11
+  br i1 %778, label %.lr.ph1356, label %.loopexit, !llvm.loop !13
 
 779:                                              ; preds = %proto_item_set_generated.exit
   %780 = load i32, ptr @hf_pn532_NbTg, align 4
-  %781 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %780, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
-  %782 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #5
+  %781 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %780, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
+  %782 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
   %783 = zext i8 %782 to i32
   %.not13181353 = icmp eq i8 %782, 0
   br i1 %.not13181353, label %.loopexit, label %.lr.ph
@@ -2077,34 +2093,34 @@ proto_item_set_generated.exit1335:                ; preds = %513, %517, %520
   %784 = phi i32 [ %847, %845 ], [ 1, %779 ]
   %.121354 = phi i32 [ %.14, %845 ], [ 3, %779 ]
   %785 = load i32, ptr @hf_pn532_target, align 4
-  %786 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %785, ptr noundef %0, i32 noundef %.121354, i32 noundef 4, i32 noundef 0) #5
+  %786 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %785, ptr noundef %0, i32 noundef %.121354, i32 noundef 4, i32 noundef 0)
   %787 = load i32, ptr @ett_pn532_target, align 4
-  %788 = call ptr @proto_item_add_subtree(ptr noundef %786, i32 noundef %787) #5
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %786, ptr noundef nonnull @.str.516, i32 noundef %784, i32 noundef %783) #5
+  %788 = call ptr @proto_item_add_subtree(ptr noundef %786, i32 noundef %787)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %786, ptr noundef nonnull @.str.534, i32 noundef %784, i32 noundef %783)
   %789 = load i32, ptr @hf_pn532_autopoll_type, align 4
-  %790 = call ptr @proto_tree_add_item(ptr noundef %788, i32 noundef %789, ptr noundef %0, i32 noundef %.121354, i32 noundef 1, i32 noundef 0) #5
+  %790 = call ptr @proto_tree_add_item(ptr noundef %788, i32 noundef %789, ptr noundef %0, i32 noundef %.121354, i32 noundef 1, i32 noundef 0)
   %791 = load i32, ptr @ett_pn532_autopoll_type, align 4
-  %792 = call ptr @proto_item_add_subtree(ptr noundef %790, i32 noundef %791) #5
+  %792 = call ptr @proto_item_add_subtree(ptr noundef %790, i32 noundef %791)
   %793 = load i32, ptr @hf_pn532_autopoll_type_act, align 4
-  %794 = call ptr @proto_tree_add_item(ptr noundef %792, i32 noundef %793, ptr noundef %0, i32 noundef %.121354, i32 noundef 1, i32 noundef 0) #5
+  %794 = call ptr @proto_tree_add_item(ptr noundef %792, i32 noundef %793, ptr noundef %0, i32 noundef %.121354, i32 noundef 1, i32 noundef 0)
   %795 = load i32, ptr @hf_pn532_autopoll_type_dep, align 4
-  %796 = call ptr @proto_tree_add_item(ptr noundef %792, i32 noundef %795, ptr noundef %0, i32 noundef %.121354, i32 noundef 1, i32 noundef 0) #5
+  %796 = call ptr @proto_tree_add_item(ptr noundef %792, i32 noundef %795, ptr noundef %0, i32 noundef %.121354, i32 noundef 1, i32 noundef 0)
   %797 = load i32, ptr @hf_pn532_autopoll_type_tcl, align 4
-  %798 = call ptr @proto_tree_add_item(ptr noundef %792, i32 noundef %797, ptr noundef %0, i32 noundef %.121354, i32 noundef 1, i32 noundef 0) #5
+  %798 = call ptr @proto_tree_add_item(ptr noundef %792, i32 noundef %797, ptr noundef %0, i32 noundef %.121354, i32 noundef 1, i32 noundef 0)
   %799 = load i32, ptr @hf_pn532_autopoll_type_mf_fe, align 4
-  %800 = call ptr @proto_tree_add_item(ptr noundef %792, i32 noundef %799, ptr noundef %0, i32 noundef %.121354, i32 noundef 1, i32 noundef 0) #5
+  %800 = call ptr @proto_tree_add_item(ptr noundef %792, i32 noundef %799, ptr noundef %0, i32 noundef %.121354, i32 noundef 1, i32 noundef 0)
   %801 = load i32, ptr @hf_pn532_autopoll_type_not_used, align 4
-  %802 = call ptr @proto_tree_add_item(ptr noundef %792, i32 noundef %801, ptr noundef %0, i32 noundef %.121354, i32 noundef 1, i32 noundef 0) #5
+  %802 = call ptr @proto_tree_add_item(ptr noundef %792, i32 noundef %801, ptr noundef %0, i32 noundef %.121354, i32 noundef 1, i32 noundef 0)
   %803 = load i32, ptr @hf_pn532_autopoll_type_baudrate_and_modulation, align 4
-  %804 = call ptr @proto_tree_add_item(ptr noundef %792, i32 noundef %803, ptr noundef %0, i32 noundef %.121354, i32 noundef 1, i32 noundef 0) #5
-  %805 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.121354) #5
+  %804 = call ptr @proto_tree_add_item(ptr noundef %792, i32 noundef %803, ptr noundef %0, i32 noundef %.121354, i32 noundef 1, i32 noundef 0)
+  %805 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.121354)
   %806 = add i32 %.121354, 1
   %807 = load i32, ptr @hf_pn532_target_data_length, align 4
-  %808 = call ptr @proto_tree_add_item(ptr noundef %788, i32 noundef %807, ptr noundef %0, i32 noundef %806, i32 noundef 1, i32 noundef 0) #5
-  %809 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %806) #5
+  %808 = call ptr @proto_tree_add_item(ptr noundef %788, i32 noundef %807, ptr noundef %0, i32 noundef %806, i32 noundef 1, i32 noundef 0)
+  %809 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %806)
   %810 = zext i8 %809 to i32
   %811 = add nuw nsw i32 %810, 4
-  call void @proto_item_set_len(ptr noundef %786, i32 noundef %811) #5
+  call void @proto_item_set_len(ptr noundef %786, i32 noundef %811)
   %812 = add i32 %.121354, 2
   %813 = and i8 %805, 64
   %.not1319 = icmp eq i8 %813, 0
@@ -2116,38 +2132,38 @@ proto_item_set_generated.exit1335:                ; preds = %513, %517, %520
 
 815:                                              ; preds = %814
   %816 = load i32, ptr @hf_pn532_target_data, align 4
-  %817 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %816, ptr noundef %0, i32 noundef %812, i32 noundef %810, i32 noundef 0) #5
+  %817 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %816, ptr noundef %0, i32 noundef %812, i32 noundef %810, i32 noundef 0)
   %818 = add i32 %812, %810
   br label %819
 
 819:                                              ; preds = %815, %814
   %.13 = phi i32 [ %818, %815 ], [ %812, %814 ]
   %820 = load i32, ptr @hf_pn532_nfc_id_3t, align 4
-  %821 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %820, ptr noundef %0, i32 noundef %.13, i32 noundef 10, i32 noundef 0) #5
+  %821 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %820, ptr noundef %0, i32 noundef %.13, i32 noundef 10, i32 noundef 0)
   %822 = add i32 %.13, 10
   %823 = load i32, ptr @hf_pn532_did_target, align 4
-  %824 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %823, ptr noundef %0, i32 noundef %822, i32 noundef 1, i32 noundef 0) #5
+  %824 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %823, ptr noundef %0, i32 noundef %822, i32 noundef 1, i32 noundef 0)
   %825 = add i32 %.13, 11
   %826 = load i32, ptr @hf_pn532_send_bit_rate_target, align 4
-  %827 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %826, ptr noundef %0, i32 noundef %825, i32 noundef 1, i32 noundef 0) #5
+  %827 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %826, ptr noundef %0, i32 noundef %825, i32 noundef 1, i32 noundef 0)
   %828 = add i32 %.13, 12
   %829 = load i32, ptr @hf_pn532_receive_bit_rate_target, align 4
-  %830 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %829, ptr noundef %0, i32 noundef %828, i32 noundef 1, i32 noundef 0) #5
+  %830 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %829, ptr noundef %0, i32 noundef %828, i32 noundef 1, i32 noundef 0)
   %831 = add i32 %.13, 13
   %832 = load i32, ptr @hf_pn532_timeout, align 4
-  %833 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %832, ptr noundef %0, i32 noundef %831, i32 noundef 1, i32 noundef 0) #5
+  %833 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %832, ptr noundef %0, i32 noundef %831, i32 noundef 1, i32 noundef 0)
   %834 = add i32 %.13, 14
   %835 = load i32, ptr @hf_pn532_optional_parameters, align 4
-  %836 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %835, ptr noundef %0, i32 noundef %834, i32 noundef 1, i32 noundef 0) #5
+  %836 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %835, ptr noundef %0, i32 noundef %834, i32 noundef 1, i32 noundef 0)
   %837 = add i32 %.13, 15
   %838 = load i32, ptr @hf_pn532_gt, align 4
-  %839 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %838, ptr noundef %0, i32 noundef %837, i32 noundef 10, i32 noundef 0) #5
+  %839 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %838, ptr noundef %0, i32 noundef %837, i32 noundef 10, i32 noundef 0)
   %840 = add i32 %.13, 25
   br label %845
 
 841:                                              ; preds = %.lr.ph
   %842 = load i32, ptr @hf_pn532_target_data, align 4
-  %843 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %842, ptr noundef %0, i32 noundef %812, i32 noundef %810, i32 noundef 0) #5
+  %843 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %842, ptr noundef %0, i32 noundef %812, i32 noundef %810, i32 noundef 0)
   %844 = add i32 %812, %810
   br label %845
 
@@ -2156,57 +2172,57 @@ proto_item_set_generated.exit1335:                ; preds = %513, %517, %520
   %846 = add nuw nsw i32 %784, 1
   %847 = and i32 %846, 255
   %.not1318 = icmp samesign ugt i32 %847, %783
-  br i1 %.not1318, label %.loopexit, label %.lr.ph, !llvm.loop !12
+  br i1 %.not1318, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 848:                                              ; preds = %proto_item_set_generated.exit
   %849 = load i32, ptr @hf_pn532_mode_nu_3_7, align 4
-  %850 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %849, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
+  %850 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %849, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %851 = load i32, ptr @hf_pn532_mode_picc_only, align 4
-  %852 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %851, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
+  %852 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %851, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %853 = load i32, ptr @hf_pn532_mode_dep_only, align 4
-  %854 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %853, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
+  %854 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %853, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %855 = load i32, ptr @hf_pn532_mode_passive_only, align 4
-  %856 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %855, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
+  %856 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %855, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %857 = load i32, ptr @hf_pn532_mode_mifare_parameters, align 4
-  %858 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %857, ptr noundef %0, i32 noundef 3, i32 noundef 6, i32 noundef 0) #5
+  %858 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %857, ptr noundef %0, i32 noundef 3, i32 noundef 6, i32 noundef 0)
   %859 = load i32, ptr @ett_pn532_mifare_parameters, align 4
-  %860 = call ptr @proto_item_add_subtree(ptr noundef %858, i32 noundef %859) #5
+  %860 = call ptr @proto_item_add_subtree(ptr noundef %858, i32 noundef %859)
   %861 = load i32, ptr @hf_pn532_mode_mifare_parameters_sens_res, align 4
-  %862 = call ptr @proto_tree_add_item(ptr noundef %860, i32 noundef %861, ptr noundef %0, i32 noundef 3, i32 noundef 2, i32 noundef 0) #5
+  %862 = call ptr @proto_tree_add_item(ptr noundef %860, i32 noundef %861, ptr noundef %0, i32 noundef 3, i32 noundef 2, i32 noundef 0)
   %863 = load i32, ptr @hf_pn532_mode_mifare_parameters_nfc_id_1t, align 4
-  %864 = call ptr @proto_tree_add_item(ptr noundef %860, i32 noundef %863, ptr noundef %0, i32 noundef 5, i32 noundef 3, i32 noundef 0) #5
+  %864 = call ptr @proto_tree_add_item(ptr noundef %860, i32 noundef %863, ptr noundef %0, i32 noundef 5, i32 noundef 3, i32 noundef 0)
   %865 = load i32, ptr @hf_pn532_mode_mifare_parameters_sel_res, align 4
-  %866 = call ptr @proto_tree_add_item(ptr noundef %860, i32 noundef %865, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef 0) #5
+  %866 = call ptr @proto_tree_add_item(ptr noundef %860, i32 noundef %865, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef 0)
   %867 = load i32, ptr @hf_pn532_mode_felica_parameters, align 4
-  %868 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %867, ptr noundef %0, i32 noundef 9, i32 noundef 18, i32 noundef 0) #5
+  %868 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %867, ptr noundef %0, i32 noundef 9, i32 noundef 18, i32 noundef 0)
   %869 = load i32, ptr @ett_pn532_felica_parameters, align 4
-  %870 = call ptr @proto_item_add_subtree(ptr noundef %868, i32 noundef %869) #5
+  %870 = call ptr @proto_item_add_subtree(ptr noundef %868, i32 noundef %869)
   %871 = load i32, ptr @hf_pn532_mode_felica_parameters_nfc_id_2t, align 4
-  %872 = call ptr @proto_tree_add_item(ptr noundef %870, i32 noundef %871, ptr noundef %0, i32 noundef 9, i32 noundef 8, i32 noundef 0) #5
+  %872 = call ptr @proto_tree_add_item(ptr noundef %870, i32 noundef %871, ptr noundef %0, i32 noundef 9, i32 noundef 8, i32 noundef 0)
   %873 = load i32, ptr @hf_pn532_mode_felica_parameters_pad, align 4
-  %874 = call ptr @proto_tree_add_item(ptr noundef %870, i32 noundef %873, ptr noundef %0, i32 noundef 17, i32 noundef 8, i32 noundef 0) #5
+  %874 = call ptr @proto_tree_add_item(ptr noundef %870, i32 noundef %873, ptr noundef %0, i32 noundef 17, i32 noundef 8, i32 noundef 0)
   %875 = load i32, ptr @hf_pn532_mode_felica_parameters_system_code, align 4
-  %876 = call ptr @proto_tree_add_item(ptr noundef %870, i32 noundef %875, ptr noundef %0, i32 noundef 25, i32 noundef 2, i32 noundef 0) #5
+  %876 = call ptr @proto_tree_add_item(ptr noundef %870, i32 noundef %875, ptr noundef %0, i32 noundef 25, i32 noundef 2, i32 noundef 0)
   %877 = load i32, ptr @hf_pn532_mode_nfc_id_3t, align 4
-  %878 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %877, ptr noundef %0, i32 noundef 27, i32 noundef 10, i32 noundef 0) #5
+  %878 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %877, ptr noundef %0, i32 noundef 27, i32 noundef 10, i32 noundef 0)
   %879 = load i32, ptr @hf_pn532_mode_gt_length, align 4
-  %880 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %879, ptr noundef %0, i32 noundef 37, i32 noundef 1, i32 noundef 0) #5
-  %881 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 37) #5
+  %880 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %879, ptr noundef %0, i32 noundef 37, i32 noundef 1, i32 noundef 0)
+  %881 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 37)
   %.not1316 = icmp eq i8 %881, 0
   br i1 %.not1316, label %887, label %882
 
 882:                                              ; preds = %848
   %883 = zext i8 %881 to i32
   %884 = load i32, ptr @hf_pn532_mode_gt, align 4
-  %885 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %884, ptr noundef %0, i32 noundef 38, i32 noundef %883, i32 noundef 0) #5
+  %885 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %884, ptr noundef %0, i32 noundef 38, i32 noundef %883, i32 noundef 0)
   %886 = add nuw nsw i32 %883, 38
   br label %887
 
 887:                                              ; preds = %882, %848
   %.15 = phi i32 [ %886, %882 ], [ 38, %848 ]
   %888 = load i32, ptr @hf_pn532_mode_tk_length, align 4
-  %889 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %888, ptr noundef %0, i32 noundef %.15, i32 noundef 1, i32 noundef 0) #5
-  %890 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.15) #5
+  %889 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %888, ptr noundef %0, i32 noundef %.15, i32 noundef 1, i32 noundef 0)
+  %890 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.15)
   %891 = add nuw nsw i32 %.15, 1
   %.not1317 = icmp eq i8 %890, 0
   br i1 %.not1317, label %.loopexit, label %892
@@ -2214,33 +2230,33 @@ proto_item_set_generated.exit1335:                ; preds = %513, %517, %520
 892:                                              ; preds = %887
   %893 = zext i8 %890 to i32
   %894 = load i32, ptr @hf_pn532_mode_tk, align 4
-  %895 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %894, ptr noundef %0, i32 noundef %891, i32 noundef %893, i32 noundef 0) #5
+  %895 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %894, ptr noundef %0, i32 noundef %891, i32 noundef %893, i32 noundef 0)
   %896 = add nuw nsw i32 %891, %893
   br label %.loopexit
 
 897:                                              ; preds = %proto_item_set_generated.exit
   %898 = load i32, ptr @hf_pn532_mode_nu_7, align 4
-  %899 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %898, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
+  %899 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %898, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %900 = load i32, ptr @hf_pn532_mode_baudrate, align 4
-  %901 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %900, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
+  %901 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %900, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %902 = load i32, ptr @hf_pn532_mode_iso_iec_14443_4_picc, align 4
-  %903 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %902, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
+  %903 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %902, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %904 = load i32, ptr @hf_pn532_mode_dep, align 4
-  %905 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %904, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
+  %905 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %904, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %906 = load i32, ptr @hf_pn532_mode_framing_type, align 4
-  %907 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %906, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
+  %907 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %906, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %908 = load i32, ptr @hf_pn532_initiator_command, align 4
-  %909 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 3) #5
-  %910 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %908, ptr noundef %0, i32 noundef 3, i32 noundef %909, i32 noundef 0) #5
-  %911 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 3) #5
+  %909 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 3)
+  %910 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %908, ptr noundef %0, i32 noundef 3, i32 noundef %909, i32 noundef 0)
+  %911 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 3)
   %912 = add i32 %911, 3
   br label %.loopexit
 
 913:                                              ; preds = %proto_item_set_generated.exit
   %914 = load i32, ptr @hf_pn532_gt, align 4
-  %915 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 2) #5
-  %916 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %914, ptr noundef %0, i32 noundef 2, i32 noundef %915, i32 noundef 0) #5
-  %917 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 2) #5
+  %915 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 2)
+  %916 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %914, ptr noundef %0, i32 noundef 2, i32 noundef %915, i32 noundef 0)
+  %917 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 2)
   %918 = add i32 %917, 2
   br label %.loopexit
 
@@ -2251,17 +2267,17 @@ proto_item_set_generated.exit1335:                ; preds = %513, %517, %520
 920:                                              ; preds = %proto_item_set_generated.exit
   call fastcc void @dissect_status(ptr noundef %17, ptr noundef %0)
   %921 = load i32, ptr @hf_pn532_data_in, align 4
-  %922 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 3) #5
-  %923 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %921, ptr noundef %0, i32 noundef 3, i32 noundef %922, i32 noundef 0) #5
-  %924 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 3) #5
+  %922 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 3)
+  %923 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %921, ptr noundef %0, i32 noundef 3, i32 noundef %922, i32 noundef 0)
+  %924 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 3)
   %925 = add i32 %924, 3
   br label %.loopexit
 
 926:                                              ; preds = %proto_item_set_generated.exit, %proto_item_set_generated.exit
   %927 = load i32, ptr @hf_pn532_data_out, align 4
-  %928 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 2) #5
-  %929 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %927, ptr noundef %0, i32 noundef 2, i32 noundef %928, i32 noundef 0) #5
-  %930 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 2) #5
+  %928 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 2)
+  %929 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %927, ptr noundef %0, i32 noundef 2, i32 noundef %928, i32 noundef 0)
+  %930 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 2)
   %931 = add i32 %930, 2
   br label %.loopexit
 
@@ -2272,17 +2288,17 @@ proto_item_set_generated.exit1335:                ; preds = %513, %517, %520
 933:                                              ; preds = %proto_item_set_generated.exit
   call fastcc void @dissect_status(ptr noundef %17, ptr noundef %0)
   %934 = load i32, ptr @hf_pn532_initiator_command, align 4
-  %935 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 3) #5
-  %936 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %934, ptr noundef %0, i32 noundef 3, i32 noundef %935, i32 noundef 0) #5
-  %937 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 3) #5
+  %935 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 3)
+  %936 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %934, ptr noundef %0, i32 noundef 3, i32 noundef %935, i32 noundef 0)
+  %937 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 3)
   %938 = add i32 %937, 3
   br label %.loopexit
 
 939:                                              ; preds = %proto_item_set_generated.exit
   %940 = load i32, ptr @hf_pn532_tg_response, align 4
-  %941 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 2) #5
-  %942 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %940, ptr noundef %0, i32 noundef 2, i32 noundef %941, i32 noundef 0) #5
-  %943 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 2) #5
+  %941 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 2)
+  %942 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %940, ptr noundef %0, i32 noundef 2, i32 noundef %941, i32 noundef 0)
+  %943 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 2)
   %944 = add i32 %943, 2
   br label %.loopexit
 
@@ -2292,140 +2308,171 @@ proto_item_set_generated.exit1335:                ; preds = %513, %517, %520
 
 946:                                              ; preds = %proto_item_set_generated.exit
   %947 = load i32, ptr @hf_pn532_state, align 4
-  %948 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %947, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
+  %948 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %947, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %949 = load i32, ptr @hf_pn532_brit_nu_7, align 4
-  %950 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %949, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #5
+  %950 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %949, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
   %951 = load i32, ptr @hf_pn532_brit_speed_initiator, align 4
-  %952 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %951, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #5
+  %952 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %951, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
   %953 = load i32, ptr @hf_pn532_brit_nu_3, align 4
-  %954 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %953, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #5
+  %954 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %953, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
   %955 = load i32, ptr @hf_pn532_brit_speed_target, align 4
-  %956 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %955, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #5
+  %956 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %955, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
   br label %.loopexit
 
 957:                                              ; preds = %proto_item_set_generated.exit
-  %958 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 2) #5
-  %959 = call ptr @proto_tree_add_expert(ptr noundef %17, ptr noundef nonnull %1, ptr noundef nonnull @ei_unknown_data, ptr noundef %0, i32 noundef 2, i32 noundef %958) #5
-  %960 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 2) #5
+  %958 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 2)
+  %959 = call ptr @proto_tree_add_expert(ptr noundef %17, ptr noundef %1, ptr noundef nonnull @ei_unknown_data, ptr noundef %0, i32 noundef 2, i32 noundef %958)
+  %960 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 2)
   %961 = add i32 %960, 2
   br label %.loopexit
 
-.loopexit:                                        ; preds = %845, %.lr.ph1356, %609, %.lr.ph1363, %.lr.ph1366, %.lr.ph1369, %.lr.ph1372, %779, %737, %proto_item_set_generated.exit1335, %.preheader1348, %.preheader1346, %.preheader1344, %.preheader, %887, %892, %715, %721, %700, %706, %684, %691, %662, %675, %668, %627, %629, %481, %489, %498, %493, %447, %449, %320, %327, %334, %337, %369, %376, %407, %362, %344, %289, %312, %279, %286, %proto_item_set_generated.exit, %proto_item_set_generated.exit, %proto_item_set_generated.exit, %proto_item_set_generated.exit, %proto_item_set_generated.exit, %proto_item_set_generated.exit, %proto_item_set_generated.exit, %proto_item_set_generated.exit, %proto_item_set_generated.exit, %proto_item_set_generated.exit, %proto_item_set_generated.exit, %proto_item_set_generated.exit, %proto_item_set_generated.exit, %147, %150, %169, %166, %163, %153, %108, %113, %116, %123, %132, %104, %104, %104, %957, %946, %945, %939, %933, %932, %926, %920, %919, %913, %897, %730, %727, %657, %650, %635, %455, %412, %315, %258, %255, %250, %243, %._crit_edge, %175
+.loopexit:                                        ; preds = %845, %.lr.ph1356, %609, %.lr.ph1363, %.lr.ph1366, %.lr.ph1369, %.lr.ph1372, %779, %737, %proto_item_set_generated.exit1335, %.preheader1348, %.preheader1346, %.preheader1344, %.preheader, %887, %892, %715, %721, %700, %706, %684, %691, %662, %675, %668, %627, %629, %481, %489, %498, %493, %447, %449, %320, %327, %334, %337, %369, %376, %407, %362, %344, %289, %312, %279, %286, %147, %169, %166, %163, %153, %150, %108, %113, %116, %123, %132, %104, %104, %104, %957, %946, %945, %939, %933, %932, %926, %920, %919, %913, %897, %730, %727, %657, %650, %635, %455, %412, %315, %258, %255, %250, %243, %._crit_edge, %175, %proto_item_set_generated.exit, %proto_item_set_generated.exit, %proto_item_set_generated.exit, %proto_item_set_generated.exit, %proto_item_set_generated.exit, %proto_item_set_generated.exit, %proto_item_set_generated.exit, %proto_item_set_generated.exit, %proto_item_set_generated.exit, %proto_item_set_generated.exit, %proto_item_set_generated.exit, %proto_item_set_generated.exit, %proto_item_set_generated.exit
   %.01290 = phi i32 [ %961, %957 ], [ 4, %946 ], [ 3, %945 ], [ %944, %939 ], [ %938, %933 ], [ 3, %932 ], [ %931, %926 ], [ %925, %920 ], [ 3, %919 ], [ %918, %913 ], [ %912, %897 ], [ %896, %892 ], [ %891, %887 ], [ 3, %730 ], [ 3, %727 ], [ 3, %715 ], [ %726, %721 ], [ 2, %700 ], [ %711, %706 ], [ %690, %684 ], [ %696, %691 ], [ %667, %662 ], [ %674, %668 ], [ %680, %675 ], [ 3, %657 ], [ 5, %650 ], [ 28, %635 ], [ %634, %629 ], [ %.10, %627 ], [ 4, %481 ], [ 6, %498 ], [ 5, %493 ], [ 9, %489 ], [ 29, %455 ], [ %454, %449 ], [ %.6, %447 ], [ 3, %412 ], [ %411, %407 ], [ 12, %376 ], [ 6, %369 ], [ 14, %362 ], [ 11, %344 ], [ 6, %337 ], [ 4, %334 ], [ 6, %327 ], [ 4, %320 ], [ 3, %315 ], [ 4, %312 ], [ 3, %289 ], [ 5, %286 ], [ 4, %279 ], [ 3, %258 ], [ 3, %255 ], [ 4, %250 ], [ 5, %243 ], [ %224, %._crit_edge ], [ 6, %175 ], [ 2, %proto_item_set_generated.exit ], [ 2, %proto_item_set_generated.exit ], [ 2, %proto_item_set_generated.exit ], [ 2, %proto_item_set_generated.exit ], [ 2, %proto_item_set_generated.exit ], [ 2, %proto_item_set_generated.exit ], [ 2, %proto_item_set_generated.exit ], [ 2, %proto_item_set_generated.exit ], [ 2, %proto_item_set_generated.exit ], [ 2, %proto_item_set_generated.exit ], [ 2, %proto_item_set_generated.exit ], [ 2, %proto_item_set_generated.exit ], [ 2, %proto_item_set_generated.exit ], [ %174, %169 ], [ 3, %150 ], [ 4, %166 ], [ 4, %163 ], [ %162, %153 ], [ 2, %147 ], [ %137, %132 ], [ 4, %104 ], [ 4, %104 ], [ 4, %104 ], [ 5, %123 ], [ 7, %116 ], [ 5, %113 ], [ %112, %108 ], [ 2, %.preheader ], [ 2, %.preheader1344 ], [ 2, %.preheader1346 ], [ 4, %.preheader1348 ], [ 3, %proto_item_set_generated.exit1335 ], [ 5, %737 ], [ 3, %779 ], [ %227, %.lr.ph1372 ], [ %232, %.lr.ph1369 ], [ %240, %.lr.ph1366 ], [ %486, %.lr.ph1363 ], [ %.9, %609 ], [ %776, %.lr.ph1356 ], [ %.14, %845 ]
-  %962 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.01290) #5
+  %962 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.01290)
   %963 = icmp sgt i32 %962, 0
   br i1 %963, label %964, label %969
 
 964:                                              ; preds = %.loopexit
-  %965 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.01290) #5
-  %966 = call ptr @proto_tree_add_expert(ptr noundef %17, ptr noundef %1, ptr noundef nonnull @ei_unexpected_data, ptr noundef %0, i32 noundef %.01290, i32 noundef %965) #5
-  %967 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.01290) #5
+  %965 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.01290)
+  %966 = call ptr @proto_tree_add_expert(ptr noundef %17, ptr noundef %1, ptr noundef nonnull @ei_unexpected_data, ptr noundef %0, i32 noundef %.01290, i32 noundef %965)
+  %967 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.01290)
   %968 = add i32 %967, %.01290
   br label %969
 
 969:                                              ; preds = %.loopexit, %964, %4
   %.0 = phi i32 [ 0, %4 ], [ %968, %964 ], [ %.01290, %.loopexit ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #6
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_pn532() local_unnamed_addr #0 {
   %1 = load ptr, ptr @pn532_handle, align 8
-  tail call void @dissector_add_for_decode_as(ptr noundef nonnull @.str.348, ptr noundef %1) #5
-  %2 = tail call ptr @find_dissector(ptr noundef nonnull @.str.331) #5
+  tail call void @dissector_add_for_decode_as(ptr noundef nonnull @.str.348, ptr noundef %1)
+  %2 = tail call ptr @find_dissector(ptr noundef nonnull @.str.331)
   store ptr %2, ptr @sub_handles.0, align 16
   %3 = load i32, ptr @proto_pn532, align 4
-  %4 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.333, i32 noundef %3) #5
+  %4 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.333, i32 noundef %3)
   store ptr %4, ptr @sub_handles.1, align 8
   %5 = load i32, ptr @proto_pn532, align 4
-  %6 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.335, i32 noundef %5) #5
+  %6 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.335, i32 noundef %5)
   store ptr %6, ptr @sub_handles.2, align 16
   %7 = load i32, ptr @proto_pn532, align 4
-  %8 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.337, i32 noundef %7) #5
+  %8 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.337, i32 noundef %7)
   store ptr %8, ptr @sub_handles.3, align 8
   ret void
 }
 
-declare void @dissector_add_for_decode_as(ptr noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_add_for_decode_as(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @find_dissector(ptr noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @find_dissector(ptr noundef) local_unnamed_addr #3
 
-declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #3
 
-; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
+; Function Attrs: nofree null_pointer_is_valid
+declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
 
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @val_to_str_ext_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str_ext_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid allocsize(1)
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #5
 
-declare void @wmem_tree_insert32_array(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare void @wmem_tree_insert32_array(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @wmem_tree_lookup32_array(ptr noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_tree_lookup32_array(ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @wmem_tree_lookup32_le(ptr noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_tree_lookup32_le(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_status(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr @hf_pn532_status_nad_present, align 4
-  %4 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %3, ptr noundef %1, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
+  %4 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %3, ptr noundef %1, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %5 = load i32, ptr @hf_pn532_status_mi, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %5, ptr noundef %1, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %5, ptr noundef %1, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %7 = load i32, ptr @hf_pn532_status_error_code, align 4
-  %8 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %7, ptr noundef %1, i32 noundef 2, i32 noundef 1, i32 noundef 0) #5
+  %8 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %7, ptr noundef %1, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   ret void
 }
 
-declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
-declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
-declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #2
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nofree null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind }
+attributes #7 = { allocsize(1) }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind }
-
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}

@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @crc16_precompiled_3D65_reverse = internal unnamed_addr constant [256 x i32] [i32 0, i32 13918, i32 27836, i32 23266, i32 55672, i32 61222, i32 46532, i32 33690, i32 65417, i32 51671, i32 37685, i32 42347, i32 9969, i32 4271, i32 19021, i32 31763, i32 45675, i32 33845, i32 57047, i32 59529, i32 27411, i32 23885, i32 1967, i32 12785, i32 19938, i32 31676, i32 8542, i32 5888, i32 38042, i32 41668, i32 63526, i32 52856, i32 10671, i32 8177, i32 17683, i32 29517, i32 61655, i32 50825, i32 40043, i32 43573, i32 54822, i32 57464, i32 47770, i32 36036, i32 3934, i32 14592, i32 25570, i32 21948, i32 39876, i32 44442, i32 63352, i32 49446, i32 17084, i32 29922, i32 11776, i32 6238, i32 25677, i32 21011, i32 2289, i32 16047, i32 48437, i32 35691, i32 53641, i32 59351, i32 21342, i32 25856, i32 16354, i32 2492, i32 35366, i32 48248, i32 59034, i32 53444, i32 44247, i32 39561, i32 49259, i32 63029, i32 30127, i32 17393, i32 6419, i32 12109, i32 57653, i32 55147, i32 36233, i32 48087, i32 14413, i32 3603, i32 21745, i32 25263, i32 7868, i32 10466, i32 29184, i32 17502, i32 51140, i32 61850, i32 43896, i32 40230, i32 31473, i32 19631, i32 5709, i32 8211, i32 41865, i32 38359, i32 53045, i32 63851, i32 34168, i32 45862, i32 59844, i32 57242, i32 23552, i32 27230, i32 12476, i32 1762, i32 51354, i32 65220, i32 42022, i32 37496, i32 4578, i32 10172, i32 32094, i32 19200, i32 14099, i32 333, i32 23471, i32 28145, i32 61035, i32 55349, i32 33495, i32 46217, i32 42684, i32 37090, i32 51712, i32 64606, i32 32708, i32 18842, i32 4984, i32 9510, i32 22837, i32 28523, i32 13705, i32 983, i32 32845, i32 46611, i32 60657, i32 55983, i32 5335, i32 8841, i32 30827, i32 20021, i32 52655, i32 64497, i32 41235, i32 38733, i32 60254, i32 56576, i32 34786, i32 45500, i32 12838, i32 1144, i32 24218, i32 26820, i32 36627, i32 47437, i32 58287, i32 54769, i32 22123, i32 24629, i32 15063, i32 3209, i32 28826, i32 18116, i32 7206, i32 10872, i32 43490, i32 40892, i32 50526, i32 62208, i32 15736, i32 2854, i32 20932, i32 26522, i32 58368, i32 53854, i32 35004, i32 48866, i32 49905, i32 62639, i32 44621, i32 38931, i32 7049, i32 11735, i32 30517, i32 16747, i32 62946, i32 50108, i32 39262, i32 44800, i32 11418, i32 6852, i32 16422, i32 30328, i32 2667, i32 15413, i32 26327, i32 20617, i32 54035, i32 58701, i32 49071, i32 35313, i32 18313, i32 29143, i32 11061, i32 7531, i32 40689, i32 43183, i32 62029, i32 50195, i32 47104, i32 36446, i32 54460, i32 58082, i32 24952, i32 22310, i32 3524, i32 15258, i32 56397, i32 59923, i32 45297, i32 34479, i32 1333, i32 13163, i32 27017, i32 24535, i32 9156, i32 5530, i32 20344, i32 31014, i32 64188, i32 52450, i32 38400, i32 41054, i32 28198, i32 22648, i32 666, i32 13508, i32 46942, i32 33024, i32 56290, i32 60860, i32 37295, i32 42993, i32 64787, i32 52045, i32 18647, i32 32393, i32 9323, i32 4661], align 16
 @crc16_precompiled_080F = internal unnamed_addr constant [256 x i32] [i32 0, i32 2063, i32 4126, i32 6161, i32 8252, i32 10291, i32 12322, i32 14381, i32 16504, i32 18551, i32 20582, i32 22633, i32 24644, i32 26699, i32 28762, i32 30805, i32 33008, i32 35071, i32 37102, i32 39137, i32 41164, i32 43203, i32 45266, i32 47325, i32 49288, i32 51335, i32 53398, i32 55449, i32 57524, i32 59579, i32 61610, i32 63653, i32 2543, i32 480, i32 6641, i32 4606, i32 10707, i32 8668, i32 14797, i32 12738, i32 18839, i32 16792, i32 22921, i32 20870, i32 27051, i32 24996, i32 31157, i32 29114, i32 35103, i32 33040, i32 39169, i32 37134, i32 43299, i32 41260, i32 47421, i32 45362, i32 51559, i32 49512, i32 55673, i32 53622, i32 59739, i32 57684, i32 63813, i32 61770, i32 5086, i32 7121, i32 960, i32 3023, i32 13282, i32 15341, i32 9212, i32 11251, i32 21414, i32 23465, i32 17336, i32 19383, i32 29594, i32 31637, i32 25476, i32 27531, i32 37678, i32 39713, i32 33584, i32 35647, i32 45842, i32 47901, i32 41740, i32 43779, i32 54102, i32 56153, i32 49992, i32 52039, i32 62314, i32 64357, i32 58228, i32 60283, i32 6705, i32 4670, i32 2607, i32 544, i32 14861, i32 12802, i32 10771, i32 8732, i32 23113, i32 21062, i32 19031, i32 16984, i32 31349, i32 29306, i32 27243, i32 25188, i32 39617, i32 37582, i32 35551, i32 33488, i32 47869, i32 45810, i32 43747, i32 41708, i32 55993, i32 53942, i32 51879, i32 49832, i32 64133, i32 62090, i32 60059, i32 58004, i32 10172, i32 12211, i32 14242, i32 16301, i32 1920, i32 3983, i32 6046, i32 8081, i32 26564, i32 28619, i32 30682, i32 32725, i32 18424, i32 20471, i32 22502, i32 24553, i32 42828, i32 44867, i32 46930, i32 48989, i32 34672, i32 36735, i32 38766, i32 40801, i32 59188, i32 61243, i32 63274, i32 65317, i32 50952, i32 52999, i32 55062, i32 57113, i32 11859, i32 9820, i32 15949, i32 13890, i32 3695, i32 1632, i32 7793, i32 5758, i32 28203, i32 26148, i32 32309, i32 30266, i32 19991, i32 17944, i32 24073, i32 22022, i32 44707, i32 42668, i32 48829, i32 46770, i32 36511, i32 34448, i32 40577, i32 38542, i32 61147, i32 59092, i32 65221, i32 63178, i32 52967, i32 50920, i32 57081, i32 55030, i32 13410, i32 15469, i32 9340, i32 11379, i32 5214, i32 7249, i32 1088, i32 3151, i32 29722, i32 31765, i32 25604, i32 27659, i32 21542, i32 23593, i32 17464, i32 19511, i32 46226, i32 48285, i32 42124, i32 44163, i32 38062, i32 40097, i32 33968, i32 36031, i32 62698, i32 64741, i32 58612, i32 60667, i32 54486, i32 56537, i32 50376, i32 52423, i32 15757, i32 13698, i32 11667, i32 9628, i32 7601, i32 5566, i32 3503, i32 1440, i32 32245, i32 30202, i32 28139, i32 26084, i32 24009, i32 21958, i32 19927, i32 17880, i32 48509, i32 46450, i32 44387, i32 42348, i32 40257, i32 38222, i32 36191, i32 34128, i32 64773, i32 62730, i32 60699, i32 58644, i32 56633, i32 54582, i32 52519, i32 50472], align 16
 
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
+; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(argmem: read) uwtable
 define zeroext i16 @crc16_ccitt(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not8.i = icmp eq i32 %1, 0
   br i1 %.not8.i, label %crc16_reflected.exit, label %.lr.ph.i
@@ -32,7 +32,7 @@ define zeroext i16 @crc16_ccitt(ptr noundef readonly captures(none) %0, i32 noun
   %9 = lshr i32 %.011.i, 8
   %10 = xor i32 %8, %9
   %.not.i = icmp eq i32 %3, 0
-  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !4
+  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !6
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %11 = trunc i32 %10 to i16
@@ -44,7 +44,7 @@ crc16_reflected.exit:                             ; preds = %2, %._crit_edge.loo
   ret i16 %.0.lcssa.i
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
+; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(argmem: read) uwtable
 define zeroext i16 @crc16_x25_ccitt_seed(ptr noundef readonly captures(none) %0, i32 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %.not8.i = icmp eq i32 %1, 0
   br i1 %.not8.i, label %crc16_unreflected.exit, label %.lr.ph.preheader.i
@@ -69,7 +69,7 @@ define zeroext i16 @crc16_x25_ccitt_seed(ptr noundef readonly captures(none) %0,
   %12 = shl i32 %.011.i, 8
   %13 = xor i32 %11, %12
   %.not.i = icmp eq i32 %5, 0
-  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !6
+  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !8
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %14 = trunc i32 %13 to i16
@@ -80,7 +80,7 @@ crc16_unreflected.exit:                           ; preds = %3, %._crit_edge.loo
   ret i16 %.0.lcssa.i
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
+; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(argmem: read) uwtable
 define zeroext i16 @crc16_ccitt_seed(ptr noundef readonly captures(none) %0, i32 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %.not8.i = icmp eq i32 %1, 0
   br i1 %.not8.i, label %crc16_reflected.exit, label %.lr.ph.preheader.i
@@ -104,7 +104,7 @@ define zeroext i16 @crc16_ccitt_seed(ptr noundef readonly captures(none) %0, i32
   %11 = lshr i32 %.011.i, 8
   %12 = xor i32 %10, %11
   %.not.i = icmp eq i32 %5, 0
-  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !4
+  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !6
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %13 = trunc i32 %12 to i16
@@ -116,7 +116,7 @@ crc16_reflected.exit:                             ; preds = %3, %._crit_edge.loo
   ret i16 %14
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
+; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(argmem: read) uwtable
 define zeroext i16 @crc16_iso14443a(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not8.i = icmp eq i32 %1, 0
   br i1 %.not8.i, label %crc16_reflected.exit, label %.lr.ph.i
@@ -136,7 +136,7 @@ define zeroext i16 @crc16_iso14443a(ptr noundef readonly captures(none) %0, i32 
   %9 = lshr i32 %.011.i, 8
   %10 = xor i32 %8, %9
   %.not.i = icmp eq i32 %3, 0
-  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !4
+  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !6
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %11 = trunc i32 %10 to i16
@@ -147,7 +147,7 @@ crc16_reflected.exit:                             ; preds = %2, %._crit_edge.loo
   ret i16 %.0.lcssa.i
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
+; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(argmem: read) uwtable
 define zeroext i16 @crc16_usb(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not8.i = icmp eq i32 %1, 0
   br i1 %.not8.i, label %crc16_reflected.exit, label %.lr.ph.i
@@ -167,7 +167,7 @@ define zeroext i16 @crc16_usb(ptr noundef readonly captures(none) %0, i32 nounde
   %9 = lshr i32 %.011.i, 8
   %10 = xor i32 %8, %9
   %.not.i = icmp eq i32 %3, 0
-  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !4
+  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !6
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %11 = trunc i32 %10 to i16
@@ -179,7 +179,7 @@ crc16_reflected.exit:                             ; preds = %2, %._crit_edge.loo
   ret i16 %.0.lcssa.i
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
+; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(argmem: read) uwtable
 define zeroext i16 @crc16_0x5935(ptr noundef readonly captures(none) %0, i32 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %.not8.i = icmp eq i32 %1, 0
   br i1 %.not8.i, label %crc16_unreflected.exit, label %.lr.ph.preheader.i
@@ -204,7 +204,7 @@ define zeroext i16 @crc16_0x5935(ptr noundef readonly captures(none) %0, i32 nou
   %12 = shl i32 %.011.i, 8
   %13 = xor i32 %11, %12
   %.not.i = icmp eq i32 %5, 0
-  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !6
+  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !8
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %14 = trunc i32 %13 to i16
@@ -215,7 +215,7 @@ crc16_unreflected.exit:                           ; preds = %3, %._crit_edge.loo
   ret i16 %.0.lcssa.i
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
+; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(argmem: read) uwtable
 define zeroext i16 @crc16_0x755B(ptr noundef readonly captures(none) %0, i32 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %.not8.i = icmp eq i32 %1, 0
   br i1 %.not8.i, label %crc16_unreflected.exit, label %.lr.ph.preheader.i
@@ -240,7 +240,7 @@ define zeroext i16 @crc16_0x755B(ptr noundef readonly captures(none) %0, i32 nou
   %12 = shl i32 %.011.i, 8
   %13 = xor i32 %11, %12
   %.not.i = icmp eq i32 %5, 0
-  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !6
+  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !8
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %14 = trunc i32 %13 to i16
@@ -251,7 +251,7 @@ crc16_unreflected.exit:                           ; preds = %3, %._crit_edge.loo
   ret i16 %.0.lcssa.i
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
+; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(argmem: read) uwtable
 define zeroext i16 @crc16_0x9949_seed(ptr noundef readonly captures(none) %0, i32 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %.not8.i = icmp eq i32 %1, 0
   br i1 %.not8.i, label %crc16_reflected.exit, label %.lr.ph.preheader.i
@@ -275,7 +275,7 @@ define zeroext i16 @crc16_0x9949_seed(ptr noundef readonly captures(none) %0, i3
   %11 = lshr i32 %.011.i, 8
   %12 = xor i32 %10, %11
   %.not.i = icmp eq i32 %5, 0
-  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !4
+  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !6
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %13 = trunc i32 %12 to i16
@@ -286,7 +286,7 @@ crc16_reflected.exit:                             ; preds = %3, %._crit_edge.loo
   ret i16 %.0.lcssa.i
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
+; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(argmem: read) uwtable
 define zeroext i16 @crc16_0x3D65_seed(ptr noundef readonly captures(none) %0, i32 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %.not8.i = icmp eq i32 %1, 0
   br i1 %.not8.i, label %crc16_reflected.exit, label %.lr.ph.preheader.i
@@ -310,7 +310,7 @@ define zeroext i16 @crc16_0x3D65_seed(ptr noundef readonly captures(none) %0, i3
   %11 = lshr i32 %.011.i, 8
   %12 = xor i32 %10, %11
   %.not.i = icmp eq i32 %5, 0
-  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !4
+  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !6
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %13 = trunc i32 %12 to i16
@@ -321,7 +321,7 @@ crc16_reflected.exit:                             ; preds = %3, %._crit_edge.loo
   ret i16 %.0.lcssa.i
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
+; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(argmem: read) uwtable
 define zeroext i16 @crc16_0x080F_seed(ptr noundef readonly captures(none) %0, i32 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %.loopexit, label %.preheader
@@ -344,22 +344,24 @@ define zeroext i16 @crc16_0x080F_seed(ptr noundef readonly captures(none) %0, i3
   %15 = xor i32 %13, %14
   %16 = trunc i32 %15 to i16
   %.not10 = icmp eq i32 %4, 0
-  br i1 %.not10, label %.loopexit, label %.preheader, !llvm.loop !7
+  br i1 %.not10, label %.loopexit, label %.preheader, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.preheader, %3
   %.07 = phi i16 [ %2, %3 ], [ %16, %.preheader ]
   ret i16 %.07
 }
 
-attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

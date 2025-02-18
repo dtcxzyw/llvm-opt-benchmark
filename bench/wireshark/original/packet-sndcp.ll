@@ -3,12 +3,11 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
 %struct.true_false_string = type { ptr, ptr }
 %struct.reassembly_table = type { ptr, ptr, ptr, ptr, ptr }
 %struct.reassembly_table_functions = type { ptr, ptr, ptr, ptr, ptr, ptr }
 %struct._fragment_items = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
@@ -18,30 +17,28 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_sndcp_nsapi = internal global i32 0, align 4
 @.str = private unnamed_addr constant [20 x i8] c"Address field NSAPI\00", align 1
 @.str.1 = private unnamed_addr constant [12 x i8] c"sndcp.nsapi\00", align 1
-@nsapi_abrv = internal constant [17 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.60 }, %struct._value_string { i32 1, ptr @.str.61 }, %struct._value_string { i32 2, ptr @.str.62 }, %struct._value_string { i32 3, ptr @.str.63 }, %struct._value_string { i32 4, ptr @.str.64 }, %struct._value_string { i32 5, ptr @.str.65 }, %struct._value_string { i32 6, ptr @.str.66 }, %struct._value_string { i32 7, ptr @.str.67 }, %struct._value_string { i32 8, ptr @.str.68 }, %struct._value_string { i32 9, ptr @.str.69 }, %struct._value_string { i32 10, ptr @.str.70 }, %struct._value_string { i32 11, ptr @.str.71 }, %struct._value_string { i32 12, ptr @.str.72 }, %struct._value_string { i32 13, ptr @.str.73 }, %struct._value_string { i32 14, ptr @.str.74 }, %struct._value_string { i32 15, ptr @.str.75 }, %struct._value_string zeroinitializer], align 16
 @.str.2 = private unnamed_addr constant [46 x i8] c"Network Layer Service Access Point Identifier\00", align 1
 @hf_sndcp_x = internal global i32 0, align 4
 @.str.3 = private unnamed_addr constant [10 x i8] c"Spare bit\00", align 1
 @.str.4 = private unnamed_addr constant [8 x i8] c"sndcp.x\00", align 1
-@x_bit = internal constant %struct.true_false_string { ptr @.str.76, ptr @.str.77 }, align 8
+@x_bit = internal constant %struct.true_false_string { ptr @.str.77, ptr @.str.78 }, align 8
 @.str.5 = private unnamed_addr constant [24 x i8] c"Spare bit (should be 0)\00", align 1
 @hf_sndcp_f = internal global i32 0, align 4
 @.str.6 = private unnamed_addr constant [28 x i8] c"First segment indicator bit\00", align 1
 @.str.7 = private unnamed_addr constant [8 x i8] c"sndcp.f\00", align 1
-@f_bit = internal constant %struct.true_false_string { ptr @.str.78, ptr @.str.79 }, align 8
+@f_bit = internal constant %struct.true_false_string { ptr @.str.79, ptr @.str.80 }, align 8
 @hf_sndcp_t = internal global i32 0, align 4
 @.str.8 = private unnamed_addr constant [5 x i8] c"Type\00", align 1
 @.str.9 = private unnamed_addr constant [8 x i8] c"sndcp.t\00", align 1
-@t_bit = internal constant %struct.true_false_string { ptr @.str.80, ptr @.str.81 }, align 8
+@t_bit = internal constant %struct.true_false_string { ptr @.str.81, ptr @.str.82 }, align 8
 @.str.10 = private unnamed_addr constant [12 x i8] c"SN-PDU Type\00", align 1
 @hf_sndcp_m = internal global i32 0, align 4
 @.str.11 = private unnamed_addr constant [9 x i8] c"More bit\00", align 1
 @.str.12 = private unnamed_addr constant [8 x i8] c"sndcp.m\00", align 1
-@m_bit = internal constant %struct.true_false_string { ptr @.str.82, ptr @.str.83 }, align 8
+@m_bit = internal constant %struct.true_false_string { ptr @.str.83, ptr @.str.84 }, align 8
 @hf_sndcp_dcomp = internal global i32 0, align 4
 @.str.13 = private unnamed_addr constant [6 x i8] c"DCOMP\00", align 1
 @.str.14 = private unnamed_addr constant [12 x i8] c"sndcp.dcomp\00", align 1
-@compression_vals = internal constant [17 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.84 }, %struct._value_string { i32 1, ptr @.str.85 }, %struct._value_string { i32 2, ptr @.str.85 }, %struct._value_string { i32 3, ptr @.str.85 }, %struct._value_string { i32 4, ptr @.str.85 }, %struct._value_string { i32 5, ptr @.str.85 }, %struct._value_string { i32 6, ptr @.str.85 }, %struct._value_string { i32 7, ptr @.str.85 }, %struct._value_string { i32 8, ptr @.str.85 }, %struct._value_string { i32 9, ptr @.str.85 }, %struct._value_string { i32 10, ptr @.str.85 }, %struct._value_string { i32 11, ptr @.str.85 }, %struct._value_string { i32 12, ptr @.str.85 }, %struct._value_string { i32 13, ptr @.str.85 }, %struct._value_string { i32 14, ptr @.str.85 }, %struct._value_string { i32 15, ptr @.str.85 }, %struct._value_string zeroinitializer], align 16
 @.str.15 = private unnamed_addr constant [24 x i8] c"Data compression coding\00", align 1
 @hf_sndcp_pcomp = internal global i32 0, align 4
 @.str.16 = private unnamed_addr constant [6 x i8] c"PCOMP\00", align 1
@@ -50,7 +47,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_sndcp_nsapib = internal global i32 0, align 4
 @.str.19 = private unnamed_addr constant [6 x i8] c"NSAPI\00", align 1
 @.str.20 = private unnamed_addr constant [13 x i8] c"sndcp.nsapib\00", align 1
-@nsapi_t = internal constant [17 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.86 }, %struct._value_string { i32 1, ptr @.str.87 }, %struct._value_string { i32 2, ptr @.str.88 }, %struct._value_string { i32 3, ptr @.str.88 }, %struct._value_string { i32 4, ptr @.str.88 }, %struct._value_string { i32 5, ptr @.str.89 }, %struct._value_string { i32 6, ptr @.str.89 }, %struct._value_string { i32 7, ptr @.str.89 }, %struct._value_string { i32 8, ptr @.str.89 }, %struct._value_string { i32 9, ptr @.str.89 }, %struct._value_string { i32 10, ptr @.str.89 }, %struct._value_string { i32 11, ptr @.str.89 }, %struct._value_string { i32 12, ptr @.str.89 }, %struct._value_string { i32 13, ptr @.str.89 }, %struct._value_string { i32 14, ptr @.str.89 }, %struct._value_string { i32 15, ptr @.str.89 }, %struct._value_string zeroinitializer], align 16
 @hf_sndcp_segment = internal global i32 0, align 4
 @.str.21 = private unnamed_addr constant [8 x i8] c"Segment\00", align 1
 @.str.22 = private unnamed_addr constant [14 x i8] c"sndcp.segment\00", align 1
@@ -132,36 +128,39 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.73 = private unnamed_addr constant [6 x i8] c"DYN13\00", align 1
 @.str.74 = private unnamed_addr constant [6 x i8] c"DYN14\00", align 1
 @.str.75 = private unnamed_addr constant [6 x i8] c"DYN15\00", align 1
-@.str.76 = private unnamed_addr constant [8 x i8] c"Invalid\00", align 1
-@.str.77 = private unnamed_addr constant [60 x i8] c"Set to 0 by transmitting SNDCP entity (ignored by receiver)\00", align 1
-@.str.78 = private unnamed_addr constant [45 x i8] c"This SN-PDU is the first segment of an N-PDU\00", align 1
-@.str.79 = private unnamed_addr constant [49 x i8] c"This SN-PDU is not the first segment of an N-PDU\00", align 1
-@.str.80 = private unnamed_addr constant [16 x i8] c"SN-UNITDATA PDU\00", align 1
-@.str.81 = private unnamed_addr constant [12 x i8] c"SN-DATA PDU\00", align 1
-@.str.82 = private unnamed_addr constant [55 x i8] c"Not the last segment of N-PDU, more segments to follow\00", align 1
-@.str.83 = private unnamed_addr constant [22 x i8] c"Last segment of N-PDU\00", align 1
-@.str.84 = private unnamed_addr constant [15 x i8] c"No compression\00", align 1
-@.str.85 = private unnamed_addr constant [56 x i8] c"Pointer to selected protocol/data compression mechanism\00", align 1
-@.str.86 = private unnamed_addr constant [39 x i8] c"Escape mechanism for future extensions\00", align 1
-@.str.87 = private unnamed_addr constant [40 x i8] c"Point-to-Multipoint (PTM-M) Information\00", align 1
-@.str.88 = private unnamed_addr constant [24 x i8] c"Reserved for future use\00", align 1
-@.str.89 = private unnamed_addr constant [22 x i8] c"Dynamically allocated\00", align 1
+@nsapi_abrv = internal constant [17 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.60 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.61 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.62 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.63 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.64 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.65 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.66 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.67 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.68 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.69 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.70 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.71 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.72 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.73 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.74 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.75 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.77 = private unnamed_addr constant [8 x i8] c"Invalid\00", align 1
+@.str.78 = private unnamed_addr constant [60 x i8] c"Set to 0 by transmitting SNDCP entity (ignored by receiver)\00", align 1
+@.str.79 = private unnamed_addr constant [45 x i8] c"This SN-PDU is the first segment of an N-PDU\00", align 1
+@.str.80 = private unnamed_addr constant [49 x i8] c"This SN-PDU is not the first segment of an N-PDU\00", align 1
+@.str.81 = private unnamed_addr constant [16 x i8] c"SN-UNITDATA PDU\00", align 1
+@.str.82 = private unnamed_addr constant [12 x i8] c"SN-DATA PDU\00", align 1
+@.str.83 = private unnamed_addr constant [55 x i8] c"Not the last segment of N-PDU, more segments to follow\00", align 1
+@.str.84 = private unnamed_addr constant [22 x i8] c"Last segment of N-PDU\00", align 1
+@.str.85 = private unnamed_addr constant [15 x i8] c"No compression\00", align 1
+@.str.86 = private unnamed_addr constant [56 x i8] c"Pointer to selected protocol/data compression mechanism\00", align 1
+@compression_vals = internal constant [17 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.85 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.86 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.86 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.86 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.86 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.86 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.86 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.86 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.86 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.86 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.86 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.86 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.86 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.86 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.86 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.86 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.88 = private unnamed_addr constant [39 x i8] c"Escape mechanism for future extensions\00", align 1
+@.str.89 = private unnamed_addr constant [40 x i8] c"Point-to-Multipoint (PTM-M) Information\00", align 1
+@.str.90 = private unnamed_addr constant [24 x i8] c"Reserved for future use\00", align 1
+@.str.91 = private unnamed_addr constant [22 x i8] c"Dynamically allocated\00", align 1
+@nsapi_t = internal constant [17 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.88 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.89 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.90 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.90 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.90 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.91 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.91 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.91 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.91 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.91 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.91 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.91 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.91 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.91 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.91 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.91 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
 @dissect_sndcp.addr_fields = internal constant [6 x ptr] [ptr @hf_sndcp_x, ptr @hf_sndcp_f, ptr @hf_sndcp_t, ptr @hf_sndcp_m, ptr @hf_sndcp_nsapib, ptr null], align 16
-@.str.90 = private unnamed_addr constant [17 x i8] c"Data compression\00", align 1
-@.str.91 = private unnamed_addr constant [21 x i8] c"Protocol compression\00", align 1
-@.str.92 = private unnamed_addr constant [30 x i8] c"Data and Protocol compression\00", align 1
-@.str.93 = private unnamed_addr constant [17 x i8] c"SN-DATA N-PDU %d\00", align 1
-@.str.94 = private unnamed_addr constant [28 x i8] c"Acknowledged mode, N-PDU %d\00", align 1
-@.str.95 = private unnamed_addr constant [34 x i8] c"SN-UNITDATA N-PDU %d (segment %d)\00", align 1
-@.str.96 = private unnamed_addr constant [43 x i8] c"Unacknowledged mode, N-PDU %d (segment %d)\00", align 1
-@.str.97 = private unnamed_addr constant [18 x i8] c"Reassembled N-PDU\00", align 1
-@npdu_frag_items = internal constant %struct._fragment_items { ptr @ett_npdu_fragment, ptr @ett_npdu_fragments, ptr @hf_npdu_fragments, ptr @hf_npdu_fragment, ptr @hf_npdu_fragment_overlap, ptr @hf_npdu_fragment_overlap_conflict, ptr @hf_npdu_fragment_multiple_tails, ptr @hf_npdu_fragment_too_long_fragment, ptr @hf_npdu_fragment_error, ptr @hf_npdu_fragment_count, ptr @hf_npdu_reassembled_in, ptr @hf_npdu_reassembled_length, ptr null, ptr @.str.101 }, align 8
-@.str.98 = private unnamed_addr constant [42 x i8] c" (N-PDU payload reassembled in packet %u)\00", align 1
-@.str.99 = private unnamed_addr constant [29 x i8] c" (Unreassembled fragment %u)\00", align 1
-@.str.100 = private unnamed_addr constant [26 x i8] c" (Unreassembled fragment)\00", align 1
-@.str.101 = private unnamed_addr constant [10 x i8] c"fragments\00", align 1
+@.str.93 = private unnamed_addr constant [17 x i8] c"Data compression\00", align 1
+@.str.94 = private unnamed_addr constant [21 x i8] c"Protocol compression\00", align 1
+@.str.95 = private unnamed_addr constant [30 x i8] c"Data and Protocol compression\00", align 1
+@.str.96 = private unnamed_addr constant [17 x i8] c"SN-DATA N-PDU %d\00", align 1
+@.str.97 = private unnamed_addr constant [28 x i8] c"Acknowledged mode, N-PDU %d\00", align 1
+@.str.98 = private unnamed_addr constant [34 x i8] c"SN-UNITDATA N-PDU %d (segment %d)\00", align 1
+@.str.99 = private unnamed_addr constant [43 x i8] c"Unacknowledged mode, N-PDU %d (segment %d)\00", align 1
+@.str.100 = private unnamed_addr constant [18 x i8] c"Reassembled N-PDU\00", align 1
+@npdu_frag_items = internal constant %struct._fragment_items { ptr @ett_npdu_fragment, ptr @ett_npdu_fragments, ptr @hf_npdu_fragments, ptr @hf_npdu_fragment, ptr @hf_npdu_fragment_overlap, ptr @hf_npdu_fragment_overlap_conflict, ptr @hf_npdu_fragment_multiple_tails, ptr @hf_npdu_fragment_too_long_fragment, ptr @hf_npdu_fragment_error, ptr @hf_npdu_fragment_count, ptr @hf_npdu_reassembled_in, ptr @hf_npdu_reassembled_length, ptr null, ptr @.str.104 }, align 8
+@.str.101 = private unnamed_addr constant [42 x i8] c" (N-PDU payload reassembled in packet %u)\00", align 1
+@.str.102 = private unnamed_addr constant [29 x i8] c" (Unreassembled fragment %u)\00", align 1
+@.str.103 = private unnamed_addr constant [26 x i8] c" (Unreassembled fragment)\00", align 1
+@.str.104 = private unnamed_addr constant [10 x i8] c"fragments\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_sndcp() #0 {
   %1 = call i32 @proto_register_protocol(ptr noundef @.str.55, ptr noundef @.str.56, ptr noundef @.str.57)
   store i32 %1, ptr @proto_sndcp, align 4
@@ -175,15 +174,19 @@ define hidden void @proto_register_sndcp() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_sndcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -202,506 +205,576 @@ define internal i32 @dissect_sndcp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %19 = alloca ptr, align 8
   %20 = alloca ptr, align 8
   %21 = alloca i32, align 4
-  %22 = alloca i32, align 4
-  %23 = alloca i32, align 4
-  %24 = alloca i32, align 4
+  %22 = alloca i8, align 1
+  %23 = alloca i8, align 1
+  %24 = alloca i8, align 1
   %25 = alloca ptr, align 8
   %26 = alloca ptr, align 8
   %27 = alloca ptr, align 8
   %28 = alloca ptr, align 8
   %29 = alloca ptr, align 8
   %30 = alloca i32, align 4
-  %31 = alloca i32, align 4
+  %31 = alloca i8, align 1
+  %32 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #3
   store i8 0, ptr %13, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #3
   store i8 0, ptr %14, align 1
+  call void @llvm.lifetime.start.p0(i64 2, ptr %15) #3
   store i16 0, ptr %15, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %16) #3
   store i16 0, ptr %16, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %17) #3
   store i16 0, ptr %17, align 2
-  %32 = load ptr, ptr %7, align 8
-  %33 = getelementptr inbounds %struct._packet_info, ptr %32, i32 0, i32 1
-  %34 = load ptr, ptr %33, align 8
-  call void @col_set_str(ptr noundef %34, i32 noundef 34, ptr noundef @.str.56)
-  %35 = load ptr, ptr %7, align 8
-  %36 = getelementptr inbounds %struct._packet_info, ptr %35, i32 0, i32 1
-  %37 = load ptr, ptr %36, align 8
-  call void @col_clear(ptr noundef %37, i32 noundef 25)
-  %38 = load ptr, ptr %8, align 8
-  %39 = load i32, ptr @proto_sndcp, align 4
-  %40 = load ptr, ptr %6, align 8
-  %41 = call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %39, ptr noundef %40, i32 noundef 0, i32 noundef -1, i32 noundef 0)
-  store ptr %41, ptr %25, align 8
-  %42 = load ptr, ptr %25, align 8
-  %43 = load i32, ptr @ett_sndcp, align 4
-  %44 = call ptr @proto_item_add_subtree(ptr noundef %42, i32 noundef %43)
-  store ptr %44, ptr %26, align 8
-  %45 = load ptr, ptr %6, align 8
-  %46 = load i16, ptr %15, align 2
-  %47 = zext i16 %46 to i32
-  %48 = call zeroext i8 @tvb_get_guint8(ptr noundef %45, i32 noundef %47)
-  store i8 %48, ptr %10, align 1
-  %49 = load i8, ptr %10, align 1
-  %50 = zext i8 %49 to i32
-  %51 = and i32 %50, 64
-  store i32 %51, ptr %22, align 4
-  %52 = load i8, ptr %10, align 1
-  %53 = zext i8 %52 to i32
-  %54 = and i32 %53, 16
-  store i32 %54, ptr %23, align 4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %18) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %22) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %23) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %24) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #3
+  %33 = load ptr, ptr %7, align 8
+  %34 = getelementptr inbounds nuw %struct._packet_info, ptr %33, i32 0, i32 1
+  %35 = load ptr, ptr %34, align 8
+  call void @col_set_str(ptr noundef %35, i32 noundef 35, ptr noundef @.str.56)
+  %36 = load ptr, ptr %7, align 8
+  %37 = getelementptr inbounds nuw %struct._packet_info, ptr %36, i32 0, i32 1
+  %38 = load ptr, ptr %37, align 8
+  call void @col_clear(ptr noundef %38, i32 noundef 25)
+  %39 = load ptr, ptr %8, align 8
+  %40 = load i32, ptr @proto_sndcp, align 4
+  %41 = load ptr, ptr %6, align 8
+  %42 = call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %40, ptr noundef %41, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  store ptr %42, ptr %25, align 8
+  %43 = load ptr, ptr %25, align 8
+  %44 = load i32, ptr @ett_sndcp, align 4
+  %45 = call ptr @proto_item_add_subtree(ptr noundef %43, i32 noundef %44)
+  store ptr %45, ptr %26, align 8
+  %46 = load ptr, ptr %6, align 8
+  %47 = load i16, ptr %15, align 2
+  %48 = zext i16 %47 to i32
+  %49 = call zeroext i8 @tvb_get_uint8(ptr noundef %46, i32 noundef %48)
+  store i8 %49, ptr %10, align 1
+  %50 = load i8, ptr %10, align 1
+  %51 = zext i8 %50 to i32
+  %52 = and i32 %51, 64
+  %53 = icmp ne i32 %52, 0
+  %54 = zext i1 %53 to i8
+  store i8 %54, ptr %22, align 1
   %55 = load i8, ptr %10, align 1
   %56 = zext i8 %55 to i32
-  %57 = and i32 %56, 32
-  store i32 %57, ptr %24, align 4
-  %58 = load ptr, ptr %26, align 8
-  %59 = load ptr, ptr %6, align 8
-  %60 = load i16, ptr %15, align 2
-  %61 = zext i16 %60 to i32
-  %62 = load i32, ptr @hf_sndcp_nsapi, align 4
-  %63 = load i32, ptr @ett_sndcp_address_field, align 4
-  %64 = call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %58, ptr noundef %59, i32 noundef %61, i32 noundef %62, i32 noundef %63, ptr noundef @dissect_sndcp.addr_fields, i32 noundef 0, i32 noundef 1)
-  %65 = load i16, ptr %15, align 2
-  %66 = add i16 %65, 1
-  store i16 %66, ptr %15, align 2
-  %67 = load i32, ptr %22, align 4
-  %68 = icmp ne i32 %67, 0
-  br i1 %68, label %69, label %179
+  %57 = and i32 %56, 16
+  %58 = icmp ne i32 %57, 0
+  %59 = zext i1 %58 to i8
+  store i8 %59, ptr %23, align 1
+  %60 = load i8, ptr %10, align 1
+  %61 = zext i8 %60 to i32
+  %62 = and i32 %61, 32
+  %63 = icmp ne i32 %62, 0
+  %64 = zext i1 %63 to i8
+  store i8 %64, ptr %24, align 1
+  %65 = load ptr, ptr %26, align 8
+  %66 = load ptr, ptr %6, align 8
+  %67 = load i16, ptr %15, align 2
+  %68 = zext i16 %67 to i32
+  %69 = load i32, ptr @hf_sndcp_nsapi, align 4
+  %70 = load i32, ptr @ett_sndcp_address_field, align 4
+  %71 = call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %65, ptr noundef %66, i32 noundef %68, i32 noundef %69, i32 noundef %70, ptr noundef @dissect_sndcp.addr_fields, i32 noundef 0, i32 noundef 1)
+  %72 = load i16, ptr %15, align 2
+  %73 = add i16 %72, 1
+  store i16 %73, ptr %15, align 2
+  %74 = load i8, ptr %22, align 1, !range !6, !noundef !7
+  %75 = trunc i8 %74 to i1
+  br i1 %75, label %76, label %186
 
-69:                                               ; preds = %4
-  %70 = load ptr, ptr %6, align 8
-  %71 = load i16, ptr %15, align 2
-  %72 = zext i16 %71 to i32
-  %73 = call zeroext i8 @tvb_get_guint8(ptr noundef %70, i32 noundef %72)
-  store i8 %73, ptr %11, align 1
-  %74 = load i8, ptr %11, align 1
-  %75 = zext i8 %74 to i32
-  %76 = and i32 %75, 240
-  %77 = trunc i32 %76 to i8
-  store i8 %77, ptr %13, align 1
-  %78 = load i8, ptr %11, align 1
-  %79 = zext i8 %78 to i32
-  %80 = and i32 %79, 15
-  %81 = trunc i32 %80 to i8
-  store i8 %81, ptr %14, align 1
-  %82 = load ptr, ptr %8, align 8
-  %83 = icmp ne ptr %82, null
-  br i1 %83, label %84, label %140
+76:                                               ; preds = %4
+  %77 = load ptr, ptr %6, align 8
+  %78 = load i16, ptr %15, align 2
+  %79 = zext i16 %78 to i32
+  %80 = call zeroext i8 @tvb_get_uint8(ptr noundef %77, i32 noundef %79)
+  store i8 %80, ptr %11, align 1
+  %81 = load i8, ptr %11, align 1
+  %82 = zext i8 %81 to i32
+  %83 = and i32 %82, 240
+  %84 = trunc i32 %83 to i8
+  store i8 %84, ptr %13, align 1
+  %85 = load i8, ptr %11, align 1
+  %86 = zext i8 %85 to i32
+  %87 = and i32 %86, 15
+  %88 = trunc i32 %87 to i8
+  store i8 %88, ptr %14, align 1
+  %89 = load ptr, ptr %8, align 8
+  %90 = icmp ne ptr %89, null
+  br i1 %90, label %91, label %147
 
-84:                                               ; preds = %69
-  %85 = load i8, ptr %14, align 1
-  %86 = icmp ne i8 %85, 0
-  br i1 %86, label %105, label %87
+91:                                               ; preds = %76
+  %92 = load i8, ptr %14, align 1
+  %93 = icmp ne i8 %92, 0
+  br i1 %93, label %112, label %94
 
-87:                                               ; preds = %84
-  %88 = load i8, ptr %13, align 1
-  %89 = icmp ne i8 %88, 0
-  br i1 %89, label %97, label %90
+94:                                               ; preds = %91
+  %95 = load i8, ptr %13, align 1
+  %96 = icmp ne i8 %95, 0
+  br i1 %96, label %104, label %97
 
-90:                                               ; preds = %87
-  %91 = load ptr, ptr %26, align 8
-  %92 = load ptr, ptr %6, align 8
-  %93 = load i16, ptr %15, align 2
-  %94 = zext i16 %93 to i32
-  %95 = load i32, ptr @ett_sndcp_compression_field, align 4
-  %96 = call ptr @proto_tree_add_subtree(ptr noundef %91, ptr noundef %92, i32 noundef %94, i32 noundef 1, i32 noundef %95, ptr noundef null, ptr noundef @.str.84)
-  store ptr %96, ptr %27, align 8
-  br label %104
-
-97:                                               ; preds = %87
+97:                                               ; preds = %94
   %98 = load ptr, ptr %26, align 8
   %99 = load ptr, ptr %6, align 8
   %100 = load i16, ptr %15, align 2
   %101 = zext i16 %100 to i32
   %102 = load i32, ptr @ett_sndcp_compression_field, align 4
-  %103 = call ptr @proto_tree_add_subtree(ptr noundef %98, ptr noundef %99, i32 noundef %101, i32 noundef 1, i32 noundef %102, ptr noundef null, ptr noundef @.str.90)
+  %103 = call ptr @proto_tree_add_subtree(ptr noundef %98, ptr noundef %99, i32 noundef %101, i32 noundef 1, i32 noundef %102, ptr noundef null, ptr noundef @.str.85)
   store ptr %103, ptr %27, align 8
-  br label %104
+  br label %111
 
-104:                                              ; preds = %97, %90
-  br label %123
+104:                                              ; preds = %94
+  %105 = load ptr, ptr %26, align 8
+  %106 = load ptr, ptr %6, align 8
+  %107 = load i16, ptr %15, align 2
+  %108 = zext i16 %107 to i32
+  %109 = load i32, ptr @ett_sndcp_compression_field, align 4
+  %110 = call ptr @proto_tree_add_subtree(ptr noundef %105, ptr noundef %106, i32 noundef %108, i32 noundef 1, i32 noundef %109, ptr noundef null, ptr noundef @.str.93)
+  store ptr %110, ptr %27, align 8
+  br label %111
 
-105:                                              ; preds = %84
-  %106 = load i8, ptr %13, align 1
-  %107 = icmp ne i8 %106, 0
-  br i1 %107, label %115, label %108
+111:                                              ; preds = %104, %97
+  br label %130
 
-108:                                              ; preds = %105
-  %109 = load ptr, ptr %26, align 8
-  %110 = load ptr, ptr %6, align 8
-  %111 = load i16, ptr %15, align 2
-  %112 = zext i16 %111 to i32
-  %113 = load i32, ptr @ett_sndcp_compression_field, align 4
-  %114 = call ptr @proto_tree_add_subtree(ptr noundef %109, ptr noundef %110, i32 noundef %112, i32 noundef 1, i32 noundef %113, ptr noundef null, ptr noundef @.str.91)
-  store ptr %114, ptr %27, align 8
-  br label %122
+112:                                              ; preds = %91
+  %113 = load i8, ptr %13, align 1
+  %114 = icmp ne i8 %113, 0
+  br i1 %114, label %122, label %115
 
-115:                                              ; preds = %105
+115:                                              ; preds = %112
   %116 = load ptr, ptr %26, align 8
   %117 = load ptr, ptr %6, align 8
   %118 = load i16, ptr %15, align 2
   %119 = zext i16 %118 to i32
   %120 = load i32, ptr @ett_sndcp_compression_field, align 4
-  %121 = call ptr @proto_tree_add_subtree(ptr noundef %116, ptr noundef %117, i32 noundef %119, i32 noundef 1, i32 noundef %120, ptr noundef null, ptr noundef @.str.92)
+  %121 = call ptr @proto_tree_add_subtree(ptr noundef %116, ptr noundef %117, i32 noundef %119, i32 noundef 1, i32 noundef %120, ptr noundef null, ptr noundef @.str.94)
   store ptr %121, ptr %27, align 8
-  br label %122
+  br label %129
 
-122:                                              ; preds = %115, %108
-  br label %123
+122:                                              ; preds = %112
+  %123 = load ptr, ptr %26, align 8
+  %124 = load ptr, ptr %6, align 8
+  %125 = load i16, ptr %15, align 2
+  %126 = zext i16 %125 to i32
+  %127 = load i32, ptr @ett_sndcp_compression_field, align 4
+  %128 = call ptr @proto_tree_add_subtree(ptr noundef %123, ptr noundef %124, i32 noundef %126, i32 noundef 1, i32 noundef %127, ptr noundef null, ptr noundef @.str.95)
+  store ptr %128, ptr %27, align 8
+  br label %129
 
-123:                                              ; preds = %122, %104
-  %124 = load ptr, ptr %27, align 8
-  %125 = load i32, ptr @hf_sndcp_dcomp, align 4
-  %126 = load ptr, ptr %6, align 8
-  %127 = load i16, ptr %15, align 2
-  %128 = zext i16 %127 to i32
-  %129 = load i8, ptr %11, align 1
-  %130 = zext i8 %129 to i32
-  %131 = call ptr @proto_tree_add_uint(ptr noundef %124, i32 noundef %125, ptr noundef %126, i32 noundef %128, i32 noundef 1, i32 noundef %130)
-  %132 = load ptr, ptr %27, align 8
-  %133 = load i32, ptr @hf_sndcp_pcomp, align 4
-  %134 = load ptr, ptr %6, align 8
-  %135 = load i16, ptr %15, align 2
-  %136 = zext i16 %135 to i32
-  %137 = load i8, ptr %11, align 1
-  %138 = zext i8 %137 to i32
-  %139 = call ptr @proto_tree_add_uint(ptr noundef %132, i32 noundef %133, ptr noundef %134, i32 noundef %136, i32 noundef 1, i32 noundef %138)
-  br label %140
+129:                                              ; preds = %122, %115
+  br label %130
 
-140:                                              ; preds = %123, %69
-  %141 = load i16, ptr %15, align 2
-  %142 = add i16 %141, 1
-  store i16 %142, ptr %15, align 2
-  %143 = load i32, ptr %24, align 4
-  %144 = icmp ne i32 %143, 0
-  br i1 %144, label %178, label %145
+130:                                              ; preds = %129, %111
+  %131 = load ptr, ptr %27, align 8
+  %132 = load i32, ptr @hf_sndcp_dcomp, align 4
+  %133 = load ptr, ptr %6, align 8
+  %134 = load i16, ptr %15, align 2
+  %135 = zext i16 %134 to i32
+  %136 = load i8, ptr %11, align 1
+  %137 = zext i8 %136 to i32
+  %138 = call ptr @proto_tree_add_uint(ptr noundef %131, i32 noundef %132, ptr noundef %133, i32 noundef %135, i32 noundef 1, i32 noundef %137)
+  %139 = load ptr, ptr %27, align 8
+  %140 = load i32, ptr @hf_sndcp_pcomp, align 4
+  %141 = load ptr, ptr %6, align 8
+  %142 = load i16, ptr %15, align 2
+  %143 = zext i16 %142 to i32
+  %144 = load i8, ptr %11, align 1
+  %145 = zext i8 %144 to i32
+  %146 = call ptr @proto_tree_add_uint(ptr noundef %139, i32 noundef %140, ptr noundef %141, i32 noundef %143, i32 noundef 1, i32 noundef %145)
+  br label %147
 
-145:                                              ; preds = %140
-  %146 = load ptr, ptr %6, align 8
-  %147 = load i16, ptr %15, align 2
-  %148 = zext i16 %147 to i32
-  %149 = call zeroext i8 @tvb_get_guint8(ptr noundef %146, i32 noundef %148)
-  store i8 %149, ptr %12, align 1
-  %150 = zext i8 %149 to i16
-  store i16 %150, ptr %16, align 2
-  %151 = load ptr, ptr %7, align 8
-  %152 = getelementptr inbounds %struct._packet_info, ptr %151, i32 0, i32 1
-  %153 = load ptr, ptr %152, align 8
-  %154 = load i8, ptr %12, align 1
-  %155 = zext i8 %154 to i32
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %153, i32 noundef 25, ptr noundef @.str.93, i32 noundef %155)
-  %156 = load ptr, ptr %8, align 8
-  %157 = icmp ne ptr %156, null
-  br i1 %157, label %158, label %175
+147:                                              ; preds = %130, %76
+  %148 = load i16, ptr %15, align 2
+  %149 = add i16 %148, 1
+  store i16 %149, ptr %15, align 2
+  %150 = load i8, ptr %24, align 1, !range !6, !noundef !7
+  %151 = trunc i8 %150 to i1
+  br i1 %151, label %185, label %152
 
-158:                                              ; preds = %145
-  %159 = load ptr, ptr %26, align 8
-  %160 = load ptr, ptr %6, align 8
-  %161 = load i16, ptr %15, align 2
-  %162 = zext i16 %161 to i32
-  %163 = load i32, ptr @ett_sndcp_npdu_field, align 4
-  %164 = load i8, ptr %12, align 1
-  %165 = zext i8 %164 to i32
-  %166 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %159, ptr noundef %160, i32 noundef %162, i32 noundef 1, i32 noundef %163, ptr noundef null, ptr noundef @.str.94, i32 noundef %165)
-  store ptr %166, ptr %28, align 8
-  %167 = load ptr, ptr %28, align 8
-  %168 = load i32, ptr @hf_sndcp_npdu1, align 4
-  %169 = load ptr, ptr %6, align 8
-  %170 = load i16, ptr %15, align 2
-  %171 = zext i16 %170 to i32
-  %172 = load i8, ptr %12, align 1
-  %173 = zext i8 %172 to i32
-  %174 = call ptr @proto_tree_add_uint(ptr noundef %167, i32 noundef %168, ptr noundef %169, i32 noundef %171, i32 noundef 1, i32 noundef %173)
-  br label %175
+152:                                              ; preds = %147
+  %153 = load ptr, ptr %6, align 8
+  %154 = load i16, ptr %15, align 2
+  %155 = zext i16 %154 to i32
+  %156 = call zeroext i8 @tvb_get_uint8(ptr noundef %153, i32 noundef %155)
+  store i8 %156, ptr %12, align 1
+  %157 = zext i8 %156 to i16
+  store i16 %157, ptr %16, align 2
+  %158 = load ptr, ptr %7, align 8
+  %159 = getelementptr inbounds nuw %struct._packet_info, ptr %158, i32 0, i32 1
+  %160 = load ptr, ptr %159, align 8
+  %161 = load i8, ptr %12, align 1
+  %162 = zext i8 %161 to i32
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %160, i32 noundef 25, ptr noundef @.str.96, i32 noundef %162)
+  %163 = load ptr, ptr %8, align 8
+  %164 = icmp ne ptr %163, null
+  br i1 %164, label %165, label %182
 
-175:                                              ; preds = %158, %145
-  %176 = load i16, ptr %15, align 2
-  %177 = add i16 %176, 1
-  store i16 %177, ptr %15, align 2
-  br label %178
+165:                                              ; preds = %152
+  %166 = load ptr, ptr %26, align 8
+  %167 = load ptr, ptr %6, align 8
+  %168 = load i16, ptr %15, align 2
+  %169 = zext i16 %168 to i32
+  %170 = load i32, ptr @ett_sndcp_npdu_field, align 4
+  %171 = load i8, ptr %12, align 1
+  %172 = zext i8 %171 to i32
+  %173 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %166, ptr noundef %167, i32 noundef %169, i32 noundef 1, i32 noundef %170, ptr noundef null, ptr noundef @.str.97, i32 noundef %172)
+  store ptr %173, ptr %28, align 8
+  %174 = load ptr, ptr %28, align 8
+  %175 = load i32, ptr @hf_sndcp_npdu1, align 4
+  %176 = load ptr, ptr %6, align 8
+  %177 = load i16, ptr %15, align 2
+  %178 = zext i16 %177 to i32
+  %179 = load i8, ptr %12, align 1
+  %180 = zext i8 %179 to i32
+  %181 = call ptr @proto_tree_add_uint(ptr noundef %174, i32 noundef %175, ptr noundef %176, i32 noundef %178, i32 noundef 1, i32 noundef %180)
+  br label %182
 
-178:                                              ; preds = %175, %140
-  br label %179
+182:                                              ; preds = %165, %152
+  %183 = load i16, ptr %15, align 2
+  %184 = add i16 %183, 1
+  store i16 %184, ptr %15, align 2
+  br label %185
 
-179:                                              ; preds = %178, %4
-  %180 = load i32, ptr %24, align 4
-  %181 = icmp ne i32 %180, 0
-  br i1 %181, label %182, label %237
+185:                                              ; preds = %182, %147
+  br label %186
 
-182:                                              ; preds = %179
-  %183 = load ptr, ptr %6, align 8
-  %184 = load i16, ptr %15, align 2
-  %185 = zext i16 %184 to i32
-  %186 = call zeroext i16 @tvb_get_ntohs(ptr noundef %183, i32 noundef %185)
-  store i16 %186, ptr %18, align 2
-  %187 = load i16, ptr %18, align 2
-  %188 = zext i16 %187 to i32
-  %189 = and i32 %188, 61440
-  %190 = ashr i32 %189, 12
-  %191 = trunc i32 %190 to i16
-  store i16 %191, ptr %17, align 2
-  %192 = load i16, ptr %18, align 2
-  %193 = zext i16 %192 to i32
-  %194 = and i32 %193, 4095
-  %195 = trunc i32 %194 to i16
-  store i16 %195, ptr %16, align 2
-  %196 = load ptr, ptr %7, align 8
-  %197 = getelementptr inbounds %struct._packet_info, ptr %196, i32 0, i32 1
-  %198 = load ptr, ptr %197, align 8
-  %199 = load i16, ptr %16, align 2
+186:                                              ; preds = %185, %4
+  %187 = load i8, ptr %24, align 1, !range !6, !noundef !7
+  %188 = trunc i8 %187 to i1
+  br i1 %188, label %189, label %244
+
+189:                                              ; preds = %186
+  %190 = load ptr, ptr %6, align 8
+  %191 = load i16, ptr %15, align 2
+  %192 = zext i16 %191 to i32
+  %193 = call zeroext i16 @tvb_get_ntohs(ptr noundef %190, i32 noundef %192)
+  store i16 %193, ptr %18, align 2
+  %194 = load i16, ptr %18, align 2
+  %195 = zext i16 %194 to i32
+  %196 = and i32 %195, 61440
+  %197 = ashr i32 %196, 12
+  %198 = trunc i32 %197 to i16
+  store i16 %198, ptr %17, align 2
+  %199 = load i16, ptr %18, align 2
   %200 = zext i16 %199 to i32
-  %201 = load i16, ptr %17, align 2
-  %202 = zext i16 %201 to i32
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %198, i32 noundef 25, ptr noundef @.str.95, i32 noundef %200, i32 noundef %202)
-  %203 = load ptr, ptr %8, align 8
-  %204 = icmp ne ptr %203, null
-  br i1 %204, label %205, label %232
-
-205:                                              ; preds = %182
-  %206 = load ptr, ptr %26, align 8
-  %207 = load ptr, ptr %6, align 8
-  %208 = load i16, ptr %15, align 2
+  %201 = and i32 %200, 4095
+  %202 = trunc i32 %201 to i16
+  store i16 %202, ptr %16, align 2
+  %203 = load ptr, ptr %7, align 8
+  %204 = getelementptr inbounds nuw %struct._packet_info, ptr %203, i32 0, i32 1
+  %205 = load ptr, ptr %204, align 8
+  %206 = load i16, ptr %16, align 2
+  %207 = zext i16 %206 to i32
+  %208 = load i16, ptr %17, align 2
   %209 = zext i16 %208 to i32
-  %210 = load i32, ptr @ett_sndcp_npdu_field, align 4
-  %211 = load i16, ptr %16, align 2
-  %212 = zext i16 %211 to i32
-  %213 = load i16, ptr %17, align 2
-  %214 = zext i16 %213 to i32
-  %215 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %206, ptr noundef %207, i32 noundef %209, i32 noundef 2, i32 noundef %210, ptr noundef null, ptr noundef @.str.96, i32 noundef %212, i32 noundef %214)
-  store ptr %215, ptr %28, align 8
-  %216 = load ptr, ptr %28, align 8
-  %217 = load i32, ptr @hf_sndcp_segment, align 4
-  %218 = load ptr, ptr %6, align 8
-  %219 = load i16, ptr %15, align 2
-  %220 = zext i16 %219 to i32
-  %221 = load i16, ptr %18, align 2
-  %222 = zext i16 %221 to i32
-  %223 = call ptr @proto_tree_add_uint(ptr noundef %216, i32 noundef %217, ptr noundef %218, i32 noundef %220, i32 noundef 2, i32 noundef %222)
-  %224 = load ptr, ptr %28, align 8
-  %225 = load i32, ptr @hf_sndcp_npdu2, align 4
-  %226 = load ptr, ptr %6, align 8
-  %227 = load i16, ptr %15, align 2
-  %228 = zext i16 %227 to i32
-  %229 = load i16, ptr %18, align 2
-  %230 = zext i16 %229 to i32
-  %231 = call ptr @proto_tree_add_uint(ptr noundef %224, i32 noundef %225, ptr noundef %226, i32 noundef %228, i32 noundef 2, i32 noundef %230)
-  br label %232
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %205, i32 noundef 25, ptr noundef @.str.98, i32 noundef %207, i32 noundef %209)
+  %210 = load ptr, ptr %8, align 8
+  %211 = icmp ne ptr %210, null
+  br i1 %211, label %212, label %239
 
-232:                                              ; preds = %205, %182
-  %233 = load i16, ptr %15, align 2
-  %234 = zext i16 %233 to i32
-  %235 = add i32 %234, 2
-  %236 = trunc i32 %235 to i16
-  store i16 %236, ptr %15, align 2
-  br label %237
+212:                                              ; preds = %189
+  %213 = load ptr, ptr %26, align 8
+  %214 = load ptr, ptr %6, align 8
+  %215 = load i16, ptr %15, align 2
+  %216 = zext i16 %215 to i32
+  %217 = load i32, ptr @ett_sndcp_npdu_field, align 4
+  %218 = load i16, ptr %16, align 2
+  %219 = zext i16 %218 to i32
+  %220 = load i16, ptr %17, align 2
+  %221 = zext i16 %220 to i32
+  %222 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %213, ptr noundef %214, i32 noundef %216, i32 noundef 2, i32 noundef %217, ptr noundef null, ptr noundef @.str.99, i32 noundef %219, i32 noundef %221)
+  store ptr %222, ptr %28, align 8
+  %223 = load ptr, ptr %28, align 8
+  %224 = load i32, ptr @hf_sndcp_segment, align 4
+  %225 = load ptr, ptr %6, align 8
+  %226 = load i16, ptr %15, align 2
+  %227 = zext i16 %226 to i32
+  %228 = load i16, ptr %18, align 2
+  %229 = zext i16 %228 to i32
+  %230 = call ptr @proto_tree_add_uint(ptr noundef %223, i32 noundef %224, ptr noundef %225, i32 noundef %227, i32 noundef 2, i32 noundef %229)
+  %231 = load ptr, ptr %28, align 8
+  %232 = load i32, ptr @hf_sndcp_npdu2, align 4
+  %233 = load ptr, ptr %6, align 8
+  %234 = load i16, ptr %15, align 2
+  %235 = zext i16 %234 to i32
+  %236 = load i16, ptr %18, align 2
+  %237 = zext i16 %236 to i32
+  %238 = call ptr @proto_tree_add_uint(ptr noundef %231, i32 noundef %232, ptr noundef %233, i32 noundef %235, i32 noundef 2, i32 noundef %237)
+  br label %239
 
-237:                                              ; preds = %232, %179
-  %238 = load i32, ptr %22, align 4
-  %239 = icmp ne i32 %238, 0
-  br i1 %239, label %240, label %265
+239:                                              ; preds = %212, %189
+  %240 = load i16, ptr %15, align 2
+  %241 = zext i16 %240 to i32
+  %242 = add i32 %241, 2
+  %243 = trunc i32 %242 to i16
+  store i16 %243, ptr %15, align 2
+  br label %244
 
-240:                                              ; preds = %237
-  %241 = load i32, ptr %23, align 4
-  %242 = icmp ne i32 %241, 0
-  br i1 %242, label %265, label %243
+244:                                              ; preds = %239, %186
+  %245 = load i8, ptr %22, align 1, !range !6, !noundef !7
+  %246 = trunc i8 %245 to i1
+  br i1 %246, label %247, label %272
 
-243:                                              ; preds = %240
-  %244 = load ptr, ptr %6, align 8
-  %245 = load i16, ptr %15, align 2
-  %246 = zext i16 %245 to i32
-  %247 = call ptr @tvb_new_subset_remaining(ptr noundef %244, i32 noundef %246)
-  store ptr %247, ptr %19, align 8
-  %248 = load i8, ptr %13, align 1
-  %249 = icmp ne i8 %248, 0
-  br i1 %249, label %259, label %250
+247:                                              ; preds = %244
+  %248 = load i8, ptr %23, align 1, !range !6, !noundef !7
+  %249 = trunc i8 %248 to i1
+  br i1 %249, label %272, label %250
 
-250:                                              ; preds = %243
-  %251 = load i8, ptr %14, align 1
-  %252 = icmp ne i8 %251, 0
-  br i1 %252, label %259, label %253
+250:                                              ; preds = %247
+  %251 = load ptr, ptr %6, align 8
+  %252 = load i16, ptr %15, align 2
+  %253 = zext i16 %252 to i32
+  %254 = call ptr @tvb_new_subset_remaining(ptr noundef %251, i32 noundef %253)
+  store ptr %254, ptr %19, align 8
+  %255 = load i8, ptr %13, align 1
+  %256 = icmp ne i8 %255, 0
+  br i1 %256, label %266, label %257
 
-253:                                              ; preds = %250
-  %254 = load ptr, ptr @ip_handle, align 8
-  %255 = load ptr, ptr %19, align 8
-  %256 = load ptr, ptr %7, align 8
-  %257 = load ptr, ptr %8, align 8
-  %258 = call i32 @call_dissector(ptr noundef %254, ptr noundef %255, ptr noundef %256, ptr noundef %257)
-  br label %264
+257:                                              ; preds = %250
+  %258 = load i8, ptr %14, align 1
+  %259 = icmp ne i8 %258, 0
+  br i1 %259, label %266, label %260
 
-259:                                              ; preds = %250, %243
-  %260 = load ptr, ptr %19, align 8
-  %261 = load ptr, ptr %7, align 8
-  %262 = load ptr, ptr %8, align 8
-  %263 = call i32 @call_data_dissector(ptr noundef %260, ptr noundef %261, ptr noundef %262)
-  br label %264
+260:                                              ; preds = %257
+  %261 = load ptr, ptr @ip_handle, align 8
+  %262 = load ptr, ptr %19, align 8
+  %263 = load ptr, ptr %7, align 8
+  %264 = load ptr, ptr %8, align 8
+  %265 = call i32 @call_dissector(ptr noundef %261, ptr noundef %262, ptr noundef %263, ptr noundef %264)
+  br label %271
 
-264:                                              ; preds = %259, %253
-  br label %370
+266:                                              ; preds = %257, %250
+  %267 = load ptr, ptr %19, align 8
+  %268 = load ptr, ptr %7, align 8
+  %269 = load ptr, ptr %8, align 8
+  %270 = call i32 @call_data_dissector(ptr noundef %267, ptr noundef %268, ptr noundef %269)
+  br label %271
 
-265:                                              ; preds = %240, %237
+271:                                              ; preds = %266, %260
+  br label %386
+
+272:                                              ; preds = %247, %244
+  call void @llvm.lifetime.start.p0(i64 8, ptr %29) #3
   store ptr null, ptr %29, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %30) #3
   store i32 0, ptr %30, align 4
-  %266 = load ptr, ptr %7, align 8
-  %267 = getelementptr inbounds %struct._packet_info, ptr %266, i32 0, i32 20
-  %268 = load i32, ptr %267, align 8
-  store i32 %268, ptr %31, align 4
-  %269 = load ptr, ptr %6, align 8
-  %270 = load i16, ptr %15, align 2
-  %271 = zext i16 %270 to i32
-  %272 = call i32 @tvb_captured_length_remaining(ptr noundef %269, i32 noundef %271)
-  store i32 %272, ptr %21, align 4
-  %273 = load i32, ptr %21, align 4
-  %274 = icmp sle i32 %273, 0
-  br i1 %274, label %275, label %278
+  call void @llvm.lifetime.start.p0(i64 1, ptr %31) #3
+  %273 = load ptr, ptr %7, align 8
+  %274 = getelementptr inbounds nuw %struct._packet_info, ptr %273, i32 0, i32 20
+  %275 = load i8, ptr %274, align 8, !range !6, !noundef !7
+  %276 = trunc i8 %275 to i1
+  %277 = zext i1 %276 to i8
+  store i8 %277, ptr %31, align 1
+  %278 = load ptr, ptr %6, align 8
+  %279 = load i16, ptr %15, align 2
+  %280 = zext i16 %279 to i32
+  %281 = call i32 @tvb_captured_length_remaining(ptr noundef %278, i32 noundef %280)
+  store i32 %281, ptr %21, align 4
+  %282 = load i32, ptr %21, align 4
+  %283 = icmp sle i32 %282, 0
+  br i1 %283, label %284, label %287
 
-275:                                              ; preds = %265
-  %276 = load i16, ptr %15, align 2
-  %277 = zext i16 %276 to i32
-  store i32 %277, ptr %5, align 4
-  br label %373
-
-278:                                              ; preds = %265
-  %279 = load ptr, ptr %7, align 8
-  %280 = getelementptr inbounds %struct._packet_info, ptr %279, i32 0, i32 20
-  store i32 1, ptr %280, align 8
-  %281 = load i32, ptr %24, align 4
-  %282 = icmp ne i32 %281, 0
-  br i1 %282, label %283, label %295
-
-283:                                              ; preds = %278
-  %284 = load ptr, ptr %6, align 8
+284:                                              ; preds = %272
   %285 = load i16, ptr %15, align 2
   %286 = zext i16 %285 to i32
-  %287 = load ptr, ptr %7, align 8
-  %288 = load i16, ptr %16, align 2
-  %289 = zext i16 %288 to i32
-  %290 = load i16, ptr %17, align 2
-  %291 = zext i16 %290 to i32
-  %292 = load i32, ptr %21, align 4
-  %293 = load i32, ptr %23, align 4
-  %294 = call ptr @fragment_add_seq_check(ptr noundef @npdu_reassembly_table, ptr noundef %284, i32 noundef %286, ptr noundef %287, i32 noundef %289, ptr noundef null, i32 noundef %291, i32 noundef %292, i32 noundef %293)
-  store ptr %294, ptr %29, align 8
-  br label %307
+  store i32 %286, ptr %5, align 4
+  store i32 1, ptr %32, align 4
+  br label %383
 
-295:                                              ; preds = %278
-  %296 = load ptr, ptr %6, align 8
-  %297 = load i16, ptr %15, align 2
+287:                                              ; preds = %272
+  %288 = load ptr, ptr %7, align 8
+  %289 = getelementptr inbounds nuw %struct._packet_info, ptr %288, i32 0, i32 20
+  store i8 1, ptr %289, align 8
+  %290 = load i8, ptr %24, align 1, !range !6, !noundef !7
+  %291 = trunc i8 %290 to i1
+  br i1 %291, label %292, label %305
+
+292:                                              ; preds = %287
+  %293 = load ptr, ptr %6, align 8
+  %294 = load i16, ptr %15, align 2
+  %295 = zext i16 %294 to i32
+  %296 = load ptr, ptr %7, align 8
+  %297 = load i16, ptr %16, align 2
   %298 = zext i16 %297 to i32
-  %299 = load ptr, ptr %7, align 8
-  %300 = load i16, ptr %16, align 2
-  %301 = zext i16 %300 to i32
-  %302 = load i16, ptr %15, align 2
-  %303 = zext i16 %302 to i32
-  %304 = load i32, ptr %21, align 4
-  %305 = load i32, ptr %23, align 4
-  %306 = call ptr @fragment_add(ptr noundef @npdu_reassembly_table, ptr noundef %296, i32 noundef %298, ptr noundef %299, i32 noundef %301, ptr noundef null, i32 noundef %303, i32 noundef %304, i32 noundef %305)
-  store ptr %306, ptr %29, align 8
-  br label %307
+  %299 = load i16, ptr %17, align 2
+  %300 = zext i16 %299 to i32
+  %301 = load i32, ptr %21, align 4
+  %302 = load i8, ptr %23, align 1, !range !6, !noundef !7
+  %303 = trunc i8 %302 to i1
+  %304 = call ptr @fragment_add_seq_check(ptr noundef @npdu_reassembly_table, ptr noundef %293, i32 noundef %295, ptr noundef %296, i32 noundef %298, ptr noundef null, i32 noundef %300, i32 noundef %301, i1 noundef zeroext %303)
+  store ptr %304, ptr %29, align 8
+  br label %318
 
-307:                                              ; preds = %295, %283
-  %308 = load ptr, ptr %6, align 8
-  %309 = load i16, ptr %15, align 2
-  %310 = zext i16 %309 to i32
-  %311 = load ptr, ptr %7, align 8
-  %312 = load ptr, ptr %29, align 8
-  %313 = load ptr, ptr %26, align 8
-  %314 = call ptr @process_reassembled_data(ptr noundef %308, i32 noundef %310, ptr noundef %311, ptr noundef @.str.97, ptr noundef %312, ptr noundef @npdu_frag_items, ptr noundef null, ptr noundef %313)
-  store ptr %314, ptr %20, align 8
-  %315 = load ptr, ptr %29, align 8
-  %316 = icmp ne ptr %315, null
-  br i1 %316, label %317, label %346
+305:                                              ; preds = %287
+  %306 = load ptr, ptr %6, align 8
+  %307 = load i16, ptr %15, align 2
+  %308 = zext i16 %307 to i32
+  %309 = load ptr, ptr %7, align 8
+  %310 = load i16, ptr %16, align 2
+  %311 = zext i16 %310 to i32
+  %312 = load i16, ptr %15, align 2
+  %313 = zext i16 %312 to i32
+  %314 = load i32, ptr %21, align 4
+  %315 = load i8, ptr %23, align 1, !range !6, !noundef !7
+  %316 = trunc i8 %315 to i1
+  %317 = call ptr @fragment_add(ptr noundef @npdu_reassembly_table, ptr noundef %306, i32 noundef %308, ptr noundef %309, i32 noundef %311, ptr noundef null, i32 noundef %313, i32 noundef %314, i1 noundef zeroext %316)
+  store ptr %317, ptr %29, align 8
+  br label %318
 
-317:                                              ; preds = %307
-  %318 = load ptr, ptr %29, align 8
-  %319 = getelementptr inbounds %struct._fragment_head, ptr %318, i32 0, i32 8
-  %320 = load i32, ptr %319, align 8
-  store i32 %320, ptr %30, align 4
-  %321 = load ptr, ptr %7, align 8
-  %322 = getelementptr inbounds %struct._packet_info, ptr %321, i32 0, i32 3
-  %323 = load i32, ptr %322, align 4
-  %324 = load i32, ptr %30, align 4
-  %325 = icmp eq i32 %323, %324
-  br i1 %325, label %326, label %332
+318:                                              ; preds = %305, %292
+  %319 = load ptr, ptr %6, align 8
+  %320 = load i16, ptr %15, align 2
+  %321 = zext i16 %320 to i32
+  %322 = load ptr, ptr %7, align 8
+  %323 = load ptr, ptr %29, align 8
+  %324 = load ptr, ptr %26, align 8
+  %325 = call ptr @process_reassembled_data(ptr noundef %319, i32 noundef %321, ptr noundef %322, ptr noundef @.str.100, ptr noundef %323, ptr noundef @npdu_frag_items, ptr noundef null, ptr noundef %324)
+  store ptr %325, ptr %20, align 8
+  %326 = load ptr, ptr %29, align 8
+  %327 = icmp ne ptr %326, null
+  br i1 %327, label %328, label %357
 
-326:                                              ; preds = %317
-  %327 = load ptr, ptr @ip_handle, align 8
-  %328 = load ptr, ptr %20, align 8
-  %329 = load ptr, ptr %7, align 8
-  %330 = load ptr, ptr %8, align 8
-  %331 = call i32 @call_dissector(ptr noundef %327, ptr noundef %328, ptr noundef %329, ptr noundef %330)
-  br label %345
+328:                                              ; preds = %318
+  %329 = load ptr, ptr %29, align 8
+  %330 = getelementptr inbounds nuw %struct._fragment_head, ptr %329, i32 0, i32 8
+  %331 = load i32, ptr %330, align 8
+  store i32 %331, ptr %30, align 4
+  %332 = load ptr, ptr %7, align 8
+  %333 = getelementptr inbounds nuw %struct._packet_info, ptr %332, i32 0, i32 3
+  %334 = load i32, ptr %333, align 4
+  %335 = load i32, ptr %30, align 4
+  %336 = icmp eq i32 %334, %335
+  br i1 %336, label %337, label %343
 
-332:                                              ; preds = %317
-  %333 = load ptr, ptr %7, align 8
-  %334 = getelementptr inbounds %struct._packet_info, ptr %333, i32 0, i32 1
-  %335 = load ptr, ptr %334, align 8
-  %336 = load ptr, ptr %29, align 8
-  %337 = getelementptr inbounds %struct._fragment_head, ptr %336, i32 0, i32 8
-  %338 = load i32, ptr %337, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %335, i32 noundef 25, ptr noundef @.str.98, i32 noundef %338)
-  %339 = load ptr, ptr %26, align 8
-  %340 = load i32, ptr @hf_sndcp_payload, align 4
-  %341 = load ptr, ptr %6, align 8
-  %342 = load i16, ptr %15, align 2
-  %343 = zext i16 %342 to i32
-  %344 = call ptr @proto_tree_add_item(ptr noundef %339, i32 noundef %340, ptr noundef %341, i32 noundef %343, i32 noundef -1, i32 noundef 0)
-  br label %345
+337:                                              ; preds = %328
+  %338 = load ptr, ptr @ip_handle, align 8
+  %339 = load ptr, ptr %20, align 8
+  %340 = load ptr, ptr %7, align 8
+  %341 = load ptr, ptr %8, align 8
+  %342 = call i32 @call_dissector(ptr noundef %338, ptr noundef %339, ptr noundef %340, ptr noundef %341)
+  br label %356
 
-345:                                              ; preds = %332, %326
-  br label %366
-
-346:                                              ; preds = %307
-  %347 = load i32, ptr %24, align 4
-  %348 = icmp ne i32 %347, 0
-  br i1 %348, label %349, label %355
-
-349:                                              ; preds = %346
-  %350 = load ptr, ptr %7, align 8
-  %351 = getelementptr inbounds %struct._packet_info, ptr %350, i32 0, i32 1
-  %352 = load ptr, ptr %351, align 8
-  %353 = load i16, ptr %17, align 2
+343:                                              ; preds = %328
+  %344 = load ptr, ptr %7, align 8
+  %345 = getelementptr inbounds nuw %struct._packet_info, ptr %344, i32 0, i32 1
+  %346 = load ptr, ptr %345, align 8
+  %347 = load ptr, ptr %29, align 8
+  %348 = getelementptr inbounds nuw %struct._fragment_head, ptr %347, i32 0, i32 8
+  %349 = load i32, ptr %348, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %346, i32 noundef 25, ptr noundef @.str.101, i32 noundef %349)
+  %350 = load ptr, ptr %26, align 8
+  %351 = load i32, ptr @hf_sndcp_payload, align 4
+  %352 = load ptr, ptr %6, align 8
+  %353 = load i16, ptr %15, align 2
   %354 = zext i16 %353 to i32
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %352, i32 noundef 25, ptr noundef @.str.99, i32 noundef %354)
-  br label %359
+  %355 = call ptr @proto_tree_add_item(ptr noundef %350, i32 noundef %351, ptr noundef %352, i32 noundef %354, i32 noundef -1, i32 noundef 0)
+  br label %356
 
-355:                                              ; preds = %346
-  %356 = load ptr, ptr %7, align 8
-  %357 = getelementptr inbounds %struct._packet_info, ptr %356, i32 0, i32 1
-  %358 = load ptr, ptr %357, align 8
-  call void @col_append_str(ptr noundef %358, i32 noundef 25, ptr noundef @.str.100)
-  br label %359
+356:                                              ; preds = %343, %337
+  br label %377
 
-359:                                              ; preds = %355, %349
-  %360 = load ptr, ptr %26, align 8
-  %361 = load i32, ptr @hf_sndcp_payload, align 4
-  %362 = load ptr, ptr %6, align 8
-  %363 = load i16, ptr %15, align 2
-  %364 = zext i16 %363 to i32
-  %365 = call ptr @proto_tree_add_item(ptr noundef %360, i32 noundef %361, ptr noundef %362, i32 noundef %364, i32 noundef -1, i32 noundef 0)
-  br label %366
+357:                                              ; preds = %318
+  %358 = load i8, ptr %24, align 1, !range !6, !noundef !7
+  %359 = trunc i8 %358 to i1
+  br i1 %359, label %360, label %366
 
-366:                                              ; preds = %359, %345
-  %367 = load i32, ptr %31, align 4
-  %368 = load ptr, ptr %7, align 8
-  %369 = getelementptr inbounds %struct._packet_info, ptr %368, i32 0, i32 20
-  store i32 %367, ptr %369, align 8
+360:                                              ; preds = %357
+  %361 = load ptr, ptr %7, align 8
+  %362 = getelementptr inbounds nuw %struct._packet_info, ptr %361, i32 0, i32 1
+  %363 = load ptr, ptr %362, align 8
+  %364 = load i16, ptr %17, align 2
+  %365 = zext i16 %364 to i32
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %363, i32 noundef 25, ptr noundef @.str.102, i32 noundef %365)
   br label %370
 
-370:                                              ; preds = %366, %264
-  %371 = load ptr, ptr %6, align 8
-  %372 = call i32 @tvb_captured_length(ptr noundef %371)
-  store i32 %372, ptr %5, align 4
-  br label %373
+366:                                              ; preds = %357
+  %367 = load ptr, ptr %7, align 8
+  %368 = getelementptr inbounds nuw %struct._packet_info, ptr %367, i32 0, i32 1
+  %369 = load ptr, ptr %368, align 8
+  call void @col_append_str(ptr noundef %369, i32 noundef 25, ptr noundef @.str.103)
+  br label %370
 
-373:                                              ; preds = %370, %275
-  %374 = load i32, ptr %5, align 4
-  ret i32 %374
+370:                                              ; preds = %366, %360
+  %371 = load ptr, ptr %26, align 8
+  %372 = load i32, ptr @hf_sndcp_payload, align 4
+  %373 = load ptr, ptr %6, align 8
+  %374 = load i16, ptr %15, align 2
+  %375 = zext i16 %374 to i32
+  %376 = call ptr @proto_tree_add_item(ptr noundef %371, i32 noundef %372, ptr noundef %373, i32 noundef %375, i32 noundef -1, i32 noundef 0)
+  br label %377
+
+377:                                              ; preds = %370, %356
+  %378 = load i8, ptr %31, align 1, !range !6, !noundef !7
+  %379 = trunc i8 %378 to i1
+  %380 = load ptr, ptr %7, align 8
+  %381 = getelementptr inbounds nuw %struct._packet_info, ptr %380, i32 0, i32 20
+  %382 = zext i1 %379 to i8
+  store i8 %382, ptr %381, align 8
+  store i32 0, ptr %32, align 4
+  br label %383
+
+383:                                              ; preds = %377, %284
+  call void @llvm.lifetime.end.p0(i64 1, ptr %31) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %30) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #3
+  %384 = load i32, ptr %32, align 4
+  switch i32 %384, label %389 [
+    i32 0, label %385
+  ]
+
+385:                                              ; preds = %383
+  br label %386
+
+386:                                              ; preds = %385, %271
+  %387 = load ptr, ptr %6, align 8
+  %388 = call i32 @tvb_captured_length(ptr noundef %387)
+  store i32 %388, ptr %5, align 4
+  store i32 1, ptr %32, align 4
+  br label %389
+
+389:                                              ; preds = %386, %383
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %24) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %23) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %22) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #3
+  call void @llvm.lifetime.end.p0(i64 2, ptr %18) #3
+  call void @llvm.lifetime.end.p0(i64 2, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 2, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 2, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #3
+  %390 = load i32, ptr %5, align 4
+  ret i32 %390
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @reassembly_table_register(ptr noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_sndcp() #0 {
   %1 = load ptr, ptr @sndcp_handle, align 8
   call void @dissector_add_uint(ptr noundef @.str.58, i32 noundef 3, ptr noundef %1)
@@ -717,58 +790,93 @@ define hidden void @proto_reg_handoff_sndcp() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_clear(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_bitmask_with_flags(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) #1
 
-declare ptr @fragment_add_seq_check(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @fragment_add_seq_check(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) #1
 
-declare ptr @fragment_add(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @fragment_add(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @process_reassembled_data(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}

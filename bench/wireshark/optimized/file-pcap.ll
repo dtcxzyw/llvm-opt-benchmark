@@ -6,8 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
 %struct._value_string = type { i32, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
 %struct.except_id_t = type { i64, i64 }
 %struct.nstime_t = type { i64, i32 }
@@ -65,7 +63,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_pcap_packet_data = internal global i32 0, align 4
 @.str.28 = private unnamed_addr constant [5 x i8] c"Data\00", align 1
 @.str.29 = private unnamed_addr constant [17 x i8] c"pcap.packet.data\00", align 1
-@proto_register_file_pcap.ei = internal global [2 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_pcap_capt_larger_than_orig, %struct.expert_field_info { ptr @.str.30, i32 117440512, i32 8388608, ptr @.str.31, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_pcap_capt_larger_than_snap, %struct.expert_field_info { ptr @.str.32, i32 150994944, i32 6291456, ptr @.str.33, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_file_pcap.ei = internal global [2 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_pcap_capt_larger_than_orig, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.30, i32 117440512, i32 8388608, ptr @.str.31, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_pcap_capt_larger_than_snap, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.32, i32 150994944, i32 6291456, ptr @.str.33, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_pcap_capt_larger_than_orig = internal global %struct.expert_field zeroinitializer, align 4
 @.str.30 = private unnamed_addr constant [35 x i8] c"pcap.capt_len_larger_than_orig_len\00", align 1
 @.str.31 = private unnamed_addr constant [47 x i8] c"captured length is larger than original length\00", align 1
@@ -87,7 +85,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.39 = private unnamed_addr constant [52 x i8] c"Version of file-format supported by this dissector.\00", align 1
 @.str.40 = private unnamed_addr constant [19 x i8] c"dissect_next_layer\00", align 1
 @.str.41 = private unnamed_addr constant [19 x i8] c"Dissect next layer\00", align 1
-@pref_dissect_next_layer = internal global i32 0, align 4
+@pref_dissect_next_layer = internal global i8 0, align 1
 @.str.42 = private unnamed_addr constant [10 x i8] c"wtap_file\00", align 1
 @.str.43 = private unnamed_addr constant [10 x i8] c"PCAP File\00", align 1
 @.str.44 = private unnamed_addr constant [10 x i8] c"pcap_wtap\00", align 1
@@ -105,468 +103,538 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.51 = private unnamed_addr constant [4 x i8] c" %u\00", align 1
 @dissect_pcap.catch_spec = internal constant [1 x %struct.except_id_t] [%struct.except_id_t { i64 1, i64 0 }], align 16
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_file_pcap() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.36) #5
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.36)
   store i32 %1, ptr @proto_pcap, align 4
-  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_file_pcap.hf, i32 noundef 15) #5
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_file_pcap.ett, i32 noundef 5) #5
+  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_file_pcap.hf, i32 noundef 15)
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_file_pcap.ett, i32 noundef 5)
   %2 = load i32, ptr @proto_pcap, align 4
-  %3 = tail call ptr @expert_register_protocol(i32 noundef %2) #5
-  tail call void @expert_register_field_array(ptr noundef %3, ptr noundef nonnull @proto_register_file_pcap.ei, i32 noundef 2) #5
+  %3 = tail call ptr @expert_register_protocol(i32 noundef %2)
+  tail call void @expert_register_field_array(ptr noundef %3, ptr noundef nonnull @proto_register_file_pcap.ei, i32 noundef 2)
   %4 = load i32, ptr @proto_pcap, align 4
-  %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.36, ptr noundef nonnull @dissect_pcap, i32 noundef %4) #5
+  %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.36, ptr noundef nonnull @dissect_pcap, i32 noundef %4)
   %6 = load i32, ptr @proto_pcap, align 4
-  %7 = tail call ptr @prefs_register_protocol(i32 noundef %6, ptr noundef null) #5
-  tail call void @prefs_register_static_text_preference(ptr noundef %7, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.39) #5
-  tail call void @prefs_register_bool_preference(ptr noundef %7, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.41, ptr noundef nonnull @pref_dissect_next_layer) #5
+  %7 = tail call ptr @prefs_register_protocol(i32 noundef %6, ptr noundef null)
+  tail call void @prefs_register_static_text_preference(ptr noundef %7, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.39)
+  tail call void @prefs_register_bool_preference(ptr noundef %7, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.41, ptr noundef nonnull @pref_dissect_next_layer)
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #2
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_pcap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
-  %6 = alloca i32, align 4
+  %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
-  %13 = alloca %struct.nstime_t, align 8
-  %14 = alloca ptr, align 8
-  %15 = alloca i32, align 4
-  %16 = alloca %struct.except_stacknode, align 8
-  %17 = alloca %struct.except_catch, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca %struct.nstime_t, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca i32, align 4
+  %17 = alloca %struct.except_stacknode, align 8
+  %18 = alloca %struct.except_catch, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store volatile i32 0, ptr %5, align 4
-  store volatile i32 1, ptr %12, align 4
-  %18 = call i32 @tvb_memeql(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @dissect_pcap.pcap_big_endian_magic, i64 noundef 4) #5
-  %19 = icmp eq i32 %18, 0
-  br i1 %19, label %29, label %20
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
+  store volatile i32 1, ptr %13, align 4
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #6
+  %19 = call i32 @tvb_memeql(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @dissect_pcap.pcap_big_endian_magic, i64 noundef 4)
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %30, label %21
 
-20:                                               ; preds = %4
-  %21 = call i32 @tvb_memeql(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @dissect_pcap.pcap_little_endian_magic, i64 noundef 4) #5
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %29, label %23
+21:                                               ; preds = %4
+  %22 = call i32 @tvb_memeql(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @dissect_pcap.pcap_little_endian_magic, i64 noundef 4)
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %30, label %24
 
-23:                                               ; preds = %20
-  %24 = call i32 @tvb_memeql(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @dissect_pcap.pcap_nsec_big_endian_magic, i64 noundef 4) #5
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %29, label %26
+24:                                               ; preds = %21
+  %25 = call i32 @tvb_memeql(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @dissect_pcap.pcap_nsec_big_endian_magic, i64 noundef 4)
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %30, label %27
 
-26:                                               ; preds = %23
-  %27 = call i32 @tvb_memeql(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @dissect_pcap.pcap_nsec_little_endian_magic, i64 noundef 4) #5
-  %28 = icmp eq i32 %27, 0
-  br i1 %28, label %29, label %170
+27:                                               ; preds = %24
+  %28 = call i32 @tvb_memeql(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @dissect_pcap.pcap_nsec_little_endian_magic, i64 noundef 4)
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %30, label %172
 
-29:                                               ; preds = %26, %23, %20, %4
-  %.sink142 = phi i32 [ 0, %4 ], [ -2147483648, %20 ], [ 0, %23 ], [ -2147483648, %26 ]
-  %.sink = phi i32 [ 1000, %4 ], [ 1000, %20 ], [ 1, %23 ], [ 1, %26 ]
-  %.0 = phi ptr [ @.str.46, %4 ], [ @.str.47, %20 ], [ @.str.48, %23 ], [ @.str.49, %26 ]
-  store volatile i32 %.sink142, ptr %6, align 4
-  store volatile i32 %.sink, ptr %7, align 4
-  %30 = load i32, ptr @proto_pcap, align 4
+30:                                               ; preds = %27, %24, %21, %4
+  %.sink141 = phi i32 [ 0, %4 ], [ -2147483648, %21 ], [ 0, %24 ], [ -2147483648, %27 ]
+  %.sink = phi i32 [ 1000, %4 ], [ 1000, %21 ], [ 1, %24 ], [ 1, %27 ]
+  %.0 = phi ptr [ @.str.46, %4 ], [ @.str.47, %21 ], [ @.str.48, %24 ], [ @.str.49, %27 ]
+  store volatile i32 %.sink141, ptr %7, align 4
+  store volatile i32 %.sink, ptr %8, align 4
+  %31 = load i32, ptr @proto_pcap, align 4
   %.0..0..0..0.63 = load volatile i32, ptr %5, align 4
-  %31 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %30, ptr noundef %0, i32 noundef %.0..0..0..0.63, i32 noundef -1, i32 noundef 0) #5
-  %32 = load i32, ptr @ett_pcap, align 4
-  %33 = call ptr @proto_item_add_subtree(ptr noundef %31, i32 noundef %32) #5
-  %34 = load i32, ptr @hf_pcap_header, align 4
+  %32 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %31, ptr noundef %0, i32 noundef %.0..0..0..0.63, i32 noundef -1, i32 noundef 0)
+  %33 = load i32, ptr @ett_pcap, align 4
+  %34 = call ptr @proto_item_add_subtree(ptr noundef %32, i32 noundef %33)
+  %35 = load i32, ptr @hf_pcap_header, align 4
   %.0..0..0..0.64 = load volatile i32, ptr %5, align 4
-  %35 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %34, ptr noundef %0, i32 noundef %.0..0..0..0.64, i32 noundef 24, i32 noundef 0) #5
-  %36 = load i32, ptr @ett_pcap_header, align 4
-  %37 = call ptr @proto_item_add_subtree(ptr noundef %35, i32 noundef %36) #5
-  %38 = load i32, ptr @hf_pcap_header_magic_number, align 4
+  %36 = call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %35, ptr noundef %0, i32 noundef %.0..0..0..0.64, i32 noundef 24, i32 noundef 0)
+  %37 = load i32, ptr @ett_pcap_header, align 4
+  %38 = call ptr @proto_item_add_subtree(ptr noundef %36, i32 noundef %37)
+  %39 = load i32, ptr @hf_pcap_header_magic_number, align 4
   %.0..0..0..0.65 = load volatile i32, ptr %5, align 4
-  %39 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %38, ptr noundef %0, i32 noundef %.0..0..0..0.65, i32 noundef 4, i32 noundef 0) #5
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %39, ptr noundef nonnull @.str.50, ptr noundef nonnull %.0) #5
+  %40 = call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %39, ptr noundef %0, i32 noundef %.0..0..0..0.65, i32 noundef 4, i32 noundef 0)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %40, ptr noundef nonnull @.str.50, ptr noundef nonnull %.0)
   %.0..0..0..0.66 = load volatile i32, ptr %5, align 4
-  %40 = add i32 %.0..0..0..0.66, 4
-  store volatile i32 %40, ptr %5, align 4
-  %41 = load i32, ptr @hf_pcap_header_version_major, align 4
+  %41 = add i32 %.0..0..0..0.66, 4
+  store volatile i32 %41, ptr %5, align 4
+  %42 = load i32, ptr @hf_pcap_header_version_major, align 4
   %.0..0..0..0.67 = load volatile i32, ptr %5, align 4
-  %.0..0..0..0.23 = load volatile i32, ptr %6, align 4
-  %42 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %41, ptr noundef %0, i32 noundef %.0..0..0..0.67, i32 noundef 2, i32 noundef %.0..0..0..0.23) #5
+  %.0..0..0..0.23 = load volatile i32, ptr %7, align 4
+  %43 = call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %42, ptr noundef %0, i32 noundef %.0..0..0..0.67, i32 noundef 2, i32 noundef %.0..0..0..0.23)
   %.0..0..0..0.68 = load volatile i32, ptr %5, align 4
-  %43 = add i32 %.0..0..0..0.68, 2
-  store volatile i32 %43, ptr %5, align 4
-  %44 = load i32, ptr @hf_pcap_header_version_minor, align 4
+  %44 = add i32 %.0..0..0..0.68, 2
+  store volatile i32 %44, ptr %5, align 4
+  %45 = load i32, ptr @hf_pcap_header_version_minor, align 4
   %.0..0..0..0.69 = load volatile i32, ptr %5, align 4
-  %.0..0..0..0.24 = load volatile i32, ptr %6, align 4
-  %45 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %44, ptr noundef %0, i32 noundef %.0..0..0..0.69, i32 noundef 2, i32 noundef %.0..0..0..0.24) #5
+  %.0..0..0..0.24 = load volatile i32, ptr %7, align 4
+  %46 = call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %45, ptr noundef %0, i32 noundef %.0..0..0..0.69, i32 noundef 2, i32 noundef %.0..0..0..0.24)
   %.0..0..0..0.70 = load volatile i32, ptr %5, align 4
-  %46 = add i32 %.0..0..0..0.70, 2
-  store volatile i32 %46, ptr %5, align 4
-  %47 = load i32, ptr @hf_pcap_header_this_zone, align 4
+  %47 = add i32 %.0..0..0..0.70, 2
+  store volatile i32 %47, ptr %5, align 4
+  %48 = load i32, ptr @hf_pcap_header_this_zone, align 4
   %.0..0..0..0.71 = load volatile i32, ptr %5, align 4
-  %.0..0..0..0.25 = load volatile i32, ptr %6, align 4
-  %48 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %47, ptr noundef %0, i32 noundef %.0..0..0..0.71, i32 noundef 4, i32 noundef %.0..0..0..0.25) #5
+  %.0..0..0..0.25 = load volatile i32, ptr %7, align 4
+  %49 = call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %48, ptr noundef %0, i32 noundef %.0..0..0..0.71, i32 noundef 4, i32 noundef %.0..0..0..0.25)
   %.0..0..0..0.72 = load volatile i32, ptr %5, align 4
-  %49 = add i32 %.0..0..0..0.72, 4
-  store volatile i32 %49, ptr %5, align 4
-  %50 = load i32, ptr @hf_pcap_header_sigfigs, align 4
+  %50 = add i32 %.0..0..0..0.72, 4
+  store volatile i32 %50, ptr %5, align 4
+  %51 = load i32, ptr @hf_pcap_header_sigfigs, align 4
   %.0..0..0..0.73 = load volatile i32, ptr %5, align 4
-  %.0..0..0..0.26 = load volatile i32, ptr %6, align 4
-  %51 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %50, ptr noundef %0, i32 noundef %.0..0..0..0.73, i32 noundef 4, i32 noundef %.0..0..0..0.26) #5
+  %.0..0..0..0.26 = load volatile i32, ptr %7, align 4
+  %52 = call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %51, ptr noundef %0, i32 noundef %.0..0..0..0.73, i32 noundef 4, i32 noundef %.0..0..0..0.26)
   %.0..0..0..0.74 = load volatile i32, ptr %5, align 4
-  %52 = add i32 %.0..0..0..0.74, 4
-  store volatile i32 %52, ptr %5, align 4
-  %53 = load i32, ptr @hf_pcap_header_snapshot_length, align 4
+  %53 = add i32 %.0..0..0..0.74, 4
+  store volatile i32 %53, ptr %5, align 4
+  %54 = load i32, ptr @hf_pcap_header_snapshot_length, align 4
   %.0..0..0..0.75 = load volatile i32, ptr %5, align 4
-  %.0..0..0..0.27 = load volatile i32, ptr %6, align 4
-  %54 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %37, i32 noundef %53, ptr noundef %0, i32 noundef %.0..0..0..0.75, i32 noundef 4, i32 noundef %.0..0..0..0.27, ptr noundef nonnull %8) #5
+  %.0..0..0..0.27 = load volatile i32, ptr %7, align 4
+  %55 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %38, i32 noundef %54, ptr noundef %0, i32 noundef %.0..0..0..0.75, i32 noundef 4, i32 noundef %.0..0..0..0.27, ptr noundef nonnull %9)
   %.0..0..0..0.76 = load volatile i32, ptr %5, align 4
-  %55 = add i32 %.0..0..0..0.76, 4
-  store volatile i32 %55, ptr %5, align 4
-  %56 = load i32, ptr @hf_pcap_header_link_type, align 4
+  %56 = add i32 %.0..0..0..0.76, 4
+  store volatile i32 %56, ptr %5, align 4
+  %57 = load i32, ptr @hf_pcap_header_link_type, align 4
   %.0..0..0..0.77 = load volatile i32, ptr %5, align 4
-  %.0..0..0..0.28 = load volatile i32, ptr %6, align 4
-  %57 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %56, ptr noundef %0, i32 noundef %.0..0..0..0.77, i32 noundef 4, i32 noundef %.0..0..0..0.28) #5
+  %.0..0..0..0.28 = load volatile i32, ptr %7, align 4
+  %58 = call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %57, ptr noundef %0, i32 noundef %.0..0..0..0.77, i32 noundef 4, i32 noundef %.0..0..0..0.28)
   %.0..0..0..0.78 = load volatile i32, ptr %5, align 4
-  %.0..0..0..0.29 = load volatile i32, ptr %6, align 4
-  %58 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %.0..0..0..0.78, i32 noundef %.0..0..0..0.29) #5
-  store i32 %58, ptr %11, align 4
+  %.0..0..0..0.29 = load volatile i32, ptr %7, align 4
+  %59 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %.0..0..0..0.78, i32 noundef %.0..0..0..0.29)
+  store i32 %59, ptr %12, align 4
   %.0..0..0..0.79 = load volatile i32, ptr %5, align 4
-  %59 = add i32 %.0..0..0..0.79, 4
-  store volatile i32 %59, ptr %5, align 4
-  %.0..0..0..0.80137 = load volatile i32, ptr %5, align 4
-  %60 = call i32 @tvb_reported_length(ptr noundef %0) #5
-  %61 = icmp slt i32 %.0..0..0..0.80137, %60
-  br i1 %61, label %.lr.ph, label %.loopexit
+  %60 = add i32 %.0..0..0..0.79, 4
+  store volatile i32 %60, ptr %5, align 4
+  %.0..0..0..0.80136 = load volatile i32, ptr %5, align 4
+  %61 = call i32 @tvb_reported_length(ptr noundef %0)
+  %62 = icmp slt i32 %.0..0..0..0.80136, %61
+  br i1 %62, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %29
-  %62 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %65 = getelementptr inbounds nuw i8, ptr %17, i64 48
-  %66 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %67 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  br label %68
+.lr.ph:                                           ; preds = %30
+  %63 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %18, i64 48
+  %67 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %18, i64 40
+  br label %69
 
-68:                                               ; preds = %.lr.ph, %163
-  %69 = load i32, ptr @hf_pcap_packet, align 4
+69:                                               ; preds = %.lr.ph, %165
+  %70 = load i32, ptr @hf_pcap_packet, align 4
   %.0..0..0..0.81 = load volatile i32, ptr %5, align 4
-  %70 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %69, ptr noundef %0, i32 noundef %.0..0..0..0.81, i32 noundef 16, i32 noundef 0) #5
-  %71 = load i32, ptr @ett_pcap_packet, align 4
-  %72 = call ptr @proto_item_add_subtree(ptr noundef %70, i32 noundef %71) #5
-  %.0..0..0..0.18 = load volatile i32, ptr %12, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %70, ptr noundef nonnull @.str.51, i32 noundef %.0..0..0..0.18) #5
+  %71 = call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %70, ptr noundef %0, i32 noundef %.0..0..0..0.81, i32 noundef 16, i32 noundef 0)
+  store volatile ptr %71, ptr %6, align 8
+  %.0..0..0..0.44 = load volatile ptr, ptr %6, align 8
+  %72 = load i32, ptr @ett_pcap_packet, align 4
+  %73 = call ptr @proto_item_add_subtree(ptr noundef %.0..0..0..0.44, i32 noundef %72)
+  %.0..0..0..0.45 = load volatile ptr, ptr %6, align 8
+  %.0..0..0..0.18 = load volatile i32, ptr %13, align 4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.0..0..0..0.45, ptr noundef nonnull @.str.51, i32 noundef %.0..0..0..0.18)
   %.0..0..0..0.82 = load volatile i32, ptr %5, align 4
-  %.0..0..0..0.30 = load volatile i32, ptr %6, align 4
-  %73 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %.0..0..0..0.82, i32 noundef %.0..0..0..0.30) #5
-  %74 = zext i32 %73 to i64
-  store i64 %74, ptr %13, align 8
+  %.0..0..0..0.30 = load volatile i32, ptr %7, align 4
+  %74 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %.0..0..0..0.82, i32 noundef %.0..0..0..0.30)
+  %75 = zext i32 %74 to i64
+  store i64 %75, ptr %14, align 8
   %.0..0..0..0.83 = load volatile i32, ptr %5, align 4
-  %75 = add i32 %.0..0..0..0.83, 4
-  %.0..0..0..0.31 = load volatile i32, ptr %6, align 4
-  %76 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %75, i32 noundef %.0..0..0..0.31) #5
-  %.0..0..0..0.22 = load volatile i32, ptr %7, align 4
-  %77 = mul i32 %.0..0..0..0.22, %76
-  store i32 %77, ptr %62, align 8
-  %78 = load i32, ptr @hf_pcap_packet_timestamp, align 4
+  %76 = add i32 %.0..0..0..0.83, 4
+  %.0..0..0..0.31 = load volatile i32, ptr %7, align 4
+  %77 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %76, i32 noundef %.0..0..0..0.31)
+  %.0..0..0..0.22 = load volatile i32, ptr %8, align 4
+  %78 = mul i32 %.0..0..0..0.22, %77
+  store i32 %78, ptr %63, align 8
+  %79 = load i32, ptr @hf_pcap_packet_timestamp, align 4
   %.0..0..0..0.84 = load volatile i32, ptr %5, align 4
-  %79 = call ptr @proto_tree_add_time(ptr noundef %72, i32 noundef %78, ptr noundef %0, i32 noundef %.0..0..0..0.84, i32 noundef 8, ptr noundef nonnull %13) #5
-  %80 = load i32, ptr @ett_pcap_timestamp, align 4
-  %81 = call ptr @proto_item_add_subtree(ptr noundef %79, i32 noundef %80) #5
-  %82 = load i32, ptr @hf_pcap_packet_timestamp_sec, align 4
+  %80 = call ptr @proto_tree_add_time(ptr noundef %73, i32 noundef %79, ptr noundef %0, i32 noundef %.0..0..0..0.84, i32 noundef 8, ptr noundef nonnull %14)
+  %81 = load i32, ptr @ett_pcap_timestamp, align 4
+  %82 = call ptr @proto_item_add_subtree(ptr noundef %80, i32 noundef %81)
+  %83 = load i32, ptr @hf_pcap_packet_timestamp_sec, align 4
   %.0..0..0..0.85 = load volatile i32, ptr %5, align 4
-  %.0..0..0..0.32 = load volatile i32, ptr %6, align 4
-  %83 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %82, ptr noundef %0, i32 noundef %.0..0..0..0.85, i32 noundef 4, i32 noundef %.0..0..0..0.32) #5
+  %.0..0..0..0.32 = load volatile i32, ptr %7, align 4
+  %84 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %83, ptr noundef %0, i32 noundef %.0..0..0..0.85, i32 noundef 4, i32 noundef %.0..0..0..0.32)
   %.0..0..0..0.86 = load volatile i32, ptr %5, align 4
-  %84 = add i32 %.0..0..0..0.86, 4
-  store volatile i32 %84, ptr %5, align 4
-  %85 = load i32, ptr @hf_pcap_packet_timestamp_usec, align 4
+  %85 = add i32 %.0..0..0..0.86, 4
+  store volatile i32 %85, ptr %5, align 4
+  %86 = load i32, ptr @hf_pcap_packet_timestamp_usec, align 4
   %.0..0..0..0.87 = load volatile i32, ptr %5, align 4
-  %.0..0..0..0.33 = load volatile i32, ptr %6, align 4
-  %86 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %85, ptr noundef %0, i32 noundef %.0..0..0..0.87, i32 noundef 4, i32 noundef %.0..0..0..0.33) #5
+  %.0..0..0..0.33 = load volatile i32, ptr %7, align 4
+  %87 = call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %86, ptr noundef %0, i32 noundef %.0..0..0..0.87, i32 noundef 4, i32 noundef %.0..0..0..0.33)
   %.0..0..0..0.88 = load volatile i32, ptr %5, align 4
-  %87 = add i32 %.0..0..0..0.88, 4
-  store volatile i32 %87, ptr %5, align 4
-  %88 = load i32, ptr @hf_pcap_packet_captured_length, align 4
+  %88 = add i32 %.0..0..0..0.88, 4
+  store volatile i32 %88, ptr %5, align 4
+  %89 = load i32, ptr @hf_pcap_packet_captured_length, align 4
   %.0..0..0..0.89 = load volatile i32, ptr %5, align 4
-  %.0..0..0..0.34 = load volatile i32, ptr %6, align 4
-  %89 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %72, i32 noundef %88, ptr noundef %0, i32 noundef %.0..0..0..0.89, i32 noundef 4, i32 noundef %.0..0..0..0.34, ptr noundef nonnull %9) #5
+  %.0..0..0..0.34 = load volatile i32, ptr %7, align 4
+  %90 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %73, i32 noundef %89, ptr noundef %0, i32 noundef %.0..0..0..0.89, i32 noundef 4, i32 noundef %.0..0..0..0.34, ptr noundef nonnull %10)
   %.0..0..0..0.90 = load volatile i32, ptr %5, align 4
-  %90 = add i32 %.0..0..0..0.90, 4
-  store volatile i32 %90, ptr %5, align 4
-  %91 = load i32, ptr @hf_pcap_packet_original_length, align 4
+  %91 = add i32 %.0..0..0..0.90, 4
+  store volatile i32 %91, ptr %5, align 4
+  %92 = load i32, ptr @hf_pcap_packet_original_length, align 4
   %.0..0..0..0.91 = load volatile i32, ptr %5, align 4
-  %.0..0..0..0.35 = load volatile i32, ptr %6, align 4
-  %92 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %72, i32 noundef %91, ptr noundef %0, i32 noundef %.0..0..0..0.91, i32 noundef 4, i32 noundef %.0..0..0..0.35, ptr noundef nonnull %10) #5
+  %.0..0..0..0.35 = load volatile i32, ptr %7, align 4
+  %93 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %73, i32 noundef %92, ptr noundef %0, i32 noundef %.0..0..0..0.91, i32 noundef 4, i32 noundef %.0..0..0..0.35, ptr noundef nonnull %11)
   %.0..0..0..0.92 = load volatile i32, ptr %5, align 4
-  %93 = add i32 %.0..0..0..0.92, 4
-  store volatile i32 %93, ptr %5, align 4
-  %94 = load i32, ptr %9, align 4
-  %95 = load i32, ptr %8, align 4
-  %96 = icmp ugt i32 %94, %95
-  br i1 %96, label %97, label %99
+  %94 = add i32 %.0..0..0..0.92, 4
+  store volatile i32 %94, ptr %5, align 4
+  %95 = load i32, ptr %10, align 4
+  %96 = load i32, ptr %9, align 4
+  %97 = icmp ugt i32 %95, %96
+  br i1 %97, label %98, label %100
 
-97:                                               ; preds = %68
-  %98 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %89, ptr noundef nonnull @ei_pcap_capt_larger_than_snap) #5
-  %.pre = load i32, ptr %9, align 4
-  br label %99
+98:                                               ; preds = %69
+  %99 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %90, ptr noundef nonnull @ei_pcap_capt_larger_than_snap)
+  %.pre = load i32, ptr %10, align 4
+  br label %100
 
-99:                                               ; preds = %97, %68
-  %100 = phi i32 [ %.pre, %97 ], [ %94, %68 ]
-  %101 = load i32, ptr %10, align 4
-  %102 = icmp ugt i32 %100, %101
-  br i1 %102, label %103, label %105
+100:                                              ; preds = %98, %69
+  %101 = phi i32 [ %.pre, %98 ], [ %95, %69 ]
+  %102 = load i32, ptr %11, align 4
+  %103 = icmp ugt i32 %101, %102
+  br i1 %103, label %104, label %106
 
-103:                                              ; preds = %99
-  %104 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %89, ptr noundef nonnull @ei_pcap_capt_larger_than_orig) #5
+104:                                              ; preds = %100
+  %105 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %90, ptr noundef nonnull @ei_pcap_capt_larger_than_orig)
   br label %.loopexit
 
-105:                                              ; preds = %99
-  %106 = load i32, ptr @hf_pcap_packet_data, align 4
+106:                                              ; preds = %100
+  %107 = load i32, ptr @hf_pcap_packet_data, align 4
   %.0..0..0..0.93 = load volatile i32, ptr %5, align 4
-  %107 = call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %106, ptr noundef %0, i32 noundef %.0..0..0..0.93, i32 noundef %100, i32 noundef 0) #5
-  %108 = load i32, ptr @ett_pcap_packet_data, align 4
-  %109 = call ptr @proto_item_add_subtree(ptr noundef %107, i32 noundef %108) #5
-  %.0..0..0..0.19 = load volatile i32, ptr %12, align 4
-  store i32 %.0..0..0..0.19, ptr %63, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(16) %13, i64 16, i1 false)
-  %110 = load i32, ptr @pref_dissect_next_layer, align 4
-  %.not = icmp eq i32 %110, 0
-  br i1 %.not, label %163, label %111
+  %108 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %107, ptr noundef %0, i32 noundef %.0..0..0..0.93, i32 noundef %101, i32 noundef 0)
+  %109 = load i32, ptr @ett_pcap_packet_data, align 4
+  %110 = call ptr @proto_item_add_subtree(ptr noundef %108, i32 noundef %109)
+  %.0..0..0..0.19 = load volatile i32, ptr %13, align 4
+  store i32 %.0..0..0..0.19, ptr %64, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 16, i1 false)
+  %111 = load i8, ptr @pref_dissect_next_layer, align 1, !range !6, !noundef !7
+  %112 = trunc nuw i8 %111 to i1
+  br i1 %112, label %113, label %165
 
-111:                                              ; preds = %105
-  store volatile i32 0, ptr %15, align 4
-  call void @except_setup_try(ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull @dissect_pcap.catch_spec, i64 noundef 1) #5
-  %112 = call i32 @_setjmp(ptr noundef nonnull %65) #6
-  %.not131 = icmp eq i32 %112, 0
-  %. = select i1 %.not131, ptr null, ptr %66
-  store volatile ptr %., ptr %14, align 8
-  %.0..0..0..0. = load volatile i32, ptr %15, align 4
-  %113 = and i32 %.0..0..0..0., 1
-  %.not132 = icmp eq i32 %113, 0
-  br i1 %.not132, label %116, label %114
+113:                                              ; preds = %106
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
+  store volatile i32 0, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17) #6
+  call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %18) #6
+  call void @except_setup_try(ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull @dissect_pcap.catch_spec, i64 noundef 1)
+  %114 = call i32 @_setjmp(ptr noundef nonnull %66) #7
+  %.not = icmp eq i32 %114, 0
+  %. = select i1 %.not, ptr null, ptr %67
+  store volatile ptr %., ptr %15, align 8
+  %.0..0..0..0. = load volatile i32, ptr %16, align 4
+  %115 = and i32 %.0..0..0..0., 1
+  %.not131 = icmp eq i32 %115, 0
+  br i1 %.not131, label %118, label %116
 
-114:                                              ; preds = %111
-  %.0..0..0..0.1 = load volatile i32, ptr %15, align 4
-  %115 = or i32 %.0..0..0..0.1, 2
-  store volatile i32 %115, ptr %15, align 4
-  br label %116
+116:                                              ; preds = %113
+  %.0..0..0..0.1 = load volatile i32, ptr %16, align 4
+  %117 = or i32 %.0..0..0..0.1, 2
+  store volatile i32 %117, ptr %16, align 4
+  br label %118
 
-116:                                              ; preds = %114, %111
-  %.0..0..0..0.2 = load volatile i32, ptr %15, align 4
-  %117 = and i32 %.0..0..0..0.2, -2
-  store volatile i32 %117, ptr %15, align 4
-  %.0..0..0..0.3 = load volatile i32, ptr %15, align 4
-  %118 = icmp eq i32 %.0..0..0..0.3, 0
-  br i1 %118, label %119, label %127
+118:                                              ; preds = %116, %113
+  %.0..0..0..0.2 = load volatile i32, ptr %16, align 4
+  %119 = and i32 %.0..0..0..0.2, -2
+  store volatile i32 %119, ptr %16, align 4
+  %.0..0..0..0.3 = load volatile i32, ptr %16, align 4
+  %120 = icmp eq i32 %.0..0..0..0.3, 0
+  br i1 %120, label %121, label %129
 
-119:                                              ; preds = %116
-  %.0..0..0..0.7 = load volatile ptr, ptr %14, align 8
-  %120 = icmp eq ptr %.0..0..0..0.7, null
-  br i1 %120, label %121, label %127
+121:                                              ; preds = %118
+  %.0..0..0..0.7 = load volatile ptr, ptr %15, align 8
+  %122 = icmp eq ptr %.0..0..0..0.7, null
+  br i1 %122, label %123, label %129
 
-121:                                              ; preds = %119
-  %122 = load ptr, ptr @pcap_pktdata_handle, align 8
+123:                                              ; preds = %121
+  %124 = load ptr, ptr @pcap_pktdata_handle, align 8
   %.0..0..0..0.94 = load volatile i32, ptr %5, align 4
-  %123 = load i32, ptr %9, align 4
-  %124 = load i32, ptr %10, align 4
-  %125 = call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %.0..0..0..0.94, i32 noundef %123, i32 noundef %124) #5
-  %126 = call i32 @call_dissector_with_data(ptr noundef %122, ptr noundef %125, ptr noundef nonnull %1, ptr noundef %109, ptr noundef nonnull %11) #5
-  br label %127
+  %125 = load i32, ptr %10, align 4
+  %126 = load i32, ptr %11, align 4
+  %127 = call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %.0..0..0..0.94, i32 noundef %125, i32 noundef %126)
+  %128 = call i32 @call_dissector_with_data(ptr noundef %124, ptr noundef %127, ptr noundef %1, ptr noundef %110, ptr noundef nonnull %12)
+  br label %129
 
-127:                                              ; preds = %121, %119, %116
-  %.0..0..0..0.4 = load volatile i32, ptr %15, align 4
-  %128 = icmp eq i32 %.0..0..0..0.4, 0
-  br i1 %128, label %129, label %156
+129:                                              ; preds = %123, %121, %118
+  %.0..0..0..0.4 = load volatile i32, ptr %16, align 4
+  %130 = icmp eq i32 %.0..0..0..0.4, 0
+  br i1 %130, label %131, label %158
 
-129:                                              ; preds = %127
-  %.0..0..0..0.8 = load volatile ptr, ptr %14, align 8
-  %.not133 = icmp eq ptr %.0..0..0..0.8, null
-  br i1 %.not133, label %156, label %130
+131:                                              ; preds = %129
+  %.0..0..0..0.8 = load volatile ptr, ptr %15, align 8
+  %.not132 = icmp eq ptr %.0..0..0..0.8, null
+  br i1 %.not132, label %158, label %132
 
-130:                                              ; preds = %129
-  %.0..0..0..0.9 = load volatile ptr, ptr %14, align 8
-  %131 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.9, i64 8
-  %132 = load volatile i64, ptr %131, align 8
-  %133 = icmp eq i64 %132, 1
-  br i1 %133, label %150, label %134
+132:                                              ; preds = %131
+  %.0..0..0..0.9 = load volatile ptr, ptr %15, align 8
+  %133 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.9, i64 8
+  %134 = load volatile i64, ptr %133, align 8
+  %135 = icmp eq i64 %134, 1
+  br i1 %135, label %152, label %136
 
-134:                                              ; preds = %130
-  %.0..0..0..0.10 = load volatile ptr, ptr %14, align 8
-  %135 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.10, i64 8
-  %136 = load volatile i64, ptr %135, align 8
-  %137 = icmp eq i64 %136, 4
-  br i1 %137, label %150, label %138
+136:                                              ; preds = %132
+  %.0..0..0..0.10 = load volatile ptr, ptr %15, align 8
+  %137 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.10, i64 8
+  %138 = load volatile i64, ptr %137, align 8
+  %139 = icmp eq i64 %138, 4
+  br i1 %139, label %152, label %140
 
-138:                                              ; preds = %134
-  %.0..0..0..0.11 = load volatile ptr, ptr %14, align 8
-  %139 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.11, i64 8
-  %140 = load volatile i64, ptr %139, align 8
-  %141 = icmp eq i64 %140, 3
-  br i1 %141, label %150, label %142
+140:                                              ; preds = %136
+  %.0..0..0..0.11 = load volatile ptr, ptr %15, align 8
+  %141 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.11, i64 8
+  %142 = load volatile i64, ptr %141, align 8
+  %143 = icmp eq i64 %142, 3
+  br i1 %143, label %152, label %144
 
-142:                                              ; preds = %138
-  %.0..0..0..0.12 = load volatile ptr, ptr %14, align 8
-  %143 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.12, i64 8
-  %144 = load volatile i64, ptr %143, align 8
-  %145 = icmp eq i64 %144, 2
-  br i1 %145, label %150, label %146
+144:                                              ; preds = %140
+  %.0..0..0..0.12 = load volatile ptr, ptr %15, align 8
+  %145 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.12, i64 8
+  %146 = load volatile i64, ptr %145, align 8
+  %147 = icmp eq i64 %146, 2
+  br i1 %147, label %152, label %148
 
-146:                                              ; preds = %142
-  %.0..0..0..0.13 = load volatile ptr, ptr %14, align 8
-  %147 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.13, i64 8
-  %148 = load volatile i64, ptr %147, align 8
-  %149 = icmp eq i64 %148, 7
-  br i1 %149, label %150, label %156
+148:                                              ; preds = %144
+  %.0..0..0..0.13 = load volatile ptr, ptr %15, align 8
+  %149 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.13, i64 8
+  %150 = load volatile i64, ptr %149, align 8
+  %151 = icmp eq i64 %150, 7
+  br i1 %151, label %152, label %158
 
-150:                                              ; preds = %146, %142, %138, %134, %130
-  %.0..0..0..0.5 = load volatile i32, ptr %15, align 4
-  %151 = or i32 %.0..0..0..0.5, 1
-  store volatile i32 %151, ptr %15, align 4
-  %.0..0..0..0.14 = load volatile ptr, ptr %14, align 8
-  %152 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.14, i64 8
-  %153 = load volatile i64, ptr %152, align 8
-  %.0..0..0..0.15 = load volatile ptr, ptr %14, align 8
-  %154 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.15, i64 16
-  %155 = load volatile ptr, ptr %154, align 8
-  call void @show_exception(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %109, i64 noundef %153, ptr noundef %155) #5
-  br label %156
+152:                                              ; preds = %148, %144, %140, %136, %132
+  %.0..0..0..0.5 = load volatile i32, ptr %16, align 4
+  %153 = or i32 %.0..0..0..0.5, 1
+  store volatile i32 %153, ptr %16, align 4
+  %.0..0..0..0.14 = load volatile ptr, ptr %15, align 8
+  %154 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.14, i64 8
+  %155 = load volatile i64, ptr %154, align 8
+  %.0..0..0..0.15 = load volatile ptr, ptr %15, align 8
+  %156 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.15, i64 16
+  %157 = load volatile ptr, ptr %156, align 8
+  call void @show_exception(ptr noundef %0, ptr noundef %1, ptr noundef %110, i64 noundef %155, ptr noundef %157)
+  br label %158
 
-156:                                              ; preds = %150, %146, %129, %127
-  %.0..0..0..0.6 = load volatile i32, ptr %15, align 4
-  %157 = and i32 %.0..0..0..0.6, 1
-  %.not134 = icmp eq i32 %157, 0
-  br i1 %.not134, label %158, label %160
+158:                                              ; preds = %152, %148, %131, %129
+  %.0..0..0..0.6 = load volatile i32, ptr %16, align 4
+  %159 = and i32 %.0..0..0..0.6, 1
+  %.not133 = icmp eq i32 %159, 0
+  br i1 %.not133, label %160, label %162
 
-158:                                              ; preds = %156
-  %.0..0..0..0.16 = load volatile ptr, ptr %14, align 8
-  %.not135 = icmp eq ptr %.0..0..0..0.16, null
-  br i1 %.not135, label %160, label %159
+160:                                              ; preds = %158
+  %.0..0..0..0.16 = load volatile ptr, ptr %15, align 8
+  %.not134 = icmp eq ptr %.0..0..0..0.16, null
+  br i1 %.not134, label %162, label %161
 
-159:                                              ; preds = %158
-  %.0..0..0..0.17 = load volatile ptr, ptr %14, align 8
-  call void @except_rethrow(ptr noundef %.0..0..0..0.17) #7
+161:                                              ; preds = %160
+  %.0..0..0..0.17 = load volatile ptr, ptr %15, align 8
+  call void @except_rethrow(ptr noundef %.0..0..0..0.17) #8
   unreachable
 
-160:                                              ; preds = %158, %156
-  %161 = load volatile ptr, ptr %67, align 8
-  call void @except_free(ptr noundef %161) #5
-  %162 = call ptr @except_pop() #5
-  br label %163
+162:                                              ; preds = %160, %158
+  %163 = load volatile ptr, ptr %68, align 8
+  call void @except_free(ptr noundef %163)
+  %164 = call ptr @except_pop()
+  call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %18) #6
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
+  br label %165
 
-163:                                              ; preds = %160, %105
-  %164 = load i32, ptr %9, align 4
+165:                                              ; preds = %162, %106
+  %166 = load i32, ptr %10, align 4
   %.0..0..0..0.95 = load volatile i32, ptr %5, align 4
-  %165 = add i32 %.0..0..0..0.95, %164
-  store volatile i32 %165, ptr %5, align 4
-  %166 = add i32 %164, 16
-  call void @proto_item_set_len(ptr noundef %70, i32 noundef %166) #5
-  %.0..0..0..0.20 = load volatile i32, ptr %12, align 4
-  %167 = add i32 %.0..0..0..0.20, 1
-  store volatile i32 %167, ptr %12, align 4
+  %167 = add i32 %.0..0..0..0.95, %166
+  store volatile i32 %167, ptr %5, align 4
+  %.0..0..0..0.46 = load volatile ptr, ptr %6, align 8
+  %168 = add i32 %166, 16
+  call void @proto_item_set_len(ptr noundef %.0..0..0..0.46, i32 noundef %168)
+  %.0..0..0..0.20 = load volatile i32, ptr %13, align 4
+  %169 = add i32 %.0..0..0..0.20, 1
+  store volatile i32 %169, ptr %13, align 4
   %.0..0..0..0.80 = load volatile i32, ptr %5, align 4
-  %168 = call i32 @tvb_reported_length(ptr noundef %0) #5
-  %169 = icmp slt i32 %.0..0..0..0.80, %168
-  br i1 %169, label %68, label %.loopexit, !llvm.loop !4
+  %170 = call i32 @tvb_reported_length(ptr noundef %0)
+  %171 = icmp slt i32 %.0..0..0..0.80, %170
+  br i1 %171, label %69, label %.loopexit, !llvm.loop !8
 
-.loopexit:                                        ; preds = %163, %29, %103
+.loopexit:                                        ; preds = %165, %30, %104
   %.0..0..0..0.96 = load volatile i32, ptr %5, align 4
-  br label %170
+  br label %172
 
-170:                                              ; preds = %26, %.loopexit
-  %.0130 = phi i32 [ %.0..0..0..0.96, %.loopexit ], [ 0, %26 ]
+172:                                              ; preds = %27, %.loopexit
+  %.0130 = phi i32 [ %.0..0..0..0.96, %.loopexit ], [ 0, %27 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   ret i32 %.0130
 }
 
-declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @prefs_register_static_text_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @prefs_register_static_text_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_file_pcap() local_unnamed_addr #0 {
   %1 = load i32, ptr @proto_pcap, align 4
-  tail call void @heur_dissector_add(ptr noundef nonnull @.str.42, ptr noundef nonnull @dissect_pcap_heur, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44, i32 noundef %1, i32 noundef 1) #5
+  tail call void @heur_dissector_add(ptr noundef nonnull @.str.42, ptr noundef nonnull @dissect_pcap_heur, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44, i32 noundef %1, i32 noundef 1)
   %2 = load i32, ptr @proto_pcap, align 4
-  %3 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.45, i32 noundef %2) #5
+  %3 = tail call ptr @find_dissector_add_dependency(ptr noundef nonnull @.str.45, i32 noundef %2)
   store ptr %3, ptr @pcap_pktdata_handle, align 8
   ret void
 }
 
-declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_pcap_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @dissect_pcap_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @dissect_pcap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
   %6 = icmp sgt i32 %5, 0
-  %7 = zext i1 %6 to i32
-  ret i32 %7
+  ret i1 %6
 }
 
-declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @tvb_memeql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_memeql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @tvb_get_guint32(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_uint32(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-declare void @except_setup_try(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @except_setup_try(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind returns_twice
-declare i32 @_setjmp(ptr noundef) local_unnamed_addr #3
+; Function Attrs: nounwind null_pointer_is_valid returns_twice
+declare i32 @_setjmp(ptr noundef) local_unnamed_addr #4
 
-declare i32 @call_dissector_with_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @call_dissector_with_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @tvb_new_subset_length_caplen(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_subset_length_caplen(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @show_exception(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @show_exception(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: noreturn
-declare void @except_rethrow(ptr noundef) local_unnamed_addr #4
+; Function Attrs: noreturn null_pointer_is_valid
+declare void @except_rethrow(ptr noundef) local_unnamed_addr #5
 
-declare void @except_free(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @except_free(ptr noundef) local_unnamed_addr #2
 
-declare ptr @except_pop() local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @except_pop() local_unnamed_addr #2
 
-declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind returns_twice "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind }
-attributes #6 = { nounwind returns_twice }
-attributes #7 = { noreturn nounwind }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nounwind null_pointer_is_valid returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind }
+attributes #7 = { nounwind returns_twice }
+attributes #8 = { noreturn }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}

@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
 
 @proto_register_extrememesh.hf_extrememesh = internal global [2 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_extrememesh_version, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 4, i32 5, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_extrememesh_nextproto, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 4, i32 1, ptr @mot_mesh_packet_types, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_extrememesh_version = internal global i32 0, align 4
@@ -14,7 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_extrememesh_nextproto = internal global i32 0, align 4
 @.str.2 = private unnamed_addr constant [14 x i8] c"Next protocol\00", align 1
 @.str.3 = private unnamed_addr constant [22 x i8] c"extrememesh.nextproto\00", align 1
-@mot_mesh_packet_types = internal constant [17 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.356 }, %struct._value_string { i32 1, ptr @.str.357 }, %struct._value_string { i32 2, ptr @.str.358 }, %struct._value_string { i32 3, ptr @.str.359 }, %struct._value_string { i32 4, ptr @.str.360 }, %struct._value_string { i32 5, ptr @.str.361 }, %struct._value_string { i32 6, ptr @.str.362 }, %struct._value_string { i32 7, ptr @.str.363 }, %struct._value_string { i32 8, ptr @.str.364 }, %struct._value_string { i32 9, ptr @.str.365 }, %struct._value_string { i32 10, ptr @.str.366 }, %struct._value_string { i32 11, ptr @.str.367 }, %struct._value_string { i32 12, ptr @.str.368 }, %struct._value_string { i32 13, ptr @.str.369 }, %struct._value_string { i32 14, ptr @.str.370 }, %struct._value_string { i32 15, ptr @.str.371 }, %struct._value_string zeroinitializer], align 16
 @proto_register_extrememesh.hf_extrememesh_mch = internal global [14 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_extrememesh_mch_version, %struct._header_field_info { ptr @.str, ptr @.str.4, i32 4, i32 5, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_extrememesh_mch_next_proto, %struct._header_field_info { ptr @.str.2, ptr @.str.5, i32 4, i32 1, ptr @mot_mesh_packet_types, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_extrememesh_mch_lq, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 4, i32 5, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_extrememesh_mch_htl, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 4, i32 5, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_extrememesh_mch_priority, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 4, i32 5, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_extrememesh_mch_usr_pri_flags, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_extrememesh_mch_usr_pri_flags_user_priority, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 4, i32 1, ptr null, i64 240, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_extrememesh_mch_usr_pri_flags_reserved, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 4, i32 1, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_extrememesh_mch_usr_pri_flags_from_wan, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 4, i32 1, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_extrememesh_mch_usr_pri_flags_to_wan, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 4, i32 1, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_extrememesh_mch_usr_pri_flags_forward, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 4, i32 1, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_extrememesh_mch_sequence, %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 5, i32 5, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_extrememesh_mch_dest, %struct._header_field_info { ptr @.str.26, ptr @.str.27, i32 29, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_extrememesh_mch_src, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 29, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_extrememesh_mch_version = internal global i32 0, align 4
 @.str.4 = private unnamed_addr constant [24 x i8] c"extrememesh.mch.version\00", align 1
@@ -62,7 +60,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_extrememesh_ps_areq_frame_type = internal global i32 0, align 4
 @.str.31 = private unnamed_addr constant [11 x i8] c"Frame Type\00", align 1
 @.str.32 = private unnamed_addr constant [25 x i8] c"extrememesh.ps.areq.type\00", align 1
-@mot_ps_packet_types = internal constant [17 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.372 }, %struct._value_string { i32 1, ptr @.str.373 }, %struct._value_string { i32 2, ptr @.str.374 }, %struct._value_string { i32 3, ptr @.str.375 }, %struct._value_string { i32 4, ptr @.str.376 }, %struct._value_string { i32 5, ptr @.str.377 }, %struct._value_string { i32 6, ptr @.str.378 }, %struct._value_string { i32 7, ptr @.str.379 }, %struct._value_string { i32 8, ptr @.str.380 }, %struct._value_string { i32 9, ptr @.str.381 }, %struct._value_string { i32 10, ptr @.str.382 }, %struct._value_string { i32 11, ptr @.str.383 }, %struct._value_string { i32 12, ptr @.str.384 }, %struct._value_string { i32 13, ptr @.str.385 }, %struct._value_string { i32 14, ptr @.str.386 }, %struct._value_string { i32 15, ptr @.str.387 }, %struct._value_string zeroinitializer], align 16
 @hf_extrememesh_ps_areq_mpr_addr = internal global i32 0, align 4
 @.str.33 = private unnamed_addr constant [9 x i8] c"MPR Addr\00", align 1
 @.str.34 = private unnamed_addr constant [29 x i8] c"extrememesh.ps.areq.mpr_addr\00", align 1
@@ -102,7 +99,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_extrememesh_ps_arep_result = internal global i32 0, align 4
 @.str.54 = private unnamed_addr constant [7 x i8] c"Result\00", align 1
 @.str.55 = private unnamed_addr constant [27 x i8] c"extrememesh.ps.arep.result\00", align 1
-@mot_ps_auth_replies = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.388 }, %struct._value_string { i32 1, ptr @.str.389 }, %struct._value_string { i32 2, ptr @.str.390 }, %struct._value_string zeroinitializer], align 16
 @hf_extrememesh_ps_arep_timeout = internal global i32 0, align 4
 @.str.56 = private unnamed_addr constant [8 x i8] c"Timeout\00", align 1
 @.str.57 = private unnamed_addr constant [28 x i8] c"extrememesh.ps.arep.timeout\00", align 1
@@ -647,118 +643,125 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.369 = private unnamed_addr constant [34 x i8] c"Encapsulated Ethernet, no address\00", align 1
 @.str.370 = private unnamed_addr constant [5 x i8] c"L2Up\00", align 1
 @.str.371 = private unnamed_addr constant [6 x i8] c"Probe\00", align 1
-@.str.372 = private unnamed_addr constant [10 x i8] c"(Invalid)\00", align 1
-@.str.373 = private unnamed_addr constant [5 x i8] c"AREQ\00", align 1
-@.str.374 = private unnamed_addr constant [5 x i8] c"AREP\00", align 1
-@.str.375 = private unnamed_addr constant [5 x i8] c"BREQ\00", align 1
-@.str.376 = private unnamed_addr constant [5 x i8] c"BREP\00", align 1
-@.str.377 = private unnamed_addr constant [5 x i8] c"BANN\00", align 1
-@.str.378 = private unnamed_addr constant [5 x i8] c"BRED\00", align 1
-@.str.379 = private unnamed_addr constant [5 x i8] c"SREQ\00", align 1
-@.str.380 = private unnamed_addr constant [5 x i8] c"SREP\00", align 1
-@.str.381 = private unnamed_addr constant [5 x i8] c"PREQ\00", align 1
-@.str.382 = private unnamed_addr constant [5 x i8] c"PREP\00", align 1
-@.str.383 = private unnamed_addr constant [5 x i8] c"PERR\00", align 1
-@.str.384 = private unnamed_addr constant [5 x i8] c"PRST\00", align 1
-@.str.385 = private unnamed_addr constant [5 x i8] c"PREM\00", align 1
-@.str.386 = private unnamed_addr constant [6 x i8] c"TRACE\00", align 1
-@.str.387 = private unnamed_addr constant [5 x i8] c"PRER\00", align 1
-@.str.388 = private unnamed_addr constant [23 x i8] c"Authorization Rejected\00", align 1
-@.str.389 = private unnamed_addr constant [22 x i8] c"Authorization Granted\00", align 1
-@.str.390 = private unnamed_addr constant [22 x i8] c"Authorization Pending\00", align 1
-@.str.391 = private unnamed_addr constant [4 x i8] c"MCX\00", align 1
-@.str.392 = private unnamed_addr constant [31 x i8] c"Encapsulated Ethernet, no addr\00", align 1
+@mot_mesh_packet_types = internal constant [17 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.356 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.357 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.358 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.359 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.360 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.361 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.362 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.363 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.364 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.365 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.366 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.367 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.368 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.369 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.370 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.371 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.373 = private unnamed_addr constant [10 x i8] c"(Invalid)\00", align 1
+@.str.374 = private unnamed_addr constant [5 x i8] c"AREQ\00", align 1
+@.str.375 = private unnamed_addr constant [5 x i8] c"AREP\00", align 1
+@.str.376 = private unnamed_addr constant [5 x i8] c"BREQ\00", align 1
+@.str.377 = private unnamed_addr constant [5 x i8] c"BREP\00", align 1
+@.str.378 = private unnamed_addr constant [5 x i8] c"BANN\00", align 1
+@.str.379 = private unnamed_addr constant [5 x i8] c"BRED\00", align 1
+@.str.380 = private unnamed_addr constant [5 x i8] c"SREQ\00", align 1
+@.str.381 = private unnamed_addr constant [5 x i8] c"SREP\00", align 1
+@.str.382 = private unnamed_addr constant [5 x i8] c"PREQ\00", align 1
+@.str.383 = private unnamed_addr constant [5 x i8] c"PREP\00", align 1
+@.str.384 = private unnamed_addr constant [5 x i8] c"PERR\00", align 1
+@.str.385 = private unnamed_addr constant [5 x i8] c"PRST\00", align 1
+@.str.386 = private unnamed_addr constant [5 x i8] c"PREM\00", align 1
+@.str.387 = private unnamed_addr constant [6 x i8] c"TRACE\00", align 1
+@.str.388 = private unnamed_addr constant [5 x i8] c"PRER\00", align 1
+@mot_ps_packet_types = internal constant [17 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.373 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.374 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.375 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.376 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.377 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.378 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.379 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.380 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.381 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.382 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.383 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.384 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.385 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.386 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.387 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.388 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.390 = private unnamed_addr constant [23 x i8] c"Authorization Rejected\00", align 1
+@.str.391 = private unnamed_addr constant [22 x i8] c"Authorization Granted\00", align 1
+@.str.392 = private unnamed_addr constant [22 x i8] c"Authorization Pending\00", align 1
+@mot_ps_auth_replies = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.390 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.391 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.392 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.394 = private unnamed_addr constant [4 x i8] c"MCX\00", align 1
+@.str.395 = private unnamed_addr constant [31 x i8] c"Encapsulated Ethernet, no addr\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_extrememesh() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.297, ptr noundef nonnull @.str.298, ptr noundef nonnull @.str.299) #4
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.297, ptr noundef nonnull @.str.298, ptr noundef nonnull @.str.299)
   store i32 %1, ptr @proto_extrememesh, align 4
-  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_extrememesh.hf_extrememesh, i32 noundef 2) #4
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_extrememesh.ett, i32 noundef 7) #4
+  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_extrememesh.hf_extrememesh, i32 noundef 2)
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_extrememesh.ett, i32 noundef 7)
   %2 = load i32, ptr @proto_extrememesh, align 4
-  %3 = tail call ptr @register_dissector(ptr noundef nonnull @.str.299, ptr noundef nonnull @dissect_extrememesh, i32 noundef %2) #4
+  %3 = tail call ptr @register_dissector(ptr noundef nonnull @.str.299, ptr noundef nonnull @dissect_extrememesh, i32 noundef %2)
   store ptr %3, ptr @extrememesh_handle, align 8
-  %4 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.300, ptr noundef nonnull @.str.301, ptr noundef nonnull @.str.302) #4
+  %4 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.300, ptr noundef nonnull @.str.301, ptr noundef nonnull @.str.302)
   store i32 %4, ptr @proto_extrememesh_mch, align 4
-  tail call void @proto_register_field_array(i32 noundef %4, ptr noundef nonnull @proto_register_extrememesh.hf_extrememesh_mch, i32 noundef 14) #4
-  %5 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.303, ptr noundef nonnull @.str.304, ptr noundef nonnull @.str.305) #4
+  tail call void @proto_register_field_array(i32 noundef %4, ptr noundef nonnull @proto_register_extrememesh.hf_extrememesh_mch, i32 noundef 14)
+  %5 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.303, ptr noundef nonnull @.str.304, ptr noundef nonnull @.str.305)
   store i32 %5, ptr @proto_extrememesh_l2upd, align 4
-  tail call void @proto_register_field_array(i32 noundef %5, ptr noundef nonnull @proto_register_extrememesh.hf_extrememesh_l2upd, i32 noundef 2) #4
-  %6 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.307, ptr noundef nonnull @.str.308) #4
+  tail call void @proto_register_field_array(i32 noundef %5, ptr noundef nonnull @proto_register_extrememesh.hf_extrememesh_l2upd, i32 noundef 2)
+  %6 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.307, ptr noundef nonnull @.str.308)
   store i32 %6, ptr @proto_extrememesh_probe, align 4
-  tail call void @proto_register_field_array(i32 noundef %6, ptr noundef nonnull @proto_register_extrememesh.hf_extrememesh_probe, i32 noundef 10) #4
-  %7 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.309, ptr noundef nonnull @.str.310, ptr noundef nonnull @.str.311) #4
+  tail call void @proto_register_field_array(i32 noundef %6, ptr noundef nonnull @proto_register_extrememesh.hf_extrememesh_probe, i32 noundef 10)
+  %7 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.309, ptr noundef nonnull @.str.310, ptr noundef nonnull @.str.311)
   store i32 %7, ptr @proto_extrememesh_ps_areq, align 4
-  tail call void @proto_register_field_array(i32 noundef %7, ptr noundef nonnull @proto_register_extrememesh.hf_extrememesh_ps_areq, i32 noundef 9) #4
-  %8 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.312, ptr noundef nonnull @.str.313, ptr noundef nonnull @.str.314) #4
+  tail call void @proto_register_field_array(i32 noundef %7, ptr noundef nonnull @proto_register_extrememesh.hf_extrememesh_ps_areq, i32 noundef 9)
+  %8 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.312, ptr noundef nonnull @.str.313, ptr noundef nonnull @.str.314)
   store i32 %8, ptr @proto_extrememesh_ps_arep, align 4
-  tail call void @proto_register_field_array(i32 noundef %8, ptr noundef nonnull @proto_register_extrememesh.hf_extrememesh_ps_arep, i32 noundef 9) #4
-  %9 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.315, ptr noundef nonnull @.str.316, ptr noundef nonnull @.str.317) #4
+  tail call void @proto_register_field_array(i32 noundef %8, ptr noundef nonnull @proto_register_extrememesh.hf_extrememesh_ps_arep, i32 noundef 9)
+  %9 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.315, ptr noundef nonnull @.str.316, ptr noundef nonnull @.str.317)
   store i32 %9, ptr @proto_extrememesh_ps_breq, align 4
-  tail call void @proto_register_field_array(i32 noundef %9, ptr noundef nonnull @proto_register_extrememesh.hf_extrememesh_ps_breq, i32 noundef 14) #4
-  %10 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.318, ptr noundef nonnull @.str.319, ptr noundef nonnull @.str.320) #4
+  tail call void @proto_register_field_array(i32 noundef %9, ptr noundef nonnull @proto_register_extrememesh.hf_extrememesh_ps_breq, i32 noundef 14)
+  %10 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.318, ptr noundef nonnull @.str.319, ptr noundef nonnull @.str.320)
   store i32 %10, ptr @proto_extrememesh_ps_brep, align 4
-  tail call void @proto_register_field_array(i32 noundef %10, ptr noundef nonnull @proto_register_extrememesh.hf_extrememesh_ps_brep, i32 noundef 8) #4
-  %11 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.321, ptr noundef nonnull @.str.322, ptr noundef nonnull @.str.323) #4
+  tail call void @proto_register_field_array(i32 noundef %10, ptr noundef nonnull @proto_register_extrememesh.hf_extrememesh_ps_brep, i32 noundef 8)
+  %11 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.321, ptr noundef nonnull @.str.322, ptr noundef nonnull @.str.323)
   store i32 %11, ptr @proto_extrememesh_ps_bann, align 4
-  tail call void @proto_register_field_array(i32 noundef %11, ptr noundef nonnull @proto_register_extrememesh.hf_extrememesh_ps_bann, i32 noundef 11) #4
-  %12 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.324, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326) #4
+  tail call void @proto_register_field_array(i32 noundef %11, ptr noundef nonnull @proto_register_extrememesh.hf_extrememesh_ps_bann, i32 noundef 11)
+  %12 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.324, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326)
   store i32 %12, ptr @proto_extrememesh_ps_bred, align 4
-  tail call void @proto_register_field_array(i32 noundef %12, ptr noundef nonnull @proto_register_extrememesh.hf_extrememesh_ps_bred, i32 noundef 8) #4
-  %13 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.327, ptr noundef nonnull @.str.328, ptr noundef nonnull @.str.329) #4
+  tail call void @proto_register_field_array(i32 noundef %12, ptr noundef nonnull @proto_register_extrememesh.hf_extrememesh_ps_bred, i32 noundef 8)
+  %13 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.327, ptr noundef nonnull @.str.328, ptr noundef nonnull @.str.329)
   store i32 %13, ptr @proto_extrememesh_ps_sreq, align 4
-  tail call void @proto_register_field_array(i32 noundef %13, ptr noundef nonnull @proto_register_extrememesh.hf_extrememesh_ps_sreq, i32 noundef 9) #4
-  %14 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.330, ptr noundef nonnull @.str.331, ptr noundef nonnull @.str.332) #4
+  tail call void @proto_register_field_array(i32 noundef %13, ptr noundef nonnull @proto_register_extrememesh.hf_extrememesh_ps_sreq, i32 noundef 9)
+  %14 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.330, ptr noundef nonnull @.str.331, ptr noundef nonnull @.str.332)
   store i32 %14, ptr @proto_extrememesh_ps_srep, align 4
-  tail call void @proto_register_field_array(i32 noundef %14, ptr noundef nonnull @proto_register_extrememesh.hf_extrememesh_ps_srep, i32 noundef 13) #4
-  %15 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.333, ptr noundef nonnull @.str.334, ptr noundef nonnull @.str.335) #4
+  tail call void @proto_register_field_array(i32 noundef %14, ptr noundef nonnull @proto_register_extrememesh.hf_extrememesh_ps_srep, i32 noundef 13)
+  %15 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.333, ptr noundef nonnull @.str.334, ptr noundef nonnull @.str.335)
   store i32 %15, ptr @proto_extrememesh_ps_preq, align 4
-  tail call void @proto_register_field_array(i32 noundef %15, ptr noundef nonnull @proto_register_extrememesh.hf_extrememesh_ps_preq, i32 noundef 33) #4
-  %16 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.336, ptr noundef nonnull @.str.337, ptr noundef nonnull @.str.338) #4
+  tail call void @proto_register_field_array(i32 noundef %15, ptr noundef nonnull @proto_register_extrememesh.hf_extrememesh_ps_preq, i32 noundef 33)
+  %16 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.336, ptr noundef nonnull @.str.337, ptr noundef nonnull @.str.338)
   store i32 %16, ptr @proto_extrememesh_ps_prep, align 4
-  tail call void @proto_register_field_array(i32 noundef %16, ptr noundef nonnull @proto_register_extrememesh.hf_extrememesh_ps_prep, i32 noundef 29) #4
-  %17 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.339, ptr noundef nonnull @.str.340, ptr noundef nonnull @.str.341) #4
+  tail call void @proto_register_field_array(i32 noundef %16, ptr noundef nonnull @proto_register_extrememesh.hf_extrememesh_ps_prep, i32 noundef 29)
+  %17 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.339, ptr noundef nonnull @.str.340, ptr noundef nonnull @.str.341)
   store i32 %17, ptr @proto_extrememesh_ps_perr, align 4
-  tail call void @proto_register_field_array(i32 noundef %17, ptr noundef nonnull @proto_register_extrememesh.hf_extrememesh_ps_perr, i32 noundef 9) #4
-  %18 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.342, ptr noundef nonnull @.str.343, ptr noundef nonnull @.str.344) #4
+  tail call void @proto_register_field_array(i32 noundef %17, ptr noundef nonnull @proto_register_extrememesh.hf_extrememesh_ps_perr, i32 noundef 9)
+  %18 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.342, ptr noundef nonnull @.str.343, ptr noundef nonnull @.str.344)
   store i32 %18, ptr @proto_extrememesh_ps_prst, align 4
-  tail call void @proto_register_field_array(i32 noundef %18, ptr noundef nonnull @proto_register_extrememesh.hf_extrememesh_ps_prst, i32 noundef 7) #4
-  %19 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.345, ptr noundef nonnull @.str.346, ptr noundef nonnull @.str.347) #4
+  tail call void @proto_register_field_array(i32 noundef %18, ptr noundef nonnull @proto_register_extrememesh.hf_extrememesh_ps_prst, i32 noundef 7)
+  %19 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.345, ptr noundef nonnull @.str.346, ptr noundef nonnull @.str.347)
   store i32 %19, ptr @proto_extrememesh_ps_prem, align 4
-  tail call void @proto_register_field_array(i32 noundef %19, ptr noundef nonnull @proto_register_extrememesh.hf_extrememesh_ps_prem, i32 noundef 9) #4
-  %20 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.348, ptr noundef nonnull @.str.349, ptr noundef nonnull @.str.350) #4
+  tail call void @proto_register_field_array(i32 noundef %19, ptr noundef nonnull @proto_register_extrememesh.hf_extrememesh_ps_prem, i32 noundef 9)
+  %20 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.348, ptr noundef nonnull @.str.349, ptr noundef nonnull @.str.350)
   store i32 %20, ptr @proto_extrememesh_ps_trace, align 4
-  tail call void @proto_register_field_array(i32 noundef %20, ptr noundef nonnull @proto_register_extrememesh.hf_extrememesh_ps_trace, i32 noundef 10) #4
-  %21 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.351, ptr noundef nonnull @.str.352, ptr noundef nonnull @.str.353) #4
+  tail call void @proto_register_field_array(i32 noundef %20, ptr noundef nonnull @proto_register_extrememesh.hf_extrememesh_ps_trace, i32 noundef 10)
+  %21 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.351, ptr noundef nonnull @.str.352, ptr noundef nonnull @.str.353)
   store i32 %21, ptr @proto_extrememesh_ps_prer, align 4
-  tail call void @proto_register_field_array(i32 noundef %21, ptr noundef nonnull @proto_register_extrememesh.hf_extrememesh_ps_prer, i32 noundef 11) #4
+  tail call void @proto_register_field_array(i32 noundef %21, ptr noundef nonnull @proto_register_extrememesh.hf_extrememesh_ps_prer, i32 noundef 11)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal noundef i32 @dissect_extrememesh(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
-  tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.391) #4
+  tail call void @col_set_str(ptr noundef %6, i32 noundef 35, ptr noundef nonnull @.str.394)
   %7 = load i32, ptr @proto_extrememesh, align 4
-  %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
+  %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %9 = load i32, ptr @ett_extrememesh, align 4
-  %10 = tail call ptr @proto_item_add_subtree(ptr noundef %8, i32 noundef %9) #4
+  %10 = tail call ptr @proto_item_add_subtree(ptr noundef %8, i32 noundef %9)
   %11 = load i32, ptr @hf_extrememesh_version, align 4
-  %12 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
-  %13 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #4
+  %12 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+  %13 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
   %14 = zext i8 %13 to i32
   %15 = load i32, ptr @hf_extrememesh_nextproto, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %15, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #4
-  %17 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 2, i32 noundef -1) #4
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %15, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  %17 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 2, i32 noundef -1)
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 212
@@ -769,12 +772,12 @@ define internal noundef i32 @dissect_extrememesh(ptr noundef %0, ptr noundef %1,
 dissect_extrememesh_eth_noaddr.exit:              ; preds = %dissect_extrememesh_eth_noaddr.exit.backedge, %4
   %.0 = phi i32 [ %14, %4 ], [ -1, %dissect_extrememesh_eth_noaddr.exit.backedge ]
   switch i32 %.0, label %dissect_extrememesh_eth_noaddr.exit.backedge [
-    i32 -1, label %66
-    i32 14, label %56
+    i32 -1, label %73
+    i32 14, label %63
     i32 13, label %29
     i32 11, label %29
     i32 10, label %29
-    i32 15, label %65
+    i32 15, label %72
     i32 7, label %29
     i32 1, label %23
     i32 2, label %24
@@ -793,7 +796,7 @@ dissect_extrememesh_eth_noaddr.exit:              ; preds = %dissect_extrememesh
   br i1 %.not37, label %dissect_extrememesh_eth_noaddr.exit.backedge, label %26
 
 26:                                               ; preds = %24
-  %27 = tail call i32 @call_dissector(ptr noundef nonnull %25, ptr noundef %17, ptr noundef %1, ptr noundef %10) #4
+  %27 = tail call i32 @call_dissector(ptr noundef nonnull %25, ptr noundef %17, ptr noundef %1, ptr noundef %10)
   br label %dissect_extrememesh_eth_noaddr.exit.backedge
 
 28:                                               ; preds = %dissect_extrememesh_eth_noaddr.exit
@@ -811,120 +814,137 @@ dissect_extrememesh_eth_noaddr.exit:              ; preds = %dissect_extrememesh
   br i1 %.not29.i, label %dissect_extrememesh_eth_noaddr.exit.backedge, label %33
 
 33:                                               ; preds = %31
-  %34 = tail call i32 @tvb_captured_length(ptr noundef %17) #4
+  %34 = tail call i32 @tvb_captured_length(ptr noundef %17)
   %35 = load i32, ptr %20, align 4
   %36 = add i32 %35, %34
   %37 = load i32, ptr %21, align 4
   %38 = add i32 %36, %37
   %39 = load ptr, ptr %22, align 8
   %40 = sext i32 %38 to i64
-  %41 = tail call noalias ptr @wmem_alloc(ptr noundef %39, i64 noundef %40) #4
+  %41 = tail call noalias ptr @wmem_alloc(ptr noundef %39, i64 noundef %40) #6
   %42 = load ptr, ptr %19, align 8
   %43 = load i32, ptr %21, align 4
   %44 = sext i32 %43 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %41, ptr align 1 %42, i64 %44, i1 false)
-  %45 = getelementptr i8, ptr %41, i64 %44
-  %46 = load ptr, ptr %18, align 8
-  %47 = load i32, ptr %20, align 4
-  %48 = sext i32 %47 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %45, ptr align 1 %46, i64 %48, i1 false)
-  %49 = add i32 %47, %43
-  %50 = zext i32 %34 to i64
-  %51 = tail call ptr @tvb_memcpy(ptr noundef %17, ptr noundef %41, i32 noundef %49, i64 noundef %50) #4
-  %52 = tail call ptr @tvb_new_real_data(ptr noundef %41, i32 noundef %38, i32 noundef %38) #4
-  tail call void @tvb_set_child_real_data_tvbuff(ptr noundef %17, ptr noundef %52) #4
-  tail call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef %52, ptr noundef nonnull @.str.392) #4
-  %53 = load ptr, ptr @eth_withoutfcs_handle, align 8
-  %.not30.i = icmp eq ptr %53, null
-  br i1 %.not30.i, label %dissect_extrememesh_eth_noaddr.exit.backedge, label %54
+  %45 = icmp ne i32 %38, -1
+  tail call void @llvm.assume(i1 %45)
+  %46 = tail call ptr @__memcpy_chk(ptr noundef %41, ptr noundef %42, i64 noundef range(i64 -2147483648, 2147483648) %44, i64 noundef %40) #7, !alias.scope !6
+  %47 = getelementptr i8, ptr %41, i64 %44
+  %48 = load ptr, ptr %18, align 8
+  %49 = load i32, ptr %20, align 4
+  %50 = sext i32 %49 to i64
+  %51 = sub nsw i64 %40, %44
+  %52 = icmp ugt i32 %43, %38
+  %53 = select i1 %52, i64 0, i64 %51
+  %54 = icmp ne i64 %53, -1
+  tail call void @llvm.assume(i1 %54)
+  %55 = tail call ptr @__memcpy_chk(ptr noundef %47, ptr noundef %48, i64 noundef range(i64 -2147483648, 2147483648) %50, i64 noundef %53) #7, !alias.scope !10
+  %56 = add i32 %49, %43
+  %57 = zext i32 %34 to i64
+  %58 = tail call ptr @tvb_memcpy(ptr noundef %17, ptr noundef %41, i32 noundef %56, i64 noundef %57)
+  %59 = tail call ptr @tvb_new_real_data(ptr noundef %41, i32 noundef %38, i32 noundef %38)
+  tail call void @tvb_set_child_real_data_tvbuff(ptr noundef %17, ptr noundef %59)
+  tail call void @add_new_data_source(ptr noundef %1, ptr noundef %59, ptr noundef nonnull @.str.395)
+  %60 = load ptr, ptr @eth_withoutfcs_handle, align 8
+  %.not30.i = icmp eq ptr %60, null
+  br i1 %.not30.i, label %dissect_extrememesh_eth_noaddr.exit.backedge, label %61
 
-54:                                               ; preds = %33
-  %55 = tail call i32 @call_dissector(ptr noundef nonnull %53, ptr noundef %52, ptr noundef nonnull %1, ptr noundef %10) #4
+61:                                               ; preds = %33
+  %62 = tail call i32 @call_dissector(ptr noundef nonnull %60, ptr noundef %59, ptr noundef %1, ptr noundef %10)
   br label %dissect_extrememesh_eth_noaddr.exit.backedge
 
-dissect_extrememesh_eth_noaddr.exit.backedge:     ; preds = %54, %33, %31, %29, %dissect_extrememesh_eth_noaddr.exit, %24, %26, %65, %56, %28, %23
-  br label %dissect_extrememesh_eth_noaddr.exit, !llvm.loop !4
+dissect_extrememesh_eth_noaddr.exit.backedge:     ; preds = %61, %33, %31, %29, %dissect_extrememesh_eth_noaddr.exit, %24, %26, %72, %63, %28, %23
+  br label %dissect_extrememesh_eth_noaddr.exit, !llvm.loop !14
 
-56:                                               ; preds = %dissect_extrememesh_eth_noaddr.exit
+63:                                               ; preds = %dissect_extrememesh_eth_noaddr.exit
   %.val = load ptr, ptr %5, align 8
-  tail call void @col_set_str(ptr noundef %.val, i32 noundef 25, ptr noundef nonnull @.str.303) #4
-  %57 = load i32, ptr @proto_extrememesh_l2upd, align 4
-  %58 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %57, ptr noundef %17, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
-  %59 = load i32, ptr @hf_extrememesh_l2upd_proxy_owner, align 4
-  %60 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %59, ptr noundef %17, i32 noundef 0, i32 noundef 6, i32 noundef 0) #4
-  %61 = load i32, ptr @hf_extrememesh_l2upd_ballast, align 4
-  %62 = tail call i32 @tvb_captured_length(ptr noundef %17) #4
-  %63 = add i32 %62, -6
-  %64 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %61, ptr noundef %17, i32 noundef 6, i32 noundef %63, i32 noundef 0) #4
+  tail call void @col_set_str(ptr noundef %.val, i32 noundef 25, ptr noundef nonnull @.str.303)
+  %64 = load i32, ptr @proto_extrememesh_l2upd, align 4
+  %65 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %64, ptr noundef %17, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  %66 = load i32, ptr @hf_extrememesh_l2upd_proxy_owner, align 4
+  %67 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %66, ptr noundef %17, i32 noundef 0, i32 noundef 6, i32 noundef 0)
+  %68 = load i32, ptr @hf_extrememesh_l2upd_ballast, align 4
+  %69 = tail call i32 @tvb_captured_length(ptr noundef %17)
+  %70 = add i32 %69, -6
+  %71 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %68, ptr noundef %17, i32 noundef 6, i32 noundef %70, i32 noundef 0)
   br label %dissect_extrememesh_eth_noaddr.exit.backedge
 
-65:                                               ; preds = %dissect_extrememesh_eth_noaddr.exit
+72:                                               ; preds = %dissect_extrememesh_eth_noaddr.exit
   %.val38 = load ptr, ptr %5, align 8
   tail call fastcc void @dissect_extrememesh_probe(ptr noundef %17, ptr %.val38, ptr noundef %10)
   br label %dissect_extrememesh_eth_noaddr.exit.backedge
 
-66:                                               ; preds = %dissect_extrememesh_eth_noaddr.exit
+73:                                               ; preds = %dissect_extrememesh_eth_noaddr.exit
   ret i32 0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_extrememesh() local_unnamed_addr #0 {
-  %1 = tail call ptr @find_dissector(ptr noundef nonnull @.str.354) #4
+  %1 = tail call ptr @find_dissector(ptr noundef nonnull @.str.354)
   store ptr %1, ptr @eth_withoutfcs_handle, align 8
   %2 = load ptr, ptr @extrememesh_handle, align 8
-  tail call void @dissector_add_uint(ptr noundef nonnull @.str.355, i32 noundef 34985, ptr noundef %2) #4
+  tail call void @dissector_add_uint(ptr noundef nonnull @.str.355, i32 noundef 34985, ptr noundef %2)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @find_dissector(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_extrememesh_mch(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr @proto_extrememesh_mch, align 4
-  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
+  %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %6 = load i32, ptr @hf_extrememesh_mch_version, align 4
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
-  %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #4
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+  %8 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
   %9 = zext i8 %8 to i32
   %10 = load i32, ptr @hf_extrememesh_mch_next_proto, align 4
-  %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #4
+  %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
   %12 = load i32, ptr @hf_extrememesh_mch_lq, align 4
-  %13 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #4
+  %13 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %14 = load i32, ptr @hf_extrememesh_mch_htl, align 4
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
   %16 = load i32, ptr @hf_extrememesh_mch_priority, align 4
-  %17 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %16, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #4
+  %17 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %16, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0)
   %18 = load i32, ptr @hf_extrememesh_mch_usr_pri_flags, align 4
-  %19 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %18, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0) #4
+  %19 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %18, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0)
   %20 = load i32, ptr @hf_extrememesh_mch_usr_pri_flags_user_priority, align 4
-  %21 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0) #4
+  %21 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0)
   %22 = load i32, ptr @hf_extrememesh_mch_usr_pri_flags_reserved, align 4
-  %23 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %22, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0) #4
+  %23 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %22, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0)
   %24 = load i32, ptr @hf_extrememesh_mch_usr_pri_flags_from_wan, align 4
-  %25 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %24, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0) #4
+  %25 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %24, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0)
   %26 = load i32, ptr @hf_extrememesh_mch_usr_pri_flags_to_wan, align 4
-  %27 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %26, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0) #4
+  %27 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %26, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0)
   %28 = load i32, ptr @hf_extrememesh_mch_usr_pri_flags_forward, align 4
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %28, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0) #4
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %28, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0)
   %30 = load i32, ptr @hf_extrememesh_mch_sequence, align 4
-  %31 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %30, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0) #4
+  %31 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %30, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0)
   %32 = load i32, ptr @hf_extrememesh_mch_dest, align 4
-  %33 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %32, ptr noundef %0, i32 noundef 8, i32 noundef 6, i32 noundef 0) #4
+  %33 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %32, ptr noundef %0, i32 noundef 8, i32 noundef 6, i32 noundef 0)
   %34 = load i32, ptr @hf_extrememesh_mch_src, align 4
-  %35 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %34, ptr noundef %0, i32 noundef 14, i32 noundef 6, i32 noundef 0) #4
-  %36 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 20, i32 noundef -1) #4
+  %35 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %34, ptr noundef %0, i32 noundef 14, i32 noundef 6, i32 noundef 0)
+  %36 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 20, i32 noundef -1)
   %37 = getelementptr i8, ptr %1, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 240
@@ -936,12 +956,12 @@ define internal fastcc void @dissect_extrememesh_mch(ptr noundef %0, ptr noundef
 dissect_extrememesh_eth_noaddr.exit:              ; preds = %dissect_extrememesh_eth_noaddr.exit.backedge, %3
   %.0 = phi i32 [ %9, %3 ], [ -1, %dissect_extrememesh_eth_noaddr.exit.backedge ]
   switch i32 %.0, label %dissect_extrememesh_eth_noaddr.exit.backedge [
-    i32 -1, label %86
-    i32 14, label %76
+    i32 -1, label %93
+    i32 14, label %83
     i32 13, label %49
     i32 11, label %49
     i32 10, label %49
-    i32 15, label %85
+    i32 15, label %92
     i32 7, label %49
     i32 1, label %43
     i32 2, label %44
@@ -960,7 +980,7 @@ dissect_extrememesh_eth_noaddr.exit:              ; preds = %dissect_extrememesh
   br i1 %.not80, label %dissect_extrememesh_eth_noaddr.exit.backedge, label %46
 
 46:                                               ; preds = %44
-  %47 = tail call i32 @call_dissector(ptr noundef nonnull %45, ptr noundef %36, ptr noundef %1, ptr noundef %2) #4
+  %47 = tail call i32 @call_dissector(ptr noundef nonnull %45, ptr noundef %36, ptr noundef %1, ptr noundef %2)
   br label %dissect_extrememesh_eth_noaddr.exit.backedge
 
 48:                                               ; preds = %dissect_extrememesh_eth_noaddr.exit
@@ -978,65 +998,73 @@ dissect_extrememesh_eth_noaddr.exit:              ; preds = %dissect_extrememesh
   br i1 %.not29.i, label %dissect_extrememesh_eth_noaddr.exit.backedge, label %53
 
 53:                                               ; preds = %51
-  %54 = tail call i32 @tvb_captured_length(ptr noundef %36) #4
+  %54 = tail call i32 @tvb_captured_length(ptr noundef %36)
   %55 = load i32, ptr %40, align 4
   %56 = add i32 %55, %54
   %57 = load i32, ptr %41, align 4
   %58 = add i32 %56, %57
   %59 = load ptr, ptr %42, align 8
   %60 = sext i32 %58 to i64
-  %61 = tail call noalias ptr @wmem_alloc(ptr noundef %59, i64 noundef %60) #4
+  %61 = tail call noalias ptr @wmem_alloc(ptr noundef %59, i64 noundef %60) #6
   %62 = load ptr, ptr %39, align 8
   %63 = load i32, ptr %41, align 4
   %64 = sext i32 %63 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %61, ptr align 1 %62, i64 %64, i1 false)
-  %65 = getelementptr i8, ptr %61, i64 %64
-  %66 = load ptr, ptr %38, align 8
-  %67 = load i32, ptr %40, align 4
-  %68 = sext i32 %67 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %65, ptr align 1 %66, i64 %68, i1 false)
-  %69 = add i32 %67, %63
-  %70 = zext i32 %54 to i64
-  %71 = tail call ptr @tvb_memcpy(ptr noundef %36, ptr noundef %61, i32 noundef %69, i64 noundef %70) #4
-  %72 = tail call ptr @tvb_new_real_data(ptr noundef %61, i32 noundef %58, i32 noundef %58) #4
-  tail call void @tvb_set_child_real_data_tvbuff(ptr noundef %36, ptr noundef %72) #4
-  tail call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef %72, ptr noundef nonnull @.str.392) #4
-  %73 = load ptr, ptr @eth_withoutfcs_handle, align 8
-  %.not30.i = icmp eq ptr %73, null
-  br i1 %.not30.i, label %dissect_extrememesh_eth_noaddr.exit.backedge, label %74
+  %65 = icmp ne i32 %58, -1
+  tail call void @llvm.assume(i1 %65)
+  %66 = tail call ptr @__memcpy_chk(ptr noundef %61, ptr noundef %62, i64 noundef range(i64 -2147483648, 2147483648) %64, i64 noundef %60) #7, !alias.scope !16
+  %67 = getelementptr i8, ptr %61, i64 %64
+  %68 = load ptr, ptr %38, align 8
+  %69 = load i32, ptr %40, align 4
+  %70 = sext i32 %69 to i64
+  %71 = sub nsw i64 %60, %64
+  %72 = icmp ugt i32 %63, %58
+  %73 = select i1 %72, i64 0, i64 %71
+  %74 = icmp ne i64 %73, -1
+  tail call void @llvm.assume(i1 %74)
+  %75 = tail call ptr @__memcpy_chk(ptr noundef %67, ptr noundef %68, i64 noundef range(i64 -2147483648, 2147483648) %70, i64 noundef %73) #7, !alias.scope !20
+  %76 = add i32 %69, %63
+  %77 = zext i32 %54 to i64
+  %78 = tail call ptr @tvb_memcpy(ptr noundef %36, ptr noundef %61, i32 noundef %76, i64 noundef %77)
+  %79 = tail call ptr @tvb_new_real_data(ptr noundef %61, i32 noundef %58, i32 noundef %58)
+  tail call void @tvb_set_child_real_data_tvbuff(ptr noundef %36, ptr noundef %79)
+  tail call void @add_new_data_source(ptr noundef %1, ptr noundef %79, ptr noundef nonnull @.str.395)
+  %80 = load ptr, ptr @eth_withoutfcs_handle, align 8
+  %.not30.i = icmp eq ptr %80, null
+  br i1 %.not30.i, label %dissect_extrememesh_eth_noaddr.exit.backedge, label %81
 
-74:                                               ; preds = %53
-  %75 = tail call i32 @call_dissector(ptr noundef nonnull %73, ptr noundef %72, ptr noundef nonnull %1, ptr noundef %2) #4
+81:                                               ; preds = %53
+  %82 = tail call i32 @call_dissector(ptr noundef nonnull %80, ptr noundef %79, ptr noundef %1, ptr noundef %2)
   br label %dissect_extrememesh_eth_noaddr.exit.backedge
 
-dissect_extrememesh_eth_noaddr.exit.backedge:     ; preds = %74, %53, %51, %49, %dissect_extrememesh_eth_noaddr.exit, %44, %46, %85, %76, %48, %43
-  br label %dissect_extrememesh_eth_noaddr.exit, !llvm.loop !6
+dissect_extrememesh_eth_noaddr.exit.backedge:     ; preds = %81, %53, %51, %49, %dissect_extrememesh_eth_noaddr.exit, %44, %46, %92, %83, %48, %43
+  br label %dissect_extrememesh_eth_noaddr.exit, !llvm.loop !24
 
-76:                                               ; preds = %dissect_extrememesh_eth_noaddr.exit
+83:                                               ; preds = %dissect_extrememesh_eth_noaddr.exit
   %.val = load ptr, ptr %37, align 8
-  tail call void @col_set_str(ptr noundef %.val, i32 noundef 25, ptr noundef nonnull @.str.303) #4
-  %77 = load i32, ptr @proto_extrememesh_l2upd, align 4
-  %78 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %77, ptr noundef %36, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
-  %79 = load i32, ptr @hf_extrememesh_l2upd_proxy_owner, align 4
-  %80 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %79, ptr noundef %36, i32 noundef 0, i32 noundef 6, i32 noundef 0) #4
-  %81 = load i32, ptr @hf_extrememesh_l2upd_ballast, align 4
-  %82 = tail call i32 @tvb_captured_length(ptr noundef %36) #4
-  %83 = add i32 %82, -6
-  %84 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %81, ptr noundef %36, i32 noundef 6, i32 noundef %83, i32 noundef 0) #4
+  tail call void @col_set_str(ptr noundef %.val, i32 noundef 25, ptr noundef nonnull @.str.303)
+  %84 = load i32, ptr @proto_extrememesh_l2upd, align 4
+  %85 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %84, ptr noundef %36, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  %86 = load i32, ptr @hf_extrememesh_l2upd_proxy_owner, align 4
+  %87 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %86, ptr noundef %36, i32 noundef 0, i32 noundef 6, i32 noundef 0)
+  %88 = load i32, ptr @hf_extrememesh_l2upd_ballast, align 4
+  %89 = tail call i32 @tvb_captured_length(ptr noundef %36)
+  %90 = add i32 %89, -6
+  %91 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %88, ptr noundef %36, i32 noundef 6, i32 noundef %90, i32 noundef 0)
   br label %dissect_extrememesh_eth_noaddr.exit.backedge
 
-85:                                               ; preds = %dissect_extrememesh_eth_noaddr.exit
+92:                                               ; preds = %dissect_extrememesh_eth_noaddr.exit
   %.val81 = load ptr, ptr %37, align 8
   tail call fastcc void @dissect_extrememesh_probe(ptr noundef %36, ptr %.val81, ptr noundef %2)
   br label %dissect_extrememesh_eth_noaddr.exit.backedge
 
-86:                                               ; preds = %dissect_extrememesh_eth_noaddr.exit
+93:                                               ; preds = %dissect_extrememesh_eth_noaddr.exit
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_extrememesh_ps(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -1050,7 +1078,7 @@ define internal fastcc void @dissect_extrememesh_ps(ptr noundef %0, ptr noundef 
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
-  %16 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #4
+  %16 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
   switch i8 %16, label %dissect_extrememesh_ps_perr.exit [
     i8 1, label %17
     i8 2, label %49
@@ -1072,29 +1100,29 @@ define internal fastcc void @dissect_extrememesh_ps(ptr noundef %0, ptr noundef 
 17:                                               ; preds = %3
   %18 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %18, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #7
   store i32 0, ptr %15, align 4
-  tail call void @col_set_str(ptr noundef %.val, i32 noundef 25, ptr noundef nonnull @.str.309) #4
+  tail call void @col_set_str(ptr noundef %.val, i32 noundef 25, ptr noundef nonnull @.str.309)
   %19 = load i32, ptr @proto_extrememesh_ps_areq, align 4
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %21 = load i32, ptr @hf_extrememesh_ps_areq_version, align 4
-  %22 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %21, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
+  %22 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %21, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %23 = load i32, ptr @hf_extrememesh_ps_areq_frame_type, align 4
-  %24 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %23, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #4
+  %24 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %23, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
   %25 = load i32, ptr @hf_extrememesh_ps_areq_mpr_addr, align 4
-  %26 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %25, ptr noundef %0, i32 noundef 2, i32 noundef 6, i32 noundef 0) #4
+  %26 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %25, ptr noundef %0, i32 noundef 2, i32 noundef 6, i32 noundef 0)
   %27 = load i32, ptr @hf_extrememesh_ps_areq_orig_addr, align 4
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %27, ptr noundef %0, i32 noundef 8, i32 noundef 6, i32 noundef 0) #4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %27, ptr noundef %0, i32 noundef 8, i32 noundef 6, i32 noundef 0)
   %29 = load i32, ptr @hf_extrememesh_ps_areq_opt_tot_len, align 4
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %29, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0) #4
-  %31 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %29, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
+  %31 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %32 = icmp ugt i32 %31, 16
   br i1 %32, label %.lr.ph.i, label %dissect_extrememesh_ps_areq.exit
 
 .lr.ph.i:                                         ; preds = %17, %.backedge.i
   %.01.i = phi i32 [ %.0.be.i, %.backedge.i ], [ 16, %17 ]
   %33 = load i32, ptr @hf_extrememesh_ps_areq_option, align 4
-  %34 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %33, ptr noundef %0, i32 noundef %.01.i, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %15) #4
+  %34 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %33, ptr noundef %0, i32 noundef %.01.i, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %15)
   %35 = add nuw i32 %.01.i, 1
   %36 = load i32, ptr %15, align 4
   %37 = icmp eq i32 %36, 0
@@ -1102,7 +1130,7 @@ define internal fastcc void @dissect_extrememesh_ps(ptr noundef %0, ptr noundef 
 
 38:                                               ; preds = %.lr.ph.i
   %39 = load i32, ptr @hf_extrememesh_ps_areq_option_len, align 4
-  %40 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %39, ptr noundef %0, i32 noundef %35, i32 noundef 1, i32 noundef 0) #4
+  %40 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %39, ptr noundef %0, i32 noundef %35, i32 noundef 1, i32 noundef 0)
   %41 = add i32 %.01.i, 2
   %42 = load i32, ptr %15, align 4
   switch i32 %42, label %dissect_extrememesh_ps_areq.exit [
@@ -1118,46 +1146,46 @@ define internal fastcc void @dissect_extrememesh_ps(ptr noundef %0, ptr noundef 
   %.sink4.i = phi i32 [ 1, %43 ], [ 6, %38 ]
   %.sink.i = phi i32 [ 3, %43 ], [ 8, %38 ]
   %44 = load i32, ptr %hf_extrememesh_ps_areq_old_mpr.sink.i, align 4
-  %45 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %44, ptr noundef %0, i32 noundef %41, i32 noundef %.sink4.i, i32 noundef 0) #4
+  %45 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %44, ptr noundef %0, i32 noundef %41, i32 noundef %.sink4.i, i32 noundef 0)
   %46 = add i32 %.sink.i, %.01.i
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %.backedge.sink.split.i, %.lr.ph.i
   %.0.be.i = phi i32 [ %35, %.lr.ph.i ], [ %46, %.backedge.sink.split.i ]
-  %47 = call i32 @tvb_captured_length(ptr noundef %0) #4
+  %47 = call i32 @tvb_captured_length(ptr noundef %0)
   %48 = icmp ugt i32 %47, %.0.be.i
-  br i1 %48, label %.lr.ph.i, label %dissect_extrememesh_ps_areq.exit, !llvm.loop !7
+  br i1 %48, label %.lr.ph.i, label %dissect_extrememesh_ps_areq.exit, !llvm.loop !25
 
 dissect_extrememesh_ps_areq.exit:                 ; preds = %38, %.backedge.i, %17
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #7
   br label %dissect_extrememesh_ps_perr.exit
 
 49:                                               ; preds = %3
   %50 = getelementptr i8, ptr %1, i64 8
   %.val47 = load ptr, ptr %50, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #7
   store i32 0, ptr %14, align 4
-  tail call void @col_set_str(ptr noundef %.val47, i32 noundef 25, ptr noundef nonnull @.str.312) #4
+  tail call void @col_set_str(ptr noundef %.val47, i32 noundef 25, ptr noundef nonnull @.str.312)
   %51 = load i32, ptr @proto_extrememesh_ps_arep, align 4
-  %52 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %51, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
+  %52 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %51, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %53 = load i32, ptr @hf_extrememesh_ps_arep_version, align 4
-  %54 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %53, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
+  %54 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %53, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %55 = load i32, ptr @hf_extrememesh_ps_arep_frame_type, align 4
-  %56 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %55, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #4
+  %56 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %55, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
   %57 = load i32, ptr @hf_extrememesh_ps_arep_mpr_addr, align 4
-  %58 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %57, ptr noundef %0, i32 noundef 2, i32 noundef 6, i32 noundef 0) #4
+  %58 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %57, ptr noundef %0, i32 noundef 2, i32 noundef 6, i32 noundef 0)
   %59 = load i32, ptr @hf_extrememesh_ps_arep_orig_addr, align 4
-  %60 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %59, ptr noundef %0, i32 noundef 8, i32 noundef 6, i32 noundef 0) #4
+  %60 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %59, ptr noundef %0, i32 noundef 8, i32 noundef 6, i32 noundef 0)
   %61 = load i32, ptr @hf_extrememesh_ps_arep_opt_tot_len, align 4
-  %62 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %61, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0) #4
-  %63 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
+  %62 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %61, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
+  %63 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %64 = icmp ugt i32 %63, 16
   br i1 %64, label %.lr.ph.i61, label %dissect_extrememesh_ps_arep.exit
 
 .lr.ph.i61:                                       ; preds = %49, %.backedge.i63
   %.01.i62 = phi i32 [ %.0.be.i64, %.backedge.i63 ], [ 16, %49 ]
   %65 = load i32, ptr @hf_extrememesh_ps_arep_option, align 4
-  %66 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %65, ptr noundef %0, i32 noundef %.01.i62, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %14) #4
+  %66 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %65, ptr noundef %0, i32 noundef %.01.i62, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %14)
   %67 = add nuw i32 %.01.i62, 1
   %68 = load i32, ptr %14, align 4
   %69 = icmp eq i32 %68, 0
@@ -1165,7 +1193,7 @@ dissect_extrememesh_ps_areq.exit:                 ; preds = %38, %.backedge.i, %
 
 70:                                               ; preds = %.lr.ph.i61
   %71 = load i32, ptr @hf_extrememesh_ps_arep_option_len, align 4
-  %72 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %71, ptr noundef %0, i32 noundef %67, i32 noundef 1, i32 noundef 0) #4
+  %72 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %71, ptr noundef %0, i32 noundef %67, i32 noundef 1, i32 noundef 0)
   %73 = add i32 %.01.i62, 2
   %74 = load i32, ptr %14, align 4
   switch i32 %74, label %dissect_extrememesh_ps_arep.exit [
@@ -1179,46 +1207,46 @@ dissect_extrememesh_ps_areq.exit:                 ; preds = %38, %.backedge.i, %
 76:                                               ; preds = %75, %70
   %hf_extrememesh_ps_arep_timeout.sink.i = phi ptr [ @hf_extrememesh_ps_arep_timeout, %75 ], [ @hf_extrememesh_ps_arep_result, %70 ]
   %77 = load i32, ptr %hf_extrememesh_ps_arep_timeout.sink.i, align 4
-  %78 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %77, ptr noundef %0, i32 noundef %73, i32 noundef 1, i32 noundef 0) #4
+  %78 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %77, ptr noundef %0, i32 noundef %73, i32 noundef 1, i32 noundef 0)
   %.1.i = add i32 %.01.i62, 3
   br label %.backedge.i63
 
 .backedge.i63:                                    ; preds = %76, %.lr.ph.i61
   %.0.be.i64 = phi i32 [ %67, %.lr.ph.i61 ], [ %.1.i, %76 ]
-  %79 = call i32 @tvb_captured_length(ptr noundef %0) #4
+  %79 = call i32 @tvb_captured_length(ptr noundef %0)
   %80 = icmp ugt i32 %79, %.0.be.i64
-  br i1 %80, label %.lr.ph.i61, label %dissect_extrememesh_ps_arep.exit, !llvm.loop !8
+  br i1 %80, label %.lr.ph.i61, label %dissect_extrememesh_ps_arep.exit, !llvm.loop !26
 
 dissect_extrememesh_ps_arep.exit:                 ; preds = %70, %.backedge.i63, %49
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #7
   br label %dissect_extrememesh_ps_perr.exit
 
 81:                                               ; preds = %3
   %82 = getelementptr i8, ptr %1, i64 8
   %.val48 = load ptr, ptr %82, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #7
   store i32 0, ptr %13, align 4
-  tail call void @col_set_str(ptr noundef %.val48, i32 noundef 25, ptr noundef nonnull @.str.315) #4
+  tail call void @col_set_str(ptr noundef %.val48, i32 noundef 25, ptr noundef nonnull @.str.315)
   %83 = load i32, ptr @proto_extrememesh_ps_breq, align 4
-  %84 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %83, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
+  %84 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %83, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %85 = load i32, ptr @hf_extrememesh_ps_breq_version, align 4
-  %86 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %85, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
+  %86 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %85, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %87 = load i32, ptr @hf_extrememesh_ps_breq_frame_type, align 4
-  %88 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %87, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #4
+  %88 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %87, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
   %89 = load i32, ptr @hf_extrememesh_ps_breq_mpr_addr, align 4
-  %90 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %89, ptr noundef %0, i32 noundef 2, i32 noundef 6, i32 noundef 0) #4
+  %90 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %89, ptr noundef %0, i32 noundef 2, i32 noundef 6, i32 noundef 0)
   %91 = load i32, ptr @hf_extrememesh_ps_breq_orig_addr, align 4
-  %92 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %91, ptr noundef %0, i32 noundef 8, i32 noundef 6, i32 noundef 0) #4
+  %92 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %91, ptr noundef %0, i32 noundef 8, i32 noundef 6, i32 noundef 0)
   %93 = load i32, ptr @hf_extrememesh_ps_breq_opt_tot_len, align 4
-  %94 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %93, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0) #4
-  %95 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
+  %94 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %93, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
+  %95 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %96 = icmp ugt i32 %95, 16
   br i1 %96, label %.lr.ph10.i, label %dissect_extrememesh_ps_breq.exit
 
 .lr.ph10.i:                                       ; preds = %81, %.backedge.i67
   %.0799.i = phi i32 [ %.079.be.i, %.backedge.i67 ], [ 16, %81 ]
   %97 = load i32, ptr @hf_extrememesh_ps_breq_option, align 4
-  %98 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %97, ptr noundef %0, i32 noundef %.0799.i, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %13) #4
+  %98 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %97, ptr noundef %0, i32 noundef %.0799.i, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %13)
   %99 = add nuw i32 %.0799.i, 1
   %100 = load i32, ptr %13, align 4
   %101 = icmp eq i32 %100, 0
@@ -1226,8 +1254,8 @@ dissect_extrememesh_ps_arep.exit:                 ; preds = %70, %.backedge.i63,
 
 102:                                              ; preds = %.lr.ph10.i
   %103 = load i32, ptr @hf_extrememesh_ps_breq_option_len, align 4
-  %104 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %103, ptr noundef %0, i32 noundef %99, i32 noundef 1, i32 noundef 0) #4
-  %105 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %99) #4
+  %104 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %103, ptr noundef %0, i32 noundef %99, i32 noundef 1, i32 noundef 0)
+  %105 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %99)
   %106 = add i32 %.0799.i, 2
   %107 = load i32, ptr %13, align 4
   switch i32 %107, label %dissect_extrememesh_ps_breq.exit [
@@ -1250,14 +1278,14 @@ dissect_extrememesh_ps_arep.exit:                 ; preds = %70, %.backedge.i63,
   br i1 %.old2.not.i, label %.backedge.i67, label %.preheader.i
 
 .preheader.i:                                     ; preds = %108, %.preheader.i
-  %.180.i = phi i32 [ %112, %.preheader.i ], [ %106, %108 ]
+  %.281.i = phi i32 [ %112, %.preheader.i ], [ %106, %108 ]
   %.0.i = phi i8 [ %111, %.preheader.i ], [ %105, %108 ]
   %109 = load i32, ptr @hf_extrememesh_ps_breq_proxy_addr, align 4
-  %110 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %109, ptr noundef %0, i32 noundef %.180.i, i32 noundef 6, i32 noundef 0) #4
+  %110 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %109, ptr noundef %0, i32 noundef %.281.i, i32 noundef 6, i32 noundef 0)
   %111 = add i8 %.0.i, -6
-  %112 = add i32 %.180.i, 6
+  %112 = add i32 %.281.i, 6
   %113 = icmp ugt i8 %111, 5
-  br i1 %113, label %.preheader.i, label %.backedge.i67, !llvm.loop !9
+  br i1 %113, label %.preheader.i, label %.backedge.i67, !llvm.loop !27
 
 114:                                              ; preds = %102
   br label %.backedge.sink.split.i65
@@ -1266,11 +1294,11 @@ dissect_extrememesh_ps_arep.exit:                 ; preds = %70, %.backedge.i63,
   %.18.i = phi i8 [ %117, %.lr.ph.i68 ], [ %105, %.preheader1.i ]
   %.37.i = phi i32 [ %118, %.lr.ph.i68 ], [ %106, %.preheader1.i ]
   %115 = load i32, ptr @hf_extrememesh_ps_breq_proxy_pri, align 4
-  %116 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %115, ptr noundef %0, i32 noundef %.37.i, i32 noundef 1, i32 noundef 0) #4
+  %116 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %115, ptr noundef %0, i32 noundef %.37.i, i32 noundef 1, i32 noundef 0)
   %117 = add i8 %.18.i, -1
   %118 = add i32 %.37.i, 1
   %.not.i = icmp eq i8 %117, 0
-  br i1 %.not.i, label %.backedge.i67, label %.lr.ph.i68, !llvm.loop !10
+  br i1 %.not.i, label %.backedge.i67, label %.lr.ph.i68, !llvm.loop !28
 
 119:                                              ; preds = %102
   br label %.backedge.sink.split.i65
@@ -1283,11 +1311,11 @@ dissect_extrememesh_ps_arep.exit:                 ; preds = %70, %.backedge.i63,
   %.4.i = phi i32 [ %124, %.preheader3.i ], [ %106, %120 ]
   %.2.i = phi i8 [ %123, %.preheader3.i ], [ %105, %120 ]
   %121 = load i32, ptr @hf_extrememesh_ps_breq_proxy_vlan_id, align 4
-  %122 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %121, ptr noundef %0, i32 noundef %.4.i, i32 noundef 2, i32 noundef 0) #4
+  %122 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %121, ptr noundef %0, i32 noundef %.4.i, i32 noundef 2, i32 noundef 0)
   %123 = add i8 %.2.i, -2
   %124 = add i32 %.4.i, 2
   %125 = icmp ugt i8 %123, 1
-  br i1 %125, label %.preheader3.i, label %.backedge.i67, !llvm.loop !11
+  br i1 %125, label %.preheader3.i, label %.backedge.i67, !llvm.loop !29
 
 126:                                              ; preds = %102
   br label %.backedge.sink.split.i65
@@ -1297,46 +1325,46 @@ dissect_extrememesh_ps_arep.exit:                 ; preds = %70, %.backedge.i63,
   %.sink21.i = phi i32 [ 1, %114 ], [ 2, %119 ], [ 4, %126 ], [ 6, %102 ]
   %.sink.i66 = phi i32 [ 3, %114 ], [ 4, %119 ], [ 6, %126 ], [ 8, %102 ]
   %127 = load i32, ptr %hf_extrememesh_ps_breq_old_mpr.sink.i, align 4
-  %128 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %127, ptr noundef %0, i32 noundef %106, i32 noundef %.sink21.i, i32 noundef 0) #4
+  %128 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %127, ptr noundef %0, i32 noundef %106, i32 noundef %.sink21.i, i32 noundef 0)
   %129 = add i32 %.sink.i66, %.0799.i
   br label %.backedge.i67
 
 .backedge.i67:                                    ; preds = %.preheader3.i, %.lr.ph.i68, %.preheader.i, %.backedge.sink.split.i65, %120, %108, %.preheader1.i, %102, %.lr.ph10.i
   %.079.be.i = phi i32 [ %99, %.lr.ph10.i ], [ %106, %120 ], [ %106, %102 ], [ %106, %108 ], [ %106, %.preheader1.i ], [ %129, %.backedge.sink.split.i65 ], [ %112, %.preheader.i ], [ %118, %.lr.ph.i68 ], [ %124, %.preheader3.i ]
-  %130 = call i32 @tvb_captured_length(ptr noundef %0) #4
+  %130 = call i32 @tvb_captured_length(ptr noundef %0)
   %131 = icmp ugt i32 %130, %.079.be.i
-  br i1 %131, label %.lr.ph10.i, label %dissect_extrememesh_ps_breq.exit, !llvm.loop !12
+  br i1 %131, label %.lr.ph10.i, label %dissect_extrememesh_ps_breq.exit, !llvm.loop !30
 
 dissect_extrememesh_ps_breq.exit:                 ; preds = %102, %.backedge.i67, %81
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #7
   br label %dissect_extrememesh_ps_perr.exit
 
 132:                                              ; preds = %3
   %133 = getelementptr i8, ptr %1, i64 8
   %.val49 = load ptr, ptr %133, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #7
   store i32 0, ptr %12, align 4
-  tail call void @col_set_str(ptr noundef %.val49, i32 noundef 25, ptr noundef nonnull @.str.318) #4
+  tail call void @col_set_str(ptr noundef %.val49, i32 noundef 25, ptr noundef nonnull @.str.318)
   %134 = load i32, ptr @proto_extrememesh_ps_brep, align 4
-  %135 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %134, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
+  %135 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %134, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %136 = load i32, ptr @hf_extrememesh_ps_brep_version, align 4
-  %137 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %136, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
+  %137 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %136, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %138 = load i32, ptr @hf_extrememesh_ps_brep_frame_type, align 4
-  %139 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %138, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #4
+  %139 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %138, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
   %140 = load i32, ptr @hf_extrememesh_ps_brep_mpr_addr, align 4
-  %141 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %140, ptr noundef %0, i32 noundef 2, i32 noundef 6, i32 noundef 0) #4
+  %141 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %140, ptr noundef %0, i32 noundef 2, i32 noundef 6, i32 noundef 0)
   %142 = load i32, ptr @hf_extrememesh_ps_brep_orig_addr, align 4
-  %143 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %142, ptr noundef %0, i32 noundef 8, i32 noundef 6, i32 noundef 0) #4
+  %143 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %142, ptr noundef %0, i32 noundef 8, i32 noundef 6, i32 noundef 0)
   %144 = load i32, ptr @hf_extrememesh_ps_brep_opt_tot_len, align 4
-  %145 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %144, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0) #4
-  %146 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
+  %145 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %144, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
+  %146 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %147 = icmp ugt i32 %146, 16
   br i1 %147, label %.lr.ph.i69, label %dissect_extrememesh_ps_brep.exit
 
 .lr.ph.i69:                                       ; preds = %132, %.backedge.i71
   %.01.i70 = phi i32 [ %.0.be.i72, %.backedge.i71 ], [ 16, %132 ]
   %148 = load i32, ptr @hf_extrememesh_ps_brep_option, align 4
-  %149 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %148, ptr noundef %0, i32 noundef %.01.i70, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %12) #4
+  %149 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %148, ptr noundef %0, i32 noundef %.01.i70, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %12)
   %150 = add nuw i32 %.01.i70, 1
   %151 = load i32, ptr %12, align 4
   switch i32 %151, label %dissect_extrememesh_ps_brep.exit [
@@ -1346,58 +1374,58 @@ dissect_extrememesh_ps_breq.exit:                 ; preds = %102, %.backedge.i67
 
 152:                                              ; preds = %.lr.ph.i69
   %153 = load i32, ptr @hf_extrememesh_ps_brep_option_len, align 4
-  %154 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %153, ptr noundef %0, i32 noundef %150, i32 noundef 1, i32 noundef 0) #4
+  %154 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %153, ptr noundef %0, i32 noundef %150, i32 noundef 1, i32 noundef 0)
   %155 = add i32 %.01.i70, 2
   %156 = load i32, ptr @hf_extrememesh_ps_brep_seq, align 4
-  %157 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %156, ptr noundef %0, i32 noundef %155, i32 noundef 4, i32 noundef 0) #4
+  %157 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %156, ptr noundef %0, i32 noundef %155, i32 noundef 4, i32 noundef 0)
   %158 = add i32 %.01.i70, 6
   br label %.backedge.i71
 
 .backedge.i71:                                    ; preds = %152, %.lr.ph.i69
   %.0.be.i72 = phi i32 [ %150, %.lr.ph.i69 ], [ %158, %152 ]
-  %159 = call i32 @tvb_captured_length(ptr noundef %0) #4
+  %159 = call i32 @tvb_captured_length(ptr noundef %0)
   %160 = icmp ugt i32 %159, %.0.be.i72
-  br i1 %160, label %.lr.ph.i69, label %dissect_extrememesh_ps_brep.exit, !llvm.loop !13
+  br i1 %160, label %.lr.ph.i69, label %dissect_extrememesh_ps_brep.exit, !llvm.loop !31
 
 dissect_extrememesh_ps_brep.exit:                 ; preds = %.lr.ph.i69, %.backedge.i71, %132
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #7
   br label %dissect_extrememesh_ps_perr.exit
 
 161:                                              ; preds = %3
   %162 = getelementptr i8, ptr %1, i64 8
   %.val50 = load ptr, ptr %162, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #7
   store i32 0, ptr %11, align 4
-  tail call void @col_set_str(ptr noundef %.val50, i32 noundef 25, ptr noundef nonnull @.str.321) #4
+  tail call void @col_set_str(ptr noundef %.val50, i32 noundef 25, ptr noundef nonnull @.str.321)
   %163 = load i32, ptr @proto_extrememesh_ps_bann, align 4
-  %164 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %163, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
+  %164 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %163, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %165 = load i32, ptr @hf_extrememesh_ps_bann_version, align 4
-  %166 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %165, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
+  %166 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %165, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %167 = load i32, ptr @hf_extrememesh_ps_bann_frame_type, align 4
-  %168 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %167, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #4
+  %168 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %167, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
   %169 = load i32, ptr @hf_extrememesh_ps_bann_mpr_addr, align 4
-  %170 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %169, ptr noundef %0, i32 noundef 2, i32 noundef 6, i32 noundef 0) #4
+  %170 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %169, ptr noundef %0, i32 noundef 2, i32 noundef 6, i32 noundef 0)
   %171 = load i32, ptr @hf_extrememesh_ps_bann_orig_addr, align 4
-  %172 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %171, ptr noundef %0, i32 noundef 8, i32 noundef 6, i32 noundef 0) #4
+  %172 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %171, ptr noundef %0, i32 noundef 8, i32 noundef 6, i32 noundef 0)
   %173 = load i32, ptr @hf_extrememesh_ps_bann_opt_tot_len, align 4
-  %174 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %173, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0) #4
-  %175 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
+  %174 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %173, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
+  %175 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %176 = icmp ugt i32 %175, 16
   br i1 %176, label %.lr.ph.i73, label %dissect_extrememesh_ps_bann.exit
 
 .lr.ph.i73:                                       ; preds = %161, %.backedge.i77
   %.0571.i = phi i32 [ %.057.be.i, %.backedge.i77 ], [ 16, %161 ]
   %177 = load i32, ptr @hf_extrememesh_ps_bann_option, align 4
-  %178 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %177, ptr noundef %0, i32 noundef %.0571.i, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %11) #4
+  %178 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %177, ptr noundef %0, i32 noundef %.0571.i, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %11)
   %179 = add nuw i32 %.0571.i, 1
   %180 = load i32, ptr %11, align 4
   %181 = icmp eq i32 %180, 0
   br i1 %181, label %.backedge.i77, label %182
 
 182:                                              ; preds = %.lr.ph.i73
-  %183 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %179) #4
+  %183 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %179)
   %184 = load i32, ptr @hf_extrememesh_ps_bann_option_len, align 4
-  %185 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %184, ptr noundef %0, i32 noundef %179, i32 noundef 1, i32 noundef 0) #4
+  %185 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %184, ptr noundef %0, i32 noundef %179, i32 noundef 1, i32 noundef 0)
   %186 = add i32 %.0571.i, 2
   %187 = load i32, ptr %11, align 4
   switch i32 %187, label %dissect_extrememesh_ps_bann.exit [
@@ -1415,11 +1443,11 @@ dissect_extrememesh_ps_brep.exit:                 ; preds = %.lr.ph.i69, %.backe
   %.1.i80 = phi i32 [ %192, %.preheader.i79 ], [ %186, %188 ]
   %.0.i81 = phi i8 [ %191, %.preheader.i79 ], [ %183, %188 ]
   %189 = load i32, ptr @hf_extrememesh_ps_bann_proxy_addr, align 4
-  %190 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %189, ptr noundef %0, i32 noundef %.1.i80, i32 noundef 6, i32 noundef 0) #4
+  %190 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %189, ptr noundef %0, i32 noundef %.1.i80, i32 noundef 6, i32 noundef 0)
   %191 = add i8 %.0.i81, -6
   %192 = add i32 %.1.i80, 6
   %193 = icmp ugt i8 %191, 5
-  br i1 %193, label %.preheader.i79, label %.backedge.i77, !llvm.loop !14
+  br i1 %193, label %.preheader.i79, label %.backedge.i77, !llvm.loop !32
 
 194:                                              ; preds = %182
   br label %.backedge.sink.split.i74
@@ -1432,46 +1460,46 @@ dissect_extrememesh_ps_brep.exit:                 ; preds = %.lr.ph.i69, %.backe
   %.sink4.i75 = phi i32 [ 2, %194 ], [ 4, %195 ], [ 6, %182 ]
   %.sink.i76 = phi i32 [ 4, %194 ], [ 6, %195 ], [ 8, %182 ]
   %196 = load i32, ptr %hf_extrememesh_ps_bann_old_root.sink.i, align 4
-  %197 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %196, ptr noundef %0, i32 noundef %186, i32 noundef %.sink4.i75, i32 noundef 0) #4
+  %197 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %196, ptr noundef %0, i32 noundef %186, i32 noundef %.sink4.i75, i32 noundef 0)
   %198 = add i32 %.sink.i76, %.0571.i
   br label %.backedge.i77
 
 .backedge.i77:                                    ; preds = %.preheader.i79, %.backedge.sink.split.i74, %188, %.lr.ph.i73
   %.057.be.i = phi i32 [ %179, %.lr.ph.i73 ], [ %186, %188 ], [ %198, %.backedge.sink.split.i74 ], [ %192, %.preheader.i79 ]
-  %199 = call i32 @tvb_captured_length(ptr noundef %0) #4
+  %199 = call i32 @tvb_captured_length(ptr noundef %0)
   %200 = icmp ugt i32 %199, %.057.be.i
-  br i1 %200, label %.lr.ph.i73, label %dissect_extrememesh_ps_bann.exit, !llvm.loop !15
+  br i1 %200, label %.lr.ph.i73, label %dissect_extrememesh_ps_bann.exit, !llvm.loop !33
 
 dissect_extrememesh_ps_bann.exit:                 ; preds = %182, %.backedge.i77, %161
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #7
   br label %dissect_extrememesh_ps_perr.exit
 
 201:                                              ; preds = %3
   %202 = getelementptr i8, ptr %1, i64 8
   %.val51 = load ptr, ptr %202, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #7
   store i32 0, ptr %10, align 4
-  tail call void @col_set_str(ptr noundef %.val51, i32 noundef 25, ptr noundef nonnull @.str.324) #4
+  tail call void @col_set_str(ptr noundef %.val51, i32 noundef 25, ptr noundef nonnull @.str.324)
   %203 = load i32, ptr @proto_extrememesh_ps_bred, align 4
-  %204 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %203, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
+  %204 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %203, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %205 = load i32, ptr @hf_extrememesh_ps_bred_version, align 4
-  %206 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %205, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
+  %206 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %205, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %207 = load i32, ptr @hf_extrememesh_ps_bred_frame_type, align 4
-  %208 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %207, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #4
+  %208 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %207, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
   %209 = load i32, ptr @hf_extrememesh_ps_bred_mpr_addr, align 4
-  %210 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %209, ptr noundef %0, i32 noundef 2, i32 noundef 6, i32 noundef 0) #4
+  %210 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %209, ptr noundef %0, i32 noundef 2, i32 noundef 6, i32 noundef 0)
   %211 = load i32, ptr @hf_extrememesh_ps_bred_orig_addr, align 4
-  %212 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %211, ptr noundef %0, i32 noundef 8, i32 noundef 6, i32 noundef 0) #4
+  %212 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %211, ptr noundef %0, i32 noundef 8, i32 noundef 6, i32 noundef 0)
   %213 = load i32, ptr @hf_extrememesh_ps_bred_opt_tot_len, align 4
-  %214 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %213, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0) #4
-  %215 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
+  %214 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %213, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
+  %215 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %216 = icmp ugt i32 %215, 16
   br i1 %216, label %.lr.ph.i82, label %dissect_extrememesh_ps_bred.exit
 
 .lr.ph.i82:                                       ; preds = %201, %.backedge.i84
   %.01.i83 = phi i32 [ %.0.be.i85, %.backedge.i84 ], [ 16, %201 ]
   %217 = load i32, ptr @hf_extrememesh_ps_bred_option, align 4
-  %218 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %217, ptr noundef %0, i32 noundef %.01.i83, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %10) #4
+  %218 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %217, ptr noundef %0, i32 noundef %.01.i83, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %10)
   %219 = add nuw i32 %.01.i83, 1
   %220 = load i32, ptr %10, align 4
   %221 = icmp eq i32 %220, 0
@@ -1479,7 +1507,7 @@ dissect_extrememesh_ps_bann.exit:                 ; preds = %182, %.backedge.i77
 
 222:                                              ; preds = %.lr.ph.i82
   %223 = load i32, ptr @hf_extrememesh_ps_bred_option_len, align 4
-  %224 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %223, ptr noundef %0, i32 noundef %219, i32 noundef 1, i32 noundef 0) #4
+  %224 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %223, ptr noundef %0, i32 noundef %219, i32 noundef 1, i32 noundef 0)
   %225 = load i32, ptr %10, align 4
   %cond.i = icmp eq i32 %225, 12
   br i1 %cond.i, label %226, label %dissect_extrememesh_ps_bred.exit
@@ -1487,48 +1515,48 @@ dissect_extrememesh_ps_bann.exit:                 ; preds = %182, %.backedge.i77
 226:                                              ; preds = %222
   %227 = add i32 %.01.i83, 2
   %228 = load i32, ptr @hf_extrememesh_ps_bred_seq, align 4
-  %229 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %228, ptr noundef %0, i32 noundef %227, i32 noundef 4, i32 noundef 0) #4
+  %229 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %228, ptr noundef %0, i32 noundef %227, i32 noundef 4, i32 noundef 0)
   %230 = add i32 %.01.i83, 6
   br label %.backedge.i84
 
 .backedge.i84:                                    ; preds = %226, %.lr.ph.i82
   %.0.be.i85 = phi i32 [ %219, %.lr.ph.i82 ], [ %230, %226 ]
-  %231 = call i32 @tvb_captured_length(ptr noundef %0) #4
+  %231 = call i32 @tvb_captured_length(ptr noundef %0)
   %232 = icmp ugt i32 %231, %.0.be.i85
-  br i1 %232, label %.lr.ph.i82, label %dissect_extrememesh_ps_bred.exit, !llvm.loop !16
+  br i1 %232, label %.lr.ph.i82, label %dissect_extrememesh_ps_bred.exit, !llvm.loop !34
 
 dissect_extrememesh_ps_bred.exit:                 ; preds = %222, %.backedge.i84, %201
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #7
   br label %dissect_extrememesh_ps_perr.exit
 
 233:                                              ; preds = %3
   %234 = getelementptr i8, ptr %1, i64 8
   %.val52 = load ptr, ptr %234, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #7
   store i32 0, ptr %9, align 4
-  tail call void @col_set_str(ptr noundef %.val52, i32 noundef 25, ptr noundef nonnull @.str.327) #4
+  tail call void @col_set_str(ptr noundef %.val52, i32 noundef 25, ptr noundef nonnull @.str.327)
   %235 = load i32, ptr @proto_extrememesh_ps_sreq, align 4
-  %236 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %235, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
+  %236 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %235, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %237 = load i32, ptr @hf_extrememesh_ps_sreq_version, align 4
-  %238 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %237, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
+  %238 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %237, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %239 = load i32, ptr @hf_extrememesh_ps_sreq_frame_type, align 4
-  %240 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %239, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #4
+  %240 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %239, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
   %241 = load i32, ptr @hf_extrememesh_ps_sreq_reserved, align 4
-  %242 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %241, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #4
+  %242 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %241, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0)
   %243 = load i32, ptr @hf_extrememesh_ps_sreq_orig_addr, align 4
-  %244 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %243, ptr noundef %0, i32 noundef 4, i32 noundef 6, i32 noundef 0) #4
+  %244 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %243, ptr noundef %0, i32 noundef 4, i32 noundef 6, i32 noundef 0)
   %245 = load i32, ptr @hf_extrememesh_ps_sreq_term_addr, align 4
-  %246 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %245, ptr noundef %0, i32 noundef 10, i32 noundef 6, i32 noundef 0) #4
+  %246 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %245, ptr noundef %0, i32 noundef 10, i32 noundef 6, i32 noundef 0)
   %247 = load i32, ptr @hf_extrememesh_ps_sreq_opt_tot_len, align 4
-  %248 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %247, ptr noundef %0, i32 noundef 16, i32 noundef 2, i32 noundef 0) #4
-  %249 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
+  %248 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %247, ptr noundef %0, i32 noundef 16, i32 noundef 2, i32 noundef 0)
+  %249 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %250 = icmp ugt i32 %249, 18
   br i1 %250, label %.lr.ph.i86, label %dissect_extrememesh_ps_sreq.exit
 
 .lr.ph.i86:                                       ; preds = %233, %.backedge.i89
   %.01.i87 = phi i32 [ %.0.be.i90, %.backedge.i89 ], [ 18, %233 ]
   %251 = load i32, ptr @hf_extrememesh_ps_sreq_option, align 4
-  %252 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %251, ptr noundef %0, i32 noundef %.01.i87, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %9) #4
+  %252 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %251, ptr noundef %0, i32 noundef %.01.i87, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %9)
   %253 = add i32 %.01.i87, 2
   %254 = load i32, ptr %9, align 4
   %255 = icmp eq i32 %254, 0
@@ -1536,7 +1564,7 @@ dissect_extrememesh_ps_bred.exit:                 ; preds = %222, %.backedge.i84
 
 256:                                              ; preds = %.lr.ph.i86
   %257 = load i32, ptr @hf_extrememesh_ps_sreq_option_len, align 4
-  %258 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %257, ptr noundef %0, i32 noundef %253, i32 noundef 2, i32 noundef 0) #4
+  %258 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %257, ptr noundef %0, i32 noundef %253, i32 noundef 2, i32 noundef 0)
   %259 = load i32, ptr %9, align 4
   %cond.i88 = icmp eq i32 %259, 10
   br i1 %cond.i88, label %260, label %dissect_extrememesh_ps_sreq.exit
@@ -1544,56 +1572,56 @@ dissect_extrememesh_ps_bred.exit:                 ; preds = %222, %.backedge.i84
 260:                                              ; preds = %256
   %261 = add i32 %.01.i87, 4
   %262 = load i32, ptr @hf_extrememesh_ps_sreq_vlan_id, align 4
-  %263 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %262, ptr noundef %0, i32 noundef %261, i32 noundef 2, i32 noundef 0) #4
+  %263 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %262, ptr noundef %0, i32 noundef %261, i32 noundef 2, i32 noundef 0)
   %264 = add i32 %.01.i87, 6
   br label %.backedge.i89
 
 .backedge.i89:                                    ; preds = %260, %.lr.ph.i86
   %.0.be.i90 = phi i32 [ %253, %.lr.ph.i86 ], [ %264, %260 ]
-  %265 = call i32 @tvb_captured_length(ptr noundef %0) #4
+  %265 = call i32 @tvb_captured_length(ptr noundef %0)
   %266 = icmp ugt i32 %265, %.0.be.i90
-  br i1 %266, label %.lr.ph.i86, label %dissect_extrememesh_ps_sreq.exit, !llvm.loop !17
+  br i1 %266, label %.lr.ph.i86, label %dissect_extrememesh_ps_sreq.exit, !llvm.loop !35
 
 dissect_extrememesh_ps_sreq.exit:                 ; preds = %256, %.backedge.i89, %233
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #7
   br label %dissect_extrememesh_ps_perr.exit
 
 267:                                              ; preds = %3
   %268 = getelementptr i8, ptr %1, i64 8
   %.val53 = load ptr, ptr %268, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #7
   store i32 0, ptr %8, align 4
-  tail call void @col_set_str(ptr noundef %.val53, i32 noundef 25, ptr noundef nonnull @.str.330) #4
+  tail call void @col_set_str(ptr noundef %.val53, i32 noundef 25, ptr noundef nonnull @.str.330)
   %269 = load i32, ptr @proto_extrememesh_ps_srep, align 4
-  %270 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %269, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
+  %270 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %269, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %271 = load i32, ptr @hf_extrememesh_ps_srep_version, align 4
-  %272 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %271, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
+  %272 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %271, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %273 = load i32, ptr @hf_extrememesh_ps_srep_frame_type, align 4
-  %274 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %273, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #4
+  %274 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %273, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
   %275 = load i32, ptr @hf_extrememesh_ps_srep_flags, align 4
-  %276 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %275, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #4
+  %276 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %275, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %277 = load i32, ptr @hf_extrememesh_ps_srep_flags_reserved, align 4
-  %278 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %277, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #4
+  %278 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %277, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %279 = load i32, ptr @hf_extrememesh_ps_srep_flags_status, align 4
-  %280 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %279, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #4
+  %280 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %279, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %281 = load i32, ptr @hf_extrememesh_ps_srep_hop_count, align 4
-  %282 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %281, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #4
+  %282 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %281, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
   %283 = load i32, ptr @hf_extrememesh_ps_srep_orig_addr, align 4
-  %284 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %283, ptr noundef %0, i32 noundef 4, i32 noundef 6, i32 noundef 0) #4
+  %284 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %283, ptr noundef %0, i32 noundef 4, i32 noundef 6, i32 noundef 0)
   %285 = load i32, ptr @hf_extrememesh_ps_srep_dest_addr, align 4
-  %286 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %285, ptr noundef %0, i32 noundef 10, i32 noundef 6, i32 noundef 0) #4
+  %286 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %285, ptr noundef %0, i32 noundef 10, i32 noundef 6, i32 noundef 0)
   %287 = load i32, ptr @hf_extrememesh_ps_srep_term_addr, align 4
-  %288 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %287, ptr noundef %0, i32 noundef 16, i32 noundef 6, i32 noundef 0) #4
+  %288 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %287, ptr noundef %0, i32 noundef 16, i32 noundef 6, i32 noundef 0)
   %289 = load i32, ptr @hf_extrememesh_ps_srep_opt_tot_len, align 4
-  %290 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %289, ptr noundef %0, i32 noundef 22, i32 noundef 2, i32 noundef 0) #4
-  %291 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
+  %290 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %289, ptr noundef %0, i32 noundef 22, i32 noundef 2, i32 noundef 0)
+  %291 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %292 = icmp ugt i32 %291, 24
   br i1 %292, label %.lr.ph.i91, label %dissect_extrememesh_ps_srep.exit
 
 .lr.ph.i91:                                       ; preds = %267, %.backedge.i94
   %.01.i92 = phi i32 [ %.0.be.i95, %.backedge.i94 ], [ 24, %267 ]
   %293 = load i32, ptr @hf_extrememesh_ps_srep_option, align 4
-  %294 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %293, ptr noundef %0, i32 noundef %.01.i92, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %8) #4
+  %294 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %293, ptr noundef %0, i32 noundef %.01.i92, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %8)
   %295 = add i32 %.01.i92, 2
   %296 = load i32, ptr %8, align 4
   %297 = icmp eq i32 %296, 0
@@ -1601,7 +1629,7 @@ dissect_extrememesh_ps_sreq.exit:                 ; preds = %256, %.backedge.i89
 
 298:                                              ; preds = %.lr.ph.i91
   %299 = load i32, ptr @hf_extrememesh_ps_srep_option_len, align 4
-  %300 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %299, ptr noundef %0, i32 noundef %295, i32 noundef 2, i32 noundef 0) #4
+  %300 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %299, ptr noundef %0, i32 noundef %295, i32 noundef 2, i32 noundef 0)
   %301 = load i32, ptr %8, align 4
   %cond.i93 = icmp eq i32 %301, 10
   br i1 %cond.i93, label %302, label %dissect_extrememesh_ps_srep.exit
@@ -1609,101 +1637,101 @@ dissect_extrememesh_ps_sreq.exit:                 ; preds = %256, %.backedge.i89
 302:                                              ; preds = %298
   %303 = add i32 %.01.i92, 4
   %304 = load i32, ptr @hf_extrememesh_ps_srep_vlan_id, align 4
-  %305 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %304, ptr noundef %0, i32 noundef %303, i32 noundef 2, i32 noundef 0) #4
+  %305 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %304, ptr noundef %0, i32 noundef %303, i32 noundef 2, i32 noundef 0)
   %306 = add i32 %.01.i92, 6
   br label %.backedge.i94
 
 .backedge.i94:                                    ; preds = %302, %.lr.ph.i91
   %.0.be.i95 = phi i32 [ %295, %.lr.ph.i91 ], [ %306, %302 ]
-  %307 = call i32 @tvb_captured_length(ptr noundef %0) #4
+  %307 = call i32 @tvb_captured_length(ptr noundef %0)
   %308 = icmp ugt i32 %307, %.0.be.i95
-  br i1 %308, label %.lr.ph.i91, label %dissect_extrememesh_ps_srep.exit, !llvm.loop !18
+  br i1 %308, label %.lr.ph.i91, label %dissect_extrememesh_ps_srep.exit, !llvm.loop !36
 
 dissect_extrememesh_ps_srep.exit:                 ; preds = %298, %.backedge.i94, %267
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
   br label %dissect_extrememesh_ps_perr.exit
 
 309:                                              ; preds = %3
   %310 = getelementptr i8, ptr %1, i64 8
   %.val54 = load ptr, ptr %310, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #7
   store i32 0, ptr %7, align 4
-  tail call void @col_set_str(ptr noundef %.val54, i32 noundef 25, ptr noundef nonnull @.str.333) #4
+  tail call void @col_set_str(ptr noundef %.val54, i32 noundef 25, ptr noundef nonnull @.str.333)
   %311 = load i32, ptr @proto_extrememesh_ps_preq, align 4
-  %312 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %311, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
+  %312 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %311, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %313 = load i32, ptr @hf_extrememesh_ps_preq_version, align 4
-  %314 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %313, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
+  %314 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %313, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %315 = load i32, ptr @hf_extrememesh_ps_preq_frame_type, align 4
-  %316 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %315, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #4
+  %316 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %315, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
   %317 = load i32, ptr @hf_extrememesh_ps_preq_flags, align 4
-  %318 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %317, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #4
+  %318 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %317, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %319 = load i32, ptr @hf_extrememesh_ps_preq_flags_broadcast, align 4
-  %320 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %319, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #4
+  %320 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %319, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %321 = load i32, ptr @hf_extrememesh_ps_preq_flags_periodic, align 4
-  %322 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %321, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #4
+  %322 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %321, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %323 = load i32, ptr @hf_extrememesh_ps_preq_flags_state, align 4
-  %324 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %323, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #4
+  %324 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %323, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %325 = load i32, ptr @hf_extrememesh_ps_preq_flags_reserved, align 4
-  %326 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %325, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #4
+  %326 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %325, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %327 = load i32, ptr @hf_extrememesh_ps_preq_flags_gratuitous, align 4
-  %328 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %327, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #4
+  %328 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %327, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %329 = load i32, ptr @hf_extrememesh_ps_preq_flags_destination, align 4
-  %330 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %329, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #4
+  %330 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %329, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %331 = load i32, ptr @hf_extrememesh_ps_preq_flags_unknown, align 4
-  %332 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %331, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #4
+  %332 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %331, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %333 = load i32, ptr @hf_extrememesh_ps_preq_hop_count, align 4
-  %334 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %333, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #4
+  %334 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %333, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
   %335 = load i32, ptr @hf_extrememesh_ps_preq_ttl, align 4
-  %336 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %335, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #4
+  %336 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %335, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0)
   %337 = load i32, ptr @hf_extrememesh_ps_preq_path_metrics, align 4
-  %338 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %337, ptr noundef %0, i32 noundef 8, i32 noundef 2, i32 noundef 0) #4
+  %338 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %337, ptr noundef %0, i32 noundef 8, i32 noundef 2, i32 noundef 0)
   %339 = load i32, ptr @hf_extrememesh_ps_preq_services, align 4
-  %340 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %339, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef 0) #4
+  %340 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %339, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef 0)
   %341 = load i32, ptr @hf_extrememesh_ps_preq_services_reserved, align 4
-  %342 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %341, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef 0) #4
+  %342 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %341, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef 0)
   %343 = load i32, ptr @hf_extrememesh_ps_preq_services_mobile, align 4
-  %344 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %343, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef 0) #4
+  %344 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %343, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef 0)
   %345 = load i32, ptr @hf_extrememesh_ps_preq_services_path_pref, align 4
-  %346 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %345, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef 0) #4
+  %346 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %345, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef 0)
   %347 = load i32, ptr @hf_extrememesh_ps_preq_services_geo, align 4
-  %348 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %347, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef 0) #4
+  %348 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %347, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef 0)
   %349 = load i32, ptr @hf_extrememesh_ps_preq_services_proxy, align 4
-  %350 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %349, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef 0) #4
+  %350 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %349, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef 0)
   %351 = load i32, ptr @hf_extrememesh_ps_preq_services_root, align 4
-  %352 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %351, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef 0) #4
+  %352 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %351, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef 0)
   %353 = load i32, ptr @hf_extrememesh_ps_preq_reserved, align 4
-  %354 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %353, ptr noundef %0, i32 noundef 11, i32 noundef 1, i32 noundef 0) #4
+  %354 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %353, ptr noundef %0, i32 noundef 11, i32 noundef 1, i32 noundef 0)
   %355 = load i32, ptr @hf_extrememesh_ps_preq_id, align 4
-  %356 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %355, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef 0) #4
+  %356 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %355, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef 0)
   %357 = load i32, ptr @hf_extrememesh_ps_preq_term_addr, align 4
-  %358 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %357, ptr noundef %0, i32 noundef 16, i32 noundef 6, i32 noundef 0) #4
+  %358 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %357, ptr noundef %0, i32 noundef 16, i32 noundef 6, i32 noundef 0)
   %359 = load i32, ptr @hf_extrememesh_ps_preq_dest_addr, align 4
-  %360 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %359, ptr noundef %0, i32 noundef 22, i32 noundef 6, i32 noundef 0) #4
+  %360 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %359, ptr noundef %0, i32 noundef 22, i32 noundef 6, i32 noundef 0)
   %361 = load i32, ptr @hf_extrememesh_ps_preq_dest_seq, align 4
-  %362 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %361, ptr noundef %0, i32 noundef 28, i32 noundef 4, i32 noundef 0) #4
+  %362 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %361, ptr noundef %0, i32 noundef 28, i32 noundef 4, i32 noundef 0)
   %363 = load i32, ptr @hf_extrememesh_ps_preq_orig_addr, align 4
-  %364 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %363, ptr noundef %0, i32 noundef 32, i32 noundef 6, i32 noundef 0) #4
+  %364 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %363, ptr noundef %0, i32 noundef 32, i32 noundef 6, i32 noundef 0)
   %365 = load i32, ptr @hf_extrememesh_ps_preq_orig_seq, align 4
-  %366 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %365, ptr noundef %0, i32 noundef 38, i32 noundef 4, i32 noundef 0) #4
+  %366 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %365, ptr noundef %0, i32 noundef 38, i32 noundef 4, i32 noundef 0)
   %367 = load i32, ptr @hf_extrememesh_ps_preq_opt_tot_len, align 4
-  %368 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %367, ptr noundef %0, i32 noundef 42, i32 noundef 2, i32 noundef 0) #4
-  %369 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
+  %368 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %367, ptr noundef %0, i32 noundef 42, i32 noundef 2, i32 noundef 0)
+  %369 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %370 = icmp ugt i32 %369, 44
   br i1 %370, label %.lr.ph.i96, label %dissect_extrememesh_ps_preq.exit
 
 .lr.ph.i96:                                       ; preds = %309, %.backedge.i100
   %.01321.i = phi i32 [ %.0132.be.i, %.backedge.i100 ], [ 44, %309 ]
   %371 = load i32, ptr @hf_extrememesh_ps_preq_option, align 4
-  %372 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %371, ptr noundef %0, i32 noundef %.01321.i, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %7) #4
+  %372 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %371, ptr noundef %0, i32 noundef %.01321.i, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %7)
   %373 = add i32 %.01321.i, 2
   %374 = load i32, ptr %7, align 4
   %375 = icmp eq i32 %374, 0
   br i1 %375, label %.backedge.i100, label %376
 
 376:                                              ; preds = %.lr.ph.i96
-  %377 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %373) #4
+  %377 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %373)
   %378 = load i32, ptr @hf_extrememesh_ps_preq_option_len, align 4
-  %379 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %378, ptr noundef %0, i32 noundef %373, i32 noundef 2, i32 noundef 0) #4
+  %379 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %378, ptr noundef %0, i32 noundef %373, i32 noundef 2, i32 noundef 0)
   %380 = add i32 %.01321.i, 4
   %381 = load i32, ptr %7, align 4
   switch i32 %381, label %dissect_extrememesh_ps_preq.exit [
@@ -1720,11 +1748,11 @@ dissect_extrememesh_ps_srep.exit:                 ; preds = %298, %.backedge.i94
   %.1.i103 = phi i32 [ %386, %.preheader.i102 ], [ %380, %382 ]
   %.0.i104 = phi i16 [ %385, %.preheader.i102 ], [ %377, %382 ]
   %383 = load i32, ptr @hf_extrememesh_ps_preq_mcast_sub, align 4
-  %384 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %383, ptr noundef %0, i32 noundef %.1.i103, i32 noundef 6, i32 noundef 0) #4
+  %384 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %383, ptr noundef %0, i32 noundef %.1.i103, i32 noundef 6, i32 noundef 0)
   %385 = add i16 %.0.i104, -6
   %386 = add i32 %.1.i103, 6
   %387 = icmp ugt i16 %385, 5
-  br i1 %387, label %.preheader.i102, label %.backedge.i100, !llvm.loop !19
+  br i1 %387, label %.preheader.i102, label %.backedge.i100, !llvm.loop !37
 
 388:                                              ; preds = %376
   br label %.backedge.sink.split.i97
@@ -1734,93 +1762,93 @@ dissect_extrememesh_ps_srep.exit:                 ; preds = %298, %.backedge.i94
   %.sink4.i98 = phi i32 [ 4, %388 ], [ 2, %376 ]
   %.sink.i99 = phi i32 [ 8, %388 ], [ 6, %376 ]
   %389 = load i32, ptr %hf_extrememesh_ps_preq_vlan_id.sink.i, align 4
-  %390 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %389, ptr noundef %0, i32 noundef %380, i32 noundef %.sink4.i98, i32 noundef 0) #4
+  %390 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %389, ptr noundef %0, i32 noundef %380, i32 noundef %.sink4.i98, i32 noundef 0)
   %391 = add i32 %.sink.i99, %.01321.i
   br label %.backedge.i100
 
 .backedge.i100:                                   ; preds = %.preheader.i102, %.backedge.sink.split.i97, %382, %.lr.ph.i96
   %.0132.be.i = phi i32 [ %373, %.lr.ph.i96 ], [ %380, %382 ], [ %391, %.backedge.sink.split.i97 ], [ %386, %.preheader.i102 ]
-  %392 = call i32 @tvb_captured_length(ptr noundef %0) #4
+  %392 = call i32 @tvb_captured_length(ptr noundef %0)
   %393 = icmp ugt i32 %392, %.0132.be.i
-  br i1 %393, label %.lr.ph.i96, label %dissect_extrememesh_ps_preq.exit, !llvm.loop !20
+  br i1 %393, label %.lr.ph.i96, label %dissect_extrememesh_ps_preq.exit, !llvm.loop !38
 
 dissect_extrememesh_ps_preq.exit:                 ; preds = %376, %.backedge.i100, %309
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
   br label %dissect_extrememesh_ps_perr.exit
 
 394:                                              ; preds = %3
   %395 = getelementptr i8, ptr %1, i64 8
   %.val55 = load ptr, ptr %395, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
   store i32 0, ptr %6, align 4
-  tail call void @col_set_str(ptr noundef %.val55, i32 noundef 25, ptr noundef nonnull @.str.336) #4
+  tail call void @col_set_str(ptr noundef %.val55, i32 noundef 25, ptr noundef nonnull @.str.336)
   %396 = load i32, ptr @proto_extrememesh_ps_prep, align 4
-  %397 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %396, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
+  %397 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %396, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %398 = load i32, ptr @hf_extrememesh_ps_prep_version, align 4
-  %399 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %398, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
+  %399 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %398, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %400 = load i32, ptr @hf_extrememesh_ps_prep_frame_type, align 4
-  %401 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %400, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #4
+  %401 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %400, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
   %402 = load i32, ptr @hf_extrememesh_ps_prep_flags, align 4
-  %403 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %402, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #4
+  %403 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %402, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %404 = load i32, ptr @hf_extrememesh_ps_prep_flags_reserved, align 4
-  %405 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %404, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #4
+  %405 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %404, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %406 = load i32, ptr @hf_extrememesh_ps_prep_flags_new_route, align 4
-  %407 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %406, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #4
+  %407 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %406, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %408 = load i32, ptr @hf_extrememesh_ps_prep_flags_repair, align 4
-  %409 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %408, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #4
+  %409 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %408, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %410 = load i32, ptr @hf_extrememesh_ps_prep_flags_ack, align 4
-  %411 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %410, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #4
+  %411 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %410, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %412 = load i32, ptr @hf_extrememesh_ps_prep_hop_count, align 4
-  %413 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %412, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #4
+  %413 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %412, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
   %414 = load i32, ptr @hf_extrememesh_ps_prep_path_metrics, align 4
-  %415 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %414, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0) #4
+  %415 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %414, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0)
   %416 = load i32, ptr @hf_extrememesh_ps_prep_services, align 4
-  %417 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %416, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0) #4
+  %417 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %416, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0)
   %418 = load i32, ptr @hf_extrememesh_ps_prep_services_reserved, align 4
-  %419 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %418, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0) #4
+  %419 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %418, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0)
   %420 = load i32, ptr @hf_extrememesh_ps_prep_services_mobile, align 4
-  %421 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %420, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0) #4
+  %421 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %420, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0)
   %422 = load i32, ptr @hf_extrememesh_ps_prep_services_path_pref, align 4
-  %423 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %422, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0) #4
+  %423 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %422, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0)
   %424 = load i32, ptr @hf_extrememesh_ps_prep_services_geo, align 4
-  %425 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %424, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0) #4
+  %425 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %424, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0)
   %426 = load i32, ptr @hf_extrememesh_ps_prep_services_proxy, align 4
-  %427 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %426, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0) #4
+  %427 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %426, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0)
   %428 = load i32, ptr @hf_extrememesh_ps_prep_services_root, align 4
-  %429 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %428, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0) #4
+  %429 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %428, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0)
   %430 = load i32, ptr @hf_extrememesh_ps_prep_reserved, align 4
-  %431 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %430, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #4
+  %431 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %430, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0)
   %432 = load i32, ptr @hf_extrememesh_ps_prep_term_addr, align 4
-  %433 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %432, ptr noundef %0, i32 noundef 8, i32 noundef 6, i32 noundef 0) #4
+  %433 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %432, ptr noundef %0, i32 noundef 8, i32 noundef 6, i32 noundef 0)
   %434 = load i32, ptr @hf_extrememesh_ps_prep_dest_addr, align 4
-  %435 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %434, ptr noundef %0, i32 noundef 14, i32 noundef 6, i32 noundef 0) #4
+  %435 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %434, ptr noundef %0, i32 noundef 14, i32 noundef 6, i32 noundef 0)
   %436 = load i32, ptr @hf_extrememesh_ps_prep_dest_seq, align 4
-  %437 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %436, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef 0) #4
+  %437 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %436, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef 0)
   %438 = load i32, ptr @hf_extrememesh_ps_prep_orig_addr, align 4
-  %439 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %438, ptr noundef %0, i32 noundef 24, i32 noundef 6, i32 noundef 0) #4
+  %439 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %438, ptr noundef %0, i32 noundef 24, i32 noundef 6, i32 noundef 0)
   %440 = load i32, ptr @hf_extrememesh_ps_prep_orig_seq, align 4
-  %441 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %440, ptr noundef %0, i32 noundef 30, i32 noundef 4, i32 noundef 0) #4
+  %441 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %440, ptr noundef %0, i32 noundef 30, i32 noundef 4, i32 noundef 0)
   %442 = load i32, ptr @hf_extrememesh_ps_prep_lifetime, align 4
-  %443 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %442, ptr noundef %0, i32 noundef 34, i32 noundef 4, i32 noundef 0) #4
+  %443 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %442, ptr noundef %0, i32 noundef 34, i32 noundef 4, i32 noundef 0)
   %444 = load i32, ptr @hf_extrememesh_ps_prep_opt_tot_len, align 4
-  %445 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %444, ptr noundef %0, i32 noundef 38, i32 noundef 2, i32 noundef 0) #4
-  %446 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
+  %445 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %444, ptr noundef %0, i32 noundef 38, i32 noundef 2, i32 noundef 0)
+  %446 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %447 = icmp ugt i32 %446, 40
   br i1 %447, label %.lr.ph.i105, label %dissect_extrememesh_ps_prep.exit
 
 .lr.ph.i105:                                      ; preds = %394, %.backedge.i109
   %.01191.i = phi i32 [ %.0119.be.i, %.backedge.i109 ], [ 40, %394 ]
   %448 = load i32, ptr @hf_extrememesh_ps_prep_option, align 4
-  %449 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %448, ptr noundef %0, i32 noundef %.01191.i, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %6) #4
+  %449 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %448, ptr noundef %0, i32 noundef %.01191.i, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %6)
   %450 = add i32 %.01191.i, 2
   %451 = load i32, ptr %6, align 4
   %452 = icmp eq i32 %451, 0
   br i1 %452, label %.backedge.i109, label %453
 
 453:                                              ; preds = %.lr.ph.i105
-  %454 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %450) #4
+  %454 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %450)
   %455 = load i32, ptr @hf_extrememesh_ps_prep_option_len, align 4
-  %456 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %455, ptr noundef %0, i32 noundef %450, i32 noundef 2, i32 noundef 0) #4
+  %456 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %455, ptr noundef %0, i32 noundef %450, i32 noundef 2, i32 noundef 0)
   %457 = add i32 %.01191.i, 4
   %458 = load i32, ptr %6, align 4
   switch i32 %458, label %dissect_extrememesh_ps_prep.exit [
@@ -1837,11 +1865,11 @@ dissect_extrememesh_ps_preq.exit:                 ; preds = %376, %.backedge.i10
   %.1.i112 = phi i32 [ %463, %.preheader.i111 ], [ %457, %459 ]
   %.0.i113 = phi i16 [ %462, %.preheader.i111 ], [ %454, %459 ]
   %460 = load i32, ptr @hf_extrememesh_ps_prep_mcast_sub, align 4
-  %461 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %460, ptr noundef %0, i32 noundef %.1.i112, i32 noundef 6, i32 noundef 0) #4
+  %461 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %460, ptr noundef %0, i32 noundef %.1.i112, i32 noundef 6, i32 noundef 0)
   %462 = add i16 %.0.i113, -6
   %463 = add i32 %.1.i112, 6
   %464 = icmp ugt i16 %462, 5
-  br i1 %464, label %.preheader.i111, label %.backedge.i109, !llvm.loop !21
+  br i1 %464, label %.preheader.i111, label %.backedge.i109, !llvm.loop !39
 
 465:                                              ; preds = %453
   br label %.backedge.sink.split.i106
@@ -1851,41 +1879,41 @@ dissect_extrememesh_ps_preq.exit:                 ; preds = %376, %.backedge.i10
   %.sink4.i107 = phi i32 [ 4, %465 ], [ 2, %453 ]
   %.sink.i108 = phi i32 [ 8, %465 ], [ 6, %453 ]
   %466 = load i32, ptr %hf_extrememesh_ps_prep_vlan_id.sink.i, align 4
-  %467 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %466, ptr noundef %0, i32 noundef %457, i32 noundef %.sink4.i107, i32 noundef 0) #4
+  %467 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %466, ptr noundef %0, i32 noundef %457, i32 noundef %.sink4.i107, i32 noundef 0)
   %468 = add i32 %.sink.i108, %.01191.i
   br label %.backedge.i109
 
 .backedge.i109:                                   ; preds = %.preheader.i111, %.backedge.sink.split.i106, %459, %.lr.ph.i105
   %.0119.be.i = phi i32 [ %450, %.lr.ph.i105 ], [ %457, %459 ], [ %468, %.backedge.sink.split.i106 ], [ %463, %.preheader.i111 ]
-  %469 = call i32 @tvb_captured_length(ptr noundef %0) #4
+  %469 = call i32 @tvb_captured_length(ptr noundef %0)
   %470 = icmp ugt i32 %469, %.0119.be.i
-  br i1 %470, label %.lr.ph.i105, label %dissect_extrememesh_ps_prep.exit, !llvm.loop !22
+  br i1 %470, label %.lr.ph.i105, label %dissect_extrememesh_ps_prep.exit, !llvm.loop !40
 
 dissect_extrememesh_ps_prep.exit:                 ; preds = %453, %.backedge.i109, %394
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
   br label %dissect_extrememesh_ps_perr.exit
 
 471:                                              ; preds = %3
   %472 = getelementptr i8, ptr %1, i64 8
   %.val56 = load ptr, ptr %472, align 8
-  tail call void @col_set_str(ptr noundef %.val56, i32 noundef 25, ptr noundef nonnull @.str.339) #4
-  %473 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #4
+  tail call void @col_set_str(ptr noundef %.val56, i32 noundef 25, ptr noundef nonnull @.str.339)
+  %473 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 3)
   %474 = load i32, ptr @proto_extrememesh_ps_perr, align 4
-  %475 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %474, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
+  %475 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %474, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %476 = load i32, ptr @hf_extrememesh_ps_perr_version, align 4
-  %477 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %476, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
+  %477 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %476, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %478 = load i32, ptr @hf_extrememesh_ps_perr_frame_type, align 4
-  %479 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %478, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #4
+  %479 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %478, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
   %480 = load i32, ptr @hf_extrememesh_ps_perr_flags, align 4
-  %481 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %480, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #4
+  %481 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %480, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %482 = load i32, ptr @hf_extrememesh_ps_perr_flags_reserved, align 4
-  %483 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %482, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #4
+  %483 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %482, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %484 = load i32, ptr @hf_extrememesh_ps_perr_flags_warning, align 4
-  %485 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %484, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #4
+  %485 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %484, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %486 = load i32, ptr @hf_extrememesh_ps_perr_flags_no_delete, align 4
-  %487 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %486, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #4
+  %487 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %486, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %488 = load i32, ptr @hf_extrememesh_ps_perr_dest_count, align 4
-  %489 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %488, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #4
+  %489 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %488, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
   %.not1.i = icmp eq i8 %473, 0
   br i1 %.not1.i, label %dissect_extrememesh_ps_perr.exit, label %.lr.ph.i114
 
@@ -1894,71 +1922,71 @@ dissect_extrememesh_ps_prep.exit:                 ; preds = %453, %.backedge.i10
   %.0382.i = phi i32 [ %496, %.lr.ph.i114 ], [ 4, %471 ]
   %490 = add i8 %.03.i, -1
   %491 = load i32, ptr @hf_extrememesh_ps_perr_unrch_dest, align 4
-  %492 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %491, ptr noundef %0, i32 noundef %.0382.i, i32 noundef 6, i32 noundef 0) #4
+  %492 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %491, ptr noundef %0, i32 noundef %.0382.i, i32 noundef 6, i32 noundef 0)
   %493 = add nuw nsw i32 %.0382.i, 6
   %494 = load i32, ptr @hf_extrememesh_ps_perr_unrch_dest_seq, align 4
-  %495 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %494, ptr noundef %0, i32 noundef %493, i32 noundef 4, i32 noundef 0) #4
+  %495 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %494, ptr noundef %0, i32 noundef %493, i32 noundef 4, i32 noundef 0)
   %496 = add nuw nsw i32 %.0382.i, 10
   %.not.i115 = icmp eq i8 %490, 0
-  br i1 %.not.i115, label %dissect_extrememesh_ps_perr.exit, label %.lr.ph.i114, !llvm.loop !23
+  br i1 %.not.i115, label %dissect_extrememesh_ps_perr.exit, label %.lr.ph.i114, !llvm.loop !41
 
 497:                                              ; preds = %3
   %498 = getelementptr i8, ptr %1, i64 8
   %.val57 = load ptr, ptr %498, align 8
-  tail call void @col_set_str(ptr noundef %.val57, i32 noundef 25, ptr noundef nonnull @.str.342) #4
+  tail call void @col_set_str(ptr noundef %.val57, i32 noundef 25, ptr noundef nonnull @.str.342)
   %499 = load i32, ptr @proto_extrememesh_ps_prst, align 4
-  %500 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %499, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
+  %500 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %499, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %501 = load i32, ptr @hf_extrememesh_ps_prst_version, align 4
-  %502 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %501, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
+  %502 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %501, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %503 = load i32, ptr @hf_extrememesh_ps_prst_frame_type, align 4
-  %504 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %503, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #4
+  %504 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %503, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
   %505 = load i32, ptr @hf_extrememesh_ps_prst_hops_to_live, align 4
-  %506 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %505, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #4
+  %506 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %505, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %507 = load i32, ptr @hf_extrememesh_ps_prst_reserved, align 4
-  %508 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %507, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #4
+  %508 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %507, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
   %509 = load i32, ptr @hf_extrememesh_ps_prst_id, align 4
-  %510 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %509, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #4
+  %510 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %509, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0)
   %511 = load i32, ptr @hf_extrememesh_ps_prst_orig_addr, align 4
-  %512 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %511, ptr noundef %0, i32 noundef 8, i32 noundef 6, i32 noundef 0) #4
+  %512 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %511, ptr noundef %0, i32 noundef 8, i32 noundef 6, i32 noundef 0)
   %513 = load i32, ptr @hf_extrememesh_ps_prst_dest_addr, align 4
-  %514 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %513, ptr noundef %0, i32 noundef 14, i32 noundef 6, i32 noundef 0) #4
+  %514 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %513, ptr noundef %0, i32 noundef 14, i32 noundef 6, i32 noundef 0)
   br label %dissect_extrememesh_ps_perr.exit
 
 515:                                              ; preds = %3
   %516 = getelementptr i8, ptr %1, i64 8
   %.val58 = load ptr, ptr %516, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
   store i32 0, ptr %5, align 4
-  tail call void @col_set_str(ptr noundef %.val58, i32 noundef 25, ptr noundef nonnull @.str.345) #4
+  tail call void @col_set_str(ptr noundef %.val58, i32 noundef 25, ptr noundef nonnull @.str.345)
   %517 = load i32, ptr @proto_extrememesh_ps_prem, align 4
-  %518 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %517, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
+  %518 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %517, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %519 = load i32, ptr @hf_extrememesh_ps_prem_version, align 4
-  %520 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %519, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
+  %520 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %519, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %521 = load i32, ptr @hf_extrememesh_ps_prem_frame_type, align 4
-  %522 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %521, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #4
+  %522 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %521, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
   %523 = load i32, ptr @hf_extrememesh_ps_prem_mpr_addr, align 4
-  %524 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %523, ptr noundef %0, i32 noundef 2, i32 noundef 6, i32 noundef 0) #4
+  %524 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %523, ptr noundef %0, i32 noundef 2, i32 noundef 6, i32 noundef 0)
   %525 = load i32, ptr @hf_extrememesh_ps_prem_orig_addr, align 4
-  %526 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %525, ptr noundef %0, i32 noundef 8, i32 noundef 6, i32 noundef 0) #4
+  %526 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %525, ptr noundef %0, i32 noundef 8, i32 noundef 6, i32 noundef 0)
   %527 = load i32, ptr @hf_extrememesh_ps_prem_opt_tot_len, align 4
-  %528 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %527, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0) #4
-  %529 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
+  %528 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %527, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
+  %529 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %530 = icmp ugt i32 %529, 16
   br i1 %530, label %.lr.ph.i116, label %dissect_extrememesh_ps_prem.exit
 
 .lr.ph.i116:                                      ; preds = %515, %.backedge.i120
   %.0574.i = phi i32 [ %.057.be.i121, %.backedge.i120 ], [ 16, %515 ]
   %531 = load i32, ptr @hf_extrememesh_ps_prem_option, align 4
-  %532 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %531, ptr noundef %0, i32 noundef %.0574.i, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5) #4
+  %532 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %531, ptr noundef %0, i32 noundef %.0574.i, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5)
   %533 = add nuw i32 %.0574.i, 1
   %534 = load i32, ptr %5, align 4
   %535 = icmp eq i32 %534, 0
   br i1 %535, label %.backedge.i120, label %536
 
 536:                                              ; preds = %.lr.ph.i116
-  %537 = call signext i8 @tvb_get_gint8(ptr noundef %0, i32 noundef %533) #4
+  %537 = call signext i8 @tvb_get_int8(ptr noundef %0, i32 noundef %533)
   %538 = load i32, ptr @hf_extrememesh_ps_prem_option_len, align 4
-  %539 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %538, ptr noundef %0, i32 noundef %533, i32 noundef 1, i32 noundef 0) #4
+  %539 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %538, ptr noundef %0, i32 noundef %533, i32 noundef 1, i32 noundef 0)
   %540 = add i32 %.0574.i, 2
   %541 = load i32, ptr %5, align 4
   switch i32 %541, label %dissect_extrememesh_ps_prem.exit [
@@ -1974,11 +2002,11 @@ dissect_extrememesh_ps_prep.exit:                 ; preds = %453, %.backedge.i10
   %.158.i = phi i32 [ %546, %.preheader.i123 ], [ %540, %542 ]
   %.0.i124 = phi i8 [ %545, %.preheader.i123 ], [ %537, %542 ]
   %543 = load i32, ptr @hf_extrememesh_ps_prem_proxy_addr, align 4
-  %544 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %543, ptr noundef %0, i32 noundef %.158.i, i32 noundef 6, i32 noundef 0) #4
+  %544 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %543, ptr noundef %0, i32 noundef %.158.i, i32 noundef 6, i32 noundef 0)
   %545 = add i8 %.0.i124, -6
   %546 = add i32 %.158.i, 6
   %547 = icmp ugt i8 %545, 5
-  br i1 %547, label %.preheader.i123, label %.backedge.i120, !llvm.loop !24
+  br i1 %547, label %.preheader.i123, label %.backedge.i120, !llvm.loop !42
 
 548:                                              ; preds = %536
   %.old5.not.i117 = icmp eq i8 %537, 0
@@ -1988,47 +2016,47 @@ dissect_extrememesh_ps_prep.exit:                 ; preds = %453, %.backedge.i10
   %.3.i = phi i32 [ %552, %.preheader1.i118 ], [ %540, %548 ]
   %.1.i119 = phi i8 [ %551, %.preheader1.i118 ], [ %537, %548 ]
   %549 = load i32, ptr @hf_extrememesh_ps_prem_proxy_vlan_id, align 4
-  %550 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %549, ptr noundef %0, i32 noundef %.3.i, i32 noundef 2, i32 noundef 0) #4
+  %550 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %549, ptr noundef %0, i32 noundef %.3.i, i32 noundef 2, i32 noundef 0)
   %551 = add i8 %.1.i119, -2
   %552 = add i32 %.3.i, 2
   %553 = icmp ugt i8 %551, 1
-  br i1 %553, label %.preheader1.i118, label %.backedge.i120, !llvm.loop !25
+  br i1 %553, label %.preheader1.i118, label %.backedge.i120, !llvm.loop !43
 
 .backedge.i120:                                   ; preds = %.preheader1.i118, %.preheader.i123, %548, %542, %.lr.ph.i116
   %.057.be.i121 = phi i32 [ %533, %.lr.ph.i116 ], [ %540, %548 ], [ %540, %542 ], [ %546, %.preheader.i123 ], [ %552, %.preheader1.i118 ]
-  %554 = call i32 @tvb_captured_length(ptr noundef %0) #4
+  %554 = call i32 @tvb_captured_length(ptr noundef %0)
   %555 = icmp ugt i32 %554, %.057.be.i121
-  br i1 %555, label %.lr.ph.i116, label %dissect_extrememesh_ps_prem.exit, !llvm.loop !26
+  br i1 %555, label %.lr.ph.i116, label %dissect_extrememesh_ps_prem.exit, !llvm.loop !44
 
 dissect_extrememesh_ps_prem.exit:                 ; preds = %536, %.backedge.i120, %515
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
   br label %dissect_extrememesh_ps_perr.exit
 
 556:                                              ; preds = %3
   %557 = getelementptr i8, ptr %1, i64 8
   %.val59 = load ptr, ptr %557, align 8
-  tail call void @col_set_str(ptr noundef %.val59, i32 noundef 25, ptr noundef nonnull @.str.348) #4
-  %558 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 15) #4
+  tail call void @col_set_str(ptr noundef %.val59, i32 noundef 25, ptr noundef nonnull @.str.348)
+  %558 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 15)
   %559 = load i32, ptr @proto_extrememesh_ps_trace, align 4
-  %560 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %559, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
+  %560 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %559, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %561 = load i32, ptr @hf_extrememesh_ps_trace_version, align 4
-  %562 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %561, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
+  %562 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %561, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %563 = load i32, ptr @hf_extrememesh_ps_trace_frame_type, align 4
-  %564 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %563, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #4
+  %564 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %563, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
   %565 = load i32, ptr @hf_extrememesh_ps_trace_flags, align 4
-  %566 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %565, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #4
+  %566 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %565, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %567 = load i32, ptr @hf_extrememesh_ps_trace_flags_reserved, align 4
-  %568 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %567, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #4
+  %568 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %567, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %569 = load i32, ptr @hf_extrememesh_ps_trace_flags_reply, align 4
-  %570 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %569, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #4
+  %570 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %569, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %571 = load i32, ptr @hf_extrememesh_ps_trace_flags_no_path, align 4
-  %572 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %571, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #4
+  %572 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %571, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %573 = load i32, ptr @hf_extrememesh_ps_trace_dest_addr, align 4
-  %574 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %573, ptr noundef %0, i32 noundef 3, i32 noundef 6, i32 noundef 0) #4
+  %574 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %573, ptr noundef %0, i32 noundef 3, i32 noundef 6, i32 noundef 0)
   %575 = load i32, ptr @hf_extrememesh_ps_trace_orig_addr, align 4
-  %576 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %575, ptr noundef %0, i32 noundef 9, i32 noundef 6, i32 noundef 0) #4
+  %576 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %575, ptr noundef %0, i32 noundef 9, i32 noundef 6, i32 noundef 0)
   %577 = load i32, ptr @hf_extrememesh_ps_trace_hop_count, align 4
-  %578 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %577, ptr noundef %0, i32 noundef 15, i32 noundef 1, i32 noundef 0) #4
+  %578 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %577, ptr noundef %0, i32 noundef 15, i32 noundef 1, i32 noundef 0)
   %.not1.i125 = icmp eq i8 %558, 0
   br i1 %.not1.i125, label %dissect_extrememesh_ps_perr.exit, label %.lr.ph.i126
 
@@ -2037,43 +2065,43 @@ dissect_extrememesh_ps_prem.exit:                 ; preds = %536, %.backedge.i12
   %.0422.i = phi i32 [ %582, %.lr.ph.i126 ], [ 16, %556 ]
   %579 = add i8 %.03.i127, -1
   %580 = load i32, ptr @hf_extrememesh_ps_trace_addl_path, align 4
-  %581 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %580, ptr noundef %0, i32 noundef %.0422.i, i32 noundef 6, i32 noundef 0) #4
+  %581 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %580, ptr noundef %0, i32 noundef %.0422.i, i32 noundef 6, i32 noundef 0)
   %582 = add nuw nsw i32 %.0422.i, 6
   %.not.i128 = icmp eq i8 %579, 0
-  br i1 %.not.i128, label %dissect_extrememesh_ps_perr.exit, label %.lr.ph.i126, !llvm.loop !27
+  br i1 %.not.i128, label %dissect_extrememesh_ps_perr.exit, label %.lr.ph.i126, !llvm.loop !45
 
 583:                                              ; preds = %3
   %584 = getelementptr i8, ptr %1, i64 8
   %.val60 = load ptr, ptr %584, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
   store i32 0, ptr %4, align 4
-  tail call void @col_set_str(ptr noundef %.val60, i32 noundef 25, ptr noundef nonnull @.str.351) #4
+  tail call void @col_set_str(ptr noundef %.val60, i32 noundef 25, ptr noundef nonnull @.str.351)
   %585 = load i32, ptr @proto_extrememesh_ps_prer, align 4
-  %586 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %585, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
+  %586 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %585, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %587 = load i32, ptr @hf_extrememesh_ps_prer_version, align 4
-  %588 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %587, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
+  %588 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %587, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %589 = load i32, ptr @hf_extrememesh_ps_prer_frame_type, align 4
-  %590 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %589, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #4
+  %590 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %589, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
   %591 = load i32, ptr @hf_extrememesh_ps_prer_dest_count, align 4
-  %592 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %591, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #4
+  %592 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %591, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %593 = load i32, ptr @hf_extrememesh_ps_prer_reserved, align 4
-  %594 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %593, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #4
+  %594 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %593, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
   %595 = load i32, ptr @hf_extrememesh_ps_prer_orig_addr, align 4
-  %596 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %595, ptr noundef %0, i32 noundef 4, i32 noundef 6, i32 noundef 0) #4
+  %596 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %595, ptr noundef %0, i32 noundef 4, i32 noundef 6, i32 noundef 0)
   %597 = load i32, ptr @hf_extrememesh_ps_prer_dest_addr, align 4
-  %598 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %597, ptr noundef %0, i32 noundef 10, i32 noundef 6, i32 noundef 0) #4
+  %598 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %597, ptr noundef %0, i32 noundef 10, i32 noundef 6, i32 noundef 0)
   %599 = load i32, ptr @hf_extrememesh_ps_prer_unrch_addr, align 4
-  %600 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %599, ptr noundef %0, i32 noundef 16, i32 noundef 6, i32 noundef 0) #4
+  %600 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %599, ptr noundef %0, i32 noundef 16, i32 noundef 6, i32 noundef 0)
   %601 = load i32, ptr @hf_extrememesh_ps_prer_opt_tot_len, align 4
-  %602 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %601, ptr noundef %0, i32 noundef 22, i32 noundef 2, i32 noundef 0) #4
-  %603 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
+  %602 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %601, ptr noundef %0, i32 noundef 22, i32 noundef 2, i32 noundef 0)
+  %603 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %604 = icmp ugt i32 %603, 24
   br i1 %604, label %.lr.ph.i129, label %dissect_extrememesh_ps_prer.exit
 
 .lr.ph.i129:                                      ; preds = %583, %.backedge.i132
   %.01.i130 = phi i32 [ %.0.be.i133, %.backedge.i132 ], [ 24, %583 ]
   %605 = load i32, ptr @hf_extrememesh_ps_prer_option, align 4
-  %606 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %605, ptr noundef %0, i32 noundef %.01.i130, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %4) #4
+  %606 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %605, ptr noundef %0, i32 noundef %.01.i130, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %4)
   %607 = add i32 %.01.i130, 2
   %608 = load i32, ptr %4, align 4
   %609 = icmp eq i32 %608, 0
@@ -2081,7 +2109,7 @@ dissect_extrememesh_ps_prem.exit:                 ; preds = %536, %.backedge.i12
 
 610:                                              ; preds = %.lr.ph.i129
   %611 = load i32, ptr @hf_extrememesh_ps_prer_option_len, align 4
-  %612 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %611, ptr noundef %0, i32 noundef %607, i32 noundef 2, i32 noundef 0) #4
+  %612 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %611, ptr noundef %0, i32 noundef %607, i32 noundef 2, i32 noundef 0)
   %613 = load i32, ptr %4, align 4
   %cond.i131 = icmp eq i32 %613, 11
   br i1 %cond.i131, label %614, label %dissect_extrememesh_ps_prer.exit
@@ -2089,116 +2117,146 @@ dissect_extrememesh_ps_prem.exit:                 ; preds = %536, %.backedge.i12
 614:                                              ; preds = %610
   %615 = add i32 %.01.i130, 4
   %616 = load i32, ptr @hf_extrememesh_ps_prer_vlan_id, align 4
-  %617 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %616, ptr noundef %0, i32 noundef %615, i32 noundef 2, i32 noundef 0) #4
+  %617 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %616, ptr noundef %0, i32 noundef %615, i32 noundef 2, i32 noundef 0)
   %618 = add i32 %.01.i130, 6
   br label %.backedge.i132
 
 .backedge.i132:                                   ; preds = %614, %.lr.ph.i129
   %.0.be.i133 = phi i32 [ %607, %.lr.ph.i129 ], [ %618, %614 ]
-  %619 = call i32 @tvb_captured_length(ptr noundef %0) #4
+  %619 = call i32 @tvb_captured_length(ptr noundef %0)
   %620 = icmp ugt i32 %619, %.0.be.i133
-  br i1 %620, label %.lr.ph.i129, label %dissect_extrememesh_ps_prer.exit, !llvm.loop !28
+  br i1 %620, label %.lr.ph.i129, label %dissect_extrememesh_ps_prer.exit, !llvm.loop !46
 
 dissect_extrememesh_ps_prer.exit:                 ; preds = %610, %.backedge.i132, %583
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
   br label %dissect_extrememesh_ps_perr.exit
 
 dissect_extrememesh_ps_perr.exit:                 ; preds = %.lr.ph.i126, %.lr.ph.i114, %556, %471, %3, %dissect_extrememesh_ps_prer.exit, %dissect_extrememesh_ps_prem.exit, %497, %dissect_extrememesh_ps_prep.exit, %dissect_extrememesh_ps_preq.exit, %dissect_extrememesh_ps_srep.exit, %dissect_extrememesh_ps_sreq.exit, %dissect_extrememesh_ps_bred.exit, %dissect_extrememesh_ps_bann.exit, %dissect_extrememesh_ps_brep.exit, %dissect_extrememesh_ps_breq.exit, %dissect_extrememesh_ps_arep.exit, %dissect_extrememesh_ps_areq.exit
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_extrememesh_probe(ptr noundef %0, ptr %.8.val, ptr noundef %1) unnamed_addr #0 {
-  tail call void @col_set_str(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.306) #4
-  %3 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 10) #4
+  tail call void @col_set_str(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull @.str.306)
+  %3 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 10)
   %4 = load i32, ptr @proto_extrememesh_probe, align 4
   %5 = zext i16 %3 to i32
   %6 = add nuw nsw i32 %5, 12
-  %7 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef %6, i32 noundef 0) #4
+  %7 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef %6, i32 noundef 0)
   %8 = load i32, ptr @hf_extrememesh_probe_version, align 4
-  %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
+  %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %10 = load i32, ptr @hf_extrememesh_probe_op_code, align 4
-  %11 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %10, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #4
+  %11 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %10, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
   %12 = load i32, ptr @hf_extrememesh_probe_flags, align 4
-  %13 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %12, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #4
+  %13 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %12, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %14 = load i32, ptr @hf_extrememesh_probe_flags_reserved, align 4
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %14, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #4
+  %15 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %14, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %16 = load i32, ptr @hf_extrememesh_probe_flags_reply, align 4
-  %17 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %16, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #4
+  %17 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %16, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0)
   %18 = load i32, ptr @hf_extrememesh_probe_priority, align 4
-  %19 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %18, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #4
+  %19 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %18, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0)
   %20 = load i32, ptr @hf_extrememesh_probe_job_id, align 4
-  %21 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %20, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0) #4
+  %21 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %20, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0)
   %22 = load i32, ptr @hf_extrememesh_probe_sequence, align 4
-  %23 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %22, ptr noundef %0, i32 noundef 6, i32 noundef 4, i32 noundef 0) #4
+  %23 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %22, ptr noundef %0, i32 noundef 6, i32 noundef 4, i32 noundef 0)
   %24 = load i32, ptr @hf_extrememesh_probe_ballast_len, align 4
-  %25 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %24, ptr noundef %0, i32 noundef 10, i32 noundef 2, i32 noundef 0) #4
+  %25 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %24, ptr noundef %0, i32 noundef 10, i32 noundef 2, i32 noundef 0)
   %26 = load i32, ptr @hf_extrememesh_probe_ballast, align 4
-  %27 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %26, ptr noundef %0, i32 noundef 12, i32 noundef %5, i32 noundef 0) #4
+  %27 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %26, ptr noundef %0, i32 noundef 12, i32 noundef %5, i32 noundef 0)
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare signext i8 @tvb_get_gint8(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare signext i8 @tvb_get_int8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid allocsize(1)
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
-
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_memcpy(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_new_real_data(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @tvb_set_child_real_data_tvbuff(ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+; Function Attrs: nofree nounwind null_pointer_is_valid memory(argmem: readwrite)
+declare ptr @__memcpy_chk(ptr noalias noundef writeonly, ptr noalias noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #4
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #5
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nounwind }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind null_pointer_is_valid memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #6 = { allocsize(1) }
+attributes #7 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{!7, !9}
+!7 = distinct !{!7, !8, !"memcpy.inline: argument 0"}
+!8 = distinct !{!8, !"memcpy.inline"}
+!9 = distinct !{!9, !8, !"memcpy.inline: argument 1"}
+!10 = !{!11, !13}
+!11 = distinct !{!11, !12, !"memcpy.inline: argument 0"}
+!12 = distinct !{!12, !"memcpy.inline"}
+!13 = distinct !{!13, !12, !"memcpy.inline: argument 1"}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.mustprogress"}
+!16 = !{!17, !19}
+!17 = distinct !{!17, !18, !"memcpy.inline: argument 0"}
+!18 = distinct !{!18, !"memcpy.inline"}
+!19 = distinct !{!19, !18, !"memcpy.inline: argument 1"}
+!20 = !{!21, !23}
+!21 = distinct !{!21, !22, !"memcpy.inline: argument 0"}
+!22 = distinct !{!22, !"memcpy.inline"}
+!23 = distinct !{!23, !22, !"memcpy.inline: argument 1"}
+!24 = distinct !{!24, !15}
+!25 = distinct !{!25, !15}
+!26 = distinct !{!26, !15}
+!27 = distinct !{!27, !15}
+!28 = distinct !{!28, !15}
+!29 = distinct !{!29, !15}
+!30 = distinct !{!30, !15}
+!31 = distinct !{!31, !15}
+!32 = distinct !{!32, !15}
+!33 = distinct !{!33, !15}
+!34 = distinct !{!34, !15}
+!35 = distinct !{!35, !15}
+!36 = distinct !{!36, !15}
+!37 = distinct !{!37, !15}
+!38 = distinct !{!38, !15}
+!39 = distinct !{!39, !15}
+!40 = distinct !{!40, !15}
+!41 = distinct !{!41, !15}
+!42 = distinct !{!42, !15}
+!43 = distinct !{!43, !15}
+!44 = distinct !{!44, !15}
+!45 = distinct !{!45, !15}
+!46 = distinct !{!46, !15}

@@ -1,36 +1,31 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.ieee802154_map_tab_t = type { ptr, ptr }
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
+%struct.ieee802154_map_tab_t = type { ptr, ptr }
 %struct._ct_dissector_info = type { ptr }
 %struct._et_dissector_info = type { ptr }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
-%struct.ieee802154_packet = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i8, i32, i32, i32, i16, i16, i16, i64, i16, i64, i32, i32, i32, i32, i8, i64, %union.anon, i8, i8, ptr }
+%struct.ieee802154_packet = type { i32, i32, i32, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i16, i16, i64, i16, i64, i32, i32, i8, i32, i8, i64, %union.anon, i8, i8, ptr }
 %union.anon = type { i64 }
 %struct._conversation_hash_t = type { ptr, ptr, ptr, i32 }
-%struct._frame_data = type { i32, i32, i32, i32, i64, ptr, ptr, ptr, i16, i16, %struct.nstime_t, %struct.nstime_t, i32, i32, i8 }
-%struct.zbee_nwk_packet = type { i32, i32, i32, i32, i32, i32, i16, i8, i16, i16, i64, i64, i8, i8, i8, i8, i8, i8, i8, i16, ptr }
+%struct._frame_data = type <{ i32, i32, i32, i32, i32, [4 x i8], i64, ptr, ptr, ptr, i8, i16, [5 x i8], %struct.nstime_t, %struct.nstime_t, i32, i32 }>
+%struct.zbee_nwk_packet = type { i8, i8, i8, i8, i8, i8, i16, i8, i16, i16, i64, i64, i8, i8, i8, i8, i8, i8, i8, i16, ptr }
 %struct.ieee802154_short_addr = type { i16, i16 }
 %struct.zbee_nwk_hints_t = type { i32, i32, ptr, ptr, ptr, i32, i64 }
 %struct.ieee802154_map_rec = type { ptr, i32, i32, i64 }
 %struct.ieee802154_hints_t = type { i16, i16, i16, ptr, ptr }
-%struct._proto_node = type { ptr, ptr, ptr, ptr, ptr, ptr }
+%struct._proto_node = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.field_info = type { ptr, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, i32, i32 }
-%struct._conversation_item_t = type { ptr, %struct._address, %struct._address, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32 }
-%struct._endpoint_item_t = type { ptr, %struct._address, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i32, i32 }
+%struct._conversation_item_t = type { ptr, %struct._address, %struct._address, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, %struct._conversation_extension_tcp_t }
+%struct._conversation_extension_tcp_t = type { i64 }
+%struct._endpoint_item_t = type { ptr, %struct._address, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i8, i8 }
 
-@zbee_nwk_map = hidden global %struct.ieee802154_map_tab_t zeroinitializer, align 8
-@zbee_table_nwk_keyring = hidden global ptr null, align 8
-@zbee_table_link_keyring = hidden global ptr null, align 8
 @proto_register_zbee_nwk.hf = internal global [105 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_zbee_nwk_fcf, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_frame_type, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 5, i32 2, ptr @zbee_nwk_frame_types, i64 3, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_proto_version, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 5, i32 1, ptr null, i64 60, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_discover_route, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 5, i32 2, ptr @zbee_nwk_discovery_modes, i64 192, ptr @.str.8, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_multicast, %struct._header_field_info { ptr @.str.9, ptr @.str.10, i32 2, i32 16, ptr null, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_security, %struct._header_field_info { ptr @.str.11, ptr @.str.12, i32 2, i32 16, ptr null, i64 512, ptr @.str.13, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_source_route, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 2, i32 16, ptr null, i64 1024, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_ext_dst, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 2, i32 16, ptr null, i64 2048, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_ext_src, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 2, i32 16, ptr null, i64 4096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_end_device_initiator, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 2, i32 16, ptr null, i64 8192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_dst, %struct._header_field_info { ptr @.str.16, ptr @.str.22, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_src, %struct._header_field_info { ptr @.str.23, ptr @.str.24, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_addr, %struct._header_field_info { ptr @.str.25, ptr @.str.26, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_radius, %struct._header_field_info { ptr @.str.27, ptr @.str.28, i32 4, i32 1, ptr null, i64 0, ptr @.str.29, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_seqno, %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_mcast, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_mcast_mode, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 4, i32 1, ptr null, i64 3, ptr @.str.36, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_mcast_radius, %struct._header_field_info { ptr @.str.37, ptr @.str.38, i32 4, i32 1, ptr null, i64 28, ptr @.str.39, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_mcast_max_radius, %struct._header_field_info { ptr @.str.40, ptr @.str.41, i32 4, i32 1, ptr null, i64 224, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_dst64, %struct._header_field_info { ptr @.str.16, ptr @.str.42, i32 38, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_src64, %struct._header_field_info { ptr @.str.18, ptr @.str.43, i32 38, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_addr64, %struct._header_field_info { ptr @.str.44, ptr @.str.45, i32 38, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_src64_origin, %struct._header_field_info { ptr @.str.46, ptr @.str.47, i32 35, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_relay_count, %struct._header_field_info { ptr @.str.48, ptr @.str.49, i32 4, i32 1, ptr null, i64 0, ptr @.str.50, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_relay_index, %struct._header_field_info { ptr @.str.51, ptr @.str.52, i32 4, i32 1, ptr null, i64 0, ptr @.str.53, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_relay, %struct._header_field_info { ptr @.str.54, ptr @.str.55, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_id, %struct._header_field_info { ptr @.str.56, ptr @.str.57, i32 4, i32 2, ptr @zbee_nwk_cmd_names, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_addr, %struct._header_field_info { ptr @.str.25, ptr @.str.58, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_route_id, %struct._header_field_info { ptr @.str.59, ptr @.str.60, i32 4, i32 1, ptr null, i64 0, ptr @.str.61, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_route_dest, %struct._header_field_info { ptr @.str.16, ptr @.str.62, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_route_orig, %struct._header_field_info { ptr @.str.63, ptr @.str.64, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_route_resp, %struct._header_field_info { ptr @.str.65, ptr @.str.66, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_route_dest_ext, %struct._header_field_info { ptr @.str.67, ptr @.str.68, i32 38, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_route_orig_ext, %struct._header_field_info { ptr @.str.69, ptr @.str.70, i32 38, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_route_resp_ext, %struct._header_field_info { ptr @.str.71, ptr @.str.72, i32 38, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_route_cost, %struct._header_field_info { ptr @.str.73, ptr @.str.74, i32 4, i32 1, ptr null, i64 0, ptr @.str.75, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_route_options, %struct._header_field_info { ptr @.str.76, ptr @.str.77, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_route_opt_repair, %struct._header_field_info { ptr @.str.78, ptr @.str.79, i32 2, i32 8, ptr null, i64 128, ptr @.str.80, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_route_opt_multicast, %struct._header_field_info { ptr @.str.9, ptr @.str.81, i32 2, i32 8, ptr null, i64 64, ptr @.str.82, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_route_opt_dest_ext, %struct._header_field_info { ptr @.str.67, ptr @.str.83, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_route_opt_resp_ext, %struct._header_field_info { ptr @.str.71, ptr @.str.84, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_route_opt_orig_ext, %struct._header_field_info { ptr @.str.69, ptr @.str.85, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_route_opt_many_to_one, %struct._header_field_info { ptr @.str.86, ptr @.str.87, i32 4, i32 2, ptr @zbee_nwk_cmd_route_many_modes, i64 24, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_nwk_status, %struct._header_field_info { ptr @.str.88, ptr @.str.89, i32 4, i32 2, ptr @zbee_nwk_status_codes, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_nwk_status_command_id, %struct._header_field_info { ptr @.str.90, ptr @.str.91, i32 4, i32 2, ptr @zbee_nwk_cmd_names, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_leave_rejoin, %struct._header_field_info { ptr @.str.92, ptr @.str.93, i32 2, i32 8, ptr null, i64 32, ptr @.str.94, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_leave_request, %struct._header_field_info { ptr @.str.95, ptr @.str.96, i32 2, i32 8, ptr null, i64 64, ptr @.str.97, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_leave_children, %struct._header_field_info { ptr @.str.98, ptr @.str.99, i32 2, i32 8, ptr null, i64 128, ptr @.str.100, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_relay_count, %struct._header_field_info { ptr @.str.48, ptr @.str.101, i32 4, i32 1, ptr null, i64 0, ptr @.str.102, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_relay_device, %struct._header_field_info { ptr @.str.103, ptr @.str.104, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_cinfo, %struct._header_field_info { ptr @.str.105, ptr @.str.106, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_cinfo_alt_coord, %struct._header_field_info { ptr @.str.107, ptr @.str.108, i32 2, i32 8, ptr null, i64 1, ptr @.str.109, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_cinfo_type, %struct._header_field_info { ptr @.str.110, ptr @.str.111, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_cinfo_power, %struct._header_field_info { ptr @.str.112, ptr @.str.113, i32 2, i32 8, ptr null, i64 4, ptr @.str.114, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_cinfo_idle_rx, %struct._header_field_info { ptr @.str.115, ptr @.str.116, i32 2, i32 8, ptr null, i64 8, ptr @.str.117, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_cinfo_security, %struct._header_field_info { ptr @.str.118, ptr @.str.119, i32 2, i32 8, ptr null, i64 64, ptr @.str.120, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_cinfo_alloc, %struct._header_field_info { ptr @.str.121, ptr @.str.122, i32 2, i32 8, ptr null, i64 128, ptr @.str.123, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_rejoin_status, %struct._header_field_info { ptr @.str.124, ptr @.str.125, i32 4, i32 2, ptr @zbee_nwk_rejoin_codes, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_link_last, %struct._header_field_info { ptr @.str.126, ptr @.str.127, i32 2, i32 8, ptr null, i64 64, ptr @.str.128, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_link_first, %struct._header_field_info { ptr @.str.129, ptr @.str.130, i32 2, i32 8, ptr null, i64 32, ptr @.str.131, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_link_count, %struct._header_field_info { ptr @.str.132, ptr @.str.133, i32 4, i32 1, ptr null, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_link_address, %struct._header_field_info { ptr @.str.25, ptr @.str.134, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_link_incoming_cost, %struct._header_field_info { ptr @.str.135, ptr @.str.136, i32 4, i32 1, ptr null, i64 7, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_link_outgoing_cost, %struct._header_field_info { ptr @.str.137, ptr @.str.138, i32 4, i32 1, ptr null, i64 112, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_report_type, %struct._header_field_info { ptr @.str.139, ptr @.str.140, i32 4, i32 2, ptr @zbee_nwk_report_types, i64 224, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_report_count, %struct._header_field_info { ptr @.str.141, ptr @.str.142, i32 4, i32 1, ptr null, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_update_type, %struct._header_field_info { ptr @.str.143, ptr @.str.144, i32 4, i32 2, ptr @zbee_nwk_update_types, i64 224, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_update_count, %struct._header_field_info { ptr @.str.145, ptr @.str.146, i32 4, i32 1, ptr null, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_update_id, %struct._header_field_info { ptr @.str.147, ptr @.str.148, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_panid, %struct._header_field_info { ptr @.str.149, ptr @.str.150, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_zboss_nwk_cmd_key, %struct._header_field_info { ptr @.str.151, ptr @.str.152, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_epid, %struct._header_field_info { ptr @.str.153, ptr @.str.154, i32 38, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_end_device_timeout_request_enum, %struct._header_field_info { ptr @.str.155, ptr @.str.156, i32 4, i32 1, ptr @zbee_nwk_end_device_timeout_request, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_end_device_configuration, %struct._header_field_info { ptr @.str.157, ptr @.str.158, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_end_device_timeout_resp_status, %struct._header_field_info { ptr @.str.124, ptr @.str.159, i32 4, i32 1, ptr @zbee_nwk_end_device_timeout_resp_status, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_end_device_timeout_resp_parent_info, %struct._header_field_info { ptr @.str.160, ptr @.str.161, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_prnt_info_mac_data_poll_keepalive_supported, %struct._header_field_info { ptr @.str.162, ptr @.str.163, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_prnt_info_ed_to_req_keepalive_supported, %struct._header_field_info { ptr @.str.164, ptr @.str.165, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_prnt_info_power_negotiation_supported, %struct._header_field_info { ptr @.str.166, ptr @.str.167, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_link_pwr_type, %struct._header_field_info { ptr @.str.168, ptr @.str.169, i32 4, i32 2, ptr @zbee_nwk_link_power_delta_types, i64 3, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_link_pwr_list_count, %struct._header_field_info { ptr @.str.170, ptr @.str.171, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_link_pwr_device_address, %struct._header_field_info { ptr @.str.172, ptr @.str.173, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_link_pwr_power_delta, %struct._header_field_info { ptr @.str.174, ptr @.str.175, i32 12, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_nwk_cmd_association_type, %struct._header_field_info { ptr @.str.176, ptr @.str.177, i32 4, i32 2, ptr @zbee_nwk_commissioning_types, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_beacon_protocol, %struct._header_field_info { ptr @.str.178, ptr @.str.179, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_beacon_stack_profile, %struct._header_field_info { ptr @.str.180, ptr @.str.181, i32 5, i32 2, ptr @zbee_nwk_stack_profiles, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_beacon_version, %struct._header_field_info { ptr @.str.4, ptr @.str.182, i32 5, i32 1, ptr null, i64 240, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_beacon_router_capacity, %struct._header_field_info { ptr @.str.183, ptr @.str.184, i32 2, i32 16, ptr null, i64 1024, ptr @.str.185, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_beacon_depth, %struct._header_field_info { ptr @.str.186, ptr @.str.187, i32 5, i32 1, ptr null, i64 30720, ptr @.str.188, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_beacon_end_device_capacity, %struct._header_field_info { ptr @.str.189, ptr @.str.190, i32 2, i32 16, ptr null, i64 32768, ptr @.str.191, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_beacon_epid, %struct._header_field_info { ptr @.str.153, ptr @.str.192, i32 38, i32 0, ptr null, i64 0, ptr @.str.193, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_beacon_tx_offset, %struct._header_field_info { ptr @.str.194, ptr @.str.195, i32 6, i32 1, ptr null, i64 0, ptr @.str.196, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbee_beacon_update_id, %struct._header_field_info { ptr @.str.147, ptr @.str.197, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbip_beacon_allow_join, %struct._header_field_info { ptr @.str.198, ptr @.str.199, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbip_beacon_router_capacity, %struct._header_field_info { ptr @.str.183, ptr @.str.200, i32 2, i32 8, ptr null, i64 2, ptr @.str.201, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbip_beacon_host_capacity, %struct._header_field_info { ptr @.str.202, ptr @.str.203, i32 2, i32 8, ptr null, i64 4, ptr @.str.204, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbip_beacon_unsecure, %struct._header_field_info { ptr @.str.205, ptr @.str.206, i32 2, i32 8, ptr null, i64 128, ptr @.str.207, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_zbip_beacon_network_id, %struct._header_field_info { ptr @.str.208, ptr @.str.209, i32 26, i32 0, ptr null, i64 0, ptr @.str.210, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ieee802154_zigbee_ie, %struct._header_field_info { ptr @.str.211, ptr @.str.212, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ieee802154_zigbee_ie_id, %struct._header_field_info { ptr @.str.213, ptr @.str.214, i32 5, i32 2, ptr @ieee802154_zigbee_ie_names, i64 65472, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ieee802154_zigbee_ie_length, %struct._header_field_info { ptr @.str.215, ptr @.str.216, i32 5, i32 1, ptr null, i64 63, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ieee802154_zigbee_ie_tx_power, %struct._header_field_info { ptr @.str.217, ptr @.str.218, i32 12, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ieee802154_zigbee_ie_source_addr, %struct._header_field_info { ptr @.str.219, ptr @.str.220, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ieee802154_zigbee_rejoin_epid, %struct._header_field_info { ptr @.str.153, ptr @.str.221, i32 38, i32 0, ptr null, i64 0, ptr @.str.222, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_ieee802154_zigbee_rejoin_source_addr, %struct._header_field_info { ptr @.str.219, ptr @.str.223, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_zbee_nwk_fcf = internal global i32 0, align 4
 @.str = private unnamed_addr constant [20 x i8] c"Frame Control Field\00", align 1
@@ -38,14 +33,12 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_zbee_nwk_frame_type = internal global i32 0, align 4
 @.str.2 = private unnamed_addr constant [11 x i8] c"Frame Type\00", align 1
 @.str.3 = private unnamed_addr constant [20 x i8] c"zbee_nwk.frame_type\00", align 1
-@zbee_nwk_frame_types = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.246 }, %struct._value_string { i32 1, ptr @.str.247 }, %struct._value_string { i32 3, ptr @.str.248 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_nwk_proto_version = internal global i32 0, align 4
 @.str.4 = private unnamed_addr constant [17 x i8] c"Protocol Version\00", align 1
 @.str.5 = private unnamed_addr constant [23 x i8] c"zbee_nwk.proto_version\00", align 1
 @hf_zbee_nwk_discover_route = internal global i32 0, align 4
 @.str.6 = private unnamed_addr constant [15 x i8] c"Discover Route\00", align 1
 @.str.7 = private unnamed_addr constant [19 x i8] c"zbee_nwk.discovery\00", align 1
-@zbee_nwk_discovery_modes = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.249 }, %struct._value_string { i32 1, ptr @.str.250 }, %struct._value_string { i32 3, ptr @.str.251 }, %struct._value_string zeroinitializer], align 16
 @.str.8 = private unnamed_addr constant [58 x i8] c"Determines how route discovery may be handled, if at all.\00", align 1
 @hf_zbee_nwk_multicast = internal global i32 0, align 4
 @.str.9 = private unnamed_addr constant [10 x i8] c"Multicast\00", align 1
@@ -119,7 +112,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_zbee_nwk_cmd_id = internal global i32 0, align 4
 @.str.56 = private unnamed_addr constant [19 x i8] c"Command Identifier\00", align 1
 @.str.57 = private unnamed_addr constant [16 x i8] c"zbee_nwk.cmd.id\00", align 1
-@zbee_nwk_cmd_names = internal constant [16 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.252 }, %struct._value_string { i32 2, ptr @.str.253 }, %struct._value_string { i32 3, ptr @.str.254 }, %struct._value_string { i32 4, ptr @.str.255 }, %struct._value_string { i32 5, ptr @.str.256 }, %struct._value_string { i32 6, ptr @.str.257 }, %struct._value_string { i32 7, ptr @.str.258 }, %struct._value_string { i32 8, ptr @.str.259 }, %struct._value_string { i32 9, ptr @.str.260 }, %struct._value_string { i32 10, ptr @.str.261 }, %struct._value_string { i32 11, ptr @.str.262 }, %struct._value_string { i32 12, ptr @.str.263 }, %struct._value_string { i32 13, ptr @.str.264 }, %struct._value_string { i32 14, ptr @.str.265 }, %struct._value_string { i32 15, ptr @.str.266 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_nwk_cmd_addr = internal global i32 0, align 4
 @.str.58 = private unnamed_addr constant [18 x i8] c"zbee_nwk.cmd.addr\00", align 1
 @hf_zbee_nwk_cmd_route_id = internal global i32 0, align 4
@@ -166,11 +158,9 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_zbee_nwk_cmd_route_opt_many_to_one = internal global i32 0, align 4
 @.str.86 = private unnamed_addr constant [22 x i8] c"Many-to-One Discovery\00", align 1
 @.str.87 = private unnamed_addr constant [33 x i8] c"zbee_nwk.cmd.route.opts.many2one\00", align 1
-@zbee_nwk_cmd_route_many_modes = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.267 }, %struct._value_string { i32 1, ptr @.str.268 }, %struct._value_string { i32 2, ptr @.str.269 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_nwk_cmd_nwk_status = internal global i32 0, align 4
 @.str.88 = private unnamed_addr constant [12 x i8] c"Status Code\00", align 1
 @.str.89 = private unnamed_addr constant [20 x i8] c"zbee_nwk.cmd.status\00", align 1
-@zbee_nwk_status_codes = internal constant [20 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.270 }, %struct._value_string { i32 1, ptr @.str.271 }, %struct._value_string { i32 2, ptr @.str.272 }, %struct._value_string { i32 3, ptr @.str.273 }, %struct._value_string { i32 4, ptr @.str.274 }, %struct._value_string { i32 5, ptr @.str.275 }, %struct._value_string { i32 6, ptr @.str.276 }, %struct._value_string { i32 7, ptr @.str.277 }, %struct._value_string { i32 8, ptr @.str.278 }, %struct._value_string { i32 9, ptr @.str.279 }, %struct._value_string { i32 10, ptr @.str.280 }, %struct._value_string { i32 11, ptr @.str.281 }, %struct._value_string { i32 12, ptr @.str.282 }, %struct._value_string { i32 13, ptr @.str.283 }, %struct._value_string { i32 14, ptr @.str.284 }, %struct._value_string { i32 15, ptr @.str.285 }, %struct._value_string { i32 16, ptr @.str.286 }, %struct._value_string { i32 17, ptr @.str.287 }, %struct._value_string { i32 18, ptr @.str.288 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_nwk_cmd_nwk_status_command_id = internal global i32 0, align 4
 @.str.90 = private unnamed_addr constant [19 x i8] c"Unknown Command ID\00", align 1
 @.str.91 = private unnamed_addr constant [39 x i8] c"zbee_nwk.cmd.status.unknown_command_id\00", align 1
@@ -221,7 +211,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_zbee_nwk_cmd_rejoin_status = internal global i32 0, align 4
 @.str.124 = private unnamed_addr constant [7 x i8] c"Status\00", align 1
 @.str.125 = private unnamed_addr constant [27 x i8] c"zbee_nwk.cmd.rejoin_status\00", align 1
-@zbee_nwk_rejoin_codes = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.289 }, %struct._value_string { i32 1, ptr @.str.290 }, %struct._value_string { i32 2, ptr @.str.291 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_nwk_cmd_link_last = internal global i32 0, align 4
 @.str.126 = private unnamed_addr constant [11 x i8] c"Last Frame\00", align 1
 @.str.127 = private unnamed_addr constant [23 x i8] c"zbee_nwk.cmd.link.last\00", align 1
@@ -244,14 +233,12 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_zbee_nwk_cmd_report_type = internal global i32 0, align 4
 @.str.139 = private unnamed_addr constant [12 x i8] c"Report Type\00", align 1
 @.str.140 = private unnamed_addr constant [25 x i8] c"zbee_nwk.cmd.report.type\00", align 1
-@zbee_nwk_report_types = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.292 }, %struct._value_string { i32 6, ptr @.str.293 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_nwk_cmd_report_count = internal global i32 0, align 4
 @.str.141 = private unnamed_addr constant [25 x i8] c"Report Information Count\00", align 1
 @.str.142 = private unnamed_addr constant [26 x i8] c"zbee_nwk.cmd.report.count\00", align 1
 @hf_zbee_nwk_cmd_update_type = internal global i32 0, align 4
 @.str.143 = private unnamed_addr constant [12 x i8] c"Update Type\00", align 1
 @.str.144 = private unnamed_addr constant [25 x i8] c"zbee_nwk.cmd.update.type\00", align 1
-@zbee_nwk_update_types = internal constant [2 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.294 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_nwk_cmd_update_count = internal global i32 0, align 4
 @.str.145 = private unnamed_addr constant [25 x i8] c"Update Information Count\00", align 1
 @.str.146 = private unnamed_addr constant [26 x i8] c"zbee_nwk.cmd.update.count\00", align 1
@@ -270,13 +257,11 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_zbee_nwk_cmd_end_device_timeout_request_enum = internal global i32 0, align 4
 @.str.155 = private unnamed_addr constant [30 x i8] c"Requested Timeout Enumeration\00", align 1
 @.str.156 = private unnamed_addr constant [24 x i8] c"zbee_nwk.cmd.ed_tmo_req\00", align 1
-@zbee_nwk_end_device_timeout_request = internal constant [16 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.295 }, %struct._value_string { i32 1, ptr @.str.296 }, %struct._value_string { i32 2, ptr @.str.297 }, %struct._value_string { i32 3, ptr @.str.298 }, %struct._value_string { i32 4, ptr @.str.299 }, %struct._value_string { i32 5, ptr @.str.300 }, %struct._value_string { i32 6, ptr @.str.301 }, %struct._value_string { i32 7, ptr @.str.302 }, %struct._value_string { i32 8, ptr @.str.303 }, %struct._value_string { i32 9, ptr @.str.304 }, %struct._value_string { i32 10, ptr @.str.305 }, %struct._value_string { i32 11, ptr @.str.306 }, %struct._value_string { i32 12, ptr @.str.307 }, %struct._value_string { i32 13, ptr @.str.308 }, %struct._value_string { i32 14, ptr @.str.309 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_nwk_cmd_end_device_configuration = internal global i32 0, align 4
 @.str.157 = private unnamed_addr constant [25 x i8] c"End Device Configuration\00", align 1
 @.str.158 = private unnamed_addr constant [23 x i8] c"zbee_nwk.cmd.ed_config\00", align 1
 @hf_zbee_nwk_cmd_end_device_timeout_resp_status = internal global i32 0, align 4
 @.str.159 = private unnamed_addr constant [31 x i8] c"zbee_nwk.cmd.ed_tmo_rsp_status\00", align 1
-@zbee_nwk_end_device_timeout_resp_status = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.289 }, %struct._value_string { i32 1, ptr @.str.310 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_nwk_cmd_end_device_timeout_resp_parent_info = internal global i32 0, align 4
 @.str.160 = private unnamed_addr constant [19 x i8] c"Parent Information\00", align 1
 @.str.161 = private unnamed_addr constant [26 x i8] c"zbee_nwk.cmd.ed_prnt_info\00", align 1
@@ -292,7 +277,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_zbee_nwk_cmd_link_pwr_type = internal global i32 0, align 4
 @.str.168 = private unnamed_addr constant [5 x i8] c"Type\00", align 1
 @.str.169 = private unnamed_addr constant [33 x i8] c"zbee_nwk.cmd.link_pwr_delta.type\00", align 1
-@zbee_nwk_link_power_delta_types = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.311 }, %struct._value_string { i32 1, ptr @.str.95 }, %struct._value_string { i32 2, ptr @.str.312 }, %struct._value_string { i32 3, ptr @.str.313 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_nwk_cmd_link_pwr_list_count = internal global i32 0, align 4
 @.str.170 = private unnamed_addr constant [16 x i8] c"Structure Count\00", align 1
 @.str.171 = private unnamed_addr constant [39 x i8] c"zbee_nwk.cmd.link_pwr_delta.list_count\00", align 1
@@ -305,14 +289,12 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_zbee_nwk_cmd_association_type = internal global i32 0, align 4
 @.str.176 = private unnamed_addr constant [17 x i8] c"Association Type\00", align 1
 @.str.177 = private unnamed_addr constant [30 x i8] c"zbee_nwk.cmd.association_type\00", align 1
-@zbee_nwk_commissioning_types = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.314 }, %struct._value_string { i32 1, ptr @.str.315 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_beacon_protocol = internal global i32 0, align 4
 @.str.178 = private unnamed_addr constant [12 x i8] c"Protocol ID\00", align 1
 @.str.179 = private unnamed_addr constant [21 x i8] c"zbee_beacon.protocol\00", align 1
 @hf_zbee_beacon_stack_profile = internal global i32 0, align 4
 @.str.180 = private unnamed_addr constant [14 x i8] c"Stack Profile\00", align 1
 @.str.181 = private unnamed_addr constant [20 x i8] c"zbee_beacon.profile\00", align 1
-@zbee_nwk_stack_profiles = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.316 }, %struct._value_string { i32 1, ptr @.str.317 }, %struct._value_string { i32 2, ptr @.str.318 }, %struct._value_string zeroinitializer], align 16
 @hf_zbee_beacon_version = internal global i32 0, align 4
 @.str.182 = private unnamed_addr constant [20 x i8] c"zbee_beacon.version\00", align 1
 @hf_zbee_beacon_router_capacity = internal global i32 0, align 4
@@ -360,7 +342,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_ieee802154_zigbee_ie_id = internal global i32 0, align 4
 @.str.213 = private unnamed_addr constant [3 x i8] c"Id\00", align 1
 @.str.214 = private unnamed_addr constant [22 x i8] c"zbee_nwk.zigbee_ie.id\00", align 1
-@ieee802154_zigbee_ie_names = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.92 }, %struct._value_string { i32 1, ptr @.str.319 }, %struct._value_string { i32 2, ptr @.str.320 }, %struct._value_string zeroinitializer], align 16
 @hf_ieee802154_zigbee_ie_length = internal global i32 0, align 4
 @.str.215 = private unnamed_addr constant [7 x i8] c"Length\00", align 1
 @.str.216 = private unnamed_addr constant [26 x i8] c"zbee_nwk.zigbee_ie.length\00", align 1
@@ -393,7 +374,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_zbee_nwk_header = internal global i32 0, align 4
 @ett_zbee_nwk_header_ie = internal global i32 0, align 4
 @ett_zbee_nwk_beacon_bitfield = internal global i32 0, align 4
-@proto_register_zbee_nwk.ei = internal global [1 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_zbee_nwk_missing_payload, %struct.expert_field_info { ptr @.str.224, i32 117440512, i32 8388608, ptr @.str.225, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_zbee_nwk.ei = internal global [1 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_zbee_nwk_missing_payload, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.224, i32 117440512, i32 8388608, ptr @.str.225, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_zbee_nwk_missing_payload = internal global %struct.expert_field zeroinitializer, align 4
 @.str.224 = private unnamed_addr constant [25 x i8] c"zbee_nwk.missing_payload\00", align 1
 @.str.225 = private unnamed_addr constant [16 x i8] c"Missing Payload\00", align 1
@@ -425,146 +406,163 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.243 = private unnamed_addr constant [5 x i8] c"wpan\00", align 1
 @.str.244 = private unnamed_addr constant [40 x i8] c"ZigBee Network Layer over IEEE 802.15.4\00", align 1
 @.str.245 = private unnamed_addr constant [14 x i8] c"zbee_nwk_wpan\00", align 1
+@zbee_nwk_map = hidden global %struct.ieee802154_map_tab_t zeroinitializer, align 8
+@zbee_table_nwk_keyring = hidden global ptr null, align 8
+@zbee_table_link_keyring = hidden global ptr null, align 8
 @.str.246 = private unnamed_addr constant [5 x i8] c"Data\00", align 1
 @.str.247 = private unnamed_addr constant [8 x i8] c"Command\00", align 1
 @.str.248 = private unnamed_addr constant [9 x i8] c"Interpan\00", align 1
-@.str.249 = private unnamed_addr constant [9 x i8] c"Suppress\00", align 1
-@.str.250 = private unnamed_addr constant [7 x i8] c"Enable\00", align 1
-@.str.251 = private unnamed_addr constant [6 x i8] c"Force\00", align 1
-@.str.252 = private unnamed_addr constant [14 x i8] c"Route Request\00", align 1
-@.str.253 = private unnamed_addr constant [12 x i8] c"Route Reply\00", align 1
-@.str.254 = private unnamed_addr constant [15 x i8] c"Network Status\00", align 1
-@.str.255 = private unnamed_addr constant [6 x i8] c"Leave\00", align 1
-@.str.256 = private unnamed_addr constant [13 x i8] c"Route Record\00", align 1
-@.str.257 = private unnamed_addr constant [15 x i8] c"Rejoin Request\00", align 1
-@.str.258 = private unnamed_addr constant [16 x i8] c"Rejoin Response\00", align 1
-@.str.259 = private unnamed_addr constant [12 x i8] c"Link Status\00", align 1
-@.str.260 = private unnamed_addr constant [15 x i8] c"Network Report\00", align 1
-@.str.261 = private unnamed_addr constant [15 x i8] c"Network Update\00", align 1
-@.str.262 = private unnamed_addr constant [27 x i8] c"End Device Timeout Request\00", align 1
-@.str.263 = private unnamed_addr constant [28 x i8] c"End Device Timeout Response\00", align 1
-@.str.264 = private unnamed_addr constant [17 x i8] c"Link Power Delta\00", align 1
-@.str.265 = private unnamed_addr constant [30 x i8] c"Network Commissioning Request\00", align 1
-@.str.266 = private unnamed_addr constant [31 x i8] c"Network Commissioning Response\00", align 1
-@.str.267 = private unnamed_addr constant [16 x i8] c"Not Many-to-One\00", align 1
-@.str.268 = private unnamed_addr constant [20 x i8] c"With Source Routing\00", align 1
-@.str.269 = private unnamed_addr constant [23 x i8] c"Without Source Routing\00", align 1
-@.str.270 = private unnamed_addr constant [19 x i8] c"No Route Available\00", align 1
-@.str.271 = private unnamed_addr constant [18 x i8] c"Tree Link Failure\00", align 1
-@.str.272 = private unnamed_addr constant [22 x i8] c"Non-tree Link Failure\00", align 1
-@.str.273 = private unnamed_addr constant [12 x i8] c"Low Battery\00", align 1
-@.str.274 = private unnamed_addr constant [20 x i8] c"No Routing Capacity\00", align 1
-@.str.275 = private unnamed_addr constant [21 x i8] c"No Indirect Capacity\00", align 1
-@.str.276 = private unnamed_addr constant [28 x i8] c"Indirect Transaction Expiry\00", align 1
-@.str.277 = private unnamed_addr constant [26 x i8] c"Target Device Unavailable\00", align 1
-@.str.278 = private unnamed_addr constant [27 x i8] c"Target Address Unallocated\00", align 1
-@.str.279 = private unnamed_addr constant [20 x i8] c"Parent Link Failure\00", align 1
-@.str.280 = private unnamed_addr constant [15 x i8] c"Validate Route\00", align 1
-@.str.281 = private unnamed_addr constant [21 x i8] c"Source Route Failure\00", align 1
-@.str.282 = private unnamed_addr constant [26 x i8] c"Many-to-One Route Failure\00", align 1
-@.str.283 = private unnamed_addr constant [17 x i8] c"Address Conflict\00", align 1
-@.str.284 = private unnamed_addr constant [15 x i8] c"Verify Address\00", align 1
-@.str.285 = private unnamed_addr constant [14 x i8] c"PAN ID Update\00", align 1
-@.str.286 = private unnamed_addr constant [23 x i8] c"Network Address Update\00", align 1
-@.str.287 = private unnamed_addr constant [18 x i8] c"Bad Frame Counter\00", align 1
-@.str.288 = private unnamed_addr constant [24 x i8] c"Bad Key Sequence Number\00", align 1
-@.str.289 = private unnamed_addr constant [8 x i8] c"Success\00", align 1
-@.str.290 = private unnamed_addr constant [9 x i8] c"PAN Full\00", align 1
-@.str.291 = private unnamed_addr constant [18 x i8] c"PAN Access Denied\00", align 1
-@.str.292 = private unnamed_addr constant [24 x i8] c"PAN Identifier Conflict\00", align 1
-@.str.293 = private unnamed_addr constant [16 x i8] c"ZBOSS key trace\00", align 1
-@.str.294 = private unnamed_addr constant [22 x i8] c"PAN Identifier Update\00", align 1
-@.str.295 = private unnamed_addr constant [7 x i8] c"10 sec\00", align 1
-@.str.296 = private unnamed_addr constant [6 x i8] c"2 min\00", align 1
-@.str.297 = private unnamed_addr constant [6 x i8] c"4 min\00", align 1
-@.str.298 = private unnamed_addr constant [6 x i8] c"8 min\00", align 1
-@.str.299 = private unnamed_addr constant [7 x i8] c"16 min\00", align 1
-@.str.300 = private unnamed_addr constant [7 x i8] c"32 min\00", align 1
-@.str.301 = private unnamed_addr constant [7 x i8] c"64 min\00", align 1
-@.str.302 = private unnamed_addr constant [8 x i8] c"128 min\00", align 1
-@.str.303 = private unnamed_addr constant [8 x i8] c"256 min\00", align 1
-@.str.304 = private unnamed_addr constant [8 x i8] c"512 min\00", align 1
-@.str.305 = private unnamed_addr constant [9 x i8] c"1024 min\00", align 1
-@.str.306 = private unnamed_addr constant [9 x i8] c"2048 min\00", align 1
-@.str.307 = private unnamed_addr constant [9 x i8] c"4096 min\00", align 1
-@.str.308 = private unnamed_addr constant [9 x i8] c"8192 min\00", align 1
-@.str.309 = private unnamed_addr constant [10 x i8] c"16384 min\00", align 1
-@.str.310 = private unnamed_addr constant [16 x i8] c"Incorrect value\00", align 1
-@.str.311 = private unnamed_addr constant [13 x i8] c"Notification\00", align 1
-@.str.312 = private unnamed_addr constant [9 x i8] c"Response\00", align 1
-@.str.313 = private unnamed_addr constant [9 x i8] c"Reserved\00", align 1
-@.str.314 = private unnamed_addr constant [34 x i8] c"Initial Join with Key Negotiation\00", align 1
-@.str.315 = private unnamed_addr constant [28 x i8] c"Rejoin with Key Negotiation\00", align 1
-@.str.316 = private unnamed_addr constant [17 x i8] c"Network Specific\00", align 1
-@.str.317 = private unnamed_addr constant [12 x i8] c"ZigBee Home\00", align 1
-@.str.318 = private unnamed_addr constant [11 x i8] c"ZigBee PRO\00", align 1
-@.str.319 = private unnamed_addr constant [9 x i8] c"Tx Power\00", align 1
-@.str.320 = private unnamed_addr constant [24 x i8] c"Extended Beacon Payload\00", align 1
+@zbee_nwk_frame_types = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.246 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.247 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.248 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.250 = private unnamed_addr constant [9 x i8] c"Suppress\00", align 1
+@.str.251 = private unnamed_addr constant [7 x i8] c"Enable\00", align 1
+@.str.252 = private unnamed_addr constant [6 x i8] c"Force\00", align 1
+@zbee_nwk_discovery_modes = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.250 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.251 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.252 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.254 = private unnamed_addr constant [14 x i8] c"Route Request\00", align 1
+@.str.255 = private unnamed_addr constant [12 x i8] c"Route Reply\00", align 1
+@.str.256 = private unnamed_addr constant [15 x i8] c"Network Status\00", align 1
+@.str.257 = private unnamed_addr constant [6 x i8] c"Leave\00", align 1
+@.str.258 = private unnamed_addr constant [13 x i8] c"Route Record\00", align 1
+@.str.259 = private unnamed_addr constant [15 x i8] c"Rejoin Request\00", align 1
+@.str.260 = private unnamed_addr constant [16 x i8] c"Rejoin Response\00", align 1
+@.str.261 = private unnamed_addr constant [12 x i8] c"Link Status\00", align 1
+@.str.262 = private unnamed_addr constant [15 x i8] c"Network Report\00", align 1
+@.str.263 = private unnamed_addr constant [15 x i8] c"Network Update\00", align 1
+@.str.264 = private unnamed_addr constant [27 x i8] c"End Device Timeout Request\00", align 1
+@.str.265 = private unnamed_addr constant [28 x i8] c"End Device Timeout Response\00", align 1
+@.str.266 = private unnamed_addr constant [17 x i8] c"Link Power Delta\00", align 1
+@.str.267 = private unnamed_addr constant [30 x i8] c"Network Commissioning Request\00", align 1
+@.str.268 = private unnamed_addr constant [31 x i8] c"Network Commissioning Response\00", align 1
+@zbee_nwk_cmd_names = internal constant [16 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.254 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.255 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.256 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.257 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.258 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.259 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.260 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.261 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.262 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.263 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.264 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.265 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.266 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.267 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.268 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.270 = private unnamed_addr constant [16 x i8] c"Not Many-to-One\00", align 1
+@.str.271 = private unnamed_addr constant [20 x i8] c"With Source Routing\00", align 1
+@.str.272 = private unnamed_addr constant [23 x i8] c"Without Source Routing\00", align 1
+@zbee_nwk_cmd_route_many_modes = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.270 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.271 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.272 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.274 = private unnamed_addr constant [19 x i8] c"No Route Available\00", align 1
+@.str.275 = private unnamed_addr constant [18 x i8] c"Tree Link Failure\00", align 1
+@.str.276 = private unnamed_addr constant [22 x i8] c"Non-tree Link Failure\00", align 1
+@.str.277 = private unnamed_addr constant [12 x i8] c"Low Battery\00", align 1
+@.str.278 = private unnamed_addr constant [20 x i8] c"No Routing Capacity\00", align 1
+@.str.279 = private unnamed_addr constant [21 x i8] c"No Indirect Capacity\00", align 1
+@.str.280 = private unnamed_addr constant [28 x i8] c"Indirect Transaction Expiry\00", align 1
+@.str.281 = private unnamed_addr constant [26 x i8] c"Target Device Unavailable\00", align 1
+@.str.282 = private unnamed_addr constant [27 x i8] c"Target Address Unallocated\00", align 1
+@.str.283 = private unnamed_addr constant [20 x i8] c"Parent Link Failure\00", align 1
+@.str.284 = private unnamed_addr constant [15 x i8] c"Validate Route\00", align 1
+@.str.285 = private unnamed_addr constant [21 x i8] c"Source Route Failure\00", align 1
+@.str.286 = private unnamed_addr constant [26 x i8] c"Many-to-One Route Failure\00", align 1
+@.str.287 = private unnamed_addr constant [17 x i8] c"Address Conflict\00", align 1
+@.str.288 = private unnamed_addr constant [15 x i8] c"Verify Address\00", align 1
+@.str.289 = private unnamed_addr constant [14 x i8] c"PAN ID Update\00", align 1
+@.str.290 = private unnamed_addr constant [23 x i8] c"Network Address Update\00", align 1
+@.str.291 = private unnamed_addr constant [18 x i8] c"Bad Frame Counter\00", align 1
+@.str.292 = private unnamed_addr constant [24 x i8] c"Bad Key Sequence Number\00", align 1
+@zbee_nwk_status_codes = internal constant [20 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.274 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.275 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.276 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.277 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.278 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.279 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.280 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.281 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.282 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.283 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.284 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.285 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.286 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.287 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.288 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.289 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.290 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.291 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.292 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.294 = private unnamed_addr constant [8 x i8] c"Success\00", align 1
+@.str.295 = private unnamed_addr constant [9 x i8] c"PAN Full\00", align 1
+@.str.296 = private unnamed_addr constant [18 x i8] c"PAN Access Denied\00", align 1
+@zbee_nwk_rejoin_codes = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.294 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.295 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.296 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.298 = private unnamed_addr constant [24 x i8] c"PAN Identifier Conflict\00", align 1
+@.str.299 = private unnamed_addr constant [16 x i8] c"ZBOSS key trace\00", align 1
+@zbee_nwk_report_types = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.298 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.299 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.301 = private unnamed_addr constant [22 x i8] c"PAN Identifier Update\00", align 1
+@zbee_nwk_update_types = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.301 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.303 = private unnamed_addr constant [7 x i8] c"10 sec\00", align 1
+@.str.304 = private unnamed_addr constant [6 x i8] c"2 min\00", align 1
+@.str.305 = private unnamed_addr constant [6 x i8] c"4 min\00", align 1
+@.str.306 = private unnamed_addr constant [6 x i8] c"8 min\00", align 1
+@.str.307 = private unnamed_addr constant [7 x i8] c"16 min\00", align 1
+@.str.308 = private unnamed_addr constant [7 x i8] c"32 min\00", align 1
+@.str.309 = private unnamed_addr constant [7 x i8] c"64 min\00", align 1
+@.str.310 = private unnamed_addr constant [8 x i8] c"128 min\00", align 1
+@.str.311 = private unnamed_addr constant [8 x i8] c"256 min\00", align 1
+@.str.312 = private unnamed_addr constant [8 x i8] c"512 min\00", align 1
+@.str.313 = private unnamed_addr constant [9 x i8] c"1024 min\00", align 1
+@.str.314 = private unnamed_addr constant [9 x i8] c"2048 min\00", align 1
+@.str.315 = private unnamed_addr constant [9 x i8] c"4096 min\00", align 1
+@.str.316 = private unnamed_addr constant [9 x i8] c"8192 min\00", align 1
+@.str.317 = private unnamed_addr constant [10 x i8] c"16384 min\00", align 1
+@zbee_nwk_end_device_timeout_request = internal constant [16 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.303 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.304 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.305 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.306 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.307 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.308 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.309 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.310 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.311 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.312 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.313 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.314 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.315 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.316 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.317 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.319 = private unnamed_addr constant [16 x i8] c"Incorrect value\00", align 1
+@zbee_nwk_end_device_timeout_resp_status = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.294 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.319 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.321 = private unnamed_addr constant [13 x i8] c"Notification\00", align 1
+@.str.322 = private unnamed_addr constant [9 x i8] c"Response\00", align 1
+@.str.323 = private unnamed_addr constant [9 x i8] c"Reserved\00", align 1
+@zbee_nwk_link_power_delta_types = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.321 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.95 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.322 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.323 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.325 = private unnamed_addr constant [34 x i8] c"Initial Join with Key Negotiation\00", align 1
+@.str.326 = private unnamed_addr constant [28 x i8] c"Rejoin with Key Negotiation\00", align 1
+@zbee_nwk_commissioning_types = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.325 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.326 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.328 = private unnamed_addr constant [17 x i8] c"Network Specific\00", align 1
+@.str.329 = private unnamed_addr constant [12 x i8] c"ZigBee Home\00", align 1
+@.str.330 = private unnamed_addr constant [11 x i8] c"ZigBee PRO\00", align 1
+@zbee_nwk_stack_profiles = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.328 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.329 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.330 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.332 = private unnamed_addr constant [9 x i8] c"Tx Power\00", align 1
+@.str.333 = private unnamed_addr constant [24 x i8] c"Extended Beacon Payload\00", align 1
+@ieee802154_zigbee_ie_names = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.92 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.332 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.333 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
 @dissect_zbee_nwk_full.fcf_flags_2007 = internal constant [10 x ptr] [ptr @hf_zbee_nwk_frame_type, ptr @hf_zbee_nwk_proto_version, ptr @hf_zbee_nwk_discover_route, ptr @hf_zbee_nwk_multicast, ptr @hf_zbee_nwk_security, ptr @hf_zbee_nwk_source_route, ptr @hf_zbee_nwk_ext_dst, ptr @hf_zbee_nwk_ext_src, ptr @hf_zbee_nwk_end_device_initiator, ptr null], align 16
 @dissect_zbee_nwk_full.fcf_flags = internal constant [5 x ptr] [ptr @hf_zbee_nwk_frame_type, ptr @hf_zbee_nwk_proto_version, ptr @hf_zbee_nwk_discover_route, ptr @hf_zbee_nwk_security, ptr null], align 16
-@.str.321 = private unnamed_addr constant [4 x i8] c" %s\00", align 1
-@.str.322 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
-@.str.323 = private unnamed_addr constant [13 x i8] c"Unknown Type\00", align 1
-@.str.324 = private unnamed_addr constant [20 x i8] c"Reserved Frame Type\00", align 1
-@.str.325 = private unnamed_addr constant [10 x i8] c", Dst: %s\00", align 1
-@.str.326 = private unnamed_addr constant [10 x i8] c", Src: %s\00", align 1
-@.str.327 = private unnamed_addr constant [15 x i8] c"Pre-configured\00", align 1
+@.str.335 = private unnamed_addr constant [4 x i8] c" %s\00", align 1
+@.str.336 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
+@.str.337 = private unnamed_addr constant [13 x i8] c"Unknown Type\00", align 1
+@.str.338 = private unnamed_addr constant [20 x i8] c"Reserved Frame Type\00", align 1
+@.str.339 = private unnamed_addr constant [10 x i8] c", Dst: %s\00", align 1
+@.str.340 = private unnamed_addr constant [10 x i8] c", Src: %s\00", align 1
+@.str.341 = private unnamed_addr constant [15 x i8] c"Pre-configured\00", align 1
 @dissect_zbee_nwk_full.multicast_flags = internal constant [4 x ptr] [ptr @hf_zbee_nwk_mcast_mode, ptr @hf_zbee_nwk_mcast_radius, ptr @hf_zbee_nwk_mcast_max_radius, ptr null], align 16
-@.str.328 = private unnamed_addr constant [13 x i8] c", Length: %d\00", align 1
-@.str.329 = private unnamed_addr constant [17 x i8] c"Relay %d: 0x%04x\00", align 1
-@.str.330 = private unnamed_addr constant [18 x i8] c"Command Frame: %s\00", align 1
-@.str.331 = private unnamed_addr constant [16 x i8] c"Unknown Command\00", align 1
+@.str.342 = private unnamed_addr constant [13 x i8] c", Length: %d\00", align 1
+@.str.343 = private unnamed_addr constant [17 x i8] c"Relay %d: 0x%04x\00", align 1
+@.str.344 = private unnamed_addr constant [18 x i8] c"Command Frame: %s\00", align 1
+@.str.345 = private unnamed_addr constant [16 x i8] c"Unknown Command\00", align 1
 @dissect_zbee_nwk_route_req.nwk_route_command_options_2007 = internal constant [4 x ptr] [ptr @hf_zbee_nwk_cmd_route_opt_multicast, ptr @hf_zbee_nwk_cmd_route_opt_dest_ext, ptr @hf_zbee_nwk_cmd_route_opt_many_to_one, ptr null], align 16
 @dissect_zbee_nwk_route_req.nwk_route_command_options = internal constant [2 x ptr] [ptr @hf_zbee_nwk_cmd_route_opt_repair, ptr null], align 16
-@.str.332 = private unnamed_addr constant [26 x i8] c"Many-to-One Route Request\00", align 1
-@.str.333 = private unnamed_addr constant [27 x i8] c", Dst: 0x%04x, Src: 0x%04x\00", align 1
+@.str.346 = private unnamed_addr constant [26 x i8] c"Many-to-One Route Request\00", align 1
+@.str.347 = private unnamed_addr constant [27 x i8] c", Dst: 0x%04x, Src: 0x%04x\00", align 1
 @dissect_zbee_nwk_route_rep.nwk_route_command_options_2007 = internal constant [4 x ptr] [ptr @hf_zbee_nwk_cmd_route_opt_multicast, ptr @hf_zbee_nwk_cmd_route_opt_resp_ext, ptr @hf_zbee_nwk_cmd_route_opt_orig_ext, ptr null], align 16
 @dissect_zbee_nwk_route_rep.nwk_route_command_options = internal constant [2 x ptr] [ptr @hf_zbee_nwk_cmd_route_opt_repair, ptr null], align 16
-@.str.334 = private unnamed_addr constant [40 x i8] c", Responder: 0x%04x, Originator: 0x%04x\00", align 1
-@.str.335 = private unnamed_addr constant [13 x i8] c", 0x%04x: %s\00", align 1
-@.str.336 = private unnamed_addr constant [20 x i8] c"Unknown Status Code\00", align 1
-@.str.337 = private unnamed_addr constant [33 x i8] c", Unknown Command ID 0x%02x (%s)\00", align 1
-@.str.338 = private unnamed_addr constant [11 x i8] c"Unknown ID\00", align 1
+@.str.348 = private unnamed_addr constant [40 x i8] c", Responder: 0x%04x, Originator: 0x%04x\00", align 1
+@.str.349 = private unnamed_addr constant [13 x i8] c", 0x%04x: %s\00", align 1
+@.str.350 = private unnamed_addr constant [20 x i8] c"Unknown Status Code\00", align 1
+@.str.351 = private unnamed_addr constant [33 x i8] c", Unknown Command ID 0x%02x (%s)\00", align 1
+@.str.352 = private unnamed_addr constant [11 x i8] c"Unknown ID\00", align 1
 @dissect_zbee_nwk_leave.leave_options = internal constant [4 x ptr] [ptr @hf_zbee_nwk_cmd_leave_rejoin, ptr @hf_zbee_nwk_cmd_leave_request, ptr @hf_zbee_nwk_cmd_leave_children, ptr null], align 16
-@.str.339 = private unnamed_addr constant [24 x i8] c"Relay Device %d: 0x%04x\00", align 1
-@.str.340 = private unnamed_addr constant [14 x i8] c", Dst: 0x%04x\00", align 1
+@.str.353 = private unnamed_addr constant [24 x i8] c"Relay Device %d: 0x%04x\00", align 1
+@.str.354 = private unnamed_addr constant [14 x i8] c", Dst: 0x%04x\00", align 1
 @dissect_zbee_nwk_rejoin_req.capabilities = internal constant [7 x ptr] [ptr @hf_zbee_nwk_cmd_cinfo_alt_coord, ptr @hf_zbee_nwk_cmd_cinfo_type, ptr @hf_zbee_nwk_cmd_cinfo_power, ptr @hf_zbee_nwk_cmd_cinfo_idle_rx, ptr @hf_zbee_nwk_cmd_cinfo_security, ptr @hf_zbee_nwk_cmd_cinfo_alloc, ptr null], align 16
-@.str.341 = private unnamed_addr constant [17 x i8] c", Device: 0x%04x\00", align 1
-@.str.342 = private unnamed_addr constant [22 x i8] c", New Address: 0x%04x\00", align 1
-@.str.343 = private unnamed_addr constant [5 x i8] c", %s\00", align 1
-@.str.344 = private unnamed_addr constant [24 x i8] c"Unknown Rejoin Response\00", align 1
+@.str.355 = private unnamed_addr constant [17 x i8] c", Device: 0x%04x\00", align 1
+@.str.356 = private unnamed_addr constant [22 x i8] c", New Address: 0x%04x\00", align 1
+@.str.357 = private unnamed_addr constant [5 x i8] c", %s\00", align 1
+@.str.358 = private unnamed_addr constant [24 x i8] c"Unknown Rejoin Response\00", align 1
 @dissect_zbee_nwk_link_status.link_options = internal constant [4 x ptr] [ptr @hf_zbee_nwk_cmd_link_last, ptr @hf_zbee_nwk_cmd_link_first, ptr @hf_zbee_nwk_cmd_link_count, ptr null], align 16
-@.str.345 = private unnamed_addr constant [8 x i8] c"Link %d\00", align 1
-@.str.346 = private unnamed_addr constant [20 x i8] c"Unknown Report Type\00", align 1
-@.str.347 = private unnamed_addr constant [20 x i8] c"Unknown Update Type\00", align 1
+@.str.359 = private unnamed_addr constant [8 x i8] c"Link %d\00", align 1
+@.str.360 = private unnamed_addr constant [20 x i8] c"Unknown Report Type\00", align 1
+@.str.361 = private unnamed_addr constant [20 x i8] c"Unknown Update Type\00", align 1
 @dissect_zbee_nwk_ed_timeout_response.end_device_parent_info = internal constant [4 x ptr] [ptr @hf_zbee_nwk_cmd_prnt_info_mac_data_poll_keepalive_supported, ptr @hf_zbee_nwk_cmd_prnt_info_ed_to_req_keepalive_supported, ptr @hf_zbee_nwk_cmd_prnt_info_power_negotiation_supported, ptr null], align 16
-@.str.348 = private unnamed_addr constant [15 x i8] c"Unknown Status\00", align 1
-@.str.349 = private unnamed_addr constant [15 x i8] c": %s, Count %d\00", align 1
-@.str.350 = private unnamed_addr constant [22 x i8] c"Power Delta Structure\00", align 1
-@.str.351 = private unnamed_addr constant [44 x i8] c": Device Address 0x%04X, Power Delta %d dBm\00", align 1
+@.str.362 = private unnamed_addr constant [15 x i8] c"Unknown Status\00", align 1
+@.str.363 = private unnamed_addr constant [15 x i8] c": %s, Count %d\00", align 1
+@.str.364 = private unnamed_addr constant [22 x i8] c"Power Delta Structure\00", align 1
+@.str.365 = private unnamed_addr constant [44 x i8] c": Device Address 0x%04X, Power Delta %d dBm\00", align 1
 @dissect_zbee_nwk_commissioning_request.capabilities = internal constant [7 x ptr] [ptr @hf_zbee_nwk_cmd_cinfo_alt_coord, ptr @hf_zbee_nwk_cmd_cinfo_type, ptr @hf_zbee_nwk_cmd_cinfo_power, ptr @hf_zbee_nwk_cmd_cinfo_idle_rx, ptr @hf_zbee_nwk_cmd_cinfo_security, ptr @hf_zbee_nwk_cmd_cinfo_alloc, ptr null], align 16
-@.str.352 = private unnamed_addr constant [31 x i8] c"Unknown Commissioning Response\00", align 1
+@.str.366 = private unnamed_addr constant [31 x i8] c"Unknown Commissioning Response\00", align 1
 @dissect_zbee_beacon.beacon_fields = internal constant [6 x ptr] [ptr @hf_zbee_beacon_stack_profile, ptr @hf_zbee_beacon_version, ptr @hf_zbee_beacon_router_capacity, ptr @hf_zbee_beacon_depth, ptr @hf_zbee_beacon_end_device_capacity, ptr null], align 16
-@.str.353 = private unnamed_addr constant [9 x i8] c"Beacon: \00", align 1
-@.str.354 = private unnamed_addr constant [16 x i8] c"Unknown Profile\00", align 1
-@.str.355 = private unnamed_addr constant [11 x i8] c", EPID: %s\00", align 1
-@.str.356 = private unnamed_addr constant [10 x i8] c"ZigBee IP\00", align 1
-@.str.357 = private unnamed_addr constant [20 x i8] c"Beacon, Src: 0x%04x\00", align 1
-@.str.358 = private unnamed_addr constant [11 x i8] c", SSID: %s\00", align 1
+@.str.367 = private unnamed_addr constant [9 x i8] c"Beacon: \00", align 1
+@.str.368 = private unnamed_addr constant [16 x i8] c"Unknown Profile\00", align 1
+@.str.369 = private unnamed_addr constant [11 x i8] c", EPID: %s\00", align 1
+@.str.370 = private unnamed_addr constant [10 x i8] c"ZigBee IP\00", align 1
+@.str.371 = private unnamed_addr constant [20 x i8] c"Beacon, Src: 0x%04x\00", align 1
+@.str.372 = private unnamed_addr constant [11 x i8] c", SSID: %s\00", align 1
 @dissect_zbee_ie.fields = internal constant [3 x ptr] [ptr @hf_ieee802154_zigbee_ie_id, ptr @hf_ieee802154_zigbee_ie_length, ptr null], align 16
-@.str.359 = private unnamed_addr constant [17 x i8] c", %s, Length: %d\00", align 1
-@.str.360 = private unnamed_addr constant [14 x i8] c"ZigBee Rejoin\00", align 1
-@.str.361 = private unnamed_addr constant [10 x i8] c", EPID %s\00", align 1
-@.str.362 = private unnamed_addr constant [14 x i8] c", Src: 0x%04x\00", align 1
-@.str.363 = private unnamed_addr constant [18 x i8] c", TX Power %d dBm\00", align 1
-@.str.364 = private unnamed_addr constant [10 x i8] c"Broadcast\00", align 1
-@.str.365 = private unnamed_addr constant [7 x i8] c"0x%04x\00", align 1
+@.str.373 = private unnamed_addr constant [17 x i8] c", %s, Length: %d\00", align 1
+@.str.374 = private unnamed_addr constant [14 x i8] c"ZigBee Rejoin\00", align 1
+@.str.375 = private unnamed_addr constant [10 x i8] c", EPID %s\00", align 1
+@.str.376 = private unnamed_addr constant [14 x i8] c", Src: 0x%04x\00", align 1
+@.str.377 = private unnamed_addr constant [18 x i8] c", TX Power %d dBm\00", align 1
+@.str.378 = private unnamed_addr constant [10 x i8] c"Broadcast\00", align 1
+@.str.379 = private unnamed_addr constant [7 x i8] c"0x%04x\00", align 1
 @zbee_nwk_ct_dissector_info = internal global %struct._ct_dissector_info { ptr @zbee_nwk_conv_get_filter_type }, align 8
-@.str.366 = private unnamed_addr constant [8 x i8] c"INVALID\00", align 1
+@.str.380 = private unnamed_addr constant [8 x i8] c"INVALID\00", align 1
 @zbee_nwk_endpoint_dissector_info = internal global %struct._et_dissector_info { ptr @zbee_nwk_endpoint_get_filter_type }, align 8
-@.str.367 = private unnamed_addr constant [44 x i8] c"zbee_nwk.addr eq %s and zbee_nwk.addr eq %s\00", align 1
+@.str.381 = private unnamed_addr constant [44 x i8] c"zbee_nwk.addr eq %s and zbee_nwk.addr eq %s\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
 define hidden i32 @zbee_get_bit_field(i32 noundef %0, i32 noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -596,7 +594,7 @@ define hidden i32 @zbee_get_bit_field(i32 noundef %0, i32 noundef %1) #0 {
   %18 = load i32, ptr %5, align 4
   %19 = lshr i32 %18, 1
   store i32 %19, ptr %5, align 4
-  br label %10, !llvm.loop !4
+  br label %10, !llvm.loop !6
 
 20:                                               ; preds = %10
   %21 = load i32, ptr %4, align 4
@@ -610,9 +608,10 @@ define hidden i32 @zbee_get_bit_field(i32 noundef %0, i32 noundef %1) #0 {
   ret i32 %25
 }
 
-; Function Attrs: nounwind uwtable
-define hidden void @proto_register_zbee_nwk() #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define hidden void @proto_register_zbee_nwk() #1 {
   %1 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #10
   call void @register_init_routine(ptr noundef @proto_init_zbee_nwk)
   call void @register_cleanup_routine(ptr noundef @proto_cleanup_zbee_nwk)
   %2 = call i32 @proto_register_protocol(ptr noundef @.str.226, ptr noundef @.str.227, ptr noundef @.str.228)
@@ -646,53 +645,63 @@ define hidden void @proto_register_zbee_nwk() #0 {
   %20 = call i32 @register_tap(ptr noundef @.str.228)
   store i32 %20, ptr @zbee_nwk_tap, align 4
   %21 = load i32, ptr @proto_zbee_nwk, align 4
-  call void @register_conversation_table(i32 noundef %21, i32 noundef 1, ptr noundef @zbee_nwk_conversation_packet, ptr noundef @zbee_nwk_endpoint_packet)
+  call void @register_conversation_table(i32 noundef %21, i1 noundef zeroext true, ptr noundef @zbee_nwk_conversation_packet, ptr noundef @zbee_nwk_endpoint_packet)
   call void @register_conversation_filter(ptr noundef @.str.228, ptr noundef @.str.226, ptr noundef @zbee_nwk_filter_valid, ptr noundef @zbee_nwk_build_filter, ptr noundef null)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #10
   ret void
 }
 
-declare void @register_init_routine(ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
-; Function Attrs: nounwind uwtable
-define internal void @proto_init_zbee_nwk() #0 {
+; Function Attrs: null_pointer_is_valid
+declare void @register_init_routine(ptr noundef) #3
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal void @proto_init_zbee_nwk() #1 {
   %1 = call ptr @g_hash_table_new(ptr noundef @ieee802154_short_addr_hash, ptr noundef @ieee802154_short_addr_equal)
-  %2 = getelementptr inbounds %struct.ieee802154_map_tab_t, ptr @zbee_nwk_map, i32 0, i32 1
-  store ptr %1, ptr %2, align 8
-  %3 = call ptr @g_hash_table_new(ptr noundef @ieee802154_long_addr_hash, ptr noundef @ieee802154_long_addr_equal)
-  store ptr %3, ptr @zbee_nwk_map, align 8
-  %4 = call ptr @g_hash_table_new_full(ptr noundef @g_int_hash, ptr noundef @g_int_equal, ptr noundef @free_keyring_key, ptr noundef @free_keyring_val)
-  store ptr %4, ptr @zbee_table_nwk_keyring, align 8
+  store ptr %1, ptr getelementptr inbounds nuw (%struct.ieee802154_map_tab_t, ptr @zbee_nwk_map, i32 0, i32 1), align 8
+  %2 = call ptr @g_hash_table_new(ptr noundef @ieee802154_long_addr_hash, ptr noundef @ieee802154_long_addr_equal)
+  store ptr %2, ptr @zbee_nwk_map, align 8
+  %3 = call ptr @g_hash_table_new_full(ptr noundef @g_int_hash, ptr noundef @g_int_equal, ptr noundef @free_keyring_key, ptr noundef @free_keyring_val)
+  store ptr %3, ptr @zbee_table_nwk_keyring, align 8
   ret void
 }
 
-declare void @register_cleanup_routine(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @register_cleanup_routine(ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal void @proto_cleanup_zbee_nwk() #0 {
-  %1 = getelementptr inbounds %struct.ieee802154_map_tab_t, ptr @zbee_nwk_map, i32 0, i32 1
-  %2 = load ptr, ptr %1, align 8
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal void @proto_cleanup_zbee_nwk() #1 {
+  %1 = load ptr, ptr getelementptr inbounds nuw (%struct.ieee802154_map_tab_t, ptr @zbee_nwk_map, i32 0, i32 1), align 8
+  call void @g_hash_table_destroy(ptr noundef %1)
+  %2 = load ptr, ptr @zbee_nwk_map, align 8
   call void @g_hash_table_destroy(ptr noundef %2)
-  %3 = load ptr, ptr @zbee_nwk_map, align 8
+  %3 = load ptr, ptr @zbee_table_nwk_keyring, align 8
   call void @g_hash_table_destroy(ptr noundef %3)
-  %4 = load ptr, ptr @zbee_table_nwk_keyring, align 8
-  call void @g_hash_table_destroy(ptr noundef %4)
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #3
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #3
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #3
 
-declare ptr @expert_register_protocol(i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_register_protocol(i32 noundef) #3
 
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #3
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_nwk(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @dissect_zbee_nwk(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -703,8 +712,10 @@ define internal i32 @dissect_zbee_nwk(ptr noundef %0, ptr noundef %1, ptr nounde
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #10
   %11 = load ptr, ptr %5, align 8
-  %12 = call zeroext i8 @tvb_get_guint8(ptr noundef %11, i32 noundef 0)
+  %12 = call zeroext i8 @tvb_get_uint8(ptr noundef %11, i32 noundef 0)
   store i8 %12, ptr %9, align 1
   %13 = load i8, ptr %9, align 1
   %14 = zext i8 %13 to i32
@@ -736,11 +747,13 @@ define internal i32 @dissect_zbee_nwk(ptr noundef %0, ptr noundef %1, ptr nounde
 33:                                               ; preds = %27, %21
   %34 = load ptr, ptr %5, align 8
   %35 = call i32 @tvb_captured_length(ptr noundef %34)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #10
   ret i32 %35
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_beacon(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @dissect_zbee_beacon(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -754,11 +767,16 @@ define internal i32 @dissect_zbee_beacon(ptr noundef %0, ptr noundef %1, ptr nou
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #10
   store i32 0, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #10
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds %struct._packet_info, ptr %14, i32 0, i32 1
+  %15 = getelementptr inbounds nuw %struct._packet_info, ptr %14, i32 0, i32 1
   %16 = load ptr, ptr %15, align 8
-  call void @col_set_str(ptr noundef %16, i32 noundef 34, ptr noundef @.str.227)
+  call void @col_set_str(ptr noundef %16, i32 noundef 35, ptr noundef @.str.227)
   %17 = load ptr, ptr %7, align 8
   %18 = load i32, ptr @proto_zbee_beacon, align 4
   %19 = load ptr, ptr %5, align 8
@@ -780,10 +798,10 @@ define internal i32 @dissect_zbee_beacon(ptr noundef %0, ptr noundef %1, ptr nou
   %32 = load ptr, ptr %5, align 8
   %33 = load i32, ptr %11, align 4
   %34 = load i32, ptr @ett_zbee_nwk_beacon_bitfield, align 4
-  %35 = call ptr @proto_tree_add_bitmask_text(ptr noundef %31, ptr noundef %32, i32 noundef %33, i32 noundef 2, ptr noundef @.str.353, ptr noundef null, i32 noundef %34, ptr noundef @dissect_zbee_beacon.beacon_fields, i32 noundef -2147483648, i32 noundef 10)
+  %35 = call ptr @proto_tree_add_bitmask_text(ptr noundef %31, ptr noundef %32, i32 noundef %33, i32 noundef 2, ptr noundef @.str.367, ptr noundef null, i32 noundef %34, ptr noundef @dissect_zbee_beacon.beacon_fields, i32 noundef -2147483648, i32 noundef 10)
   %36 = load ptr, ptr %5, align 8
   %37 = load i32, ptr %11, align 4
-  %38 = call zeroext i16 @tvb_get_guint16(ptr noundef %36, i32 noundef %37, i32 noundef -2147483648)
+  %38 = call zeroext i16 @tvb_get_uint16(ptr noundef %36, i32 noundef %37, i32 noundef -2147483648)
   %39 = zext i16 %38 to i32
   %40 = and i32 %39, 240
   %41 = ashr i32 %40, 4
@@ -791,21 +809,21 @@ define internal i32 @dissect_zbee_beacon(ptr noundef %0, ptr noundef %1, ptr nou
   store i8 %42, ptr %12, align 1
   %43 = load ptr, ptr %5, align 8
   %44 = load i32, ptr %11, align 4
-  %45 = call zeroext i16 @tvb_get_guint16(ptr noundef %43, i32 noundef %44, i32 noundef -2147483648)
+  %45 = call zeroext i16 @tvb_get_uint16(ptr noundef %43, i32 noundef %44, i32 noundef -2147483648)
   %46 = zext i16 %45 to i32
   %47 = and i32 %46, 15
   store i32 %47, ptr %13, align 4
   %48 = load ptr, ptr %9, align 8
   %49 = load i32, ptr %13, align 4
-  %50 = call ptr @val_to_str_const(i32 noundef %49, ptr noundef @zbee_nwk_stack_profiles, ptr noundef @.str.354)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %48, ptr noundef @.str.343, ptr noundef %50)
+  %50 = call ptr @val_to_str_const(i32 noundef %49, ptr noundef @zbee_nwk_stack_profiles, ptr noundef @.str.368)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %48, ptr noundef @.str.357, ptr noundef %50)
   %51 = load i32, ptr %11, align 4
   %52 = add i32 %51, 2
   store i32 %52, ptr %11, align 4
   %53 = load i8, ptr %12, align 1
   %54 = zext i8 %53 to i32
   %55 = icmp sge i32 %54, 2
-  br i1 %55, label %56, label %108
+  br i1 %55, label %56, label %107
 
 56:                                               ; preds = %4
   %57 = load ptr, ptr %10, align 8
@@ -814,101 +832,104 @@ define internal i32 @dissect_zbee_beacon(ptr noundef %0, ptr noundef %1, ptr nou
   %60 = load i32, ptr %11, align 4
   %61 = call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %58, ptr noundef %59, i32 noundef %60, i32 noundef 8, i32 noundef -2147483648)
   %62 = load ptr, ptr %6, align 8
-  %63 = getelementptr inbounds %struct._packet_info, ptr %62, i32 0, i32 1
+  %63 = getelementptr inbounds nuw %struct._packet_info, ptr %62, i32 0, i32 1
   %64 = load ptr, ptr %63, align 8
   %65 = load ptr, ptr %6, align 8
-  %66 = getelementptr inbounds %struct._packet_info, ptr %65, i32 0, i32 50
+  %66 = getelementptr inbounds nuw %struct._packet_info, ptr %65, i32 0, i32 51
   %67 = load ptr, ptr %66, align 8
   %68 = load ptr, ptr %5, align 8
   %69 = load i32, ptr %11, align 4
-  %70 = call i64 @tvb_get_guint64(ptr noundef %68, i32 noundef %69, i32 noundef -2147483648)
+  %70 = call i64 @tvb_get_uint64(ptr noundef %68, i32 noundef %69, i32 noundef -2147483648)
   %71 = call ptr @eui64_to_display(ptr noundef %67, i64 noundef %70)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %64, i32 noundef 25, ptr noundef @.str.355, ptr noundef %71)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %64, i32 noundef 25, ptr noundef @.str.369, ptr noundef %71)
   %72 = load ptr, ptr %9, align 8
   %73 = load ptr, ptr %6, align 8
-  %74 = getelementptr inbounds %struct._packet_info, ptr %73, i32 0, i32 50
+  %74 = getelementptr inbounds nuw %struct._packet_info, ptr %73, i32 0, i32 51
   %75 = load ptr, ptr %74, align 8
   %76 = load ptr, ptr %5, align 8
   %77 = load i32, ptr %11, align 4
-  %78 = call i64 @tvb_get_guint64(ptr noundef %76, i32 noundef %77, i32 noundef -2147483648)
+  %78 = call i64 @tvb_get_uint64(ptr noundef %76, i32 noundef %77, i32 noundef -2147483648)
   %79 = call ptr @eui64_to_display(ptr noundef %75, i64 noundef %78)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %72, ptr noundef @.str.355, ptr noundef %79)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %72, ptr noundef @.str.369, ptr noundef %79)
   %80 = load i32, ptr %11, align 4
   %81 = add i32 %80, 8
   store i32 %81, ptr %11, align 4
   %82 = load ptr, ptr %5, align 8
   %83 = load i32, ptr %11, align 4
-  %84 = call i32 @tvb_bytes_exist(ptr noundef %82, i32 noundef %83, i32 noundef 3)
-  %85 = icmp ne i32 %84, 0
-  br i1 %85, label %86, label %107
+  %84 = call zeroext i1 @tvb_bytes_exist(ptr noundef %82, i32 noundef %83, i32 noundef 3)
+  br i1 %84, label %85, label %106
 
-86:                                               ; preds = %56
-  %87 = load ptr, ptr %10, align 8
-  %88 = load i32, ptr @hf_zbee_beacon_tx_offset, align 4
-  %89 = load ptr, ptr %5, align 8
-  %90 = load i32, ptr %11, align 4
-  %91 = call ptr @proto_tree_add_item(ptr noundef %87, i32 noundef %88, ptr noundef %89, i32 noundef %90, i32 noundef 3, i32 noundef -2147483648)
-  %92 = load i32, ptr %11, align 4
-  %93 = add i32 %92, 3
-  store i32 %93, ptr %11, align 4
-  %94 = load ptr, ptr %5, align 8
-  %95 = load i32, ptr %11, align 4
-  %96 = call i32 @tvb_captured_length_remaining(ptr noundef %94, i32 noundef %95)
-  %97 = icmp ne i32 %96, 0
-  br i1 %97, label %98, label %106
+85:                                               ; preds = %56
+  %86 = load ptr, ptr %10, align 8
+  %87 = load i32, ptr @hf_zbee_beacon_tx_offset, align 4
+  %88 = load ptr, ptr %5, align 8
+  %89 = load i32, ptr %11, align 4
+  %90 = call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %87, ptr noundef %88, i32 noundef %89, i32 noundef 3, i32 noundef -2147483648)
+  %91 = load i32, ptr %11, align 4
+  %92 = add i32 %91, 3
+  store i32 %92, ptr %11, align 4
+  %93 = load ptr, ptr %5, align 8
+  %94 = load i32, ptr %11, align 4
+  %95 = call i32 @tvb_captured_length_remaining(ptr noundef %93, i32 noundef %94)
+  %96 = icmp ne i32 %95, 0
+  br i1 %96, label %97, label %105
 
-98:                                               ; preds = %86
-  %99 = load ptr, ptr %10, align 8
-  %100 = load i32, ptr @hf_zbee_beacon_update_id, align 4
-  %101 = load ptr, ptr %5, align 8
-  %102 = load i32, ptr %11, align 4
-  %103 = call ptr @proto_tree_add_item(ptr noundef %99, i32 noundef %100, ptr noundef %101, i32 noundef %102, i32 noundef 1, i32 noundef 0)
-  %104 = load i32, ptr %11, align 4
-  %105 = add i32 %104, 1
-  store i32 %105, ptr %11, align 4
+97:                                               ; preds = %85
+  %98 = load ptr, ptr %10, align 8
+  %99 = load i32, ptr @hf_zbee_beacon_update_id, align 4
+  %100 = load ptr, ptr %5, align 8
+  %101 = load i32, ptr %11, align 4
+  %102 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %99, ptr noundef %100, i32 noundef %101, i32 noundef 1, i32 noundef 0)
+  %103 = load i32, ptr %11, align 4
+  %104 = add i32 %103, 1
+  store i32 %104, ptr %11, align 4
+  br label %105
+
+105:                                              ; preds = %97, %85
   br label %106
 
-106:                                              ; preds = %98, %86
-  br label %107
+106:                                              ; preds = %105, %56
+  br label %120
 
-107:                                              ; preds = %106, %56
-  br label %122
+107:                                              ; preds = %4
+  %108 = load ptr, ptr %5, align 8
+  %109 = load i32, ptr %11, align 4
+  %110 = call zeroext i1 @tvb_bytes_exist(ptr noundef %108, i32 noundef %109, i32 noundef 3)
+  br i1 %110, label %111, label %119
 
-108:                                              ; preds = %4
-  %109 = load ptr, ptr %5, align 8
-  %110 = load i32, ptr %11, align 4
-  %111 = call i32 @tvb_bytes_exist(ptr noundef %109, i32 noundef %110, i32 noundef 3)
-  %112 = icmp ne i32 %111, 0
-  br i1 %112, label %113, label %121
-
-113:                                              ; preds = %108
-  %114 = load ptr, ptr %10, align 8
-  %115 = load i32, ptr @hf_zbee_beacon_tx_offset, align 4
-  %116 = load ptr, ptr %5, align 8
+111:                                              ; preds = %107
+  %112 = load ptr, ptr %10, align 8
+  %113 = load i32, ptr @hf_zbee_beacon_tx_offset, align 4
+  %114 = load ptr, ptr %5, align 8
+  %115 = load i32, ptr %11, align 4
+  %116 = call ptr @proto_tree_add_item(ptr noundef %112, i32 noundef %113, ptr noundef %114, i32 noundef %115, i32 noundef 3, i32 noundef -2147483648)
   %117 = load i32, ptr %11, align 4
-  %118 = call ptr @proto_tree_add_item(ptr noundef %114, i32 noundef %115, ptr noundef %116, i32 noundef %117, i32 noundef 3, i32 noundef -2147483648)
-  %119 = load i32, ptr %11, align 4
-  %120 = add i32 %119, 3
-  store i32 %120, ptr %11, align 4
-  br label %121
+  %118 = add i32 %117, 3
+  store i32 %118, ptr %11, align 4
+  br label %119
 
-121:                                              ; preds = %113, %108
-  br label %122
+119:                                              ; preds = %111, %107
+  br label %120
 
-122:                                              ; preds = %121, %107
-  %123 = load ptr, ptr %5, align 8
-  %124 = load ptr, ptr %6, align 8
-  %125 = load ptr, ptr %10, align 8
-  %126 = load i32, ptr %11, align 4
-  %127 = load ptr, ptr %8, align 8
-  %128 = call i32 @dissect_zbee_tlvs(ptr noundef %123, ptr noundef %124, ptr noundef %125, i32 noundef %126, ptr noundef %127, i8 noundef zeroext 0, i32 noundef 0)
-  store i32 %128, ptr %11, align 4
-  %129 = load i32, ptr %11, align 4
-  ret i32 %129
+120:                                              ; preds = %119, %106
+  %121 = load ptr, ptr %5, align 8
+  %122 = load ptr, ptr %6, align 8
+  %123 = load ptr, ptr %10, align 8
+  %124 = load i32, ptr %11, align 4
+  %125 = load ptr, ptr %8, align 8
+  %126 = call i32 @dissect_zbee_tlvs(ptr noundef %121, ptr noundef %122, ptr noundef %123, i32 noundef %124, ptr noundef %125, i8 noundef zeroext 0, i32 noundef 0)
+  store i32 %126, ptr %11, align 4
+  %127 = load i32, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
+  ret i32 %127
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbip_beacon(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @dissect_zbip_beacon(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -920,149 +941,168 @@ define internal i32 @dissect_zbip_beacon(ptr noundef %0, ptr noundef %1, ptr nou
   %13 = alloca i32, align 4
   %14 = alloca i8, align 1
   %15 = alloca ptr, align 8
-  %16 = alloca ptr, align 8
+  %16 = alloca i32, align 4
   %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
-  %18 = load ptr, ptr %9, align 8
-  store ptr %18, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
+  %19 = load ptr, ptr %9, align 8
+  store ptr %19, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #10
   store i32 0, ptr %13, align 4
-  %19 = load ptr, ptr %10, align 8
-  %20 = icmp ne ptr %19, null
-  br i1 %20, label %22, label %21
-
-21:                                               ; preds = %4
-  store i32 0, ptr %5, align 4
-  br label %119
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #10
+  %20 = load ptr, ptr %10, align 8
+  %21 = icmp ne ptr %20, null
+  br i1 %21, label %23, label %22
 
 22:                                               ; preds = %4
-  %23 = load ptr, ptr %7, align 8
-  %24 = getelementptr inbounds %struct._packet_info, ptr %23, i32 0, i32 1
-  %25 = load ptr, ptr %24, align 8
-  call void @col_set_str(ptr noundef %25, i32 noundef 34, ptr noundef @.str.356)
-  %26 = load ptr, ptr %8, align 8
-  %27 = load i32, ptr @proto_zbip_beacon, align 4
-  %28 = load ptr, ptr %6, align 8
-  %29 = call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %27, ptr noundef %28, i32 noundef 0, i32 noundef -1, i32 noundef 0)
-  store ptr %29, ptr %11, align 8
-  %30 = load ptr, ptr %11, align 8
-  %31 = load i32, ptr @ett_zbee_nwk_beacon, align 4
-  %32 = call ptr @proto_item_add_subtree(ptr noundef %30, i32 noundef %31)
-  store ptr %32, ptr %12, align 8
-  %33 = load ptr, ptr %7, align 8
-  %34 = getelementptr inbounds %struct._packet_info, ptr %33, i32 0, i32 1
-  %35 = load ptr, ptr %34, align 8
-  call void @col_clear(ptr noundef %35, i32 noundef 25)
-  %36 = load ptr, ptr %7, align 8
-  %37 = getelementptr inbounds %struct._packet_info, ptr %36, i32 0, i32 1
-  %38 = load ptr, ptr %37, align 8
-  %39 = load ptr, ptr %10, align 8
-  %40 = getelementptr inbounds %struct.ieee802154_packet, ptr %39, i32 0, i32 20
-  %41 = load i16, ptr %40, align 8
-  %42 = zext i16 %41 to i32
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %38, i32 noundef 25, ptr noundef @.str.357, i32 noundef %42)
-  %43 = load ptr, ptr %6, align 8
-  %44 = load i32, ptr %13, align 4
-  %45 = call zeroext i8 @tvb_get_guint8(ptr noundef %43, i32 noundef %44)
-  store i8 %45, ptr %14, align 1
-  %46 = load ptr, ptr %12, align 8
-  %47 = load i32, ptr @hf_zbee_beacon_protocol, align 4
-  %48 = load ptr, ptr %6, align 8
-  %49 = load i32, ptr %13, align 4
-  %50 = load i8, ptr %14, align 1
-  %51 = zext i8 %50 to i32
-  %52 = call ptr @proto_tree_add_uint(ptr noundef %46, i32 noundef %47, ptr noundef %48, i32 noundef %49, i32 noundef 1, i32 noundef %51)
-  %53 = load i32, ptr %13, align 4
-  %54 = add i32 %53, 1
-  store i32 %54, ptr %13, align 4
-  %55 = load ptr, ptr %12, align 8
-  %56 = load i32, ptr @hf_zbip_beacon_allow_join, align 4
-  %57 = load ptr, ptr %6, align 8
-  %58 = load i32, ptr %13, align 4
-  %59 = call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %56, ptr noundef %57, i32 noundef %58, i32 noundef 1, i32 noundef 0)
-  %60 = load ptr, ptr %12, align 8
-  %61 = load i32, ptr @hf_zbip_beacon_router_capacity, align 4
-  %62 = load ptr, ptr %6, align 8
-  %63 = load i32, ptr %13, align 4
-  %64 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %61, ptr noundef %62, i32 noundef %63, i32 noundef 1, i32 noundef 0)
-  %65 = load ptr, ptr %12, align 8
-  %66 = load i32, ptr @hf_zbip_beacon_host_capacity, align 4
-  %67 = load ptr, ptr %6, align 8
-  %68 = load i32, ptr %13, align 4
-  %69 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %66, ptr noundef %67, i32 noundef %68, i32 noundef 1, i32 noundef 0)
-  %70 = load ptr, ptr %12, align 8
-  %71 = load i32, ptr @hf_zbip_beacon_unsecure, align 4
-  %72 = load ptr, ptr %6, align 8
-  %73 = load i32, ptr %13, align 4
-  %74 = call ptr @proto_tree_add_item(ptr noundef %70, i32 noundef %71, ptr noundef %72, i32 noundef %73, i32 noundef 1, i32 noundef 0)
-  %75 = load i32, ptr %13, align 4
-  %76 = add i32 %75, 1
-  store i32 %76, ptr %13, align 4
-  %77 = load ptr, ptr %12, align 8
-  %78 = load i32, ptr @hf_zbip_beacon_network_id, align 4
-  %79 = load ptr, ptr %6, align 8
-  %80 = load i32, ptr %13, align 4
-  %81 = call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %78, ptr noundef %79, i32 noundef %80, i32 noundef 16, i32 noundef 0)
-  %82 = load ptr, ptr %7, align 8
-  %83 = getelementptr inbounds %struct._packet_info, ptr %82, i32 0, i32 50
-  %84 = load ptr, ptr %83, align 8
-  %85 = load ptr, ptr %6, align 8
-  %86 = load i32, ptr %13, align 4
-  %87 = call ptr @tvb_get_string_enc(ptr noundef %84, ptr noundef %85, i32 noundef %86, i32 noundef 16, i32 noundef 0)
-  store ptr %87, ptr %15, align 8
-  %88 = load ptr, ptr %7, align 8
-  %89 = getelementptr inbounds %struct._packet_info, ptr %88, i32 0, i32 1
-  %90 = load ptr, ptr %89, align 8
-  %91 = load ptr, ptr %15, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %90, i32 noundef 25, ptr noundef @.str.358, ptr noundef %91)
-  %92 = load i32, ptr %13, align 4
-  %93 = add i32 %92, 16
-  store i32 %93, ptr %13, align 4
-  %94 = load ptr, ptr %6, align 8
-  %95 = load ptr, ptr %7, align 8
-  %96 = load ptr, ptr %12, align 8
-  %97 = load i32, ptr %13, align 4
-  %98 = load ptr, ptr %9, align 8
-  %99 = call i32 @dissect_zbee_tlvs(ptr noundef %94, ptr noundef %95, ptr noundef %96, i32 noundef %97, ptr noundef %98, i8 noundef zeroext 0, i32 noundef 0)
-  store i32 %99, ptr %13, align 4
-  %100 = load i32, ptr %13, align 4
-  %101 = load ptr, ptr %6, align 8
-  %102 = call i32 @tvb_captured_length(ptr noundef %101)
-  %103 = icmp ult i32 %100, %102
-  br i1 %103, label %104, label %116
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %16, align 4
+  br label %120
 
-104:                                              ; preds = %22
-  %105 = load ptr, ptr %6, align 8
-  %106 = load i32, ptr %13, align 4
-  %107 = call ptr @tvb_new_subset_remaining(ptr noundef %105, i32 noundef %106)
-  store ptr %107, ptr %16, align 8
-  %108 = load ptr, ptr %8, align 8
-  %109 = call ptr @proto_tree_get_root(ptr noundef %108)
-  store ptr %109, ptr %17, align 8
-  %110 = load ptr, ptr %11, align 8
-  %111 = load i32, ptr %13, align 4
-  call void @proto_item_set_len(ptr noundef %110, i32 noundef %111)
-  %112 = load ptr, ptr %16, align 8
-  %113 = load ptr, ptr %7, align 8
-  %114 = load ptr, ptr %17, align 8
-  %115 = call i32 @call_data_dissector(ptr noundef %112, ptr noundef %113, ptr noundef %114)
-  br label %116
+23:                                               ; preds = %4
+  %24 = load ptr, ptr %7, align 8
+  %25 = getelementptr inbounds nuw %struct._packet_info, ptr %24, i32 0, i32 1
+  %26 = load ptr, ptr %25, align 8
+  call void @col_set_str(ptr noundef %26, i32 noundef 35, ptr noundef @.str.370)
+  %27 = load ptr, ptr %8, align 8
+  %28 = load i32, ptr @proto_zbip_beacon, align 4
+  %29 = load ptr, ptr %6, align 8
+  %30 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %28, ptr noundef %29, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  store ptr %30, ptr %11, align 8
+  %31 = load ptr, ptr %11, align 8
+  %32 = load i32, ptr @ett_zbee_nwk_beacon, align 4
+  %33 = call ptr @proto_item_add_subtree(ptr noundef %31, i32 noundef %32)
+  store ptr %33, ptr %12, align 8
+  %34 = load ptr, ptr %7, align 8
+  %35 = getelementptr inbounds nuw %struct._packet_info, ptr %34, i32 0, i32 1
+  %36 = load ptr, ptr %35, align 8
+  call void @col_clear(ptr noundef %36, i32 noundef 25)
+  %37 = load ptr, ptr %7, align 8
+  %38 = getelementptr inbounds nuw %struct._packet_info, ptr %37, i32 0, i32 1
+  %39 = load ptr, ptr %38, align 8
+  %40 = load ptr, ptr %10, align 8
+  %41 = getelementptr inbounds nuw %struct.ieee802154_packet, ptr %40, i32 0, i32 20
+  %42 = load i16, ptr %41, align 8
+  %43 = zext i16 %42 to i32
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %39, i32 noundef 25, ptr noundef @.str.371, i32 noundef %43)
+  %44 = load ptr, ptr %6, align 8
+  %45 = load i32, ptr %13, align 4
+  %46 = call zeroext i8 @tvb_get_uint8(ptr noundef %44, i32 noundef %45)
+  store i8 %46, ptr %14, align 1
+  %47 = load ptr, ptr %12, align 8
+  %48 = load i32, ptr @hf_zbee_beacon_protocol, align 4
+  %49 = load ptr, ptr %6, align 8
+  %50 = load i32, ptr %13, align 4
+  %51 = load i8, ptr %14, align 1
+  %52 = zext i8 %51 to i32
+  %53 = call ptr @proto_tree_add_uint(ptr noundef %47, i32 noundef %48, ptr noundef %49, i32 noundef %50, i32 noundef 1, i32 noundef %52)
+  %54 = load i32, ptr %13, align 4
+  %55 = add i32 %54, 1
+  store i32 %55, ptr %13, align 4
+  %56 = load ptr, ptr %12, align 8
+  %57 = load i32, ptr @hf_zbip_beacon_allow_join, align 4
+  %58 = load ptr, ptr %6, align 8
+  %59 = load i32, ptr %13, align 4
+  %60 = call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %57, ptr noundef %58, i32 noundef %59, i32 noundef 1, i32 noundef 0)
+  %61 = load ptr, ptr %12, align 8
+  %62 = load i32, ptr @hf_zbip_beacon_router_capacity, align 4
+  %63 = load ptr, ptr %6, align 8
+  %64 = load i32, ptr %13, align 4
+  %65 = call ptr @proto_tree_add_item(ptr noundef %61, i32 noundef %62, ptr noundef %63, i32 noundef %64, i32 noundef 1, i32 noundef 0)
+  %66 = load ptr, ptr %12, align 8
+  %67 = load i32, ptr @hf_zbip_beacon_host_capacity, align 4
+  %68 = load ptr, ptr %6, align 8
+  %69 = load i32, ptr %13, align 4
+  %70 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %67, ptr noundef %68, i32 noundef %69, i32 noundef 1, i32 noundef 0)
+  %71 = load ptr, ptr %12, align 8
+  %72 = load i32, ptr @hf_zbip_beacon_unsecure, align 4
+  %73 = load ptr, ptr %6, align 8
+  %74 = load i32, ptr %13, align 4
+  %75 = call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %72, ptr noundef %73, i32 noundef %74, i32 noundef 1, i32 noundef 0)
+  %76 = load i32, ptr %13, align 4
+  %77 = add i32 %76, 1
+  store i32 %77, ptr %13, align 4
+  %78 = load ptr, ptr %12, align 8
+  %79 = load i32, ptr @hf_zbip_beacon_network_id, align 4
+  %80 = load ptr, ptr %6, align 8
+  %81 = load i32, ptr %13, align 4
+  %82 = call ptr @proto_tree_add_item(ptr noundef %78, i32 noundef %79, ptr noundef %80, i32 noundef %81, i32 noundef 16, i32 noundef 0)
+  %83 = load ptr, ptr %7, align 8
+  %84 = getelementptr inbounds nuw %struct._packet_info, ptr %83, i32 0, i32 51
+  %85 = load ptr, ptr %84, align 8
+  %86 = load ptr, ptr %6, align 8
+  %87 = load i32, ptr %13, align 4
+  %88 = call ptr @tvb_get_string_enc(ptr noundef %85, ptr noundef %86, i32 noundef %87, i32 noundef 16, i32 noundef 0)
+  store ptr %88, ptr %15, align 8
+  %89 = load ptr, ptr %7, align 8
+  %90 = getelementptr inbounds nuw %struct._packet_info, ptr %89, i32 0, i32 1
+  %91 = load ptr, ptr %90, align 8
+  %92 = load ptr, ptr %15, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %91, i32 noundef 25, ptr noundef @.str.372, ptr noundef %92)
+  %93 = load i32, ptr %13, align 4
+  %94 = add i32 %93, 16
+  store i32 %94, ptr %13, align 4
+  %95 = load ptr, ptr %6, align 8
+  %96 = load ptr, ptr %7, align 8
+  %97 = load ptr, ptr %12, align 8
+  %98 = load i32, ptr %13, align 4
+  %99 = load ptr, ptr %9, align 8
+  %100 = call i32 @dissect_zbee_tlvs(ptr noundef %95, ptr noundef %96, ptr noundef %97, i32 noundef %98, ptr noundef %99, i8 noundef zeroext 0, i32 noundef 0)
+  store i32 %100, ptr %13, align 4
+  %101 = load i32, ptr %13, align 4
+  %102 = load ptr, ptr %6, align 8
+  %103 = call i32 @tvb_captured_length(ptr noundef %102)
+  %104 = icmp ult i32 %101, %103
+  br i1 %104, label %105, label %117
 
-116:                                              ; preds = %104, %22
-  %117 = load ptr, ptr %6, align 8
-  %118 = call i32 @tvb_captured_length(ptr noundef %117)
-  store i32 %118, ptr %5, align 4
-  br label %119
+105:                                              ; preds = %23
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #10
+  %106 = load ptr, ptr %6, align 8
+  %107 = load i32, ptr %13, align 4
+  %108 = call ptr @tvb_new_subset_remaining(ptr noundef %106, i32 noundef %107)
+  store ptr %108, ptr %17, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #10
+  %109 = load ptr, ptr %8, align 8
+  %110 = call ptr @proto_tree_get_root(ptr noundef %109)
+  store ptr %110, ptr %18, align 8
+  %111 = load ptr, ptr %11, align 8
+  %112 = load i32, ptr %13, align 4
+  call void @proto_item_set_len(ptr noundef %111, i32 noundef %112)
+  %113 = load ptr, ptr %17, align 8
+  %114 = load ptr, ptr %7, align 8
+  %115 = load ptr, ptr %18, align 8
+  %116 = call i32 @call_data_dissector(ptr noundef %113, ptr noundef %114, ptr noundef %115)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #10
+  br label %117
 
-119:                                              ; preds = %116, %21
-  %120 = load i32, ptr %5, align 4
-  ret i32 %120
+117:                                              ; preds = %105, %23
+  %118 = load ptr, ptr %6, align 8
+  %119 = call i32 @tvb_captured_length(ptr noundef %118)
+  store i32 %119, ptr %5, align 4
+  store i32 1, ptr %16, align 4
+  br label %120
+
+120:                                              ; preds = %117, %22
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
+  %121 = load i32, ptr %5, align 4
+  ret i32 %121
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_ie(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @dissect_zbee_ie(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -1078,6 +1118,13 @@ define internal i32 @dissect_zbee_ie(ptr noundef %0, ptr noundef %1, ptr noundef
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
+  call void @llvm.lifetime.start.p0(i64 2, ptr %11) #10
+  call void @llvm.lifetime.start.p0(i64 2, ptr %12) #10
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #10
   store i32 0, ptr %15, align 4
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr %16, align 4
@@ -1112,10 +1159,10 @@ define internal i32 @dissect_zbee_ie(ptr noundef %0, ptr noundef %1, ptr noundef
   %39 = load ptr, ptr %9, align 8
   %40 = load i16, ptr %12, align 2
   %41 = zext i16 %40 to i32
-  %42 = call ptr @val_to_str_const(i32 noundef %41, ptr noundef @ieee802154_zigbee_ie_names, ptr noundef @.str.322)
+  %42 = call ptr @val_to_str_const(i32 noundef %41, ptr noundef @ieee802154_zigbee_ie_names, ptr noundef @.str.336)
   %43 = load i16, ptr %13, align 2
   %44 = zext i16 %43 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %39, ptr noundef @.str.359, ptr noundef %42, i32 noundef %44)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %39, ptr noundef @.str.373, ptr noundef %42, i32 noundef %44)
   %45 = load ptr, ptr %9, align 8
   %46 = load ptr, ptr %5, align 8
   %47 = load i32, ptr %15, align 4
@@ -1201,94 +1248,112 @@ define internal i32 @dissect_zbee_ie(ptr noundef %0, ptr noundef %1, ptr noundef
   %99 = load i32, ptr %15, align 4
   %100 = load i32, ptr %14, align 4
   %101 = icmp ult i32 %99, %100
-  br i1 %101, label %18, label %102, !llvm.loop !6
+  br i1 %101, label %18, label %102, !llvm.loop !8
 
 102:                                              ; preds = %98
   %103 = load ptr, ptr %5, align 8
   %104 = call i32 @tvb_captured_length(ptr noundef %103)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #10
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 2, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 2, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
   ret i32 %104
 }
 
-declare i32 @address_type_dissector_register(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @address_type_dissector_register(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i32 @zbee_nwk_address_to_str(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @zbee_nwk_address_to_str(ptr noundef %0, ptr noundef %1, i32 noundef %2) #1 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i16, align 2
+  %9 = alloca i32, align 4
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
-  %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds %struct._address, ptr %9, i32 0, i32 2
-  %11 = load ptr, ptr %10, align 8
-  %12 = call zeroext i16 @pletoh16(ptr noundef %11)
-  store i16 %12, ptr %8, align 2
-  %13 = load i16, ptr %8, align 2
-  %14 = zext i16 %13 to i32
-  %15 = icmp eq i32 %14, 65535
-  br i1 %15, label %24, label %16
+  call void @llvm.lifetime.start.p0(i64 2, ptr %8) #10
+  %10 = load ptr, ptr %5, align 8
+  %11 = getelementptr inbounds nuw %struct._address, ptr %10, i32 0, i32 2
+  %12 = load ptr, ptr %11, align 8
+  %13 = call zeroext i16 @pletoh16(ptr noundef %12)
+  store i16 %13, ptr %8, align 2
+  %14 = load i16, ptr %8, align 2
+  %15 = zext i16 %14 to i32
+  %16 = icmp eq i32 %15, 65535
+  br i1 %16, label %25, label %17
 
-16:                                               ; preds = %3
-  %17 = load i16, ptr %8, align 2
-  %18 = zext i16 %17 to i32
-  %19 = icmp eq i32 %18, 65533
-  br i1 %19, label %24, label %20
+17:                                               ; preds = %3
+  %18 = load i16, ptr %8, align 2
+  %19 = zext i16 %18 to i32
+  %20 = icmp eq i32 %19, 65533
+  br i1 %20, label %25, label %21
 
-20:                                               ; preds = %16
-  %21 = load i16, ptr %8, align 2
-  %22 = zext i16 %21 to i32
-  %23 = icmp eq i32 %22, 65532
-  br i1 %23, label %24, label %31
+21:                                               ; preds = %17
+  %22 = load i16, ptr %8, align 2
+  %23 = zext i16 %22 to i32
+  %24 = icmp eq i32 %23, 65532
+  br i1 %24, label %25, label %32
 
-24:                                               ; preds = %20, %16, %3
-  %25 = load ptr, ptr %6, align 8
-  %26 = load i32, ptr %7, align 4
-  %27 = sext i32 %26 to i64
-  %28 = call i64 @g_strlcpy(ptr noundef %25, ptr noundef @.str.364, i64 noundef %27)
-  %29 = trunc i64 %28 to i32
-  %30 = add i32 %29, 1
-  store i32 %30, ptr %4, align 4
-  br label %39
+25:                                               ; preds = %21, %17, %3
+  %26 = load ptr, ptr %6, align 8
+  %27 = load i32, ptr %7, align 4
+  %28 = sext i32 %27 to i64
+  %29 = call i64 @g_strlcpy(ptr noundef %26, ptr noundef @.str.378, i64 noundef %28)
+  %30 = trunc i64 %29 to i32
+  %31 = add i32 %30, 1
+  store i32 %31, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %42
 
-31:                                               ; preds = %20
-  %32 = load ptr, ptr %6, align 8
-  %33 = load i32, ptr %7, align 4
-  %34 = sext i32 %33 to i64
-  %35 = load i16, ptr %8, align 2
-  %36 = zext i16 %35 to i32
-  %37 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %32, i64 noundef %34, ptr noundef @.str.365, i32 noundef %36) #5
-  %38 = add i32 %37, 1
-  store i32 %38, ptr %4, align 4
-  br label %39
+32:                                               ; preds = %21
+  %33 = load ptr, ptr %6, align 8
+  %34 = load i32, ptr %7, align 4
+  %35 = sext i32 %34 to i64
+  %36 = load ptr, ptr %6, align 8
+  %37 = call i64 @llvm.objectsize.i64.p0(ptr %36, i1 false, i1 true, i1 true)
+  %38 = load i16, ptr %8, align 2
+  %39 = zext i16 %38 to i32
+  %40 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %33, i64 noundef %35, i32 noundef 2, i64 noundef %37, ptr noundef @.str.379, i32 noundef %39)
+  %41 = add i32 %40, 1
+  store i32 %41, ptr %4, align 4
+  store i32 1, ptr %9, align 4
+  br label %42
 
-39:                                               ; preds = %31, %24
-  %40 = load i32, ptr %4, align 4
-  ret i32 %40
+42:                                               ; preds = %32, %25
+  call void @llvm.lifetime.end.p0(i64 2, ptr %8) #10
+  %43 = load i32, ptr %4, align 4
+  ret i32 %43
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
 define internal i32 @zbee_nwk_address_str_len(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   ret i32 10
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
 define internal i32 @zbee_nwk_address_len() #0 {
   ret i32 2
 }
 
-declare void @zbee_security_register(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @zbee_security_register(ptr noundef, i32 noundef) #3
 
-declare i32 @register_tap(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @register_tap(ptr noundef) #3
 
-declare void @register_conversation_table(i32 noundef, i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @register_conversation_table(i32 noundef, i1 noundef zeroext, ptr noundef, ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i32 @zbee_nwk_conversation_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @zbee_nwk_conversation_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -1300,32 +1365,34 @@ define internal i32 @zbee_nwk_conversation_packet(ptr noundef %0, ptr noundef %1
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   store i32 %4, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #10
   %12 = load ptr, ptr %6, align 8
   store ptr %12, ptr %11, align 8
   %13 = load i32, ptr %10, align 4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._conversation_hash_t, ptr %14, i32 0, i32 3
+  %15 = getelementptr inbounds nuw %struct._conversation_hash_t, ptr %14, i32 0, i32 3
   store i32 %13, ptr %15, align 8
   %16 = load ptr, ptr %11, align 8
   %17 = load ptr, ptr %7, align 8
-  %18 = getelementptr inbounds %struct._packet_info, ptr %17, i32 0, i32 14
+  %18 = getelementptr inbounds nuw %struct._packet_info, ptr %17, i32 0, i32 14
   %19 = load ptr, ptr %7, align 8
-  %20 = getelementptr inbounds %struct._packet_info, ptr %19, i32 0, i32 15
+  %20 = getelementptr inbounds nuw %struct._packet_info, ptr %19, i32 0, i32 15
   %21 = load ptr, ptr %7, align 8
-  %22 = getelementptr inbounds %struct._packet_info, ptr %21, i32 0, i32 8
+  %22 = getelementptr inbounds nuw %struct._packet_info, ptr %21, i32 0, i32 8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds %struct._frame_data, ptr %23, i32 0, i32 1
-  %25 = load i32, ptr %24, align 4
+  %24 = getelementptr inbounds nuw %struct._frame_data, ptr %23, i32 0, i32 2
+  %25 = load i32, ptr %24, align 8
   %26 = load ptr, ptr %7, align 8
-  %27 = getelementptr inbounds %struct._packet_info, ptr %26, i32 0, i32 5
+  %27 = getelementptr inbounds nuw %struct._packet_info, ptr %26, i32 0, i32 5
   %28 = load ptr, ptr %7, align 8
-  %29 = getelementptr inbounds %struct._packet_info, ptr %28, i32 0, i32 4
+  %29 = getelementptr inbounds nuw %struct._packet_info, ptr %28, i32 0, i32 4
   call void @add_conversation_table_data(ptr noundef %16, ptr noundef %18, ptr noundef %20, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef %25, ptr noundef %27, ptr noundef %29, ptr noundef @zbee_nwk_ct_dissector_info, i32 noundef 0)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
   ret i32 1
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @zbee_nwk_endpoint_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @zbee_nwk_endpoint_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -1337,72 +1404,78 @@ define internal i32 @zbee_nwk_endpoint_packet(ptr noundef %0, ptr noundef %1, pt
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   store i32 %4, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #10
   %12 = load ptr, ptr %6, align 8
   store ptr %12, ptr %11, align 8
   %13 = load i32, ptr %10, align 4
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds %struct._conversation_hash_t, ptr %14, i32 0, i32 3
+  %15 = getelementptr inbounds nuw %struct._conversation_hash_t, ptr %14, i32 0, i32 3
   store i32 %13, ptr %15, align 8
   %16 = load ptr, ptr %11, align 8
   %17 = load ptr, ptr %7, align 8
-  %18 = getelementptr inbounds %struct._packet_info, ptr %17, i32 0, i32 14
+  %18 = getelementptr inbounds nuw %struct._packet_info, ptr %17, i32 0, i32 14
   %19 = load ptr, ptr %7, align 8
-  %20 = getelementptr inbounds %struct._packet_info, ptr %19, i32 0, i32 8
+  %20 = getelementptr inbounds nuw %struct._packet_info, ptr %19, i32 0, i32 8
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds %struct._frame_data, ptr %21, i32 0, i32 1
-  %23 = load i32, ptr %22, align 4
-  call void @add_endpoint_table_data(ptr noundef %16, ptr noundef %18, i32 noundef 0, i32 noundef 1, i32 noundef 1, i32 noundef %23, ptr noundef @zbee_nwk_endpoint_dissector_info, i32 noundef 0)
+  %22 = getelementptr inbounds nuw %struct._frame_data, ptr %21, i32 0, i32 2
+  %23 = load i32, ptr %22, align 8
+  call void @add_endpoint_table_data(ptr noundef %16, ptr noundef %18, i32 noundef 0, i1 noundef zeroext true, i32 noundef 1, i32 noundef %23, ptr noundef @zbee_nwk_endpoint_dissector_info, i32 noundef 0)
   %24 = load ptr, ptr %11, align 8
   %25 = load ptr, ptr %7, align 8
-  %26 = getelementptr inbounds %struct._packet_info, ptr %25, i32 0, i32 15
+  %26 = getelementptr inbounds nuw %struct._packet_info, ptr %25, i32 0, i32 15
   %27 = load ptr, ptr %7, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 8
+  %28 = getelementptr inbounds nuw %struct._packet_info, ptr %27, i32 0, i32 8
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds %struct._frame_data, ptr %29, i32 0, i32 1
-  %31 = load i32, ptr %30, align 4
-  call void @add_endpoint_table_data(ptr noundef %24, ptr noundef %26, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef %31, ptr noundef @zbee_nwk_endpoint_dissector_info, i32 noundef 0)
+  %30 = getelementptr inbounds nuw %struct._frame_data, ptr %29, i32 0, i32 2
+  %31 = load i32, ptr %30, align 8
+  call void @add_endpoint_table_data(ptr noundef %24, ptr noundef %26, i32 noundef 0, i1 noundef zeroext false, i32 noundef 1, i32 noundef %31, ptr noundef @zbee_nwk_endpoint_dissector_info, i32 noundef 0)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
   ret i32 1
 }
 
-declare void @register_conversation_filter(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @register_conversation_filter(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i32 @zbee_nwk_filter_valid(ptr noundef %0, ptr noundef %1) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @zbee_nwk_filter_valid(ptr noundef %0, ptr noundef %1) #1 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct._packet_info, ptr %5, i32 0, i32 38
+  %6 = getelementptr inbounds nuw %struct._packet_info, ptr %5, i32 0, i32 39
   %7 = load ptr, ptr %6, align 8
-  %8 = call i32 @proto_is_frame_protocol(ptr noundef %7, ptr noundef @.str.228)
-  ret i32 %8
+  %8 = call zeroext i1 @proto_is_frame_protocol(ptr noundef %7, ptr noundef @.str.228)
+  ret i1 %8
 }
 
-; Function Attrs: nounwind uwtable
-define internal ptr @zbee_nwk_build_filter(ptr noundef %0, ptr noundef %1) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal ptr @zbee_nwk_build_filter(ptr noundef %0, ptr noundef %1) #1 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct._packet_info, ptr %5, i32 0, i32 50
+  %6 = getelementptr inbounds nuw %struct._packet_info, ptr %5, i32 0, i32 51
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct._packet_info, ptr %8, i32 0, i32 14
+  %9 = getelementptr inbounds nuw %struct._packet_info, ptr %8, i32 0, i32 14
   %10 = call ptr @address_to_str(ptr noundef %7, ptr noundef %9)
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds %struct._packet_info, ptr %11, i32 0, i32 50
+  %12 = getelementptr inbounds nuw %struct._packet_info, ptr %11, i32 0, i32 51
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr inbounds %struct._packet_info, ptr %14, i32 0, i32 15
+  %15 = getelementptr inbounds nuw %struct._packet_info, ptr %14, i32 0, i32 15
   %16 = call ptr @address_to_str(ptr noundef %13, ptr noundef %15)
-  %17 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.367, ptr noundef %10, ptr noundef %16)
+  %17 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef @.str.381, ptr noundef %10, ptr noundef %16)
   ret ptr %17
 }
 
-; Function Attrs: nounwind uwtable
-define hidden void @proto_reg_handoff_zbee_nwk() #0 {
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define hidden void @proto_reg_handoff_zbee_nwk() #1 {
   %1 = load i32, ptr @proto_zbee_nwk, align 4
   %2 = call ptr @find_dissector_add_dependency(ptr noundef @.str.237, i32 noundef %1)
   store ptr %2, ptr @aps_handle, align 8
@@ -1420,153 +1493,173 @@ define hidden void @proto_reg_handoff_zbee_nwk() #0 {
   ret void
 }
 
-declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) #3
 
-declare void @dissector_add_for_decode_as(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_add_for_decode_as(ptr noundef, ptr noundef) #3
 
-declare ptr @find_dissector(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @find_dissector(ptr noundef) #3
 
-declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_beacon_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = alloca i32, align 4
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @dissect_zbee_beacon_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
+  %5 = alloca i1, align 1
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
-  %11 = load ptr, ptr %9, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = load ptr, ptr %10, align 8
-  %13 = icmp ne ptr %12, null
-  br i1 %13, label %15, label %14
-
-14:                                               ; preds = %4
-  store i32 0, ptr %5, align 4
-  br label %38
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
+  %12 = load ptr, ptr %9, align 8
+  store ptr %12, ptr %10, align 8
+  %13 = load ptr, ptr %10, align 8
+  %14 = icmp ne ptr %13, null
+  br i1 %14, label %16, label %15
 
 15:                                               ; preds = %4
-  %16 = load ptr, ptr %10, align 8
-  %17 = getelementptr inbounds %struct.ieee802154_packet, ptr %16, i32 0, i32 3
-  %18 = load i32, ptr %17, align 4
-  %19 = icmp ne i32 %18, 2
-  br i1 %19, label %20, label %21
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %11, align 4
+  br label %39
 
-20:                                               ; preds = %15
-  store i32 0, ptr %5, align 4
-  br label %38
+16:                                               ; preds = %4
+  %17 = load ptr, ptr %10, align 8
+  %18 = getelementptr inbounds nuw %struct.ieee802154_packet, ptr %17, i32 0, i32 3
+  %19 = load i32, ptr %18, align 4
+  %20 = icmp ne i32 %19, 2
+  br i1 %20, label %21, label %22
 
-21:                                               ; preds = %15
-  %22 = load ptr, ptr %6, align 8
-  %23 = call i32 @tvb_captured_length(ptr noundef %22)
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %26
+21:                                               ; preds = %16
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %11, align 4
+  br label %39
 
-25:                                               ; preds = %21
-  store i32 0, ptr %5, align 4
-  br label %38
+22:                                               ; preds = %16
+  %23 = load ptr, ptr %6, align 8
+  %24 = call i32 @tvb_captured_length(ptr noundef %23)
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %26, label %27
 
-26:                                               ; preds = %21
-  %27 = load ptr, ptr %6, align 8
-  %28 = call zeroext i8 @tvb_get_guint8(ptr noundef %27, i32 noundef 0)
-  %29 = zext i8 %28 to i32
-  %30 = icmp ne i32 %29, 0
-  br i1 %30, label %31, label %32
+26:                                               ; preds = %22
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %11, align 4
+  br label %39
 
-31:                                               ; preds = %26
-  store i32 0, ptr %5, align 4
-  br label %38
+27:                                               ; preds = %22
+  %28 = load ptr, ptr %6, align 8
+  %29 = call zeroext i8 @tvb_get_uint8(ptr noundef %28, i32 noundef 0)
+  %30 = zext i8 %29 to i32
+  %31 = icmp ne i32 %30, 0
+  br i1 %31, label %32, label %33
 
-32:                                               ; preds = %26
-  %33 = load ptr, ptr %6, align 8
-  %34 = load ptr, ptr %7, align 8
-  %35 = load ptr, ptr %8, align 8
-  %36 = load ptr, ptr %10, align 8
-  %37 = call i32 @dissect_zbee_beacon(ptr noundef %33, ptr noundef %34, ptr noundef %35, ptr noundef %36)
-  store i32 1, ptr %5, align 4
-  br label %38
+32:                                               ; preds = %27
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %11, align 4
+  br label %39
 
-38:                                               ; preds = %32, %31, %25, %20, %14
-  %39 = load i32, ptr %5, align 4
-  ret i32 %39
+33:                                               ; preds = %27
+  %34 = load ptr, ptr %6, align 8
+  %35 = load ptr, ptr %7, align 8
+  %36 = load ptr, ptr %8, align 8
+  %37 = load ptr, ptr %10, align 8
+  %38 = call i32 @dissect_zbee_beacon(ptr noundef %34, ptr noundef %35, ptr noundef %36, ptr noundef %37)
+  store i1 true, ptr %5, align 1
+  store i32 1, ptr %11, align 4
+  br label %39
+
+39:                                               ; preds = %33, %32, %26, %21, %15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
+  %40 = load i1, ptr %5, align 1
+  ret i1 %40
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbip_beacon_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = alloca i32, align 4
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @dissect_zbip_beacon_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
+  %5 = alloca i1, align 1
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
-  %11 = load ptr, ptr %9, align 8
-  store ptr %11, ptr %10, align 8
-  %12 = load ptr, ptr %10, align 8
-  %13 = icmp ne ptr %12, null
-  br i1 %13, label %15, label %14
-
-14:                                               ; preds = %4
-  store i32 0, ptr %5, align 4
-  br label %38
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
+  %12 = load ptr, ptr %9, align 8
+  store ptr %12, ptr %10, align 8
+  %13 = load ptr, ptr %10, align 8
+  %14 = icmp ne ptr %13, null
+  br i1 %14, label %16, label %15
 
 15:                                               ; preds = %4
-  %16 = load ptr, ptr %10, align 8
-  %17 = getelementptr inbounds %struct.ieee802154_packet, ptr %16, i32 0, i32 3
-  %18 = load i32, ptr %17, align 4
-  %19 = icmp ne i32 %18, 2
-  br i1 %19, label %20, label %21
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %11, align 4
+  br label %39
 
-20:                                               ; preds = %15
-  store i32 0, ptr %5, align 4
-  br label %38
+16:                                               ; preds = %4
+  %17 = load ptr, ptr %10, align 8
+  %18 = getelementptr inbounds nuw %struct.ieee802154_packet, ptr %17, i32 0, i32 3
+  %19 = load i32, ptr %18, align 4
+  %20 = icmp ne i32 %19, 2
+  br i1 %20, label %21, label %22
 
-21:                                               ; preds = %15
-  %22 = load ptr, ptr %6, align 8
-  %23 = call i32 @tvb_captured_length(ptr noundef %22)
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %25, label %26
+21:                                               ; preds = %16
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %11, align 4
+  br label %39
 
-25:                                               ; preds = %21
-  store i32 0, ptr %5, align 4
-  br label %38
+22:                                               ; preds = %16
+  %23 = load ptr, ptr %6, align 8
+  %24 = call i32 @tvb_captured_length(ptr noundef %23)
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %26, label %27
 
-26:                                               ; preds = %21
-  %27 = load ptr, ptr %6, align 8
-  %28 = call zeroext i8 @tvb_get_guint8(ptr noundef %27, i32 noundef 0)
-  %29 = zext i8 %28 to i32
-  %30 = icmp ne i32 %29, 2
-  br i1 %30, label %31, label %32
+26:                                               ; preds = %22
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %11, align 4
+  br label %39
 
-31:                                               ; preds = %26
-  store i32 0, ptr %5, align 4
-  br label %38
+27:                                               ; preds = %22
+  %28 = load ptr, ptr %6, align 8
+  %29 = call zeroext i8 @tvb_get_uint8(ptr noundef %28, i32 noundef 0)
+  %30 = zext i8 %29 to i32
+  %31 = icmp ne i32 %30, 2
+  br i1 %31, label %32, label %33
 
-32:                                               ; preds = %26
-  %33 = load ptr, ptr %6, align 8
-  %34 = load ptr, ptr %7, align 8
-  %35 = load ptr, ptr %8, align 8
-  %36 = load ptr, ptr %10, align 8
-  %37 = call i32 @dissect_zbip_beacon(ptr noundef %33, ptr noundef %34, ptr noundef %35, ptr noundef %36)
-  store i32 1, ptr %5, align 4
-  br label %38
+32:                                               ; preds = %27
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %11, align 4
+  br label %39
 
-38:                                               ; preds = %32, %31, %25, %20, %14
-  %39 = load i32, ptr %5, align 4
-  ret i32 %39
+33:                                               ; preds = %27
+  %34 = load ptr, ptr %6, align 8
+  %35 = load ptr, ptr %7, align 8
+  %36 = load ptr, ptr %8, align 8
+  %37 = load ptr, ptr %10, align 8
+  %38 = call i32 @dissect_zbip_beacon(ptr noundef %34, ptr noundef %35, ptr noundef %36, ptr noundef %37)
+  store i1 true, ptr %5, align 1
+  store i32 1, ptr %11, align 4
+  br label %39
+
+39:                                               ; preds = %33, %32, %26, %21, %15
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
+  %40 = load i1, ptr %5, align 1
+  ret i1 %40
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_nwk_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = alloca i32, align 4
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @dissect_zbee_nwk_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
+  %5 = alloca i1, align 1
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -1575,119 +1668,137 @@ define internal i32 @dissect_zbee_nwk_heur(ptr noundef %0, ptr noundef %1, ptr n
   %11 = alloca i16, align 2
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
-  %14 = load ptr, ptr %9, align 8
-  store ptr %14, ptr %10, align 8
-  %15 = load ptr, ptr %10, align 8
-  %16 = icmp eq ptr %15, null
-  br i1 %16, label %17, label %18
-
-17:                                               ; preds = %4
-  store i32 0, ptr %5, align 4
-  br label %67
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
+  %15 = load ptr, ptr %9, align 8
+  store ptr %15, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %11) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #10
+  %16 = load ptr, ptr %10, align 8
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %18, label %19
 
 18:                                               ; preds = %4
-  %19 = load ptr, ptr %6, align 8
-  %20 = call zeroext i16 @tvb_get_letohs(ptr noundef %19, i32 noundef 0)
-  store i16 %20, ptr %11, align 2
-  %21 = load i16, ptr %11, align 2
-  %22 = zext i16 %21 to i32
-  %23 = call i32 @zbee_get_bit_field(i32 noundef %22, i32 noundef 60)
-  store i32 %23, ptr %12, align 4
-  %24 = load i16, ptr %11, align 2
-  %25 = zext i16 %24 to i32
-  %26 = call i32 @zbee_get_bit_field(i32 noundef %25, i32 noundef 3)
-  store i32 %26, ptr %13, align 4
-  %27 = load i32, ptr %12, align 4
-  %28 = icmp ult i32 %27, 1
-  br i1 %28, label %32, label %29
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %14, align 4
+  br label %68
 
-29:                                               ; preds = %18
-  %30 = load i32, ptr %12, align 4
-  %31 = icmp ugt i32 %30, 2
-  br i1 %31, label %32, label %33
+19:                                               ; preds = %4
+  %20 = load ptr, ptr %6, align 8
+  %21 = call zeroext i16 @tvb_get_letohs(ptr noundef %20, i32 noundef 0)
+  store i16 %21, ptr %11, align 2
+  %22 = load i16, ptr %11, align 2
+  %23 = zext i16 %22 to i32
+  %24 = call i32 @zbee_get_bit_field(i32 noundef %23, i32 noundef 60)
+  store i32 %24, ptr %12, align 4
+  %25 = load i16, ptr %11, align 2
+  %26 = zext i16 %25 to i32
+  %27 = call i32 @zbee_get_bit_field(i32 noundef %26, i32 noundef 3)
+  store i32 %27, ptr %13, align 4
+  %28 = load i32, ptr %12, align 4
+  %29 = icmp ult i32 %28, 1
+  br i1 %29, label %33, label %30
 
-32:                                               ; preds = %29, %18
-  store i32 0, ptr %5, align 4
-  br label %67
+30:                                               ; preds = %19
+  %31 = load i32, ptr %12, align 4
+  %32 = icmp ugt i32 %31, 2
+  br i1 %32, label %33, label %34
 
-33:                                               ; preds = %29
-  %34 = load i32, ptr %13, align 4
-  %35 = call ptr @try_val_to_str(i32 noundef %34, ptr noundef @zbee_nwk_frame_types)
-  %36 = icmp ne ptr %35, null
-  br i1 %36, label %38, label %37
+33:                                               ; preds = %30, %19
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %14, align 4
+  br label %68
 
-37:                                               ; preds = %33
-  store i32 0, ptr %5, align 4
-  br label %67
+34:                                               ; preds = %30
+  %35 = load i32, ptr %13, align 4
+  %36 = call ptr @try_val_to_str(i32 noundef %35, ptr noundef @zbee_nwk_frame_types)
+  %37 = icmp ne ptr %36, null
+  br i1 %37, label %39, label %38
 
-38:                                               ; preds = %33
-  %39 = load i32, ptr %13, align 4
-  %40 = icmp eq i32 %39, 3
-  br i1 %40, label %41, label %48
+38:                                               ; preds = %34
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %14, align 4
+  br label %68
 
-41:                                               ; preds = %38
-  %42 = load ptr, ptr %10, align 8
-  %43 = getelementptr inbounds %struct.ieee802154_packet, ptr %42, i32 0, i32 3
-  %44 = load i32, ptr %43, align 4
-  %45 = icmp ne i32 %44, 3
-  br i1 %45, label %46, label %47
+39:                                               ; preds = %34
+  %40 = load i32, ptr %13, align 4
+  %41 = icmp eq i32 %40, 3
+  br i1 %41, label %42, label %49
 
-46:                                               ; preds = %41
-  store i32 0, ptr %5, align 4
-  br label %67
+42:                                               ; preds = %39
+  %43 = load ptr, ptr %10, align 8
+  %44 = getelementptr inbounds nuw %struct.ieee802154_packet, ptr %43, i32 0, i32 3
+  %45 = load i32, ptr %44, align 4
+  %46 = icmp ne i32 %45, 3
+  br i1 %46, label %47, label %48
 
-47:                                               ; preds = %41
-  br label %61
+47:                                               ; preds = %42
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %14, align 4
+  br label %68
 
-48:                                               ; preds = %38
-  %49 = load ptr, ptr %10, align 8
-  %50 = getelementptr inbounds %struct.ieee802154_packet, ptr %49, i32 0, i32 3
-  %51 = load i32, ptr %50, align 4
-  %52 = icmp ne i32 %51, 2
-  br i1 %52, label %53, label %54
+48:                                               ; preds = %42
+  br label %62
 
-53:                                               ; preds = %48
-  store i32 0, ptr %5, align 4
-  br label %67
+49:                                               ; preds = %39
+  %50 = load ptr, ptr %10, align 8
+  %51 = getelementptr inbounds nuw %struct.ieee802154_packet, ptr %50, i32 0, i32 3
+  %52 = load i32, ptr %51, align 4
+  %53 = icmp ne i32 %52, 2
+  br i1 %53, label %54, label %55
 
-54:                                               ; preds = %48
-  %55 = load ptr, ptr %10, align 8
-  %56 = getelementptr inbounds %struct.ieee802154_packet, ptr %55, i32 0, i32 2
-  %57 = load i32, ptr %56, align 8
-  %58 = icmp ne i32 %57, 2
-  br i1 %58, label %59, label %60
+54:                                               ; preds = %49
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %14, align 4
+  br label %68
 
-59:                                               ; preds = %54
-  store i32 0, ptr %5, align 4
-  br label %67
+55:                                               ; preds = %49
+  %56 = load ptr, ptr %10, align 8
+  %57 = getelementptr inbounds nuw %struct.ieee802154_packet, ptr %56, i32 0, i32 2
+  %58 = load i32, ptr %57, align 8
+  %59 = icmp ne i32 %58, 2
+  br i1 %59, label %60, label %61
 
-60:                                               ; preds = %54
-  br label %61
+60:                                               ; preds = %55
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %14, align 4
+  br label %68
 
-61:                                               ; preds = %60, %47
-  %62 = load ptr, ptr %6, align 8
-  %63 = load ptr, ptr %7, align 8
-  %64 = load ptr, ptr %8, align 8
-  %65 = load ptr, ptr %10, align 8
-  %66 = call i32 @dissect_zbee_nwk(ptr noundef %62, ptr noundef %63, ptr noundef %64, ptr noundef %65)
-  store i32 1, ptr %5, align 4
-  br label %67
+61:                                               ; preds = %55
+  br label %62
 
-67:                                               ; preds = %61, %59, %53, %46, %37, %32, %17
-  %68 = load i32, ptr %5, align 4
-  ret i32 %68
+62:                                               ; preds = %61, %48
+  %63 = load ptr, ptr %6, align 8
+  %64 = load ptr, ptr %7, align 8
+  %65 = load ptr, ptr %8, align 8
+  %66 = load ptr, ptr %10, align 8
+  %67 = call i32 @dissect_zbee_nwk(ptr noundef %63, ptr noundef %64, ptr noundef %65, ptr noundef %66)
+  store i1 true, ptr %5, align 1
+  store i32 1, ptr %14, align 4
+  br label %68
+
+68:                                               ; preds = %62, %60, %54, %47, %38, %33, %18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 2, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
+  %69 = load i1, ptr %5, align 1
+  ret i1 %69
 }
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #3
 
-declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_nwk_full(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @dissect_zbee_nwk_full(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -1707,1011 +1818,1094 @@ define internal i32 @dissect_zbee_nwk_full(ptr noundef %0, ptr noundef %1, ptr n
   %21 = alloca ptr, align 8
   %22 = alloca ptr, align 8
   %23 = alloca ptr, align 8
-  %24 = alloca i32, align 4
-  %25 = alloca i8, align 1
-  %26 = alloca ptr, align 8
-  %27 = alloca i8, align 1
-  %28 = alloca i16, align 2
-  %29 = alloca i32, align 4
+  %24 = alloca i8, align 1
+  %25 = alloca i32, align 4
+  %26 = alloca i8, align 1
+  %27 = alloca ptr, align 8
+  %28 = alloca i8, align 1
+  %29 = alloca i16, align 2
+  %30 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
   store ptr null, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #10
   store ptr null, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #10
+  call void @llvm.lifetime.start.p0(i64 56, ptr %14) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #10
   store i32 0, ptr %16, align 4
-  %30 = load ptr, ptr %9, align 8
-  %31 = icmp eq ptr %30, null
-  br i1 %31, label %32, label %33
-
-32:                                               ; preds = %4
-  store i32 0, ptr %5, align 4
-  br label %720
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #10
+  call void @llvm.lifetime.start.p0(i64 2, ptr %19) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr %24) #10
+  %31 = load ptr, ptr %9, align 8
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %33, label %34
 
 33:                                               ; preds = %4
-  %34 = load ptr, ptr %9, align 8
-  store ptr %34, ptr %15, align 8
-  call void @llvm.memset.p0.i64(ptr align 8 %14, i8 0, i64 72, i1 false)
-  %35 = load ptr, ptr %7, align 8
-  %36 = getelementptr inbounds %struct._packet_info, ptr %35, i32 0, i32 8
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds %struct._frame_data, ptr %37, i32 0, i32 9
-  %39 = load i16, ptr %38, align 2
-  %40 = lshr i16 %39, 3
-  %41 = and i16 %40, 1
-  %42 = zext i16 %41 to i32
-  %43 = icmp ne i32 %42, 0
-  br i1 %43, label %51, label %44
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %25, align 4
+  br label %732
 
-44:                                               ; preds = %33
-  %45 = call ptr @wmem_file_scope()
-  %46 = call noalias ptr @wmem_alloc0(ptr noundef %45, i64 noundef 48)
-  store ptr %46, ptr %23, align 8
+34:                                               ; preds = %4
+  %35 = load ptr, ptr %9, align 8
+  store ptr %35, ptr %15, align 8
+  %36 = call ptr @memset.inline(ptr noundef %14, i32 noundef 0, i64 noundef 56) #10
+  %37 = load ptr, ptr %7, align 8
+  %38 = getelementptr inbounds nuw %struct._packet_info, ptr %37, i32 0, i32 8
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds nuw %struct._frame_data, ptr %39, i32 0, i32 11
+  %41 = load i16, ptr %40, align 1
+  %42 = lshr i16 %41, 3
+  %43 = and i16 %42, 1
+  %44 = zext i16 %43 to i32
+  %45 = icmp ne i32 %44, 0
+  br i1 %45, label %53, label %46
+
+46:                                               ; preds = %34
   %47 = call ptr @wmem_file_scope()
-  %48 = load ptr, ptr %7, align 8
-  %49 = load i32, ptr @proto_zbee_nwk, align 4
-  %50 = load ptr, ptr %23, align 8
-  call void @p_add_proto_data(ptr noundef %47, ptr noundef %48, i32 noundef %49, i32 noundef 0, ptr noundef %50)
-  br label %56
+  %48 = call noalias ptr @wmem_alloc0(ptr noundef %47, i64 noundef 48) #11
+  store ptr %48, ptr %23, align 8
+  %49 = call ptr @wmem_file_scope()
+  %50 = load ptr, ptr %7, align 8
+  %51 = load i32, ptr @proto_zbee_nwk, align 4
+  %52 = load ptr, ptr %23, align 8
+  call void @p_add_proto_data(ptr noundef %49, ptr noundef %50, i32 noundef %51, i32 noundef 0, ptr noundef %52)
+  br label %58
 
-51:                                               ; preds = %33
-  %52 = call ptr @wmem_file_scope()
-  %53 = load ptr, ptr %7, align 8
-  %54 = load i32, ptr @proto_zbee_nwk, align 4
-  %55 = call ptr @p_get_proto_data(ptr noundef %52, ptr noundef %53, i32 noundef %54, i32 noundef 0)
-  store ptr %55, ptr %23, align 8
-  br label %56
+53:                                               ; preds = %34
+  %54 = call ptr @wmem_file_scope()
+  %55 = load ptr, ptr %7, align 8
+  %56 = load i32, ptr @proto_zbee_nwk, align 4
+  %57 = call ptr @p_get_proto_data(ptr noundef %54, ptr noundef %55, i32 noundef %56, i32 noundef 0)
+  store ptr %57, ptr %23, align 8
+  br label %58
 
-56:                                               ; preds = %51, %44
-  %57 = call ptr @wmem_file_scope()
-  %58 = load ptr, ptr %7, align 8
-  %59 = call i32 @proto_get_id_by_filter_name(ptr noundef @.str.243)
-  %60 = call ptr @p_get_proto_data(ptr noundef %57, ptr noundef %58, i32 noundef %59, i32 noundef 0)
-  store ptr %60, ptr %22, align 8
-  %61 = load ptr, ptr %7, align 8
-  %62 = getelementptr inbounds %struct._packet_info, ptr %61, i32 0, i32 1
-  %63 = load ptr, ptr %62, align 8
-  call void @col_set_str(ptr noundef %63, i32 noundef 34, ptr noundef @.str.227)
-  %64 = load ptr, ptr %7, align 8
-  %65 = getelementptr inbounds %struct._packet_info, ptr %64, i32 0, i32 1
-  %66 = load ptr, ptr %65, align 8
-  call void @col_clear(ptr noundef %66, i32 noundef 25)
-  %67 = load ptr, ptr %8, align 8
-  %68 = load i32, ptr @proto_zbee_nwk, align 4
-  %69 = load ptr, ptr %6, align 8
-  %70 = load i32, ptr %16, align 4
-  %71 = call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %68, ptr noundef %69, i32 noundef %70, i32 noundef -1, i32 noundef 0)
-  store ptr %71, ptr %11, align 8
-  %72 = load ptr, ptr %11, align 8
-  %73 = load i32, ptr @ett_zbee_nwk, align 4
-  %74 = call ptr @proto_item_add_subtree(ptr noundef %72, i32 noundef %73)
-  store ptr %74, ptr %13, align 8
-  %75 = load ptr, ptr %6, align 8
-  %76 = load i32, ptr %16, align 4
-  %77 = call zeroext i16 @tvb_get_letohs(ptr noundef %75, i32 noundef %76)
-  store i16 %77, ptr %19, align 2
-  %78 = load i16, ptr %19, align 2
-  %79 = zext i16 %78 to i32
-  %80 = call i32 @zbee_get_bit_field(i32 noundef %79, i32 noundef 3)
-  %81 = trunc i32 %80 to i16
-  %82 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 6
-  store i16 %81, ptr %82, align 8
-  %83 = load i16, ptr %19, align 2
-  %84 = zext i16 %83 to i32
-  %85 = call i32 @zbee_get_bit_field(i32 noundef %84, i32 noundef 60)
-  %86 = trunc i32 %85 to i8
-  %87 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 7
-  store i8 %86, ptr %87, align 2
-  %88 = load i16, ptr %19, align 2
-  %89 = zext i16 %88 to i32
-  %90 = call i32 @zbee_get_bit_field(i32 noundef %89, i32 noundef 192)
-  %91 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 1
-  store i32 %90, ptr %91, align 4
-  %92 = load i16, ptr %19, align 2
-  %93 = zext i16 %92 to i32
-  %94 = call i32 @zbee_get_bit_field(i32 noundef %93, i32 noundef 512)
-  %95 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 0
-  store i32 %94, ptr %95, align 8
+58:                                               ; preds = %53, %46
+  %59 = call ptr @wmem_file_scope()
+  %60 = load ptr, ptr %7, align 8
+  %61 = call i32 @proto_get_id_by_filter_name(ptr noundef @.str.243)
+  %62 = call ptr @p_get_proto_data(ptr noundef %59, ptr noundef %60, i32 noundef %61, i32 noundef 0)
+  store ptr %62, ptr %22, align 8
+  %63 = load ptr, ptr %7, align 8
+  %64 = getelementptr inbounds nuw %struct._packet_info, ptr %63, i32 0, i32 1
+  %65 = load ptr, ptr %64, align 8
+  call void @col_set_str(ptr noundef %65, i32 noundef 35, ptr noundef @.str.227)
+  %66 = load ptr, ptr %7, align 8
+  %67 = getelementptr inbounds nuw %struct._packet_info, ptr %66, i32 0, i32 1
+  %68 = load ptr, ptr %67, align 8
+  call void @col_clear(ptr noundef %68, i32 noundef 25)
+  %69 = load ptr, ptr %8, align 8
+  %70 = load i32, ptr @proto_zbee_nwk, align 4
+  %71 = load ptr, ptr %6, align 8
+  %72 = load i32, ptr %16, align 4
+  %73 = call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %70, ptr noundef %71, i32 noundef %72, i32 noundef -1, i32 noundef 0)
+  store ptr %73, ptr %11, align 8
+  %74 = load ptr, ptr %11, align 8
+  %75 = load i32, ptr @ett_zbee_nwk, align 4
+  %76 = call ptr @proto_item_add_subtree(ptr noundef %74, i32 noundef %75)
+  store ptr %76, ptr %13, align 8
+  %77 = load ptr, ptr %6, align 8
+  %78 = load i32, ptr %16, align 4
+  %79 = call zeroext i16 @tvb_get_letohs(ptr noundef %77, i32 noundef %78)
+  store i16 %79, ptr %19, align 2
+  %80 = load i16, ptr %19, align 2
+  %81 = zext i16 %80 to i32
+  %82 = call i32 @zbee_get_bit_field(i32 noundef %81, i32 noundef 3)
+  %83 = trunc i32 %82 to i16
+  %84 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %14, i32 0, i32 6
+  store i16 %83, ptr %84, align 2
+  %85 = load i16, ptr %19, align 2
+  %86 = zext i16 %85 to i32
+  %87 = call i32 @zbee_get_bit_field(i32 noundef %86, i32 noundef 60)
+  %88 = trunc i32 %87 to i8
+  %89 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %14, i32 0, i32 7
+  store i8 %88, ptr %89, align 8
+  %90 = load i16, ptr %19, align 2
+  %91 = zext i16 %90 to i32
+  %92 = call i32 @zbee_get_bit_field(i32 noundef %91, i32 noundef 192)
+  %93 = icmp ne i32 %92, 0
+  %94 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %14, i32 0, i32 1
+  %95 = zext i1 %93 to i8
+  store i8 %95, ptr %94, align 1
   %96 = load i16, ptr %19, align 2
   %97 = zext i16 %96 to i32
-  %98 = call i32 @zbee_get_bit_field(i32 noundef %97, i32 noundef 256)
-  %99 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 2
-  store i32 %98, ptr %99, align 8
-  %100 = load i16, ptr %19, align 2
-  %101 = zext i16 %100 to i32
-  %102 = call i32 @zbee_get_bit_field(i32 noundef %101, i32 noundef 1024)
-  %103 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 3
-  store i32 %102, ptr %103, align 4
-  %104 = load i16, ptr %19, align 2
-  %105 = zext i16 %104 to i32
-  %106 = call i32 @zbee_get_bit_field(i32 noundef %105, i32 noundef 2048)
-  %107 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 4
-  store i32 %106, ptr %107, align 8
+  %98 = call i32 @zbee_get_bit_field(i32 noundef %97, i32 noundef 512)
+  %99 = icmp ne i32 %98, 0
+  %100 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %14, i32 0, i32 0
+  %101 = zext i1 %99 to i8
+  store i8 %101, ptr %100, align 8
+  %102 = load i16, ptr %19, align 2
+  %103 = zext i16 %102 to i32
+  %104 = call i32 @zbee_get_bit_field(i32 noundef %103, i32 noundef 256)
+  %105 = icmp ne i32 %104, 0
+  %106 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %14, i32 0, i32 2
+  %107 = zext i1 %105 to i8
+  store i8 %107, ptr %106, align 2
   %108 = load i16, ptr %19, align 2
   %109 = zext i16 %108 to i32
-  %110 = call i32 @zbee_get_bit_field(i32 noundef %109, i32 noundef 4096)
-  %111 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 5
-  store i32 %110, ptr %111, align 4
-  %112 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 7
-  %113 = load i8, ptr %112, align 2
-  %114 = zext i8 %113 to i32
-  %115 = icmp sge i32 %114, 2
-  br i1 %115, label %116, label %123
+  %110 = call i32 @zbee_get_bit_field(i32 noundef %109, i32 noundef 1024)
+  %111 = icmp ne i32 %110, 0
+  %112 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %14, i32 0, i32 3
+  %113 = zext i1 %111 to i8
+  store i8 %113, ptr %112, align 1
+  %114 = load i16, ptr %19, align 2
+  %115 = zext i16 %114 to i32
+  %116 = call i32 @zbee_get_bit_field(i32 noundef %115, i32 noundef 2048)
+  %117 = icmp ne i32 %116, 0
+  %118 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %14, i32 0, i32 4
+  %119 = zext i1 %117 to i8
+  store i8 %119, ptr %118, align 4
+  %120 = load i16, ptr %19, align 2
+  %121 = zext i16 %120 to i32
+  %122 = call i32 @zbee_get_bit_field(i32 noundef %121, i32 noundef 4096)
+  %123 = icmp ne i32 %122, 0
+  %124 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %14, i32 0, i32 5
+  %125 = zext i1 %123 to i8
+  store i8 %125, ptr %124, align 1
+  %126 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %14, i32 0, i32 7
+  %127 = load i8, ptr %126, align 8
+  %128 = zext i8 %127 to i32
+  %129 = icmp sge i32 %128, 2
+  br i1 %129, label %130, label %137
 
-116:                                              ; preds = %56
-  %117 = load ptr, ptr %13, align 8
-  %118 = load ptr, ptr %6, align 8
-  %119 = load i32, ptr %16, align 4
-  %120 = load i32, ptr @hf_zbee_nwk_fcf, align 4
-  %121 = load i32, ptr @ett_zbee_nwk_fcf, align 4
-  %122 = call ptr @proto_tree_add_bitmask(ptr noundef %117, ptr noundef %118, i32 noundef %119, i32 noundef %120, i32 noundef %121, ptr noundef @dissect_zbee_nwk_full.fcf_flags_2007, i32 noundef -2147483648)
-  store ptr %122, ptr %12, align 8
-  br label %130
+130:                                              ; preds = %58
+  %131 = load ptr, ptr %13, align 8
+  %132 = load ptr, ptr %6, align 8
+  %133 = load i32, ptr %16, align 4
+  %134 = load i32, ptr @hf_zbee_nwk_fcf, align 4
+  %135 = load i32, ptr @ett_zbee_nwk_fcf, align 4
+  %136 = call ptr @proto_tree_add_bitmask(ptr noundef %131, ptr noundef %132, i32 noundef %133, i32 noundef %134, i32 noundef %135, ptr noundef @dissect_zbee_nwk_full.fcf_flags_2007, i32 noundef -2147483648)
+  store ptr %136, ptr %12, align 8
+  br label %144
 
-123:                                              ; preds = %56
-  %124 = load ptr, ptr %13, align 8
-  %125 = load ptr, ptr %6, align 8
-  %126 = load i32, ptr %16, align 4
-  %127 = load i32, ptr @hf_zbee_nwk_fcf, align 4
-  %128 = load i32, ptr @ett_zbee_nwk_fcf, align 4
-  %129 = call ptr @proto_tree_add_bitmask(ptr noundef %124, ptr noundef %125, i32 noundef %126, i32 noundef %127, i32 noundef %128, ptr noundef @dissect_zbee_nwk_full.fcf_flags, i32 noundef -2147483648)
-  store ptr %129, ptr %12, align 8
-  br label %130
+137:                                              ; preds = %58
+  %138 = load ptr, ptr %13, align 8
+  %139 = load ptr, ptr %6, align 8
+  %140 = load i32, ptr %16, align 4
+  %141 = load i32, ptr @hf_zbee_nwk_fcf, align 4
+  %142 = load i32, ptr @ett_zbee_nwk_fcf, align 4
+  %143 = call ptr @proto_tree_add_bitmask(ptr noundef %138, ptr noundef %139, i32 noundef %140, i32 noundef %141, i32 noundef %142, ptr noundef @dissect_zbee_nwk_full.fcf_flags, i32 noundef -2147483648)
+  store ptr %143, ptr %12, align 8
+  br label %144
 
-130:                                              ; preds = %123, %116
-  %131 = load ptr, ptr %12, align 8
-  %132 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 6
-  %133 = load i16, ptr %132, align 8
-  %134 = zext i16 %133 to i32
-  %135 = call ptr @val_to_str_const(i32 noundef %134, ptr noundef @zbee_nwk_frame_types, ptr noundef @.str.322)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %131, ptr noundef @.str.321, ptr noundef %135)
-  %136 = load i32, ptr %16, align 4
-  %137 = add i32 %136, 2
-  store i32 %137, ptr %16, align 4
-  %138 = load ptr, ptr %11, align 8
-  %139 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 6
-  %140 = load i16, ptr %139, align 8
-  %141 = zext i16 %140 to i32
-  %142 = call ptr @val_to_str_const(i32 noundef %141, ptr noundef @zbee_nwk_frame_types, ptr noundef @.str.323)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %138, ptr noundef @.str.321, ptr noundef %142)
-  %143 = load ptr, ptr %7, align 8
-  %144 = getelementptr inbounds %struct._packet_info, ptr %143, i32 0, i32 1
-  %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 6
-  %147 = load i16, ptr %146, align 8
+144:                                              ; preds = %137, %130
+  %145 = load ptr, ptr %12, align 8
+  %146 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %14, i32 0, i32 6
+  %147 = load i16, ptr %146, align 2
   %148 = zext i16 %147 to i32
-  %149 = call ptr @val_to_str_const(i32 noundef %148, ptr noundef @zbee_nwk_frame_types, ptr noundef @.str.324)
-  call void @col_set_str(ptr noundef %145, i32 noundef 25, ptr noundef %149)
-  %150 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 6
-  %151 = load i16, ptr %150, align 8
-  %152 = zext i16 %151 to i32
-  %153 = icmp ne i32 %152, 3
-  br i1 %153, label %154, label %652
+  %149 = call ptr @val_to_str_const(i32 noundef %148, ptr noundef @zbee_nwk_frame_types, ptr noundef @.str.336)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %145, ptr noundef @.str.335, ptr noundef %149)
+  %150 = load i32, ptr %16, align 4
+  %151 = add i32 %150, 2
+  store i32 %151, ptr %16, align 4
+  %152 = load ptr, ptr %11, align 8
+  %153 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %14, i32 0, i32 6
+  %154 = load i16, ptr %153, align 2
+  %155 = zext i16 %154 to i32
+  %156 = call ptr @val_to_str_const(i32 noundef %155, ptr noundef @zbee_nwk_frame_types, ptr noundef @.str.337)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %152, ptr noundef @.str.335, ptr noundef %156)
+  %157 = load ptr, ptr %7, align 8
+  %158 = getelementptr inbounds nuw %struct._packet_info, ptr %157, i32 0, i32 1
+  %159 = load ptr, ptr %158, align 8
+  %160 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %14, i32 0, i32 6
+  %161 = load i16, ptr %160, align 2
+  %162 = zext i16 %161 to i32
+  %163 = call ptr @val_to_str_const(i32 noundef %162, ptr noundef @zbee_nwk_frame_types, ptr noundef @.str.338)
+  call void @col_set_str(ptr noundef %159, i32 noundef 25, ptr noundef %163)
+  %164 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %14, i32 0, i32 6
+  %165 = load i16, ptr %164, align 2
+  %166 = zext i16 %165 to i32
+  %167 = icmp ne i32 %166, 3
+  br i1 %167, label %168, label %664
 
-154:                                              ; preds = %130
-  %155 = load ptr, ptr %6, align 8
-  %156 = load i32, ptr %16, align 4
-  %157 = call zeroext i16 @tvb_get_letohs(ptr noundef %155, i32 noundef %156)
-  %158 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 8
-  store i16 %157, ptr %158, align 4
-  %159 = load ptr, ptr %7, align 8
-  %160 = getelementptr inbounds %struct._packet_info, ptr %159, i32 0, i32 15
-  %161 = load i32, ptr @zbee_nwk_address_type, align 4
-  %162 = load ptr, ptr %6, align 8
-  %163 = load i32, ptr %16, align 4
-  call void @set_address_tvb(ptr noundef %160, i32 noundef %161, i32 noundef 2, ptr noundef %162, i32 noundef %163)
-  %164 = load ptr, ptr %7, align 8
-  %165 = getelementptr inbounds %struct._packet_info, ptr %164, i32 0, i32 17
-  %166 = load ptr, ptr %7, align 8
-  %167 = getelementptr inbounds %struct._packet_info, ptr %166, i32 0, i32 15
-  call void @copy_address_shallow(ptr noundef %165, ptr noundef %167)
-  %168 = load ptr, ptr %7, align 8
-  %169 = getelementptr inbounds %struct._packet_info, ptr %168, i32 0, i32 50
-  %170 = load ptr, ptr %169, align 8
-  %171 = load ptr, ptr %7, align 8
-  %172 = getelementptr inbounds %struct._packet_info, ptr %171, i32 0, i32 17
-  %173 = call ptr @address_to_str(ptr noundef %170, ptr noundef %172)
-  store ptr %173, ptr %18, align 8
-  %174 = load ptr, ptr %13, align 8
-  %175 = load i32, ptr @hf_zbee_nwk_dst, align 4
+168:                                              ; preds = %144
+  %169 = load ptr, ptr %6, align 8
+  %170 = load i32, ptr %16, align 4
+  %171 = call zeroext i16 @tvb_get_letohs(ptr noundef %169, i32 noundef %170)
+  %172 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %14, i32 0, i32 8
+  store i16 %171, ptr %172, align 2
+  %173 = load ptr, ptr %7, align 8
+  %174 = getelementptr inbounds nuw %struct._packet_info, ptr %173, i32 0, i32 15
+  %175 = load i32, ptr @zbee_nwk_address_type, align 4
   %176 = load ptr, ptr %6, align 8
   %177 = load i32, ptr %16, align 4
-  %178 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 8
-  %179 = load i16, ptr %178, align 4
-  %180 = zext i16 %179 to i32
-  %181 = call ptr @proto_tree_add_uint(ptr noundef %174, i32 noundef %175, ptr noundef %176, i32 noundef %177, i32 noundef 2, i32 noundef %180)
-  %182 = load ptr, ptr %13, align 8
-  %183 = load i32, ptr @hf_zbee_nwk_addr, align 4
-  %184 = load ptr, ptr %6, align 8
-  %185 = load i32, ptr %16, align 4
-  %186 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 8
-  %187 = load i16, ptr %186, align 4
-  %188 = zext i16 %187 to i32
-  %189 = call ptr @proto_tree_add_uint(ptr noundef %182, i32 noundef %183, ptr noundef %184, i32 noundef %185, i32 noundef 2, i32 noundef %188)
-  store ptr %189, ptr %12, align 8
-  %190 = load ptr, ptr %12, align 8
-  call void @proto_item_set_generated(ptr noundef %190)
-  %191 = load ptr, ptr %12, align 8
-  call void @proto_item_set_hidden(ptr noundef %191)
-  %192 = load i32, ptr %16, align 4
-  %193 = add i32 %192, 2
-  store i32 %193, ptr %16, align 4
-  %194 = load ptr, ptr %11, align 8
-  %195 = load ptr, ptr %18, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %194, ptr noundef @.str.325, ptr noundef %195)
-  %196 = load ptr, ptr %7, align 8
-  %197 = getelementptr inbounds %struct._packet_info, ptr %196, i32 0, i32 1
-  %198 = load ptr, ptr %197, align 8
-  %199 = load ptr, ptr %18, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %198, i32 noundef 25, ptr noundef @.str.325, ptr noundef %199)
-  %200 = load ptr, ptr %6, align 8
-  %201 = load i32, ptr %16, align 4
-  %202 = call zeroext i16 @tvb_get_letohs(ptr noundef %200, i32 noundef %201)
-  %203 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 9
-  store i16 %202, ptr %203, align 2
-  %204 = load ptr, ptr %7, align 8
-  %205 = getelementptr inbounds %struct._packet_info, ptr %204, i32 0, i32 14
-  %206 = load i32, ptr @zbee_nwk_address_type, align 4
-  %207 = load ptr, ptr %6, align 8
-  %208 = load i32, ptr %16, align 4
-  call void @set_address_tvb(ptr noundef %205, i32 noundef %206, i32 noundef 2, ptr noundef %207, i32 noundef %208)
-  %209 = load ptr, ptr %7, align 8
-  %210 = getelementptr inbounds %struct._packet_info, ptr %209, i32 0, i32 16
-  %211 = load ptr, ptr %7, align 8
-  %212 = getelementptr inbounds %struct._packet_info, ptr %211, i32 0, i32 14
-  call void @copy_address_shallow(ptr noundef %210, ptr noundef %212)
-  %213 = load ptr, ptr %7, align 8
-  %214 = getelementptr inbounds %struct._packet_info, ptr %213, i32 0, i32 50
-  %215 = load ptr, ptr %214, align 8
-  %216 = load ptr, ptr %7, align 8
-  %217 = getelementptr inbounds %struct._packet_info, ptr %216, i32 0, i32 16
-  %218 = call ptr @address_to_str(ptr noundef %215, ptr noundef %217)
-  store ptr %218, ptr %17, align 8
-  %219 = load ptr, ptr %23, align 8
-  %220 = icmp ne ptr %219, null
-  br i1 %220, label %221, label %227
+  call void @set_address_tvb(ptr noundef %174, i32 noundef %175, i32 noundef 2, ptr noundef %176, i32 noundef %177)
+  %178 = load ptr, ptr %7, align 8
+  %179 = getelementptr inbounds nuw %struct._packet_info, ptr %178, i32 0, i32 17
+  %180 = load ptr, ptr %7, align 8
+  %181 = getelementptr inbounds nuw %struct._packet_info, ptr %180, i32 0, i32 15
+  call void @copy_address_shallow(ptr noundef %179, ptr noundef %181)
+  %182 = load ptr, ptr %7, align 8
+  %183 = getelementptr inbounds nuw %struct._packet_info, ptr %182, i32 0, i32 51
+  %184 = load ptr, ptr %183, align 8
+  %185 = load ptr, ptr %7, align 8
+  %186 = getelementptr inbounds nuw %struct._packet_info, ptr %185, i32 0, i32 17
+  %187 = call ptr @address_to_str(ptr noundef %184, ptr noundef %186)
+  store ptr %187, ptr %18, align 8
+  %188 = load ptr, ptr %13, align 8
+  %189 = load i32, ptr @hf_zbee_nwk_dst, align 4
+  %190 = load ptr, ptr %6, align 8
+  %191 = load i32, ptr %16, align 4
+  %192 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %14, i32 0, i32 8
+  %193 = load i16, ptr %192, align 2
+  %194 = zext i16 %193 to i32
+  %195 = call ptr @proto_tree_add_uint(ptr noundef %188, i32 noundef %189, ptr noundef %190, i32 noundef %191, i32 noundef 2, i32 noundef %194)
+  %196 = load ptr, ptr %13, align 8
+  %197 = load i32, ptr @hf_zbee_nwk_addr, align 4
+  %198 = load ptr, ptr %6, align 8
+  %199 = load i32, ptr %16, align 4
+  %200 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %14, i32 0, i32 8
+  %201 = load i16, ptr %200, align 2
+  %202 = zext i16 %201 to i32
+  %203 = call ptr @proto_tree_add_uint(ptr noundef %196, i32 noundef %197, ptr noundef %198, i32 noundef %199, i32 noundef 2, i32 noundef %202)
+  store ptr %203, ptr %12, align 8
+  %204 = load ptr, ptr %12, align 8
+  call void @proto_item_set_generated(ptr noundef %204)
+  %205 = load ptr, ptr %12, align 8
+  call void @proto_item_set_hidden(ptr noundef %205)
+  %206 = load i32, ptr %16, align 4
+  %207 = add i32 %206, 2
+  store i32 %207, ptr %16, align 4
+  %208 = load ptr, ptr %11, align 8
+  %209 = load ptr, ptr %18, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %208, ptr noundef @.str.339, ptr noundef %209)
+  %210 = load ptr, ptr %7, align 8
+  %211 = getelementptr inbounds nuw %struct._packet_info, ptr %210, i32 0, i32 1
+  %212 = load ptr, ptr %211, align 8
+  %213 = load ptr, ptr %18, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %212, i32 noundef 25, ptr noundef @.str.339, ptr noundef %213)
+  %214 = load ptr, ptr %6, align 8
+  %215 = load i32, ptr %16, align 4
+  %216 = call zeroext i16 @tvb_get_letohs(ptr noundef %214, i32 noundef %215)
+  %217 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %14, i32 0, i32 9
+  store i16 %216, ptr %217, align 4
+  %218 = load ptr, ptr %7, align 8
+  %219 = getelementptr inbounds nuw %struct._packet_info, ptr %218, i32 0, i32 14
+  %220 = load i32, ptr @zbee_nwk_address_type, align 4
+  %221 = load ptr, ptr %6, align 8
+  %222 = load i32, ptr %16, align 4
+  call void @set_address_tvb(ptr noundef %219, i32 noundef %220, i32 noundef 2, ptr noundef %221, i32 noundef %222)
+  %223 = load ptr, ptr %7, align 8
+  %224 = getelementptr inbounds nuw %struct._packet_info, ptr %223, i32 0, i32 16
+  %225 = load ptr, ptr %7, align 8
+  %226 = getelementptr inbounds nuw %struct._packet_info, ptr %225, i32 0, i32 14
+  call void @copy_address_shallow(ptr noundef %224, ptr noundef %226)
+  %227 = load ptr, ptr %7, align 8
+  %228 = getelementptr inbounds nuw %struct._packet_info, ptr %227, i32 0, i32 51
+  %229 = load ptr, ptr %228, align 8
+  %230 = load ptr, ptr %7, align 8
+  %231 = getelementptr inbounds nuw %struct._packet_info, ptr %230, i32 0, i32 16
+  %232 = call ptr @address_to_str(ptr noundef %229, ptr noundef %231)
+  store ptr %232, ptr %17, align 8
+  %233 = load ptr, ptr %23, align 8
+  %234 = icmp ne ptr %233, null
+  br i1 %234, label %235, label %241
 
-221:                                              ; preds = %154
-  %222 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 9
-  %223 = load i16, ptr %222, align 2
-  %224 = zext i16 %223 to i32
-  %225 = load ptr, ptr %23, align 8
-  %226 = getelementptr inbounds %struct.zbee_nwk_hints_t, ptr %225, i32 0, i32 1
-  store i32 %224, ptr %226, align 4
-  br label %227
+235:                                              ; preds = %168
+  %236 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %14, i32 0, i32 9
+  %237 = load i16, ptr %236, align 4
+  %238 = zext i16 %237 to i32
+  %239 = load ptr, ptr %23, align 8
+  %240 = getelementptr inbounds nuw %struct.zbee_nwk_hints_t, ptr %239, i32 0, i32 1
+  store i32 %238, ptr %240, align 4
+  br label %241
 
-227:                                              ; preds = %221, %154
-  %228 = load ptr, ptr %13, align 8
-  %229 = load i32, ptr @hf_zbee_nwk_src, align 4
-  %230 = load ptr, ptr %6, align 8
-  %231 = load i32, ptr %16, align 4
-  %232 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 9
-  %233 = load i16, ptr %232, align 2
-  %234 = zext i16 %233 to i32
-  %235 = call ptr @proto_tree_add_uint(ptr noundef %228, i32 noundef %229, ptr noundef %230, i32 noundef %231, i32 noundef 2, i32 noundef %234)
-  %236 = load ptr, ptr %13, align 8
-  %237 = load i32, ptr @hf_zbee_nwk_addr, align 4
-  %238 = load ptr, ptr %6, align 8
-  %239 = load i32, ptr %16, align 4
-  %240 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 9
-  %241 = load i16, ptr %240, align 2
-  %242 = zext i16 %241 to i32
-  %243 = call ptr @proto_tree_add_uint(ptr noundef %236, i32 noundef %237, ptr noundef %238, i32 noundef %239, i32 noundef 2, i32 noundef %242)
-  store ptr %243, ptr %12, align 8
-  %244 = load ptr, ptr %12, align 8
-  call void @proto_item_set_generated(ptr noundef %244)
-  %245 = load ptr, ptr %12, align 8
-  call void @proto_item_set_hidden(ptr noundef %245)
-  %246 = load i32, ptr %16, align 4
-  %247 = add i32 %246, 2
-  store i32 %247, ptr %16, align 4
-  %248 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 9
-  %249 = load i16, ptr %248, align 2
-  %250 = zext i16 %249 to i32
-  %251 = icmp eq i32 %250, 65535
-  br i1 %251, label %262, label %252
+241:                                              ; preds = %235, %168
+  %242 = load ptr, ptr %13, align 8
+  %243 = load i32, ptr @hf_zbee_nwk_src, align 4
+  %244 = load ptr, ptr %6, align 8
+  %245 = load i32, ptr %16, align 4
+  %246 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %14, i32 0, i32 9
+  %247 = load i16, ptr %246, align 4
+  %248 = zext i16 %247 to i32
+  %249 = call ptr @proto_tree_add_uint(ptr noundef %242, i32 noundef %243, ptr noundef %244, i32 noundef %245, i32 noundef 2, i32 noundef %248)
+  %250 = load ptr, ptr %13, align 8
+  %251 = load i32, ptr @hf_zbee_nwk_addr, align 4
+  %252 = load ptr, ptr %6, align 8
+  %253 = load i32, ptr %16, align 4
+  %254 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %14, i32 0, i32 9
+  %255 = load i16, ptr %254, align 4
+  %256 = zext i16 %255 to i32
+  %257 = call ptr @proto_tree_add_uint(ptr noundef %250, i32 noundef %251, ptr noundef %252, i32 noundef %253, i32 noundef 2, i32 noundef %256)
+  store ptr %257, ptr %12, align 8
+  %258 = load ptr, ptr %12, align 8
+  call void @proto_item_set_generated(ptr noundef %258)
+  %259 = load ptr, ptr %12, align 8
+  call void @proto_item_set_hidden(ptr noundef %259)
+  %260 = load i32, ptr %16, align 4
+  %261 = add i32 %260, 2
+  store i32 %261, ptr %16, align 4
+  %262 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %14, i32 0, i32 9
+  %263 = load i16, ptr %262, align 4
+  %264 = zext i16 %263 to i32
+  %265 = icmp eq i32 %264, 65535
+  br i1 %265, label %276, label %266
 
-252:                                              ; preds = %227
-  %253 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 9
-  %254 = load i16, ptr %253, align 2
-  %255 = zext i16 %254 to i32
-  %256 = icmp eq i32 %255, 65533
-  br i1 %256, label %262, label %257
+266:                                              ; preds = %241
+  %267 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %14, i32 0, i32 9
+  %268 = load i16, ptr %267, align 4
+  %269 = zext i16 %268 to i32
+  %270 = icmp eq i32 %269, 65533
+  br i1 %270, label %276, label %271
 
-257:                                              ; preds = %252
-  %258 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 9
-  %259 = load i16, ptr %258, align 2
-  %260 = zext i16 %259 to i32
-  %261 = icmp eq i32 %260, 65532
-  br i1 %261, label %262, label %263
+271:                                              ; preds = %266
+  %272 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %14, i32 0, i32 9
+  %273 = load i16, ptr %272, align 4
+  %274 = zext i16 %273 to i32
+  %275 = icmp eq i32 %274, 65532
+  br i1 %275, label %276, label %277
 
-262:                                              ; preds = %257, %252, %227
-  store i32 0, ptr %24, align 4
-  br label %264
+276:                                              ; preds = %271, %266, %241
+  store i8 0, ptr %24, align 1
+  br label %278
 
-263:                                              ; preds = %257
-  store i32 1, ptr %24, align 4
-  br label %264
+277:                                              ; preds = %271
+  store i8 1, ptr %24, align 1
+  br label %278
 
-264:                                              ; preds = %263, %262
-  %265 = load ptr, ptr %11, align 8
-  %266 = load ptr, ptr %17, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %265, ptr noundef @.str.326, ptr noundef %266)
-  %267 = load ptr, ptr %7, align 8
-  %268 = getelementptr inbounds %struct._packet_info, ptr %267, i32 0, i32 1
-  %269 = load ptr, ptr %268, align 8
-  %270 = load ptr, ptr %17, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %269, i32 noundef 25, ptr noundef @.str.326, ptr noundef %270)
-  %271 = load ptr, ptr %6, align 8
-  %272 = load i32, ptr %16, align 4
-  %273 = call zeroext i8 @tvb_get_guint8(ptr noundef %271, i32 noundef %272)
-  %274 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 12
-  store i8 %273, ptr %274, align 8
-  %275 = load ptr, ptr %13, align 8
-  %276 = load i32, ptr @hf_zbee_nwk_radius, align 4
-  %277 = load ptr, ptr %6, align 8
-  %278 = load i32, ptr %16, align 4
-  %279 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 12
-  %280 = load i8, ptr %279, align 8
-  %281 = zext i8 %280 to i32
-  %282 = call ptr @proto_tree_add_uint(ptr noundef %275, i32 noundef %276, ptr noundef %277, i32 noundef %278, i32 noundef 1, i32 noundef %281)
-  %283 = load i32, ptr %16, align 4
-  %284 = add i32 %283, 1
-  store i32 %284, ptr %16, align 4
+278:                                              ; preds = %277, %276
+  %279 = load ptr, ptr %11, align 8
+  %280 = load ptr, ptr %17, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %279, ptr noundef @.str.340, ptr noundef %280)
+  %281 = load ptr, ptr %7, align 8
+  %282 = getelementptr inbounds nuw %struct._packet_info, ptr %281, i32 0, i32 1
+  %283 = load ptr, ptr %282, align 8
+  %284 = load ptr, ptr %17, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %283, i32 noundef 25, ptr noundef @.str.340, ptr noundef %284)
   %285 = load ptr, ptr %6, align 8
   %286 = load i32, ptr %16, align 4
-  %287 = call zeroext i8 @tvb_get_guint8(ptr noundef %285, i32 noundef %286)
-  %288 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 13
-  store i8 %287, ptr %288, align 1
+  %287 = call zeroext i8 @tvb_get_uint8(ptr noundef %285, i32 noundef %286)
+  %288 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %14, i32 0, i32 12
+  store i8 %287, ptr %288, align 8
   %289 = load ptr, ptr %13, align 8
-  %290 = load i32, ptr @hf_zbee_nwk_seqno, align 4
+  %290 = load i32, ptr @hf_zbee_nwk_radius, align 4
   %291 = load ptr, ptr %6, align 8
   %292 = load i32, ptr %16, align 4
-  %293 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 13
-  %294 = load i8, ptr %293, align 1
+  %293 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %14, i32 0, i32 12
+  %294 = load i8, ptr %293, align 8
   %295 = zext i8 %294 to i32
   %296 = call ptr @proto_tree_add_uint(ptr noundef %289, i32 noundef %290, ptr noundef %291, i32 noundef %292, i32 noundef 1, i32 noundef %295)
   %297 = load i32, ptr %16, align 4
   %298 = add i32 %297, 1
   store i32 %298, ptr %16, align 4
-  %299 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 7
-  %300 = load i8, ptr %299, align 2
-  %301 = zext i8 %300 to i32
-  %302 = icmp sge i32 %301, 2
-  br i1 %302, label %303, label %328
+  %299 = load ptr, ptr %6, align 8
+  %300 = load i32, ptr %16, align 4
+  %301 = call zeroext i8 @tvb_get_uint8(ptr noundef %299, i32 noundef %300)
+  %302 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %14, i32 0, i32 13
+  store i8 %301, ptr %302, align 1
+  %303 = load ptr, ptr %13, align 8
+  %304 = load i32, ptr @hf_zbee_nwk_seqno, align 4
+  %305 = load ptr, ptr %6, align 8
+  %306 = load i32, ptr %16, align 4
+  %307 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %14, i32 0, i32 13
+  %308 = load i8, ptr %307, align 1
+  %309 = zext i8 %308 to i32
+  %310 = call ptr @proto_tree_add_uint(ptr noundef %303, i32 noundef %304, ptr noundef %305, i32 noundef %306, i32 noundef 1, i32 noundef %309)
+  %311 = load i32, ptr %16, align 4
+  %312 = add i32 %311, 1
+  store i32 %312, ptr %16, align 4
+  %313 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %14, i32 0, i32 7
+  %314 = load i8, ptr %313, align 8
+  %315 = zext i8 %314 to i32
+  %316 = icmp sge i32 %315, 2
+  br i1 %316, label %317, label %342
 
-303:                                              ; preds = %264
-  %304 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 4
-  %305 = load i32, ptr %304, align 8
-  %306 = icmp ne i32 %305, 0
-  br i1 %306, label %307, label %328
+317:                                              ; preds = %278
+  %318 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %14, i32 0, i32 4
+  %319 = load i8, ptr %318, align 4, !range !9, !noundef !10
+  %320 = trunc i8 %319 to i1
+  br i1 %320, label %321, label %342
 
-307:                                              ; preds = %303
-  %308 = load ptr, ptr %6, align 8
-  %309 = load i32, ptr %16, align 4
-  %310 = call i64 @tvb_get_letoh64(ptr noundef %308, i32 noundef %309)
-  %311 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 10
-  store i64 %310, ptr %311, align 8
-  %312 = load ptr, ptr %13, align 8
-  %313 = load i32, ptr @hf_zbee_nwk_dst64, align 4
-  %314 = load ptr, ptr %6, align 8
-  %315 = load i32, ptr %16, align 4
-  %316 = call ptr @proto_tree_add_item(ptr noundef %312, i32 noundef %313, ptr noundef %314, i32 noundef %315, i32 noundef 8, i32 noundef -2147483648)
-  %317 = load ptr, ptr %13, align 8
-  %318 = load i32, ptr @hf_zbee_nwk_addr64, align 4
-  %319 = load ptr, ptr %6, align 8
-  %320 = load i32, ptr %16, align 4
-  %321 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 10
-  %322 = load i64, ptr %321, align 8
-  %323 = call ptr @proto_tree_add_eui64(ptr noundef %317, i32 noundef %318, ptr noundef %319, i32 noundef %320, i32 noundef 8, i64 noundef %322)
-  store ptr %323, ptr %12, align 8
-  %324 = load ptr, ptr %12, align 8
-  call void @proto_item_set_generated(ptr noundef %324)
-  %325 = load ptr, ptr %12, align 8
-  call void @proto_item_set_hidden(ptr noundef %325)
-  %326 = load i32, ptr %16, align 4
-  %327 = add i32 %326, 8
-  store i32 %327, ptr %16, align 4
-  br label %328
+321:                                              ; preds = %317
+  %322 = load ptr, ptr %6, align 8
+  %323 = load i32, ptr %16, align 4
+  %324 = call i64 @tvb_get_letoh64(ptr noundef %322, i32 noundef %323)
+  %325 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %14, i32 0, i32 10
+  store i64 %324, ptr %325, align 8
+  %326 = load ptr, ptr %13, align 8
+  %327 = load i32, ptr @hf_zbee_nwk_dst64, align 4
+  %328 = load ptr, ptr %6, align 8
+  %329 = load i32, ptr %16, align 4
+  %330 = call ptr @proto_tree_add_item(ptr noundef %326, i32 noundef %327, ptr noundef %328, i32 noundef %329, i32 noundef 8, i32 noundef -2147483648)
+  %331 = load ptr, ptr %13, align 8
+  %332 = load i32, ptr @hf_zbee_nwk_addr64, align 4
+  %333 = load ptr, ptr %6, align 8
+  %334 = load i32, ptr %16, align 4
+  %335 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %14, i32 0, i32 10
+  %336 = load i64, ptr %335, align 8
+  %337 = call ptr @proto_tree_add_eui64(ptr noundef %331, i32 noundef %332, ptr noundef %333, i32 noundef %334, i32 noundef 8, i64 noundef %336)
+  store ptr %337, ptr %12, align 8
+  %338 = load ptr, ptr %12, align 8
+  call void @proto_item_set_generated(ptr noundef %338)
+  %339 = load ptr, ptr %12, align 8
+  call void @proto_item_set_hidden(ptr noundef %339)
+  %340 = load i32, ptr %16, align 4
+  %341 = add i32 %340, 8
+  store i32 %341, ptr %16, align 4
+  br label %342
 
-328:                                              ; preds = %307, %303, %264
-  %329 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 7
-  %330 = load i8, ptr %329, align 2
-  %331 = zext i8 %330 to i32
-  %332 = icmp sge i32 %331, 2
-  br i1 %332, label %333, label %547
+342:                                              ; preds = %321, %317, %278
+  %343 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %14, i32 0, i32 7
+  %344 = load i8, ptr %343, align 8
+  %345 = zext i8 %344 to i32
+  %346 = icmp sge i32 %345, 2
+  br i1 %346, label %347, label %559
 
-333:                                              ; preds = %328
-  %334 = load ptr, ptr %15, align 8
-  %335 = getelementptr inbounds %struct.ieee802154_packet, ptr %334, i32 0, i32 17
-  %336 = load i16, ptr %335, align 2
-  %337 = getelementptr inbounds %struct.ieee802154_short_addr, ptr %20, i32 0, i32 0
-  store i16 %336, ptr %337, align 2
-  %338 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 5
-  %339 = load i32, ptr %338, align 4
-  %340 = icmp ne i32 %339, 0
-  br i1 %340, label %341, label %401
+347:                                              ; preds = %342
+  %348 = load ptr, ptr %15, align 8
+  %349 = getelementptr inbounds nuw %struct.ieee802154_packet, ptr %348, i32 0, i32 17
+  %350 = load i16, ptr %349, align 2
+  %351 = getelementptr inbounds nuw %struct.ieee802154_short_addr, ptr %20, i32 0, i32 0
+  store i16 %350, ptr %351, align 2
+  %352 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %14, i32 0, i32 5
+  %353 = load i8, ptr %352, align 1, !range !9, !noundef !10
+  %354 = trunc i8 %353 to i1
+  br i1 %354, label %355, label %415
 
-341:                                              ; preds = %333
-  %342 = load ptr, ptr %6, align 8
-  %343 = load i32, ptr %16, align 4
-  %344 = call i64 @tvb_get_letoh64(ptr noundef %342, i32 noundef %343)
-  %345 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 11
-  store i64 %344, ptr %345, align 8
-  %346 = load ptr, ptr %13, align 8
-  %347 = load i32, ptr @hf_zbee_nwk_src64, align 4
-  %348 = load ptr, ptr %6, align 8
-  %349 = load i32, ptr %16, align 4
-  %350 = call ptr @proto_tree_add_item(ptr noundef %346, i32 noundef %347, ptr noundef %348, i32 noundef %349, i32 noundef 8, i32 noundef -2147483648)
-  %351 = load ptr, ptr %13, align 8
-  %352 = load i32, ptr @hf_zbee_nwk_addr64, align 4
-  %353 = load ptr, ptr %6, align 8
-  %354 = load i32, ptr %16, align 4
-  %355 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 11
-  %356 = load i64, ptr %355, align 8
-  %357 = call ptr @proto_tree_add_eui64(ptr noundef %351, i32 noundef %352, ptr noundef %353, i32 noundef %354, i32 noundef 8, i64 noundef %356)
-  store ptr %357, ptr %12, align 8
-  %358 = load ptr, ptr %12, align 8
-  call void @proto_item_set_generated(ptr noundef %358)
-  %359 = load ptr, ptr %12, align 8
-  call void @proto_item_set_hidden(ptr noundef %359)
-  %360 = load i32, ptr %16, align 4
-  %361 = add i32 %360, 8
-  store i32 %361, ptr %16, align 4
-  %362 = load ptr, ptr %7, align 8
-  %363 = getelementptr inbounds %struct._packet_info, ptr %362, i32 0, i32 8
-  %364 = load ptr, ptr %363, align 8
-  %365 = getelementptr inbounds %struct._frame_data, ptr %364, i32 0, i32 9
-  %366 = load i16, ptr %365, align 2
-  %367 = lshr i16 %366, 3
-  %368 = and i16 %367, 1
-  %369 = zext i16 %368 to i32
-  %370 = icmp ne i32 %369, 0
-  br i1 %370, label %400, label %371
+355:                                              ; preds = %347
+  %356 = load ptr, ptr %6, align 8
+  %357 = load i32, ptr %16, align 4
+  %358 = call i64 @tvb_get_letoh64(ptr noundef %356, i32 noundef %357)
+  %359 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %14, i32 0, i32 11
+  store i64 %358, ptr %359, align 8
+  %360 = load ptr, ptr %13, align 8
+  %361 = load i32, ptr @hf_zbee_nwk_src64, align 4
+  %362 = load ptr, ptr %6, align 8
+  %363 = load i32, ptr %16, align 4
+  %364 = call ptr @proto_tree_add_item(ptr noundef %360, i32 noundef %361, ptr noundef %362, i32 noundef %363, i32 noundef 8, i32 noundef -2147483648)
+  %365 = load ptr, ptr %13, align 8
+  %366 = load i32, ptr @hf_zbee_nwk_addr64, align 4
+  %367 = load ptr, ptr %6, align 8
+  %368 = load i32, ptr %16, align 4
+  %369 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %14, i32 0, i32 11
+  %370 = load i64, ptr %369, align 8
+  %371 = call ptr @proto_tree_add_eui64(ptr noundef %365, i32 noundef %366, ptr noundef %367, i32 noundef %368, i32 noundef 8, i64 noundef %370)
+  store ptr %371, ptr %12, align 8
+  %372 = load ptr, ptr %12, align 8
+  call void @proto_item_set_generated(ptr noundef %372)
+  %373 = load ptr, ptr %12, align 8
+  call void @proto_item_set_hidden(ptr noundef %373)
+  %374 = load i32, ptr %16, align 4
+  %375 = add i32 %374, 8
+  store i32 %375, ptr %16, align 4
+  %376 = load ptr, ptr %7, align 8
+  %377 = getelementptr inbounds nuw %struct._packet_info, ptr %376, i32 0, i32 8
+  %378 = load ptr, ptr %377, align 8
+  %379 = getelementptr inbounds nuw %struct._frame_data, ptr %378, i32 0, i32 11
+  %380 = load i16, ptr %379, align 1
+  %381 = lshr i16 %380, 3
+  %382 = and i16 %381, 1
+  %383 = zext i16 %382 to i32
+  %384 = icmp ne i32 %383, 0
+  br i1 %384, label %414, label %385
 
-371:                                              ; preds = %341
-  %372 = load ptr, ptr %23, align 8
-  %373 = icmp ne ptr %372, null
-  br i1 %373, label %374, label %400
+385:                                              ; preds = %355
+  %386 = load ptr, ptr %23, align 8
+  %387 = icmp ne ptr %386, null
+  br i1 %387, label %388, label %414
 
-374:                                              ; preds = %371
-  %375 = load ptr, ptr %15, align 8
-  %376 = getelementptr inbounds %struct.ieee802154_packet, ptr %375, i32 0, i32 17
-  %377 = load i16, ptr %376, align 2
-  %378 = zext i16 %377 to i32
-  %379 = load ptr, ptr %23, align 8
-  %380 = getelementptr inbounds %struct.zbee_nwk_hints_t, ptr %379, i32 0, i32 0
-  store i32 %378, ptr %380, align 8
-  %381 = load i32, ptr %24, align 4
-  %382 = icmp ne i32 %381, 0
-  br i1 %382, label %383, label %399
+388:                                              ; preds = %385
+  %389 = load ptr, ptr %15, align 8
+  %390 = getelementptr inbounds nuw %struct.ieee802154_packet, ptr %389, i32 0, i32 17
+  %391 = load i16, ptr %390, align 2
+  %392 = zext i16 %391 to i32
+  %393 = load ptr, ptr %23, align 8
+  %394 = getelementptr inbounds nuw %struct.zbee_nwk_hints_t, ptr %393, i32 0, i32 0
+  store i32 %392, ptr %394, align 8
+  %395 = load i8, ptr %24, align 1, !range !9, !noundef !10
+  %396 = trunc i8 %395 to i1
+  br i1 %396, label %397, label %413
 
-383:                                              ; preds = %374
-  %384 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 9
-  %385 = load i16, ptr %384, align 2
-  %386 = getelementptr inbounds %struct.ieee802154_short_addr, ptr %20, i32 0, i32 0
-  %387 = load i16, ptr %386, align 2
-  %388 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 11
-  %389 = load i64, ptr %388, align 8
-  %390 = load ptr, ptr %7, align 8
-  %391 = getelementptr inbounds %struct._packet_info, ptr %390, i32 0, i32 0
-  %392 = load ptr, ptr %391, align 8
-  %393 = load ptr, ptr %7, align 8
-  %394 = getelementptr inbounds %struct._packet_info, ptr %393, i32 0, i32 3
-  %395 = load i32, ptr %394, align 4
-  %396 = call ptr @ieee802154_addr_update(ptr noundef @zbee_nwk_map, i16 noundef zeroext %385, i16 noundef zeroext %387, i64 noundef %389, ptr noundef %392, i32 noundef %395)
-  %397 = load ptr, ptr %23, align 8
-  %398 = getelementptr inbounds %struct.zbee_nwk_hints_t, ptr %397, i32 0, i32 2
-  store ptr %396, ptr %398, align 8
-  br label %399
+397:                                              ; preds = %388
+  %398 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %14, i32 0, i32 9
+  %399 = load i16, ptr %398, align 4
+  %400 = getelementptr inbounds nuw %struct.ieee802154_short_addr, ptr %20, i32 0, i32 0
+  %401 = load i16, ptr %400, align 2
+  %402 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %14, i32 0, i32 11
+  %403 = load i64, ptr %402, align 8
+  %404 = load ptr, ptr %7, align 8
+  %405 = getelementptr inbounds nuw %struct._packet_info, ptr %404, i32 0, i32 0
+  %406 = load ptr, ptr %405, align 8
+  %407 = load ptr, ptr %7, align 8
+  %408 = getelementptr inbounds nuw %struct._packet_info, ptr %407, i32 0, i32 3
+  %409 = load i32, ptr %408, align 4
+  %410 = call ptr @ieee802154_addr_update(ptr noundef @zbee_nwk_map, i16 noundef zeroext %399, i16 noundef zeroext %401, i64 noundef %403, ptr noundef %406, i32 noundef %409)
+  %411 = load ptr, ptr %23, align 8
+  %412 = getelementptr inbounds nuw %struct.zbee_nwk_hints_t, ptr %411, i32 0, i32 2
+  store ptr %410, ptr %412, align 8
+  br label %413
 
-399:                                              ; preds = %383, %374
-  br label %400
+413:                                              ; preds = %397, %388
+  br label %414
 
-400:                                              ; preds = %399, %371, %341
-  br label %503
+414:                                              ; preds = %413, %385, %355
+  br label %516
 
-401:                                              ; preds = %333
-  %402 = load ptr, ptr %7, align 8
-  %403 = getelementptr inbounds %struct._packet_info, ptr %402, i32 0, i32 8
-  %404 = load ptr, ptr %403, align 8
-  %405 = getelementptr inbounds %struct._frame_data, ptr %404, i32 0, i32 9
-  %406 = load i16, ptr %405, align 2
-  %407 = lshr i16 %406, 3
-  %408 = and i16 %407, 1
-  %409 = zext i16 %408 to i32
-  %410 = icmp ne i32 %409, 0
-  br i1 %410, label %446, label %411
+415:                                              ; preds = %347
+  %416 = load ptr, ptr %7, align 8
+  %417 = getelementptr inbounds nuw %struct._packet_info, ptr %416, i32 0, i32 8
+  %418 = load ptr, ptr %417, align 8
+  %419 = getelementptr inbounds nuw %struct._frame_data, ptr %418, i32 0, i32 11
+  %420 = load i16, ptr %419, align 1
+  %421 = lshr i16 %420, 3
+  %422 = and i16 %421, 1
+  %423 = zext i16 %422 to i32
+  %424 = icmp ne i32 %423, 0
+  br i1 %424, label %459, label %425
 
-411:                                              ; preds = %401
-  %412 = load ptr, ptr %23, align 8
-  %413 = icmp ne ptr %412, null
-  br i1 %413, label %414, label %446
+425:                                              ; preds = %415
+  %426 = load ptr, ptr %23, align 8
+  %427 = icmp ne ptr %426, null
+  br i1 %427, label %428, label %459
 
-414:                                              ; preds = %411
-  %415 = load ptr, ptr %15, align 8
-  %416 = getelementptr inbounds %struct.ieee802154_packet, ptr %415, i32 0, i32 17
-  %417 = load i16, ptr %416, align 2
-  %418 = zext i16 %417 to i32
-  %419 = load ptr, ptr %23, align 8
-  %420 = getelementptr inbounds %struct.zbee_nwk_hints_t, ptr %419, i32 0, i32 0
-  store i32 %418, ptr %420, align 8
-  %421 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 9
-  %422 = load i16, ptr %421, align 2
-  %423 = getelementptr inbounds %struct.ieee802154_short_addr, ptr %20, i32 0, i32 1
-  store i16 %422, ptr %423, align 2
-  %424 = getelementptr inbounds %struct.ieee802154_map_tab_t, ptr @zbee_nwk_map, i32 0, i32 1
-  %425 = load ptr, ptr %424, align 8
-  %426 = call ptr @g_hash_table_lookup(ptr noundef %425, ptr noundef %20)
-  store ptr %426, ptr %21, align 8
-  %427 = load ptr, ptr %21, align 8
-  %428 = icmp ne ptr %427, null
-  br i1 %428, label %429, label %433
+428:                                              ; preds = %425
+  %429 = load ptr, ptr %15, align 8
+  %430 = getelementptr inbounds nuw %struct.ieee802154_packet, ptr %429, i32 0, i32 17
+  %431 = load i16, ptr %430, align 2
+  %432 = zext i16 %431 to i32
+  %433 = load ptr, ptr %23, align 8
+  %434 = getelementptr inbounds nuw %struct.zbee_nwk_hints_t, ptr %433, i32 0, i32 0
+  store i32 %432, ptr %434, align 8
+  %435 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %14, i32 0, i32 9
+  %436 = load i16, ptr %435, align 4
+  %437 = getelementptr inbounds nuw %struct.ieee802154_short_addr, ptr %20, i32 0, i32 1
+  store i16 %436, ptr %437, align 2
+  %438 = load ptr, ptr getelementptr inbounds nuw (%struct.ieee802154_map_tab_t, ptr @zbee_nwk_map, i32 0, i32 1), align 8
+  %439 = call ptr @g_hash_table_lookup(ptr noundef %438, ptr noundef %20)
+  store ptr %439, ptr %21, align 8
+  %440 = load ptr, ptr %21, align 8
+  %441 = icmp ne ptr %440, null
+  br i1 %441, label %442, label %446
 
-429:                                              ; preds = %414
-  %430 = load ptr, ptr %21, align 8
-  %431 = load ptr, ptr %23, align 8
-  %432 = getelementptr inbounds %struct.zbee_nwk_hints_t, ptr %431, i32 0, i32 2
-  store ptr %430, ptr %432, align 8
-  br label %445
+442:                                              ; preds = %428
+  %443 = load ptr, ptr %21, align 8
+  %444 = load ptr, ptr %23, align 8
+  %445 = getelementptr inbounds nuw %struct.zbee_nwk_hints_t, ptr %444, i32 0, i32 2
+  store ptr %443, ptr %445, align 8
+  br label %458
 
-433:                                              ; preds = %414
-  %434 = load ptr, ptr %15, align 8
-  %435 = getelementptr inbounds %struct.ieee802154_packet, ptr %434, i32 0, i32 31
-  %436 = load ptr, ptr %435, align 8
-  %437 = call ptr @g_hash_table_lookup(ptr noundef %436, ptr noundef %20)
-  store ptr %437, ptr %21, align 8
-  %438 = load ptr, ptr %21, align 8
-  %439 = icmp ne ptr %438, null
-  br i1 %439, label %440, label %444
+446:                                              ; preds = %428
+  %447 = load ptr, ptr %15, align 8
+  %448 = getelementptr inbounds nuw %struct.ieee802154_packet, ptr %447, i32 0, i32 31
+  %449 = load ptr, ptr %448, align 8
+  %450 = call ptr @g_hash_table_lookup(ptr noundef %449, ptr noundef %20)
+  store ptr %450, ptr %21, align 8
+  %451 = load ptr, ptr %21, align 8
+  %452 = icmp ne ptr %451, null
+  br i1 %452, label %453, label %457
 
-440:                                              ; preds = %433
-  %441 = load ptr, ptr %21, align 8
-  %442 = load ptr, ptr %23, align 8
-  %443 = getelementptr inbounds %struct.zbee_nwk_hints_t, ptr %442, i32 0, i32 2
-  store ptr %441, ptr %443, align 8
-  br label %444
+453:                                              ; preds = %446
+  %454 = load ptr, ptr %21, align 8
+  %455 = load ptr, ptr %23, align 8
+  %456 = getelementptr inbounds nuw %struct.zbee_nwk_hints_t, ptr %455, i32 0, i32 2
+  store ptr %454, ptr %456, align 8
+  br label %457
 
-444:                                              ; preds = %440, %433
-  br label %445
+457:                                              ; preds = %453, %446
+  br label %458
 
-445:                                              ; preds = %444, %429
-  br label %502
+458:                                              ; preds = %457, %442
+  br label %515
 
-446:                                              ; preds = %411, %401
-  %447 = load ptr, ptr %23, align 8
-  %448 = icmp ne ptr %447, null
-  br i1 %448, label %449, label %501
+459:                                              ; preds = %425, %415
+  %460 = load ptr, ptr %23, align 8
+  %461 = icmp ne ptr %460, null
+  br i1 %461, label %462, label %514
 
-449:                                              ; preds = %446
-  %450 = load ptr, ptr %23, align 8
-  %451 = getelementptr inbounds %struct.zbee_nwk_hints_t, ptr %450, i32 0, i32 2
-  %452 = load ptr, ptr %451, align 8
-  %453 = icmp ne ptr %452, null
-  br i1 %453, label %454, label %501
+462:                                              ; preds = %459
+  %463 = load ptr, ptr %23, align 8
+  %464 = getelementptr inbounds nuw %struct.zbee_nwk_hints_t, ptr %463, i32 0, i32 2
+  %465 = load ptr, ptr %464, align 8
+  %466 = icmp ne ptr %465, null
+  br i1 %466, label %467, label %514
 
-454:                                              ; preds = %449
-  %455 = load ptr, ptr %13, align 8
-  %456 = load i32, ptr @hf_zbee_nwk_src64, align 4
-  %457 = load ptr, ptr %6, align 8
-  %458 = load i32, ptr %16, align 4
-  %459 = load ptr, ptr %23, align 8
-  %460 = getelementptr inbounds %struct.zbee_nwk_hints_t, ptr %459, i32 0, i32 2
-  %461 = load ptr, ptr %460, align 8
-  %462 = getelementptr inbounds %struct.ieee802154_map_rec, ptr %461, i32 0, i32 3
-  %463 = load i64, ptr %462, align 8
-  %464 = call ptr @proto_tree_add_eui64(ptr noundef %455, i32 noundef %456, ptr noundef %457, i32 noundef %458, i32 noundef 0, i64 noundef %463)
-  store ptr %464, ptr %12, align 8
-  %465 = load ptr, ptr %12, align 8
-  call void @proto_item_set_generated(ptr noundef %465)
-  %466 = load ptr, ptr %13, align 8
-  %467 = load i32, ptr @hf_zbee_nwk_addr64, align 4
-  %468 = load ptr, ptr %6, align 8
-  %469 = load i32, ptr %16, align 4
-  %470 = load ptr, ptr %23, align 8
-  %471 = getelementptr inbounds %struct.zbee_nwk_hints_t, ptr %470, i32 0, i32 2
-  %472 = load ptr, ptr %471, align 8
-  %473 = getelementptr inbounds %struct.ieee802154_map_rec, ptr %472, i32 0, i32 3
-  %474 = load i64, ptr %473, align 8
-  %475 = call ptr @proto_tree_add_eui64(ptr noundef %466, i32 noundef %467, ptr noundef %468, i32 noundef %469, i32 noundef 0, i64 noundef %474)
-  store ptr %475, ptr %12, align 8
-  %476 = load ptr, ptr %12, align 8
-  call void @proto_item_set_generated(ptr noundef %476)
-  %477 = load ptr, ptr %12, align 8
-  call void @proto_item_set_hidden(ptr noundef %477)
-  %478 = load ptr, ptr %23, align 8
-  %479 = getelementptr inbounds %struct.zbee_nwk_hints_t, ptr %478, i32 0, i32 2
-  %480 = load ptr, ptr %479, align 8
-  %481 = getelementptr inbounds %struct.ieee802154_map_rec, ptr %480, i32 0, i32 1
-  %482 = load i32, ptr %481, align 8
-  %483 = icmp ne i32 %482, 0
-  br i1 %483, label %484, label %494
+467:                                              ; preds = %462
+  %468 = load ptr, ptr %13, align 8
+  %469 = load i32, ptr @hf_zbee_nwk_src64, align 4
+  %470 = load ptr, ptr %6, align 8
+  %471 = load i32, ptr %16, align 4
+  %472 = load ptr, ptr %23, align 8
+  %473 = getelementptr inbounds nuw %struct.zbee_nwk_hints_t, ptr %472, i32 0, i32 2
+  %474 = load ptr, ptr %473, align 8
+  %475 = getelementptr inbounds nuw %struct.ieee802154_map_rec, ptr %474, i32 0, i32 3
+  %476 = load i64, ptr %475, align 8
+  %477 = call ptr @proto_tree_add_eui64(ptr noundef %468, i32 noundef %469, ptr noundef %470, i32 noundef %471, i32 noundef 0, i64 noundef %476)
+  store ptr %477, ptr %12, align 8
+  %478 = load ptr, ptr %12, align 8
+  call void @proto_item_set_generated(ptr noundef %478)
+  %479 = load ptr, ptr %13, align 8
+  %480 = load i32, ptr @hf_zbee_nwk_addr64, align 4
+  %481 = load ptr, ptr %6, align 8
+  %482 = load i32, ptr %16, align 4
+  %483 = load ptr, ptr %23, align 8
+  %484 = getelementptr inbounds nuw %struct.zbee_nwk_hints_t, ptr %483, i32 0, i32 2
+  %485 = load ptr, ptr %484, align 8
+  %486 = getelementptr inbounds nuw %struct.ieee802154_map_rec, ptr %485, i32 0, i32 3
+  %487 = load i64, ptr %486, align 8
+  %488 = call ptr @proto_tree_add_eui64(ptr noundef %479, i32 noundef %480, ptr noundef %481, i32 noundef %482, i32 noundef 0, i64 noundef %487)
+  store ptr %488, ptr %12, align 8
+  %489 = load ptr, ptr %12, align 8
+  call void @proto_item_set_generated(ptr noundef %489)
+  %490 = load ptr, ptr %12, align 8
+  call void @proto_item_set_hidden(ptr noundef %490)
+  %491 = load ptr, ptr %23, align 8
+  %492 = getelementptr inbounds nuw %struct.zbee_nwk_hints_t, ptr %491, i32 0, i32 2
+  %493 = load ptr, ptr %492, align 8
+  %494 = getelementptr inbounds nuw %struct.ieee802154_map_rec, ptr %493, i32 0, i32 1
+  %495 = load i32, ptr %494, align 8
+  %496 = icmp ne i32 %495, 0
+  br i1 %496, label %497, label %507
 
-484:                                              ; preds = %454
-  %485 = load ptr, ptr %13, align 8
-  %486 = load i32, ptr @hf_zbee_nwk_src64_origin, align 4
-  %487 = load ptr, ptr %6, align 8
-  %488 = load ptr, ptr %23, align 8
-  %489 = getelementptr inbounds %struct.zbee_nwk_hints_t, ptr %488, i32 0, i32 2
-  %490 = load ptr, ptr %489, align 8
-  %491 = getelementptr inbounds %struct.ieee802154_map_rec, ptr %490, i32 0, i32 1
-  %492 = load i32, ptr %491, align 8
-  %493 = call ptr @proto_tree_add_uint(ptr noundef %485, i32 noundef %486, ptr noundef %487, i32 noundef 0, i32 noundef 0, i32 noundef %492)
-  store ptr %493, ptr %12, align 8
-  br label %499
+497:                                              ; preds = %467
+  %498 = load ptr, ptr %13, align 8
+  %499 = load i32, ptr @hf_zbee_nwk_src64_origin, align 4
+  %500 = load ptr, ptr %6, align 8
+  %501 = load ptr, ptr %23, align 8
+  %502 = getelementptr inbounds nuw %struct.zbee_nwk_hints_t, ptr %501, i32 0, i32 2
+  %503 = load ptr, ptr %502, align 8
+  %504 = getelementptr inbounds nuw %struct.ieee802154_map_rec, ptr %503, i32 0, i32 1
+  %505 = load i32, ptr %504, align 8
+  %506 = call ptr @proto_tree_add_uint(ptr noundef %498, i32 noundef %499, ptr noundef %500, i32 noundef 0, i32 noundef 0, i32 noundef %505)
+  store ptr %506, ptr %12, align 8
+  br label %512
 
-494:                                              ; preds = %454
-  %495 = load ptr, ptr %13, align 8
-  %496 = load i32, ptr @hf_zbee_nwk_src64_origin, align 4
-  %497 = load ptr, ptr %6, align 8
-  %498 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %495, i32 noundef %496, ptr noundef %497, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef @.str.327)
-  store ptr %498, ptr %12, align 8
-  br label %499
+507:                                              ; preds = %467
+  %508 = load ptr, ptr %13, align 8
+  %509 = load i32, ptr @hf_zbee_nwk_src64_origin, align 4
+  %510 = load ptr, ptr %6, align 8
+  %511 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %508, i32 noundef %509, ptr noundef %510, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef @.str.341)
+  store ptr %511, ptr %12, align 8
+  br label %512
 
-499:                                              ; preds = %494, %484
-  %500 = load ptr, ptr %12, align 8
-  call void @proto_item_set_generated(ptr noundef %500)
-  br label %501
+512:                                              ; preds = %507, %497
+  %513 = load ptr, ptr %12, align 8
+  call void @proto_item_set_generated(ptr noundef %513)
+  br label %514
 
-501:                                              ; preds = %499, %449, %446
-  br label %502
+514:                                              ; preds = %512, %462, %459
+  br label %515
 
-502:                                              ; preds = %501, %445
-  br label %503
+515:                                              ; preds = %514, %458
+  br label %516
 
-503:                                              ; preds = %502, %400
-  %504 = load ptr, ptr %7, align 8
-  %505 = getelementptr inbounds %struct._packet_info, ptr %504, i32 0, i32 8
-  %506 = load ptr, ptr %505, align 8
-  %507 = getelementptr inbounds %struct._frame_data, ptr %506, i32 0, i32 9
-  %508 = load i16, ptr %507, align 2
-  %509 = lshr i16 %508, 3
-  %510 = and i16 %509, 1
-  %511 = zext i16 %510 to i32
-  %512 = icmp ne i32 %511, 0
-  br i1 %512, label %546, label %513
+516:                                              ; preds = %515, %414
+  %517 = load ptr, ptr %7, align 8
+  %518 = getelementptr inbounds nuw %struct._packet_info, ptr %517, i32 0, i32 8
+  %519 = load ptr, ptr %518, align 8
+  %520 = getelementptr inbounds nuw %struct._frame_data, ptr %519, i32 0, i32 11
+  %521 = load i16, ptr %520, align 1
+  %522 = lshr i16 %521, 3
+  %523 = and i16 %522, 1
+  %524 = zext i16 %523 to i32
+  %525 = icmp ne i32 %524, 0
+  br i1 %525, label %558, label %526
 
-513:                                              ; preds = %503
-  %514 = load ptr, ptr %15, align 8
-  %515 = getelementptr inbounds %struct.ieee802154_packet, ptr %514, i32 0, i32 3
-  %516 = load i32, ptr %515, align 4
-  %517 = icmp eq i32 %516, 2
-  br i1 %517, label %518, label %545
-
-518:                                              ; preds = %513
-  %519 = load ptr, ptr %22, align 8
-  %520 = icmp ne ptr %519, null
-  br i1 %520, label %521, label %545
-
-521:                                              ; preds = %518
-  %522 = load ptr, ptr %22, align 8
-  %523 = getelementptr inbounds %struct.ieee802154_hints_t, ptr %522, i32 0, i32 3
-  %524 = load ptr, ptr %523, align 8
-  %525 = icmp ne ptr %524, null
-  br i1 %525, label %545, label %526
-
-526:                                              ; preds = %521
+526:                                              ; preds = %516
   %527 = load ptr, ptr %15, align 8
-  %528 = getelementptr inbounds %struct.ieee802154_packet, ptr %527, i32 0, i32 17
-  %529 = load i16, ptr %528, align 2
-  %530 = getelementptr inbounds %struct.ieee802154_short_addr, ptr %20, i32 0, i32 0
-  store i16 %529, ptr %530, align 2
-  %531 = load ptr, ptr %15, align 8
-  %532 = getelementptr inbounds %struct.ieee802154_packet, ptr %531, i32 0, i32 20
-  %533 = load i16, ptr %532, align 8
-  %534 = getelementptr inbounds %struct.ieee802154_short_addr, ptr %20, i32 0, i32 1
-  store i16 %533, ptr %534, align 2
-  %535 = getelementptr inbounds %struct.ieee802154_map_tab_t, ptr @zbee_nwk_map, i32 0, i32 1
-  %536 = load ptr, ptr %535, align 8
-  %537 = call ptr @g_hash_table_lookup(ptr noundef %536, ptr noundef %20)
-  store ptr %537, ptr %21, align 8
-  %538 = load ptr, ptr %21, align 8
-  %539 = icmp ne ptr %538, null
-  br i1 %539, label %540, label %544
+  %528 = getelementptr inbounds nuw %struct.ieee802154_packet, ptr %527, i32 0, i32 3
+  %529 = load i32, ptr %528, align 4
+  %530 = icmp eq i32 %529, 2
+  br i1 %530, label %531, label %557
 
-540:                                              ; preds = %526
-  %541 = load ptr, ptr %21, align 8
-  %542 = load ptr, ptr %22, align 8
-  %543 = getelementptr inbounds %struct.ieee802154_hints_t, ptr %542, i32 0, i32 3
-  store ptr %541, ptr %543, align 8
-  br label %544
+531:                                              ; preds = %526
+  %532 = load ptr, ptr %22, align 8
+  %533 = icmp ne ptr %532, null
+  br i1 %533, label %534, label %557
 
-544:                                              ; preds = %540, %526
-  br label %545
+534:                                              ; preds = %531
+  %535 = load ptr, ptr %22, align 8
+  %536 = getelementptr inbounds nuw %struct.ieee802154_hints_t, ptr %535, i32 0, i32 3
+  %537 = load ptr, ptr %536, align 8
+  %538 = icmp ne ptr %537, null
+  br i1 %538, label %557, label %539
 
-545:                                              ; preds = %544, %521, %518, %513
-  br label %546
+539:                                              ; preds = %534
+  %540 = load ptr, ptr %15, align 8
+  %541 = getelementptr inbounds nuw %struct.ieee802154_packet, ptr %540, i32 0, i32 17
+  %542 = load i16, ptr %541, align 2
+  %543 = getelementptr inbounds nuw %struct.ieee802154_short_addr, ptr %20, i32 0, i32 0
+  store i16 %542, ptr %543, align 2
+  %544 = load ptr, ptr %15, align 8
+  %545 = getelementptr inbounds nuw %struct.ieee802154_packet, ptr %544, i32 0, i32 20
+  %546 = load i16, ptr %545, align 8
+  %547 = getelementptr inbounds nuw %struct.ieee802154_short_addr, ptr %20, i32 0, i32 1
+  store i16 %546, ptr %547, align 2
+  %548 = load ptr, ptr getelementptr inbounds nuw (%struct.ieee802154_map_tab_t, ptr @zbee_nwk_map, i32 0, i32 1), align 8
+  %549 = call ptr @g_hash_table_lookup(ptr noundef %548, ptr noundef %20)
+  store ptr %549, ptr %21, align 8
+  %550 = load ptr, ptr %21, align 8
+  %551 = icmp ne ptr %550, null
+  br i1 %551, label %552, label %556
 
-546:                                              ; preds = %545, %503
-  br label %547
+552:                                              ; preds = %539
+  %553 = load ptr, ptr %21, align 8
+  %554 = load ptr, ptr %22, align 8
+  %555 = getelementptr inbounds nuw %struct.ieee802154_hints_t, ptr %554, i32 0, i32 3
+  store ptr %553, ptr %555, align 8
+  br label %556
 
-547:                                              ; preds = %546, %328
-  %548 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 7
-  %549 = load i8, ptr %548, align 2
-  %550 = zext i8 %549 to i32
-  %551 = icmp sge i32 %550, 2
-  br i1 %551, label %552, label %583
+556:                                              ; preds = %552, %539
+  br label %557
 
-552:                                              ; preds = %547
-  %553 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 2
-  %554 = load i32, ptr %553, align 8
-  %555 = icmp ne i32 %554, 0
-  br i1 %555, label %556, label %583
+557:                                              ; preds = %556, %534, %531, %526
+  br label %558
 
-556:                                              ; preds = %552
-  %557 = load ptr, ptr %6, align 8
-  %558 = load i32, ptr %16, align 4
-  %559 = call zeroext i8 @tvb_get_guint8(ptr noundef %557, i32 noundef %558)
-  store i8 %559, ptr %25, align 1
-  %560 = load i8, ptr %25, align 1
-  %561 = zext i8 %560 to i32
-  %562 = call i32 @zbee_get_bit_field(i32 noundef %561, i32 noundef 3)
-  %563 = trunc i32 %562 to i8
-  %564 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 14
-  store i8 %563, ptr %564, align 2
-  %565 = load i8, ptr %25, align 1
-  %566 = zext i8 %565 to i32
-  %567 = call i32 @zbee_get_bit_field(i32 noundef %566, i32 noundef 28)
-  %568 = trunc i32 %567 to i8
-  %569 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 15
-  store i8 %568, ptr %569, align 1
-  %570 = load i8, ptr %25, align 1
-  %571 = zext i8 %570 to i32
-  %572 = call i32 @zbee_get_bit_field(i32 noundef %571, i32 noundef 224)
-  %573 = trunc i32 %572 to i8
-  %574 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 16
-  store i8 %573, ptr %574, align 4
-  %575 = load ptr, ptr %13, align 8
-  %576 = load ptr, ptr %6, align 8
-  %577 = load i32, ptr %16, align 4
-  %578 = load i32, ptr @hf_zbee_nwk_mcast, align 4
-  %579 = load i32, ptr @ett_zbee_nwk_mcast, align 4
-  %580 = call ptr @proto_tree_add_bitmask(ptr noundef %575, ptr noundef %576, i32 noundef %577, i32 noundef %578, i32 noundef %579, ptr noundef @dissect_zbee_nwk_full.multicast_flags, i32 noundef 0)
-  %581 = load i32, ptr %16, align 4
-  %582 = add i32 %581, 1
-  store i32 %582, ptr %16, align 4
-  br label %583
+558:                                              ; preds = %557, %516
+  br label %559
 
-583:                                              ; preds = %556, %552, %547
-  %584 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 7
-  %585 = load i8, ptr %584, align 2
-  %586 = zext i8 %585 to i32
-  %587 = icmp sge i32 %586, 2
-  br i1 %587, label %588, label %651
+559:                                              ; preds = %558, %342
+  %560 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %14, i32 0, i32 7
+  %561 = load i8, ptr %560, align 8
+  %562 = zext i8 %561 to i32
+  %563 = icmp sge i32 %562, 2
+  br i1 %563, label %564, label %595
 
-588:                                              ; preds = %583
-  %589 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 3
-  %590 = load i32, ptr %589, align 4
-  %591 = icmp ne i32 %590, 0
-  br i1 %591, label %592, label %651
+564:                                              ; preds = %559
+  %565 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %14, i32 0, i32 2
+  %566 = load i8, ptr %565, align 2, !range !9, !noundef !10
+  %567 = trunc i8 %566 to i1
+  br i1 %567, label %568, label %595
 
-592:                                              ; preds = %588
-  %593 = load ptr, ptr %13, align 8
-  %594 = load ptr, ptr %6, align 8
-  %595 = load i32, ptr %16, align 4
-  %596 = load i32, ptr @ett_zbee_nwk_route, align 4
-  %597 = call ptr @proto_tree_add_subtree(ptr noundef %593, ptr noundef %594, i32 noundef %595, i32 noundef 1, i32 noundef %596, ptr noundef %12, ptr noundef @.str.14)
-  store ptr %597, ptr %26, align 8
-  %598 = load ptr, ptr %6, align 8
-  %599 = load i32, ptr %16, align 4
-  %600 = call zeroext i8 @tvb_get_guint8(ptr noundef %598, i32 noundef %599)
-  store i8 %600, ptr %27, align 1
-  %601 = load ptr, ptr %26, align 8
-  %602 = load i32, ptr @hf_zbee_nwk_relay_count, align 4
-  %603 = load ptr, ptr %6, align 8
-  %604 = load i32, ptr %16, align 4
-  %605 = load i8, ptr %27, align 1
-  %606 = zext i8 %605 to i32
-  %607 = call ptr @proto_tree_add_uint(ptr noundef %601, i32 noundef %602, ptr noundef %603, i32 noundef %604, i32 noundef 1, i32 noundef %606)
-  %608 = load ptr, ptr %12, align 8
-  %609 = load i8, ptr %27, align 1
-  %610 = zext i8 %609 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %608, ptr noundef @.str.328, i32 noundef %610)
+568:                                              ; preds = %564
+  call void @llvm.lifetime.start.p0(i64 1, ptr %26) #10
+  %569 = load ptr, ptr %6, align 8
+  %570 = load i32, ptr %16, align 4
+  %571 = call zeroext i8 @tvb_get_uint8(ptr noundef %569, i32 noundef %570)
+  store i8 %571, ptr %26, align 1
+  %572 = load i8, ptr %26, align 1
+  %573 = zext i8 %572 to i32
+  %574 = call i32 @zbee_get_bit_field(i32 noundef %573, i32 noundef 3)
+  %575 = trunc i32 %574 to i8
+  %576 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %14, i32 0, i32 14
+  store i8 %575, ptr %576, align 2
+  %577 = load i8, ptr %26, align 1
+  %578 = zext i8 %577 to i32
+  %579 = call i32 @zbee_get_bit_field(i32 noundef %578, i32 noundef 28)
+  %580 = trunc i32 %579 to i8
+  %581 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %14, i32 0, i32 15
+  store i8 %580, ptr %581, align 1
+  %582 = load i8, ptr %26, align 1
+  %583 = zext i8 %582 to i32
+  %584 = call i32 @zbee_get_bit_field(i32 noundef %583, i32 noundef 224)
+  %585 = trunc i32 %584 to i8
+  %586 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %14, i32 0, i32 16
+  store i8 %585, ptr %586, align 4
+  %587 = load ptr, ptr %13, align 8
+  %588 = load ptr, ptr %6, align 8
+  %589 = load i32, ptr %16, align 4
+  %590 = load i32, ptr @hf_zbee_nwk_mcast, align 4
+  %591 = load i32, ptr @ett_zbee_nwk_mcast, align 4
+  %592 = call ptr @proto_tree_add_bitmask(ptr noundef %587, ptr noundef %588, i32 noundef %589, i32 noundef %590, i32 noundef %591, ptr noundef @dissect_zbee_nwk_full.multicast_flags, i32 noundef 0)
+  %593 = load i32, ptr %16, align 4
+  %594 = add i32 %593, 1
+  store i32 %594, ptr %16, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %26) #10
+  br label %595
+
+595:                                              ; preds = %568, %564, %559
+  %596 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %14, i32 0, i32 7
+  %597 = load i8, ptr %596, align 8
+  %598 = zext i8 %597 to i32
+  %599 = icmp sge i32 %598, 2
+  br i1 %599, label %600, label %663
+
+600:                                              ; preds = %595
+  %601 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %14, i32 0, i32 3
+  %602 = load i8, ptr %601, align 1, !range !9, !noundef !10
+  %603 = trunc i8 %602 to i1
+  br i1 %603, label %604, label %663
+
+604:                                              ; preds = %600
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr %28) #10
+  call void @llvm.lifetime.start.p0(i64 2, ptr %29) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %30) #10
+  %605 = load ptr, ptr %13, align 8
+  %606 = load ptr, ptr %6, align 8
+  %607 = load i32, ptr %16, align 4
+  %608 = load i32, ptr @ett_zbee_nwk_route, align 4
+  %609 = call ptr @proto_tree_add_subtree(ptr noundef %605, ptr noundef %606, i32 noundef %607, i32 noundef 1, i32 noundef %608, ptr noundef %12, ptr noundef @.str.14)
+  store ptr %609, ptr %27, align 8
+  %610 = load ptr, ptr %6, align 8
   %611 = load i32, ptr %16, align 4
-  %612 = add i32 %611, 1
-  store i32 %612, ptr %16, align 4
-  %613 = load ptr, ptr %12, align 8
-  %614 = load i8, ptr %27, align 1
-  %615 = zext i8 %614 to i32
-  %616 = mul i32 %615, 2
-  %617 = add i32 1, %616
-  call void @proto_item_set_len(ptr noundef %613, i32 noundef %617)
-  %618 = load ptr, ptr %26, align 8
-  %619 = load i32, ptr @hf_zbee_nwk_relay_index, align 4
-  %620 = load ptr, ptr %6, align 8
-  %621 = load i32, ptr %16, align 4
-  %622 = call ptr @proto_tree_add_item(ptr noundef %618, i32 noundef %619, ptr noundef %620, i32 noundef %621, i32 noundef 1, i32 noundef 0)
+  %612 = call zeroext i8 @tvb_get_uint8(ptr noundef %610, i32 noundef %611)
+  store i8 %612, ptr %28, align 1
+  %613 = load ptr, ptr %27, align 8
+  %614 = load i32, ptr @hf_zbee_nwk_relay_count, align 4
+  %615 = load ptr, ptr %6, align 8
+  %616 = load i32, ptr %16, align 4
+  %617 = load i8, ptr %28, align 1
+  %618 = zext i8 %617 to i32
+  %619 = call ptr @proto_tree_add_uint(ptr noundef %613, i32 noundef %614, ptr noundef %615, i32 noundef %616, i32 noundef 1, i32 noundef %618)
+  %620 = load ptr, ptr %12, align 8
+  %621 = load i8, ptr %28, align 1
+  %622 = zext i8 %621 to i32
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %620, ptr noundef @.str.342, i32 noundef %622)
   %623 = load i32, ptr %16, align 4
   %624 = add i32 %623, 1
   store i32 %624, ptr %16, align 4
-  store i32 0, ptr %29, align 4
-  br label %625
+  %625 = load ptr, ptr %12, align 8
+  %626 = load i8, ptr %28, align 1
+  %627 = zext i8 %626 to i32
+  %628 = mul i32 %627, 2
+  %629 = add i32 1, %628
+  call void @proto_item_set_len(ptr noundef %625, i32 noundef %629)
+  %630 = load ptr, ptr %27, align 8
+  %631 = load i32, ptr @hf_zbee_nwk_relay_index, align 4
+  %632 = load ptr, ptr %6, align 8
+  %633 = load i32, ptr %16, align 4
+  %634 = call ptr @proto_tree_add_item(ptr noundef %630, i32 noundef %631, ptr noundef %632, i32 noundef %633, i32 noundef 1, i32 noundef 0)
+  %635 = load i32, ptr %16, align 4
+  %636 = add i32 %635, 1
+  store i32 %636, ptr %16, align 4
+  store i32 0, ptr %30, align 4
+  br label %637
 
-625:                                              ; preds = %647, %592
-  %626 = load i32, ptr %29, align 4
-  %627 = load i8, ptr %27, align 1
-  %628 = zext i8 %627 to i32
-  %629 = icmp ult i32 %626, %628
-  br i1 %629, label %630, label %650
+637:                                              ; preds = %659, %604
+  %638 = load i32, ptr %30, align 4
+  %639 = load i8, ptr %28, align 1
+  %640 = zext i8 %639 to i32
+  %641 = icmp ult i32 %638, %640
+  br i1 %641, label %642, label %662
 
-630:                                              ; preds = %625
-  %631 = load ptr, ptr %6, align 8
-  %632 = load i32, ptr %16, align 4
-  %633 = call zeroext i16 @tvb_get_letohs(ptr noundef %631, i32 noundef %632)
-  store i16 %633, ptr %28, align 2
-  %634 = load ptr, ptr %26, align 8
-  %635 = load i32, ptr @hf_zbee_nwk_relay, align 4
-  %636 = load ptr, ptr %6, align 8
-  %637 = load i32, ptr %16, align 4
-  %638 = load i16, ptr %28, align 2
-  %639 = zext i16 %638 to i32
-  %640 = load i32, ptr %29, align 4
-  %641 = add i32 %640, 1
-  %642 = load i16, ptr %28, align 2
-  %643 = zext i16 %642 to i32
-  %644 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %634, i32 noundef %635, ptr noundef %636, i32 noundef %637, i32 noundef 2, i32 noundef %639, ptr noundef @.str.329, i32 noundef %641, i32 noundef %643)
-  %645 = load i32, ptr %16, align 4
-  %646 = add i32 %645, 2
-  store i32 %646, ptr %16, align 4
-  br label %647
+642:                                              ; preds = %637
+  %643 = load ptr, ptr %6, align 8
+  %644 = load i32, ptr %16, align 4
+  %645 = call zeroext i16 @tvb_get_letohs(ptr noundef %643, i32 noundef %644)
+  store i16 %645, ptr %29, align 2
+  %646 = load ptr, ptr %27, align 8
+  %647 = load i32, ptr @hf_zbee_nwk_relay, align 4
+  %648 = load ptr, ptr %6, align 8
+  %649 = load i32, ptr %16, align 4
+  %650 = load i16, ptr %29, align 2
+  %651 = zext i16 %650 to i32
+  %652 = load i32, ptr %30, align 4
+  %653 = add i32 %652, 1
+  %654 = load i16, ptr %29, align 2
+  %655 = zext i16 %654 to i32
+  %656 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %646, i32 noundef %647, ptr noundef %648, i32 noundef %649, i32 noundef 2, i32 noundef %651, ptr noundef @.str.343, i32 noundef %653, i32 noundef %655)
+  %657 = load i32, ptr %16, align 4
+  %658 = add i32 %657, 2
+  store i32 %658, ptr %16, align 4
+  br label %659
 
-647:                                              ; preds = %630
-  %648 = load i32, ptr %29, align 4
-  %649 = add i32 %648, 1
-  store i32 %649, ptr %29, align 4
-  br label %625, !llvm.loop !7
+659:                                              ; preds = %642
+  %660 = load i32, ptr %30, align 4
+  %661 = add i32 %660, 1
+  store i32 %661, ptr %30, align 4
+  br label %637, !llvm.loop !11
 
-650:                                              ; preds = %625
-  br label %651
+662:                                              ; preds = %637
+  call void @llvm.lifetime.end.p0(i64 4, ptr %30) #10
+  call void @llvm.lifetime.end.p0(i64 2, ptr %29) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %28) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #10
+  br label %663
 
-651:                                              ; preds = %650, %588, %583
-  br label %652
+663:                                              ; preds = %662, %600, %595
+  br label %664
 
-652:                                              ; preds = %651, %130
-  %653 = load i32, ptr %16, align 4
-  %654 = load ptr, ptr %6, align 8
-  %655 = call i32 @tvb_captured_length(ptr noundef %654)
-  %656 = icmp uge i32 %653, %655
-  br i1 %656, label %657, label %663
+664:                                              ; preds = %663, %144
+  %665 = load i32, ptr %16, align 4
+  %666 = load ptr, ptr %6, align 8
+  %667 = call i32 @tvb_captured_length(ptr noundef %666)
+  %668 = icmp uge i32 %665, %667
+  br i1 %668, label %669, label %675
 
-657:                                              ; preds = %652
-  %658 = load ptr, ptr %7, align 8
-  %659 = load ptr, ptr %11, align 8
-  %660 = call ptr @expert_add_info(ptr noundef %658, ptr noundef %659, ptr noundef @ei_zbee_nwk_missing_payload)
-  %661 = load ptr, ptr %6, align 8
-  %662 = call i32 @tvb_captured_length(ptr noundef %661)
-  store i32 %662, ptr %5, align 4
-  br label %720
+669:                                              ; preds = %664
+  %670 = load ptr, ptr %7, align 8
+  %671 = load ptr, ptr %11, align 8
+  %672 = call ptr @expert_add_info(ptr noundef %670, ptr noundef %671, ptr noundef @ei_zbee_nwk_missing_payload)
+  %673 = load ptr, ptr %6, align 8
+  %674 = call i32 @tvb_captured_length(ptr noundef %673)
+  store i32 %674, ptr %5, align 4
+  store i32 1, ptr %25, align 4
+  br label %732
 
-663:                                              ; preds = %652
-  %664 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 0
-  %665 = load i32, ptr %664, align 8
-  %666 = icmp ne i32 %665, 0
-  br i1 %666, label %667, label %679
+675:                                              ; preds = %664
+  %676 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %14, i32 0, i32 0
+  %677 = load i8, ptr %676, align 8, !range !9, !noundef !10
+  %678 = trunc i8 %677 to i1
+  br i1 %678, label %679, label %691
 
-667:                                              ; preds = %663
-  %668 = load ptr, ptr %6, align 8
-  %669 = load ptr, ptr %7, align 8
-  %670 = load ptr, ptr %13, align 8
-  %671 = load i32, ptr %16, align 4
-  %672 = call ptr @dissect_zbee_secure(ptr noundef %668, ptr noundef %669, ptr noundef %670, i32 noundef %671)
-  store ptr %672, ptr %10, align 8
-  %673 = load ptr, ptr %10, align 8
-  %674 = icmp eq ptr %673, null
-  br i1 %674, label %675, label %678
-
-675:                                              ; preds = %667
-  %676 = load ptr, ptr %6, align 8
-  %677 = call i32 @tvb_captured_length(ptr noundef %676)
-  store i32 %677, ptr %5, align 4
-  br label %720
-
-678:                                              ; preds = %667
-  br label %683
-
-679:                                              ; preds = %663
+679:                                              ; preds = %675
   %680 = load ptr, ptr %6, align 8
-  %681 = load i32, ptr %16, align 4
-  %682 = call ptr @tvb_new_subset_remaining(ptr noundef %680, i32 noundef %681)
-  store ptr %682, ptr %10, align 8
-  br label %683
+  %681 = load ptr, ptr %7, align 8
+  %682 = load ptr, ptr %13, align 8
+  %683 = load i32, ptr %16, align 4
+  %684 = call ptr @dissect_zbee_secure(ptr noundef %680, ptr noundef %681, ptr noundef %682, i32 noundef %683)
+  store ptr %684, ptr %10, align 8
+  %685 = load ptr, ptr %10, align 8
+  %686 = icmp eq ptr %685, null
+  br i1 %686, label %687, label %690
 
-683:                                              ; preds = %679, %678
-  br label %684
+687:                                              ; preds = %679
+  %688 = load ptr, ptr %6, align 8
+  %689 = call i32 @tvb_captured_length(ptr noundef %688)
+  store i32 %689, ptr %5, align 4
+  store i32 1, ptr %25, align 4
+  br label %732
 
-684:                                              ; preds = %683
-  %685 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 6
-  %686 = load i16, ptr %685, align 8
-  %687 = zext i16 %686 to i32
-  %688 = icmp eq i32 %687, 1
-  br i1 %688, label %689, label %693
+690:                                              ; preds = %679
+  br label %695
 
-689:                                              ; preds = %684
-  %690 = load ptr, ptr %10, align 8
-  %691 = load ptr, ptr %7, align 8
-  %692 = load ptr, ptr %13, align 8
-  call void @dissect_zbee_nwk_cmd(ptr noundef %690, ptr noundef %691, ptr noundef %692, ptr noundef %14)
-  br label %715
+691:                                              ; preds = %675
+  %692 = load ptr, ptr %6, align 8
+  %693 = load i32, ptr %16, align 4
+  %694 = call ptr @tvb_new_subset_remaining(ptr noundef %692, i32 noundef %693)
+  store ptr %694, ptr %10, align 8
+  br label %695
 
-693:                                              ; preds = %684
-  %694 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 6
-  %695 = load i16, ptr %694, align 8
-  %696 = zext i16 %695 to i32
-  %697 = icmp eq i32 %696, 0
-  br i1 %697, label %703, label %698
+695:                                              ; preds = %691, %690
+  br label %696
 
-698:                                              ; preds = %693
-  %699 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %14, i32 0, i32 6
-  %700 = load i16, ptr %699, align 8
-  %701 = zext i16 %700 to i32
-  %702 = icmp eq i32 %701, 3
-  br i1 %702, label %703, label %709
+696:                                              ; preds = %695
+  %697 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %14, i32 0, i32 6
+  %698 = load i16, ptr %697, align 2
+  %699 = zext i16 %698 to i32
+  %700 = icmp eq i32 %699, 1
+  br i1 %700, label %701, label %705
 
-703:                                              ; preds = %698, %693
-  %704 = load ptr, ptr @aps_handle, align 8
-  %705 = load ptr, ptr %10, align 8
-  %706 = load ptr, ptr %7, align 8
-  %707 = load ptr, ptr %8, align 8
-  %708 = call i32 @call_dissector_with_data(ptr noundef %704, ptr noundef %705, ptr noundef %706, ptr noundef %707, ptr noundef %14)
-  br label %714
+701:                                              ; preds = %696
+  %702 = load ptr, ptr %10, align 8
+  %703 = load ptr, ptr %7, align 8
+  %704 = load ptr, ptr %13, align 8
+  call void @dissect_zbee_nwk_cmd(ptr noundef %702, ptr noundef %703, ptr noundef %704, ptr noundef %14)
+  br label %727
 
-709:                                              ; preds = %698
-  %710 = load ptr, ptr %10, align 8
-  %711 = load ptr, ptr %7, align 8
-  %712 = load ptr, ptr %8, align 8
-  %713 = call i32 @call_data_dissector(ptr noundef %710, ptr noundef %711, ptr noundef %712)
-  br label %714
+705:                                              ; preds = %696
+  %706 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %14, i32 0, i32 6
+  %707 = load i16, ptr %706, align 2
+  %708 = zext i16 %707 to i32
+  %709 = icmp eq i32 %708, 0
+  br i1 %709, label %715, label %710
 
-714:                                              ; preds = %709, %703
-  br label %715
+710:                                              ; preds = %705
+  %711 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %14, i32 0, i32 6
+  %712 = load i16, ptr %711, align 2
+  %713 = zext i16 %712 to i32
+  %714 = icmp eq i32 %713, 3
+  br i1 %714, label %715, label %721
 
-715:                                              ; preds = %714, %689
-  %716 = load i32, ptr @zbee_nwk_tap, align 4
-  %717 = load ptr, ptr %7, align 8
-  call void @tap_queue_packet(i32 noundef %716, ptr noundef %717, ptr noundef null)
-  %718 = load ptr, ptr %6, align 8
-  %719 = call i32 @tvb_captured_length(ptr noundef %718)
-  store i32 %719, ptr %5, align 4
-  br label %720
+715:                                              ; preds = %710, %705
+  %716 = load ptr, ptr @aps_handle, align 8
+  %717 = load ptr, ptr %10, align 8
+  %718 = load ptr, ptr %7, align 8
+  %719 = load ptr, ptr %8, align 8
+  %720 = call i32 @call_dissector_with_data(ptr noundef %716, ptr noundef %717, ptr noundef %718, ptr noundef %719, ptr noundef %14)
+  br label %726
 
-720:                                              ; preds = %715, %675, %657, %32
-  %721 = load i32, ptr %5, align 4
-  ret i32 %721
+721:                                              ; preds = %710
+  %722 = load ptr, ptr %10, align 8
+  %723 = load ptr, ptr %7, align 8
+  %724 = load ptr, ptr %8, align 8
+  %725 = call i32 @call_data_dissector(ptr noundef %722, ptr noundef %723, ptr noundef %724)
+  br label %726
+
+726:                                              ; preds = %721, %715
+  br label %727
+
+727:                                              ; preds = %726, %701
+  %728 = load i32, ptr @zbee_nwk_tap, align 4
+  %729 = load ptr, ptr %7, align 8
+  call void @tap_queue_packet(i32 noundef %728, ptr noundef %729, ptr noundef null)
+  %730 = load ptr, ptr %6, align 8
+  %731 = call i32 @tvb_captured_length(ptr noundef %730)
+  store i32 %731, ptr %5, align 4
+  store i32 1, ptr %25, align 4
+  br label %732
+
+732:                                              ; preds = %727, %687, %669, %33
+  call void @llvm.lifetime.end.p0(i64 1, ptr %24) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #10
+  call void @llvm.lifetime.end.p0(i64 2, ptr %19) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #10
+  call void @llvm.lifetime.end.p0(i64 56, ptr %14) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
+  %733 = load i32, ptr %5, align 4
+  ret i32 %733
 }
 
-declare i32 @tvb_captured_length(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length(ptr noundef) #3
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+; Function Attrs: alwaysinline nounwind
+define internal ptr @memset.inline(ptr %0, i32 %1, i64 %2) #4 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i32, ptr %5, align 4
+  %9 = load i64, ptr %6, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = call i64 @llvm.objectsize.i64.p0(ptr %10, i1 false, i1 true, i1 true)
+  %12 = call ptr @__memset_chk(ptr noundef %7, i32 noundef %8, i64 noundef %9, i64 noundef %11) #10
+  ret ptr %12
+}
 
-declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) #1
+; Function Attrs: null_pointer_is_valid allocsize(1)
+declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) #5
 
-declare ptr @wmem_file_scope() #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_file_scope() #3
 
-declare void @p_add_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @p_add_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #3
 
-declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #3
 
-declare i32 @proto_get_id_by_filter_name(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_get_id_by_filter_name(ptr noundef) #3
 
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #3
 
-declare void @col_clear(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_clear(ptr noundef, i32 noundef) #3
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #3
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #3
 
-declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) #3
 
-declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #3
 
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #3
 
-declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal void @set_address_tvb(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) #0 {
+; Function Attrs: inlinehint null_pointer_is_valid sspstrong uwtable
+define internal void @set_address_tvb(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) #6 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -2723,9 +2917,10 @@ define internal void @set_address_tvb(ptr noundef %0, i32 noundef %1, i32 nounde
   store i32 %2, ptr %8, align 4
   store ptr %3, ptr %9, align 8
   store i32 %4, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #10
   %12 = load i32, ptr %8, align 4
   %13 = icmp ne i32 %12, 0
-  br i1 %13, label %14, label %21
+  br i1 %13, label %14, label %22
 
 14:                                               ; preds = %5
   br label %15
@@ -2734,52 +2929,58 @@ define internal void @set_address_tvb(ptr noundef %0, i32 noundef %1, i32 nounde
   br label %16
 
 16:                                               ; preds = %15
-  %17 = load ptr, ptr %9, align 8
-  %18 = load i32, ptr %10, align 4
-  %19 = load i32, ptr %8, align 4
-  %20 = call ptr @tvb_get_ptr(ptr noundef %17, i32 noundef %18, i32 noundef %19)
-  store ptr %20, ptr %11, align 8
-  br label %22
+  br label %17
 
-21:                                               ; preds = %5
+17:                                               ; preds = %16
+  %18 = load ptr, ptr %9, align 8
+  %19 = load i32, ptr %10, align 4
+  %20 = load i32, ptr %8, align 4
+  %21 = call ptr @tvb_get_ptr(ptr noundef %18, i32 noundef %19, i32 noundef %20)
+  store ptr %21, ptr %11, align 8
+  br label %23
+
+22:                                               ; preds = %5
   store ptr null, ptr %11, align 8
-  br label %22
+  br label %23
 
-22:                                               ; preds = %21, %16
-  %23 = load ptr, ptr %6, align 8
-  %24 = load i32, ptr %7, align 4
-  %25 = load i32, ptr %8, align 4
-  %26 = load ptr, ptr %11, align 8
-  call void @set_address(ptr noundef %23, i32 noundef %24, i32 noundef %25, ptr noundef %26)
+23:                                               ; preds = %22, %17
+  %24 = load ptr, ptr %6, align 8
+  %25 = load i32, ptr %7, align 4
+  %26 = load i32, ptr %8, align 4
+  %27 = load ptr, ptr %11, align 8
+  call void @set_address(ptr noundef %24, i32 noundef %25, i32 noundef %26, ptr noundef %27)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #10
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @copy_address_shallow(ptr noundef %0, ptr noundef %1) #0 {
+; Function Attrs: inlinehint nounwind null_pointer_is_valid sspstrong uwtable
+define internal void @copy_address_shallow(ptr noundef %0, ptr noundef %1) #7 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds %struct._address, ptr %6, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %struct._address, ptr %6, i32 0, i32 0
   %8 = load i32, ptr %7, align 8
   %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %struct._address, ptr %9, i32 0, i32 1
+  %10 = getelementptr inbounds nuw %struct._address, ptr %9, i32 0, i32 1
   %11 = load i32, ptr %10, align 4
   %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %struct._address, ptr %12, i32 0, i32 2
+  %13 = getelementptr inbounds nuw %struct._address, ptr %12, i32 0, i32 2
   %14 = load ptr, ptr %13, align 8
   call void @set_address(ptr noundef %5, i32 noundef %8, i32 noundef %11, ptr noundef %14)
   ret void
 }
 
-declare ptr @address_to_str(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @address_to_str(ptr noundef, ptr noundef) #3
 
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal void @proto_item_set_generated(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind null_pointer_is_valid sspstrong uwtable
+define internal void @proto_item_set_generated(ptr noundef %0) #7 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -2791,22 +2992,22 @@ define internal void @proto_item_set_generated(ptr noundef %0) #0 {
 
 6:                                                ; preds = %5
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct._proto_node, ptr %7, i32 0, i32 4
+  %8 = getelementptr inbounds nuw %struct._proto_node, ptr %7, i32 0, i32 5
   %9 = load ptr, ptr %8, align 8
   %10 = icmp ne ptr %9, null
   br i1 %10, label %11, label %22
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct._proto_node, ptr %12, i32 0, i32 4
+  %13 = getelementptr inbounds nuw %struct._proto_node, ptr %12, i32 0, i32 5
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds %struct.field_info, ptr %14, i32 0, i32 6
+  %15 = getelementptr inbounds nuw %struct.field_info, ptr %14, i32 0, i32 6
   %16 = load i32, ptr %15, align 4
   %17 = or i32 %16, 2
   %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds %struct._proto_node, ptr %18, i32 0, i32 4
+  %19 = getelementptr inbounds nuw %struct._proto_node, ptr %18, i32 0, i32 5
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds %struct.field_info, ptr %20, i32 0, i32 6
+  %21 = getelementptr inbounds nuw %struct.field_info, ptr %20, i32 0, i32 6
   store i32 %17, ptr %21, align 4
   br label %22
 
@@ -2820,8 +3021,8 @@ define internal void @proto_item_set_generated(ptr noundef %0) #0 {
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @proto_item_set_hidden(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind null_pointer_is_valid sspstrong uwtable
+define internal void @proto_item_set_hidden(ptr noundef %0) #7 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -2833,22 +3034,22 @@ define internal void @proto_item_set_hidden(ptr noundef %0) #0 {
 
 6:                                                ; preds = %5
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct._proto_node, ptr %7, i32 0, i32 4
+  %8 = getelementptr inbounds nuw %struct._proto_node, ptr %7, i32 0, i32 5
   %9 = load ptr, ptr %8, align 8
   %10 = icmp ne ptr %9, null
   br i1 %10, label %11, label %22
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct._proto_node, ptr %12, i32 0, i32 4
+  %13 = getelementptr inbounds nuw %struct._proto_node, ptr %12, i32 0, i32 5
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds %struct.field_info, ptr %14, i32 0, i32 6
+  %15 = getelementptr inbounds nuw %struct.field_info, ptr %14, i32 0, i32 6
   %16 = load i32, ptr %15, align 4
   %17 = or i32 %16, 1
   %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds %struct._proto_node, ptr %18, i32 0, i32 4
+  %19 = getelementptr inbounds nuw %struct._proto_node, ptr %18, i32 0, i32 5
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds %struct.field_info, ptr %20, i32 0, i32 6
+  %21 = getelementptr inbounds nuw %struct.field_info, ptr %20, i32 0, i32 6
   store i32 %17, ptr %21, align 4
   br label %22
 
@@ -2862,32 +3063,44 @@ define internal void @proto_item_set_hidden(ptr noundef %0) #0 {
   ret void
 }
 
-declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #3
 
-declare i64 @tvb_get_letoh64(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i64 @tvb_get_letoh64(ptr noundef, i32 noundef) #3
 
-declare ptr @proto_tree_add_eui64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_eui64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) #3
 
-declare ptr @ieee802154_addr_update(ptr noundef, i16 noundef zeroext, i16 noundef zeroext, i64 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @ieee802154_addr_update(ptr noundef, i16 noundef zeroext, i16 noundef zeroext, i64 noundef, ptr noundef, i32 noundef) #3
 
-declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) #3
 
-declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) #3
 
-declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #3
 
-declare void @proto_item_set_len(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_set_len(ptr noundef, i32 noundef) #3
 
-declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) #3
 
-declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) #3
 
-declare ptr @dissect_zbee_secure(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @dissect_zbee_secure(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #3
 
-declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal void @dissect_zbee_nwk_cmd(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal void @dissect_zbee_nwk_cmd(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -2902,10 +3115,14 @@ define internal void @dissect_zbee_nwk_cmd(ptr noundef %0, ptr noundef %1, ptr n
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #10
   store i32 0, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #10
   %15 = load ptr, ptr %5, align 8
   %16 = load i32, ptr %11, align 4
-  %17 = call zeroext i8 @tvb_get_guint8(ptr noundef %15, i32 noundef %16)
+  %17 = call zeroext i8 @tvb_get_uint8(ptr noundef %15, i32 noundef %16)
   store i8 %17, ptr %12, align 1
   %18 = load ptr, ptr %7, align 8
   %19 = load ptr, ptr %5, align 8
@@ -2913,8 +3130,8 @@ define internal void @dissect_zbee_nwk_cmd(ptr noundef %0, ptr noundef %1, ptr n
   %21 = load i32, ptr @ett_zbee_nwk_cmd, align 4
   %22 = load i8, ptr %12, align 1
   %23 = zext i8 %22 to i32
-  %24 = call ptr @val_to_str_const(i32 noundef %23, ptr noundef @zbee_nwk_cmd_names, ptr noundef @.str.322)
-  %25 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef -1, i32 noundef %21, ptr noundef %10, ptr noundef @.str.330, ptr noundef %24)
+  %24 = call ptr @val_to_str_const(i32 noundef %23, ptr noundef @zbee_nwk_cmd_names, ptr noundef @.str.336)
+  %25 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef -1, i32 noundef %21, ptr noundef %10, ptr noundef @.str.344, ptr noundef %24)
   store ptr %25, ptr %9, align 8
   %26 = load ptr, ptr %9, align 8
   %27 = load i32, ptr @hf_zbee_nwk_cmd_id, align 4
@@ -2927,11 +3144,11 @@ define internal void @dissect_zbee_nwk_cmd(ptr noundef %0, ptr noundef %1, ptr n
   %34 = add i32 %33, 1
   store i32 %34, ptr %11, align 4
   %35 = load ptr, ptr %6, align 8
-  %36 = getelementptr inbounds %struct._packet_info, ptr %35, i32 0, i32 1
+  %36 = getelementptr inbounds nuw %struct._packet_info, ptr %35, i32 0, i32 1
   %37 = load ptr, ptr %36, align 8
   %38 = load i8, ptr %12, align 1
   %39 = zext i8 %38 to i32
-  %40 = call ptr @val_to_str_const(i32 noundef %39, ptr noundef @zbee_nwk_cmd_names, ptr noundef @.str.331)
+  %40 = call ptr @val_to_str_const(i32 noundef %39, ptr noundef @zbee_nwk_cmd_names, ptr noundef @.str.345)
   call void @col_set_str(ptr noundef %37, i32 noundef 25, ptr noundef %40)
   %41 = load i8, ptr %12, align 1
   %42 = zext i8 %41 to i32
@@ -2969,8 +3186,8 @@ define internal void @dissect_zbee_nwk_cmd(ptr noundef %0, ptr noundef %1, ptr n
   %53 = load ptr, ptr %9, align 8
   %54 = load i32, ptr %11, align 4
   %55 = load ptr, ptr %8, align 8
-  %56 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %55, i32 0, i32 7
-  %57 = load i8, ptr %56, align 2
+  %56 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %55, i32 0, i32 7
+  %57 = load i8, ptr %56, align 8
   %58 = call i32 @dissect_zbee_nwk_route_rep(ptr noundef %51, ptr noundef %52, ptr noundef %53, i32 noundef %54, i8 noundef zeroext %57)
   store i32 %58, ptr %11, align 4
   br label %140
@@ -3113,10 +3330,12 @@ define internal void @dissect_zbee_nwk_cmd(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %151, label %152, label %164
 
 152:                                              ; preds = %140
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #10
   %153 = load ptr, ptr %5, align 8
   %154 = load i32, ptr %11, align 4
   %155 = call ptr @tvb_new_subset_remaining(ptr noundef %153, i32 noundef %154)
   store ptr %155, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #10
   %156 = load ptr, ptr %7, align 8
   %157 = call ptr @proto_tree_get_root(ptr noundef %156)
   store ptr %157, ptr %14, align 8
@@ -3127,22 +3346,38 @@ define internal void @dissect_zbee_nwk_cmd(ptr noundef %0, ptr noundef %1, ptr n
   %161 = load ptr, ptr %6, align 8
   %162 = load ptr, ptr %14, align 8
   %163 = call i32 @call_data_dissector(ptr noundef %160, ptr noundef %161, ptr noundef %162)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #10
   br label %164
 
 164:                                              ; preds = %152, %140
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
   ret void
 }
 
-declare i32 @call_dissector_with_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @call_dissector_with_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
-declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) #3
 
-declare void @tap_queue_packet(i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @tap_queue_packet(i32 noundef, ptr noundef, ptr noundef) #3
 
-declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: nounwind null_pointer_is_valid
+declare ptr @__memset_chk(ptr noundef, i32 noundef, i64 noundef, i64 noundef) #8
 
-; Function Attrs: nounwind uwtable
-define internal void @set_address(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.objectsize.i64.p0(ptr, i1 immarg, i1 immarg, i1 immarg) #9
+
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) #3
+
+; Function Attrs: inlinehint nounwind null_pointer_is_valid sspstrong uwtable
+define internal void @set_address(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #7 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -3182,26 +3417,27 @@ define internal void @set_address(ptr noundef %0, i32 noundef %1, i32 noundef %2
 19:                                               ; preds = %18, %13
   %20 = load i32, ptr %6, align 4
   %21 = load ptr, ptr %5, align 8
-  %22 = getelementptr inbounds %struct._address, ptr %21, i32 0, i32 0
+  %22 = getelementptr inbounds nuw %struct._address, ptr %21, i32 0, i32 0
   store i32 %20, ptr %22, align 8
   %23 = load i32, ptr %7, align 4
   %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds %struct._address, ptr %24, i32 0, i32 1
+  %25 = getelementptr inbounds nuw %struct._address, ptr %24, i32 0, i32 1
   store i32 %23, ptr %25, align 4
   %26 = load ptr, ptr %8, align 8
   %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %struct._address, ptr %27, i32 0, i32 2
+  %28 = getelementptr inbounds nuw %struct._address, ptr %27, i32 0, i32 2
   store ptr %26, ptr %28, align 8
   %29 = load ptr, ptr %5, align 8
-  %30 = getelementptr inbounds %struct._address, ptr %29, i32 0, i32 3
+  %30 = getelementptr inbounds nuw %struct._address, ptr %29, i32 0, i32 3
   store ptr null, ptr %30, align 8
   ret void
 }
 
-declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #3
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_nwk_route_req(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @dissect_zbee_nwk_route_req(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -3214,13 +3450,15 @@ define internal i32 @dissect_zbee_nwk_route_req(ptr noundef %0, ptr noundef %1, 
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   store i32 %4, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #10
+  call void @llvm.lifetime.start.p0(i64 2, ptr %12) #10
   %13 = load ptr, ptr %6, align 8
   %14 = load i32, ptr %10, align 4
-  %15 = call zeroext i8 @tvb_get_guint8(ptr noundef %13, i32 noundef %14)
+  %15 = call zeroext i8 @tvb_get_uint8(ptr noundef %13, i32 noundef %14)
   store i8 %15, ptr %11, align 1
   %16 = load ptr, ptr %9, align 8
-  %17 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %16, i32 0, i32 7
-  %18 = load i8, ptr %17, align 2
+  %17 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %16, i32 0, i32 7
+  %18 = load i8, ptr %17, align 8
   %19 = zext i8 %18 to i32
   %20 = icmp sge i32 %19, 2
   br i1 %20, label %21, label %28
@@ -3303,32 +3541,34 @@ define internal i32 @dissect_zbee_nwk_route_req(ptr noundef %0, ptr noundef %1, 
 
 81:                                               ; preds = %76
   %82 = load ptr, ptr %7, align 8
-  %83 = getelementptr inbounds %struct._packet_info, ptr %82, i32 0, i32 1
+  %83 = getelementptr inbounds nuw %struct._packet_info, ptr %82, i32 0, i32 1
   %84 = load ptr, ptr %83, align 8
   call void @col_clear(ptr noundef %84, i32 noundef 25)
   %85 = load ptr, ptr %7, align 8
-  %86 = getelementptr inbounds %struct._packet_info, ptr %85, i32 0, i32 1
+  %86 = getelementptr inbounds nuw %struct._packet_info, ptr %85, i32 0, i32 1
   %87 = load ptr, ptr %86, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %87, i32 noundef 25, ptr noundef @.str.332)
+  call void @col_append_str(ptr noundef %87, i32 noundef 25, ptr noundef @.str.346)
   br label %88
 
 88:                                               ; preds = %81, %76
   %89 = load ptr, ptr %7, align 8
-  %90 = getelementptr inbounds %struct._packet_info, ptr %89, i32 0, i32 1
+  %90 = getelementptr inbounds nuw %struct._packet_info, ptr %89, i32 0, i32 1
   %91 = load ptr, ptr %90, align 8
   %92 = load i16, ptr %12, align 2
   %93 = zext i16 %92 to i32
   %94 = load ptr, ptr %9, align 8
-  %95 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %94, i32 0, i32 9
-  %96 = load i16, ptr %95, align 2
+  %95 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %94, i32 0, i32 9
+  %96 = load i16, ptr %95, align 4
   %97 = zext i16 %96 to i32
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %91, i32 noundef 25, ptr noundef @.str.333, i32 noundef %93, i32 noundef %97)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %91, i32 noundef 25, ptr noundef @.str.347, i32 noundef %93, i32 noundef %97)
   %98 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #10
   ret i32 %98
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_nwk_route_rep(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @dissect_zbee_nwk_route_rep(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4) #1 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -3342,9 +3582,12 @@ define internal i32 @dissect_zbee_nwk_route_rep(ptr noundef %0, ptr noundef %1, 
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i8 %4, ptr %10, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #10
+  call void @llvm.lifetime.start.p0(i64 2, ptr %12) #10
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #10
   %14 = load ptr, ptr %6, align 8
   %15 = load i32, ptr %9, align 4
-  %16 = call zeroext i8 @tvb_get_guint8(ptr noundef %14, i32 noundef %15)
+  %16 = call zeroext i8 @tvb_get_uint8(ptr noundef %14, i32 noundef %15)
   store i8 %16, ptr %11, align 1
   %17 = load i8, ptr %10, align 1
   %18 = zext i8 %17 to i32
@@ -3454,19 +3697,22 @@ define internal i32 @dissect_zbee_nwk_route_rep(ptr noundef %0, ptr noundef %1, 
 
 100:                                              ; preds = %92, %87
   %101 = load ptr, ptr %7, align 8
-  %102 = getelementptr inbounds %struct._packet_info, ptr %101, i32 0, i32 1
+  %102 = getelementptr inbounds nuw %struct._packet_info, ptr %101, i32 0, i32 1
   %103 = load ptr, ptr %102, align 8
   %104 = load i16, ptr %13, align 2
   %105 = zext i16 %104 to i32
   %106 = load i16, ptr %12, align 2
   %107 = zext i16 %106 to i32
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %103, i32 noundef 25, ptr noundef @.str.334, i32 noundef %105, i32 noundef %107)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %103, i32 noundef 25, ptr noundef @.str.348, i32 noundef %105, i32 noundef %107)
   %108 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 2, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #10
   ret i32 %108
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_nwk_status(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @dissect_zbee_nwk_status(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -3478,9 +3724,12 @@ define internal i32 @dissect_zbee_nwk_status(ptr noundef %0, ptr noundef %1, ptr
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #10
+  call void @llvm.lifetime.start.p0(i64 2, ptr %11) #10
   %12 = load ptr, ptr %5, align 8
   %13 = load i32, ptr %8, align 4
-  %14 = call zeroext i8 @tvb_get_guint8(ptr noundef %12, i32 noundef %13)
+  %14 = call zeroext i8 @tvb_get_uint8(ptr noundef %12, i32 noundef %13)
   store i8 %14, ptr %9, align 1
   %15 = load ptr, ptr %7, align 8
   %16 = load i32, ptr @hf_zbee_nwk_cmd_nwk_status, align 4
@@ -3507,14 +3756,14 @@ define internal i32 @dissect_zbee_nwk_status(ptr noundef %0, ptr noundef %1, ptr
   %35 = add i32 %34, 2
   store i32 %35, ptr %8, align 4
   %36 = load ptr, ptr %6, align 8
-  %37 = getelementptr inbounds %struct._packet_info, ptr %36, i32 0, i32 1
+  %37 = getelementptr inbounds nuw %struct._packet_info, ptr %36, i32 0, i32 1
   %38 = load ptr, ptr %37, align 8
   %39 = load i16, ptr %11, align 2
   %40 = zext i16 %39 to i32
   %41 = load i8, ptr %9, align 1
   %42 = zext i8 %41 to i32
-  %43 = call ptr @val_to_str_const(i32 noundef %42, ptr noundef @zbee_nwk_status_codes, ptr noundef @.str.336)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %38, i32 noundef 25, ptr noundef @.str.335, i32 noundef %40, ptr noundef %43)
+  %43 = call ptr @val_to_str_const(i32 noundef %42, ptr noundef @zbee_nwk_status_codes, ptr noundef @.str.350)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %38, i32 noundef 25, ptr noundef @.str.349, i32 noundef %40, ptr noundef %43)
   %44 = load i8, ptr %9, align 1
   %45 = zext i8 %44 to i32
   %46 = icmp eq i32 %45, 19
@@ -3523,7 +3772,7 @@ define internal i32 @dissect_zbee_nwk_status(ptr noundef %0, ptr noundef %1, ptr
 47:                                               ; preds = %4
   %48 = load ptr, ptr %5, align 8
   %49 = load i32, ptr %8, align 4
-  %50 = call zeroext i8 @tvb_get_guint8(ptr noundef %48, i32 noundef %49)
+  %50 = call zeroext i8 @tvb_get_uint8(ptr noundef %48, i32 noundef %49)
   store i8 %50, ptr %10, align 1
   %51 = load ptr, ptr %7, align 8
   %52 = load i32, ptr @hf_zbee_nwk_cmd_nwk_status_command_id, align 4
@@ -3533,14 +3782,14 @@ define internal i32 @dissect_zbee_nwk_status(ptr noundef %0, ptr noundef %1, ptr
   %56 = zext i8 %55 to i32
   %57 = call ptr @proto_tree_add_uint(ptr noundef %51, i32 noundef %52, ptr noundef %53, i32 noundef %54, i32 noundef 1, i32 noundef %56)
   %58 = load ptr, ptr %6, align 8
-  %59 = getelementptr inbounds %struct._packet_info, ptr %58, i32 0, i32 1
+  %59 = getelementptr inbounds nuw %struct._packet_info, ptr %58, i32 0, i32 1
   %60 = load ptr, ptr %59, align 8
   %61 = load i8, ptr %10, align 1
   %62 = zext i8 %61 to i32
   %63 = load i8, ptr %10, align 1
   %64 = zext i8 %63 to i32
-  %65 = call ptr @val_to_str_const(i32 noundef %64, ptr noundef @zbee_nwk_cmd_names, ptr noundef @.str.338)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %60, i32 noundef 25, ptr noundef @.str.337, i32 noundef %62, ptr noundef %65)
+  %65 = call ptr @val_to_str_const(i32 noundef %64, ptr noundef @zbee_nwk_cmd_names, ptr noundef @.str.352)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %60, i32 noundef 25, ptr noundef @.str.351, i32 noundef %62, ptr noundef %65)
   %66 = load i32, ptr %8, align 4
   %67 = add i32 %66, 1
   store i32 %67, ptr %8, align 4
@@ -3548,11 +3797,14 @@ define internal i32 @dissect_zbee_nwk_status(ptr noundef %0, ptr noundef %1, ptr
 
 68:                                               ; preds = %47, %4
   %69 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #10
   ret i32 %69
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_nwk_leave(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @dissect_zbee_nwk_leave(ptr noundef %0, ptr noundef %1, i32 noundef %2) #1 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -3570,8 +3822,8 @@ define internal i32 @dissect_zbee_nwk_leave(ptr noundef %0, ptr noundef %1, i32 
   ret i32 %12
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_nwk_route_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @dissect_zbee_nwk_route_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -3585,9 +3837,12 @@ define internal i32 @dissect_zbee_nwk_route_rec(ptr noundef %0, ptr noundef %1, 
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   store i32 %4, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #10
+  call void @llvm.lifetime.start.p0(i64 2, ptr %12) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #10
   %14 = load ptr, ptr %6, align 8
   %15 = load i32, ptr %10, align 4
-  %16 = call zeroext i8 @tvb_get_guint8(ptr noundef %14, i32 noundef %15)
+  %16 = call zeroext i8 @tvb_get_uint8(ptr noundef %14, i32 noundef %15)
   store i8 %16, ptr %11, align 1
   %17 = load ptr, ptr %8, align 8
   %18 = load i32, ptr @hf_zbee_nwk_cmd_relay_count, align 4
@@ -3624,7 +3879,7 @@ define internal i32 @dissect_zbee_nwk_route_rec(ptr noundef %0, ptr noundef %1, 
   %42 = add i32 %41, 1
   %43 = load i16, ptr %12, align 2
   %44 = zext i16 %43 to i32
-  %45 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %35, i32 noundef %36, ptr noundef %37, i32 noundef %38, i32 noundef 2, i32 noundef %40, ptr noundef @.str.339, i32 noundef %42, i32 noundef %44)
+  %45 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %35, i32 noundef %36, ptr noundef %37, i32 noundef %38, i32 noundef 2, i32 noundef %40, ptr noundef @.str.353, i32 noundef %42, i32 noundef %44)
   %46 = load i32, ptr %10, align 4
   %47 = add i32 %46, 2
   store i32 %47, ptr %10, align 4
@@ -3634,23 +3889,26 @@ define internal i32 @dissect_zbee_nwk_route_rec(ptr noundef %0, ptr noundef %1, 
   %49 = load i32, ptr %13, align 4
   %50 = add i32 %49, 1
   store i32 %50, ptr %13, align 4
-  br label %26, !llvm.loop !8
+  br label %26, !llvm.loop !12
 
 51:                                               ; preds = %26
   %52 = load ptr, ptr %7, align 8
-  %53 = getelementptr inbounds %struct._packet_info, ptr %52, i32 0, i32 1
+  %53 = getelementptr inbounds nuw %struct._packet_info, ptr %52, i32 0, i32 1
   %54 = load ptr, ptr %53, align 8
   %55 = load ptr, ptr %9, align 8
-  %56 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %55, i32 0, i32 8
-  %57 = load i16, ptr %56, align 4
+  %56 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %55, i32 0, i32 8
+  %57 = load i16, ptr %56, align 2
   %58 = zext i16 %57 to i32
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %54, i32 noundef 25, ptr noundef @.str.340, i32 noundef %58)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %54, i32 noundef 25, ptr noundef @.str.354, i32 noundef %58)
   %59 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 2, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #10
   ret i32 %59
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_nwk_rejoin_req(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @dissect_zbee_nwk_rejoin_req(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -3671,19 +3929,19 @@ define internal i32 @dissect_zbee_nwk_rejoin_req(ptr noundef %0, ptr noundef %1,
   %18 = add i32 %17, 1
   store i32 %18, ptr %10, align 4
   %19 = load ptr, ptr %7, align 8
-  %20 = getelementptr inbounds %struct._packet_info, ptr %19, i32 0, i32 1
+  %20 = getelementptr inbounds nuw %struct._packet_info, ptr %19, i32 0, i32 1
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %9, align 8
-  %23 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %22, i32 0, i32 9
-  %24 = load i16, ptr %23, align 2
+  %23 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %22, i32 0, i32 9
+  %24 = load i16, ptr %23, align 4
   %25 = zext i16 %24 to i32
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %21, i32 noundef 25, ptr noundef @.str.341, i32 noundef %25)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %21, i32 noundef 25, ptr noundef @.str.355, i32 noundef %25)
   %26 = load i32, ptr %10, align 4
   ret i32 %26
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_nwk_rejoin_resp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @dissect_zbee_nwk_rejoin_resp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -3696,9 +3954,11 @@ define internal i32 @dissect_zbee_nwk_rejoin_resp(ptr noundef %0, ptr noundef %1
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   store i32 %4, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #10
+  call void @llvm.lifetime.start.p0(i64 2, ptr %12) #10
   %13 = load ptr, ptr %6, align 8
   %14 = load i32, ptr %10, align 4
-  %15 = call zeroext i16 @tvb_get_guint16(ptr noundef %13, i32 noundef %14, i32 noundef -2147483648)
+  %15 = call zeroext i16 @tvb_get_uint16(ptr noundef %13, i32 noundef %14, i32 noundef -2147483648)
   store i16 %15, ptr %12, align 2
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr @hf_zbee_nwk_cmd_addr, align 4
@@ -3710,7 +3970,7 @@ define internal i32 @dissect_zbee_nwk_rejoin_resp(ptr noundef %0, ptr noundef %1
   store i32 %22, ptr %10, align 4
   %23 = load ptr, ptr %6, align 8
   %24 = load i32, ptr %10, align 4
-  %25 = call zeroext i8 @tvb_get_guint8(ptr noundef %23, i32 noundef %24)
+  %25 = call zeroext i8 @tvb_get_uint8(ptr noundef %23, i32 noundef %24)
   store i8 %25, ptr %11, align 1
   %26 = load ptr, ptr %8, align 8
   %27 = load i32, ptr @hf_zbee_nwk_cmd_rejoin_status, align 4
@@ -3729,30 +3989,32 @@ define internal i32 @dissect_zbee_nwk_rejoin_resp(ptr noundef %0, ptr noundef %1
 
 38:                                               ; preds = %5
   %39 = load ptr, ptr %7, align 8
-  %40 = getelementptr inbounds %struct._packet_info, ptr %39, i32 0, i32 1
+  %40 = getelementptr inbounds nuw %struct._packet_info, ptr %39, i32 0, i32 1
   %41 = load ptr, ptr %40, align 8
   %42 = load i16, ptr %12, align 2
   %43 = zext i16 %42 to i32
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %41, i32 noundef 25, ptr noundef @.str.342, i32 noundef %43)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %41, i32 noundef 25, ptr noundef @.str.356, i32 noundef %43)
   br label %51
 
 44:                                               ; preds = %5
   %45 = load ptr, ptr %7, align 8
-  %46 = getelementptr inbounds %struct._packet_info, ptr %45, i32 0, i32 1
+  %46 = getelementptr inbounds nuw %struct._packet_info, ptr %45, i32 0, i32 1
   %47 = load ptr, ptr %46, align 8
   %48 = load i8, ptr %11, align 1
   %49 = zext i8 %48 to i32
-  %50 = call ptr @val_to_str_const(i32 noundef %49, ptr noundef @zbee_nwk_rejoin_codes, ptr noundef @.str.344)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %47, i32 noundef 25, ptr noundef @.str.343, ptr noundef %50)
+  %50 = call ptr @val_to_str_const(i32 noundef %49, ptr noundef @zbee_nwk_rejoin_codes, ptr noundef @.str.358)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %47, i32 noundef 25, ptr noundef @.str.357, ptr noundef %50)
   br label %51
 
 51:                                               ; preds = %44, %38
   %52 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #10
   ret i32 %52
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_nwk_link_status(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @dissect_zbee_nwk_link_status(ptr noundef %0, ptr noundef %1, i32 noundef %2) #1 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -3763,9 +4025,13 @@ define internal i32 @dissect_zbee_nwk_link_status(ptr noundef %0, ptr noundef %1
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #10
   %11 = load ptr, ptr %4, align 8
   %12 = load i32, ptr %6, align 4
-  %13 = call zeroext i8 @tvb_get_guint8(ptr noundef %11, i32 noundef %12)
+  %13 = call zeroext i8 @tvb_get_uint8(ptr noundef %11, i32 noundef %12)
   store i8 %13, ptr %7, align 1
   %14 = load i8, ptr %7, align 1
   %15 = zext i8 %14 to i32
@@ -3794,7 +4060,7 @@ define internal i32 @dissect_zbee_nwk_link_status(ptr noundef %0, ptr noundef %1
   %30 = load i32, ptr @ett_zbee_nwk_cmd_link, align 4
   %31 = load i32, ptr %8, align 4
   %32 = add i32 %31, 1
-  %33 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %27, ptr noundef %28, i32 noundef %29, i32 noundef 3, i32 noundef %30, ptr noundef null, ptr noundef @.str.345, i32 noundef %32)
+  %33 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %27, ptr noundef %28, i32 noundef %29, i32 noundef 3, i32 noundef %30, ptr noundef null, ptr noundef @.str.359, i32 noundef %32)
   store ptr %33, ptr %10, align 8
   %34 = load ptr, ptr %10, align 8
   %35 = load i32, ptr @hf_zbee_nwk_cmd_link_address, align 4
@@ -3822,15 +4088,19 @@ define internal i32 @dissect_zbee_nwk_link_status(ptr noundef %0, ptr noundef %1
   %54 = load i32, ptr %8, align 4
   %55 = add i32 %54, 1
   store i32 %55, ptr %8, align 4
-  br label %22, !llvm.loop !9
+  br label %22, !llvm.loop !13
 
 56:                                               ; preds = %22
   %57 = load i32, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #10
   ret i32 %57
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_nwk_report(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @dissect_zbee_nwk_report(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -3844,9 +4114,13 @@ define internal i32 @dissect_zbee_nwk_report(ptr noundef %0, ptr noundef %1, ptr
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #10
   %14 = load ptr, ptr %5, align 8
   %15 = load i32, ptr %8, align 4
-  %16 = call zeroext i8 @tvb_get_guint8(ptr noundef %14, i32 noundef %15)
+  %16 = call zeroext i8 @tvb_get_uint8(ptr noundef %14, i32 noundef %15)
   store i8 %16, ptr %9, align 1
   %17 = load i8, ptr %9, align 1
   %18 = zext i8 %17 to i32
@@ -3917,7 +4191,7 @@ define internal i32 @dissect_zbee_nwk_report(ptr noundef %0, ptr noundef %1, ptr
   %68 = load i32, ptr %12, align 4
   %69 = add i32 %68, 1
   store i32 %69, ptr %12, align 4
-  br label %55, !llvm.loop !10
+  br label %55, !llvm.loop !14
 
 70:                                               ; preds = %55
   br label %71
@@ -3929,6 +4203,7 @@ define internal i32 @dissect_zbee_nwk_report(ptr noundef %0, ptr noundef %1, ptr
   br i1 %74, label %75, label %101
 
 75:                                               ; preds = %71
+  call void @llvm.lifetime.start.p0(i64 16, ptr %13) #10
   store i32 0, ptr %12, align 4
   br label %76
 
@@ -3942,7 +4217,7 @@ define internal i32 @dissect_zbee_nwk_report(ptr noundef %0, ptr noundef %1, ptr
   %81 = load i32, ptr %8, align 4
   %82 = load i32, ptr %12, align 4
   %83 = add i32 %81, %82
-  %84 = call zeroext i8 @tvb_get_guint8(ptr noundef %80, i32 noundef %83)
+  %84 = call zeroext i8 @tvb_get_uint8(ptr noundef %80, i32 noundef %83)
   %85 = load i32, ptr %12, align 4
   %86 = sext i32 %85 to i64
   %87 = getelementptr [16 x i8], ptr %13, i64 0, i64 %86
@@ -3953,7 +4228,7 @@ define internal i32 @dissect_zbee_nwk_report(ptr noundef %0, ptr noundef %1, ptr
   %89 = load i32, ptr %12, align 4
   %90 = add i32 %89, 1
   store i32 %90, ptr %12, align 4
-  br label %76, !llvm.loop !11
+  br label %76, !llvm.loop !15
 
 91:                                               ; preds = %76
   %92 = load ptr, ptr %7, align 8
@@ -3967,22 +4242,27 @@ define internal i32 @dissect_zbee_nwk_report(ptr noundef %0, ptr noundef %1, ptr
   %99 = load ptr, ptr %6, align 8
   %100 = getelementptr inbounds [16 x i8], ptr %13, i64 0, i64 0
   call void @zbee_sec_add_key_to_keyring(ptr noundef %99, ptr noundef %100)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %13) #10
   br label %101
 
 101:                                              ; preds = %91, %71
   %102 = load ptr, ptr %6, align 8
-  %103 = getelementptr inbounds %struct._packet_info, ptr %102, i32 0, i32 1
+  %103 = getelementptr inbounds nuw %struct._packet_info, ptr %102, i32 0, i32 1
   %104 = load ptr, ptr %103, align 8
   %105 = load i8, ptr %10, align 1
   %106 = zext i8 %105 to i32
-  %107 = call ptr @val_to_str_const(i32 noundef %106, ptr noundef @zbee_nwk_report_types, ptr noundef @.str.346)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %104, i32 noundef 25, ptr noundef @.str.343, ptr noundef %107)
+  %107 = call ptr @val_to_str_const(i32 noundef %106, ptr noundef @zbee_nwk_report_types, ptr noundef @.str.360)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %104, i32 noundef 25, ptr noundef @.str.357, ptr noundef %107)
   %108 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #10
   ret i32 %108
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_nwk_update(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @dissect_zbee_nwk_update(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -3996,9 +4276,14 @@ define internal i32 @dissect_zbee_nwk_update(ptr noundef %0, ptr noundef %1, ptr
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #10
   %14 = load ptr, ptr %5, align 8
   %15 = load i32, ptr %8, align 4
-  %16 = call zeroext i8 @tvb_get_guint8(ptr noundef %14, i32 noundef %15)
+  %16 = call zeroext i8 @tvb_get_uint8(ptr noundef %14, i32 noundef %15)
   store i8 %16, ptr %9, align 1
   %17 = load i8, ptr %9, align 1
   %18 = zext i8 %17 to i32
@@ -4035,7 +4320,7 @@ define internal i32 @dissect_zbee_nwk_update(ptr noundef %0, ptr noundef %1, ptr
   store i32 %45, ptr %8, align 4
   %46 = load ptr, ptr %5, align 8
   %47 = load i32, ptr %8, align 4
-  %48 = call zeroext i8 @tvb_get_guint8(ptr noundef %46, i32 noundef %47)
+  %48 = call zeroext i8 @tvb_get_uint8(ptr noundef %46, i32 noundef %47)
   store i8 %48, ptr %11, align 1
   %49 = load ptr, ptr %7, align 8
   %50 = load i32, ptr @hf_zbee_nwk_cmd_update_id, align 4
@@ -4077,25 +4362,30 @@ define internal i32 @dissect_zbee_nwk_update(ptr noundef %0, ptr noundef %1, ptr
   %75 = load i32, ptr %13, align 4
   %76 = add i32 %75, 1
   store i32 %76, ptr %13, align 4
-  br label %62, !llvm.loop !12
+  br label %62, !llvm.loop !16
 
 77:                                               ; preds = %62
   br label %78
 
 78:                                               ; preds = %77, %4
   %79 = load ptr, ptr %6, align 8
-  %80 = getelementptr inbounds %struct._packet_info, ptr %79, i32 0, i32 1
+  %80 = getelementptr inbounds nuw %struct._packet_info, ptr %79, i32 0, i32 1
   %81 = load ptr, ptr %80, align 8
   %82 = load i8, ptr %10, align 1
   %83 = zext i8 %82 to i32
-  %84 = call ptr @val_to_str_const(i32 noundef %83, ptr noundef @zbee_nwk_update_types, ptr noundef @.str.347)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %81, i32 noundef 25, ptr noundef @.str.343, ptr noundef %84)
+  %84 = call ptr @val_to_str_const(i32 noundef %83, ptr noundef @zbee_nwk_update_types, ptr noundef @.str.361)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %81, i32 noundef 25, ptr noundef @.str.357, ptr noundef %84)
   %85 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #10
   ret i32 %85
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_nwk_ed_timeout_request(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @dissect_zbee_nwk_ed_timeout_request(ptr noundef %0, ptr noundef %1, i32 noundef %2) #1 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -4122,8 +4412,8 @@ define internal i32 @dissect_zbee_nwk_ed_timeout_request(ptr noundef %0, ptr nou
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_nwk_ed_timeout_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @dissect_zbee_nwk_ed_timeout_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -4133,9 +4423,10 @@ define internal i32 @dissect_zbee_nwk_ed_timeout_response(ptr noundef %0, ptr no
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #10
   %10 = load ptr, ptr %5, align 8
   %11 = load i32, ptr %8, align 4
-  %12 = call zeroext i8 @tvb_get_guint8(ptr noundef %10, i32 noundef %11)
+  %12 = call zeroext i8 @tvb_get_uint8(ptr noundef %10, i32 noundef %11)
   %13 = zext i8 %12 to i32
   store i32 %13, ptr %9, align 4
   %14 = load ptr, ptr %7, align 8
@@ -4157,20 +4448,21 @@ define internal i32 @dissect_zbee_nwk_ed_timeout_response(ptr noundef %0, ptr no
   store i32 %28, ptr %8, align 4
   %29 = load ptr, ptr %7, align 8
   %30 = load i32, ptr %9, align 4
-  %31 = call ptr @val_to_str_const(i32 noundef %30, ptr noundef @zbee_nwk_end_device_timeout_resp_status, ptr noundef @.str.348)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %29, ptr noundef @.str.343, ptr noundef %31)
+  %31 = call ptr @val_to_str_const(i32 noundef %30, ptr noundef @zbee_nwk_end_device_timeout_resp_status, ptr noundef @.str.362)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %29, ptr noundef @.str.357, ptr noundef %31)
   %32 = load ptr, ptr %6, align 8
-  %33 = getelementptr inbounds %struct._packet_info, ptr %32, i32 0, i32 1
+  %33 = getelementptr inbounds nuw %struct._packet_info, ptr %32, i32 0, i32 1
   %34 = load ptr, ptr %33, align 8
   %35 = load i32, ptr %9, align 4
-  %36 = call ptr @val_to_str_const(i32 noundef %35, ptr noundef @zbee_nwk_end_device_timeout_resp_status, ptr noundef @.str.348)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %34, i32 noundef 25, ptr noundef @.str.343, ptr noundef %36)
+  %36 = call ptr @val_to_str_const(i32 noundef %35, ptr noundef @zbee_nwk_end_device_timeout_resp_status, ptr noundef @.str.362)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %34, i32 noundef 25, ptr noundef @.str.357, ptr noundef %36)
   %37 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #10
   ret i32 %37
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_nwk_link_pwr_delta(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @dissect_zbee_nwk_link_pwr_delta(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -4185,9 +4477,15 @@ define internal i32 @dissect_zbee_nwk_link_pwr_delta(ptr noundef %0, ptr noundef
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #10
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #10
   %15 = load ptr, ptr %5, align 8
   %16 = load i32, ptr %8, align 4
-  %17 = call zeroext i8 @tvb_get_guint8(ptr noundef %15, i32 noundef %16)
+  %17 = call zeroext i8 @tvb_get_uint8(ptr noundef %15, i32 noundef %16)
   %18 = zext i8 %17 to i32
   %19 = and i32 %18, 3
   %20 = trunc i32 %19 to i8
@@ -4202,7 +4500,7 @@ define internal i32 @dissect_zbee_nwk_link_pwr_delta(ptr noundef %0, ptr noundef
   store i32 %27, ptr %8, align 4
   %28 = load ptr, ptr %5, align 8
   %29 = load i32, ptr %8, align 4
-  %30 = call zeroext i8 @tvb_get_guint8(ptr noundef %28, i32 noundef %29)
+  %30 = call zeroext i8 @tvb_get_uint8(ptr noundef %28, i32 noundef %29)
   %31 = zext i8 %30 to i32
   store i32 %31, ptr %10, align 4
   %32 = load ptr, ptr %7, align 8
@@ -4216,9 +4514,9 @@ define internal i32 @dissect_zbee_nwk_link_pwr_delta(ptr noundef %0, ptr noundef
   %39 = load ptr, ptr %7, align 8
   %40 = load i8, ptr %12, align 1
   %41 = zext i8 %40 to i32
-  %42 = call ptr @val_to_str_const(i32 noundef %41, ptr noundef @zbee_nwk_link_power_delta_types, ptr noundef @.str.322)
+  %42 = call ptr @val_to_str_const(i32 noundef %41, ptr noundef @zbee_nwk_link_power_delta_types, ptr noundef @.str.336)
   %43 = load i32, ptr %10, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %39, ptr noundef @.str.349, ptr noundef %42, i32 noundef %43)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %39, ptr noundef @.str.363, ptr noundef %42, i32 noundef %43)
   store i32 0, ptr %9, align 4
   br label %44
 
@@ -4233,11 +4531,11 @@ define internal i32 @dissect_zbee_nwk_link_pwr_delta(ptr noundef %0, ptr noundef
   %50 = load ptr, ptr %5, align 8
   %51 = load i32, ptr %10, align 4
   %52 = load i32, ptr @ett_zbee_nwk_cmd_link_pwr_struct, align 4
-  %53 = call ptr @proto_tree_add_subtree(ptr noundef %49, ptr noundef %50, i32 noundef %51, i32 noundef 3, i32 noundef %52, ptr noundef null, ptr noundef @.str.350)
+  %53 = call ptr @proto_tree_add_subtree(ptr noundef %49, ptr noundef %50, i32 noundef %51, i32 noundef 3, i32 noundef %52, ptr noundef null, ptr noundef @.str.364)
   store ptr %53, ptr %14, align 8
   %54 = load ptr, ptr %5, align 8
   %55 = load i32, ptr %8, align 4
-  %56 = call zeroext i16 @tvb_get_guint16(ptr noundef %54, i32 noundef %55, i32 noundef -2147483648)
+  %56 = call zeroext i16 @tvb_get_uint16(ptr noundef %54, i32 noundef %55, i32 noundef -2147483648)
   store i16 %56, ptr %13, align 2
   %57 = load ptr, ptr %14, align 8
   %58 = load i32, ptr @hf_zbee_nwk_cmd_link_pwr_device_address, align 4
@@ -4249,7 +4547,7 @@ define internal i32 @dissect_zbee_nwk_link_pwr_delta(ptr noundef %0, ptr noundef
   store i32 %63, ptr %8, align 4
   %64 = load ptr, ptr %5, align 8
   %65 = load i32, ptr %8, align 4
-  %66 = call zeroext i8 @tvb_get_guint8(ptr noundef %64, i32 noundef %65)
+  %66 = call zeroext i8 @tvb_get_uint8(ptr noundef %64, i32 noundef %65)
   %67 = sext i8 %66 to i32
   store i32 %67, ptr %11, align 4
   %68 = load ptr, ptr %14, align 8
@@ -4264,22 +4562,28 @@ define internal i32 @dissect_zbee_nwk_link_pwr_delta(ptr noundef %0, ptr noundef
   %76 = load i16, ptr %13, align 2
   %77 = zext i16 %76 to i32
   %78 = load i32, ptr %11, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %75, ptr noundef @.str.351, i32 noundef %77, i32 noundef %78)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %75, ptr noundef @.str.365, i32 noundef %77, i32 noundef %78)
   br label %79
 
 79:                                               ; preds = %48
   %80 = load i32, ptr %9, align 4
   %81 = add i32 %80, 1
   store i32 %81, ptr %9, align 4
-  br label %44, !llvm.loop !13
+  br label %44, !llvm.loop !17
 
 82:                                               ; preds = %44
   %83 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #10
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #10
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #10
   ret i32 %83
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_nwk_commissioning_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @dissect_zbee_nwk_commissioning_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -4308,19 +4612,19 @@ define internal i32 @dissect_zbee_nwk_commissioning_request(ptr noundef %0, ptr 
   %25 = add i32 %24, 1
   store i32 %25, ptr %10, align 4
   %26 = load ptr, ptr %7, align 8
-  %27 = getelementptr inbounds %struct._packet_info, ptr %26, i32 0, i32 1
+  %27 = getelementptr inbounds nuw %struct._packet_info, ptr %26, i32 0, i32 1
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %9, align 8
-  %30 = getelementptr inbounds %struct.zbee_nwk_packet, ptr %29, i32 0, i32 9
-  %31 = load i16, ptr %30, align 2
+  %30 = getelementptr inbounds nuw %struct.zbee_nwk_packet, ptr %29, i32 0, i32 9
+  %31 = load i16, ptr %30, align 4
   %32 = zext i16 %31 to i32
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %28, i32 noundef 25, ptr noundef @.str.341, i32 noundef %32)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %28, i32 noundef 25, ptr noundef @.str.355, i32 noundef %32)
   %33 = load i32, ptr %10, align 4
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_zbee_nwk_commissioning_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @dissect_zbee_nwk_commissioning_response(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -4333,9 +4637,11 @@ define internal i32 @dissect_zbee_nwk_commissioning_response(ptr noundef %0, ptr
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   store i32 %4, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #10
+  call void @llvm.lifetime.start.p0(i64 2, ptr %12) #10
   %13 = load ptr, ptr %6, align 8
   %14 = load i32, ptr %10, align 4
-  %15 = call zeroext i16 @tvb_get_guint16(ptr noundef %13, i32 noundef %14, i32 noundef -2147483648)
+  %15 = call zeroext i16 @tvb_get_uint16(ptr noundef %13, i32 noundef %14, i32 noundef -2147483648)
   store i16 %15, ptr %12, align 2
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr @hf_zbee_nwk_cmd_addr, align 4
@@ -4347,7 +4653,7 @@ define internal i32 @dissect_zbee_nwk_commissioning_response(ptr noundef %0, ptr
   store i32 %22, ptr %10, align 4
   %23 = load ptr, ptr %6, align 8
   %24 = load i32, ptr %10, align 4
-  %25 = call zeroext i8 @tvb_get_guint8(ptr noundef %23, i32 noundef %24)
+  %25 = call zeroext i8 @tvb_get_uint8(ptr noundef %23, i32 noundef %24)
   store i8 %25, ptr %11, align 1
   %26 = load ptr, ptr %8, align 8
   %27 = load i32, ptr @hf_zbee_nwk_cmd_rejoin_status, align 4
@@ -4366,38 +4672,47 @@ define internal i32 @dissect_zbee_nwk_commissioning_response(ptr noundef %0, ptr
 
 38:                                               ; preds = %5
   %39 = load ptr, ptr %7, align 8
-  %40 = getelementptr inbounds %struct._packet_info, ptr %39, i32 0, i32 1
+  %40 = getelementptr inbounds nuw %struct._packet_info, ptr %39, i32 0, i32 1
   %41 = load ptr, ptr %40, align 8
   %42 = load i16, ptr %12, align 2
   %43 = zext i16 %42 to i32
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %41, i32 noundef 25, ptr noundef @.str.342, i32 noundef %43)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %41, i32 noundef 25, ptr noundef @.str.356, i32 noundef %43)
   br label %51
 
 44:                                               ; preds = %5
   %45 = load ptr, ptr %7, align 8
-  %46 = getelementptr inbounds %struct._packet_info, ptr %45, i32 0, i32 1
+  %46 = getelementptr inbounds nuw %struct._packet_info, ptr %45, i32 0, i32 1
   %47 = load ptr, ptr %46, align 8
   %48 = load i8, ptr %11, align 1
   %49 = zext i8 %48 to i32
-  %50 = call ptr @val_to_str_const(i32 noundef %49, ptr noundef @zbee_nwk_rejoin_codes, ptr noundef @.str.352)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %47, i32 noundef 25, ptr noundef @.str.343, ptr noundef %50)
+  %50 = call ptr @val_to_str_const(i32 noundef %49, ptr noundef @zbee_nwk_rejoin_codes, ptr noundef @.str.366)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %47, i32 noundef 25, ptr noundef @.str.357, ptr noundef %50)
   br label %51
 
 51:                                               ; preds = %44, %38
   %52 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %12) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #10
   ret i32 %52
 }
 
-declare i32 @dissect_zbee_tlvs(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i8 noundef zeroext, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_zbee_tlvs(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i8 noundef zeroext, i32 noundef) #3
 
-declare ptr @proto_tree_get_root(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_get_root(ptr noundef) #3
 
-declare void @proto_tree_add_bitmask_list(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) #3
 
-declare zeroext i16 @tvb_get_guint16(ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_tree_add_bitmask_list(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal i32 @ws_ctz(i64 noundef %0) #0 {
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_uint16(ptr noundef, i32 noundef, i32 noundef) #3
+
+; Function Attrs: inlinehint nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @ws_ctz(i64 noundef %0) #7 {
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8
   %3 = load i64, ptr %2, align 8
@@ -4406,25 +4721,32 @@ define internal i32 @ws_ctz(i64 noundef %0) #0 {
   ret i32 %5
 }
 
-declare void @zbee_sec_add_key_to_keyring(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @zbee_sec_add_key_to_keyring(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #3
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #9
 
-declare ptr @proto_tree_add_bitmask_text(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_bitmask_text(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) #3
 
-declare ptr @eui64_to_display(ptr noundef, i64 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @eui64_to_display(ptr noundef, i64 noundef) #3
 
-declare i64 @tvb_get_guint64(ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i64 @tvb_get_uint64(ptr noundef, i32 noundef, i32 noundef) #3
 
-declare i32 @tvb_bytes_exist(ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @tvb_bytes_exist(ptr noundef, i32 noundef, i32 noundef) #3
 
-declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) #3
 
-declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal void @dissect_ieee802154_zigbee_rejoin(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal void @dissect_ieee802154_zigbee_rejoin(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -4434,12 +4756,13 @@ define internal void @dissect_ieee802154_zigbee_rejoin(ptr noundef %0, ptr nound
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #10
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr %5, align 8
   %12 = load ptr, ptr %8, align 8
   %13 = load i32, ptr %12, align 4
   %14 = load i32, ptr @ett_zbee_nwk_ie_rejoin, align 4
-  %15 = call ptr @proto_tree_add_subtree(ptr noundef %10, ptr noundef %11, i32 noundef %13, i32 noundef 10, i32 noundef %14, ptr noundef null, ptr noundef @.str.360)
+  %15 = call ptr @proto_tree_add_subtree(ptr noundef %10, ptr noundef %11, i32 noundef %13, i32 noundef 10, i32 noundef %14, ptr noundef null, ptr noundef @.str.374)
   store ptr %15, ptr %9, align 8
   %16 = load ptr, ptr %9, align 8
   %17 = load i32, ptr @hf_ieee802154_zigbee_rejoin_epid, align 4
@@ -4449,14 +4772,14 @@ define internal void @dissect_ieee802154_zigbee_rejoin(ptr noundef %0, ptr nound
   %21 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %17, ptr noundef %18, i32 noundef %20, i32 noundef 8, i32 noundef -2147483648)
   %22 = load ptr, ptr %7, align 8
   %23 = load ptr, ptr %6, align 8
-  %24 = getelementptr inbounds %struct._packet_info, ptr %23, i32 0, i32 50
+  %24 = getelementptr inbounds nuw %struct._packet_info, ptr %23, i32 0, i32 51
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %5, align 8
   %27 = load ptr, ptr %8, align 8
   %28 = load i32, ptr %27, align 4
-  %29 = call i64 @tvb_get_guint64(ptr noundef %26, i32 noundef %28, i32 noundef -2147483648)
+  %29 = call i64 @tvb_get_uint64(ptr noundef %26, i32 noundef %28, i32 noundef -2147483648)
   %30 = call ptr @eui64_to_display(ptr noundef %25, i64 noundef %29)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.361, ptr noundef %30)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %22, ptr noundef @.str.375, ptr noundef %30)
   %31 = load ptr, ptr %8, align 8
   %32 = load i32, ptr %31, align 4
   %33 = add i32 %32, 8
@@ -4471,18 +4794,19 @@ define internal void @dissect_ieee802154_zigbee_rejoin(ptr noundef %0, ptr nound
   %41 = load ptr, ptr %5, align 8
   %42 = load ptr, ptr %8, align 8
   %43 = load i32, ptr %42, align 4
-  %44 = call zeroext i16 @tvb_get_guint16(ptr noundef %41, i32 noundef %43, i32 noundef -2147483648)
+  %44 = call zeroext i16 @tvb_get_uint16(ptr noundef %41, i32 noundef %43, i32 noundef -2147483648)
   %45 = zext i16 %44 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %40, ptr noundef @.str.362, i32 noundef %45)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %40, ptr noundef @.str.376, i32 noundef %45)
   %46 = load ptr, ptr %8, align 8
   %47 = load i32, ptr %46, align 4
   %48 = add i32 %47, 2
   store i32 %48, ptr %46, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #10
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @dissect_ieee802154_zigbee_txpower(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal void @dissect_ieee802154_zigbee_txpower(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -4492,10 +4816,11 @@ define internal void @dissect_ieee802154_zigbee_txpower(ptr noundef %0, ptr noun
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #10
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %8, align 8
   %12 = load i32, ptr %11, align 4
-  %13 = call zeroext i8 @tvb_get_guint8(ptr noundef %10, i32 noundef %12)
+  %13 = call zeroext i8 @tvb_get_uint8(ptr noundef %10, i32 noundef %12)
   %14 = sext i8 %13 to i32
   store i32 %14, ptr %9, align 4
   %15 = load ptr, ptr %7, align 8
@@ -4506,22 +4831,26 @@ define internal void @dissect_ieee802154_zigbee_txpower(ptr noundef %0, ptr noun
   %20 = call ptr @proto_tree_add_item_ret_int(ptr noundef %15, i32 noundef %16, ptr noundef %17, i32 noundef %19, i32 noundef 1, i32 noundef 0, ptr noundef %9)
   %21 = load ptr, ptr %7, align 8
   %22 = load i32, ptr %9, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %21, ptr noundef @.str.363, i32 noundef %22)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %21, ptr noundef @.str.377, i32 noundef %22)
   %23 = load ptr, ptr %8, align 8
   %24 = load i32, ptr %23, align 4
   %25 = add i32 %24, 1
   store i32 %25, ptr %23, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #10
   ret void
 }
 
-declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) #3
 
-declare void @dissect_ieee802154_superframe(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissect_ieee802154_superframe(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
-declare ptr @proto_tree_add_item_ret_int(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item_ret_int(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal zeroext i16 @pletoh16(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind null_pointer_is_valid sspstrong uwtable
+define internal zeroext i16 @pletoh16(ptr noundef %0) #7 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -4541,14 +4870,16 @@ define internal zeroext i16 @pletoh16(ptr noundef %0) #0 {
   ret i16 %16
 }
 
-declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) #3
 
-; Function Attrs: nounwind
-declare i32 @snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #4
+; Function Attrs: null_pointer_is_valid
+declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) #3
 
-declare void @add_conversation_table_data(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @add_conversation_table_data(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #3
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
 define internal ptr @zbee_nwk_conv_get_filter_type(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -4561,8 +4892,8 @@ define internal ptr @zbee_nwk_conv_get_filter_type(ptr noundef %0, i32 noundef %
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %struct._conversation_item_t, ptr %9, i32 0, i32 1
-  %11 = getelementptr inbounds %struct._address, ptr %10, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %struct._conversation_item_t, ptr %9, i32 0, i32 1
+  %11 = getelementptr inbounds nuw %struct._address, ptr %10, i32 0, i32 0
   %12 = load i32, ptr %11, align 8
   %13 = load i32, ptr @zbee_nwk_address_type, align 4
   %14 = icmp eq i32 %12, %13
@@ -4579,8 +4910,8 @@ define internal ptr @zbee_nwk_conv_get_filter_type(ptr noundef %0, i32 noundef %
 
 19:                                               ; preds = %16
   %20 = load ptr, ptr %4, align 8
-  %21 = getelementptr inbounds %struct._conversation_item_t, ptr %20, i32 0, i32 2
-  %22 = getelementptr inbounds %struct._address, ptr %21, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %struct._conversation_item_t, ptr %20, i32 0, i32 2
+  %22 = getelementptr inbounds nuw %struct._address, ptr %21, i32 0, i32 0
   %23 = load i32, ptr %22, align 8
   %24 = load i32, ptr @zbee_nwk_address_type, align 4
   %25 = icmp eq i32 %23, %24
@@ -4597,8 +4928,8 @@ define internal ptr @zbee_nwk_conv_get_filter_type(ptr noundef %0, i32 noundef %
 
 30:                                               ; preds = %27
   %31 = load ptr, ptr %4, align 8
-  %32 = getelementptr inbounds %struct._conversation_item_t, ptr %31, i32 0, i32 1
-  %33 = getelementptr inbounds %struct._address, ptr %32, i32 0, i32 0
+  %32 = getelementptr inbounds nuw %struct._conversation_item_t, ptr %31, i32 0, i32 1
+  %33 = getelementptr inbounds nuw %struct._address, ptr %32, i32 0, i32 0
   %34 = load i32, ptr %33, align 8
   %35 = load i32, ptr @zbee_nwk_address_type, align 4
   %36 = icmp eq i32 %34, %35
@@ -4609,7 +4940,7 @@ define internal ptr @zbee_nwk_conv_get_filter_type(ptr noundef %0, i32 noundef %
   br label %39
 
 38:                                               ; preds = %30, %27
-  store ptr @.str.366, ptr %3, align 8
+  store ptr @.str.380, ptr %3, align 8
   br label %39
 
 39:                                               ; preds = %38, %37, %26, %15
@@ -4617,9 +4948,10 @@ define internal ptr @zbee_nwk_conv_get_filter_type(ptr noundef %0, i32 noundef %
   ret ptr %40
 }
 
-declare void @add_endpoint_table_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @add_endpoint_table_data(ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #3
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
 define internal ptr @zbee_nwk_endpoint_get_filter_type(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -4632,8 +4964,8 @@ define internal ptr @zbee_nwk_endpoint_get_filter_type(ptr noundef %0, i32 nound
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds %struct._endpoint_item_t, ptr %9, i32 0, i32 1
-  %11 = getelementptr inbounds %struct._address, ptr %10, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %struct._endpoint_item_t, ptr %9, i32 0, i32 1
+  %11 = getelementptr inbounds nuw %struct._address, ptr %10, i32 0, i32 0
   %12 = load i32, ptr %11, align 8
   %13 = load i32, ptr @zbee_nwk_address_type, align 4
   %14 = icmp eq i32 %12, %13
@@ -4644,7 +4976,7 @@ define internal ptr @zbee_nwk_endpoint_get_filter_type(ptr noundef %0, i32 nound
   br label %17
 
 16:                                               ; preds = %8, %2
-  store ptr @.str.366, ptr %3, align 8
+  store ptr @.str.380, ptr %3, align 8
   br label %17
 
 17:                                               ; preds = %16, %15
@@ -4652,30 +4984,41 @@ define internal ptr @zbee_nwk_endpoint_get_filter_type(ptr noundef %0, i32 nound
   ret ptr %18
 }
 
-declare i32 @proto_is_frame_protocol(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @proto_is_frame_protocol(ptr noundef, ptr noundef) #3
 
-declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) #3
 
-declare ptr @try_val_to_str(i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @try_val_to_str(i32 noundef, ptr noundef) #3
 
-declare ptr @g_hash_table_new(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_hash_table_new(ptr noundef, ptr noundef) #3
 
-declare i32 @ieee802154_short_addr_hash(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @ieee802154_short_addr_hash(ptr noundef) #3
 
-declare i32 @ieee802154_short_addr_equal(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @ieee802154_short_addr_equal(ptr noundef, ptr noundef) #3
 
-declare i32 @ieee802154_long_addr_hash(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @ieee802154_long_addr_hash(ptr noundef) #3
 
-declare i32 @ieee802154_long_addr_equal(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @ieee802154_long_addr_equal(ptr noundef, ptr noundef) #3
 
-declare ptr @g_hash_table_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @g_hash_table_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
-declare i32 @g_int_hash(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @g_int_hash(ptr noundef) #3
 
-declare i32 @g_int_equal(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @g_int_equal(ptr noundef, ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal void @free_keyring_key(ptr noundef %0) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal void @free_keyring_key(ptr noundef %0) #1 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -4683,11 +5026,12 @@ define internal void @free_keyring_key(ptr noundef %0) #0 {
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @free_keyring_val(ptr noundef %0) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal void @free_keyring_val(ptr noundef %0) #1 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #10
   %4 = load ptr, ptr %2, align 8
   store ptr %4, ptr %3, align 8
   %5 = load ptr, ptr %3, align 8
@@ -4695,35 +5039,49 @@ define internal void @free_keyring_val(ptr noundef %0) #0 {
   call void @g_slist_free_full(ptr noundef %6, ptr noundef @g_free)
   %7 = load ptr, ptr %3, align 8
   call void @g_free(ptr noundef %7)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #10
   ret void
 }
 
-declare void @g_free(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @g_free(ptr noundef) #3
 
-declare void @g_slist_free_full(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @g_slist_free_full(ptr noundef, ptr noundef) #3
 
-declare void @g_hash_table_destroy(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @g_hash_table_destroy(ptr noundef) #3
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind }
+attributes #0 = { nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { alwaysinline nounwind "min-legal-vector-width"="0" }
+attributes #5 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { inlinehint null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { inlinehint nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
+attributes #11 = { allocsize(1) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}

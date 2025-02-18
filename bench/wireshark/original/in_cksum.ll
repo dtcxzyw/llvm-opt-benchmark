@@ -5,7 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.0 = type { i32 }
 %struct.vec_t = type { ptr, i32 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
 define i32 @in_cksum_ret_partial(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -19,9 +19,15 @@ define i32 @in_cksum_ret_partial(ptr noundef %0, i32 noundef %1, ptr noundef %2)
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
   store i32 0, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
   store i32 0, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
   store i32 0, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
   br label %13
 
 13:                                               ; preds = %316, %3
@@ -69,7 +75,7 @@ define i32 @in_cksum_ret_partial(ptr noundef %0, i32 noundef %1, ptr noundef %2)
 
 40:                                               ; preds = %36, %19, %16
   %41 = load ptr, ptr %4, align 8
-  %42 = getelementptr inbounds %struct.vec_t, ptr %41, i32 0, i32 1
+  %42 = getelementptr inbounds nuw %struct.vec_t, ptr %41, i32 0, i32 1
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %45, label %46
@@ -79,7 +85,7 @@ define i32 @in_cksum_ret_partial(ptr noundef %0, i32 noundef %1, ptr noundef %2)
 
 46:                                               ; preds = %40
   %47 = load ptr, ptr %4, align 8
-  %48 = getelementptr inbounds %struct.vec_t, ptr %47, i32 0, i32 0
+  %48 = getelementptr inbounds nuw %struct.vec_t, ptr %47, i32 0, i32 0
   %49 = load ptr, ptr %48, align 8
   store ptr %49, ptr %7, align 8
   %50 = load i32, ptr %9, align 4
@@ -100,7 +106,7 @@ define i32 @in_cksum_ret_partial(ptr noundef %0, i32 noundef %1, ptr noundef %2)
   %61 = getelementptr i8, ptr %60, i64 1
   store ptr %61, ptr %7, align 8
   %62 = load ptr, ptr %4, align 8
-  %63 = getelementptr inbounds %struct.vec_t, ptr %62, i32 0, i32 1
+  %63 = getelementptr inbounds nuw %struct.vec_t, ptr %62, i32 0, i32 1
   %64 = load i32, ptr %63, align 8
   %65 = sub i32 %64, 1
   store i32 %65, ptr %9, align 4
@@ -108,7 +114,7 @@ define i32 @in_cksum_ret_partial(ptr noundef %0, i32 noundef %1, ptr noundef %2)
 
 66:                                               ; preds = %46
   %67 = load ptr, ptr %4, align 8
-  %68 = getelementptr inbounds %struct.vec_t, ptr %67, i32 0, i32 1
+  %68 = getelementptr inbounds nuw %struct.vec_t, ptr %67, i32 0, i32 1
   %69 = load i32, ptr %68, align 8
   store i32 %69, ptr %9, align 4
   br label %70
@@ -289,7 +295,7 @@ define i32 @in_cksum_ret_partial(ptr noundef %0, i32 noundef %1, ptr noundef %2)
   %204 = load ptr, ptr %7, align 8
   %205 = getelementptr i16, ptr %204, i64 16
   store ptr %205, ptr %7, align 8
-  br label %103, !llvm.loop !4
+  br label %103, !llvm.loop !6
 
 206:                                              ; preds = %103
   %207 = load i32, ptr %9, align 4
@@ -336,7 +342,7 @@ define i32 @in_cksum_ret_partial(ptr noundef %0, i32 noundef %1, ptr noundef %2)
   %238 = load ptr, ptr %7, align 8
   %239 = getelementptr i16, ptr %238, i64 4
   store ptr %239, ptr %7, align 8
-  br label %209, !llvm.loop !6
+  br label %209, !llvm.loop !8
 
 240:                                              ; preds = %209
   %241 = load i32, ptr %9, align 4
@@ -394,7 +400,7 @@ define i32 @in_cksum_ret_partial(ptr noundef %0, i32 noundef %1, ptr noundef %2)
   %273 = load i32, ptr %8, align 4
   %274 = add i32 %273, %272
   store i32 %274, ptr %8, align 4
-  br label %264, !llvm.loop !7
+  br label %264, !llvm.loop !9
 
 275:                                              ; preds = %264
   %276 = load i32, ptr %10, align 4
@@ -476,7 +482,7 @@ define i32 @in_cksum_ret_partial(ptr noundef %0, i32 noundef %1, ptr noundef %2)
   %319 = load i32, ptr %5, align 4
   %320 = add i32 %319, -1
   store i32 %320, ptr %5, align 4
-  br label %13, !llvm.loop !8
+  br label %13, !llvm.loop !10
 
 321:                                              ; preds = %13
   %322 = load i32, ptr %9, align 4
@@ -518,10 +524,22 @@ define i32 @in_cksum_ret_partial(ptr noundef %0, i32 noundef %1, ptr noundef %2)
   %345 = load i32, ptr %8, align 4
   %346 = xor i32 %345, -1
   %347 = and i32 %346, 65535
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #4
   ret i32 %347
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
 define i32 @in_cksum(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
@@ -533,35 +551,40 @@ define i32 @in_cksum(ptr noundef %0, i32 noundef %1) #0 {
   ret i32 %7
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
 define zeroext i16 @ip_checksum(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca [1 x %struct.vec_t], align 16
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #4
   br label %6
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr [1 x %struct.vec_t], ptr %5, i64 0, i64 0
-  %9 = getelementptr inbounds %struct.vec_t, ptr %8, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %struct.vec_t, ptr %8, i32 0, i32 0
   store ptr %7, ptr %9, align 16
   %10 = load i32, ptr %4, align 4
   %11 = getelementptr [1 x %struct.vec_t], ptr %5, i64 0, i64 0
-  %12 = getelementptr inbounds %struct.vec_t, ptr %11, i32 0, i32 1
+  %12 = getelementptr inbounds nuw %struct.vec_t, ptr %11, i32 0, i32 1
   store i32 %10, ptr %12, align 8
   br label %13
 
 13:                                               ; preds = %6
-  %14 = getelementptr [1 x %struct.vec_t], ptr %5, i64 0, i64 0
-  %15 = call i32 @in_cksum_ret_partial(ptr noundef %14, i32 noundef 1, ptr noundef null)
-  %16 = trunc i32 %15 to i16
-  ret i16 %16
+  br label %14
+
+14:                                               ; preds = %13
+  %15 = getelementptr [1 x %struct.vec_t], ptr %5, i64 0, i64 0
+  %16 = call i32 @in_cksum_ret_partial(ptr noundef %15, i32 noundef 1, ptr noundef null)
+  %17 = trunc i32 %16 to i16
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #4
+  ret i16 %17
 }
 
-; Function Attrs: nounwind uwtable
-define zeroext i16 @ip_checksum_tvb(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define zeroext i16 @ip_checksum_tvb(ptr noundef %0, i32 noundef %1, i32 noundef %2) #2 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -569,40 +592,47 @@ define zeroext i16 @ip_checksum_tvb(ptr noundef %0, i32 noundef %1, i32 noundef 
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %7) #4
   br label %8
 
 8:                                                ; preds = %3
   %9 = load i32, ptr %6, align 4
   %10 = getelementptr [1 x %struct.vec_t], ptr %7, i64 0, i64 0
-  %11 = getelementptr inbounds %struct.vec_t, ptr %10, i32 0, i32 1
+  %11 = getelementptr inbounds nuw %struct.vec_t, ptr %10, i32 0, i32 1
   store i32 %9, ptr %11, align 8
   %12 = load ptr, ptr %4, align 8
   %13 = load i32, ptr %5, align 4
   %14 = getelementptr [1 x %struct.vec_t], ptr %7, i64 0, i64 0
-  %15 = getelementptr inbounds %struct.vec_t, ptr %14, i32 0, i32 1
+  %15 = getelementptr inbounds nuw %struct.vec_t, ptr %14, i32 0, i32 1
   %16 = load i32, ptr %15, align 8
   %17 = call ptr @tvb_get_ptr(ptr noundef %12, i32 noundef %13, i32 noundef %16)
   %18 = getelementptr [1 x %struct.vec_t], ptr %7, i64 0, i64 0
-  %19 = getelementptr inbounds %struct.vec_t, ptr %18, i32 0, i32 0
+  %19 = getelementptr inbounds nuw %struct.vec_t, ptr %18, i32 0, i32 0
   store ptr %17, ptr %19, align 16
   br label %20
 
 20:                                               ; preds = %8
-  %21 = getelementptr [1 x %struct.vec_t], ptr %7, i64 0, i64 0
-  %22 = call i32 @in_cksum_ret_partial(ptr noundef %21, i32 noundef 1, ptr noundef null)
-  %23 = trunc i32 %22 to i16
-  ret i16 %23
+  br label %21
+
+21:                                               ; preds = %20
+  %22 = getelementptr [1 x %struct.vec_t], ptr %7, i64 0, i64 0
+  %23 = call i32 @in_cksum_ret_partial(ptr noundef %22, i32 noundef 1, ptr noundef null)
+  %24 = trunc i32 %23 to i16
+  call void @llvm.lifetime.end.p0(i64 16, ptr %7) #4
+  ret i16 %24
 }
 
-declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) #3
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
 define hidden zeroext i16 @in_cksum_shouldbe(i16 noundef zeroext %0, i16 noundef zeroext %1) #0 {
   %3 = alloca i16, align 2
   %4 = alloca i16, align 2
   %5 = alloca i32, align 4
   store i16 %0, ptr %3, align 2
   store i16 %1, ptr %4, align 2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #4
   %6 = load i16, ptr %3, align 2
   %7 = zext i16 %6 to i32
   store i32 %7, ptr %5, align 4
@@ -635,21 +665,39 @@ define hidden zeroext i16 @in_cksum_shouldbe(i16 noundef zeroext %0, i16 noundef
   %32 = add i32 %29, %31
   store i32 %32, ptr %5, align 4
   %33 = load i32, ptr %5, align 4
-  %34 = trunc i32 %33 to i16
-  ret i16 %34
+  %34 = icmp eq i32 %33, 65535
+  br i1 %34, label %35, label %36
+
+35:                                               ; preds = %2
+  br label %38
+
+36:                                               ; preds = %2
+  %37 = load i32, ptr %5, align 4
+  br label %38
+
+38:                                               ; preds = %36, %35
+  %39 = phi i32 [ 0, %35 ], [ %37, %36 ]
+  %40 = trunc i32 %39 to i16
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #4
+  ret i16 %40
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

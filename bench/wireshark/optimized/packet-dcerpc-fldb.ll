@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
 %struct._e_guid_t = type { i32, i16, i16, [8 x i8] }
-%struct._dcerpc_sub_dissector = type { i16, ptr, ptr, ptr }
 %struct._value_string_ext = type { ptr, i32, i32, ptr, ptr }
 
 @proto_register_fldb.hf = internal global [78 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_fldb_releaselock_rqst_fsid_low, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_releaselock_rqst_voltype, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_releaselock_rqst_voloper, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_setlock_rqst_fsid_high, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_setlock_rqst_fsid_low, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_setlock_rqst_voltype, %struct._header_field_info { ptr @.str.2, ptr @.str.10, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_setlock_rqst_voloper, %struct._header_field_info { ptr @.str.4, ptr @.str.11, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_listentry_rqst_previous_index, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_listentry_rqst_var1, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_listentry_resp_count, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_listentry_resp_next_index, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_deleteentry_rqst_fsid_high, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_deleteentry_rqst_fsid_low, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_deleteentry_rqst_voltype, %struct._header_field_info { ptr @.str.2, ptr @.str.24, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_deleteentry_rqst_voloper, %struct._header_field_info { ptr @.str.4, ptr @.str.25, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_replaceentry_rqst_fsid_high, %struct._header_field_info { ptr @.str.26, ptr @.str.27, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_replaceentry_rqst_fsid_low, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_replaceentry_rqst_voltype, %struct._header_field_info { ptr @.str.2, ptr @.str.30, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_releaselock_rqst_fsid_high, %struct._header_field_info { ptr @.str.31, ptr @.str.32, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_opnum, %struct._header_field_info { ptr @.str.33, ptr @.str.34, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_vldbentry_volumename, %struct._header_field_info { ptr @.str.35, ptr @.str.36, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_vldbentry_volumetype, %struct._header_field_info { ptr @.str.37, ptr @.str.38, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_vldbentry_nservers, %struct._header_field_info { ptr @.str.39, ptr @.str.40, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_afsnetaddr_type, %struct._header_field_info { ptr @.str.41, ptr @.str.42, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_afsnetaddr_data, %struct._header_field_info { ptr @.str.43, ptr @.str.44, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_vldbentry_sitepartition, %struct._header_field_info { ptr @.str.45, ptr @.str.46, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_siteflags, %struct._header_field_info { ptr @.str.47, ptr @.str.48, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_vldbentry_sitemaxreplicalatency, %struct._header_field_info { ptr @.str.49, ptr @.str.50, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_vldbentry_siteprincipal, %struct._header_field_info { ptr @.str.51, ptr @.str.52, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_vldbentry_siteowner, %struct._header_field_info { ptr @.str.53, ptr @.str.54, i32 36, i32 0, ptr null, i64 0, ptr @.str.55, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_vldbentry_siteobjid, %struct._header_field_info { ptr @.str.56, ptr @.str.57, i32 36, i32 0, ptr null, i64 0, ptr @.str.55, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_vldbentry_volids_high, %struct._header_field_info { ptr @.str.58, ptr @.str.59, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_vldbentry_volids_low, %struct._header_field_info { ptr @.str.60, ptr @.str.61, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_vldbentry_voltypes, %struct._header_field_info { ptr @.str.62, ptr @.str.63, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_vldbentry_cloneid_high, %struct._header_field_info { ptr @.str.64, ptr @.str.65, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_vldbentry_cloneid_low, %struct._header_field_info { ptr @.str.66, ptr @.str.67, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_afsflags_flags, %struct._header_field_info { ptr @.str.68, ptr @.str.69, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_vldbentry_maxtotallatency, %struct._header_field_info { ptr @.str.70, ptr @.str.71, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_vldbentry_hardmaxtotallatency, %struct._header_field_info { ptr @.str.72, ptr @.str.73, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_vldbentry_minimumpouncedally, %struct._header_field_info { ptr @.str.74, ptr @.str.75, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_vldbentry_defaultmaxreplicalatency, %struct._header_field_info { ptr @.str.76, ptr @.str.77, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_vldbentry_reclaimdally, %struct._header_field_info { ptr @.str.78, ptr @.str.79, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_vldbentry_whenlocked, %struct._header_field_info { ptr @.str.80, ptr @.str.81, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_vldbentry_spare1, %struct._header_field_info { ptr @.str.82, ptr @.str.83, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_vldbentry_spare2, %struct._header_field_info { ptr @.str.84, ptr @.str.85, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_vldbentry_spare3, %struct._header_field_info { ptr @.str.86, ptr @.str.87, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_vldbentry_spare4, %struct._header_field_info { ptr @.str.88, ptr @.str.89, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_vldbentry_lockername, %struct._header_field_info { ptr @.str.90, ptr @.str.91, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_vldbentry_charspares, %struct._header_field_info { ptr @.str.92, ptr @.str.93, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_vlconf_cell_name, %struct._header_field_info { ptr @.str.94, ptr @.str.95, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_vlconf_cell_cellid_high, %struct._header_field_info { ptr @.str.96, ptr @.str.97, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_vlconf_cell_cellid_low, %struct._header_field_info { ptr @.str.98, ptr @.str.99, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_vlconf_cell_numservers, %struct._header_field_info { ptr @.str.39, ptr @.str.100, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_vlconf_cell_hostname, %struct._header_field_info { ptr @.str.101, ptr @.str.102, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_vlconf_cell_spare1, %struct._header_field_info { ptr @.str.103, ptr @.str.104, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_vlconf_cell_spare2, %struct._header_field_info { ptr @.str.105, ptr @.str.106, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_vlconf_cell_spare3, %struct._header_field_info { ptr @.str.107, ptr @.str.108, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_vlconf_cell_spare4, %struct._header_field_info { ptr @.str.109, ptr @.str.110, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_vlconf_cell_spare5, %struct._header_field_info { ptr @.str.111, ptr @.str.112, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_flagsp, %struct._header_field_info { ptr @.str.113, ptr @.str.114, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_nextstartp, %struct._header_field_info { ptr @.str.115, ptr @.str.116, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_afsNameString_t_principalName_size, %struct._header_field_info { ptr @.str.117, ptr @.str.118, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_afsNameString_t_principalName_string, %struct._header_field_info { ptr @.str.51, ptr @.str.119, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_namestring, %struct._header_field_info { ptr @.str.120, ptr @.str.121, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_error_st, %struct._header_field_info { ptr @.str.122, ptr @.str.123, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_creationquota, %struct._header_field_info { ptr @.str.124, ptr @.str.125, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_creationuses, %struct._header_field_info { ptr @.str.126, ptr @.str.127, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_deletedflag, %struct._header_field_info { ptr @.str.128, ptr @.str.129, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_numwanted, %struct._header_field_info { ptr @.str.130, ptr @.str.131, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_spare2, %struct._header_field_info { ptr @.str.132, ptr @.str.133, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_spare3, %struct._header_field_info { ptr @.str.134, ptr @.str.135, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_spare4, %struct._header_field_info { ptr @.str.136, ptr @.str.137, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_spare5, %struct._header_field_info { ptr @.str.138, ptr @.str.139, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_uuid_objid, %struct._header_field_info { ptr @.str.140, ptr @.str.141, i32 36, i32 0, ptr null, i64 0, ptr @.str.55, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_uuid_owner, %struct._header_field_info { ptr @.str.142, ptr @.str.143, i32 36, i32 0, ptr null, i64 0, ptr @.str.55, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_volid_high, %struct._header_field_info { ptr @.str.144, ptr @.str.145, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_volid_low, %struct._header_field_info { ptr @.str.146, ptr @.str.147, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fldb_voltype, %struct._header_field_info { ptr @.str.2, ptr @.str.148, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
@@ -250,7 +249,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.151 = private unnamed_addr constant [5 x i8] c"fldb\00", align 1
 @proto_fldb = internal unnamed_addr global i32 0, align 4
 @uuid_fldb = internal global %struct._e_guid_t { i32 1295512285, i16 -4797, i16 0, [8 x i8] c"\02\C07\CF.\00\00\01" }, align 4
-@fldb_dissectors = internal global [30 x %struct._dcerpc_sub_dissector] [%struct._dcerpc_sub_dissector { i16 0, ptr @.str.152, ptr @fldb_dissect_getentrybyid_rqst, ptr @fldb_dissect_getentrybyid_resp }, %struct._dcerpc_sub_dissector { i16 1, ptr @.str.153, ptr @fldb_dissect_getentrybyname_rqst, ptr @fldb_dissect_getentrybyname_resp }, %struct._dcerpc_sub_dissector { i16 2, ptr @.str.154, ptr null, ptr null }, %struct._dcerpc_sub_dissector { i16 3, ptr @.str.155, ptr null, ptr @fldb_dissect_getcellinfo_resp }, %struct._dcerpc_sub_dissector { i16 4, ptr @.str.156, ptr null, ptr @fldb_dissect_getnextserversbyid_resp }, %struct._dcerpc_sub_dissector { i16 5, ptr @.str.157, ptr null, ptr null }, %struct._dcerpc_sub_dissector { i16 6, ptr @.str.158, ptr @fldb_dissect_getsiteinfo_rqst, ptr @fldb_dissect_getsiteinfo_resp }, %struct._dcerpc_sub_dissector { i16 7, ptr @.str.159, ptr null, ptr null }, %struct._dcerpc_sub_dissector { i16 8, ptr @.str.160, ptr null, ptr null }, %struct._dcerpc_sub_dissector { i16 9, ptr @.str.161, ptr null, ptr null }, %struct._dcerpc_sub_dissector { i16 10, ptr @.str.162, ptr null, ptr null }, %struct._dcerpc_sub_dissector { i16 11, ptr @.str.163, ptr null, ptr null }, %struct._dcerpc_sub_dissector { i16 12, ptr @.str.164, ptr null, ptr null }, %struct._dcerpc_sub_dissector { i16 13, ptr @.str.165, ptr @fldb_dissect_createentry_rqst, ptr @fldb_dissect_createentry_resp }, %struct._dcerpc_sub_dissector { i16 14, ptr @.str.166, ptr @fldb_dissect_deleteentry_rqst, ptr @fldb_dissect_deleteentry_resp }, %struct._dcerpc_sub_dissector { i16 15, ptr @.str.167, ptr null, ptr null }, %struct._dcerpc_sub_dissector { i16 16, ptr @.str.168, ptr @fldb_dissect_replaceentry_rqst, ptr @fldb_dissect_replaceentry_resp }, %struct._dcerpc_sub_dissector { i16 17, ptr @.str.169, ptr @fldb_dissect_setlock_rqst, ptr @fldb_dissect_setlock_resp }, %struct._dcerpc_sub_dissector { i16 18, ptr @.str.170, ptr @fldb_dissect_releaselock_rqst, ptr @fldb_dissect_releaselock_resp }, %struct._dcerpc_sub_dissector { i16 19, ptr @.str.171, ptr @fldb_dissect_listentry_rqst, ptr @fldb_dissect_listentry_resp }, %struct._dcerpc_sub_dissector { i16 20, ptr @.str.172, ptr null, ptr null }, %struct._dcerpc_sub_dissector { i16 21, ptr @.str.173, ptr null, ptr null }, %struct._dcerpc_sub_dissector { i16 22, ptr @.str.174, ptr null, ptr null }, %struct._dcerpc_sub_dissector { i16 23, ptr @.str.175, ptr null, ptr null }, %struct._dcerpc_sub_dissector { i16 24, ptr @.str.176, ptr null, ptr null }, %struct._dcerpc_sub_dissector { i16 25, ptr @.str.177, ptr null, ptr null }, %struct._dcerpc_sub_dissector { i16 26, ptr @.str.178, ptr @fldb_dissect_getnewvolumeids_rqst, ptr null }, %struct._dcerpc_sub_dissector { i16 27, ptr @.str.179, ptr null, ptr null }, %struct._dcerpc_sub_dissector { i16 28, ptr @.str.180, ptr null, ptr null }, %struct._dcerpc_sub_dissector zeroinitializer], align 16
 @.str.152 = private unnamed_addr constant [13 x i8] c"GetEntryByID\00", align 1
 @.str.153 = private unnamed_addr constant [15 x i8] c"GetEntryByName\00", align 1
 @.str.154 = private unnamed_addr constant [6 x i8] c"Probe\00", align 1
@@ -280,275 +278,286 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.178 = private unnamed_addr constant [16 x i8] c"GetNewVolumeIds\00", align 1
 @.str.179 = private unnamed_addr constant [13 x i8] c"CreateServer\00", align 1
 @.str.180 = private unnamed_addr constant [12 x i8] c"AlterServer\00", align 1
-@.str.181 = private unnamed_addr constant [26 x i8] c" VolID:%u/%u VolType:0x%x\00", align 1
-@.str.182 = private unnamed_addr constant [11 x i8] c"vldbentry:\00", align 1
-@.str.183 = private unnamed_addr constant [10 x i8] c" Name: %s\00", align 1
-@.str.184 = private unnamed_addr constant [9 x i8] c" Type:%u\00", align 1
-@.str.185 = private unnamed_addr constant [13 x i8] c" nServers:%u\00", align 1
-@.str.186 = private unnamed_addr constant [8 x i8] c" LFS:%u\00", align 1
-@.str.187 = private unnamed_addr constant [16 x i8] c" MaxRepLat%d:%u\00", align 1
-@.str.188 = private unnamed_addr constant [11 x i8] c" Princ: %s\00", align 1
-@.str.189 = private unnamed_addr constant [62 x i8] c" SiteOwner - %08x-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x\00", align 1
-@.str.190 = private unnamed_addr constant [62 x i8] c" SiteObjID - %08x-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x\00", align 1
-@.str.191 = private unnamed_addr constant [13 x i8] c" VolIDs%d:%u\00", align 1
-@.str.192 = private unnamed_addr constant [16 x i8] c" VolTypes:%d:%u\00", align 1
-@.str.193 = private unnamed_addr constant [12 x i8] c" CloneId:%u\00", align 1
-@.str.194 = private unnamed_addr constant [14 x i8] c" MaxTotLat:%u\00", align 1
-@.str.195 = private unnamed_addr constant [18 x i8] c" HardMaxTotLat:%u\00", align 1
-@.str.196 = private unnamed_addr constant [19 x i8] c" minPounceDally:%u\00", align 1
-@.str.197 = private unnamed_addr constant [29 x i8] c" defaultMaxReplicaLatency:%u\00", align 1
-@.str.198 = private unnamed_addr constant [17 x i8] c" reclaimDally:%u\00", align 1
-@.str.199 = private unnamed_addr constant [15 x i8] c" WhenLocked:%u\00", align 1
-@.str.200 = private unnamed_addr constant [11 x i8] c" spare1:%u\00", align 1
-@.str.201 = private unnamed_addr constant [11 x i8] c" spare2:%u\00", align 1
-@.str.202 = private unnamed_addr constant [11 x i8] c" spare3:%u\00", align 1
-@.str.203 = private unnamed_addr constant [11 x i8] c" spare4:%u\00", align 1
-@.str.204 = private unnamed_addr constant [16 x i8] c" LockerName: %s\00", align 1
-@.str.205 = private unnamed_addr constant [15 x i8] c" charSpares:%s\00", align 1
-@.str.206 = private unnamed_addr constant [12 x i8] c"afsNetAddr:\00", align 1
-@.str.207 = private unnamed_addr constant [10 x i8] c" Type:%u \00", align 1
-@.str.208 = private unnamed_addr constant [9 x i8] c" Port:%u\00", align 1
-@.str.209 = private unnamed_addr constant [8 x i8] c" IP:%u.\00", align 1
-@.str.210 = private unnamed_addr constant [4 x i8] c"%u.\00", align 1
-@.str.211 = private unnamed_addr constant [3 x i8] c"%u\00", align 1
-@.str.212 = private unnamed_addr constant [11 x i8] c"SiteFlags:\00", align 1
-@.str.213 = private unnamed_addr constant [11 x i8] c" SiteFlags\00", align 1
-@.str.214 = private unnamed_addr constant [12 x i8] c":NEWREPSITE\00", align 1
-@.str.215 = private unnamed_addr constant [8 x i8] c":SPARE1\00", align 1
-@.str.216 = private unnamed_addr constant [8 x i8] c":SPARE2\00", align 1
-@.str.217 = private unnamed_addr constant [8 x i8] c":SPARE3\00", align 1
-@.str.218 = private unnamed_addr constant [12 x i8] c":SAMEASPREV\00", align 1
-@.str.219 = private unnamed_addr constant [9 x i8] c":DEFINED\00", align 1
-@.str.220 = private unnamed_addr constant [15 x i8] c":PARTIALADDRS \00", align 1
-@.str.221 = private unnamed_addr constant [12 x i8] c":ZEROIXHERE\00", align 1
-@.str.222 = private unnamed_addr constant [10 x i8] c"afsFlags:\00", align 1
-@.str.223 = private unnamed_addr constant [11 x i8] c" afsFlags=\00", align 1
-@.str.224 = private unnamed_addr constant [13 x i8] c":RETURNTOKEN\00", align 1
-@.str.225 = private unnamed_addr constant [16 x i8] c":TOKENJUMPQUEUE\00", align 1
-@.str.226 = private unnamed_addr constant [11 x i8] c":SKIPTOKEN\00", align 1
-@.str.227 = private unnamed_addr constant [12 x i8] c":NOOPTIMISM\00", align 1
-@.str.228 = private unnamed_addr constant [9 x i8] c":TOKENID\00", align 1
-@.str.229 = private unnamed_addr constant [15 x i8] c":RETURNBLOCKER\00", align 1
-@.str.230 = private unnamed_addr constant [12 x i8] c":ASYNCGRANT\00", align 1
-@.str.231 = private unnamed_addr constant [10 x i8] c":NOREVOKE\00", align 1
-@.str.232 = private unnamed_addr constant [18 x i8] c":MOVE_REESTABLISH\00", align 1
-@.str.233 = private unnamed_addr constant [20 x i8] c":SERVER_REESTABLISH\00", align 1
-@.str.234 = private unnamed_addr constant [14 x i8] c":NO_NEW_EPOCH\00", align 1
-@.str.235 = private unnamed_addr constant [16 x i8] c":MOVE_SOURCE_OK\00", align 1
-@.str.236 = private unnamed_addr constant [6 x i8] c":SYNC\00", align 1
-@.str.237 = private unnamed_addr constant [6 x i8] c":ZERO\00", align 1
-@.str.238 = private unnamed_addr constant [12 x i8] c":SKIPSTATUS\00", align 1
-@.str.239 = private unnamed_addr constant [18 x i8] c":FORCEREVOCATIONS\00", align 1
-@.str.240 = private unnamed_addr constant [17 x i8] c":FORCEVOLQUIESCE\00", align 1
-@.str.241 = private unnamed_addr constant [13 x i8] c":SEC_SERVICE\00", align 1
-@.str.242 = private unnamed_addr constant [20 x i8] c":CONTEXT_NEW_ACL_IF\00", align 1
-@.str.243 = private unnamed_addr constant [17 x i8] c"afsNameString_t:\00", align 1
-@.str.244 = private unnamed_addr constant [16 x i8] c" String_size:%u\00", align 1
-@.str.245 = private unnamed_addr constant [14 x i8] c" Principal:%s\00", align 1
-@.str.246 = private unnamed_addr constant [39 x i8] c" :FIXME!: Invalid string length of  %u\00", align 1
+@fldb_dissectors = internal constant [30 x { i16, [6 x i8], ptr, ptr, ptr }] [{ i16, [6 x i8], ptr, ptr, ptr } { i16 0, [6 x i8] zeroinitializer, ptr @.str.152, ptr @fldb_dissect_getentrybyid_rqst, ptr @fldb_dissect_getentrybyid_resp }, { i16, [6 x i8], ptr, ptr, ptr } { i16 1, [6 x i8] zeroinitializer, ptr @.str.153, ptr @fldb_dissect_getentrybyname_rqst, ptr @fldb_dissect_getentrybyname_resp }, { i16, [6 x i8], ptr, ptr, ptr } { i16 2, [6 x i8] zeroinitializer, ptr @.str.154, ptr null, ptr null }, { i16, [6 x i8], ptr, ptr, ptr } { i16 3, [6 x i8] zeroinitializer, ptr @.str.155, ptr null, ptr @fldb_dissect_getcellinfo_resp }, { i16, [6 x i8], ptr, ptr, ptr } { i16 4, [6 x i8] zeroinitializer, ptr @.str.156, ptr null, ptr @fldb_dissect_getnextserversbyid_resp }, { i16, [6 x i8], ptr, ptr, ptr } { i16 5, [6 x i8] zeroinitializer, ptr @.str.157, ptr null, ptr null }, { i16, [6 x i8], ptr, ptr, ptr } { i16 6, [6 x i8] zeroinitializer, ptr @.str.158, ptr @fldb_dissect_getsiteinfo_rqst, ptr @fldb_dissect_getsiteinfo_resp }, { i16, [6 x i8], ptr, ptr, ptr } { i16 7, [6 x i8] zeroinitializer, ptr @.str.159, ptr null, ptr null }, { i16, [6 x i8], ptr, ptr, ptr } { i16 8, [6 x i8] zeroinitializer, ptr @.str.160, ptr null, ptr null }, { i16, [6 x i8], ptr, ptr, ptr } { i16 9, [6 x i8] zeroinitializer, ptr @.str.161, ptr null, ptr null }, { i16, [6 x i8], ptr, ptr, ptr } { i16 10, [6 x i8] zeroinitializer, ptr @.str.162, ptr null, ptr null }, { i16, [6 x i8], ptr, ptr, ptr } { i16 11, [6 x i8] zeroinitializer, ptr @.str.163, ptr null, ptr null }, { i16, [6 x i8], ptr, ptr, ptr } { i16 12, [6 x i8] zeroinitializer, ptr @.str.164, ptr null, ptr null }, { i16, [6 x i8], ptr, ptr, ptr } { i16 13, [6 x i8] zeroinitializer, ptr @.str.165, ptr @fldb_dissect_createentry_rqst, ptr @fldb_dissect_createentry_resp }, { i16, [6 x i8], ptr, ptr, ptr } { i16 14, [6 x i8] zeroinitializer, ptr @.str.166, ptr @fldb_dissect_deleteentry_rqst, ptr @fldb_dissect_deleteentry_resp }, { i16, [6 x i8], ptr, ptr, ptr } { i16 15, [6 x i8] zeroinitializer, ptr @.str.167, ptr null, ptr null }, { i16, [6 x i8], ptr, ptr, ptr } { i16 16, [6 x i8] zeroinitializer, ptr @.str.168, ptr @fldb_dissect_replaceentry_rqst, ptr @fldb_dissect_replaceentry_resp }, { i16, [6 x i8], ptr, ptr, ptr } { i16 17, [6 x i8] zeroinitializer, ptr @.str.169, ptr @fldb_dissect_setlock_rqst, ptr @fldb_dissect_setlock_resp }, { i16, [6 x i8], ptr, ptr, ptr } { i16 18, [6 x i8] zeroinitializer, ptr @.str.170, ptr @fldb_dissect_releaselock_rqst, ptr @fldb_dissect_releaselock_resp }, { i16, [6 x i8], ptr, ptr, ptr } { i16 19, [6 x i8] zeroinitializer, ptr @.str.171, ptr @fldb_dissect_listentry_rqst, ptr @fldb_dissect_listentry_resp }, { i16, [6 x i8], ptr, ptr, ptr } { i16 20, [6 x i8] zeroinitializer, ptr @.str.172, ptr null, ptr null }, { i16, [6 x i8], ptr, ptr, ptr } { i16 21, [6 x i8] zeroinitializer, ptr @.str.173, ptr null, ptr null }, { i16, [6 x i8], ptr, ptr, ptr } { i16 22, [6 x i8] zeroinitializer, ptr @.str.174, ptr null, ptr null }, { i16, [6 x i8], ptr, ptr, ptr } { i16 23, [6 x i8] zeroinitializer, ptr @.str.175, ptr null, ptr null }, { i16, [6 x i8], ptr, ptr, ptr } { i16 24, [6 x i8] zeroinitializer, ptr @.str.176, ptr null, ptr null }, { i16, [6 x i8], ptr, ptr, ptr } { i16 25, [6 x i8] zeroinitializer, ptr @.str.177, ptr null, ptr null }, { i16, [6 x i8], ptr, ptr, ptr } { i16 26, [6 x i8] zeroinitializer, ptr @.str.178, ptr @fldb_dissect_getnewvolumeids_rqst, ptr null }, { i16, [6 x i8], ptr, ptr, ptr } { i16 27, [6 x i8] zeroinitializer, ptr @.str.179, ptr null, ptr null }, { i16, [6 x i8], ptr, ptr, ptr } { i16 28, [6 x i8] zeroinitializer, ptr @.str.180, ptr null, ptr null }, { i16, [6 x i8], ptr, ptr, ptr } zeroinitializer], align 16
+@.str.182 = private unnamed_addr constant [26 x i8] c" VolID:%u/%u VolType:0x%x\00", align 1
+@.str.183 = private unnamed_addr constant [11 x i8] c"vldbentry:\00", align 1
+@.str.184 = private unnamed_addr constant [10 x i8] c" Name: %s\00", align 1
+@.str.185 = private unnamed_addr constant [9 x i8] c" Type:%u\00", align 1
+@.str.186 = private unnamed_addr constant [13 x i8] c" nServers:%u\00", align 1
+@.str.187 = private unnamed_addr constant [8 x i8] c" LFS:%u\00", align 1
+@.str.188 = private unnamed_addr constant [16 x i8] c" MaxRepLat%d:%u\00", align 1
+@.str.189 = private unnamed_addr constant [11 x i8] c" Princ: %s\00", align 1
+@.str.190 = private unnamed_addr constant [62 x i8] c" SiteOwner - %08x-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x\00", align 1
+@.str.191 = private unnamed_addr constant [62 x i8] c" SiteObjID - %08x-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x\00", align 1
+@.str.192 = private unnamed_addr constant [13 x i8] c" VolIDs%d:%u\00", align 1
+@.str.193 = private unnamed_addr constant [16 x i8] c" VolTypes:%d:%u\00", align 1
+@.str.194 = private unnamed_addr constant [12 x i8] c" CloneId:%u\00", align 1
+@.str.195 = private unnamed_addr constant [14 x i8] c" MaxTotLat:%u\00", align 1
+@.str.196 = private unnamed_addr constant [18 x i8] c" HardMaxTotLat:%u\00", align 1
+@.str.197 = private unnamed_addr constant [19 x i8] c" minPounceDally:%u\00", align 1
+@.str.198 = private unnamed_addr constant [29 x i8] c" defaultMaxReplicaLatency:%u\00", align 1
+@.str.199 = private unnamed_addr constant [17 x i8] c" reclaimDally:%u\00", align 1
+@.str.200 = private unnamed_addr constant [15 x i8] c" WhenLocked:%u\00", align 1
+@.str.201 = private unnamed_addr constant [11 x i8] c" spare1:%u\00", align 1
+@.str.202 = private unnamed_addr constant [11 x i8] c" spare2:%u\00", align 1
+@.str.203 = private unnamed_addr constant [11 x i8] c" spare3:%u\00", align 1
+@.str.204 = private unnamed_addr constant [11 x i8] c" spare4:%u\00", align 1
+@.str.205 = private unnamed_addr constant [16 x i8] c" LockerName: %s\00", align 1
+@.str.206 = private unnamed_addr constant [15 x i8] c" charSpares:%s\00", align 1
+@.str.207 = private unnamed_addr constant [12 x i8] c"afsNetAddr:\00", align 1
+@.str.208 = private unnamed_addr constant [10 x i8] c" Type:%u \00", align 1
+@.str.209 = private unnamed_addr constant [9 x i8] c" Port:%u\00", align 1
+@.str.210 = private unnamed_addr constant [8 x i8] c" IP:%u.\00", align 1
+@.str.211 = private unnamed_addr constant [4 x i8] c"%u.\00", align 1
+@.str.212 = private unnamed_addr constant [3 x i8] c"%u\00", align 1
+@.str.213 = private unnamed_addr constant [11 x i8] c"SiteFlags:\00", align 1
+@.str.214 = private unnamed_addr constant [11 x i8] c" SiteFlags\00", align 1
+@.str.215 = private unnamed_addr constant [12 x i8] c":NEWREPSITE\00", align 1
+@.str.216 = private unnamed_addr constant [8 x i8] c":SPARE1\00", align 1
+@.str.217 = private unnamed_addr constant [8 x i8] c":SPARE2\00", align 1
+@.str.218 = private unnamed_addr constant [8 x i8] c":SPARE3\00", align 1
+@.str.219 = private unnamed_addr constant [12 x i8] c":SAMEASPREV\00", align 1
+@.str.220 = private unnamed_addr constant [9 x i8] c":DEFINED\00", align 1
+@.str.221 = private unnamed_addr constant [15 x i8] c":PARTIALADDRS \00", align 1
+@.str.222 = private unnamed_addr constant [12 x i8] c":ZEROIXHERE\00", align 1
+@.str.223 = private unnamed_addr constant [10 x i8] c"afsFlags:\00", align 1
+@.str.224 = private unnamed_addr constant [11 x i8] c" afsFlags=\00", align 1
+@.str.225 = private unnamed_addr constant [13 x i8] c":RETURNTOKEN\00", align 1
+@.str.226 = private unnamed_addr constant [16 x i8] c":TOKENJUMPQUEUE\00", align 1
+@.str.227 = private unnamed_addr constant [11 x i8] c":SKIPTOKEN\00", align 1
+@.str.228 = private unnamed_addr constant [12 x i8] c":NOOPTIMISM\00", align 1
+@.str.229 = private unnamed_addr constant [9 x i8] c":TOKENID\00", align 1
+@.str.230 = private unnamed_addr constant [15 x i8] c":RETURNBLOCKER\00", align 1
+@.str.231 = private unnamed_addr constant [12 x i8] c":ASYNCGRANT\00", align 1
+@.str.232 = private unnamed_addr constant [10 x i8] c":NOREVOKE\00", align 1
+@.str.233 = private unnamed_addr constant [18 x i8] c":MOVE_REESTABLISH\00", align 1
+@.str.234 = private unnamed_addr constant [20 x i8] c":SERVER_REESTABLISH\00", align 1
+@.str.235 = private unnamed_addr constant [14 x i8] c":NO_NEW_EPOCH\00", align 1
+@.str.236 = private unnamed_addr constant [16 x i8] c":MOVE_SOURCE_OK\00", align 1
+@.str.237 = private unnamed_addr constant [6 x i8] c":SYNC\00", align 1
+@.str.238 = private unnamed_addr constant [6 x i8] c":ZERO\00", align 1
+@.str.239 = private unnamed_addr constant [12 x i8] c":SKIPSTATUS\00", align 1
+@.str.240 = private unnamed_addr constant [18 x i8] c":FORCEREVOCATIONS\00", align 1
+@.str.241 = private unnamed_addr constant [17 x i8] c":FORCEVOLQUIESCE\00", align 1
+@.str.242 = private unnamed_addr constant [13 x i8] c":SEC_SERVICE\00", align 1
+@.str.243 = private unnamed_addr constant [20 x i8] c":CONTEXT_NEW_ACL_IF\00", align 1
+@.str.244 = private unnamed_addr constant [17 x i8] c"afsNameString_t:\00", align 1
+@.str.245 = private unnamed_addr constant [16 x i8] c" String_size:%u\00", align 1
+@.str.246 = private unnamed_addr constant [14 x i8] c" Principal:%s\00", align 1
+@.str.247 = private unnamed_addr constant [39 x i8] c" :FIXME!: Invalid string length of  %u\00", align 1
 @st = internal global i32 0, align 4
 @dce_error_vals_ext = external global %struct._value_string_ext, align 8
 @st_str = internal unnamed_addr global ptr null, align 8
-@.str.247 = private unnamed_addr constant [10 x i8] c"%s st:%s \00", align 1
-@.str.248 = private unnamed_addr constant [21 x i8] c"GetEntryByName reply\00", align 1
-@.str.249 = private unnamed_addr constant [8 x i8] c" st:%s \00", align 1
-@.str.250 = private unnamed_addr constant [13 x i8] c"vlconf_cell:\00", align 1
-@.str.251 = private unnamed_addr constant [14 x i8] c" CellID:%u-%u\00", align 1
-@.str.252 = private unnamed_addr constant [15 x i8] c" numServers:%u\00", align 1
-@.str.253 = private unnamed_addr constant [14 x i8] c" hostName: %s\00", align 1
-@.str.254 = private unnamed_addr constant [11 x i8] c" spare5:%u\00", align 1
-@.str.255 = private unnamed_addr constant [15 x i8] c" nextStartP:%u\00", align 1
-@.str.256 = private unnamed_addr constant [11 x i8] c" flagsp:%u\00", align 1
-@.str.257 = private unnamed_addr constant [4 x i8] c" %s\00", align 1
-@.str.258 = private unnamed_addr constant [58 x i8] c" Owner - %08x-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x\00", align 1
-@.str.259 = private unnamed_addr constant [58 x i8] c" ObjID - %08x-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x\00", align 1
-@.str.260 = private unnamed_addr constant [89 x i8] c" CreationQuota:%u CreationUses:%u DeletedFlag:%u Spare2:%u Spare3:%u Spare4:%u Spare5:%u\00", align 1
-@.str.261 = private unnamed_addr constant [18 x i8] c"GetSiteInfo reply\00", align 1
-@.str.262 = private unnamed_addr constant [18 x i8] c"CreateEntry reply\00", align 1
-@.str.263 = private unnamed_addr constant [13 x i8] c" :FSID:%u/%u\00", align 1
-@.str.264 = private unnamed_addr constant [18 x i8] c"DeleteEntry reply\00", align 1
-@.str.265 = private unnamed_addr constant [18 x i8] c" FSID:%u/%u Name:\00", align 1
-@.str.266 = private unnamed_addr constant [19 x i8] c"ReplaceEntry reply\00", align 1
-@.str.267 = private unnamed_addr constant [37 x i8] c" :FSID:%u/%u VolType:0x%x VolOper:%u\00", align 1
-@.str.268 = private unnamed_addr constant [14 x i8] c"SetLock reply\00", align 1
-@.str.269 = private unnamed_addr constant [18 x i8] c"ReleaseLock reply\00", align 1
-@.str.270 = private unnamed_addr constant [16 x i8] c" :PrevIndex: %u\00", align 1
-@.str.271 = private unnamed_addr constant [14 x i8] c" numWanted:%u\00", align 1
+@.str.248 = private unnamed_addr constant [10 x i8] c"%s st:%s \00", align 1
+@.str.249 = private unnamed_addr constant [21 x i8] c"GetEntryByName reply\00", align 1
+@.str.250 = private unnamed_addr constant [8 x i8] c" st:%s \00", align 1
+@.str.251 = private unnamed_addr constant [13 x i8] c"vlconf_cell:\00", align 1
+@.str.252 = private unnamed_addr constant [14 x i8] c" CellID:%u-%u\00", align 1
+@.str.253 = private unnamed_addr constant [15 x i8] c" numServers:%u\00", align 1
+@.str.254 = private unnamed_addr constant [14 x i8] c" hostName: %s\00", align 1
+@.str.255 = private unnamed_addr constant [11 x i8] c" spare5:%u\00", align 1
+@.str.256 = private unnamed_addr constant [15 x i8] c" nextStartP:%u\00", align 1
+@.str.257 = private unnamed_addr constant [11 x i8] c" flagsp:%u\00", align 1
+@.str.258 = private unnamed_addr constant [4 x i8] c" %s\00", align 1
+@.str.259 = private unnamed_addr constant [58 x i8] c" Owner - %08x-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x\00", align 1
+@.str.260 = private unnamed_addr constant [58 x i8] c" ObjID - %08x-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x\00", align 1
+@.str.261 = private unnamed_addr constant [89 x i8] c" CreationQuota:%u CreationUses:%u DeletedFlag:%u Spare2:%u Spare3:%u Spare4:%u Spare5:%u\00", align 1
+@.str.262 = private unnamed_addr constant [18 x i8] c"GetSiteInfo reply\00", align 1
+@.str.263 = private unnamed_addr constant [18 x i8] c"CreateEntry reply\00", align 1
+@.str.264 = private unnamed_addr constant [13 x i8] c" :FSID:%u/%u\00", align 1
+@.str.265 = private unnamed_addr constant [18 x i8] c"DeleteEntry reply\00", align 1
+@.str.266 = private unnamed_addr constant [18 x i8] c" FSID:%u/%u Name:\00", align 1
+@.str.267 = private unnamed_addr constant [19 x i8] c"ReplaceEntry reply\00", align 1
+@.str.268 = private unnamed_addr constant [37 x i8] c" :FSID:%u/%u VolType:0x%x VolOper:%u\00", align 1
+@.str.269 = private unnamed_addr constant [14 x i8] c"SetLock reply\00", align 1
+@.str.270 = private unnamed_addr constant [18 x i8] c"ReleaseLock reply\00", align 1
+@.str.271 = private unnamed_addr constant [16 x i8] c" :PrevIndex: %u\00", align 1
+@.str.272 = private unnamed_addr constant [14 x i8] c" numWanted:%u\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_fldb() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.149, ptr noundef nonnull @.str.150, ptr noundef nonnull @.str.151) #3
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.149, ptr noundef nonnull @.str.150, ptr noundef nonnull @.str.151)
   store i32 %1, ptr @proto_fldb, align 4
-  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_fldb.hf, i32 noundef 78) #3
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_fldb.ett, i32 noundef 7) #3
+  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_fldb.hf, i32 noundef 78)
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_fldb.ett, i32 noundef 7)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_fldb() local_unnamed_addr #0 {
   %1 = load i32, ptr @proto_fldb, align 4
   %2 = load i32, ptr @ett_fldb, align 4
   %3 = load i32, ptr @hf_fldb_opnum, align 4
-  tail call void @dcerpc_init_uuid(i32 noundef %1, i32 noundef %2, ptr noundef nonnull @uuid_fldb, i16 noundef zeroext 4, ptr noundef nonnull @fldb_dissectors, i32 noundef %3) #3
+  tail call void @dcerpc_init_uuid(i32 noundef %1, i32 noundef %2, ptr noundef nonnull @uuid_fldb, i16 noundef zeroext 4, ptr noundef nonnull @fldb_dissectors, i32 noundef %3)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @dcerpc_init_uuid(i32 noundef, i32 noundef, ptr noundef, i16 noundef zeroext, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @fldb_dissect_getentrybyid_rqst(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  %11 = load i32, ptr %10, align 4
-  %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %12, label %24
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #3
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
+  %11 = load i8, ptr %10, align 1, !range !6, !noundef !7
+  %12 = trunc nuw i8 %11 to i1
+  br i1 %12, label %25, label %13
 
-12:                                               ; preds = %6
-  %13 = load i32, ptr @hf_fldb_volid_high, align 4
-  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %13, ptr noundef nonnull %7) #3
-  %15 = load i32, ptr @hf_fldb_volid_low, align 4
-  %16 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %14, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %15, ptr noundef nonnull %8) #3
-  %17 = load i32, ptr @hf_fldb_voltype, align 4
-  %18 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %16, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %17, ptr noundef nonnull %9) #3
-  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %20 = load ptr, ptr %19, align 8
-  %21 = load i32, ptr %7, align 4
-  %22 = load i32, ptr %8, align 4
-  %23 = load i32, ptr %9, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.181, i32 noundef %21, i32 noundef %22, i32 noundef %23) #3
-  br label %24
+13:                                               ; preds = %6
+  %14 = load i32, ptr @hf_fldb_volid_high, align 4
+  %15 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %14, ptr noundef nonnull %7)
+  %16 = load i32, ptr @hf_fldb_volid_low, align 4
+  %17 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %15, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %16, ptr noundef nonnull %8)
+  %18 = load i32, ptr @hf_fldb_voltype, align 4
+  %19 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %17, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %18, ptr noundef nonnull %9)
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %21 = load ptr, ptr %20, align 8
+  %22 = load i32, ptr %7, align 4
+  %23 = load i32, ptr %8, align 4
+  %24 = load i32, ptr %9, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %21, i32 noundef 25, ptr noundef nonnull @.str.182, i32 noundef %22, i32 noundef %23, i32 noundef %24)
+  br label %25
 
-24:                                               ; preds = %6, %12
-  %.0 = phi i32 [ %18, %12 ], [ %1, %6 ]
+25:                                               ; preds = %6, %13
+  %.0 = phi i32 [ %19, %13 ], [ %1, %6 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @fldb_dissect_getentrybyid_resp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  %8 = load i32, ptr %7, align 4
-  %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %9, label %11
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 25
+  %8 = load i8, ptr %7, align 1, !range !6, !noundef !7
+  %9 = trunc nuw i8 %8 to i1
+  br i1 %9, label %12, label %10
 
-9:                                                ; preds = %6
-  %10 = tail call fastcc i32 @dissect_vldbentry(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5)
-  br label %11
+10:                                               ; preds = %6
+  %11 = tail call fastcc i32 @dissect_vldbentry(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  br label %12
 
-11:                                               ; preds = %6, %9
-  %.0 = phi i32 [ %10, %9 ], [ %1, %6 ]
+12:                                               ; preds = %6, %10
+  %.0 = phi i32 [ %11, %10 ], [ %1, %6 ]
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @fldb_dissect_getentrybyname_rqst(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  %11 = load i32, ptr %10, align 4
-  %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %12, label %38
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
+  %11 = load i8, ptr %10, align 1, !range !6, !noundef !7
+  %12 = trunc nuw i8 %11 to i1
+  br i1 %12, label %39, label %13
 
-12:                                               ; preds = %6
-  %13 = add i32 %1, 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
+13:                                               ; preds = %6
+  %14 = add i32 %1, 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #3
   store ptr null, ptr %7, align 8
-  %.not28.i = icmp eq ptr %3, null
-  br i1 %.not28.i, label %17, label %14
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #3
+  %.not.i = icmp eq ptr %3, null
+  br i1 %.not.i, label %18, label %15
 
-14:                                               ; preds = %12
-  %15 = load i32, ptr @ett_fldb_afsNameString_t, align 4
-  %16 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %3, ptr noundef %0, i32 noundef %13, i32 noundef -1, i32 noundef %15, ptr noundef nonnull %7, ptr noundef nonnull @.str.243) #3
-  br label %17
+15:                                               ; preds = %13
+  %16 = load i32, ptr @ett_fldb_afsNameString_t, align 4
+  %17 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %3, ptr noundef %0, i32 noundef %14, i32 noundef -1, i32 noundef %16, ptr noundef nonnull %7, ptr noundef nonnull @.str.244)
+  br label %18
 
-17:                                               ; preds = %14, %12
-  %.024.i = phi ptr [ %16, %14 ], [ null, %12 ]
-  %18 = load i32, ptr @hf_fldb_afsNameString_t_principalName_size, align 4
-  %19 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %13, ptr noundef %2, ptr noundef %.024.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %18, ptr noundef nonnull %8) #3
-  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %21 = load ptr, ptr %20, align 8
-  %22 = load i32, ptr %8, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %21, i32 noundef 25, ptr noundef nonnull @.str.244, i32 noundef %22) #3
+18:                                               ; preds = %15, %13
+  %.024.i = phi ptr [ %17, %15 ], [ null, %13 ]
+  %19 = load i32, ptr @hf_fldb_afsNameString_t_principalName_size, align 4
+  %20 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %14, ptr noundef %2, ptr noundef %.024.i, ptr noundef %4, ptr noundef %5, i32 noundef %19, ptr noundef nonnull %8)
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %22 = load ptr, ptr %21, align 8
   %23 = load i32, ptr %8, align 4
-  %24 = icmp ult i32 %23, 256
-  br i1 %24, label %25, label %34
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %22, i32 noundef 25, ptr noundef nonnull @.str.245, i32 noundef %23)
+  %24 = load i32, ptr %8, align 4
+  %25 = icmp ult i32 %24, 256
+  br i1 %25, label %26, label %35
 
-25:                                               ; preds = %17
-  %26 = load i32, ptr @hf_fldb_afsNameString_t_principalName_string, align 4
-  %27 = getelementptr inbounds nuw i8, ptr %2, i64 408
-  %28 = load ptr, ptr %27, align 8
-  %29 = call ptr @proto_tree_add_item_ret_string(ptr noundef %.024.i, i32 noundef %26, ptr noundef %0, i32 noundef %19, i32 noundef %23, i32 noundef 0, ptr noundef %28, ptr noundef nonnull %9) #3
-  %30 = load i32, ptr %8, align 4
-  %31 = add i32 %30, %19
-  %32 = load ptr, ptr %20, align 8
-  %33 = load ptr, ptr %9, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %32, i32 noundef 25, ptr noundef nonnull @.str.245, ptr noundef %33) #3
+26:                                               ; preds = %18
+  %27 = load i32, ptr @hf_fldb_afsNameString_t_principalName_string, align 4
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 408
+  %29 = load ptr, ptr %28, align 8
+  %30 = call ptr @proto_tree_add_item_ret_string(ptr noundef %.024.i, i32 noundef %27, ptr noundef %0, i32 noundef %20, i32 noundef %24, i32 noundef 0, ptr noundef %29, ptr noundef nonnull %9)
+  %31 = load i32, ptr %8, align 4
+  %32 = add i32 %31, %20
+  %33 = load ptr, ptr %21, align 8
+  %34 = load ptr, ptr %9, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %33, i32 noundef 25, ptr noundef nonnull @.str.246, ptr noundef %34)
   br label %dissect_afsNameString_t.exit
 
-34:                                               ; preds = %17
-  %35 = load ptr, ptr %20, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %35, i32 noundef 25, ptr noundef nonnull @.str.246, i32 noundef %23) #3
+35:                                               ; preds = %18
+  %36 = load ptr, ptr %21, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %36, i32 noundef 25, ptr noundef nonnull @.str.247, i32 noundef %24)
   br label %dissect_afsNameString_t.exit
 
-dissect_afsNameString_t.exit:                     ; preds = %25, %34
-  %.025.i = phi i32 [ %31, %25 ], [ %19, %34 ]
-  %36 = load ptr, ptr %7, align 8
-  %37 = sub i32 %.025.i, %13
-  call void @proto_item_set_len(ptr noundef %36, i32 noundef %37) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  br label %38
+dissect_afsNameString_t.exit:                     ; preds = %26, %35
+  %.025.i = phi i32 [ %32, %26 ], [ %20, %35 ]
+  %37 = load ptr, ptr %7, align 8
+  %38 = sub i32 %.025.i, %14
+  call void @proto_item_set_len(ptr noundef %37, i32 noundef %38)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #3
+  br label %39
 
-38:                                               ; preds = %6, %dissect_afsNameString_t.exit
+39:                                               ; preds = %6, %dissect_afsNameString_t.exit
   %.0 = phi i32 [ %.025.i, %dissect_afsNameString_t.exit ], [ %1, %6 ]
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @fldb_dissect_getentrybyname_resp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  %8 = load i32, ptr %7, align 4
-  %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %9, label %20
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 25
+  %8 = load i8, ptr %7, align 1, !range !6, !noundef !7
+  %9 = trunc nuw i8 %8 to i1
+  br i1 %9, label %21, label %10
 
-9:                                                ; preds = %6
-  %10 = tail call fastcc i32 @dissect_vldbentry(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5)
-  %11 = load i32, ptr @hf_error_st, align 4
-  %12 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %10, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %11, ptr noundef nonnull @st) #3
-  %13 = load i32, ptr @st, align 4
-  %14 = tail call ptr @val_to_str_ext(i32 noundef %13, ptr noundef nonnull @dce_error_vals_ext, ptr noundef nonnull @.str.211) #3
-  store ptr %14, ptr @st_str, align 8
-  %15 = load i32, ptr @st, align 4
-  %.not17 = icmp eq i32 %15, 0
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %17 = load ptr, ptr %16, align 8
-  br i1 %.not17, label %19, label %18
+10:                                               ; preds = %6
+  %11 = tail call fastcc i32 @dissect_vldbentry(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %12 = load i32, ptr @hf_error_st, align 4
+  %13 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %11, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %12, ptr noundef nonnull @st)
+  %14 = load i32, ptr @st, align 4
+  %15 = tail call ptr @val_to_str_ext(i32 noundef %14, ptr noundef nonnull @dce_error_vals_ext, ptr noundef nonnull @.str.212)
+  store ptr %15, ptr @st_str, align 8
+  %16 = load i32, ptr @st, align 4
+  %.not = icmp eq i32 %16, 0
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %18 = load ptr, ptr %17, align 8
+  br i1 %.not, label %20, label %19
 
-18:                                               ; preds = %9
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.248, ptr noundef %14) #3
-  br label %20
+19:                                               ; preds = %10
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %18, i32 noundef 25, ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.249, ptr noundef %15)
+  br label %21
 
-19:                                               ; preds = %9
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.249, ptr noundef %14) #3
-  br label %20
+20:                                               ; preds = %10
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %18, i32 noundef 25, ptr noundef nonnull @.str.250, ptr noundef %15)
+  br label %21
 
-20:                                               ; preds = %18, %19, %6
-  %.0 = phi i32 [ %1, %6 ], [ %12, %19 ], [ %12, %18 ]
+21:                                               ; preds = %19, %20, %6
+  %.0 = phi i32 [ %1, %6 ], [ %13, %20 ], [ %13, %19 ]
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @fldb_dissect_getcellinfo_resp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -560,171 +569,175 @@ define internal i32 @fldb_dissect_getcellinfo_resp(ptr noundef %0, i32 noundef %
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  %18 = load i32, ptr %17, align 4
-  %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %19, label %75
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 25
+  %18 = load i8, ptr %17, align 1, !range !6, !noundef !7
+  %19 = trunc nuw i8 %18 to i1
+  br i1 %19, label %76, label %20
 
-19:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
+20:                                               ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #3
   store ptr null, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #3
   %.not.i = icmp eq ptr %3, null
-  br i1 %.not.i, label %23, label %20
+  br i1 %.not.i, label %24, label %21
 
-20:                                               ; preds = %19
-  %21 = load i32, ptr @ett_fldb_vlconf_cell, align 4
-  %22 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %3, ptr noundef %0, i32 noundef %1, i32 noundef -1, i32 noundef %21, ptr noundef nonnull %7, ptr noundef nonnull @.str.250) #3
-  br label %23
+21:                                               ; preds = %20
+  %22 = load i32, ptr @ett_fldb_vlconf_cell, align 4
+  %23 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %3, ptr noundef %0, i32 noundef %1, i32 noundef -1, i32 noundef %22, ptr noundef nonnull %7, ptr noundef nonnull @.str.251)
+  br label %24
 
-23:                                               ; preds = %20, %19
-  %.089.i = phi ptr [ %22, %20 ], [ null, %19 ]
-  %24 = load i32, ptr @hf_fldb_vlconf_cell_name, align 4
-  %25 = call ptr @proto_tree_add_item(ptr noundef %.089.i, i32 noundef %24, ptr noundef %0, i32 noundef %1, i32 noundef 114, i32 noundef 0) #3
-  %26 = getelementptr inbounds nuw i8, ptr %2, i64 408
-  %27 = load ptr, ptr %26, align 8
-  %28 = call ptr @tvb_get_string_enc(ptr noundef %27, ptr noundef %0, i32 noundef %1, i32 noundef 128, i32 noundef 0) #3
-  %29 = add i32 %1, 128
-  %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %31 = load ptr, ptr %30, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %31, i32 noundef 25, ptr noundef nonnull @.str.183, ptr noundef %28) #3
-  %32 = load i32, ptr @hf_fldb_vlconf_cell_cellid_high, align 4
-  %33 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %29, ptr noundef %2, ptr noundef %.089.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %32, ptr noundef nonnull %9) #3
-  %34 = load i32, ptr @hf_fldb_vlconf_cell_cellid_low, align 4
-  %35 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.089.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %34, ptr noundef nonnull %10) #3
-  %36 = load ptr, ptr %30, align 8
-  %37 = load i32, ptr %9, align 4
-  %38 = load i32, ptr %10, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %36, i32 noundef 25, ptr noundef nonnull @.str.251, i32 noundef %37, i32 noundef %38) #3
-  %39 = load i32, ptr @hf_fldb_vlconf_cell_numservers, align 4
-  %40 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %35, ptr noundef %2, ptr noundef %.089.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %39, ptr noundef nonnull %11) #3
-  %41 = load ptr, ptr %30, align 8
-  %42 = load i32, ptr %11, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %41, i32 noundef 25, ptr noundef nonnull @.str.252, i32 noundef %42) #3
-  br label %43
+24:                                               ; preds = %21, %20
+  %.089.i = phi ptr [ %23, %21 ], [ null, %20 ]
+  %25 = load i32, ptr @hf_fldb_vlconf_cell_name, align 4
+  %26 = call ptr @proto_tree_add_item(ptr noundef %.089.i, i32 noundef %25, ptr noundef %0, i32 noundef %1, i32 noundef 114, i32 noundef 0)
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 408
+  %28 = load ptr, ptr %27, align 8
+  %29 = call ptr @tvb_get_string_enc(ptr noundef %28, ptr noundef %0, i32 noundef %1, i32 noundef 128, i32 noundef 0)
+  %30 = add i32 %1, 128
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %32 = load ptr, ptr %31, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %32, i32 noundef 25, ptr noundef nonnull @.str.184, ptr noundef %29)
+  %33 = load i32, ptr @hf_fldb_vlconf_cell_cellid_high, align 4
+  %34 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %30, ptr noundef %2, ptr noundef %.089.i, ptr noundef %4, ptr noundef %5, i32 noundef %33, ptr noundef nonnull %9)
+  %35 = load i32, ptr @hf_fldb_vlconf_cell_cellid_low, align 4
+  %36 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.089.i, ptr noundef %4, ptr noundef %5, i32 noundef %35, ptr noundef nonnull %10)
+  %37 = load ptr, ptr %31, align 8
+  %38 = load i32, ptr %9, align 4
+  %39 = load i32, ptr %10, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %37, i32 noundef 25, ptr noundef nonnull @.str.252, i32 noundef %38, i32 noundef %39)
+  %40 = load i32, ptr @hf_fldb_vlconf_cell_numservers, align 4
+  %41 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.089.i, ptr noundef %4, ptr noundef %5, i32 noundef %40, ptr noundef nonnull %11)
+  %42 = load ptr, ptr %31, align 8
+  %43 = load i32, ptr %11, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %42, i32 noundef 25, ptr noundef nonnull @.str.253, i32 noundef %43)
+  br label %44
 
-43:                                               ; preds = %43, %23
-  %.092.i = phi i32 [ 0, %23 ], [ %45, %43 ]
-  %.08791.i = phi i32 [ %40, %23 ], [ %44, %43 ]
-  %44 = call fastcc i32 @dissect_afsnetaddr(ptr noundef %0, i32 noundef %.08791.i, ptr noundef %2, ptr noundef %.089.i, ptr noundef nonnull %4, ptr noundef %5)
-  %45 = add nuw nsw i32 %.092.i, 1
-  %exitcond.not.i = icmp eq i32 %45, 64
-  br i1 %exitcond.not.i, label %.preheader.i, label %43, !llvm.loop !4
+44:                                               ; preds = %44, %24
+  %.092.i = phi i32 [ 0, %24 ], [ %46, %44 ]
+  %.08791.i = phi i32 [ %41, %24 ], [ %45, %44 ]
+  %45 = call fastcc i32 @dissect_afsnetaddr(ptr noundef %0, i32 noundef %.08791.i, ptr noundef %2, ptr noundef %.089.i, ptr noundef %4, ptr noundef %5)
+  %46 = add nuw nsw i32 %.092.i, 1
+  %exitcond.not.i = icmp eq i32 %46, 64
+  br i1 %exitcond.not.i, label %.preheader.i, label %44, !llvm.loop !8
 
-.preheader.i:                                     ; preds = %43, %.preheader.i
-  %.194.i = phi i32 [ %52, %.preheader.i ], [ 0, %43 ]
-  %.18893.i = phi i32 [ %49, %.preheader.i ], [ %44, %43 ]
-  %46 = load i32, ptr @hf_fldb_vlconf_cell_hostname, align 4
-  %47 = load ptr, ptr %26, align 8
-  %48 = call ptr @proto_tree_add_item_ret_string(ptr noundef %.089.i, i32 noundef %46, ptr noundef %0, i32 noundef %.18893.i, i32 noundef 64, i32 noundef 0, ptr noundef %47, ptr noundef nonnull %8) #3
-  %49 = add i32 %.18893.i, 64
-  %50 = load ptr, ptr %30, align 8
-  %51 = load ptr, ptr %8, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %50, i32 noundef 25, ptr noundef nonnull @.str.253, ptr noundef %51) #3
-  %52 = add nuw nsw i32 %.194.i, 1
-  %exitcond96.not.i = icmp eq i32 %52, 64
-  br i1 %exitcond96.not.i, label %dissect_vlconf_cell.exit, label %.preheader.i, !llvm.loop !6
+.preheader.i:                                     ; preds = %44, %.preheader.i
+  %.194.i = phi i32 [ %53, %.preheader.i ], [ 0, %44 ]
+  %.18893.i = phi i32 [ %50, %.preheader.i ], [ %45, %44 ]
+  %47 = load i32, ptr @hf_fldb_vlconf_cell_hostname, align 4
+  %48 = load ptr, ptr %27, align 8
+  %49 = call ptr @proto_tree_add_item_ret_string(ptr noundef %.089.i, i32 noundef %47, ptr noundef %0, i32 noundef %.18893.i, i32 noundef 64, i32 noundef 0, ptr noundef %48, ptr noundef nonnull %8)
+  %50 = add i32 %.18893.i, 64
+  %51 = load ptr, ptr %31, align 8
+  %52 = load ptr, ptr %8, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %51, i32 noundef 25, ptr noundef nonnull @.str.254, ptr noundef %52)
+  %53 = add nuw nsw i32 %.194.i, 1
+  %exitcond96.not.i = icmp eq i32 %53, 64
+  br i1 %exitcond96.not.i, label %dissect_vlconf_cell.exit, label %.preheader.i, !llvm.loop !10
 
 dissect_vlconf_cell.exit:                         ; preds = %.preheader.i
-  %53 = load i32, ptr @hf_fldb_vlconf_cell_spare1, align 4
-  %54 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %49, ptr noundef nonnull %2, ptr noundef %.089.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %53, ptr noundef nonnull %12) #3
-  %55 = load ptr, ptr %30, align 8
-  %56 = load i32, ptr %12, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %55, i32 noundef 25, ptr noundef nonnull @.str.200, i32 noundef %56) #3
-  %57 = load i32, ptr @hf_fldb_vlconf_cell_spare2, align 4
-  %58 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %54, ptr noundef nonnull %2, ptr noundef %.089.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %57, ptr noundef nonnull %13) #3
-  %59 = load ptr, ptr %30, align 8
-  %60 = load i32, ptr %13, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %59, i32 noundef 25, ptr noundef nonnull @.str.201, i32 noundef %60) #3
-  %61 = load i32, ptr @hf_fldb_vlconf_cell_spare3, align 4
-  %62 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %58, ptr noundef nonnull %2, ptr noundef %.089.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %61, ptr noundef nonnull %14) #3
-  %63 = load ptr, ptr %30, align 8
-  %64 = load i32, ptr %14, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %63, i32 noundef 25, ptr noundef nonnull @.str.202, i32 noundef %64) #3
-  %65 = load i32, ptr @hf_fldb_vlconf_cell_spare4, align 4
-  %66 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %62, ptr noundef nonnull %2, ptr noundef %.089.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %65, ptr noundef nonnull %15) #3
-  %67 = load ptr, ptr %30, align 8
-  %68 = load i32, ptr %15, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %67, i32 noundef 25, ptr noundef nonnull @.str.203, i32 noundef %68) #3
-  %69 = load i32, ptr @hf_fldb_vlconf_cell_spare5, align 4
-  %70 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %66, ptr noundef nonnull %2, ptr noundef %.089.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %69, ptr noundef nonnull %16) #3
-  %71 = load ptr, ptr %30, align 8
-  %72 = load i32, ptr %16, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %71, i32 noundef 25, ptr noundef nonnull @.str.254, i32 noundef %72) #3
-  %73 = load ptr, ptr %7, align 8
-  %74 = sub i32 %70, %1
-  call void @proto_item_set_len(ptr noundef %73, i32 noundef %74) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
-  br label %75
+  %54 = load i32, ptr @hf_fldb_vlconf_cell_spare1, align 4
+  %55 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %50, ptr noundef %2, ptr noundef %.089.i, ptr noundef %4, ptr noundef %5, i32 noundef %54, ptr noundef nonnull %12)
+  %56 = load ptr, ptr %31, align 8
+  %57 = load i32, ptr %12, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %56, i32 noundef 25, ptr noundef nonnull @.str.201, i32 noundef %57)
+  %58 = load i32, ptr @hf_fldb_vlconf_cell_spare2, align 4
+  %59 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %55, ptr noundef %2, ptr noundef %.089.i, ptr noundef %4, ptr noundef %5, i32 noundef %58, ptr noundef nonnull %13)
+  %60 = load ptr, ptr %31, align 8
+  %61 = load i32, ptr %13, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %60, i32 noundef 25, ptr noundef nonnull @.str.202, i32 noundef %61)
+  %62 = load i32, ptr @hf_fldb_vlconf_cell_spare3, align 4
+  %63 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %59, ptr noundef %2, ptr noundef %.089.i, ptr noundef %4, ptr noundef %5, i32 noundef %62, ptr noundef nonnull %14)
+  %64 = load ptr, ptr %31, align 8
+  %65 = load i32, ptr %14, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %64, i32 noundef 25, ptr noundef nonnull @.str.203, i32 noundef %65)
+  %66 = load i32, ptr @hf_fldb_vlconf_cell_spare4, align 4
+  %67 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %63, ptr noundef %2, ptr noundef %.089.i, ptr noundef %4, ptr noundef %5, i32 noundef %66, ptr noundef nonnull %15)
+  %68 = load ptr, ptr %31, align 8
+  %69 = load i32, ptr %15, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %68, i32 noundef 25, ptr noundef nonnull @.str.204, i32 noundef %69)
+  %70 = load i32, ptr @hf_fldb_vlconf_cell_spare5, align 4
+  %71 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %67, ptr noundef %2, ptr noundef %.089.i, ptr noundef %4, ptr noundef %5, i32 noundef %70, ptr noundef nonnull %16)
+  %72 = load ptr, ptr %31, align 8
+  %73 = load i32, ptr %16, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %72, i32 noundef 25, ptr noundef nonnull @.str.255, i32 noundef %73)
+  %74 = load ptr, ptr %7, align 8
+  %75 = sub i32 %71, %1
+  call void @proto_item_set_len(ptr noundef %74, i32 noundef %75)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #3
+  br label %76
 
-75:                                               ; preds = %6, %dissect_vlconf_cell.exit
-  %.0 = phi i32 [ %70, %dissect_vlconf_cell.exit ], [ %1, %6 ]
+76:                                               ; preds = %6, %dissect_vlconf_cell.exit
+  %.0 = phi i32 [ %71, %dissect_vlconf_cell.exit ], [ %1, %6 ]
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @fldb_dissect_getnextserversbyid_resp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  %10 = load i32, ptr %9, align 4
-  %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %11, label %22
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #3
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 25
+  %10 = load i8, ptr %9, align 1, !range !6, !noundef !7
+  %11 = trunc nuw i8 %10 to i1
+  br i1 %11, label %23, label %12
 
-11:                                               ; preds = %6
-  %12 = load i32, ptr @hf_fldb_nextstartp, align 4
-  %13 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %12, ptr noundef nonnull %7) #3
-  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %15 = load ptr, ptr %14, align 8
-  %16 = load i32, ptr %7, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %15, i32 noundef 25, ptr noundef nonnull @.str.255, i32 noundef %16) #3
-  %17 = call fastcc i32 @dissect_vldbentry(ptr noundef %0, i32 noundef %13, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5)
-  %18 = load i32, ptr @hf_fldb_flagsp, align 4
-  %19 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %17, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %18, ptr noundef nonnull %8) #3
-  %20 = load ptr, ptr %14, align 8
-  %21 = load i32, ptr %8, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.256, i32 noundef %21) #3
-  br label %22
+12:                                               ; preds = %6
+  %13 = load i32, ptr @hf_fldb_nextstartp, align 4
+  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %13, ptr noundef nonnull %7)
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %16 = load ptr, ptr %15, align 8
+  %17 = load i32, ptr %7, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %16, i32 noundef 25, ptr noundef nonnull @.str.256, i32 noundef %17)
+  %18 = call fastcc i32 @dissect_vldbentry(ptr noundef %0, i32 noundef %14, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %19 = load i32, ptr @hf_fldb_flagsp, align 4
+  %20 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %19, ptr noundef nonnull %8)
+  %21 = load ptr, ptr %15, align 8
+  %22 = load i32, ptr %8, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %21, i32 noundef 25, ptr noundef nonnull @.str.257, i32 noundef %22)
+  br label %23
 
-22:                                               ; preds = %6, %11
-  %.0 = phi i32 [ %19, %11 ], [ %1, %6 ]
+23:                                               ; preds = %6, %12
+  %.0 = phi i32 [ %20, %12 ], [ %1, %6 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @fldb_dissect_getsiteinfo_rqst(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  %8 = load i32, ptr %7, align 4
-  %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %9, label %11
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 25
+  %8 = load i8, ptr %7, align 1, !range !6, !noundef !7
+  %9 = trunc nuw i8 %8 to i1
+  br i1 %9, label %12, label %10
 
-9:                                                ; preds = %6
-  %10 = tail call fastcc i32 @dissect_afsnetaddr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5)
-  br label %11
+10:                                               ; preds = %6
+  %11 = tail call fastcc i32 @dissect_afsnetaddr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  br label %12
 
-11:                                               ; preds = %6, %9
-  %.0 = phi i32 [ %10, %9 ], [ %1, %6 ]
+12:                                               ; preds = %6, %10
+  %.0 = phi i32 [ %11, %10 ], [ %1, %6 ]
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @fldb_dissect_getsiteinfo_resp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca %struct._e_guid_t, align 4
@@ -736,518 +749,586 @@ define internal i32 @fldb_dissect_getsiteinfo_resp(ptr noundef %0, i32 noundef %
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  %18 = load i32, ptr %17, align 4
-  %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %19, label %128
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #3
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #3
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 25
+  %18 = load i8, ptr %17, align 1, !range !6, !noundef !7
+  %19 = trunc nuw i8 %18 to i1
+  br i1 %19, label %129, label %20
 
-19:                                               ; preds = %6
-  %20 = tail call fastcc i32 @dissect_afsnetaddr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5)
-  %21 = add i32 %20, 48
-  %22 = load i32, ptr @hf_fldb_namestring, align 4
-  %23 = getelementptr inbounds nuw i8, ptr %2, i64 408
-  %24 = load ptr, ptr %23, align 8
-  %25 = call ptr @proto_tree_add_item_ret_string(ptr noundef %3, i32 noundef %22, ptr noundef %0, i32 noundef %21, i32 noundef 64, i32 noundef 0, ptr noundef %24, ptr noundef nonnull %7) #3
-  %26 = add i32 %20, 112
-  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %28 = load ptr, ptr %27, align 8
-  %29 = load ptr, ptr %7, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %28, i32 noundef 25, ptr noundef nonnull @.str.257, ptr noundef %29) #3
-  %30 = load i32, ptr @hf_fldb_uuid_owner, align 4
-  %31 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %30, ptr noundef nonnull %8) #3
-  %32 = load ptr, ptr %27, align 8
-  %33 = load i32, ptr %8, align 4
-  %34 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %35 = load i16, ptr %34, align 4
-  %36 = zext i16 %35 to i32
-  %37 = getelementptr inbounds nuw i8, ptr %8, i64 6
-  %38 = load i16, ptr %37, align 2
-  %39 = zext i16 %38 to i32
-  %40 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %41 = load i8, ptr %40, align 4
-  %42 = zext i8 %41 to i32
-  %43 = getelementptr inbounds nuw i8, ptr %8, i64 9
-  %44 = load i8, ptr %43, align 1
-  %45 = zext i8 %44 to i32
-  %46 = getelementptr inbounds nuw i8, ptr %8, i64 10
-  %47 = load i8, ptr %46, align 2
-  %48 = zext i8 %47 to i32
-  %49 = getelementptr inbounds nuw i8, ptr %8, i64 11
-  %50 = load i8, ptr %49, align 1
-  %51 = zext i8 %50 to i32
-  %52 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %53 = load i8, ptr %52, align 4
-  %54 = zext i8 %53 to i32
-  %55 = getelementptr inbounds nuw i8, ptr %8, i64 13
-  %56 = load i8, ptr %55, align 1
-  %57 = zext i8 %56 to i32
-  %58 = getelementptr inbounds nuw i8, ptr %8, i64 14
-  %59 = load i8, ptr %58, align 2
-  %60 = zext i8 %59 to i32
-  %61 = getelementptr inbounds nuw i8, ptr %8, i64 15
-  %62 = load i8, ptr %61, align 1
-  %63 = zext i8 %62 to i32
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %32, i32 noundef 25, ptr noundef nonnull @.str.258, i32 noundef %33, i32 noundef %36, i32 noundef %39, i32 noundef %42, i32 noundef %45, i32 noundef %48, i32 noundef %51, i32 noundef %54, i32 noundef %57, i32 noundef %60, i32 noundef %63) #3
-  %64 = load i32, ptr @hf_fldb_uuid_objid, align 4
-  %65 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %31, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %64, ptr noundef nonnull %9) #3
-  %66 = load ptr, ptr %27, align 8
-  %67 = load i32, ptr %9, align 4
-  %68 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %69 = load i16, ptr %68, align 4
-  %70 = zext i16 %69 to i32
-  %71 = getelementptr inbounds nuw i8, ptr %9, i64 6
-  %72 = load i16, ptr %71, align 2
-  %73 = zext i16 %72 to i32
-  %74 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %75 = load i8, ptr %74, align 4
-  %76 = zext i8 %75 to i32
-  %77 = getelementptr inbounds nuw i8, ptr %9, i64 9
-  %78 = load i8, ptr %77, align 1
-  %79 = zext i8 %78 to i32
-  %80 = getelementptr inbounds nuw i8, ptr %9, i64 10
-  %81 = load i8, ptr %80, align 2
-  %82 = zext i8 %81 to i32
-  %83 = getelementptr inbounds nuw i8, ptr %9, i64 11
-  %84 = load i8, ptr %83, align 1
-  %85 = zext i8 %84 to i32
-  %86 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  %87 = load i8, ptr %86, align 4
-  %88 = zext i8 %87 to i32
-  %89 = getelementptr inbounds nuw i8, ptr %9, i64 13
-  %90 = load i8, ptr %89, align 1
-  %91 = zext i8 %90 to i32
-  %92 = getelementptr inbounds nuw i8, ptr %9, i64 14
-  %93 = load i8, ptr %92, align 2
-  %94 = zext i8 %93 to i32
-  %95 = getelementptr inbounds nuw i8, ptr %9, i64 15
-  %96 = load i8, ptr %95, align 1
-  %97 = zext i8 %96 to i32
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %66, i32 noundef 25, ptr noundef nonnull @.str.259, i32 noundef %67, i32 noundef %70, i32 noundef %73, i32 noundef %76, i32 noundef %79, i32 noundef %82, i32 noundef %85, i32 noundef %88, i32 noundef %91, i32 noundef %94, i32 noundef %97) #3
-  %98 = load i32, ptr @hf_fldb_creationquota, align 4
-  %99 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %65, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %98, ptr noundef nonnull %10) #3
-  %100 = load i32, ptr @hf_fldb_creationuses, align 4
-  %101 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %99, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %100, ptr noundef nonnull %11) #3
-  %102 = load i32, ptr @hf_fldb_deletedflag, align 4
-  %103 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %101, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %102, ptr noundef nonnull %12) #3
-  %104 = load i32, ptr @hf_fldb_spare2, align 4
-  %105 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %103, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %104, ptr noundef nonnull %13) #3
-  %106 = load i32, ptr @hf_fldb_spare3, align 4
-  %107 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %105, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %106, ptr noundef nonnull %14) #3
-  %108 = load i32, ptr @hf_fldb_spare4, align 4
-  %109 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %107, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %108, ptr noundef nonnull %15) #3
-  %110 = load i32, ptr @hf_fldb_spare5, align 4
-  %111 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %109, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %110, ptr noundef nonnull %16) #3
-  %112 = load ptr, ptr %27, align 8
-  %113 = load i32, ptr %10, align 4
-  %114 = load i32, ptr %11, align 4
-  %115 = load i32, ptr %12, align 4
-  %116 = load i32, ptr %13, align 4
-  %117 = load i32, ptr %14, align 4
-  %118 = load i32, ptr %15, align 4
-  %119 = load i32, ptr %16, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %112, i32 noundef 25, ptr noundef nonnull @.str.260, i32 noundef %113, i32 noundef %114, i32 noundef %115, i32 noundef %116, i32 noundef %117, i32 noundef %118, i32 noundef %119) #3
-  %120 = load i32, ptr @hf_error_st, align 4
-  %121 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %111, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %120, ptr noundef nonnull @st) #3
-  %122 = load i32, ptr @st, align 4
-  %123 = call ptr @val_to_str_ext(i32 noundef %122, ptr noundef nonnull @dce_error_vals_ext, ptr noundef nonnull @.str.211) #3
-  store ptr %123, ptr @st_str, align 8
-  %124 = load i32, ptr @st, align 4
-  %.not81 = icmp eq i32 %124, 0
-  %125 = load ptr, ptr %27, align 8
-  br i1 %.not81, label %127, label %126
+20:                                               ; preds = %6
+  %21 = tail call fastcc i32 @dissect_afsnetaddr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %22 = add i32 %21, 48
+  %23 = load i32, ptr @hf_fldb_namestring, align 4
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 408
+  %25 = load ptr, ptr %24, align 8
+  %26 = call ptr @proto_tree_add_item_ret_string(ptr noundef %3, i32 noundef %23, ptr noundef %0, i32 noundef %22, i32 noundef 64, i32 noundef 0, ptr noundef %25, ptr noundef nonnull %7)
+  %27 = add i32 %21, 112
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %29 = load ptr, ptr %28, align 8
+  %30 = load ptr, ptr %7, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef nonnull @.str.258, ptr noundef %30)
+  %31 = load i32, ptr @hf_fldb_uuid_owner, align 4
+  %32 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %27, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %31, ptr noundef nonnull %8)
+  %33 = load ptr, ptr %28, align 8
+  %34 = load i32, ptr %8, align 4
+  %35 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %36 = load i16, ptr %35, align 4
+  %37 = zext i16 %36 to i32
+  %38 = getelementptr inbounds nuw i8, ptr %8, i64 6
+  %39 = load i16, ptr %38, align 2
+  %40 = zext i16 %39 to i32
+  %41 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %42 = load i8, ptr %41, align 4
+  %43 = zext i8 %42 to i32
+  %44 = getelementptr inbounds nuw i8, ptr %8, i64 9
+  %45 = load i8, ptr %44, align 1
+  %46 = zext i8 %45 to i32
+  %47 = getelementptr inbounds nuw i8, ptr %8, i64 10
+  %48 = load i8, ptr %47, align 2
+  %49 = zext i8 %48 to i32
+  %50 = getelementptr inbounds nuw i8, ptr %8, i64 11
+  %51 = load i8, ptr %50, align 1
+  %52 = zext i8 %51 to i32
+  %53 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %54 = load i8, ptr %53, align 4
+  %55 = zext i8 %54 to i32
+  %56 = getelementptr inbounds nuw i8, ptr %8, i64 13
+  %57 = load i8, ptr %56, align 1
+  %58 = zext i8 %57 to i32
+  %59 = getelementptr inbounds nuw i8, ptr %8, i64 14
+  %60 = load i8, ptr %59, align 2
+  %61 = zext i8 %60 to i32
+  %62 = getelementptr inbounds nuw i8, ptr %8, i64 15
+  %63 = load i8, ptr %62, align 1
+  %64 = zext i8 %63 to i32
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %33, i32 noundef 25, ptr noundef nonnull @.str.259, i32 noundef %34, i32 noundef %37, i32 noundef %40, i32 noundef %43, i32 noundef %46, i32 noundef %49, i32 noundef %52, i32 noundef %55, i32 noundef %58, i32 noundef %61, i32 noundef %64)
+  %65 = load i32, ptr @hf_fldb_uuid_objid, align 4
+  %66 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %65, ptr noundef nonnull %9)
+  %67 = load ptr, ptr %28, align 8
+  %68 = load i32, ptr %9, align 4
+  %69 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %70 = load i16, ptr %69, align 4
+  %71 = zext i16 %70 to i32
+  %72 = getelementptr inbounds nuw i8, ptr %9, i64 6
+  %73 = load i16, ptr %72, align 2
+  %74 = zext i16 %73 to i32
+  %75 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %76 = load i8, ptr %75, align 4
+  %77 = zext i8 %76 to i32
+  %78 = getelementptr inbounds nuw i8, ptr %9, i64 9
+  %79 = load i8, ptr %78, align 1
+  %80 = zext i8 %79 to i32
+  %81 = getelementptr inbounds nuw i8, ptr %9, i64 10
+  %82 = load i8, ptr %81, align 2
+  %83 = zext i8 %82 to i32
+  %84 = getelementptr inbounds nuw i8, ptr %9, i64 11
+  %85 = load i8, ptr %84, align 1
+  %86 = zext i8 %85 to i32
+  %87 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  %88 = load i8, ptr %87, align 4
+  %89 = zext i8 %88 to i32
+  %90 = getelementptr inbounds nuw i8, ptr %9, i64 13
+  %91 = load i8, ptr %90, align 1
+  %92 = zext i8 %91 to i32
+  %93 = getelementptr inbounds nuw i8, ptr %9, i64 14
+  %94 = load i8, ptr %93, align 2
+  %95 = zext i8 %94 to i32
+  %96 = getelementptr inbounds nuw i8, ptr %9, i64 15
+  %97 = load i8, ptr %96, align 1
+  %98 = zext i8 %97 to i32
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %67, i32 noundef 25, ptr noundef nonnull @.str.260, i32 noundef %68, i32 noundef %71, i32 noundef %74, i32 noundef %77, i32 noundef %80, i32 noundef %83, i32 noundef %86, i32 noundef %89, i32 noundef %92, i32 noundef %95, i32 noundef %98)
+  %99 = load i32, ptr @hf_fldb_creationquota, align 4
+  %100 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %66, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %99, ptr noundef nonnull %10)
+  %101 = load i32, ptr @hf_fldb_creationuses, align 4
+  %102 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %100, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %101, ptr noundef nonnull %11)
+  %103 = load i32, ptr @hf_fldb_deletedflag, align 4
+  %104 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %102, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %103, ptr noundef nonnull %12)
+  %105 = load i32, ptr @hf_fldb_spare2, align 4
+  %106 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %104, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %105, ptr noundef nonnull %13)
+  %107 = load i32, ptr @hf_fldb_spare3, align 4
+  %108 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %106, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %107, ptr noundef nonnull %14)
+  %109 = load i32, ptr @hf_fldb_spare4, align 4
+  %110 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %108, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %109, ptr noundef nonnull %15)
+  %111 = load i32, ptr @hf_fldb_spare5, align 4
+  %112 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %110, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %111, ptr noundef nonnull %16)
+  %113 = load ptr, ptr %28, align 8
+  %114 = load i32, ptr %10, align 4
+  %115 = load i32, ptr %11, align 4
+  %116 = load i32, ptr %12, align 4
+  %117 = load i32, ptr %13, align 4
+  %118 = load i32, ptr %14, align 4
+  %119 = load i32, ptr %15, align 4
+  %120 = load i32, ptr %16, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %113, i32 noundef 25, ptr noundef nonnull @.str.261, i32 noundef %114, i32 noundef %115, i32 noundef %116, i32 noundef %117, i32 noundef %118, i32 noundef %119, i32 noundef %120)
+  %121 = load i32, ptr @hf_error_st, align 4
+  %122 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %112, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %121, ptr noundef nonnull @st)
+  %123 = load i32, ptr @st, align 4
+  %124 = call ptr @val_to_str_ext(i32 noundef %123, ptr noundef nonnull @dce_error_vals_ext, ptr noundef nonnull @.str.212)
+  store ptr %124, ptr @st_str, align 8
+  %125 = load i32, ptr @st, align 4
+  %.not = icmp eq i32 %125, 0
+  %126 = load ptr, ptr %28, align 8
+  br i1 %.not, label %128, label %127
 
-126:                                              ; preds = %19
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %125, i32 noundef 25, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.261, ptr noundef %123) #3
-  br label %128
+127:                                              ; preds = %20
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %126, i32 noundef 25, ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.262, ptr noundef %124)
+  br label %129
 
-127:                                              ; preds = %19
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %125, i32 noundef 25, ptr noundef nonnull @.str.249, ptr noundef %123) #3
-  br label %128
+128:                                              ; preds = %20
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %126, i32 noundef 25, ptr noundef nonnull @.str.250, ptr noundef %124)
+  br label %129
 
-128:                                              ; preds = %126, %127, %6
-  %.0 = phi i32 [ %1, %6 ], [ %121, %127 ], [ %121, %126 ]
+129:                                              ; preds = %127, %128, %6
+  %.0 = phi i32 [ %1, %6 ], [ %122, %128 ], [ %122, %127 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #3
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @fldb_dissect_createentry_rqst(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  %8 = load i32, ptr %7, align 4
-  %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %9, label %11
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 25
+  %8 = load i8, ptr %7, align 1, !range !6, !noundef !7
+  %9 = trunc nuw i8 %8 to i1
+  br i1 %9, label %12, label %10
 
-9:                                                ; preds = %6
-  %10 = tail call fastcc i32 @dissect_vldbentry(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5)
-  br label %11
+10:                                               ; preds = %6
+  %11 = tail call fastcc i32 @dissect_vldbentry(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  br label %12
 
-11:                                               ; preds = %6, %9
-  %.0 = phi i32 [ %10, %9 ], [ %1, %6 ]
+12:                                               ; preds = %6, %10
+  %.0 = phi i32 [ %11, %10 ], [ %1, %6 ]
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @fldb_dissect_createentry_resp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  %8 = load i32, ptr %7, align 4
-  %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %9, label %19
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 25
+  %8 = load i8, ptr %7, align 1, !range !6, !noundef !7
+  %9 = trunc nuw i8 %8 to i1
+  br i1 %9, label %20, label %10
 
-9:                                                ; preds = %6
-  %10 = load i32, ptr @hf_error_st, align 4
-  %11 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %10, ptr noundef nonnull @st) #3
-  %12 = load i32, ptr @st, align 4
-  %13 = tail call ptr @val_to_str_ext(i32 noundef %12, ptr noundef nonnull @dce_error_vals_ext, ptr noundef nonnull @.str.211) #3
-  store ptr %13, ptr @st_str, align 8
-  %14 = load i32, ptr @st, align 4
-  %.not11 = icmp eq i32 %14, 0
-  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %16 = load ptr, ptr %15, align 8
-  br i1 %.not11, label %18, label %17
+10:                                               ; preds = %6
+  %11 = load i32, ptr @hf_error_st, align 4
+  %12 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %11, ptr noundef nonnull @st)
+  %13 = load i32, ptr @st, align 4
+  %14 = tail call ptr @val_to_str_ext(i32 noundef %13, ptr noundef nonnull @dce_error_vals_ext, ptr noundef nonnull @.str.212)
+  store ptr %14, ptr @st_str, align 8
+  %15 = load i32, ptr @st, align 4
+  %.not = icmp eq i32 %15, 0
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %17 = load ptr, ptr %16, align 8
+  br i1 %.not, label %19, label %18
 
-17:                                               ; preds = %9
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %16, i32 noundef 25, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.262, ptr noundef %13) #3
-  br label %19
+18:                                               ; preds = %10
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.263, ptr noundef %14)
+  br label %20
 
-18:                                               ; preds = %9
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %16, i32 noundef 25, ptr noundef nonnull @.str.249, ptr noundef %13) #3
-  br label %19
+19:                                               ; preds = %10
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.250, ptr noundef %14)
+  br label %20
 
-19:                                               ; preds = %17, %18, %6
-  %.0 = phi i32 [ %1, %6 ], [ %11, %18 ], [ %11, %17 ]
+20:                                               ; preds = %18, %19, %6
+  %.0 = phi i32 [ %1, %6 ], [ %12, %19 ], [ %12, %18 ]
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @fldb_dissect_deleteentry_rqst(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  %11 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  %12 = load i32, ptr %11, align 4
-  %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %13, label %26
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #3
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 25
+  %12 = load i8, ptr %11, align 1, !range !6, !noundef !7
+  %13 = trunc nuw i8 %12 to i1
+  br i1 %13, label %27, label %14
 
-13:                                               ; preds = %6
-  %14 = load i32, ptr @hf_fldb_deleteentry_rqst_fsid_high, align 4
-  %15 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %14, ptr noundef nonnull %7) #3
-  %16 = load i32, ptr @hf_fldb_deleteentry_rqst_fsid_low, align 4
-  %17 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %15, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %16, ptr noundef nonnull %8) #3
-  %18 = load i32, ptr @hf_fldb_deleteentry_rqst_voltype, align 4
-  %19 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %17, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %18, ptr noundef nonnull %9) #3
-  %20 = load i32, ptr @hf_fldb_deleteentry_rqst_voloper, align 4
-  %21 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %19, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20, ptr noundef nonnull %10) #3
-  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %23 = load ptr, ptr %22, align 8
-  %24 = load i32, ptr %7, align 4
-  %25 = load i32, ptr %8, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.263, i32 noundef %24, i32 noundef %25) #3
-  br label %26
+14:                                               ; preds = %6
+  %15 = load i32, ptr @hf_fldb_deleteentry_rqst_fsid_high, align 4
+  %16 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %15, ptr noundef nonnull %7)
+  %17 = load i32, ptr @hf_fldb_deleteentry_rqst_fsid_low, align 4
+  %18 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %16, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %17, ptr noundef nonnull %8)
+  %19 = load i32, ptr @hf_fldb_deleteentry_rqst_voltype, align 4
+  %20 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %19, ptr noundef nonnull %9)
+  %21 = load i32, ptr @hf_fldb_deleteentry_rqst_voloper, align 4
+  %22 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %21, ptr noundef nonnull %10)
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = load i32, ptr %7, align 4
+  %26 = load i32, ptr %8, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %24, i32 noundef 25, ptr noundef nonnull @.str.264, i32 noundef %25, i32 noundef %26)
+  br label %27
 
-26:                                               ; preds = %6, %13
-  %.0 = phi i32 [ %21, %13 ], [ %1, %6 ]
+27:                                               ; preds = %6, %14
+  %.0 = phi i32 [ %22, %14 ], [ %1, %6 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @fldb_dissect_deleteentry_resp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  %8 = load i32, ptr %7, align 4
-  %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %9, label %19
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 25
+  %8 = load i8, ptr %7, align 1, !range !6, !noundef !7
+  %9 = trunc nuw i8 %8 to i1
+  br i1 %9, label %20, label %10
 
-9:                                                ; preds = %6
-  %10 = load i32, ptr @hf_error_st, align 4
-  %11 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %10, ptr noundef nonnull @st) #3
-  %12 = load i32, ptr @st, align 4
-  %13 = tail call ptr @val_to_str_ext(i32 noundef %12, ptr noundef nonnull @dce_error_vals_ext, ptr noundef nonnull @.str.211) #3
-  store ptr %13, ptr @st_str, align 8
-  %14 = load i32, ptr @st, align 4
-  %.not11 = icmp eq i32 %14, 0
-  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %16 = load ptr, ptr %15, align 8
-  br i1 %.not11, label %18, label %17
+10:                                               ; preds = %6
+  %11 = load i32, ptr @hf_error_st, align 4
+  %12 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %11, ptr noundef nonnull @st)
+  %13 = load i32, ptr @st, align 4
+  %14 = tail call ptr @val_to_str_ext(i32 noundef %13, ptr noundef nonnull @dce_error_vals_ext, ptr noundef nonnull @.str.212)
+  store ptr %14, ptr @st_str, align 8
+  %15 = load i32, ptr @st, align 4
+  %.not = icmp eq i32 %15, 0
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %17 = load ptr, ptr %16, align 8
+  br i1 %.not, label %19, label %18
 
-17:                                               ; preds = %9
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %16, i32 noundef 25, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.264, ptr noundef %13) #3
-  br label %19
+18:                                               ; preds = %10
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.265, ptr noundef %14)
+  br label %20
 
-18:                                               ; preds = %9
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %16, i32 noundef 25, ptr noundef nonnull @.str.249, ptr noundef %13) #3
-  br label %19
+19:                                               ; preds = %10
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.250, ptr noundef %14)
+  br label %20
 
-19:                                               ; preds = %17, %18, %6
-  %.0 = phi i32 [ %1, %6 ], [ %11, %18 ], [ %11, %17 ]
+20:                                               ; preds = %18, %19, %6
+  %.0 = phi i32 [ %1, %6 ], [ %12, %19 ], [ %12, %18 ]
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @fldb_dissect_replaceentry_rqst(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  %11 = load i32, ptr %10, align 4
-  %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %12, label %24
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #3
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 25
+  %11 = load i8, ptr %10, align 1, !range !6, !noundef !7
+  %12 = trunc nuw i8 %11 to i1
+  br i1 %12, label %25, label %13
 
-12:                                               ; preds = %6
-  %13 = load i32, ptr @hf_fldb_replaceentry_rqst_fsid_high, align 4
-  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %13, ptr noundef nonnull %7) #3
-  %15 = load i32, ptr @hf_fldb_replaceentry_rqst_fsid_low, align 4
-  %16 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %14, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %15, ptr noundef nonnull %8) #3
-  %17 = load i32, ptr @hf_fldb_replaceentry_rqst_voltype, align 4
-  %18 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %16, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %17, ptr noundef nonnull %9) #3
-  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %20 = load ptr, ptr %19, align 8
-  %21 = load i32, ptr %7, align 4
-  %22 = load i32, ptr %8, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.265, i32 noundef %21, i32 noundef %22) #3
-  %23 = call fastcc i32 @dissect_vldbentry(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5)
-  br label %24
+13:                                               ; preds = %6
+  %14 = load i32, ptr @hf_fldb_replaceentry_rqst_fsid_high, align 4
+  %15 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %14, ptr noundef nonnull %7)
+  %16 = load i32, ptr @hf_fldb_replaceentry_rqst_fsid_low, align 4
+  %17 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %15, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %16, ptr noundef nonnull %8)
+  %18 = load i32, ptr @hf_fldb_replaceentry_rqst_voltype, align 4
+  %19 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %17, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %18, ptr noundef nonnull %9)
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %21 = load ptr, ptr %20, align 8
+  %22 = load i32, ptr %7, align 4
+  %23 = load i32, ptr %8, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %21, i32 noundef 25, ptr noundef nonnull @.str.266, i32 noundef %22, i32 noundef %23)
+  %24 = call fastcc i32 @dissect_vldbentry(ptr noundef %0, i32 noundef %19, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  br label %25
 
-24:                                               ; preds = %6, %12
-  %.0 = phi i32 [ %23, %12 ], [ %1, %6 ]
+25:                                               ; preds = %6, %13
+  %.0 = phi i32 [ %24, %13 ], [ %1, %6 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @fldb_dissect_replaceentry_resp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  %8 = load i32, ptr %7, align 4
-  %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %9, label %19
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 25
+  %8 = load i8, ptr %7, align 1, !range !6, !noundef !7
+  %9 = trunc nuw i8 %8 to i1
+  br i1 %9, label %20, label %10
 
-9:                                                ; preds = %6
-  %10 = load i32, ptr @hf_error_st, align 4
-  %11 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %10, ptr noundef nonnull @st) #3
-  %12 = load i32, ptr @st, align 4
-  %13 = tail call ptr @val_to_str_ext(i32 noundef %12, ptr noundef nonnull @dce_error_vals_ext, ptr noundef nonnull @.str.211) #3
-  store ptr %13, ptr @st_str, align 8
-  %14 = load i32, ptr @st, align 4
-  %.not11 = icmp eq i32 %14, 0
-  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %16 = load ptr, ptr %15, align 8
-  br i1 %.not11, label %18, label %17
+10:                                               ; preds = %6
+  %11 = load i32, ptr @hf_error_st, align 4
+  %12 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %11, ptr noundef nonnull @st)
+  %13 = load i32, ptr @st, align 4
+  %14 = tail call ptr @val_to_str_ext(i32 noundef %13, ptr noundef nonnull @dce_error_vals_ext, ptr noundef nonnull @.str.212)
+  store ptr %14, ptr @st_str, align 8
+  %15 = load i32, ptr @st, align 4
+  %.not = icmp eq i32 %15, 0
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %17 = load ptr, ptr %16, align 8
+  br i1 %.not, label %19, label %18
 
-17:                                               ; preds = %9
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %16, i32 noundef 25, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.266, ptr noundef %13) #3
-  br label %19
+18:                                               ; preds = %10
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.267, ptr noundef %14)
+  br label %20
 
-18:                                               ; preds = %9
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %16, i32 noundef 25, ptr noundef nonnull @.str.249, ptr noundef %13) #3
-  br label %19
+19:                                               ; preds = %10
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.250, ptr noundef %14)
+  br label %20
 
-19:                                               ; preds = %17, %18, %6
-  %.0 = phi i32 [ %1, %6 ], [ %11, %18 ], [ %11, %17 ]
+20:                                               ; preds = %18, %19, %6
+  %.0 = phi i32 [ %1, %6 ], [ %12, %19 ], [ %12, %18 ]
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @fldb_dissect_setlock_rqst(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  %11 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  %12 = load i32, ptr %11, align 4
-  %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %13, label %28
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #3
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 25
+  %12 = load i8, ptr %11, align 1, !range !6, !noundef !7
+  %13 = trunc nuw i8 %12 to i1
+  br i1 %13, label %29, label %14
 
-13:                                               ; preds = %6
-  %14 = load i32, ptr @hf_fldb_setlock_rqst_fsid_high, align 4
-  %15 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %14, ptr noundef nonnull %7) #3
-  %16 = load i32, ptr @hf_fldb_setlock_rqst_fsid_low, align 4
-  %17 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %15, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %16, ptr noundef nonnull %8) #3
-  %18 = load i32, ptr @hf_fldb_setlock_rqst_voltype, align 4
-  %19 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %17, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %18, ptr noundef nonnull %9) #3
-  %20 = load i32, ptr @hf_fldb_setlock_rqst_voloper, align 4
-  %21 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %19, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20, ptr noundef nonnull %10) #3
-  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %23 = load ptr, ptr %22, align 8
-  %24 = load i32, ptr %7, align 4
-  %25 = load i32, ptr %8, align 4
-  %26 = load i32, ptr %9, align 4
-  %27 = load i32, ptr %10, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.267, i32 noundef %24, i32 noundef %25, i32 noundef %26, i32 noundef %27) #3
-  br label %28
+14:                                               ; preds = %6
+  %15 = load i32, ptr @hf_fldb_setlock_rqst_fsid_high, align 4
+  %16 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %15, ptr noundef nonnull %7)
+  %17 = load i32, ptr @hf_fldb_setlock_rqst_fsid_low, align 4
+  %18 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %16, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %17, ptr noundef nonnull %8)
+  %19 = load i32, ptr @hf_fldb_setlock_rqst_voltype, align 4
+  %20 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %19, ptr noundef nonnull %9)
+  %21 = load i32, ptr @hf_fldb_setlock_rqst_voloper, align 4
+  %22 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %21, ptr noundef nonnull %10)
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = load i32, ptr %7, align 4
+  %26 = load i32, ptr %8, align 4
+  %27 = load i32, ptr %9, align 4
+  %28 = load i32, ptr %10, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %24, i32 noundef 25, ptr noundef nonnull @.str.268, i32 noundef %25, i32 noundef %26, i32 noundef %27, i32 noundef %28)
+  br label %29
 
-28:                                               ; preds = %6, %13
-  %.0 = phi i32 [ %21, %13 ], [ %1, %6 ]
+29:                                               ; preds = %6, %14
+  %.0 = phi i32 [ %22, %14 ], [ %1, %6 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @fldb_dissect_setlock_resp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  %8 = load i32, ptr %7, align 4
-  %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %9, label %19
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 25
+  %8 = load i8, ptr %7, align 1, !range !6, !noundef !7
+  %9 = trunc nuw i8 %8 to i1
+  br i1 %9, label %20, label %10
 
-9:                                                ; preds = %6
-  %10 = load i32, ptr @hf_error_st, align 4
-  %11 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %10, ptr noundef nonnull @st) #3
-  %12 = load i32, ptr @st, align 4
-  %13 = tail call ptr @val_to_str_ext(i32 noundef %12, ptr noundef nonnull @dce_error_vals_ext, ptr noundef nonnull @.str.211) #3
-  store ptr %13, ptr @st_str, align 8
-  %14 = load i32, ptr @st, align 4
-  %.not11 = icmp eq i32 %14, 0
-  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %16 = load ptr, ptr %15, align 8
-  br i1 %.not11, label %18, label %17
+10:                                               ; preds = %6
+  %11 = load i32, ptr @hf_error_st, align 4
+  %12 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %11, ptr noundef nonnull @st)
+  %13 = load i32, ptr @st, align 4
+  %14 = tail call ptr @val_to_str_ext(i32 noundef %13, ptr noundef nonnull @dce_error_vals_ext, ptr noundef nonnull @.str.212)
+  store ptr %14, ptr @st_str, align 8
+  %15 = load i32, ptr @st, align 4
+  %.not = icmp eq i32 %15, 0
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %17 = load ptr, ptr %16, align 8
+  br i1 %.not, label %19, label %18
 
-17:                                               ; preds = %9
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %16, i32 noundef 25, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.268, ptr noundef %13) #3
-  br label %19
+18:                                               ; preds = %10
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.269, ptr noundef %14)
+  br label %20
 
-18:                                               ; preds = %9
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %16, i32 noundef 25, ptr noundef nonnull @.str.249, ptr noundef %13) #3
-  br label %19
+19:                                               ; preds = %10
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.250, ptr noundef %14)
+  br label %20
 
-19:                                               ; preds = %17, %18, %6
-  %.0 = phi i32 [ %1, %6 ], [ %11, %18 ], [ %11, %17 ]
+20:                                               ; preds = %18, %19, %6
+  %.0 = phi i32 [ %1, %6 ], [ %12, %19 ], [ %12, %18 ]
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @fldb_dissect_releaselock_rqst(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  %11 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  %12 = load i32, ptr %11, align 4
-  %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %13, label %26
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #3
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 25
+  %12 = load i8, ptr %11, align 1, !range !6, !noundef !7
+  %13 = trunc nuw i8 %12 to i1
+  br i1 %13, label %27, label %14
 
-13:                                               ; preds = %6
-  %14 = load i32, ptr @hf_fldb_releaselock_rqst_fsid_high, align 4
-  %15 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %14, ptr noundef nonnull %7) #3
-  %16 = load i32, ptr @hf_fldb_releaselock_rqst_fsid_low, align 4
-  %17 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %15, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %16, ptr noundef nonnull %8) #3
-  %18 = load i32, ptr @hf_fldb_releaselock_rqst_voltype, align 4
-  %19 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %17, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %18, ptr noundef nonnull %9) #3
-  %20 = load i32, ptr @hf_fldb_releaselock_rqst_voloper, align 4
-  %21 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %19, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20, ptr noundef nonnull %10) #3
-  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %23 = load ptr, ptr %22, align 8
-  %24 = load i32, ptr %7, align 4
-  %25 = load i32, ptr %8, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.263, i32 noundef %24, i32 noundef %25) #3
-  br label %26
+14:                                               ; preds = %6
+  %15 = load i32, ptr @hf_fldb_releaselock_rqst_fsid_high, align 4
+  %16 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %15, ptr noundef nonnull %7)
+  %17 = load i32, ptr @hf_fldb_releaselock_rqst_fsid_low, align 4
+  %18 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %16, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %17, ptr noundef nonnull %8)
+  %19 = load i32, ptr @hf_fldb_releaselock_rqst_voltype, align 4
+  %20 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %18, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %19, ptr noundef nonnull %9)
+  %21 = load i32, ptr @hf_fldb_releaselock_rqst_voloper, align 4
+  %22 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %21, ptr noundef nonnull %10)
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %24 = load ptr, ptr %23, align 8
+  %25 = load i32, ptr %7, align 4
+  %26 = load i32, ptr %8, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %24, i32 noundef 25, ptr noundef nonnull @.str.264, i32 noundef %25, i32 noundef %26)
+  br label %27
 
-26:                                               ; preds = %6, %13
-  %.0 = phi i32 [ %21, %13 ], [ %1, %6 ]
+27:                                               ; preds = %6, %14
+  %.0 = phi i32 [ %22, %14 ], [ %1, %6 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @fldb_dissect_releaselock_resp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  %8 = load i32, ptr %7, align 4
-  %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %9, label %19
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 25
+  %8 = load i8, ptr %7, align 1, !range !6, !noundef !7
+  %9 = trunc nuw i8 %8 to i1
+  br i1 %9, label %20, label %10
 
-9:                                                ; preds = %6
-  %10 = load i32, ptr @hf_error_st, align 4
-  %11 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %10, ptr noundef nonnull @st) #3
-  %12 = load i32, ptr @st, align 4
-  %13 = tail call ptr @val_to_str_ext(i32 noundef %12, ptr noundef nonnull @dce_error_vals_ext, ptr noundef nonnull @.str.211) #3
-  store ptr %13, ptr @st_str, align 8
-  %14 = load i32, ptr @st, align 4
-  %.not11 = icmp eq i32 %14, 0
-  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %16 = load ptr, ptr %15, align 8
-  br i1 %.not11, label %18, label %17
+10:                                               ; preds = %6
+  %11 = load i32, ptr @hf_error_st, align 4
+  %12 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %11, ptr noundef nonnull @st)
+  %13 = load i32, ptr @st, align 4
+  %14 = tail call ptr @val_to_str_ext(i32 noundef %13, ptr noundef nonnull @dce_error_vals_ext, ptr noundef nonnull @.str.212)
+  store ptr %14, ptr @st_str, align 8
+  %15 = load i32, ptr @st, align 4
+  %.not = icmp eq i32 %15, 0
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %17 = load ptr, ptr %16, align 8
+  br i1 %.not, label %19, label %18
 
-17:                                               ; preds = %9
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %16, i32 noundef 25, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.269, ptr noundef %13) #3
-  br label %19
+18:                                               ; preds = %10
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.270, ptr noundef %14)
+  br label %20
 
-18:                                               ; preds = %9
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %16, i32 noundef 25, ptr noundef nonnull @.str.249, ptr noundef %13) #3
-  br label %19
+19:                                               ; preds = %10
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.250, ptr noundef %14)
+  br label %20
 
-19:                                               ; preds = %17, %18, %6
-  %.0 = phi i32 [ %1, %6 ], [ %11, %18 ], [ %11, %17 ]
+20:                                               ; preds = %18, %19, %6
+  %.0 = phi i32 [ %1, %6 ], [ %12, %19 ], [ %12, %18 ]
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @fldb_dissect_listentry_rqst(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  %10 = load i32, ptr %9, align 4
-  %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %11, label %19
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #3
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 25
+  %10 = load i8, ptr %9, align 1, !range !6, !noundef !7
+  %11 = trunc nuw i8 %10 to i1
+  br i1 %11, label %20, label %12
 
-11:                                               ; preds = %6
-  %12 = load i32, ptr @hf_fldb_listentry_rqst_previous_index, align 4
-  %13 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %12, ptr noundef nonnull %8) #3
-  %14 = load i32, ptr @hf_fldb_listentry_rqst_var1, align 4
-  %15 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %13, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %14, ptr noundef nonnull %7) #3
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %17 = load ptr, ptr %16, align 8
-  %18 = load i32, ptr %8, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.270, i32 noundef %18) #3
-  br label %19
+12:                                               ; preds = %6
+  %13 = load i32, ptr @hf_fldb_listentry_rqst_previous_index, align 4
+  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %13, ptr noundef nonnull %8)
+  %15 = load i32, ptr @hf_fldb_listentry_rqst_var1, align 4
+  %16 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %14, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %15, ptr noundef nonnull %7)
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %18 = load ptr, ptr %17, align 8
+  %19 = load i32, ptr %8, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %18, i32 noundef 25, ptr noundef nonnull @.str.271, i32 noundef %19)
+  br label %20
 
-19:                                               ; preds = %6, %11
-  %.0 = phi i32 [ %15, %11 ], [ %1, %6 ]
+20:                                               ; preds = %6, %12
+  %.0 = phi i32 [ %16, %12 ], [ %1, %6 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @fldb_dissect_listentry_resp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  %10 = load i32, ptr %9, align 4
-  %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %11, label %17
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #3
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 25
+  %10 = load i8, ptr %9, align 1, !range !6, !noundef !7
+  %11 = trunc nuw i8 %10 to i1
+  br i1 %11, label %18, label %12
 
-11:                                               ; preds = %6
-  %12 = load i32, ptr @hf_fldb_listentry_resp_count, align 4
-  %13 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %12, ptr noundef nonnull %7) #3
-  %14 = load i32, ptr @hf_fldb_listentry_resp_next_index, align 4
-  %15 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %13, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %14, ptr noundef nonnull %8) #3
-  %16 = call fastcc i32 @dissect_vldbentry(ptr noundef %0, i32 noundef %15, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5)
-  br label %17
+12:                                               ; preds = %6
+  %13 = load i32, ptr @hf_fldb_listentry_resp_count, align 4
+  %14 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %13, ptr noundef nonnull %7)
+  %15 = load i32, ptr @hf_fldb_listentry_resp_next_index, align 4
+  %16 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %14, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %15, ptr noundef nonnull %8)
+  %17 = call fastcc i32 @dissect_vldbentry(ptr noundef %0, i32 noundef %16, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  br label %18
 
-17:                                               ; preds = %6, %11
-  %.0 = phi i32 [ %16, %11 ], [ %1, %6 ]
+18:                                               ; preds = %6, %12
+  %.0 = phi i32 [ %17, %12 ], [ %1, %6 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @fldb_dissect_getnewvolumeids_rqst(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  %9 = load i32, ptr %8, align 4
-  %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %10, label %17
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 25
+  %9 = load i8, ptr %8, align 1, !range !6, !noundef !7
+  %10 = trunc nuw i8 %9 to i1
+  br i1 %10, label %18, label %11
 
-10:                                               ; preds = %6
-  %11 = load i32, ptr @hf_fldb_numwanted, align 4
-  %12 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %11, ptr noundef nonnull %7) #3
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %14 = load ptr, ptr %13, align 8
-  %15 = load i32, ptr %7, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.271, i32 noundef %15) #3
-  %16 = call fastcc i32 @dissect_afsnetaddr(ptr noundef %0, i32 noundef %12, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5)
-  br label %17
+11:                                               ; preds = %6
+  %12 = load i32, ptr @hf_fldb_numwanted, align 4
+  %13 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %12, ptr noundef nonnull %7)
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = load i32, ptr %7, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %15, i32 noundef 25, ptr noundef nonnull @.str.272, i32 noundef %16)
+  %17 = call fastcc i32 @dissect_afsnetaddr(ptr noundef %0, i32 noundef %13, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  br label %18
 
-17:                                               ; preds = %6, %10
-  %.0 = phi i32 [ %16, %10 ], [ %1, %6 ]
+18:                                               ; preds = %6, %11
+  %.0 = phi i32 [ %17, %11 ], [ %1, %6 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
   ret i32 %.0
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_ndr_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_vldbentry(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1279,27 +1360,53 @@ define internal fastcc i32 @dissect_vldbentry(ptr noundef %0, i32 noundef %1, pt
   %34 = alloca i32, align 4
   %35 = alloca %struct._e_guid_t, align 4
   %36 = alloca %struct._e_guid_t, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %31) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %32) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %33) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %34) #3
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %35) #3
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %36) #3
   %37 = load i32, ptr @ett_fldb_vldbentry, align 4
-  %38 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef -1, i32 noundef %37, ptr noundef nonnull %11, ptr noundef nonnull @.str.182) #3
+  %38 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef -1, i32 noundef %37, ptr noundef nonnull %11, ptr noundef nonnull @.str.183)
   %39 = load i32, ptr @hf_fldb_vldbentry_volumename, align 4
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %41 = load ptr, ptr %40, align 8
-  %42 = call ptr @proto_tree_add_item_ret_string(ptr noundef %38, i32 noundef %39, ptr noundef %0, i32 noundef %1, i32 noundef 114, i32 noundef 0, ptr noundef %41, ptr noundef nonnull %12) #3
+  %42 = call ptr @proto_tree_add_item_ret_string(ptr noundef %38, i32 noundef %39, ptr noundef %0, i32 noundef %1, i32 noundef 114, i32 noundef 0, ptr noundef %41, ptr noundef nonnull %12)
   %43 = add i32 %1, 110
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %45 = load ptr, ptr %44, align 8
   %46 = load ptr, ptr %12, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %45, i32 noundef 25, ptr noundef nonnull @.str.183, ptr noundef %46) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %45, i32 noundef 25, ptr noundef nonnull @.str.184, ptr noundef %46)
   %47 = load i32, ptr @hf_fldb_vldbentry_volumetype, align 4
-  %48 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %38, ptr noundef %4, ptr noundef %5, i32 noundef %47, ptr noundef nonnull %16) #3
+  %48 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %43, ptr noundef %2, ptr noundef %38, ptr noundef %4, ptr noundef %5, i32 noundef %47, ptr noundef nonnull %16)
   %49 = load ptr, ptr %44, align 8
   %50 = load i32, ptr %16, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %49, i32 noundef 25, ptr noundef nonnull @.str.184, i32 noundef %50) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %49, i32 noundef 25, ptr noundef nonnull @.str.185, i32 noundef %50)
   %51 = load i32, ptr @hf_fldb_vldbentry_nservers, align 4
-  %52 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %48, ptr noundef %2, ptr noundef %38, ptr noundef %4, ptr noundef %5, i32 noundef %51, ptr noundef nonnull %17) #3
+  %52 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %48, ptr noundef %2, ptr noundef %38, ptr noundef %4, ptr noundef %5, i32 noundef %51, ptr noundef nonnull %17)
   %53 = load ptr, ptr %44, align 8
   %54 = load i32, ptr %17, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %53, i32 noundef 25, ptr noundef nonnull @.str.185, i32 noundef %54) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %53, i32 noundef 25, ptr noundef nonnull @.str.186, i32 noundef %54)
   br label %55
 
 55:                                               ; preds = %6, %55
@@ -1308,7 +1415,7 @@ define internal fastcc i32 @dissect_vldbentry(ptr noundef %0, i32 noundef %1, pt
   %56 = call fastcc i32 @dissect_afsnetaddr(ptr noundef %0, i32 noundef %.0214240, ptr noundef %2, ptr noundef %38, ptr noundef %4, ptr noundef %5)
   %57 = add nuw nsw i32 %.0241, 1
   %exitcond.not = icmp eq i32 %57, 16
-  br i1 %exitcond.not, label %.preheader239, label %55, !llvm.loop !7
+  br i1 %exitcond.not, label %.preheader239, label %55, !llvm.loop !11
 
 .preheader238:                                    ; preds = %63
   %.not.i = icmp eq ptr %38, null
@@ -1318,45 +1425,45 @@ define internal fastcc i32 @dissect_vldbentry(ptr noundef %0, i32 noundef %1, pt
   %.1243 = phi i32 [ %64, %63 ], [ 0, %55 ]
   %.1215242 = phi i32 [ %59, %63 ], [ %56, %55 ]
   %58 = load i32, ptr @hf_fldb_vldbentry_sitepartition, align 4
-  %59 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.1215242, ptr noundef %2, ptr noundef %38, ptr noundef %4, ptr noundef %5, i32 noundef %58, ptr noundef nonnull %18) #3
+  %59 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.1215242, ptr noundef %2, ptr noundef %38, ptr noundef %4, ptr noundef %5, i32 noundef %58, ptr noundef nonnull %18)
   %60 = load i32, ptr %18, align 4
   %.not229 = icmp eq i32 %60, 0
   br i1 %.not229, label %63, label %61
 
 61:                                               ; preds = %.preheader239
   %62 = load ptr, ptr %44, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %62, i32 noundef 25, ptr noundef nonnull @.str.186, i32 noundef %60) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %62, i32 noundef 25, ptr noundef nonnull @.str.187, i32 noundef %60)
   br label %63
 
 63:                                               ; preds = %.preheader239, %61
   %64 = add nuw nsw i32 %.1243, 1
   %exitcond266.not = icmp eq i32 %64, 16
-  br i1 %exitcond266.not, label %.preheader238, label %.preheader239, !llvm.loop !8
+  br i1 %exitcond266.not, label %.preheader238, label %.preheader239, !llvm.loop !12
 
 65:                                               ; preds = %.preheader238, %dissect_siteflags.exit
   %.2245 = phi i32 [ 0, %.preheader238 ], [ %115, %dissect_siteflags.exit ]
   %.2216244 = phi i32 [ %59, %.preheader238 ], [ %71, %dissect_siteflags.exit ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #3
   store ptr null, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #3
   br i1 %.not.i, label %69, label %66
 
 66:                                               ; preds = %65
   %67 = load i32, ptr @ett_fldb_siteflags, align 4
-  %68 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %38, ptr noundef %0, i32 noundef %.2216244, i32 noundef -1, i32 noundef %67, ptr noundef nonnull %9, ptr noundef nonnull @.str.212) #3
+  %68 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %38, ptr noundef %0, i32 noundef %.2216244, i32 noundef -1, i32 noundef %67, ptr noundef nonnull %9, ptr noundef nonnull @.str.213)
   br label %69
 
 69:                                               ; preds = %66, %65
   %.0.i = phi ptr [ %68, %66 ], [ null, %65 ]
   %70 = load i32, ptr @hf_fldb_siteflags, align 4
-  %71 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.2216244, ptr noundef %2, ptr noundef %.0.i, ptr noundef %4, ptr noundef %5, i32 noundef %70, ptr noundef nonnull %10) #3
+  %71 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.2216244, ptr noundef %2, ptr noundef %.0.i, ptr noundef %4, ptr noundef %5, i32 noundef %70, ptr noundef nonnull %10)
   %72 = load i32, ptr %10, align 4
   %.not23.i = icmp eq i32 %72, 0
   br i1 %.not23.i, label %dissect_siteflags.exit, label %73
 
 73:                                               ; preds = %69
   %74 = load ptr, ptr %44, align 8
-  call void @col_append_str(ptr noundef %74, i32 noundef 25, ptr noundef nonnull @.str.213) #3
+  call void @col_append_str(ptr noundef %74, i32 noundef 25, ptr noundef nonnull @.str.214)
   %75 = load i32, ptr %10, align 4
   %76 = and i32 %75, 1
   %.not24.i = icmp eq i32 %76, 0
@@ -1364,7 +1471,7 @@ define internal fastcc i32 @dissect_vldbentry(ptr noundef %0, i32 noundef %1, pt
 
 77:                                               ; preds = %73
   %78 = load ptr, ptr %44, align 8
-  call void @col_append_str(ptr noundef %78, i32 noundef 25, ptr noundef nonnull @.str.214) #3
+  call void @col_append_str(ptr noundef %78, i32 noundef 25, ptr noundef nonnull @.str.215)
   %.pre.i = load i32, ptr %10, align 4
   br label %79
 
@@ -1376,7 +1483,7 @@ define internal fastcc i32 @dissect_vldbentry(ptr noundef %0, i32 noundef %1, pt
 
 82:                                               ; preds = %79
   %83 = load ptr, ptr %44, align 8
-  call void @col_append_str(ptr noundef %83, i32 noundef 25, ptr noundef nonnull @.str.215) #3
+  call void @col_append_str(ptr noundef %83, i32 noundef 25, ptr noundef nonnull @.str.216)
   %.pre32.i = load i32, ptr %10, align 4
   br label %84
 
@@ -1388,7 +1495,7 @@ define internal fastcc i32 @dissect_vldbentry(ptr noundef %0, i32 noundef %1, pt
 
 87:                                               ; preds = %84
   %88 = load ptr, ptr %44, align 8
-  call void @col_append_str(ptr noundef %88, i32 noundef 25, ptr noundef nonnull @.str.216) #3
+  call void @col_append_str(ptr noundef %88, i32 noundef 25, ptr noundef nonnull @.str.217)
   %.pre33.i = load i32, ptr %10, align 4
   br label %89
 
@@ -1400,7 +1507,7 @@ define internal fastcc i32 @dissect_vldbentry(ptr noundef %0, i32 noundef %1, pt
 
 92:                                               ; preds = %89
   %93 = load ptr, ptr %44, align 8
-  call void @col_append_str(ptr noundef %93, i32 noundef 25, ptr noundef nonnull @.str.217) #3
+  call void @col_append_str(ptr noundef %93, i32 noundef 25, ptr noundef nonnull @.str.218)
   %.pre34.i = load i32, ptr %10, align 4
   br label %94
 
@@ -1412,7 +1519,7 @@ define internal fastcc i32 @dissect_vldbentry(ptr noundef %0, i32 noundef %1, pt
 
 97:                                               ; preds = %94
   %98 = load ptr, ptr %44, align 8
-  call void @col_append_str(ptr noundef %98, i32 noundef 25, ptr noundef nonnull @.str.218) #3
+  call void @col_append_str(ptr noundef %98, i32 noundef 25, ptr noundef nonnull @.str.219)
   %.pre35.i = load i32, ptr %10, align 4
   br label %99
 
@@ -1424,7 +1531,7 @@ define internal fastcc i32 @dissect_vldbentry(ptr noundef %0, i32 noundef %1, pt
 
 102:                                              ; preds = %99
   %103 = load ptr, ptr %44, align 8
-  call void @col_append_str(ptr noundef %103, i32 noundef 25, ptr noundef nonnull @.str.219) #3
+  call void @col_append_str(ptr noundef %103, i32 noundef 25, ptr noundef nonnull @.str.220)
   %.pre36.i = load i32, ptr %10, align 4
   br label %104
 
@@ -1436,7 +1543,7 @@ define internal fastcc i32 @dissect_vldbentry(ptr noundef %0, i32 noundef %1, pt
 
 107:                                              ; preds = %104
   %108 = load ptr, ptr %44, align 8
-  call void @col_append_str(ptr noundef %108, i32 noundef 25, ptr noundef nonnull @.str.220) #3
+  call void @col_append_str(ptr noundef %108, i32 noundef 25, ptr noundef nonnull @.str.221)
   %.pr.i = load i32, ptr %10, align 4
   br label %109
 
@@ -1447,37 +1554,37 @@ define internal fastcc i32 @dissect_vldbentry(ptr noundef %0, i32 noundef %1, pt
 
 111:                                              ; preds = %109
   %112 = load ptr, ptr %44, align 8
-  call void @col_append_str(ptr noundef %112, i32 noundef 25, ptr noundef nonnull @.str.221) #3
+  call void @col_append_str(ptr noundef %112, i32 noundef 25, ptr noundef nonnull @.str.222)
   br label %dissect_siteflags.exit
 
 dissect_siteflags.exit:                           ; preds = %69, %109, %111
   %113 = load ptr, ptr %9, align 8
   %114 = sub i32 %71, %.2216244
-  call void @proto_item_set_len(ptr noundef %113, i32 noundef %114) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  call void @proto_item_set_len(ptr noundef %113, i32 noundef %114)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #3
   %115 = add nuw nsw i32 %.2245, 1
   %exitcond267.not = icmp eq i32 %115, 16
-  br i1 %exitcond267.not, label %.preheader237, label %65, !llvm.loop !9
+  br i1 %exitcond267.not, label %.preheader237, label %65, !llvm.loop !13
 
 .preheader237:                                    ; preds = %dissect_siteflags.exit, %121
   %.3247 = phi i32 [ %122, %121 ], [ 0, %dissect_siteflags.exit ]
   %.3217246 = phi i32 [ %117, %121 ], [ %71, %dissect_siteflags.exit ]
   %116 = load i32, ptr @hf_fldb_vldbentry_sitemaxreplicalatency, align 4
-  %117 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.3217246, ptr noundef %2, ptr noundef %38, ptr noundef %4, ptr noundef %5, i32 noundef %116, ptr noundef nonnull %19) #3
+  %117 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.3217246, ptr noundef %2, ptr noundef %38, ptr noundef %4, ptr noundef %5, i32 noundef %116, ptr noundef nonnull %19)
   %118 = load i32, ptr %19, align 4
   %.not228 = icmp eq i32 %118, 0
   br i1 %.not228, label %121, label %119
 
 119:                                              ; preds = %.preheader237
   %120 = load ptr, ptr %44, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %120, i32 noundef 25, ptr noundef nonnull @.str.187, i32 noundef %.3247, i32 noundef %118) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %120, i32 noundef 25, ptr noundef nonnull @.str.188, i32 noundef %.3247, i32 noundef %118)
   br label %121
 
 121:                                              ; preds = %.preheader237, %119
   %122 = add nuw nsw i32 %.3247, 1
   %exitcond268.not = icmp eq i32 %122, 16
-  br i1 %exitcond268.not, label %.preheader236, label %.preheader237, !llvm.loop !10
+  br i1 %exitcond268.not, label %.preheader236, label %.preheader237, !llvm.loop !14
 
 .preheader235:                                    ; preds = %.preheader236
   %123 = getelementptr inbounds nuw i8, ptr %35, i64 4
@@ -1497,14 +1604,14 @@ dissect_siteflags.exit:                           ; preds = %69, %109, %111
   %.4218248 = phi i32 [ %136, %.preheader236 ], [ %117, %121 ]
   %133 = load i32, ptr @hf_fldb_vldbentry_siteprincipal, align 4
   %134 = load ptr, ptr %40, align 8
-  %135 = call ptr @proto_tree_add_item_ret_string(ptr noundef %38, i32 noundef %133, ptr noundef %0, i32 noundef %.4218248, i32 noundef 64, i32 noundef 0, ptr noundef %134, ptr noundef nonnull %13) #3
+  %135 = call ptr @proto_tree_add_item_ret_string(ptr noundef %38, i32 noundef %133, ptr noundef %0, i32 noundef %.4218248, i32 noundef 64, i32 noundef 0, ptr noundef %134, ptr noundef nonnull %13)
   %136 = add i32 %.4218248, 64
   %137 = load ptr, ptr %44, align 8
   %138 = load ptr, ptr %13, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %137, i32 noundef 25, ptr noundef nonnull @.str.188, ptr noundef %138) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %137, i32 noundef 25, ptr noundef nonnull @.str.189, ptr noundef %138)
   %139 = add nuw nsw i32 %.4249, 1
   %exitcond269.not = icmp eq i32 %139, 16
-  br i1 %exitcond269.not, label %.preheader235, label %.preheader236, !llvm.loop !11
+  br i1 %exitcond269.not, label %.preheader235, label %.preheader236, !llvm.loop !15
 
 .preheader234:                                    ; preds = %150
   %140 = getelementptr inbounds nuw i8, ptr %36, i64 4
@@ -1523,7 +1630,7 @@ dissect_siteflags.exit:                           ; preds = %69, %109, %111
   %.5251 = phi i32 [ 0, %.preheader235 ], [ %175, %150 ]
   %.5219250 = phi i32 [ %136, %.preheader235 ], [ %152, %150 ]
   %151 = load i32, ptr @hf_fldb_vldbentry_siteowner, align 4
-  %152 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %.5219250, ptr noundef nonnull %2, ptr noundef %38, ptr noundef %4, ptr noundef %5, i32 noundef %151, ptr noundef nonnull %35) #3
+  %152 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %.5219250, ptr noundef %2, ptr noundef %38, ptr noundef %4, ptr noundef %5, i32 noundef %151, ptr noundef nonnull %35)
   %153 = load ptr, ptr %44, align 8
   %154 = load i32, ptr %35, align 4
   %155 = load i16, ptr %123, align 4
@@ -1546,16 +1653,16 @@ dissect_siteflags.exit:                           ; preds = %69, %109, %111
   %172 = zext i8 %171 to i32
   %173 = load i8, ptr %132, align 1
   %174 = zext i8 %173 to i32
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %153, i32 noundef 25, ptr noundef nonnull @.str.189, i32 noundef %154, i32 noundef %156, i32 noundef %158, i32 noundef %160, i32 noundef %162, i32 noundef %164, i32 noundef %166, i32 noundef %168, i32 noundef %170, i32 noundef %172, i32 noundef %174) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %153, i32 noundef 25, ptr noundef nonnull @.str.190, i32 noundef %154, i32 noundef %156, i32 noundef %158, i32 noundef %160, i32 noundef %162, i32 noundef %164, i32 noundef %166, i32 noundef %168, i32 noundef %170, i32 noundef %172, i32 noundef %174)
   %175 = add nuw nsw i32 %.5251, 1
   %exitcond270.not = icmp eq i32 %175, 16
-  br i1 %exitcond270.not, label %.preheader234, label %150, !llvm.loop !12
+  br i1 %exitcond270.not, label %.preheader234, label %150, !llvm.loop !16
 
 176:                                              ; preds = %.preheader234, %176
   %.6253 = phi i32 [ 0, %.preheader234 ], [ %201, %176 ]
   %.6220252 = phi i32 [ %152, %.preheader234 ], [ %178, %176 ]
   %177 = load i32, ptr @hf_fldb_vldbentry_siteobjid, align 4
-  %178 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %.6220252, ptr noundef nonnull %2, ptr noundef %38, ptr noundef %4, ptr noundef %5, i32 noundef %177, ptr noundef nonnull %36) #3
+  %178 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %.6220252, ptr noundef %2, ptr noundef %38, ptr noundef %4, ptr noundef %5, i32 noundef %177, ptr noundef nonnull %36)
   %179 = load ptr, ptr %44, align 8
   %180 = load i32, ptr %36, align 4
   %181 = load i16, ptr %140, align 4
@@ -1578,80 +1685,80 @@ dissect_siteflags.exit:                           ; preds = %69, %109, %111
   %198 = zext i8 %197 to i32
   %199 = load i8, ptr %149, align 1
   %200 = zext i8 %199 to i32
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %179, i32 noundef 25, ptr noundef nonnull @.str.190, i32 noundef %180, i32 noundef %182, i32 noundef %184, i32 noundef %186, i32 noundef %188, i32 noundef %190, i32 noundef %192, i32 noundef %194, i32 noundef %196, i32 noundef %198, i32 noundef %200) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %179, i32 noundef 25, ptr noundef nonnull @.str.191, i32 noundef %180, i32 noundef %182, i32 noundef %184, i32 noundef %186, i32 noundef %188, i32 noundef %190, i32 noundef %192, i32 noundef %194, i32 noundef %196, i32 noundef %198, i32 noundef %200)
   %201 = add nuw nsw i32 %.6253, 1
   %exitcond271.not = icmp eq i32 %201, 16
-  br i1 %exitcond271.not, label %.preheader233, label %176, !llvm.loop !13
+  br i1 %exitcond271.not, label %.preheader233, label %176, !llvm.loop !17
 
 .preheader233:                                    ; preds = %176, %.preheader233
   %.7255 = phi i32 [ %208, %.preheader233 ], [ 0, %176 ]
   %.7221254 = phi i32 [ %205, %.preheader233 ], [ %178, %176 ]
   %202 = load i32, ptr @hf_fldb_vldbentry_volids_high, align 4
-  %203 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.7221254, ptr noundef nonnull %2, ptr noundef %38, ptr noundef %4, ptr noundef %5, i32 noundef %202, ptr noundef nonnull %20) #3
+  %203 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.7221254, ptr noundef %2, ptr noundef %38, ptr noundef %4, ptr noundef %5, i32 noundef %202, ptr noundef nonnull %20)
   %204 = load i32, ptr @hf_fldb_vldbentry_volids_low, align 4
-  %205 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %203, ptr noundef nonnull %2, ptr noundef %38, ptr noundef %4, ptr noundef %5, i32 noundef %204, ptr noundef nonnull %21) #3
+  %205 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %203, ptr noundef %2, ptr noundef %38, ptr noundef %4, ptr noundef %5, i32 noundef %204, ptr noundef nonnull %21)
   %206 = load ptr, ptr %44, align 8
   %207 = load i32, ptr %21, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %206, i32 noundef 25, ptr noundef nonnull @.str.191, i32 noundef %.7255, i32 noundef %207) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %206, i32 noundef 25, ptr noundef nonnull @.str.192, i32 noundef %.7255, i32 noundef %207)
   %208 = add nuw nsw i32 %.7255, 1
   %exitcond272.not = icmp eq i32 %208, 8
-  br i1 %exitcond272.not, label %.preheader, label %.preheader233, !llvm.loop !14
+  br i1 %exitcond272.not, label %.preheader, label %.preheader233, !llvm.loop !18
 
 .preheader:                                       ; preds = %.preheader233, %214
   %.8257 = phi i32 [ %215, %214 ], [ 0, %.preheader233 ]
   %.8222256 = phi i32 [ %210, %214 ], [ %205, %.preheader233 ]
   %209 = load i32, ptr @hf_fldb_vldbentry_voltypes, align 4
-  %210 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.8222256, ptr noundef nonnull %2, ptr noundef %38, ptr noundef %4, ptr noundef %5, i32 noundef %209, ptr noundef nonnull %22) #3
+  %210 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.8222256, ptr noundef %2, ptr noundef %38, ptr noundef %4, ptr noundef %5, i32 noundef %209, ptr noundef nonnull %22)
   %211 = load i32, ptr %22, align 4
   %.not227 = icmp eq i32 %211, 0
   br i1 %.not227, label %214, label %212
 
 212:                                              ; preds = %.preheader
   %213 = load ptr, ptr %44, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %213, i32 noundef 25, ptr noundef nonnull @.str.192, i32 noundef %.8257, i32 noundef %211) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %213, i32 noundef 25, ptr noundef nonnull @.str.193, i32 noundef %.8257, i32 noundef %211)
   br label %214
 
 214:                                              ; preds = %.preheader, %212
   %215 = add nuw nsw i32 %.8257, 1
   %exitcond273.not = icmp eq i32 %215, 8
-  br i1 %exitcond273.not, label %216, label %.preheader, !llvm.loop !15
+  br i1 %exitcond273.not, label %216, label %.preheader, !llvm.loop !19
 
 216:                                              ; preds = %214
   %217 = load i32, ptr @hf_fldb_vldbentry_cloneid_high, align 4
-  %218 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %210, ptr noundef nonnull %2, ptr noundef %38, ptr noundef %4, ptr noundef %5, i32 noundef %217, ptr noundef nonnull %23) #3
+  %218 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %210, ptr noundef %2, ptr noundef %38, ptr noundef %4, ptr noundef %5, i32 noundef %217, ptr noundef nonnull %23)
   %219 = load i32, ptr @hf_fldb_vldbentry_cloneid_low, align 4
-  %220 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %218, ptr noundef nonnull %2, ptr noundef %38, ptr noundef %4, ptr noundef %5, i32 noundef %219, ptr noundef nonnull %24) #3
+  %220 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %218, ptr noundef %2, ptr noundef %38, ptr noundef %4, ptr noundef %5, i32 noundef %219, ptr noundef nonnull %24)
   %221 = load i32, ptr %24, align 4
   %.not = icmp eq i32 %221, 0
   br i1 %.not, label %224, label %222
 
 222:                                              ; preds = %216
   %223 = load ptr, ptr %44, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %223, i32 noundef 25, ptr noundef nonnull @.str.193, i32 noundef %221) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %223, i32 noundef 25, ptr noundef nonnull @.str.194, i32 noundef %221)
   br label %224
 
 224:                                              ; preds = %222, %216
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #3
   store ptr null, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #3
   br i1 %.not.i, label %228, label %225
 
 225:                                              ; preds = %224
   %226 = load i32, ptr @ett_fldb_afsflags, align 4
-  %227 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %38, ptr noundef %0, i32 noundef %220, i32 noundef -1, i32 noundef %226, ptr noundef nonnull %7, ptr noundef nonnull @.str.222) #3
+  %227 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %38, ptr noundef %0, i32 noundef %220, i32 noundef -1, i32 noundef %226, ptr noundef nonnull %7, ptr noundef nonnull @.str.223)
   br label %228
 
 228:                                              ; preds = %225, %224
   %.0.i231 = phi ptr [ %227, %225 ], [ null, %224 ]
   %229 = load i32, ptr @hf_fldb_afsflags_flags, align 4
-  %230 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %220, ptr noundef nonnull %2, ptr noundef %.0.i231, ptr noundef %4, ptr noundef %5, i32 noundef %229, ptr noundef nonnull %8) #3
+  %230 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %220, ptr noundef %2, ptr noundef %.0.i231, ptr noundef %4, ptr noundef %5, i32 noundef %229, ptr noundef nonnull %8)
   %231 = load i32, ptr %8, align 4
   %.not34.i = icmp eq i32 %231, 0
   br i1 %.not34.i, label %dissect_afsflags.exit, label %232
 
 232:                                              ; preds = %228
   %233 = load ptr, ptr %44, align 8
-  call void @col_append_str(ptr noundef %233, i32 noundef 25, ptr noundef nonnull @.str.223) #3
+  call void @col_append_str(ptr noundef %233, i32 noundef 25, ptr noundef nonnull @.str.224)
   %234 = load i32, ptr %8, align 4
   %235 = and i32 %234, 1
   %.not35.i = icmp eq i32 %235, 0
@@ -1659,7 +1766,7 @@ dissect_siteflags.exit:                           ; preds = %69, %109, %111
 
 236:                                              ; preds = %232
   %237 = load ptr, ptr %44, align 8
-  call void @col_append_str(ptr noundef %237, i32 noundef 25, ptr noundef nonnull @.str.224) #3
+  call void @col_append_str(ptr noundef %237, i32 noundef 25, ptr noundef nonnull @.str.225)
   %.pre.i232 = load i32, ptr %8, align 4
   br label %238
 
@@ -1671,7 +1778,7 @@ dissect_siteflags.exit:                           ; preds = %69, %109, %111
 
 241:                                              ; preds = %238
   %242 = load ptr, ptr %44, align 8
-  call void @col_append_str(ptr noundef %242, i32 noundef 25, ptr noundef nonnull @.str.225) #3
+  call void @col_append_str(ptr noundef %242, i32 noundef 25, ptr noundef nonnull @.str.226)
   %.pre54.i = load i32, ptr %8, align 4
   br label %243
 
@@ -1683,7 +1790,7 @@ dissect_siteflags.exit:                           ; preds = %69, %109, %111
 
 246:                                              ; preds = %243
   %247 = load ptr, ptr %44, align 8
-  call void @col_append_str(ptr noundef %247, i32 noundef 25, ptr noundef nonnull @.str.226) #3
+  call void @col_append_str(ptr noundef %247, i32 noundef 25, ptr noundef nonnull @.str.227)
   %.pre55.i = load i32, ptr %8, align 4
   br label %248
 
@@ -1695,7 +1802,7 @@ dissect_siteflags.exit:                           ; preds = %69, %109, %111
 
 251:                                              ; preds = %248
   %252 = load ptr, ptr %44, align 8
-  call void @col_append_str(ptr noundef %252, i32 noundef 25, ptr noundef nonnull @.str.227) #3
+  call void @col_append_str(ptr noundef %252, i32 noundef 25, ptr noundef nonnull @.str.228)
   %.pre56.i = load i32, ptr %8, align 4
   br label %253
 
@@ -1707,7 +1814,7 @@ dissect_siteflags.exit:                           ; preds = %69, %109, %111
 
 256:                                              ; preds = %253
   %257 = load ptr, ptr %44, align 8
-  call void @col_append_str(ptr noundef %257, i32 noundef 25, ptr noundef nonnull @.str.228) #3
+  call void @col_append_str(ptr noundef %257, i32 noundef 25, ptr noundef nonnull @.str.229)
   %.pre57.i = load i32, ptr %8, align 4
   br label %258
 
@@ -1719,7 +1826,7 @@ dissect_siteflags.exit:                           ; preds = %69, %109, %111
 
 261:                                              ; preds = %258
   %262 = load ptr, ptr %44, align 8
-  call void @col_append_str(ptr noundef %262, i32 noundef 25, ptr noundef nonnull @.str.229) #3
+  call void @col_append_str(ptr noundef %262, i32 noundef 25, ptr noundef nonnull @.str.230)
   %.pre58.i = load i32, ptr %8, align 4
   br label %263
 
@@ -1731,7 +1838,7 @@ dissect_siteflags.exit:                           ; preds = %69, %109, %111
 
 266:                                              ; preds = %263
   %267 = load ptr, ptr %44, align 8
-  call void @col_append_str(ptr noundef %267, i32 noundef 25, ptr noundef nonnull @.str.230) #3
+  call void @col_append_str(ptr noundef %267, i32 noundef 25, ptr noundef nonnull @.str.231)
   %.pre59.i = load i32, ptr %8, align 4
   br label %268
 
@@ -1743,7 +1850,7 @@ dissect_siteflags.exit:                           ; preds = %69, %109, %111
 
 271:                                              ; preds = %268
   %272 = load ptr, ptr %44, align 8
-  call void @col_append_str(ptr noundef %272, i32 noundef 25, ptr noundef nonnull @.str.231) #3
+  call void @col_append_str(ptr noundef %272, i32 noundef 25, ptr noundef nonnull @.str.232)
   %.pre60.i = load i32, ptr %8, align 4
   br label %273
 
@@ -1755,7 +1862,7 @@ dissect_siteflags.exit:                           ; preds = %69, %109, %111
 
 276:                                              ; preds = %273
   %277 = load ptr, ptr %44, align 8
-  call void @col_append_str(ptr noundef %277, i32 noundef 25, ptr noundef nonnull @.str.232) #3
+  call void @col_append_str(ptr noundef %277, i32 noundef 25, ptr noundef nonnull @.str.233)
   %.pre61.i = load i32, ptr %8, align 4
   br label %278
 
@@ -1767,7 +1874,7 @@ dissect_siteflags.exit:                           ; preds = %69, %109, %111
 
 281:                                              ; preds = %278
   %282 = load ptr, ptr %44, align 8
-  call void @col_append_str(ptr noundef %282, i32 noundef 25, ptr noundef nonnull @.str.233) #3
+  call void @col_append_str(ptr noundef %282, i32 noundef 25, ptr noundef nonnull @.str.234)
   %283 = load i32, ptr %8, align 4
   %284 = and i32 %283, 1024
   %.not45.i = icmp eq i32 %284, 0
@@ -1775,7 +1882,7 @@ dissect_siteflags.exit:                           ; preds = %69, %109, %111
 
 285:                                              ; preds = %281
   %286 = load ptr, ptr %44, align 8
-  call void @col_append_str(ptr noundef %286, i32 noundef 25, ptr noundef nonnull @.str.234) #3
+  call void @col_append_str(ptr noundef %286, i32 noundef 25, ptr noundef nonnull @.str.235)
   %.pre62.i = load i32, ptr %8, align 4
   br label %287
 
@@ -1787,7 +1894,7 @@ dissect_siteflags.exit:                           ; preds = %69, %109, %111
 
 290:                                              ; preds = %287
   %291 = load ptr, ptr %44, align 8
-  call void @col_append_str(ptr noundef %291, i32 noundef 25, ptr noundef nonnull @.str.235) #3
+  call void @col_append_str(ptr noundef %291, i32 noundef 25, ptr noundef nonnull @.str.236)
   %.pre63.i = load i32, ptr %8, align 4
   br label %292
 
@@ -1799,7 +1906,7 @@ dissect_siteflags.exit:                           ; preds = %69, %109, %111
 
 295:                                              ; preds = %292
   %296 = load ptr, ptr %44, align 8
-  call void @col_append_str(ptr noundef %296, i32 noundef 25, ptr noundef nonnull @.str.236) #3
+  call void @col_append_str(ptr noundef %296, i32 noundef 25, ptr noundef nonnull @.str.237)
   %.pre64.i = load i32, ptr %8, align 4
   br label %297
 
@@ -1811,7 +1918,7 @@ dissect_siteflags.exit:                           ; preds = %69, %109, %111
 
 300:                                              ; preds = %297
   %301 = load ptr, ptr %44, align 8
-  call void @col_append_str(ptr noundef %301, i32 noundef 25, ptr noundef nonnull @.str.237) #3
+  call void @col_append_str(ptr noundef %301, i32 noundef 25, ptr noundef nonnull @.str.238)
   %.pre65.i = load i32, ptr %8, align 4
   br label %302
 
@@ -1823,7 +1930,7 @@ dissect_siteflags.exit:                           ; preds = %69, %109, %111
 
 305:                                              ; preds = %302
   %306 = load ptr, ptr %44, align 8
-  call void @col_append_str(ptr noundef %306, i32 noundef 25, ptr noundef nonnull @.str.238) #3
+  call void @col_append_str(ptr noundef %306, i32 noundef 25, ptr noundef nonnull @.str.239)
   %.pre66.i = load i32, ptr %8, align 4
   br label %307
 
@@ -1835,7 +1942,7 @@ dissect_siteflags.exit:                           ; preds = %69, %109, %111
 
 310:                                              ; preds = %307
   %311 = load ptr, ptr %44, align 8
-  call void @col_append_str(ptr noundef %311, i32 noundef 25, ptr noundef nonnull @.str.239) #3
+  call void @col_append_str(ptr noundef %311, i32 noundef 25, ptr noundef nonnull @.str.240)
   %.pre67.i = load i32, ptr %8, align 4
   br label %312
 
@@ -1847,7 +1954,7 @@ dissect_siteflags.exit:                           ; preds = %69, %109, %111
 
 315:                                              ; preds = %312
   %316 = load ptr, ptr %44, align 8
-  call void @col_append_str(ptr noundef %316, i32 noundef 25, ptr noundef nonnull @.str.240) #3
+  call void @col_append_str(ptr noundef %316, i32 noundef 25, ptr noundef nonnull @.str.241)
   %.pre68.i = load i32, ptr %8, align 4
   br label %317
 
@@ -1859,7 +1966,7 @@ dissect_siteflags.exit:                           ; preds = %69, %109, %111
 
 320:                                              ; preds = %317
   %321 = load ptr, ptr %44, align 8
-  call void @col_append_str(ptr noundef %321, i32 noundef 25, ptr noundef nonnull @.str.241) #3
+  call void @col_append_str(ptr noundef %321, i32 noundef 25, ptr noundef nonnull @.str.242)
   %.pre69.i = load i32, ptr %8, align 4
   br label %322
 
@@ -1871,107 +1978,138 @@ dissect_siteflags.exit:                           ; preds = %69, %109, %111
 
 325:                                              ; preds = %322
   %326 = load ptr, ptr %44, align 8
-  call void @col_append_str(ptr noundef %326, i32 noundef 25, ptr noundef nonnull @.str.242) #3
+  call void @col_append_str(ptr noundef %326, i32 noundef 25, ptr noundef nonnull @.str.243)
   br label %dissect_afsflags.exit
 
 dissect_afsflags.exit:                            ; preds = %228, %278, %322, %325
   %327 = load ptr, ptr %7, align 8
   %328 = sub i32 %230, %220
-  call void @proto_item_set_len(ptr noundef %327, i32 noundef %328) #3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  call void @proto_item_set_len(ptr noundef %327, i32 noundef %328)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #3
   %329 = load i32, ptr @hf_fldb_vldbentry_maxtotallatency, align 4
-  %330 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %230, ptr noundef nonnull %2, ptr noundef %38, ptr noundef %4, ptr noundef %5, i32 noundef %329, ptr noundef nonnull %25) #3
+  %330 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %230, ptr noundef %2, ptr noundef %38, ptr noundef %4, ptr noundef %5, i32 noundef %329, ptr noundef nonnull %25)
   %331 = load ptr, ptr %44, align 8
   %332 = load i32, ptr %25, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %331, i32 noundef 25, ptr noundef nonnull @.str.194, i32 noundef %332) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %331, i32 noundef 25, ptr noundef nonnull @.str.195, i32 noundef %332)
   %333 = load i32, ptr @hf_fldb_vldbentry_hardmaxtotallatency, align 4
-  %334 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %330, ptr noundef nonnull %2, ptr noundef %38, ptr noundef %4, ptr noundef %5, i32 noundef %333, ptr noundef nonnull %26) #3
+  %334 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %330, ptr noundef %2, ptr noundef %38, ptr noundef %4, ptr noundef %5, i32 noundef %333, ptr noundef nonnull %26)
   %335 = load ptr, ptr %44, align 8
   %336 = load i32, ptr %26, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %335, i32 noundef 25, ptr noundef nonnull @.str.195, i32 noundef %336) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %335, i32 noundef 25, ptr noundef nonnull @.str.196, i32 noundef %336)
   %337 = load i32, ptr @hf_fldb_vldbentry_minimumpouncedally, align 4
-  %338 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %334, ptr noundef nonnull %2, ptr noundef %38, ptr noundef %4, ptr noundef %5, i32 noundef %337, ptr noundef nonnull %27) #3
+  %338 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %334, ptr noundef %2, ptr noundef %38, ptr noundef %4, ptr noundef %5, i32 noundef %337, ptr noundef nonnull %27)
   %339 = load ptr, ptr %44, align 8
   %340 = load i32, ptr %27, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %339, i32 noundef 25, ptr noundef nonnull @.str.196, i32 noundef %340) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %339, i32 noundef 25, ptr noundef nonnull @.str.197, i32 noundef %340)
   %341 = load i32, ptr @hf_fldb_vldbentry_defaultmaxreplicalatency, align 4
-  %342 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %338, ptr noundef nonnull %2, ptr noundef %38, ptr noundef %4, ptr noundef %5, i32 noundef %341, ptr noundef nonnull %28) #3
+  %342 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %338, ptr noundef %2, ptr noundef %38, ptr noundef %4, ptr noundef %5, i32 noundef %341, ptr noundef nonnull %28)
   %343 = load ptr, ptr %44, align 8
   %344 = load i32, ptr %28, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %343, i32 noundef 25, ptr noundef nonnull @.str.197, i32 noundef %344) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %343, i32 noundef 25, ptr noundef nonnull @.str.198, i32 noundef %344)
   %345 = load i32, ptr @hf_fldb_vldbentry_reclaimdally, align 4
-  %346 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %342, ptr noundef nonnull %2, ptr noundef %38, ptr noundef %4, ptr noundef %5, i32 noundef %345, ptr noundef nonnull %29) #3
+  %346 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %342, ptr noundef %2, ptr noundef %38, ptr noundef %4, ptr noundef %5, i32 noundef %345, ptr noundef nonnull %29)
   %347 = load ptr, ptr %44, align 8
   %348 = load i32, ptr %29, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %347, i32 noundef 25, ptr noundef nonnull @.str.198, i32 noundef %348) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %347, i32 noundef 25, ptr noundef nonnull @.str.199, i32 noundef %348)
   %349 = load i32, ptr @hf_fldb_vldbentry_whenlocked, align 4
-  %350 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %346, ptr noundef nonnull %2, ptr noundef %38, ptr noundef %4, ptr noundef %5, i32 noundef %349, ptr noundef nonnull %30) #3
+  %350 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %346, ptr noundef %2, ptr noundef %38, ptr noundef %4, ptr noundef %5, i32 noundef %349, ptr noundef nonnull %30)
   %351 = load ptr, ptr %44, align 8
   %352 = load i32, ptr %30, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %351, i32 noundef 25, ptr noundef nonnull @.str.199, i32 noundef %352) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %351, i32 noundef 25, ptr noundef nonnull @.str.200, i32 noundef %352)
   %353 = load i32, ptr @hf_fldb_vldbentry_spare1, align 4
-  %354 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %350, ptr noundef nonnull %2, ptr noundef %38, ptr noundef %4, ptr noundef %5, i32 noundef %353, ptr noundef nonnull %31) #3
+  %354 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %350, ptr noundef %2, ptr noundef %38, ptr noundef %4, ptr noundef %5, i32 noundef %353, ptr noundef nonnull %31)
   %355 = load ptr, ptr %44, align 8
   %356 = load i32, ptr %31, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %355, i32 noundef 25, ptr noundef nonnull @.str.200, i32 noundef %356) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %355, i32 noundef 25, ptr noundef nonnull @.str.201, i32 noundef %356)
   %357 = load i32, ptr @hf_fldb_vldbentry_spare2, align 4
-  %358 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %354, ptr noundef nonnull %2, ptr noundef %38, ptr noundef %4, ptr noundef %5, i32 noundef %357, ptr noundef nonnull %32) #3
+  %358 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %354, ptr noundef %2, ptr noundef %38, ptr noundef %4, ptr noundef %5, i32 noundef %357, ptr noundef nonnull %32)
   %359 = load ptr, ptr %44, align 8
   %360 = load i32, ptr %32, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %359, i32 noundef 25, ptr noundef nonnull @.str.201, i32 noundef %360) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %359, i32 noundef 25, ptr noundef nonnull @.str.202, i32 noundef %360)
   %361 = load i32, ptr @hf_fldb_vldbentry_spare3, align 4
-  %362 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %358, ptr noundef nonnull %2, ptr noundef %38, ptr noundef %4, ptr noundef %5, i32 noundef %361, ptr noundef nonnull %33) #3
+  %362 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %358, ptr noundef %2, ptr noundef %38, ptr noundef %4, ptr noundef %5, i32 noundef %361, ptr noundef nonnull %33)
   %363 = load ptr, ptr %44, align 8
   %364 = load i32, ptr %33, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %363, i32 noundef 25, ptr noundef nonnull @.str.202, i32 noundef %364) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %363, i32 noundef 25, ptr noundef nonnull @.str.203, i32 noundef %364)
   %365 = load i32, ptr @hf_fldb_vldbentry_spare4, align 4
-  %366 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %362, ptr noundef nonnull %2, ptr noundef %38, ptr noundef %4, ptr noundef %5, i32 noundef %365, ptr noundef nonnull %34) #3
+  %366 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %362, ptr noundef %2, ptr noundef %38, ptr noundef %4, ptr noundef %5, i32 noundef %365, ptr noundef nonnull %34)
   %367 = load ptr, ptr %44, align 8
   %368 = load i32, ptr %34, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %367, i32 noundef 25, ptr noundef nonnull @.str.203, i32 noundef %368) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %367, i32 noundef 25, ptr noundef nonnull @.str.204, i32 noundef %368)
   %369 = load i32, ptr @hf_fldb_vldbentry_lockername, align 4
   %370 = load ptr, ptr %40, align 8
-  %371 = call ptr @proto_tree_add_item_ret_string(ptr noundef %38, i32 noundef %369, ptr noundef %0, i32 noundef %366, i32 noundef 64, i32 noundef 0, ptr noundef %370, ptr noundef nonnull %15) #3
+  %371 = call ptr @proto_tree_add_item_ret_string(ptr noundef %38, i32 noundef %369, ptr noundef %0, i32 noundef %366, i32 noundef 64, i32 noundef 0, ptr noundef %370, ptr noundef nonnull %15)
   %372 = add i32 %366, 64
   %373 = load ptr, ptr %44, align 8
   %374 = load ptr, ptr %15, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %373, i32 noundef 25, ptr noundef nonnull @.str.204, ptr noundef %374) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %373, i32 noundef 25, ptr noundef nonnull @.str.205, ptr noundef %374)
   %375 = load i32, ptr @hf_fldb_vldbentry_charspares, align 4
   %376 = load ptr, ptr %40, align 8
-  %377 = call ptr @proto_tree_add_item_ret_string(ptr noundef %38, i32 noundef %375, ptr noundef %0, i32 noundef %372, i32 noundef 50, i32 noundef 0, ptr noundef %376, ptr noundef nonnull %14) #3
+  %377 = call ptr @proto_tree_add_item_ret_string(ptr noundef %38, i32 noundef %375, ptr noundef %0, i32 noundef %372, i32 noundef 50, i32 noundef 0, ptr noundef %376, ptr noundef nonnull %14)
   %378 = add i32 %366, 114
   %379 = load ptr, ptr %44, align 8
   %380 = load ptr, ptr %14, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %379, i32 noundef 25, ptr noundef nonnull @.str.205, ptr noundef %380) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %379, i32 noundef 25, ptr noundef nonnull @.str.206, ptr noundef %380)
   %381 = load ptr, ptr %11, align 8
   %382 = sub i32 %378, %1
-  call void @proto_item_set_len(ptr noundef %381, i32 noundef %382) #3
+  call void @proto_item_set_len(ptr noundef %381, i32 noundef %382)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %34) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %32) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %30) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #3
   ret i32 %378
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item_ret_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc i32 @dissect_afsnetaddr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i16, align 2
   %9 = alloca i8, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #3
   store ptr null, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #3
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %10
 
 10:                                               ; preds = %6
   %11 = load i32, ptr @ett_fldb_afsnetaddr, align 4
-  %12 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %3, ptr noundef %0, i32 noundef %1, i32 noundef -1, i32 noundef %11, ptr noundef nonnull %7, ptr noundef nonnull @.str.206) #3
+  %12 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %3, ptr noundef %0, i32 noundef %1, i32 noundef -1, i32 noundef %11, ptr noundef nonnull %7, ptr noundef nonnull @.str.207)
   br label %13
 
 13:                                               ; preds = %10, %6
   %.030 = phi ptr [ %12, %10 ], [ null, %6 ]
   %14 = load i32, ptr @hf_fldb_afsnetaddr_type, align 4
-  %15 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.030, ptr noundef %4, ptr noundef %5, i32 noundef %14, ptr noundef nonnull %8) #3
+  %15 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %.030, ptr noundef %4, ptr noundef %5, i32 noundef %14, ptr noundef nonnull %8)
   %16 = load i16, ptr %8, align 2
   %.not34 = icmp eq i16 %16, 0
   br i1 %.not34, label %47, label %17
@@ -1980,14 +2118,14 @@ define internal fastcc i32 @dissect_afsnetaddr(ptr noundef %0, i32 noundef %1, p
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = zext i16 %16 to i32
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %19, i32 noundef 25, ptr noundef nonnull @.str.207, i32 noundef %20) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %19, i32 noundef 25, ptr noundef nonnull @.str.208, i32 noundef %20)
   br label %21
 
 21:                                               ; preds = %17, %45
   %.037 = phi i32 [ 0, %17 ], [ %46, %45 ]
   %.02936 = phi i32 [ %15, %17 ], [ %23, %45 ]
   %22 = load i32, ptr @hf_fldb_afsnetaddr_data, align 4
-  %23 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %.02936, ptr noundef %2, ptr noundef %.030, ptr noundef %4, ptr noundef %5, i32 noundef %22, ptr noundef nonnull %9) #3
+  %23 = call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %.02936, ptr noundef %2, ptr noundef %.030, ptr noundef %4, ptr noundef %5, i32 noundef %22, ptr noundef nonnull %9)
   switch i32 %.037, label %45 [
     i32 1, label %24
     i32 2, label %29
@@ -2004,41 +2142,41 @@ define internal fastcc i32 @dissect_afsnetaddr(ptr noundef %0, i32 noundef %1, p
 26:                                               ; preds = %24
   %27 = load ptr, ptr %18, align 8
   %28 = zext i8 %25 to i32
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %27, i32 noundef 25, ptr noundef nonnull @.str.208, i32 noundef %28) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %27, i32 noundef 25, ptr noundef nonnull @.str.209, i32 noundef %28)
   br label %45
 
 29:                                               ; preds = %21
   %30 = load ptr, ptr %18, align 8
   %31 = load i8, ptr %9, align 1
   %32 = zext i8 %31 to i32
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %30, i32 noundef 25, ptr noundef nonnull @.str.209, i32 noundef %32) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %30, i32 noundef 25, ptr noundef nonnull @.str.210, i32 noundef %32)
   br label %45
 
 33:                                               ; preds = %21
   %34 = load ptr, ptr %18, align 8
   %35 = load i8, ptr %9, align 1
   %36 = zext i8 %35 to i32
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %34, i32 noundef 25, ptr noundef nonnull @.str.210, i32 noundef %36) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %34, i32 noundef 25, ptr noundef nonnull @.str.211, i32 noundef %36)
   br label %45
 
 37:                                               ; preds = %21
   %38 = load ptr, ptr %18, align 8
   %39 = load i8, ptr %9, align 1
   %40 = zext i8 %39 to i32
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %38, i32 noundef 25, ptr noundef nonnull @.str.210, i32 noundef %40) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %38, i32 noundef 25, ptr noundef nonnull @.str.211, i32 noundef %40)
   br label %45
 
 41:                                               ; preds = %21
   %42 = load ptr, ptr %18, align 8
   %43 = load i8, ptr %9, align 1
   %44 = zext i8 %43 to i32
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %42, i32 noundef 25, ptr noundef nonnull @.str.211, i32 noundef %44) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %42, i32 noundef 25, ptr noundef nonnull @.str.212, i32 noundef %44)
   br label %45
 
 45:                                               ; preds = %21, %29, %33, %37, %41, %26, %24
   %46 = add nuw nsw i32 %.037, 1
   %exitcond.not = icmp eq i32 %46, 14
-  br i1 %exitcond.not, label %.loopexit, label %21, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit, label %21, !llvm.loop !20
 
 47:                                               ; preds = %13
   %48 = add i32 %15, 14
@@ -2048,55 +2186,65 @@ define internal fastcc i32 @dissect_afsnetaddr(ptr noundef %0, i32 noundef %1, p
   %.1 = phi i32 [ %48, %47 ], [ %23, %45 ]
   %49 = load ptr, ptr %7, align 8
   %50 = sub i32 %.1, %1
-  call void @proto_item_set_len(ptr noundef %49, i32 noundef %50) #3
+  call void @proto_item_set_len(ptr noundef %49, i32 noundef %50)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #3
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #3
   ret i32 %.1
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_ndr_uuid_t(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_ndr_uint16(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_ndr_uint8(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}
+!18 = distinct !{!18, !9}
+!19 = distinct !{!19, !9}
+!20 = distinct !{!20, !9}

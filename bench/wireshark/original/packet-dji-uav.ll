@@ -3,18 +3,17 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
 %struct._djiuav_conv_info_t = type { ptr }
-%struct._frame_data = type { i32, i32, i32, i32, i64, ptr, ptr, ptr, i16, i16, %struct.nstime_t, %struct.nstime_t, i32, i32, i8 }
+%struct._frame_data = type <{ i32, i32, i32, i32, i32, [4 x i8], i64, ptr, ptr, ptr, i8, i16, [5 x i8], %struct.nstime_t, %struct.nstime_t, i32, i32 }>
 %struct._djiuav_transaction_t = type { i16, i8, i32, i32, %struct.nstime_t }
-%struct._proto_node = type { ptr, ptr, ptr, ptr, ptr, ptr }
+%struct._proto_node = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.field_info = type { ptr, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, i32, i32 }
 
-@proto_register_djiuav.hf = internal global [13 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_djiuav_magic, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_djiuav_length, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_djiuav_flags, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_djiuav_seqno, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_djiuav_cmd, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 4, i32 2, ptr @djiuav_pdu_type, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_djiuav_checksum, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_djiuav_cmd20_unknown, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_djiuav_cmdunk, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_djiuav_respunk, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_djiuav_extradata, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_djiuav_response_in, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 35, i32 0, ptr null, i64 0, ptr @.str.22, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_djiuav_response_to, %struct._header_field_info { ptr @.str.23, ptr @.str.24, i32 35, i32 0, ptr null, i64 0, ptr @.str.25, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_djiuav_response_time, %struct._header_field_info { ptr @.str.26, ptr @.str.27, i32 25, i32 0, ptr null, i64 0, ptr @.str.28, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
+@proto_register_djiuav.hf = internal global [13 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_djiuav_magic, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_djiuav_length, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_djiuav_flags, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_djiuav_seqno, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_djiuav_cmd, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 4, i32 2, ptr @djiuav_pdu_type, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_djiuav_checksum, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_djiuav_cmd20_unknown, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_djiuav_cmdunk, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_djiuav_respunk, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_djiuav_extradata, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_djiuav_response_in, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 35, i32 0, ptr inttoptr (i64 2 to ptr), i64 0, ptr @.str.22, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_djiuav_response_to, %struct._header_field_info { ptr @.str.23, ptr @.str.24, i32 35, i32 0, ptr inttoptr (i64 1 to ptr), i64 0, ptr @.str.25, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_djiuav_response_time, %struct._header_field_info { ptr @.str.26, ptr @.str.27, i32 25, i32 0, ptr null, i64 0, ptr @.str.28, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_djiuav_magic = internal global i32 0, align 4
 @.str = private unnamed_addr constant [15 x i8] c"Protocol Magic\00", align 1
 @.str.1 = private unnamed_addr constant [13 x i8] c"djiuav.magic\00", align 1
@@ -30,7 +29,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_djiuav_cmd = internal global i32 0, align 4
 @.str.8 = private unnamed_addr constant [9 x i8] c"PDU Type\00", align 1
 @.str.9 = private unnamed_addr constant [15 x i8] c"djiuav.pdutype\00", align 1
-@djiuav_pdu_type = internal constant [2 x %struct._value_string] [%struct._value_string { i32 32, ptr @.str.36 }, %struct._value_string zeroinitializer], align 16
 @hf_djiuav_checksum = internal global i32 0, align 4
 @.str.10 = private unnamed_addr constant [9 x i8] c"Checksum\00", align 1
 @.str.11 = private unnamed_addr constant [16 x i8] c"djiuav.checksum\00", align 1
@@ -67,17 +65,19 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.32 = private unnamed_addr constant [10 x i8] c"desegment\00", align 1
 @.str.33 = private unnamed_addr constant [27 x i8] c"Reassemble DJIUAV messages\00", align 1
 @.str.34 = private unnamed_addr constant [106 x i8] c"Whether DJIUAV should reassemble messages spanning multiple TCP segments (required to get useful results)\00", align 1
-@djiuav_desegment = internal global i32 1, align 4
+@djiuav_desegment = internal global i8 1, align 1
 @djiuav_handle = internal global ptr null, align 8
 @.str.35 = private unnamed_addr constant [9 x i8] c"tcp.port\00", align 1
 @.str.36 = private unnamed_addr constant [9 x i8] c"Set Time\00", align 1
-@.str.37 = private unnamed_addr constant [4 x i8] c"C: \00", align 1
-@.str.38 = private unnamed_addr constant [4 x i8] c"R: \00", align 1
-@.str.39 = private unnamed_addr constant [12 x i8] c"Type 0x%02x\00", align 1
+@djiuav_pdu_type = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.36 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.38 = private unnamed_addr constant [4 x i8] c"C: \00", align 1
+@.str.39 = private unnamed_addr constant [4 x i8] c"R: \00", align 1
+@.str.40 = private unnamed_addr constant [12 x i8] c"Type 0x%02x\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_djiuav() #0 {
   %1 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #7
   %2 = call i32 @proto_register_protocol(ptr noundef @.str.29, ptr noundef @.str.30, ptr noundef @.str.31)
   store i32 %2, ptr @proto_djiuav, align 4
   %3 = load i32, ptr @proto_djiuav, align 4
@@ -91,22 +91,32 @@ define hidden void @proto_register_djiuav() #0 {
   %7 = load i32, ptr @proto_djiuav, align 4
   %8 = call ptr @register_dissector(ptr noundef @.str.31, ptr noundef @dissect_djiuav_static, i32 noundef %7)
   store ptr %8, ptr @djiuav_handle, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #7
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #2
 
-declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #2
 
-declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) #2
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_djiuav_static(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -118,43 +128,47 @@ define internal i32 @dissect_djiuav_static(ptr noundef %0, ptr noundef %1, ptr n
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   %10 = load ptr, ptr %6, align 8
-  %11 = call i32 @test_djiuav(ptr noundef %10)
-  %12 = icmp ne i32 %11, 0
-  br i1 %12, label %14, label %13
+  %11 = call zeroext i1 @test_djiuav(ptr noundef %10)
+  br i1 %11, label %13, label %12
 
-13:                                               ; preds = %4
+12:                                               ; preds = %4
   store i32 0, ptr %5, align 4
   br label %22
 
-14:                                               ; preds = %4
-  %15 = load ptr, ptr %6, align 8
-  %16 = load ptr, ptr %7, align 8
-  %17 = load ptr, ptr %8, align 8
-  %18 = load i32, ptr @djiuav_desegment, align 4
+13:                                               ; preds = %4
+  %14 = load ptr, ptr %6, align 8
+  %15 = load ptr, ptr %7, align 8
+  %16 = load ptr, ptr %8, align 8
+  %17 = load i8, ptr @djiuav_desegment, align 1, !range !6, !noundef !7
+  %18 = trunc i8 %17 to i1
   %19 = load ptr, ptr %9, align 8
-  call void @tcp_dissect_pdus(ptr noundef %15, ptr noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef 8, ptr noundef @get_djiuav_pdu_len, ptr noundef @dissect_djiuav_pdu, ptr noundef %19)
+  call void @tcp_dissect_pdus(ptr noundef %14, ptr noundef %15, ptr noundef %16, i1 noundef zeroext %18, i32 noundef 8, ptr noundef @get_djiuav_pdu_len, ptr noundef @dissect_djiuav_pdu, ptr noundef %19)
   %20 = load ptr, ptr %6, align 8
   %21 = call i32 @tvb_captured_length(ptr noundef %20)
   store i32 %21, ptr %5, align 4
   br label %22
 
-22:                                               ; preds = %14, %13
+22:                                               ; preds = %13, %12
   %23 = load i32, ptr %5, align 4
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_djiuav() #0 {
   %1 = load ptr, ptr @djiuav_handle, align 8
   call void @dissector_add_uint_with_preference(ptr noundef @.str.35, i32 noundef 2001, ptr noundef %1)
   ret void
 }
 
-declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal i32 @test_djiuav(ptr noundef %0) #0 {
-  %2 = alloca i32, align 4
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @test_djiuav(ptr noundef %0) #0 {
+  %2 = alloca i1, align 1
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
@@ -170,21 +184,22 @@ define internal i32 @test_djiuav(ptr noundef %0) #0 {
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %7, %1
-  store i32 0, ptr %2, align 4
+  store i1 false, ptr %2, align 1
   br label %14
 
 13:                                               ; preds = %7
-  store i32 1, ptr %2, align 4
+  store i1 true, ptr %2, align 1
   br label %14
 
 14:                                               ; preds = %13, %12
-  %15 = load i32, ptr %2, align 4
-  ret i32 %15
+  %15 = load i1, ptr %2, align 1
+  ret i1 %15
 }
 
-declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @get_djiuav_pdu_len(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -197,12 +212,12 @@ define internal i32 @get_djiuav_pdu_len(ptr noundef %0, ptr noundef %1, i32 noun
   %9 = load ptr, ptr %6, align 8
   %10 = load i32, ptr %7, align 4
   %11 = add i32 %10, 2
-  %12 = call zeroext i8 @tvb_get_guint8(ptr noundef %9, i32 noundef %11)
+  %12 = call zeroext i8 @tvb_get_uint8(ptr noundef %9, i32 noundef %11)
   %13 = zext i8 %12 to i32
   ret i32 %13
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_djiuav_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -213,42 +228,48 @@ define internal i32 @dissect_djiuav_pdu(ptr noundef %0, ptr noundef %1, ptr noun
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca i8, align 1
-  %14 = alloca i32, align 4
+  %14 = alloca i8, align 1
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
   store ptr null, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #7
   store i32 0, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #7
   %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds %struct._packet_info, ptr %15, i32 0, i32 25
+  %16 = getelementptr inbounds nuw %struct._packet_info, ptr %15, i32 0, i32 26
   %17 = load i32, ptr %16, align 4
   %18 = load ptr, ptr %6, align 8
-  %19 = getelementptr inbounds %struct._packet_info, ptr %18, i32 0, i32 24
+  %19 = getelementptr inbounds nuw %struct._packet_info, ptr %18, i32 0, i32 25
   %20 = load i32, ptr %19, align 8
   %21 = icmp eq i32 %17, %20
-  %22 = zext i1 %21 to i32
-  store i32 %22, ptr %14, align 4
+  %22 = zext i1 %21 to i8
+  store i8 %22, ptr %14, align 1
   %23 = load ptr, ptr %5, align 8
-  %24 = call zeroext i8 @tvb_get_guint8(ptr noundef %23, i32 noundef 6)
+  %24 = call zeroext i8 @tvb_get_uint8(ptr noundef %23, i32 noundef 6)
   store i8 %24, ptr %13, align 1
   %25 = load ptr, ptr %6, align 8
-  %26 = getelementptr inbounds %struct._packet_info, ptr %25, i32 0, i32 1
+  %26 = getelementptr inbounds nuw %struct._packet_info, ptr %25, i32 0, i32 1
   %27 = load ptr, ptr %26, align 8
-  call void @col_set_str(ptr noundef %27, i32 noundef 34, ptr noundef @.str.30)
+  call void @col_set_str(ptr noundef %27, i32 noundef 35, ptr noundef @.str.30)
   %28 = load ptr, ptr %6, align 8
-  %29 = getelementptr inbounds %struct._packet_info, ptr %28, i32 0, i32 1
+  %29 = getelementptr inbounds nuw %struct._packet_info, ptr %28, i32 0, i32 1
   %30 = load ptr, ptr %29, align 8
-  %31 = load i32, ptr %14, align 4
-  %32 = icmp ne i32 %31, 0
-  %33 = select i1 %32, ptr @.str.37, ptr @.str.38
+  %31 = load i8, ptr %14, align 1, !range !6, !noundef !7
+  %32 = trunc i8 %31 to i1
+  %33 = select i1 %32, ptr @.str.38, ptr @.str.39
   call void @col_add_str(ptr noundef %30, i32 noundef 25, ptr noundef %33)
   %34 = load ptr, ptr %6, align 8
-  %35 = getelementptr inbounds %struct._packet_info, ptr %34, i32 0, i32 1
+  %35 = getelementptr inbounds nuw %struct._packet_info, ptr %34, i32 0, i32 1
   %36 = load ptr, ptr %35, align 8
   %37 = load i8, ptr %13, align 1
   %38 = zext i8 %37 to i32
-  %39 = call ptr @val_to_str(i32 noundef %38, ptr noundef @djiuav_pdu_type, ptr noundef @.str.39)
+  %39 = call ptr @val_to_str(i32 noundef %38, ptr noundef @djiuav_pdu_type, ptr noundef @.str.40)
   call void @col_append_str(ptr noundef %36, i32 noundef 25, ptr noundef %39)
   %40 = load ptr, ptr %7, align 8
   %41 = load i32, ptr @proto_djiuav, align 4
@@ -280,7 +301,7 @@ define internal i32 @dissect_djiuav_pdu(ptr noundef %0, ptr noundef %1, ptr noun
   store i32 %61, ptr %11, align 4
   %62 = load ptr, ptr %5, align 8
   %63 = load i32, ptr %11, align 4
-  %64 = call zeroext i8 @tvb_get_guint8(ptr noundef %62, i32 noundef %63)
+  %64 = call zeroext i8 @tvb_get_uint8(ptr noundef %62, i32 noundef %63)
   %65 = zext i8 %64 to i32
   store i32 %65, ptr %12, align 4
   %66 = load ptr, ptr %10, align 8
@@ -315,8 +336,8 @@ define internal i32 @dissect_djiuav_pdu(ptr noundef %0, ptr noundef %1, ptr noun
   %92 = load i32, ptr %11, align 4
   %93 = add i32 %92, 1
   store i32 %93, ptr %11, align 4
-  %94 = load i32, ptr %14, align 4
-  %95 = icmp ne i32 %94, 0
+  %94 = load i8, ptr %14, align 1, !range !6, !noundef !7
+  %95 = trunc i8 %94 to i1
   br i1 %95, label %96, label %120
 
 96:                                               ; preds = %54
@@ -419,28 +440,43 @@ define internal i32 @dissect_djiuav_pdu(ptr noundef %0, ptr noundef %1, ptr noun
 
 166:                                              ; preds = %157, %4
   %167 = load i32, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
   ret i32 %167
 }
 
-declare i32 @tvb_captured_length(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length(ptr noundef) #2
 
-declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #2
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #2
 
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @request_response_handling(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -450,7 +486,7 @@ define internal void @request_response_handling(ptr noundef %0, ptr noundef %1, 
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca i16, align 2
-  %13 = alloca i32, align 4
+  %13 = alloca i8, align 1
   %14 = alloca i8, align 1
   %15 = alloca ptr, align 8
   %16 = alloca ptr, align 8
@@ -459,15 +495,21 @@ define internal void @request_response_handling(ptr noundef %0, ptr noundef %1, 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.start.p0(i64 2, ptr %12) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #7
   %18 = load ptr, ptr %6, align 8
-  %19 = getelementptr inbounds %struct._packet_info, ptr %18, i32 0, i32 25
+  %19 = getelementptr inbounds nuw %struct._packet_info, ptr %18, i32 0, i32 26
   %20 = load i32, ptr %19, align 4
   %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds %struct._packet_info, ptr %21, i32 0, i32 24
+  %22 = getelementptr inbounds nuw %struct._packet_info, ptr %21, i32 0, i32 25
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i32 %20, %23
-  %25 = zext i1 %24 to i32
-  store i32 %25, ptr %13, align 4
+  %25 = zext i1 %24 to i8
+  store i8 %25, ptr %13, align 1
   %26 = load ptr, ptr %5, align 8
   %27 = load i32, ptr %8, align 4
   %28 = add i32 %27, 4
@@ -476,10 +518,10 @@ define internal void @request_response_handling(ptr noundef %0, ptr noundef %1, 
   %30 = load ptr, ptr %5, align 8
   %31 = load i32, ptr %8, align 4
   %32 = add i32 %31, 6
-  %33 = call zeroext i8 @tvb_get_guint8(ptr noundef %30, i32 noundef %32)
+  %33 = call zeroext i8 @tvb_get_uint8(ptr noundef %30, i32 noundef %32)
   store i8 %33, ptr %14, align 1
   %34 = load ptr, ptr %6, align 8
-  %35 = call nonnull ptr @find_or_create_conversation(ptr noundef %34)
+  %35 = call ptr @find_or_create_conversation(ptr noundef %34)
   store ptr %35, ptr %9, align 8
   %36 = load ptr, ptr %9, align 8
   %37 = load i32, ptr @proto_djiuav, align 4
@@ -491,12 +533,12 @@ define internal void @request_response_handling(ptr noundef %0, ptr noundef %1, 
 
 41:                                               ; preds = %4
   %42 = call ptr @wmem_file_scope()
-  %43 = call noalias ptr @wmem_alloc(ptr noundef %42, i64 noundef 8)
+  %43 = call noalias ptr @wmem_alloc(ptr noundef %42, i64 noundef 8) #8
   store ptr %43, ptr %10, align 8
   %44 = call ptr @wmem_file_scope()
   %45 = call noalias ptr @wmem_map_new(ptr noundef %44, ptr noundef @g_direct_hash, ptr noundef @g_direct_equal)
   %46 = load ptr, ptr %10, align 8
-  %47 = getelementptr inbounds %struct._djiuav_conv_info_t, ptr %46, i32 0, i32 0
+  %47 = getelementptr inbounds nuw %struct._djiuav_conv_info_t, ptr %46, i32 0, i32 0
   store ptr %45, ptr %47, align 8
   %48 = load ptr, ptr %9, align 8
   %49 = load i32, ptr @proto_djiuav, align 4
@@ -506,10 +548,10 @@ define internal void @request_response_handling(ptr noundef %0, ptr noundef %1, 
 
 51:                                               ; preds = %41, %4
   %52 = load ptr, ptr %6, align 8
-  %53 = getelementptr inbounds %struct._packet_info, ptr %52, i32 0, i32 8
+  %53 = getelementptr inbounds nuw %struct._packet_info, ptr %52, i32 0, i32 8
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds %struct._frame_data, ptr %54, i32 0, i32 9
-  %56 = load i16, ptr %55, align 2
+  %55 = getelementptr inbounds nuw %struct._frame_data, ptr %54, i32 0, i32 11
+  %56 = load i16, ptr %55, align 1
   %57 = lshr i16 %56, 3
   %58 = and i16 %57, 1
   %59 = zext i16 %58 to i32
@@ -517,38 +559,38 @@ define internal void @request_response_handling(ptr noundef %0, ptr noundef %1, 
   br i1 %60, label %118, label %61
 
 61:                                               ; preds = %51
-  %62 = load i32, ptr %13, align 4
-  %63 = icmp ne i32 %62, 0
+  %62 = load i8, ptr %13, align 1, !range !6, !noundef !7
+  %63 = trunc i8 %62 to i1
   br i1 %63, label %64, label %93
 
 64:                                               ; preds = %61
   %65 = call ptr @wmem_file_scope()
-  %66 = call noalias ptr @wmem_alloc(ptr noundef %65, i64 noundef 32)
+  %66 = call noalias ptr @wmem_alloc(ptr noundef %65, i64 noundef 32) #8
   store ptr %66, ptr %11, align 8
   %67 = load ptr, ptr %6, align 8
-  %68 = getelementptr inbounds %struct._packet_info, ptr %67, i32 0, i32 3
+  %68 = getelementptr inbounds nuw %struct._packet_info, ptr %67, i32 0, i32 3
   %69 = load i32, ptr %68, align 4
   %70 = load ptr, ptr %11, align 8
-  %71 = getelementptr inbounds %struct._djiuav_transaction_t, ptr %70, i32 0, i32 2
+  %71 = getelementptr inbounds nuw %struct._djiuav_transaction_t, ptr %70, i32 0, i32 2
   store i32 %69, ptr %71, align 4
   %72 = load ptr, ptr %11, align 8
-  %73 = getelementptr inbounds %struct._djiuav_transaction_t, ptr %72, i32 0, i32 3
+  %73 = getelementptr inbounds nuw %struct._djiuav_transaction_t, ptr %72, i32 0, i32 3
   store i32 0, ptr %73, align 8
   %74 = load ptr, ptr %11, align 8
-  %75 = getelementptr inbounds %struct._djiuav_transaction_t, ptr %74, i32 0, i32 4
+  %75 = getelementptr inbounds nuw %struct._djiuav_transaction_t, ptr %74, i32 0, i32 4
   %76 = load ptr, ptr %6, align 8
-  %77 = getelementptr inbounds %struct._packet_info, ptr %76, i32 0, i32 4
+  %77 = getelementptr inbounds nuw %struct._packet_info, ptr %76, i32 0, i32 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %75, ptr align 8 %77, i64 16, i1 false)
   %78 = load i16, ptr %12, align 2
   %79 = load ptr, ptr %11, align 8
-  %80 = getelementptr inbounds %struct._djiuav_transaction_t, ptr %79, i32 0, i32 0
+  %80 = getelementptr inbounds nuw %struct._djiuav_transaction_t, ptr %79, i32 0, i32 0
   store i16 %78, ptr %80, align 8
   %81 = load i8, ptr %14, align 1
   %82 = load ptr, ptr %11, align 8
-  %83 = getelementptr inbounds %struct._djiuav_transaction_t, ptr %82, i32 0, i32 1
+  %83 = getelementptr inbounds nuw %struct._djiuav_transaction_t, ptr %82, i32 0, i32 1
   store i8 %81, ptr %83, align 2
   %84 = load ptr, ptr %10, align 8
-  %85 = getelementptr inbounds %struct._djiuav_conv_info_t, ptr %84, i32 0, i32 0
+  %85 = getelementptr inbounds nuw %struct._djiuav_conv_info_t, ptr %84, i32 0, i32 0
   %86 = load ptr, ptr %85, align 8
   %87 = load i16, ptr %12, align 2
   %88 = zext i16 %87 to i32
@@ -560,7 +602,7 @@ define internal void @request_response_handling(ptr noundef %0, ptr noundef %1, 
 
 93:                                               ; preds = %61
   %94 = load ptr, ptr %10, align 8
-  %95 = getelementptr inbounds %struct._djiuav_conv_info_t, ptr %94, i32 0, i32 0
+  %95 = getelementptr inbounds nuw %struct._djiuav_conv_info_t, ptr %94, i32 0, i32 0
   %96 = load ptr, ptr %95, align 8
   %97 = load i16, ptr %12, align 2
   %98 = zext i16 %97 to i32
@@ -574,17 +616,17 @@ define internal void @request_response_handling(ptr noundef %0, ptr noundef %1, 
 
 104:                                              ; preds = %93
   %105 = load ptr, ptr %11, align 8
-  %106 = getelementptr inbounds %struct._djiuav_transaction_t, ptr %105, i32 0, i32 3
+  %106 = getelementptr inbounds nuw %struct._djiuav_transaction_t, ptr %105, i32 0, i32 3
   %107 = load i32, ptr %106, align 8
   %108 = icmp eq i32 %107, 0
   br i1 %108, label %109, label %115
 
 109:                                              ; preds = %104
   %110 = load ptr, ptr %6, align 8
-  %111 = getelementptr inbounds %struct._packet_info, ptr %110, i32 0, i32 3
+  %111 = getelementptr inbounds nuw %struct._packet_info, ptr %110, i32 0, i32 3
   %112 = load i32, ptr %111, align 4
   %113 = load ptr, ptr %11, align 8
-  %114 = getelementptr inbounds %struct._djiuav_transaction_t, ptr %113, i32 0, i32 3
+  %114 = getelementptr inbounds nuw %struct._djiuav_transaction_t, ptr %113, i32 0, i32 3
   store i32 %112, ptr %114, align 8
   br label %115
 
@@ -599,7 +641,7 @@ define internal void @request_response_handling(ptr noundef %0, ptr noundef %1, 
 
 118:                                              ; preds = %51
   %119 = load ptr, ptr %10, align 8
-  %120 = getelementptr inbounds %struct._djiuav_conv_info_t, ptr %119, i32 0, i32 0
+  %120 = getelementptr inbounds nuw %struct._djiuav_conv_info_t, ptr %119, i32 0, i32 0
   %121 = load ptr, ptr %120, align 8
   %122 = load i16, ptr %12, align 2
   %123 = zext i16 %122 to i32
@@ -620,28 +662,30 @@ define internal void @request_response_handling(ptr noundef %0, ptr noundef %1, 
   br i1 %132, label %133, label %176
 
 133:                                              ; preds = %130
-  %134 = load i32, ptr %13, align 4
-  %135 = icmp ne i32 %134, 0
+  %134 = load i8, ptr %13, align 1, !range !6, !noundef !7
+  %135 = trunc i8 %134 to i1
   br i1 %135, label %136, label %151
 
 136:                                              ; preds = %133
   %137 = load ptr, ptr %11, align 8
-  %138 = getelementptr inbounds %struct._djiuav_transaction_t, ptr %137, i32 0, i32 3
+  %138 = getelementptr inbounds nuw %struct._djiuav_transaction_t, ptr %137, i32 0, i32 3
   %139 = load i32, ptr %138, align 8
   %140 = icmp ne i32 %139, 0
   br i1 %140, label %141, label %150
 
 141:                                              ; preds = %136
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
   %142 = load ptr, ptr %7, align 8
   %143 = load i32, ptr @hf_djiuav_response_in, align 4
   %144 = load ptr, ptr %5, align 8
   %145 = load ptr, ptr %11, align 8
-  %146 = getelementptr inbounds %struct._djiuav_transaction_t, ptr %145, i32 0, i32 3
+  %146 = getelementptr inbounds nuw %struct._djiuav_transaction_t, ptr %145, i32 0, i32 3
   %147 = load i32, ptr %146, align 8
   %148 = call ptr @proto_tree_add_uint(ptr noundef %142, i32 noundef %143, ptr noundef %144, i32 noundef 0, i32 noundef 0, i32 noundef %147)
   store ptr %148, ptr %15, align 8
   %149 = load ptr, ptr %15, align 8
   call void @proto_item_set_generated(ptr noundef %149)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
   br label %150
 
 150:                                              ; preds = %141, %136
@@ -649,26 +693,28 @@ define internal void @request_response_handling(ptr noundef %0, ptr noundef %1, 
 
 151:                                              ; preds = %133
   %152 = load ptr, ptr %11, align 8
-  %153 = getelementptr inbounds %struct._djiuav_transaction_t, ptr %152, i32 0, i32 2
+  %153 = getelementptr inbounds nuw %struct._djiuav_transaction_t, ptr %152, i32 0, i32 2
   %154 = load i32, ptr %153, align 4
   %155 = icmp ne i32 %154, 0
   br i1 %155, label %156, label %174
 
 156:                                              ; preds = %151
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #7
+  call void @llvm.lifetime.start.p0(i64 16, ptr %17) #7
   %157 = load ptr, ptr %7, align 8
   %158 = load i32, ptr @hf_djiuav_response_to, align 4
   %159 = load ptr, ptr %5, align 8
   %160 = load ptr, ptr %11, align 8
-  %161 = getelementptr inbounds %struct._djiuav_transaction_t, ptr %160, i32 0, i32 2
+  %161 = getelementptr inbounds nuw %struct._djiuav_transaction_t, ptr %160, i32 0, i32 2
   %162 = load i32, ptr %161, align 4
   %163 = call ptr @proto_tree_add_uint(ptr noundef %157, i32 noundef %158, ptr noundef %159, i32 noundef 0, i32 noundef 0, i32 noundef %162)
   store ptr %163, ptr %16, align 8
   %164 = load ptr, ptr %16, align 8
   call void @proto_item_set_generated(ptr noundef %164)
   %165 = load ptr, ptr %6, align 8
-  %166 = getelementptr inbounds %struct._packet_info, ptr %165, i32 0, i32 4
+  %166 = getelementptr inbounds nuw %struct._packet_info, ptr %165, i32 0, i32 4
   %167 = load ptr, ptr %11, align 8
-  %168 = getelementptr inbounds %struct._djiuav_transaction_t, ptr %167, i32 0, i32 4
+  %168 = getelementptr inbounds nuw %struct._djiuav_transaction_t, ptr %167, i32 0, i32 4
   call void @nstime_delta(ptr noundef %17, ptr noundef %166, ptr noundef %168)
   %169 = load ptr, ptr %7, align 8
   %170 = load i32, ptr @hf_djiuav_response_time, align 4
@@ -677,6 +723,8 @@ define internal void @request_response_handling(ptr noundef %0, ptr noundef %1, 
   store ptr %172, ptr %16, align 8
   %173 = load ptr, ptr %16, align 8
   call void @proto_item_set_generated(ptr noundef %173)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %17) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #7
   br label %174
 
 174:                                              ; preds = %156, %151
@@ -686,42 +734,59 @@ define internal void @request_response_handling(ptr noundef %0, ptr noundef %1, 
   br label %176
 
 176:                                              ; preds = %175, %130, %127
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 2, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
   ret void
 }
 
-declare ptr @proto_tree_add_checksum(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_checksum(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) #2
 
-declare nonnull ptr @find_or_create_conversation(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @find_or_create_conversation(ptr noundef) #2
 
-declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) #2
 
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) #1
+; Function Attrs: null_pointer_is_valid allocsize(1)
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) #3
 
-declare ptr @wmem_file_scope() #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_file_scope() #2
 
-declare noalias ptr @wmem_map_new(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @wmem_map_new(ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind willreturn memory(none)
-declare i32 @g_direct_hash(ptr noundef) #2
+; Function Attrs: nounwind null_pointer_is_valid willreturn memory(none)
+declare i32 @g_direct_hash(ptr noundef) #4
 
-; Function Attrs: nounwind willreturn memory(none)
-declare i32 @g_direct_equal(ptr noundef, ptr noundef) #2
+; Function Attrs: nounwind null_pointer_is_valid willreturn memory(none)
+declare i32 @g_direct_equal(ptr noundef, ptr noundef) #4
 
-declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
-declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @wmem_map_lookup(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_map_lookup(ptr noundef, ptr noundef) #2
 
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal void @proto_item_set_generated(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind null_pointer_is_valid sspstrong uwtable
+define internal void @proto_item_set_generated(ptr noundef %0) #6 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -733,22 +798,22 @@ define internal void @proto_item_set_generated(ptr noundef %0) #0 {
 
 6:                                                ; preds = %5
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct._proto_node, ptr %7, i32 0, i32 4
+  %8 = getelementptr inbounds nuw %struct._proto_node, ptr %7, i32 0, i32 5
   %9 = load ptr, ptr %8, align 8
   %10 = icmp ne ptr %9, null
   br i1 %10, label %11, label %22
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct._proto_node, ptr %12, i32 0, i32 4
+  %13 = getelementptr inbounds nuw %struct._proto_node, ptr %12, i32 0, i32 5
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds %struct.field_info, ptr %14, i32 0, i32 6
+  %15 = getelementptr inbounds nuw %struct.field_info, ptr %14, i32 0, i32 6
   %16 = load i32, ptr %15, align 4
   %17 = or i32 %16, 2
   %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds %struct._proto_node, ptr %18, i32 0, i32 4
+  %19 = getelementptr inbounds nuw %struct._proto_node, ptr %18, i32 0, i32 5
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds %struct.field_info, ptr %20, i32 0, i32 6
+  %21 = getelementptr inbounds nuw %struct.field_info, ptr %20, i32 0, i32 6
   store i32 %17, ptr %21, align 4
   br label %22
 
@@ -762,18 +827,29 @@ define internal void @proto_item_set_generated(ptr noundef %0) #0 {
   ret void
 }
 
-declare void @nstime_delta(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @nstime_delta(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind null_pointer_is_valid willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { inlinehint nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind }
+attributes #8 = { allocsize(1) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}

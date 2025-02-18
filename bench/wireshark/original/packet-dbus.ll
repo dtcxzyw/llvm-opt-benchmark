@@ -3,48 +3,43 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
 %struct.true_false_string = type { ptr, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
 %struct.dbus_packet_t = type { ptr, ptr, i32, i32, i8, i32, i32, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, i32 }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
-%struct._dbus_type_reader_t = type { ptr, ptr, i32, i32, i32, i32, ptr, i32, i32, i32, i32, i32, ptr, ptr }
+%struct._dbus_type_reader_t = type { ptr, ptr, i32, i32, i32, i32, ptr, i32, i8, i8, i8, i8, ptr, ptr }
 %union.dbus_val_t = type { i64 }
 %struct.dbus_transaction_t = type { i32, i32, %struct.nstime_t, ptr, ptr, ptr }
-%struct._frame_data = type { i32, i32, i32, i32, i64, ptr, ptr, ptr, i16, i16, %struct.nstime_t, %struct.nstime_t, i32, i32, i8 }
+%struct._frame_data = type <{ i32, i32, i32, i32, i32, [4 x i8], i64, ptr, ptr, ptr, i8, i16, [5 x i8], %struct.nstime_t, %struct.nstime_t, i32, i32 }>
 %struct.dbus_conv_info_t = type { ptr }
-%struct._proto_node = type { ptr, ptr, ptr, ptr, ptr, ptr }
+%struct._proto_node = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.field_info = type { ptr, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, i32, i32 }
 
 @proto_register_dbus.hf = internal global [44 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_dbus_endianness, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 4, i32 0, ptr @endianness_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dbus_message_type, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 4, i32 0, ptr @message_type_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dbus_flags, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dbus_flags_no_reply_expected, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 2, i32 8, ptr @not_expected_vals, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dbus_flags_no_auto_start, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 2, i32 8, ptr @no_start_vals, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dbus_flags_allow_interactive_authorization, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 2, i32 8, ptr @allow_vals, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dbus_version, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dbus_body_length, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dbus_serial, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dbus_field_code, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 4, i32 1, ptr @field_code_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dbus_padding, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 30, i32 8192, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dbus_path, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 28, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dbus_interface, %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 28, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dbus_member, %struct._header_field_info { ptr @.str.26, ptr @.str.27, i32 28, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dbus_error_name, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 28, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dbus_reply_serial, %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dbus_destination, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 28, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dbus_sender, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 28, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dbus_signature, %struct._header_field_info { ptr @.str.36, ptr @.str.37, i32 28, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dbus_unix_fds, %struct._header_field_info { ptr @.str.38, ptr @.str.39, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dbus_body, %struct._header_field_info { ptr @.str.40, ptr @.str.41, i32 30, i32 8192, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dbus_type_byte, %struct._header_field_info { ptr @.str.42, ptr @.str.43, i32 4, i32 4, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dbus_type_boolean, %struct._header_field_info { ptr @.str.44, ptr @.str.45, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dbus_type_int16, %struct._header_field_info { ptr @.str.46, ptr @.str.47, i32 13, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dbus_type_uint16, %struct._header_field_info { ptr @.str.48, ptr @.str.49, i32 5, i32 4, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dbus_type_int32, %struct._header_field_info { ptr @.str.50, ptr @.str.51, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dbus_type_uint32, %struct._header_field_info { ptr @.str.52, ptr @.str.53, i32 7, i32 4, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dbus_type_int64, %struct._header_field_info { ptr @.str.54, ptr @.str.55, i32 19, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dbus_type_uint64, %struct._header_field_info { ptr @.str.56, ptr @.str.57, i32 11, i32 4, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dbus_type_double, %struct._header_field_info { ptr @.str.58, ptr @.str.59, i32 23, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dbus_type_string, %struct._header_field_info { ptr @.str.60, ptr @.str.61, i32 28, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dbus_type_object_path, %struct._header_field_info { ptr @.str.62, ptr @.str.63, i32 28, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dbus_type_signature, %struct._header_field_info { ptr @.str.36, ptr @.str.64, i32 28, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dbus_type_array, %struct._header_field_info { ptr @.str.65, ptr @.str.66, i32 30, i32 8192, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dbus_type_array_length, %struct._header_field_info { ptr @.str.67, ptr @.str.68, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dbus_type_struct, %struct._header_field_info { ptr @.str.69, ptr @.str.70, i32 30, i32 8192, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dbus_type_variant, %struct._header_field_info { ptr @.str.71, ptr @.str.72, i32 30, i32 8192, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dbus_type_variant_signature, %struct._header_field_info { ptr @.str.73, ptr @.str.74, i32 28, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dbus_type_dict_entry, %struct._header_field_info { ptr @.str.75, ptr @.str.76, i32 30, i32 8192, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dbus_type_dict_entry_key, %struct._header_field_info { ptr @.str.77, ptr @.str.78, i32 30, i32 8192, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dbus_type_unix_fd, %struct._header_field_info { ptr @.str.79, ptr @.str.80, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dbus_response_in, %struct._header_field_info { ptr @.str.81, ptr @.str.82, i32 35, i32 0, ptr inttoptr (i64 2 to ptr), i64 0, ptr @.str.83, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dbus_response_to, %struct._header_field_info { ptr @.str.84, ptr @.str.85, i32 35, i32 0, ptr inttoptr (i64 1 to ptr), i64 0, ptr @.str.86, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dbus_response_time, %struct._header_field_info { ptr @.str.87, ptr @.str.88, i32 25, i32 0, ptr null, i64 0, ptr @.str.89, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_dbus_endianness = internal global i32 0, align 4
 @.str = private unnamed_addr constant [11 x i8] c"Endianness\00", align 1
 @.str.1 = private unnamed_addr constant [16 x i8] c"dbus.endianness\00", align 1
-@endianness_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 108, ptr @.str.140 }, %struct._value_string { i32 66, ptr @.str.141 }, %struct._value_string zeroinitializer], align 16
 @hf_dbus_message_type = internal global i32 0, align 4
 @.str.2 = private unnamed_addr constant [13 x i8] c"Message Type\00", align 1
 @.str.3 = private unnamed_addr constant [18 x i8] c"dbus.message_type\00", align 1
-@message_type_vals = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.142 }, %struct._value_string { i32 1, ptr @.str.143 }, %struct._value_string { i32 2, ptr @.str.144 }, %struct._value_string { i32 3, ptr @.str.145 }, %struct._value_string { i32 4, ptr @.str.146 }, %struct._value_string zeroinitializer], align 16
 @hf_dbus_flags = internal global i32 0, align 4
 @.str.4 = private unnamed_addr constant [14 x i8] c"Message Flags\00", align 1
 @.str.5 = private unnamed_addr constant [11 x i8] c"dbus.flags\00", align 1
 @hf_dbus_flags_no_reply_expected = internal global i32 0, align 4
 @.str.6 = private unnamed_addr constant [18 x i8] c"No Reply Expected\00", align 1
 @.str.7 = private unnamed_addr constant [29 x i8] c"dbus.flags.no_reply_expected\00", align 1
-@not_expected_vals = internal constant %struct.true_false_string { ptr @.str.147, ptr @.str.148 }, align 8
+@not_expected_vals = internal constant %struct.true_false_string { ptr @.str.149, ptr @.str.150 }, align 8
 @hf_dbus_flags_no_auto_start = internal global i32 0, align 4
 @.str.8 = private unnamed_addr constant [14 x i8] c"No Auto Start\00", align 1
 @.str.9 = private unnamed_addr constant [25 x i8] c"dbus.flags.no_auto_start\00", align 1
-@no_start_vals = internal constant %struct.true_false_string { ptr @.str.149, ptr @.str.150 }, align 8
+@no_start_vals = internal constant %struct.true_false_string { ptr @.str.151, ptr @.str.152 }, align 8
 @hf_dbus_flags_allow_interactive_authorization = internal global i32 0, align 4
 @.str.10 = private unnamed_addr constant [32 x i8] c"Allow Interactive Authorization\00", align 1
 @.str.11 = private unnamed_addr constant [43 x i8] c"dbus.flags.allow_interactive_authorization\00", align 1
-@allow_vals = internal constant %struct.true_false_string { ptr @.str.151, ptr @.str.152 }, align 8
+@allow_vals = internal constant %struct.true_false_string { ptr @.str.153, ptr @.str.154 }, align 8
 @hf_dbus_version = internal global i32 0, align 4
 @.str.12 = private unnamed_addr constant [17 x i8] c"Protocol Version\00", align 1
 @.str.13 = private unnamed_addr constant [13 x i8] c"dbus.version\00", align 1
@@ -57,7 +52,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_dbus_field_code = internal global i32 0, align 4
 @.str.18 = private unnamed_addr constant [11 x i8] c"Field Code\00", align 1
 @.str.19 = private unnamed_addr constant [16 x i8] c"dbus.field_code\00", align 1
-@field_code_vals = internal constant [11 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.142 }, %struct._value_string { i32 1, ptr @.str.22 }, %struct._value_string { i32 2, ptr @.str.24 }, %struct._value_string { i32 3, ptr @.str.26 }, %struct._value_string { i32 4, ptr @.str.28 }, %struct._value_string { i32 5, ptr @.str.30 }, %struct._value_string { i32 6, ptr @.str.32 }, %struct._value_string { i32 7, ptr @.str.153 }, %struct._value_string { i32 8, ptr @.str.36 }, %struct._value_string { i32 9, ptr @.str.38 }, %struct._value_string zeroinitializer], align 16
 @hf_dbus_padding = internal global i32 0, align 4
 @.str.20 = private unnamed_addr constant [8 x i8] c"Padding\00", align 1
 @.str.21 = private unnamed_addr constant [13 x i8] c"dbus.padding\00", align 1
@@ -172,7 +166,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_dbus_type_struct = internal global i32 0, align 4
 @ett_dbus_type_variant = internal global i32 0, align 4
 @ett_dbus_type_dict_entry = internal global i32 0, align 4
-@proto_register_dbus.ei = internal global [21 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_dbus_endianness_invalid, %struct.expert_field_info { ptr @.str.90, i32 150994944, i32 8388608, ptr @.str.91, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_dbus_message_type_invalid, %struct.expert_field_info { ptr @.str.92, i32 150994944, i32 8388608, ptr @.str.93, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_dbus_message_type_unknown, %struct.expert_field_info { ptr @.str.94, i32 150994944, i32 6291456, ptr @.str.95, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_dbus_version_invalid, %struct.expert_field_info { ptr @.str.96, i32 150994944, i32 8388608, ptr @.str.97, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_dbus_serial_invalid, %struct.expert_field_info { ptr @.str.98, i32 150994944, i32 8388608, ptr @.str.99, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_dbus_field_code_invalid, %struct.expert_field_info { ptr @.str.100, i32 150994944, i32 8388608, ptr @.str.101, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_dbus_required_header_field_missing, %struct.expert_field_info { ptr @.str.102, i32 150994944, i32 8388608, ptr @.str.103, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_dbus_padding_invalid, %struct.expert_field_info { ptr @.str.104, i32 150994944, i32 8388608, ptr @.str.105, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_dbus_field_signature_wrong, %struct.expert_field_info { ptr @.str.106, i32 150994944, i32 8388608, ptr @.str.107, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_dbus_interface_invalid, %struct.expert_field_info { ptr @.str.108, i32 150994944, i32 8388608, ptr @.str.109, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_dbus_member_invalid, %struct.expert_field_info { ptr @.str.110, i32 150994944, i32 8388608, ptr @.str.111, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_dbus_error_name_invalid, %struct.expert_field_info { ptr @.str.112, i32 150994944, i32 8388608, ptr @.str.113, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_dbus_bus_name_invalid, %struct.expert_field_info { ptr @.str.114, i32 150994944, i32 8388608, ptr @.str.115, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_dbus_type_boolean_invalid, %struct.expert_field_info { ptr @.str.116, i32 150994944, i32 8388608, ptr @.str.117, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_dbus_string_invalid, %struct.expert_field_info { ptr @.str.118, i32 150994944, i32 8388608, ptr @.str.119, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_dbus_type_signature_invalid, %struct.expert_field_info { ptr @.str.120, i32 150994944, i32 8388608, ptr @.str.121, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_dbus_type_array_too_long, %struct.expert_field_info { ptr @.str.122, i32 150994944, i32 8388608, ptr @.str.123, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_dbus_type_array_content_out_of_bounds, %struct.expert_field_info { ptr @.str.124, i32 150994944, i32 8388608, ptr @.str.125, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_dbus_type_object_path_invalid, %struct.expert_field_info { ptr @.str.126, i32 150994944, i32 8388608, ptr @.str.127, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_dbus_type_variant_signature_invalid, %struct.expert_field_info { ptr @.str.128, i32 150994944, i32 8388608, ptr @.str.129, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_dbus_nested_too_deeply, %struct.expert_field_info { ptr @.str.130, i32 150994944, i32 8388608, ptr @.str.131, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_dbus.ei = internal global [21 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_dbus_endianness_invalid, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.90, i32 150994944, i32 8388608, ptr @.str.91, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_dbus_message_type_invalid, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.92, i32 150994944, i32 8388608, ptr @.str.93, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_dbus_message_type_unknown, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.94, i32 150994944, i32 6291456, ptr @.str.95, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_dbus_version_invalid, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.96, i32 150994944, i32 8388608, ptr @.str.97, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_dbus_serial_invalid, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.98, i32 150994944, i32 8388608, ptr @.str.99, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_dbus_field_code_invalid, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.100, i32 150994944, i32 8388608, ptr @.str.101, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_dbus_required_header_field_missing, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.102, i32 150994944, i32 8388608, ptr @.str.103, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_dbus_padding_invalid, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.104, i32 150994944, i32 8388608, ptr @.str.105, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_dbus_field_signature_wrong, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.106, i32 150994944, i32 8388608, ptr @.str.107, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_dbus_interface_invalid, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.108, i32 150994944, i32 8388608, ptr @.str.109, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_dbus_member_invalid, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.110, i32 150994944, i32 8388608, ptr @.str.111, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_dbus_error_name_invalid, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.112, i32 150994944, i32 8388608, ptr @.str.113, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_dbus_bus_name_invalid, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.114, i32 150994944, i32 8388608, ptr @.str.115, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_dbus_type_boolean_invalid, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.116, i32 150994944, i32 8388608, ptr @.str.117, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_dbus_string_invalid, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.118, i32 150994944, i32 8388608, ptr @.str.119, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_dbus_type_signature_invalid, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.120, i32 150994944, i32 8388608, ptr @.str.121, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_dbus_type_array_too_long, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.122, i32 150994944, i32 8388608, ptr @.str.123, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_dbus_type_array_content_out_of_bounds, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.124, i32 150994944, i32 8388608, ptr @.str.125, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_dbus_type_object_path_invalid, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.126, i32 150994944, i32 8388608, ptr @.str.127, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_dbus_type_variant_signature_invalid, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.128, i32 150994944, i32 8388608, ptr @.str.129, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_dbus_nested_too_deeply, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.130, i32 150994944, i32 8388608, ptr @.str.131, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_dbus_endianness_invalid = internal global %struct.expert_field zeroinitializer, align 4
 @.str.90 = private unnamed_addr constant [24 x i8] c"dbus.endianness.invalid\00", align 1
 @.str.91 = private unnamed_addr constant [24 x i8] c"Invalid endianness flag\00", align 1
@@ -245,54 +239,59 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.135 = private unnamed_addr constant [14 x i8] c"resolve_names\00", align 1
 @.str.136 = private unnamed_addr constant [43 x i8] c"Resolve unique names into well-known names\00", align 1
 @.str.137 = private unnamed_addr constant [203 x i8] c"Show the first inferred well-known bus name (e.g. \22com.example.MusicPlayer1\22) instead of the unique connection name (e.g. \22:1.18\22). Might be confusing if a connection owns more than one well-known name.\00", align 1
-@dbus_resolve_names = internal global i32 1, align 4
+@dbus_resolve_names = internal global i8 1, align 1
 @request_info_map = internal global ptr null, align 8
 @unique_name_map = internal global ptr null, align 8
 @.str.138 = private unnamed_addr constant [11 x i8] c"wtap_encap\00", align 1
 @.str.139 = private unnamed_addr constant [9 x i8] c"tcp.port\00", align 1
 @.str.140 = private unnamed_addr constant [14 x i8] c"little-endian\00", align 1
 @.str.141 = private unnamed_addr constant [11 x i8] c"big-endian\00", align 1
-@.str.142 = private unnamed_addr constant [8 x i8] c"Invalid\00", align 1
-@.str.143 = private unnamed_addr constant [12 x i8] c"Method call\00", align 1
-@.str.144 = private unnamed_addr constant [13 x i8] c"Method reply\00", align 1
-@.str.145 = private unnamed_addr constant [12 x i8] c"Error reply\00", align 1
-@.str.146 = private unnamed_addr constant [16 x i8] c"Signal emission\00", align 1
-@.str.147 = private unnamed_addr constant [13 x i8] c"Not expected\00", align 1
-@.str.148 = private unnamed_addr constant [9 x i8] c"Expected\00", align 1
-@.str.149 = private unnamed_addr constant [12 x i8] c"Don't start\00", align 1
-@.str.150 = private unnamed_addr constant [6 x i8] c"Start\00", align 1
-@.str.151 = private unnamed_addr constant [6 x i8] c"Allow\00", align 1
-@.str.152 = private unnamed_addr constant [12 x i8] c"Don't allow\00", align 1
-@.str.153 = private unnamed_addr constant [7 x i8] c"sender\00", align 1
-@.str.154 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
-@.str.155 = private unnamed_addr constant [55 x i8] c"%s:%u: failed assertion \22DISSECTOR_ASSERT_NOT_REACHED\22\00", align 1
-@.str.156 = private unnamed_addr constant [30 x i8] c"epan/dissectors/packet-dbus.c\00", align 1
-@.str.157 = private unnamed_addr constant [6 x i8] c"a{yv}\00", align 1
-@.str.158 = private unnamed_addr constant [19 x i8] c"Header Field Array\00", align 1
-@.str.159 = private unnamed_addr constant [19 x i8] c"Unknown field code\00", align 1
-@.str.160 = private unnamed_addr constant [5 x i8] c", %s\00", align 1
-@.str.161 = private unnamed_addr constant [2 x i8] c"o\00", align 1
-@.str.162 = private unnamed_addr constant [2 x i8] c"s\00", align 1
-@.str.163 = private unnamed_addr constant [2 x i8] c"u\00", align 1
-@.str.164 = private unnamed_addr constant [2 x i8] c"g\00", align 1
-@.str.165 = private unnamed_addr constant [12 x i8] c"%s(%s) @ %s\00", align 1
-@.str.166 = private unnamed_addr constant [14 x i8] c"* %s(%s) @ %s\00", align 1
-@.str.167 = private unnamed_addr constant [9 x i8] c"! %s: %s\00", align 1
-@.str.168 = private unnamed_addr constant [5 x i8] c"! %s\00", align 1
-@.str.169 = private unnamed_addr constant [12 x i8] c"-> %s: '%s'\00", align 1
-@.str.170 = private unnamed_addr constant [10 x i8] c"-> %s: OK\00", align 1
-@.str.171 = private unnamed_addr constant [8 x i8] c"-> '%s'\00", align 1
-@.str.172 = private unnamed_addr constant [8 x i8] c" (Dict)\00", align 1
-@.str.173 = private unnamed_addr constant [29 x i8] c"%s:%u: failed assertion \22%s\22\00", align 1
-@.str.174 = private unnamed_addr constant [18 x i8] c"reader->signature\00", align 1
-@.str.175 = private unnamed_addr constant [5 x i8] c": %s\00", align 1
-@.str.176 = private unnamed_addr constant [6 x i8] c"%s %u\00", align 1
-@dbus_desegment = internal global i32 1, align 4
+@endianness_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 108, [4 x i8] zeroinitializer, ptr @.str.140 }, { i32, [4 x i8], ptr } { i32 66, [4 x i8] zeroinitializer, ptr @.str.141 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.143 = private unnamed_addr constant [8 x i8] c"Invalid\00", align 1
+@.str.144 = private unnamed_addr constant [12 x i8] c"Method call\00", align 1
+@.str.145 = private unnamed_addr constant [13 x i8] c"Method reply\00", align 1
+@.str.146 = private unnamed_addr constant [12 x i8] c"Error reply\00", align 1
+@.str.147 = private unnamed_addr constant [16 x i8] c"Signal emission\00", align 1
+@message_type_vals = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.143 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.144 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.145 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.146 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.147 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.149 = private unnamed_addr constant [13 x i8] c"Not expected\00", align 1
+@.str.150 = private unnamed_addr constant [9 x i8] c"Expected\00", align 1
+@.str.151 = private unnamed_addr constant [12 x i8] c"Don't start\00", align 1
+@.str.152 = private unnamed_addr constant [6 x i8] c"Start\00", align 1
+@.str.153 = private unnamed_addr constant [6 x i8] c"Allow\00", align 1
+@.str.154 = private unnamed_addr constant [12 x i8] c"Don't allow\00", align 1
+@.str.155 = private unnamed_addr constant [7 x i8] c"sender\00", align 1
+@field_code_vals = internal constant [11 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.143 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.22 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.24 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.26 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.28 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.30 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.32 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.155 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.36 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.38 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.157 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@.str.158 = private unnamed_addr constant [55 x i8] c"%s:%u: failed assertion \22DISSECTOR_ASSERT_NOT_REACHED\22\00", align 1
+@.str.159 = private unnamed_addr constant [30 x i8] c"epan/dissectors/packet-dbus.c\00", align 1
+@.str.160 = private unnamed_addr constant [6 x i8] c"a{yv}\00", align 1
+@.str.161 = private unnamed_addr constant [19 x i8] c"Header Field Array\00", align 1
+@.str.162 = private unnamed_addr constant [19 x i8] c"Unknown field code\00", align 1
+@.str.163 = private unnamed_addr constant [5 x i8] c", %s\00", align 1
+@.str.164 = private unnamed_addr constant [2 x i8] c"o\00", align 1
+@.str.165 = private unnamed_addr constant [2 x i8] c"s\00", align 1
+@.str.166 = private unnamed_addr constant [2 x i8] c"u\00", align 1
+@.str.167 = private unnamed_addr constant [2 x i8] c"g\00", align 1
+@.str.168 = private unnamed_addr constant [12 x i8] c"%s(%s) @ %s\00", align 1
+@.str.169 = private unnamed_addr constant [14 x i8] c"* %s(%s) @ %s\00", align 1
+@.str.170 = private unnamed_addr constant [9 x i8] c"! %s: %s\00", align 1
+@.str.171 = private unnamed_addr constant [5 x i8] c"! %s\00", align 1
+@.str.172 = private unnamed_addr constant [12 x i8] c"-> %s: '%s'\00", align 1
+@.str.173 = private unnamed_addr constant [10 x i8] c"-> %s: OK\00", align 1
+@.str.174 = private unnamed_addr constant [8 x i8] c"-> '%s'\00", align 1
+@.str.175 = private unnamed_addr constant [8 x i8] c" (Dict)\00", align 1
+@.str.176 = private unnamed_addr constant [29 x i8] c"%s:%u: failed assertion \22%s\22\00", align 1
+@.str.177 = private unnamed_addr constant [18 x i8] c"reader->signature\00", align 1
+@.str.178 = private unnamed_addr constant [5 x i8] c": %s\00", align 1
+@.str.179 = private unnamed_addr constant [6 x i8] c"%s %u\00", align 1
+@dbus_desegment = internal global i8 1, align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_dbus() #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #11
   %3 = call i32 @proto_register_protocol(ptr noundef @.str.132, ptr noundef @.str.132, ptr noundef @.str.133)
   store i32 %3, ptr @proto_dbus, align 4
   %4 = load i32, ptr @proto_dbus, align 4
@@ -322,22 +321,33 @@ define hidden void @proto_register_dbus() #0 {
   %19 = call ptr @wmem_file_scope()
   %20 = call noalias ptr @wmem_map_new_autoreset(ptr noundef %18, ptr noundef %19, ptr noundef @wmem_str_hash, ptr noundef @g_str_equal)
   store ptr %20, ptr @unique_name_map, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #11
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #2
 
-declare ptr @expert_register_protocol(i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #2
 
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_register_protocol(i32 noundef) #2
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dbus(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -351,38 +361,42 @@ define internal i32 @dissect_dbus(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 120, ptr %9) #11
   call void @llvm.memset.p0.i64(ptr align 8 %9, i8 0, i64 120, i1 false)
-  %13 = getelementptr inbounds %struct.dbus_packet_t, ptr %9, i32 0, i32 1
+  %13 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %9, i32 0, i32 1
   %14 = load ptr, ptr %6, align 8
   store ptr %14, ptr %13, align 8
-  %15 = getelementptr inbounds %struct.dbus_packet_t, ptr %9, i32 0, i32 15
-  store ptr @.str.154, ptr %15, align 8
+  %15 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %9, i32 0, i32 15
+  store ptr @.str.157, ptr %15, align 8
   %16 = load ptr, ptr %6, align 8
-  %17 = getelementptr inbounds %struct._packet_info, ptr %16, i32 0, i32 1
+  %17 = getelementptr inbounds nuw %struct._packet_info, ptr %16, i32 0, i32 1
   %18 = load ptr, ptr %17, align 8
-  call void @col_set_str(ptr noundef %18, i32 noundef 34, ptr noundef @.str.132)
+  call void @col_set_str(ptr noundef %18, i32 noundef 35, ptr noundef @.str.132)
   %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr inbounds %struct._packet_info, ptr %19, i32 0, i32 1
+  %20 = getelementptr inbounds nuw %struct._packet_info, ptr %19, i32 0, i32 1
   %21 = load ptr, ptr %20, align 8
   call void @col_set_str(ptr noundef %21, i32 noundef 25, ptr noundef @.str.132)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #11
   %22 = load ptr, ptr %7, align 8
   %23 = load i32, ptr @proto_dbus, align 4
   %24 = load ptr, ptr %5, align 8
   %25 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %22, i32 noundef %23, ptr noundef %24, i32 noundef 0, i32 noundef -1, ptr noundef @.str.132)
   store ptr %25, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #11
   %26 = load ptr, ptr %10, align 8
   %27 = load i32, ptr @ett_dbus, align 4
   %28 = call ptr @proto_item_add_subtree(ptr noundef %26, i32 noundef %27)
   store ptr %28, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #11
   store i32 0, ptr %12, align 4
   %29 = load ptr, ptr %6, align 8
-  %30 = getelementptr inbounds %struct._packet_info, ptr %29, i32 0, i32 50
+  %30 = getelementptr inbounds nuw %struct._packet_info, ptr %29, i32 0, i32 51
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %11, align 8
   %33 = load ptr, ptr %5, align 8
   %34 = load i32, ptr %12, align 4
   %35 = call ptr @ptvcursor_new(ptr noundef %31, ptr noundef %32, ptr noundef %33, i32 noundef %34)
-  %36 = getelementptr inbounds %struct.dbus_packet_t, ptr %9, i32 0, i32 0
+  %36 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %9, i32 0, i32 0
   store ptr %35, ptr %36, align 8
   %37 = call i32 @dissect_dbus_header(ptr noundef %9)
   %38 = icmp ne i32 %37, 0
@@ -398,7 +412,7 @@ define internal i32 @dissect_dbus(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %44
 
 44:                                               ; preds = %42, %39, %4
-  %45 = getelementptr inbounds %struct.dbus_packet_t, ptr %9, i32 0, i32 0
+  %45 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %9, i32 0, i32 0
   %46 = load ptr, ptr %45, align 8
   %47 = call i32 @ptvcursor_current_offset(ptr noundef %46)
   store i32 %47, ptr %12, align 4
@@ -406,14 +420,18 @@ define internal i32 @dissect_dbus(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %49 = load ptr, ptr %5, align 8
   %50 = load i32, ptr %12, align 4
   call void @proto_item_set_end(ptr noundef %48, ptr noundef %49, i32 noundef %50)
-  %51 = getelementptr inbounds %struct.dbus_packet_t, ptr %9, i32 0, i32 0
+  %51 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %9, i32 0, i32 0
   %52 = load ptr, ptr %51, align 8
   call void @ptvcursor_free(ptr noundef %52)
   %53 = load i32, ptr %12, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #11
+  call void @llvm.lifetime.end.p0(i64 120, ptr %9) #11
   ret i32 %53
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dbus_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -426,29 +444,40 @@ define internal i32 @dissect_dbus_tcp(ptr noundef %0, ptr noundef %1, ptr nounde
   %9 = load ptr, ptr %5, align 8
   %10 = load ptr, ptr %6, align 8
   %11 = load ptr, ptr %7, align 8
-  %12 = load i32, ptr @dbus_desegment, align 4
-  %13 = load ptr, ptr %8, align 8
-  call void @tcp_dissect_pdus(ptr noundef %9, ptr noundef %10, ptr noundef %11, i32 noundef %12, i32 noundef 16, ptr noundef @get_dbus_message_len, ptr noundef @dissect_dbus_pdu, ptr noundef %13)
-  %14 = load ptr, ptr %5, align 8
-  %15 = call i32 @tvb_reported_length(ptr noundef %14)
-  ret i32 %15
+  %12 = load i8, ptr @dbus_desegment, align 1, !range !6, !noundef !7
+  %13 = trunc i8 %12 to i1
+  %14 = load ptr, ptr %8, align 8
+  call void @tcp_dissect_pdus(ptr noundef %9, ptr noundef %10, ptr noundef %11, i1 noundef zeroext %13, i32 noundef 16, ptr noundef @get_dbus_message_len, ptr noundef @dissect_dbus_pdu, ptr noundef %14)
+  %15 = load ptr, ptr %5, align 8
+  %16 = call i32 @tvb_reported_length(ptr noundef %15)
+  ret i32 %16
 }
 
-declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) #2
 
-declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare noalias ptr @wmem_map_new_autoreset(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @wmem_map_new_autoreset(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @wmem_epan_scope() #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_epan_scope() #2
 
-declare ptr @wmem_file_scope() #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_file_scope() #2
 
-declare i32 @wmem_str_hash(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @wmem_str_hash(ptr noundef) #2
 
-declare i32 @g_str_equal(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @g_str_equal(ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_dbus() #0 {
   %1 = load ptr, ptr @dbus_handle, align 8
   call void @dissector_add_uint(ptr noundef @.str.138, i32 noundef 146, ptr noundef %1)
@@ -457,453 +486,490 @@ define hidden void @proto_reg_handoff_dbus() #0 {
   ret void
 }
 
-declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare void @dissector_add_for_decode_as_with_preference(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_add_for_decode_as_with_preference(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @proto_tree_add_protocol_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_protocol_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) #2
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #2
 
-declare ptr @ptvcursor_new(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @ptvcursor_new(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dbus_header(ptr noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
-  %5 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
-  %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct.dbus_packet_t, ptr %6, i32 0, i32 0
-  %8 = load ptr, ptr %7, align 8
-  %9 = load i32, ptr @hf_dbus_endianness, align 4
-  %10 = call ptr @ptvcursor_add_ret_uint(ptr noundef %8, i32 noundef %9, i32 noundef 1, i32 noundef 0, ptr noundef %4)
-  %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds %struct.dbus_packet_t, ptr %11, i32 0, i32 7
-  store ptr %10, ptr %12, align 8
-  %13 = load i32, ptr %4, align 4
-  switch i32 %13, label %20 [
-    i32 108, label %14
-    i32 66, label %17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #11
+  %7 = load ptr, ptr %3, align 8
+  %8 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  %10 = load i32, ptr @hf_dbus_endianness, align 4
+  %11 = call ptr @ptvcursor_add_ret_uint(ptr noundef %9, i32 noundef %10, i32 noundef 1, i32 noundef 0, ptr noundef %4)
+  %12 = load ptr, ptr %3, align 8
+  %13 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %12, i32 0, i32 7
+  store ptr %11, ptr %13, align 8
+  %14 = load i32, ptr %4, align 4
+  switch i32 %14, label %21 [
+    i32 108, label %15
+    i32 66, label %18
   ]
 
-14:                                               ; preds = %1
-  %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds %struct.dbus_packet_t, ptr %15, i32 0, i32 2
-  store i32 -2147483648, ptr %16, align 8
-  br label %22
+15:                                               ; preds = %1
+  %16 = load ptr, ptr %3, align 8
+  %17 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %16, i32 0, i32 2
+  store i32 -2147483648, ptr %17, align 8
+  br label %23
 
-17:                                               ; preds = %1
-  %18 = load ptr, ptr %3, align 8
-  %19 = getelementptr inbounds %struct.dbus_packet_t, ptr %18, i32 0, i32 2
-  store i32 0, ptr %19, align 8
-  br label %22
+18:                                               ; preds = %1
+  %19 = load ptr, ptr %3, align 8
+  %20 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %19, i32 0, i32 2
+  store i32 0, ptr %20, align 8
+  br label %23
 
-20:                                               ; preds = %1
-  %21 = load ptr, ptr %3, align 8
-  call void @add_expert(ptr noundef %21, ptr noundef @ei_dbus_endianness_invalid)
+21:                                               ; preds = %1
+  %22 = load ptr, ptr %3, align 8
+  call void @add_expert(ptr noundef %22, ptr noundef @ei_dbus_endianness_invalid)
   store i32 1, ptr %2, align 4
-  br label %136
+  store i32 1, ptr %5, align 4
+  br label %138
 
-22:                                               ; preds = %17, %14
-  %23 = load ptr, ptr %3, align 8
-  %24 = load i32, ptr @hf_dbus_message_type, align 4
-  %25 = call i32 @add_uint(ptr noundef %23, i32 noundef %24)
-  %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr inbounds %struct.dbus_packet_t, ptr %26, i32 0, i32 3
-  store i32 %25, ptr %27, align 4
-  %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds %struct.dbus_packet_t, ptr %28, i32 0, i32 3
-  %30 = load i32, ptr %29, align 4
-  %31 = call ptr @try_val_to_str(i32 noundef %30, ptr noundef @message_type_vals)
-  store ptr %31, ptr %5, align 8
-  %32 = load ptr, ptr %3, align 8
-  %33 = getelementptr inbounds %struct.dbus_packet_t, ptr %32, i32 0, i32 3
-  %34 = load i32, ptr %33, align 4
-  %35 = icmp eq i32 %34, 0
-  br i1 %35, label %36, label %44
+23:                                               ; preds = %18, %15
+  %24 = load ptr, ptr %3, align 8
+  %25 = load i32, ptr @hf_dbus_message_type, align 4
+  %26 = call i32 @add_uint(ptr noundef %24, i32 noundef %25)
+  %27 = load ptr, ptr %3, align 8
+  %28 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %27, i32 0, i32 3
+  store i32 %26, ptr %28, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  %29 = load ptr, ptr %3, align 8
+  %30 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %29, i32 0, i32 3
+  %31 = load i32, ptr %30, align 4
+  %32 = call ptr @try_val_to_str(i32 noundef %31, ptr noundef @message_type_vals)
+  store ptr %32, ptr %6, align 8
+  %33 = load ptr, ptr %3, align 8
+  %34 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %33, i32 0, i32 3
+  %35 = load i32, ptr %34, align 4
+  %36 = icmp eq i32 %35, 0
+  br i1 %36, label %37, label %45
 
-36:                                               ; preds = %22
-  %37 = load ptr, ptr %3, align 8
-  %38 = getelementptr inbounds %struct.dbus_packet_t, ptr %37, i32 0, i32 1
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds %struct._packet_info, ptr %39, i32 0, i32 1
-  %41 = load ptr, ptr %40, align 8
-  %42 = load ptr, ptr %5, align 8
-  call void @col_set_str(ptr noundef %41, i32 noundef 25, ptr noundef %42)
-  %43 = load ptr, ptr %3, align 8
-  call void @add_expert(ptr noundef %43, ptr noundef @ei_dbus_message_type_invalid)
+37:                                               ; preds = %23
+  %38 = load ptr, ptr %3, align 8
+  %39 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %38, i32 0, i32 1
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds nuw %struct._packet_info, ptr %40, i32 0, i32 1
+  %42 = load ptr, ptr %41, align 8
+  %43 = load ptr, ptr %6, align 8
+  call void @col_set_str(ptr noundef %42, i32 noundef 25, ptr noundef %43)
+  %44 = load ptr, ptr %3, align 8
+  call void @add_expert(ptr noundef %44, ptr noundef @ei_dbus_message_type_invalid)
   store i32 1, ptr %2, align 4
-  br label %136
+  store i32 1, ptr %5, align 4
+  br label %137
 
-44:                                               ; preds = %22
-  %45 = load ptr, ptr %5, align 8
-  %46 = icmp ne ptr %45, null
-  br i1 %46, label %54, label %47
+45:                                               ; preds = %23
+  %46 = load ptr, ptr %6, align 8
+  %47 = icmp ne ptr %46, null
+  br i1 %47, label %55, label %48
 
-47:                                               ; preds = %44
-  %48 = load ptr, ptr %3, align 8
-  %49 = getelementptr inbounds %struct.dbus_packet_t, ptr %48, i32 0, i32 1
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds %struct._packet_info, ptr %50, i32 0, i32 1
-  %52 = load ptr, ptr %51, align 8
-  call void @col_set_str(ptr noundef %52, i32 noundef 25, ptr noundef @.str.95)
-  %53 = load ptr, ptr %3, align 8
-  call void @add_expert(ptr noundef %53, ptr noundef @ei_dbus_message_type_unknown)
+48:                                               ; preds = %45
+  %49 = load ptr, ptr %3, align 8
+  %50 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %49, i32 0, i32 1
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds nuw %struct._packet_info, ptr %51, i32 0, i32 1
+  %53 = load ptr, ptr %52, align 8
+  call void @col_set_str(ptr noundef %53, i32 noundef 25, ptr noundef @.str.95)
+  %54 = load ptr, ptr %3, align 8
+  call void @add_expert(ptr noundef %54, ptr noundef @ei_dbus_message_type_unknown)
   store i32 1, ptr %2, align 4
-  br label %136
+  store i32 1, ptr %5, align 4
+  br label %137
 
-54:                                               ; preds = %44
-  br label %55
+55:                                               ; preds = %45
+  br label %56
 
-55:                                               ; preds = %54
-  %56 = load ptr, ptr %3, align 8
-  %57 = getelementptr inbounds %struct.dbus_packet_t, ptr %56, i32 0, i32 1
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds %struct._packet_info, ptr %58, i32 0, i32 1
-  %60 = load ptr, ptr %59, align 8
-  %61 = load ptr, ptr %5, align 8
-  call void @col_set_str(ptr noundef %60, i32 noundef 25, ptr noundef %61)
-  %62 = load ptr, ptr %3, align 8
-  %63 = getelementptr inbounds %struct.dbus_packet_t, ptr %62, i32 0, i32 0
-  %64 = load ptr, ptr %63, align 8
-  %65 = load i32, ptr @hf_dbus_flags, align 4
-  %66 = load ptr, ptr %3, align 8
-  %67 = getelementptr inbounds %struct.dbus_packet_t, ptr %66, i32 0, i32 2
-  %68 = load i32, ptr %67, align 8
-  %69 = load i32, ptr @ett_dbus_flags, align 4
-  %70 = call ptr @ptvcursor_add_with_subtree(ptr noundef %64, i32 noundef %65, i32 noundef 1, i32 noundef %68, i32 noundef %69)
-  %71 = load ptr, ptr %3, align 8
-  %72 = getelementptr inbounds %struct.dbus_packet_t, ptr %71, i32 0, i32 0
-  %73 = load ptr, ptr %72, align 8
-  %74 = load i32, ptr @hf_dbus_flags_no_reply_expected, align 4
-  %75 = load ptr, ptr %3, align 8
-  %76 = getelementptr inbounds %struct.dbus_packet_t, ptr %75, i32 0, i32 2
-  %77 = load i32, ptr %76, align 8
-  %78 = call ptr @ptvcursor_add_no_advance(ptr noundef %73, i32 noundef %74, i32 noundef 1, i32 noundef %77)
-  %79 = load ptr, ptr %3, align 8
-  %80 = getelementptr inbounds %struct.dbus_packet_t, ptr %79, i32 0, i32 0
-  %81 = load ptr, ptr %80, align 8
-  %82 = load i32, ptr @hf_dbus_flags_no_auto_start, align 4
-  %83 = load ptr, ptr %3, align 8
-  %84 = getelementptr inbounds %struct.dbus_packet_t, ptr %83, i32 0, i32 2
-  %85 = load i32, ptr %84, align 8
-  %86 = call ptr @ptvcursor_add_no_advance(ptr noundef %81, i32 noundef %82, i32 noundef 1, i32 noundef %85)
-  %87 = load ptr, ptr %3, align 8
-  %88 = getelementptr inbounds %struct.dbus_packet_t, ptr %87, i32 0, i32 0
-  %89 = load ptr, ptr %88, align 8
-  %90 = load i32, ptr @hf_dbus_flags_allow_interactive_authorization, align 4
-  %91 = load ptr, ptr %3, align 8
-  %92 = getelementptr inbounds %struct.dbus_packet_t, ptr %91, i32 0, i32 2
-  %93 = load i32, ptr %92, align 8
-  %94 = call ptr @ptvcursor_add_no_advance(ptr noundef %89, i32 noundef %90, i32 noundef 1, i32 noundef %93)
-  %95 = load ptr, ptr %3, align 8
-  %96 = getelementptr inbounds %struct.dbus_packet_t, ptr %95, i32 0, i32 0
-  %97 = load ptr, ptr %96, align 8
-  %98 = call ptr @ptvcursor_tvbuff(ptr noundef %97)
-  %99 = load ptr, ptr %3, align 8
-  %100 = getelementptr inbounds %struct.dbus_packet_t, ptr %99, i32 0, i32 0
-  %101 = load ptr, ptr %100, align 8
-  %102 = call i32 @ptvcursor_current_offset(ptr noundef %101)
-  %103 = call zeroext i8 @tvb_get_guint8(ptr noundef %98, i32 noundef %102)
-  %104 = load ptr, ptr %3, align 8
-  %105 = getelementptr inbounds %struct.dbus_packet_t, ptr %104, i32 0, i32 4
-  store i8 %103, ptr %105, align 8
-  %106 = load ptr, ptr %3, align 8
-  %107 = getelementptr inbounds %struct.dbus_packet_t, ptr %106, i32 0, i32 0
-  %108 = load ptr, ptr %107, align 8
-  call void @ptvcursor_advance(ptr noundef %108, i32 noundef 1)
-  %109 = load ptr, ptr %3, align 8
-  %110 = getelementptr inbounds %struct.dbus_packet_t, ptr %109, i32 0, i32 0
-  %111 = load ptr, ptr %110, align 8
-  call void @ptvcursor_pop_subtree(ptr noundef %111)
-  %112 = load ptr, ptr %3, align 8
-  %113 = load i32, ptr @hf_dbus_version, align 4
-  %114 = call i32 @add_uint(ptr noundef %112, i32 noundef %113)
-  %115 = icmp ne i32 %114, 1
-  br i1 %115, label %116, label %118
+56:                                               ; preds = %55
+  %57 = load ptr, ptr %3, align 8
+  %58 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %57, i32 0, i32 1
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds nuw %struct._packet_info, ptr %59, i32 0, i32 1
+  %61 = load ptr, ptr %60, align 8
+  %62 = load ptr, ptr %6, align 8
+  call void @col_set_str(ptr noundef %61, i32 noundef 25, ptr noundef %62)
+  %63 = load ptr, ptr %3, align 8
+  %64 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %63, i32 0, i32 0
+  %65 = load ptr, ptr %64, align 8
+  %66 = load i32, ptr @hf_dbus_flags, align 4
+  %67 = load ptr, ptr %3, align 8
+  %68 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %67, i32 0, i32 2
+  %69 = load i32, ptr %68, align 8
+  %70 = load i32, ptr @ett_dbus_flags, align 4
+  %71 = call ptr @ptvcursor_add_with_subtree(ptr noundef %65, i32 noundef %66, i32 noundef 1, i32 noundef %69, i32 noundef %70)
+  %72 = load ptr, ptr %3, align 8
+  %73 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %72, i32 0, i32 0
+  %74 = load ptr, ptr %73, align 8
+  %75 = load i32, ptr @hf_dbus_flags_no_reply_expected, align 4
+  %76 = load ptr, ptr %3, align 8
+  %77 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %76, i32 0, i32 2
+  %78 = load i32, ptr %77, align 8
+  %79 = call ptr @ptvcursor_add_no_advance(ptr noundef %74, i32 noundef %75, i32 noundef 1, i32 noundef %78)
+  %80 = load ptr, ptr %3, align 8
+  %81 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %80, i32 0, i32 0
+  %82 = load ptr, ptr %81, align 8
+  %83 = load i32, ptr @hf_dbus_flags_no_auto_start, align 4
+  %84 = load ptr, ptr %3, align 8
+  %85 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %84, i32 0, i32 2
+  %86 = load i32, ptr %85, align 8
+  %87 = call ptr @ptvcursor_add_no_advance(ptr noundef %82, i32 noundef %83, i32 noundef 1, i32 noundef %86)
+  %88 = load ptr, ptr %3, align 8
+  %89 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %88, i32 0, i32 0
+  %90 = load ptr, ptr %89, align 8
+  %91 = load i32, ptr @hf_dbus_flags_allow_interactive_authorization, align 4
+  %92 = load ptr, ptr %3, align 8
+  %93 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %92, i32 0, i32 2
+  %94 = load i32, ptr %93, align 8
+  %95 = call ptr @ptvcursor_add_no_advance(ptr noundef %90, i32 noundef %91, i32 noundef 1, i32 noundef %94)
+  %96 = load ptr, ptr %3, align 8
+  %97 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %96, i32 0, i32 0
+  %98 = load ptr, ptr %97, align 8
+  %99 = call ptr @ptvcursor_tvbuff(ptr noundef %98)
+  %100 = load ptr, ptr %3, align 8
+  %101 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %100, i32 0, i32 0
+  %102 = load ptr, ptr %101, align 8
+  %103 = call i32 @ptvcursor_current_offset(ptr noundef %102)
+  %104 = call zeroext i8 @tvb_get_uint8(ptr noundef %99, i32 noundef %103)
+  %105 = load ptr, ptr %3, align 8
+  %106 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %105, i32 0, i32 4
+  store i8 %104, ptr %106, align 8
+  %107 = load ptr, ptr %3, align 8
+  %108 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %107, i32 0, i32 0
+  %109 = load ptr, ptr %108, align 8
+  call void @ptvcursor_advance(ptr noundef %109, i32 noundef 1)
+  %110 = load ptr, ptr %3, align 8
+  %111 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %110, i32 0, i32 0
+  %112 = load ptr, ptr %111, align 8
+  call void @ptvcursor_pop_subtree(ptr noundef %112)
+  %113 = load ptr, ptr %3, align 8
+  %114 = load i32, ptr @hf_dbus_version, align 4
+  %115 = call i32 @add_uint(ptr noundef %113, i32 noundef %114)
+  %116 = icmp ne i32 %115, 1
+  br i1 %116, label %117, label %119
 
-116:                                              ; preds = %55
-  %117 = load ptr, ptr %3, align 8
-  call void @add_expert(ptr noundef %117, ptr noundef @ei_dbus_version_invalid)
+117:                                              ; preds = %56
+  %118 = load ptr, ptr %3, align 8
+  call void @add_expert(ptr noundef %118, ptr noundef @ei_dbus_version_invalid)
   store i32 1, ptr %2, align 4
-  br label %136
+  store i32 1, ptr %5, align 4
+  br label %137
 
-118:                                              ; preds = %55
-  %119 = load ptr, ptr %3, align 8
-  %120 = load i32, ptr @hf_dbus_body_length, align 4
-  %121 = call i32 @add_uint(ptr noundef %119, i32 noundef %120)
-  %122 = load ptr, ptr %3, align 8
-  %123 = getelementptr inbounds %struct.dbus_packet_t, ptr %122, i32 0, i32 5
-  store i32 %121, ptr %123, align 4
-  %124 = load ptr, ptr %3, align 8
-  %125 = load i32, ptr @hf_dbus_serial, align 4
-  %126 = call i32 @add_uint(ptr noundef %124, i32 noundef %125)
-  %127 = load ptr, ptr %3, align 8
-  %128 = getelementptr inbounds %struct.dbus_packet_t, ptr %127, i32 0, i32 6
-  store i32 %126, ptr %128, align 8
-  %129 = load ptr, ptr %3, align 8
-  %130 = getelementptr inbounds %struct.dbus_packet_t, ptr %129, i32 0, i32 6
-  %131 = load i32, ptr %130, align 8
-  %132 = icmp eq i32 %131, 0
-  br i1 %132, label %133, label %135
+119:                                              ; preds = %56
+  %120 = load ptr, ptr %3, align 8
+  %121 = load i32, ptr @hf_dbus_body_length, align 4
+  %122 = call i32 @add_uint(ptr noundef %120, i32 noundef %121)
+  %123 = load ptr, ptr %3, align 8
+  %124 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %123, i32 0, i32 5
+  store i32 %122, ptr %124, align 4
+  %125 = load ptr, ptr %3, align 8
+  %126 = load i32, ptr @hf_dbus_serial, align 4
+  %127 = call i32 @add_uint(ptr noundef %125, i32 noundef %126)
+  %128 = load ptr, ptr %3, align 8
+  %129 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %128, i32 0, i32 6
+  store i32 %127, ptr %129, align 8
+  %130 = load ptr, ptr %3, align 8
+  %131 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %130, i32 0, i32 6
+  %132 = load i32, ptr %131, align 8
+  %133 = icmp eq i32 %132, 0
+  br i1 %133, label %134, label %136
 
-133:                                              ; preds = %118
-  %134 = load ptr, ptr %3, align 8
-  call void @add_expert(ptr noundef %134, ptr noundef @ei_dbus_serial_invalid)
+134:                                              ; preds = %119
+  %135 = load ptr, ptr %3, align 8
+  call void @add_expert(ptr noundef %135, ptr noundef @ei_dbus_serial_invalid)
   store i32 1, ptr %2, align 4
-  br label %136
+  store i32 1, ptr %5, align 4
+  br label %137
 
-135:                                              ; preds = %118
+136:                                              ; preds = %119
   store i32 0, ptr %2, align 4
-  br label %136
+  store i32 1, ptr %5, align 4
+  br label %137
 
-136:                                              ; preds = %135, %133, %116, %47, %36, %20
-  %137 = load i32, ptr %2, align 4
-  ret i32 %137
+137:                                              ; preds = %136, %134, %117, %48, %37
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  br label %138
+
+138:                                              ; preds = %137, %21
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #11
+  %139 = load i32, ptr %2, align 4
+  ret i32 %139
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dbus_header_fields(ptr noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
   %4 = alloca %struct._dbus_type_reader_t, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %union.dbus_val_t, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca i32, align 4
-  %9 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
-  %12 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca i8, align 1
   store ptr %0, ptr %3, align 8
-  call void @llvm.memset.p0.i64(ptr align 8 %4, i8 0, i64 80, i1 false)
-  %13 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %4, i32 0, i32 0
-  %14 = load ptr, ptr %3, align 8
-  store ptr %14, ptr %13, align 8
-  %15 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %4, i32 0, i32 1
-  store ptr @.str.157, ptr %15, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr %4) #11
+  call void @llvm.memset.p0.i64(ptr align 8 %4, i8 0, i64 64, i1 false)
+  %14 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %4, i32 0, i32 0
+  %15 = load ptr, ptr %3, align 8
+  store ptr %15, ptr %14, align 8
+  %16 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %4, i32 0, i32 1
+  store ptr @.str.160, ptr %16, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
   store ptr %4, ptr %5, align 8
-  %16 = load ptr, ptr %5, align 8
-  %17 = load i32, ptr @ett_dbus_header_field_array, align 4
-  %18 = call ptr @reader_next(ptr noundef %16, i32 noundef -1, i32 noundef %17, ptr noundef %6)
-  store ptr %18, ptr %5, align 8
-  %19 = icmp ne ptr %18, null
-  br i1 %19, label %21, label %20
-
-20:                                               ; preds = %1
-  store i32 1, ptr %2, align 4
-  br label %470
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  %17 = load ptr, ptr %5, align 8
+  %18 = load i32, ptr @ett_dbus_header_field_array, align 4
+  %19 = call ptr @reader_next(ptr noundef %17, i32 noundef -1, i32 noundef %18, ptr noundef %6)
+  store ptr %19, ptr %5, align 8
+  %20 = icmp ne ptr %19, null
+  br i1 %20, label %22, label %21
 
 21:                                               ; preds = %1
-  %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %22, i32 0, i32 12
-  %24 = load ptr, ptr %23, align 8
-  store ptr %24, ptr %7, align 8
-  %25 = load ptr, ptr %7, align 8
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %25, ptr noundef @.str.158)
-  br label %26
-
-26:                                               ; preds = %282, %21
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %27, i32 0, i32 2
-  %29 = load i32, ptr %28, align 8
-  %30 = icmp ugt i32 %29, 0
-  br i1 %30, label %31, label %283
-
-31:                                               ; preds = %26
-  %32 = load ptr, ptr %5, align 8
-  %33 = load i32, ptr @ett_dbus_header_field, align 4
-  %34 = call ptr @reader_next(ptr noundef %32, i32 noundef -1, i32 noundef %33, ptr noundef %6)
-  store ptr %34, ptr %5, align 8
-  %35 = icmp ne ptr %34, null
-  br i1 %35, label %37, label %36
-
-36:                                               ; preds = %31
   store i32 1, ptr %2, align 4
-  br label %470
+  store i32 1, ptr %7, align 4
+  br label %472
 
-37:                                               ; preds = %31
-  %38 = load ptr, ptr %5, align 8
-  %39 = load i32, ptr @hf_dbus_field_code, align 4
-  %40 = call ptr @reader_next(ptr noundef %38, i32 noundef %39, i32 noundef -1, ptr noundef %6)
-  store ptr %40, ptr %5, align 8
-  %41 = icmp ne ptr %40, null
-  br i1 %41, label %43, label %42
+22:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %23, i32 0, i32 12
+  %25 = load ptr, ptr %24, align 8
+  store ptr %25, ptr %8, align 8
+  %26 = load ptr, ptr %8, align 8
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %26, ptr noundef @.str.161)
+  br label %27
 
-42:                                               ; preds = %37
+27:                                               ; preds = %282, %22
+  %28 = load ptr, ptr %5, align 8
+  %29 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %28, i32 0, i32 2
+  %30 = load i32, ptr %29, align 8
+  %31 = icmp ugt i32 %30, 0
+  br i1 %31, label %32, label %283
+
+32:                                               ; preds = %27
+  %33 = load ptr, ptr %5, align 8
+  %34 = load i32, ptr @ett_dbus_header_field, align 4
+  %35 = call ptr @reader_next(ptr noundef %33, i32 noundef -1, i32 noundef %34, ptr noundef %6)
+  store ptr %35, ptr %5, align 8
+  %36 = icmp ne ptr %35, null
+  br i1 %36, label %38, label %37
+
+37:                                               ; preds = %32
   store i32 1, ptr %2, align 4
-  br label %470
+  store i32 1, ptr %7, align 4
+  br label %471
 
-43:                                               ; preds = %37
-  %44 = load i32, ptr %6, align 8
-  store i32 %44, ptr %8, align 4
-  %45 = load i32, ptr %8, align 4
-  %46 = call ptr @val_to_str_const(i32 noundef %45, ptr noundef @field_code_vals, ptr noundef @.str.159)
-  store ptr %46, ptr %9, align 8
-  %47 = load ptr, ptr %5, align 8
-  %48 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %47, i32 0, i32 12
-  %49 = load ptr, ptr %48, align 8
-  %50 = load ptr, ptr %9, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %49, ptr noundef @.str.160, ptr noundef %50)
-  %51 = load i32, ptr %8, align 4
-  %52 = icmp eq i32 %51, 0
-  br i1 %52, label %53, label %56
+38:                                               ; preds = %32
+  %39 = load ptr, ptr %5, align 8
+  %40 = load i32, ptr @hf_dbus_field_code, align 4
+  %41 = call ptr @reader_next(ptr noundef %39, i32 noundef %40, i32 noundef -1, ptr noundef %6)
+  store ptr %41, ptr %5, align 8
+  %42 = icmp ne ptr %41, null
+  br i1 %42, label %44, label %43
 
-53:                                               ; preds = %43
-  %54 = load ptr, ptr %3, align 8
-  call void @add_expert(ptr noundef %54, ptr noundef @ei_dbus_field_code_invalid)
-  %55 = load ptr, ptr %5, align 8
-  call void @reader_cleanup(ptr noundef %55)
+43:                                               ; preds = %38
   store i32 1, ptr %2, align 4
-  br label %470
+  store i32 1, ptr %7, align 4
+  br label %471
 
-56:                                               ; preds = %43
-  %57 = load ptr, ptr %5, align 8
-  %58 = call ptr @reader_next(ptr noundef %57, i32 noundef -1, i32 noundef -1, ptr noundef %6)
-  store ptr %58, ptr %5, align 8
-  %59 = icmp ne ptr %58, null
-  br i1 %59, label %61, label %60
+44:                                               ; preds = %38
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #11
+  %45 = load i32, ptr %6, align 8
+  store i32 %45, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #11
+  %46 = load i32, ptr %9, align 4
+  %47 = call ptr @val_to_str_const(i32 noundef %46, ptr noundef @field_code_vals, ptr noundef @.str.162)
+  store ptr %47, ptr %10, align 8
+  %48 = load ptr, ptr %5, align 8
+  %49 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %48, i32 0, i32 12
+  %50 = load ptr, ptr %49, align 8
+  %51 = load ptr, ptr %10, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %50, ptr noundef @.str.163, ptr noundef %51)
+  %52 = load i32, ptr %9, align 4
+  %53 = icmp eq i32 %52, 0
+  br i1 %53, label %54, label %57
 
-60:                                               ; preds = %56
+54:                                               ; preds = %44
+  %55 = load ptr, ptr %3, align 8
+  call void @add_expert(ptr noundef %55, ptr noundef @ei_dbus_field_code_invalid)
+  %56 = load ptr, ptr %5, align 8
+  call void @reader_cleanup(ptr noundef %56)
   store i32 1, ptr %2, align 4
-  br label %470
+  store i32 1, ptr %7, align 4
+  br label %280
 
-61:                                               ; preds = %56
-  %62 = load ptr, ptr %6, align 8
-  store ptr %62, ptr %10, align 8
-  %63 = load i32, ptr %8, align 4
-  switch i32 %63, label %69 [
-    i32 1, label %64
-    i32 2, label %65
-    i32 3, label %65
-    i32 4, label %65
-    i32 6, label %65
-    i32 7, label %65
-    i32 5, label %66
-    i32 9, label %67
-    i32 8, label %68
+57:                                               ; preds = %44
+  %58 = load ptr, ptr %5, align 8
+  %59 = call ptr @reader_next(ptr noundef %58, i32 noundef -1, i32 noundef -1, ptr noundef %6)
+  store ptr %59, ptr %5, align 8
+  %60 = icmp ne ptr %59, null
+  br i1 %60, label %62, label %61
+
+61:                                               ; preds = %57
+  store i32 1, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %280
+
+62:                                               ; preds = %57
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #11
+  %63 = load ptr, ptr %6, align 8
+  store ptr %63, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #11
+  %64 = load i32, ptr %9, align 4
+  switch i32 %64, label %70 [
+    i32 1, label %65
+    i32 2, label %66
+    i32 3, label %66
+    i32 4, label %66
+    i32 6, label %66
+    i32 7, label %66
+    i32 5, label %67
+    i32 9, label %68
+    i32 8, label %69
   ]
 
-64:                                               ; preds = %61
-  store ptr @.str.161, ptr %11, align 8
-  br label %70
+65:                                               ; preds = %62
+  store ptr @.str.164, ptr %12, align 8
+  br label %71
 
-65:                                               ; preds = %61, %61, %61, %61, %61
-  store ptr @.str.162, ptr %11, align 8
-  br label %70
+66:                                               ; preds = %62, %62, %62, %62, %62
+  store ptr @.str.165, ptr %12, align 8
+  br label %71
 
-66:                                               ; preds = %61
-  store ptr @.str.163, ptr %11, align 8
-  br label %70
+67:                                               ; preds = %62
+  store ptr @.str.166, ptr %12, align 8
+  br label %71
 
-67:                                               ; preds = %61
-  store ptr @.str.163, ptr %11, align 8
-  br label %70
+68:                                               ; preds = %62
+  store ptr @.str.166, ptr %12, align 8
+  br label %71
 
-68:                                               ; preds = %61
-  store ptr @.str.164, ptr %11, align 8
-  br label %70
+69:                                               ; preds = %62
+  store ptr @.str.167, ptr %12, align 8
+  br label %71
 
-69:                                               ; preds = %61
-  store ptr null, ptr %11, align 8
-  br label %70
+70:                                               ; preds = %62
+  store ptr null, ptr %12, align 8
+  br label %71
 
-70:                                               ; preds = %69, %68, %67, %66, %65, %64
-  %71 = load ptr, ptr %11, align 8
-  %72 = icmp ne ptr %71, null
-  br i1 %72, label %73, label %81
+71:                                               ; preds = %70, %69, %68, %67, %66, %65
+  %72 = load ptr, ptr %12, align 8
+  %73 = icmp ne ptr %72, null
+  br i1 %73, label %74, label %82
 
-73:                                               ; preds = %70
-  %74 = load ptr, ptr %10, align 8
+74:                                               ; preds = %71
   %75 = load ptr, ptr %11, align 8
-  %76 = call i32 @strcmp(ptr noundef %74, ptr noundef %75) #7
-  %77 = icmp ne i32 %76, 0
-  br i1 %77, label %78, label %81
+  %76 = load ptr, ptr %12, align 8
+  %77 = call i32 @strcmp(ptr noundef %75, ptr noundef %76) #12
+  %78 = icmp ne i32 %77, 0
+  br i1 %78, label %79, label %82
 
-78:                                               ; preds = %73
-  %79 = load ptr, ptr %3, align 8
-  call void @add_expert(ptr noundef %79, ptr noundef @ei_dbus_field_signature_wrong)
-  %80 = load ptr, ptr %5, align 8
-  call void @reader_cleanup(ptr noundef %80)
+79:                                               ; preds = %74
+  %80 = load ptr, ptr %3, align 8
+  call void @add_expert(ptr noundef %80, ptr noundef @ei_dbus_field_signature_wrong)
+  %81 = load ptr, ptr %5, align 8
+  call void @reader_cleanup(ptr noundef %81)
   store i32 1, ptr %2, align 4
-  br label %470
+  store i32 1, ptr %7, align 4
+  br label %279
 
-81:                                               ; preds = %73, %70
-  %82 = load i32, ptr %8, align 4
-  switch i32 %82, label %264 [
-    i32 1, label %83
-    i32 2, label %93
+82:                                               ; preds = %74, %71
+  %83 = load i32, ptr %9, align 4
+  switch i32 %83, label %260 [
+    i32 1, label %84
+    i32 2, label %94
     i32 3, label %112
-    i32 4, label %131
-    i32 6, label %150
-    i32 7, label %188
-    i32 8, label %226
-    i32 5, label %236
-    i32 9, label %254
+    i32 4, label %130
+    i32 6, label %148
+    i32 7, label %185
+    i32 8, label %222
+    i32 5, label %232
+    i32 9, label %250
   ]
 
-83:                                               ; preds = %81
-  %84 = load ptr, ptr %5, align 8
-  %85 = load i32, ptr @hf_dbus_path, align 4
-  %86 = call ptr @reader_next(ptr noundef %84, i32 noundef %85, i32 noundef -1, ptr noundef %6)
-  store ptr %86, ptr %5, align 8
-  %87 = icmp ne ptr %86, null
-  br i1 %87, label %89, label %88
+84:                                               ; preds = %82
+  %85 = load ptr, ptr %5, align 8
+  %86 = load i32, ptr @hf_dbus_path, align 4
+  %87 = call ptr @reader_next(ptr noundef %85, i32 noundef %86, i32 noundef -1, ptr noundef %6)
+  store ptr %87, ptr %5, align 8
+  %88 = icmp ne ptr %87, null
+  br i1 %88, label %90, label %89
 
-88:                                               ; preds = %83
+89:                                               ; preds = %84
   store i32 1, ptr %2, align 4
-  br label %470
+  store i32 1, ptr %7, align 4
+  br label %279
 
-89:                                               ; preds = %83
-  %90 = load ptr, ptr %6, align 8
-  %91 = load ptr, ptr %3, align 8
-  %92 = getelementptr inbounds %struct.dbus_packet_t, ptr %91, i32 0, i32 8
-  store ptr %90, ptr %92, align 8
-  br label %277
+90:                                               ; preds = %84
+  %91 = load ptr, ptr %6, align 8
+  %92 = load ptr, ptr %3, align 8
+  %93 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %92, i32 0, i32 8
+  store ptr %91, ptr %93, align 8
+  br label %273
 
-93:                                               ; preds = %81
-  %94 = load ptr, ptr %5, align 8
-  %95 = load i32, ptr @hf_dbus_interface, align 4
-  %96 = call ptr @reader_next(ptr noundef %94, i32 noundef %95, i32 noundef -1, ptr noundef %6)
-  store ptr %96, ptr %5, align 8
-  %97 = icmp ne ptr %96, null
-  br i1 %97, label %99, label %98
+94:                                               ; preds = %82
+  %95 = load ptr, ptr %5, align 8
+  %96 = load i32, ptr @hf_dbus_interface, align 4
+  %97 = call ptr @reader_next(ptr noundef %95, i32 noundef %96, i32 noundef -1, ptr noundef %6)
+  store ptr %97, ptr %5, align 8
+  %98 = icmp ne ptr %97, null
+  br i1 %98, label %100, label %99
 
-98:                                               ; preds = %93
+99:                                               ; preds = %94
   store i32 1, ptr %2, align 4
-  br label %470
+  store i32 1, ptr %7, align 4
+  br label %279
 
-99:                                               ; preds = %93
-  %100 = load ptr, ptr %6, align 8
-  %101 = load ptr, ptr %3, align 8
-  %102 = getelementptr inbounds %struct.dbus_packet_t, ptr %101, i32 0, i32 9
-  store ptr %100, ptr %102, align 8
-  %103 = load ptr, ptr %3, align 8
-  %104 = getelementptr inbounds %struct.dbus_packet_t, ptr %103, i32 0, i32 9
-  %105 = load ptr, ptr %104, align 8
-  %106 = call i32 @is_dbus_interface_valid(ptr noundef %105)
-  %107 = icmp ne i32 %106, 0
+100:                                              ; preds = %94
+  %101 = load ptr, ptr %6, align 8
+  %102 = load ptr, ptr %3, align 8
+  %103 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %102, i32 0, i32 9
+  store ptr %101, ptr %103, align 8
+  %104 = load ptr, ptr %3, align 8
+  %105 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %104, i32 0, i32 9
+  %106 = load ptr, ptr %105, align 8
+  %107 = call zeroext i1 @is_dbus_interface_valid(ptr noundef %106)
   br i1 %107, label %111, label %108
 
-108:                                              ; preds = %99
+108:                                              ; preds = %100
   %109 = load ptr, ptr %3, align 8
   call void @add_expert(ptr noundef %109, ptr noundef @ei_dbus_interface_invalid)
   %110 = load ptr, ptr %5, align 8
   call void @reader_cleanup(ptr noundef %110)
   store i32 1, ptr %2, align 4
-  br label %470
+  store i32 1, ptr %7, align 4
+  br label %279
 
-111:                                              ; preds = %99
-  br label %277
+111:                                              ; preds = %100
+  br label %273
 
-112:                                              ; preds = %81
+112:                                              ; preds = %82
   %113 = load ptr, ptr %5, align 8
   %114 = load i32, ptr @hf_dbus_member, align 4
   %115 = call ptr @reader_next(ptr noundef %113, i32 noundef %114, i32 noundef -1, ptr noundef %6)
@@ -913,293 +979,321 @@ define internal i32 @dissect_dbus_header_fields(ptr noundef %0) #0 {
 
 117:                                              ; preds = %112
   store i32 1, ptr %2, align 4
-  br label %470
+  store i32 1, ptr %7, align 4
+  br label %279
 
 118:                                              ; preds = %112
   %119 = load ptr, ptr %6, align 8
   %120 = load ptr, ptr %3, align 8
-  %121 = getelementptr inbounds %struct.dbus_packet_t, ptr %120, i32 0, i32 10
+  %121 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %120, i32 0, i32 10
   store ptr %119, ptr %121, align 8
   %122 = load ptr, ptr %3, align 8
-  %123 = getelementptr inbounds %struct.dbus_packet_t, ptr %122, i32 0, i32 10
+  %123 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %122, i32 0, i32 10
   %124 = load ptr, ptr %123, align 8
-  %125 = call i32 @is_dbus_member_name_valid(ptr noundef %124)
-  %126 = icmp ne i32 %125, 0
-  br i1 %126, label %130, label %127
+  %125 = call zeroext i1 @is_dbus_member_name_valid(ptr noundef %124)
+  br i1 %125, label %129, label %126
 
-127:                                              ; preds = %118
-  %128 = load ptr, ptr %3, align 8
-  call void @add_expert(ptr noundef %128, ptr noundef @ei_dbus_member_invalid)
-  %129 = load ptr, ptr %5, align 8
-  call void @reader_cleanup(ptr noundef %129)
+126:                                              ; preds = %118
+  %127 = load ptr, ptr %3, align 8
+  call void @add_expert(ptr noundef %127, ptr noundef @ei_dbus_member_invalid)
+  %128 = load ptr, ptr %5, align 8
+  call void @reader_cleanup(ptr noundef %128)
   store i32 1, ptr %2, align 4
-  br label %470
+  store i32 1, ptr %7, align 4
+  br label %279
 
-130:                                              ; preds = %118
-  br label %277
+129:                                              ; preds = %118
+  br label %273
 
-131:                                              ; preds = %81
-  %132 = load ptr, ptr %5, align 8
-  %133 = load i32, ptr @hf_dbus_error_name, align 4
-  %134 = call ptr @reader_next(ptr noundef %132, i32 noundef %133, i32 noundef -1, ptr noundef %6)
-  store ptr %134, ptr %5, align 8
-  %135 = icmp ne ptr %134, null
-  br i1 %135, label %137, label %136
+130:                                              ; preds = %82
+  %131 = load ptr, ptr %5, align 8
+  %132 = load i32, ptr @hf_dbus_error_name, align 4
+  %133 = call ptr @reader_next(ptr noundef %131, i32 noundef %132, i32 noundef -1, ptr noundef %6)
+  store ptr %133, ptr %5, align 8
+  %134 = icmp ne ptr %133, null
+  br i1 %134, label %136, label %135
 
-136:                                              ; preds = %131
+135:                                              ; preds = %130
   store i32 1, ptr %2, align 4
-  br label %470
+  store i32 1, ptr %7, align 4
+  br label %279
 
-137:                                              ; preds = %131
-  %138 = load ptr, ptr %6, align 8
-  %139 = load ptr, ptr %3, align 8
-  %140 = getelementptr inbounds %struct.dbus_packet_t, ptr %139, i32 0, i32 11
-  store ptr %138, ptr %140, align 8
-  %141 = load ptr, ptr %3, align 8
-  %142 = getelementptr inbounds %struct.dbus_packet_t, ptr %141, i32 0, i32 11
-  %143 = load ptr, ptr %142, align 8
-  %144 = call i32 @is_dbus_interface_valid(ptr noundef %143)
-  %145 = icmp ne i32 %144, 0
-  br i1 %145, label %149, label %146
+136:                                              ; preds = %130
+  %137 = load ptr, ptr %6, align 8
+  %138 = load ptr, ptr %3, align 8
+  %139 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %138, i32 0, i32 11
+  store ptr %137, ptr %139, align 8
+  %140 = load ptr, ptr %3, align 8
+  %141 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %140, i32 0, i32 11
+  %142 = load ptr, ptr %141, align 8
+  %143 = call zeroext i1 @is_dbus_interface_valid(ptr noundef %142)
+  br i1 %143, label %147, label %144
 
-146:                                              ; preds = %137
-  %147 = load ptr, ptr %3, align 8
-  call void @add_expert(ptr noundef %147, ptr noundef @ei_dbus_error_name_invalid)
-  %148 = load ptr, ptr %5, align 8
-  call void @reader_cleanup(ptr noundef %148)
+144:                                              ; preds = %136
+  %145 = load ptr, ptr %3, align 8
+  call void @add_expert(ptr noundef %145, ptr noundef @ei_dbus_error_name_invalid)
+  %146 = load ptr, ptr %5, align 8
+  call void @reader_cleanup(ptr noundef %146)
   store i32 1, ptr %2, align 4
-  br label %470
+  store i32 1, ptr %7, align 4
+  br label %279
 
-149:                                              ; preds = %137
-  br label %277
+147:                                              ; preds = %136
+  br label %273
 
-150:                                              ; preds = %81
-  %151 = load ptr, ptr %5, align 8
-  %152 = load i32, ptr @hf_dbus_destination, align 4
-  %153 = call ptr @reader_next(ptr noundef %151, i32 noundef %152, i32 noundef -1, ptr noundef %6)
-  store ptr %153, ptr %5, align 8
-  %154 = icmp ne ptr %153, null
-  br i1 %154, label %156, label %155
+148:                                              ; preds = %82
+  %149 = load ptr, ptr %5, align 8
+  %150 = load i32, ptr @hf_dbus_destination, align 4
+  %151 = call ptr @reader_next(ptr noundef %149, i32 noundef %150, i32 noundef -1, ptr noundef %6)
+  store ptr %151, ptr %5, align 8
+  %152 = icmp ne ptr %151, null
+  br i1 %152, label %154, label %153
 
-155:                                              ; preds = %150
+153:                                              ; preds = %148
   store i32 1, ptr %2, align 4
-  br label %470
+  store i32 1, ptr %7, align 4
+  br label %279
 
-156:                                              ; preds = %150
-  %157 = load ptr, ptr %6, align 8
+154:                                              ; preds = %148
+  %155 = load ptr, ptr %6, align 8
+  %156 = load ptr, ptr %3, align 8
+  %157 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %156, i32 0, i32 13
+  store ptr %155, ptr %157, align 8
   %158 = load ptr, ptr %3, align 8
-  %159 = getelementptr inbounds %struct.dbus_packet_t, ptr %158, i32 0, i32 13
-  store ptr %157, ptr %159, align 8
-  %160 = load ptr, ptr %3, align 8
-  %161 = getelementptr inbounds %struct.dbus_packet_t, ptr %160, i32 0, i32 13
-  %162 = load ptr, ptr %161, align 8
-  %163 = call i32 @is_dbus_bus_name_valid(ptr noundef %162)
-  %164 = icmp ne i32 %163, 0
-  br i1 %164, label %168, label %165
+  %159 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %158, i32 0, i32 13
+  %160 = load ptr, ptr %159, align 8
+  %161 = call zeroext i1 @is_dbus_bus_name_valid(ptr noundef %160)
+  br i1 %161, label %165, label %162
 
-165:                                              ; preds = %156
+162:                                              ; preds = %154
+  %163 = load ptr, ptr %3, align 8
+  call void @add_expert(ptr noundef %163, ptr noundef @ei_dbus_bus_name_invalid)
+  %164 = load ptr, ptr %5, align 8
+  call void @reader_cleanup(ptr noundef %164)
+  store i32 1, ptr %2, align 4
+  store i32 1, ptr %7, align 4
+  br label %279
+
+165:                                              ; preds = %154
   %166 = load ptr, ptr %3, align 8
-  call void @add_expert(ptr noundef %166, ptr noundef @ei_dbus_bus_name_invalid)
-  %167 = load ptr, ptr %5, align 8
-  call void @reader_cleanup(ptr noundef %167)
-  store i32 1, ptr %2, align 4
-  br label %470
-
-168:                                              ; preds = %156
-  %169 = load ptr, ptr %3, align 8
-  %170 = getelementptr inbounds %struct.dbus_packet_t, ptr %169, i32 0, i32 1
-  %171 = load ptr, ptr %170, align 8
-  %172 = getelementptr inbounds %struct._packet_info, ptr %171, i32 0, i32 17
-  %173 = load ptr, ptr %3, align 8
-  %174 = getelementptr inbounds %struct.dbus_packet_t, ptr %173, i32 0, i32 13
-  %175 = load ptr, ptr %174, align 8
-  %176 = call i64 @strlen(ptr noundef %175) #7
-  %177 = trunc i64 %176 to i32
-  %178 = add i32 %177, 1
-  %179 = load ptr, ptr %3, align 8
-  %180 = getelementptr inbounds %struct.dbus_packet_t, ptr %179, i32 0, i32 1
-  %181 = load ptr, ptr %180, align 8
-  %182 = getelementptr inbounds %struct._packet_info, ptr %181, i32 0, i32 50
+  %167 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %166, i32 0, i32 1
+  %168 = load ptr, ptr %167, align 8
+  %169 = getelementptr inbounds nuw %struct._packet_info, ptr %168, i32 0, i32 17
+  %170 = load ptr, ptr %3, align 8
+  %171 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %170, i32 0, i32 13
+  %172 = load ptr, ptr %171, align 8
+  %173 = call i64 @strlen(ptr noundef %172) #12
+  %174 = trunc i64 %173 to i32
+  %175 = add i32 %174, 1
+  %176 = load ptr, ptr %3, align 8
+  %177 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %176, i32 0, i32 1
+  %178 = load ptr, ptr %177, align 8
+  %179 = getelementptr inbounds nuw %struct._packet_info, ptr %178, i32 0, i32 51
+  %180 = load ptr, ptr %179, align 8
+  %181 = load ptr, ptr %3, align 8
+  %182 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %181, i32 0, i32 13
   %183 = load ptr, ptr %182, align 8
-  %184 = load ptr, ptr %3, align 8
-  %185 = getelementptr inbounds %struct.dbus_packet_t, ptr %184, i32 0, i32 13
-  %186 = load ptr, ptr %185, align 8
-  %187 = call noalias ptr @wmem_strdup(ptr noundef %183, ptr noundef %186)
-  call void @set_address(ptr noundef %172, i32 noundef 7, i32 noundef %178, ptr noundef %187)
-  br label %277
+  %184 = call noalias ptr @wmem_strdup(ptr noundef %180, ptr noundef %183)
+  call void @set_address(ptr noundef %169, i32 noundef 7, i32 noundef %175, ptr noundef %184)
+  br label %273
 
-188:                                              ; preds = %81
-  %189 = load ptr, ptr %5, align 8
-  %190 = load i32, ptr @hf_dbus_sender, align 4
-  %191 = call ptr @reader_next(ptr noundef %189, i32 noundef %190, i32 noundef -1, ptr noundef %6)
-  store ptr %191, ptr %5, align 8
-  %192 = icmp ne ptr %191, null
-  br i1 %192, label %194, label %193
+185:                                              ; preds = %82
+  %186 = load ptr, ptr %5, align 8
+  %187 = load i32, ptr @hf_dbus_sender, align 4
+  %188 = call ptr @reader_next(ptr noundef %186, i32 noundef %187, i32 noundef -1, ptr noundef %6)
+  store ptr %188, ptr %5, align 8
+  %189 = icmp ne ptr %188, null
+  br i1 %189, label %191, label %190
 
-193:                                              ; preds = %188
+190:                                              ; preds = %185
   store i32 1, ptr %2, align 4
-  br label %470
+  store i32 1, ptr %7, align 4
+  br label %279
 
-194:                                              ; preds = %188
-  %195 = load ptr, ptr %6, align 8
-  %196 = load ptr, ptr %3, align 8
-  %197 = getelementptr inbounds %struct.dbus_packet_t, ptr %196, i32 0, i32 14
-  store ptr %195, ptr %197, align 8
-  %198 = load ptr, ptr %3, align 8
-  %199 = getelementptr inbounds %struct.dbus_packet_t, ptr %198, i32 0, i32 14
-  %200 = load ptr, ptr %199, align 8
-  %201 = call i32 @is_dbus_bus_name_valid(ptr noundef %200)
-  %202 = icmp ne i32 %201, 0
-  br i1 %202, label %206, label %203
+191:                                              ; preds = %185
+  %192 = load ptr, ptr %6, align 8
+  %193 = load ptr, ptr %3, align 8
+  %194 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %193, i32 0, i32 14
+  store ptr %192, ptr %194, align 8
+  %195 = load ptr, ptr %3, align 8
+  %196 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %195, i32 0, i32 14
+  %197 = load ptr, ptr %196, align 8
+  %198 = call zeroext i1 @is_dbus_bus_name_valid(ptr noundef %197)
+  br i1 %198, label %202, label %199
 
-203:                                              ; preds = %194
-  %204 = load ptr, ptr %3, align 8
-  call void @add_expert(ptr noundef %204, ptr noundef @ei_dbus_bus_name_invalid)
-  %205 = load ptr, ptr %5, align 8
-  call void @reader_cleanup(ptr noundef %205)
+199:                                              ; preds = %191
+  %200 = load ptr, ptr %3, align 8
+  call void @add_expert(ptr noundef %200, ptr noundef @ei_dbus_bus_name_invalid)
+  %201 = load ptr, ptr %5, align 8
+  call void @reader_cleanup(ptr noundef %201)
   store i32 1, ptr %2, align 4
-  br label %470
+  store i32 1, ptr %7, align 4
+  br label %279
 
-206:                                              ; preds = %194
+202:                                              ; preds = %191
+  %203 = load ptr, ptr %3, align 8
+  %204 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %203, i32 0, i32 1
+  %205 = load ptr, ptr %204, align 8
+  %206 = getelementptr inbounds nuw %struct._packet_info, ptr %205, i32 0, i32 16
   %207 = load ptr, ptr %3, align 8
-  %208 = getelementptr inbounds %struct.dbus_packet_t, ptr %207, i32 0, i32 1
+  %208 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %207, i32 0, i32 14
   %209 = load ptr, ptr %208, align 8
-  %210 = getelementptr inbounds %struct._packet_info, ptr %209, i32 0, i32 16
-  %211 = load ptr, ptr %3, align 8
-  %212 = getelementptr inbounds %struct.dbus_packet_t, ptr %211, i32 0, i32 14
-  %213 = load ptr, ptr %212, align 8
-  %214 = call i64 @strlen(ptr noundef %213) #7
-  %215 = trunc i64 %214 to i32
-  %216 = add i32 %215, 1
-  %217 = load ptr, ptr %3, align 8
-  %218 = getelementptr inbounds %struct.dbus_packet_t, ptr %217, i32 0, i32 1
-  %219 = load ptr, ptr %218, align 8
-  %220 = getelementptr inbounds %struct._packet_info, ptr %219, i32 0, i32 50
-  %221 = load ptr, ptr %220, align 8
-  %222 = load ptr, ptr %3, align 8
-  %223 = getelementptr inbounds %struct.dbus_packet_t, ptr %222, i32 0, i32 14
-  %224 = load ptr, ptr %223, align 8
-  %225 = call noalias ptr @wmem_strdup(ptr noundef %221, ptr noundef %224)
-  call void @set_address(ptr noundef %210, i32 noundef 7, i32 noundef %216, ptr noundef %225)
-  br label %277
+  %210 = call i64 @strlen(ptr noundef %209) #12
+  %211 = trunc i64 %210 to i32
+  %212 = add i32 %211, 1
+  %213 = load ptr, ptr %3, align 8
+  %214 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %213, i32 0, i32 1
+  %215 = load ptr, ptr %214, align 8
+  %216 = getelementptr inbounds nuw %struct._packet_info, ptr %215, i32 0, i32 51
+  %217 = load ptr, ptr %216, align 8
+  %218 = load ptr, ptr %3, align 8
+  %219 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %218, i32 0, i32 14
+  %220 = load ptr, ptr %219, align 8
+  %221 = call noalias ptr @wmem_strdup(ptr noundef %217, ptr noundef %220)
+  call void @set_address(ptr noundef %206, i32 noundef 7, i32 noundef %212, ptr noundef %221)
+  br label %273
 
-226:                                              ; preds = %81
-  %227 = load ptr, ptr %5, align 8
-  %228 = load i32, ptr @hf_dbus_signature, align 4
-  %229 = call ptr @reader_next(ptr noundef %227, i32 noundef %228, i32 noundef -1, ptr noundef %6)
-  store ptr %229, ptr %5, align 8
-  %230 = icmp ne ptr %229, null
-  br i1 %230, label %232, label %231
+222:                                              ; preds = %82
+  %223 = load ptr, ptr %5, align 8
+  %224 = load i32, ptr @hf_dbus_signature, align 4
+  %225 = call ptr @reader_next(ptr noundef %223, i32 noundef %224, i32 noundef -1, ptr noundef %6)
+  store ptr %225, ptr %5, align 8
+  %226 = icmp ne ptr %225, null
+  br i1 %226, label %228, label %227
 
-231:                                              ; preds = %226
+227:                                              ; preds = %222
   store i32 1, ptr %2, align 4
-  br label %470
+  store i32 1, ptr %7, align 4
+  br label %279
 
-232:                                              ; preds = %226
-  %233 = load ptr, ptr %6, align 8
-  %234 = load ptr, ptr %3, align 8
-  %235 = getelementptr inbounds %struct.dbus_packet_t, ptr %234, i32 0, i32 15
-  store ptr %233, ptr %235, align 8
-  br label %277
+228:                                              ; preds = %222
+  %229 = load ptr, ptr %6, align 8
+  %230 = load ptr, ptr %3, align 8
+  %231 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %230, i32 0, i32 15
+  store ptr %229, ptr %231, align 8
+  br label %273
 
-236:                                              ; preds = %81
-  %237 = load ptr, ptr %5, align 8
-  %238 = load i32, ptr @hf_dbus_reply_serial, align 4
-  %239 = call ptr @reader_next(ptr noundef %237, i32 noundef %238, i32 noundef -1, ptr noundef %6)
-  store ptr %239, ptr %5, align 8
-  %240 = icmp ne ptr %239, null
-  br i1 %240, label %242, label %241
+232:                                              ; preds = %82
+  %233 = load ptr, ptr %5, align 8
+  %234 = load i32, ptr @hf_dbus_reply_serial, align 4
+  %235 = call ptr @reader_next(ptr noundef %233, i32 noundef %234, i32 noundef -1, ptr noundef %6)
+  store ptr %235, ptr %5, align 8
+  %236 = icmp ne ptr %235, null
+  br i1 %236, label %238, label %237
 
-241:                                              ; preds = %236
+237:                                              ; preds = %232
   store i32 1, ptr %2, align 4
-  br label %470
+  store i32 1, ptr %7, align 4
+  br label %279
 
-242:                                              ; preds = %236
-  %243 = load i32, ptr %6, align 8
-  %244 = load ptr, ptr %3, align 8
-  %245 = getelementptr inbounds %struct.dbus_packet_t, ptr %244, i32 0, i32 12
-  store i32 %243, ptr %245, align 8
-  %246 = load ptr, ptr %3, align 8
-  %247 = getelementptr inbounds %struct.dbus_packet_t, ptr %246, i32 0, i32 12
-  %248 = load i32, ptr %247, align 8
-  %249 = icmp eq i32 %248, 0
-  br i1 %249, label %250, label %253
+238:                                              ; preds = %232
+  %239 = load i32, ptr %6, align 8
+  %240 = load ptr, ptr %3, align 8
+  %241 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %240, i32 0, i32 12
+  store i32 %239, ptr %241, align 8
+  %242 = load ptr, ptr %3, align 8
+  %243 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %242, i32 0, i32 12
+  %244 = load i32, ptr %243, align 8
+  %245 = icmp eq i32 %244, 0
+  br i1 %245, label %246, label %249
 
-250:                                              ; preds = %242
-  %251 = load ptr, ptr %3, align 8
-  call void @add_expert(ptr noundef %251, ptr noundef @ei_dbus_serial_invalid)
-  %252 = load ptr, ptr %5, align 8
-  call void @reader_cleanup(ptr noundef %252)
+246:                                              ; preds = %238
+  %247 = load ptr, ptr %3, align 8
+  call void @add_expert(ptr noundef %247, ptr noundef @ei_dbus_serial_invalid)
+  %248 = load ptr, ptr %5, align 8
+  call void @reader_cleanup(ptr noundef %248)
   store i32 1, ptr %2, align 4
-  br label %470
+  store i32 1, ptr %7, align 4
+  br label %279
 
-253:                                              ; preds = %242
-  br label %277
+249:                                              ; preds = %238
+  br label %273
 
-254:                                              ; preds = %81
-  %255 = load ptr, ptr %5, align 8
-  %256 = load i32, ptr @hf_dbus_unix_fds, align 4
-  %257 = call ptr @reader_next(ptr noundef %255, i32 noundef %256, i32 noundef -1, ptr noundef %6)
-  store ptr %257, ptr %5, align 8
-  %258 = icmp ne ptr %257, null
-  br i1 %258, label %260, label %259
+250:                                              ; preds = %82
+  %251 = load ptr, ptr %5, align 8
+  %252 = load i32, ptr @hf_dbus_unix_fds, align 4
+  %253 = call ptr @reader_next(ptr noundef %251, i32 noundef %252, i32 noundef -1, ptr noundef %6)
+  store ptr %253, ptr %5, align 8
+  %254 = icmp ne ptr %253, null
+  br i1 %254, label %256, label %255
 
-259:                                              ; preds = %254
+255:                                              ; preds = %250
   store i32 1, ptr %2, align 4
-  br label %470
+  store i32 1, ptr %7, align 4
+  br label %279
 
-260:                                              ; preds = %254
-  %261 = load i32, ptr %6, align 8
-  %262 = load ptr, ptr %3, align 8
-  %263 = getelementptr inbounds %struct.dbus_packet_t, ptr %262, i32 0, i32 16
-  store i32 %261, ptr %263, align 8
-  br label %277
+256:                                              ; preds = %250
+  %257 = load i32, ptr %6, align 8
+  %258 = load ptr, ptr %3, align 8
+  %259 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %258, i32 0, i32 16
+  store i32 %257, ptr %259, align 8
+  br label %273
 
-264:                                              ; preds = %81
-  br label %265
+260:                                              ; preds = %82
+  br label %261
 
-265:                                              ; preds = %271, %264
-  %266 = load ptr, ptr %5, align 8
-  %267 = call ptr @reader_next(ptr noundef %266, i32 noundef -1, i32 noundef -1, ptr noundef %6)
-  store ptr %267, ptr %5, align 8
-  %268 = icmp ne ptr %267, null
-  br i1 %268, label %270, label %269
+261:                                              ; preds = %267, %260
+  %262 = load ptr, ptr %5, align 8
+  %263 = call ptr @reader_next(ptr noundef %262, i32 noundef -1, i32 noundef -1, ptr noundef %6)
+  store ptr %263, ptr %5, align 8
+  %264 = icmp ne ptr %263, null
+  br i1 %264, label %266, label %265
 
-269:                                              ; preds = %265
+265:                                              ; preds = %261
   store i32 1, ptr %2, align 4
-  br label %470
+  store i32 1, ptr %7, align 4
+  br label %279
 
-270:                                              ; preds = %265
-  br label %271
+266:                                              ; preds = %261
+  br label %267
 
-271:                                              ; preds = %270
-  %272 = load ptr, ptr %5, align 8
-  %273 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %272, i32 0, i32 2
-  %274 = load i32, ptr %273, align 8
-  %275 = icmp uge i32 %274, 3
-  br i1 %275, label %265, label %276, !llvm.loop !4
+267:                                              ; preds = %266
+  %268 = load ptr, ptr %5, align 8
+  %269 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %268, i32 0, i32 2
+  %270 = load i32, ptr %269, align 8
+  %271 = icmp uge i32 %270, 3
+  br i1 %271, label %261, label %272, !llvm.loop !8
 
-276:                                              ; preds = %271
-  br label %277
+272:                                              ; preds = %267
+  br label %273
 
-277:                                              ; preds = %276, %260, %253, %232, %206, %168, %149, %130, %111, %89
-  %278 = load ptr, ptr %5, align 8
-  %279 = call ptr @reader_next(ptr noundef %278, i32 noundef -1, i32 noundef -1, ptr noundef %6)
-  store ptr %279, ptr %5, align 8
-  %280 = icmp ne ptr %279, null
-  br i1 %280, label %282, label %281
+273:                                              ; preds = %272, %256, %249, %228, %202, %165, %147, %129, %111, %90
+  %274 = load ptr, ptr %5, align 8
+  %275 = call ptr @reader_next(ptr noundef %274, i32 noundef -1, i32 noundef -1, ptr noundef %6)
+  store ptr %275, ptr %5, align 8
+  %276 = icmp ne ptr %275, null
+  br i1 %276, label %278, label %277
 
-281:                                              ; preds = %277
+277:                                              ; preds = %273
   store i32 1, ptr %2, align 4
-  br label %470
+  store i32 1, ptr %7, align 4
+  br label %279
 
-282:                                              ; preds = %277
-  br label %26, !llvm.loop !6
+278:                                              ; preds = %273
+  store i32 0, ptr %7, align 4
+  br label %279
 
-283:                                              ; preds = %26
-  store i32 0, ptr %12, align 4
+279:                                              ; preds = %278, %277, %265, %255, %246, %237, %227, %199, %190, %162, %153, %144, %135, %126, %117, %108, %99, %89, %79
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #11
+  br label %280
+
+280:                                              ; preds = %279, %61, %54
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #11
+  %281 = load i32, ptr %7, align 4
+  switch i32 %281, label %471 [
+    i32 0, label %282
+  ]
+
+282:                                              ; preds = %280
+  br label %27, !llvm.loop !10
+
+283:                                              ; preds = %27
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #11
+  store i8 0, ptr %13, align 1
   %284 = load ptr, ptr %3, align 8
-  %285 = getelementptr inbounds %struct.dbus_packet_t, ptr %284, i32 0, i32 3
+  %285 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %284, i32 0, i32 3
   %286 = load i32, ptr %285, align 4
   switch i32 %286, label %341 [
     i32 1, label %287
@@ -1210,14 +1304,14 @@ define internal i32 @dissect_dbus_header_fields(ptr noundef %0) #0 {
 
 287:                                              ; preds = %283
   %288 = load ptr, ptr %3, align 8
-  %289 = getelementptr inbounds %struct.dbus_packet_t, ptr %288, i32 0, i32 8
+  %289 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %288, i32 0, i32 8
   %290 = load ptr, ptr %289, align 8
   %291 = icmp ne ptr %290, null
   br i1 %291, label %292, label %298
 
 292:                                              ; preds = %287
   %293 = load ptr, ptr %3, align 8
-  %294 = getelementptr inbounds %struct.dbus_packet_t, ptr %293, i32 0, i32 10
+  %294 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %293, i32 0, i32 10
   %295 = load ptr, ptr %294, align 8
   %296 = icmp ne ptr %295, null
   %297 = xor i1 %296, true
@@ -1225,30 +1319,30 @@ define internal i32 @dissect_dbus_header_fields(ptr noundef %0) #0 {
 
 298:                                              ; preds = %292, %287
   %299 = phi i1 [ true, %287 ], [ %297, %292 ]
-  %300 = zext i1 %299 to i32
-  store i32 %300, ptr %12, align 4
+  %300 = zext i1 %299 to i8
+  store i8 %300, ptr %13, align 1
   br label %342
 
 301:                                              ; preds = %283
   %302 = load ptr, ptr %3, align 8
-  %303 = getelementptr inbounds %struct.dbus_packet_t, ptr %302, i32 0, i32 12
+  %303 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %302, i32 0, i32 12
   %304 = load i32, ptr %303, align 8
   %305 = icmp ne i32 %304, 0
   %306 = xor i1 %305, true
-  %307 = zext i1 %306 to i32
-  store i32 %307, ptr %12, align 4
+  %307 = zext i1 %306 to i8
+  store i8 %307, ptr %13, align 1
   br label %342
 
 308:                                              ; preds = %283
   %309 = load ptr, ptr %3, align 8
-  %310 = getelementptr inbounds %struct.dbus_packet_t, ptr %309, i32 0, i32 11
+  %310 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %309, i32 0, i32 11
   %311 = load ptr, ptr %310, align 8
   %312 = icmp ne ptr %311, null
   br i1 %312, label %313, label %319
 
 313:                                              ; preds = %308
   %314 = load ptr, ptr %3, align 8
-  %315 = getelementptr inbounds %struct.dbus_packet_t, ptr %314, i32 0, i32 12
+  %315 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %314, i32 0, i32 12
   %316 = load i32, ptr %315, align 8
   %317 = icmp ne i32 %316, 0
   %318 = xor i1 %317, true
@@ -1256,27 +1350,27 @@ define internal i32 @dissect_dbus_header_fields(ptr noundef %0) #0 {
 
 319:                                              ; preds = %313, %308
   %320 = phi i1 [ true, %308 ], [ %318, %313 ]
-  %321 = zext i1 %320 to i32
-  store i32 %321, ptr %12, align 4
+  %321 = zext i1 %320 to i8
+  store i8 %321, ptr %13, align 1
   br label %342
 
 322:                                              ; preds = %283
   %323 = load ptr, ptr %3, align 8
-  %324 = getelementptr inbounds %struct.dbus_packet_t, ptr %323, i32 0, i32 8
+  %324 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %323, i32 0, i32 8
   %325 = load ptr, ptr %324, align 8
   %326 = icmp ne ptr %325, null
   br i1 %326, label %327, label %338
 
 327:                                              ; preds = %322
   %328 = load ptr, ptr %3, align 8
-  %329 = getelementptr inbounds %struct.dbus_packet_t, ptr %328, i32 0, i32 9
+  %329 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %328, i32 0, i32 9
   %330 = load ptr, ptr %329, align 8
   %331 = icmp ne ptr %330, null
   br i1 %331, label %332, label %338
 
 332:                                              ; preds = %327
   %333 = load ptr, ptr %3, align 8
-  %334 = getelementptr inbounds %struct.dbus_packet_t, ptr %333, i32 0, i32 10
+  %334 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %333, i32 0, i32 10
   %335 = load ptr, ptr %334, align 8
   %336 = icmp ne ptr %335, null
   %337 = xor i1 %336, true
@@ -1284,47 +1378,48 @@ define internal i32 @dissect_dbus_header_fields(ptr noundef %0) #0 {
 
 338:                                              ; preds = %332, %327, %322
   %339 = phi i1 [ true, %327 ], [ true, %322 ], [ %337, %332 ]
-  %340 = zext i1 %339 to i32
-  store i32 %340, ptr %12, align 4
+  %340 = zext i1 %339 to i8
+  store i8 %340, ptr %13, align 1
   br label %342
 
 341:                                              ; preds = %283
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.155, ptr noundef @.str.156, i32 noundef 1287) #8
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.158, ptr noundef @.str.159, i32 noundef 1288) #13
   unreachable
 
 342:                                              ; preds = %338, %319, %301, %298
-  %343 = load i32, ptr %12, align 4
-  %344 = icmp ne i32 %343, 0
+  %343 = load i8, ptr %13, align 1, !range !6, !noundef !7
+  %344 = trunc i8 %343 to i1
   br i1 %344, label %345, label %351
 
 345:                                              ; preds = %342
   %346 = load ptr, ptr %3, align 8
-  %347 = getelementptr inbounds %struct.dbus_packet_t, ptr %346, i32 0, i32 1
+  %347 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %346, i32 0, i32 1
   %348 = load ptr, ptr %347, align 8
-  %349 = load ptr, ptr %7, align 8
+  %349 = load ptr, ptr %8, align 8
   %350 = call ptr @expert_add_info(ptr noundef %348, ptr noundef %349, ptr noundef @ei_dbus_required_header_field_missing)
   store i32 1, ptr %2, align 4
+  store i32 1, ptr %7, align 4
   br label %470
 
 351:                                              ; preds = %342
   %352 = load ptr, ptr %3, align 8
-  %353 = load ptr, ptr %7, align 8
+  %353 = load ptr, ptr %8, align 8
   %354 = call ptr @proto_item_get_subtree(ptr noundef %353)
   call void @add_conversation(ptr noundef %352, ptr noundef %354)
-  %355 = load i32, ptr @dbus_resolve_names, align 4
-  %356 = icmp ne i32 %355, 0
+  %355 = load i8, ptr @dbus_resolve_names, align 1, !range !6, !noundef !7
+  %356 = trunc i8 %355 to i1
   br i1 %356, label %357, label %361
 
 357:                                              ; preds = %351
   %358 = load ptr, ptr %3, align 8
-  %359 = load ptr, ptr %7, align 8
+  %359 = load ptr, ptr %8, align 8
   %360 = call ptr @proto_item_get_subtree(ptr noundef %359)
   call void @resolve_unique_name(ptr noundef %358, ptr noundef %360)
   br label %361
 
 361:                                              ; preds = %357, %351
   %362 = load ptr, ptr %3, align 8
-  %363 = getelementptr inbounds %struct.dbus_packet_t, ptr %362, i32 0, i32 3
+  %363 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %362, i32 0, i32 3
   %364 = load i32, ptr %363, align 4
   switch i32 %364, label %466 [
     i32 1, label %365
@@ -1335,72 +1430,72 @@ define internal i32 @dissect_dbus_header_fields(ptr noundef %0) #0 {
 
 365:                                              ; preds = %361
   %366 = load ptr, ptr %3, align 8
-  %367 = getelementptr inbounds %struct.dbus_packet_t, ptr %366, i32 0, i32 1
+  %367 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %366, i32 0, i32 1
   %368 = load ptr, ptr %367, align 8
-  %369 = getelementptr inbounds %struct._packet_info, ptr %368, i32 0, i32 1
+  %369 = getelementptr inbounds nuw %struct._packet_info, ptr %368, i32 0, i32 1
   %370 = load ptr, ptr %369, align 8
   %371 = load ptr, ptr %3, align 8
-  %372 = getelementptr inbounds %struct.dbus_packet_t, ptr %371, i32 0, i32 10
+  %372 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %371, i32 0, i32 10
   %373 = load ptr, ptr %372, align 8
   %374 = load ptr, ptr %3, align 8
-  %375 = getelementptr inbounds %struct.dbus_packet_t, ptr %374, i32 0, i32 15
+  %375 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %374, i32 0, i32 15
   %376 = load ptr, ptr %375, align 8
   %377 = load ptr, ptr %3, align 8
-  %378 = getelementptr inbounds %struct.dbus_packet_t, ptr %377, i32 0, i32 8
+  %378 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %377, i32 0, i32 8
   %379 = load ptr, ptr %378, align 8
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %370, i32 noundef 25, ptr noundef @.str.165, ptr noundef %373, ptr noundef %376, ptr noundef %379)
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %370, i32 noundef 25, ptr noundef @.str.168, ptr noundef %373, ptr noundef %376, ptr noundef %379)
   br label %467
 
 380:                                              ; preds = %361
   %381 = load ptr, ptr %3, align 8
-  %382 = getelementptr inbounds %struct.dbus_packet_t, ptr %381, i32 0, i32 1
+  %382 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %381, i32 0, i32 1
   %383 = load ptr, ptr %382, align 8
-  %384 = getelementptr inbounds %struct._packet_info, ptr %383, i32 0, i32 1
+  %384 = getelementptr inbounds nuw %struct._packet_info, ptr %383, i32 0, i32 1
   %385 = load ptr, ptr %384, align 8
   %386 = load ptr, ptr %3, align 8
-  %387 = getelementptr inbounds %struct.dbus_packet_t, ptr %386, i32 0, i32 10
+  %387 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %386, i32 0, i32 10
   %388 = load ptr, ptr %387, align 8
   %389 = load ptr, ptr %3, align 8
-  %390 = getelementptr inbounds %struct.dbus_packet_t, ptr %389, i32 0, i32 15
+  %390 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %389, i32 0, i32 15
   %391 = load ptr, ptr %390, align 8
   %392 = load ptr, ptr %3, align 8
-  %393 = getelementptr inbounds %struct.dbus_packet_t, ptr %392, i32 0, i32 8
+  %393 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %392, i32 0, i32 8
   %394 = load ptr, ptr %393, align 8
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %385, i32 noundef 25, ptr noundef @.str.166, ptr noundef %388, ptr noundef %391, ptr noundef %394)
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %385, i32 noundef 25, ptr noundef @.str.169, ptr noundef %388, ptr noundef %391, ptr noundef %394)
   br label %467
 
 395:                                              ; preds = %361
   %396 = load ptr, ptr %3, align 8
-  %397 = getelementptr inbounds %struct.dbus_packet_t, ptr %396, i32 0, i32 10
+  %397 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %396, i32 0, i32 10
   %398 = load ptr, ptr %397, align 8
   %399 = icmp ne ptr %398, null
   br i1 %399, label %400, label %412
 
 400:                                              ; preds = %395
   %401 = load ptr, ptr %3, align 8
-  %402 = getelementptr inbounds %struct.dbus_packet_t, ptr %401, i32 0, i32 1
+  %402 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %401, i32 0, i32 1
   %403 = load ptr, ptr %402, align 8
-  %404 = getelementptr inbounds %struct._packet_info, ptr %403, i32 0, i32 1
+  %404 = getelementptr inbounds nuw %struct._packet_info, ptr %403, i32 0, i32 1
   %405 = load ptr, ptr %404, align 8
   %406 = load ptr, ptr %3, align 8
-  %407 = getelementptr inbounds %struct.dbus_packet_t, ptr %406, i32 0, i32 10
+  %407 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %406, i32 0, i32 10
   %408 = load ptr, ptr %407, align 8
   %409 = load ptr, ptr %3, align 8
-  %410 = getelementptr inbounds %struct.dbus_packet_t, ptr %409, i32 0, i32 11
+  %410 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %409, i32 0, i32 11
   %411 = load ptr, ptr %410, align 8
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %405, i32 noundef 25, ptr noundef @.str.167, ptr noundef %408, ptr noundef %411)
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %405, i32 noundef 25, ptr noundef @.str.170, ptr noundef %408, ptr noundef %411)
   br label %421
 
 412:                                              ; preds = %395
   %413 = load ptr, ptr %3, align 8
-  %414 = getelementptr inbounds %struct.dbus_packet_t, ptr %413, i32 0, i32 1
+  %414 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %413, i32 0, i32 1
   %415 = load ptr, ptr %414, align 8
-  %416 = getelementptr inbounds %struct._packet_info, ptr %415, i32 0, i32 1
+  %416 = getelementptr inbounds nuw %struct._packet_info, ptr %415, i32 0, i32 1
   %417 = load ptr, ptr %416, align 8
   %418 = load ptr, ptr %3, align 8
-  %419 = getelementptr inbounds %struct.dbus_packet_t, ptr %418, i32 0, i32 11
+  %419 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %418, i32 0, i32 11
   %420 = load ptr, ptr %419, align 8
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %417, i32 noundef 25, ptr noundef @.str.168, ptr noundef %420)
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %417, i32 noundef 25, ptr noundef @.str.171, ptr noundef %420)
   br label %421
 
 421:                                              ; preds = %412, %400
@@ -1408,14 +1503,14 @@ define internal i32 @dissect_dbus_header_fields(ptr noundef %0) #0 {
 
 422:                                              ; preds = %361
   %423 = load ptr, ptr %3, align 8
-  %424 = getelementptr inbounds %struct.dbus_packet_t, ptr %423, i32 0, i32 10
+  %424 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %423, i32 0, i32 10
   %425 = load ptr, ptr %424, align 8
   %426 = icmp ne ptr %425, null
   br i1 %426, label %427, label %456
 
 427:                                              ; preds = %422
   %428 = load ptr, ptr %3, align 8
-  %429 = getelementptr inbounds %struct.dbus_packet_t, ptr %428, i32 0, i32 15
+  %429 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %428, i32 0, i32 15
   %430 = load ptr, ptr %429, align 8
   %431 = load i8, ptr %430, align 1
   %432 = sext i8 %431 to i32
@@ -1424,29 +1519,29 @@ define internal i32 @dissect_dbus_header_fields(ptr noundef %0) #0 {
 
 434:                                              ; preds = %427
   %435 = load ptr, ptr %3, align 8
-  %436 = getelementptr inbounds %struct.dbus_packet_t, ptr %435, i32 0, i32 1
+  %436 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %435, i32 0, i32 1
   %437 = load ptr, ptr %436, align 8
-  %438 = getelementptr inbounds %struct._packet_info, ptr %437, i32 0, i32 1
+  %438 = getelementptr inbounds nuw %struct._packet_info, ptr %437, i32 0, i32 1
   %439 = load ptr, ptr %438, align 8
   %440 = load ptr, ptr %3, align 8
-  %441 = getelementptr inbounds %struct.dbus_packet_t, ptr %440, i32 0, i32 10
+  %441 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %440, i32 0, i32 10
   %442 = load ptr, ptr %441, align 8
   %443 = load ptr, ptr %3, align 8
-  %444 = getelementptr inbounds %struct.dbus_packet_t, ptr %443, i32 0, i32 15
+  %444 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %443, i32 0, i32 15
   %445 = load ptr, ptr %444, align 8
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %439, i32 noundef 25, ptr noundef @.str.169, ptr noundef %442, ptr noundef %445)
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %439, i32 noundef 25, ptr noundef @.str.172, ptr noundef %442, ptr noundef %445)
   br label %455
 
 446:                                              ; preds = %427
   %447 = load ptr, ptr %3, align 8
-  %448 = getelementptr inbounds %struct.dbus_packet_t, ptr %447, i32 0, i32 1
+  %448 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %447, i32 0, i32 1
   %449 = load ptr, ptr %448, align 8
-  %450 = getelementptr inbounds %struct._packet_info, ptr %449, i32 0, i32 1
+  %450 = getelementptr inbounds nuw %struct._packet_info, ptr %449, i32 0, i32 1
   %451 = load ptr, ptr %450, align 8
   %452 = load ptr, ptr %3, align 8
-  %453 = getelementptr inbounds %struct.dbus_packet_t, ptr %452, i32 0, i32 10
+  %453 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %452, i32 0, i32 10
   %454 = load ptr, ptr %453, align 8
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %451, i32 noundef 25, ptr noundef @.str.170, ptr noundef %454)
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %451, i32 noundef 25, ptr noundef @.str.173, ptr noundef %454)
   br label %455
 
 455:                                              ; preds = %446, %434
@@ -1454,42 +1549,55 @@ define internal i32 @dissect_dbus_header_fields(ptr noundef %0) #0 {
 
 456:                                              ; preds = %422
   %457 = load ptr, ptr %3, align 8
-  %458 = getelementptr inbounds %struct.dbus_packet_t, ptr %457, i32 0, i32 1
+  %458 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %457, i32 0, i32 1
   %459 = load ptr, ptr %458, align 8
-  %460 = getelementptr inbounds %struct._packet_info, ptr %459, i32 0, i32 1
+  %460 = getelementptr inbounds nuw %struct._packet_info, ptr %459, i32 0, i32 1
   %461 = load ptr, ptr %460, align 8
   %462 = load ptr, ptr %3, align 8
-  %463 = getelementptr inbounds %struct.dbus_packet_t, ptr %462, i32 0, i32 15
+  %463 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %462, i32 0, i32 15
   %464 = load ptr, ptr %463, align 8
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %461, i32 noundef 25, ptr noundef @.str.171, ptr noundef %464)
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %461, i32 noundef 25, ptr noundef @.str.174, ptr noundef %464)
   br label %465
 
 465:                                              ; preds = %456, %455
   br label %467
 
 466:                                              ; preds = %361
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.155, ptr noundef @.str.156, i32 noundef 1327) #8
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.158, ptr noundef @.str.159, i32 noundef 1328) #13
   unreachable
 
 467:                                              ; preds = %465, %421, %380, %365
   %468 = load ptr, ptr %3, align 8
   %469 = call i32 @add_padding(ptr noundef %468, i8 noundef signext 40)
   store i32 %469, ptr %2, align 4
+  store i32 1, ptr %7, align 4
   br label %470
 
-470:                                              ; preds = %467, %345, %281, %269, %259, %250, %241, %231, %203, %193, %165, %155, %146, %136, %127, %117, %108, %98, %88, %78, %60, %53, %42, %36, %20
-  %471 = load i32, ptr %2, align 4
-  ret i32 %471
+470:                                              ; preds = %467, %345
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #11
+  br label %471
+
+471:                                              ; preds = %470, %280, %43, %37
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
+  br label %472
+
+472:                                              ; preds = %471, %21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
+  call void @llvm.lifetime.end.p0(i64 64, ptr %4) #11
+  %473 = load i32, ptr %2, align 4
+  ret i32 %473
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dbus_body(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %3) #11
   store i32 0, ptr %3, align 4
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %struct.dbus_packet_t, ptr %4, i32 0, i32 15
+  %5 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %4, i32 0, i32 15
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 0
   %8 = load i8, ptr %7, align 1
@@ -1498,54 +1606,59 @@ define internal i32 @dissect_dbus_body(ptr noundef %0) #0 {
 
 10:                                               ; preds = %1
   %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds %struct.dbus_packet_t, ptr %11, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %11, i32 0, i32 0
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @hf_dbus_body, align 4
   %15 = load i32, ptr @ett_dbus_body, align 4
   %16 = call ptr @ptvcursor_add_with_subtree(ptr noundef %13, i32 noundef %14, i32 noundef -1, i32 noundef 0, i32 noundef %15)
   %17 = load ptr, ptr %2, align 8
   %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds %struct.dbus_packet_t, ptr %18, i32 0, i32 15
+  %19 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %18, i32 0, i32 15
   %20 = load ptr, ptr %19, align 8
   %21 = call i32 @dissect_dbus_signature(ptr noundef %17, ptr noundef %20)
   store i32 %21, ptr %3, align 4
   %22 = load ptr, ptr %2, align 8
-  %23 = getelementptr inbounds %struct.dbus_packet_t, ptr %22, i32 0, i32 0
+  %23 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %22, i32 0, i32 0
   %24 = load ptr, ptr %23, align 8
   call void @ptvcursor_pop_subtree(ptr noundef %24)
   br label %25
 
 25:                                               ; preds = %10, %1
   %26 = load i32, ptr %3, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %3) #11
   ret i32 %26
 }
 
-declare i32 @ptvcursor_current_offset(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @ptvcursor_current_offset(ptr noundef) #2
 
-declare void @proto_item_set_end(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_set_end(ptr noundef, ptr noundef, i32 noundef) #2
 
-declare void @ptvcursor_free(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @ptvcursor_free(ptr noundef) #2
 
-declare ptr @ptvcursor_add_ret_uint(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @ptvcursor_add_ret_uint(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @add_expert(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds %struct.dbus_packet_t, ptr %5, i32 0, i32 1
+  %6 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds %struct.dbus_packet_t, ptr %8, i32 0, i32 7
+  %9 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %8, i32 0, i32 7
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %4, align 8
   %12 = call ptr @expert_add_info(ptr noundef %7, ptr noundef %10, ptr noundef %11)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @add_uint(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
@@ -1554,11 +1667,14 @@ define internal i32 @add_uint(ptr noundef %0, i32 noundef %1) #0 {
   %7 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
   %8 = load i32, ptr %4, align 4
   %9 = call ptr @proto_registrar_get_nth(i32 noundef %8)
   store ptr %9, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #11
   %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds %struct._header_field_info, ptr %10, i32 0, i32 2
+  %11 = getelementptr inbounds nuw %struct._header_field_info, ptr %10, i32 0, i32 2
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %15 [
     i32 4, label %13
@@ -1574,48 +1690,60 @@ define internal i32 @add_uint(ptr noundef %0, i32 noundef %1) #0 {
   br label %16
 
 15:                                               ; preds = %2
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.155, ptr noundef @.str.156, i32 noundef 557) #8
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.158, ptr noundef @.str.159, i32 noundef 558) #13
   unreachable
 
 16:                                               ; preds = %14, %13
   %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct.dbus_packet_t, ptr %17, i32 0, i32 0
+  %18 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %17, i32 0, i32 0
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %4, align 4
   %21 = load i32, ptr %6, align 4
   %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds %struct.dbus_packet_t, ptr %22, i32 0, i32 2
+  %23 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %22, i32 0, i32 2
   %24 = load i32, ptr %23, align 8
   %25 = call ptr @ptvcursor_add_ret_uint(ptr noundef %19, i32 noundef %20, i32 noundef %21, i32 noundef %24, ptr noundef %7)
   %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr inbounds %struct.dbus_packet_t, ptr %26, i32 0, i32 7
+  %27 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %26, i32 0, i32 7
   store ptr %25, ptr %27, align 8
   %28 = load i32, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
   ret i32 %28
 }
 
-declare ptr @try_val_to_str(i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @try_val_to_str(i32 noundef, ptr noundef) #2
 
-declare ptr @ptvcursor_add_with_subtree(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @ptvcursor_add_with_subtree(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @ptvcursor_add_no_advance(ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @ptvcursor_add_no_advance(ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #2
 
-declare ptr @ptvcursor_tvbuff(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @ptvcursor_tvbuff(ptr noundef) #2
 
-declare void @ptvcursor_advance(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @ptvcursor_advance(ptr noundef, i32 noundef) #2
 
-declare void @ptvcursor_pop_subtree(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @ptvcursor_pop_subtree(ptr noundef) #2
 
-declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @proto_registrar_get_nth(i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_registrar_get_nth(i32 noundef) #2
 
-; Function Attrs: noreturn
-declare void @proto_report_dissector_bug(ptr noundef, ...) #3
+; Function Attrs: noreturn null_pointer_is_valid
+declare void @proto_report_dissector_bug(ptr noundef, ...) #4
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal ptr @reader_next(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1625,7 +1753,7 @@ define internal ptr @reader_next(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   %10 = alloca i32, align 4
   %11 = alloca i8, align 1
   %12 = alloca ptr, align 8
-  %13 = alloca i32, align 4
+  %13 = alloca i8, align 1
   %14 = alloca i32, align 4
   %15 = alloca ptr, align 8
   %16 = alloca i8, align 1
@@ -1653,460 +1781,487 @@ define internal ptr @reader_next(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   %38 = alloca ptr, align 8
   %39 = alloca %struct._dbus_type_reader_t, align 8
   %40 = alloca i32, align 4
+  %41 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store i32 %1, ptr %7, align 4
   store i32 %2, ptr %8, align 4
   store ptr %3, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #11
   store i32 0, ptr %10, align 4
-  %41 = load ptr, ptr %6, align 8
-  %42 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %41, i32 0, i32 1
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr i8, ptr %43, i32 1
-  store ptr %44, ptr %42, align 8
-  %45 = load i8, ptr %43, align 1
-  store i8 %45, ptr %11, align 1
-  %46 = load ptr, ptr %6, align 8
-  %47 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %46, i32 0, i32 0
-  %48 = load ptr, ptr %47, align 8
-  store ptr %48, ptr %12, align 8
-  store i32 1, ptr %13, align 4
-  %49 = load ptr, ptr %12, align 8
-  %50 = load i8, ptr %11, align 1
-  %51 = call i32 @add_padding(ptr noundef %49, i8 noundef signext %50)
-  %52 = load i8, ptr %11, align 1
-  %53 = sext i8 %52 to i32
-  switch i32 %53, label %736 [
-    i32 121, label %54
-    i32 98, label %73
-    i32 110, label %109
-    i32 113, label %128
-    i32 105, label %147
-    i32 117, label %166
-    i32 120, label %185
-    i32 116, label %218
-    i32 100, label %251
-    i32 115, label %284
-    i32 111, label %306
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #11
+  %42 = load ptr, ptr %6, align 8
+  %43 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %42, i32 0, i32 1
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr i8, ptr %44, i32 1
+  store ptr %45, ptr %43, align 8
+  %46 = load i8, ptr %44, align 1
+  store i8 %46, ptr %11, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #11
+  %47 = load ptr, ptr %6, align 8
+  %48 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %47, i32 0, i32 0
+  %49 = load ptr, ptr %48, align 8
+  store ptr %49, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #11
+  store i8 1, ptr %13, align 1
+  %50 = load ptr, ptr %12, align 8
+  %51 = load i8, ptr %11, align 1
+  %52 = call i32 @add_padding(ptr noundef %50, i8 noundef signext %51)
+  %53 = load i8, ptr %11, align 1
+  %54 = sext i8 %53 to i32
+  switch i32 %54, label %734 [
+    i32 121, label %55
+    i32 98, label %74
+    i32 110, label %110
+    i32 113, label %129
+    i32 105, label %148
+    i32 117, label %167
+    i32 120, label %186
+    i32 116, label %219
+    i32 100, label %252
+    i32 115, label %285
+    i32 111, label %307
     i32 103, label %328
-    i32 97, label %351
-    i32 40, label %471
-    i32 118, label %529
-    i32 123, label %638
-    i32 41, label %703
-    i32 125, label %703
-    i32 104, label %717
+    i32 97, label %350
+    i32 40, label %470
+    i32 118, label %528
+    i32 123, label %635
+    i32 41, label %701
+    i32 125, label %701
+    i32 104, label %715
   ]
 
-54:                                               ; preds = %4
-  %55 = load ptr, ptr %12, align 8
-  %56 = getelementptr inbounds %struct.dbus_packet_t, ptr %55, i32 0, i32 0
-  %57 = load ptr, ptr %56, align 8
-  %58 = load i32, ptr %7, align 4
-  %59 = icmp ne i32 %58, -1
-  br i1 %59, label %60, label %62
+55:                                               ; preds = %4
+  %56 = load ptr, ptr %12, align 8
+  %57 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %56, i32 0, i32 0
+  %58 = load ptr, ptr %57, align 8
+  %59 = load i32, ptr %7, align 4
+  %60 = icmp ne i32 %59, -1
+  br i1 %60, label %61, label %63
 
-60:                                               ; preds = %54
-  %61 = load i32, ptr %7, align 4
-  br label %64
+61:                                               ; preds = %55
+  %62 = load i32, ptr %7, align 4
+  br label %65
 
-62:                                               ; preds = %54
-  %63 = load i32, ptr @hf_dbus_type_byte, align 4
-  br label %64
+63:                                               ; preds = %55
+  %64 = load i32, ptr @hf_dbus_type_byte, align 4
+  br label %65
 
-64:                                               ; preds = %62, %60
-  %65 = phi i32 [ %61, %60 ], [ %63, %62 ]
-  %66 = load ptr, ptr %12, align 8
-  %67 = getelementptr inbounds %struct.dbus_packet_t, ptr %66, i32 0, i32 2
-  %68 = load i32, ptr %67, align 8
-  %69 = load ptr, ptr %9, align 8
-  %70 = call ptr @ptvcursor_add_ret_uint(ptr noundef %57, i32 noundef %65, i32 noundef 1, i32 noundef %68, ptr noundef %69)
-  %71 = load ptr, ptr %12, align 8
-  %72 = getelementptr inbounds %struct.dbus_packet_t, ptr %71, i32 0, i32 7
-  store ptr %70, ptr %72, align 8
-  br label %737
+65:                                               ; preds = %63, %61
+  %66 = phi i32 [ %62, %61 ], [ %64, %63 ]
+  %67 = load ptr, ptr %12, align 8
+  %68 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %67, i32 0, i32 2
+  %69 = load i32, ptr %68, align 8
+  %70 = load ptr, ptr %9, align 8
+  %71 = call ptr @ptvcursor_add_ret_uint(ptr noundef %58, i32 noundef %66, i32 noundef 1, i32 noundef %69, ptr noundef %70)
+  %72 = load ptr, ptr %12, align 8
+  %73 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %72, i32 0, i32 7
+  store ptr %71, ptr %73, align 8
+  br label %735
 
-73:                                               ; preds = %4
-  %74 = load ptr, ptr %12, align 8
-  %75 = getelementptr inbounds %struct.dbus_packet_t, ptr %74, i32 0, i32 0
-  %76 = load ptr, ptr %75, align 8
-  %77 = call i32 @ptvcursor_current_offset(ptr noundef %76)
-  store i32 %77, ptr %14, align 4
-  %78 = load ptr, ptr %12, align 8
-  %79 = getelementptr inbounds %struct.dbus_packet_t, ptr %78, i32 0, i32 0
-  %80 = load ptr, ptr %79, align 8
-  %81 = call ptr @ptvcursor_tvbuff(ptr noundef %80)
-  store ptr %81, ptr %15, align 8
-  %82 = load ptr, ptr %15, align 8
-  %83 = load i32, ptr %14, align 4
-  %84 = call zeroext i8 @tvb_get_guint8(ptr noundef %82, i32 noundef %83)
-  store i8 %84, ptr %16, align 1
-  %85 = load ptr, ptr %12, align 8
-  %86 = getelementptr inbounds %struct.dbus_packet_t, ptr %85, i32 0, i32 0
-  %87 = load ptr, ptr %86, align 8
-  %88 = load i32, ptr %7, align 4
-  %89 = icmp ne i32 %88, -1
-  br i1 %89, label %90, label %92
+74:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #11
+  %75 = load ptr, ptr %12, align 8
+  %76 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %75, i32 0, i32 0
+  %77 = load ptr, ptr %76, align 8
+  %78 = call i32 @ptvcursor_current_offset(ptr noundef %77)
+  store i32 %78, ptr %14, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #11
+  %79 = load ptr, ptr %12, align 8
+  %80 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %79, i32 0, i32 0
+  %81 = load ptr, ptr %80, align 8
+  %82 = call ptr @ptvcursor_tvbuff(ptr noundef %81)
+  store ptr %82, ptr %15, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %16) #11
+  %83 = load ptr, ptr %15, align 8
+  %84 = load i32, ptr %14, align 4
+  %85 = call zeroext i8 @tvb_get_uint8(ptr noundef %83, i32 noundef %84)
+  store i8 %85, ptr %16, align 1
+  %86 = load ptr, ptr %12, align 8
+  %87 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %86, i32 0, i32 0
+  %88 = load ptr, ptr %87, align 8
+  %89 = load i32, ptr %7, align 4
+  %90 = icmp ne i32 %89, -1
+  br i1 %90, label %91, label %93
 
-90:                                               ; preds = %73
-  %91 = load i32, ptr %7, align 4
-  br label %94
+91:                                               ; preds = %74
+  %92 = load i32, ptr %7, align 4
+  br label %95
 
-92:                                               ; preds = %73
-  %93 = load i32, ptr @hf_dbus_type_boolean, align 4
-  br label %94
+93:                                               ; preds = %74
+  %94 = load i32, ptr @hf_dbus_type_boolean, align 4
+  br label %95
 
-94:                                               ; preds = %92, %90
-  %95 = phi i32 [ %91, %90 ], [ %93, %92 ]
-  %96 = load ptr, ptr %12, align 8
-  %97 = getelementptr inbounds %struct.dbus_packet_t, ptr %96, i32 0, i32 2
-  %98 = load i32, ptr %97, align 8
-  %99 = load ptr, ptr %9, align 8
-  %100 = call ptr @ptvcursor_add_ret_boolean(ptr noundef %87, i32 noundef %95, i32 noundef 4, i32 noundef %98, ptr noundef %99)
-  %101 = load ptr, ptr %12, align 8
-  %102 = getelementptr inbounds %struct.dbus_packet_t, ptr %101, i32 0, i32 7
-  store ptr %100, ptr %102, align 8
-  %103 = load i8, ptr %16, align 1
-  %104 = zext i8 %103 to i32
-  %105 = icmp sge i32 %104, 2
-  br i1 %105, label %106, label %108
+95:                                               ; preds = %93, %91
+  %96 = phi i32 [ %92, %91 ], [ %94, %93 ]
+  %97 = load ptr, ptr %12, align 8
+  %98 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %97, i32 0, i32 2
+  %99 = load i32, ptr %98, align 8
+  %100 = load ptr, ptr %9, align 8
+  %101 = call ptr @ptvcursor_add_ret_boolean(ptr noundef %88, i32 noundef %96, i32 noundef 4, i32 noundef %99, ptr noundef %100)
+  %102 = load ptr, ptr %12, align 8
+  %103 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %102, i32 0, i32 7
+  store ptr %101, ptr %103, align 8
+  %104 = load i8, ptr %16, align 1
+  %105 = zext i8 %104 to i32
+  %106 = icmp sge i32 %105, 2
+  br i1 %106, label %107, label %109
 
-106:                                              ; preds = %94
-  %107 = load ptr, ptr %12, align 8
-  call void @add_expert(ptr noundef %107, ptr noundef @ei_dbus_type_boolean_invalid)
+107:                                              ; preds = %95
+  %108 = load ptr, ptr %12, align 8
+  call void @add_expert(ptr noundef %108, ptr noundef @ei_dbus_type_boolean_invalid)
   store i32 1, ptr %10, align 4
-  br label %108
+  br label %109
 
-108:                                              ; preds = %106, %94
-  br label %737
+109:                                              ; preds = %107, %95
+  call void @llvm.lifetime.end.p0(i64 1, ptr %16) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #11
+  br label %735
 
-109:                                              ; preds = %4
-  %110 = load ptr, ptr %12, align 8
-  %111 = getelementptr inbounds %struct.dbus_packet_t, ptr %110, i32 0, i32 0
-  %112 = load ptr, ptr %111, align 8
-  %113 = load i32, ptr %7, align 4
-  %114 = icmp ne i32 %113, -1
-  br i1 %114, label %115, label %117
+110:                                              ; preds = %4
+  %111 = load ptr, ptr %12, align 8
+  %112 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %111, i32 0, i32 0
+  %113 = load ptr, ptr %112, align 8
+  %114 = load i32, ptr %7, align 4
+  %115 = icmp ne i32 %114, -1
+  br i1 %115, label %116, label %118
 
-115:                                              ; preds = %109
-  %116 = load i32, ptr %7, align 4
-  br label %119
+116:                                              ; preds = %110
+  %117 = load i32, ptr %7, align 4
+  br label %120
 
-117:                                              ; preds = %109
-  %118 = load i32, ptr @hf_dbus_type_int16, align 4
-  br label %119
+118:                                              ; preds = %110
+  %119 = load i32, ptr @hf_dbus_type_int16, align 4
+  br label %120
 
-119:                                              ; preds = %117, %115
-  %120 = phi i32 [ %116, %115 ], [ %118, %117 ]
-  %121 = load ptr, ptr %12, align 8
-  %122 = getelementptr inbounds %struct.dbus_packet_t, ptr %121, i32 0, i32 2
-  %123 = load i32, ptr %122, align 8
-  %124 = load ptr, ptr %9, align 8
-  %125 = call ptr @ptvcursor_add_ret_int(ptr noundef %112, i32 noundef %120, i32 noundef 2, i32 noundef %123, ptr noundef %124)
-  %126 = load ptr, ptr %12, align 8
-  %127 = getelementptr inbounds %struct.dbus_packet_t, ptr %126, i32 0, i32 7
-  store ptr %125, ptr %127, align 8
-  br label %737
+120:                                              ; preds = %118, %116
+  %121 = phi i32 [ %117, %116 ], [ %119, %118 ]
+  %122 = load ptr, ptr %12, align 8
+  %123 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %122, i32 0, i32 2
+  %124 = load i32, ptr %123, align 8
+  %125 = load ptr, ptr %9, align 8
+  %126 = call ptr @ptvcursor_add_ret_int(ptr noundef %113, i32 noundef %121, i32 noundef 2, i32 noundef %124, ptr noundef %125)
+  %127 = load ptr, ptr %12, align 8
+  %128 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %127, i32 0, i32 7
+  store ptr %126, ptr %128, align 8
+  br label %735
 
-128:                                              ; preds = %4
-  %129 = load ptr, ptr %12, align 8
-  %130 = getelementptr inbounds %struct.dbus_packet_t, ptr %129, i32 0, i32 0
-  %131 = load ptr, ptr %130, align 8
-  %132 = load i32, ptr %7, align 4
-  %133 = icmp ne i32 %132, -1
-  br i1 %133, label %134, label %136
+129:                                              ; preds = %4
+  %130 = load ptr, ptr %12, align 8
+  %131 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %130, i32 0, i32 0
+  %132 = load ptr, ptr %131, align 8
+  %133 = load i32, ptr %7, align 4
+  %134 = icmp ne i32 %133, -1
+  br i1 %134, label %135, label %137
 
-134:                                              ; preds = %128
-  %135 = load i32, ptr %7, align 4
-  br label %138
+135:                                              ; preds = %129
+  %136 = load i32, ptr %7, align 4
+  br label %139
 
-136:                                              ; preds = %128
-  %137 = load i32, ptr @hf_dbus_type_uint16, align 4
-  br label %138
+137:                                              ; preds = %129
+  %138 = load i32, ptr @hf_dbus_type_uint16, align 4
+  br label %139
 
-138:                                              ; preds = %136, %134
-  %139 = phi i32 [ %135, %134 ], [ %137, %136 ]
-  %140 = load ptr, ptr %12, align 8
-  %141 = getelementptr inbounds %struct.dbus_packet_t, ptr %140, i32 0, i32 2
-  %142 = load i32, ptr %141, align 8
-  %143 = load ptr, ptr %9, align 8
-  %144 = call ptr @ptvcursor_add_ret_uint(ptr noundef %131, i32 noundef %139, i32 noundef 2, i32 noundef %142, ptr noundef %143)
-  %145 = load ptr, ptr %12, align 8
-  %146 = getelementptr inbounds %struct.dbus_packet_t, ptr %145, i32 0, i32 7
-  store ptr %144, ptr %146, align 8
-  br label %737
+139:                                              ; preds = %137, %135
+  %140 = phi i32 [ %136, %135 ], [ %138, %137 ]
+  %141 = load ptr, ptr %12, align 8
+  %142 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %141, i32 0, i32 2
+  %143 = load i32, ptr %142, align 8
+  %144 = load ptr, ptr %9, align 8
+  %145 = call ptr @ptvcursor_add_ret_uint(ptr noundef %132, i32 noundef %140, i32 noundef 2, i32 noundef %143, ptr noundef %144)
+  %146 = load ptr, ptr %12, align 8
+  %147 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %146, i32 0, i32 7
+  store ptr %145, ptr %147, align 8
+  br label %735
 
-147:                                              ; preds = %4
-  %148 = load ptr, ptr %12, align 8
-  %149 = getelementptr inbounds %struct.dbus_packet_t, ptr %148, i32 0, i32 0
-  %150 = load ptr, ptr %149, align 8
-  %151 = load i32, ptr %7, align 4
-  %152 = icmp ne i32 %151, -1
-  br i1 %152, label %153, label %155
+148:                                              ; preds = %4
+  %149 = load ptr, ptr %12, align 8
+  %150 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %149, i32 0, i32 0
+  %151 = load ptr, ptr %150, align 8
+  %152 = load i32, ptr %7, align 4
+  %153 = icmp ne i32 %152, -1
+  br i1 %153, label %154, label %156
 
-153:                                              ; preds = %147
-  %154 = load i32, ptr %7, align 4
-  br label %157
+154:                                              ; preds = %148
+  %155 = load i32, ptr %7, align 4
+  br label %158
 
-155:                                              ; preds = %147
-  %156 = load i32, ptr @hf_dbus_type_int32, align 4
-  br label %157
+156:                                              ; preds = %148
+  %157 = load i32, ptr @hf_dbus_type_int32, align 4
+  br label %158
 
-157:                                              ; preds = %155, %153
-  %158 = phi i32 [ %154, %153 ], [ %156, %155 ]
-  %159 = load ptr, ptr %12, align 8
-  %160 = getelementptr inbounds %struct.dbus_packet_t, ptr %159, i32 0, i32 2
-  %161 = load i32, ptr %160, align 8
-  %162 = load ptr, ptr %9, align 8
-  %163 = call ptr @ptvcursor_add_ret_int(ptr noundef %150, i32 noundef %158, i32 noundef 4, i32 noundef %161, ptr noundef %162)
-  %164 = load ptr, ptr %12, align 8
-  %165 = getelementptr inbounds %struct.dbus_packet_t, ptr %164, i32 0, i32 7
-  store ptr %163, ptr %165, align 8
-  br label %737
+158:                                              ; preds = %156, %154
+  %159 = phi i32 [ %155, %154 ], [ %157, %156 ]
+  %160 = load ptr, ptr %12, align 8
+  %161 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %160, i32 0, i32 2
+  %162 = load i32, ptr %161, align 8
+  %163 = load ptr, ptr %9, align 8
+  %164 = call ptr @ptvcursor_add_ret_int(ptr noundef %151, i32 noundef %159, i32 noundef 4, i32 noundef %162, ptr noundef %163)
+  %165 = load ptr, ptr %12, align 8
+  %166 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %165, i32 0, i32 7
+  store ptr %164, ptr %166, align 8
+  br label %735
 
-166:                                              ; preds = %4
-  %167 = load ptr, ptr %12, align 8
-  %168 = getelementptr inbounds %struct.dbus_packet_t, ptr %167, i32 0, i32 0
-  %169 = load ptr, ptr %168, align 8
-  %170 = load i32, ptr %7, align 4
-  %171 = icmp ne i32 %170, -1
-  br i1 %171, label %172, label %174
+167:                                              ; preds = %4
+  %168 = load ptr, ptr %12, align 8
+  %169 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %168, i32 0, i32 0
+  %170 = load ptr, ptr %169, align 8
+  %171 = load i32, ptr %7, align 4
+  %172 = icmp ne i32 %171, -1
+  br i1 %172, label %173, label %175
 
-172:                                              ; preds = %166
-  %173 = load i32, ptr %7, align 4
-  br label %176
+173:                                              ; preds = %167
+  %174 = load i32, ptr %7, align 4
+  br label %177
 
-174:                                              ; preds = %166
-  %175 = load i32, ptr @hf_dbus_type_uint32, align 4
-  br label %176
+175:                                              ; preds = %167
+  %176 = load i32, ptr @hf_dbus_type_uint32, align 4
+  br label %177
 
-176:                                              ; preds = %174, %172
-  %177 = phi i32 [ %173, %172 ], [ %175, %174 ]
-  %178 = load ptr, ptr %12, align 8
-  %179 = getelementptr inbounds %struct.dbus_packet_t, ptr %178, i32 0, i32 2
-  %180 = load i32, ptr %179, align 8
-  %181 = load ptr, ptr %9, align 8
-  %182 = call ptr @ptvcursor_add_ret_uint(ptr noundef %169, i32 noundef %177, i32 noundef 4, i32 noundef %180, ptr noundef %181)
-  %183 = load ptr, ptr %12, align 8
-  %184 = getelementptr inbounds %struct.dbus_packet_t, ptr %183, i32 0, i32 7
-  store ptr %182, ptr %184, align 8
-  br label %737
+177:                                              ; preds = %175, %173
+  %178 = phi i32 [ %174, %173 ], [ %176, %175 ]
+  %179 = load ptr, ptr %12, align 8
+  %180 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %179, i32 0, i32 2
+  %181 = load i32, ptr %180, align 8
+  %182 = load ptr, ptr %9, align 8
+  %183 = call ptr @ptvcursor_add_ret_uint(ptr noundef %170, i32 noundef %178, i32 noundef 4, i32 noundef %181, ptr noundef %182)
+  %184 = load ptr, ptr %12, align 8
+  %185 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %184, i32 0, i32 7
+  store ptr %183, ptr %185, align 8
+  br label %735
 
-185:                                              ; preds = %4
-  %186 = load ptr, ptr %12, align 8
-  %187 = getelementptr inbounds %struct.dbus_packet_t, ptr %186, i32 0, i32 0
-  %188 = load ptr, ptr %187, align 8
-  %189 = call i32 @ptvcursor_current_offset(ptr noundef %188)
-  store i32 %189, ptr %17, align 4
-  %190 = load ptr, ptr %12, align 8
-  %191 = getelementptr inbounds %struct.dbus_packet_t, ptr %190, i32 0, i32 0
-  %192 = load ptr, ptr %191, align 8
-  %193 = call ptr @ptvcursor_tvbuff(ptr noundef %192)
-  store ptr %193, ptr %18, align 8
-  %194 = load ptr, ptr %18, align 8
-  %195 = load i32, ptr %17, align 4
-  %196 = load ptr, ptr %12, align 8
-  %197 = getelementptr inbounds %struct.dbus_packet_t, ptr %196, i32 0, i32 2
-  %198 = load i32, ptr %197, align 8
-  %199 = call i64 @tvb_get_gint64(ptr noundef %194, i32 noundef %195, i32 noundef %198)
-  %200 = load ptr, ptr %9, align 8
-  store i64 %199, ptr %200, align 8
-  %201 = load ptr, ptr %12, align 8
-  %202 = getelementptr inbounds %struct.dbus_packet_t, ptr %201, i32 0, i32 0
-  %203 = load ptr, ptr %202, align 8
-  %204 = load i32, ptr %7, align 4
-  %205 = icmp ne i32 %204, -1
-  br i1 %205, label %206, label %208
+186:                                              ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #11
+  %187 = load ptr, ptr %12, align 8
+  %188 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %187, i32 0, i32 0
+  %189 = load ptr, ptr %188, align 8
+  %190 = call i32 @ptvcursor_current_offset(ptr noundef %189)
+  store i32 %190, ptr %17, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #11
+  %191 = load ptr, ptr %12, align 8
+  %192 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %191, i32 0, i32 0
+  %193 = load ptr, ptr %192, align 8
+  %194 = call ptr @ptvcursor_tvbuff(ptr noundef %193)
+  store ptr %194, ptr %18, align 8
+  %195 = load ptr, ptr %18, align 8
+  %196 = load i32, ptr %17, align 4
+  %197 = load ptr, ptr %12, align 8
+  %198 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %197, i32 0, i32 2
+  %199 = load i32, ptr %198, align 8
+  %200 = call i64 @tvb_get_int64(ptr noundef %195, i32 noundef %196, i32 noundef %199)
+  %201 = load ptr, ptr %9, align 8
+  store i64 %200, ptr %201, align 8
+  %202 = load ptr, ptr %12, align 8
+  %203 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %202, i32 0, i32 0
+  %204 = load ptr, ptr %203, align 8
+  %205 = load i32, ptr %7, align 4
+  %206 = icmp ne i32 %205, -1
+  br i1 %206, label %207, label %209
 
-206:                                              ; preds = %185
-  %207 = load i32, ptr %7, align 4
-  br label %210
+207:                                              ; preds = %186
+  %208 = load i32, ptr %7, align 4
+  br label %211
 
-208:                                              ; preds = %185
-  %209 = load i32, ptr @hf_dbus_type_int64, align 4
-  br label %210
+209:                                              ; preds = %186
+  %210 = load i32, ptr @hf_dbus_type_int64, align 4
+  br label %211
 
-210:                                              ; preds = %208, %206
-  %211 = phi i32 [ %207, %206 ], [ %209, %208 ]
-  %212 = load ptr, ptr %12, align 8
-  %213 = getelementptr inbounds %struct.dbus_packet_t, ptr %212, i32 0, i32 2
-  %214 = load i32, ptr %213, align 8
-  %215 = call ptr @ptvcursor_add(ptr noundef %203, i32 noundef %211, i32 noundef 8, i32 noundef %214)
-  %216 = load ptr, ptr %12, align 8
-  %217 = getelementptr inbounds %struct.dbus_packet_t, ptr %216, i32 0, i32 7
-  store ptr %215, ptr %217, align 8
-  br label %737
+211:                                              ; preds = %209, %207
+  %212 = phi i32 [ %208, %207 ], [ %210, %209 ]
+  %213 = load ptr, ptr %12, align 8
+  %214 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %213, i32 0, i32 2
+  %215 = load i32, ptr %214, align 8
+  %216 = call ptr @ptvcursor_add(ptr noundef %204, i32 noundef %212, i32 noundef 8, i32 noundef %215)
+  %217 = load ptr, ptr %12, align 8
+  %218 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %217, i32 0, i32 7
+  store ptr %216, ptr %218, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #11
+  br label %735
 
-218:                                              ; preds = %4
-  %219 = load ptr, ptr %12, align 8
-  %220 = getelementptr inbounds %struct.dbus_packet_t, ptr %219, i32 0, i32 0
-  %221 = load ptr, ptr %220, align 8
-  %222 = call i32 @ptvcursor_current_offset(ptr noundef %221)
-  store i32 %222, ptr %19, align 4
-  %223 = load ptr, ptr %12, align 8
-  %224 = getelementptr inbounds %struct.dbus_packet_t, ptr %223, i32 0, i32 0
-  %225 = load ptr, ptr %224, align 8
-  %226 = call ptr @ptvcursor_tvbuff(ptr noundef %225)
-  store ptr %226, ptr %20, align 8
-  %227 = load ptr, ptr %20, align 8
-  %228 = load i32, ptr %19, align 4
-  %229 = load ptr, ptr %12, align 8
-  %230 = getelementptr inbounds %struct.dbus_packet_t, ptr %229, i32 0, i32 2
-  %231 = load i32, ptr %230, align 8
-  %232 = call i64 @tvb_get_guint64(ptr noundef %227, i32 noundef %228, i32 noundef %231)
-  %233 = load ptr, ptr %9, align 8
-  store i64 %232, ptr %233, align 8
-  %234 = load ptr, ptr %12, align 8
-  %235 = getelementptr inbounds %struct.dbus_packet_t, ptr %234, i32 0, i32 0
-  %236 = load ptr, ptr %235, align 8
-  %237 = load i32, ptr %7, align 4
-  %238 = icmp ne i32 %237, -1
-  br i1 %238, label %239, label %241
+219:                                              ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #11
+  %220 = load ptr, ptr %12, align 8
+  %221 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %220, i32 0, i32 0
+  %222 = load ptr, ptr %221, align 8
+  %223 = call i32 @ptvcursor_current_offset(ptr noundef %222)
+  store i32 %223, ptr %19, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #11
+  %224 = load ptr, ptr %12, align 8
+  %225 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %224, i32 0, i32 0
+  %226 = load ptr, ptr %225, align 8
+  %227 = call ptr @ptvcursor_tvbuff(ptr noundef %226)
+  store ptr %227, ptr %20, align 8
+  %228 = load ptr, ptr %20, align 8
+  %229 = load i32, ptr %19, align 4
+  %230 = load ptr, ptr %12, align 8
+  %231 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %230, i32 0, i32 2
+  %232 = load i32, ptr %231, align 8
+  %233 = call i64 @tvb_get_uint64(ptr noundef %228, i32 noundef %229, i32 noundef %232)
+  %234 = load ptr, ptr %9, align 8
+  store i64 %233, ptr %234, align 8
+  %235 = load ptr, ptr %12, align 8
+  %236 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %235, i32 0, i32 0
+  %237 = load ptr, ptr %236, align 8
+  %238 = load i32, ptr %7, align 4
+  %239 = icmp ne i32 %238, -1
+  br i1 %239, label %240, label %242
 
-239:                                              ; preds = %218
-  %240 = load i32, ptr %7, align 4
-  br label %243
+240:                                              ; preds = %219
+  %241 = load i32, ptr %7, align 4
+  br label %244
 
-241:                                              ; preds = %218
-  %242 = load i32, ptr @hf_dbus_type_uint64, align 4
-  br label %243
+242:                                              ; preds = %219
+  %243 = load i32, ptr @hf_dbus_type_uint64, align 4
+  br label %244
 
-243:                                              ; preds = %241, %239
-  %244 = phi i32 [ %240, %239 ], [ %242, %241 ]
-  %245 = load ptr, ptr %12, align 8
-  %246 = getelementptr inbounds %struct.dbus_packet_t, ptr %245, i32 0, i32 2
-  %247 = load i32, ptr %246, align 8
-  %248 = call ptr @ptvcursor_add(ptr noundef %236, i32 noundef %244, i32 noundef 8, i32 noundef %247)
-  %249 = load ptr, ptr %12, align 8
-  %250 = getelementptr inbounds %struct.dbus_packet_t, ptr %249, i32 0, i32 7
-  store ptr %248, ptr %250, align 8
-  br label %737
+244:                                              ; preds = %242, %240
+  %245 = phi i32 [ %241, %240 ], [ %243, %242 ]
+  %246 = load ptr, ptr %12, align 8
+  %247 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %246, i32 0, i32 2
+  %248 = load i32, ptr %247, align 8
+  %249 = call ptr @ptvcursor_add(ptr noundef %237, i32 noundef %245, i32 noundef 8, i32 noundef %248)
+  %250 = load ptr, ptr %12, align 8
+  %251 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %250, i32 0, i32 7
+  store ptr %249, ptr %251, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #11
+  br label %735
 
-251:                                              ; preds = %4
-  %252 = load ptr, ptr %12, align 8
-  %253 = getelementptr inbounds %struct.dbus_packet_t, ptr %252, i32 0, i32 0
-  %254 = load ptr, ptr %253, align 8
-  %255 = call i32 @ptvcursor_current_offset(ptr noundef %254)
-  store i32 %255, ptr %21, align 4
-  %256 = load ptr, ptr %12, align 8
-  %257 = getelementptr inbounds %struct.dbus_packet_t, ptr %256, i32 0, i32 0
-  %258 = load ptr, ptr %257, align 8
-  %259 = call ptr @ptvcursor_tvbuff(ptr noundef %258)
-  store ptr %259, ptr %22, align 8
-  %260 = load ptr, ptr %22, align 8
-  %261 = load i32, ptr %21, align 4
-  %262 = load ptr, ptr %12, align 8
-  %263 = getelementptr inbounds %struct.dbus_packet_t, ptr %262, i32 0, i32 2
-  %264 = load i32, ptr %263, align 8
-  %265 = call double @tvb_get_ieee_double(ptr noundef %260, i32 noundef %261, i32 noundef %264)
-  %266 = load ptr, ptr %9, align 8
-  store double %265, ptr %266, align 8
-  %267 = load ptr, ptr %12, align 8
-  %268 = getelementptr inbounds %struct.dbus_packet_t, ptr %267, i32 0, i32 0
-  %269 = load ptr, ptr %268, align 8
-  %270 = load i32, ptr %7, align 4
-  %271 = icmp ne i32 %270, -1
-  br i1 %271, label %272, label %274
+252:                                              ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #11
+  %253 = load ptr, ptr %12, align 8
+  %254 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %253, i32 0, i32 0
+  %255 = load ptr, ptr %254, align 8
+  %256 = call i32 @ptvcursor_current_offset(ptr noundef %255)
+  store i32 %256, ptr %21, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #11
+  %257 = load ptr, ptr %12, align 8
+  %258 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %257, i32 0, i32 0
+  %259 = load ptr, ptr %258, align 8
+  %260 = call ptr @ptvcursor_tvbuff(ptr noundef %259)
+  store ptr %260, ptr %22, align 8
+  %261 = load ptr, ptr %22, align 8
+  %262 = load i32, ptr %21, align 4
+  %263 = load ptr, ptr %12, align 8
+  %264 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %263, i32 0, i32 2
+  %265 = load i32, ptr %264, align 8
+  %266 = call double @tvb_get_ieee_double(ptr noundef %261, i32 noundef %262, i32 noundef %265)
+  %267 = load ptr, ptr %9, align 8
+  store double %266, ptr %267, align 8
+  %268 = load ptr, ptr %12, align 8
+  %269 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %268, i32 0, i32 0
+  %270 = load ptr, ptr %269, align 8
+  %271 = load i32, ptr %7, align 4
+  %272 = icmp ne i32 %271, -1
+  br i1 %272, label %273, label %275
 
-272:                                              ; preds = %251
-  %273 = load i32, ptr %7, align 4
-  br label %276
+273:                                              ; preds = %252
+  %274 = load i32, ptr %7, align 4
+  br label %277
 
-274:                                              ; preds = %251
-  %275 = load i32, ptr @hf_dbus_type_double, align 4
-  br label %276
+275:                                              ; preds = %252
+  %276 = load i32, ptr @hf_dbus_type_double, align 4
+  br label %277
 
-276:                                              ; preds = %274, %272
-  %277 = phi i32 [ %273, %272 ], [ %275, %274 ]
-  %278 = load ptr, ptr %12, align 8
-  %279 = getelementptr inbounds %struct.dbus_packet_t, ptr %278, i32 0, i32 2
-  %280 = load i32, ptr %279, align 8
-  %281 = call ptr @ptvcursor_add(ptr noundef %269, i32 noundef %277, i32 noundef 8, i32 noundef %280)
-  %282 = load ptr, ptr %12, align 8
-  %283 = getelementptr inbounds %struct.dbus_packet_t, ptr %282, i32 0, i32 7
-  store ptr %281, ptr %283, align 8
-  br label %737
+277:                                              ; preds = %275, %273
+  %278 = phi i32 [ %274, %273 ], [ %276, %275 ]
+  %279 = load ptr, ptr %12, align 8
+  %280 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %279, i32 0, i32 2
+  %281 = load i32, ptr %280, align 8
+  %282 = call ptr @ptvcursor_add(ptr noundef %270, i32 noundef %278, i32 noundef 8, i32 noundef %281)
+  %283 = load ptr, ptr %12, align 8
+  %284 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %283, i32 0, i32 7
+  store ptr %282, ptr %284, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #11
+  br label %735
 
-284:                                              ; preds = %4
-  %285 = load ptr, ptr %12, align 8
-  %286 = load i32, ptr %7, align 4
-  %287 = icmp ne i32 %286, -1
-  br i1 %287, label %288, label %290
+285:                                              ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %23) #11
+  %286 = load ptr, ptr %12, align 8
+  %287 = load i32, ptr %7, align 4
+  %288 = icmp ne i32 %287, -1
+  br i1 %288, label %289, label %291
 
-288:                                              ; preds = %284
-  %289 = load i32, ptr %7, align 4
-  br label %292
+289:                                              ; preds = %285
+  %290 = load i32, ptr %7, align 4
+  br label %293
 
-290:                                              ; preds = %284
-  %291 = load i32, ptr @hf_dbus_type_string, align 4
-  br label %292
+291:                                              ; preds = %285
+  %292 = load i32, ptr @hf_dbus_type_string, align 4
+  br label %293
 
-292:                                              ; preds = %290, %288
-  %293 = phi i32 [ %289, %288 ], [ %291, %290 ]
-  %294 = call ptr @add_dbus_string(ptr noundef %285, i32 noundef %293, i32 noundef 4)
-  store ptr %294, ptr %23, align 8
-  %295 = load ptr, ptr %23, align 8
-  %296 = icmp ne ptr %295, null
-  br i1 %296, label %297, label %301
+293:                                              ; preds = %291, %289
+  %294 = phi i32 [ %290, %289 ], [ %292, %291 ]
+  %295 = call ptr @add_dbus_string(ptr noundef %286, i32 noundef %294, i32 noundef 4)
+  store ptr %295, ptr %23, align 8
+  %296 = load ptr, ptr %23, align 8
+  %297 = icmp ne ptr %296, null
+  br i1 %297, label %298, label %302
 
-297:                                              ; preds = %292
-  %298 = load ptr, ptr %23, align 8
-  %299 = call i32 @g_utf8_validate(ptr noundef %298, i64 noundef -1, ptr noundef null)
-  %300 = icmp ne i32 %299, 0
-  br i1 %300, label %303, label %301
+298:                                              ; preds = %293
+  %299 = load ptr, ptr %23, align 8
+  %300 = call i32 @g_utf8_validate(ptr noundef %299, i64 noundef -1, ptr noundef null)
+  %301 = icmp ne i32 %300, 0
+  br i1 %301, label %304, label %302
 
-301:                                              ; preds = %297, %292
-  %302 = load ptr, ptr %12, align 8
-  call void @add_expert(ptr noundef %302, ptr noundef @ei_dbus_string_invalid)
+302:                                              ; preds = %298, %293
+  %303 = load ptr, ptr %12, align 8
+  call void @add_expert(ptr noundef %303, ptr noundef @ei_dbus_string_invalid)
   store i32 1, ptr %10, align 4
-  br label %303
+  br label %304
 
-303:                                              ; preds = %301, %297
-  %304 = load ptr, ptr %23, align 8
-  %305 = load ptr, ptr %9, align 8
-  store ptr %304, ptr %305, align 8
-  br label %737
+304:                                              ; preds = %302, %298
+  %305 = load ptr, ptr %23, align 8
+  %306 = load ptr, ptr %9, align 8
+  store ptr %305, ptr %306, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %23) #11
+  br label %735
 
-306:                                              ; preds = %4
-  %307 = load ptr, ptr %12, align 8
-  %308 = load i32, ptr %7, align 4
-  %309 = icmp ne i32 %308, -1
-  br i1 %309, label %310, label %312
+307:                                              ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #11
+  %308 = load ptr, ptr %12, align 8
+  %309 = load i32, ptr %7, align 4
+  %310 = icmp ne i32 %309, -1
+  br i1 %310, label %311, label %313
 
-310:                                              ; preds = %306
-  %311 = load i32, ptr %7, align 4
-  br label %314
+311:                                              ; preds = %307
+  %312 = load i32, ptr %7, align 4
+  br label %315
 
-312:                                              ; preds = %306
-  %313 = load i32, ptr @hf_dbus_type_object_path, align 4
-  br label %314
+313:                                              ; preds = %307
+  %314 = load i32, ptr @hf_dbus_type_object_path, align 4
+  br label %315
 
-314:                                              ; preds = %312, %310
-  %315 = phi i32 [ %311, %310 ], [ %313, %312 ]
-  %316 = call ptr @add_dbus_string(ptr noundef %307, i32 noundef %315, i32 noundef 4)
-  store ptr %316, ptr %24, align 8
-  %317 = load ptr, ptr %24, align 8
-  %318 = icmp ne ptr %317, null
-  br i1 %318, label %319, label %323
+315:                                              ; preds = %313, %311
+  %316 = phi i32 [ %312, %311 ], [ %314, %313 ]
+  %317 = call ptr @add_dbus_string(ptr noundef %308, i32 noundef %316, i32 noundef 4)
+  store ptr %317, ptr %24, align 8
+  %318 = load ptr, ptr %24, align 8
+  %319 = icmp ne ptr %318, null
+  br i1 %319, label %320, label %323
 
-319:                                              ; preds = %314
-  %320 = load ptr, ptr %24, align 8
-  %321 = call i32 @is_dbus_object_path_valid(ptr noundef %320)
-  %322 = icmp ne i32 %321, 0
+320:                                              ; preds = %315
+  %321 = load ptr, ptr %24, align 8
+  %322 = call zeroext i1 @is_dbus_object_path_valid(ptr noundef %321)
   br i1 %322, label %325, label %323
 
-323:                                              ; preds = %319, %314
+323:                                              ; preds = %320, %315
   %324 = load ptr, ptr %12, align 8
   call void @add_expert(ptr noundef %324, ptr noundef @ei_dbus_type_object_path_invalid)
   store i32 1, ptr %10, align 4
   br label %325
 
-325:                                              ; preds = %323, %319
+325:                                              ; preds = %323, %320
   %326 = load ptr, ptr %24, align 8
   %327 = load ptr, ptr %9, align 8
   store ptr %326, ptr %327, align 8
-  br label %737
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #11
+  br label %735
 
 328:                                              ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #11
   %329 = load ptr, ptr %12, align 8
   %330 = load i32, ptr %7, align 4
   %331 = icmp ne i32 %330, -1
@@ -2126,947 +2281,1003 @@ define internal ptr @reader_next(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   store ptr %338, ptr %25, align 8
   %339 = load ptr, ptr %25, align 8
   %340 = icmp ne ptr %339, null
-  br i1 %340, label %341, label %346
+  br i1 %340, label %341, label %345
 
 341:                                              ; preds = %336
   %342 = load ptr, ptr %25, align 8
   %343 = load ptr, ptr %12, align 8
-  %344 = call i32 @is_dbus_signature_valid(ptr noundef %342, ptr noundef %343)
-  %345 = icmp ne i32 %344, 0
-  br i1 %345, label %348, label %346
+  %344 = call zeroext i1 @is_dbus_signature_valid(ptr noundef %342, ptr noundef %343)
+  br i1 %344, label %347, label %345
 
-346:                                              ; preds = %341, %336
-  %347 = load ptr, ptr %12, align 8
-  call void @add_expert(ptr noundef %347, ptr noundef @ei_dbus_type_signature_invalid)
+345:                                              ; preds = %341, %336
+  %346 = load ptr, ptr %12, align 8
+  call void @add_expert(ptr noundef %346, ptr noundef @ei_dbus_type_signature_invalid)
   store i32 1, ptr %10, align 4
-  br label %348
+  br label %347
 
-348:                                              ; preds = %346, %341
-  %349 = load ptr, ptr %25, align 8
-  %350 = load ptr, ptr %9, align 8
-  store ptr %349, ptr %350, align 8
-  br label %737
+347:                                              ; preds = %345, %341
+  %348 = load ptr, ptr %25, align 8
+  %349 = load ptr, ptr %9, align 8
+  store ptr %348, ptr %349, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #11
+  br label %735
 
-351:                                              ; preds = %4
-  store i32 0, ptr %13, align 4
-  %352 = load ptr, ptr %12, align 8
-  %353 = getelementptr inbounds %struct.dbus_packet_t, ptr %352, i32 0, i32 0
-  %354 = load ptr, ptr %353, align 8
-  %355 = load i32, ptr %7, align 4
-  %356 = icmp ne i32 %355, -1
-  br i1 %356, label %357, label %359
+350:                                              ; preds = %4
+  store i8 0, ptr %13, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #11
+  %351 = load ptr, ptr %12, align 8
+  %352 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %351, i32 0, i32 0
+  %353 = load ptr, ptr %352, align 8
+  %354 = load i32, ptr %7, align 4
+  %355 = icmp ne i32 %354, -1
+  br i1 %355, label %356, label %358
 
-357:                                              ; preds = %351
-  %358 = load i32, ptr %7, align 4
-  br label %361
+356:                                              ; preds = %350
+  %357 = load i32, ptr %7, align 4
+  br label %360
 
-359:                                              ; preds = %351
-  %360 = load i32, ptr @hf_dbus_type_array, align 4
-  br label %361
+358:                                              ; preds = %350
+  %359 = load i32, ptr @hf_dbus_type_array, align 4
+  br label %360
 
-361:                                              ; preds = %359, %357
-  %362 = phi i32 [ %358, %357 ], [ %360, %359 ]
-  %363 = load i32, ptr %8, align 4
-  %364 = icmp ne i32 %363, -1
-  br i1 %364, label %365, label %367
+360:                                              ; preds = %358, %356
+  %361 = phi i32 [ %357, %356 ], [ %359, %358 ]
+  %362 = load i32, ptr %8, align 4
+  %363 = icmp ne i32 %362, -1
+  br i1 %363, label %364, label %366
 
-365:                                              ; preds = %361
-  %366 = load i32, ptr %8, align 4
-  br label %369
+364:                                              ; preds = %360
+  %365 = load i32, ptr %8, align 4
+  br label %368
 
-367:                                              ; preds = %361
-  %368 = load i32, ptr @ett_dbus_type_array, align 4
-  br label %369
+366:                                              ; preds = %360
+  %367 = load i32, ptr @ett_dbus_type_array, align 4
+  br label %368
 
-369:                                              ; preds = %367, %365
-  %370 = phi i32 [ %366, %365 ], [ %368, %367 ]
-  %371 = call ptr @ptvcursor_add_with_subtree(ptr noundef %354, i32 noundef %362, i32 noundef -1, i32 noundef 0, i32 noundef %370)
-  store ptr %371, ptr %26, align 8
-  %372 = load ptr, ptr %6, align 8
-  %373 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %372, i32 0, i32 1
-  %374 = load ptr, ptr %373, align 8
-  %375 = load i8, ptr %374, align 1
-  %376 = sext i8 %375 to i32
-  %377 = icmp eq i32 %376, 123
-  br i1 %377, label %378, label %380
+368:                                              ; preds = %366, %364
+  %369 = phi i32 [ %365, %364 ], [ %367, %366 ]
+  %370 = call ptr @ptvcursor_add_with_subtree(ptr noundef %353, i32 noundef %361, i32 noundef -1, i32 noundef 0, i32 noundef %369)
+  store ptr %370, ptr %26, align 8
+  %371 = load ptr, ptr %6, align 8
+  %372 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %371, i32 0, i32 1
+  %373 = load ptr, ptr %372, align 8
+  %374 = load i8, ptr %373, align 1
+  %375 = sext i8 %374 to i32
+  %376 = icmp eq i32 %375, 123
+  br i1 %376, label %377, label %379
 
-378:                                              ; preds = %369
-  %379 = load ptr, ptr %26, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %379, ptr noundef @.str.172)
-  br label %380
+377:                                              ; preds = %368
+  %378 = load ptr, ptr %26, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %378, ptr noundef @.str.175)
+  br label %379
 
-380:                                              ; preds = %378, %369
-  %381 = load ptr, ptr %12, align 8
-  %382 = load i32, ptr @hf_dbus_type_array_length, align 4
-  %383 = call i32 @add_uint(ptr noundef %381, i32 noundef %382)
-  store i32 %383, ptr %27, align 4
-  %384 = load i32, ptr %27, align 4
-  %385 = load ptr, ptr %9, align 8
-  store i32 %384, ptr %385, align 8
-  %386 = load ptr, ptr %12, align 8
-  %387 = load ptr, ptr %6, align 8
-  %388 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %387, i32 0, i32 1
-  %389 = load ptr, ptr %388, align 8
-  %390 = load i8, ptr %389, align 1
-  %391 = call i32 @add_padding(ptr noundef %386, i8 noundef signext %390)
-  %392 = load i32, ptr %27, align 4
-  %393 = icmp eq i32 %392, 0
-  br i1 %393, label %394, label %412
+379:                                              ; preds = %377, %368
+  call void @llvm.lifetime.start.p0(i64 4, ptr %27) #11
+  %380 = load ptr, ptr %12, align 8
+  %381 = load i32, ptr @hf_dbus_type_array_length, align 4
+  %382 = call i32 @add_uint(ptr noundef %380, i32 noundef %381)
+  store i32 %382, ptr %27, align 4
+  %383 = load i32, ptr %27, align 4
+  %384 = load ptr, ptr %9, align 8
+  store i32 %383, ptr %384, align 8
+  %385 = load ptr, ptr %12, align 8
+  %386 = load ptr, ptr %6, align 8
+  %387 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %386, i32 0, i32 1
+  %388 = load ptr, ptr %387, align 8
+  %389 = load i8, ptr %388, align 1
+  %390 = call i32 @add_padding(ptr noundef %385, i8 noundef signext %389)
+  %391 = load i32, ptr %27, align 4
+  %392 = icmp eq i32 %391, 0
+  br i1 %392, label %393, label %411
 
-394:                                              ; preds = %380
-  %395 = load ptr, ptr %6, align 8
-  %396 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %395, i32 0, i32 1
-  %397 = load ptr, ptr %396, align 8
-  %398 = call ptr @skip_single_complete_type(ptr noundef %397)
-  %399 = load ptr, ptr %6, align 8
-  %400 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %399, i32 0, i32 1
-  store ptr %398, ptr %400, align 8
-  %401 = load ptr, ptr %6, align 8
-  %402 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %401, i32 0, i32 1
-  %403 = load ptr, ptr %402, align 8
-  %404 = icmp ne ptr %403, null
-  br i1 %404, label %405, label %406
+393:                                              ; preds = %379
+  %394 = load ptr, ptr %6, align 8
+  %395 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %394, i32 0, i32 1
+  %396 = load ptr, ptr %395, align 8
+  %397 = call ptr @skip_single_complete_type(ptr noundef %396)
+  %398 = load ptr, ptr %6, align 8
+  %399 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %398, i32 0, i32 1
+  store ptr %397, ptr %399, align 8
+  %400 = load ptr, ptr %6, align 8
+  %401 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %400, i32 0, i32 1
+  %402 = load ptr, ptr %401, align 8
+  %403 = icmp ne ptr %402, null
+  br i1 %403, label %404, label %405
 
-405:                                              ; preds = %394
-  br label %408
+404:                                              ; preds = %393
+  br label %407
 
-406:                                              ; preds = %394
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.173, ptr noundef @.str.156, i32 noundef 749, ptr noundef @.str.174) #8
+405:                                              ; preds = %393
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.176, ptr noundef @.str.159, i32 noundef 750, ptr noundef @.str.177) #13
   unreachable
 
-407:                                              ; No predecessors!
-  br label %408
+406:                                              ; No predecessors!
+  br label %407
 
-408:                                              ; preds = %407, %405
-  %409 = load ptr, ptr %12, align 8
-  %410 = getelementptr inbounds %struct.dbus_packet_t, ptr %409, i32 0, i32 0
-  %411 = load ptr, ptr %410, align 8
-  call void @ptvcursor_pop_subtree(ptr noundef %411)
-  store i32 1, ptr %13, align 4
-  br label %470
-
-412:                                              ; preds = %380
-  %413 = load i32, ptr %27, align 4
-  %414 = icmp ule i32 %413, 67108864
-  br i1 %414, label %415, label %464
-
-415:                                              ; preds = %412
-  %416 = load ptr, ptr %12, align 8
-  %417 = getelementptr inbounds %struct.dbus_packet_t, ptr %416, i32 0, i32 0
-  %418 = load ptr, ptr %417, align 8
-  %419 = call i32 @ptvcursor_current_offset(ptr noundef %418)
-  %420 = load i32, ptr %27, align 4
-  %421 = add i32 %419, %420
-  store i32 %421, ptr %28, align 4
-  %422 = load ptr, ptr %12, align 8
-  %423 = getelementptr inbounds %struct.dbus_packet_t, ptr %422, i32 0, i32 1
-  %424 = load ptr, ptr %423, align 8
-  %425 = getelementptr inbounds %struct._packet_info, ptr %424, i32 0, i32 50
-  %426 = load ptr, ptr %425, align 8
-  %427 = call noalias ptr @wmem_alloc(ptr noundef %426, i64 noundef 80)
-  store ptr %427, ptr %29, align 8
-  %428 = load ptr, ptr %29, align 8
-  %429 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %30, i32 0, i32 0
-  %430 = load ptr, ptr %6, align 8
-  %431 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %430, i32 0, i32 0
-  %432 = load ptr, ptr %431, align 8
-  store ptr %432, ptr %429, align 8
-  %433 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %30, i32 0, i32 1
-  %434 = load ptr, ptr %6, align 8
-  %435 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %434, i32 0, i32 1
-  %436 = load ptr, ptr %435, align 8
-  store ptr %436, ptr %433, align 8
-  %437 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %30, i32 0, i32 2
-  %438 = load ptr, ptr %6, align 8
-  %439 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %438, i32 0, i32 2
-  %440 = load i32, ptr %439, align 8
-  %441 = add i32 %440, 1
-  store i32 %441, ptr %437, align 8
-  %442 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %30, i32 0, i32 3
-  %443 = load ptr, ptr %6, align 8
-  %444 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %443, i32 0, i32 3
-  %445 = load i32, ptr %444, align 4
-  %446 = add i32 %445, 1
-  store i32 %446, ptr %442, align 4
-  %447 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %30, i32 0, i32 4
-  store i32 0, ptr %447, align 8
-  %448 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %30, i32 0, i32 5
-  store i32 0, ptr %448, align 4
-  %449 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %30, i32 0, i32 6
-  %450 = load ptr, ptr %6, align 8
-  %451 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %450, i32 0, i32 1
-  %452 = load ptr, ptr %451, align 8
-  store ptr %452, ptr %449, align 8
-  %453 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %30, i32 0, i32 7
-  %454 = load i32, ptr %28, align 4
-  store i32 %454, ptr %453, align 8
-  %455 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %30, i32 0, i32 8
-  store i32 0, ptr %455, align 4
-  %456 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %30, i32 0, i32 9
-  store i32 0, ptr %456, align 8
-  %457 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %30, i32 0, i32 10
-  store i32 0, ptr %457, align 4
-  %458 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %30, i32 0, i32 11
-  store i32 0, ptr %458, align 8
-  %459 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %30, i32 0, i32 12
-  %460 = load ptr, ptr %26, align 8
-  store ptr %460, ptr %459, align 8
-  %461 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %30, i32 0, i32 13
-  %462 = load ptr, ptr %6, align 8
-  store ptr %462, ptr %461, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %428, ptr align 8 %30, i64 80, i1 false)
-  %463 = load ptr, ptr %29, align 8
-  store ptr %463, ptr %6, align 8
+407:                                              ; preds = %406, %404
+  %408 = load ptr, ptr %12, align 8
+  %409 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %408, i32 0, i32 0
+  %410 = load ptr, ptr %409, align 8
+  call void @ptvcursor_pop_subtree(ptr noundef %410)
+  store i8 1, ptr %13, align 1
   br label %469
 
-464:                                              ; preds = %412
+411:                                              ; preds = %379
+  %412 = load i32, ptr %27, align 4
+  %413 = icmp ule i32 %412, 67108864
+  br i1 %413, label %414, label %463
+
+414:                                              ; preds = %411
+  call void @llvm.lifetime.start.p0(i64 4, ptr %28) #11
+  %415 = load ptr, ptr %12, align 8
+  %416 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %415, i32 0, i32 0
+  %417 = load ptr, ptr %416, align 8
+  %418 = call i32 @ptvcursor_current_offset(ptr noundef %417)
+  %419 = load i32, ptr %27, align 4
+  %420 = add i32 %418, %419
+  store i32 %420, ptr %28, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %29) #11
+  %421 = load ptr, ptr %12, align 8
+  %422 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %421, i32 0, i32 1
+  %423 = load ptr, ptr %422, align 8
+  %424 = getelementptr inbounds nuw %struct._packet_info, ptr %423, i32 0, i32 51
+  %425 = load ptr, ptr %424, align 8
+  %426 = call noalias ptr @wmem_alloc(ptr noundef %425, i64 noundef 64) #14
+  store ptr %426, ptr %29, align 8
+  %427 = load ptr, ptr %29, align 8
+  %428 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %30, i32 0, i32 0
+  %429 = load ptr, ptr %6, align 8
+  %430 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %429, i32 0, i32 0
+  %431 = load ptr, ptr %430, align 8
+  store ptr %431, ptr %428, align 8
+  %432 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %30, i32 0, i32 1
+  %433 = load ptr, ptr %6, align 8
+  %434 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %433, i32 0, i32 1
+  %435 = load ptr, ptr %434, align 8
+  store ptr %435, ptr %432, align 8
+  %436 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %30, i32 0, i32 2
+  %437 = load ptr, ptr %6, align 8
+  %438 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %437, i32 0, i32 2
+  %439 = load i32, ptr %438, align 8
+  %440 = add i32 %439, 1
+  store i32 %440, ptr %436, align 8
+  %441 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %30, i32 0, i32 3
+  %442 = load ptr, ptr %6, align 8
+  %443 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %442, i32 0, i32 3
+  %444 = load i32, ptr %443, align 4
+  %445 = add i32 %444, 1
+  store i32 %445, ptr %441, align 4
+  %446 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %30, i32 0, i32 4
+  store i32 0, ptr %446, align 8
+  %447 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %30, i32 0, i32 5
+  store i32 0, ptr %447, align 4
+  %448 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %30, i32 0, i32 6
+  %449 = load ptr, ptr %6, align 8
+  %450 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %449, i32 0, i32 1
+  %451 = load ptr, ptr %450, align 8
+  store ptr %451, ptr %448, align 8
+  %452 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %30, i32 0, i32 7
+  %453 = load i32, ptr %28, align 4
+  store i32 %453, ptr %452, align 8
+  %454 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %30, i32 0, i32 8
+  store i8 0, ptr %454, align 4
+  %455 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %30, i32 0, i32 9
+  store i8 0, ptr %455, align 1
+  %456 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %30, i32 0, i32 10
+  store i8 0, ptr %456, align 2
+  %457 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %30, i32 0, i32 11
+  store i8 0, ptr %457, align 1
+  %458 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %30, i32 0, i32 12
+  %459 = load ptr, ptr %26, align 8
+  store ptr %459, ptr %458, align 8
+  %460 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %30, i32 0, i32 13
+  %461 = load ptr, ptr %6, align 8
+  store ptr %461, ptr %460, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %427, ptr align 8 %30, i64 64, i1 false)
+  %462 = load ptr, ptr %29, align 8
+  store ptr %462, ptr %6, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %28) #11
+  br label %468
+
+463:                                              ; preds = %411
+  %464 = load ptr, ptr %12, align 8
+  call void @add_expert(ptr noundef %464, ptr noundef @ei_dbus_type_array_too_long)
+  store i32 1, ptr %10, align 4
   %465 = load ptr, ptr %12, align 8
-  call void @add_expert(ptr noundef %465, ptr noundef @ei_dbus_type_array_too_long)
-  store i32 1, ptr %10, align 4
-  %466 = load ptr, ptr %12, align 8
-  %467 = getelementptr inbounds %struct.dbus_packet_t, ptr %466, i32 0, i32 0
-  %468 = load ptr, ptr %467, align 8
-  call void @ptvcursor_pop_subtree(ptr noundef %468)
+  %466 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %465, i32 0, i32 0
+  %467 = load ptr, ptr %466, align 8
+  call void @ptvcursor_pop_subtree(ptr noundef %467)
+  br label %468
+
+468:                                              ; preds = %463, %414
   br label %469
 
-469:                                              ; preds = %464, %415
-  br label %470
+469:                                              ; preds = %468, %407
+  call void @llvm.lifetime.end.p0(i64 4, ptr %27) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #11
+  br label %735
 
-470:                                              ; preds = %469, %408
-  br label %737
+470:                                              ; preds = %4
+  store i8 0, ptr %13, align 1
+  %471 = load ptr, ptr %12, align 8
+  %472 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %471, i32 0, i32 0
+  %473 = load ptr, ptr %472, align 8
+  %474 = load i32, ptr %7, align 4
+  %475 = icmp ne i32 %474, -1
+  br i1 %475, label %476, label %478
 
-471:                                              ; preds = %4
-  store i32 0, ptr %13, align 4
-  %472 = load ptr, ptr %12, align 8
-  %473 = getelementptr inbounds %struct.dbus_packet_t, ptr %472, i32 0, i32 0
-  %474 = load ptr, ptr %473, align 8
-  %475 = load i32, ptr %7, align 4
-  %476 = icmp ne i32 %475, -1
-  br i1 %476, label %477, label %479
+476:                                              ; preds = %470
+  %477 = load i32, ptr %7, align 4
+  br label %480
 
-477:                                              ; preds = %471
-  %478 = load i32, ptr %7, align 4
-  br label %481
+478:                                              ; preds = %470
+  %479 = load i32, ptr @hf_dbus_type_struct, align 4
+  br label %480
 
-479:                                              ; preds = %471
-  %480 = load i32, ptr @hf_dbus_type_struct, align 4
-  br label %481
+480:                                              ; preds = %478, %476
+  %481 = phi i32 [ %477, %476 ], [ %479, %478 ]
+  %482 = load i32, ptr %8, align 4
+  %483 = icmp ne i32 %482, -1
+  br i1 %483, label %484, label %486
 
-481:                                              ; preds = %479, %477
-  %482 = phi i32 [ %478, %477 ], [ %480, %479 ]
-  %483 = load i32, ptr %8, align 4
-  %484 = icmp ne i32 %483, -1
-  br i1 %484, label %485, label %487
+484:                                              ; preds = %480
+  %485 = load i32, ptr %8, align 4
+  br label %488
 
-485:                                              ; preds = %481
-  %486 = load i32, ptr %8, align 4
-  br label %489
+486:                                              ; preds = %480
+  %487 = load i32, ptr @ett_dbus_type_struct, align 4
+  br label %488
 
-487:                                              ; preds = %481
-  %488 = load i32, ptr @ett_dbus_type_struct, align 4
-  br label %489
+488:                                              ; preds = %486, %484
+  %489 = phi i32 [ %485, %484 ], [ %487, %486 ]
+  %490 = call ptr @ptvcursor_add_with_subtree(ptr noundef %473, i32 noundef %481, i32 noundef -1, i32 noundef 0, i32 noundef %489)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %31) #11
+  %491 = load ptr, ptr %12, align 8
+  %492 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %491, i32 0, i32 1
+  %493 = load ptr, ptr %492, align 8
+  %494 = getelementptr inbounds nuw %struct._packet_info, ptr %493, i32 0, i32 51
+  %495 = load ptr, ptr %494, align 8
+  %496 = call noalias ptr @wmem_alloc(ptr noundef %495, i64 noundef 64) #14
+  store ptr %496, ptr %31, align 8
+  %497 = load ptr, ptr %31, align 8
+  %498 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %32, i32 0, i32 0
+  %499 = load ptr, ptr %6, align 8
+  %500 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %499, i32 0, i32 0
+  %501 = load ptr, ptr %500, align 8
+  store ptr %501, ptr %498, align 8
+  %502 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %32, i32 0, i32 1
+  %503 = load ptr, ptr %6, align 8
+  %504 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %503, i32 0, i32 1
+  %505 = load ptr, ptr %504, align 8
+  store ptr %505, ptr %502, align 8
+  %506 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %32, i32 0, i32 2
+  %507 = load ptr, ptr %6, align 8
+  %508 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %507, i32 0, i32 2
+  %509 = load i32, ptr %508, align 8
+  %510 = add i32 %509, 1
+  store i32 %510, ptr %506, align 8
+  %511 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %32, i32 0, i32 3
+  store i32 0, ptr %511, align 4
+  %512 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %32, i32 0, i32 4
+  %513 = load ptr, ptr %6, align 8
+  %514 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %513, i32 0, i32 4
+  %515 = load i32, ptr %514, align 8
+  %516 = add i32 %515, 1
+  store i32 %516, ptr %512, align 8
+  %517 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %32, i32 0, i32 5
+  store i32 0, ptr %517, align 4
+  %518 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %32, i32 0, i32 6
+  store ptr null, ptr %518, align 8
+  %519 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %32, i32 0, i32 7
+  store i32 0, ptr %519, align 8
+  %520 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %32, i32 0, i32 8
+  store i8 0, ptr %520, align 4
+  %521 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %32, i32 0, i32 9
+  store i8 0, ptr %521, align 1
+  %522 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %32, i32 0, i32 10
+  store i8 0, ptr %522, align 2
+  %523 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %32, i32 0, i32 11
+  store i8 0, ptr %523, align 1
+  %524 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %32, i32 0, i32 12
+  store ptr null, ptr %524, align 8
+  %525 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %32, i32 0, i32 13
+  %526 = load ptr, ptr %6, align 8
+  store ptr %526, ptr %525, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %497, ptr align 8 %32, i64 64, i1 false)
+  %527 = load ptr, ptr %31, align 8
+  store ptr %527, ptr %6, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %31) #11
+  br label %735
 
-489:                                              ; preds = %487, %485
-  %490 = phi i32 [ %486, %485 ], [ %488, %487 ]
-  %491 = call ptr @ptvcursor_add_with_subtree(ptr noundef %474, i32 noundef %482, i32 noundef -1, i32 noundef 0, i32 noundef %490)
-  %492 = load ptr, ptr %12, align 8
-  %493 = getelementptr inbounds %struct.dbus_packet_t, ptr %492, i32 0, i32 1
-  %494 = load ptr, ptr %493, align 8
-  %495 = getelementptr inbounds %struct._packet_info, ptr %494, i32 0, i32 50
-  %496 = load ptr, ptr %495, align 8
-  %497 = call noalias ptr @wmem_alloc(ptr noundef %496, i64 noundef 80)
-  store ptr %497, ptr %31, align 8
-  %498 = load ptr, ptr %31, align 8
-  %499 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %32, i32 0, i32 0
-  %500 = load ptr, ptr %6, align 8
-  %501 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %500, i32 0, i32 0
-  %502 = load ptr, ptr %501, align 8
-  store ptr %502, ptr %499, align 8
-  %503 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %32, i32 0, i32 1
-  %504 = load ptr, ptr %6, align 8
-  %505 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %504, i32 0, i32 1
-  %506 = load ptr, ptr %505, align 8
-  store ptr %506, ptr %503, align 8
-  %507 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %32, i32 0, i32 2
-  %508 = load ptr, ptr %6, align 8
-  %509 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %508, i32 0, i32 2
-  %510 = load i32, ptr %509, align 8
-  %511 = add i32 %510, 1
-  store i32 %511, ptr %507, align 8
-  %512 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %32, i32 0, i32 3
-  store i32 0, ptr %512, align 4
-  %513 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %32, i32 0, i32 4
-  %514 = load ptr, ptr %6, align 8
-  %515 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %514, i32 0, i32 4
-  %516 = load i32, ptr %515, align 8
-  %517 = add i32 %516, 1
-  store i32 %517, ptr %513, align 8
-  %518 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %32, i32 0, i32 5
-  store i32 0, ptr %518, align 4
-  %519 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %32, i32 0, i32 6
-  store ptr null, ptr %519, align 8
-  %520 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %32, i32 0, i32 7
-  store i32 0, ptr %520, align 8
-  %521 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %32, i32 0, i32 8
-  store i32 0, ptr %521, align 4
-  %522 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %32, i32 0, i32 9
-  store i32 0, ptr %522, align 8
-  %523 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %32, i32 0, i32 10
-  store i32 0, ptr %523, align 4
-  %524 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %32, i32 0, i32 11
-  store i32 0, ptr %524, align 8
-  %525 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %32, i32 0, i32 12
-  store ptr null, ptr %525, align 8
-  %526 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %32, i32 0, i32 13
-  %527 = load ptr, ptr %6, align 8
-  store ptr %527, ptr %526, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %498, ptr align 8 %32, i64 80, i1 false)
-  %528 = load ptr, ptr %31, align 8
-  store ptr %528, ptr %6, align 8
-  br label %737
+528:                                              ; preds = %4
+  store i8 0, ptr %13, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %33) #11
+  %529 = load ptr, ptr %12, align 8
+  %530 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %529, i32 0, i32 0
+  %531 = load ptr, ptr %530, align 8
+  %532 = load i32, ptr %7, align 4
+  %533 = icmp ne i32 %532, -1
+  br i1 %533, label %534, label %536
 
-529:                                              ; preds = %4
-  store i32 0, ptr %13, align 4
-  %530 = load ptr, ptr %12, align 8
-  %531 = getelementptr inbounds %struct.dbus_packet_t, ptr %530, i32 0, i32 0
-  %532 = load ptr, ptr %531, align 8
-  %533 = load i32, ptr %7, align 4
-  %534 = icmp ne i32 %533, -1
-  br i1 %534, label %535, label %537
+534:                                              ; preds = %528
+  %535 = load i32, ptr %7, align 4
+  br label %538
 
-535:                                              ; preds = %529
-  %536 = load i32, ptr %7, align 4
-  br label %539
+536:                                              ; preds = %528
+  %537 = load i32, ptr @hf_dbus_type_variant, align 4
+  br label %538
 
-537:                                              ; preds = %529
-  %538 = load i32, ptr @hf_dbus_type_variant, align 4
-  br label %539
+538:                                              ; preds = %536, %534
+  %539 = phi i32 [ %535, %534 ], [ %537, %536 ]
+  %540 = load i32, ptr %8, align 4
+  %541 = icmp ne i32 %540, -1
+  br i1 %541, label %542, label %544
 
-539:                                              ; preds = %537, %535
-  %540 = phi i32 [ %536, %535 ], [ %538, %537 ]
-  %541 = load i32, ptr %8, align 4
-  %542 = icmp ne i32 %541, -1
-  br i1 %542, label %543, label %545
+542:                                              ; preds = %538
+  %543 = load i32, ptr %8, align 4
+  br label %546
 
-543:                                              ; preds = %539
-  %544 = load i32, ptr %8, align 4
-  br label %547
+544:                                              ; preds = %538
+  %545 = load i32, ptr @ett_dbus_type_variant, align 4
+  br label %546
 
-545:                                              ; preds = %539
-  %546 = load i32, ptr @ett_dbus_type_variant, align 4
-  br label %547
+546:                                              ; preds = %544, %542
+  %547 = phi i32 [ %543, %542 ], [ %545, %544 ]
+  %548 = call ptr @ptvcursor_add_with_subtree(ptr noundef %531, i32 noundef %539, i32 noundef -1, i32 noundef 0, i32 noundef %547)
+  store ptr %548, ptr %33, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %34) #11
+  %549 = load ptr, ptr %12, align 8
+  %550 = load i32, ptr @hf_dbus_type_variant_signature, align 4
+  %551 = call ptr @add_dbus_string(ptr noundef %549, i32 noundef %550, i32 noundef 1)
+  store ptr %551, ptr %34, align 8
+  %552 = load ptr, ptr %34, align 8
+  %553 = load ptr, ptr %9, align 8
+  store ptr %552, ptr %553, align 8
+  %554 = load ptr, ptr %34, align 8
+  %555 = icmp ne ptr %554, null
+  br i1 %555, label %556, label %629
 
-547:                                              ; preds = %545, %543
-  %548 = phi i32 [ %544, %543 ], [ %546, %545 ]
-  %549 = call ptr @ptvcursor_add_with_subtree(ptr noundef %532, i32 noundef %540, i32 noundef -1, i32 noundef 0, i32 noundef %548)
-  store ptr %549, ptr %33, align 8
-  %550 = load ptr, ptr %12, align 8
-  %551 = load i32, ptr @hf_dbus_type_variant_signature, align 4
-  %552 = call ptr @add_dbus_string(ptr noundef %550, i32 noundef %551, i32 noundef 1)
-  store ptr %552, ptr %34, align 8
-  %553 = load ptr, ptr %34, align 8
-  %554 = load ptr, ptr %9, align 8
-  store ptr %553, ptr %554, align 8
-  %555 = load ptr, ptr %34, align 8
-  %556 = icmp ne ptr %555, null
-  br i1 %556, label %557, label %632
+556:                                              ; preds = %546
+  %557 = load ptr, ptr %34, align 8
+  %558 = load ptr, ptr %12, align 8
+  %559 = call zeroext i1 @is_dbus_signature_valid(ptr noundef %557, ptr noundef %558)
+  br i1 %559, label %560, label %629
 
-557:                                              ; preds = %547
-  %558 = load ptr, ptr %34, align 8
-  %559 = load ptr, ptr %12, align 8
-  %560 = call i32 @is_dbus_signature_valid(ptr noundef %558, ptr noundef %559)
-  %561 = icmp ne i32 %560, 0
-  br i1 %561, label %562, label %632
+560:                                              ; preds = %556
+  %561 = load ptr, ptr %34, align 8
+  %562 = getelementptr i8, ptr %561, i64 0
+  %563 = load i8, ptr %562, align 1
+  %564 = sext i8 %563 to i32
+  %565 = icmp ne i32 %564, 0
+  br i1 %565, label %566, label %624
 
-562:                                              ; preds = %557
-  %563 = load ptr, ptr %34, align 8
-  %564 = getelementptr i8, ptr %563, i64 0
-  %565 = load i8, ptr %564, align 1
-  %566 = sext i8 %565 to i32
-  %567 = icmp ne i32 %566, 0
-  br i1 %567, label %568, label %627
-
-568:                                              ; preds = %562
-  %569 = load ptr, ptr %12, align 8
-  %570 = getelementptr inbounds %struct.dbus_packet_t, ptr %569, i32 0, i32 1
+566:                                              ; preds = %560
+  call void @llvm.lifetime.start.p0(i64 8, ptr %35) #11
+  %567 = load ptr, ptr %12, align 8
+  %568 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %567, i32 0, i32 1
+  %569 = load ptr, ptr %568, align 8
+  %570 = getelementptr inbounds nuw %struct._packet_info, ptr %569, i32 0, i32 51
   %571 = load ptr, ptr %570, align 8
-  %572 = getelementptr inbounds %struct._packet_info, ptr %571, i32 0, i32 50
-  %573 = load ptr, ptr %572, align 8
-  %574 = call noalias ptr @wmem_alloc(ptr noundef %573, i64 noundef 80)
-  store ptr %574, ptr %35, align 8
-  %575 = load ptr, ptr %35, align 8
-  %576 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %36, i32 0, i32 0
-  %577 = load ptr, ptr %6, align 8
-  %578 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %577, i32 0, i32 0
-  %579 = load ptr, ptr %578, align 8
-  store ptr %579, ptr %576, align 8
-  %580 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %36, i32 0, i32 1
-  %581 = load ptr, ptr %34, align 8
-  store ptr %581, ptr %580, align 8
-  %582 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %36, i32 0, i32 2
-  %583 = load ptr, ptr %6, align 8
-  %584 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %583, i32 0, i32 2
-  %585 = load i32, ptr %584, align 8
-  %586 = add i32 %585, 1
-  store i32 %586, ptr %582, align 8
-  %587 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %36, i32 0, i32 3
+  %572 = call noalias ptr @wmem_alloc(ptr noundef %571, i64 noundef 64) #14
+  store ptr %572, ptr %35, align 8
+  %573 = load ptr, ptr %35, align 8
+  %574 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %36, i32 0, i32 0
+  %575 = load ptr, ptr %6, align 8
+  %576 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %575, i32 0, i32 0
+  %577 = load ptr, ptr %576, align 8
+  store ptr %577, ptr %574, align 8
+  %578 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %36, i32 0, i32 1
+  %579 = load ptr, ptr %34, align 8
+  store ptr %579, ptr %578, align 8
+  %580 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %36, i32 0, i32 2
+  %581 = load ptr, ptr %6, align 8
+  %582 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %581, i32 0, i32 2
+  %583 = load i32, ptr %582, align 8
+  %584 = add i32 %583, 1
+  store i32 %584, ptr %580, align 8
+  %585 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %36, i32 0, i32 3
+  store i32 0, ptr %585, align 4
+  %586 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %36, i32 0, i32 4
+  store i32 0, ptr %586, align 8
+  %587 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %36, i32 0, i32 5
   store i32 0, ptr %587, align 4
-  %588 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %36, i32 0, i32 4
-  store i32 0, ptr %588, align 8
-  %589 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %36, i32 0, i32 5
-  store i32 0, ptr %589, align 4
-  %590 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %36, i32 0, i32 6
-  store ptr null, ptr %590, align 8
-  %591 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %36, i32 0, i32 7
-  store i32 0, ptr %591, align 8
-  %592 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %36, i32 0, i32 8
-  store i32 1, ptr %592, align 4
-  %593 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %36, i32 0, i32 9
-  %594 = load ptr, ptr %34, align 8
-  %595 = load i8, ptr %594, align 1
-  %596 = call i32 @is_basic_type(i8 noundef signext %595)
-  %597 = icmp ne i32 %596, 0
-  br i1 %597, label %598, label %604
+  %588 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %36, i32 0, i32 6
+  store ptr null, ptr %588, align 8
+  %589 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %36, i32 0, i32 7
+  store i32 0, ptr %589, align 8
+  %590 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %36, i32 0, i32 8
+  store i8 1, ptr %590, align 4
+  %591 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %36, i32 0, i32 9
+  %592 = load ptr, ptr %34, align 8
+  %593 = load i8, ptr %592, align 1
+  %594 = call zeroext i1 @is_basic_type(i8 noundef signext %593)
+  br i1 %594, label %595, label %601
 
-598:                                              ; preds = %568
-  %599 = load ptr, ptr %34, align 8
-  %600 = getelementptr i8, ptr %599, i64 1
-  %601 = load i8, ptr %600, align 1
-  %602 = sext i8 %601 to i32
-  %603 = icmp eq i32 %602, 0
-  br label %604
+595:                                              ; preds = %566
+  %596 = load ptr, ptr %34, align 8
+  %597 = getelementptr i8, ptr %596, i64 1
+  %598 = load i8, ptr %597, align 1
+  %599 = sext i8 %598 to i32
+  %600 = icmp eq i32 %599, 0
+  br label %601
 
-604:                                              ; preds = %598, %568
-  %605 = phi i1 [ false, %568 ], [ %603, %598 ]
-  %606 = zext i1 %605 to i32
-  store i32 %606, ptr %593, align 8
-  %607 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %36, i32 0, i32 10
-  store i32 0, ptr %607, align 4
-  %608 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %36, i32 0, i32 11
-  store i32 0, ptr %608, align 8
-  %609 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %36, i32 0, i32 12
-  %610 = load ptr, ptr %33, align 8
-  store ptr %610, ptr %609, align 8
-  %611 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %36, i32 0, i32 13
-  %612 = load ptr, ptr %6, align 8
-  store ptr %612, ptr %611, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %575, ptr align 8 %36, i64 80, i1 false)
-  %613 = load ptr, ptr %6, align 8
-  %614 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %613, i32 0, i32 10
-  %615 = load i32, ptr %614, align 4
-  %616 = icmp ne i32 %615, 0
-  br i1 %616, label %617, label %625
+601:                                              ; preds = %595, %566
+  %602 = phi i1 [ false, %566 ], [ %600, %595 ]
+  %603 = zext i1 %602 to i8
+  store i8 %603, ptr %591, align 1
+  %604 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %36, i32 0, i32 10
+  store i8 0, ptr %604, align 2
+  %605 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %36, i32 0, i32 11
+  store i8 0, ptr %605, align 1
+  %606 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %36, i32 0, i32 12
+  %607 = load ptr, ptr %33, align 8
+  store ptr %607, ptr %606, align 8
+  %608 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %36, i32 0, i32 13
+  %609 = load ptr, ptr %6, align 8
+  store ptr %609, ptr %608, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %573, ptr align 8 %36, i64 64, i1 false)
+  %610 = load ptr, ptr %6, align 8
+  %611 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %610, i32 0, i32 10
+  %612 = load i8, ptr %611, align 2, !range !6, !noundef !7
+  %613 = trunc i8 %612 to i1
+  br i1 %613, label %614, label %622
 
-617:                                              ; preds = %604
-  %618 = load ptr, ptr %35, align 8
-  %619 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %618, i32 0, i32 9
-  %620 = load i32, ptr %619, align 8
-  %621 = icmp ne i32 %620, 0
-  br i1 %621, label %622, label %625
+614:                                              ; preds = %601
+  %615 = load ptr, ptr %35, align 8
+  %616 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %615, i32 0, i32 9
+  %617 = load i8, ptr %616, align 1, !range !6, !noundef !7
+  %618 = trunc i8 %617 to i1
+  br i1 %618, label %619, label %622
 
-622:                                              ; preds = %617
-  %623 = load ptr, ptr %6, align 8
-  %624 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %623, i32 0, i32 11
-  store i32 1, ptr %624, align 8
-  br label %625
+619:                                              ; preds = %614
+  %620 = load ptr, ptr %6, align 8
+  %621 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %620, i32 0, i32 11
+  store i8 1, ptr %621, align 1
+  br label %622
 
-625:                                              ; preds = %622, %617, %604
-  %626 = load ptr, ptr %35, align 8
-  store ptr %626, ptr %6, align 8
-  br label %631
+622:                                              ; preds = %619, %614, %601
+  %623 = load ptr, ptr %35, align 8
+  store ptr %623, ptr %6, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %35) #11
+  br label %628
 
-627:                                              ; preds = %562
-  %628 = load ptr, ptr %12, align 8
-  %629 = getelementptr inbounds %struct.dbus_packet_t, ptr %628, i32 0, i32 0
-  %630 = load ptr, ptr %629, align 8
-  call void @ptvcursor_pop_subtree(ptr noundef %630)
-  br label %631
+624:                                              ; preds = %560
+  %625 = load ptr, ptr %12, align 8
+  %626 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %625, i32 0, i32 0
+  %627 = load ptr, ptr %626, align 8
+  call void @ptvcursor_pop_subtree(ptr noundef %627)
+  br label %628
 
-631:                                              ; preds = %627, %625
-  br label %637
+628:                                              ; preds = %624, %622
+  br label %634
 
-632:                                              ; preds = %557, %547
-  %633 = load ptr, ptr %12, align 8
-  call void @add_expert(ptr noundef %633, ptr noundef @ei_dbus_type_variant_signature_invalid)
+629:                                              ; preds = %556, %546
+  %630 = load ptr, ptr %12, align 8
+  call void @add_expert(ptr noundef %630, ptr noundef @ei_dbus_type_variant_signature_invalid)
   store i32 1, ptr %10, align 4
-  %634 = load ptr, ptr %12, align 8
-  %635 = getelementptr inbounds %struct.dbus_packet_t, ptr %634, i32 0, i32 0
-  %636 = load ptr, ptr %635, align 8
-  call void @ptvcursor_pop_subtree(ptr noundef %636)
-  br label %637
+  %631 = load ptr, ptr %12, align 8
+  %632 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %631, i32 0, i32 0
+  %633 = load ptr, ptr %632, align 8
+  call void @ptvcursor_pop_subtree(ptr noundef %633)
+  br label %634
 
-637:                                              ; preds = %632, %631
-  br label %737
+634:                                              ; preds = %629, %628
+  call void @llvm.lifetime.end.p0(i64 8, ptr %34) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %33) #11
+  br label %735
 
-638:                                              ; preds = %4
-  store i32 0, ptr %13, align 4
-  %639 = load ptr, ptr %12, align 8
-  %640 = getelementptr inbounds %struct.dbus_packet_t, ptr %639, i32 0, i32 0
-  %641 = load ptr, ptr %640, align 8
+635:                                              ; preds = %4
+  store i8 0, ptr %13, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %37) #11
+  %636 = load ptr, ptr %12, align 8
+  %637 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %636, i32 0, i32 0
+  %638 = load ptr, ptr %637, align 8
+  %639 = load i32, ptr %7, align 4
+  %640 = icmp ne i32 %639, -1
+  br i1 %640, label %641, label %643
+
+641:                                              ; preds = %635
   %642 = load i32, ptr %7, align 4
-  %643 = icmp ne i32 %642, -1
-  br i1 %643, label %644, label %646
+  br label %645
 
-644:                                              ; preds = %638
-  %645 = load i32, ptr %7, align 4
-  br label %648
+643:                                              ; preds = %635
+  %644 = load i32, ptr @hf_dbus_type_dict_entry, align 4
+  br label %645
 
-646:                                              ; preds = %638
-  %647 = load i32, ptr @hf_dbus_type_dict_entry, align 4
-  br label %648
+645:                                              ; preds = %643, %641
+  %646 = phi i32 [ %642, %641 ], [ %644, %643 ]
+  %647 = load i32, ptr %8, align 4
+  %648 = icmp ne i32 %647, -1
+  br i1 %648, label %649, label %651
 
-648:                                              ; preds = %646, %644
-  %649 = phi i32 [ %645, %644 ], [ %647, %646 ]
+649:                                              ; preds = %645
   %650 = load i32, ptr %8, align 4
-  %651 = icmp ne i32 %650, -1
-  br i1 %651, label %652, label %654
+  br label %653
 
-652:                                              ; preds = %648
-  %653 = load i32, ptr %8, align 4
-  br label %656
+651:                                              ; preds = %645
+  %652 = load i32, ptr @ett_dbus_type_dict_entry, align 4
+  br label %653
 
-654:                                              ; preds = %648
-  %655 = load i32, ptr @ett_dbus_type_dict_entry, align 4
-  br label %656
-
-656:                                              ; preds = %654, %652
-  %657 = phi i32 [ %653, %652 ], [ %655, %654 ]
-  %658 = call ptr @ptvcursor_add_with_subtree(ptr noundef %641, i32 noundef %649, i32 noundef -1, i32 noundef 0, i32 noundef %657)
-  store ptr %658, ptr %37, align 8
-  %659 = load ptr, ptr %12, align 8
-  %660 = getelementptr inbounds %struct.dbus_packet_t, ptr %659, i32 0, i32 1
-  %661 = load ptr, ptr %660, align 8
-  %662 = getelementptr inbounds %struct._packet_info, ptr %661, i32 0, i32 50
-  %663 = load ptr, ptr %662, align 8
-  %664 = call noalias ptr @wmem_alloc(ptr noundef %663, i64 noundef 80)
-  store ptr %664, ptr %38, align 8
-  %665 = load ptr, ptr %38, align 8
-  %666 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %39, i32 0, i32 0
-  %667 = load ptr, ptr %6, align 8
-  %668 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %667, i32 0, i32 0
-  %669 = load ptr, ptr %668, align 8
-  store ptr %669, ptr %666, align 8
-  %670 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %39, i32 0, i32 1
-  %671 = load ptr, ptr %6, align 8
-  %672 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %671, i32 0, i32 1
-  %673 = load ptr, ptr %672, align 8
-  store ptr %673, ptr %670, align 8
-  %674 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %39, i32 0, i32 2
-  %675 = load ptr, ptr %6, align 8
-  %676 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %675, i32 0, i32 2
-  %677 = load i32, ptr %676, align 8
-  %678 = add i32 %677, 1
-  store i32 %678, ptr %674, align 8
-  %679 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %39, i32 0, i32 3
-  store i32 0, ptr %679, align 4
-  %680 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %39, i32 0, i32 4
-  store i32 0, ptr %680, align 8
-  %681 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %39, i32 0, i32 5
-  %682 = load ptr, ptr %6, align 8
-  %683 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %682, i32 0, i32 5
-  %684 = load i32, ptr %683, align 4
-  %685 = add i32 %684, 1
-  store i32 %685, ptr %681, align 4
-  %686 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %39, i32 0, i32 6
-  store ptr null, ptr %686, align 8
-  %687 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %39, i32 0, i32 7
-  store i32 0, ptr %687, align 8
-  %688 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %39, i32 0, i32 8
-  store i32 0, ptr %688, align 4
-  %689 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %39, i32 0, i32 9
-  store i32 0, ptr %689, align 8
-  %690 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %39, i32 0, i32 10
-  store i32 1, ptr %690, align 4
-  %691 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %39, i32 0, i32 11
-  %692 = load ptr, ptr %6, align 8
-  %693 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %692, i32 0, i32 1
-  %694 = load ptr, ptr %693, align 8
-  %695 = getelementptr i8, ptr %694, i64 1
-  %696 = load i8, ptr %695, align 1
-  %697 = call i32 @is_basic_type(i8 noundef signext %696)
-  store i32 %697, ptr %691, align 8
-  %698 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %39, i32 0, i32 12
-  %699 = load ptr, ptr %37, align 8
+653:                                              ; preds = %651, %649
+  %654 = phi i32 [ %650, %649 ], [ %652, %651 ]
+  %655 = call ptr @ptvcursor_add_with_subtree(ptr noundef %638, i32 noundef %646, i32 noundef -1, i32 noundef 0, i32 noundef %654)
+  store ptr %655, ptr %37, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %38) #11
+  %656 = load ptr, ptr %12, align 8
+  %657 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %656, i32 0, i32 1
+  %658 = load ptr, ptr %657, align 8
+  %659 = getelementptr inbounds nuw %struct._packet_info, ptr %658, i32 0, i32 51
+  %660 = load ptr, ptr %659, align 8
+  %661 = call noalias ptr @wmem_alloc(ptr noundef %660, i64 noundef 64) #14
+  store ptr %661, ptr %38, align 8
+  %662 = load ptr, ptr %38, align 8
+  %663 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %39, i32 0, i32 0
+  %664 = load ptr, ptr %6, align 8
+  %665 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %664, i32 0, i32 0
+  %666 = load ptr, ptr %665, align 8
+  store ptr %666, ptr %663, align 8
+  %667 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %39, i32 0, i32 1
+  %668 = load ptr, ptr %6, align 8
+  %669 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %668, i32 0, i32 1
+  %670 = load ptr, ptr %669, align 8
+  store ptr %670, ptr %667, align 8
+  %671 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %39, i32 0, i32 2
+  %672 = load ptr, ptr %6, align 8
+  %673 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %672, i32 0, i32 2
+  %674 = load i32, ptr %673, align 8
+  %675 = add i32 %674, 1
+  store i32 %675, ptr %671, align 8
+  %676 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %39, i32 0, i32 3
+  store i32 0, ptr %676, align 4
+  %677 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %39, i32 0, i32 4
+  store i32 0, ptr %677, align 8
+  %678 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %39, i32 0, i32 5
+  %679 = load ptr, ptr %6, align 8
+  %680 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %679, i32 0, i32 5
+  %681 = load i32, ptr %680, align 4
+  %682 = add i32 %681, 1
+  store i32 %682, ptr %678, align 4
+  %683 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %39, i32 0, i32 6
+  store ptr null, ptr %683, align 8
+  %684 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %39, i32 0, i32 7
+  store i32 0, ptr %684, align 8
+  %685 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %39, i32 0, i32 8
+  store i8 0, ptr %685, align 4
+  %686 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %39, i32 0, i32 9
+  store i8 0, ptr %686, align 1
+  %687 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %39, i32 0, i32 10
+  store i8 1, ptr %687, align 2
+  %688 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %39, i32 0, i32 11
+  %689 = load ptr, ptr %6, align 8
+  %690 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %689, i32 0, i32 1
+  %691 = load ptr, ptr %690, align 8
+  %692 = getelementptr i8, ptr %691, i64 1
+  %693 = load i8, ptr %692, align 1
+  %694 = call zeroext i1 @is_basic_type(i8 noundef signext %693)
+  %695 = zext i1 %694 to i8
+  store i8 %695, ptr %688, align 1
+  %696 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %39, i32 0, i32 12
+  %697 = load ptr, ptr %37, align 8
+  store ptr %697, ptr %696, align 8
+  %698 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %39, i32 0, i32 13
+  %699 = load ptr, ptr %6, align 8
   store ptr %699, ptr %698, align 8
-  %700 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %39, i32 0, i32 13
-  %701 = load ptr, ptr %6, align 8
-  store ptr %701, ptr %700, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %665, ptr align 8 %39, i64 80, i1 false)
-  %702 = load ptr, ptr %38, align 8
-  store ptr %702, ptr %6, align 8
-  br label %737
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %662, ptr align 8 %39, i64 64, i1 false)
+  %700 = load ptr, ptr %38, align 8
+  store ptr %700, ptr %6, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %38) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %37) #11
+  br label %735
 
-703:                                              ; preds = %4, %4
-  %704 = load ptr, ptr %12, align 8
-  %705 = getelementptr inbounds %struct.dbus_packet_t, ptr %704, i32 0, i32 0
-  %706 = load ptr, ptr %705, align 8
-  call void @ptvcursor_pop_subtree(ptr noundef %706)
-  %707 = load ptr, ptr %6, align 8
-  %708 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %707, i32 0, i32 1
-  %709 = load ptr, ptr %708, align 8
-  %710 = load ptr, ptr %6, align 8
-  %711 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %710, i32 0, i32 13
-  %712 = load ptr, ptr %711, align 8
-  %713 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %712, i32 0, i32 1
-  store ptr %709, ptr %713, align 8
-  %714 = load ptr, ptr %6, align 8
-  %715 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %714, i32 0, i32 13
-  %716 = load ptr, ptr %715, align 8
-  store ptr %716, ptr %6, align 8
-  br label %737
+701:                                              ; preds = %4, %4
+  %702 = load ptr, ptr %12, align 8
+  %703 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %702, i32 0, i32 0
+  %704 = load ptr, ptr %703, align 8
+  call void @ptvcursor_pop_subtree(ptr noundef %704)
+  %705 = load ptr, ptr %6, align 8
+  %706 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %705, i32 0, i32 1
+  %707 = load ptr, ptr %706, align 8
+  %708 = load ptr, ptr %6, align 8
+  %709 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %708, i32 0, i32 13
+  %710 = load ptr, ptr %709, align 8
+  %711 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %710, i32 0, i32 1
+  store ptr %707, ptr %711, align 8
+  %712 = load ptr, ptr %6, align 8
+  %713 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %712, i32 0, i32 13
+  %714 = load ptr, ptr %713, align 8
+  store ptr %714, ptr %6, align 8
+  br label %735
 
-717:                                              ; preds = %4
-  %718 = load ptr, ptr %12, align 8
-  %719 = getelementptr inbounds %struct.dbus_packet_t, ptr %718, i32 0, i32 0
-  %720 = load ptr, ptr %719, align 8
-  %721 = load i32, ptr %7, align 4
-  %722 = icmp ne i32 %721, -1
-  br i1 %722, label %723, label %725
+715:                                              ; preds = %4
+  %716 = load ptr, ptr %12, align 8
+  %717 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %716, i32 0, i32 0
+  %718 = load ptr, ptr %717, align 8
+  %719 = load i32, ptr %7, align 4
+  %720 = icmp ne i32 %719, -1
+  br i1 %720, label %721, label %723
 
-723:                                              ; preds = %717
-  %724 = load i32, ptr %7, align 4
-  br label %727
+721:                                              ; preds = %715
+  %722 = load i32, ptr %7, align 4
+  br label %725
 
-725:                                              ; preds = %717
-  %726 = load i32, ptr @hf_dbus_type_unix_fd, align 4
-  br label %727
+723:                                              ; preds = %715
+  %724 = load i32, ptr @hf_dbus_type_unix_fd, align 4
+  br label %725
 
-727:                                              ; preds = %725, %723
-  %728 = phi i32 [ %724, %723 ], [ %726, %725 ]
-  %729 = load ptr, ptr %12, align 8
-  %730 = getelementptr inbounds %struct.dbus_packet_t, ptr %729, i32 0, i32 2
-  %731 = load i32, ptr %730, align 8
-  %732 = load ptr, ptr %9, align 8
-  %733 = call ptr @ptvcursor_add_ret_uint(ptr noundef %720, i32 noundef %728, i32 noundef 4, i32 noundef %731, ptr noundef %732)
-  %734 = load ptr, ptr %12, align 8
-  %735 = getelementptr inbounds %struct.dbus_packet_t, ptr %734, i32 0, i32 7
-  store ptr %733, ptr %735, align 8
-  br label %737
+725:                                              ; preds = %723, %721
+  %726 = phi i32 [ %722, %721 ], [ %724, %723 ]
+  %727 = load ptr, ptr %12, align 8
+  %728 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %727, i32 0, i32 2
+  %729 = load i32, ptr %728, align 8
+  %730 = load ptr, ptr %9, align 8
+  %731 = call ptr @ptvcursor_add_ret_uint(ptr noundef %718, i32 noundef %726, i32 noundef 4, i32 noundef %729, ptr noundef %730)
+  %732 = load ptr, ptr %12, align 8
+  %733 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %732, i32 0, i32 7
+  store ptr %731, ptr %733, align 8
+  br label %735
 
-736:                                              ; preds = %4
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.155, ptr noundef @.str.156, i32 noundef 853) #8
+734:                                              ; preds = %4
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.158, ptr noundef @.str.159, i32 noundef 854) #13
   unreachable
 
-737:                                              ; preds = %727, %703, %656, %637, %489, %470, %348, %325, %303, %276, %243, %210, %176, %157, %138, %119, %108, %64
-  %738 = load ptr, ptr %6, align 8
-  %739 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %738, i32 0, i32 2
-  %740 = load i32, ptr %739, align 8
-  %741 = icmp ugt i32 %740, 64
-  br i1 %741, label %757, label %742
+735:                                              ; preds = %725, %701, %653, %634, %488, %469, %347, %325, %304, %277, %244, %211, %177, %158, %139, %120, %109, %65
+  %736 = load ptr, ptr %6, align 8
+  %737 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %736, i32 0, i32 2
+  %738 = load i32, ptr %737, align 8
+  %739 = icmp ugt i32 %738, 64
+  br i1 %739, label %755, label %740
 
-742:                                              ; preds = %737
-  %743 = load ptr, ptr %6, align 8
-  %744 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %743, i32 0, i32 3
-  %745 = load i32, ptr %744, align 4
-  %746 = icmp ugt i32 %745, 32
-  br i1 %746, label %757, label %747
+740:                                              ; preds = %735
+  %741 = load ptr, ptr %6, align 8
+  %742 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %741, i32 0, i32 3
+  %743 = load i32, ptr %742, align 4
+  %744 = icmp ugt i32 %743, 32
+  br i1 %744, label %755, label %745
 
-747:                                              ; preds = %742
-  %748 = load ptr, ptr %6, align 8
-  %749 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %748, i32 0, i32 4
-  %750 = load i32, ptr %749, align 8
-  %751 = icmp ugt i32 %750, 32
-  br i1 %751, label %757, label %752
+745:                                              ; preds = %740
+  %746 = load ptr, ptr %6, align 8
+  %747 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %746, i32 0, i32 4
+  %748 = load i32, ptr %747, align 8
+  %749 = icmp ugt i32 %748, 32
+  br i1 %749, label %755, label %750
 
-752:                                              ; preds = %747
-  %753 = load ptr, ptr %6, align 8
-  %754 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %753, i32 0, i32 5
-  %755 = load i32, ptr %754, align 4
-  %756 = icmp ugt i32 %755, 32
-  br i1 %756, label %757, label %759
+750:                                              ; preds = %745
+  %751 = load ptr, ptr %6, align 8
+  %752 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %751, i32 0, i32 5
+  %753 = load i32, ptr %752, align 4
+  %754 = icmp ugt i32 %753, 32
+  br i1 %754, label %755, label %757
 
-757:                                              ; preds = %752, %747, %742, %737
-  %758 = load ptr, ptr %12, align 8
-  call void @add_expert(ptr noundef %758, ptr noundef @ei_dbus_nested_too_deeply)
+755:                                              ; preds = %750, %745, %740, %735
+  %756 = load ptr, ptr %12, align 8
+  call void @add_expert(ptr noundef %756, ptr noundef @ei_dbus_nested_too_deeply)
   store i32 1, ptr %10, align 4
-  br label %895
+  br label %897
 
-759:                                              ; preds = %752
-  %760 = load i32, ptr %13, align 4
-  %761 = icmp ne i32 %760, 0
-  br i1 %761, label %762, label %894
+757:                                              ; preds = %750
+  %758 = load i8, ptr %13, align 1, !range !6, !noundef !7
+  %759 = trunc i8 %758 to i1
+  br i1 %759, label %760, label %896
 
-762:                                              ; preds = %759
-  br label %763
+760:                                              ; preds = %757
+  br label %761
 
-763:                                              ; preds = %846, %762
-  %764 = load ptr, ptr %6, align 8
-  %765 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %764, i32 0, i32 6
-  %766 = load ptr, ptr %765, align 8
-  %767 = icmp ne ptr %766, null
-  br i1 %767, label %768, label %814
+761:                                              ; preds = %848, %760
+  br label %762
 
-768:                                              ; preds = %763
-  %769 = load ptr, ptr %12, align 8
-  %770 = getelementptr inbounds %struct.dbus_packet_t, ptr %769, i32 0, i32 0
-  %771 = load ptr, ptr %770, align 8
-  %772 = call i32 @ptvcursor_current_offset(ptr noundef %771)
-  store i32 %772, ptr %40, align 4
-  %773 = load i32, ptr %40, align 4
-  %774 = load ptr, ptr %6, align 8
-  %775 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %774, i32 0, i32 7
-  %776 = load i32, ptr %775, align 8
-  %777 = icmp slt i32 %773, %776
-  br i1 %777, label %778, label %784
+762:                                              ; preds = %761
+  %763 = load ptr, ptr %6, align 8
+  %764 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %763, i32 0, i32 6
+  %765 = load ptr, ptr %764, align 8
+  %766 = icmp ne ptr %765, null
+  br i1 %766, label %767, label %816
 
-778:                                              ; preds = %768
-  %779 = load ptr, ptr %6, align 8
-  %780 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %779, i32 0, i32 6
-  %781 = load ptr, ptr %780, align 8
-  %782 = load ptr, ptr %6, align 8
-  %783 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %782, i32 0, i32 1
-  store ptr %781, ptr %783, align 8
-  br label %847
+767:                                              ; preds = %762
+  call void @llvm.lifetime.start.p0(i64 4, ptr %40) #11
+  %768 = load ptr, ptr %12, align 8
+  %769 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %768, i32 0, i32 0
+  %770 = load ptr, ptr %769, align 8
+  %771 = call i32 @ptvcursor_current_offset(ptr noundef %770)
+  store i32 %771, ptr %40, align 4
+  %772 = load i32, ptr %40, align 4
+  %773 = load ptr, ptr %6, align 8
+  %774 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %773, i32 0, i32 7
+  %775 = load i32, ptr %774, align 8
+  %776 = icmp slt i32 %772, %775
+  br i1 %776, label %777, label %783
 
-784:                                              ; preds = %768
-  %785 = load i32, ptr %40, align 4
-  %786 = load ptr, ptr %6, align 8
-  %787 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %786, i32 0, i32 7
-  %788 = load i32, ptr %787, align 8
-  %789 = icmp eq i32 %785, %788
-  br i1 %789, label %790, label %804
-
-790:                                              ; preds = %784
-  %791 = load ptr, ptr %12, align 8
-  %792 = getelementptr inbounds %struct.dbus_packet_t, ptr %791, i32 0, i32 0
-  %793 = load ptr, ptr %792, align 8
-  call void @ptvcursor_pop_subtree(ptr noundef %793)
-  %794 = load ptr, ptr %6, align 8
-  %795 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %794, i32 0, i32 1
-  %796 = load ptr, ptr %795, align 8
-  %797 = load ptr, ptr %6, align 8
-  %798 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %797, i32 0, i32 13
-  %799 = load ptr, ptr %798, align 8
-  %800 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %799, i32 0, i32 1
-  store ptr %796, ptr %800, align 8
-  %801 = load ptr, ptr %6, align 8
-  %802 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %801, i32 0, i32 13
-  %803 = load ptr, ptr %802, align 8
-  store ptr %803, ptr %6, align 8
-  br label %812
-
-804:                                              ; preds = %784
-  %805 = load ptr, ptr %12, align 8
-  %806 = getelementptr inbounds %struct.dbus_packet_t, ptr %805, i32 0, i32 1
-  %807 = load ptr, ptr %806, align 8
-  %808 = load ptr, ptr %6, align 8
-  %809 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %808, i32 0, i32 12
-  %810 = load ptr, ptr %809, align 8
-  %811 = call ptr @expert_add_info(ptr noundef %807, ptr noundef %810, ptr noundef @ei_dbus_type_array_content_out_of_bounds)
-  store i32 1, ptr %10, align 4
-  br label %847
-
-812:                                              ; preds = %790
+777:                                              ; preds = %767
+  %778 = load ptr, ptr %6, align 8
+  %779 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %778, i32 0, i32 6
+  %780 = load ptr, ptr %779, align 8
+  %781 = load ptr, ptr %6, align 8
+  %782 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %781, i32 0, i32 1
+  store ptr %780, ptr %782, align 8
+  store i32 4, ptr %41, align 4
   br label %813
 
-813:                                              ; preds = %812
-  br label %846
+783:                                              ; preds = %767
+  %784 = load i32, ptr %40, align 4
+  %785 = load ptr, ptr %6, align 8
+  %786 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %785, i32 0, i32 7
+  %787 = load i32, ptr %786, align 8
+  %788 = icmp eq i32 %784, %787
+  br i1 %788, label %789, label %803
 
-814:                                              ; preds = %763
-  %815 = load ptr, ptr %6, align 8
-  %816 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %815, i32 0, i32 8
-  %817 = load i32, ptr %816, align 4
-  %818 = icmp ne i32 %817, 0
-  br i1 %818, label %819, label %844
+789:                                              ; preds = %783
+  %790 = load ptr, ptr %12, align 8
+  %791 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %790, i32 0, i32 0
+  %792 = load ptr, ptr %791, align 8
+  call void @ptvcursor_pop_subtree(ptr noundef %792)
+  %793 = load ptr, ptr %6, align 8
+  %794 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %793, i32 0, i32 1
+  %795 = load ptr, ptr %794, align 8
+  %796 = load ptr, ptr %6, align 8
+  %797 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %796, i32 0, i32 13
+  %798 = load ptr, ptr %797, align 8
+  %799 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %798, i32 0, i32 1
+  store ptr %795, ptr %799, align 8
+  %800 = load ptr, ptr %6, align 8
+  %801 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %800, i32 0, i32 13
+  %802 = load ptr, ptr %801, align 8
+  store ptr %802, ptr %6, align 8
+  br label %811
 
-819:                                              ; preds = %814
-  %820 = load ptr, ptr %6, align 8
-  %821 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %820, i32 0, i32 9
-  %822 = load i32, ptr %821, align 8
-  %823 = icmp ne i32 %822, 0
-  br i1 %823, label %824, label %837
+803:                                              ; preds = %783
+  %804 = load ptr, ptr %12, align 8
+  %805 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %804, i32 0, i32 1
+  %806 = load ptr, ptr %805, align 8
+  %807 = load ptr, ptr %6, align 8
+  %808 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %807, i32 0, i32 12
+  %809 = load ptr, ptr %808, align 8
+  %810 = call ptr @expert_add_info(ptr noundef %806, ptr noundef %809, ptr noundef @ei_dbus_type_array_content_out_of_bounds)
+  store i32 1, ptr %10, align 4
+  store i32 4, ptr %41, align 4
+  br label %813
 
-824:                                              ; preds = %819
-  %825 = load ptr, ptr %6, align 8
-  %826 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %825, i32 0, i32 12
-  %827 = load ptr, ptr %826, align 8
-  %828 = load ptr, ptr %12, align 8
-  %829 = getelementptr inbounds %struct.dbus_packet_t, ptr %828, i32 0, i32 1
-  %830 = load ptr, ptr %829, align 8
-  %831 = getelementptr inbounds %struct._packet_info, ptr %830, i32 0, i32 50
+811:                                              ; preds = %789
+  br label %812
+
+812:                                              ; preds = %811
+  store i32 0, ptr %41, align 4
+  br label %813
+
+813:                                              ; preds = %812, %803, %777
+  call void @llvm.lifetime.end.p0(i64 4, ptr %40) #11
+  %814 = load i32, ptr %41, align 4
+  switch i32 %814, label %906 [
+    i32 0, label %815
+    i32 4, label %849
+  ]
+
+815:                                              ; preds = %813
+  br label %848
+
+816:                                              ; preds = %762
+  %817 = load ptr, ptr %6, align 8
+  %818 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %817, i32 0, i32 8
+  %819 = load i8, ptr %818, align 4, !range !6, !noundef !7
+  %820 = trunc i8 %819 to i1
+  br i1 %820, label %821, label %846
+
+821:                                              ; preds = %816
+  %822 = load ptr, ptr %6, align 8
+  %823 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %822, i32 0, i32 9
+  %824 = load i8, ptr %823, align 1, !range !6, !noundef !7
+  %825 = trunc i8 %824 to i1
+  br i1 %825, label %826, label %839
+
+826:                                              ; preds = %821
+  %827 = load ptr, ptr %6, align 8
+  %828 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %827, i32 0, i32 12
+  %829 = load ptr, ptr %828, align 8
+  %830 = load ptr, ptr %12, align 8
+  %831 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %830, i32 0, i32 1
   %832 = load ptr, ptr %831, align 8
-  %833 = load ptr, ptr %12, align 8
-  %834 = getelementptr inbounds %struct.dbus_packet_t, ptr %833, i32 0, i32 7
-  %835 = load ptr, ptr %834, align 8
-  %836 = call ptr @proto_item_get_display_repr(ptr noundef %832, ptr noundef %835)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %827, ptr noundef @.str.175, ptr noundef %836)
-  br label %837
+  %833 = getelementptr inbounds nuw %struct._packet_info, ptr %832, i32 0, i32 51
+  %834 = load ptr, ptr %833, align 8
+  %835 = load ptr, ptr %12, align 8
+  %836 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %835, i32 0, i32 7
+  %837 = load ptr, ptr %836, align 8
+  %838 = call ptr @proto_item_get_display_repr(ptr noundef %834, ptr noundef %837)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %829, ptr noundef @.str.178, ptr noundef %838)
+  br label %839
 
-837:                                              ; preds = %824, %819
-  %838 = load ptr, ptr %12, align 8
-  %839 = getelementptr inbounds %struct.dbus_packet_t, ptr %838, i32 0, i32 0
-  %840 = load ptr, ptr %839, align 8
-  call void @ptvcursor_pop_subtree(ptr noundef %840)
-  %841 = load ptr, ptr %6, align 8
-  %842 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %841, i32 0, i32 13
-  %843 = load ptr, ptr %842, align 8
-  store ptr %843, ptr %6, align 8
-  br label %845
-
-844:                                              ; preds = %814
+839:                                              ; preds = %826, %821
+  %840 = load ptr, ptr %12, align 8
+  %841 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %840, i32 0, i32 0
+  %842 = load ptr, ptr %841, align 8
+  call void @ptvcursor_pop_subtree(ptr noundef %842)
+  %843 = load ptr, ptr %6, align 8
+  %844 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %843, i32 0, i32 13
+  %845 = load ptr, ptr %844, align 8
+  store ptr %845, ptr %6, align 8
   br label %847
 
-845:                                              ; preds = %837
-  br label %846
+846:                                              ; preds = %816
+  br label %849
 
-846:                                              ; preds = %845, %813
-  br label %763
+847:                                              ; preds = %839
+  br label %848
 
-847:                                              ; preds = %844, %804, %778
-  %848 = load ptr, ptr %6, align 8
-  %849 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %848, i32 0, i32 10
-  %850 = load i32, ptr %849, align 4
-  %851 = icmp ne i32 %850, 0
-  br i1 %851, label %852, label %893
+848:                                              ; preds = %847, %815
+  br label %761
 
-852:                                              ; preds = %847
-  %853 = load ptr, ptr %6, align 8
-  %854 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %853, i32 0, i32 1
-  %855 = load ptr, ptr %854, align 8
-  %856 = getelementptr i8, ptr %855, i64 -2
-  %857 = load i8, ptr %856, align 1
-  %858 = sext i8 %857 to i32
-  %859 = icmp eq i32 %858, 123
-  br i1 %859, label %860, label %873
+849:                                              ; preds = %846, %813
+  %850 = load ptr, ptr %6, align 8
+  %851 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %850, i32 0, i32 10
+  %852 = load i8, ptr %851, align 2, !range !6, !noundef !7
+  %853 = trunc i8 %852 to i1
+  br i1 %853, label %854, label %895
 
-860:                                              ; preds = %852
-  %861 = load ptr, ptr %6, align 8
-  %862 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %861, i32 0, i32 12
-  %863 = load ptr, ptr %862, align 8
-  %864 = load ptr, ptr %12, align 8
-  %865 = getelementptr inbounds %struct.dbus_packet_t, ptr %864, i32 0, i32 1
-  %866 = load ptr, ptr %865, align 8
-  %867 = getelementptr inbounds %struct._packet_info, ptr %866, i32 0, i32 50
+854:                                              ; preds = %849
+  %855 = load ptr, ptr %6, align 8
+  %856 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %855, i32 0, i32 1
+  %857 = load ptr, ptr %856, align 8
+  %858 = getelementptr i8, ptr %857, i64 -2
+  %859 = load i8, ptr %858, align 1
+  %860 = sext i8 %859 to i32
+  %861 = icmp eq i32 %860, 123
+  br i1 %861, label %862, label %875
+
+862:                                              ; preds = %854
+  %863 = load ptr, ptr %6, align 8
+  %864 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %863, i32 0, i32 12
+  %865 = load ptr, ptr %864, align 8
+  %866 = load ptr, ptr %12, align 8
+  %867 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %866, i32 0, i32 1
   %868 = load ptr, ptr %867, align 8
-  %869 = load ptr, ptr %12, align 8
-  %870 = getelementptr inbounds %struct.dbus_packet_t, ptr %869, i32 0, i32 7
-  %871 = load ptr, ptr %870, align 8
-  %872 = call ptr @proto_item_get_display_repr(ptr noundef %868, ptr noundef %871)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %863, ptr noundef @.str.160, ptr noundef %872)
-  br label %892
-
-873:                                              ; preds = %852
-  %874 = load ptr, ptr %6, align 8
-  %875 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %874, i32 0, i32 11
-  %876 = load i32, ptr %875, align 8
-  %877 = icmp ne i32 %876, 0
-  br i1 %877, label %878, label %891
-
-878:                                              ; preds = %873
-  %879 = load ptr, ptr %6, align 8
-  %880 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %879, i32 0, i32 12
-  %881 = load ptr, ptr %880, align 8
-  %882 = load ptr, ptr %12, align 8
-  %883 = getelementptr inbounds %struct.dbus_packet_t, ptr %882, i32 0, i32 1
-  %884 = load ptr, ptr %883, align 8
-  %885 = getelementptr inbounds %struct._packet_info, ptr %884, i32 0, i32 50
-  %886 = load ptr, ptr %885, align 8
-  %887 = load ptr, ptr %12, align 8
-  %888 = getelementptr inbounds %struct.dbus_packet_t, ptr %887, i32 0, i32 7
-  %889 = load ptr, ptr %888, align 8
-  %890 = call ptr @proto_item_get_display_repr(ptr noundef %886, ptr noundef %889)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %881, ptr noundef @.str.175, ptr noundef %890)
-  br label %891
-
-891:                                              ; preds = %878, %873
-  br label %892
-
-892:                                              ; preds = %891, %860
-  br label %893
-
-893:                                              ; preds = %892, %847
+  %869 = getelementptr inbounds nuw %struct._packet_info, ptr %868, i32 0, i32 51
+  %870 = load ptr, ptr %869, align 8
+  %871 = load ptr, ptr %12, align 8
+  %872 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %871, i32 0, i32 7
+  %873 = load ptr, ptr %872, align 8
+  %874 = call ptr @proto_item_get_display_repr(ptr noundef %870, ptr noundef %873)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %865, ptr noundef @.str.163, ptr noundef %874)
   br label %894
 
-894:                                              ; preds = %893, %759
+875:                                              ; preds = %854
+  %876 = load ptr, ptr %6, align 8
+  %877 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %876, i32 0, i32 11
+  %878 = load i8, ptr %877, align 1, !range !6, !noundef !7
+  %879 = trunc i8 %878 to i1
+  br i1 %879, label %880, label %893
+
+880:                                              ; preds = %875
+  %881 = load ptr, ptr %6, align 8
+  %882 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %881, i32 0, i32 12
+  %883 = load ptr, ptr %882, align 8
+  %884 = load ptr, ptr %12, align 8
+  %885 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %884, i32 0, i32 1
+  %886 = load ptr, ptr %885, align 8
+  %887 = getelementptr inbounds nuw %struct._packet_info, ptr %886, i32 0, i32 51
+  %888 = load ptr, ptr %887, align 8
+  %889 = load ptr, ptr %12, align 8
+  %890 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %889, i32 0, i32 7
+  %891 = load ptr, ptr %890, align 8
+  %892 = call ptr @proto_item_get_display_repr(ptr noundef %888, ptr noundef %891)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %883, ptr noundef @.str.178, ptr noundef %892)
+  br label %893
+
+893:                                              ; preds = %880, %875
+  br label %894
+
+894:                                              ; preds = %893, %862
   br label %895
 
-895:                                              ; preds = %894, %757
-  %896 = load i32, ptr %10, align 4
-  %897 = icmp ne i32 %896, 0
-  br i1 %897, label %898, label %900
+895:                                              ; preds = %894, %849
+  br label %896
 
-898:                                              ; preds = %895
-  %899 = load ptr, ptr %6, align 8
-  call void @reader_cleanup(ptr noundef %899)
-  store ptr null, ptr %5, align 8
-  br label %902
+896:                                              ; preds = %895, %757
+  br label %897
 
-900:                                              ; preds = %895
+897:                                              ; preds = %896, %755
+  %898 = load i32, ptr %10, align 4
+  %899 = icmp ne i32 %898, 0
+  br i1 %899, label %900, label %902
+
+900:                                              ; preds = %897
   %901 = load ptr, ptr %6, align 8
-  store ptr %901, ptr %5, align 8
-  br label %902
+  call void @reader_cleanup(ptr noundef %901)
+  store ptr null, ptr %5, align 8
+  store i32 1, ptr %41, align 4
+  br label %904
 
-902:                                              ; preds = %900, %898
-  %903 = load ptr, ptr %5, align 8
-  ret ptr %903
+902:                                              ; preds = %897
+  %903 = load ptr, ptr %6, align 8
+  store ptr %903, ptr %5, align 8
+  store i32 1, ptr %41, align 4
+  br label %904
+
+904:                                              ; preds = %902, %900
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #11
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #11
+  %905 = load ptr, ptr %5, align 8
+  ret ptr %905
+
+906:                                              ; preds = %813
+  unreachable
 }
 
-declare void @proto_item_set_text(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_set_text(ptr noundef, ptr noundef, ...) #2
 
-declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) #2
 
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @reader_cleanup(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
   %4 = load ptr, ptr %2, align 8
   store ptr %4, ptr %3, align 8
   br label %5
 
-5:                                                ; preds = %16, %1
+5:                                                ; preds = %17, %1
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %6, i32 0, i32 13
+  %7 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %6, i32 0, i32 13
   %8 = load ptr, ptr %7, align 8
   %9 = icmp ne ptr %8, null
-  br i1 %9, label %10, label %20
+  br i1 %9, label %11, label %10
 
 10:                                               ; preds = %5
-  %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %11, i32 0, i32 0
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds %struct.dbus_packet_t, ptr %13, i32 0, i32 0
-  %15 = load ptr, ptr %14, align 8
-  call void @ptvcursor_pop_subtree(ptr noundef %15)
-  br label %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
+  br label %21
 
-16:                                               ; preds = %10
-  %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %17, i32 0, i32 13
-  %19 = load ptr, ptr %18, align 8
-  store ptr %19, ptr %3, align 8
-  br label %5, !llvm.loop !7
+11:                                               ; preds = %5
+  %12 = load ptr, ptr %3, align 8
+  %13 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %12, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %14, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8
+  call void @ptvcursor_pop_subtree(ptr noundef %16)
+  br label %17
 
-20:                                               ; preds = %5
+17:                                               ; preds = %11
+  %18 = load ptr, ptr %3, align 8
+  %19 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %18, i32 0, i32 13
+  %20 = load ptr, ptr %19, align 8
+  store ptr %20, ptr %3, align 8
+  br label %5, !llvm.loop !11
+
+21:                                               ; preds = %10
   ret void
 }
 
-; Function Attrs: nounwind willreturn memory(read)
-declare i32 @strcmp(ptr noundef, ptr noundef) #4
+; Function Attrs: nounwind null_pointer_is_valid willreturn memory(read)
+declare i32 @strcmp(ptr noundef, ptr noundef) #5
 
-; Function Attrs: nounwind uwtable
-define internal i32 @is_dbus_interface_valid(ptr noundef %0) #0 {
-  %2 = alloca i32, align 4
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @is_dbus_interface_valid(ptr noundef %0) #6 {
+  %2 = alloca i1, align 1
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  %6 = alloca i64, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #11
   store i32 0, ptr %4, align 4
-  %7 = load ptr, ptr %3, align 8
-  store ptr %7, ptr %5, align 8
-  br label %8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  %8 = load ptr, ptr %3, align 8
+  store ptr %8, ptr %5, align 8
+  br label %9
 
-8:                                                ; preds = %64, %1
-  %9 = load ptr, ptr %5, align 8
-  %10 = load i8, ptr %9, align 1
-  %11 = call i32 @is_ascii_alpha(i8 noundef signext %10)
-  %12 = icmp ne i32 %11, 0
+9:                                                ; preds = %61, %1
+  %10 = load ptr, ptr %5, align 8
+  %11 = load i8, ptr %10, align 1
+  %12 = call zeroext i1 @is_ascii_alpha(i8 noundef signext %11)
   br i1 %12, label %19, label %13
 
-13:                                               ; preds = %8
+13:                                               ; preds = %9
   %14 = load ptr, ptr %5, align 8
   %15 = load i8, ptr %14, align 1
   %16 = sext i8 %15 to i32
@@ -3074,10 +3285,11 @@ define internal i32 @is_dbus_interface_valid(ptr noundef %0) #0 {
   br i1 %17, label %19, label %18
 
 18:                                               ; preds = %13
-  store i32 0, ptr %2, align 4
-  br label %71
+  store i1 false, ptr %2, align 1
+  store i32 1, ptr %6, align 4
+  br label %68
 
-19:                                               ; preds = %13, %8
+19:                                               ; preds = %13, %9
   %20 = load ptr, ptr %5, align 8
   %21 = getelementptr i8, ptr %20, i32 1
   store ptr %21, ptr %5, align 8
@@ -3086,100 +3298,104 @@ define internal i32 @is_dbus_interface_valid(ptr noundef %0) #0 {
   store i32 %23, ptr %4, align 4
   br label %24
 
-24:                                               ; preds = %41, %19
+24:                                               ; preds = %39, %19
   %25 = load ptr, ptr %5, align 8
   %26 = load i8, ptr %25, align 1
-  %27 = call i32 @is_ascii_alpha(i8 noundef signext %26)
-  %28 = icmp ne i32 %27, 0
-  br i1 %28, label %39, label %29
+  %27 = call zeroext i1 @is_ascii_alpha(i8 noundef signext %26)
+  br i1 %27, label %37, label %28
 
-29:                                               ; preds = %24
-  %30 = load ptr, ptr %5, align 8
-  %31 = load i8, ptr %30, align 1
-  %32 = call i32 @is_ascii_digit(i8 noundef signext %31)
-  %33 = icmp ne i32 %32, 0
-  br i1 %33, label %39, label %34
+28:                                               ; preds = %24
+  %29 = load ptr, ptr %5, align 8
+  %30 = load i8, ptr %29, align 1
+  %31 = call zeroext i1 @is_ascii_digit(i8 noundef signext %30)
+  br i1 %31, label %37, label %32
 
-34:                                               ; preds = %29
-  %35 = load ptr, ptr %5, align 8
-  %36 = load i8, ptr %35, align 1
-  %37 = sext i8 %36 to i32
-  %38 = icmp eq i32 %37, 95
-  br label %39
+32:                                               ; preds = %28
+  %33 = load ptr, ptr %5, align 8
+  %34 = load i8, ptr %33, align 1
+  %35 = sext i8 %34 to i32
+  %36 = icmp eq i32 %35, 95
+  br label %37
 
-39:                                               ; preds = %34, %29, %24
-  %40 = phi i1 [ true, %29 ], [ true, %24 ], [ %38, %34 ]
-  br i1 %40, label %41, label %44
+37:                                               ; preds = %32, %28, %24
+  %38 = phi i1 [ true, %28 ], [ true, %24 ], [ %36, %32 ]
+  br i1 %38, label %39, label %42
 
-41:                                               ; preds = %39
-  %42 = load ptr, ptr %5, align 8
-  %43 = getelementptr i8, ptr %42, i32 1
-  store ptr %43, ptr %5, align 8
-  br label %24, !llvm.loop !8
+39:                                               ; preds = %37
+  %40 = load ptr, ptr %5, align 8
+  %41 = getelementptr i8, ptr %40, i32 1
+  store ptr %41, ptr %5, align 8
+  br label %24, !llvm.loop !12
 
-44:                                               ; preds = %39
-  %45 = load ptr, ptr %5, align 8
-  %46 = load i8, ptr %45, align 1
-  %47 = sext i8 %46 to i32
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %49, label %63
+42:                                               ; preds = %37
+  %43 = load ptr, ptr %5, align 8
+  %44 = load i8, ptr %43, align 1
+  %45 = sext i8 %44 to i32
+  %46 = icmp eq i32 %45, 0
+  br i1 %46, label %47, label %60
 
-49:                                               ; preds = %44
-  %50 = load ptr, ptr %5, align 8
-  %51 = load ptr, ptr %3, align 8
-  %52 = ptrtoint ptr %50 to i64
-  %53 = ptrtoint ptr %51 to i64
-  %54 = sub i64 %52, %53
-  store i64 %54, ptr %6, align 8
-  %55 = load i32, ptr %4, align 4
-  %56 = icmp sge i32 %55, 2
-  br i1 %56, label %57, label %60
+47:                                               ; preds = %42
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  %48 = load ptr, ptr %5, align 8
+  %49 = load ptr, ptr %3, align 8
+  %50 = ptrtoint ptr %48 to i64
+  %51 = ptrtoint ptr %49 to i64
+  %52 = sub i64 %50, %51
+  store i64 %52, ptr %7, align 8
+  %53 = load i32, ptr %4, align 4
+  %54 = icmp sge i32 %53, 2
+  br i1 %54, label %55, label %58
 
-57:                                               ; preds = %49
-  %58 = load i64, ptr %6, align 8
-  %59 = icmp ule i64 %58, 255
-  br label %60
+55:                                               ; preds = %47
+  %56 = load i64, ptr %7, align 8
+  %57 = icmp ule i64 %56, 255
+  br label %58
 
-60:                                               ; preds = %57, %49
-  %61 = phi i1 [ false, %49 ], [ %59, %57 ]
-  %62 = zext i1 %61 to i32
-  store i32 %62, ptr %2, align 4
-  br label %71
+58:                                               ; preds = %55, %47
+  %59 = phi i1 [ false, %47 ], [ %57, %55 ]
+  store i1 %59, ptr %2, align 1
+  store i32 1, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
+  br label %68
 
-63:                                               ; preds = %44
-  br label %64
+60:                                               ; preds = %42
+  br label %61
 
-64:                                               ; preds = %63
-  %65 = load ptr, ptr %5, align 8
-  %66 = getelementptr i8, ptr %65, i32 1
-  store ptr %66, ptr %5, align 8
-  %67 = load i8, ptr %65, align 1
-  %68 = sext i8 %67 to i32
-  %69 = icmp eq i32 %68, 46
-  br i1 %69, label %8, label %70, !llvm.loop !9
+61:                                               ; preds = %60
+  %62 = load ptr, ptr %5, align 8
+  %63 = getelementptr i8, ptr %62, i32 1
+  store ptr %63, ptr %5, align 8
+  %64 = load i8, ptr %62, align 1
+  %65 = sext i8 %64 to i32
+  %66 = icmp eq i32 %65, 46
+  br i1 %66, label %9, label %67, !llvm.loop !13
 
-70:                                               ; preds = %64
-  store i32 0, ptr %2, align 4
-  br label %71
+67:                                               ; preds = %61
+  store i1 false, ptr %2, align 1
+  store i32 1, ptr %6, align 4
+  br label %68
 
-71:                                               ; preds = %70, %60, %18
-  %72 = load i32, ptr %2, align 4
-  ret i32 %72
+68:                                               ; preds = %67, %58, %18
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #11
+  %69 = load i1, ptr %2, align 1
+  ret i1 %69
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @is_dbus_member_name_valid(ptr noundef %0) #0 {
-  %2 = alloca i32, align 4
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @is_dbus_member_name_valid(ptr noundef %0) #6 {
+  %2 = alloca i1, align 1
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  %5 = alloca i64, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
-  %6 = load ptr, ptr %3, align 8
-  store ptr %6, ptr %4, align 8
-  %7 = load ptr, ptr %4, align 8
-  %8 = load i8, ptr %7, align 1
-  %9 = call i32 @is_ascii_alpha(i8 noundef signext %8)
-  %10 = icmp ne i32 %9, 0
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #11
+  %7 = load ptr, ptr %3, align 8
+  store ptr %7, ptr %4, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = load i8, ptr %8, align 1
+  %10 = call zeroext i1 @is_ascii_alpha(i8 noundef signext %9)
   br i1 %10, label %17, label %11
 
 11:                                               ; preds = %1
@@ -3190,13 +3406,14 @@ define internal i32 @is_dbus_member_name_valid(ptr noundef %0) #0 {
   br i1 %15, label %17, label %16
 
 16:                                               ; preds = %11
-  store i32 0, ptr %2, align 4
-  br label %53
+  store i1 false, ptr %2, align 1
+  store i32 1, ptr %5, align 4
+  br label %50
 
 17:                                               ; preds = %11, %1
   br label %18
 
-18:                                               ; preds = %36, %17
+18:                                               ; preds = %34, %17
   %19 = load ptr, ptr %4, align 8
   %20 = getelementptr i8, ptr %19, i32 1
   store ptr %20, ptr %4, align 8
@@ -3205,222 +3422,231 @@ define internal i32 @is_dbus_member_name_valid(ptr noundef %0) #0 {
 21:                                               ; preds = %18
   %22 = load ptr, ptr %4, align 8
   %23 = load i8, ptr %22, align 1
-  %24 = call i32 @is_ascii_alpha(i8 noundef signext %23)
-  %25 = icmp ne i32 %24, 0
-  br i1 %25, label %36, label %26
+  %24 = call zeroext i1 @is_ascii_alpha(i8 noundef signext %23)
+  br i1 %24, label %34, label %25
 
-26:                                               ; preds = %21
-  %27 = load ptr, ptr %4, align 8
-  %28 = load i8, ptr %27, align 1
-  %29 = call i32 @is_ascii_digit(i8 noundef signext %28)
-  %30 = icmp ne i32 %29, 0
-  br i1 %30, label %36, label %31
+25:                                               ; preds = %21
+  %26 = load ptr, ptr %4, align 8
+  %27 = load i8, ptr %26, align 1
+  %28 = call zeroext i1 @is_ascii_digit(i8 noundef signext %27)
+  br i1 %28, label %34, label %29
 
-31:                                               ; preds = %26
-  %32 = load ptr, ptr %4, align 8
-  %33 = load i8, ptr %32, align 1
-  %34 = sext i8 %33 to i32
-  %35 = icmp eq i32 %34, 95
-  br label %36
+29:                                               ; preds = %25
+  %30 = load ptr, ptr %4, align 8
+  %31 = load i8, ptr %30, align 1
+  %32 = sext i8 %31 to i32
+  %33 = icmp eq i32 %32, 95
+  br label %34
 
-36:                                               ; preds = %31, %26, %21
-  %37 = phi i1 [ true, %26 ], [ true, %21 ], [ %35, %31 ]
-  br i1 %37, label %18, label %38, !llvm.loop !10
+34:                                               ; preds = %29, %25, %21
+  %35 = phi i1 [ true, %25 ], [ true, %21 ], [ %33, %29 ]
+  br i1 %35, label %18, label %36, !llvm.loop !14
 
-38:                                               ; preds = %36
-  %39 = load ptr, ptr %4, align 8
-  %40 = load i8, ptr %39, align 1
-  %41 = sext i8 %40 to i32
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %43, label %52
+36:                                               ; preds = %34
+  %37 = load ptr, ptr %4, align 8
+  %38 = load i8, ptr %37, align 1
+  %39 = sext i8 %38 to i32
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %41, label %49
 
-43:                                               ; preds = %38
-  %44 = load ptr, ptr %4, align 8
-  %45 = load ptr, ptr %3, align 8
-  %46 = ptrtoint ptr %44 to i64
-  %47 = ptrtoint ptr %45 to i64
-  %48 = sub i64 %46, %47
-  store i64 %48, ptr %5, align 8
-  %49 = load i64, ptr %5, align 8
-  %50 = icmp ule i64 %49, 255
-  %51 = zext i1 %50 to i32
-  store i32 %51, ptr %2, align 4
-  br label %53
+41:                                               ; preds = %36
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  %42 = load ptr, ptr %4, align 8
+  %43 = load ptr, ptr %3, align 8
+  %44 = ptrtoint ptr %42 to i64
+  %45 = ptrtoint ptr %43 to i64
+  %46 = sub i64 %44, %45
+  store i64 %46, ptr %6, align 8
+  %47 = load i64, ptr %6, align 8
+  %48 = icmp ule i64 %47, 255
+  store i1 %48, ptr %2, align 1
+  store i32 1, ptr %5, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  br label %50
 
-52:                                               ; preds = %38
-  store i32 0, ptr %2, align 4
-  br label %53
+49:                                               ; preds = %36
+  store i1 false, ptr %2, align 1
+  store i32 1, ptr %5, align 4
+  br label %50
 
-53:                                               ; preds = %52, %43, %16
-  %54 = load i32, ptr %2, align 4
-  ret i32 %54
+50:                                               ; preds = %49, %41, %16
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #11
+  %51 = load i1, ptr %2, align 1
+  ret i1 %51
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @is_dbus_bus_name_valid(ptr noundef %0) #0 {
-  %2 = alloca i32, align 4
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @is_dbus_bus_name_valid(ptr noundef %0) #6 {
+  %2 = alloca i1, align 1
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  %6 = alloca i32, align 4
-  %7 = alloca i64, align 8
+  %6 = alloca i8, align 1
+  %7 = alloca i32, align 4
+  %8 = alloca i64, align 8
   store ptr %0, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #11
   store i32 0, ptr %4, align 4
-  %8 = load ptr, ptr %3, align 8
-  store ptr %8, ptr %5, align 8
-  store i32 0, ptr %6, align 4
-  %9 = load ptr, ptr %5, align 8
-  %10 = load i8, ptr %9, align 1
-  %11 = sext i8 %10 to i32
-  %12 = icmp eq i32 %11, 58
-  br i1 %12, label %13, label %16
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  %9 = load ptr, ptr %3, align 8
+  store ptr %9, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %6) #11
+  store i8 0, ptr %6, align 1
+  %10 = load ptr, ptr %5, align 8
+  %11 = load i8, ptr %10, align 1
+  %12 = sext i8 %11 to i32
+  %13 = icmp eq i32 %12, 58
+  br i1 %13, label %14, label %17
 
-13:                                               ; preds = %1
-  store i32 1, ptr %6, align 4
-  %14 = load ptr, ptr %5, align 8
-  %15 = getelementptr i8, ptr %14, i32 1
-  store ptr %15, ptr %5, align 8
-  br label %16
-
-16:                                               ; preds = %13, %1
+14:                                               ; preds = %1
+  store i8 1, ptr %6, align 1
+  %15 = load ptr, ptr %5, align 8
+  %16 = getelementptr i8, ptr %15, i32 1
+  store ptr %16, ptr %5, align 8
   br label %17
 
-17:                                               ; preds = %91, %16
-  %18 = load ptr, ptr %5, align 8
-  %19 = load i8, ptr %18, align 1
-  %20 = call i32 @is_ascii_alpha(i8 noundef signext %19)
-  %21 = icmp ne i32 %20, 0
-  br i1 %21, label %41, label %22
+17:                                               ; preds = %14, %1
+  br label %18
 
-22:                                               ; preds = %17
+18:                                               ; preds = %87, %17
+  %19 = load ptr, ptr %5, align 8
+  %20 = load i8, ptr %19, align 1
+  %21 = call zeroext i1 @is_ascii_alpha(i8 noundef signext %20)
+  br i1 %21, label %40, label %22
+
+22:                                               ; preds = %18
   %23 = load ptr, ptr %5, align 8
   %24 = load i8, ptr %23, align 1
   %25 = sext i8 %24 to i32
   %26 = icmp eq i32 %25, 95
-  br i1 %26, label %41, label %27
+  br i1 %26, label %40, label %27
 
 27:                                               ; preds = %22
   %28 = load ptr, ptr %5, align 8
   %29 = load i8, ptr %28, align 1
   %30 = sext i8 %29 to i32
   %31 = icmp eq i32 %30, 45
-  br i1 %31, label %41, label %32
+  br i1 %31, label %40, label %32
 
 32:                                               ; preds = %27
-  %33 = load i32, ptr %6, align 4
-  %34 = icmp ne i32 %33, 0
-  br i1 %34, label %35, label %40
+  %33 = load i8, ptr %6, align 1, !range !6, !noundef !7
+  %34 = trunc i8 %33 to i1
+  br i1 %34, label %35, label %39
 
 35:                                               ; preds = %32
   %36 = load ptr, ptr %5, align 8
   %37 = load i8, ptr %36, align 1
-  %38 = call i32 @is_ascii_digit(i8 noundef signext %37)
-  %39 = icmp ne i32 %38, 0
-  br i1 %39, label %41, label %40
+  %38 = call zeroext i1 @is_ascii_digit(i8 noundef signext %37)
+  br i1 %38, label %40, label %39
 
-40:                                               ; preds = %35, %32
-  store i32 0, ptr %2, align 4
-  br label %98
+39:                                               ; preds = %35, %32
+  store i1 false, ptr %2, align 1
+  store i32 1, ptr %7, align 4
+  br label %94
 
-41:                                               ; preds = %35, %27, %22, %17
-  %42 = load ptr, ptr %5, align 8
-  %43 = getelementptr i8, ptr %42, i32 1
-  store ptr %43, ptr %5, align 8
-  %44 = load i32, ptr %4, align 4
-  %45 = add i32 %44, 1
-  store i32 %45, ptr %4, align 4
-  br label %46
+40:                                               ; preds = %35, %27, %22, %18
+  %41 = load ptr, ptr %5, align 8
+  %42 = getelementptr i8, ptr %41, i32 1
+  store ptr %42, ptr %5, align 8
+  %43 = load i32, ptr %4, align 4
+  %44 = add i32 %43, 1
+  store i32 %44, ptr %4, align 4
+  br label %45
 
-46:                                               ; preds = %68, %41
-  %47 = load ptr, ptr %5, align 8
-  %48 = load i8, ptr %47, align 1
-  %49 = call i32 @is_ascii_alpha(i8 noundef signext %48)
-  %50 = icmp ne i32 %49, 0
-  br i1 %50, label %66, label %51
+45:                                               ; preds = %65, %40
+  %46 = load ptr, ptr %5, align 8
+  %47 = load i8, ptr %46, align 1
+  %48 = call zeroext i1 @is_ascii_alpha(i8 noundef signext %47)
+  br i1 %48, label %63, label %49
 
-51:                                               ; preds = %46
-  %52 = load ptr, ptr %5, align 8
-  %53 = load i8, ptr %52, align 1
-  %54 = call i32 @is_ascii_digit(i8 noundef signext %53)
-  %55 = icmp ne i32 %54, 0
-  br i1 %55, label %66, label %56
+49:                                               ; preds = %45
+  %50 = load ptr, ptr %5, align 8
+  %51 = load i8, ptr %50, align 1
+  %52 = call zeroext i1 @is_ascii_digit(i8 noundef signext %51)
+  br i1 %52, label %63, label %53
 
-56:                                               ; preds = %51
-  %57 = load ptr, ptr %5, align 8
-  %58 = load i8, ptr %57, align 1
-  %59 = sext i8 %58 to i32
-  %60 = icmp eq i32 %59, 95
-  br i1 %60, label %66, label %61
+53:                                               ; preds = %49
+  %54 = load ptr, ptr %5, align 8
+  %55 = load i8, ptr %54, align 1
+  %56 = sext i8 %55 to i32
+  %57 = icmp eq i32 %56, 95
+  br i1 %57, label %63, label %58
 
-61:                                               ; preds = %56
-  %62 = load ptr, ptr %5, align 8
-  %63 = load i8, ptr %62, align 1
-  %64 = sext i8 %63 to i32
-  %65 = icmp eq i32 %64, 45
-  br label %66
+58:                                               ; preds = %53
+  %59 = load ptr, ptr %5, align 8
+  %60 = load i8, ptr %59, align 1
+  %61 = sext i8 %60 to i32
+  %62 = icmp eq i32 %61, 45
+  br label %63
 
-66:                                               ; preds = %61, %56, %51, %46
-  %67 = phi i1 [ true, %56 ], [ true, %51 ], [ true, %46 ], [ %65, %61 ]
-  br i1 %67, label %68, label %71
+63:                                               ; preds = %58, %53, %49, %45
+  %64 = phi i1 [ true, %53 ], [ true, %49 ], [ true, %45 ], [ %62, %58 ]
+  br i1 %64, label %65, label %68
 
-68:                                               ; preds = %66
+65:                                               ; preds = %63
+  %66 = load ptr, ptr %5, align 8
+  %67 = getelementptr i8, ptr %66, i32 1
+  store ptr %67, ptr %5, align 8
+  br label %45, !llvm.loop !15
+
+68:                                               ; preds = %63
   %69 = load ptr, ptr %5, align 8
-  %70 = getelementptr i8, ptr %69, i32 1
-  store ptr %70, ptr %5, align 8
-  br label %46, !llvm.loop !11
+  %70 = load i8, ptr %69, align 1
+  %71 = sext i8 %70 to i32
+  %72 = icmp eq i32 %71, 0
+  br i1 %72, label %73, label %86
 
-71:                                               ; preds = %66
-  %72 = load ptr, ptr %5, align 8
-  %73 = load i8, ptr %72, align 1
-  %74 = sext i8 %73 to i32
-  %75 = icmp eq i32 %74, 0
-  br i1 %75, label %76, label %90
+73:                                               ; preds = %68
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
+  %74 = load ptr, ptr %5, align 8
+  %75 = load ptr, ptr %3, align 8
+  %76 = ptrtoint ptr %74 to i64
+  %77 = ptrtoint ptr %75 to i64
+  %78 = sub i64 %76, %77
+  store i64 %78, ptr %8, align 8
+  %79 = load i32, ptr %4, align 4
+  %80 = icmp sge i32 %79, 2
+  br i1 %80, label %81, label %84
 
-76:                                               ; preds = %71
-  %77 = load ptr, ptr %5, align 8
-  %78 = load ptr, ptr %3, align 8
-  %79 = ptrtoint ptr %77 to i64
-  %80 = ptrtoint ptr %78 to i64
-  %81 = sub i64 %79, %80
-  store i64 %81, ptr %7, align 8
-  %82 = load i32, ptr %4, align 4
-  %83 = icmp sge i32 %82, 2
-  br i1 %83, label %84, label %87
+81:                                               ; preds = %73
+  %82 = load i64, ptr %8, align 8
+  %83 = icmp ule i64 %82, 255
+  br label %84
 
-84:                                               ; preds = %76
-  %85 = load i64, ptr %7, align 8
-  %86 = icmp ule i64 %85, 255
+84:                                               ; preds = %81, %73
+  %85 = phi i1 [ false, %73 ], [ %83, %81 ]
+  store i1 %85, ptr %2, align 1
+  store i32 1, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
+  br label %94
+
+86:                                               ; preds = %68
   br label %87
 
-87:                                               ; preds = %84, %76
-  %88 = phi i1 [ false, %76 ], [ %86, %84 ]
-  %89 = zext i1 %88 to i32
-  store i32 %89, ptr %2, align 4
-  br label %98
+87:                                               ; preds = %86
+  %88 = load ptr, ptr %5, align 8
+  %89 = getelementptr i8, ptr %88, i32 1
+  store ptr %89, ptr %5, align 8
+  %90 = load i8, ptr %88, align 1
+  %91 = sext i8 %90 to i32
+  %92 = icmp eq i32 %91, 46
+  br i1 %92, label %18, label %93, !llvm.loop !16
 
-90:                                               ; preds = %71
-  br label %91
+93:                                               ; preds = %87
+  store i1 false, ptr %2, align 1
+  store i32 1, ptr %7, align 4
+  br label %94
 
-91:                                               ; preds = %90
-  %92 = load ptr, ptr %5, align 8
-  %93 = getelementptr i8, ptr %92, i32 1
-  store ptr %93, ptr %5, align 8
-  %94 = load i8, ptr %92, align 1
-  %95 = sext i8 %94 to i32
-  %96 = icmp eq i32 %95, 46
-  br i1 %96, label %17, label %97, !llvm.loop !12
-
-97:                                               ; preds = %91
-  store i32 0, ptr %2, align 4
-  br label %98
-
-98:                                               ; preds = %97, %87, %40
-  %99 = load i32, ptr %2, align 4
-  ret i32 %99
+94:                                               ; preds = %93, %84, %39
+  call void @llvm.lifetime.end.p0(i64 1, ptr %6) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #11
+  %95 = load i1, ptr %2, align 1
+  ret i1 %95
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @set_address(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 {
+; Function Attrs: inlinehint nounwind null_pointer_is_valid sspstrong uwtable
+define internal void @set_address(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #7 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -3460,512 +3686,560 @@ define internal void @set_address(ptr noundef %0, i32 noundef %1, i32 noundef %2
 19:                                               ; preds = %18, %13
   %20 = load i32, ptr %6, align 4
   %21 = load ptr, ptr %5, align 8
-  %22 = getelementptr inbounds %struct._address, ptr %21, i32 0, i32 0
+  %22 = getelementptr inbounds nuw %struct._address, ptr %21, i32 0, i32 0
   store i32 %20, ptr %22, align 8
   %23 = load i32, ptr %7, align 4
   %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds %struct._address, ptr %24, i32 0, i32 1
+  %25 = getelementptr inbounds nuw %struct._address, ptr %24, i32 0, i32 1
   store i32 %23, ptr %25, align 4
   %26 = load ptr, ptr %8, align 8
   %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %struct._address, ptr %27, i32 0, i32 2
+  %28 = getelementptr inbounds nuw %struct._address, ptr %27, i32 0, i32 2
   store ptr %26, ptr %28, align 8
   %29 = load ptr, ptr %5, align 8
-  %30 = getelementptr inbounds %struct._address, ptr %29, i32 0, i32 3
+  %30 = getelementptr inbounds nuw %struct._address, ptr %29, i32 0, i32 3
   store ptr null, ptr %30, align 8
   ret void
 }
 
-; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #4
+; Function Attrs: nounwind null_pointer_is_valid willreturn memory(read)
+declare i64 @strlen(ptr noundef) #5
 
-declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @add_conversation(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  %5 = alloca i32, align 4
+  %5 = alloca i8, align 1
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  %8 = alloca %struct._address, align 8
-  %9 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca %struct._address, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
-  %12 = alloca %struct.dbus_transaction_t, align 8
-  %13 = alloca i32, align 4
-  %14 = alloca ptr, align 8
-  %15 = alloca %struct.nstime_t, align 8
-  %16 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca %struct.dbus_transaction_t, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca ptr, align 8
+  %16 = alloca %struct.nstime_t, align 8
   %17 = alloca ptr, align 8
+  %18 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
-  %18 = load ptr, ptr %3, align 8
-  %19 = getelementptr inbounds %struct.dbus_packet_t, ptr %18, i32 0, i32 14
-  %20 = load ptr, ptr %19, align 8
-  %21 = icmp ne ptr %20, null
-  br i1 %21, label %22, label %27
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  %19 = load ptr, ptr %3, align 8
+  %20 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %19, i32 0, i32 14
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp ne ptr %21, null
+  br i1 %22, label %23, label %28
 
-22:                                               ; preds = %2
-  %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds %struct.dbus_packet_t, ptr %23, i32 0, i32 13
-  %25 = load ptr, ptr %24, align 8
-  %26 = icmp ne ptr %25, null
-  br i1 %26, label %28, label %27
+23:                                               ; preds = %2
+  %24 = load ptr, ptr %3, align 8
+  %25 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %24, i32 0, i32 13
+  %26 = load ptr, ptr %25, align 8
+  %27 = icmp ne ptr %26, null
+  br i1 %27, label %29, label %28
 
-27:                                               ; preds = %22, %2
-  br label %357
+28:                                               ; preds = %23, %2
+  store i32 1, ptr %8, align 4
+  br label %360
 
-28:                                               ; preds = %22
-  %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds %struct.dbus_packet_t, ptr %29, i32 0, i32 3
-  %31 = load i32, ptr %30, align 4
-  switch i32 %31, label %149 [
-    i32 1, label %32
-    i32 2, label %71
-    i32 3, label %71
-    i32 4, label %148
+29:                                               ; preds = %23
+  %30 = load ptr, ptr %3, align 8
+  %31 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %30, i32 0, i32 3
+  %32 = load i32, ptr %31, align 4
+  switch i32 %32, label %150 [
+    i32 1, label %33
+    i32 2, label %72
+    i32 3, label %72
+    i32 4, label %149
   ]
 
-32:                                               ; preds = %28
-  %33 = load ptr, ptr %3, align 8
-  %34 = getelementptr inbounds %struct.dbus_packet_t, ptr %33, i32 0, i32 4
-  %35 = load i8, ptr %34, align 8
-  %36 = zext i8 %35 to i32
-  %37 = and i32 %36, 1
-  %38 = icmp ne i32 %37, 0
-  br i1 %38, label %39, label %40
+33:                                               ; preds = %29
+  %34 = load ptr, ptr %3, align 8
+  %35 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %34, i32 0, i32 4
+  %36 = load i8, ptr %35, align 8
+  %37 = zext i8 %36 to i32
+  %38 = and i32 %37, 1
+  %39 = icmp ne i32 %38, 0
+  br i1 %39, label %40, label %41
 
-39:                                               ; preds = %32
-  br label %357
+40:                                               ; preds = %33
+  store i32 1, ptr %8, align 4
+  br label %360
 
-40:                                               ; preds = %32
-  store i32 1, ptr %5, align 4
-  %41 = load ptr, ptr %3, align 8
-  %42 = getelementptr inbounds %struct.dbus_packet_t, ptr %41, i32 0, i32 1
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds %struct._packet_info, ptr %43, i32 0, i32 8
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds %struct._frame_data, ptr %45, i32 0, i32 9
-  %47 = load i16, ptr %46, align 2
-  %48 = lshr i16 %47, 3
-  %49 = and i16 %48, 1
-  %50 = zext i16 %49 to i32
-  %51 = icmp ne i32 %50, 0
-  br i1 %51, label %70, label %52
+41:                                               ; preds = %33
+  store i8 1, ptr %5, align 1
+  %42 = load ptr, ptr %3, align 8
+  %43 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %42, i32 0, i32 1
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw %struct._packet_info, ptr %44, i32 0, i32 8
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds nuw %struct._frame_data, ptr %46, i32 0, i32 11
+  %48 = load i16, ptr %47, align 1
+  %49 = lshr i16 %48, 3
+  %50 = and i16 %49, 1
+  %51 = zext i16 %50 to i32
+  %52 = icmp ne i32 %51, 0
+  br i1 %52, label %71, label %53
 
-52:                                               ; preds = %40
-  %53 = call ptr @wmem_file_scope()
-  %54 = load ptr, ptr %3, align 8
-  %55 = getelementptr inbounds %struct.dbus_packet_t, ptr %54, i32 0, i32 13
-  %56 = load ptr, ptr %55, align 8
-  %57 = call noalias ptr @wmem_strdup(ptr noundef %53, ptr noundef %56)
-  store ptr %57, ptr %6, align 8
-  %58 = call ptr @wmem_file_scope()
-  %59 = load ptr, ptr %3, align 8
-  %60 = getelementptr inbounds %struct.dbus_packet_t, ptr %59, i32 0, i32 14
-  %61 = load ptr, ptr %60, align 8
-  %62 = load ptr, ptr %3, align 8
-  %63 = getelementptr inbounds %struct.dbus_packet_t, ptr %62, i32 0, i32 6
-  %64 = load i32, ptr %63, align 8
-  %65 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %58, ptr noundef @.str.176, ptr noundef %61, i32 noundef %64)
-  store ptr %65, ptr %7, align 8
-  %66 = load ptr, ptr @request_info_map, align 8
-  %67 = load ptr, ptr %7, align 8
-  %68 = load ptr, ptr %6, align 8
-  %69 = call ptr @wmem_map_insert(ptr noundef %66, ptr noundef %67, ptr noundef %68)
-  br label %70
+53:                                               ; preds = %41
+  %54 = call ptr @wmem_file_scope()
+  %55 = load ptr, ptr %3, align 8
+  %56 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %55, i32 0, i32 13
+  %57 = load ptr, ptr %56, align 8
+  %58 = call noalias ptr @wmem_strdup(ptr noundef %54, ptr noundef %57)
+  store ptr %58, ptr %6, align 8
+  %59 = call ptr @wmem_file_scope()
+  %60 = load ptr, ptr %3, align 8
+  %61 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %60, i32 0, i32 14
+  %62 = load ptr, ptr %61, align 8
+  %63 = load ptr, ptr %3, align 8
+  %64 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %63, i32 0, i32 6
+  %65 = load i32, ptr %64, align 8
+  %66 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %59, ptr noundef @.str.179, ptr noundef %62, i32 noundef %65)
+  store ptr %66, ptr %7, align 8
+  %67 = load ptr, ptr @request_info_map, align 8
+  %68 = load ptr, ptr %7, align 8
+  %69 = load ptr, ptr %6, align 8
+  %70 = call ptr @wmem_map_insert(ptr noundef %67, ptr noundef %68, ptr noundef %69)
+  br label %71
 
-70:                                               ; preds = %52, %40
-  br label %150
+71:                                               ; preds = %53, %41
+  br label %151
 
-71:                                               ; preds = %28, %28
-  store i32 0, ptr %5, align 4
-  %72 = load ptr, ptr %3, align 8
-  %73 = getelementptr inbounds %struct.dbus_packet_t, ptr %72, i32 0, i32 1
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds %struct._packet_info, ptr %74, i32 0, i32 50
-  %76 = load ptr, ptr %75, align 8
-  %77 = load ptr, ptr %3, align 8
-  %78 = getelementptr inbounds %struct.dbus_packet_t, ptr %77, i32 0, i32 13
-  %79 = load ptr, ptr %78, align 8
-  %80 = load ptr, ptr %3, align 8
-  %81 = getelementptr inbounds %struct.dbus_packet_t, ptr %80, i32 0, i32 12
-  %82 = load i32, ptr %81, align 8
-  %83 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %76, ptr noundef @.str.176, ptr noundef %79, i32 noundef %82)
-  store ptr %83, ptr %7, align 8
-  %84 = load ptr, ptr @request_info_map, align 8
-  %85 = load ptr, ptr %7, align 8
-  %86 = call ptr @wmem_map_lookup(ptr noundef %84, ptr noundef %85)
-  store ptr %86, ptr %6, align 8
-  %87 = load ptr, ptr %6, align 8
-  %88 = icmp ne ptr %87, null
-  br i1 %88, label %89, label %147
+72:                                               ; preds = %29, %29
+  store i8 0, ptr %5, align 1
+  %73 = load ptr, ptr %3, align 8
+  %74 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %73, i32 0, i32 1
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds nuw %struct._packet_info, ptr %75, i32 0, i32 51
+  %77 = load ptr, ptr %76, align 8
+  %78 = load ptr, ptr %3, align 8
+  %79 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %78, i32 0, i32 13
+  %80 = load ptr, ptr %79, align 8
+  %81 = load ptr, ptr %3, align 8
+  %82 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %81, i32 0, i32 12
+  %83 = load i32, ptr %82, align 8
+  %84 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %77, ptr noundef @.str.179, ptr noundef %80, i32 noundef %83)
+  store ptr %84, ptr %7, align 8
+  %85 = load ptr, ptr @request_info_map, align 8
+  %86 = load ptr, ptr %7, align 8
+  %87 = call ptr @wmem_map_lookup(ptr noundef %85, ptr noundef %86)
+  store ptr %87, ptr %6, align 8
+  %88 = load ptr, ptr %6, align 8
+  %89 = icmp ne ptr %88, null
+  br i1 %89, label %90, label %148
 
-89:                                               ; preds = %71
-  %90 = load ptr, ptr %6, align 8
-  %91 = load ptr, ptr %3, align 8
-  %92 = getelementptr inbounds %struct.dbus_packet_t, ptr %91, i32 0, i32 14
-  %93 = load ptr, ptr %92, align 8
-  %94 = call i32 @g_str_equal(ptr noundef %90, ptr noundef %93)
-  %95 = icmp ne i32 %94, 0
-  br i1 %95, label %147, label %96
+90:                                               ; preds = %72
+  %91 = load ptr, ptr %6, align 8
+  %92 = load ptr, ptr %3, align 8
+  %93 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %92, i32 0, i32 14
+  %94 = load ptr, ptr %93, align 8
+  %95 = call i32 @g_str_equal(ptr noundef %91, ptr noundef %94)
+  %96 = icmp ne i32 %95, 0
+  br i1 %96, label %148, label %97
 
-96:                                               ; preds = %89
-  %97 = load ptr, ptr %6, align 8
-  %98 = call i64 @strlen(ptr noundef %97) #7
-  %99 = trunc i64 %98 to i32
-  %100 = add i32 %99, 1
-  %101 = load ptr, ptr %6, align 8
-  call void @set_address(ptr noundef %8, i32 noundef 7, i32 noundef %100, ptr noundef %101)
-  %102 = load ptr, ptr %3, align 8
-  %103 = getelementptr inbounds %struct.dbus_packet_t, ptr %102, i32 0, i32 1
-  %104 = load ptr, ptr %103, align 8
-  %105 = load ptr, ptr %3, align 8
-  %106 = getelementptr inbounds %struct.dbus_packet_t, ptr %105, i32 0, i32 1
-  %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds %struct._packet_info, ptr %107, i32 0, i32 17
-  %109 = load ptr, ptr %3, align 8
-  %110 = getelementptr inbounds %struct.dbus_packet_t, ptr %109, i32 0, i32 1
-  %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr inbounds %struct._packet_info, ptr %111, i32 0, i32 22
-  %113 = load i32, ptr %112, align 8
-  %114 = call i32 @conversation_pt_to_endpoint_type(i32 noundef %113)
-  %115 = load ptr, ptr %3, align 8
-  %116 = getelementptr inbounds %struct.dbus_packet_t, ptr %115, i32 0, i32 1
-  %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds %struct._packet_info, ptr %117, i32 0, i32 23
-  %119 = load i32, ptr %118, align 4
-  %120 = load ptr, ptr %3, align 8
-  %121 = getelementptr inbounds %struct.dbus_packet_t, ptr %120, i32 0, i32 1
-  %122 = load ptr, ptr %121, align 8
-  %123 = getelementptr inbounds %struct._packet_info, ptr %122, i32 0, i32 24
-  %124 = load i32, ptr %123, align 8
-  call void @conversation_set_conv_addr_port_endpoints(ptr noundef %104, ptr noundef %8, ptr noundef %108, i32 noundef %114, i32 noundef %119, i32 noundef %124)
-  %125 = load ptr, ptr %3, align 8
-  %126 = getelementptr inbounds %struct.dbus_packet_t, ptr %125, i32 0, i32 1
-  %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds %struct._packet_info, ptr %127, i32 0, i32 8
-  %129 = load ptr, ptr %128, align 8
-  %130 = getelementptr inbounds %struct._frame_data, ptr %129, i32 0, i32 9
-  %131 = load i16, ptr %130, align 2
-  %132 = lshr i16 %131, 3
-  %133 = and i16 %132, 1
-  %134 = zext i16 %133 to i32
-  %135 = icmp ne i32 %134, 0
-  br i1 %135, label %146, label %136
+97:                                               ; preds = %90
+  call void @llvm.lifetime.start.p0(i64 24, ptr %9) #11
+  %98 = load ptr, ptr %6, align 8
+  %99 = call i64 @strlen(ptr noundef %98) #12
+  %100 = trunc i64 %99 to i32
+  %101 = add i32 %100, 1
+  %102 = load ptr, ptr %6, align 8
+  call void @set_address(ptr noundef %9, i32 noundef 7, i32 noundef %101, ptr noundef %102)
+  %103 = load ptr, ptr %3, align 8
+  %104 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %103, i32 0, i32 1
+  %105 = load ptr, ptr %104, align 8
+  %106 = load ptr, ptr %3, align 8
+  %107 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %106, i32 0, i32 1
+  %108 = load ptr, ptr %107, align 8
+  %109 = getelementptr inbounds nuw %struct._packet_info, ptr %108, i32 0, i32 17
+  %110 = load ptr, ptr %3, align 8
+  %111 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %110, i32 0, i32 1
+  %112 = load ptr, ptr %111, align 8
+  %113 = getelementptr inbounds nuw %struct._packet_info, ptr %112, i32 0, i32 23
+  %114 = load i32, ptr %113, align 8
+  %115 = call i32 @conversation_pt_to_endpoint_type(i32 noundef %114)
+  %116 = load ptr, ptr %3, align 8
+  %117 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %116, i32 0, i32 1
+  %118 = load ptr, ptr %117, align 8
+  %119 = getelementptr inbounds nuw %struct._packet_info, ptr %118, i32 0, i32 24
+  %120 = load i32, ptr %119, align 4
+  %121 = load ptr, ptr %3, align 8
+  %122 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %121, i32 0, i32 1
+  %123 = load ptr, ptr %122, align 8
+  %124 = getelementptr inbounds nuw %struct._packet_info, ptr %123, i32 0, i32 25
+  %125 = load i32, ptr %124, align 8
+  call void @conversation_set_conv_addr_port_endpoints(ptr noundef %105, ptr noundef %9, ptr noundef %109, i32 noundef %115, i32 noundef %120, i32 noundef %125)
+  %126 = load ptr, ptr %3, align 8
+  %127 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %126, i32 0, i32 1
+  %128 = load ptr, ptr %127, align 8
+  %129 = getelementptr inbounds nuw %struct._packet_info, ptr %128, i32 0, i32 8
+  %130 = load ptr, ptr %129, align 8
+  %131 = getelementptr inbounds nuw %struct._frame_data, ptr %130, i32 0, i32 11
+  %132 = load i16, ptr %131, align 1
+  %133 = lshr i16 %132, 3
+  %134 = and i16 %133, 1
+  %135 = zext i16 %134 to i32
+  %136 = icmp ne i32 %135, 0
+  br i1 %136, label %147, label %137
 
-136:                                              ; preds = %96
-  %137 = load ptr, ptr %3, align 8
-  %138 = getelementptr inbounds %struct.dbus_packet_t, ptr %137, i32 0, i32 3
-  %139 = load i32, ptr %138, align 4
-  %140 = icmp eq i32 %139, 2
-  br i1 %140, label %141, label %146
+137:                                              ; preds = %97
+  %138 = load ptr, ptr %3, align 8
+  %139 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %138, i32 0, i32 3
+  %140 = load i32, ptr %139, align 4
+  %141 = icmp eq i32 %140, 2
+  br i1 %141, label %142, label %147
 
-141:                                              ; preds = %136
-  %142 = load ptr, ptr %6, align 8
-  %143 = load ptr, ptr %3, align 8
-  %144 = getelementptr inbounds %struct.dbus_packet_t, ptr %143, i32 0, i32 14
-  %145 = load ptr, ptr %144, align 8
-  call void @update_unique_name_map(ptr noundef %142, ptr noundef %145)
-  br label %146
-
-146:                                              ; preds = %141, %136, %96
+142:                                              ; preds = %137
+  %143 = load ptr, ptr %6, align 8
+  %144 = load ptr, ptr %3, align 8
+  %145 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %144, i32 0, i32 14
+  %146 = load ptr, ptr %145, align 8
+  call void @update_unique_name_map(ptr noundef %143, ptr noundef %146)
   br label %147
 
-147:                                              ; preds = %146, %89, %71
+147:                                              ; preds = %142, %137, %97
+  call void @llvm.lifetime.end.p0(i64 24, ptr %9) #11
+  br label %148
+
+148:                                              ; preds = %147, %90, %72
+  br label %151
+
+149:                                              ; preds = %29
   br label %150
 
-148:                                              ; preds = %28
-  br label %149
+150:                                              ; preds = %29, %149
+  store i32 1, ptr %8, align 4
+  br label %360
 
-149:                                              ; preds = %148, %28
-  br label %357
+151:                                              ; preds = %148, %71
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #11
+  %152 = load ptr, ptr %3, align 8
+  %153 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %152, i32 0, i32 1
+  %154 = load ptr, ptr %153, align 8
+  %155 = call ptr @find_or_create_conversation(ptr noundef %154)
+  store ptr %155, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #11
+  %156 = load ptr, ptr %10, align 8
+  %157 = load i32, ptr @proto_dbus, align 4
+  %158 = call ptr @conversation_get_proto_data(ptr noundef %156, i32 noundef %157)
+  store ptr %158, ptr %11, align 8
+  %159 = load ptr, ptr %11, align 8
+  %160 = icmp ne ptr %159, null
+  br i1 %160, label %171, label %161
 
-150:                                              ; preds = %147, %70
-  %151 = load ptr, ptr %3, align 8
-  %152 = getelementptr inbounds %struct.dbus_packet_t, ptr %151, i32 0, i32 1
-  %153 = load ptr, ptr %152, align 8
-  %154 = call nonnull ptr @find_or_create_conversation(ptr noundef %153)
-  store ptr %154, ptr %9, align 8
-  %155 = load ptr, ptr %9, align 8
-  %156 = load i32, ptr @proto_dbus, align 4
-  %157 = call ptr @conversation_get_proto_data(ptr noundef %155, i32 noundef %156)
-  store ptr %157, ptr %10, align 8
-  %158 = load ptr, ptr %10, align 8
-  %159 = icmp ne ptr %158, null
-  br i1 %159, label %170, label %160
+161:                                              ; preds = %151
+  %162 = call ptr @wmem_file_scope()
+  %163 = call noalias ptr @wmem_alloc(ptr noundef %162, i64 noundef 8) #14
+  store ptr %163, ptr %11, align 8
+  %164 = call ptr @wmem_file_scope()
+  %165 = call noalias ptr @wmem_map_new(ptr noundef %164, ptr noundef @g_direct_hash, ptr noundef @g_direct_equal)
+  %166 = load ptr, ptr %11, align 8
+  %167 = getelementptr inbounds nuw %struct.dbus_conv_info_t, ptr %166, i32 0, i32 0
+  store ptr %165, ptr %167, align 8
+  %168 = load ptr, ptr %10, align 8
+  %169 = load i32, ptr @proto_dbus, align 4
+  %170 = load ptr, ptr %11, align 8
+  call void @conversation_add_proto_data(ptr noundef %168, i32 noundef %169, ptr noundef %170)
+  br label %171
 
-160:                                              ; preds = %150
-  %161 = call ptr @wmem_file_scope()
-  %162 = call noalias ptr @wmem_alloc(ptr noundef %161, i64 noundef 8)
-  store ptr %162, ptr %10, align 8
-  %163 = call ptr @wmem_file_scope()
-  %164 = call noalias ptr @wmem_map_new(ptr noundef %163, ptr noundef @g_direct_hash, ptr noundef @g_direct_equal)
-  %165 = load ptr, ptr %10, align 8
-  %166 = getelementptr inbounds %struct.dbus_conv_info_t, ptr %165, i32 0, i32 0
-  store ptr %164, ptr %166, align 8
-  %167 = load ptr, ptr %9, align 8
-  %168 = load i32, ptr @proto_dbus, align 4
-  %169 = load ptr, ptr %10, align 8
-  call void @conversation_add_proto_data(ptr noundef %167, i32 noundef %168, ptr noundef %169)
-  br label %170
+171:                                              ; preds = %161, %151
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #11
+  %172 = load ptr, ptr %3, align 8
+  %173 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %172, i32 0, i32 1
+  %174 = load ptr, ptr %173, align 8
+  %175 = getelementptr inbounds nuw %struct._packet_info, ptr %174, i32 0, i32 8
+  %176 = load ptr, ptr %175, align 8
+  %177 = getelementptr inbounds nuw %struct._frame_data, ptr %176, i32 0, i32 11
+  %178 = load i16, ptr %177, align 1
+  %179 = lshr i16 %178, 3
+  %180 = and i16 %179, 1
+  %181 = zext i16 %180 to i32
+  %182 = icmp ne i32 %181, 0
+  br i1 %182, label %254, label %183
 
-170:                                              ; preds = %160, %150
-  %171 = load ptr, ptr %3, align 8
-  %172 = getelementptr inbounds %struct.dbus_packet_t, ptr %171, i32 0, i32 1
-  %173 = load ptr, ptr %172, align 8
-  %174 = getelementptr inbounds %struct._packet_info, ptr %173, i32 0, i32 8
-  %175 = load ptr, ptr %174, align 8
-  %176 = getelementptr inbounds %struct._frame_data, ptr %175, i32 0, i32 9
-  %177 = load i16, ptr %176, align 2
-  %178 = lshr i16 %177, 3
-  %179 = and i16 %178, 1
-  %180 = zext i16 %179 to i32
-  %181 = icmp ne i32 %180, 0
-  br i1 %181, label %253, label %182
+183:                                              ; preds = %171
+  %184 = load i8, ptr %5, align 1, !range !6, !noundef !7
+  %185 = trunc i8 %184 to i1
+  br i1 %185, label %186, label %232
 
-182:                                              ; preds = %170
-  %183 = load i32, ptr %5, align 4
-  %184 = icmp ne i32 %183, 0
-  br i1 %184, label %185, label %231
+186:                                              ; preds = %183
+  %187 = call ptr @wmem_file_scope()
+  %188 = call noalias ptr @wmem_alloc(ptr noundef %187, i64 noundef 48) #14
+  store ptr %188, ptr %12, align 8
+  %189 = load ptr, ptr %12, align 8
+  %190 = getelementptr inbounds nuw %struct.dbus_transaction_t, ptr %13, i32 0, i32 0
+  %191 = load ptr, ptr %3, align 8
+  %192 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %191, i32 0, i32 1
+  %193 = load ptr, ptr %192, align 8
+  %194 = getelementptr inbounds nuw %struct._packet_info, ptr %193, i32 0, i32 3
+  %195 = load i32, ptr %194, align 4
+  store i32 %195, ptr %190, align 8
+  %196 = getelementptr inbounds nuw %struct.dbus_transaction_t, ptr %13, i32 0, i32 1
+  store i32 0, ptr %196, align 4
+  %197 = getelementptr inbounds nuw %struct.dbus_transaction_t, ptr %13, i32 0, i32 2
+  %198 = load ptr, ptr %3, align 8
+  %199 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %198, i32 0, i32 1
+  %200 = load ptr, ptr %199, align 8
+  %201 = getelementptr inbounds nuw %struct._packet_info, ptr %200, i32 0, i32 8
+  %202 = load ptr, ptr %201, align 8
+  %203 = getelementptr inbounds nuw %struct._frame_data, ptr %202, i32 0, i32 13
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %197, ptr align 8 %203, i64 16, i1 false)
+  %204 = getelementptr inbounds nuw %struct.dbus_transaction_t, ptr %13, i32 0, i32 3
+  %205 = call ptr @wmem_file_scope()
+  %206 = load ptr, ptr %3, align 8
+  %207 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %206, i32 0, i32 8
+  %208 = load ptr, ptr %207, align 8
+  %209 = call noalias ptr @wmem_strdup(ptr noundef %205, ptr noundef %208)
+  store ptr %209, ptr %204, align 8
+  %210 = getelementptr inbounds nuw %struct.dbus_transaction_t, ptr %13, i32 0, i32 4
+  %211 = call ptr @wmem_file_scope()
+  %212 = load ptr, ptr %3, align 8
+  %213 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %212, i32 0, i32 9
+  %214 = load ptr, ptr %213, align 8
+  %215 = call noalias ptr @wmem_strdup(ptr noundef %211, ptr noundef %214)
+  store ptr %215, ptr %210, align 8
+  %216 = getelementptr inbounds nuw %struct.dbus_transaction_t, ptr %13, i32 0, i32 5
+  %217 = call ptr @wmem_file_scope()
+  %218 = load ptr, ptr %3, align 8
+  %219 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %218, i32 0, i32 10
+  %220 = load ptr, ptr %219, align 8
+  %221 = call noalias ptr @wmem_strdup(ptr noundef %217, ptr noundef %220)
+  store ptr %221, ptr %216, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %189, ptr align 8 %13, i64 48, i1 false)
+  %222 = load ptr, ptr %11, align 8
+  %223 = getelementptr inbounds nuw %struct.dbus_conv_info_t, ptr %222, i32 0, i32 0
+  %224 = load ptr, ptr %223, align 8
+  %225 = load ptr, ptr %3, align 8
+  %226 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %225, i32 0, i32 6
+  %227 = load i32, ptr %226, align 8
+  %228 = zext i32 %227 to i64
+  %229 = inttoptr i64 %228 to ptr
+  %230 = load ptr, ptr %12, align 8
+  %231 = call ptr @wmem_map_insert(ptr noundef %224, ptr noundef %229, ptr noundef %230)
+  br label %253
 
-185:                                              ; preds = %182
-  %186 = call ptr @wmem_file_scope()
-  %187 = call noalias ptr @wmem_alloc(ptr noundef %186, i64 noundef 48)
-  store ptr %187, ptr %11, align 8
-  %188 = load ptr, ptr %11, align 8
-  %189 = getelementptr inbounds %struct.dbus_transaction_t, ptr %12, i32 0, i32 0
-  %190 = load ptr, ptr %3, align 8
-  %191 = getelementptr inbounds %struct.dbus_packet_t, ptr %190, i32 0, i32 1
-  %192 = load ptr, ptr %191, align 8
-  %193 = getelementptr inbounds %struct._packet_info, ptr %192, i32 0, i32 3
-  %194 = load i32, ptr %193, align 4
-  store i32 %194, ptr %189, align 8
-  %195 = getelementptr inbounds %struct.dbus_transaction_t, ptr %12, i32 0, i32 1
-  store i32 0, ptr %195, align 4
-  %196 = getelementptr inbounds %struct.dbus_transaction_t, ptr %12, i32 0, i32 2
-  %197 = load ptr, ptr %3, align 8
-  %198 = getelementptr inbounds %struct.dbus_packet_t, ptr %197, i32 0, i32 1
-  %199 = load ptr, ptr %198, align 8
-  %200 = getelementptr inbounds %struct._packet_info, ptr %199, i32 0, i32 8
-  %201 = load ptr, ptr %200, align 8
-  %202 = getelementptr inbounds %struct._frame_data, ptr %201, i32 0, i32 10
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %196, ptr align 8 %202, i64 16, i1 false)
-  %203 = getelementptr inbounds %struct.dbus_transaction_t, ptr %12, i32 0, i32 3
-  %204 = call ptr @wmem_file_scope()
-  %205 = load ptr, ptr %3, align 8
-  %206 = getelementptr inbounds %struct.dbus_packet_t, ptr %205, i32 0, i32 8
-  %207 = load ptr, ptr %206, align 8
-  %208 = call noalias ptr @wmem_strdup(ptr noundef %204, ptr noundef %207)
-  store ptr %208, ptr %203, align 8
-  %209 = getelementptr inbounds %struct.dbus_transaction_t, ptr %12, i32 0, i32 4
-  %210 = call ptr @wmem_file_scope()
-  %211 = load ptr, ptr %3, align 8
-  %212 = getelementptr inbounds %struct.dbus_packet_t, ptr %211, i32 0, i32 9
-  %213 = load ptr, ptr %212, align 8
-  %214 = call noalias ptr @wmem_strdup(ptr noundef %210, ptr noundef %213)
-  store ptr %214, ptr %209, align 8
-  %215 = getelementptr inbounds %struct.dbus_transaction_t, ptr %12, i32 0, i32 5
-  %216 = call ptr @wmem_file_scope()
-  %217 = load ptr, ptr %3, align 8
-  %218 = getelementptr inbounds %struct.dbus_packet_t, ptr %217, i32 0, i32 10
-  %219 = load ptr, ptr %218, align 8
-  %220 = call noalias ptr @wmem_strdup(ptr noundef %216, ptr noundef %219)
-  store ptr %220, ptr %215, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %188, ptr align 8 %12, i64 48, i1 false)
-  %221 = load ptr, ptr %10, align 8
-  %222 = getelementptr inbounds %struct.dbus_conv_info_t, ptr %221, i32 0, i32 0
-  %223 = load ptr, ptr %222, align 8
-  %224 = load ptr, ptr %3, align 8
-  %225 = getelementptr inbounds %struct.dbus_packet_t, ptr %224, i32 0, i32 6
-  %226 = load i32, ptr %225, align 8
-  %227 = zext i32 %226 to i64
-  %228 = inttoptr i64 %227 to ptr
-  %229 = load ptr, ptr %11, align 8
-  %230 = call ptr @wmem_map_insert(ptr noundef %223, ptr noundef %228, ptr noundef %229)
+232:                                              ; preds = %183
+  %233 = load ptr, ptr %11, align 8
+  %234 = getelementptr inbounds nuw %struct.dbus_conv_info_t, ptr %233, i32 0, i32 0
+  %235 = load ptr, ptr %234, align 8
+  %236 = load ptr, ptr %3, align 8
+  %237 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %236, i32 0, i32 12
+  %238 = load i32, ptr %237, align 8
+  %239 = zext i32 %238 to i64
+  %240 = inttoptr i64 %239 to ptr
+  %241 = call ptr @wmem_map_lookup(ptr noundef %235, ptr noundef %240)
+  store ptr %241, ptr %12, align 8
+  %242 = load ptr, ptr %12, align 8
+  %243 = icmp ne ptr %242, null
+  br i1 %243, label %244, label %252
+
+244:                                              ; preds = %232
+  %245 = load ptr, ptr %3, align 8
+  %246 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %245, i32 0, i32 1
+  %247 = load ptr, ptr %246, align 8
+  %248 = getelementptr inbounds nuw %struct._packet_info, ptr %247, i32 0, i32 3
+  %249 = load i32, ptr %248, align 4
+  %250 = load ptr, ptr %12, align 8
+  %251 = getelementptr inbounds nuw %struct.dbus_transaction_t, ptr %250, i32 0, i32 1
+  store i32 %249, ptr %251, align 4
   br label %252
 
-231:                                              ; preds = %182
-  %232 = load ptr, ptr %10, align 8
-  %233 = getelementptr inbounds %struct.dbus_conv_info_t, ptr %232, i32 0, i32 0
-  %234 = load ptr, ptr %233, align 8
-  %235 = load ptr, ptr %3, align 8
-  %236 = getelementptr inbounds %struct.dbus_packet_t, ptr %235, i32 0, i32 12
-  %237 = load i32, ptr %236, align 8
-  %238 = zext i32 %237 to i64
-  %239 = inttoptr i64 %238 to ptr
-  %240 = call ptr @wmem_map_lookup(ptr noundef %234, ptr noundef %239)
-  store ptr %240, ptr %11, align 8
-  %241 = load ptr, ptr %11, align 8
-  %242 = icmp ne ptr %241, null
-  br i1 %242, label %243, label %251
+252:                                              ; preds = %244, %232
+  br label %253
 
-243:                                              ; preds = %231
-  %244 = load ptr, ptr %3, align 8
-  %245 = getelementptr inbounds %struct.dbus_packet_t, ptr %244, i32 0, i32 1
-  %246 = load ptr, ptr %245, align 8
-  %247 = getelementptr inbounds %struct._packet_info, ptr %246, i32 0, i32 3
-  %248 = load i32, ptr %247, align 4
-  %249 = load ptr, ptr %11, align 8
-  %250 = getelementptr inbounds %struct.dbus_transaction_t, ptr %249, i32 0, i32 1
-  store i32 %248, ptr %250, align 4
-  br label %251
+253:                                              ; preds = %252, %186
+  br label %274
 
-251:                                              ; preds = %243, %231
-  br label %252
+254:                                              ; preds = %171
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #11
+  %255 = load i8, ptr %5, align 1, !range !6, !noundef !7
+  %256 = trunc i8 %255 to i1
+  br i1 %256, label %257, label %261
 
-252:                                              ; preds = %251, %185
-  br label %273
+257:                                              ; preds = %254
+  %258 = load ptr, ptr %3, align 8
+  %259 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %258, i32 0, i32 6
+  %260 = load i32, ptr %259, align 8
+  br label %265
 
-253:                                              ; preds = %170
-  %254 = load i32, ptr %5, align 4
-  %255 = icmp ne i32 %254, 0
-  br i1 %255, label %256, label %260
+261:                                              ; preds = %254
+  %262 = load ptr, ptr %3, align 8
+  %263 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %262, i32 0, i32 12
+  %264 = load i32, ptr %263, align 8
+  br label %265
 
-256:                                              ; preds = %253
-  %257 = load ptr, ptr %3, align 8
-  %258 = getelementptr inbounds %struct.dbus_packet_t, ptr %257, i32 0, i32 6
-  %259 = load i32, ptr %258, align 8
-  br label %264
+265:                                              ; preds = %261, %257
+  %266 = phi i32 [ %260, %257 ], [ %264, %261 ]
+  store i32 %266, ptr %14, align 4
+  %267 = load ptr, ptr %11, align 8
+  %268 = getelementptr inbounds nuw %struct.dbus_conv_info_t, ptr %267, i32 0, i32 0
+  %269 = load ptr, ptr %268, align 8
+  %270 = load i32, ptr %14, align 4
+  %271 = zext i32 %270 to i64
+  %272 = inttoptr i64 %271 to ptr
+  %273 = call ptr @wmem_map_lookup(ptr noundef %269, ptr noundef %272)
+  store ptr %273, ptr %12, align 8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #11
+  br label %274
 
-260:                                              ; preds = %253
-  %261 = load ptr, ptr %3, align 8
-  %262 = getelementptr inbounds %struct.dbus_packet_t, ptr %261, i32 0, i32 12
-  %263 = load i32, ptr %262, align 8
-  br label %264
+274:                                              ; preds = %265, %253
+  %275 = load ptr, ptr %12, align 8
+  %276 = icmp ne ptr %275, null
+  br i1 %276, label %278, label %277
 
-264:                                              ; preds = %260, %256
-  %265 = phi i32 [ %259, %256 ], [ %263, %260 ]
-  store i32 %265, ptr %13, align 4
-  %266 = load ptr, ptr %10, align 8
-  %267 = getelementptr inbounds %struct.dbus_conv_info_t, ptr %266, i32 0, i32 0
-  %268 = load ptr, ptr %267, align 8
-  %269 = load i32, ptr %13, align 4
-  %270 = zext i32 %269 to i64
-  %271 = inttoptr i64 %270 to ptr
-  %272 = call ptr @wmem_map_lookup(ptr noundef %268, ptr noundef %271)
-  store ptr %272, ptr %11, align 8
-  br label %273
+277:                                              ; preds = %274
+  store i32 1, ptr %8, align 4
+  br label %359
 
-273:                                              ; preds = %264, %252
-  %274 = load ptr, ptr %11, align 8
-  %275 = icmp ne ptr %274, null
-  br i1 %275, label %277, label %276
+278:                                              ; preds = %274
+  %279 = load i8, ptr %5, align 1, !range !6, !noundef !7
+  %280 = trunc i8 %279 to i1
+  br i1 %280, label %281, label %293
 
-276:                                              ; preds = %273
-  br label %357
+281:                                              ; preds = %278
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #11
+  %282 = load ptr, ptr %4, align 8
+  %283 = load i32, ptr @hf_dbus_response_in, align 4
+  %284 = load ptr, ptr %3, align 8
+  %285 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %284, i32 0, i32 0
+  %286 = load ptr, ptr %285, align 8
+  %287 = call ptr @ptvcursor_tvbuff(ptr noundef %286)
+  %288 = load ptr, ptr %12, align 8
+  %289 = getelementptr inbounds nuw %struct.dbus_transaction_t, ptr %288, i32 0, i32 1
+  %290 = load i32, ptr %289, align 4
+  %291 = call ptr @proto_tree_add_uint(ptr noundef %282, i32 noundef %283, ptr noundef %287, i32 noundef 0, i32 noundef 0, i32 noundef %290)
+  store ptr %291, ptr %15, align 8
+  %292 = load ptr, ptr %15, align 8
+  call void @proto_item_set_generated(ptr noundef %292)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #11
+  br label %358
 
-277:                                              ; preds = %273
-  %278 = load i32, ptr %5, align 4
-  %279 = icmp ne i32 %278, 0
-  br i1 %279, label %280, label %292
+293:                                              ; preds = %278
+  call void @llvm.lifetime.start.p0(i64 16, ptr %16) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #11
+  %294 = load ptr, ptr %3, align 8
+  %295 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %294, i32 0, i32 0
+  %296 = load ptr, ptr %295, align 8
+  %297 = call ptr @ptvcursor_tvbuff(ptr noundef %296)
+  store ptr %297, ptr %18, align 8
+  %298 = load ptr, ptr %4, align 8
+  %299 = load i32, ptr @hf_dbus_path, align 4
+  %300 = load ptr, ptr %18, align 8
+  %301 = load ptr, ptr %12, align 8
+  %302 = getelementptr inbounds nuw %struct.dbus_transaction_t, ptr %301, i32 0, i32 3
+  %303 = load ptr, ptr %302, align 8
+  %304 = call ptr @proto_tree_add_string(ptr noundef %298, i32 noundef %299, ptr noundef %300, i32 noundef 0, i32 noundef 0, ptr noundef %303)
+  store ptr %304, ptr %17, align 8
+  %305 = load ptr, ptr %17, align 8
+  call void @proto_item_set_generated(ptr noundef %305)
+  %306 = load ptr, ptr %12, align 8
+  %307 = getelementptr inbounds nuw %struct.dbus_transaction_t, ptr %306, i32 0, i32 3
+  %308 = load ptr, ptr %307, align 8
+  %309 = load ptr, ptr %3, align 8
+  %310 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %309, i32 0, i32 8
+  store ptr %308, ptr %310, align 8
+  %311 = load ptr, ptr %4, align 8
+  %312 = load i32, ptr @hf_dbus_interface, align 4
+  %313 = load ptr, ptr %18, align 8
+  %314 = load ptr, ptr %12, align 8
+  %315 = getelementptr inbounds nuw %struct.dbus_transaction_t, ptr %314, i32 0, i32 4
+  %316 = load ptr, ptr %315, align 8
+  %317 = call ptr @proto_tree_add_string(ptr noundef %311, i32 noundef %312, ptr noundef %313, i32 noundef 0, i32 noundef 0, ptr noundef %316)
+  store ptr %317, ptr %17, align 8
+  %318 = load ptr, ptr %17, align 8
+  call void @proto_item_set_generated(ptr noundef %318)
+  %319 = load ptr, ptr %12, align 8
+  %320 = getelementptr inbounds nuw %struct.dbus_transaction_t, ptr %319, i32 0, i32 4
+  %321 = load ptr, ptr %320, align 8
+  %322 = load ptr, ptr %3, align 8
+  %323 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %322, i32 0, i32 9
+  store ptr %321, ptr %323, align 8
+  %324 = load ptr, ptr %4, align 8
+  %325 = load i32, ptr @hf_dbus_member, align 4
+  %326 = load ptr, ptr %18, align 8
+  %327 = load ptr, ptr %12, align 8
+  %328 = getelementptr inbounds nuw %struct.dbus_transaction_t, ptr %327, i32 0, i32 5
+  %329 = load ptr, ptr %328, align 8
+  %330 = call ptr @proto_tree_add_string(ptr noundef %324, i32 noundef %325, ptr noundef %326, i32 noundef 0, i32 noundef 0, ptr noundef %329)
+  store ptr %330, ptr %17, align 8
+  %331 = load ptr, ptr %17, align 8
+  call void @proto_item_set_generated(ptr noundef %331)
+  %332 = load ptr, ptr %12, align 8
+  %333 = getelementptr inbounds nuw %struct.dbus_transaction_t, ptr %332, i32 0, i32 5
+  %334 = load ptr, ptr %333, align 8
+  %335 = load ptr, ptr %3, align 8
+  %336 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %335, i32 0, i32 10
+  store ptr %334, ptr %336, align 8
+  %337 = load ptr, ptr %4, align 8
+  %338 = load i32, ptr @hf_dbus_response_to, align 4
+  %339 = load ptr, ptr %18, align 8
+  %340 = load ptr, ptr %12, align 8
+  %341 = getelementptr inbounds nuw %struct.dbus_transaction_t, ptr %340, i32 0, i32 0
+  %342 = load i32, ptr %341, align 8
+  %343 = call ptr @proto_tree_add_uint(ptr noundef %337, i32 noundef %338, ptr noundef %339, i32 noundef 0, i32 noundef 0, i32 noundef %342)
+  store ptr %343, ptr %17, align 8
+  %344 = load ptr, ptr %17, align 8
+  call void @proto_item_set_generated(ptr noundef %344)
+  %345 = load ptr, ptr %3, align 8
+  %346 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %345, i32 0, i32 1
+  %347 = load ptr, ptr %346, align 8
+  %348 = getelementptr inbounds nuw %struct._packet_info, ptr %347, i32 0, i32 8
+  %349 = load ptr, ptr %348, align 8
+  %350 = getelementptr inbounds nuw %struct._frame_data, ptr %349, i32 0, i32 13
+  %351 = load ptr, ptr %12, align 8
+  %352 = getelementptr inbounds nuw %struct.dbus_transaction_t, ptr %351, i32 0, i32 2
+  call void @nstime_delta(ptr noundef %16, ptr noundef %350, ptr noundef %352)
+  %353 = load ptr, ptr %4, align 8
+  %354 = load i32, ptr @hf_dbus_response_time, align 4
+  %355 = load ptr, ptr %18, align 8
+  %356 = call ptr @proto_tree_add_time(ptr noundef %353, i32 noundef %354, ptr noundef %355, i32 noundef 0, i32 noundef 0, ptr noundef %16)
+  store ptr %356, ptr %17, align 8
+  %357 = load ptr, ptr %17, align 8
+  call void @proto_item_set_generated(ptr noundef %357)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr %16) #11
+  br label %358
 
-280:                                              ; preds = %277
-  %281 = load ptr, ptr %4, align 8
-  %282 = load i32, ptr @hf_dbus_response_in, align 4
-  %283 = load ptr, ptr %3, align 8
-  %284 = getelementptr inbounds %struct.dbus_packet_t, ptr %283, i32 0, i32 0
-  %285 = load ptr, ptr %284, align 8
-  %286 = call ptr @ptvcursor_tvbuff(ptr noundef %285)
-  %287 = load ptr, ptr %11, align 8
-  %288 = getelementptr inbounds %struct.dbus_transaction_t, ptr %287, i32 0, i32 1
-  %289 = load i32, ptr %288, align 4
-  %290 = call ptr @proto_tree_add_uint(ptr noundef %281, i32 noundef %282, ptr noundef %286, i32 noundef 0, i32 noundef 0, i32 noundef %289)
-  store ptr %290, ptr %14, align 8
-  %291 = load ptr, ptr %14, align 8
-  call void @proto_item_set_generated(ptr noundef %291)
-  br label %357
+358:                                              ; preds = %293, %281
+  store i32 0, ptr %8, align 4
+  br label %359
 
-292:                                              ; preds = %277
-  %293 = load ptr, ptr %3, align 8
-  %294 = getelementptr inbounds %struct.dbus_packet_t, ptr %293, i32 0, i32 0
-  %295 = load ptr, ptr %294, align 8
-  %296 = call ptr @ptvcursor_tvbuff(ptr noundef %295)
-  store ptr %296, ptr %17, align 8
-  %297 = load ptr, ptr %4, align 8
-  %298 = load i32, ptr @hf_dbus_path, align 4
-  %299 = load ptr, ptr %17, align 8
-  %300 = load ptr, ptr %11, align 8
-  %301 = getelementptr inbounds %struct.dbus_transaction_t, ptr %300, i32 0, i32 3
-  %302 = load ptr, ptr %301, align 8
-  %303 = call ptr @proto_tree_add_string(ptr noundef %297, i32 noundef %298, ptr noundef %299, i32 noundef 0, i32 noundef 0, ptr noundef %302)
-  store ptr %303, ptr %16, align 8
-  %304 = load ptr, ptr %16, align 8
-  call void @proto_item_set_generated(ptr noundef %304)
-  %305 = load ptr, ptr %11, align 8
-  %306 = getelementptr inbounds %struct.dbus_transaction_t, ptr %305, i32 0, i32 3
-  %307 = load ptr, ptr %306, align 8
-  %308 = load ptr, ptr %3, align 8
-  %309 = getelementptr inbounds %struct.dbus_packet_t, ptr %308, i32 0, i32 8
-  store ptr %307, ptr %309, align 8
-  %310 = load ptr, ptr %4, align 8
-  %311 = load i32, ptr @hf_dbus_interface, align 4
-  %312 = load ptr, ptr %17, align 8
-  %313 = load ptr, ptr %11, align 8
-  %314 = getelementptr inbounds %struct.dbus_transaction_t, ptr %313, i32 0, i32 4
-  %315 = load ptr, ptr %314, align 8
-  %316 = call ptr @proto_tree_add_string(ptr noundef %310, i32 noundef %311, ptr noundef %312, i32 noundef 0, i32 noundef 0, ptr noundef %315)
-  store ptr %316, ptr %16, align 8
-  %317 = load ptr, ptr %16, align 8
-  call void @proto_item_set_generated(ptr noundef %317)
-  %318 = load ptr, ptr %11, align 8
-  %319 = getelementptr inbounds %struct.dbus_transaction_t, ptr %318, i32 0, i32 4
-  %320 = load ptr, ptr %319, align 8
-  %321 = load ptr, ptr %3, align 8
-  %322 = getelementptr inbounds %struct.dbus_packet_t, ptr %321, i32 0, i32 9
-  store ptr %320, ptr %322, align 8
-  %323 = load ptr, ptr %4, align 8
-  %324 = load i32, ptr @hf_dbus_member, align 4
-  %325 = load ptr, ptr %17, align 8
-  %326 = load ptr, ptr %11, align 8
-  %327 = getelementptr inbounds %struct.dbus_transaction_t, ptr %326, i32 0, i32 5
-  %328 = load ptr, ptr %327, align 8
-  %329 = call ptr @proto_tree_add_string(ptr noundef %323, i32 noundef %324, ptr noundef %325, i32 noundef 0, i32 noundef 0, ptr noundef %328)
-  store ptr %329, ptr %16, align 8
-  %330 = load ptr, ptr %16, align 8
-  call void @proto_item_set_generated(ptr noundef %330)
-  %331 = load ptr, ptr %11, align 8
-  %332 = getelementptr inbounds %struct.dbus_transaction_t, ptr %331, i32 0, i32 5
-  %333 = load ptr, ptr %332, align 8
-  %334 = load ptr, ptr %3, align 8
-  %335 = getelementptr inbounds %struct.dbus_packet_t, ptr %334, i32 0, i32 10
-  store ptr %333, ptr %335, align 8
-  %336 = load ptr, ptr %4, align 8
-  %337 = load i32, ptr @hf_dbus_response_to, align 4
-  %338 = load ptr, ptr %17, align 8
-  %339 = load ptr, ptr %11, align 8
-  %340 = getelementptr inbounds %struct.dbus_transaction_t, ptr %339, i32 0, i32 0
-  %341 = load i32, ptr %340, align 8
-  %342 = call ptr @proto_tree_add_uint(ptr noundef %336, i32 noundef %337, ptr noundef %338, i32 noundef 0, i32 noundef 0, i32 noundef %341)
-  store ptr %342, ptr %16, align 8
-  %343 = load ptr, ptr %16, align 8
-  call void @proto_item_set_generated(ptr noundef %343)
-  %344 = load ptr, ptr %3, align 8
-  %345 = getelementptr inbounds %struct.dbus_packet_t, ptr %344, i32 0, i32 1
-  %346 = load ptr, ptr %345, align 8
-  %347 = getelementptr inbounds %struct._packet_info, ptr %346, i32 0, i32 8
-  %348 = load ptr, ptr %347, align 8
-  %349 = getelementptr inbounds %struct._frame_data, ptr %348, i32 0, i32 10
-  %350 = load ptr, ptr %11, align 8
-  %351 = getelementptr inbounds %struct.dbus_transaction_t, ptr %350, i32 0, i32 2
-  call void @nstime_delta(ptr noundef %15, ptr noundef %349, ptr noundef %351)
-  %352 = load ptr, ptr %4, align 8
-  %353 = load i32, ptr @hf_dbus_response_time, align 4
-  %354 = load ptr, ptr %17, align 8
-  %355 = call ptr @proto_tree_add_time(ptr noundef %352, i32 noundef %353, ptr noundef %354, i32 noundef 0, i32 noundef 0, ptr noundef %15)
-  store ptr %355, ptr %16, align 8
-  %356 = load ptr, ptr %16, align 8
-  call void @proto_item_set_generated(ptr noundef %356)
-  br label %357
+359:                                              ; preds = %358, %277
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #11
+  br label %360
 
-357:                                              ; preds = %292, %280, %276, %149, %39, %27
+360:                                              ; preds = %359, %150, %40, %28
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #11
+  %361 = load i32, ptr %8, align 4
+  switch i32 %361, label %363 [
+    i32 0, label %362
+    i32 1, label %362
+  ]
+
+362:                                              ; preds = %360, %360
   ret void
+
+363:                                              ; preds = %360
+  unreachable
 }
 
-declare ptr @proto_item_get_subtree(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_get_subtree(ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @resolve_unique_name(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -3975,21 +4249,24 @@ define internal void @resolve_unique_name(ptr noundef %0, ptr noundef %1) #0 {
   %8 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
   %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct.dbus_packet_t, ptr %9, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %9, i32 0, i32 0
   %11 = load ptr, ptr %10, align 8
   %12 = call ptr @ptvcursor_tvbuff(ptr noundef %11)
   store ptr %12, ptr %6, align 8
   %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.dbus_packet_t, ptr %13, i32 0, i32 14
+  %14 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %13, i32 0, i32 14
   %15 = load ptr, ptr %14, align 8
   %16 = icmp ne ptr %15, null
   br i1 %16, label %17, label %42
 
 17:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
   %18 = load ptr, ptr @unique_name_map, align 8
   %19 = load ptr, ptr %3, align 8
-  %20 = getelementptr inbounds %struct.dbus_packet_t, ptr %19, i32 0, i32 14
+  %20 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %19, i32 0, i32 14
   %21 = load ptr, ptr %20, align 8
   %22 = call ptr @wmem_map_lookup(ptr noundef %18, ptr noundef %21)
   store ptr %22, ptr %7, align 8
@@ -3999,11 +4276,11 @@ define internal void @resolve_unique_name(ptr noundef %0, ptr noundef %1) #0 {
 
 25:                                               ; preds = %17
   %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr inbounds %struct.dbus_packet_t, ptr %26, i32 0, i32 1
+  %27 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %26, i32 0, i32 1
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds %struct._packet_info, ptr %28, i32 0, i32 16
+  %29 = getelementptr inbounds nuw %struct._packet_info, ptr %28, i32 0, i32 16
   %30 = load ptr, ptr %7, align 8
-  %31 = call i64 @strlen(ptr noundef %30) #7
+  %31 = call i64 @strlen(ptr noundef %30) #12
   %32 = trunc i64 %31 to i32
   %33 = add i32 %32, 1
   %34 = load ptr, ptr %7, align 8
@@ -4019,19 +4296,21 @@ define internal void @resolve_unique_name(ptr noundef %0, ptr noundef %1) #0 {
   br label %41
 
 41:                                               ; preds = %25, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
   br label %42
 
 42:                                               ; preds = %41, %2
   %43 = load ptr, ptr %3, align 8
-  %44 = getelementptr inbounds %struct.dbus_packet_t, ptr %43, i32 0, i32 13
+  %44 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %43, i32 0, i32 13
   %45 = load ptr, ptr %44, align 8
   %46 = icmp ne ptr %45, null
   br i1 %46, label %47, label %72
 
 47:                                               ; preds = %42
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
   %48 = load ptr, ptr @unique_name_map, align 8
   %49 = load ptr, ptr %3, align 8
-  %50 = getelementptr inbounds %struct.dbus_packet_t, ptr %49, i32 0, i32 13
+  %50 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %49, i32 0, i32 13
   %51 = load ptr, ptr %50, align 8
   %52 = call ptr @wmem_map_lookup(ptr noundef %48, ptr noundef %51)
   store ptr %52, ptr %8, align 8
@@ -4041,11 +4320,11 @@ define internal void @resolve_unique_name(ptr noundef %0, ptr noundef %1) #0 {
 
 55:                                               ; preds = %47
   %56 = load ptr, ptr %3, align 8
-  %57 = getelementptr inbounds %struct.dbus_packet_t, ptr %56, i32 0, i32 1
+  %57 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %56, i32 0, i32 1
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds %struct._packet_info, ptr %58, i32 0, i32 17
+  %59 = getelementptr inbounds nuw %struct._packet_info, ptr %58, i32 0, i32 17
   %60 = load ptr, ptr %8, align 8
-  %61 = call i64 @strlen(ptr noundef %60) #7
+  %61 = call i64 @strlen(ptr noundef %60) #12
   %62 = trunc i64 %61 to i32
   %63 = add i32 %62, 1
   %64 = load ptr, ptr %8, align 8
@@ -4061,15 +4340,19 @@ define internal void @resolve_unique_name(ptr noundef %0, ptr noundef %1) #0 {
   br label %71
 
 71:                                               ; preds = %55, %47
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
   br label %72
 
 72:                                               ; preds = %71, %42
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
   ret void
 }
 
-declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @add_padding(ptr noundef %0, i8 noundef signext %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
@@ -4079,105 +4362,134 @@ define internal i32 @add_padding(ptr noundef %0, i8 noundef signext %1) #0 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store i8 %1, ptr %5, align 1
-  %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds %struct.dbus_packet_t, ptr %11, i32 0, i32 0
-  %13 = load ptr, ptr %12, align 8
-  %14 = call ptr @ptvcursor_tvbuff(ptr noundef %13)
-  store ptr %14, ptr %7, align 8
-  %15 = load ptr, ptr %4, align 8
-  %16 = getelementptr inbounds %struct.dbus_packet_t, ptr %15, i32 0, i32 0
-  %17 = load ptr, ptr %16, align 8
-  %18 = call i32 @ptvcursor_current_offset(ptr noundef %17)
-  store i32 %18, ptr %8, align 4
-  %19 = load i32, ptr %8, align 4
-  %20 = load i8, ptr %5, align 1
-  %21 = call i32 @calculate_padding_len(i32 noundef %19, i8 noundef signext %20)
-  store i32 %21, ptr %9, align 4
-  %22 = load i32, ptr %9, align 4
-  %23 = icmp ne i32 %22, 0
-  br i1 %23, label %24, label %60
+  call void @llvm.lifetime.start.p0(i64 1, ptr %6) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  %12 = load ptr, ptr %4, align 8
+  %13 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %12, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8
+  %15 = call ptr @ptvcursor_tvbuff(ptr noundef %14)
+  store ptr %15, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #11
+  %16 = load ptr, ptr %4, align 8
+  %17 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %16, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8
+  %19 = call i32 @ptvcursor_current_offset(ptr noundef %18)
+  store i32 %19, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #11
+  %20 = load i32, ptr %8, align 4
+  %21 = load i8, ptr %5, align 1
+  %22 = call i32 @calculate_padding_len(i32 noundef %20, i8 noundef signext %21)
+  store i32 %22, ptr %9, align 4
+  %23 = load i32, ptr %9, align 4
+  %24 = icmp ne i32 %23, 0
+  br i1 %24, label %25, label %64
 
-24:                                               ; preds = %2
-  %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds %struct.dbus_packet_t, ptr %25, i32 0, i32 0
-  %27 = load ptr, ptr %26, align 8
-  %28 = load i32, ptr @hf_dbus_padding, align 4
-  %29 = load i32, ptr %9, align 4
-  %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds %struct.dbus_packet_t, ptr %30, i32 0, i32 2
-  %32 = load i32, ptr %31, align 8
-  %33 = call ptr @ptvcursor_add(ptr noundef %27, i32 noundef %28, i32 noundef %29, i32 noundef %32)
-  %34 = load ptr, ptr %4, align 8
-  %35 = getelementptr inbounds %struct.dbus_packet_t, ptr %34, i32 0, i32 7
-  store ptr %33, ptr %35, align 8
-  %36 = load i32, ptr %8, align 4
-  store i32 %36, ptr %10, align 4
-  br label %37
+25:                                               ; preds = %2
+  %26 = load ptr, ptr %4, align 8
+  %27 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %26, i32 0, i32 0
+  %28 = load ptr, ptr %27, align 8
+  %29 = load i32, ptr @hf_dbus_padding, align 4
+  %30 = load i32, ptr %9, align 4
+  %31 = load ptr, ptr %4, align 8
+  %32 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %31, i32 0, i32 2
+  %33 = load i32, ptr %32, align 8
+  %34 = call ptr @ptvcursor_add(ptr noundef %28, i32 noundef %29, i32 noundef %30, i32 noundef %33)
+  %35 = load ptr, ptr %4, align 8
+  %36 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %35, i32 0, i32 7
+  store ptr %34, ptr %36, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #11
+  %37 = load i32, ptr %8, align 4
+  store i32 %37, ptr %10, align 4
+  br label %38
 
-37:                                               ; preds = %53, %24
-  %38 = load i32, ptr %10, align 4
-  %39 = load i32, ptr %8, align 4
-  %40 = load i32, ptr %9, align 4
-  %41 = add i32 %39, %40
-  %42 = icmp slt i32 %38, %41
-  br i1 %42, label %43, label %56
+38:                                               ; preds = %55, %25
+  %39 = load i32, ptr %10, align 4
+  %40 = load i32, ptr %8, align 4
+  %41 = load i32, ptr %9, align 4
+  %42 = add i32 %40, %41
+  %43 = icmp slt i32 %39, %42
+  br i1 %43, label %45, label %44
 
-43:                                               ; preds = %37
-  %44 = load ptr, ptr %7, align 8
-  %45 = load i32, ptr %10, align 4
-  %46 = call zeroext i8 @tvb_get_guint8(ptr noundef %44, i32 noundef %45)
-  store i8 %46, ptr %6, align 1
-  %47 = load i8, ptr %6, align 1
-  %48 = zext i8 %47 to i32
-  %49 = icmp ne i32 %48, 0
-  br i1 %49, label %50, label %52
+44:                                               ; preds = %38
+  store i32 2, ptr %11, align 4
+  br label %58
 
-50:                                               ; preds = %43
-  %51 = load ptr, ptr %4, align 8
-  call void @add_expert(ptr noundef %51, ptr noundef @ei_dbus_padding_invalid)
+45:                                               ; preds = %38
+  %46 = load ptr, ptr %7, align 8
+  %47 = load i32, ptr %10, align 4
+  %48 = call zeroext i8 @tvb_get_uint8(ptr noundef %46, i32 noundef %47)
+  store i8 %48, ptr %6, align 1
+  %49 = load i8, ptr %6, align 1
+  %50 = zext i8 %49 to i32
+  %51 = icmp ne i32 %50, 0
+  br i1 %51, label %52, label %54
+
+52:                                               ; preds = %45
+  %53 = load ptr, ptr %4, align 8
+  call void @add_expert(ptr noundef %53, ptr noundef @ei_dbus_padding_invalid)
   store i32 1, ptr %3, align 4
-  br label %61
+  store i32 1, ptr %11, align 4
+  br label %58
 
-52:                                               ; preds = %43
-  br label %53
+54:                                               ; preds = %45
+  br label %55
 
-53:                                               ; preds = %52
-  %54 = load i32, ptr %10, align 4
-  %55 = add i32 %54, 1
-  store i32 %55, ptr %10, align 4
-  br label %37, !llvm.loop !13
+55:                                               ; preds = %54
+  %56 = load i32, ptr %10, align 4
+  %57 = add i32 %56, 1
+  store i32 %57, ptr %10, align 4
+  br label %38, !llvm.loop !17
 
-56:                                               ; preds = %37
-  %57 = load ptr, ptr %4, align 8
-  %58 = getelementptr inbounds %struct.dbus_packet_t, ptr %57, i32 0, i32 7
-  %59 = load ptr, ptr %58, align 8
-  call void @proto_item_set_hidden(ptr noundef %59)
-  br label %60
+58:                                               ; preds = %52, %44
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #11
+  %59 = load i32, ptr %11, align 4
+  switch i32 %59, label %65 [
+    i32 2, label %60
+  ]
 
-60:                                               ; preds = %56, %2
+60:                                               ; preds = %58
+  %61 = load ptr, ptr %4, align 8
+  %62 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %61, i32 0, i32 7
+  %63 = load ptr, ptr %62, align 8
+  call void @proto_item_set_hidden(ptr noundef %63)
+  br label %64
+
+64:                                               ; preds = %60, %2
   store i32 0, ptr %3, align 4
-  br label %61
+  store i32 1, ptr %11, align 4
+  br label %65
 
-61:                                               ; preds = %60, %50
-  %62 = load i32, ptr %3, align 4
-  ret i32 %62
+65:                                               ; preds = %64, %58
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
+  call void @llvm.lifetime.end.p0(i64 1, ptr %6) #11
+  %66 = load i32, ptr %3, align 4
+  ret i32 %66
 }
 
-declare ptr @ptvcursor_add_ret_boolean(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @ptvcursor_add_ret_boolean(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @ptvcursor_add_ret_int(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @ptvcursor_add_ret_int(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #2
 
-declare i64 @tvb_get_gint64(ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i64 @tvb_get_int64(ptr noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @ptvcursor_add(ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @ptvcursor_add(ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare i64 @tvb_get_guint64(ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i64 @tvb_get_uint64(ptr noundef, i32 noundef, i32 noundef) #2
 
-declare double @tvb_get_ieee_double(ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare double @tvb_get_ieee_double(ptr noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal ptr @add_dbus_string(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -4188,93 +4500,107 @@ define internal ptr @add_dbus_string(ptr noundef %0, i32 noundef %1, i32 noundef
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
   %12 = alloca i8, align 1
+  %13 = alloca i32, align 4
   store ptr %0, ptr %5, align 8
   store i32 %1, ptr %6, align 4
   store i32 %2, ptr %7, align 4
-  %13 = load ptr, ptr %5, align 8
-  %14 = getelementptr inbounds %struct.dbus_packet_t, ptr %13, i32 0, i32 0
-  %15 = load ptr, ptr %14, align 8
-  %16 = call i32 @ptvcursor_current_offset(ptr noundef %15)
-  store i32 %16, ptr %9, align 4
-  %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds %struct.dbus_packet_t, ptr %17, i32 0, i32 0
-  %19 = load ptr, ptr %18, align 8
-  %20 = load i32, ptr %6, align 4
-  %21 = load i32, ptr %7, align 4
-  %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %struct.dbus_packet_t, ptr %22, i32 0, i32 2
-  %24 = load i32, ptr %23, align 8
-  %25 = or i32 %24, 2
-  %26 = load ptr, ptr %5, align 8
-  %27 = getelementptr inbounds %struct.dbus_packet_t, ptr %26, i32 0, i32 1
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds %struct._packet_info, ptr %28, i32 0, i32 50
-  %30 = load ptr, ptr %29, align 8
-  %31 = call ptr @ptvcursor_add_ret_string(ptr noundef %19, i32 noundef %20, i32 noundef %21, i32 noundef %25, ptr noundef %30, ptr noundef %8)
-  store ptr %31, ptr %10, align 8
-  %32 = load ptr, ptr %5, align 8
-  %33 = getelementptr inbounds %struct.dbus_packet_t, ptr %32, i32 0, i32 0
-  %34 = load ptr, ptr %33, align 8
-  %35 = call i32 @ptvcursor_current_offset(ptr noundef %34)
-  %36 = load i32, ptr %9, align 4
-  %37 = sub i32 %35, %36
-  store i32 %37, ptr %11, align 4
-  %38 = load ptr, ptr %5, align 8
-  %39 = getelementptr inbounds %struct.dbus_packet_t, ptr %38, i32 0, i32 0
-  %40 = load ptr, ptr %39, align 8
-  %41 = call ptr @ptvcursor_tvbuff(ptr noundef %40)
-  %42 = load ptr, ptr %5, align 8
-  %43 = getelementptr inbounds %struct.dbus_packet_t, ptr %42, i32 0, i32 0
-  %44 = load ptr, ptr %43, align 8
-  %45 = call i32 @ptvcursor_current_offset(ptr noundef %44)
-  %46 = call zeroext i8 @tvb_get_guint8(ptr noundef %41, i32 noundef %45)
-  store i8 %46, ptr %12, align 1
-  %47 = load ptr, ptr %10, align 8
-  %48 = load i32, ptr %11, align 4
-  %49 = add i32 %48, 1
-  call void @proto_item_set_len(ptr noundef %47, i32 noundef %49)
-  %50 = load ptr, ptr %5, align 8
-  %51 = getelementptr inbounds %struct.dbus_packet_t, ptr %50, i32 0, i32 0
-  %52 = load ptr, ptr %51, align 8
-  call void @ptvcursor_advance(ptr noundef %52, i32 noundef 1)
-  %53 = load ptr, ptr %10, align 8
-  %54 = load ptr, ptr %5, align 8
-  %55 = getelementptr inbounds %struct.dbus_packet_t, ptr %54, i32 0, i32 7
-  store ptr %53, ptr %55, align 8
-  %56 = load ptr, ptr %8, align 8
-  %57 = call i64 @strlen(ptr noundef %56) #7
-  %58 = load i32, ptr %11, align 4
-  %59 = load i32, ptr %7, align 4
-  %60 = sub i32 %58, %59
-  %61 = sext i32 %60 to i64
-  %62 = icmp ne i64 %57, %61
-  br i1 %62, label %67, label %63
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #11
+  %14 = load ptr, ptr %5, align 8
+  %15 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %14, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8
+  %17 = call i32 @ptvcursor_current_offset(ptr noundef %16)
+  store i32 %17, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #11
+  %18 = load ptr, ptr %5, align 8
+  %19 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8
+  %21 = load i32, ptr %6, align 4
+  %22 = load i32, ptr %7, align 4
+  %23 = load ptr, ptr %5, align 8
+  %24 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %23, i32 0, i32 2
+  %25 = load i32, ptr %24, align 8
+  %26 = or i32 %25, 2
+  %27 = load ptr, ptr %5, align 8
+  %28 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %27, i32 0, i32 1
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds nuw %struct._packet_info, ptr %29, i32 0, i32 51
+  %31 = load ptr, ptr %30, align 8
+  %32 = call ptr @ptvcursor_add_ret_string(ptr noundef %20, i32 noundef %21, i32 noundef %22, i32 noundef %26, ptr noundef %31, ptr noundef %8)
+  store ptr %32, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #11
+  %33 = load ptr, ptr %5, align 8
+  %34 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %33, i32 0, i32 0
+  %35 = load ptr, ptr %34, align 8
+  %36 = call i32 @ptvcursor_current_offset(ptr noundef %35)
+  %37 = load i32, ptr %9, align 4
+  %38 = sub i32 %36, %37
+  store i32 %38, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #11
+  %39 = load ptr, ptr %5, align 8
+  %40 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %39, i32 0, i32 0
+  %41 = load ptr, ptr %40, align 8
+  %42 = call ptr @ptvcursor_tvbuff(ptr noundef %41)
+  %43 = load ptr, ptr %5, align 8
+  %44 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %43, i32 0, i32 0
+  %45 = load ptr, ptr %44, align 8
+  %46 = call i32 @ptvcursor_current_offset(ptr noundef %45)
+  %47 = call zeroext i8 @tvb_get_uint8(ptr noundef %42, i32 noundef %46)
+  store i8 %47, ptr %12, align 1
+  %48 = load ptr, ptr %10, align 8
+  %49 = load i32, ptr %11, align 4
+  %50 = add i32 %49, 1
+  call void @proto_item_set_len(ptr noundef %48, i32 noundef %50)
+  %51 = load ptr, ptr %5, align 8
+  %52 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %51, i32 0, i32 0
+  %53 = load ptr, ptr %52, align 8
+  call void @ptvcursor_advance(ptr noundef %53, i32 noundef 1)
+  %54 = load ptr, ptr %10, align 8
+  %55 = load ptr, ptr %5, align 8
+  %56 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %55, i32 0, i32 7
+  store ptr %54, ptr %56, align 8
+  %57 = load ptr, ptr %8, align 8
+  %58 = call i64 @strlen(ptr noundef %57) #12
+  %59 = load i32, ptr %11, align 4
+  %60 = load i32, ptr %7, align 4
+  %61 = sub i32 %59, %60
+  %62 = sext i32 %61 to i64
+  %63 = icmp ne i64 %58, %62
+  br i1 %63, label %68, label %64
 
-63:                                               ; preds = %3
-  %64 = load i8, ptr %12, align 1
-  %65 = zext i8 %64 to i32
-  %66 = icmp ne i32 %65, 0
-  br i1 %66, label %67, label %68
+64:                                               ; preds = %3
+  %65 = load i8, ptr %12, align 1
+  %66 = zext i8 %65 to i32
+  %67 = icmp ne i32 %66, 0
+  br i1 %67, label %68, label %69
 
-67:                                               ; preds = %63, %3
+68:                                               ; preds = %64, %3
   store ptr null, ptr %4, align 8
-  br label %70
+  store i32 1, ptr %13, align 4
+  br label %71
 
-68:                                               ; preds = %63
-  %69 = load ptr, ptr %8, align 8
-  store ptr %69, ptr %4, align 8
-  br label %70
+69:                                               ; preds = %64
+  %70 = load ptr, ptr %8, align 8
+  store ptr %70, ptr %4, align 8
+  store i32 1, ptr %13, align 4
+  br label %71
 
-70:                                               ; preds = %68, %67
-  %71 = load ptr, ptr %4, align 8
-  ret ptr %71
+71:                                               ; preds = %69, %68
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
+  %72 = load ptr, ptr %4, align 8
+  ret ptr %72
 }
 
-declare i32 @g_utf8_validate(ptr noundef, i64 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @g_utf8_validate(ptr noundef, i64 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal i32 @is_dbus_object_path_valid(ptr noundef %0) #0 {
-  %2 = alloca i32, align 4
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @is_dbus_object_path_valid(ptr noundef %0) #0 {
+  %2 = alloca i1, align 1
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
@@ -4292,18 +4618,18 @@ define internal i32 @is_dbus_object_path_valid(ptr noundef %0) #0 {
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %8
-  store i32 1, ptr %2, align 4
-  br label %64
+  store i1 true, ptr %2, align 1
+  br label %61
 
 15:                                               ; preds = %8, %1
   br label %16
 
-16:                                               ; preds = %62, %15
+16:                                               ; preds = %59, %15
   %17 = load ptr, ptr %3, align 8
   %18 = load i8, ptr %17, align 1
   %19 = sext i8 %18 to i32
   %20 = icmp eq i32 %19, 47
-  br i1 %20, label %21, label %63
+  br i1 %20, label %21, label %60
 
 21:                                               ; preds = %16
   %22 = load ptr, ptr %3, align 8
@@ -4316,222 +4642,235 @@ define internal i32 @is_dbus_object_path_valid(ptr noundef %0) #0 {
   br i1 %27, label %28, label %29
 
 28:                                               ; preds = %21
-  store i32 0, ptr %2, align 4
-  br label %64
+  store i1 false, ptr %2, align 1
+  br label %61
 
 29:                                               ; preds = %21
   br label %30
 
-30:                                               ; preds = %47, %29
+30:                                               ; preds = %45, %29
   %31 = load ptr, ptr %3, align 8
   %32 = load i8, ptr %31, align 1
-  %33 = call i32 @is_ascii_alpha(i8 noundef signext %32)
-  %34 = icmp ne i32 %33, 0
-  br i1 %34, label %45, label %35
+  %33 = call zeroext i1 @is_ascii_alpha(i8 noundef signext %32)
+  br i1 %33, label %43, label %34
 
-35:                                               ; preds = %30
-  %36 = load ptr, ptr %3, align 8
-  %37 = load i8, ptr %36, align 1
-  %38 = call i32 @is_ascii_digit(i8 noundef signext %37)
-  %39 = icmp ne i32 %38, 0
-  br i1 %39, label %45, label %40
+34:                                               ; preds = %30
+  %35 = load ptr, ptr %3, align 8
+  %36 = load i8, ptr %35, align 1
+  %37 = call zeroext i1 @is_ascii_digit(i8 noundef signext %36)
+  br i1 %37, label %43, label %38
 
-40:                                               ; preds = %35
-  %41 = load ptr, ptr %3, align 8
-  %42 = load i8, ptr %41, align 1
-  %43 = sext i8 %42 to i32
-  %44 = icmp eq i32 %43, 95
-  br label %45
+38:                                               ; preds = %34
+  %39 = load ptr, ptr %3, align 8
+  %40 = load i8, ptr %39, align 1
+  %41 = sext i8 %40 to i32
+  %42 = icmp eq i32 %41, 95
+  br label %43
 
-45:                                               ; preds = %40, %35, %30
-  %46 = phi i1 [ true, %35 ], [ true, %30 ], [ %44, %40 ]
-  br i1 %46, label %47, label %50
+43:                                               ; preds = %38, %34, %30
+  %44 = phi i1 [ true, %34 ], [ true, %30 ], [ %42, %38 ]
+  br i1 %44, label %45, label %48
 
-47:                                               ; preds = %45
-  %48 = load ptr, ptr %3, align 8
-  %49 = getelementptr i8, ptr %48, i32 1
-  store ptr %49, ptr %3, align 8
-  br label %30, !llvm.loop !14
+45:                                               ; preds = %43
+  %46 = load ptr, ptr %3, align 8
+  %47 = getelementptr i8, ptr %46, i32 1
+  store ptr %47, ptr %3, align 8
+  br label %30, !llvm.loop !18
 
-50:                                               ; preds = %45
-  %51 = load ptr, ptr %3, align 8
-  %52 = load i8, ptr %51, align 1
-  %53 = sext i8 %52 to i32
-  %54 = icmp eq i32 %53, 0
-  br i1 %54, label %55, label %62
+48:                                               ; preds = %43
+  %49 = load ptr, ptr %3, align 8
+  %50 = load i8, ptr %49, align 1
+  %51 = sext i8 %50 to i32
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %53, label %59
 
-55:                                               ; preds = %50
-  %56 = load ptr, ptr %3, align 8
-  %57 = getelementptr i8, ptr %56, i64 -1
-  %58 = load i8, ptr %57, align 1
-  %59 = sext i8 %58 to i32
-  %60 = icmp ne i32 %59, 47
-  %61 = zext i1 %60 to i32
-  store i32 %61, ptr %2, align 4
-  br label %64
+53:                                               ; preds = %48
+  %54 = load ptr, ptr %3, align 8
+  %55 = getelementptr i8, ptr %54, i64 -1
+  %56 = load i8, ptr %55, align 1
+  %57 = sext i8 %56 to i32
+  %58 = icmp ne i32 %57, 47
+  store i1 %58, ptr %2, align 1
+  br label %61
 
-62:                                               ; preds = %50
-  br label %16, !llvm.loop !15
+59:                                               ; preds = %48
+  br label %16, !llvm.loop !19
 
-63:                                               ; preds = %16
-  store i32 0, ptr %2, align 4
-  br label %64
+60:                                               ; preds = %16
+  store i1 false, ptr %2, align 1
+  br label %61
 
-64:                                               ; preds = %63, %55, %28, %14
-  %65 = load i32, ptr %2, align 4
-  ret i32 %65
+61:                                               ; preds = %60, %53, %28, %14
+  %62 = load i1, ptr %2, align 1
+  ret i1 %62
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @is_dbus_signature_valid(ptr noundef %0, ptr noundef %1) #0 {
-  %3 = alloca i32, align 4
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @is_dbus_signature_valid(ptr noundef %0, ptr noundef %1) #0 {
+  %3 = alloca i1, align 1
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i8, align 1
   %7 = alloca i64, align 8
   %8 = alloca i8, align 1
   %9 = alloca ptr, align 8
-  %10 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %6) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
   store i64 0, ptr %7, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #11
   store i8 0, ptr %8, align 1
-  %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds %struct.dbus_packet_t, ptr %11, i32 0, i32 1
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds %struct._packet_info, ptr %13, i32 0, i32 50
-  %15 = load ptr, ptr %14, align 8
-  %16 = call noalias ptr @wmem_list_new(ptr noundef %15)
-  store ptr %16, ptr %9, align 8
-  br label %17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #11
+  %12 = load ptr, ptr %5, align 8
+  %13 = getelementptr inbounds nuw %struct.dbus_packet_t, ptr %12, i32 0, i32 1
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds nuw %struct._packet_info, ptr %14, i32 0, i32 51
+  %16 = load ptr, ptr %15, align 8
+  %17 = call noalias ptr @wmem_list_new(ptr noundef %16)
+  store ptr %17, ptr %9, align 8
+  br label %18
 
-17:                                               ; preds = %88, %2
-  %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr i8, ptr %18, i32 1
-  store ptr %19, ptr %4, align 8
-  %20 = load i8, ptr %18, align 1
-  store i8 %20, ptr %6, align 1
-  %21 = sext i8 %20 to i32
-  %22 = icmp ne i32 %21, 0
-  br i1 %22, label %23, label %90
+18:                                               ; preds = %88, %2
+  %19 = load ptr, ptr %4, align 8
+  %20 = getelementptr i8, ptr %19, i32 1
+  store ptr %20, ptr %4, align 8
+  %21 = load i8, ptr %19, align 1
+  store i8 %21, ptr %6, align 1
+  %22 = sext i8 %21 to i32
+  %23 = icmp ne i32 %22, 0
+  br i1 %23, label %24, label %90
 
-23:                                               ; preds = %17
-  %24 = load i64, ptr %7, align 8
-  %25 = add i64 %24, 1
-  store i64 %25, ptr %7, align 8
-  %26 = icmp uge i64 %25, 255
-  br i1 %26, label %27, label %28
+24:                                               ; preds = %18
+  %25 = load i64, ptr %7, align 8
+  %26 = add i64 %25, 1
+  store i64 %26, ptr %7, align 8
+  %27 = icmp uge i64 %26, 255
+  br i1 %27, label %28, label %29
 
-27:                                               ; preds = %23
-  store i32 0, ptr %3, align 4
-  br label %95
+28:                                               ; preds = %24
+  store i1 false, ptr %3, align 1
+  store i32 1, ptr %10, align 4
+  br label %94
 
-28:                                               ; preds = %23
-  %29 = load i8, ptr %6, align 1
-  %30 = sext i8 %29 to i32
-  switch i32 %30, label %87 [
-    i32 121, label %31
-    i32 103, label %31
-    i32 118, label %31
-    i32 110, label %31
-    i32 113, label %31
-    i32 105, label %31
-    i32 117, label %31
-    i32 98, label %31
-    i32 111, label %31
-    i32 115, label %31
-    i32 104, label %31
-    i32 120, label %31
-    i32 116, label %31
-    i32 100, label %31
-    i32 97, label %32
-    i32 40, label %38
+29:                                               ; preds = %24
+  %30 = load i8, ptr %6, align 1
+  %31 = sext i8 %30 to i32
+  switch i32 %31, label %87 [
+    i32 121, label %32
+    i32 103, label %32
+    i32 118, label %32
+    i32 110, label %32
+    i32 113, label %32
+    i32 105, label %32
+    i32 117, label %32
+    i32 98, label %32
+    i32 111, label %32
+    i32 115, label %32
+    i32 104, label %32
+    i32 120, label %32
+    i32 116, label %32
+    i32 100, label %32
+    i32 97, label %33
+    i32 40, label %39
     i32 123, label %47
     i32 41, label %72
     i32 125, label %72
   ]
 
-31:                                               ; preds = %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28
+32:                                               ; preds = %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29
   br label %88
 
-32:                                               ; preds = %28
-  %33 = load ptr, ptr %4, align 8
-  %34 = load i8, ptr %33, align 1
-  %35 = sext i8 %34 to i32
-  switch i32 %35, label %37 [
-    i32 0, label %36
-    i32 41, label %36
-    i32 125, label %36
+33:                                               ; preds = %29
+  %34 = load ptr, ptr %4, align 8
+  %35 = load i8, ptr %34, align 1
+  %36 = sext i8 %35 to i32
+  switch i32 %36, label %38 [
+    i32 0, label %37
+    i32 41, label %37
+    i32 125, label %37
   ]
 
-36:                                               ; preds = %32, %32, %32
-  store i32 0, ptr %3, align 4
-  br label %95
+37:                                               ; preds = %33, %33, %33
+  store i1 false, ptr %3, align 1
+  store i32 1, ptr %10, align 4
+  br label %94
 
-37:                                               ; preds = %32
+38:                                               ; preds = %33
   br label %88
 
-38:                                               ; preds = %28
-  %39 = load ptr, ptr %4, align 8
-  %40 = load i8, ptr %39, align 1
-  %41 = sext i8 %40 to i32
-  %42 = icmp eq i32 %41, 41
-  br i1 %42, label %43, label %44
+39:                                               ; preds = %29
+  %40 = load ptr, ptr %4, align 8
+  %41 = load i8, ptr %40, align 1
+  %42 = sext i8 %41 to i32
+  %43 = icmp eq i32 %42, 41
+  br i1 %43, label %44, label %45
 
-43:                                               ; preds = %38
-  store i32 0, ptr %3, align 4
-  br label %95
+44:                                               ; preds = %39
+  store i1 false, ptr %3, align 1
+  store i32 1, ptr %10, align 4
+  br label %94
 
-44:                                               ; preds = %38
-  %45 = load ptr, ptr %9, align 8
-  %46 = inttoptr i64 41 to ptr
-  call void @wmem_list_prepend(ptr noundef %45, ptr noundef %46)
+45:                                               ; preds = %39
+  %46 = load ptr, ptr %9, align 8
+  call void @wmem_list_prepend(ptr noundef %46, ptr noundef inttoptr (i64 41 to ptr))
   br label %88
 
-47:                                               ; preds = %28
+47:                                               ; preds = %29
   %48 = load i8, ptr %8, align 1
   %49 = sext i8 %48 to i32
   %50 = icmp ne i32 %49, 97
-  br i1 %50, label %56, label %51
+  br i1 %50, label %55, label %51
 
 51:                                               ; preds = %47
   %52 = load ptr, ptr %4, align 8
   %53 = load i8, ptr %52, align 1
-  %54 = call i32 @is_basic_type(i8 noundef signext %53)
-  %55 = icmp ne i32 %54, 0
-  br i1 %55, label %57, label %56
+  %54 = call zeroext i1 @is_basic_type(i8 noundef signext %53)
+  br i1 %54, label %56, label %55
 
-56:                                               ; preds = %51, %47
-  store i32 0, ptr %3, align 4
-  br label %95
+55:                                               ; preds = %51, %47
+  store i1 false, ptr %3, align 1
+  store i32 1, ptr %10, align 4
+  br label %94
 
-57:                                               ; preds = %51
-  %58 = load ptr, ptr %4, align 8
-  %59 = getelementptr i8, ptr %58, i64 1
-  %60 = call ptr @skip_single_complete_type(ptr noundef %59)
-  store ptr %60, ptr %10, align 8
-  %61 = load ptr, ptr %10, align 8
-  %62 = icmp ne ptr %61, null
-  br i1 %62, label %63, label %68
+56:                                               ; preds = %51
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #11
+  %57 = load ptr, ptr %4, align 8
+  %58 = getelementptr i8, ptr %57, i64 1
+  %59 = call ptr @skip_single_complete_type(ptr noundef %58)
+  store ptr %59, ptr %11, align 8
+  %60 = load ptr, ptr %11, align 8
+  %61 = icmp ne ptr %60, null
+  br i1 %61, label %62, label %67
 
-63:                                               ; preds = %57
-  %64 = load ptr, ptr %10, align 8
-  %65 = load i8, ptr %64, align 1
-  %66 = sext i8 %65 to i32
-  %67 = icmp ne i32 %66, 125
-  br i1 %67, label %68, label %69
+62:                                               ; preds = %56
+  %63 = load ptr, ptr %11, align 8
+  %64 = load i8, ptr %63, align 1
+  %65 = sext i8 %64 to i32
+  %66 = icmp ne i32 %65, 125
+  br i1 %66, label %67, label %68
 
-68:                                               ; preds = %63, %57
-  store i32 0, ptr %3, align 4
-  br label %95
+67:                                               ; preds = %62, %56
+  store i1 false, ptr %3, align 1
+  store i32 1, ptr %10, align 4
+  br label %70
 
-69:                                               ; preds = %63
-  %70 = load ptr, ptr %9, align 8
-  %71 = inttoptr i64 125 to ptr
-  call void @wmem_list_prepend(ptr noundef %70, ptr noundef %71)
-  br label %88
+68:                                               ; preds = %62
+  %69 = load ptr, ptr %9, align 8
+  call void @wmem_list_prepend(ptr noundef %69, ptr noundef inttoptr (i64 125 to ptr))
+  store i32 4, ptr %10, align 4
+  br label %70
 
-72:                                               ; preds = %28, %28
+70:                                               ; preds = %68, %67
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #11
+  %71 = load i32, ptr %10, align 4
+  switch i32 %71, label %94 [
+    i32 4, label %88
+  ]
+
+72:                                               ; preds = %29, %29
   %73 = load ptr, ptr %9, align 8
   %74 = call i32 @wmem_list_count(ptr noundef %73)
   %75 = icmp eq i32 %74, 0
@@ -4549,107 +4888,124 @@ define internal i32 @is_dbus_signature_valid(ptr noundef %0, ptr noundef %1) #0 
   br i1 %84, label %85, label %86
 
 85:                                               ; preds = %76, %72
-  store i32 0, ptr %3, align 4
-  br label %95
+  store i1 false, ptr %3, align 1
+  store i32 1, ptr %10, align 4
+  br label %94
 
 86:                                               ; preds = %76
   br label %88
 
-87:                                               ; preds = %28
-  store i32 0, ptr %3, align 4
-  br label %95
+87:                                               ; preds = %29
+  store i1 false, ptr %3, align 1
+  store i32 1, ptr %10, align 4
+  br label %94
 
-88:                                               ; preds = %86, %69, %44, %37, %31
+88:                                               ; preds = %86, %70, %45, %38, %32
   %89 = load i8, ptr %6, align 1
   store i8 %89, ptr %8, align 1
-  br label %17, !llvm.loop !16
+  br label %18, !llvm.loop !20
 
-90:                                               ; preds = %17
+90:                                               ; preds = %18
   %91 = load ptr, ptr %9, align 8
   %92 = call i32 @wmem_list_count(ptr noundef %91)
   %93 = icmp eq i32 %92, 0
-  %94 = zext i1 %93 to i32
-  store i32 %94, ptr %3, align 4
-  br label %95
+  store i1 %93, ptr %3, align 1
+  store i32 1, ptr %10, align 4
+  br label %94
 
-95:                                               ; preds = %90, %87, %85, %68, %56, %43, %36, %27
-  %96 = load i32, ptr %3, align 4
-  ret i32 %96
+94:                                               ; preds = %90, %87, %85, %70, %55, %44, %37, %28
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #11
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
+  call void @llvm.lifetime.end.p0(i64 1, ptr %6) #11
+  %95 = load i1, ptr %3, align 1
+  ret i1 %95
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal ptr @skip_single_complete_type(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i8, align 1
+  %5 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
-  br label %5
+  call void @llvm.lifetime.start.p0(i64 1, ptr %4) #11
+  br label %6
 
-5:                                                ; preds = %13, %1
-  %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr i8, ptr %6, i32 1
-  store ptr %7, ptr %3, align 8
-  %8 = load i8, ptr %6, align 1
-  store i8 %8, ptr %4, align 1
-  %9 = load i8, ptr %4, align 1
-  %10 = sext i8 %9 to i32
-  switch i32 %10, label %20 [
-    i32 121, label %11
-    i32 98, label %11
-    i32 110, label %11
-    i32 113, label %11
-    i32 105, label %11
-    i32 117, label %11
-    i32 120, label %11
-    i32 116, label %11
-    i32 100, label %11
-    i32 115, label %11
-    i32 111, label %11
-    i32 103, label %11
-    i32 118, label %11
-    i32 104, label %11
-    i32 97, label %13
-    i32 40, label %14
-    i32 123, label %17
+6:                                                ; preds = %15, %1
+  br label %7
+
+7:                                                ; preds = %6
+  %8 = load ptr, ptr %3, align 8
+  %9 = getelementptr i8, ptr %8, i32 1
+  store ptr %9, ptr %3, align 8
+  %10 = load i8, ptr %8, align 1
+  store i8 %10, ptr %4, align 1
+  %11 = load i8, ptr %4, align 1
+  %12 = sext i8 %11 to i32
+  switch i32 %12, label %22 [
+    i32 121, label %13
+    i32 98, label %13
+    i32 110, label %13
+    i32 113, label %13
+    i32 105, label %13
+    i32 117, label %13
+    i32 120, label %13
+    i32 116, label %13
+    i32 100, label %13
+    i32 115, label %13
+    i32 111, label %13
+    i32 103, label %13
+    i32 118, label %13
+    i32 104, label %13
+    i32 97, label %15
+    i32 40, label %16
+    i32 123, label %19
   ]
 
-11:                                               ; preds = %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5
-  %12 = load ptr, ptr %3, align 8
-  store ptr %12, ptr %2, align 8
-  br label %21
+13:                                               ; preds = %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7
+  %14 = load ptr, ptr %3, align 8
+  store ptr %14, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %23
 
-13:                                               ; preds = %5
-  br label %5
+15:                                               ; preds = %7
+  br label %6
 
-14:                                               ; preds = %5
-  %15 = load ptr, ptr %3, align 8
-  %16 = call ptr @skip_enclosed_container(ptr noundef %15, i8 noundef signext 40, i8 noundef signext 41)
-  store ptr %16, ptr %2, align 8
-  br label %21
+16:                                               ; preds = %7
+  %17 = load ptr, ptr %3, align 8
+  %18 = call ptr @skip_enclosed_container(ptr noundef %17, i8 noundef signext 40, i8 noundef signext 41)
+  store ptr %18, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %23
 
-17:                                               ; preds = %5
-  %18 = load ptr, ptr %3, align 8
-  %19 = call ptr @skip_enclosed_container(ptr noundef %18, i8 noundef signext 123, i8 noundef signext 125)
-  store ptr %19, ptr %2, align 8
-  br label %21
+19:                                               ; preds = %7
+  %20 = load ptr, ptr %3, align 8
+  %21 = call ptr @skip_enclosed_container(ptr noundef %20, i8 noundef signext 123, i8 noundef signext 125)
+  store ptr %21, ptr %2, align 8
+  store i32 1, ptr %5, align 4
+  br label %23
 
-20:                                               ; preds = %5
+22:                                               ; preds = %7
   store ptr null, ptr %2, align 8
-  br label %21
+  store i32 1, ptr %5, align 4
+  br label %23
 
-21:                                               ; preds = %20, %17, %14, %11
-  %22 = load ptr, ptr %2, align 8
-  ret ptr %22
+23:                                               ; preds = %22, %19, %16, %13
+  call void @llvm.lifetime.end.p0(i64 1, ptr %4) #11
+  %24 = load ptr, ptr %2, align 8
+  ret ptr %24
 }
 
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) #1
+; Function Attrs: null_pointer_is_valid allocsize(1)
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
-; Function Attrs: nounwind uwtable
-define internal i32 @is_basic_type(i8 noundef signext %0) #0 {
-  %2 = alloca i32, align 4
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @is_basic_type(i8 noundef signext %0) #6 {
+  %2 = alloca i1, align 1
   %3 = alloca i8, align 1
   store i8 %0, ptr %3, align 1
   %4 = load i8, ptr %3, align 1
@@ -4671,26 +5027,29 @@ define internal i32 @is_basic_type(i8 noundef signext %0) #0 {
   ]
 
 6:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
-  store i32 1, ptr %2, align 4
+  store i1 true, ptr %2, align 1
   br label %8
 
 7:                                                ; preds = %1
-  store i32 0, ptr %2, align 4
+  store i1 false, ptr %2, align 1
   br label %8
 
 8:                                                ; preds = %7, %6
-  %9 = load i32, ptr %2, align 4
-  ret i32 %9
+  %9 = load i1, ptr %2, align 1
+  ret i1 %9
 }
 
-declare ptr @proto_item_get_display_repr(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_get_display_repr(ptr noundef, ptr noundef) #2
 
-declare ptr @ptvcursor_add_ret_string(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @ptvcursor_add_ret_string(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
-declare void @proto_item_set_len(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_set_len(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal i32 @is_ascii_alpha(i8 noundef signext %0) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @is_ascii_alpha(i8 noundef signext %0) #6 {
   %2 = alloca i8, align 1
   store i8 %0, ptr %2, align 1
   %3 = load i8, ptr %2, align 1
@@ -4698,232 +5057,282 @@ define internal i32 @is_ascii_alpha(i8 noundef signext %0) #0 {
   %5 = or i32 %4, 32
   %6 = sub i32 %5, 97
   %7 = icmp ule i32 %6, 25
-  %8 = zext i1 %7 to i32
-  ret i32 %8
+  ret i1 %7
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @is_ascii_digit(i8 noundef signext %0) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @is_ascii_digit(i8 noundef signext %0) #6 {
   %2 = alloca i8, align 1
   store i8 %0, ptr %2, align 1
   %3 = load i8, ptr %2, align 1
   %4 = sext i8 %3 to i32
   %5 = sub i32 %4, 48
   %6 = icmp ult i32 %5, 10
-  %7 = zext i1 %6 to i32
-  ret i32 %7
+  ret i1 %6
 }
 
-declare noalias ptr @wmem_list_new(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @wmem_list_new(ptr noundef) #2
 
-declare void @wmem_list_prepend(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @wmem_list_prepend(ptr noundef, ptr noundef) #2
 
-declare i32 @wmem_list_count(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @wmem_list_count(ptr noundef) #2
 
-declare ptr @wmem_stack_pop(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_stack_pop(ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal ptr @skip_enclosed_container(ptr noundef %0, i8 noundef signext %1, i8 noundef signext %2) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal ptr @skip_enclosed_container(ptr noundef %0, i8 noundef signext %1, i8 noundef signext %2) #6 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
   %8 = alloca i32, align 4
   %9 = alloca i8, align 1
+  %10 = alloca i32, align 4
   store ptr %0, ptr %5, align 8
   store i8 %1, ptr %6, align 1
   store i8 %2, ptr %7, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #11
   store i32 0, ptr %8, align 4
-  %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr i8, ptr %10, i32 1
-  store ptr %11, ptr %5, align 8
-  %12 = load i8, ptr %10, align 1
-  store i8 %12, ptr %9, align 1
-  br label %13
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #11
+  %11 = load ptr, ptr %5, align 8
+  %12 = getelementptr i8, ptr %11, i32 1
+  store ptr %12, ptr %5, align 8
+  %13 = load i8, ptr %11, align 1
+  store i8 %13, ptr %9, align 1
+  br label %14
 
-13:                                               ; preds = %42, %3
-  %14 = load i8, ptr %9, align 1
-  %15 = sext i8 %14 to i32
-  %16 = icmp ne i32 %15, 0
-  br i1 %16, label %17, label %46
+14:                                               ; preds = %44, %3
+  %15 = load i8, ptr %9, align 1
+  %16 = sext i8 %15 to i32
+  %17 = icmp ne i32 %16, 0
+  br i1 %17, label %19, label %18
 
-17:                                               ; preds = %13
-  %18 = load i8, ptr %9, align 1
-  %19 = sext i8 %18 to i32
-  %20 = load i8, ptr %7, align 1
+18:                                               ; preds = %14
+  store i32 2, ptr %10, align 4
+  br label %48
+
+19:                                               ; preds = %14
+  %20 = load i8, ptr %9, align 1
   %21 = sext i8 %20 to i32
-  %22 = icmp eq i32 %19, %21
-  br i1 %22, label %23, label %31
+  %22 = load i8, ptr %7, align 1
+  %23 = sext i8 %22 to i32
+  %24 = icmp eq i32 %21, %23
+  br i1 %24, label %25, label %33
 
-23:                                               ; preds = %17
-  %24 = load i32, ptr %8, align 4
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %26, label %28
+25:                                               ; preds = %19
+  %26 = load i32, ptr %8, align 4
+  %27 = icmp eq i32 %26, 0
+  br i1 %27, label %28, label %30
 
-26:                                               ; preds = %23
-  %27 = load ptr, ptr %5, align 8
-  store ptr %27, ptr %4, align 8
-  br label %47
+28:                                               ; preds = %25
+  %29 = load ptr, ptr %5, align 8
+  store ptr %29, ptr %4, align 8
+  store i32 1, ptr %10, align 4
+  br label %48
 
-28:                                               ; preds = %23
-  %29 = load i32, ptr %8, align 4
-  %30 = add i32 %29, -1
-  store i32 %30, ptr %8, align 4
-  br label %41
+30:                                               ; preds = %25
+  %31 = load i32, ptr %8, align 4
+  %32 = add i32 %31, -1
+  store i32 %32, ptr %8, align 4
+  br label %43
 
-31:                                               ; preds = %17
-  %32 = load i8, ptr %9, align 1
-  %33 = sext i8 %32 to i32
-  %34 = load i8, ptr %6, align 1
+33:                                               ; preds = %19
+  %34 = load i8, ptr %9, align 1
   %35 = sext i8 %34 to i32
-  %36 = icmp eq i32 %33, %35
-  br i1 %36, label %37, label %40
+  %36 = load i8, ptr %6, align 1
+  %37 = sext i8 %36 to i32
+  %38 = icmp eq i32 %35, %37
+  br i1 %38, label %39, label %42
 
-37:                                               ; preds = %31
-  %38 = load i32, ptr %8, align 4
-  %39 = add i32 %38, 1
-  store i32 %39, ptr %8, align 4
-  br label %40
-
-40:                                               ; preds = %37, %31
-  br label %41
-
-41:                                               ; preds = %40, %28
+39:                                               ; preds = %33
+  %40 = load i32, ptr %8, align 4
+  %41 = add i32 %40, 1
+  store i32 %41, ptr %8, align 4
   br label %42
 
-42:                                               ; preds = %41
-  %43 = load ptr, ptr %5, align 8
-  %44 = getelementptr i8, ptr %43, i32 1
-  store ptr %44, ptr %5, align 8
-  %45 = load i8, ptr %43, align 1
-  store i8 %45, ptr %9, align 1
-  br label %13, !llvm.loop !17
+42:                                               ; preds = %39, %33
+  br label %43
 
-46:                                               ; preds = %13
+43:                                               ; preds = %42, %30
+  br label %44
+
+44:                                               ; preds = %43
+  %45 = load ptr, ptr %5, align 8
+  %46 = getelementptr i8, ptr %45, i32 1
+  store ptr %46, ptr %5, align 8
+  %47 = load i8, ptr %45, align 1
+  store i8 %47, ptr %9, align 1
+  br label %14, !llvm.loop !21
+
+48:                                               ; preds = %28, %18
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #11
+  %49 = load i32, ptr %10, align 4
+  switch i32 %49, label %51 [
+    i32 2, label %50
+  ]
+
+50:                                               ; preds = %48
   store ptr null, ptr %4, align 8
-  br label %47
+  store i32 1, ptr %10, align 4
+  br label %51
 
-47:                                               ; preds = %46, %26
-  %48 = load ptr, ptr %4, align 8
-  ret ptr %48
+51:                                               ; preds = %50, %48
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #11
+  %52 = load ptr, ptr %4, align 8
+  ret ptr %52
 }
 
-declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) #2
 
-declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @wmem_map_lookup(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_map_lookup(ptr noundef, ptr noundef) #2
 
-declare void @conversation_set_conv_addr_port_endpoints(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @conversation_set_conv_addr_port_endpoints(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare i32 @conversation_pt_to_endpoint_type(i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @conversation_pt_to_endpoint_type(i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @update_unique_name_map(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
-  %7 = load i32, ptr @dbus_resolve_names, align 4
-  %8 = icmp ne i32 %7, 0
-  br i1 %8, label %10, label %9
-
-9:                                                ; preds = %2
-  br label %55
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  %8 = load i8, ptr @dbus_resolve_names, align 1, !range !6, !noundef !7
+  %9 = trunc i8 %8 to i1
+  br i1 %9, label %11, label %10
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr i8, ptr %11, i64 0
-  %13 = load i8, ptr %12, align 1
-  %14 = sext i8 %13 to i32
-  %15 = icmp eq i32 %14, 58
-  br i1 %15, label %16, label %25
+  store i32 1, ptr %7, align 4
+  br label %57
 
-16:                                               ; preds = %10
-  %17 = load ptr, ptr %4, align 8
-  %18 = getelementptr i8, ptr %17, i64 0
-  %19 = load i8, ptr %18, align 1
-  %20 = sext i8 %19 to i32
-  %21 = icmp ne i32 %20, 58
-  br i1 %21, label %22, label %25
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %3, align 8
+  %13 = getelementptr i8, ptr %12, i64 0
+  %14 = load i8, ptr %13, align 1
+  %15 = sext i8 %14 to i32
+  %16 = icmp eq i32 %15, 58
+  br i1 %16, label %17, label %26
 
-22:                                               ; preds = %16
-  %23 = load ptr, ptr %3, align 8
-  store ptr %23, ptr %5, align 8
-  %24 = load ptr, ptr %4, align 8
-  store ptr %24, ptr %6, align 8
+17:                                               ; preds = %11
+  %18 = load ptr, ptr %4, align 8
+  %19 = getelementptr i8, ptr %18, i64 0
+  %20 = load i8, ptr %19, align 1
+  %21 = sext i8 %20 to i32
+  %22 = icmp ne i32 %21, 58
+  br i1 %22, label %23, label %26
+
+23:                                               ; preds = %17
+  %24 = load ptr, ptr %3, align 8
+  store ptr %24, ptr %5, align 8
+  %25 = load ptr, ptr %4, align 8
+  store ptr %25, ptr %6, align 8
+  br label %43
+
+26:                                               ; preds = %17, %11
+  %27 = load ptr, ptr %4, align 8
+  %28 = getelementptr i8, ptr %27, i64 0
+  %29 = load i8, ptr %28, align 1
+  %30 = sext i8 %29 to i32
+  %31 = icmp eq i32 %30, 58
+  br i1 %31, label %32, label %41
+
+32:                                               ; preds = %26
+  %33 = load ptr, ptr %3, align 8
+  %34 = getelementptr i8, ptr %33, i64 0
+  %35 = load i8, ptr %34, align 1
+  %36 = sext i8 %35 to i32
+  %37 = icmp ne i32 %36, 58
+  br i1 %37, label %38, label %41
+
+38:                                               ; preds = %32
+  %39 = load ptr, ptr %4, align 8
+  store ptr %39, ptr %5, align 8
+  %40 = load ptr, ptr %3, align 8
+  store ptr %40, ptr %6, align 8
   br label %42
 
-25:                                               ; preds = %16, %10
-  %26 = load ptr, ptr %4, align 8
-  %27 = getelementptr i8, ptr %26, i64 0
-  %28 = load i8, ptr %27, align 1
-  %29 = sext i8 %28 to i32
-  %30 = icmp eq i32 %29, 58
-  br i1 %30, label %31, label %40
+41:                                               ; preds = %32, %26
+  store i32 1, ptr %7, align 4
+  br label %57
 
-31:                                               ; preds = %25
-  %32 = load ptr, ptr %3, align 8
-  %33 = getelementptr i8, ptr %32, i64 0
-  %34 = load i8, ptr %33, align 1
-  %35 = sext i8 %34 to i32
-  %36 = icmp ne i32 %35, 58
-  br i1 %36, label %37, label %40
+42:                                               ; preds = %38
+  br label %43
 
-37:                                               ; preds = %31
-  %38 = load ptr, ptr %4, align 8
-  store ptr %38, ptr %5, align 8
-  %39 = load ptr, ptr %3, align 8
-  store ptr %39, ptr %6, align 8
-  br label %41
+43:                                               ; preds = %42, %23
+  %44 = load ptr, ptr @unique_name_map, align 8
+  %45 = load ptr, ptr %5, align 8
+  %46 = call zeroext i1 @wmem_map_contains(ptr noundef %44, ptr noundef %45)
+  br i1 %46, label %56, label %47
 
-40:                                               ; preds = %31, %25
-  br label %55
+47:                                               ; preds = %43
+  %48 = load ptr, ptr @unique_name_map, align 8
+  %49 = call ptr @wmem_file_scope()
+  %50 = load ptr, ptr %5, align 8
+  %51 = call noalias ptr @wmem_strdup(ptr noundef %49, ptr noundef %50)
+  %52 = call ptr @wmem_file_scope()
+  %53 = load ptr, ptr %6, align 8
+  %54 = call noalias ptr @wmem_strdup(ptr noundef %52, ptr noundef %53)
+  %55 = call ptr @wmem_map_insert(ptr noundef %48, ptr noundef %51, ptr noundef %54)
+  br label %56
 
-41:                                               ; preds = %37
-  br label %42
+56:                                               ; preds = %47, %43
+  store i32 0, ptr %7, align 4
+  br label %57
 
-42:                                               ; preds = %41, %22
-  %43 = load ptr, ptr @unique_name_map, align 8
-  %44 = load ptr, ptr %5, align 8
-  %45 = call zeroext i1 @wmem_map_contains(ptr noundef %43, ptr noundef %44)
-  br i1 %45, label %55, label %46
+57:                                               ; preds = %56, %41, %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
+  %58 = load i32, ptr %7, align 4
+  switch i32 %58, label %60 [
+    i32 0, label %59
+    i32 1, label %59
+  ]
 
-46:                                               ; preds = %42
-  %47 = load ptr, ptr @unique_name_map, align 8
-  %48 = call ptr @wmem_file_scope()
-  %49 = load ptr, ptr %5, align 8
-  %50 = call noalias ptr @wmem_strdup(ptr noundef %48, ptr noundef %49)
-  %51 = call ptr @wmem_file_scope()
-  %52 = load ptr, ptr %6, align 8
-  %53 = call noalias ptr @wmem_strdup(ptr noundef %51, ptr noundef %52)
-  %54 = call ptr @wmem_map_insert(ptr noundef %47, ptr noundef %50, ptr noundef %53)
-  br label %55
-
-55:                                               ; preds = %46, %42, %40, %9
+59:                                               ; preds = %57, %57
   ret void
+
+60:                                               ; preds = %57
+  unreachable
 }
 
-declare nonnull ptr @find_or_create_conversation(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @find_or_create_conversation(ptr noundef) #2
 
-declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) #2
 
-declare noalias ptr @wmem_map_new(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @wmem_map_new(ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind willreturn memory(none)
-declare i32 @g_direct_hash(ptr noundef) #6
+; Function Attrs: nounwind null_pointer_is_valid willreturn memory(none)
+declare i32 @g_direct_hash(ptr noundef) #10
 
-; Function Attrs: nounwind willreturn memory(none)
-declare i32 @g_direct_equal(ptr noundef, ptr noundef) #6
+; Function Attrs: nounwind null_pointer_is_valid willreturn memory(none)
+declare i32 @g_direct_equal(ptr noundef, ptr noundef) #10
 
-declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal void @proto_item_set_generated(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind null_pointer_is_valid sspstrong uwtable
+define internal void @proto_item_set_generated(ptr noundef %0) #7 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -4935,22 +5344,22 @@ define internal void @proto_item_set_generated(ptr noundef %0) #0 {
 
 6:                                                ; preds = %5
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct._proto_node, ptr %7, i32 0, i32 4
+  %8 = getelementptr inbounds nuw %struct._proto_node, ptr %7, i32 0, i32 5
   %9 = load ptr, ptr %8, align 8
   %10 = icmp ne ptr %9, null
   br i1 %10, label %11, label %22
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct._proto_node, ptr %12, i32 0, i32 4
+  %13 = getelementptr inbounds nuw %struct._proto_node, ptr %12, i32 0, i32 5
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds %struct.field_info, ptr %14, i32 0, i32 6
+  %15 = getelementptr inbounds nuw %struct.field_info, ptr %14, i32 0, i32 6
   %16 = load i32, ptr %15, align 4
   %17 = or i32 %16, 2
   %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds %struct._proto_node, ptr %18, i32 0, i32 4
+  %19 = getelementptr inbounds nuw %struct._proto_node, ptr %18, i32 0, i32 5
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds %struct.field_info, ptr %20, i32 0, i32 6
+  %21 = getelementptr inbounds nuw %struct.field_info, ptr %20, i32 0, i32 6
   store i32 %17, ptr %21, align 4
   br label %22
 
@@ -4964,21 +5373,26 @@ define internal void @proto_item_set_generated(ptr noundef %0) #0 {
   ret void
 }
 
-declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #2
 
-declare void @nstime_delta(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @nstime_delta(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #2
 
-declare zeroext i1 @wmem_map_contains(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @wmem_map_contains(ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define internal i32 @calculate_padding_len(i32 noundef %0, i8 noundef signext %1) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal i32 @calculate_padding_len(i32 noundef %0, i8 noundef signext %1) #6 {
   %3 = alloca i32, align 4
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   store i32 %0, ptr %3, align 4
   store i8 %1, ptr %4, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #11
   %6 = load i8, ptr %4, align 1
   %7 = sext i8 %6 to i32
   switch i32 %7, label %9 [
@@ -5004,7 +5418,7 @@ define internal i32 @calculate_padding_len(i32 noundef %0, i8 noundef signext %1
 8:                                                ; preds = %2, %2, %2
   br label %9
 
-9:                                                ; preds = %8, %2
+9:                                                ; preds = %2, %8
   store i32 1, ptr %5, align 4
   br label %13
 
@@ -5028,11 +5442,12 @@ define internal i32 @calculate_padding_len(i32 noundef %0, i8 noundef signext %1
   %18 = sub i32 %14, %17
   %19 = load i32, ptr %5, align 4
   %20 = srem i32 %18, %19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #11
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @proto_item_set_hidden(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind null_pointer_is_valid sspstrong uwtable
+define internal void @proto_item_set_hidden(ptr noundef %0) #7 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -5044,22 +5459,22 @@ define internal void @proto_item_set_hidden(ptr noundef %0) #0 {
 
 6:                                                ; preds = %5
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct._proto_node, ptr %7, i32 0, i32 4
+  %8 = getelementptr inbounds nuw %struct._proto_node, ptr %7, i32 0, i32 5
   %9 = load ptr, ptr %8, align 8
   %10 = icmp ne ptr %9, null
   br i1 %10, label %11, label %22
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct._proto_node, ptr %12, i32 0, i32 4
+  %13 = getelementptr inbounds nuw %struct._proto_node, ptr %12, i32 0, i32 5
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds %struct.field_info, ptr %14, i32 0, i32 6
+  %15 = getelementptr inbounds nuw %struct.field_info, ptr %14, i32 0, i32 6
   %16 = load i32, ptr %15, align 4
   %17 = or i32 %16, 1
   %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds %struct._proto_node, ptr %18, i32 0, i32 4
+  %19 = getelementptr inbounds nuw %struct._proto_node, ptr %18, i32 0, i32 5
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds %struct.field_info, ptr %20, i32 0, i32 6
+  %21 = getelementptr inbounds nuw %struct.field_info, ptr %20, i32 0, i32 6
   store i32 %17, ptr %21, align 4
   br label %22
 
@@ -5073,7 +5488,7 @@ define internal void @proto_item_set_hidden(ptr noundef %0) #0 {
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dbus_signature(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
@@ -5081,26 +5496,29 @@ define internal i32 @dissect_dbus_signature(ptr noundef %0, ptr noundef %1) #0 {
   %6 = alloca %struct._dbus_type_reader_t, align 8
   %7 = alloca ptr, align 8
   %8 = alloca %union.dbus_val_t, align 8
+  %9 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
-  call void @llvm.memset.p0.i64(ptr align 8 %6, i8 0, i64 80, i1 false)
-  %9 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %6, i32 0, i32 0
-  %10 = load ptr, ptr %4, align 8
-  store ptr %10, ptr %9, align 8
-  %11 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %6, i32 0, i32 1
-  %12 = load ptr, ptr %5, align 8
-  store ptr %12, ptr %11, align 8
+  call void @llvm.lifetime.start.p0(i64 64, ptr %6) #11
+  call void @llvm.memset.p0.i64(ptr align 8 %6, i8 0, i64 64, i1 false)
+  %10 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %6, i32 0, i32 0
+  %11 = load ptr, ptr %4, align 8
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %6, i32 0, i32 1
+  %13 = load ptr, ptr %5, align 8
+  store ptr %13, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
   store ptr %6, ptr %7, align 8
-  br label %13
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
+  br label %14
 
-13:                                               ; preds = %24, %2
-  %14 = load ptr, ptr %7, align 8
-  %15 = call i32 @reader_is_finished(ptr noundef %14)
-  %16 = icmp ne i32 %15, 0
+14:                                               ; preds = %24, %2
+  %15 = load ptr, ptr %7, align 8
+  %16 = call zeroext i1 @reader_is_finished(ptr noundef %15)
   %17 = xor i1 %16, true
   br i1 %17, label %18, label %25
 
-18:                                               ; preds = %13
+18:                                               ; preds = %14
   %19 = load ptr, ptr %7, align 8
   %20 = call ptr @reader_next(ptr noundef %19, i32 noundef -1, i32 noundef -1, ptr noundef %8)
   store ptr %20, ptr %7, align 8
@@ -5110,26 +5528,31 @@ define internal i32 @dissect_dbus_signature(ptr noundef %0, ptr noundef %1) #0 {
 
 23:                                               ; preds = %18
   store i32 1, ptr %3, align 4
+  store i32 1, ptr %9, align 4
   br label %26
 
 24:                                               ; preds = %18
-  br label %13, !llvm.loop !18
+  br label %14, !llvm.loop !22
 
-25:                                               ; preds = %13
+25:                                               ; preds = %14
   store i32 0, ptr %3, align 4
+  store i32 1, ptr %9, align 4
   br label %26
 
 26:                                               ; preds = %25, %23
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
+  call void @llvm.lifetime.end.p0(i64 64, ptr %6) #11
   %27 = load i32, ptr %3, align 4
   ret i32 %27
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @reader_is_finished(ptr noundef %0) #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @reader_is_finished(ptr noundef %0) #6 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %3, i32 0, i32 1
+  %4 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %3, i32 0, i32 1
   %5 = load ptr, ptr %4, align 8
   %6 = load i8, ptr %5, align 1
   %7 = sext i8 %6 to i32
@@ -5138,20 +5561,20 @@ define internal i32 @reader_is_finished(ptr noundef %0) #0 {
 
 9:                                                ; preds = %1
   %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds %struct._dbus_type_reader_t, ptr %10, i32 0, i32 13
+  %11 = getelementptr inbounds nuw %struct._dbus_type_reader_t, ptr %10, i32 0, i32 13
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br label %14
 
 14:                                               ; preds = %9, %1
   %15 = phi i1 [ false, %1 ], [ %13, %9 ]
-  %16 = zext i1 %15 to i32
-  ret i32 %16
+  ret i1 %15
 }
 
-declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @get_dbus_message_len(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -5164,9 +5587,12 @@ define internal i32 @get_dbus_message_len(ptr noundef %0, ptr noundef %1, i32 no
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #11
   %12 = load ptr, ptr %6, align 8
   %13 = load i32, ptr %7, align 4
-  %14 = call zeroext i8 @tvb_get_guint8(ptr noundef %12, i32 noundef %13)
+  %14 = call zeroext i8 @tvb_get_uint8(ptr noundef %12, i32 noundef %13)
   %15 = zext i8 %14 to i32
   switch i32 %15, label %18 [
     i32 108, label %16
@@ -5180,7 +5606,7 @@ define internal i32 @get_dbus_message_len(ptr noundef %0, ptr noundef %1, i32 no
 17:                                               ; preds = %4
   br label %18
 
-18:                                               ; preds = %17, %4
+18:                                               ; preds = %4, %17
   store ptr @tvb_get_ntohl, ptr %9, align 8
   br label %19
 
@@ -5205,10 +5631,13 @@ define internal i32 @get_dbus_message_len(ptr noundef %0, ptr noundef %1, i32 no
   %34 = load i32, ptr %11, align 4
   %35 = load i32, ptr %10, align 4
   %36 = add i32 %34, %35
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #11
   ret i32 %36
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dbus_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -5226,40 +5655,53 @@ define internal i32 @dissect_dbus_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   ret i32 %13
 }
 
-declare i32 @tvb_reported_length(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length(ptr noundef) #2
 
-declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) #2
 
-declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind willreturn memory(read) }
-attributes #8 = { noreturn }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind null_pointer_is_valid willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { inlinehint nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nounwind null_pointer_is_valid willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nounwind }
+attributes #12 = { nounwind willreturn memory(read) }
+attributes #13 = { noreturn }
+attributes #14 = { allocsize(1) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}
+!18 = distinct !{!18, !9}
+!19 = distinct !{!19, !9}
+!20 = distinct !{!20, !9}
+!21 = distinct !{!21, !9}
+!22 = distinct !{!22, !9}

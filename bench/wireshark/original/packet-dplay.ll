@@ -3,25 +3,22 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
 %struct.true_false_string = type { ptr, ptr }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
 
-@proto_register_dplay.hf = internal global [164 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_dplay_size, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_token, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 7, i32 2, ptr @dplay_token_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_saddr_af, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 5, i32 2, ptr @dplay_af_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_saddr_port, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_saddr_ip, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 32, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_saddr_padding, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_play_str, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_command, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 5, i32 2, ptr @dplay_command_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_proto_dialect, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 5, i32 2, ptr @dplay_proto_dialect_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_play_str_2, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_command_2, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 5, i32 2, ptr @dplay_command_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_proto_dialect_2, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 5, i32 2, ptr @dplay_proto_dialect_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_player_msg, %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_sess_desc_flags, %struct._header_field_info { ptr @.str.26, ptr @.str.27, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_flags_no_create_players, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 2, i32 32, ptr @tfs_present_absent, i64 1, ptr @.str.30, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_flags_0002, %struct._header_field_info { ptr @.str.31, ptr @.str.32, i32 2, i32 32, ptr @tfs_present_absent, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_flags_migrate_host, %struct._header_field_info { ptr @.str.33, ptr @.str.34, i32 2, i32 32, ptr @tfs_present_absent, i64 4, ptr @.str.35, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_flags_short_player_msg, %struct._header_field_info { ptr @.str.36, ptr @.str.37, i32 2, i32 32, ptr @tfs_present_absent, i64 8, ptr @.str.38, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_flags_ignored, %struct._header_field_info { ptr @.str.39, ptr @.str.40, i32 2, i32 32, ptr @tfs_present_absent, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_flags_can_join, %struct._header_field_info { ptr @.str.41, ptr @.str.42, i32 2, i32 32, ptr @tfs_present_absent, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_flags_use_ping, %struct._header_field_info { ptr @.str.43, ptr @.str.44, i32 2, i32 32, ptr @tfs_present_absent, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_flags_no_player_updates, %struct._header_field_info { ptr @.str.45, ptr @.str.46, i32 2, i32 32, ptr @tfs_present_absent, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_flags_use_auth, %struct._header_field_info { ptr @.str.47, ptr @.str.48, i32 2, i32 32, ptr @tfs_present_absent, i64 256, ptr @.str.49, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_flags_private_session, %struct._header_field_info { ptr @.str.50, ptr @.str.51, i32 2, i32 32, ptr @tfs_present_absent, i64 512, ptr @.str.52, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_flags_password_req, %struct._header_field_info { ptr @.str.53, ptr @.str.54, i32 2, i32 32, ptr @tfs_present_absent, i64 1024, ptr @.str.55, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_flags_route, %struct._header_field_info { ptr @.str.56, ptr @.str.57, i32 2, i32 32, ptr @tfs_present_absent, i64 2048, ptr @.str.58, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_flags_server_player_only, %struct._header_field_info { ptr @.str.59, ptr @.str.60, i32 2, i32 32, ptr @tfs_present_absent, i64 4096, ptr @.str.61, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_flags_reliable, %struct._header_field_info { ptr @.str.62, ptr @.str.63, i32 2, i32 32, ptr @tfs_present_absent, i64 8192, ptr @.str.64, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_flags_preserve_order, %struct._header_field_info { ptr @.str.65, ptr @.str.66, i32 2, i32 32, ptr @tfs_present_absent, i64 16384, ptr @.str.67, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_flags_optimize_latency, %struct._header_field_info { ptr @.str.68, ptr @.str.69, i32 2, i32 32, ptr @tfs_present_absent, i64 32768, ptr @.str.70, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_flags_acqire_voice, %struct._header_field_info { ptr @.str.71, ptr @.str.72, i32 2, i32 32, ptr @tfs_present_absent, i64 65536, ptr @.str.73, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_flags_no_sess_desc_changes, %struct._header_field_info { ptr @.str.74, ptr @.str.75, i32 2, i32 32, ptr @tfs_present_absent, i64 131072, ptr @.str.76, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_instance_guid, %struct._header_field_info { ptr @.str.77, ptr @.str.78, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_game_guid, %struct._header_field_info { ptr @.str.79, ptr @.str.80, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_sess_desc_length, %struct._header_field_info { ptr @.str.81, ptr @.str.82, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_max_players, %struct._header_field_info { ptr @.str.83, ptr @.str.84, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_curr_players, %struct._header_field_info { ptr @.str.85, ptr @.str.86, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_sess_name_ptr, %struct._header_field_info { ptr @.str.87, ptr @.str.88, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_passwd_ptr, %struct._header_field_info { ptr @.str.89, ptr @.str.90, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_sess_desc_reserved_1, %struct._header_field_info { ptr @.str.91, ptr @.str.92, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_sess_desc_reserved_2, %struct._header_field_info { ptr @.str.93, ptr @.str.94, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_sess_desc_user_1, %struct._header_field_info { ptr @.str.95, ptr @.str.96, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_sess_desc_user_2, %struct._header_field_info { ptr @.str.97, ptr @.str.98, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_sess_desc_user_3, %struct._header_field_info { ptr @.str.99, ptr @.str.100, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_sess_desc_user_4, %struct._header_field_info { ptr @.str.101, ptr @.str.102, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_pp_size, %struct._header_field_info { ptr @.str.103, ptr @.str.104, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_pp_flags, %struct._header_field_info { ptr @.str.105, ptr @.str.106, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_pp_flag_sysplayer, %struct._header_field_info { ptr @.str.107, ptr @.str.108, i32 2, i32 32, ptr @tfs_present_absent, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_pp_flag_nameserver, %struct._header_field_info { ptr @.str.109, ptr @.str.110, i32 2, i32 32, ptr @tfs_present_absent, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_pp_flag_in_group, %struct._header_field_info { ptr @.str.111, ptr @.str.112, i32 2, i32 32, ptr @tfs_present_absent, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_pp_flag_sending, %struct._header_field_info { ptr @.str.113, ptr @.str.114, i32 2, i32 32, ptr @tfs_present_absent, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_pp_id, %struct._header_field_info { ptr @.str.115, ptr @.str.116, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_pp_short_name_len, %struct._header_field_info { ptr @.str.117, ptr @.str.118, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_pp_long_name_len, %struct._header_field_info { ptr @.str.119, ptr @.str.120, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_pp_sp_data_size, %struct._header_field_info { ptr @.str.121, ptr @.str.122, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_pp_player_data_size, %struct._header_field_info { ptr @.str.123, ptr @.str.124, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_pp_num_players, %struct._header_field_info { ptr @.str.125, ptr @.str.126, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_pp_system_player, %struct._header_field_info { ptr @.str.127, ptr @.str.128, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_pp_fixed_size, %struct._header_field_info { ptr @.str.129, ptr @.str.130, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_pp_dialect, %struct._header_field_info { ptr @.str.131, ptr @.str.132, i32 7, i32 2, ptr @dplay_proto_dialect_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_pp_unknown_1, %struct._header_field_info { ptr @.str.133, ptr @.str.134, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_pp_short_name, %struct._header_field_info { ptr @.str.135, ptr @.str.136, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_pp_long_name, %struct._header_field_info { ptr @.str.137, ptr @.str.138, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_pp_player_data, %struct._header_field_info { ptr @.str.139, ptr @.str.140, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_pp_sp_data, %struct._header_field_info { ptr @.str.141, ptr @.str.142, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_pp_player_id, %struct._header_field_info { ptr @.str.143, ptr @.str.144, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_pp_parent_id, %struct._header_field_info { ptr @.str.145, ptr @.str.146, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_size, %struct._header_field_info { ptr @.str.147, ptr @.str.148, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_flags, %struct._header_field_info { ptr @.str.149, ptr @.str.150, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_flags_sysplayer, %struct._header_field_info { ptr @.str.107, ptr @.str.151, i32 2, i32 32, ptr @tfs_present_absent, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_flags_nameserver, %struct._header_field_info { ptr @.str.109, ptr @.str.152, i32 2, i32 32, ptr @tfs_present_absent, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_flags_in_group, %struct._header_field_info { ptr @.str.111, ptr @.str.153, i32 2, i32 32, ptr @tfs_present_absent, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_flags_sending, %struct._header_field_info { ptr @.str.113, ptr @.str.154, i32 2, i32 32, ptr @tfs_present_absent, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_id, %struct._header_field_info { ptr @.str.155, ptr @.str.156, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_player_info_mask, %struct._header_field_info { ptr @.str.157, ptr @.str.158, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_have_short_name, %struct._header_field_info { ptr @.str.159, ptr @.str.160, i32 7, i32 2, ptr @yes_no_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_have_long_name, %struct._header_field_info { ptr @.str.161, ptr @.str.162, i32 7, i32 2, ptr @yes_no_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_sp_length_type, %struct._header_field_info { ptr @.str.163, ptr @.str.164, i32 7, i32 2, ptr @dplay_spp_length_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_pd_length_type, %struct._header_field_info { ptr @.str.165, ptr @.str.166, i32 7, i32 2, ptr @dplay_spp_length_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_player_count_type, %struct._header_field_info { ptr @.str.167, ptr @.str.168, i32 7, i32 2, ptr @dplay_spp_length_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_have_parent_id, %struct._header_field_info { ptr @.str.169, ptr @.str.170, i32 7, i32 2, ptr @yes_no_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_shortcut_count_type, %struct._header_field_info { ptr @.str.171, ptr @.str.172, i32 7, i32 2, ptr @dplay_spp_length_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_dialect, %struct._header_field_info { ptr @.str.173, ptr @.str.174, i32 7, i32 2, ptr @dplay_proto_dialect_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_sys_player_id, %struct._header_field_info { ptr @.str.175, ptr @.str.176, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_short_name, %struct._header_field_info { ptr @.str.177, ptr @.str.178, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_long_name, %struct._header_field_info { ptr @.str.179, ptr @.str.180, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_player_data_length, %struct._header_field_info { ptr @.str.181, ptr @.str.182, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_player_data, %struct._header_field_info { ptr @.str.183, ptr @.str.184, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_sp_data_length, %struct._header_field_info { ptr @.str.185, ptr @.str.186, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_sp_data, %struct._header_field_info { ptr @.str.187, ptr @.str.188, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_player_count, %struct._header_field_info { ptr @.str.189, ptr @.str.190, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_player_id, %struct._header_field_info { ptr @.str.191, ptr @.str.192, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_parent_id, %struct._header_field_info { ptr @.str.193, ptr @.str.194, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_shortcut_count, %struct._header_field_info { ptr @.str.195, ptr @.str.196, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_shortcut_id, %struct._header_field_info { ptr @.str.197, ptr @.str.198, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_sd_size, %struct._header_field_info { ptr @.str.199, ptr @.str.200, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_sd_flags, %struct._header_field_info { ptr @.str.201, ptr @.str.202, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_sd_sspi, %struct._header_field_info { ptr @.str.203, ptr @.str.204, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_sd_capi, %struct._header_field_info { ptr @.str.205, ptr @.str.206, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_sd_capi_type, %struct._header_field_info { ptr @.str.207, ptr @.str.208, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_sd_enc_alg, %struct._header_field_info { ptr @.str.209, ptr @.str.210, i32 7, i32 2, ptr @dplay_enc_alg_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_01_name_offset, %struct._header_field_info { ptr @.str.211, ptr @.str.212, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_01_game_name, %struct._header_field_info { ptr @.str.213, ptr @.str.214, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_02_game_guid, %struct._header_field_info { ptr @.str.79, ptr @.str.215, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_02_password_offset, %struct._header_field_info { ptr @.str.216, ptr @.str.217, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_02_flags, %struct._header_field_info { ptr @.str.218, ptr @.str.219, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_02_password, %struct._header_field_info { ptr @.str.220, ptr @.str.221, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_enum_sess_flag_join, %struct._header_field_info { ptr @.str.222, ptr @.str.223, i32 2, i32 32, ptr @tfs_present_absent, i64 1, ptr @.str.224, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_enum_sess_flag_all, %struct._header_field_info { ptr @.str.225, ptr @.str.226, i32 2, i32 32, ptr @tfs_present_absent, i64 2, ptr @.str.227, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_enum_sess_flag_passwd, %struct._header_field_info { ptr @.str.228, ptr @.str.229, i32 2, i32 32, ptr @tfs_present_absent, i64 64, ptr @.str.230, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_05_flags, %struct._header_field_info { ptr @.str.231, ptr @.str.232, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_05_system_player, %struct._header_field_info { ptr @.str.107, ptr @.str.233, i32 2, i32 32, ptr @tfs_present_absent, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_05_name_server, %struct._header_field_info { ptr @.str.109, ptr @.str.234, i32 2, i32 32, ptr @tfs_present_absent, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_05_local, %struct._header_field_info { ptr @.str.235, ptr @.str.236, i32 2, i32 32, ptr @tfs_present_absent, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_05_unknown, %struct._header_field_info { ptr @.str.237, ptr @.str.238, i32 2, i32 32, ptr @tfs_present_absent, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_05_secure, %struct._header_field_info { ptr @.str.239, ptr @.str.240, i32 2, i32 32, ptr @tfs_present_absent, i64 512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_07_dpid, %struct._header_field_info { ptr @.str.241, ptr @.str.242, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_07_sspi_offset, %struct._header_field_info { ptr @.str.243, ptr @.str.244, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_07_capi_offset, %struct._header_field_info { ptr @.str.245, ptr @.str.246, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_07_hresult, %struct._header_field_info { ptr @.str.247, ptr @.str.248, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_07_sspi, %struct._header_field_info { ptr @.str.249, ptr @.str.250, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_07_capi, %struct._header_field_info { ptr @.str.251, ptr @.str.252, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_multi_id_to, %struct._header_field_info { ptr @.str.253, ptr @.str.254, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_multi_player_id, %struct._header_field_info { ptr @.str.255, ptr @.str.256, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_multi_group_id, %struct._header_field_info { ptr @.str.257, ptr @.str.258, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_multi_create_offset, %struct._header_field_info { ptr @.str.259, ptr @.str.260, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_multi_password_offset, %struct._header_field_info { ptr @.str.261, ptr @.str.262, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_multi_password, %struct._header_field_info { ptr @.str.230, ptr @.str.263, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_0f_id_to, %struct._header_field_info { ptr @.str.253, ptr @.str.264, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_0f_id, %struct._header_field_info { ptr @.str.255, ptr @.str.265, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_0f_data_size, %struct._header_field_info { ptr @.str.266, ptr @.str.267, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_0f_data_offset, %struct._header_field_info { ptr @.str.268, ptr @.str.269, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_0f_data, %struct._header_field_info { ptr @.str.270, ptr @.str.271, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_13_id_to, %struct._header_field_info { ptr @.str.253, ptr @.str.272, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_13_player_id, %struct._header_field_info { ptr @.str.255, ptr @.str.273, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_13_group_id, %struct._header_field_info { ptr @.str.257, ptr @.str.274, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_13_create_offset, %struct._header_field_info { ptr @.str.275, ptr @.str.276, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_13_password_offset, %struct._header_field_info { ptr @.str.277, ptr @.str.278, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_13_password, %struct._header_field_info { ptr @.str.230, ptr @.str.279, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_13_tick_count, %struct._header_field_info { ptr @.str.280, ptr @.str.281, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_message_guid, %struct._header_field_info { ptr @.str.282, ptr @.str.283, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_15_packet_idx, %struct._header_field_info { ptr @.str.284, ptr @.str.285, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_15_data_size, %struct._header_field_info { ptr @.str.266, ptr @.str.286, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_15_offset, %struct._header_field_info { ptr @.str.287, ptr @.str.288, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_15_total_packets, %struct._header_field_info { ptr @.str.289, ptr @.str.290, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_15_msg_size, %struct._header_field_info { ptr @.str.291, ptr @.str.292, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_15_packet_offset, %struct._header_field_info { ptr @.str.293, ptr @.str.294, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_ping_id_from, %struct._header_field_info { ptr @.str.295, ptr @.str.296, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_ping_tick_count, %struct._header_field_info { ptr @.str.297, ptr @.str.298, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_1a_id_to, %struct._header_field_info { ptr @.str.295, ptr @.str.299, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_1a_sess_name_ofs, %struct._header_field_info { ptr @.str.300, ptr @.str.301, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_1a_password_ofs, %struct._header_field_info { ptr @.str.277, ptr @.str.302, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_1a_session_name, %struct._header_field_info { ptr @.str.303, ptr @.str.304, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_1a_password, %struct._header_field_info { ptr @.str.230, ptr @.str.305, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_29_player_count, %struct._header_field_info { ptr @.str.306, ptr @.str.307, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_29_group_count, %struct._header_field_info { ptr @.str.308, ptr @.str.309, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_29_packed_offset, %struct._header_field_info { ptr @.str.310, ptr @.str.311, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_29_shortcut_count, %struct._header_field_info { ptr @.str.312, ptr @.str.313, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_29_description_offset, %struct._header_field_info { ptr @.str.314, ptr @.str.315, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_29_name_offset, %struct._header_field_info { ptr @.str.316, ptr @.str.317, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_29_password_offset, %struct._header_field_info { ptr @.str.318, ptr @.str.319, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_29_game_name, %struct._header_field_info { ptr @.str.320, ptr @.str.321, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_29_password, %struct._header_field_info { ptr @.str.322, ptr @.str.323, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_2f_dpid, %struct._header_field_info { ptr @.str.324, ptr @.str.325, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
+@proto_register_dplay.hf = internal global [164 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_dplay_size, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_token, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 7, i32 2, ptr @dplay_token_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_saddr_af, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 5, i32 2, ptr @dplay_af_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_saddr_port, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_saddr_ip, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 32, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_saddr_padding, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_play_str, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_command, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 5, i32 2, ptr @dplay_command_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_proto_dialect, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 5, i32 2, ptr @dplay_proto_dialect_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_play_str_2, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_command_2, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 5, i32 2, ptr @dplay_command_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_proto_dialect_2, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 5, i32 2, ptr @dplay_proto_dialect_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_player_msg, %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_sess_desc_flags, %struct._header_field_info { ptr @.str.26, ptr @.str.27, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_flags_no_create_players, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 2, i32 32, ptr @tfs_present_absent, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_flags_0002, %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 2, i32 32, ptr @tfs_present_absent, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_flags_migrate_host, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 2, i32 32, ptr @tfs_present_absent, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_flags_short_player_msg, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 2, i32 32, ptr @tfs_present_absent, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_flags_ignored, %struct._header_field_info { ptr @.str.36, ptr @.str.37, i32 2, i32 32, ptr @tfs_present_absent, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_flags_can_join, %struct._header_field_info { ptr @.str.38, ptr @.str.39, i32 2, i32 32, ptr @tfs_present_absent, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_flags_use_ping, %struct._header_field_info { ptr @.str.40, ptr @.str.41, i32 2, i32 32, ptr @tfs_present_absent, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_flags_no_player_updates, %struct._header_field_info { ptr @.str.42, ptr @.str.43, i32 2, i32 32, ptr @tfs_present_absent, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_flags_use_auth, %struct._header_field_info { ptr @.str.44, ptr @.str.45, i32 2, i32 32, ptr @tfs_present_absent, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_flags_private_session, %struct._header_field_info { ptr @.str.46, ptr @.str.47, i32 2, i32 32, ptr @tfs_present_absent, i64 512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_flags_password_req, %struct._header_field_info { ptr @.str.48, ptr @.str.49, i32 2, i32 32, ptr @tfs_present_absent, i64 1024, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_flags_route, %struct._header_field_info { ptr @.str.50, ptr @.str.51, i32 2, i32 32, ptr @tfs_present_absent, i64 2048, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_flags_server_player_only, %struct._header_field_info { ptr @.str.52, ptr @.str.53, i32 2, i32 32, ptr @tfs_present_absent, i64 4096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_flags_reliable, %struct._header_field_info { ptr @.str.54, ptr @.str.55, i32 2, i32 32, ptr @tfs_present_absent, i64 8192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_flags_preserve_order, %struct._header_field_info { ptr @.str.56, ptr @.str.57, i32 2, i32 32, ptr @tfs_present_absent, i64 16384, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_flags_optimize_latency, %struct._header_field_info { ptr @.str.58, ptr @.str.59, i32 2, i32 32, ptr @tfs_present_absent, i64 32768, ptr @.str.60, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_flags_acqire_voice, %struct._header_field_info { ptr @.str.61, ptr @.str.62, i32 2, i32 32, ptr @tfs_present_absent, i64 65536, ptr @.str.63, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_flags_no_sess_desc_changes, %struct._header_field_info { ptr @.str.64, ptr @.str.65, i32 2, i32 32, ptr @tfs_present_absent, i64 131072, ptr @.str.66, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_instance_guid, %struct._header_field_info { ptr @.str.67, ptr @.str.68, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_game_guid, %struct._header_field_info { ptr @.str.69, ptr @.str.70, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_sess_desc_length, %struct._header_field_info { ptr @.str.71, ptr @.str.72, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_max_players, %struct._header_field_info { ptr @.str.73, ptr @.str.74, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_curr_players, %struct._header_field_info { ptr @.str.75, ptr @.str.76, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_sess_name_ptr, %struct._header_field_info { ptr @.str.77, ptr @.str.78, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_passwd_ptr, %struct._header_field_info { ptr @.str.79, ptr @.str.80, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_sess_desc_reserved_1, %struct._header_field_info { ptr @.str.81, ptr @.str.82, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_sess_desc_reserved_2, %struct._header_field_info { ptr @.str.83, ptr @.str.84, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_sess_desc_user_1, %struct._header_field_info { ptr @.str.85, ptr @.str.86, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_sess_desc_user_2, %struct._header_field_info { ptr @.str.87, ptr @.str.88, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_sess_desc_user_3, %struct._header_field_info { ptr @.str.89, ptr @.str.90, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_sess_desc_user_4, %struct._header_field_info { ptr @.str.91, ptr @.str.92, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_pp_size, %struct._header_field_info { ptr @.str.93, ptr @.str.94, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_pp_flags, %struct._header_field_info { ptr @.str.95, ptr @.str.96, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_pp_flag_sysplayer, %struct._header_field_info { ptr @.str.97, ptr @.str.98, i32 2, i32 32, ptr @tfs_present_absent, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_pp_flag_nameserver, %struct._header_field_info { ptr @.str.99, ptr @.str.100, i32 2, i32 32, ptr @tfs_present_absent, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_pp_flag_in_group, %struct._header_field_info { ptr @.str.101, ptr @.str.102, i32 2, i32 32, ptr @tfs_present_absent, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_pp_flag_sending, %struct._header_field_info { ptr @.str.103, ptr @.str.104, i32 2, i32 32, ptr @tfs_present_absent, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_pp_id, %struct._header_field_info { ptr @.str.105, ptr @.str.106, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_pp_short_name_len, %struct._header_field_info { ptr @.str.107, ptr @.str.108, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_pp_long_name_len, %struct._header_field_info { ptr @.str.109, ptr @.str.110, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_pp_sp_data_size, %struct._header_field_info { ptr @.str.111, ptr @.str.112, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_pp_player_data_size, %struct._header_field_info { ptr @.str.113, ptr @.str.114, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_pp_num_players, %struct._header_field_info { ptr @.str.115, ptr @.str.116, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_pp_system_player, %struct._header_field_info { ptr @.str.117, ptr @.str.118, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_pp_fixed_size, %struct._header_field_info { ptr @.str.119, ptr @.str.120, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_pp_dialect, %struct._header_field_info { ptr @.str.121, ptr @.str.122, i32 7, i32 2, ptr @dplay_proto_dialect_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_pp_unknown_1, %struct._header_field_info { ptr @.str.123, ptr @.str.124, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_pp_short_name, %struct._header_field_info { ptr @.str.125, ptr @.str.126, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_pp_long_name, %struct._header_field_info { ptr @.str.127, ptr @.str.128, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_pp_player_data, %struct._header_field_info { ptr @.str.129, ptr @.str.130, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_pp_sp_data, %struct._header_field_info { ptr @.str.131, ptr @.str.132, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_pp_player_id, %struct._header_field_info { ptr @.str.133, ptr @.str.134, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_pp_parent_id, %struct._header_field_info { ptr @.str.135, ptr @.str.136, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_size, %struct._header_field_info { ptr @.str.137, ptr @.str.138, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_flags, %struct._header_field_info { ptr @.str.139, ptr @.str.140, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_flags_sysplayer, %struct._header_field_info { ptr @.str.97, ptr @.str.141, i32 2, i32 32, ptr @tfs_present_absent, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_flags_nameserver, %struct._header_field_info { ptr @.str.99, ptr @.str.142, i32 2, i32 32, ptr @tfs_present_absent, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_flags_in_group, %struct._header_field_info { ptr @.str.101, ptr @.str.143, i32 2, i32 32, ptr @tfs_present_absent, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_flags_sending, %struct._header_field_info { ptr @.str.103, ptr @.str.144, i32 2, i32 32, ptr @tfs_present_absent, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_id, %struct._header_field_info { ptr @.str.145, ptr @.str.146, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_player_info_mask, %struct._header_field_info { ptr @.str.147, ptr @.str.148, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_have_short_name, %struct._header_field_info { ptr @.str.149, ptr @.str.150, i32 7, i32 2, ptr @yes_no_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_have_long_name, %struct._header_field_info { ptr @.str.151, ptr @.str.152, i32 7, i32 2, ptr @yes_no_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_sp_length_type, %struct._header_field_info { ptr @.str.153, ptr @.str.154, i32 7, i32 2, ptr @dplay_spp_length_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_pd_length_type, %struct._header_field_info { ptr @.str.155, ptr @.str.156, i32 7, i32 2, ptr @dplay_spp_length_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_player_count_type, %struct._header_field_info { ptr @.str.157, ptr @.str.158, i32 7, i32 2, ptr @dplay_spp_length_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_have_parent_id, %struct._header_field_info { ptr @.str.159, ptr @.str.160, i32 7, i32 2, ptr @yes_no_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_shortcut_count_type, %struct._header_field_info { ptr @.str.161, ptr @.str.162, i32 7, i32 2, ptr @dplay_spp_length_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_dialect, %struct._header_field_info { ptr @.str.163, ptr @.str.164, i32 7, i32 2, ptr @dplay_proto_dialect_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_sys_player_id, %struct._header_field_info { ptr @.str.165, ptr @.str.166, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_short_name, %struct._header_field_info { ptr @.str.167, ptr @.str.168, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_long_name, %struct._header_field_info { ptr @.str.169, ptr @.str.170, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_player_data_length, %struct._header_field_info { ptr @.str.171, ptr @.str.172, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_player_data, %struct._header_field_info { ptr @.str.173, ptr @.str.174, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_sp_data_length, %struct._header_field_info { ptr @.str.175, ptr @.str.176, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_sp_data, %struct._header_field_info { ptr @.str.177, ptr @.str.178, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_player_count, %struct._header_field_info { ptr @.str.179, ptr @.str.180, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_player_id, %struct._header_field_info { ptr @.str.181, ptr @.str.182, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_parent_id, %struct._header_field_info { ptr @.str.183, ptr @.str.184, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_shortcut_count, %struct._header_field_info { ptr @.str.185, ptr @.str.186, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_spp_shortcut_id, %struct._header_field_info { ptr @.str.187, ptr @.str.188, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_sd_size, %struct._header_field_info { ptr @.str.189, ptr @.str.190, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_sd_flags, %struct._header_field_info { ptr @.str.191, ptr @.str.192, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_sd_sspi, %struct._header_field_info { ptr @.str.193, ptr @.str.194, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_sd_capi, %struct._header_field_info { ptr @.str.195, ptr @.str.196, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_sd_capi_type, %struct._header_field_info { ptr @.str.197, ptr @.str.198, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_sd_enc_alg, %struct._header_field_info { ptr @.str.199, ptr @.str.200, i32 7, i32 2, ptr @dplay_enc_alg_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_01_name_offset, %struct._header_field_info { ptr @.str.201, ptr @.str.202, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_01_game_name, %struct._header_field_info { ptr @.str.203, ptr @.str.204, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_02_game_guid, %struct._header_field_info { ptr @.str.69, ptr @.str.205, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_02_password_offset, %struct._header_field_info { ptr @.str.206, ptr @.str.207, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_02_flags, %struct._header_field_info { ptr @.str.208, ptr @.str.209, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_02_password, %struct._header_field_info { ptr @.str.210, ptr @.str.211, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_enum_sess_flag_join, %struct._header_field_info { ptr @.str.212, ptr @.str.213, i32 2, i32 32, ptr @tfs_present_absent, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_enum_sess_flag_all, %struct._header_field_info { ptr @.str.214, ptr @.str.215, i32 2, i32 32, ptr @tfs_present_absent, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_enum_sess_flag_passwd, %struct._header_field_info { ptr @.str.216, ptr @.str.217, i32 2, i32 32, ptr @tfs_present_absent, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_05_flags, %struct._header_field_info { ptr @.str.218, ptr @.str.219, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_05_system_player, %struct._header_field_info { ptr @.str.97, ptr @.str.220, i32 2, i32 32, ptr @tfs_present_absent, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_05_name_server, %struct._header_field_info { ptr @.str.99, ptr @.str.221, i32 2, i32 32, ptr @tfs_present_absent, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_05_local, %struct._header_field_info { ptr @.str.222, ptr @.str.223, i32 2, i32 32, ptr @tfs_present_absent, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_05_unknown, %struct._header_field_info { ptr @.str.224, ptr @.str.225, i32 2, i32 32, ptr @tfs_present_absent, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_05_secure, %struct._header_field_info { ptr @.str.226, ptr @.str.227, i32 2, i32 32, ptr @tfs_present_absent, i64 512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_07_dpid, %struct._header_field_info { ptr @.str.228, ptr @.str.229, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_07_sspi_offset, %struct._header_field_info { ptr @.str.230, ptr @.str.231, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_07_capi_offset, %struct._header_field_info { ptr @.str.232, ptr @.str.233, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_07_hresult, %struct._header_field_info { ptr @.str.234, ptr @.str.235, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_07_sspi, %struct._header_field_info { ptr @.str.236, ptr @.str.237, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_07_capi, %struct._header_field_info { ptr @.str.238, ptr @.str.239, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_multi_id_to, %struct._header_field_info { ptr @.str.240, ptr @.str.241, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_multi_player_id, %struct._header_field_info { ptr @.str.242, ptr @.str.243, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_multi_group_id, %struct._header_field_info { ptr @.str.244, ptr @.str.245, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_multi_create_offset, %struct._header_field_info { ptr @.str.246, ptr @.str.247, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_multi_password_offset, %struct._header_field_info { ptr @.str.248, ptr @.str.249, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_multi_password, %struct._header_field_info { ptr @.str.250, ptr @.str.251, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_0f_id_to, %struct._header_field_info { ptr @.str.240, ptr @.str.252, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_0f_id, %struct._header_field_info { ptr @.str.242, ptr @.str.253, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_0f_data_size, %struct._header_field_info { ptr @.str.254, ptr @.str.255, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_0f_data_offset, %struct._header_field_info { ptr @.str.256, ptr @.str.257, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_0f_data, %struct._header_field_info { ptr @.str.258, ptr @.str.259, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_13_id_to, %struct._header_field_info { ptr @.str.240, ptr @.str.260, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_13_player_id, %struct._header_field_info { ptr @.str.242, ptr @.str.261, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_13_group_id, %struct._header_field_info { ptr @.str.244, ptr @.str.262, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_13_create_offset, %struct._header_field_info { ptr @.str.263, ptr @.str.264, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_13_password_offset, %struct._header_field_info { ptr @.str.265, ptr @.str.266, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_13_password, %struct._header_field_info { ptr @.str.250, ptr @.str.267, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_13_tick_count, %struct._header_field_info { ptr @.str.268, ptr @.str.269, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_message_guid, %struct._header_field_info { ptr @.str.270, ptr @.str.271, i32 36, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_15_packet_idx, %struct._header_field_info { ptr @.str.272, ptr @.str.273, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_15_data_size, %struct._header_field_info { ptr @.str.254, ptr @.str.274, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_15_offset, %struct._header_field_info { ptr @.str.275, ptr @.str.276, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_15_total_packets, %struct._header_field_info { ptr @.str.277, ptr @.str.278, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_15_msg_size, %struct._header_field_info { ptr @.str.279, ptr @.str.280, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_15_packet_offset, %struct._header_field_info { ptr @.str.281, ptr @.str.282, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_ping_id_from, %struct._header_field_info { ptr @.str.283, ptr @.str.284, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_ping_tick_count, %struct._header_field_info { ptr @.str.285, ptr @.str.286, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_1a_id_to, %struct._header_field_info { ptr @.str.283, ptr @.str.287, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_1a_sess_name_ofs, %struct._header_field_info { ptr @.str.288, ptr @.str.289, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_1a_password_ofs, %struct._header_field_info { ptr @.str.265, ptr @.str.290, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_1a_session_name, %struct._header_field_info { ptr @.str.291, ptr @.str.292, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_1a_password, %struct._header_field_info { ptr @.str.250, ptr @.str.293, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_29_player_count, %struct._header_field_info { ptr @.str.294, ptr @.str.295, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_29_group_count, %struct._header_field_info { ptr @.str.296, ptr @.str.297, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_29_packed_offset, %struct._header_field_info { ptr @.str.298, ptr @.str.299, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_29_shortcut_count, %struct._header_field_info { ptr @.str.300, ptr @.str.301, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_29_description_offset, %struct._header_field_info { ptr @.str.302, ptr @.str.303, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_29_name_offset, %struct._header_field_info { ptr @.str.304, ptr @.str.305, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_29_password_offset, %struct._header_field_info { ptr @.str.306, ptr @.str.307, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_29_game_name, %struct._header_field_info { ptr @.str.308, ptr @.str.309, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_29_password, %struct._header_field_info { ptr @.str.310, ptr @.str.311, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dplay_type_2f_dpid, %struct._header_field_info { ptr @.str.312, ptr @.str.313, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_dplay_size = internal global i32 0, align 4
 @.str = private unnamed_addr constant [24 x i8] c"DirectPlay package size\00", align 1
 @.str.1 = private unnamed_addr constant [11 x i8] c"dplay.size\00", align 1
 @hf_dplay_token = internal global i32 0, align 4
 @.str.2 = private unnamed_addr constant [17 x i8] c"DirectPlay token\00", align 1
 @.str.3 = private unnamed_addr constant [12 x i8] c"dplay.token\00", align 1
-@dplay_token_val = internal constant [4 x %struct._value_string] [%struct._value_string { i32 4011, ptr @.str.335 }, %struct._value_string { i32 3243, ptr @.str.336 }, %struct._value_string { i32 2987, ptr @.str.337 }, %struct._value_string zeroinitializer], align 16
 @hf_dplay_saddr_af = internal global i32 0, align 4
 @.str.4 = private unnamed_addr constant [36 x i8] c"DirectPlay s_addr_in address family\00", align 1
 @.str.5 = private unnamed_addr constant [15 x i8] c"dplay.saddr.af\00", align 1
-@dplay_af_val = internal constant [3 x %struct._value_string] [%struct._value_string { i32 2, ptr @.str.338 }, %struct._value_string { i32 6, ptr @.str.339 }, %struct._value_string zeroinitializer], align 16
 @hf_dplay_saddr_port = internal global i32 0, align 4
 @.str.6 = private unnamed_addr constant [26 x i8] c"DirectPlay s_addr_in port\00", align 1
 @.str.7 = private unnamed_addr constant [17 x i8] c"dplay.saddr.port\00", align 1
@@ -37,11 +34,9 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_dplay_command = internal global i32 0, align 4
 @.str.14 = private unnamed_addr constant [19 x i8] c"DirectPlay command\00", align 1
 @.str.15 = private unnamed_addr constant [14 x i8] c"dplay.command\00", align 1
-@dplay_command_val = internal constant [50 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.340 }, %struct._value_string { i32 2, ptr @.str.341 }, %struct._value_string { i32 3, ptr @.str.342 }, %struct._value_string { i32 4, ptr @.str.343 }, %struct._value_string { i32 5, ptr @.str.344 }, %struct._value_string { i32 6, ptr @.str.345 }, %struct._value_string { i32 7, ptr @.str.346 }, %struct._value_string { i32 8, ptr @.str.347 }, %struct._value_string { i32 9, ptr @.str.348 }, %struct._value_string { i32 10, ptr @.str.349 }, %struct._value_string { i32 11, ptr @.str.350 }, %struct._value_string { i32 12, ptr @.str.351 }, %struct._value_string { i32 13, ptr @.str.352 }, %struct._value_string { i32 14, ptr @.str.353 }, %struct._value_string { i32 15, ptr @.str.354 }, %struct._value_string { i32 16, ptr @.str.355 }, %struct._value_string { i32 17, ptr @.str.356 }, %struct._value_string { i32 18, ptr @.str.357 }, %struct._value_string { i32 19, ptr @.str.358 }, %struct._value_string { i32 21, ptr @.str.359 }, %struct._value_string { i32 22, ptr @.str.360 }, %struct._value_string { i32 23, ptr @.str.361 }, %struct._value_string { i32 24, ptr @.str.362 }, %struct._value_string { i32 25, ptr @.str.363 }, %struct._value_string { i32 26, ptr @.str.364 }, %struct._value_string { i32 28, ptr @.str.365 }, %struct._value_string { i32 29, ptr @.str.366 }, %struct._value_string { i32 30, ptr @.str.367 }, %struct._value_string { i32 31, ptr @.str.368 }, %struct._value_string { i32 32, ptr @.str.369 }, %struct._value_string { i32 33, ptr @.str.370 }, %struct._value_string { i32 34, ptr @.str.371 }, %struct._value_string { i32 36, ptr @.str.372 }, %struct._value_string { i32 37, ptr @.str.373 }, %struct._value_string { i32 38, ptr @.str.374 }, %struct._value_string { i32 39, ptr @.str.375 }, %struct._value_string { i32 40, ptr @.str.376 }, %struct._value_string { i32 41, ptr @.str.377 }, %struct._value_string { i32 43, ptr @.str.378 }, %struct._value_string { i32 44, ptr @.str.379 }, %struct._value_string { i32 45, ptr @.str.380 }, %struct._value_string { i32 46, ptr @.str.381 }, %struct._value_string { i32 47, ptr @.str.382 }, %struct._value_string { i32 48, ptr @.str.383 }, %struct._value_string { i32 49, ptr @.str.384 }, %struct._value_string { i32 53, ptr @.str.385 }, %struct._value_string { i32 54, ptr @.str.386 }, %struct._value_string { i32 55, ptr @.str.387 }, %struct._value_string { i32 56, ptr @.str.388 }, %struct._value_string zeroinitializer], align 16
 @hf_dplay_proto_dialect = internal global i32 0, align 4
 @.str.16 = private unnamed_addr constant [27 x i8] c"DirectPlay dialect version\00", align 1
 @.str.17 = private unnamed_addr constant [22 x i8] c"dplay.dialect.version\00", align 1
-@dplay_proto_dialect_val = internal constant [7 x %struct._value_string] [%struct._value_string { i32 9, ptr @.str.389 }, %struct._value_string { i32 10, ptr @.str.390 }, %struct._value_string { i32 11, ptr @.str.391 }, %struct._value_string { i32 12, ptr @.str.392 }, %struct._value_string { i32 13, ptr @.str.393 }, %struct._value_string { i32 14, ptr @.str.394 }, %struct._value_string zeroinitializer], align 16
 @hf_dplay_play_str_2 = internal global i32 0, align 4
 @.str.18 = private unnamed_addr constant [32 x i8] c"DirectPlay second action string\00", align 1
 @.str.19 = private unnamed_addr constant [18 x i8] c"dplay.dplay_str_2\00", align 1
@@ -61,454 +56,439 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.28 = private unnamed_addr constant [23 x i8] c"no create players flag\00", align 1
 @.str.29 = private unnamed_addr constant [30 x i8] c"dplay.flags.no_create_players\00", align 1
 @tfs_present_absent = external constant %struct.true_false_string, align 8
-@.str.30 = private unnamed_addr constant [18 x i8] c"No Create Players\00", align 1
 @hf_dplay_flags_0002 = internal global i32 0, align 4
-@.str.31 = private unnamed_addr constant [7 x i8] c"unused\00", align 1
-@.str.32 = private unnamed_addr constant [19 x i8] c"dplay.flags.unused\00", align 1
+@.str.30 = private unnamed_addr constant [7 x i8] c"unused\00", align 1
+@.str.31 = private unnamed_addr constant [19 x i8] c"dplay.flags.unused\00", align 1
 @hf_dplay_flags_migrate_host = internal global i32 0, align 4
-@.str.33 = private unnamed_addr constant [18 x i8] c"migrate host flag\00", align 1
-@.str.34 = private unnamed_addr constant [25 x i8] c"dplay.flags.migrate_host\00", align 1
-@.str.35 = private unnamed_addr constant [13 x i8] c"Migrate Host\00", align 1
+@.str.32 = private unnamed_addr constant [18 x i8] c"migrate host flag\00", align 1
+@.str.33 = private unnamed_addr constant [25 x i8] c"dplay.flags.migrate_host\00", align 1
 @hf_dplay_flags_short_player_msg = internal global i32 0, align 4
-@.str.36 = private unnamed_addr constant [21 x i8] c"short player message\00", align 1
-@.str.37 = private unnamed_addr constant [29 x i8] c"dplay.flags.short_player_msg\00", align 1
-@.str.38 = private unnamed_addr constant [17 x i8] c"Short Player Msg\00", align 1
+@.str.34 = private unnamed_addr constant [21 x i8] c"short player message\00", align 1
+@.str.35 = private unnamed_addr constant [29 x i8] c"dplay.flags.short_player_msg\00", align 1
 @hf_dplay_flags_ignored = internal global i32 0, align 4
-@.str.39 = private unnamed_addr constant [8 x i8] c"ignored\00", align 1
-@.str.40 = private unnamed_addr constant [14 x i8] c"dplay.ignored\00", align 1
+@.str.36 = private unnamed_addr constant [8 x i8] c"ignored\00", align 1
+@.str.37 = private unnamed_addr constant [14 x i8] c"dplay.ignored\00", align 1
 @hf_dplay_flags_can_join = internal global i32 0, align 4
-@.str.41 = private unnamed_addr constant [9 x i8] c"can join\00", align 1
-@.str.42 = private unnamed_addr constant [21 x i8] c"dplay.flags.can_join\00", align 1
+@.str.38 = private unnamed_addr constant [9 x i8] c"can join\00", align 1
+@.str.39 = private unnamed_addr constant [21 x i8] c"dplay.flags.can_join\00", align 1
 @hf_dplay_flags_use_ping = internal global i32 0, align 4
-@.str.43 = private unnamed_addr constant [9 x i8] c"use ping\00", align 1
-@.str.44 = private unnamed_addr constant [21 x i8] c"dplay.flags.use_ping\00", align 1
+@.str.40 = private unnamed_addr constant [9 x i8] c"use ping\00", align 1
+@.str.41 = private unnamed_addr constant [21 x i8] c"dplay.flags.use_ping\00", align 1
 @hf_dplay_flags_no_player_updates = internal global i32 0, align 4
-@.str.45 = private unnamed_addr constant [18 x i8] c"no player updates\00", align 1
-@.str.46 = private unnamed_addr constant [30 x i8] c"dplay.flags.no_player_updates\00", align 1
+@.str.42 = private unnamed_addr constant [18 x i8] c"no player updates\00", align 1
+@.str.43 = private unnamed_addr constant [30 x i8] c"dplay.flags.no_player_updates\00", align 1
 @hf_dplay_flags_use_auth = internal global i32 0, align 4
-@.str.47 = private unnamed_addr constant [19 x i8] c"use authentication\00", align 1
-@.str.48 = private unnamed_addr constant [21 x i8] c"dplay.flags.use_auth\00", align 1
-@.str.49 = private unnamed_addr constant [9 x i8] c"Use Auth\00", align 1
+@.str.44 = private unnamed_addr constant [19 x i8] c"use authentication\00", align 1
+@.str.45 = private unnamed_addr constant [21 x i8] c"dplay.flags.use_auth\00", align 1
 @hf_dplay_flags_private_session = internal global i32 0, align 4
-@.str.50 = private unnamed_addr constant [16 x i8] c"private session\00", align 1
-@.str.51 = private unnamed_addr constant [22 x i8] c"dplay.flags.priv_sess\00", align 1
-@.str.52 = private unnamed_addr constant [13 x i8] c"Priv Session\00", align 1
+@.str.46 = private unnamed_addr constant [16 x i8] c"private session\00", align 1
+@.str.47 = private unnamed_addr constant [22 x i8] c"dplay.flags.priv_sess\00", align 1
 @hf_dplay_flags_password_req = internal global i32 0, align 4
-@.str.53 = private unnamed_addr constant [18 x i8] c"password required\00", align 1
-@.str.54 = private unnamed_addr constant [21 x i8] c"dplay.flags.pass_req\00", align 1
-@.str.55 = private unnamed_addr constant [9 x i8] c"Pass Req\00", align 1
+@.str.48 = private unnamed_addr constant [18 x i8] c"password required\00", align 1
+@.str.49 = private unnamed_addr constant [21 x i8] c"dplay.flags.pass_req\00", align 1
 @hf_dplay_flags_route = internal global i32 0, align 4
-@.str.56 = private unnamed_addr constant [20 x i8] c"route via game host\00", align 1
-@.str.57 = private unnamed_addr constant [18 x i8] c"dplay.flags.route\00", align 1
-@.str.58 = private unnamed_addr constant [6 x i8] c"Route\00", align 1
+@.str.50 = private unnamed_addr constant [20 x i8] c"route via game host\00", align 1
+@.str.51 = private unnamed_addr constant [18 x i8] c"dplay.flags.route\00", align 1
 @hf_dplay_flags_server_player_only = internal global i32 0, align 4
-@.str.59 = private unnamed_addr constant [23 x i8] c"get server player only\00", align 1
-@.str.60 = private unnamed_addr constant [23 x i8] c"dplay.flags.srv_p_only\00", align 1
-@.str.61 = private unnamed_addr constant [16 x i8] c"Svr Player Only\00", align 1
+@.str.52 = private unnamed_addr constant [23 x i8] c"get server player only\00", align 1
+@.str.53 = private unnamed_addr constant [23 x i8] c"dplay.flags.srv_p_only\00", align 1
 @hf_dplay_flags_reliable = internal global i32 0, align 4
-@.str.62 = private unnamed_addr constant [22 x i8] c"use reliable protocol\00", align 1
-@.str.63 = private unnamed_addr constant [21 x i8] c"dplay.flags.reliable\00", align 1
-@.str.64 = private unnamed_addr constant [9 x i8] c"Reliable\00", align 1
+@.str.54 = private unnamed_addr constant [22 x i8] c"use reliable protocol\00", align 1
+@.str.55 = private unnamed_addr constant [21 x i8] c"dplay.flags.reliable\00", align 1
 @hf_dplay_flags_preserve_order = internal global i32 0, align 4
-@.str.65 = private unnamed_addr constant [15 x i8] c"preserve order\00", align 1
-@.str.66 = private unnamed_addr constant [18 x i8] c"dplay.flags.order\00", align 1
-@.str.67 = private unnamed_addr constant [6 x i8] c"Order\00", align 1
+@.str.56 = private unnamed_addr constant [15 x i8] c"preserve order\00", align 1
+@.str.57 = private unnamed_addr constant [18 x i8] c"dplay.flags.order\00", align 1
 @hf_dplay_flags_optimize_latency = internal global i32 0, align 4
-@.str.68 = private unnamed_addr constant [21 x i8] c"optimize for latency\00", align 1
-@.str.69 = private unnamed_addr constant [24 x i8] c"dplay.flags.opt_latency\00", align 1
-@.str.70 = private unnamed_addr constant [12 x i8] c"Opt Latency\00", align 1
+@.str.58 = private unnamed_addr constant [21 x i8] c"optimize for latency\00", align 1
+@.str.59 = private unnamed_addr constant [24 x i8] c"dplay.flags.opt_latency\00", align 1
+@.str.60 = private unnamed_addr constant [12 x i8] c"Opt Latency\00", align 1
 @hf_dplay_flags_acqire_voice = internal global i32 0, align 4
-@.str.71 = private unnamed_addr constant [14 x i8] c"acquire voice\00", align 1
-@.str.72 = private unnamed_addr constant [22 x i8] c"dplay.flags.acq_voice\00", align 1
-@.str.73 = private unnamed_addr constant [10 x i8] c"Acq Voice\00", align 1
+@.str.61 = private unnamed_addr constant [14 x i8] c"acquire voice\00", align 1
+@.str.62 = private unnamed_addr constant [22 x i8] c"dplay.flags.acq_voice\00", align 1
+@.str.63 = private unnamed_addr constant [10 x i8] c"Acq Voice\00", align 1
 @hf_dplay_flags_no_sess_desc_changes = internal global i32 0, align 4
-@.str.74 = private unnamed_addr constant [24 x i8] c"no session desc changes\00", align 1
-@.str.75 = private unnamed_addr constant [25 x i8] c"dplay.flags.no_sess_desc\00", align 1
-@.str.76 = private unnamed_addr constant [21 x i8] c"No Sess Desc Changes\00", align 1
+@.str.64 = private unnamed_addr constant [24 x i8] c"no session desc changes\00", align 1
+@.str.65 = private unnamed_addr constant [25 x i8] c"dplay.flags.no_sess_desc\00", align 1
+@.str.66 = private unnamed_addr constant [21 x i8] c"No Sess Desc Changes\00", align 1
 @hf_dplay_instance_guid = internal global i32 0, align 4
-@.str.77 = private unnamed_addr constant [25 x i8] c"DirectPlay instance guid\00", align 1
-@.str.78 = private unnamed_addr constant [20 x i8] c"dplay.instance.guid\00", align 1
+@.str.67 = private unnamed_addr constant [25 x i8] c"DirectPlay instance guid\00", align 1
+@.str.68 = private unnamed_addr constant [20 x i8] c"dplay.instance.guid\00", align 1
 @hf_dplay_game_guid = internal global i32 0, align 4
-@.str.79 = private unnamed_addr constant [21 x i8] c"DirectPlay game GUID\00", align 1
-@.str.80 = private unnamed_addr constant [16 x i8] c"dplay.game.guid\00", align 1
+@.str.69 = private unnamed_addr constant [21 x i8] c"DirectPlay game GUID\00", align 1
+@.str.70 = private unnamed_addr constant [16 x i8] c"dplay.game.guid\00", align 1
 @hf_dplay_sess_desc_length = internal global i32 0, align 4
-@.str.81 = private unnamed_addr constant [31 x i8] c"DirectPlay session desc length\00", align 1
-@.str.82 = private unnamed_addr constant [23 x i8] c"dplay.sess_desc.length\00", align 1
+@.str.71 = private unnamed_addr constant [31 x i8] c"DirectPlay session desc length\00", align 1
+@.str.72 = private unnamed_addr constant [23 x i8] c"dplay.sess_desc.length\00", align 1
 @hf_dplay_max_players = internal global i32 0, align 4
-@.str.83 = private unnamed_addr constant [23 x i8] c"DirectPlay max players\00", align 1
-@.str.84 = private unnamed_addr constant [28 x i8] c"dplay.sess_desc.max_players\00", align 1
+@.str.73 = private unnamed_addr constant [23 x i8] c"DirectPlay max players\00", align 1
+@.str.74 = private unnamed_addr constant [28 x i8] c"dplay.sess_desc.max_players\00", align 1
 @hf_dplay_curr_players = internal global i32 0, align 4
-@.str.85 = private unnamed_addr constant [27 x i8] c"DirectPlay current players\00", align 1
-@.str.86 = private unnamed_addr constant [29 x i8] c"dplay.sess_desc.curr_players\00", align 1
+@.str.75 = private unnamed_addr constant [27 x i8] c"DirectPlay current players\00", align 1
+@.str.76 = private unnamed_addr constant [29 x i8] c"dplay.sess_desc.curr_players\00", align 1
 @hf_dplay_sess_name_ptr = internal global i32 0, align 4
-@.str.87 = private unnamed_addr constant [45 x i8] c"Session description name pointer placeholder\00", align 1
-@.str.88 = private unnamed_addr constant [25 x i8] c"dplay.sess_desc.name_ptr\00", align 1
+@.str.77 = private unnamed_addr constant [45 x i8] c"Session description name pointer placeholder\00", align 1
+@.str.78 = private unnamed_addr constant [25 x i8] c"dplay.sess_desc.name_ptr\00", align 1
 @hf_dplay_passwd_ptr = internal global i32 0, align 4
-@.str.89 = private unnamed_addr constant [49 x i8] c"Session description password pointer placeholder\00", align 1
-@.str.90 = private unnamed_addr constant [23 x i8] c"dplay.sess_desc.pw_ptr\00", align 1
+@.str.79 = private unnamed_addr constant [49 x i8] c"Session description password pointer placeholder\00", align 1
+@.str.80 = private unnamed_addr constant [23 x i8] c"dplay.sess_desc.pw_ptr\00", align 1
 @hf_dplay_sess_desc_reserved_1 = internal global i32 0, align 4
-@.str.91 = private unnamed_addr constant [31 x i8] c"Session description reserved 1\00", align 1
-@.str.92 = private unnamed_addr constant [22 x i8] c"dplay.sess_desc.res_1\00", align 1
+@.str.81 = private unnamed_addr constant [31 x i8] c"Session description reserved 1\00", align 1
+@.str.82 = private unnamed_addr constant [22 x i8] c"dplay.sess_desc.res_1\00", align 1
 @hf_dplay_sess_desc_reserved_2 = internal global i32 0, align 4
-@.str.93 = private unnamed_addr constant [31 x i8] c"Session description reserved 2\00", align 1
-@.str.94 = private unnamed_addr constant [22 x i8] c"dplay.sess_desc.res_2\00", align 1
+@.str.83 = private unnamed_addr constant [31 x i8] c"Session description reserved 2\00", align 1
+@.str.84 = private unnamed_addr constant [22 x i8] c"dplay.sess_desc.res_2\00", align 1
 @hf_dplay_sess_desc_user_1 = internal global i32 0, align 4
-@.str.95 = private unnamed_addr constant [35 x i8] c"Session description user defined 1\00", align 1
-@.str.96 = private unnamed_addr constant [23 x i8] c"dplay.sess_desc.user_1\00", align 1
+@.str.85 = private unnamed_addr constant [35 x i8] c"Session description user defined 1\00", align 1
+@.str.86 = private unnamed_addr constant [23 x i8] c"dplay.sess_desc.user_1\00", align 1
 @hf_dplay_sess_desc_user_2 = internal global i32 0, align 4
-@.str.97 = private unnamed_addr constant [35 x i8] c"Session description user defined 2\00", align 1
-@.str.98 = private unnamed_addr constant [23 x i8] c"dplay.sess_desc.user_2\00", align 1
+@.str.87 = private unnamed_addr constant [35 x i8] c"Session description user defined 2\00", align 1
+@.str.88 = private unnamed_addr constant [23 x i8] c"dplay.sess_desc.user_2\00", align 1
 @hf_dplay_sess_desc_user_3 = internal global i32 0, align 4
-@.str.99 = private unnamed_addr constant [35 x i8] c"Session description user defined 3\00", align 1
-@.str.100 = private unnamed_addr constant [23 x i8] c"dplay.sess_desc.user_3\00", align 1
+@.str.89 = private unnamed_addr constant [35 x i8] c"Session description user defined 3\00", align 1
+@.str.90 = private unnamed_addr constant [23 x i8] c"dplay.sess_desc.user_3\00", align 1
 @hf_dplay_sess_desc_user_4 = internal global i32 0, align 4
-@.str.101 = private unnamed_addr constant [35 x i8] c"Session description user defined 4\00", align 1
-@.str.102 = private unnamed_addr constant [23 x i8] c"dplay.sess_desc.user_4\00", align 1
+@.str.91 = private unnamed_addr constant [35 x i8] c"Session description user defined 4\00", align 1
+@.str.92 = private unnamed_addr constant [23 x i8] c"dplay.sess_desc.user_4\00", align 1
 @hf_dplay_pp_size = internal global i32 0, align 4
-@.str.103 = private unnamed_addr constant [18 x i8] c"PackedPlayer size\00", align 1
-@.str.104 = private unnamed_addr constant [14 x i8] c"dplay.pp.size\00", align 1
+@.str.93 = private unnamed_addr constant [18 x i8] c"PackedPlayer size\00", align 1
+@.str.94 = private unnamed_addr constant [14 x i8] c"dplay.pp.size\00", align 1
 @hf_dplay_pp_flags = internal global i32 0, align 4
-@.str.105 = private unnamed_addr constant [19 x i8] c"PackedPlayer flags\00", align 1
-@.str.106 = private unnamed_addr constant [15 x i8] c"dplay.pp.flags\00", align 1
+@.str.95 = private unnamed_addr constant [19 x i8] c"PackedPlayer flags\00", align 1
+@.str.96 = private unnamed_addr constant [15 x i8] c"dplay.pp.flags\00", align 1
 @hf_dplay_pp_flag_sysplayer = internal global i32 0, align 4
-@.str.107 = private unnamed_addr constant [17 x i8] c"is system player\00", align 1
-@.str.108 = private unnamed_addr constant [25 x i8] c"dplay.pp.flags.sysplayer\00", align 1
+@.str.97 = private unnamed_addr constant [17 x i8] c"is system player\00", align 1
+@.str.98 = private unnamed_addr constant [25 x i8] c"dplay.pp.flags.sysplayer\00", align 1
 @hf_dplay_pp_flag_nameserver = internal global i32 0, align 4
-@.str.109 = private unnamed_addr constant [15 x i8] c"is name server\00", align 1
-@.str.110 = private unnamed_addr constant [26 x i8] c"dplay.pp.flags.nameserver\00", align 1
+@.str.99 = private unnamed_addr constant [15 x i8] c"is name server\00", align 1
+@.str.100 = private unnamed_addr constant [26 x i8] c"dplay.pp.flags.nameserver\00", align 1
 @hf_dplay_pp_flag_in_group = internal global i32 0, align 4
-@.str.111 = private unnamed_addr constant [9 x i8] c"in group\00", align 1
-@.str.112 = private unnamed_addr constant [24 x i8] c"dplay.pp.flags.in_group\00", align 1
+@.str.101 = private unnamed_addr constant [9 x i8] c"in group\00", align 1
+@.str.102 = private unnamed_addr constant [24 x i8] c"dplay.pp.flags.in_group\00", align 1
 @hf_dplay_pp_flag_sending = internal global i32 0, align 4
-@.str.113 = private unnamed_addr constant [32 x i8] c"sending player on local machine\00", align 1
-@.str.114 = private unnamed_addr constant [23 x i8] c"dplay.pp.flags.sending\00", align 1
+@.str.103 = private unnamed_addr constant [32 x i8] c"sending player on local machine\00", align 1
+@.str.104 = private unnamed_addr constant [23 x i8] c"dplay.pp.flags.sending\00", align 1
 @hf_dplay_pp_id = internal global i32 0, align 4
-@.str.115 = private unnamed_addr constant [16 x i8] c"PackedPlayer ID\00", align 1
-@.str.116 = private unnamed_addr constant [12 x i8] c"dplay.pp.id\00", align 1
+@.str.105 = private unnamed_addr constant [16 x i8] c"PackedPlayer ID\00", align 1
+@.str.106 = private unnamed_addr constant [12 x i8] c"dplay.pp.id\00", align 1
 @hf_dplay_pp_short_name_len = internal global i32 0, align 4
-@.str.117 = private unnamed_addr constant [31 x i8] c"PackedPlayer short name length\00", align 1
-@.str.118 = private unnamed_addr constant [24 x i8] c"dplay.pp.short_name_len\00", align 1
+@.str.107 = private unnamed_addr constant [31 x i8] c"PackedPlayer short name length\00", align 1
+@.str.108 = private unnamed_addr constant [24 x i8] c"dplay.pp.short_name_len\00", align 1
 @hf_dplay_pp_long_name_len = internal global i32 0, align 4
-@.str.119 = private unnamed_addr constant [30 x i8] c"PackedPlayer long name length\00", align 1
-@.str.120 = private unnamed_addr constant [23 x i8] c"dplay.pp.long_name_len\00", align 1
+@.str.109 = private unnamed_addr constant [30 x i8] c"PackedPlayer long name length\00", align 1
+@.str.110 = private unnamed_addr constant [23 x i8] c"dplay.pp.long_name_len\00", align 1
 @hf_dplay_pp_sp_data_size = internal global i32 0, align 4
-@.str.121 = private unnamed_addr constant [40 x i8] c"PackedPlayer service provider data size\00", align 1
-@.str.122 = private unnamed_addr constant [22 x i8] c"dplay.pp.sp_data_size\00", align 1
+@.str.111 = private unnamed_addr constant [40 x i8] c"PackedPlayer service provider data size\00", align 1
+@.str.112 = private unnamed_addr constant [22 x i8] c"dplay.pp.sp_data_size\00", align 1
 @hf_dplay_pp_player_data_size = internal global i32 0, align 4
-@.str.123 = private unnamed_addr constant [30 x i8] c"PackedPlayer player data size\00", align 1
-@.str.124 = private unnamed_addr constant [26 x i8] c"dplay.pp.player_data_size\00", align 1
+@.str.113 = private unnamed_addr constant [30 x i8] c"PackedPlayer player data size\00", align 1
+@.str.114 = private unnamed_addr constant [26 x i8] c"dplay.pp.player_data_size\00", align 1
 @hf_dplay_pp_num_players = internal global i32 0, align 4
-@.str.125 = private unnamed_addr constant [26 x i8] c"PackedPlayer player count\00", align 1
-@.str.126 = private unnamed_addr constant [22 x i8] c"dplay.pp.player_count\00", align 1
+@.str.115 = private unnamed_addr constant [26 x i8] c"PackedPlayer player count\00", align 1
+@.str.116 = private unnamed_addr constant [22 x i8] c"dplay.pp.player_count\00", align 1
 @hf_dplay_pp_system_player = internal global i32 0, align 4
-@.str.127 = private unnamed_addr constant [30 x i8] c"PackedPlayer system player ID\00", align 1
-@.str.128 = private unnamed_addr constant [22 x i8] c"dplay.pp.sysplayer_id\00", align 1
+@.str.117 = private unnamed_addr constant [30 x i8] c"PackedPlayer system player ID\00", align 1
+@.str.118 = private unnamed_addr constant [22 x i8] c"dplay.pp.sysplayer_id\00", align 1
 @hf_dplay_pp_fixed_size = internal global i32 0, align 4
-@.str.129 = private unnamed_addr constant [24 x i8] c"PackedPlayer fixed size\00", align 1
-@.str.130 = private unnamed_addr constant [20 x i8] c"dplay.pp.fixed_size\00", align 1
+@.str.119 = private unnamed_addr constant [24 x i8] c"PackedPlayer fixed size\00", align 1
+@.str.120 = private unnamed_addr constant [20 x i8] c"dplay.pp.fixed_size\00", align 1
 @hf_dplay_pp_dialect = internal global i32 0, align 4
-@.str.131 = private unnamed_addr constant [29 x i8] c"PackedPlayer dialect version\00", align 1
-@.str.132 = private unnamed_addr constant [17 x i8] c"dplay.pp.dialect\00", align 1
+@.str.121 = private unnamed_addr constant [29 x i8] c"PackedPlayer dialect version\00", align 1
+@.str.122 = private unnamed_addr constant [17 x i8] c"dplay.pp.dialect\00", align 1
 @hf_dplay_pp_unknown_1 = internal global i32 0, align 4
-@.str.133 = private unnamed_addr constant [23 x i8] c"PackedPlayer unknown 1\00", align 1
-@.str.134 = private unnamed_addr constant [19 x i8] c"dplay.pp.unknown_1\00", align 1
+@.str.123 = private unnamed_addr constant [23 x i8] c"PackedPlayer unknown 1\00", align 1
+@.str.124 = private unnamed_addr constant [19 x i8] c"dplay.pp.unknown_1\00", align 1
 @hf_dplay_pp_short_name = internal global i32 0, align 4
-@.str.135 = private unnamed_addr constant [24 x i8] c"PackedPlayer short name\00", align 1
-@.str.136 = private unnamed_addr constant [20 x i8] c"dplay.pp.short_name\00", align 1
+@.str.125 = private unnamed_addr constant [24 x i8] c"PackedPlayer short name\00", align 1
+@.str.126 = private unnamed_addr constant [20 x i8] c"dplay.pp.short_name\00", align 1
 @hf_dplay_pp_long_name = internal global i32 0, align 4
-@.str.137 = private unnamed_addr constant [23 x i8] c"PackedPlayer long name\00", align 1
-@.str.138 = private unnamed_addr constant [19 x i8] c"dplay.pp.long_name\00", align 1
+@.str.127 = private unnamed_addr constant [23 x i8] c"PackedPlayer long name\00", align 1
+@.str.128 = private unnamed_addr constant [19 x i8] c"dplay.pp.long_name\00", align 1
 @hf_dplay_pp_player_data = internal global i32 0, align 4
-@.str.139 = private unnamed_addr constant [25 x i8] c"PackedPlayer player data\00", align 1
-@.str.140 = private unnamed_addr constant [21 x i8] c"dplay.pp.player_data\00", align 1
+@.str.129 = private unnamed_addr constant [25 x i8] c"PackedPlayer player data\00", align 1
+@.str.130 = private unnamed_addr constant [21 x i8] c"dplay.pp.player_data\00", align 1
 @hf_dplay_pp_sp_data = internal global i32 0, align 4
-@.str.141 = private unnamed_addr constant [35 x i8] c"PackedPlayer service provider data\00", align 1
-@.str.142 = private unnamed_addr constant [17 x i8] c"dplay.pp.sp_data\00", align 1
+@.str.131 = private unnamed_addr constant [35 x i8] c"PackedPlayer service provider data\00", align 1
+@.str.132 = private unnamed_addr constant [17 x i8] c"dplay.pp.sp_data\00", align 1
 @hf_dplay_pp_player_id = internal global i32 0, align 4
-@.str.143 = private unnamed_addr constant [23 x i8] c"PackedPlayer player ID\00", align 1
-@.str.144 = private unnamed_addr constant [19 x i8] c"dplay.pp.player_id\00", align 1
+@.str.133 = private unnamed_addr constant [23 x i8] c"PackedPlayer player ID\00", align 1
+@.str.134 = private unnamed_addr constant [19 x i8] c"dplay.pp.player_id\00", align 1
 @hf_dplay_pp_parent_id = internal global i32 0, align 4
-@.str.145 = private unnamed_addr constant [23 x i8] c"PackedPlayer parent ID\00", align 1
-@.str.146 = private unnamed_addr constant [19 x i8] c"dplay.pp.parent_id\00", align 1
+@.str.135 = private unnamed_addr constant [23 x i8] c"PackedPlayer parent ID\00", align 1
+@.str.136 = private unnamed_addr constant [19 x i8] c"dplay.pp.parent_id\00", align 1
 @hf_dplay_spp_size = internal global i32 0, align 4
-@.str.147 = private unnamed_addr constant [23 x i8] c"SuperPackedPlayer size\00", align 1
-@.str.148 = private unnamed_addr constant [15 x i8] c"dplay.spp.size\00", align 1
+@.str.137 = private unnamed_addr constant [23 x i8] c"SuperPackedPlayer size\00", align 1
+@.str.138 = private unnamed_addr constant [15 x i8] c"dplay.spp.size\00", align 1
 @hf_dplay_spp_flags = internal global i32 0, align 4
-@.str.149 = private unnamed_addr constant [24 x i8] c"SuperPackedPlayer flags\00", align 1
-@.str.150 = private unnamed_addr constant [16 x i8] c"dplay.spp.flags\00", align 1
+@.str.139 = private unnamed_addr constant [24 x i8] c"SuperPackedPlayer flags\00", align 1
+@.str.140 = private unnamed_addr constant [16 x i8] c"dplay.spp.flags\00", align 1
 @hf_dplay_spp_flags_sysplayer = internal global i32 0, align 4
-@.str.151 = private unnamed_addr constant [26 x i8] c"dplay.spp.flags.sysplayer\00", align 1
+@.str.141 = private unnamed_addr constant [26 x i8] c"dplay.spp.flags.sysplayer\00", align 1
 @hf_dplay_spp_flags_nameserver = internal global i32 0, align 4
-@.str.152 = private unnamed_addr constant [27 x i8] c"dplay.spp.flags.nameserver\00", align 1
+@.str.142 = private unnamed_addr constant [27 x i8] c"dplay.spp.flags.nameserver\00", align 1
 @hf_dplay_spp_flags_in_group = internal global i32 0, align 4
-@.str.153 = private unnamed_addr constant [25 x i8] c"dplay.spp.flags.in_group\00", align 1
+@.str.143 = private unnamed_addr constant [25 x i8] c"dplay.spp.flags.in_group\00", align 1
 @hf_dplay_spp_flags_sending = internal global i32 0, align 4
-@.str.154 = private unnamed_addr constant [24 x i8] c"dplay.spp.flags.sending\00", align 1
+@.str.144 = private unnamed_addr constant [24 x i8] c"dplay.spp.flags.sending\00", align 1
 @hf_dplay_spp_id = internal global i32 0, align 4
-@.str.155 = private unnamed_addr constant [21 x i8] c"SuperPackedPlayer ID\00", align 1
-@.str.156 = private unnamed_addr constant [13 x i8] c"dplay.spp.id\00", align 1
+@.str.145 = private unnamed_addr constant [21 x i8] c"SuperPackedPlayer ID\00", align 1
+@.str.146 = private unnamed_addr constant [13 x i8] c"dplay.spp.id\00", align 1
 @hf_dplay_spp_player_info_mask = internal global i32 0, align 4
-@.str.157 = private unnamed_addr constant [35 x i8] c"SuperPackedPlayer player info mask\00", align 1
-@.str.158 = private unnamed_addr constant [14 x i8] c"dplay.spp.pim\00", align 1
+@.str.147 = private unnamed_addr constant [35 x i8] c"SuperPackedPlayer player info mask\00", align 1
+@.str.148 = private unnamed_addr constant [14 x i8] c"dplay.spp.pim\00", align 1
 @hf_dplay_spp_have_short_name = internal global i32 0, align 4
-@.str.159 = private unnamed_addr constant [34 x i8] c"SuperPackedPlayer have short name\00", align 1
-@.str.160 = private unnamed_addr constant [25 x i8] c"dplay.spp.pim.short_name\00", align 1
-@yes_no_val = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.395 }, %struct._value_string { i32 1, ptr @.str.396 }, %struct._value_string zeroinitializer], align 16
+@.str.149 = private unnamed_addr constant [34 x i8] c"SuperPackedPlayer have short name\00", align 1
+@.str.150 = private unnamed_addr constant [25 x i8] c"dplay.spp.pim.short_name\00", align 1
 @hf_dplay_spp_have_long_name = internal global i32 0, align 4
-@.str.161 = private unnamed_addr constant [33 x i8] c"SuperPackedPlayer have long name\00", align 1
-@.str.162 = private unnamed_addr constant [24 x i8] c"dplay.spp.pim.long_name\00", align 1
+@.str.151 = private unnamed_addr constant [33 x i8] c"SuperPackedPlayer have long name\00", align 1
+@.str.152 = private unnamed_addr constant [24 x i8] c"dplay.spp.pim.long_name\00", align 1
 @hf_dplay_spp_sp_length_type = internal global i32 0, align 4
-@.str.163 = private unnamed_addr constant [47 x i8] c"SuperPackedPlayer service provider length info\00", align 1
-@.str.164 = private unnamed_addr constant [24 x i8] c"dplay.spp.pim.sp_length\00", align 1
-@dplay_spp_length_val = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.397 }, %struct._value_string { i32 1, ptr @.str.398 }, %struct._value_string { i32 2, ptr @.str.399 }, %struct._value_string { i32 3, ptr @.str.400 }, %struct._value_string zeroinitializer], align 16
+@.str.153 = private unnamed_addr constant [47 x i8] c"SuperPackedPlayer service provider length info\00", align 1
+@.str.154 = private unnamed_addr constant [24 x i8] c"dplay.spp.pim.sp_length\00", align 1
 @hf_dplay_spp_pd_length_type = internal global i32 0, align 4
-@.str.165 = private unnamed_addr constant [42 x i8] c"SuperPackedPlayer player data length info\00", align 1
-@.str.166 = private unnamed_addr constant [24 x i8] c"dplay.spp.pim.pd_length\00", align 1
+@.str.155 = private unnamed_addr constant [42 x i8] c"SuperPackedPlayer player data length info\00", align 1
+@.str.156 = private unnamed_addr constant [24 x i8] c"dplay.spp.pim.pd_length\00", align 1
 @hf_dplay_spp_player_count_type = internal global i32 0, align 4
-@.str.167 = private unnamed_addr constant [36 x i8] c"SuperPackedPlayer player count info\00", align 1
-@.str.168 = private unnamed_addr constant [27 x i8] c"dplay.spp.pim.player_count\00", align 1
+@.str.157 = private unnamed_addr constant [36 x i8] c"SuperPackedPlayer player count info\00", align 1
+@.str.158 = private unnamed_addr constant [27 x i8] c"dplay.spp.pim.player_count\00", align 1
 @hf_dplay_spp_have_parent_id = internal global i32 0, align 4
-@.str.169 = private unnamed_addr constant [33 x i8] c"SuperPackedPlayer have parent ID\00", align 1
-@.str.170 = private unnamed_addr constant [24 x i8] c"dplay.spp.pim.parent_id\00", align 1
+@.str.159 = private unnamed_addr constant [33 x i8] c"SuperPackedPlayer have parent ID\00", align 1
+@.str.160 = private unnamed_addr constant [24 x i8] c"dplay.spp.pim.parent_id\00", align 1
 @hf_dplay_spp_shortcut_count_type = internal global i32 0, align 4
-@.str.171 = private unnamed_addr constant [38 x i8] c"SuperPackedPlayer shortcut count info\00", align 1
-@.str.172 = private unnamed_addr constant [29 x i8] c"dplay.spp.pim.shortcut_count\00", align 1
+@.str.161 = private unnamed_addr constant [38 x i8] c"SuperPackedPlayer shortcut count info\00", align 1
+@.str.162 = private unnamed_addr constant [29 x i8] c"dplay.spp.pim.shortcut_count\00", align 1
 @hf_dplay_spp_dialect = internal global i32 0, align 4
-@.str.173 = private unnamed_addr constant [34 x i8] c"SuperPackedPlayer dialect version\00", align 1
-@.str.174 = private unnamed_addr constant [18 x i8] c"dplay.spp.dialect\00", align 1
+@.str.163 = private unnamed_addr constant [34 x i8] c"SuperPackedPlayer dialect version\00", align 1
+@.str.164 = private unnamed_addr constant [18 x i8] c"dplay.spp.dialect\00", align 1
 @hf_dplay_spp_sys_player_id = internal global i32 0, align 4
-@.str.175 = private unnamed_addr constant [35 x i8] c"SuperPackedPlayer system player ID\00", align 1
-@.str.176 = private unnamed_addr constant [23 x i8] c"dplay.spp.sysplayer_id\00", align 1
+@.str.165 = private unnamed_addr constant [35 x i8] c"SuperPackedPlayer system player ID\00", align 1
+@.str.166 = private unnamed_addr constant [23 x i8] c"dplay.spp.sysplayer_id\00", align 1
 @hf_dplay_spp_short_name = internal global i32 0, align 4
-@.str.177 = private unnamed_addr constant [29 x i8] c"SuperPackedPlayer short name\00", align 1
-@.str.178 = private unnamed_addr constant [21 x i8] c"dplay.spp.short_name\00", align 1
+@.str.167 = private unnamed_addr constant [29 x i8] c"SuperPackedPlayer short name\00", align 1
+@.str.168 = private unnamed_addr constant [21 x i8] c"dplay.spp.short_name\00", align 1
 @hf_dplay_spp_long_name = internal global i32 0, align 4
-@.str.179 = private unnamed_addr constant [28 x i8] c"SuperPackedPlayer long name\00", align 1
-@.str.180 = private unnamed_addr constant [20 x i8] c"dplay.spp.long_name\00", align 1
+@.str.169 = private unnamed_addr constant [28 x i8] c"SuperPackedPlayer long name\00", align 1
+@.str.170 = private unnamed_addr constant [20 x i8] c"dplay.spp.long_name\00", align 1
 @hf_dplay_spp_player_data_length = internal global i32 0, align 4
-@.str.181 = private unnamed_addr constant [37 x i8] c"SuperPackedPlayer player data length\00", align 1
-@.str.182 = private unnamed_addr constant [20 x i8] c"dplay.spp.pd_length\00", align 1
+@.str.171 = private unnamed_addr constant [37 x i8] c"SuperPackedPlayer player data length\00", align 1
+@.str.172 = private unnamed_addr constant [20 x i8] c"dplay.spp.pd_length\00", align 1
 @hf_dplay_spp_player_data = internal global i32 0, align 4
-@.str.183 = private unnamed_addr constant [30 x i8] c"SuperPackedPlayer player data\00", align 1
-@.str.184 = private unnamed_addr constant [22 x i8] c"dplay.spp.player_data\00", align 1
+@.str.173 = private unnamed_addr constant [30 x i8] c"SuperPackedPlayer player data\00", align 1
+@.str.174 = private unnamed_addr constant [22 x i8] c"dplay.spp.player_data\00", align 1
 @hf_dplay_spp_sp_data_length = internal global i32 0, align 4
-@.str.185 = private unnamed_addr constant [47 x i8] c"SuperPackedPlayer service provider data length\00", align 1
-@.str.186 = private unnamed_addr constant [25 x i8] c"dplay.spp.sp_data_length\00", align 1
+@.str.175 = private unnamed_addr constant [47 x i8] c"SuperPackedPlayer service provider data length\00", align 1
+@.str.176 = private unnamed_addr constant [25 x i8] c"dplay.spp.sp_data_length\00", align 1
 @hf_dplay_spp_sp_data = internal global i32 0, align 4
-@.str.187 = private unnamed_addr constant [40 x i8] c"SuperPackedPlayer service provider data\00", align 1
-@.str.188 = private unnamed_addr constant [18 x i8] c"dplay.spp.sp_data\00", align 1
+@.str.177 = private unnamed_addr constant [40 x i8] c"SuperPackedPlayer service provider data\00", align 1
+@.str.178 = private unnamed_addr constant [18 x i8] c"dplay.spp.sp_data\00", align 1
 @hf_dplay_spp_player_count = internal global i32 0, align 4
-@.str.189 = private unnamed_addr constant [31 x i8] c"SuperPackedPlayer player count\00", align 1
-@.str.190 = private unnamed_addr constant [23 x i8] c"dplay.spp.player_count\00", align 1
+@.str.179 = private unnamed_addr constant [31 x i8] c"SuperPackedPlayer player count\00", align 1
+@.str.180 = private unnamed_addr constant [23 x i8] c"dplay.spp.player_count\00", align 1
 @hf_dplay_spp_player_id = internal global i32 0, align 4
-@.str.191 = private unnamed_addr constant [28 x i8] c"SuperPackedPlayer player ID\00", align 1
-@.str.192 = private unnamed_addr constant [20 x i8] c"dplay.spp.player_id\00", align 1
+@.str.181 = private unnamed_addr constant [28 x i8] c"SuperPackedPlayer player ID\00", align 1
+@.str.182 = private unnamed_addr constant [20 x i8] c"dplay.spp.player_id\00", align 1
 @hf_dplay_spp_parent_id = internal global i32 0, align 4
-@.str.193 = private unnamed_addr constant [28 x i8] c"SuperPackedPlayer parent ID\00", align 1
-@.str.194 = private unnamed_addr constant [20 x i8] c"dplay.spp.parent_id\00", align 1
+@.str.183 = private unnamed_addr constant [28 x i8] c"SuperPackedPlayer parent ID\00", align 1
+@.str.184 = private unnamed_addr constant [20 x i8] c"dplay.spp.parent_id\00", align 1
 @hf_dplay_spp_shortcut_count = internal global i32 0, align 4
-@.str.195 = private unnamed_addr constant [33 x i8] c"SuperPackedPlayer shortcut count\00", align 1
-@.str.196 = private unnamed_addr constant [25 x i8] c"dplay.spp.shortcut_count\00", align 1
+@.str.185 = private unnamed_addr constant [33 x i8] c"SuperPackedPlayer shortcut count\00", align 1
+@.str.186 = private unnamed_addr constant [25 x i8] c"dplay.spp.shortcut_count\00", align 1
 @hf_dplay_spp_shortcut_id = internal global i32 0, align 4
-@.str.197 = private unnamed_addr constant [30 x i8] c"SuperPackedPlayer shortcut ID\00", align 1
-@.str.198 = private unnamed_addr constant [22 x i8] c"dplay.spp.shortcut_id\00", align 1
+@.str.187 = private unnamed_addr constant [30 x i8] c"SuperPackedPlayer shortcut ID\00", align 1
+@.str.188 = private unnamed_addr constant [22 x i8] c"dplay.spp.shortcut_id\00", align 1
 @hf_dplay_sd_size = internal global i32 0, align 4
-@.str.199 = private unnamed_addr constant [20 x i8] c"SecDesc struct size\00", align 1
-@.str.200 = private unnamed_addr constant [14 x i8] c"dplay.sd.size\00", align 1
+@.str.189 = private unnamed_addr constant [20 x i8] c"SecDesc struct size\00", align 1
+@.str.190 = private unnamed_addr constant [14 x i8] c"dplay.sd.size\00", align 1
 @hf_dplay_sd_flags = internal global i32 0, align 4
-@.str.201 = private unnamed_addr constant [14 x i8] c"SecDesc flags\00", align 1
-@.str.202 = private unnamed_addr constant [15 x i8] c"dplay.sd.flags\00", align 1
+@.str.191 = private unnamed_addr constant [14 x i8] c"SecDesc flags\00", align 1
+@.str.192 = private unnamed_addr constant [15 x i8] c"dplay.sd.flags\00", align 1
 @hf_dplay_sd_sspi = internal global i32 0, align 4
-@.str.203 = private unnamed_addr constant [26 x i8] c"SecDesc SSPI provider ptr\00", align 1
-@.str.204 = private unnamed_addr constant [14 x i8] c"dplay.sd.sspi\00", align 1
+@.str.193 = private unnamed_addr constant [26 x i8] c"SecDesc SSPI provider ptr\00", align 1
+@.str.194 = private unnamed_addr constant [14 x i8] c"dplay.sd.sspi\00", align 1
 @hf_dplay_sd_capi = internal global i32 0, align 4
-@.str.205 = private unnamed_addr constant [26 x i8] c"SecDesc CAPI provider ptr\00", align 1
-@.str.206 = private unnamed_addr constant [14 x i8] c"dplay.sd.capi\00", align 1
+@.str.195 = private unnamed_addr constant [26 x i8] c"SecDesc CAPI provider ptr\00", align 1
+@.str.196 = private unnamed_addr constant [14 x i8] c"dplay.sd.capi\00", align 1
 @hf_dplay_sd_capi_type = internal global i32 0, align 4
-@.str.207 = private unnamed_addr constant [27 x i8] c"SecDesc CAPI provider type\00", align 1
-@.str.208 = private unnamed_addr constant [19 x i8] c"dplay.sd.capi_type\00", align 1
+@.str.197 = private unnamed_addr constant [27 x i8] c"SecDesc CAPI provider type\00", align 1
+@.str.198 = private unnamed_addr constant [19 x i8] c"dplay.sd.capi_type\00", align 1
 @hf_dplay_sd_enc_alg = internal global i32 0, align 4
-@.str.209 = private unnamed_addr constant [29 x i8] c"SecDesc encryption algorithm\00", align 1
-@.str.210 = private unnamed_addr constant [17 x i8] c"dplay.sd.enc_alg\00", align 1
-@dplay_enc_alg_val = internal constant [7 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.401 }, %struct._value_string { i32 26129, ptr @.str.402 }, %struct._value_string { i32 26115, ptr @.str.403 }, %struct._value_string { i32 26113, ptr @.str.404 }, %struct._value_string { i32 26114, ptr @.str.405 }, %struct._value_string { i32 26625, ptr @.str.406 }, %struct._value_string zeroinitializer], align 16
+@.str.199 = private unnamed_addr constant [29 x i8] c"SecDesc encryption algorithm\00", align 1
+@.str.200 = private unnamed_addr constant [17 x i8] c"dplay.sd.enc_alg\00", align 1
 @hf_dplay_type_01_name_offset = internal global i32 0, align 4
-@.str.211 = private unnamed_addr constant [31 x i8] c"Enum Session Reply name offset\00", align 1
-@.str.212 = private unnamed_addr constant [24 x i8] c"dplay.type_01.name_offs\00", align 1
+@.str.201 = private unnamed_addr constant [31 x i8] c"Enum Session Reply name offset\00", align 1
+@.str.202 = private unnamed_addr constant [24 x i8] c"dplay.type_01.name_offs\00", align 1
 @hf_dplay_type_01_game_name = internal global i32 0, align 4
-@.str.213 = private unnamed_addr constant [29 x i8] c"Enum Session Reply game name\00", align 1
-@.str.214 = private unnamed_addr constant [24 x i8] c"dplay.type_01.game_name\00", align 1
+@.str.203 = private unnamed_addr constant [29 x i8] c"Enum Session Reply game name\00", align 1
+@.str.204 = private unnamed_addr constant [24 x i8] c"dplay.type_01.game_name\00", align 1
 @hf_dplay_type_02_game_guid = internal global i32 0, align 4
-@.str.215 = private unnamed_addr constant [23 x i8] c"dplay.type02.game.guid\00", align 1
+@.str.205 = private unnamed_addr constant [23 x i8] c"dplay.type02.game.guid\00", align 1
 @hf_dplay_type_02_password_offset = internal global i32 0, align 4
-@.str.216 = private unnamed_addr constant [30 x i8] c"Enum Sessions password offset\00", align 1
-@.str.217 = private unnamed_addr constant [29 x i8] c"dplay.type02.password_offset\00", align 1
+@.str.206 = private unnamed_addr constant [30 x i8] c"Enum Sessions password offset\00", align 1
+@.str.207 = private unnamed_addr constant [29 x i8] c"dplay.type02.password_offset\00", align 1
 @hf_dplay_type_02_flags = internal global i32 0, align 4
-@.str.218 = private unnamed_addr constant [19 x i8] c"Enum Session flags\00", align 1
-@.str.219 = private unnamed_addr constant [19 x i8] c"dplay.type02.flags\00", align 1
+@.str.208 = private unnamed_addr constant [19 x i8] c"Enum Session flags\00", align 1
+@.str.209 = private unnamed_addr constant [19 x i8] c"dplay.type02.flags\00", align 1
 @hf_dplay_type_02_password = internal global i32 0, align 4
-@.str.220 = private unnamed_addr constant [17 x i8] c"Session password\00", align 1
-@.str.221 = private unnamed_addr constant [22 x i8] c"dplay.type02.password\00", align 1
+@.str.210 = private unnamed_addr constant [17 x i8] c"Session password\00", align 1
+@.str.211 = private unnamed_addr constant [22 x i8] c"dplay.type02.password\00", align 1
 @hf_enum_sess_flag_join = internal global i32 0, align 4
-@.str.222 = private unnamed_addr constant [28 x i8] c"Enumerate joinable sessions\00", align 1
-@.str.223 = private unnamed_addr constant [22 x i8] c"dplay.type02.joinable\00", align 1
-@.str.224 = private unnamed_addr constant [9 x i8] c"Joinable\00", align 1
+@.str.212 = private unnamed_addr constant [28 x i8] c"Enumerate joinable sessions\00", align 1
+@.str.213 = private unnamed_addr constant [22 x i8] c"dplay.type02.joinable\00", align 1
 @hf_enum_sess_flag_all = internal global i32 0, align 4
-@.str.225 = private unnamed_addr constant [23 x i8] c"Enumerate all sessions\00", align 1
-@.str.226 = private unnamed_addr constant [17 x i8] c"dplay.type02.all\00", align 1
-@.str.227 = private unnamed_addr constant [4 x i8] c"All\00", align 1
+@.str.214 = private unnamed_addr constant [23 x i8] c"Enumerate all sessions\00", align 1
+@.str.215 = private unnamed_addr constant [17 x i8] c"dplay.type02.all\00", align 1
 @hf_enum_sess_flag_passwd = internal global i32 0, align 4
-@.str.228 = private unnamed_addr constant [40 x i8] c"Enumerate sessions requiring a password\00", align 1
-@.str.229 = private unnamed_addr constant [20 x i8] c"dplay.type02.pw_req\00", align 1
-@.str.230 = private unnamed_addr constant [9 x i8] c"Password\00", align 1
+@.str.216 = private unnamed_addr constant [40 x i8] c"Enumerate sessions requiring a password\00", align 1
+@.str.217 = private unnamed_addr constant [20 x i8] c"dplay.type02.pw_req\00", align 1
 @hf_dplay_type_05_flags = internal global i32 0, align 4
-@.str.231 = private unnamed_addr constant [24 x i8] c"Player ID request flags\00", align 1
-@.str.232 = private unnamed_addr constant [20 x i8] c"dplay.type_05.flags\00", align 1
+@.str.218 = private unnamed_addr constant [24 x i8] c"Player ID request flags\00", align 1
+@.str.219 = private unnamed_addr constant [20 x i8] c"dplay.type_05.flags\00", align 1
 @hf_dplay_type_05_system_player = internal global i32 0, align 4
-@.str.233 = private unnamed_addr constant [31 x i8] c"dplay.type_05.flags.sys_player\00", align 1
+@.str.220 = private unnamed_addr constant [31 x i8] c"dplay.type_05.flags.sys_player\00", align 1
 @hf_dplay_type_05_name_server = internal global i32 0, align 4
-@.str.234 = private unnamed_addr constant [32 x i8] c"dplay.type_05.flags.name_server\00", align 1
+@.str.221 = private unnamed_addr constant [32 x i8] c"dplay.type_05.flags.name_server\00", align 1
 @hf_dplay_type_05_local = internal global i32 0, align 4
-@.str.235 = private unnamed_addr constant [16 x i8] c"is local player\00", align 1
-@.str.236 = private unnamed_addr constant [26 x i8] c"dplay.type_05.flags.local\00", align 1
+@.str.222 = private unnamed_addr constant [16 x i8] c"is local player\00", align 1
+@.str.223 = private unnamed_addr constant [26 x i8] c"dplay.type_05.flags.local\00", align 1
 @hf_dplay_type_05_unknown = internal global i32 0, align 4
-@.str.237 = private unnamed_addr constant [8 x i8] c"unknown\00", align 1
-@.str.238 = private unnamed_addr constant [28 x i8] c"dplay.type_05.flags.unknown\00", align 1
+@.str.224 = private unnamed_addr constant [8 x i8] c"unknown\00", align 1
+@.str.225 = private unnamed_addr constant [28 x i8] c"dplay.type_05.flags.unknown\00", align 1
 @hf_dplay_type_05_secure = internal global i32 0, align 4
-@.str.239 = private unnamed_addr constant [18 x i8] c"is secure session\00", align 1
-@.str.240 = private unnamed_addr constant [27 x i8] c"dplay.type_05.flags.secure\00", align 1
+@.str.226 = private unnamed_addr constant [18 x i8] c"is secure session\00", align 1
+@.str.227 = private unnamed_addr constant [27 x i8] c"dplay.type_05.flags.secure\00", align 1
 @hf_dplay_type_07_dpid = internal global i32 0, align 4
-@.str.241 = private unnamed_addr constant [14 x i8] c"DirectPlay ID\00", align 1
-@.str.242 = private unnamed_addr constant [19 x i8] c"dplay.type_07.dpid\00", align 1
+@.str.228 = private unnamed_addr constant [14 x i8] c"DirectPlay ID\00", align 1
+@.str.229 = private unnamed_addr constant [19 x i8] c"dplay.type_07.dpid\00", align 1
 @hf_dplay_type_07_sspi_offset = internal global i32 0, align 4
-@.str.243 = private unnamed_addr constant [21 x i8] c"SSPI provider offset\00", align 1
-@.str.244 = private unnamed_addr constant [26 x i8] c"dplay.type_07.sspi_offset\00", align 1
+@.str.230 = private unnamed_addr constant [21 x i8] c"SSPI provider offset\00", align 1
+@.str.231 = private unnamed_addr constant [26 x i8] c"dplay.type_07.sspi_offset\00", align 1
 @hf_dplay_type_07_capi_offset = internal global i32 0, align 4
-@.str.245 = private unnamed_addr constant [21 x i8] c"CAPI provider offset\00", align 1
-@.str.246 = private unnamed_addr constant [26 x i8] c"dplay.type_07.capi_offset\00", align 1
+@.str.232 = private unnamed_addr constant [21 x i8] c"CAPI provider offset\00", align 1
+@.str.233 = private unnamed_addr constant [26 x i8] c"dplay.type_07.capi_offset\00", align 1
 @hf_dplay_type_07_hresult = internal global i32 0, align 4
-@.str.247 = private unnamed_addr constant [23 x i8] c"Request player HRESULT\00", align 1
-@.str.248 = private unnamed_addr constant [22 x i8] c"dplay.type_07.hresult\00", align 1
+@.str.234 = private unnamed_addr constant [23 x i8] c"Request player HRESULT\00", align 1
+@.str.235 = private unnamed_addr constant [22 x i8] c"dplay.type_07.hresult\00", align 1
 @hf_dplay_type_07_sspi = internal global i32 0, align 4
-@.str.249 = private unnamed_addr constant [14 x i8] c"SSPI provider\00", align 1
-@.str.250 = private unnamed_addr constant [19 x i8] c"dplay.type_07.sspi\00", align 1
+@.str.236 = private unnamed_addr constant [14 x i8] c"SSPI provider\00", align 1
+@.str.237 = private unnamed_addr constant [19 x i8] c"dplay.type_07.sspi\00", align 1
 @hf_dplay_type_07_capi = internal global i32 0, align 4
-@.str.251 = private unnamed_addr constant [14 x i8] c"CAPI provider\00", align 1
-@.str.252 = private unnamed_addr constant [19 x i8] c"dplay.type_07.capi\00", align 1
+@.str.238 = private unnamed_addr constant [14 x i8] c"CAPI provider\00", align 1
+@.str.239 = private unnamed_addr constant [19 x i8] c"dplay.type_07.capi\00", align 1
 @hf_dplay_multi_id_to = internal global i32 0, align 4
-@.str.253 = private unnamed_addr constant [6 x i8] c"ID to\00", align 1
-@.str.254 = private unnamed_addr constant [18 x i8] c"dplay.multi.id_to\00", align 1
+@.str.240 = private unnamed_addr constant [6 x i8] c"ID to\00", align 1
+@.str.241 = private unnamed_addr constant [18 x i8] c"dplay.multi.id_to\00", align 1
 @hf_dplay_multi_player_id = internal global i32 0, align 4
-@.str.255 = private unnamed_addr constant [10 x i8] c"Player ID\00", align 1
-@.str.256 = private unnamed_addr constant [22 x i8] c"dplay.multi.player_id\00", align 1
+@.str.242 = private unnamed_addr constant [10 x i8] c"Player ID\00", align 1
+@.str.243 = private unnamed_addr constant [22 x i8] c"dplay.multi.player_id\00", align 1
 @hf_dplay_multi_group_id = internal global i32 0, align 4
-@.str.257 = private unnamed_addr constant [9 x i8] c"Group ID\00", align 1
-@.str.258 = private unnamed_addr constant [21 x i8] c"dplay.multi.group_id\00", align 1
+@.str.244 = private unnamed_addr constant [9 x i8] c"Group ID\00", align 1
+@.str.245 = private unnamed_addr constant [21 x i8] c"dplay.multi.group_id\00", align 1
 @hf_dplay_multi_create_offset = internal global i32 0, align 4
-@.str.259 = private unnamed_addr constant [30 x i8] c"Offset to PackedPlayer struct\00", align 1
-@.str.260 = private unnamed_addr constant [26 x i8] c"dplay.multi.create_offset\00", align 1
+@.str.246 = private unnamed_addr constant [30 x i8] c"Offset to PackedPlayer struct\00", align 1
+@.str.247 = private unnamed_addr constant [26 x i8] c"dplay.multi.create_offset\00", align 1
 @hf_dplay_multi_password_offset = internal global i32 0, align 4
-@.str.261 = private unnamed_addr constant [19 x i8] c"Offset to password\00", align 1
-@.str.262 = private unnamed_addr constant [28 x i8] c"dplay.multi.password_offset\00", align 1
+@.str.248 = private unnamed_addr constant [19 x i8] c"Offset to password\00", align 1
+@.str.249 = private unnamed_addr constant [28 x i8] c"dplay.multi.password_offset\00", align 1
 @hf_dplay_multi_password = internal global i32 0, align 4
-@.str.263 = private unnamed_addr constant [21 x i8] c"dplay.multi.password\00", align 1
+@.str.250 = private unnamed_addr constant [9 x i8] c"Password\00", align 1
+@.str.251 = private unnamed_addr constant [21 x i8] c"dplay.multi.password\00", align 1
 @hf_dplay_type_0f_id_to = internal global i32 0, align 4
-@.str.264 = private unnamed_addr constant [20 x i8] c"dplay.type_0f.id_to\00", align 1
+@.str.252 = private unnamed_addr constant [20 x i8] c"dplay.type_0f.id_to\00", align 1
 @hf_dplay_type_0f_id = internal global i32 0, align 4
-@.str.265 = private unnamed_addr constant [24 x i8] c"dplay.type_0f.player_id\00", align 1
+@.str.253 = private unnamed_addr constant [24 x i8] c"dplay.type_0f.player_id\00", align 1
 @hf_dplay_type_0f_data_size = internal global i32 0, align 4
-@.str.266 = private unnamed_addr constant [10 x i8] c"Data Size\00", align 1
-@.str.267 = private unnamed_addr constant [24 x i8] c"dplay.type_0f.data_size\00", align 1
+@.str.254 = private unnamed_addr constant [10 x i8] c"Data Size\00", align 1
+@.str.255 = private unnamed_addr constant [24 x i8] c"dplay.type_0f.data_size\00", align 1
 @hf_dplay_type_0f_data_offset = internal global i32 0, align 4
-@.str.268 = private unnamed_addr constant [12 x i8] c"Data Offset\00", align 1
-@.str.269 = private unnamed_addr constant [26 x i8] c"dplay.type_0f.data_offset\00", align 1
+@.str.256 = private unnamed_addr constant [12 x i8] c"Data Offset\00", align 1
+@.str.257 = private unnamed_addr constant [26 x i8] c"dplay.type_0f.data_offset\00", align 1
 @hf_dplay_type_0f_data = internal global i32 0, align 4
-@.str.270 = private unnamed_addr constant [12 x i8] c"Player Data\00", align 1
-@.str.271 = private unnamed_addr constant [26 x i8] c"dplay.type_0f.player_data\00", align 1
+@.str.258 = private unnamed_addr constant [12 x i8] c"Player Data\00", align 1
+@.str.259 = private unnamed_addr constant [26 x i8] c"dplay.type_0f.player_data\00", align 1
 @hf_dplay_type_13_id_to = internal global i32 0, align 4
-@.str.272 = private unnamed_addr constant [20 x i8] c"dplay.type_13.id_to\00", align 1
+@.str.260 = private unnamed_addr constant [20 x i8] c"dplay.type_13.id_to\00", align 1
 @hf_dplay_type_13_player_id = internal global i32 0, align 4
-@.str.273 = private unnamed_addr constant [24 x i8] c"dplay.type_13.player_id\00", align 1
+@.str.261 = private unnamed_addr constant [24 x i8] c"dplay.type_13.player_id\00", align 1
 @hf_dplay_type_13_group_id = internal global i32 0, align 4
-@.str.274 = private unnamed_addr constant [23 x i8] c"dplay.type_13.group_id\00", align 1
+@.str.262 = private unnamed_addr constant [23 x i8] c"dplay.type_13.group_id\00", align 1
 @hf_dplay_type_13_create_offset = internal global i32 0, align 4
-@.str.275 = private unnamed_addr constant [14 x i8] c"Create Offset\00", align 1
-@.str.276 = private unnamed_addr constant [28 x i8] c"dplay.type_13.create_offset\00", align 1
+@.str.263 = private unnamed_addr constant [14 x i8] c"Create Offset\00", align 1
+@.str.264 = private unnamed_addr constant [28 x i8] c"dplay.type_13.create_offset\00", align 1
 @hf_dplay_type_13_password_offset = internal global i32 0, align 4
-@.str.277 = private unnamed_addr constant [16 x i8] c"Password Offset\00", align 1
-@.str.278 = private unnamed_addr constant [30 x i8] c"dplay.type_13.password_offset\00", align 1
+@.str.265 = private unnamed_addr constant [16 x i8] c"Password Offset\00", align 1
+@.str.266 = private unnamed_addr constant [30 x i8] c"dplay.type_13.password_offset\00", align 1
 @hf_dplay_type_13_password = internal global i32 0, align 4
-@.str.279 = private unnamed_addr constant [23 x i8] c"dplay.type_13.password\00", align 1
+@.str.267 = private unnamed_addr constant [23 x i8] c"dplay.type_13.password\00", align 1
 @hf_dplay_type_13_tick_count = internal global i32 0, align 4
-@.str.280 = private unnamed_addr constant [29 x i8] c"Tick count? Looks like an ID\00", align 1
-@.str.281 = private unnamed_addr constant [25 x i8] c"dplay.type_13.tick_count\00", align 1
+@.str.268 = private unnamed_addr constant [29 x i8] c"Tick count? Looks like an ID\00", align 1
+@.str.269 = private unnamed_addr constant [25 x i8] c"dplay.type_13.tick_count\00", align 1
 @hf_dplay_message_guid = internal global i32 0, align 4
-@.str.282 = private unnamed_addr constant [13 x i8] c"Message GUID\00", align 1
-@.str.283 = private unnamed_addr constant [19 x i8] c"dplay.message.guid\00", align 1
+@.str.270 = private unnamed_addr constant [13 x i8] c"Message GUID\00", align 1
+@.str.271 = private unnamed_addr constant [19 x i8] c"dplay.message.guid\00", align 1
 @hf_dplay_type_15_packet_idx = internal global i32 0, align 4
-@.str.284 = private unnamed_addr constant [13 x i8] c"Packet Index\00", align 1
-@.str.285 = private unnamed_addr constant [25 x i8] c"dplay.type_15.packet_idx\00", align 1
+@.str.272 = private unnamed_addr constant [13 x i8] c"Packet Index\00", align 1
+@.str.273 = private unnamed_addr constant [25 x i8] c"dplay.type_15.packet_idx\00", align 1
 @hf_dplay_type_15_data_size = internal global i32 0, align 4
-@.str.286 = private unnamed_addr constant [24 x i8] c"dplay.type_15.data_size\00", align 1
+@.str.274 = private unnamed_addr constant [24 x i8] c"dplay.type_15.data_size\00", align 1
 @hf_dplay_type_15_offset = internal global i32 0, align 4
-@.str.287 = private unnamed_addr constant [7 x i8] c"Offset\00", align 1
-@.str.288 = private unnamed_addr constant [21 x i8] c"dplay.type_15.offset\00", align 1
+@.str.275 = private unnamed_addr constant [7 x i8] c"Offset\00", align 1
+@.str.276 = private unnamed_addr constant [21 x i8] c"dplay.type_15.offset\00", align 1
 @hf_dplay_type_15_total_packets = internal global i32 0, align 4
-@.str.289 = private unnamed_addr constant [14 x i8] c"Total Packets\00", align 1
-@.str.290 = private unnamed_addr constant [28 x i8] c"dplay.type_15.total_packets\00", align 1
+@.str.277 = private unnamed_addr constant [14 x i8] c"Total Packets\00", align 1
+@.str.278 = private unnamed_addr constant [28 x i8] c"dplay.type_15.total_packets\00", align 1
 @hf_dplay_type_15_msg_size = internal global i32 0, align 4
-@.str.291 = private unnamed_addr constant [13 x i8] c"Message size\00", align 1
-@.str.292 = private unnamed_addr constant [27 x i8] c"dplay.type_15.message.size\00", align 1
+@.str.279 = private unnamed_addr constant [13 x i8] c"Message size\00", align 1
+@.str.280 = private unnamed_addr constant [27 x i8] c"dplay.type_15.message.size\00", align 1
 @hf_dplay_type_15_packet_offset = internal global i32 0, align 4
-@.str.293 = private unnamed_addr constant [14 x i8] c"Packet offset\00", align 1
-@.str.294 = private unnamed_addr constant [28 x i8] c"dplay.type_15.packet_offset\00", align 1
+@.str.281 = private unnamed_addr constant [14 x i8] c"Packet offset\00", align 1
+@.str.282 = private unnamed_addr constant [28 x i8] c"dplay.type_15.packet_offset\00", align 1
 @hf_dplay_ping_id_from = internal global i32 0, align 4
-@.str.295 = private unnamed_addr constant [8 x i8] c"ID From\00", align 1
-@.str.296 = private unnamed_addr constant [19 x i8] c"dplay.ping.id_from\00", align 1
+@.str.283 = private unnamed_addr constant [8 x i8] c"ID From\00", align 1
+@.str.284 = private unnamed_addr constant [19 x i8] c"dplay.ping.id_from\00", align 1
 @hf_dplay_ping_tick_count = internal global i32 0, align 4
-@.str.297 = private unnamed_addr constant [11 x i8] c"Tick Count\00", align 1
-@.str.298 = private unnamed_addr constant [22 x i8] c"dplay.ping.tick_count\00", align 1
+@.str.285 = private unnamed_addr constant [11 x i8] c"Tick Count\00", align 1
+@.str.286 = private unnamed_addr constant [22 x i8] c"dplay.ping.tick_count\00", align 1
 @hf_dplay_type_1a_id_to = internal global i32 0, align 4
-@.str.299 = private unnamed_addr constant [20 x i8] c"dplay.type_1a.id_to\00", align 1
+@.str.287 = private unnamed_addr constant [20 x i8] c"dplay.type_1a.id_to\00", align 1
 @hf_dplay_type_1a_sess_name_ofs = internal global i32 0, align 4
-@.str.300 = private unnamed_addr constant [20 x i8] c"Session Name Offset\00", align 1
-@.str.301 = private unnamed_addr constant [28 x i8] c"dplay.type_1a.sess_name_ofs\00", align 1
+@.str.288 = private unnamed_addr constant [20 x i8] c"Session Name Offset\00", align 1
+@.str.289 = private unnamed_addr constant [28 x i8] c"dplay.type_1a.sess_name_ofs\00", align 1
 @hf_dplay_type_1a_password_ofs = internal global i32 0, align 4
-@.str.302 = private unnamed_addr constant [30 x i8] c"dplay.type_1a.password_offset\00", align 1
+@.str.290 = private unnamed_addr constant [30 x i8] c"dplay.type_1a.password_offset\00", align 1
 @hf_dplay_type_1a_session_name = internal global i32 0, align 4
-@.str.303 = private unnamed_addr constant [13 x i8] c"Session Name\00", align 1
-@.str.304 = private unnamed_addr constant [27 x i8] c"dplay.type_1a.session_name\00", align 1
+@.str.291 = private unnamed_addr constant [13 x i8] c"Session Name\00", align 1
+@.str.292 = private unnamed_addr constant [27 x i8] c"dplay.type_1a.session_name\00", align 1
 @hf_dplay_type_1a_password = internal global i32 0, align 4
-@.str.305 = private unnamed_addr constant [23 x i8] c"dplay.type_1a.password\00", align 1
+@.str.293 = private unnamed_addr constant [23 x i8] c"dplay.type_1a.password\00", align 1
 @hf_dplay_type_29_player_count = internal global i32 0, align 4
-@.str.306 = private unnamed_addr constant [36 x i8] c"SuperEnumPlayers Reply player count\00", align 1
-@.str.307 = private unnamed_addr constant [27 x i8] c"dplay.type_29.player_count\00", align 1
+@.str.294 = private unnamed_addr constant [36 x i8] c"SuperEnumPlayers Reply player count\00", align 1
+@.str.295 = private unnamed_addr constant [27 x i8] c"dplay.type_29.player_count\00", align 1
 @hf_dplay_type_29_group_count = internal global i32 0, align 4
-@.str.308 = private unnamed_addr constant [35 x i8] c"SuperEnumPlayers Reply group count\00", align 1
-@.str.309 = private unnamed_addr constant [26 x i8] c"dplay.type_29.group_count\00", align 1
+@.str.296 = private unnamed_addr constant [35 x i8] c"SuperEnumPlayers Reply group count\00", align 1
+@.str.297 = private unnamed_addr constant [26 x i8] c"dplay.type_29.group_count\00", align 1
 @hf_dplay_type_29_packed_offset = internal global i32 0, align 4
-@.str.310 = private unnamed_addr constant [37 x i8] c"SuperEnumPlayers Reply packed offset\00", align 1
-@.str.311 = private unnamed_addr constant [28 x i8] c"dplay.type_29.packed_offset\00", align 1
+@.str.298 = private unnamed_addr constant [37 x i8] c"SuperEnumPlayers Reply packed offset\00", align 1
+@.str.299 = private unnamed_addr constant [28 x i8] c"dplay.type_29.packed_offset\00", align 1
 @hf_dplay_type_29_shortcut_count = internal global i32 0, align 4
-@.str.312 = private unnamed_addr constant [38 x i8] c"SuperEnumPlayers Reply shortcut count\00", align 1
-@.str.313 = private unnamed_addr constant [29 x i8] c"dplay.type_29.shortcut_count\00", align 1
+@.str.300 = private unnamed_addr constant [38 x i8] c"SuperEnumPlayers Reply shortcut count\00", align 1
+@.str.301 = private unnamed_addr constant [29 x i8] c"dplay.type_29.shortcut_count\00", align 1
 @hf_dplay_type_29_description_offset = internal global i32 0, align 4
-@.str.314 = private unnamed_addr constant [42 x i8] c"SuperEnumPlayers Reply description offset\00", align 1
-@.str.315 = private unnamed_addr constant [26 x i8] c"dplay.type_29.desc_offset\00", align 1
+@.str.302 = private unnamed_addr constant [42 x i8] c"SuperEnumPlayers Reply description offset\00", align 1
+@.str.303 = private unnamed_addr constant [26 x i8] c"dplay.type_29.desc_offset\00", align 1
 @hf_dplay_type_29_name_offset = internal global i32 0, align 4
-@.str.316 = private unnamed_addr constant [35 x i8] c"SuperEnumPlayers Reply name offset\00", align 1
-@.str.317 = private unnamed_addr constant [26 x i8] c"dplay.type_29.name_offset\00", align 1
+@.str.304 = private unnamed_addr constant [35 x i8] c"SuperEnumPlayers Reply name offset\00", align 1
+@.str.305 = private unnamed_addr constant [26 x i8] c"dplay.type_29.name_offset\00", align 1
 @hf_dplay_type_29_password_offset = internal global i32 0, align 4
-@.str.318 = private unnamed_addr constant [39 x i8] c"SuperEnumPlayers Reply password offset\00", align 1
-@.str.319 = private unnamed_addr constant [26 x i8] c"dplay.type_29.pass_offset\00", align 1
+@.str.306 = private unnamed_addr constant [39 x i8] c"SuperEnumPlayers Reply password offset\00", align 1
+@.str.307 = private unnamed_addr constant [26 x i8] c"dplay.type_29.pass_offset\00", align 1
 @hf_dplay_type_29_game_name = internal global i32 0, align 4
-@.str.320 = private unnamed_addr constant [33 x i8] c"SuperEnumPlayers Reply game name\00", align 1
-@.str.321 = private unnamed_addr constant [24 x i8] c"dplay.type_29.game_name\00", align 1
+@.str.308 = private unnamed_addr constant [33 x i8] c"SuperEnumPlayers Reply game name\00", align 1
+@.str.309 = private unnamed_addr constant [24 x i8] c"dplay.type_29.game_name\00", align 1
 @hf_dplay_type_29_password = internal global i32 0, align 4
-@.str.322 = private unnamed_addr constant [32 x i8] c"SuperEnumPlayers Reply Password\00", align 1
-@.str.323 = private unnamed_addr constant [23 x i8] c"dplay.type_29.password\00", align 1
+@.str.310 = private unnamed_addr constant [32 x i8] c"SuperEnumPlayers Reply Password\00", align 1
+@.str.311 = private unnamed_addr constant [23 x i8] c"dplay.type_29.password\00", align 1
 @hf_dplay_type_2f_dpid = internal global i32 0, align 4
-@.str.324 = private unnamed_addr constant [27 x i8] c"ID of the forwarded player\00", align 1
-@.str.325 = private unnamed_addr constant [17 x i8] c"dplay.type_29.id\00", align 1
+@.str.312 = private unnamed_addr constant [27 x i8] c"ID of the forwarded player\00", align 1
+@.str.313 = private unnamed_addr constant [17 x i8] c"dplay.type_29.id\00", align 1
 @proto_register_dplay.ett = internal global [13 x ptr] [ptr @ett_dplay, ptr @ett_dplay_header, ptr @ett_dplay_sockaddr, ptr @ett_dplay_data, ptr @ett_dplay_flags, ptr @ett_dplay_enc_packet, ptr @ett_dplay_sess_desc_flags, ptr @ett_dplay_pp_flags, ptr @ett_dplay_spp_flags, ptr @ett_dplay_spp_info_mask, ptr @ett_dplay_type02_flags, ptr @ett_dplay_type05_flags, ptr @ett_dplay_type29_spp], align 16
 @ett_dplay = internal global i32 0, align 4
 @ett_dplay_header = internal global i32 0, align 4
@@ -523,111 +503,118 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_dplay_type02_flags = internal global i32 0, align 4
 @ett_dplay_type05_flags = internal global i32 0, align 4
 @ett_dplay_type29_spp = internal global i32 0, align 4
-@.str.326 = private unnamed_addr constant [20 x i8] c"DirectPlay Protocol\00", align 1
-@.str.327 = private unnamed_addr constant [6 x i8] c"DPLAY\00", align 1
-@.str.328 = private unnamed_addr constant [6 x i8] c"dplay\00", align 1
+@.str.314 = private unnamed_addr constant [20 x i8] c"DirectPlay Protocol\00", align 1
+@.str.315 = private unnamed_addr constant [6 x i8] c"DPLAY\00", align 1
+@.str.316 = private unnamed_addr constant [6 x i8] c"dplay\00", align 1
 @proto_dplay = internal global i32 0, align 4
-@.str.329 = private unnamed_addr constant [4 x i8] c"udp\00", align 1
-@.str.330 = private unnamed_addr constant [20 x i8] c"DirectPlay over UDP\00", align 1
-@.str.331 = private unnamed_addr constant [10 x i8] c"dplay_udp\00", align 1
-@.str.332 = private unnamed_addr constant [4 x i8] c"tcp\00", align 1
-@.str.333 = private unnamed_addr constant [20 x i8] c"DirectPlay over TCP\00", align 1
-@.str.334 = private unnamed_addr constant [10 x i8] c"dplay_tcp\00", align 1
-@.str.335 = private unnamed_addr constant [15 x i8] c"Remote Message\00", align 1
-@.str.336 = private unnamed_addr constant [18 x i8] c"Forwarded Message\00", align 1
-@.str.337 = private unnamed_addr constant [15 x i8] c"Server Message\00", align 1
-@.str.338 = private unnamed_addr constant [8 x i8] c"AF_INET\00", align 1
-@.str.339 = private unnamed_addr constant [7 x i8] c"AF_IPX\00", align 1
-@.str.340 = private unnamed_addr constant [20 x i8] c"Enum Sessions Reply\00", align 1
-@.str.341 = private unnamed_addr constant [14 x i8] c"Enum Sessions\00", align 1
-@.str.342 = private unnamed_addr constant [19 x i8] c"Enum Players Reply\00", align 1
-@.str.343 = private unnamed_addr constant [13 x i8] c"Enum Players\00", align 1
-@.str.344 = private unnamed_addr constant [18 x i8] c"Request Player ID\00", align 1
-@.str.345 = private unnamed_addr constant [17 x i8] c"Request Group ID\00", align 1
-@.str.346 = private unnamed_addr constant [21 x i8] c"Request Player Reply\00", align 1
-@.str.347 = private unnamed_addr constant [14 x i8] c"Create Player\00", align 1
-@.str.348 = private unnamed_addr constant [13 x i8] c"Create Group\00", align 1
-@.str.349 = private unnamed_addr constant [15 x i8] c"Player Message\00", align 1
-@.str.350 = private unnamed_addr constant [14 x i8] c"Delete Player\00", align 1
-@.str.351 = private unnamed_addr constant [13 x i8] c"Delete Group\00", align 1
-@.str.352 = private unnamed_addr constant [20 x i8] c"Add Player To Group\00", align 1
-@.str.353 = private unnamed_addr constant [25 x i8] c"Delete Player From Group\00", align 1
-@.str.354 = private unnamed_addr constant [20 x i8] c"Player Data Changed\00", align 1
-@.str.355 = private unnamed_addr constant [20 x i8] c"Player Name Changed\00", align 1
-@.str.356 = private unnamed_addr constant [19 x i8] c"Group Data Changed\00", align 1
-@.str.357 = private unnamed_addr constant [19 x i8] c"Group Name Changed\00", align 1
-@.str.358 = private unnamed_addr constant [20 x i8] c"Add Forward Request\00", align 1
-@.str.359 = private unnamed_addr constant [7 x i8] c"Packet\00", align 1
-@.str.360 = private unnamed_addr constant [5 x i8] c"Ping\00", align 1
-@.str.361 = private unnamed_addr constant [5 x i8] c"Pong\00", align 1
-@.str.362 = private unnamed_addr constant [13 x i8] c"You Are Dead\00", align 1
-@.str.363 = private unnamed_addr constant [15 x i8] c"Player Wrapper\00", align 1
-@.str.364 = private unnamed_addr constant [21 x i8] c"Session Desc Changed\00", align 1
-@.str.365 = private unnamed_addr constant [10 x i8] c"Challenge\00", align 1
-@.str.366 = private unnamed_addr constant [15 x i8] c"Access Granted\00", align 1
-@.str.367 = private unnamed_addr constant [13 x i8] c"Logon Denied\00", align 1
-@.str.368 = private unnamed_addr constant [11 x i8] c"Auth Error\00", align 1
-@.str.369 = private unnamed_addr constant [10 x i8] c"Negotiate\00", align 1
-@.str.370 = private unnamed_addr constant [19 x i8] c"Challenge Response\00", align 1
-@.str.371 = private unnamed_addr constant [7 x i8] c"Signed\00", align 1
-@.str.372 = private unnamed_addr constant [18 x i8] c"Add Forward Reply\00", align 1
-@.str.373 = private unnamed_addr constant [18 x i8] c"Ask For Multicast\00", align 1
-@.str.374 = private unnamed_addr constant [29 x i8] c"Ask For Multicast Guaranteed\00", align 1
-@.str.375 = private unnamed_addr constant [22 x i8] c"Add Shortcut To Group\00", align 1
-@.str.376 = private unnamed_addr constant [24 x i8] c"Delete Group From Group\00", align 1
-@.str.377 = private unnamed_addr constant [25 x i8] c"Super Enum Players Reply\00", align 1
-@.str.378 = private unnamed_addr constant [13 x i8] c"Key Exchange\00", align 1
-@.str.379 = private unnamed_addr constant [19 x i8] c"Key Exchange Reply\00", align 1
-@.str.380 = private unnamed_addr constant [5 x i8] c"Chat\00", align 1
-@.str.381 = private unnamed_addr constant [12 x i8] c"Add Forward\00", align 1
-@.str.382 = private unnamed_addr constant [16 x i8] c"Add Forward ACK\00", align 1
-@.str.383 = private unnamed_addr constant [13 x i8] c"Packet2 Data\00", align 1
-@.str.384 = private unnamed_addr constant [12 x i8] c"Packet2 ACK\00", align 1
-@.str.385 = private unnamed_addr constant [16 x i8] c"I Am Nameserver\00", align 1
-@.str.386 = private unnamed_addr constant [6 x i8] c"Voice\00", align 1
-@.str.387 = private unnamed_addr constant [19 x i8] c"Multicast Delivery\00", align 1
-@.str.388 = private unnamed_addr constant [22 x i8] c"Create Players Verify\00", align 1
-@.str.389 = private unnamed_addr constant [8 x i8] c"dplay 6\00", align 1
-@.str.390 = private unnamed_addr constant [10 x i8] c"dplay 6.1\00", align 1
-@.str.391 = private unnamed_addr constant [11 x i8] c"dplay 6.1a\00", align 1
-@.str.392 = private unnamed_addr constant [10 x i8] c"dplay 7.1\00", align 1
-@.str.393 = private unnamed_addr constant [8 x i8] c"dplay 8\00", align 1
-@.str.394 = private unnamed_addr constant [8 x i8] c"dplay 9\00", align 1
-@.str.395 = private unnamed_addr constant [3 x i8] c"No\00", align 1
-@.str.396 = private unnamed_addr constant [4 x i8] c"Yes\00", align 1
-@.str.397 = private unnamed_addr constant [12 x i8] c"Not present\00", align 1
-@.str.398 = private unnamed_addr constant [9 x i8] c"One byte\00", align 1
-@.str.399 = private unnamed_addr constant [10 x i8] c"Two bytes\00", align 1
-@.str.400 = private unnamed_addr constant [11 x i8] c"Four bytes\00", align 1
-@.str.401 = private unnamed_addr constant [8 x i8] c"Default\00", align 1
-@.str.402 = private unnamed_addr constant [4 x i8] c"AES\00", align 1
-@.str.403 = private unnamed_addr constant [5 x i8] c"3DES\00", align 1
-@.str.404 = private unnamed_addr constant [4 x i8] c"DES\00", align 1
-@.str.405 = private unnamed_addr constant [4 x i8] c"RC2\00", align 1
-@.str.406 = private unnamed_addr constant [4 x i8] c"RC4\00", align 1
+@.str.317 = private unnamed_addr constant [4 x i8] c"udp\00", align 1
+@.str.318 = private unnamed_addr constant [20 x i8] c"DirectPlay over UDP\00", align 1
+@.str.319 = private unnamed_addr constant [10 x i8] c"dplay_udp\00", align 1
+@.str.320 = private unnamed_addr constant [4 x i8] c"tcp\00", align 1
+@.str.321 = private unnamed_addr constant [20 x i8] c"DirectPlay over TCP\00", align 1
+@.str.322 = private unnamed_addr constant [10 x i8] c"dplay_tcp\00", align 1
+@.str.323 = private unnamed_addr constant [15 x i8] c"Remote Message\00", align 1
+@.str.324 = private unnamed_addr constant [18 x i8] c"Forwarded Message\00", align 1
+@.str.325 = private unnamed_addr constant [15 x i8] c"Server Message\00", align 1
+@dplay_token_val = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 4011, [4 x i8] zeroinitializer, ptr @.str.323 }, { i32, [4 x i8], ptr } { i32 3243, [4 x i8] zeroinitializer, ptr @.str.324 }, { i32, [4 x i8], ptr } { i32 2987, [4 x i8] zeroinitializer, ptr @.str.325 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.327 = private unnamed_addr constant [8 x i8] c"AF_INET\00", align 1
+@.str.328 = private unnamed_addr constant [7 x i8] c"AF_IPX\00", align 1
+@dplay_af_val = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.327 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.328 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.330 = private unnamed_addr constant [20 x i8] c"Enum Sessions Reply\00", align 1
+@.str.331 = private unnamed_addr constant [14 x i8] c"Enum Sessions\00", align 1
+@.str.332 = private unnamed_addr constant [19 x i8] c"Enum Players Reply\00", align 1
+@.str.333 = private unnamed_addr constant [13 x i8] c"Enum Players\00", align 1
+@.str.334 = private unnamed_addr constant [18 x i8] c"Request Player ID\00", align 1
+@.str.335 = private unnamed_addr constant [17 x i8] c"Request Group ID\00", align 1
+@.str.336 = private unnamed_addr constant [21 x i8] c"Request Player Reply\00", align 1
+@.str.337 = private unnamed_addr constant [14 x i8] c"Create Player\00", align 1
+@.str.338 = private unnamed_addr constant [13 x i8] c"Create Group\00", align 1
+@.str.339 = private unnamed_addr constant [15 x i8] c"Player Message\00", align 1
+@.str.340 = private unnamed_addr constant [14 x i8] c"Delete Player\00", align 1
+@.str.341 = private unnamed_addr constant [13 x i8] c"Delete Group\00", align 1
+@.str.342 = private unnamed_addr constant [20 x i8] c"Add Player To Group\00", align 1
+@.str.343 = private unnamed_addr constant [25 x i8] c"Delete Player From Group\00", align 1
+@.str.344 = private unnamed_addr constant [20 x i8] c"Player Data Changed\00", align 1
+@.str.345 = private unnamed_addr constant [20 x i8] c"Player Name Changed\00", align 1
+@.str.346 = private unnamed_addr constant [19 x i8] c"Group Data Changed\00", align 1
+@.str.347 = private unnamed_addr constant [19 x i8] c"Group Name Changed\00", align 1
+@.str.348 = private unnamed_addr constant [20 x i8] c"Add Forward Request\00", align 1
+@.str.349 = private unnamed_addr constant [7 x i8] c"Packet\00", align 1
+@.str.350 = private unnamed_addr constant [5 x i8] c"Ping\00", align 1
+@.str.351 = private unnamed_addr constant [5 x i8] c"Pong\00", align 1
+@.str.352 = private unnamed_addr constant [13 x i8] c"You Are Dead\00", align 1
+@.str.353 = private unnamed_addr constant [15 x i8] c"Player Wrapper\00", align 1
+@.str.354 = private unnamed_addr constant [21 x i8] c"Session Desc Changed\00", align 1
+@.str.355 = private unnamed_addr constant [10 x i8] c"Challenge\00", align 1
+@.str.356 = private unnamed_addr constant [15 x i8] c"Access Granted\00", align 1
+@.str.357 = private unnamed_addr constant [13 x i8] c"Logon Denied\00", align 1
+@.str.358 = private unnamed_addr constant [11 x i8] c"Auth Error\00", align 1
+@.str.359 = private unnamed_addr constant [10 x i8] c"Negotiate\00", align 1
+@.str.360 = private unnamed_addr constant [19 x i8] c"Challenge Response\00", align 1
+@.str.361 = private unnamed_addr constant [7 x i8] c"Signed\00", align 1
+@.str.362 = private unnamed_addr constant [18 x i8] c"Add Forward Reply\00", align 1
+@.str.363 = private unnamed_addr constant [18 x i8] c"Ask For Multicast\00", align 1
+@.str.364 = private unnamed_addr constant [29 x i8] c"Ask For Multicast Guaranteed\00", align 1
+@.str.365 = private unnamed_addr constant [22 x i8] c"Add Shortcut To Group\00", align 1
+@.str.366 = private unnamed_addr constant [24 x i8] c"Delete Group From Group\00", align 1
+@.str.367 = private unnamed_addr constant [25 x i8] c"Super Enum Players Reply\00", align 1
+@.str.368 = private unnamed_addr constant [13 x i8] c"Key Exchange\00", align 1
+@.str.369 = private unnamed_addr constant [19 x i8] c"Key Exchange Reply\00", align 1
+@.str.370 = private unnamed_addr constant [5 x i8] c"Chat\00", align 1
+@.str.371 = private unnamed_addr constant [12 x i8] c"Add Forward\00", align 1
+@.str.372 = private unnamed_addr constant [16 x i8] c"Add Forward ACK\00", align 1
+@.str.373 = private unnamed_addr constant [13 x i8] c"Packet2 Data\00", align 1
+@.str.374 = private unnamed_addr constant [12 x i8] c"Packet2 ACK\00", align 1
+@.str.375 = private unnamed_addr constant [16 x i8] c"I Am Nameserver\00", align 1
+@.str.376 = private unnamed_addr constant [6 x i8] c"Voice\00", align 1
+@.str.377 = private unnamed_addr constant [19 x i8] c"Multicast Delivery\00", align 1
+@.str.378 = private unnamed_addr constant [22 x i8] c"Create Players Verify\00", align 1
+@dplay_command_val = internal constant [50 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.330 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.331 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.332 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.333 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.334 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.335 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.336 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.337 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.338 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.339 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.340 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.341 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.342 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.343 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.344 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.345 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.346 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.347 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.348 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.349 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.350 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.351 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.352 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.353 }, { i32, [4 x i8], ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.354 }, { i32, [4 x i8], ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.355 }, { i32, [4 x i8], ptr } { i32 29, [4 x i8] zeroinitializer, ptr @.str.356 }, { i32, [4 x i8], ptr } { i32 30, [4 x i8] zeroinitializer, ptr @.str.357 }, { i32, [4 x i8], ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.358 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.359 }, { i32, [4 x i8], ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.360 }, { i32, [4 x i8], ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.361 }, { i32, [4 x i8], ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.362 }, { i32, [4 x i8], ptr } { i32 37, [4 x i8] zeroinitializer, ptr @.str.363 }, { i32, [4 x i8], ptr } { i32 38, [4 x i8] zeroinitializer, ptr @.str.364 }, { i32, [4 x i8], ptr } { i32 39, [4 x i8] zeroinitializer, ptr @.str.365 }, { i32, [4 x i8], ptr } { i32 40, [4 x i8] zeroinitializer, ptr @.str.366 }, { i32, [4 x i8], ptr } { i32 41, [4 x i8] zeroinitializer, ptr @.str.367 }, { i32, [4 x i8], ptr } { i32 43, [4 x i8] zeroinitializer, ptr @.str.368 }, { i32, [4 x i8], ptr } { i32 44, [4 x i8] zeroinitializer, ptr @.str.369 }, { i32, [4 x i8], ptr } { i32 45, [4 x i8] zeroinitializer, ptr @.str.370 }, { i32, [4 x i8], ptr } { i32 46, [4 x i8] zeroinitializer, ptr @.str.371 }, { i32, [4 x i8], ptr } { i32 47, [4 x i8] zeroinitializer, ptr @.str.372 }, { i32, [4 x i8], ptr } { i32 48, [4 x i8] zeroinitializer, ptr @.str.373 }, { i32, [4 x i8], ptr } { i32 49, [4 x i8] zeroinitializer, ptr @.str.374 }, { i32, [4 x i8], ptr } { i32 53, [4 x i8] zeroinitializer, ptr @.str.375 }, { i32, [4 x i8], ptr } { i32 54, [4 x i8] zeroinitializer, ptr @.str.376 }, { i32, [4 x i8], ptr } { i32 55, [4 x i8] zeroinitializer, ptr @.str.377 }, { i32, [4 x i8], ptr } { i32 56, [4 x i8] zeroinitializer, ptr @.str.378 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.380 = private unnamed_addr constant [8 x i8] c"dplay 6\00", align 1
+@.str.381 = private unnamed_addr constant [10 x i8] c"dplay 6.1\00", align 1
+@.str.382 = private unnamed_addr constant [11 x i8] c"dplay 6.1a\00", align 1
+@.str.383 = private unnamed_addr constant [10 x i8] c"dplay 7.1\00", align 1
+@.str.384 = private unnamed_addr constant [8 x i8] c"dplay 8\00", align 1
+@.str.385 = private unnamed_addr constant [8 x i8] c"dplay 9\00", align 1
+@dplay_proto_dialect_val = internal constant [7 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.380 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.381 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.382 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.383 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.384 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.385 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.387 = private unnamed_addr constant [3 x i8] c"No\00", align 1
+@.str.388 = private unnamed_addr constant [4 x i8] c"Yes\00", align 1
+@yes_no_val = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.387 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.388 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.390 = private unnamed_addr constant [12 x i8] c"Not present\00", align 1
+@.str.391 = private unnamed_addr constant [9 x i8] c"One byte\00", align 1
+@.str.392 = private unnamed_addr constant [10 x i8] c"Two bytes\00", align 1
+@.str.393 = private unnamed_addr constant [11 x i8] c"Four bytes\00", align 1
+@dplay_spp_length_val = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.390 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.391 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.392 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.393 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.395 = private unnamed_addr constant [8 x i8] c"Default\00", align 1
+@.str.396 = private unnamed_addr constant [4 x i8] c"AES\00", align 1
+@.str.397 = private unnamed_addr constant [5 x i8] c"3DES\00", align 1
+@.str.398 = private unnamed_addr constant [4 x i8] c"DES\00", align 1
+@.str.399 = private unnamed_addr constant [4 x i8] c"RC2\00", align 1
+@.str.400 = private unnamed_addr constant [4 x i8] c"RC4\00", align 1
+@dplay_enc_alg_val = internal constant [7 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.395 }, { i32, [4 x i8], ptr } { i32 26129, [4 x i8] zeroinitializer, ptr @.str.396 }, { i32, [4 x i8], ptr } { i32 26115, [4 x i8] zeroinitializer, ptr @.str.397 }, { i32, [4 x i8], ptr } { i32 26113, [4 x i8] zeroinitializer, ptr @.str.398 }, { i32, [4 x i8], ptr } { i32 26114, [4 x i8] zeroinitializer, ptr @.str.399 }, { i32, [4 x i8], ptr } { i32 26625, [4 x i8] zeroinitializer, ptr @.str.400 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
 @__const.dissect_dplay.play_id = private unnamed_addr constant [4 x i8] c"play", align 1
-@.str.407 = private unnamed_addr constant [18 x i8] c"DPlay data packet\00", align 1
-@.str.408 = private unnamed_addr constant [21 x i8] c"%s: %s, holding a %s\00", align 1
-@.str.409 = private unnamed_addr constant [17 x i8] c"Unknown (0x%04x)\00", align 1
-@.str.410 = private unnamed_addr constant [7 x i8] c"%s: %s\00", align 1
-@.str.411 = private unnamed_addr constant [18 x i8] c"DirectPlay header\00", align 1
-@.str.412 = private unnamed_addr constant [16 x i8] c"DirectPlay data\00", align 1
-@.str.413 = private unnamed_addr constant [33 x i8] c"DirectPlay sockaddr_in structure\00", align 1
+@.str.402 = private unnamed_addr constant [18 x i8] c"DPlay data packet\00", align 1
+@.str.403 = private unnamed_addr constant [21 x i8] c"%s: %s, holding a %s\00", align 1
+@.str.404 = private unnamed_addr constant [17 x i8] c"Unknown (0x%04x)\00", align 1
+@.str.405 = private unnamed_addr constant [7 x i8] c"%s: %s\00", align 1
+@.str.406 = private unnamed_addr constant [18 x i8] c"DirectPlay header\00", align 1
+@.str.407 = private unnamed_addr constant [16 x i8] c"DirectPlay data\00", align 1
+@.str.408 = private unnamed_addr constant [33 x i8] c"DirectPlay sockaddr_in structure\00", align 1
 @dissect_session_desc.flags = internal constant [19 x ptr] [ptr @hf_dplay_flags_no_sess_desc_changes, ptr @hf_dplay_flags_acqire_voice, ptr @hf_dplay_flags_optimize_latency, ptr @hf_dplay_flags_preserve_order, ptr @hf_dplay_flags_reliable, ptr @hf_dplay_flags_server_player_only, ptr @hf_dplay_flags_route, ptr @hf_dplay_flags_password_req, ptr @hf_dplay_flags_private_session, ptr @hf_dplay_flags_use_auth, ptr @hf_dplay_flags_no_player_updates, ptr @hf_dplay_flags_use_ping, ptr @hf_dplay_flags_can_join, ptr @hf_dplay_flags_ignored, ptr @hf_dplay_flags_short_player_msg, ptr @hf_dplay_flags_migrate_host, ptr @hf_dplay_flags_0002, ptr @hf_dplay_flags_no_create_players, ptr null], align 16
 @dissect_type02_message.flags = internal constant [4 x ptr] [ptr @hf_enum_sess_flag_passwd, ptr @hf_enum_sess_flag_all, ptr @hf_enum_sess_flag_join, ptr null], align 16
 @dissect_type05_message.flags = internal constant [6 x ptr] [ptr @hf_dplay_type_05_secure, ptr @hf_dplay_type_05_unknown, ptr @hf_dplay_type_05_local, ptr @hf_dplay_type_05_name_server, ptr @hf_dplay_type_05_system_player, ptr null], align 16
 @dissect_packed_player.flags = internal constant [5 x ptr] [ptr @hf_dplay_pp_flag_sending, ptr @hf_dplay_pp_flag_in_group, ptr @hf_dplay_pp_flag_nameserver, ptr @hf_dplay_pp_flag_sysplayer, ptr null], align 16
-@.str.414 = private unnamed_addr constant [31 x i8] c"DirectPlay encapsulated packet\00", align 1
-@.str.415 = private unnamed_addr constant [10 x i8] c"Player %d\00", align 1
-@.str.416 = private unnamed_addr constant [9 x i8] c"Group %d\00", align 1
-@.str.417 = private unnamed_addr constant [12 x i8] c"Shortcut %d\00", align 1
+@.str.409 = private unnamed_addr constant [31 x i8] c"DirectPlay encapsulated packet\00", align 1
+@.str.410 = private unnamed_addr constant [10 x i8] c"Player %d\00", align 1
+@.str.411 = private unnamed_addr constant [9 x i8] c"Group %d\00", align 1
+@.str.412 = private unnamed_addr constant [12 x i8] c"Shortcut %d\00", align 1
 @dissect_dplay_super_packed_player.ssp_flags = internal constant [5 x ptr] [ptr @hf_dplay_spp_flags_sending, ptr @hf_dplay_spp_flags_in_group, ptr @hf_dplay_spp_flags_nameserver, ptr @hf_dplay_spp_flags_sysplayer, ptr null], align 16
-@.str.418 = private unnamed_addr constant [31 x i8] c"DPlay player to player message\00", align 1
-@.str.419 = private unnamed_addr constant [16 x i8] c"Message content\00", align 1
+@.str.413 = private unnamed_addr constant [31 x i8] c"DPlay player to player message\00", align 1
+@.str.414 = private unnamed_addr constant [16 x i8] c"Message content\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_dplay() #0 {
-  %1 = call i32 @proto_register_protocol(ptr noundef @.str.326, ptr noundef @.str.327, ptr noundef @.str.328)
+  %1 = call i32 @proto_register_protocol(ptr noundef @.str.314, ptr noundef @.str.315, ptr noundef @.str.316)
   store i32 %1, ptr @proto_dplay, align 4
   %2 = load i32, ptr @proto_dplay, align 4
   call void @proto_register_field_array(i32 noundef %2, ptr noundef @proto_register_dplay.hf, i32 noundef 164)
@@ -635,26 +622,30 @@ define hidden void @proto_register_dplay() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_dplay() #0 {
   %1 = load i32, ptr @proto_dplay, align 4
-  call void @heur_dissector_add(ptr noundef @.str.329, ptr noundef @heur_dissect_dplay, ptr noundef @.str.330, ptr noundef @.str.331, i32 noundef %1, i32 noundef 1)
+  call void @heur_dissector_add(ptr noundef @.str.317, ptr noundef @heur_dissect_dplay, ptr noundef @.str.318, ptr noundef @.str.319, i32 noundef %1, i32 noundef 1)
   %2 = load i32, ptr @proto_dplay, align 4
-  call void @heur_dissector_add(ptr noundef @.str.332, ptr noundef @heur_dissect_dplay, ptr noundef @.str.333, ptr noundef @.str.334, i32 noundef %2, i32 noundef 1)
+  call void @heur_dissector_add(ptr noundef @.str.320, ptr noundef @heur_dissect_dplay, ptr noundef @.str.321, ptr noundef @.str.322, i32 noundef %2, i32 noundef 1)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
-define internal i32 @heur_dissect_dplay(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = alloca i32, align 4
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @heur_dissect_dplay(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i1, align 1
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -662,119 +653,139 @@ define internal i32 @heur_dissect_dplay(ptr noundef %0, ptr noundef %1, ptr noun
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
-  %13 = load ptr, ptr %6, align 8
-  %14 = call i32 @tvb_captured_length(ptr noundef %13)
-  %15 = icmp ult i32 %14, 25
-  br i1 %15, label %16, label %17
-
-16:                                               ; preds = %4
-  store i32 0, ptr %5, align 4
-  br label %66
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  %14 = load ptr, ptr %6, align 8
+  %15 = call i32 @tvb_captured_length(ptr noundef %14)
+  %16 = icmp ult i32 %15, 25
+  br i1 %16, label %17, label %18
 
 17:                                               ; preds = %4
-  %18 = load ptr, ptr %6, align 8
-  %19 = call i32 @tvb_get_ntohl(ptr noundef %18, i32 noundef 20)
-  store i32 %19, ptr %10, align 4
-  %20 = load i32, ptr %10, align 4
-  %21 = icmp eq i32 %20, 1886151033
-  br i1 %21, label %22, label %26
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %12, align 4
+  br label %68
 
-22:                                               ; preds = %17
-  %23 = load ptr, ptr %6, align 8
-  %24 = load ptr, ptr %7, align 8
-  %25 = load ptr, ptr %8, align 8
-  call void @dissect_dplay(ptr noundef %23, ptr noundef %24, ptr noundef %25)
-  store i32 1, ptr %5, align 4
-  br label %66
+18:                                               ; preds = %4
+  %19 = load ptr, ptr %6, align 8
+  %20 = call i32 @tvb_get_ntohl(ptr noundef %19, i32 noundef 20)
+  store i32 %20, ptr %10, align 4
+  %21 = load i32, ptr %10, align 4
+  %22 = icmp eq i32 %21, 1886151033
+  br i1 %22, label %23, label %27
 
-26:                                               ; preds = %17
-  %27 = load ptr, ptr %6, align 8
-  %28 = call i32 @tvb_get_letohl(ptr noundef %27, i32 noundef 0)
-  store i32 %28, ptr %11, align 4
-  %29 = load i32, ptr %11, align 4
-  %30 = and i32 %29, -1048576
-  %31 = lshr i32 %30, 20
-  store i32 %31, ptr %11, align 4
-  %32 = load i32, ptr %11, align 4
-  %33 = icmp eq i32 %32, 4011
-  br i1 %33, label %40, label %34
+23:                                               ; preds = %18
+  %24 = load ptr, ptr %6, align 8
+  %25 = load ptr, ptr %7, align 8
+  %26 = load ptr, ptr %8, align 8
+  call void @dissect_dplay(ptr noundef %24, ptr noundef %25, ptr noundef %26)
+  store i1 true, ptr %5, align 1
+  store i32 1, ptr %12, align 4
+  br label %68
 
-34:                                               ; preds = %26
-  %35 = load i32, ptr %11, align 4
-  %36 = icmp eq i32 %35, 2987
-  br i1 %36, label %40, label %37
+27:                                               ; preds = %18
+  %28 = load ptr, ptr %6, align 8
+  %29 = call i32 @tvb_get_letohl(ptr noundef %28, i32 noundef 0)
+  store i32 %29, ptr %11, align 4
+  %30 = load i32, ptr %11, align 4
+  %31 = and i32 %30, -1048576
+  %32 = lshr i32 %31, 20
+  store i32 %32, ptr %11, align 4
+  %33 = load i32, ptr %11, align 4
+  %34 = icmp eq i32 %33, 4011
+  br i1 %34, label %41, label %35
 
-37:                                               ; preds = %34
-  %38 = load i32, ptr %11, align 4
-  %39 = icmp eq i32 %38, 3243
-  br i1 %39, label %40, label %65
+35:                                               ; preds = %27
+  %36 = load i32, ptr %11, align 4
+  %37 = icmp eq i32 %36, 2987
+  br i1 %37, label %41, label %38
 
-40:                                               ; preds = %37, %34, %26
-  %41 = load ptr, ptr %6, align 8
-  %42 = call zeroext i16 @tvb_get_letohs(ptr noundef %41, i32 noundef 4)
-  %43 = zext i16 %42 to i32
-  %44 = icmp eq i32 %43, 2
-  br i1 %44, label %45, label %64
+38:                                               ; preds = %35
+  %39 = load i32, ptr %11, align 4
+  %40 = icmp eq i32 %39, 3243
+  br i1 %40, label %41, label %67
 
-45:                                               ; preds = %40
-  store i32 12, ptr %12, align 4
-  br label %46
+41:                                               ; preds = %38, %35, %27
+  %42 = load ptr, ptr %6, align 8
+  %43 = call zeroext i16 @tvb_get_letohs(ptr noundef %42, i32 noundef 4)
+  %44 = zext i16 %43 to i32
+  %45 = icmp eq i32 %44, 2
+  br i1 %45, label %46, label %66
 
-46:                                               ; preds = %57, %45
-  %47 = load i32, ptr %12, align 4
-  %48 = icmp sle i32 %47, 20
-  br i1 %48, label %49, label %60
+46:                                               ; preds = %41
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
+  store i32 12, ptr %13, align 4
+  br label %47
 
-49:                                               ; preds = %46
-  %50 = load ptr, ptr %6, align 8
-  %51 = load i32, ptr %12, align 4
-  %52 = call zeroext i8 @tvb_get_guint8(ptr noundef %50, i32 noundef %51)
-  %53 = zext i8 %52 to i32
-  %54 = icmp ne i32 %53, 0
-  br i1 %54, label %55, label %56
+47:                                               ; preds = %58, %46
+  %48 = load i32, ptr %13, align 4
+  %49 = icmp sle i32 %48, 20
+  br i1 %49, label %50, label %61
 
-55:                                               ; preds = %49
-  store i32 0, ptr %5, align 4
-  br label %66
+50:                                               ; preds = %47
+  %51 = load ptr, ptr %6, align 8
+  %52 = load i32, ptr %13, align 4
+  %53 = call zeroext i8 @tvb_get_uint8(ptr noundef %51, i32 noundef %52)
+  %54 = zext i8 %53 to i32
+  %55 = icmp ne i32 %54, 0
+  br i1 %55, label %56, label %57
 
-56:                                               ; preds = %49
-  br label %57
-
-57:                                               ; preds = %56
-  %58 = load i32, ptr %12, align 4
-  %59 = add i32 %58, 1
-  store i32 %59, ptr %12, align 4
-  br label %46, !llvm.loop !4
-
-60:                                               ; preds = %46
-  %61 = load ptr, ptr %6, align 8
-  %62 = load ptr, ptr %7, align 8
-  %63 = load ptr, ptr %8, align 8
-  call void @dissect_dplay_player_msg(ptr noundef %61, ptr noundef %62, ptr noundef %63)
-  store i32 1, ptr %5, align 4
-  br label %66
-
-64:                                               ; preds = %40
+56:                                               ; preds = %50
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %12, align 4
   br label %65
 
-65:                                               ; preds = %64, %37
-  store i32 0, ptr %5, align 4
-  br label %66
+57:                                               ; preds = %50
+  br label %58
 
-66:                                               ; preds = %65, %60, %55, %22, %16
-  %67 = load i32, ptr %5, align 4
-  ret i32 %67
+58:                                               ; preds = %57
+  %59 = load i32, ptr %13, align 4
+  %60 = add i32 %59, 1
+  store i32 %60, ptr %13, align 4
+  br label %47, !llvm.loop !6
+
+61:                                               ; preds = %47
+  %62 = load ptr, ptr %6, align 8
+  %63 = load ptr, ptr %7, align 8
+  %64 = load ptr, ptr %8, align 8
+  call void @dissect_dplay_player_msg(ptr noundef %62, ptr noundef %63, ptr noundef %64)
+  store i1 true, ptr %5, align 1
+  store i32 1, ptr %12, align 4
+  br label %65
+
+65:                                               ; preds = %61, %56
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  br label %68
+
+66:                                               ; preds = %41
+  br label %67
+
+67:                                               ; preds = %66, %38
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %12, align 4
+  br label %68
+
+68:                                               ; preds = %67, %65, %23, %17
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  %69 = load i1, ptr %5, align 1
+  ret i1 %69
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_dplay(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -784,257 +795,307 @@ define internal void @dissect_dplay(ptr noundef %0, ptr noundef %1, ptr noundef 
   %9 = alloca i16, align 2
   %10 = alloca i32, align 4
   %11 = alloca [4 x i8], align 1
-  %12 = alloca ptr, align 8
+  %12 = alloca i32, align 4
   %13 = alloca ptr, align 8
   %14 = alloca ptr, align 8
   %15 = alloca ptr, align 8
-  %16 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  %17 = alloca i32, align 4
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 2, ptr %8) #5
   store i16 -1, ptr %8, align 2
+  call void @llvm.lifetime.start.p0(i64 2, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr align 1 @__const.dissect_dplay.play_id, i64 4, i1 false)
-  %17 = load ptr, ptr %4, align 8
-  %18 = call i32 @tvb_get_letohl(ptr noundef %17, i32 noundef 20)
-  store i32 %18, ptr %10, align 4
-  %19 = load ptr, ptr %4, align 8
-  %20 = call zeroext i16 @tvb_get_letohs(ptr noundef %19, i32 noundef 24)
-  store i16 %20, ptr %7, align 2
-  %21 = load ptr, ptr %4, align 8
-  %22 = call zeroext i16 @tvb_get_letohs(ptr noundef %21, i32 noundef 26)
-  store i16 %22, ptr %9, align 2
-  %23 = getelementptr inbounds [4 x i8], ptr %11, i64 0, i64 0
-  %24 = call i32 @memcmp(ptr noundef %23, ptr noundef %10, i64 noundef 4) #4
-  %25 = icmp ne i32 %24, 0
-  br i1 %25, label %26, label %33
+  %18 = load ptr, ptr %4, align 8
+  %19 = call i32 @tvb_get_letohl(ptr noundef %18, i32 noundef 20)
+  store i32 %19, ptr %10, align 4
+  %20 = load ptr, ptr %4, align 8
+  %21 = call zeroext i16 @tvb_get_letohs(ptr noundef %20, i32 noundef 24)
+  store i16 %21, ptr %7, align 2
+  %22 = load ptr, ptr %4, align 8
+  %23 = call zeroext i16 @tvb_get_letohs(ptr noundef %22, i32 noundef 26)
+  store i16 %23, ptr %9, align 2
+  %24 = getelementptr inbounds [4 x i8], ptr %11, i64 0, i64 0
+  %25 = call i32 @memcmp(ptr noundef %24, ptr noundef %10, i64 noundef 4) #6
+  %26 = icmp ne i32 %25, 0
+  br i1 %26, label %27, label %34
 
-26:                                               ; preds = %3
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %struct._packet_info, ptr %27, i32 0, i32 1
-  %29 = load ptr, ptr %28, align 8
-  call void @col_set_str(ptr noundef %29, i32 noundef 34, ptr noundef @.str.327)
-  %30 = load ptr, ptr %5, align 8
-  %31 = getelementptr inbounds %struct._packet_info, ptr %30, i32 0, i32 1
-  %32 = load ptr, ptr %31, align 8
-  call void @col_set_str(ptr noundef %32, i32 noundef 25, ptr noundef @.str.407)
-  br label %163
+27:                                               ; preds = %3
+  %28 = load ptr, ptr %5, align 8
+  %29 = getelementptr inbounds nuw %struct._packet_info, ptr %28, i32 0, i32 1
+  %30 = load ptr, ptr %29, align 8
+  call void @col_set_str(ptr noundef %30, i32 noundef 35, ptr noundef @.str.315)
+  %31 = load ptr, ptr %5, align 8
+  %32 = getelementptr inbounds nuw %struct._packet_info, ptr %31, i32 0, i32 1
+  %33 = load ptr, ptr %32, align 8
+  call void @col_set_str(ptr noundef %33, i32 noundef 25, ptr noundef @.str.402)
+  store i32 1, ptr %12, align 4
+  br label %168
 
-33:                                               ; preds = %3
-  %34 = load i16, ptr %7, align 2
-  %35 = zext i16 %34 to i32
-  %36 = icmp eq i32 %35, 21
-  br i1 %36, label %37, label %40
+34:                                               ; preds = %3
+  %35 = load i16, ptr %7, align 2
+  %36 = zext i16 %35 to i32
+  %37 = icmp eq i32 %36, 21
+  br i1 %37, label %38, label %41
 
-37:                                               ; preds = %33
-  %38 = load ptr, ptr %4, align 8
-  %39 = call zeroext i16 @tvb_get_letohs(ptr noundef %38, i32 noundef 72)
-  store i16 %39, ptr %8, align 2
-  br label %40
+38:                                               ; preds = %34
+  %39 = load ptr, ptr %4, align 8
+  %40 = call zeroext i16 @tvb_get_letohs(ptr noundef %39, i32 noundef 72)
+  store i16 %40, ptr %8, align 2
+  br label %41
 
-40:                                               ; preds = %37, %33
-  %41 = load ptr, ptr %5, align 8
-  %42 = getelementptr inbounds %struct._packet_info, ptr %41, i32 0, i32 1
-  %43 = load ptr, ptr %42, align 8
-  call void @col_set_str(ptr noundef %43, i32 noundef 34, ptr noundef @.str.327)
-  %44 = load i16, ptr %7, align 2
-  %45 = zext i16 %44 to i32
-  %46 = icmp eq i32 %45, 21
-  br i1 %46, label %47, label %60
+41:                                               ; preds = %38, %34
+  %42 = load ptr, ptr %5, align 8
+  %43 = getelementptr inbounds nuw %struct._packet_info, ptr %42, i32 0, i32 1
+  %44 = load ptr, ptr %43, align 8
+  call void @col_set_str(ptr noundef %44, i32 noundef 35, ptr noundef @.str.315)
+  %45 = load i16, ptr %7, align 2
+  %46 = zext i16 %45 to i32
+  %47 = icmp eq i32 %46, 21
+  br i1 %47, label %48, label %61
 
-47:                                               ; preds = %40
-  %48 = load ptr, ptr %5, align 8
-  %49 = getelementptr inbounds %struct._packet_info, ptr %48, i32 0, i32 1
-  %50 = load ptr, ptr %49, align 8
-  %51 = load i16, ptr %9, align 2
-  %52 = zext i16 %51 to i32
-  %53 = call ptr @val_to_str(i32 noundef %52, ptr noundef @dplay_proto_dialect_val, ptr noundef @.str.409)
-  %54 = load i16, ptr %7, align 2
-  %55 = zext i16 %54 to i32
-  %56 = call ptr @val_to_str(i32 noundef %55, ptr noundef @dplay_command_val, ptr noundef @.str.409)
-  %57 = load i16, ptr %8, align 2
-  %58 = zext i16 %57 to i32
-  %59 = call ptr @val_to_str(i32 noundef %58, ptr noundef @dplay_command_val, ptr noundef @.str.409)
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %50, i32 noundef 25, ptr noundef @.str.408, ptr noundef %53, ptr noundef %56, ptr noundef %59)
-  br label %70
+48:                                               ; preds = %41
+  %49 = load ptr, ptr %5, align 8
+  %50 = getelementptr inbounds nuw %struct._packet_info, ptr %49, i32 0, i32 1
+  %51 = load ptr, ptr %50, align 8
+  %52 = load i16, ptr %9, align 2
+  %53 = zext i16 %52 to i32
+  %54 = call ptr @val_to_str(i32 noundef %53, ptr noundef @dplay_proto_dialect_val, ptr noundef @.str.404)
+  %55 = load i16, ptr %7, align 2
+  %56 = zext i16 %55 to i32
+  %57 = call ptr @val_to_str(i32 noundef %56, ptr noundef @dplay_command_val, ptr noundef @.str.404)
+  %58 = load i16, ptr %8, align 2
+  %59 = zext i16 %58 to i32
+  %60 = call ptr @val_to_str(i32 noundef %59, ptr noundef @dplay_command_val, ptr noundef @.str.404)
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %51, i32 noundef 25, ptr noundef @.str.403, ptr noundef %54, ptr noundef %57, ptr noundef %60)
+  br label %71
 
-60:                                               ; preds = %40
-  %61 = load ptr, ptr %5, align 8
-  %62 = getelementptr inbounds %struct._packet_info, ptr %61, i32 0, i32 1
-  %63 = load ptr, ptr %62, align 8
-  %64 = load i16, ptr %9, align 2
-  %65 = zext i16 %64 to i32
-  %66 = call ptr @val_to_str(i32 noundef %65, ptr noundef @dplay_proto_dialect_val, ptr noundef @.str.409)
-  %67 = load i16, ptr %7, align 2
-  %68 = zext i16 %67 to i32
-  %69 = call ptr @val_to_str(i32 noundef %68, ptr noundef @dplay_command_val, ptr noundef @.str.409)
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %63, i32 noundef 25, ptr noundef @.str.410, ptr noundef %66, ptr noundef %69)
-  br label %70
+61:                                               ; preds = %41
+  %62 = load ptr, ptr %5, align 8
+  %63 = getelementptr inbounds nuw %struct._packet_info, ptr %62, i32 0, i32 1
+  %64 = load ptr, ptr %63, align 8
+  %65 = load i16, ptr %9, align 2
+  %66 = zext i16 %65 to i32
+  %67 = call ptr @val_to_str(i32 noundef %66, ptr noundef @dplay_proto_dialect_val, ptr noundef @.str.404)
+  %68 = load i16, ptr %7, align 2
+  %69 = zext i16 %68 to i32
+  %70 = call ptr @val_to_str(i32 noundef %69, ptr noundef @dplay_command_val, ptr noundef @.str.404)
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %64, i32 noundef 25, ptr noundef @.str.405, ptr noundef %67, ptr noundef %70)
+  br label %71
 
-70:                                               ; preds = %60, %47
-  %71 = load ptr, ptr %6, align 8
-  %72 = icmp ne ptr %71, null
-  br i1 %72, label %73, label %163
+71:                                               ; preds = %61, %48
+  %72 = load ptr, ptr %6, align 8
+  %73 = icmp ne ptr %72, null
+  br i1 %73, label %74, label %167
 
-73:                                               ; preds = %70
-  store i32 0, ptr %16, align 4
-  %74 = load ptr, ptr %6, align 8
-  %75 = load i32, ptr @proto_dplay, align 4
-  %76 = load ptr, ptr %4, align 8
-  %77 = call ptr @proto_tree_add_item(ptr noundef %74, i32 noundef %75, ptr noundef %76, i32 noundef 0, i32 noundef -1, i32 noundef 0)
-  store ptr %77, ptr %12, align 8
-  %78 = load ptr, ptr %12, align 8
-  %79 = load i32, ptr @ett_dplay, align 4
-  %80 = call ptr @proto_item_add_subtree(ptr noundef %78, i32 noundef %79)
-  store ptr %80, ptr %13, align 8
-  %81 = load ptr, ptr %13, align 8
-  %82 = load ptr, ptr %4, align 8
-  %83 = load i32, ptr %16, align 4
-  %84 = load i32, ptr @ett_dplay_header, align 4
-  %85 = call ptr @proto_tree_add_subtree(ptr noundef %81, ptr noundef %82, i32 noundef %83, i32 noundef 28, i32 noundef %84, ptr noundef null, ptr noundef @.str.411)
-  store ptr %85, ptr %14, align 8
-  %86 = load ptr, ptr %14, align 8
-  %87 = load ptr, ptr %4, align 8
-  %88 = load i32, ptr %16, align 4
-  %89 = call i32 @dissect_dplay_header(ptr noundef %86, ptr noundef %87, i32 noundef %88)
-  store i32 %89, ptr %16, align 4
-  %90 = load i16, ptr %7, align 2
-  %91 = zext i16 %90 to i32
-  %92 = icmp eq i32 %91, 4
-  br i1 %92, label %93, label %94
+74:                                               ; preds = %71
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #5
+  store i32 0, ptr %17, align 4
+  %75 = load ptr, ptr %6, align 8
+  %76 = load i32, ptr @proto_dplay, align 4
+  %77 = load ptr, ptr %4, align 8
+  %78 = call ptr @proto_tree_add_item(ptr noundef %75, i32 noundef %76, ptr noundef %77, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  store ptr %78, ptr %13, align 8
+  %79 = load ptr, ptr %13, align 8
+  %80 = load i32, ptr @ett_dplay, align 4
+  %81 = call ptr @proto_item_add_subtree(ptr noundef %79, i32 noundef %80)
+  store ptr %81, ptr %14, align 8
+  %82 = load ptr, ptr %14, align 8
+  %83 = load ptr, ptr %4, align 8
+  %84 = load i32, ptr %17, align 4
+  %85 = load i32, ptr @ett_dplay_header, align 4
+  %86 = call ptr @proto_tree_add_subtree(ptr noundef %82, ptr noundef %83, i32 noundef %84, i32 noundef 28, i32 noundef %85, ptr noundef null, ptr noundef @.str.406)
+  store ptr %86, ptr %15, align 8
+  %87 = load ptr, ptr %15, align 8
+  %88 = load ptr, ptr %4, align 8
+  %89 = load i32, ptr %17, align 4
+  %90 = call i32 @dissect_dplay_header(ptr noundef %87, ptr noundef %88, i32 noundef %89)
+  store i32 %90, ptr %17, align 4
+  %91 = load i16, ptr %7, align 2
+  %92 = zext i16 %91 to i32
+  %93 = icmp eq i32 %92, 4
+  br i1 %93, label %94, label %95
 
-93:                                               ; preds = %73
-  br label %163
+94:                                               ; preds = %74
+  store i32 1, ptr %12, align 4
+  br label %164
 
-94:                                               ; preds = %73
-  %95 = load ptr, ptr %13, align 8
-  %96 = load ptr, ptr %4, align 8
-  %97 = load i32, ptr %16, align 4
-  %98 = load i32, ptr @ett_dplay_data, align 4
-  %99 = call ptr @proto_tree_add_subtree(ptr noundef %95, ptr noundef %96, i32 noundef %97, i32 noundef -1, i32 noundef %98, ptr noundef null, ptr noundef @.str.412)
-  store ptr %99, ptr %15, align 8
-  %100 = load i16, ptr %7, align 2
-  %101 = zext i16 %100 to i32
-  switch i32 %101, label %162 [
-    i32 1, label %102
-    i32 2, label %107
-    i32 5, label %112
-    i32 7, label %117
-    i32 8, label %122
-    i32 9, label %122
-    i32 11, label %122
-    i32 12, label %122
-    i32 13, label %122
-    i32 14, label %122
-    i32 46, label %122
-    i32 56, label %122
-    i32 15, label %127
-    i32 19, label %132
-    i32 21, label %137
-    i32 22, label %142
-    i32 23, label %142
-    i32 26, label %147
-    i32 41, label %152
-    i32 47, label %157
+95:                                               ; preds = %74
+  %96 = load ptr, ptr %14, align 8
+  %97 = load ptr, ptr %4, align 8
+  %98 = load i32, ptr %17, align 4
+  %99 = load i32, ptr @ett_dplay_data, align 4
+  %100 = call ptr @proto_tree_add_subtree(ptr noundef %96, ptr noundef %97, i32 noundef %98, i32 noundef -1, i32 noundef %99, ptr noundef null, ptr noundef @.str.407)
+  store ptr %100, ptr %16, align 8
+  %101 = load i16, ptr %7, align 2
+  %102 = zext i16 %101 to i32
+  switch i32 %102, label %163 [
+    i32 1, label %103
+    i32 2, label %108
+    i32 5, label %113
+    i32 7, label %118
+    i32 8, label %123
+    i32 9, label %123
+    i32 11, label %123
+    i32 12, label %123
+    i32 13, label %123
+    i32 14, label %123
+    i32 46, label %123
+    i32 56, label %123
+    i32 15, label %128
+    i32 19, label %133
+    i32 21, label %138
+    i32 22, label %143
+    i32 23, label %143
+    i32 26, label %148
+    i32 41, label %153
+    i32 47, label %158
   ]
 
-102:                                              ; preds = %94
-  %103 = load ptr, ptr %15, align 8
-  %104 = load ptr, ptr %4, align 8
-  %105 = load i32, ptr %16, align 4
-  %106 = call i32 @dissect_type01_message(ptr noundef %103, ptr noundef %104, i32 noundef %105)
-  br label %162
-
-107:                                              ; preds = %94
-  %108 = load ptr, ptr %15, align 8
-  %109 = load ptr, ptr %4, align 8
-  %110 = load i32, ptr %16, align 4
-  %111 = call i32 @dissect_type02_message(ptr noundef %108, ptr noundef %109, i32 noundef %110)
-  br label %162
-
-112:                                              ; preds = %94
-  %113 = load ptr, ptr %15, align 8
-  %114 = load ptr, ptr %4, align 8
-  %115 = load i32, ptr %16, align 4
-  %116 = call i32 @dissect_type05_message(ptr noundef %113, ptr noundef %114, i32 noundef %115)
-  br label %162
-
-117:                                              ; preds = %94
-  %118 = load ptr, ptr %15, align 8
-  %119 = load ptr, ptr %4, align 8
-  %120 = load i32, ptr %16, align 4
-  %121 = call i32 @dissect_type07_message(ptr noundef %118, ptr noundef %119, i32 noundef %120)
-  br label %162
-
-122:                                              ; preds = %94, %94, %94, %94, %94, %94, %94, %94
-  %123 = load ptr, ptr %15, align 8
-  %124 = load ptr, ptr %4, align 8
-  %125 = load i32, ptr %16, align 4
-  %126 = call i32 @dissect_player_message(ptr noundef %123, ptr noundef %124, i32 noundef %125)
-  br label %162
-
-127:                                              ; preds = %94
-  %128 = load ptr, ptr %15, align 8
-  %129 = load ptr, ptr %4, align 8
-  %130 = load i32, ptr %16, align 4
-  %131 = call i32 @dissect_type0f_message(ptr noundef %128, ptr noundef %129, i32 noundef %130)
-  br label %162
-
-132:                                              ; preds = %94
-  %133 = load ptr, ptr %15, align 8
-  %134 = load ptr, ptr %4, align 8
-  %135 = load i32, ptr %16, align 4
-  %136 = call i32 @dissect_type13_message(ptr noundef %133, ptr noundef %134, i32 noundef %135)
-  br label %162
-
-137:                                              ; preds = %94
-  %138 = load ptr, ptr %15, align 8
-  %139 = load ptr, ptr %4, align 8
-  %140 = load i32, ptr %16, align 4
-  %141 = call i32 @dissect_type15_message(ptr noundef %138, ptr noundef %139, i32 noundef %140)
-  br label %162
-
-142:                                              ; preds = %94, %94
-  %143 = load ptr, ptr %15, align 8
-  %144 = load ptr, ptr %4, align 8
-  %145 = load i32, ptr %16, align 4
-  %146 = call i32 @dissect_ping_message(ptr noundef %143, ptr noundef %144, i32 noundef %145)
-  br label %162
-
-147:                                              ; preds = %94
-  %148 = load ptr, ptr %15, align 8
-  %149 = load ptr, ptr %4, align 8
-  %150 = load i32, ptr %16, align 4
-  %151 = call i32 @dissect_type1a_message(ptr noundef %148, ptr noundef %149, i32 noundef %150)
-  br label %162
-
-152:                                              ; preds = %94
-  %153 = load ptr, ptr %15, align 8
-  %154 = load ptr, ptr %4, align 8
-  %155 = load i32, ptr %16, align 4
-  %156 = call i32 @dissect_type29_message(ptr noundef %153, ptr noundef %154, i32 noundef %155)
-  br label %162
-
-157:                                              ; preds = %94
-  %158 = load ptr, ptr %15, align 8
-  %159 = load ptr, ptr %4, align 8
-  %160 = load i32, ptr %16, align 4
-  %161 = call i32 @dissect_type2f_message(ptr noundef %158, ptr noundef %159, i32 noundef %160)
-  br label %162
-
-162:                                              ; preds = %157, %152, %147, %142, %137, %132, %127, %122, %117, %112, %107, %102, %94
+103:                                              ; preds = %95
+  %104 = load ptr, ptr %16, align 8
+  %105 = load ptr, ptr %4, align 8
+  %106 = load i32, ptr %17, align 4
+  %107 = call i32 @dissect_type01_message(ptr noundef %104, ptr noundef %105, i32 noundef %106)
   br label %163
 
-163:                                              ; preds = %162, %93, %70, %26
+108:                                              ; preds = %95
+  %109 = load ptr, ptr %16, align 8
+  %110 = load ptr, ptr %4, align 8
+  %111 = load i32, ptr %17, align 4
+  %112 = call i32 @dissect_type02_message(ptr noundef %109, ptr noundef %110, i32 noundef %111)
+  br label %163
+
+113:                                              ; preds = %95
+  %114 = load ptr, ptr %16, align 8
+  %115 = load ptr, ptr %4, align 8
+  %116 = load i32, ptr %17, align 4
+  %117 = call i32 @dissect_type05_message(ptr noundef %114, ptr noundef %115, i32 noundef %116)
+  br label %163
+
+118:                                              ; preds = %95
+  %119 = load ptr, ptr %16, align 8
+  %120 = load ptr, ptr %4, align 8
+  %121 = load i32, ptr %17, align 4
+  %122 = call i32 @dissect_type07_message(ptr noundef %119, ptr noundef %120, i32 noundef %121)
+  br label %163
+
+123:                                              ; preds = %95, %95, %95, %95, %95, %95, %95, %95
+  %124 = load ptr, ptr %16, align 8
+  %125 = load ptr, ptr %4, align 8
+  %126 = load i32, ptr %17, align 4
+  %127 = call i32 @dissect_player_message(ptr noundef %124, ptr noundef %125, i32 noundef %126)
+  br label %163
+
+128:                                              ; preds = %95
+  %129 = load ptr, ptr %16, align 8
+  %130 = load ptr, ptr %4, align 8
+  %131 = load i32, ptr %17, align 4
+  %132 = call i32 @dissect_type0f_message(ptr noundef %129, ptr noundef %130, i32 noundef %131)
+  br label %163
+
+133:                                              ; preds = %95
+  %134 = load ptr, ptr %16, align 8
+  %135 = load ptr, ptr %4, align 8
+  %136 = load i32, ptr %17, align 4
+  %137 = call i32 @dissect_type13_message(ptr noundef %134, ptr noundef %135, i32 noundef %136)
+  br label %163
+
+138:                                              ; preds = %95
+  %139 = load ptr, ptr %16, align 8
+  %140 = load ptr, ptr %4, align 8
+  %141 = load i32, ptr %17, align 4
+  %142 = call i32 @dissect_type15_message(ptr noundef %139, ptr noundef %140, i32 noundef %141)
+  br label %163
+
+143:                                              ; preds = %95, %95
+  %144 = load ptr, ptr %16, align 8
+  %145 = load ptr, ptr %4, align 8
+  %146 = load i32, ptr %17, align 4
+  %147 = call i32 @dissect_ping_message(ptr noundef %144, ptr noundef %145, i32 noundef %146)
+  br label %163
+
+148:                                              ; preds = %95
+  %149 = load ptr, ptr %16, align 8
+  %150 = load ptr, ptr %4, align 8
+  %151 = load i32, ptr %17, align 4
+  %152 = call i32 @dissect_type1a_message(ptr noundef %149, ptr noundef %150, i32 noundef %151)
+  br label %163
+
+153:                                              ; preds = %95
+  %154 = load ptr, ptr %16, align 8
+  %155 = load ptr, ptr %4, align 8
+  %156 = load i32, ptr %17, align 4
+  %157 = call i32 @dissect_type29_message(ptr noundef %154, ptr noundef %155, i32 noundef %156)
+  br label %163
+
+158:                                              ; preds = %95
+  %159 = load ptr, ptr %16, align 8
+  %160 = load ptr, ptr %4, align 8
+  %161 = load i32, ptr %17, align 4
+  %162 = call i32 @dissect_type2f_message(ptr noundef %159, ptr noundef %160, i32 noundef %161)
+  br label %163
+
+163:                                              ; preds = %95, %158, %153, %148, %143, %138, %133, %128, %123, %118, %113, %108, %103
+  store i32 0, ptr %12, align 4
+  br label %164
+
+164:                                              ; preds = %163, %94
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  %165 = load i32, ptr %12, align 4
+  switch i32 %165, label %168 [
+    i32 0, label %166
+  ]
+
+166:                                              ; preds = %164
+  br label %167
+
+167:                                              ; preds = %166, %71
+  store i32 0, ptr %12, align 4
+  br label %168
+
+168:                                              ; preds = %167, %164, %27
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 2, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 2, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 2, ptr %7) #5
+  %169 = load i32, ptr %12, align 4
+  switch i32 %169, label %171 [
+    i32 0, label %170
+    i32 1, label %170
+  ]
+
+170:                                              ; preds = %168, %168
   ret void
+
+171:                                              ; preds = %168
+  unreachable
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) #1
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_dplay_player_msg(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -1049,19 +1110,26 @@ define internal void @dissect_dplay_player_msg(ptr noundef %0, ptr noundef %1, p
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   %14 = load ptr, ptr %5, align 8
-  %15 = getelementptr inbounds %struct._packet_info, ptr %14, i32 0, i32 1
+  %15 = getelementptr inbounds nuw %struct._packet_info, ptr %14, i32 0, i32 1
   %16 = load ptr, ptr %15, align 8
-  call void @col_set_str(ptr noundef %16, i32 noundef 34, ptr noundef @.str.327)
+  call void @col_set_str(ptr noundef %16, i32 noundef 35, ptr noundef @.str.315)
   %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds %struct._packet_info, ptr %17, i32 0, i32 1
+  %18 = getelementptr inbounds nuw %struct._packet_info, ptr %17, i32 0, i32 1
   %19 = load ptr, ptr %18, align 8
-  call void @col_set_str(ptr noundef %19, i32 noundef 25, ptr noundef @.str.418)
+  call void @col_set_str(ptr noundef %19, i32 noundef 25, ptr noundef @.str.413)
   %20 = load ptr, ptr %6, align 8
   %21 = icmp ne ptr %20, null
   br i1 %21, label %22, label %67
 
 22:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
   store i32 0, ptr %13, align 4
   %23 = load ptr, ptr %6, align 8
   %24 = load i32, ptr @proto_dplay, align 4
@@ -1077,7 +1145,7 @@ define internal void @dissect_dplay_player_msg(ptr noundef %0, ptr noundef %1, p
   %32 = load ptr, ptr %4, align 8
   %33 = load i32, ptr %13, align 4
   %34 = load i32, ptr @ett_dplay_data, align 4
-  %35 = call ptr @proto_tree_add_subtree(ptr noundef %31, ptr noundef %32, i32 noundef %33, i32 noundef -1, i32 noundef %34, ptr noundef null, ptr noundef @.str.419)
+  %35 = call ptr @proto_tree_add_subtree(ptr noundef %31, ptr noundef %32, i32 noundef %33, i32 noundef -1, i32 noundef %34, ptr noundef null, ptr noundef @.str.414)
   store ptr %35, ptr %12, align 8
   %36 = load ptr, ptr %4, align 8
   %37 = load i32, ptr %13, align 4
@@ -1115,31 +1183,47 @@ define internal void @dissect_dplay_player_msg(ptr noundef %0, ptr noundef %1, p
   %64 = load ptr, ptr %4, align 8
   %65 = load i32, ptr %13, align 4
   %66 = call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %63, ptr noundef %64, i32 noundef %65, i32 noundef -1, i32 noundef 0)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
   br label %67
 
 67:                                               ; preds = %22, %3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #5
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
-; Function Attrs: nounwind willreturn memory(read)
-declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #3
+; Function Attrs: nounwind null_pointer_is_valid willreturn memory(read)
+declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #4
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dplay_header(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -1150,6 +1234,9 @@ define internal i32 @dissect_dplay_header(ptr noundef %0, ptr noundef %1, i32 no
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   %10 = load ptr, ptr %5, align 8
   %11 = load i32, ptr %6, align 4
   %12 = call i32 @tvb_get_letohl(ptr noundef %10, i32 noundef %11)
@@ -1206,10 +1293,13 @@ define internal i32 @dissect_dplay_header(ptr noundef %0, ptr noundef %1, i32 no
   %56 = add i32 %55, 2
   store i32 %56, ptr %6, align 4
   %57 = load i32, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #5
   ret i32 %57
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_type01_message(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -1218,6 +1308,7 @@ define internal i32 @dissect_type01_message(ptr noundef %0, ptr noundef %1, i32 
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #5
   %8 = load ptr, ptr %4, align 8
   %9 = load ptr, ptr %5, align 8
   %10 = load i32, ptr %6, align 4
@@ -1250,10 +1341,11 @@ define internal i32 @dissect_type01_message(ptr noundef %0, ptr noundef %1, i32 
 
 30:                                               ; preds = %24, %3
   %31 = load i32, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #5
   ret i32 %31
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_type02_message(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -1262,6 +1354,7 @@ define internal i32 @dissect_type02_message(ptr noundef %0, ptr noundef %1, i32 
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #5
   %8 = load ptr, ptr %5, align 8
   %9 = load i32, ptr %6, align 4
   %10 = add i32 %9, 16
@@ -1307,10 +1400,11 @@ define internal i32 @dissect_type02_message(ptr noundef %0, ptr noundef %1, i32 
 
 42:                                               ; preds = %36, %3
   %43 = load i32, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #5
   ret i32 %43
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_type05_message(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -1331,7 +1425,7 @@ define internal i32 @dissect_type05_message(ptr noundef %0, ptr noundef %1, i32 
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_type07_message(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -1341,6 +1435,8 @@ define internal i32 @dissect_type07_message(ptr noundef %0, ptr noundef %1, i32 
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
   %9 = load ptr, ptr %4, align 8
   %10 = load i32, ptr @hf_dplay_type_07_dpid, align 4
   %11 = load ptr, ptr %5, align 8
@@ -1415,10 +1511,12 @@ define internal i32 @dissect_type07_message(ptr noundef %0, ptr noundef %1, i32 
 
 64:                                               ; preds = %58, %55
   %65 = load i32, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #5
   ret i32 %65
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_player_message(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -1427,6 +1525,7 @@ define internal i32 @dissect_player_message(ptr noundef %0, ptr noundef %1, i32 
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #5
   %8 = load ptr, ptr %4, align 8
   %9 = load i32, ptr @hf_dplay_multi_id_to, align 4
   %10 = load ptr, ptr %5, align 8
@@ -1486,25 +1585,25 @@ define internal i32 @dissect_player_message(ptr noundef %0, ptr noundef %1, i32 
 53:                                               ; preds = %48, %3
   %54 = load ptr, ptr %5, align 8
   %55 = load i32, ptr %6, align 4
-  %56 = call i32 @tvb_bytes_exist(ptr noundef %54, i32 noundef %55, i32 noundef 2)
-  %57 = icmp ne i32 %56, 0
-  br i1 %57, label %58, label %64
+  %56 = call zeroext i1 @tvb_bytes_exist(ptr noundef %54, i32 noundef %55, i32 noundef 2)
+  br i1 %56, label %57, label %63
 
-58:                                               ; preds = %53
-  %59 = load ptr, ptr %4, align 8
-  %60 = load i32, ptr @hf_dplay_multi_password, align 4
-  %61 = load ptr, ptr %5, align 8
-  %62 = load i32, ptr %6, align 4
-  %63 = call i32 @display_unicode_string(ptr noundef %59, i32 noundef %60, ptr noundef %61, i32 noundef %62)
-  store i32 %63, ptr %6, align 4
-  br label %64
+57:                                               ; preds = %53
+  %58 = load ptr, ptr %4, align 8
+  %59 = load i32, ptr @hf_dplay_multi_password, align 4
+  %60 = load ptr, ptr %5, align 8
+  %61 = load i32, ptr %6, align 4
+  %62 = call i32 @display_unicode_string(ptr noundef %58, i32 noundef %59, ptr noundef %60, i32 noundef %61)
+  store i32 %62, ptr %6, align 4
+  br label %63
 
-64:                                               ; preds = %58, %53
-  %65 = load i32, ptr %6, align 4
-  ret i32 %65
+63:                                               ; preds = %57, %53
+  %64 = load i32, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #5
+  ret i32 %64
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_type0f_message(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -1513,6 +1612,7 @@ define internal i32 @dissect_type0f_message(ptr noundef %0, ptr noundef %1, i32 
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #5
   %8 = load ptr, ptr %4, align 8
   %9 = load i32, ptr @hf_dplay_type_0f_id_to, align 4
   %10 = load ptr, ptr %5, align 8
@@ -1560,10 +1660,11 @@ define internal i32 @dissect_type0f_message(ptr noundef %0, ptr noundef %1, i32 
   %47 = add i32 %46, %45
   store i32 %47, ptr %6, align 4
   %48 = load i32, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #5
   ret i32 %48
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_type13_message(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -1573,6 +1674,8 @@ define internal i32 @dissect_type13_message(ptr noundef %0, ptr noundef %1, i32 
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
   %9 = load ptr, ptr %4, align 8
   %10 = load i32, ptr @hf_dplay_type_13_id_to, align 4
   %11 = load ptr, ptr %5, align 8
@@ -1657,10 +1760,12 @@ define internal i32 @dissect_type13_message(ptr noundef %0, ptr noundef %1, i32 
   %73 = add i32 %72, 4
   store i32 %73, ptr %6, align 4
   %74 = load i32, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #5
   ret i32 %74
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_type15_message(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -1670,6 +1775,8 @@ define internal i32 @dissect_type15_message(ptr noundef %0, ptr noundef %1, i32 
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
   %9 = load ptr, ptr %5, align 8
   %10 = call zeroext i16 @tvb_get_letohs(ptr noundef %9, i32 noundef 72)
   store i16 %10, ptr %7, align 2
@@ -1733,7 +1840,7 @@ define internal i32 @dissect_type15_message(ptr noundef %0, ptr noundef %1, i32 
   %61 = load ptr, ptr %5, align 8
   %62 = load i32, ptr %6, align 4
   %63 = load i32, ptr @ett_dplay_enc_packet, align 4
-  %64 = call ptr @proto_tree_add_subtree(ptr noundef %60, ptr noundef %61, i32 noundef %62, i32 noundef -1, i32 noundef %63, ptr noundef null, ptr noundef @.str.414)
+  %64 = call ptr @proto_tree_add_subtree(ptr noundef %60, ptr noundef %61, i32 noundef %62, i32 noundef -1, i32 noundef %63, ptr noundef null, ptr noundef @.str.409)
   store ptr %64, ptr %8, align 8
   %65 = load ptr, ptr %8, align 8
   %66 = load i32, ptr @hf_dplay_play_str_2, align 4
@@ -1815,12 +1922,14 @@ define internal i32 @dissect_type15_message(ptr noundef %0, ptr noundef %1, i32 
   store i32 %112, ptr %6, align 4
   br label %113
 
-113:                                              ; preds = %108, %103, %98, %93, %88, %3
+113:                                              ; preds = %3, %108, %103, %98, %93, %88
   %114 = load i32, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 2, ptr %7) #5
   ret i32 %114
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ping_message(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -1848,7 +1957,7 @@ define internal i32 @dissect_ping_message(ptr noundef %0, ptr noundef %1, i32 no
   ret i32 %21
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_type1a_message(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -1858,6 +1967,8 @@ define internal i32 @dissect_type1a_message(ptr noundef %0, ptr noundef %1, i32 
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
   %9 = load ptr, ptr %4, align 8
   %10 = load i32, ptr @hf_dplay_type_1a_id_to, align 4
   %11 = load ptr, ptr %5, align 8
@@ -1924,10 +2035,12 @@ define internal i32 @dissect_type1a_message(ptr noundef %0, ptr noundef %1, i32 
 
 57:                                               ; preds = %51, %48
   %58 = load i32, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #5
   ret i32 %58
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_type29_message(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -1943,11 +2056,16 @@ define internal i32 @dissect_type29_message(ptr noundef %0, ptr noundef %1, i32 
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #5
   %15 = load ptr, ptr %5, align 8
   %16 = load i32, ptr %6, align 4
   %17 = add i32 %16, 24
   %18 = call i32 @tvb_get_letohl(ptr noundef %15, i32 noundef %17)
   store i32 %18, ptr %7, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
   %19 = load ptr, ptr %5, align 8
   %20 = load i32, ptr %6, align 4
   %21 = call i32 @tvb_get_letohl(ptr noundef %19, i32 noundef %20)
@@ -2051,25 +2169,27 @@ define internal i32 @dissect_type29_message(ptr noundef %0, ptr noundef %1, i32 
   br i1 %98, label %99, label %113
 
 99:                                               ; preds = %95
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
   %100 = load ptr, ptr %4, align 8
   %101 = load ptr, ptr %5, align 8
   %102 = load i32, ptr %6, align 4
   %103 = load i32, ptr @ett_dplay_type29_spp, align 4
   %104 = load i32, ptr %11, align 4
-  %105 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %100, ptr noundef %101, i32 noundef %102, i32 noundef 0, i32 noundef %103, ptr noundef null, ptr noundef @.str.415, i32 noundef %104)
+  %105 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %100, ptr noundef %101, i32 noundef %102, i32 noundef 0, i32 noundef %103, ptr noundef null, ptr noundef @.str.410, i32 noundef %104)
   store ptr %105, ptr %12, align 8
   %106 = load ptr, ptr %12, align 8
   %107 = load ptr, ptr %5, align 8
   %108 = load i32, ptr %6, align 4
   %109 = call i32 @dissect_dplay_super_packed_player(ptr noundef %106, ptr noundef %107, i32 noundef %108)
   store i32 %109, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
   br label %110
 
 110:                                              ; preds = %99
   %111 = load i32, ptr %11, align 4
   %112 = add i32 %111, 1
   store i32 %112, ptr %11, align 4
-  br label %95, !llvm.loop !6
+  br label %95, !llvm.loop !8
 
 113:                                              ; preds = %95
   store i32 0, ptr %11, align 4
@@ -2082,25 +2202,27 @@ define internal i32 @dissect_type29_message(ptr noundef %0, ptr noundef %1, i32 
   br i1 %117, label %118, label %132
 
 118:                                              ; preds = %114
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
   %119 = load ptr, ptr %4, align 8
   %120 = load ptr, ptr %5, align 8
   %121 = load i32, ptr %6, align 4
   %122 = load i32, ptr @ett_dplay_type29_spp, align 4
   %123 = load i32, ptr %11, align 4
-  %124 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %119, ptr noundef %120, i32 noundef %121, i32 noundef 0, i32 noundef %122, ptr noundef null, ptr noundef @.str.416, i32 noundef %123)
+  %124 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %119, ptr noundef %120, i32 noundef %121, i32 noundef 0, i32 noundef %122, ptr noundef null, ptr noundef @.str.411, i32 noundef %123)
   store ptr %124, ptr %13, align 8
   %125 = load ptr, ptr %13, align 8
   %126 = load ptr, ptr %5, align 8
   %127 = load i32, ptr %6, align 4
   %128 = call i32 @dissect_dplay_super_packed_player(ptr noundef %125, ptr noundef %126, i32 noundef %127)
   store i32 %128, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
   br label %129
 
 129:                                              ; preds = %118
   %130 = load i32, ptr %11, align 4
   %131 = add i32 %130, 1
   store i32 %131, ptr %11, align 4
-  br label %114, !llvm.loop !7
+  br label %114, !llvm.loop !9
 
 132:                                              ; preds = %114
   store i32 0, ptr %11, align 4
@@ -2113,32 +2235,39 @@ define internal i32 @dissect_type29_message(ptr noundef %0, ptr noundef %1, i32 
   br i1 %136, label %137, label %151
 
 137:                                              ; preds = %133
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
   %138 = load ptr, ptr %4, align 8
   %139 = load ptr, ptr %5, align 8
   %140 = load i32, ptr %6, align 4
   %141 = load i32, ptr @ett_dplay_type29_spp, align 4
   %142 = load i32, ptr %11, align 4
-  %143 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %138, ptr noundef %139, i32 noundef %140, i32 noundef 0, i32 noundef %141, ptr noundef null, ptr noundef @.str.417, i32 noundef %142)
+  %143 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %138, ptr noundef %139, i32 noundef %140, i32 noundef 0, i32 noundef %141, ptr noundef null, ptr noundef @.str.412, i32 noundef %142)
   store ptr %143, ptr %14, align 8
   %144 = load ptr, ptr %14, align 8
   %145 = load ptr, ptr %5, align 8
   %146 = load i32, ptr %6, align 4
   %147 = call i32 @dissect_dplay_super_packed_player(ptr noundef %144, ptr noundef %145, i32 noundef %146)
   store i32 %147, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
   br label %148
 
 148:                                              ; preds = %137
   %149 = load i32, ptr %11, align 4
   %150 = add i32 %149, 1
   store i32 %150, ptr %11, align 4
-  br label %133, !llvm.loop !8
+  br label %133, !llvm.loop !10
 
 151:                                              ; preds = %133
   %152 = load i32, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #5
   ret i32 %152
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_type2f_message(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -2158,9 +2287,10 @@ define internal i32 @dissect_type2f_message(ptr noundef %0, ptr noundef %1, i32 
   ret i32 %14
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_sockaddr_in(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -2169,11 +2299,12 @@ define internal i32 @dissect_sockaddr_in(ptr noundef %0, ptr noundef %1, i32 nou
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
   %8 = load ptr, ptr %4, align 8
   %9 = load ptr, ptr %5, align 8
   %10 = load i32, ptr %6, align 4
   %11 = load i32, ptr @ett_dplay_sockaddr, align 4
-  %12 = call ptr @proto_tree_add_subtree(ptr noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef 16, i32 noundef %11, ptr noundef null, ptr noundef @.str.413)
+  %12 = call ptr @proto_tree_add_subtree(ptr noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef 16, i32 noundef %11, ptr noundef null, ptr noundef @.str.408)
   store ptr %12, ptr %7, align 8
   %13 = load ptr, ptr %7, align 8
   %14 = load i32, ptr @hf_dplay_saddr_af, align 4
@@ -2208,10 +2339,11 @@ define internal i32 @dissect_sockaddr_in(ptr noundef %0, ptr noundef %1, i32 nou
   %40 = add i32 %39, 8
   store i32 %40, ptr %6, align 4
   %41 = load i32, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
   ret i32 %41
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_session_desc(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -2336,7 +2468,7 @@ define internal i32 @dissect_session_desc(ptr noundef %0, ptr noundef %1, i32 no
   ret i32 %106
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @display_unicode_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -2348,6 +2480,8 @@ define internal i32 @display_unicode_string(ptr noundef %0, i32 noundef %1, ptr 
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
   %11 = call ptr @wmem_packet_scope()
   %12 = load ptr, ptr %7, align 8
   %13 = load i32, ptr %8, align 4
@@ -2363,18 +2497,24 @@ define internal i32 @display_unicode_string(ptr noundef %0, i32 noundef %1, ptr 
   %22 = load i32, ptr %8, align 4
   %23 = load i32, ptr %10, align 4
   %24 = add i32 %22, %23
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
   ret i32 %24
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_get_stringz_enc(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_packet_scope() #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_security_desc(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -2434,7 +2574,7 @@ define internal i32 @dissect_security_desc(ptr noundef %0, ptr noundef %1, i32 n
   ret i32 %49
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_packed_player(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -2449,6 +2589,13 @@ define internal i32 @dissect_packed_player(ptr noundef %0, ptr noundef %1, i32 n
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
   %14 = load ptr, ptr %5, align 8
   %15 = load i32, ptr %6, align 4
   %16 = call i32 @tvb_get_letohl(ptr noundef %14, i32 noundef %15)
@@ -2650,7 +2797,7 @@ define internal i32 @dissect_packed_player(ptr noundef %0, ptr noundef %1, i32 n
   %170 = load i32, ptr %12, align 4
   %171 = add i32 %170, 1
   store i32 %171, ptr %12, align 4
-  br label %157, !llvm.loop !9
+  br label %157, !llvm.loop !11
 
 172:                                              ; preds = %157
   %173 = load i32, ptr %13, align 4
@@ -2672,14 +2819,23 @@ define internal i32 @dissect_packed_player(ptr noundef %0, ptr noundef %1, i32 n
 
 185:                                              ; preds = %177, %172
   %186 = load i32, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #5
   ret i32 %186
 }
 
-declare i32 @tvb_bytes_exist(ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @tvb_bytes_exist(ptr noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dplay_super_packed_player(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -2706,8 +2862,25 @@ define internal i32 @dissect_dplay_super_packed_player(ptr noundef %0, ptr nound
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #5
   store ptr null, ptr %21, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #5
   store ptr null, ptr %22, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #5
   %26 = load ptr, ptr %4, align 8
   %27 = load i32, ptr @hf_dplay_spp_size, align 4
   %28 = load ptr, ptr %5, align 8
@@ -2949,6 +3122,7 @@ define internal i32 @dissect_dplay_super_packed_player(ptr noundef %0, ptr nound
   br i1 %216, label %217, label %247
 
 217:                                              ; preds = %214
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #5
   %218 = load i32, ptr %14, align 4
   %219 = load ptr, ptr %5, align 8
   %220 = load i32, ptr %6, align 4
@@ -2988,9 +3162,10 @@ define internal i32 @dissect_dplay_super_packed_player(ptr noundef %0, ptr nound
   %244 = load i32, ptr %24, align 4
   %245 = add i32 %244, 1
   store i32 %245, ptr %24, align 4
-  br label %231, !llvm.loop !10
+  br label %231, !llvm.loop !12
 
 246:                                              ; preds = %231
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #5
   br label %247
 
 247:                                              ; preds = %246, %214
@@ -3015,6 +3190,7 @@ define internal i32 @dissect_dplay_super_packed_player(ptr noundef %0, ptr nound
   br i1 %260, label %261, label %291
 
 261:                                              ; preds = %258
+  call void @llvm.lifetime.start.p0(i64 4, ptr %25) #5
   %262 = load i32, ptr %16, align 4
   %263 = load ptr, ptr %5, align 8
   %264 = load i32, ptr %6, align 4
@@ -3054,17 +3230,35 @@ define internal i32 @dissect_dplay_super_packed_player(ptr noundef %0, ptr nound
   %288 = load i32, ptr %25, align 4
   %289 = add i32 %288, 1
   store i32 %289, ptr %25, align 4
-  br label %275, !llvm.loop !11
+  br label %275, !llvm.loop !13
 
 290:                                              ; preds = %275
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #5
   br label %291
 
 291:                                              ; preds = %290, %258
   %292 = load i32, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #5
   ret i32 %292
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @spp_get_value(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -3075,6 +3269,7 @@ define internal i32 @spp_get_value(i32 noundef %0, ptr noundef %1, i32 noundef %
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #5
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %8, align 8
   store i32 0, ptr %10, align 4
@@ -3089,7 +3284,7 @@ define internal i32 @spp_get_value(i32 noundef %0, ptr noundef %1, i32 noundef %
   store i32 1, ptr %9, align 4
   %13 = load ptr, ptr %6, align 8
   %14 = load i32, ptr %7, align 4
-  %15 = call zeroext i8 @tvb_get_guint8(ptr noundef %13, i32 noundef %14)
+  %15 = call zeroext i8 @tvb_get_uint8(ptr noundef %13, i32 noundef %14)
   %16 = zext i8 %15 to i32
   %17 = load ptr, ptr %8, align 8
   store i32 %16, ptr %17, align 4
@@ -3114,28 +3309,33 @@ define internal i32 @spp_get_value(i32 noundef %0, ptr noundef %1, i32 noundef %
   store i32 %27, ptr %28, align 4
   br label %29
 
-29:                                               ; preds = %24, %18, %12, %4
+29:                                               ; preds = %4, %24, %18, %12
   %30 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #5
   ret i32 %30
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind willreturn memory(read) }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nounwind null_pointer_is_valid willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
+attributes #6 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}

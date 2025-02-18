@@ -5,13 +5,12 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
 %struct.unit_name_string = type { ptr, ptr }
 %struct.true_false_string = type { ptr, ptr }
 %struct.reassembly_table = type { ptr, ptr, ptr, ptr, ptr }
 %struct.reassembly_table_functions = type { ptr, ptr, ptr, ptr, ptr, ptr }
 %struct._fragment_items = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.rdmapinfo = type { i8, i32, i32, %union.anon, ptr }
+%struct.rdmapinfo = type { i8, i8, i8, %union.anon, ptr }
 %union.anon = type { %struct.anon }
 %struct.anon = type { i32, i64 }
 
@@ -77,7 +76,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_iwarp_rdma_opcode = internal global i32 0, align 4
 @.str.40 = private unnamed_addr constant [7 x i8] c"OpCode\00", align 1
 @.str.41 = private unnamed_addr constant [18 x i8] c"iwarp_rdma.opcode\00", align 1
-@rdmap_messages = internal constant [11 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.161 }, %struct._value_string { i32 1, ptr @.str.162 }, %struct._value_string { i32 2, ptr @.str.163 }, %struct._value_string { i32 3, ptr @.str.164 }, %struct._value_string { i32 4, ptr @.str.165 }, %struct._value_string { i32 5, ptr @.str.166 }, %struct._value_string { i32 6, ptr @.str.167 }, %struct._value_string { i32 7, ptr @.str.50 }, %struct._value_string { i32 10, ptr @.str.168 }, %struct._value_string { i32 11, ptr @.str.169 }, %struct._value_string zeroinitializer], align 16
 @.str.42 = private unnamed_addr constant [18 x i8] c"RDMA OpCode Field\00", align 1
 @hf_iwarp_rdma_reserved = internal global i32 0, align 4
 @.str.43 = private unnamed_addr constant [20 x i8] c"iwarp_rdma.reserved\00", align 1
@@ -116,44 +114,36 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_iwarp_rdma_term_layer = internal global i32 0, align 4
 @.str.66 = private unnamed_addr constant [6 x i8] c"Layer\00", align 1
 @.str.67 = private unnamed_addr constant [22 x i8] c"iwarp_rdma.term_layer\00", align 1
-@layer_names = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.170 }, %struct._value_string { i32 1, ptr @.str.171 }, %struct._value_string { i32 2, ptr @.str.172 }, %struct._value_string zeroinitializer], align 16
 @.str.68 = private unnamed_addr constant [31 x i8] c"Terminate Control Field: Layer\00", align 1
 @hf_iwarp_rdma_term_etype_rdma = internal global i32 0, align 4
 @.str.69 = private unnamed_addr constant [27 x i8] c"Error Types for RDMA layer\00", align 1
 @.str.70 = private unnamed_addr constant [27 x i8] c"iwarp_rdma.term_etype_rdma\00", align 1
-@rdma_etype_names = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.173 }, %struct._value_string { i32 1, ptr @.str.174 }, %struct._value_string { i32 2, ptr @.str.175 }, %struct._value_string zeroinitializer], align 16
 @.str.71 = private unnamed_addr constant [36 x i8] c"Terminate Control Field: Error Type\00", align 1
 @hf_iwarp_rdma_term_etype_ddp = internal global i32 0, align 4
 @.str.72 = private unnamed_addr constant [26 x i8] c"Error Types for DDP layer\00", align 1
 @.str.73 = private unnamed_addr constant [26 x i8] c"iwarp_rdma.term_etype_ddp\00", align 1
-@ddp_etype_names = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.173 }, %struct._value_string { i32 1, ptr @.str.176 }, %struct._value_string { i32 2, ptr @.str.177 }, %struct._value_string { i32 3, ptr @.str.178 }, %struct._value_string zeroinitializer], align 16
 @hf_iwarp_rdma_term_etype_llp = internal global i32 0, align 4
 @.str.74 = private unnamed_addr constant [26 x i8] c"Error Types for LLP layer\00", align 1
 @.str.75 = private unnamed_addr constant [26 x i8] c"iwarp_rdma.term_etype_llp\00", align 1
-@mpa_etype_names = internal constant [2 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.179 }, %struct._value_string zeroinitializer], align 16
 @hf_iwarp_rdma_term_etype = internal global i32 0, align 4
 @.str.76 = private unnamed_addr constant [12 x i8] c"Error Types\00", align 1
 @.str.77 = private unnamed_addr constant [22 x i8] c"iwarp_rdma.term_etype\00", align 1
 @hf_iwarp_rdma_term_errcode_rdma = internal global i32 0, align 4
 @.str.78 = private unnamed_addr constant [26 x i8] c"Error Code for RDMA layer\00", align 1
 @.str.79 = private unnamed_addr constant [29 x i8] c"iwarp_rdma.term_errcode_rdma\00", align 1
-@rdma_errcode_names = internal constant [12 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.180 }, %struct._value_string { i32 1, ptr @.str.181 }, %struct._value_string { i32 2, ptr @.str.182 }, %struct._value_string { i32 3, ptr @.str.183 }, %struct._value_string { i32 4, ptr @.str.184 }, %struct._value_string { i32 5, ptr @.str.185 }, %struct._value_string { i32 6, ptr @.str.186 }, %struct._value_string { i32 7, ptr @.str.187 }, %struct._value_string { i32 8, ptr @.str.188 }, %struct._value_string { i32 9, ptr @.str.189 }, %struct._value_string { i32 255, ptr @.str.190 }, %struct._value_string zeroinitializer], align 16
 @.str.80 = private unnamed_addr constant [36 x i8] c"Terminate Control Field: Error Code\00", align 1
 @hf_iwarp_rdma_term_errcode_ddp_tagged = internal global i32 0, align 4
 @.str.81 = private unnamed_addr constant [33 x i8] c"Error Code for DDP Tagged Buffer\00", align 1
 @.str.82 = private unnamed_addr constant [35 x i8] c"iwarp_rdma.term_errcode_ddp_tagged\00", align 1
-@ddp_errcode_tagged_names = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.180 }, %struct._value_string { i32 1, ptr @.str.181 }, %struct._value_string { i32 2, ptr @.str.191 }, %struct._value_string { i32 3, ptr @.str.184 }, %struct._value_string { i32 4, ptr @.str.192 }, %struct._value_string zeroinitializer], align 16
 @hf_iwarp_rdma_term_errcode_ddp_untagged = internal global i32 0, align 4
 @.str.83 = private unnamed_addr constant [35 x i8] c"Error Code for DDP Untagged Buffer\00", align 1
 @.str.84 = private unnamed_addr constant [37 x i8] c"iwarp_rdma.term_errcode_ddp_untagged\00", align 1
-@ddp_errcode_untagged_names = internal constant [7 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.193 }, %struct._value_string { i32 2, ptr @.str.194 }, %struct._value_string { i32 3, ptr @.str.195 }, %struct._value_string { i32 4, ptr @.str.196 }, %struct._value_string { i32 5, ptr @.str.197 }, %struct._value_string { i32 6, ptr @.str.192 }, %struct._value_string zeroinitializer], align 16
 @hf_iwarp_rdma_term_errcode = internal global i32 0, align 4
 @.str.85 = private unnamed_addr constant [11 x i8] c"Error Code\00", align 1
 @.str.86 = private unnamed_addr constant [24 x i8] c"iwarp_rdma.term_errcode\00", align 1
 @hf_iwarp_rdma_term_errcode_llp = internal global i32 0, align 4
 @.str.87 = private unnamed_addr constant [25 x i8] c"Error Code for LLP layer\00", align 1
 @.str.88 = private unnamed_addr constant [28 x i8] c"iwarp_rdma.term_errcode_llp\00", align 1
-@mpa_errcode_names = internal constant [8 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.198 }, %struct._value_string { i32 2, ptr @.str.199 }, %struct._value_string { i32 3, ptr @.str.200 }, %struct._value_string { i32 4, ptr @.str.201 }, %struct._value_string { i32 5, ptr @.str.173 }, %struct._value_string { i32 6, ptr @.str.202 }, %struct._value_string { i32 7, ptr @.str.203 }, %struct._value_string zeroinitializer], align 16
 @.str.89 = private unnamed_addr constant [57 x i8] c"Terminate Control Field: Lower Layer Protocol Error Code\00", align 1
 @hf_iwarp_rdma_term_hdrct = internal global i32 0, align 4
 @.str.90 = private unnamed_addr constant [20 x i8] c"Header control bits\00", align 1
@@ -187,7 +177,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.109 = private unnamed_addr constant [27 x i8] c"iwarp_rdma.atomic.reserved\00", align 1
 @hf_iwarp_rdma_atomic_opcode = internal global i32 0, align 4
 @.str.110 = private unnamed_addr constant [25 x i8] c"iwarp_rdma.atomic.opcode\00", align 1
-@rdma_atomic_opcode_names = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.204 }, %struct._value_string { i32 2, ptr @.str.205 }, %struct._value_string zeroinitializer], align 16
 @hf_iwarp_rdma_atomic_request_identifier = internal global i32 0, align 4
 @.str.111 = private unnamed_addr constant [19 x i8] c"Request Identifier\00", align 1
 @.str.112 = private unnamed_addr constant [37 x i8] c"iwarp_rdma.atomic.request_identifier\00", align 1
@@ -221,7 +210,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_iwarp_rdma_atomic_original_remote_data_value = internal global i32 0, align 4
 @.str.131 = private unnamed_addr constant [45 x i8] c"iwarp_rdma.atomic.original_remote_data_value\00", align 1
 @hf_iwarp_rdma_send_fragments = internal global i32 0, align 4
-@.str.132 = private unnamed_addr constant [33 x i8] c"Reassembled SMB Direct Fragments\00", align 1
+@.str.132 = private unnamed_addr constant [38 x i8] c"Reassembled iWarp RDMA Send Fragments\00", align 1
 @.str.133 = private unnamed_addr constant [26 x i8] c"iwarp_rdma.send.fragments\00", align 1
 @hf_iwarp_rdma_send_fragment = internal global i32 0, align 4
 @.str.134 = private unnamed_addr constant [25 x i8] c"iWarp RDMA Send Fragment\00", align 1
@@ -276,7 +265,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.158 = private unnamed_addr constant [27 x i8] c"reassemble_iwarp_rdma_send\00", align 1
 @.str.159 = private unnamed_addr constant [37 x i8] c"Reassemble iWarp RDMA Send fragments\00", align 1
 @.str.160 = private unnamed_addr constant [76 x i8] c"Whether the iWarp RDMA dissector should reassemble Send fragmented payloads\00", align 1
-@iwarp_rdma_send_reassemble = internal global i32 1, align 4
+@iwarp_rdma_send_reassemble = internal global i8 1, align 1
 @iwarp_rdma_send_reassembly_table = internal global %struct.reassembly_table zeroinitializer, align 8
 @addresses_ports_reassembly_table_functions = external constant %struct.reassembly_table_functions, align 8
 @.str.161 = private unnamed_addr constant [6 x i8] c"Write\00", align 1
@@ -288,420 +277,453 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.167 = private unnamed_addr constant [28 x i8] c"Send with SE and Invalidate\00", align 1
 @.str.168 = private unnamed_addr constant [15 x i8] c"Atomic Request\00", align 1
 @.str.169 = private unnamed_addr constant [16 x i8] c"Atomic Response\00", align 1
-@.str.170 = private unnamed_addr constant [5 x i8] c"RDMA\00", align 1
-@.str.171 = private unnamed_addr constant [4 x i8] c"DDP\00", align 1
-@.str.172 = private unnamed_addr constant [4 x i8] c"LLP\00", align 1
-@.str.173 = private unnamed_addr constant [25 x i8] c"Local Catastrophic Error\00", align 1
-@.str.174 = private unnamed_addr constant [24 x i8] c"Remote Protection Error\00", align 1
-@.str.175 = private unnamed_addr constant [23 x i8] c"Remote Operation Error\00", align 1
-@.str.176 = private unnamed_addr constant [20 x i8] c"Tagged Buffer Error\00", align 1
-@.str.177 = private unnamed_addr constant [22 x i8] c"Untagged Buffer Error\00", align 1
-@.str.178 = private unnamed_addr constant [32 x i8] c"Reserved for the use by the LLP\00", align 1
-@.str.179 = private unnamed_addr constant [10 x i8] c"MPA Error\00", align 1
-@.str.180 = private unnamed_addr constant [13 x i8] c"Invalid STag\00", align 1
-@.str.181 = private unnamed_addr constant [25 x i8] c"Base or bounds violation\00", align 1
-@.str.182 = private unnamed_addr constant [24 x i8] c"Access rights violation\00", align 1
-@.str.183 = private unnamed_addr constant [38 x i8] c"STag not associated with RDMAP Stream\00", align 1
-@.str.184 = private unnamed_addr constant [8 x i8] c"TO wrap\00", align 1
-@.str.185 = private unnamed_addr constant [22 x i8] c"Invalid RDMAP version\00", align 1
-@.str.186 = private unnamed_addr constant [18 x i8] c"Unexpected OpCode\00", align 1
-@.str.187 = private unnamed_addr constant [46 x i8] c"Catastrophic error, localized to RDMAP Stream\00", align 1
-@.str.188 = private unnamed_addr constant [27 x i8] c"Catastrophic error, global\00", align 1
-@.str.189 = private unnamed_addr constant [27 x i8] c"STag cannot be Invalidated\00", align 1
-@.str.190 = private unnamed_addr constant [17 x i8] c"Unspecific Error\00", align 1
-@.str.191 = private unnamed_addr constant [36 x i8] c"STag not associated with DDP Stream\00", align 1
-@.str.192 = private unnamed_addr constant [20 x i8] c"Invalid DDP version\00", align 1
-@.str.193 = private unnamed_addr constant [11 x i8] c"Invalid QN\00", align 1
-@.str.194 = private unnamed_addr constant [34 x i8] c"Invalid MSN - no buffer available\00", align 1
-@.str.195 = private unnamed_addr constant [37 x i8] c"Invalid MSN - MSN range is not valid\00", align 1
-@.str.196 = private unnamed_addr constant [11 x i8] c"Invalid MO\00", align 1
-@.str.197 = private unnamed_addr constant [42 x i8] c"DDP Message too long for available buffer\00", align 1
-@.str.198 = private unnamed_addr constant [42 x i8] c"TCP connection closed, terminated or lost\00", align 1
-@.str.199 = private unnamed_addr constant [14 x i8] c"MPA CRC Error\00", align 1
-@.str.200 = private unnamed_addr constant [43 x i8] c"MPA Marker and ULPDU Length field mismatch\00", align 1
-@.str.201 = private unnamed_addr constant [48 x i8] c"Invalid MPA Request Frame or MPA Response Frame\00", align 1
-@.str.202 = private unnamed_addr constant [27 x i8] c"Insufficient IRD Resources\00", align 1
-@.str.203 = private unnamed_addr constant [23 x i8] c"No Matching RTR Option\00", align 1
-@.str.204 = private unnamed_addr constant [9 x i8] c"FetchAdd\00", align 1
-@.str.205 = private unnamed_addr constant [8 x i8] c"CmpSwap\00", align 1
-@.str.206 = private unnamed_addr constant [9 x i8] c"DDP/RDMA\00", align 1
-@.str.207 = private unnamed_addr constant [19 x i8] c"[last DDP segment]\00", align 1
-@.str.208 = private unnamed_addr constant [20 x i8] c"[more DDP segments]\00", align 1
-@.str.209 = private unnamed_addr constant [14 x i8] c"%d > %d %s %s\00", align 1
-@.str.210 = private unnamed_addr constant [11 x i8] c"Unknown %d\00", align 1
-@.str.211 = private unnamed_addr constant [23 x i8] c"Reassembled SMB Direct\00", align 1
-@iwarp_rdma_send_frag_items = internal constant %struct._fragment_items { ptr @ett_iwarp_rdma_send_fragment, ptr @ett_iwarp_rdma_send_fragments, ptr @hf_iwarp_rdma_send_fragments, ptr @hf_iwarp_rdma_send_fragment, ptr @hf_iwarp_rdma_send_fragment_overlap, ptr @hf_iwarp_rdma_send_fragment_overlap_conflict, ptr @hf_iwarp_rdma_send_fragment_multiple_tails, ptr @hf_iwarp_rdma_send_fragment_too_long_fragment, ptr @hf_iwarp_rdma_send_fragment_error, ptr @hf_iwarp_rdma_send_fragment_count, ptr @hf_iwarp_rdma_send_reassembled_in, ptr @hf_iwarp_rdma_send_reassembled_length, ptr @hf_iwarp_rdma_send_reassembled_data, ptr @.str.212 }, align 8
-@.str.212 = private unnamed_addr constant [26 x i8] c"iWarp RDMA Send fragments\00", align 1
+@rdmap_messages = internal constant [11 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.161 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.162 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.163 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.164 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.165 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.166 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.167 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.50 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.168 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.169 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.171 = private unnamed_addr constant [5 x i8] c"RDMA\00", align 1
+@.str.172 = private unnamed_addr constant [4 x i8] c"DDP\00", align 1
+@.str.173 = private unnamed_addr constant [4 x i8] c"LLP\00", align 1
+@layer_names = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.171 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.172 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.173 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.175 = private unnamed_addr constant [25 x i8] c"Local Catastrophic Error\00", align 1
+@.str.176 = private unnamed_addr constant [24 x i8] c"Remote Protection Error\00", align 1
+@.str.177 = private unnamed_addr constant [23 x i8] c"Remote Operation Error\00", align 1
+@rdma_etype_names = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.175 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.176 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.177 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.179 = private unnamed_addr constant [20 x i8] c"Tagged Buffer Error\00", align 1
+@.str.180 = private unnamed_addr constant [22 x i8] c"Untagged Buffer Error\00", align 1
+@.str.181 = private unnamed_addr constant [32 x i8] c"Reserved for the use by the LLP\00", align 1
+@ddp_etype_names = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.175 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.179 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.180 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.181 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.183 = private unnamed_addr constant [10 x i8] c"MPA Error\00", align 1
+@mpa_etype_names = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.183 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.185 = private unnamed_addr constant [13 x i8] c"Invalid STag\00", align 1
+@.str.186 = private unnamed_addr constant [25 x i8] c"Base or bounds violation\00", align 1
+@.str.187 = private unnamed_addr constant [24 x i8] c"Access rights violation\00", align 1
+@.str.188 = private unnamed_addr constant [38 x i8] c"STag not associated with RDMAP Stream\00", align 1
+@.str.189 = private unnamed_addr constant [8 x i8] c"TO wrap\00", align 1
+@.str.190 = private unnamed_addr constant [22 x i8] c"Invalid RDMAP version\00", align 1
+@.str.191 = private unnamed_addr constant [18 x i8] c"Unexpected OpCode\00", align 1
+@.str.192 = private unnamed_addr constant [46 x i8] c"Catastrophic error, localized to RDMAP Stream\00", align 1
+@.str.193 = private unnamed_addr constant [27 x i8] c"Catastrophic error, global\00", align 1
+@.str.194 = private unnamed_addr constant [27 x i8] c"STag cannot be Invalidated\00", align 1
+@.str.195 = private unnamed_addr constant [17 x i8] c"Unspecific Error\00", align 1
+@rdma_errcode_names = internal constant [12 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.185 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.186 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.187 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.188 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.189 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.190 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.191 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.192 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.193 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.194 }, { i32, [4 x i8], ptr } { i32 255, [4 x i8] zeroinitializer, ptr @.str.195 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.197 = private unnamed_addr constant [36 x i8] c"STag not associated with DDP Stream\00", align 1
+@.str.198 = private unnamed_addr constant [20 x i8] c"Invalid DDP version\00", align 1
+@ddp_errcode_tagged_names = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.185 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.186 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.197 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.189 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.198 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.200 = private unnamed_addr constant [11 x i8] c"Invalid QN\00", align 1
+@.str.201 = private unnamed_addr constant [34 x i8] c"Invalid MSN - no buffer available\00", align 1
+@.str.202 = private unnamed_addr constant [37 x i8] c"Invalid MSN - MSN range is not valid\00", align 1
+@.str.203 = private unnamed_addr constant [11 x i8] c"Invalid MO\00", align 1
+@.str.204 = private unnamed_addr constant [42 x i8] c"DDP Message too long for available buffer\00", align 1
+@ddp_errcode_untagged_names = internal constant [7 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.200 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.201 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.202 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.203 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.204 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.198 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.206 = private unnamed_addr constant [42 x i8] c"TCP connection closed, terminated or lost\00", align 1
+@.str.207 = private unnamed_addr constant [14 x i8] c"MPA CRC Error\00", align 1
+@.str.208 = private unnamed_addr constant [43 x i8] c"MPA Marker and ULPDU Length field mismatch\00", align 1
+@.str.209 = private unnamed_addr constant [48 x i8] c"Invalid MPA Request Frame or MPA Response Frame\00", align 1
+@.str.210 = private unnamed_addr constant [27 x i8] c"Insufficient IRD Resources\00", align 1
+@.str.211 = private unnamed_addr constant [23 x i8] c"No Matching RTR Option\00", align 1
+@mpa_errcode_names = internal constant [8 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.206 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.207 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.208 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.209 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.175 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.210 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.211 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.213 = private unnamed_addr constant [9 x i8] c"FetchAdd\00", align 1
+@.str.214 = private unnamed_addr constant [8 x i8] c"CmpSwap\00", align 1
+@rdma_atomic_opcode_names = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.213 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.214 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.216 = private unnamed_addr constant [9 x i8] c"DDP/RDMA\00", align 1
+@.str.217 = private unnamed_addr constant [19 x i8] c"[last DDP segment]\00", align 1
+@.str.218 = private unnamed_addr constant [20 x i8] c"[more DDP segments]\00", align 1
+@.str.219 = private unnamed_addr constant [14 x i8] c"%d > %d %s %s\00", align 1
+@.str.220 = private unnamed_addr constant [11 x i8] c"Unknown %d\00", align 1
+@.str.221 = private unnamed_addr constant [28 x i8] c"Reassembled iWarp RDMA Send\00", align 1
+@iwarp_rdma_send_frag_items = internal constant %struct._fragment_items { ptr @ett_iwarp_rdma_send_fragment, ptr @ett_iwarp_rdma_send_fragments, ptr @hf_iwarp_rdma_send_fragments, ptr @hf_iwarp_rdma_send_fragment, ptr @hf_iwarp_rdma_send_fragment_overlap, ptr @hf_iwarp_rdma_send_fragment_overlap_conflict, ptr @hf_iwarp_rdma_send_fragment_multiple_tails, ptr @hf_iwarp_rdma_send_fragment_too_long_fragment, ptr @hf_iwarp_rdma_send_fragment_error, ptr @hf_iwarp_rdma_send_fragment_count, ptr @hf_iwarp_rdma_send_reassembled_in, ptr @hf_iwarp_rdma_send_reassembled_length, ptr @hf_iwarp_rdma_send_reassembled_data, ptr @.str.222 }, align 8
+@.str.222 = private unnamed_addr constant [26 x i8] c"iWarp RDMA Send fragments\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_iwarp_ddp_rdmap() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.154, ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.156) #3
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.154, ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.156)
   store i32 %1, ptr @proto_iwarp_ddp_rdmap, align 4
-  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_iwarp_ddp_rdmap.hf, i32 noundef 71) #3
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_iwarp_ddp_rdmap.ett, i32 noundef 13) #3
+  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_iwarp_ddp_rdmap.hf, i32 noundef 71)
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_iwarp_ddp_rdmap.ett, i32 noundef 13)
   %2 = load i32, ptr @proto_iwarp_ddp_rdmap, align 4
-  %3 = tail call ptr @register_heur_dissector_list_with_description(ptr noundef nonnull @.str.156, ptr noundef nonnull @.str.157, i32 noundef %2) #3
+  %3 = tail call ptr @register_heur_dissector_list_with_description(ptr noundef nonnull @.str.156, ptr noundef nonnull @.str.157, i32 noundef %2)
   store ptr %3, ptr @rdmap_heur_subdissector_list, align 8
   %4 = load i32, ptr @proto_iwarp_ddp_rdmap, align 4
-  %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.156, ptr noundef nonnull @dissect_iwarp_ddp_rdmap, i32 noundef %4) #3
+  %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.156, ptr noundef nonnull @dissect_iwarp_ddp_rdmap, i32 noundef %4)
   %6 = load i32, ptr @proto_iwarp_ddp_rdmap, align 4
-  %7 = tail call ptr @prefs_register_protocol(i32 noundef %6, ptr noundef null) #3
-  tail call void @prefs_register_bool_preference(ptr noundef %7, ptr noundef nonnull @.str.158, ptr noundef nonnull @.str.159, ptr noundef nonnull @.str.160, ptr noundef nonnull @iwarp_rdma_send_reassemble) #3
-  tail call void @reassembly_table_register(ptr noundef nonnull @iwarp_rdma_send_reassembly_table, ptr noundef nonnull @addresses_ports_reassembly_table_functions) #3
+  %7 = tail call ptr @prefs_register_protocol(i32 noundef %6, ptr noundef null)
+  tail call void @prefs_register_bool_preference(ptr noundef %7, ptr noundef nonnull @.str.158, ptr noundef nonnull @.str.159, ptr noundef nonnull @.str.160, ptr noundef nonnull @iwarp_rdma_send_reassemble)
+  tail call void @reassembly_table_register(ptr noundef nonnull @iwarp_rdma_send_reassembly_table, ptr noundef nonnull @addresses_ports_reassembly_table_functions)
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @register_heur_dissector_list_with_description(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_heur_dissector_list_with_description(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_iwarp_ddp_rdmap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct.rdmapinfo, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
-  %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
-  %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #5
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
+  %6 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
+  %7 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
   %8 = and i8 %7, 15
   store i8 %8, ptr %5, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %.lobit = lshr i8 %6, 7
-  %9 = zext nneg i8 %.lobit to i32
-  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %9, ptr %10, align 8
-  %11 = lshr i8 %6, 6
-  %.lobit157 = and i8 %11, 1
-  %12 = zext nneg i8 %.lobit157 to i32
-  %13 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %12, ptr %13, align 4
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %15 = load ptr, ptr %14, align 8
-  tail call void @col_set_str(ptr noundef %15, i32 noundef 34, ptr noundef nonnull @.str.206) #3
-  %.not.i = icmp eq i8 %.lobit157, 0
-  %.str.208..str.207.i = select i1 %.not.i, ptr @.str.208, ptr @.str.207
-  %16 = load ptr, ptr %14, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 284
-  %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 288
-  %20 = load i32, ptr %19, align 8
-  %21 = zext nneg i8 %8 to i32
-  %22 = tail call ptr @val_to_str(i32 noundef %21, ptr noundef nonnull @rdmap_messages, ptr noundef nonnull @.str.210) #3
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %16, i32 noundef 25, ptr noundef nonnull @.str.209, i32 noundef %18, i32 noundef %20, ptr noundef %22, ptr noundef nonnull %.str.208..str.207.i) #3
-  %.not = icmp sgt i8 %6, -1
-  %. = select i1 %.not, i32 18, i32 14
-  %23 = icmp eq i8 %8, 1
-  %24 = icmp eq i8 %8, 7
-  %or.cond = or i1 %23, %24
+  store i8 %.lobit, ptr %9, align 2
+  %10 = and i8 %6, 64
+  %.not = icmp eq i8 %10, 0
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %.lobit157 = lshr exact i8 %10, 6
+  store i8 %.lobit157, ptr %11, align 1
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %13 = load ptr, ptr %12, align 8
+  tail call void @col_set_str(ptr noundef %13, i32 noundef 35, ptr noundef nonnull @.str.216)
+  %.str.217..str.218.i = select i1 %.not, ptr @.str.218, ptr @.str.217
+  %14 = load ptr, ptr %12, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 284
+  %16 = load i32, ptr %15, align 4
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 288
+  %18 = load i32, ptr %17, align 8
+  %19 = zext nneg i8 %8 to i32
+  %20 = tail call ptr @val_to_str(i32 noundef %19, ptr noundef nonnull @rdmap_messages, ptr noundef nonnull @.str.220)
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.219, i32 noundef %16, i32 noundef %18, ptr noundef %20, ptr noundef nonnull %.str.217..str.218.i)
+  %21 = trunc nuw i8 %.lobit to i1
+  %. = select i1 %21, i32 14, i32 18
+  %22 = icmp eq i8 %8, 1
+  %23 = icmp eq i8 %8, 7
+  %or.cond = or i1 %22, %23
   %.1154 = select i1 %or.cond, i32 -1, i32 %.
-  %25 = load i32, ptr @proto_iwarp_ddp_rdmap, align 4
-  %26 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %25, ptr noundef %0, i32 noundef 0, i32 noundef %.1154, i32 noundef 0) #3
-  %27 = load i32, ptr @ett_iwarp_ddp_rdmap, align 4
-  %28 = tail call ptr @proto_item_add_subtree(ptr noundef %26, i32 noundef %27) #3
-  %29 = load i32, ptr @hf_iwarp_ddp, align 4
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %29, ptr noundef %0, i32 noundef 0, i32 noundef %.1154, i32 noundef 0) #3
-  %31 = load i32, ptr @ett_iwarp_ddp, align 4
-  %32 = tail call ptr @proto_item_add_subtree(ptr noundef %30, i32 noundef %31) #3
-  %33 = load i32, ptr @hf_iwarp_ddp_control_field, align 4
-  %34 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %33, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
-  %35 = load i32, ptr @ett_iwarp_ddp, align 4
-  %36 = tail call ptr @proto_item_add_subtree(ptr noundef %34, i32 noundef %35) #3
-  %37 = load i32, ptr @hf_iwarp_ddp_t_flag, align 4
-  %38 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %37, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
-  %39 = load i32, ptr @hf_iwarp_ddp_l_flag, align 4
-  %40 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %39, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
-  %41 = load i32, ptr @hf_iwarp_ddp_rsvd, align 4
-  %42 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %41, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
-  %43 = load i32, ptr @hf_iwarp_ddp_dv, align 4
-  %44 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %43, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #3
-  br i1 %.not, label %45, label %48
+  %24 = load i32, ptr @proto_iwarp_ddp_rdmap, align 4
+  %25 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %24, ptr noundef %0, i32 noundef 0, i32 noundef %.1154, i32 noundef 0)
+  %26 = load i32, ptr @ett_iwarp_ddp_rdmap, align 4
+  %27 = tail call ptr @proto_item_add_subtree(ptr noundef %25, i32 noundef %26)
+  %28 = load i32, ptr @hf_iwarp_ddp, align 4
+  %29 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %28, ptr noundef %0, i32 noundef 0, i32 noundef %.1154, i32 noundef 0)
+  %30 = load i32, ptr @ett_iwarp_ddp, align 4
+  %31 = tail call ptr @proto_item_add_subtree(ptr noundef %29, i32 noundef %30)
+  %32 = load i32, ptr @hf_iwarp_ddp_control_field, align 4
+  %33 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %32, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+  %34 = load i32, ptr @ett_iwarp_ddp, align 4
+  %35 = tail call ptr @proto_item_add_subtree(ptr noundef %33, i32 noundef %34)
+  %36 = load i32, ptr @hf_iwarp_ddp_t_flag, align 4
+  %37 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %36, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+  %38 = load i32, ptr @hf_iwarp_ddp_l_flag, align 4
+  %39 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %38, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+  %40 = load i32, ptr @hf_iwarp_ddp_rsvd, align 4
+  %41 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %40, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+  %42 = load i32, ptr @hf_iwarp_ddp_dv, align 4
+  %43 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %42, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+  br i1 %21, label %47, label %44
 
-45:                                               ; preds = %4
-  %46 = load i32, ptr @hf_iwarp_ddp_rsvdulp, align 4
-  %47 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %46, ptr noundef %0, i32 noundef 1, i32 noundef 5, i32 noundef 0) #3
-  br label %48
+44:                                               ; preds = %4
+  %45 = load i32, ptr @hf_iwarp_ddp_rsvdulp, align 4
+  %46 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %45, ptr noundef %0, i32 noundef 1, i32 noundef 5, i32 noundef 0)
+  br label %47
 
-48:                                               ; preds = %45, %4
-  %.162 = phi i32 [ 5, %45 ], [ 1, %4 ]
-  %49 = load i32, ptr @hf_iwarp_rdma, align 4
-  %50 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %49, ptr noundef %0, i32 noundef 1, i32 noundef %.162, i32 noundef 0) #3
-  %51 = load i32, ptr @ett_iwarp_rdma, align 4
-  %52 = tail call ptr @proto_item_add_subtree(ptr noundef %50, i32 noundef %51) #3
-  %53 = load i32, ptr @hf_iwarp_rdma_control_field, align 4
-  %54 = tail call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %53, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #3
-  %55 = load i32, ptr @ett_iwarp_rdma, align 4
-  %56 = tail call ptr @proto_item_add_subtree(ptr noundef %54, i32 noundef %55) #3
-  %57 = load i32, ptr @hf_iwarp_rdma_version, align 4
-  %58 = tail call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %57, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #3
-  %59 = load i32, ptr @hf_iwarp_rdma_rsvd, align 4
-  %60 = tail call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %59, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #3
-  %61 = load i32, ptr @hf_iwarp_rdma_opcode, align 4
-  %62 = tail call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %61, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #3
-  switch i8 %8, label %66 [
-    i8 7, label %63
-    i8 5, label %63
-    i8 3, label %63
-    i8 1, label %63
+47:                                               ; preds = %44, %4
+  %.158 = phi i32 [ 5, %44 ], [ 1, %4 ]
+  %48 = load i32, ptr @hf_iwarp_rdma, align 4
+  %49 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %48, ptr noundef %0, i32 noundef 1, i32 noundef %.158, i32 noundef 0)
+  %50 = load i32, ptr @ett_iwarp_rdma, align 4
+  %51 = tail call ptr @proto_item_add_subtree(ptr noundef %49, i32 noundef %50)
+  %52 = load i32, ptr @hf_iwarp_rdma_control_field, align 4
+  %53 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %52, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  %54 = load i32, ptr @ett_iwarp_rdma, align 4
+  %55 = tail call ptr @proto_item_add_subtree(ptr noundef %53, i32 noundef %54)
+  %56 = load i32, ptr @hf_iwarp_rdma_version, align 4
+  %57 = tail call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %56, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  %58 = load i32, ptr @hf_iwarp_rdma_rsvd, align 4
+  %59 = tail call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %58, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  %60 = load i32, ptr @hf_iwarp_rdma_opcode, align 4
+  %61 = tail call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %60, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  switch i8 %8, label %65 [
+    i8 7, label %62
+    i8 5, label %62
+    i8 3, label %62
+    i8 1, label %62
   ]
 
-63:                                               ; preds = %48, %48, %48, %48
-  %64 = load i32, ptr @hf_iwarp_rdma_reserved, align 4
-  %65 = tail call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %64, ptr noundef %0, i32 noundef 2, i32 noundef 4, i32 noundef 0) #3
-  br label %66
+62:                                               ; preds = %47, %47, %47, %47
+  %63 = load i32, ptr @hf_iwarp_rdma_reserved, align 4
+  %64 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %63, ptr noundef %0, i32 noundef 2, i32 noundef 4, i32 noundef 0)
+  br label %65
 
-66:                                               ; preds = %48, %63
-  %67 = and i8 %7, 13
-  %or.cond19 = icmp eq i8 %67, 4
-  br i1 %or.cond19, label %68, label %71
+65:                                               ; preds = %47, %62
+  %66 = and i8 %7, 13
+  %or.cond19 = icmp eq i8 %66, 4
+  br i1 %or.cond19, label %67, label %70
 
-68:                                               ; preds = %66
-  %69 = load i32, ptr @hf_iwarp_rdma_inval_stag, align 4
-  %70 = tail call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %69, ptr noundef %0, i32 noundef 2, i32 noundef 4, i32 noundef 0) #3
-  br label %71
+67:                                               ; preds = %65
+  %68 = load i32, ptr @hf_iwarp_rdma_inval_stag, align 4
+  %69 = tail call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %68, ptr noundef %0, i32 noundef 2, i32 noundef 4, i32 noundef 0)
+  br label %70
 
-71:                                               ; preds = %66, %68
-  %72 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  br i1 %.not, label %85, label %73
+70:                                               ; preds = %65, %67
+  %71 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  br i1 %21, label %72, label %84
 
-73:                                               ; preds = %71
-  %74 = load i32, ptr @hf_iwarp_ddp_tagged_header, align 4
-  %75 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %74, ptr noundef %0, i32 noundef 2, i32 noundef 12, i32 noundef 0) #3
-  %76 = load i32, ptr @ett_iwarp_ddp, align 4
-  %77 = tail call ptr @proto_item_add_subtree(ptr noundef %75, i32 noundef %76) #3
-  %78 = load i32, ptr @hf_iwarp_ddp_stag, align 4
-  %79 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %77, i32 noundef %78, ptr noundef %0, i32 noundef 2, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %72) #3
-  %80 = load i32, ptr @hf_iwarp_ddp_to, align 4
-  %81 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %82 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %77, i32 noundef %80, ptr noundef %0, i32 noundef 6, i32 noundef 8, i32 noundef 0, ptr noundef nonnull %81) #3
-  %83 = load i8, ptr %5, align 8
-  %84 = and i8 %83, -3
-  %or.cond23 = icmp eq i8 %84, 0
-  br i1 %or.cond23, label %thread-pre-split, label %101
+72:                                               ; preds = %70
+  %73 = load i32, ptr @hf_iwarp_ddp_tagged_header, align 4
+  %74 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %73, ptr noundef %0, i32 noundef 2, i32 noundef 12, i32 noundef 0)
+  %75 = load i32, ptr @ett_iwarp_ddp, align 4
+  %76 = tail call ptr @proto_item_add_subtree(ptr noundef %74, i32 noundef %75)
+  %77 = load i32, ptr @hf_iwarp_ddp_stag, align 4
+  %78 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %76, i32 noundef %77, ptr noundef %0, i32 noundef 2, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %71)
+  %79 = load i32, ptr @hf_iwarp_ddp_to, align 4
+  %80 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %81 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %76, i32 noundef %79, ptr noundef %0, i32 noundef 6, i32 noundef 8, i32 noundef 0, ptr noundef nonnull %80)
+  %82 = load i8, ptr %5, align 8
+  %83 = and i8 %82, -3
+  %or.cond23 = icmp eq i8 %83, 0
+  br i1 %or.cond23, label %thread-pre-split, label %100
 
-85:                                               ; preds = %71
-  %86 = load i32, ptr @hf_iwarp_ddp_untagged_header, align 4
-  %87 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %86, ptr noundef %0, i32 noundef 6, i32 noundef 12, i32 noundef 0) #3
-  %88 = load i32, ptr @ett_iwarp_ddp, align 4
-  %89 = tail call ptr @proto_item_add_subtree(ptr noundef %87, i32 noundef %88) #3
-  %90 = load i32, ptr @hf_iwarp_ddp_qn, align 4
-  %91 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %89, i32 noundef %90, ptr noundef %0, i32 noundef 6, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %72) #3
-  %92 = load i32, ptr @hf_iwarp_ddp_msn, align 4
-  %93 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  %94 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %89, i32 noundef %92, ptr noundef %0, i32 noundef 10, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %93) #3
-  %95 = load i32, ptr @hf_iwarp_ddp_mo, align 4
-  %96 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %97 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %89, i32 noundef %95, ptr noundef %0, i32 noundef 14, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %96) #3
-  %98 = load i8, ptr %5, align 8
-  %99 = add i8 %98, -3
-  %or.cond35 = icmp ult i8 %99, 4
-  br i1 %or.cond35, label %thread-pre-split, label %101
+84:                                               ; preds = %70
+  %85 = load i32, ptr @hf_iwarp_ddp_untagged_header, align 4
+  %86 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %85, ptr noundef %0, i32 noundef 6, i32 noundef 12, i32 noundef 0)
+  %87 = load i32, ptr @ett_iwarp_ddp, align 4
+  %88 = tail call ptr @proto_item_add_subtree(ptr noundef %86, i32 noundef %87)
+  %89 = load i32, ptr @hf_iwarp_ddp_qn, align 4
+  %90 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %88, i32 noundef %89, ptr noundef %0, i32 noundef 6, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %71)
+  %91 = load i32, ptr @hf_iwarp_ddp_msn, align 4
+  %92 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %93 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %88, i32 noundef %91, ptr noundef %0, i32 noundef 10, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %92)
+  %94 = load i32, ptr @hf_iwarp_ddp_mo, align 4
+  %95 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %96 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %88, i32 noundef %94, ptr noundef %0, i32 noundef 14, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %95)
+  %97 = load i8, ptr %5, align 8
+  %98 = add i8 %97, -3
+  %or.cond35 = icmp ult i8 %98, 4
+  br i1 %or.cond35, label %thread-pre-split, label %100
 
-thread-pre-split:                                 ; preds = %85, %73
-  %.sink163 = phi i32 [ 14, %73 ], [ 18, %85 ]
-  %100 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.sink163) #3
-  call fastcc void @dissect_rdmap_payload(ptr noundef %100, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %5)
+thread-pre-split:                                 ; preds = %84, %72
+  %.sink159 = phi i32 [ 14, %72 ], [ 18, %84 ]
+  %99 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.sink159)
+  call fastcc void @dissect_rdmap_payload(ptr noundef %99, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5)
   %.pr = load i8, ptr %5, align 8
-  br label %101
+  br label %100
 
-101:                                              ; preds = %thread-pre-split, %85, %73
-  %102 = phi i8 [ %.pr, %thread-pre-split ], [ %98, %85 ], [ %83, %73 ]
-  switch i8 %102, label %108 [
-    i8 1, label %103
-    i8 7, label %106
+100:                                              ; preds = %thread-pre-split, %84, %72
+  %101 = phi i8 [ %.pr, %thread-pre-split ], [ %97, %84 ], [ %82, %72 ]
+  switch i8 %101, label %107 [
+    i8 1, label %102
+    i8 7, label %105
   ]
 
-103:                                              ; preds = %101
-  %104 = call fastcc i32 @dissect_iwarp_rdmap(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %52, i32 noundef %., ptr noundef %5)
-  %105 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %104) #3
-  call fastcc void @dissect_rdmap_payload(ptr noundef %105, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %5)
-  br label %108
+102:                                              ; preds = %100
+  %103 = call fastcc i32 @dissect_iwarp_rdmap(ptr noundef %0, ptr noundef %1, ptr noundef %51, i32 noundef %., ptr noundef nonnull %5)
+  %104 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %103)
+  call fastcc void @dissect_rdmap_payload(ptr noundef %104, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5)
+  br label %107
 
-106:                                              ; preds = %101
-  %107 = call fastcc i32 @dissect_iwarp_rdmap(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %52, i32 noundef %., ptr noundef %5)
-  br label %108
+105:                                              ; preds = %100
+  %106 = call fastcc i32 @dissect_iwarp_rdmap(ptr noundef %0, ptr noundef %1, ptr noundef %51, i32 noundef %., ptr noundef nonnull %5)
+  br label %107
 
-108:                                              ; preds = %101, %106, %103
-  %.2 = phi i32 [ %104, %103 ], [ %., %106 ], [ %., %101 ]
-  %109 = load i8, ptr %5, align 8
-  %110 = and i8 %109, -2
-  %or.cond39 = icmp eq i8 %110, 10
-  br i1 %or.cond39, label %111, label %dissect_iwarp_atomic.exit
+107:                                              ; preds = %100, %105, %102
+  %.2 = phi i32 [ %103, %102 ], [ %., %105 ], [ %., %100 ]
+  %108 = load i8, ptr %5, align 8
+  %109 = and i8 %108, -2
+  %or.cond39 = icmp eq i8 %109, 10
+  br i1 %or.cond39, label %110, label %dissect_iwarp_atomic.exit
 
-111:                                              ; preds = %108
-  %switch = icmp eq i8 %109, 10
-  br i1 %switch, label %112, label %139
+110:                                              ; preds = %107
+  %switch = icmp eq i8 %108, 10
+  br i1 %switch, label %111, label %138
 
-112:                                              ; preds = %111
-  %113 = load i32, ptr @hf_iwarp_rdma_atomic_reserved, align 4
-  %114 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %113, ptr noundef %0, i32 noundef %.2, i32 noundef 4, i32 noundef 0) #3
-  %115 = load i32, ptr @hf_iwarp_rdma_atomic_opcode, align 4
-  %116 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %115, ptr noundef %0, i32 noundef %.2, i32 noundef 4, i32 noundef 0) #3
-  %117 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.2) #3
-  %118 = add nuw nsw i32 %.2, 4
-  %119 = load i32, ptr @hf_iwarp_rdma_atomic_request_identifier, align 4
-  %120 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %119, ptr noundef %0, i32 noundef %118, i32 noundef 4, i32 noundef 0) #3
-  %121 = add nuw nsw i32 %.2, 8
-  %122 = load i32, ptr @hf_iwarp_rdma_atomic_remote_stag, align 4
-  %123 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %122, ptr noundef %0, i32 noundef %121, i32 noundef 4, i32 noundef 0) #3
-  %124 = add nuw nsw i32 %.2, 12
-  %125 = load i32, ptr @hf_iwarp_rdma_atomic_remote_tagged_offset, align 4
-  %126 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %125, ptr noundef %0, i32 noundef %124, i32 noundef 8, i32 noundef 0) #3
-  %127 = add nuw nsw i32 %.2, 20
-  switch i32 %117, label %135 [
+111:                                              ; preds = %110
+  %112 = load i32, ptr @hf_iwarp_rdma_atomic_reserved, align 4
+  %113 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %112, ptr noundef %0, i32 noundef %.2, i32 noundef 4, i32 noundef 0)
+  %114 = load i32, ptr @hf_iwarp_rdma_atomic_opcode, align 4
+  %115 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %114, ptr noundef %0, i32 noundef %.2, i32 noundef 4, i32 noundef 0)
+  %116 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.2)
+  %117 = add nuw nsw i32 %.2, 4
+  %118 = load i32, ptr @hf_iwarp_rdma_atomic_request_identifier, align 4
+  %119 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %118, ptr noundef %0, i32 noundef %117, i32 noundef 4, i32 noundef 0)
+  %120 = add nuw nsw i32 %.2, 8
+  %121 = load i32, ptr @hf_iwarp_rdma_atomic_remote_stag, align 4
+  %122 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %121, ptr noundef %0, i32 noundef %120, i32 noundef 4, i32 noundef 0)
+  %123 = add nuw nsw i32 %.2, 12
+  %124 = load i32, ptr @hf_iwarp_rdma_atomic_remote_tagged_offset, align 4
+  %125 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %124, ptr noundef %0, i32 noundef %123, i32 noundef 8, i32 noundef 0)
+  %126 = add nuw nsw i32 %.2, 20
+  switch i32 %116, label %134 [
     i32 0, label %.sink.split.i
-    i32 2, label %128
+    i32 2, label %127
   ]
 
-128:                                              ; preds = %112
+127:                                              ; preds = %111
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %128, %112
-  %hf_iwarp_rdma_atomic_swap_data.sink.i = phi ptr [ @hf_iwarp_rdma_atomic_swap_data, %128 ], [ @hf_iwarp_rdma_atomic_add_data, %112 ]
-  %hf_iwarp_rdma_atomic_swap_mask.sink.i = phi ptr [ @hf_iwarp_rdma_atomic_swap_mask, %128 ], [ @hf_iwarp_rdma_atomic_add_mask, %112 ]
-  %129 = load i32, ptr %hf_iwarp_rdma_atomic_swap_data.sink.i, align 4
-  %130 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %129, ptr noundef %0, i32 noundef %127, i32 noundef 8, i32 noundef 0) #3
-  %131 = add nuw nsw i32 %.2, 28
-  %132 = load i32, ptr %hf_iwarp_rdma_atomic_swap_mask.sink.i, align 4
-  %133 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %132, ptr noundef %0, i32 noundef %131, i32 noundef 8, i32 noundef 0) #3
-  %134 = add nuw nsw i32 %.2, 36
-  br label %135
+.sink.split.i:                                    ; preds = %127, %111
+  %hf_iwarp_rdma_atomic_swap_data.sink.i = phi ptr [ @hf_iwarp_rdma_atomic_swap_data, %127 ], [ @hf_iwarp_rdma_atomic_add_data, %111 ]
+  %hf_iwarp_rdma_atomic_swap_mask.sink.i = phi ptr [ @hf_iwarp_rdma_atomic_swap_mask, %127 ], [ @hf_iwarp_rdma_atomic_add_mask, %111 ]
+  %128 = load i32, ptr %hf_iwarp_rdma_atomic_swap_data.sink.i, align 4
+  %129 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %128, ptr noundef %0, i32 noundef %126, i32 noundef 8, i32 noundef 0)
+  %130 = add nuw nsw i32 %.2, 28
+  %131 = load i32, ptr %hf_iwarp_rdma_atomic_swap_mask.sink.i, align 4
+  %132 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %131, ptr noundef %0, i32 noundef %130, i32 noundef 8, i32 noundef 0)
+  %133 = add nuw nsw i32 %.2, 36
+  br label %134
 
-135:                                              ; preds = %.sink.split.i, %112
-  %.1.i = phi i32 [ %127, %112 ], [ %134, %.sink.split.i ]
-  %136 = load i32, ptr @hf_iwarp_rdma_atomic_compare_data, align 4
-  %137 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %136, ptr noundef %0, i32 noundef %.1.i, i32 noundef 8, i32 noundef 0) #3
-  %138 = add nuw nsw i32 %.1.i, 8
+134:                                              ; preds = %.sink.split.i, %111
+  %.1.i = phi i32 [ %126, %111 ], [ %133, %.sink.split.i ]
+  %135 = load i32, ptr @hf_iwarp_rdma_atomic_compare_data, align 4
+  %136 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %135, ptr noundef %0, i32 noundef %.1.i, i32 noundef 8, i32 noundef 0)
+  %137 = add nuw nsw i32 %.1.i, 8
   br label %dissect_iwarp_atomic.exit.sink.split
 
-139:                                              ; preds = %111
-  %140 = load i32, ptr @hf_iwarp_rdma_atomic_original_request_identifier, align 4
-  %141 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %140, ptr noundef %0, i32 noundef %.2, i32 noundef 4, i32 noundef 0) #3
-  %142 = add nuw nsw i32 %.2, 4
+138:                                              ; preds = %110
+  %139 = load i32, ptr @hf_iwarp_rdma_atomic_original_request_identifier, align 4
+  %140 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %139, ptr noundef %0, i32 noundef %.2, i32 noundef 4, i32 noundef 0)
+  %141 = add nuw nsw i32 %.2, 4
   br label %dissect_iwarp_atomic.exit.sink.split
 
-dissect_iwarp_atomic.exit.sink.split:             ; preds = %135, %139
-  %hf_iwarp_rdma_atomic_original_remote_data_value.sink = phi ptr [ @hf_iwarp_rdma_atomic_original_remote_data_value, %139 ], [ @hf_iwarp_rdma_atomic_compare_mask, %135 ]
-  %.sink164 = phi i32 [ %142, %139 ], [ %138, %135 ]
-  %143 = load i32, ptr %hf_iwarp_rdma_atomic_original_remote_data_value.sink, align 4
-  %144 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %143, ptr noundef %0, i32 noundef %.sink164, i32 noundef 8, i32 noundef 0) #3
+dissect_iwarp_atomic.exit.sink.split:             ; preds = %134, %138
+  %hf_iwarp_rdma_atomic_original_remote_data_value.sink = phi ptr [ @hf_iwarp_rdma_atomic_original_remote_data_value, %138 ], [ @hf_iwarp_rdma_atomic_compare_mask, %134 ]
+  %.sink160 = phi i32 [ %141, %138 ], [ %137, %134 ]
+  %142 = load i32, ptr %hf_iwarp_rdma_atomic_original_remote_data_value.sink, align 4
+  %143 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %142, ptr noundef %0, i32 noundef %.sink160, i32 noundef 8, i32 noundef 0)
   br label %dissect_iwarp_atomic.exit
 
-dissect_iwarp_atomic.exit:                        ; preds = %dissect_iwarp_atomic.exit.sink.split, %108
-  %145 = call i32 @tvb_captured_length(ptr noundef %0) #3
-  ret i32 %145
+dissect_iwarp_atomic.exit:                        ; preds = %dissect_iwarp_atomic.exit.sink.split, %107
+  %144 = call i32 @tvb_captured_length(ptr noundef %0)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #5
+  ret i32 %144
 }
 
-declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @reassembly_table_register(ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @reassembly_table_register(ptr noundef, ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @proto_tree_add_item_ret_uint64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item_ret_uint64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_rdmap_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal fastcc void @dissect_rdmap_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %7 = load i32, ptr %6, align 8
+  %7 = load i8, ptr %6, align 8, !range !6, !noundef !7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 50
-  %11 = load i16, ptr %10, align 2
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 57
+  %11 = load i16, ptr %10, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
   %12 = load i8, ptr %3, align 8
-  %13 = add i8 %12, -7
-  %switch = icmp ult i8 %13, -4
-  %14 = load i32, ptr @iwarp_rdma_send_reassemble, align 4
-  %.not = icmp eq i32 %14, 0
-  %or.cond = select i1 %switch, i1 true, i1 %.not
-  br i1 %or.cond, label %41, label %15
+  %.off = add i8 %12, -3
+  %switch = icmp ult i8 %.off, 4
+  br i1 %switch, label %13, label %44
 
-15:                                               ; preds = %4
-  %16 = tail call nonnull ptr @find_or_create_conversation(ptr noundef nonnull %1) #3
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %18 = load i32, ptr %17, align 4
-  %19 = tail call ptr @wmem_file_scope() #3
-  %20 = load i32, ptr @proto_iwarp_ddp_rdmap, align 4
-  %21 = tail call ptr @p_get_proto_data(ptr noundef %19, ptr noundef nonnull %1, i32 noundef %20, i32 noundef 0) #3
-  %.not43 = icmp eq ptr %21, null
-  br i1 %.not43, label %22, label %38
+13:                                               ; preds = %4
+  %14 = load i8, ptr @iwarp_rdma_send_reassemble, align 1, !range !6, !noundef !7
+  %15 = trunc nuw i8 %14 to i1
+  br i1 %15, label %16, label %44
 
-22:                                               ; preds = %15
-  %.not41 = icmp eq i32 %18, 0
-  %spec.select = zext i1 %.not41 to i32
-  %23 = load ptr, ptr %8, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 50
-  %25 = load i16, ptr %24, align 2
-  %26 = and i16 %25, -9
-  store i16 %26, ptr %24, align 2
-  %27 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %28 = load i32, ptr %27, align 8
-  %29 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
-  %30 = tail call ptr @fragment_add_seq_next(ptr noundef nonnull @iwarp_rdma_send_reassembly_table, ptr noundef %0, i32 noundef 0, ptr noundef nonnull %1, i32 noundef %28, ptr noundef null, i32 noundef %29, i32 noundef %spec.select) #3
-  %31 = icmp eq ptr %30, null
-  br i1 %31, label %32, label %.thread53
+16:                                               ; preds = %13
+  %17 = tail call ptr @find_or_create_conversation(ptr noundef %1)
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %19 = load i8, ptr %18, align 1, !range !6, !noundef !7
+  %20 = tail call ptr @wmem_file_scope()
+  %21 = load i32, ptr @proto_iwarp_ddp_rdmap, align 4
+  %22 = tail call ptr @p_get_proto_data(ptr noundef %20, ptr noundef %1, i32 noundef %21, i32 noundef 0)
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %24, label %41
 
-32:                                               ; preds = %22
-  %33 = load i32, ptr %27, align 8
-  %34 = tail call ptr @fragment_get_reassembled_id(ptr noundef nonnull @iwarp_rdma_send_reassembly_table, ptr noundef nonnull %1, i32 noundef %33) #3
-  %35 = icmp eq ptr %34, null
-  br i1 %35, label %46, label %.thread53
+24:                                               ; preds = %16
+  %25 = trunc nuw i8 %19 to i1
+  %.036 = xor i1 %25, true
+  %26 = load ptr, ptr %8, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 57
+  %28 = load i16, ptr %27, align 1
+  %29 = and i16 %28, -9
+  store i16 %29, ptr %27, align 1
+  %30 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %31 = load i32, ptr %30, align 8
+  %32 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  %33 = tail call ptr @fragment_add_seq_next(ptr noundef nonnull @iwarp_rdma_send_reassembly_table, ptr noundef %0, i32 noundef 0, ptr noundef %1, i32 noundef %31, ptr noundef null, i32 noundef %32, i1 noundef zeroext %.036)
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %35, label %.thread49
 
-.thread53:                                        ; preds = %32, %22
-  %.14852 = phi ptr [ %30, %22 ], [ %34, %32 ]
-  %36 = tail call ptr @wmem_file_scope() #3
-  %37 = load i32, ptr @proto_iwarp_ddp_rdmap, align 4
-  tail call void @p_add_proto_data(ptr noundef %36, ptr noundef nonnull %1, i32 noundef %37, i32 noundef 0, ptr noundef nonnull %.14852) #3
-  br label %38
+35:                                               ; preds = %24
+  %36 = load i32, ptr %30, align 8
+  %37 = tail call ptr @fragment_get_reassembled_id(ptr noundef nonnull @iwarp_rdma_send_reassembly_table, ptr noundef %1, i32 noundef %36)
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %49, label %.thread49
 
-38:                                               ; preds = %15, %.thread53
-  %.14851 = phi ptr [ %.14852, %.thread53 ], [ %21, %15 ]
-  %39 = tail call ptr @process_reassembled_data(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %1, ptr noundef nonnull @.str.211, ptr noundef nonnull %.14851, ptr noundef nonnull @iwarp_rdma_send_frag_items, ptr noundef null, ptr noundef %2) #3
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %46, label %41
+.thread49:                                        ; preds = %35, %24
+  %.14448 = phi ptr [ %33, %24 ], [ %37, %35 ]
+  %39 = tail call ptr @wmem_file_scope()
+  %40 = load i32, ptr @proto_iwarp_ddp_rdmap, align 4
+  tail call void @p_add_proto_data(ptr noundef %39, ptr noundef %1, i32 noundef %40, i32 noundef 0, ptr noundef nonnull %.14448)
+  br label %41
 
-41:                                               ; preds = %4, %38
-  %.038 = phi ptr [ %0, %4 ], [ %39, %38 ]
-  store i32 0, ptr %6, align 8
-  %42 = load ptr, ptr @rdmap_heur_subdissector_list, align 8
-  %43 = call i32 @dissector_try_heuristic(ptr noundef %42, ptr noundef %.038, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %3) #3
-  %.not44 = icmp eq i32 %43, 0
-  br i1 %.not44, label %44, label %46
+41:                                               ; preds = %16, %.thread49
+  %.14447 = phi ptr [ %.14448, %.thread49 ], [ %22, %16 ]
+  %42 = tail call ptr @process_reassembled_data(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef nonnull @.str.221, ptr noundef nonnull %.14447, ptr noundef nonnull @iwarp_rdma_send_frag_items, ptr noundef null, ptr noundef %2)
+  %43 = icmp eq ptr %42, null
+  br i1 %43, label %49, label %44
 
-44:                                               ; preds = %41
-  %45 = call i32 @call_data_dissector(ptr noundef %.038, ptr noundef nonnull %1, ptr noundef %2) #3
-  br label %46
+44:                                               ; preds = %4, %41, %13
+  %.038 = phi ptr [ %0, %4 ], [ %42, %41 ], [ %0, %13 ]
+  store i8 0, ptr %6, align 8
+  %45 = load ptr, ptr @rdmap_heur_subdissector_list, align 8
+  %46 = call zeroext i1 @dissector_try_heuristic(ptr noundef %45, ptr noundef %.038, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5, ptr noundef %3)
+  br i1 %46, label %49, label %47
 
-46:                                               ; preds = %41, %44, %38, %32
-  %47 = and i16 %11, 8
-  store i32 %7, ptr %6, align 8
-  %48 = load ptr, ptr %8, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 50
-  %50 = load i16, ptr %49, align 2
-  %51 = and i16 %50, -9
-  %52 = or disjoint i16 %51, %47
-  store i16 %52, ptr %49, align 2
+47:                                               ; preds = %44
+  %48 = call i32 @call_data_dissector(ptr noundef %.038, ptr noundef %1, ptr noundef %2)
+  br label %49
+
+49:                                               ; preds = %44, %47, %41, %35
+  %50 = and i16 %11, 8
+  store i8 %7, ptr %6, align 8
+  %51 = load ptr, ptr %8, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 57
+  %53 = load i16, ptr %52, align 1
+  %54 = and i16 %53, -9
+  %55 = or disjoint i16 %54, %50
+  store i16 %55, ptr %52, align 1
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 14, 71) i32 @dissect_iwarp_rdmap(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef range(i32 14, 19) %3, ptr noundef nonnull captures(none) %4) unnamed_addr #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal fastcc range(i32 14, 71) i32 @dissect_iwarp_rdmap(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef range(i32 14, 19) %3, ptr noundef captures(none) %4) unnamed_addr #0 {
   %6 = load i8, ptr %4, align 8
   %7 = icmp eq i8 %6, 1
   br i1 %7, label %8, label %41
@@ -709,36 +731,36 @@ define internal fastcc range(i32 14, 71) i32 @dissect_iwarp_rdmap(ptr noundef %0
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call noalias ptr @wmem_alloc(ptr noundef %10, i64 noundef 40) #3
-  %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %11 = tail call noalias dereferenceable_or_null(40) ptr @wmem_alloc(ptr noundef %10, i64 noundef 40) #6
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %11, ptr %12, align 8
   %13 = load i32, ptr @hf_iwarp_rdma_rr_header, align 4
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef 0) #3
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef 0)
   %15 = load i32, ptr @ett_iwarp_rdma, align 4
-  %16 = tail call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %15) #3
+  %16 = tail call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %15)
   %17 = load i32, ptr @hf_iwarp_rdma_sinkstag, align 4
   %18 = load ptr, ptr %12, align 8
-  %19 = tail call ptr @proto_tree_add_item_ret_uint(ptr noundef %16, i32 noundef %17, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef 0, ptr noundef %18) #3
+  %19 = tail call ptr @proto_tree_add_item_ret_uint(ptr noundef %16, i32 noundef %17, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef 0, ptr noundef %18)
   %20 = add nuw nsw i32 %3, 4
   %21 = load i32, ptr @hf_iwarp_rdma_sinkto, align 4
   %22 = load ptr, ptr %12, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %24 = tail call ptr @proto_tree_add_item_ret_uint64(ptr noundef %16, i32 noundef %21, ptr noundef %0, i32 noundef %20, i32 noundef 8, i32 noundef 0, ptr noundef nonnull %23) #3
+  %24 = tail call ptr @proto_tree_add_item_ret_uint64(ptr noundef %16, i32 noundef %21, ptr noundef %0, i32 noundef %20, i32 noundef 8, i32 noundef 0, ptr noundef nonnull %23)
   %25 = add nuw nsw i32 %3, 12
   %26 = load i32, ptr @hf_iwarp_rdma_rdmardsz, align 4
   %27 = load ptr, ptr %12, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  %29 = tail call ptr @proto_tree_add_item_ret_uint(ptr noundef %16, i32 noundef %26, ptr noundef %0, i32 noundef %25, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %28) #3
+  %29 = tail call ptr @proto_tree_add_item_ret_uint(ptr noundef %16, i32 noundef %26, ptr noundef %0, i32 noundef %25, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %28)
   %30 = add nuw nsw i32 %3, 16
   %31 = load i32, ptr @hf_iwarp_rdma_srcstag, align 4
   %32 = load ptr, ptr %12, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %34 = tail call ptr @proto_tree_add_item_ret_uint(ptr noundef %16, i32 noundef %31, ptr noundef %0, i32 noundef %30, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %33) #3
+  %34 = tail call ptr @proto_tree_add_item_ret_uint(ptr noundef %16, i32 noundef %31, ptr noundef %0, i32 noundef %30, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %33)
   %35 = add nuw nsw i32 %3, 20
   %36 = load i32, ptr @hf_iwarp_rdma_srcto, align 4
   %37 = load ptr, ptr %12, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  %39 = tail call ptr @proto_tree_add_item_ret_uint64(ptr noundef %16, i32 noundef %36, ptr noundef %0, i32 noundef %35, i32 noundef 8, i32 noundef 0, ptr noundef nonnull %38) #3
+  %39 = tail call ptr @proto_tree_add_item_ret_uint64(ptr noundef %16, i32 noundef %36, ptr noundef %0, i32 noundef %35, i32 noundef 8, i32 noundef 0, ptr noundef nonnull %38)
   %40 = add nuw nsw i32 %3, 28
   br label %41
 
@@ -754,18 +776,18 @@ define internal fastcc range(i32 14, 71) i32 @dissect_iwarp_rdmap(ptr noundef %0
 
 45:                                               ; preds = %42
   %46 = load i32, ptr @hf_iwarp_rdma_terminate_header, align 4
-  %47 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %46, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0) #3
+  %47 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %46, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef 0)
   %48 = load i32, ptr @ett_iwarp_rdma, align 4
-  %49 = tail call ptr @proto_item_add_subtree(ptr noundef %47, i32 noundef %48) #3
-  %50 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0) #3
-  %51 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0) #3
+  %49 = tail call ptr @proto_item_add_subtree(ptr noundef %47, i32 noundef %48)
+  %50 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0)
+  %51 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0)
   %52 = and i8 %51, 15
   %53 = load i32, ptr @hf_iwarp_rdma_term_ctrl, align 4
-  %54 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %53, ptr noundef %0, i32 noundef %.0, i32 noundef 3, i32 noundef 0) #3
+  %54 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %53, ptr noundef %0, i32 noundef %.0, i32 noundef 3, i32 noundef 0)
   %55 = load i32, ptr @ett_iwarp_rdma, align 4
-  %56 = tail call ptr @proto_item_add_subtree(ptr noundef %54, i32 noundef %55) #3
+  %56 = tail call ptr @proto_item_add_subtree(ptr noundef %54, i32 noundef %55)
   %57 = load i32, ptr @hf_iwarp_rdma_term_layer, align 4
-  %58 = tail call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %57, ptr noundef %0, i32 noundef %.0, i32 noundef 1, i32 noundef 0) #3
+  %58 = tail call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %57, ptr noundef %0, i32 noundef %.0, i32 noundef 1, i32 noundef 0)
   %59 = lshr i8 %50, 4
   %60 = add nuw nsw i32 %.0, 1
   switch i8 %59, label %82 [
@@ -776,7 +798,7 @@ define internal fastcc range(i32 14, 71) i32 @dissect_iwarp_rdmap(ptr noundef %0
 
 61:                                               ; preds = %45
   %62 = load i32, ptr @hf_iwarp_rdma_term_etype_rdma, align 4
-  %63 = tail call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %62, ptr noundef %0, i32 noundef %.0, i32 noundef 1, i32 noundef 0) #3
+  %63 = tail call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %62, ptr noundef %0, i32 noundef %.0, i32 noundef 1, i32 noundef 0)
   %.not132 = icmp eq i8 %52, 0
   %64 = load i32, ptr @hf_iwarp_rdma_term_errcode_rdma, align 4
   %65 = load i32, ptr @hf_iwarp_rdma_term_errcode, align 4
@@ -785,7 +807,7 @@ define internal fastcc range(i32 14, 71) i32 @dissect_iwarp_rdmap(ptr noundef %0
 
 67:                                               ; preds = %45
   %68 = load i32, ptr @hf_iwarp_rdma_term_etype_ddp, align 4
-  %69 = tail call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %68, ptr noundef %0, i32 noundef %.0, i32 noundef 1, i32 noundef 0) #3
+  %69 = tail call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %68, ptr noundef %0, i32 noundef %.0, i32 noundef 1, i32 noundef 0)
   switch i8 %52, label %74 [
     i8 1, label %70
     i8 2, label %72
@@ -805,7 +827,7 @@ define internal fastcc range(i32 14, 71) i32 @dissect_iwarp_rdmap(ptr noundef %0
 
 76:                                               ; preds = %45
   %77 = load i32, ptr @hf_iwarp_rdma_term_etype_llp, align 4
-  %78 = tail call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %77, ptr noundef %0, i32 noundef %.0, i32 noundef 1, i32 noundef 0) #3
+  %78 = tail call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %77, ptr noundef %0, i32 noundef %.0, i32 noundef 1, i32 noundef 0)
   %.not131 = icmp eq i8 %52, 0
   %79 = load i32, ptr @hf_iwarp_rdma_term_errcode, align 4
   %80 = load i32, ptr @hf_iwarp_rdma_term_errcode_llp, align 4
@@ -814,27 +836,27 @@ define internal fastcc range(i32 14, 71) i32 @dissect_iwarp_rdmap(ptr noundef %0
 
 82:                                               ; preds = %45
   %83 = load i32, ptr @hf_iwarp_rdma_term_etype, align 4
-  %84 = tail call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %83, ptr noundef %0, i32 noundef %.0, i32 noundef 1, i32 noundef 0) #3
+  %84 = tail call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %83, ptr noundef %0, i32 noundef %.0, i32 noundef 1, i32 noundef 0)
   %85 = load i32, ptr @hf_iwarp_rdma_term_errcode, align 4
   br label %86
 
 86:                                               ; preds = %70, %72, %74, %82, %76, %61
   %.sink = phi i32 [ %71, %70 ], [ %73, %72 ], [ %75, %74 ], [ %85, %82 ], [ %81, %76 ], [ %66, %61 ]
-  %87 = tail call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %.sink, ptr noundef %0, i32 noundef %60, i32 noundef 1, i32 noundef 0) #3
+  %87 = tail call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %.sink, ptr noundef %0, i32 noundef %60, i32 noundef 1, i32 noundef 0)
   %.2 = add nuw nsw i32 %.0, 2
   %88 = load i32, ptr @hf_iwarp_rdma_term_hdrct, align 4
-  %89 = tail call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %88, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #3
+  %89 = tail call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %88, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0)
   %90 = load i32, ptr @ett_iwarp_rdma, align 4
-  %91 = tail call ptr @proto_item_add_subtree(ptr noundef %89, i32 noundef %90) #3
-  %92 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2) #3
+  %91 = tail call ptr @proto_item_add_subtree(ptr noundef %89, i32 noundef %90)
+  %92 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.2)
   %93 = load i32, ptr @hf_iwarp_rdma_term_hdrct_m, align 4
-  %94 = tail call ptr @proto_tree_add_item(ptr noundef %91, i32 noundef %93, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #3
+  %94 = tail call ptr @proto_tree_add_item(ptr noundef %91, i32 noundef %93, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0)
   %95 = load i32, ptr @hf_iwarp_rdma_term_hdrct_d, align 4
-  %96 = tail call ptr @proto_tree_add_item(ptr noundef %91, i32 noundef %95, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #3
+  %96 = tail call ptr @proto_tree_add_item(ptr noundef %91, i32 noundef %95, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0)
   %97 = load i32, ptr @hf_iwarp_rdma_term_hdrct_r, align 4
-  %98 = tail call ptr @proto_tree_add_item(ptr noundef %91, i32 noundef %97, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #3
+  %98 = tail call ptr @proto_tree_add_item(ptr noundef %91, i32 noundef %97, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0)
   %99 = load i32, ptr @hf_iwarp_rdma_term_rsvd, align 4
-  %100 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %99, ptr noundef %0, i32 noundef %.2, i32 noundef 2, i32 noundef 0) #3
+  %100 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %99, ptr noundef %0, i32 noundef %.2, i32 noundef 2, i32 noundef 0)
   %101 = add nuw nsw i32 %.0, 4
   %102 = zext i8 %92 to i32
   %103 = and i32 %102, 64
@@ -843,13 +865,13 @@ define internal fastcc range(i32 14, 71) i32 @dissect_iwarp_rdmap(ptr noundef %0
 
 .sink.split:                                      ; preds = %86
   %104 = load i32, ptr @hf_iwarp_rdma_term_ddp_seg_len, align 4
-  %105 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %104, ptr noundef %0, i32 noundef %101, i32 noundef 2, i32 noundef 0) #3
+  %105 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %104, ptr noundef %0, i32 noundef %101, i32 noundef 2, i32 noundef 0)
   %106 = add nuw nsw i32 %.0, 6
   %107 = icmp eq i8 %52, 1
   %108 = load i32, ptr @hf_iwarp_rdma_term_ddp_h, align 4
   %. = select i1 %107, i32 14, i32 18
   %.137 = select i1 %107, i32 20, i32 24
-  %109 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %108, ptr noundef %0, i32 noundef %106, i32 noundef %., i32 noundef 0) #3
+  %109 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %108, ptr noundef %0, i32 noundef %106, i32 noundef %., i32 noundef 0)
   %110 = add nuw nsw i32 %.0, %.137
   br label %111
 
@@ -861,7 +883,7 @@ define internal fastcc range(i32 14, 71) i32 @dissect_iwarp_rdmap(ptr noundef %0
 
 113:                                              ; preds = %111
   %114 = load i32, ptr @hf_iwarp_rdma_term_rdma_h, align 4
-  %115 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %114, ptr noundef %0, i32 noundef %.3, i32 noundef 28, i32 noundef 0) #3
+  %115 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %114, ptr noundef %0, i32 noundef %.3, i32 noundef 28, i32 noundef 0)
   br label %116
 
 116:                                              ; preds = %42, %113, %111, %41
@@ -869,44 +891,66 @@ define internal fastcc range(i32 14, 71) i32 @dissect_iwarp_rdmap(ptr noundef %0
   ret i32 %.1
 }
 
-declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
 
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
-declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare nonnull ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr #2
 
-declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare ptr @wmem_file_scope() local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_file_scope() local_unnamed_addr #2
 
-declare ptr @fragment_add_seq_next(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @fragment_add_seq_next(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-declare ptr @fragment_get_reassembled_id(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @fragment_get_reassembled_id(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @p_add_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare void @p_add_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare ptr @process_reassembled_data(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @process_reassembled_data(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @dissector_try_heuristic(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @dissector_try_heuristic(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid allocsize(1)
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #4
 
-declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { nounwind }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
+attributes #6 = { allocsize(1) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}

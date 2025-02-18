@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
 %struct.true_false_string = type { ptr, ptr }
 
 @proto_register_rf4ce_profile.hf = internal global [122 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_rf4ce_profile_fcf, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_fcf_cmd_id, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 4, i32 2, ptr @rf4ce_profile_fcf_cmd_id_vals, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_zrc20_fcf_cmd_id, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 4, i32 2, ptr @rf4ce_zrc20_fcf_cmd_id_vals, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_fcf_reserved, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 4, i32 2, ptr null, i64 48, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_fcf_cmd_frame, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 4, i32 2, ptr @rf4ce_profile_fcf_cmd_frame_vals, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_fcf_data_pending, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 2, i32 8, ptr @tfs_yes_no, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_cmd_generic_resp_status, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 4, i32 2, ptr @hf_rf4ce_profile_cmd_generic_resp_status_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_cmd_configuration_complete_status, %struct._header_field_info { ptr @.str.10, ptr @.str.12, i32 4, i32 2, ptr @hf_rf4ce_profile_cmd_configuration_complete_status_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_cmd_heartbeat_trigger, %struct._header_field_info { ptr @.str.13, ptr @.str.14, i32 4, i32 2, ptr @hf_rf4ce_profile_cmd_heartbeat_trigger_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_gdp_attr_id, %struct._header_field_info { ptr @.str.15, ptr @.str.16, i32 4, i32 2, ptr @rf4ce_profile_gdp_attr_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_zrc20_attr_id, %struct._header_field_info { ptr @.str.15, ptr @.str.17, i32 4, i32 2, ptr @rf4ce_profile_zrc20_attr_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_attr_entry_id, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 30, i32 10, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_attr_status, %struct._header_field_info { ptr @.str.10, ptr @.str.20, i32 4, i32 2, ptr @hf_rf4ce_profile_attr_status_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_attr_length, %struct._header_field_info { ptr @.str.21, ptr @.str.22, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_attr_value, %struct._header_field_info { ptr @.str.23, ptr @.str.24, i32 30, i32 10, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_gdp_ident_cap, %struct._header_field_info { ptr @.str.25, ptr @.str.26, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_gdp_ident_cap_reserved, %struct._header_field_info { ptr @.str.4, ptr @.str.27, i32 4, i32 2, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_gdp_ident_cap_support_flash_light, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_gdp_ident_cap_support_make_short_sound, %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_gdp_ident_cap_support_vibrate, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 2, i32 8, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_gdp_ident_cap_reserved2, %struct._header_field_info { ptr @.str.4, ptr @.str.34, i32 4, i32 2, ptr null, i64 240, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_gdp_poll_constraints_methods_num, %struct._header_field_info { ptr @.str.35, ptr @.str.36, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_gdp_poll_constraints_polling_rec_method_id, %struct._header_field_info { ptr @.str.37, ptr @.str.38, i32 4, i32 2, ptr @rf4ce_profile_gdp_poll_constraints_polling_rec_method_id_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_gdp_poll_constraints_polling_rec_polling_trig_cap, %struct._header_field_info { ptr @.str.39, ptr @.str.40, i32 5, i32 2, ptr null, i64 65535, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_gdp_poll_constraints_polling_rec_polling_trig_cap_tbased, %struct._header_field_info { ptr @.str.41, ptr @.str.42, i32 2, i32 16, ptr @tfs_enabled_disabled, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_gdp_poll_constraints_polling_rec_polling_trig_cap_on_k_press, %struct._header_field_info { ptr @.str.43, ptr @.str.44, i32 2, i32 16, ptr @tfs_enabled_disabled, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_gdp_poll_constraints_polling_rec_polling_trig_cap_on_pick_up, %struct._header_field_info { ptr @.str.45, ptr @.str.46, i32 2, i32 16, ptr @tfs_enabled_disabled, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_gdp_poll_constraints_polling_rec_polling_trig_cap_on_reset, %struct._header_field_info { ptr @.str.47, ptr @.str.48, i32 2, i32 16, ptr @tfs_enabled_disabled, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_gdp_poll_constraints_polling_rec_polling_trig_cap_on_micro_act, %struct._header_field_info { ptr @.str.49, ptr @.str.50, i32 2, i32 16, ptr @tfs_enabled_disabled, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_gdp_poll_constraints_polling_rec_polling_trig_cap_on_user_act, %struct._header_field_info { ptr @.str.51, ptr @.str.52, i32 2, i32 16, ptr @tfs_enabled_disabled, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_gdp_poll_constraints_polling_rec_polling_trig_cap_reserved, %struct._header_field_info { ptr @.str.4, ptr @.str.53, i32 5, i32 2, ptr null, i64 65472, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_gdp_poll_constraints_polling_rec_min_polling_key_press_cnt, %struct._header_field_info { ptr @.str.54, ptr @.str.55, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_gdp_poll_constraints_polling_rec_max_polling_key_press_cnt, %struct._header_field_info { ptr @.str.56, ptr @.str.57, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_gdp_poll_constraints_polling_rec_min_polling_time_interval, %struct._header_field_info { ptr @.str.58, ptr @.str.59, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_gdp_poll_constraints_polling_rec_max_polling_time_interval, %struct._header_field_info { ptr @.str.60, ptr @.str.61, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_gdp_poll_configuration_method_id, %struct._header_field_info { ptr @.str.37, ptr @.str.62, i32 4, i32 2, ptr @rf4ce_profile_gdp_poll_constraints_polling_rec_method_id_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_gdp_poll_configuration_polling_trig_conf, %struct._header_field_info { ptr @.str.63, ptr @.str.64, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_gdp_poll_configuration_polling_trig_conf_tbased, %struct._header_field_info { ptr @.str.65, ptr @.str.66, i32 2, i32 16, ptr @tfs_enabled_disabled, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_gdp_poll_configuration_polling_trig_conf_on_k_press, %struct._header_field_info { ptr @.str.67, ptr @.str.68, i32 2, i32 16, ptr @tfs_enabled_disabled, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_gdp_poll_configuration_polling_trig_conf_on_pick_up, %struct._header_field_info { ptr @.str.69, ptr @.str.70, i32 2, i32 16, ptr @tfs_enabled_disabled, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_gdp_poll_configuration_polling_trig_conf_on_reset, %struct._header_field_info { ptr @.str.71, ptr @.str.72, i32 2, i32 16, ptr @tfs_enabled_disabled, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_gdp_poll_configuration_polling_trig_conf_on_micro_act, %struct._header_field_info { ptr @.str.73, ptr @.str.74, i32 2, i32 16, ptr @tfs_enabled_disabled, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_gdp_poll_configuration_polling_trig_conf_on_user_act, %struct._header_field_info { ptr @.str.75, ptr @.str.76, i32 2, i32 16, ptr @tfs_enabled_disabled, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_gdp_poll_configuration_polling_trig_conf_reserved, %struct._header_field_info { ptr @.str.4, ptr @.str.77, i32 5, i32 2, ptr null, i64 65472, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_gdp_poll_configuration_polling_key_press_cnt, %struct._header_field_info { ptr @.str.78, ptr @.str.79, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_gdp_poll_configuration_polling_time_interval, %struct._header_field_info { ptr @.str.80, ptr @.str.81, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_gdp_poll_configuration_polling_timeout, %struct._header_field_info { ptr @.str.82, ptr @.str.83, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_zrc20_mappable_actions_action_dev_type, %struct._header_field_info { ptr @.str.84, ptr @.str.85, i32 4, i32 2, ptr @rf4ce_profile_device_type_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_zrc20_mappable_actions_action_bank, %struct._header_field_info { ptr @.str.86, ptr @.str.87, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_zrc20_mappable_actions_action_code, %struct._header_field_info { ptr @.str.88, ptr @.str.89, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_zrc20_action_mappings_mapping_flags, %struct._header_field_info { ptr @.str.90, ptr @.str.91, i32 4, i32 2, ptr null, i64 255, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_zrc20_action_mappings_mapping_flags_rf_specified, %struct._header_field_info { ptr @.str.92, ptr @.str.93, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_zrc20_action_mappings_mapping_flags_ir_specified, %struct._header_field_info { ptr @.str.94, ptr @.str.95, i32 2, i32 8, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_zrc20_action_mappings_mapping_flags_rf_descr_first, %struct._header_field_info { ptr @.str.96, ptr @.str.97, i32 2, i32 8, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_zrc20_action_mappings_mapping_flags_reserved, %struct._header_field_info { ptr @.str.4, ptr @.str.98, i32 4, i32 2, ptr null, i64 56, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_zrc20_action_mappings_mapping_flags_use_default, %struct._header_field_info { ptr @.str.99, ptr @.str.100, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_zrc20_action_mappings_mapping_flags_permanent, %struct._header_field_info { ptr @.str.101, ptr @.str.102, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_zrc20_action_mappings_rf_descr_rf_conf, %struct._header_field_info { ptr @.str.103, ptr @.str.104, i32 4, i32 2, ptr null, i64 255, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_zrc20_action_mappings_rf_descr_rf_conf_min_num_of_trans, %struct._header_field_info { ptr @.str.105, ptr @.str.106, i32 4, i32 2, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_zrc20_action_mappings_rf_descr_rf_conf_keep_trans_until_key_release, %struct._header_field_info { ptr @.str.107, ptr @.str.108, i32 2, i32 8, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_zrc20_action_mappings_rf_descr_rf_conf_short_rf_retry, %struct._header_field_info { ptr @.str.109, ptr @.str.110, i32 2, i32 8, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_zrc20_action_mappings_rf_descr_rf_conf_atomic_action, %struct._header_field_info { ptr @.str.111, ptr @.str.112, i32 2, i32 8, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_zrc20_action_mappings_rf_descr_rf_conf_reserved, %struct._header_field_info { ptr @.str.4, ptr @.str.113, i32 4, i32 2, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_zrc20_action_mappings_rf_descr_tx_opts, %struct._header_field_info { ptr @.str.114, ptr @.str.115, i32 4, i32 2, ptr null, i64 255, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_zrc20_action_mappings_rf_descr_tx_opts_trans_mode, %struct._header_field_info { ptr @.str.116, ptr @.str.117, i32 2, i32 8, ptr @rf4ce_profile_zrc20_action_mappings_rf_descr_tx_opts_trans_mode_vals, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_zrc20_action_mappings_rf_descr_tx_opts_dst_addr_mode, %struct._header_field_info { ptr @.str.118, ptr @.str.119, i32 2, i32 8, ptr @rf4ce_profile_zrc20_action_mappings_rf_descr_tx_opts_dst_addr_mode_vals, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_zrc20_action_mappings_rf_descr_tx_opts_ack_mode, %struct._header_field_info { ptr @.str.120, ptr @.str.121, i32 2, i32 8, ptr @rf4ce_profile_zrc20_action_mappings_rf_descr_tx_opts_ack_mode_vals, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_zrc20_action_mappings_rf_descr_tx_opts_sec_mode, %struct._header_field_info { ptr @.str.122, ptr @.str.123, i32 2, i32 8, ptr @rf4ce_profile_zrc20_action_mappings_rf_descr_tx_opts_sec_mode_vals, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_zrc20_action_mappings_rf_descr_tx_opts_ch_ag_mode, %struct._header_field_info { ptr @.str.124, ptr @.str.125, i32 2, i32 8, ptr @rf4ce_profile_zrc20_action_mappings_rf_descr_tx_opts_ch_ag_mode_vals, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_zrc20_action_mappings_rf_descr_tx_opts_ch_norm_mode, %struct._header_field_info { ptr @.str.126, ptr @.str.127, i32 2, i32 8, ptr @rf4ce_profile_zrc20_action_mappings_rf_descr_tx_opts_ch_norm_mode_vals, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_zrc20_action_mappings_rf_descr_tx_opts_payload_mode, %struct._header_field_info { ptr @.str.128, ptr @.str.129, i32 2, i32 8, ptr @rf4ce_profile_zrc20_action_mappings_rf_descr_tx_opts_payload_mode_vals, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_zrc20_action_mappings_rf_descr_tx_opts_reserved, %struct._header_field_info { ptr @.str.4, ptr @.str.130, i32 2, i32 8, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_zrc20_action_mappings_rf_descr_action_data_len, %struct._header_field_info { ptr @.str.131, ptr @.str.132, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_zrc20_action_mappings_ir_descr_ir_conf, %struct._header_field_info { ptr @.str.133, ptr @.str.134, i32 4, i32 2, ptr null, i64 255, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_zrc20_action_mappings_ir_descr_ir_conf_vendor_specific, %struct._header_field_info { ptr @.str.135, ptr @.str.136, i32 2, i32 8, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_zrc20_action_mappings_ir_descr_ir_conf_reserved, %struct._header_field_info { ptr @.str.4, ptr @.str.137, i32 4, i32 2, ptr null, i64 254, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_zrc20_action_mappings_ir_descr_ir_vendor_id, %struct._header_field_info { ptr @.str.138, ptr @.str.139, i32 5, i32 2, ptr @rf4ce_vendor_id_vals, i64 7, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_zrc20_action_mappings_ir_descr_ir_code_len, %struct._header_field_info { ptr @.str.140, ptr @.str.141, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_zrc20_action_mappings_ir_descr_ir_code, %struct._header_field_info { ptr @.str.142, ptr @.str.143, i32 30, i32 10, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_zrc20_irdb_vendor_support_vendor_id, %struct._header_field_info { ptr @.str.144, ptr @.str.145, i32 5, i32 2, ptr @rf4ce_vendor_id_vals, i64 7, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_cmd_check_validation_sub_type, %struct._header_field_info { ptr @.str.146, ptr @.str.147, i32 4, i32 2, ptr @rf4ce_profile_cmd_check_validation_sub_type_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_cmd_check_validation_control, %struct._header_field_info { ptr @.str.148, ptr @.str.149, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_cmd_check_validation_status, %struct._header_field_info { ptr @.str.150, ptr @.str.151, i32 4, i32 2, ptr @rf4ce_profile_cmd_check_validation_status_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_cmd_client_notification_sub_type, %struct._header_field_info { ptr @.str.152, ptr @.str.153, i32 4, i32 2, ptr @rf4ce_profile_cmd_client_notification_sub_type_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_cmd_client_notification_identify_flags, %struct._header_field_info { ptr @.str.154, ptr @.str.155, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_cmd_client_notification_identify_flags_stop_on_action, %struct._header_field_info { ptr @.str.156, ptr @.str.157, i32 4, i32 2, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_cmd_client_notification_identify_flags_flash_light, %struct._header_field_info { ptr @.str.158, ptr @.str.159, i32 4, i32 2, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_cmd_client_notification_identify_flags_make_sound, %struct._header_field_info { ptr @.str.160, ptr @.str.161, i32 4, i32 2, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_cmd_client_notification_identify_flags_vibrate, %struct._header_field_info { ptr @.str.162, ptr @.str.163, i32 4, i32 2, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_cmd_client_notification_identify_flags_reserved, %struct._header_field_info { ptr @.str.4, ptr @.str.164, i32 4, i32 2, ptr null, i64 240, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_cmd_client_notification_identify_time, %struct._header_field_info { ptr @.str.165, ptr @.str.166, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_cmd_key_exchange_sub_type, %struct._header_field_info { ptr @.str.146, ptr @.str.167, i32 4, i32 2, ptr @rf4ce_profile_cmd_key_exchange_sub_type_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_cmd_key_exchange_flags, %struct._header_field_info { ptr @.str.168, ptr @.str.169, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_cmd_key_exchange_flags_default_secret, %struct._header_field_info { ptr @.str.170, ptr @.str.171, i32 5, i32 2, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_cmd_key_exchange_flags_initiator_vendor_specific_secret, %struct._header_field_info { ptr @.str.172, ptr @.str.173, i32 5, i32 2, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_cmd_key_exchange_flags_responder_vendor_specific_secret, %struct._header_field_info { ptr @.str.174, ptr @.str.175, i32 5, i32 2, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_cmd_key_exchange_flags_reserved, %struct._header_field_info { ptr @.str.4, ptr @.str.176, i32 5, i32 2, ptr null, i64 248, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_cmd_key_exchange_flags_vendor_specific_parameter, %struct._header_field_info { ptr @.str.177, ptr @.str.178, i32 5, i32 2, ptr null, i64 65280, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_cmd_key_exchange_rand_a, %struct._header_field_info { ptr @.str.179, ptr @.str.180, i32 30, i32 10, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_cmd_key_exchange_rand_b, %struct._header_field_info { ptr @.str.181, ptr @.str.182, i32 30, i32 10, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_cmd_key_exchange_tag_b, %struct._header_field_info { ptr @.str.183, ptr @.str.184, i32 30, i32 10, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_cmd_key_exchange_tag_a, %struct._header_field_info { ptr @.str.185, ptr @.str.186, i32 30, i32 10, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_zrc20_cmd_actions_action_control, %struct._header_field_info { ptr @.str.187, ptr @.str.188, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_zrc20_cmd_actions_action_control_action_type, %struct._header_field_info { ptr @.str.189, ptr @.str.190, i32 4, i32 2, ptr @rf4ce_zrc20_cmd_actions_action_control_action_type_vals, i64 3, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_zrc20_cmd_actions_action_control_reserved, %struct._header_field_info { ptr @.str.4, ptr @.str.191, i32 4, i32 2, ptr null, i64 12, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_zrc20_cmd_actions_action_control_modifier_bits_gui, %struct._header_field_info { ptr @.str.192, ptr @.str.193, i32 2, i32 8, ptr @tfs_yes_no, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_zrc20_cmd_actions_action_control_modifier_bits_alt, %struct._header_field_info { ptr @.str.194, ptr @.str.195, i32 2, i32 8, ptr @tfs_yes_no, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_zrc20_cmd_actions_action_control_modifier_bits_shift, %struct._header_field_info { ptr @.str.196, ptr @.str.197, i32 2, i32 8, ptr @tfs_yes_no, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_zrc20_cmd_actions_action_control_modifier_bits_ctrl, %struct._header_field_info { ptr @.str.198, ptr @.str.199, i32 2, i32 8, ptr @tfs_yes_no, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_zrc20_cmd_actions_action_data_payload_length, %struct._header_field_info { ptr @.str.200, ptr @.str.201, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_zrc20_cmd_actions_action_data_action_bank, %struct._header_field_info { ptr @.str.86, ptr @.str.202, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_zrc20_cmd_actions_action_data_action_code, %struct._header_field_info { ptr @.str.88, ptr @.str.203, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_zrc20_cmd_actions_action_data_action_vendor, %struct._header_field_info { ptr @.str.204, ptr @.str.205, i32 5, i32 2, ptr @rf4ce_vendor_id_vals, i64 7, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_zrc20_cmd_actions_action_data_action_payload, %struct._header_field_info { ptr @.str.206, ptr @.str.207, i32 30, i32 10, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_zrc10_fcf, %struct._header_field_info { ptr @.str, ptr @.str.208, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_zrc10_fcf_cmd_id, %struct._header_field_info { ptr @.str.2, ptr @.str.209, i32 4, i32 2, ptr @rf4ce_zrc10_fcf_cmd_id_vals, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_zrc10_fcf_reserved, %struct._header_field_info { ptr @.str.4, ptr @.str.210, i32 4, i32 2, ptr null, i64 240, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_zrc10_cmd_common_rc_command_code, %struct._header_field_info { ptr @.str.211, ptr @.str.212, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_zrc10_cmd_common_rc_command_payload, %struct._header_field_info { ptr @.str.213, ptr @.str.214, i32 30, i32 10, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_zrc10_cmd_disc_reserved, %struct._header_field_info { ptr @.str.4, ptr @.str.215, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_zrc10_cmd_disc_rsp_supported_commands, %struct._header_field_info { ptr @.str.216, ptr @.str.217, i32 30, i32 10, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_rf4ce_profile_unparsed_payload, %struct._header_field_info { ptr @.str.218, ptr @.str.219, i32 30, i32 10, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
@@ -15,16 +14,13 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_rf4ce_profile_fcf_cmd_id = internal global i32 0, align 4
 @.str.2 = private unnamed_addr constant [11 x i8] c"Command ID\00", align 1
 @.str.3 = private unnamed_addr constant [25 x i8] c"rf4ce-profile.fcf.cmd_id\00", align 1
-@rf4ce_profile_fcf_cmd_id_vals = internal constant [13 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.223 }, %struct._value_string { i32 1, ptr @.str.224 }, %struct._value_string { i32 2, ptr @.str.225 }, %struct._value_string { i32 3, ptr @.str.226 }, %struct._value_string { i32 4, ptr @.str.227 }, %struct._value_string { i32 5, ptr @.str.228 }, %struct._value_string { i32 6, ptr @.str.229 }, %struct._value_string { i32 7, ptr @.str.230 }, %struct._value_string { i32 8, ptr @.str.231 }, %struct._value_string { i32 9, ptr @.str.232 }, %struct._value_string { i32 10, ptr @.str.233 }, %struct._value_string { i32 11, ptr @.str.234 }, %struct._value_string zeroinitializer], align 16
 @hf_rf4ce_zrc20_fcf_cmd_id = internal global i32 0, align 4
-@rf4ce_zrc20_fcf_cmd_id_vals = internal constant [2 x %struct._value_string] [%struct._value_string { i32 6, ptr @.str.235 }, %struct._value_string zeroinitializer], align 16
 @hf_rf4ce_profile_fcf_reserved = internal global i32 0, align 4
 @.str.4 = private unnamed_addr constant [9 x i8] c"Reserved\00", align 1
 @.str.5 = private unnamed_addr constant [27 x i8] c"rf4ce-profile.fcf.reserved\00", align 1
 @hf_rf4ce_profile_fcf_cmd_frame = internal global i32 0, align 4
 @.str.6 = private unnamed_addr constant [14 x i8] c"Command Frame\00", align 1
 @.str.7 = private unnamed_addr constant [28 x i8] c"rf4ce-profile.fcf.cmd_frame\00", align 1
-@rf4ce_profile_fcf_cmd_frame_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.236 }, %struct._value_string { i32 1, ptr @.str.237 }, %struct._value_string zeroinitializer], align 16
 @hf_rf4ce_profile_fcf_data_pending = internal global i32 0, align 4
 @.str.8 = private unnamed_addr constant [13 x i8] c"Data Pending\00", align 1
 @.str.9 = private unnamed_addr constant [31 x i8] c"rf4ce-profile.fcf.data_pending\00", align 1
@@ -32,27 +28,21 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_rf4ce_profile_cmd_generic_resp_status = internal global i32 0, align 4
 @.str.10 = private unnamed_addr constant [7 x i8] c"Status\00", align 1
 @.str.11 = private unnamed_addr constant [38 x i8] c"rf4ce-profile.cmd.generic_resp.status\00", align 1
-@hf_rf4ce_profile_cmd_generic_resp_status_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.238 }, %struct._value_string { i32 1, ptr @.str.239 }, %struct._value_string { i32 2, ptr @.str.240 }, %struct._value_string { i32 3, ptr @.str.241 }, %struct._value_string zeroinitializer], align 16
 @hf_rf4ce_profile_cmd_configuration_complete_status = internal global i32 0, align 4
 @.str.12 = private unnamed_addr constant [48 x i8] c"rf4ce-profile.cmd.configuration_complete.status\00", align 1
-@hf_rf4ce_profile_cmd_configuration_complete_status_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.238 }, %struct._value_string { i32 3, ptr @.str.241 }, %struct._value_string zeroinitializer], align 16
 @hf_rf4ce_profile_cmd_heartbeat_trigger = internal global i32 0, align 4
 @.str.13 = private unnamed_addr constant [8 x i8] c"Trigger\00", align 1
 @.str.14 = private unnamed_addr constant [36 x i8] c"rf4ce-profile.cmd.heartbeat.trigger\00", align 1
-@hf_rf4ce_profile_cmd_heartbeat_trigger_vals = internal constant [8 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.242 }, %struct._value_string { i32 1, ptr @.str.65 }, %struct._value_string { i32 2, ptr @.str.67 }, %struct._value_string { i32 3, ptr @.str.243 }, %struct._value_string { i32 4, ptr @.str.71 }, %struct._value_string { i32 5, ptr @.str.73 }, %struct._value_string { i32 6, ptr @.str.244 }, %struct._value_string zeroinitializer], align 16
 @hf_rf4ce_profile_gdp_attr_id = internal global i32 0, align 4
 @.str.15 = private unnamed_addr constant [13 x i8] c"Attribute ID\00", align 1
 @.str.16 = private unnamed_addr constant [26 x i8] c"rf4ce-profile.gdp.attr.id\00", align 1
-@rf4ce_profile_gdp_attr_vals = internal constant [13 x %struct._value_string] [%struct._value_string { i32 128, ptr @.str.245 }, %struct._value_string { i32 129, ptr @.str.246 }, %struct._value_string { i32 130, ptr @.str.247 }, %struct._value_string { i32 131, ptr @.str.248 }, %struct._value_string { i32 132, ptr @.str.249 }, %struct._value_string { i32 133, ptr @.str.250 }, %struct._value_string { i32 134, ptr @.str.251 }, %struct._value_string { i32 135, ptr @.str.252 }, %struct._value_string { i32 136, ptr @.str.253 }, %struct._value_string { i32 137, ptr @.str.254 }, %struct._value_string { i32 138, ptr @.str.255 }, %struct._value_string { i32 139, ptr @.str.25 }, %struct._value_string zeroinitializer], align 16
 @hf_rf4ce_profile_zrc20_attr_id = internal global i32 0, align 4
 @.str.17 = private unnamed_addr constant [28 x i8] c"rf4ce-profile.zrc20.attr.id\00", align 1
-@rf4ce_profile_zrc20_attr_vals = internal constant [15 x %struct._value_string] [%struct._value_string { i32 160, ptr @.str.256 }, %struct._value_string { i32 161, ptr @.str.257 }, %struct._value_string { i32 162, ptr @.str.258 }, %struct._value_string { i32 163, ptr @.str.259 }, %struct._value_string { i32 164, ptr @.str.260 }, %struct._value_string { i32 165, ptr @.str.261 }, %struct._value_string { i32 166, ptr @.str.262 }, %struct._value_string { i32 167, ptr @.str.263 }, %struct._value_string { i32 192, ptr @.str.264 }, %struct._value_string { i32 193, ptr @.str.265 }, %struct._value_string { i32 194, ptr @.str.266 }, %struct._value_string { i32 195, ptr @.str.267 }, %struct._value_string { i32 196, ptr @.str.268 }, %struct._value_string { i32 197, ptr @.str.269 }, %struct._value_string zeroinitializer], align 16
 @hf_rf4ce_profile_attr_entry_id = internal global i32 0, align 4
 @.str.18 = private unnamed_addr constant [17 x i8] c"Entry Identifier\00", align 1
 @.str.19 = private unnamed_addr constant [42 x i8] c"rf4ce-profile.zrc20.attr.entry_identifier\00", align 1
 @hf_rf4ce_profile_attr_status = internal global i32 0, align 4
 @.str.20 = private unnamed_addr constant [26 x i8] c"rf4ce-profile.attr.status\00", align 1
-@hf_rf4ce_profile_attr_status_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.270 }, %struct._value_string { i32 1, ptr @.str.271 }, %struct._value_string { i32 2, ptr @.str.272 }, %struct._value_string { i32 3, ptr @.str.273 }, %struct._value_string zeroinitializer], align 16
 @hf_rf4ce_profile_attr_length = internal global i32 0, align 4
 @.str.21 = private unnamed_addr constant [7 x i8] c"Length\00", align 1
 @.str.22 = private unnamed_addr constant [26 x i8] c"rf4ce-profile.attr.length\00", align 1
@@ -81,7 +71,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_rf4ce_profile_gdp_poll_constraints_polling_rec_method_id = internal global i32 0, align 4
 @.str.37 = private unnamed_addr constant [18 x i8] c"Polling Method ID\00", align 1
 @.str.38 = private unnamed_addr constant [61 x i8] c"rf4ce-profile.attr.poll_constraints.polling_record.method_id\00", align 1
-@rf4ce_profile_gdp_poll_constraints_polling_rec_method_id_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.274 }, %struct._value_string { i32 1, ptr @.str.275 }, %struct._value_string zeroinitializer], align 16
 @hf_rf4ce_profile_gdp_poll_constraints_polling_rec_polling_trig_cap = internal global i32 0, align 4
 @.str.39 = private unnamed_addr constant [29 x i8] c"Polling Trigger Capabilities\00", align 1
 @.str.40 = private unnamed_addr constant [68 x i8] c"rf4ce-profile.attr.poll_constraints.polling_record.polling_trig_cap\00", align 1
@@ -155,7 +144,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_rf4ce_profile_zrc20_mappable_actions_action_dev_type = internal global i32 0, align 4
 @.str.84 = private unnamed_addr constant [19 x i8] c"Action Device Type\00", align 1
 @.str.85 = private unnamed_addr constant [52 x i8] c"rf4ce-profile.attr.mappable_actions.action_dev_type\00", align 1
-@rf4ce_profile_device_type_vals = internal constant [21 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.4 }, %struct._value_string { i32 1, ptr @.str.276 }, %struct._value_string { i32 2, ptr @.str.277 }, %struct._value_string { i32 3, ptr @.str.278 }, %struct._value_string { i32 4, ptr @.str.279 }, %struct._value_string { i32 5, ptr @.str.280 }, %struct._value_string { i32 6, ptr @.str.281 }, %struct._value_string { i32 7, ptr @.str.282 }, %struct._value_string { i32 8, ptr @.str.283 }, %struct._value_string { i32 9, ptr @.str.284 }, %struct._value_string { i32 10, ptr @.str.285 }, %struct._value_string { i32 11, ptr @.str.286 }, %struct._value_string { i32 12, ptr @.str.287 }, %struct._value_string { i32 13, ptr @.str.288 }, %struct._value_string { i32 14, ptr @.str.289 }, %struct._value_string { i32 15, ptr @.str.290 }, %struct._value_string { i32 252, ptr @.str.291 }, %struct._value_string { i32 253, ptr @.str.292 }, %struct._value_string { i32 254, ptr @.str.293 }, %struct._value_string { i32 255, ptr @.str.294 }, %struct._value_string zeroinitializer], align 16
 @hf_rf4ce_profile_zrc20_mappable_actions_action_bank = internal global i32 0, align 4
 @.str.86 = private unnamed_addr constant [12 x i8] c"Action Bank\00", align 1
 @.str.87 = private unnamed_addr constant [48 x i8] c"rf4ce-profile.attr.mappable_actions.action_bank\00", align 1
@@ -205,31 +193,31 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_rf4ce_profile_zrc20_action_mappings_rf_descr_tx_opts_trans_mode = internal global i32 0, align 4
 @.str.116 = private unnamed_addr constant [18 x i8] c"Transmission Mode\00", align 1
 @.str.117 = private unnamed_addr constant [63 x i8] c"rf4ce-profile.attr.action_mappings.rf_descr.tx_opts.trans_mode\00", align 1
-@rf4ce_profile_zrc20_action_mappings_rf_descr_tx_opts_trans_mode_vals = internal constant %struct.true_false_string { ptr @.str.295, ptr @.str.296 }, align 8
+@rf4ce_profile_zrc20_action_mappings_rf_descr_tx_opts_trans_mode_vals = internal constant %struct.true_false_string { ptr @.str.306, ptr @.str.307 }, align 8
 @hf_rf4ce_profile_zrc20_action_mappings_rf_descr_tx_opts_dst_addr_mode = internal global i32 0, align 4
 @.str.118 = private unnamed_addr constant [28 x i8] c"Destination Addressing Mode\00", align 1
 @.str.119 = private unnamed_addr constant [66 x i8] c"rf4ce-profile.attr.action_mappings.rf_descr.tx_opts.dst_addr_mode\00", align 1
-@rf4ce_profile_zrc20_action_mappings_rf_descr_tx_opts_dst_addr_mode_vals = internal constant %struct.true_false_string { ptr @.str.297, ptr @.str.298 }, align 8
+@rf4ce_profile_zrc20_action_mappings_rf_descr_tx_opts_dst_addr_mode_vals = internal constant %struct.true_false_string { ptr @.str.308, ptr @.str.309 }, align 8
 @hf_rf4ce_profile_zrc20_action_mappings_rf_descr_tx_opts_ack_mode = internal global i32 0, align 4
 @.str.120 = private unnamed_addr constant [21 x i8] c"Acknowledgement Mode\00", align 1
 @.str.121 = private unnamed_addr constant [61 x i8] c"rf4ce-profile.attr.action_mappings.rf_descr.tx_opts.ack_mode\00", align 1
-@rf4ce_profile_zrc20_action_mappings_rf_descr_tx_opts_ack_mode_vals = internal constant %struct.true_false_string { ptr @.str.299, ptr @.str.300 }, align 8
+@rf4ce_profile_zrc20_action_mappings_rf_descr_tx_opts_ack_mode_vals = internal constant %struct.true_false_string { ptr @.str.310, ptr @.str.311 }, align 8
 @hf_rf4ce_profile_zrc20_action_mappings_rf_descr_tx_opts_sec_mode = internal global i32 0, align 4
 @.str.122 = private unnamed_addr constant [14 x i8] c"Security Mode\00", align 1
 @.str.123 = private unnamed_addr constant [61 x i8] c"rf4ce-profile.attr.action_mappings.rf_descr.tx_opts.sec_mode\00", align 1
-@rf4ce_profile_zrc20_action_mappings_rf_descr_tx_opts_sec_mode_vals = internal constant %struct.true_false_string { ptr @.str.301, ptr @.str.302 }, align 8
+@rf4ce_profile_zrc20_action_mappings_rf_descr_tx_opts_sec_mode_vals = internal constant %struct.true_false_string { ptr @.str.312, ptr @.str.313 }, align 8
 @hf_rf4ce_profile_zrc20_action_mappings_rf_descr_tx_opts_ch_ag_mode = internal global i32 0, align 4
 @.str.124 = private unnamed_addr constant [21 x i8] c"Channel Agility Mode\00", align 1
 @.str.125 = private unnamed_addr constant [63 x i8] c"rf4ce-profile.attr.action_mappings.rf_descr.tx_opts.ch_ag_mode\00", align 1
-@rf4ce_profile_zrc20_action_mappings_rf_descr_tx_opts_ch_ag_mode_vals = internal constant %struct.true_false_string { ptr @.str.303, ptr @.str.304 }, align 8
+@rf4ce_profile_zrc20_action_mappings_rf_descr_tx_opts_ch_ag_mode_vals = internal constant %struct.true_false_string { ptr @.str.314, ptr @.str.315 }, align 8
 @hf_rf4ce_profile_zrc20_action_mappings_rf_descr_tx_opts_ch_norm_mode = internal global i32 0, align 4
 @.str.126 = private unnamed_addr constant [27 x i8] c"Channel Normalization Mode\00", align 1
 @.str.127 = private unnamed_addr constant [65 x i8] c"rf4ce-profile.attr.action_mappings.rf_descr.tx_opts.ch_norm_mode\00", align 1
-@rf4ce_profile_zrc20_action_mappings_rf_descr_tx_opts_ch_norm_mode_vals = internal constant %struct.true_false_string { ptr @.str.305, ptr @.str.306 }, align 8
+@rf4ce_profile_zrc20_action_mappings_rf_descr_tx_opts_ch_norm_mode_vals = internal constant %struct.true_false_string { ptr @.str.316, ptr @.str.317 }, align 8
 @hf_rf4ce_profile_zrc20_action_mappings_rf_descr_tx_opts_payload_mode = internal global i32 0, align 4
 @.str.128 = private unnamed_addr constant [13 x i8] c"Payload Mode\00", align 1
 @.str.129 = private unnamed_addr constant [65 x i8] c"rf4ce-profile.attr.action_mappings.rf_descr.tx_opts.payload_mode\00", align 1
-@rf4ce_profile_zrc20_action_mappings_rf_descr_tx_opts_payload_mode_vals = internal constant %struct.true_false_string { ptr @.str.307, ptr @.str.308 }, align 8
+@rf4ce_profile_zrc20_action_mappings_rf_descr_tx_opts_payload_mode_vals = internal constant %struct.true_false_string { ptr @.str.318, ptr @.str.319 }, align 8
 @hf_rf4ce_profile_zrc20_action_mappings_rf_descr_tx_opts_reserved = internal global i32 0, align 4
 @.str.130 = private unnamed_addr constant [61 x i8] c"rf4ce-profile.attr.action_mappings.rf_descr.tx_opts.reserved\00", align 1
 @hf_rf4ce_profile_zrc20_action_mappings_rf_descr_action_data_len = internal global i32 0, align 4
@@ -246,7 +234,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_rf4ce_profile_zrc20_action_mappings_ir_descr_ir_vendor_id = internal global i32 0, align 4
 @.str.138 = private unnamed_addr constant [13 x i8] c"IR Vendor ID\00", align 1
 @.str.139 = private unnamed_addr constant [57 x i8] c"rf4ce-profile.attr.action_mappings.ir_descr.ir_vendor_id\00", align 1
-@rf4ce_vendor_id_vals = internal constant [9 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.4 }, %struct._value_string { i32 1, ptr @.str.309 }, %struct._value_string { i32 2, ptr @.str.310 }, %struct._value_string { i32 3, ptr @.str.311 }, %struct._value_string { i32 4, ptr @.str.312 }, %struct._value_string { i32 5, ptr @.str.313 }, %struct._value_string { i32 6, ptr @.str.314 }, %struct._value_string { i32 7, ptr @.str.315 }, %struct._value_string zeroinitializer], align 16
 @hf_rf4ce_profile_zrc20_action_mappings_ir_descr_ir_code_len = internal global i32 0, align 4
 @.str.140 = private unnamed_addr constant [15 x i8] c"IR Code Length\00", align 1
 @.str.141 = private unnamed_addr constant [56 x i8] c"rf4ce-profile.attr.action_mappings.ir_descr.ir_code_len\00", align 1
@@ -259,18 +246,15 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_rf4ce_profile_cmd_check_validation_sub_type = internal global i32 0, align 4
 @.str.146 = private unnamed_addr constant [9 x i8] c"Sub-type\00", align 1
 @.str.147 = private unnamed_addr constant [44 x i8] c"rf4ce-profile.cmd.check_validation.sub_type\00", align 1
-@rf4ce_profile_cmd_check_validation_sub_type_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.316 }, %struct._value_string { i32 1, ptr @.str.317 }, %struct._value_string zeroinitializer], align 16
 @hf_rf4ce_profile_cmd_check_validation_control = internal global i32 0, align 4
 @.str.148 = private unnamed_addr constant [19 x i8] c"Validation Control\00", align 1
 @.str.149 = private unnamed_addr constant [54 x i8] c"rf4ce-profile.cmd.check_validation.validation_control\00", align 1
 @hf_rf4ce_profile_cmd_check_validation_status = internal global i32 0, align 4
 @.str.150 = private unnamed_addr constant [18 x i8] c"Validation Status\00", align 1
 @.str.151 = private unnamed_addr constant [53 x i8] c"rf4ce-profile.cmd.check_validation.validation_status\00", align 1
-@rf4ce_profile_cmd_check_validation_status_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.238 }, %struct._value_string { i32 1, ptr @.str.318 }, %struct._value_string { i32 2, ptr @.str.319 }, %struct._value_string { i32 3, ptr @.str.320 }, %struct._value_string zeroinitializer], align 16
 @hf_rf4ce_profile_cmd_client_notification_sub_type = internal global i32 0, align 4
 @.str.152 = private unnamed_addr constant [8 x i8] c"Sub-ype\00", align 1
 @.str.153 = private unnamed_addr constant [47 x i8] c"rf4ce-profile.cmd.client_notification.sub_type\00", align 1
-@rf4ce_profile_cmd_client_notification_sub_type_vals = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.321 }, %struct._value_string { i32 1, ptr @.str.322 }, %struct._value_string { i32 64, ptr @.str.323 }, %struct._value_string { i32 65, ptr @.str.324 }, %struct._value_string { i32 66, ptr @.str.325 }, %struct._value_string zeroinitializer], align 16
 @hf_rf4ce_profile_cmd_client_notification_identify_flags = internal global i32 0, align 4
 @.str.154 = private unnamed_addr constant [15 x i8] c"Identify Flags\00", align 1
 @.str.155 = private unnamed_addr constant [53 x i8] c"rf4ce-profile.cmd.client_notification.identify_flags\00", align 1
@@ -293,7 +277,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.166 = private unnamed_addr constant [52 x i8] c"rf4ce-profile.cmd.client_notification.identify_time\00", align 1
 @hf_rf4ce_profile_cmd_key_exchange_sub_type = internal global i32 0, align 4
 @.str.167 = private unnamed_addr constant [40 x i8] c"rf4ce-profile.cmd.key_exchange.sub_type\00", align 1
-@rf4ce_profile_cmd_key_exchange_sub_type_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.326 }, %struct._value_string { i32 1, ptr @.str.327 }, %struct._value_string { i32 2, ptr @.str.317 }, %struct._value_string { i32 3, ptr @.str.328 }, %struct._value_string zeroinitializer], align 16
 @hf_rf4ce_profile_cmd_key_exchange_flags = internal global i32 0, align 4
 @.str.168 = private unnamed_addr constant [19 x i8] c"Key Exchange Flags\00", align 1
 @.str.169 = private unnamed_addr constant [37 x i8] c"rf4ce-profile.cmd.key_exchange.flags\00", align 1
@@ -329,7 +312,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_rf4ce_zrc20_cmd_actions_action_control_action_type = internal global i32 0, align 4
 @.str.189 = private unnamed_addr constant [12 x i8] c"Action Type\00", align 1
 @.str.190 = private unnamed_addr constant [59 x i8] c"rf4ce-profile.zrc20.cmd.actions.action_control.action_type\00", align 1
-@rf4ce_zrc20_cmd_actions_action_control_action_type_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.4 }, %struct._value_string { i32 1, ptr @.str.329 }, %struct._value_string { i32 2, ptr @.str.330 }, %struct._value_string { i32 3, ptr @.str.331 }, %struct._value_string zeroinitializer], align 16
 @hf_rf4ce_zrc20_cmd_actions_action_control_reserved = internal global i32 0, align 4
 @.str.191 = private unnamed_addr constant [56 x i8] c"rf4ce-profile.zrc20.cmd.actions.action_control.reserved\00", align 1
 @hf_rf4ce_zrc20_cmd_actions_action_control_modifier_bits_gui = internal global i32 0, align 4
@@ -361,7 +343,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.208 = private unnamed_addr constant [24 x i8] c"rf4ce-profile.zrc10.fcf\00", align 1
 @hf_rf4ce_zrc10_fcf_cmd_id = internal global i32 0, align 4
 @.str.209 = private unnamed_addr constant [31 x i8] c"rf4ce-profile.zrc10.fcf.cmd_id\00", align 1
-@rf4ce_zrc10_fcf_cmd_id_vals = internal constant [7 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.4 }, %struct._value_string { i32 1, ptr @.str.332 }, %struct._value_string { i32 2, ptr @.str.333 }, %struct._value_string { i32 3, ptr @.str.334 }, %struct._value_string { i32 4, ptr @.str.335 }, %struct._value_string { i32 5, ptr @.str.336 }, %struct._value_string zeroinitializer], align 16
 @hf_rf4ce_zrc10_fcf_reserved = internal global i32 0, align 4
 @.str.210 = private unnamed_addr constant [33 x i8] c"rf4ce-profile.zrc10.fcf.reserved\00", align 1
 @hf_rf4ce_zrc10_cmd_common_rc_command_code = internal global i32 0, align 4
@@ -417,163 +398,186 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.232 = private unnamed_addr constant [17 x i8] c"Check Validation\00", align 1
 @.str.233 = private unnamed_addr constant [20 x i8] c"Client Notification\00", align 1
 @.str.234 = private unnamed_addr constant [13 x i8] c"Key Exchange\00", align 1
-@.str.235 = private unnamed_addr constant [8 x i8] c"Actions\00", align 1
-@.str.236 = private unnamed_addr constant [25 x i8] c"Profile Specific Command\00", align 1
-@.str.237 = private unnamed_addr constant [12 x i8] c"GDP Command\00", align 1
-@.str.238 = private unnamed_addr constant [8 x i8] c"Success\00", align 1
-@.str.239 = private unnamed_addr constant [20 x i8] c"Unsupported Request\00", align 1
-@.str.240 = private unnamed_addr constant [18 x i8] c"Invalid Parameter\00", align 1
-@.str.241 = private unnamed_addr constant [22 x i8] c"Configuration Failure\00", align 1
-@.str.242 = private unnamed_addr constant [17 x i8] c"Generic Activity\00", align 1
-@.str.243 = private unnamed_addr constant [18 x i8] c"Polling on Pickup\00", align 1
-@.str.244 = private unnamed_addr constant [31 x i8] c"Polling on other User Activity\00", align 1
-@.str.245 = private unnamed_addr constant [16 x i8] c"Profile Version\00", align 1
-@.str.246 = private unnamed_addr constant [21 x i8] c"Profile Capabilities\00", align 1
-@.str.247 = private unnamed_addr constant [28 x i8] c"KEY Exchange Transfer Count\00", align 1
-@.str.248 = private unnamed_addr constant [13 x i8] c"Power Status\00", align 1
-@.str.249 = private unnamed_addr constant [17 x i8] c"Poll Constraints\00", align 1
-@.str.250 = private unnamed_addr constant [19 x i8] c"Poll Configuration\00", align 1
-@.str.251 = private unnamed_addr constant [23 x i8] c"Max Binding Candidates\00", align 1
-@.str.252 = private unnamed_addr constant [24 x i8] c"Auto Check Valid Period\00", align 1
-@.str.253 = private unnamed_addr constant [39 x i8] c"Binding Recipient Validation Wait Time\00", align 1
-@.str.254 = private unnamed_addr constant [40 x i8] c"Binding Originator Validation Wait Time\00", align 1
-@.str.255 = private unnamed_addr constant [20 x i8] c"Link Lost Wait Time\00", align 1
-@.str.256 = private unnamed_addr constant [20 x i8] c"ZRC Profile Version\00", align 1
-@.str.257 = private unnamed_addr constant [25 x i8] c"ZRC Profile Capabilities\00", align 1
-@.str.258 = private unnamed_addr constant [31 x i8] c"Action Repeat Trigger Interval\00", align 1
-@.str.259 = private unnamed_addr constant [24 x i8] c"Action Repeat Wait Time\00", align 1
-@.str.260 = private unnamed_addr constant [26 x i8] c"Action Banks Supported RX\00", align 1
-@.str.261 = private unnamed_addr constant [26 x i8] c"Action Banks Supported TX\00", align 1
-@.str.262 = private unnamed_addr constant [20 x i8] c"IRDB Vendor Support\00", align 1
-@.str.263 = private unnamed_addr constant [25 x i8] c"ZRC Action Banks Version\00", align 1
-@.str.264 = private unnamed_addr constant [26 x i8] c"Action Codes Supported RX\00", align 1
-@.str.265 = private unnamed_addr constant [26 x i8] c"Action Codes Supported TX\00", align 1
-@.str.266 = private unnamed_addr constant [17 x i8] c"Mappable Actions\00", align 1
-@.str.267 = private unnamed_addr constant [16 x i8] c"Action Mappings\00", align 1
-@.str.268 = private unnamed_addr constant [16 x i8] c"Home Automation\00", align 1
-@.str.269 = private unnamed_addr constant [26 x i8] c"Home Automation Supported\00", align 1
-@.str.270 = private unnamed_addr constant [41 x i8] c"Attribute Successfully Read and Included\00", align 1
-@.str.271 = private unnamed_addr constant [22 x i8] c"Unsupported Attribute\00", align 1
-@.str.272 = private unnamed_addr constant [16 x i8] c"Illegal Request\00", align 1
-@.str.273 = private unnamed_addr constant [14 x i8] c"Invalid Entry\00", align 1
-@.str.274 = private unnamed_addr constant [9 x i8] c"Disabled\00", align 1
-@.str.275 = private unnamed_addr constant [28 x i8] c"GDP heartbeat based polling\00", align 1
-@.str.276 = private unnamed_addr constant [15 x i8] c"Remote Control\00", align 1
-@.str.277 = private unnamed_addr constant [11 x i8] c"Television\00", align 1
-@.str.278 = private unnamed_addr constant [10 x i8] c"Projector\00", align 1
-@.str.279 = private unnamed_addr constant [7 x i8] c"Player\00", align 1
-@.str.280 = private unnamed_addr constant [9 x i8] c"Recorder\00", align 1
-@.str.281 = private unnamed_addr constant [22 x i8] c"Video Player\\Recorder\00", align 1
-@.str.282 = private unnamed_addr constant [22 x i8] c"Audio Player\\Recorder\00", align 1
-@.str.283 = private unnamed_addr constant [21 x i8] c"Audio Video Recorder\00", align 1
-@.str.284 = private unnamed_addr constant [12 x i8] c"Set Top Box\00", align 1
-@.str.285 = private unnamed_addr constant [20 x i8] c"Home Theater System\00", align 1
-@.str.286 = private unnamed_addr constant [16 x i8] c"Media Center\\PC\00", align 1
-@.str.287 = private unnamed_addr constant [13 x i8] c"Game Console\00", align 1
-@.str.288 = private unnamed_addr constant [25 x i8] c"Satellite Radio Receiver\00", align 1
-@.str.289 = private unnamed_addr constant [12 x i8] c"IR Extender\00", align 1
-@.str.290 = private unnamed_addr constant [8 x i8] c"Monitor\00", align 1
-@.str.291 = private unnamed_addr constant [32 x i8] c"Vendor Specific Wildcard Device\00", align 1
-@.str.292 = private unnamed_addr constant [36 x i8] c"Non-Vendor Specific Wildcard Device\00", align 1
-@.str.293 = private unnamed_addr constant [8 x i8] c"Generic\00", align 1
-@.str.294 = private unnamed_addr constant [23 x i8] c"Reserved for Wildcards\00", align 1
-@.str.295 = private unnamed_addr constant [23 x i8] c"Broadcast Transmission\00", align 1
-@.str.296 = private unnamed_addr constant [21 x i8] c"Unicast Transmission\00", align 1
-@.str.297 = private unnamed_addr constant [29 x i8] c"Use Destination IEEE Address\00", align 1
-@.str.298 = private unnamed_addr constant [32 x i8] c"Use Destination Network Address\00", align 1
-@.str.299 = private unnamed_addr constant [26 x i8] c"Acknowledged Transmission\00", align 1
-@.str.300 = private unnamed_addr constant [28 x i8] c"Unacknowledged Transmission\00", align 1
-@.str.301 = private unnamed_addr constant [23 x i8] c"Transmit with Security\00", align 1
-@.str.302 = private unnamed_addr constant [26 x i8] c"Transmit without Security\00", align 1
-@.str.303 = private unnamed_addr constant [29 x i8] c"Use Single Channel Operation\00", align 1
-@.str.304 = private unnamed_addr constant [31 x i8] c"Use Multiple Channel Operation\00", align 1
-@.str.305 = private unnamed_addr constant [27 x i8] c"Specify Channel Designator\00", align 1
-@.str.306 = private unnamed_addr constant [34 x i8] c"Do not Specify Channel Designator\00", align 1
-@.str.307 = private unnamed_addr constant [24 x i8] c"Data is Vendor-specific\00", align 1
-@.str.308 = private unnamed_addr constant [28 x i8] c"Data is not Vendor-specific\00", align 1
-@.str.309 = private unnamed_addr constant [10 x i8] c"Panasonic\00", align 1
-@.str.310 = private unnamed_addr constant [5 x i8] c"Sony\00", align 1
-@.str.311 = private unnamed_addr constant [8 x i8] c"Samsung\00", align 1
-@.str.312 = private unnamed_addr constant [8 x i8] c"Philips\00", align 1
-@.str.313 = private unnamed_addr constant [10 x i8] c"Freescale\00", align 1
-@.str.314 = private unnamed_addr constant [18 x i8] c"Oki Semiconductor\00", align 1
-@.str.315 = private unnamed_addr constant [18 x i8] c"Texas Instruments\00", align 1
-@.str.316 = private unnamed_addr constant [8 x i8] c"Request\00", align 1
-@.str.317 = private unnamed_addr constant [9 x i8] c"Response\00", align 1
-@.str.318 = private unnamed_addr constant [8 x i8] c"Pending\00", align 1
-@.str.319 = private unnamed_addr constant [8 x i8] c"Timeout\00", align 1
-@.str.320 = private unnamed_addr constant [8 x i8] c"Failure\00", align 1
-@.str.321 = private unnamed_addr constant [9 x i8] c"Identify\00", align 1
-@.str.322 = private unnamed_addr constant [25 x i8] c"Request Poll Negotiation\00", align 1
-@.str.323 = private unnamed_addr constant [35 x i8] c"Request Action Mapping Negotiation\00", align 1
-@.str.324 = private unnamed_addr constant [29 x i8] c"Request Home Automation Pull\00", align 1
-@.str.325 = private unnamed_addr constant [40 x i8] c"Request Selective Action Mapping Update\00", align 1
-@.str.326 = private unnamed_addr constant [10 x i8] c"Challenge\00", align 1
-@.str.327 = private unnamed_addr constant [19 x i8] c"Challenge Response\00", align 1
-@.str.328 = private unnamed_addr constant [8 x i8] c"Confirm\00", align 1
-@.str.329 = private unnamed_addr constant [6 x i8] c"Start\00", align 1
-@.str.330 = private unnamed_addr constant [7 x i8] c"Repeat\00", align 1
-@.str.331 = private unnamed_addr constant [7 x i8] c"Atomic\00", align 1
-@.str.332 = private unnamed_addr constant [21 x i8] c"User Control Pressed\00", align 1
-@.str.333 = private unnamed_addr constant [22 x i8] c"User Control Repeated\00", align 1
-@.str.334 = private unnamed_addr constant [22 x i8] c"User Control Released\00", align 1
-@.str.335 = private unnamed_addr constant [26 x i8] c"Command Discovery Request\00", align 1
-@.str.336 = private unnamed_addr constant [27 x i8] c"Command Discovery Response\00", align 1
-@.str.338 = private unnamed_addr constant [8 x i8] c"ZRC 2.0\00", align 1
-@.str.339 = private unnamed_addr constant [8 x i8] c"ZRC 1.0\00", align 1
+@rf4ce_profile_fcf_cmd_id_vals = internal constant [13 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.223 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.224 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.225 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.226 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.227 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.228 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.229 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.230 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.231 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.232 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.233 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.234 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.236 = private unnamed_addr constant [8 x i8] c"Actions\00", align 1
+@rf4ce_zrc20_fcf_cmd_id_vals = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.236 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.238 = private unnamed_addr constant [25 x i8] c"Profile Specific Command\00", align 1
+@.str.239 = private unnamed_addr constant [12 x i8] c"GDP Command\00", align 1
+@rf4ce_profile_fcf_cmd_frame_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.238 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.239 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.241 = private unnamed_addr constant [8 x i8] c"Success\00", align 1
+@.str.242 = private unnamed_addr constant [20 x i8] c"Unsupported Request\00", align 1
+@.str.243 = private unnamed_addr constant [18 x i8] c"Invalid Parameter\00", align 1
+@.str.244 = private unnamed_addr constant [22 x i8] c"Configuration Failure\00", align 1
+@hf_rf4ce_profile_cmd_generic_resp_status_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.241 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.242 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.243 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.244 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@hf_rf4ce_profile_cmd_configuration_complete_status_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.241 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.244 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.247 = private unnamed_addr constant [17 x i8] c"Generic Activity\00", align 1
+@.str.248 = private unnamed_addr constant [18 x i8] c"Polling on Pickup\00", align 1
+@.str.249 = private unnamed_addr constant [31 x i8] c"Polling on other User Activity\00", align 1
+@hf_rf4ce_profile_cmd_heartbeat_trigger_vals = internal constant [8 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.247 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.65 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.67 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.248 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.71 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.73 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.249 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.251 = private unnamed_addr constant [16 x i8] c"Profile Version\00", align 1
+@.str.252 = private unnamed_addr constant [21 x i8] c"Profile Capabilities\00", align 1
+@.str.253 = private unnamed_addr constant [28 x i8] c"KEY Exchange Transfer Count\00", align 1
+@.str.254 = private unnamed_addr constant [13 x i8] c"Power Status\00", align 1
+@.str.255 = private unnamed_addr constant [17 x i8] c"Poll Constraints\00", align 1
+@.str.256 = private unnamed_addr constant [19 x i8] c"Poll Configuration\00", align 1
+@.str.257 = private unnamed_addr constant [23 x i8] c"Max Binding Candidates\00", align 1
+@.str.258 = private unnamed_addr constant [24 x i8] c"Auto Check Valid Period\00", align 1
+@.str.259 = private unnamed_addr constant [39 x i8] c"Binding Recipient Validation Wait Time\00", align 1
+@.str.260 = private unnamed_addr constant [40 x i8] c"Binding Originator Validation Wait Time\00", align 1
+@.str.261 = private unnamed_addr constant [20 x i8] c"Link Lost Wait Time\00", align 1
+@rf4ce_profile_gdp_attr_vals = internal constant [13 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 128, [4 x i8] zeroinitializer, ptr @.str.251 }, { i32, [4 x i8], ptr } { i32 129, [4 x i8] zeroinitializer, ptr @.str.252 }, { i32, [4 x i8], ptr } { i32 130, [4 x i8] zeroinitializer, ptr @.str.253 }, { i32, [4 x i8], ptr } { i32 131, [4 x i8] zeroinitializer, ptr @.str.254 }, { i32, [4 x i8], ptr } { i32 132, [4 x i8] zeroinitializer, ptr @.str.255 }, { i32, [4 x i8], ptr } { i32 133, [4 x i8] zeroinitializer, ptr @.str.256 }, { i32, [4 x i8], ptr } { i32 134, [4 x i8] zeroinitializer, ptr @.str.257 }, { i32, [4 x i8], ptr } { i32 135, [4 x i8] zeroinitializer, ptr @.str.258 }, { i32, [4 x i8], ptr } { i32 136, [4 x i8] zeroinitializer, ptr @.str.259 }, { i32, [4 x i8], ptr } { i32 137, [4 x i8] zeroinitializer, ptr @.str.260 }, { i32, [4 x i8], ptr } { i32 138, [4 x i8] zeroinitializer, ptr @.str.261 }, { i32, [4 x i8], ptr } { i32 139, [4 x i8] zeroinitializer, ptr @.str.25 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.263 = private unnamed_addr constant [20 x i8] c"ZRC Profile Version\00", align 1
+@.str.264 = private unnamed_addr constant [25 x i8] c"ZRC Profile Capabilities\00", align 1
+@.str.265 = private unnamed_addr constant [31 x i8] c"Action Repeat Trigger Interval\00", align 1
+@.str.266 = private unnamed_addr constant [24 x i8] c"Action Repeat Wait Time\00", align 1
+@.str.267 = private unnamed_addr constant [26 x i8] c"Action Banks Supported RX\00", align 1
+@.str.268 = private unnamed_addr constant [26 x i8] c"Action Banks Supported TX\00", align 1
+@.str.269 = private unnamed_addr constant [20 x i8] c"IRDB Vendor Support\00", align 1
+@.str.270 = private unnamed_addr constant [25 x i8] c"ZRC Action Banks Version\00", align 1
+@.str.271 = private unnamed_addr constant [26 x i8] c"Action Codes Supported RX\00", align 1
+@.str.272 = private unnamed_addr constant [26 x i8] c"Action Codes Supported TX\00", align 1
+@.str.273 = private unnamed_addr constant [17 x i8] c"Mappable Actions\00", align 1
+@.str.274 = private unnamed_addr constant [16 x i8] c"Action Mappings\00", align 1
+@.str.275 = private unnamed_addr constant [16 x i8] c"Home Automation\00", align 1
+@.str.276 = private unnamed_addr constant [26 x i8] c"Home Automation Supported\00", align 1
+@rf4ce_profile_zrc20_attr_vals = internal constant [15 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 160, [4 x i8] zeroinitializer, ptr @.str.263 }, { i32, [4 x i8], ptr } { i32 161, [4 x i8] zeroinitializer, ptr @.str.264 }, { i32, [4 x i8], ptr } { i32 162, [4 x i8] zeroinitializer, ptr @.str.265 }, { i32, [4 x i8], ptr } { i32 163, [4 x i8] zeroinitializer, ptr @.str.266 }, { i32, [4 x i8], ptr } { i32 164, [4 x i8] zeroinitializer, ptr @.str.267 }, { i32, [4 x i8], ptr } { i32 165, [4 x i8] zeroinitializer, ptr @.str.268 }, { i32, [4 x i8], ptr } { i32 166, [4 x i8] zeroinitializer, ptr @.str.269 }, { i32, [4 x i8], ptr } { i32 167, [4 x i8] zeroinitializer, ptr @.str.270 }, { i32, [4 x i8], ptr } { i32 192, [4 x i8] zeroinitializer, ptr @.str.271 }, { i32, [4 x i8], ptr } { i32 193, [4 x i8] zeroinitializer, ptr @.str.272 }, { i32, [4 x i8], ptr } { i32 194, [4 x i8] zeroinitializer, ptr @.str.273 }, { i32, [4 x i8], ptr } { i32 195, [4 x i8] zeroinitializer, ptr @.str.274 }, { i32, [4 x i8], ptr } { i32 196, [4 x i8] zeroinitializer, ptr @.str.275 }, { i32, [4 x i8], ptr } { i32 197, [4 x i8] zeroinitializer, ptr @.str.276 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.278 = private unnamed_addr constant [41 x i8] c"Attribute Successfully Read and Included\00", align 1
+@.str.279 = private unnamed_addr constant [22 x i8] c"Unsupported Attribute\00", align 1
+@.str.280 = private unnamed_addr constant [16 x i8] c"Illegal Request\00", align 1
+@.str.281 = private unnamed_addr constant [14 x i8] c"Invalid Entry\00", align 1
+@hf_rf4ce_profile_attr_status_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.278 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.279 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.280 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.281 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.283 = private unnamed_addr constant [9 x i8] c"Disabled\00", align 1
+@.str.284 = private unnamed_addr constant [28 x i8] c"GDP heartbeat based polling\00", align 1
+@rf4ce_profile_gdp_poll_constraints_polling_rec_method_id_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.283 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.284 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.286 = private unnamed_addr constant [15 x i8] c"Remote Control\00", align 1
+@.str.287 = private unnamed_addr constant [11 x i8] c"Television\00", align 1
+@.str.288 = private unnamed_addr constant [10 x i8] c"Projector\00", align 1
+@.str.289 = private unnamed_addr constant [7 x i8] c"Player\00", align 1
+@.str.290 = private unnamed_addr constant [9 x i8] c"Recorder\00", align 1
+@.str.291 = private unnamed_addr constant [22 x i8] c"Video Player\\Recorder\00", align 1
+@.str.292 = private unnamed_addr constant [22 x i8] c"Audio Player\\Recorder\00", align 1
+@.str.293 = private unnamed_addr constant [21 x i8] c"Audio Video Recorder\00", align 1
+@.str.294 = private unnamed_addr constant [12 x i8] c"Set Top Box\00", align 1
+@.str.295 = private unnamed_addr constant [20 x i8] c"Home Theater System\00", align 1
+@.str.296 = private unnamed_addr constant [16 x i8] c"Media Center\\PC\00", align 1
+@.str.297 = private unnamed_addr constant [13 x i8] c"Game Console\00", align 1
+@.str.298 = private unnamed_addr constant [25 x i8] c"Satellite Radio Receiver\00", align 1
+@.str.299 = private unnamed_addr constant [12 x i8] c"IR Extender\00", align 1
+@.str.300 = private unnamed_addr constant [8 x i8] c"Monitor\00", align 1
+@.str.301 = private unnamed_addr constant [32 x i8] c"Vendor Specific Wildcard Device\00", align 1
+@.str.302 = private unnamed_addr constant [36 x i8] c"Non-Vendor Specific Wildcard Device\00", align 1
+@.str.303 = private unnamed_addr constant [8 x i8] c"Generic\00", align 1
+@.str.304 = private unnamed_addr constant [23 x i8] c"Reserved for Wildcards\00", align 1
+@rf4ce_profile_device_type_vals = internal constant [21 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.4 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.286 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.287 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.288 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.289 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.290 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.291 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.292 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.293 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.294 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.295 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.296 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.297 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.298 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.299 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.300 }, { i32, [4 x i8], ptr } { i32 252, [4 x i8] zeroinitializer, ptr @.str.301 }, { i32, [4 x i8], ptr } { i32 253, [4 x i8] zeroinitializer, ptr @.str.302 }, { i32, [4 x i8], ptr } { i32 254, [4 x i8] zeroinitializer, ptr @.str.303 }, { i32, [4 x i8], ptr } { i32 255, [4 x i8] zeroinitializer, ptr @.str.304 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.306 = private unnamed_addr constant [23 x i8] c"Broadcast Transmission\00", align 1
+@.str.307 = private unnamed_addr constant [21 x i8] c"Unicast Transmission\00", align 1
+@.str.308 = private unnamed_addr constant [29 x i8] c"Use Destination IEEE Address\00", align 1
+@.str.309 = private unnamed_addr constant [32 x i8] c"Use Destination Network Address\00", align 1
+@.str.310 = private unnamed_addr constant [26 x i8] c"Acknowledged Transmission\00", align 1
+@.str.311 = private unnamed_addr constant [28 x i8] c"Unacknowledged Transmission\00", align 1
+@.str.312 = private unnamed_addr constant [23 x i8] c"Transmit with Security\00", align 1
+@.str.313 = private unnamed_addr constant [26 x i8] c"Transmit without Security\00", align 1
+@.str.314 = private unnamed_addr constant [29 x i8] c"Use Single Channel Operation\00", align 1
+@.str.315 = private unnamed_addr constant [31 x i8] c"Use Multiple Channel Operation\00", align 1
+@.str.316 = private unnamed_addr constant [27 x i8] c"Specify Channel Designator\00", align 1
+@.str.317 = private unnamed_addr constant [34 x i8] c"Do not Specify Channel Designator\00", align 1
+@.str.318 = private unnamed_addr constant [24 x i8] c"Data is Vendor-specific\00", align 1
+@.str.319 = private unnamed_addr constant [28 x i8] c"Data is not Vendor-specific\00", align 1
+@.str.320 = private unnamed_addr constant [10 x i8] c"Panasonic\00", align 1
+@.str.321 = private unnamed_addr constant [5 x i8] c"Sony\00", align 1
+@.str.322 = private unnamed_addr constant [8 x i8] c"Samsung\00", align 1
+@.str.323 = private unnamed_addr constant [8 x i8] c"Philips\00", align 1
+@.str.324 = private unnamed_addr constant [10 x i8] c"Freescale\00", align 1
+@.str.325 = private unnamed_addr constant [18 x i8] c"Oki Semiconductor\00", align 1
+@.str.326 = private unnamed_addr constant [18 x i8] c"Texas Instruments\00", align 1
+@rf4ce_vendor_id_vals = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.4 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.320 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.321 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.322 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.323 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.324 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.325 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.326 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.328 = private unnamed_addr constant [8 x i8] c"Request\00", align 1
+@.str.329 = private unnamed_addr constant [9 x i8] c"Response\00", align 1
+@rf4ce_profile_cmd_check_validation_sub_type_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.328 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.329 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.331 = private unnamed_addr constant [8 x i8] c"Pending\00", align 1
+@.str.332 = private unnamed_addr constant [8 x i8] c"Timeout\00", align 1
+@.str.333 = private unnamed_addr constant [8 x i8] c"Failure\00", align 1
+@rf4ce_profile_cmd_check_validation_status_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.241 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.331 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.332 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.333 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.335 = private unnamed_addr constant [9 x i8] c"Identify\00", align 1
+@.str.336 = private unnamed_addr constant [25 x i8] c"Request Poll Negotiation\00", align 1
+@.str.337 = private unnamed_addr constant [35 x i8] c"Request Action Mapping Negotiation\00", align 1
+@.str.338 = private unnamed_addr constant [29 x i8] c"Request Home Automation Pull\00", align 1
+@.str.339 = private unnamed_addr constant [40 x i8] c"Request Selective Action Mapping Update\00", align 1
+@rf4ce_profile_cmd_client_notification_sub_type_vals = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.335 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.336 }, { i32, [4 x i8], ptr } { i32 64, [4 x i8] zeroinitializer, ptr @.str.337 }, { i32, [4 x i8], ptr } { i32 65, [4 x i8] zeroinitializer, ptr @.str.338 }, { i32, [4 x i8], ptr } { i32 66, [4 x i8] zeroinitializer, ptr @.str.339 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.341 = private unnamed_addr constant [10 x i8] c"Challenge\00", align 1
+@.str.342 = private unnamed_addr constant [19 x i8] c"Challenge Response\00", align 1
+@.str.343 = private unnamed_addr constant [8 x i8] c"Confirm\00", align 1
+@rf4ce_profile_cmd_key_exchange_sub_type_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.341 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.342 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.329 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.343 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.345 = private unnamed_addr constant [6 x i8] c"Start\00", align 1
+@.str.346 = private unnamed_addr constant [7 x i8] c"Repeat\00", align 1
+@.str.347 = private unnamed_addr constant [7 x i8] c"Atomic\00", align 1
+@rf4ce_zrc20_cmd_actions_action_control_action_type_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.4 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.345 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.346 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.347 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.349 = private unnamed_addr constant [21 x i8] c"User Control Pressed\00", align 1
+@.str.350 = private unnamed_addr constant [22 x i8] c"User Control Repeated\00", align 1
+@.str.351 = private unnamed_addr constant [22 x i8] c"User Control Released\00", align 1
+@.str.352 = private unnamed_addr constant [26 x i8] c"Command Discovery Request\00", align 1
+@.str.353 = private unnamed_addr constant [27 x i8] c"Command Discovery Response\00", align 1
+@rf4ce_zrc10_fcf_cmd_id_vals = internal constant [7 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.4 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.349 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.350 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.351 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.352 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.353 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.356 = private unnamed_addr constant [8 x i8] c"ZRC 2.0\00", align 1
+@.str.357 = private unnamed_addr constant [8 x i8] c"ZRC 1.0\00", align 1
 @dissect_rf4ce_profile_common.gdp_fcf_bits = internal constant [5 x ptr] [ptr @hf_rf4ce_profile_fcf_cmd_id, ptr @hf_rf4ce_profile_fcf_reserved, ptr @hf_rf4ce_profile_fcf_cmd_frame, ptr @hf_rf4ce_profile_fcf_data_pending, ptr null], align 16
 @dissect_rf4ce_profile_common.zrc20_fcf_bits = internal constant [5 x ptr] [ptr @hf_rf4ce_zrc20_fcf_cmd_id, ptr @hf_rf4ce_profile_fcf_reserved, ptr @hf_rf4ce_profile_fcf_cmd_frame, ptr @hf_rf4ce_profile_fcf_data_pending, ptr null], align 16
 @dissect_rf4ce_profile_common.zrc10_fcf_bits = internal constant [3 x ptr] [ptr @hf_rf4ce_zrc10_fcf_cmd_id, ptr @hf_rf4ce_zrc10_fcf_reserved, ptr null], align 16
-@.str.340 = private unnamed_addr constant [6 x i8] c"%s %s\00", align 1
-@.str.341 = private unnamed_addr constant [6 x i8] c"RF4CE\00", align 1
-@.str.342 = private unnamed_addr constant [22 x i8] c"Profile Command Frame\00", align 1
-@.str.343 = private unnamed_addr constant [16 x i8] c"Unknown Command\00", align 1
-@.str.344 = private unnamed_addr constant [16 x i8] c"Attributes List\00", align 1
-@.str.345 = private unnamed_addr constant [14 x i8] c"Attribute %d:\00", align 1
-@.str.346 = private unnamed_addr constant [10 x i8] c"Entry %d:\00", align 1
+@.str.358 = private unnamed_addr constant [6 x i8] c"%s %s\00", align 1
+@.str.359 = private unnamed_addr constant [6 x i8] c"RF4CE\00", align 1
+@.str.360 = private unnamed_addr constant [22 x i8] c"Profile Command Frame\00", align 1
+@.str.361 = private unnamed_addr constant [16 x i8] c"Unknown Command\00", align 1
+@.str.362 = private unnamed_addr constant [16 x i8] c"Attributes List\00", align 1
+@.str.363 = private unnamed_addr constant [14 x i8] c"Attribute %d:\00", align 1
+@.str.364 = private unnamed_addr constant [10 x i8] c"Entry %d:\00", align 1
 @dissect_rf4ce_profile_zrc20_attrs.action_mapping_flags_bits = internal constant [7 x ptr] [ptr @hf_rf4ce_profile_zrc20_action_mappings_mapping_flags_rf_specified, ptr @hf_rf4ce_profile_zrc20_action_mappings_mapping_flags_ir_specified, ptr @hf_rf4ce_profile_zrc20_action_mappings_mapping_flags_rf_descr_first, ptr @hf_rf4ce_profile_zrc20_action_mappings_mapping_flags_reserved, ptr @hf_rf4ce_profile_zrc20_action_mappings_mapping_flags_use_default, ptr @hf_rf4ce_profile_zrc20_action_mappings_mapping_flags_permanent, ptr null], align 16
-@.str.347 = private unnamed_addr constant [14 x i8] c"RF Descriptor\00", align 1
+@.str.365 = private unnamed_addr constant [14 x i8] c"RF Descriptor\00", align 1
 @dissect_rf4ce_profile_zrc20_attrs.rf_conf_bits = internal constant [6 x ptr] [ptr @hf_rf4ce_profile_zrc20_action_mappings_rf_descr_rf_conf_min_num_of_trans, ptr @hf_rf4ce_profile_zrc20_action_mappings_rf_descr_rf_conf_keep_trans_until_key_release, ptr @hf_rf4ce_profile_zrc20_action_mappings_rf_descr_rf_conf_short_rf_retry, ptr @hf_rf4ce_profile_zrc20_action_mappings_rf_descr_rf_conf_atomic_action, ptr @hf_rf4ce_profile_zrc20_action_mappings_rf_descr_rf_conf_reserved, ptr null], align 16
 @dissect_rf4ce_profile_zrc20_attrs.tx_opts_bits = internal constant [9 x ptr] [ptr @hf_rf4ce_profile_zrc20_action_mappings_rf_descr_tx_opts_trans_mode, ptr @hf_rf4ce_profile_zrc20_action_mappings_rf_descr_tx_opts_dst_addr_mode, ptr @hf_rf4ce_profile_zrc20_action_mappings_rf_descr_tx_opts_ack_mode, ptr @hf_rf4ce_profile_zrc20_action_mappings_rf_descr_tx_opts_sec_mode, ptr @hf_rf4ce_profile_zrc20_action_mappings_rf_descr_tx_opts_ch_ag_mode, ptr @hf_rf4ce_profile_zrc20_action_mappings_rf_descr_tx_opts_ch_norm_mode, ptr @hf_rf4ce_profile_zrc20_action_mappings_rf_descr_tx_opts_payload_mode, ptr @hf_rf4ce_profile_zrc20_action_mappings_rf_descr_tx_opts_reserved, ptr null], align 16
-@.str.348 = private unnamed_addr constant [14 x i8] c"IR Descriptor\00", align 1
+@.str.366 = private unnamed_addr constant [14 x i8] c"IR Descriptor\00", align 1
 @dissect_rf4ce_profile_zrc20_attrs.ir_conf_bits = internal constant [3 x ptr] [ptr @hf_rf4ce_profile_zrc20_action_mappings_ir_descr_ir_conf_vendor_specific, ptr @hf_rf4ce_profile_zrc20_action_mappings_ir_descr_ir_conf_reserved, ptr null], align 16
-@.str.349 = private unnamed_addr constant [11 x i8] c"Record %d:\00", align 1
+@.str.367 = private unnamed_addr constant [11 x i8] c"Record %d:\00", align 1
 @dissect_rf4ce_profile_zrc20_action_data.action_control_bits = internal constant [7 x ptr] [ptr @hf_rf4ce_zrc20_cmd_actions_action_control_action_type, ptr @hf_rf4ce_zrc20_cmd_actions_action_control_reserved, ptr @hf_rf4ce_zrc20_cmd_actions_action_control_modifier_bits_gui, ptr @hf_rf4ce_zrc20_cmd_actions_action_control_modifier_bits_alt, ptr @hf_rf4ce_zrc20_cmd_actions_action_control_modifier_bits_shift, ptr @hf_rf4ce_zrc20_cmd_actions_action_control_modifier_bits_ctrl, ptr null], align 16
 @dissect_rf4ce_profile_gdp_attrs.ident_cap_bits = internal constant [6 x ptr] [ptr @hf_rf4ce_profile_gdp_ident_cap_reserved, ptr @hf_rf4ce_profile_gdp_ident_cap_support_flash_light, ptr @hf_rf4ce_profile_gdp_ident_cap_support_make_short_sound, ptr @hf_rf4ce_profile_gdp_ident_cap_support_vibrate, ptr @hf_rf4ce_profile_gdp_ident_cap_reserved2, ptr null], align 16
 @dissect_rf4ce_profile_gdp_attrs.polling_trig_cap_bits = internal constant [8 x ptr] [ptr @hf_rf4ce_profile_gdp_poll_constraints_polling_rec_polling_trig_cap_tbased, ptr @hf_rf4ce_profile_gdp_poll_constraints_polling_rec_polling_trig_cap_on_k_press, ptr @hf_rf4ce_profile_gdp_poll_constraints_polling_rec_polling_trig_cap_on_pick_up, ptr @hf_rf4ce_profile_gdp_poll_constraints_polling_rec_polling_trig_cap_on_reset, ptr @hf_rf4ce_profile_gdp_poll_constraints_polling_rec_polling_trig_cap_on_micro_act, ptr @hf_rf4ce_profile_gdp_poll_constraints_polling_rec_polling_trig_cap_on_user_act, ptr @hf_rf4ce_profile_gdp_poll_constraints_polling_rec_polling_trig_cap_reserved, ptr null], align 16
-@.str.350 = private unnamed_addr constant [30 x i8] c"Polling Constraint Record %d:\00", align 1
+@.str.368 = private unnamed_addr constant [30 x i8] c"Polling Constraint Record %d:\00", align 1
 @dissect_rf4ce_profile_gdp_attrs.polling_trig_conf_bits = internal constant [8 x ptr] [ptr @hf_rf4ce_profile_gdp_poll_configuration_polling_trig_conf_tbased, ptr @hf_rf4ce_profile_gdp_poll_configuration_polling_trig_conf_on_k_press, ptr @hf_rf4ce_profile_gdp_poll_configuration_polling_trig_conf_on_pick_up, ptr @hf_rf4ce_profile_gdp_poll_configuration_polling_trig_conf_on_reset, ptr @hf_rf4ce_profile_gdp_poll_configuration_polling_trig_conf_on_micro_act, ptr @hf_rf4ce_profile_gdp_poll_configuration_polling_trig_conf_on_user_act, ptr @hf_rf4ce_profile_gdp_poll_configuration_polling_trig_conf_reserved, ptr null], align 16
 @dissect_rf4ce_profile_cmd_client_notification.identify_bits = internal constant [6 x ptr] [ptr @hf_rf4ce_profile_cmd_client_notification_identify_flags_stop_on_action, ptr @hf_rf4ce_profile_cmd_client_notification_identify_flags_flash_light, ptr @hf_rf4ce_profile_cmd_client_notification_identify_flags_make_sound, ptr @hf_rf4ce_profile_cmd_client_notification_identify_flags_vibrate, ptr @hf_rf4ce_profile_cmd_client_notification_identify_flags_reserved, ptr null], align 16
 @dissect_rf4ce_profile_cmd_key_exchange.key_exchange_bits = internal constant [6 x ptr] [ptr @hf_rf4ce_profile_cmd_key_exchange_flags_default_secret, ptr @hf_rf4ce_profile_cmd_key_exchange_flags_initiator_vendor_specific_secret, ptr @hf_rf4ce_profile_cmd_key_exchange_flags_responder_vendor_specific_secret, ptr @hf_rf4ce_profile_cmd_key_exchange_flags_reserved, ptr @hf_rf4ce_profile_cmd_key_exchange_flags_vendor_specific_parameter, ptr null], align 16
-@.str.351 = private unnamed_addr constant [20 x i8] c"Action Records List\00", align 1
-@.str.352 = private unnamed_addr constant [28 x i8] c"Action Records List - empty\00", align 1
+@.str.369 = private unnamed_addr constant [20 x i8] c"Action Records List\00", align 1
+@.str.370 = private unnamed_addr constant [28 x i8] c"Action Records List - empty\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_rf4ce_profile() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.220, ptr noundef nonnull @.str.220, ptr noundef nonnull @.str.221) #7
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.220, ptr noundef nonnull @.str.220, ptr noundef nonnull @.str.221)
   store i32 %1, ptr @proto_rf4ce_profile, align 4
-  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_rf4ce_profile.hf, i32 noundef 122) #7
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_rf4ce_profile.ett, i32 noundef 20) #7
+  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_rf4ce_profile.hf, i32 noundef 122)
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_rf4ce_profile.ett, i32 noundef 20)
   %2 = load i32, ptr @proto_rf4ce_profile, align 4
-  %3 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.220, i32 noundef %2, i32 noundef 0, i32 noundef 0) #7
+  %3 = tail call ptr @register_dissector_table(ptr noundef nonnull @.str.222, ptr noundef nonnull @.str.220, i32 noundef %2, i32 noundef 0, i32 noundef 0)
   store ptr %3, ptr @rf4ce_profile_dissector_table, align 8
   %4 = load i32, ptr @proto_rf4ce_profile, align 4
-  %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.221, ptr noundef nonnull @dissect_rf4ce_profile_common, i32 noundef %4) #7
+  %5 = tail call ptr @register_dissector(ptr noundef nonnull @.str.221, ptr noundef nonnull @dissect_rf4ce_profile_common, i32 noundef %4)
   store ptr %5, ptr @rf4ce_profile_handle, align 8
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector_table(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_rf4ce_profile_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
 sub_0:
   %4 = alloca [8 x i8], align 1
@@ -582,27 +586,29 @@ sub_0:
   %7 = alloca [8 x i8], align 1
   %8 = alloca i32, align 4
   %9 = alloca [14 x i8], align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #7
   store i32 0, ptr %8, align 4
   %10 = load i32, ptr @proto_rf4ce_profile, align 4
-  %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef -2147483648) #7
+  %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef -2147483648)
   %12 = load i32, ptr @ett_rf4ce_profile, align 4
-  %13 = tail call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #7
-  %14 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #7
+  %13 = tail call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12)
+  %14 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %15 = and i8 %14, 15
   %16 = and i8 %14, 64
+  %.not43 = icmp ne i8 %16, 0
   %17 = load i8, ptr %3, align 1
   %18 = zext i8 %17 to i32
   %19 = sub nsw i32 71, %18
-  %.not46 = icmp eq i8 %17, 71
-  br i1 %.not46, label %sub_1, label %.tail
+  %.not44 = icmp eq i8 %17, 71
+  br i1 %.not44, label %sub_1, label %.tail
 
 sub_1:                                            ; preds = %sub_0
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
   %23 = sub nsw i32 68, %22
-  %.not47 = icmp eq i8 %21, 68
-  br i1 %.not47, label %sub_2, label %.tail
+  %.not45 = icmp eq i8 %21, 68
+  br i1 %.not45, label %sub_2, label %.tail
 
 sub_2:                                            ; preds = %sub_1
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 2
@@ -614,889 +620,907 @@ sub_2:                                            ; preds = %sub_1
 .tail:                                            ; preds = %sub_0, %sub_1, %sub_2
   %28 = phi i32 [ %19, %sub_0 ], [ %23, %sub_1 ], [ %27, %sub_2 ]
   %.not = icmp eq i32 %28, 0
-  %29 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.338, ptr noundef nonnull dereferenceable(1) %3, i64 noundef 7) #8
-  %.not43 = icmp eq i32 %29, 0
-  %30 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.339, ptr noundef nonnull dereferenceable(1) %3, i64 noundef 7) #8
-  %.not44 = icmp eq i32 %30, 0
+  %29 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.356, ptr noundef %3, i64 noundef 7) #8
+  %.not38 = icmp eq i32 %29, 0
+  %30 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.357, ptr noundef %3, i64 noundef 7) #8
+  %.not39 = icmp eq i32 %30, 0
+  call void @llvm.lifetime.start.p0(i64 14, ptr nonnull %9) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %9, i8 0, i64 14, i1 false)
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load ptr, ptr %31, align 8
-  tail call void @col_clear(ptr noundef %32, i32 noundef 25) #7
-  %brmerge = select i1 %.not, i1 true, i1 %.not43
-  %brmerge49 = select i1 %brmerge, i1 true, i1 %.not44
-  br i1 %brmerge49, label %.sink.split, label %37
+  tail call void @col_clear(ptr noundef %32, i32 noundef 25)
+  %brmerge = select i1 %.not, i1 true, i1 %.not38
+  %brmerge47 = select i1 %brmerge, i1 true, i1 %.not39
+  br i1 %brmerge47, label %.sink.split, label %36
 
 .sink.split:                                      ; preds = %.tail
-  %33 = icmp ne i8 %16, 0
-  %or.cond = select i1 %.not43, i1 %33, i1 false
-  %or.cond45 = select i1 %.not, i1 true, i1 %or.cond
-  %dissect_rf4ce_profile_common.gdp_fcf_bits.mux = select i1 %or.cond45, ptr @dissect_rf4ce_profile_common.gdp_fcf_bits, ptr @dissect_rf4ce_profile_common.zrc20_fcf_bits
+  %brmerge.not = select i1 %.not38, i1 %.not43, i1 false
+  %or.cond = select i1 %.not, i1 true, i1 %brmerge.not
+  %dissect_rf4ce_profile_common.gdp_fcf_bits.mux = select i1 %or.cond, ptr @dissect_rf4ce_profile_common.gdp_fcf_bits, ptr @dissect_rf4ce_profile_common.zrc20_fcf_bits
   %dissect_rf4ce_profile_common.gdp_fcf_bits.mux.mux = select i1 %brmerge, ptr %dissect_rf4ce_profile_common.gdp_fcf_bits.mux, ptr @dissect_rf4ce_profile_common.zrc10_fcf_bits
   %hf_rf4ce_profile_fcf.val = load i32, ptr @hf_rf4ce_profile_fcf, align 4
   %hf_rf4ce_zrc10_fcf.val = load i32, ptr @hf_rf4ce_zrc10_fcf, align 4
-  %34 = select i1 %brmerge, i32 %hf_rf4ce_profile_fcf.val, i32 %hf_rf4ce_zrc10_fcf.val
-  %35 = load i32, ptr @ett_rf4ce_profile, align 4
-  %36 = tail call ptr @proto_tree_add_bitmask(ptr noundef %13, ptr noundef %0, i32 noundef 0, i32 noundef %34, i32 noundef %35, ptr noundef nonnull %dissect_rf4ce_profile_common.gdp_fcf_bits.mux.mux, i32 noundef -2147483648) #7
+  %33 = select i1 %brmerge, i32 %hf_rf4ce_profile_fcf.val, i32 %hf_rf4ce_zrc10_fcf.val
+  %34 = load i32, ptr @ett_rf4ce_profile, align 4
+  %35 = tail call ptr @proto_tree_add_bitmask(ptr noundef %13, ptr noundef %0, i32 noundef 0, i32 noundef %33, i32 noundef %34, ptr noundef nonnull %dissect_rf4ce_profile_common.gdp_fcf_bits.mux.mux, i32 noundef -2147483648)
   store i32 1, ptr %8, align 4
-  br label %37
+  br label %36
 
-37:                                               ; preds = %.tail, %.sink.split
-  %38 = phi i32 [ 1, %.sink.split ], [ 0, %.tail ]
-  %39 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 14, ptr noundef nonnull @.str.340, ptr noundef nonnull @.str.341, ptr noundef nonnull %3) #7
-  %40 = load ptr, ptr %31, align 8
-  call void @col_add_str(ptr noundef %40, i32 noundef 34, ptr noundef nonnull %9) #7
-  %or.cond3 = select i1 %.not, i1 true, i1 %.not43
-  %or.cond5 = select i1 %or.cond3, i1 true, i1 %.not44
-  br i1 %or.cond5, label %41, label %dissect_rf4ce_profile_cmd.exit
+36:                                               ; preds = %.tail, %.sink.split
+  %37 = phi i32 [ 1, %.sink.split ], [ 0, %.tail ]
+  %38 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %9, i64 noundef 14, i32 noundef 2, i64 noundef 14, ptr noundef nonnull @.str.358, ptr noundef nonnull @.str.359, ptr noundef %3)
+  %39 = load ptr, ptr %31, align 8
+  call void @col_add_str(ptr noundef %39, i32 noundef 35, ptr noundef nonnull %9)
+  %brmerge41 = select i1 %.not, i1 true, i1 %.not38
+  %brmerge42 = select i1 %brmerge41, i1 true, i1 %.not39
+  br i1 %brmerge42, label %40, label %dissect_rf4ce_profile_cmd.exit
 
-41:                                               ; preds = %37
-  %42 = call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.339, ptr noundef nonnull readonly dereferenceable(1) %3, i64 noundef 7) #8
-  %43 = call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.338, ptr noundef nonnull readonly dereferenceable(1) %3, i64 noundef 7) #8
-  %44 = call i32 @tvb_captured_length(ptr noundef %0) #7
-  %45 = sub i32 %44, %38
-  %46 = load i32, ptr @ett_rf4ce_profile_cmd_frame, align 4
-  %47 = call ptr @proto_tree_add_subtree(ptr noundef %13, ptr noundef %0, i32 noundef %38, i32 noundef %45, i32 noundef %46, ptr noundef null, ptr noundef nonnull @.str.342) #7
-  %.not32.i = icmp eq i8 %16, 0
-  br i1 %.not32.i, label %133, label %48
+40:                                               ; preds = %36
+  %41 = call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.357, ptr noundef readonly %3, i64 noundef 7) #8
+  %42 = call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.356, ptr noundef readonly %3, i64 noundef 7) #8
+  %.not30.i = icmp eq i32 %42, 0
+  %43 = call i32 @tvb_captured_length(ptr noundef %0)
+  %44 = sub i32 %43, %37
+  %45 = load i32, ptr @ett_rf4ce_profile_cmd_frame, align 4
+  %46 = call ptr @proto_tree_add_subtree(ptr noundef %13, ptr noundef %0, i32 noundef %37, i32 noundef %44, i32 noundef %45, ptr noundef null, ptr noundef nonnull @.str.360)
+  br i1 %.not43, label %47, label %139
 
-48:                                               ; preds = %41
-  %.not31.i = icmp eq i32 %43, 0
-  %49 = zext i1 %.not31.i to i32
-  %50 = load ptr, ptr %31, align 8
-  %51 = zext nneg i8 %15 to i32
-  %52 = call ptr @val_to_str_const(i32 noundef %51, ptr noundef nonnull @rf4ce_profile_fcf_cmd_id_vals, ptr noundef nonnull @.str.343) #7
-  call void @col_set_str(ptr noundef %50, i32 noundef 25, ptr noundef %52) #7
+47:                                               ; preds = %40
+  %48 = load ptr, ptr %31, align 8
+  %49 = zext nneg i8 %15 to i32
+  %50 = call ptr @val_to_str_const(i32 noundef %49, ptr noundef nonnull @rf4ce_profile_fcf_cmd_id_vals, ptr noundef nonnull @.str.361)
+  call void @col_set_str(ptr noundef %48, i32 noundef 25, ptr noundef %50)
   switch i8 %15, label %dissect_rf4ce_profile_cmd.exit [
-    i8 0, label %53
-    i8 1, label %57
+    i8 0, label %51
+    i8 1, label %56
     i8 2, label %61
-    i8 3, label %65
-    i8 4, label %66
-    i8 5, label %67
-    i8 6, label %68
-    i8 7, label %69
-    i8 8, label %70
-    i8 9, label %71
-    i8 10, label %80
-    i8 11, label %94
+    i8 3, label %66
+    i8 4, label %67
+    i8 5, label %68
+    i8 6, label %69
+    i8 7, label %70
+    i8 8, label %71
+    i8 9, label %72
+    i8 10, label %82
+    i8 11, label %97
   ]
 
-53:                                               ; preds = %48
-  %54 = load i32, ptr @hf_rf4ce_profile_cmd_generic_resp_status, align 4
-  %55 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %54, ptr noundef %0, i32 noundef %38, i32 noundef 1, i32 noundef -2147483648) #7
-  %56 = add nuw nsw i32 %38, 1
-  store i32 %56, ptr %8, align 4
+51:                                               ; preds = %47
+  %52 = load i32, ptr @hf_rf4ce_profile_cmd_generic_resp_status, align 4
+  %53 = load i32, ptr %8, align 4
+  %54 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %52, ptr noundef %0, i32 noundef %53, i32 noundef 1, i32 noundef -2147483648)
+  %55 = add i32 %53, 1
+  store i32 %55, ptr %8, align 4
   br label %dissect_rf4ce_profile_cmd.exit
 
-57:                                               ; preds = %48
-  %58 = load i32, ptr @hf_rf4ce_profile_cmd_configuration_complete_status, align 4
-  %59 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %58, ptr noundef %0, i32 noundef %38, i32 noundef 1, i32 noundef -2147483648) #7
-  %60 = add nuw nsw i32 %38, 1
+56:                                               ; preds = %47
+  %57 = load i32, ptr @hf_rf4ce_profile_cmd_configuration_complete_status, align 4
+  %58 = load i32, ptr %8, align 4
+  %59 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %57, ptr noundef %0, i32 noundef %58, i32 noundef 1, i32 noundef -2147483648)
+  %60 = add i32 %58, 1
   store i32 %60, ptr %8, align 4
   br label %dissect_rf4ce_profile_cmd.exit
 
-61:                                               ; preds = %48
+61:                                               ; preds = %47
   %62 = load i32, ptr @hf_rf4ce_profile_cmd_heartbeat_trigger, align 4
-  %63 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %62, ptr noundef %0, i32 noundef %38, i32 noundef 1, i32 noundef -2147483648) #7
-  %64 = add nuw nsw i32 %38, 1
-  store i32 %64, ptr %8, align 4
+  %63 = load i32, ptr %8, align 4
+  %64 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %62, ptr noundef %0, i32 noundef %63, i32 noundef 1, i32 noundef -2147483648)
+  %65 = add i32 %63, 1
+  store i32 %65, ptr %8, align 4
   br label %dissect_rf4ce_profile_cmd.exit
 
-65:                                               ; preds = %48
-  call fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr noundef %47, ptr noundef nonnull %8, i8 noundef zeroext 3, i32 noundef range(i32 0, 2) %49)
+66:                                               ; preds = %47
+  call fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr noundef %46, ptr noundef nonnull %8, i8 noundef zeroext 3, i1 noundef zeroext %.not30.i)
   br label %dissect_rf4ce_profile_cmd.exit
 
-66:                                               ; preds = %48
-  call fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr noundef %47, ptr noundef nonnull %8, i8 noundef zeroext 31, i32 noundef range(i32 0, 2) %49)
+67:                                               ; preds = %47
+  call fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr noundef %46, ptr noundef nonnull %8, i8 noundef zeroext 31, i1 noundef zeroext %.not30.i)
   br label %dissect_rf4ce_profile_cmd.exit
 
-67:                                               ; preds = %48
-  call fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr noundef %47, ptr noundef nonnull %8, i8 noundef zeroext 27, i32 noundef range(i32 0, 2) %49)
+68:                                               ; preds = %47
+  call fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr noundef %46, ptr noundef nonnull %8, i8 noundef zeroext 27, i1 noundef zeroext %.not30.i)
   br label %dissect_rf4ce_profile_cmd.exit
 
-68:                                               ; preds = %48
-  call fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr noundef %47, ptr noundef nonnull %8, i8 noundef zeroext 27, i32 noundef range(i32 0, 2) %49)
+69:                                               ; preds = %47
+  call fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr noundef %46, ptr noundef nonnull %8, i8 noundef zeroext 27, i1 noundef zeroext %.not30.i)
   br label %dissect_rf4ce_profile_cmd.exit
 
-69:                                               ; preds = %48
-  call fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr noundef %47, ptr noundef nonnull %8, i8 noundef zeroext 3, i32 noundef range(i32 0, 2) %49)
+70:                                               ; preds = %47
+  call fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr noundef %46, ptr noundef nonnull %8, i8 noundef zeroext 3, i1 noundef zeroext %.not30.i)
   br label %dissect_rf4ce_profile_cmd.exit
 
-70:                                               ; preds = %48
-  call fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr noundef %47, ptr noundef nonnull %8, i8 noundef zeroext 31, i32 noundef range(i32 0, 2) %49)
+71:                                               ; preds = %47
+  call fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr noundef %46, ptr noundef nonnull %8, i8 noundef zeroext 31, i1 noundef zeroext %.not30.i)
   br label %dissect_rf4ce_profile_cmd.exit
 
-71:                                               ; preds = %48
-  %72 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %38) #7
-  %73 = load i32, ptr @hf_rf4ce_profile_cmd_check_validation_sub_type, align 4
-  %74 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %73, ptr noundef %0, i32 noundef %38, i32 noundef 1, i32 noundef -2147483648) #7
-  %75 = add nuw nsw i32 %38, 1
-  store i32 %75, ptr %8, align 4
-  switch i8 %72, label %dissect_rf4ce_profile_cmd.exit [
+72:                                               ; preds = %47
+  %73 = load i32, ptr %8, align 4
+  %74 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %73)
+  %75 = load i32, ptr @hf_rf4ce_profile_cmd_check_validation_sub_type, align 4
+  %76 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %75, ptr noundef %0, i32 noundef %73, i32 noundef 1, i32 noundef -2147483648)
+  %77 = add i32 %73, 1
+  store i32 %77, ptr %8, align 4
+  switch i8 %74, label %dissect_rf4ce_profile_cmd.exit [
     i8 0, label %.sink.split.i.i.i
-    i8 1, label %76
+    i8 1, label %78
   ]
 
-76:                                               ; preds = %71
+78:                                               ; preds = %72
   br label %.sink.split.i.i.i
 
-.sink.split.i.i.i:                                ; preds = %76, %71
-  %hf_rf4ce_profile_cmd_check_validation_status.sink.i.i.i = phi ptr [ @hf_rf4ce_profile_cmd_check_validation_status, %76 ], [ @hf_rf4ce_profile_cmd_check_validation_control, %71 ]
-  %77 = load i32, ptr %hf_rf4ce_profile_cmd_check_validation_status.sink.i.i.i, align 4
-  %78 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %77, ptr noundef %0, i32 noundef %75, i32 noundef 1, i32 noundef -2147483648) #7
-  %79 = or disjoint i32 %38, 2
-  store i32 %79, ptr %8, align 4
+.sink.split.i.i.i:                                ; preds = %78, %72
+  %hf_rf4ce_profile_cmd_check_validation_status.sink.i.i.i = phi ptr [ @hf_rf4ce_profile_cmd_check_validation_status, %78 ], [ @hf_rf4ce_profile_cmd_check_validation_control, %72 ]
+  %79 = load i32, ptr %hf_rf4ce_profile_cmd_check_validation_status.sink.i.i.i, align 4
+  %80 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %79, ptr noundef %0, i32 noundef %77, i32 noundef 1, i32 noundef -2147483648)
+  %81 = add i32 %73, 2
+  store i32 %81, ptr %8, align 4
   br label %dissect_rf4ce_profile_cmd.exit
 
-80:                                               ; preds = %48
-  %81 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %38) #7
-  %82 = load i32, ptr @hf_rf4ce_profile_cmd_client_notification_sub_type, align 4
-  %83 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %82, ptr noundef %0, i32 noundef %38, i32 noundef 1, i32 noundef -2147483648) #7
-  %84 = add nuw nsw i32 %38, 1
-  store i32 %84, ptr %8, align 4
-  %85 = icmp eq i8 %81, 0
-  br i1 %85, label %86, label %dissect_rf4ce_profile_cmd.exit
+82:                                               ; preds = %47
+  %83 = load i32, ptr %8, align 4
+  %84 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %83)
+  %85 = load i32, ptr @hf_rf4ce_profile_cmd_client_notification_sub_type, align 4
+  %86 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %85, ptr noundef %0, i32 noundef %83, i32 noundef 1, i32 noundef -2147483648)
+  %87 = add i32 %83, 1
+  store i32 %87, ptr %8, align 4
+  %88 = icmp eq i8 %84, 0
+  br i1 %88, label %89, label %dissect_rf4ce_profile_cmd.exit
 
-86:                                               ; preds = %80
-  %87 = load i32, ptr @hf_rf4ce_profile_cmd_client_notification_identify_flags, align 4
-  %88 = load i32, ptr @ett_rf4ce_profile_cmd_frame, align 4
-  %89 = call ptr @proto_tree_add_bitmask(ptr noundef %47, ptr noundef %0, i32 noundef %84, i32 noundef %87, i32 noundef %88, ptr noundef nonnull @dissect_rf4ce_profile_cmd_client_notification.identify_bits, i32 noundef -2147483648) #7
-  %90 = or disjoint i32 %38, 2
-  %91 = load i32, ptr @hf_rf4ce_profile_cmd_client_notification_identify_time, align 4
-  %92 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %91, ptr noundef %0, i32 noundef %90, i32 noundef 2, i32 noundef -2147483648) #7
-  %93 = or disjoint i32 %38, 4
-  store i32 %93, ptr %8, align 4
+89:                                               ; preds = %82
+  %90 = load i32, ptr @hf_rf4ce_profile_cmd_client_notification_identify_flags, align 4
+  %91 = load i32, ptr @ett_rf4ce_profile_cmd_frame, align 4
+  %92 = call ptr @proto_tree_add_bitmask(ptr noundef %46, ptr noundef %0, i32 noundef %87, i32 noundef %90, i32 noundef %91, ptr noundef nonnull @dissect_rf4ce_profile_cmd_client_notification.identify_bits, i32 noundef -2147483648)
+  %93 = add i32 %83, 2
+  %94 = load i32, ptr @hf_rf4ce_profile_cmd_client_notification_identify_time, align 4
+  %95 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %94, ptr noundef %0, i32 noundef %93, i32 noundef 2, i32 noundef -2147483648)
+  %96 = add i32 %83, 4
+  store i32 %96, ptr %8, align 4
   br label %dissect_rf4ce_profile_cmd.exit
 
-94:                                               ; preds = %48
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %95 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %38) #7
-  %96 = load i32, ptr @hf_rf4ce_profile_cmd_key_exchange_sub_type, align 4
-  %97 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %96, ptr noundef %0, i32 noundef %38, i32 noundef 1, i32 noundef -2147483648) #7
-  %98 = add nuw nsw i32 %38, 1
-  store i32 %98, ptr %8, align 4
-  %or.cond.i.i.i = icmp ult i8 %95, 2
-  br i1 %or.cond.i.i.i, label %99, label %104
+97:                                               ; preds = %47
+  %98 = load i32, ptr %8, align 4
+  %99 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %98)
+  %100 = load i32, ptr @hf_rf4ce_profile_cmd_key_exchange_sub_type, align 4
+  %101 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %100, ptr noundef %0, i32 noundef %98, i32 noundef 1, i32 noundef -2147483648)
+  %102 = add i32 %98, 1
+  store i32 %102, ptr %8, align 4
+  %or.cond.i.i.i = icmp ult i8 %99, 2
+  br i1 %or.cond.i.i.i, label %103, label %108
 
-99:                                               ; preds = %94
-  %100 = load i32, ptr @hf_rf4ce_profile_cmd_key_exchange_flags, align 4
-  %101 = load i32, ptr @ett_rf4ce_profile_cmd_frame, align 4
-  %102 = call ptr @proto_tree_add_bitmask(ptr noundef %47, ptr noundef %0, i32 noundef %98, i32 noundef %100, i32 noundef %101, ptr noundef nonnull @dissect_rf4ce_profile_cmd_key_exchange.key_exchange_bits, i32 noundef -2147483648) #7
-  %103 = add nuw nsw i32 %38, 3
-  store i32 %103, ptr %8, align 4
-  br label %104
+103:                                              ; preds = %97
+  %104 = load i32, ptr @hf_rf4ce_profile_cmd_key_exchange_flags, align 4
+  %105 = load i32, ptr @ett_rf4ce_profile_cmd_frame, align 4
+  %106 = call ptr @proto_tree_add_bitmask(ptr noundef %46, ptr noundef %0, i32 noundef %102, i32 noundef %104, i32 noundef %105, ptr noundef nonnull @dissect_rf4ce_profile_cmd_key_exchange.key_exchange_bits, i32 noundef -2147483648)
+  %107 = add i32 %98, 3
+  store i32 %107, ptr %8, align 4
+  br label %108
 
-104:                                              ; preds = %99, %94
-  %105 = phi i32 [ %98, %94 ], [ %103, %99 ]
-  switch i8 %95, label %dissect_rf4ce_profile_cmd_key_exchange.exit.i.i [
-    i8 0, label %106
-    i8 1, label %115
-    i8 2, label %129
+108:                                              ; preds = %103, %97
+  %109 = phi i32 [ %102, %97 ], [ %107, %103 ]
+  switch i8 %99, label %dissect_rf4ce_profile_cmd.exit [
+    i8 0, label %110
+    i8 1, label %120
+    i8 2, label %135
   ]
 
-106:                                              ; preds = %104
-  %107 = load i32, ptr @hf_rf4ce_profile_cmd_key_exchange_rand_a, align 4
-  %108 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %107, ptr noundef %0, i32 noundef %105, i32 noundef 8, i32 noundef 0) #7
-  %109 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %4, i32 noundef %105, i64 noundef 8) #7
-  %110 = add nuw nsw i32 %105, 8
-  store i32 %110, ptr %8, align 4
-  %111 = call i32 @key_exchange_context_is_procedure_started() #7
-  %.not.i.i.i = icmp eq i32 %111, 0
-  br i1 %.not.i.i.i, label %112, label %dissect_rf4ce_profile_cmd_key_exchange.exit.i.i
+110:                                              ; preds = %108
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
+  %111 = load i32, ptr @hf_rf4ce_profile_cmd_key_exchange_rand_a, align 4
+  %112 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %111, ptr noundef %0, i32 noundef %109, i32 noundef 8, i32 noundef 0)
+  %113 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %4, i32 noundef %109, i64 noundef 8)
+  %114 = add i32 %109, 8
+  store i32 %114, ptr %8, align 4
+  %115 = call zeroext i1 @key_exchange_context_is_procedure_started()
+  br i1 %115, label %119, label %116
 
-112:                                              ; preds = %106
-  %113 = call i32 @rf4ce_addr_table_get_ieee_addr(ptr noundef nonnull %5, ptr noundef nonnull %1, i32 noundef 1) #7
-  %.not41.i.i.i = icmp eq i32 %113, 0
-  br i1 %.not41.i.i.i, label %dissect_rf4ce_profile_cmd_key_exchange.exit.i.i, label %114
+116:                                              ; preds = %110
+  %117 = call zeroext i1 @rf4ce_addr_table_get_ieee_addr(ptr noundef nonnull %5, ptr noundef %1, i1 noundef zeroext true)
+  br i1 %117, label %118, label %119
 
-114:                                              ; preds = %112
-  call void @key_exchange_context_init() #7
-  call void @key_exchange_context_set_rand_a(ptr noundef nonnull %4) #7
-  call void @key_exchange_context_set_mac_a(ptr noundef nonnull %5) #7
-  call void @key_exchange_context_start_procedure() #7
-  br label %dissect_rf4ce_profile_cmd_key_exchange.exit.i.i
+118:                                              ; preds = %116
+  call void @key_exchange_context_init()
+  call void @key_exchange_context_set_rand_a(ptr noundef nonnull %4)
+  call void @key_exchange_context_set_mac_a(ptr noundef nonnull %5)
+  call void @key_exchange_context_start_procedure()
+  br label %119
 
-115:                                              ; preds = %104
-  %116 = load i32, ptr @hf_rf4ce_profile_cmd_key_exchange_rand_b, align 4
-  %117 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %116, ptr noundef %0, i32 noundef %105, i32 noundef 8, i32 noundef 0) #7
-  %118 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %6, i32 noundef %105, i64 noundef 8) #7
-  %119 = add nuw nsw i32 %105, 8
-  %120 = load i32, ptr @hf_rf4ce_profile_cmd_key_exchange_tag_b, align 4
-  %121 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %120, ptr noundef %0, i32 noundef %119, i32 noundef 4, i32 noundef 0) #7
-  %122 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %119, i32 noundef -2147483648) #7
-  %123 = add nuw nsw i32 %105, 12
-  store i32 %123, ptr %8, align 4
-  %124 = call i32 @key_exchange_context_is_procedure_started() #7
-  %.not42.i.i.i = icmp eq i32 %124, 0
-  br i1 %.not42.i.i.i, label %dissect_rf4ce_profile_cmd_key_exchange.exit.i.i, label %125
-
-125:                                              ; preds = %115
-  %126 = call i32 @rf4ce_addr_table_get_ieee_addr(ptr noundef nonnull %7, ptr noundef nonnull %1, i32 noundef 1) #7
-  %.not43.i.i.i = icmp eq i32 %126, 0
-  br i1 %.not43.i.i.i, label %128, label %127
-
-127:                                              ; preds = %125
-  call void @key_exchange_context_set_rand_b(ptr noundef nonnull %6) #7
-  call void @key_exchange_context_set_mac_b(ptr noundef nonnull %7) #7
-  call void @key_exchange_calc_key(i32 noundef %122) #7
-  br label %128
-
-128:                                              ; preds = %127, %125
-  call void @key_exchange_context_stop_procedure() #7
-  br label %dissect_rf4ce_profile_cmd_key_exchange.exit.i.i
-
-129:                                              ; preds = %104
-  %130 = load i32, ptr @hf_rf4ce_profile_cmd_key_exchange_tag_a, align 4
-  %131 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %130, ptr noundef %0, i32 noundef %105, i32 noundef 4, i32 noundef 0) #7
-  %132 = add nuw nsw i32 %105, 4
-  store i32 %132, ptr %8, align 4
-  br label %dissect_rf4ce_profile_cmd_key_exchange.exit.i.i
-
-dissect_rf4ce_profile_cmd_key_exchange.exit.i.i:  ; preds = %129, %128, %115, %114, %112, %106, %104
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+119:                                              ; preds = %118, %116, %110
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
   br label %dissect_rf4ce_profile_cmd.exit
 
-133:                                              ; preds = %41
-  %.not.i = icmp eq i32 %42, 0
-  %134 = load ptr, ptr %31, align 8
-  %135 = zext nneg i8 %15 to i32
-  br i1 %.not.i, label %136, label %170
+120:                                              ; preds = %108
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
+  %121 = load i32, ptr @hf_rf4ce_profile_cmd_key_exchange_rand_b, align 4
+  %122 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %121, ptr noundef %0, i32 noundef %109, i32 noundef 8, i32 noundef 0)
+  %123 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %6, i32 noundef %109, i64 noundef 8)
+  %124 = add i32 %109, 8
+  %125 = load i32, ptr @hf_rf4ce_profile_cmd_key_exchange_tag_b, align 4
+  %126 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %125, ptr noundef %0, i32 noundef %124, i32 noundef 4, i32 noundef 0)
+  %127 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %124, i32 noundef -2147483648)
+  %128 = add i32 %109, 12
+  store i32 %128, ptr %8, align 4
+  %129 = call zeroext i1 @key_exchange_context_is_procedure_started()
+  br i1 %129, label %130, label %134
 
-136:                                              ; preds = %133
-  %137 = call ptr @val_to_str_const(i32 noundef %135, ptr noundef nonnull @rf4ce_zrc10_fcf_cmd_id_vals, ptr noundef nonnull @.str.343) #7
-  call void @col_set_str(ptr noundef %134, i32 noundef 25, ptr noundef %137) #7
+130:                                              ; preds = %120
+  %131 = call zeroext i1 @rf4ce_addr_table_get_ieee_addr(ptr noundef nonnull %7, ptr noundef %1, i1 noundef zeroext true)
+  br i1 %131, label %132, label %133
+
+132:                                              ; preds = %130
+  call void @key_exchange_context_set_rand_b(ptr noundef nonnull %6)
+  call void @key_exchange_context_set_mac_b(ptr noundef nonnull %7)
+  call void @key_exchange_calc_key(i32 noundef %127)
+  br label %133
+
+133:                                              ; preds = %132, %130
+  call void @key_exchange_context_stop_procedure()
+  br label %134
+
+134:                                              ; preds = %133, %120
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
+  br label %dissect_rf4ce_profile_cmd.exit
+
+135:                                              ; preds = %108
+  %136 = load i32, ptr @hf_rf4ce_profile_cmd_key_exchange_tag_a, align 4
+  %137 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %136, ptr noundef %0, i32 noundef %109, i32 noundef 4, i32 noundef 0)
+  %138 = add i32 %109, 4
+  store i32 %138, ptr %8, align 4
+  br label %dissect_rf4ce_profile_cmd.exit
+
+139:                                              ; preds = %40
+  %.not.i = icmp eq i32 %41, 0
+  %140 = load ptr, ptr %31, align 8
+  %141 = zext nneg i8 %15 to i32
+  br i1 %.not.i, label %142, label %181
+
+142:                                              ; preds = %139
+  %143 = call ptr @val_to_str_const(i32 noundef %141, ptr noundef nonnull @rf4ce_zrc10_fcf_cmd_id_vals, ptr noundef nonnull @.str.361)
+  call void @col_set_str(ptr noundef %140, i32 noundef 25, ptr noundef %143)
   switch i8 %15, label %dissect_rf4ce_profile_cmd.exit [
-    i8 1, label %138
-    i8 2, label %147
-    i8 3, label %156
-    i8 4, label %159
-    i8 5, label %162
+    i8 1, label %144
+    i8 2, label %154
+    i8 3, label %164
+    i8 4, label %168
+    i8 5, label %172
   ]
 
-138:                                              ; preds = %136
-  %139 = load i32, ptr @hf_rf4ce_zrc10_cmd_common_rc_command_code, align 4
-  %140 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %139, ptr noundef %0, i32 noundef %38, i32 noundef 1, i32 noundef 0) #7
-  %141 = add nuw nsw i32 %38, 1
-  store i32 %141, ptr %8, align 4
-  %142 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %141) #7
-  %143 = icmp sgt i32 %142, 0
-  br i1 %143, label %144, label %dissect_rf4ce_profile_cmd.exit
+144:                                              ; preds = %142
+  %145 = load i32, ptr @hf_rf4ce_zrc10_cmd_common_rc_command_code, align 4
+  %146 = load i32, ptr %8, align 4
+  %147 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %145, ptr noundef %0, i32 noundef %146, i32 noundef 1, i32 noundef 0)
+  %148 = add i32 %146, 1
+  store i32 %148, ptr %8, align 4
+  %149 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %148)
+  %150 = icmp sgt i32 %149, 0
+  br i1 %150, label %151, label %dissect_rf4ce_profile_cmd.exit
 
-144:                                              ; preds = %138
-  %145 = load i32, ptr @hf_rf4ce_zrc10_cmd_common_rc_command_payload, align 4
-  %146 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %145, ptr noundef %0, i32 noundef %141, i32 noundef %142, i32 noundef 0) #7
+151:                                              ; preds = %144
+  %152 = load i32, ptr @hf_rf4ce_zrc10_cmd_common_rc_command_payload, align 4
+  %153 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %152, ptr noundef %0, i32 noundef %148, i32 noundef %149, i32 noundef 0)
   br label %dissect_rf4ce_profile_zrc10_cmd_user_control_common.exit.sink.split.i.i
 
-147:                                              ; preds = %136
-  %148 = load i32, ptr @hf_rf4ce_zrc10_cmd_common_rc_command_code, align 4
-  %149 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %148, ptr noundef %0, i32 noundef %38, i32 noundef 1, i32 noundef 0) #7
-  %150 = add nuw nsw i32 %38, 1
-  store i32 %150, ptr %8, align 4
-  %151 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %150) #7
-  %152 = icmp sgt i32 %151, 0
-  br i1 %152, label %153, label %dissect_rf4ce_profile_cmd.exit
+154:                                              ; preds = %142
+  %155 = load i32, ptr @hf_rf4ce_zrc10_cmd_common_rc_command_code, align 4
+  %156 = load i32, ptr %8, align 4
+  %157 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %155, ptr noundef %0, i32 noundef %156, i32 noundef 1, i32 noundef 0)
+  %158 = add i32 %156, 1
+  store i32 %158, ptr %8, align 4
+  %159 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %158)
+  %160 = icmp sgt i32 %159, 0
+  br i1 %160, label %161, label %dissect_rf4ce_profile_cmd.exit
 
-153:                                              ; preds = %147
-  %154 = load i32, ptr @hf_rf4ce_zrc10_cmd_common_rc_command_payload, align 4
-  %155 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %154, ptr noundef %0, i32 noundef %150, i32 noundef %151, i32 noundef 0) #7
+161:                                              ; preds = %154
+  %162 = load i32, ptr @hf_rf4ce_zrc10_cmd_common_rc_command_payload, align 4
+  %163 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %162, ptr noundef %0, i32 noundef %158, i32 noundef %159, i32 noundef 0)
   br label %dissect_rf4ce_profile_zrc10_cmd_user_control_common.exit.sink.split.i.i
 
-156:                                              ; preds = %136
-  %157 = load i32, ptr @hf_rf4ce_zrc10_cmd_common_rc_command_code, align 4
-  %158 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %157, ptr noundef %0, i32 noundef %38, i32 noundef 1, i32 noundef 0) #7
+164:                                              ; preds = %142
+  %165 = load i32, ptr @hf_rf4ce_zrc10_cmd_common_rc_command_code, align 4
+  %166 = load i32, ptr %8, align 4
+  %167 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %165, ptr noundef %0, i32 noundef %166, i32 noundef 1, i32 noundef 0)
   br label %dissect_rf4ce_profile_zrc10_cmd_user_control_common.exit.sink.split.i.i
 
-159:                                              ; preds = %136
-  %160 = load i32, ptr @hf_rf4ce_zrc10_cmd_disc_reserved, align 4
-  %161 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %160, ptr noundef %0, i32 noundef %38, i32 noundef 1, i32 noundef -2147483648) #7
+168:                                              ; preds = %142
+  %169 = load i32, ptr @hf_rf4ce_zrc10_cmd_disc_reserved, align 4
+  %170 = load i32, ptr %8, align 4
+  %171 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %169, ptr noundef %0, i32 noundef %170, i32 noundef 1, i32 noundef -2147483648)
   br label %dissect_rf4ce_profile_zrc10_cmd_user_control_common.exit.sink.split.i.i
 
-162:                                              ; preds = %136
-  %163 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %38) #7
-  %164 = icmp sgt i32 %163, 0
-  br i1 %164, label %165, label %dissect_rf4ce_profile_cmd.exit
-
-165:                                              ; preds = %162
-  %166 = load i32, ptr @hf_rf4ce_zrc10_cmd_disc_rsp_supported_commands, align 4
-  %167 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %166, ptr noundef %0, i32 noundef %38, i32 noundef %163, i32 noundef 0) #7
-  br label %dissect_rf4ce_profile_zrc10_cmd_user_control_common.exit.sink.split.i.i
-
-dissect_rf4ce_profile_zrc10_cmd_user_control_common.exit.sink.split.i.i: ; preds = %165, %159, %156, %153, %144
-  %168 = phi i32 [ %38, %165 ], [ %150, %153 ], [ %141, %144 ], [ %38, %159 ], [ %38, %156 ]
-  %.sink17.i.i = phi i32 [ %163, %165 ], [ %151, %153 ], [ %142, %144 ], [ 1, %159 ], [ 1, %156 ]
-  %169 = add nuw i32 %168, %.sink17.i.i
-  store i32 %169, ptr %8, align 4
-  br label %dissect_rf4ce_profile_cmd.exit
-
-170:                                              ; preds = %133
-  %171 = call ptr @val_to_str_const(i32 noundef %135, ptr noundef nonnull @rf4ce_zrc20_fcf_cmd_id_vals, ptr noundef nonnull @.str.343) #7
-  call void @col_set_str(ptr noundef %134, i32 noundef 25, ptr noundef %171) #7
-  %172 = icmp eq i8 %15, 6
-  br i1 %172, label %173, label %dissect_rf4ce_profile_cmd.exit
-
-173:                                              ; preds = %170
-  %174 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %38) #7
+172:                                              ; preds = %142
+  %173 = load i32, ptr %8, align 4
+  %174 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %173)
   %175 = icmp sgt i32 %174, 0
-  %176 = load i32, ptr @ett_rf4ce_profile_action_records, align 4
-  br i1 %175, label %177, label %183
+  br i1 %175, label %176, label %dissect_rf4ce_profile_cmd.exit
 
-177:                                              ; preds = %173
-  %178 = call ptr @proto_tree_add_subtree(ptr noundef %47, ptr noundef %0, i32 noundef %38, i32 noundef %174, i32 noundef %176, ptr noundef null, ptr noundef nonnull @.str.351) #7
-  br label %179
+176:                                              ; preds = %172
+  %177 = load i32, ptr @hf_rf4ce_zrc10_cmd_disc_rsp_supported_commands, align 4
+  %178 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %177, ptr noundef %0, i32 noundef %173, i32 noundef %174, i32 noundef 0)
+  br label %dissect_rf4ce_profile_zrc10_cmd_user_control_common.exit.sink.split.i.i
 
-179:                                              ; preds = %179, %177
-  call fastcc void @dissect_rf4ce_profile_zrc20_action_data(ptr noundef %0, ptr noundef %178, ptr noundef nonnull %8, i32 noundef 1)
-  %180 = load i32, ptr %8, align 4
-  %181 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %180) #7
-  %182 = icmp sgt i32 %181, 0
-  br i1 %182, label %179, label %dissect_rf4ce_profile_cmd.exit, !llvm.loop !4
-
-183:                                              ; preds = %173
-  %184 = call ptr @proto_tree_add_subtree(ptr noundef %47, ptr noundef %0, i32 noundef %38, i32 noundef %174, i32 noundef %176, ptr noundef null, ptr noundef nonnull @.str.352) #7
+dissect_rf4ce_profile_zrc10_cmd_user_control_common.exit.sink.split.i.i: ; preds = %176, %168, %164, %161, %151
+  %179 = phi i32 [ %173, %176 ], [ %158, %161 ], [ %148, %151 ], [ %170, %168 ], [ %166, %164 ]
+  %.sink17.i.i = phi i32 [ %174, %176 ], [ %159, %161 ], [ %149, %151 ], [ 1, %168 ], [ 1, %164 ]
+  %180 = add i32 %179, %.sink17.i.i
+  store i32 %180, ptr %8, align 4
   br label %dissect_rf4ce_profile_cmd.exit
 
-dissect_rf4ce_profile_cmd.exit:                   ; preds = %179, %183, %170, %dissect_rf4ce_profile_zrc10_cmd_user_control_common.exit.sink.split.i.i, %162, %147, %138, %136, %dissect_rf4ce_profile_cmd_key_exchange.exit.i.i, %86, %80, %.sink.split.i.i.i, %71, %70, %69, %68, %67, %66, %65, %61, %57, %53, %48, %37
+181:                                              ; preds = %139
+  %182 = call ptr @val_to_str_const(i32 noundef %141, ptr noundef nonnull @rf4ce_zrc20_fcf_cmd_id_vals, ptr noundef nonnull @.str.361)
+  call void @col_set_str(ptr noundef %140, i32 noundef 25, ptr noundef %182)
+  %183 = icmp eq i8 %15, 6
+  br i1 %183, label %184, label %dissect_rf4ce_profile_cmd.exit
+
+184:                                              ; preds = %181
   %185 = load i32, ptr %8, align 4
-  %186 = call i32 @tvb_captured_length(ptr noundef %0) #7
-  %187 = icmp ult i32 %185, %186
-  br i1 %187, label %188, label %193
+  %186 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %185)
+  %187 = icmp sgt i32 %186, 0
+  %188 = load i32, ptr @ett_rf4ce_profile_action_records, align 4
+  br i1 %187, label %189, label %195
 
-188:                                              ; preds = %dissect_rf4ce_profile_cmd.exit
-  %189 = call i32 @tvb_captured_length(ptr noundef %0) #7
-  %190 = sub i32 %189, %185
-  %191 = load i32, ptr @hf_rf4ce_profile_unparsed_payload, align 4
-  %192 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %191, ptr noundef %0, i32 noundef %185, i32 noundef %190, i32 noundef 0) #7
-  br label %193
+189:                                              ; preds = %184
+  %190 = call ptr @proto_tree_add_subtree(ptr noundef %46, ptr noundef %0, i32 noundef %185, i32 noundef %186, i32 noundef %188, ptr noundef null, ptr noundef nonnull @.str.369)
+  br label %191
 
-193:                                              ; preds = %188, %dissect_rf4ce_profile_cmd.exit
-  %194 = phi i32 [ %189, %188 ], [ %185, %dissect_rf4ce_profile_cmd.exit ]
-  ret i32 %194
+191:                                              ; preds = %191, %189
+  call fastcc void @dissect_rf4ce_profile_zrc20_action_data(ptr noundef %0, ptr noundef %190, ptr noundef nonnull %8, i1 noundef zeroext true)
+  %192 = load i32, ptr %8, align 4
+  %193 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %192)
+  %194 = icmp sgt i32 %193, 0
+  br i1 %194, label %191, label %dissect_rf4ce_profile_cmd.exit, !llvm.loop !6
+
+195:                                              ; preds = %184
+  %196 = call ptr @proto_tree_add_subtree(ptr noundef %46, ptr noundef %0, i32 noundef %185, i32 noundef %186, i32 noundef %188, ptr noundef null, ptr noundef nonnull @.str.370)
+  br label %dissect_rf4ce_profile_cmd.exit
+
+dissect_rf4ce_profile_cmd.exit:                   ; preds = %191, %195, %181, %dissect_rf4ce_profile_zrc10_cmd_user_control_common.exit.sink.split.i.i, %172, %154, %144, %142, %135, %134, %119, %108, %89, %82, %.sink.split.i.i.i, %72, %71, %70, %69, %68, %67, %66, %61, %56, %51, %47, %36
+  %197 = load i32, ptr %8, align 4
+  %198 = call i32 @tvb_captured_length(ptr noundef %0)
+  %199 = icmp ult i32 %197, %198
+  br i1 %199, label %200, label %205
+
+200:                                              ; preds = %dissect_rf4ce_profile_cmd.exit
+  %201 = call i32 @tvb_captured_length(ptr noundef %0)
+  %202 = sub i32 %201, %197
+  %203 = load i32, ptr @hf_rf4ce_profile_unparsed_payload, align 4
+  %204 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %203, ptr noundef %0, i32 noundef %197, i32 noundef %202, i32 noundef 0)
+  br label %205
+
+205:                                              ; preds = %200, %dissect_rf4ce_profile_cmd.exit
+  %206 = phi i32 [ %201, %200 ], [ %197, %dissect_rf4ce_profile_cmd.exit ]
+  call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %9) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
+  ret i32 %206
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
 define hidden void @proto_reg_handoff_rf4ce_profile() local_unnamed_addr #2 {
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
+; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #5
+; Function Attrs: nofree null_pointer_is_valid
+declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #6
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, i8 noundef zeroext range(i8 3, 32) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal fastcc void @dissect_rf4ce_profile_attrs(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, i8 noundef zeroext range(i8 3, 32) %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca [40 x i8], align 16
   %7 = alloca [11 x i8], align 1
   %8 = alloca [14 x i8], align 1
   %9 = load i32, ptr %2, align 4
-  %10 = tail call i32 @tvb_captured_length(ptr noundef %0) #7
+  %10 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %11 = load i32, ptr %2, align 4
   %12 = sub i32 %10, %11
   %13 = load i32, ptr @ett_rf4ce_profile_attrs, align 4
-  %14 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %9, i32 noundef %12, i32 noundef %13, ptr noundef null, ptr noundef nonnull @.str.344) #7
-  %.089112 = load i32, ptr %2, align 4
-  %15 = tail call i32 @tvb_captured_length(ptr noundef %0) #7
-  %16 = load i32, ptr %2, align 4
-  %.not113 = icmp eq i32 %15, %16
-  br i1 %.not113, label %._crit_edge, label %.lr.ph
+  %14 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %9, i32 noundef %12, i32 noundef %13, ptr noundef null, ptr noundef nonnull @.str.362)
+  %15 = load i32, ptr %2, align 4
+  %16 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  %17 = load i32, ptr %2, align 4
+  %.not106 = icmp eq i32 %16, %17
+  br i1 %.not106, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %17 = zext nneg i8 %3 to i32
-  %18 = and i32 %17, 1
-  %.not93 = icmp eq i32 %18, 0
-  %.not94 = icmp eq i32 %4, 0
-  %19 = and i32 %17, 2
-  %.not95 = icmp eq i32 %19, 0
-  %20 = and i32 %17, 4
-  %.not98 = icmp eq i32 %20, 0
-  %21 = and i32 %17, 8
-  %.not99 = icmp eq i32 %21, 0
-  %22 = icmp samesign ugt i8 %3, 15
-  br label %23
+  %18 = zext nneg i8 %3 to i32
+  %19 = and i32 %18, 1
+  %.not93 = icmp eq i32 %19, 0
+  %20 = and i32 %18, 2
+  %.not94 = icmp eq i32 %20, 0
+  %21 = and i32 %18, 4
+  %.not95 = icmp eq i32 %21, 0
+  %22 = and i32 %18, 8
+  %.not96 = icmp eq i32 %22, 0
+  %23 = icmp samesign ugt i8 %3, 15
+  br label %24
 
-23:                                               ; preds = %.lr.ph, %279
-  %.089118 = phi i32 [ %.089112, %.lr.ph ], [ %.089, %279 ]
-  %.085117 = phi i32 [ 1, %.lr.ph ], [ %25, %279 ]
-  %.086116 = phi i8 [ -1, %.lr.ph ], [ %.1, %279 ]
-  %.087115 = phi i8 [ 0, %.lr.ph ], [ %.188, %279 ]
-  %.090114 = phi i8 [ -1, %.lr.ph ], [ %.2, %279 ]
-  %24 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 14, ptr noundef nonnull @.str.345, i32 noundef %.085117) #7
-  %25 = add i32 %.085117, 1
-  %26 = load i32, ptr %2, align 4
-  %27 = call i32 @tvb_captured_length(ptr noundef %0) #7
-  %28 = load i32, ptr %2, align 4
-  %29 = sub i32 %27, %28
-  %30 = load i32, ptr @ett_rf4ce_profile_attrs_sub, align 4
-  %31 = call ptr @proto_tree_add_subtree(ptr noundef %14, ptr noundef %0, i32 noundef %26, i32 noundef %29, i32 noundef %30, ptr noundef null, ptr noundef nonnull %8) #7
-  br i1 %.not93, label %42, label %32
+24:                                               ; preds = %.lr.ph, %279
+  %.085111 = phi i32 [ 1, %.lr.ph ], [ %26, %279 ]
+  %.086110 = phi i8 [ -1, %.lr.ph ], [ %.1, %279 ]
+  %.087109 = phi i8 [ 0, %.lr.ph ], [ %.188, %279 ]
+  %.089108 = phi i32 [ %15, %.lr.ph ], [ %280, %279 ]
+  %.090107 = phi i8 [ -1, %.lr.ph ], [ %.2, %279 ]
+  call void @llvm.lifetime.start.p0(i64 14, ptr nonnull %8) #7
+  %25 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %8, i64 noundef 14, i32 noundef 2, i64 noundef 14, ptr noundef nonnull @.str.363, i32 noundef %.085111)
+  %26 = add i32 %.085111, 1
+  %27 = load i32, ptr %2, align 4
+  %28 = call i32 @tvb_captured_length(ptr noundef %0)
+  %29 = load i32, ptr %2, align 4
+  %30 = sub i32 %28, %29
+  %31 = load i32, ptr @ett_rf4ce_profile_attrs_sub, align 4
+  %32 = call ptr @proto_tree_add_subtree(ptr noundef %14, ptr noundef %0, i32 noundef %27, i32 noundef %30, i32 noundef %31, ptr noundef null, ptr noundef nonnull %8)
+  br i1 %.not93, label %43, label %33
 
-32:                                               ; preds = %23
-  %33 = load i32, ptr @hf_rf4ce_profile_zrc20_attr_id, align 4
-  %34 = load i32, ptr @hf_rf4ce_profile_gdp_attr_id, align 4
-  %35 = select i1 %.not94, i32 %34, i32 %33
-  %36 = load i32, ptr %2, align 4
-  %37 = call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %35, ptr noundef %0, i32 noundef %36, i32 noundef 1, i32 noundef -2147483648) #7
-  %38 = load i32, ptr %2, align 4
-  %39 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %38) #7
-  %40 = load i32, ptr %2, align 4
-  %41 = add i32 %40, 1
-  store i32 %41, ptr %2, align 4
-  br label %42
+33:                                               ; preds = %24
+  %34 = load i32, ptr @hf_rf4ce_profile_zrc20_attr_id, align 4
+  %35 = load i32, ptr @hf_rf4ce_profile_gdp_attr_id, align 4
+  %36 = select i1 %4, i32 %34, i32 %35
+  %37 = load i32, ptr %2, align 4
+  %38 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %36, ptr noundef %0, i32 noundef %37, i32 noundef 1, i32 noundef -2147483648)
+  %39 = load i32, ptr %2, align 4
+  %40 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %39)
+  %41 = load i32, ptr %2, align 4
+  %42 = add i32 %41, 1
+  store i32 %42, ptr %2, align 4
+  br label %43
 
-42:                                               ; preds = %32, %23
-  %.1 = phi i8 [ %39, %32 ], [ %.086116, %23 ]
-  br i1 %.not95, label %55, label %43
-
-43:                                               ; preds = %42
-  br i1 %.not94, label %46, label %44
+43:                                               ; preds = %33, %24
+  %.1 = phi i8 [ %40, %33 ], [ %.086110, %24 ]
+  br i1 %.not94, label %58, label %44
 
 44:                                               ; preds = %43
-  %45 = and i8 %.1, -32
-  %narrow.i = icmp eq i8 %45, -64
-  br i1 %narrow.i, label %49, label %55
+  br i1 %4, label %45, label %48
 
-46:                                               ; preds = %43
+45:                                               ; preds = %44
+  %46 = and i8 %.1, -32
+  %47 = icmp eq i8 %46, -64
+  br i1 %47, label %52, label %58
+
+48:                                               ; preds = %44
   %or.cond.i = icmp eq i8 %.1, -112
-  %47 = and i8 %.1, -32
-  %48 = icmp eq i8 %47, -64
-  %narrow.i103 = or i1 %or.cond.i, %48
-  br i1 %narrow.i103, label %49, label %55
+  %49 = and i8 %.1, -32
+  %50 = icmp eq i8 %49, -64
+  %51 = or i1 %or.cond.i, %50
+  br i1 %51, label %52, label %58
 
-49:                                               ; preds = %44, %46
-  %50 = load i32, ptr @hf_rf4ce_profile_attr_entry_id, align 4
-  %51 = load i32, ptr %2, align 4
-  %52 = call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %50, ptr noundef %0, i32 noundef %51, i32 noundef 2, i32 noundef 0) #7
-  %53 = load i32, ptr %2, align 4
-  %54 = add i32 %53, 2
-  store i32 %54, ptr %2, align 4
-  br label %55
+52:                                               ; preds = %45, %48
+  %53 = load i32, ptr @hf_rf4ce_profile_attr_entry_id, align 4
+  %54 = load i32, ptr %2, align 4
+  %55 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %53, ptr noundef %0, i32 noundef %54, i32 noundef 2, i32 noundef 0)
+  %56 = load i32, ptr %2, align 4
+  %57 = add i32 %56, 2
+  store i32 %57, ptr %2, align 4
+  br label %58
 
-55:                                               ; preds = %44, %46, %49, %42
-  br i1 %.not98, label %64, label %56
+58:                                               ; preds = %45, %48, %52, %43
+  br i1 %.not95, label %67, label %59
 
-56:                                               ; preds = %55
-  %57 = load i32, ptr @hf_rf4ce_profile_attr_status, align 4
-  %58 = load i32, ptr %2, align 4
-  %59 = call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %57, ptr noundef %0, i32 noundef %58, i32 noundef 1, i32 noundef -2147483648) #7
-  %60 = load i32, ptr %2, align 4
-  %61 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %60) #7
-  %62 = load i32, ptr %2, align 4
-  %63 = add i32 %62, 1
-  store i32 %63, ptr %2, align 4
-  br label %64
+59:                                               ; preds = %58
+  %60 = load i32, ptr @hf_rf4ce_profile_attr_status, align 4
+  %61 = load i32, ptr %2, align 4
+  %62 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %60, ptr noundef %0, i32 noundef %61, i32 noundef 1, i32 noundef -2147483648)
+  %63 = load i32, ptr %2, align 4
+  %64 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %63)
+  %65 = load i32, ptr %2, align 4
+  %66 = add i32 %65, 1
+  store i32 %66, ptr %2, align 4
+  br label %67
 
-64:                                               ; preds = %56, %55
-  %.188 = phi i8 [ %61, %56 ], [ %.087115, %55 ]
-  %65 = icmp ne i8 %.188, 0
-  %or.cond = or i1 %.not99, %65
-  br i1 %or.cond, label %73, label %.thread
+67:                                               ; preds = %59, %58
+  %.188 = phi i8 [ %64, %59 ], [ %.087109, %58 ]
+  %68 = icmp ne i8 %.188, 0
+  %or.cond = or i1 %.not96, %68
+  br i1 %or.cond, label %76, label %.thread
 
-.thread:                                          ; preds = %64
-  %66 = load i32, ptr @hf_rf4ce_profile_attr_length, align 4
-  %67 = load i32, ptr %2, align 4
-  %68 = call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %66, ptr noundef %0, i32 noundef %67, i32 noundef 1, i32 noundef -2147483648) #7
-  %69 = load i32, ptr %2, align 4
-  %70 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %69) #7
-  %71 = load i32, ptr %2, align 4
-  %72 = add i32 %71, 1
-  store i32 %72, ptr %2, align 4
-  br label %74
+.thread:                                          ; preds = %67
+  %69 = load i32, ptr @hf_rf4ce_profile_attr_length, align 4
+  %70 = load i32, ptr %2, align 4
+  %71 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %69, ptr noundef %0, i32 noundef %70, i32 noundef 1, i32 noundef -2147483648)
+  %72 = load i32, ptr %2, align 4
+  %73 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %72)
+  %74 = load i32, ptr %2, align 4
+  %75 = add i32 %74, 1
+  store i32 %75, ptr %2, align 4
+  br label %77
 
-73:                                               ; preds = %64
-  br i1 %65, label %266, label %74
+76:                                               ; preds = %67
+  br i1 %68, label %dissect_rf4ce_profile_zrc20_attrs.exit.thread, label %77
 
-74:                                               ; preds = %.thread, %73
-  %.191109 = phi i8 [ %70, %.thread ], [ %.090114, %73 ]
-  %75 = zext i8 %.191109 to i32
-  %76 = add i8 %.191109, -1
-  %77 = icmp ult i8 %76, -2
-  %or.cond5 = select i1 %22, i1 %77, i1 false
-  br i1 %or.cond5, label %78, label %266
+77:                                               ; preds = %.thread, %76
+  %.191102 = phi i8 [ %73, %.thread ], [ %.090107, %76 ]
+  %78 = zext i8 %.191102 to i32
+  %79 = add i8 %.191102, -1
+  %80 = icmp ult i8 %79, -2
+  %or.cond5 = select i1 %23, i1 %80, i1 false
+  br i1 %or.cond5, label %81, label %dissect_rf4ce_profile_zrc20_attrs.exit.thread
 
-78:                                               ; preds = %74
-  br i1 %.not94, label %187, label %79
+81:                                               ; preds = %77
+  br i1 %4, label %82, label %190
 
-79:                                               ; preds = %78
-  call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %7)
+82:                                               ; preds = %81
   switch i8 %.1, label %dissect_rf4ce_profile_zrc20_attrs.exit [
-    i8 -62, label %80
-    i8 -61, label %104
-    i8 -90, label %176
+    i8 -62, label %83
+    i8 -61, label %107
+    i8 -90, label %179
   ]
 
-80:                                               ; preds = %79
-  %.not108111.i = icmp ult i8 %.191109, 3
-  br i1 %.not108111.i, label %dissect_rf4ce_profile_zrc20_attrs.exit, label %.lr.ph113.preheader.i
+83:                                               ; preds = %82
+  call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %7) #7
+  %.not108112.i = icmp ult i8 %.191102, 3
+  br i1 %.not108112.i, label %._crit_edge.i, label %.lr.ph114.preheader.i
 
-.lr.ph113.preheader.i:                            ; preds = %80
-  %81 = udiv i8 %.191109, 3
-  %narrow.i104 = add nuw nsw i8 %81, 1
-  %82 = zext nneg i8 %narrow.i104 to i32
-  br label %.lr.ph113.i
+.lr.ph114.preheader.i:                            ; preds = %83
+  %84 = udiv i8 %.191102, 3
+  %narrow.i = add nuw nsw i8 %84, 1
+  %85 = zext nneg i8 %narrow.i to i32
+  br label %.lr.ph114.i
 
-.lr.ph113.i:                                      ; preds = %.lr.ph113.i, %.lr.ph113.preheader.i
-  %.0103112.i = phi i32 [ %103, %.lr.ph113.i ], [ 1, %.lr.ph113.preheader.i ]
-  %83 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 11, ptr noundef nonnull @.str.346, i32 noundef %.0103112.i) #7
-  %84 = load i32, ptr %2, align 4
-  %85 = call i32 @tvb_captured_length(ptr noundef %0) #7
-  %86 = load i32, ptr %2, align 4
-  %87 = sub i32 %85, %86
-  %88 = load i32, ptr @ett_rf4ce_profile_zrc20_mappable_actions_entry, align 4
-  %89 = call ptr @proto_tree_add_subtree(ptr noundef %31, ptr noundef %0, i32 noundef %84, i32 noundef %87, i32 noundef %88, ptr noundef null, ptr noundef nonnull %7) #7
-  %90 = load i32, ptr @hf_rf4ce_profile_zrc20_mappable_actions_action_dev_type, align 4
-  %91 = load i32, ptr %2, align 4
-  %92 = call ptr @proto_tree_add_item(ptr noundef %89, i32 noundef %90, ptr noundef %0, i32 noundef %91, i32 noundef 1, i32 noundef -2147483648) #7
-  %93 = load i32, ptr %2, align 4
-  %94 = add i32 %93, 1
-  store i32 %94, ptr %2, align 4
-  %95 = load i32, ptr @hf_rf4ce_profile_zrc20_mappable_actions_action_bank, align 4
-  %96 = call ptr @proto_tree_add_item(ptr noundef %89, i32 noundef %95, ptr noundef %0, i32 noundef %94, i32 noundef 1, i32 noundef -2147483648) #7
-  %97 = load i32, ptr %2, align 4
-  %98 = add i32 %97, 1
-  store i32 %98, ptr %2, align 4
-  %99 = load i32, ptr @hf_rf4ce_profile_zrc20_mappable_actions_action_code, align 4
-  %100 = call ptr @proto_tree_add_item(ptr noundef %89, i32 noundef %99, ptr noundef %0, i32 noundef %98, i32 noundef 1, i32 noundef -2147483648) #7
-  %101 = load i32, ptr %2, align 4
-  %102 = add i32 %101, 1
-  store i32 %102, ptr %2, align 4
-  %103 = add nuw nsw i32 %.0103112.i, 1
-  %exitcond.not.i = icmp eq i32 %103, %82
-  br i1 %exitcond.not.i, label %dissect_rf4ce_profile_zrc20_attrs.exit, label %.lr.ph113.i, !llvm.loop !6
+._crit_edge.i:                                    ; preds = %.lr.ph114.i, %83
+  call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %7) #7
+  br label %dissect_rf4ce_profile_zrc20_attrs.exit.thread
 
-104:                                              ; preds = %79
-  %105 = load i32, ptr %2, align 4
-  %106 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %105) #7
-  %107 = zext i8 %106 to i32
+.lr.ph114.i:                                      ; preds = %.lr.ph114.i, %.lr.ph114.preheader.i
+  %.0100113.i = phi i32 [ %106, %.lr.ph114.i ], [ 1, %.lr.ph114.preheader.i ]
+  %86 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %7, i64 noundef 11, i32 noundef 2, i64 noundef 11, ptr noundef nonnull @.str.364, i32 noundef %.0100113.i)
+  %87 = load i32, ptr %2, align 4
+  %88 = call i32 @tvb_captured_length(ptr noundef %0)
+  %89 = load i32, ptr %2, align 4
+  %90 = sub i32 %88, %89
+  %91 = load i32, ptr @ett_rf4ce_profile_zrc20_mappable_actions_entry, align 4
+  %92 = call ptr @proto_tree_add_subtree(ptr noundef %32, ptr noundef %0, i32 noundef %87, i32 noundef %90, i32 noundef %91, ptr noundef null, ptr noundef nonnull %7)
+  %93 = load i32, ptr @hf_rf4ce_profile_zrc20_mappable_actions_action_dev_type, align 4
+  %94 = load i32, ptr %2, align 4
+  %95 = call ptr @proto_tree_add_item(ptr noundef %92, i32 noundef %93, ptr noundef %0, i32 noundef %94, i32 noundef 1, i32 noundef -2147483648)
+  %96 = load i32, ptr %2, align 4
+  %97 = add i32 %96, 1
+  store i32 %97, ptr %2, align 4
+  %98 = load i32, ptr @hf_rf4ce_profile_zrc20_mappable_actions_action_bank, align 4
+  %99 = call ptr @proto_tree_add_item(ptr noundef %92, i32 noundef %98, ptr noundef %0, i32 noundef %97, i32 noundef 1, i32 noundef -2147483648)
+  %100 = load i32, ptr %2, align 4
+  %101 = add i32 %100, 1
+  store i32 %101, ptr %2, align 4
+  %102 = load i32, ptr @hf_rf4ce_profile_zrc20_mappable_actions_action_code, align 4
+  %103 = call ptr @proto_tree_add_item(ptr noundef %92, i32 noundef %102, ptr noundef %0, i32 noundef %101, i32 noundef 1, i32 noundef -2147483648)
+  %104 = load i32, ptr %2, align 4
+  %105 = add i32 %104, 1
+  store i32 %105, ptr %2, align 4
+  %106 = add nuw nsw i32 %.0100113.i, 1
+  %exitcond.not.i = icmp eq i32 %106, %85
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph114.i, !llvm.loop !8
+
+107:                                              ; preds = %82
   %108 = load i32, ptr %2, align 4
-  %109 = load i32, ptr @hf_rf4ce_profile_zrc20_action_mappings_mapping_flags, align 4
-  %110 = load i32, ptr @ett_rf4ce_profile_zrc20_action_mappings_flags, align 4
-  %111 = call ptr @proto_tree_add_bitmask(ptr noundef %31, ptr noundef %0, i32 noundef %108, i32 noundef %109, i32 noundef %110, ptr noundef nonnull @dissect_rf4ce_profile_zrc20_attrs.action_mapping_flags_bits, i32 noundef -2147483648) #7
-  %112 = load i32, ptr %2, align 4
-  %113 = add i32 %112, 1
-  store i32 %113, ptr %2, align 4
-  %114 = and i32 %107, 65
-  %or.cond.not.i = icmp eq i32 %114, 1
-  br i1 %or.cond.not.i, label %115, label %139
+  %109 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %108)
+  %110 = zext i8 %109 to i32
+  %111 = load i32, ptr %2, align 4
+  %112 = load i32, ptr @hf_rf4ce_profile_zrc20_action_mappings_mapping_flags, align 4
+  %113 = load i32, ptr @ett_rf4ce_profile_zrc20_action_mappings_flags, align 4
+  %114 = call ptr @proto_tree_add_bitmask(ptr noundef %32, ptr noundef %0, i32 noundef %111, i32 noundef %112, i32 noundef %113, ptr noundef nonnull @dissect_rf4ce_profile_zrc20_attrs.action_mapping_flags_bits, i32 noundef -2147483648)
+  %115 = load i32, ptr %2, align 4
+  %116 = add i32 %115, 1
+  store i32 %116, ptr %2, align 4
+  %117 = and i32 %110, 65
+  %brmerge.not.i = icmp eq i32 %117, 1
+  br i1 %brmerge.not.i, label %118, label %142
 
-115:                                              ; preds = %104
-  %116 = call i32 @tvb_captured_length(ptr noundef %0) #7
-  %117 = load i32, ptr %2, align 4
-  %118 = sub i32 %116, %117
-  %119 = load i32, ptr @ett_rf4ce_profile_zrc20_action_mappings_rf_descr, align 4
-  %120 = call ptr @proto_tree_add_subtree(ptr noundef %31, ptr noundef %0, i32 noundef %113, i32 noundef %118, i32 noundef %119, ptr noundef null, ptr noundef nonnull @.str.347) #7
-  %121 = load i32, ptr %2, align 4
-  %122 = load i32, ptr @hf_rf4ce_profile_zrc20_action_mappings_rf_descr_rf_conf, align 4
-  %123 = load i32, ptr @ett_rf4ce_profile_zrc20_action_mappings_rf_descr_rf_conf, align 4
-  %124 = call ptr @proto_tree_add_bitmask(ptr noundef %120, ptr noundef %0, i32 noundef %121, i32 noundef %122, i32 noundef %123, ptr noundef nonnull @dissect_rf4ce_profile_zrc20_attrs.rf_conf_bits, i32 noundef -2147483648) #7
-  %125 = load i32, ptr %2, align 4
-  %126 = add i32 %125, 1
-  store i32 %126, ptr %2, align 4
-  %127 = load i32, ptr @hf_rf4ce_profile_zrc20_action_mappings_rf_descr_tx_opts, align 4
-  %128 = load i32, ptr @ett_rf4ce_profile_zrc20_action_mappings_rf_descr_tx_opts, align 4
-  %129 = call ptr @proto_tree_add_bitmask(ptr noundef %120, ptr noundef %0, i32 noundef %126, i32 noundef %127, i32 noundef %128, ptr noundef nonnull @dissect_rf4ce_profile_zrc20_attrs.tx_opts_bits, i32 noundef -2147483648) #7
-  %130 = load i32, ptr %2, align 4
-  %131 = add i32 %130, 1
-  store i32 %131, ptr %2, align 4
-  %132 = load i32, ptr @hf_rf4ce_profile_zrc20_action_mappings_rf_descr_action_data_len, align 4
-  %133 = call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %132, ptr noundef %0, i32 noundef %131, i32 noundef 1, i32 noundef -2147483648) #7
-  %134 = load i32, ptr %2, align 4
-  %135 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %134) #7
-  %136 = load i32, ptr %2, align 4
-  %137 = add i32 %136, 1
-  store i32 %137, ptr %2, align 4
-  %.not.i = icmp eq i8 %135, 0
-  br i1 %.not.i, label %139, label %138
+118:                                              ; preds = %107
+  %119 = call i32 @tvb_captured_length(ptr noundef %0)
+  %120 = load i32, ptr %2, align 4
+  %121 = sub i32 %119, %120
+  %122 = load i32, ptr @ett_rf4ce_profile_zrc20_action_mappings_rf_descr, align 4
+  %123 = call ptr @proto_tree_add_subtree(ptr noundef %32, ptr noundef %0, i32 noundef %116, i32 noundef %121, i32 noundef %122, ptr noundef null, ptr noundef nonnull @.str.365)
+  %124 = load i32, ptr %2, align 4
+  %125 = load i32, ptr @hf_rf4ce_profile_zrc20_action_mappings_rf_descr_rf_conf, align 4
+  %126 = load i32, ptr @ett_rf4ce_profile_zrc20_action_mappings_rf_descr_rf_conf, align 4
+  %127 = call ptr @proto_tree_add_bitmask(ptr noundef %123, ptr noundef %0, i32 noundef %124, i32 noundef %125, i32 noundef %126, ptr noundef nonnull @dissect_rf4ce_profile_zrc20_attrs.rf_conf_bits, i32 noundef -2147483648)
+  %128 = load i32, ptr %2, align 4
+  %129 = add i32 %128, 1
+  store i32 %129, ptr %2, align 4
+  %130 = load i32, ptr @hf_rf4ce_profile_zrc20_action_mappings_rf_descr_tx_opts, align 4
+  %131 = load i32, ptr @ett_rf4ce_profile_zrc20_action_mappings_rf_descr_tx_opts, align 4
+  %132 = call ptr @proto_tree_add_bitmask(ptr noundef %123, ptr noundef %0, i32 noundef %129, i32 noundef %130, i32 noundef %131, ptr noundef nonnull @dissect_rf4ce_profile_zrc20_attrs.tx_opts_bits, i32 noundef -2147483648)
+  %133 = load i32, ptr %2, align 4
+  %134 = add i32 %133, 1
+  store i32 %134, ptr %2, align 4
+  %135 = load i32, ptr @hf_rf4ce_profile_zrc20_action_mappings_rf_descr_action_data_len, align 4
+  %136 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %135, ptr noundef %0, i32 noundef %134, i32 noundef 1, i32 noundef -2147483648)
+  %137 = load i32, ptr %2, align 4
+  %138 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %137)
+  %139 = load i32, ptr %2, align 4
+  %140 = add i32 %139, 1
+  store i32 %140, ptr %2, align 4
+  %.not105.i = icmp eq i8 %138, 0
+  br i1 %.not105.i, label %142, label %141
 
-138:                                              ; preds = %115
-  call fastcc void @dissect_rf4ce_profile_zrc20_action_data(ptr noundef %0, ptr noundef %120, ptr noundef nonnull %2, i32 noundef 0)
-  br label %139
+141:                                              ; preds = %118
+  call fastcc void @dissect_rf4ce_profile_zrc20_action_data(ptr noundef %0, ptr noundef %123, ptr noundef %2, i1 noundef zeroext false)
+  br label %142
 
-139:                                              ; preds = %138, %115, %104
-  %140 = and i32 %107, 66
-  %or.cond3.not.i = icmp eq i32 %140, 2
-  br i1 %or.cond3.not.i, label %141, label %dissect_rf4ce_profile_zrc20_attrs.exit
+142:                                              ; preds = %141, %118, %107
+  %143 = and i32 %110, 66
+  %brmerge110.not.i = icmp eq i32 %143, 2
+  br i1 %brmerge110.not.i, label %144, label %dissect_rf4ce_profile_zrc20_attrs.exit.thread
 
-141:                                              ; preds = %139
-  %142 = load i32, ptr %2, align 4
-  %143 = call i32 @tvb_captured_length(ptr noundef %0) #7
-  %144 = load i32, ptr %2, align 4
-  %145 = sub i32 %143, %144
-  %146 = load i32, ptr @ett_rf4ce_profile_zrc20_action_mappings_ir_descr, align 4
-  %147 = call ptr @proto_tree_add_subtree(ptr noundef %31, ptr noundef %0, i32 noundef %142, i32 noundef %145, i32 noundef %146, ptr noundef null, ptr noundef nonnull @.str.348) #7
-  %148 = load i32, ptr %2, align 4
-  %149 = load i32, ptr @hf_rf4ce_profile_zrc20_action_mappings_ir_descr_ir_conf, align 4
-  %150 = load i32, ptr @ett_rf4ce_profile_zrc20_action_mappings_ir_descr_ir_conf, align 4
-  %151 = call ptr @proto_tree_add_bitmask(ptr noundef %147, ptr noundef %0, i32 noundef %148, i32 noundef %149, i32 noundef %150, ptr noundef nonnull @dissect_rf4ce_profile_zrc20_attrs.ir_conf_bits, i32 noundef -2147483648) #7
-  %152 = load i32, ptr %2, align 4
-  %153 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %152) #7
-  %154 = load i32, ptr %2, align 4
-  %155 = add i32 %154, 1
-  store i32 %155, ptr %2, align 4
-  %156 = and i8 %153, 1
-  %.not106.i = icmp eq i8 %156, 0
-  br i1 %.not106.i, label %162, label %157
+144:                                              ; preds = %142
+  %145 = load i32, ptr %2, align 4
+  %146 = call i32 @tvb_captured_length(ptr noundef %0)
+  %147 = load i32, ptr %2, align 4
+  %148 = sub i32 %146, %147
+  %149 = load i32, ptr @ett_rf4ce_profile_zrc20_action_mappings_ir_descr, align 4
+  %150 = call ptr @proto_tree_add_subtree(ptr noundef %32, ptr noundef %0, i32 noundef %145, i32 noundef %148, i32 noundef %149, ptr noundef null, ptr noundef nonnull @.str.366)
+  %151 = load i32, ptr %2, align 4
+  %152 = load i32, ptr @hf_rf4ce_profile_zrc20_action_mappings_ir_descr_ir_conf, align 4
+  %153 = load i32, ptr @ett_rf4ce_profile_zrc20_action_mappings_ir_descr_ir_conf, align 4
+  %154 = call ptr @proto_tree_add_bitmask(ptr noundef %150, ptr noundef %0, i32 noundef %151, i32 noundef %152, i32 noundef %153, ptr noundef nonnull @dissect_rf4ce_profile_zrc20_attrs.ir_conf_bits, i32 noundef -2147483648)
+  %155 = load i32, ptr %2, align 4
+  %156 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %155)
+  %157 = load i32, ptr %2, align 4
+  %158 = add i32 %157, 1
+  store i32 %158, ptr %2, align 4
+  %159 = and i8 %156, 1
+  %.not106.i = icmp eq i8 %159, 0
+  br i1 %.not106.i, label %165, label %160
 
-157:                                              ; preds = %141
-  %158 = load i32, ptr @hf_rf4ce_profile_zrc20_action_mappings_ir_descr_ir_vendor_id, align 4
-  %159 = call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %158, ptr noundef %0, i32 noundef %155, i32 noundef 2, i32 noundef -2147483648) #7
-  %160 = load i32, ptr %2, align 4
-  %161 = add i32 %160, 2
-  store i32 %161, ptr %2, align 4
-  br label %162
+160:                                              ; preds = %144
+  %161 = load i32, ptr @hf_rf4ce_profile_zrc20_action_mappings_ir_descr_ir_vendor_id, align 4
+  %162 = call ptr @proto_tree_add_item(ptr noundef %150, i32 noundef %161, ptr noundef %0, i32 noundef %158, i32 noundef 2, i32 noundef -2147483648)
+  %163 = load i32, ptr %2, align 4
+  %164 = add i32 %163, 2
+  store i32 %164, ptr %2, align 4
+  br label %165
 
-162:                                              ; preds = %157, %141
-  %163 = phi i32 [ %161, %157 ], [ %155, %141 ]
-  %164 = load i32, ptr @hf_rf4ce_profile_zrc20_action_mappings_ir_descr_ir_code_len, align 4
-  %165 = call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %164, ptr noundef %0, i32 noundef %163, i32 noundef 1, i32 noundef 0) #7
-  %166 = load i32, ptr %2, align 4
-  %167 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %166) #7
-  %168 = load i32, ptr %2, align 4
-  %169 = add i32 %168, 1
-  store i32 %169, ptr %2, align 4
-  %.not107.i = icmp eq i8 %167, 0
-  br i1 %.not107.i, label %dissect_rf4ce_profile_zrc20_attrs.exit, label %170
+165:                                              ; preds = %160, %144
+  %166 = phi i32 [ %164, %160 ], [ %158, %144 ]
+  %167 = load i32, ptr @hf_rf4ce_profile_zrc20_action_mappings_ir_descr_ir_code_len, align 4
+  %168 = call ptr @proto_tree_add_item(ptr noundef %150, i32 noundef %167, ptr noundef %0, i32 noundef %166, i32 noundef 1, i32 noundef 0)
+  %169 = load i32, ptr %2, align 4
+  %170 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %169)
+  %171 = load i32, ptr %2, align 4
+  %172 = add i32 %171, 1
+  store i32 %172, ptr %2, align 4
+  %.not107.i = icmp eq i8 %170, 0
+  br i1 %.not107.i, label %dissect_rf4ce_profile_zrc20_attrs.exit.thread, label %173
 
-170:                                              ; preds = %162
-  %171 = zext i8 %167 to i32
-  %172 = load i32, ptr @hf_rf4ce_profile_zrc20_action_mappings_ir_descr_ir_code, align 4
-  %173 = call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %172, ptr noundef %0, i32 noundef %169, i32 noundef %171, i32 noundef 0) #7
-  %174 = load i32, ptr %2, align 4
-  %175 = add i32 %174, %171
-  store i32 %175, ptr %2, align 4
-  br label %dissect_rf4ce_profile_zrc20_attrs.exit
-
-176:                                              ; preds = %79
+173:                                              ; preds = %165
+  %174 = zext i8 %170 to i32
+  %175 = load i32, ptr @hf_rf4ce_profile_zrc20_action_mappings_ir_descr_ir_code, align 4
+  %176 = call ptr @proto_tree_add_item(ptr noundef %150, i32 noundef %175, ptr noundef %0, i32 noundef %172, i32 noundef %174, i32 noundef 0)
   %177 = load i32, ptr %2, align 4
-  %178 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %177) #7
-  %179 = icmp sgt i32 %178, 0
-  br i1 %179, label %.lr.ph.preheader.i, label %dissect_rf4ce_profile_zrc20_attrs.exit
+  %178 = add i32 %177, %174
+  store i32 %178, ptr %2, align 4
+  br label %dissect_rf4ce_profile_zrc20_attrs.exit.thread
 
-.lr.ph.preheader.i:                               ; preds = %176
+179:                                              ; preds = %82
+  %180 = load i32, ptr %2, align 4
+  %181 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %180)
+  %182 = icmp sgt i32 %181, 0
+  br i1 %182, label %.lr.ph.preheader.i, label %dissect_rf4ce_profile_zrc20_attrs.exit.thread
+
+.lr.ph.preheader.i:                               ; preds = %179
   %.pre.i = load i32, ptr %2, align 4
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %180 = phi i32 [ %184, %.lr.ph.i ], [ %.pre.i, %.lr.ph.preheader.i ]
-  %.0110.i = phi i32 [ %185, %.lr.ph.i ], [ %178, %.lr.ph.preheader.i ]
-  %181 = load i32, ptr @hf_rf4ce_profile_zrc20_irdb_vendor_support_vendor_id, align 4
-  %182 = call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %181, ptr noundef %0, i32 noundef %180, i32 noundef 2, i32 noundef -2147483648) #7
-  %183 = load i32, ptr %2, align 4
-  %184 = add i32 %183, 2
-  store i32 %184, ptr %2, align 4
-  %185 = add nsw i32 %.0110.i, -2
-  %186 = icmp samesign ugt i32 %.0110.i, 2
-  br i1 %186, label %.lr.ph.i, label %dissect_rf4ce_profile_zrc20_attrs.exit, !llvm.loop !7
+  %183 = phi i32 [ %187, %.lr.ph.i ], [ %.pre.i, %.lr.ph.preheader.i ]
+  %.0111.i = phi i32 [ %188, %.lr.ph.i ], [ %181, %.lr.ph.preheader.i ]
+  %184 = load i32, ptr @hf_rf4ce_profile_zrc20_irdb_vendor_support_vendor_id, align 4
+  %185 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %184, ptr noundef %0, i32 noundef %183, i32 noundef 2, i32 noundef -2147483648)
+  %186 = load i32, ptr %2, align 4
+  %187 = add i32 %186, 2
+  store i32 %187, ptr %2, align 4
+  %188 = add nsw i32 %.0111.i, -2
+  %189 = icmp samesign ugt i32 %.0111.i, 2
+  br i1 %189, label %.lr.ph.i, label %dissect_rf4ce_profile_zrc20_attrs.exit.thread, !llvm.loop !9
 
-dissect_rf4ce_profile_zrc20_attrs.exit:           ; preds = %.lr.ph.i, %.lr.ph113.i, %79, %80, %139, %162, %170, %176
-  %.0102.i = phi i32 [ 1, %139 ], [ 1, %170 ], [ 1, %162 ], [ 0, %79 ], [ 1, %80 ], [ 1, %176 ], [ 1, %.lr.ph113.i ], [ 1, %.lr.ph.i ]
-  call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %7)
-  br label %259
-
-187:                                              ; preds = %78
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
-  switch i8 %.1, label %dissect_rf4ce_profile_gdp_attrs.exit [
-    i8 -117, label %188
-    i8 -124, label %193
-    i8 -123, label %236
+190:                                              ; preds = %81
+  switch i8 %.1, label %dissect_rf4ce_profile_zrc20_attrs.exit [
+    i8 -117, label %191
+    i8 -124, label %196
+    i8 -123, label %239
   ]
 
-188:                                              ; preds = %187
-  %189 = load i32, ptr %2, align 4
-  %190 = load i32, ptr @hf_rf4ce_profile_gdp_ident_cap, align 4
-  %191 = load i32, ptr @ett_rf4ce_profile_zrc20_ident_cap, align 4
-  %192 = call ptr @proto_tree_add_bitmask(ptr noundef %31, ptr noundef %0, i32 noundef %189, i32 noundef %190, i32 noundef %191, ptr noundef nonnull @dissect_rf4ce_profile_gdp_attrs.ident_cap_bits, i32 noundef -2147483648) #7
+191:                                              ; preds = %190
+  %192 = load i32, ptr %2, align 4
+  %193 = load i32, ptr @hf_rf4ce_profile_gdp_ident_cap, align 4
+  %194 = load i32, ptr @ett_rf4ce_profile_zrc20_ident_cap, align 4
+  %195 = call ptr @proto_tree_add_bitmask(ptr noundef %32, ptr noundef %0, i32 noundef %192, i32 noundef %193, i32 noundef %194, ptr noundef nonnull @dissect_rf4ce_profile_gdp_attrs.ident_cap_bits, i32 noundef -2147483648)
   br label %.loopexit.sink.split.i
 
-193:                                              ; preds = %187
-  %194 = load i32, ptr @hf_rf4ce_profile_gdp_poll_constraints_methods_num, align 4
-  %195 = load i32, ptr %2, align 4
-  %196 = call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %194, ptr noundef %0, i32 noundef %195, i32 noundef 1, i32 noundef -2147483648) #7
-  %197 = load i32, ptr %2, align 4
-  %198 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %197) #7
-  %199 = load i32, ptr %2, align 4
-  %200 = add i32 %199, 1
-  store i32 %200, ptr %2, align 4
-  %.not68.i = icmp eq i8 %198, 0
-  br i1 %.not68.i, label %dissect_rf4ce_profile_gdp_attrs.exit, label %.lr.ph.preheader.i105
+196:                                              ; preds = %190
+  %197 = load i32, ptr @hf_rf4ce_profile_gdp_poll_constraints_methods_num, align 4
+  %198 = load i32, ptr %2, align 4
+  %199 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %197, ptr noundef %0, i32 noundef %198, i32 noundef 1, i32 noundef -2147483648)
+  %200 = load i32, ptr %2, align 4
+  %201 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %200)
+  %202 = load i32, ptr %2, align 4
+  %203 = add i32 %202, 1
+  store i32 %203, ptr %2, align 4
+  %.not68.i = icmp eq i8 %201, 0
+  br i1 %.not68.i, label %dissect_rf4ce_profile_zrc20_attrs.exit.thread, label %.lr.ph.preheader.i98
 
-.lr.ph.preheader.i105:                            ; preds = %193
-  %201 = zext i8 %198 to i32
-  br label %.lr.ph.i106
+.lr.ph.preheader.i98:                             ; preds = %196
+  %204 = zext i8 %201 to i32
+  br label %.lr.ph.i99
 
-.lr.ph.i106:                                      ; preds = %.lr.ph.i106, %.lr.ph.preheader.i105
-  %.06669.i = phi i32 [ %235, %.lr.ph.i106 ], [ 1, %.lr.ph.preheader.i105 ]
-  %202 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 40, ptr noundef nonnull @.str.350, i32 noundef %.06669.i) #7
-  %203 = load i32, ptr %2, align 4
-  %204 = call i32 @tvb_captured_length(ptr noundef %0) #7
-  %205 = load i32, ptr %2, align 4
-  %206 = sub i32 %204, %205
-  %207 = load i32, ptr @ett_rf4ce_profile_gdp_poll_constraints_polling_rec, align 4
-  %208 = call ptr @proto_tree_add_subtree(ptr noundef %31, ptr noundef %0, i32 noundef %203, i32 noundef %206, i32 noundef %207, ptr noundef null, ptr noundef nonnull %6) #7
-  %209 = load i32, ptr @hf_rf4ce_profile_gdp_poll_constraints_polling_rec_method_id, align 4
-  %210 = load i32, ptr %2, align 4
-  %211 = call ptr @proto_tree_add_item(ptr noundef %208, i32 noundef %209, ptr noundef %0, i32 noundef %210, i32 noundef 1, i32 noundef -2147483648) #7
-  %212 = load i32, ptr %2, align 4
-  %213 = add i32 %212, 1
-  store i32 %213, ptr %2, align 4
-  %214 = load i32, ptr @hf_rf4ce_profile_gdp_poll_constraints_polling_rec_polling_trig_cap, align 4
-  %215 = load i32, ptr @ett_rf4ce_profile_gdp_poll_constraints_polling_rec_polling_trig_cap, align 4
-  %216 = call ptr @proto_tree_add_bitmask(ptr noundef %208, ptr noundef %0, i32 noundef %213, i32 noundef %214, i32 noundef %215, ptr noundef nonnull @dissect_rf4ce_profile_gdp_attrs.polling_trig_cap_bits, i32 noundef -2147483648) #7
-  %217 = load i32, ptr %2, align 4
-  %218 = add i32 %217, 2
-  store i32 %218, ptr %2, align 4
-  %219 = load i32, ptr @hf_rf4ce_profile_gdp_poll_constraints_polling_rec_min_polling_key_press_cnt, align 4
-  %220 = call ptr @proto_tree_add_item(ptr noundef %208, i32 noundef %219, ptr noundef %0, i32 noundef %218, i32 noundef 1, i32 noundef -2147483648) #7
-  %221 = load i32, ptr %2, align 4
-  %222 = add i32 %221, 1
-  store i32 %222, ptr %2, align 4
-  %223 = load i32, ptr @hf_rf4ce_profile_gdp_poll_constraints_polling_rec_max_polling_key_press_cnt, align 4
-  %224 = call ptr @proto_tree_add_item(ptr noundef %208, i32 noundef %223, ptr noundef %0, i32 noundef %222, i32 noundef 1, i32 noundef -2147483648) #7
-  %225 = load i32, ptr %2, align 4
-  %226 = add i32 %225, 1
-  store i32 %226, ptr %2, align 4
-  %227 = load i32, ptr @hf_rf4ce_profile_gdp_poll_constraints_polling_rec_min_polling_time_interval, align 4
-  %228 = call ptr @proto_tree_add_item(ptr noundef %208, i32 noundef %227, ptr noundef %0, i32 noundef %226, i32 noundef 4, i32 noundef -2147483648) #7
-  %229 = load i32, ptr %2, align 4
-  %230 = add i32 %229, 4
-  store i32 %230, ptr %2, align 4
-  %231 = load i32, ptr @hf_rf4ce_profile_gdp_poll_constraints_polling_rec_max_polling_time_interval, align 4
-  %232 = call ptr @proto_tree_add_item(ptr noundef %208, i32 noundef %231, ptr noundef %0, i32 noundef %230, i32 noundef 4, i32 noundef -2147483648) #7
-  %233 = load i32, ptr %2, align 4
-  %234 = add i32 %233, 4
-  store i32 %234, ptr %2, align 4
-  %235 = add nuw nsw i32 %.06669.i, 1
-  %exitcond.not.i107 = icmp eq i32 %.06669.i, %201
-  br i1 %exitcond.not.i107, label %dissect_rf4ce_profile_gdp_attrs.exit, label %.lr.ph.i106, !llvm.loop !8
+.lr.ph.i99:                                       ; preds = %.lr.ph.i99, %.lr.ph.preheader.i98
+  %.06669.i = phi i32 [ %238, %.lr.ph.i99 ], [ 1, %.lr.ph.preheader.i98 ]
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #7
+  %205 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %6, i64 noundef 40, i32 noundef 2, i64 noundef 40, ptr noundef nonnull @.str.368, i32 noundef %.06669.i)
+  %206 = load i32, ptr %2, align 4
+  %207 = call i32 @tvb_captured_length(ptr noundef %0)
+  %208 = load i32, ptr %2, align 4
+  %209 = sub i32 %207, %208
+  %210 = load i32, ptr @ett_rf4ce_profile_gdp_poll_constraints_polling_rec, align 4
+  %211 = call ptr @proto_tree_add_subtree(ptr noundef %32, ptr noundef %0, i32 noundef %206, i32 noundef %209, i32 noundef %210, ptr noundef null, ptr noundef nonnull %6)
+  %212 = load i32, ptr @hf_rf4ce_profile_gdp_poll_constraints_polling_rec_method_id, align 4
+  %213 = load i32, ptr %2, align 4
+  %214 = call ptr @proto_tree_add_item(ptr noundef %211, i32 noundef %212, ptr noundef %0, i32 noundef %213, i32 noundef 1, i32 noundef -2147483648)
+  %215 = load i32, ptr %2, align 4
+  %216 = add i32 %215, 1
+  store i32 %216, ptr %2, align 4
+  %217 = load i32, ptr @hf_rf4ce_profile_gdp_poll_constraints_polling_rec_polling_trig_cap, align 4
+  %218 = load i32, ptr @ett_rf4ce_profile_gdp_poll_constraints_polling_rec_polling_trig_cap, align 4
+  %219 = call ptr @proto_tree_add_bitmask(ptr noundef %211, ptr noundef %0, i32 noundef %216, i32 noundef %217, i32 noundef %218, ptr noundef nonnull @dissect_rf4ce_profile_gdp_attrs.polling_trig_cap_bits, i32 noundef -2147483648)
+  %220 = load i32, ptr %2, align 4
+  %221 = add i32 %220, 2
+  store i32 %221, ptr %2, align 4
+  %222 = load i32, ptr @hf_rf4ce_profile_gdp_poll_constraints_polling_rec_min_polling_key_press_cnt, align 4
+  %223 = call ptr @proto_tree_add_item(ptr noundef %211, i32 noundef %222, ptr noundef %0, i32 noundef %221, i32 noundef 1, i32 noundef -2147483648)
+  %224 = load i32, ptr %2, align 4
+  %225 = add i32 %224, 1
+  store i32 %225, ptr %2, align 4
+  %226 = load i32, ptr @hf_rf4ce_profile_gdp_poll_constraints_polling_rec_max_polling_key_press_cnt, align 4
+  %227 = call ptr @proto_tree_add_item(ptr noundef %211, i32 noundef %226, ptr noundef %0, i32 noundef %225, i32 noundef 1, i32 noundef -2147483648)
+  %228 = load i32, ptr %2, align 4
+  %229 = add i32 %228, 1
+  store i32 %229, ptr %2, align 4
+  %230 = load i32, ptr @hf_rf4ce_profile_gdp_poll_constraints_polling_rec_min_polling_time_interval, align 4
+  %231 = call ptr @proto_tree_add_item(ptr noundef %211, i32 noundef %230, ptr noundef %0, i32 noundef %229, i32 noundef 4, i32 noundef -2147483648)
+  %232 = load i32, ptr %2, align 4
+  %233 = add i32 %232, 4
+  store i32 %233, ptr %2, align 4
+  %234 = load i32, ptr @hf_rf4ce_profile_gdp_poll_constraints_polling_rec_max_polling_time_interval, align 4
+  %235 = call ptr @proto_tree_add_item(ptr noundef %211, i32 noundef %234, ptr noundef %0, i32 noundef %233, i32 noundef 4, i32 noundef -2147483648)
+  %236 = load i32, ptr %2, align 4
+  %237 = add i32 %236, 4
+  store i32 %237, ptr %2, align 4
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #7
+  %238 = add nuw nsw i32 %.06669.i, 1
+  %exitcond.not.i100 = icmp eq i32 %.06669.i, %204
+  br i1 %exitcond.not.i100, label %dissect_rf4ce_profile_zrc20_attrs.exit.thread, label %.lr.ph.i99, !llvm.loop !10
 
-236:                                              ; preds = %187
-  %237 = load i32, ptr @hf_rf4ce_profile_gdp_poll_configuration_method_id, align 4
-  %238 = load i32, ptr %2, align 4
-  %239 = call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %237, ptr noundef %0, i32 noundef %238, i32 noundef 1, i32 noundef -2147483648) #7
-  %240 = load i32, ptr %2, align 4
-  %241 = add i32 %240, 1
-  store i32 %241, ptr %2, align 4
-  %242 = load i32, ptr @hf_rf4ce_profile_gdp_poll_configuration_polling_trig_conf, align 4
-  %243 = load i32, ptr @ett_rf4ce_profile_gdp_poll_configuration_polling_trig_conf, align 4
-  %244 = call ptr @proto_tree_add_bitmask_len(ptr noundef %31, ptr noundef %0, i32 noundef %241, i32 noundef 2, i32 noundef %242, i32 noundef %243, ptr noundef nonnull @dissect_rf4ce_profile_gdp_attrs.polling_trig_conf_bits, ptr noundef null, i32 noundef -2147483648) #7
-  %245 = load i32, ptr %2, align 4
-  %246 = add i32 %245, 2
-  store i32 %246, ptr %2, align 4
-  %247 = load i32, ptr @hf_rf4ce_profile_gdp_poll_configuration_polling_key_press_cnt, align 4
-  %248 = call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %247, ptr noundef %0, i32 noundef %246, i32 noundef 1, i32 noundef -2147483648) #7
-  %249 = load i32, ptr %2, align 4
-  %250 = add i32 %249, 1
-  store i32 %250, ptr %2, align 4
-  %251 = load i32, ptr @hf_rf4ce_profile_gdp_poll_configuration_polling_time_interval, align 4
-  %252 = call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %251, ptr noundef %0, i32 noundef %250, i32 noundef 4, i32 noundef -2147483648) #7
-  %253 = load i32, ptr %2, align 4
-  %254 = add i32 %253, 4
-  store i32 %254, ptr %2, align 4
-  %255 = load i32, ptr @hf_rf4ce_profile_gdp_poll_configuration_polling_timeout, align 4
-  %256 = call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %255, ptr noundef %0, i32 noundef %254, i32 noundef 1, i32 noundef -2147483648) #7
+239:                                              ; preds = %190
+  %240 = load i32, ptr @hf_rf4ce_profile_gdp_poll_configuration_method_id, align 4
+  %241 = load i32, ptr %2, align 4
+  %242 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %240, ptr noundef %0, i32 noundef %241, i32 noundef 1, i32 noundef -2147483648)
+  %243 = load i32, ptr %2, align 4
+  %244 = add i32 %243, 1
+  store i32 %244, ptr %2, align 4
+  %245 = load i32, ptr @hf_rf4ce_profile_gdp_poll_configuration_polling_trig_conf, align 4
+  %246 = load i32, ptr @ett_rf4ce_profile_gdp_poll_configuration_polling_trig_conf, align 4
+  %247 = call ptr @proto_tree_add_bitmask_len(ptr noundef %32, ptr noundef %0, i32 noundef %244, i32 noundef 2, i32 noundef %245, i32 noundef %246, ptr noundef nonnull @dissect_rf4ce_profile_gdp_attrs.polling_trig_conf_bits, ptr noundef null, i32 noundef -2147483648)
+  %248 = load i32, ptr %2, align 4
+  %249 = add i32 %248, 2
+  store i32 %249, ptr %2, align 4
+  %250 = load i32, ptr @hf_rf4ce_profile_gdp_poll_configuration_polling_key_press_cnt, align 4
+  %251 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %250, ptr noundef %0, i32 noundef %249, i32 noundef 1, i32 noundef -2147483648)
+  %252 = load i32, ptr %2, align 4
+  %253 = add i32 %252, 1
+  store i32 %253, ptr %2, align 4
+  %254 = load i32, ptr @hf_rf4ce_profile_gdp_poll_configuration_polling_time_interval, align 4
+  %255 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %254, ptr noundef %0, i32 noundef %253, i32 noundef 4, i32 noundef -2147483648)
+  %256 = load i32, ptr %2, align 4
+  %257 = add i32 %256, 4
+  store i32 %257, ptr %2, align 4
+  %258 = load i32, ptr @hf_rf4ce_profile_gdp_poll_configuration_polling_timeout, align 4
+  %259 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %258, ptr noundef %0, i32 noundef %257, i32 noundef 1, i32 noundef -2147483648)
   br label %.loopexit.sink.split.i
 
-.loopexit.sink.split.i:                           ; preds = %236, %188
-  %257 = load i32, ptr %2, align 4
-  %258 = add i32 %257, 1
-  store i32 %258, ptr %2, align 4
-  br label %dissect_rf4ce_profile_gdp_attrs.exit
+.loopexit.sink.split.i:                           ; preds = %239, %191
+  %260 = load i32, ptr %2, align 4
+  %261 = add i32 %260, 1
+  store i32 %261, ptr %2, align 4
+  br label %dissect_rf4ce_profile_zrc20_attrs.exit.thread
 
-dissect_rf4ce_profile_gdp_attrs.exit:             ; preds = %.lr.ph.i106, %187, %193, %.loopexit.sink.split.i
-  %.0.i = phi i32 [ 0, %187 ], [ 1, %193 ], [ 1, %.loopexit.sink.split.i ], [ 1, %.lr.ph.i106 ]
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
-  br label %259
+dissect_rf4ce_profile_zrc20_attrs.exit:           ; preds = %82, %190
+  %262 = load i32, ptr @hf_rf4ce_profile_attr_value, align 4
+  %263 = load i32, ptr %2, align 4
+  %264 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %262, ptr noundef %0, i32 noundef %263, i32 noundef %78, i32 noundef 0)
+  %265 = load i32, ptr %2, align 4
+  %266 = add i32 %265, %78
+  store i32 %266, ptr %2, align 4
+  br label %dissect_rf4ce_profile_zrc20_attrs.exit.thread
 
-259:                                              ; preds = %dissect_rf4ce_profile_gdp_attrs.exit, %dissect_rf4ce_profile_zrc20_attrs.exit
-  %.0 = phi i32 [ %.0102.i, %dissect_rf4ce_profile_zrc20_attrs.exit ], [ %.0.i, %dissect_rf4ce_profile_gdp_attrs.exit ]
-  %.not101 = icmp eq i32 %.0, 0
-  br i1 %.not101, label %260, label %266
-
-260:                                              ; preds = %259
-  %261 = load i32, ptr @hf_rf4ce_profile_attr_value, align 4
-  %262 = load i32, ptr %2, align 4
-  %263 = call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %261, ptr noundef %0, i32 noundef %262, i32 noundef %75, i32 noundef 0) #7
-  %264 = load i32, ptr %2, align 4
-  %265 = add i32 %264, %75
-  store i32 %265, ptr %2, align 4
-  br label %266
-
-266:                                              ; preds = %73, %74, %260, %259
-  %.191110 = phi i8 [ %.090114, %73 ], [ %.191109, %74 ], [ %.191109, %260 ], [ %.191109, %259 ]
+dissect_rf4ce_profile_zrc20_attrs.exit.thread:    ; preds = %.lr.ph.i99, %.lr.ph.i, %.loopexit.sink.split.i, %196, %179, %142, %173, %165, %._crit_edge.i, %76, %77, %dissect_rf4ce_profile_zrc20_attrs.exit
+  %.191103 = phi i8 [ %.090107, %76 ], [ %.191102, %77 ], [ %.191102, %dissect_rf4ce_profile_zrc20_attrs.exit ], [ %.191102, %._crit_edge.i ], [ %.191102, %165 ], [ %.191102, %173 ], [ %.191102, %142 ], [ %.191102, %179 ], [ %.191102, %196 ], [ %.191102, %.loopexit.sink.split.i ], [ %.191102, %.lr.ph.i ], [ %.191102, %.lr.ph.i99 ]
   %267 = load i32, ptr %2, align 4
-  %268 = icmp eq i32 %.089118, %267
+  %268 = icmp eq i32 %.089108, %267
   br i1 %268, label %269, label %279
 
-269:                                              ; preds = %266
-  %270 = call i32 @tvb_captured_length(ptr noundef %0) #7
+269:                                              ; preds = %dissect_rf4ce_profile_zrc20_attrs.exit.thread
+  %270 = call i32 @tvb_captured_length(ptr noundef %0)
   %271 = load i32, ptr %2, align 4
   %272 = sub i32 %270, %271
   %273 = trunc i32 %272 to i8
   %274 = load i32, ptr @hf_rf4ce_profile_attr_value, align 4
   %275 = and i32 %272, 255
-  %276 = call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %274, ptr noundef %0, i32 noundef %271, i32 noundef %275, i32 noundef 0) #7
+  %276 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %274, ptr noundef %0, i32 noundef %271, i32 noundef %275, i32 noundef 0)
   %277 = load i32, ptr %2, align 4
   %278 = add i32 %277, %275
   store i32 %278, ptr %2, align 4
   br label %279
 
-279:                                              ; preds = %269, %266
-  %.089 = phi i32 [ %278, %269 ], [ %267, %266 ]
-  %.2 = phi i8 [ %273, %269 ], [ %.191110, %266 ]
-  %280 = call i32 @tvb_captured_length(ptr noundef %0) #7
-  %281 = load i32, ptr %2, align 4
-  %.not = icmp eq i32 %280, %281
-  br i1 %.not, label %._crit_edge, label %23, !llvm.loop !9
+279:                                              ; preds = %269, %dissect_rf4ce_profile_zrc20_attrs.exit.thread
+  %280 = phi i32 [ %278, %269 ], [ %267, %dissect_rf4ce_profile_zrc20_attrs.exit.thread ]
+  %.2 = phi i8 [ %273, %269 ], [ %.191103, %dissect_rf4ce_profile_zrc20_attrs.exit.thread ]
+  call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %8) #7
+  %281 = call i32 @tvb_captured_length(ptr noundef %0)
+  %282 = load i32, ptr %2, align 4
+  %.not = icmp eq i32 %281, %282
+  br i1 %.not, label %._crit_edge, label %24, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %279, %5
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_rf4ce_profile_zrc20_action_data(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal fastcc void @dissect_rf4ce_profile_zrc20_action_data(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca [10 x i8], align 1
-  %6 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 10, ptr noundef nonnull @.str.349, i32 noundef 1) #7
+  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %5) #7
+  %6 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %5, i64 noundef 10, i32 noundef 2, i64 noundef 10, ptr noundef nonnull @.str.367, i32 noundef 1)
   %7 = load i32, ptr %2, align 4
-  %8 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %7) #7
+  %8 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %7)
   %9 = load i32, ptr @ett_rf4ce_profile_action_records_sub, align 4
-  %10 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef null, ptr noundef nonnull %5) #7
-  %.not = icmp eq i32 %3, 0
+  %10 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef null, ptr noundef nonnull %5)
   %.pre = load i32, ptr %2, align 4
-  br i1 %.not, label %17, label %11
+  br i1 %3, label %11, label %17
 
 11:                                               ; preds = %4
   %12 = load i32, ptr @hf_rf4ce_zrc20_cmd_actions_action_control, align 4
   %13 = load i32, ptr @ett_rf4ce_profile_zrc20_action_control, align 4
-  %14 = call ptr @proto_tree_add_bitmask(ptr noundef %10, ptr noundef %0, i32 noundef %.pre, i32 noundef %12, i32 noundef %13, ptr noundef nonnull @dissect_rf4ce_profile_zrc20_action_data.action_control_bits, i32 noundef -2147483648) #7
+  %14 = call ptr @proto_tree_add_bitmask(ptr noundef %10, ptr noundef %0, i32 noundef %.pre, i32 noundef %12, i32 noundef %13, ptr noundef nonnull @dissect_rf4ce_profile_zrc20_action_data.action_control_bits, i32 noundef -2147483648)
   %15 = load i32, ptr %2, align 4
   %16 = add i32 %15, 1
   store i32 %16, ptr %2, align 4
@@ -1505,109 +1529,120 @@ define internal fastcc void @dissect_rf4ce_profile_zrc20_action_data(ptr noundef
 17:                                               ; preds = %11, %4
   %18 = phi i32 [ %16, %11 ], [ %.pre, %4 ]
   %19 = load i32, ptr @hf_rf4ce_zrc20_cmd_actions_action_data_payload_length, align 4
-  %20 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %19, ptr noundef %0, i32 noundef %18, i32 noundef 1, i32 noundef -2147483648) #7
+  %20 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %19, ptr noundef %0, i32 noundef %18, i32 noundef 1, i32 noundef -2147483648)
   %21 = load i32, ptr %2, align 4
-  %22 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %21) #7
+  %22 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %21)
   %23 = load i32, ptr %2, align 4
   %24 = add i32 %23, 1
   store i32 %24, ptr %2, align 4
   %25 = load i32, ptr @hf_rf4ce_zrc20_cmd_actions_action_data_action_bank, align 4
-  %26 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %25, ptr noundef %0, i32 noundef %24, i32 noundef 1, i32 noundef -2147483648) #7
+  %26 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %25, ptr noundef %0, i32 noundef %24, i32 noundef 1, i32 noundef -2147483648)
   %27 = load i32, ptr %2, align 4
   %28 = add i32 %27, 1
   store i32 %28, ptr %2, align 4
   %29 = load i32, ptr @hf_rf4ce_zrc20_cmd_actions_action_data_action_code, align 4
-  %30 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %29, ptr noundef %0, i32 noundef %28, i32 noundef 1, i32 noundef -2147483648) #7
+  %30 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %29, ptr noundef %0, i32 noundef %28, i32 noundef 1, i32 noundef -2147483648)
   %31 = load i32, ptr %2, align 4
   %32 = add i32 %31, 1
   store i32 %32, ptr %2, align 4
-  %33 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %32) #7
+  %33 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %32)
   %34 = zext i8 %22 to i32
-  %.not44 = icmp eq i8 %22, 0
+  %.not = icmp eq i8 %22, 0
   %35 = sub i32 %33, %34
   %36 = icmp eq i32 %35, 3
   %37 = icmp eq i32 %33, 2
-  %or.cond47 = select i1 %.not44, i1 %37, i1 %36
-  br i1 %or.cond47, label %38, label %44
+  %or.cond46 = select i1 %.not, i1 %37, i1 %36
+  br i1 %or.cond46, label %38, label %44
 
 38:                                               ; preds = %17
   %39 = load i32, ptr @hf_rf4ce_zrc20_cmd_actions_action_data_action_vendor, align 4
   %40 = load i32, ptr %2, align 4
-  %41 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %39, ptr noundef %0, i32 noundef %40, i32 noundef 2, i32 noundef -2147483648) #7
+  %41 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %39, ptr noundef %0, i32 noundef %40, i32 noundef 2, i32 noundef -2147483648)
   %42 = load i32, ptr %2, align 4
   %43 = add i32 %42, 2
   store i32 %43, ptr %2, align 4
   br label %44
 
 44:                                               ; preds = %17, %38
-  br i1 %.not44, label %51, label %45
+  br i1 %.not, label %51, label %45
 
 45:                                               ; preds = %44
   %46 = load i32, ptr @hf_rf4ce_zrc20_cmd_actions_action_data_action_payload, align 4
   %47 = load i32, ptr %2, align 4
-  %48 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %46, ptr noundef %0, i32 noundef %47, i32 noundef %34, i32 noundef 0) #7
+  %48 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %46, ptr noundef %0, i32 noundef %47, i32 noundef %34, i32 noundef 0)
   %49 = load i32, ptr %2, align 4
   %50 = add i32 %49, %34
   store i32 %50, ptr %2, align 4
   br label %51
 
 51:                                               ; preds = %45, %44
+  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %5) #7
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_bitmask_len(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_memcpy(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
-declare i32 @key_exchange_context_is_procedure_started() local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @key_exchange_context_is_procedure_started() local_unnamed_addr #1
 
-declare i32 @rf4ce_addr_table_get_ieee_addr(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @rf4ce_addr_table_get_ieee_addr(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @key_exchange_context_init() local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @key_exchange_context_set_rand_a(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @key_exchange_context_set_mac_a(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @key_exchange_context_start_procedure() local_unnamed_addr #1
 
-declare i32 @tvb_get_guint32(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_uint32(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @key_exchange_context_set_rand_b(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @key_exchange_context_set_mac_b(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @key_exchange_calc_key(i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @key_exchange_context_stop_procedure() local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
-
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nounwind }
 attributes #8 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

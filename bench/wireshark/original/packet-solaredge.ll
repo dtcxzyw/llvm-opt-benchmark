@@ -5,12 +5,10 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
 %struct._value_string = type { i32, ptr }
 %struct.unit_name_string = type { ptr, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
-%struct.solaredge_conversion_data = type { i32, ptr, i16 }
+%struct.solaredge_conversion_data = type { i8, ptr, i16 }
 %struct.solaredge_packet_header = type { i16, i16, i16, i32, i32, i16 }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
@@ -38,7 +36,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_solaredge_command_type = internal global i32 0, align 4
 @.str.11 = private unnamed_addr constant [13 x i8] c"Command Type\00", align 1
 @.str.12 = private unnamed_addr constant [18 x i8] c"solaredge.command\00", align 1
-@solaredge_packet_commandtypes = internal constant [421 x %struct._value_string] [%struct._value_string { i32 16, ptr @.str.98 }, %struct._value_string { i32 17, ptr @.str.99 }, %struct._value_string { i32 18, ptr @.str.100 }, %struct._value_string { i32 19, ptr @.str.101 }, %struct._value_string { i32 20, ptr @.str.102 }, %struct._value_string { i32 21, ptr @.str.103 }, %struct._value_string { i32 22, ptr @.str.104 }, %struct._value_string { i32 23, ptr @.str.105 }, %struct._value_string { i32 24, ptr @.str.106 }, %struct._value_string { i32 25, ptr @.str.107 }, %struct._value_string { i32 26, ptr @.str.108 }, %struct._value_string { i32 27, ptr @.str.109 }, %struct._value_string { i32 28, ptr @.str.110 }, %struct._value_string { i32 29, ptr @.str.111 }, %struct._value_string { i32 30, ptr @.str.112 }, %struct._value_string { i32 31, ptr @.str.113 }, %struct._value_string { i32 32, ptr @.str.114 }, %struct._value_string { i32 33, ptr @.str.115 }, %struct._value_string { i32 34, ptr @.str.116 }, %struct._value_string { i32 35, ptr @.str.117 }, %struct._value_string { i32 36, ptr @.str.118 }, %struct._value_string { i32 48, ptr @.str.119 }, %struct._value_string { i32 49, ptr @.str.120 }, %struct._value_string { i32 50, ptr @.str.121 }, %struct._value_string { i32 51, ptr @.str.122 }, %struct._value_string { i32 52, ptr @.str.123 }, %struct._value_string { i32 53, ptr @.str.124 }, %struct._value_string { i32 54, ptr @.str.125 }, %struct._value_string { i32 55, ptr @.str.126 }, %struct._value_string { i32 56, ptr @.str.127 }, %struct._value_string { i32 57, ptr @.str.128 }, %struct._value_string { i32 61, ptr @.str.129 }, %struct._value_string { i32 64, ptr @.str.130 }, %struct._value_string { i32 65, ptr @.str.131 }, %struct._value_string { i32 66, ptr @.str.132 }, %struct._value_string { i32 67, ptr @.str.133 }, %struct._value_string { i32 68, ptr @.str.134 }, %struct._value_string { i32 128, ptr @.str.135 }, %struct._value_string { i32 129, ptr @.str.136 }, %struct._value_string { i32 144, ptr @.str.137 }, %struct._value_string { i32 145, ptr @.str.138 }, %struct._value_string { i32 146, ptr @.str.139 }, %struct._value_string { i32 147, ptr @.str.140 }, %struct._value_string { i32 148, ptr @.str.141 }, %struct._value_string { i32 149, ptr @.str.142 }, %struct._value_string { i32 160, ptr @.str.143 }, %struct._value_string { i32 161, ptr @.str.144 }, %struct._value_string { i32 176, ptr @.str.145 }, %struct._value_string { i32 177, ptr @.str.146 }, %struct._value_string { i32 178, ptr @.str.147 }, %struct._value_string { i32 179, ptr @.str.148 }, %struct._value_string { i32 180, ptr @.str.149 }, %struct._value_string { i32 256, ptr @.str.150 }, %struct._value_string { i32 257, ptr @.str.151 }, %struct._value_string { i32 258, ptr @.str.152 }, %struct._value_string { i32 259, ptr @.str.153 }, %struct._value_string { i32 260, ptr @.str.154 }, %struct._value_string { i32 261, ptr @.str.155 }, %struct._value_string { i32 262, ptr @.str.156 }, %struct._value_string { i32 263, ptr @.str.157 }, %struct._value_string { i32 264, ptr @.str.158 }, %struct._value_string { i32 265, ptr @.str.159 }, %struct._value_string { i32 266, ptr @.str.160 }, %struct._value_string { i32 267, ptr @.str.161 }, %struct._value_string { i32 268, ptr @.str.162 }, %struct._value_string { i32 269, ptr @.str.163 }, %struct._value_string { i32 270, ptr @.str.164 }, %struct._value_string { i32 271, ptr @.str.165 }, %struct._value_string { i32 272, ptr @.str.166 }, %struct._value_string { i32 273, ptr @.str.167 }, %struct._value_string { i32 274, ptr @.str.168 }, %struct._value_string { i32 275, ptr @.str.169 }, %struct._value_string { i32 276, ptr @.str.170 }, %struct._value_string { i32 277, ptr @.str.171 }, %struct._value_string { i32 278, ptr @.str.172 }, %struct._value_string { i32 279, ptr @.str.173 }, %struct._value_string { i32 280, ptr @.str.174 }, %struct._value_string { i32 281, ptr @.str.175 }, %struct._value_string { i32 282, ptr @.str.176 }, %struct._value_string { i32 283, ptr @.str.177 }, %struct._value_string { i32 284, ptr @.str.178 }, %struct._value_string { i32 285, ptr @.str.179 }, %struct._value_string { i32 286, ptr @.str.180 }, %struct._value_string { i32 287, ptr @.str.181 }, %struct._value_string { i32 288, ptr @.str.182 }, %struct._value_string { i32 289, ptr @.str.183 }, %struct._value_string { i32 290, ptr @.str.184 }, %struct._value_string { i32 291, ptr @.str.185 }, %struct._value_string { i32 292, ptr @.str.186 }, %struct._value_string { i32 293, ptr @.str.187 }, %struct._value_string { i32 294, ptr @.str.188 }, %struct._value_string { i32 295, ptr @.str.189 }, %struct._value_string { i32 296, ptr @.str.190 }, %struct._value_string { i32 297, ptr @.str.191 }, %struct._value_string { i32 298, ptr @.str.192 }, %struct._value_string { i32 299, ptr @.str.193 }, %struct._value_string { i32 384, ptr @.str.194 }, %struct._value_string { i32 385, ptr @.str.195 }, %struct._value_string { i32 386, ptr @.str.196 }, %struct._value_string { i32 387, ptr @.str.197 }, %struct._value_string { i32 388, ptr @.str.198 }, %struct._value_string { i32 389, ptr @.str.199 }, %struct._value_string { i32 390, ptr @.str.200 }, %struct._value_string { i32 391, ptr @.str.201 }, %struct._value_string { i32 392, ptr @.str.202 }, %struct._value_string { i32 512, ptr @.str.203 }, %struct._value_string { i32 513, ptr @.str.204 }, %struct._value_string { i32 514, ptr @.str.205 }, %struct._value_string { i32 515, ptr @.str.206 }, %struct._value_string { i32 516, ptr @.str.207 }, %struct._value_string { i32 517, ptr @.str.208 }, %struct._value_string { i32 518, ptr @.str.209 }, %struct._value_string { i32 519, ptr @.str.210 }, %struct._value_string { i32 520, ptr @.str.211 }, %struct._value_string { i32 521, ptr @.str.212 }, %struct._value_string { i32 522, ptr @.str.213 }, %struct._value_string { i32 523, ptr @.str.214 }, %struct._value_string { i32 524, ptr @.str.215 }, %struct._value_string { i32 525, ptr @.str.216 }, %struct._value_string { i32 526, ptr @.str.217 }, %struct._value_string { i32 527, ptr @.str.218 }, %struct._value_string { i32 528, ptr @.str.219 }, %struct._value_string { i32 529, ptr @.str.220 }, %struct._value_string { i32 530, ptr @.str.221 }, %struct._value_string { i32 531, ptr @.str.222 }, %struct._value_string { i32 532, ptr @.str.223 }, %struct._value_string { i32 533, ptr @.str.224 }, %struct._value_string { i32 534, ptr @.str.225 }, %struct._value_string { i32 535, ptr @.str.226 }, %struct._value_string { i32 536, ptr @.str.227 }, %struct._value_string { i32 537, ptr @.str.228 }, %struct._value_string { i32 538, ptr @.str.229 }, %struct._value_string { i32 539, ptr @.str.230 }, %struct._value_string { i32 540, ptr @.str.231 }, %struct._value_string { i32 541, ptr @.str.232 }, %struct._value_string { i32 542, ptr @.str.233 }, %struct._value_string { i32 543, ptr @.str.234 }, %struct._value_string { i32 544, ptr @.str.235 }, %struct._value_string { i32 545, ptr @.str.236 }, %struct._value_string { i32 546, ptr @.str.237 }, %struct._value_string { i32 547, ptr @.str.238 }, %struct._value_string { i32 548, ptr @.str.239 }, %struct._value_string { i32 549, ptr @.str.240 }, %struct._value_string { i32 640, ptr @.str.241 }, %struct._value_string { i32 641, ptr @.str.242 }, %struct._value_string { i32 642, ptr @.str.243 }, %struct._value_string { i32 643, ptr @.str.244 }, %struct._value_string { i32 644, ptr @.str.245 }, %struct._value_string { i32 645, ptr @.str.246 }, %struct._value_string { i32 646, ptr @.str.247 }, %struct._value_string { i32 647, ptr @.str.248 }, %struct._value_string { i32 648, ptr @.str.249 }, %struct._value_string { i32 649, ptr @.str.250 }, %struct._value_string { i32 650, ptr @.str.251 }, %struct._value_string { i32 651, ptr @.str.252 }, %struct._value_string { i32 652, ptr @.str.253 }, %struct._value_string { i32 653, ptr @.str.254 }, %struct._value_string { i32 768, ptr @.str.255 }, %struct._value_string { i32 769, ptr @.str.256 }, %struct._value_string { i32 770, ptr @.str.257 }, %struct._value_string { i32 771, ptr @.str.258 }, %struct._value_string { i32 772, ptr @.str.259 }, %struct._value_string { i32 773, ptr @.str.260 }, %struct._value_string { i32 774, ptr @.str.261 }, %struct._value_string { i32 775, ptr @.str.262 }, %struct._value_string { i32 776, ptr @.str.263 }, %struct._value_string { i32 777, ptr @.str.264 }, %struct._value_string { i32 778, ptr @.str.265 }, %struct._value_string { i32 779, ptr @.str.266 }, %struct._value_string { i32 780, ptr @.str.267 }, %struct._value_string { i32 781, ptr @.str.268 }, %struct._value_string { i32 782, ptr @.str.269 }, %struct._value_string { i32 783, ptr @.str.270 }, %struct._value_string { i32 784, ptr @.str.271 }, %struct._value_string { i32 785, ptr @.str.272 }, %struct._value_string { i32 786, ptr @.str.273 }, %struct._value_string { i32 787, ptr @.str.274 }, %struct._value_string { i32 788, ptr @.str.275 }, %struct._value_string { i32 789, ptr @.str.276 }, %struct._value_string { i32 790, ptr @.str.277 }, %struct._value_string { i32 791, ptr @.str.278 }, %struct._value_string { i32 792, ptr @.str.279 }, %struct._value_string { i32 793, ptr @.str.280 }, %struct._value_string { i32 794, ptr @.str.281 }, %struct._value_string { i32 795, ptr @.str.282 }, %struct._value_string { i32 796, ptr @.str.283 }, %struct._value_string { i32 797, ptr @.str.284 }, %struct._value_string { i32 798, ptr @.str.285 }, %struct._value_string { i32 799, ptr @.str.286 }, %struct._value_string { i32 800, ptr @.str.287 }, %struct._value_string { i32 801, ptr @.str.288 }, %struct._value_string { i32 802, ptr @.str.289 }, %struct._value_string { i32 803, ptr @.str.290 }, %struct._value_string { i32 804, ptr @.str.291 }, %struct._value_string { i32 805, ptr @.str.292 }, %struct._value_string { i32 806, ptr @.str.293 }, %struct._value_string { i32 807, ptr @.str.294 }, %struct._value_string { i32 808, ptr @.str.295 }, %struct._value_string { i32 809, ptr @.str.296 }, %struct._value_string { i32 810, ptr @.str.297 }, %struct._value_string { i32 811, ptr @.str.298 }, %struct._value_string { i32 812, ptr @.str.299 }, %struct._value_string { i32 813, ptr @.str.300 }, %struct._value_string { i32 814, ptr @.str.301 }, %struct._value_string { i32 815, ptr @.str.302 }, %struct._value_string { i32 816, ptr @.str.303 }, %struct._value_string { i32 817, ptr @.str.304 }, %struct._value_string { i32 818, ptr @.str.305 }, %struct._value_string { i32 819, ptr @.str.306 }, %struct._value_string { i32 820, ptr @.str.307 }, %struct._value_string { i32 821, ptr @.str.308 }, %struct._value_string { i32 822, ptr @.str.309 }, %struct._value_string { i32 823, ptr @.str.310 }, %struct._value_string { i32 824, ptr @.str.311 }, %struct._value_string { i32 825, ptr @.str.312 }, %struct._value_string { i32 826, ptr @.str.313 }, %struct._value_string { i32 827, ptr @.str.314 }, %struct._value_string { i32 828, ptr @.str.315 }, %struct._value_string { i32 829, ptr @.str.316 }, %struct._value_string { i32 830, ptr @.str.317 }, %struct._value_string { i32 831, ptr @.str.318 }, %struct._value_string { i32 832, ptr @.str.319 }, %struct._value_string { i32 833, ptr @.str.320 }, %struct._value_string { i32 834, ptr @.str.321 }, %struct._value_string { i32 835, ptr @.str.322 }, %struct._value_string { i32 836, ptr @.str.323 }, %struct._value_string { i32 837, ptr @.str.324 }, %struct._value_string { i32 838, ptr @.str.325 }, %struct._value_string { i32 839, ptr @.str.326 }, %struct._value_string { i32 840, ptr @.str.327 }, %struct._value_string { i32 841, ptr @.str.328 }, %struct._value_string { i32 842, ptr @.str.329 }, %struct._value_string { i32 843, ptr @.str.330 }, %struct._value_string { i32 844, ptr @.str.331 }, %struct._value_string { i32 845, ptr @.str.332 }, %struct._value_string { i32 846, ptr @.str.333 }, %struct._value_string { i32 896, ptr @.str.334 }, %struct._value_string { i32 897, ptr @.str.335 }, %struct._value_string { i32 898, ptr @.str.336 }, %struct._value_string { i32 899, ptr @.str.337 }, %struct._value_string { i32 900, ptr @.str.338 }, %struct._value_string { i32 901, ptr @.str.339 }, %struct._value_string { i32 902, ptr @.str.340 }, %struct._value_string { i32 903, ptr @.str.341 }, %struct._value_string { i32 904, ptr @.str.342 }, %struct._value_string { i32 905, ptr @.str.343 }, %struct._value_string { i32 906, ptr @.str.344 }, %struct._value_string { i32 907, ptr @.str.345 }, %struct._value_string { i32 908, ptr @.str.346 }, %struct._value_string { i32 909, ptr @.str.347 }, %struct._value_string { i32 910, ptr @.str.348 }, %struct._value_string { i32 911, ptr @.str.349 }, %struct._value_string { i32 912, ptr @.str.350 }, %struct._value_string { i32 913, ptr @.str.351 }, %struct._value_string { i32 914, ptr @.str.352 }, %struct._value_string { i32 915, ptr @.str.353 }, %struct._value_string { i32 916, ptr @.str.354 }, %struct._value_string { i32 917, ptr @.str.355 }, %struct._value_string { i32 918, ptr @.str.356 }, %struct._value_string { i32 919, ptr @.str.357 }, %struct._value_string { i32 920, ptr @.str.358 }, %struct._value_string { i32 921, ptr @.str.359 }, %struct._value_string { i32 922, ptr @.str.360 }, %struct._value_string { i32 923, ptr @.str.361 }, %struct._value_string { i32 924, ptr @.str.362 }, %struct._value_string { i32 925, ptr @.str.363 }, %struct._value_string { i32 926, ptr @.str.364 }, %struct._value_string { i32 927, ptr @.str.365 }, %struct._value_string { i32 928, ptr @.str.366 }, %struct._value_string { i32 929, ptr @.str.367 }, %struct._value_string { i32 1024, ptr @.str.368 }, %struct._value_string { i32 1025, ptr @.str.369 }, %struct._value_string { i32 1026, ptr @.str.370 }, %struct._value_string { i32 1027, ptr @.str.371 }, %struct._value_string { i32 1028, ptr @.str.372 }, %struct._value_string { i32 1152, ptr @.str.373 }, %struct._value_string { i32 1153, ptr @.str.374 }, %struct._value_string { i32 1280, ptr @.str.375 }, %struct._value_string { i32 1281, ptr @.str.376 }, %struct._value_string { i32 1282, ptr @.str.377 }, %struct._value_string { i32 1283, ptr @.str.378 }, %struct._value_string { i32 1408, ptr @.str.379 }, %struct._value_string { i32 1409, ptr @.str.380 }, %struct._value_string { i32 1664, ptr @.str.381 }, %struct._value_string { i32 2048, ptr @.str.382 }, %struct._value_string { i32 2049, ptr @.str.383 }, %struct._value_string { i32 2050, ptr @.str.384 }, %struct._value_string { i32 2051, ptr @.str.385 }, %struct._value_string { i32 2052, ptr @.str.386 }, %struct._value_string { i32 2053, ptr @.str.387 }, %struct._value_string { i32 2054, ptr @.str.388 }, %struct._value_string { i32 2055, ptr @.str.389 }, %struct._value_string { i32 2056, ptr @.str.390 }, %struct._value_string { i32 2057, ptr @.str.391 }, %struct._value_string { i32 2058, ptr @.str.392 }, %struct._value_string { i32 2059, ptr @.str.393 }, %struct._value_string { i32 2060, ptr @.str.394 }, %struct._value_string { i32 2061, ptr @.str.395 }, %struct._value_string { i32 2062, ptr @.str.396 }, %struct._value_string { i32 2063, ptr @.str.397 }, %struct._value_string { i32 2064, ptr @.str.398 }, %struct._value_string { i32 2065, ptr @.str.399 }, %struct._value_string { i32 2066, ptr @.str.400 }, %struct._value_string { i32 2067, ptr @.str.401 }, %struct._value_string { i32 2176, ptr @.str.402 }, %struct._value_string { i32 2177, ptr @.str.403 }, %struct._value_string { i32 2178, ptr @.str.404 }, %struct._value_string { i32 2179, ptr @.str.405 }, %struct._value_string { i32 2180, ptr @.str.406 }, %struct._value_string { i32 2181, ptr @.str.407 }, %struct._value_string { i32 2182, ptr @.str.408 }, %struct._value_string { i32 2183, ptr @.str.409 }, %struct._value_string { i32 2184, ptr @.str.410 }, %struct._value_string { i32 2185, ptr @.str.411 }, %struct._value_string { i32 2186, ptr @.str.412 }, %struct._value_string { i32 2187, ptr @.str.413 }, %struct._value_string { i32 2188, ptr @.str.414 }, %struct._value_string { i32 2189, ptr @.str.415 }, %struct._value_string { i32 2190, ptr @.str.416 }, %struct._value_string { i32 2304, ptr @.str.417 }, %struct._value_string { i32 2305, ptr @.str.418 }, %struct._value_string { i32 2306, ptr @.str.419 }, %struct._value_string { i32 2307, ptr @.str.420 }, %struct._value_string { i32 2308, ptr @.str.421 }, %struct._value_string { i32 2309, ptr @.str.422 }, %struct._value_string { i32 2310, ptr @.str.423 }, %struct._value_string { i32 2311, ptr @.str.424 }, %struct._value_string { i32 2312, ptr @.str.425 }, %struct._value_string { i32 2313, ptr @.str.426 }, %struct._value_string { i32 2314, ptr @.str.427 }, %struct._value_string { i32 2315, ptr @.str.428 }, %struct._value_string { i32 2316, ptr @.str.429 }, %struct._value_string { i32 2317, ptr @.str.430 }, %struct._value_string { i32 2318, ptr @.str.431 }, %struct._value_string { i32 2319, ptr @.str.432 }, %struct._value_string { i32 2320, ptr @.str.433 }, %struct._value_string { i32 2321, ptr @.str.434 }, %struct._value_string { i32 2322, ptr @.str.435 }, %struct._value_string { i32 2432, ptr @.str.436 }, %struct._value_string { i32 2433, ptr @.str.437 }, %struct._value_string { i32 2560, ptr @.str.438 }, %struct._value_string { i32 2561, ptr @.str.439 }, %struct._value_string { i32 2562, ptr @.str.440 }, %struct._value_string { i32 2563, ptr @.str.441 }, %struct._value_string { i32 2564, ptr @.str.442 }, %struct._value_string { i32 2565, ptr @.str.443 }, %struct._value_string { i32 2566, ptr @.str.444 }, %struct._value_string { i32 2567, ptr @.str.445 }, %struct._value_string { i32 2568, ptr @.str.446 }, %struct._value_string { i32 2688, ptr @.str.447 }, %struct._value_string { i32 2689, ptr @.str.448 }, %struct._value_string { i32 2690, ptr @.str.449 }, %struct._value_string { i32 2691, ptr @.str.450 }, %struct._value_string { i32 2816, ptr @.str.451 }, %struct._value_string { i32 2817, ptr @.str.452 }, %struct._value_string { i32 2818, ptr @.str.453 }, %struct._value_string { i32 2819, ptr @.str.454 }, %struct._value_string { i32 2820, ptr @.str.455 }, %struct._value_string { i32 2821, ptr @.str.456 }, %struct._value_string { i32 2822, ptr @.str.457 }, %struct._value_string { i32 2823, ptr @.str.458 }, %struct._value_string { i32 2824, ptr @.str.459 }, %struct._value_string { i32 2825, ptr @.str.460 }, %struct._value_string { i32 2826, ptr @.str.461 }, %struct._value_string { i32 2827, ptr @.str.462 }, %struct._value_string { i32 2828, ptr @.str.463 }, %struct._value_string { i32 2829, ptr @.str.464 }, %struct._value_string { i32 2830, ptr @.str.465 }, %struct._value_string { i32 2831, ptr @.str.466 }, %struct._value_string { i32 2832, ptr @.str.467 }, %struct._value_string { i32 2833, ptr @.str.468 }, %struct._value_string { i32 2834, ptr @.str.469 }, %struct._value_string { i32 2835, ptr @.str.470 }, %struct._value_string { i32 2836, ptr @.str.471 }, %struct._value_string { i32 2837, ptr @.str.472 }, %struct._value_string { i32 2838, ptr @.str.473 }, %struct._value_string { i32 2839, ptr @.str.474 }, %struct._value_string { i32 2840, ptr @.str.475 }, %struct._value_string { i32 2841, ptr @.str.476 }, %struct._value_string { i32 2842, ptr @.str.477 }, %struct._value_string { i32 2843, ptr @.str.478 }, %struct._value_string { i32 2844, ptr @.str.479 }, %struct._value_string { i32 2845, ptr @.str.480 }, %struct._value_string { i32 2944, ptr @.str.481 }, %struct._value_string { i32 2945, ptr @.str.482 }, %struct._value_string { i32 2946, ptr @.str.483 }, %struct._value_string { i32 2947, ptr @.str.484 }, %struct._value_string { i32 2948, ptr @.str.485 }, %struct._value_string { i32 2949, ptr @.str.486 }, %struct._value_string { i32 2950, ptr @.str.487 }, %struct._value_string { i32 3072, ptr @.str.488 }, %struct._value_string { i32 3073, ptr @.str.489 }, %struct._value_string { i32 3074, ptr @.str.490 }, %struct._value_string { i32 3075, ptr @.str.491 }, %struct._value_string { i32 3076, ptr @.str.492 }, %struct._value_string { i32 3077, ptr @.str.493 }, %struct._value_string { i32 3078, ptr @.str.494 }, %struct._value_string { i32 3079, ptr @.str.495 }, %struct._value_string { i32 3200, ptr @.str.496 }, %struct._value_string { i32 3201, ptr @.str.497 }, %struct._value_string { i32 3202, ptr @.str.498 }, %struct._value_string { i32 3203, ptr @.str.499 }, %struct._value_string { i32 3204, ptr @.str.500 }, %struct._value_string { i32 3205, ptr @.str.501 }, %struct._value_string { i32 5120, ptr @.str.502 }, %struct._value_string { i32 5121, ptr @.str.503 }, %struct._value_string { i32 5376, ptr @.str.504 }, %struct._value_string { i32 5377, ptr @.str.505 }, %struct._value_string { i32 5378, ptr @.str.506 }, %struct._value_string { i32 5379, ptr @.str.507 }, %struct._value_string { i32 5380, ptr @.str.508 }, %struct._value_string { i32 5381, ptr @.str.509 }, %struct._value_string { i32 5382, ptr @.str.510 }, %struct._value_string { i32 5632, ptr @.str.511 }, %struct._value_string { i32 5633, ptr @.str.512 }, %struct._value_string { i32 5634, ptr @.str.513 }, %struct._value_string { i32 5635, ptr @.str.514 }, %struct._value_string { i32 5760, ptr @.str.515 }, %struct._value_string { i32 5888, ptr @.str.516 }, %struct._value_string { i32 5889, ptr @.str.517 }, %struct._value_string zeroinitializer], align 16
 @hf_solaredge_crc_type = internal global i32 0, align 4
 @.str.13 = private unnamed_addr constant [4 x i8] c"CRC\00", align 1
 @.str.14 = private unnamed_addr constant [14 x i8] c"solaredge.crc\00", align 1
@@ -61,7 +58,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_solaredge_post_device_type_type = internal global i32 0, align 4
 @.str.25 = private unnamed_addr constant [12 x i8] c"Device Type\00", align 1
 @.str.26 = private unnamed_addr constant [27 x i8] c"solaredge.post.device.type\00", align 1
-@solaredge_data_devicetypes = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.518 }, %struct._value_string { i32 16, ptr @.str.519 }, %struct._value_string { i32 17, ptr @.str.520 }, %struct._value_string { i32 128, ptr @.str.518 }, %struct._value_string { i32 768, ptr @.str.521 }, %struct._value_string zeroinitializer], align 16
 @hf_solaredge_post_device_id_type = internal global i32 0, align 4
 @.str.27 = private unnamed_addr constant [10 x i8] c"Device ID\00", align 1
 @.str.28 = private unnamed_addr constant [25 x i8] c"solaredge.post.device.id\00", align 1
@@ -158,7 +154,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_solaredge_post_event_event_end_timestamp_type = internal global i32 0, align 4
 @.str.83 = private unnamed_addr constant [11 x i8] c"Event stop\00", align 1
 @.str.84 = private unnamed_addr constant [33 x i8] c"solaredge.post.device.event.stop\00", align 1
-@proto_register_solaredge.ei = internal global [2 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_solaredge_invalid_length, %struct.expert_field_info { ptr @.str.85, i32 117440512, i32 6291456, ptr @.str.86, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_solaredge_invalid_crc, %struct.expert_field_info { ptr @.str.87, i32 16777216, i32 6291456, ptr @.str.88, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_solaredge.ei = internal global [2 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_solaredge_invalid_length, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.85, i32 117440512, i32 6291456, ptr @.str.86, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_solaredge_invalid_crc, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.87, i32 16777216, i32 6291456, ptr @.str.88, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_solaredge_invalid_length = internal global %struct.expert_field zeroinitializer, align 4
 @.str.85 = private unnamed_addr constant [25 x i8] c"solaredge.invalid_length\00", align 1
 @.str.86 = private unnamed_addr constant [47 x i8] c"Inverse length field not matching length field\00", align 1
@@ -177,7 +173,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.92 = private unnamed_addr constant [8 x i8] c"unknown\00", align 1
 @.str.93 = private unnamed_addr constant [20 x i8] c"Show unknown fields\00", align 1
 @.str.94 = private unnamed_addr constant [59 x i8] c"Show unidentified fields (\22padding\22) in packet dissections\00", align 1
-@global_show_unknown_fields = internal global i32 1, align 4
+@global_show_unknown_fields = internal global i8 1, align 1
 @.str.95 = private unnamed_addr constant [22 x i8] c"system_encryption_key\00", align 1
 @.str.96 = private unnamed_addr constant [22 x i8] c"System encryption key\00", align 1
 @.str.97 = private unnamed_addr constant [31 x i8] c"Inverter system encryption key\00", align 1
@@ -602,37 +598,42 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.515 = private unnamed_addr constant [15 x i8] c"FANCONTROL_RES\00", align 1
 @.str.516 = private unnamed_addr constant [24 x i8] c"DISPLAY_BOARD_LCD_WRITE\00", align 1
 @.str.517 = private unnamed_addr constant [22 x i8] c"DISPLAY_BOARD_LED_SET\00", align 1
-@.str.518 = private unnamed_addr constant [10 x i8] c"Optimizer\00", align 1
-@.str.519 = private unnamed_addr constant [22 x i8] c"Single phase inverter\00", align 1
-@.str.520 = private unnamed_addr constant [21 x i8] c"Three phase inverter\00", align 1
-@.str.521 = private unnamed_addr constant [17 x i8] c"Wake/sleep event\00", align 1
-@.str.522 = private unnamed_addr constant [57 x i8] c"Invalid length: inverse length %d not matching length %d\00", align 1
-@.str.523 = private unnamed_addr constant [16 x i8] c"Unknown command\00", align 1
-@.str.524 = private unnamed_addr constant [17 x i8] c"Decrypted Packet\00", align 1
+@solaredge_packet_commandtypes = internal constant [421 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.98 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.99 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.100 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.101 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.102 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.103 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.104 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.105 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.106 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.107 }, { i32, [4 x i8], ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.108 }, { i32, [4 x i8], ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.109 }, { i32, [4 x i8], ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.110 }, { i32, [4 x i8], ptr } { i32 29, [4 x i8] zeroinitializer, ptr @.str.111 }, { i32, [4 x i8], ptr } { i32 30, [4 x i8] zeroinitializer, ptr @.str.112 }, { i32, [4 x i8], ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.113 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.114 }, { i32, [4 x i8], ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.115 }, { i32, [4 x i8], ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.116 }, { i32, [4 x i8], ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.117 }, { i32, [4 x i8], ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.118 }, { i32, [4 x i8], ptr } { i32 48, [4 x i8] zeroinitializer, ptr @.str.119 }, { i32, [4 x i8], ptr } { i32 49, [4 x i8] zeroinitializer, ptr @.str.120 }, { i32, [4 x i8], ptr } { i32 50, [4 x i8] zeroinitializer, ptr @.str.121 }, { i32, [4 x i8], ptr } { i32 51, [4 x i8] zeroinitializer, ptr @.str.122 }, { i32, [4 x i8], ptr } { i32 52, [4 x i8] zeroinitializer, ptr @.str.123 }, { i32, [4 x i8], ptr } { i32 53, [4 x i8] zeroinitializer, ptr @.str.124 }, { i32, [4 x i8], ptr } { i32 54, [4 x i8] zeroinitializer, ptr @.str.125 }, { i32, [4 x i8], ptr } { i32 55, [4 x i8] zeroinitializer, ptr @.str.126 }, { i32, [4 x i8], ptr } { i32 56, [4 x i8] zeroinitializer, ptr @.str.127 }, { i32, [4 x i8], ptr } { i32 57, [4 x i8] zeroinitializer, ptr @.str.128 }, { i32, [4 x i8], ptr } { i32 61, [4 x i8] zeroinitializer, ptr @.str.129 }, { i32, [4 x i8], ptr } { i32 64, [4 x i8] zeroinitializer, ptr @.str.130 }, { i32, [4 x i8], ptr } { i32 65, [4 x i8] zeroinitializer, ptr @.str.131 }, { i32, [4 x i8], ptr } { i32 66, [4 x i8] zeroinitializer, ptr @.str.132 }, { i32, [4 x i8], ptr } { i32 67, [4 x i8] zeroinitializer, ptr @.str.133 }, { i32, [4 x i8], ptr } { i32 68, [4 x i8] zeroinitializer, ptr @.str.134 }, { i32, [4 x i8], ptr } { i32 128, [4 x i8] zeroinitializer, ptr @.str.135 }, { i32, [4 x i8], ptr } { i32 129, [4 x i8] zeroinitializer, ptr @.str.136 }, { i32, [4 x i8], ptr } { i32 144, [4 x i8] zeroinitializer, ptr @.str.137 }, { i32, [4 x i8], ptr } { i32 145, [4 x i8] zeroinitializer, ptr @.str.138 }, { i32, [4 x i8], ptr } { i32 146, [4 x i8] zeroinitializer, ptr @.str.139 }, { i32, [4 x i8], ptr } { i32 147, [4 x i8] zeroinitializer, ptr @.str.140 }, { i32, [4 x i8], ptr } { i32 148, [4 x i8] zeroinitializer, ptr @.str.141 }, { i32, [4 x i8], ptr } { i32 149, [4 x i8] zeroinitializer, ptr @.str.142 }, { i32, [4 x i8], ptr } { i32 160, [4 x i8] zeroinitializer, ptr @.str.143 }, { i32, [4 x i8], ptr } { i32 161, [4 x i8] zeroinitializer, ptr @.str.144 }, { i32, [4 x i8], ptr } { i32 176, [4 x i8] zeroinitializer, ptr @.str.145 }, { i32, [4 x i8], ptr } { i32 177, [4 x i8] zeroinitializer, ptr @.str.146 }, { i32, [4 x i8], ptr } { i32 178, [4 x i8] zeroinitializer, ptr @.str.147 }, { i32, [4 x i8], ptr } { i32 179, [4 x i8] zeroinitializer, ptr @.str.148 }, { i32, [4 x i8], ptr } { i32 180, [4 x i8] zeroinitializer, ptr @.str.149 }, { i32, [4 x i8], ptr } { i32 256, [4 x i8] zeroinitializer, ptr @.str.150 }, { i32, [4 x i8], ptr } { i32 257, [4 x i8] zeroinitializer, ptr @.str.151 }, { i32, [4 x i8], ptr } { i32 258, [4 x i8] zeroinitializer, ptr @.str.152 }, { i32, [4 x i8], ptr } { i32 259, [4 x i8] zeroinitializer, ptr @.str.153 }, { i32, [4 x i8], ptr } { i32 260, [4 x i8] zeroinitializer, ptr @.str.154 }, { i32, [4 x i8], ptr } { i32 261, [4 x i8] zeroinitializer, ptr @.str.155 }, { i32, [4 x i8], ptr } { i32 262, [4 x i8] zeroinitializer, ptr @.str.156 }, { i32, [4 x i8], ptr } { i32 263, [4 x i8] zeroinitializer, ptr @.str.157 }, { i32, [4 x i8], ptr } { i32 264, [4 x i8] zeroinitializer, ptr @.str.158 }, { i32, [4 x i8], ptr } { i32 265, [4 x i8] zeroinitializer, ptr @.str.159 }, { i32, [4 x i8], ptr } { i32 266, [4 x i8] zeroinitializer, ptr @.str.160 }, { i32, [4 x i8], ptr } { i32 267, [4 x i8] zeroinitializer, ptr @.str.161 }, { i32, [4 x i8], ptr } { i32 268, [4 x i8] zeroinitializer, ptr @.str.162 }, { i32, [4 x i8], ptr } { i32 269, [4 x i8] zeroinitializer, ptr @.str.163 }, { i32, [4 x i8], ptr } { i32 270, [4 x i8] zeroinitializer, ptr @.str.164 }, { i32, [4 x i8], ptr } { i32 271, [4 x i8] zeroinitializer, ptr @.str.165 }, { i32, [4 x i8], ptr } { i32 272, [4 x i8] zeroinitializer, ptr @.str.166 }, { i32, [4 x i8], ptr } { i32 273, [4 x i8] zeroinitializer, ptr @.str.167 }, { i32, [4 x i8], ptr } { i32 274, [4 x i8] zeroinitializer, ptr @.str.168 }, { i32, [4 x i8], ptr } { i32 275, [4 x i8] zeroinitializer, ptr @.str.169 }, { i32, [4 x i8], ptr } { i32 276, [4 x i8] zeroinitializer, ptr @.str.170 }, { i32, [4 x i8], ptr } { i32 277, [4 x i8] zeroinitializer, ptr @.str.171 }, { i32, [4 x i8], ptr } { i32 278, [4 x i8] zeroinitializer, ptr @.str.172 }, { i32, [4 x i8], ptr } { i32 279, [4 x i8] zeroinitializer, ptr @.str.173 }, { i32, [4 x i8], ptr } { i32 280, [4 x i8] zeroinitializer, ptr @.str.174 }, { i32, [4 x i8], ptr } { i32 281, [4 x i8] zeroinitializer, ptr @.str.175 }, { i32, [4 x i8], ptr } { i32 282, [4 x i8] zeroinitializer, ptr @.str.176 }, { i32, [4 x i8], ptr } { i32 283, [4 x i8] zeroinitializer, ptr @.str.177 }, { i32, [4 x i8], ptr } { i32 284, [4 x i8] zeroinitializer, ptr @.str.178 }, { i32, [4 x i8], ptr } { i32 285, [4 x i8] zeroinitializer, ptr @.str.179 }, { i32, [4 x i8], ptr } { i32 286, [4 x i8] zeroinitializer, ptr @.str.180 }, { i32, [4 x i8], ptr } { i32 287, [4 x i8] zeroinitializer, ptr @.str.181 }, { i32, [4 x i8], ptr } { i32 288, [4 x i8] zeroinitializer, ptr @.str.182 }, { i32, [4 x i8], ptr } { i32 289, [4 x i8] zeroinitializer, ptr @.str.183 }, { i32, [4 x i8], ptr } { i32 290, [4 x i8] zeroinitializer, ptr @.str.184 }, { i32, [4 x i8], ptr } { i32 291, [4 x i8] zeroinitializer, ptr @.str.185 }, { i32, [4 x i8], ptr } { i32 292, [4 x i8] zeroinitializer, ptr @.str.186 }, { i32, [4 x i8], ptr } { i32 293, [4 x i8] zeroinitializer, ptr @.str.187 }, { i32, [4 x i8], ptr } { i32 294, [4 x i8] zeroinitializer, ptr @.str.188 }, { i32, [4 x i8], ptr } { i32 295, [4 x i8] zeroinitializer, ptr @.str.189 }, { i32, [4 x i8], ptr } { i32 296, [4 x i8] zeroinitializer, ptr @.str.190 }, { i32, [4 x i8], ptr } { i32 297, [4 x i8] zeroinitializer, ptr @.str.191 }, { i32, [4 x i8], ptr } { i32 298, [4 x i8] zeroinitializer, ptr @.str.192 }, { i32, [4 x i8], ptr } { i32 299, [4 x i8] zeroinitializer, ptr @.str.193 }, { i32, [4 x i8], ptr } { i32 384, [4 x i8] zeroinitializer, ptr @.str.194 }, { i32, [4 x i8], ptr } { i32 385, [4 x i8] zeroinitializer, ptr @.str.195 }, { i32, [4 x i8], ptr } { i32 386, [4 x i8] zeroinitializer, ptr @.str.196 }, { i32, [4 x i8], ptr } { i32 387, [4 x i8] zeroinitializer, ptr @.str.197 }, { i32, [4 x i8], ptr } { i32 388, [4 x i8] zeroinitializer, ptr @.str.198 }, { i32, [4 x i8], ptr } { i32 389, [4 x i8] zeroinitializer, ptr @.str.199 }, { i32, [4 x i8], ptr } { i32 390, [4 x i8] zeroinitializer, ptr @.str.200 }, { i32, [4 x i8], ptr } { i32 391, [4 x i8] zeroinitializer, ptr @.str.201 }, { i32, [4 x i8], ptr } { i32 392, [4 x i8] zeroinitializer, ptr @.str.202 }, { i32, [4 x i8], ptr } { i32 512, [4 x i8] zeroinitializer, ptr @.str.203 }, { i32, [4 x i8], ptr } { i32 513, [4 x i8] zeroinitializer, ptr @.str.204 }, { i32, [4 x i8], ptr } { i32 514, [4 x i8] zeroinitializer, ptr @.str.205 }, { i32, [4 x i8], ptr } { i32 515, [4 x i8] zeroinitializer, ptr @.str.206 }, { i32, [4 x i8], ptr } { i32 516, [4 x i8] zeroinitializer, ptr @.str.207 }, { i32, [4 x i8], ptr } { i32 517, [4 x i8] zeroinitializer, ptr @.str.208 }, { i32, [4 x i8], ptr } { i32 518, [4 x i8] zeroinitializer, ptr @.str.209 }, { i32, [4 x i8], ptr } { i32 519, [4 x i8] zeroinitializer, ptr @.str.210 }, { i32, [4 x i8], ptr } { i32 520, [4 x i8] zeroinitializer, ptr @.str.211 }, { i32, [4 x i8], ptr } { i32 521, [4 x i8] zeroinitializer, ptr @.str.212 }, { i32, [4 x i8], ptr } { i32 522, [4 x i8] zeroinitializer, ptr @.str.213 }, { i32, [4 x i8], ptr } { i32 523, [4 x i8] zeroinitializer, ptr @.str.214 }, { i32, [4 x i8], ptr } { i32 524, [4 x i8] zeroinitializer, ptr @.str.215 }, { i32, [4 x i8], ptr } { i32 525, [4 x i8] zeroinitializer, ptr @.str.216 }, { i32, [4 x i8], ptr } { i32 526, [4 x i8] zeroinitializer, ptr @.str.217 }, { i32, [4 x i8], ptr } { i32 527, [4 x i8] zeroinitializer, ptr @.str.218 }, { i32, [4 x i8], ptr } { i32 528, [4 x i8] zeroinitializer, ptr @.str.219 }, { i32, [4 x i8], ptr } { i32 529, [4 x i8] zeroinitializer, ptr @.str.220 }, { i32, [4 x i8], ptr } { i32 530, [4 x i8] zeroinitializer, ptr @.str.221 }, { i32, [4 x i8], ptr } { i32 531, [4 x i8] zeroinitializer, ptr @.str.222 }, { i32, [4 x i8], ptr } { i32 532, [4 x i8] zeroinitializer, ptr @.str.223 }, { i32, [4 x i8], ptr } { i32 533, [4 x i8] zeroinitializer, ptr @.str.224 }, { i32, [4 x i8], ptr } { i32 534, [4 x i8] zeroinitializer, ptr @.str.225 }, { i32, [4 x i8], ptr } { i32 535, [4 x i8] zeroinitializer, ptr @.str.226 }, { i32, [4 x i8], ptr } { i32 536, [4 x i8] zeroinitializer, ptr @.str.227 }, { i32, [4 x i8], ptr } { i32 537, [4 x i8] zeroinitializer, ptr @.str.228 }, { i32, [4 x i8], ptr } { i32 538, [4 x i8] zeroinitializer, ptr @.str.229 }, { i32, [4 x i8], ptr } { i32 539, [4 x i8] zeroinitializer, ptr @.str.230 }, { i32, [4 x i8], ptr } { i32 540, [4 x i8] zeroinitializer, ptr @.str.231 }, { i32, [4 x i8], ptr } { i32 541, [4 x i8] zeroinitializer, ptr @.str.232 }, { i32, [4 x i8], ptr } { i32 542, [4 x i8] zeroinitializer, ptr @.str.233 }, { i32, [4 x i8], ptr } { i32 543, [4 x i8] zeroinitializer, ptr @.str.234 }, { i32, [4 x i8], ptr } { i32 544, [4 x i8] zeroinitializer, ptr @.str.235 }, { i32, [4 x i8], ptr } { i32 545, [4 x i8] zeroinitializer, ptr @.str.236 }, { i32, [4 x i8], ptr } { i32 546, [4 x i8] zeroinitializer, ptr @.str.237 }, { i32, [4 x i8], ptr } { i32 547, [4 x i8] zeroinitializer, ptr @.str.238 }, { i32, [4 x i8], ptr } { i32 548, [4 x i8] zeroinitializer, ptr @.str.239 }, { i32, [4 x i8], ptr } { i32 549, [4 x i8] zeroinitializer, ptr @.str.240 }, { i32, [4 x i8], ptr } { i32 640, [4 x i8] zeroinitializer, ptr @.str.241 }, { i32, [4 x i8], ptr } { i32 641, [4 x i8] zeroinitializer, ptr @.str.242 }, { i32, [4 x i8], ptr } { i32 642, [4 x i8] zeroinitializer, ptr @.str.243 }, { i32, [4 x i8], ptr } { i32 643, [4 x i8] zeroinitializer, ptr @.str.244 }, { i32, [4 x i8], ptr } { i32 644, [4 x i8] zeroinitializer, ptr @.str.245 }, { i32, [4 x i8], ptr } { i32 645, [4 x i8] zeroinitializer, ptr @.str.246 }, { i32, [4 x i8], ptr } { i32 646, [4 x i8] zeroinitializer, ptr @.str.247 }, { i32, [4 x i8], ptr } { i32 647, [4 x i8] zeroinitializer, ptr @.str.248 }, { i32, [4 x i8], ptr } { i32 648, [4 x i8] zeroinitializer, ptr @.str.249 }, { i32, [4 x i8], ptr } { i32 649, [4 x i8] zeroinitializer, ptr @.str.250 }, { i32, [4 x i8], ptr } { i32 650, [4 x i8] zeroinitializer, ptr @.str.251 }, { i32, [4 x i8], ptr } { i32 651, [4 x i8] zeroinitializer, ptr @.str.252 }, { i32, [4 x i8], ptr } { i32 652, [4 x i8] zeroinitializer, ptr @.str.253 }, { i32, [4 x i8], ptr } { i32 653, [4 x i8] zeroinitializer, ptr @.str.254 }, { i32, [4 x i8], ptr } { i32 768, [4 x i8] zeroinitializer, ptr @.str.255 }, { i32, [4 x i8], ptr } { i32 769, [4 x i8] zeroinitializer, ptr @.str.256 }, { i32, [4 x i8], ptr } { i32 770, [4 x i8] zeroinitializer, ptr @.str.257 }, { i32, [4 x i8], ptr } { i32 771, [4 x i8] zeroinitializer, ptr @.str.258 }, { i32, [4 x i8], ptr } { i32 772, [4 x i8] zeroinitializer, ptr @.str.259 }, { i32, [4 x i8], ptr } { i32 773, [4 x i8] zeroinitializer, ptr @.str.260 }, { i32, [4 x i8], ptr } { i32 774, [4 x i8] zeroinitializer, ptr @.str.261 }, { i32, [4 x i8], ptr } { i32 775, [4 x i8] zeroinitializer, ptr @.str.262 }, { i32, [4 x i8], ptr } { i32 776, [4 x i8] zeroinitializer, ptr @.str.263 }, { i32, [4 x i8], ptr } { i32 777, [4 x i8] zeroinitializer, ptr @.str.264 }, { i32, [4 x i8], ptr } { i32 778, [4 x i8] zeroinitializer, ptr @.str.265 }, { i32, [4 x i8], ptr } { i32 779, [4 x i8] zeroinitializer, ptr @.str.266 }, { i32, [4 x i8], ptr } { i32 780, [4 x i8] zeroinitializer, ptr @.str.267 }, { i32, [4 x i8], ptr } { i32 781, [4 x i8] zeroinitializer, ptr @.str.268 }, { i32, [4 x i8], ptr } { i32 782, [4 x i8] zeroinitializer, ptr @.str.269 }, { i32, [4 x i8], ptr } { i32 783, [4 x i8] zeroinitializer, ptr @.str.270 }, { i32, [4 x i8], ptr } { i32 784, [4 x i8] zeroinitializer, ptr @.str.271 }, { i32, [4 x i8], ptr } { i32 785, [4 x i8] zeroinitializer, ptr @.str.272 }, { i32, [4 x i8], ptr } { i32 786, [4 x i8] zeroinitializer, ptr @.str.273 }, { i32, [4 x i8], ptr } { i32 787, [4 x i8] zeroinitializer, ptr @.str.274 }, { i32, [4 x i8], ptr } { i32 788, [4 x i8] zeroinitializer, ptr @.str.275 }, { i32, [4 x i8], ptr } { i32 789, [4 x i8] zeroinitializer, ptr @.str.276 }, { i32, [4 x i8], ptr } { i32 790, [4 x i8] zeroinitializer, ptr @.str.277 }, { i32, [4 x i8], ptr } { i32 791, [4 x i8] zeroinitializer, ptr @.str.278 }, { i32, [4 x i8], ptr } { i32 792, [4 x i8] zeroinitializer, ptr @.str.279 }, { i32, [4 x i8], ptr } { i32 793, [4 x i8] zeroinitializer, ptr @.str.280 }, { i32, [4 x i8], ptr } { i32 794, [4 x i8] zeroinitializer, ptr @.str.281 }, { i32, [4 x i8], ptr } { i32 795, [4 x i8] zeroinitializer, ptr @.str.282 }, { i32, [4 x i8], ptr } { i32 796, [4 x i8] zeroinitializer, ptr @.str.283 }, { i32, [4 x i8], ptr } { i32 797, [4 x i8] zeroinitializer, ptr @.str.284 }, { i32, [4 x i8], ptr } { i32 798, [4 x i8] zeroinitializer, ptr @.str.285 }, { i32, [4 x i8], ptr } { i32 799, [4 x i8] zeroinitializer, ptr @.str.286 }, { i32, [4 x i8], ptr } { i32 800, [4 x i8] zeroinitializer, ptr @.str.287 }, { i32, [4 x i8], ptr } { i32 801, [4 x i8] zeroinitializer, ptr @.str.288 }, { i32, [4 x i8], ptr } { i32 802, [4 x i8] zeroinitializer, ptr @.str.289 }, { i32, [4 x i8], ptr } { i32 803, [4 x i8] zeroinitializer, ptr @.str.290 }, { i32, [4 x i8], ptr } { i32 804, [4 x i8] zeroinitializer, ptr @.str.291 }, { i32, [4 x i8], ptr } { i32 805, [4 x i8] zeroinitializer, ptr @.str.292 }, { i32, [4 x i8], ptr } { i32 806, [4 x i8] zeroinitializer, ptr @.str.293 }, { i32, [4 x i8], ptr } { i32 807, [4 x i8] zeroinitializer, ptr @.str.294 }, { i32, [4 x i8], ptr } { i32 808, [4 x i8] zeroinitializer, ptr @.str.295 }, { i32, [4 x i8], ptr } { i32 809, [4 x i8] zeroinitializer, ptr @.str.296 }, { i32, [4 x i8], ptr } { i32 810, [4 x i8] zeroinitializer, ptr @.str.297 }, { i32, [4 x i8], ptr } { i32 811, [4 x i8] zeroinitializer, ptr @.str.298 }, { i32, [4 x i8], ptr } { i32 812, [4 x i8] zeroinitializer, ptr @.str.299 }, { i32, [4 x i8], ptr } { i32 813, [4 x i8] zeroinitializer, ptr @.str.300 }, { i32, [4 x i8], ptr } { i32 814, [4 x i8] zeroinitializer, ptr @.str.301 }, { i32, [4 x i8], ptr } { i32 815, [4 x i8] zeroinitializer, ptr @.str.302 }, { i32, [4 x i8], ptr } { i32 816, [4 x i8] zeroinitializer, ptr @.str.303 }, { i32, [4 x i8], ptr } { i32 817, [4 x i8] zeroinitializer, ptr @.str.304 }, { i32, [4 x i8], ptr } { i32 818, [4 x i8] zeroinitializer, ptr @.str.305 }, { i32, [4 x i8], ptr } { i32 819, [4 x i8] zeroinitializer, ptr @.str.306 }, { i32, [4 x i8], ptr } { i32 820, [4 x i8] zeroinitializer, ptr @.str.307 }, { i32, [4 x i8], ptr } { i32 821, [4 x i8] zeroinitializer, ptr @.str.308 }, { i32, [4 x i8], ptr } { i32 822, [4 x i8] zeroinitializer, ptr @.str.309 }, { i32, [4 x i8], ptr } { i32 823, [4 x i8] zeroinitializer, ptr @.str.310 }, { i32, [4 x i8], ptr } { i32 824, [4 x i8] zeroinitializer, ptr @.str.311 }, { i32, [4 x i8], ptr } { i32 825, [4 x i8] zeroinitializer, ptr @.str.312 }, { i32, [4 x i8], ptr } { i32 826, [4 x i8] zeroinitializer, ptr @.str.313 }, { i32, [4 x i8], ptr } { i32 827, [4 x i8] zeroinitializer, ptr @.str.314 }, { i32, [4 x i8], ptr } { i32 828, [4 x i8] zeroinitializer, ptr @.str.315 }, { i32, [4 x i8], ptr } { i32 829, [4 x i8] zeroinitializer, ptr @.str.316 }, { i32, [4 x i8], ptr } { i32 830, [4 x i8] zeroinitializer, ptr @.str.317 }, { i32, [4 x i8], ptr } { i32 831, [4 x i8] zeroinitializer, ptr @.str.318 }, { i32, [4 x i8], ptr } { i32 832, [4 x i8] zeroinitializer, ptr @.str.319 }, { i32, [4 x i8], ptr } { i32 833, [4 x i8] zeroinitializer, ptr @.str.320 }, { i32, [4 x i8], ptr } { i32 834, [4 x i8] zeroinitializer, ptr @.str.321 }, { i32, [4 x i8], ptr } { i32 835, [4 x i8] zeroinitializer, ptr @.str.322 }, { i32, [4 x i8], ptr } { i32 836, [4 x i8] zeroinitializer, ptr @.str.323 }, { i32, [4 x i8], ptr } { i32 837, [4 x i8] zeroinitializer, ptr @.str.324 }, { i32, [4 x i8], ptr } { i32 838, [4 x i8] zeroinitializer, ptr @.str.325 }, { i32, [4 x i8], ptr } { i32 839, [4 x i8] zeroinitializer, ptr @.str.326 }, { i32, [4 x i8], ptr } { i32 840, [4 x i8] zeroinitializer, ptr @.str.327 }, { i32, [4 x i8], ptr } { i32 841, [4 x i8] zeroinitializer, ptr @.str.328 }, { i32, [4 x i8], ptr } { i32 842, [4 x i8] zeroinitializer, ptr @.str.329 }, { i32, [4 x i8], ptr } { i32 843, [4 x i8] zeroinitializer, ptr @.str.330 }, { i32, [4 x i8], ptr } { i32 844, [4 x i8] zeroinitializer, ptr @.str.331 }, { i32, [4 x i8], ptr } { i32 845, [4 x i8] zeroinitializer, ptr @.str.332 }, { i32, [4 x i8], ptr } { i32 846, [4 x i8] zeroinitializer, ptr @.str.333 }, { i32, [4 x i8], ptr } { i32 896, [4 x i8] zeroinitializer, ptr @.str.334 }, { i32, [4 x i8], ptr } { i32 897, [4 x i8] zeroinitializer, ptr @.str.335 }, { i32, [4 x i8], ptr } { i32 898, [4 x i8] zeroinitializer, ptr @.str.336 }, { i32, [4 x i8], ptr } { i32 899, [4 x i8] zeroinitializer, ptr @.str.337 }, { i32, [4 x i8], ptr } { i32 900, [4 x i8] zeroinitializer, ptr @.str.338 }, { i32, [4 x i8], ptr } { i32 901, [4 x i8] zeroinitializer, ptr @.str.339 }, { i32, [4 x i8], ptr } { i32 902, [4 x i8] zeroinitializer, ptr @.str.340 }, { i32, [4 x i8], ptr } { i32 903, [4 x i8] zeroinitializer, ptr @.str.341 }, { i32, [4 x i8], ptr } { i32 904, [4 x i8] zeroinitializer, ptr @.str.342 }, { i32, [4 x i8], ptr } { i32 905, [4 x i8] zeroinitializer, ptr @.str.343 }, { i32, [4 x i8], ptr } { i32 906, [4 x i8] zeroinitializer, ptr @.str.344 }, { i32, [4 x i8], ptr } { i32 907, [4 x i8] zeroinitializer, ptr @.str.345 }, { i32, [4 x i8], ptr } { i32 908, [4 x i8] zeroinitializer, ptr @.str.346 }, { i32, [4 x i8], ptr } { i32 909, [4 x i8] zeroinitializer, ptr @.str.347 }, { i32, [4 x i8], ptr } { i32 910, [4 x i8] zeroinitializer, ptr @.str.348 }, { i32, [4 x i8], ptr } { i32 911, [4 x i8] zeroinitializer, ptr @.str.349 }, { i32, [4 x i8], ptr } { i32 912, [4 x i8] zeroinitializer, ptr @.str.350 }, { i32, [4 x i8], ptr } { i32 913, [4 x i8] zeroinitializer, ptr @.str.351 }, { i32, [4 x i8], ptr } { i32 914, [4 x i8] zeroinitializer, ptr @.str.352 }, { i32, [4 x i8], ptr } { i32 915, [4 x i8] zeroinitializer, ptr @.str.353 }, { i32, [4 x i8], ptr } { i32 916, [4 x i8] zeroinitializer, ptr @.str.354 }, { i32, [4 x i8], ptr } { i32 917, [4 x i8] zeroinitializer, ptr @.str.355 }, { i32, [4 x i8], ptr } { i32 918, [4 x i8] zeroinitializer, ptr @.str.356 }, { i32, [4 x i8], ptr } { i32 919, [4 x i8] zeroinitializer, ptr @.str.357 }, { i32, [4 x i8], ptr } { i32 920, [4 x i8] zeroinitializer, ptr @.str.358 }, { i32, [4 x i8], ptr } { i32 921, [4 x i8] zeroinitializer, ptr @.str.359 }, { i32, [4 x i8], ptr } { i32 922, [4 x i8] zeroinitializer, ptr @.str.360 }, { i32, [4 x i8], ptr } { i32 923, [4 x i8] zeroinitializer, ptr @.str.361 }, { i32, [4 x i8], ptr } { i32 924, [4 x i8] zeroinitializer, ptr @.str.362 }, { i32, [4 x i8], ptr } { i32 925, [4 x i8] zeroinitializer, ptr @.str.363 }, { i32, [4 x i8], ptr } { i32 926, [4 x i8] zeroinitializer, ptr @.str.364 }, { i32, [4 x i8], ptr } { i32 927, [4 x i8] zeroinitializer, ptr @.str.365 }, { i32, [4 x i8], ptr } { i32 928, [4 x i8] zeroinitializer, ptr @.str.366 }, { i32, [4 x i8], ptr } { i32 929, [4 x i8] zeroinitializer, ptr @.str.367 }, { i32, [4 x i8], ptr } { i32 1024, [4 x i8] zeroinitializer, ptr @.str.368 }, { i32, [4 x i8], ptr } { i32 1025, [4 x i8] zeroinitializer, ptr @.str.369 }, { i32, [4 x i8], ptr } { i32 1026, [4 x i8] zeroinitializer, ptr @.str.370 }, { i32, [4 x i8], ptr } { i32 1027, [4 x i8] zeroinitializer, ptr @.str.371 }, { i32, [4 x i8], ptr } { i32 1028, [4 x i8] zeroinitializer, ptr @.str.372 }, { i32, [4 x i8], ptr } { i32 1152, [4 x i8] zeroinitializer, ptr @.str.373 }, { i32, [4 x i8], ptr } { i32 1153, [4 x i8] zeroinitializer, ptr @.str.374 }, { i32, [4 x i8], ptr } { i32 1280, [4 x i8] zeroinitializer, ptr @.str.375 }, { i32, [4 x i8], ptr } { i32 1281, [4 x i8] zeroinitializer, ptr @.str.376 }, { i32, [4 x i8], ptr } { i32 1282, [4 x i8] zeroinitializer, ptr @.str.377 }, { i32, [4 x i8], ptr } { i32 1283, [4 x i8] zeroinitializer, ptr @.str.378 }, { i32, [4 x i8], ptr } { i32 1408, [4 x i8] zeroinitializer, ptr @.str.379 }, { i32, [4 x i8], ptr } { i32 1409, [4 x i8] zeroinitializer, ptr @.str.380 }, { i32, [4 x i8], ptr } { i32 1664, [4 x i8] zeroinitializer, ptr @.str.381 }, { i32, [4 x i8], ptr } { i32 2048, [4 x i8] zeroinitializer, ptr @.str.382 }, { i32, [4 x i8], ptr } { i32 2049, [4 x i8] zeroinitializer, ptr @.str.383 }, { i32, [4 x i8], ptr } { i32 2050, [4 x i8] zeroinitializer, ptr @.str.384 }, { i32, [4 x i8], ptr } { i32 2051, [4 x i8] zeroinitializer, ptr @.str.385 }, { i32, [4 x i8], ptr } { i32 2052, [4 x i8] zeroinitializer, ptr @.str.386 }, { i32, [4 x i8], ptr } { i32 2053, [4 x i8] zeroinitializer, ptr @.str.387 }, { i32, [4 x i8], ptr } { i32 2054, [4 x i8] zeroinitializer, ptr @.str.388 }, { i32, [4 x i8], ptr } { i32 2055, [4 x i8] zeroinitializer, ptr @.str.389 }, { i32, [4 x i8], ptr } { i32 2056, [4 x i8] zeroinitializer, ptr @.str.390 }, { i32, [4 x i8], ptr } { i32 2057, [4 x i8] zeroinitializer, ptr @.str.391 }, { i32, [4 x i8], ptr } { i32 2058, [4 x i8] zeroinitializer, ptr @.str.392 }, { i32, [4 x i8], ptr } { i32 2059, [4 x i8] zeroinitializer, ptr @.str.393 }, { i32, [4 x i8], ptr } { i32 2060, [4 x i8] zeroinitializer, ptr @.str.394 }, { i32, [4 x i8], ptr } { i32 2061, [4 x i8] zeroinitializer, ptr @.str.395 }, { i32, [4 x i8], ptr } { i32 2062, [4 x i8] zeroinitializer, ptr @.str.396 }, { i32, [4 x i8], ptr } { i32 2063, [4 x i8] zeroinitializer, ptr @.str.397 }, { i32, [4 x i8], ptr } { i32 2064, [4 x i8] zeroinitializer, ptr @.str.398 }, { i32, [4 x i8], ptr } { i32 2065, [4 x i8] zeroinitializer, ptr @.str.399 }, { i32, [4 x i8], ptr } { i32 2066, [4 x i8] zeroinitializer, ptr @.str.400 }, { i32, [4 x i8], ptr } { i32 2067, [4 x i8] zeroinitializer, ptr @.str.401 }, { i32, [4 x i8], ptr } { i32 2176, [4 x i8] zeroinitializer, ptr @.str.402 }, { i32, [4 x i8], ptr } { i32 2177, [4 x i8] zeroinitializer, ptr @.str.403 }, { i32, [4 x i8], ptr } { i32 2178, [4 x i8] zeroinitializer, ptr @.str.404 }, { i32, [4 x i8], ptr } { i32 2179, [4 x i8] zeroinitializer, ptr @.str.405 }, { i32, [4 x i8], ptr } { i32 2180, [4 x i8] zeroinitializer, ptr @.str.406 }, { i32, [4 x i8], ptr } { i32 2181, [4 x i8] zeroinitializer, ptr @.str.407 }, { i32, [4 x i8], ptr } { i32 2182, [4 x i8] zeroinitializer, ptr @.str.408 }, { i32, [4 x i8], ptr } { i32 2183, [4 x i8] zeroinitializer, ptr @.str.409 }, { i32, [4 x i8], ptr } { i32 2184, [4 x i8] zeroinitializer, ptr @.str.410 }, { i32, [4 x i8], ptr } { i32 2185, [4 x i8] zeroinitializer, ptr @.str.411 }, { i32, [4 x i8], ptr } { i32 2186, [4 x i8] zeroinitializer, ptr @.str.412 }, { i32, [4 x i8], ptr } { i32 2187, [4 x i8] zeroinitializer, ptr @.str.413 }, { i32, [4 x i8], ptr } { i32 2188, [4 x i8] zeroinitializer, ptr @.str.414 }, { i32, [4 x i8], ptr } { i32 2189, [4 x i8] zeroinitializer, ptr @.str.415 }, { i32, [4 x i8], ptr } { i32 2190, [4 x i8] zeroinitializer, ptr @.str.416 }, { i32, [4 x i8], ptr } { i32 2304, [4 x i8] zeroinitializer, ptr @.str.417 }, { i32, [4 x i8], ptr } { i32 2305, [4 x i8] zeroinitializer, ptr @.str.418 }, { i32, [4 x i8], ptr } { i32 2306, [4 x i8] zeroinitializer, ptr @.str.419 }, { i32, [4 x i8], ptr } { i32 2307, [4 x i8] zeroinitializer, ptr @.str.420 }, { i32, [4 x i8], ptr } { i32 2308, [4 x i8] zeroinitializer, ptr @.str.421 }, { i32, [4 x i8], ptr } { i32 2309, [4 x i8] zeroinitializer, ptr @.str.422 }, { i32, [4 x i8], ptr } { i32 2310, [4 x i8] zeroinitializer, ptr @.str.423 }, { i32, [4 x i8], ptr } { i32 2311, [4 x i8] zeroinitializer, ptr @.str.424 }, { i32, [4 x i8], ptr } { i32 2312, [4 x i8] zeroinitializer, ptr @.str.425 }, { i32, [4 x i8], ptr } { i32 2313, [4 x i8] zeroinitializer, ptr @.str.426 }, { i32, [4 x i8], ptr } { i32 2314, [4 x i8] zeroinitializer, ptr @.str.427 }, { i32, [4 x i8], ptr } { i32 2315, [4 x i8] zeroinitializer, ptr @.str.428 }, { i32, [4 x i8], ptr } { i32 2316, [4 x i8] zeroinitializer, ptr @.str.429 }, { i32, [4 x i8], ptr } { i32 2317, [4 x i8] zeroinitializer, ptr @.str.430 }, { i32, [4 x i8], ptr } { i32 2318, [4 x i8] zeroinitializer, ptr @.str.431 }, { i32, [4 x i8], ptr } { i32 2319, [4 x i8] zeroinitializer, ptr @.str.432 }, { i32, [4 x i8], ptr } { i32 2320, [4 x i8] zeroinitializer, ptr @.str.433 }, { i32, [4 x i8], ptr } { i32 2321, [4 x i8] zeroinitializer, ptr @.str.434 }, { i32, [4 x i8], ptr } { i32 2322, [4 x i8] zeroinitializer, ptr @.str.435 }, { i32, [4 x i8], ptr } { i32 2432, [4 x i8] zeroinitializer, ptr @.str.436 }, { i32, [4 x i8], ptr } { i32 2433, [4 x i8] zeroinitializer, ptr @.str.437 }, { i32, [4 x i8], ptr } { i32 2560, [4 x i8] zeroinitializer, ptr @.str.438 }, { i32, [4 x i8], ptr } { i32 2561, [4 x i8] zeroinitializer, ptr @.str.439 }, { i32, [4 x i8], ptr } { i32 2562, [4 x i8] zeroinitializer, ptr @.str.440 }, { i32, [4 x i8], ptr } { i32 2563, [4 x i8] zeroinitializer, ptr @.str.441 }, { i32, [4 x i8], ptr } { i32 2564, [4 x i8] zeroinitializer, ptr @.str.442 }, { i32, [4 x i8], ptr } { i32 2565, [4 x i8] zeroinitializer, ptr @.str.443 }, { i32, [4 x i8], ptr } { i32 2566, [4 x i8] zeroinitializer, ptr @.str.444 }, { i32, [4 x i8], ptr } { i32 2567, [4 x i8] zeroinitializer, ptr @.str.445 }, { i32, [4 x i8], ptr } { i32 2568, [4 x i8] zeroinitializer, ptr @.str.446 }, { i32, [4 x i8], ptr } { i32 2688, [4 x i8] zeroinitializer, ptr @.str.447 }, { i32, [4 x i8], ptr } { i32 2689, [4 x i8] zeroinitializer, ptr @.str.448 }, { i32, [4 x i8], ptr } { i32 2690, [4 x i8] zeroinitializer, ptr @.str.449 }, { i32, [4 x i8], ptr } { i32 2691, [4 x i8] zeroinitializer, ptr @.str.450 }, { i32, [4 x i8], ptr } { i32 2816, [4 x i8] zeroinitializer, ptr @.str.451 }, { i32, [4 x i8], ptr } { i32 2817, [4 x i8] zeroinitializer, ptr @.str.452 }, { i32, [4 x i8], ptr } { i32 2818, [4 x i8] zeroinitializer, ptr @.str.453 }, { i32, [4 x i8], ptr } { i32 2819, [4 x i8] zeroinitializer, ptr @.str.454 }, { i32, [4 x i8], ptr } { i32 2820, [4 x i8] zeroinitializer, ptr @.str.455 }, { i32, [4 x i8], ptr } { i32 2821, [4 x i8] zeroinitializer, ptr @.str.456 }, { i32, [4 x i8], ptr } { i32 2822, [4 x i8] zeroinitializer, ptr @.str.457 }, { i32, [4 x i8], ptr } { i32 2823, [4 x i8] zeroinitializer, ptr @.str.458 }, { i32, [4 x i8], ptr } { i32 2824, [4 x i8] zeroinitializer, ptr @.str.459 }, { i32, [4 x i8], ptr } { i32 2825, [4 x i8] zeroinitializer, ptr @.str.460 }, { i32, [4 x i8], ptr } { i32 2826, [4 x i8] zeroinitializer, ptr @.str.461 }, { i32, [4 x i8], ptr } { i32 2827, [4 x i8] zeroinitializer, ptr @.str.462 }, { i32, [4 x i8], ptr } { i32 2828, [4 x i8] zeroinitializer, ptr @.str.463 }, { i32, [4 x i8], ptr } { i32 2829, [4 x i8] zeroinitializer, ptr @.str.464 }, { i32, [4 x i8], ptr } { i32 2830, [4 x i8] zeroinitializer, ptr @.str.465 }, { i32, [4 x i8], ptr } { i32 2831, [4 x i8] zeroinitializer, ptr @.str.466 }, { i32, [4 x i8], ptr } { i32 2832, [4 x i8] zeroinitializer, ptr @.str.467 }, { i32, [4 x i8], ptr } { i32 2833, [4 x i8] zeroinitializer, ptr @.str.468 }, { i32, [4 x i8], ptr } { i32 2834, [4 x i8] zeroinitializer, ptr @.str.469 }, { i32, [4 x i8], ptr } { i32 2835, [4 x i8] zeroinitializer, ptr @.str.470 }, { i32, [4 x i8], ptr } { i32 2836, [4 x i8] zeroinitializer, ptr @.str.471 }, { i32, [4 x i8], ptr } { i32 2837, [4 x i8] zeroinitializer, ptr @.str.472 }, { i32, [4 x i8], ptr } { i32 2838, [4 x i8] zeroinitializer, ptr @.str.473 }, { i32, [4 x i8], ptr } { i32 2839, [4 x i8] zeroinitializer, ptr @.str.474 }, { i32, [4 x i8], ptr } { i32 2840, [4 x i8] zeroinitializer, ptr @.str.475 }, { i32, [4 x i8], ptr } { i32 2841, [4 x i8] zeroinitializer, ptr @.str.476 }, { i32, [4 x i8], ptr } { i32 2842, [4 x i8] zeroinitializer, ptr @.str.477 }, { i32, [4 x i8], ptr } { i32 2843, [4 x i8] zeroinitializer, ptr @.str.478 }, { i32, [4 x i8], ptr } { i32 2844, [4 x i8] zeroinitializer, ptr @.str.479 }, { i32, [4 x i8], ptr } { i32 2845, [4 x i8] zeroinitializer, ptr @.str.480 }, { i32, [4 x i8], ptr } { i32 2944, [4 x i8] zeroinitializer, ptr @.str.481 }, { i32, [4 x i8], ptr } { i32 2945, [4 x i8] zeroinitializer, ptr @.str.482 }, { i32, [4 x i8], ptr } { i32 2946, [4 x i8] zeroinitializer, ptr @.str.483 }, { i32, [4 x i8], ptr } { i32 2947, [4 x i8] zeroinitializer, ptr @.str.484 }, { i32, [4 x i8], ptr } { i32 2948, [4 x i8] zeroinitializer, ptr @.str.485 }, { i32, [4 x i8], ptr } { i32 2949, [4 x i8] zeroinitializer, ptr @.str.486 }, { i32, [4 x i8], ptr } { i32 2950, [4 x i8] zeroinitializer, ptr @.str.487 }, { i32, [4 x i8], ptr } { i32 3072, [4 x i8] zeroinitializer, ptr @.str.488 }, { i32, [4 x i8], ptr } { i32 3073, [4 x i8] zeroinitializer, ptr @.str.489 }, { i32, [4 x i8], ptr } { i32 3074, [4 x i8] zeroinitializer, ptr @.str.490 }, { i32, [4 x i8], ptr } { i32 3075, [4 x i8] zeroinitializer, ptr @.str.491 }, { i32, [4 x i8], ptr } { i32 3076, [4 x i8] zeroinitializer, ptr @.str.492 }, { i32, [4 x i8], ptr } { i32 3077, [4 x i8] zeroinitializer, ptr @.str.493 }, { i32, [4 x i8], ptr } { i32 3078, [4 x i8] zeroinitializer, ptr @.str.494 }, { i32, [4 x i8], ptr } { i32 3079, [4 x i8] zeroinitializer, ptr @.str.495 }, { i32, [4 x i8], ptr } { i32 3200, [4 x i8] zeroinitializer, ptr @.str.496 }, { i32, [4 x i8], ptr } { i32 3201, [4 x i8] zeroinitializer, ptr @.str.497 }, { i32, [4 x i8], ptr } { i32 3202, [4 x i8] zeroinitializer, ptr @.str.498 }, { i32, [4 x i8], ptr } { i32 3203, [4 x i8] zeroinitializer, ptr @.str.499 }, { i32, [4 x i8], ptr } { i32 3204, [4 x i8] zeroinitializer, ptr @.str.500 }, { i32, [4 x i8], ptr } { i32 3205, [4 x i8] zeroinitializer, ptr @.str.501 }, { i32, [4 x i8], ptr } { i32 5120, [4 x i8] zeroinitializer, ptr @.str.502 }, { i32, [4 x i8], ptr } { i32 5121, [4 x i8] zeroinitializer, ptr @.str.503 }, { i32, [4 x i8], ptr } { i32 5376, [4 x i8] zeroinitializer, ptr @.str.504 }, { i32, [4 x i8], ptr } { i32 5377, [4 x i8] zeroinitializer, ptr @.str.505 }, { i32, [4 x i8], ptr } { i32 5378, [4 x i8] zeroinitializer, ptr @.str.506 }, { i32, [4 x i8], ptr } { i32 5379, [4 x i8] zeroinitializer, ptr @.str.507 }, { i32, [4 x i8], ptr } { i32 5380, [4 x i8] zeroinitializer, ptr @.str.508 }, { i32, [4 x i8], ptr } { i32 5381, [4 x i8] zeroinitializer, ptr @.str.509 }, { i32, [4 x i8], ptr } { i32 5382, [4 x i8] zeroinitializer, ptr @.str.510 }, { i32, [4 x i8], ptr } { i32 5632, [4 x i8] zeroinitializer, ptr @.str.511 }, { i32, [4 x i8], ptr } { i32 5633, [4 x i8] zeroinitializer, ptr @.str.512 }, { i32, [4 x i8], ptr } { i32 5634, [4 x i8] zeroinitializer, ptr @.str.513 }, { i32, [4 x i8], ptr } { i32 5635, [4 x i8] zeroinitializer, ptr @.str.514 }, { i32, [4 x i8], ptr } { i32 5760, [4 x i8] zeroinitializer, ptr @.str.515 }, { i32, [4 x i8], ptr } { i32 5888, [4 x i8] zeroinitializer, ptr @.str.516 }, { i32, [4 x i8], ptr } { i32 5889, [4 x i8] zeroinitializer, ptr @.str.517 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.519 = private unnamed_addr constant [10 x i8] c"Optimizer\00", align 1
+@.str.520 = private unnamed_addr constant [22 x i8] c"Single phase inverter\00", align 1
+@.str.521 = private unnamed_addr constant [21 x i8] c"Three phase inverter\00", align 1
+@.str.522 = private unnamed_addr constant [17 x i8] c"Wake/sleep event\00", align 1
+@solaredge_data_devicetypes = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.519 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.520 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.521 }, { i32, [4 x i8], ptr } { i32 128, [4 x i8] zeroinitializer, ptr @.str.519 }, { i32, [4 x i8], ptr } { i32 768, [4 x i8] zeroinitializer, ptr @.str.522 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.524 = private unnamed_addr constant [57 x i8] c"Invalid length: inverse length %d not matching length %d\00", align 1
+@.str.525 = private unnamed_addr constant [16 x i8] c"Unknown command\00", align 1
+@.str.526 = private unnamed_addr constant [17 x i8] c"Decrypted Packet\00", align 1
 @cipher_hd_system = internal global ptr null, align 8
-@.str.525 = private unnamed_addr constant [2 x i8] c" \00", align 1
-@.str.526 = private unnamed_addr constant [5 x i8] c"%.2f\00", align 1
-@.str.527 = private unnamed_addr constant [15 x i8] c"Unknown device\00", align 1
-@.str.528 = private unnamed_addr constant [3 x i8] c", \00", align 1
+@.str.527 = private unnamed_addr constant [2 x i8] c" \00", align 1
+@.str.528 = private unnamed_addr constant [5 x i8] c"%.2f\00", align 1
+@.str.529 = private unnamed_addr constant [15 x i8] c"Unknown device\00", align 1
+@.str.530 = private unnamed_addr constant [3 x i8] c", \00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_solaredge() #0 {
   %1 = load ptr, ptr @solaredge_handle, align 8
   call void @dissector_add_for_decode_as(ptr noundef @.str, ptr noundef %1)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_for_decode_as(ptr noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_solaredge() #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #8
   %3 = call i32 @proto_register_protocol(ptr noundef @.str.89, ptr noundef @.str.90, ptr noundef @.str.91)
   store i32 %3, ptr @proto_solaredge, align 4
   %4 = load i32, ptr @proto_solaredge, align 4
   %5 = call ptr @register_dissector(ptr noundef @.str.91, ptr noundef @dissect_solaredge, i32 noundef %4)
   store ptr %5, ptr @solaredge_handle, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #8
   %6 = load i32, ptr @proto_solaredge, align 4
   %7 = call ptr @prefs_register_protocol(i32 noundef %6, ptr noundef null)
   store ptr %7, ptr %2, align 8
@@ -648,14 +649,21 @@ define hidden void @proto_register_solaredge() #0 {
   store ptr %12, ptr %1, align 8
   %13 = load ptr, ptr %1, align 8
   call void @expert_register_field_array(ptr noundef %13, ptr noundef @proto_register_solaredge.ei, i32 noundef 2)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #8
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_solaredge(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -667,9 +675,11 @@ define internal i32 @dissect_solaredge(ptr noundef %0, ptr noundef %1, ptr nound
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #8
   %11 = load ptr, ptr %6, align 8
-  %12 = call nonnull ptr @find_or_create_conversation(ptr noundef %11)
+  %12 = call ptr @find_or_create_conversation(ptr noundef %11)
   store ptr %12, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #8
   %13 = load ptr, ptr %9, align 8
   %14 = load i32, ptr @proto_solaredge, align 4
   %15 = call ptr @conversation_get_proto_data(ptr noundef %13, i32 noundef %14)
@@ -678,11 +688,11 @@ define internal i32 @dissect_solaredge(ptr noundef %0, ptr noundef %1, ptr nound
 
 17:                                               ; preds = %4
   %18 = call ptr @wmem_file_scope()
-  %19 = call noalias ptr @wmem_alloc(ptr noundef %18, i64 noundef 24)
+  %19 = call noalias ptr @wmem_alloc(ptr noundef %18, i64 noundef 24) #9
   store ptr %19, ptr %10, align 8
   %20 = load ptr, ptr %10, align 8
-  %21 = getelementptr inbounds %struct.solaredge_conversion_data, ptr %20, i32 0, i32 0
-  store i32 0, ptr %21, align 8
+  %21 = getelementptr inbounds nuw %struct.solaredge_conversion_data, ptr %20, i32 0, i32 0
+  store i8 0, ptr %21, align 8
   %22 = load ptr, ptr %9, align 8
   %23 = load i32, ptr @proto_solaredge, align 4
   %24 = load ptr, ptr %10, align 8
@@ -697,34 +707,51 @@ define internal i32 @dissect_solaredge(ptr noundef %0, ptr noundef %1, ptr nound
   %30 = load i32, ptr @ett_solaredge_packet, align 4
   %31 = load ptr, ptr %9, align 8
   %32 = call i32 @dissect_solaredge_recursive(ptr noundef %26, ptr noundef %27, ptr noundef %28, ptr noundef %29, i32 noundef %30, ptr noundef %31)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #8
   ret i32 %32
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @prefs_register_string_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @expert_register_protocol(i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #1
 
-declare nonnull ptr @find_or_create_conversation(ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
+; Function Attrs: null_pointer_is_valid
+declare ptr @find_or_create_conversation(ptr noundef) #1
+
+; Function Attrs: null_pointer_is_valid
 declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) #1
 
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) #1
+; Function Attrs: null_pointer_is_valid allocsize(1)
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) #3
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_file_scope() #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_solaredge_recursive(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
@@ -745,675 +772,755 @@ define internal i32 @dissect_solaredge_recursive(ptr noundef %0, ptr noundef %1,
   %23 = alloca [16 x i8], align 16
   %24 = alloca i32, align 4
   %25 = alloca ptr, align 8
-  %26 = alloca i32, align 4
-  %27 = alloca ptr, align 8
+  %26 = alloca i8, align 1
+  %27 = alloca i32, align 4
   %28 = alloca ptr, align 8
+  %29 = alloca ptr, align 8
   store ptr %0, ptr %8, align 8
   store ptr %1, ptr %9, align 8
   store ptr %2, ptr %10, align 8
   store ptr %3, ptr %11, align 8
   store i32 %4, ptr %12, align 4
   store ptr %5, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #8
   store i32 0, ptr %18, align 4
-  %29 = load ptr, ptr %8, align 8
-  %30 = call i32 @tvb_get_guint32(ptr noundef %29, i32 noundef 0, i32 noundef -2147483648)
-  %31 = icmp ne i32 %30, 2035692562
-  br i1 %31, label %32, label %33
-
-32:                                               ; preds = %6
-  store i32 0, ptr %7, align 4
-  br label %365
+  call void @llvm.lifetime.start.p0(i64 20, ptr %19) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %21) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %22) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %23) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %26) #8
+  %30 = load ptr, ptr %8, align 8
+  %31 = call i32 @tvb_get_uint32(ptr noundef %30, i32 noundef 0, i32 noundef -2147483648)
+  %32 = icmp ne i32 %31, 2035692562
+  br i1 %32, label %33, label %34
 
 33:                                               ; preds = %6
-  %34 = load ptr, ptr %9, align 8
-  %35 = getelementptr inbounds %struct._packet_info, ptr %34, i32 0, i32 1
-  %36 = load ptr, ptr %35, align 8
-  call void @col_set_str(ptr noundef %36, i32 noundef 34, ptr noundef @.str.90)
-  %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds %struct._packet_info, ptr %37, i32 0, i32 1
-  %39 = load ptr, ptr %38, align 8
-  call void @col_clear(ptr noundef %39, i32 noundef 25)
-  %40 = load ptr, ptr %10, align 8
-  %41 = load i32, ptr @proto_solaredge, align 4
-  %42 = load ptr, ptr %8, align 8
-  %43 = call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %41, ptr noundef %42, i32 noundef 0, i32 noundef -1, i32 noundef 0)
-  store ptr %43, ptr %14, align 8
-  %44 = load i32, ptr %18, align 4
-  %45 = add i32 %44, 4
-  store i32 %45, ptr %18, align 4
-  %46 = load ptr, ptr %14, align 8
-  %47 = load i32, ptr %12, align 4
-  %48 = call ptr @proto_item_add_subtree(ptr noundef %46, i32 noundef %47)
-  store ptr %48, ptr %15, align 8
-  %49 = load ptr, ptr %8, align 8
-  %50 = load i32, ptr %18, align 4
-  %51 = call zeroext i16 @tvb_get_guint16(ptr noundef %49, i32 noundef %50, i32 noundef -2147483648)
-  %52 = getelementptr inbounds %struct.solaredge_packet_header, ptr %19, i32 0, i32 0
-  store i16 %51, ptr %52, align 4
-  %53 = load ptr, ptr %15, align 8
-  %54 = load i32, ptr @hf_solaredge_length_type, align 4
-  %55 = load ptr, ptr %8, align 8
-  %56 = load i32, ptr %18, align 4
-  %57 = call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %54, ptr noundef %55, i32 noundef %56, i32 noundef 2, i32 noundef -2147483648)
-  %58 = load i32, ptr %18, align 4
-  %59 = add i32 %58, 2
-  store i32 %59, ptr %18, align 4
-  %60 = load ptr, ptr %8, align 8
-  %61 = load i32, ptr %18, align 4
-  %62 = call zeroext i16 @tvb_get_guint16(ptr noundef %60, i32 noundef %61, i32 noundef -2147483648)
-  %63 = getelementptr inbounds %struct.solaredge_packet_header, ptr %19, i32 0, i32 1
-  store i16 %62, ptr %63, align 2
-  %64 = getelementptr inbounds %struct.solaredge_packet_header, ptr %19, i32 0, i32 1
-  %65 = load i16, ptr %64, align 2
-  %66 = zext i16 %65 to i32
-  %67 = getelementptr inbounds %struct.solaredge_packet_header, ptr %19, i32 0, i32 0
-  %68 = load i16, ptr %67, align 4
-  %69 = zext i16 %68 to i32
-  %70 = sub i32 65535, %69
-  %71 = icmp ne i32 %66, %70
-  br i1 %71, label %72, label %87
+  store i32 0, ptr %7, align 4
+  store i32 1, ptr %27, align 4
+  br label %376
 
-72:                                               ; preds = %33
-  %73 = load ptr, ptr %15, align 8
-  %74 = load ptr, ptr %9, align 8
-  %75 = load ptr, ptr %8, align 8
-  %76 = load i32, ptr %18, align 4
-  %77 = sub i32 %76, 2
-  %78 = load i32, ptr %18, align 4
-  %79 = add i32 %78, 2
-  %80 = getelementptr inbounds %struct.solaredge_packet_header, ptr %19, i32 0, i32 1
-  %81 = load i16, ptr %80, align 2
-  %82 = zext i16 %81 to i32
-  %83 = getelementptr inbounds %struct.solaredge_packet_header, ptr %19, i32 0, i32 0
-  %84 = load i16, ptr %83, align 4
-  %85 = zext i16 %84 to i32
-  %86 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %73, ptr noundef %74, ptr noundef @ei_solaredge_invalid_length, ptr noundef %75, i32 noundef %77, i32 noundef %79, ptr noundef @.str.522, i32 noundef %82, i32 noundef %85)
-  br label %87
+34:                                               ; preds = %6
+  %35 = load ptr, ptr %9, align 8
+  %36 = getelementptr inbounds nuw %struct._packet_info, ptr %35, i32 0, i32 1
+  %37 = load ptr, ptr %36, align 8
+  call void @col_set_str(ptr noundef %37, i32 noundef 35, ptr noundef @.str.90)
+  %38 = load ptr, ptr %9, align 8
+  %39 = getelementptr inbounds nuw %struct._packet_info, ptr %38, i32 0, i32 1
+  %40 = load ptr, ptr %39, align 8
+  call void @col_clear(ptr noundef %40, i32 noundef 25)
+  %41 = load ptr, ptr %10, align 8
+  %42 = load i32, ptr @proto_solaredge, align 4
+  %43 = load ptr, ptr %8, align 8
+  %44 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %42, ptr noundef %43, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  store ptr %44, ptr %14, align 8
+  %45 = load i32, ptr %18, align 4
+  %46 = add i32 %45, 4
+  store i32 %46, ptr %18, align 4
+  %47 = load ptr, ptr %14, align 8
+  %48 = load i32, ptr %12, align 4
+  %49 = call ptr @proto_item_add_subtree(ptr noundef %47, i32 noundef %48)
+  store ptr %49, ptr %15, align 8
+  %50 = load ptr, ptr %8, align 8
+  %51 = load i32, ptr %18, align 4
+  %52 = call zeroext i16 @tvb_get_uint16(ptr noundef %50, i32 noundef %51, i32 noundef -2147483648)
+  %53 = getelementptr inbounds nuw %struct.solaredge_packet_header, ptr %19, i32 0, i32 0
+  store i16 %52, ptr %53, align 4
+  %54 = load ptr, ptr %15, align 8
+  %55 = load i32, ptr @hf_solaredge_length_type, align 4
+  %56 = load ptr, ptr %8, align 8
+  %57 = load i32, ptr %18, align 4
+  %58 = call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %55, ptr noundef %56, i32 noundef %57, i32 noundef 2, i32 noundef -2147483648)
+  %59 = load i32, ptr %18, align 4
+  %60 = add i32 %59, 2
+  store i32 %60, ptr %18, align 4
+  %61 = load ptr, ptr %8, align 8
+  %62 = load i32, ptr %18, align 4
+  %63 = call zeroext i16 @tvb_get_uint16(ptr noundef %61, i32 noundef %62, i32 noundef -2147483648)
+  %64 = getelementptr inbounds nuw %struct.solaredge_packet_header, ptr %19, i32 0, i32 1
+  store i16 %63, ptr %64, align 2
+  %65 = getelementptr inbounds nuw %struct.solaredge_packet_header, ptr %19, i32 0, i32 1
+  %66 = load i16, ptr %65, align 2
+  %67 = zext i16 %66 to i32
+  %68 = getelementptr inbounds nuw %struct.solaredge_packet_header, ptr %19, i32 0, i32 0
+  %69 = load i16, ptr %68, align 4
+  %70 = zext i16 %69 to i32
+  %71 = sub i32 65535, %70
+  %72 = icmp ne i32 %67, %71
+  br i1 %72, label %73, label %88
 
-87:                                               ; preds = %72, %33
-  %88 = load ptr, ptr %15, align 8
-  %89 = load i32, ptr @hf_solaredge_length_inverse_type, align 4
-  %90 = load ptr, ptr %8, align 8
-  %91 = load i32, ptr %18, align 4
-  %92 = call ptr @proto_tree_add_item(ptr noundef %88, i32 noundef %89, ptr noundef %90, i32 noundef %91, i32 noundef 2, i32 noundef -2147483648)
-  %93 = load i32, ptr %18, align 4
-  %94 = add i32 %93, 2
-  store i32 %94, ptr %18, align 4
-  %95 = load ptr, ptr %8, align 8
-  %96 = load i32, ptr %18, align 4
-  %97 = call zeroext i16 @tvb_get_guint16(ptr noundef %95, i32 noundef %96, i32 noundef -2147483648)
-  %98 = getelementptr inbounds %struct.solaredge_packet_header, ptr %19, i32 0, i32 2
-  store i16 %97, ptr %98, align 4
-  %99 = load ptr, ptr %15, align 8
-  %100 = load i32, ptr @hf_solaredge_sequence_number_type, align 4
-  %101 = load ptr, ptr %8, align 8
-  %102 = load i32, ptr %18, align 4
-  %103 = call ptr @proto_tree_add_item(ptr noundef %99, i32 noundef %100, ptr noundef %101, i32 noundef %102, i32 noundef 2, i32 noundef -2147483648)
-  %104 = load i32, ptr %18, align 4
-  %105 = add i32 %104, 2
-  store i32 %105, ptr %18, align 4
-  %106 = load ptr, ptr %8, align 8
-  %107 = load i32, ptr %18, align 4
-  %108 = call i32 @tvb_get_guint32(ptr noundef %106, i32 noundef %107, i32 noundef -2147483648)
-  %109 = getelementptr inbounds %struct.solaredge_packet_header, ptr %19, i32 0, i32 3
-  store i32 %108, ptr %109, align 4
-  %110 = load ptr, ptr %15, align 8
-  %111 = load i32, ptr @hf_solaredge_source_address_type, align 4
-  %112 = load ptr, ptr %8, align 8
-  %113 = load i32, ptr %18, align 4
-  %114 = call ptr @proto_tree_add_item(ptr noundef %110, i32 noundef %111, ptr noundef %112, i32 noundef %113, i32 noundef 4, i32 noundef -2147483648)
-  %115 = load i32, ptr %18, align 4
-  %116 = add i32 %115, 4
-  store i32 %116, ptr %18, align 4
-  %117 = load ptr, ptr %8, align 8
-  %118 = load i32, ptr %18, align 4
-  %119 = call i32 @tvb_get_guint32(ptr noundef %117, i32 noundef %118, i32 noundef -2147483648)
-  %120 = getelementptr inbounds %struct.solaredge_packet_header, ptr %19, i32 0, i32 4
-  store i32 %119, ptr %120, align 4
-  %121 = load ptr, ptr %15, align 8
-  %122 = load i32, ptr @hf_solaredge_destination_address_type, align 4
-  %123 = load ptr, ptr %8, align 8
-  %124 = load i32, ptr %18, align 4
-  %125 = call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %122, ptr noundef %123, i32 noundef %124, i32 noundef 4, i32 noundef -2147483648)
-  %126 = load i32, ptr %18, align 4
-  %127 = add i32 %126, 4
-  store i32 %127, ptr %18, align 4
-  %128 = load ptr, ptr %8, align 8
-  %129 = load i32, ptr %18, align 4
-  %130 = call zeroext i16 @tvb_get_guint16(ptr noundef %128, i32 noundef %129, i32 noundef -2147483648)
-  %131 = getelementptr inbounds %struct.solaredge_packet_header, ptr %19, i32 0, i32 5
-  store i16 %130, ptr %131, align 4
-  %132 = load ptr, ptr %15, align 8
-  %133 = load i32, ptr @hf_solaredge_command_type, align 4
-  %134 = load ptr, ptr %8, align 8
-  %135 = load i32, ptr %18, align 4
-  %136 = call ptr @proto_tree_add_item(ptr noundef %132, i32 noundef %133, ptr noundef %134, i32 noundef %135, i32 noundef 2, i32 noundef -2147483648)
-  %137 = load i32, ptr %18, align 4
-  %138 = add i32 %137, 2
-  store i32 %138, ptr %18, align 4
-  %139 = load ptr, ptr %9, align 8
-  %140 = getelementptr inbounds %struct._packet_info, ptr %139, i32 0, i32 1
-  %141 = load ptr, ptr %140, align 8
-  %142 = getelementptr inbounds %struct.solaredge_packet_header, ptr %19, i32 0, i32 5
-  %143 = load i16, ptr %142, align 4
-  %144 = zext i16 %143 to i32
-  %145 = call ptr @val_to_str_const(i32 noundef %144, ptr noundef @solaredge_packet_commandtypes, ptr noundef @.str.523)
-  call void @col_append_str(ptr noundef %141, i32 noundef 25, ptr noundef %145)
-  %146 = getelementptr inbounds %struct.solaredge_packet_header, ptr %19, i32 0, i32 5
-  %147 = load i16, ptr %146, align 4
-  %148 = zext i16 %147 to i32
-  switch i32 %148, label %335 [
-    i32 61, label %149
-    i32 1280, label %218
-    i32 1283, label %238
+73:                                               ; preds = %34
+  %74 = load ptr, ptr %15, align 8
+  %75 = load ptr, ptr %9, align 8
+  %76 = load ptr, ptr %8, align 8
+  %77 = load i32, ptr %18, align 4
+  %78 = sub i32 %77, 2
+  %79 = load i32, ptr %18, align 4
+  %80 = add i32 %79, 2
+  %81 = getelementptr inbounds nuw %struct.solaredge_packet_header, ptr %19, i32 0, i32 1
+  %82 = load i16, ptr %81, align 2
+  %83 = zext i16 %82 to i32
+  %84 = getelementptr inbounds nuw %struct.solaredge_packet_header, ptr %19, i32 0, i32 0
+  %85 = load i16, ptr %84, align 4
+  %86 = zext i16 %85 to i32
+  %87 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %74, ptr noundef %75, ptr noundef @ei_solaredge_invalid_length, ptr noundef %76, i32 noundef %78, i32 noundef %80, ptr noundef @.str.524, i32 noundef %83, i32 noundef %86)
+  br label %88
+
+88:                                               ; preds = %73, %34
+  %89 = load ptr, ptr %15, align 8
+  %90 = load i32, ptr @hf_solaredge_length_inverse_type, align 4
+  %91 = load ptr, ptr %8, align 8
+  %92 = load i32, ptr %18, align 4
+  %93 = call ptr @proto_tree_add_item(ptr noundef %89, i32 noundef %90, ptr noundef %91, i32 noundef %92, i32 noundef 2, i32 noundef -2147483648)
+  %94 = load i32, ptr %18, align 4
+  %95 = add i32 %94, 2
+  store i32 %95, ptr %18, align 4
+  %96 = load ptr, ptr %8, align 8
+  %97 = load i32, ptr %18, align 4
+  %98 = call zeroext i16 @tvb_get_uint16(ptr noundef %96, i32 noundef %97, i32 noundef -2147483648)
+  %99 = getelementptr inbounds nuw %struct.solaredge_packet_header, ptr %19, i32 0, i32 2
+  store i16 %98, ptr %99, align 4
+  %100 = load ptr, ptr %15, align 8
+  %101 = load i32, ptr @hf_solaredge_sequence_number_type, align 4
+  %102 = load ptr, ptr %8, align 8
+  %103 = load i32, ptr %18, align 4
+  %104 = call ptr @proto_tree_add_item(ptr noundef %100, i32 noundef %101, ptr noundef %102, i32 noundef %103, i32 noundef 2, i32 noundef -2147483648)
+  %105 = load i32, ptr %18, align 4
+  %106 = add i32 %105, 2
+  store i32 %106, ptr %18, align 4
+  %107 = load ptr, ptr %8, align 8
+  %108 = load i32, ptr %18, align 4
+  %109 = call i32 @tvb_get_uint32(ptr noundef %107, i32 noundef %108, i32 noundef -2147483648)
+  %110 = getelementptr inbounds nuw %struct.solaredge_packet_header, ptr %19, i32 0, i32 3
+  store i32 %109, ptr %110, align 4
+  %111 = load ptr, ptr %15, align 8
+  %112 = load i32, ptr @hf_solaredge_source_address_type, align 4
+  %113 = load ptr, ptr %8, align 8
+  %114 = load i32, ptr %18, align 4
+  %115 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %112, ptr noundef %113, i32 noundef %114, i32 noundef 4, i32 noundef -2147483648)
+  %116 = load i32, ptr %18, align 4
+  %117 = add i32 %116, 4
+  store i32 %117, ptr %18, align 4
+  %118 = load ptr, ptr %8, align 8
+  %119 = load i32, ptr %18, align 4
+  %120 = call i32 @tvb_get_uint32(ptr noundef %118, i32 noundef %119, i32 noundef -2147483648)
+  %121 = getelementptr inbounds nuw %struct.solaredge_packet_header, ptr %19, i32 0, i32 4
+  store i32 %120, ptr %121, align 4
+  %122 = load ptr, ptr %15, align 8
+  %123 = load i32, ptr @hf_solaredge_destination_address_type, align 4
+  %124 = load ptr, ptr %8, align 8
+  %125 = load i32, ptr %18, align 4
+  %126 = call ptr @proto_tree_add_item(ptr noundef %122, i32 noundef %123, ptr noundef %124, i32 noundef %125, i32 noundef 4, i32 noundef -2147483648)
+  %127 = load i32, ptr %18, align 4
+  %128 = add i32 %127, 4
+  store i32 %128, ptr %18, align 4
+  %129 = load ptr, ptr %8, align 8
+  %130 = load i32, ptr %18, align 4
+  %131 = call zeroext i16 @tvb_get_uint16(ptr noundef %129, i32 noundef %130, i32 noundef -2147483648)
+  %132 = getelementptr inbounds nuw %struct.solaredge_packet_header, ptr %19, i32 0, i32 5
+  store i16 %131, ptr %132, align 4
+  %133 = load ptr, ptr %15, align 8
+  %134 = load i32, ptr @hf_solaredge_command_type, align 4
+  %135 = load ptr, ptr %8, align 8
+  %136 = load i32, ptr %18, align 4
+  %137 = call ptr @proto_tree_add_item(ptr noundef %133, i32 noundef %134, ptr noundef %135, i32 noundef %136, i32 noundef 2, i32 noundef -2147483648)
+  %138 = load i32, ptr %18, align 4
+  %139 = add i32 %138, 2
+  store i32 %139, ptr %18, align 4
+  %140 = load ptr, ptr %9, align 8
+  %141 = getelementptr inbounds nuw %struct._packet_info, ptr %140, i32 0, i32 1
+  %142 = load ptr, ptr %141, align 8
+  %143 = getelementptr inbounds nuw %struct.solaredge_packet_header, ptr %19, i32 0, i32 5
+  %144 = load i16, ptr %143, align 4
+  %145 = zext i16 %144 to i32
+  %146 = call ptr @val_to_str_const(i32 noundef %145, ptr noundef @solaredge_packet_commandtypes, ptr noundef @.str.525)
+  call void @col_append_str(ptr noundef %142, i32 noundef 25, ptr noundef %146)
+  %147 = load ptr, ptr %9, align 8
+  call void @increment_dissection_depth(ptr noundef %147)
+  %148 = getelementptr inbounds nuw %struct.solaredge_packet_header, ptr %19, i32 0, i32 5
+  %149 = load i16, ptr %148, align 4
+  %150 = zext i16 %149 to i32
+  switch i32 %150, label %345 [
+    i32 61, label %151
+    i32 1280, label %225
+    i32 1283, label %245
   ]
 
-149:                                              ; preds = %87
-  %150 = load ptr, ptr %15, align 8
-  %151 = load i32, ptr @hf_solaredge_payload_type, align 4
-  %152 = load ptr, ptr %8, align 8
-  %153 = load i32, ptr %18, align 4
-  %154 = getelementptr inbounds %struct.solaredge_packet_header, ptr %19, i32 0, i32 0
-  %155 = load i16, ptr %154, align 4
-  %156 = zext i16 %155 to i32
-  %157 = call ptr @proto_tree_add_item(ptr noundef %150, i32 noundef %151, ptr noundef %152, i32 noundef %153, i32 noundef %156, i32 noundef 0)
-  %158 = load ptr, ptr %13, align 8
-  %159 = load i32, ptr @proto_solaredge, align 4
-  %160 = call ptr @conversation_get_proto_data(ptr noundef %158, i32 noundef %159)
-  store ptr %160, ptr %25, align 8
-  %161 = load ptr, ptr %25, align 8
-  %162 = icmp ne ptr %161, null
-  br i1 %162, label %163, label %212
+151:                                              ; preds = %88
+  %152 = load ptr, ptr %15, align 8
+  %153 = load i32, ptr @hf_solaredge_payload_type, align 4
+  %154 = load ptr, ptr %8, align 8
+  %155 = load i32, ptr %18, align 4
+  %156 = getelementptr inbounds nuw %struct.solaredge_packet_header, ptr %19, i32 0, i32 0
+  %157 = load i16, ptr %156, align 4
+  %158 = zext i16 %157 to i32
+  %159 = call ptr @proto_tree_add_item(ptr noundef %152, i32 noundef %153, ptr noundef %154, i32 noundef %155, i32 noundef %158, i32 noundef 0)
+  %160 = load ptr, ptr %13, align 8
+  %161 = load i32, ptr @proto_solaredge, align 4
+  %162 = call ptr @conversation_get_proto_data(ptr noundef %160, i32 noundef %161)
+  store ptr %162, ptr %25, align 8
+  %163 = load ptr, ptr %25, align 8
+  %164 = icmp ne ptr %163, null
+  br i1 %164, label %165, label %219
 
-163:                                              ; preds = %149
-  %164 = load ptr, ptr %25, align 8
-  %165 = getelementptr inbounds %struct.solaredge_conversion_data, ptr %164, i32 0, i32 0
-  %166 = load i32, ptr %165, align 8
-  %167 = icmp eq i32 %166, 1
-  br i1 %167, label %168, label %212
+165:                                              ; preds = %151
+  %166 = load ptr, ptr %25, align 8
+  %167 = getelementptr inbounds nuw %struct.solaredge_conversion_data, ptr %166, i32 0, i32 0
+  %168 = load i8, ptr %167, align 8, !range !6, !noundef !7
+  %169 = trunc i8 %168 to i1
+  %170 = zext i1 %169 to i32
+  %171 = icmp eq i32 %170, 1
+  br i1 %171, label %172, label %219
 
-168:                                              ; preds = %163
-  %169 = load ptr, ptr %9, align 8
-  %170 = getelementptr inbounds %struct._packet_info, ptr %169, i32 0, i32 50
-  %171 = load ptr, ptr %170, align 8
-  %172 = getelementptr inbounds %struct.solaredge_packet_header, ptr %19, i32 0, i32 0
-  %173 = load i16, ptr %172, align 4
-  %174 = zext i16 %173 to i64
-  %175 = call noalias ptr @wmem_alloc(ptr noundef %171, i64 noundef %174)
-  store ptr %175, ptr %27, align 8
-  %176 = load ptr, ptr %8, align 8
-  %177 = load i32, ptr %18, align 4
-  %178 = getelementptr inbounds %struct.solaredge_packet_header, ptr %19, i32 0, i32 0
-  %179 = load i16, ptr %178, align 4
-  %180 = zext i16 %179 to i32
-  %181 = call ptr @tvb_get_ptr(ptr noundef %176, i32 noundef %177, i32 noundef %180)
-  %182 = getelementptr inbounds %struct.solaredge_packet_header, ptr %19, i32 0, i32 0
-  %183 = load i16, ptr %182, align 4
-  %184 = zext i16 %183 to i32
-  %185 = load ptr, ptr %27, align 8
-  %186 = load ptr, ptr %25, align 8
-  %187 = getelementptr inbounds %struct.solaredge_conversion_data, ptr %186, i32 0, i32 1
-  %188 = load ptr, ptr %187, align 8
-  call void @solaredge_decrypt(ptr noundef %181, i32 noundef %184, ptr noundef %185, ptr noundef %188)
-  %189 = load ptr, ptr %8, align 8
-  %190 = load ptr, ptr %27, align 8
-  %191 = getelementptr inbounds %struct.solaredge_packet_header, ptr %19, i32 0, i32 0
-  %192 = load i16, ptr %191, align 4
-  %193 = zext i16 %192 to i32
-  %194 = getelementptr inbounds %struct.solaredge_packet_header, ptr %19, i32 0, i32 0
-  %195 = load i16, ptr %194, align 4
-  %196 = zext i16 %195 to i32
-  %197 = call ptr @tvb_new_child_real_data(ptr noundef %189, ptr noundef %190, i32 noundef %193, i32 noundef %196)
-  store ptr %197, ptr %28, align 8
-  %198 = load ptr, ptr %28, align 8
-  %199 = call i32 @tvb_get_guint32(ptr noundef %198, i32 noundef 0, i32 noundef -2147483648)
-  %200 = icmp eq i32 %199, 2035692562
-  br i1 %200, label %201, label %211
+172:                                              ; preds = %165
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #8
+  %173 = load ptr, ptr %9, align 8
+  %174 = getelementptr inbounds nuw %struct._packet_info, ptr %173, i32 0, i32 51
+  %175 = load ptr, ptr %174, align 8
+  %176 = getelementptr inbounds nuw %struct.solaredge_packet_header, ptr %19, i32 0, i32 0
+  %177 = load i16, ptr %176, align 4
+  %178 = zext i16 %177 to i64
+  %179 = call noalias ptr @wmem_alloc(ptr noundef %175, i64 noundef %178) #9
+  store ptr %179, ptr %28, align 8
+  %180 = load ptr, ptr %9, align 8
+  %181 = getelementptr inbounds nuw %struct._packet_info, ptr %180, i32 0, i32 51
+  %182 = load ptr, ptr %181, align 8
+  %183 = load ptr, ptr %8, align 8
+  %184 = load i32, ptr %18, align 4
+  %185 = getelementptr inbounds nuw %struct.solaredge_packet_header, ptr %19, i32 0, i32 0
+  %186 = load i16, ptr %185, align 4
+  %187 = zext i16 %186 to i32
+  %188 = call ptr @tvb_get_ptr(ptr noundef %183, i32 noundef %184, i32 noundef %187)
+  %189 = getelementptr inbounds nuw %struct.solaredge_packet_header, ptr %19, i32 0, i32 0
+  %190 = load i16, ptr %189, align 4
+  %191 = zext i16 %190 to i32
+  %192 = load ptr, ptr %28, align 8
+  %193 = load ptr, ptr %25, align 8
+  %194 = getelementptr inbounds nuw %struct.solaredge_conversion_data, ptr %193, i32 0, i32 1
+  %195 = load ptr, ptr %194, align 8
+  call void @solaredge_decrypt(ptr noundef %182, ptr noundef %188, i32 noundef %191, ptr noundef %192, ptr noundef %195)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %29) #8
+  %196 = load ptr, ptr %8, align 8
+  %197 = load ptr, ptr %28, align 8
+  %198 = getelementptr inbounds nuw %struct.solaredge_packet_header, ptr %19, i32 0, i32 0
+  %199 = load i16, ptr %198, align 4
+  %200 = zext i16 %199 to i32
+  %201 = getelementptr inbounds nuw %struct.solaredge_packet_header, ptr %19, i32 0, i32 0
+  %202 = load i16, ptr %201, align 4
+  %203 = zext i16 %202 to i32
+  %204 = call ptr @tvb_new_child_real_data(ptr noundef %196, ptr noundef %197, i32 noundef %200, i32 noundef %203)
+  store ptr %204, ptr %29, align 8
+  %205 = load ptr, ptr %29, align 8
+  %206 = call i32 @tvb_get_uint32(ptr noundef %205, i32 noundef 0, i32 noundef -2147483648)
+  %207 = icmp eq i32 %206, 2035692562
+  br i1 %207, label %208, label %218
 
-201:                                              ; preds = %168
-  %202 = load ptr, ptr %9, align 8
-  %203 = load ptr, ptr %28, align 8
-  call void @add_new_data_source(ptr noundef %202, ptr noundef %203, ptr noundef @.str.524)
-  %204 = load ptr, ptr %28, align 8
-  %205 = load ptr, ptr %9, align 8
-  %206 = load ptr, ptr %10, align 8
-  %207 = load ptr, ptr %11, align 8
-  %208 = load i32, ptr @ett_solaredge_packet_decrypted, align 4
-  %209 = load ptr, ptr %13, align 8
-  %210 = call i32 @dissect_solaredge_recursive(ptr noundef %204, ptr noundef %205, ptr noundef %206, ptr noundef %207, i32 noundef %208, ptr noundef %209)
-  br label %211
+208:                                              ; preds = %172
+  %209 = load ptr, ptr %9, align 8
+  %210 = load ptr, ptr %29, align 8
+  call void @add_new_data_source(ptr noundef %209, ptr noundef %210, ptr noundef @.str.526)
+  %211 = load ptr, ptr %29, align 8
+  %212 = load ptr, ptr %9, align 8
+  %213 = load ptr, ptr %10, align 8
+  %214 = load ptr, ptr %11, align 8
+  %215 = load i32, ptr @ett_solaredge_packet_decrypted, align 4
+  %216 = load ptr, ptr %13, align 8
+  %217 = call i32 @dissect_solaredge_recursive(ptr noundef %211, ptr noundef %212, ptr noundef %213, ptr noundef %214, i32 noundef %215, ptr noundef %216)
+  br label %218
 
-211:                                              ; preds = %201, %168
-  br label %212
+218:                                              ; preds = %208, %172
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #8
+  br label %219
 
-212:                                              ; preds = %211, %163, %149
-  %213 = getelementptr inbounds %struct.solaredge_packet_header, ptr %19, i32 0, i32 0
-  %214 = load i16, ptr %213, align 4
-  %215 = zext i16 %214 to i32
-  %216 = load i32, ptr %18, align 4
-  %217 = add i32 %216, %215
-  store i32 %217, ptr %18, align 4
-  br label %341
+219:                                              ; preds = %218, %165, %151
+  %220 = getelementptr inbounds nuw %struct.solaredge_packet_header, ptr %19, i32 0, i32 0
+  %221 = load i16, ptr %220, align 4
+  %222 = zext i16 %221 to i32
+  %223 = load i32, ptr %18, align 4
+  %224 = add i32 %223, %222
+  store i32 %224, ptr %18, align 4
+  br label %351
 
-218:                                              ; preds = %87
-  %219 = load ptr, ptr %15, align 8
-  %220 = load i32, ptr @hf_solaredge_post_type, align 4
-  %221 = load ptr, ptr %8, align 8
-  %222 = load i32, ptr %18, align 4
-  %223 = getelementptr inbounds %struct.solaredge_packet_header, ptr %19, i32 0, i32 0
-  %224 = load i16, ptr %223, align 4
-  %225 = zext i16 %224 to i32
-  %226 = call ptr @proto_tree_add_item(ptr noundef %219, i32 noundef %220, ptr noundef %221, i32 noundef %222, i32 noundef %225, i32 noundef 0)
-  store ptr %226, ptr %16, align 8
-  %227 = load ptr, ptr %16, align 8
-  %228 = load i32, ptr @ett_solaredge_packet_post, align 4
-  %229 = call ptr @proto_item_add_subtree(ptr noundef %227, i32 noundef %228)
-  store ptr %229, ptr %17, align 8
-  %230 = load ptr, ptr %8, align 8
-  %231 = load ptr, ptr %9, align 8
-  %232 = load ptr, ptr %17, align 8
-  %233 = load i32, ptr %18, align 4
-  %234 = getelementptr inbounds %struct.solaredge_packet_header, ptr %19, i32 0, i32 0
-  %235 = load i16, ptr %234, align 4
-  %236 = zext i16 %235 to i32
-  %237 = call i32 @dissect_solaredge_devicedata(ptr noundef %230, ptr noundef %231, ptr noundef %232, i32 noundef %233, i32 noundef %236)
-  br label %341
+225:                                              ; preds = %88
+  %226 = load ptr, ptr %15, align 8
+  %227 = load i32, ptr @hf_solaredge_post_type, align 4
+  %228 = load ptr, ptr %8, align 8
+  %229 = load i32, ptr %18, align 4
+  %230 = getelementptr inbounds nuw %struct.solaredge_packet_header, ptr %19, i32 0, i32 0
+  %231 = load i16, ptr %230, align 4
+  %232 = zext i16 %231 to i32
+  %233 = call ptr @proto_tree_add_item(ptr noundef %226, i32 noundef %227, ptr noundef %228, i32 noundef %229, i32 noundef %232, i32 noundef 0)
+  store ptr %233, ptr %16, align 8
+  %234 = load ptr, ptr %16, align 8
+  %235 = load i32, ptr @ett_solaredge_packet_post, align 4
+  %236 = call ptr @proto_item_add_subtree(ptr noundef %234, i32 noundef %235)
+  store ptr %236, ptr %17, align 8
+  %237 = load ptr, ptr %8, align 8
+  %238 = load ptr, ptr %9, align 8
+  %239 = load ptr, ptr %17, align 8
+  %240 = load i32, ptr %18, align 4
+  %241 = getelementptr inbounds nuw %struct.solaredge_packet_header, ptr %19, i32 0, i32 0
+  %242 = load i16, ptr %241, align 4
+  %243 = zext i16 %242 to i32
+  %244 = call i32 @dissect_solaredge_devicedata(ptr noundef %237, ptr noundef %238, ptr noundef %239, i32 noundef %240, i32 noundef %243)
+  br label %351
 
-238:                                              ; preds = %87
-  %239 = load ptr, ptr %15, align 8
-  %240 = load i32, ptr @hf_solaredge_session_key_type, align 4
-  %241 = load ptr, ptr %8, align 8
-  %242 = load i32, ptr %18, align 4
-  %243 = getelementptr inbounds %struct.solaredge_packet_header, ptr %19, i32 0, i32 0
-  %244 = load i16, ptr %243, align 4
-  %245 = zext i16 %244 to i32
-  %246 = call ptr @proto_tree_add_item(ptr noundef %239, i32 noundef %240, ptr noundef %241, i32 noundef %242, i32 noundef %245, i32 noundef 0)
-  %247 = call i32 @gcry_cipher_open(ptr noundef @cipher_hd_system, i32 noundef 7, i32 noundef 1, i32 noundef 0)
-  %248 = icmp ne i32 %247, 0
-  br i1 %248, label %334, label %249
+245:                                              ; preds = %88
+  %246 = load ptr, ptr %15, align 8
+  %247 = load i32, ptr @hf_solaredge_session_key_type, align 4
+  %248 = load ptr, ptr %8, align 8
+  %249 = load i32, ptr %18, align 4
+  %250 = getelementptr inbounds nuw %struct.solaredge_packet_header, ptr %19, i32 0, i32 0
+  %251 = load i16, ptr %250, align 4
+  %252 = zext i16 %251 to i32
+  %253 = call ptr @proto_tree_add_item(ptr noundef %246, i32 noundef %247, ptr noundef %248, i32 noundef %249, i32 noundef %252, i32 noundef 0)
+  %254 = call i32 @gcry_cipher_open(ptr noundef @cipher_hd_system, i32 noundef 7, i32 noundef 1, i32 noundef 0)
+  %255 = icmp ne i32 %254, 0
+  br i1 %255, label %344, label %256
 
-249:                                              ; preds = %238
-  %250 = call ptr @g_byte_array_new()
-  store ptr %250, ptr %20, align 8
-  %251 = load ptr, ptr @global_system_encryption_key, align 8
-  %252 = load ptr, ptr %20, align 8
-  %253 = call i32 @hex_str_to_bytes(ptr noundef %251, ptr noundef %252, i32 noundef 0)
-  store i32 %253, ptr %26, align 4
-  %254 = load i32, ptr %26, align 4
-  %255 = icmp eq i32 %254, 1
-  br i1 %255, label %256, label %333
+256:                                              ; preds = %245
+  %257 = call ptr @g_byte_array_new()
+  store ptr %257, ptr %20, align 8
+  %258 = load ptr, ptr @global_system_encryption_key, align 8
+  %259 = load ptr, ptr %20, align 8
+  %260 = call zeroext i1 @hex_str_to_bytes(ptr noundef %258, ptr noundef %259, i1 noundef zeroext false)
+  %261 = zext i1 %260 to i8
+  store i8 %261, ptr %26, align 1
+  %262 = load i8, ptr %26, align 1, !range !6, !noundef !7
+  %263 = trunc i8 %262 to i1
+  %264 = zext i1 %263 to i32
+  %265 = icmp eq i32 %264, 1
+  br i1 %265, label %266, label %343
 
-256:                                              ; preds = %249
-  %257 = load ptr, ptr %20, align 8
-  %258 = getelementptr inbounds %struct._GByteArray, ptr %257, i32 0, i32 1
-  %259 = load i32, ptr %258, align 8
-  %260 = icmp eq i32 %259, 16
-  br i1 %260, label %261, label %333
+266:                                              ; preds = %256
+  %267 = load ptr, ptr %20, align 8
+  %268 = getelementptr inbounds nuw %struct._GByteArray, ptr %267, i32 0, i32 1
+  %269 = load i32, ptr %268, align 8
+  %270 = icmp eq i32 %269, 16
+  br i1 %270, label %271, label %343
 
-261:                                              ; preds = %256
-  %262 = load ptr, ptr @cipher_hd_system, align 8
-  %263 = load ptr, ptr %20, align 8
-  %264 = getelementptr inbounds %struct._GByteArray, ptr %263, i32 0, i32 0
-  %265 = load ptr, ptr %264, align 8
-  %266 = call i32 @gcry_cipher_setkey(ptr noundef %262, ptr noundef %265, i64 noundef 16)
-  %267 = icmp ne i32 %266, 0
-  br i1 %267, label %331, label %268
+271:                                              ; preds = %266
+  %272 = load ptr, ptr @cipher_hd_system, align 8
+  %273 = load ptr, ptr %20, align 8
+  %274 = getelementptr inbounds nuw %struct._GByteArray, ptr %273, i32 0, i32 0
+  %275 = load ptr, ptr %274, align 8
+  %276 = call i32 @gcry_cipher_setkey(ptr noundef %272, ptr noundef %275, i64 noundef 16)
+  %277 = icmp ne i32 %276, 0
+  br i1 %277, label %341, label %278
 
-268:                                              ; preds = %261
-  %269 = load ptr, ptr %8, align 8
-  %270 = getelementptr inbounds [16 x i8], ptr %21, i64 0, i64 0
-  %271 = load i32, ptr %18, align 4
-  %272 = call ptr @tvb_memcpy(ptr noundef %269, ptr noundef %270, i32 noundef %271, i64 noundef 16)
-  %273 = load i32, ptr %18, align 4
-  %274 = add i32 %273, 16
-  store i32 %274, ptr %18, align 4
-  %275 = load ptr, ptr %8, align 8
-  %276 = getelementptr inbounds [16 x i8], ptr %22, i64 0, i64 0
-  %277 = load i32, ptr %18, align 4
-  %278 = call ptr @tvb_memcpy(ptr noundef %275, ptr noundef %276, i32 noundef %277, i64 noundef 16)
-  %279 = load i32, ptr %18, align 4
-  %280 = add i32 %279, 16
-  store i32 %280, ptr %18, align 4
-  %281 = load ptr, ptr @cipher_hd_system, align 8
-  %282 = getelementptr inbounds [16 x i8], ptr %23, i64 0, i64 0
-  %283 = getelementptr inbounds [16 x i8], ptr %21, i64 0, i64 0
-  %284 = call i32 @gcry_cipher_encrypt(ptr noundef %281, ptr noundef %282, i64 noundef 16, ptr noundef %283, i64 noundef 16)
+278:                                              ; preds = %271
+  %279 = load ptr, ptr %8, align 8
+  %280 = getelementptr inbounds [16 x i8], ptr %21, i64 0, i64 0
+  %281 = load i32, ptr %18, align 4
+  %282 = call ptr @tvb_memcpy(ptr noundef %279, ptr noundef %280, i32 noundef %281, i64 noundef 16)
+  %283 = load i32, ptr %18, align 4
+  %284 = add i32 %283, 16
+  store i32 %284, ptr %18, align 4
+  %285 = load ptr, ptr %8, align 8
+  %286 = getelementptr inbounds [16 x i8], ptr %22, i64 0, i64 0
+  %287 = load i32, ptr %18, align 4
+  %288 = call ptr @tvb_memcpy(ptr noundef %285, ptr noundef %286, i32 noundef %287, i64 noundef 16)
+  %289 = load i32, ptr %18, align 4
+  %290 = add i32 %289, 16
+  store i32 %290, ptr %18, align 4
+  %291 = load ptr, ptr @cipher_hd_system, align 8
+  %292 = getelementptr inbounds [16 x i8], ptr %23, i64 0, i64 0
+  %293 = getelementptr inbounds [16 x i8], ptr %21, i64 0, i64 0
+  %294 = call i32 @gcry_cipher_encrypt(ptr noundef %291, ptr noundef %292, i64 noundef 16, ptr noundef %293, i64 noundef 16)
   store i32 0, ptr %24, align 4
-  br label %285
+  br label %295
 
-285:                                              ; preds = %304, %268
-  %286 = load i32, ptr %24, align 4
-  %287 = icmp ult i32 %286, 16
-  br i1 %287, label %288, label %307
+295:                                              ; preds = %314, %278
+  %296 = load i32, ptr %24, align 4
+  %297 = icmp ult i32 %296, 16
+  br i1 %297, label %298, label %317
 
-288:                                              ; preds = %285
-  %289 = load i32, ptr %24, align 4
-  %290 = zext i32 %289 to i64
-  %291 = getelementptr [16 x i8], ptr %23, i64 0, i64 %290
-  %292 = load i8, ptr %291, align 1
-  %293 = zext i8 %292 to i32
-  %294 = load i32, ptr %24, align 4
-  %295 = zext i32 %294 to i64
-  %296 = getelementptr [16 x i8], ptr %22, i64 0, i64 %295
-  %297 = load i8, ptr %296, align 1
-  %298 = zext i8 %297 to i32
-  %299 = xor i32 %293, %298
-  %300 = trunc i32 %299 to i8
-  %301 = load i32, ptr %24, align 4
-  %302 = zext i32 %301 to i64
-  %303 = getelementptr [16 x i8], ptr %22, i64 0, i64 %302
-  store i8 %300, ptr %303, align 1
-  br label %304
+298:                                              ; preds = %295
+  %299 = load i32, ptr %24, align 4
+  %300 = zext i32 %299 to i64
+  %301 = getelementptr [16 x i8], ptr %23, i64 0, i64 %300
+  %302 = load i8, ptr %301, align 1
+  %303 = zext i8 %302 to i32
+  %304 = load i32, ptr %24, align 4
+  %305 = zext i32 %304 to i64
+  %306 = getelementptr [16 x i8], ptr %22, i64 0, i64 %305
+  %307 = load i8, ptr %306, align 1
+  %308 = zext i8 %307 to i32
+  %309 = xor i32 %303, %308
+  %310 = trunc i32 %309 to i8
+  %311 = load i32, ptr %24, align 4
+  %312 = zext i32 %311 to i64
+  %313 = getelementptr [16 x i8], ptr %22, i64 0, i64 %312
+  store i8 %310, ptr %313, align 1
+  br label %314
 
-304:                                              ; preds = %288
-  %305 = load i32, ptr %24, align 4
-  %306 = add i32 %305, 1
-  store i32 %306, ptr %24, align 4
-  br label %285, !llvm.loop !4
+314:                                              ; preds = %298
+  %315 = load i32, ptr %24, align 4
+  %316 = add i32 %315, 1
+  store i32 %316, ptr %24, align 4
+  br label %295, !llvm.loop !8
 
-307:                                              ; preds = %285
-  %308 = load ptr, ptr %13, align 8
-  %309 = load i32, ptr @proto_solaredge, align 4
-  %310 = call ptr @conversation_get_proto_data(ptr noundef %308, i32 noundef %309)
-  store ptr %310, ptr %25, align 8
-  %311 = load ptr, ptr %25, align 8
-  %312 = getelementptr inbounds %struct.solaredge_conversion_data, ptr %311, i32 0, i32 1
-  %313 = call i32 @gcry_cipher_open(ptr noundef %312, i32 noundef 7, i32 noundef 1, i32 noundef 0)
-  %314 = icmp ne i32 %313, 0
-  br i1 %314, label %330, label %315
+317:                                              ; preds = %295
+  %318 = load ptr, ptr %13, align 8
+  %319 = load i32, ptr @proto_solaredge, align 4
+  %320 = call ptr @conversation_get_proto_data(ptr noundef %318, i32 noundef %319)
+  store ptr %320, ptr %25, align 8
+  %321 = load ptr, ptr %25, align 8
+  %322 = getelementptr inbounds nuw %struct.solaredge_conversion_data, ptr %321, i32 0, i32 1
+  %323 = call i32 @gcry_cipher_open(ptr noundef %322, i32 noundef 7, i32 noundef 1, i32 noundef 0)
+  %324 = icmp ne i32 %323, 0
+  br i1 %324, label %340, label %325
 
-315:                                              ; preds = %307
-  %316 = load ptr, ptr %25, align 8
-  %317 = getelementptr inbounds %struct.solaredge_conversion_data, ptr %316, i32 0, i32 1
-  %318 = load ptr, ptr %317, align 8
-  %319 = getelementptr inbounds [16 x i8], ptr %22, i64 0, i64 0
-  %320 = call i32 @gcry_cipher_setkey(ptr noundef %318, ptr noundef %319, i64 noundef 16)
-  %321 = icmp ne i32 %320, 0
-  br i1 %321, label %325, label %322
-
-322:                                              ; preds = %315
-  %323 = load ptr, ptr %25, align 8
-  %324 = getelementptr inbounds %struct.solaredge_conversion_data, ptr %323, i32 0, i32 0
-  store i32 1, ptr %324, align 8
-  br label %329
-
-325:                                              ; preds = %315
+325:                                              ; preds = %317
   %326 = load ptr, ptr %25, align 8
-  %327 = getelementptr inbounds %struct.solaredge_conversion_data, ptr %326, i32 0, i32 1
+  %327 = getelementptr inbounds nuw %struct.solaredge_conversion_data, ptr %326, i32 0, i32 1
   %328 = load ptr, ptr %327, align 8
-  call void @gcry_cipher_close(ptr noundef %328)
-  br label %329
+  %329 = getelementptr inbounds [16 x i8], ptr %22, i64 0, i64 0
+  %330 = call i32 @gcry_cipher_setkey(ptr noundef %328, ptr noundef %329, i64 noundef 16)
+  %331 = icmp ne i32 %330, 0
+  br i1 %331, label %335, label %332
 
-329:                                              ; preds = %325, %322
-  br label %330
+332:                                              ; preds = %325
+  %333 = load ptr, ptr %25, align 8
+  %334 = getelementptr inbounds nuw %struct.solaredge_conversion_data, ptr %333, i32 0, i32 0
+  store i8 1, ptr %334, align 8
+  br label %339
 
-330:                                              ; preds = %329, %307
-  br label %331
+335:                                              ; preds = %325
+  %336 = load ptr, ptr %25, align 8
+  %337 = getelementptr inbounds nuw %struct.solaredge_conversion_data, ptr %336, i32 0, i32 1
+  %338 = load ptr, ptr %337, align 8
+  call void @gcry_cipher_close(ptr noundef %338)
+  br label %339
 
-331:                                              ; preds = %330, %261
-  %332 = load ptr, ptr @cipher_hd_system, align 8
-  call void @gcry_cipher_close(ptr noundef %332)
-  br label %333
+339:                                              ; preds = %335, %332
+  br label %340
 
-333:                                              ; preds = %331, %256, %249
-  br label %334
-
-334:                                              ; preds = %333, %238
+340:                                              ; preds = %339, %317
   br label %341
 
-335:                                              ; preds = %87
-  %336 = getelementptr inbounds %struct.solaredge_packet_header, ptr %19, i32 0, i32 0
-  %337 = load i16, ptr %336, align 4
-  %338 = zext i16 %337 to i32
-  %339 = load i32, ptr %18, align 4
-  %340 = add i32 %339, %338
-  store i32 %340, ptr %18, align 4
-  br label %341
+341:                                              ; preds = %340, %271
+  %342 = load ptr, ptr @cipher_hd_system, align 8
+  call void @gcry_cipher_close(ptr noundef %342)
+  br label %343
 
-341:                                              ; preds = %335, %334, %218, %212
-  %342 = load ptr, ptr %15, align 8
-  %343 = load ptr, ptr %8, align 8
-  %344 = getelementptr inbounds %struct.solaredge_packet_header, ptr %19, i32 0, i32 0
-  %345 = load i16, ptr %344, align 4
-  %346 = zext i16 %345 to i32
-  %347 = add i32 20, %346
-  %348 = load i32, ptr @hf_solaredge_crc_type, align 4
-  %349 = load i32, ptr @hf_solaredge_crc_status_type, align 4
-  %350 = load ptr, ptr %9, align 8
-  %351 = load ptr, ptr %8, align 8
-  %352 = getelementptr inbounds %struct.solaredge_packet_header, ptr %19, i32 0, i32 0
-  %353 = load i16, ptr %352, align 4
-  %354 = zext i16 %353 to i32
-  %355 = call ptr @tvb_get_ptr(ptr noundef %351, i32 noundef 20, i32 noundef %354)
-  %356 = getelementptr inbounds %struct.solaredge_packet_header, ptr %19, i32 0, i32 0
-  %357 = load i16, ptr %356, align 4
-  %358 = zext i16 %357 to i32
-  %359 = call zeroext i16 @calculate_crc(ptr noundef %19, ptr noundef %355, i32 noundef %358)
-  %360 = zext i16 %359 to i32
-  %361 = call ptr @proto_tree_add_checksum(ptr noundef %342, ptr noundef %343, i32 noundef %347, i32 noundef %348, i32 noundef %349, ptr noundef @ei_solaredge_invalid_crc, ptr noundef %350, i32 noundef %360, i32 noundef -2147483648, i32 noundef 1)
-  %362 = load i32, ptr %18, align 4
-  %363 = add i32 %362, 2
-  store i32 %363, ptr %18, align 4
-  %364 = load i32, ptr %18, align 4
-  store i32 %364, ptr %7, align 4
-  br label %365
+343:                                              ; preds = %341, %266, %256
+  br label %344
 
-365:                                              ; preds = %341, %32
-  %366 = load i32, ptr %7, align 4
-  ret i32 %366
+344:                                              ; preds = %343, %245
+  br label %351
+
+345:                                              ; preds = %88
+  %346 = getelementptr inbounds nuw %struct.solaredge_packet_header, ptr %19, i32 0, i32 0
+  %347 = load i16, ptr %346, align 4
+  %348 = zext i16 %347 to i32
+  %349 = load i32, ptr %18, align 4
+  %350 = add i32 %349, %348
+  store i32 %350, ptr %18, align 4
+  br label %351
+
+351:                                              ; preds = %345, %344, %225, %219
+  %352 = load ptr, ptr %9, align 8
+  call void @decrement_dissection_depth(ptr noundef %352)
+  %353 = load ptr, ptr %15, align 8
+  %354 = load ptr, ptr %8, align 8
+  %355 = getelementptr inbounds nuw %struct.solaredge_packet_header, ptr %19, i32 0, i32 0
+  %356 = load i16, ptr %355, align 4
+  %357 = zext i16 %356 to i32
+  %358 = add i32 20, %357
+  %359 = load i32, ptr @hf_solaredge_crc_type, align 4
+  %360 = load i32, ptr @hf_solaredge_crc_status_type, align 4
+  %361 = load ptr, ptr %9, align 8
+  %362 = load ptr, ptr %8, align 8
+  %363 = getelementptr inbounds nuw %struct.solaredge_packet_header, ptr %19, i32 0, i32 0
+  %364 = load i16, ptr %363, align 4
+  %365 = zext i16 %364 to i32
+  %366 = call ptr @tvb_get_ptr(ptr noundef %362, i32 noundef 20, i32 noundef %365)
+  %367 = getelementptr inbounds nuw %struct.solaredge_packet_header, ptr %19, i32 0, i32 0
+  %368 = load i16, ptr %367, align 4
+  %369 = zext i16 %368 to i32
+  %370 = call zeroext i16 @calculate_crc(ptr noundef %19, ptr noundef %366, i32 noundef %369)
+  %371 = zext i16 %370 to i32
+  %372 = call ptr @proto_tree_add_checksum(ptr noundef %353, ptr noundef %354, i32 noundef %358, i32 noundef %359, i32 noundef %360, ptr noundef @ei_solaredge_invalid_crc, ptr noundef %361, i32 noundef %371, i32 noundef -2147483648, i32 noundef 1)
+  %373 = load i32, ptr %18, align 4
+  %374 = add i32 %373, 2
+  store i32 %374, ptr %18, align 4
+  %375 = load i32, ptr %18, align 4
+  store i32 %375, ptr %7, align 4
+  store i32 1, ptr %27, align 4
+  br label %376
+
+376:                                              ; preds = %351, %33
+  call void @llvm.lifetime.end.p0(i64 1, ptr %26) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr %23) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr %22) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr %21) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #8
+  call void @llvm.lifetime.end.p0(i64 20, ptr %19) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #8
+  %377 = load i32, ptr %7, align 4
+  ret i32 %377
 }
 
-declare i32 @tvb_get_guint32(ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_uint32(ptr noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_clear(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
 
-declare zeroext i16 @tvb_get_guint16(ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_uint16(ptr noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
-define internal void @solaredge_decrypt(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = alloca ptr, align 8
-  %6 = alloca i32, align 4
+; Function Attrs: null_pointer_is_valid
+declare void @increment_dissection_depth(ptr noundef) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal void @solaredge_decrypt(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+  %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca [16 x i8], align 16
-  %10 = alloca [16 x i8], align 16
-  %11 = alloca i32, align 4
-  %12 = alloca ptr, align 8
-  %13 = alloca ptr, align 8
-  %14 = alloca i32, align 4
-  %15 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca [16 x i8], align 16
+  %12 = alloca [16 x i8], align 16
+  %13 = alloca i32, align 4
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store ptr %2, ptr %7, align 8
-  store ptr %3, ptr %8, align 8
-  %18 = load i32, ptr %6, align 4
-  %19 = sub i32 %18, 16
-  store i32 %19, ptr %11, align 4
-  %20 = call ptr @wmem_packet_scope()
-  %21 = load i32, ptr %11, align 4
-  %22 = sext i32 %21 to i64
-  %23 = call noalias ptr @wmem_alloc(ptr noundef %20, i64 noundef %22)
-  store ptr %23, ptr %12, align 8
-  %24 = call ptr @wmem_packet_scope()
-  %25 = load i32, ptr %11, align 4
-  %26 = sext i32 %25 to i64
-  %27 = call noalias ptr @wmem_alloc(ptr noundef %24, i64 noundef %26)
-  store ptr %27, ptr %13, align 8
-  store i32 0, ptr %14, align 4
-  store i32 0, ptr %15, align 4
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store i32 %2, ptr %8, align 4
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %11) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %12) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #8
+  %20 = load i32, ptr %8, align 4
+  %21 = sub i32 %20, 16
+  store i32 %21, ptr %13, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #8
+  %22 = load ptr, ptr %6, align 8
+  %23 = load i32, ptr %13, align 4
+  %24 = sext i32 %23 to i64
+  %25 = call noalias ptr @wmem_alloc(ptr noundef %22, i64 noundef %24) #9
+  store ptr %25, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #8
+  %26 = load ptr, ptr %6, align 8
+  %27 = load i32, ptr %13, align 4
+  %28 = sext i32 %27 to i64
+  %29 = call noalias ptr @wmem_alloc(ptr noundef %26, i64 noundef %28) #9
+  store ptr %29, ptr %15, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #8
   store i32 0, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #8
   store i32 0, ptr %17, align 4
-  %28 = getelementptr inbounds [16 x i8], ptr %10, i64 0, i64 0
-  %29 = load ptr, ptr %5, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %28, ptr align 1 %29, i64 16, i1 false)
-  %30 = load ptr, ptr %12, align 8
-  %31 = load ptr, ptr %5, align 8
-  %32 = getelementptr i8, ptr %31, i64 16
-  %33 = load i32, ptr %11, align 4
-  %34 = sext i32 %33 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %30, ptr align 1 %32, i64 %34, i1 false)
-  %35 = load ptr, ptr %8, align 8
-  %36 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 0
-  %37 = getelementptr inbounds [16 x i8], ptr %10, i64 0, i64 0
-  %38 = call i32 @gcry_cipher_encrypt(ptr noundef %35, ptr noundef %36, i64 noundef 16, ptr noundef %37, i64 noundef 16)
-  store i32 0, ptr %16, align 4
-  br label %39
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #8
+  store i32 0, ptr %18, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #8
+  store i32 0, ptr %19, align 4
+  %30 = getelementptr inbounds [16 x i8], ptr %12, i64 0, i64 0
+  %31 = load ptr, ptr %7, align 8
+  %32 = call ptr @memcpy.inline(ptr noundef %30, ptr noundef %31, i64 noundef 16) #8
+  %33 = load ptr, ptr %14, align 8
+  %34 = load ptr, ptr %7, align 8
+  %35 = getelementptr i8, ptr %34, i64 16
+  %36 = load i32, ptr %13, align 4
+  %37 = sext i32 %36 to i64
+  %38 = call ptr @memcpy.inline(ptr noundef %33, ptr noundef %35, i64 noundef %37) #8
+  %39 = load ptr, ptr %10, align 8
+  %40 = getelementptr inbounds [16 x i8], ptr %11, i64 0, i64 0
+  %41 = getelementptr inbounds [16 x i8], ptr %12, i64 0, i64 0
+  %42 = call i32 @gcry_cipher_encrypt(ptr noundef %39, ptr noundef %40, i64 noundef 16, ptr noundef %41, i64 noundef 16)
+  store i32 0, ptr %18, align 4
+  br label %43
 
-39:                                               ; preds = %96, %4
-  %40 = load i32, ptr %16, align 4
-  %41 = load i32, ptr %11, align 4
-  %42 = icmp slt i32 %40, %41
-  br i1 %42, label %43, label %99
+43:                                               ; preds = %100, %5
+  %44 = load i32, ptr %18, align 4
+  %45 = load i32, ptr %13, align 4
+  %46 = icmp slt i32 %44, %45
+  br i1 %46, label %47, label %103
 
-43:                                               ; preds = %39
-  %44 = load ptr, ptr %12, align 8
-  %45 = load i32, ptr %16, align 4
-  %46 = sext i32 %45 to i64
-  %47 = getelementptr i8, ptr %44, i64 %46
-  %48 = load i8, ptr %47, align 1
-  %49 = zext i8 %48 to i32
-  %50 = load i32, ptr %15, align 4
-  %51 = add i32 %50, 1
-  store i32 %51, ptr %15, align 4
-  %52 = sext i32 %50 to i64
-  %53 = getelementptr [16 x i8], ptr %9, i64 0, i64 %52
-  %54 = load i8, ptr %53, align 1
-  %55 = zext i8 %54 to i32
-  %56 = xor i32 %49, %55
-  %57 = trunc i32 %56 to i8
-  %58 = load ptr, ptr %13, align 8
-  %59 = load i32, ptr %16, align 4
-  %60 = sext i32 %59 to i64
-  %61 = getelementptr i8, ptr %58, i64 %60
-  store i8 %57, ptr %61, align 1
-  %62 = load i32, ptr %15, align 4
-  %63 = icmp eq i32 %62, 16
-  br i1 %63, label %64, label %95
-
-64:                                               ; preds = %43
-  store i32 0, ptr %15, align 4
-  store i32 15, ptr %17, align 4
-  br label %65
-
-65:                                               ; preds = %87, %64
+47:                                               ; preds = %43
+  %48 = load ptr, ptr %14, align 8
+  %49 = load i32, ptr %18, align 4
+  %50 = sext i32 %49 to i64
+  %51 = getelementptr i8, ptr %48, i64 %50
+  %52 = load i8, ptr %51, align 1
+  %53 = zext i8 %52 to i32
+  %54 = load i32, ptr %17, align 4
+  %55 = add i32 %54, 1
+  store i32 %55, ptr %17, align 4
+  %56 = sext i32 %54 to i64
+  %57 = getelementptr [16 x i8], ptr %11, i64 0, i64 %56
+  %58 = load i8, ptr %57, align 1
+  %59 = zext i8 %58 to i32
+  %60 = xor i32 %53, %59
+  %61 = trunc i32 %60 to i8
+  %62 = load ptr, ptr %15, align 8
+  %63 = load i32, ptr %18, align 4
+  %64 = sext i32 %63 to i64
+  %65 = getelementptr i8, ptr %62, i64 %64
+  store i8 %61, ptr %65, align 1
   %66 = load i32, ptr %17, align 4
-  %67 = icmp sge i32 %66, 0
-  br i1 %67, label %68, label %90
+  %67 = icmp eq i32 %66, 16
+  br i1 %67, label %68, label %99
 
-68:                                               ; preds = %65
-  %69 = load i32, ptr %17, align 4
-  %70 = sext i32 %69 to i64
-  %71 = getelementptr [16 x i8], ptr %10, i64 0, i64 %70
-  %72 = load i8, ptr %71, align 1
-  %73 = zext i8 %72 to i32
-  %74 = add i32 %73, 1
-  %75 = and i32 %74, 255
-  %76 = trunc i32 %75 to i8
-  %77 = load i32, ptr %17, align 4
-  %78 = sext i32 %77 to i64
-  %79 = getelementptr [16 x i8], ptr %10, i64 0, i64 %78
-  store i8 %76, ptr %79, align 1
-  %80 = load i32, ptr %17, align 4
-  %81 = sext i32 %80 to i64
-  %82 = getelementptr [16 x i8], ptr %10, i64 0, i64 %81
-  %83 = load i8, ptr %82, align 1
-  %84 = icmp ne i8 %83, 0
-  br i1 %84, label %85, label %86
+68:                                               ; preds = %47
+  store i32 0, ptr %17, align 4
+  store i32 15, ptr %19, align 4
+  br label %69
 
-85:                                               ; preds = %68
-  br label %90
+69:                                               ; preds = %91, %68
+  %70 = load i32, ptr %19, align 4
+  %71 = icmp sge i32 %70, 0
+  br i1 %71, label %72, label %94
 
-86:                                               ; preds = %68
-  br label %87
+72:                                               ; preds = %69
+  %73 = load i32, ptr %19, align 4
+  %74 = sext i32 %73 to i64
+  %75 = getelementptr [16 x i8], ptr %12, i64 0, i64 %74
+  %76 = load i8, ptr %75, align 1
+  %77 = zext i8 %76 to i32
+  %78 = add i32 %77, 1
+  %79 = and i32 %78, 255
+  %80 = trunc i32 %79 to i8
+  %81 = load i32, ptr %19, align 4
+  %82 = sext i32 %81 to i64
+  %83 = getelementptr [16 x i8], ptr %12, i64 0, i64 %82
+  store i8 %80, ptr %83, align 1
+  %84 = load i32, ptr %19, align 4
+  %85 = sext i32 %84 to i64
+  %86 = getelementptr [16 x i8], ptr %12, i64 0, i64 %85
+  %87 = load i8, ptr %86, align 1
+  %88 = icmp ne i8 %87, 0
+  br i1 %88, label %89, label %90
 
-87:                                               ; preds = %86
-  %88 = load i32, ptr %17, align 4
-  %89 = add i32 %88, -1
-  store i32 %89, ptr %17, align 4
-  br label %65, !llvm.loop !6
+89:                                               ; preds = %72
+  br label %94
 
-90:                                               ; preds = %85, %65
-  %91 = load ptr, ptr %8, align 8
-  %92 = getelementptr inbounds [16 x i8], ptr %9, i64 0, i64 0
-  %93 = getelementptr inbounds [16 x i8], ptr %10, i64 0, i64 0
-  %94 = call i32 @gcry_cipher_encrypt(ptr noundef %91, ptr noundef %92, i64 noundef 16, ptr noundef %93, i64 noundef 16)
-  br label %95
+90:                                               ; preds = %72
+  br label %91
 
-95:                                               ; preds = %90, %43
-  br label %96
+91:                                               ; preds = %90
+  %92 = load i32, ptr %19, align 4
+  %93 = add i32 %92, -1
+  store i32 %93, ptr %19, align 4
+  br label %69, !llvm.loop !10
 
-96:                                               ; preds = %95
-  %97 = load i32, ptr %16, align 4
-  %98 = add i32 %97, 1
-  store i32 %98, ptr %16, align 4
-  br label %39, !llvm.loop !7
+94:                                               ; preds = %89, %69
+  %95 = load ptr, ptr %10, align 8
+  %96 = getelementptr inbounds [16 x i8], ptr %11, i64 0, i64 0
+  %97 = getelementptr inbounds [16 x i8], ptr %12, i64 0, i64 0
+  %98 = call i32 @gcry_cipher_encrypt(ptr noundef %95, ptr noundef %96, i64 noundef 16, ptr noundef %97, i64 noundef 16)
+  br label %99
 
-99:                                               ; preds = %39
-  store i32 0, ptr %14, align 4
+99:                                               ; preds = %94, %47
   br label %100
 
-100:                                              ; preds = %126, %99
-  %101 = load i32, ptr %14, align 4
-  %102 = load i32, ptr %11, align 4
-  %103 = icmp slt i32 %101, %102
-  br i1 %103, label %104, label %129
+100:                                              ; preds = %99
+  %101 = load i32, ptr %18, align 4
+  %102 = add i32 %101, 1
+  store i32 %102, ptr %18, align 4
+  br label %43, !llvm.loop !11
 
-104:                                              ; preds = %100
-  %105 = load ptr, ptr %13, align 8
-  %106 = load i32, ptr %14, align 4
-  %107 = add i32 %106, 6
-  %108 = sext i32 %107 to i64
-  %109 = getelementptr i8, ptr %105, i64 %108
-  %110 = load i8, ptr %109, align 1
-  %111 = zext i8 %110 to i32
-  %112 = load ptr, ptr %13, align 8
-  %113 = load i32, ptr %14, align 4
-  %114 = and i32 %113, 3
-  %115 = add i32 2, %114
-  %116 = sext i32 %115 to i64
-  %117 = getelementptr i8, ptr %112, i64 %116
-  %118 = load i8, ptr %117, align 1
-  %119 = zext i8 %118 to i32
-  %120 = xor i32 %111, %119
-  %121 = trunc i32 %120 to i8
-  %122 = load ptr, ptr %7, align 8
-  %123 = load i32, ptr %14, align 4
-  %124 = sext i32 %123 to i64
-  %125 = getelementptr i8, ptr %122, i64 %124
-  store i8 %121, ptr %125, align 1
-  br label %126
+103:                                              ; preds = %43
+  store i32 0, ptr %16, align 4
+  br label %104
 
-126:                                              ; preds = %104
-  %127 = load i32, ptr %14, align 4
-  %128 = add i32 %127, 1
-  store i32 %128, ptr %14, align 4
-  br label %100, !llvm.loop !8
+104:                                              ; preds = %130, %103
+  %105 = load i32, ptr %16, align 4
+  %106 = load i32, ptr %13, align 4
+  %107 = icmp slt i32 %105, %106
+  br i1 %107, label %108, label %133
 
-129:                                              ; preds = %100
+108:                                              ; preds = %104
+  %109 = load ptr, ptr %15, align 8
+  %110 = load i32, ptr %16, align 4
+  %111 = add i32 %110, 6
+  %112 = sext i32 %111 to i64
+  %113 = getelementptr i8, ptr %109, i64 %112
+  %114 = load i8, ptr %113, align 1
+  %115 = zext i8 %114 to i32
+  %116 = load ptr, ptr %15, align 8
+  %117 = load i32, ptr %16, align 4
+  %118 = and i32 %117, 3
+  %119 = add i32 2, %118
+  %120 = sext i32 %119 to i64
+  %121 = getelementptr i8, ptr %116, i64 %120
+  %122 = load i8, ptr %121, align 1
+  %123 = zext i8 %122 to i32
+  %124 = xor i32 %115, %123
+  %125 = trunc i32 %124 to i8
+  %126 = load ptr, ptr %9, align 8
+  %127 = load i32, ptr %16, align 4
+  %128 = sext i32 %127 to i64
+  %129 = getelementptr i8, ptr %126, i64 %128
+  store i8 %125, ptr %129, align 1
+  br label %130
+
+130:                                              ; preds = %108
+  %131 = load i32, ptr %16, align 4
+  %132 = add i32 %131, 1
+  store i32 %132, ptr %16, align 4
+  br label %104, !llvm.loop !12
+
+133:                                              ; preds = %104
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr %11) #8
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_new_child_real_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_solaredge_devicedata(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -1436,28 +1543,39 @@ define internal i32 @dissect_solaredge_devicedata(ptr noundef %0, ptr noundef %1
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i32 %4, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #8
+  call void @llvm.lifetime.start.p0(i64 12, ptr %12) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #8
   %22 = load ptr, ptr %6, align 8
   %23 = load i32, ptr %9, align 4
   %24 = call zeroext i16 @tvb_get_letohs(ptr noundef %22, i32 noundef %23)
-  %25 = getelementptr inbounds %struct.solaredge_device_header, ptr %12, i32 0, i32 0
+  %25 = getelementptr inbounds nuw %struct.solaredge_device_header, ptr %12, i32 0, i32 0
   store i16 %24, ptr %25, align 4
   %26 = load ptr, ptr %6, align 8
   %27 = load i32, ptr %9, align 4
   %28 = add i32 %27, 2
   %29 = call i32 @tvb_get_letohl(ptr noundef %26, i32 noundef %28)
-  %30 = getelementptr inbounds %struct.solaredge_device_header, ptr %12, i32 0, i32 1
+  %30 = getelementptr inbounds nuw %struct.solaredge_device_header, ptr %12, i32 0, i32 1
   store i32 %29, ptr %30, align 4
   %31 = load ptr, ptr %6, align 8
   %32 = load i32, ptr %9, align 4
   %33 = add i32 %32, 6
   %34 = call zeroext i16 @tvb_get_letohs(ptr noundef %31, i32 noundef %33)
-  %35 = getelementptr inbounds %struct.solaredge_device_header, ptr %12, i32 0, i32 2
+  %35 = getelementptr inbounds nuw %struct.solaredge_device_header, ptr %12, i32 0, i32 2
   store i16 %34, ptr %35, align 4
   %36 = load ptr, ptr %8, align 8
   %37 = load i32, ptr @hf_solaredge_post_device_type, align 4
   %38 = load ptr, ptr %6, align 8
   %39 = load i32, ptr %9, align 4
-  %40 = getelementptr inbounds %struct.solaredge_device_header, ptr %12, i32 0, i32 2
+  %40 = getelementptr inbounds nuw %struct.solaredge_device_header, ptr %12, i32 0, i32 2
   %41 = load i16, ptr %40, align 4
   %42 = zext i16 %41 to i32
   %43 = add i32 %42, 8
@@ -1488,741 +1606,799 @@ define internal i32 @dissect_solaredge_devicedata(ptr noundef %0, ptr noundef %1
   %66 = add i32 %65, 8
   store i32 %66, ptr %11, align 4
   %67 = load ptr, ptr %7, align 8
-  %68 = getelementptr inbounds %struct._packet_info, ptr %67, i32 0, i32 1
+  %68 = getelementptr inbounds nuw %struct._packet_info, ptr %67, i32 0, i32 1
   %69 = load ptr, ptr %68, align 8
-  call void @col_append_str(ptr noundef %69, i32 noundef 25, ptr noundef @.str.525)
-  %70 = getelementptr inbounds %struct.solaredge_device_header, ptr %12, i32 0, i32 0
-  %71 = load i16, ptr %70, align 4
-  %72 = zext i16 %71 to i32
-  switch i32 %72, label %600 [
-    i32 0, label %73
-    i32 16, label %144
-    i32 17, label %382
-    i32 128, label %391
-    i32 768, label %524
+  call void @col_append_str(ptr noundef %69, i32 noundef 25, ptr noundef @.str.527)
+  %70 = load ptr, ptr %7, align 8
+  call void @increment_dissection_depth(ptr noundef %70)
+  %71 = getelementptr inbounds nuw %struct.solaredge_device_header, ptr %12, i32 0, i32 0
+  %72 = load i16, ptr %71, align 4
+  %73 = zext i16 %72 to i32
+  switch i32 %73, label %633 [
+    i32 0, label %74
+    i32 16, label %147
+    i32 17, label %411
+    i32 128, label %420
+    i32 768, label %553
   ]
 
-73:                                               ; preds = %5
-  %74 = load ptr, ptr %7, align 8
-  %75 = getelementptr inbounds %struct._packet_info, ptr %74, i32 0, i32 1
-  %76 = load ptr, ptr %75, align 8
-  call void @col_append_str(ptr noundef %76, i32 noundef 25, ptr noundef @.str.518)
-  %77 = load ptr, ptr %14, align 8
-  %78 = load i32, ptr @hf_solaredge_post_optimizer_timestamp_type, align 4
-  %79 = load ptr, ptr %6, align 8
-  %80 = load i32, ptr %11, align 4
-  %81 = call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %78, ptr noundef %79, i32 noundef %80, i32 noundef 4, i32 noundef -2147483648)
-  %82 = load i32, ptr %11, align 4
-  %83 = add i32 %82, 4
-  store i32 %83, ptr %11, align 4
-  %84 = load ptr, ptr %14, align 8
-  %85 = load i32, ptr @hf_solaredge_post_optimizer_inverter_type, align 4
-  %86 = load ptr, ptr %6, align 8
-  %87 = load i32, ptr %11, align 4
-  %88 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %85, ptr noundef %86, i32 noundef %87, i32 noundef 4, i32 noundef -2147483648)
-  %89 = load i32, ptr %11, align 4
-  %90 = add i32 %89, 4
-  store i32 %90, ptr %11, align 4
-  %91 = load i32, ptr @global_show_unknown_fields, align 4
-  %92 = icmp eq i32 %91, 1
-  br i1 %92, label %93, label %99
+74:                                               ; preds = %5
+  %75 = load ptr, ptr %7, align 8
+  %76 = getelementptr inbounds nuw %struct._packet_info, ptr %75, i32 0, i32 1
+  %77 = load ptr, ptr %76, align 8
+  call void @col_append_str(ptr noundef %77, i32 noundef 25, ptr noundef @.str.519)
+  %78 = load ptr, ptr %14, align 8
+  %79 = load i32, ptr @hf_solaredge_post_optimizer_timestamp_type, align 4
+  %80 = load ptr, ptr %6, align 8
+  %81 = load i32, ptr %11, align 4
+  %82 = call ptr @proto_tree_add_item(ptr noundef %78, i32 noundef %79, ptr noundef %80, i32 noundef %81, i32 noundef 4, i32 noundef -2147483648)
+  %83 = load i32, ptr %11, align 4
+  %84 = add i32 %83, 4
+  store i32 %84, ptr %11, align 4
+  %85 = load ptr, ptr %14, align 8
+  %86 = load i32, ptr @hf_solaredge_post_optimizer_inverter_type, align 4
+  %87 = load ptr, ptr %6, align 8
+  %88 = load i32, ptr %11, align 4
+  %89 = call ptr @proto_tree_add_item(ptr noundef %85, i32 noundef %86, ptr noundef %87, i32 noundef %88, i32 noundef 4, i32 noundef -2147483648)
+  %90 = load i32, ptr %11, align 4
+  %91 = add i32 %90, 4
+  store i32 %91, ptr %11, align 4
+  %92 = load i8, ptr @global_show_unknown_fields, align 1, !range !6, !noundef !7
+  %93 = trunc i8 %92 to i1
+  %94 = zext i1 %93 to i32
+  %95 = icmp eq i32 %94, 1
+  br i1 %95, label %96, label %102
 
-93:                                               ; preds = %73
-  %94 = load ptr, ptr %14, align 8
-  %95 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
-  %96 = load ptr, ptr %6, align 8
-  %97 = load i32, ptr %11, align 4
-  %98 = call ptr @proto_tree_add_item(ptr noundef %94, i32 noundef %95, ptr noundef %96, i32 noundef %97, i32 noundef 4, i32 noundef -2147483648)
-  br label %99
-
-99:                                               ; preds = %93, %73
+96:                                               ; preds = %74
+  %97 = load ptr, ptr %14, align 8
+  %98 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
+  %99 = load ptr, ptr %6, align 8
   %100 = load i32, ptr %11, align 4
-  %101 = add i32 %100, 4
-  store i32 %101, ptr %11, align 4
-  %102 = load ptr, ptr %14, align 8
-  %103 = load i32, ptr @hf_solaredge_post_optimizer_uptime_type, align 4
-  %104 = load ptr, ptr %6, align 8
-  %105 = load i32, ptr %11, align 4
-  %106 = call ptr @proto_tree_add_item(ptr noundef %102, i32 noundef %103, ptr noundef %104, i32 noundef %105, i32 noundef 4, i32 noundef -2147483648)
-  %107 = load i32, ptr %11, align 4
-  %108 = add i32 %107, 4
-  store i32 %108, ptr %11, align 4
-  %109 = load ptr, ptr %14, align 8
-  %110 = load i32, ptr @hf_solaredge_post_optimizer_dc_voltage_panel_type, align 4
-  %111 = load ptr, ptr %6, align 8
-  %112 = load i32, ptr %11, align 4
-  %113 = call ptr @proto_tree_add_item(ptr noundef %109, i32 noundef %110, ptr noundef %111, i32 noundef %112, i32 noundef 4, i32 noundef -2147483648)
-  %114 = load i32, ptr %11, align 4
-  %115 = add i32 %114, 4
-  store i32 %115, ptr %11, align 4
-  %116 = load ptr, ptr %14, align 8
-  %117 = load i32, ptr @hf_solaredge_post_optimizer_dc_voltage_optimzer_type, align 4
-  %118 = load ptr, ptr %6, align 8
-  %119 = load i32, ptr %11, align 4
-  %120 = call ptr @proto_tree_add_item(ptr noundef %116, i32 noundef %117, ptr noundef %118, i32 noundef %119, i32 noundef 4, i32 noundef -2147483648)
-  %121 = load i32, ptr %11, align 4
-  %122 = add i32 %121, 4
-  store i32 %122, ptr %11, align 4
-  %123 = load ptr, ptr %14, align 8
-  %124 = load i32, ptr @hf_solaredge_post_optimizer_dc_current_panel_type, align 4
-  %125 = load ptr, ptr %6, align 8
-  %126 = load i32, ptr %11, align 4
-  %127 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %124, ptr noundef %125, i32 noundef %126, i32 noundef 4, i32 noundef -2147483648)
-  %128 = load i32, ptr %11, align 4
-  %129 = add i32 %128, 4
-  store i32 %129, ptr %11, align 4
-  %130 = load ptr, ptr %14, align 8
-  %131 = load i32, ptr @hf_solaredge_post_optimizer_energy_day_type, align 4
-  %132 = load ptr, ptr %6, align 8
-  %133 = load i32, ptr %11, align 4
-  %134 = call ptr @proto_tree_add_item(ptr noundef %130, i32 noundef %131, ptr noundef %132, i32 noundef %133, i32 noundef 4, i32 noundef -2147483648)
-  %135 = load i32, ptr %11, align 4
-  %136 = add i32 %135, 4
-  store i32 %136, ptr %11, align 4
-  %137 = load ptr, ptr %14, align 8
-  %138 = load i32, ptr @hf_solaredge_post_optimizer_temperature_type, align 4
-  %139 = load ptr, ptr %6, align 8
-  %140 = load i32, ptr %11, align 4
-  %141 = call ptr @proto_tree_add_item(ptr noundef %137, i32 noundef %138, ptr noundef %139, i32 noundef %140, i32 noundef 4, i32 noundef -2147483648)
-  %142 = load i32, ptr %11, align 4
-  %143 = add i32 %142, 4
-  store i32 %143, ptr %11, align 4
-  br label %609
+  %101 = call ptr @proto_tree_add_item(ptr noundef %97, i32 noundef %98, ptr noundef %99, i32 noundef %100, i32 noundef 4, i32 noundef -2147483648)
+  br label %102
 
-144:                                              ; preds = %5
-  %145 = load ptr, ptr %7, align 8
-  %146 = getelementptr inbounds %struct._packet_info, ptr %145, i32 0, i32 1
-  %147 = load ptr, ptr %146, align 8
-  call void @col_append_str(ptr noundef %147, i32 noundef 25, ptr noundef @.str.519)
-  %148 = load ptr, ptr %14, align 8
-  %149 = load i32, ptr @hf_solaredge_post_singlephase_inverter_timestamp_type, align 4
-  %150 = load ptr, ptr %6, align 8
-  %151 = load i32, ptr %11, align 4
-  %152 = call ptr @proto_tree_add_item(ptr noundef %148, i32 noundef %149, ptr noundef %150, i32 noundef %151, i32 noundef 4, i32 noundef -2147483648)
-  %153 = load i32, ptr %11, align 4
-  %154 = add i32 %153, 4
-  store i32 %154, ptr %11, align 4
-  %155 = load ptr, ptr %14, align 8
-  %156 = load i32, ptr @hf_solaredge_post_singlephase_inverter_uptime_type, align 4
-  %157 = load ptr, ptr %6, align 8
-  %158 = load i32, ptr %11, align 4
-  %159 = call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %156, ptr noundef %157, i32 noundef %158, i32 noundef 4, i32 noundef -2147483648)
-  %160 = load i32, ptr %11, align 4
-  %161 = add i32 %160, 4
-  store i32 %161, ptr %11, align 4
-  %162 = load ptr, ptr %14, align 8
-  %163 = load i32, ptr @hf_solaredge_post_singlephase_inverter_interval_type, align 4
-  %164 = load ptr, ptr %6, align 8
-  %165 = load i32, ptr %11, align 4
-  %166 = call ptr @proto_tree_add_item(ptr noundef %162, i32 noundef %163, ptr noundef %164, i32 noundef %165, i32 noundef 4, i32 noundef -2147483648)
-  %167 = load i32, ptr %11, align 4
-  %168 = add i32 %167, 4
-  store i32 %168, ptr %11, align 4
-  %169 = load ptr, ptr %14, align 8
-  %170 = load i32, ptr @hf_solaredge_post_singlephase_inverter_temperature_type, align 4
-  %171 = load ptr, ptr %6, align 8
-  %172 = load i32, ptr %11, align 4
-  %173 = call ptr @proto_tree_add_item(ptr noundef %169, i32 noundef %170, ptr noundef %171, i32 noundef %172, i32 noundef 4, i32 noundef -2147483648)
-  %174 = load i32, ptr %11, align 4
-  %175 = add i32 %174, 4
-  store i32 %175, ptr %11, align 4
-  %176 = load ptr, ptr %14, align 8
-  %177 = load i32, ptr @hf_solaredge_post_singlephase_inverter_energy_day_type, align 4
-  %178 = load ptr, ptr %6, align 8
-  %179 = load i32, ptr %11, align 4
-  %180 = call ptr @proto_tree_add_item(ptr noundef %176, i32 noundef %177, ptr noundef %178, i32 noundef %179, i32 noundef 4, i32 noundef -2147483648)
-  %181 = load i32, ptr %11, align 4
-  %182 = add i32 %181, 4
-  store i32 %182, ptr %11, align 4
-  %183 = load ptr, ptr %14, align 8
-  %184 = load i32, ptr @hf_solaredge_post_singlephase_inverter_energy_interval_type, align 4
-  %185 = load ptr, ptr %6, align 8
-  %186 = load i32, ptr %11, align 4
-  %187 = call ptr @proto_tree_add_item(ptr noundef %183, i32 noundef %184, ptr noundef %185, i32 noundef %186, i32 noundef 4, i32 noundef -2147483648)
-  %188 = load i32, ptr %11, align 4
-  %189 = add i32 %188, 4
-  store i32 %189, ptr %11, align 4
-  %190 = load ptr, ptr %14, align 8
-  %191 = load i32, ptr @hf_solaredge_post_singlephase_inverter_ac_voltage_type, align 4
-  %192 = load ptr, ptr %6, align 8
-  %193 = load i32, ptr %11, align 4
-  %194 = call ptr @proto_tree_add_item(ptr noundef %190, i32 noundef %191, ptr noundef %192, i32 noundef %193, i32 noundef 4, i32 noundef -2147483648)
-  %195 = load i32, ptr %11, align 4
-  %196 = add i32 %195, 4
-  store i32 %196, ptr %11, align 4
-  %197 = load ptr, ptr %14, align 8
-  %198 = load i32, ptr @hf_solaredge_post_singlephase_inverter_ac_current_type, align 4
-  %199 = load ptr, ptr %6, align 8
-  %200 = load i32, ptr %11, align 4
-  %201 = call ptr @proto_tree_add_item(ptr noundef %197, i32 noundef %198, ptr noundef %199, i32 noundef %200, i32 noundef 4, i32 noundef -2147483648)
-  %202 = load i32, ptr %11, align 4
-  %203 = add i32 %202, 4
-  store i32 %203, ptr %11, align 4
-  %204 = load ptr, ptr %14, align 8
-  %205 = load i32, ptr @hf_solaredge_post_singlephase_inverter_ac_frequency_type, align 4
-  %206 = load ptr, ptr %6, align 8
-  %207 = load i32, ptr %11, align 4
-  %208 = call ptr @proto_tree_add_item(ptr noundef %204, i32 noundef %205, ptr noundef %206, i32 noundef %207, i32 noundef 4, i32 noundef -2147483648)
-  %209 = load i32, ptr %11, align 4
-  %210 = add i32 %209, 4
-  store i32 %210, ptr %11, align 4
-  %211 = load i32, ptr @global_show_unknown_fields, align 4
-  %212 = icmp eq i32 %211, 1
-  br i1 %212, label %213, label %219
+102:                                              ; preds = %96, %74
+  %103 = load i32, ptr %11, align 4
+  %104 = add i32 %103, 4
+  store i32 %104, ptr %11, align 4
+  %105 = load ptr, ptr %14, align 8
+  %106 = load i32, ptr @hf_solaredge_post_optimizer_uptime_type, align 4
+  %107 = load ptr, ptr %6, align 8
+  %108 = load i32, ptr %11, align 4
+  %109 = call ptr @proto_tree_add_item(ptr noundef %105, i32 noundef %106, ptr noundef %107, i32 noundef %108, i32 noundef 4, i32 noundef -2147483648)
+  %110 = load i32, ptr %11, align 4
+  %111 = add i32 %110, 4
+  store i32 %111, ptr %11, align 4
+  %112 = load ptr, ptr %14, align 8
+  %113 = load i32, ptr @hf_solaredge_post_optimizer_dc_voltage_panel_type, align 4
+  %114 = load ptr, ptr %6, align 8
+  %115 = load i32, ptr %11, align 4
+  %116 = call ptr @proto_tree_add_item(ptr noundef %112, i32 noundef %113, ptr noundef %114, i32 noundef %115, i32 noundef 4, i32 noundef -2147483648)
+  %117 = load i32, ptr %11, align 4
+  %118 = add i32 %117, 4
+  store i32 %118, ptr %11, align 4
+  %119 = load ptr, ptr %14, align 8
+  %120 = load i32, ptr @hf_solaredge_post_optimizer_dc_voltage_optimzer_type, align 4
+  %121 = load ptr, ptr %6, align 8
+  %122 = load i32, ptr %11, align 4
+  %123 = call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %120, ptr noundef %121, i32 noundef %122, i32 noundef 4, i32 noundef -2147483648)
+  %124 = load i32, ptr %11, align 4
+  %125 = add i32 %124, 4
+  store i32 %125, ptr %11, align 4
+  %126 = load ptr, ptr %14, align 8
+  %127 = load i32, ptr @hf_solaredge_post_optimizer_dc_current_panel_type, align 4
+  %128 = load ptr, ptr %6, align 8
+  %129 = load i32, ptr %11, align 4
+  %130 = call ptr @proto_tree_add_item(ptr noundef %126, i32 noundef %127, ptr noundef %128, i32 noundef %129, i32 noundef 4, i32 noundef -2147483648)
+  %131 = load i32, ptr %11, align 4
+  %132 = add i32 %131, 4
+  store i32 %132, ptr %11, align 4
+  %133 = load ptr, ptr %14, align 8
+  %134 = load i32, ptr @hf_solaredge_post_optimizer_energy_day_type, align 4
+  %135 = load ptr, ptr %6, align 8
+  %136 = load i32, ptr %11, align 4
+  %137 = call ptr @proto_tree_add_item(ptr noundef %133, i32 noundef %134, ptr noundef %135, i32 noundef %136, i32 noundef 4, i32 noundef -2147483648)
+  %138 = load i32, ptr %11, align 4
+  %139 = add i32 %138, 4
+  store i32 %139, ptr %11, align 4
+  %140 = load ptr, ptr %14, align 8
+  %141 = load i32, ptr @hf_solaredge_post_optimizer_temperature_type, align 4
+  %142 = load ptr, ptr %6, align 8
+  %143 = load i32, ptr %11, align 4
+  %144 = call ptr @proto_tree_add_item(ptr noundef %140, i32 noundef %141, ptr noundef %142, i32 noundef %143, i32 noundef 4, i32 noundef -2147483648)
+  %145 = load i32, ptr %11, align 4
+  %146 = add i32 %145, 4
+  store i32 %146, ptr %11, align 4
+  br label %642
 
-213:                                              ; preds = %144
-  %214 = load ptr, ptr %14, align 8
-  %215 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
-  %216 = load ptr, ptr %6, align 8
-  %217 = load i32, ptr %11, align 4
-  %218 = call ptr @proto_tree_add_item(ptr noundef %214, i32 noundef %215, ptr noundef %216, i32 noundef %217, i32 noundef 4, i32 noundef -2147483648)
-  br label %219
+147:                                              ; preds = %5
+  %148 = load ptr, ptr %7, align 8
+  %149 = getelementptr inbounds nuw %struct._packet_info, ptr %148, i32 0, i32 1
+  %150 = load ptr, ptr %149, align 8
+  call void @col_append_str(ptr noundef %150, i32 noundef 25, ptr noundef @.str.520)
+  %151 = load ptr, ptr %14, align 8
+  %152 = load i32, ptr @hf_solaredge_post_singlephase_inverter_timestamp_type, align 4
+  %153 = load ptr, ptr %6, align 8
+  %154 = load i32, ptr %11, align 4
+  %155 = call ptr @proto_tree_add_item(ptr noundef %151, i32 noundef %152, ptr noundef %153, i32 noundef %154, i32 noundef 4, i32 noundef -2147483648)
+  %156 = load i32, ptr %11, align 4
+  %157 = add i32 %156, 4
+  store i32 %157, ptr %11, align 4
+  %158 = load ptr, ptr %14, align 8
+  %159 = load i32, ptr @hf_solaredge_post_singlephase_inverter_uptime_type, align 4
+  %160 = load ptr, ptr %6, align 8
+  %161 = load i32, ptr %11, align 4
+  %162 = call ptr @proto_tree_add_item(ptr noundef %158, i32 noundef %159, ptr noundef %160, i32 noundef %161, i32 noundef 4, i32 noundef -2147483648)
+  %163 = load i32, ptr %11, align 4
+  %164 = add i32 %163, 4
+  store i32 %164, ptr %11, align 4
+  %165 = load ptr, ptr %14, align 8
+  %166 = load i32, ptr @hf_solaredge_post_singlephase_inverter_interval_type, align 4
+  %167 = load ptr, ptr %6, align 8
+  %168 = load i32, ptr %11, align 4
+  %169 = call ptr @proto_tree_add_item(ptr noundef %165, i32 noundef %166, ptr noundef %167, i32 noundef %168, i32 noundef 4, i32 noundef -2147483648)
+  %170 = load i32, ptr %11, align 4
+  %171 = add i32 %170, 4
+  store i32 %171, ptr %11, align 4
+  %172 = load ptr, ptr %14, align 8
+  %173 = load i32, ptr @hf_solaredge_post_singlephase_inverter_temperature_type, align 4
+  %174 = load ptr, ptr %6, align 8
+  %175 = load i32, ptr %11, align 4
+  %176 = call ptr @proto_tree_add_item(ptr noundef %172, i32 noundef %173, ptr noundef %174, i32 noundef %175, i32 noundef 4, i32 noundef -2147483648)
+  %177 = load i32, ptr %11, align 4
+  %178 = add i32 %177, 4
+  store i32 %178, ptr %11, align 4
+  %179 = load ptr, ptr %14, align 8
+  %180 = load i32, ptr @hf_solaredge_post_singlephase_inverter_energy_day_type, align 4
+  %181 = load ptr, ptr %6, align 8
+  %182 = load i32, ptr %11, align 4
+  %183 = call ptr @proto_tree_add_item(ptr noundef %179, i32 noundef %180, ptr noundef %181, i32 noundef %182, i32 noundef 4, i32 noundef -2147483648)
+  %184 = load i32, ptr %11, align 4
+  %185 = add i32 %184, 4
+  store i32 %185, ptr %11, align 4
+  %186 = load ptr, ptr %14, align 8
+  %187 = load i32, ptr @hf_solaredge_post_singlephase_inverter_energy_interval_type, align 4
+  %188 = load ptr, ptr %6, align 8
+  %189 = load i32, ptr %11, align 4
+  %190 = call ptr @proto_tree_add_item(ptr noundef %186, i32 noundef %187, ptr noundef %188, i32 noundef %189, i32 noundef 4, i32 noundef -2147483648)
+  %191 = load i32, ptr %11, align 4
+  %192 = add i32 %191, 4
+  store i32 %192, ptr %11, align 4
+  %193 = load ptr, ptr %14, align 8
+  %194 = load i32, ptr @hf_solaredge_post_singlephase_inverter_ac_voltage_type, align 4
+  %195 = load ptr, ptr %6, align 8
+  %196 = load i32, ptr %11, align 4
+  %197 = call ptr @proto_tree_add_item(ptr noundef %193, i32 noundef %194, ptr noundef %195, i32 noundef %196, i32 noundef 4, i32 noundef -2147483648)
+  %198 = load i32, ptr %11, align 4
+  %199 = add i32 %198, 4
+  store i32 %199, ptr %11, align 4
+  %200 = load ptr, ptr %14, align 8
+  %201 = load i32, ptr @hf_solaredge_post_singlephase_inverter_ac_current_type, align 4
+  %202 = load ptr, ptr %6, align 8
+  %203 = load i32, ptr %11, align 4
+  %204 = call ptr @proto_tree_add_item(ptr noundef %200, i32 noundef %201, ptr noundef %202, i32 noundef %203, i32 noundef 4, i32 noundef -2147483648)
+  %205 = load i32, ptr %11, align 4
+  %206 = add i32 %205, 4
+  store i32 %206, ptr %11, align 4
+  %207 = load ptr, ptr %14, align 8
+  %208 = load i32, ptr @hf_solaredge_post_singlephase_inverter_ac_frequency_type, align 4
+  %209 = load ptr, ptr %6, align 8
+  %210 = load i32, ptr %11, align 4
+  %211 = call ptr @proto_tree_add_item(ptr noundef %207, i32 noundef %208, ptr noundef %209, i32 noundef %210, i32 noundef 4, i32 noundef -2147483648)
+  %212 = load i32, ptr %11, align 4
+  %213 = add i32 %212, 4
+  store i32 %213, ptr %11, align 4
+  %214 = load i8, ptr @global_show_unknown_fields, align 1, !range !6, !noundef !7
+  %215 = trunc i8 %214 to i1
+  %216 = zext i1 %215 to i32
+  %217 = icmp eq i32 %216, 1
+  br i1 %217, label %218, label %224
 
-219:                                              ; preds = %213, %144
-  %220 = load i32, ptr %11, align 4
-  %221 = add i32 %220, 4
-  store i32 %221, ptr %11, align 4
-  %222 = load i32, ptr @global_show_unknown_fields, align 4
-  %223 = icmp eq i32 %222, 1
-  br i1 %223, label %224, label %230
+218:                                              ; preds = %147
+  %219 = load ptr, ptr %14, align 8
+  %220 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
+  %221 = load ptr, ptr %6, align 8
+  %222 = load i32, ptr %11, align 4
+  %223 = call ptr @proto_tree_add_item(ptr noundef %219, i32 noundef %220, ptr noundef %221, i32 noundef %222, i32 noundef 4, i32 noundef -2147483648)
+  br label %224
 
-224:                                              ; preds = %219
-  %225 = load ptr, ptr %14, align 8
-  %226 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
-  %227 = load ptr, ptr %6, align 8
-  %228 = load i32, ptr %11, align 4
-  %229 = call ptr @proto_tree_add_item(ptr noundef %225, i32 noundef %226, ptr noundef %227, i32 noundef %228, i32 noundef 4, i32 noundef -2147483648)
-  br label %230
+224:                                              ; preds = %218, %147
+  %225 = load i32, ptr %11, align 4
+  %226 = add i32 %225, 4
+  store i32 %226, ptr %11, align 4
+  %227 = load i8, ptr @global_show_unknown_fields, align 1, !range !6, !noundef !7
+  %228 = trunc i8 %227 to i1
+  %229 = zext i1 %228 to i32
+  %230 = icmp eq i32 %229, 1
+  br i1 %230, label %231, label %237
 
-230:                                              ; preds = %224, %219
-  %231 = load i32, ptr %11, align 4
-  %232 = add i32 %231, 4
-  store i32 %232, ptr %11, align 4
-  %233 = load ptr, ptr %14, align 8
-  %234 = load i32, ptr @hf_solaredge_post_singlephase_inverter_dc_voltage_type, align 4
-  %235 = load ptr, ptr %6, align 8
-  %236 = load i32, ptr %11, align 4
-  %237 = call ptr @proto_tree_add_item(ptr noundef %233, i32 noundef %234, ptr noundef %235, i32 noundef %236, i32 noundef 4, i32 noundef -2147483648)
+231:                                              ; preds = %224
+  %232 = load ptr, ptr %14, align 8
+  %233 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
+  %234 = load ptr, ptr %6, align 8
+  %235 = load i32, ptr %11, align 4
+  %236 = call ptr @proto_tree_add_item(ptr noundef %232, i32 noundef %233, ptr noundef %234, i32 noundef %235, i32 noundef 4, i32 noundef -2147483648)
+  br label %237
+
+237:                                              ; preds = %231, %224
   %238 = load i32, ptr %11, align 4
   %239 = add i32 %238, 4
   store i32 %239, ptr %11, align 4
-  %240 = load i32, ptr @global_show_unknown_fields, align 4
-  %241 = icmp eq i32 %240, 1
-  br i1 %241, label %242, label %248
+  %240 = load ptr, ptr %14, align 8
+  %241 = load i32, ptr @hf_solaredge_post_singlephase_inverter_dc_voltage_type, align 4
+  %242 = load ptr, ptr %6, align 8
+  %243 = load i32, ptr %11, align 4
+  %244 = call ptr @proto_tree_add_item(ptr noundef %240, i32 noundef %241, ptr noundef %242, i32 noundef %243, i32 noundef 4, i32 noundef -2147483648)
+  %245 = load i32, ptr %11, align 4
+  %246 = add i32 %245, 4
+  store i32 %246, ptr %11, align 4
+  %247 = load i8, ptr @global_show_unknown_fields, align 1, !range !6, !noundef !7
+  %248 = trunc i8 %247 to i1
+  %249 = zext i1 %248 to i32
+  %250 = icmp eq i32 %249, 1
+  br i1 %250, label %251, label %257
 
-242:                                              ; preds = %230
-  %243 = load ptr, ptr %14, align 8
-  %244 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
-  %245 = load ptr, ptr %6, align 8
-  %246 = load i32, ptr %11, align 4
-  %247 = call ptr @proto_tree_add_item(ptr noundef %243, i32 noundef %244, ptr noundef %245, i32 noundef %246, i32 noundef 4, i32 noundef -2147483648)
-  br label %248
+251:                                              ; preds = %237
+  %252 = load ptr, ptr %14, align 8
+  %253 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
+  %254 = load ptr, ptr %6, align 8
+  %255 = load i32, ptr %11, align 4
+  %256 = call ptr @proto_tree_add_item(ptr noundef %252, i32 noundef %253, ptr noundef %254, i32 noundef %255, i32 noundef 4, i32 noundef -2147483648)
+  br label %257
 
-248:                                              ; preds = %242, %230
-  %249 = load i32, ptr %11, align 4
-  %250 = add i32 %249, 4
-  store i32 %250, ptr %11, align 4
-  %251 = load ptr, ptr %14, align 8
-  %252 = load i32, ptr @hf_solaredge_post_singlephase_inverter_energy_total_type, align 4
-  %253 = load ptr, ptr %6, align 8
-  %254 = load i32, ptr %11, align 4
-  %255 = call ptr @proto_tree_add_item(ptr noundef %251, i32 noundef %252, ptr noundef %253, i32 noundef %254, i32 noundef 4, i32 noundef -2147483648)
-  %256 = load i32, ptr %11, align 4
-  %257 = add i32 %256, 4
-  store i32 %257, ptr %11, align 4
-  %258 = load i32, ptr @global_show_unknown_fields, align 4
-  %259 = icmp eq i32 %258, 1
-  br i1 %259, label %260, label %266
-
-260:                                              ; preds = %248
-  %261 = load ptr, ptr %14, align 8
-  %262 = load i32, ptr @hf_solaredge_post_padding_float_type, align 4
-  %263 = load ptr, ptr %6, align 8
-  %264 = load i32, ptr %11, align 4
-  %265 = call ptr @proto_tree_add_item(ptr noundef %261, i32 noundef %262, ptr noundef %263, i32 noundef %264, i32 noundef 4, i32 noundef -2147483648)
-  br label %266
-
-266:                                              ; preds = %260, %248
-  %267 = load i32, ptr %11, align 4
-  %268 = add i32 %267, 4
-  store i32 %268, ptr %11, align 4
-  %269 = load i32, ptr @global_show_unknown_fields, align 4
+257:                                              ; preds = %251, %237
+  %258 = load i32, ptr %11, align 4
+  %259 = add i32 %258, 4
+  store i32 %259, ptr %11, align 4
+  %260 = load ptr, ptr %14, align 8
+  %261 = load i32, ptr @hf_solaredge_post_singlephase_inverter_energy_total_type, align 4
+  %262 = load ptr, ptr %6, align 8
+  %263 = load i32, ptr %11, align 4
+  %264 = call ptr @proto_tree_add_item(ptr noundef %260, i32 noundef %261, ptr noundef %262, i32 noundef %263, i32 noundef 4, i32 noundef -2147483648)
+  %265 = load i32, ptr %11, align 4
+  %266 = add i32 %265, 4
+  store i32 %266, ptr %11, align 4
+  %267 = load i8, ptr @global_show_unknown_fields, align 1, !range !6, !noundef !7
+  %268 = trunc i8 %267 to i1
+  %269 = zext i1 %268 to i32
   %270 = icmp eq i32 %269, 1
   br i1 %270, label %271, label %277
 
-271:                                              ; preds = %266
+271:                                              ; preds = %257
   %272 = load ptr, ptr %14, align 8
-  %273 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
+  %273 = load i32, ptr @hf_solaredge_post_padding_float_type, align 4
   %274 = load ptr, ptr %6, align 8
   %275 = load i32, ptr %11, align 4
   %276 = call ptr @proto_tree_add_item(ptr noundef %272, i32 noundef %273, ptr noundef %274, i32 noundef %275, i32 noundef 4, i32 noundef -2147483648)
   br label %277
 
-277:                                              ; preds = %271, %266
+277:                                              ; preds = %271, %257
   %278 = load i32, ptr %11, align 4
   %279 = add i32 %278, 4
   store i32 %279, ptr %11, align 4
-  %280 = load i32, ptr @global_show_unknown_fields, align 4
-  %281 = icmp eq i32 %280, 1
-  br i1 %281, label %282, label %288
+  %280 = load i8, ptr @global_show_unknown_fields, align 1, !range !6, !noundef !7
+  %281 = trunc i8 %280 to i1
+  %282 = zext i1 %281 to i32
+  %283 = icmp eq i32 %282, 1
+  br i1 %283, label %284, label %290
 
-282:                                              ; preds = %277
-  %283 = load ptr, ptr %14, align 8
-  %284 = load i32, ptr @hf_solaredge_post_padding_float_type, align 4
-  %285 = load ptr, ptr %6, align 8
-  %286 = load i32, ptr %11, align 4
-  %287 = call ptr @proto_tree_add_item(ptr noundef %283, i32 noundef %284, ptr noundef %285, i32 noundef %286, i32 noundef 4, i32 noundef -2147483648)
-  br label %288
+284:                                              ; preds = %277
+  %285 = load ptr, ptr %14, align 8
+  %286 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
+  %287 = load ptr, ptr %6, align 8
+  %288 = load i32, ptr %11, align 4
+  %289 = call ptr @proto_tree_add_item(ptr noundef %285, i32 noundef %286, ptr noundef %287, i32 noundef %288, i32 noundef 4, i32 noundef -2147483648)
+  br label %290
 
-288:                                              ; preds = %282, %277
-  %289 = load i32, ptr %11, align 4
-  %290 = add i32 %289, 4
-  store i32 %290, ptr %11, align 4
-  %291 = load i32, ptr @global_show_unknown_fields, align 4
-  %292 = icmp eq i32 %291, 1
-  br i1 %292, label %293, label %299
+290:                                              ; preds = %284, %277
+  %291 = load i32, ptr %11, align 4
+  %292 = add i32 %291, 4
+  store i32 %292, ptr %11, align 4
+  %293 = load i8, ptr @global_show_unknown_fields, align 1, !range !6, !noundef !7
+  %294 = trunc i8 %293 to i1
+  %295 = zext i1 %294 to i32
+  %296 = icmp eq i32 %295, 1
+  br i1 %296, label %297, label %303
 
-293:                                              ; preds = %288
-  %294 = load ptr, ptr %14, align 8
-  %295 = load i32, ptr @hf_solaredge_post_padding_float_type, align 4
-  %296 = load ptr, ptr %6, align 8
-  %297 = load i32, ptr %11, align 4
-  %298 = call ptr @proto_tree_add_item(ptr noundef %294, i32 noundef %295, ptr noundef %296, i32 noundef %297, i32 noundef 4, i32 noundef -2147483648)
-  br label %299
+297:                                              ; preds = %290
+  %298 = load ptr, ptr %14, align 8
+  %299 = load i32, ptr @hf_solaredge_post_padding_float_type, align 4
+  %300 = load ptr, ptr %6, align 8
+  %301 = load i32, ptr %11, align 4
+  %302 = call ptr @proto_tree_add_item(ptr noundef %298, i32 noundef %299, ptr noundef %300, i32 noundef %301, i32 noundef 4, i32 noundef -2147483648)
+  br label %303
 
-299:                                              ; preds = %293, %288
-  %300 = load i32, ptr %11, align 4
-  %301 = add i32 %300, 4
-  store i32 %301, ptr %11, align 4
-  %302 = load ptr, ptr %14, align 8
-  %303 = load i32, ptr @hf_solaredge_post_singlephase_inverter_power_max_type, align 4
-  %304 = load ptr, ptr %6, align 8
-  %305 = load i32, ptr %11, align 4
-  %306 = call ptr @proto_tree_add_item(ptr noundef %302, i32 noundef %303, ptr noundef %304, i32 noundef %305, i32 noundef 4, i32 noundef -2147483648)
-  %307 = load i32, ptr %11, align 4
-  %308 = add i32 %307, 4
-  store i32 %308, ptr %11, align 4
-  %309 = load i32, ptr @global_show_unknown_fields, align 4
-  %310 = icmp eq i32 %309, 1
-  br i1 %310, label %311, label %317
+303:                                              ; preds = %297, %290
+  %304 = load i32, ptr %11, align 4
+  %305 = add i32 %304, 4
+  store i32 %305, ptr %11, align 4
+  %306 = load i8, ptr @global_show_unknown_fields, align 1, !range !6, !noundef !7
+  %307 = trunc i8 %306 to i1
+  %308 = zext i1 %307 to i32
+  %309 = icmp eq i32 %308, 1
+  br i1 %309, label %310, label %316
 
-311:                                              ; preds = %299
-  %312 = load ptr, ptr %14, align 8
-  %313 = load i32, ptr @hf_solaredge_post_padding_float_type, align 4
-  %314 = load ptr, ptr %6, align 8
-  %315 = load i32, ptr %11, align 4
-  %316 = call ptr @proto_tree_add_item(ptr noundef %312, i32 noundef %313, ptr noundef %314, i32 noundef %315, i32 noundef 4, i32 noundef -2147483648)
-  br label %317
+310:                                              ; preds = %303
+  %311 = load ptr, ptr %14, align 8
+  %312 = load i32, ptr @hf_solaredge_post_padding_float_type, align 4
+  %313 = load ptr, ptr %6, align 8
+  %314 = load i32, ptr %11, align 4
+  %315 = call ptr @proto_tree_add_item(ptr noundef %311, i32 noundef %312, ptr noundef %313, i32 noundef %314, i32 noundef 4, i32 noundef -2147483648)
+  br label %316
 
-317:                                              ; preds = %311, %299
-  %318 = load i32, ptr %11, align 4
-  %319 = add i32 %318, 4
-  store i32 %319, ptr %11, align 4
-  %320 = load i32, ptr @global_show_unknown_fields, align 4
-  %321 = icmp eq i32 %320, 1
-  br i1 %321, label %322, label %328
+316:                                              ; preds = %310, %303
+  %317 = load i32, ptr %11, align 4
+  %318 = add i32 %317, 4
+  store i32 %318, ptr %11, align 4
+  %319 = load ptr, ptr %14, align 8
+  %320 = load i32, ptr @hf_solaredge_post_singlephase_inverter_power_max_type, align 4
+  %321 = load ptr, ptr %6, align 8
+  %322 = load i32, ptr %11, align 4
+  %323 = call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %320, ptr noundef %321, i32 noundef %322, i32 noundef 4, i32 noundef -2147483648)
+  %324 = load i32, ptr %11, align 4
+  %325 = add i32 %324, 4
+  store i32 %325, ptr %11, align 4
+  %326 = load i8, ptr @global_show_unknown_fields, align 1, !range !6, !noundef !7
+  %327 = trunc i8 %326 to i1
+  %328 = zext i1 %327 to i32
+  %329 = icmp eq i32 %328, 1
+  br i1 %329, label %330, label %336
 
-322:                                              ; preds = %317
-  %323 = load ptr, ptr %14, align 8
-  %324 = load i32, ptr @hf_solaredge_post_padding_float_type, align 4
-  %325 = load ptr, ptr %6, align 8
-  %326 = load i32, ptr %11, align 4
-  %327 = call ptr @proto_tree_add_item(ptr noundef %323, i32 noundef %324, ptr noundef %325, i32 noundef %326, i32 noundef 4, i32 noundef -2147483648)
-  br label %328
+330:                                              ; preds = %316
+  %331 = load ptr, ptr %14, align 8
+  %332 = load i32, ptr @hf_solaredge_post_padding_float_type, align 4
+  %333 = load ptr, ptr %6, align 8
+  %334 = load i32, ptr %11, align 4
+  %335 = call ptr @proto_tree_add_item(ptr noundef %331, i32 noundef %332, ptr noundef %333, i32 noundef %334, i32 noundef 4, i32 noundef -2147483648)
+  br label %336
 
-328:                                              ; preds = %322, %317
-  %329 = load i32, ptr %11, align 4
-  %330 = add i32 %329, 4
-  store i32 %330, ptr %11, align 4
-  %331 = load i32, ptr @global_show_unknown_fields, align 4
-  %332 = icmp eq i32 %331, 1
-  br i1 %332, label %333, label %339
-
-333:                                              ; preds = %328
-  %334 = load ptr, ptr %14, align 8
-  %335 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
-  %336 = load ptr, ptr %6, align 8
+336:                                              ; preds = %330, %316
   %337 = load i32, ptr %11, align 4
-  %338 = call ptr @proto_tree_add_item(ptr noundef %334, i32 noundef %335, ptr noundef %336, i32 noundef %337, i32 noundef 4, i32 noundef -2147483648)
-  br label %339
+  %338 = add i32 %337, 4
+  store i32 %338, ptr %11, align 4
+  %339 = load i8, ptr @global_show_unknown_fields, align 1, !range !6, !noundef !7
+  %340 = trunc i8 %339 to i1
+  %341 = zext i1 %340 to i32
+  %342 = icmp eq i32 %341, 1
+  br i1 %342, label %343, label %349
 
-339:                                              ; preds = %333, %328
-  %340 = load i32, ptr %11, align 4
-  %341 = add i32 %340, 4
-  store i32 %341, ptr %11, align 4
-  %342 = load i32, ptr @global_show_unknown_fields, align 4
-  %343 = icmp eq i32 %342, 1
-  br i1 %343, label %344, label %350
+343:                                              ; preds = %336
+  %344 = load ptr, ptr %14, align 8
+  %345 = load i32, ptr @hf_solaredge_post_padding_float_type, align 4
+  %346 = load ptr, ptr %6, align 8
+  %347 = load i32, ptr %11, align 4
+  %348 = call ptr @proto_tree_add_item(ptr noundef %344, i32 noundef %345, ptr noundef %346, i32 noundef %347, i32 noundef 4, i32 noundef -2147483648)
+  br label %349
 
-344:                                              ; preds = %339
-  %345 = load ptr, ptr %14, align 8
-  %346 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
-  %347 = load ptr, ptr %6, align 8
-  %348 = load i32, ptr %11, align 4
-  %349 = call ptr @proto_tree_add_item(ptr noundef %345, i32 noundef %346, ptr noundef %347, i32 noundef %348, i32 noundef 4, i32 noundef -2147483648)
-  br label %350
+349:                                              ; preds = %343, %336
+  %350 = load i32, ptr %11, align 4
+  %351 = add i32 %350, 4
+  store i32 %351, ptr %11, align 4
+  %352 = load i8, ptr @global_show_unknown_fields, align 1, !range !6, !noundef !7
+  %353 = trunc i8 %352 to i1
+  %354 = zext i1 %353 to i32
+  %355 = icmp eq i32 %354, 1
+  br i1 %355, label %356, label %362
 
-350:                                              ; preds = %344, %339
-  %351 = load i32, ptr %11, align 4
-  %352 = add i32 %351, 4
-  store i32 %352, ptr %11, align 4
-  %353 = load ptr, ptr %14, align 8
-  %354 = load i32, ptr @hf_solaredge_post_singlephase_inverter_ac_power_type, align 4
-  %355 = load ptr, ptr %6, align 8
-  %356 = load i32, ptr %11, align 4
-  %357 = call ptr @proto_tree_add_item(ptr noundef %353, i32 noundef %354, ptr noundef %355, i32 noundef %356, i32 noundef 4, i32 noundef -2147483648)
-  %358 = load i32, ptr %11, align 4
-  %359 = add i32 %358, 4
-  store i32 %359, ptr %11, align 4
-  %360 = load i32, ptr @global_show_unknown_fields, align 4
-  %361 = icmp eq i32 %360, 1
-  br i1 %361, label %362, label %368
+356:                                              ; preds = %349
+  %357 = load ptr, ptr %14, align 8
+  %358 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
+  %359 = load ptr, ptr %6, align 8
+  %360 = load i32, ptr %11, align 4
+  %361 = call ptr @proto_tree_add_item(ptr noundef %357, i32 noundef %358, ptr noundef %359, i32 noundef %360, i32 noundef 4, i32 noundef -2147483648)
+  br label %362
 
-362:                                              ; preds = %350
-  %363 = load ptr, ptr %14, align 8
-  %364 = load i32, ptr @hf_solaredge_post_padding_float_type, align 4
-  %365 = load ptr, ptr %6, align 8
-  %366 = load i32, ptr %11, align 4
-  %367 = call ptr @proto_tree_add_item(ptr noundef %363, i32 noundef %364, ptr noundef %365, i32 noundef %366, i32 noundef 4, i32 noundef -2147483648)
-  br label %368
+362:                                              ; preds = %356, %349
+  %363 = load i32, ptr %11, align 4
+  %364 = add i32 %363, 4
+  store i32 %364, ptr %11, align 4
+  %365 = load i8, ptr @global_show_unknown_fields, align 1, !range !6, !noundef !7
+  %366 = trunc i8 %365 to i1
+  %367 = zext i1 %366 to i32
+  %368 = icmp eq i32 %367, 1
+  br i1 %368, label %369, label %375
 
-368:                                              ; preds = %362, %350
-  %369 = load i32, ptr %11, align 4
-  %370 = add i32 %369, 4
-  store i32 %370, ptr %11, align 4
-  %371 = load i32, ptr @global_show_unknown_fields, align 4
-  %372 = icmp eq i32 %371, 1
-  br i1 %372, label %373, label %379
+369:                                              ; preds = %362
+  %370 = load ptr, ptr %14, align 8
+  %371 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
+  %372 = load ptr, ptr %6, align 8
+  %373 = load i32, ptr %11, align 4
+  %374 = call ptr @proto_tree_add_item(ptr noundef %370, i32 noundef %371, ptr noundef %372, i32 noundef %373, i32 noundef 4, i32 noundef -2147483648)
+  br label %375
 
-373:                                              ; preds = %368
-  %374 = load ptr, ptr %14, align 8
-  %375 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
-  %376 = load ptr, ptr %6, align 8
-  %377 = load i32, ptr %11, align 4
-  %378 = call ptr @proto_tree_add_item(ptr noundef %374, i32 noundef %375, ptr noundef %376, i32 noundef %377, i32 noundef 4, i32 noundef -2147483648)
-  br label %379
+375:                                              ; preds = %369, %362
+  %376 = load i32, ptr %11, align 4
+  %377 = add i32 %376, 4
+  store i32 %377, ptr %11, align 4
+  %378 = load ptr, ptr %14, align 8
+  %379 = load i32, ptr @hf_solaredge_post_singlephase_inverter_ac_power_type, align 4
+  %380 = load ptr, ptr %6, align 8
+  %381 = load i32, ptr %11, align 4
+  %382 = call ptr @proto_tree_add_item(ptr noundef %378, i32 noundef %379, ptr noundef %380, i32 noundef %381, i32 noundef 4, i32 noundef -2147483648)
+  %383 = load i32, ptr %11, align 4
+  %384 = add i32 %383, 4
+  store i32 %384, ptr %11, align 4
+  %385 = load i8, ptr @global_show_unknown_fields, align 1, !range !6, !noundef !7
+  %386 = trunc i8 %385 to i1
+  %387 = zext i1 %386 to i32
+  %388 = icmp eq i32 %387, 1
+  br i1 %388, label %389, label %395
 
-379:                                              ; preds = %373, %368
-  %380 = load i32, ptr %11, align 4
-  %381 = add i32 %380, 4
-  store i32 %381, ptr %11, align 4
-  br label %609
+389:                                              ; preds = %375
+  %390 = load ptr, ptr %14, align 8
+  %391 = load i32, ptr @hf_solaredge_post_padding_float_type, align 4
+  %392 = load ptr, ptr %6, align 8
+  %393 = load i32, ptr %11, align 4
+  %394 = call ptr @proto_tree_add_item(ptr noundef %390, i32 noundef %391, ptr noundef %392, i32 noundef %393, i32 noundef 4, i32 noundef -2147483648)
+  br label %395
 
-382:                                              ; preds = %5
-  %383 = load ptr, ptr %7, align 8
-  %384 = getelementptr inbounds %struct._packet_info, ptr %383, i32 0, i32 1
-  %385 = load ptr, ptr %384, align 8
-  call void @col_append_str(ptr noundef %385, i32 noundef 25, ptr noundef @.str.520)
-  %386 = getelementptr inbounds %struct.solaredge_device_header, ptr %12, i32 0, i32 2
-  %387 = load i16, ptr %386, align 4
-  %388 = zext i16 %387 to i32
-  %389 = load i32, ptr %11, align 4
-  %390 = add i32 %389, %388
-  store i32 %390, ptr %11, align 4
-  br label %609
+395:                                              ; preds = %389, %375
+  %396 = load i32, ptr %11, align 4
+  %397 = add i32 %396, 4
+  store i32 %397, ptr %11, align 4
+  %398 = load i8, ptr @global_show_unknown_fields, align 1, !range !6, !noundef !7
+  %399 = trunc i8 %398 to i1
+  %400 = zext i1 %399 to i32
+  %401 = icmp eq i32 %400, 1
+  br i1 %401, label %402, label %408
 
-391:                                              ; preds = %5
-  %392 = load ptr, ptr %7, align 8
-  %393 = getelementptr inbounds %struct._packet_info, ptr %392, i32 0, i32 1
-  %394 = load ptr, ptr %393, align 8
-  call void @col_append_str(ptr noundef %394, i32 noundef 25, ptr noundef @.str.518)
-  %395 = load ptr, ptr %14, align 8
-  %396 = load i32, ptr @hf_solaredge_post_optimizer_timestamp_type, align 4
-  %397 = load ptr, ptr %6, align 8
-  %398 = load i32, ptr %11, align 4
-  %399 = call ptr @proto_tree_add_item(ptr noundef %395, i32 noundef %396, ptr noundef %397, i32 noundef %398, i32 noundef 4, i32 noundef -2147483648)
-  %400 = load i32, ptr %11, align 4
-  %401 = add i32 %400, 4
-  store i32 %401, ptr %11, align 4
-  %402 = load ptr, ptr %14, align 8
-  %403 = load i32, ptr @hf_solaredge_post_optimizer_uptime_short_type, align 4
-  %404 = load ptr, ptr %6, align 8
-  %405 = load i32, ptr %11, align 4
-  %406 = call ptr @proto_tree_add_item(ptr noundef %402, i32 noundef %403, ptr noundef %404, i32 noundef %405, i32 noundef 2, i32 noundef -2147483648)
-  %407 = load i32, ptr %11, align 4
-  %408 = add i32 %407, 2
-  store i32 %408, ptr %11, align 4
-  %409 = load ptr, ptr %6, align 8
-  %410 = load i32, ptr %11, align 4
-  %411 = call ptr @tvb_get_ptr(ptr noundef %409, i32 noundef %410, i32 noundef 6)
-  store ptr %411, ptr %15, align 8
-  %412 = load ptr, ptr %15, align 8
-  %413 = getelementptr i8, ptr %412, i64 0
-  %414 = load i8, ptr %413, align 1
-  %415 = zext i8 %414 to i32
-  %416 = load ptr, ptr %15, align 8
-  %417 = getelementptr i8, ptr %416, i64 1
-  %418 = load i8, ptr %417, align 1
-  %419 = zext i8 %418 to i32
-  %420 = shl i32 %419, 8
-  %421 = and i32 %420, 768
-  %422 = or i32 %415, %421
-  %423 = sitofp i32 %422 to float
-  %424 = fpext float %423 to double
-  %425 = fmul double 1.250000e-01, %424
-  %426 = fptrunc double %425 to float
-  store float %426, ptr %16, align 4
-  %427 = load ptr, ptr %14, align 8
-  %428 = load i32, ptr @hf_solaredge_post_optimizer_dc_voltage_panel_type, align 4
-  %429 = load ptr, ptr %6, align 8
-  %430 = load i32, ptr %11, align 4
-  %431 = load float, ptr %16, align 4
-  %432 = load float, ptr %16, align 4
-  %433 = fpext float %432 to double
-  %434 = call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %427, i32 noundef %428, ptr noundef %429, i32 noundef %430, i32 noundef 6, float noundef %431, ptr noundef @.str.526, double noundef %433)
-  %435 = load ptr, ptr %15, align 8
-  %436 = getelementptr i8, ptr %435, i64 1
-  %437 = load i8, ptr %436, align 1
-  %438 = zext i8 %437 to i32
-  %439 = ashr i32 %438, 2
-  %440 = load ptr, ptr %15, align 8
-  %441 = getelementptr i8, ptr %440, i64 2
-  %442 = load i8, ptr %441, align 1
-  %443 = zext i8 %442 to i32
-  %444 = shl i32 %443, 6
-  %445 = and i32 %444, 960
-  %446 = or i32 %439, %445
-  %447 = sitofp i32 %446 to float
-  %448 = fpext float %447 to double
-  %449 = fmul double 1.250000e-01, %448
-  %450 = fptrunc double %449 to float
-  store float %450, ptr %17, align 4
-  %451 = load ptr, ptr %14, align 8
-  %452 = load i32, ptr @hf_solaredge_post_optimizer_dc_voltage_optimzer_type, align 4
-  %453 = load ptr, ptr %6, align 8
-  %454 = load i32, ptr %11, align 4
-  %455 = load float, ptr %17, align 4
-  %456 = load float, ptr %17, align 4
-  %457 = fpext float %456 to double
-  %458 = call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %451, i32 noundef %452, ptr noundef %453, i32 noundef %454, i32 noundef 6, float noundef %455, ptr noundef @.str.526, double noundef %457)
-  %459 = load ptr, ptr %15, align 8
-  %460 = getelementptr i8, ptr %459, i64 3
-  %461 = load i8, ptr %460, align 1
-  %462 = zext i8 %461 to i32
-  %463 = shl i32 %462, 4
+402:                                              ; preds = %395
+  %403 = load ptr, ptr %14, align 8
+  %404 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
+  %405 = load ptr, ptr %6, align 8
+  %406 = load i32, ptr %11, align 4
+  %407 = call ptr @proto_tree_add_item(ptr noundef %403, i32 noundef %404, ptr noundef %405, i32 noundef %406, i32 noundef 4, i32 noundef -2147483648)
+  br label %408
+
+408:                                              ; preds = %402, %395
+  %409 = load i32, ptr %11, align 4
+  %410 = add i32 %409, 4
+  store i32 %410, ptr %11, align 4
+  br label %642
+
+411:                                              ; preds = %5
+  %412 = load ptr, ptr %7, align 8
+  %413 = getelementptr inbounds nuw %struct._packet_info, ptr %412, i32 0, i32 1
+  %414 = load ptr, ptr %413, align 8
+  call void @col_append_str(ptr noundef %414, i32 noundef 25, ptr noundef @.str.521)
+  %415 = getelementptr inbounds nuw %struct.solaredge_device_header, ptr %12, i32 0, i32 2
+  %416 = load i16, ptr %415, align 4
+  %417 = zext i16 %416 to i32
+  %418 = load i32, ptr %11, align 4
+  %419 = add i32 %418, %417
+  store i32 %419, ptr %11, align 4
+  br label %642
+
+420:                                              ; preds = %5
+  %421 = load ptr, ptr %7, align 8
+  %422 = getelementptr inbounds nuw %struct._packet_info, ptr %421, i32 0, i32 1
+  %423 = load ptr, ptr %422, align 8
+  call void @col_append_str(ptr noundef %423, i32 noundef 25, ptr noundef @.str.519)
+  %424 = load ptr, ptr %14, align 8
+  %425 = load i32, ptr @hf_solaredge_post_optimizer_timestamp_type, align 4
+  %426 = load ptr, ptr %6, align 8
+  %427 = load i32, ptr %11, align 4
+  %428 = call ptr @proto_tree_add_item(ptr noundef %424, i32 noundef %425, ptr noundef %426, i32 noundef %427, i32 noundef 4, i32 noundef -2147483648)
+  %429 = load i32, ptr %11, align 4
+  %430 = add i32 %429, 4
+  store i32 %430, ptr %11, align 4
+  %431 = load ptr, ptr %14, align 8
+  %432 = load i32, ptr @hf_solaredge_post_optimizer_uptime_short_type, align 4
+  %433 = load ptr, ptr %6, align 8
+  %434 = load i32, ptr %11, align 4
+  %435 = call ptr @proto_tree_add_item(ptr noundef %431, i32 noundef %432, ptr noundef %433, i32 noundef %434, i32 noundef 2, i32 noundef -2147483648)
+  %436 = load i32, ptr %11, align 4
+  %437 = add i32 %436, 2
+  store i32 %437, ptr %11, align 4
+  %438 = load ptr, ptr %6, align 8
+  %439 = load i32, ptr %11, align 4
+  %440 = call ptr @tvb_get_ptr(ptr noundef %438, i32 noundef %439, i32 noundef 6)
+  store ptr %440, ptr %15, align 8
+  %441 = load ptr, ptr %15, align 8
+  %442 = getelementptr i8, ptr %441, i64 0
+  %443 = load i8, ptr %442, align 1
+  %444 = zext i8 %443 to i32
+  %445 = load ptr, ptr %15, align 8
+  %446 = getelementptr i8, ptr %445, i64 1
+  %447 = load i8, ptr %446, align 1
+  %448 = zext i8 %447 to i32
+  %449 = shl i32 %448, 8
+  %450 = and i32 %449, 768
+  %451 = or i32 %444, %450
+  %452 = sitofp i32 %451 to float
+  %453 = fpext float %452 to double
+  %454 = fmul double 1.250000e-01, %453
+  %455 = fptrunc double %454 to float
+  store float %455, ptr %16, align 4
+  %456 = load ptr, ptr %14, align 8
+  %457 = load i32, ptr @hf_solaredge_post_optimizer_dc_voltage_panel_type, align 4
+  %458 = load ptr, ptr %6, align 8
+  %459 = load i32, ptr %11, align 4
+  %460 = load float, ptr %16, align 4
+  %461 = load float, ptr %16, align 4
+  %462 = fpext float %461 to double
+  %463 = call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %456, i32 noundef %457, ptr noundef %458, i32 noundef %459, i32 noundef 6, float noundef %460, ptr noundef @.str.528, double noundef %462)
   %464 = load ptr, ptr %15, align 8
-  %465 = getelementptr i8, ptr %464, i64 2
+  %465 = getelementptr i8, ptr %464, i64 1
   %466 = load i8, ptr %465, align 1
   %467 = zext i8 %466 to i32
-  %468 = ashr i32 %467, 4
-  %469 = and i32 %468, 15
-  %470 = or i32 %463, %469
-  %471 = sitofp i32 %470 to float
-  %472 = fpext float %471 to double
-  %473 = fmul double 6.250000e-03, %472
-  %474 = fptrunc double %473 to float
-  store float %474, ptr %18, align 4
-  %475 = load ptr, ptr %14, align 8
-  %476 = load i32, ptr @hf_solaredge_post_optimizer_dc_current_optimzer_type, align 4
-  %477 = load ptr, ptr %6, align 8
-  %478 = load i32, ptr %11, align 4
-  %479 = load float, ptr %18, align 4
-  %480 = load float, ptr %18, align 4
-  %481 = fpext float %480 to double
-  %482 = call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %475, i32 noundef %476, ptr noundef %477, i32 noundef %478, i32 noundef 6, float noundef %479, ptr noundef @.str.526, double noundef %481)
-  %483 = load ptr, ptr %15, align 8
-  %484 = getelementptr i8, ptr %483, i64 6
-  %485 = load i8, ptr %484, align 1
-  %486 = zext i8 %485 to i32
-  %487 = shl i32 %486, 8
+  %468 = ashr i32 %467, 2
+  %469 = load ptr, ptr %15, align 8
+  %470 = getelementptr i8, ptr %469, i64 2
+  %471 = load i8, ptr %470, align 1
+  %472 = zext i8 %471 to i32
+  %473 = shl i32 %472, 6
+  %474 = and i32 %473, 960
+  %475 = or i32 %468, %474
+  %476 = sitofp i32 %475 to float
+  %477 = fpext float %476 to double
+  %478 = fmul double 1.250000e-01, %477
+  %479 = fptrunc double %478 to float
+  store float %479, ptr %17, align 4
+  %480 = load ptr, ptr %14, align 8
+  %481 = load i32, ptr @hf_solaredge_post_optimizer_dc_voltage_optimzer_type, align 4
+  %482 = load ptr, ptr %6, align 8
+  %483 = load i32, ptr %11, align 4
+  %484 = load float, ptr %17, align 4
+  %485 = load float, ptr %17, align 4
+  %486 = fpext float %485 to double
+  %487 = call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %480, i32 noundef %481, ptr noundef %482, i32 noundef %483, i32 noundef 6, float noundef %484, ptr noundef @.str.528, double noundef %486)
   %488 = load ptr, ptr %15, align 8
-  %489 = getelementptr i8, ptr %488, i64 5
+  %489 = getelementptr i8, ptr %488, i64 3
   %490 = load i8, ptr %489, align 1
   %491 = zext i8 %490 to i32
-  %492 = or i32 %487, %491
-  %493 = sitofp i32 %492 to float
-  %494 = fpext float %493 to double
-  %495 = fmul double 2.500000e-01, %494
-  %496 = fptrunc double %495 to float
-  store float %496, ptr %19, align 4
-  %497 = load ptr, ptr %14, align 8
-  %498 = load i32, ptr @hf_solaredge_post_optimizer_energy_day_type, align 4
-  %499 = load ptr, ptr %6, align 8
-  %500 = load i32, ptr %11, align 4
-  %501 = load float, ptr %19, align 4
-  %502 = load float, ptr %19, align 4
-  %503 = fpext float %502 to double
-  %504 = call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %497, i32 noundef %498, ptr noundef %499, i32 noundef %500, i32 noundef 6, float noundef %501, ptr noundef @.str.526, double noundef %503)
-  %505 = load i32, ptr %11, align 4
-  %506 = add i32 %505, 6
-  store i32 %506, ptr %11, align 4
-  %507 = load ptr, ptr %6, align 8
-  %508 = load i32, ptr %11, align 4
-  %509 = call zeroext i8 @tvb_get_guint8(ptr noundef %507, i32 noundef %508)
-  %510 = uitofp i8 %509 to float
-  %511 = fpext float %510 to double
-  %512 = fmul double 2.000000e+00, %511
-  %513 = fptrunc double %512 to float
-  store float %513, ptr %20, align 4
-  %514 = load ptr, ptr %14, align 8
-  %515 = load i32, ptr @hf_solaredge_post_optimizer_temperature_type, align 4
-  %516 = load ptr, ptr %6, align 8
-  %517 = load i32, ptr %11, align 4
-  %518 = load float, ptr %20, align 4
-  %519 = load float, ptr %20, align 4
-  %520 = fpext float %519 to double
-  %521 = call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %514, i32 noundef %515, ptr noundef %516, i32 noundef %517, i32 noundef 2, float noundef %518, ptr noundef @.str.526, double noundef %520)
-  %522 = load i32, ptr %11, align 4
-  %523 = add i32 %522, 1
-  store i32 %523, ptr %11, align 4
-  br label %609
+  %492 = shl i32 %491, 4
+  %493 = load ptr, ptr %15, align 8
+  %494 = getelementptr i8, ptr %493, i64 2
+  %495 = load i8, ptr %494, align 1
+  %496 = zext i8 %495 to i32
+  %497 = ashr i32 %496, 4
+  %498 = and i32 %497, 15
+  %499 = or i32 %492, %498
+  %500 = sitofp i32 %499 to float
+  %501 = fpext float %500 to double
+  %502 = fmul double 6.250000e-03, %501
+  %503 = fptrunc double %502 to float
+  store float %503, ptr %18, align 4
+  %504 = load ptr, ptr %14, align 8
+  %505 = load i32, ptr @hf_solaredge_post_optimizer_dc_current_optimzer_type, align 4
+  %506 = load ptr, ptr %6, align 8
+  %507 = load i32, ptr %11, align 4
+  %508 = load float, ptr %18, align 4
+  %509 = load float, ptr %18, align 4
+  %510 = fpext float %509 to double
+  %511 = call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %504, i32 noundef %505, ptr noundef %506, i32 noundef %507, i32 noundef 6, float noundef %508, ptr noundef @.str.528, double noundef %510)
+  %512 = load ptr, ptr %15, align 8
+  %513 = getelementptr i8, ptr %512, i64 6
+  %514 = load i8, ptr %513, align 1
+  %515 = zext i8 %514 to i32
+  %516 = shl i32 %515, 8
+  %517 = load ptr, ptr %15, align 8
+  %518 = getelementptr i8, ptr %517, i64 5
+  %519 = load i8, ptr %518, align 1
+  %520 = zext i8 %519 to i32
+  %521 = or i32 %516, %520
+  %522 = sitofp i32 %521 to float
+  %523 = fpext float %522 to double
+  %524 = fmul double 2.500000e-01, %523
+  %525 = fptrunc double %524 to float
+  store float %525, ptr %19, align 4
+  %526 = load ptr, ptr %14, align 8
+  %527 = load i32, ptr @hf_solaredge_post_optimizer_energy_day_type, align 4
+  %528 = load ptr, ptr %6, align 8
+  %529 = load i32, ptr %11, align 4
+  %530 = load float, ptr %19, align 4
+  %531 = load float, ptr %19, align 4
+  %532 = fpext float %531 to double
+  %533 = call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %526, i32 noundef %527, ptr noundef %528, i32 noundef %529, i32 noundef 6, float noundef %530, ptr noundef @.str.528, double noundef %532)
+  %534 = load i32, ptr %11, align 4
+  %535 = add i32 %534, 6
+  store i32 %535, ptr %11, align 4
+  %536 = load ptr, ptr %6, align 8
+  %537 = load i32, ptr %11, align 4
+  %538 = call zeroext i8 @tvb_get_uint8(ptr noundef %536, i32 noundef %537)
+  %539 = uitofp i8 %538 to float
+  %540 = fpext float %539 to double
+  %541 = fmul double 2.000000e+00, %540
+  %542 = fptrunc double %541 to float
+  store float %542, ptr %20, align 4
+  %543 = load ptr, ptr %14, align 8
+  %544 = load i32, ptr @hf_solaredge_post_optimizer_temperature_type, align 4
+  %545 = load ptr, ptr %6, align 8
+  %546 = load i32, ptr %11, align 4
+  %547 = load float, ptr %20, align 4
+  %548 = load float, ptr %20, align 4
+  %549 = fpext float %548 to double
+  %550 = call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %543, i32 noundef %544, ptr noundef %545, i32 noundef %546, i32 noundef 2, float noundef %547, ptr noundef @.str.528, double noundef %549)
+  %551 = load i32, ptr %11, align 4
+  %552 = add i32 %551, 1
+  store i32 %552, ptr %11, align 4
+  br label %642
 
-524:                                              ; preds = %5
-  %525 = load ptr, ptr %7, align 8
-  %526 = getelementptr inbounds %struct._packet_info, ptr %525, i32 0, i32 1
-  %527 = load ptr, ptr %526, align 8
-  call void @col_append_str(ptr noundef %527, i32 noundef 25, ptr noundef @.str.521)
-  %528 = load ptr, ptr %14, align 8
-  %529 = load i32, ptr @hf_solaredge_post_event_timestamp_type, align 4
-  %530 = load ptr, ptr %6, align 8
-  %531 = load i32, ptr %11, align 4
-  %532 = call ptr @proto_tree_add_item(ptr noundef %528, i32 noundef %529, ptr noundef %530, i32 noundef %531, i32 noundef 4, i32 noundef -2147483648)
-  %533 = load i32, ptr %11, align 4
-  %534 = add i32 %533, 4
-  store i32 %534, ptr %11, align 4
-  %535 = load ptr, ptr %6, align 8
-  %536 = load i32, ptr %11, align 4
-  %537 = call i32 @tvb_get_guint32(ptr noundef %535, i32 noundef %536, i32 noundef -2147483648)
-  store i32 %537, ptr %21, align 4
-  %538 = load ptr, ptr %14, align 8
-  %539 = load i32, ptr @hf_solaredge_post_event_type_type, align 4
-  %540 = load ptr, ptr %6, align 8
-  %541 = load i32, ptr %11, align 4
-  %542 = call ptr @proto_tree_add_item(ptr noundef %538, i32 noundef %539, ptr noundef %540, i32 noundef %541, i32 noundef 4, i32 noundef -2147483648)
-  %543 = load i32, ptr %11, align 4
-  %544 = add i32 %543, 4
-  store i32 %544, ptr %11, align 4
-  %545 = load ptr, ptr %14, align 8
-  %546 = load i32, ptr @hf_solaredge_post_event_event_start_timestamp_type, align 4
-  %547 = load ptr, ptr %6, align 8
-  %548 = load i32, ptr %11, align 4
-  %549 = call ptr @proto_tree_add_item(ptr noundef %545, i32 noundef %546, ptr noundef %547, i32 noundef %548, i32 noundef 4, i32 noundef -2147483648)
-  %550 = load i32, ptr %11, align 4
-  %551 = add i32 %550, 4
-  store i32 %551, ptr %11, align 4
-  %552 = load i32, ptr %21, align 4
-  %553 = icmp eq i32 %552, 1
-  br i1 %553, label %554, label %569
-
-554:                                              ; preds = %524
-  %555 = load ptr, ptr %14, align 8
-  %556 = load i32, ptr @hf_solaredge_post_event_event_timezone_offset_type, align 4
-  %557 = load ptr, ptr %6, align 8
-  %558 = load i32, ptr %11, align 4
-  %559 = call ptr @proto_tree_add_item(ptr noundef %555, i32 noundef %556, ptr noundef %557, i32 noundef %558, i32 noundef 4, i32 noundef -2147483648)
+553:                                              ; preds = %5
+  %554 = load ptr, ptr %7, align 8
+  %555 = getelementptr inbounds nuw %struct._packet_info, ptr %554, i32 0, i32 1
+  %556 = load ptr, ptr %555, align 8
+  call void @col_append_str(ptr noundef %556, i32 noundef 25, ptr noundef @.str.522)
+  %557 = load ptr, ptr %14, align 8
+  %558 = load i32, ptr @hf_solaredge_post_event_timestamp_type, align 4
+  %559 = load ptr, ptr %6, align 8
   %560 = load i32, ptr %11, align 4
-  %561 = add i32 %560, 4
-  store i32 %561, ptr %11, align 4
-  %562 = load ptr, ptr %14, align 8
-  %563 = load i32, ptr @hf_solaredge_post_event_event_end_timestamp_type, align 4
+  %561 = call ptr @proto_tree_add_item(ptr noundef %557, i32 noundef %558, ptr noundef %559, i32 noundef %560, i32 noundef 4, i32 noundef -2147483648)
+  %562 = load i32, ptr %11, align 4
+  %563 = add i32 %562, 4
+  store i32 %563, ptr %11, align 4
   %564 = load ptr, ptr %6, align 8
   %565 = load i32, ptr %11, align 4
-  %566 = call ptr @proto_tree_add_item(ptr noundef %562, i32 noundef %563, ptr noundef %564, i32 noundef %565, i32 noundef 4, i32 noundef -2147483648)
-  %567 = load i32, ptr %11, align 4
-  %568 = add i32 %567, 4
-  store i32 %568, ptr %11, align 4
-  br label %577
+  %566 = call i32 @tvb_get_uint32(ptr noundef %564, i32 noundef %565, i32 noundef -2147483648)
+  store i32 %566, ptr %21, align 4
+  %567 = load ptr, ptr %14, align 8
+  %568 = load i32, ptr @hf_solaredge_post_event_type_type, align 4
+  %569 = load ptr, ptr %6, align 8
+  %570 = load i32, ptr %11, align 4
+  %571 = call ptr @proto_tree_add_item(ptr noundef %567, i32 noundef %568, ptr noundef %569, i32 noundef %570, i32 noundef 4, i32 noundef -2147483648)
+  %572 = load i32, ptr %11, align 4
+  %573 = add i32 %572, 4
+  store i32 %573, ptr %11, align 4
+  %574 = load ptr, ptr %14, align 8
+  %575 = load i32, ptr @hf_solaredge_post_event_event_start_timestamp_type, align 4
+  %576 = load ptr, ptr %6, align 8
+  %577 = load i32, ptr %11, align 4
+  %578 = call ptr @proto_tree_add_item(ptr noundef %574, i32 noundef %575, ptr noundef %576, i32 noundef %577, i32 noundef 4, i32 noundef -2147483648)
+  %579 = load i32, ptr %11, align 4
+  %580 = add i32 %579, 4
+  store i32 %580, ptr %11, align 4
+  %581 = load i32, ptr %21, align 4
+  %582 = icmp eq i32 %581, 1
+  br i1 %582, label %583, label %598
 
-569:                                              ; preds = %524
-  %570 = load ptr, ptr %14, align 8
-  %571 = load i32, ptr @hf_solaredge_post_event_event_end_timestamp_type, align 4
-  %572 = load ptr, ptr %6, align 8
-  %573 = load i32, ptr %11, align 4
-  %574 = call ptr @proto_tree_add_item(ptr noundef %570, i32 noundef %571, ptr noundef %572, i32 noundef %573, i32 noundef 4, i32 noundef -2147483648)
-  %575 = load i32, ptr %11, align 4
-  %576 = add i32 %575, 8
-  store i32 %576, ptr %11, align 4
-  br label %577
-
-577:                                              ; preds = %569, %554
-  %578 = load i32, ptr @global_show_unknown_fields, align 4
-  %579 = icmp eq i32 %578, 1
-  br i1 %579, label %580, label %586
-
-580:                                              ; preds = %577
-  %581 = load ptr, ptr %14, align 8
-  %582 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
-  %583 = load ptr, ptr %6, align 8
-  %584 = load i32, ptr %11, align 4
-  %585 = call ptr @proto_tree_add_item(ptr noundef %581, i32 noundef %582, ptr noundef %583, i32 noundef %584, i32 noundef 4, i32 noundef -2147483648)
-  br label %586
-
-586:                                              ; preds = %580, %577
+583:                                              ; preds = %553
+  %584 = load ptr, ptr %14, align 8
+  %585 = load i32, ptr @hf_solaredge_post_event_event_timezone_offset_type, align 4
+  %586 = load ptr, ptr %6, align 8
   %587 = load i32, ptr %11, align 4
-  %588 = add i32 %587, 4
-  store i32 %588, ptr %11, align 4
-  %589 = load i32, ptr @global_show_unknown_fields, align 4
-  %590 = icmp eq i32 %589, 1
-  br i1 %590, label %591, label %597
+  %588 = call ptr @proto_tree_add_item(ptr noundef %584, i32 noundef %585, ptr noundef %586, i32 noundef %587, i32 noundef 4, i32 noundef -2147483648)
+  %589 = load i32, ptr %11, align 4
+  %590 = add i32 %589, 4
+  store i32 %590, ptr %11, align 4
+  %591 = load ptr, ptr %14, align 8
+  %592 = load i32, ptr @hf_solaredge_post_event_event_end_timestamp_type, align 4
+  %593 = load ptr, ptr %6, align 8
+  %594 = load i32, ptr %11, align 4
+  %595 = call ptr @proto_tree_add_item(ptr noundef %591, i32 noundef %592, ptr noundef %593, i32 noundef %594, i32 noundef 4, i32 noundef -2147483648)
+  %596 = load i32, ptr %11, align 4
+  %597 = add i32 %596, 4
+  store i32 %597, ptr %11, align 4
+  br label %606
 
-591:                                              ; preds = %586
-  %592 = load ptr, ptr %14, align 8
-  %593 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
-  %594 = load ptr, ptr %6, align 8
-  %595 = load i32, ptr %11, align 4
-  %596 = call ptr @proto_tree_add_item(ptr noundef %592, i32 noundef %593, ptr noundef %594, i32 noundef %595, i32 noundef 4, i32 noundef -2147483648)
-  br label %597
+598:                                              ; preds = %553
+  %599 = load ptr, ptr %14, align 8
+  %600 = load i32, ptr @hf_solaredge_post_event_event_end_timestamp_type, align 4
+  %601 = load ptr, ptr %6, align 8
+  %602 = load i32, ptr %11, align 4
+  %603 = call ptr @proto_tree_add_item(ptr noundef %599, i32 noundef %600, ptr noundef %601, i32 noundef %602, i32 noundef 4, i32 noundef -2147483648)
+  %604 = load i32, ptr %11, align 4
+  %605 = add i32 %604, 8
+  store i32 %605, ptr %11, align 4
+  br label %606
 
-597:                                              ; preds = %591, %586
-  %598 = load i32, ptr %11, align 4
-  %599 = add i32 %598, 4
-  store i32 %599, ptr %11, align 4
-  br label %609
+606:                                              ; preds = %598, %583
+  %607 = load i8, ptr @global_show_unknown_fields, align 1, !range !6, !noundef !7
+  %608 = trunc i8 %607 to i1
+  %609 = zext i1 %608 to i32
+  %610 = icmp eq i32 %609, 1
+  br i1 %610, label %611, label %617
 
-600:                                              ; preds = %5
-  %601 = load ptr, ptr %7, align 8
-  %602 = getelementptr inbounds %struct._packet_info, ptr %601, i32 0, i32 1
-  %603 = load ptr, ptr %602, align 8
-  call void @col_append_str(ptr noundef %603, i32 noundef 25, ptr noundef @.str.527)
-  %604 = getelementptr inbounds %struct.solaredge_device_header, ptr %12, i32 0, i32 2
-  %605 = load i16, ptr %604, align 4
-  %606 = zext i16 %605 to i32
-  %607 = load i32, ptr %11, align 4
-  %608 = add i32 %607, %606
-  store i32 %608, ptr %11, align 4
-  br label %609
+611:                                              ; preds = %606
+  %612 = load ptr, ptr %14, align 8
+  %613 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
+  %614 = load ptr, ptr %6, align 8
+  %615 = load i32, ptr %11, align 4
+  %616 = call ptr @proto_tree_add_item(ptr noundef %612, i32 noundef %613, ptr noundef %614, i32 noundef %615, i32 noundef 4, i32 noundef -2147483648)
+  br label %617
 
-609:                                              ; preds = %600, %597, %391, %382, %379, %99
-  %610 = load i32, ptr %11, align 4
-  %611 = load i32, ptr %10, align 4
-  %612 = icmp slt i32 %610, %611
-  br i1 %612, label %613, label %623
+617:                                              ; preds = %611, %606
+  %618 = load i32, ptr %11, align 4
+  %619 = add i32 %618, 4
+  store i32 %619, ptr %11, align 4
+  %620 = load i8, ptr @global_show_unknown_fields, align 1, !range !6, !noundef !7
+  %621 = trunc i8 %620 to i1
+  %622 = zext i1 %621 to i32
+  %623 = icmp eq i32 %622, 1
+  br i1 %623, label %624, label %630
 
-613:                                              ; preds = %609
-  %614 = load ptr, ptr %7, align 8
-  %615 = getelementptr inbounds %struct._packet_info, ptr %614, i32 0, i32 1
-  %616 = load ptr, ptr %615, align 8
-  call void @col_append_str(ptr noundef %616, i32 noundef 25, ptr noundef @.str.528)
-  %617 = load ptr, ptr %6, align 8
-  %618 = load ptr, ptr %7, align 8
-  %619 = load ptr, ptr %8, align 8
-  %620 = load i32, ptr %11, align 4
-  %621 = load i32, ptr %10, align 4
-  %622 = call i32 @dissect_solaredge_devicedata(ptr noundef %617, ptr noundef %618, ptr noundef %619, i32 noundef %620, i32 noundef %621)
-  br label %623
+624:                                              ; preds = %617
+  %625 = load ptr, ptr %14, align 8
+  %626 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
+  %627 = load ptr, ptr %6, align 8
+  %628 = load i32, ptr %11, align 4
+  %629 = call ptr @proto_tree_add_item(ptr noundef %625, i32 noundef %626, ptr noundef %627, i32 noundef %628, i32 noundef 4, i32 noundef -2147483648)
+  br label %630
 
-623:                                              ; preds = %613, %609
-  %624 = load i32, ptr %11, align 4
-  ret i32 %624
+630:                                              ; preds = %624, %617
+  %631 = load i32, ptr %11, align 4
+  %632 = add i32 %631, 4
+  store i32 %632, ptr %11, align 4
+  br label %642
+
+633:                                              ; preds = %5
+  %634 = load ptr, ptr %7, align 8
+  %635 = getelementptr inbounds nuw %struct._packet_info, ptr %634, i32 0, i32 1
+  %636 = load ptr, ptr %635, align 8
+  call void @col_append_str(ptr noundef %636, i32 noundef 25, ptr noundef @.str.529)
+  %637 = getelementptr inbounds nuw %struct.solaredge_device_header, ptr %12, i32 0, i32 2
+  %638 = load i16, ptr %637, align 4
+  %639 = zext i16 %638 to i32
+  %640 = load i32, ptr %11, align 4
+  %641 = add i32 %640, %639
+  store i32 %641, ptr %11, align 4
+  br label %642
+
+642:                                              ; preds = %633, %630, %420, %411, %408, %102
+  %643 = load ptr, ptr %7, align 8
+  call void @decrement_dissection_depth(ptr noundef %643)
+  %644 = load i32, ptr %11, align 4
+  %645 = load i32, ptr %10, align 4
+  %646 = icmp slt i32 %644, %645
+  br i1 %646, label %647, label %657
+
+647:                                              ; preds = %642
+  %648 = load ptr, ptr %7, align 8
+  %649 = getelementptr inbounds nuw %struct._packet_info, ptr %648, i32 0, i32 1
+  %650 = load ptr, ptr %649, align 8
+  call void @col_append_str(ptr noundef %650, i32 noundef 25, ptr noundef @.str.530)
+  %651 = load ptr, ptr %6, align 8
+  %652 = load ptr, ptr %7, align 8
+  %653 = load ptr, ptr %8, align 8
+  %654 = load i32, ptr %11, align 4
+  %655 = load i32, ptr %10, align 4
+  %656 = call i32 @dissect_solaredge_devicedata(ptr noundef %651, ptr noundef %652, ptr noundef %653, i32 noundef %654, i32 noundef %655)
+  br label %657
+
+657:                                              ; preds = %647, %642
+  %658 = load i32, ptr %11, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 12, ptr %12) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #8
+  ret i32 %658
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @gcry_cipher_open(ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @g_byte_array_new() #1
 
-declare i32 @hex_str_to_bytes(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @hex_str_to_bytes(ptr noundef, ptr noundef, i1 noundef zeroext) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @gcry_cipher_setkey(ptr noundef, ptr noundef, i64 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_memcpy(ptr noundef, ptr noundef, i32 noundef, i64 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @gcry_cipher_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @gcry_cipher_close(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
+declare void @decrement_dissection_depth(ptr noundef) #1
+
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_checksum(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal zeroext i16 @calculate_crc(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -2231,140 +2407,232 @@ define internal zeroext i16 @calculate_crc(ptr noundef %0, ptr noundef %1, i32 n
   %8 = alloca i16, align 2
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  %11 = alloca i16, align 2
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca i16, align 2
   store ptr %0, ptr %4, align 8
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %7) #8
   store i16 23130, ptr %7, align 2
-  %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds %struct.solaredge_packet_header, ptr %12, i32 0, i32 2
-  %14 = load i16, ptr %13, align 4
-  %15 = zext i16 %14 to i32
-  %16 = ashr i32 %15, 8
-  %17 = trunc i32 %16 to i16
-  %18 = zext i16 %17 to i32
-  %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds %struct.solaredge_packet_header, ptr %19, i32 0, i32 2
-  %21 = load i16, ptr %20, align 4
-  %22 = zext i16 %21 to i32
-  %23 = shl i32 %22, 8
-  %24 = trunc i32 %23 to i16
-  %25 = zext i16 %24 to i32
-  %26 = or i32 %18, %25
-  %27 = trunc i32 %26 to i16
-  store i16 %27, ptr %8, align 2
-  %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr inbounds %struct.solaredge_packet_header, ptr %28, i32 0, i32 3
-  %30 = load i32, ptr %29, align 4
-  %31 = and i32 %30, 255
-  %32 = shl i32 %31, 24
-  %33 = load ptr, ptr %4, align 8
-  %34 = getelementptr inbounds %struct.solaredge_packet_header, ptr %33, i32 0, i32 3
-  %35 = load i32, ptr %34, align 4
-  %36 = and i32 %35, 65280
-  %37 = shl i32 %36, 8
-  %38 = or i32 %32, %37
-  %39 = load ptr, ptr %4, align 8
-  %40 = getelementptr inbounds %struct.solaredge_packet_header, ptr %39, i32 0, i32 3
-  %41 = load i32, ptr %40, align 4
-  %42 = and i32 %41, 16711680
-  %43 = lshr i32 %42, 8
-  %44 = or i32 %38, %43
-  %45 = load ptr, ptr %4, align 8
-  %46 = getelementptr inbounds %struct.solaredge_packet_header, ptr %45, i32 0, i32 3
-  %47 = load i32, ptr %46, align 4
-  %48 = and i32 %47, -16777216
-  %49 = lshr i32 %48, 24
-  %50 = or i32 %44, %49
-  store i32 %50, ptr %9, align 4
-  %51 = load ptr, ptr %4, align 8
-  %52 = getelementptr inbounds %struct.solaredge_packet_header, ptr %51, i32 0, i32 4
-  %53 = load i32, ptr %52, align 4
-  %54 = and i32 %53, 255
-  %55 = shl i32 %54, 24
-  %56 = load ptr, ptr %4, align 8
-  %57 = getelementptr inbounds %struct.solaredge_packet_header, ptr %56, i32 0, i32 4
-  %58 = load i32, ptr %57, align 4
-  %59 = and i32 %58, 65280
-  %60 = shl i32 %59, 8
-  %61 = or i32 %55, %60
-  %62 = load ptr, ptr %4, align 8
-  %63 = getelementptr inbounds %struct.solaredge_packet_header, ptr %62, i32 0, i32 4
-  %64 = load i32, ptr %63, align 4
-  %65 = and i32 %64, 16711680
-  %66 = lshr i32 %65, 8
-  %67 = or i32 %61, %66
-  %68 = load ptr, ptr %4, align 8
-  %69 = getelementptr inbounds %struct.solaredge_packet_header, ptr %68, i32 0, i32 4
-  %70 = load i32, ptr %69, align 4
-  %71 = and i32 %70, -16777216
-  %72 = lshr i32 %71, 24
-  %73 = or i32 %67, %72
-  store i32 %73, ptr %10, align 4
-  %74 = load ptr, ptr %4, align 8
-  %75 = getelementptr inbounds %struct.solaredge_packet_header, ptr %74, i32 0, i32 5
-  %76 = load i16, ptr %75, align 4
-  %77 = zext i16 %76 to i32
-  %78 = ashr i32 %77, 8
-  %79 = trunc i32 %78 to i16
-  %80 = zext i16 %79 to i32
-  %81 = load ptr, ptr %4, align 8
-  %82 = getelementptr inbounds %struct.solaredge_packet_header, ptr %81, i32 0, i32 5
-  %83 = load i16, ptr %82, align 4
-  %84 = zext i16 %83 to i32
-  %85 = shl i32 %84, 8
-  %86 = trunc i32 %85 to i16
-  %87 = zext i16 %86 to i32
-  %88 = or i32 %80, %87
-  %89 = trunc i32 %88 to i16
-  store i16 %89, ptr %11, align 2
-  %90 = load i16, ptr %7, align 2
-  %91 = call zeroext i16 @crc16_plain_update(i16 noundef zeroext %90, ptr noundef %8, i64 noundef 2)
-  store i16 %91, ptr %7, align 2
-  %92 = load i16, ptr %7, align 2
-  %93 = call zeroext i16 @crc16_plain_update(i16 noundef zeroext %92, ptr noundef %9, i64 noundef 4)
-  store i16 %93, ptr %7, align 2
-  %94 = load i16, ptr %7, align 2
-  %95 = call zeroext i16 @crc16_plain_update(i16 noundef zeroext %94, ptr noundef %10, i64 noundef 4)
-  store i16 %95, ptr %7, align 2
-  %96 = load i16, ptr %7, align 2
-  %97 = call zeroext i16 @crc16_plain_update(i16 noundef zeroext %96, ptr noundef %11, i64 noundef 2)
-  store i16 %97, ptr %7, align 2
-  %98 = load i16, ptr %7, align 2
-  %99 = load ptr, ptr %5, align 8
-  %100 = load i32, ptr %6, align 4
-  %101 = sext i32 %100 to i64
-  %102 = call zeroext i16 @crc16_plain_update(i16 noundef zeroext %98, ptr noundef %99, i64 noundef %101)
-  ret i16 %102
+  call void @llvm.lifetime.start.p0(i64 2, ptr %8) #8
+  %18 = load ptr, ptr %4, align 8
+  %19 = getelementptr inbounds nuw %struct.solaredge_packet_header, ptr %18, i32 0, i32 2
+  %20 = load i16, ptr %19, align 4
+  %21 = zext i16 %20 to i32
+  %22 = ashr i32 %21, 8
+  %23 = trunc i32 %22 to i16
+  %24 = zext i16 %23 to i32
+  %25 = load ptr, ptr %4, align 8
+  %26 = getelementptr inbounds nuw %struct.solaredge_packet_header, ptr %25, i32 0, i32 2
+  %27 = load i16, ptr %26, align 4
+  %28 = zext i16 %27 to i32
+  %29 = shl i32 %28, 8
+  %30 = trunc i32 %29 to i16
+  %31 = zext i16 %30 to i32
+  %32 = or i32 %24, %31
+  %33 = trunc i32 %32 to i16
+  store i16 %33, ptr %8, align 2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #8
+  %34 = load ptr, ptr %4, align 8
+  %35 = getelementptr inbounds nuw %struct.solaredge_packet_header, ptr %34, i32 0, i32 3
+  %36 = load i32, ptr %35, align 4
+  store i32 %36, ptr %11, align 4
+  %37 = load i32, ptr %11, align 4
+  %38 = call i1 @llvm.is.constant.i32(i32 %37)
+  br i1 %38, label %39, label %55
+
+39:                                               ; preds = %3
+  %40 = load i32, ptr %11, align 4
+  %41 = and i32 %40, 255
+  %42 = shl i32 %41, 24
+  %43 = load i32, ptr %11, align 4
+  %44 = and i32 %43, 65280
+  %45 = shl i32 %44, 8
+  %46 = or i32 %42, %45
+  %47 = load i32, ptr %11, align 4
+  %48 = and i32 %47, 16711680
+  %49 = lshr i32 %48, 8
+  %50 = or i32 %46, %49
+  %51 = load i32, ptr %11, align 4
+  %52 = and i32 %51, -16777216
+  %53 = lshr i32 %52, 24
+  %54 = or i32 %50, %53
+  store i32 %54, ptr %10, align 4
+  br label %58
+
+55:                                               ; preds = %3
+  %56 = load i32, ptr %11, align 4
+  %57 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %56) #10, !srcloc !13
+  store i32 %57, ptr %10, align 4
+  br label %58
+
+58:                                               ; preds = %55, %39
+  %59 = load i32, ptr %10, align 4
+  store i32 %59, ptr %12, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #8
+  %60 = load i32, ptr %12, align 4
+  store i32 %60, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #8
+  %61 = load ptr, ptr %4, align 8
+  %62 = getelementptr inbounds nuw %struct.solaredge_packet_header, ptr %61, i32 0, i32 4
+  %63 = load i32, ptr %62, align 4
+  store i32 %63, ptr %15, align 4
+  %64 = load i32, ptr %15, align 4
+  %65 = call i1 @llvm.is.constant.i32(i32 %64)
+  br i1 %65, label %66, label %82
+
+66:                                               ; preds = %58
+  %67 = load i32, ptr %15, align 4
+  %68 = and i32 %67, 255
+  %69 = shl i32 %68, 24
+  %70 = load i32, ptr %15, align 4
+  %71 = and i32 %70, 65280
+  %72 = shl i32 %71, 8
+  %73 = or i32 %69, %72
+  %74 = load i32, ptr %15, align 4
+  %75 = and i32 %74, 16711680
+  %76 = lshr i32 %75, 8
+  %77 = or i32 %73, %76
+  %78 = load i32, ptr %15, align 4
+  %79 = and i32 %78, -16777216
+  %80 = lshr i32 %79, 24
+  %81 = or i32 %77, %80
+  store i32 %81, ptr %14, align 4
+  br label %85
+
+82:                                               ; preds = %58
+  %83 = load i32, ptr %15, align 4
+  %84 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %83) #10, !srcloc !14
+  store i32 %84, ptr %14, align 4
+  br label %85
+
+85:                                               ; preds = %82, %66
+  %86 = load i32, ptr %14, align 4
+  store i32 %86, ptr %16, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #8
+  %87 = load i32, ptr %16, align 4
+  store i32 %87, ptr %13, align 4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %17) #8
+  %88 = load ptr, ptr %4, align 8
+  %89 = getelementptr inbounds nuw %struct.solaredge_packet_header, ptr %88, i32 0, i32 5
+  %90 = load i16, ptr %89, align 4
+  %91 = zext i16 %90 to i32
+  %92 = ashr i32 %91, 8
+  %93 = trunc i32 %92 to i16
+  %94 = zext i16 %93 to i32
+  %95 = load ptr, ptr %4, align 8
+  %96 = getelementptr inbounds nuw %struct.solaredge_packet_header, ptr %95, i32 0, i32 5
+  %97 = load i16, ptr %96, align 4
+  %98 = zext i16 %97 to i32
+  %99 = shl i32 %98, 8
+  %100 = trunc i32 %99 to i16
+  %101 = zext i16 %100 to i32
+  %102 = or i32 %94, %101
+  %103 = trunc i32 %102 to i16
+  store i16 %103, ptr %17, align 2
+  %104 = load i16, ptr %7, align 2
+  %105 = call zeroext i16 @crc16_plain_update(i16 noundef zeroext %104, ptr noundef %8, i64 noundef 2)
+  store i16 %105, ptr %7, align 2
+  %106 = load i16, ptr %7, align 2
+  %107 = call zeroext i16 @crc16_plain_update(i16 noundef zeroext %106, ptr noundef %9, i64 noundef 4)
+  store i16 %107, ptr %7, align 2
+  %108 = load i16, ptr %7, align 2
+  %109 = call zeroext i16 @crc16_plain_update(i16 noundef zeroext %108, ptr noundef %13, i64 noundef 4)
+  store i16 %109, ptr %7, align 2
+  %110 = load i16, ptr %7, align 2
+  %111 = call zeroext i16 @crc16_plain_update(i16 noundef zeroext %110, ptr noundef %17, i64 noundef 2)
+  store i16 %111, ptr %7, align 2
+  %112 = load i16, ptr %7, align 2
+  %113 = load ptr, ptr %5, align 8
+  %114 = load i32, ptr %6, align 4
+  %115 = sext i32 %114 to i64
+  %116 = call zeroext i16 @crc16_plain_update(i16 noundef zeroext %112, ptr noundef %113, i64 noundef %115)
+  call void @llvm.lifetime.end.p0(i64 2, ptr %17) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #8
+  call void @llvm.lifetime.end.p0(i64 2, ptr %8) #8
+  call void @llvm.lifetime.end.p0(i64 2, ptr %7) #8
+  ret i16 %116
 }
 
-declare ptr @wmem_packet_scope() #1
+; Function Attrs: alwaysinline nounwind
+define internal ptr @memcpy.inline(ptr noalias %0, ptr noalias %1, i64 %2) #4 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load i64, ptr %6, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = call i64 @llvm.objectsize.i64.p0(ptr %10, i1 false, i1 true, i1 true)
+  %12 = call ptr @__memcpy_chk(ptr noundef %7, ptr noundef %8, i64 noundef %9, i64 noundef %11) #8
+  ret ptr %12
+}
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+; Function Attrs: nounwind null_pointer_is_valid
+declare ptr @__memcpy_chk(ptr noundef, ptr noundef, i64 noundef, i64 noundef) #5
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.objectsize.i64.p0(ptr, i1 immarg, i1 immarg, i1 immarg) #6
+
+; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_float_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, float noundef, ptr noundef, ...) #1
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #1
 
+; Function Attrs: convergent nocallback nofree nosync nounwind willreturn memory(none)
+declare i1 @llvm.is.constant.i32(i32) #7
+
+; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @crc16_plain_update(i16 noundef zeroext, ptr noundef, i64 noundef) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { alwaysinline nounwind "min-legal-vector-width"="0" }
+attributes #5 = { nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { convergent nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #8 = { nounwind }
+attributes #9 = { allocsize(1) }
+attributes #10 = { nounwind memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = !{i64 2151217104}
+!14 = !{i64 2151217847}

@@ -3,12 +3,9 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
 %struct.true_false_string = type { ptr, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
@@ -20,11 +17,9 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_wimaxmacphy_hdr_message_segmentation = internal global i32 0, align 4
 @.str.2 = private unnamed_addr constant [21 x i8] c"Message Segmentation\00", align 1
 @.str.3 = private unnamed_addr constant [37 x i8] c"wimaxmacphy.hdr_message_segmentation\00", align 1
-@wimaxmacphy_message_segmentation_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.357 }, %struct._value_string { i32 1, ptr @.str.358 }, %struct._value_string { i32 2, ptr @.str.359 }, %struct._value_string { i32 3, ptr @.str.360 }, %struct._value_string zeroinitializer], align 16
 @hf_wimaxmacphy_hdr_message_type = internal global i32 0, align 4
 @.str.4 = private unnamed_addr constant [13 x i8] c"Message Type\00", align 1
 @.str.5 = private unnamed_addr constant [29 x i8] c"wimaxmacphy.hdr_message_type\00", align 1
-@wimaxmacphy_message_type_vals = internal constant [19 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.14 }, %struct._value_string { i32 1, ptr @.str.361 }, %struct._value_string { i32 2, ptr @.str.362 }, %struct._value_string { i32 3, ptr @.str.363 }, %struct._value_string { i32 4, ptr @.str.364 }, %struct._value_string { i32 5, ptr @.str.365 }, %struct._value_string { i32 6, ptr @.str.366 }, %struct._value_string { i32 7, ptr @.str.367 }, %struct._value_string { i32 8, ptr @.str.368 }, %struct._value_string { i32 9, ptr @.str.369 }, %struct._value_string { i32 10, ptr @.str.370 }, %struct._value_string { i32 11, ptr @.str.371 }, %struct._value_string { i32 12, ptr @.str.372 }, %struct._value_string { i32 13, ptr @.str.372 }, %struct._value_string { i32 14, ptr @.str.372 }, %struct._value_string { i32 15, ptr @.str.373 }, %struct._value_string { i32 16, ptr @.str.374 }, %struct._value_string { i32 17, ptr @.str.374 }, %struct._value_string zeroinitializer], align 16
 @hf_wimaxmacphy_unknown = internal global i32 0, align 4
 @.str.6 = private unnamed_addr constant [11 x i8] c"Unknown(!)\00", align 1
 @.str.7 = private unnamed_addr constant [30 x i8] c"wimaxmacphy.unknown_primitive\00", align 1
@@ -37,9 +32,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_wimaxmacphy_prim_status = internal global i32 0, align 4
 @.str.12 = private unnamed_addr constant [7 x i8] c"Status\00", align 1
 @.str.13 = private unnamed_addr constant [24 x i8] c"wimaxmacphy.prim_status\00", align 1
-@wimaxmacphy_prim_status_vals = internal constant [9 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.375 }, %struct._value_string { i32 1, ptr @.str.376 }, %struct._value_string { i32 2, ptr @.str.377 }, %struct._value_string { i32 3, ptr @.str.378 }, %struct._value_string { i32 4, ptr @.str.379 }, %struct._value_string { i32 5, ptr @.str.380 }, %struct._value_string { i32 6, ptr @.str.381 }, %struct._value_string { i32 7, ptr @.str.382 }, %struct._value_string zeroinitializer], align 16
 @hf_wimaxmacphy_prim_txstart_indication_status = internal global i32 0, align 4
-@wimaxmacphy_prim_txstart_indication_status_vals = internal constant [9 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.375 }, %struct._value_string { i32 1, ptr @.str.383 }, %struct._value_string { i32 2, ptr @.str.377 }, %struct._value_string { i32 3, ptr @.str.378 }, %struct._value_string { i32 4, ptr @.str.379 }, %struct._value_string { i32 5, ptr @.str.380 }, %struct._value_string { i32 6, ptr @.str.381 }, %struct._value_string { i32 7, ptr @.str.382 }, %struct._value_string zeroinitializer], align 16
 @hf_wimaxmacphy_prim_reserved1 = internal global i32 0, align 4
 @.str.14 = private unnamed_addr constant [9 x i8] c"Reserved\00", align 1
 @.str.15 = private unnamed_addr constant [27 x i8] c"wimaxmacphy.prim_reserved1\00", align 1
@@ -96,7 +89,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_wimaxmacphy_prim_integrity = internal global i32 0, align 4
 @.str.48 = private unnamed_addr constant [10 x i8] c"Integrity\00", align 1
 @.str.49 = private unnamed_addr constant [27 x i8] c"wimaxmacphy.prim_integrity\00", align 1
-@wimaxmacphy_prim_integrity_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.384 }, %struct._value_string { i32 1, ptr @.str.385 }, %struct._value_string zeroinitializer], align 16
 @hf_wimaxmacphy_prim_number_of_bytes_received = internal global i32 0, align 4
 @.str.50 = private unnamed_addr constant [25 x i8] c"Number of bytes received\00", align 1
 @.str.51 = private unnamed_addr constant [42 x i8] c"wimaxmacphy.prim_number_of_bytes_received\00", align 1
@@ -116,11 +108,9 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_wimaxmacphy_prim_indication_type = internal global i32 0, align 4
 @.str.60 = private unnamed_addr constant [16 x i8] c"Indication Type\00", align 1
 @.str.61 = private unnamed_addr constant [33 x i8] c"wimaxmacphy.prim_indication_type\00", align 1
-@wimaxmacphy_prim_indication_type_vals = internal constant [7 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.386 }, %struct._value_string { i32 1, ptr @.str.387 }, %struct._value_string { i32 2, ptr @.str.388 }, %struct._value_string { i32 3, ptr @.str.389 }, %struct._value_string { i32 4, ptr @.str.390 }, %struct._value_string { i32 5, ptr @.str.391 }, %struct._value_string zeroinitializer], align 16
 @hf_wimaxmacphy_prim_zone_permutation_type = internal global i32 0, align 4
 @.str.62 = private unnamed_addr constant [22 x i8] c"Zone Permutation Type\00", align 1
 @.str.63 = private unnamed_addr constant [39 x i8] c"wimaxmacphy.prim_zone_permutation_type\00", align 1
-@wimaxmacphy_prim_zone_permutation_type_vals = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.392 }, %struct._value_string { i32 1, ptr @.str.393 }, %struct._value_string { i32 2, ptr @.str.394 }, %struct._value_string { i32 3, ptr @.str.395 }, %struct._value_string { i32 4, ptr @.str.396 }, %struct._value_string zeroinitializer], align 16
 @hf_wimaxmacphy_prim_update_aas_handle_in_mac = internal global i32 0, align 4
 @.str.64 = private unnamed_addr constant [25 x i8] c"Update AAS handle in MAC\00", align 1
 @.str.65 = private unnamed_addr constant [42 x i8] c"wimaxmacphy.prim_update_aas_handle_in_mac\00", align 1
@@ -143,11 +133,9 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_wimaxmacphy_prim_harq_ack_ack_valid = internal global i32 0, align 4
 @.str.76 = private unnamed_addr constant [10 x i8] c"ACK Valid\00", align 1
 @.str.77 = private unnamed_addr constant [36 x i8] c"wimaxmacphy.prim_harq_ack_ack_valid\00", align 1
-@wimaxmacphy_prim_harq_ack_ack_valid_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.384 }, %struct._value_string { i32 1, ptr @.str.385 }, %struct._value_string zeroinitializer], align 16
 @hf_wimaxmacphy_prim_harq_ack_unnamed = internal global i32 0, align 4
 @.str.78 = private unnamed_addr constant [8 x i8] c"Unnamed\00", align 1
 @.str.79 = private unnamed_addr constant [34 x i8] c"wimaxmacphy.prim_harq_ack_unnamed\00", align 1
-@wimaxmacphy_prim_harq_ack_unnamed_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.397 }, %struct._value_string { i32 1, ptr @.str.398 }, %struct._value_string zeroinitializer], align 16
 @hf_wimaxmacphy_prim_harq_ack_reserved2 = internal global i32 0, align 4
 @.str.80 = private unnamed_addr constant [36 x i8] c"wimaxmacphy.prim_harq_ack_reserved2\00", align 1
 @hf_wimaxmacphy_prim_fast_issid = internal global i32 0, align 4
@@ -161,7 +149,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_wimaxmacphy_prim_fast_feedback_type_coding_bit0 = internal global i32 0, align 4
 @.str.86 = private unnamed_addr constant [25 x i8] c"3 bit-MIMO Fast-feedback\00", align 1
 @.str.87 = private unnamed_addr constant [39 x i8] c"wimaxmacphy.prim_fast_type_coding.bit0\00", align 1
-@set_notset = internal constant %struct.true_false_string { ptr @.str.399, ptr @.str.400 }, align 8
+@set_notset = internal constant %struct.true_false_string { ptr @.str.408, ptr @.str.409 }, align 8
 @hf_wimaxmacphy_prim_fast_feedback_type_coding_bit1 = internal global i32 0, align 4
 @.str.88 = private unnamed_addr constant [23 x i8] c"Enhanced FAST_FEEDBACK\00", align 1
 @.str.89 = private unnamed_addr constant [39 x i8] c"wimaxmacphy.prim_fast_type_coding.bit1\00", align 1
@@ -184,11 +172,9 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_wimaxmacphy_prim_fast_feedback_valid = internal global i32 0, align 4
 @.str.100 = private unnamed_addr constant [15 x i8] c"Feedback Valid\00", align 1
 @.str.101 = private unnamed_addr constant [37 x i8] c"wimaxmacphy.prim_fast_feedback_valid\00", align 1
-@wimaxmacphy_prim_fast_feedback_valid_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.384 }, %struct._value_string { i32 1, ptr @.str.385 }, %struct._value_string zeroinitializer], align 16
 @hf_wimaxmacphy_prim_fast_feedback_sub_type = internal global i32 0, align 4
 @.str.102 = private unnamed_addr constant [18 x i8] c"Feedback sub-type\00", align 1
 @.str.103 = private unnamed_addr constant [40 x i8] c"wimaxmacphy.prim_fast_feedback_sub_type\00", align 1
-@wimaxmacphy_prim_fast_feedback_sub_type_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.401 }, %struct._value_string { i32 1, ptr @.str.402 }, %struct._value_string zeroinitializer], align 16
 @hf_wimaxmacphy_prim_fast_reserved = internal global i32 0, align 4
 @.str.104 = private unnamed_addr constant [31 x i8] c"wimaxmacphy.prim_fast_reserved\00", align 1
 @hf_wimaxmacphy_prim_fast_feedback_value = internal global i32 0, align 4
@@ -197,7 +183,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_wimaxmacphy_prim_phy_aas_report_present = internal global i32 0, align 4
 @.str.107 = private unnamed_addr constant [23 x i8] c"PHY AAS report present\00", align 1
 @.str.108 = private unnamed_addr constant [40 x i8] c"wimaxmacphy.prim_phy_aas_report_present\00", align 1
-@wimaxmacphy_prim_phy_aas_report_present_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.403 }, %struct._value_string { i32 1, ptr @.str.404 }, %struct._value_string zeroinitializer], align 16
 @hf_wimaxmacphy_prim_number_of_affected_ss = internal global i32 0, align 4
 @.str.109 = private unnamed_addr constant [22 x i8] c"Number of affected SS\00", align 1
 @.str.110 = private unnamed_addr constant [39 x i8] c"wimaxmacphy.prim_number_of_affected_ss\00", align 1
@@ -216,7 +201,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_wimaxmacphy_subframe_subframe_type = internal global i32 0, align 4
 @.str.119 = private unnamed_addr constant [14 x i8] c"Subframe Type\00", align 1
 @.str.120 = private unnamed_addr constant [35 x i8] c"wimaxmacphy.subframe_subframe_type\00", align 1
-@wimaxmacphy_subframe_type_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.405 }, %struct._value_string { i32 2, ptr @.str.406 }, %struct._value_string zeroinitializer], align 16
 @hf_wimaxmacphy_subframe_frame_number = internal global i32 0, align 4
 @.str.121 = private unnamed_addr constant [13 x i8] c"Frame Number\00", align 1
 @.str.122 = private unnamed_addr constant [34 x i8] c"wimaxmacphy.subframe_frame_number\00", align 1
@@ -240,9 +224,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_wimaxmacphy_dl_zone_type = internal global i32 0, align 4
 @.str.134 = private unnamed_addr constant [10 x i8] c"Zone Type\00", align 1
 @.str.135 = private unnamed_addr constant [22 x i8] c"wimaxmacphy.zone_type\00", align 1
-@wimaxmacphy_dl_zone_type_vals = internal constant [6 x %struct._value_string] [%struct._value_string { i32 32, ptr @.str.407 }, %struct._value_string { i32 33, ptr @.str.408 }, %struct._value_string { i32 34, ptr @.str.409 }, %struct._value_string { i32 35, ptr @.str.410 }, %struct._value_string { i32 36, ptr @.str.411 }, %struct._value_string zeroinitializer], align 16
 @hf_wimaxmacphy_ul_zone_type = internal global i32 0, align 4
-@wimaxmacphy_ul_zone_type_vals = internal constant [6 x %struct._value_string] [%struct._value_string { i32 32, ptr @.str.407 }, %struct._value_string { i32 33, ptr @.str.14 }, %struct._value_string { i32 34, ptr @.str.409 }, %struct._value_string { i32 35, ptr @.str.14 }, %struct._value_string { i32 36, ptr @.str.14 }, %struct._value_string zeroinitializer], align 16
 @hf_wimaxmacphy_zone_number = internal global i32 0, align 4
 @.str.136 = private unnamed_addr constant [12 x i8] c"Zone Number\00", align 1
 @.str.137 = private unnamed_addr constant [24 x i8] c"wimaxmacphy.zone_number\00", align 1
@@ -255,18 +237,14 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_wimaxmacphy_dl_zone_permutation_type = internal global i32 0, align 4
 @.str.142 = private unnamed_addr constant [17 x i8] c"Permutation Type\00", align 1
 @.str.143 = private unnamed_addr constant [34 x i8] c"wimaxmacphy.zone_permutation_type\00", align 1
-@wimaxmacphy_dl_zone_permutation_type_vals = internal constant [9 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.392 }, %struct._value_string { i32 1, ptr @.str.412 }, %struct._value_string { i32 2, ptr @.str.413 }, %struct._value_string { i32 3, ptr @.str.394 }, %struct._value_string { i32 4, ptr @.str.395 }, %struct._value_string { i32 5, ptr @.str.396 }, %struct._value_string { i32 6, ptr @.str.414 }, %struct._value_string { i32 7, ptr @.str.415 }, %struct._value_string zeroinitializer], align 16
 @hf_wimaxmacphy_ul_zone_permutation_type = internal global i32 0, align 4
-@wimaxmacphy_ul_zone_permutation_type_vals = internal constant [9 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.392 }, %struct._value_string { i32 1, ptr @.str.412 }, %struct._value_string { i32 2, ptr @.str.413 }, %struct._value_string { i32 3, ptr @.str.394 }, %struct._value_string { i32 4, ptr @.str.395 }, %struct._value_string { i32 5, ptr @.str.396 }, %struct._value_string { i32 6, ptr @.str.14 }, %struct._value_string { i32 7, ptr @.str.14 }, %struct._value_string zeroinitializer], align 16
 @hf_wimaxmacphy_dl_zone_use_all_subchannels_indicator = internal global i32 0, align 4
 @.str.144 = private unnamed_addr constant [30 x i8] c"Use all subchannels indicator\00", align 1
 @.str.145 = private unnamed_addr constant [47 x i8] c"wimaxmacphy.zone_use_all_subchannels_indicator\00", align 1
-@wimaxmacphy_zone_use_all_subchannels_indicator_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.416 }, %struct._value_string { i32 1, ptr @.str.417 }, %struct._value_string zeroinitializer], align 16
 @hf_wimaxmacphy_ul_zone_use_all_subchannels_indicator = internal global i32 0, align 4
 @hf_wimaxmacphy_ul_zone_disable_pusc_subchannel_rotation = internal global i32 0, align 4
 @.str.146 = private unnamed_addr constant [33 x i8] c"Disable PUSC subchannel rotation\00", align 1
 @.str.147 = private unnamed_addr constant [50 x i8] c"wimaxmacphy.zone_disable_pusc_subchannel_rotation\00", align 1
-@wimaxmacphy_ul_zone_disable_pusc_subchannel_rotation_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.418 }, %struct._value_string { i32 1, ptr @.str.419 }, %struct._value_string zeroinitializer], align 16
 @hf_wimaxmacphy_zone_dl_perm_base = internal global i32 0, align 4
 @.str.148 = private unnamed_addr constant [12 x i8] c"DL_PermBase\00", align 1
 @.str.149 = private unnamed_addr constant [30 x i8] c"wimaxmacphy.zone_dl_perm_base\00", align 1
@@ -279,41 +257,32 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_wimaxmacphy_zone_dedicated_pilots = internal global i32 0, align 4
 @.str.154 = private unnamed_addr constant [17 x i8] c"Dedicated pilots\00", align 1
 @.str.155 = private unnamed_addr constant [34 x i8] c"wimaxmacphy.zone_dedicated_pilots\00", align 1
-@wimaxmacphy_zone_dedicated_pilots_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.420 }, %struct._value_string { i32 1, ptr @.str.421 }, %struct._value_string zeroinitializer], align 16
 @hf_wimaxmacphy_zone_agc_range_extension = internal global i32 0, align 4
 @.str.156 = private unnamed_addr constant [23 x i8] c"Rx AGC range extension\00", align 1
 @.str.157 = private unnamed_addr constant [37 x i8] c"wimaxmacphy.zone_agc_range_extension\00", align 1
-@wimaxmacphy_zone_agc_range_extension_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.422 }, %struct._value_string { i32 1, ptr @.str.423 }, %struct._value_string zeroinitializer], align 16
 @hf_wimaxmacphy_zone_reserved = internal global i32 0, align 4
 @.str.158 = private unnamed_addr constant [26 x i8] c"wimaxmacphy.zone_reserved\00", align 1
 @hf_wimaxmacphy_zone_stc_type = internal global i32 0, align 4
 @.str.159 = private unnamed_addr constant [9 x i8] c"STC type\00", align 1
 @.str.160 = private unnamed_addr constant [26 x i8] c"wimaxmacphy.zone_stc_type\00", align 1
-@wimaxmacphy_zone_stc_type_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.424 }, %struct._value_string { i32 1, ptr @.str.425 }, %struct._value_string { i32 2, ptr @.str.426 }, %struct._value_string { i32 3, ptr @.str.427 }, %struct._value_string zeroinitializer], align 16
 @hf_wimaxmacphy_zone_matrix_indicator = internal global i32 0, align 4
 @.str.161 = private unnamed_addr constant [17 x i8] c"Matrix Indicator\00", align 1
 @.str.162 = private unnamed_addr constant [34 x i8] c"wimaxmacphy.zone_matrix_indicator\00", align 1
-@wimaxmacphy_matrix_indicator_vals = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.428 }, %struct._value_string { i32 1, ptr @.str.429 }, %struct._value_string { i32 2, ptr @.str.430 }, %struct._value_string zeroinitializer], align 16
 @hf_wimaxmacphy_zone_midamble_presence = internal global i32 0, align 4
 @.str.163 = private unnamed_addr constant [18 x i8] c"Midamble presence\00", align 1
 @.str.164 = private unnamed_addr constant [35 x i8] c"wimaxmacphy.zone_midamble_presence\00", align 1
-@wimaxmacphy_zone_midamble_presence_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.431 }, %struct._value_string { i32 1, ptr @.str.432 }, %struct._value_string zeroinitializer], align 16
 @hf_wimaxmacphy_zone_midamble_boosting = internal global i32 0, align 4
 @.str.165 = private unnamed_addr constant [18 x i8] c"Midamble boosting\00", align 1
 @.str.166 = private unnamed_addr constant [35 x i8] c"wimaxmacphy.zone_midamble_boosting\00", align 1
-@wimaxmacphy_zone_midamble_boosting_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.433 }, %struct._value_string { i32 1, ptr @.str.434 }, %struct._value_string zeroinitializer], align 16
 @hf_wimaxmacphy_zone_preamble_configuration = internal global i32 0, align 4
 @.str.167 = private unnamed_addr constant [23 x i8] c"Preamble configuration\00", align 1
 @.str.168 = private unnamed_addr constant [40 x i8] c"wimaxmacphy.zone_preamble_configuration\00", align 1
-@wimaxmacphy_zone_preamble_configuration_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.435 }, %struct._value_string { i32 1, ptr @.str.436 }, %struct._value_string { i32 2, ptr @.str.437 }, %struct._value_string { i32 3, ptr @.str.438 }, %struct._value_string zeroinitializer], align 16
 @hf_wimaxmacphy_zone_sdma_supported_indication = internal global i32 0, align 4
 @.str.169 = private unnamed_addr constant [26 x i8] c"SDMA supported indication\00", align 1
 @.str.170 = private unnamed_addr constant [43 x i8] c"wimaxmacphy.zone_sdma_supported_indication\00", align 1
-@wimaxmacphy_zone_sdma_supported_indication_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.439 }, %struct._value_string { i32 1, ptr @.str.440 }, %struct._value_string zeroinitializer], align 16
 @hf_wimaxmacphy_zone_preamble_type = internal global i32 0, align 4
 @.str.171 = private unnamed_addr constant [14 x i8] c"Preamble type\00", align 1
 @.str.172 = private unnamed_addr constant [31 x i8] c"wimaxmacphy.zone_preamble_type\00", align 1
-@wimaxmacphy_zone_preamble_type_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.441 }, %struct._value_string { i32 1, ptr @.str.442 }, %struct._value_string zeroinitializer], align 16
 @hf_wimaxmacphy_dl_zone_aas_reserved = internal global i32 0, align 4
 @.str.173 = private unnamed_addr constant [30 x i8] c"wimaxmacphy.zone_aas_reserved\00", align 1
 @hf_wimaxmacphy_ul_zone_aas_reserved = internal global i32 0, align 4
@@ -325,21 +294,17 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_wimaxmacphy_dl_burst_type = internal global i32 0, align 4
 @.str.177 = private unnamed_addr constant [11 x i8] c"Burst Type\00", align 1
 @.str.178 = private unnamed_addr constant [23 x i8] c"wimaxmacphy.burst_type\00", align 1
-@wimaxmacphy_dl_burst_type_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 64, ptr @.str.443 }, %struct._value_string { i32 65, ptr @.str.444 }, %struct._value_string { i32 66, ptr @.str.445 }, %struct._value_string { i32 67, ptr @.str.446 }, %struct._value_string zeroinitializer], align 16
 @hf_wimaxmacphy_ul_burst_type = internal global i32 0, align 4
 @.str.179 = private unnamed_addr constant [26 x i8] c"wimaxmacphy.dl_burst_type\00", align 1
-@wimaxmacphy_ul_burst_type_vals = internal constant [11 x %struct._value_string] [%struct._value_string { i32 64, ptr @.str.447 }, %struct._value_string { i32 65, ptr @.str.448 }, %struct._value_string { i32 66, ptr @.str.449 }, %struct._value_string { i32 67, ptr @.str.450 }, %struct._value_string { i32 68, ptr @.str.451 }, %struct._value_string { i32 69, ptr @.str.452 }, %struct._value_string { i32 70, ptr @.str.453 }, %struct._value_string { i32 71, ptr @.str.454 }, %struct._value_string { i32 72, ptr @.str.445 }, %struct._value_string { i32 73, ptr @.str.14 }, %struct._value_string zeroinitializer], align 16
 @hf_wimaxmacphy_burst_type_extension = internal global i32 0, align 4
 @.str.180 = private unnamed_addr constant [21 x i8] c"Burst Type extension\00", align 1
 @.str.181 = private unnamed_addr constant [33 x i8] c"wimaxmacphy.burst_type_extension\00", align 1
-@wimaxmacphy_burst_type_extension_vals = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.455 }, %struct._value_string { i32 1, ptr @.str.456 }, %struct._value_string { i32 2, ptr @.str.457 }, %struct._value_string zeroinitializer], align 16
 @hf_wimaxmacphy_burst_number = internal global i32 0, align 4
 @.str.182 = private unnamed_addr constant [13 x i8] c"Burst Number\00", align 1
 @.str.183 = private unnamed_addr constant [25 x i8] c"wimaxmacphy.burst_number\00", align 1
 @hf_wimaxmacphy_burst_modulation_fec_code_type = internal global i32 0, align 4
 @.str.184 = private unnamed_addr constant [25 x i8] c"Modulation/FEC Code Type\00", align 1
 @.str.185 = private unnamed_addr constant [43 x i8] c"wimaxmacphy.burst_modulation_fec_code_type\00", align 1
-@wimaxmacphy_modulation_fec_code_type_vals = internal constant [54 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.458 }, %struct._value_string { i32 1, ptr @.str.459 }, %struct._value_string { i32 2, ptr @.str.460 }, %struct._value_string { i32 3, ptr @.str.461 }, %struct._value_string { i32 4, ptr @.str.462 }, %struct._value_string { i32 5, ptr @.str.463 }, %struct._value_string { i32 6, ptr @.str.464 }, %struct._value_string { i32 7, ptr @.str.465 }, %struct._value_string { i32 8, ptr @.str.466 }, %struct._value_string { i32 9, ptr @.str.467 }, %struct._value_string { i32 10, ptr @.str.468 }, %struct._value_string { i32 11, ptr @.str.469 }, %struct._value_string { i32 12, ptr @.str.470 }, %struct._value_string { i32 13, ptr @.str.471 }, %struct._value_string { i32 14, ptr @.str.14 }, %struct._value_string { i32 15, ptr @.str.472 }, %struct._value_string { i32 16, ptr @.str.473 }, %struct._value_string { i32 17, ptr @.str.474 }, %struct._value_string { i32 18, ptr @.str.475 }, %struct._value_string { i32 19, ptr @.str.476 }, %struct._value_string { i32 20, ptr @.str.477 }, %struct._value_string { i32 21, ptr @.str.478 }, %struct._value_string { i32 22, ptr @.str.479 }, %struct._value_string { i32 23, ptr @.str.480 }, %struct._value_string { i32 24, ptr @.str.481 }, %struct._value_string { i32 25, ptr @.str.482 }, %struct._value_string { i32 26, ptr @.str.483 }, %struct._value_string { i32 27, ptr @.str.484 }, %struct._value_string { i32 28, ptr @.str.485 }, %struct._value_string { i32 29, ptr @.str.486 }, %struct._value_string { i32 30, ptr @.str.487 }, %struct._value_string { i32 31, ptr @.str.488 }, %struct._value_string { i32 32, ptr @.str.489 }, %struct._value_string { i32 33, ptr @.str.490 }, %struct._value_string { i32 34, ptr @.str.491 }, %struct._value_string { i32 35, ptr @.str.492 }, %struct._value_string { i32 36, ptr @.str.493 }, %struct._value_string { i32 37, ptr @.str.494 }, %struct._value_string { i32 38, ptr @.str.495 }, %struct._value_string { i32 39, ptr @.str.496 }, %struct._value_string { i32 40, ptr @.str.497 }, %struct._value_string { i32 41, ptr @.str.498 }, %struct._value_string { i32 42, ptr @.str.499 }, %struct._value_string { i32 43, ptr @.str.500 }, %struct._value_string { i32 44, ptr @.str.501 }, %struct._value_string { i32 45, ptr @.str.502 }, %struct._value_string { i32 46, ptr @.str.503 }, %struct._value_string { i32 47, ptr @.str.504 }, %struct._value_string { i32 48, ptr @.str.505 }, %struct._value_string { i32 49, ptr @.str.506 }, %struct._value_string { i32 50, ptr @.str.507 }, %struct._value_string { i32 51, ptr @.str.508 }, %struct._value_string { i32 52, ptr @.str.509 }, %struct._value_string zeroinitializer], align 16
 @hf_wimaxmacphy_burst_data_length = internal global i32 0, align 4
 @.str.186 = private unnamed_addr constant [18 x i8] c"Burst Data Length\00", align 1
 @.str.187 = private unnamed_addr constant [30 x i8] c"wimaxmacphy.burst_data_length\00", align 1
@@ -352,13 +317,11 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_wimaxmacphy_burst_boosting = internal global i32 0, align 4
 @.str.192 = private unnamed_addr constant [9 x i8] c"Boosting\00", align 1
 @.str.193 = private unnamed_addr constant [27 x i8] c"wimaxmacphy.burst_boosting\00", align 1
-@wimaxmacphy_burst_boosting_vals = internal constant [9 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.510 }, %struct._value_string { i32 1, ptr @.str.511 }, %struct._value_string { i32 2, ptr @.str.512 }, %struct._value_string { i32 3, ptr @.str.513 }, %struct._value_string { i32 4, ptr @.str.514 }, %struct._value_string { i32 5, ptr @.str.515 }, %struct._value_string { i32 6, ptr @.str.516 }, %struct._value_string { i32 7, ptr @.str.517 }, %struct._value_string zeroinitializer], align 16
 @hf_wimaxmacphy_burst_reserved = internal global i32 0, align 4
 @.str.194 = private unnamed_addr constant [27 x i8] c"wimaxmacphy.burst_reserved\00", align 1
 @hf_wimaxmacphy_burst_repetition_coding_indication = internal global i32 0, align 4
 @.str.195 = private unnamed_addr constant [29 x i8] c"Repetition coding indication\00", align 1
 @.str.196 = private unnamed_addr constant [47 x i8] c"wimaxmacphy.burst_repetition_coding_indication\00", align 1
-@wimaxmacphy_burst_repetition_coding_indication_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.518 }, %struct._value_string { i32 1, ptr @.str.519 }, %struct._value_string { i32 2, ptr @.str.520 }, %struct._value_string { i32 3, ptr @.str.521 }, %struct._value_string zeroinitializer], align 16
 @hf_wimaxmacphy_burst_issid = internal global i32 0, align 4
 @.str.197 = private unnamed_addr constant [24 x i8] c"wimaxmacphy.burst_issid\00", align 1
 @hf_wimaxmacphy_burst_aas_handle = internal global i32 0, align 4
@@ -389,7 +352,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.212 = private unnamed_addr constant [32 x i8] c"wimaxmacphy.burst_papr_reserved\00", align 1
 @hf_wimaxmacphy_ul_burst_papr_unnamed = internal global i32 0, align 4
 @.str.213 = private unnamed_addr constant [31 x i8] c"wimaxmacphy.burst_papr_unnamed\00", align 1
-@wimaxmacphy_ul_burst_papr_unnamed_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.522 }, %struct._value_string { i32 1, ptr @.str.523 }, %struct._value_string zeroinitializer], align 16
 @hf_wimaxmacphy_ul_burst_harq_ack_number_of_symbols = internal global i32 0, align 4
 @.str.214 = private unnamed_addr constant [45 x i8] c"wimaxmacphy.burst_harq_ack_number_of_symbols\00", align 1
 @hf_wimaxmacphy_ul_burst_harq_ack_number_of_subchannels = internal global i32 0, align 4
@@ -409,7 +371,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_wimaxmacphy_ul_burst_initial_ranging_method = internal global i32 0, align 4
 @.str.222 = private unnamed_addr constant [15 x i8] c"Ranging method\00", align 1
 @.str.223 = private unnamed_addr constant [41 x i8] c"wimaxmacphy.burst_initial_ranging_method\00", align 1
-@wimaxmacphy_ul_burst_ranging_method_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.524 }, %struct._value_string { i32 1, ptr @.str.525 }, %struct._value_string zeroinitializer], align 16
 @hf_wimaxmacphy_ul_burst_initial_reserved1 = internal global i32 0, align 4
 @.str.224 = private unnamed_addr constant [36 x i8] c"wimaxmacphy.burst_initial_reserved1\00", align 1
 @hf_wimaxmacphy_ul_burst_initial_zone_xid = internal global i32 0, align 4
@@ -442,22 +403,18 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_wimaxmacphy_ul_burst_sounding_type = internal global i32 0, align 4
 @.str.239 = private unnamed_addr constant [14 x i8] c"Sounding type\00", align 1
 @.str.240 = private unnamed_addr constant [32 x i8] c"wimaxmacphy.burst_sounding_type\00", align 1
-@wimaxmacphy_ul_burst_sounding_type_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.526 }, %struct._value_string { i32 1, ptr @.str.527 }, %struct._value_string zeroinitializer], align 16
 @hf_wimaxmacphy_ul_burst_sounding_separability_type = internal global i32 0, align 4
 @.str.241 = private unnamed_addr constant [18 x i8] c"Separability type\00", align 1
 @.str.242 = private unnamed_addr constant [45 x i8] c"wimaxmacphy.burst_sounding_separability_type\00", align 1
-@wimaxmacphy_ul_burst_sounding_separability_type_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.528 }, %struct._value_string { i32 1, ptr @.str.529 }, %struct._value_string zeroinitializer], align 16
 @hf_wimaxmacphy_ul_burst_sounding_max_cyclic_shift_indx = internal global i32 0, align 4
 @.str.243 = private unnamed_addr constant [22 x i8] c"Max Cyclic Shift Indx\00", align 1
 @.str.244 = private unnamed_addr constant [49 x i8] c"wimaxmacphy.burst_sounding_max_cyclic_shift_indx\00", align 1
-@wimaxmacphy_ul_burst_sounding_max_cyclic_shift_indx_vals = internal constant [7 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.530 }, %struct._value_string { i32 1, ptr @.str.531 }, %struct._value_string { i32 2, ptr @.str.532 }, %struct._value_string { i32 3, ptr @.str.533 }, %struct._value_string { i32 4, ptr @.str.534 }, %struct._value_string { i32 5, ptr @.str.535 }, %struct._value_string zeroinitializer], align 16
 @hf_wimaxmacphy_ul_burst_sounding_decimation_value = internal global i32 0, align 4
 @.str.245 = private unnamed_addr constant [17 x i8] c"Decimation value\00", align 1
 @.str.246 = private unnamed_addr constant [44 x i8] c"wimaxmacphy.burst_sounding_decimation_value\00", align 1
 @hf_wimaxmacphy_ul_burst_sounding_decimation_offset_rand = internal global i32 0, align 4
 @.str.247 = private unnamed_addr constant [32 x i8] c"Decimation offset randomization\00", align 1
 @.str.248 = private unnamed_addr constant [50 x i8] c"wimaxmacphy.burst_sounding_decimation_offset_rand\00", align 1
-@wimaxmacphy_ul_burst_sounding_decimation_offset_rand_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.536 }, %struct._value_string { i32 1, ptr @.str.537 }, %struct._value_string zeroinitializer], align 16
 @hf_wimaxmacphy_ul_burst_sounding_reserved = internal global i32 0, align 4
 @.str.249 = private unnamed_addr constant [36 x i8] c"wimaxmacphy.burst_sounding_reserved\00", align 1
 @hf_wimaxmacphy_burst_opt_aas_preamble_modifier_type = internal global i32 0, align 4
@@ -478,7 +435,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.259 = private unnamed_addr constant [36 x i8] c"wimaxmacphy.burst_opt_mimo_reserved\00", align 1
 @hf_wimaxmacphy_ul_burst_opt_mimo_matrix_indicator = internal global i32 0, align 4
 @.str.260 = private unnamed_addr constant [35 x i8] c"Matrix indicator (dual antenna SS)\00", align 1
-@wimaxmacphy_ul_burst_opt_mimo_matrix_indicator_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.538 }, %struct._value_string { i32 1, ptr @.str.539 }, %struct._value_string { i32 2, ptr @.str.14 }, %struct._value_string { i32 3, ptr @.str.14 }, %struct._value_string zeroinitializer], align 16
 @hf_wimaxmacphy_ul_burst_opt_mimo_pilot_patterns = internal global i32 0, align 4
 @.str.261 = private unnamed_addr constant [15 x i8] c"Pilot patterns\00", align 1
 @.str.262 = private unnamed_addr constant [42 x i8] c"wimaxmacphy.burst_opt_mimo_pilot_patterns\00", align 1
@@ -497,11 +453,9 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_wimaxmacphy_ul_burst_opt_mimo_collaborative = internal global i32 0, align 4
 @.str.271 = private unnamed_addr constant [27 x i8] c"Collaborative MIMO control\00", align 1
 @.str.272 = private unnamed_addr constant [41 x i8] c"wimaxmacphy.burst_opt_mimo_collaborative\00", align 1
-@wimaxmacphy_ul_burst_opt_mimo_collaborative_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.540 }, %struct._value_string { i32 1, ptr @.str.541 }, %struct._value_string zeroinitializer], align 16
 @hf_wimaxmacphy_ul_burst_opt_mimo_antenna_unnamed = internal global i32 0, align 4
 @.str.273 = private unnamed_addr constant [11 x i8] c"Antenna(?)\00", align 1
 @.str.274 = private unnamed_addr constant [43 x i8] c"wimaxmacphy.burst_opt_mimo_antenna_unnamed\00", align 1
-@wimaxmacphy_ul_burst_opt_mimo_antenna_unnamed_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.542 }, %struct._value_string { i32 1, ptr @.str.543 }, %struct._value_string zeroinitializer], align 16
 @hf_wimaxmacphy_number_of_sub_burst_descriptors = internal global i32 0, align 4
 @.str.275 = private unnamed_addr constant [32 x i8] c"Number of Sub-Burst Descriptors\00", align 1
 @.str.276 = private unnamed_addr constant [44 x i8] c"wimaxmacphy.number_of_sub_burst_descriptors\00", align 1
@@ -510,9 +464,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_wimaxmacphy_dl_sub_burst_type = internal global i32 0, align 4
 @.str.278 = private unnamed_addr constant [15 x i8] c"Sub-Burst Type\00", align 1
 @.str.279 = private unnamed_addr constant [27 x i8] c"wimaxmacphy.sub_burst_type\00", align 1
-@wimaxmacphy_dl_sub_burst_type_vals = internal constant [9 x %struct._value_string] [%struct._value_string { i32 96, ptr @.str.544 }, %struct._value_string { i32 97, ptr @.str.545 }, %struct._value_string { i32 98, ptr @.str.546 }, %struct._value_string { i32 99, ptr @.str.547 }, %struct._value_string { i32 100, ptr @.str.548 }, %struct._value_string { i32 101, ptr @.str.549 }, %struct._value_string { i32 102, ptr @.str.550 }, %struct._value_string { i32 103, ptr @.str.551 }, %struct._value_string zeroinitializer], align 16
 @hf_wimaxmacphy_ul_sub_burst_type = internal global i32 0, align 4
-@wimaxmacphy_ul_sub_burst_type_vals = internal constant [13 x %struct._value_string] [%struct._value_string { i32 96, ptr @.str.544 }, %struct._value_string { i32 97, ptr @.str.545 }, %struct._value_string { i32 98, ptr @.str.546 }, %struct._value_string { i32 99, ptr @.str.547 }, %struct._value_string { i32 100, ptr @.str.548 }, %struct._value_string { i32 101, ptr @.str.549 }, %struct._value_string { i32 102, ptr @.str.550 }, %struct._value_string { i32 103, ptr @.str.551 }, %struct._value_string { i32 104, ptr @.str.552 }, %struct._value_string { i32 105, ptr @.str.553 }, %struct._value_string { i32 106, ptr @.str.554 }, %struct._value_string { i32 107, ptr @.str.555 }, %struct._value_string zeroinitializer], align 16
 @hf_wimaxmacphy_sub_burst_number = internal global i32 0, align 4
 @.str.280 = private unnamed_addr constant [17 x i8] c"Sub-Burst number\00", align 1
 @.str.281 = private unnamed_addr constant [29 x i8] c"wimaxmacphy.sub_burst_number\00", align 1
@@ -551,7 +503,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_wimaxmacphy_sub_burst_harq_chase_flush_unnamed = internal global i32 0, align 4
 @.str.301 = private unnamed_addr constant [9 x i8] c"Flush(?)\00", align 1
 @.str.302 = private unnamed_addr constant [47 x i8] c"wimaxmacphy.sub_burst_harq_chase_flush_unnamed\00", align 1
-@wimaxmacphy_sub_burst_flush_unnamed_vals = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.556 }, %struct._value_string { i32 2, ptr @.str.557 }, %struct._value_string { i32 3, ptr @.str.558 }, %struct._value_string zeroinitializer], align 16
 @hf_wimaxmacphy_sub_burst_harq_chase_reserved = internal global i32 0, align 4
 @.str.303 = private unnamed_addr constant [42 x i8] c"wimaxmacphy.sub_burst_harq_chase_reserved\00", align 1
 @hf_wimaxmacphy_sub_burst_mimo_chase_harq_channel_id = internal global i32 0, align 4
@@ -565,7 +516,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_wimaxmacphy_ul_sub_burst_ctype = internal global i32 0, align 4
 @.str.308 = private unnamed_addr constant [6 x i8] c"CType\00", align 1
 @.str.309 = private unnamed_addr constant [28 x i8] c"wimaxmacphy.sub_burst_ctype\00", align 1
-@wimaxmacphy_ul_sub_burst_ctype_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.559 }, %struct._value_string { i32 1, ptr @.str.560 }, %struct._value_string { i32 2, ptr @.str.561 }, %struct._value_string { i32 3, ptr @.str.562 }, %struct._value_string zeroinitializer], align 16
 @hf_wimaxmacphy_ul_sub_burst_mini_subchannel_index = internal global i32 0, align 4
 @.str.310 = private unnamed_addr constant [22 x i8] c"Mini-subchannel Index\00", align 1
 @.str.311 = private unnamed_addr constant [44 x i8] c"wimaxmacphy.sub_burst_mini_subchannel_index\00", align 1
@@ -610,15 +560,12 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_wimaxmacphy_ul_sub_burst_sounding_power_assignment = internal global i32 0, align 4
 @.str.332 = private unnamed_addr constant [24 x i8] c"Power assignment method\00", align 1
 @.str.333 = private unnamed_addr constant [55 x i8] c"wimaxmacphy.sub_burst_sounding_power_assignment_method\00", align 1
-@wimaxmacphy_ul_sub_burst_sounding_power_assignment_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.563 }, %struct._value_string { i32 1, ptr @.str.14 }, %struct._value_string { i32 2, ptr @.str.564 }, %struct._value_string { i32 3, ptr @.str.565 }, %struct._value_string zeroinitializer], align 16
 @hf_wimaxmacphy_ul_sub_burst_sounding_power_boost = internal global i32 0, align 4
 @.str.334 = private unnamed_addr constant [12 x i8] c"Power boost\00", align 1
 @.str.335 = private unnamed_addr constant [43 x i8] c"wimaxmacphy.sub_burst_sounding_power_boost\00", align 1
-@wimaxmacphy_ul_sub_burst_sounding_power_boost_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.566 }, %struct._value_string { i32 1, ptr @.str.567 }, %struct._value_string zeroinitializer], align 16
 @hf_wimaxmacphy_ul_sub_burst_sounding_allocation_mode = internal global i32 0, align 4
 @.str.336 = private unnamed_addr constant [16 x i8] c"Allocation mode\00", align 1
 @.str.337 = private unnamed_addr constant [47 x i8] c"wimaxmacphy.sub_burst_sounding_allocation_mode\00", align 1
-@wimaxmacphy_ul_sub_burst_sounding_allocation_mode_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.568 }, %struct._value_string { i32 1, ptr @.str.569 }, %struct._value_string zeroinitializer], align 16
 @hf_wimaxmacphy_ul_sub_burst_sounding_start_freq_band = internal global i32 0, align 4
 @.str.338 = private unnamed_addr constant [21 x i8] c"Start frequency band\00", align 1
 @.str.339 = private unnamed_addr constant [47 x i8] c"wimaxmacphy.sub_burst_sounding_start_freq_band\00", align 1
@@ -639,7 +586,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_wimaxmacphy_ul_sub_burst_mimo_chase_matrix = internal global i32 0, align 4
 @.str.349 = private unnamed_addr constant [25 x i8] c"Matrix (dual antenna SS)\00", align 1
 @.str.350 = private unnamed_addr constant [40 x i8] c"wimaxmacphy.sub_burst_mimo_chase_matrix\00", align 1
-@wimaxmacphy_ul_sub_burst_mimo_chase_matrix_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.428 }, %struct._value_string { i32 1, ptr @.str.429 }, %struct._value_string zeroinitializer], align 16
 @proto_register_wimaxmacphy.ett = internal global [40 x ptr] [ptr @ett_wimaxmacphy, ptr @ett_wimaxmacphy_primitive, ptr @ett_wimaxmacphy_prim_harq_ack, ptr @ett_wimaxmacphy_prim_fast_feedback, ptr @ett_wimaxmacphy_prim_fast_feedback_type_coding, ptr @ett_wimaxmacphy_dl_zone_descriptor, ptr @ett_wimaxmacphy_dl_zone_stc, ptr @ett_wimaxmacphy_dl_zone_aas, ptr @ett_wimaxmacphy_dl_burst_descriptor, ptr @ett_wimaxmacphy_dl_burst_map, ptr @ett_wimaxmacphy_dl_burst_normal, ptr @ett_wimaxmacphy_dl_burst_papr, ptr @ett_wimaxmacphy_dl_burst_opt_aas, ptr @ett_wimaxmacphy_dl_burst_opt_mimo, ptr @ett_wimaxmacphy_dl_sub_burst_descriptor, ptr @ett_wimaxmacphy_dl_sub_burst_harq_chase, ptr @ett_wimaxmacphy_dl_sub_burst_mimo_chase, ptr @ett_wimaxmacphy_ul_zone_descriptor, ptr @ett_wimaxmacphy_ul_zone_aas, ptr @ett_wimaxmacphy_ul_burst_descriptor, ptr @ett_wimaxmacphy_ul_burst_harq_ack, ptr @ett_wimaxmacphy_ul_burst_fast_feedback, ptr @ett_wimaxmacphy_ul_burst_initial_ranging, ptr @ett_wimaxmacphy_ul_burst_periodic_ranging, ptr @ett_wimaxmacphy_ul_burst_papr_safety_zone, ptr @ett_wimaxmacphy_ul_burst_sounding_zone, ptr @ett_wimaxmacphy_ul_burst_noise_floor, ptr @ett_wimaxmacphy_ul_burst_normal_data, ptr @ett_wimaxmacphy_ul_burst_opt_aas, ptr @ett_wimaxmacphy_ul_burst_opt_mimo, ptr @ett_wimaxmacphy_ul_sub_burst_descriptor, ptr @ett_wimaxmacphy_ul_sub_burst_mini_subchannel, ptr @ett_wimaxmacphy_ul_sub_burst_fast_feedback, ptr @ett_wimaxmacphy_ul_sub_burst_harq_ack, ptr @ett_wimaxmacphy_ul_sub_burst_sounding_signal, ptr @ett_wimaxmacphy_ul_sub_burst_harq_chase, ptr @ett_wimaxmacphy_ul_sub_burst_mimo_chase, ptr @ett_wimaxmacphy_ul_pilot_patterns, ptr @ett_wimaxmacphy_ul_feedback_type_coding, ptr @ett_wimaxmacphy_ul_sub_burst_sub_allocation_specific], align 16
 @ett_wimaxmacphy = internal global i32 0, align 4
 @ett_wimaxmacphy_primitive = internal global i32 0, align 4
@@ -681,7 +627,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_wimaxmacphy_ul_pilot_patterns = internal global i32 0, align 4
 @ett_wimaxmacphy_ul_feedback_type_coding = internal global i32 0, align 4
 @ett_wimaxmacphy_ul_sub_burst_sub_allocation_specific = internal global i32 0, align 4
-@proto_register_wimaxmacphy.ei = internal global [1 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_wimaxmacphy_unknown, %struct.expert_field_info { ptr @.str.351, i32 117440512, i32 8388608, ptr @.str.352, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_wimaxmacphy.ei = internal global [1 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_wimaxmacphy_unknown, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.351, i32 117440512, i32 8388608, ptr @.str.352, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_wimaxmacphy_unknown = internal global %struct.expert_field zeroinitializer, align 4
 @.str.351 = private unnamed_addr constant [29 x i8] c"wimaxmacphy.unexpected_bytes\00", align 1
 @.str.352 = private unnamed_addr constant [17 x i8] c"Unexpected bytes\00", align 1
@@ -695,246 +641,298 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.358 = private unnamed_addr constant [45 x i8] c"Last segment of the message segment sequence\00", align 1
 @.str.359 = private unnamed_addr constant [46 x i8] c"First segment of the message segment sequence\00", align 1
 @.str.360 = private unnamed_addr constant [48 x i8] c"The entire message is contained in this segment\00", align 1
-@.str.361 = private unnamed_addr constant [20 x i8] c"PHY_TXSTART.request\00", align 1
-@.str.362 = private unnamed_addr constant [25 x i8] c"PHY_TXSTART.confirmation\00", align 1
-@.str.363 = private unnamed_addr constant [23 x i8] c"PHY_TXSTART.indication\00", align 1
-@.str.364 = private unnamed_addr constant [18 x i8] c"PHY_TXSDU.request\00", align 1
-@.str.365 = private unnamed_addr constant [23 x i8] c"PHY_TXSDU.confirmation\00", align 1
-@.str.366 = private unnamed_addr constant [21 x i8] c"PHY_TXEND.indication\00", align 1
-@.str.367 = private unnamed_addr constant [20 x i8] c"PHY_RXSTART.request\00", align 1
-@.str.368 = private unnamed_addr constant [25 x i8] c"PHY_RXSTART.confirmation\00", align 1
-@.str.369 = private unnamed_addr constant [23 x i8] c"PHY_RXSTART.indication\00", align 1
-@.str.370 = private unnamed_addr constant [21 x i8] c"PHY_RXSDU.indication\00", align 1
-@.str.371 = private unnamed_addr constant [21 x i8] c"PHY_RXEND.indication\00", align 1
-@.str.372 = private unnamed_addr constant [16 x i8] c"Reserved (OFDM)\00", align 1
-@.str.373 = private unnamed_addr constant [22 x i8] c"PHY_RXCDMA.indication\00", align 1
-@.str.374 = private unnamed_addr constant [20 x i8] c"Reserved (OFDMA SS)\00", align 1
-@.str.375 = private unnamed_addr constant [8 x i8] c"Success\00", align 1
-@.str.376 = private unnamed_addr constant [27 x i8] c"Primitive is not supported\00", align 1
-@.str.377 = private unnamed_addr constant [31 x i8] c"FEC code type is not supported\00", align 1
-@.str.378 = private unnamed_addr constant [8 x i8] c"Overrun\00", align 1
-@.str.379 = private unnamed_addr constant [9 x i8] c"Underrun\00", align 1
-@.str.380 = private unnamed_addr constant [22 x i8] c"Transport Media Error\00", align 1
-@.str.381 = private unnamed_addr constant [35 x i8] c"TX data size do not match TXVECTOR\00", align 1
-@.str.382 = private unnamed_addr constant [28 x i8] c"Invalid RX/TX VECTOR format\00", align 1
-@.str.383 = private unnamed_addr constant [13 x i8] c"Restart flag\00", align 1
-@.str.384 = private unnamed_addr constant [11 x i8] c"valid data\00", align 1
-@.str.385 = private unnamed_addr constant [13 x i8] c"invalid data\00", align 1
-@.str.386 = private unnamed_addr constant [11 x i8] c"Data burst\00", align 1
-@.str.387 = private unnamed_addr constant [17 x i8] c"HARQ ACK channel\00", align 1
-@.str.388 = private unnamed_addr constant [22 x i8] c"Fast Feedback Channel\00", align 1
-@.str.389 = private unnamed_addr constant [16 x i8] c"HARQ data burst\00", align 1
-@.str.390 = private unnamed_addr constant [16 x i8] c"MIMO data burst\00", align 1
-@.str.391 = private unnamed_addr constant [21 x i8] c"MIMO HARQ data burst\00", align 1
-@.str.392 = private unnamed_addr constant [5 x i8] c"PUSC\00", align 1
-@.str.393 = private unnamed_addr constant [14 x i8] c"Optional PUSC\00", align 1
-@.str.394 = private unnamed_addr constant [12 x i8] c"AMC - 1 x 6\00", align 1
-@.str.395 = private unnamed_addr constant [12 x i8] c"AMC - 2 x 3\00", align 1
-@.str.396 = private unnamed_addr constant [12 x i8] c"AMC - 3 x 2\00", align 1
-@.str.397 = private unnamed_addr constant [4 x i8] c"ACK\00", align 1
-@.str.398 = private unnamed_addr constant [4 x i8] c"NAK\00", align 1
-@.str.399 = private unnamed_addr constant [4 x i8] c"Set\00", align 1
-@.str.400 = private unnamed_addr constant [8 x i8] c"Not set\00", align 1
-@.str.401 = private unnamed_addr constant [23 x i8] c"CQI (CINR) measurement\00", align 1
-@.str.402 = private unnamed_addr constant [17 x i8] c"Control feedback\00", align 1
-@.str.403 = private unnamed_addr constant [40 x i8] c" not present (only LW 0 is significant)\00", align 1
-@.str.404 = private unnamed_addr constant [33 x i8] c"AAS info aged out report present\00", align 1
-@.str.405 = private unnamed_addr constant [18 x i8] c"Downlink Subframe\00", align 1
-@.str.406 = private unnamed_addr constant [16 x i8] c"Uplink Subframe\00", align 1
-@.str.407 = private unnamed_addr constant [23 x i8] c"Normal Zone Parameters\00", align 1
-@.str.408 = private unnamed_addr constant [20 x i8] c"STC Zone Parameters\00", align 1
-@.str.409 = private unnamed_addr constant [20 x i8] c"AAS Zone Parameters\00", align 1
-@.str.410 = private unnamed_addr constant [30 x i8] c"Common Sync Symbol Parameters\00", align 1
-@.str.411 = private unnamed_addr constant [21 x i8] c"AAS Calibration Zone\00", align 1
-@.str.412 = private unnamed_addr constant [5 x i8] c"FUSC\00", align 1
-@.str.413 = private unnamed_addr constant [14 x i8] c"Optional FUSC\00", align 1
-@.str.414 = private unnamed_addr constant [6 x i8] c"TUSC1\00", align 1
-@.str.415 = private unnamed_addr constant [6 x i8] c"TUSC2\00", align 1
-@.str.416 = private unnamed_addr constant [61 x i8] c"use only subchannels specified in PHY configuration register\00", align 1
-@.str.417 = private unnamed_addr constant [20 x i8] c"use all subchannels\00", align 1
-@.str.418 = private unnamed_addr constant [17 x i8] c"rotation enabled\00", align 1
-@.str.419 = private unnamed_addr constant [18 x i8] c"rotation disabled\00", align 1
-@.str.420 = private unnamed_addr constant [21 x i8] c"pilots are broadcast\00", align 1
-@.str.421 = private unnamed_addr constant [21 x i8] c"pilots are dedicated\00", align 1
-@.str.422 = private unnamed_addr constant [14 x i8] c"default range\00", align 1
-@.str.423 = private unnamed_addr constant [35 x i8] c"range to cover SS very close to BS\00", align 1
-@.str.424 = private unnamed_addr constant [21 x i8] c"STC using 2 antennas\00", align 1
-@.str.425 = private unnamed_addr constant [21 x i8] c"STC using 3 antennas\00", align 1
-@.str.426 = private unnamed_addr constant [21 x i8] c"STC using 4 antennas\00", align 1
-@.str.427 = private unnamed_addr constant [22 x i8] c"FHDC using 2 antennas\00", align 1
-@.str.428 = private unnamed_addr constant [9 x i8] c"Matrix A\00", align 1
-@.str.429 = private unnamed_addr constant [9 x i8] c"Matrix B\00", align 1
-@.str.430 = private unnamed_addr constant [9 x i8] c"Matrix C\00", align 1
-@.str.431 = private unnamed_addr constant [12 x i8] c"not present\00", align 1
-@.str.432 = private unnamed_addr constant [8 x i8] c"present\00", align 1
-@.str.433 = private unnamed_addr constant [12 x i8] c"no boosting\00", align 1
-@.str.434 = private unnamed_addr constant [9 x i8] c"boosting\00", align 1
-@.str.435 = private unnamed_addr constant [36 x i8] c"0 symbols (preambles not supported)\00", align 1
-@.str.436 = private unnamed_addr constant [9 x i8] c"1 symbol\00", align 1
-@.str.437 = private unnamed_addr constant [10 x i8] c"2 symbols\00", align 1
-@.str.438 = private unnamed_addr constant [10 x i8] c"3 symbols\00", align 1
-@.str.439 = private unnamed_addr constant [19 x i8] c"SDMA not supported\00", align 1
-@.str.440 = private unnamed_addr constant [15 x i8] c"SDMA supported\00", align 1
-@.str.441 = private unnamed_addr constant [27 x i8] c"frequency shifted preamble\00", align 1
-@.str.442 = private unnamed_addr constant [22 x i8] c"time shifted preamble\00", align 1
-@.str.443 = private unnamed_addr constant [15 x i8] c"Map Data Burst\00", align 1
-@.str.444 = private unnamed_addr constant [18 x i8] c"Normal Data Burst\00", align 1
-@.str.445 = private unnamed_addr constant [16 x i8] c"Control Command\00", align 1
-@.str.446 = private unnamed_addr constant [16 x i8] c"PAPR Allocation\00", align 1
-@.str.447 = private unnamed_addr constant [28 x i8] c"HARQ ACK Channel allocation\00", align 1
-@.str.448 = private unnamed_addr constant [33 x i8] c"Fast Feedback Channel allocation\00", align 1
-@.str.449 = private unnamed_addr constant [40 x i8] c"Initial Ranging/Handover Ranging region\00", align 1
-@.str.450 = private unnamed_addr constant [42 x i8] c"Periodic Ranging/Bandwidth Request region\00", align 1
-@.str.451 = private unnamed_addr constant [28 x i8] c"PAPR/Safety Zone allocation\00", align 1
-@.str.452 = private unnamed_addr constant [25 x i8] c"Sounding Zone allocation\00", align 1
-@.str.453 = private unnamed_addr constant [35 x i8] c"Noise Floor Calculation allocation\00", align 1
-@.str.454 = private unnamed_addr constant [18 x i8] c"Normal Data burst\00", align 1
-@.str.455 = private unnamed_addr constant [18 x i8] c"no extended data:\00", align 1
-@.str.456 = private unnamed_addr constant [7 x i8] c"AAS v1\00", align 1
-@.str.457 = private unnamed_addr constant [8 x i8] c"MIMO v1\00", align 1
-@.str.458 = private unnamed_addr constant [14 x i8] c"QPSK (CC) 1/2\00", align 1
-@.str.459 = private unnamed_addr constant [14 x i8] c"QPSK (CC) 3/4\00", align 1
-@.str.460 = private unnamed_addr constant [16 x i8] c"16-QAM (CC) 1/2\00", align 1
-@.str.461 = private unnamed_addr constant [16 x i8] c"16-QAM (CC) 3/4\00", align 1
-@.str.462 = private unnamed_addr constant [16 x i8] c"64-QAM (CC) 1/2\00", align 1
-@.str.463 = private unnamed_addr constant [16 x i8] c"64-QAM (CC) 2/3\00", align 1
-@.str.464 = private unnamed_addr constant [16 x i8] c"64-QAM (CC) 3/4\00", align 1
-@.str.465 = private unnamed_addr constant [15 x i8] c"QPSK (BTC) 1/2\00", align 1
-@.str.466 = private unnamed_addr constant [15 x i8] c"QPSK (BTC) 3/4\00", align 1
-@.str.467 = private unnamed_addr constant [17 x i8] c"16-QAM (BTC) 3/5\00", align 1
-@.str.468 = private unnamed_addr constant [17 x i8] c"16-QAM (BTC) 4/5\00", align 1
-@.str.469 = private unnamed_addr constant [17 x i8] c"64-QAM (BTC) 5/8\00", align 1
-@.str.470 = private unnamed_addr constant [17 x i8] c"64-QAM (BTC) 4/5\00", align 1
-@.str.471 = private unnamed_addr constant [15 x i8] c"QPSK (CTC) 1/2\00", align 1
-@.str.472 = private unnamed_addr constant [15 x i8] c"QPSK (CTC) 3/4\00", align 1
-@.str.473 = private unnamed_addr constant [17 x i8] c"16-QAM (CTC) 1/2\00", align 1
-@.str.474 = private unnamed_addr constant [17 x i8] c"16-QAM (CTC) 3/4\00", align 1
-@.str.475 = private unnamed_addr constant [17 x i8] c"64-QAM (CTC) 1/2\00", align 1
-@.str.476 = private unnamed_addr constant [17 x i8] c"64-QAM (CTC) 2/3\00", align 1
-@.str.477 = private unnamed_addr constant [17 x i8] c"64-QAM (CTC) 3/4\00", align 1
-@.str.478 = private unnamed_addr constant [17 x i8] c"64-QAM (CTC) 5/6\00", align 1
-@.str.479 = private unnamed_addr constant [17 x i8] c"QPSK (ZT CC) 1/2\00", align 1
-@.str.480 = private unnamed_addr constant [17 x i8] c"QPSK (ZT CC) 3/4\00", align 1
-@.str.481 = private unnamed_addr constant [19 x i8] c"16-QAM (ZT CC) 1/2\00", align 1
-@.str.482 = private unnamed_addr constant [19 x i8] c"16-QAM (ZT CC) 3/4\00", align 1
-@.str.483 = private unnamed_addr constant [19 x i8] c"64-QAM (ZT CC) 1/2\00", align 1
-@.str.484 = private unnamed_addr constant [19 x i8] c"64-QAM (ZT CC) 2/3\00", align 1
-@.str.485 = private unnamed_addr constant [19 x i8] c"64-QAM (ZT CC) 3/4\00", align 1
-@.str.486 = private unnamed_addr constant [16 x i8] c"QPSK (LDPC) 1/2\00", align 1
-@.str.487 = private unnamed_addr constant [23 x i8] c"QPSK (LDPC) 2/3 A code\00", align 1
-@.str.488 = private unnamed_addr constant [23 x i8] c"QPSK (LDPC) 3/4 A code\00", align 1
-@.str.489 = private unnamed_addr constant [18 x i8] c"16-QAM (LDPC) 1/2\00", align 1
-@.str.490 = private unnamed_addr constant [25 x i8] c"16-QAM (LDPC) 2/3 A code\00", align 1
-@.str.491 = private unnamed_addr constant [25 x i8] c"16-QAM (LDPC) 3/4 A code\00", align 1
-@.str.492 = private unnamed_addr constant [18 x i8] c"64-QAM (LDPC) 1/2\00", align 1
-@.str.493 = private unnamed_addr constant [25 x i8] c"64-QAM (LDPC) 2/3 A code\00", align 1
-@.str.494 = private unnamed_addr constant [25 x i8] c"64-QAM (LDPC) 3/4 A code\00", align 1
-@.str.495 = private unnamed_addr constant [23 x i8] c"QPSK (LDPC) 2/3 B code\00", align 1
-@.str.496 = private unnamed_addr constant [23 x i8] c"QPSK (LDPC) 3/4 B code\00", align 1
-@.str.497 = private unnamed_addr constant [25 x i8] c"16-QAM (LDPC) 2/3 B code\00", align 1
-@.str.498 = private unnamed_addr constant [25 x i8] c"16-QAM (LDPC) 3/4 B code\00", align 1
-@.str.499 = private unnamed_addr constant [25 x i8] c"64-QAM (LDPC) 2/3 B code\00", align 1
-@.str.500 = private unnamed_addr constant [25 x i8] c"64-QAM (LDPC) 3/4 B code\00", align 1
-@.str.501 = private unnamed_addr constant [40 x i8] c"QPSK (CC with optional interleaver) 1/2\00", align 1
-@.str.502 = private unnamed_addr constant [40 x i8] c"QPSK (CC with optional interleaver) 3/4\00", align 1
-@.str.503 = private unnamed_addr constant [42 x i8] c"16-QAM (CC with optional interleaver) 1/2\00", align 1
-@.str.504 = private unnamed_addr constant [42 x i8] c"16-QAM (CC with optional interleaver) 3/4\00", align 1
-@.str.505 = private unnamed_addr constant [42 x i8] c"64-QAM (CC with optional interleaver) 2/3\00", align 1
-@.str.506 = private unnamed_addr constant [42 x i8] c"64-QAM (CC with optional interleaver) 3/4\00", align 1
-@.str.507 = private unnamed_addr constant [16 x i8] c"QPSK (LDPC) 5/6\00", align 1
-@.str.508 = private unnamed_addr constant [17 x i8] c"16-QAM(LDPC) 5/6\00", align 1
-@.str.509 = private unnamed_addr constant [17 x i8] c"64-QAM(LDPC) 5/6\00", align 1
-@.str.510 = private unnamed_addr constant [7 x i8] c"normal\00", align 1
-@.str.511 = private unnamed_addr constant [5 x i8] c"+6dB\00", align 1
-@.str.512 = private unnamed_addr constant [5 x i8] c"-6dB\00", align 1
-@.str.513 = private unnamed_addr constant [5 x i8] c"+9dB\00", align 1
-@.str.514 = private unnamed_addr constant [5 x i8] c"+3dB\00", align 1
-@.str.515 = private unnamed_addr constant [5 x i8] c"-3dB\00", align 1
-@.str.516 = private unnamed_addr constant [6 x i8] c"-9 dB\00", align 1
-@.str.517 = private unnamed_addr constant [7 x i8] c"-12 dB\00", align 1
-@.str.518 = private unnamed_addr constant [21 x i8] c"No repetition coding\00", align 1
-@.str.519 = private unnamed_addr constant [23 x i8] c"Repetition coding of 2\00", align 1
-@.str.520 = private unnamed_addr constant [23 x i8] c"Repetition coding of 4\00", align 1
-@.str.521 = private unnamed_addr constant [23 x i8] c"Repetition coding of 6\00", align 1
-@.str.522 = private unnamed_addr constant [18 x i8] c"UL PAPR reduction\00", align 1
-@.str.523 = private unnamed_addr constant [15 x i8] c"UL Safety zone\00", align 1
-@.str.524 = private unnamed_addr constant [23 x i8] c"ranging over 2 symbols\00", align 1
-@.str.525 = private unnamed_addr constant [23 x i8] c"ranging over 4 symbols\00", align 1
-@.str.526 = private unnamed_addr constant [7 x i8] c"Type A\00", align 1
-@.str.527 = private unnamed_addr constant [7 x i8] c"Type B\00", align 1
-@.str.528 = private unnamed_addr constant [16 x i8] c"all subcarriers\00", align 1
-@.str.529 = private unnamed_addr constant [32 x i8] c"decimated subcarriers in a band\00", align 1
-@.str.530 = private unnamed_addr constant [4 x i8] c"P=4\00", align 1
-@.str.531 = private unnamed_addr constant [5 x i8] c"P=8;\00", align 1
-@.str.532 = private unnamed_addr constant [5 x i8] c"P=16\00", align 1
-@.str.533 = private unnamed_addr constant [5 x i8] c"P=32\00", align 1
-@.str.534 = private unnamed_addr constant [4 x i8] c"P=9\00", align 1
-@.str.535 = private unnamed_addr constant [5 x i8] c"P=18\00", align 1
-@.str.536 = private unnamed_addr constant [17 x i8] c"no randomization\00", align 1
-@.str.537 = private unnamed_addr constant [14 x i8] c"randomization\00", align 1
-@.str.538 = private unnamed_addr constant [16 x i8] c"Matrix A (STTD)\00", align 1
-@.str.539 = private unnamed_addr constant [14 x i8] c"Matrix B (SM)\00", align 1
-@.str.540 = private unnamed_addr constant [18 x i8] c"non-collaborative\00", align 1
-@.str.541 = private unnamed_addr constant [14 x i8] c"collaborative\00", align 1
-@.str.542 = private unnamed_addr constant [21 x i8] c"Single TX antenna SS\00", align 1
-@.str.543 = private unnamed_addr constant [19 x i8] c"Dual TX antenna SS\00", align 1
-@.str.544 = private unnamed_addr constant [8 x i8] c"No HARQ\00", align 1
-@.str.545 = private unnamed_addr constant [21 x i8] c"HARQ Chase Combining\00", align 1
-@.str.546 = private unnamed_addr constant [12 x i8] c"HARQ IR-CTC\00", align 1
-@.str.547 = private unnamed_addr constant [11 x i8] c"HARQ IR-CC\00", align 1
-@.str.548 = private unnamed_addr constant [21 x i8] c"MIMO Chase Combining\00", align 1
-@.str.549 = private unnamed_addr constant [12 x i8] c"MIMO IR-CTC\00", align 1
-@.str.550 = private unnamed_addr constant [11 x i8] c"MIMO IR-CC\00", align 1
-@.str.551 = private unnamed_addr constant [9 x i8] c"MIMO-STC\00", align 1
-@.str.552 = private unnamed_addr constant [16 x i8] c"Mini-subchannel\00", align 1
-@.str.553 = private unnamed_addr constant [22 x i8] c"Fast Feedback channel\00", align 1
-@.str.554 = private unnamed_addr constant [20 x i8] c"HARQ ACK subchannel\00", align 1
-@.str.555 = private unnamed_addr constant [16 x i8] c"Sounding signal\00", align 1
-@.str.556 = private unnamed_addr constant [16 x i8] c"no flush action\00", align 1
-@.str.557 = private unnamed_addr constant [40 x i8] c"flush request to PHY for the ISSID/ACID\00", align 1
-@.str.558 = private unnamed_addr constant [41 x i8] c"flush request to PHY for the given ISSID\00", align 1
-@.str.559 = private unnamed_addr constant [34 x i8] c"2 mini-subchannels adjacent tiles\00", align 1
-@.str.560 = private unnamed_addr constant [37 x i8] c"2 mini subchannels interleaved tiles\00", align 1
-@.str.561 = private unnamed_addr constant [19 x i8] c"3 mini subchannels\00", align 1
-@.str.562 = private unnamed_addr constant [19 x i8] c"6 mini subchannels\00", align 1
-@.str.563 = private unnamed_addr constant [12 x i8] c"Equal power\00", align 1
-@.str.564 = private unnamed_addr constant [52 x i8] c"Interference dependent. Per subcarrier power limit.\00", align 1
-@.str.565 = private unnamed_addr constant [43 x i8] c"Interference dependent. Total power limit.\00", align 1
-@.str.566 = private unnamed_addr constant [9 x i8] c"no boost\00", align 1
-@.str.567 = private unnamed_addr constant [6 x i8] c"boost\00", align 1
-@.str.568 = private unnamed_addr constant [7 x i8] c"Normal\00", align 1
-@.str.569 = private unnamed_addr constant [9 x i8] c"Band AMC\00", align 1
-@.str.570 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
-@.str.571 = private unnamed_addr constant [19 x i8] c"Zone Descriptor %u\00", align 1
-@.str.572 = private unnamed_addr constant [18 x i8] c"STC Zone Specific\00", align 1
-@.str.573 = private unnamed_addr constant [18 x i8] c"AAS Zone Specific\00", align 1
-@.str.574 = private unnamed_addr constant [20 x i8] c"Burst Descriptor %u\00", align 1
-@.str.575 = private unnamed_addr constant [24 x i8] c"MAP Data Burst Specific\00", align 1
-@.str.576 = private unnamed_addr constant [27 x i8] c"Normal Data Burst Specific\00", align 1
-@.str.577 = private unnamed_addr constant [22 x i8] c"Optional AAS Specific\00", align 1
-@.str.578 = private unnamed_addr constant [23 x i8] c"Optional MIMO Specific\00", align 1
-@.str.579 = private unnamed_addr constant [25 x i8] c"PAPR Allocation Specific\00", align 1
-@.str.580 = private unnamed_addr constant [24 x i8] c"Sub-Burst Descriptor %u\00", align 1
-@.str.581 = private unnamed_addr constant [20 x i8] c"HARQ Chase Specific\00", align 1
-@.str.582 = private unnamed_addr constant [20 x i8] c"MIMO Chase Specific\00", align 1
-@.str.583 = private unnamed_addr constant [26 x i8] c"HARQ ACK Channel Specific\00", align 1
-@.str.584 = private unnamed_addr constant [31 x i8] c"Fast Feedback Channel Specific\00", align 1
-@.str.585 = private unnamed_addr constant [53 x i8] c"Initial Ranging/Handover Ranging Allocation Specific\00", align 1
-@.str.586 = private unnamed_addr constant [55 x i8] c"Periodic Ranging/Bandwidth Request Allocation Specific\00", align 1
-@.str.587 = private unnamed_addr constant [34 x i8] c"PAPR/Safety Zone Channel Specific\00", align 1
-@.str.588 = private unnamed_addr constant [34 x i8] c"Sounding Zone Allocation Specific\00", align 1
-@.str.589 = private unnamed_addr constant [44 x i8] c"Noise Floor Calculation Allocation Specific\00", align 1
-@.str.590 = private unnamed_addr constant [36 x i8] c"Mini-Subchannel Allocation Specific\00", align 1
-@.str.591 = private unnamed_addr constant [34 x i8] c"Fast Feedback Allocation Specific\00", align 1
-@.str.592 = private unnamed_addr constant [40 x i8] c"HARQ ACK Subchannel Allocation Specific\00", align 1
-@.str.593 = private unnamed_addr constant [25 x i8] c"Sounding Signal Specific\00", align 1
-@.str.594 = private unnamed_addr constant [24 x i8] c"Sub-Allocation Specific\00", align 1
-@.str.595 = private unnamed_addr constant [29 x i8] c"HARQ ACK channel data format\00", align 1
-@.str.596 = private unnamed_addr constant [34 x i8] c"Fast Feedback channel data format\00", align 1
+@wimaxmacphy_message_segmentation_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.357 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.358 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.359 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.360 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.362 = private unnamed_addr constant [20 x i8] c"PHY_TXSTART.request\00", align 1
+@.str.363 = private unnamed_addr constant [25 x i8] c"PHY_TXSTART.confirmation\00", align 1
+@.str.364 = private unnamed_addr constant [23 x i8] c"PHY_TXSTART.indication\00", align 1
+@.str.365 = private unnamed_addr constant [18 x i8] c"PHY_TXSDU.request\00", align 1
+@.str.366 = private unnamed_addr constant [23 x i8] c"PHY_TXSDU.confirmation\00", align 1
+@.str.367 = private unnamed_addr constant [21 x i8] c"PHY_TXEND.indication\00", align 1
+@.str.368 = private unnamed_addr constant [20 x i8] c"PHY_RXSTART.request\00", align 1
+@.str.369 = private unnamed_addr constant [25 x i8] c"PHY_RXSTART.confirmation\00", align 1
+@.str.370 = private unnamed_addr constant [23 x i8] c"PHY_RXSTART.indication\00", align 1
+@.str.371 = private unnamed_addr constant [21 x i8] c"PHY_RXSDU.indication\00", align 1
+@.str.372 = private unnamed_addr constant [21 x i8] c"PHY_RXEND.indication\00", align 1
+@.str.373 = private unnamed_addr constant [16 x i8] c"Reserved (OFDM)\00", align 1
+@.str.374 = private unnamed_addr constant [22 x i8] c"PHY_RXCDMA.indication\00", align 1
+@.str.375 = private unnamed_addr constant [20 x i8] c"Reserved (OFDMA SS)\00", align 1
+@wimaxmacphy_message_type_vals = internal constant [19 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.14 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.362 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.363 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.364 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.365 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.366 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.367 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.368 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.369 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.370 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.371 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.372 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.373 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.373 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.373 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.374 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.375 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.375 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.377 = private unnamed_addr constant [8 x i8] c"Success\00", align 1
+@.str.378 = private unnamed_addr constant [27 x i8] c"Primitive is not supported\00", align 1
+@.str.379 = private unnamed_addr constant [31 x i8] c"FEC code type is not supported\00", align 1
+@.str.380 = private unnamed_addr constant [8 x i8] c"Overrun\00", align 1
+@.str.381 = private unnamed_addr constant [9 x i8] c"Underrun\00", align 1
+@.str.382 = private unnamed_addr constant [22 x i8] c"Transport Media Error\00", align 1
+@.str.383 = private unnamed_addr constant [35 x i8] c"TX data size do not match TXVECTOR\00", align 1
+@.str.384 = private unnamed_addr constant [28 x i8] c"Invalid RX/TX VECTOR format\00", align 1
+@wimaxmacphy_prim_status_vals = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.377 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.378 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.379 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.380 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.381 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.382 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.383 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.384 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.386 = private unnamed_addr constant [13 x i8] c"Restart flag\00", align 1
+@wimaxmacphy_prim_txstart_indication_status_vals = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.377 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.386 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.379 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.380 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.381 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.382 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.383 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.384 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.388 = private unnamed_addr constant [11 x i8] c"valid data\00", align 1
+@.str.389 = private unnamed_addr constant [13 x i8] c"invalid data\00", align 1
+@wimaxmacphy_prim_integrity_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.388 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.389 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.391 = private unnamed_addr constant [11 x i8] c"Data burst\00", align 1
+@.str.392 = private unnamed_addr constant [17 x i8] c"HARQ ACK channel\00", align 1
+@.str.393 = private unnamed_addr constant [22 x i8] c"Fast Feedback Channel\00", align 1
+@.str.394 = private unnamed_addr constant [16 x i8] c"HARQ data burst\00", align 1
+@.str.395 = private unnamed_addr constant [16 x i8] c"MIMO data burst\00", align 1
+@.str.396 = private unnamed_addr constant [21 x i8] c"MIMO HARQ data burst\00", align 1
+@wimaxmacphy_prim_indication_type_vals = internal constant [7 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.391 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.392 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.393 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.394 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.395 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.396 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.398 = private unnamed_addr constant [5 x i8] c"PUSC\00", align 1
+@.str.399 = private unnamed_addr constant [14 x i8] c"Optional PUSC\00", align 1
+@.str.400 = private unnamed_addr constant [12 x i8] c"AMC - 1 x 6\00", align 1
+@.str.401 = private unnamed_addr constant [12 x i8] c"AMC - 2 x 3\00", align 1
+@.str.402 = private unnamed_addr constant [12 x i8] c"AMC - 3 x 2\00", align 1
+@wimaxmacphy_prim_zone_permutation_type_vals = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.398 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.399 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.400 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.401 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.402 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@wimaxmacphy_prim_harq_ack_ack_valid_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.388 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.389 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.405 = private unnamed_addr constant [4 x i8] c"ACK\00", align 1
+@.str.406 = private unnamed_addr constant [4 x i8] c"NAK\00", align 1
+@wimaxmacphy_prim_harq_ack_unnamed_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.405 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.406 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.408 = private unnamed_addr constant [4 x i8] c"Set\00", align 1
+@.str.409 = private unnamed_addr constant [8 x i8] c"Not set\00", align 1
+@wimaxmacphy_prim_fast_feedback_valid_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.388 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.389 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.411 = private unnamed_addr constant [23 x i8] c"CQI (CINR) measurement\00", align 1
+@.str.412 = private unnamed_addr constant [17 x i8] c"Control feedback\00", align 1
+@wimaxmacphy_prim_fast_feedback_sub_type_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.411 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.412 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.414 = private unnamed_addr constant [40 x i8] c" not present (only LW 0 is significant)\00", align 1
+@.str.415 = private unnamed_addr constant [33 x i8] c"AAS info aged out report present\00", align 1
+@wimaxmacphy_prim_phy_aas_report_present_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.414 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.415 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.417 = private unnamed_addr constant [18 x i8] c"Downlink Subframe\00", align 1
+@.str.418 = private unnamed_addr constant [16 x i8] c"Uplink Subframe\00", align 1
+@wimaxmacphy_subframe_type_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.417 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.418 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.420 = private unnamed_addr constant [23 x i8] c"Normal Zone Parameters\00", align 1
+@.str.421 = private unnamed_addr constant [20 x i8] c"STC Zone Parameters\00", align 1
+@.str.422 = private unnamed_addr constant [20 x i8] c"AAS Zone Parameters\00", align 1
+@.str.423 = private unnamed_addr constant [30 x i8] c"Common Sync Symbol Parameters\00", align 1
+@.str.424 = private unnamed_addr constant [21 x i8] c"AAS Calibration Zone\00", align 1
+@wimaxmacphy_dl_zone_type_vals = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.420 }, { i32, [4 x i8], ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.421 }, { i32, [4 x i8], ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.422 }, { i32, [4 x i8], ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.423 }, { i32, [4 x i8], ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.424 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@wimaxmacphy_ul_zone_type_vals = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.420 }, { i32, [4 x i8], ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.14 }, { i32, [4 x i8], ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.422 }, { i32, [4 x i8], ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.14 }, { i32, [4 x i8], ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.14 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.427 = private unnamed_addr constant [5 x i8] c"FUSC\00", align 1
+@.str.428 = private unnamed_addr constant [14 x i8] c"Optional FUSC\00", align 1
+@.str.429 = private unnamed_addr constant [6 x i8] c"TUSC1\00", align 1
+@.str.430 = private unnamed_addr constant [6 x i8] c"TUSC2\00", align 1
+@wimaxmacphy_dl_zone_permutation_type_vals = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.398 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.427 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.428 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.400 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.401 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.402 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.429 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.430 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@wimaxmacphy_ul_zone_permutation_type_vals = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.398 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.427 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.428 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.400 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.401 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.402 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.14 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.14 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.433 = private unnamed_addr constant [61 x i8] c"use only subchannels specified in PHY configuration register\00", align 1
+@.str.434 = private unnamed_addr constant [20 x i8] c"use all subchannels\00", align 1
+@wimaxmacphy_zone_use_all_subchannels_indicator_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.433 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.434 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.436 = private unnamed_addr constant [17 x i8] c"rotation enabled\00", align 1
+@.str.437 = private unnamed_addr constant [18 x i8] c"rotation disabled\00", align 1
+@wimaxmacphy_ul_zone_disable_pusc_subchannel_rotation_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.436 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.437 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.439 = private unnamed_addr constant [21 x i8] c"pilots are broadcast\00", align 1
+@.str.440 = private unnamed_addr constant [21 x i8] c"pilots are dedicated\00", align 1
+@wimaxmacphy_zone_dedicated_pilots_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.439 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.440 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.442 = private unnamed_addr constant [14 x i8] c"default range\00", align 1
+@.str.443 = private unnamed_addr constant [35 x i8] c"range to cover SS very close to BS\00", align 1
+@wimaxmacphy_zone_agc_range_extension_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.442 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.443 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.445 = private unnamed_addr constant [21 x i8] c"STC using 2 antennas\00", align 1
+@.str.446 = private unnamed_addr constant [21 x i8] c"STC using 3 antennas\00", align 1
+@.str.447 = private unnamed_addr constant [21 x i8] c"STC using 4 antennas\00", align 1
+@.str.448 = private unnamed_addr constant [22 x i8] c"FHDC using 2 antennas\00", align 1
+@wimaxmacphy_zone_stc_type_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.445 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.446 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.447 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.448 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.450 = private unnamed_addr constant [9 x i8] c"Matrix A\00", align 1
+@.str.451 = private unnamed_addr constant [9 x i8] c"Matrix B\00", align 1
+@.str.452 = private unnamed_addr constant [9 x i8] c"Matrix C\00", align 1
+@wimaxmacphy_matrix_indicator_vals = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.450 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.451 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.452 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.454 = private unnamed_addr constant [12 x i8] c"not present\00", align 1
+@.str.455 = private unnamed_addr constant [8 x i8] c"present\00", align 1
+@wimaxmacphy_zone_midamble_presence_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.454 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.455 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.457 = private unnamed_addr constant [12 x i8] c"no boosting\00", align 1
+@.str.458 = private unnamed_addr constant [9 x i8] c"boosting\00", align 1
+@wimaxmacphy_zone_midamble_boosting_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.457 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.458 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.460 = private unnamed_addr constant [36 x i8] c"0 symbols (preambles not supported)\00", align 1
+@.str.461 = private unnamed_addr constant [9 x i8] c"1 symbol\00", align 1
+@.str.462 = private unnamed_addr constant [10 x i8] c"2 symbols\00", align 1
+@.str.463 = private unnamed_addr constant [10 x i8] c"3 symbols\00", align 1
+@wimaxmacphy_zone_preamble_configuration_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.460 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.461 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.462 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.463 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.465 = private unnamed_addr constant [19 x i8] c"SDMA not supported\00", align 1
+@.str.466 = private unnamed_addr constant [15 x i8] c"SDMA supported\00", align 1
+@wimaxmacphy_zone_sdma_supported_indication_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.465 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.466 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.468 = private unnamed_addr constant [27 x i8] c"frequency shifted preamble\00", align 1
+@.str.469 = private unnamed_addr constant [22 x i8] c"time shifted preamble\00", align 1
+@wimaxmacphy_zone_preamble_type_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.468 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.469 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.471 = private unnamed_addr constant [15 x i8] c"Map Data Burst\00", align 1
+@.str.472 = private unnamed_addr constant [18 x i8] c"Normal Data Burst\00", align 1
+@.str.473 = private unnamed_addr constant [16 x i8] c"Control Command\00", align 1
+@.str.474 = private unnamed_addr constant [16 x i8] c"PAPR Allocation\00", align 1
+@wimaxmacphy_dl_burst_type_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 64, [4 x i8] zeroinitializer, ptr @.str.471 }, { i32, [4 x i8], ptr } { i32 65, [4 x i8] zeroinitializer, ptr @.str.472 }, { i32, [4 x i8], ptr } { i32 66, [4 x i8] zeroinitializer, ptr @.str.473 }, { i32, [4 x i8], ptr } { i32 67, [4 x i8] zeroinitializer, ptr @.str.474 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.476 = private unnamed_addr constant [28 x i8] c"HARQ ACK Channel allocation\00", align 1
+@.str.477 = private unnamed_addr constant [33 x i8] c"Fast Feedback Channel allocation\00", align 1
+@.str.478 = private unnamed_addr constant [40 x i8] c"Initial Ranging/Handover Ranging region\00", align 1
+@.str.479 = private unnamed_addr constant [42 x i8] c"Periodic Ranging/Bandwidth Request region\00", align 1
+@.str.480 = private unnamed_addr constant [28 x i8] c"PAPR/Safety Zone allocation\00", align 1
+@.str.481 = private unnamed_addr constant [25 x i8] c"Sounding Zone allocation\00", align 1
+@.str.482 = private unnamed_addr constant [35 x i8] c"Noise Floor Calculation allocation\00", align 1
+@.str.483 = private unnamed_addr constant [18 x i8] c"Normal Data burst\00", align 1
+@wimaxmacphy_ul_burst_type_vals = internal constant [11 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 64, [4 x i8] zeroinitializer, ptr @.str.476 }, { i32, [4 x i8], ptr } { i32 65, [4 x i8] zeroinitializer, ptr @.str.477 }, { i32, [4 x i8], ptr } { i32 66, [4 x i8] zeroinitializer, ptr @.str.478 }, { i32, [4 x i8], ptr } { i32 67, [4 x i8] zeroinitializer, ptr @.str.479 }, { i32, [4 x i8], ptr } { i32 68, [4 x i8] zeroinitializer, ptr @.str.480 }, { i32, [4 x i8], ptr } { i32 69, [4 x i8] zeroinitializer, ptr @.str.481 }, { i32, [4 x i8], ptr } { i32 70, [4 x i8] zeroinitializer, ptr @.str.482 }, { i32, [4 x i8], ptr } { i32 71, [4 x i8] zeroinitializer, ptr @.str.483 }, { i32, [4 x i8], ptr } { i32 72, [4 x i8] zeroinitializer, ptr @.str.473 }, { i32, [4 x i8], ptr } { i32 73, [4 x i8] zeroinitializer, ptr @.str.14 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.485 = private unnamed_addr constant [18 x i8] c"no extended data:\00", align 1
+@.str.486 = private unnamed_addr constant [7 x i8] c"AAS v1\00", align 1
+@.str.487 = private unnamed_addr constant [8 x i8] c"MIMO v1\00", align 1
+@wimaxmacphy_burst_type_extension_vals = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.485 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.486 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.487 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.489 = private unnamed_addr constant [14 x i8] c"QPSK (CC) 1/2\00", align 1
+@.str.490 = private unnamed_addr constant [14 x i8] c"QPSK (CC) 3/4\00", align 1
+@.str.491 = private unnamed_addr constant [16 x i8] c"16-QAM (CC) 1/2\00", align 1
+@.str.492 = private unnamed_addr constant [16 x i8] c"16-QAM (CC) 3/4\00", align 1
+@.str.493 = private unnamed_addr constant [16 x i8] c"64-QAM (CC) 1/2\00", align 1
+@.str.494 = private unnamed_addr constant [16 x i8] c"64-QAM (CC) 2/3\00", align 1
+@.str.495 = private unnamed_addr constant [16 x i8] c"64-QAM (CC) 3/4\00", align 1
+@.str.496 = private unnamed_addr constant [15 x i8] c"QPSK (BTC) 1/2\00", align 1
+@.str.497 = private unnamed_addr constant [15 x i8] c"QPSK (BTC) 3/4\00", align 1
+@.str.498 = private unnamed_addr constant [17 x i8] c"16-QAM (BTC) 3/5\00", align 1
+@.str.499 = private unnamed_addr constant [17 x i8] c"16-QAM (BTC) 4/5\00", align 1
+@.str.500 = private unnamed_addr constant [17 x i8] c"64-QAM (BTC) 5/8\00", align 1
+@.str.501 = private unnamed_addr constant [17 x i8] c"64-QAM (BTC) 4/5\00", align 1
+@.str.502 = private unnamed_addr constant [15 x i8] c"QPSK (CTC) 1/2\00", align 1
+@.str.503 = private unnamed_addr constant [15 x i8] c"QPSK (CTC) 3/4\00", align 1
+@.str.504 = private unnamed_addr constant [17 x i8] c"16-QAM (CTC) 1/2\00", align 1
+@.str.505 = private unnamed_addr constant [17 x i8] c"16-QAM (CTC) 3/4\00", align 1
+@.str.506 = private unnamed_addr constant [17 x i8] c"64-QAM (CTC) 1/2\00", align 1
+@.str.507 = private unnamed_addr constant [17 x i8] c"64-QAM (CTC) 2/3\00", align 1
+@.str.508 = private unnamed_addr constant [17 x i8] c"64-QAM (CTC) 3/4\00", align 1
+@.str.509 = private unnamed_addr constant [17 x i8] c"64-QAM (CTC) 5/6\00", align 1
+@.str.510 = private unnamed_addr constant [17 x i8] c"QPSK (ZT CC) 1/2\00", align 1
+@.str.511 = private unnamed_addr constant [17 x i8] c"QPSK (ZT CC) 3/4\00", align 1
+@.str.512 = private unnamed_addr constant [19 x i8] c"16-QAM (ZT CC) 1/2\00", align 1
+@.str.513 = private unnamed_addr constant [19 x i8] c"16-QAM (ZT CC) 3/4\00", align 1
+@.str.514 = private unnamed_addr constant [19 x i8] c"64-QAM (ZT CC) 1/2\00", align 1
+@.str.515 = private unnamed_addr constant [19 x i8] c"64-QAM (ZT CC) 2/3\00", align 1
+@.str.516 = private unnamed_addr constant [19 x i8] c"64-QAM (ZT CC) 3/4\00", align 1
+@.str.517 = private unnamed_addr constant [16 x i8] c"QPSK (LDPC) 1/2\00", align 1
+@.str.518 = private unnamed_addr constant [23 x i8] c"QPSK (LDPC) 2/3 A code\00", align 1
+@.str.519 = private unnamed_addr constant [23 x i8] c"QPSK (LDPC) 3/4 A code\00", align 1
+@.str.520 = private unnamed_addr constant [18 x i8] c"16-QAM (LDPC) 1/2\00", align 1
+@.str.521 = private unnamed_addr constant [25 x i8] c"16-QAM (LDPC) 2/3 A code\00", align 1
+@.str.522 = private unnamed_addr constant [25 x i8] c"16-QAM (LDPC) 3/4 A code\00", align 1
+@.str.523 = private unnamed_addr constant [18 x i8] c"64-QAM (LDPC) 1/2\00", align 1
+@.str.524 = private unnamed_addr constant [25 x i8] c"64-QAM (LDPC) 2/3 A code\00", align 1
+@.str.525 = private unnamed_addr constant [25 x i8] c"64-QAM (LDPC) 3/4 A code\00", align 1
+@.str.526 = private unnamed_addr constant [23 x i8] c"QPSK (LDPC) 2/3 B code\00", align 1
+@.str.527 = private unnamed_addr constant [23 x i8] c"QPSK (LDPC) 3/4 B code\00", align 1
+@.str.528 = private unnamed_addr constant [25 x i8] c"16-QAM (LDPC) 2/3 B code\00", align 1
+@.str.529 = private unnamed_addr constant [25 x i8] c"16-QAM (LDPC) 3/4 B code\00", align 1
+@.str.530 = private unnamed_addr constant [25 x i8] c"64-QAM (LDPC) 2/3 B code\00", align 1
+@.str.531 = private unnamed_addr constant [25 x i8] c"64-QAM (LDPC) 3/4 B code\00", align 1
+@.str.532 = private unnamed_addr constant [40 x i8] c"QPSK (CC with optional interleaver) 1/2\00", align 1
+@.str.533 = private unnamed_addr constant [40 x i8] c"QPSK (CC with optional interleaver) 3/4\00", align 1
+@.str.534 = private unnamed_addr constant [42 x i8] c"16-QAM (CC with optional interleaver) 1/2\00", align 1
+@.str.535 = private unnamed_addr constant [42 x i8] c"16-QAM (CC with optional interleaver) 3/4\00", align 1
+@.str.536 = private unnamed_addr constant [42 x i8] c"64-QAM (CC with optional interleaver) 2/3\00", align 1
+@.str.537 = private unnamed_addr constant [42 x i8] c"64-QAM (CC with optional interleaver) 3/4\00", align 1
+@.str.538 = private unnamed_addr constant [16 x i8] c"QPSK (LDPC) 5/6\00", align 1
+@.str.539 = private unnamed_addr constant [17 x i8] c"16-QAM(LDPC) 5/6\00", align 1
+@.str.540 = private unnamed_addr constant [17 x i8] c"64-QAM(LDPC) 5/6\00", align 1
+@wimaxmacphy_modulation_fec_code_type_vals = internal constant [54 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.489 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.490 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.491 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.492 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.493 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.494 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.495 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.496 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.497 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.498 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.499 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.500 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.501 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.502 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.14 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.503 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.504 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.505 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.506 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.507 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.508 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.509 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.510 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.511 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.512 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.513 }, { i32, [4 x i8], ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.514 }, { i32, [4 x i8], ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.515 }, { i32, [4 x i8], ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.516 }, { i32, [4 x i8], ptr } { i32 29, [4 x i8] zeroinitializer, ptr @.str.517 }, { i32, [4 x i8], ptr } { i32 30, [4 x i8] zeroinitializer, ptr @.str.518 }, { i32, [4 x i8], ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.519 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.520 }, { i32, [4 x i8], ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.521 }, { i32, [4 x i8], ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.522 }, { i32, [4 x i8], ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.523 }, { i32, [4 x i8], ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.524 }, { i32, [4 x i8], ptr } { i32 37, [4 x i8] zeroinitializer, ptr @.str.525 }, { i32, [4 x i8], ptr } { i32 38, [4 x i8] zeroinitializer, ptr @.str.526 }, { i32, [4 x i8], ptr } { i32 39, [4 x i8] zeroinitializer, ptr @.str.527 }, { i32, [4 x i8], ptr } { i32 40, [4 x i8] zeroinitializer, ptr @.str.528 }, { i32, [4 x i8], ptr } { i32 41, [4 x i8] zeroinitializer, ptr @.str.529 }, { i32, [4 x i8], ptr } { i32 42, [4 x i8] zeroinitializer, ptr @.str.530 }, { i32, [4 x i8], ptr } { i32 43, [4 x i8] zeroinitializer, ptr @.str.531 }, { i32, [4 x i8], ptr } { i32 44, [4 x i8] zeroinitializer, ptr @.str.532 }, { i32, [4 x i8], ptr } { i32 45, [4 x i8] zeroinitializer, ptr @.str.533 }, { i32, [4 x i8], ptr } { i32 46, [4 x i8] zeroinitializer, ptr @.str.534 }, { i32, [4 x i8], ptr } { i32 47, [4 x i8] zeroinitializer, ptr @.str.535 }, { i32, [4 x i8], ptr } { i32 48, [4 x i8] zeroinitializer, ptr @.str.536 }, { i32, [4 x i8], ptr } { i32 49, [4 x i8] zeroinitializer, ptr @.str.537 }, { i32, [4 x i8], ptr } { i32 50, [4 x i8] zeroinitializer, ptr @.str.538 }, { i32, [4 x i8], ptr } { i32 51, [4 x i8] zeroinitializer, ptr @.str.539 }, { i32, [4 x i8], ptr } { i32 52, [4 x i8] zeroinitializer, ptr @.str.540 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.542 = private unnamed_addr constant [7 x i8] c"normal\00", align 1
+@.str.543 = private unnamed_addr constant [5 x i8] c"+6dB\00", align 1
+@.str.544 = private unnamed_addr constant [5 x i8] c"-6dB\00", align 1
+@.str.545 = private unnamed_addr constant [5 x i8] c"+9dB\00", align 1
+@.str.546 = private unnamed_addr constant [5 x i8] c"+3dB\00", align 1
+@.str.547 = private unnamed_addr constant [5 x i8] c"-3dB\00", align 1
+@.str.548 = private unnamed_addr constant [6 x i8] c"-9 dB\00", align 1
+@.str.549 = private unnamed_addr constant [7 x i8] c"-12 dB\00", align 1
+@wimaxmacphy_burst_boosting_vals = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.542 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.543 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.544 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.545 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.546 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.547 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.548 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.549 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.551 = private unnamed_addr constant [21 x i8] c"No repetition coding\00", align 1
+@.str.552 = private unnamed_addr constant [23 x i8] c"Repetition coding of 2\00", align 1
+@.str.553 = private unnamed_addr constant [23 x i8] c"Repetition coding of 4\00", align 1
+@.str.554 = private unnamed_addr constant [23 x i8] c"Repetition coding of 6\00", align 1
+@wimaxmacphy_burst_repetition_coding_indication_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.551 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.552 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.553 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.554 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.556 = private unnamed_addr constant [18 x i8] c"UL PAPR reduction\00", align 1
+@.str.557 = private unnamed_addr constant [15 x i8] c"UL Safety zone\00", align 1
+@wimaxmacphy_ul_burst_papr_unnamed_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.556 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.557 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.559 = private unnamed_addr constant [23 x i8] c"ranging over 2 symbols\00", align 1
+@.str.560 = private unnamed_addr constant [23 x i8] c"ranging over 4 symbols\00", align 1
+@wimaxmacphy_ul_burst_ranging_method_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.559 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.560 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.562 = private unnamed_addr constant [7 x i8] c"Type A\00", align 1
+@.str.563 = private unnamed_addr constant [7 x i8] c"Type B\00", align 1
+@wimaxmacphy_ul_burst_sounding_type_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.562 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.563 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.565 = private unnamed_addr constant [16 x i8] c"all subcarriers\00", align 1
+@.str.566 = private unnamed_addr constant [32 x i8] c"decimated subcarriers in a band\00", align 1
+@wimaxmacphy_ul_burst_sounding_separability_type_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.565 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.566 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.568 = private unnamed_addr constant [4 x i8] c"P=4\00", align 1
+@.str.569 = private unnamed_addr constant [5 x i8] c"P=8;\00", align 1
+@.str.570 = private unnamed_addr constant [5 x i8] c"P=16\00", align 1
+@.str.571 = private unnamed_addr constant [5 x i8] c"P=32\00", align 1
+@.str.572 = private unnamed_addr constant [4 x i8] c"P=9\00", align 1
+@.str.573 = private unnamed_addr constant [5 x i8] c"P=18\00", align 1
+@wimaxmacphy_ul_burst_sounding_max_cyclic_shift_indx_vals = internal constant [7 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.568 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.569 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.570 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.571 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.572 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.573 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.575 = private unnamed_addr constant [17 x i8] c"no randomization\00", align 1
+@.str.576 = private unnamed_addr constant [14 x i8] c"randomization\00", align 1
+@wimaxmacphy_ul_burst_sounding_decimation_offset_rand_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.575 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.576 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.578 = private unnamed_addr constant [16 x i8] c"Matrix A (STTD)\00", align 1
+@.str.579 = private unnamed_addr constant [14 x i8] c"Matrix B (SM)\00", align 1
+@wimaxmacphy_ul_burst_opt_mimo_matrix_indicator_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.578 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.579 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.14 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.14 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.581 = private unnamed_addr constant [18 x i8] c"non-collaborative\00", align 1
+@.str.582 = private unnamed_addr constant [14 x i8] c"collaborative\00", align 1
+@wimaxmacphy_ul_burst_opt_mimo_collaborative_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.581 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.582 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.584 = private unnamed_addr constant [21 x i8] c"Single TX antenna SS\00", align 1
+@.str.585 = private unnamed_addr constant [19 x i8] c"Dual TX antenna SS\00", align 1
+@wimaxmacphy_ul_burst_opt_mimo_antenna_unnamed_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.584 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.585 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.587 = private unnamed_addr constant [8 x i8] c"No HARQ\00", align 1
+@.str.588 = private unnamed_addr constant [21 x i8] c"HARQ Chase Combining\00", align 1
+@.str.589 = private unnamed_addr constant [12 x i8] c"HARQ IR-CTC\00", align 1
+@.str.590 = private unnamed_addr constant [11 x i8] c"HARQ IR-CC\00", align 1
+@.str.591 = private unnamed_addr constant [21 x i8] c"MIMO Chase Combining\00", align 1
+@.str.592 = private unnamed_addr constant [12 x i8] c"MIMO IR-CTC\00", align 1
+@.str.593 = private unnamed_addr constant [11 x i8] c"MIMO IR-CC\00", align 1
+@.str.594 = private unnamed_addr constant [9 x i8] c"MIMO-STC\00", align 1
+@wimaxmacphy_dl_sub_burst_type_vals = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 96, [4 x i8] zeroinitializer, ptr @.str.587 }, { i32, [4 x i8], ptr } { i32 97, [4 x i8] zeroinitializer, ptr @.str.588 }, { i32, [4 x i8], ptr } { i32 98, [4 x i8] zeroinitializer, ptr @.str.589 }, { i32, [4 x i8], ptr } { i32 99, [4 x i8] zeroinitializer, ptr @.str.590 }, { i32, [4 x i8], ptr } { i32 100, [4 x i8] zeroinitializer, ptr @.str.591 }, { i32, [4 x i8], ptr } { i32 101, [4 x i8] zeroinitializer, ptr @.str.592 }, { i32, [4 x i8], ptr } { i32 102, [4 x i8] zeroinitializer, ptr @.str.593 }, { i32, [4 x i8], ptr } { i32 103, [4 x i8] zeroinitializer, ptr @.str.594 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.596 = private unnamed_addr constant [16 x i8] c"Mini-subchannel\00", align 1
+@.str.597 = private unnamed_addr constant [22 x i8] c"Fast Feedback channel\00", align 1
+@.str.598 = private unnamed_addr constant [20 x i8] c"HARQ ACK subchannel\00", align 1
+@.str.599 = private unnamed_addr constant [16 x i8] c"Sounding signal\00", align 1
+@wimaxmacphy_ul_sub_burst_type_vals = internal constant [13 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 96, [4 x i8] zeroinitializer, ptr @.str.587 }, { i32, [4 x i8], ptr } { i32 97, [4 x i8] zeroinitializer, ptr @.str.588 }, { i32, [4 x i8], ptr } { i32 98, [4 x i8] zeroinitializer, ptr @.str.589 }, { i32, [4 x i8], ptr } { i32 99, [4 x i8] zeroinitializer, ptr @.str.590 }, { i32, [4 x i8], ptr } { i32 100, [4 x i8] zeroinitializer, ptr @.str.591 }, { i32, [4 x i8], ptr } { i32 101, [4 x i8] zeroinitializer, ptr @.str.592 }, { i32, [4 x i8], ptr } { i32 102, [4 x i8] zeroinitializer, ptr @.str.593 }, { i32, [4 x i8], ptr } { i32 103, [4 x i8] zeroinitializer, ptr @.str.594 }, { i32, [4 x i8], ptr } { i32 104, [4 x i8] zeroinitializer, ptr @.str.596 }, { i32, [4 x i8], ptr } { i32 105, [4 x i8] zeroinitializer, ptr @.str.597 }, { i32, [4 x i8], ptr } { i32 106, [4 x i8] zeroinitializer, ptr @.str.598 }, { i32, [4 x i8], ptr } { i32 107, [4 x i8] zeroinitializer, ptr @.str.599 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.601 = private unnamed_addr constant [16 x i8] c"no flush action\00", align 1
+@.str.602 = private unnamed_addr constant [40 x i8] c"flush request to PHY for the ISSID/ACID\00", align 1
+@.str.603 = private unnamed_addr constant [41 x i8] c"flush request to PHY for the given ISSID\00", align 1
+@wimaxmacphy_sub_burst_flush_unnamed_vals = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.601 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.602 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.603 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.605 = private unnamed_addr constant [34 x i8] c"2 mini-subchannels adjacent tiles\00", align 1
+@.str.606 = private unnamed_addr constant [37 x i8] c"2 mini subchannels interleaved tiles\00", align 1
+@.str.607 = private unnamed_addr constant [19 x i8] c"3 mini subchannels\00", align 1
+@.str.608 = private unnamed_addr constant [19 x i8] c"6 mini subchannels\00", align 1
+@wimaxmacphy_ul_sub_burst_ctype_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.605 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.606 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.607 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.608 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.610 = private unnamed_addr constant [12 x i8] c"Equal power\00", align 1
+@.str.611 = private unnamed_addr constant [52 x i8] c"Interference dependent. Per subcarrier power limit.\00", align 1
+@.str.612 = private unnamed_addr constant [43 x i8] c"Interference dependent. Total power limit.\00", align 1
+@wimaxmacphy_ul_sub_burst_sounding_power_assignment_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.610 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.14 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.611 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.612 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.614 = private unnamed_addr constant [9 x i8] c"no boost\00", align 1
+@.str.615 = private unnamed_addr constant [6 x i8] c"boost\00", align 1
+@wimaxmacphy_ul_sub_burst_sounding_power_boost_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.614 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.615 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.617 = private unnamed_addr constant [7 x i8] c"Normal\00", align 1
+@.str.618 = private unnamed_addr constant [9 x i8] c"Band AMC\00", align 1
+@wimaxmacphy_ul_sub_burst_sounding_allocation_mode_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.617 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.618 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@wimaxmacphy_ul_sub_burst_mimo_chase_matrix_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.450 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.451 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.621 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
+@.str.622 = private unnamed_addr constant [19 x i8] c"Zone Descriptor %u\00", align 1
+@.str.623 = private unnamed_addr constant [18 x i8] c"STC Zone Specific\00", align 1
+@.str.624 = private unnamed_addr constant [18 x i8] c"AAS Zone Specific\00", align 1
+@.str.625 = private unnamed_addr constant [20 x i8] c"Burst Descriptor %u\00", align 1
+@.str.626 = private unnamed_addr constant [24 x i8] c"MAP Data Burst Specific\00", align 1
+@.str.627 = private unnamed_addr constant [27 x i8] c"Normal Data Burst Specific\00", align 1
+@.str.628 = private unnamed_addr constant [22 x i8] c"Optional AAS Specific\00", align 1
+@.str.629 = private unnamed_addr constant [23 x i8] c"Optional MIMO Specific\00", align 1
+@.str.630 = private unnamed_addr constant [25 x i8] c"PAPR Allocation Specific\00", align 1
+@.str.631 = private unnamed_addr constant [24 x i8] c"Sub-Burst Descriptor %u\00", align 1
+@.str.632 = private unnamed_addr constant [20 x i8] c"HARQ Chase Specific\00", align 1
+@.str.633 = private unnamed_addr constant [20 x i8] c"MIMO Chase Specific\00", align 1
+@.str.634 = private unnamed_addr constant [26 x i8] c"HARQ ACK Channel Specific\00", align 1
+@.str.635 = private unnamed_addr constant [31 x i8] c"Fast Feedback Channel Specific\00", align 1
+@.str.636 = private unnamed_addr constant [53 x i8] c"Initial Ranging/Handover Ranging Allocation Specific\00", align 1
+@.str.637 = private unnamed_addr constant [55 x i8] c"Periodic Ranging/Bandwidth Request Allocation Specific\00", align 1
+@.str.638 = private unnamed_addr constant [34 x i8] c"PAPR/Safety Zone Channel Specific\00", align 1
+@.str.639 = private unnamed_addr constant [34 x i8] c"Sounding Zone Allocation Specific\00", align 1
+@.str.640 = private unnamed_addr constant [44 x i8] c"Noise Floor Calculation Allocation Specific\00", align 1
+@.str.641 = private unnamed_addr constant [36 x i8] c"Mini-Subchannel Allocation Specific\00", align 1
+@.str.642 = private unnamed_addr constant [34 x i8] c"Fast Feedback Allocation Specific\00", align 1
+@.str.643 = private unnamed_addr constant [40 x i8] c"HARQ ACK Subchannel Allocation Specific\00", align 1
+@.str.644 = private unnamed_addr constant [25 x i8] c"Sounding Signal Specific\00", align 1
+@.str.645 = private unnamed_addr constant [24 x i8] c"Sub-Allocation Specific\00", align 1
+@.str.646 = private unnamed_addr constant [29 x i8] c"HARQ ACK channel data format\00", align 1
+@.str.647 = private unnamed_addr constant [34 x i8] c"Fast Feedback channel data format\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_wimaxmacphy() #0 {
   %1 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #3
   %2 = call i32 @proto_register_protocol(ptr noundef @.str.353, ptr noundef @.str.354, ptr noundef @.str.355)
   store i32 %2, ptr @proto_wimaxmacphy, align 4
   %3 = load i32, ptr @proto_wimaxmacphy, align 4
@@ -948,14 +946,20 @@ define hidden void @proto_register_wimaxmacphy() #0 {
   store ptr %7, ptr %1, align 8
   %8 = load ptr, ptr %1, align 8
   call void @expert_register_field_array(ptr noundef %8, ptr noundef @proto_register_wimaxmacphy.ei, i32 noundef 1)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #3
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_wimaxmacphy(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -967,306 +971,334 @@ define internal i32 @dissect_wimaxmacphy(ptr noundef %0, ptr noundef %1, ptr nou
   %12 = alloca ptr, align 8
   %13 = alloca i32, align 4
   %14 = alloca i8, align 1
+  %15 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
   store i32 0, ptr %13, align 4
-  %15 = load ptr, ptr %6, align 8
-  %16 = call i32 @tvb_reported_length(ptr noundef %15)
-  %17 = icmp ult i32 %16, 2
-  br i1 %17, label %18, label %19
-
-18:                                               ; preds = %4
-  store i32 0, ptr %5, align 4
-  br label %196
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #3
+  %16 = load ptr, ptr %6, align 8
+  %17 = call i32 @tvb_reported_length(ptr noundef %16)
+  %18 = icmp ult i32 %17, 2
+  br i1 %18, label %19, label %20
 
 19:                                               ; preds = %4
-  %20 = load ptr, ptr %7, align 8
-  %21 = getelementptr inbounds %struct._packet_info, ptr %20, i32 0, i32 1
-  %22 = load ptr, ptr %21, align 8
-  call void @col_set_str(ptr noundef %22, i32 noundef 34, ptr noundef @.str.355)
-  %23 = load ptr, ptr %7, align 8
-  %24 = getelementptr inbounds %struct._packet_info, ptr %23, i32 0, i32 1
-  %25 = load ptr, ptr %24, align 8
-  call void @col_clear(ptr noundef %25, i32 noundef 25)
-  %26 = load ptr, ptr %8, align 8
-  %27 = load i32, ptr @proto_wimaxmacphy, align 4
-  %28 = load ptr, ptr %6, align 8
-  %29 = call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %27, ptr noundef %28, i32 noundef 0, i32 noundef -1, i32 noundef 0)
-  store ptr %29, ptr %12, align 8
-  %30 = load ptr, ptr %12, align 8
-  %31 = load i32, ptr @ett_wimaxmacphy, align 4
-  %32 = call ptr @proto_item_add_subtree(ptr noundef %30, i32 noundef %31)
-  store ptr %32, ptr %10, align 8
-  %33 = load ptr, ptr %10, align 8
-  %34 = load i32, ptr @hf_wimaxmacphy_hdr_phy_entity_id, align 4
-  %35 = load ptr, ptr %6, align 8
-  %36 = load i32, ptr %13, align 4
-  %37 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %34, ptr noundef %35, i32 noundef %36, i32 noundef 1, i32 noundef 0)
-  %38 = load ptr, ptr %10, align 8
-  %39 = load i32, ptr @hf_wimaxmacphy_hdr_message_segmentation, align 4
-  %40 = load ptr, ptr %6, align 8
-  %41 = load i32, ptr %13, align 4
-  %42 = call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %39, ptr noundef %40, i32 noundef %41, i32 noundef 1, i32 noundef 0)
-  %43 = load i32, ptr %13, align 4
-  %44 = add i32 %43, 1
-  store i32 %44, ptr %13, align 4
-  %45 = load ptr, ptr %6, align 8
-  %46 = load i32, ptr %13, align 4
-  %47 = call zeroext i8 @tvb_get_guint8(ptr noundef %45, i32 noundef %46)
-  store i8 %47, ptr %14, align 1
-  %48 = load ptr, ptr %10, align 8
-  %49 = load i32, ptr @hf_wimaxmacphy_hdr_message_type, align 4
-  %50 = load ptr, ptr %6, align 8
-  %51 = load i32, ptr %13, align 4
-  %52 = call ptr @proto_tree_add_item(ptr noundef %48, i32 noundef %49, ptr noundef %50, i32 noundef %51, i32 noundef 1, i32 noundef 0)
-  store ptr %52, ptr %12, align 8
-  %53 = load ptr, ptr %12, align 8
-  %54 = load i32, ptr @ett_wimaxmacphy_primitive, align 4
-  %55 = call ptr @proto_item_add_subtree(ptr noundef %53, i32 noundef %54)
-  store ptr %55, ptr %11, align 8
-  %56 = load ptr, ptr %7, align 8
-  %57 = getelementptr inbounds %struct._packet_info, ptr %56, i32 0, i32 1
-  %58 = load ptr, ptr %57, align 8
-  %59 = load i8, ptr %14, align 1
-  %60 = zext i8 %59 to i32
-  %61 = call ptr @val_to_str_const(i32 noundef %60, ptr noundef @wimaxmacphy_message_type_vals, ptr noundef @.str.570)
-  call void @col_set_str(ptr noundef %58, i32 noundef 25, ptr noundef %61)
-  %62 = load i32, ptr %13, align 4
-  %63 = add i32 %62, 1
-  store i32 %63, ptr %13, align 4
-  %64 = load i8, ptr %14, align 1
-  %65 = zext i8 %64 to i32
-  switch i32 %65, label %162 [
-    i32 1, label %66
-    i32 2, label %74
-    i32 3, label %82
-    i32 4, label %90
-    i32 5, label %98
-    i32 6, label %106
-    i32 7, label %114
-    i32 8, label %122
-    i32 9, label %130
-    i32 10, label %138
-    i32 11, label %146
-    i32 15, label %154
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %15, align 4
+  br label %197
+
+20:                                               ; preds = %4
+  %21 = load ptr, ptr %7, align 8
+  %22 = getelementptr inbounds nuw %struct._packet_info, ptr %21, i32 0, i32 1
+  %23 = load ptr, ptr %22, align 8
+  call void @col_set_str(ptr noundef %23, i32 noundef 35, ptr noundef @.str.355)
+  %24 = load ptr, ptr %7, align 8
+  %25 = getelementptr inbounds nuw %struct._packet_info, ptr %24, i32 0, i32 1
+  %26 = load ptr, ptr %25, align 8
+  call void @col_clear(ptr noundef %26, i32 noundef 25)
+  %27 = load ptr, ptr %8, align 8
+  %28 = load i32, ptr @proto_wimaxmacphy, align 4
+  %29 = load ptr, ptr %6, align 8
+  %30 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %28, ptr noundef %29, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  store ptr %30, ptr %12, align 8
+  %31 = load ptr, ptr %12, align 8
+  %32 = load i32, ptr @ett_wimaxmacphy, align 4
+  %33 = call ptr @proto_item_add_subtree(ptr noundef %31, i32 noundef %32)
+  store ptr %33, ptr %10, align 8
+  %34 = load ptr, ptr %10, align 8
+  %35 = load i32, ptr @hf_wimaxmacphy_hdr_phy_entity_id, align 4
+  %36 = load ptr, ptr %6, align 8
+  %37 = load i32, ptr %13, align 4
+  %38 = call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %35, ptr noundef %36, i32 noundef %37, i32 noundef 1, i32 noundef 0)
+  %39 = load ptr, ptr %10, align 8
+  %40 = load i32, ptr @hf_wimaxmacphy_hdr_message_segmentation, align 4
+  %41 = load ptr, ptr %6, align 8
+  %42 = load i32, ptr %13, align 4
+  %43 = call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %40, ptr noundef %41, i32 noundef %42, i32 noundef 1, i32 noundef 0)
+  %44 = load i32, ptr %13, align 4
+  %45 = add i32 %44, 1
+  store i32 %45, ptr %13, align 4
+  %46 = load ptr, ptr %6, align 8
+  %47 = load i32, ptr %13, align 4
+  %48 = call zeroext i8 @tvb_get_uint8(ptr noundef %46, i32 noundef %47)
+  store i8 %48, ptr %14, align 1
+  %49 = load ptr, ptr %10, align 8
+  %50 = load i32, ptr @hf_wimaxmacphy_hdr_message_type, align 4
+  %51 = load ptr, ptr %6, align 8
+  %52 = load i32, ptr %13, align 4
+  %53 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %50, ptr noundef %51, i32 noundef %52, i32 noundef 1, i32 noundef 0)
+  store ptr %53, ptr %12, align 8
+  %54 = load ptr, ptr %12, align 8
+  %55 = load i32, ptr @ett_wimaxmacphy_primitive, align 4
+  %56 = call ptr @proto_item_add_subtree(ptr noundef %54, i32 noundef %55)
+  store ptr %56, ptr %11, align 8
+  %57 = load ptr, ptr %7, align 8
+  %58 = getelementptr inbounds nuw %struct._packet_info, ptr %57, i32 0, i32 1
+  %59 = load ptr, ptr %58, align 8
+  %60 = load i8, ptr %14, align 1
+  %61 = zext i8 %60 to i32
+  %62 = call ptr @val_to_str_const(i32 noundef %61, ptr noundef @wimaxmacphy_message_type_vals, ptr noundef @.str.621)
+  call void @col_set_str(ptr noundef %59, i32 noundef 25, ptr noundef %62)
+  %63 = load i32, ptr %13, align 4
+  %64 = add i32 %63, 1
+  store i32 %64, ptr %13, align 4
+  %65 = load i8, ptr %14, align 1
+  %66 = zext i8 %65 to i32
+  switch i32 %66, label %163 [
+    i32 1, label %67
+    i32 2, label %75
+    i32 3, label %83
+    i32 4, label %91
+    i32 5, label %99
+    i32 6, label %107
+    i32 7, label %115
+    i32 8, label %123
+    i32 9, label %131
+    i32 10, label %139
+    i32 11, label %147
+    i32 15, label %155
   ]
 
-66:                                               ; preds = %19
-  %67 = load ptr, ptr %6, align 8
-  %68 = load i32, ptr %13, align 4
-  %69 = load ptr, ptr %7, align 8
-  %70 = load ptr, ptr %11, align 8
-  %71 = call i32 @dissect_wimaxmacphy_phy_txstart_request(ptr noundef %67, i32 noundef %68, ptr noundef %69, ptr noundef %70)
-  %72 = load i32, ptr %13, align 4
-  %73 = add i32 %72, %71
-  store i32 %73, ptr %13, align 4
-  br label %176
+67:                                               ; preds = %20
+  %68 = load ptr, ptr %6, align 8
+  %69 = load i32, ptr %13, align 4
+  %70 = load ptr, ptr %7, align 8
+  %71 = load ptr, ptr %11, align 8
+  %72 = call i32 @dissect_wimaxmacphy_phy_txstart_request(ptr noundef %68, i32 noundef %69, ptr noundef %70, ptr noundef %71)
+  %73 = load i32, ptr %13, align 4
+  %74 = add i32 %73, %72
+  store i32 %74, ptr %13, align 4
+  br label %177
 
-74:                                               ; preds = %19
-  %75 = load ptr, ptr %6, align 8
-  %76 = load i32, ptr %13, align 4
-  %77 = load ptr, ptr %7, align 8
-  %78 = load ptr, ptr %11, align 8
-  %79 = call i32 @dissect_wimaxmacphy_phy_txstart_confirmation(ptr noundef %75, i32 noundef %76, ptr noundef %77, ptr noundef %78)
-  %80 = load i32, ptr %13, align 4
-  %81 = add i32 %80, %79
-  store i32 %81, ptr %13, align 4
-  br label %176
+75:                                               ; preds = %20
+  %76 = load ptr, ptr %6, align 8
+  %77 = load i32, ptr %13, align 4
+  %78 = load ptr, ptr %7, align 8
+  %79 = load ptr, ptr %11, align 8
+  %80 = call i32 @dissect_wimaxmacphy_phy_txstart_confirmation(ptr noundef %76, i32 noundef %77, ptr noundef %78, ptr noundef %79)
+  %81 = load i32, ptr %13, align 4
+  %82 = add i32 %81, %80
+  store i32 %82, ptr %13, align 4
+  br label %177
 
-82:                                               ; preds = %19
-  %83 = load ptr, ptr %6, align 8
-  %84 = load i32, ptr %13, align 4
-  %85 = load ptr, ptr %7, align 8
-  %86 = load ptr, ptr %11, align 8
-  %87 = call i32 @dissect_wimaxmacphy_phy_txstart_indication(ptr noundef %83, i32 noundef %84, ptr noundef %85, ptr noundef %86)
-  %88 = load i32, ptr %13, align 4
-  %89 = add i32 %88, %87
-  store i32 %89, ptr %13, align 4
-  br label %176
+83:                                               ; preds = %20
+  %84 = load ptr, ptr %6, align 8
+  %85 = load i32, ptr %13, align 4
+  %86 = load ptr, ptr %7, align 8
+  %87 = load ptr, ptr %11, align 8
+  %88 = call i32 @dissect_wimaxmacphy_phy_txstart_indication(ptr noundef %84, i32 noundef %85, ptr noundef %86, ptr noundef %87)
+  %89 = load i32, ptr %13, align 4
+  %90 = add i32 %89, %88
+  store i32 %90, ptr %13, align 4
+  br label %177
 
-90:                                               ; preds = %19
-  %91 = load ptr, ptr %6, align 8
-  %92 = load i32, ptr %13, align 4
-  %93 = load ptr, ptr %7, align 8
-  %94 = load ptr, ptr %11, align 8
-  %95 = call i32 @dissect_wimaxmacphy_phy_txsdu_request(ptr noundef %91, i32 noundef %92, ptr noundef %93, ptr noundef %94)
-  %96 = load i32, ptr %13, align 4
-  %97 = add i32 %96, %95
-  store i32 %97, ptr %13, align 4
-  br label %176
+91:                                               ; preds = %20
+  %92 = load ptr, ptr %6, align 8
+  %93 = load i32, ptr %13, align 4
+  %94 = load ptr, ptr %7, align 8
+  %95 = load ptr, ptr %11, align 8
+  %96 = call i32 @dissect_wimaxmacphy_phy_txsdu_request(ptr noundef %92, i32 noundef %93, ptr noundef %94, ptr noundef %95)
+  %97 = load i32, ptr %13, align 4
+  %98 = add i32 %97, %96
+  store i32 %98, ptr %13, align 4
+  br label %177
 
-98:                                               ; preds = %19
-  %99 = load ptr, ptr %6, align 8
-  %100 = load i32, ptr %13, align 4
-  %101 = load ptr, ptr %7, align 8
-  %102 = load ptr, ptr %11, align 8
-  %103 = call i32 @dissect_wimaxmacphy_phy_txsdu_confirmation(ptr noundef %99, i32 noundef %100, ptr noundef %101, ptr noundef %102)
-  %104 = load i32, ptr %13, align 4
-  %105 = add i32 %104, %103
-  store i32 %105, ptr %13, align 4
-  br label %176
+99:                                               ; preds = %20
+  %100 = load ptr, ptr %6, align 8
+  %101 = load i32, ptr %13, align 4
+  %102 = load ptr, ptr %7, align 8
+  %103 = load ptr, ptr %11, align 8
+  %104 = call i32 @dissect_wimaxmacphy_phy_txsdu_confirmation(ptr noundef %100, i32 noundef %101, ptr noundef %102, ptr noundef %103)
+  %105 = load i32, ptr %13, align 4
+  %106 = add i32 %105, %104
+  store i32 %106, ptr %13, align 4
+  br label %177
 
-106:                                              ; preds = %19
-  %107 = load ptr, ptr %6, align 8
-  %108 = load i32, ptr %13, align 4
-  %109 = load ptr, ptr %7, align 8
-  %110 = load ptr, ptr %11, align 8
-  %111 = call i32 @dissect_wimaxmacphy_phy_txend_indication(ptr noundef %107, i32 noundef %108, ptr noundef %109, ptr noundef %110)
-  %112 = load i32, ptr %13, align 4
-  %113 = add i32 %112, %111
-  store i32 %113, ptr %13, align 4
-  br label %176
+107:                                              ; preds = %20
+  %108 = load ptr, ptr %6, align 8
+  %109 = load i32, ptr %13, align 4
+  %110 = load ptr, ptr %7, align 8
+  %111 = load ptr, ptr %11, align 8
+  %112 = call i32 @dissect_wimaxmacphy_phy_txend_indication(ptr noundef %108, i32 noundef %109, ptr noundef %110, ptr noundef %111)
+  %113 = load i32, ptr %13, align 4
+  %114 = add i32 %113, %112
+  store i32 %114, ptr %13, align 4
+  br label %177
 
-114:                                              ; preds = %19
-  %115 = load ptr, ptr %6, align 8
-  %116 = load i32, ptr %13, align 4
-  %117 = load ptr, ptr %7, align 8
-  %118 = load ptr, ptr %11, align 8
-  %119 = call i32 @dissect_wimaxmacphy_phy_rxstart_request(ptr noundef %115, i32 noundef %116, ptr noundef %117, ptr noundef %118)
-  %120 = load i32, ptr %13, align 4
-  %121 = add i32 %120, %119
-  store i32 %121, ptr %13, align 4
-  br label %176
+115:                                              ; preds = %20
+  %116 = load ptr, ptr %6, align 8
+  %117 = load i32, ptr %13, align 4
+  %118 = load ptr, ptr %7, align 8
+  %119 = load ptr, ptr %11, align 8
+  %120 = call i32 @dissect_wimaxmacphy_phy_rxstart_request(ptr noundef %116, i32 noundef %117, ptr noundef %118, ptr noundef %119)
+  %121 = load i32, ptr %13, align 4
+  %122 = add i32 %121, %120
+  store i32 %122, ptr %13, align 4
+  br label %177
 
-122:                                              ; preds = %19
-  %123 = load ptr, ptr %6, align 8
-  %124 = load i32, ptr %13, align 4
-  %125 = load ptr, ptr %7, align 8
-  %126 = load ptr, ptr %11, align 8
-  %127 = call i32 @dissect_wimaxmacphy_phy_rxstart_confirmation(ptr noundef %123, i32 noundef %124, ptr noundef %125, ptr noundef %126)
-  %128 = load i32, ptr %13, align 4
-  %129 = add i32 %128, %127
-  store i32 %129, ptr %13, align 4
-  br label %176
+123:                                              ; preds = %20
+  %124 = load ptr, ptr %6, align 8
+  %125 = load i32, ptr %13, align 4
+  %126 = load ptr, ptr %7, align 8
+  %127 = load ptr, ptr %11, align 8
+  %128 = call i32 @dissect_wimaxmacphy_phy_rxstart_confirmation(ptr noundef %124, i32 noundef %125, ptr noundef %126, ptr noundef %127)
+  %129 = load i32, ptr %13, align 4
+  %130 = add i32 %129, %128
+  store i32 %130, ptr %13, align 4
+  br label %177
 
-130:                                              ; preds = %19
-  %131 = load ptr, ptr %6, align 8
-  %132 = load i32, ptr %13, align 4
-  %133 = load ptr, ptr %7, align 8
-  %134 = load ptr, ptr %11, align 8
-  %135 = call i32 @dissect_wimaxmacphy_phy_rxstart_indication(ptr noundef %131, i32 noundef %132, ptr noundef %133, ptr noundef %134)
-  %136 = load i32, ptr %13, align 4
-  %137 = add i32 %136, %135
-  store i32 %137, ptr %13, align 4
-  br label %176
+131:                                              ; preds = %20
+  %132 = load ptr, ptr %6, align 8
+  %133 = load i32, ptr %13, align 4
+  %134 = load ptr, ptr %7, align 8
+  %135 = load ptr, ptr %11, align 8
+  %136 = call i32 @dissect_wimaxmacphy_phy_rxstart_indication(ptr noundef %132, i32 noundef %133, ptr noundef %134, ptr noundef %135)
+  %137 = load i32, ptr %13, align 4
+  %138 = add i32 %137, %136
+  store i32 %138, ptr %13, align 4
+  br label %177
 
-138:                                              ; preds = %19
-  %139 = load ptr, ptr %6, align 8
-  %140 = load i32, ptr %13, align 4
-  %141 = load ptr, ptr %7, align 8
-  %142 = load ptr, ptr %11, align 8
-  %143 = call i32 @dissect_wimaxmacphy_phy_rxsdu_indication(ptr noundef %139, i32 noundef %140, ptr noundef %141, ptr noundef %142)
-  %144 = load i32, ptr %13, align 4
-  %145 = add i32 %144, %143
-  store i32 %145, ptr %13, align 4
-  br label %176
+139:                                              ; preds = %20
+  %140 = load ptr, ptr %6, align 8
+  %141 = load i32, ptr %13, align 4
+  %142 = load ptr, ptr %7, align 8
+  %143 = load ptr, ptr %11, align 8
+  %144 = call i32 @dissect_wimaxmacphy_phy_rxsdu_indication(ptr noundef %140, i32 noundef %141, ptr noundef %142, ptr noundef %143)
+  %145 = load i32, ptr %13, align 4
+  %146 = add i32 %145, %144
+  store i32 %146, ptr %13, align 4
+  br label %177
 
-146:                                              ; preds = %19
-  %147 = load ptr, ptr %6, align 8
-  %148 = load i32, ptr %13, align 4
-  %149 = load ptr, ptr %7, align 8
-  %150 = load ptr, ptr %11, align 8
-  %151 = call i32 @dissect_wimaxmacphy_phy_rxend_indication(ptr noundef %147, i32 noundef %148, ptr noundef %149, ptr noundef %150)
-  %152 = load i32, ptr %13, align 4
-  %153 = add i32 %152, %151
-  store i32 %153, ptr %13, align 4
-  br label %176
+147:                                              ; preds = %20
+  %148 = load ptr, ptr %6, align 8
+  %149 = load i32, ptr %13, align 4
+  %150 = load ptr, ptr %7, align 8
+  %151 = load ptr, ptr %11, align 8
+  %152 = call i32 @dissect_wimaxmacphy_phy_rxend_indication(ptr noundef %148, i32 noundef %149, ptr noundef %150, ptr noundef %151)
+  %153 = load i32, ptr %13, align 4
+  %154 = add i32 %153, %152
+  store i32 %154, ptr %13, align 4
+  br label %177
 
-154:                                              ; preds = %19
-  %155 = load ptr, ptr %6, align 8
-  %156 = load i32, ptr %13, align 4
-  %157 = load ptr, ptr %7, align 8
-  %158 = load ptr, ptr %11, align 8
-  %159 = call i32 @dissect_wimaxmacphy_phy_rxcdma_indication(ptr noundef %155, i32 noundef %156, ptr noundef %157, ptr noundef %158)
-  %160 = load i32, ptr %13, align 4
-  %161 = add i32 %160, %159
-  store i32 %161, ptr %13, align 4
-  br label %176
+155:                                              ; preds = %20
+  %156 = load ptr, ptr %6, align 8
+  %157 = load i32, ptr %13, align 4
+  %158 = load ptr, ptr %7, align 8
+  %159 = load ptr, ptr %11, align 8
+  %160 = call i32 @dissect_wimaxmacphy_phy_rxcdma_indication(ptr noundef %156, i32 noundef %157, ptr noundef %158, ptr noundef %159)
+  %161 = load i32, ptr %13, align 4
+  %162 = add i32 %161, %160
+  store i32 %162, ptr %13, align 4
+  br label %177
 
-162:                                              ; preds = %19
-  %163 = load ptr, ptr %11, align 8
-  %164 = load i32, ptr @hf_wimaxmacphy_unknown, align 4
-  %165 = load ptr, ptr %6, align 8
-  %166 = load i32, ptr %13, align 4
-  %167 = load ptr, ptr %6, align 8
-  %168 = load i32, ptr %13, align 4
-  %169 = call i32 @tvb_reported_length_remaining(ptr noundef %167, i32 noundef %168)
-  %170 = call ptr @proto_tree_add_item(ptr noundef %163, i32 noundef %164, ptr noundef %165, i32 noundef %166, i32 noundef %169, i32 noundef 0)
-  %171 = load ptr, ptr %6, align 8
-  %172 = load i32, ptr %13, align 4
-  %173 = call i32 @tvb_reported_length_remaining(ptr noundef %171, i32 noundef %172)
-  %174 = load i32, ptr %13, align 4
-  %175 = add i32 %174, %173
-  store i32 %175, ptr %13, align 4
-  br label %176
+163:                                              ; preds = %20
+  %164 = load ptr, ptr %11, align 8
+  %165 = load i32, ptr @hf_wimaxmacphy_unknown, align 4
+  %166 = load ptr, ptr %6, align 8
+  %167 = load i32, ptr %13, align 4
+  %168 = load ptr, ptr %6, align 8
+  %169 = load i32, ptr %13, align 4
+  %170 = call i32 @tvb_reported_length_remaining(ptr noundef %168, i32 noundef %169)
+  %171 = call ptr @proto_tree_add_item(ptr noundef %164, i32 noundef %165, ptr noundef %166, i32 noundef %167, i32 noundef %170, i32 noundef 0)
+  %172 = load ptr, ptr %6, align 8
+  %173 = load i32, ptr %13, align 4
+  %174 = call i32 @tvb_reported_length_remaining(ptr noundef %172, i32 noundef %173)
+  %175 = load i32, ptr %13, align 4
+  %176 = add i32 %175, %174
+  store i32 %176, ptr %13, align 4
+  br label %177
 
-176:                                              ; preds = %162, %154, %146, %138, %130, %122, %114, %106, %98, %90, %82, %74, %66
-  %177 = load ptr, ptr %6, align 8
-  %178 = load i32, ptr %13, align 4
-  %179 = call i32 @tvb_reported_length_remaining(ptr noundef %177, i32 noundef %178)
-  %180 = icmp sgt i32 %179, 0
-  br i1 %180, label %181, label %193
+177:                                              ; preds = %163, %155, %147, %139, %131, %123, %115, %107, %99, %91, %83, %75, %67
+  %178 = load ptr, ptr %6, align 8
+  %179 = load i32, ptr %13, align 4
+  %180 = call i32 @tvb_reported_length_remaining(ptr noundef %178, i32 noundef %179)
+  %181 = icmp sgt i32 %180, 0
+  br i1 %181, label %182, label %194
 
-181:                                              ; preds = %176
-  %182 = load ptr, ptr %10, align 8
-  %183 = load i32, ptr @hf_wimaxmacphy_unknown, align 4
-  %184 = load ptr, ptr %6, align 8
-  %185 = load i32, ptr %13, align 4
-  %186 = load ptr, ptr %6, align 8
-  %187 = load i32, ptr %13, align 4
-  %188 = call i32 @tvb_reported_length_remaining(ptr noundef %186, i32 noundef %187)
-  %189 = call ptr @proto_tree_add_item(ptr noundef %182, i32 noundef %183, ptr noundef %184, i32 noundef %185, i32 noundef %188, i32 noundef 0)
-  store ptr %189, ptr %12, align 8
-  %190 = load ptr, ptr %7, align 8
-  %191 = load ptr, ptr %12, align 8
-  %192 = call ptr @expert_add_info(ptr noundef %190, ptr noundef %191, ptr noundef @ei_wimaxmacphy_unknown)
-  br label %193
+182:                                              ; preds = %177
+  %183 = load ptr, ptr %10, align 8
+  %184 = load i32, ptr @hf_wimaxmacphy_unknown, align 4
+  %185 = load ptr, ptr %6, align 8
+  %186 = load i32, ptr %13, align 4
+  %187 = load ptr, ptr %6, align 8
+  %188 = load i32, ptr %13, align 4
+  %189 = call i32 @tvb_reported_length_remaining(ptr noundef %187, i32 noundef %188)
+  %190 = call ptr @proto_tree_add_item(ptr noundef %183, i32 noundef %184, ptr noundef %185, i32 noundef %186, i32 noundef %189, i32 noundef 0)
+  store ptr %190, ptr %12, align 8
+  %191 = load ptr, ptr %7, align 8
+  %192 = load ptr, ptr %12, align 8
+  %193 = call ptr @expert_add_info(ptr noundef %191, ptr noundef %192, ptr noundef @ei_wimaxmacphy_unknown)
+  br label %194
 
-193:                                              ; preds = %181, %176
-  %194 = load ptr, ptr %6, align 8
-  %195 = call i32 @tvb_captured_length(ptr noundef %194)
-  store i32 %195, ptr %5, align 4
-  br label %196
+194:                                              ; preds = %182, %177
+  %195 = load ptr, ptr %6, align 8
+  %196 = call i32 @tvb_captured_length(ptr noundef %195)
+  store i32 %196, ptr %5, align 4
+  store i32 1, ptr %15, align 4
+  br label %197
 
-196:                                              ; preds = %193, %18
-  %197 = load i32, ptr %5, align 4
-  ret i32 %197
+197:                                              ; preds = %194, %19
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  %198 = load i32, ptr %5, align 4
+  ret i32 %198
 }
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #2
 
-declare ptr @expert_register_protocol(i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_register_protocol(i32 noundef) #2
 
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_wimaxmacphy() #0 {
   %1 = load ptr, ptr @wimaxmacphy_handle, align 8
   call void @dissector_add_for_decode_as_with_preference(ptr noundef @.str.356, ptr noundef %1)
   ret void
 }
 
-declare void @dissector_add_for_decode_as_with_preference(ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_add_for_decode_as_with_preference(ptr noundef, ptr noundef) #2
 
-declare i32 @tvb_reported_length(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length(ptr noundef) #2
 
-declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare void @col_clear(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_clear(ptr noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #2
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #2
 
-declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_wimaxmacphy_phy_txstart_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -1278,6 +1310,8 @@ define internal i32 @dissect_wimaxmacphy_phy_txstart_request(ptr noundef %0, i32
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %6, align 4
   %13 = call zeroext i16 @tvb_get_ntohs(ptr noundef %11, i32 noundef %12)
@@ -1322,10 +1356,12 @@ define internal i32 @dissect_wimaxmacphy_phy_txstart_request(ptr noundef %0, i32
   %44 = load i16, ptr %9, align 2
   %45 = zext i16 %44 to i32
   %46 = add i32 %45, 2
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 2, ptr %9) #3
   ret i32 %46
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_wimaxmacphy_phy_txstart_confirmation(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -1356,7 +1392,7 @@ define internal i32 @dissect_wimaxmacphy_phy_txstart_confirmation(ptr noundef %0
   ret i32 2
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_wimaxmacphy_phy_txstart_indication(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -1403,7 +1439,7 @@ define internal i32 @dissect_wimaxmacphy_phy_txstart_indication(ptr noundef %0, 
   ret i32 6
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_wimaxmacphy_phy_txsdu_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -1414,6 +1450,7 @@ define internal i32 @dissect_wimaxmacphy_phy_txsdu_request(ptr noundef %0, i32 n
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   %10 = load ptr, ptr %8, align 8
   %11 = load i32, ptr @hf_wimaxmacphy_prim_dl_zone_number, align 4
   %12 = load ptr, ptr %5, align 8
@@ -1444,10 +1481,11 @@ define internal i32 @dissect_wimaxmacphy_phy_txsdu_request(ptr noundef %0, i32 n
   %35 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %31, ptr noundef %32, i32 noundef %33, i32 noundef %34, i32 noundef 0)
   %36 = load i32, ptr %9, align 4
   %37 = add i32 %36, 2
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %37
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_wimaxmacphy_phy_txsdu_confirmation(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -1504,7 +1542,7 @@ define internal i32 @dissect_wimaxmacphy_phy_txsdu_confirmation(ptr noundef %0, 
   ret i32 6
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_wimaxmacphy_phy_txend_indication(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -1564,7 +1602,7 @@ define internal i32 @dissect_wimaxmacphy_phy_txend_indication(ptr noundef %0, i3
   ret i32 6
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_wimaxmacphy_phy_rxstart_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -1576,6 +1614,8 @@ define internal i32 @dissect_wimaxmacphy_phy_rxstart_request(ptr noundef %0, i32
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %6, align 4
   %13 = call zeroext i16 @tvb_get_ntohs(ptr noundef %11, i32 noundef %12)
@@ -1620,10 +1660,12 @@ define internal i32 @dissect_wimaxmacphy_phy_rxstart_request(ptr noundef %0, i32
   %44 = load i16, ptr %9, align 2
   %45 = zext i16 %44 to i32
   %46 = add i32 %45, 2
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 2, ptr %9) #3
   ret i32 %46
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_wimaxmacphy_phy_rxstart_confirmation(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -1654,7 +1696,7 @@ define internal i32 @dissect_wimaxmacphy_phy_rxstart_confirmation(ptr noundef %0
   ret i32 2
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_wimaxmacphy_phy_rxstart_indication(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -1685,7 +1727,7 @@ define internal i32 @dissect_wimaxmacphy_phy_rxstart_indication(ptr noundef %0, 
   ret i32 2
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_wimaxmacphy_phy_rxsdu_indication(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -1701,6 +1743,12 @@ define internal i32 @dissect_wimaxmacphy_phy_rxsdu_indication(ptr noundef %0, i3
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #3
   %15 = load i32, ptr %6, align 4
   store i32 %15, ptr %14, align 4
   %16 = load ptr, ptr %8, align 8
@@ -1771,7 +1819,7 @@ define internal i32 @dissect_wimaxmacphy_phy_rxsdu_indication(ptr noundef %0, i3
   store i32 %74, ptr %6, align 4
   %75 = load ptr, ptr %5, align 8
   %76 = load i32, ptr %6, align 4
-  %77 = call zeroext i8 @tvb_get_guint8(ptr noundef %75, i32 noundef %76)
+  %77 = call zeroext i8 @tvb_get_uint8(ptr noundef %75, i32 noundef %76)
   %78 = zext i8 %77 to i32
   %79 = ashr i32 %78, 4
   %80 = and i32 %79, 15
@@ -1849,7 +1897,7 @@ define internal i32 @dissect_wimaxmacphy_phy_rxsdu_indication(ptr noundef %0, i3
   %137 = load ptr, ptr %5, align 8
   %138 = load i32, ptr %6, align 4
   %139 = load i32, ptr @ett_wimaxmacphy_prim_harq_ack, align 4
-  %140 = call ptr @proto_tree_add_subtree(ptr noundef %136, ptr noundef %137, i32 noundef %138, i32 noundef 4, i32 noundef %139, ptr noundef null, ptr noundef @.str.595)
+  %140 = call ptr @proto_tree_add_subtree(ptr noundef %136, ptr noundef %137, i32 noundef %138, i32 noundef 4, i32 noundef %139, ptr noundef null, ptr noundef @.str.646)
   store ptr %140, ptr %11, align 8
   %141 = load ptr, ptr %11, align 8
   %142 = load i32, ptr @hf_wimaxmacphy_prim_harq_ack_issid, align 4
@@ -1897,7 +1945,7 @@ define internal i32 @dissect_wimaxmacphy_phy_rxsdu_indication(ptr noundef %0, i3
   %179 = load ptr, ptr %5, align 8
   %180 = load i32, ptr %6, align 4
   %181 = load i32, ptr @ett_wimaxmacphy_prim_harq_ack, align 4
-  %182 = call ptr @proto_tree_add_subtree(ptr noundef %178, ptr noundef %179, i32 noundef %180, i32 noundef 8, i32 noundef %181, ptr noundef null, ptr noundef @.str.596)
+  %182 = call ptr @proto_tree_add_subtree(ptr noundef %178, ptr noundef %179, i32 noundef %180, i32 noundef 8, i32 noundef %181, ptr noundef null, ptr noundef @.str.647)
   store ptr %182, ptr %11, align 8
   %183 = load ptr, ptr %11, align 8
   %184 = load i32, ptr @hf_wimaxmacphy_prim_fast_issid, align 4
@@ -2003,10 +2051,16 @@ define internal i32 @dissect_wimaxmacphy_phy_rxsdu_indication(ptr noundef %0, i3
   %273 = load i32, ptr %6, align 4
   %274 = load i32, ptr %14, align 4
   %275 = sub i32 %273, %274
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #3
   ret i32 %275
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_wimaxmacphy_phy_rxend_indication(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -2017,6 +2071,7 @@ define internal i32 @dissect_wimaxmacphy_phy_rxend_indication(ptr noundef %0, i3
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   %10 = load i32, ptr %6, align 4
   store i32 %10, ptr %9, align 4
   %11 = load ptr, ptr %8, align 8
@@ -2074,16 +2129,17 @@ define internal i32 @dissect_wimaxmacphy_phy_rxend_indication(ptr noundef %0, i3
   %54 = load i32, ptr %6, align 4
   %55 = call i32 @tvb_reported_length_remaining(ptr noundef %53, i32 noundef %54)
   %56 = icmp ne i32 %55, 0
-  br i1 %56, label %44, label %57, !llvm.loop !4
+  br i1 %56, label %44, label %57, !llvm.loop !6
 
 57:                                               ; preds = %52
   %58 = load i32, ptr %6, align 4
   %59 = load i32, ptr %9, align 4
   %60 = sub i32 %58, %59
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %60
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_wimaxmacphy_phy_rxcdma_indication(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -2094,6 +2150,7 @@ define internal i32 @dissect_wimaxmacphy_phy_rxcdma_indication(ptr noundef %0, i
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   %10 = load i32, ptr %6, align 4
   store i32 %10, ptr %9, align 4
   %11 = load ptr, ptr %8, align 8
@@ -2208,18 +2265,23 @@ define internal i32 @dissect_wimaxmacphy_phy_rxcdma_indication(ptr noundef %0, i
   %107 = load i32, ptr %6, align 4
   %108 = load i32, ptr %9, align 4
   %109 = sub i32 %107, %108
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %109
 }
 
-declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #2
 
-declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare i32 @tvb_captured_length(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length(ptr noundef) #2
 
-declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_wimaxmacphy_dl_subframe_descriptor(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -2235,8 +2297,11 @@ define internal i32 @dissect_wimaxmacphy_dl_subframe_descriptor(ptr noundef %0, 
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   %15 = load i32, ptr %6, align 4
   store i32 %15, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #3
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr @hf_wimaxmacphy_subframe_subframe_type, align 4
   %18 = load ptr, ptr %5, align 8
@@ -2279,7 +2344,7 @@ define internal i32 @dissect_wimaxmacphy_dl_subframe_descriptor(ptr noundef %0, 
   store i32 %50, ptr %6, align 4
   %51 = load ptr, ptr %5, align 8
   %52 = load i32, ptr %6, align 4
-  %53 = call zeroext i8 @tvb_get_guint8(ptr noundef %51, i32 noundef %52)
+  %53 = call zeroext i8 @tvb_get_uint8(ptr noundef %51, i32 noundef %52)
   store i8 %53, ptr %10, align 1
   %54 = load ptr, ptr %8, align 8
   %55 = load i32, ptr @hf_wimaxmacphy_number_of_zone_descriptors, align 4
@@ -2309,13 +2374,16 @@ define internal i32 @dissect_wimaxmacphy_dl_subframe_descriptor(ptr noundef %0, 
   br i1 %73, label %74, label %95
 
 74:                                               ; preds = %68
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #3
   %75 = load ptr, ptr %8, align 8
   %76 = load ptr, ptr %5, align 8
   %77 = load i32, ptr %6, align 4
   %78 = load i32, ptr @ett_wimaxmacphy_dl_zone_descriptor, align 4
   %79 = load i8, ptr %11, align 1
   %80 = zext i8 %79 to i32
-  %81 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %75, ptr noundef %76, i32 noundef %77, i32 noundef 1, i32 noundef %78, ptr noundef %12, ptr noundef @.str.571, i32 noundef %80)
+  %81 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %75, ptr noundef %76, i32 noundef %77, i32 noundef 1, i32 noundef %78, ptr noundef %12, ptr noundef @.str.622, i32 noundef %80)
   store ptr %81, ptr %13, align 8
   %82 = load ptr, ptr %5, align 8
   %83 = load i32, ptr %6, align 4
@@ -2330,24 +2398,31 @@ define internal i32 @dissect_wimaxmacphy_dl_subframe_descriptor(ptr noundef %0, 
   %90 = load i32, ptr %6, align 4
   %91 = add i32 %90, %89
   store i32 %91, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
   br label %92
 
 92:                                               ; preds = %74
   %93 = load i8, ptr %11, align 1
   %94 = add i8 %93, 1
   store i8 %94, ptr %11, align 1
-  br label %68, !llvm.loop !6
+  br label %68, !llvm.loop !8
 
 95:                                               ; preds = %68
   %96 = load i32, ptr %6, align 4
   %97 = load i32, ptr %9, align 4
   %98 = sub i32 %96, %97
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %98
 }
 
-declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_wimaxmacphy_dl_zone_descriptor(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -2365,11 +2440,17 @@ define internal i32 @dissect_wimaxmacphy_dl_zone_descriptor(ptr noundef %0, i32 
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   %17 = load i32, ptr %6, align 4
   store i32 %17, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #3
   %18 = load ptr, ptr %5, align 8
   %19 = load i32, ptr %6, align 4
-  %20 = call zeroext i8 @tvb_get_guint8(ptr noundef %18, i32 noundef %19)
+  %20 = call zeroext i8 @tvb_get_uint8(ptr noundef %18, i32 noundef %19)
   store i8 %20, ptr %10, align 1
   %21 = load ptr, ptr %8, align 8
   %22 = load i32, ptr @hf_wimaxmacphy_dl_zone_type, align 4
@@ -2463,7 +2544,7 @@ define internal i32 @dissect_wimaxmacphy_dl_zone_descriptor(ptr noundef %0, i32 
   %95 = load ptr, ptr %5, align 8
   %96 = load i32, ptr %6, align 4
   %97 = load i32, ptr @ett_wimaxmacphy_dl_zone_stc, align 4
-  %98 = call ptr @proto_tree_add_subtree(ptr noundef %94, ptr noundef %95, i32 noundef %96, i32 noundef 4, i32 noundef %97, ptr noundef null, ptr noundef @.str.572)
+  %98 = call ptr @proto_tree_add_subtree(ptr noundef %94, ptr noundef %95, i32 noundef %96, i32 noundef 4, i32 noundef %97, ptr noundef null, ptr noundef @.str.623)
   store ptr %98, ptr %14, align 8
   %99 = load ptr, ptr %14, align 8
   %100 = load i32, ptr @hf_wimaxmacphy_zone_stc_type, align 4
@@ -2504,7 +2585,7 @@ define internal i32 @dissect_wimaxmacphy_dl_zone_descriptor(ptr noundef %0, i32 
   %129 = load ptr, ptr %5, align 8
   %130 = load i32, ptr %6, align 4
   %131 = load i32, ptr @ett_wimaxmacphy_dl_zone_aas, align 4
-  %132 = call ptr @proto_tree_add_subtree(ptr noundef %128, ptr noundef %129, i32 noundef %130, i32 noundef 4, i32 noundef %131, ptr noundef null, ptr noundef @.str.573)
+  %132 = call ptr @proto_tree_add_subtree(ptr noundef %128, ptr noundef %129, i32 noundef %130, i32 noundef 4, i32 noundef %131, ptr noundef null, ptr noundef @.str.624)
   store ptr %132, ptr %14, align 8
   %133 = load ptr, ptr %14, align 8
   %134 = load i32, ptr @hf_wimaxmacphy_zone_preamble_configuration, align 4
@@ -2538,7 +2619,7 @@ define internal i32 @dissect_wimaxmacphy_dl_zone_descriptor(ptr noundef %0, i32 
 155:                                              ; preds = %154, %127, %93
   %156 = load ptr, ptr %5, align 8
   %157 = load i32, ptr %6, align 4
-  %158 = call zeroext i8 @tvb_get_guint8(ptr noundef %156, i32 noundef %157)
+  %158 = call zeroext i8 @tvb_get_uint8(ptr noundef %156, i32 noundef %157)
   store i8 %158, ptr %11, align 1
   %159 = load ptr, ptr %8, align 8
   %160 = load i32, ptr @hf_wimaxmacphy_number_of_burst_descriptors, align 4
@@ -2568,13 +2649,15 @@ define internal i32 @dissect_wimaxmacphy_dl_zone_descriptor(ptr noundef %0, i32 
   br i1 %178, label %179, label %200
 
 179:                                              ; preds = %173
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #3
   %180 = load ptr, ptr %8, align 8
   %181 = load ptr, ptr %5, align 8
   %182 = load i32, ptr %6, align 4
   %183 = load i32, ptr @ett_wimaxmacphy_dl_burst_descriptor, align 4
   %184 = load i8, ptr %12, align 1
   %185 = zext i8 %184 to i32
-  %186 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %180, ptr noundef %181, i32 noundef %182, i32 noundef 1, i32 noundef %183, ptr noundef %13, ptr noundef @.str.574, i32 noundef %185)
+  %186 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %180, ptr noundef %181, i32 noundef %182, i32 noundef 1, i32 noundef %183, ptr noundef %13, ptr noundef @.str.625, i32 noundef %185)
   store ptr %186, ptr %15, align 8
   %187 = load ptr, ptr %5, align 8
   %188 = load i32, ptr %6, align 4
@@ -2589,26 +2672,36 @@ define internal i32 @dissect_wimaxmacphy_dl_zone_descriptor(ptr noundef %0, i32 
   %195 = load i32, ptr %6, align 4
   %196 = add i32 %195, %194
   store i32 %196, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #3
   br label %197
 
 197:                                              ; preds = %179
   %198 = load i8, ptr %12, align 1
   %199 = add i8 %198, 1
   store i8 %199, ptr %12, align 1
-  br label %173, !llvm.loop !7
+  br label %173, !llvm.loop !9
 
 200:                                              ; preds = %173
   %201 = load i32, ptr %6, align 4
   %202 = load i32, ptr %9, align 4
   %203 = sub i32 %201, %202
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %203
 }
 
-declare void @proto_item_set_len(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_set_len(ptr noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_wimaxmacphy_dl_burst_descriptor(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -2628,11 +2721,19 @@ define internal i32 @dissect_wimaxmacphy_dl_burst_descriptor(ptr noundef %0, i32
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   %19 = load i32, ptr %6, align 4
   store i32 %19, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #3
   %20 = load ptr, ptr %5, align 8
   %21 = load i32, ptr %6, align 4
-  %22 = call zeroext i8 @tvb_get_guint8(ptr noundef %20, i32 noundef %21)
+  %22 = call zeroext i8 @tvb_get_uint8(ptr noundef %20, i32 noundef %21)
   store i8 %22, ptr %10, align 1
   %23 = load ptr, ptr %8, align 8
   %24 = load i32, ptr @hf_wimaxmacphy_dl_burst_type, align 4
@@ -2644,7 +2745,7 @@ define internal i32 @dissect_wimaxmacphy_dl_burst_descriptor(ptr noundef %0, i32
   store i32 %29, ptr %6, align 4
   %30 = load ptr, ptr %5, align 8
   %31 = load i32, ptr %6, align 4
-  %32 = call zeroext i8 @tvb_get_guint8(ptr noundef %30, i32 noundef %31)
+  %32 = call zeroext i8 @tvb_get_uint8(ptr noundef %30, i32 noundef %31)
   store i8 %32, ptr %11, align 1
   %33 = load ptr, ptr %8, align 8
   %34 = load i32, ptr @hf_wimaxmacphy_burst_type_extension, align 4
@@ -2723,7 +2824,7 @@ define internal i32 @dissect_wimaxmacphy_dl_burst_descriptor(ptr noundef %0, i32
   %93 = load ptr, ptr %5, align 8
   %94 = load i32, ptr %6, align 4
   %95 = load i32, ptr @ett_wimaxmacphy_dl_burst_map, align 4
-  %96 = call ptr @proto_tree_add_subtree(ptr noundef %92, ptr noundef %93, i32 noundef %94, i32 noundef 4, i32 noundef %95, ptr noundef null, ptr noundef @.str.575)
+  %96 = call ptr @proto_tree_add_subtree(ptr noundef %92, ptr noundef %93, i32 noundef %94, i32 noundef 4, i32 noundef %95, ptr noundef null, ptr noundef @.str.626)
   store ptr %96, ptr %15, align 8
   %97 = load ptr, ptr %15, align 8
   %98 = load i32, ptr @hf_wimaxmacphy_dl_burst_map_number_of_slots, align 4
@@ -2748,7 +2849,7 @@ define internal i32 @dissect_wimaxmacphy_dl_burst_descriptor(ptr noundef %0, i32
   %113 = load ptr, ptr %5, align 8
   %114 = load i32, ptr %6, align 4
   %115 = load i32, ptr @ett_wimaxmacphy_dl_burst_normal, align 4
-  %116 = call ptr @proto_tree_add_subtree(ptr noundef %112, ptr noundef %113, i32 noundef %114, i32 noundef 4, i32 noundef %115, ptr noundef null, ptr noundef @.str.576)
+  %116 = call ptr @proto_tree_add_subtree(ptr noundef %112, ptr noundef %113, i32 noundef %114, i32 noundef 4, i32 noundef %115, ptr noundef null, ptr noundef @.str.627)
   store ptr %116, ptr %15, align 8
   %117 = load ptr, ptr %15, align 8
   %118 = load i32, ptr @hf_wimaxmacphy_dl_burst_normal_number_of_symbols, align 4
@@ -2786,7 +2887,7 @@ define internal i32 @dissect_wimaxmacphy_dl_burst_descriptor(ptr noundef %0, i32
   %142 = load ptr, ptr %5, align 8
   %143 = load i32, ptr %6, align 4
   %144 = load i32, ptr @ett_wimaxmacphy_dl_burst_opt_aas, align 4
-  %145 = call ptr @proto_tree_add_subtree(ptr noundef %141, ptr noundef %142, i32 noundef %143, i32 noundef 4, i32 noundef %144, ptr noundef null, ptr noundef @.str.577)
+  %145 = call ptr @proto_tree_add_subtree(ptr noundef %141, ptr noundef %142, i32 noundef %143, i32 noundef 4, i32 noundef %144, ptr noundef null, ptr noundef @.str.628)
   store ptr %145, ptr %16, align 8
   %146 = load ptr, ptr %16, align 8
   %147 = load i32, ptr @hf_wimaxmacphy_burst_opt_aas_preamble_modifier_type, align 4
@@ -2819,7 +2920,7 @@ define internal i32 @dissect_wimaxmacphy_dl_burst_descriptor(ptr noundef %0, i32
   %169 = load ptr, ptr %5, align 8
   %170 = load i32, ptr %6, align 4
   %171 = load i32, ptr @ett_wimaxmacphy_dl_burst_opt_mimo, align 4
-  %172 = call ptr @proto_tree_add_subtree(ptr noundef %168, ptr noundef %169, i32 noundef %170, i32 noundef 4, i32 noundef %171, ptr noundef null, ptr noundef @.str.578)
+  %172 = call ptr @proto_tree_add_subtree(ptr noundef %168, ptr noundef %169, i32 noundef %170, i32 noundef 4, i32 noundef %171, ptr noundef null, ptr noundef @.str.629)
   store ptr %172, ptr %16, align 8
   %173 = load ptr, ptr %16, align 8
   %174 = load i32, ptr @hf_wimaxmacphy_burst_opt_mimo_matrix_indicator, align 4
@@ -2858,7 +2959,7 @@ define internal i32 @dissect_wimaxmacphy_dl_burst_descriptor(ptr noundef %0, i32
   %198 = load ptr, ptr %5, align 8
   %199 = load i32, ptr %6, align 4
   %200 = load i32, ptr @ett_wimaxmacphy_dl_burst_papr, align 4
-  %201 = call ptr @proto_tree_add_subtree(ptr noundef %197, ptr noundef %198, i32 noundef %199, i32 noundef 4, i32 noundef %200, ptr noundef null, ptr noundef @.str.579)
+  %201 = call ptr @proto_tree_add_subtree(ptr noundef %197, ptr noundef %198, i32 noundef %199, i32 noundef 4, i32 noundef %200, ptr noundef null, ptr noundef @.str.630)
   store ptr %201, ptr %15, align 8
   %202 = load ptr, ptr %15, align 8
   %203 = load i32, ptr @hf_wimaxmacphy_burst_papr_number_of_symbols, align 4
@@ -2892,7 +2993,7 @@ define internal i32 @dissect_wimaxmacphy_dl_burst_descriptor(ptr noundef %0, i32
 224:                                              ; preds = %223, %196, %195, %91
   %225 = load ptr, ptr %5, align 8
   %226 = load i32, ptr %6, align 4
-  %227 = call zeroext i8 @tvb_get_guint8(ptr noundef %225, i32 noundef %226)
+  %227 = call zeroext i8 @tvb_get_uint8(ptr noundef %225, i32 noundef %226)
   store i8 %227, ptr %12, align 1
   %228 = load ptr, ptr %8, align 8
   %229 = load i32, ptr @hf_wimaxmacphy_number_of_sub_burst_descriptors, align 4
@@ -2922,13 +3023,15 @@ define internal i32 @dissect_wimaxmacphy_dl_burst_descriptor(ptr noundef %0, i32
   br i1 %247, label %248, label %269
 
 248:                                              ; preds = %242
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #3
   %249 = load ptr, ptr %8, align 8
   %250 = load ptr, ptr %5, align 8
   %251 = load i32, ptr %6, align 4
   %252 = load i32, ptr @ett_wimaxmacphy_dl_sub_burst_descriptor, align 4
   %253 = load i8, ptr %13, align 1
   %254 = zext i8 %253 to i32
-  %255 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %249, ptr noundef %250, i32 noundef %251, i32 noundef 1, i32 noundef %252, ptr noundef %14, ptr noundef @.str.580, i32 noundef %254)
+  %255 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %249, ptr noundef %250, i32 noundef %251, i32 noundef 1, i32 noundef %252, ptr noundef %14, ptr noundef @.str.631, i32 noundef %254)
   store ptr %255, ptr %17, align 8
   %256 = load ptr, ptr %5, align 8
   %257 = load i32, ptr %6, align 4
@@ -2943,22 +3046,32 @@ define internal i32 @dissect_wimaxmacphy_dl_burst_descriptor(ptr noundef %0, i32
   %264 = load i32, ptr %6, align 4
   %265 = add i32 %264, %263
   store i32 %265, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #3
   br label %266
 
 266:                                              ; preds = %248
   %267 = load i8, ptr %13, align 1
   %268 = add i8 %267, 1
   store i8 %268, ptr %13, align 1
-  br label %242, !llvm.loop !8
+  br label %242, !llvm.loop !10
 
 269:                                              ; preds = %242
   %270 = load i32, ptr %6, align 4
   %271 = load i32, ptr %9, align 4
   %272 = sub i32 %270, %271
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %272
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_wimaxmacphy_dl_sub_burst_descriptor(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -2971,11 +3084,14 @@ define internal i32 @dissect_wimaxmacphy_dl_sub_burst_descriptor(ptr noundef %0,
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   %12 = load i32, ptr %6, align 4
   store i32 %12, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
   %13 = load ptr, ptr %5, align 8
   %14 = load i32, ptr %6, align 4
-  %15 = call zeroext i8 @tvb_get_guint8(ptr noundef %13, i32 noundef %14)
+  %15 = call zeroext i8 @tvb_get_uint8(ptr noundef %13, i32 noundef %14)
   store i8 %15, ptr %10, align 1
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr @hf_wimaxmacphy_dl_sub_burst_type, align 4
@@ -3093,7 +3209,7 @@ define internal i32 @dissect_wimaxmacphy_dl_sub_burst_descriptor(ptr noundef %0,
   %111 = load ptr, ptr %5, align 8
   %112 = load i32, ptr %6, align 4
   %113 = load i32, ptr @ett_wimaxmacphy_dl_sub_burst_harq_chase, align 4
-  %114 = call ptr @proto_tree_add_subtree(ptr noundef %110, ptr noundef %111, i32 noundef %112, i32 noundef 4, i32 noundef %113, ptr noundef null, ptr noundef @.str.581)
+  %114 = call ptr @proto_tree_add_subtree(ptr noundef %110, ptr noundef %111, i32 noundef %112, i32 noundef 4, i32 noundef %113, ptr noundef null, ptr noundef @.str.632)
   store ptr %114, ptr %11, align 8
   %115 = load ptr, ptr %11, align 8
   %116 = load i32, ptr @hf_wimaxmacphy_sub_burst_harq_chase_harq_channel_id, align 4
@@ -3134,7 +3250,7 @@ define internal i32 @dissect_wimaxmacphy_dl_sub_burst_descriptor(ptr noundef %0,
   %145 = load ptr, ptr %5, align 8
   %146 = load i32, ptr %6, align 4
   %147 = load i32, ptr @ett_wimaxmacphy_dl_sub_burst_mimo_chase, align 4
-  %148 = call ptr @proto_tree_add_subtree(ptr noundef %144, ptr noundef %145, i32 noundef %146, i32 noundef 4, i32 noundef %147, ptr noundef null, ptr noundef @.str.582)
+  %148 = call ptr @proto_tree_add_subtree(ptr noundef %144, ptr noundef %145, i32 noundef %146, i32 noundef 4, i32 noundef %147, ptr noundef null, ptr noundef @.str.633)
   store ptr %148, ptr %11, align 8
   %149 = load ptr, ptr %11, align 8
   %150 = load i32, ptr @hf_wimaxmacphy_sub_burst_mimo_chase_harq_channel_id, align 4
@@ -3177,10 +3293,13 @@ define internal i32 @dissect_wimaxmacphy_dl_sub_burst_descriptor(ptr noundef %0,
   %179 = load i32, ptr %6, align 4
   %180 = load i32, ptr %9, align 4
   %181 = sub i32 %179, %180
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %181
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_wimaxmacphy_ul_subframe_descriptor(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -3196,8 +3315,11 @@ define internal i32 @dissect_wimaxmacphy_ul_subframe_descriptor(ptr noundef %0, 
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   %15 = load i32, ptr %6, align 4
   store i32 %15, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #3
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr @hf_wimaxmacphy_subframe_subframe_type, align 4
   %18 = load ptr, ptr %5, align 8
@@ -3240,7 +3362,7 @@ define internal i32 @dissect_wimaxmacphy_ul_subframe_descriptor(ptr noundef %0, 
   store i32 %50, ptr %6, align 4
   %51 = load ptr, ptr %5, align 8
   %52 = load i32, ptr %6, align 4
-  %53 = call zeroext i8 @tvb_get_guint8(ptr noundef %51, i32 noundef %52)
+  %53 = call zeroext i8 @tvb_get_uint8(ptr noundef %51, i32 noundef %52)
   store i8 %53, ptr %10, align 1
   %54 = load ptr, ptr %8, align 8
   %55 = load i32, ptr @hf_wimaxmacphy_number_of_zone_descriptors, align 4
@@ -3270,13 +3392,16 @@ define internal i32 @dissect_wimaxmacphy_ul_subframe_descriptor(ptr noundef %0, 
   br i1 %73, label %74, label %95
 
 74:                                               ; preds = %68
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #3
   %75 = load ptr, ptr %8, align 8
   %76 = load ptr, ptr %5, align 8
   %77 = load i32, ptr %6, align 4
   %78 = load i32, ptr @ett_wimaxmacphy_ul_zone_descriptor, align 4
   %79 = load i8, ptr %11, align 1
   %80 = zext i8 %79 to i32
-  %81 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %75, ptr noundef %76, i32 noundef %77, i32 noundef 1, i32 noundef %78, ptr noundef %12, ptr noundef @.str.571, i32 noundef %80)
+  %81 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %75, ptr noundef %76, i32 noundef %77, i32 noundef 1, i32 noundef %78, ptr noundef %12, ptr noundef @.str.622, i32 noundef %80)
   store ptr %81, ptr %13, align 8
   %82 = load ptr, ptr %5, align 8
   %83 = load i32, ptr %6, align 4
@@ -3291,22 +3416,28 @@ define internal i32 @dissect_wimaxmacphy_ul_subframe_descriptor(ptr noundef %0, 
   %90 = load i32, ptr %6, align 4
   %91 = add i32 %90, %89
   store i32 %91, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
   br label %92
 
 92:                                               ; preds = %74
   %93 = load i8, ptr %11, align 1
   %94 = add i8 %93, 1
   store i8 %94, ptr %11, align 1
-  br label %68, !llvm.loop !9
+  br label %68, !llvm.loop !11
 
 95:                                               ; preds = %68
   %96 = load i32, ptr %6, align 4
   %97 = load i32, ptr %9, align 4
   %98 = sub i32 %96, %97
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %98
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_wimaxmacphy_ul_zone_descriptor(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -3324,11 +3455,16 @@ define internal i32 @dissect_wimaxmacphy_ul_zone_descriptor(ptr noundef %0, i32 
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
   %17 = load i32, ptr %6, align 4
   store i32 %17, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #3
   %18 = load ptr, ptr %5, align 8
   %19 = load i32, ptr %6, align 4
-  %20 = call zeroext i8 @tvb_get_guint8(ptr noundef %18, i32 noundef %19)
+  %20 = call zeroext i8 @tvb_get_uint8(ptr noundef %18, i32 noundef %19)
   store i8 %20, ptr %10, align 1
   %21 = load ptr, ptr %8, align 8
   %22 = load i32, ptr @hf_wimaxmacphy_ul_zone_type, align 4
@@ -3406,11 +3542,12 @@ define internal i32 @dissect_wimaxmacphy_ul_zone_descriptor(ptr noundef %0, i32 
   ]
 
 84:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #3
   %85 = load ptr, ptr %8, align 8
   %86 = load ptr, ptr %5, align 8
   %87 = load i32, ptr %6, align 4
   %88 = load i32, ptr @ett_wimaxmacphy_ul_zone_aas, align 4
-  %89 = call ptr @proto_tree_add_subtree(ptr noundef %85, ptr noundef %86, i32 noundef %87, i32 noundef 4, i32 noundef %88, ptr noundef null, ptr noundef @.str.573)
+  %89 = call ptr @proto_tree_add_subtree(ptr noundef %85, ptr noundef %86, i32 noundef %87, i32 noundef 4, i32 noundef %88, ptr noundef null, ptr noundef @.str.624)
   store ptr %89, ptr %14, align 8
   %90 = load ptr, ptr %14, align 8
   %91 = load i32, ptr @hf_wimaxmacphy_zone_preamble_configuration, align 4
@@ -3444,6 +3581,7 @@ define internal i32 @dissect_wimaxmacphy_ul_zone_descriptor(ptr noundef %0, i32 
   %116 = load i32, ptr %6, align 4
   %117 = add i32 %116, 1
   store i32 %117, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #3
   br label %119
 
 118:                                              ; preds = %4
@@ -3452,7 +3590,7 @@ define internal i32 @dissect_wimaxmacphy_ul_zone_descriptor(ptr noundef %0, i32 
 119:                                              ; preds = %118, %84
   %120 = load ptr, ptr %5, align 8
   %121 = load i32, ptr %6, align 4
-  %122 = call zeroext i8 @tvb_get_guint8(ptr noundef %120, i32 noundef %121)
+  %122 = call zeroext i8 @tvb_get_uint8(ptr noundef %120, i32 noundef %121)
   store i8 %122, ptr %11, align 1
   %123 = load ptr, ptr %8, align 8
   %124 = load i32, ptr @hf_wimaxmacphy_number_of_burst_descriptors, align 4
@@ -3482,13 +3620,15 @@ define internal i32 @dissect_wimaxmacphy_ul_zone_descriptor(ptr noundef %0, i32 
   br i1 %142, label %143, label %164
 
 143:                                              ; preds = %137
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #3
   %144 = load ptr, ptr %8, align 8
   %145 = load ptr, ptr %5, align 8
   %146 = load i32, ptr %6, align 4
   %147 = load i32, ptr @ett_wimaxmacphy_ul_burst_descriptor, align 4
   %148 = load i8, ptr %12, align 1
   %149 = zext i8 %148 to i32
-  %150 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %144, ptr noundef %145, i32 noundef %146, i32 noundef 1, i32 noundef %147, ptr noundef %13, ptr noundef @.str.574, i32 noundef %149)
+  %150 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %144, ptr noundef %145, i32 noundef %146, i32 noundef 1, i32 noundef %147, ptr noundef %13, ptr noundef @.str.625, i32 noundef %149)
   store ptr %150, ptr %15, align 8
   %151 = load ptr, ptr %5, align 8
   %152 = load i32, ptr %6, align 4
@@ -3503,22 +3643,29 @@ define internal i32 @dissect_wimaxmacphy_ul_zone_descriptor(ptr noundef %0, i32 
   %159 = load i32, ptr %6, align 4
   %160 = add i32 %159, %158
   store i32 %160, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #3
   br label %161
 
 161:                                              ; preds = %143
   %162 = load i8, ptr %12, align 1
   %163 = add i8 %162, 1
   store i8 %163, ptr %12, align 1
-  br label %137, !llvm.loop !10
+  br label %137, !llvm.loop !12
 
 164:                                              ; preds = %137
   %165 = load i32, ptr %6, align 4
   %166 = load i32, ptr %9, align 4
   %167 = sub i32 %165, %166
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
   ret i32 %167
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_wimaxmacphy_ul_burst_descriptor(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -3540,11 +3687,21 @@ define internal i32 @dissect_wimaxmacphy_ul_burst_descriptor(ptr noundef %0, i32
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #3
   %21 = load i32, ptr %6, align 4
   store i32 %21, ptr %18, align 4
   %22 = load ptr, ptr %5, align 8
   %23 = load i32, ptr %6, align 4
-  %24 = call zeroext i8 @tvb_get_guint8(ptr noundef %22, i32 noundef %23)
+  %24 = call zeroext i8 @tvb_get_uint8(ptr noundef %22, i32 noundef %23)
   store i8 %24, ptr %9, align 1
   %25 = load ptr, ptr %8, align 8
   %26 = load i32, ptr @hf_wimaxmacphy_ul_burst_type, align 4
@@ -3556,7 +3713,7 @@ define internal i32 @dissect_wimaxmacphy_ul_burst_descriptor(ptr noundef %0, i32
   store i32 %31, ptr %6, align 4
   %32 = load ptr, ptr %5, align 8
   %33 = load i32, ptr %6, align 4
-  %34 = call zeroext i8 @tvb_get_guint8(ptr noundef %32, i32 noundef %33)
+  %34 = call zeroext i8 @tvb_get_uint8(ptr noundef %32, i32 noundef %33)
   store i8 %34, ptr %10, align 1
   %35 = load ptr, ptr %8, align 8
   %36 = load i32, ptr @hf_wimaxmacphy_burst_type_extension, align 4
@@ -3656,7 +3813,7 @@ define internal i32 @dissect_wimaxmacphy_ul_burst_descriptor(ptr noundef %0, i32
   %109 = load ptr, ptr %5, align 8
   %110 = load i32, ptr %6, align 4
   %111 = load i32, ptr @ett_wimaxmacphy_ul_burst_harq_ack, align 4
-  %112 = call ptr @proto_tree_add_subtree(ptr noundef %108, ptr noundef %109, i32 noundef %110, i32 noundef 4, i32 noundef %111, ptr noundef null, ptr noundef @.str.583)
+  %112 = call ptr @proto_tree_add_subtree(ptr noundef %108, ptr noundef %109, i32 noundef %110, i32 noundef 4, i32 noundef %111, ptr noundef null, ptr noundef @.str.634)
   store ptr %112, ptr %15, align 8
   %113 = load ptr, ptr %15, align 8
   %114 = load i32, ptr @hf_wimaxmacphy_ul_burst_harq_ack_number_of_symbols, align 4
@@ -3689,7 +3846,7 @@ define internal i32 @dissect_wimaxmacphy_ul_burst_descriptor(ptr noundef %0, i32
   %136 = load ptr, ptr %5, align 8
   %137 = load i32, ptr %6, align 4
   %138 = load i32, ptr @ett_wimaxmacphy_ul_burst_fast_feedback, align 4
-  %139 = call ptr @proto_tree_add_subtree(ptr noundef %135, ptr noundef %136, i32 noundef %137, i32 noundef 4, i32 noundef %138, ptr noundef null, ptr noundef @.str.584)
+  %139 = call ptr @proto_tree_add_subtree(ptr noundef %135, ptr noundef %136, i32 noundef %137, i32 noundef 4, i32 noundef %138, ptr noundef null, ptr noundef @.str.635)
   store ptr %139, ptr %15, align 8
   %140 = load ptr, ptr %15, align 8
   %141 = load i32, ptr @hf_wimaxmacphy_ul_burst_fast_number_of_symbols, align 4
@@ -3722,7 +3879,7 @@ define internal i32 @dissect_wimaxmacphy_ul_burst_descriptor(ptr noundef %0, i32
   %163 = load ptr, ptr %5, align 8
   %164 = load i32, ptr %6, align 4
   %165 = load i32, ptr @ett_wimaxmacphy_ul_burst_initial_ranging, align 4
-  %166 = call ptr @proto_tree_add_subtree(ptr noundef %162, ptr noundef %163, i32 noundef %164, i32 noundef 8, i32 noundef %165, ptr noundef null, ptr noundef @.str.585)
+  %166 = call ptr @proto_tree_add_subtree(ptr noundef %162, ptr noundef %163, i32 noundef %164, i32 noundef 8, i32 noundef %165, ptr noundef null, ptr noundef @.str.636)
   store ptr %166, ptr %15, align 8
   %167 = load ptr, ptr %15, align 8
   %168 = load i32, ptr @hf_wimaxmacphy_ul_burst_initial_number_of_symbols, align 4
@@ -3779,7 +3936,7 @@ define internal i32 @dissect_wimaxmacphy_ul_burst_descriptor(ptr noundef %0, i32
   %211 = load ptr, ptr %5, align 8
   %212 = load i32, ptr %6, align 4
   %213 = load i32, ptr @ett_wimaxmacphy_ul_burst_periodic_ranging, align 4
-  %214 = call ptr @proto_tree_add_subtree(ptr noundef %210, ptr noundef %211, i32 noundef %212, i32 noundef 8, i32 noundef %213, ptr noundef null, ptr noundef @.str.586)
+  %214 = call ptr @proto_tree_add_subtree(ptr noundef %210, ptr noundef %211, i32 noundef %212, i32 noundef 8, i32 noundef %213, ptr noundef null, ptr noundef @.str.637)
   store ptr %214, ptr %15, align 8
   %215 = load ptr, ptr %15, align 8
   %216 = load i32, ptr @hf_wimaxmacphy_ul_burst_periodic_number_of_symbols, align 4
@@ -3836,7 +3993,7 @@ define internal i32 @dissect_wimaxmacphy_ul_burst_descriptor(ptr noundef %0, i32
   %259 = load ptr, ptr %5, align 8
   %260 = load i32, ptr %6, align 4
   %261 = load i32, ptr @ett_wimaxmacphy_ul_burst_papr_safety_zone, align 4
-  %262 = call ptr @proto_tree_add_subtree(ptr noundef %258, ptr noundef %259, i32 noundef %260, i32 noundef 4, i32 noundef %261, ptr noundef null, ptr noundef @.str.587)
+  %262 = call ptr @proto_tree_add_subtree(ptr noundef %258, ptr noundef %259, i32 noundef %260, i32 noundef 4, i32 noundef %261, ptr noundef null, ptr noundef @.str.638)
   store ptr %262, ptr %15, align 8
   %263 = load ptr, ptr %15, align 8
   %264 = load i32, ptr @hf_wimaxmacphy_burst_papr_number_of_symbols, align 4
@@ -3877,7 +4034,7 @@ define internal i32 @dissect_wimaxmacphy_ul_burst_descriptor(ptr noundef %0, i32
   %293 = load ptr, ptr %5, align 8
   %294 = load i32, ptr %6, align 4
   %295 = load i32, ptr @ett_wimaxmacphy_ul_burst_sounding_zone, align 4
-  %296 = call ptr @proto_tree_add_subtree(ptr noundef %292, ptr noundef %293, i32 noundef %294, i32 noundef 8, i32 noundef %295, ptr noundef null, ptr noundef @.str.588)
+  %296 = call ptr @proto_tree_add_subtree(ptr noundef %292, ptr noundef %293, i32 noundef %294, i32 noundef 8, i32 noundef %295, ptr noundef null, ptr noundef @.str.639)
   store ptr %296, ptr %15, align 8
   %297 = load ptr, ptr %15, align 8
   %298 = load i32, ptr @hf_wimaxmacphy_ul_burst_sounding_number_of_symbols, align 4
@@ -3950,7 +4107,7 @@ define internal i32 @dissect_wimaxmacphy_ul_burst_descriptor(ptr noundef %0, i32
   %355 = load ptr, ptr %5, align 8
   %356 = load i32, ptr %6, align 4
   %357 = load i32, ptr @ett_wimaxmacphy_ul_burst_noise_floor, align 4
-  %358 = call ptr @proto_tree_add_subtree(ptr noundef %354, ptr noundef %355, i32 noundef %356, i32 noundef 4, i32 noundef %357, ptr noundef null, ptr noundef @.str.589)
+  %358 = call ptr @proto_tree_add_subtree(ptr noundef %354, ptr noundef %355, i32 noundef %356, i32 noundef 4, i32 noundef %357, ptr noundef null, ptr noundef @.str.640)
   store ptr %358, ptr %15, align 8
   %359 = load ptr, ptr %15, align 8
   %360 = load i32, ptr @hf_wimaxmacphy_ul_burst_noise_number_of_symbols, align 4
@@ -3983,7 +4140,7 @@ define internal i32 @dissect_wimaxmacphy_ul_burst_descriptor(ptr noundef %0, i32
   %382 = load ptr, ptr %5, align 8
   %383 = load i32, ptr %6, align 4
   %384 = load i32, ptr @ett_wimaxmacphy_ul_burst_normal_data, align 4
-  %385 = call ptr @proto_tree_add_subtree(ptr noundef %381, ptr noundef %382, i32 noundef %383, i32 noundef 4, i32 noundef %384, ptr noundef null, ptr noundef @.str.576)
+  %385 = call ptr @proto_tree_add_subtree(ptr noundef %381, ptr noundef %382, i32 noundef %383, i32 noundef 4, i32 noundef %384, ptr noundef null, ptr noundef @.str.627)
   store ptr %385, ptr %15, align 8
   %386 = load ptr, ptr %15, align 8
   %387 = load i32, ptr @hf_wimaxmacphy_ul_burst_normal_number_of_slots, align 4
@@ -4013,7 +4170,7 @@ define internal i32 @dissect_wimaxmacphy_ul_burst_descriptor(ptr noundef %0, i32
   %404 = load ptr, ptr %5, align 8
   %405 = load i32, ptr %6, align 4
   %406 = load i32, ptr @ett_wimaxmacphy_ul_burst_opt_aas, align 4
-  %407 = call ptr @proto_tree_add_subtree(ptr noundef %403, ptr noundef %404, i32 noundef %405, i32 noundef 4, i32 noundef %406, ptr noundef null, ptr noundef @.str.577)
+  %407 = call ptr @proto_tree_add_subtree(ptr noundef %403, ptr noundef %404, i32 noundef %405, i32 noundef 4, i32 noundef %406, ptr noundef null, ptr noundef @.str.628)
   store ptr %407, ptr %16, align 8
   %408 = load ptr, ptr %16, align 8
   %409 = load i32, ptr @hf_wimaxmacphy_burst_opt_aas_preamble_modifier_type, align 4
@@ -4046,7 +4203,7 @@ define internal i32 @dissect_wimaxmacphy_ul_burst_descriptor(ptr noundef %0, i32
   %431 = load ptr, ptr %5, align 8
   %432 = load i32, ptr %6, align 4
   %433 = load i32, ptr @ett_wimaxmacphy_ul_burst_opt_mimo, align 4
-  %434 = call ptr @proto_tree_add_subtree(ptr noundef %430, ptr noundef %431, i32 noundef %432, i32 noundef 4, i32 noundef %433, ptr noundef null, ptr noundef @.str.578)
+  %434 = call ptr @proto_tree_add_subtree(ptr noundef %430, ptr noundef %431, i32 noundef %432, i32 noundef 4, i32 noundef %433, ptr noundef null, ptr noundef @.str.629)
   store ptr %434, ptr %16, align 8
   %435 = load ptr, ptr %16, align 8
   %436 = load i32, ptr @hf_wimaxmacphy_ul_burst_opt_mimo_matrix_indicator, align 4
@@ -4124,7 +4281,7 @@ define internal i32 @dissect_wimaxmacphy_ul_burst_descriptor(ptr noundef %0, i32
 494:                                              ; preds = %493, %492, %353, %291, %257, %209, %161, %134, %107
   %495 = load ptr, ptr %5, align 8
   %496 = load i32, ptr %6, align 4
-  %497 = call zeroext i8 @tvb_get_guint8(ptr noundef %495, i32 noundef %496)
+  %497 = call zeroext i8 @tvb_get_uint8(ptr noundef %495, i32 noundef %496)
   store i8 %497, ptr %11, align 1
   %498 = load ptr, ptr %8, align 8
   %499 = load i32, ptr @hf_wimaxmacphy_number_of_sub_burst_descriptors, align 4
@@ -4154,13 +4311,15 @@ define internal i32 @dissect_wimaxmacphy_ul_burst_descriptor(ptr noundef %0, i32
   br i1 %517, label %518, label %539
 
 518:                                              ; preds = %512
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #3
   %519 = load ptr, ptr %8, align 8
   %520 = load ptr, ptr %5, align 8
   %521 = load i32, ptr %6, align 4
   %522 = load i32, ptr @ett_wimaxmacphy_ul_sub_burst_descriptor, align 4
   %523 = load i8, ptr %12, align 1
   %524 = zext i8 %523 to i32
-  %525 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %519, ptr noundef %520, i32 noundef %521, i32 noundef 1, i32 noundef %522, ptr noundef %13, ptr noundef @.str.580, i32 noundef %524)
+  %525 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %519, ptr noundef %520, i32 noundef %521, i32 noundef 1, i32 noundef %522, ptr noundef %13, ptr noundef @.str.631, i32 noundef %524)
   store ptr %525, ptr %19, align 8
   %526 = load ptr, ptr %5, align 8
   %527 = load i32, ptr %6, align 4
@@ -4175,22 +4334,34 @@ define internal i32 @dissect_wimaxmacphy_ul_burst_descriptor(ptr noundef %0, i32
   %534 = load i32, ptr %6, align 4
   %535 = add i32 %534, %533
   store i32 %535, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #3
   br label %536
 
 536:                                              ; preds = %518
   %537 = load i8, ptr %12, align 1
   %538 = add i8 %537, 1
   store i8 %538, ptr %12, align 1
-  br label %512, !llvm.loop !11
+  br label %512, !llvm.loop !13
 
 539:                                              ; preds = %512
   %540 = load i32, ptr %6, align 4
   %541 = load i32, ptr %18, align 4
   %542 = sub i32 %540, %541
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #3
   ret i32 %542
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_wimaxmacphy_ul_sub_burst_descriptor(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -4205,11 +4376,16 @@ define internal i32 @dissect_wimaxmacphy_ul_sub_burst_descriptor(ptr noundef %0,
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
   %14 = load i32, ptr %6, align 4
   store i32 %14, ptr %13, align 4
   %15 = load ptr, ptr %5, align 8
   %16 = load i32, ptr %6, align 4
-  %17 = call zeroext i8 @tvb_get_guint8(ptr noundef %15, i32 noundef %16)
+  %17 = call zeroext i8 @tvb_get_uint8(ptr noundef %15, i32 noundef %16)
   store i8 %17, ptr %9, align 1
   %18 = load ptr, ptr %8, align 8
   %19 = load i32, ptr @hf_wimaxmacphy_ul_sub_burst_type, align 4
@@ -4265,7 +4441,7 @@ define internal i32 @dissect_wimaxmacphy_ul_sub_burst_descriptor(ptr noundef %0,
   %57 = load ptr, ptr %5, align 8
   %58 = load i32, ptr %6, align 4
   %59 = load i32, ptr @ett_wimaxmacphy_ul_sub_burst_mini_subchannel, align 4
-  %60 = call ptr @proto_tree_add_subtree(ptr noundef %56, ptr noundef %57, i32 noundef %58, i32 noundef 4, i32 noundef %59, ptr noundef null, ptr noundef @.str.590)
+  %60 = call ptr @proto_tree_add_subtree(ptr noundef %56, ptr noundef %57, i32 noundef %58, i32 noundef 4, i32 noundef %59, ptr noundef null, ptr noundef @.str.641)
   store ptr %60, ptr %11, align 8
   %61 = load ptr, ptr %11, align 8
   %62 = load i32, ptr @hf_wimaxmacphy_ul_sub_burst_ctype, align 4
@@ -4298,7 +4474,7 @@ define internal i32 @dissect_wimaxmacphy_ul_sub_burst_descriptor(ptr noundef %0,
   %84 = load ptr, ptr %5, align 8
   %85 = load i32, ptr %6, align 4
   %86 = load i32, ptr @ett_wimaxmacphy_ul_sub_burst_fast_feedback, align 4
-  %87 = call ptr @proto_tree_add_subtree(ptr noundef %83, ptr noundef %84, i32 noundef %85, i32 noundef 4, i32 noundef %86, ptr noundef null, ptr noundef @.str.591)
+  %87 = call ptr @proto_tree_add_subtree(ptr noundef %83, ptr noundef %84, i32 noundef %85, i32 noundef 4, i32 noundef %86, ptr noundef null, ptr noundef @.str.642)
   store ptr %87, ptr %11, align 8
   %88 = load ptr, ptr %11, align 8
   %89 = load i32, ptr @hf_wimaxmacphy_ul_sub_burst_feedback_type_coding, align 4
@@ -4391,7 +4567,7 @@ define internal i32 @dissect_wimaxmacphy_ul_sub_burst_descriptor(ptr noundef %0,
   %169 = load ptr, ptr %5, align 8
   %170 = load i32, ptr %6, align 4
   %171 = load i32, ptr @ett_wimaxmacphy_ul_sub_burst_harq_ack, align 4
-  %172 = call ptr @proto_tree_add_subtree(ptr noundef %168, ptr noundef %169, i32 noundef %170, i32 noundef 4, i32 noundef %171, ptr noundef null, ptr noundef @.str.592)
+  %172 = call ptr @proto_tree_add_subtree(ptr noundef %168, ptr noundef %169, i32 noundef %170, i32 noundef 4, i32 noundef %171, ptr noundef null, ptr noundef @.str.643)
   store ptr %172, ptr %11, align 8
   %173 = load ptr, ptr %11, align 8
   %174 = load i32, ptr @hf_wimaxmacphy_ul_sub_burst_harq_ack_acid, align 4
@@ -4413,7 +4589,7 @@ define internal i32 @dissect_wimaxmacphy_ul_sub_burst_descriptor(ptr noundef %0,
   %187 = load ptr, ptr %5, align 8
   %188 = load i32, ptr %6, align 4
   %189 = load i32, ptr @ett_wimaxmacphy_ul_sub_burst_sounding_signal, align 4
-  %190 = call ptr @proto_tree_add_subtree(ptr noundef %186, ptr noundef %187, i32 noundef %188, i32 noundef 11, i32 noundef %189, ptr noundef null, ptr noundef @.str.593)
+  %190 = call ptr @proto_tree_add_subtree(ptr noundef %186, ptr noundef %187, i32 noundef %188, i32 noundef 11, i32 noundef %189, ptr noundef null, ptr noundef @.str.644)
   store ptr %190, ptr %11, align 8
   %191 = load ptr, ptr %11, align 8
   %192 = load i32, ptr @hf_wimaxmacphy_ul_sub_burst_sounding_symbol_index, align 4
@@ -4513,10 +4689,15 @@ define internal i32 @dissect_wimaxmacphy_ul_sub_burst_descriptor(ptr noundef %0,
   %271 = load i32, ptr %6, align 4
   %272 = load i32, ptr %13, align 4
   %273 = sub i32 %271, %272
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #3
   ret i32 %273
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_wimaxmacphy_ul_sub_burst_sub_allocation_specific_part(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -4533,13 +4714,18 @@ define internal i32 @dissect_wimaxmacphy_ul_sub_burst_sub_allocation_specific_pa
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   store i8 %4, ptr %10, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
   %16 = load i32, ptr %7, align 4
   store i32 %16, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #3
   %17 = load ptr, ptr %9, align 8
   %18 = load ptr, ptr %6, align 8
   %19 = load i32, ptr %7, align 4
   %20 = load i32, ptr @ett_wimaxmacphy_ul_sub_burst_sub_allocation_specific, align 4
-  %21 = call ptr @proto_tree_add_subtree(ptr noundef %17, ptr noundef %18, i32 noundef %19, i32 noundef 1, i32 noundef %20, ptr noundef %12, ptr noundef @.str.594)
+  %21 = call ptr @proto_tree_add_subtree(ptr noundef %17, ptr noundef %18, i32 noundef %19, i32 noundef 1, i32 noundef %20, ptr noundef %12, ptr noundef @.str.645)
   store ptr %21, ptr %14, align 8
   %22 = load ptr, ptr %14, align 8
   %23 = load i32, ptr @hf_wimaxmacphy_sub_burst_symbol_offset, align 4
@@ -4609,7 +4795,7 @@ define internal i32 @dissect_wimaxmacphy_ul_sub_burst_sub_allocation_specific_pa
   %75 = load ptr, ptr %6, align 8
   %76 = load i32, ptr %7, align 4
   %77 = load i32, ptr @ett_wimaxmacphy_ul_sub_burst_harq_chase, align 4
-  %78 = call ptr @proto_tree_add_subtree(ptr noundef %74, ptr noundef %75, i32 noundef %76, i32 noundef 4, i32 noundef %77, ptr noundef %13, ptr noundef @.str.581)
+  %78 = call ptr @proto_tree_add_subtree(ptr noundef %74, ptr noundef %75, i32 noundef %76, i32 noundef 4, i32 noundef %77, ptr noundef %13, ptr noundef @.str.632)
   store ptr %78, ptr %15, align 8
   %79 = load ptr, ptr %15, align 8
   %80 = load i32, ptr @hf_wimaxmacphy_sub_burst_harq_chase_harq_channel_id, align 4
@@ -4650,7 +4836,7 @@ define internal i32 @dissect_wimaxmacphy_ul_sub_burst_sub_allocation_specific_pa
   %109 = load ptr, ptr %6, align 8
   %110 = load i32, ptr %7, align 4
   %111 = load i32, ptr @ett_wimaxmacphy_ul_sub_burst_mimo_chase, align 4
-  %112 = call ptr @proto_tree_add_subtree(ptr noundef %108, ptr noundef %109, i32 noundef %110, i32 noundef 4, i32 noundef %111, ptr noundef null, ptr noundef @.str.582)
+  %112 = call ptr @proto_tree_add_subtree(ptr noundef %108, ptr noundef %109, i32 noundef %110, i32 noundef 4, i32 noundef %111, ptr noundef null, ptr noundef @.str.633)
   store ptr %112, ptr %15, align 8
   %113 = load ptr, ptr %15, align 8
   %114 = load i32, ptr @hf_wimaxmacphy_sub_burst_mimo_chase_harq_channel_id, align 4
@@ -4698,23 +4884,32 @@ define internal i32 @dissect_wimaxmacphy_ul_sub_burst_sub_allocation_specific_pa
   %147 = load i32, ptr %7, align 4
   %148 = load i32, ptr %11, align 4
   %149 = sub i32 %147, %148
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
   ret i32 %149
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}

@@ -3,21 +3,17 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
-%struct.anqp_info_dissector_data = type { i32, i32 }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct.anqp_info_dissector_data = type { i8, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
 
-@proto_register_p2p.hf = internal global [123 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_p2p_attr_type, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 4, i32 1, ptr @p2p_attr_types, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_len, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_capab_device, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_capab_device_service_discovery, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 4, i32 2, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_capab_device_client_discoverability, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 4, i32 2, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_capab_device_concurrent_operation, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 4, i32 2, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_capab_device_infrastructure_managed, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 4, i32 2, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_capab_device_limit, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 4, i32 2, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_capab_invitation_procedure, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 4, i32 2, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_capab_group, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_capab_group_owner, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 4, i32 2, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_capab_group_persistent, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 4, i32 2, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_capab_group_limit, %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 4, i32 2, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_capab_group_intra_bss_distribution, %struct._header_field_info { ptr @.str.26, ptr @.str.27, i32 4, i32 2, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_capab_group_cross_connection, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 4, i32 2, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_capab_group_persistent_reconnect, %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 4, i32 2, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_capab_group_group_formation, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 4, i32 2, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_capab_group_ip_address_allocation, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 4, i32 2, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_device_id, %struct._header_field_info { ptr @.str.36, ptr @.str.37, i32 29, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_status, %struct._header_field_info { ptr @.str.38, ptr @.str.39, i32 4, i32 1, ptr @p2p_status_codes, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_go_intent, %struct._header_field_info { ptr @.str.40, ptr @.str.41, i32 4, i32 1, ptr null, i64 30, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_go_intent_tie_breaker, %struct._header_field_info { ptr @.str.42, ptr @.str.43, i32 4, i32 1, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_listen_channel_country, %struct._header_field_info { ptr @.str.44, ptr @.str.45, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_listen_channel_oper_class, %struct._header_field_info { ptr @.str.46, ptr @.str.47, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_listen_channel_number, %struct._header_field_info { ptr @.str.48, ptr @.str.49, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_operating_channel_country, %struct._header_field_info { ptr @.str.44, ptr @.str.50, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_operating_channel_oper_class, %struct._header_field_info { ptr @.str.46, ptr @.str.51, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_operating_channel_number, %struct._header_field_info { ptr @.str.48, ptr @.str.52, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_channel_list_country, %struct._header_field_info { ptr @.str.44, ptr @.str.53, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_channel_list_oper_class, %struct._header_field_info { ptr @.str.46, ptr @.str.54, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_channel_list_num_chan, %struct._header_field_info { ptr @.str.55, ptr @.str.56, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_channel_list_chan, %struct._header_field_info { ptr @.str.57, ptr @.str.58, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_dev_info_p2p_dev_addr, %struct._header_field_info { ptr @.str.59, ptr @.str.60, i32 29, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_dev_info_pri_dev_type, %struct._header_field_info { ptr @.str.61, ptr @.str.62, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_dev_info_pri_dev_type_category, %struct._header_field_info { ptr @.str.63, ptr @.str.64, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_dev_info_pri_dev_type_oui, %struct._header_field_info { ptr @.str.65, ptr @.str.66, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_dev_info_pri_dev_type_subcategory, %struct._header_field_info { ptr @.str.67, ptr @.str.68, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_dev_info_num_sec, %struct._header_field_info { ptr @.str.69, ptr @.str.70, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_dev_info_sec_dev_type, %struct._header_field_info { ptr @.str.71, ptr @.str.72, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_dev_info_dev_name_type, %struct._header_field_info { ptr @.str.73, ptr @.str.74, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_dev_info_dev_name_len, %struct._header_field_info { ptr @.str.75, ptr @.str.76, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_dev_info_dev_name, %struct._header_field_info { ptr @.str.77, ptr @.str.78, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_dev_info_config_methods, %struct._header_field_info { ptr @.str.79, ptr @.str.80, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_dev_info_config_methods_usba, %struct._header_field_info { ptr @.str.81, ptr @.str.82, i32 5, i32 2, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_dev_info_config_methods_ethernet, %struct._header_field_info { ptr @.str.83, ptr @.str.84, i32 5, i32 2, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_dev_info_config_methods_label, %struct._header_field_info { ptr @.str.85, ptr @.str.86, i32 5, i32 2, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_dev_info_config_methods_display, %struct._header_field_info { ptr @.str.87, ptr @.str.88, i32 5, i32 2, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_dev_info_config_methods_ext_nfc_token, %struct._header_field_info { ptr @.str.89, ptr @.str.90, i32 5, i32 2, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_dev_info_config_methods_int_nfc_token, %struct._header_field_info { ptr @.str.91, ptr @.str.92, i32 5, i32 2, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_dev_info_config_methods_nfc_interface, %struct._header_field_info { ptr @.str.93, ptr @.str.94, i32 5, i32 2, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_dev_info_config_methods_pushbutton, %struct._header_field_info { ptr @.str.95, ptr @.str.96, i32 5, i32 2, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_dev_info_config_methods_keypad, %struct._header_field_info { ptr @.str.97, ptr @.str.98, i32 5, i32 2, ptr null, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_config_timeout_go, %struct._header_field_info { ptr @.str.99, ptr @.str.100, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_config_timeout_client, %struct._header_field_info { ptr @.str.101, ptr @.str.102, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_intended_interface_addr, %struct._header_field_info { ptr @.str.103, ptr @.str.104, i32 29, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_extended_listen_timing_period, %struct._header_field_info { ptr @.str.105, ptr @.str.106, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_extended_listen_timing_interval, %struct._header_field_info { ptr @.str.107, ptr @.str.108, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_p2p_group_id_dev_addr, %struct._header_field_info { ptr @.str.59, ptr @.str.109, i32 29, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_p2p_group_id_ssid, %struct._header_field_info { ptr @.str.110, ptr @.str.111, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_p2p_group_bssid, %struct._header_field_info { ptr @.str.112, ptr @.str.113, i32 29, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_noa_index, %struct._header_field_info { ptr @.str.114, ptr @.str.115, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_noa_params, %struct._header_field_info { ptr @.str.116, ptr @.str.117, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_noa_params_opp_ps, %struct._header_field_info { ptr @.str.118, ptr @.str.119, i32 4, i32 1, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_noa_params_ctwindow, %struct._header_field_info { ptr @.str.120, ptr @.str.121, i32 4, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_noa_count_type, %struct._header_field_info { ptr @.str.122, ptr @.str.123, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_noa_duration, %struct._header_field_info { ptr @.str.124, ptr @.str.125, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_noa_interval, %struct._header_field_info { ptr @.str.126, ptr @.str.127, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_noa_start_time, %struct._header_field_info { ptr @.str.128, ptr @.str.129, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_gi_length, %struct._header_field_info { ptr @.str.130, ptr @.str.131, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_gi_p2p_dev_addr, %struct._header_field_info { ptr @.str.59, ptr @.str.132, i32 29, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_gi_p2p_iface_addr, %struct._header_field_info { ptr @.str.133, ptr @.str.134, i32 29, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_gi_dev_capab, %struct._header_field_info { ptr @.str.4, ptr @.str.135, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_gi_dev_capab_service_discovery, %struct._header_field_info { ptr @.str.6, ptr @.str.136, i32 4, i32 2, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_gi_dev_capab_client_discoverability, %struct._header_field_info { ptr @.str.8, ptr @.str.137, i32 4, i32 2, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_gi_dev_capab_concurrent_operation, %struct._header_field_info { ptr @.str.10, ptr @.str.138, i32 4, i32 2, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_gi_dev_capab_infrastructure_managed, %struct._header_field_info { ptr @.str.12, ptr @.str.139, i32 4, i32 2, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_gi_dev_capab_limit, %struct._header_field_info { ptr @.str.14, ptr @.str.140, i32 4, i32 2, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_gi_pri_dev_type, %struct._header_field_info { ptr @.str.61, ptr @.str.141, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_gi_pri_dev_type_category, %struct._header_field_info { ptr @.str.63, ptr @.str.142, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_gi_pri_dev_type_oui, %struct._header_field_info { ptr @.str.65, ptr @.str.143, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_gi_pri_dev_type_subcategory, %struct._header_field_info { ptr @.str.67, ptr @.str.144, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_gi_num_sec_dev_types, %struct._header_field_info { ptr @.str.69, ptr @.str.145, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_gi_sec_dev_type, %struct._header_field_info { ptr @.str.71, ptr @.str.146, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_gi_dev_name_type, %struct._header_field_info { ptr @.str.73, ptr @.str.147, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_gi_dev_name_len, %struct._header_field_info { ptr @.str.75, ptr @.str.148, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_gi_dev_name, %struct._header_field_info { ptr @.str.77, ptr @.str.149, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_gi_config_methods, %struct._header_field_info { ptr @.str.79, ptr @.str.150, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_invitation_flags, %struct._header_field_info { ptr @.str.151, ptr @.str.152, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_invitation_flags_type, %struct._header_field_info { ptr @.str.153, ptr @.str.154, i32 4, i32 2, ptr @invitation_types, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_manageability_bitmap, %struct._header_field_info { ptr @.str.155, ptr @.str.156, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_manageability_bitmap_mgmt, %struct._header_field_info { ptr @.str.157, ptr @.str.158, i32 4, i32 2, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_manageability_bitmap_cross_connect, %struct._header_field_info { ptr @.str.159, ptr @.str.160, i32 4, i32 2, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_manageability_bitmap_coex_opt, %struct._header_field_info { ptr @.str.161, ptr @.str.162, i32 4, i32 2, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_minor_reason_code, %struct._header_field_info { ptr @.str.163, ptr @.str.164, i32 4, i32 1, ptr @p2p_minor_reason_codes, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_oob_group_owner_negotiation_channel_country, %struct._header_field_info { ptr @.str.44, ptr @.str.165, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_oob_group_owner_negotiation_channel_oper_class, %struct._header_field_info { ptr @.str.46, ptr @.str.166, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_oob_group_owner_negotiation_channel_number, %struct._header_field_info { ptr @.str.48, ptr @.str.167, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_oob_group_owner_negotiation_channel_role_indication, %struct._header_field_info { ptr @.str.168, ptr @.str.169, i32 4, i32 1, ptr @p2p_oob_group_owner_negotiation_channel_role_indication_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_service_hash, %struct._header_field_info { ptr @.str.170, ptr @.str.171, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_session_information, %struct._header_field_info { ptr @.str.172, ptr @.str.173, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_connection_capability, %struct._header_field_info { ptr @.str.174, ptr @.str.175, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_advertisement_id, %struct._header_field_info { ptr @.str.176, ptr @.str.177, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_advertisement_id_service_mac_address, %struct._header_field_info { ptr @.str.178, ptr @.str.179, i32 29, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_advertised_service_advertisement_id, %struct._header_field_info { ptr @.str.176, ptr @.str.180, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_advertised_service_config_methods, %struct._header_field_info { ptr @.str.181, ptr @.str.182, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_advertised_service_service_name_length, %struct._header_field_info { ptr @.str.183, ptr @.str.184, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_advertised_service_service_name, %struct._header_field_info { ptr @.str.185, ptr @.str.186, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_session_id, %struct._header_field_info { ptr @.str.187, ptr @.str.188, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_session_id_session_mac_address, %struct._header_field_info { ptr @.str.189, ptr @.str.190, i32 29, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_feature_capability, %struct._header_field_info { ptr @.str.191, ptr @.str.192, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_persistent_group_p2p_device_address, %struct._header_field_info { ptr @.str.193, ptr @.str.194, i32 29, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_persistent_group_ssid, %struct._header_field_info { ptr @.str.110, ptr @.str.195, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_anqp_service_update_indicator, %struct._header_field_info { ptr @.str.196, ptr @.str.197, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_anqp_length, %struct._header_field_info { ptr @.str.198, ptr @.str.199, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_anqp_service_protocol_type, %struct._header_field_info { ptr @.str.200, ptr @.str.201, i32 4, i32 1, ptr @p2p_service_protocol_types, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_anqp_service_transaction_id, %struct._header_field_info { ptr @.str.202, ptr @.str.203, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_anqp_query_data, %struct._header_field_info { ptr @.str.204, ptr @.str.205, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_anqp_status_code, %struct._header_field_info { ptr @.str.38, ptr @.str.206, i32 4, i32 1, ptr @p2p_sd_status_codes, i64 0, ptr @.str.207, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_anqp_response_data, %struct._header_field_info { ptr @.str.208, ptr @.str.209, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_action_subtype, %struct._header_field_info { ptr @.str.210, ptr @.str.211, i32 4, i32 1, ptr @p2p_action_subtypes, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_action_dialog_token, %struct._header_field_info { ptr @.str.212, ptr @.str.213, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_public_action_subtype, %struct._header_field_info { ptr @.str.214, ptr @.str.215, i32 4, i32 1, ptr @p2p_public_action_subtypes, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_public_action_dialog_token, %struct._header_field_info { ptr @.str.216, ptr @.str.217, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
+@proto_register_p2p.hf = internal global [123 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_p2p_attr_type, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 4, i32 1, ptr @p2p_attr_types, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_len, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_capab_device, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_capab_device_service_discovery, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 4, i32 2, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_capab_device_client_discoverability, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 4, i32 2, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_capab_device_concurrent_operation, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 4, i32 2, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_capab_device_infrastructure_managed, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 4, i32 2, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_capab_device_limit, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 4, i32 2, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_capab_invitation_procedure, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 4, i32 2, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_capab_group, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_capab_group_owner, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 4, i32 2, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_capab_group_persistent, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 4, i32 2, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_capab_group_limit, %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 4, i32 2, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_capab_group_intra_bss_distribution, %struct._header_field_info { ptr @.str.26, ptr @.str.27, i32 4, i32 2, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_capab_group_cross_connection, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 4, i32 2, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_capab_group_persistent_reconnect, %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 4, i32 2, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_capab_group_group_formation, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 4, i32 2, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_capab_group_ip_address_allocation, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 4, i32 2, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_device_id, %struct._header_field_info { ptr @.str.36, ptr @.str.37, i32 29, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_status, %struct._header_field_info { ptr @.str.38, ptr @.str.39, i32 4, i32 1, ptr @p2p_status_codes, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_go_intent, %struct._header_field_info { ptr @.str.40, ptr @.str.41, i32 4, i32 1, ptr null, i64 30, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_go_intent_tie_breaker, %struct._header_field_info { ptr @.str.42, ptr @.str.43, i32 4, i32 1, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_listen_channel_country, %struct._header_field_info { ptr @.str.44, ptr @.str.45, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_listen_channel_oper_class, %struct._header_field_info { ptr @.str.46, ptr @.str.47, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_listen_channel_number, %struct._header_field_info { ptr @.str.48, ptr @.str.49, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_operating_channel_country, %struct._header_field_info { ptr @.str.44, ptr @.str.50, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_operating_channel_oper_class, %struct._header_field_info { ptr @.str.46, ptr @.str.51, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_operating_channel_number, %struct._header_field_info { ptr @.str.48, ptr @.str.52, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_channel_list_country, %struct._header_field_info { ptr @.str.44, ptr @.str.53, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_channel_list_oper_class, %struct._header_field_info { ptr @.str.46, ptr @.str.54, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_channel_list_num_chan, %struct._header_field_info { ptr @.str.55, ptr @.str.56, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_channel_list_chan, %struct._header_field_info { ptr @.str.57, ptr @.str.58, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_dev_info_p2p_dev_addr, %struct._header_field_info { ptr @.str.59, ptr @.str.60, i32 29, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_dev_info_pri_dev_type, %struct._header_field_info { ptr @.str.61, ptr @.str.62, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_dev_info_pri_dev_type_category, %struct._header_field_info { ptr @.str.63, ptr @.str.64, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_dev_info_pri_dev_type_oui, %struct._header_field_info { ptr @.str.65, ptr @.str.66, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_dev_info_pri_dev_type_subcategory, %struct._header_field_info { ptr @.str.67, ptr @.str.68, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_dev_info_num_sec, %struct._header_field_info { ptr @.str.69, ptr @.str.70, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_dev_info_sec_dev_type, %struct._header_field_info { ptr @.str.71, ptr @.str.72, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_dev_info_dev_name_type, %struct._header_field_info { ptr @.str.73, ptr @.str.74, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_dev_info_dev_name_len, %struct._header_field_info { ptr @.str.75, ptr @.str.76, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_dev_info_dev_name, %struct._header_field_info { ptr @.str.77, ptr @.str.78, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_dev_info_config_methods, %struct._header_field_info { ptr @.str.79, ptr @.str.80, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_dev_info_config_methods_usba, %struct._header_field_info { ptr @.str.81, ptr @.str.82, i32 5, i32 2, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_dev_info_config_methods_ethernet, %struct._header_field_info { ptr @.str.83, ptr @.str.84, i32 5, i32 2, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_dev_info_config_methods_label, %struct._header_field_info { ptr @.str.85, ptr @.str.86, i32 5, i32 2, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_dev_info_config_methods_display, %struct._header_field_info { ptr @.str.87, ptr @.str.88, i32 5, i32 2, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_dev_info_config_methods_ext_nfc_token, %struct._header_field_info { ptr @.str.89, ptr @.str.90, i32 5, i32 2, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_dev_info_config_methods_int_nfc_token, %struct._header_field_info { ptr @.str.91, ptr @.str.92, i32 5, i32 2, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_dev_info_config_methods_nfc_interface, %struct._header_field_info { ptr @.str.93, ptr @.str.94, i32 5, i32 2, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_dev_info_config_methods_pushbutton, %struct._header_field_info { ptr @.str.95, ptr @.str.96, i32 5, i32 2, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_dev_info_config_methods_keypad, %struct._header_field_info { ptr @.str.97, ptr @.str.98, i32 5, i32 2, ptr null, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_config_timeout_go, %struct._header_field_info { ptr @.str.99, ptr @.str.100, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_config_timeout_client, %struct._header_field_info { ptr @.str.101, ptr @.str.102, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_intended_interface_addr, %struct._header_field_info { ptr @.str.103, ptr @.str.104, i32 29, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_extended_listen_timing_period, %struct._header_field_info { ptr @.str.105, ptr @.str.106, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_extended_listen_timing_interval, %struct._header_field_info { ptr @.str.107, ptr @.str.108, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_p2p_group_id_dev_addr, %struct._header_field_info { ptr @.str.59, ptr @.str.109, i32 29, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_p2p_group_id_ssid, %struct._header_field_info { ptr @.str.110, ptr @.str.111, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_p2p_group_bssid, %struct._header_field_info { ptr @.str.112, ptr @.str.113, i32 29, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_noa_index, %struct._header_field_info { ptr @.str.114, ptr @.str.115, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_noa_params, %struct._header_field_info { ptr @.str.116, ptr @.str.117, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_noa_params_opp_ps, %struct._header_field_info { ptr @.str.118, ptr @.str.119, i32 4, i32 1, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_noa_params_ctwindow, %struct._header_field_info { ptr @.str.120, ptr @.str.121, i32 4, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_noa_count_type, %struct._header_field_info { ptr @.str.122, ptr @.str.123, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_noa_duration, %struct._header_field_info { ptr @.str.124, ptr @.str.125, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_noa_interval, %struct._header_field_info { ptr @.str.126, ptr @.str.127, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_noa_start_time, %struct._header_field_info { ptr @.str.128, ptr @.str.129, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_gi_length, %struct._header_field_info { ptr @.str.130, ptr @.str.131, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_gi_p2p_dev_addr, %struct._header_field_info { ptr @.str.59, ptr @.str.132, i32 29, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_gi_p2p_iface_addr, %struct._header_field_info { ptr @.str.133, ptr @.str.134, i32 29, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_gi_dev_capab, %struct._header_field_info { ptr @.str.4, ptr @.str.135, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_gi_dev_capab_service_discovery, %struct._header_field_info { ptr @.str.6, ptr @.str.136, i32 4, i32 2, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_gi_dev_capab_client_discoverability, %struct._header_field_info { ptr @.str.8, ptr @.str.137, i32 4, i32 2, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_gi_dev_capab_concurrent_operation, %struct._header_field_info { ptr @.str.10, ptr @.str.138, i32 4, i32 2, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_gi_dev_capab_infrastructure_managed, %struct._header_field_info { ptr @.str.12, ptr @.str.139, i32 4, i32 2, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_gi_dev_capab_limit, %struct._header_field_info { ptr @.str.14, ptr @.str.140, i32 4, i32 2, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_gi_pri_dev_type, %struct._header_field_info { ptr @.str.61, ptr @.str.141, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_gi_pri_dev_type_category, %struct._header_field_info { ptr @.str.63, ptr @.str.142, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_gi_pri_dev_type_oui, %struct._header_field_info { ptr @.str.65, ptr @.str.143, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_gi_pri_dev_type_subcategory, %struct._header_field_info { ptr @.str.67, ptr @.str.144, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_gi_num_sec_dev_types, %struct._header_field_info { ptr @.str.69, ptr @.str.145, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_gi_sec_dev_type, %struct._header_field_info { ptr @.str.71, ptr @.str.146, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_gi_dev_name_type, %struct._header_field_info { ptr @.str.73, ptr @.str.147, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_gi_dev_name_len, %struct._header_field_info { ptr @.str.75, ptr @.str.148, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_gi_dev_name, %struct._header_field_info { ptr @.str.77, ptr @.str.149, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_gi_config_methods, %struct._header_field_info { ptr @.str.79, ptr @.str.150, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_invitation_flags, %struct._header_field_info { ptr @.str.151, ptr @.str.152, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_invitation_flags_type, %struct._header_field_info { ptr @.str.153, ptr @.str.154, i32 4, i32 2, ptr @invitation_types, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_manageability_bitmap, %struct._header_field_info { ptr @.str.155, ptr @.str.156, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_manageability_bitmap_mgmt, %struct._header_field_info { ptr @.str.157, ptr @.str.158, i32 4, i32 2, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_manageability_bitmap_cross_connect, %struct._header_field_info { ptr @.str.159, ptr @.str.160, i32 4, i32 2, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_manageability_bitmap_coex_opt, %struct._header_field_info { ptr @.str.161, ptr @.str.162, i32 4, i32 2, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_minor_reason_code, %struct._header_field_info { ptr @.str.163, ptr @.str.164, i32 4, i32 1, ptr @p2p_minor_reason_codes, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_oob_group_owner_negotiation_channel_country, %struct._header_field_info { ptr @.str.44, ptr @.str.165, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_oob_group_owner_negotiation_channel_oper_class, %struct._header_field_info { ptr @.str.46, ptr @.str.166, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_oob_group_owner_negotiation_channel_number, %struct._header_field_info { ptr @.str.48, ptr @.str.167, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_oob_group_owner_negotiation_channel_role_indication, %struct._header_field_info { ptr @.str.168, ptr @.str.169, i32 4, i32 1, ptr @p2p_oob_group_owner_negotiation_channel_role_indication_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_service_hash, %struct._header_field_info { ptr @.str.170, ptr @.str.171, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_session_information, %struct._header_field_info { ptr @.str.172, ptr @.str.173, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_connection_capability, %struct._header_field_info { ptr @.str.174, ptr @.str.175, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_advertisement_id, %struct._header_field_info { ptr @.str.176, ptr @.str.177, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_advertisement_id_service_mac_address, %struct._header_field_info { ptr @.str.178, ptr @.str.179, i32 29, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_advertised_service_advertisement_id, %struct._header_field_info { ptr @.str.176, ptr @.str.180, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_advertised_service_config_methods, %struct._header_field_info { ptr @.str.181, ptr @.str.182, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_advertised_service_service_name_length, %struct._header_field_info { ptr @.str.183, ptr @.str.184, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_advertised_service_service_name, %struct._header_field_info { ptr @.str.185, ptr @.str.186, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_session_id, %struct._header_field_info { ptr @.str.187, ptr @.str.188, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_session_id_session_mac_address, %struct._header_field_info { ptr @.str.189, ptr @.str.190, i32 29, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_feature_capability, %struct._header_field_info { ptr @.str.191, ptr @.str.192, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_persistent_group_p2p_device_address, %struct._header_field_info { ptr @.str.193, ptr @.str.194, i32 29, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_attr_persistent_group_ssid, %struct._header_field_info { ptr @.str.110, ptr @.str.195, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_anqp_service_update_indicator, %struct._header_field_info { ptr @.str.196, ptr @.str.197, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_anqp_length, %struct._header_field_info { ptr @.str.198, ptr @.str.199, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_anqp_service_protocol_type, %struct._header_field_info { ptr @.str.200, ptr @.str.201, i32 4, i32 1, ptr @p2p_service_protocol_types, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_anqp_service_transaction_id, %struct._header_field_info { ptr @.str.202, ptr @.str.203, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_anqp_query_data, %struct._header_field_info { ptr @.str.204, ptr @.str.205, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_anqp_status_code, %struct._header_field_info { ptr @.str.38, ptr @.str.206, i32 4, i32 1, ptr @p2p_sd_status_codes, i64 0, ptr @.str.207, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_anqp_response_data, %struct._header_field_info { ptr @.str.208, ptr @.str.209, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_action_subtype, %struct._header_field_info { ptr @.str.210, ptr @.str.211, i32 4, i32 1, ptr @p2p_action_subtypes, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_action_dialog_token, %struct._header_field_info { ptr @.str.212, ptr @.str.213, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_public_action_subtype, %struct._header_field_info { ptr @.str.214, ptr @.str.215, i32 4, i32 1, ptr @p2p_public_action_subtypes, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_p2p_public_action_dialog_token, %struct._header_field_info { ptr @.str.216, ptr @.str.217, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_p2p_attr_type = internal global i32 0, align 4
 @.str = private unnamed_addr constant [15 x i8] c"Attribute Type\00", align 1
 @.str.1 = private unnamed_addr constant [14 x i8] c"wifi_p2p.type\00", align 1
-@p2p_attr_types = internal constant [31 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.238 }, %struct._value_string { i32 1, ptr @.str.163 }, %struct._value_string { i32 2, ptr @.str.239 }, %struct._value_string { i32 3, ptr @.str.240 }, %struct._value_string { i32 4, ptr @.str.40 }, %struct._value_string { i32 5, ptr @.str.241 }, %struct._value_string { i32 6, ptr @.str.242 }, %struct._value_string { i32 7, ptr @.str.243 }, %struct._value_string { i32 8, ptr @.str.244 }, %struct._value_string { i32 9, ptr @.str.245 }, %struct._value_string { i32 10, ptr @.str.246 }, %struct._value_string { i32 11, ptr @.str.57 }, %struct._value_string { i32 12, ptr @.str.247 }, %struct._value_string { i32 13, ptr @.str.248 }, %struct._value_string { i32 14, ptr @.str.249 }, %struct._value_string { i32 15, ptr @.str.250 }, %struct._value_string { i32 16, ptr @.str.251 }, %struct._value_string { i32 17, ptr @.str.252 }, %struct._value_string { i32 18, ptr @.str.151 }, %struct._value_string { i32 221, ptr @.str.253 }, %struct._value_string { i32 19, ptr @.str.254 }, %struct._value_string { i32 20, ptr @.str.255 }, %struct._value_string { i32 21, ptr @.str.170 }, %struct._value_string { i32 22, ptr @.str.256 }, %struct._value_string { i32 23, ptr @.str.257 }, %struct._value_string { i32 24, ptr @.str.258 }, %struct._value_string { i32 25, ptr @.str.259 }, %struct._value_string { i32 26, ptr @.str.260 }, %struct._value_string { i32 27, ptr @.str.191 }, %struct._value_string { i32 28, ptr @.str.261 }, %struct._value_string zeroinitializer], align 16
 @hf_p2p_attr_len = internal global i32 0, align 4
 @.str.2 = private unnamed_addr constant [17 x i8] c"Attribute Length\00", align 1
 @.str.3 = private unnamed_addr constant [16 x i8] c"wifi_p2p.length\00", align 1
@@ -75,7 +71,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_p2p_attr_status = internal global i32 0, align 4
 @.str.38 = private unnamed_addr constant [12 x i8] c"Status Code\00", align 1
 @.str.39 = private unnamed_addr constant [16 x i8] c"wifi_p2p.status\00", align 1
-@p2p_status_codes = internal constant [14 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.262 }, %struct._value_string { i32 1, ptr @.str.263 }, %struct._value_string { i32 2, ptr @.str.264 }, %struct._value_string { i32 3, ptr @.str.265 }, %struct._value_string { i32 4, ptr @.str.266 }, %struct._value_string { i32 5, ptr @.str.267 }, %struct._value_string { i32 6, ptr @.str.268 }, %struct._value_string { i32 7, ptr @.str.269 }, %struct._value_string { i32 8, ptr @.str.270 }, %struct._value_string { i32 9, ptr @.str.271 }, %struct._value_string { i32 10, ptr @.str.272 }, %struct._value_string { i32 11, ptr @.str.273 }, %struct._value_string { i32 12, ptr @.str.274 }, %struct._value_string zeroinitializer], align 16
 @hf_p2p_attr_go_intent = internal global i32 0, align 4
 @.str.40 = private unnamed_addr constant [19 x i8] c"Group Owner Intent\00", align 1
 @.str.41 = private unnamed_addr constant [19 x i8] c"wifi_p2p.go_intent\00", align 1
@@ -260,7 +255,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_p2p_attr_invitation_flags_type = internal global i32 0, align 4
 @.str.153 = private unnamed_addr constant [16 x i8] c"Invitation Type\00", align 1
 @.str.154 = private unnamed_addr constant [31 x i8] c"wifi_p2p.invitation_flags.type\00", align 1
-@invitation_types = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.275 }, %struct._value_string { i32 1, ptr @.str.276 }, %struct._value_string zeroinitializer], align 16
 @hf_p2p_attr_manageability_bitmap = internal global i32 0, align 4
 @.str.155 = private unnamed_addr constant [27 x i8] c"Manageability Bitmap field\00", align 1
 @.str.156 = private unnamed_addr constant [30 x i8] c"wifi_p2p.manageability.bitmap\00", align 1
@@ -276,7 +270,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_p2p_attr_minor_reason_code = internal global i32 0, align 4
 @.str.163 = private unnamed_addr constant [18 x i8] c"Minor Reason Code\00", align 1
 @.str.164 = private unnamed_addr constant [27 x i8] c"wifi_p2p.minor_reason_code\00", align 1
-@p2p_minor_reason_codes = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.277 }, %struct._value_string { i32 1, ptr @.str.278 }, %struct._value_string { i32 2, ptr @.str.279 }, %struct._value_string { i32 3, ptr @.str.280 }, %struct._value_string { i32 4, ptr @.str.281 }, %struct._value_string zeroinitializer], align 16
 @hf_p2p_attr_oob_group_owner_negotiation_channel_country = internal global i32 0, align 4
 @.str.165 = private unnamed_addr constant [60 x i8] c"wifi_p2p.oob_group_owner_negotiation_channel.country_string\00", align 1
 @hf_p2p_attr_oob_group_owner_negotiation_channel_oper_class = internal global i32 0, align 4
@@ -286,7 +279,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_p2p_attr_oob_group_owner_negotiation_channel_role_indication = internal global i32 0, align 4
 @.str.168 = private unnamed_addr constant [16 x i8] c"Role Indication\00", align 1
 @.str.169 = private unnamed_addr constant [61 x i8] c"wifi_p2p.oob_group_owner_negotiation_channel.role_indication\00", align 1
-@p2p_oob_group_owner_negotiation_channel_role_indication_vals = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.282 }, %struct._value_string { i32 1, ptr @.str.283 }, %struct._value_string { i32 2, ptr @.str.284 }, %struct._value_string zeroinitializer], align 16
 @hf_p2p_attr_service_hash = internal global i32 0, align 4
 @.str.170 = private unnamed_addr constant [13 x i8] c"Service Hash\00", align 1
 @.str.171 = private unnamed_addr constant [22 x i8] c"wifi_p2p.service_hash\00", align 1
@@ -336,7 +328,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_p2p_anqp_service_protocol_type = internal global i32 0, align 4
 @.str.200 = private unnamed_addr constant [22 x i8] c"Service Protocol Type\00", align 1
 @.str.201 = private unnamed_addr constant [36 x i8] c"wifi_p2p.anqp.service_protocol_type\00", align 1
-@p2p_service_protocol_types = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.285 }, %struct._value_string { i32 1, ptr @.str.286 }, %struct._value_string { i32 2, ptr @.str.287 }, %struct._value_string { i32 3, ptr @.str.288 }, %struct._value_string { i32 4, ptr @.str.289 }, %struct._value_string zeroinitializer], align 16
 @hf_p2p_anqp_service_transaction_id = internal global i32 0, align 4
 @.str.202 = private unnamed_addr constant [23 x i8] c"Service Transaction ID\00", align 1
 @.str.203 = private unnamed_addr constant [37 x i8] c"wifi_p2p.anqp.service_transaction_id\00", align 1
@@ -345,7 +336,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.205 = private unnamed_addr constant [25 x i8] c"wifi_p2p.anqp.query_data\00", align 1
 @hf_p2p_anqp_status_code = internal global i32 0, align 4
 @.str.206 = private unnamed_addr constant [26 x i8] c"wifi_p2p.anqp.status_code\00", align 1
-@p2p_sd_status_codes = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.262 }, %struct._value_string { i32 1, ptr @.str.290 }, %struct._value_string { i32 2, ptr @.str.291 }, %struct._value_string { i32 3, ptr @.str.292 }, %struct._value_string zeroinitializer], align 16
 @.str.207 = private unnamed_addr constant [26 x i8] c"Service Query Status Code\00", align 1
 @hf_p2p_anqp_response_data = internal global i32 0, align 4
 @.str.208 = private unnamed_addr constant [14 x i8] c"Response Data\00", align 1
@@ -353,14 +343,12 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_p2p_action_subtype = internal global i32 0, align 4
 @.str.210 = private unnamed_addr constant [19 x i8] c"P2P Action Subtype\00", align 1
 @.str.211 = private unnamed_addr constant [24 x i8] c"wifi_p2p.action.subtype\00", align 1
-@p2p_action_subtypes = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.247 }, %struct._value_string { i32 1, ptr @.str.293 }, %struct._value_string { i32 2, ptr @.str.294 }, %struct._value_string { i32 3, ptr @.str.295 }, %struct._value_string zeroinitializer], align 16
 @hf_p2p_action_dialog_token = internal global i32 0, align 4
 @.str.212 = private unnamed_addr constant [24 x i8] c"P2P Action Dialog Token\00", align 1
 @.str.213 = private unnamed_addr constant [29 x i8] c"wifi_p2p.action.dialog_token\00", align 1
 @hf_p2p_public_action_subtype = internal global i32 0, align 4
 @.str.214 = private unnamed_addr constant [26 x i8] c"P2P Public Action Subtype\00", align 1
 @.str.215 = private unnamed_addr constant [31 x i8] c"wifi_p2p.public_action.subtype\00", align 1
-@p2p_public_action_subtypes = internal constant [10 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.296 }, %struct._value_string { i32 1, ptr @.str.297 }, %struct._value_string { i32 2, ptr @.str.298 }, %struct._value_string { i32 3, ptr @.str.299 }, %struct._value_string { i32 4, ptr @.str.300 }, %struct._value_string { i32 5, ptr @.str.301 }, %struct._value_string { i32 6, ptr @.str.302 }, %struct._value_string { i32 7, ptr @.str.303 }, %struct._value_string { i32 8, ptr @.str.304 }, %struct._value_string zeroinitializer], align 16
 @hf_p2p_public_action_dialog_token = internal global i32 0, align 4
 @.str.216 = private unnamed_addr constant [31 x i8] c"P2P Public Action Dialog Token\00", align 1
 @.str.217 = private unnamed_addr constant [36 x i8] c"wifi_p2p.public_action.dialog_token\00", align 1
@@ -369,7 +357,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_p2p_service_tlv = internal global i32 0, align 4
 @ett_p2p_advertised_service = internal global i32 0, align 4
 @ett_p2p_client_descr = internal global i32 0, align 4
-@proto_register_p2p.ei = internal global [4 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_wifi_p2p_attr_dev_info_dev_name_type, %struct.expert_field_info { ptr @.str.218, i32 117440512, i32 8388608, ptr @.str.219, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_wifi_p2p_attr_len, %struct.expert_field_info { ptr @.str.220, i32 117440512, i32 8388608, ptr @.str.221, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_wifi_p2p_anqp_length, %struct.expert_field_info { ptr @.str.222, i32 117440512, i32 8388608, ptr @.str.223, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_wifi_p2p_anqp_unexpected_padding, %struct.expert_field_info { ptr @.str.224, i32 117440512, i32 8388608, ptr @.str.225, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_p2p.ei = internal global [4 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_wifi_p2p_attr_dev_info_dev_name_type, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.218, i32 117440512, i32 8388608, ptr @.str.219, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_wifi_p2p_attr_len, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.220, i32 117440512, i32 8388608, ptr @.str.221, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_wifi_p2p_anqp_length, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.222, i32 117440512, i32 8388608, ptr @.str.223, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_wifi_p2p_anqp_unexpected_padding, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.224, i32 117440512, i32 8388608, ptr @.str.225, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_wifi_p2p_attr_dev_info_dev_name_type = internal global %struct.expert_field zeroinitializer, align 4
 @.str.218 = private unnamed_addr constant [40 x i8] c"wifi_p2p.dev_info.dev_name_type.invalid\00", align 1
 @.str.219 = private unnamed_addr constant [37 x i8] c"Incorrect Device Name attribute type\00", align 1
@@ -424,83 +412,93 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.259 = private unnamed_addr constant [24 x i8] c"Advertised Service Info\00", align 1
 @.str.260 = private unnamed_addr constant [16 x i8] c"Session ID Info\00", align 1
 @.str.261 = private unnamed_addr constant [22 x i8] c"Persistent Group Info\00", align 1
-@.str.262 = private unnamed_addr constant [8 x i8] c"Success\00", align 1
-@.str.263 = private unnamed_addr constant [43 x i8] c"Fail; information is currently unavailable\00", align 1
-@.str.264 = private unnamed_addr constant [30 x i8] c"Fail; incompatible parameters\00", align 1
-@.str.265 = private unnamed_addr constant [20 x i8] c"Fail; limit reached\00", align 1
-@.str.266 = private unnamed_addr constant [25 x i8] c"Fail; invalid parameters\00", align 1
-@.str.267 = private unnamed_addr constant [36 x i8] c"Fail; unable to accommodate request\00", align 1
-@.str.268 = private unnamed_addr constant [54 x i8] c"Fail; previous protocol error, or disruptive behavior\00", align 1
-@.str.269 = private unnamed_addr constant [25 x i8] c"Fail; no common channels\00", align 1
-@.str.270 = private unnamed_addr constant [24 x i8] c"Fail; unknown P2P Group\00", align 1
-@.str.271 = private unnamed_addr constant [76 x i8] c"Fail; both P2P Devices indicated an Intent of 15 in Group Owner Negotiation\00", align 1
-@.str.272 = private unnamed_addr constant [39 x i8] c"Fail; incompatible provisioning method\00", align 1
-@.str.273 = private unnamed_addr constant [23 x i8] c"Fail; rejected by user\00", align 1
-@.str.274 = private unnamed_addr constant [26 x i8] c"Success; Accepted by user\00", align 1
-@.str.275 = private unnamed_addr constant [22 x i8] c"Join active P2P Group\00", align 1
-@.str.276 = private unnamed_addr constant [26 x i8] c"Reinvoke Persistent Group\00", align 1
-@.str.277 = private unnamed_addr constant [9 x i8] c"Reserved\00", align 1
-@.str.278 = private unnamed_addr constant [62 x i8] c"Disconnected because Cross Connection capability is not allow\00", align 1
-@.str.279 = private unnamed_addr constant [62 x i8] c"Disconnected because P2P Infrastructure Managed not supported\00", align 1
-@.str.280 = private unnamed_addr constant [77 x i8] c"Disconnected because concurrent device is not setting coexistence parameters\00", align 1
-@.str.281 = private unnamed_addr constant [68 x i8] c"Disconnected because P2P operation is outside the IT defined policy\00", align 1
-@.str.282 = private unnamed_addr constant [47 x i8] c"Indicate that the P2P device is not in a group\00", align 1
-@.str.283 = private unnamed_addr constant [47 x i8] c"Indicate that the P2P device is a Group Client\00", align 1
-@.str.284 = private unnamed_addr constant [46 x i8] c"Indicate that the P2P device is a Group Owner\00", align 1
-@.str.285 = private unnamed_addr constant [27 x i8] c"All Service Protocol Types\00", align 1
-@.str.286 = private unnamed_addr constant [8 x i8] c"Bonjour\00", align 1
-@.str.287 = private unnamed_addr constant [5 x i8] c"UPnP\00", align 1
-@.str.288 = private unnamed_addr constant [13 x i8] c"WS-Discovery\00", align 1
-@.str.289 = private unnamed_addr constant [14 x i8] c"Wi-Fi Display\00", align 1
-@.str.290 = private unnamed_addr constant [36 x i8] c"Service Protocol Type not available\00", align 1
-@.str.291 = private unnamed_addr constant [36 x i8] c"Requested information not available\00", align 1
-@.str.292 = private unnamed_addr constant [12 x i8] c"Bad Request\00", align 1
-@.str.293 = private unnamed_addr constant [21 x i8] c"P2P Presence Request\00", align 1
-@.str.294 = private unnamed_addr constant [22 x i8] c"P2P Presence Response\00", align 1
-@.str.295 = private unnamed_addr constant [27 x i8] c"GO Discoverability Request\00", align 1
-@.str.296 = private unnamed_addr constant [23 x i8] c"GO Negotiation Request\00", align 1
-@.str.297 = private unnamed_addr constant [24 x i8] c"GO Negotiation Response\00", align 1
-@.str.298 = private unnamed_addr constant [28 x i8] c"GO Negotiation Confirmation\00", align 1
-@.str.299 = private unnamed_addr constant [23 x i8] c"P2P Invitation Request\00", align 1
-@.str.300 = private unnamed_addr constant [24 x i8] c"P2P Invitation Response\00", align 1
-@.str.301 = private unnamed_addr constant [31 x i8] c"Device Discoverability Request\00", align 1
-@.str.302 = private unnamed_addr constant [32 x i8] c"Device Discoverability Response\00", align 1
-@.str.303 = private unnamed_addr constant [28 x i8] c"Provision Discovery Request\00", align 1
-@.str.304 = private unnamed_addr constant [29 x i8] c"Provision Discovery Response\00", align 1
-@.str.305 = private unnamed_addr constant [29 x i8] c"%s:%u: failed assertion \22%s\22\00", align 1
-@.str.306 = private unnamed_addr constant [34 x i8] c"epan/dissectors/packet-wifi-p2p.c\00", align 1
-@.str.307 = private unnamed_addr constant [10 x i8] c"anqp_data\00", align 1
-@.str.308 = private unnamed_addr constant [28 x i8] c"Too short Service TLV field\00", align 1
-@.str.309 = private unnamed_addr constant [38 x i8] c"Too short frame for Service TLV field\00", align 1
-@.str.310 = private unnamed_addr constant [43 x i8] c"Service TLV (Transaction ID: %u  Type: %s)\00", align 1
-@.str.311 = private unnamed_addr constant [13 x i8] c"Unknown (%u)\00", align 1
-@.str.312 = private unnamed_addr constant [28 x i8] c"Packet too short for P2P IE\00", align 1
-@.str.313 = private unnamed_addr constant [28 x i8] c"Unknown attribute type (%u)\00", align 1
-@.str.314 = private unnamed_addr constant [26 x i8] c": Device 0x%x  Group 0x%x\00", align 1
-@.str.315 = private unnamed_addr constant [5 x i8] c": %s\00", align 1
-@.str.316 = private unnamed_addr constant [28 x i8] c": Intent %u  Tie breaker %u\00", align 1
-@.str.317 = private unnamed_addr constant [10 x i8] c": %u (%s)\00", align 1
-@.str.318 = private unnamed_addr constant [25 x i8] c"Unknown Status Code (%u)\00", align 1
-@.str.319 = private unnamed_addr constant [40 x i8] c": Operating Class %u  Channel Number %u\00", align 1
-@.str.320 = private unnamed_addr constant [37 x i8] c"Invalid Device Name attribute length\00", align 1
-@.str.321 = private unnamed_addr constant [30 x i8] c"Invalid Device Name attribute\00", align 1
-@.str.322 = private unnamed_addr constant [29 x i8] c": GO %u msec, client %u msec\00", align 1
-@.str.323 = private unnamed_addr constant [61 x i8] c": Availability Period %u msec, Availability Interval %u msec\00", align 1
-@.str.324 = private unnamed_addr constant [25 x i8] c"Invalid ethernet address\00", align 1
-@.str.325 = private unnamed_addr constant [14 x i8] c"Too short NoA\00", align 1
-@.str.326 = private unnamed_addr constant [37 x i8] c"Too short P2P Client Info Descriptor\00", align 1
-@.str.327 = private unnamed_addr constant [27 x i8] c"P2P Client Info Descriptor\00", align 1
-@.str.328 = private unnamed_addr constant [42 x i8] c"Invalid P2P Client Info Descriptor Length\00", align 1
-@.str.329 = private unnamed_addr constant [35 x i8] c"Invalid Secondary Device Type List\00", align 1
-@.str.330 = private unnamed_addr constant [24 x i8] c": Invitation Flags 0x%x\00", align 1
-@.str.331 = private unnamed_addr constant [20 x i8] c": Bitmap field 0x%x\00", align 1
-@.str.332 = private unnamed_addr constant [31 x i8] c"Unknown Minor Reason Code (%u)\00", align 1
-@.str.333 = private unnamed_addr constant [19 x i8] c"Advertised Service\00", align 1
-@.str.334 = private unnamed_addr constant [11 x i8] c", P2P - %s\00", align 1
+@p2p_attr_types = internal constant [31 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.238 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.163 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.239 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.240 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.40 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.241 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.242 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.243 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.244 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.245 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.246 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.57 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.247 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.248 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.249 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.250 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.251 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.252 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.151 }, { i32, [4 x i8], ptr } { i32 221, [4 x i8] zeroinitializer, ptr @.str.253 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.254 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.255 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.170 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.256 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.257 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.258 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.259 }, { i32, [4 x i8], ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.260 }, { i32, [4 x i8], ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.191 }, { i32, [4 x i8], ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.261 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.263 = private unnamed_addr constant [8 x i8] c"Success\00", align 1
+@.str.264 = private unnamed_addr constant [43 x i8] c"Fail; information is currently unavailable\00", align 1
+@.str.265 = private unnamed_addr constant [30 x i8] c"Fail; incompatible parameters\00", align 1
+@.str.266 = private unnamed_addr constant [20 x i8] c"Fail; limit reached\00", align 1
+@.str.267 = private unnamed_addr constant [25 x i8] c"Fail; invalid parameters\00", align 1
+@.str.268 = private unnamed_addr constant [36 x i8] c"Fail; unable to accommodate request\00", align 1
+@.str.269 = private unnamed_addr constant [54 x i8] c"Fail; previous protocol error, or disruptive behavior\00", align 1
+@.str.270 = private unnamed_addr constant [25 x i8] c"Fail; no common channels\00", align 1
+@.str.271 = private unnamed_addr constant [24 x i8] c"Fail; unknown P2P Group\00", align 1
+@.str.272 = private unnamed_addr constant [76 x i8] c"Fail; both P2P Devices indicated an Intent of 15 in Group Owner Negotiation\00", align 1
+@.str.273 = private unnamed_addr constant [39 x i8] c"Fail; incompatible provisioning method\00", align 1
+@.str.274 = private unnamed_addr constant [23 x i8] c"Fail; rejected by user\00", align 1
+@.str.275 = private unnamed_addr constant [26 x i8] c"Success; Accepted by user\00", align 1
+@p2p_status_codes = internal constant [14 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.263 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.264 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.265 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.266 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.267 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.268 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.269 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.270 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.271 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.272 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.273 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.274 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.275 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.277 = private unnamed_addr constant [22 x i8] c"Join active P2P Group\00", align 1
+@.str.278 = private unnamed_addr constant [26 x i8] c"Reinvoke Persistent Group\00", align 1
+@invitation_types = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.277 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.278 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.280 = private unnamed_addr constant [9 x i8] c"Reserved\00", align 1
+@.str.281 = private unnamed_addr constant [62 x i8] c"Disconnected because Cross Connection capability is not allow\00", align 1
+@.str.282 = private unnamed_addr constant [62 x i8] c"Disconnected because P2P Infrastructure Managed not supported\00", align 1
+@.str.283 = private unnamed_addr constant [77 x i8] c"Disconnected because concurrent device is not setting coexistence parameters\00", align 1
+@.str.284 = private unnamed_addr constant [68 x i8] c"Disconnected because P2P operation is outside the IT defined policy\00", align 1
+@p2p_minor_reason_codes = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.280 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.281 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.282 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.283 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.284 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.286 = private unnamed_addr constant [47 x i8] c"Indicate that the P2P device is not in a group\00", align 1
+@.str.287 = private unnamed_addr constant [47 x i8] c"Indicate that the P2P device is a Group Client\00", align 1
+@.str.288 = private unnamed_addr constant [46 x i8] c"Indicate that the P2P device is a Group Owner\00", align 1
+@p2p_oob_group_owner_negotiation_channel_role_indication_vals = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.286 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.287 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.288 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.290 = private unnamed_addr constant [27 x i8] c"All Service Protocol Types\00", align 1
+@.str.291 = private unnamed_addr constant [8 x i8] c"Bonjour\00", align 1
+@.str.292 = private unnamed_addr constant [5 x i8] c"UPnP\00", align 1
+@.str.293 = private unnamed_addr constant [13 x i8] c"WS-Discovery\00", align 1
+@.str.294 = private unnamed_addr constant [14 x i8] c"Wi-Fi Display\00", align 1
+@p2p_service_protocol_types = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.290 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.291 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.292 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.293 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.294 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.296 = private unnamed_addr constant [36 x i8] c"Service Protocol Type not available\00", align 1
+@.str.297 = private unnamed_addr constant [36 x i8] c"Requested information not available\00", align 1
+@.str.298 = private unnamed_addr constant [12 x i8] c"Bad Request\00", align 1
+@p2p_sd_status_codes = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.263 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.296 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.297 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.298 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.300 = private unnamed_addr constant [21 x i8] c"P2P Presence Request\00", align 1
+@.str.301 = private unnamed_addr constant [22 x i8] c"P2P Presence Response\00", align 1
+@.str.302 = private unnamed_addr constant [27 x i8] c"GO Discoverability Request\00", align 1
+@p2p_action_subtypes = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.247 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.300 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.301 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.302 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.304 = private unnamed_addr constant [23 x i8] c"GO Negotiation Request\00", align 1
+@.str.305 = private unnamed_addr constant [24 x i8] c"GO Negotiation Response\00", align 1
+@.str.306 = private unnamed_addr constant [28 x i8] c"GO Negotiation Confirmation\00", align 1
+@.str.307 = private unnamed_addr constant [23 x i8] c"P2P Invitation Request\00", align 1
+@.str.308 = private unnamed_addr constant [24 x i8] c"P2P Invitation Response\00", align 1
+@.str.309 = private unnamed_addr constant [31 x i8] c"Device Discoverability Request\00", align 1
+@.str.310 = private unnamed_addr constant [32 x i8] c"Device Discoverability Response\00", align 1
+@.str.311 = private unnamed_addr constant [28 x i8] c"Provision Discovery Request\00", align 1
+@.str.312 = private unnamed_addr constant [29 x i8] c"Provision Discovery Response\00", align 1
+@p2p_public_action_subtypes = internal constant [10 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.304 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.305 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.306 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.307 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.308 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.309 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.310 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.311 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.312 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.314 = private unnamed_addr constant [29 x i8] c"%s:%u: failed assertion \22%s\22\00", align 1
+@.str.315 = private unnamed_addr constant [34 x i8] c"epan/dissectors/packet-wifi-p2p.c\00", align 1
+@.str.316 = private unnamed_addr constant [10 x i8] c"anqp_data\00", align 1
+@.str.317 = private unnamed_addr constant [28 x i8] c"Too short Service TLV field\00", align 1
+@.str.318 = private unnamed_addr constant [38 x i8] c"Too short frame for Service TLV field\00", align 1
+@.str.319 = private unnamed_addr constant [43 x i8] c"Service TLV (Transaction ID: %u  Type: %s)\00", align 1
+@.str.320 = private unnamed_addr constant [13 x i8] c"Unknown (%u)\00", align 1
+@.str.321 = private unnamed_addr constant [28 x i8] c"Packet too short for P2P IE\00", align 1
+@.str.322 = private unnamed_addr constant [28 x i8] c"Unknown attribute type (%u)\00", align 1
+@.str.323 = private unnamed_addr constant [26 x i8] c": Device 0x%x  Group 0x%x\00", align 1
+@.str.324 = private unnamed_addr constant [5 x i8] c": %s\00", align 1
+@.str.325 = private unnamed_addr constant [28 x i8] c": Intent %u  Tie breaker %u\00", align 1
+@.str.326 = private unnamed_addr constant [10 x i8] c": %u (%s)\00", align 1
+@.str.327 = private unnamed_addr constant [25 x i8] c"Unknown Status Code (%u)\00", align 1
+@.str.328 = private unnamed_addr constant [40 x i8] c": Operating Class %u  Channel Number %u\00", align 1
+@.str.329 = private unnamed_addr constant [37 x i8] c"Invalid Device Name attribute length\00", align 1
+@.str.330 = private unnamed_addr constant [30 x i8] c"Invalid Device Name attribute\00", align 1
+@.str.331 = private unnamed_addr constant [29 x i8] c": GO %u msec, client %u msec\00", align 1
+@.str.332 = private unnamed_addr constant [61 x i8] c": Availability Period %u msec, Availability Interval %u msec\00", align 1
+@.str.333 = private unnamed_addr constant [25 x i8] c"Invalid ethernet address\00", align 1
+@.str.334 = private unnamed_addr constant [14 x i8] c"Too short NoA\00", align 1
+@.str.335 = private unnamed_addr constant [37 x i8] c"Too short P2P Client Info Descriptor\00", align 1
+@.str.336 = private unnamed_addr constant [27 x i8] c"P2P Client Info Descriptor\00", align 1
+@.str.337 = private unnamed_addr constant [42 x i8] c"Invalid P2P Client Info Descriptor Length\00", align 1
+@.str.338 = private unnamed_addr constant [35 x i8] c"Invalid Secondary Device Type List\00", align 1
+@.str.339 = private unnamed_addr constant [24 x i8] c": Invitation Flags 0x%x\00", align 1
+@.str.340 = private unnamed_addr constant [20 x i8] c": Bitmap field 0x%x\00", align 1
+@.str.341 = private unnamed_addr constant [31 x i8] c"Unknown Minor Reason Code (%u)\00", align 1
+@.str.342 = private unnamed_addr constant [19 x i8] c"Advertised Service\00", align 1
+@.str.343 = private unnamed_addr constant [11 x i8] c", P2P - %s\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_p2p() #0 {
   %1 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #4
   %2 = call i32 @proto_register_protocol(ptr noundef @.str.226, ptr noundef @.str.227, ptr noundef @.str.228)
   store i32 %2, ptr @proto_p2p, align 4
   %3 = load i32, ptr @proto_p2p, align 4
@@ -523,22 +521,32 @@ define hidden void @proto_register_p2p() #0 {
   %13 = load i32, ptr @proto_p2p, align 4
   %14 = call ptr @register_dissector(ptr noundef @.str.232, ptr noundef @dissect_wifi_p2p_public_action, i32 noundef %13)
   store ptr %14, ptr @wifi_p2p_pubact_handle, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #4
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #2
 
-declare ptr @expert_register_protocol(i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #2
 
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_register_protocol(i32 noundef) #2
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_wifi_p2p_action(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -549,6 +557,7 @@ define internal i32 @dissect_wifi_p2p_action(ptr noundef %0, ptr noundef %1, ptr
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %7, align 8
   %11 = load i32, ptr @hf_p2p_action_subtype, align 4
@@ -567,10 +576,11 @@ define internal i32 @dissect_wifi_p2p_action(ptr noundef %0, ptr noundef %1, ptr
   %23 = add i32 %22, 1
   store i32 %23, ptr %9, align 4
   %24 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_wifi_p2p_anqp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -586,226 +596,258 @@ define internal i32 @dissect_wifi_p2p_anqp(ptr noundef %0, ptr noundef %1, ptr n
   %16 = alloca i8, align 1
   %17 = alloca i8, align 1
   %18 = alloca i8, align 1
+  %19 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
   store i32 0, ptr %10, align 4
-  %19 = load ptr, ptr %9, align 8
-  store ptr %19, ptr %12, align 8
-  %20 = load ptr, ptr %12, align 8
-  %21 = icmp ne ptr %20, null
-  br i1 %21, label %22, label %23
-
-22:                                               ; preds = %4
-  br label %25
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #4
+  %20 = load ptr, ptr %9, align 8
+  store ptr %20, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
+  %21 = load ptr, ptr %12, align 8
+  %22 = icmp ne ptr %21, null
+  br i1 %22, label %23, label %24
 
 23:                                               ; preds = %4
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.305, ptr noundef @.str.306, i32 noundef 1217, ptr noundef @.str.307) #3
+  br label %26
+
+24:                                               ; preds = %4
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.314, ptr noundef @.str.315, i32 noundef 1218, ptr noundef @.str.316) #5
   unreachable
 
-24:                                               ; No predecessors!
-  br label %25
+25:                                               ; No predecessors!
+  br label %26
 
-25:                                               ; preds = %24, %22
-  %26 = load ptr, ptr %8, align 8
-  %27 = load i32, ptr @hf_p2p_anqp_service_update_indicator, align 4
-  %28 = load ptr, ptr %6, align 8
-  %29 = load i32, ptr %10, align 4
-  %30 = call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %27, ptr noundef %28, i32 noundef %29, i32 noundef 2, i32 noundef -2147483648)
-  store ptr %30, ptr %11, align 8
-  %31 = load i32, ptr %10, align 4
-  %32 = add i32 %31, 2
-  store i32 %32, ptr %10, align 4
-  br label %33
+26:                                               ; preds = %25, %23
+  %27 = load ptr, ptr %8, align 8
+  %28 = load i32, ptr @hf_p2p_anqp_service_update_indicator, align 4
+  %29 = load ptr, ptr %6, align 8
+  %30 = load i32, ptr %10, align 4
+  %31 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %28, ptr noundef %29, i32 noundef %30, i32 noundef 2, i32 noundef -2147483648)
+  store ptr %31, ptr %11, align 8
+  %32 = load i32, ptr %10, align 4
+  %33 = add i32 %32, 2
+  store i32 %33, ptr %10, align 4
+  br label %34
 
-33:                                               ; preds = %158, %25
-  %34 = load ptr, ptr %6, align 8
-  %35 = load i32, ptr %10, align 4
-  %36 = call i32 @tvb_reported_length_remaining(ptr noundef %34, i32 noundef %35)
-  %37 = load ptr, ptr %12, align 8
-  %38 = getelementptr inbounds %struct.anqp_info_dissector_data, ptr %37, i32 0, i32 0
-  %39 = load i32, ptr %38, align 4
-  %40 = icmp ne i32 %39, 0
-  %41 = select i1 %40, i32 4, i32 5
-  %42 = icmp sge i32 %36, %41
-  br i1 %42, label %43, label %163
+34:                                               ; preds = %166, %26
+  %35 = load ptr, ptr %6, align 8
+  %36 = load i32, ptr %10, align 4
+  %37 = call i32 @tvb_reported_length_remaining(ptr noundef %35, i32 noundef %36)
+  %38 = load ptr, ptr %12, align 8
+  %39 = getelementptr inbounds nuw %struct.anqp_info_dissector_data, ptr %38, i32 0, i32 0
+  %40 = load i8, ptr %39, align 4, !range !6, !noundef !7
+  %41 = trunc i8 %40 to i1
+  %42 = select i1 %41, i32 4, i32 5
+  %43 = icmp sge i32 %37, %42
+  br i1 %43, label %44, label %167
 
-43:                                               ; preds = %33
-  %44 = load ptr, ptr %6, align 8
-  %45 = load i32, ptr %10, align 4
-  %46 = call zeroext i16 @tvb_get_letohs(ptr noundef %44, i32 noundef %45)
-  store i16 %46, ptr %14, align 2
-  %47 = load i16, ptr %14, align 2
-  %48 = zext i16 %47 to i32
-  %49 = icmp slt i32 %48, 2
-  br i1 %49, label %50, label %55
+44:                                               ; preds = %34
+  call void @llvm.lifetime.start.p0(i64 2, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %16) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %17) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %18) #4
+  %45 = load ptr, ptr %6, align 8
+  %46 = load i32, ptr %10, align 4
+  %47 = call zeroext i16 @tvb_get_letohs(ptr noundef %45, i32 noundef %46)
+  store i16 %47, ptr %14, align 2
+  %48 = load i16, ptr %14, align 2
+  %49 = zext i16 %48 to i32
+  %50 = icmp slt i32 %49, 2
+  br i1 %50, label %51, label %56
 
-50:                                               ; preds = %43
-  %51 = load ptr, ptr %7, align 8
-  %52 = load ptr, ptr %11, align 8
-  %53 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %51, ptr noundef %52, ptr noundef @ei_wifi_p2p_anqp_length, ptr noundef @.str.308)
-  %54 = load i32, ptr %10, align 4
-  store i32 %54, ptr %5, align 4
-  br label %175
+51:                                               ; preds = %44
+  %52 = load ptr, ptr %7, align 8
+  %53 = load ptr, ptr %11, align 8
+  %54 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %52, ptr noundef %53, ptr noundef @ei_wifi_p2p_anqp_length, ptr noundef @.str.317)
+  %55 = load i32, ptr %10, align 4
+  store i32 %55, ptr %5, align 4
+  store i32 1, ptr %19, align 4
+  br label %164
 
-55:                                               ; preds = %43
-  %56 = load i16, ptr %14, align 2
-  %57 = zext i16 %56 to i32
-  %58 = load ptr, ptr %6, align 8
-  %59 = load i32, ptr %10, align 4
-  %60 = add i32 %59, 2
-  %61 = call i32 @tvb_reported_length_remaining(ptr noundef %58, i32 noundef %60)
-  %62 = icmp sgt i32 %57, %61
-  br i1 %62, label %63, label %68
+56:                                               ; preds = %44
+  %57 = load i16, ptr %14, align 2
+  %58 = zext i16 %57 to i32
+  %59 = load ptr, ptr %6, align 8
+  %60 = load i32, ptr %10, align 4
+  %61 = add i32 %60, 2
+  %62 = call i32 @tvb_reported_length_remaining(ptr noundef %59, i32 noundef %61)
+  %63 = icmp sgt i32 %58, %62
+  br i1 %63, label %64, label %69
 
-63:                                               ; preds = %55
-  %64 = load ptr, ptr %7, align 8
-  %65 = load ptr, ptr %11, align 8
-  %66 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %64, ptr noundef %65, ptr noundef @ei_wifi_p2p_anqp_length, ptr noundef @.str.309)
-  %67 = load i32, ptr %10, align 4
-  store i32 %67, ptr %5, align 4
-  br label %175
+64:                                               ; preds = %56
+  %65 = load ptr, ptr %7, align 8
+  %66 = load ptr, ptr %11, align 8
+  %67 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %65, ptr noundef %66, ptr noundef @ei_wifi_p2p_anqp_length, ptr noundef @.str.318)
+  %68 = load i32, ptr %10, align 4
+  store i32 %68, ptr %5, align 4
+  store i32 1, ptr %19, align 4
+  br label %164
 
-68:                                               ; preds = %55
-  %69 = load ptr, ptr %6, align 8
-  %70 = load i32, ptr %10, align 4
-  %71 = add i32 %70, 2
-  %72 = call zeroext i8 @tvb_get_guint8(ptr noundef %69, i32 noundef %71)
-  store i8 %72, ptr %16, align 1
-  %73 = load ptr, ptr %6, align 8
-  %74 = load i32, ptr %10, align 4
-  %75 = add i32 %74, 3
-  %76 = call zeroext i8 @tvb_get_guint8(ptr noundef %73, i32 noundef %75)
-  store i8 %76, ptr %17, align 1
-  %77 = load ptr, ptr %8, align 8
-  %78 = load ptr, ptr %6, align 8
-  %79 = load i32, ptr %10, align 4
-  %80 = load i16, ptr %14, align 2
-  %81 = zext i16 %80 to i32
-  %82 = add i32 2, %81
-  %83 = load i32, ptr @ett_p2p_service_tlv, align 4
-  %84 = load i8, ptr %17, align 1
-  %85 = zext i8 %84 to i32
-  %86 = load i8, ptr %16, align 1
-  %87 = zext i8 %86 to i32
-  %88 = call ptr @val_to_str(i32 noundef %87, ptr noundef @p2p_service_protocol_types, ptr noundef @.str.311)
-  %89 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %77, ptr noundef %78, i32 noundef %79, i32 noundef %82, i32 noundef %83, ptr noundef %11, ptr noundef @.str.310, i32 noundef %85, ptr noundef %88)
-  store ptr %89, ptr %15, align 8
-  %90 = load ptr, ptr %15, align 8
-  %91 = load i32, ptr @hf_p2p_anqp_length, align 4
-  %92 = load ptr, ptr %6, align 8
-  %93 = load i32, ptr %10, align 4
-  %94 = call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %91, ptr noundef %92, i32 noundef %93, i32 noundef 2, i32 noundef -2147483648)
-  %95 = load i32, ptr %10, align 4
-  %96 = add i32 %95, 2
-  store i32 %96, ptr %10, align 4
-  %97 = load ptr, ptr %6, align 8
-  %98 = load i32, ptr %10, align 4
-  %99 = call zeroext i8 @tvb_get_guint8(ptr noundef %97, i32 noundef %98)
-  store i8 %99, ptr %18, align 1
-  %100 = load ptr, ptr %15, align 8
-  %101 = load i32, ptr @hf_p2p_anqp_service_protocol_type, align 4
-  %102 = load ptr, ptr %6, align 8
-  %103 = load i32, ptr %10, align 4
-  %104 = call ptr @proto_tree_add_item(ptr noundef %100, i32 noundef %101, ptr noundef %102, i32 noundef %103, i32 noundef 1, i32 noundef 0)
-  %105 = load ptr, ptr %15, align 8
-  %106 = load i32, ptr @hf_p2p_anqp_service_transaction_id, align 4
-  %107 = load ptr, ptr %6, align 8
-  %108 = load i32, ptr %10, align 4
-  %109 = add i32 %108, 1
-  %110 = call ptr @proto_tree_add_item(ptr noundef %105, i32 noundef %106, ptr noundef %107, i32 noundef %109, i32 noundef 1, i32 noundef 0)
-  %111 = load ptr, ptr %12, align 8
-  %112 = getelementptr inbounds %struct.anqp_info_dissector_data, ptr %111, i32 0, i32 0
-  %113 = load i32, ptr %112, align 4
-  %114 = icmp ne i32 %113, 0
-  br i1 %114, label %115, label %125
+69:                                               ; preds = %56
+  %70 = load ptr, ptr %6, align 8
+  %71 = load i32, ptr %10, align 4
+  %72 = add i32 %71, 2
+  %73 = call zeroext i8 @tvb_get_uint8(ptr noundef %70, i32 noundef %72)
+  store i8 %73, ptr %16, align 1
+  %74 = load ptr, ptr %6, align 8
+  %75 = load i32, ptr %10, align 4
+  %76 = add i32 %75, 3
+  %77 = call zeroext i8 @tvb_get_uint8(ptr noundef %74, i32 noundef %76)
+  store i8 %77, ptr %17, align 1
+  %78 = load ptr, ptr %8, align 8
+  %79 = load ptr, ptr %6, align 8
+  %80 = load i32, ptr %10, align 4
+  %81 = load i16, ptr %14, align 2
+  %82 = zext i16 %81 to i32
+  %83 = add i32 2, %82
+  %84 = load i32, ptr @ett_p2p_service_tlv, align 4
+  %85 = load i8, ptr %17, align 1
+  %86 = zext i8 %85 to i32
+  %87 = load i8, ptr %16, align 1
+  %88 = zext i8 %87 to i32
+  %89 = call ptr @val_to_str(i32 noundef %88, ptr noundef @p2p_service_protocol_types, ptr noundef @.str.320)
+  %90 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %78, ptr noundef %79, i32 noundef %80, i32 noundef %83, i32 noundef %84, ptr noundef %11, ptr noundef @.str.319, i32 noundef %86, ptr noundef %89)
+  store ptr %90, ptr %15, align 8
+  %91 = load ptr, ptr %15, align 8
+  %92 = load i32, ptr @hf_p2p_anqp_length, align 4
+  %93 = load ptr, ptr %6, align 8
+  %94 = load i32, ptr %10, align 4
+  %95 = call ptr @proto_tree_add_item(ptr noundef %91, i32 noundef %92, ptr noundef %93, i32 noundef %94, i32 noundef 2, i32 noundef -2147483648)
+  %96 = load i32, ptr %10, align 4
+  %97 = add i32 %96, 2
+  store i32 %97, ptr %10, align 4
+  %98 = load ptr, ptr %6, align 8
+  %99 = load i32, ptr %10, align 4
+  %100 = call zeroext i8 @tvb_get_uint8(ptr noundef %98, i32 noundef %99)
+  store i8 %100, ptr %18, align 1
+  %101 = load ptr, ptr %15, align 8
+  %102 = load i32, ptr @hf_p2p_anqp_service_protocol_type, align 4
+  %103 = load ptr, ptr %6, align 8
+  %104 = load i32, ptr %10, align 4
+  %105 = call ptr @proto_tree_add_item(ptr noundef %101, i32 noundef %102, ptr noundef %103, i32 noundef %104, i32 noundef 1, i32 noundef 0)
+  %106 = load ptr, ptr %15, align 8
+  %107 = load i32, ptr @hf_p2p_anqp_service_transaction_id, align 4
+  %108 = load ptr, ptr %6, align 8
+  %109 = load i32, ptr %10, align 4
+  %110 = add i32 %109, 1
+  %111 = call ptr @proto_tree_add_item(ptr noundef %106, i32 noundef %107, ptr noundef %108, i32 noundef %110, i32 noundef 1, i32 noundef 0)
+  %112 = load ptr, ptr %12, align 8
+  %113 = getelementptr inbounds nuw %struct.anqp_info_dissector_data, ptr %112, i32 0, i32 0
+  %114 = load i8, ptr %113, align 4, !range !6, !noundef !7
+  %115 = trunc i8 %114 to i1
+  br i1 %115, label %116, label %126
 
-115:                                              ; preds = %68
-  %116 = load ptr, ptr %15, align 8
-  %117 = load i32, ptr @hf_p2p_anqp_query_data, align 4
-  %118 = load ptr, ptr %6, align 8
-  %119 = load i32, ptr %10, align 4
-  %120 = add i32 %119, 2
-  %121 = load i16, ptr %14, align 2
-  %122 = zext i16 %121 to i32
-  %123 = sub i32 %122, 2
-  %124 = call ptr @proto_tree_add_item(ptr noundef %116, i32 noundef %117, ptr noundef %118, i32 noundef %120, i32 noundef %123, i32 noundef 0)
+116:                                              ; preds = %69
+  %117 = load ptr, ptr %15, align 8
+  %118 = load i32, ptr @hf_p2p_anqp_query_data, align 4
+  %119 = load ptr, ptr %6, align 8
+  %120 = load i32, ptr %10, align 4
+  %121 = add i32 %120, 2
+  %122 = load i16, ptr %14, align 2
+  %123 = zext i16 %122 to i32
+  %124 = sub i32 %123, 2
+  %125 = call ptr @proto_tree_add_item(ptr noundef %117, i32 noundef %118, ptr noundef %119, i32 noundef %121, i32 noundef %124, i32 noundef 0)
+  br label %159
+
+126:                                              ; preds = %69
+  %127 = load ptr, ptr %15, align 8
+  %128 = load i32, ptr @hf_p2p_anqp_status_code, align 4
+  %129 = load ptr, ptr %6, align 8
+  %130 = load i32, ptr %10, align 4
+  %131 = add i32 %130, 2
+  %132 = call ptr @proto_tree_add_item(ptr noundef %127, i32 noundef %128, ptr noundef %129, i32 noundef %131, i32 noundef 1, i32 noundef 0)
+  %133 = load ptr, ptr %15, align 8
+  %134 = load i32, ptr @hf_p2p_anqp_response_data, align 4
+  %135 = load ptr, ptr %6, align 8
+  %136 = load i32, ptr %10, align 4
+  %137 = add i32 %136, 3
+  %138 = load i16, ptr %14, align 2
+  %139 = zext i16 %138 to i32
+  %140 = sub i32 %139, 3
+  %141 = call ptr @proto_tree_add_item(ptr noundef %133, i32 noundef %134, ptr noundef %135, i32 noundef %137, i32 noundef %140, i32 noundef 0)
+  %142 = load i8, ptr %18, align 1
+  %143 = zext i8 %142 to i32
+  %144 = icmp eq i32 %143, 4
+  br i1 %144, label %145, label %158
+
+145:                                              ; preds = %126
+  %146 = load ptr, ptr %6, align 8
+  %147 = load i32, ptr %10, align 4
+  %148 = add i32 %147, 3
+  %149 = load i16, ptr %14, align 2
+  %150 = zext i16 %149 to i32
+  %151 = sub i32 %150, 3
+  %152 = call ptr @tvb_new_subset_length(ptr noundef %146, i32 noundef %148, i32 noundef %151)
+  store ptr %152, ptr %13, align 8
+  %153 = load ptr, ptr @wifi_display_ie_handle, align 8
+  %154 = load ptr, ptr %13, align 8
+  %155 = load ptr, ptr %7, align 8
+  %156 = load ptr, ptr %15, align 8
+  %157 = call i32 @call_dissector(ptr noundef %153, ptr noundef %154, ptr noundef %155, ptr noundef %156)
   br label %158
 
-125:                                              ; preds = %68
-  %126 = load ptr, ptr %15, align 8
-  %127 = load i32, ptr @hf_p2p_anqp_status_code, align 4
-  %128 = load ptr, ptr %6, align 8
-  %129 = load i32, ptr %10, align 4
-  %130 = add i32 %129, 2
-  %131 = call ptr @proto_tree_add_item(ptr noundef %126, i32 noundef %127, ptr noundef %128, i32 noundef %130, i32 noundef 1, i32 noundef 0)
-  %132 = load ptr, ptr %15, align 8
-  %133 = load i32, ptr @hf_p2p_anqp_response_data, align 4
-  %134 = load ptr, ptr %6, align 8
-  %135 = load i32, ptr %10, align 4
-  %136 = add i32 %135, 3
-  %137 = load i16, ptr %14, align 2
-  %138 = zext i16 %137 to i32
-  %139 = sub i32 %138, 3
-  %140 = call ptr @proto_tree_add_item(ptr noundef %132, i32 noundef %133, ptr noundef %134, i32 noundef %136, i32 noundef %139, i32 noundef 0)
-  %141 = load i8, ptr %18, align 1
-  %142 = zext i8 %141 to i32
-  %143 = icmp eq i32 %142, 4
-  br i1 %143, label %144, label %157
+158:                                              ; preds = %145, %126
+  br label %159
 
-144:                                              ; preds = %125
-  %145 = load ptr, ptr %6, align 8
-  %146 = load i32, ptr %10, align 4
-  %147 = add i32 %146, 3
-  %148 = load i16, ptr %14, align 2
-  %149 = zext i16 %148 to i32
-  %150 = sub i32 %149, 3
-  %151 = call ptr @tvb_new_subset_length(ptr noundef %145, i32 noundef %147, i32 noundef %150)
-  store ptr %151, ptr %13, align 8
-  %152 = load ptr, ptr @wifi_display_ie_handle, align 8
-  %153 = load ptr, ptr %13, align 8
-  %154 = load ptr, ptr %7, align 8
-  %155 = load ptr, ptr %15, align 8
-  %156 = call i32 @call_dissector(ptr noundef %152, ptr noundef %153, ptr noundef %154, ptr noundef %155)
-  br label %157
+159:                                              ; preds = %158, %116
+  %160 = load i16, ptr %14, align 2
+  %161 = zext i16 %160 to i32
+  %162 = load i32, ptr %10, align 4
+  %163 = add i32 %162, %161
+  store i32 %163, ptr %10, align 4
+  store i32 0, ptr %19, align 4
+  br label %164
 
-157:                                              ; preds = %144, %125
-  br label %158
+164:                                              ; preds = %159, %64, %51
+  call void @llvm.lifetime.end.p0(i64 1, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %17) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %14) #4
+  %165 = load i32, ptr %19, align 4
+  switch i32 %165, label %179 [
+    i32 0, label %166
+  ]
 
-158:                                              ; preds = %157, %115
-  %159 = load i16, ptr %14, align 2
-  %160 = zext i16 %159 to i32
-  %161 = load i32, ptr %10, align 4
-  %162 = add i32 %161, %160
-  store i32 %162, ptr %10, align 4
-  br label %33, !llvm.loop !4
+166:                                              ; preds = %164
+  br label %34, !llvm.loop !8
 
-163:                                              ; preds = %33
-  %164 = load ptr, ptr %6, align 8
-  %165 = load i32, ptr %10, align 4
-  %166 = call i32 @tvb_reported_length_remaining(ptr noundef %164, i32 noundef %165)
-  %167 = icmp sgt i32 %166, 0
-  br i1 %167, label %168, label %172
+167:                                              ; preds = %34
+  %168 = load ptr, ptr %6, align 8
+  %169 = load i32, ptr %10, align 4
+  %170 = call i32 @tvb_reported_length_remaining(ptr noundef %168, i32 noundef %169)
+  %171 = icmp sgt i32 %170, 0
+  br i1 %171, label %172, label %176
 
-168:                                              ; preds = %163
-  %169 = load ptr, ptr %7, align 8
-  %170 = load ptr, ptr %11, align 8
-  %171 = call ptr @expert_add_info(ptr noundef %169, ptr noundef %170, ptr noundef @ei_wifi_p2p_anqp_unexpected_padding)
-  br label %172
+172:                                              ; preds = %167
+  %173 = load ptr, ptr %7, align 8
+  %174 = load ptr, ptr %11, align 8
+  %175 = call ptr @expert_add_info(ptr noundef %173, ptr noundef %174, ptr noundef @ei_wifi_p2p_anqp_unexpected_padding)
+  br label %176
 
-172:                                              ; preds = %168, %163
-  %173 = load ptr, ptr %6, align 8
-  %174 = call i32 @tvb_captured_length(ptr noundef %173)
-  store i32 %174, ptr %5, align 4
-  br label %175
+176:                                              ; preds = %172, %167
+  %177 = load ptr, ptr %6, align 8
+  %178 = call i32 @tvb_captured_length(ptr noundef %177)
+  store i32 %178, ptr %5, align 4
+  store i32 1, ptr %19, align 4
+  br label %179
 
-175:                                              ; preds = %172, %63, %50
-  %176 = load i32, ptr %5, align 4
-  ret i32 %176
+179:                                              ; preds = %176, %164
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  %180 = load i32, ptr %5, align 4
+  ret i32 %180
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_wifi_p2p_ie(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -821,12 +863,18 @@ define internal i32 @dissect_wifi_p2p_ie(ptr noundef %0, ptr noundef %1, ptr nou
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 2, ptr %9) #4
   store i16 0, ptr %9, align 2
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #4
   store i8 0, ptr %10, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
   store i32 0, ptr %11, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
   %15 = load ptr, ptr %5, align 8
   %16 = call i32 @tvb_reported_length(ptr noundef %15)
   store i32 %16, ptr %12, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #4
   br label %17
 
 17:                                               ; preds = %213, %4
@@ -841,13 +889,13 @@ define internal i32 @dissect_wifi_p2p_ie(ptr noundef %0, ptr noundef %1, ptr nou
 
 23:                                               ; preds = %20
   %24 = load ptr, ptr %6, align 8
-  %25 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %24, ptr noundef null, ptr noundef @ei_wifi_p2p_attr_len, ptr noundef @.str.312)
+  %25 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %24, ptr noundef null, ptr noundef @ei_wifi_p2p_attr_len, ptr noundef @.str.321)
   br label %224
 
 26:                                               ; preds = %20
   %27 = load ptr, ptr %5, align 8
   %28 = load i32, ptr %11, align 4
-  %29 = call zeroext i8 @tvb_get_guint8(ptr noundef %27, i32 noundef %28)
+  %29 = call zeroext i8 @tvb_get_uint8(ptr noundef %27, i32 noundef %28)
   store i8 %29, ptr %10, align 1
   %30 = load ptr, ptr %5, align 8
   %31 = load i32, ptr %11, align 4
@@ -863,7 +911,7 @@ define internal i32 @dissect_wifi_p2p_ie(ptr noundef %0, ptr noundef %1, ptr nou
   %40 = load i32, ptr @ett_p2p_tlv, align 4
   %41 = load i8, ptr %10, align 1
   %42 = zext i8 %41 to i32
-  %43 = call ptr @val_to_str(i32 noundef %42, ptr noundef @p2p_attr_types, ptr noundef @.str.313)
+  %43 = call ptr @val_to_str(i32 noundef %42, ptr noundef @p2p_attr_types, ptr noundef @.str.322)
   %44 = call ptr @proto_tree_add_subtree(ptr noundef %34, ptr noundef %35, i32 noundef %36, i32 noundef %39, i32 noundef %40, ptr noundef %14, ptr noundef %43)
   store ptr %44, ptr %13, align 8
   %45 = load ptr, ptr %13, align 8
@@ -1145,7 +1193,7 @@ define internal i32 @dissect_wifi_p2p_ie(ptr noundef %0, ptr noundef %1, ptr nou
   call void @dissect_persistent_group(ptr noundef %207, ptr noundef %208, ptr noundef %209, i32 noundef %210, i32 noundef %212)
   br label %213
 
-213:                                              ; preds = %206, %199, %194, %187, %182, %177, %170, %163, %158, %153, %148, %143, %136, %129, %122, %116, %111, %106, %101, %95, %90, %85, %80, %75, %70, %65, %60, %26
+213:                                              ; preds = %26, %206, %199, %194, %187, %182, %177, %170, %163, %158, %153, %148, %143, %136, %129, %122, %116, %111, %106, %101, %95, %90, %85, %80, %75, %70, %65, %60
   %214 = load i16, ptr %9, align 2
   %215 = zext i16 %214 to i32
   %216 = add i32 3, %215
@@ -1158,15 +1206,21 @@ define internal i32 @dissect_wifi_p2p_ie(ptr noundef %0, ptr noundef %1, ptr nou
   %222 = load i32, ptr %12, align 4
   %223 = sub i32 %222, %221
   store i32 %223, ptr %12, align 4
-  br label %17, !llvm.loop !6
+  br label %17, !llvm.loop !10
 
 224:                                              ; preds = %23, %17
   %225 = load ptr, ptr %5, align 8
   %226 = call i32 @tvb_captured_length(ptr noundef %225)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %9) #4
   ret i32 %226
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_wifi_p2p_public_action(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1178,7 +1232,9 @@ define internal i32 @dissect_wifi_p2p_public_action(ptr noundef %0, ptr noundef 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
   store i32 0, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #4
   %11 = load ptr, ptr %7, align 8
   %12 = load i32, ptr @hf_p2p_public_action_subtype, align 4
   %13 = load ptr, ptr %5, align 8
@@ -1186,15 +1242,15 @@ define internal i32 @dissect_wifi_p2p_public_action(ptr noundef %0, ptr noundef 
   %15 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %12, ptr noundef %13, i32 noundef %14, i32 noundef 1, i32 noundef 0)
   %16 = load ptr, ptr %5, align 8
   %17 = load i32, ptr %9, align 4
-  %18 = call zeroext i8 @tvb_get_guint8(ptr noundef %16, i32 noundef %17)
+  %18 = call zeroext i8 @tvb_get_uint8(ptr noundef %16, i32 noundef %17)
   store i8 %18, ptr %10, align 1
   %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr inbounds %struct._packet_info, ptr %19, i32 0, i32 1
+  %20 = getelementptr inbounds nuw %struct._packet_info, ptr %19, i32 0, i32 1
   %21 = load ptr, ptr %20, align 8
   %22 = load i8, ptr %10, align 1
   %23 = zext i8 %22 to i32
-  %24 = call ptr @val_to_str(i32 noundef %23, ptr noundef @p2p_public_action_subtypes, ptr noundef @.str.311)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %21, i32 noundef 25, ptr noundef @.str.334, ptr noundef %24)
+  %24 = call ptr @val_to_str(i32 noundef %23, ptr noundef @p2p_public_action_subtypes, ptr noundef @.str.320)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %21, i32 noundef 25, ptr noundef @.str.343, ptr noundef %24)
   %25 = load i32, ptr %9, align 4
   %26 = add i32 %25, 1
   store i32 %26, ptr %9, align 4
@@ -1207,10 +1263,15 @@ define internal i32 @dissect_wifi_p2p_public_action(ptr noundef %0, ptr noundef 
   %33 = add i32 %32, 1
   store i32 %33, ptr %9, align 4
   %34 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %34
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_p2p() #0 {
   %1 = load ptr, ptr @wifi_p2p_act_handle, align 8
   call void @dissector_add_uint(ptr noundef @.str.233, i32 noundef 9, ptr noundef %1)
@@ -1226,42 +1287,58 @@ define hidden void @proto_reg_handoff_p2p() #0 {
   ret void
 }
 
-declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: noreturn
-declare void @proto_report_dissector_bug(ptr noundef, ...) #2
+; Function Attrs: noreturn null_pointer_is_valid
+declare void @proto_report_dissector_bug(ptr noundef, ...) #3
 
-declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #2
 
-declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) #2
 
-declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) #2
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #2
 
-declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) #2
 
-declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare i32 @tvb_captured_length(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length(ptr noundef) #2
 
-declare i32 @tvb_reported_length(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length(ptr noundef) #2
 
-declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_wifi_p2p_capability(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1371,18 +1448,18 @@ define internal void @dissect_wifi_p2p_capability(ptr noundef %0, ptr noundef %1
   %106 = load ptr, ptr %7, align 8
   %107 = load i32, ptr %8, align 4
   %108 = add i32 %107, 3
-  %109 = call zeroext i8 @tvb_get_guint8(ptr noundef %106, i32 noundef %108)
+  %109 = call zeroext i8 @tvb_get_uint8(ptr noundef %106, i32 noundef %108)
   %110 = zext i8 %109 to i32
   %111 = load ptr, ptr %7, align 8
   %112 = load i32, ptr %8, align 4
   %113 = add i32 %112, 4
-  %114 = call zeroext i8 @tvb_get_guint8(ptr noundef %111, i32 noundef %113)
+  %114 = call zeroext i8 @tvb_get_uint8(ptr noundef %111, i32 noundef %113)
   %115 = zext i8 %114 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %105, ptr noundef @.str.314, i32 noundef %110, i32 noundef %115)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %105, ptr noundef @.str.323, i32 noundef %110, i32 noundef %115)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_device_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1404,11 +1481,11 @@ define internal void @dissect_device_id(ptr noundef %0, ptr noundef %1, ptr noun
   %18 = load i32, ptr %8, align 4
   %19 = add i32 %18, 3
   %20 = call ptr @tvb_address_to_str(ptr noundef %16, ptr noundef %17, i32 noundef 1, i32 noundef %19)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %15, ptr noundef @.str.315, ptr noundef %20)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %15, ptr noundef @.str.324, ptr noundef %20)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_group_owner_intent(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1434,20 +1511,20 @@ define internal void @dissect_group_owner_intent(ptr noundef %0, ptr noundef %1,
   %22 = load ptr, ptr %7, align 8
   %23 = load i32, ptr %8, align 4
   %24 = add i32 %23, 3
-  %25 = call zeroext i8 @tvb_get_guint8(ptr noundef %22, i32 noundef %24)
+  %25 = call zeroext i8 @tvb_get_uint8(ptr noundef %22, i32 noundef %24)
   %26 = zext i8 %25 to i32
   %27 = ashr i32 %26, 1
   %28 = load ptr, ptr %7, align 8
   %29 = load i32, ptr %8, align 4
   %30 = add i32 %29, 3
-  %31 = call zeroext i8 @tvb_get_guint8(ptr noundef %28, i32 noundef %30)
+  %31 = call zeroext i8 @tvb_get_uint8(ptr noundef %28, i32 noundef %30)
   %32 = zext i8 %31 to i32
   %33 = and i32 %32, 1
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %21, ptr noundef @.str.316, i32 noundef %27, i32 noundef %33)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %21, ptr noundef @.str.325, i32 noundef %27, i32 noundef %33)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_status(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1467,19 +1544,19 @@ define internal void @dissect_status(ptr noundef %0, ptr noundef %1, ptr noundef
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
   %18 = add i32 %17, 3
-  %19 = call zeroext i8 @tvb_get_guint8(ptr noundef %16, i32 noundef %18)
+  %19 = call zeroext i8 @tvb_get_uint8(ptr noundef %16, i32 noundef %18)
   %20 = zext i8 %19 to i32
   %21 = load ptr, ptr %7, align 8
   %22 = load i32, ptr %8, align 4
   %23 = add i32 %22, 3
-  %24 = call zeroext i8 @tvb_get_guint8(ptr noundef %21, i32 noundef %23)
+  %24 = call zeroext i8 @tvb_get_uint8(ptr noundef %21, i32 noundef %23)
   %25 = zext i8 %24 to i32
-  %26 = call ptr @val_to_str(i32 noundef %25, ptr noundef @p2p_status_codes, ptr noundef @.str.318)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %15, ptr noundef @.str.317, i32 noundef %20, ptr noundef %26)
+  %26 = call ptr @val_to_str(i32 noundef %25, ptr noundef @p2p_status_codes, ptr noundef @.str.327)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %15, ptr noundef @.str.326, i32 noundef %20, ptr noundef %26)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_listen_channel(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1511,18 +1588,18 @@ define internal void @dissect_listen_channel(ptr noundef %0, ptr noundef %1, ptr
   %28 = load ptr, ptr %7, align 8
   %29 = load i32, ptr %8, align 4
   %30 = add i32 %29, 6
-  %31 = call zeroext i8 @tvb_get_guint8(ptr noundef %28, i32 noundef %30)
+  %31 = call zeroext i8 @tvb_get_uint8(ptr noundef %28, i32 noundef %30)
   %32 = zext i8 %31 to i32
   %33 = load ptr, ptr %7, align 8
   %34 = load i32, ptr %8, align 4
   %35 = add i32 %34, 7
-  %36 = call zeroext i8 @tvb_get_guint8(ptr noundef %33, i32 noundef %35)
+  %36 = call zeroext i8 @tvb_get_uint8(ptr noundef %33, i32 noundef %35)
   %37 = zext i8 %36 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %27, ptr noundef @.str.319, i32 noundef %32, i32 noundef %37)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %27, ptr noundef @.str.328, i32 noundef %32, i32 noundef %37)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_operating_channel(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1554,18 +1631,18 @@ define internal void @dissect_operating_channel(ptr noundef %0, ptr noundef %1, 
   %28 = load ptr, ptr %7, align 8
   %29 = load i32, ptr %8, align 4
   %30 = add i32 %29, 6
-  %31 = call zeroext i8 @tvb_get_guint8(ptr noundef %28, i32 noundef %30)
+  %31 = call zeroext i8 @tvb_get_uint8(ptr noundef %28, i32 noundef %30)
   %32 = zext i8 %31 to i32
   %33 = load ptr, ptr %7, align 8
   %34 = load i32, ptr %8, align 4
   %35 = add i32 %34, 7
-  %36 = call zeroext i8 @tvb_get_guint8(ptr noundef %33, i32 noundef %35)
+  %36 = call zeroext i8 @tvb_get_uint8(ptr noundef %33, i32 noundef %35)
   %37 = zext i8 %36 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %27, ptr noundef @.str.319, i32 noundef %32, i32 noundef %37)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %27, ptr noundef @.str.328, i32 noundef %32, i32 noundef %37)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_channel_list(ptr noundef %0, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1577,9 +1654,11 @@ define internal void @dissect_channel_list(ptr noundef %0, ptr noundef %1, i32 n
   store ptr %1, ptr %6, align 8
   store i32 %2, ptr %7, align 4
   store i16 %3, ptr %8, align 2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
   %11 = load i32, ptr %7, align 4
   %12 = add i32 %11, 3
   store i32 %12, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #4
   %13 = load ptr, ptr %5, align 8
   %14 = load i32, ptr @hf_p2p_attr_channel_list_country, align 4
   %15 = load ptr, ptr %6, align 8
@@ -1616,7 +1695,7 @@ define internal void @dissect_channel_list(ptr noundef %0, ptr noundef %1, i32 n
   %40 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %37, ptr noundef %38, i32 noundef %39, i32 noundef 1, i32 noundef 0)
   %41 = load ptr, ptr %6, align 8
   %42 = load i32, ptr %9, align 4
-  %43 = call zeroext i8 @tvb_get_guint8(ptr noundef %41, i32 noundef %42)
+  %43 = call zeroext i8 @tvb_get_uint8(ptr noundef %41, i32 noundef %42)
   store i8 %43, ptr %10, align 1
   %44 = load i32, ptr %9, align 4
   %45 = add i32 %44, 1
@@ -1633,13 +1712,15 @@ define internal void @dissect_channel_list(ptr noundef %0, ptr noundef %1, i32 n
   %55 = load i32, ptr %9, align 4
   %56 = add i32 %55, %54
   store i32 %56, ptr %9, align 4
-  br label %20, !llvm.loop !7
+  br label %20, !llvm.loop !11
 
 57:                                               ; preds = %20
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_wifi_p2p_device_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -1652,248 +1733,276 @@ define internal void @dissect_wifi_p2p_device_info(ptr noundef %0, ptr noundef %
   %14 = alloca i16, align 2
   %15 = alloca i16, align 2
   %16 = alloca ptr, align 8
+  %17 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
-  %17 = load i32, ptr %9, align 4
-  %18 = add i32 %17, 3
-  store i32 %18, ptr %11, align 4
-  %19 = load ptr, ptr %7, align 8
-  %20 = load i32, ptr @hf_p2p_attr_dev_info_p2p_dev_addr, align 4
-  %21 = load ptr, ptr %8, align 8
-  %22 = load i32, ptr %11, align 4
-  %23 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef 6, i32 noundef 0)
-  %24 = load i32, ptr %11, align 4
-  %25 = add i32 %24, 6
-  store i32 %25, ptr %11, align 4
-  %26 = load ptr, ptr %7, align 8
-  %27 = load i32, ptr @hf_p2p_attr_dev_info_config_methods, align 4
-  %28 = load ptr, ptr %8, align 8
-  %29 = load i32, ptr %11, align 4
-  %30 = call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %27, ptr noundef %28, i32 noundef %29, i32 noundef 2, i32 noundef 0)
-  %31 = load ptr, ptr %7, align 8
-  %32 = load i32, ptr @hf_p2p_attr_dev_info_config_methods_usba, align 4
-  %33 = load ptr, ptr %8, align 8
-  %34 = load i32, ptr %11, align 4
-  %35 = call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %32, ptr noundef %33, i32 noundef %34, i32 noundef 2, i32 noundef 0)
-  %36 = load ptr, ptr %7, align 8
-  %37 = load i32, ptr @hf_p2p_attr_dev_info_config_methods_ethernet, align 4
-  %38 = load ptr, ptr %8, align 8
-  %39 = load i32, ptr %11, align 4
-  %40 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %37, ptr noundef %38, i32 noundef %39, i32 noundef 2, i32 noundef 0)
-  %41 = load ptr, ptr %7, align 8
-  %42 = load i32, ptr @hf_p2p_attr_dev_info_config_methods_label, align 4
-  %43 = load ptr, ptr %8, align 8
-  %44 = load i32, ptr %11, align 4
-  %45 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %42, ptr noundef %43, i32 noundef %44, i32 noundef 2, i32 noundef 0)
-  %46 = load ptr, ptr %7, align 8
-  %47 = load i32, ptr @hf_p2p_attr_dev_info_config_methods_display, align 4
-  %48 = load ptr, ptr %8, align 8
-  %49 = load i32, ptr %11, align 4
-  %50 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %47, ptr noundef %48, i32 noundef %49, i32 noundef 2, i32 noundef 0)
-  %51 = load ptr, ptr %7, align 8
-  %52 = load i32, ptr @hf_p2p_attr_dev_info_config_methods_ext_nfc_token, align 4
-  %53 = load ptr, ptr %8, align 8
-  %54 = load i32, ptr %11, align 4
-  %55 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %52, ptr noundef %53, i32 noundef %54, i32 noundef 2, i32 noundef 0)
-  %56 = load ptr, ptr %7, align 8
-  %57 = load i32, ptr @hf_p2p_attr_dev_info_config_methods_int_nfc_token, align 4
-  %58 = load ptr, ptr %8, align 8
-  %59 = load i32, ptr %11, align 4
-  %60 = call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %57, ptr noundef %58, i32 noundef %59, i32 noundef 2, i32 noundef 0)
-  %61 = load ptr, ptr %7, align 8
-  %62 = load i32, ptr @hf_p2p_attr_dev_info_config_methods_nfc_interface, align 4
-  %63 = load ptr, ptr %8, align 8
-  %64 = load i32, ptr %11, align 4
-  %65 = call ptr @proto_tree_add_item(ptr noundef %61, i32 noundef %62, ptr noundef %63, i32 noundef %64, i32 noundef 2, i32 noundef 0)
-  %66 = load ptr, ptr %7, align 8
-  %67 = load i32, ptr @hf_p2p_attr_dev_info_config_methods_pushbutton, align 4
-  %68 = load ptr, ptr %8, align 8
-  %69 = load i32, ptr %11, align 4
-  %70 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %67, ptr noundef %68, i32 noundef %69, i32 noundef 2, i32 noundef 0)
-  %71 = load ptr, ptr %7, align 8
-  %72 = load i32, ptr @hf_p2p_attr_dev_info_config_methods_keypad, align 4
-  %73 = load ptr, ptr %8, align 8
-  %74 = load i32, ptr %11, align 4
-  %75 = call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %72, ptr noundef %73, i32 noundef %74, i32 noundef 2, i32 noundef 0)
-  %76 = load i32, ptr %11, align 4
-  %77 = add i32 %76, 2
-  store i32 %77, ptr %11, align 4
-  %78 = load ptr, ptr %7, align 8
-  %79 = load i32, ptr @hf_p2p_attr_dev_info_pri_dev_type, align 4
-  %80 = load ptr, ptr %8, align 8
-  %81 = load i32, ptr %11, align 4
-  %82 = call ptr @proto_tree_add_item(ptr noundef %78, i32 noundef %79, ptr noundef %80, i32 noundef %81, i32 noundef 8, i32 noundef 0)
-  %83 = load ptr, ptr %7, align 8
-  %84 = load i32, ptr @hf_p2p_attr_dev_info_pri_dev_type_category, align 4
-  %85 = load ptr, ptr %8, align 8
-  %86 = load i32, ptr %11, align 4
-  %87 = call ptr @proto_tree_add_item(ptr noundef %83, i32 noundef %84, ptr noundef %85, i32 noundef %86, i32 noundef 2, i32 noundef 0)
-  %88 = load ptr, ptr %7, align 8
-  %89 = load i32, ptr @hf_p2p_attr_dev_info_pri_dev_type_oui, align 4
-  %90 = load ptr, ptr %8, align 8
-  %91 = load i32, ptr %11, align 4
-  %92 = add i32 %91, 2
-  %93 = call ptr @proto_tree_add_item(ptr noundef %88, i32 noundef %89, ptr noundef %90, i32 noundef %92, i32 noundef 4, i32 noundef 0)
-  %94 = load ptr, ptr %7, align 8
-  %95 = load i32, ptr @hf_p2p_attr_dev_info_pri_dev_type_subcategory, align 4
-  %96 = load ptr, ptr %8, align 8
-  %97 = load i32, ptr %11, align 4
-  %98 = add i32 %97, 6
-  %99 = call ptr @proto_tree_add_item(ptr noundef %94, i32 noundef %95, ptr noundef %96, i32 noundef %98, i32 noundef 2, i32 noundef 0)
-  %100 = load i32, ptr %11, align 4
-  %101 = add i32 %100, 8
-  store i32 %101, ptr %11, align 4
-  %102 = load ptr, ptr %8, align 8
-  %103 = load i32, ptr %11, align 4
-  %104 = call zeroext i8 @tvb_get_guint8(ptr noundef %102, i32 noundef %103)
-  store i8 %104, ptr %13, align 1
-  %105 = load ptr, ptr %7, align 8
-  %106 = load i32, ptr @hf_p2p_attr_dev_info_num_sec, align 4
-  %107 = load ptr, ptr %8, align 8
-  %108 = load i32, ptr %11, align 4
-  %109 = call ptr @proto_tree_add_item(ptr noundef %105, i32 noundef %106, ptr noundef %107, i32 noundef %108, i32 noundef 1, i32 noundef 0)
-  %110 = load i32, ptr %11, align 4
-  %111 = add i32 %110, 1
-  store i32 %111, ptr %11, align 4
-  br label %112
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %15) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #4
+  %18 = load i32, ptr %9, align 4
+  %19 = add i32 %18, 3
+  store i32 %19, ptr %11, align 4
+  %20 = load ptr, ptr %7, align 8
+  %21 = load i32, ptr @hf_p2p_attr_dev_info_p2p_dev_addr, align 4
+  %22 = load ptr, ptr %8, align 8
+  %23 = load i32, ptr %11, align 4
+  %24 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %21, ptr noundef %22, i32 noundef %23, i32 noundef 6, i32 noundef 0)
+  %25 = load i32, ptr %11, align 4
+  %26 = add i32 %25, 6
+  store i32 %26, ptr %11, align 4
+  %27 = load ptr, ptr %7, align 8
+  %28 = load i32, ptr @hf_p2p_attr_dev_info_config_methods, align 4
+  %29 = load ptr, ptr %8, align 8
+  %30 = load i32, ptr %11, align 4
+  %31 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %28, ptr noundef %29, i32 noundef %30, i32 noundef 2, i32 noundef 0)
+  %32 = load ptr, ptr %7, align 8
+  %33 = load i32, ptr @hf_p2p_attr_dev_info_config_methods_usba, align 4
+  %34 = load ptr, ptr %8, align 8
+  %35 = load i32, ptr %11, align 4
+  %36 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %33, ptr noundef %34, i32 noundef %35, i32 noundef 2, i32 noundef 0)
+  %37 = load ptr, ptr %7, align 8
+  %38 = load i32, ptr @hf_p2p_attr_dev_info_config_methods_ethernet, align 4
+  %39 = load ptr, ptr %8, align 8
+  %40 = load i32, ptr %11, align 4
+  %41 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %38, ptr noundef %39, i32 noundef %40, i32 noundef 2, i32 noundef 0)
+  %42 = load ptr, ptr %7, align 8
+  %43 = load i32, ptr @hf_p2p_attr_dev_info_config_methods_label, align 4
+  %44 = load ptr, ptr %8, align 8
+  %45 = load i32, ptr %11, align 4
+  %46 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %43, ptr noundef %44, i32 noundef %45, i32 noundef 2, i32 noundef 0)
+  %47 = load ptr, ptr %7, align 8
+  %48 = load i32, ptr @hf_p2p_attr_dev_info_config_methods_display, align 4
+  %49 = load ptr, ptr %8, align 8
+  %50 = load i32, ptr %11, align 4
+  %51 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %48, ptr noundef %49, i32 noundef %50, i32 noundef 2, i32 noundef 0)
+  %52 = load ptr, ptr %7, align 8
+  %53 = load i32, ptr @hf_p2p_attr_dev_info_config_methods_ext_nfc_token, align 4
+  %54 = load ptr, ptr %8, align 8
+  %55 = load i32, ptr %11, align 4
+  %56 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %53, ptr noundef %54, i32 noundef %55, i32 noundef 2, i32 noundef 0)
+  %57 = load ptr, ptr %7, align 8
+  %58 = load i32, ptr @hf_p2p_attr_dev_info_config_methods_int_nfc_token, align 4
+  %59 = load ptr, ptr %8, align 8
+  %60 = load i32, ptr %11, align 4
+  %61 = call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %58, ptr noundef %59, i32 noundef %60, i32 noundef 2, i32 noundef 0)
+  %62 = load ptr, ptr %7, align 8
+  %63 = load i32, ptr @hf_p2p_attr_dev_info_config_methods_nfc_interface, align 4
+  %64 = load ptr, ptr %8, align 8
+  %65 = load i32, ptr %11, align 4
+  %66 = call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %63, ptr noundef %64, i32 noundef %65, i32 noundef 2, i32 noundef 0)
+  %67 = load ptr, ptr %7, align 8
+  %68 = load i32, ptr @hf_p2p_attr_dev_info_config_methods_pushbutton, align 4
+  %69 = load ptr, ptr %8, align 8
+  %70 = load i32, ptr %11, align 4
+  %71 = call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %68, ptr noundef %69, i32 noundef %70, i32 noundef 2, i32 noundef 0)
+  %72 = load ptr, ptr %7, align 8
+  %73 = load i32, ptr @hf_p2p_attr_dev_info_config_methods_keypad, align 4
+  %74 = load ptr, ptr %8, align 8
+  %75 = load i32, ptr %11, align 4
+  %76 = call ptr @proto_tree_add_item(ptr noundef %72, i32 noundef %73, ptr noundef %74, i32 noundef %75, i32 noundef 2, i32 noundef 0)
+  %77 = load i32, ptr %11, align 4
+  %78 = add i32 %77, 2
+  store i32 %78, ptr %11, align 4
+  %79 = load ptr, ptr %7, align 8
+  %80 = load i32, ptr @hf_p2p_attr_dev_info_pri_dev_type, align 4
+  %81 = load ptr, ptr %8, align 8
+  %82 = load i32, ptr %11, align 4
+  %83 = call ptr @proto_tree_add_item(ptr noundef %79, i32 noundef %80, ptr noundef %81, i32 noundef %82, i32 noundef 8, i32 noundef 0)
+  %84 = load ptr, ptr %7, align 8
+  %85 = load i32, ptr @hf_p2p_attr_dev_info_pri_dev_type_category, align 4
+  %86 = load ptr, ptr %8, align 8
+  %87 = load i32, ptr %11, align 4
+  %88 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %85, ptr noundef %86, i32 noundef %87, i32 noundef 2, i32 noundef 0)
+  %89 = load ptr, ptr %7, align 8
+  %90 = load i32, ptr @hf_p2p_attr_dev_info_pri_dev_type_oui, align 4
+  %91 = load ptr, ptr %8, align 8
+  %92 = load i32, ptr %11, align 4
+  %93 = add i32 %92, 2
+  %94 = call ptr @proto_tree_add_item(ptr noundef %89, i32 noundef %90, ptr noundef %91, i32 noundef %93, i32 noundef 4, i32 noundef 0)
+  %95 = load ptr, ptr %7, align 8
+  %96 = load i32, ptr @hf_p2p_attr_dev_info_pri_dev_type_subcategory, align 4
+  %97 = load ptr, ptr %8, align 8
+  %98 = load i32, ptr %11, align 4
+  %99 = add i32 %98, 6
+  %100 = call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %96, ptr noundef %97, i32 noundef %99, i32 noundef 2, i32 noundef 0)
+  %101 = load i32, ptr %11, align 4
+  %102 = add i32 %101, 8
+  store i32 %102, ptr %11, align 4
+  %103 = load ptr, ptr %8, align 8
+  %104 = load i32, ptr %11, align 4
+  %105 = call zeroext i8 @tvb_get_uint8(ptr noundef %103, i32 noundef %104)
+  store i8 %105, ptr %13, align 1
+  %106 = load ptr, ptr %7, align 8
+  %107 = load i32, ptr @hf_p2p_attr_dev_info_num_sec, align 4
+  %108 = load ptr, ptr %8, align 8
+  %109 = load i32, ptr %11, align 4
+  %110 = call ptr @proto_tree_add_item(ptr noundef %106, i32 noundef %107, ptr noundef %108, i32 noundef %109, i32 noundef 1, i32 noundef 0)
+  %111 = load i32, ptr %11, align 4
+  %112 = add i32 %111, 1
+  store i32 %112, ptr %11, align 4
+  br label %113
 
-112:                                              ; preds = %116, %5
-  %113 = load i8, ptr %13, align 1
-  %114 = zext i8 %113 to i32
-  %115 = icmp sgt i32 %114, 0
-  br i1 %115, label %116, label %126
+113:                                              ; preds = %117, %5
+  %114 = load i8, ptr %13, align 1
+  %115 = zext i8 %114 to i32
+  %116 = icmp sgt i32 %115, 0
+  br i1 %116, label %117, label %127
 
-116:                                              ; preds = %112
-  %117 = load ptr, ptr %7, align 8
-  %118 = load i32, ptr @hf_p2p_attr_dev_info_sec_dev_type, align 4
-  %119 = load ptr, ptr %8, align 8
-  %120 = load i32, ptr %11, align 4
-  %121 = call ptr @proto_tree_add_item(ptr noundef %117, i32 noundef %118, ptr noundef %119, i32 noundef %120, i32 noundef 8, i32 noundef 0)
-  %122 = load i32, ptr %11, align 4
-  %123 = add i32 %122, 8
-  store i32 %123, ptr %11, align 4
-  %124 = load i8, ptr %13, align 1
-  %125 = add i8 %124, -1
-  store i8 %125, ptr %13, align 1
-  br label %112, !llvm.loop !8
+117:                                              ; preds = %113
+  %118 = load ptr, ptr %7, align 8
+  %119 = load i32, ptr @hf_p2p_attr_dev_info_sec_dev_type, align 4
+  %120 = load ptr, ptr %8, align 8
+  %121 = load i32, ptr %11, align 4
+  %122 = call ptr @proto_tree_add_item(ptr noundef %118, i32 noundef %119, ptr noundef %120, i32 noundef %121, i32 noundef 8, i32 noundef 0)
+  %123 = load i32, ptr %11, align 4
+  %124 = add i32 %123, 8
+  store i32 %124, ptr %11, align 4
+  %125 = load i8, ptr %13, align 1
+  %126 = add i8 %125, -1
+  store i8 %126, ptr %13, align 1
+  br label %113, !llvm.loop !12
 
-126:                                              ; preds = %112
-  %127 = load ptr, ptr %7, align 8
-  %128 = load i32, ptr @hf_p2p_attr_dev_info_dev_name_type, align 4
-  %129 = load ptr, ptr %8, align 8
-  %130 = load i32, ptr %11, align 4
-  %131 = call ptr @proto_tree_add_item(ptr noundef %127, i32 noundef %128, ptr noundef %129, i32 noundef %130, i32 noundef 2, i32 noundef 0)
-  store ptr %131, ptr %16, align 8
-  %132 = load ptr, ptr %8, align 8
-  %133 = load i32, ptr %11, align 4
-  %134 = call zeroext i16 @tvb_get_ntohs(ptr noundef %132, i32 noundef %133)
-  store i16 %134, ptr %14, align 2
-  %135 = load i16, ptr %14, align 2
-  %136 = zext i16 %135 to i32
-  %137 = icmp ne i32 %136, 4113
-  br i1 %137, label %138, label %142
+127:                                              ; preds = %113
+  %128 = load ptr, ptr %7, align 8
+  %129 = load i32, ptr @hf_p2p_attr_dev_info_dev_name_type, align 4
+  %130 = load ptr, ptr %8, align 8
+  %131 = load i32, ptr %11, align 4
+  %132 = call ptr @proto_tree_add_item(ptr noundef %128, i32 noundef %129, ptr noundef %130, i32 noundef %131, i32 noundef 2, i32 noundef 0)
+  store ptr %132, ptr %16, align 8
+  %133 = load ptr, ptr %8, align 8
+  %134 = load i32, ptr %11, align 4
+  %135 = call zeroext i16 @tvb_get_ntohs(ptr noundef %133, i32 noundef %134)
+  store i16 %135, ptr %14, align 2
+  %136 = load i16, ptr %14, align 2
+  %137 = zext i16 %136 to i32
+  %138 = icmp ne i32 %137, 4113
+  br i1 %138, label %139, label %143
 
-138:                                              ; preds = %126
-  %139 = load ptr, ptr %6, align 8
-  %140 = load ptr, ptr %16, align 8
-  %141 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %139, ptr noundef %140, ptr noundef @ei_wifi_p2p_attr_dev_info_dev_name_type, ptr noundef @.str.219)
-  br label %142
+139:                                              ; preds = %127
+  %140 = load ptr, ptr %6, align 8
+  %141 = load ptr, ptr %16, align 8
+  %142 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %140, ptr noundef %141, ptr noundef @ei_wifi_p2p_attr_dev_info_dev_name_type, ptr noundef @.str.219)
+  br label %143
 
-142:                                              ; preds = %138, %126
-  %143 = load i32, ptr %11, align 4
-  %144 = add i32 %143, 2
-  store i32 %144, ptr %11, align 4
-  %145 = load ptr, ptr %7, align 8
-  %146 = load i32, ptr @hf_p2p_attr_dev_info_dev_name_len, align 4
-  %147 = load ptr, ptr %8, align 8
-  %148 = load i32, ptr %11, align 4
-  %149 = call ptr @proto_tree_add_item(ptr noundef %145, i32 noundef %146, ptr noundef %147, i32 noundef %148, i32 noundef 2, i32 noundef 0)
-  store ptr %149, ptr %16, align 8
-  %150 = load ptr, ptr %8, align 8
-  %151 = load i32, ptr %11, align 4
-  %152 = call zeroext i16 @tvb_get_ntohs(ptr noundef %150, i32 noundef %151)
-  store i16 %152, ptr %15, align 2
-  %153 = load i32, ptr %11, align 4
-  %154 = add i32 %153, 2
-  store i32 %154, ptr %11, align 4
-  %155 = load i16, ptr %15, align 2
-  %156 = zext i16 %155 to i32
-  %157 = load i32, ptr %9, align 4
-  %158 = add i32 %157, 3
-  %159 = load i16, ptr %10, align 2
-  %160 = zext i16 %159 to i32
-  %161 = add i32 %158, %160
-  %162 = load i32, ptr %11, align 4
-  %163 = sub i32 %161, %162
-  %164 = icmp sgt i32 %156, %163
-  br i1 %164, label %165, label %169
+143:                                              ; preds = %139, %127
+  %144 = load i32, ptr %11, align 4
+  %145 = add i32 %144, 2
+  store i32 %145, ptr %11, align 4
+  %146 = load ptr, ptr %7, align 8
+  %147 = load i32, ptr @hf_p2p_attr_dev_info_dev_name_len, align 4
+  %148 = load ptr, ptr %8, align 8
+  %149 = load i32, ptr %11, align 4
+  %150 = call ptr @proto_tree_add_item(ptr noundef %146, i32 noundef %147, ptr noundef %148, i32 noundef %149, i32 noundef 2, i32 noundef 0)
+  store ptr %150, ptr %16, align 8
+  %151 = load ptr, ptr %8, align 8
+  %152 = load i32, ptr %11, align 4
+  %153 = call zeroext i16 @tvb_get_ntohs(ptr noundef %151, i32 noundef %152)
+  store i16 %153, ptr %15, align 2
+  %154 = load i32, ptr %11, align 4
+  %155 = add i32 %154, 2
+  store i32 %155, ptr %11, align 4
+  %156 = load i16, ptr %15, align 2
+  %157 = zext i16 %156 to i32
+  %158 = load i32, ptr %9, align 4
+  %159 = add i32 %158, 3
+  %160 = load i16, ptr %10, align 2
+  %161 = zext i16 %160 to i32
+  %162 = add i32 %159, %161
+  %163 = load i32, ptr %11, align 4
+  %164 = sub i32 %162, %163
+  %165 = icmp sgt i32 %157, %164
+  br i1 %165, label %166, label %170
 
-165:                                              ; preds = %142
-  %166 = load ptr, ptr %6, align 8
-  %167 = load ptr, ptr %16, align 8
-  %168 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %166, ptr noundef %167, ptr noundef @ei_wifi_p2p_attr_len, ptr noundef @.str.320)
-  br label %205
+166:                                              ; preds = %143
+  %167 = load ptr, ptr %6, align 8
+  %168 = load ptr, ptr %16, align 8
+  %169 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %167, ptr noundef %168, ptr noundef @ei_wifi_p2p_attr_len, ptr noundef @.str.329)
+  store i32 1, ptr %17, align 4
+  br label %207
 
-169:                                              ; preds = %142
-  %170 = load i32, ptr %9, align 4
-  %171 = add i32 %170, 3
-  %172 = load i16, ptr %10, align 2
-  %173 = zext i16 %172 to i32
-  %174 = add i32 %171, %173
-  %175 = load i32, ptr %11, align 4
-  %176 = sub i32 %174, %175
-  store i32 %176, ptr %12, align 4
-  %177 = load i32, ptr %12, align 4
-  %178 = icmp sgt i32 %177, 0
-  br i1 %178, label %179, label %196
+170:                                              ; preds = %143
+  %171 = load i32, ptr %9, align 4
+  %172 = add i32 %171, 3
+  %173 = load i16, ptr %10, align 2
+  %174 = zext i16 %173 to i32
+  %175 = add i32 %172, %174
+  %176 = load i32, ptr %11, align 4
+  %177 = sub i32 %175, %176
+  store i32 %177, ptr %12, align 4
+  %178 = load i32, ptr %12, align 4
+  %179 = icmp sgt i32 %178, 0
+  br i1 %179, label %180, label %197
 
-179:                                              ; preds = %169
-  %180 = load ptr, ptr %7, align 8
-  %181 = load i32, ptr @hf_p2p_attr_dev_info_dev_name, align 4
-  %182 = load ptr, ptr %8, align 8
-  %183 = load i32, ptr %11, align 4
-  %184 = load i32, ptr %12, align 4
-  %185 = load i16, ptr %15, align 2
-  %186 = zext i16 %185 to i32
-  %187 = icmp sgt i32 %184, %186
-  br i1 %187, label %188, label %191
+180:                                              ; preds = %170
+  %181 = load ptr, ptr %7, align 8
+  %182 = load i32, ptr @hf_p2p_attr_dev_info_dev_name, align 4
+  %183 = load ptr, ptr %8, align 8
+  %184 = load i32, ptr %11, align 4
+  %185 = load i32, ptr %12, align 4
+  %186 = load i16, ptr %15, align 2
+  %187 = zext i16 %186 to i32
+  %188 = icmp sgt i32 %185, %187
+  br i1 %188, label %189, label %192
 
-188:                                              ; preds = %179
-  %189 = load i16, ptr %15, align 2
-  %190 = zext i16 %189 to i32
-  br label %193
+189:                                              ; preds = %180
+  %190 = load i16, ptr %15, align 2
+  %191 = zext i16 %190 to i32
+  br label %194
 
-191:                                              ; preds = %179
-  %192 = load i32, ptr %12, align 4
-  br label %193
+192:                                              ; preds = %180
+  %193 = load i32, ptr %12, align 4
+  br label %194
 
-193:                                              ; preds = %191, %188
-  %194 = phi i32 [ %190, %188 ], [ %192, %191 ]
-  %195 = call ptr @proto_tree_add_item(ptr noundef %180, i32 noundef %181, ptr noundef %182, i32 noundef %183, i32 noundef %194, i32 noundef 0)
-  store ptr %195, ptr %16, align 8
-  br label %196
+194:                                              ; preds = %192, %189
+  %195 = phi i32 [ %191, %189 ], [ %193, %192 ]
+  %196 = call ptr @proto_tree_add_item(ptr noundef %181, i32 noundef %182, ptr noundef %183, i32 noundef %184, i32 noundef %195, i32 noundef 0)
+  store ptr %196, ptr %16, align 8
+  br label %197
 
-196:                                              ; preds = %193, %169
-  %197 = load i32, ptr %12, align 4
-  %198 = load i16, ptr %15, align 2
-  %199 = zext i16 %198 to i32
-  %200 = icmp ne i32 %197, %199
-  br i1 %200, label %201, label %205
+197:                                              ; preds = %194, %170
+  %198 = load i32, ptr %12, align 4
+  %199 = load i16, ptr %15, align 2
+  %200 = zext i16 %199 to i32
+  %201 = icmp ne i32 %198, %200
+  br i1 %201, label %202, label %206
 
-201:                                              ; preds = %196
-  %202 = load ptr, ptr %6, align 8
-  %203 = load ptr, ptr %16, align 8
-  %204 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %202, ptr noundef %203, ptr noundef @ei_wifi_p2p_attr_len, ptr noundef @.str.321)
-  br label %205
+202:                                              ; preds = %197
+  %203 = load ptr, ptr %6, align 8
+  %204 = load ptr, ptr %16, align 8
+  %205 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %203, ptr noundef %204, ptr noundef @ei_wifi_p2p_attr_len, ptr noundef @.str.330)
+  br label %206
 
-205:                                              ; preds = %201, %196, %165
+206:                                              ; preds = %202, %197
+  store i32 0, ptr %17, align 4
+  br label %207
+
+207:                                              ; preds = %206, %166
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
+  %208 = load i32, ptr %17, align 4
+  switch i32 %208, label %210 [
+    i32 0, label %209
+    i32 1, label %209
+  ]
+
+209:                                              ; preds = %207, %207
   ret void
+
+210:                                              ; preds = %207
+  unreachable
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_configuration_timeout(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1919,20 +2028,20 @@ define internal void @dissect_configuration_timeout(ptr noundef %0, ptr noundef 
   %22 = load ptr, ptr %7, align 8
   %23 = load i32, ptr %8, align 4
   %24 = add i32 %23, 3
-  %25 = call zeroext i8 @tvb_get_guint8(ptr noundef %22, i32 noundef %24)
+  %25 = call zeroext i8 @tvb_get_uint8(ptr noundef %22, i32 noundef %24)
   %26 = zext i8 %25 to i32
   %27 = mul i32 %26, 10
   %28 = load ptr, ptr %7, align 8
   %29 = load i32, ptr %8, align 4
   %30 = add i32 %29, 4
-  %31 = call zeroext i8 @tvb_get_guint8(ptr noundef %28, i32 noundef %30)
+  %31 = call zeroext i8 @tvb_get_uint8(ptr noundef %28, i32 noundef %30)
   %32 = zext i8 %31 to i32
   %33 = mul i32 %32, 10
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %21, ptr noundef @.str.322, i32 noundef %27, i32 noundef %33)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %21, ptr noundef @.str.331, i32 noundef %27, i32 noundef %33)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_intended_interface_addr(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1954,11 +2063,11 @@ define internal void @dissect_intended_interface_addr(ptr noundef %0, ptr nounde
   %18 = load i32, ptr %8, align 4
   %19 = add i32 %18, 3
   %20 = call ptr @tvb_address_to_str(ptr noundef %16, ptr noundef %17, i32 noundef 1, i32 noundef %19)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %15, ptr noundef @.str.315, ptr noundef %20)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %15, ptr noundef @.str.324, ptr noundef %20)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_extended_listen_timing(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1970,6 +2079,8 @@ define internal void @dissect_extended_listen_timing(ptr noundef %0, ptr noundef
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %10) #4
   %11 = load ptr, ptr %7, align 8
   %12 = load i32, ptr %8, align 4
   %13 = add i32 %12, 3
@@ -2001,11 +2112,13 @@ define internal void @dissect_extended_listen_timing(ptr noundef %0, ptr noundef
   %37 = zext i16 %36 to i32
   %38 = load i16, ptr %10, align 2
   %39 = zext i16 %38 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %35, ptr noundef @.str.323, i32 noundef %37, i32 noundef %39)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %35, ptr noundef @.str.332, i32 noundef %37, i32 noundef %39)
+  call void @llvm.lifetime.end.p0(i64 2, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %9) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_wifi_p2p_group_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -2018,6 +2131,7 @@ define internal void @dissect_wifi_p2p_group_id(ptr noundef %0, ptr noundef %1, 
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i16 %4, ptr %10, align 2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
   %12 = load i32, ptr %9, align 4
   %13 = add i32 %12, 3
   store i32 %13, ptr %11, align 4
@@ -2032,7 +2146,7 @@ define internal void @dissect_wifi_p2p_group_id(ptr noundef %0, ptr noundef %1, 
   %22 = load i32, ptr %9, align 4
   %23 = add i32 %22, 3
   %24 = call ptr @tvb_address_to_str(ptr noundef %20, ptr noundef %21, i32 noundef 1, i32 noundef %23)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %19, ptr noundef @.str.315, ptr noundef %24)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %19, ptr noundef @.str.324, ptr noundef %24)
   %25 = load i32, ptr %11, align 4
   %26 = add i32 %25, 6
   store i32 %26, ptr %11, align 4
@@ -2048,10 +2162,11 @@ define internal void @dissect_wifi_p2p_group_id(ptr noundef %0, ptr noundef %1, 
   %36 = load i32, ptr %11, align 4
   %37 = sub i32 %35, %36
   %38 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %28, ptr noundef %29, i32 noundef %30, i32 noundef %37, i32 noundef 0)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_wifi_p2p_group_bssid(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i16 noundef zeroext %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -2060,48 +2175,63 @@ define internal void @dissect_wifi_p2p_group_bssid(ptr noundef %0, ptr noundef %
   %11 = alloca i32, align 4
   %12 = alloca i16, align 2
   %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
   store ptr %0, ptr %7, align 8
   store ptr %1, ptr %8, align 8
   store ptr %2, ptr %9, align 8
   store ptr %3, ptr %10, align 8
   store i32 %4, ptr %11, align 4
   store i16 %5, ptr %12, align 2
-  %14 = load i16, ptr %12, align 2
-  %15 = zext i16 %14 to i32
-  %16 = icmp ne i32 %15, 6
-  br i1 %16, label %17, label %21
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
+  %15 = load i16, ptr %12, align 2
+  %16 = zext i16 %15 to i32
+  %17 = icmp ne i32 %16, 6
+  br i1 %17, label %18, label %22
 
-17:                                               ; preds = %6
-  %18 = load ptr, ptr %7, align 8
-  %19 = load ptr, ptr %9, align 8
-  %20 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %18, ptr noundef %19, ptr noundef @ei_wifi_p2p_attr_len, ptr noundef @.str.324)
-  br label %37
+18:                                               ; preds = %6
+  %19 = load ptr, ptr %7, align 8
+  %20 = load ptr, ptr %9, align 8
+  %21 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %19, ptr noundef %20, ptr noundef @ei_wifi_p2p_attr_len, ptr noundef @.str.333)
+  store i32 1, ptr %14, align 4
+  br label %38
 
-21:                                               ; preds = %6
-  %22 = load i32, ptr %11, align 4
-  %23 = add i32 %22, 3
-  store i32 %23, ptr %13, align 4
-  %24 = load ptr, ptr %8, align 8
-  %25 = load i32, ptr @hf_p2p_attr_p2p_group_bssid, align 4
-  %26 = load ptr, ptr %10, align 8
-  %27 = load i32, ptr %13, align 4
-  %28 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %25, ptr noundef %26, i32 noundef %27, i32 noundef 6, i32 noundef 0)
-  %29 = load ptr, ptr %9, align 8
-  %30 = load ptr, ptr %7, align 8
-  %31 = getelementptr inbounds %struct._packet_info, ptr %30, i32 0, i32 50
-  %32 = load ptr, ptr %31, align 8
-  %33 = load ptr, ptr %10, align 8
-  %34 = load i32, ptr %11, align 4
-  %35 = add i32 %34, 3
-  %36 = call ptr @tvb_address_to_str(ptr noundef %32, ptr noundef %33, i32 noundef 1, i32 noundef %35)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %29, ptr noundef @.str.315, ptr noundef %36)
-  br label %37
+22:                                               ; preds = %6
+  %23 = load i32, ptr %11, align 4
+  %24 = add i32 %23, 3
+  store i32 %24, ptr %13, align 4
+  %25 = load ptr, ptr %8, align 8
+  %26 = load i32, ptr @hf_p2p_attr_p2p_group_bssid, align 4
+  %27 = load ptr, ptr %10, align 8
+  %28 = load i32, ptr %13, align 4
+  %29 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %26, ptr noundef %27, i32 noundef %28, i32 noundef 6, i32 noundef 0)
+  %30 = load ptr, ptr %9, align 8
+  %31 = load ptr, ptr %7, align 8
+  %32 = getelementptr inbounds nuw %struct._packet_info, ptr %31, i32 0, i32 51
+  %33 = load ptr, ptr %32, align 8
+  %34 = load ptr, ptr %10, align 8
+  %35 = load i32, ptr %11, align 4
+  %36 = add i32 %35, 3
+  %37 = call ptr @tvb_address_to_str(ptr noundef %33, ptr noundef %34, i32 noundef 1, i32 noundef %36)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %30, ptr noundef @.str.324, ptr noundef %37)
+  store i32 0, ptr %14, align 4
+  br label %38
 
-37:                                               ; preds = %21, %17
+38:                                               ; preds = %22, %18
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
+  %39 = load i32, ptr %14, align 4
+  switch i32 %39, label %41 [
+    i32 0, label %40
+    i32 1, label %40
+  ]
+
+40:                                               ; preds = %38, %38
   ret void
+
+41:                                               ; preds = %38
+  unreachable
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_notice_of_absence(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i16 noundef zeroext %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -2110,106 +2240,124 @@ define internal void @dissect_notice_of_absence(ptr noundef %0, ptr noundef %1, 
   %11 = alloca i32, align 4
   %12 = alloca i16, align 2
   %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
   store ptr %0, ptr %7, align 8
   store ptr %1, ptr %8, align 8
   store ptr %2, ptr %9, align 8
   store ptr %3, ptr %10, align 8
   store i32 %4, ptr %11, align 4
   store i16 %5, ptr %12, align 2
-  %14 = load i32, ptr %11, align 4
-  %15 = add i32 %14, 3
-  store i32 %15, ptr %13, align 4
-  %16 = load i16, ptr %12, align 2
-  %17 = zext i16 %16 to i32
-  %18 = icmp slt i32 %17, 2
-  br i1 %18, label %19, label %23
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
+  %15 = load i32, ptr %11, align 4
+  %16 = add i32 %15, 3
+  store i32 %16, ptr %13, align 4
+  %17 = load i16, ptr %12, align 2
+  %18 = zext i16 %17 to i32
+  %19 = icmp slt i32 %18, 2
+  br i1 %19, label %20, label %24
 
-19:                                               ; preds = %6
-  %20 = load ptr, ptr %7, align 8
-  %21 = load ptr, ptr %9, align 8
-  %22 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %20, ptr noundef %21, ptr noundef @ei_wifi_p2p_attr_len, ptr noundef @.str.325)
-  br label %87
+20:                                               ; preds = %6
+  %21 = load ptr, ptr %7, align 8
+  %22 = load ptr, ptr %9, align 8
+  %23 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %21, ptr noundef %22, ptr noundef @ei_wifi_p2p_attr_len, ptr noundef @.str.334)
+  store i32 1, ptr %14, align 4
+  br label %89
 
-23:                                               ; preds = %6
-  %24 = load ptr, ptr %8, align 8
-  %25 = load i32, ptr @hf_p2p_attr_noa_index, align 4
-  %26 = load ptr, ptr %10, align 8
-  %27 = load i32, ptr %13, align 4
-  %28 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %25, ptr noundef %26, i32 noundef %27, i32 noundef 1, i32 noundef 0)
-  %29 = load ptr, ptr %8, align 8
-  %30 = load i32, ptr @hf_p2p_attr_noa_params, align 4
-  %31 = load ptr, ptr %10, align 8
-  %32 = load i32, ptr %13, align 4
-  %33 = add i32 %32, 1
-  %34 = call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %30, ptr noundef %31, i32 noundef %33, i32 noundef 1, i32 noundef 0)
-  %35 = load ptr, ptr %8, align 8
-  %36 = load i32, ptr @hf_p2p_attr_noa_params_opp_ps, align 4
-  %37 = load ptr, ptr %10, align 8
-  %38 = load i32, ptr %13, align 4
-  %39 = add i32 %38, 1
-  %40 = call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %36, ptr noundef %37, i32 noundef %39, i32 noundef 1, i32 noundef 0)
-  %41 = load ptr, ptr %8, align 8
-  %42 = load i32, ptr @hf_p2p_attr_noa_params_ctwindow, align 4
-  %43 = load ptr, ptr %10, align 8
-  %44 = load i32, ptr %13, align 4
-  %45 = add i32 %44, 1
-  %46 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %42, ptr noundef %43, i32 noundef %45, i32 noundef 1, i32 noundef 0)
-  %47 = load i32, ptr %13, align 4
-  %48 = add i32 %47, 2
-  store i32 %48, ptr %13, align 4
-  br label %49
+24:                                               ; preds = %6
+  %25 = load ptr, ptr %8, align 8
+  %26 = load i32, ptr @hf_p2p_attr_noa_index, align 4
+  %27 = load ptr, ptr %10, align 8
+  %28 = load i32, ptr %13, align 4
+  %29 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %26, ptr noundef %27, i32 noundef %28, i32 noundef 1, i32 noundef 0)
+  %30 = load ptr, ptr %8, align 8
+  %31 = load i32, ptr @hf_p2p_attr_noa_params, align 4
+  %32 = load ptr, ptr %10, align 8
+  %33 = load i32, ptr %13, align 4
+  %34 = add i32 %33, 1
+  %35 = call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %31, ptr noundef %32, i32 noundef %34, i32 noundef 1, i32 noundef 0)
+  %36 = load ptr, ptr %8, align 8
+  %37 = load i32, ptr @hf_p2p_attr_noa_params_opp_ps, align 4
+  %38 = load ptr, ptr %10, align 8
+  %39 = load i32, ptr %13, align 4
+  %40 = add i32 %39, 1
+  %41 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %37, ptr noundef %38, i32 noundef %40, i32 noundef 1, i32 noundef 0)
+  %42 = load ptr, ptr %8, align 8
+  %43 = load i32, ptr @hf_p2p_attr_noa_params_ctwindow, align 4
+  %44 = load ptr, ptr %10, align 8
+  %45 = load i32, ptr %13, align 4
+  %46 = add i32 %45, 1
+  %47 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %43, ptr noundef %44, i32 noundef %46, i32 noundef 1, i32 noundef 0)
+  %48 = load i32, ptr %13, align 4
+  %49 = add i32 %48, 2
+  store i32 %49, ptr %13, align 4
+  br label %50
 
-49:                                               ; preds = %58, %23
-  %50 = load i32, ptr %11, align 4
-  %51 = add i32 %50, 3
-  %52 = load i16, ptr %12, align 2
-  %53 = zext i16 %52 to i32
-  %54 = add i32 %51, %53
-  %55 = load i32, ptr %13, align 4
-  %56 = add i32 %55, 13
-  %57 = icmp sge i32 %54, %56
-  br i1 %57, label %58, label %87
+50:                                               ; preds = %59, %24
+  %51 = load i32, ptr %11, align 4
+  %52 = add i32 %51, 3
+  %53 = load i16, ptr %12, align 2
+  %54 = zext i16 %53 to i32
+  %55 = add i32 %52, %54
+  %56 = load i32, ptr %13, align 4
+  %57 = add i32 %56, 13
+  %58 = icmp sge i32 %55, %57
+  br i1 %58, label %59, label %88
 
-58:                                               ; preds = %49
-  %59 = load ptr, ptr %8, align 8
-  %60 = load i32, ptr @hf_p2p_attr_noa_count_type, align 4
-  %61 = load ptr, ptr %10, align 8
-  %62 = load i32, ptr %13, align 4
-  %63 = call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %60, ptr noundef %61, i32 noundef %62, i32 noundef 1, i32 noundef 0)
-  %64 = load i32, ptr %13, align 4
-  %65 = add i32 %64, 1
-  store i32 %65, ptr %13, align 4
-  %66 = load ptr, ptr %8, align 8
-  %67 = load i32, ptr @hf_p2p_attr_noa_duration, align 4
-  %68 = load ptr, ptr %10, align 8
-  %69 = load i32, ptr %13, align 4
-  %70 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %67, ptr noundef %68, i32 noundef %69, i32 noundef 4, i32 noundef -2147483648)
-  %71 = load i32, ptr %13, align 4
-  %72 = add i32 %71, 4
-  store i32 %72, ptr %13, align 4
-  %73 = load ptr, ptr %8, align 8
-  %74 = load i32, ptr @hf_p2p_attr_noa_interval, align 4
-  %75 = load ptr, ptr %10, align 8
-  %76 = load i32, ptr %13, align 4
-  %77 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %74, ptr noundef %75, i32 noundef %76, i32 noundef 4, i32 noundef -2147483648)
-  %78 = load i32, ptr %13, align 4
-  %79 = add i32 %78, 4
-  store i32 %79, ptr %13, align 4
-  %80 = load ptr, ptr %8, align 8
-  %81 = load i32, ptr @hf_p2p_attr_noa_start_time, align 4
-  %82 = load ptr, ptr %10, align 8
-  %83 = load i32, ptr %13, align 4
-  %84 = call ptr @proto_tree_add_item(ptr noundef %80, i32 noundef %81, ptr noundef %82, i32 noundef %83, i32 noundef 4, i32 noundef -2147483648)
-  %85 = load i32, ptr %13, align 4
-  %86 = add i32 %85, 4
-  store i32 %86, ptr %13, align 4
-  br label %49, !llvm.loop !9
+59:                                               ; preds = %50
+  %60 = load ptr, ptr %8, align 8
+  %61 = load i32, ptr @hf_p2p_attr_noa_count_type, align 4
+  %62 = load ptr, ptr %10, align 8
+  %63 = load i32, ptr %13, align 4
+  %64 = call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %61, ptr noundef %62, i32 noundef %63, i32 noundef 1, i32 noundef 0)
+  %65 = load i32, ptr %13, align 4
+  %66 = add i32 %65, 1
+  store i32 %66, ptr %13, align 4
+  %67 = load ptr, ptr %8, align 8
+  %68 = load i32, ptr @hf_p2p_attr_noa_duration, align 4
+  %69 = load ptr, ptr %10, align 8
+  %70 = load i32, ptr %13, align 4
+  %71 = call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %68, ptr noundef %69, i32 noundef %70, i32 noundef 4, i32 noundef -2147483648)
+  %72 = load i32, ptr %13, align 4
+  %73 = add i32 %72, 4
+  store i32 %73, ptr %13, align 4
+  %74 = load ptr, ptr %8, align 8
+  %75 = load i32, ptr @hf_p2p_attr_noa_interval, align 4
+  %76 = load ptr, ptr %10, align 8
+  %77 = load i32, ptr %13, align 4
+  %78 = call ptr @proto_tree_add_item(ptr noundef %74, i32 noundef %75, ptr noundef %76, i32 noundef %77, i32 noundef 4, i32 noundef -2147483648)
+  %79 = load i32, ptr %13, align 4
+  %80 = add i32 %79, 4
+  store i32 %80, ptr %13, align 4
+  %81 = load ptr, ptr %8, align 8
+  %82 = load i32, ptr @hf_p2p_attr_noa_start_time, align 4
+  %83 = load ptr, ptr %10, align 8
+  %84 = load i32, ptr %13, align 4
+  %85 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %82, ptr noundef %83, i32 noundef %84, i32 noundef 4, i32 noundef -2147483648)
+  %86 = load i32, ptr %13, align 4
+  %87 = add i32 %86, 4
+  store i32 %87, ptr %13, align 4
+  br label %50, !llvm.loop !13
 
-87:                                               ; preds = %49, %19
+88:                                               ; preds = %50
+  store i32 0, ptr %14, align 4
+  br label %89
+
+89:                                               ; preds = %88, %20
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
+  %90 = load i32, ptr %14, align 4
+  switch i32 %90, label %92 [
+    i32 0, label %91
+    i32 1, label %91
+  ]
+
+91:                                               ; preds = %89, %89
   ret void
+
+92:                                               ; preds = %89
+  unreachable
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_wifi_p2p_group_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i16 noundef zeroext %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -2233,9 +2381,19 @@ define internal void @dissect_wifi_p2p_group_info(ptr noundef %0, ptr noundef %1
   store ptr %3, ptr %10, align 8
   store i32 %4, ptr %11, align 4
   store i16 %5, ptr %12, align 2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %23 = load i32, ptr %11, align 4
   %24 = add i32 %23, 3
   store i32 %24, ptr %13, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %19) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %20) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #4
   br label %25
 
 25:                                               ; preds = %289, %6
@@ -2262,13 +2420,13 @@ define internal void @dissect_wifi_p2p_group_info(ptr noundef %0, ptr noundef %1
 42:                                               ; preds = %33
   %43 = load ptr, ptr %7, align 8
   %44 = load ptr, ptr %9, align 8
-  %45 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %43, ptr noundef %44, ptr noundef @ei_wifi_p2p_attr_len, ptr noundef @.str.326)
+  %45 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %43, ptr noundef %44, ptr noundef @ei_wifi_p2p_attr_len, ptr noundef @.str.335)
   br label %291
 
 46:                                               ; preds = %33
   %47 = load ptr, ptr %10, align 8
   %48 = load i32, ptr %13, align 4
-  %49 = call zeroext i8 @tvb_get_guint8(ptr noundef %47, i32 noundef %48)
+  %49 = call zeroext i8 @tvb_get_uint8(ptr noundef %47, i32 noundef %48)
   %50 = zext i8 %49 to i32
   store i32 %50, ptr %15, align 4
   %51 = load ptr, ptr %8, align 8
@@ -2277,7 +2435,7 @@ define internal void @dissect_wifi_p2p_group_info(ptr noundef %0, ptr noundef %1
   %54 = load i32, ptr %15, align 4
   %55 = add i32 1, %54
   %56 = load i32, ptr @ett_p2p_client_descr, align 4
-  %57 = call ptr @proto_tree_add_subtree(ptr noundef %51, ptr noundef %52, i32 noundef %53, i32 noundef %55, i32 noundef %56, ptr noundef null, ptr noundef @.str.327)
+  %57 = call ptr @proto_tree_add_subtree(ptr noundef %51, ptr noundef %52, i32 noundef %53, i32 noundef %55, i32 noundef %56, ptr noundef null, ptr noundef @.str.336)
   store ptr %57, ptr %22, align 8
   %58 = load ptr, ptr %22, align 8
   %59 = load i32, ptr @hf_p2p_attr_gi_length, align 4
@@ -2304,7 +2462,7 @@ define internal void @dissect_wifi_p2p_group_info(ptr noundef %0, ptr noundef %1
 75:                                               ; preds = %65, %46
   %76 = load ptr, ptr %7, align 8
   %77 = load ptr, ptr %21, align 8
-  %78 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %76, ptr noundef %77, ptr noundef @ei_wifi_p2p_attr_len, ptr noundef @.str.328)
+  %78 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %76, ptr noundef %77, ptr noundef @ei_wifi_p2p_attr_len, ptr noundef @.str.337)
   br label %291
 
 79:                                               ; preds = %65
@@ -2322,12 +2480,12 @@ define internal void @dissect_wifi_p2p_group_info(ptr noundef %0, ptr noundef %1
   %89 = call ptr @proto_tree_add_item(ptr noundef %85, i32 noundef %86, ptr noundef %87, i32 noundef %88, i32 noundef 6, i32 noundef 0)
   %90 = load ptr, ptr %22, align 8
   %91 = load ptr, ptr %7, align 8
-  %92 = getelementptr inbounds %struct._packet_info, ptr %91, i32 0, i32 50
+  %92 = getelementptr inbounds nuw %struct._packet_info, ptr %91, i32 0, i32 51
   %93 = load ptr, ptr %92, align 8
   %94 = load ptr, ptr %10, align 8
   %95 = load i32, ptr %13, align 4
   %96 = call ptr @tvb_address_to_str(ptr noundef %93, ptr noundef %94, i32 noundef 1, i32 noundef %95)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %90, ptr noundef @.str.315, ptr noundef %96)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %90, ptr noundef @.str.324, ptr noundef %96)
   %97 = load i32, ptr %13, align 4
   %98 = add i32 %97, 6
   store i32 %98, ptr %13, align 4
@@ -2418,7 +2576,7 @@ define internal void @dissect_wifi_p2p_group_info(ptr noundef %0, ptr noundef %1
   store ptr %178, ptr %21, align 8
   %179 = load ptr, ptr %10, align 8
   %180 = load i32, ptr %13, align 4
-  %181 = call zeroext i8 @tvb_get_guint8(ptr noundef %179, i32 noundef %180)
+  %181 = call zeroext i8 @tvb_get_uint8(ptr noundef %179, i32 noundef %180)
   %182 = zext i8 %181 to i32
   store i32 %182, ptr %16, align 4
   %183 = load i32, ptr %13, align 4
@@ -2441,7 +2599,7 @@ define internal void @dissect_wifi_p2p_group_info(ptr noundef %0, ptr noundef %1
 196:                                              ; preds = %79
   %197 = load ptr, ptr %7, align 8
   %198 = load ptr, ptr %21, align 8
-  %199 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %197, ptr noundef %198, ptr noundef @ei_wifi_p2p_attr_len, ptr noundef @.str.329)
+  %199 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %197, ptr noundef %198, ptr noundef @ei_wifi_p2p_attr_len, ptr noundef @.str.338)
   br label %291
 
 200:                                              ; preds = %79
@@ -2464,7 +2622,7 @@ define internal void @dissect_wifi_p2p_group_info(ptr noundef %0, ptr noundef %1
   %212 = load i32, ptr %16, align 4
   %213 = add i32 %212, -1
   store i32 %213, ptr %16, align 4
-  br label %201, !llvm.loop !10
+  br label %201, !llvm.loop !14
 
 214:                                              ; preds = %201
   %215 = load ptr, ptr %22, align 8
@@ -2520,7 +2678,7 @@ define internal void @dissect_wifi_p2p_group_info(ptr noundef %0, ptr noundef %1
 253:                                              ; preds = %230
   %254 = load ptr, ptr %7, align 8
   %255 = load ptr, ptr %21, align 8
-  %256 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %254, ptr noundef %255, ptr noundef @ei_wifi_p2p_attr_len, ptr noundef @.str.320)
+  %256 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %254, ptr noundef %255, ptr noundef @ei_wifi_p2p_attr_len, ptr noundef @.str.329)
   br label %291
 
 257:                                              ; preds = %230
@@ -2568,19 +2726,29 @@ define internal void @dissect_wifi_p2p_group_info(ptr noundef %0, ptr noundef %1
 285:                                              ; preds = %280
   %286 = load ptr, ptr %7, align 8
   %287 = load ptr, ptr %21, align 8
-  %288 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %286, ptr noundef %287, ptr noundef @ei_wifi_p2p_attr_len, ptr noundef @.str.321)
+  %288 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %286, ptr noundef %287, ptr noundef @ei_wifi_p2p_attr_len, ptr noundef @.str.330)
   br label %289
 
 289:                                              ; preds = %285, %280
   %290 = load i32, ptr %14, align 4
   store i32 %290, ptr %13, align 4
-  br label %25, !llvm.loop !11
+  br label %25, !llvm.loop !15
 
 291:                                              ; preds = %253, %196, %75, %42, %25
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %20) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_invitation_flags(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2606,13 +2774,13 @@ define internal void @dissect_invitation_flags(ptr noundef %0, ptr noundef %1, p
   %22 = load ptr, ptr %7, align 8
   %23 = load i32, ptr %8, align 4
   %24 = add i32 %23, 3
-  %25 = call zeroext i8 @tvb_get_guint8(ptr noundef %22, i32 noundef %24)
+  %25 = call zeroext i8 @tvb_get_uint8(ptr noundef %22, i32 noundef %24)
   %26 = zext i8 %25 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %21, ptr noundef @.str.330, i32 noundef %26)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %21, ptr noundef @.str.339, i32 noundef %26)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_manageability(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2650,13 +2818,13 @@ define internal void @dissect_manageability(ptr noundef %0, ptr noundef %1, ptr 
   %34 = load ptr, ptr %7, align 8
   %35 = load i32, ptr %8, align 4
   %36 = add i32 %35, 3
-  %37 = call zeroext i8 @tvb_get_guint8(ptr noundef %34, i32 noundef %36)
+  %37 = call zeroext i8 @tvb_get_uint8(ptr noundef %34, i32 noundef %36)
   %38 = zext i8 %37 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %33, ptr noundef @.str.331, i32 noundef %38)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %33, ptr noundef @.str.340, i32 noundef %38)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_minor_reason_code(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2676,19 +2844,19 @@ define internal void @dissect_minor_reason_code(ptr noundef %0, ptr noundef %1, 
   %16 = load ptr, ptr %7, align 8
   %17 = load i32, ptr %8, align 4
   %18 = add i32 %17, 3
-  %19 = call zeroext i8 @tvb_get_guint8(ptr noundef %16, i32 noundef %18)
+  %19 = call zeroext i8 @tvb_get_uint8(ptr noundef %16, i32 noundef %18)
   %20 = zext i8 %19 to i32
   %21 = load ptr, ptr %7, align 8
   %22 = load i32, ptr %8, align 4
   %23 = add i32 %22, 3
-  %24 = call zeroext i8 @tvb_get_guint8(ptr noundef %21, i32 noundef %23)
+  %24 = call zeroext i8 @tvb_get_uint8(ptr noundef %21, i32 noundef %23)
   %25 = zext i8 %24 to i32
-  %26 = call ptr @val_to_str(i32 noundef %25, ptr noundef @p2p_minor_reason_codes, ptr noundef @.str.332)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %15, ptr noundef @.str.317, i32 noundef %20, ptr noundef %26)
+  %26 = call ptr @val_to_str(i32 noundef %25, ptr noundef @p2p_minor_reason_codes, ptr noundef @.str.341)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %15, ptr noundef @.str.326, i32 noundef %20, ptr noundef %26)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_oob_group_owner_negotiation_channel(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2726,18 +2894,18 @@ define internal void @dissect_oob_group_owner_negotiation_channel(ptr noundef %0
   %34 = load ptr, ptr %7, align 8
   %35 = load i32, ptr %8, align 4
   %36 = add i32 %35, 6
-  %37 = call zeroext i8 @tvb_get_guint8(ptr noundef %34, i32 noundef %36)
+  %37 = call zeroext i8 @tvb_get_uint8(ptr noundef %34, i32 noundef %36)
   %38 = zext i8 %37 to i32
   %39 = load ptr, ptr %7, align 8
   %40 = load i32, ptr %8, align 4
   %41 = add i32 %40, 7
-  %42 = call zeroext i8 @tvb_get_guint8(ptr noundef %39, i32 noundef %41)
+  %42 = call zeroext i8 @tvb_get_uint8(ptr noundef %39, i32 noundef %41)
   %43 = zext i8 %42 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %33, ptr noundef @.str.319, i32 noundef %38, i32 noundef %43)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %33, ptr noundef @.str.328, i32 noundef %38, i32 noundef %43)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_service_hash(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -2750,6 +2918,7 @@ define internal void @dissect_service_hash(ptr noundef %0, ptr noundef %1, ptr n
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i32 %4, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
   %12 = load i32, ptr %9, align 4
   %13 = add i32 %12, 3
   store i32 %13, ptr %11, align 4
@@ -2773,13 +2942,14 @@ define internal void @dissect_service_hash(ptr noundef %0, ptr noundef %1, ptr n
   %27 = load i32, ptr %11, align 4
   %28 = add i32 %27, 6
   store i32 %28, ptr %11, align 4
-  br label %14, !llvm.loop !12
+  br label %14, !llvm.loop !16
 
 29:                                               ; preds = %14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_session_information(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -2801,7 +2971,7 @@ define internal void @dissect_session_information(ptr noundef %0, ptr noundef %1
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_connection_capability(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2820,7 +2990,7 @@ define internal void @dissect_connection_capability(ptr noundef %0, ptr noundef 
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_advertisement_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2845,7 +3015,7 @@ define internal void @dissect_advertisement_id(ptr noundef %0, ptr noundef %1, p
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_advertised_service(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -2860,15 +3030,18 @@ define internal void @dissect_advertised_service(ptr noundef %0, ptr noundef %1,
   store ptr %2, ptr %8, align 8
   store i32 %3, ptr %9, align 4
   store i32 %4, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
   %14 = load i32, ptr %9, align 4
   %15 = add i32 %14, 3
   store i32 %15, ptr %12, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   %16 = load ptr, ptr %6, align 8
   %17 = load ptr, ptr %8, align 8
   %18 = load i32, ptr %12, align 4
   %19 = load i32, ptr %10, align 4
   %20 = load i32, ptr @ett_p2p_advertised_service, align 4
-  %21 = call ptr @proto_tree_add_subtree(ptr noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef %19, i32 noundef %20, ptr noundef null, ptr noundef @.str.333)
+  %21 = call ptr @proto_tree_add_subtree(ptr noundef %16, ptr noundef %17, i32 noundef %18, i32 noundef %19, i32 noundef %20, ptr noundef null, ptr noundef @.str.342)
   store ptr %21, ptr %11, align 8
   br label %22
 
@@ -2905,7 +3078,7 @@ define internal void @dissect_advertised_service(ptr noundef %0, ptr noundef %1,
   %48 = call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %45, ptr noundef %46, i32 noundef %47, i32 noundef 2, i32 noundef 0)
   %49 = load ptr, ptr %8, align 8
   %50 = load i32, ptr %12, align 4
-  %51 = call zeroext i8 @tvb_get_guint8(ptr noundef %49, i32 noundef %50)
+  %51 = call zeroext i8 @tvb_get_uint8(ptr noundef %49, i32 noundef %50)
   %52 = zext i8 %51 to i32
   store i32 %52, ptr %13, align 4
   %53 = load i32, ptr %12, align 4
@@ -2921,13 +3094,16 @@ define internal void @dissect_advertised_service(ptr noundef %0, ptr noundef %1,
   %62 = load i32, ptr %12, align 4
   %63 = add i32 %62, %61
   store i32 %63, ptr %12, align 4
-  br label %22, !llvm.loop !13
+  br label %22, !llvm.loop !17
 
 64:                                               ; preds = %22
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #4
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_session_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2952,7 +3128,7 @@ define internal void @dissect_session_id(ptr noundef %0, ptr noundef %1, ptr nou
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_feature_capability(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -2974,7 +3150,7 @@ define internal void @dissect_feature_capability(ptr noundef %0, ptr noundef %1,
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @dissect_persistent_group(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -3004,34 +3180,45 @@ define internal void @dissect_persistent_group(ptr noundef %0, ptr noundef %1, p
   ret void
 }
 
-declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) #2
 
-declare ptr @tvb_address_to_str(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_address_to_str(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-declare ptr @wmem_packet_scope() #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_packet_scope() #2
 
-declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #2
 
-declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
+attributes #5 = { noreturn }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}

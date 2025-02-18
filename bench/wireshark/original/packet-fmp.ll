@@ -3,17 +3,13 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
 %struct.true_false_string = type { ptr, ptr }
-%struct._rpc_proc_list = type { i32, ptr, ptr }
-%struct._vsff = type { i32, ptr, ptr, ptr }
 %struct.nstime_t = type { i64, i32 }
 
 @proto_register_fmp.hf = internal global [85 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_fmp_procedure, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 7, i32 1, ptr @fmp_proc_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_hostID, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_btime, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 24, i32 18, ptr null, i64 0, ptr @.str.6, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_time_sec, %struct._header_field_info { ptr @.str.7, ptr @.str.8, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_time_nsec, %struct._header_field_info { ptr @.str.9, ptr @.str.10, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_notifyPort, %struct._header_field_info { ptr @.str.11, ptr @.str.12, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_sessionHandle, %struct._header_field_info { ptr @.str.13, ptr @.str.14, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_fmpFHandle, %struct._header_field_info { ptr @.str.15, ptr @.str.16, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_nfsFHandle, %struct._header_field_info { ptr @.str.17, ptr @.str.18, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_fsID, %struct._header_field_info { ptr @.str.19, ptr @.str.20, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_status, %struct._header_field_info { ptr @.str.21, ptr @.str.22, i32 7, i32 1, ptr @fmp_status_vals, i64 0, ptr @.str.23, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_fsBlkSz, %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_volHandle, %struct._header_field_info { ptr @.str.26, ptr @.str.27, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_dskSigEnt_val, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_devSignature, %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_mount_path, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 26, i32 0, ptr null, i64 0, ptr @.str.34, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_sig_offset, %struct._header_field_info { ptr @.str.35, ptr @.str.36, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_numBlksReq, %struct._header_field_info { ptr @.str.37, ptr @.str.38, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_minBlks, %struct._header_field_info { ptr @.str.39, ptr @.str.40, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_msgNum, %struct._header_field_info { ptr @.str.41, ptr @.str.42, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_cookie, %struct._header_field_info { ptr @.str.43, ptr @.str.44, i32 7, i32 2, ptr null, i64 0, ptr @.str.45, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_fileSize, %struct._header_field_info { ptr @.str.46, ptr @.str.47, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_extentList_len, %struct._header_field_info { ptr @.str.48, ptr @.str.49, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_extent_state, %struct._header_field_info { ptr @.str.50, ptr @.str.51, i32 7, i32 1, ptr @fmp_extentState_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_firstLogBlk, %struct._header_field_info { ptr @.str.52, ptr @.str.53, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_numBlks, %struct._header_field_info { ptr @.str.54, ptr @.str.55, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_volID, %struct._header_field_info { ptr @.str.56, ptr @.str.57, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_startOffset, %struct._header_field_info { ptr @.str.58, ptr @.str.59, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_start_offset64, %struct._header_field_info { ptr @.str.60, ptr @.str.61, i32 11, i32 1, ptr null, i64 0, ptr @.str.62, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_eof, %struct._header_field_info { ptr @.str.63, ptr @.str.64, i32 11, i32 1, ptr null, i64 0, ptr @.str.65, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_plugInID, %struct._header_field_info { ptr @.str.66, ptr @.str.67, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_plugInBuf, %struct._header_field_info { ptr @.str.68, ptr @.str.69, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_os_major, %struct._header_field_info { ptr @.str.70, ptr @.str.71, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_os_minor, %struct._header_field_info { ptr @.str.72, ptr @.str.73, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_os_name, %struct._header_field_info { ptr @.str.74, ptr @.str.75, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_path, %struct._header_field_info { ptr @.str.76, ptr @.str.77, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_os_patch, %struct._header_field_info { ptr @.str.78, ptr @.str.79, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_os_build, %struct._header_field_info { ptr @.str.80, ptr @.str.81, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_server_version_string, %struct._header_field_info { ptr @.str.82, ptr @.str.83, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_description, %struct._header_field_info { ptr @.str.84, ptr @.str.85, i32 26, i32 0, ptr null, i64 0, ptr @.str.86, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_nfsv3Attr_type, %struct._header_field_info { ptr @.str.87, ptr @.str.88, i32 7, i32 1, ptr null, i64 0, ptr @.str.89, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_nfsv3Attr_mode, %struct._header_field_info { ptr @.str.90, ptr @.str.91, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_nfsv3Attr_nlink, %struct._header_field_info { ptr @.str.92, ptr @.str.93, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_nfsv3Attr_uid, %struct._header_field_info { ptr @.str.94, ptr @.str.95, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_nfsv3Attr_gid, %struct._header_field_info { ptr @.str.96, ptr @.str.97, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_nfsv3Attr_used, %struct._header_field_info { ptr @.str.98, ptr @.str.99, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_nfsv3Attr_rdev, %struct._header_field_info { ptr @.str.100, ptr @.str.101, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_nfsv3Attr_fsid, %struct._header_field_info { ptr @.str.102, ptr @.str.103, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_nfsv3Attr_fileid, %struct._header_field_info { ptr @.str.104, ptr @.str.105, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_cmd, %struct._header_field_info { ptr @.str.106, ptr @.str.107, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_topVolumeId, %struct._header_field_info { ptr @.str.108, ptr @.str.109, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_cursor, %struct._header_field_info { ptr @.str.110, ptr @.str.111, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_offset64, %struct._header_field_info { ptr @.str.112, ptr @.str.113, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_slice_size, %struct._header_field_info { ptr @.str.114, ptr @.str.115, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_volume, %struct._header_field_info { ptr @.str.116, ptr @.str.117, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_stripeSize, %struct._header_field_info { ptr @.str.118, ptr @.str.119, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_firstLogBlk64, %struct._header_field_info { ptr @.str.120, ptr @.str.121, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_native_protocol, %struct._header_field_info { ptr @.str.122, ptr @.str.123, i32 7, i32 1, ptr @fmp_native_protocol_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_encoding_mode, %struct._header_field_info { ptr @.str.124, ptr @.str.125, i32 7, i32 1, ptr @fmp_encoding_mode_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_capability, %struct._header_field_info { ptr @.str.126, ptr @.str.127, i32 7, i32 1, ptr @fmp_volume_mgmt_capability_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_devSerial_query_cmd, %struct._header_field_info { ptr @.str.128, ptr @.str.129, i32 7, i32 1, ptr @fmp_query_cmd_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_volume_desc, %struct._header_field_info { ptr @.str.130, ptr @.str.131, i32 7, i32 1, ptr @fmp_volume_desc_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_disk_identifier, %struct._header_field_info { ptr @.str.132, ptr @.str.133, i32 7, i32 1, ptr @fmp_disk_identifier_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_volume_mgmt_type, %struct._header_field_info { ptr @.str.134, ptr @.str.135, i32 7, i32 1, ptr @fmp_volume_mgmt_type_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_notify_protocol, %struct._header_field_info { ptr @.str.136, ptr @.str.137, i32 7, i32 1, ptr @fmp_notify_protocol_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_client_error_number, %struct._header_field_info { ptr @.str.138, ptr @.str.139, i32 7, i32 1, ptr @fmp_client_error_number_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_fid, %struct._header_field_info { ptr @.str.140, ptr @.str.141, i32 13, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_tid, %struct._header_field_info { ptr @.str.142, ptr @.str.143, i32 13, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_uid, %struct._header_field_info { ptr @.str.94, ptr @.str.144, i32 13, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_fsid, %struct._header_field_info { ptr @.str.145, ptr @.str.146, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_cifsport, %struct._header_field_info { ptr @.str.147, ptr @.str.148, i32 13, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_number_of_disk, %struct._header_field_info { ptr @.str.149, ptr @.str.150, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_length_of_list, %struct._header_field_info { ptr @.str.151, ptr @.str.152, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_sigoffset, %struct._header_field_info { ptr @.str.153, ptr @.str.154, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_length_of_volume_list, %struct._header_field_info { ptr @.str.155, ptr @.str.156, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_blockindex, %struct._header_field_info { ptr @.str.157, ptr @.str.158, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_cap, %struct._header_field_info { ptr @.str.159, ptr @.str.160, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_cap_revoke_handle_list, %struct._header_field_info { ptr @.str.161, ptr @.str.162, i32 2, i32 32, ptr @tfs_yes_no, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_cap_unc_names, %struct._header_field_info { ptr @.str.163, ptr @.str.164, i32 2, i32 32, ptr @tfs_yes_no, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_cap_cifsv2, %struct._header_field_info { ptr @.str.165, ptr @.str.166, i32 2, i32 32, ptr @tfs_yes_no, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_mtime, %struct._header_field_info { ptr @.str.167, ptr @.str.168, i32 25, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_atime, %struct._header_field_info { ptr @.str.169, ptr @.str.170, i32 25, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_ctime, %struct._header_field_info { ptr @.str.171, ptr @.str.172, i32 25, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_heartbeat_interval, %struct._header_field_info { ptr @.str.173, ptr @.str.174, i32 25, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_fmp_volindex, %struct._header_field_info { ptr @.str.175, ptr @.str.176, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_fmp_procedure = internal global i32 0, align 4
 @.str = private unnamed_addr constant [10 x i8] c"Procedure\00", align 1
 @.str.1 = private unnamed_addr constant [14 x i8] c"fmp.procedure\00", align 1
-@fmp_proc_vals = internal constant [27 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.183 }, %struct._value_string { i32 1, ptr @.str.184 }, %struct._value_string { i32 2, ptr @.str.185 }, %struct._value_string { i32 3, ptr @.str.186 }, %struct._value_string { i32 4, ptr @.str.187 }, %struct._value_string { i32 5, ptr @.str.188 }, %struct._value_string { i32 6, ptr @.str.189 }, %struct._value_string { i32 7, ptr @.str.190 }, %struct._value_string { i32 8, ptr @.str.191 }, %struct._value_string { i32 9, ptr @.str.192 }, %struct._value_string { i32 10, ptr @.str.193 }, %struct._value_string { i32 11, ptr @.str.194 }, %struct._value_string { i32 12, ptr @.str.195 }, %struct._value_string { i32 13, ptr @.str.196 }, %struct._value_string { i32 14, ptr @.str.197 }, %struct._value_string { i32 15, ptr @.str.198 }, %struct._value_string { i32 16, ptr @.str.199 }, %struct._value_string { i32 17, ptr @.str.200 }, %struct._value_string { i32 18, ptr @.str.201 }, %struct._value_string { i32 19, ptr @.str.202 }, %struct._value_string { i32 20, ptr @.str.203 }, %struct._value_string { i32 21, ptr @.str.204 }, %struct._value_string { i32 22, ptr @.str.205 }, %struct._value_string { i32 23, ptr @.str.206 }, %struct._value_string { i32 24, ptr @.str.207 }, %struct._value_string { i32 25, ptr @.str.208 }, %struct._value_string zeroinitializer], align 16
 @hf_fmp_hostID = internal global i32 0, align 4
 @.str.2 = private unnamed_addr constant [8 x i8] c"Host ID\00", align 1
 @.str.3 = private unnamed_addr constant [11 x i8] c"fmp.hostID\00", align 1
@@ -45,7 +41,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_fmp_status = internal global i32 0, align 4
 @.str.21 = private unnamed_addr constant [7 x i8] c"Status\00", align 1
 @.str.22 = private unnamed_addr constant [11 x i8] c"fmp.status\00", align 1
-@fmp_status_vals = internal constant [22 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.209 }, %struct._value_string { i32 5, ptr @.str.210 }, %struct._value_string { i32 12, ptr @.str.211 }, %struct._value_string { i32 13, ptr @.str.212 }, %struct._value_string { i32 22, ptr @.str.213 }, %struct._value_string { i32 28, ptr @.str.214 }, %struct._value_string { i32 79, ptr @.str.215 }, %struct._value_string { i32 500, ptr @.str.216 }, %struct._value_string { i32 501, ptr @.str.217 }, %struct._value_string { i32 502, ptr @.str.218 }, %struct._value_string { i32 503, ptr @.str.219 }, %struct._value_string { i32 504, ptr @.str.220 }, %struct._value_string { i32 505, ptr @.str.221 }, %struct._value_string { i32 506, ptr @.str.222 }, %struct._value_string { i32 507, ptr @.str.223 }, %struct._value_string { i32 508, ptr @.str.224 }, %struct._value_string { i32 509, ptr @.str.225 }, %struct._value_string { i32 510, ptr @.str.226 }, %struct._value_string { i32 511, ptr @.str.227 }, %struct._value_string { i32 512, ptr @.str.228 }, %struct._value_string { i32 600, ptr @.str.229 }, %struct._value_string zeroinitializer], align 16
 @.str.23 = private unnamed_addr constant [13 x i8] c"Reply Status\00", align 1
 @hf_fmp_fsBlkSz = internal global i32 0, align 4
 @.str.24 = private unnamed_addr constant [23 x i8] c"File System Block Size\00", align 1
@@ -88,7 +83,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_fmp_extent_state = internal global i32 0, align 4
 @.str.50 = private unnamed_addr constant [13 x i8] c"Extent State\00", align 1
 @.str.51 = private unnamed_addr constant [16 x i8] c"fmp.extentState\00", align 1
-@fmp_extentState_vals = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.230 }, %struct._value_string { i32 1, ptr @.str.231 }, %struct._value_string { i32 2, ptr @.str.232 }, %struct._value_string zeroinitializer], align 16
 @hf_fmp_firstLogBlk = internal global i32 0, align 4
 @.str.52 = private unnamed_addr constant [25 x i8] c"First Logical File Block\00", align 1
 @.str.53 = private unnamed_addr constant [16 x i8] c"fmp.firstLogBlk\00", align 1
@@ -195,39 +189,30 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_fmp_native_protocol = internal global i32 0, align 4
 @.str.122 = private unnamed_addr constant [16 x i8] c"Native Protocol\00", align 1
 @.str.123 = private unnamed_addr constant [20 x i8] c"fmp.native_protocol\00", align 1
-@fmp_native_protocol_vals = internal constant [10 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.233 }, %struct._value_string { i32 1, ptr @.str.234 }, %struct._value_string { i32 2, ptr @.str.235 }, %struct._value_string { i32 3, ptr @.str.178 }, %struct._value_string { i32 4, ptr @.str.236 }, %struct._value_string { i32 5, ptr @.str.237 }, %struct._value_string { i32 6, ptr @.str.238 }, %struct._value_string { i32 7, ptr @.str.239 }, %struct._value_string { i32 8, ptr @.str.240 }, %struct._value_string zeroinitializer], align 16
 @hf_fmp_encoding_mode = internal global i32 0, align 4
 @.str.124 = private unnamed_addr constant [14 x i8] c"Encoding Mode\00", align 1
 @.str.125 = private unnamed_addr constant [18 x i8] c"fmp.encoding_mode\00", align 1
-@fmp_encoding_mode_vals = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.241 }, %struct._value_string { i32 1, ptr @.str.242 }, %struct._value_string { i32 2, ptr @.str.243 }, %struct._value_string zeroinitializer], align 16
 @hf_fmp_capability = internal global i32 0, align 4
 @.str.126 = private unnamed_addr constant [23 x i8] c"Volume Mgmt Capability\00", align 1
 @.str.127 = private unnamed_addr constant [15 x i8] c"fmp.capability\00", align 1
-@fmp_volume_mgmt_capability_vals = internal constant [6 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.244 }, %struct._value_string { i32 2, ptr @.str.245 }, %struct._value_string { i32 4, ptr @.str.246 }, %struct._value_string { i32 8, ptr @.str.247 }, %struct._value_string { i32 64, ptr @.str.248 }, %struct._value_string zeroinitializer], align 16
 @hf_fmp_devSerial_query_cmd = internal global i32 0, align 4
 @.str.128 = private unnamed_addr constant [14 x i8] c"Query Command\00", align 1
 @.str.129 = private unnamed_addr constant [24 x i8] c"fmp.devSerial.query_cmd\00", align 1
-@fmp_query_cmd_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.249 }, %struct._value_string { i32 1, ptr @.str.250 }, %struct._value_string zeroinitializer], align 16
 @hf_fmp_volume_desc = internal global i32 0, align 4
 @.str.130 = private unnamed_addr constant [7 x i8] c"VOLUME\00", align 1
 @.str.131 = private unnamed_addr constant [16 x i8] c"fmp.volume_desc\00", align 1
-@fmp_volume_desc_vals = internal constant [7 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.251 }, %struct._value_string { i32 1, ptr @.str.252 }, %struct._value_string { i32 2, ptr @.str.253 }, %struct._value_string { i32 3, ptr @.str.254 }, %struct._value_string { i32 1, ptr @.str.252 }, %struct._value_string { i32 1, ptr @.str.252 }, %struct._value_string zeroinitializer], align 16
 @hf_fmp_disk_identifier = internal global i32 0, align 4
 @.str.132 = private unnamed_addr constant [16 x i8] c"DISK IDENTIFIER\00", align 1
 @.str.133 = private unnamed_addr constant [20 x i8] c"fmp.disk_identifier\00", align 1
-@fmp_disk_identifier_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.255 }, %struct._value_string { i32 1, ptr @.str.256 }, %struct._value_string zeroinitializer], align 16
 @hf_fmp_volume_mgmt_type = internal global i32 0, align 4
 @.str.134 = private unnamed_addr constant [17 x i8] c"Volume Mgmt Type\00", align 1
 @.str.135 = private unnamed_addr constant [21 x i8] c"fmp.volume_mgmt_type\00", align 1
-@fmp_volume_mgmt_type_vals = internal constant [7 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.244 }, %struct._value_string { i32 2, ptr @.str.245 }, %struct._value_string { i32 4, ptr @.str.246 }, %struct._value_string { i32 8, ptr @.str.247 }, %struct._value_string { i32 16, ptr @.str.257 }, %struct._value_string { i32 64, ptr @.str.258 }, %struct._value_string zeroinitializer], align 16
 @hf_fmp_notify_protocol = internal global i32 0, align 4
 @.str.136 = private unnamed_addr constant [9 x i8] c"Protocol\00", align 1
 @.str.137 = private unnamed_addr constant [20 x i8] c"fmp.notify_protocol\00", align 1
-@fmp_notify_protocol_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.259 }, %struct._value_string { i32 1, ptr @.str.260 }, %struct._value_string zeroinitializer], align 16
 @hf_fmp_client_error_number = internal global i32 0, align 4
 @.str.138 = private unnamed_addr constant [20 x i8] c"CLIENT Error Number\00", align 1
 @.str.139 = private unnamed_addr constant [24 x i8] c"fmp.client_error_number\00", align 1
-@fmp_client_error_number_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.261 }, %struct._value_string { i32 2, ptr @.str.262 }, %struct._value_string zeroinitializer], align 16
 @hf_fmp_fid = internal global i32 0, align 4
 @.str.140 = private unnamed_addr constant [4 x i8] c"fid\00", align 1
 @.str.141 = private unnamed_addr constant [8 x i8] c"fmp.fid\00", align 1
@@ -301,8 +286,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.180 = private unnamed_addr constant [25 x i8] c"fhandle_find_both_reqrep\00", align 1
 @.str.181 = private unnamed_addr constant [44 x i8] c"Fhandle filters finds both request/response\00", align 1
 @.str.182 = private unnamed_addr constant [126 x i8] c"With this option display filters for fmp fhandle a RPC call, even if the actual fhandle is only present in one of the packets\00", align 1
-@fmp_fhandle_reqrep_matching = internal global i32 0, align 4
-@fmp_vers_info = internal constant [1 x %struct._rpc_proc_list] [%struct._rpc_proc_list { i32 3, ptr @fmp3_proc, ptr @hf_fmp_procedure }], align 16
+@fmp_fhandle_reqrep_matching = internal global i8 0, align 1
 @.str.183 = private unnamed_addr constant [5 x i8] c"NULL\00", align 1
 @.str.184 = private unnamed_addr constant [14 x i8] c"SessionCreate\00", align 1
 @.str.185 = private unnamed_addr constant [10 x i8] c"HeartBeat\00", align 1
@@ -329,85 +313,99 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.206 = private unnamed_addr constant [8 x i8] c"FlushEx\00", align 1
 @.str.207 = private unnamed_addr constant [15 x i8] c"FlushGetAttrEx\00", align 1
 @.str.208 = private unnamed_addr constant [14 x i8] c"GetVolumeInfo\00", align 1
-@.str.209 = private unnamed_addr constant [3 x i8] c"OK\00", align 1
-@.str.210 = private unnamed_addr constant [8 x i8] c"IOERROR\00", align 1
-@.str.211 = private unnamed_addr constant [6 x i8] c"NOMEM\00", align 1
-@.str.212 = private unnamed_addr constant [9 x i8] c"NOACCESS\00", align 1
-@.str.213 = private unnamed_addr constant [11 x i8] c"INVALIDARG\00", align 1
-@.str.214 = private unnamed_addr constant [7 x i8] c"FSFULL\00", align 1
-@.str.215 = private unnamed_addr constant [11 x i8] c"QUEUE_FULL\00", align 1
-@.str.216 = private unnamed_addr constant [14 x i8] c"WRONG_MSG_NUM\00", align 1
-@.str.217 = private unnamed_addr constant [13 x i8] c"SESSION_LOST\00", align 1
-@.str.218 = private unnamed_addr constant [12 x i8] c"HOT_SESSION\00", align 1
-@.str.219 = private unnamed_addr constant [13 x i8] c"COLD_SESSION\00", align 1
-@.str.220 = private unnamed_addr constant [18 x i8] c"CLIENT_TERMINATED\00", align 1
-@.str.221 = private unnamed_addr constant [16 x i8] c"WRITER_LOST_BLK\00", align 1
-@.str.222 = private unnamed_addr constant [19 x i8] c"FMP_REQUEST_QUEUED\00", align 1
-@.str.223 = private unnamed_addr constant [14 x i8] c"FMP_FALL_BACK\00", align 1
-@.str.224 = private unnamed_addr constant [18 x i8] c"REQUEST_CANCELLED\00", align 1
-@.str.225 = private unnamed_addr constant [18 x i8] c"WRITER_ZEROED_BLK\00", align 1
-@.str.226 = private unnamed_addr constant [13 x i8] c"NOTIFY_ERROR\00", align 1
-@.str.227 = private unnamed_addr constant [17 x i8] c"FMP_WRONG_HANDLE\00", align 1
-@.str.228 = private unnamed_addr constant [15 x i8] c"DUPLICATE_OPEN\00", align 1
-@.str.229 = private unnamed_addr constant [14 x i8] c"PLUGIN_NOFUNC\00", align 1
-@.str.230 = private unnamed_addr constant [11 x i8] c"VALID_DATA\00", align 1
-@.str.231 = private unnamed_addr constant [13 x i8] c"INVALID_DATA\00", align 1
-@.str.232 = private unnamed_addr constant [10 x i8] c"NONE_DATA\00", align 1
-@.str.233 = private unnamed_addr constant [5 x i8] c"PATH\00", align 1
-@.str.234 = private unnamed_addr constant [4 x i8] c"NFS\00", align 1
-@.str.235 = private unnamed_addr constant [5 x i8] c"CIFS\00", align 1
-@.str.236 = private unnamed_addr constant [8 x i8] c"FS_ONLY\00", align 1
-@.str.237 = private unnamed_addr constant [6 x i8] c"SHARE\00", align 1
-@.str.238 = private unnamed_addr constant [6 x i8] c"MOUNT\00", align 1
-@.str.239 = private unnamed_addr constant [7 x i8] c"CIFSV2\00", align 1
-@.str.240 = private unnamed_addr constant [4 x i8] c"UNC\00", align 1
-@.str.241 = private unnamed_addr constant [6 x i8] c"ASCII\00", align 1
-@.str.242 = private unnamed_addr constant [5 x i8] c"UTF8\00", align 1
-@.str.243 = private unnamed_addr constant [8 x i8] c"UNICODE\00", align 1
-@.str.244 = private unnamed_addr constant [13 x i8] c"SERVER_BASED\00", align 1
-@.str.245 = private unnamed_addr constant [12 x i8] c"THIRD_PARTY\00", align 1
-@.str.246 = private unnamed_addr constant [18 x i8] c"CLIENT_BASED_DART\00", align 1
-@.str.247 = private unnamed_addr constant [20 x i8] c"CLIENT_BASED_SIMPLE\00", align 1
-@.str.248 = private unnamed_addr constant [24 x i8] c"FMP_HIERARCHICAL_VOLUME\00", align 1
-@.str.249 = private unnamed_addr constant [13 x i8] c"SCSI_INQUIRY\00", align 1
-@.str.250 = private unnamed_addr constant [11 x i8] c"DART_STAMP\00", align 1
-@.str.251 = private unnamed_addr constant [5 x i8] c"DISK\00", align 1
-@.str.252 = private unnamed_addr constant [6 x i8] c"SLICE\00", align 1
-@.str.253 = private unnamed_addr constant [7 x i8] c"STRIPE\00", align 1
-@.str.254 = private unnamed_addr constant [5 x i8] c"META\00", align 1
-@.str.255 = private unnamed_addr constant [10 x i8] c"SIGNATURE\00", align 1
-@.str.256 = private unnamed_addr constant [7 x i8] c"SERIAL\00", align 1
-@.str.257 = private unnamed_addr constant [15 x i8] c"DISK_SIGNATURE\00", align 1
-@.str.258 = private unnamed_addr constant [20 x i8] c"HIERARCHICAL_VOLUME\00", align 1
-@.str.259 = private unnamed_addr constant [4 x i8] c"TCP\00", align 1
-@.str.260 = private unnamed_addr constant [4 x i8] c"UDP\00", align 1
-@.str.261 = private unnamed_addr constant [15 x i8] c"FMP_CE_GENERIC\00", align 1
-@.str.262 = private unnamed_addr constant [18 x i8] c"FMP_CE_DISK_ERROR\00", align 1
-@fmp3_proc = internal constant [26 x %struct._vsff] [%struct._vsff { i32 0, ptr @.str.183, ptr @dissect_rpc_void, ptr @dissect_rpc_void }, %struct._vsff { i32 1, ptr @.str.184, ptr @dissect_FMP_SessionCreate_request, ptr @dissect_FMP_SessionCreate_reply }, %struct._vsff { i32 2, ptr @.str.185, ptr @dissect_FMP_HeartBeat_request, ptr @dissect_FMP_HeartBeat_reply }, %struct._vsff { i32 3, ptr @.str.186, ptr @dissect_FMP_Mount_request, ptr @dissect_FMP_Mount_reply }, %struct._vsff { i32 4, ptr @.str.187, ptr @dissect_FMP_Open_request, ptr @dissect_FMP_Open_reply }, %struct._vsff { i32 5, ptr @.str.188, ptr @dissect_FMP_Close_request, ptr @dissect_FMP_Close_reply }, %struct._vsff { i32 6, ptr @.str.189, ptr @dissect_FMP_OpenGetMap_request, ptr @dissect_FMP_OpenGetMap_reply }, %struct._vsff { i32 7, ptr @.str.190, ptr @dissect_FMP_OpenAllocSpace_request, ptr @dissect_FMP_OpenAllocSpace_reply }, %struct._vsff { i32 8, ptr @.str.191, ptr @dissect_FMP_GetMap_request, ptr @dissect_FMP_GetMap_reply }, %struct._vsff { i32 9, ptr @.str.263, ptr @dissect_FMP_AllocSpace_request, ptr @dissect_FMP_AllocSpace_reply }, %struct._vsff { i32 10, ptr @.str.193, ptr @dissect_FMP_Flush_request, ptr @dissect_FMP_Flush_reply }, %struct._vsff { i32 11, ptr @.str.194, ptr @dissect_FMP_CancelReq_request, ptr @dissect_FMP_CancelReq_reply }, %struct._vsff { i32 12, ptr @.str.195, ptr @dissect_FMP_PlugIn_request, ptr @dissect_FMP_PlugIn_reply }, %struct._vsff { i32 13, ptr @.str.196, ptr @dissect_FMP_SessionTerminate_request, ptr @dissect_FMP_SessionTerminate_reply }, %struct._vsff { i32 14, ptr @.str.197, ptr @dissect_FMP_SessionCreateEx_request, ptr @dissect_FMP_SessionCreateEx_reply }, %struct._vsff { i32 15, ptr @.str.198, ptr @dissect_FMP_ReportClientError_request, ptr @dissect_FMP_ReportClientError_reply }, %struct._vsff { i32 16, ptr @.str.264, ptr @dissect_FMP_GetAttr_request, ptr @dissect_FMP_GetAttr_reply }, %struct._vsff { i32 17, ptr @.str.265, ptr @dissect_FMP_OpenGetAttr_request, ptr @dissect_FMP_OpenGetAttr_reply }, %struct._vsff { i32 18, ptr @.str.266, ptr @dissect_FMP_FlushGetAttr_request, ptr @dissect_FMP_FlushGetAttr_reply }, %struct._vsff { i32 19, ptr @.str.202, ptr @dissect_FMP_OpenGetMapEx_request, ptr @dissect_FMP_OpenGetMapEx_reply }, %struct._vsff { i32 20, ptr @.str.203, ptr @dissect_FMP_OpenAllocSpaceEx_request, ptr @dissect_FMP_OpenAllocSpaceEx_reply }, %struct._vsff { i32 21, ptr @.str.204, ptr @dissect_FMP_GetMapEx_request, ptr @dissect_FMP_GetMapEx_reply }, %struct._vsff { i32 22, ptr @.str.205, ptr @dissect_FMP_AllocSpaceEx_request, ptr @dissect_FMP_AllocSpaceEx_reply }, %struct._vsff { i32 23, ptr @.str.267, ptr @dissect_FMP_FlushEx_request, ptr @dissect_FMP_FlushEx_reply }, %struct._vsff { i32 25, ptr @.str.208, ptr @dissect_FMP_GetVolumeInfo_request, ptr @dissect_FMP_GetVolumeInfo_reply }, %struct._vsff zeroinitializer], align 16
-@.str.263 = private unnamed_addr constant [11 x i8] c"AllocSpace\00", align 1
-@.str.264 = private unnamed_addr constant [14 x i8] c"Get Attribute\00", align 1
-@.str.265 = private unnamed_addr constant [19 x i8] c"Open Get Attribute\00", align 1
-@.str.266 = private unnamed_addr constant [20 x i8] c"Flush Get Attribute\00", align 1
-@.str.267 = private unnamed_addr constant [12 x i8] c"FMP_FlushEx\00", align 1
-@.str.268 = private unnamed_addr constant [19 x i8] c"Source File Handle\00", align 1
-@.str.269 = private unnamed_addr constant [12 x i8] c"Extent List\00", align 1
-@.str.270 = private unnamed_addr constant [12 x i8] c"Extent (%u)\00", align 1
-@.str.271 = private unnamed_addr constant [17 x i8] c"COMMIT_SPECIFIED\00", align 1
-@.str.272 = private unnamed_addr constant [18 x i8] c"RELEASE_SPECIFIED\00", align 1
-@.str.273 = private unnamed_addr constant [12 x i8] c"RELEASE_ALL\00", align 1
-@.str.274 = private unnamed_addr constant [11 x i8] c"CLOSE_FILE\00", align 1
-@.str.275 = private unnamed_addr constant [12 x i8] c"UPDATE_TIME\00", align 1
-@.str.276 = private unnamed_addr constant [12 x i8] c"ACCESS_TIME\00", align 1
-@.str.277 = private unnamed_addr constant [8 x i8] c"UNKNOWN\00", align 1
-@.str.278 = private unnamed_addr constant [4 x i8] c" | \00", align 1
-@.str.279 = private unnamed_addr constant [21 x i8] c"No command specified\00", align 1
-@.str.280 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
+@fmp_proc_vals = internal constant [27 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.183 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.184 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.185 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.186 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.187 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.188 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.189 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.190 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.191 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.192 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.193 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.194 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.195 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.196 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.197 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.198 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.199 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.200 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.201 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.202 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.203 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.204 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.205 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.206 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.207 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.208 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.210 = private unnamed_addr constant [3 x i8] c"OK\00", align 1
+@.str.211 = private unnamed_addr constant [8 x i8] c"IOERROR\00", align 1
+@.str.212 = private unnamed_addr constant [6 x i8] c"NOMEM\00", align 1
+@.str.213 = private unnamed_addr constant [9 x i8] c"NOACCESS\00", align 1
+@.str.214 = private unnamed_addr constant [11 x i8] c"INVALIDARG\00", align 1
+@.str.215 = private unnamed_addr constant [7 x i8] c"FSFULL\00", align 1
+@.str.216 = private unnamed_addr constant [11 x i8] c"QUEUE_FULL\00", align 1
+@.str.217 = private unnamed_addr constant [14 x i8] c"WRONG_MSG_NUM\00", align 1
+@.str.218 = private unnamed_addr constant [13 x i8] c"SESSION_LOST\00", align 1
+@.str.219 = private unnamed_addr constant [12 x i8] c"HOT_SESSION\00", align 1
+@.str.220 = private unnamed_addr constant [13 x i8] c"COLD_SESSION\00", align 1
+@.str.221 = private unnamed_addr constant [18 x i8] c"CLIENT_TERMINATED\00", align 1
+@.str.222 = private unnamed_addr constant [16 x i8] c"WRITER_LOST_BLK\00", align 1
+@.str.223 = private unnamed_addr constant [19 x i8] c"FMP_REQUEST_QUEUED\00", align 1
+@.str.224 = private unnamed_addr constant [14 x i8] c"FMP_FALL_BACK\00", align 1
+@.str.225 = private unnamed_addr constant [18 x i8] c"REQUEST_CANCELLED\00", align 1
+@.str.226 = private unnamed_addr constant [18 x i8] c"WRITER_ZEROED_BLK\00", align 1
+@.str.227 = private unnamed_addr constant [13 x i8] c"NOTIFY_ERROR\00", align 1
+@.str.228 = private unnamed_addr constant [17 x i8] c"FMP_WRONG_HANDLE\00", align 1
+@.str.229 = private unnamed_addr constant [15 x i8] c"DUPLICATE_OPEN\00", align 1
+@.str.230 = private unnamed_addr constant [14 x i8] c"PLUGIN_NOFUNC\00", align 1
+@fmp_status_vals = internal constant [22 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.210 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.211 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.212 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.213 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.214 }, { i32, [4 x i8], ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.215 }, { i32, [4 x i8], ptr } { i32 79, [4 x i8] zeroinitializer, ptr @.str.216 }, { i32, [4 x i8], ptr } { i32 500, [4 x i8] zeroinitializer, ptr @.str.217 }, { i32, [4 x i8], ptr } { i32 501, [4 x i8] zeroinitializer, ptr @.str.218 }, { i32, [4 x i8], ptr } { i32 502, [4 x i8] zeroinitializer, ptr @.str.219 }, { i32, [4 x i8], ptr } { i32 503, [4 x i8] zeroinitializer, ptr @.str.220 }, { i32, [4 x i8], ptr } { i32 504, [4 x i8] zeroinitializer, ptr @.str.221 }, { i32, [4 x i8], ptr } { i32 505, [4 x i8] zeroinitializer, ptr @.str.222 }, { i32, [4 x i8], ptr } { i32 506, [4 x i8] zeroinitializer, ptr @.str.223 }, { i32, [4 x i8], ptr } { i32 507, [4 x i8] zeroinitializer, ptr @.str.224 }, { i32, [4 x i8], ptr } { i32 508, [4 x i8] zeroinitializer, ptr @.str.225 }, { i32, [4 x i8], ptr } { i32 509, [4 x i8] zeroinitializer, ptr @.str.226 }, { i32, [4 x i8], ptr } { i32 510, [4 x i8] zeroinitializer, ptr @.str.227 }, { i32, [4 x i8], ptr } { i32 511, [4 x i8] zeroinitializer, ptr @.str.228 }, { i32, [4 x i8], ptr } { i32 512, [4 x i8] zeroinitializer, ptr @.str.229 }, { i32, [4 x i8], ptr } { i32 600, [4 x i8] zeroinitializer, ptr @.str.230 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.232 = private unnamed_addr constant [11 x i8] c"VALID_DATA\00", align 1
+@.str.233 = private unnamed_addr constant [13 x i8] c"INVALID_DATA\00", align 1
+@.str.234 = private unnamed_addr constant [10 x i8] c"NONE_DATA\00", align 1
+@fmp_extentState_vals = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.232 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.233 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.234 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.236 = private unnamed_addr constant [5 x i8] c"PATH\00", align 1
+@.str.237 = private unnamed_addr constant [4 x i8] c"NFS\00", align 1
+@.str.238 = private unnamed_addr constant [5 x i8] c"CIFS\00", align 1
+@.str.239 = private unnamed_addr constant [8 x i8] c"FS_ONLY\00", align 1
+@.str.240 = private unnamed_addr constant [6 x i8] c"SHARE\00", align 1
+@.str.241 = private unnamed_addr constant [6 x i8] c"MOUNT\00", align 1
+@.str.242 = private unnamed_addr constant [7 x i8] c"CIFSV2\00", align 1
+@.str.243 = private unnamed_addr constant [4 x i8] c"UNC\00", align 1
+@fmp_native_protocol_vals = internal constant [10 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.236 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.237 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.238 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.178 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.239 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.240 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.241 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.242 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.243 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.245 = private unnamed_addr constant [6 x i8] c"ASCII\00", align 1
+@.str.246 = private unnamed_addr constant [5 x i8] c"UTF8\00", align 1
+@.str.247 = private unnamed_addr constant [8 x i8] c"UNICODE\00", align 1
+@fmp_encoding_mode_vals = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.245 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.246 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.247 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.249 = private unnamed_addr constant [13 x i8] c"SERVER_BASED\00", align 1
+@.str.250 = private unnamed_addr constant [12 x i8] c"THIRD_PARTY\00", align 1
+@.str.251 = private unnamed_addr constant [18 x i8] c"CLIENT_BASED_DART\00", align 1
+@.str.252 = private unnamed_addr constant [20 x i8] c"CLIENT_BASED_SIMPLE\00", align 1
+@.str.253 = private unnamed_addr constant [24 x i8] c"FMP_HIERARCHICAL_VOLUME\00", align 1
+@fmp_volume_mgmt_capability_vals = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.249 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.250 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.251 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.252 }, { i32, [4 x i8], ptr } { i32 64, [4 x i8] zeroinitializer, ptr @.str.253 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.255 = private unnamed_addr constant [13 x i8] c"SCSI_INQUIRY\00", align 1
+@.str.256 = private unnamed_addr constant [11 x i8] c"DART_STAMP\00", align 1
+@fmp_query_cmd_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.255 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.256 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.258 = private unnamed_addr constant [5 x i8] c"DISK\00", align 1
+@.str.259 = private unnamed_addr constant [6 x i8] c"SLICE\00", align 1
+@.str.260 = private unnamed_addr constant [7 x i8] c"STRIPE\00", align 1
+@.str.261 = private unnamed_addr constant [5 x i8] c"META\00", align 1
+@fmp_volume_desc_vals = internal constant [7 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.258 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.259 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.260 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.261 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.259 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.259 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.263 = private unnamed_addr constant [10 x i8] c"SIGNATURE\00", align 1
+@.str.264 = private unnamed_addr constant [7 x i8] c"SERIAL\00", align 1
+@fmp_disk_identifier_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.263 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.264 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.266 = private unnamed_addr constant [15 x i8] c"DISK_SIGNATURE\00", align 1
+@.str.267 = private unnamed_addr constant [20 x i8] c"HIERARCHICAL_VOLUME\00", align 1
+@fmp_volume_mgmt_type_vals = internal constant [7 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.249 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.250 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.251 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.252 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.266 }, { i32, [4 x i8], ptr } { i32 64, [4 x i8] zeroinitializer, ptr @.str.267 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.269 = private unnamed_addr constant [4 x i8] c"TCP\00", align 1
+@.str.270 = private unnamed_addr constant [4 x i8] c"UDP\00", align 1
+@fmp_notify_protocol_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.269 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.270 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.272 = private unnamed_addr constant [15 x i8] c"FMP_CE_GENERIC\00", align 1
+@.str.273 = private unnamed_addr constant [18 x i8] c"FMP_CE_DISK_ERROR\00", align 1
+@fmp_client_error_number_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.272 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.273 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@fmp_vers_info = internal constant [1 x { i32, [4 x i8], ptr, ptr }] [{ i32, [4 x i8], ptr, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @fmp3_proc, ptr @hf_fmp_procedure }], align 16
+@.str.276 = private unnamed_addr constant [11 x i8] c"AllocSpace\00", align 1
+@.str.277 = private unnamed_addr constant [14 x i8] c"Get Attribute\00", align 1
+@.str.278 = private unnamed_addr constant [19 x i8] c"Open Get Attribute\00", align 1
+@.str.279 = private unnamed_addr constant [20 x i8] c"Flush Get Attribute\00", align 1
+@.str.280 = private unnamed_addr constant [12 x i8] c"FMP_FlushEx\00", align 1
+@fmp3_proc = internal constant [26 x { i32, [4 x i8], ptr, ptr, ptr }] [{ i32, [4 x i8], ptr, ptr, ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.183, ptr @dissect_rpc_void, ptr @dissect_rpc_void }, { i32, [4 x i8], ptr, ptr, ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.184, ptr @dissect_FMP_SessionCreate_request, ptr @dissect_FMP_SessionCreate_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.185, ptr @dissect_FMP_HeartBeat_request, ptr @dissect_FMP_HeartBeat_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.186, ptr @dissect_FMP_Mount_request, ptr @dissect_FMP_Mount_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.187, ptr @dissect_FMP_Open_request, ptr @dissect_FMP_Open_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.188, ptr @dissect_FMP_Close_request, ptr @dissect_FMP_Close_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.189, ptr @dissect_FMP_OpenGetMap_request, ptr @dissect_FMP_OpenGetMap_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.190, ptr @dissect_FMP_OpenAllocSpace_request, ptr @dissect_FMP_OpenAllocSpace_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.191, ptr @dissect_FMP_GetMap_request, ptr @dissect_FMP_GetMap_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.276, ptr @dissect_FMP_AllocSpace_request, ptr @dissect_FMP_AllocSpace_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.193, ptr @dissect_FMP_Flush_request, ptr @dissect_FMP_Flush_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.194, ptr @dissect_FMP_CancelReq_request, ptr @dissect_FMP_CancelReq_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.195, ptr @dissect_FMP_PlugIn_request, ptr @dissect_FMP_PlugIn_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.196, ptr @dissect_FMP_SessionTerminate_request, ptr @dissect_FMP_SessionTerminate_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.197, ptr @dissect_FMP_SessionCreateEx_request, ptr @dissect_FMP_SessionCreateEx_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.198, ptr @dissect_FMP_ReportClientError_request, ptr @dissect_FMP_ReportClientError_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.277, ptr @dissect_FMP_GetAttr_request, ptr @dissect_FMP_GetAttr_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.278, ptr @dissect_FMP_OpenGetAttr_request, ptr @dissect_FMP_OpenGetAttr_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.279, ptr @dissect_FMP_FlushGetAttr_request, ptr @dissect_FMP_FlushGetAttr_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.202, ptr @dissect_FMP_OpenGetMapEx_request, ptr @dissect_FMP_OpenGetMapEx_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.203, ptr @dissect_FMP_OpenAllocSpaceEx_request, ptr @dissect_FMP_OpenAllocSpaceEx_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.204, ptr @dissect_FMP_GetMapEx_request, ptr @dissect_FMP_GetMapEx_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.205, ptr @dissect_FMP_AllocSpaceEx_request, ptr @dissect_FMP_AllocSpaceEx_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.280, ptr @dissect_FMP_FlushEx_request, ptr @dissect_FMP_FlushEx_reply }, { i32, [4 x i8], ptr, ptr, ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.208, ptr @dissect_FMP_GetVolumeInfo_request, ptr @dissect_FMP_GetVolumeInfo_reply }, { i32, [4 x i8], ptr, ptr, ptr } zeroinitializer], align 16
+@.str.282 = private unnamed_addr constant [19 x i8] c"Source File Handle\00", align 1
+@.str.283 = private unnamed_addr constant [12 x i8] c"Extent List\00", align 1
+@.str.284 = private unnamed_addr constant [12 x i8] c"Extent (%u)\00", align 1
+@.str.285 = private unnamed_addr constant [17 x i8] c"COMMIT_SPECIFIED\00", align 1
+@.str.286 = private unnamed_addr constant [18 x i8] c"RELEASE_SPECIFIED\00", align 1
+@.str.287 = private unnamed_addr constant [12 x i8] c"RELEASE_ALL\00", align 1
+@.str.288 = private unnamed_addr constant [11 x i8] c"CLOSE_FILE\00", align 1
+@.str.289 = private unnamed_addr constant [12 x i8] c"UPDATE_TIME\00", align 1
+@.str.290 = private unnamed_addr constant [12 x i8] c"ACCESS_TIME\00", align 1
+@.str.291 = private unnamed_addr constant [8 x i8] c"UNKNOWN\00", align 1
+@.str.292 = private unnamed_addr constant [4 x i8] c" | \00", align 1
+@.str.293 = private unnamed_addr constant [21 x i8] c"No command specified\00", align 1
+@.str.294 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
 @dissect_fmp_capabilities.capabilities = internal constant [4 x ptr] [ptr @hf_fmp_cap_revoke_handle_list, ptr @hf_fmp_cap_unc_names, ptr @hf_fmp_cap_cifsv2, ptr null], align 16
-@.str.281 = private unnamed_addr constant [12 x i8] c"Attribute: \00", align 1
+@.str.295 = private unnamed_addr constant [12 x i8] c"Attribute: \00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_fmp() #0 {
   %1 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #4
   %2 = call i32 @proto_register_protocol(ptr noundef @.str.177, ptr noundef @.str.178, ptr noundef @.str.179)
   store i32 %2, ptr @proto_fmp, align 4
   %3 = load i32, ptr @proto_fmp, align 4
@@ -418,20 +416,32 @@ define hidden void @proto_register_fmp() #0 {
   store ptr %5, ptr %1, align 8
   %6 = load ptr, ptr %1, align 8
   call void @prefs_register_bool_preference(ptr noundef %6, ptr noundef @.str.180, ptr noundef @.str.181, ptr noundef @.str.182, ptr noundef @fmp_fhandle_reqrep_matching)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #4
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #2
 
-declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #2
 
-declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_fmp() #0 {
   %1 = load i32, ptr @proto_fmp, align 4
   %2 = load i32, ptr @ett_fmp, align 4
@@ -439,11 +449,13 @@ define hidden void @proto_reg_handoff_fmp() #0 {
   ret void
 }
 
-declare void @rpc_init_prog(i32 noundef, i32 noundef, i32 noundef, i64 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @rpc_init_prog(i32 noundef, i32 noundef, i32 noundef, i64 noundef, ptr noundef) #2
 
-declare i32 @dissect_rpc_void(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_rpc_void(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_SessionCreate_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -454,6 +466,7 @@ define internal i32 @dissect_FMP_SessionCreate_request(ptr noundef %0, ptr nound
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %7, align 8
@@ -477,10 +490,11 @@ define internal i32 @dissect_FMP_SessionCreate_request(ptr noundef %0, ptr nound
   %27 = call i32 @dissect_rpc_uint32(ptr noundef %23, ptr noundef %24, i32 noundef %25, i32 noundef %26)
   store i32 %27, ptr %9, align 4
   %28 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %28
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_SessionCreate_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -492,6 +506,8 @@ define internal i32 @dissect_FMP_SessionCreate_reply(ptr noundef %0, ptr noundef
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %10, align 4
@@ -534,10 +550,12 @@ define internal i32 @dissect_FMP_SessionCreate_reply(ptr noundef %0, ptr noundef
 
 41:                                               ; preds = %17, %4
   %42 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %42
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_HeartBeat_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -554,7 +572,7 @@ define internal i32 @dissect_FMP_HeartBeat_request(ptr noundef %0, ptr noundef %
   ret i32 %12
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_HeartBeat_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -565,13 +583,15 @@ define internal i32 @dissect_FMP_HeartBeat_reply(ptr noundef %0, ptr noundef %1,
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %7, align 8
   %12 = call i32 @dissect_fmp_status(ptr noundef %10, i32 noundef 0, ptr noundef %11, ptr noundef %9)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %12
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_Mount_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -582,6 +602,7 @@ define internal i32 @dissect_FMP_Mount_request(ptr noundef %0, ptr noundef %1, p
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %7, align 8
@@ -601,10 +622,11 @@ define internal i32 @dissect_FMP_Mount_request(ptr noundef %0, ptr noundef %1, p
   %23 = call i32 @dissect_fmp_fileHandleSrc(ptr noundef %19, i32 noundef %20, ptr noundef %21, ptr noundef %22)
   store i32 %23, ptr %9, align 4
   %24 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_Mount_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -616,6 +638,8 @@ define internal i32 @dissect_FMP_Mount_reply(ptr noundef %0, ptr noundef %1, ptr
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %10, align 4
@@ -649,10 +673,12 @@ define internal i32 @dissect_FMP_Mount_reply(ptr noundef %0, ptr noundef %1, ptr
 
 33:                                               ; preds = %17, %4
   %34 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %34
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_Open_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -663,6 +689,7 @@ define internal i32 @dissect_FMP_Open_request(ptr noundef %0, ptr noundef %1, pt
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %7, align 8
@@ -677,10 +704,11 @@ define internal i32 @dissect_FMP_Open_request(ptr noundef %0, ptr noundef %1, pt
   %19 = call i32 @dissect_fmp_fileHandleSrc(ptr noundef %15, i32 noundef %16, ptr noundef %17, ptr noundef %18)
   store i32 %19, ptr %9, align 4
   %20 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_Open_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -692,6 +720,8 @@ define internal i32 @dissect_FMP_Open_reply(ptr noundef %0, ptr noundef %1, ptr 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %10, align 4
@@ -731,10 +761,12 @@ define internal i32 @dissect_FMP_Open_reply(ptr noundef %0, ptr noundef %1, ptr 
 
 38:                                               ; preds = %17, %4
   %39 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %39
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_Close_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -745,6 +777,7 @@ define internal i32 @dissect_FMP_Close_request(ptr noundef %0, ptr noundef %1, p
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %7, align 8
@@ -759,10 +792,11 @@ define internal i32 @dissect_FMP_Close_request(ptr noundef %0, ptr noundef %1, p
   %19 = call i32 @dissect_rpc_uint32(ptr noundef %15, ptr noundef %16, i32 noundef %17, i32 noundef %18)
   store i32 %19, ptr %9, align 4
   %20 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_Close_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -774,6 +808,8 @@ define internal i32 @dissect_FMP_Close_reply(ptr noundef %0, ptr noundef %1, ptr
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %10, align 4
@@ -795,10 +831,12 @@ define internal i32 @dissect_FMP_Close_reply(ptr noundef %0, ptr noundef %1, ptr
 
 23:                                               ; preds = %17, %4
   %24 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_OpenGetMap_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -809,6 +847,7 @@ define internal i32 @dissect_FMP_OpenGetMap_request(ptr noundef %0, ptr noundef 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %7, align 8
@@ -841,10 +880,11 @@ define internal i32 @dissect_FMP_OpenGetMap_request(ptr noundef %0, ptr noundef 
   %34 = call i32 @dissect_rpc_uint32(ptr noundef %30, ptr noundef %31, i32 noundef %32, i32 noundef %33)
   store i32 %34, ptr %9, align 4
   %35 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %35
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_OpenGetMap_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -856,6 +896,8 @@ define internal i32 @dissect_FMP_OpenGetMap_reply(ptr noundef %0, ptr noundef %1
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %10, align 4
@@ -907,10 +949,12 @@ define internal i32 @dissect_FMP_OpenGetMap_reply(ptr noundef %0, ptr noundef %1
 
 48:                                               ; preds = %17, %4
   %49 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %49
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_OpenAllocSpace_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -921,6 +965,7 @@ define internal i32 @dissect_FMP_OpenAllocSpace_request(ptr noundef %0, ptr noun
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %7, align 8
@@ -953,10 +998,11 @@ define internal i32 @dissect_FMP_OpenAllocSpace_request(ptr noundef %0, ptr noun
   %34 = call i32 @dissect_rpc_uint32(ptr noundef %30, ptr noundef %31, i32 noundef %32, i32 noundef %33)
   store i32 %34, ptr %9, align 4
   %35 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %35
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_OpenAllocSpace_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -968,6 +1014,8 @@ define internal i32 @dissect_FMP_OpenAllocSpace_reply(ptr noundef %0, ptr nounde
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %10, align 4
@@ -1019,10 +1067,12 @@ define internal i32 @dissect_FMP_OpenAllocSpace_reply(ptr noundef %0, ptr nounde
 
 48:                                               ; preds = %17, %4
   %49 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %49
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_GetMap_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1033,6 +1083,7 @@ define internal i32 @dissect_FMP_GetMap_request(ptr noundef %0, ptr noundef %1, 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %7, align 8
@@ -1065,10 +1116,11 @@ define internal i32 @dissect_FMP_GetMap_request(ptr noundef %0, ptr noundef %1, 
   %34 = call i32 @dissect_rpc_uint32(ptr noundef %30, ptr noundef %31, i32 noundef %32, i32 noundef %33)
   store i32 %34, ptr %9, align 4
   %35 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %35
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_GetMap_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1080,6 +1132,8 @@ define internal i32 @dissect_FMP_GetMap_reply(ptr noundef %0, ptr noundef %1, pt
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %10, align 4
@@ -1119,10 +1173,12 @@ define internal i32 @dissect_FMP_GetMap_reply(ptr noundef %0, ptr noundef %1, pt
 
 38:                                               ; preds = %17, %4
   %39 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %39
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_AllocSpace_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1133,6 +1189,7 @@ define internal i32 @dissect_FMP_AllocSpace_request(ptr noundef %0, ptr noundef 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %7, align 8
@@ -1165,10 +1222,11 @@ define internal i32 @dissect_FMP_AllocSpace_request(ptr noundef %0, ptr noundef 
   %34 = call i32 @dissect_rpc_uint32(ptr noundef %30, ptr noundef %31, i32 noundef %32, i32 noundef %33)
   store i32 %34, ptr %9, align 4
   %35 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %35
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_AllocSpace_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1180,6 +1238,8 @@ define internal i32 @dissect_FMP_AllocSpace_reply(ptr noundef %0, ptr noundef %1
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %10, align 4
@@ -1219,10 +1279,12 @@ define internal i32 @dissect_FMP_AllocSpace_reply(ptr noundef %0, ptr noundef %1
 
 38:                                               ; preds = %17, %4
   %39 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %39
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_Flush_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1233,6 +1295,7 @@ define internal i32 @dissect_FMP_Flush_request(ptr noundef %0, ptr noundef %1, p
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %7, align 8
@@ -1264,10 +1327,11 @@ define internal i32 @dissect_FMP_Flush_request(ptr noundef %0, ptr noundef %1, p
   %33 = call i32 @dissect_fmp_extentList(ptr noundef %29, i32 noundef %30, ptr noundef %31, ptr noundef %32)
   store i32 %33, ptr %9, align 4
   %34 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %34
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_Flush_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1279,6 +1343,8 @@ define internal i32 @dissect_FMP_Flush_reply(ptr noundef %0, ptr noundef %1, ptr
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %10, align 4
@@ -1300,10 +1366,12 @@ define internal i32 @dissect_FMP_Flush_reply(ptr noundef %0, ptr noundef %1, ptr
 
 23:                                               ; preds = %17, %4
   %24 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_CancelReq_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1314,6 +1382,7 @@ define internal i32 @dissect_FMP_CancelReq_request(ptr noundef %0, ptr noundef %
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %7, align 8
@@ -1334,10 +1403,11 @@ define internal i32 @dissect_FMP_CancelReq_request(ptr noundef %0, ptr noundef %
   %24 = call i32 @dissect_rpc_uint32(ptr noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef %23)
   store i32 %24, ptr %9, align 4
   %25 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %25
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_CancelReq_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1349,6 +1419,8 @@ define internal i32 @dissect_FMP_CancelReq_reply(ptr noundef %0, ptr noundef %1,
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %10, align 4
@@ -1370,10 +1442,12 @@ define internal i32 @dissect_FMP_CancelReq_reply(ptr noundef %0, ptr noundef %1,
 
 23:                                               ; preds = %17, %4
   %24 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_PlugIn_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1384,6 +1458,7 @@ define internal i32 @dissect_FMP_PlugIn_request(ptr noundef %0, ptr noundef %1, 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load i32, ptr %9, align 4
@@ -1397,10 +1472,11 @@ define internal i32 @dissect_FMP_PlugIn_request(ptr noundef %0, ptr noundef %1, 
   %18 = call i32 @dissect_rpc_data(ptr noundef %14, ptr noundef %15, i32 noundef %16, i32 noundef %17)
   store i32 %18, ptr %9, align 4
   %19 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %19
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_PlugIn_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1412,6 +1488,8 @@ define internal i32 @dissect_FMP_PlugIn_reply(ptr noundef %0, ptr noundef %1, pt
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %10, align 4
@@ -1433,10 +1511,12 @@ define internal i32 @dissect_FMP_PlugIn_reply(ptr noundef %0, ptr noundef %1, pt
 
 23:                                               ; preds = %17, %4
   %24 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_SessionTerminate_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1453,7 +1533,7 @@ define internal i32 @dissect_FMP_SessionTerminate_request(ptr noundef %0, ptr no
   ret i32 %12
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_SessionTerminate_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1464,13 +1544,15 @@ define internal i32 @dissect_FMP_SessionTerminate_reply(ptr noundef %0, ptr noun
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %7, align 8
   %12 = call i32 @dissect_fmp_status(ptr noundef %10, i32 noundef 0, ptr noundef %11, ptr noundef %9)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %12
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_SessionCreateEx_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1481,6 +1563,7 @@ define internal i32 @dissect_FMP_SessionCreateEx_request(ptr noundef %0, ptr nou
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %7, align 8
@@ -1544,10 +1627,11 @@ define internal i32 @dissect_FMP_SessionCreateEx_request(ptr noundef %0, ptr nou
   %60 = call i32 @dissect_fmp_capabilities(ptr noundef %57, i32 noundef %58, ptr noundef %59)
   store i32 %60, ptr %9, align 4
   %61 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %61
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_SessionCreateEx_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1559,6 +1643,8 @@ define internal i32 @dissect_FMP_SessionCreateEx_reply(ptr noundef %0, ptr nound
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %10, align 4
@@ -1636,10 +1722,12 @@ define internal i32 @dissect_FMP_SessionCreateEx_reply(ptr noundef %0, ptr nound
 
 70:                                               ; preds = %17, %4
   %71 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %71
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_ReportClientError_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1650,6 +1738,7 @@ define internal i32 @dissect_FMP_ReportClientError_request(ptr noundef %0, ptr n
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %7, align 8
@@ -1663,10 +1752,11 @@ define internal i32 @dissect_FMP_ReportClientError_request(ptr noundef %0, ptr n
   %18 = call i32 @dissect_fmp_cerrInfo(ptr noundef %15, i32 noundef %16, ptr noundef %17)
   store i32 %18, ptr %9, align 4
   %19 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %19
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_ReportClientError_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1678,6 +1768,8 @@ define internal i32 @dissect_FMP_ReportClientError_reply(ptr noundef %0, ptr nou
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %10, align 4
@@ -1685,10 +1777,12 @@ define internal i32 @dissect_FMP_ReportClientError_reply(ptr noundef %0, ptr nou
   %14 = call i32 @dissect_fmp_status(ptr noundef %11, i32 noundef %12, ptr noundef %13, ptr noundef %9)
   store i32 %14, ptr %10, align 4
   %15 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %15
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_GetAttr_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1699,6 +1793,7 @@ define internal i32 @dissect_FMP_GetAttr_request(ptr noundef %0, ptr noundef %1,
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %7, align 8
@@ -1713,10 +1808,11 @@ define internal i32 @dissect_FMP_GetAttr_request(ptr noundef %0, ptr noundef %1,
   %19 = call i32 @dissect_rpc_uint32(ptr noundef %15, ptr noundef %16, i32 noundef %17, i32 noundef %18)
   store i32 %19, ptr %9, align 4
   %20 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_GetAttr_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1728,6 +1824,8 @@ define internal i32 @dissect_FMP_GetAttr_reply(ptr noundef %0, ptr noundef %1, p
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %10, align 4
@@ -1754,10 +1852,12 @@ define internal i32 @dissect_FMP_GetAttr_reply(ptr noundef %0, ptr noundef %1, p
 
 27:                                               ; preds = %17, %4
   %28 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %28
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_OpenGetAttr_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1768,6 +1868,7 @@ define internal i32 @dissect_FMP_OpenGetAttr_request(ptr noundef %0, ptr noundef
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %7, align 8
@@ -1782,10 +1883,11 @@ define internal i32 @dissect_FMP_OpenGetAttr_request(ptr noundef %0, ptr noundef
   %19 = call i32 @dissect_fmp_fileHandleSrc(ptr noundef %15, i32 noundef %16, ptr noundef %17, ptr noundef %18)
   store i32 %19, ptr %9, align 4
   %20 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_OpenGetAttr_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1797,6 +1899,8 @@ define internal i32 @dissect_FMP_OpenGetAttr_reply(ptr noundef %0, ptr noundef %
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %10, align 4
@@ -1841,10 +1945,12 @@ define internal i32 @dissect_FMP_OpenGetAttr_reply(ptr noundef %0, ptr noundef %
 
 42:                                               ; preds = %17, %4
   %43 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %43
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_FlushGetAttr_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1855,6 +1961,7 @@ define internal i32 @dissect_FMP_FlushGetAttr_request(ptr noundef %0, ptr nounde
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load i32, ptr %9, align 4
@@ -1895,10 +2002,11 @@ define internal i32 @dissect_FMP_FlushGetAttr_request(ptr noundef %0, ptr nounde
   %41 = call i32 @dissect_fmp_extentList(ptr noundef %37, i32 noundef %38, ptr noundef %39, ptr noundef %40)
   store i32 %41, ptr %9, align 4
   %42 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %42
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_FlushGetAttr_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1910,6 +2018,8 @@ define internal i32 @dissect_FMP_FlushGetAttr_reply(ptr noundef %0, ptr noundef 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %10, align 4
@@ -1936,10 +2046,12 @@ define internal i32 @dissect_FMP_FlushGetAttr_reply(ptr noundef %0, ptr noundef 
 
 27:                                               ; preds = %17, %4
   %28 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %28
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_OpenGetMapEx_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1950,6 +2062,7 @@ define internal i32 @dissect_FMP_OpenGetMapEx_request(ptr noundef %0, ptr nounde
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %7, align 8
@@ -1982,10 +2095,11 @@ define internal i32 @dissect_FMP_OpenGetMapEx_request(ptr noundef %0, ptr nounde
   %34 = call i32 @dissect_rpc_uint32(ptr noundef %30, ptr noundef %31, i32 noundef %32, i32 noundef %33)
   store i32 %34, ptr %9, align 4
   %35 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %35
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_OpenGetMapEx_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1997,6 +2111,8 @@ define internal i32 @dissect_FMP_OpenGetMapEx_reply(ptr noundef %0, ptr noundef 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %10, align 4
@@ -2048,10 +2164,12 @@ define internal i32 @dissect_FMP_OpenGetMapEx_reply(ptr noundef %0, ptr noundef 
 
 48:                                               ; preds = %17, %4
   %49 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %49
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_OpenAllocSpaceEx_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2062,6 +2180,7 @@ define internal i32 @dissect_FMP_OpenAllocSpaceEx_request(ptr noundef %0, ptr no
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %7, align 8
@@ -2094,10 +2213,11 @@ define internal i32 @dissect_FMP_OpenAllocSpaceEx_request(ptr noundef %0, ptr no
   %34 = call i32 @dissect_rpc_uint32(ptr noundef %30, ptr noundef %31, i32 noundef %32, i32 noundef %33)
   store i32 %34, ptr %9, align 4
   %35 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %35
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_OpenAllocSpaceEx_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2109,6 +2229,8 @@ define internal i32 @dissect_FMP_OpenAllocSpaceEx_reply(ptr noundef %0, ptr noun
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %10, align 4
@@ -2160,10 +2282,12 @@ define internal i32 @dissect_FMP_OpenAllocSpaceEx_reply(ptr noundef %0, ptr noun
 
 48:                                               ; preds = %17, %4
   %49 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %49
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_GetMapEx_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2174,6 +2298,7 @@ define internal i32 @dissect_FMP_GetMapEx_request(ptr noundef %0, ptr noundef %1
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %7, align 8
@@ -2206,10 +2331,11 @@ define internal i32 @dissect_FMP_GetMapEx_request(ptr noundef %0, ptr noundef %1
   %34 = call i32 @dissect_rpc_uint32(ptr noundef %30, ptr noundef %31, i32 noundef %32, i32 noundef %33)
   store i32 %34, ptr %9, align 4
   %35 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %35
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_GetMapEx_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2221,6 +2347,8 @@ define internal i32 @dissect_FMP_GetMapEx_reply(ptr noundef %0, ptr noundef %1, 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %10, align 4
@@ -2260,10 +2388,12 @@ define internal i32 @dissect_FMP_GetMapEx_reply(ptr noundef %0, ptr noundef %1, 
 
 38:                                               ; preds = %17, %4
   %39 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %39
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_AllocSpaceEx_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2274,6 +2404,7 @@ define internal i32 @dissect_FMP_AllocSpaceEx_request(ptr noundef %0, ptr nounde
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %7, align 8
@@ -2306,10 +2437,11 @@ define internal i32 @dissect_FMP_AllocSpaceEx_request(ptr noundef %0, ptr nounde
   %34 = call i32 @dissect_rpc_uint32(ptr noundef %30, ptr noundef %31, i32 noundef %32, i32 noundef %33)
   store i32 %34, ptr %9, align 4
   %35 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %35
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_AllocSpaceEx_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2321,6 +2453,8 @@ define internal i32 @dissect_FMP_AllocSpaceEx_reply(ptr noundef %0, ptr noundef 
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %10, align 4
@@ -2360,10 +2494,12 @@ define internal i32 @dissect_FMP_AllocSpaceEx_reply(ptr noundef %0, ptr noundef 
 
 38:                                               ; preds = %17, %4
   %39 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %39
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_FlushEx_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2374,6 +2510,7 @@ define internal i32 @dissect_FMP_FlushEx_request(ptr noundef %0, ptr noundef %1,
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %7, align 8
@@ -2405,10 +2542,11 @@ define internal i32 @dissect_FMP_FlushEx_request(ptr noundef %0, ptr noundef %1,
   %33 = call i32 @dissect_fmp_extentListEx(ptr noundef %29, i32 noundef %30, ptr noundef %31, ptr noundef %32)
   store i32 %33, ptr %9, align 4
   %34 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %34
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_FlushEx_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2420,6 +2558,8 @@ define internal i32 @dissect_FMP_FlushEx_reply(ptr noundef %0, ptr noundef %1, p
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %10, align 4
@@ -2441,10 +2581,12 @@ define internal i32 @dissect_FMP_FlushEx_reply(ptr noundef %0, ptr noundef %1, p
 
 23:                                               ; preds = %17, %4
   %24 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_GetVolumeInfo_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2455,6 +2597,7 @@ define internal i32 @dissect_FMP_GetVolumeInfo_request(ptr noundef %0, ptr nound
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
   store i32 0, ptr %9, align 4
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %7, align 8
@@ -2475,10 +2618,11 @@ define internal i32 @dissect_FMP_GetVolumeInfo_request(ptr noundef %0, ptr nound
   %24 = call i32 @dissect_rpc_uint32(ptr noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef %23)
   store i32 %24, ptr %9, align 4
   %25 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %25
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_FMP_GetVolumeInfo_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -2490,6 +2634,8 @@ define internal i32 @dissect_FMP_GetVolumeInfo_reply(ptr noundef %0, ptr noundef
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %10, align 4
@@ -2510,12 +2656,15 @@ define internal i32 @dissect_FMP_GetVolumeInfo_reply(ptr noundef %0, ptr noundef
 
 22:                                               ; preds = %17, %4
   %23 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %23
 }
 
-declare i32 @dissect_rpc_string(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_rpc_string(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_fmp_timeval(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #0 {
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
@@ -2539,18 +2688,21 @@ define internal i32 @dissect_fmp_timeval(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %19, label %20, label %56
 
 20:                                               ; preds = %7
+  call void @llvm.lifetime.start.p0(i64 16, ptr %15) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
   %21 = load ptr, ptr %8, align 8
   %22 = load i32, ptr %9, align 4
   %23 = add i32 %22, 0
   %24 = call i32 @tvb_get_ntohl(ptr noundef %21, i32 noundef %23)
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds %struct.nstime_t, ptr %15, i32 0, i32 0
+  %26 = getelementptr inbounds nuw %struct.nstime_t, ptr %15, i32 0, i32 0
   store i64 %25, ptr %26, align 8
   %27 = load ptr, ptr %8, align 8
   %28 = load i32, ptr %9, align 4
   %29 = add i32 %28, 4
   %30 = call i32 @tvb_get_ntohl(ptr noundef %27, i32 noundef %29)
-  %31 = getelementptr inbounds %struct.nstime_t, ptr %15, i32 0, i32 1
+  %31 = getelementptr inbounds nuw %struct.nstime_t, ptr %15, i32 0, i32 1
   store i32 %30, ptr %31, align 8
   %32 = load ptr, ptr %11, align 8
   %33 = load i32, ptr %12, align 4
@@ -2566,7 +2718,7 @@ define internal i32 @dissect_fmp_timeval(ptr noundef %0, i32 noundef %1, ptr nou
   %41 = load i32, ptr %13, align 4
   %42 = load ptr, ptr %8, align 8
   %43 = load i32, ptr %9, align 4
-  %44 = getelementptr inbounds %struct.nstime_t, ptr %15, i32 0, i32 0
+  %44 = getelementptr inbounds nuw %struct.nstime_t, ptr %15, i32 0, i32 0
   %45 = load i64, ptr %44, align 8
   %46 = trunc i64 %45 to i32
   %47 = call ptr @proto_tree_add_uint(ptr noundef %40, i32 noundef %41, ptr noundef %42, i32 noundef %43, i32 noundef 4, i32 noundef %46)
@@ -2575,9 +2727,12 @@ define internal i32 @dissect_fmp_timeval(ptr noundef %0, i32 noundef %1, ptr nou
   %50 = load ptr, ptr %8, align 8
   %51 = load i32, ptr %9, align 4
   %52 = add i32 %51, 4
-  %53 = getelementptr inbounds %struct.nstime_t, ptr %15, i32 0, i32 1
+  %53 = getelementptr inbounds nuw %struct.nstime_t, ptr %15, i32 0, i32 1
   %54 = load i32, ptr %53, align 8
   %55 = call ptr @proto_tree_add_uint(ptr noundef %48, i32 noundef %49, ptr noundef %50, i32 noundef %52, i32 noundef 4, i32 noundef %54)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %15) #4
   br label %56
 
 56:                                               ; preds = %20, %7
@@ -2588,17 +2743,22 @@ define internal i32 @dissect_fmp_timeval(ptr noundef %0, i32 noundef %1, ptr nou
   ret i32 %59
 }
 
-declare i32 @dissect_rpc_uint32(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_rpc_uint32(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #2
 
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_fmp_status(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -2609,6 +2769,7 @@ define internal i32 @dissect_fmp_status(ptr noundef %0, i32 noundef %1, ptr noun
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
   %10 = load ptr, ptr %5, align 8
   %11 = load i32, ptr %6, align 4
   %12 = call i32 @tvb_get_ntohl(ptr noundef %10, i32 noundef %11)
@@ -2731,12 +2892,14 @@ define internal i32 @dissect_fmp_status(ptr noundef %0, i32 noundef %1, ptr noun
   %53 = call i32 @dissect_rpc_uint32(ptr noundef %49, ptr noundef %50, i32 noundef %51, i32 noundef %52)
   store i32 %53, ptr %6, align 4
   %54 = load i32, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %54
 }
 
-declare i32 @dissect_rpc_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_rpc_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_fmp_heartBeatIntv(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -2758,9 +2921,10 @@ define internal i32 @dissect_fmp_heartBeatIntv(ptr noundef %0, i32 noundef %1, p
   ret i32 %16
 }
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_fmp_capability(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -2778,7 +2942,7 @@ define internal i32 @dissect_fmp_capability(ptr noundef %0, i32 noundef %1, ptr 
   ret i32 %13
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_fmp_fileHandleSrc(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -2791,6 +2955,9 @@ define internal i32 @dissect_fmp_fileHandleSrc(ptr noundef %0, i32 noundef %1, p
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
   %12 = load ptr, ptr %5, align 8
   %13 = load i32, ptr %6, align 4
   %14 = call i32 @get_fileHandleSrc_size(ptr noundef %12, i32 noundef %13)
@@ -2800,7 +2967,7 @@ define internal i32 @dissect_fmp_fileHandleSrc(ptr noundef %0, i32 noundef %1, p
   %17 = load i32, ptr %6, align 4
   %18 = load i32, ptr %11, align 4
   %19 = load i32, ptr @ett_fmp_fileHandle, align 4
-  %20 = call ptr @proto_tree_add_subtree(ptr noundef %15, ptr noundef %16, i32 noundef %17, i32 noundef %18, i32 noundef %19, ptr noundef null, ptr noundef @.str.268)
+  %20 = call ptr @proto_tree_add_subtree(ptr noundef %15, ptr noundef %16, i32 noundef %17, i32 noundef %18, i32 noundef %19, ptr noundef null, ptr noundef @.str.282)
   store ptr %20, ptr %10, align 8
   %21 = load ptr, ptr %5, align 8
   %22 = load i32, ptr %6, align 4
@@ -2956,10 +3123,13 @@ define internal i32 @dissect_fmp_fileHandleSrc(ptr noundef %0, i32 noundef %1, p
 
 125:                                              ; preds = %124, %119, %90, %85, %80, %72, %66, %44, %38, %32
   %126 = load i32, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %126
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @get_fileHandleSrc_size(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
@@ -2967,6 +3137,8 @@ define internal i32 @get_fileHandleSrc_size(ptr noundef %0, i32 noundef %1) #0 {
   %6 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
   %7 = load ptr, ptr %3, align 8
   %8 = load i32, ptr %4, align 4
   %9 = call i32 @tvb_get_ntohl(ptr noundef %7, i32 noundef %8)
@@ -3022,12 +3194,15 @@ define internal i32 @get_fileHandleSrc_size(ptr noundef %0, i32 noundef %1) #0 {
 
 28:                                               ; preds = %27, %26, %25, %19, %18, %12, %11
   %29 = load i32, ptr %5, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #4
   ret i32 %29
 }
 
-declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_fmp_genString(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
@@ -3072,9 +3247,10 @@ define internal i32 @dissect_fmp_genString(ptr noundef %0, i32 noundef %1, ptr n
   ret i32 %30
 }
 
-declare ptr @try_val_to_str(i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @try_val_to_str(i32 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_fmp_vmInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -3086,6 +3262,8 @@ define internal i32 @dissect_fmp_vmInfo(ptr noundef %0, i32 noundef %1, ptr noun
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
   %11 = load ptr, ptr %5, align 8
   %12 = load i32, ptr %6, align 4
   %13 = call i32 @tvb_get_ntohl(ptr noundef %11, i32 noundef %12)
@@ -3138,7 +3316,7 @@ define internal i32 @dissect_fmp_vmInfo(ptr noundef %0, i32 noundef %1, ptr noun
   %42 = load i32, ptr %10, align 4
   %43 = add i32 %42, -1
   store i32 %43, ptr %10, align 4
-  br label %26, !llvm.loop !4
+  br label %26, !llvm.loop !6
 
 44:                                               ; preds = %26
   br label %81
@@ -3198,10 +3376,12 @@ define internal i32 @dissect_fmp_vmInfo(ptr noundef %0, i32 noundef %1, ptr noun
 
 81:                                               ; preds = %80, %75, %70, %57, %51, %45, %44
   %82 = load i32, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %82
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_fmp_devSerial(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -3237,7 +3417,7 @@ define internal i32 @dissect_fmp_devSerial(ptr noundef %0, i32 noundef %1, ptr n
   ret i32 %28
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_InterpretVolMgtStuff(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -3249,6 +3429,10 @@ define internal i32 @dissect_InterpretVolMgtStuff(ptr noundef %0, i32 noundef %1
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
   %11 = load ptr, ptr %4, align 8
   %12 = load i32, ptr %5, align 4
   %13 = call i32 @tvb_get_ntohl(ptr noundef %11, i32 noundef %12)
@@ -3319,7 +3503,7 @@ define internal i32 @dissect_InterpretVolMgtStuff(ptr noundef %0, i32 noundef %1
   %59 = load i32, ptr %10, align 4
   %60 = add i32 %59, 1
   store i32 %60, ptr %10, align 4
-  br label %41, !llvm.loop !6
+  br label %41, !llvm.loop !8
 
 61:                                               ; preds = %41
   %62 = load ptr, ptr %4, align 8
@@ -3334,14 +3518,18 @@ define internal i32 @dissect_InterpretVolMgtStuff(ptr noundef %0, i32 noundef %1
   %68 = load i32, ptr %9, align 4
   %69 = add i32 %68, 1
   store i32 %69, ptr %9, align 4
-  br label %21, !llvm.loop !7
+  br label %21, !llvm.loop !9
 
 70:                                               ; preds = %21
   %71 = load i32, ptr %5, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
   ret i32 %71
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_fmp_Hiervolume(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -3350,6 +3538,7 @@ define internal i32 @dissect_fmp_Hiervolume(ptr noundef %0, i32 noundef %1, ptr 
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
   %8 = load ptr, ptr %4, align 8
   %9 = load ptr, ptr %6, align 8
   %10 = load i32, ptr @hf_fmp_topVolumeId, align 4
@@ -3396,16 +3585,18 @@ define internal i32 @dissect_fmp_Hiervolume(ptr noundef %0, i32 noundef %1, ptr 
   %41 = load i32, ptr %7, align 4
   %42 = add i32 %41, -1
   store i32 %42, ptr %7, align 4
-  br label %33, !llvm.loop !8
+  br label %33, !llvm.loop !10
 
 43:                                               ; preds = %33
   %44 = load i32, ptr %5, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
   ret i32 %44
 }
 
-declare i32 @dissect_rpc_uint64(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_rpc_uint64(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_fmp_VolumeDescription(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -3419,6 +3610,12 @@ define internal i32 @dissect_fmp_VolumeDescription(ptr noundef %0, i32 noundef %
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
   %13 = load ptr, ptr %4, align 8
   %14 = load i32, ptr %5, align 4
   %15 = call i32 @tvb_get_ntohl(ptr noundef %13, i32 noundef %14)
@@ -3521,7 +3718,7 @@ define internal i32 @dissect_fmp_VolumeDescription(ptr noundef %0, i32 noundef %
   %80 = load i32, ptr %7, align 4
   %81 = add i32 %80, 1
   store i32 %81, ptr %7, align 4
-  br label %62, !llvm.loop !9
+  br label %62, !llvm.loop !11
 
 82:                                               ; preds = %62
   br label %88
@@ -3533,7 +3730,7 @@ define internal i32 @dissect_fmp_VolumeDescription(ptr noundef %0, i32 noundef %
   %87 = call i32 @dissect_fmp_devSerial(ptr noundef %84, i32 noundef %85, ptr noundef null, ptr noundef %86)
   br label %88
 
-88:                                               ; preds = %83, %82, %27
+88:                                               ; preds = %27, %83, %82
   br label %176
 
 89:                                               ; preds = %3
@@ -3610,7 +3807,7 @@ define internal i32 @dissect_fmp_VolumeDescription(ptr noundef %0, i32 noundef %
   %142 = load i32, ptr %7, align 4
   %143 = add i32 %142, 1
   store i32 %143, ptr %7, align 4
-  br label %131, !llvm.loop !10
+  br label %131, !llvm.loop !12
 
 144:                                              ; preds = %131
   br label %176
@@ -3656,7 +3853,7 @@ define internal i32 @dissect_fmp_VolumeDescription(ptr noundef %0, i32 noundef %
   %172 = load i32, ptr %7, align 4
   %173 = add i32 %172, 1
   store i32 %173, ptr %7, align 4
-  br label %161, !llvm.loop !11
+  br label %161, !llvm.loop !13
 
 174:                                              ; preds = %161
   br label %176
@@ -3666,10 +3863,16 @@ define internal i32 @dissect_fmp_VolumeDescription(ptr noundef %0, i32 noundef %
 
 176:                                              ; preds = %175, %174, %144, %89, %88
   %177 = load i32, ptr %5, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
   ret i32 %177
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_fmp_extentList(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -3683,6 +3886,10 @@ define internal i32 @dissect_fmp_extentList(ptr noundef %0, i32 noundef %1, ptr 
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
   %13 = load ptr, ptr %5, align 8
   %14 = load i32, ptr %6, align 4
   %15 = call i32 @tvb_get_ntohl(ptr noundef %13, i32 noundef %14)
@@ -3696,7 +3903,7 @@ define internal i32 @dissect_fmp_extentList(ptr noundef %0, i32 noundef %1, ptr 
   %21 = load i32, ptr %6, align 4
   %22 = load i32, ptr %10, align 4
   %23 = load i32, ptr @ett_fmp_extList, align 4
-  %24 = call ptr @proto_tree_add_subtree(ptr noundef %19, ptr noundef %20, i32 noundef %21, i32 noundef %22, i32 noundef %23, ptr noundef null, ptr noundef @.str.269)
+  %24 = call ptr @proto_tree_add_subtree(ptr noundef %19, ptr noundef %20, i32 noundef %21, i32 noundef %22, i32 noundef %23, ptr noundef null, ptr noundef @.str.283)
   store ptr %24, ptr %11, align 8
   %25 = load ptr, ptr %5, align 8
   %26 = load ptr, ptr %11, align 8
@@ -3728,14 +3935,18 @@ define internal i32 @dissect_fmp_extentList(ptr noundef %0, i32 noundef %1, ptr 
   %43 = load i32, ptr %12, align 4
   %44 = add i32 %43, 1
   store i32 %44, ptr %12, align 4
-  br label %30, !llvm.loop !12
+  br label %30, !llvm.loop !14
 
 45:                                               ; preds = %30
   %46 = load i32, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %46
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_fmp_extent(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -3748,12 +3959,13 @@ define internal i32 @dissect_fmp_extent(ptr noundef %0, i32 noundef %1, ptr noun
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   store i32 %4, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #4
   %12 = load ptr, ptr %9, align 8
   %13 = load ptr, ptr %6, align 8
   %14 = load i32, ptr %7, align 4
   %15 = load i32, ptr @ett_fmp_ext, align 4
   %16 = load i32, ptr %10, align 4
-  %17 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %12, ptr noundef %13, i32 noundef %14, i32 noundef 20, i32 noundef %15, ptr noundef null, ptr noundef @.str.270, i32 noundef %16)
+  %17 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %12, ptr noundef %13, i32 noundef %14, i32 noundef 20, i32 noundef %15, ptr noundef null, ptr noundef @.str.284, i32 noundef %16)
   store ptr %17, ptr %11, align 8
   %18 = load ptr, ptr %6, align 8
   %19 = load ptr, ptr %11, align 8
@@ -3785,12 +3997,14 @@ define internal i32 @dissect_fmp_extent(ptr noundef %0, i32 noundef %1, ptr noun
   %41 = call i32 @dissect_fmp_extentState(ptr noundef %38, i32 noundef %39, ptr noundef %40)
   store i32 %41, ptr %7, align 4
   %42 = load i32, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #4
   ret i32 %42
 }
 
-declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_fmp_extentState(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -3808,7 +4022,7 @@ define internal i32 @dissect_fmp_extentState(ptr noundef %0, i32 noundef %1, ptr
   ret i32 %12
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_fmp_flushCmd(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -3820,6 +4034,10 @@ define internal i32 @dissect_fmp_flushCmd(ptr noundef %0, i32 noundef %1, ptr no
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
+  call void @llvm.lifetime.start.p0(i64 256, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
   %11 = load ptr, ptr %6, align 8
   %12 = icmp ne ptr %11, null
   br i1 %12, label %13, label %86
@@ -3871,37 +4089,37 @@ define internal i32 @dissect_fmp_flushCmd(ptr noundef %0, i32 noundef %1, ptr no
 
 35:                                               ; preds = %33
   %36 = getelementptr inbounds [256 x i8], ptr %8, i64 0, i64 0
-  %37 = call i64 @g_strlcat(ptr noundef %36, ptr noundef @.str.271, i64 noundef 256)
+  %37 = call i64 @g_strlcat(ptr noundef %36, ptr noundef @.str.285, i64 noundef 256)
   br label %56
 
 38:                                               ; preds = %33
   %39 = getelementptr inbounds [256 x i8], ptr %8, i64 0, i64 0
-  %40 = call i64 @g_strlcat(ptr noundef %39, ptr noundef @.str.272, i64 noundef 256)
+  %40 = call i64 @g_strlcat(ptr noundef %39, ptr noundef @.str.286, i64 noundef 256)
   br label %56
 
 41:                                               ; preds = %33
   %42 = getelementptr inbounds [256 x i8], ptr %8, i64 0, i64 0
-  %43 = call i64 @g_strlcat(ptr noundef %42, ptr noundef @.str.273, i64 noundef 256)
+  %43 = call i64 @g_strlcat(ptr noundef %42, ptr noundef @.str.287, i64 noundef 256)
   br label %56
 
 44:                                               ; preds = %33
   %45 = getelementptr inbounds [256 x i8], ptr %8, i64 0, i64 0
-  %46 = call i64 @g_strlcat(ptr noundef %45, ptr noundef @.str.274, i64 noundef 256)
+  %46 = call i64 @g_strlcat(ptr noundef %45, ptr noundef @.str.288, i64 noundef 256)
   br label %56
 
 47:                                               ; preds = %33
   %48 = getelementptr inbounds [256 x i8], ptr %8, i64 0, i64 0
-  %49 = call i64 @g_strlcat(ptr noundef %48, ptr noundef @.str.275, i64 noundef 256)
+  %49 = call i64 @g_strlcat(ptr noundef %48, ptr noundef @.str.289, i64 noundef 256)
   br label %56
 
 50:                                               ; preds = %33
   %51 = getelementptr inbounds [256 x i8], ptr %8, i64 0, i64 0
-  %52 = call i64 @g_strlcat(ptr noundef %51, ptr noundef @.str.276, i64 noundef 256)
+  %52 = call i64 @g_strlcat(ptr noundef %51, ptr noundef @.str.290, i64 noundef 256)
   br label %56
 
 53:                                               ; preds = %33
   %54 = getelementptr inbounds [256 x i8], ptr %8, i64 0, i64 0
-  %55 = call i64 @g_strlcat(ptr noundef %54, ptr noundef @.str.277, i64 noundef 256)
+  %55 = call i64 @g_strlcat(ptr noundef %54, ptr noundef @.str.291, i64 noundef 256)
   br label %56
 
 56:                                               ; preds = %53, %50, %47, %44, %41, %38, %35
@@ -3916,7 +4134,7 @@ define internal i32 @dissect_fmp_flushCmd(ptr noundef %0, i32 noundef %1, ptr no
 
 63:                                               ; preds = %56
   %64 = getelementptr inbounds [256 x i8], ptr %8, i64 0, i64 0
-  %65 = call i64 @g_strlcat(ptr noundef %64, ptr noundef @.str.278, i64 noundef 256)
+  %65 = call i64 @g_strlcat(ptr noundef %64, ptr noundef @.str.292, i64 noundef 256)
   br label %66
 
 66:                                               ; preds = %63, %56
@@ -3929,17 +4147,17 @@ define internal i32 @dissect_fmp_flushCmd(ptr noundef %0, i32 noundef %1, ptr no
   %69 = load i32, ptr %10, align 4
   %70 = add i32 %69, 1
   store i32 %70, ptr %10, align 4
-  br label %18, !llvm.loop !13
+  br label %18, !llvm.loop !15
 
 71:                                               ; preds = %24
   %72 = getelementptr inbounds [256 x i8], ptr %8, i64 0, i64 0
-  %73 = call i64 @strlen(ptr noundef %72) #3
+  %73 = call i64 @strlen(ptr noundef %72) #5
   %74 = icmp eq i64 %73, 0
   br i1 %74, label %75, label %78
 
 75:                                               ; preds = %71
   %76 = getelementptr inbounds [256 x i8], ptr %8, i64 0, i64 0
-  %77 = call i64 @g_strlcpy(ptr noundef %76, ptr noundef @.str.279, i64 noundef 256)
+  %77 = call i64 @g_strlcpy(ptr noundef %76, ptr noundef @.str.293, i64 noundef 256)
   br label %78
 
 78:                                               ; preds = %75, %71
@@ -3949,7 +4167,7 @@ define internal i32 @dissect_fmp_flushCmd(ptr noundef %0, i32 noundef %1, ptr no
   %82 = load i32, ptr %5, align 4
   %83 = load i32, ptr %7, align 4
   %84 = getelementptr inbounds [256 x i8], ptr %8, i64 0, i64 0
-  %85 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %79, i32 noundef %80, ptr noundef %81, i32 noundef %82, i32 noundef 4, i32 noundef %83, ptr noundef @.str.280, ptr noundef %84)
+  %85 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %79, i32 noundef %80, ptr noundef %81, i32 noundef %82, i32 noundef 4, i32 noundef %83, ptr noundef @.str.294, ptr noundef %84)
   br label %86
 
 86:                                               ; preds = %78, %3
@@ -3957,19 +4175,26 @@ define internal i32 @dissect_fmp_flushCmd(ptr noundef %0, i32 noundef %1, ptr no
   %88 = add i32 %87, 4
   store i32 %88, ptr %5, align 4
   %89 = load i32, ptr %5, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 256, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
   ret i32 %89
 }
 
-declare i64 @g_strlcat(ptr noundef, ptr noundef, i64 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i64 @g_strlcat(ptr noundef, ptr noundef, i64 noundef) #2
 
-; Function Attrs: nounwind willreturn memory(read)
-declare i64 @strlen(ptr noundef) #2
+; Function Attrs: nounwind null_pointer_is_valid willreturn memory(read)
+declare i64 @strlen(ptr noundef) #3
 
-declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) #2
 
-declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_plugInID(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
@@ -4002,7 +4227,7 @@ define internal i32 @dissect_plugInID(ptr noundef %0, i32 noundef %1, ptr nounde
   ret i32 %20
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_fmp_notifyProtocol(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -4020,7 +4245,7 @@ define internal i32 @dissect_fmp_notifyProtocol(ptr noundef %0, i32 noundef %1, 
   ret i32 %13
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_fmp_capabilities(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -4039,9 +4264,10 @@ define internal i32 @dissect_fmp_capabilities(ptr noundef %0, i32 noundef %1, pt
   ret i32 %14
 }
 
-declare ptr @proto_tree_add_bitmask_with_flags(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_bitmask_with_flags(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_fmp_cerrInfo(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -4050,6 +4276,7 @@ define internal i32 @dissect_fmp_cerrInfo(ptr noundef %0, i32 noundef %1, ptr no
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
   %8 = load ptr, ptr %6, align 8
   %9 = load i32, ptr @hf_fmp_client_error_number, align 4
   %10 = load ptr, ptr %4, align 8
@@ -4064,10 +4291,11 @@ define internal i32 @dissect_fmp_cerrInfo(ptr noundef %0, i32 noundef %1, ptr no
   %18 = call i32 @dissect_fmp_status(ptr noundef %15, i32 noundef %16, ptr noundef %17, ptr noundef %7)
   store i32 %18, ptr %5, align 4
   %19 = load i32, ptr %5, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
   ret i32 %19
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_fmp_attrs(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -4076,11 +4304,12 @@ define internal i32 @dissect_fmp_attrs(ptr noundef %0, i32 noundef %1, ptr nound
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #4
   %8 = load ptr, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   %10 = load i32, ptr %5, align 4
   %11 = load i32, ptr @ett_attrs, align 4
-  %12 = call ptr @proto_tree_add_subtree(ptr noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef 84, i32 noundef %11, ptr noundef null, ptr noundef @.str.281)
+  %12 = call ptr @proto_tree_add_subtree(ptr noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef 84, i32 noundef %11, ptr noundef null, ptr noundef @.str.295)
   store ptr %12, ptr %7, align 8
   %13 = load ptr, ptr %4, align 8
   %14 = load ptr, ptr %7, align 8
@@ -4167,10 +4396,11 @@ define internal i32 @dissect_fmp_attrs(ptr noundef %0, i32 noundef %1, ptr nound
   %83 = add i32 %82, 8
   store i32 %83, ptr %5, align 4
   %84 = load i32, ptr %5, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #4
   ret i32 %84
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_fmp_extentListEx(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -4183,6 +4413,9 @@ define internal i32 @dissect_fmp_extentListEx(ptr noundef %0, i32 noundef %1, pt
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
   %12 = load ptr, ptr %5, align 8
   %13 = load i32, ptr %6, align 4
   %14 = call i32 @tvb_get_ntohl(ptr noundef %12, i32 noundef %13)
@@ -4204,7 +4437,7 @@ define internal i32 @dissect_fmp_extentListEx(ptr noundef %0, i32 noundef %1, pt
   %23 = load ptr, ptr %5, align 8
   %24 = load i32, ptr %6, align 4
   %25 = load i32, ptr @ett_fmp_extList, align 4
-  %26 = call ptr @proto_tree_add_subtree(ptr noundef %22, ptr noundef %23, i32 noundef %24, i32 noundef 28, i32 noundef %25, ptr noundef null, ptr noundef @.str.269)
+  %26 = call ptr @proto_tree_add_subtree(ptr noundef %22, ptr noundef %23, i32 noundef %24, i32 noundef 28, i32 noundef %25, ptr noundef null, ptr noundef @.str.283)
   store ptr %26, ptr %10, align 8
   %27 = load ptr, ptr %5, align 8
   %28 = load ptr, ptr %10, align 8
@@ -4241,32 +4474,39 @@ define internal i32 @dissect_fmp_extentListEx(ptr noundef %0, i32 noundef %1, pt
   %52 = load i32, ptr %11, align 4
   %53 = add i32 %52, 1
   store i32 %53, ptr %11, align 4
-  br label %17, !llvm.loop !14
+  br label %17, !llvm.loop !16
 
 54:                                               ; preds = %17
   %55 = load i32, ptr %6, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %55
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(read) }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind null_pointer_is_valid willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
+attributes #5 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}

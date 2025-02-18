@@ -3,20 +3,18 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
 %struct._wmem_tree_key_t = type { i32, ptr }
 %struct.adb_service_data_t = type { i32, ptr, ptr, i32 }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
 %struct._continuation_data_t = type { i32, i32, i32 }
-%struct._frame_data = type { i32, i32, i32, i32, i64, ptr, ptr, ptr, i16, i16, %struct.nstime_t, %struct.nstime_t, i32, i32, i8 }
+%struct._frame_data = type <{ i32, i32, i32, i32, i32, [4 x i8], i64, ptr, ptr, ptr, i8, i16, [5 x i8], %struct.nstime_t, %struct.nstime_t, i32, i32 }>
 %struct._framebuffer_data_t = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 %struct._fragment_t = type { i64, i32, ptr }
-%struct._proto_node = type { ptr, ptr, ptr, ptr, ptr, ptr }
+%struct._proto_node = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.field_info = type { ptr, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, i32, i32 }
 
 @.str = private unnamed_addr constant [29 x i8] c"%s:%u: failed assertion \22%s\22\00", align 1
@@ -124,7 +122,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_version = internal global i32 0, align 4
 @ett_pixel = internal global i32 0, align 4
 @ett_data = internal global i32 0, align 4
-@proto_register_adb_service.ei = internal global [1 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_incomplete_message, %struct.expert_field_info { ptr @.str.64, i32 150994944, i32 6291456, ptr @.str.65, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_adb_service.ei = internal global [1 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_incomplete_message, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.64, i32 150994944, i32 6291456, ptr @.str.65, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_incomplete_message = internal global %struct.expert_field zeroinitializer, align 4
 @.str.64 = private unnamed_addr constant [38 x i8] c"adb_service.expert.incomplete_message\00", align 1
 @.str.65 = private unnamed_addr constant [19 x i8] c"Incomplete message\00", align 1
@@ -141,13 +139,13 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.71 = private unnamed_addr constant [49 x i8] c"Version of protocol supported by this dissector.\00", align 1
 @.str.72 = private unnamed_addr constant [25 x i8] c"framebuffer_more_details\00", align 1
 @.str.73 = private unnamed_addr constant [44 x i8] c"Dissect more detail for framebuffer service\00", align 1
-@pref_dissect_more_detail_framebuffer = internal global i32 0, align 4
+@pref_dissect_more_detail_framebuffer = internal global i8 0, align 1
 @.str.74 = private unnamed_addr constant [7 x i8] c"logcat\00", align 1
 @logcat_handle = internal global ptr null, align 8
 @.str.75 = private unnamed_addr constant [17 x i8] c"adb_service_data\00", align 1
 @.str.76 = private unnamed_addr constant [13 x i8] c"host:version\00", align 1
 @.str.77 = private unnamed_addr constant [34 x i8] c"%s:%u: failed assertion \22%s\22 (%s)\00", align 1
-@.str.78 = private unnamed_addr constant [73 x i8] c"adb_service_data->session_key_length + 1 <= sizeof(key) / sizeof(key[0])\00", align 1
+@.str.78 = private unnamed_addr constant [77 x i8] c"adb_service_data->session_key_length + 1 <= (sizeof (key) / sizeof (key)[0])\00", align 1
 @.str.79 = private unnamed_addr constant [30 x i8] c"Tree session key is too small\00", align 1
 @.str.80 = private unnamed_addr constant [12 x i8] c" Version=%u\00", align 1
 @.str.81 = private unnamed_addr constant [13 x i8] c"host:devices\00", align 1
@@ -163,7 +161,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.91 = private unnamed_addr constant [50 x i8] c"shell:export ANDROID_LOG_TAGS=\22\22 ; exec logcat -B\00", align 1
 @.str.92 = private unnamed_addr constant [16 x i8] c"shell:logcat -B\00", align 1
 @.str.93 = private unnamed_addr constant [7 x i8] c"Logcat\00", align 1
-@.str.94 = private unnamed_addr constant [73 x i8] c"adb_service_data->session_key_length + 2 <= sizeof(key) / sizeof(key[0])\00", align 1
+@.str.94 = private unnamed_addr constant [77 x i8] c"adb_service_data->session_key_length + 2 <= (sizeof (key) / sizeof (key)[0])\00", align 1
 @.str.95 = private unnamed_addr constant [7 x i8] c"shell:\00", align 1
 @.str.96 = private unnamed_addr constant [12 x i8] c" Stdin=<%s>\00", align 1
 @.str.97 = private unnamed_addr constant [13 x i8] c" Stdout=<%s>\00", align 1
@@ -176,7 +174,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.104 = private unnamed_addr constant [5 x i8] c"usb:\00", align 1
 @.str.105 = private unnamed_addr constant [13 x i8] c" Result=<%s>\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden i32 @dissect_ascii_uint32(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6) #0 {
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
@@ -195,6 +193,9 @@ define hidden i32 @dissect_ascii_uint32(ptr noundef %0, i32 noundef %1, i32 noun
   store ptr %4, ptr %12, align 8
   store i32 %5, ptr %13, align 4
   store ptr %6, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #9
+  call void @llvm.lifetime.start.p0(i64 5, ptr %17) #9
   %18 = load ptr, ptr %14, align 8
   %19 = icmp ne ptr %18, null
   br i1 %19, label %20, label %21
@@ -203,7 +204,7 @@ define hidden i32 @dissect_ascii_uint32(ptr noundef %0, i32 noundef %1, i32 noun
   br label %23
 
 21:                                               ; preds = %7
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str, ptr noundef @.str.1, i32 noundef 114, ptr noundef @.str.2) #4
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str, ptr noundef @.str.1, i32 noundef 114, ptr noundef @.str.2) #10
   unreachable
 
 22:                                               ; No predecessors!
@@ -242,26 +243,42 @@ define hidden i32 @dissect_ascii_uint32(ptr noundef %0, i32 noundef %1, i32 noun
   %49 = add i32 %48, 4
   store i32 %49, ptr %13, align 4
   %50 = load i32, ptr %13, align 4
+  call void @llvm.lifetime.end.p0(i64 5, ptr %17) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #9
   ret i32 %50
 }
 
-; Function Attrs: noreturn
-declare void @proto_report_dissector_bug(ptr noundef, ...) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare ptr @tvb_memcpy(ptr noundef, ptr noundef, i32 noundef, i64 noundef) #2
+; Function Attrs: noreturn null_pointer_is_valid
+declare void @proto_report_dissector_bug(ptr noundef, ...) #2
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_memcpy(ptr noundef, ptr noundef, i32 noundef, i64 noundef) #3
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #3
 
-declare i64 @g_ascii_strtoull(ptr noundef, ptr noundef, i32 noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #3
 
-declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare i64 @g_ascii_strtoull(ptr noundef, ptr noundef, i32 noundef) #3
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_adb_service() #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %2) #9
   %3 = call ptr @wmem_epan_scope()
   %4 = call ptr @wmem_file_scope()
   %5 = call noalias ptr @wmem_tree_new_autoreset(ptr noundef %3, ptr noundef %4)
@@ -294,20 +311,27 @@ define hidden void @proto_register_adb_service() #0 {
   call void @prefs_register_static_text_preference(ptr noundef %21, ptr noundef @.str.69, ptr noundef @.str.70, ptr noundef @.str.71)
   %22 = load ptr, ptr %1, align 8
   call void @prefs_register_bool_preference(ptr noundef %22, ptr noundef @.str.72, ptr noundef @.str.73, ptr noundef @.str.73, ptr noundef @pref_dissect_more_detail_framebuffer)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %2) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #9
   ret void
 }
 
-declare noalias ptr @wmem_tree_new_autoreset(ptr noundef, ptr noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare noalias ptr @wmem_tree_new_autoreset(ptr noundef, ptr noundef) #3
 
-declare ptr @wmem_epan_scope() #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_epan_scope() #3
 
-declare ptr @wmem_file_scope() #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_file_scope() #3
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #3
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #3
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -350,9 +374,20 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #9
   store i32 0, ptr %13, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #9
   %42 = load ptr, ptr %8, align 8
   store ptr %42, ptr %14, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #9
+  call void @llvm.lifetime.start.p0(i64 80, ptr %16) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #9
   %43 = load ptr, ptr %7, align 8
   %44 = load i32, ptr @proto_adb_service, align 4
   %45 = load ptr, ptr %5, align 8
@@ -371,7 +406,7 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
   br label %56
 
 54:                                               ; preds = %4
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str, ptr noundef @.str.1, i32 noundef 148, ptr noundef @.str.75) #4
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str, ptr noundef @.str.1, i32 noundef 148, ptr noundef @.str.75) #10
   unreachable
 
 55:                                               ; No predecessors!
@@ -379,7 +414,7 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
 
 56:                                               ; preds = %55, %53
   %57 = load ptr, ptr %14, align 8
-  %58 = getelementptr inbounds %struct.adb_service_data_t, ptr %57, i32 0, i32 2
+  %58 = getelementptr inbounds nuw %struct.adb_service_data_t, ptr %57, i32 0, i32 2
   %59 = load ptr, ptr %58, align 8
   store ptr %59, ptr %15, align 8
   %60 = load ptr, ptr %10, align 8
@@ -397,8 +432,11 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %69, label %70, label %262
 
 70:                                               ; preds = %56
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #9
   %71 = load ptr, ptr %14, align 8
-  %72 = getelementptr inbounds %struct.adb_service_data_t, ptr %71, i32 0, i32 0
+  %72 = getelementptr inbounds nuw %struct.adb_service_data_t, ptr %71, i32 0, i32 0
   %73 = load i32, ptr %72, align 8
   %74 = add i32 %73, 1
   %75 = zext i32 %74 to i64
@@ -409,7 +447,7 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
   br label %80
 
 78:                                               ; preds = %70
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.77, ptr noundef @.str.1, i32 noundef 160, ptr noundef @.str.78, ptr noundef @.str.79) #4
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.77, ptr noundef @.str.1, i32 noundef 160, ptr noundef @.str.78, ptr noundef @.str.79) #10
   unreachable
 
 79:                                               ; No predecessors!
@@ -422,7 +460,7 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
 81:                                               ; preds = %102, %80
   %82 = load i32, ptr %18, align 4
   %83 = load ptr, ptr %14, align 8
-  %84 = getelementptr inbounds %struct.adb_service_data_t, ptr %83, i32 0, i32 0
+  %84 = getelementptr inbounds nuw %struct.adb_service_data_t, ptr %83, i32 0, i32 0
   %85 = load i32, ptr %84, align 8
   %86 = icmp ult i32 %82, %85
   br i1 %86, label %87, label %105
@@ -431,10 +469,10 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
   %88 = load i32, ptr %18, align 4
   %89 = zext i32 %88 to i64
   %90 = getelementptr [5 x %struct._wmem_tree_key_t], ptr %16, i64 0, i64 %89
-  %91 = getelementptr inbounds %struct._wmem_tree_key_t, ptr %90, i32 0, i32 0
+  %91 = getelementptr inbounds nuw %struct._wmem_tree_key_t, ptr %90, i32 0, i32 0
   store i32 1, ptr %91, align 16
   %92 = load ptr, ptr %14, align 8
-  %93 = getelementptr inbounds %struct.adb_service_data_t, ptr %92, i32 0, i32 1
+  %93 = getelementptr inbounds nuw %struct.adb_service_data_t, ptr %92, i32 0, i32 1
   %94 = load ptr, ptr %93, align 8
   %95 = load i32, ptr %18, align 4
   %96 = zext i32 %95 to i64
@@ -442,7 +480,7 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
   %98 = load i32, ptr %18, align 4
   %99 = zext i32 %98 to i64
   %100 = getelementptr [5 x %struct._wmem_tree_key_t], ptr %16, i64 0, i64 %99
-  %101 = getelementptr inbounds %struct._wmem_tree_key_t, ptr %100, i32 0, i32 1
+  %101 = getelementptr inbounds nuw %struct._wmem_tree_key_t, ptr %100, i32 0, i32 1
   store ptr %97, ptr %101, align 8
   br label %102
 
@@ -450,18 +488,18 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
   %103 = load i32, ptr %18, align 4
   %104 = add i32 %103, 1
   store i32 %104, ptr %18, align 4
-  br label %81, !llvm.loop !4
+  br label %81, !llvm.loop !6
 
 105:                                              ; preds = %81
   %106 = load i32, ptr %18, align 4
   %107 = zext i32 %106 to i64
   %108 = getelementptr [5 x %struct._wmem_tree_key_t], ptr %16, i64 0, i64 %107
-  %109 = getelementptr inbounds %struct._wmem_tree_key_t, ptr %108, i32 0, i32 0
+  %109 = getelementptr inbounds nuw %struct._wmem_tree_key_t, ptr %108, i32 0, i32 0
   store i32 0, ptr %109, align 16
   %110 = load i32, ptr %18, align 4
   %111 = zext i32 %110 to i64
   %112 = getelementptr [5 x %struct._wmem_tree_key_t], ptr %16, i64 0, i64 %111
-  %113 = getelementptr inbounds %struct._wmem_tree_key_t, ptr %112, i32 0, i32 1
+  %113 = getelementptr inbounds nuw %struct._wmem_tree_key_t, ptr %112, i32 0, i32 1
   store ptr null, ptr %113, align 8
   %114 = load ptr, ptr @continuation_infos, align 8
   %115 = getelementptr inbounds [5 x %struct._wmem_tree_key_t], ptr %16, i64 0, i64 0
@@ -474,7 +512,7 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
 119:                                              ; preds = %105
   %120 = load ptr, ptr %17, align 8
   %121 = load ptr, ptr %6, align 8
-  %122 = getelementptr inbounds %struct._packet_info, ptr %121, i32 0, i32 3
+  %122 = getelementptr inbounds nuw %struct._packet_info, ptr %121, i32 0, i32 3
   %123 = load i32, ptr %122, align 4
   %124 = call ptr @wmem_tree_lookup32_le(ptr noundef %120, i32 noundef %123)
   br label %126
@@ -491,10 +529,10 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
 
 130:                                              ; preds = %126
   %131 = load ptr, ptr %22, align 8
-  %132 = getelementptr inbounds %struct._continuation_data_t, ptr %131, i32 0, i32 1
+  %132 = getelementptr inbounds nuw %struct._continuation_data_t, ptr %131, i32 0, i32 1
   %133 = load i32, ptr %132, align 4
   %134 = load ptr, ptr %6, align 8
-  %135 = getelementptr inbounds %struct._packet_info, ptr %134, i32 0, i32 3
+  %135 = getelementptr inbounds nuw %struct._packet_info, ptr %134, i32 0, i32 3
   %136 = load i32, ptr %135, align 4
   %137 = icmp ult i32 %133, %136
   br i1 %137, label %138, label %139
@@ -515,10 +553,10 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
 
 145:                                              ; preds = %142
   %146 = load ptr, ptr %22, align 8
-  %147 = getelementptr inbounds %struct._continuation_data_t, ptr %146, i32 0, i32 0
+  %147 = getelementptr inbounds nuw %struct._continuation_data_t, ptr %146, i32 0, i32 0
   %148 = load i32, ptr %147, align 4
   %149 = load ptr, ptr %6, align 8
-  %150 = getelementptr inbounds %struct._packet_info, ptr %149, i32 0, i32 3
+  %150 = getelementptr inbounds nuw %struct._packet_info, ptr %149, i32 0, i32 3
   %151 = load i32, ptr %150, align 4
   %152 = icmp eq i32 %148, %151
   br i1 %152, label %153, label %161
@@ -536,10 +574,10 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
 
 161:                                              ; preds = %153, %145, %142
   %162 = load ptr, ptr %6, align 8
-  %163 = getelementptr inbounds %struct._packet_info, ptr %162, i32 0, i32 8
+  %163 = getelementptr inbounds nuw %struct._packet_info, ptr %162, i32 0, i32 8
   %164 = load ptr, ptr %163, align 8
-  %165 = getelementptr inbounds %struct._frame_data, ptr %164, i32 0, i32 9
-  %166 = load i16, ptr %165, align 2
+  %165 = getelementptr inbounds nuw %struct._frame_data, ptr %164, i32 0, i32 11
+  %166 = load i16, ptr %165, align 1
   %167 = lshr i16 %166, 3
   %168 = and i16 %167, 1
   %169 = zext i16 %168 to i32
@@ -562,42 +600,42 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
   %180 = load i32, ptr %18, align 4
   %181 = zext i32 %180 to i64
   %182 = getelementptr [5 x %struct._wmem_tree_key_t], ptr %16, i64 0, i64 %181
-  %183 = getelementptr inbounds %struct._wmem_tree_key_t, ptr %182, i32 0, i32 0
+  %183 = getelementptr inbounds nuw %struct._wmem_tree_key_t, ptr %182, i32 0, i32 0
   store i32 1, ptr %183, align 16
   %184 = load ptr, ptr %6, align 8
-  %185 = getelementptr inbounds %struct._packet_info, ptr %184, i32 0, i32 3
+  %185 = getelementptr inbounds nuw %struct._packet_info, ptr %184, i32 0, i32 3
   %186 = load i32, ptr %18, align 4
   %187 = add i32 %186, 1
   store i32 %187, ptr %18, align 4
   %188 = zext i32 %186 to i64
   %189 = getelementptr [5 x %struct._wmem_tree_key_t], ptr %16, i64 0, i64 %188
-  %190 = getelementptr inbounds %struct._wmem_tree_key_t, ptr %189, i32 0, i32 1
+  %190 = getelementptr inbounds nuw %struct._wmem_tree_key_t, ptr %189, i32 0, i32 1
   store ptr %185, ptr %190, align 8
   %191 = load i32, ptr %18, align 4
   %192 = zext i32 %191 to i64
   %193 = getelementptr [5 x %struct._wmem_tree_key_t], ptr %16, i64 0, i64 %192
-  %194 = getelementptr inbounds %struct._wmem_tree_key_t, ptr %193, i32 0, i32 0
+  %194 = getelementptr inbounds nuw %struct._wmem_tree_key_t, ptr %193, i32 0, i32 0
   store i32 0, ptr %194, align 16
   %195 = load i32, ptr %18, align 4
   %196 = zext i32 %195 to i64
   %197 = getelementptr [5 x %struct._wmem_tree_key_t], ptr %16, i64 0, i64 %196
-  %198 = getelementptr inbounds %struct._wmem_tree_key_t, ptr %197, i32 0, i32 1
+  %198 = getelementptr inbounds nuw %struct._wmem_tree_key_t, ptr %197, i32 0, i32 1
   store ptr null, ptr %198, align 8
   %199 = call ptr @wmem_file_scope()
-  %200 = call noalias ptr @wmem_alloc(ptr noundef %199, i64 noundef 12)
+  %200 = call noalias ptr @wmem_alloc(ptr noundef %199, i64 noundef 12) #11
   store ptr %200, ptr %22, align 8
   %201 = load ptr, ptr %6, align 8
-  %202 = getelementptr inbounds %struct._packet_info, ptr %201, i32 0, i32 3
+  %202 = getelementptr inbounds nuw %struct._packet_info, ptr %201, i32 0, i32 3
   %203 = load i32, ptr %202, align 4
   %204 = load ptr, ptr %22, align 8
-  %205 = getelementptr inbounds %struct._continuation_data_t, ptr %204, i32 0, i32 0
+  %205 = getelementptr inbounds nuw %struct._continuation_data_t, ptr %204, i32 0, i32 0
   store i32 %203, ptr %205, align 4
   %206 = load ptr, ptr %22, align 8
-  %207 = getelementptr inbounds %struct._continuation_data_t, ptr %206, i32 0, i32 1
+  %207 = getelementptr inbounds nuw %struct._continuation_data_t, ptr %206, i32 0, i32 1
   store i32 -1, ptr %207, align 4
   %208 = load i32, ptr %21, align 4
   %209 = load ptr, ptr %22, align 8
-  %210 = getelementptr inbounds %struct._continuation_data_t, ptr %209, i32 0, i32 2
+  %210 = getelementptr inbounds nuw %struct._continuation_data_t, ptr %209, i32 0, i32 2
   store i32 %208, ptr %210, align 4
   %211 = load ptr, ptr @continuation_infos, align 8
   %212 = getelementptr inbounds [5 x %struct._wmem_tree_key_t], ptr %16, i64 0, i64 0
@@ -620,20 +658,20 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
 
 222:                                              ; preds = %219
   %223 = load ptr, ptr %22, align 8
-  %224 = getelementptr inbounds %struct._continuation_data_t, ptr %223, i32 0, i32 1
+  %224 = getelementptr inbounds nuw %struct._continuation_data_t, ptr %223, i32 0, i32 1
   %225 = load i32, ptr %224, align 4
   %226 = load ptr, ptr %6, align 8
-  %227 = getelementptr inbounds %struct._packet_info, ptr %226, i32 0, i32 3
+  %227 = getelementptr inbounds nuw %struct._packet_info, ptr %226, i32 0, i32 3
   %228 = load i32, ptr %227, align 4
   %229 = icmp eq i32 %225, %228
   br i1 %229, label %230, label %261
 
 230:                                              ; preds = %222, %214
   %231 = load ptr, ptr %6, align 8
-  %232 = getelementptr inbounds %struct._packet_info, ptr %231, i32 0, i32 8
+  %232 = getelementptr inbounds nuw %struct._packet_info, ptr %231, i32 0, i32 8
   %233 = load ptr, ptr %232, align 8
-  %234 = getelementptr inbounds %struct._frame_data, ptr %233, i32 0, i32 9
-  %235 = load i16, ptr %234, align 2
+  %234 = getelementptr inbounds nuw %struct._frame_data, ptr %233, i32 0, i32 11
+  %235 = load i16, ptr %234, align 1
   %236 = lshr i16 %235, 3
   %237 = and i16 %236, 1
   %238 = zext i16 %237 to i32
@@ -647,10 +685,10 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
 
 243:                                              ; preds = %240
   %244 = load ptr, ptr %6, align 8
-  %245 = getelementptr inbounds %struct._packet_info, ptr %244, i32 0, i32 3
+  %245 = getelementptr inbounds nuw %struct._packet_info, ptr %244, i32 0, i32 3
   %246 = load i32, ptr %245, align 4
   %247 = load ptr, ptr %22, align 8
-  %248 = getelementptr inbounds %struct._continuation_data_t, ptr %247, i32 0, i32 1
+  %248 = getelementptr inbounds nuw %struct._continuation_data_t, ptr %247, i32 0, i32 1
   store i32 %246, ptr %248, align 4
   br label %249
 
@@ -664,14 +702,17 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
   %256 = call i32 @dissect_ascii_uint32(ptr noundef %250, i32 noundef %251, i32 noundef %252, i32 noundef %253, ptr noundef %254, i32 noundef %255, ptr noundef %20)
   store i32 %256, ptr %13, align 4
   %257 = load ptr, ptr %6, align 8
-  %258 = getelementptr inbounds %struct._packet_info, ptr %257, i32 0, i32 1
+  %258 = getelementptr inbounds nuw %struct._packet_info, ptr %257, i32 0, i32 1
   %259 = load ptr, ptr %258, align 8
   %260 = load i32, ptr %20, align 4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %259, i32 noundef 25, ptr noundef @.str.80, i32 noundef %260)
   br label %261
 
 261:                                              ; preds = %249, %222, %219
-  br label %1473
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #9
+  br label %1474
 
 262:                                              ; preds = %56
   %263 = load ptr, ptr %15, align 8
@@ -692,6 +733,7 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %273, label %274, label %299
 
 274:                                              ; preds = %270, %266, %262
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #9
   %275 = load ptr, ptr %10, align 8
   %276 = load i32, ptr @hf_hex_ascii_length, align 4
   %277 = load i32, ptr @ett_length, align 4
@@ -722,7 +764,8 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
   br label %298
 
 298:                                              ; preds = %294, %274
-  br label %1472
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #9
+  br label %1473
 
 299:                                              ; preds = %270
   %300 = load ptr, ptr %15, align 8
@@ -755,6 +798,7 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %318, label %319, label %344
 
 319:                                              ; preds = %315, %311, %307, %303, %299
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #9
   %320 = load ptr, ptr %10, align 8
   %321 = load i32, ptr @hf_hex_ascii_length, align 4
   %322 = load i32, ptr @ett_length, align 4
@@ -785,7 +829,8 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
   br label %343
 
 343:                                              ; preds = %339, %319
-  br label %1471
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #9
+  br label %1472
 
 344:                                              ; preds = %315
   %345 = load ptr, ptr %15, align 8
@@ -794,9 +839,10 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %347, label %348, label %896
 
 348:                                              ; preds = %344
+  call void @llvm.lifetime.start.p0(i64 8, ptr %25) #9
   store ptr null, ptr %25, align 8
   %349 = load ptr, ptr %14, align 8
-  %350 = getelementptr inbounds %struct.adb_service_data_t, ptr %349, i32 0, i32 0
+  %350 = getelementptr inbounds nuw %struct.adb_service_data_t, ptr %349, i32 0, i32 0
   %351 = load i32, ptr %350, align 8
   %352 = add i32 %351, 1
   %353 = zext i32 %352 to i64
@@ -807,7 +853,7 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
   br label %358
 
 356:                                              ; preds = %348
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.77, ptr noundef @.str.1, i32 noundef 228, ptr noundef @.str.78, ptr noundef @.str.79) #4
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.77, ptr noundef @.str.1, i32 noundef 228, ptr noundef @.str.78, ptr noundef @.str.79) #10
   unreachable
 
 357:                                              ; No predecessors!
@@ -820,7 +866,7 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
 359:                                              ; preds = %380, %358
   %360 = load i32, ptr %18, align 4
   %361 = load ptr, ptr %14, align 8
-  %362 = getelementptr inbounds %struct.adb_service_data_t, ptr %361, i32 0, i32 0
+  %362 = getelementptr inbounds nuw %struct.adb_service_data_t, ptr %361, i32 0, i32 0
   %363 = load i32, ptr %362, align 8
   %364 = icmp ult i32 %360, %363
   br i1 %364, label %365, label %383
@@ -829,10 +875,10 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
   %366 = load i32, ptr %18, align 4
   %367 = zext i32 %366 to i64
   %368 = getelementptr [5 x %struct._wmem_tree_key_t], ptr %16, i64 0, i64 %367
-  %369 = getelementptr inbounds %struct._wmem_tree_key_t, ptr %368, i32 0, i32 0
+  %369 = getelementptr inbounds nuw %struct._wmem_tree_key_t, ptr %368, i32 0, i32 0
   store i32 1, ptr %369, align 16
   %370 = load ptr, ptr %14, align 8
-  %371 = getelementptr inbounds %struct.adb_service_data_t, ptr %370, i32 0, i32 1
+  %371 = getelementptr inbounds nuw %struct.adb_service_data_t, ptr %370, i32 0, i32 1
   %372 = load ptr, ptr %371, align 8
   %373 = load i32, ptr %18, align 4
   %374 = zext i32 %373 to i64
@@ -840,7 +886,7 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
   %376 = load i32, ptr %18, align 4
   %377 = zext i32 %376 to i64
   %378 = getelementptr [5 x %struct._wmem_tree_key_t], ptr %16, i64 0, i64 %377
-  %379 = getelementptr inbounds %struct._wmem_tree_key_t, ptr %378, i32 0, i32 1
+  %379 = getelementptr inbounds nuw %struct._wmem_tree_key_t, ptr %378, i32 0, i32 1
   store ptr %375, ptr %379, align 8
   br label %380
 
@@ -848,18 +894,18 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
   %381 = load i32, ptr %18, align 4
   %382 = add i32 %381, 1
   store i32 %382, ptr %18, align 4
-  br label %359, !llvm.loop !6
+  br label %359, !llvm.loop !8
 
 383:                                              ; preds = %359
   %384 = load i32, ptr %18, align 4
   %385 = zext i32 %384 to i64
   %386 = getelementptr [5 x %struct._wmem_tree_key_t], ptr %16, i64 0, i64 %385
-  %387 = getelementptr inbounds %struct._wmem_tree_key_t, ptr %386, i32 0, i32 0
+  %387 = getelementptr inbounds nuw %struct._wmem_tree_key_t, ptr %386, i32 0, i32 0
   store i32 0, ptr %387, align 16
   %388 = load i32, ptr %18, align 4
   %389 = zext i32 %388 to i64
   %390 = getelementptr [5 x %struct._wmem_tree_key_t], ptr %16, i64 0, i64 %389
-  %391 = getelementptr inbounds %struct._wmem_tree_key_t, ptr %390, i32 0, i32 1
+  %391 = getelementptr inbounds nuw %struct._wmem_tree_key_t, ptr %390, i32 0, i32 1
   store ptr null, ptr %391, align 8
   %392 = load ptr, ptr @framebuffer_infos, align 8
   %393 = getelementptr inbounds [5 x %struct._wmem_tree_key_t], ptr %16, i64 0, i64 0
@@ -872,7 +918,7 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
 397:                                              ; preds = %383
   %398 = load ptr, ptr %17, align 8
   %399 = load ptr, ptr %6, align 8
-  %400 = getelementptr inbounds %struct._packet_info, ptr %399, i32 0, i32 3
+  %400 = getelementptr inbounds nuw %struct._packet_info, ptr %399, i32 0, i32 3
   %401 = load i32, ptr %400, align 4
   %402 = call ptr @wmem_tree_lookup32_le(ptr noundef %398, i32 noundef %401)
   br label %404
@@ -889,10 +935,10 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
 
 408:                                              ; preds = %404
   %409 = load ptr, ptr %25, align 8
-  %410 = getelementptr inbounds %struct._framebuffer_data_t, ptr %409, i32 0, i32 2
+  %410 = getelementptr inbounds nuw %struct._framebuffer_data_t, ptr %409, i32 0, i32 2
   %411 = load i32, ptr %410, align 4
   %412 = load ptr, ptr %6, align 8
-  %413 = getelementptr inbounds %struct._packet_info, ptr %412, i32 0, i32 3
+  %413 = getelementptr inbounds nuw %struct._packet_info, ptr %412, i32 0, i32 3
   %414 = load i32, ptr %413, align 4
   %415 = icmp ult i32 %411, %414
   br i1 %415, label %416, label %417
@@ -903,10 +949,10 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
 
 417:                                              ; preds = %416, %408, %404
   %418 = load ptr, ptr %6, align 8
-  %419 = getelementptr inbounds %struct._packet_info, ptr %418, i32 0, i32 8
+  %419 = getelementptr inbounds nuw %struct._packet_info, ptr %418, i32 0, i32 8
   %420 = load ptr, ptr %419, align 8
-  %421 = getelementptr inbounds %struct._frame_data, ptr %420, i32 0, i32 9
-  %422 = load i16, ptr %421, align 2
+  %421 = getelementptr inbounds nuw %struct._frame_data, ptr %420, i32 0, i32 11
+  %422 = load i16, ptr %421, align 1
   %423 = lshr i16 %422, 3
   %424 = and i16 %423, 1
   %425 = zext i16 %424 to i32
@@ -922,104 +968,104 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
   %431 = load i32, ptr %18, align 4
   %432 = zext i32 %431 to i64
   %433 = getelementptr [5 x %struct._wmem_tree_key_t], ptr %16, i64 0, i64 %432
-  %434 = getelementptr inbounds %struct._wmem_tree_key_t, ptr %433, i32 0, i32 0
+  %434 = getelementptr inbounds nuw %struct._wmem_tree_key_t, ptr %433, i32 0, i32 0
   store i32 1, ptr %434, align 16
   %435 = load ptr, ptr %6, align 8
-  %436 = getelementptr inbounds %struct._packet_info, ptr %435, i32 0, i32 3
+  %436 = getelementptr inbounds nuw %struct._packet_info, ptr %435, i32 0, i32 3
   %437 = load i32, ptr %18, align 4
   %438 = add i32 %437, 1
   store i32 %438, ptr %18, align 4
   %439 = zext i32 %437 to i64
   %440 = getelementptr [5 x %struct._wmem_tree_key_t], ptr %16, i64 0, i64 %439
-  %441 = getelementptr inbounds %struct._wmem_tree_key_t, ptr %440, i32 0, i32 1
+  %441 = getelementptr inbounds nuw %struct._wmem_tree_key_t, ptr %440, i32 0, i32 1
   store ptr %436, ptr %441, align 8
   %442 = load i32, ptr %18, align 4
   %443 = zext i32 %442 to i64
   %444 = getelementptr [5 x %struct._wmem_tree_key_t], ptr %16, i64 0, i64 %443
-  %445 = getelementptr inbounds %struct._wmem_tree_key_t, ptr %444, i32 0, i32 0
+  %445 = getelementptr inbounds nuw %struct._wmem_tree_key_t, ptr %444, i32 0, i32 0
   store i32 0, ptr %445, align 16
   %446 = load i32, ptr %18, align 4
   %447 = zext i32 %446 to i64
   %448 = getelementptr [5 x %struct._wmem_tree_key_t], ptr %16, i64 0, i64 %447
-  %449 = getelementptr inbounds %struct._wmem_tree_key_t, ptr %448, i32 0, i32 1
+  %449 = getelementptr inbounds nuw %struct._wmem_tree_key_t, ptr %448, i32 0, i32 1
   store ptr null, ptr %449, align 8
   %450 = call ptr @wmem_file_scope()
-  %451 = call noalias ptr @wmem_alloc(ptr noundef %450, i64 noundef 48)
+  %451 = call noalias ptr @wmem_alloc(ptr noundef %450, i64 noundef 48) #11
   store ptr %451, ptr %25, align 8
   %452 = load ptr, ptr %6, align 8
-  %453 = getelementptr inbounds %struct._packet_info, ptr %452, i32 0, i32 3
+  %453 = getelementptr inbounds nuw %struct._packet_info, ptr %452, i32 0, i32 3
   %454 = load i32, ptr %453, align 4
   %455 = load ptr, ptr %25, align 8
-  %456 = getelementptr inbounds %struct._framebuffer_data_t, ptr %455, i32 0, i32 0
+  %456 = getelementptr inbounds nuw %struct._framebuffer_data_t, ptr %455, i32 0, i32 0
   store i32 %454, ptr %456, align 4
   %457 = load ptr, ptr %25, align 8
-  %458 = getelementptr inbounds %struct._framebuffer_data_t, ptr %457, i32 0, i32 1
+  %458 = getelementptr inbounds nuw %struct._framebuffer_data_t, ptr %457, i32 0, i32 1
   store i32 0, ptr %458, align 4
   %459 = load ptr, ptr %25, align 8
-  %460 = getelementptr inbounds %struct._framebuffer_data_t, ptr %459, i32 0, i32 2
+  %460 = getelementptr inbounds nuw %struct._framebuffer_data_t, ptr %459, i32 0, i32 2
   store i32 -1, ptr %460, align 4
   %461 = load ptr, ptr %5, align 8
   %462 = load i32, ptr %13, align 4
   %463 = add i32 %462, 8
   %464 = call i32 @tvb_get_letohl(ptr noundef %461, i32 noundef %463)
   %465 = load ptr, ptr %25, align 8
-  %466 = getelementptr inbounds %struct._framebuffer_data_t, ptr %465, i32 0, i32 3
+  %466 = getelementptr inbounds nuw %struct._framebuffer_data_t, ptr %465, i32 0, i32 3
   store i32 %464, ptr %466, align 4
   %467 = load ptr, ptr %5, align 8
   %468 = load i32, ptr %13, align 4
   %469 = add i32 %468, 20
   %470 = call i32 @tvb_get_letohl(ptr noundef %467, i32 noundef %469)
   %471 = load ptr, ptr %25, align 8
-  %472 = getelementptr inbounds %struct._framebuffer_data_t, ptr %471, i32 0, i32 4
+  %472 = getelementptr inbounds nuw %struct._framebuffer_data_t, ptr %471, i32 0, i32 4
   store i32 %470, ptr %472, align 4
   %473 = load ptr, ptr %5, align 8
   %474 = load i32, ptr %13, align 4
   %475 = add i32 %474, 24
   %476 = call i32 @tvb_get_letohl(ptr noundef %473, i32 noundef %475)
   %477 = load ptr, ptr %25, align 8
-  %478 = getelementptr inbounds %struct._framebuffer_data_t, ptr %477, i32 0, i32 5
+  %478 = getelementptr inbounds nuw %struct._framebuffer_data_t, ptr %477, i32 0, i32 5
   store i32 %476, ptr %478, align 4
   %479 = load ptr, ptr %5, align 8
   %480 = load i32, ptr %13, align 4
   %481 = add i32 %480, 28
   %482 = call i32 @tvb_get_letohl(ptr noundef %479, i32 noundef %481)
   %483 = load ptr, ptr %25, align 8
-  %484 = getelementptr inbounds %struct._framebuffer_data_t, ptr %483, i32 0, i32 6
+  %484 = getelementptr inbounds nuw %struct._framebuffer_data_t, ptr %483, i32 0, i32 6
   store i32 %482, ptr %484, align 4
   %485 = load ptr, ptr %5, align 8
   %486 = load i32, ptr %13, align 4
   %487 = add i32 %486, 32
   %488 = call i32 @tvb_get_letohl(ptr noundef %485, i32 noundef %487)
   %489 = load ptr, ptr %25, align 8
-  %490 = getelementptr inbounds %struct._framebuffer_data_t, ptr %489, i32 0, i32 7
+  %490 = getelementptr inbounds nuw %struct._framebuffer_data_t, ptr %489, i32 0, i32 7
   store i32 %488, ptr %490, align 4
   %491 = load ptr, ptr %5, align 8
   %492 = load i32, ptr %13, align 4
   %493 = add i32 %492, 36
   %494 = call i32 @tvb_get_letohl(ptr noundef %491, i32 noundef %493)
   %495 = load ptr, ptr %25, align 8
-  %496 = getelementptr inbounds %struct._framebuffer_data_t, ptr %495, i32 0, i32 8
+  %496 = getelementptr inbounds nuw %struct._framebuffer_data_t, ptr %495, i32 0, i32 8
   store i32 %494, ptr %496, align 4
   %497 = load ptr, ptr %5, align 8
   %498 = load i32, ptr %13, align 4
   %499 = add i32 %498, 40
   %500 = call i32 @tvb_get_letohl(ptr noundef %497, i32 noundef %499)
   %501 = load ptr, ptr %25, align 8
-  %502 = getelementptr inbounds %struct._framebuffer_data_t, ptr %501, i32 0, i32 9
+  %502 = getelementptr inbounds nuw %struct._framebuffer_data_t, ptr %501, i32 0, i32 9
   store i32 %500, ptr %502, align 4
   %503 = load ptr, ptr %5, align 8
   %504 = load i32, ptr %13, align 4
   %505 = add i32 %504, 44
   %506 = call i32 @tvb_get_letohl(ptr noundef %503, i32 noundef %505)
   %507 = load ptr, ptr %25, align 8
-  %508 = getelementptr inbounds %struct._framebuffer_data_t, ptr %507, i32 0, i32 10
+  %508 = getelementptr inbounds nuw %struct._framebuffer_data_t, ptr %507, i32 0, i32 10
   store i32 %506, ptr %508, align 4
   %509 = load ptr, ptr %5, align 8
   %510 = load i32, ptr %13, align 4
   %511 = add i32 %510, 48
   %512 = call i32 @tvb_get_letohl(ptr noundef %509, i32 noundef %511)
   %513 = load ptr, ptr %25, align 8
-  %514 = getelementptr inbounds %struct._framebuffer_data_t, ptr %513, i32 0, i32 11
+  %514 = getelementptr inbounds nuw %struct._framebuffer_data_t, ptr %513, i32 0, i32 11
   store i32 %512, ptr %514, align 4
   %515 = load ptr, ptr @framebuffer_infos, align 8
   %516 = getelementptr inbounds [5 x %struct._wmem_tree_key_t], ptr %16, i64 0, i64 0
@@ -1034,10 +1080,10 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
 
 521:                                              ; preds = %518
   %522 = load ptr, ptr %25, align 8
-  %523 = getelementptr inbounds %struct._framebuffer_data_t, ptr %522, i32 0, i32 0
+  %523 = getelementptr inbounds nuw %struct._framebuffer_data_t, ptr %522, i32 0, i32 0
   %524 = load i32, ptr %523, align 4
   %525 = load ptr, ptr %6, align 8
-  %526 = getelementptr inbounds %struct._packet_info, ptr %525, i32 0, i32 3
+  %526 = getelementptr inbounds nuw %struct._packet_info, ptr %525, i32 0, i32 3
   %527 = load i32, ptr %526, align 4
   %528 = icmp eq i32 %524, %527
   br i1 %528, label %529, label %621
@@ -1168,10 +1214,10 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
   %634 = call ptr @proto_item_add_subtree(ptr noundef %632, i32 noundef %633)
   store ptr %634, ptr %12, align 8
   %635 = load ptr, ptr %6, align 8
-  %636 = getelementptr inbounds %struct._packet_info, ptr %635, i32 0, i32 8
+  %636 = getelementptr inbounds nuw %struct._packet_info, ptr %635, i32 0, i32 8
   %637 = load ptr, ptr %636, align 8
-  %638 = getelementptr inbounds %struct._frame_data, ptr %637, i32 0, i32 9
-  %639 = load i16, ptr %638, align 2
+  %638 = getelementptr inbounds nuw %struct._frame_data, ptr %637, i32 0, i32 11
+  %639 = load i16, ptr %638, align 1
   %640 = lshr i16 %639, 3
   %641 = and i16 %640, 1
   %642 = zext i16 %641 to i32
@@ -1188,25 +1234,25 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
   %649 = load i32, ptr %13, align 4
   %650 = call i32 @tvb_captured_length_remaining(ptr noundef %648, i32 noundef %649)
   %651 = load ptr, ptr %25, align 8
-  %652 = getelementptr inbounds %struct._framebuffer_data_t, ptr %651, i32 0, i32 1
+  %652 = getelementptr inbounds nuw %struct._framebuffer_data_t, ptr %651, i32 0, i32 1
   %653 = load i32, ptr %652, align 4
   %654 = add i32 %653, %650
   store i32 %654, ptr %652, align 4
   %655 = load ptr, ptr %25, align 8
-  %656 = getelementptr inbounds %struct._framebuffer_data_t, ptr %655, i32 0, i32 1
+  %656 = getelementptr inbounds nuw %struct._framebuffer_data_t, ptr %655, i32 0, i32 1
   %657 = load i32, ptr %656, align 4
   %658 = load ptr, ptr %25, align 8
-  %659 = getelementptr inbounds %struct._framebuffer_data_t, ptr %658, i32 0, i32 3
+  %659 = getelementptr inbounds nuw %struct._framebuffer_data_t, ptr %658, i32 0, i32 3
   %660 = load i32, ptr %659, align 4
   %661 = icmp uge i32 %657, %660
   br i1 %661, label %662, label %668
 
 662:                                              ; preds = %647
   %663 = load ptr, ptr %6, align 8
-  %664 = getelementptr inbounds %struct._packet_info, ptr %663, i32 0, i32 3
+  %664 = getelementptr inbounds nuw %struct._packet_info, ptr %663, i32 0, i32 3
   %665 = load i32, ptr %664, align 4
   %666 = load ptr, ptr %25, align 8
-  %667 = getelementptr inbounds %struct._framebuffer_data_t, ptr %666, i32 0, i32 2
+  %667 = getelementptr inbounds nuw %struct._framebuffer_data_t, ptr %666, i32 0, i32 2
   store i32 %665, ptr %667, align 4
   br label %668
 
@@ -1214,53 +1260,55 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
   br label %669
 
 669:                                              ; preds = %668, %644, %626
-  %670 = load i32, ptr @pref_dissect_more_detail_framebuffer, align 4
-  %671 = icmp ne i32 %670, 0
+  %670 = load i8, ptr @pref_dissect_more_detail_framebuffer, align 1, !range !9, !noundef !10
+  %671 = trunc i8 %670 to i1
   br i1 %671, label %672, label %891
 
 672:                                              ; preds = %669
+  call void @llvm.lifetime.start.p0(i64 8, ptr %26) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %27) #9
   %673 = load ptr, ptr %25, align 8
   %674 = icmp ne ptr %673, null
   br i1 %674, label %675, label %751
 
 675:                                              ; preds = %672
   %676 = load ptr, ptr %25, align 8
-  %677 = getelementptr inbounds %struct._framebuffer_data_t, ptr %676, i32 0, i32 5
+  %677 = getelementptr inbounds nuw %struct._framebuffer_data_t, ptr %676, i32 0, i32 5
   %678 = load i32, ptr %677, align 4
   %679 = icmp eq i32 %678, 5
   br i1 %679, label %680, label %751
 
 680:                                              ; preds = %675
   %681 = load ptr, ptr %25, align 8
-  %682 = getelementptr inbounds %struct._framebuffer_data_t, ptr %681, i32 0, i32 7
+  %682 = getelementptr inbounds nuw %struct._framebuffer_data_t, ptr %681, i32 0, i32 7
   %683 = load i32, ptr %682, align 4
   %684 = icmp eq i32 %683, 6
   br i1 %684, label %685, label %751
 
 685:                                              ; preds = %680
   %686 = load ptr, ptr %25, align 8
-  %687 = getelementptr inbounds %struct._framebuffer_data_t, ptr %686, i32 0, i32 9
+  %687 = getelementptr inbounds nuw %struct._framebuffer_data_t, ptr %686, i32 0, i32 9
   %688 = load i32, ptr %687, align 4
   %689 = icmp eq i32 %688, 5
   br i1 %689, label %690, label %751
 
 690:                                              ; preds = %685
   %691 = load ptr, ptr %25, align 8
-  %692 = getelementptr inbounds %struct._framebuffer_data_t, ptr %691, i32 0, i32 4
+  %692 = getelementptr inbounds nuw %struct._framebuffer_data_t, ptr %691, i32 0, i32 4
   %693 = load i32, ptr %692, align 4
   %694 = icmp eq i32 %693, 11
   br i1 %694, label %695, label %751
 
 695:                                              ; preds = %690
   %696 = load ptr, ptr %25, align 8
-  %697 = getelementptr inbounds %struct._framebuffer_data_t, ptr %696, i32 0, i32 6
+  %697 = getelementptr inbounds nuw %struct._framebuffer_data_t, ptr %696, i32 0, i32 6
   %698 = load i32, ptr %697, align 4
   %699 = icmp eq i32 %698, 5
   br i1 %699, label %700, label %751
 
 700:                                              ; preds = %695
   %701 = load ptr, ptr %25, align 8
-  %702 = getelementptr inbounds %struct._framebuffer_data_t, ptr %701, i32 0, i32 8
+  %702 = getelementptr inbounds nuw %struct._framebuffer_data_t, ptr %701, i32 0, i32 8
   %703 = load i32, ptr %702, align 4
   %704 = icmp eq i32 %703, 0
   br i1 %704, label %705, label %751
@@ -1322,7 +1370,7 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
   %748 = load i32, ptr %13, align 4
   %749 = add i32 %748, 2
   store i32 %749, ptr %13, align 4
-  br label %706, !llvm.loop !7
+  br label %706, !llvm.loop !11
 
 750:                                              ; preds = %706
   br label %890
@@ -1334,35 +1382,35 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
 
 754:                                              ; preds = %751
   %755 = load ptr, ptr %25, align 8
-  %756 = getelementptr inbounds %struct._framebuffer_data_t, ptr %755, i32 0, i32 5
+  %756 = getelementptr inbounds nuw %struct._framebuffer_data_t, ptr %755, i32 0, i32 5
   %757 = load i32, ptr %756, align 4
   %758 = icmp eq i32 %757, 8
   br i1 %758, label %759, label %886
 
 759:                                              ; preds = %754
   %760 = load ptr, ptr %25, align 8
-  %761 = getelementptr inbounds %struct._framebuffer_data_t, ptr %760, i32 0, i32 7
+  %761 = getelementptr inbounds nuw %struct._framebuffer_data_t, ptr %760, i32 0, i32 7
   %762 = load i32, ptr %761, align 4
   %763 = icmp eq i32 %762, 8
   br i1 %763, label %764, label %886
 
 764:                                              ; preds = %759
   %765 = load ptr, ptr %25, align 8
-  %766 = getelementptr inbounds %struct._framebuffer_data_t, ptr %765, i32 0, i32 9
+  %766 = getelementptr inbounds nuw %struct._framebuffer_data_t, ptr %765, i32 0, i32 9
   %767 = load i32, ptr %766, align 4
   %768 = icmp eq i32 %767, 8
   br i1 %768, label %769, label %886
 
 769:                                              ; preds = %764
   %770 = load ptr, ptr %25, align 8
-  %771 = getelementptr inbounds %struct._framebuffer_data_t, ptr %770, i32 0, i32 11
+  %771 = getelementptr inbounds nuw %struct._framebuffer_data_t, ptr %770, i32 0, i32 11
   %772 = load i32, ptr %771, align 4
   %773 = icmp eq i32 %772, 0
   br i1 %773, label %779, label %774
 
 774:                                              ; preds = %769
   %775 = load ptr, ptr %25, align 8
-  %776 = getelementptr inbounds %struct._framebuffer_data_t, ptr %775, i32 0, i32 11
+  %776 = getelementptr inbounds nuw %struct._framebuffer_data_t, ptr %775, i32 0, i32 11
   %777 = load i32, ptr %776, align 4
   %778 = icmp eq i32 %777, 8
   br i1 %778, label %779, label %886
@@ -1393,7 +1441,7 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
 
 795:                                              ; preds = %790
   %796 = load ptr, ptr %25, align 8
-  %797 = getelementptr inbounds %struct._framebuffer_data_t, ptr %796, i32 0, i32 10
+  %797 = getelementptr inbounds nuw %struct._framebuffer_data_t, ptr %796, i32 0, i32 10
   %798 = load i32, ptr %797, align 4
   %799 = icmp ugt i32 %798, 0
   br i1 %799, label %800, label %808
@@ -1425,7 +1473,7 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
   %819 = load ptr, ptr %5, align 8
   %820 = load i32, ptr %13, align 4
   %821 = load ptr, ptr %25, align 8
-  %822 = getelementptr inbounds %struct._framebuffer_data_t, ptr %821, i32 0, i32 4
+  %822 = getelementptr inbounds nuw %struct._framebuffer_data_t, ptr %821, i32 0, i32 4
   %823 = load i32, ptr %822, align 4
   %824 = udiv i32 %823, 8
   %825 = add i32 %820, %824
@@ -1435,7 +1483,7 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
   %829 = load ptr, ptr %5, align 8
   %830 = load i32, ptr %13, align 4
   %831 = load ptr, ptr %25, align 8
-  %832 = getelementptr inbounds %struct._framebuffer_data_t, ptr %831, i32 0, i32 6
+  %832 = getelementptr inbounds nuw %struct._framebuffer_data_t, ptr %831, i32 0, i32 6
   %833 = load i32, ptr %832, align 4
   %834 = udiv i32 %833, 8
   %835 = add i32 %830, %834
@@ -1445,20 +1493,20 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
   %839 = load ptr, ptr %5, align 8
   %840 = load i32, ptr %13, align 4
   %841 = load ptr, ptr %25, align 8
-  %842 = getelementptr inbounds %struct._framebuffer_data_t, ptr %841, i32 0, i32 8
+  %842 = getelementptr inbounds nuw %struct._framebuffer_data_t, ptr %841, i32 0, i32 8
   %843 = load i32, ptr %842, align 4
   %844 = udiv i32 %843, 8
   %845 = add i32 %840, %844
   %846 = call ptr @proto_tree_add_item(ptr noundef %837, i32 noundef %838, ptr noundef %839, i32 noundef %845, i32 noundef 1, i32 noundef -2147483648)
   %847 = load ptr, ptr %25, align 8
-  %848 = getelementptr inbounds %struct._framebuffer_data_t, ptr %847, i32 0, i32 10
+  %848 = getelementptr inbounds nuw %struct._framebuffer_data_t, ptr %847, i32 0, i32 10
   %849 = load i32, ptr %848, align 4
   %850 = icmp ugt i32 %849, 0
   br i1 %850, label %851, label %882
 
 851:                                              ; preds = %808
   %852 = load ptr, ptr %25, align 8
-  %853 = getelementptr inbounds %struct._framebuffer_data_t, ptr %852, i32 0, i32 11
+  %853 = getelementptr inbounds nuw %struct._framebuffer_data_t, ptr %852, i32 0, i32 11
   %854 = load i32, ptr %853, align 4
   %855 = icmp eq i32 %854, 0
   br i1 %855, label %856, label %867
@@ -1469,7 +1517,7 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
   %859 = load ptr, ptr %5, align 8
   %860 = load i32, ptr %13, align 4
   %861 = load ptr, ptr %25, align 8
-  %862 = getelementptr inbounds %struct._framebuffer_data_t, ptr %861, i32 0, i32 10
+  %862 = getelementptr inbounds nuw %struct._framebuffer_data_t, ptr %861, i32 0, i32 10
   %863 = load i32, ptr %862, align 4
   %864 = udiv i32 %863, 8
   %865 = add i32 %860, %864
@@ -1482,7 +1530,7 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
   %870 = load ptr, ptr %5, align 8
   %871 = load i32, ptr %13, align 4
   %872 = load ptr, ptr %25, align 8
-  %873 = getelementptr inbounds %struct._framebuffer_data_t, ptr %872, i32 0, i32 10
+  %873 = getelementptr inbounds nuw %struct._framebuffer_data_t, ptr %872, i32 0, i32 10
   %874 = load i32, ptr %873, align 4
   %875 = udiv i32 %874, 8
   %876 = add i32 %871, %875
@@ -1501,7 +1549,7 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
   %883 = load i32, ptr %13, align 4
   %884 = add i32 %883, 3
   store i32 %884, ptr %13, align 4
-  br label %780, !llvm.loop !8
+  br label %780, !llvm.loop !12
 
 885:                                              ; preds = %800, %780
   br label %889
@@ -1516,6 +1564,8 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
   br label %890
 
 890:                                              ; preds = %889, %750
+  call void @llvm.lifetime.end.p0(i64 8, ptr %27) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %26) #9
   br label %894
 
 891:                                              ; preds = %669
@@ -1528,7 +1578,8 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
   br label %895
 
 895:                                              ; preds = %894, %621
-  br label %1470
+  call void @llvm.lifetime.end.p0(i64 8, ptr %25) #9
+  br label %1471
 
 896:                                              ; preds = %344
   %897 = load ptr, ptr %15, align 8
@@ -1537,6 +1588,7 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %899, label %900, label %933
 
 900:                                              ; preds = %896
+  call void @llvm.lifetime.start.p0(i64 4, ptr %28) #9
   %901 = load ptr, ptr %10, align 8
   %902 = load i32, ptr @hf_hex_ascii_length, align 4
   %903 = load i32, ptr @ett_length, align 4
@@ -1580,7 +1632,8 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
   %931 = load ptr, ptr %5, align 8
   %932 = call i32 @tvb_captured_length(ptr noundef %931)
   store i32 %932, ptr %13, align 4
-  br label %1469
+  call void @llvm.lifetime.end.p0(i64 4, ptr %28) #9
+  br label %1470
 
 933:                                              ; preds = %896
   %934 = load ptr, ptr %15, align 8
@@ -1592,18 +1645,31 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
   %938 = load ptr, ptr %15, align 8
   %939 = call i32 @g_strcmp0(ptr noundef %938, ptr noundef @.str.92)
   %940 = icmp eq i32 %939, 0
-  br i1 %940, label %941, label %1353
+  br i1 %940, label %941, label %1354
 
 941:                                              ; preds = %937, %933
+  call void @llvm.lifetime.start.p0(i64 8, ptr %29) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %30) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr %31) #9
   store ptr null, ptr %31, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %32) #9
   store i32 0, ptr %32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %33) #9
   %942 = load i32, ptr %13, align 4
   store i32 %942, ptr %33, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %34) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %35) #9
   store i32 0, ptr %35, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %36) #9
+  call void @llvm.lifetime.start.p0(i64 1, ptr %37) #9
   store i8 0, ptr %37, align 1
+  call void @llvm.lifetime.start.p0(i64 2, ptr %38) #9
+  call void @llvm.lifetime.start.p0(i64 2, ptr %39) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %40) #9
   store i32 0, ptr %40, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %41) #9
   %943 = load ptr, ptr %14, align 8
-  %944 = getelementptr inbounds %struct.adb_service_data_t, ptr %943, i32 0, i32 0
+  %944 = getelementptr inbounds nuw %struct.adb_service_data_t, ptr %943, i32 0, i32 0
   %945 = load i32, ptr %944, align 8
   %946 = add i32 %945, 1
   %947 = zext i32 %946 to i64
@@ -1614,7 +1680,7 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
   br label %952
 
 950:                                              ; preds = %941
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.77, ptr noundef @.str.1, i32 noundef 405, ptr noundef @.str.78, ptr noundef @.str.79) #4
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.77, ptr noundef @.str.1, i32 noundef 405, ptr noundef @.str.78, ptr noundef @.str.79) #10
   unreachable
 
 951:                                              ; No predecessors!
@@ -1627,7 +1693,7 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
 953:                                              ; preds = %974, %952
   %954 = load i32, ptr %18, align 4
   %955 = load ptr, ptr %14, align 8
-  %956 = getelementptr inbounds %struct.adb_service_data_t, ptr %955, i32 0, i32 0
+  %956 = getelementptr inbounds nuw %struct.adb_service_data_t, ptr %955, i32 0, i32 0
   %957 = load i32, ptr %956, align 8
   %958 = icmp ult i32 %954, %957
   br i1 %958, label %959, label %977
@@ -1636,10 +1702,10 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
   %960 = load i32, ptr %18, align 4
   %961 = zext i32 %960 to i64
   %962 = getelementptr [5 x %struct._wmem_tree_key_t], ptr %16, i64 0, i64 %961
-  %963 = getelementptr inbounds %struct._wmem_tree_key_t, ptr %962, i32 0, i32 0
+  %963 = getelementptr inbounds nuw %struct._wmem_tree_key_t, ptr %962, i32 0, i32 0
   store i32 1, ptr %963, align 16
   %964 = load ptr, ptr %14, align 8
-  %965 = getelementptr inbounds %struct.adb_service_data_t, ptr %964, i32 0, i32 1
+  %965 = getelementptr inbounds nuw %struct.adb_service_data_t, ptr %964, i32 0, i32 1
   %966 = load ptr, ptr %965, align 8
   %967 = load i32, ptr %18, align 4
   %968 = zext i32 %967 to i64
@@ -1647,7 +1713,7 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
   %970 = load i32, ptr %18, align 4
   %971 = zext i32 %970 to i64
   %972 = getelementptr [5 x %struct._wmem_tree_key_t], ptr %16, i64 0, i64 %971
-  %973 = getelementptr inbounds %struct._wmem_tree_key_t, ptr %972, i32 0, i32 1
+  %973 = getelementptr inbounds nuw %struct._wmem_tree_key_t, ptr %972, i32 0, i32 1
   store ptr %969, ptr %973, align 8
   br label %974
 
@@ -1655,18 +1721,18 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
   %975 = load i32, ptr %18, align 4
   %976 = add i32 %975, 1
   store i32 %976, ptr %18, align 4
-  br label %953, !llvm.loop !9
+  br label %953, !llvm.loop !13
 
 977:                                              ; preds = %953
   %978 = load i32, ptr %18, align 4
   %979 = zext i32 %978 to i64
   %980 = getelementptr [5 x %struct._wmem_tree_key_t], ptr %16, i64 0, i64 %979
-  %981 = getelementptr inbounds %struct._wmem_tree_key_t, ptr %980, i32 0, i32 0
+  %981 = getelementptr inbounds nuw %struct._wmem_tree_key_t, ptr %980, i32 0, i32 0
   store i32 0, ptr %981, align 16
   %982 = load i32, ptr %18, align 4
   %983 = zext i32 %982 to i64
   %984 = getelementptr [5 x %struct._wmem_tree_key_t], ptr %16, i64 0, i64 %983
-  %985 = getelementptr inbounds %struct._wmem_tree_key_t, ptr %984, i32 0, i32 1
+  %985 = getelementptr inbounds nuw %struct._wmem_tree_key_t, ptr %984, i32 0, i32 1
   store ptr null, ptr %985, align 8
   %986 = load ptr, ptr @fragments, align 8
   %987 = getelementptr inbounds [5 x %struct._wmem_tree_key_t], ptr %16, i64 0, i64 0
@@ -1679,7 +1745,7 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
 991:                                              ; preds = %977
   %992 = load ptr, ptr %17, align 8
   %993 = load ptr, ptr %6, align 8
-  %994 = getelementptr inbounds %struct._packet_info, ptr %993, i32 0, i32 3
+  %994 = getelementptr inbounds nuw %struct._packet_info, ptr %993, i32 0, i32 3
   %995 = load i32, ptr %994, align 4
   %996 = sub i32 %995, 1
   %997 = call ptr @wmem_tree_lookup32_le(ptr noundef %992, i32 noundef %996)
@@ -1697,10 +1763,10 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
 
 1003:                                             ; preds = %999
   %1004 = load ptr, ptr %6, align 8
-  %1005 = getelementptr inbounds %struct._packet_info, ptr %1004, i32 0, i32 8
+  %1005 = getelementptr inbounds nuw %struct._packet_info, ptr %1004, i32 0, i32 8
   %1006 = load ptr, ptr %1005, align 8
-  %1007 = getelementptr inbounds %struct._frame_data, ptr %1006, i32 0, i32 9
-  %1008 = load i16, ptr %1007, align 2
+  %1007 = getelementptr inbounds nuw %struct._frame_data, ptr %1006, i32 0, i32 11
+  %1008 = load i16, ptr %1007, align 1
   %1009 = lshr i16 %1008, 3
   %1010 = and i16 %1009, 1
   %1011 = zext i16 %1010 to i32
@@ -1709,27 +1775,27 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
 
 1013:                                             ; preds = %1003
   %1014 = load ptr, ptr %41, align 8
-  %1015 = getelementptr inbounds %struct._fragment_t, ptr %1014, i32 0, i32 0
+  %1015 = getelementptr inbounds nuw %struct._fragment_t, ptr %1014, i32 0, i32 0
   %1016 = load i64, ptr %1015, align 8
   %1017 = icmp eq i64 %1016, -1
   br i1 %1017, label %1018, label %1025
 
 1018:                                             ; preds = %1013
   %1019 = load ptr, ptr %6, align 8
-  %1020 = getelementptr inbounds %struct._packet_info, ptr %1019, i32 0, i32 3
+  %1020 = getelementptr inbounds nuw %struct._packet_info, ptr %1019, i32 0, i32 3
   %1021 = load i32, ptr %1020, align 4
   %1022 = zext i32 %1021 to i64
   %1023 = load ptr, ptr %41, align 8
-  %1024 = getelementptr inbounds %struct._fragment_t, ptr %1023, i32 0, i32 0
+  %1024 = getelementptr inbounds nuw %struct._fragment_t, ptr %1023, i32 0, i32 0
   store i64 %1022, ptr %1024, align 8
   br label %1025
 
 1025:                                             ; preds = %1018, %1013, %1003
   %1026 = load ptr, ptr %41, align 8
-  %1027 = getelementptr inbounds %struct._fragment_t, ptr %1026, i32 0, i32 0
+  %1027 = getelementptr inbounds nuw %struct._fragment_t, ptr %1026, i32 0, i32 0
   %1028 = load i64, ptr %1027, align 8
   %1029 = load ptr, ptr %6, align 8
-  %1030 = getelementptr inbounds %struct._packet_info, ptr %1029, i32 0, i32 3
+  %1030 = getelementptr inbounds nuw %struct._packet_info, ptr %1029, i32 0, i32 3
   %1031 = load i32, ptr %1030, align 4
   %1032 = zext i32 %1031 to i64
   %1033 = icmp eq i64 %1028, %1032
@@ -1737,13 +1803,13 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
 
 1034:                                             ; preds = %1025
   %1035 = load ptr, ptr %41, align 8
-  %1036 = getelementptr inbounds %struct._fragment_t, ptr %1035, i32 0, i32 1
+  %1036 = getelementptr inbounds nuw %struct._fragment_t, ptr %1035, i32 0, i32 1
   %1037 = load i32, ptr %1036, align 8
   %1038 = load i32, ptr %32, align 4
   %1039 = add i32 %1038, %1037
   store i32 %1039, ptr %32, align 4
   %1040 = load ptr, ptr %41, align 8
-  %1041 = getelementptr inbounds %struct._fragment_t, ptr %1040, i32 0, i32 1
+  %1041 = getelementptr inbounds nuw %struct._fragment_t, ptr %1040, i32 0, i32 1
   %1042 = load i32, ptr %1041, align 8
   %1043 = load i32, ptr %35, align 4
   %1044 = add i32 %1043, %1042
@@ -1762,646 +1828,677 @@ define internal i32 @dissect_adb_service(ptr noundef %0, ptr noundef %1, ptr nou
   store i32 %1051, ptr %32, align 4
   %1052 = load i32, ptr %32, align 4
   %1053 = icmp sgt i32 %1052, 0
-  br i1 %1053, label %1054, label %1350
+  br i1 %1053, label %1054, label %1351
 
 1054:                                             ; preds = %1046
   %1055 = load ptr, ptr %6, align 8
-  %1056 = getelementptr inbounds %struct._packet_info, ptr %1055, i32 0, i32 50
+  %1056 = getelementptr inbounds nuw %struct._packet_info, ptr %1055, i32 0, i32 51
   %1057 = load ptr, ptr %1056, align 8
   %1058 = load i32, ptr %32, align 4
   %1059 = sext i32 %1058 to i64
-  %1060 = call noalias ptr @wmem_alloc(ptr noundef %1057, i64 noundef %1059)
+  %1060 = call noalias ptr @wmem_alloc(ptr noundef %1057, i64 noundef %1059) #11
   store ptr %1060, ptr %31, align 8
   %1061 = load ptr, ptr %41, align 8
   %1062 = icmp ne ptr %1061, null
-  br i1 %1062, label %1063, label %1073
+  br i1 %1062, label %1063, label %1074
 
 1063:                                             ; preds = %1054
   %1064 = load i32, ptr %35, align 4
   %1065 = icmp sgt i32 %1064, 0
-  br i1 %1065, label %1066, label %1073
+  br i1 %1065, label %1066, label %1074
 
 1066:                                             ; preds = %1063
   %1067 = load ptr, ptr %31, align 8
   %1068 = load ptr, ptr %41, align 8
-  %1069 = getelementptr inbounds %struct._fragment_t, ptr %1068, i32 0, i32 2
+  %1069 = getelementptr inbounds nuw %struct._fragment_t, ptr %1068, i32 0, i32 2
   %1070 = load ptr, ptr %1069, align 8
   %1071 = load i32, ptr %35, align 4
   %1072 = sext i32 %1071 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1067, ptr align 1 %1070, i64 %1072, i1 false)
-  br label %1073
+  %1073 = call ptr @memcpy.inline(ptr noundef %1067, ptr noundef %1070, i64 noundef %1072) #9
+  br label %1074
 
-1073:                                             ; preds = %1066, %1063, %1054
-  %1074 = load i32, ptr %35, align 4
-  %1075 = icmp sge i32 %1074, 1
-  br i1 %1075, label %1076, label %1099
+1074:                                             ; preds = %1066, %1063, %1054
+  %1075 = load i32, ptr %35, align 4
+  %1076 = icmp sge i32 %1075, 1
+  br i1 %1076, label %1077, label %1100
 
-1076:                                             ; preds = %1073
-  %1077 = load ptr, ptr %31, align 8
-  %1078 = load i32, ptr %35, align 4
-  %1079 = sub i32 %1078, 1
-  %1080 = sext i32 %1079 to i64
-  %1081 = getelementptr i8, ptr %1077, i64 %1080
-  %1082 = load i8, ptr %1081, align 1
-  %1083 = zext i8 %1082 to i32
-  %1084 = icmp eq i32 %1083, 13
-  br i1 %1084, label %1085, label %1099
+1077:                                             ; preds = %1074
+  %1078 = load ptr, ptr %31, align 8
+  %1079 = load i32, ptr %35, align 4
+  %1080 = sub i32 %1079, 1
+  %1081 = sext i32 %1080 to i64
+  %1082 = getelementptr i8, ptr %1078, i64 %1081
+  %1083 = load i8, ptr %1082, align 1
+  %1084 = zext i8 %1083 to i32
+  %1085 = icmp eq i32 %1084, 13
+  br i1 %1085, label %1086, label %1100
 
-1085:                                             ; preds = %1076
-  %1086 = load ptr, ptr %5, align 8
-  %1087 = load i32, ptr %33, align 4
-  %1088 = call zeroext i8 @tvb_get_guint8(ptr noundef %1086, i32 noundef %1087)
-  %1089 = zext i8 %1088 to i32
-  %1090 = icmp eq i32 %1089, 10
-  br i1 %1090, label %1091, label %1099
+1086:                                             ; preds = %1077
+  %1087 = load ptr, ptr %5, align 8
+  %1088 = load i32, ptr %33, align 4
+  %1089 = call zeroext i8 @tvb_get_uint8(ptr noundef %1087, i32 noundef %1088)
+  %1090 = zext i8 %1089 to i32
+  %1091 = icmp eq i32 %1090, 10
+  br i1 %1091, label %1092, label %1100
 
-1091:                                             ; preds = %1085
-  %1092 = load ptr, ptr %31, align 8
-  %1093 = load i32, ptr %35, align 4
-  %1094 = sub i32 %1093, 1
-  %1095 = sext i32 %1094 to i64
-  %1096 = getelementptr i8, ptr %1092, i64 %1095
-  store i8 10, ptr %1096, align 1
-  %1097 = load i32, ptr %33, align 4
-  %1098 = add i32 %1097, 1
-  store i32 %1098, ptr %33, align 4
-  br label %1099
+1092:                                             ; preds = %1086
+  %1093 = load ptr, ptr %31, align 8
+  %1094 = load i32, ptr %35, align 4
+  %1095 = sub i32 %1094, 1
+  %1096 = sext i32 %1095 to i64
+  %1097 = getelementptr i8, ptr %1093, i64 %1096
+  store i8 10, ptr %1097, align 1
+  %1098 = load i32, ptr %33, align 4
+  %1099 = add i32 %1098, 1
+  store i32 %1099, ptr %33, align 4
+  br label %1100
 
-1099:                                             ; preds = %1091, %1085, %1076, %1073
-  %1100 = load ptr, ptr %5, align 8
-  %1101 = load i32, ptr %33, align 4
-  %1102 = call zeroext i8 @tvb_get_guint8(ptr noundef %1100, i32 noundef %1101)
-  store i8 %1102, ptr %36, align 1
-  %1103 = load i32, ptr %33, align 4
-  %1104 = add i32 %1103, 1
-  store i32 %1104, ptr %33, align 4
-  %1105 = load i32, ptr %33, align 4
-  store i32 %1105, ptr %34, align 4
-  br label %1106
+1100:                                             ; preds = %1092, %1086, %1077, %1074
+  %1101 = load ptr, ptr %5, align 8
+  %1102 = load i32, ptr %33, align 4
+  %1103 = call zeroext i8 @tvb_get_uint8(ptr noundef %1101, i32 noundef %1102)
+  store i8 %1103, ptr %36, align 1
+  %1104 = load i32, ptr %33, align 4
+  %1105 = add i32 %1104, 1
+  store i32 %1105, ptr %33, align 4
+  %1106 = load i32, ptr %33, align 4
+  store i32 %1106, ptr %34, align 4
+  br label %1107
 
-1106:                                             ; preds = %1145, %1144, %1099
-  %1107 = load ptr, ptr %5, align 8
-  %1108 = load i32, ptr %33, align 4
-  %1109 = call i32 @tvb_reported_length_remaining(ptr noundef %1107, i32 noundef %1108)
-  %1110 = icmp sgt i32 %1109, 0
-  br i1 %1110, label %1111, label %1156
+1107:                                             ; preds = %1146, %1145, %1100
+  %1108 = load ptr, ptr %5, align 8
+  %1109 = load i32, ptr %33, align 4
+  %1110 = call i32 @tvb_reported_length_remaining(ptr noundef %1108, i32 noundef %1109)
+  %1111 = icmp sgt i32 %1110, 0
+  br i1 %1111, label %1112, label %1157
 
-1111:                                             ; preds = %1106
-  %1112 = load ptr, ptr %5, align 8
-  %1113 = load i32, ptr %33, align 4
-  %1114 = call zeroext i8 @tvb_get_guint8(ptr noundef %1112, i32 noundef %1113)
-  store i8 %1114, ptr %37, align 1
-  %1115 = load i8, ptr %36, align 1
-  %1116 = zext i8 %1115 to i32
-  %1117 = icmp eq i32 %1116, 13
-  br i1 %1117, label %1118, label %1145
+1112:                                             ; preds = %1107
+  %1113 = load ptr, ptr %5, align 8
+  %1114 = load i32, ptr %33, align 4
+  %1115 = call zeroext i8 @tvb_get_uint8(ptr noundef %1113, i32 noundef %1114)
+  store i8 %1115, ptr %37, align 1
+  %1116 = load i8, ptr %36, align 1
+  %1117 = zext i8 %1116 to i32
+  %1118 = icmp eq i32 %1117, 13
+  br i1 %1118, label %1119, label %1146
 
-1118:                                             ; preds = %1111
-  %1119 = load i8, ptr %37, align 1
-  %1120 = zext i8 %1119 to i32
-  %1121 = icmp eq i32 %1120, 10
-  br i1 %1121, label %1122, label %1145
+1119:                                             ; preds = %1112
+  %1120 = load i8, ptr %37, align 1
+  %1121 = zext i8 %1120 to i32
+  %1122 = icmp eq i32 %1121, 10
+  br i1 %1122, label %1123, label %1146
 
-1122:                                             ; preds = %1118
-  %1123 = load i8, ptr %37, align 1
-  %1124 = load ptr, ptr %31, align 8
-  %1125 = load i32, ptr %35, align 4
-  %1126 = sext i32 %1125 to i64
-  %1127 = getelementptr i8, ptr %1124, i64 %1126
-  store i8 %1123, ptr %1127, align 1
-  %1128 = load ptr, ptr %5, align 8
-  %1129 = load i32, ptr %33, align 4
-  %1130 = call i32 @tvb_reported_length_remaining(ptr noundef %1128, i32 noundef %1129)
-  %1131 = icmp sgt i32 %1130, 1
-  br i1 %1131, label %1132, label %1141
+1123:                                             ; preds = %1119
+  %1124 = load i8, ptr %37, align 1
+  %1125 = load ptr, ptr %31, align 8
+  %1126 = load i32, ptr %35, align 4
+  %1127 = sext i32 %1126 to i64
+  %1128 = getelementptr i8, ptr %1125, i64 %1127
+  store i8 %1124, ptr %1128, align 1
+  %1129 = load ptr, ptr %5, align 8
+  %1130 = load i32, ptr %33, align 4
+  %1131 = call i32 @tvb_reported_length_remaining(ptr noundef %1129, i32 noundef %1130)
+  %1132 = icmp sgt i32 %1131, 1
+  br i1 %1132, label %1133, label %1142
 
-1132:                                             ; preds = %1122
-  %1133 = load ptr, ptr %5, align 8
-  %1134 = load i32, ptr %33, align 4
-  %1135 = add i32 %1134, 1
-  %1136 = call zeroext i8 @tvb_get_guint8(ptr noundef %1133, i32 noundef %1135)
-  store i8 %1136, ptr %36, align 1
-  %1137 = load i32, ptr %33, align 4
-  %1138 = add i32 %1137, 2
-  store i32 %1138, ptr %33, align 4
-  %1139 = load i32, ptr %35, align 4
-  %1140 = add i32 %1139, 1
-  store i32 %1140, ptr %35, align 4
-  br label %1144
+1133:                                             ; preds = %1123
+  %1134 = load ptr, ptr %5, align 8
+  %1135 = load i32, ptr %33, align 4
+  %1136 = add i32 %1135, 1
+  %1137 = call zeroext i8 @tvb_get_uint8(ptr noundef %1134, i32 noundef %1136)
+  store i8 %1137, ptr %36, align 1
+  %1138 = load i32, ptr %33, align 4
+  %1139 = add i32 %1138, 2
+  store i32 %1139, ptr %33, align 4
+  %1140 = load i32, ptr %35, align 4
+  %1141 = add i32 %1140, 1
+  store i32 %1141, ptr %35, align 4
+  br label %1145
 
-1141:                                             ; preds = %1122
-  %1142 = load i32, ptr %33, align 4
-  %1143 = add i32 %1142, 1
-  store i32 %1143, ptr %33, align 4
-  br label %1144
+1142:                                             ; preds = %1123
+  %1143 = load i32, ptr %33, align 4
+  %1144 = add i32 %1143, 1
+  store i32 %1144, ptr %33, align 4
+  br label %1145
 
-1144:                                             ; preds = %1141, %1132
-  br label %1106, !llvm.loop !10
+1145:                                             ; preds = %1142, %1133
+  br label %1107, !llvm.loop !14
 
-1145:                                             ; preds = %1118, %1111
-  %1146 = load i8, ptr %36, align 1
-  %1147 = load ptr, ptr %31, align 8
-  %1148 = load i32, ptr %35, align 4
-  %1149 = sext i32 %1148 to i64
-  %1150 = getelementptr i8, ptr %1147, i64 %1149
-  store i8 %1146, ptr %1150, align 1
-  %1151 = load i8, ptr %37, align 1
-  store i8 %1151, ptr %36, align 1
-  %1152 = load i32, ptr %35, align 4
-  %1153 = add i32 %1152, 1
-  store i32 %1153, ptr %35, align 4
-  %1154 = load i32, ptr %33, align 4
-  %1155 = add i32 %1154, 1
-  store i32 %1155, ptr %33, align 4
-  br label %1106, !llvm.loop !10
+1146:                                             ; preds = %1119, %1112
+  %1147 = load i8, ptr %36, align 1
+  %1148 = load ptr, ptr %31, align 8
+  %1149 = load i32, ptr %35, align 4
+  %1150 = sext i32 %1149 to i64
+  %1151 = getelementptr i8, ptr %1148, i64 %1150
+  store i8 %1147, ptr %1151, align 1
+  %1152 = load i8, ptr %37, align 1
+  store i8 %1152, ptr %36, align 1
+  %1153 = load i32, ptr %35, align 4
+  %1154 = add i32 %1153, 1
+  store i32 %1154, ptr %35, align 4
+  %1155 = load i32, ptr %33, align 4
+  %1156 = add i32 %1155, 1
+  store i32 %1156, ptr %33, align 4
+  br label %1107, !llvm.loop !14
 
-1156:                                             ; preds = %1106
-  %1157 = load ptr, ptr %5, align 8
-  %1158 = load i32, ptr %34, align 4
-  %1159 = call i32 @tvb_reported_length_remaining(ptr noundef %1157, i32 noundef %1158)
-  %1160 = icmp eq i32 %1159, 0
-  br i1 %1160, label %1161, label %1169
+1157:                                             ; preds = %1107
+  %1158 = load ptr, ptr %5, align 8
+  %1159 = load i32, ptr %34, align 4
+  %1160 = call i32 @tvb_reported_length_remaining(ptr noundef %1158, i32 noundef %1159)
+  %1161 = icmp eq i32 %1160, 0
+  br i1 %1161, label %1162, label %1170
 
-1161:                                             ; preds = %1156
-  %1162 = load i8, ptr %36, align 1
-  %1163 = load ptr, ptr %31, align 8
-  %1164 = load i32, ptr %35, align 4
-  %1165 = sext i32 %1164 to i64
-  %1166 = getelementptr i8, ptr %1163, i64 %1165
-  store i8 %1162, ptr %1166, align 1
-  %1167 = load i32, ptr %35, align 4
-  %1168 = add i32 %1167, 1
-  store i32 %1168, ptr %35, align 4
+1162:                                             ; preds = %1157
+  %1163 = load i8, ptr %36, align 1
+  %1164 = load ptr, ptr %31, align 8
+  %1165 = load i32, ptr %35, align 4
+  %1166 = sext i32 %1165 to i64
+  %1167 = getelementptr i8, ptr %1164, i64 %1166
+  store i8 %1163, ptr %1167, align 1
+  %1168 = load i32, ptr %35, align 4
+  %1169 = add i32 %1168, 1
+  store i32 %1169, ptr %35, align 4
+  br label %1184
+
+1170:                                             ; preds = %1157
+  %1171 = load ptr, ptr %5, align 8
+  %1172 = load i32, ptr %34, align 4
+  %1173 = call i32 @tvb_reported_length_remaining(ptr noundef %1171, i32 noundef %1172)
+  %1174 = icmp sgt i32 %1173, 0
+  br i1 %1174, label %1175, label %1183
+
+1175:                                             ; preds = %1170
+  %1176 = load i8, ptr %37, align 1
+  %1177 = load ptr, ptr %31, align 8
+  %1178 = load i32, ptr %35, align 4
+  %1179 = sext i32 %1178 to i64
+  %1180 = getelementptr i8, ptr %1177, i64 %1179
+  store i8 %1176, ptr %1180, align 1
+  %1181 = load i32, ptr %35, align 4
+  %1182 = add i32 %1181, 1
+  store i32 %1182, ptr %35, align 4
   br label %1183
 
-1169:                                             ; preds = %1156
-  %1170 = load ptr, ptr %5, align 8
-  %1171 = load i32, ptr %34, align 4
-  %1172 = call i32 @tvb_reported_length_remaining(ptr noundef %1170, i32 noundef %1171)
-  %1173 = icmp sgt i32 %1172, 0
-  br i1 %1173, label %1174, label %1182
+1183:                                             ; preds = %1175, %1170
+  br label %1184
 
-1174:                                             ; preds = %1169
-  %1175 = load i8, ptr %37, align 1
-  %1176 = load ptr, ptr %31, align 8
-  %1177 = load i32, ptr %35, align 4
-  %1178 = sext i32 %1177 to i64
-  %1179 = getelementptr i8, ptr %1176, i64 %1178
-  store i8 %1175, ptr %1179, align 1
-  %1180 = load i32, ptr %35, align 4
-  %1181 = add i32 %1180, 1
-  store i32 %1181, ptr %35, align 4
-  br label %1182
-
-1182:                                             ; preds = %1174, %1169
-  br label %1183
-
-1183:                                             ; preds = %1182, %1161
-  %1184 = load ptr, ptr %5, align 8
-  %1185 = load ptr, ptr %31, align 8
-  %1186 = load i32, ptr %35, align 4
+1184:                                             ; preds = %1183, %1162
+  %1185 = load ptr, ptr %5, align 8
+  %1186 = load ptr, ptr %31, align 8
   %1187 = load i32, ptr %35, align 4
-  %1188 = call ptr @tvb_new_child_real_data(ptr noundef %1184, ptr noundef %1185, i32 noundef %1186, i32 noundef %1187)
-  store ptr %1188, ptr %29, align 8
-  %1189 = load ptr, ptr %6, align 8
-  %1190 = load ptr, ptr %29, align 8
-  call void @add_new_data_source(ptr noundef %1189, ptr noundef %1190, ptr noundef @.str.93)
+  %1188 = load i32, ptr %35, align 4
+  %1189 = call ptr @tvb_new_child_real_data(ptr noundef %1185, ptr noundef %1186, i32 noundef %1187, i32 noundef %1188)
+  store ptr %1189, ptr %29, align 8
+  %1190 = load ptr, ptr %6, align 8
+  %1191 = load ptr, ptr %29, align 8
+  call void @add_new_data_source(ptr noundef %1190, ptr noundef %1191, ptr noundef @.str.93)
   store i32 0, ptr %33, align 4
-  br label %1191
+  br label %1192
 
-1191:                                             ; preds = %1348, %1183
-  %1192 = load ptr, ptr %29, align 8
-  %1193 = load i32, ptr %33, align 4
-  %1194 = call i32 @tvb_reported_length_remaining(ptr noundef %1192, i32 noundef %1193)
-  %1195 = icmp sgt i32 %1194, 0
-  br i1 %1195, label %1196, label %1349
+1192:                                             ; preds = %1349, %1184
+  %1193 = load ptr, ptr %29, align 8
+  %1194 = load i32, ptr %33, align 4
+  %1195 = call i32 @tvb_reported_length_remaining(ptr noundef %1193, i32 noundef %1194)
+  %1196 = icmp sgt i32 %1195, 0
+  br i1 %1196, label %1197, label %1350
 
-1196:                                             ; preds = %1191
-  %1197 = load ptr, ptr %29, align 8
-  %1198 = load i32, ptr %33, align 4
-  %1199 = call i32 @tvb_reported_length_remaining(ptr noundef %1197, i32 noundef %1198)
-  %1200 = icmp sge i32 %1199, 4
-  br i1 %1200, label %1201, label %1221
+1197:                                             ; preds = %1192
+  %1198 = load ptr, ptr %29, align 8
+  %1199 = load i32, ptr %33, align 4
+  %1200 = call i32 @tvb_reported_length_remaining(ptr noundef %1198, i32 noundef %1199)
+  %1201 = icmp sge i32 %1200, 4
+  br i1 %1201, label %1202, label %1222
 
-1201:                                             ; preds = %1196
-  %1202 = load ptr, ptr %29, align 8
-  %1203 = load i32, ptr %33, align 4
-  %1204 = call zeroext i16 @tvb_get_letohs(ptr noundef %1202, i32 noundef %1203)
-  store i16 %1204, ptr %38, align 2
-  %1205 = load ptr, ptr %29, align 8
-  %1206 = load i32, ptr %33, align 4
-  %1207 = add i32 %1206, 2
-  %1208 = call zeroext i16 @tvb_get_letohs(ptr noundef %1205, i32 noundef %1207)
-  store i16 %1208, ptr %39, align 2
-  %1209 = load i16, ptr %39, align 2
-  %1210 = zext i16 %1209 to i32
-  %1211 = icmp ne i32 %1210, 24
-  br i1 %1211, label %1212, label %1216
+1202:                                             ; preds = %1197
+  %1203 = load ptr, ptr %29, align 8
+  %1204 = load i32, ptr %33, align 4
+  %1205 = call zeroext i16 @tvb_get_letohs(ptr noundef %1203, i32 noundef %1204)
+  store i16 %1205, ptr %38, align 2
+  %1206 = load ptr, ptr %29, align 8
+  %1207 = load i32, ptr %33, align 4
+  %1208 = add i32 %1207, 2
+  %1209 = call zeroext i16 @tvb_get_letohs(ptr noundef %1206, i32 noundef %1208)
+  store i16 %1209, ptr %39, align 2
+  %1210 = load i16, ptr %39, align 2
+  %1211 = zext i16 %1210 to i32
+  %1212 = icmp ne i32 %1211, 24
+  br i1 %1212, label %1213, label %1217
 
-1212:                                             ; preds = %1201
-  %1213 = load i16, ptr %38, align 2
-  %1214 = zext i16 %1213 to i32
-  %1215 = add i32 %1214, 20
-  store i32 %1215, ptr %40, align 4
-  br label %1220
-
-1216:                                             ; preds = %1201
-  %1217 = load i16, ptr %38, align 2
-  %1218 = zext i16 %1217 to i32
-  %1219 = add i32 %1218, 24
-  store i32 %1219, ptr %40, align 4
-  br label %1220
-
-1220:                                             ; preds = %1216, %1212
+1213:                                             ; preds = %1202
+  %1214 = load i16, ptr %38, align 2
+  %1215 = zext i16 %1214 to i32
+  %1216 = add i32 %1215, 20
+  store i32 %1216, ptr %40, align 4
   br label %1221
 
-1221:                                             ; preds = %1220, %1196
-  %1222 = load ptr, ptr %29, align 8
-  %1223 = load i32, ptr %33, align 4
-  %1224 = call i32 @tvb_reported_length_remaining(ptr noundef %1222, i32 noundef %1223)
-  %1225 = icmp sge i32 %1224, 4
-  br i1 %1225, label %1226, label %1245
+1217:                                             ; preds = %1202
+  %1218 = load i16, ptr %38, align 2
+  %1219 = zext i16 %1218 to i32
+  %1220 = add i32 %1219, 24
+  store i32 %1220, ptr %40, align 4
+  br label %1221
 
-1226:                                             ; preds = %1221
-  %1227 = load ptr, ptr %29, align 8
-  %1228 = load i32, ptr %33, align 4
-  %1229 = call i32 @tvb_reported_length_remaining(ptr noundef %1227, i32 noundef %1228)
-  %1230 = load i32, ptr %40, align 4
-  %1231 = icmp sge i32 %1229, %1230
-  br i1 %1231, label %1232, label %1245
+1221:                                             ; preds = %1217, %1213
+  br label %1222
 
-1232:                                             ; preds = %1226
-  %1233 = load ptr, ptr %29, align 8
-  %1234 = load i32, ptr %33, align 4
-  %1235 = load i32, ptr %40, align 4
-  %1236 = call ptr @tvb_new_subset_length(ptr noundef %1233, i32 noundef %1234, i32 noundef %1235)
-  store ptr %1236, ptr %30, align 8
-  %1237 = load ptr, ptr @logcat_handle, align 8
-  %1238 = load ptr, ptr %30, align 8
-  %1239 = load ptr, ptr %6, align 8
-  %1240 = load ptr, ptr %10, align 8
-  %1241 = call i32 @call_dissector(ptr noundef %1237, ptr noundef %1238, ptr noundef %1239, ptr noundef %1240)
-  %1242 = load i32, ptr %40, align 4
-  %1243 = load i32, ptr %33, align 4
-  %1244 = add i32 %1243, %1242
-  store i32 %1244, ptr %33, align 4
-  br label %1348
+1222:                                             ; preds = %1221, %1197
+  %1223 = load ptr, ptr %29, align 8
+  %1224 = load i32, ptr %33, align 4
+  %1225 = call i32 @tvb_reported_length_remaining(ptr noundef %1223, i32 noundef %1224)
+  %1226 = icmp sge i32 %1225, 4
+  br i1 %1226, label %1227, label %1246
 
-1245:                                             ; preds = %1226, %1221
-  %1246 = load ptr, ptr %6, align 8
-  %1247 = getelementptr inbounds %struct._packet_info, ptr %1246, i32 0, i32 8
-  %1248 = load ptr, ptr %1247, align 8
-  %1249 = getelementptr inbounds %struct._frame_data, ptr %1248, i32 0, i32 9
-  %1250 = load i16, ptr %1249, align 2
-  %1251 = lshr i16 %1250, 3
-  %1252 = and i16 %1251, 1
-  %1253 = zext i16 %1252 to i32
-  %1254 = icmp ne i32 %1253, 0
-  br i1 %1254, label %1340, label %1255
+1227:                                             ; preds = %1222
+  %1228 = load ptr, ptr %29, align 8
+  %1229 = load i32, ptr %33, align 4
+  %1230 = call i32 @tvb_reported_length_remaining(ptr noundef %1228, i32 noundef %1229)
+  %1231 = load i32, ptr %40, align 4
+  %1232 = icmp sge i32 %1230, %1231
+  br i1 %1232, label %1233, label %1246
 
-1255:                                             ; preds = %1245
-  %1256 = load ptr, ptr %14, align 8
-  %1257 = getelementptr inbounds %struct.adb_service_data_t, ptr %1256, i32 0, i32 0
-  %1258 = load i32, ptr %1257, align 8
-  %1259 = add i32 %1258, 2
-  %1260 = zext i32 %1259 to i64
-  %1261 = icmp ule i64 %1260, 5
-  br i1 %1261, label %1262, label %1263
+1233:                                             ; preds = %1227
+  %1234 = load ptr, ptr %29, align 8
+  %1235 = load i32, ptr %33, align 4
+  %1236 = load i32, ptr %40, align 4
+  %1237 = call ptr @tvb_new_subset_length(ptr noundef %1234, i32 noundef %1235, i32 noundef %1236)
+  store ptr %1237, ptr %30, align 8
+  %1238 = load ptr, ptr @logcat_handle, align 8
+  %1239 = load ptr, ptr %30, align 8
+  %1240 = load ptr, ptr %6, align 8
+  %1241 = load ptr, ptr %10, align 8
+  %1242 = call i32 @call_dissector(ptr noundef %1238, ptr noundef %1239, ptr noundef %1240, ptr noundef %1241)
+  %1243 = load i32, ptr %40, align 4
+  %1244 = load i32, ptr %33, align 4
+  %1245 = add i32 %1244, %1243
+  store i32 %1245, ptr %33, align 4
+  br label %1349
 
-1262:                                             ; preds = %1255
-  br label %1265
+1246:                                             ; preds = %1227, %1222
+  %1247 = load ptr, ptr %6, align 8
+  %1248 = getelementptr inbounds nuw %struct._packet_info, ptr %1247, i32 0, i32 8
+  %1249 = load ptr, ptr %1248, align 8
+  %1250 = getelementptr inbounds nuw %struct._frame_data, ptr %1249, i32 0, i32 11
+  %1251 = load i16, ptr %1250, align 1
+  %1252 = lshr i16 %1251, 3
+  %1253 = and i16 %1252, 1
+  %1254 = zext i16 %1253 to i32
+  %1255 = icmp ne i32 %1254, 0
+  br i1 %1255, label %1341, label %1256
 
-1263:                                             ; preds = %1255
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.77, ptr noundef @.str.1, i32 noundef 493, ptr noundef @.str.94, ptr noundef @.str.79) #4
-  unreachable
+1256:                                             ; preds = %1246
+  %1257 = load ptr, ptr %14, align 8
+  %1258 = getelementptr inbounds nuw %struct.adb_service_data_t, ptr %1257, i32 0, i32 0
+  %1259 = load i32, ptr %1258, align 8
+  %1260 = add i32 %1259, 2
+  %1261 = zext i32 %1260 to i64
+  %1262 = icmp ule i64 %1261, 5
+  br i1 %1262, label %1263, label %1264
 
-1264:                                             ; No predecessors!
-  br label %1265
-
-1265:                                             ; preds = %1264, %1262
-  store i32 0, ptr %18, align 4
+1263:                                             ; preds = %1256
   br label %1266
 
-1266:                                             ; preds = %1287, %1265
-  %1267 = load i32, ptr %18, align 4
-  %1268 = load ptr, ptr %14, align 8
-  %1269 = getelementptr inbounds %struct.adb_service_data_t, ptr %1268, i32 0, i32 0
-  %1270 = load i32, ptr %1269, align 8
-  %1271 = icmp ult i32 %1267, %1270
-  br i1 %1271, label %1272, label %1290
+1264:                                             ; preds = %1256
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef @.str.77, ptr noundef @.str.1, i32 noundef 493, ptr noundef @.str.94, ptr noundef @.str.79) #10
+  unreachable
 
-1272:                                             ; preds = %1266
-  %1273 = load i32, ptr %18, align 4
-  %1274 = zext i32 %1273 to i64
-  %1275 = getelementptr [5 x %struct._wmem_tree_key_t], ptr %16, i64 0, i64 %1274
-  %1276 = getelementptr inbounds %struct._wmem_tree_key_t, ptr %1275, i32 0, i32 0
-  store i32 1, ptr %1276, align 16
-  %1277 = load ptr, ptr %14, align 8
-  %1278 = getelementptr inbounds %struct.adb_service_data_t, ptr %1277, i32 0, i32 1
-  %1279 = load ptr, ptr %1278, align 8
-  %1280 = load i32, ptr %18, align 4
-  %1281 = zext i32 %1280 to i64
-  %1282 = getelementptr i32, ptr %1279, i64 %1281
-  %1283 = load i32, ptr %18, align 4
-  %1284 = zext i32 %1283 to i64
-  %1285 = getelementptr [5 x %struct._wmem_tree_key_t], ptr %16, i64 0, i64 %1284
-  %1286 = getelementptr inbounds %struct._wmem_tree_key_t, ptr %1285, i32 0, i32 1
-  store ptr %1282, ptr %1286, align 8
-  br label %1287
+1265:                                             ; No predecessors!
+  br label %1266
 
-1287:                                             ; preds = %1272
-  %1288 = load i32, ptr %18, align 4
-  %1289 = add i32 %1288, 1
-  store i32 %1289, ptr %18, align 4
-  br label %1266, !llvm.loop !11
+1266:                                             ; preds = %1265, %1263
+  store i32 0, ptr %18, align 4
+  br label %1267
 
-1290:                                             ; preds = %1266
-  %1291 = load i32, ptr %18, align 4
-  %1292 = zext i32 %1291 to i64
-  %1293 = getelementptr [5 x %struct._wmem_tree_key_t], ptr %16, i64 0, i64 %1292
-  %1294 = getelementptr inbounds %struct._wmem_tree_key_t, ptr %1293, i32 0, i32 0
-  store i32 1, ptr %1294, align 16
-  %1295 = load ptr, ptr %6, align 8
-  %1296 = getelementptr inbounds %struct._packet_info, ptr %1295, i32 0, i32 3
-  %1297 = load i32, ptr %18, align 4
-  %1298 = add i32 %1297, 1
-  store i32 %1298, ptr %18, align 4
-  %1299 = zext i32 %1297 to i64
-  %1300 = getelementptr [5 x %struct._wmem_tree_key_t], ptr %16, i64 0, i64 %1299
-  %1301 = getelementptr inbounds %struct._wmem_tree_key_t, ptr %1300, i32 0, i32 1
-  store ptr %1296, ptr %1301, align 8
-  %1302 = load i32, ptr %18, align 4
-  %1303 = zext i32 %1302 to i64
-  %1304 = getelementptr [5 x %struct._wmem_tree_key_t], ptr %16, i64 0, i64 %1303
-  %1305 = getelementptr inbounds %struct._wmem_tree_key_t, ptr %1304, i32 0, i32 0
-  store i32 0, ptr %1305, align 16
-  %1306 = load i32, ptr %18, align 4
-  %1307 = zext i32 %1306 to i64
-  %1308 = getelementptr [5 x %struct._wmem_tree_key_t], ptr %16, i64 0, i64 %1307
-  %1309 = getelementptr inbounds %struct._wmem_tree_key_t, ptr %1308, i32 0, i32 1
-  store ptr null, ptr %1309, align 8
-  %1310 = call ptr @wmem_file_scope()
-  %1311 = call noalias ptr @wmem_alloc(ptr noundef %1310, i64 noundef 24)
-  store ptr %1311, ptr %41, align 8
-  %1312 = load ptr, ptr %29, align 8
-  %1313 = load i32, ptr %33, align 4
-  %1314 = call i32 @tvb_captured_length_remaining(ptr noundef %1312, i32 noundef %1313)
-  %1315 = load ptr, ptr %41, align 8
-  %1316 = getelementptr inbounds %struct._fragment_t, ptr %1315, i32 0, i32 1
-  store i32 %1314, ptr %1316, align 8
-  %1317 = call ptr @wmem_file_scope()
-  %1318 = load ptr, ptr %41, align 8
-  %1319 = getelementptr inbounds %struct._fragment_t, ptr %1318, i32 0, i32 1
-  %1320 = load i32, ptr %1319, align 8
-  %1321 = sext i32 %1320 to i64
-  %1322 = call noalias ptr @wmem_alloc(ptr noundef %1317, i64 noundef %1321)
-  %1323 = load ptr, ptr %41, align 8
-  %1324 = getelementptr inbounds %struct._fragment_t, ptr %1323, i32 0, i32 2
-  store ptr %1322, ptr %1324, align 8
-  %1325 = load ptr, ptr %29, align 8
-  %1326 = load ptr, ptr %41, align 8
-  %1327 = getelementptr inbounds %struct._fragment_t, ptr %1326, i32 0, i32 2
-  %1328 = load ptr, ptr %1327, align 8
-  %1329 = load i32, ptr %33, align 4
-  %1330 = load ptr, ptr %41, align 8
-  %1331 = getelementptr inbounds %struct._fragment_t, ptr %1330, i32 0, i32 1
-  %1332 = load i32, ptr %1331, align 8
-  %1333 = sext i32 %1332 to i64
-  %1334 = call ptr @tvb_memcpy(ptr noundef %1325, ptr noundef %1328, i32 noundef %1329, i64 noundef %1333)
-  %1335 = load ptr, ptr %41, align 8
-  %1336 = getelementptr inbounds %struct._fragment_t, ptr %1335, i32 0, i32 0
-  store i64 -1, ptr %1336, align 8
-  %1337 = load ptr, ptr @fragments, align 8
-  %1338 = getelementptr inbounds [5 x %struct._wmem_tree_key_t], ptr %16, i64 0, i64 0
-  %1339 = load ptr, ptr %41, align 8
-  call void @wmem_tree_insert32_array(ptr noundef %1337, ptr noundef %1338, ptr noundef %1339)
-  br label %1340
+1267:                                             ; preds = %1288, %1266
+  %1268 = load i32, ptr %18, align 4
+  %1269 = load ptr, ptr %14, align 8
+  %1270 = getelementptr inbounds nuw %struct.adb_service_data_t, ptr %1269, i32 0, i32 0
+  %1271 = load i32, ptr %1270, align 8
+  %1272 = icmp ult i32 %1268, %1271
+  br i1 %1272, label %1273, label %1291
 
-1340:                                             ; preds = %1290, %1245
-  %1341 = load ptr, ptr %10, align 8
-  %1342 = load i32, ptr @hf_fragment, align 4
-  %1343 = load ptr, ptr %29, align 8
-  %1344 = load i32, ptr %33, align 4
-  %1345 = call ptr @proto_tree_add_item(ptr noundef %1341, i32 noundef %1342, ptr noundef %1343, i32 noundef %1344, i32 noundef -1, i32 noundef 0)
-  %1346 = load ptr, ptr %29, align 8
-  %1347 = call i32 @tvb_captured_length(ptr noundef %1346)
-  store i32 %1347, ptr %33, align 4
-  br label %1348
+1273:                                             ; preds = %1267
+  %1274 = load i32, ptr %18, align 4
+  %1275 = zext i32 %1274 to i64
+  %1276 = getelementptr [5 x %struct._wmem_tree_key_t], ptr %16, i64 0, i64 %1275
+  %1277 = getelementptr inbounds nuw %struct._wmem_tree_key_t, ptr %1276, i32 0, i32 0
+  store i32 1, ptr %1277, align 16
+  %1278 = load ptr, ptr %14, align 8
+  %1279 = getelementptr inbounds nuw %struct.adb_service_data_t, ptr %1278, i32 0, i32 1
+  %1280 = load ptr, ptr %1279, align 8
+  %1281 = load i32, ptr %18, align 4
+  %1282 = zext i32 %1281 to i64
+  %1283 = getelementptr i32, ptr %1280, i64 %1282
+  %1284 = load i32, ptr %18, align 4
+  %1285 = zext i32 %1284 to i64
+  %1286 = getelementptr [5 x %struct._wmem_tree_key_t], ptr %16, i64 0, i64 %1285
+  %1287 = getelementptr inbounds nuw %struct._wmem_tree_key_t, ptr %1286, i32 0, i32 1
+  store ptr %1283, ptr %1287, align 8
+  br label %1288
 
-1348:                                             ; preds = %1340, %1232
-  br label %1191, !llvm.loop !12
+1288:                                             ; preds = %1273
+  %1289 = load i32, ptr %18, align 4
+  %1290 = add i32 %1289, 1
+  store i32 %1290, ptr %18, align 4
+  br label %1267, !llvm.loop !15
 
-1349:                                             ; preds = %1191
-  br label %1350
+1291:                                             ; preds = %1267
+  %1292 = load i32, ptr %18, align 4
+  %1293 = zext i32 %1292 to i64
+  %1294 = getelementptr [5 x %struct._wmem_tree_key_t], ptr %16, i64 0, i64 %1293
+  %1295 = getelementptr inbounds nuw %struct._wmem_tree_key_t, ptr %1294, i32 0, i32 0
+  store i32 1, ptr %1295, align 16
+  %1296 = load ptr, ptr %6, align 8
+  %1297 = getelementptr inbounds nuw %struct._packet_info, ptr %1296, i32 0, i32 3
+  %1298 = load i32, ptr %18, align 4
+  %1299 = add i32 %1298, 1
+  store i32 %1299, ptr %18, align 4
+  %1300 = zext i32 %1298 to i64
+  %1301 = getelementptr [5 x %struct._wmem_tree_key_t], ptr %16, i64 0, i64 %1300
+  %1302 = getelementptr inbounds nuw %struct._wmem_tree_key_t, ptr %1301, i32 0, i32 1
+  store ptr %1297, ptr %1302, align 8
+  %1303 = load i32, ptr %18, align 4
+  %1304 = zext i32 %1303 to i64
+  %1305 = getelementptr [5 x %struct._wmem_tree_key_t], ptr %16, i64 0, i64 %1304
+  %1306 = getelementptr inbounds nuw %struct._wmem_tree_key_t, ptr %1305, i32 0, i32 0
+  store i32 0, ptr %1306, align 16
+  %1307 = load i32, ptr %18, align 4
+  %1308 = zext i32 %1307 to i64
+  %1309 = getelementptr [5 x %struct._wmem_tree_key_t], ptr %16, i64 0, i64 %1308
+  %1310 = getelementptr inbounds nuw %struct._wmem_tree_key_t, ptr %1309, i32 0, i32 1
+  store ptr null, ptr %1310, align 8
+  %1311 = call ptr @wmem_file_scope()
+  %1312 = call noalias ptr @wmem_alloc(ptr noundef %1311, i64 noundef 24) #11
+  store ptr %1312, ptr %41, align 8
+  %1313 = load ptr, ptr %29, align 8
+  %1314 = load i32, ptr %33, align 4
+  %1315 = call i32 @tvb_captured_length_remaining(ptr noundef %1313, i32 noundef %1314)
+  %1316 = load ptr, ptr %41, align 8
+  %1317 = getelementptr inbounds nuw %struct._fragment_t, ptr %1316, i32 0, i32 1
+  store i32 %1315, ptr %1317, align 8
+  %1318 = call ptr @wmem_file_scope()
+  %1319 = load ptr, ptr %41, align 8
+  %1320 = getelementptr inbounds nuw %struct._fragment_t, ptr %1319, i32 0, i32 1
+  %1321 = load i32, ptr %1320, align 8
+  %1322 = sext i32 %1321 to i64
+  %1323 = call noalias ptr @wmem_alloc(ptr noundef %1318, i64 noundef %1322) #11
+  %1324 = load ptr, ptr %41, align 8
+  %1325 = getelementptr inbounds nuw %struct._fragment_t, ptr %1324, i32 0, i32 2
+  store ptr %1323, ptr %1325, align 8
+  %1326 = load ptr, ptr %29, align 8
+  %1327 = load ptr, ptr %41, align 8
+  %1328 = getelementptr inbounds nuw %struct._fragment_t, ptr %1327, i32 0, i32 2
+  %1329 = load ptr, ptr %1328, align 8
+  %1330 = load i32, ptr %33, align 4
+  %1331 = load ptr, ptr %41, align 8
+  %1332 = getelementptr inbounds nuw %struct._fragment_t, ptr %1331, i32 0, i32 1
+  %1333 = load i32, ptr %1332, align 8
+  %1334 = sext i32 %1333 to i64
+  %1335 = call ptr @tvb_memcpy(ptr noundef %1326, ptr noundef %1329, i32 noundef %1330, i64 noundef %1334)
+  %1336 = load ptr, ptr %41, align 8
+  %1337 = getelementptr inbounds nuw %struct._fragment_t, ptr %1336, i32 0, i32 0
+  store i64 -1, ptr %1337, align 8
+  %1338 = load ptr, ptr @fragments, align 8
+  %1339 = getelementptr inbounds [5 x %struct._wmem_tree_key_t], ptr %16, i64 0, i64 0
+  %1340 = load ptr, ptr %41, align 8
+  call void @wmem_tree_insert32_array(ptr noundef %1338, ptr noundef %1339, ptr noundef %1340)
+  br label %1341
 
-1350:                                             ; preds = %1349, %1046
-  %1351 = load ptr, ptr %5, align 8
-  %1352 = call i32 @tvb_captured_length(ptr noundef %1351)
-  store i32 %1352, ptr %13, align 4
-  br label %1468
+1341:                                             ; preds = %1291, %1246
+  %1342 = load ptr, ptr %10, align 8
+  %1343 = load i32, ptr @hf_fragment, align 4
+  %1344 = load ptr, ptr %29, align 8
+  %1345 = load i32, ptr %33, align 4
+  %1346 = call ptr @proto_tree_add_item(ptr noundef %1342, i32 noundef %1343, ptr noundef %1344, i32 noundef %1345, i32 noundef -1, i32 noundef 0)
+  %1347 = load ptr, ptr %29, align 8
+  %1348 = call i32 @tvb_captured_length(ptr noundef %1347)
+  store i32 %1348, ptr %33, align 4
+  br label %1349
 
-1353:                                             ; preds = %937
-  %1354 = load ptr, ptr %15, align 8
-  %1355 = call i32 @g_str_has_prefix(ptr noundef %1354, ptr noundef @.str.95)
-  %1356 = icmp ne i32 %1355, 0
-  br i1 %1356, label %1357, label %1391
+1349:                                             ; preds = %1341, %1233
+  br label %1192, !llvm.loop !16
 
-1357:                                             ; preds = %1353
-  %1358 = load ptr, ptr %14, align 8
-  %1359 = getelementptr inbounds %struct.adb_service_data_t, ptr %1358, i32 0, i32 3
-  %1360 = load i32, ptr %1359, align 8
-  %1361 = icmp eq i32 %1360, 0
-  br i1 %1361, label %1362, label %1375
+1350:                                             ; preds = %1192
+  br label %1351
 
-1362:                                             ; preds = %1357
-  %1363 = load ptr, ptr %10, align 8
-  %1364 = load i32, ptr @hf_stdin, align 4
-  %1365 = load ptr, ptr %5, align 8
-  %1366 = load i32, ptr %13, align 4
-  %1367 = load ptr, ptr %6, align 8
-  %1368 = getelementptr inbounds %struct._packet_info, ptr %1367, i32 0, i32 50
-  %1369 = load ptr, ptr %1368, align 8
-  %1370 = call ptr @proto_tree_add_item_ret_display_string(ptr noundef %1363, i32 noundef %1364, ptr noundef %1365, i32 noundef %1366, i32 noundef -1, i32 noundef 0, ptr noundef %1369, ptr noundef %19)
-  %1371 = load ptr, ptr %6, align 8
-  %1372 = getelementptr inbounds %struct._packet_info, ptr %1371, i32 0, i32 1
-  %1373 = load ptr, ptr %1372, align 8
-  %1374 = load ptr, ptr %19, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %1373, i32 noundef 25, ptr noundef @.str.96, ptr noundef %1374)
-  br label %1388
-
-1375:                                             ; preds = %1357
-  %1376 = load ptr, ptr %10, align 8
-  %1377 = load i32, ptr @hf_stdout, align 4
-  %1378 = load ptr, ptr %5, align 8
-  %1379 = load i32, ptr %13, align 4
-  %1380 = load ptr, ptr %6, align 8
-  %1381 = getelementptr inbounds %struct._packet_info, ptr %1380, i32 0, i32 50
-  %1382 = load ptr, ptr %1381, align 8
-  %1383 = call ptr @proto_tree_add_item_ret_display_string(ptr noundef %1376, i32 noundef %1377, ptr noundef %1378, i32 noundef %1379, i32 noundef -1, i32 noundef 0, ptr noundef %1382, ptr noundef %19)
-  %1384 = load ptr, ptr %6, align 8
-  %1385 = getelementptr inbounds %struct._packet_info, ptr %1384, i32 0, i32 1
-  %1386 = load ptr, ptr %1385, align 8
-  %1387 = load ptr, ptr %19, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %1386, i32 noundef 25, ptr noundef @.str.97, ptr noundef %1387)
-  br label %1388
-
-1388:                                             ; preds = %1375, %1362
-  %1389 = load ptr, ptr %5, align 8
-  %1390 = call i32 @tvb_captured_length(ptr noundef %1389)
-  store i32 %1390, ptr %13, align 4
-  br label %1467
-
-1391:                                             ; preds = %1353
-  %1392 = load ptr, ptr %15, align 8
-  %1393 = call i32 @g_str_has_prefix(ptr noundef %1392, ptr noundef @.str.98)
-  %1394 = icmp ne i32 %1393, 0
-  br i1 %1394, label %1395, label %1403
-
-1395:                                             ; preds = %1391
-  %1396 = load ptr, ptr %10, align 8
-  %1397 = load i32, ptr @hf_data, align 4
-  %1398 = load ptr, ptr %5, align 8
-  %1399 = load i32, ptr %13, align 4
-  %1400 = call ptr @proto_tree_add_item(ptr noundef %1396, i32 noundef %1397, ptr noundef %1398, i32 noundef %1399, i32 noundef -1, i32 noundef 0)
-  %1401 = load ptr, ptr %5, align 8
-  %1402 = call i32 @tvb_captured_length(ptr noundef %1401)
-  store i32 %1402, ptr %13, align 4
-  br label %1466
-
-1403:                                             ; preds = %1391
-  %1404 = load ptr, ptr %15, align 8
-  %1405 = call i32 @g_str_has_prefix(ptr noundef %1404, ptr noundef @.str.99)
-  %1406 = icmp ne i32 %1405, 0
-  br i1 %1406, label %1407, label %1415
-
-1407:                                             ; preds = %1403
-  %1408 = load ptr, ptr %10, align 8
-  %1409 = load i32, ptr @hf_data, align 4
-  %1410 = load ptr, ptr %5, align 8
-  %1411 = load i32, ptr %13, align 4
-  %1412 = call ptr @proto_tree_add_item(ptr noundef %1408, i32 noundef %1409, ptr noundef %1410, i32 noundef %1411, i32 noundef -1, i32 noundef 0)
-  %1413 = load ptr, ptr %5, align 8
-  %1414 = call i32 @tvb_captured_length(ptr noundef %1413)
-  store i32 %1414, ptr %13, align 4
-  br label %1465
-
-1415:                                             ; preds = %1403
-  %1416 = load ptr, ptr %15, align 8
-  %1417 = call i32 @g_strcmp0(ptr noundef %1416, ptr noundef @.str.100)
-  %1418 = icmp eq i32 %1417, 0
-  br i1 %1418, label %1435, label %1419
-
-1419:                                             ; preds = %1415
-  %1420 = load ptr, ptr %15, align 8
-  %1421 = call i32 @g_str_has_prefix(ptr noundef %1420, ptr noundef @.str.101)
-  %1422 = icmp ne i32 %1421, 0
-  br i1 %1422, label %1435, label %1423
-
-1423:                                             ; preds = %1419
-  %1424 = load ptr, ptr %15, align 8
-  %1425 = call i32 @g_str_has_prefix(ptr noundef %1424, ptr noundef @.str.102)
-  %1426 = icmp ne i32 %1425, 0
-  br i1 %1426, label %1435, label %1427
-
-1427:                                             ; preds = %1423
-  %1428 = load ptr, ptr %15, align 8
-  %1429 = call i32 @g_str_has_prefix(ptr noundef %1428, ptr noundef @.str.103)
-  %1430 = icmp ne i32 %1429, 0
-  br i1 %1430, label %1435, label %1431
-
-1431:                                             ; preds = %1427
-  %1432 = load ptr, ptr %15, align 8
-  %1433 = call i32 @g_str_has_prefix(ptr noundef %1432, ptr noundef @.str.104)
-  %1434 = icmp ne i32 %1433, 0
-  br i1 %1434, label %1435, label %1456
-
-1435:                                             ; preds = %1431, %1427, %1423, %1419, %1415
-  %1436 = load ptr, ptr %5, align 8
-  %1437 = load i32, ptr %13, align 4
-  %1438 = call i32 @tvb_reported_length_remaining(ptr noundef %1436, i32 noundef %1437)
-  %1439 = icmp ne i32 %1438, 0
-  br i1 %1439, label %1440, label %1455
-
-1440:                                             ; preds = %1435
-  %1441 = load ptr, ptr %10, align 8
-  %1442 = load i32, ptr @hf_result, align 4
-  %1443 = load ptr, ptr %5, align 8
-  %1444 = load i32, ptr %13, align 4
-  %1445 = load ptr, ptr %6, align 8
-  %1446 = getelementptr inbounds %struct._packet_info, ptr %1445, i32 0, i32 50
-  %1447 = load ptr, ptr %1446, align 8
-  %1448 = call ptr @proto_tree_add_item_ret_display_string(ptr noundef %1441, i32 noundef %1442, ptr noundef %1443, i32 noundef %1444, i32 noundef -1, i32 noundef 0, ptr noundef %1447, ptr noundef %19)
-  %1449 = load ptr, ptr %6, align 8
-  %1450 = getelementptr inbounds %struct._packet_info, ptr %1449, i32 0, i32 1
-  %1451 = load ptr, ptr %1450, align 8
-  %1452 = load ptr, ptr %19, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %1451, i32 noundef 25, ptr noundef @.str.105, ptr noundef %1452)
-  %1453 = load ptr, ptr %5, align 8
-  %1454 = call i32 @tvb_captured_length(ptr noundef %1453)
-  store i32 %1454, ptr %13, align 4
-  br label %1455
-
-1455:                                             ; preds = %1440, %1435
-  br label %1464
-
-1456:                                             ; preds = %1431
-  %1457 = load ptr, ptr %10, align 8
-  %1458 = load i32, ptr @hf_data, align 4
-  %1459 = load ptr, ptr %5, align 8
-  %1460 = load i32, ptr %13, align 4
-  %1461 = call ptr @proto_tree_add_item(ptr noundef %1457, i32 noundef %1458, ptr noundef %1459, i32 noundef %1460, i32 noundef -1, i32 noundef 0)
-  %1462 = load ptr, ptr %5, align 8
-  %1463 = call i32 @tvb_captured_length(ptr noundef %1462)
-  store i32 %1463, ptr %13, align 4
-  br label %1464
-
-1464:                                             ; preds = %1456, %1455
-  br label %1465
-
-1465:                                             ; preds = %1464, %1407
-  br label %1466
-
-1466:                                             ; preds = %1465, %1395
-  br label %1467
-
-1467:                                             ; preds = %1466, %1388
-  br label %1468
-
-1468:                                             ; preds = %1467, %1350
+1351:                                             ; preds = %1350, %1046
+  %1352 = load ptr, ptr %5, align 8
+  %1353 = call i32 @tvb_captured_length(ptr noundef %1352)
+  store i32 %1353, ptr %13, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %41) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %40) #9
+  call void @llvm.lifetime.end.p0(i64 2, ptr %39) #9
+  call void @llvm.lifetime.end.p0(i64 2, ptr %38) #9
+  call void @llvm.lifetime.end.p0(i64 1, ptr %37) #9
+  call void @llvm.lifetime.end.p0(i64 1, ptr %36) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %35) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %34) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %33) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %32) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %31) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %30) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #9
   br label %1469
 
-1469:                                             ; preds = %1468, %930
+1354:                                             ; preds = %937
+  %1355 = load ptr, ptr %15, align 8
+  %1356 = call i32 @g_str_has_prefix(ptr noundef %1355, ptr noundef @.str.95)
+  %1357 = icmp ne i32 %1356, 0
+  br i1 %1357, label %1358, label %1392
+
+1358:                                             ; preds = %1354
+  %1359 = load ptr, ptr %14, align 8
+  %1360 = getelementptr inbounds nuw %struct.adb_service_data_t, ptr %1359, i32 0, i32 3
+  %1361 = load i32, ptr %1360, align 8
+  %1362 = icmp eq i32 %1361, 0
+  br i1 %1362, label %1363, label %1376
+
+1363:                                             ; preds = %1358
+  %1364 = load ptr, ptr %10, align 8
+  %1365 = load i32, ptr @hf_stdin, align 4
+  %1366 = load ptr, ptr %5, align 8
+  %1367 = load i32, ptr %13, align 4
+  %1368 = load ptr, ptr %6, align 8
+  %1369 = getelementptr inbounds nuw %struct._packet_info, ptr %1368, i32 0, i32 51
+  %1370 = load ptr, ptr %1369, align 8
+  %1371 = call ptr @proto_tree_add_item_ret_display_string(ptr noundef %1364, i32 noundef %1365, ptr noundef %1366, i32 noundef %1367, i32 noundef -1, i32 noundef 0, ptr noundef %1370, ptr noundef %19)
+  %1372 = load ptr, ptr %6, align 8
+  %1373 = getelementptr inbounds nuw %struct._packet_info, ptr %1372, i32 0, i32 1
+  %1374 = load ptr, ptr %1373, align 8
+  %1375 = load ptr, ptr %19, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %1374, i32 noundef 25, ptr noundef @.str.96, ptr noundef %1375)
+  br label %1389
+
+1376:                                             ; preds = %1358
+  %1377 = load ptr, ptr %10, align 8
+  %1378 = load i32, ptr @hf_stdout, align 4
+  %1379 = load ptr, ptr %5, align 8
+  %1380 = load i32, ptr %13, align 4
+  %1381 = load ptr, ptr %6, align 8
+  %1382 = getelementptr inbounds nuw %struct._packet_info, ptr %1381, i32 0, i32 51
+  %1383 = load ptr, ptr %1382, align 8
+  %1384 = call ptr @proto_tree_add_item_ret_display_string(ptr noundef %1377, i32 noundef %1378, ptr noundef %1379, i32 noundef %1380, i32 noundef -1, i32 noundef 0, ptr noundef %1383, ptr noundef %19)
+  %1385 = load ptr, ptr %6, align 8
+  %1386 = getelementptr inbounds nuw %struct._packet_info, ptr %1385, i32 0, i32 1
+  %1387 = load ptr, ptr %1386, align 8
+  %1388 = load ptr, ptr %19, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %1387, i32 noundef 25, ptr noundef @.str.97, ptr noundef %1388)
+  br label %1389
+
+1389:                                             ; preds = %1376, %1363
+  %1390 = load ptr, ptr %5, align 8
+  %1391 = call i32 @tvb_captured_length(ptr noundef %1390)
+  store i32 %1391, ptr %13, align 4
+  br label %1468
+
+1392:                                             ; preds = %1354
+  %1393 = load ptr, ptr %15, align 8
+  %1394 = call i32 @g_str_has_prefix(ptr noundef %1393, ptr noundef @.str.98)
+  %1395 = icmp ne i32 %1394, 0
+  br i1 %1395, label %1396, label %1404
+
+1396:                                             ; preds = %1392
+  %1397 = load ptr, ptr %10, align 8
+  %1398 = load i32, ptr @hf_data, align 4
+  %1399 = load ptr, ptr %5, align 8
+  %1400 = load i32, ptr %13, align 4
+  %1401 = call ptr @proto_tree_add_item(ptr noundef %1397, i32 noundef %1398, ptr noundef %1399, i32 noundef %1400, i32 noundef -1, i32 noundef 0)
+  %1402 = load ptr, ptr %5, align 8
+  %1403 = call i32 @tvb_captured_length(ptr noundef %1402)
+  store i32 %1403, ptr %13, align 4
+  br label %1467
+
+1404:                                             ; preds = %1392
+  %1405 = load ptr, ptr %15, align 8
+  %1406 = call i32 @g_str_has_prefix(ptr noundef %1405, ptr noundef @.str.99)
+  %1407 = icmp ne i32 %1406, 0
+  br i1 %1407, label %1408, label %1416
+
+1408:                                             ; preds = %1404
+  %1409 = load ptr, ptr %10, align 8
+  %1410 = load i32, ptr @hf_data, align 4
+  %1411 = load ptr, ptr %5, align 8
+  %1412 = load i32, ptr %13, align 4
+  %1413 = call ptr @proto_tree_add_item(ptr noundef %1409, i32 noundef %1410, ptr noundef %1411, i32 noundef %1412, i32 noundef -1, i32 noundef 0)
+  %1414 = load ptr, ptr %5, align 8
+  %1415 = call i32 @tvb_captured_length(ptr noundef %1414)
+  store i32 %1415, ptr %13, align 4
+  br label %1466
+
+1416:                                             ; preds = %1404
+  %1417 = load ptr, ptr %15, align 8
+  %1418 = call i32 @g_strcmp0(ptr noundef %1417, ptr noundef @.str.100)
+  %1419 = icmp eq i32 %1418, 0
+  br i1 %1419, label %1436, label %1420
+
+1420:                                             ; preds = %1416
+  %1421 = load ptr, ptr %15, align 8
+  %1422 = call i32 @g_str_has_prefix(ptr noundef %1421, ptr noundef @.str.101)
+  %1423 = icmp ne i32 %1422, 0
+  br i1 %1423, label %1436, label %1424
+
+1424:                                             ; preds = %1420
+  %1425 = load ptr, ptr %15, align 8
+  %1426 = call i32 @g_str_has_prefix(ptr noundef %1425, ptr noundef @.str.102)
+  %1427 = icmp ne i32 %1426, 0
+  br i1 %1427, label %1436, label %1428
+
+1428:                                             ; preds = %1424
+  %1429 = load ptr, ptr %15, align 8
+  %1430 = call i32 @g_str_has_prefix(ptr noundef %1429, ptr noundef @.str.103)
+  %1431 = icmp ne i32 %1430, 0
+  br i1 %1431, label %1436, label %1432
+
+1432:                                             ; preds = %1428
+  %1433 = load ptr, ptr %15, align 8
+  %1434 = call i32 @g_str_has_prefix(ptr noundef %1433, ptr noundef @.str.104)
+  %1435 = icmp ne i32 %1434, 0
+  br i1 %1435, label %1436, label %1457
+
+1436:                                             ; preds = %1432, %1428, %1424, %1420, %1416
+  %1437 = load ptr, ptr %5, align 8
+  %1438 = load i32, ptr %13, align 4
+  %1439 = call i32 @tvb_reported_length_remaining(ptr noundef %1437, i32 noundef %1438)
+  %1440 = icmp ne i32 %1439, 0
+  br i1 %1440, label %1441, label %1456
+
+1441:                                             ; preds = %1436
+  %1442 = load ptr, ptr %10, align 8
+  %1443 = load i32, ptr @hf_result, align 4
+  %1444 = load ptr, ptr %5, align 8
+  %1445 = load i32, ptr %13, align 4
+  %1446 = load ptr, ptr %6, align 8
+  %1447 = getelementptr inbounds nuw %struct._packet_info, ptr %1446, i32 0, i32 51
+  %1448 = load ptr, ptr %1447, align 8
+  %1449 = call ptr @proto_tree_add_item_ret_display_string(ptr noundef %1442, i32 noundef %1443, ptr noundef %1444, i32 noundef %1445, i32 noundef -1, i32 noundef 0, ptr noundef %1448, ptr noundef %19)
+  %1450 = load ptr, ptr %6, align 8
+  %1451 = getelementptr inbounds nuw %struct._packet_info, ptr %1450, i32 0, i32 1
+  %1452 = load ptr, ptr %1451, align 8
+  %1453 = load ptr, ptr %19, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %1452, i32 noundef 25, ptr noundef @.str.105, ptr noundef %1453)
+  %1454 = load ptr, ptr %5, align 8
+  %1455 = call i32 @tvb_captured_length(ptr noundef %1454)
+  store i32 %1455, ptr %13, align 4
+  br label %1456
+
+1456:                                             ; preds = %1441, %1436
+  br label %1465
+
+1457:                                             ; preds = %1432
+  %1458 = load ptr, ptr %10, align 8
+  %1459 = load i32, ptr @hf_data, align 4
+  %1460 = load ptr, ptr %5, align 8
+  %1461 = load i32, ptr %13, align 4
+  %1462 = call ptr @proto_tree_add_item(ptr noundef %1458, i32 noundef %1459, ptr noundef %1460, i32 noundef %1461, i32 noundef -1, i32 noundef 0)
+  %1463 = load ptr, ptr %5, align 8
+  %1464 = call i32 @tvb_captured_length(ptr noundef %1463)
+  store i32 %1464, ptr %13, align 4
+  br label %1465
+
+1465:                                             ; preds = %1457, %1456
+  br label %1466
+
+1466:                                             ; preds = %1465, %1408
+  br label %1467
+
+1467:                                             ; preds = %1466, %1396
+  br label %1468
+
+1468:                                             ; preds = %1467, %1389
+  br label %1469
+
+1469:                                             ; preds = %1468, %1351
   br label %1470
 
-1470:                                             ; preds = %1469, %895
+1470:                                             ; preds = %1469, %930
   br label %1471
 
-1471:                                             ; preds = %1470, %343
+1471:                                             ; preds = %1470, %895
   br label %1472
 
-1472:                                             ; preds = %1471, %298
+1472:                                             ; preds = %1471, %343
   br label %1473
 
-1473:                                             ; preds = %1472, %261
-  %1474 = load i32, ptr %13, align 4
-  ret i32 %1474
+1473:                                             ; preds = %1472, %298
+  br label %1474
+
+1474:                                             ; preds = %1473, %261
+  %1475 = load i32, ptr %13, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #9
+  call void @llvm.lifetime.end.p0(i64 80, ptr %16) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #9
+  ret i32 %1475
 }
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #3
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #3
 
-declare ptr @expert_register_protocol(i32 noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_register_protocol(i32 noundef) #3
 
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #3
 
-declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) #3
 
-declare void @prefs_register_static_text_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare void @prefs_register_static_text_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
-declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_adb_service() #0 {
   %1 = load i32, ptr @proto_adb_service, align 4
   %2 = call ptr @find_dissector_add_dependency(ptr noundef @.str.74, i32 noundef %1)
@@ -2409,12 +2506,14 @@ define hidden void @proto_reg_handoff_adb_service() #0 {
   ret void
 }
 
-declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) #3
 
-declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #3
 
-; Function Attrs: nounwind uwtable
-define internal void @proto_item_set_generated(ptr noundef %0) #0 {
+; Function Attrs: inlinehint nounwind null_pointer_is_valid sspstrong uwtable
+define internal void @proto_item_set_generated(ptr noundef %0) #4 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
@@ -2426,22 +2525,22 @@ define internal void @proto_item_set_generated(ptr noundef %0) #0 {
 
 6:                                                ; preds = %5
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct._proto_node, ptr %7, i32 0, i32 4
+  %8 = getelementptr inbounds nuw %struct._proto_node, ptr %7, i32 0, i32 5
   %9 = load ptr, ptr %8, align 8
   %10 = icmp ne ptr %9, null
   br i1 %10, label %11, label %22
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct._proto_node, ptr %12, i32 0, i32 4
+  %13 = getelementptr inbounds nuw %struct._proto_node, ptr %12, i32 0, i32 5
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds %struct.field_info, ptr %14, i32 0, i32 6
+  %15 = getelementptr inbounds nuw %struct.field_info, ptr %14, i32 0, i32 6
   %16 = load i32, ptr %15, align 4
   %17 = or i32 %16, 2
   %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds %struct._proto_node, ptr %18, i32 0, i32 4
+  %19 = getelementptr inbounds nuw %struct._proto_node, ptr %18, i32 0, i32 5
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds %struct.field_info, ptr %20, i32 0, i32 6
+  %21 = getelementptr inbounds nuw %struct.field_info, ptr %20, i32 0, i32 6
   store i32 %17, ptr %21, align 4
   br label %22
 
@@ -2455,67 +2554,118 @@ define internal void @proto_item_set_generated(ptr noundef %0) #0 {
   ret void
 }
 
-declare i32 @g_strcmp0(ptr noundef, ptr noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare i32 @g_strcmp0(ptr noundef, ptr noundef) #3
 
-declare ptr @wmem_tree_lookup32_array(ptr noundef, ptr noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_tree_lookup32_array(ptr noundef, ptr noundef) #3
 
-declare ptr @wmem_tree_lookup32_le(ptr noundef, i32 noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @wmem_tree_lookup32_le(ptr noundef, i32 noundef) #3
 
-declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #3
 
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) #2
+; Function Attrs: null_pointer_is_valid allocsize(1)
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) #5
 
-declare void @wmem_tree_insert32_array(ptr noundef, ptr noundef, ptr noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare void @wmem_tree_insert32_array(ptr noundef, ptr noundef, ptr noundef) #3
 
-declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #2
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #3
 
-declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) #3
 
-declare i32 @g_str_has_prefix(ptr noundef, ptr noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare i32 @g_str_has_prefix(ptr noundef, ptr noundef) #3
 
-declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) #3
 
-declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) #3
 
-declare i32 @tvb_captured_length(ptr noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length(ptr noundef) #3
 
-declare void @proto_item_set_len(ptr noundef, i32 noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_set_len(ptr noundef, i32 noundef) #3
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+; Function Attrs: alwaysinline nounwind
+define internal ptr @memcpy.inline(ptr noalias %0, ptr noalias %1, i64 %2) #6 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load i64, ptr %6, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = call i64 @llvm.objectsize.i64.p0(ptr %10, i1 false, i1 true, i1 true)
+  %12 = call ptr @__memcpy_chk(ptr noundef %7, ptr noundef %8, i64 noundef %9, i64 noundef %11) #9
+  ret ptr %12
+}
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #3
 
-declare ptr @tvb_new_child_real_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_child_real_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) #3
 
-declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) #3
 
-declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) #3
 
-declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) #3
 
-declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
-declare ptr @proto_tree_add_item_ret_display_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #2
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item_ret_display_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) #3
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { noreturn }
+; Function Attrs: nounwind null_pointer_is_valid
+declare ptr @__memcpy_chk(ptr noundef, ptr noundef, i64 noundef, i64 noundef) #7
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.objectsize.i64.p0(ptr, i1 immarg, i1 immarg, i1 immarg) #8
+
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { alwaysinline nounwind "min-legal-vector-width"="0" }
+attributes #7 = { nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
+attributes #10 = { noreturn }
+attributes #11 = { allocsize(1) }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}

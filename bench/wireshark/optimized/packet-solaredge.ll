@@ -7,8 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
 %struct._value_string = type { i32, ptr }
 %struct.unit_name_string = type { ptr, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
 
 @.str = private unnamed_addr constant [9 x i8] c"tcp.port\00", align 1
@@ -32,7 +30,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_solaredge_command_type = internal global i32 0, align 4
 @.str.11 = private unnamed_addr constant [13 x i8] c"Command Type\00", align 1
 @.str.12 = private unnamed_addr constant [18 x i8] c"solaredge.command\00", align 1
-@solaredge_packet_commandtypes = internal constant [421 x %struct._value_string] [%struct._value_string { i32 16, ptr @.str.98 }, %struct._value_string { i32 17, ptr @.str.99 }, %struct._value_string { i32 18, ptr @.str.100 }, %struct._value_string { i32 19, ptr @.str.101 }, %struct._value_string { i32 20, ptr @.str.102 }, %struct._value_string { i32 21, ptr @.str.103 }, %struct._value_string { i32 22, ptr @.str.104 }, %struct._value_string { i32 23, ptr @.str.105 }, %struct._value_string { i32 24, ptr @.str.106 }, %struct._value_string { i32 25, ptr @.str.107 }, %struct._value_string { i32 26, ptr @.str.108 }, %struct._value_string { i32 27, ptr @.str.109 }, %struct._value_string { i32 28, ptr @.str.110 }, %struct._value_string { i32 29, ptr @.str.111 }, %struct._value_string { i32 30, ptr @.str.112 }, %struct._value_string { i32 31, ptr @.str.113 }, %struct._value_string { i32 32, ptr @.str.114 }, %struct._value_string { i32 33, ptr @.str.115 }, %struct._value_string { i32 34, ptr @.str.116 }, %struct._value_string { i32 35, ptr @.str.117 }, %struct._value_string { i32 36, ptr @.str.118 }, %struct._value_string { i32 48, ptr @.str.119 }, %struct._value_string { i32 49, ptr @.str.120 }, %struct._value_string { i32 50, ptr @.str.121 }, %struct._value_string { i32 51, ptr @.str.122 }, %struct._value_string { i32 52, ptr @.str.123 }, %struct._value_string { i32 53, ptr @.str.124 }, %struct._value_string { i32 54, ptr @.str.125 }, %struct._value_string { i32 55, ptr @.str.126 }, %struct._value_string { i32 56, ptr @.str.127 }, %struct._value_string { i32 57, ptr @.str.128 }, %struct._value_string { i32 61, ptr @.str.129 }, %struct._value_string { i32 64, ptr @.str.130 }, %struct._value_string { i32 65, ptr @.str.131 }, %struct._value_string { i32 66, ptr @.str.132 }, %struct._value_string { i32 67, ptr @.str.133 }, %struct._value_string { i32 68, ptr @.str.134 }, %struct._value_string { i32 128, ptr @.str.135 }, %struct._value_string { i32 129, ptr @.str.136 }, %struct._value_string { i32 144, ptr @.str.137 }, %struct._value_string { i32 145, ptr @.str.138 }, %struct._value_string { i32 146, ptr @.str.139 }, %struct._value_string { i32 147, ptr @.str.140 }, %struct._value_string { i32 148, ptr @.str.141 }, %struct._value_string { i32 149, ptr @.str.142 }, %struct._value_string { i32 160, ptr @.str.143 }, %struct._value_string { i32 161, ptr @.str.144 }, %struct._value_string { i32 176, ptr @.str.145 }, %struct._value_string { i32 177, ptr @.str.146 }, %struct._value_string { i32 178, ptr @.str.147 }, %struct._value_string { i32 179, ptr @.str.148 }, %struct._value_string { i32 180, ptr @.str.149 }, %struct._value_string { i32 256, ptr @.str.150 }, %struct._value_string { i32 257, ptr @.str.151 }, %struct._value_string { i32 258, ptr @.str.152 }, %struct._value_string { i32 259, ptr @.str.153 }, %struct._value_string { i32 260, ptr @.str.154 }, %struct._value_string { i32 261, ptr @.str.155 }, %struct._value_string { i32 262, ptr @.str.156 }, %struct._value_string { i32 263, ptr @.str.157 }, %struct._value_string { i32 264, ptr @.str.158 }, %struct._value_string { i32 265, ptr @.str.159 }, %struct._value_string { i32 266, ptr @.str.160 }, %struct._value_string { i32 267, ptr @.str.161 }, %struct._value_string { i32 268, ptr @.str.162 }, %struct._value_string { i32 269, ptr @.str.163 }, %struct._value_string { i32 270, ptr @.str.164 }, %struct._value_string { i32 271, ptr @.str.165 }, %struct._value_string { i32 272, ptr @.str.166 }, %struct._value_string { i32 273, ptr @.str.167 }, %struct._value_string { i32 274, ptr @.str.168 }, %struct._value_string { i32 275, ptr @.str.169 }, %struct._value_string { i32 276, ptr @.str.170 }, %struct._value_string { i32 277, ptr @.str.171 }, %struct._value_string { i32 278, ptr @.str.172 }, %struct._value_string { i32 279, ptr @.str.173 }, %struct._value_string { i32 280, ptr @.str.174 }, %struct._value_string { i32 281, ptr @.str.175 }, %struct._value_string { i32 282, ptr @.str.176 }, %struct._value_string { i32 283, ptr @.str.177 }, %struct._value_string { i32 284, ptr @.str.178 }, %struct._value_string { i32 285, ptr @.str.179 }, %struct._value_string { i32 286, ptr @.str.180 }, %struct._value_string { i32 287, ptr @.str.181 }, %struct._value_string { i32 288, ptr @.str.182 }, %struct._value_string { i32 289, ptr @.str.183 }, %struct._value_string { i32 290, ptr @.str.184 }, %struct._value_string { i32 291, ptr @.str.185 }, %struct._value_string { i32 292, ptr @.str.186 }, %struct._value_string { i32 293, ptr @.str.187 }, %struct._value_string { i32 294, ptr @.str.188 }, %struct._value_string { i32 295, ptr @.str.189 }, %struct._value_string { i32 296, ptr @.str.190 }, %struct._value_string { i32 297, ptr @.str.191 }, %struct._value_string { i32 298, ptr @.str.192 }, %struct._value_string { i32 299, ptr @.str.193 }, %struct._value_string { i32 384, ptr @.str.194 }, %struct._value_string { i32 385, ptr @.str.195 }, %struct._value_string { i32 386, ptr @.str.196 }, %struct._value_string { i32 387, ptr @.str.197 }, %struct._value_string { i32 388, ptr @.str.198 }, %struct._value_string { i32 389, ptr @.str.199 }, %struct._value_string { i32 390, ptr @.str.200 }, %struct._value_string { i32 391, ptr @.str.201 }, %struct._value_string { i32 392, ptr @.str.202 }, %struct._value_string { i32 512, ptr @.str.203 }, %struct._value_string { i32 513, ptr @.str.204 }, %struct._value_string { i32 514, ptr @.str.205 }, %struct._value_string { i32 515, ptr @.str.206 }, %struct._value_string { i32 516, ptr @.str.207 }, %struct._value_string { i32 517, ptr @.str.208 }, %struct._value_string { i32 518, ptr @.str.209 }, %struct._value_string { i32 519, ptr @.str.210 }, %struct._value_string { i32 520, ptr @.str.211 }, %struct._value_string { i32 521, ptr @.str.212 }, %struct._value_string { i32 522, ptr @.str.213 }, %struct._value_string { i32 523, ptr @.str.214 }, %struct._value_string { i32 524, ptr @.str.215 }, %struct._value_string { i32 525, ptr @.str.216 }, %struct._value_string { i32 526, ptr @.str.217 }, %struct._value_string { i32 527, ptr @.str.218 }, %struct._value_string { i32 528, ptr @.str.219 }, %struct._value_string { i32 529, ptr @.str.220 }, %struct._value_string { i32 530, ptr @.str.221 }, %struct._value_string { i32 531, ptr @.str.222 }, %struct._value_string { i32 532, ptr @.str.223 }, %struct._value_string { i32 533, ptr @.str.224 }, %struct._value_string { i32 534, ptr @.str.225 }, %struct._value_string { i32 535, ptr @.str.226 }, %struct._value_string { i32 536, ptr @.str.227 }, %struct._value_string { i32 537, ptr @.str.228 }, %struct._value_string { i32 538, ptr @.str.229 }, %struct._value_string { i32 539, ptr @.str.230 }, %struct._value_string { i32 540, ptr @.str.231 }, %struct._value_string { i32 541, ptr @.str.232 }, %struct._value_string { i32 542, ptr @.str.233 }, %struct._value_string { i32 543, ptr @.str.234 }, %struct._value_string { i32 544, ptr @.str.235 }, %struct._value_string { i32 545, ptr @.str.236 }, %struct._value_string { i32 546, ptr @.str.237 }, %struct._value_string { i32 547, ptr @.str.238 }, %struct._value_string { i32 548, ptr @.str.239 }, %struct._value_string { i32 549, ptr @.str.240 }, %struct._value_string { i32 640, ptr @.str.241 }, %struct._value_string { i32 641, ptr @.str.242 }, %struct._value_string { i32 642, ptr @.str.243 }, %struct._value_string { i32 643, ptr @.str.244 }, %struct._value_string { i32 644, ptr @.str.245 }, %struct._value_string { i32 645, ptr @.str.246 }, %struct._value_string { i32 646, ptr @.str.247 }, %struct._value_string { i32 647, ptr @.str.248 }, %struct._value_string { i32 648, ptr @.str.249 }, %struct._value_string { i32 649, ptr @.str.250 }, %struct._value_string { i32 650, ptr @.str.251 }, %struct._value_string { i32 651, ptr @.str.252 }, %struct._value_string { i32 652, ptr @.str.253 }, %struct._value_string { i32 653, ptr @.str.254 }, %struct._value_string { i32 768, ptr @.str.255 }, %struct._value_string { i32 769, ptr @.str.256 }, %struct._value_string { i32 770, ptr @.str.257 }, %struct._value_string { i32 771, ptr @.str.258 }, %struct._value_string { i32 772, ptr @.str.259 }, %struct._value_string { i32 773, ptr @.str.260 }, %struct._value_string { i32 774, ptr @.str.261 }, %struct._value_string { i32 775, ptr @.str.262 }, %struct._value_string { i32 776, ptr @.str.263 }, %struct._value_string { i32 777, ptr @.str.264 }, %struct._value_string { i32 778, ptr @.str.265 }, %struct._value_string { i32 779, ptr @.str.266 }, %struct._value_string { i32 780, ptr @.str.267 }, %struct._value_string { i32 781, ptr @.str.268 }, %struct._value_string { i32 782, ptr @.str.269 }, %struct._value_string { i32 783, ptr @.str.270 }, %struct._value_string { i32 784, ptr @.str.271 }, %struct._value_string { i32 785, ptr @.str.272 }, %struct._value_string { i32 786, ptr @.str.273 }, %struct._value_string { i32 787, ptr @.str.274 }, %struct._value_string { i32 788, ptr @.str.275 }, %struct._value_string { i32 789, ptr @.str.276 }, %struct._value_string { i32 790, ptr @.str.277 }, %struct._value_string { i32 791, ptr @.str.278 }, %struct._value_string { i32 792, ptr @.str.279 }, %struct._value_string { i32 793, ptr @.str.280 }, %struct._value_string { i32 794, ptr @.str.281 }, %struct._value_string { i32 795, ptr @.str.282 }, %struct._value_string { i32 796, ptr @.str.283 }, %struct._value_string { i32 797, ptr @.str.284 }, %struct._value_string { i32 798, ptr @.str.285 }, %struct._value_string { i32 799, ptr @.str.286 }, %struct._value_string { i32 800, ptr @.str.287 }, %struct._value_string { i32 801, ptr @.str.288 }, %struct._value_string { i32 802, ptr @.str.289 }, %struct._value_string { i32 803, ptr @.str.290 }, %struct._value_string { i32 804, ptr @.str.291 }, %struct._value_string { i32 805, ptr @.str.292 }, %struct._value_string { i32 806, ptr @.str.293 }, %struct._value_string { i32 807, ptr @.str.294 }, %struct._value_string { i32 808, ptr @.str.295 }, %struct._value_string { i32 809, ptr @.str.296 }, %struct._value_string { i32 810, ptr @.str.297 }, %struct._value_string { i32 811, ptr @.str.298 }, %struct._value_string { i32 812, ptr @.str.299 }, %struct._value_string { i32 813, ptr @.str.300 }, %struct._value_string { i32 814, ptr @.str.301 }, %struct._value_string { i32 815, ptr @.str.302 }, %struct._value_string { i32 816, ptr @.str.303 }, %struct._value_string { i32 817, ptr @.str.304 }, %struct._value_string { i32 818, ptr @.str.305 }, %struct._value_string { i32 819, ptr @.str.306 }, %struct._value_string { i32 820, ptr @.str.307 }, %struct._value_string { i32 821, ptr @.str.308 }, %struct._value_string { i32 822, ptr @.str.309 }, %struct._value_string { i32 823, ptr @.str.310 }, %struct._value_string { i32 824, ptr @.str.311 }, %struct._value_string { i32 825, ptr @.str.312 }, %struct._value_string { i32 826, ptr @.str.313 }, %struct._value_string { i32 827, ptr @.str.314 }, %struct._value_string { i32 828, ptr @.str.315 }, %struct._value_string { i32 829, ptr @.str.316 }, %struct._value_string { i32 830, ptr @.str.317 }, %struct._value_string { i32 831, ptr @.str.318 }, %struct._value_string { i32 832, ptr @.str.319 }, %struct._value_string { i32 833, ptr @.str.320 }, %struct._value_string { i32 834, ptr @.str.321 }, %struct._value_string { i32 835, ptr @.str.322 }, %struct._value_string { i32 836, ptr @.str.323 }, %struct._value_string { i32 837, ptr @.str.324 }, %struct._value_string { i32 838, ptr @.str.325 }, %struct._value_string { i32 839, ptr @.str.326 }, %struct._value_string { i32 840, ptr @.str.327 }, %struct._value_string { i32 841, ptr @.str.328 }, %struct._value_string { i32 842, ptr @.str.329 }, %struct._value_string { i32 843, ptr @.str.330 }, %struct._value_string { i32 844, ptr @.str.331 }, %struct._value_string { i32 845, ptr @.str.332 }, %struct._value_string { i32 846, ptr @.str.333 }, %struct._value_string { i32 896, ptr @.str.334 }, %struct._value_string { i32 897, ptr @.str.335 }, %struct._value_string { i32 898, ptr @.str.336 }, %struct._value_string { i32 899, ptr @.str.337 }, %struct._value_string { i32 900, ptr @.str.338 }, %struct._value_string { i32 901, ptr @.str.339 }, %struct._value_string { i32 902, ptr @.str.340 }, %struct._value_string { i32 903, ptr @.str.341 }, %struct._value_string { i32 904, ptr @.str.342 }, %struct._value_string { i32 905, ptr @.str.343 }, %struct._value_string { i32 906, ptr @.str.344 }, %struct._value_string { i32 907, ptr @.str.345 }, %struct._value_string { i32 908, ptr @.str.346 }, %struct._value_string { i32 909, ptr @.str.347 }, %struct._value_string { i32 910, ptr @.str.348 }, %struct._value_string { i32 911, ptr @.str.349 }, %struct._value_string { i32 912, ptr @.str.350 }, %struct._value_string { i32 913, ptr @.str.351 }, %struct._value_string { i32 914, ptr @.str.352 }, %struct._value_string { i32 915, ptr @.str.353 }, %struct._value_string { i32 916, ptr @.str.354 }, %struct._value_string { i32 917, ptr @.str.355 }, %struct._value_string { i32 918, ptr @.str.356 }, %struct._value_string { i32 919, ptr @.str.357 }, %struct._value_string { i32 920, ptr @.str.358 }, %struct._value_string { i32 921, ptr @.str.359 }, %struct._value_string { i32 922, ptr @.str.360 }, %struct._value_string { i32 923, ptr @.str.361 }, %struct._value_string { i32 924, ptr @.str.362 }, %struct._value_string { i32 925, ptr @.str.363 }, %struct._value_string { i32 926, ptr @.str.364 }, %struct._value_string { i32 927, ptr @.str.365 }, %struct._value_string { i32 928, ptr @.str.366 }, %struct._value_string { i32 929, ptr @.str.367 }, %struct._value_string { i32 1024, ptr @.str.368 }, %struct._value_string { i32 1025, ptr @.str.369 }, %struct._value_string { i32 1026, ptr @.str.370 }, %struct._value_string { i32 1027, ptr @.str.371 }, %struct._value_string { i32 1028, ptr @.str.372 }, %struct._value_string { i32 1152, ptr @.str.373 }, %struct._value_string { i32 1153, ptr @.str.374 }, %struct._value_string { i32 1280, ptr @.str.375 }, %struct._value_string { i32 1281, ptr @.str.376 }, %struct._value_string { i32 1282, ptr @.str.377 }, %struct._value_string { i32 1283, ptr @.str.378 }, %struct._value_string { i32 1408, ptr @.str.379 }, %struct._value_string { i32 1409, ptr @.str.380 }, %struct._value_string { i32 1664, ptr @.str.381 }, %struct._value_string { i32 2048, ptr @.str.382 }, %struct._value_string { i32 2049, ptr @.str.383 }, %struct._value_string { i32 2050, ptr @.str.384 }, %struct._value_string { i32 2051, ptr @.str.385 }, %struct._value_string { i32 2052, ptr @.str.386 }, %struct._value_string { i32 2053, ptr @.str.387 }, %struct._value_string { i32 2054, ptr @.str.388 }, %struct._value_string { i32 2055, ptr @.str.389 }, %struct._value_string { i32 2056, ptr @.str.390 }, %struct._value_string { i32 2057, ptr @.str.391 }, %struct._value_string { i32 2058, ptr @.str.392 }, %struct._value_string { i32 2059, ptr @.str.393 }, %struct._value_string { i32 2060, ptr @.str.394 }, %struct._value_string { i32 2061, ptr @.str.395 }, %struct._value_string { i32 2062, ptr @.str.396 }, %struct._value_string { i32 2063, ptr @.str.397 }, %struct._value_string { i32 2064, ptr @.str.398 }, %struct._value_string { i32 2065, ptr @.str.399 }, %struct._value_string { i32 2066, ptr @.str.400 }, %struct._value_string { i32 2067, ptr @.str.401 }, %struct._value_string { i32 2176, ptr @.str.402 }, %struct._value_string { i32 2177, ptr @.str.403 }, %struct._value_string { i32 2178, ptr @.str.404 }, %struct._value_string { i32 2179, ptr @.str.405 }, %struct._value_string { i32 2180, ptr @.str.406 }, %struct._value_string { i32 2181, ptr @.str.407 }, %struct._value_string { i32 2182, ptr @.str.408 }, %struct._value_string { i32 2183, ptr @.str.409 }, %struct._value_string { i32 2184, ptr @.str.410 }, %struct._value_string { i32 2185, ptr @.str.411 }, %struct._value_string { i32 2186, ptr @.str.412 }, %struct._value_string { i32 2187, ptr @.str.413 }, %struct._value_string { i32 2188, ptr @.str.414 }, %struct._value_string { i32 2189, ptr @.str.415 }, %struct._value_string { i32 2190, ptr @.str.416 }, %struct._value_string { i32 2304, ptr @.str.417 }, %struct._value_string { i32 2305, ptr @.str.418 }, %struct._value_string { i32 2306, ptr @.str.419 }, %struct._value_string { i32 2307, ptr @.str.420 }, %struct._value_string { i32 2308, ptr @.str.421 }, %struct._value_string { i32 2309, ptr @.str.422 }, %struct._value_string { i32 2310, ptr @.str.423 }, %struct._value_string { i32 2311, ptr @.str.424 }, %struct._value_string { i32 2312, ptr @.str.425 }, %struct._value_string { i32 2313, ptr @.str.426 }, %struct._value_string { i32 2314, ptr @.str.427 }, %struct._value_string { i32 2315, ptr @.str.428 }, %struct._value_string { i32 2316, ptr @.str.429 }, %struct._value_string { i32 2317, ptr @.str.430 }, %struct._value_string { i32 2318, ptr @.str.431 }, %struct._value_string { i32 2319, ptr @.str.432 }, %struct._value_string { i32 2320, ptr @.str.433 }, %struct._value_string { i32 2321, ptr @.str.434 }, %struct._value_string { i32 2322, ptr @.str.435 }, %struct._value_string { i32 2432, ptr @.str.436 }, %struct._value_string { i32 2433, ptr @.str.437 }, %struct._value_string { i32 2560, ptr @.str.438 }, %struct._value_string { i32 2561, ptr @.str.439 }, %struct._value_string { i32 2562, ptr @.str.440 }, %struct._value_string { i32 2563, ptr @.str.441 }, %struct._value_string { i32 2564, ptr @.str.442 }, %struct._value_string { i32 2565, ptr @.str.443 }, %struct._value_string { i32 2566, ptr @.str.444 }, %struct._value_string { i32 2567, ptr @.str.445 }, %struct._value_string { i32 2568, ptr @.str.446 }, %struct._value_string { i32 2688, ptr @.str.447 }, %struct._value_string { i32 2689, ptr @.str.448 }, %struct._value_string { i32 2690, ptr @.str.449 }, %struct._value_string { i32 2691, ptr @.str.450 }, %struct._value_string { i32 2816, ptr @.str.451 }, %struct._value_string { i32 2817, ptr @.str.452 }, %struct._value_string { i32 2818, ptr @.str.453 }, %struct._value_string { i32 2819, ptr @.str.454 }, %struct._value_string { i32 2820, ptr @.str.455 }, %struct._value_string { i32 2821, ptr @.str.456 }, %struct._value_string { i32 2822, ptr @.str.457 }, %struct._value_string { i32 2823, ptr @.str.458 }, %struct._value_string { i32 2824, ptr @.str.459 }, %struct._value_string { i32 2825, ptr @.str.460 }, %struct._value_string { i32 2826, ptr @.str.461 }, %struct._value_string { i32 2827, ptr @.str.462 }, %struct._value_string { i32 2828, ptr @.str.463 }, %struct._value_string { i32 2829, ptr @.str.464 }, %struct._value_string { i32 2830, ptr @.str.465 }, %struct._value_string { i32 2831, ptr @.str.466 }, %struct._value_string { i32 2832, ptr @.str.467 }, %struct._value_string { i32 2833, ptr @.str.468 }, %struct._value_string { i32 2834, ptr @.str.469 }, %struct._value_string { i32 2835, ptr @.str.470 }, %struct._value_string { i32 2836, ptr @.str.471 }, %struct._value_string { i32 2837, ptr @.str.472 }, %struct._value_string { i32 2838, ptr @.str.473 }, %struct._value_string { i32 2839, ptr @.str.474 }, %struct._value_string { i32 2840, ptr @.str.475 }, %struct._value_string { i32 2841, ptr @.str.476 }, %struct._value_string { i32 2842, ptr @.str.477 }, %struct._value_string { i32 2843, ptr @.str.478 }, %struct._value_string { i32 2844, ptr @.str.479 }, %struct._value_string { i32 2845, ptr @.str.480 }, %struct._value_string { i32 2944, ptr @.str.481 }, %struct._value_string { i32 2945, ptr @.str.482 }, %struct._value_string { i32 2946, ptr @.str.483 }, %struct._value_string { i32 2947, ptr @.str.484 }, %struct._value_string { i32 2948, ptr @.str.485 }, %struct._value_string { i32 2949, ptr @.str.486 }, %struct._value_string { i32 2950, ptr @.str.487 }, %struct._value_string { i32 3072, ptr @.str.488 }, %struct._value_string { i32 3073, ptr @.str.489 }, %struct._value_string { i32 3074, ptr @.str.490 }, %struct._value_string { i32 3075, ptr @.str.491 }, %struct._value_string { i32 3076, ptr @.str.492 }, %struct._value_string { i32 3077, ptr @.str.493 }, %struct._value_string { i32 3078, ptr @.str.494 }, %struct._value_string { i32 3079, ptr @.str.495 }, %struct._value_string { i32 3200, ptr @.str.496 }, %struct._value_string { i32 3201, ptr @.str.497 }, %struct._value_string { i32 3202, ptr @.str.498 }, %struct._value_string { i32 3203, ptr @.str.499 }, %struct._value_string { i32 3204, ptr @.str.500 }, %struct._value_string { i32 3205, ptr @.str.501 }, %struct._value_string { i32 5120, ptr @.str.502 }, %struct._value_string { i32 5121, ptr @.str.503 }, %struct._value_string { i32 5376, ptr @.str.504 }, %struct._value_string { i32 5377, ptr @.str.505 }, %struct._value_string { i32 5378, ptr @.str.506 }, %struct._value_string { i32 5379, ptr @.str.507 }, %struct._value_string { i32 5380, ptr @.str.508 }, %struct._value_string { i32 5381, ptr @.str.509 }, %struct._value_string { i32 5382, ptr @.str.510 }, %struct._value_string { i32 5632, ptr @.str.511 }, %struct._value_string { i32 5633, ptr @.str.512 }, %struct._value_string { i32 5634, ptr @.str.513 }, %struct._value_string { i32 5635, ptr @.str.514 }, %struct._value_string { i32 5760, ptr @.str.515 }, %struct._value_string { i32 5888, ptr @.str.516 }, %struct._value_string { i32 5889, ptr @.str.517 }, %struct._value_string zeroinitializer], align 16
 @hf_solaredge_crc_type = internal global i32 0, align 4
 @.str.13 = private unnamed_addr constant [4 x i8] c"CRC\00", align 1
 @.str.14 = private unnamed_addr constant [14 x i8] c"solaredge.crc\00", align 1
@@ -55,7 +52,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_solaredge_post_device_type_type = internal global i32 0, align 4
 @.str.25 = private unnamed_addr constant [12 x i8] c"Device Type\00", align 1
 @.str.26 = private unnamed_addr constant [27 x i8] c"solaredge.post.device.type\00", align 1
-@solaredge_data_devicetypes = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.518 }, %struct._value_string { i32 16, ptr @.str.519 }, %struct._value_string { i32 17, ptr @.str.520 }, %struct._value_string { i32 128, ptr @.str.518 }, %struct._value_string { i32 768, ptr @.str.521 }, %struct._value_string zeroinitializer], align 16
 @hf_solaredge_post_device_id_type = internal global i32 0, align 4
 @.str.27 = private unnamed_addr constant [10 x i8] c"Device ID\00", align 1
 @.str.28 = private unnamed_addr constant [25 x i8] c"solaredge.post.device.id\00", align 1
@@ -152,7 +148,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_solaredge_post_event_event_end_timestamp_type = internal global i32 0, align 4
 @.str.83 = private unnamed_addr constant [11 x i8] c"Event stop\00", align 1
 @.str.84 = private unnamed_addr constant [33 x i8] c"solaredge.post.device.event.stop\00", align 1
-@proto_register_solaredge.ei = internal global [2 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_solaredge_invalid_length, %struct.expert_field_info { ptr @.str.85, i32 117440512, i32 6291456, ptr @.str.86, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, %struct.ei_register_info { ptr @ei_solaredge_invalid_crc, %struct.expert_field_info { ptr @.str.87, i32 16777216, i32 6291456, ptr @.str.88, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_solaredge.ei = internal global [2 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_solaredge_invalid_length, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.85, i32 117440512, i32 6291456, ptr @.str.86, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }, { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_solaredge_invalid_crc, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.87, i32 16777216, i32 6291456, ptr @.str.88, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_solaredge_invalid_length = internal global %struct.expert_field zeroinitializer, align 4
 @.str.85 = private unnamed_addr constant [25 x i8] c"solaredge.invalid_length\00", align 1
 @.str.86 = private unnamed_addr constant [47 x i8] c"Inverse length field not matching length field\00", align 1
@@ -171,7 +167,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.92 = private unnamed_addr constant [8 x i8] c"unknown\00", align 1
 @.str.93 = private unnamed_addr constant [20 x i8] c"Show unknown fields\00", align 1
 @.str.94 = private unnamed_addr constant [59 x i8] c"Show unidentified fields (\22padding\22) in packet dissections\00", align 1
-@global_show_unknown_fields = internal global i32 1, align 4
+@global_show_unknown_fields = internal global i8 1, align 1
 @.str.95 = private unnamed_addr constant [22 x i8] c"system_encryption_key\00", align 1
 @.str.96 = private unnamed_addr constant [22 x i8] c"System encryption key\00", align 1
 @.str.97 = private unnamed_addr constant [31 x i8] c"Inverter system encryption key\00", align 1
@@ -596,65 +592,73 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.515 = private unnamed_addr constant [15 x i8] c"FANCONTROL_RES\00", align 1
 @.str.516 = private unnamed_addr constant [24 x i8] c"DISPLAY_BOARD_LCD_WRITE\00", align 1
 @.str.517 = private unnamed_addr constant [22 x i8] c"DISPLAY_BOARD_LED_SET\00", align 1
-@.str.518 = private unnamed_addr constant [10 x i8] c"Optimizer\00", align 1
-@.str.519 = private unnamed_addr constant [22 x i8] c"Single phase inverter\00", align 1
-@.str.520 = private unnamed_addr constant [21 x i8] c"Three phase inverter\00", align 1
-@.str.521 = private unnamed_addr constant [17 x i8] c"Wake/sleep event\00", align 1
-@.str.522 = private unnamed_addr constant [57 x i8] c"Invalid length: inverse length %d not matching length %d\00", align 1
-@.str.523 = private unnamed_addr constant [16 x i8] c"Unknown command\00", align 1
-@.str.524 = private unnamed_addr constant [17 x i8] c"Decrypted Packet\00", align 1
+@solaredge_packet_commandtypes = internal constant [421 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.98 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.99 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.100 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.101 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.102 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.103 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.104 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.105 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.106 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.107 }, { i32, [4 x i8], ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.108 }, { i32, [4 x i8], ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.109 }, { i32, [4 x i8], ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.110 }, { i32, [4 x i8], ptr } { i32 29, [4 x i8] zeroinitializer, ptr @.str.111 }, { i32, [4 x i8], ptr } { i32 30, [4 x i8] zeroinitializer, ptr @.str.112 }, { i32, [4 x i8], ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.113 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.114 }, { i32, [4 x i8], ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.115 }, { i32, [4 x i8], ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.116 }, { i32, [4 x i8], ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.117 }, { i32, [4 x i8], ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.118 }, { i32, [4 x i8], ptr } { i32 48, [4 x i8] zeroinitializer, ptr @.str.119 }, { i32, [4 x i8], ptr } { i32 49, [4 x i8] zeroinitializer, ptr @.str.120 }, { i32, [4 x i8], ptr } { i32 50, [4 x i8] zeroinitializer, ptr @.str.121 }, { i32, [4 x i8], ptr } { i32 51, [4 x i8] zeroinitializer, ptr @.str.122 }, { i32, [4 x i8], ptr } { i32 52, [4 x i8] zeroinitializer, ptr @.str.123 }, { i32, [4 x i8], ptr } { i32 53, [4 x i8] zeroinitializer, ptr @.str.124 }, { i32, [4 x i8], ptr } { i32 54, [4 x i8] zeroinitializer, ptr @.str.125 }, { i32, [4 x i8], ptr } { i32 55, [4 x i8] zeroinitializer, ptr @.str.126 }, { i32, [4 x i8], ptr } { i32 56, [4 x i8] zeroinitializer, ptr @.str.127 }, { i32, [4 x i8], ptr } { i32 57, [4 x i8] zeroinitializer, ptr @.str.128 }, { i32, [4 x i8], ptr } { i32 61, [4 x i8] zeroinitializer, ptr @.str.129 }, { i32, [4 x i8], ptr } { i32 64, [4 x i8] zeroinitializer, ptr @.str.130 }, { i32, [4 x i8], ptr } { i32 65, [4 x i8] zeroinitializer, ptr @.str.131 }, { i32, [4 x i8], ptr } { i32 66, [4 x i8] zeroinitializer, ptr @.str.132 }, { i32, [4 x i8], ptr } { i32 67, [4 x i8] zeroinitializer, ptr @.str.133 }, { i32, [4 x i8], ptr } { i32 68, [4 x i8] zeroinitializer, ptr @.str.134 }, { i32, [4 x i8], ptr } { i32 128, [4 x i8] zeroinitializer, ptr @.str.135 }, { i32, [4 x i8], ptr } { i32 129, [4 x i8] zeroinitializer, ptr @.str.136 }, { i32, [4 x i8], ptr } { i32 144, [4 x i8] zeroinitializer, ptr @.str.137 }, { i32, [4 x i8], ptr } { i32 145, [4 x i8] zeroinitializer, ptr @.str.138 }, { i32, [4 x i8], ptr } { i32 146, [4 x i8] zeroinitializer, ptr @.str.139 }, { i32, [4 x i8], ptr } { i32 147, [4 x i8] zeroinitializer, ptr @.str.140 }, { i32, [4 x i8], ptr } { i32 148, [4 x i8] zeroinitializer, ptr @.str.141 }, { i32, [4 x i8], ptr } { i32 149, [4 x i8] zeroinitializer, ptr @.str.142 }, { i32, [4 x i8], ptr } { i32 160, [4 x i8] zeroinitializer, ptr @.str.143 }, { i32, [4 x i8], ptr } { i32 161, [4 x i8] zeroinitializer, ptr @.str.144 }, { i32, [4 x i8], ptr } { i32 176, [4 x i8] zeroinitializer, ptr @.str.145 }, { i32, [4 x i8], ptr } { i32 177, [4 x i8] zeroinitializer, ptr @.str.146 }, { i32, [4 x i8], ptr } { i32 178, [4 x i8] zeroinitializer, ptr @.str.147 }, { i32, [4 x i8], ptr } { i32 179, [4 x i8] zeroinitializer, ptr @.str.148 }, { i32, [4 x i8], ptr } { i32 180, [4 x i8] zeroinitializer, ptr @.str.149 }, { i32, [4 x i8], ptr } { i32 256, [4 x i8] zeroinitializer, ptr @.str.150 }, { i32, [4 x i8], ptr } { i32 257, [4 x i8] zeroinitializer, ptr @.str.151 }, { i32, [4 x i8], ptr } { i32 258, [4 x i8] zeroinitializer, ptr @.str.152 }, { i32, [4 x i8], ptr } { i32 259, [4 x i8] zeroinitializer, ptr @.str.153 }, { i32, [4 x i8], ptr } { i32 260, [4 x i8] zeroinitializer, ptr @.str.154 }, { i32, [4 x i8], ptr } { i32 261, [4 x i8] zeroinitializer, ptr @.str.155 }, { i32, [4 x i8], ptr } { i32 262, [4 x i8] zeroinitializer, ptr @.str.156 }, { i32, [4 x i8], ptr } { i32 263, [4 x i8] zeroinitializer, ptr @.str.157 }, { i32, [4 x i8], ptr } { i32 264, [4 x i8] zeroinitializer, ptr @.str.158 }, { i32, [4 x i8], ptr } { i32 265, [4 x i8] zeroinitializer, ptr @.str.159 }, { i32, [4 x i8], ptr } { i32 266, [4 x i8] zeroinitializer, ptr @.str.160 }, { i32, [4 x i8], ptr } { i32 267, [4 x i8] zeroinitializer, ptr @.str.161 }, { i32, [4 x i8], ptr } { i32 268, [4 x i8] zeroinitializer, ptr @.str.162 }, { i32, [4 x i8], ptr } { i32 269, [4 x i8] zeroinitializer, ptr @.str.163 }, { i32, [4 x i8], ptr } { i32 270, [4 x i8] zeroinitializer, ptr @.str.164 }, { i32, [4 x i8], ptr } { i32 271, [4 x i8] zeroinitializer, ptr @.str.165 }, { i32, [4 x i8], ptr } { i32 272, [4 x i8] zeroinitializer, ptr @.str.166 }, { i32, [4 x i8], ptr } { i32 273, [4 x i8] zeroinitializer, ptr @.str.167 }, { i32, [4 x i8], ptr } { i32 274, [4 x i8] zeroinitializer, ptr @.str.168 }, { i32, [4 x i8], ptr } { i32 275, [4 x i8] zeroinitializer, ptr @.str.169 }, { i32, [4 x i8], ptr } { i32 276, [4 x i8] zeroinitializer, ptr @.str.170 }, { i32, [4 x i8], ptr } { i32 277, [4 x i8] zeroinitializer, ptr @.str.171 }, { i32, [4 x i8], ptr } { i32 278, [4 x i8] zeroinitializer, ptr @.str.172 }, { i32, [4 x i8], ptr } { i32 279, [4 x i8] zeroinitializer, ptr @.str.173 }, { i32, [4 x i8], ptr } { i32 280, [4 x i8] zeroinitializer, ptr @.str.174 }, { i32, [4 x i8], ptr } { i32 281, [4 x i8] zeroinitializer, ptr @.str.175 }, { i32, [4 x i8], ptr } { i32 282, [4 x i8] zeroinitializer, ptr @.str.176 }, { i32, [4 x i8], ptr } { i32 283, [4 x i8] zeroinitializer, ptr @.str.177 }, { i32, [4 x i8], ptr } { i32 284, [4 x i8] zeroinitializer, ptr @.str.178 }, { i32, [4 x i8], ptr } { i32 285, [4 x i8] zeroinitializer, ptr @.str.179 }, { i32, [4 x i8], ptr } { i32 286, [4 x i8] zeroinitializer, ptr @.str.180 }, { i32, [4 x i8], ptr } { i32 287, [4 x i8] zeroinitializer, ptr @.str.181 }, { i32, [4 x i8], ptr } { i32 288, [4 x i8] zeroinitializer, ptr @.str.182 }, { i32, [4 x i8], ptr } { i32 289, [4 x i8] zeroinitializer, ptr @.str.183 }, { i32, [4 x i8], ptr } { i32 290, [4 x i8] zeroinitializer, ptr @.str.184 }, { i32, [4 x i8], ptr } { i32 291, [4 x i8] zeroinitializer, ptr @.str.185 }, { i32, [4 x i8], ptr } { i32 292, [4 x i8] zeroinitializer, ptr @.str.186 }, { i32, [4 x i8], ptr } { i32 293, [4 x i8] zeroinitializer, ptr @.str.187 }, { i32, [4 x i8], ptr } { i32 294, [4 x i8] zeroinitializer, ptr @.str.188 }, { i32, [4 x i8], ptr } { i32 295, [4 x i8] zeroinitializer, ptr @.str.189 }, { i32, [4 x i8], ptr } { i32 296, [4 x i8] zeroinitializer, ptr @.str.190 }, { i32, [4 x i8], ptr } { i32 297, [4 x i8] zeroinitializer, ptr @.str.191 }, { i32, [4 x i8], ptr } { i32 298, [4 x i8] zeroinitializer, ptr @.str.192 }, { i32, [4 x i8], ptr } { i32 299, [4 x i8] zeroinitializer, ptr @.str.193 }, { i32, [4 x i8], ptr } { i32 384, [4 x i8] zeroinitializer, ptr @.str.194 }, { i32, [4 x i8], ptr } { i32 385, [4 x i8] zeroinitializer, ptr @.str.195 }, { i32, [4 x i8], ptr } { i32 386, [4 x i8] zeroinitializer, ptr @.str.196 }, { i32, [4 x i8], ptr } { i32 387, [4 x i8] zeroinitializer, ptr @.str.197 }, { i32, [4 x i8], ptr } { i32 388, [4 x i8] zeroinitializer, ptr @.str.198 }, { i32, [4 x i8], ptr } { i32 389, [4 x i8] zeroinitializer, ptr @.str.199 }, { i32, [4 x i8], ptr } { i32 390, [4 x i8] zeroinitializer, ptr @.str.200 }, { i32, [4 x i8], ptr } { i32 391, [4 x i8] zeroinitializer, ptr @.str.201 }, { i32, [4 x i8], ptr } { i32 392, [4 x i8] zeroinitializer, ptr @.str.202 }, { i32, [4 x i8], ptr } { i32 512, [4 x i8] zeroinitializer, ptr @.str.203 }, { i32, [4 x i8], ptr } { i32 513, [4 x i8] zeroinitializer, ptr @.str.204 }, { i32, [4 x i8], ptr } { i32 514, [4 x i8] zeroinitializer, ptr @.str.205 }, { i32, [4 x i8], ptr } { i32 515, [4 x i8] zeroinitializer, ptr @.str.206 }, { i32, [4 x i8], ptr } { i32 516, [4 x i8] zeroinitializer, ptr @.str.207 }, { i32, [4 x i8], ptr } { i32 517, [4 x i8] zeroinitializer, ptr @.str.208 }, { i32, [4 x i8], ptr } { i32 518, [4 x i8] zeroinitializer, ptr @.str.209 }, { i32, [4 x i8], ptr } { i32 519, [4 x i8] zeroinitializer, ptr @.str.210 }, { i32, [4 x i8], ptr } { i32 520, [4 x i8] zeroinitializer, ptr @.str.211 }, { i32, [4 x i8], ptr } { i32 521, [4 x i8] zeroinitializer, ptr @.str.212 }, { i32, [4 x i8], ptr } { i32 522, [4 x i8] zeroinitializer, ptr @.str.213 }, { i32, [4 x i8], ptr } { i32 523, [4 x i8] zeroinitializer, ptr @.str.214 }, { i32, [4 x i8], ptr } { i32 524, [4 x i8] zeroinitializer, ptr @.str.215 }, { i32, [4 x i8], ptr } { i32 525, [4 x i8] zeroinitializer, ptr @.str.216 }, { i32, [4 x i8], ptr } { i32 526, [4 x i8] zeroinitializer, ptr @.str.217 }, { i32, [4 x i8], ptr } { i32 527, [4 x i8] zeroinitializer, ptr @.str.218 }, { i32, [4 x i8], ptr } { i32 528, [4 x i8] zeroinitializer, ptr @.str.219 }, { i32, [4 x i8], ptr } { i32 529, [4 x i8] zeroinitializer, ptr @.str.220 }, { i32, [4 x i8], ptr } { i32 530, [4 x i8] zeroinitializer, ptr @.str.221 }, { i32, [4 x i8], ptr } { i32 531, [4 x i8] zeroinitializer, ptr @.str.222 }, { i32, [4 x i8], ptr } { i32 532, [4 x i8] zeroinitializer, ptr @.str.223 }, { i32, [4 x i8], ptr } { i32 533, [4 x i8] zeroinitializer, ptr @.str.224 }, { i32, [4 x i8], ptr } { i32 534, [4 x i8] zeroinitializer, ptr @.str.225 }, { i32, [4 x i8], ptr } { i32 535, [4 x i8] zeroinitializer, ptr @.str.226 }, { i32, [4 x i8], ptr } { i32 536, [4 x i8] zeroinitializer, ptr @.str.227 }, { i32, [4 x i8], ptr } { i32 537, [4 x i8] zeroinitializer, ptr @.str.228 }, { i32, [4 x i8], ptr } { i32 538, [4 x i8] zeroinitializer, ptr @.str.229 }, { i32, [4 x i8], ptr } { i32 539, [4 x i8] zeroinitializer, ptr @.str.230 }, { i32, [4 x i8], ptr } { i32 540, [4 x i8] zeroinitializer, ptr @.str.231 }, { i32, [4 x i8], ptr } { i32 541, [4 x i8] zeroinitializer, ptr @.str.232 }, { i32, [4 x i8], ptr } { i32 542, [4 x i8] zeroinitializer, ptr @.str.233 }, { i32, [4 x i8], ptr } { i32 543, [4 x i8] zeroinitializer, ptr @.str.234 }, { i32, [4 x i8], ptr } { i32 544, [4 x i8] zeroinitializer, ptr @.str.235 }, { i32, [4 x i8], ptr } { i32 545, [4 x i8] zeroinitializer, ptr @.str.236 }, { i32, [4 x i8], ptr } { i32 546, [4 x i8] zeroinitializer, ptr @.str.237 }, { i32, [4 x i8], ptr } { i32 547, [4 x i8] zeroinitializer, ptr @.str.238 }, { i32, [4 x i8], ptr } { i32 548, [4 x i8] zeroinitializer, ptr @.str.239 }, { i32, [4 x i8], ptr } { i32 549, [4 x i8] zeroinitializer, ptr @.str.240 }, { i32, [4 x i8], ptr } { i32 640, [4 x i8] zeroinitializer, ptr @.str.241 }, { i32, [4 x i8], ptr } { i32 641, [4 x i8] zeroinitializer, ptr @.str.242 }, { i32, [4 x i8], ptr } { i32 642, [4 x i8] zeroinitializer, ptr @.str.243 }, { i32, [4 x i8], ptr } { i32 643, [4 x i8] zeroinitializer, ptr @.str.244 }, { i32, [4 x i8], ptr } { i32 644, [4 x i8] zeroinitializer, ptr @.str.245 }, { i32, [4 x i8], ptr } { i32 645, [4 x i8] zeroinitializer, ptr @.str.246 }, { i32, [4 x i8], ptr } { i32 646, [4 x i8] zeroinitializer, ptr @.str.247 }, { i32, [4 x i8], ptr } { i32 647, [4 x i8] zeroinitializer, ptr @.str.248 }, { i32, [4 x i8], ptr } { i32 648, [4 x i8] zeroinitializer, ptr @.str.249 }, { i32, [4 x i8], ptr } { i32 649, [4 x i8] zeroinitializer, ptr @.str.250 }, { i32, [4 x i8], ptr } { i32 650, [4 x i8] zeroinitializer, ptr @.str.251 }, { i32, [4 x i8], ptr } { i32 651, [4 x i8] zeroinitializer, ptr @.str.252 }, { i32, [4 x i8], ptr } { i32 652, [4 x i8] zeroinitializer, ptr @.str.253 }, { i32, [4 x i8], ptr } { i32 653, [4 x i8] zeroinitializer, ptr @.str.254 }, { i32, [4 x i8], ptr } { i32 768, [4 x i8] zeroinitializer, ptr @.str.255 }, { i32, [4 x i8], ptr } { i32 769, [4 x i8] zeroinitializer, ptr @.str.256 }, { i32, [4 x i8], ptr } { i32 770, [4 x i8] zeroinitializer, ptr @.str.257 }, { i32, [4 x i8], ptr } { i32 771, [4 x i8] zeroinitializer, ptr @.str.258 }, { i32, [4 x i8], ptr } { i32 772, [4 x i8] zeroinitializer, ptr @.str.259 }, { i32, [4 x i8], ptr } { i32 773, [4 x i8] zeroinitializer, ptr @.str.260 }, { i32, [4 x i8], ptr } { i32 774, [4 x i8] zeroinitializer, ptr @.str.261 }, { i32, [4 x i8], ptr } { i32 775, [4 x i8] zeroinitializer, ptr @.str.262 }, { i32, [4 x i8], ptr } { i32 776, [4 x i8] zeroinitializer, ptr @.str.263 }, { i32, [4 x i8], ptr } { i32 777, [4 x i8] zeroinitializer, ptr @.str.264 }, { i32, [4 x i8], ptr } { i32 778, [4 x i8] zeroinitializer, ptr @.str.265 }, { i32, [4 x i8], ptr } { i32 779, [4 x i8] zeroinitializer, ptr @.str.266 }, { i32, [4 x i8], ptr } { i32 780, [4 x i8] zeroinitializer, ptr @.str.267 }, { i32, [4 x i8], ptr } { i32 781, [4 x i8] zeroinitializer, ptr @.str.268 }, { i32, [4 x i8], ptr } { i32 782, [4 x i8] zeroinitializer, ptr @.str.269 }, { i32, [4 x i8], ptr } { i32 783, [4 x i8] zeroinitializer, ptr @.str.270 }, { i32, [4 x i8], ptr } { i32 784, [4 x i8] zeroinitializer, ptr @.str.271 }, { i32, [4 x i8], ptr } { i32 785, [4 x i8] zeroinitializer, ptr @.str.272 }, { i32, [4 x i8], ptr } { i32 786, [4 x i8] zeroinitializer, ptr @.str.273 }, { i32, [4 x i8], ptr } { i32 787, [4 x i8] zeroinitializer, ptr @.str.274 }, { i32, [4 x i8], ptr } { i32 788, [4 x i8] zeroinitializer, ptr @.str.275 }, { i32, [4 x i8], ptr } { i32 789, [4 x i8] zeroinitializer, ptr @.str.276 }, { i32, [4 x i8], ptr } { i32 790, [4 x i8] zeroinitializer, ptr @.str.277 }, { i32, [4 x i8], ptr } { i32 791, [4 x i8] zeroinitializer, ptr @.str.278 }, { i32, [4 x i8], ptr } { i32 792, [4 x i8] zeroinitializer, ptr @.str.279 }, { i32, [4 x i8], ptr } { i32 793, [4 x i8] zeroinitializer, ptr @.str.280 }, { i32, [4 x i8], ptr } { i32 794, [4 x i8] zeroinitializer, ptr @.str.281 }, { i32, [4 x i8], ptr } { i32 795, [4 x i8] zeroinitializer, ptr @.str.282 }, { i32, [4 x i8], ptr } { i32 796, [4 x i8] zeroinitializer, ptr @.str.283 }, { i32, [4 x i8], ptr } { i32 797, [4 x i8] zeroinitializer, ptr @.str.284 }, { i32, [4 x i8], ptr } { i32 798, [4 x i8] zeroinitializer, ptr @.str.285 }, { i32, [4 x i8], ptr } { i32 799, [4 x i8] zeroinitializer, ptr @.str.286 }, { i32, [4 x i8], ptr } { i32 800, [4 x i8] zeroinitializer, ptr @.str.287 }, { i32, [4 x i8], ptr } { i32 801, [4 x i8] zeroinitializer, ptr @.str.288 }, { i32, [4 x i8], ptr } { i32 802, [4 x i8] zeroinitializer, ptr @.str.289 }, { i32, [4 x i8], ptr } { i32 803, [4 x i8] zeroinitializer, ptr @.str.290 }, { i32, [4 x i8], ptr } { i32 804, [4 x i8] zeroinitializer, ptr @.str.291 }, { i32, [4 x i8], ptr } { i32 805, [4 x i8] zeroinitializer, ptr @.str.292 }, { i32, [4 x i8], ptr } { i32 806, [4 x i8] zeroinitializer, ptr @.str.293 }, { i32, [4 x i8], ptr } { i32 807, [4 x i8] zeroinitializer, ptr @.str.294 }, { i32, [4 x i8], ptr } { i32 808, [4 x i8] zeroinitializer, ptr @.str.295 }, { i32, [4 x i8], ptr } { i32 809, [4 x i8] zeroinitializer, ptr @.str.296 }, { i32, [4 x i8], ptr } { i32 810, [4 x i8] zeroinitializer, ptr @.str.297 }, { i32, [4 x i8], ptr } { i32 811, [4 x i8] zeroinitializer, ptr @.str.298 }, { i32, [4 x i8], ptr } { i32 812, [4 x i8] zeroinitializer, ptr @.str.299 }, { i32, [4 x i8], ptr } { i32 813, [4 x i8] zeroinitializer, ptr @.str.300 }, { i32, [4 x i8], ptr } { i32 814, [4 x i8] zeroinitializer, ptr @.str.301 }, { i32, [4 x i8], ptr } { i32 815, [4 x i8] zeroinitializer, ptr @.str.302 }, { i32, [4 x i8], ptr } { i32 816, [4 x i8] zeroinitializer, ptr @.str.303 }, { i32, [4 x i8], ptr } { i32 817, [4 x i8] zeroinitializer, ptr @.str.304 }, { i32, [4 x i8], ptr } { i32 818, [4 x i8] zeroinitializer, ptr @.str.305 }, { i32, [4 x i8], ptr } { i32 819, [4 x i8] zeroinitializer, ptr @.str.306 }, { i32, [4 x i8], ptr } { i32 820, [4 x i8] zeroinitializer, ptr @.str.307 }, { i32, [4 x i8], ptr } { i32 821, [4 x i8] zeroinitializer, ptr @.str.308 }, { i32, [4 x i8], ptr } { i32 822, [4 x i8] zeroinitializer, ptr @.str.309 }, { i32, [4 x i8], ptr } { i32 823, [4 x i8] zeroinitializer, ptr @.str.310 }, { i32, [4 x i8], ptr } { i32 824, [4 x i8] zeroinitializer, ptr @.str.311 }, { i32, [4 x i8], ptr } { i32 825, [4 x i8] zeroinitializer, ptr @.str.312 }, { i32, [4 x i8], ptr } { i32 826, [4 x i8] zeroinitializer, ptr @.str.313 }, { i32, [4 x i8], ptr } { i32 827, [4 x i8] zeroinitializer, ptr @.str.314 }, { i32, [4 x i8], ptr } { i32 828, [4 x i8] zeroinitializer, ptr @.str.315 }, { i32, [4 x i8], ptr } { i32 829, [4 x i8] zeroinitializer, ptr @.str.316 }, { i32, [4 x i8], ptr } { i32 830, [4 x i8] zeroinitializer, ptr @.str.317 }, { i32, [4 x i8], ptr } { i32 831, [4 x i8] zeroinitializer, ptr @.str.318 }, { i32, [4 x i8], ptr } { i32 832, [4 x i8] zeroinitializer, ptr @.str.319 }, { i32, [4 x i8], ptr } { i32 833, [4 x i8] zeroinitializer, ptr @.str.320 }, { i32, [4 x i8], ptr } { i32 834, [4 x i8] zeroinitializer, ptr @.str.321 }, { i32, [4 x i8], ptr } { i32 835, [4 x i8] zeroinitializer, ptr @.str.322 }, { i32, [4 x i8], ptr } { i32 836, [4 x i8] zeroinitializer, ptr @.str.323 }, { i32, [4 x i8], ptr } { i32 837, [4 x i8] zeroinitializer, ptr @.str.324 }, { i32, [4 x i8], ptr } { i32 838, [4 x i8] zeroinitializer, ptr @.str.325 }, { i32, [4 x i8], ptr } { i32 839, [4 x i8] zeroinitializer, ptr @.str.326 }, { i32, [4 x i8], ptr } { i32 840, [4 x i8] zeroinitializer, ptr @.str.327 }, { i32, [4 x i8], ptr } { i32 841, [4 x i8] zeroinitializer, ptr @.str.328 }, { i32, [4 x i8], ptr } { i32 842, [4 x i8] zeroinitializer, ptr @.str.329 }, { i32, [4 x i8], ptr } { i32 843, [4 x i8] zeroinitializer, ptr @.str.330 }, { i32, [4 x i8], ptr } { i32 844, [4 x i8] zeroinitializer, ptr @.str.331 }, { i32, [4 x i8], ptr } { i32 845, [4 x i8] zeroinitializer, ptr @.str.332 }, { i32, [4 x i8], ptr } { i32 846, [4 x i8] zeroinitializer, ptr @.str.333 }, { i32, [4 x i8], ptr } { i32 896, [4 x i8] zeroinitializer, ptr @.str.334 }, { i32, [4 x i8], ptr } { i32 897, [4 x i8] zeroinitializer, ptr @.str.335 }, { i32, [4 x i8], ptr } { i32 898, [4 x i8] zeroinitializer, ptr @.str.336 }, { i32, [4 x i8], ptr } { i32 899, [4 x i8] zeroinitializer, ptr @.str.337 }, { i32, [4 x i8], ptr } { i32 900, [4 x i8] zeroinitializer, ptr @.str.338 }, { i32, [4 x i8], ptr } { i32 901, [4 x i8] zeroinitializer, ptr @.str.339 }, { i32, [4 x i8], ptr } { i32 902, [4 x i8] zeroinitializer, ptr @.str.340 }, { i32, [4 x i8], ptr } { i32 903, [4 x i8] zeroinitializer, ptr @.str.341 }, { i32, [4 x i8], ptr } { i32 904, [4 x i8] zeroinitializer, ptr @.str.342 }, { i32, [4 x i8], ptr } { i32 905, [4 x i8] zeroinitializer, ptr @.str.343 }, { i32, [4 x i8], ptr } { i32 906, [4 x i8] zeroinitializer, ptr @.str.344 }, { i32, [4 x i8], ptr } { i32 907, [4 x i8] zeroinitializer, ptr @.str.345 }, { i32, [4 x i8], ptr } { i32 908, [4 x i8] zeroinitializer, ptr @.str.346 }, { i32, [4 x i8], ptr } { i32 909, [4 x i8] zeroinitializer, ptr @.str.347 }, { i32, [4 x i8], ptr } { i32 910, [4 x i8] zeroinitializer, ptr @.str.348 }, { i32, [4 x i8], ptr } { i32 911, [4 x i8] zeroinitializer, ptr @.str.349 }, { i32, [4 x i8], ptr } { i32 912, [4 x i8] zeroinitializer, ptr @.str.350 }, { i32, [4 x i8], ptr } { i32 913, [4 x i8] zeroinitializer, ptr @.str.351 }, { i32, [4 x i8], ptr } { i32 914, [4 x i8] zeroinitializer, ptr @.str.352 }, { i32, [4 x i8], ptr } { i32 915, [4 x i8] zeroinitializer, ptr @.str.353 }, { i32, [4 x i8], ptr } { i32 916, [4 x i8] zeroinitializer, ptr @.str.354 }, { i32, [4 x i8], ptr } { i32 917, [4 x i8] zeroinitializer, ptr @.str.355 }, { i32, [4 x i8], ptr } { i32 918, [4 x i8] zeroinitializer, ptr @.str.356 }, { i32, [4 x i8], ptr } { i32 919, [4 x i8] zeroinitializer, ptr @.str.357 }, { i32, [4 x i8], ptr } { i32 920, [4 x i8] zeroinitializer, ptr @.str.358 }, { i32, [4 x i8], ptr } { i32 921, [4 x i8] zeroinitializer, ptr @.str.359 }, { i32, [4 x i8], ptr } { i32 922, [4 x i8] zeroinitializer, ptr @.str.360 }, { i32, [4 x i8], ptr } { i32 923, [4 x i8] zeroinitializer, ptr @.str.361 }, { i32, [4 x i8], ptr } { i32 924, [4 x i8] zeroinitializer, ptr @.str.362 }, { i32, [4 x i8], ptr } { i32 925, [4 x i8] zeroinitializer, ptr @.str.363 }, { i32, [4 x i8], ptr } { i32 926, [4 x i8] zeroinitializer, ptr @.str.364 }, { i32, [4 x i8], ptr } { i32 927, [4 x i8] zeroinitializer, ptr @.str.365 }, { i32, [4 x i8], ptr } { i32 928, [4 x i8] zeroinitializer, ptr @.str.366 }, { i32, [4 x i8], ptr } { i32 929, [4 x i8] zeroinitializer, ptr @.str.367 }, { i32, [4 x i8], ptr } { i32 1024, [4 x i8] zeroinitializer, ptr @.str.368 }, { i32, [4 x i8], ptr } { i32 1025, [4 x i8] zeroinitializer, ptr @.str.369 }, { i32, [4 x i8], ptr } { i32 1026, [4 x i8] zeroinitializer, ptr @.str.370 }, { i32, [4 x i8], ptr } { i32 1027, [4 x i8] zeroinitializer, ptr @.str.371 }, { i32, [4 x i8], ptr } { i32 1028, [4 x i8] zeroinitializer, ptr @.str.372 }, { i32, [4 x i8], ptr } { i32 1152, [4 x i8] zeroinitializer, ptr @.str.373 }, { i32, [4 x i8], ptr } { i32 1153, [4 x i8] zeroinitializer, ptr @.str.374 }, { i32, [4 x i8], ptr } { i32 1280, [4 x i8] zeroinitializer, ptr @.str.375 }, { i32, [4 x i8], ptr } { i32 1281, [4 x i8] zeroinitializer, ptr @.str.376 }, { i32, [4 x i8], ptr } { i32 1282, [4 x i8] zeroinitializer, ptr @.str.377 }, { i32, [4 x i8], ptr } { i32 1283, [4 x i8] zeroinitializer, ptr @.str.378 }, { i32, [4 x i8], ptr } { i32 1408, [4 x i8] zeroinitializer, ptr @.str.379 }, { i32, [4 x i8], ptr } { i32 1409, [4 x i8] zeroinitializer, ptr @.str.380 }, { i32, [4 x i8], ptr } { i32 1664, [4 x i8] zeroinitializer, ptr @.str.381 }, { i32, [4 x i8], ptr } { i32 2048, [4 x i8] zeroinitializer, ptr @.str.382 }, { i32, [4 x i8], ptr } { i32 2049, [4 x i8] zeroinitializer, ptr @.str.383 }, { i32, [4 x i8], ptr } { i32 2050, [4 x i8] zeroinitializer, ptr @.str.384 }, { i32, [4 x i8], ptr } { i32 2051, [4 x i8] zeroinitializer, ptr @.str.385 }, { i32, [4 x i8], ptr } { i32 2052, [4 x i8] zeroinitializer, ptr @.str.386 }, { i32, [4 x i8], ptr } { i32 2053, [4 x i8] zeroinitializer, ptr @.str.387 }, { i32, [4 x i8], ptr } { i32 2054, [4 x i8] zeroinitializer, ptr @.str.388 }, { i32, [4 x i8], ptr } { i32 2055, [4 x i8] zeroinitializer, ptr @.str.389 }, { i32, [4 x i8], ptr } { i32 2056, [4 x i8] zeroinitializer, ptr @.str.390 }, { i32, [4 x i8], ptr } { i32 2057, [4 x i8] zeroinitializer, ptr @.str.391 }, { i32, [4 x i8], ptr } { i32 2058, [4 x i8] zeroinitializer, ptr @.str.392 }, { i32, [4 x i8], ptr } { i32 2059, [4 x i8] zeroinitializer, ptr @.str.393 }, { i32, [4 x i8], ptr } { i32 2060, [4 x i8] zeroinitializer, ptr @.str.394 }, { i32, [4 x i8], ptr } { i32 2061, [4 x i8] zeroinitializer, ptr @.str.395 }, { i32, [4 x i8], ptr } { i32 2062, [4 x i8] zeroinitializer, ptr @.str.396 }, { i32, [4 x i8], ptr } { i32 2063, [4 x i8] zeroinitializer, ptr @.str.397 }, { i32, [4 x i8], ptr } { i32 2064, [4 x i8] zeroinitializer, ptr @.str.398 }, { i32, [4 x i8], ptr } { i32 2065, [4 x i8] zeroinitializer, ptr @.str.399 }, { i32, [4 x i8], ptr } { i32 2066, [4 x i8] zeroinitializer, ptr @.str.400 }, { i32, [4 x i8], ptr } { i32 2067, [4 x i8] zeroinitializer, ptr @.str.401 }, { i32, [4 x i8], ptr } { i32 2176, [4 x i8] zeroinitializer, ptr @.str.402 }, { i32, [4 x i8], ptr } { i32 2177, [4 x i8] zeroinitializer, ptr @.str.403 }, { i32, [4 x i8], ptr } { i32 2178, [4 x i8] zeroinitializer, ptr @.str.404 }, { i32, [4 x i8], ptr } { i32 2179, [4 x i8] zeroinitializer, ptr @.str.405 }, { i32, [4 x i8], ptr } { i32 2180, [4 x i8] zeroinitializer, ptr @.str.406 }, { i32, [4 x i8], ptr } { i32 2181, [4 x i8] zeroinitializer, ptr @.str.407 }, { i32, [4 x i8], ptr } { i32 2182, [4 x i8] zeroinitializer, ptr @.str.408 }, { i32, [4 x i8], ptr } { i32 2183, [4 x i8] zeroinitializer, ptr @.str.409 }, { i32, [4 x i8], ptr } { i32 2184, [4 x i8] zeroinitializer, ptr @.str.410 }, { i32, [4 x i8], ptr } { i32 2185, [4 x i8] zeroinitializer, ptr @.str.411 }, { i32, [4 x i8], ptr } { i32 2186, [4 x i8] zeroinitializer, ptr @.str.412 }, { i32, [4 x i8], ptr } { i32 2187, [4 x i8] zeroinitializer, ptr @.str.413 }, { i32, [4 x i8], ptr } { i32 2188, [4 x i8] zeroinitializer, ptr @.str.414 }, { i32, [4 x i8], ptr } { i32 2189, [4 x i8] zeroinitializer, ptr @.str.415 }, { i32, [4 x i8], ptr } { i32 2190, [4 x i8] zeroinitializer, ptr @.str.416 }, { i32, [4 x i8], ptr } { i32 2304, [4 x i8] zeroinitializer, ptr @.str.417 }, { i32, [4 x i8], ptr } { i32 2305, [4 x i8] zeroinitializer, ptr @.str.418 }, { i32, [4 x i8], ptr } { i32 2306, [4 x i8] zeroinitializer, ptr @.str.419 }, { i32, [4 x i8], ptr } { i32 2307, [4 x i8] zeroinitializer, ptr @.str.420 }, { i32, [4 x i8], ptr } { i32 2308, [4 x i8] zeroinitializer, ptr @.str.421 }, { i32, [4 x i8], ptr } { i32 2309, [4 x i8] zeroinitializer, ptr @.str.422 }, { i32, [4 x i8], ptr } { i32 2310, [4 x i8] zeroinitializer, ptr @.str.423 }, { i32, [4 x i8], ptr } { i32 2311, [4 x i8] zeroinitializer, ptr @.str.424 }, { i32, [4 x i8], ptr } { i32 2312, [4 x i8] zeroinitializer, ptr @.str.425 }, { i32, [4 x i8], ptr } { i32 2313, [4 x i8] zeroinitializer, ptr @.str.426 }, { i32, [4 x i8], ptr } { i32 2314, [4 x i8] zeroinitializer, ptr @.str.427 }, { i32, [4 x i8], ptr } { i32 2315, [4 x i8] zeroinitializer, ptr @.str.428 }, { i32, [4 x i8], ptr } { i32 2316, [4 x i8] zeroinitializer, ptr @.str.429 }, { i32, [4 x i8], ptr } { i32 2317, [4 x i8] zeroinitializer, ptr @.str.430 }, { i32, [4 x i8], ptr } { i32 2318, [4 x i8] zeroinitializer, ptr @.str.431 }, { i32, [4 x i8], ptr } { i32 2319, [4 x i8] zeroinitializer, ptr @.str.432 }, { i32, [4 x i8], ptr } { i32 2320, [4 x i8] zeroinitializer, ptr @.str.433 }, { i32, [4 x i8], ptr } { i32 2321, [4 x i8] zeroinitializer, ptr @.str.434 }, { i32, [4 x i8], ptr } { i32 2322, [4 x i8] zeroinitializer, ptr @.str.435 }, { i32, [4 x i8], ptr } { i32 2432, [4 x i8] zeroinitializer, ptr @.str.436 }, { i32, [4 x i8], ptr } { i32 2433, [4 x i8] zeroinitializer, ptr @.str.437 }, { i32, [4 x i8], ptr } { i32 2560, [4 x i8] zeroinitializer, ptr @.str.438 }, { i32, [4 x i8], ptr } { i32 2561, [4 x i8] zeroinitializer, ptr @.str.439 }, { i32, [4 x i8], ptr } { i32 2562, [4 x i8] zeroinitializer, ptr @.str.440 }, { i32, [4 x i8], ptr } { i32 2563, [4 x i8] zeroinitializer, ptr @.str.441 }, { i32, [4 x i8], ptr } { i32 2564, [4 x i8] zeroinitializer, ptr @.str.442 }, { i32, [4 x i8], ptr } { i32 2565, [4 x i8] zeroinitializer, ptr @.str.443 }, { i32, [4 x i8], ptr } { i32 2566, [4 x i8] zeroinitializer, ptr @.str.444 }, { i32, [4 x i8], ptr } { i32 2567, [4 x i8] zeroinitializer, ptr @.str.445 }, { i32, [4 x i8], ptr } { i32 2568, [4 x i8] zeroinitializer, ptr @.str.446 }, { i32, [4 x i8], ptr } { i32 2688, [4 x i8] zeroinitializer, ptr @.str.447 }, { i32, [4 x i8], ptr } { i32 2689, [4 x i8] zeroinitializer, ptr @.str.448 }, { i32, [4 x i8], ptr } { i32 2690, [4 x i8] zeroinitializer, ptr @.str.449 }, { i32, [4 x i8], ptr } { i32 2691, [4 x i8] zeroinitializer, ptr @.str.450 }, { i32, [4 x i8], ptr } { i32 2816, [4 x i8] zeroinitializer, ptr @.str.451 }, { i32, [4 x i8], ptr } { i32 2817, [4 x i8] zeroinitializer, ptr @.str.452 }, { i32, [4 x i8], ptr } { i32 2818, [4 x i8] zeroinitializer, ptr @.str.453 }, { i32, [4 x i8], ptr } { i32 2819, [4 x i8] zeroinitializer, ptr @.str.454 }, { i32, [4 x i8], ptr } { i32 2820, [4 x i8] zeroinitializer, ptr @.str.455 }, { i32, [4 x i8], ptr } { i32 2821, [4 x i8] zeroinitializer, ptr @.str.456 }, { i32, [4 x i8], ptr } { i32 2822, [4 x i8] zeroinitializer, ptr @.str.457 }, { i32, [4 x i8], ptr } { i32 2823, [4 x i8] zeroinitializer, ptr @.str.458 }, { i32, [4 x i8], ptr } { i32 2824, [4 x i8] zeroinitializer, ptr @.str.459 }, { i32, [4 x i8], ptr } { i32 2825, [4 x i8] zeroinitializer, ptr @.str.460 }, { i32, [4 x i8], ptr } { i32 2826, [4 x i8] zeroinitializer, ptr @.str.461 }, { i32, [4 x i8], ptr } { i32 2827, [4 x i8] zeroinitializer, ptr @.str.462 }, { i32, [4 x i8], ptr } { i32 2828, [4 x i8] zeroinitializer, ptr @.str.463 }, { i32, [4 x i8], ptr } { i32 2829, [4 x i8] zeroinitializer, ptr @.str.464 }, { i32, [4 x i8], ptr } { i32 2830, [4 x i8] zeroinitializer, ptr @.str.465 }, { i32, [4 x i8], ptr } { i32 2831, [4 x i8] zeroinitializer, ptr @.str.466 }, { i32, [4 x i8], ptr } { i32 2832, [4 x i8] zeroinitializer, ptr @.str.467 }, { i32, [4 x i8], ptr } { i32 2833, [4 x i8] zeroinitializer, ptr @.str.468 }, { i32, [4 x i8], ptr } { i32 2834, [4 x i8] zeroinitializer, ptr @.str.469 }, { i32, [4 x i8], ptr } { i32 2835, [4 x i8] zeroinitializer, ptr @.str.470 }, { i32, [4 x i8], ptr } { i32 2836, [4 x i8] zeroinitializer, ptr @.str.471 }, { i32, [4 x i8], ptr } { i32 2837, [4 x i8] zeroinitializer, ptr @.str.472 }, { i32, [4 x i8], ptr } { i32 2838, [4 x i8] zeroinitializer, ptr @.str.473 }, { i32, [4 x i8], ptr } { i32 2839, [4 x i8] zeroinitializer, ptr @.str.474 }, { i32, [4 x i8], ptr } { i32 2840, [4 x i8] zeroinitializer, ptr @.str.475 }, { i32, [4 x i8], ptr } { i32 2841, [4 x i8] zeroinitializer, ptr @.str.476 }, { i32, [4 x i8], ptr } { i32 2842, [4 x i8] zeroinitializer, ptr @.str.477 }, { i32, [4 x i8], ptr } { i32 2843, [4 x i8] zeroinitializer, ptr @.str.478 }, { i32, [4 x i8], ptr } { i32 2844, [4 x i8] zeroinitializer, ptr @.str.479 }, { i32, [4 x i8], ptr } { i32 2845, [4 x i8] zeroinitializer, ptr @.str.480 }, { i32, [4 x i8], ptr } { i32 2944, [4 x i8] zeroinitializer, ptr @.str.481 }, { i32, [4 x i8], ptr } { i32 2945, [4 x i8] zeroinitializer, ptr @.str.482 }, { i32, [4 x i8], ptr } { i32 2946, [4 x i8] zeroinitializer, ptr @.str.483 }, { i32, [4 x i8], ptr } { i32 2947, [4 x i8] zeroinitializer, ptr @.str.484 }, { i32, [4 x i8], ptr } { i32 2948, [4 x i8] zeroinitializer, ptr @.str.485 }, { i32, [4 x i8], ptr } { i32 2949, [4 x i8] zeroinitializer, ptr @.str.486 }, { i32, [4 x i8], ptr } { i32 2950, [4 x i8] zeroinitializer, ptr @.str.487 }, { i32, [4 x i8], ptr } { i32 3072, [4 x i8] zeroinitializer, ptr @.str.488 }, { i32, [4 x i8], ptr } { i32 3073, [4 x i8] zeroinitializer, ptr @.str.489 }, { i32, [4 x i8], ptr } { i32 3074, [4 x i8] zeroinitializer, ptr @.str.490 }, { i32, [4 x i8], ptr } { i32 3075, [4 x i8] zeroinitializer, ptr @.str.491 }, { i32, [4 x i8], ptr } { i32 3076, [4 x i8] zeroinitializer, ptr @.str.492 }, { i32, [4 x i8], ptr } { i32 3077, [4 x i8] zeroinitializer, ptr @.str.493 }, { i32, [4 x i8], ptr } { i32 3078, [4 x i8] zeroinitializer, ptr @.str.494 }, { i32, [4 x i8], ptr } { i32 3079, [4 x i8] zeroinitializer, ptr @.str.495 }, { i32, [4 x i8], ptr } { i32 3200, [4 x i8] zeroinitializer, ptr @.str.496 }, { i32, [4 x i8], ptr } { i32 3201, [4 x i8] zeroinitializer, ptr @.str.497 }, { i32, [4 x i8], ptr } { i32 3202, [4 x i8] zeroinitializer, ptr @.str.498 }, { i32, [4 x i8], ptr } { i32 3203, [4 x i8] zeroinitializer, ptr @.str.499 }, { i32, [4 x i8], ptr } { i32 3204, [4 x i8] zeroinitializer, ptr @.str.500 }, { i32, [4 x i8], ptr } { i32 3205, [4 x i8] zeroinitializer, ptr @.str.501 }, { i32, [4 x i8], ptr } { i32 5120, [4 x i8] zeroinitializer, ptr @.str.502 }, { i32, [4 x i8], ptr } { i32 5121, [4 x i8] zeroinitializer, ptr @.str.503 }, { i32, [4 x i8], ptr } { i32 5376, [4 x i8] zeroinitializer, ptr @.str.504 }, { i32, [4 x i8], ptr } { i32 5377, [4 x i8] zeroinitializer, ptr @.str.505 }, { i32, [4 x i8], ptr } { i32 5378, [4 x i8] zeroinitializer, ptr @.str.506 }, { i32, [4 x i8], ptr } { i32 5379, [4 x i8] zeroinitializer, ptr @.str.507 }, { i32, [4 x i8], ptr } { i32 5380, [4 x i8] zeroinitializer, ptr @.str.508 }, { i32, [4 x i8], ptr } { i32 5381, [4 x i8] zeroinitializer, ptr @.str.509 }, { i32, [4 x i8], ptr } { i32 5382, [4 x i8] zeroinitializer, ptr @.str.510 }, { i32, [4 x i8], ptr } { i32 5632, [4 x i8] zeroinitializer, ptr @.str.511 }, { i32, [4 x i8], ptr } { i32 5633, [4 x i8] zeroinitializer, ptr @.str.512 }, { i32, [4 x i8], ptr } { i32 5634, [4 x i8] zeroinitializer, ptr @.str.513 }, { i32, [4 x i8], ptr } { i32 5635, [4 x i8] zeroinitializer, ptr @.str.514 }, { i32, [4 x i8], ptr } { i32 5760, [4 x i8] zeroinitializer, ptr @.str.515 }, { i32, [4 x i8], ptr } { i32 5888, [4 x i8] zeroinitializer, ptr @.str.516 }, { i32, [4 x i8], ptr } { i32 5889, [4 x i8] zeroinitializer, ptr @.str.517 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.519 = private unnamed_addr constant [10 x i8] c"Optimizer\00", align 1
+@.str.520 = private unnamed_addr constant [22 x i8] c"Single phase inverter\00", align 1
+@.str.521 = private unnamed_addr constant [21 x i8] c"Three phase inverter\00", align 1
+@.str.522 = private unnamed_addr constant [17 x i8] c"Wake/sleep event\00", align 1
+@solaredge_data_devicetypes = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.519 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.520 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.521 }, { i32, [4 x i8], ptr } { i32 128, [4 x i8] zeroinitializer, ptr @.str.519 }, { i32, [4 x i8], ptr } { i32 768, [4 x i8] zeroinitializer, ptr @.str.522 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.524 = private unnamed_addr constant [57 x i8] c"Invalid length: inverse length %d not matching length %d\00", align 1
+@.str.525 = private unnamed_addr constant [16 x i8] c"Unknown command\00", align 1
+@.str.526 = private unnamed_addr constant [17 x i8] c"Decrypted Packet\00", align 1
 @cipher_hd_system = internal global ptr null, align 8
-@.str.525 = private unnamed_addr constant [2 x i8] c" \00", align 1
-@.str.526 = private unnamed_addr constant [5 x i8] c"%.2f\00", align 1
-@.str.527 = private unnamed_addr constant [15 x i8] c"Unknown device\00", align 1
-@.str.528 = private unnamed_addr constant [3 x i8] c", \00", align 1
+@.str.527 = private unnamed_addr constant [2 x i8] c" \00", align 1
+@.str.528 = private unnamed_addr constant [5 x i8] c"%.2f\00", align 1
+@.str.529 = private unnamed_addr constant [15 x i8] c"Unknown device\00", align 1
+@.str.530 = private unnamed_addr constant [3 x i8] c", \00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_solaredge() local_unnamed_addr #0 {
   %1 = load ptr, ptr @solaredge_handle, align 8
-  tail call void @dissector_add_for_decode_as(ptr noundef nonnull @.str, ptr noundef %1) #5
+  tail call void @dissector_add_for_decode_as(ptr noundef nonnull @.str, ptr noundef %1)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_for_decode_as(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_solaredge() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.91) #5
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.91)
   store i32 %1, ptr @proto_solaredge, align 4
-  %2 = tail call ptr @register_dissector(ptr noundef nonnull @.str.91, ptr noundef nonnull @dissect_solaredge, i32 noundef %1) #5
+  %2 = tail call ptr @register_dissector(ptr noundef nonnull @.str.91, ptr noundef nonnull @dissect_solaredge, i32 noundef %1)
   store ptr %2, ptr @solaredge_handle, align 8
   %3 = load i32, ptr @proto_solaredge, align 4
-  %4 = tail call ptr @prefs_register_protocol(i32 noundef %3, ptr noundef null) #5
-  tail call void @prefs_register_bool_preference(ptr noundef %4, ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.94, ptr noundef nonnull @global_show_unknown_fields) #5
-  tail call void @prefs_register_string_preference(ptr noundef %4, ptr noundef nonnull @.str.95, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, ptr noundef nonnull @global_system_encryption_key) #5
+  %4 = tail call ptr @prefs_register_protocol(i32 noundef %3, ptr noundef null)
+  tail call void @prefs_register_bool_preference(ptr noundef %4, ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.94, ptr noundef nonnull @global_show_unknown_fields)
+  tail call void @prefs_register_string_preference(ptr noundef %4, ptr noundef nonnull @.str.95, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.97, ptr noundef nonnull @global_system_encryption_key)
   %5 = load i32, ptr @proto_solaredge, align 4
-  tail call void @proto_register_field_array(i32 noundef %5, ptr noundef nonnull @proto_register_solaredge.hf, i32 noundef 45) #5
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_solaredge.ett, i32 noundef 4) #5
+  tail call void @proto_register_field_array(i32 noundef %5, ptr noundef nonnull @proto_register_solaredge.hf, i32 noundef 45)
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_solaredge.ett, i32 noundef 4)
   %6 = load i32, ptr @proto_solaredge, align 4
-  %7 = tail call ptr @expert_register_protocol(i32 noundef %6) #5
-  tail call void @expert_register_field_array(ptr noundef %7, ptr noundef nonnull @proto_register_solaredge.ei, i32 noundef 2) #5
+  %7 = tail call ptr @expert_register_protocol(i32 noundef %6)
+  tail call void @expert_register_field_array(ptr noundef %7, ptr noundef nonnull @proto_register_solaredge.ei, i32 noundef 2)
   ret void
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 0, 65558) i32 @dissect_solaredge(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
-  %5 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #5
+  %5 = tail call ptr @find_or_create_conversation(ptr noundef %1)
   %6 = load i32, ptr @proto_solaredge, align 4
-  %7 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %5, i32 noundef %6) #5
+  %7 = tail call ptr @conversation_get_proto_data(ptr noundef %5, i32 noundef %6)
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %4
-  %10 = tail call ptr @wmem_file_scope() #5
-  %11 = tail call noalias ptr @wmem_alloc(ptr noundef %10, i64 noundef 24) #5
-  store i32 0, ptr %11, align 8
+  %10 = tail call ptr @wmem_file_scope()
+  %11 = tail call noalias dereferenceable_or_null(24) ptr @wmem_alloc(ptr noundef %10, i64 noundef 24) #7
+  store i8 0, ptr %11, align 8
   %12 = load i32, ptr @proto_solaredge, align 4
-  tail call void @conversation_add_proto_data(ptr noundef nonnull %5, i32 noundef %12, ptr noundef nonnull %11) #5
+  tail call void @conversation_add_proto_data(ptr noundef %5, i32 noundef %12, ptr noundef %11)
   br label %13
 
 13:                                               ; preds = %9, %4
@@ -663,32 +667,47 @@ define internal range(i32 0, 65558) i32 @dissect_solaredge(ptr noundef %0, ptr n
   ret i32 %15
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @prefs_register_string_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare nonnull ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
+; Function Attrs: null_pointer_is_valid
+declare ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
 declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid allocsize(1)
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_file_scope() local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 65558) i32 @dissect_solaredge_recursive(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4) unnamed_addr #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal fastcc range(i32 0, 65558) i32 @dissect_solaredge_recursive(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i16, align 2
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -698,426 +717,431 @@ define internal fastcc range(i32 0, 65558) i32 @dissect_solaredge_recursive(ptr 
   %12 = alloca [16 x i8], align 16
   %13 = alloca [16 x i8], align 16
   %14 = alloca [16 x i8], align 16
-  %15 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef 0, i32 noundef -2147483648) #5
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #8
+  %15 = tail call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef 0, i32 noundef -2147483648)
   %.not = icmp eq i32 %15, 2035692562
-  br i1 %.not, label %16, label %436
+  br i1 %.not, label %16, label %435
 
 16:                                               ; preds = %5
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
-  tail call void @col_set_str(ptr noundef %18, i32 noundef 34, ptr noundef nonnull @.str.90) #5
+  tail call void @col_set_str(ptr noundef %18, i32 noundef 35, ptr noundef nonnull @.str.90)
   %19 = load ptr, ptr %17, align 8
-  tail call void @col_clear(ptr noundef %19, i32 noundef 25) #5
+  tail call void @col_clear(ptr noundef %19, i32 noundef 25)
   %20 = load i32, ptr @proto_solaredge, align 4
-  %21 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #5
-  %22 = tail call ptr @proto_item_add_subtree(ptr noundef %21, i32 noundef %3) #5
-  %23 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef 4, i32 noundef -2147483648) #5
+  %21 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  %22 = tail call ptr @proto_item_add_subtree(ptr noundef %21, i32 noundef %3)
+  %23 = tail call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef 4, i32 noundef -2147483648)
   %24 = load i32, ptr @hf_solaredge_length_type, align 4
-  %25 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %24, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef -2147483648) #5
-  %26 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef 6, i32 noundef -2147483648) #5
+  %25 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %24, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef -2147483648)
+  %26 = tail call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef 6, i32 noundef -2147483648)
   %27 = zext i16 %26 to i32
   %28 = zext i16 %23 to i32
   %29 = xor i32 %27, %28
-  %.not114 = icmp eq i32 %29, 65535
-  br i1 %.not114, label %32, label %30
+  %.not117 = icmp eq i32 %29, 65535
+  br i1 %.not117, label %32, label %30
 
 30:                                               ; preds = %16
-  %31 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %22, ptr noundef nonnull %1, ptr noundef nonnull @ei_solaredge_invalid_length, ptr noundef %0, i32 noundef 4, i32 noundef 8, ptr noundef nonnull @.str.522, i32 noundef %27, i32 noundef %28) #5
+  %31 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %22, ptr noundef %1, ptr noundef nonnull @ei_solaredge_invalid_length, ptr noundef %0, i32 noundef 4, i32 noundef 8, ptr noundef nonnull @.str.524, i32 noundef %27, i32 noundef %28)
   br label %32
 
 32:                                               ; preds = %30, %16
   %33 = load i32, ptr @hf_solaredge_length_inverse_type, align 4
-  %34 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %33, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef -2147483648) #5
-  %35 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef 8, i32 noundef -2147483648) #5
+  %34 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %33, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef -2147483648)
+  %35 = tail call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef 8, i32 noundef -2147483648)
   %36 = load i32, ptr @hf_solaredge_sequence_number_type, align 4
-  %37 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %36, ptr noundef %0, i32 noundef 8, i32 noundef 2, i32 noundef -2147483648) #5
-  %38 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef 10, i32 noundef -2147483648) #5
+  %37 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %36, ptr noundef %0, i32 noundef 8, i32 noundef 2, i32 noundef -2147483648)
+  %38 = tail call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef 10, i32 noundef -2147483648)
   %39 = load i32, ptr @hf_solaredge_source_address_type, align 4
-  %40 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %39, ptr noundef %0, i32 noundef 10, i32 noundef 4, i32 noundef -2147483648) #5
-  %41 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef 14, i32 noundef -2147483648) #5
+  %40 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %39, ptr noundef %0, i32 noundef 10, i32 noundef 4, i32 noundef -2147483648)
+  %41 = tail call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef 14, i32 noundef -2147483648)
   %42 = load i32, ptr @hf_solaredge_destination_address_type, align 4
-  %43 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %42, ptr noundef %0, i32 noundef 14, i32 noundef 4, i32 noundef -2147483648) #5
-  %44 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef 18, i32 noundef -2147483648) #5
+  %43 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %42, ptr noundef %0, i32 noundef 14, i32 noundef 4, i32 noundef -2147483648)
+  %44 = tail call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef 18, i32 noundef -2147483648)
   %45 = load i32, ptr @hf_solaredge_command_type, align 4
-  %46 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %45, ptr noundef %0, i32 noundef 18, i32 noundef 2, i32 noundef -2147483648) #5
+  %46 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %45, ptr noundef %0, i32 noundef 18, i32 noundef 2, i32 noundef -2147483648)
   %47 = load ptr, ptr %17, align 8
   %48 = zext i16 %44 to i32
-  %49 = tail call ptr @val_to_str_const(i32 noundef %48, ptr noundef nonnull @solaredge_packet_commandtypes, ptr noundef nonnull @.str.523) #5
-  tail call void @col_append_str(ptr noundef %47, i32 noundef 25, ptr noundef %49) #5
-  switch i16 %44, label %419 [
+  %49 = tail call ptr @val_to_str_const(i32 noundef %48, ptr noundef nonnull @solaredge_packet_commandtypes, ptr noundef nonnull @.str.525)
+  tail call void @col_append_str(ptr noundef %47, i32 noundef 25, ptr noundef %49)
+  tail call void @increment_dissection_depth(ptr noundef %1)
+  switch i16 %44, label %418 [
     i16 61, label %50
-    i16 1280, label %106
+    i16 1280, label %104
     i16 1283, label %378
   ]
 
 50:                                               ; preds = %32
   %51 = load i32, ptr @hf_solaredge_payload_type, align 4
-  %52 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %51, ptr noundef %0, i32 noundef 20, i32 noundef %28, i32 noundef 0) #5
+  %52 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %51, ptr noundef %0, i32 noundef 20, i32 noundef %28, i32 noundef 0)
   %53 = load i32, ptr @proto_solaredge, align 4
-  %54 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %4, i32 noundef %53) #5
-  %.not119 = icmp eq ptr %54, null
-  br i1 %.not119, label %104, label %55
+  %54 = tail call ptr @conversation_get_proto_data(ptr noundef %4, i32 noundef %53)
+  %.not122 = icmp eq ptr %54, null
+  br i1 %.not122, label %102, label %55
 
 55:                                               ; preds = %50
-  %56 = load i32, ptr %54, align 8
-  %57 = icmp eq i32 %56, 1
-  br i1 %57, label %58, label %104
+  %56 = load i8, ptr %54, align 8, !range !6, !noundef !7
+  %57 = trunc nuw i8 %56 to i1
+  br i1 %57, label %58, label %102
 
 58:                                               ; preds = %55
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %60 = load ptr, ptr %59, align 8
   %61 = zext i16 %23 to i64
-  %62 = tail call noalias ptr @wmem_alloc(ptr noundef %60, i64 noundef %61) #5
-  %63 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 20, i32 noundef %28) #5
-  %64 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %65 = load ptr, ptr %64, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
-  %66 = add nsw i32 %28, -16
-  %67 = tail call ptr @wmem_packet_scope() #5
-  %68 = sext i32 %66 to i64
-  %69 = tail call noalias ptr @wmem_alloc(ptr noundef %67, i64 noundef %68) #5
-  %70 = tail call ptr @wmem_packet_scope() #5
-  %71 = tail call noalias ptr @wmem_alloc(ptr noundef %70, i64 noundef %68) #5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, ptr noundef nonnull readonly align 1 dereferenceable(16) %63, i64 16, i1 false)
-  %72 = getelementptr i8, ptr %63, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %69, ptr readonly align 1 %72, i64 %68, i1 false)
-  %73 = call i32 @gcry_cipher_encrypt(ptr noundef %65, ptr noundef nonnull %10, i64 noundef 16, ptr noundef nonnull %11, i64 noundef 16) #5
+  %62 = tail call noalias ptr @wmem_alloc(ptr noundef %60, i64 noundef %61) #7
+  %63 = load ptr, ptr %59, align 8
+  %64 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 20, i32 noundef %28)
+  %65 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  %66 = load ptr, ptr %65, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #8
+  %67 = add nsw i32 %28, -16
+  %68 = sext i32 %67 to i64
+  %69 = tail call noalias ptr @wmem_alloc(ptr noundef %63, i64 noundef %68) #7
+  %70 = tail call noalias ptr @wmem_alloc(ptr noundef %63, i64 noundef %68) #7
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, ptr noundef readonly align 1 dereferenceable(16) %64, i64 noundef 16, i1 noundef false) #8
+  %71 = getelementptr i8, ptr %64, i64 16
+  %72 = icmp ne i32 %67, -1
+  tail call void @llvm.assume(i1 %72)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %69, ptr noundef readonly align 1 %71, i64 noundef range(i64 -16, 65520) %68, i1 noundef false) #8
+  %73 = call i32 @gcry_cipher_encrypt(ptr noundef %66, ptr noundef nonnull %10, i64 noundef 16, ptr noundef nonnull %11, i64 noundef 16)
   %74 = icmp ugt i16 %23, 16
   br i1 %74, label %.lr.ph.preheader.i, label %solaredge_decrypt.exit
 
 .lr.ph.preheader.i:                               ; preds = %58
-  %wide.trip.count.i = zext nneg i32 %66 to i64
+  %wide.trip.count.i = zext nneg i32 %67 to i64
   br label %.lr.ph.i
 
-.preheader.i:                                     ; preds = %92
-  %invariant.gep.i = getelementptr i8, ptr %71, i64 6
-  %invariant.gep40.i = getelementptr i8, ptr %71, i64 2
-  br label %.lr.ph43.i
+.preheader.i:                                     ; preds = %90
+  %invariant.gep.i = getelementptr i8, ptr %70, i64 6
+  %invariant.gep42.i = getelementptr i8, ptr %70, i64 2
+  br label %.lr.ph45.i
 
-.lr.ph.i:                                         ; preds = %92, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %92 ]
-  %.03238.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1.i, %92 ]
+.lr.ph.i:                                         ; preds = %90, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %90 ]
+  %.03440.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1.i, %90 ]
   %75 = getelementptr i8, ptr %69, i64 %indvars.iv.i
   %76 = load i8, ptr %75, align 1
-  %77 = add i32 %.03238.i, 1
-  %78 = sext i32 %.03238.i to i64
+  %77 = add i32 %.03440.i, 1
+  %78 = sext i32 %.03440.i to i64
   %79 = getelementptr [16 x i8], ptr %10, i64 0, i64 %78
   %80 = load i8, ptr %79, align 1
   %81 = xor i8 %80, %76
-  %82 = getelementptr i8, ptr %71, i64 %indvars.iv.i
+  %82 = getelementptr i8, ptr %70, i64 %indvars.iv.i
   store i8 %81, ptr %82, align 1
   %83 = icmp eq i32 %77, 16
-  br i1 %83, label %.preheader36.i, label %92
+  br i1 %83, label %.preheader38.i, label %90
 
-.preheader36.i:                                   ; preds = %.lr.ph.i, %.preheader36.i
-  %.037.i = phi i32 [ %88, %.preheader36.i ], [ 15, %.lr.ph.i ]
-  %84 = zext nneg i32 %.037.i to i64
-  %85 = getelementptr [16 x i8], ptr %11, i64 0, i64 %84
-  %86 = load i8, ptr %85, align 1
-  %87 = add i8 %86, 1
-  store i8 %87, ptr %85, align 1
-  %.not.i = icmp eq i8 %87, 0
-  %88 = add nsw i32 %.037.i, -1
-  %89 = icmp ne i32 %.037.i, 0
-  %or.cond.i = and i1 %89, %.not.i
-  br i1 %or.cond.i, label %.preheader36.i, label %90, !llvm.loop !4
+.preheader38.i:                                   ; preds = %.lr.ph.i, %.preheader38.i
+  %indvars.iv18 = phi i64 [ %indvars.iv.next19, %.preheader38.i ], [ 15, %.lr.ph.i ]
+  %84 = getelementptr [16 x i8], ptr %11, i64 0, i64 %indvars.iv18
+  %85 = load i8, ptr %84, align 1
+  %86 = add i8 %85, 1
+  store i8 %86, ptr %84, align 1
+  %.not.i = icmp eq i8 %86, 0
+  %indvars.iv.next19 = add nsw i64 %indvars.iv18, -1
+  %87 = icmp ne i64 %indvars.iv18, 0
+  %or.cond.i = and i1 %87, %.not.i
+  br i1 %or.cond.i, label %.preheader38.i, label %88, !llvm.loop !8
 
-90:                                               ; preds = %.preheader36.i
-  %91 = call i32 @gcry_cipher_encrypt(ptr noundef %65, ptr noundef nonnull %10, i64 noundef 16, ptr noundef nonnull %11, i64 noundef 16) #5
-  br label %92
+88:                                               ; preds = %.preheader38.i
+  %89 = call i32 @gcry_cipher_encrypt(ptr noundef %66, ptr noundef nonnull %10, i64 noundef 16, ptr noundef nonnull %11, i64 noundef 16)
+  br label %90
 
-92:                                               ; preds = %90, %.lr.ph.i
-  %.1.i = phi i32 [ 0, %90 ], [ %77, %.lr.ph.i ]
+90:                                               ; preds = %88, %.lr.ph.i
+  %.1.i = phi i32 [ 0, %88 ], [ %77, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !6
+  br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !10
 
-.lr.ph43.i:                                       ; preds = %.lr.ph43.i, %.preheader.i
-  %indvars.iv45.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next46.i, %.lr.ph43.i ]
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv45.i
-  %93 = load i8, ptr %gep.i, align 1
-  %94 = and i64 %indvars.iv45.i, 3
-  %gep41.i = getelementptr i8, ptr %invariant.gep40.i, i64 %94
-  %95 = load i8, ptr %gep41.i, align 1
-  %96 = xor i8 %95, %93
-  %97 = getelementptr i8, ptr %62, i64 %indvars.iv45.i
-  store i8 %96, ptr %97, align 1
-  %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
-  %exitcond49.not.i = icmp eq i64 %indvars.iv.next46.i, %wide.trip.count.i
-  br i1 %exitcond49.not.i, label %solaredge_decrypt.exit, label %.lr.ph43.i, !llvm.loop !7
+.lr.ph45.i:                                       ; preds = %.lr.ph45.i, %.preheader.i
+  %indvars.iv47.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next48.i, %.lr.ph45.i ]
+  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv47.i
+  %91 = load i8, ptr %gep.i, align 1
+  %92 = and i64 %indvars.iv47.i, 3
+  %gep43.i = getelementptr i8, ptr %invariant.gep42.i, i64 %92
+  %93 = load i8, ptr %gep43.i, align 1
+  %94 = xor i8 %93, %91
+  %95 = getelementptr i8, ptr %62, i64 %indvars.iv47.i
+  store i8 %94, ptr %95, align 1
+  %indvars.iv.next48.i = add nuw nsw i64 %indvars.iv47.i, 1
+  %exitcond51.not.i = icmp eq i64 %indvars.iv.next48.i, %wide.trip.count.i
+  br i1 %exitcond51.not.i, label %solaredge_decrypt.exit, label %.lr.ph45.i, !llvm.loop !11
 
-solaredge_decrypt.exit:                           ; preds = %.lr.ph43.i, %58
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
-  %98 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %62, i32 noundef %28, i32 noundef %28) #5
-  %99 = call i32 @tvb_get_guint32(ptr noundef %98, i32 noundef 0, i32 noundef -2147483648) #5
-  %100 = icmp eq i32 %99, 2035692562
-  br i1 %100, label %101, label %104
+solaredge_decrypt.exit:                           ; preds = %.lr.ph45.i, %58
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #8
+  %96 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %62, i32 noundef %28, i32 noundef %28)
+  %97 = call i32 @tvb_get_uint32(ptr noundef %96, i32 noundef 0, i32 noundef -2147483648)
+  %98 = icmp eq i32 %97, 2035692562
+  br i1 %98, label %99, label %102
 
-101:                                              ; preds = %solaredge_decrypt.exit
-  call void @add_new_data_source(ptr noundef %1, ptr noundef %98, ptr noundef nonnull @.str.524) #5
-  %102 = load i32, ptr @ett_solaredge_packet_decrypted, align 4
-  %103 = call fastcc i32 @dissect_solaredge_recursive(ptr noundef %98, ptr noundef %1, ptr noundef %2, i32 noundef %102, ptr noundef %4)
-  br label %104
+99:                                               ; preds = %solaredge_decrypt.exit
+  call void @add_new_data_source(ptr noundef %1, ptr noundef %96, ptr noundef nonnull @.str.526)
+  %100 = load i32, ptr @ett_solaredge_packet_decrypted, align 4
+  %101 = call fastcc i32 @dissect_solaredge_recursive(ptr noundef %96, ptr noundef %1, ptr noundef %2, i32 noundef %100, ptr noundef %4)
+  br label %102
 
-104:                                              ; preds = %solaredge_decrypt.exit, %101, %55, %50
-  %105 = add nuw nsw i32 %28, 20
+102:                                              ; preds = %solaredge_decrypt.exit, %99, %55, %50
+  %103 = add nuw nsw i32 %28, 20
   br label %dissect_solaredge_devicedata.exit
 
-106:                                              ; preds = %32
-  %107 = load i32, ptr @hf_solaredge_post_type, align 4
-  %108 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %107, ptr noundef %0, i32 noundef 20, i32 noundef %28, i32 noundef 0) #5
-  %109 = load i32, ptr @ett_solaredge_packet_post, align 4
-  %110 = tail call ptr @proto_item_add_subtree(ptr noundef %108, i32 noundef %109) #5
+104:                                              ; preds = %32
+  %105 = load i32, ptr @hf_solaredge_post_type, align 4
+  %106 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %105, ptr noundef %0, i32 noundef 20, i32 noundef %28, i32 noundef 0)
+  %107 = load i32, ptr @ett_solaredge_packet_post, align 4
+  %108 = tail call ptr @proto_item_add_subtree(ptr noundef %106, i32 noundef %107)
   br label %tailrecurse.i
 
-tailrecurse.i:                                    ; preds = %376, %106
-  %.tr284.i = phi i32 [ 20, %106 ], [ %.0.i, %376 ]
-  %111 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.tr284.i) #5
-  %112 = add nuw nsw i32 %.tr284.i, 2
-  %113 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %112) #5
-  %114 = add nuw nsw i32 %.tr284.i, 6
-  %115 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %114) #5
-  %116 = load i32, ptr @hf_solaredge_post_device_type, align 4
-  %117 = zext i16 %115 to i32
-  %118 = add nuw nsw i32 %117, 8
-  %119 = tail call ptr @proto_tree_add_item(ptr noundef %110, i32 noundef %116, ptr noundef %0, i32 noundef %.tr284.i, i32 noundef %118, i32 noundef 0) #5
-  %120 = load i32, ptr @ett_solaredge_packet_post_device, align 4
-  %121 = tail call ptr @proto_item_add_subtree(ptr noundef %119, i32 noundef %120) #5
-  %122 = load i32, ptr @hf_solaredge_post_device_type_type, align 4
-  %123 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %122, ptr noundef %0, i32 noundef %.tr284.i, i32 noundef 2, i32 noundef -2147483648) #5
-  %124 = load i32, ptr @hf_solaredge_post_device_id_type, align 4
-  %125 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %124, ptr noundef %0, i32 noundef %112, i32 noundef 4, i32 noundef -2147483648) #5
-  %126 = load i32, ptr @hf_solaredge_post_length_type, align 4
-  %127 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %126, ptr noundef %0, i32 noundef %114, i32 noundef 2, i32 noundef -2147483648) #5
-  %128 = add nuw nsw i32 %.tr284.i, 8
-  %129 = load ptr, ptr %17, align 8
-  tail call void @col_append_str(ptr noundef %129, i32 noundef 25, ptr noundef nonnull @.str.525) #5
-  %130 = load ptr, ptr %17, align 8
-  switch i16 %111, label %372 [
-    i16 0, label %131
-    i16 16, label %163
+tailrecurse.i:                                    ; preds = %376, %104
+  %.tr267.i = phi i32 [ 20, %104 ], [ %.0.i, %376 ]
+  %109 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.tr267.i)
+  %110 = add nuw nsw i32 %.tr267.i, 2
+  %111 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %110)
+  %112 = add nuw nsw i32 %.tr267.i, 6
+  %113 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %112)
+  %114 = load i32, ptr @hf_solaredge_post_device_type, align 4
+  %115 = zext i16 %113 to i32
+  %116 = add nuw nsw i32 %115, 8
+  %117 = tail call ptr @proto_tree_add_item(ptr noundef %108, i32 noundef %114, ptr noundef %0, i32 noundef %.tr267.i, i32 noundef %116, i32 noundef 0)
+  %118 = load i32, ptr @ett_solaredge_packet_post_device, align 4
+  %119 = tail call ptr @proto_item_add_subtree(ptr noundef %117, i32 noundef %118)
+  %120 = load i32, ptr @hf_solaredge_post_device_type_type, align 4
+  %121 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %120, ptr noundef %0, i32 noundef %.tr267.i, i32 noundef 2, i32 noundef -2147483648)
+  %122 = load i32, ptr @hf_solaredge_post_device_id_type, align 4
+  %123 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %122, ptr noundef %0, i32 noundef %110, i32 noundef 4, i32 noundef -2147483648)
+  %124 = load i32, ptr @hf_solaredge_post_length_type, align 4
+  %125 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %124, ptr noundef %0, i32 noundef %112, i32 noundef 2, i32 noundef -2147483648)
+  %126 = add nuw nsw i32 %.tr267.i, 8
+  %127 = load ptr, ptr %17, align 8
+  tail call void @col_append_str(ptr noundef %127, i32 noundef 25, ptr noundef nonnull @.str.527)
+  tail call void @increment_dissection_depth(ptr noundef %1)
+  %128 = load ptr, ptr %17, align 8
+  switch i16 %109, label %372 [
+    i16 0, label %129
+    i16 16, label %161
     i16 17, label %272
     i16 128, label %274
     i16 768, label %342
   ]
 
-131:                                              ; preds = %tailrecurse.i
-  tail call void @col_append_str(ptr noundef %130, i32 noundef 25, ptr noundef nonnull @.str.518) #5
-  %132 = load i32, ptr @hf_solaredge_post_optimizer_timestamp_type, align 4
-  %133 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %132, ptr noundef %0, i32 noundef %128, i32 noundef 4, i32 noundef -2147483648) #5
-  %134 = add nuw nsw i32 %.tr284.i, 12
-  %135 = load i32, ptr @hf_solaredge_post_optimizer_inverter_type, align 4
-  %136 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %135, ptr noundef %0, i32 noundef %134, i32 noundef 4, i32 noundef -2147483648) #5
-  %137 = load i32, ptr @global_show_unknown_fields, align 4
-  %138 = icmp eq i32 %137, 1
-  br i1 %138, label %139, label %143
+129:                                              ; preds = %tailrecurse.i
+  tail call void @col_append_str(ptr noundef %128, i32 noundef 25, ptr noundef nonnull @.str.519)
+  %130 = load i32, ptr @hf_solaredge_post_optimizer_timestamp_type, align 4
+  %131 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %130, ptr noundef %0, i32 noundef %126, i32 noundef 4, i32 noundef -2147483648)
+  %132 = add nuw nsw i32 %.tr267.i, 12
+  %133 = load i32, ptr @hf_solaredge_post_optimizer_inverter_type, align 4
+  %134 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %133, ptr noundef %0, i32 noundef %132, i32 noundef 4, i32 noundef -2147483648)
+  %135 = load i8, ptr @global_show_unknown_fields, align 1, !range !6, !noundef !7
+  %136 = trunc nuw i8 %135 to i1
+  br i1 %136, label %137, label %141
 
-139:                                              ; preds = %131
-  %140 = add nuw nsw i32 %.tr284.i, 16
-  %141 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
-  %142 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %141, ptr noundef %0, i32 noundef %140, i32 noundef 4, i32 noundef -2147483648) #5
-  br label %143
+137:                                              ; preds = %129
+  %138 = add nuw nsw i32 %.tr267.i, 16
+  %139 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
+  %140 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %139, ptr noundef %0, i32 noundef %138, i32 noundef 4, i32 noundef -2147483648)
+  br label %141
 
-143:                                              ; preds = %139, %131
-  %144 = add nuw nsw i32 %.tr284.i, 20
-  %145 = load i32, ptr @hf_solaredge_post_optimizer_uptime_type, align 4
-  %146 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %145, ptr noundef %0, i32 noundef %144, i32 noundef 4, i32 noundef -2147483648) #5
-  %147 = add nuw nsw i32 %.tr284.i, 24
-  %148 = load i32, ptr @hf_solaredge_post_optimizer_dc_voltage_panel_type, align 4
-  %149 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %148, ptr noundef %0, i32 noundef %147, i32 noundef 4, i32 noundef -2147483648) #5
-  %150 = add nuw nsw i32 %.tr284.i, 28
-  %151 = load i32, ptr @hf_solaredge_post_optimizer_dc_voltage_optimzer_type, align 4
-  %152 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %151, ptr noundef %0, i32 noundef %150, i32 noundef 4, i32 noundef -2147483648) #5
-  %153 = add nuw nsw i32 %.tr284.i, 32
-  %154 = load i32, ptr @hf_solaredge_post_optimizer_dc_current_panel_type, align 4
-  %155 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %154, ptr noundef %0, i32 noundef %153, i32 noundef 4, i32 noundef -2147483648) #5
-  %156 = add nuw nsw i32 %.tr284.i, 36
-  %157 = load i32, ptr @hf_solaredge_post_optimizer_energy_day_type, align 4
-  %158 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %157, ptr noundef %0, i32 noundef %156, i32 noundef 4, i32 noundef -2147483648) #5
-  %159 = add nuw nsw i32 %.tr284.i, 40
-  %160 = load i32, ptr @hf_solaredge_post_optimizer_temperature_type, align 4
-  %161 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %160, ptr noundef %0, i32 noundef %159, i32 noundef 4, i32 noundef -2147483648) #5
-  %162 = add nuw nsw i32 %.tr284.i, 44
+141:                                              ; preds = %137, %129
+  %142 = add nuw nsw i32 %.tr267.i, 20
+  %143 = load i32, ptr @hf_solaredge_post_optimizer_uptime_type, align 4
+  %144 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %143, ptr noundef %0, i32 noundef %142, i32 noundef 4, i32 noundef -2147483648)
+  %145 = add nuw nsw i32 %.tr267.i, 24
+  %146 = load i32, ptr @hf_solaredge_post_optimizer_dc_voltage_panel_type, align 4
+  %147 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %146, ptr noundef %0, i32 noundef %145, i32 noundef 4, i32 noundef -2147483648)
+  %148 = add nuw nsw i32 %.tr267.i, 28
+  %149 = load i32, ptr @hf_solaredge_post_optimizer_dc_voltage_optimzer_type, align 4
+  %150 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %149, ptr noundef %0, i32 noundef %148, i32 noundef 4, i32 noundef -2147483648)
+  %151 = add nuw nsw i32 %.tr267.i, 32
+  %152 = load i32, ptr @hf_solaredge_post_optimizer_dc_current_panel_type, align 4
+  %153 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %152, ptr noundef %0, i32 noundef %151, i32 noundef 4, i32 noundef -2147483648)
+  %154 = add nuw nsw i32 %.tr267.i, 36
+  %155 = load i32, ptr @hf_solaredge_post_optimizer_energy_day_type, align 4
+  %156 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %155, ptr noundef %0, i32 noundef %154, i32 noundef 4, i32 noundef -2147483648)
+  %157 = add nuw nsw i32 %.tr267.i, 40
+  %158 = load i32, ptr @hf_solaredge_post_optimizer_temperature_type, align 4
+  %159 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %158, ptr noundef %0, i32 noundef %157, i32 noundef 4, i32 noundef -2147483648)
+  %160 = add nuw nsw i32 %.tr267.i, 44
   br label %374
 
-163:                                              ; preds = %tailrecurse.i
-  tail call void @col_append_str(ptr noundef %130, i32 noundef 25, ptr noundef nonnull @.str.519) #5
-  %164 = load i32, ptr @hf_solaredge_post_singlephase_inverter_timestamp_type, align 4
-  %165 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %164, ptr noundef %0, i32 noundef %128, i32 noundef 4, i32 noundef -2147483648) #5
-  %166 = add nuw nsw i32 %.tr284.i, 12
-  %167 = load i32, ptr @hf_solaredge_post_singlephase_inverter_uptime_type, align 4
-  %168 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %167, ptr noundef %0, i32 noundef %166, i32 noundef 4, i32 noundef -2147483648) #5
-  %169 = add nuw nsw i32 %.tr284.i, 16
-  %170 = load i32, ptr @hf_solaredge_post_singlephase_inverter_interval_type, align 4
-  %171 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %170, ptr noundef %0, i32 noundef %169, i32 noundef 4, i32 noundef -2147483648) #5
-  %172 = add nuw nsw i32 %.tr284.i, 20
-  %173 = load i32, ptr @hf_solaredge_post_singlephase_inverter_temperature_type, align 4
-  %174 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %173, ptr noundef %0, i32 noundef %172, i32 noundef 4, i32 noundef -2147483648) #5
-  %175 = add nuw nsw i32 %.tr284.i, 24
-  %176 = load i32, ptr @hf_solaredge_post_singlephase_inverter_energy_day_type, align 4
-  %177 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %176, ptr noundef %0, i32 noundef %175, i32 noundef 4, i32 noundef -2147483648) #5
-  %178 = add nuw nsw i32 %.tr284.i, 28
-  %179 = load i32, ptr @hf_solaredge_post_singlephase_inverter_energy_interval_type, align 4
-  %180 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %179, ptr noundef %0, i32 noundef %178, i32 noundef 4, i32 noundef -2147483648) #5
-  %181 = add nuw nsw i32 %.tr284.i, 32
-  %182 = load i32, ptr @hf_solaredge_post_singlephase_inverter_ac_voltage_type, align 4
-  %183 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %182, ptr noundef %0, i32 noundef %181, i32 noundef 4, i32 noundef -2147483648) #5
-  %184 = add nuw nsw i32 %.tr284.i, 36
-  %185 = load i32, ptr @hf_solaredge_post_singlephase_inverter_ac_current_type, align 4
-  %186 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %185, ptr noundef %0, i32 noundef %184, i32 noundef 4, i32 noundef -2147483648) #5
-  %187 = add nuw nsw i32 %.tr284.i, 40
-  %188 = load i32, ptr @hf_solaredge_post_singlephase_inverter_ac_frequency_type, align 4
-  %189 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %188, ptr noundef %0, i32 noundef %187, i32 noundef 4, i32 noundef -2147483648) #5
-  %190 = load i32, ptr @global_show_unknown_fields, align 4
-  %191 = icmp eq i32 %190, 1
-  br i1 %191, label %192, label %.thread.i
+161:                                              ; preds = %tailrecurse.i
+  tail call void @col_append_str(ptr noundef %128, i32 noundef 25, ptr noundef nonnull @.str.520)
+  %162 = load i32, ptr @hf_solaredge_post_singlephase_inverter_timestamp_type, align 4
+  %163 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %162, ptr noundef %0, i32 noundef %126, i32 noundef 4, i32 noundef -2147483648)
+  %164 = add nuw nsw i32 %.tr267.i, 12
+  %165 = load i32, ptr @hf_solaredge_post_singlephase_inverter_uptime_type, align 4
+  %166 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %165, ptr noundef %0, i32 noundef %164, i32 noundef 4, i32 noundef -2147483648)
+  %167 = add nuw nsw i32 %.tr267.i, 16
+  %168 = load i32, ptr @hf_solaredge_post_singlephase_inverter_interval_type, align 4
+  %169 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %168, ptr noundef %0, i32 noundef %167, i32 noundef 4, i32 noundef -2147483648)
+  %170 = add nuw nsw i32 %.tr267.i, 20
+  %171 = load i32, ptr @hf_solaredge_post_singlephase_inverter_temperature_type, align 4
+  %172 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %171, ptr noundef %0, i32 noundef %170, i32 noundef 4, i32 noundef -2147483648)
+  %173 = add nuw nsw i32 %.tr267.i, 24
+  %174 = load i32, ptr @hf_solaredge_post_singlephase_inverter_energy_day_type, align 4
+  %175 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %174, ptr noundef %0, i32 noundef %173, i32 noundef 4, i32 noundef -2147483648)
+  %176 = add nuw nsw i32 %.tr267.i, 28
+  %177 = load i32, ptr @hf_solaredge_post_singlephase_inverter_energy_interval_type, align 4
+  %178 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %177, ptr noundef %0, i32 noundef %176, i32 noundef 4, i32 noundef -2147483648)
+  %179 = add nuw nsw i32 %.tr267.i, 32
+  %180 = load i32, ptr @hf_solaredge_post_singlephase_inverter_ac_voltage_type, align 4
+  %181 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %180, ptr noundef %0, i32 noundef %179, i32 noundef 4, i32 noundef -2147483648)
+  %182 = add nuw nsw i32 %.tr267.i, 36
+  %183 = load i32, ptr @hf_solaredge_post_singlephase_inverter_ac_current_type, align 4
+  %184 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %183, ptr noundef %0, i32 noundef %182, i32 noundef 4, i32 noundef -2147483648)
+  %185 = add nuw nsw i32 %.tr267.i, 40
+  %186 = load i32, ptr @hf_solaredge_post_singlephase_inverter_ac_frequency_type, align 4
+  %187 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %186, ptr noundef %0, i32 noundef %185, i32 noundef 4, i32 noundef -2147483648)
+  %188 = load i8, ptr @global_show_unknown_fields, align 1, !range !6, !noundef !7
+  %189 = trunc nuw i8 %188 to i1
+  br i1 %189, label %190, label %.thread.i
 
-192:                                              ; preds = %163
-  %193 = add nuw nsw i32 %.tr284.i, 44
-  %194 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
-  %195 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %194, ptr noundef %0, i32 noundef %193, i32 noundef 4, i32 noundef -2147483648) #5
-  %.pr.i = load i32, ptr @global_show_unknown_fields, align 4
-  %196 = icmp eq i32 %.pr.i, 1
-  br i1 %196, label %197, label %.thread.i
+190:                                              ; preds = %161
+  %191 = add nuw nsw i32 %.tr267.i, 44
+  %192 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
+  %193 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %192, ptr noundef %0, i32 noundef %191, i32 noundef 4, i32 noundef -2147483648)
+  %.pre270.i = load i8, ptr @global_show_unknown_fields, align 1, !range !6
+  %194 = trunc nuw i8 %.pre270.i to i1
+  br i1 %194, label %195, label %.thread.i
 
-197:                                              ; preds = %192
-  %198 = add nuw nsw i32 %.tr284.i, 48
-  %199 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
-  %200 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %199, ptr noundef %0, i32 noundef %198, i32 noundef 4, i32 noundef -2147483648) #5
+195:                                              ; preds = %190
+  %196 = add nuw nsw i32 %.tr267.i, 48
+  %197 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
+  %198 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %197, ptr noundef %0, i32 noundef %196, i32 noundef 4, i32 noundef -2147483648)
   br label %.thread.i
 
-.thread.i:                                        ; preds = %197, %192, %163
-  %201 = add nuw nsw i32 %.tr284.i, 52
-  %202 = load i32, ptr @hf_solaredge_post_singlephase_inverter_dc_voltage_type, align 4
-  %203 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %202, ptr noundef %0, i32 noundef %201, i32 noundef 4, i32 noundef -2147483648) #5
-  %204 = load i32, ptr @global_show_unknown_fields, align 4
-  %205 = icmp eq i32 %204, 1
-  br i1 %205, label %206, label %210
+.thread.i:                                        ; preds = %195, %190, %161
+  %199 = add nuw nsw i32 %.tr267.i, 52
+  %200 = load i32, ptr @hf_solaredge_post_singlephase_inverter_dc_voltage_type, align 4
+  %201 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %200, ptr noundef %0, i32 noundef %199, i32 noundef 4, i32 noundef -2147483648)
+  %202 = load i8, ptr @global_show_unknown_fields, align 1, !range !6, !noundef !7
+  %203 = trunc nuw i8 %202 to i1
+  br i1 %203, label %204, label %208
 
-206:                                              ; preds = %.thread.i
-  %207 = add nuw nsw i32 %.tr284.i, 56
-  %208 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
-  %209 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %208, ptr noundef %0, i32 noundef %207, i32 noundef 4, i32 noundef -2147483648) #5
-  br label %210
+204:                                              ; preds = %.thread.i
+  %205 = add nuw nsw i32 %.tr267.i, 56
+  %206 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
+  %207 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %206, ptr noundef %0, i32 noundef %205, i32 noundef 4, i32 noundef -2147483648)
+  br label %208
 
-210:                                              ; preds = %206, %.thread.i
-  %211 = add nuw nsw i32 %.tr284.i, 60
-  %212 = load i32, ptr @hf_solaredge_post_singlephase_inverter_energy_total_type, align 4
-  %213 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %212, ptr noundef %0, i32 noundef %211, i32 noundef 4, i32 noundef -2147483648) #5
-  %214 = load i32, ptr @global_show_unknown_fields, align 4
-  %215 = icmp eq i32 %214, 1
-  br i1 %215, label %216, label %.thread267.i
+208:                                              ; preds = %204, %.thread.i
+  %209 = add nuw nsw i32 %.tr267.i, 60
+  %210 = load i32, ptr @hf_solaredge_post_singlephase_inverter_energy_total_type, align 4
+  %211 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %210, ptr noundef %0, i32 noundef %209, i32 noundef 4, i32 noundef -2147483648)
+  %212 = load i8, ptr @global_show_unknown_fields, align 1, !range !6, !noundef !7
+  %213 = trunc nuw i8 %212 to i1
+  br i1 %213, label %214, label %.thread282.i
 
-216:                                              ; preds = %210
-  %217 = add nuw nsw i32 %.tr284.i, 64
-  %218 = load i32, ptr @hf_solaredge_post_padding_float_type, align 4
-  %219 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %218, ptr noundef %0, i32 noundef %217, i32 noundef 4, i32 noundef -2147483648) #5
-  %.pr262.i = load i32, ptr @global_show_unknown_fields, align 4
-  %220 = icmp eq i32 %.pr262.i, 1
-  br i1 %220, label %221, label %.thread267.i
+214:                                              ; preds = %208
+  %215 = add nuw nsw i32 %.tr267.i, 64
+  %216 = load i32, ptr @hf_solaredge_post_padding_float_type, align 4
+  %217 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %216, ptr noundef %0, i32 noundef %215, i32 noundef 4, i32 noundef -2147483648)
+  %.pre271.i = load i8, ptr @global_show_unknown_fields, align 1, !range !6
+  %218 = trunc nuw i8 %.pre271.i to i1
+  br i1 %218, label %219, label %.thread282.i
 
-221:                                              ; preds = %216
-  %222 = add nuw nsw i32 %.tr284.i, 68
-  %223 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
-  %224 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %223, ptr noundef %0, i32 noundef %222, i32 noundef 4, i32 noundef -2147483648) #5
-  %.pr264.i = load i32, ptr @global_show_unknown_fields, align 4
-  %225 = icmp eq i32 %.pr264.i, 1
-  br i1 %225, label %.thread265.i, label %.thread267.i
+219:                                              ; preds = %214
+  %220 = add nuw nsw i32 %.tr267.i, 68
+  %221 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
+  %222 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %221, ptr noundef %0, i32 noundef %220, i32 noundef 4, i32 noundef -2147483648)
+  %.pre272.i = load i8, ptr @global_show_unknown_fields, align 1, !range !6
+  %223 = trunc nuw i8 %.pre272.i to i1
+  br i1 %223, label %224, label %.thread282.i
 
-.thread265.i:                                     ; preds = %221
-  %226 = add nuw nsw i32 %.tr284.i, 72
-  %227 = load i32, ptr @hf_solaredge_post_padding_float_type, align 4
-  %228 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %227, ptr noundef %0, i32 noundef %226, i32 noundef 4, i32 noundef -2147483648) #5
-  %.pr266.pr.i = load i32, ptr @global_show_unknown_fields, align 4
-  %229 = icmp eq i32 %.pr266.pr.i, 1
-  br i1 %229, label %230, label %.thread267.i
+224:                                              ; preds = %219
+  %225 = add nuw nsw i32 %.tr267.i, 72
+  %226 = load i32, ptr @hf_solaredge_post_padding_float_type, align 4
+  %227 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %226, ptr noundef %0, i32 noundef %225, i32 noundef 4, i32 noundef -2147483648)
+  %.pre273.i = load i8, ptr @global_show_unknown_fields, align 1, !range !6
+  %228 = trunc nuw i8 %.pre273.i to i1
+  br i1 %228, label %229, label %.thread282.i
 
-230:                                              ; preds = %.thread265.i
-  %231 = add nuw nsw i32 %.tr284.i, 76
-  %232 = load i32, ptr @hf_solaredge_post_padding_float_type, align 4
-  %233 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %232, ptr noundef %0, i32 noundef %231, i32 noundef 4, i32 noundef -2147483648) #5
-  br label %.thread267.i
+229:                                              ; preds = %224
+  %230 = add nuw nsw i32 %.tr267.i, 76
+  %231 = load i32, ptr @hf_solaredge_post_padding_float_type, align 4
+  %232 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %231, ptr noundef %0, i32 noundef %230, i32 noundef 4, i32 noundef -2147483648)
+  br label %.thread282.i
 
-.thread267.i:                                     ; preds = %230, %.thread265.i, %221, %216, %210
-  %234 = add nuw nsw i32 %.tr284.i, 80
-  %235 = load i32, ptr @hf_solaredge_post_singlephase_inverter_power_max_type, align 4
-  %236 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %235, ptr noundef %0, i32 noundef %234, i32 noundef 4, i32 noundef -2147483648) #5
-  %237 = load i32, ptr @global_show_unknown_fields, align 4
-  %238 = icmp eq i32 %237, 1
-  br i1 %238, label %239, label %.thread275.i
+.thread282.i:                                     ; preds = %229, %224, %219, %214, %208
+  %233 = add nuw nsw i32 %.tr267.i, 80
+  %234 = load i32, ptr @hf_solaredge_post_singlephase_inverter_power_max_type, align 4
+  %235 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %234, ptr noundef %0, i32 noundef %233, i32 noundef 4, i32 noundef -2147483648)
+  %236 = load i8, ptr @global_show_unknown_fields, align 1, !range !6, !noundef !7
+  %237 = trunc nuw i8 %236 to i1
+  br i1 %237, label %238, label %.thread288.i
 
-239:                                              ; preds = %.thread267.i
-  %240 = add nuw nsw i32 %.tr284.i, 84
-  %241 = load i32, ptr @hf_solaredge_post_padding_float_type, align 4
-  %242 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %241, ptr noundef %0, i32 noundef %240, i32 noundef 4, i32 noundef -2147483648) #5
-  %.pr268.i = load i32, ptr @global_show_unknown_fields, align 4
-  %243 = icmp eq i32 %.pr268.i, 1
-  br i1 %243, label %244, label %.thread275.i
+238:                                              ; preds = %.thread282.i
+  %239 = add nuw nsw i32 %.tr267.i, 84
+  %240 = load i32, ptr @hf_solaredge_post_padding_float_type, align 4
+  %241 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %240, ptr noundef %0, i32 noundef %239, i32 noundef 4, i32 noundef -2147483648)
+  %.pre274.i = load i8, ptr @global_show_unknown_fields, align 1, !range !6
+  %242 = trunc nuw i8 %.pre274.i to i1
+  br i1 %242, label %243, label %.thread288.i
 
-244:                                              ; preds = %239
-  %245 = add nuw nsw i32 %.tr284.i, 88
-  %246 = load i32, ptr @hf_solaredge_post_padding_float_type, align 4
-  %247 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %246, ptr noundef %0, i32 noundef %245, i32 noundef 4, i32 noundef -2147483648) #5
-  %.pr270.i = load i32, ptr @global_show_unknown_fields, align 4
-  %248 = icmp eq i32 %.pr270.i, 1
-  br i1 %248, label %.thread272.i, label %.thread275.i
+243:                                              ; preds = %238
+  %244 = add nuw nsw i32 %.tr267.i, 88
+  %245 = load i32, ptr @hf_solaredge_post_padding_float_type, align 4
+  %246 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %245, ptr noundef %0, i32 noundef %244, i32 noundef 4, i32 noundef -2147483648)
+  %.pre275.i = load i8, ptr @global_show_unknown_fields, align 1, !range !6
+  %247 = trunc nuw i8 %.pre275.i to i1
+  br i1 %247, label %248, label %.thread288.i
 
-.thread272.i:                                     ; preds = %244
-  %249 = add nuw nsw i32 %.tr284.i, 92
+248:                                              ; preds = %243
+  %249 = add nuw nsw i32 %.tr267.i, 92
   %250 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
-  %251 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %250, ptr noundef %0, i32 noundef %249, i32 noundef 4, i32 noundef -2147483648) #5
-  %.pr274.pr.i = load i32, ptr @global_show_unknown_fields, align 4
-  %252 = icmp eq i32 %.pr274.pr.i, 1
-  br i1 %252, label %253, label %.thread275.i
+  %251 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %250, ptr noundef %0, i32 noundef %249, i32 noundef 4, i32 noundef -2147483648)
+  %.pre276.i = load i8, ptr @global_show_unknown_fields, align 1, !range !6
+  %252 = trunc nuw i8 %.pre276.i to i1
+  br i1 %252, label %253, label %.thread288.i
 
-253:                                              ; preds = %.thread272.i
-  %254 = add nuw nsw i32 %.tr284.i, 96
+253:                                              ; preds = %248
+  %254 = add nuw nsw i32 %.tr267.i, 96
   %255 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
-  %256 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %255, ptr noundef %0, i32 noundef %254, i32 noundef 4, i32 noundef -2147483648) #5
-  br label %.thread275.i
+  %256 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %255, ptr noundef %0, i32 noundef %254, i32 noundef 4, i32 noundef -2147483648)
+  br label %.thread288.i
 
-.thread275.i:                                     ; preds = %253, %.thread272.i, %244, %239, %.thread267.i
-  %257 = add nuw nsw i32 %.tr284.i, 100
+.thread288.i:                                     ; preds = %253, %248, %243, %238, %.thread282.i
+  %257 = add nuw nsw i32 %.tr267.i, 100
   %258 = load i32, ptr @hf_solaredge_post_singlephase_inverter_ac_power_type, align 4
-  %259 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %258, ptr noundef %0, i32 noundef %257, i32 noundef 4, i32 noundef -2147483648) #5
-  %260 = load i32, ptr @global_show_unknown_fields, align 4
-  %261 = icmp eq i32 %260, 1
-  br i1 %261, label %262, label %.thread277.i
+  %259 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %258, ptr noundef %0, i32 noundef %257, i32 noundef 4, i32 noundef -2147483648)
+  %260 = load i8, ptr @global_show_unknown_fields, align 1, !range !6, !noundef !7
+  %261 = trunc nuw i8 %260 to i1
+  br i1 %261, label %262, label %.thread289.i
 
-262:                                              ; preds = %.thread275.i
-  %263 = add nuw nsw i32 %.tr284.i, 104
+262:                                              ; preds = %.thread288.i
+  %263 = add nuw nsw i32 %.tr267.i, 104
   %264 = load i32, ptr @hf_solaredge_post_padding_float_type, align 4
-  %265 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %264, ptr noundef %0, i32 noundef %263, i32 noundef 4, i32 noundef -2147483648) #5
-  %.pr276.i = load i32, ptr @global_show_unknown_fields, align 4
-  %266 = icmp eq i32 %.pr276.i, 1
-  br i1 %266, label %267, label %.thread277.i
+  %265 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %264, ptr noundef %0, i32 noundef %263, i32 noundef 4, i32 noundef -2147483648)
+  %.pre277.i = load i8, ptr @global_show_unknown_fields, align 1, !range !6
+  %266 = trunc nuw i8 %.pre277.i to i1
+  br i1 %266, label %267, label %.thread289.i
 
 267:                                              ; preds = %262
-  %268 = add nuw nsw i32 %.tr284.i, 108
+  %268 = add nuw nsw i32 %.tr267.i, 108
   %269 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
-  %270 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %269, ptr noundef %0, i32 noundef %268, i32 noundef 4, i32 noundef -2147483648) #5
-  br label %.thread277.i
+  %270 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %269, ptr noundef %0, i32 noundef %268, i32 noundef 4, i32 noundef -2147483648)
+  br label %.thread289.i
 
-.thread277.i:                                     ; preds = %267, %262, %.thread275.i
-  %271 = add nuw nsw i32 %.tr284.i, 112
+.thread289.i:                                     ; preds = %267, %262, %.thread288.i
+  %271 = add nuw nsw i32 %.tr267.i, 112
   br label %374
 
 272:                                              ; preds = %tailrecurse.i
-  tail call void @col_append_str(ptr noundef %130, i32 noundef 25, ptr noundef nonnull @.str.520) #5
-  %273 = add nuw nsw i32 %128, %117
+  tail call void @col_append_str(ptr noundef %128, i32 noundef 25, ptr noundef nonnull @.str.521)
+  %273 = add nuw nsw i32 %126, %115
   br label %374
 
 274:                                              ; preds = %tailrecurse.i
-  tail call void @col_append_str(ptr noundef %130, i32 noundef 25, ptr noundef nonnull @.str.518) #5
+  tail call void @col_append_str(ptr noundef %128, i32 noundef 25, ptr noundef nonnull @.str.519)
   %275 = load i32, ptr @hf_solaredge_post_optimizer_timestamp_type, align 4
-  %276 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %275, ptr noundef %0, i32 noundef %128, i32 noundef 4, i32 noundef -2147483648) #5
-  %277 = add nuw nsw i32 %.tr284.i, 12
+  %276 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %275, ptr noundef %0, i32 noundef %126, i32 noundef 4, i32 noundef -2147483648)
+  %277 = add nuw nsw i32 %.tr267.i, 12
   %278 = load i32, ptr @hf_solaredge_post_optimizer_uptime_short_type, align 4
-  %279 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %278, ptr noundef %0, i32 noundef %277, i32 noundef 2, i32 noundef -2147483648) #5
-  %280 = add nuw nsw i32 %.tr284.i, 14
-  %281 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %280, i32 noundef 6) #5
+  %279 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %278, ptr noundef %0, i32 noundef %277, i32 noundef 2, i32 noundef -2147483648)
+  %280 = add nuw nsw i32 %.tr267.i, 14
+  %281 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %280, i32 noundef 6)
   %282 = load i8, ptr %281, align 1
   %283 = zext i8 %282 to i32
   %284 = getelementptr i8, ptr %281, i64 1
@@ -1131,7 +1155,7 @@ tailrecurse.i:                                    ; preds = %376, %106
   %292 = fptrunc double %291 to float
   %293 = load i32, ptr @hf_solaredge_post_optimizer_dc_voltage_panel_type, align 4
   %294 = fpext float %292 to double
-  %295 = tail call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %121, i32 noundef %293, ptr noundef %0, i32 noundef %280, i32 noundef 6, float noundef %292, ptr noundef nonnull @.str.526, double noundef %294) #5
+  %295 = tail call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %119, i32 noundef %293, ptr noundef %0, i32 noundef %280, i32 noundef 6, float noundef %292, ptr noundef nonnull @.str.528, double noundef %294)
   %296 = load i8, ptr %284, align 1
   %297 = lshr i8 %296, 2
   %298 = zext nneg i8 %297 to i32
@@ -1146,7 +1170,7 @@ tailrecurse.i:                                    ; preds = %376, %106
   %307 = fptrunc double %306 to float
   %308 = load i32, ptr @hf_solaredge_post_optimizer_dc_voltage_optimzer_type, align 4
   %309 = fpext float %307 to double
-  %310 = tail call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %121, i32 noundef %308, ptr noundef %0, i32 noundef %280, i32 noundef 6, float noundef %307, ptr noundef nonnull @.str.526, double noundef %309) #5
+  %310 = tail call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %119, i32 noundef %308, ptr noundef %0, i32 noundef %280, i32 noundef 6, float noundef %307, ptr noundef nonnull @.str.528, double noundef %309)
   %311 = getelementptr i8, ptr %281, i64 3
   %312 = load i8, ptr %311, align 1
   %313 = zext i8 %312 to i32
@@ -1160,7 +1184,7 @@ tailrecurse.i:                                    ; preds = %376, %106
   %321 = fptrunc double %320 to float
   %322 = load i32, ptr @hf_solaredge_post_optimizer_dc_current_optimzer_type, align 4
   %323 = fpext float %321 to double
-  %324 = tail call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %121, i32 noundef %322, ptr noundef %0, i32 noundef %280, i32 noundef 6, float noundef %321, ptr noundef nonnull @.str.526, double noundef %323) #5
+  %324 = tail call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %119, i32 noundef %322, ptr noundef %0, i32 noundef %280, i32 noundef 6, float noundef %321, ptr noundef nonnull @.str.528, double noundef %323)
   %325 = getelementptr i8, ptr %281, i64 5
   %326 = load i16, ptr %325, align 1
   %327 = uitofp i16 %326 to double
@@ -1168,279 +1192,316 @@ tailrecurse.i:                                    ; preds = %376, %106
   %329 = fptrunc double %328 to float
   %330 = load i32, ptr @hf_solaredge_post_optimizer_energy_day_type, align 4
   %331 = fpext float %329 to double
-  %332 = tail call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %121, i32 noundef %330, ptr noundef %0, i32 noundef %280, i32 noundef 6, float noundef %329, ptr noundef nonnull @.str.526, double noundef %331) #5
-  %333 = add nuw nsw i32 %.tr284.i, 20
-  %334 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %333) #5
+  %332 = tail call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %119, i32 noundef %330, ptr noundef %0, i32 noundef %280, i32 noundef 6, float noundef %329, ptr noundef nonnull @.str.528, double noundef %331)
+  %333 = add nuw nsw i32 %.tr267.i, 20
+  %334 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %333)
   %335 = uitofp i8 %334 to double
   %336 = fmul double %335, 2.000000e+00
   %337 = fptrunc double %336 to float
   %338 = load i32, ptr @hf_solaredge_post_optimizer_temperature_type, align 4
   %339 = fpext float %337 to double
-  %340 = tail call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %121, i32 noundef %338, ptr noundef %0, i32 noundef %333, i32 noundef 2, float noundef %337, ptr noundef nonnull @.str.526, double noundef %339) #5
-  %341 = add nuw nsw i32 %.tr284.i, 21
+  %340 = tail call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %119, i32 noundef %338, ptr noundef %0, i32 noundef %333, i32 noundef 2, float noundef %337, ptr noundef nonnull @.str.528, double noundef %339)
+  %341 = add nuw nsw i32 %.tr267.i, 21
   br label %374
 
 342:                                              ; preds = %tailrecurse.i
-  tail call void @col_append_str(ptr noundef %130, i32 noundef 25, ptr noundef nonnull @.str.521) #5
+  tail call void @col_append_str(ptr noundef %128, i32 noundef 25, ptr noundef nonnull @.str.522)
   %343 = load i32, ptr @hf_solaredge_post_event_timestamp_type, align 4
-  %344 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %343, ptr noundef %0, i32 noundef %128, i32 noundef 4, i32 noundef -2147483648) #5
-  %345 = add nuw nsw i32 %.tr284.i, 12
-  %346 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %345, i32 noundef -2147483648) #5
+  %344 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %343, ptr noundef %0, i32 noundef %126, i32 noundef 4, i32 noundef -2147483648)
+  %345 = add nuw nsw i32 %.tr267.i, 12
+  %346 = tail call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %345, i32 noundef -2147483648)
   %347 = load i32, ptr @hf_solaredge_post_event_type_type, align 4
-  %348 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %347, ptr noundef %0, i32 noundef %345, i32 noundef 4, i32 noundef -2147483648) #5
-  %349 = add nuw nsw i32 %.tr284.i, 16
+  %348 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %347, ptr noundef %0, i32 noundef %345, i32 noundef 4, i32 noundef -2147483648)
+  %349 = add nuw nsw i32 %.tr267.i, 16
   %350 = load i32, ptr @hf_solaredge_post_event_event_start_timestamp_type, align 4
-  %351 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %350, ptr noundef %0, i32 noundef %349, i32 noundef 4, i32 noundef -2147483648) #5
-  %352 = add nuw nsw i32 %.tr284.i, 20
+  %351 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %350, ptr noundef %0, i32 noundef %349, i32 noundef 4, i32 noundef -2147483648)
+  %352 = add nuw nsw i32 %.tr267.i, 20
   %353 = icmp eq i32 %346, 1
   br i1 %353, label %354, label %358
 
 354:                                              ; preds = %342
   %355 = load i32, ptr @hf_solaredge_post_event_event_timezone_offset_type, align 4
-  %356 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %355, ptr noundef %0, i32 noundef %352, i32 noundef 4, i32 noundef -2147483648) #5
-  %357 = add nuw nsw i32 %.tr284.i, 24
+  %356 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %355, ptr noundef %0, i32 noundef %352, i32 noundef 4, i32 noundef -2147483648)
+  %357 = add nuw nsw i32 %.tr267.i, 24
   br label %358
 
 358:                                              ; preds = %354, %342
-  %.sink287.i = phi i32 [ %357, %354 ], [ %352, %342 ]
+  %.sink291.i = phi i32 [ %357, %354 ], [ %352, %342 ]
   %359 = load i32, ptr @hf_solaredge_post_event_event_end_timestamp_type, align 4
-  %360 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %359, ptr noundef %0, i32 noundef %.sink287.i, i32 noundef 4, i32 noundef -2147483648) #5
-  %361 = load i32, ptr @global_show_unknown_fields, align 4
-  %362 = icmp eq i32 %361, 1
-  br i1 %362, label %363, label %.thread279.i
+  %360 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %359, ptr noundef %0, i32 noundef %.sink291.i, i32 noundef 4, i32 noundef -2147483648)
+  %361 = load i8, ptr @global_show_unknown_fields, align 1, !range !6, !noundef !7
+  %362 = trunc nuw i8 %361 to i1
+  br i1 %362, label %363, label %.thread290.i
 
 363:                                              ; preds = %358
-  %.1.i120 = add nuw nsw i32 %.tr284.i, 28
+  %.1.i123 = add nuw nsw i32 %.tr267.i, 28
   %364 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
-  %365 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %364, ptr noundef %0, i32 noundef %.1.i120, i32 noundef 4, i32 noundef -2147483648) #5
-  %.pr278.i = load i32, ptr @global_show_unknown_fields, align 4
-  %366 = icmp eq i32 %.pr278.i, 1
-  br i1 %366, label %367, label %.thread279.i
+  %365 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %364, ptr noundef %0, i32 noundef %.1.i123, i32 noundef 4, i32 noundef -2147483648)
+  %.pre.i = load i8, ptr @global_show_unknown_fields, align 1, !range !6
+  %366 = trunc nuw i8 %.pre.i to i1
+  br i1 %366, label %367, label %.thread290.i
 
 367:                                              ; preds = %363
-  %368 = add nuw nsw i32 %.tr284.i, 32
+  %368 = add nuw nsw i32 %.tr267.i, 32
   %369 = load i32, ptr @hf_solaredge_post_padding_uint32_type, align 4
-  %370 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %369, ptr noundef %0, i32 noundef %368, i32 noundef 4, i32 noundef -2147483648) #5
-  br label %.thread279.i
+  %370 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %369, ptr noundef %0, i32 noundef %368, i32 noundef 4, i32 noundef -2147483648)
+  br label %.thread290.i
 
-.thread279.i:                                     ; preds = %367, %363, %358
-  %371 = add nuw nsw i32 %.tr284.i, 36
+.thread290.i:                                     ; preds = %367, %363, %358
+  %371 = add nuw nsw i32 %.tr267.i, 36
   br label %374
 
 372:                                              ; preds = %tailrecurse.i
-  tail call void @col_append_str(ptr noundef %130, i32 noundef 25, ptr noundef nonnull @.str.527) #5
-  %373 = add nuw nsw i32 %128, %117
+  tail call void @col_append_str(ptr noundef %128, i32 noundef 25, ptr noundef nonnull @.str.529)
+  %373 = add nuw nsw i32 %126, %115
   br label %374
 
-374:                                              ; preds = %372, %.thread279.i, %274, %272, %.thread277.i, %143
-  %.0.i = phi i32 [ %373, %372 ], [ %371, %.thread279.i ], [ %341, %274 ], [ %273, %272 ], [ %271, %.thread277.i ], [ %162, %143 ]
+374:                                              ; preds = %372, %.thread290.i, %274, %272, %.thread289.i, %141
+  %.0.i = phi i32 [ %373, %372 ], [ %371, %.thread290.i ], [ %341, %274 ], [ %273, %272 ], [ %271, %.thread289.i ], [ %160, %141 ]
+  tail call void @decrement_dissection_depth(ptr noundef %1)
   %375 = icmp samesign ult i32 %.0.i, %28
   br i1 %375, label %376, label %dissect_solaredge_devicedata.exit
 
 376:                                              ; preds = %374
   %377 = load ptr, ptr %17, align 8
-  tail call void @col_append_str(ptr noundef %377, i32 noundef 25, ptr noundef nonnull @.str.528) #5
+  tail call void @col_append_str(ptr noundef %377, i32 noundef 25, ptr noundef nonnull @.str.530)
   br label %tailrecurse.i
 
 378:                                              ; preds = %32
   %379 = load i32, ptr @hf_solaredge_session_key_type, align 4
-  %380 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %379, ptr noundef %0, i32 noundef 20, i32 noundef %28, i32 noundef 0) #5
-  %381 = tail call i32 @gcry_cipher_open(ptr noundef nonnull @cipher_hd_system, i32 noundef 7, i32 noundef 1, i32 noundef 0) #5
-  %.not115 = icmp eq i32 %381, 0
-  br i1 %.not115, label %382, label %dissect_solaredge_devicedata.exit
+  %380 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %379, ptr noundef %0, i32 noundef 20, i32 noundef %28, i32 noundef 0)
+  %381 = tail call i32 @gcry_cipher_open(ptr noundef nonnull @cipher_hd_system, i32 noundef 7, i32 noundef 1, i32 noundef 0)
+  %.not118 = icmp eq i32 %381, 0
+  br i1 %.not118, label %382, label %dissect_solaredge_devicedata.exit
 
 382:                                              ; preds = %378
-  %383 = tail call ptr @g_byte_array_new() #5
+  %383 = tail call ptr @g_byte_array_new()
   %384 = load ptr, ptr @global_system_encryption_key, align 8
-  %385 = tail call i32 @hex_str_to_bytes(ptr noundef %384, ptr noundef %383, i32 noundef 0) #5
-  %386 = icmp eq i32 %385, 1
-  br i1 %386, label %387, label %dissect_solaredge_devicedata.exit
+  %385 = tail call zeroext i1 @hex_str_to_bytes(ptr noundef %384, ptr noundef %383, i1 noundef zeroext false)
+  br i1 %385, label %386, label %dissect_solaredge_devicedata.exit
 
-387:                                              ; preds = %382
-  %388 = getelementptr inbounds nuw i8, ptr %383, i64 8
-  %389 = load i32, ptr %388, align 8
-  %390 = icmp eq i32 %389, 16
-  br i1 %390, label %391, label %dissect_solaredge_devicedata.exit
+386:                                              ; preds = %382
+  %387 = getelementptr inbounds nuw i8, ptr %383, i64 8
+  %388 = load i32, ptr %387, align 8
+  %389 = icmp eq i32 %388, 16
+  br i1 %389, label %390, label %dissect_solaredge_devicedata.exit
 
-391:                                              ; preds = %387
-  %392 = load ptr, ptr @cipher_hd_system, align 8
-  %393 = load ptr, ptr %383, align 8
-  %394 = tail call i32 @gcry_cipher_setkey(ptr noundef %392, ptr noundef %393, i64 noundef 16) #5
-  %.not116 = icmp eq i32 %394, 0
-  br i1 %.not116, label %395, label %417
+390:                                              ; preds = %386
+  %391 = load ptr, ptr @cipher_hd_system, align 8
+  %392 = load ptr, ptr %383, align 8
+  %393 = tail call i32 @gcry_cipher_setkey(ptr noundef %391, ptr noundef %392, i64 noundef 16)
+  %.not119 = icmp eq i32 %393, 0
+  br i1 %.not119, label %394, label %416
 
-395:                                              ; preds = %391
-  %396 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %12, i32 noundef 20, i64 noundef 16) #5
-  %397 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %13, i32 noundef 36, i64 noundef 16) #5
-  %398 = load ptr, ptr @cipher_hd_system, align 8
-  %399 = call i32 @gcry_cipher_encrypt(ptr noundef %398, ptr noundef nonnull %14, i64 noundef 16, ptr noundef nonnull %12, i64 noundef 16) #5
-  br label %400
+394:                                              ; preds = %390
+  %395 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %12, i32 noundef 20, i64 noundef 16)
+  %396 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %13, i32 noundef 36, i64 noundef 16)
+  %397 = load ptr, ptr @cipher_hd_system, align 8
+  %398 = call i32 @gcry_cipher_encrypt(ptr noundef %397, ptr noundef nonnull %14, i64 noundef 16, ptr noundef nonnull %12, i64 noundef 16)
+  br label %399
 
-400:                                              ; preds = %395, %400
-  %indvars.iv = phi i64 [ 0, %395 ], [ %indvars.iv.next, %400 ]
-  %401 = getelementptr [16 x i8], ptr %14, i64 0, i64 %indvars.iv
-  %402 = load i8, ptr %401, align 1
-  %403 = getelementptr [16 x i8], ptr %13, i64 0, i64 %indvars.iv
-  %404 = load i8, ptr %403, align 1
-  %405 = xor i8 %404, %402
-  store i8 %405, ptr %403, align 1
+399:                                              ; preds = %394, %399
+  %indvars.iv = phi i64 [ 0, %394 ], [ %indvars.iv.next, %399 ]
+  %400 = getelementptr [16 x i8], ptr %14, i64 0, i64 %indvars.iv
+  %401 = load i8, ptr %400, align 1
+  %402 = getelementptr [16 x i8], ptr %13, i64 0, i64 %indvars.iv
+  %403 = load i8, ptr %402, align 1
+  %404 = xor i8 %403, %401
+  store i8 %404, ptr %402, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %406, label %400, !llvm.loop !8
+  br i1 %exitcond.not, label %405, label %399, !llvm.loop !12
 
-406:                                              ; preds = %400
-  %407 = load i32, ptr @proto_solaredge, align 4
-  %408 = call ptr @conversation_get_proto_data(ptr noundef nonnull %4, i32 noundef %407) #5
-  %409 = getelementptr inbounds nuw i8, ptr %408, i64 8
-  %410 = call i32 @gcry_cipher_open(ptr noundef nonnull %409, i32 noundef 7, i32 noundef 1, i32 noundef 0) #5
-  %.not117 = icmp eq i32 %410, 0
-  br i1 %.not117, label %411, label %417
+405:                                              ; preds = %399
+  %406 = load i32, ptr @proto_solaredge, align 4
+  %407 = call ptr @conversation_get_proto_data(ptr noundef %4, i32 noundef %406)
+  %408 = getelementptr inbounds nuw i8, ptr %407, i64 8
+  %409 = call i32 @gcry_cipher_open(ptr noundef nonnull %408, i32 noundef 7, i32 noundef 1, i32 noundef 0)
+  %.not120 = icmp eq i32 %409, 0
+  br i1 %.not120, label %410, label %416
 
-411:                                              ; preds = %406
-  %412 = load ptr, ptr %409, align 8
-  %413 = call i32 @gcry_cipher_setkey(ptr noundef %412, ptr noundef nonnull %13, i64 noundef 16) #5
-  %.not118 = icmp eq i32 %413, 0
-  br i1 %.not118, label %414, label %415
+410:                                              ; preds = %405
+  %411 = load ptr, ptr %408, align 8
+  %412 = call i32 @gcry_cipher_setkey(ptr noundef %411, ptr noundef nonnull %13, i64 noundef 16)
+  %.not121 = icmp eq i32 %412, 0
+  br i1 %.not121, label %413, label %414
 
-414:                                              ; preds = %411
-  store i32 1, ptr %408, align 8
-  br label %417
+413:                                              ; preds = %410
+  store i8 1, ptr %407, align 8
+  br label %416
 
-415:                                              ; preds = %411
-  %416 = load ptr, ptr %409, align 8
-  call void @gcry_cipher_close(ptr noundef %416) #5
-  br label %417
+414:                                              ; preds = %410
+  %415 = load ptr, ptr %408, align 8
+  call void @gcry_cipher_close(ptr noundef %415)
+  br label %416
 
-417:                                              ; preds = %406, %415, %414, %391
-  %.1 = phi i32 [ 20, %391 ], [ 52, %406 ], [ 52, %415 ], [ 52, %414 ]
-  %418 = load ptr, ptr @cipher_hd_system, align 8
-  call void @gcry_cipher_close(ptr noundef %418) #5
+416:                                              ; preds = %405, %414, %413, %390
+  %.1 = phi i32 [ 20, %390 ], [ 52, %405 ], [ 52, %414 ], [ 52, %413 ]
+  %417 = load ptr, ptr @cipher_hd_system, align 8
+  call void @gcry_cipher_close(ptr noundef %417)
   br label %dissect_solaredge_devicedata.exit
 
-419:                                              ; preds = %32
+418:                                              ; preds = %32
+  %419 = add nuw nsw i32 %28, 20
+  br label %dissect_solaredge_devicedata.exit
+
+dissect_solaredge_devicedata.exit:                ; preds = %374, %378, %416, %386, %382, %418, %102
+  %.0113 = phi i32 [ %419, %418 ], [ 20, %378 ], [ %.1, %416 ], [ 20, %386 ], [ 20, %382 ], [ %103, %102 ], [ 20, %374 ]
+  call void @decrement_dissection_depth(ptr noundef %1)
   %420 = add nuw nsw i32 %28, 20
-  br label %dissect_solaredge_devicedata.exit
-
-dissect_solaredge_devicedata.exit:                ; preds = %374, %378, %417, %387, %382, %419, %104
-  %.0110 = phi i32 [ %420, %419 ], [ 20, %378 ], [ %.1, %417 ], [ 20, %387 ], [ 20, %382 ], [ %105, %104 ], [ 20, %374 ]
-  %421 = add nuw nsw i32 %28, 20
-  %422 = load i32, ptr @hf_solaredge_crc_type, align 4
-  %423 = load i32, ptr @hf_solaredge_crc_status_type, align 4
-  %424 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 20, i32 noundef %28) #5
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9)
+  %421 = load i32, ptr @hf_solaredge_crc_type, align 4
+  %422 = load i32, ptr @hf_solaredge_crc_status_type, align 4
+  %423 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 20, i32 noundef %28)
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6) #8
   %rev.i = call i16 @llvm.bswap.i16(i16 %35)
   store i16 %rev.i, ptr %6, align 2
-  %425 = call i32 @llvm.bswap.i32(i32 %38)
-  store i32 %425, ptr %7, align 4
-  %426 = call i32 @llvm.bswap.i32(i32 %41)
-  store i32 %426, ptr %8, align 4
-  %rev24.i = call i16 @llvm.bswap.i16(i16 %44)
-  store i16 %rev24.i, ptr %9, align 2
-  %427 = call zeroext i16 @crc16_plain_update(i16 noundef zeroext 23130, ptr noundef nonnull %6, i64 noundef 2) #5
-  %428 = call zeroext i16 @crc16_plain_update(i16 noundef zeroext %427, ptr noundef nonnull %7, i64 noundef 4) #5
-  %429 = call zeroext i16 @crc16_plain_update(i16 noundef zeroext %428, ptr noundef nonnull %8, i64 noundef 4) #5
-  %430 = call zeroext i16 @crc16_plain_update(i16 noundef zeroext %429, ptr noundef nonnull %9, i64 noundef 2) #5
-  %431 = zext i16 %23 to i64
-  %432 = call zeroext i16 @crc16_plain_update(i16 noundef zeroext %430, ptr noundef %424, i64 noundef %431) #5
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9)
-  %433 = zext i16 %432 to i32
-  %434 = call ptr @proto_tree_add_checksum(ptr noundef %22, ptr noundef %0, i32 noundef %421, i32 noundef %422, i32 noundef %423, ptr noundef nonnull @ei_solaredge_invalid_crc, ptr noundef %1, i32 noundef %433, i32 noundef -2147483648, i32 noundef 1) #5
-  %435 = add nuw nsw i32 %.0110, 2
-  br label %436
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
+  %424 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %38) #9, !srcloc !13
+  store i32 %424, ptr %7, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
+  %425 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %41) #9, !srcloc !14
+  store i32 %425, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #8
+  %rev35.i = call i16 @llvm.bswap.i16(i16 %44)
+  store i16 %rev35.i, ptr %9, align 2
+  %426 = call zeroext i16 @crc16_plain_update(i16 noundef zeroext 23130, ptr noundef nonnull %6, i64 noundef 2)
+  %427 = call zeroext i16 @crc16_plain_update(i16 noundef zeroext %426, ptr noundef nonnull %7, i64 noundef 4)
+  %428 = call zeroext i16 @crc16_plain_update(i16 noundef zeroext %427, ptr noundef nonnull %8, i64 noundef 4)
+  %429 = call zeroext i16 @crc16_plain_update(i16 noundef zeroext %428, ptr noundef nonnull %9, i64 noundef 2)
+  %430 = zext i16 %23 to i64
+  %431 = call zeroext i16 @crc16_plain_update(i16 noundef zeroext %429, ptr noundef %423, i64 noundef %430)
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #8
+  %432 = zext i16 %431 to i32
+  %433 = call ptr @proto_tree_add_checksum(ptr noundef %22, ptr noundef %0, i32 noundef %420, i32 noundef %421, i32 noundef %422, ptr noundef nonnull @ei_solaredge_invalid_crc, ptr noundef %1, i32 noundef %432, i32 noundef -2147483648, i32 noundef 1)
+  %434 = add nuw nsw i32 %.0113, 2
+  br label %435
 
-436:                                              ; preds = %5, %dissect_solaredge_devicedata.exit
-  %.0 = phi i32 [ %435, %dissect_solaredge_devicedata.exit ], [ 0, %5 ]
+435:                                              ; preds = %5, %dissect_solaredge_devicedata.exit
+  %.0 = phi i32 [ %434, %dissect_solaredge_devicedata.exit ], [ 0, %5 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #8
   ret i32 %.0
 }
 
-declare i32 @tvb_get_guint32(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_get_uint32(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-declare zeroext i16 @tvb_get_guint16(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_uint16(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
+declare void @increment_dissection_depth(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_new_child_real_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @gcry_cipher_open(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @g_byte_array_new() local_unnamed_addr #1
 
-declare i32 @hex_str_to_bytes(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @hex_str_to_bytes(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @gcry_cipher_setkey(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_memcpy(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @gcry_cipher_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @gcry_cipher_close(ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
+declare void @decrement_dissection_depth(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_checksum(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-declare ptr @wmem_packet_scope() local_unnamed_addr #1
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
-
+; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_float_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, float noundef, ptr noundef, ...) local_unnamed_addr #1
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: null_pointer_is_valid
 declare zeroext i16 @crc16_plain_update(i16 noundef zeroext, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.bswap.i16(i16) #3
+declare i16 @llvm.bswap.i16(i16) #4
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #3
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #6
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #7 = { allocsize(1) }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind memory(none) }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind }
-
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = !{i64 2151217104}
+!14 = !{i64 2151217847}

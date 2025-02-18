@@ -3,25 +3,22 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
 %struct.true_false_string = type { ptr, ptr }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
 
-@proto_register_dect_mitel_eth.hf = internal global [134 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_dect_mitel_eth_len, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_layer, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 4, i32 2, ptr @dect_mitel_eth_layer_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_prim_type, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 4, i32 2, ptr @dect_mitel_eth_prim_coding_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_mcei, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_mac_info_ind_string, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_pmid, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 6, i32 2, ptr null, i64 1048575, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_subfield, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 4, i32 2, ptr @dect_mitel_eth_subfield_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_message_type, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 4, i32 2, ptr @dect_mitel_eth_rfpc_message_type_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_item_type, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 4, i32 2, ptr @dect_mitel_eth_rfpc_item_type_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_item_length, %struct._header_field_info { ptr @.str, ptr @.str.18, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_item_value, %struct._header_field_info { ptr @.str.19, ptr @.str.20, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_revision_generation, %struct._header_field_info { ptr @.str.21, ptr @.str.22, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_revision_boot_software, %struct._header_field_info { ptr @.str.23, ptr @.str.24, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_revision_prog_software, %struct._header_field_info { ptr @.str.25, ptr @.str.26, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_revision_hardware, %struct._header_field_info { ptr @.str.27, ptr @.str.28, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_rfpi_saris_available, %struct._header_field_info { ptr @.str.29, ptr @.str.30, i32 2, i32 8, ptr @tfs_yes_no, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_rfpi_ari_class, %struct._header_field_info { ptr @.str.31, ptr @.str.32, i32 4, i32 2, ptr @dect_mitel_eth_rfpc_rfpi_ari_class_val, i64 112, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_higher_layer_capabilities_flags, %struct._header_field_info { ptr @.str.33, ptr @.str.34, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_higher_layer_capabilities_connection_handover_supported, %struct._header_field_info { ptr @.str.35, ptr @.str.36, i32 2, i32 16, ptr @tfs_yes_no, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_higher_layer_capabilities_external_handover_supported, %struct._header_field_info { ptr @.str.37, ptr @.str.38, i32 2, i32 16, ptr @tfs_yes_no, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_higher_layer_capabilities_access_rights_requests_supported, %struct._header_field_info { ptr @.str.39, ptr @.str.40, i32 2, i32 16, ptr @tfs_yes_no, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_higher_layer_capabilities_coms_service_available, %struct._header_field_info { ptr @.str.41, ptr @.str.42, i32 2, i32 16, ptr @tfs_yes_no, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_higher_layer_capabilities_clms_service_available, %struct._header_field_info { ptr @.str.43, ptr @.str.44, i32 2, i32 16, ptr @tfs_yes_no, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_higher_layer_capabilities_ciss_services_available, %struct._header_field_info { ptr @.str.45, ptr @.str.46, i32 2, i32 16, ptr @tfs_yes_no, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_higher_layer_capabilities_non_static_fixed_part, %struct._header_field_info { ptr @.str.47, ptr @.str.48, i32 2, i32 16, ptr @tfs_yes_no, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_higher_layer_capabilities_sim_services_available, %struct._header_field_info { ptr @.str.49, ptr @.str.50, i32 2, i32 16, ptr @tfs_yes_no, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_higher_layer_capabilities_location_registration_supported, %struct._header_field_info { ptr @.str.51, ptr @.str.52, i32 2, i32 16, ptr @tfs_yes_no, i64 512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_higher_layer_capabilities_dsc_supported, %struct._header_field_info { ptr @.str.53, ptr @.str.54, i32 2, i32 16, ptr @tfs_yes_no, i64 1024, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_higher_layer_capabilities_dsaa_required, %struct._header_field_info { ptr @.str.55, ptr @.str.56, i32 2, i32 16, ptr @tfs_yes_no, i64 2048, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_higher_layer_capabilities_non_voice_packet_switched_service, %struct._header_field_info { ptr @.str.57, ptr @.str.58, i32 2, i32 16, ptr @tfs_yes_no, i64 4096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_higher_layer_capabilities_non_voice_circuit_switched_service, %struct._header_field_info { ptr @.str.59, ptr @.str.60, i32 2, i32 16, ptr @tfs_yes_no, i64 8192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_higher_layer_capabilities_gap_basic_speech, %struct._header_field_info { ptr @.str.61, ptr @.str.62, i32 2, i32 16, ptr @tfs_yes_no, i64 16384, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_higher_layer_capabilities_g726, %struct._header_field_info { ptr @.str.63, ptr @.str.64, i32 2, i32 16, ptr @tfs_yes_no, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_wireless_relay_stations, %struct._header_field_info { ptr @.str.65, ptr @.str.66, i32 5, i32 1, ptr null, i64 4032, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_flags, %struct._header_field_info { ptr @.str.67, ptr @.str.68, i32 7, i32 2, ptr null, i64 1073741823, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_isdn_data_services, %struct._header_field_info { ptr @.str.69, ptr @.str.70, i32 2, i32 32, ptr @tfs_yes_no, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_dprs_class_2, %struct._header_field_info { ptr @.str.71, ptr @.str.72, i32 2, i32 32, ptr @tfs_yes_no, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_dprs_class_3_or_4, %struct._header_field_info { ptr @.str.73, ptr @.str.74, i32 2, i32 32, ptr @tfs_yes_no, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_data_service_profile_d, %struct._header_field_info { ptr @.str.75, ptr @.str.76, i32 2, i32 32, ptr @tfs_yes_no, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_lrms, %struct._header_field_info { ptr @.str.77, ptr @.str.78, i32 2, i32 32, ptr @tfs_yes_no, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_asymmetric_bearers_supported, %struct._header_field_info { ptr @.str.79, ptr @.str.80, i32 2, i32 32, ptr @tfs_yes_no, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_emergency_call_supported, %struct._header_field_info { ptr @.str.81, ptr @.str.82, i32 2, i32 32, ptr @tfs_yes_no, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_location_registration_with_tpui_allowed, %struct._header_field_info { ptr @.str.83, ptr @.str.84, i32 2, i32 32, ptr @tfs_yes_no, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_sync_to_gps_achieved, %struct._header_field_info { ptr @.str.85, ptr @.str.86, i32 2, i32 32, ptr @tfs_yes_no, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_isdn_intermediate_system, %struct._header_field_info { ptr @.str.87, ptr @.str.88, i32 2, i32 32, ptr @tfs_yes_no, i64 512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_rap_part_1_profile, %struct._header_field_info { ptr @.str.89, ptr @.str.90, i32 2, i32 32, ptr @tfs_yes_no, i64 1024, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_v24, %struct._header_field_info { ptr @.str.91, ptr @.str.92, i32 2, i32 32, ptr @tfs_yes_no, i64 2048, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_ppp, %struct._header_field_info { ptr @.str.93, ptr @.str.94, i32 2, i32 32, ptr @tfs_yes_no, i64 4096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_ip, %struct._header_field_info { ptr @.str.95, ptr @.str.96, i32 2, i32 32, ptr @tfs_yes_no, i64 8192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_token_ring, %struct._header_field_info { ptr @.str.97, ptr @.str.98, i32 2, i32 32, ptr @tfs_yes_no, i64 16384, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_ethernet, %struct._header_field_info { ptr @.str.99, ptr @.str.100, i32 2, i32 32, ptr @tfs_yes_no, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_ip_roaming_unrestricted_supported, %struct._header_field_info { ptr @.str.101, ptr @.str.102, i32 2, i32 32, ptr @tfs_yes_no, i64 65536, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_dprs_supported, %struct._header_field_info { ptr @.str.103, ptr @.str.104, i32 2, i32 32, ptr @tfs_yes_no, i64 131072, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_basis_odap_supported, %struct._header_field_info { ptr @.str.105, ptr @.str.106, i32 2, i32 32, ptr @tfs_yes_no, i64 262144, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_fmms_interworking_profile_supported, %struct._header_field_info { ptr @.str.107, ptr @.str.108, i32 2, i32 32, ptr @tfs_yes_no, i64 524288, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_extended_fp_info2, %struct._header_field_info { ptr @.str.109, ptr @.str.110, i32 2, i32 32, ptr @tfs_yes_no, i64 16777216, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_ipq_services_supported, %struct._header_field_info { ptr @.str.111, ptr @.str.112, i32 2, i32 32, ptr @tfs_yes_no, i64 33554432, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_mac_suspend_resume, %struct._header_field_info { ptr @.str.113, ptr @.str.114, i32 2, i32 32, ptr @tfs_yes_no, i64 67108864, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_frequency_replacement_supported, %struct._header_field_info { ptr @.str.115, ptr @.str.116, i32 2, i32 32, ptr @tfs_yes_no, i64 134217728, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_syncronization, %struct._header_field_info { ptr @.str.117, ptr @.str.118, i32 2, i32 32, ptr @tfs_prolonged_standard, i64 268435456, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_flags, %struct._header_field_info { ptr @.str.33, ptr @.str.119, i32 6, i32 2, ptr null, i64 1048575, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_multibearer_connections, %struct._header_field_info { ptr @.str.120, ptr @.str.121, i32 2, i32 20, ptr @tfs_yes_no, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_ipmr_error_correction, %struct._header_field_info { ptr @.str.122, ptr @.str.123, i32 2, i32 20, ptr @tfs_yes_no, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_ipm_error_detection, %struct._header_field_info { ptr @.str.124, ptr @.str.125, i32 2, i32 20, ptr @tfs_yes_no, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_inb_normal_delay, %struct._header_field_info { ptr @.str.126, ptr @.str.127, i32 2, i32 20, ptr @tfs_yes_no, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_ina_minimum_delay, %struct._header_field_info { ptr @.str.128, ptr @.str.129, i32 2, i32 20, ptr @tfs_yes_no, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_cf_messages, %struct._header_field_info { ptr @.str.130, ptr @.str.131, i32 2, i32 20, ptr @tfs_yes_no, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_b_field_setup, %struct._header_field_info { ptr @.str.132, ptr @.str.133, i32 2, i32 20, ptr @tfs_yes_no, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_advanced_a_field_setup, %struct._header_field_info { ptr @.str.134, ptr @.str.135, i32 2, i32 20, ptr @tfs_yes_no, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_basic_a_field_setup, %struct._header_field_info { ptr @.str.136, ptr @.str.137, i32 2, i32 20, ptr @tfs_yes_no, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_cl_downlink, %struct._header_field_info { ptr @.str.138, ptr @.str.139, i32 2, i32 20, ptr @tfs_yes_no, i64 512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_cl_uplink, %struct._header_field_info { ptr @.str.140, ptr @.str.141, i32 2, i32 20, ptr @tfs_yes_no, i64 1024, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_co_setup_on_dummy_allowed, %struct._header_field_info { ptr @.str.142, ptr @.str.143, i32 2, i32 20, ptr @tfs_yes_no, i64 2048, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_page_repetition, %struct._header_field_info { ptr @.str.144, ptr @.str.145, i32 2, i32 20, ptr @tfs_yes_no, i64 4096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_frequency_control, %struct._header_field_info { ptr @.str.146, ptr @.str.147, i32 2, i32 20, ptr @tfs_yes_no, i64 8192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_slot_size_full, %struct._header_field_info { ptr @.str.148, ptr @.str.149, i32 2, i32 20, ptr @tfs_yes_no, i64 16384, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_slot_size_half, %struct._header_field_info { ptr @.str.150, ptr @.str.151, i32 2, i32 20, ptr @tfs_yes_no, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_slot_size_double, %struct._header_field_info { ptr @.str.152, ptr @.str.153, i32 2, i32 20, ptr @tfs_yes_no, i64 65536, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_double_duplex_bearer_connections, %struct._header_field_info { ptr @.str.154, ptr @.str.155, i32 2, i32 20, ptr @tfs_yes_no, i64 262144, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_extended_fp_info, %struct._header_field_info { ptr @.str.156, ptr @.str.157, i32 2, i32 20, ptr @tfs_yes_no, i64 524288, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_statistic_data_bmc_connections_1_3, %struct._header_field_info { ptr @.str.158, ptr @.str.159, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_statistic_data_bmc_connections_4_6, %struct._header_field_info { ptr @.str.160, ptr @.str.161, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_statistic_data_bmc_connections_7_9, %struct._header_field_info { ptr @.str.162, ptr @.str.163, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_statistic_data_bmc_connections_10_12, %struct._header_field_info { ptr @.str.164, ptr @.str.165, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_statistic_data_bmc_dsp_channels_1_2, %struct._header_field_info { ptr @.str.166, ptr @.str.167, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_statistic_data_bmc_dsp_channels_3_4, %struct._header_field_info { ptr @.str.168, ptr @.str.169, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_statistic_data_bmc_dsp_channels_5_6, %struct._header_field_info { ptr @.str.170, ptr @.str.171, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_statistic_data_bmc_dsp_channels_7_8, %struct._header_field_info { ptr @.str.172, ptr @.str.173, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_statistic_data_lost_connections, %struct._header_field_info { ptr @.str.174, ptr @.str.175, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_statistic_data_mac_reset, %struct._header_field_info { ptr @.str.176, ptr @.str.177, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_statistic_data_reject_dummy, %struct._header_field_info { ptr @.str.178, ptr @.str.179, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_statistic_data_handoff_timer, %struct._header_field_info { ptr @.str.180, ptr @.str.181, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_statistic_data_bad_frames, %struct._header_field_info { ptr @.str.182, ptr @.str.183, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_statistic_data_good_frames, %struct._header_field_info { ptr @.str.184, ptr @.str.185, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_rfp_pli_length_indicator, %struct._header_field_info { ptr @.str.186, ptr @.str.187, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_mac_capability_flags, %struct._header_field_info { ptr @.str.33, ptr @.str.188, i32 5, i32 2, ptr null, i64 4095, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_mac_capability_slot_type_long_640, %struct._header_field_info { ptr @.str.189, ptr @.str.190, i32 2, i32 12, ptr @tfs_yes_no, i64 2048, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_mac_capability_slot_type_long_672, %struct._header_field_info { ptr @.str.191, ptr @.str.192, i32 2, i32 12, ptr @tfs_yes_no, i64 1024, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_mac_capability_mux_e_u, %struct._header_field_info { ptr @.str.193, ptr @.str.194, i32 2, i32 12, ptr @tfs_yes_no, i64 512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_mac_capability_channel_ipf, %struct._header_field_info { ptr @.str.195, ptr @.str.196, i32 2, i32 12, ptr @tfs_yes_no, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_mac_capability_channel_sipf, %struct._header_field_info { ptr @.str.197, ptr @.str.198, i32 2, i32 12, ptr @tfs_yes_no, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_mac_capability_channel_gf, %struct._header_field_info { ptr @.str.199, ptr @.str.200, i32 2, i32 12, ptr @tfs_yes_no, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_mac_capability_wrs_ule, %struct._header_field_info { ptr @.str.201, ptr @.str.202, i32 2, i32 12, ptr @tfs_yes_no, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_mac_capability_no_emission_preferred_cn, %struct._header_field_info { ptr @.str.203, ptr @.str.204, i32 2, i32 12, ptr @tfs_yes_no, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_flags, %struct._header_field_info { ptr @.str.205, ptr @.str.206, i32 6, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_dprs_data_category, %struct._header_field_info { ptr @.str.207, ptr @.str.208, i32 4, i32 2, ptr @dect_mitel_eth_rfpc_extended_capabilities2_dprs_data_category_val, i64 120, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_ng_dect_1, %struct._header_field_info { ptr @.str.209, ptr @.str.210, i32 2, i32 24, ptr @tfs_yes_no, i64 8388608, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_ng_dect_3, %struct._header_field_info { ptr @.str.211, ptr @.str.212, i32 2, i32 24, ptr @tfs_yes_no, i64 262144, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_permanent_clir, %struct._header_field_info { ptr @.str.213, ptr @.str.214, i32 2, i32 24, ptr @tfs_yes_no, i64 131072, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_third_party_conference, %struct._header_field_info { ptr @.str.215, ptr @.str.216, i32 2, i32 24, ptr @tfs_yes_no, i64 65536, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_intrusion_call, %struct._header_field_info { ptr @.str.217, ptr @.str.218, i32 2, i32 24, ptr @tfs_yes_no, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_call_deflection, %struct._header_field_info { ptr @.str.219, ptr @.str.220, i32 2, i32 24, ptr @tfs_yes_no, i64 16384, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_multiple_lines, %struct._header_field_info { ptr @.str.221, ptr @.str.222, i32 2, i32 24, ptr @tfs_yes_no, i64 8192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_no_emission, %struct._header_field_info { ptr @.str.223, ptr @.str.224, i32 2, i32 24, ptr @tfs_yes_no, i64 4096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_ng_dect_5, %struct._header_field_info { ptr @.str.225, ptr @.str.226, i32 2, i32 24, ptr @tfs_yes_no, i64 2048, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_re_keying, %struct._header_field_info { ptr @.str.227, ptr @.str.228, i32 2, i32 24, ptr @tfs_yes_no, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_dsaa2, %struct._header_field_info { ptr @.str.229, ptr @.str.230, i32 2, i32 24, ptr @tfs_yes_no, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_dsc2, %struct._header_field_info { ptr @.str.231, ptr @.str.232, i32 2, i32 24, ptr @tfs_yes_no, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_light_data, %struct._header_field_info { ptr @.str.207, ptr @.str.233, i32 2, i32 24, ptr @tfs_yes_no, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_mac_con_ind_flags, %struct._header_field_info { ptr @.str.67, ptr @.str.234, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_mac_con_ind_flag_handover, %struct._header_field_info { ptr @.str.235, ptr @.str.236, i32 2, i32 8, ptr @tfs_yes_no, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_mac_dis_ind_reason, %struct._header_field_info { ptr @.str.237, ptr @.str.238, i32 4, i32 2, ptr @dect_mitel_eth_mac_dis_ind_reason_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_mac_page_req_flags, %struct._header_field_info { ptr @.str.67, ptr @.str.239, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_mac_enc_key_req_key, %struct._header_field_info { ptr @.str.240, ptr @.str.241, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_mac_enc_key_req_id, %struct._header_field_info { ptr @.str.242, ptr @.str.243, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_mac_enc_eks_ind_type, %struct._header_field_info { ptr @.str.16, ptr @.str.244, i32 4, i32 2, ptr @dect_mitel_eth_mac_enc_eks_ind_type_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_mac_enc_eks_ind_id, %struct._header_field_info { ptr @.str.242, ptr @.str.245, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_mac_enc_eks_ind_ppn, %struct._header_field_info { ptr @.str.246, ptr @.str.247, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_mac_ho_in_progress_res_key, %struct._header_field_info { ptr @.str.240, ptr @.str.248, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_mac_ho_in_progress_res_id, %struct._header_field_info { ptr @.str.242, ptr @.str.249, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_mac_ho_failed_ind_reason, %struct._header_field_info { ptr @.str.237, ptr @.str.250, i32 4, i32 2, ptr @dect_mitel_eth_mac_ho_failed_ind_reason_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_mt_item_key, %struct._header_field_info { ptr @.str.240, ptr @.str.251, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_mt_item_length, %struct._header_field_info { ptr @.str, ptr @.str.252, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_mt_item_value, %struct._header_field_info { ptr @.str.19, ptr @.str.253, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
+@proto_register_dect_mitel_eth.hf = internal global [134 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_dect_mitel_eth_len, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_layer, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 4, i32 2, ptr @dect_mitel_eth_layer_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_prim_type, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 4, i32 2, ptr @dect_mitel_eth_prim_coding_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_mcei, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_mac_info_ind_string, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_pmid, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 6, i32 2, ptr null, i64 1048575, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_subfield, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 4, i32 2, ptr @dect_mitel_eth_subfield_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_message_type, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 4, i32 2, ptr @dect_mitel_eth_rfpc_message_type_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_item_type, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 4, i32 2, ptr @dect_mitel_eth_rfpc_item_type_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_item_length, %struct._header_field_info { ptr @.str, ptr @.str.18, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_item_value, %struct._header_field_info { ptr @.str.19, ptr @.str.20, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_revision_generation, %struct._header_field_info { ptr @.str.21, ptr @.str.22, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_revision_boot_software, %struct._header_field_info { ptr @.str.23, ptr @.str.24, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_revision_prog_software, %struct._header_field_info { ptr @.str.25, ptr @.str.26, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_revision_hardware, %struct._header_field_info { ptr @.str.27, ptr @.str.28, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_rfpi_saris_available, %struct._header_field_info { ptr @.str.29, ptr @.str.30, i32 2, i32 8, ptr @tfs_yes_no, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_rfpi_ari_class, %struct._header_field_info { ptr @.str.31, ptr @.str.32, i32 4, i32 2, ptr @dect_mitel_eth_rfpc_rfpi_ari_class_val, i64 112, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_higher_layer_capabilities_flags, %struct._header_field_info { ptr @.str.33, ptr @.str.34, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_higher_layer_capabilities_connection_handover_supported, %struct._header_field_info { ptr @.str.35, ptr @.str.36, i32 2, i32 16, ptr @tfs_yes_no, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_higher_layer_capabilities_external_handover_supported, %struct._header_field_info { ptr @.str.37, ptr @.str.38, i32 2, i32 16, ptr @tfs_yes_no, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_higher_layer_capabilities_access_rights_requests_supported, %struct._header_field_info { ptr @.str.39, ptr @.str.40, i32 2, i32 16, ptr @tfs_yes_no, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_higher_layer_capabilities_coms_service_available, %struct._header_field_info { ptr @.str.41, ptr @.str.42, i32 2, i32 16, ptr @tfs_yes_no, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_higher_layer_capabilities_clms_service_available, %struct._header_field_info { ptr @.str.43, ptr @.str.44, i32 2, i32 16, ptr @tfs_yes_no, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_higher_layer_capabilities_ciss_services_available, %struct._header_field_info { ptr @.str.45, ptr @.str.46, i32 2, i32 16, ptr @tfs_yes_no, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_higher_layer_capabilities_non_static_fixed_part, %struct._header_field_info { ptr @.str.47, ptr @.str.48, i32 2, i32 16, ptr @tfs_yes_no, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_higher_layer_capabilities_sim_services_available, %struct._header_field_info { ptr @.str.49, ptr @.str.50, i32 2, i32 16, ptr @tfs_yes_no, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_higher_layer_capabilities_location_registration_supported, %struct._header_field_info { ptr @.str.51, ptr @.str.52, i32 2, i32 16, ptr @tfs_yes_no, i64 512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_higher_layer_capabilities_dsc_supported, %struct._header_field_info { ptr @.str.53, ptr @.str.54, i32 2, i32 16, ptr @tfs_yes_no, i64 1024, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_higher_layer_capabilities_dsaa_required, %struct._header_field_info { ptr @.str.55, ptr @.str.56, i32 2, i32 16, ptr @tfs_yes_no, i64 2048, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_higher_layer_capabilities_non_voice_packet_switched_service, %struct._header_field_info { ptr @.str.57, ptr @.str.58, i32 2, i32 16, ptr @tfs_yes_no, i64 4096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_higher_layer_capabilities_non_voice_circuit_switched_service, %struct._header_field_info { ptr @.str.59, ptr @.str.60, i32 2, i32 16, ptr @tfs_yes_no, i64 8192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_higher_layer_capabilities_gap_basic_speech, %struct._header_field_info { ptr @.str.61, ptr @.str.62, i32 2, i32 16, ptr @tfs_yes_no, i64 16384, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_higher_layer_capabilities_g726, %struct._header_field_info { ptr @.str.63, ptr @.str.64, i32 2, i32 16, ptr @tfs_yes_no, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_wireless_relay_stations, %struct._header_field_info { ptr @.str.65, ptr @.str.66, i32 5, i32 1, ptr null, i64 4032, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_flags, %struct._header_field_info { ptr @.str.67, ptr @.str.68, i32 7, i32 2, ptr null, i64 1073741823, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_isdn_data_services, %struct._header_field_info { ptr @.str.69, ptr @.str.70, i32 2, i32 32, ptr @tfs_yes_no, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_dprs_class_2, %struct._header_field_info { ptr @.str.71, ptr @.str.72, i32 2, i32 32, ptr @tfs_yes_no, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_dprs_class_3_or_4, %struct._header_field_info { ptr @.str.73, ptr @.str.74, i32 2, i32 32, ptr @tfs_yes_no, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_data_service_profile_d, %struct._header_field_info { ptr @.str.75, ptr @.str.76, i32 2, i32 32, ptr @tfs_yes_no, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_lrms, %struct._header_field_info { ptr @.str.77, ptr @.str.78, i32 2, i32 32, ptr @tfs_yes_no, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_asymmetric_bearers_supported, %struct._header_field_info { ptr @.str.79, ptr @.str.80, i32 2, i32 32, ptr @tfs_yes_no, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_emergency_call_supported, %struct._header_field_info { ptr @.str.81, ptr @.str.82, i32 2, i32 32, ptr @tfs_yes_no, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_location_registration_with_tpui_allowed, %struct._header_field_info { ptr @.str.83, ptr @.str.84, i32 2, i32 32, ptr @tfs_yes_no, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_sync_to_gps_achieved, %struct._header_field_info { ptr @.str.85, ptr @.str.86, i32 2, i32 32, ptr @tfs_yes_no, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_isdn_intermediate_system, %struct._header_field_info { ptr @.str.87, ptr @.str.88, i32 2, i32 32, ptr @tfs_yes_no, i64 512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_rap_part_1_profile, %struct._header_field_info { ptr @.str.89, ptr @.str.90, i32 2, i32 32, ptr @tfs_yes_no, i64 1024, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_v24, %struct._header_field_info { ptr @.str.91, ptr @.str.92, i32 2, i32 32, ptr @tfs_yes_no, i64 2048, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_ppp, %struct._header_field_info { ptr @.str.93, ptr @.str.94, i32 2, i32 32, ptr @tfs_yes_no, i64 4096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_ip, %struct._header_field_info { ptr @.str.95, ptr @.str.96, i32 2, i32 32, ptr @tfs_yes_no, i64 8192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_token_ring, %struct._header_field_info { ptr @.str.97, ptr @.str.98, i32 2, i32 32, ptr @tfs_yes_no, i64 16384, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_ethernet, %struct._header_field_info { ptr @.str.99, ptr @.str.100, i32 2, i32 32, ptr @tfs_yes_no, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_ip_roaming_unrestricted_supported, %struct._header_field_info { ptr @.str.101, ptr @.str.102, i32 2, i32 32, ptr @tfs_yes_no, i64 65536, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_dprs_supported, %struct._header_field_info { ptr @.str.103, ptr @.str.104, i32 2, i32 32, ptr @tfs_yes_no, i64 131072, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_basis_odap_supported, %struct._header_field_info { ptr @.str.105, ptr @.str.106, i32 2, i32 32, ptr @tfs_yes_no, i64 262144, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_fmms_interworking_profile_supported, %struct._header_field_info { ptr @.str.107, ptr @.str.108, i32 2, i32 32, ptr @tfs_yes_no, i64 524288, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_extended_fp_info2, %struct._header_field_info { ptr @.str.109, ptr @.str.110, i32 2, i32 32, ptr @tfs_yes_no, i64 16777216, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_ipq_services_supported, %struct._header_field_info { ptr @.str.111, ptr @.str.112, i32 2, i32 32, ptr @tfs_yes_no, i64 33554432, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_mac_suspend_resume, %struct._header_field_info { ptr @.str.113, ptr @.str.114, i32 2, i32 32, ptr @tfs_yes_no, i64 67108864, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_frequency_replacement_supported, %struct._header_field_info { ptr @.str.115, ptr @.str.116, i32 2, i32 32, ptr @tfs_yes_no, i64 134217728, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_syncronization, %struct._header_field_info { ptr @.str.117, ptr @.str.118, i32 2, i32 32, ptr @tfs_prolonged_standard, i64 268435456, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_flags, %struct._header_field_info { ptr @.str.33, ptr @.str.119, i32 6, i32 2, ptr null, i64 1048575, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_multibearer_connections, %struct._header_field_info { ptr @.str.120, ptr @.str.121, i32 2, i32 20, ptr @tfs_yes_no, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_ipmr_error_correction, %struct._header_field_info { ptr @.str.122, ptr @.str.123, i32 2, i32 20, ptr @tfs_yes_no, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_ipm_error_detection, %struct._header_field_info { ptr @.str.124, ptr @.str.125, i32 2, i32 20, ptr @tfs_yes_no, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_inb_normal_delay, %struct._header_field_info { ptr @.str.126, ptr @.str.127, i32 2, i32 20, ptr @tfs_yes_no, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_ina_minimum_delay, %struct._header_field_info { ptr @.str.128, ptr @.str.129, i32 2, i32 20, ptr @tfs_yes_no, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_cf_messages, %struct._header_field_info { ptr @.str.130, ptr @.str.131, i32 2, i32 20, ptr @tfs_yes_no, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_b_field_setup, %struct._header_field_info { ptr @.str.132, ptr @.str.133, i32 2, i32 20, ptr @tfs_yes_no, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_advanced_a_field_setup, %struct._header_field_info { ptr @.str.134, ptr @.str.135, i32 2, i32 20, ptr @tfs_yes_no, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_basic_a_field_setup, %struct._header_field_info { ptr @.str.136, ptr @.str.137, i32 2, i32 20, ptr @tfs_yes_no, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_cl_downlink, %struct._header_field_info { ptr @.str.138, ptr @.str.139, i32 2, i32 20, ptr @tfs_yes_no, i64 512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_cl_uplink, %struct._header_field_info { ptr @.str.140, ptr @.str.141, i32 2, i32 20, ptr @tfs_yes_no, i64 1024, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_co_setup_on_dummy_allowed, %struct._header_field_info { ptr @.str.142, ptr @.str.143, i32 2, i32 20, ptr @tfs_yes_no, i64 2048, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_page_repetition, %struct._header_field_info { ptr @.str.144, ptr @.str.145, i32 2, i32 20, ptr @tfs_yes_no, i64 4096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_frequency_control, %struct._header_field_info { ptr @.str.146, ptr @.str.147, i32 2, i32 20, ptr @tfs_yes_no, i64 8192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_slot_size_full, %struct._header_field_info { ptr @.str.148, ptr @.str.149, i32 2, i32 20, ptr @tfs_yes_no, i64 16384, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_slot_size_half, %struct._header_field_info { ptr @.str.150, ptr @.str.151, i32 2, i32 20, ptr @tfs_yes_no, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_slot_size_double, %struct._header_field_info { ptr @.str.152, ptr @.str.153, i32 2, i32 20, ptr @tfs_yes_no, i64 65536, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_double_duplex_bearer_connections, %struct._header_field_info { ptr @.str.154, ptr @.str.155, i32 2, i32 20, ptr @tfs_yes_no, i64 262144, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_extended_fp_info, %struct._header_field_info { ptr @.str.156, ptr @.str.157, i32 2, i32 20, ptr @tfs_yes_no, i64 524288, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_statistic_data_bmc_connections_1_3, %struct._header_field_info { ptr @.str.158, ptr @.str.159, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_statistic_data_bmc_connections_4_6, %struct._header_field_info { ptr @.str.160, ptr @.str.161, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_statistic_data_bmc_connections_7_9, %struct._header_field_info { ptr @.str.162, ptr @.str.163, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_statistic_data_bmc_connections_10_12, %struct._header_field_info { ptr @.str.164, ptr @.str.165, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_statistic_data_bmc_dsp_channels_1_2, %struct._header_field_info { ptr @.str.166, ptr @.str.167, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_statistic_data_bmc_dsp_channels_3_4, %struct._header_field_info { ptr @.str.168, ptr @.str.169, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_statistic_data_bmc_dsp_channels_5_6, %struct._header_field_info { ptr @.str.170, ptr @.str.171, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_statistic_data_bmc_dsp_channels_7_8, %struct._header_field_info { ptr @.str.172, ptr @.str.173, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_statistic_data_lost_connections, %struct._header_field_info { ptr @.str.174, ptr @.str.175, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_statistic_data_mac_reset, %struct._header_field_info { ptr @.str.176, ptr @.str.177, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_statistic_data_reject_dummy, %struct._header_field_info { ptr @.str.178, ptr @.str.179, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_statistic_data_handoff_timer, %struct._header_field_info { ptr @.str.180, ptr @.str.181, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_statistic_data_bad_frames, %struct._header_field_info { ptr @.str.182, ptr @.str.183, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_statistic_data_good_frames, %struct._header_field_info { ptr @.str.184, ptr @.str.185, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_rfp_pli_length_indicator, %struct._header_field_info { ptr @.str.186, ptr @.str.187, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_mac_capability_flags, %struct._header_field_info { ptr @.str.33, ptr @.str.188, i32 5, i32 2, ptr null, i64 4095, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_mac_capability_slot_type_long_640, %struct._header_field_info { ptr @.str.189, ptr @.str.190, i32 2, i32 12, ptr @tfs_yes_no, i64 2048, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_mac_capability_slot_type_long_672, %struct._header_field_info { ptr @.str.191, ptr @.str.192, i32 2, i32 12, ptr @tfs_yes_no, i64 1024, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_mac_capability_mux_e_u, %struct._header_field_info { ptr @.str.193, ptr @.str.194, i32 2, i32 12, ptr @tfs_yes_no, i64 512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_mac_capability_channel_ipf, %struct._header_field_info { ptr @.str.195, ptr @.str.196, i32 2, i32 12, ptr @tfs_yes_no, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_mac_capability_channel_sipf, %struct._header_field_info { ptr @.str.197, ptr @.str.198, i32 2, i32 12, ptr @tfs_yes_no, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_mac_capability_channel_gf, %struct._header_field_info { ptr @.str.199, ptr @.str.200, i32 2, i32 12, ptr @tfs_yes_no, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_mac_capability_wrs_ule, %struct._header_field_info { ptr @.str.201, ptr @.str.202, i32 2, i32 12, ptr @tfs_yes_no, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_mac_capability_no_emission_preferred_cn, %struct._header_field_info { ptr @.str.203, ptr @.str.204, i32 2, i32 12, ptr @tfs_yes_no, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_flags, %struct._header_field_info { ptr @.str.205, ptr @.str.206, i32 6, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_dprs_data_category, %struct._header_field_info { ptr @.str.207, ptr @.str.208, i32 6, i32 2, ptr @dect_mitel_eth_rfpc_extended_capabilities2_dprs_data_category_val, i64 7864320, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_ng_dect_1, %struct._header_field_info { ptr @.str.209, ptr @.str.210, i32 2, i32 24, ptr @tfs_yes_no, i64 8388608, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_ng_dect_3, %struct._header_field_info { ptr @.str.211, ptr @.str.212, i32 2, i32 24, ptr @tfs_yes_no, i64 262144, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_permanent_clir, %struct._header_field_info { ptr @.str.213, ptr @.str.214, i32 2, i32 24, ptr @tfs_yes_no, i64 131072, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_third_party_conference, %struct._header_field_info { ptr @.str.215, ptr @.str.216, i32 2, i32 24, ptr @tfs_yes_no, i64 65536, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_intrusion_call, %struct._header_field_info { ptr @.str.217, ptr @.str.218, i32 2, i32 24, ptr @tfs_yes_no, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_call_deflection, %struct._header_field_info { ptr @.str.219, ptr @.str.220, i32 2, i32 24, ptr @tfs_yes_no, i64 16384, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_multiple_lines, %struct._header_field_info { ptr @.str.221, ptr @.str.222, i32 2, i32 24, ptr @tfs_yes_no, i64 8192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_no_emission, %struct._header_field_info { ptr @.str.223, ptr @.str.224, i32 2, i32 24, ptr @tfs_yes_no, i64 4096, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_ng_dect_5, %struct._header_field_info { ptr @.str.225, ptr @.str.226, i32 2, i32 24, ptr @tfs_yes_no, i64 2048, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_re_keying, %struct._header_field_info { ptr @.str.227, ptr @.str.228, i32 2, i32 24, ptr @tfs_yes_no, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_dsaa2, %struct._header_field_info { ptr @.str.229, ptr @.str.230, i32 2, i32 24, ptr @tfs_yes_no, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_dsc2, %struct._header_field_info { ptr @.str.231, ptr @.str.232, i32 2, i32 24, ptr @tfs_yes_no, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_light_data, %struct._header_field_info { ptr @.str.233, ptr @.str.234, i32 2, i32 24, ptr @tfs_yes_no, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_mac_con_ind_flags, %struct._header_field_info { ptr @.str.67, ptr @.str.235, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_mac_con_ind_flag_handover, %struct._header_field_info { ptr @.str.236, ptr @.str.237, i32 2, i32 8, ptr @tfs_yes_no, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_mac_dis_ind_reason, %struct._header_field_info { ptr @.str.238, ptr @.str.239, i32 4, i32 2, ptr @dect_mitel_eth_mac_dis_ind_reason_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_mac_page_req_flags, %struct._header_field_info { ptr @.str.67, ptr @.str.240, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_mac_enc_key_req_key, %struct._header_field_info { ptr @.str.241, ptr @.str.242, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_mac_enc_key_req_id, %struct._header_field_info { ptr @.str.243, ptr @.str.244, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_mac_enc_eks_ind_type, %struct._header_field_info { ptr @.str.16, ptr @.str.245, i32 4, i32 2, ptr @dect_mitel_eth_mac_enc_eks_ind_type_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_mac_enc_eks_ind_id, %struct._header_field_info { ptr @.str.243, ptr @.str.246, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_mac_enc_eks_ind_ppn, %struct._header_field_info { ptr @.str.247, ptr @.str.248, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_mac_ho_in_progress_res_key, %struct._header_field_info { ptr @.str.241, ptr @.str.249, i32 11, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_mac_ho_in_progress_res_id, %struct._header_field_info { ptr @.str.243, ptr @.str.250, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_mac_ho_failed_ind_reason, %struct._header_field_info { ptr @.str.238, ptr @.str.251, i32 4, i32 2, ptr @dect_mitel_eth_mac_ho_failed_ind_reason_val, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_mt_item_key, %struct._header_field_info { ptr @.str.241, ptr @.str.252, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_mt_item_length, %struct._header_field_info { ptr @.str, ptr @.str.253, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dect_mitel_eth_mt_item_value, %struct._header_field_info { ptr @.str.19, ptr @.str.254, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_dect_mitel_eth_len = internal global i32 0, align 4
 @.str = private unnamed_addr constant [7 x i8] c"Length\00", align 1
 @.str.1 = private unnamed_addr constant [22 x i8] c"dect_mitel_eth.length\00", align 1
 @hf_dect_mitel_eth_layer = internal global i32 0, align 4
 @.str.2 = private unnamed_addr constant [16 x i8] c"Interface layer\00", align 1
 @.str.3 = private unnamed_addr constant [21 x i8] c"dect_mitel_eth.layer\00", align 1
-@dect_mitel_eth_layer_val = internal constant [6 x %struct._value_string] [%struct._value_string { i32 120, ptr @.str.259 }, %struct._value_string { i32 121, ptr @.str.260 }, %struct._value_string { i32 122, ptr @.str.261 }, %struct._value_string { i32 124, ptr @.str.262 }, %struct._value_string { i32 125, ptr @.str.263 }, %struct._value_string zeroinitializer], align 16
 @hf_dect_mitel_eth_prim_type = internal global i32 0, align 4
 @.str.4 = private unnamed_addr constant [15 x i8] c"Primitive Type\00", align 1
 @.str.5 = private unnamed_addr constant [20 x i8] c"dect_mitel_eth.prim\00", align 1
-@dect_mitel_eth_prim_coding_val = internal constant [28 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.264 }, %struct._value_string { i32 2, ptr @.str.265 }, %struct._value_string { i32 3, ptr @.str.266 }, %struct._value_string { i32 5, ptr @.str.267 }, %struct._value_string { i32 6, ptr @.str.268 }, %struct._value_string { i32 7, ptr @.str.269 }, %struct._value_string { i32 8, ptr @.str.270 }, %struct._value_string { i32 9, ptr @.str.271 }, %struct._value_string { i32 10, ptr @.str.272 }, %struct._value_string { i32 11, ptr @.str.273 }, %struct._value_string { i32 12, ptr @.str.274 }, %struct._value_string { i32 13, ptr @.str.275 }, %struct._value_string { i32 14, ptr @.str.276 }, %struct._value_string { i32 20, ptr @.str.277 }, %struct._value_string { i32 21, ptr @.str.278 }, %struct._value_string { i32 22, ptr @.str.279 }, %struct._value_string { i32 23, ptr @.str.280 }, %struct._value_string { i32 24, ptr @.str.281 }, %struct._value_string { i32 25, ptr @.str.282 }, %struct._value_string { i32 23, ptr @.str.280 }, %struct._value_string { i32 27, ptr @.str.283 }, %struct._value_string { i32 28, ptr @.str.284 }, %struct._value_string { i32 29, ptr @.str.285 }, %struct._value_string { i32 30, ptr @.str.286 }, %struct._value_string { i32 31, ptr @.str.287 }, %struct._value_string { i32 32, ptr @.str.288 }, %struct._value_string { i32 33, ptr @.str.289 }, %struct._value_string zeroinitializer], align 16
 @hf_dect_mitel_eth_mcei = internal global i32 0, align 4
 @.str.6 = private unnamed_addr constant [5 x i8] c"MCEI\00", align 1
 @.str.7 = private unnamed_addr constant [20 x i8] c"dect_mitel_eth.mcei\00", align 1
@@ -34,15 +31,12 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_dect_mitel_eth_subfield = internal global i32 0, align 4
 @.str.12 = private unnamed_addr constant [9 x i8] c"Subfield\00", align 1
 @.str.13 = private unnamed_addr constant [24 x i8] c"dect_mitel_eth.subfield\00", align 1
-@dect_mitel_eth_subfield_val = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.290 }, %struct._value_string { i32 16, ptr @.str.291 }, %struct._value_string zeroinitializer], align 16
 @hf_dect_mitel_eth_rfpc_message_type = internal global i32 0, align 4
 @.str.14 = private unnamed_addr constant [13 x i8] c"Message Type\00", align 1
 @.str.15 = private unnamed_addr constant [33 x i8] c"dect_mitel_eth.rfpc.message_type\00", align 1
-@dect_mitel_eth_rfpc_message_type_val = internal constant [27 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.292 }, %struct._value_string { i32 2, ptr @.str.293 }, %struct._value_string { i32 3, ptr @.str.294 }, %struct._value_string { i32 5, ptr @.str.295 }, %struct._value_string { i32 6, ptr @.str.296 }, %struct._value_string { i32 7, ptr @.str.297 }, %struct._value_string { i32 8, ptr @.str.298 }, %struct._value_string { i32 9, ptr @.str.299 }, %struct._value_string { i32 15, ptr @.str.300 }, %struct._value_string { i32 16, ptr @.str.301 }, %struct._value_string { i32 17, ptr @.str.302 }, %struct._value_string { i32 18, ptr @.str.303 }, %struct._value_string { i32 19, ptr @.str.304 }, %struct._value_string { i32 22, ptr @.str.305 }, %struct._value_string { i32 23, ptr @.str.306 }, %struct._value_string { i32 24, ptr @.str.307 }, %struct._value_string { i32 32, ptr @.str.308 }, %struct._value_string { i32 33, ptr @.str.309 }, %struct._value_string { i32 34, ptr @.str.310 }, %struct._value_string { i32 35, ptr @.str.311 }, %struct._value_string { i32 36, ptr @.str.312 }, %struct._value_string { i32 37, ptr @.str.313 }, %struct._value_string { i32 38, ptr @.str.314 }, %struct._value_string { i32 48, ptr @.str.315 }, %struct._value_string { i32 49, ptr @.str.316 }, %struct._value_string { i32 50, ptr @.str.317 }, %struct._value_string zeroinitializer], align 16
 @hf_dect_mitel_eth_rfpc_item_type = internal global i32 0, align 4
 @.str.16 = private unnamed_addr constant [5 x i8] c"Type\00", align 1
 @.str.17 = private unnamed_addr constant [30 x i8] c"dect_mitel_eth.rfpc.item.type\00", align 1
-@dect_mitel_eth_rfpc_item_type_val = internal constant [28 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.318 }, %struct._value_string { i32 2, ptr @.str.319 }, %struct._value_string { i32 3, ptr @.str.320 }, %struct._value_string { i32 4, ptr @.str.321 }, %struct._value_string { i32 5, ptr @.str.322 }, %struct._value_string { i32 6, ptr @.str.323 }, %struct._value_string { i32 7, ptr @.str.324 }, %struct._value_string { i32 8, ptr @.str.325 }, %struct._value_string { i32 13, ptr @.str.326 }, %struct._value_string { i32 15, ptr @.str.327 }, %struct._value_string { i32 16, ptr @.str.328 }, %struct._value_string { i32 17, ptr @.str.329 }, %struct._value_string { i32 18, ptr @.str.330 }, %struct._value_string { i32 20, ptr @.str.331 }, %struct._value_string { i32 21, ptr @.str.332 }, %struct._value_string { i32 32, ptr @.str.333 }, %struct._value_string { i32 33, ptr @.str.334 }, %struct._value_string { i32 34, ptr @.str.335 }, %struct._value_string { i32 35, ptr @.str.336 }, %struct._value_string { i32 36, ptr @.str.337 }, %struct._value_string { i32 37, ptr @.str.338 }, %struct._value_string { i32 38, ptr @.str.339 }, %struct._value_string { i32 39, ptr @.str.340 }, %struct._value_string { i32 40, ptr @.str.341 }, %struct._value_string { i32 41, ptr @.str.342 }, %struct._value_string { i32 42, ptr @.str.343 }, %struct._value_string { i32 43, ptr @.str.344 }, %struct._value_string zeroinitializer], align 16
 @hf_dect_mitel_eth_rfpc_item_length = internal global i32 0, align 4
 @.str.18 = private unnamed_addr constant [32 x i8] c"dect_mitel_eth.rfpc.item.length\00", align 1
 @hf_dect_mitel_eth_rfpc_item_value = internal global i32 0, align 4
@@ -67,7 +61,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_dect_mitel_eth_rfpc_rfpi_ari_class = internal global i32 0, align 4
 @.str.31 = private unnamed_addr constant [10 x i8] c"ARI class\00", align 1
 @.str.32 = private unnamed_addr constant [35 x i8] c"dect_mitel_eth.rfpc.rfpi.ari_class\00", align 1
-@dect_mitel_eth_rfpc_rfpi_ari_class_val = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.345 }, %struct._value_string { i32 1, ptr @.str.346 }, %struct._value_string { i32 2, ptr @.str.347 }, %struct._value_string { i32 3, ptr @.str.348 }, %struct._value_string { i32 4, ptr @.str.349 }, %struct._value_string zeroinitializer], align 16
 @hf_dect_mitel_eth_rfpc_higher_layer_capabilities_flags = internal global i32 0, align 4
 @.str.33 = private unnamed_addr constant [21 x i8] c"MAC capability flags\00", align 1
 @.str.34 = private unnamed_addr constant [52 x i8] c"dect_mitel_eth.rfpc.higher_layer_capabilities.flags\00", align 1
@@ -186,7 +179,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.109 = private unnamed_addr constant [19 x i8] c"Extended FP info 2\00", align 1
 @.str.110 = private unnamed_addr constant [60 x i8] c"dect_mitel_eth.rfpc.extended_capabilities.extended_fp_info2\00", align 1
 @hf_dect_mitel_eth_rfpc_extended_capabilities_ipq_services_supported = internal global i32 0, align 4
-@.str.111 = private unnamed_addr constant [22 x i8] c"IPq serices supported\00", align 1
+@.str.111 = private unnamed_addr constant [23 x i8] c"IPq services supported\00", align 1
 @.str.112 = private unnamed_addr constant [65 x i8] c"dect_mitel_eth.rfpc.extended_capabilities.ipq_services_supported\00", align 1
 @hf_dect_mitel_eth_rfpc_extended_capabilities_mac_suspend_resume = internal global i32 0, align 4
 @.str.113 = private unnamed_addr constant [19 x i8] c"MAC suspend resume\00", align 1
@@ -197,7 +190,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_dect_mitel_eth_rfpc_extended_capabilities_syncronization = internal global i32 0, align 4
 @.str.117 = private unnamed_addr constant [16 x i8] c"Synchronization\00", align 1
 @.str.118 = private unnamed_addr constant [58 x i8] c"dect_mitel_eth.rfpc.extended_capabilities.synchronization\00", align 1
-@tfs_prolonged_standard = internal constant %struct.true_false_string { ptr @.str.350, ptr @.str.351 }, align 8
+@tfs_prolonged_standard = internal constant %struct.true_false_string { ptr @.str.357, ptr @.str.358 }, align 8
 @hf_dect_mitel_eth_rfpc_mac_capabilities_flags = internal global i32 0, align 4
 @.str.119 = private unnamed_addr constant [43 x i8] c"dect_mitel_eth.rfpc.mac_capabilities.flags\00", align 1
 @hf_dect_mitel_eth_rfpc_mac_capabilities_multibearer_connections = internal global i32 0, align 4
@@ -332,9 +325,8 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.205 = private unnamed_addr constant [17 x i8] c"Capability flags\00", align 1
 @.str.206 = private unnamed_addr constant [49 x i8] c"dect_mitel_eth.rfpc.extended_capabilities2.flags\00", align 1
 @hf_dect_mitel_eth_rfpc_extended_capabilities2_dprs_data_category = internal global i32 0, align 4
-@.str.207 = private unnamed_addr constant [20 x i8] c"Light data services\00", align 1
+@.str.207 = private unnamed_addr constant [19 x i8] c"DPRS data category\00", align 1
 @.str.208 = private unnamed_addr constant [62 x i8] c"dect_mitel_eth.rfpc.extended_capabilities2.dprs_data_category\00", align 1
-@dect_mitel_eth_rfpc_extended_capabilities2_dprs_data_category_val = internal constant [7 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.352 }, %struct._value_string { i32 1, ptr @.str.353 }, %struct._value_string { i32 2, ptr @.str.354 }, %struct._value_string { i32 3, ptr @.str.355 }, %struct._value_string { i32 4, ptr @.str.356 }, %struct._value_string { i32 5, ptr @.str.357 }, %struct._value_string zeroinitializer], align 16
 @hf_dect_mitel_eth_rfpc_extended_capabilities2_ng_dect_1 = internal global i32 0, align 4
 @.str.209 = private unnamed_addr constant [31 x i8] c"NG-DECT Part 1: Wideband voice\00", align 1
 @.str.210 = private unnamed_addr constant [53 x i8] c"dect_mitel_eth.rfpc.extended_capabilities2.ng_dect_1\00", align 1
@@ -372,45 +364,43 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.231 = private unnamed_addr constant [15 x i8] c"DSC2 supported\00", align 1
 @.str.232 = private unnamed_addr constant [48 x i8] c"dect_mitel_eth.rfpc.extended_capabilities2.dsc2\00", align 1
 @hf_dect_mitel_eth_rfpc_extended_capabilities2_light_data = internal global i32 0, align 4
-@.str.233 = private unnamed_addr constant [54 x i8] c"dect_mitel_eth.rfpc.extended_capabilities2.light_data\00", align 1
+@.str.233 = private unnamed_addr constant [20 x i8] c"Light data services\00", align 1
+@.str.234 = private unnamed_addr constant [54 x i8] c"dect_mitel_eth.rfpc.extended_capabilities2.light_data\00", align 1
 @hf_dect_mitel_eth_mac_con_ind_flags = internal global i32 0, align 4
-@.str.234 = private unnamed_addr constant [33 x i8] c"dect_mitel_eth.mac_con_ind.flags\00", align 1
+@.str.235 = private unnamed_addr constant [33 x i8] c"dect_mitel_eth.mac_con_ind.flags\00", align 1
 @hf_dect_mitel_eth_mac_con_ind_flag_handover = internal global i32 0, align 4
-@.str.235 = private unnamed_addr constant [9 x i8] c"Handover\00", align 1
-@.str.236 = private unnamed_addr constant [42 x i8] c"dect_mitel_eth.mac_con_ind.flags.handover\00", align 1
+@.str.236 = private unnamed_addr constant [9 x i8] c"Handover\00", align 1
+@.str.237 = private unnamed_addr constant [42 x i8] c"dect_mitel_eth.mac_con_ind.flags.handover\00", align 1
 @hf_dect_mitel_eth_mac_dis_ind_reason = internal global i32 0, align 4
-@.str.237 = private unnamed_addr constant [7 x i8] c"Reason\00", align 1
-@.str.238 = private unnamed_addr constant [34 x i8] c"dect_mitel_eth.mac_dis_ind.reason\00", align 1
-@dect_mitel_eth_mac_dis_ind_reason_val = internal constant [4 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.358 }, %struct._value_string { i32 2, ptr @.str.359 }, %struct._value_string { i32 3, ptr @.str.360 }, %struct._value_string zeroinitializer], align 16
+@.str.238 = private unnamed_addr constant [7 x i8] c"Reason\00", align 1
+@.str.239 = private unnamed_addr constant [34 x i8] c"dect_mitel_eth.mac_dis_ind.reason\00", align 1
 @hf_dect_mitel_eth_mac_page_req_flags = internal global i32 0, align 4
-@.str.239 = private unnamed_addr constant [34 x i8] c"dect_mitel_eth.mac_page_req.flags\00", align 1
+@.str.240 = private unnamed_addr constant [34 x i8] c"dect_mitel_eth.mac_page_req.flags\00", align 1
 @hf_dect_mitel_eth_mac_enc_key_req_key = internal global i32 0, align 4
-@.str.240 = private unnamed_addr constant [4 x i8] c"Key\00", align 1
-@.str.241 = private unnamed_addr constant [35 x i8] c"dect_mitel_eth.mac.enc_key_req.key\00", align 1
+@.str.241 = private unnamed_addr constant [4 x i8] c"Key\00", align 1
+@.str.242 = private unnamed_addr constant [35 x i8] c"dect_mitel_eth.mac.enc_key_req.key\00", align 1
 @hf_dect_mitel_eth_mac_enc_key_req_id = internal global i32 0, align 4
-@.str.242 = private unnamed_addr constant [3 x i8] c"ID\00", align 1
-@.str.243 = private unnamed_addr constant [34 x i8] c"dect_mitel_eth.mac.enc_key_req.id\00", align 1
+@.str.243 = private unnamed_addr constant [3 x i8] c"ID\00", align 1
+@.str.244 = private unnamed_addr constant [34 x i8] c"dect_mitel_eth.mac.enc_key_req.id\00", align 1
 @hf_dect_mitel_eth_mac_enc_eks_ind_type = internal global i32 0, align 4
-@.str.244 = private unnamed_addr constant [36 x i8] c"dect_mitel_eth.mac.enc_eks_ind.type\00", align 1
-@dect_mitel_eth_mac_enc_eks_ind_type_val = internal constant [3 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.361 }, %struct._value_string { i32 2, ptr @.str.362 }, %struct._value_string zeroinitializer], align 16
+@.str.245 = private unnamed_addr constant [36 x i8] c"dect_mitel_eth.mac.enc_eks_ind.type\00", align 1
 @hf_dect_mitel_eth_mac_enc_eks_ind_id = internal global i32 0, align 4
-@.str.245 = private unnamed_addr constant [34 x i8] c"dect_mitel_eth.mac.enc_eks_ind.id\00", align 1
+@.str.246 = private unnamed_addr constant [34 x i8] c"dect_mitel_eth.mac.enc_eks_ind.id\00", align 1
 @hf_dect_mitel_eth_mac_enc_eks_ind_ppn = internal global i32 0, align 4
-@.str.246 = private unnamed_addr constant [4 x i8] c"PPN\00", align 1
-@.str.247 = private unnamed_addr constant [35 x i8] c"dect_mitel_eth.mac.enc_eks_ind.ppn\00", align 1
+@.str.247 = private unnamed_addr constant [4 x i8] c"PPN\00", align 1
+@.str.248 = private unnamed_addr constant [35 x i8] c"dect_mitel_eth.mac.enc_eks_ind.ppn\00", align 1
 @hf_dect_mitel_eth_mac_ho_in_progress_res_key = internal global i32 0, align 4
-@.str.248 = private unnamed_addr constant [42 x i8] c"dect_mitel_eth.mac.ho_in_progress_res.key\00", align 1
+@.str.249 = private unnamed_addr constant [42 x i8] c"dect_mitel_eth.mac.ho_in_progress_res.key\00", align 1
 @hf_dect_mitel_eth_mac_ho_in_progress_res_id = internal global i32 0, align 4
-@.str.249 = private unnamed_addr constant [41 x i8] c"dect_mitel_eth.mac.ho_in_progress_res.id\00", align 1
+@.str.250 = private unnamed_addr constant [41 x i8] c"dect_mitel_eth.mac.ho_in_progress_res.id\00", align 1
 @hf_dect_mitel_eth_mac_ho_failed_ind_reason = internal global i32 0, align 4
-@.str.250 = private unnamed_addr constant [40 x i8] c"dect_mitel_eth.mac.ho_failed_ind.reason\00", align 1
-@dect_mitel_eth_mac_ho_failed_ind_reason_val = internal constant [2 x %struct._value_string] [%struct._value_string { i32 1, ptr @.str.363 }, %struct._value_string zeroinitializer], align 16
+@.str.251 = private unnamed_addr constant [40 x i8] c"dect_mitel_eth.mac.ho_failed_ind.reason\00", align 1
 @hf_dect_mitel_eth_mt_item_key = internal global i32 0, align 4
-@.str.251 = private unnamed_addr constant [27 x i8] c"dect_mitel_eth.mt.item.key\00", align 1
+@.str.252 = private unnamed_addr constant [27 x i8] c"dect_mitel_eth.mt.item.key\00", align 1
 @hf_dect_mitel_eth_mt_item_length = internal global i32 0, align 4
-@.str.252 = private unnamed_addr constant [30 x i8] c"dect_mitel_eth.mt.item.length\00", align 1
+@.str.253 = private unnamed_addr constant [30 x i8] c"dect_mitel_eth.mt.item.length\00", align 1
 @hf_dect_mitel_eth_mt_item_value = internal global i32 0, align 4
-@.str.253 = private unnamed_addr constant [29 x i8] c"dect_mitel_eth.mt.item.value\00", align 1
+@.str.254 = private unnamed_addr constant [29 x i8] c"dect_mitel_eth.mt.item.value\00", align 1
 @proto_register_dect_mitel_eth.ett = internal global [7 x ptr] [ptr @ett_dect_mitel_eth, ptr @ett_dect_mitel_eth_rfpc_item, ptr @ett_dect_mitel_eth_higher_layer_capabilities_flags, ptr @ett_dect_mitel_eth_extended_capabilities_flags, ptr @ett_dect_mitel_eth_mac_capabilities_flags, ptr @ett_dect_mitel_eth_extended_capabilities2_mac_capability_flags, ptr @ett_dect_mitel_eth_extended_capabilities2_flags], align 16
 @ett_dect_mitel_eth = internal global i32 0, align 4
 @ett_dect_mitel_eth_rfpc_item = internal global i32 0, align 4
@@ -419,153 +409,167 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_dect_mitel_eth_mac_capabilities_flags = internal global i32 0, align 4
 @ett_dect_mitel_eth_extended_capabilities2_mac_capability_flags = internal global i32 0, align 4
 @ett_dect_mitel_eth_extended_capabilities2_flags = internal global i32 0, align 4
-@.str.254 = private unnamed_addr constant [32 x i8] c"Aastra/Mitel DECT-over-Ethernet\00", align 1
-@.str.255 = private unnamed_addr constant [13 x i8] c"Mitel-DECToE\00", align 1
-@.str.256 = private unnamed_addr constant [15 x i8] c"dect_mitel_eth\00", align 1
+@.str.255 = private unnamed_addr constant [32 x i8] c"Aastra/Mitel DECT-over-Ethernet\00", align 1
+@.str.256 = private unnamed_addr constant [13 x i8] c"Mitel-DECToE\00", align 1
+@.str.257 = private unnamed_addr constant [15 x i8] c"dect_mitel_eth\00", align 1
 @proto_dect_mitel_eth = internal global i32 0, align 4
-@.str.257 = private unnamed_addr constant [10 x i8] c"ethertype\00", align 1
-@.str.258 = private unnamed_addr constant [9 x i8] c"dect_dlc\00", align 1
+@.str.258 = private unnamed_addr constant [10 x i8] c"ethertype\00", align 1
+@.str.259 = private unnamed_addr constant [9 x i8] c"dect_dlc\00", align 1
 @dlc_handle = internal global ptr null, align 8
-@.str.259 = private unnamed_addr constant [5 x i8] c"RFPc\00", align 1
-@.str.260 = private unnamed_addr constant [3 x i8] c"Lc\00", align 1
-@.str.261 = private unnamed_addr constant [4 x i8] c"MAC\00", align 1
-@.str.262 = private unnamed_addr constant [3 x i8] c"Mt\00", align 1
-@.str.263 = private unnamed_addr constant [5 x i8] c"Sync\00", align 1
-@.str.264 = private unnamed_addr constant [12 x i8] c"MAC_CON_IND\00", align 1
-@.str.265 = private unnamed_addr constant [12 x i8] c"MAC_DIS_REQ\00", align 1
-@.str.266 = private unnamed_addr constant [12 x i8] c"MAC_DIS_IND\00", align 1
-@.str.267 = private unnamed_addr constant [12 x i8] c"LC_DATA_REQ\00", align 1
-@.str.268 = private unnamed_addr constant [12 x i8] c"LC_DATA_IND\00", align 1
-@.str.269 = private unnamed_addr constant [11 x i8] c"LC_DTR_IND\00", align 1
-@.str.270 = private unnamed_addr constant [13 x i8] c"MAC_PAGE_REQ\00", align 1
-@.str.271 = private unnamed_addr constant [16 x i8] c"MAC_ENC_KEY_REQ\00", align 1
-@.str.272 = private unnamed_addr constant [16 x i8] c"MAC_ENC_EKS_IND\00", align 1
-@.str.273 = private unnamed_addr constant [23 x i8] c"MAC_HO_IN_PROGRESS_IND\00", align 1
-@.str.274 = private unnamed_addr constant [23 x i8] c"MAC_HO_IN_PROGRESS_RES\00", align 1
-@.str.275 = private unnamed_addr constant [18 x i8] c"MAC_HO_FAILED_IND\00", align 1
-@.str.276 = private unnamed_addr constant [14 x i8] c"HO_FAILED_REQ\00", align 1
-@.str.277 = private unnamed_addr constant [14 x i8] c"RFP_ERROR_IND\00", align 1
-@.str.278 = private unnamed_addr constant [16 x i8] c"MAC_CON_EXT_IND\00", align 1
-@.str.279 = private unnamed_addr constant [23 x i8] c"HO_IN_PROGRESS_EXT_IND\00", align 1
-@.str.280 = private unnamed_addr constant [12 x i8] c"MAC_MOD_REQ\00", align 1
-@.str.281 = private unnamed_addr constant [12 x i8] c"MAC_MOD_CNF\00", align 1
-@.str.282 = private unnamed_addr constant [12 x i8] c"MAC_MOD_IND\00", align 1
-@.str.283 = private unnamed_addr constant [17 x i8] c"MAC_RECORD_AUDIO\00", align 1
-@.str.284 = private unnamed_addr constant [13 x i8] c"MAC_INFO_IND\00", align 1
-@.str.285 = private unnamed_addr constant [21 x i8] c"MAC_GET_DEF_CKEY_IND\00", align 1
-@.str.286 = private unnamed_addr constant [21 x i8] c"MAC_GET_DEF_CKEY_RES\00", align 1
-@.str.287 = private unnamed_addr constant [23 x i8] c"MAC_CLEAR_DEF_CKEY_REQ\00", align 1
-@.str.288 = private unnamed_addr constant [25 x i8] c"MAC_GET_CURR_CKEY_ID_REQ\00", align 1
-@.str.289 = private unnamed_addr constant [25 x i8] c"MAC_GET_CURR_CKEY_ID_CNF\00", align 1
-@.str.290 = private unnamed_addr constant [3 x i8] c"B0\00", align 1
-@.str.291 = private unnamed_addr constant [3 x i8] c"B1\00", align 1
-@.str.292 = private unnamed_addr constant [10 x i8] c"READY_IND\00", align 1
-@.str.293 = private unnamed_addr constant [9 x i8] c"INIT_REQ\00", align 1
-@.str.294 = private unnamed_addr constant [9 x i8] c"INIT_CFM\00", align 1
-@.str.295 = private unnamed_addr constant [14 x i8] c"SARI_LIST_REQ\00", align 1
-@.str.296 = private unnamed_addr constant [37 x i8] c"CHANGE_HIGHER_LAYER_CAPABILITIES_REQ\00", align 1
-@.str.297 = private unnamed_addr constant [37 x i8] c"CHANGE_HIGHER_LAYER_CAPABILITIES_CFM\00", align 1
-@.str.298 = private unnamed_addr constant [23 x i8] c"CHANGE_STATUS_INFO_REQ\00", align 1
-@.str.299 = private unnamed_addr constant [23 x i8] c"CHANGE_STATUS_INFO_CFM\00", align 1
-@.str.300 = private unnamed_addr constant [13 x i8] c"ACTIVATE_REQ\00", align 1
-@.str.301 = private unnamed_addr constant [13 x i8] c"ACTIVATE_CFM\00", align 1
-@.str.302 = private unnamed_addr constant [15 x i8] c"DEACTIVATE_REQ\00", align 1
-@.str.303 = private unnamed_addr constant [15 x i8] c"DEACTIVATE_CFM\00", align 1
-@.str.304 = private unnamed_addr constant [10 x i8] c"RESET_REQ\00", align 1
-@.str.305 = private unnamed_addr constant [20 x i8] c"STATISTICS_DATA_REQ\00", align 1
-@.str.306 = private unnamed_addr constant [20 x i8] c"STATISTICS_DATA_CFM\00", align 1
-@.str.307 = private unnamed_addr constant [10 x i8] c"ERROR_IND\00", align 1
-@.str.308 = private unnamed_addr constant [11 x i8] c"TO_RFP_IND\00", align 1
-@.str.309 = private unnamed_addr constant [11 x i8] c"TO_RFP_REQ\00", align 1
-@.str.310 = private unnamed_addr constant [14 x i8] c"TOPO_DATA_REQ\00", align 1
-@.str.311 = private unnamed_addr constant [14 x i8] c"TOPO_DATA_IND\00", align 1
-@.str.312 = private unnamed_addr constant [16 x i8] c"BMC_RESTART_REQ\00", align 1
-@.str.313 = private unnamed_addr constant [18 x i8] c"CHANGE_MASTER_REQ\00", align 1
-@.str.314 = private unnamed_addr constant [9 x i8] c"INFO_IND\00", align 1
-@.str.315 = private unnamed_addr constant [11 x i8] c"ACTIVE_IND\00", align 1
-@.str.316 = private unnamed_addr constant [11 x i8] c"ACTIVE_RES\00", align 1
-@.str.317 = private unnamed_addr constant [26 x i8] c"PAGING_QUEUE_OVERFLOW_IND\00", align 1
-@.str.318 = private unnamed_addr constant [14 x i8] c"NUMBER_OF_UPN\00", align 1
-@.str.319 = private unnamed_addr constant [9 x i8] c"REVISION\00", align 1
-@.str.320 = private unnamed_addr constant [17 x i8] c"NUMBER_OF_BEARER\00", align 1
-@.str.321 = private unnamed_addr constant [5 x i8] c"RFPI\00", align 1
-@.str.322 = private unnamed_addr constant [5 x i8] c"SARI\00", align 1
-@.str.323 = private unnamed_addr constant [26 x i8] c"HIGHER_LAYER_CAPABILITIES\00", align 1
-@.str.324 = private unnamed_addr constant [22 x i8] c"EXTENDED_CAPABILITIES\00", align 1
-@.str.325 = private unnamed_addr constant [12 x i8] c"STATUS_INFO\00", align 1
-@.str.326 = private unnamed_addr constant [17 x i8] c"MAC_CAPABILITIES\00", align 1
-@.str.327 = private unnamed_addr constant [21 x i8] c"STATISTIC_DATA_RESET\00", align 1
-@.str.328 = private unnamed_addr constant [15 x i8] c"STATISTIC_DATA\00", align 1
-@.str.329 = private unnamed_addr constant [12 x i8] c"ERROR_CAUSE\00", align 1
-@.str.330 = private unnamed_addr constant [20 x i8] c"RFP_FU6_WINDOW_SIZE\00", align 1
-@.str.331 = private unnamed_addr constant [11 x i8] c"RFP_TO_RFP\00", align 1
-@.str.332 = private unnamed_addr constant [9 x i8] c"RFP_TOPO\00", align 1
-@.str.333 = private unnamed_addr constant [11 x i8] c"LAST_ERROR\00", align 1
-@.str.334 = private unnamed_addr constant [10 x i8] c"PABX_DATA\00", align 1
-@.str.335 = private unnamed_addr constant [10 x i8] c"MONI_DATA\00", align 1
-@.str.336 = private unnamed_addr constant [15 x i8] c"LAST_ERROR_EXT\00", align 1
-@.str.337 = private unnamed_addr constant [14 x i8] c"FPGA_REVISION\00", align 1
-@.str.338 = private unnamed_addr constant [11 x i8] c"RFP_STRING\00", align 1
-@.str.339 = private unnamed_addr constant [18 x i8] c"RFP_SITE_LOCATION\00", align 1
-@.str.340 = private unnamed_addr constant [8 x i8] c"RFP_PLI\00", align 1
-@.str.341 = private unnamed_addr constant [23 x i8] c"REFLECTING_ENVIRONMENT\00", align 1
-@.str.342 = private unnamed_addr constant [23 x i8] c"EXTENDED_CAPABILITIES2\00", align 1
-@.str.343 = private unnamed_addr constant [15 x i8] c"FREQUENCY_BAND\00", align 1
-@.str.344 = private unnamed_addr constant [9 x i8] c"RF_POWER\00", align 1
-@.str.345 = private unnamed_addr constant [8 x i8] c"Class A\00", align 1
-@.str.346 = private unnamed_addr constant [8 x i8] c"Class B\00", align 1
-@.str.347 = private unnamed_addr constant [8 x i8] c"Class C\00", align 1
-@.str.348 = private unnamed_addr constant [8 x i8] c"Class D\00", align 1
-@.str.349 = private unnamed_addr constant [8 x i8] c"Class E\00", align 1
-@.str.350 = private unnamed_addr constant [10 x i8] c"Prolonged\00", align 1
-@.str.351 = private unnamed_addr constant [9 x i8] c"Standard\00", align 1
-@.str.352 = private unnamed_addr constant [14 x i8] c"Not supported\00", align 1
-@.str.353 = private unnamed_addr constant [6 x i8] c"Cat 1\00", align 1
-@.str.354 = private unnamed_addr constant [6 x i8] c"Cat 2\00", align 1
-@.str.355 = private unnamed_addr constant [6 x i8] c"Cat 3\00", align 1
-@.str.356 = private unnamed_addr constant [6 x i8] c"Cat 4\00", align 1
-@.str.357 = private unnamed_addr constant [6 x i8] c"Cat 5\00", align 1
-@.str.358 = private unnamed_addr constant [12 x i8] c"Unspecified\00", align 1
-@.str.359 = private unnamed_addr constant [7 x i8] c"Normal\00", align 1
-@.str.360 = private unnamed_addr constant [9 x i8] c"Abnormal\00", align 1
-@.str.361 = private unnamed_addr constant [10 x i8] c"Encrypted\00", align 1
-@.str.362 = private unnamed_addr constant [18 x i8] c"Encrypted with ID\00", align 1
-@.str.363 = private unnamed_addr constant [13 x i8] c"Setup failed\00", align 1
-@.str.364 = private unnamed_addr constant [10 x i8] c"MI-DECToE\00", align 1
-@.str.365 = private unnamed_addr constant [4 x i8] c"%s \00", align 1
-@.str.366 = private unnamed_addr constant [15 x i8] c"Unknown 0x%02x\00", align 1
-@.str.367 = private unnamed_addr constant [10 x i8] c"RFPc: %s \00", align 1
-@.str.368 = private unnamed_addr constant [9 x i8] c"Item: %s\00", align 1
-@.str.369 = private unnamed_addr constant [15 x i8] c"Unknown: 0x%0x\00", align 1
+@.str.260 = private unnamed_addr constant [5 x i8] c"RFPc\00", align 1
+@.str.261 = private unnamed_addr constant [3 x i8] c"Lc\00", align 1
+@.str.262 = private unnamed_addr constant [4 x i8] c"MAC\00", align 1
+@.str.263 = private unnamed_addr constant [3 x i8] c"Mt\00", align 1
+@.str.264 = private unnamed_addr constant [5 x i8] c"Sync\00", align 1
+@dect_mitel_eth_layer_val = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 120, [4 x i8] zeroinitializer, ptr @.str.260 }, { i32, [4 x i8], ptr } { i32 121, [4 x i8] zeroinitializer, ptr @.str.261 }, { i32, [4 x i8], ptr } { i32 122, [4 x i8] zeroinitializer, ptr @.str.262 }, { i32, [4 x i8], ptr } { i32 124, [4 x i8] zeroinitializer, ptr @.str.263 }, { i32, [4 x i8], ptr } { i32 125, [4 x i8] zeroinitializer, ptr @.str.264 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.266 = private unnamed_addr constant [12 x i8] c"MAC_CON_IND\00", align 1
+@.str.267 = private unnamed_addr constant [12 x i8] c"MAC_DIS_REQ\00", align 1
+@.str.268 = private unnamed_addr constant [12 x i8] c"MAC_DIS_IND\00", align 1
+@.str.269 = private unnamed_addr constant [12 x i8] c"LC_DATA_REQ\00", align 1
+@.str.270 = private unnamed_addr constant [12 x i8] c"LC_DATA_IND\00", align 1
+@.str.271 = private unnamed_addr constant [11 x i8] c"LC_DTR_IND\00", align 1
+@.str.272 = private unnamed_addr constant [13 x i8] c"MAC_PAGE_REQ\00", align 1
+@.str.273 = private unnamed_addr constant [16 x i8] c"MAC_ENC_KEY_REQ\00", align 1
+@.str.274 = private unnamed_addr constant [16 x i8] c"MAC_ENC_EKS_IND\00", align 1
+@.str.275 = private unnamed_addr constant [23 x i8] c"MAC_HO_IN_PROGRESS_IND\00", align 1
+@.str.276 = private unnamed_addr constant [23 x i8] c"MAC_HO_IN_PROGRESS_RES\00", align 1
+@.str.277 = private unnamed_addr constant [18 x i8] c"MAC_HO_FAILED_IND\00", align 1
+@.str.278 = private unnamed_addr constant [14 x i8] c"HO_FAILED_REQ\00", align 1
+@.str.279 = private unnamed_addr constant [14 x i8] c"RFP_ERROR_IND\00", align 1
+@.str.280 = private unnamed_addr constant [16 x i8] c"MAC_CON_EXT_IND\00", align 1
+@.str.281 = private unnamed_addr constant [23 x i8] c"HO_IN_PROGRESS_EXT_IND\00", align 1
+@.str.282 = private unnamed_addr constant [12 x i8] c"MAC_MOD_REQ\00", align 1
+@.str.283 = private unnamed_addr constant [12 x i8] c"MAC_MOD_CNF\00", align 1
+@.str.284 = private unnamed_addr constant [12 x i8] c"MAC_MOD_IND\00", align 1
+@.str.285 = private unnamed_addr constant [17 x i8] c"MAC_RECORD_AUDIO\00", align 1
+@.str.286 = private unnamed_addr constant [13 x i8] c"MAC_INFO_IND\00", align 1
+@.str.287 = private unnamed_addr constant [21 x i8] c"MAC_GET_DEF_CKEY_IND\00", align 1
+@.str.288 = private unnamed_addr constant [21 x i8] c"MAC_GET_DEF_CKEY_RES\00", align 1
+@.str.289 = private unnamed_addr constant [23 x i8] c"MAC_CLEAR_DEF_CKEY_REQ\00", align 1
+@.str.290 = private unnamed_addr constant [25 x i8] c"MAC_GET_CURR_CKEY_ID_REQ\00", align 1
+@.str.291 = private unnamed_addr constant [25 x i8] c"MAC_GET_CURR_CKEY_ID_CNF\00", align 1
+@dect_mitel_eth_prim_coding_val = internal constant [27 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.266 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.267 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.268 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.269 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.270 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.271 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.272 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.273 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.274 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.275 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.276 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.277 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.278 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.279 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.280 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.281 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.282 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.283 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.284 }, { i32, [4 x i8], ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.285 }, { i32, [4 x i8], ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.286 }, { i32, [4 x i8], ptr } { i32 29, [4 x i8] zeroinitializer, ptr @.str.287 }, { i32, [4 x i8], ptr } { i32 30, [4 x i8] zeroinitializer, ptr @.str.288 }, { i32, [4 x i8], ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.289 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.290 }, { i32, [4 x i8], ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.291 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.293 = private unnamed_addr constant [3 x i8] c"B0\00", align 1
+@.str.294 = private unnamed_addr constant [3 x i8] c"B1\00", align 1
+@dect_mitel_eth_subfield_val = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.293 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.294 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.296 = private unnamed_addr constant [10 x i8] c"READY_IND\00", align 1
+@.str.297 = private unnamed_addr constant [9 x i8] c"INIT_REQ\00", align 1
+@.str.298 = private unnamed_addr constant [9 x i8] c"INIT_CFM\00", align 1
+@.str.299 = private unnamed_addr constant [14 x i8] c"SARI_LIST_REQ\00", align 1
+@.str.300 = private unnamed_addr constant [37 x i8] c"CHANGE_HIGHER_LAYER_CAPABILITIES_REQ\00", align 1
+@.str.301 = private unnamed_addr constant [37 x i8] c"CHANGE_HIGHER_LAYER_CAPABILITIES_CFM\00", align 1
+@.str.302 = private unnamed_addr constant [23 x i8] c"CHANGE_STATUS_INFO_REQ\00", align 1
+@.str.303 = private unnamed_addr constant [23 x i8] c"CHANGE_STATUS_INFO_CFM\00", align 1
+@.str.304 = private unnamed_addr constant [13 x i8] c"ACTIVATE_REQ\00", align 1
+@.str.305 = private unnamed_addr constant [13 x i8] c"ACTIVATE_CFM\00", align 1
+@.str.306 = private unnamed_addr constant [15 x i8] c"DEACTIVATE_REQ\00", align 1
+@.str.307 = private unnamed_addr constant [15 x i8] c"DEACTIVATE_CFM\00", align 1
+@.str.308 = private unnamed_addr constant [10 x i8] c"RESET_REQ\00", align 1
+@.str.309 = private unnamed_addr constant [20 x i8] c"STATISTICS_DATA_REQ\00", align 1
+@.str.310 = private unnamed_addr constant [20 x i8] c"STATISTICS_DATA_CFM\00", align 1
+@.str.311 = private unnamed_addr constant [10 x i8] c"ERROR_IND\00", align 1
+@.str.312 = private unnamed_addr constant [11 x i8] c"TO_RFP_IND\00", align 1
+@.str.313 = private unnamed_addr constant [11 x i8] c"TO_RFP_REQ\00", align 1
+@.str.314 = private unnamed_addr constant [14 x i8] c"TOPO_DATA_REQ\00", align 1
+@.str.315 = private unnamed_addr constant [14 x i8] c"TOPO_DATA_IND\00", align 1
+@.str.316 = private unnamed_addr constant [16 x i8] c"BMC_RESTART_REQ\00", align 1
+@.str.317 = private unnamed_addr constant [18 x i8] c"CHANGE_MASTER_REQ\00", align 1
+@.str.318 = private unnamed_addr constant [9 x i8] c"INFO_IND\00", align 1
+@.str.319 = private unnamed_addr constant [11 x i8] c"ACTIVE_IND\00", align 1
+@.str.320 = private unnamed_addr constant [11 x i8] c"ACTIVE_RES\00", align 1
+@.str.321 = private unnamed_addr constant [26 x i8] c"PAGING_QUEUE_OVERFLOW_IND\00", align 1
+@dect_mitel_eth_rfpc_message_type_val = internal constant [27 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.296 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.297 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.298 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.299 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.300 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.301 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.302 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.303 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.304 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.305 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.306 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.307 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.308 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.309 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.310 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.311 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.312 }, { i32, [4 x i8], ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.313 }, { i32, [4 x i8], ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.314 }, { i32, [4 x i8], ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.315 }, { i32, [4 x i8], ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.316 }, { i32, [4 x i8], ptr } { i32 37, [4 x i8] zeroinitializer, ptr @.str.317 }, { i32, [4 x i8], ptr } { i32 38, [4 x i8] zeroinitializer, ptr @.str.318 }, { i32, [4 x i8], ptr } { i32 48, [4 x i8] zeroinitializer, ptr @.str.319 }, { i32, [4 x i8], ptr } { i32 49, [4 x i8] zeroinitializer, ptr @.str.320 }, { i32, [4 x i8], ptr } { i32 50, [4 x i8] zeroinitializer, ptr @.str.321 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.323 = private unnamed_addr constant [14 x i8] c"NUMBER_OF_UPN\00", align 1
+@.str.324 = private unnamed_addr constant [9 x i8] c"REVISION\00", align 1
+@.str.325 = private unnamed_addr constant [17 x i8] c"NUMBER_OF_BEARER\00", align 1
+@.str.326 = private unnamed_addr constant [5 x i8] c"RFPI\00", align 1
+@.str.327 = private unnamed_addr constant [5 x i8] c"SARI\00", align 1
+@.str.328 = private unnamed_addr constant [26 x i8] c"HIGHER_LAYER_CAPABILITIES\00", align 1
+@.str.329 = private unnamed_addr constant [22 x i8] c"EXTENDED_CAPABILITIES\00", align 1
+@.str.330 = private unnamed_addr constant [12 x i8] c"STATUS_INFO\00", align 1
+@.str.331 = private unnamed_addr constant [17 x i8] c"MAC_CAPABILITIES\00", align 1
+@.str.332 = private unnamed_addr constant [21 x i8] c"STATISTIC_DATA_RESET\00", align 1
+@.str.333 = private unnamed_addr constant [15 x i8] c"STATISTIC_DATA\00", align 1
+@.str.334 = private unnamed_addr constant [12 x i8] c"ERROR_CAUSE\00", align 1
+@.str.335 = private unnamed_addr constant [20 x i8] c"RFP_FU6_WINDOW_SIZE\00", align 1
+@.str.336 = private unnamed_addr constant [11 x i8] c"RFP_TO_RFP\00", align 1
+@.str.337 = private unnamed_addr constant [9 x i8] c"RFP_TOPO\00", align 1
+@.str.338 = private unnamed_addr constant [11 x i8] c"LAST_ERROR\00", align 1
+@.str.339 = private unnamed_addr constant [10 x i8] c"PABX_DATA\00", align 1
+@.str.340 = private unnamed_addr constant [10 x i8] c"MONI_DATA\00", align 1
+@.str.341 = private unnamed_addr constant [15 x i8] c"LAST_ERROR_EXT\00", align 1
+@.str.342 = private unnamed_addr constant [14 x i8] c"FPGA_REVISION\00", align 1
+@.str.343 = private unnamed_addr constant [11 x i8] c"RFP_STRING\00", align 1
+@.str.344 = private unnamed_addr constant [18 x i8] c"RFP_SITE_LOCATION\00", align 1
+@.str.345 = private unnamed_addr constant [8 x i8] c"RFP_PLI\00", align 1
+@.str.346 = private unnamed_addr constant [23 x i8] c"REFLECTING_ENVIRONMENT\00", align 1
+@.str.347 = private unnamed_addr constant [23 x i8] c"EXTENDED_CAPABILITIES2\00", align 1
+@.str.348 = private unnamed_addr constant [15 x i8] c"FREQUENCY_BAND\00", align 1
+@.str.349 = private unnamed_addr constant [9 x i8] c"RF_POWER\00", align 1
+@dect_mitel_eth_rfpc_item_type_val = internal constant [28 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.323 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.324 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.325 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.326 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.327 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.328 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.329 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.330 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.331 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.332 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.333 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.334 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.335 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.336 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.337 }, { i32, [4 x i8], ptr } { i32 32, [4 x i8] zeroinitializer, ptr @.str.338 }, { i32, [4 x i8], ptr } { i32 33, [4 x i8] zeroinitializer, ptr @.str.339 }, { i32, [4 x i8], ptr } { i32 34, [4 x i8] zeroinitializer, ptr @.str.340 }, { i32, [4 x i8], ptr } { i32 35, [4 x i8] zeroinitializer, ptr @.str.341 }, { i32, [4 x i8], ptr } { i32 36, [4 x i8] zeroinitializer, ptr @.str.342 }, { i32, [4 x i8], ptr } { i32 37, [4 x i8] zeroinitializer, ptr @.str.343 }, { i32, [4 x i8], ptr } { i32 38, [4 x i8] zeroinitializer, ptr @.str.344 }, { i32, [4 x i8], ptr } { i32 39, [4 x i8] zeroinitializer, ptr @.str.345 }, { i32, [4 x i8], ptr } { i32 40, [4 x i8] zeroinitializer, ptr @.str.346 }, { i32, [4 x i8], ptr } { i32 41, [4 x i8] zeroinitializer, ptr @.str.347 }, { i32, [4 x i8], ptr } { i32 42, [4 x i8] zeroinitializer, ptr @.str.348 }, { i32, [4 x i8], ptr } { i32 43, [4 x i8] zeroinitializer, ptr @.str.349 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.351 = private unnamed_addr constant [8 x i8] c"Class A\00", align 1
+@.str.352 = private unnamed_addr constant [8 x i8] c"Class B\00", align 1
+@.str.353 = private unnamed_addr constant [8 x i8] c"Class C\00", align 1
+@.str.354 = private unnamed_addr constant [8 x i8] c"Class D\00", align 1
+@.str.355 = private unnamed_addr constant [8 x i8] c"Class E\00", align 1
+@dect_mitel_eth_rfpc_rfpi_ari_class_val = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.351 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.352 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.353 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.354 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.355 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.357 = private unnamed_addr constant [10 x i8] c"Prolonged\00", align 1
+@.str.358 = private unnamed_addr constant [9 x i8] c"Standard\00", align 1
+@.str.359 = private unnamed_addr constant [14 x i8] c"Not supported\00", align 1
+@.str.360 = private unnamed_addr constant [6 x i8] c"Cat 1\00", align 1
+@.str.361 = private unnamed_addr constant [6 x i8] c"Cat 2\00", align 1
+@.str.362 = private unnamed_addr constant [6 x i8] c"Cat 3\00", align 1
+@.str.363 = private unnamed_addr constant [6 x i8] c"Cat 4\00", align 1
+@.str.364 = private unnamed_addr constant [6 x i8] c"Cat 5\00", align 1
+@dect_mitel_eth_rfpc_extended_capabilities2_dprs_data_category_val = internal constant [7 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.359 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.360 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.361 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.362 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.363 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.364 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.366 = private unnamed_addr constant [12 x i8] c"Unspecified\00", align 1
+@.str.367 = private unnamed_addr constant [7 x i8] c"Normal\00", align 1
+@.str.368 = private unnamed_addr constant [9 x i8] c"Abnormal\00", align 1
+@dect_mitel_eth_mac_dis_ind_reason_val = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.366 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.367 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.368 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.370 = private unnamed_addr constant [10 x i8] c"Encrypted\00", align 1
+@.str.371 = private unnamed_addr constant [18 x i8] c"Encrypted with ID\00", align 1
+@dect_mitel_eth_mac_enc_eks_ind_type_val = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.370 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.371 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.373 = private unnamed_addr constant [13 x i8] c"Setup failed\00", align 1
+@dect_mitel_eth_mac_ho_failed_ind_reason_val = internal constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.373 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.375 = private unnamed_addr constant [10 x i8] c"MI-DECToE\00", align 1
+@.str.376 = private unnamed_addr constant [4 x i8] c"%s \00", align 1
+@.str.377 = private unnamed_addr constant [15 x i8] c"Unknown 0x%02x\00", align 1
+@.str.378 = private unnamed_addr constant [10 x i8] c"RFPc: %s \00", align 1
+@.str.379 = private unnamed_addr constant [9 x i8] c"Item: %s\00", align 1
+@.str.380 = private unnamed_addr constant [15 x i8] c"Unknown: 0x%0x\00", align 1
 @dissect_dect_mitel_eth_rfpc_higher_layer_capabilities.flags = internal constant [16 x ptr] [ptr @hf_dect_mitel_eth_rfpc_higher_layer_capabilities_connection_handover_supported, ptr @hf_dect_mitel_eth_rfpc_higher_layer_capabilities_external_handover_supported, ptr @hf_dect_mitel_eth_rfpc_higher_layer_capabilities_access_rights_requests_supported, ptr @hf_dect_mitel_eth_rfpc_higher_layer_capabilities_coms_service_available, ptr @hf_dect_mitel_eth_rfpc_higher_layer_capabilities_clms_service_available, ptr @hf_dect_mitel_eth_rfpc_higher_layer_capabilities_ciss_services_available, ptr @hf_dect_mitel_eth_rfpc_higher_layer_capabilities_non_static_fixed_part, ptr @hf_dect_mitel_eth_rfpc_higher_layer_capabilities_sim_services_available, ptr @hf_dect_mitel_eth_rfpc_higher_layer_capabilities_location_registration_supported, ptr @hf_dect_mitel_eth_rfpc_higher_layer_capabilities_dsc_supported, ptr @hf_dect_mitel_eth_rfpc_higher_layer_capabilities_dsaa_required, ptr @hf_dect_mitel_eth_rfpc_higher_layer_capabilities_non_voice_packet_switched_service, ptr @hf_dect_mitel_eth_rfpc_higher_layer_capabilities_non_voice_circuit_switched_service, ptr @hf_dect_mitel_eth_rfpc_higher_layer_capabilities_gap_basic_speech, ptr @hf_dect_mitel_eth_rfpc_higher_layer_capabilities_g726, ptr null], align 16
 @dissect_dect_mitel_eth_rfpc_extended_capabilities.flags = internal constant [26 x ptr] [ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_isdn_data_services, ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_dprs_class_2, ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_dprs_class_3_or_4, ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_data_service_profile_d, ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_lrms, ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_asymmetric_bearers_supported, ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_emergency_call_supported, ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_location_registration_with_tpui_allowed, ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_sync_to_gps_achieved, ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_isdn_intermediate_system, ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_rap_part_1_profile, ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_v24, ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_ppp, ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_ip, ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_token_ring, ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_ethernet, ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_ip_roaming_unrestricted_supported, ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_dprs_supported, ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_basis_odap_supported, ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_fmms_interworking_profile_supported, ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_extended_fp_info2, ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_ipq_services_supported, ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_mac_suspend_resume, ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_frequency_replacement_supported, ptr @hf_dect_mitel_eth_rfpc_extended_capabilities_syncronization, ptr null], align 16
 @dissect_dect_mitel_eth_rfpc_mac_capabilities.flags = internal constant [20 x ptr] [ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_multibearer_connections, ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_ipmr_error_correction, ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_ipm_error_detection, ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_inb_normal_delay, ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_ina_minimum_delay, ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_cf_messages, ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_b_field_setup, ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_advanced_a_field_setup, ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_basic_a_field_setup, ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_cl_downlink, ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_cl_uplink, ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_co_setup_on_dummy_allowed, ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_page_repetition, ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_frequency_control, ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_slot_size_full, ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_slot_size_half, ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_slot_size_double, ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_double_duplex_bearer_connections, ptr @hf_dect_mitel_eth_rfpc_mac_capabilities_extended_fp_info, ptr null], align 16
 @dissect_dect_mitel_eth_rfpc_extended_capabilities2.mac_capability_flags = internal constant [9 x ptr] [ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_mac_capability_slot_type_long_640, ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_mac_capability_slot_type_long_672, ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_mac_capability_mux_e_u, ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_mac_capability_channel_ipf, ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_mac_capability_channel_sipf, ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_mac_capability_channel_gf, ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_mac_capability_wrs_ule, ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_mac_capability_no_emission_preferred_cn, ptr null], align 16
 @dissect_dect_mitel_eth_rfpc_extended_capabilities2.capability_flags = internal constant [15 x ptr] [ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_ng_dect_1, ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_dprs_data_category, ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_ng_dect_3, ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_permanent_clir, ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_third_party_conference, ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_intrusion_call, ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_call_deflection, ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_multiple_lines, ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_no_emission, ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_ng_dect_5, ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_re_keying, ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_dsaa2, ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_dsc2, ptr @hf_dect_mitel_eth_rfpc_extended_capabilities2_light_data, ptr null], align 16
 @dissect_dect_mitel_eth_mac_con_ind.mac_con_ind_flags = internal constant [2 x ptr] [ptr @hf_dect_mitel_eth_mac_con_ind_flag_handover, ptr null], align 16
-@.str.370 = private unnamed_addr constant [11 x i8] c"MCEI=%02x \00", align 1
+@.str.381 = private unnamed_addr constant [11 x i8] c"MCEI=%02x \00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_dect_mitel_eth() #0 {
-  %1 = call i32 @proto_register_protocol(ptr noundef @.str.254, ptr noundef @.str.255, ptr noundef @.str.256)
+  %1 = call i32 @proto_register_protocol(ptr noundef @.str.255, ptr noundef @.str.256, ptr noundef @.str.257)
   store i32 %1, ptr @proto_dect_mitel_eth, align 4
   call void @proto_register_subtree_array(ptr noundef @proto_register_dect_mitel_eth.ett, i32 noundef 7)
   %2 = load i32, ptr @proto_dect_mitel_eth, align 4
   call void @proto_register_field_array(i32 noundef %2, ptr noundef @proto_register_dect_mitel_eth.hf, i32 noundef 134)
   %3 = load i32, ptr @proto_dect_mitel_eth, align 4
-  %4 = call ptr @register_dissector(ptr noundef @.str.256, ptr noundef @dissect_dect_mitel_eth, i32 noundef %3)
+  %4 = call ptr @register_dissector(ptr noundef @.str.257, ptr noundef @dissect_dect_mitel_eth, i32 noundef %3)
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dect_mitel_eth(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -580,443 +584,488 @@ define internal i32 @dissect_dect_mitel_eth(ptr noundef %0, ptr noundef %1, ptr 
   %15 = alloca i8, align 1
   %16 = alloca i8, align 1
   %17 = alloca i32, align 4
-  %18 = alloca i32, align 4
+  %18 = alloca i8, align 1
   %19 = alloca ptr, align 8
+  %20 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 2, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 2, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %16) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #3
   store i32 0, ptr %17, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %18) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #3
   store ptr null, ptr %19, align 8
-  %20 = load ptr, ptr %7, align 8
-  %21 = getelementptr inbounds %struct._packet_info, ptr %20, i32 0, i32 1
-  %22 = load ptr, ptr %21, align 8
-  call void @col_set_str(ptr noundef %22, i32 noundef 34, ptr noundef @.str.364)
-  %23 = load ptr, ptr %7, align 8
-  %24 = getelementptr inbounds %struct._packet_info, ptr %23, i32 0, i32 1
-  %25 = load ptr, ptr %24, align 8
-  call void @col_clear(ptr noundef %25, i32 noundef 25)
-  %26 = load ptr, ptr %8, align 8
-  %27 = load i32, ptr @proto_dect_mitel_eth, align 4
-  %28 = load ptr, ptr %6, align 8
-  %29 = call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %27, ptr noundef %28, i32 noundef 0, i32 noundef -1, i32 noundef 0)
-  store ptr %29, ptr %10, align 8
-  %30 = load ptr, ptr %10, align 8
-  %31 = load i32, ptr @ett_dect_mitel_eth, align 4
-  %32 = call ptr @proto_item_add_subtree(ptr noundef %30, i32 noundef %31)
-  store ptr %32, ptr %11, align 8
-  %33 = load ptr, ptr %9, align 8
-  %34 = icmp ne ptr %33, null
-  br i1 %34, label %35, label %38
+  %21 = load ptr, ptr %7, align 8
+  %22 = getelementptr inbounds nuw %struct._packet_info, ptr %21, i32 0, i32 1
+  %23 = load ptr, ptr %22, align 8
+  call void @col_set_str(ptr noundef %23, i32 noundef 35, ptr noundef @.str.375)
+  %24 = load ptr, ptr %7, align 8
+  %25 = getelementptr inbounds nuw %struct._packet_info, ptr %24, i32 0, i32 1
+  %26 = load ptr, ptr %25, align 8
+  call void @col_clear(ptr noundef %26, i32 noundef 25)
+  %27 = load ptr, ptr %8, align 8
+  %28 = load i32, ptr @proto_dect_mitel_eth, align 4
+  %29 = load ptr, ptr %6, align 8
+  %30 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %28, ptr noundef %29, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  store ptr %30, ptr %10, align 8
+  %31 = load ptr, ptr %10, align 8
+  %32 = load i32, ptr @ett_dect_mitel_eth, align 4
+  %33 = call ptr @proto_item_add_subtree(ptr noundef %31, i32 noundef %32)
+  store ptr %33, ptr %11, align 8
+  %34 = load ptr, ptr %9, align 8
+  %35 = icmp ne ptr %34, null
+  br i1 %35, label %36, label %41
 
-35:                                               ; preds = %4
-  %36 = load ptr, ptr %9, align 8
-  %37 = load i32, ptr %36, align 4
-  store i32 %37, ptr %18, align 4
-  br label %39
+36:                                               ; preds = %4
+  %37 = load ptr, ptr %9, align 8
+  %38 = load i8, ptr %37, align 1, !range !6, !noundef !7
+  %39 = trunc i8 %38 to i1
+  %40 = zext i1 %39 to i8
+  store i8 %40, ptr %18, align 1
+  br label %42
 
-38:                                               ; preds = %4
-  store i32 0, ptr %18, align 4
-  br label %39
+41:                                               ; preds = %4
+  store i8 0, ptr %18, align 1
+  br label %42
 
-39:                                               ; preds = %38, %35
-  %40 = load i32, ptr %18, align 4
-  %41 = icmp ne i32 %40, 0
-  br i1 %41, label %60, label %42
+42:                                               ; preds = %41, %36
+  %43 = load i8, ptr %18, align 1, !range !6, !noundef !7
+  %44 = trunc i8 %43 to i1
+  br i1 %44, label %63, label %45
 
-42:                                               ; preds = %39
-  %43 = load ptr, ptr %6, align 8
-  %44 = load i32, ptr %17, align 4
-  %45 = call zeroext i16 @tvb_get_guint16(ptr noundef %43, i32 noundef %44, i32 noundef 2)
-  store i16 %45, ptr %12, align 2
-  %46 = load ptr, ptr %11, align 8
-  %47 = load i32, ptr @hf_dect_mitel_eth_len, align 4
-  %48 = load ptr, ptr %6, align 8
-  %49 = load i32, ptr %17, align 4
-  %50 = call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %47, ptr noundef %48, i32 noundef %49, i32 noundef 2, i32 noundef 0)
-  %51 = load i16, ptr %12, align 2
-  %52 = zext i16 %51 to i32
-  %53 = icmp slt i32 %52, 3
-  br i1 %53, label %54, label %57
+45:                                               ; preds = %42
+  %46 = load ptr, ptr %6, align 8
+  %47 = load i32, ptr %17, align 4
+  %48 = call zeroext i16 @tvb_get_uint16(ptr noundef %46, i32 noundef %47, i32 noundef 2)
+  store i16 %48, ptr %12, align 2
+  %49 = load ptr, ptr %11, align 8
+  %50 = load i32, ptr @hf_dect_mitel_eth_len, align 4
+  %51 = load ptr, ptr %6, align 8
+  %52 = load i32, ptr %17, align 4
+  %53 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %50, ptr noundef %51, i32 noundef %52, i32 noundef 2, i32 noundef 0)
+  %54 = load i16, ptr %12, align 2
+  %55 = zext i16 %54 to i32
+  %56 = icmp slt i32 %55, 3
+  br i1 %56, label %57, label %60
 
-54:                                               ; preds = %42
-  %55 = load ptr, ptr %6, align 8
-  %56 = call i32 @tvb_captured_length(ptr noundef %55)
-  store i32 %56, ptr %5, align 4
-  br label %282
+57:                                               ; preds = %45
+  %58 = load ptr, ptr %6, align 8
+  %59 = call i32 @tvb_captured_length(ptr noundef %58)
+  store i32 %59, ptr %5, align 4
+  store i32 1, ptr %20, align 4
+  br label %285
 
-57:                                               ; preds = %42
-  %58 = load i32, ptr %17, align 4
-  %59 = add i32 %58, 4
-  store i32 %59, ptr %17, align 4
-  br label %60
+60:                                               ; preds = %45
+  %61 = load i32, ptr %17, align 4
+  %62 = add i32 %61, 4
+  store i32 %62, ptr %17, align 4
+  br label %63
 
-60:                                               ; preds = %57, %39
-  %61 = load ptr, ptr %11, align 8
-  %62 = load i32, ptr @hf_dect_mitel_eth_layer, align 4
-  %63 = load ptr, ptr %6, align 8
-  %64 = load i32, ptr %17, align 4
-  %65 = call ptr @proto_tree_add_item(ptr noundef %61, i32 noundef %62, ptr noundef %63, i32 noundef %64, i32 noundef 1, i32 noundef 0)
+63:                                               ; preds = %60, %42
+  %64 = load ptr, ptr %11, align 8
+  %65 = load i32, ptr @hf_dect_mitel_eth_layer, align 4
   %66 = load ptr, ptr %6, align 8
   %67 = load i32, ptr %17, align 4
-  %68 = call zeroext i8 @tvb_get_guint8(ptr noundef %66, i32 noundef %67)
-  store i8 %68, ptr %15, align 1
-  %69 = load i32, ptr %17, align 4
-  %70 = add i32 %69, 1
-  store i32 %70, ptr %17, align 4
-  %71 = load i8, ptr %15, align 1
-  %72 = zext i8 %71 to i32
-  %73 = icmp ne i32 %72, 120
-  br i1 %73, label %74, label %91
+  %68 = call ptr @proto_tree_add_item(ptr noundef %64, i32 noundef %65, ptr noundef %66, i32 noundef %67, i32 noundef 1, i32 noundef 0)
+  %69 = load ptr, ptr %6, align 8
+  %70 = load i32, ptr %17, align 4
+  %71 = call zeroext i8 @tvb_get_uint8(ptr noundef %69, i32 noundef %70)
+  store i8 %71, ptr %15, align 1
+  %72 = load i32, ptr %17, align 4
+  %73 = add i32 %72, 1
+  store i32 %73, ptr %17, align 4
+  %74 = load i8, ptr %15, align 1
+  %75 = zext i8 %74 to i32
+  %76 = icmp ne i32 %75, 120
+  br i1 %76, label %77, label %94
 
-74:                                               ; preds = %60
-  %75 = load ptr, ptr %6, align 8
-  %76 = load i32, ptr %17, align 4
-  %77 = call zeroext i8 @tvb_get_guint8(ptr noundef %75, i32 noundef %76)
-  store i8 %77, ptr %14, align 1
-  %78 = load ptr, ptr %11, align 8
-  %79 = load i32, ptr @hf_dect_mitel_eth_prim_type, align 4
-  %80 = load ptr, ptr %6, align 8
-  %81 = load i32, ptr %17, align 4
-  %82 = call ptr @proto_tree_add_item(ptr noundef %78, i32 noundef %79, ptr noundef %80, i32 noundef %81, i32 noundef 1, i32 noundef 0)
-  %83 = load ptr, ptr %7, align 8
-  %84 = getelementptr inbounds %struct._packet_info, ptr %83, i32 0, i32 1
-  %85 = load ptr, ptr %84, align 8
-  %86 = load i8, ptr %14, align 1
-  %87 = zext i8 %86 to i32
-  %88 = call ptr @val_to_str(i32 noundef %87, ptr noundef @dect_mitel_eth_prim_coding_val, ptr noundef @.str.366)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %85, i32 noundef 25, ptr noundef @.str.365, ptr noundef %88)
-  %89 = load i32, ptr %17, align 4
-  %90 = add i32 %89, 1
-  store i32 %90, ptr %17, align 4
-  br label %91
+77:                                               ; preds = %63
+  %78 = load ptr, ptr %6, align 8
+  %79 = load i32, ptr %17, align 4
+  %80 = call zeroext i8 @tvb_get_uint8(ptr noundef %78, i32 noundef %79)
+  store i8 %80, ptr %14, align 1
+  %81 = load ptr, ptr %11, align 8
+  %82 = load i32, ptr @hf_dect_mitel_eth_prim_type, align 4
+  %83 = load ptr, ptr %6, align 8
+  %84 = load i32, ptr %17, align 4
+  %85 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %82, ptr noundef %83, i32 noundef %84, i32 noundef 1, i32 noundef 0)
+  %86 = load ptr, ptr %7, align 8
+  %87 = getelementptr inbounds nuw %struct._packet_info, ptr %86, i32 0, i32 1
+  %88 = load ptr, ptr %87, align 8
+  %89 = load i8, ptr %14, align 1
+  %90 = zext i8 %89 to i32
+  %91 = call ptr @val_to_str(i32 noundef %90, ptr noundef @dect_mitel_eth_prim_coding_val, ptr noundef @.str.377)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %88, i32 noundef 25, ptr noundef @.str.376, ptr noundef %91)
+  %92 = load i32, ptr %17, align 4
+  %93 = add i32 %92, 1
+  store i32 %93, ptr %17, align 4
+  br label %94
 
-91:                                               ; preds = %74, %60
-  %92 = load i8, ptr %15, align 1
-  %93 = zext i8 %92 to i32
-  switch i32 %93, label %279 [
-    i32 120, label %94
-    i32 124, label %101
-    i32 121, label %137
-    i32 122, label %137
+94:                                               ; preds = %77, %63
+  %95 = load i8, ptr %15, align 1
+  %96 = zext i8 %95 to i32
+  switch i32 %96, label %282 [
+    i32 120, label %97
+    i32 124, label %104
+    i32 121, label %140
+    i32 122, label %140
   ]
 
-94:                                               ; preds = %91
-  %95 = load ptr, ptr %6, align 8
-  %96 = load ptr, ptr %7, align 8
-  %97 = load ptr, ptr %11, align 8
-  %98 = load ptr, ptr %9, align 8
-  %99 = load i32, ptr %17, align 4
-  %100 = call i32 @dissect_dect_mitel_eth_rfpc(ptr noundef %95, ptr noundef %96, ptr noundef %97, ptr noundef %98, i32 noundef %99)
-  br label %279
-
-101:                                              ; preds = %91
-  br label %102
-
-102:                                              ; preds = %107, %101
-  %103 = load ptr, ptr %6, align 8
-  %104 = load i32, ptr %17, align 4
-  %105 = call i32 @tvb_reported_length_remaining(ptr noundef %103, i32 noundef %104)
-  %106 = icmp ne i32 %105, 0
-  br i1 %106, label %107, label %136
-
-107:                                              ; preds = %102
-  %108 = load ptr, ptr %11, align 8
-  %109 = load i32, ptr @hf_dect_mitel_eth_mt_item_key, align 4
-  %110 = load ptr, ptr %6, align 8
-  %111 = load i32, ptr %17, align 4
-  %112 = call ptr @proto_tree_add_item(ptr noundef %108, i32 noundef %109, ptr noundef %110, i32 noundef %111, i32 noundef 1, i32 noundef 0)
-  %113 = load i32, ptr %17, align 4
-  %114 = add i32 %113, 1
-  store i32 %114, ptr %17, align 4
-  %115 = load ptr, ptr %11, align 8
-  %116 = load i32, ptr @hf_dect_mitel_eth_mt_item_length, align 4
-  %117 = load ptr, ptr %6, align 8
-  %118 = load i32, ptr %17, align 4
-  %119 = call ptr @proto_tree_add_item(ptr noundef %115, i32 noundef %116, ptr noundef %117, i32 noundef %118, i32 noundef 1, i32 noundef 0)
-  %120 = load ptr, ptr %6, align 8
-  %121 = load i32, ptr %17, align 4
-  %122 = call zeroext i8 @tvb_get_guint8(ptr noundef %120, i32 noundef %121)
-  store i8 %122, ptr %16, align 1
-  %123 = load i32, ptr %17, align 4
-  %124 = add i32 %123, 1
-  store i32 %124, ptr %17, align 4
-  %125 = load ptr, ptr %11, align 8
-  %126 = load i32, ptr @hf_dect_mitel_eth_mt_item_value, align 4
-  %127 = load ptr, ptr %6, align 8
-  %128 = load i32, ptr %17, align 4
-  %129 = load i8, ptr %16, align 1
-  %130 = zext i8 %129 to i32
-  %131 = call ptr @proto_tree_add_item(ptr noundef %125, i32 noundef %126, ptr noundef %127, i32 noundef %128, i32 noundef %130, i32 noundef 0)
-  %132 = load i8, ptr %16, align 1
-  %133 = zext i8 %132 to i32
-  %134 = load i32, ptr %17, align 4
-  %135 = add i32 %134, %133
-  store i32 %135, ptr %17, align 4
-  br label %102, !llvm.loop !4
-
-136:                                              ; preds = %102
-  br label %279
-
-137:                                              ; preds = %91, %91
-  %138 = load i8, ptr %14, align 1
-  %139 = zext i8 %138 to i32
-  switch i32 %139, label %277 [
-    i32 8, label %140
-    i32 9, label %147
-    i32 10, label %154
-    i32 11, label %161
-    i32 12, label %168
-    i32 13, label %175
-    i32 1, label %182
-    i32 28, label %189
-    i32 31, label %196
-    i32 2, label %203
-    i32 3, label %212
-    i32 7, label %219
-    i32 5, label %233
-    i32 6, label %233
-  ]
-
-140:                                              ; preds = %137
-  %141 = load ptr, ptr %6, align 8
-  %142 = load ptr, ptr %7, align 8
-  %143 = load ptr, ptr %11, align 8
-  %144 = load ptr, ptr %9, align 8
-  %145 = load i32, ptr %17, align 4
-  %146 = call i32 @dissect_dect_mitel_eth_mac_page_req(ptr noundef %141, ptr noundef %142, ptr noundef %143, ptr noundef %144, i32 noundef %145)
-  br label %278
-
-147:                                              ; preds = %137
-  %148 = load ptr, ptr %6, align 8
-  %149 = load ptr, ptr %7, align 8
-  %150 = load ptr, ptr %11, align 8
-  %151 = load ptr, ptr %9, align 8
-  %152 = load i32, ptr %17, align 4
-  %153 = call i32 @dissect_dect_mitel_eth_mac_enc_key_req(ptr noundef %148, ptr noundef %149, ptr noundef %150, ptr noundef %151, i32 noundef %152)
-  br label %278
-
-154:                                              ; preds = %137
-  %155 = load ptr, ptr %6, align 8
-  %156 = load ptr, ptr %7, align 8
-  %157 = load ptr, ptr %11, align 8
-  %158 = load ptr, ptr %9, align 8
-  %159 = load i32, ptr %17, align 4
-  %160 = call i32 @dissect_dect_mitel_eth_mac_enc_eks_ind(ptr noundef %155, ptr noundef %156, ptr noundef %157, ptr noundef %158, i32 noundef %159)
-  br label %278
-
-161:                                              ; preds = %137
-  %162 = load ptr, ptr %6, align 8
-  %163 = load ptr, ptr %7, align 8
-  %164 = load ptr, ptr %11, align 8
-  %165 = load ptr, ptr %9, align 8
-  %166 = load i32, ptr %17, align 4
-  %167 = call i32 @dissect_dect_mitel_eth_mac_ho_in_progress_ind(ptr noundef %162, ptr noundef %163, ptr noundef %164, ptr noundef %165, i32 noundef %166)
-  br label %278
-
-168:                                              ; preds = %137
-  %169 = load ptr, ptr %6, align 8
-  %170 = load ptr, ptr %7, align 8
-  %171 = load ptr, ptr %11, align 8
-  %172 = load ptr, ptr %9, align 8
-  %173 = load i32, ptr %17, align 4
-  %174 = call i32 @dissect_dect_mitel_eth_mac_ho_in_progress_res(ptr noundef %169, ptr noundef %170, ptr noundef %171, ptr noundef %172, i32 noundef %173)
-  br label %278
-
-175:                                              ; preds = %137
-  %176 = load ptr, ptr %6, align 8
-  %177 = load ptr, ptr %7, align 8
-  %178 = load ptr, ptr %11, align 8
-  %179 = load ptr, ptr %9, align 8
-  %180 = load i32, ptr %17, align 4
-  %181 = call i32 @dissect_dect_mitel_eth_mac_ho_failed_ind(ptr noundef %176, ptr noundef %177, ptr noundef %178, ptr noundef %179, i32 noundef %180)
-  br label %278
-
-182:                                              ; preds = %137
-  %183 = load ptr, ptr %6, align 8
-  %184 = load ptr, ptr %7, align 8
-  %185 = load ptr, ptr %11, align 8
-  %186 = load ptr, ptr %9, align 8
-  %187 = load i32, ptr %17, align 4
-  %188 = call i32 @dissect_dect_mitel_eth_mac_con_ind(ptr noundef %183, ptr noundef %184, ptr noundef %185, ptr noundef %186, i32 noundef %187)
-  br label %278
-
-189:                                              ; preds = %137
-  %190 = load ptr, ptr %6, align 8
-  %191 = load ptr, ptr %7, align 8
-  %192 = load ptr, ptr %11, align 8
-  %193 = load ptr, ptr %9, align 8
-  %194 = load i32, ptr %17, align 4
-  %195 = call i32 @dissect_dect_mitel_eth_mac_info_ind(ptr noundef %190, ptr noundef %191, ptr noundef %192, ptr noundef %193, i32 noundef %194)
-  br label %278
-
-196:                                              ; preds = %137
-  %197 = load ptr, ptr %6, align 8
-  %198 = load ptr, ptr %7, align 8
-  %199 = load ptr, ptr %11, align 8
-  %200 = load ptr, ptr %9, align 8
-  %201 = load i32, ptr %17, align 4
-  %202 = call i32 @dissect_dect_mitel_eth_mac_clear_def_ckey_req(ptr noundef %197, ptr noundef %198, ptr noundef %199, ptr noundef %200, i32 noundef %201)
-  br label %278
-
-203:                                              ; preds = %137
-  %204 = load ptr, ptr %7, align 8
-  %205 = getelementptr inbounds %struct._packet_info, ptr %204, i32 0, i32 36
-  store i32 0, ptr %205, align 4
-  %206 = load ptr, ptr %6, align 8
-  %207 = load ptr, ptr %7, align 8
-  %208 = load ptr, ptr %11, align 8
-  %209 = load ptr, ptr %9, align 8
-  %210 = load i32, ptr %17, align 4
-  %211 = call i32 @dissect_dect_mitel_eth_mcei_field(ptr noundef %206, ptr noundef %207, ptr noundef %208, ptr noundef %209, i32 noundef %210)
-  br label %278
-
-212:                                              ; preds = %137
-  %213 = load ptr, ptr %6, align 8
-  %214 = load ptr, ptr %7, align 8
-  %215 = load ptr, ptr %11, align 8
-  %216 = load ptr, ptr %9, align 8
-  %217 = load i32, ptr %17, align 4
-  %218 = call i32 @dissect_dect_mitel_eth_mac_dis_ind(ptr noundef %213, ptr noundef %214, ptr noundef %215, ptr noundef %216, i32 noundef %217)
-  br label %278
-
-219:                                              ; preds = %137
-  %220 = load ptr, ptr %7, align 8
-  %221 = getelementptr inbounds %struct._packet_info, ptr %220, i32 0, i32 36
-  store i32 1, ptr %221, align 4
-  %222 = load ptr, ptr %6, align 8
-  %223 = load ptr, ptr %7, align 8
-  %224 = load ptr, ptr %11, align 8
-  %225 = load ptr, ptr %9, align 8
-  %226 = load i32, ptr %17, align 4
-  %227 = call i32 @dissect_dect_mitel_eth_mcei_field(ptr noundef %222, ptr noundef %223, ptr noundef %224, ptr noundef %225, i32 noundef %226)
-  store i32 %227, ptr %17, align 4
-  %228 = load ptr, ptr %11, align 8
-  %229 = load i32, ptr @hf_dect_mitel_eth_subfield, align 4
-  %230 = load ptr, ptr %6, align 8
-  %231 = load i32, ptr %17, align 4
-  %232 = call ptr @proto_tree_add_item(ptr noundef %228, i32 noundef %229, ptr noundef %230, i32 noundef %231, i32 noundef 1, i32 noundef 0)
-  br label %278
-
-233:                                              ; preds = %137, %137
-  %234 = load i8, ptr %14, align 1
-  %235 = zext i8 %234 to i32
-  %236 = icmp eq i32 %235, 5
-  br i1 %236, label %237, label %240
-
-237:                                              ; preds = %233
-  %238 = load ptr, ptr %7, align 8
-  %239 = getelementptr inbounds %struct._packet_info, ptr %238, i32 0, i32 36
-  store i32 0, ptr %239, align 4
-  br label %243
-
-240:                                              ; preds = %233
-  %241 = load ptr, ptr %7, align 8
-  %242 = getelementptr inbounds %struct._packet_info, ptr %241, i32 0, i32 36
-  store i32 1, ptr %242, align 4
-  br label %243
-
-243:                                              ; preds = %240, %237
-  %244 = load ptr, ptr %6, align 8
-  %245 = load ptr, ptr %7, align 8
-  %246 = load ptr, ptr %11, align 8
-  %247 = load ptr, ptr %9, align 8
-  %248 = load i32, ptr %17, align 4
-  %249 = call i32 @dissect_dect_mitel_eth_mcei_field(ptr noundef %244, ptr noundef %245, ptr noundef %246, ptr noundef %247, i32 noundef %248)
-  store i32 %249, ptr %17, align 4
-  %250 = load ptr, ptr %11, align 8
-  %251 = load i32, ptr @hf_dect_mitel_eth_subfield, align 4
-  %252 = load ptr, ptr %6, align 8
-  %253 = load i32, ptr %17, align 4
-  %254 = call ptr @proto_tree_add_item(ptr noundef %250, i32 noundef %251, ptr noundef %252, i32 noundef %253, i32 noundef 1, i32 noundef 0)
-  %255 = load i32, ptr %17, align 4
-  %256 = add i32 %255, 1
-  store i32 %256, ptr %17, align 4
-  %257 = load ptr, ptr %6, align 8
-  %258 = load i32, ptr %17, align 4
-  %259 = call zeroext i8 @tvb_get_guint8(ptr noundef %257, i32 noundef %258)
-  %260 = zext i8 %259 to i16
-  store i16 %260, ptr %13, align 2
-  %261 = load i32, ptr %17, align 4
-  %262 = add i32 %261, 1
-  store i32 %262, ptr %17, align 4
-  %263 = load ptr, ptr %6, align 8
-  %264 = load i32, ptr %17, align 4
-  %265 = load i16, ptr %13, align 2
-  %266 = zext i16 %265 to i32
-  %267 = call ptr @tvb_new_subset_length(ptr noundef %263, i32 noundef %264, i32 noundef %266)
-  store ptr %267, ptr %19, align 8
-  %268 = load ptr, ptr %19, align 8
-  %269 = icmp ne ptr %268, null
-  br i1 %269, label %270, label %276
-
-270:                                              ; preds = %243
-  %271 = load ptr, ptr @dlc_handle, align 8
-  %272 = load ptr, ptr %19, align 8
-  %273 = load ptr, ptr %7, align 8
-  %274 = load ptr, ptr %8, align 8
-  %275 = call i32 @call_dissector(ptr noundef %271, ptr noundef %272, ptr noundef %273, ptr noundef %274)
-  br label %276
-
-276:                                              ; preds = %270, %243
-  store ptr null, ptr %19, align 8
-  br label %278
-
-277:                                              ; preds = %137
-  br label %278
-
-278:                                              ; preds = %277, %276, %219, %212, %203, %196, %189, %182, %175, %168, %161, %154, %147, %140
-  br label %279
-
-279:                                              ; preds = %278, %136, %94, %91
-  %280 = load ptr, ptr %6, align 8
-  %281 = call i32 @tvb_captured_length(ptr noundef %280)
-  store i32 %281, ptr %5, align 4
+97:                                               ; preds = %94
+  %98 = load ptr, ptr %6, align 8
+  %99 = load ptr, ptr %7, align 8
+  %100 = load ptr, ptr %11, align 8
+  %101 = load ptr, ptr %9, align 8
+  %102 = load i32, ptr %17, align 4
+  %103 = call i32 @dissect_dect_mitel_eth_rfpc(ptr noundef %98, ptr noundef %99, ptr noundef %100, ptr noundef %101, i32 noundef %102)
   br label %282
 
-282:                                              ; preds = %279, %54
-  %283 = load i32, ptr %5, align 4
-  ret i32 %283
+104:                                              ; preds = %94
+  br label %105
+
+105:                                              ; preds = %110, %104
+  %106 = load ptr, ptr %6, align 8
+  %107 = load i32, ptr %17, align 4
+  %108 = call i32 @tvb_reported_length_remaining(ptr noundef %106, i32 noundef %107)
+  %109 = icmp ne i32 %108, 0
+  br i1 %109, label %110, label %139
+
+110:                                              ; preds = %105
+  %111 = load ptr, ptr %11, align 8
+  %112 = load i32, ptr @hf_dect_mitel_eth_mt_item_key, align 4
+  %113 = load ptr, ptr %6, align 8
+  %114 = load i32, ptr %17, align 4
+  %115 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %112, ptr noundef %113, i32 noundef %114, i32 noundef 1, i32 noundef 0)
+  %116 = load i32, ptr %17, align 4
+  %117 = add i32 %116, 1
+  store i32 %117, ptr %17, align 4
+  %118 = load ptr, ptr %11, align 8
+  %119 = load i32, ptr @hf_dect_mitel_eth_mt_item_length, align 4
+  %120 = load ptr, ptr %6, align 8
+  %121 = load i32, ptr %17, align 4
+  %122 = call ptr @proto_tree_add_item(ptr noundef %118, i32 noundef %119, ptr noundef %120, i32 noundef %121, i32 noundef 1, i32 noundef 0)
+  %123 = load ptr, ptr %6, align 8
+  %124 = load i32, ptr %17, align 4
+  %125 = call zeroext i8 @tvb_get_uint8(ptr noundef %123, i32 noundef %124)
+  store i8 %125, ptr %16, align 1
+  %126 = load i32, ptr %17, align 4
+  %127 = add i32 %126, 1
+  store i32 %127, ptr %17, align 4
+  %128 = load ptr, ptr %11, align 8
+  %129 = load i32, ptr @hf_dect_mitel_eth_mt_item_value, align 4
+  %130 = load ptr, ptr %6, align 8
+  %131 = load i32, ptr %17, align 4
+  %132 = load i8, ptr %16, align 1
+  %133 = zext i8 %132 to i32
+  %134 = call ptr @proto_tree_add_item(ptr noundef %128, i32 noundef %129, ptr noundef %130, i32 noundef %131, i32 noundef %133, i32 noundef 0)
+  %135 = load i8, ptr %16, align 1
+  %136 = zext i8 %135 to i32
+  %137 = load i32, ptr %17, align 4
+  %138 = add i32 %137, %136
+  store i32 %138, ptr %17, align 4
+  br label %105, !llvm.loop !8
+
+139:                                              ; preds = %105
+  br label %282
+
+140:                                              ; preds = %94, %94
+  %141 = load i8, ptr %14, align 1
+  %142 = zext i8 %141 to i32
+  switch i32 %142, label %280 [
+    i32 8, label %143
+    i32 9, label %150
+    i32 10, label %157
+    i32 11, label %164
+    i32 12, label %171
+    i32 13, label %178
+    i32 1, label %185
+    i32 28, label %192
+    i32 31, label %199
+    i32 2, label %206
+    i32 3, label %215
+    i32 7, label %222
+    i32 5, label %236
+    i32 6, label %236
+  ]
+
+143:                                              ; preds = %140
+  %144 = load ptr, ptr %6, align 8
+  %145 = load ptr, ptr %7, align 8
+  %146 = load ptr, ptr %11, align 8
+  %147 = load ptr, ptr %9, align 8
+  %148 = load i32, ptr %17, align 4
+  %149 = call i32 @dissect_dect_mitel_eth_mac_page_req(ptr noundef %144, ptr noundef %145, ptr noundef %146, ptr noundef %147, i32 noundef %148)
+  br label %281
+
+150:                                              ; preds = %140
+  %151 = load ptr, ptr %6, align 8
+  %152 = load ptr, ptr %7, align 8
+  %153 = load ptr, ptr %11, align 8
+  %154 = load ptr, ptr %9, align 8
+  %155 = load i32, ptr %17, align 4
+  %156 = call i32 @dissect_dect_mitel_eth_mac_enc_key_req(ptr noundef %151, ptr noundef %152, ptr noundef %153, ptr noundef %154, i32 noundef %155)
+  br label %281
+
+157:                                              ; preds = %140
+  %158 = load ptr, ptr %6, align 8
+  %159 = load ptr, ptr %7, align 8
+  %160 = load ptr, ptr %11, align 8
+  %161 = load ptr, ptr %9, align 8
+  %162 = load i32, ptr %17, align 4
+  %163 = call i32 @dissect_dect_mitel_eth_mac_enc_eks_ind(ptr noundef %158, ptr noundef %159, ptr noundef %160, ptr noundef %161, i32 noundef %162)
+  br label %281
+
+164:                                              ; preds = %140
+  %165 = load ptr, ptr %6, align 8
+  %166 = load ptr, ptr %7, align 8
+  %167 = load ptr, ptr %11, align 8
+  %168 = load ptr, ptr %9, align 8
+  %169 = load i32, ptr %17, align 4
+  %170 = call i32 @dissect_dect_mitel_eth_mac_ho_in_progress_ind(ptr noundef %165, ptr noundef %166, ptr noundef %167, ptr noundef %168, i32 noundef %169)
+  br label %281
+
+171:                                              ; preds = %140
+  %172 = load ptr, ptr %6, align 8
+  %173 = load ptr, ptr %7, align 8
+  %174 = load ptr, ptr %11, align 8
+  %175 = load ptr, ptr %9, align 8
+  %176 = load i32, ptr %17, align 4
+  %177 = call i32 @dissect_dect_mitel_eth_mac_ho_in_progress_res(ptr noundef %172, ptr noundef %173, ptr noundef %174, ptr noundef %175, i32 noundef %176)
+  br label %281
+
+178:                                              ; preds = %140
+  %179 = load ptr, ptr %6, align 8
+  %180 = load ptr, ptr %7, align 8
+  %181 = load ptr, ptr %11, align 8
+  %182 = load ptr, ptr %9, align 8
+  %183 = load i32, ptr %17, align 4
+  %184 = call i32 @dissect_dect_mitel_eth_mac_ho_failed_ind(ptr noundef %179, ptr noundef %180, ptr noundef %181, ptr noundef %182, i32 noundef %183)
+  br label %281
+
+185:                                              ; preds = %140
+  %186 = load ptr, ptr %6, align 8
+  %187 = load ptr, ptr %7, align 8
+  %188 = load ptr, ptr %11, align 8
+  %189 = load ptr, ptr %9, align 8
+  %190 = load i32, ptr %17, align 4
+  %191 = call i32 @dissect_dect_mitel_eth_mac_con_ind(ptr noundef %186, ptr noundef %187, ptr noundef %188, ptr noundef %189, i32 noundef %190)
+  br label %281
+
+192:                                              ; preds = %140
+  %193 = load ptr, ptr %6, align 8
+  %194 = load ptr, ptr %7, align 8
+  %195 = load ptr, ptr %11, align 8
+  %196 = load ptr, ptr %9, align 8
+  %197 = load i32, ptr %17, align 4
+  %198 = call i32 @dissect_dect_mitel_eth_mac_info_ind(ptr noundef %193, ptr noundef %194, ptr noundef %195, ptr noundef %196, i32 noundef %197)
+  br label %281
+
+199:                                              ; preds = %140
+  %200 = load ptr, ptr %6, align 8
+  %201 = load ptr, ptr %7, align 8
+  %202 = load ptr, ptr %11, align 8
+  %203 = load ptr, ptr %9, align 8
+  %204 = load i32, ptr %17, align 4
+  %205 = call i32 @dissect_dect_mitel_eth_mac_clear_def_ckey_req(ptr noundef %200, ptr noundef %201, ptr noundef %202, ptr noundef %203, i32 noundef %204)
+  br label %281
+
+206:                                              ; preds = %140
+  %207 = load ptr, ptr %7, align 8
+  %208 = getelementptr inbounds nuw %struct._packet_info, ptr %207, i32 0, i32 37
+  store i32 0, ptr %208, align 4
+  %209 = load ptr, ptr %6, align 8
+  %210 = load ptr, ptr %7, align 8
+  %211 = load ptr, ptr %11, align 8
+  %212 = load ptr, ptr %9, align 8
+  %213 = load i32, ptr %17, align 4
+  %214 = call i32 @dissect_dect_mitel_eth_mcei_field(ptr noundef %209, ptr noundef %210, ptr noundef %211, ptr noundef %212, i32 noundef %213)
+  br label %281
+
+215:                                              ; preds = %140
+  %216 = load ptr, ptr %6, align 8
+  %217 = load ptr, ptr %7, align 8
+  %218 = load ptr, ptr %11, align 8
+  %219 = load ptr, ptr %9, align 8
+  %220 = load i32, ptr %17, align 4
+  %221 = call i32 @dissect_dect_mitel_eth_mac_dis_ind(ptr noundef %216, ptr noundef %217, ptr noundef %218, ptr noundef %219, i32 noundef %220)
+  br label %281
+
+222:                                              ; preds = %140
+  %223 = load ptr, ptr %7, align 8
+  %224 = getelementptr inbounds nuw %struct._packet_info, ptr %223, i32 0, i32 37
+  store i32 1, ptr %224, align 4
+  %225 = load ptr, ptr %6, align 8
+  %226 = load ptr, ptr %7, align 8
+  %227 = load ptr, ptr %11, align 8
+  %228 = load ptr, ptr %9, align 8
+  %229 = load i32, ptr %17, align 4
+  %230 = call i32 @dissect_dect_mitel_eth_mcei_field(ptr noundef %225, ptr noundef %226, ptr noundef %227, ptr noundef %228, i32 noundef %229)
+  store i32 %230, ptr %17, align 4
+  %231 = load ptr, ptr %11, align 8
+  %232 = load i32, ptr @hf_dect_mitel_eth_subfield, align 4
+  %233 = load ptr, ptr %6, align 8
+  %234 = load i32, ptr %17, align 4
+  %235 = call ptr @proto_tree_add_item(ptr noundef %231, i32 noundef %232, ptr noundef %233, i32 noundef %234, i32 noundef 1, i32 noundef 0)
+  br label %281
+
+236:                                              ; preds = %140, %140
+  %237 = load i8, ptr %14, align 1
+  %238 = zext i8 %237 to i32
+  %239 = icmp eq i32 %238, 5
+  br i1 %239, label %240, label %243
+
+240:                                              ; preds = %236
+  %241 = load ptr, ptr %7, align 8
+  %242 = getelementptr inbounds nuw %struct._packet_info, ptr %241, i32 0, i32 37
+  store i32 0, ptr %242, align 4
+  br label %246
+
+243:                                              ; preds = %236
+  %244 = load ptr, ptr %7, align 8
+  %245 = getelementptr inbounds nuw %struct._packet_info, ptr %244, i32 0, i32 37
+  store i32 1, ptr %245, align 4
+  br label %246
+
+246:                                              ; preds = %243, %240
+  %247 = load ptr, ptr %6, align 8
+  %248 = load ptr, ptr %7, align 8
+  %249 = load ptr, ptr %11, align 8
+  %250 = load ptr, ptr %9, align 8
+  %251 = load i32, ptr %17, align 4
+  %252 = call i32 @dissect_dect_mitel_eth_mcei_field(ptr noundef %247, ptr noundef %248, ptr noundef %249, ptr noundef %250, i32 noundef %251)
+  store i32 %252, ptr %17, align 4
+  %253 = load ptr, ptr %11, align 8
+  %254 = load i32, ptr @hf_dect_mitel_eth_subfield, align 4
+  %255 = load ptr, ptr %6, align 8
+  %256 = load i32, ptr %17, align 4
+  %257 = call ptr @proto_tree_add_item(ptr noundef %253, i32 noundef %254, ptr noundef %255, i32 noundef %256, i32 noundef 1, i32 noundef 0)
+  %258 = load i32, ptr %17, align 4
+  %259 = add i32 %258, 1
+  store i32 %259, ptr %17, align 4
+  %260 = load ptr, ptr %6, align 8
+  %261 = load i32, ptr %17, align 4
+  %262 = call zeroext i8 @tvb_get_uint8(ptr noundef %260, i32 noundef %261)
+  %263 = zext i8 %262 to i16
+  store i16 %263, ptr %13, align 2
+  %264 = load i32, ptr %17, align 4
+  %265 = add i32 %264, 1
+  store i32 %265, ptr %17, align 4
+  %266 = load ptr, ptr %6, align 8
+  %267 = load i32, ptr %17, align 4
+  %268 = load i16, ptr %13, align 2
+  %269 = zext i16 %268 to i32
+  %270 = call ptr @tvb_new_subset_length(ptr noundef %266, i32 noundef %267, i32 noundef %269)
+  store ptr %270, ptr %19, align 8
+  %271 = load ptr, ptr %19, align 8
+  %272 = icmp ne ptr %271, null
+  br i1 %272, label %273, label %279
+
+273:                                              ; preds = %246
+  %274 = load ptr, ptr @dlc_handle, align 8
+  %275 = load ptr, ptr %19, align 8
+  %276 = load ptr, ptr %7, align 8
+  %277 = load ptr, ptr %8, align 8
+  %278 = call i32 @call_dissector(ptr noundef %274, ptr noundef %275, ptr noundef %276, ptr noundef %277)
+  br label %279
+
+279:                                              ; preds = %273, %246
+  store ptr null, ptr %19, align 8
+  br label %281
+
+280:                                              ; preds = %140
+  br label %281
+
+281:                                              ; preds = %280, %279, %222, %215, %206, %199, %192, %185, %178, %171, %164, %157, %150, %143
+  br label %282
+
+282:                                              ; preds = %94, %281, %139, %97
+  %283 = load ptr, ptr %6, align 8
+  %284 = call i32 @tvb_captured_length(ptr noundef %283)
+  store i32 %284, ptr %5, align 4
+  store i32 1, ptr %20, align 4
+  br label %285
+
+285:                                              ; preds = %282, %57
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %18) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 2, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 2, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #3
+  %286 = load i32, ptr %5, align 4
+  ret i32 %286
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_dect_mitel_eth() #0 {
   %1 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #3
   %2 = load i32, ptr @proto_dect_mitel_eth, align 4
   %3 = call ptr @create_dissector_handle(ptr noundef @dissect_dect_mitel_eth, i32 noundef %2)
   store ptr %3, ptr %1, align 8
   %4 = load ptr, ptr %1, align 8
-  call void @dissector_add_uint(ptr noundef @.str.257, i32 noundef 40960, ptr noundef %4)
-  %5 = call ptr @find_dissector(ptr noundef @.str.258)
+  call void @dissector_add_uint(ptr noundef @.str.258, i32 noundef 40960, ptr noundef %4)
+  %5 = call ptr @find_dissector(ptr noundef @.str.259)
   store ptr %5, ptr @dlc_handle, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #3
   ret void
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare ptr @create_dissector_handle(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @find_dissector(ptr noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_clear(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
 
-declare zeroext i16 @tvb_get_guint16(ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_uint16(ptr noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) #1
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dect_mitel_eth_rfpc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -1033,6 +1082,11 @@ define internal i32 @dissect_dect_mitel_eth_rfpc(ptr noundef %0, ptr noundef %1,
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   store i32 %4, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #3
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr @hf_dect_mitel_eth_rfpc_message_type, align 4
   %18 = load ptr, ptr %6, align 8
@@ -1040,15 +1094,15 @@ define internal i32 @dissect_dect_mitel_eth_rfpc(ptr noundef %0, ptr noundef %1,
   %20 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %17, ptr noundef %18, i32 noundef %19, i32 noundef 1, i32 noundef 0)
   %21 = load ptr, ptr %6, align 8
   %22 = load i32, ptr %10, align 4
-  %23 = call zeroext i8 @tvb_get_guint8(ptr noundef %21, i32 noundef %22)
+  %23 = call zeroext i8 @tvb_get_uint8(ptr noundef %21, i32 noundef %22)
   store i8 %23, ptr %11, align 1
   %24 = load ptr, ptr %7, align 8
-  %25 = getelementptr inbounds %struct._packet_info, ptr %24, i32 0, i32 1
+  %25 = getelementptr inbounds nuw %struct._packet_info, ptr %24, i32 0, i32 1
   %26 = load ptr, ptr %25, align 8
   %27 = load i8, ptr %11, align 1
   %28 = zext i8 %27 to i32
-  %29 = call ptr @val_to_str(i32 noundef %28, ptr noundef @dect_mitel_eth_rfpc_message_type_val, ptr noundef @.str.366)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %26, i32 noundef 25, ptr noundef @.str.367, ptr noundef %29)
+  %29 = call ptr @val_to_str(i32 noundef %28, ptr noundef @dect_mitel_eth_rfpc_message_type_val, ptr noundef @.str.377)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %26, i32 noundef 25, ptr noundef @.str.378, ptr noundef %29)
   %30 = load i32, ptr %10, align 4
   %31 = add i32 %30, 1
   store i32 %31, ptr %10, align 4
@@ -1064,7 +1118,7 @@ define internal i32 @dissect_dect_mitel_eth_rfpc(ptr noundef %0, ptr noundef %1,
 37:                                               ; preds = %32
   %38 = load ptr, ptr %6, align 8
   %39 = load i32, ptr %10, align 4
-  %40 = call zeroext i8 @tvb_get_guint8(ptr noundef %38, i32 noundef %39)
+  %40 = call zeroext i8 @tvb_get_uint8(ptr noundef %38, i32 noundef %39)
   store i8 %40, ptr %12, align 1
   %41 = load ptr, ptr %8, align 8
   %42 = load ptr, ptr %6, align 8
@@ -1072,8 +1126,8 @@ define internal i32 @dissect_dect_mitel_eth_rfpc(ptr noundef %0, ptr noundef %1,
   %44 = load i32, ptr @ett_dect_mitel_eth_rfpc_item, align 4
   %45 = load i8, ptr %12, align 1
   %46 = zext i8 %45 to i32
-  %47 = call ptr @val_to_str(i32 noundef %46, ptr noundef @dect_mitel_eth_rfpc_item_type_val, ptr noundef @.str.369)
-  %48 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %41, ptr noundef %42, i32 noundef %43, i32 noundef -1, i32 noundef %44, ptr noundef %15, ptr noundef @.str.368, ptr noundef %47)
+  %47 = call ptr @val_to_str(i32 noundef %46, ptr noundef @dect_mitel_eth_rfpc_item_type_val, ptr noundef @.str.380)
+  %48 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %41, ptr noundef %42, i32 noundef %43, i32 noundef -1, i32 noundef %44, ptr noundef %15, ptr noundef @.str.379, ptr noundef %47)
   store ptr %48, ptr %14, align 8
   %49 = load ptr, ptr %14, align 8
   %50 = load i32, ptr @hf_dect_mitel_eth_rfpc_item_type, align 4
@@ -1085,7 +1139,7 @@ define internal i32 @dissect_dect_mitel_eth_rfpc(ptr noundef %0, ptr noundef %1,
   store i32 %55, ptr %10, align 4
   %56 = load ptr, ptr %6, align 8
   %57 = load i32, ptr %10, align 4
-  %58 = call zeroext i8 @tvb_get_guint8(ptr noundef %56, i32 noundef %57)
+  %58 = call zeroext i8 @tvb_get_uint8(ptr noundef %56, i32 noundef %57)
   store i8 %58, ptr %13, align 1
   %59 = load ptr, ptr %14, align 8
   %60 = load i32, ptr @hf_dect_mitel_eth_rfpc_item_length, align 4
@@ -1209,16 +1263,22 @@ define internal i32 @dissect_dect_mitel_eth_rfpc(ptr noundef %0, ptr noundef %1,
   br label %140
 
 140:                                              ; preds = %128, %121, %114, %107, %100, %93, %86, %79, %72
-  br label %32, !llvm.loop !6
+  br label %32, !llvm.loop !10
 
 141:                                              ; preds = %32
   %142 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #3
   ret i32 %142
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dect_mitel_eth_mac_page_req(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -1231,7 +1291,7 @@ define internal i32 @dissect_dect_mitel_eth_mac_page_req(ptr noundef %0, ptr nou
   store ptr %3, ptr %9, align 8
   store i32 %4, ptr %10, align 4
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds %struct._packet_info, ptr %11, i32 0, i32 36
+  %12 = getelementptr inbounds nuw %struct._packet_info, ptr %11, i32 0, i32 37
   store i32 0, ptr %12, align 4
   %13 = load i32, ptr %10, align 4
   %14 = add i32 %13, 1
@@ -1248,7 +1308,7 @@ define internal i32 @dissect_dect_mitel_eth_mac_page_req(ptr noundef %0, ptr nou
   ret i32 %22
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dect_mitel_eth_mac_enc_key_req(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -1287,7 +1347,7 @@ define internal i32 @dissect_dect_mitel_eth_mac_enc_key_req(ptr noundef %0, ptr 
   ret i32 %31
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dect_mitel_eth_mac_enc_eks_ind(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -1300,6 +1360,7 @@ define internal i32 @dissect_dect_mitel_eth_mac_enc_eks_ind(ptr noundef %0, ptr 
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   store i32 %4, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #3
   %12 = load ptr, ptr %6, align 8
   %13 = load ptr, ptr %7, align 8
   %14 = load ptr, ptr %8, align 8
@@ -1314,7 +1375,7 @@ define internal i32 @dissect_dect_mitel_eth_mac_enc_eks_ind(ptr noundef %0, ptr 
   %22 = call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %19, ptr noundef %20, i32 noundef %21, i32 noundef 1, i32 noundef 0)
   %23 = load ptr, ptr %6, align 8
   %24 = load i32, ptr %10, align 4
-  %25 = call zeroext i8 @tvb_get_guint8(ptr noundef %23, i32 noundef %24)
+  %25 = call zeroext i8 @tvb_get_uint8(ptr noundef %23, i32 noundef %24)
   store i8 %25, ptr %11, align 1
   %26 = load i32, ptr %10, align 4
   %27 = add i32 %26, 1
@@ -1345,10 +1406,11 @@ define internal i32 @dissect_dect_mitel_eth_mac_enc_eks_ind(ptr noundef %0, ptr 
 
 46:                                               ; preds = %31, %5
   %47 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #3
   ret i32 %47
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dect_mitel_eth_mac_ho_in_progress_ind(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -1379,7 +1441,7 @@ define internal i32 @dissect_dect_mitel_eth_mac_ho_in_progress_ind(ptr noundef %
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dect_mitel_eth_mac_ho_in_progress_res(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -1421,7 +1483,7 @@ define internal i32 @dissect_dect_mitel_eth_mac_ho_in_progress_res(ptr noundef %
   ret i32 %33
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dect_mitel_eth_mac_ho_failed_ind(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -1452,7 +1514,7 @@ define internal i32 @dissect_dect_mitel_eth_mac_ho_failed_ind(ptr noundef %0, pt
   ret i32 %24
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dect_mitel_eth_mac_con_ind(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -1465,7 +1527,7 @@ define internal i32 @dissect_dect_mitel_eth_mac_con_ind(ptr noundef %0, ptr noun
   store ptr %3, ptr %9, align 8
   store i32 %4, ptr %10, align 4
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds %struct._packet_info, ptr %11, i32 0, i32 36
+  %12 = getelementptr inbounds nuw %struct._packet_info, ptr %11, i32 0, i32 37
   store i32 1, ptr %12, align 4
   %13 = load ptr, ptr %6, align 8
   %14 = load ptr, ptr %7, align 8
@@ -1495,7 +1557,7 @@ define internal i32 @dissect_dect_mitel_eth_mac_con_ind(ptr noundef %0, ptr noun
   ret i32 %34
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dect_mitel_eth_mac_info_ind(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -1508,7 +1570,7 @@ define internal i32 @dissect_dect_mitel_eth_mac_info_ind(ptr noundef %0, ptr nou
   store ptr %3, ptr %9, align 8
   store i32 %4, ptr %10, align 4
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds %struct._packet_info, ptr %11, i32 0, i32 36
+  %12 = getelementptr inbounds nuw %struct._packet_info, ptr %11, i32 0, i32 37
   store i32 1, ptr %12, align 4
   %13 = load ptr, ptr %6, align 8
   %14 = load ptr, ptr %7, align 8
@@ -1538,7 +1600,7 @@ define internal i32 @dissect_dect_mitel_eth_mac_info_ind(ptr noundef %0, ptr nou
   ret i32 %35
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dect_mitel_eth_mac_clear_def_ckey_req(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -1562,7 +1624,7 @@ define internal i32 @dissect_dect_mitel_eth_mac_clear_def_ckey_req(ptr noundef %
   ret i32 %18
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dect_mitel_eth_mcei_field(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -1575,20 +1637,21 @@ define internal i32 @dissect_dect_mitel_eth_mcei_field(ptr noundef %0, ptr nound
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
   store i32 %4, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #3
   %12 = load ptr, ptr %6, align 8
   %13 = load i32, ptr %10, align 4
-  %14 = call zeroext i8 @tvb_get_guint8(ptr noundef %12, i32 noundef %13)
+  %14 = call zeroext i8 @tvb_get_uint8(ptr noundef %12, i32 noundef %13)
   store i8 %14, ptr %11, align 1
   %15 = load ptr, ptr %7, align 8
   %16 = load i8, ptr %11, align 1
   %17 = zext i8 %16 to i32
   call void @conversation_set_elements_by_id(ptr noundef %15, i32 noundef 0, i32 noundef %17)
   %18 = load ptr, ptr %7, align 8
-  %19 = getelementptr inbounds %struct._packet_info, ptr %18, i32 0, i32 1
+  %19 = getelementptr inbounds nuw %struct._packet_info, ptr %18, i32 0, i32 1
   %20 = load ptr, ptr %19, align 8
   %21 = load i8, ptr %11, align 1
   %22 = zext i8 %21 to i32
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef @.str.370, i32 noundef %22)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef @.str.381, i32 noundef %22)
   %23 = load ptr, ptr %8, align 8
   %24 = load i32, ptr @hf_dect_mitel_eth_mcei, align 4
   %25 = load ptr, ptr %6, align 8
@@ -1598,10 +1661,11 @@ define internal i32 @dissect_dect_mitel_eth_mcei_field(ptr noundef %0, ptr nound
   %29 = add i32 %28, 1
   store i32 %29, ptr %10, align 4
   %30 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #3
   ret i32 %30
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dect_mitel_eth_mac_dis_ind(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -1629,15 +1693,19 @@ define internal i32 @dissect_dect_mitel_eth_mac_dis_ind(ptr noundef %0, ptr noun
   ret i32 %22
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_item_set_len(ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dect_mitel_eth_rfpc_revision(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -1685,7 +1753,7 @@ define internal i32 @dissect_dect_mitel_eth_rfpc_revision(ptr noundef %0, ptr no
   ret i32 %39
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dect_mitel_eth_rfpc_rfpi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -1714,7 +1782,7 @@ define internal i32 @dissect_dect_mitel_eth_rfpc_rfpi(ptr noundef %0, ptr nounde
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dect_mitel_eth_rfpc_higher_layer_capabilities(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -1739,7 +1807,7 @@ define internal i32 @dissect_dect_mitel_eth_rfpc_higher_layer_capabilities(ptr n
   ret i32 %19
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dect_mitel_eth_rfpc_extended_capabilities(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -1772,7 +1840,7 @@ define internal i32 @dissect_dect_mitel_eth_rfpc_extended_capabilities(ptr nound
   ret i32 %26
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dect_mitel_eth_rfpc_mac_capabilities(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -1797,7 +1865,7 @@ define internal i32 @dissect_dect_mitel_eth_rfpc_mac_capabilities(ptr noundef %0
   ret i32 %19
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dect_mitel_eth_rfpc_statistic_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -1925,7 +1993,7 @@ define internal i32 @dissect_dect_mitel_eth_rfpc_statistic_data(ptr noundef %0, 
   ret i32 %109
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dect_mitel_eth_rfpc_rfp_pli(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -1949,7 +2017,7 @@ define internal i32 @dissect_dect_mitel_eth_rfpc_rfp_pli(ptr noundef %0, ptr nou
   ret i32 %18
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dect_mitel_eth_rfpc_extended_capabilities2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -1983,21 +2051,30 @@ define internal i32 @dissect_dect_mitel_eth_rfpc_extended_capabilities2(ptr noun
   ret i32 %27
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @conversation_set_elements_by_id(ptr noundef, i32 noundef, i32 noundef) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}

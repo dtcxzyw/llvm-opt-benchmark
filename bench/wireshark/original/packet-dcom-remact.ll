@@ -5,8 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
 %struct._value_string = type { i32, ptr }
 %struct._e_guid_t = type { i32, i16, i16, [8 x i8] }
-%struct._dcerpc_sub_dissector = type { i16, ptr, ptr, ptr }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
@@ -54,18 +53,18 @@ target triple = "x86_64-pc-linux-gnu"
 @proto_remact = internal global i32 0, align 4
 @uuid_remact = internal global %struct._e_guid_t { i32 1302284984, i16 32028, i16 4559, [8 x i8] c"\86\1E\00 \AFn|W" }, align 4
 @ver_remact = internal global i16 0, align 2
-@remact_dissectors = internal global [2 x %struct._dcerpc_sub_dissector] [%struct._dcerpc_sub_dissector { i16 0, ptr @.str.25, ptr @dissect_remact_remote_activation_rqst, ptr @dissect_remact_remote_activation_resp }, %struct._dcerpc_sub_dissector zeroinitializer], align 16
 @.str.25 = private unnamed_addr constant [17 x i8] c"RemoteActivation\00", align 1
+@remact_dissectors = internal constant [2 x { i16, [6 x i8], ptr, ptr, ptr }] [{ i16, [6 x i8], ptr, ptr, ptr } { i16 0, [6 x i8] zeroinitializer, ptr @.str.25, ptr @dissect_remact_remote_activation_rqst, ptr @dissect_remact_remote_activation_resp }, { i16, [6 x i8], ptr, ptr, ptr } zeroinitializer], align 16
 @hf_dcom_clsid = external global i32, align 4
 @hf_dcom_iid = external global i32, align 4
 @hf_dcom_oxid = external global i32, align 4
 @hf_dcom_ipid = external global i32, align 4
-@.str.26 = private unnamed_addr constant [8 x i8] c" %s[%u]\00", align 1
+@.str.27 = private unnamed_addr constant [8 x i8] c" %s[%u]\00", align 1
 @dcom_hresult_vals = external constant [0 x %struct._value_string], align 8
-@.str.27 = private unnamed_addr constant [17 x i8] c"Unknown (0x%08x)\00", align 1
-@.str.28 = private unnamed_addr constant [7 x i8] c" -> %s\00", align 1
+@.str.28 = private unnamed_addr constant [17 x i8] c"Unknown (0x%08x)\00", align 1
+@.str.29 = private unnamed_addr constant [7 x i8] c" -> %s\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_remact() #0 {
   %1 = call i32 @proto_register_protocol(ptr noundef @.str.22, ptr noundef @.str.23, ptr noundef @.str.24)
   store i32 %1, ptr @proto_remact, align 4
@@ -75,13 +74,16 @@ define hidden void @proto_register_remact() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_remact() #0 {
   %1 = load i32, ptr @proto_remact, align 4
   %2 = load i32, ptr @ett_remact, align 4
@@ -91,9 +93,10 @@ define hidden void @proto_reg_handoff_remact() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @dcerpc_init_uuid(i32 noundef, i32 noundef, ptr noundef, i16 noundef zeroext, ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_remact_remote_activation_rqst(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -118,7 +121,18 @@ define internal i32 @dissect_remact_remote_activation_rqst(ptr noundef %0, i32 n
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %19) #4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %20) #4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %21) #4
+  call void @llvm.lifetime.start.p0(i64 1000, ptr %22) #4
   call void @llvm.memset.p0.i64(ptr align 16 %22, i8 0, i64 1000, i1 false)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #4
   store i32 1000, ptr %23, align 4
   %24 = load ptr, ptr %7, align 8
   %25 = load i32, ptr %8, align 4
@@ -245,7 +259,7 @@ define internal i32 @dissect_remact_remote_activation_rqst(ptr noundef %0, i32 n
   %123 = load i32, ptr %18, align 4
   %124 = add i32 %123, 1
   store i32 %124, ptr %18, align 4
-  br label %109, !llvm.loop !4
+  br label %109, !llvm.loop !6
 
 125:                                              ; preds = %109
   br label %126
@@ -291,14 +305,25 @@ define internal i32 @dissect_remact_remote_activation_rqst(ptr noundef %0, i32 n
   %155 = load i32, ptr %18, align 4
   %156 = add i32 %155, 1
   store i32 %156, ptr %18, align 4
-  br label %142, !llvm.loop !6
+  br label %142, !llvm.loop !8
 
 157:                                              ; preds = %142
   %158 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #4
+  call void @llvm.lifetime.end.p0(i64 1000, ptr %22) #4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %21) #4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %20) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %158
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_remact_remote_activation_resp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -321,6 +346,15 @@ define internal i32 @dissect_remact_remote_activation_resp(ptr noundef %0, i32 n
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 16, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %16) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %17) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #4
   %22 = load ptr, ptr %7, align 8
   %23 = load i32, ptr %8, align 4
   %24 = load ptr, ptr %9, align 8
@@ -453,7 +487,7 @@ define internal i32 @dissect_remact_remote_activation_resp(ptr noundef %0, i32 n
   br label %127
 
 127:                                              ; preds = %118, %108
-  br label %104, !llvm.loop !7
+  br label %104, !llvm.loop !9
 
 128:                                              ; preds = %104
   %129 = load i32, ptr %21, align 4
@@ -487,16 +521,16 @@ define internal i32 @dissect_remact_remote_activation_resp(ptr noundef %0, i32 n
   %149 = call i32 @dissect_dcom_indexed_HRESULT(ptr noundef %142, i32 noundef %143, ptr noundef %144, ptr noundef %145, ptr noundef %146, ptr noundef %147, ptr noundef %18, i32 noundef %148)
   store i32 %149, ptr %8, align 4
   %150 = load ptr, ptr %9, align 8
-  %151 = getelementptr inbounds %struct._packet_info, ptr %150, i32 0, i32 1
+  %151 = getelementptr inbounds nuw %struct._packet_info, ptr %150, i32 0, i32 1
   %152 = load ptr, ptr %151, align 8
   %153 = load i32, ptr %18, align 4
-  %154 = call ptr @val_to_str(i32 noundef %153, ptr noundef @dcom_hresult_vals, ptr noundef @.str.27)
+  %154 = call ptr @val_to_str(i32 noundef %153, ptr noundef @dcom_hresult_vals, ptr noundef @.str.28)
   %155 = load i32, ptr %20, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %152, i32 noundef 25, ptr noundef @.str.26, ptr noundef %154, i32 noundef %155)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %152, i32 noundef 25, ptr noundef @.str.27, ptr noundef %154, i32 noundef %155)
   %156 = load i32, ptr %20, align 4
   %157 = add i32 %156, 1
   store i32 %157, ptr %20, align 4
-  br label %137, !llvm.loop !8
+  br label %137, !llvm.loop !10
 
 158:                                              ; preds = %137
   %159 = load ptr, ptr %7, align 8
@@ -508,66 +542,103 @@ define internal i32 @dissect_remact_remote_activation_resp(ptr noundef %0, i32 n
   %165 = call i32 @dissect_dcom_HRESULT(ptr noundef %159, i32 noundef %160, ptr noundef %161, ptr noundef %162, ptr noundef %163, ptr noundef %164, ptr noundef %18)
   store i32 %165, ptr %8, align 4
   %166 = load ptr, ptr %9, align 8
-  %167 = getelementptr inbounds %struct._packet_info, ptr %166, i32 0, i32 1
+  %167 = getelementptr inbounds nuw %struct._packet_info, ptr %166, i32 0, i32 1
   %168 = load ptr, ptr %167, align 8
   %169 = load i32, ptr %18, align 4
-  %170 = call ptr @val_to_str(i32 noundef %169, ptr noundef @dcom_hresult_vals, ptr noundef @.str.27)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %168, i32 noundef 25, ptr noundef @.str.28, ptr noundef %170)
+  %170 = call ptr @val_to_str(i32 noundef %169, ptr noundef @dcom_hresult_vals, ptr noundef @.str.28)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %168, i32 noundef 25, ptr noundef @.str.29, ptr noundef %170)
   %171 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %17) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %171
 }
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_dcom_this(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_dcom_append_UUID(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_dcom_dcerpc_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_dcom_BSTR(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_dcom_PMInterfacePointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_ndr_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_dcom_dcerpc_array_size(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_ndr_uint16(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_dcom_that(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_ndr_duint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_dcom_DUALSTRINGARRAY(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_dcom_UUID(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_dcom_COMVERSION(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_dcom_HRESULT(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_dcom_MInterfacePointer(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_dcom_indexed_HRESULT(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

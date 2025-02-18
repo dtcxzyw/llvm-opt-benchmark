@@ -3,8 +3,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
@@ -16,22 +15,18 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_id_type = internal global i32 0, align 4
 @.str.2 = private unnamed_addr constant [20 x i8] c"Identity field type\00", align 1
 @.str.3 = private unnamed_addr constant [13 x i8] c"ayiya.idtype\00", align 1
-@identity_types = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.25 }, %struct._value_string { i32 1, ptr @.str.26 }, %struct._value_string { i32 2, ptr @.str.27 }, %struct._value_string zeroinitializer], align 16
 @hf_sig_len = internal global i32 0, align 4
 @.str.4 = private unnamed_addr constant [17 x i8] c"Signature Length\00", align 1
 @.str.5 = private unnamed_addr constant [13 x i8] c"ayiya.siglen\00", align 1
 @hf_hash_method = internal global i32 0, align 4
 @.str.6 = private unnamed_addr constant [12 x i8] c"Hash method\00", align 1
 @.str.7 = private unnamed_addr constant [17 x i8] c"ayiya.hashmethod\00", align 1
-@hash_methods = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.28 }, %struct._value_string { i32 1, ptr @.str.29 }, %struct._value_string { i32 2, ptr @.str.30 }, %struct._value_string zeroinitializer], align 16
 @hf_auth_method = internal global i32 0, align 4
 @.str.8 = private unnamed_addr constant [22 x i8] c"Authentication method\00", align 1
 @.str.9 = private unnamed_addr constant [17 x i8] c"ayiya.authmethod\00", align 1
-@auth_methods = internal constant [4 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.31 }, %struct._value_string { i32 1, ptr @.str.32 }, %struct._value_string { i32 2, ptr @.str.33 }, %struct._value_string zeroinitializer], align 16
 @hf_opcode = internal global i32 0, align 4
 @.str.10 = private unnamed_addr constant [15 x i8] c"Operation Code\00", align 1
 @.str.11 = private unnamed_addr constant [13 x i8] c"ayiya.opcode\00", align 1
-@opcodes = internal constant [9 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.34 }, %struct._value_string { i32 1, ptr @.str.35 }, %struct._value_string { i32 2, ptr @.str.36 }, %struct._value_string { i32 3, ptr @.str.37 }, %struct._value_string { i32 4, ptr @.str.38 }, %struct._value_string { i32 5, ptr @.str.39 }, %struct._value_string { i32 6, ptr @.str.40 }, %struct._value_string { i32 7, ptr @.str.41 }, %struct._value_string zeroinitializer], align 16
 @hf_next_header = internal global i32 0, align 4
 @.str.12 = private unnamed_addr constant [12 x i8] c"Next Header\00", align 1
 @.str.13 = private unnamed_addr constant [17 x i8] c"ayiya.nextheader\00", align 1
@@ -57,23 +52,27 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.25 = private unnamed_addr constant [5 x i8] c"None\00", align 1
 @.str.26 = private unnamed_addr constant [8 x i8] c"Integer\00", align 1
 @.str.27 = private unnamed_addr constant [13 x i8] c"ASCII string\00", align 1
-@.str.28 = private unnamed_addr constant [8 x i8] c"No hash\00", align 1
-@.str.29 = private unnamed_addr constant [4 x i8] c"MD5\00", align 1
-@.str.30 = private unnamed_addr constant [5 x i8] c"SHA1\00", align 1
-@.str.31 = private unnamed_addr constant [18 x i8] c"No authentication\00", align 1
-@.str.32 = private unnamed_addr constant [27 x i8] c"Hash using a Shared Secret\00", align 1
-@.str.33 = private unnamed_addr constant [39 x i8] c"Hash using a public/private key method\00", align 1
-@.str.34 = private unnamed_addr constant [25 x i8] c"No Operation / Heartbeat\00", align 1
-@.str.35 = private unnamed_addr constant [8 x i8] c"Forward\00", align 1
-@.str.36 = private unnamed_addr constant [13 x i8] c"Echo Request\00", align 1
-@.str.37 = private unnamed_addr constant [25 x i8] c"Echo Request and Forward\00", align 1
-@.str.38 = private unnamed_addr constant [14 x i8] c"Echo Response\00", align 1
-@.str.39 = private unnamed_addr constant [5 x i8] c"MOTD\00", align 1
-@.str.40 = private unnamed_addr constant [14 x i8] c"Query Request\00", align 1
-@.str.41 = private unnamed_addr constant [15 x i8] c"Query Response\00", align 1
-@.str.42 = private unnamed_addr constant [12 x i8] c"%s (0x%02x)\00", align 1
+@identity_types = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.25 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.26 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.27 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.29 = private unnamed_addr constant [8 x i8] c"No hash\00", align 1
+@.str.30 = private unnamed_addr constant [4 x i8] c"MD5\00", align 1
+@.str.31 = private unnamed_addr constant [5 x i8] c"SHA1\00", align 1
+@hash_methods = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.29 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.30 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.31 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.33 = private unnamed_addr constant [18 x i8] c"No authentication\00", align 1
+@.str.34 = private unnamed_addr constant [27 x i8] c"Hash using a Shared Secret\00", align 1
+@.str.35 = private unnamed_addr constant [39 x i8] c"Hash using a public/private key method\00", align 1
+@auth_methods = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.33 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.34 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.35 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.37 = private unnamed_addr constant [25 x i8] c"No Operation / Heartbeat\00", align 1
+@.str.38 = private unnamed_addr constant [8 x i8] c"Forward\00", align 1
+@.str.39 = private unnamed_addr constant [13 x i8] c"Echo Request\00", align 1
+@.str.40 = private unnamed_addr constant [25 x i8] c"Echo Request and Forward\00", align 1
+@.str.41 = private unnamed_addr constant [14 x i8] c"Echo Response\00", align 1
+@.str.42 = private unnamed_addr constant [5 x i8] c"MOTD\00", align 1
+@.str.43 = private unnamed_addr constant [14 x i8] c"Query Request\00", align 1
+@.str.44 = private unnamed_addr constant [15 x i8] c"Query Response\00", align 1
+@opcodes = internal constant [9 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.37 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.38 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.39 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.40 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.41 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.42 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.43 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.44 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.46 = private unnamed_addr constant [12 x i8] c"%s (0x%02x)\00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_ayiya() #0 {
   %1 = call i32 @proto_register_protocol(ptr noundef @.str.20, ptr noundef @.str.21, ptr noundef @.str.22)
   store i32 %1, ptr @proto_ayiya, align 4
@@ -86,11 +85,13 @@ define hidden void @proto_register_ayiya() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_ayiya(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -109,7 +110,15 @@ define internal i32 @dissect_ayiya(ptr noundef %0, ptr noundef %1, ptr noundef %
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
   store i32 0, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #3
   %18 = load ptr, ptr %5, align 8
   %19 = call zeroext i8 @tvb_get_bits8(ptr noundef %18, i32 noundef 0, i32 noundef 4)
   %20 = zext i8 %19 to i32
@@ -124,7 +133,7 @@ define internal i32 @dissect_ayiya(ptr noundef %0, ptr noundef %1, ptr noundef %
   %27 = call zeroext i8 @tvb_get_bits8(ptr noundef %26, i32 noundef 20, i32 noundef 4)
   store i8 %27, ptr %15, align 1
   %28 = load ptr, ptr %5, align 8
-  %29 = call zeroext i8 @tvb_get_guint8(ptr noundef %28, i32 noundef 3)
+  %29 = call zeroext i8 @tvb_get_uint8(ptr noundef %28, i32 noundef 3)
   store i8 %29, ptr %14, align 1
   %30 = load i32, ptr %11, align 4
   %31 = add i32 8, %30
@@ -132,14 +141,15 @@ define internal i32 @dissect_ayiya(ptr noundef %0, ptr noundef %1, ptr noundef %
   %33 = add i32 %31, %32
   store i32 %33, ptr %13, align 4
   %34 = load ptr, ptr %6, align 8
-  %35 = getelementptr inbounds %struct._packet_info, ptr %34, i32 0, i32 1
+  %35 = getelementptr inbounds nuw %struct._packet_info, ptr %34, i32 0, i32 1
   %36 = load ptr, ptr %35, align 8
-  call void @col_set_str(ptr noundef %36, i32 noundef 34, ptr noundef @.str.21)
+  call void @col_set_str(ptr noundef %36, i32 noundef 35, ptr noundef @.str.21)
   %37 = load ptr, ptr %7, align 8
   %38 = icmp ne ptr %37, null
   br i1 %38, label %39, label %100
 
 39:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #3
   %40 = load ptr, ptr %7, align 8
   %41 = load i32, ptr @proto_ayiya, align 4
   %42 = load ptr, ptr %5, align 8
@@ -185,7 +195,7 @@ define internal i32 @dissect_ayiya(ptr noundef %0, ptr noundef %1, ptr noundef %
   %80 = call ptr @ipprotostr(i32 noundef %79)
   %81 = load i8, ptr %14, align 1
   %82 = zext i8 %81 to i32
-  %83 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %73, i32 noundef %74, ptr noundef %75, i32 noundef 3, i32 noundef 1, i32 noundef %77, ptr noundef @.str.42, ptr noundef %80, i32 noundef %82)
+  %83 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %73, i32 noundef %74, ptr noundef %75, i32 noundef 3, i32 noundef 1, i32 noundef %77, ptr noundef @.str.46, ptr noundef %80, i32 noundef %82)
   %84 = load ptr, ptr %9, align 8
   %85 = load i32, ptr @hf_epoch, align 4
   %86 = load ptr, ptr %5, align 8
@@ -202,6 +212,7 @@ define internal i32 @dissect_ayiya(ptr noundef %0, ptr noundef %1, ptr noundef %
   %97 = add i32 8, %96
   %98 = load i32, ptr %12, align 4
   %99 = call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %94, ptr noundef %95, i32 noundef %97, i32 noundef %98, i32 noundef 0)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #3
   br label %100
 
 100:                                              ; preds = %39, %4
@@ -227,17 +238,27 @@ define internal i32 @dissect_ayiya(ptr noundef %0, ptr noundef %1, ptr noundef %
   %114 = call i32 @dissector_try_uint(ptr noundef %108, i32 noundef %110, ptr noundef %111, ptr noundef %112, ptr noundef %113)
   br label %115
 
-115:                                              ; preds = %104, %100
+115:                                              ; preds = %100, %104
   %116 = load ptr, ptr %5, align 8
   %117 = call i32 @tvb_captured_length(ptr noundef %116)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
   ret i32 %117
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_ayiya() #0 {
   %1 = load ptr, ptr @ayiya_handle, align 8
   call void @dissector_add_uint_with_preference(ptr noundef @.str.23, i32 noundef 5072, ptr noundef %1)
@@ -246,40 +267,64 @@ define hidden void @proto_reg_handoff_ayiya() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @find_dissector_table(ptr noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare zeroext i8 @tvb_get_bits8(ptr noundef, i32 noundef, i32 noundef) #1
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_protocol_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_bits_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @ipprotostr(i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissector_try_uint(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}

@@ -3,8 +3,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._ber_sequence_t = type { ptr, i8, i32, i32, ptr }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
@@ -17,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.5 = type { %struct.anon.6 }
 %struct.anon.6 = type { ptr }
 %struct._exp_pdu_data_t = type { i32, ptr, i32, i32, ptr }
-%struct._gssapi_encrypt_info = type { i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._gssapi_encrypt_info = type { i16, ptr, ptr, ptr, ptr, ptr, i8 }
 
 @proto_register_credssp.hf = internal global [33 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_credssp_TSPasswordCreds, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_credssp_TSSmartCardCreds, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_credssp_TSRemoteGuardCreds, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_credssp_TSCredentials, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_credssp_decr_PublicKeyAuth, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_credssp_TSRequest_PDU, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_credssp_NegoData_item, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_credssp_negoToken, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_credssp_domainName, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 30, i32 0, ptr null, i64 0, ptr @.str.18, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_credssp_userName, %struct._header_field_info { ptr @.str.19, ptr @.str.20, i32 30, i32 0, ptr null, i64 0, ptr @.str.18, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_credssp_password, %struct._header_field_info { ptr @.str.21, ptr @.str.22, i32 30, i32 0, ptr null, i64 0, ptr @.str.18, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_credssp_keySpec, %struct._header_field_info { ptr @.str.23, ptr @.str.24, i32 15, i32 1, ptr null, i64 0, ptr @.str.25, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_credssp_cardName, %struct._header_field_info { ptr @.str.26, ptr @.str.27, i32 30, i32 0, ptr null, i64 0, ptr @.str.18, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_credssp_readerName, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 30, i32 0, ptr null, i64 0, ptr @.str.18, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_credssp_containerName, %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 30, i32 0, ptr null, i64 0, ptr @.str.18, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_credssp_cspName, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 30, i32 0, ptr null, i64 0, ptr @.str.18, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_credssp_pin, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 30, i32 0, ptr null, i64 0, ptr @.str.18, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_credssp_cspData, %struct._header_field_info { ptr @.str.36, ptr @.str.37, i32 0, i32 0, ptr null, i64 0, ptr @.str.38, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_credssp_userHint, %struct._header_field_info { ptr @.str.39, ptr @.str.40, i32 30, i32 0, ptr null, i64 0, ptr @.str.18, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_credssp_domainHint, %struct._header_field_info { ptr @.str.41, ptr @.str.42, i32 30, i32 0, ptr null, i64 0, ptr @.str.18, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_credssp_packageName, %struct._header_field_info { ptr @.str.43, ptr @.str.44, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_credssp_credBuffer, %struct._header_field_info { ptr @.str.45, ptr @.str.46, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_credssp_logonCred, %struct._header_field_info { ptr @.str.47, ptr @.str.48, i32 0, i32 0, ptr null, i64 0, ptr @.str.49, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_credssp_supplementalCreds, %struct._header_field_info { ptr @.str.50, ptr @.str.51, i32 7, i32 1, ptr null, i64 0, ptr @.str.52, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_credssp_supplementalCreds_item, %struct._header_field_info { ptr @.str.49, ptr @.str.53, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_credssp_credType, %struct._header_field_info { ptr @.str.54, ptr @.str.55, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_credssp_credentials, %struct._header_field_info { ptr @.str.56, ptr @.str.57, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_credssp_version, %struct._header_field_info { ptr @.str.58, ptr @.str.59, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_credssp_negoTokens, %struct._header_field_info { ptr @.str.60, ptr @.str.61, i32 7, i32 1, ptr null, i64 0, ptr @.str.62, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_credssp_authInfo, %struct._header_field_info { ptr @.str.63, ptr @.str.64, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_credssp_pubKeyAuth, %struct._header_field_info { ptr @.str.65, ptr @.str.66, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_credssp_errorCode, %struct._header_field_info { ptr @.str.67, ptr @.str.68, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_credssp_clientNonce, %struct._header_field_info { ptr @.str.69, ptr @.str.70, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_credssp_TSPasswordCreds = internal global i32 0, align 4
@@ -157,21 +156,21 @@ target triple = "x86_64-pc-linux-gnu"
 @exported_pdu_tap = internal global i32 -1, align 4
 @creds_type = internal global i32 0, align 4
 @credssp_ver = internal global i32 0, align 4
-@TSRequest_sequence = internal constant [7 x %struct._ber_sequence_t] [%struct._ber_sequence_t { ptr @hf_credssp_version, i8 2, i32 0, i32 0, ptr @dissect_credssp_T_version }, %struct._ber_sequence_t { ptr @hf_credssp_negoTokens, i8 2, i32 1, i32 1, ptr @dissect_credssp_NegoData }, %struct._ber_sequence_t { ptr @hf_credssp_authInfo, i8 2, i32 2, i32 1, ptr @dissect_credssp_T_authInfo }, %struct._ber_sequence_t { ptr @hf_credssp_pubKeyAuth, i8 2, i32 3, i32 1, ptr @dissect_credssp_T_pubKeyAuth }, %struct._ber_sequence_t { ptr @hf_credssp_errorCode, i8 2, i32 4, i32 1, ptr @dissect_credssp_T_errorCode }, %struct._ber_sequence_t { ptr @hf_credssp_clientNonce, i8 2, i32 5, i32 1, ptr @dissect_credssp_T_clientNonce }, %struct._ber_sequence_t zeroinitializer], align 16
-@NegoData_sequence_of = internal constant [1 x %struct._ber_sequence_t] [%struct._ber_sequence_t { ptr @hf_credssp_NegoData_item, i8 0, i32 16, i32 4, ptr @dissect_credssp_NegoData_item }], align 16
-@NegoData_item_sequence = internal constant [2 x %struct._ber_sequence_t] [%struct._ber_sequence_t { ptr @hf_credssp_negoToken, i8 2, i32 0, i32 0, ptr @dissect_credssp_T_negoToken }, %struct._ber_sequence_t zeroinitializer], align 16
-@TSCredentials_sequence = internal constant [3 x %struct._ber_sequence_t] [%struct._ber_sequence_t { ptr @hf_credssp_credType, i8 2, i32 0, i32 0, ptr @dissect_credssp_T_credType }, %struct._ber_sequence_t { ptr @hf_credssp_credentials, i8 2, i32 1, i32 0, ptr @dissect_credssp_T_credentials }, %struct._ber_sequence_t zeroinitializer], align 16
-@TSPasswordCreds_sequence = internal constant [4 x %struct._ber_sequence_t] [%struct._ber_sequence_t { ptr @hf_credssp_domainName, i8 2, i32 0, i32 0, ptr @dissect_credssp_OCTET_STRING }, %struct._ber_sequence_t { ptr @hf_credssp_userName, i8 2, i32 1, i32 0, ptr @dissect_credssp_OCTET_STRING }, %struct._ber_sequence_t { ptr @hf_credssp_password, i8 2, i32 2, i32 0, ptr @dissect_credssp_OCTET_STRING }, %struct._ber_sequence_t zeroinitializer], align 16
-@TSSmartCardCreds_sequence = internal constant [5 x %struct._ber_sequence_t] [%struct._ber_sequence_t { ptr @hf_credssp_pin, i8 2, i32 0, i32 0, ptr @dissect_credssp_OCTET_STRING }, %struct._ber_sequence_t { ptr @hf_credssp_cspData, i8 2, i32 1, i32 0, ptr @dissect_credssp_TSCspDataDetail }, %struct._ber_sequence_t { ptr @hf_credssp_userHint, i8 2, i32 2, i32 1, ptr @dissect_credssp_OCTET_STRING }, %struct._ber_sequence_t { ptr @hf_credssp_domainHint, i8 2, i32 3, i32 1, ptr @dissect_credssp_OCTET_STRING }, %struct._ber_sequence_t zeroinitializer], align 16
-@TSCspDataDetail_sequence = internal constant [6 x %struct._ber_sequence_t] [%struct._ber_sequence_t { ptr @hf_credssp_keySpec, i8 2, i32 0, i32 0, ptr @dissect_credssp_INTEGER }, %struct._ber_sequence_t { ptr @hf_credssp_cardName, i8 2, i32 1, i32 1, ptr @dissect_credssp_OCTET_STRING }, %struct._ber_sequence_t { ptr @hf_credssp_readerName, i8 2, i32 2, i32 1, ptr @dissect_credssp_OCTET_STRING }, %struct._ber_sequence_t { ptr @hf_credssp_containerName, i8 2, i32 3, i32 1, ptr @dissect_credssp_OCTET_STRING }, %struct._ber_sequence_t { ptr @hf_credssp_cspName, i8 2, i32 4, i32 1, ptr @dissect_credssp_OCTET_STRING }, %struct._ber_sequence_t zeroinitializer], align 16
-@TSRemoteGuardCreds_sequence = internal constant [3 x %struct._ber_sequence_t] [%struct._ber_sequence_t { ptr @hf_credssp_logonCred, i8 2, i32 0, i32 0, ptr @dissect_credssp_TSRemoteGuardPackageCred }, %struct._ber_sequence_t { ptr @hf_credssp_supplementalCreds, i8 2, i32 1, i32 1, ptr @dissect_credssp_SEQUENCE_OF_TSRemoteGuardPackageCred }, %struct._ber_sequence_t zeroinitializer], align 16
-@TSRemoteGuardPackageCred_sequence = internal constant [3 x %struct._ber_sequence_t] [%struct._ber_sequence_t { ptr @hf_credssp_packageName, i8 2, i32 0, i32 0, ptr @dissect_credssp_T_packageName }, %struct._ber_sequence_t { ptr @hf_credssp_credBuffer, i8 2, i32 1, i32 0, ptr @dissect_credssp_T_credBuffer }, %struct._ber_sequence_t zeroinitializer], align 16
+@TSRequest_sequence = internal constant [7 x { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr }] [{ ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { ptr @hf_credssp_version, i8 2, [3 x i8] zeroinitializer, i32 0, i32 0, [4 x i8] zeroinitializer, ptr @dissect_credssp_T_version }, { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { ptr @hf_credssp_negoTokens, i8 2, [3 x i8] zeroinitializer, i32 1, i32 1, [4 x i8] zeroinitializer, ptr @dissect_credssp_NegoData }, { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { ptr @hf_credssp_authInfo, i8 2, [3 x i8] zeroinitializer, i32 2, i32 1, [4 x i8] zeroinitializer, ptr @dissect_credssp_T_authInfo }, { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { ptr @hf_credssp_pubKeyAuth, i8 2, [3 x i8] zeroinitializer, i32 3, i32 1, [4 x i8] zeroinitializer, ptr @dissect_credssp_T_pubKeyAuth }, { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { ptr @hf_credssp_errorCode, i8 2, [3 x i8] zeroinitializer, i32 4, i32 1, [4 x i8] zeroinitializer, ptr @dissect_credssp_T_errorCode }, { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { ptr @hf_credssp_clientNonce, i8 2, [3 x i8] zeroinitializer, i32 5, i32 1, [4 x i8] zeroinitializer, ptr @dissect_credssp_T_clientNonce }, { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } zeroinitializer], align 16
+@NegoData_sequence_of = internal constant [1 x { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr }] [{ ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { ptr @hf_credssp_NegoData_item, i8 0, [3 x i8] zeroinitializer, i32 16, i32 4, [4 x i8] zeroinitializer, ptr @dissect_credssp_NegoData_item }], align 16
+@NegoData_item_sequence = internal constant [2 x { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr }] [{ ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { ptr @hf_credssp_negoToken, i8 2, [3 x i8] zeroinitializer, i32 0, i32 0, [4 x i8] zeroinitializer, ptr @dissect_credssp_T_negoToken }, { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } zeroinitializer], align 16
+@TSCredentials_sequence = internal constant [3 x { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr }] [{ ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { ptr @hf_credssp_credType, i8 2, [3 x i8] zeroinitializer, i32 0, i32 0, [4 x i8] zeroinitializer, ptr @dissect_credssp_T_credType }, { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { ptr @hf_credssp_credentials, i8 2, [3 x i8] zeroinitializer, i32 1, i32 0, [4 x i8] zeroinitializer, ptr @dissect_credssp_T_credentials }, { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } zeroinitializer], align 16
+@TSPasswordCreds_sequence = internal constant [4 x { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr }] [{ ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { ptr @hf_credssp_domainName, i8 2, [3 x i8] zeroinitializer, i32 0, i32 0, [4 x i8] zeroinitializer, ptr @dissect_credssp_OCTET_STRING }, { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { ptr @hf_credssp_userName, i8 2, [3 x i8] zeroinitializer, i32 1, i32 0, [4 x i8] zeroinitializer, ptr @dissect_credssp_OCTET_STRING }, { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { ptr @hf_credssp_password, i8 2, [3 x i8] zeroinitializer, i32 2, i32 0, [4 x i8] zeroinitializer, ptr @dissect_credssp_OCTET_STRING }, { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } zeroinitializer], align 16
+@TSSmartCardCreds_sequence = internal constant [5 x { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr }] [{ ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { ptr @hf_credssp_pin, i8 2, [3 x i8] zeroinitializer, i32 0, i32 0, [4 x i8] zeroinitializer, ptr @dissect_credssp_OCTET_STRING }, { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { ptr @hf_credssp_cspData, i8 2, [3 x i8] zeroinitializer, i32 1, i32 0, [4 x i8] zeroinitializer, ptr @dissect_credssp_TSCspDataDetail }, { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { ptr @hf_credssp_userHint, i8 2, [3 x i8] zeroinitializer, i32 2, i32 1, [4 x i8] zeroinitializer, ptr @dissect_credssp_OCTET_STRING }, { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { ptr @hf_credssp_domainHint, i8 2, [3 x i8] zeroinitializer, i32 3, i32 1, [4 x i8] zeroinitializer, ptr @dissect_credssp_OCTET_STRING }, { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } zeroinitializer], align 16
+@TSCspDataDetail_sequence = internal constant [6 x { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr }] [{ ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { ptr @hf_credssp_keySpec, i8 2, [3 x i8] zeroinitializer, i32 0, i32 0, [4 x i8] zeroinitializer, ptr @dissect_credssp_INTEGER }, { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { ptr @hf_credssp_cardName, i8 2, [3 x i8] zeroinitializer, i32 1, i32 1, [4 x i8] zeroinitializer, ptr @dissect_credssp_OCTET_STRING }, { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { ptr @hf_credssp_readerName, i8 2, [3 x i8] zeroinitializer, i32 2, i32 1, [4 x i8] zeroinitializer, ptr @dissect_credssp_OCTET_STRING }, { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { ptr @hf_credssp_containerName, i8 2, [3 x i8] zeroinitializer, i32 3, i32 1, [4 x i8] zeroinitializer, ptr @dissect_credssp_OCTET_STRING }, { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { ptr @hf_credssp_cspName, i8 2, [3 x i8] zeroinitializer, i32 4, i32 1, [4 x i8] zeroinitializer, ptr @dissect_credssp_OCTET_STRING }, { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } zeroinitializer], align 16
+@TSRemoteGuardCreds_sequence = internal constant [3 x { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr }] [{ ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { ptr @hf_credssp_logonCred, i8 2, [3 x i8] zeroinitializer, i32 0, i32 0, [4 x i8] zeroinitializer, ptr @dissect_credssp_TSRemoteGuardPackageCred }, { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { ptr @hf_credssp_supplementalCreds, i8 2, [3 x i8] zeroinitializer, i32 1, i32 1, [4 x i8] zeroinitializer, ptr @dissect_credssp_SEQUENCE_OF_TSRemoteGuardPackageCred }, { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } zeroinitializer], align 16
+@TSRemoteGuardPackageCred_sequence = internal constant [3 x { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr }] [{ ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { ptr @hf_credssp_packageName, i8 2, [3 x i8] zeroinitializer, i32 0, i32 0, [4 x i8] zeroinitializer, ptr @dissect_credssp_T_packageName }, { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { ptr @hf_credssp_credBuffer, i8 2, [3 x i8] zeroinitializer, i32 1, i32 0, [4 x i8] zeroinitializer, ptr @dissect_credssp_T_credBuffer }, { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } zeroinitializer], align 16
 @kerberos_pname = internal global [16 x i8] c"K\00e\00r\00b\00e\00r\00o\00s\00", align 16
 @credssp_TS_RGC_package = internal global i32 0, align 4
 @ntlm_pname = internal global [8 x i8] c"N\00T\00L\00M\00", align 1
-@SEQUENCE_OF_TSRemoteGuardPackageCred_sequence_of = internal constant [1 x %struct._ber_sequence_t] [%struct._ber_sequence_t { ptr @hf_credssp_supplementalCreds_item, i8 0, i32 16, i32 4, ptr @dissect_credssp_TSRemoteGuardPackageCred }], align 16
+@SEQUENCE_OF_TSRemoteGuardPackageCred_sequence_of = internal constant [1 x { ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr }] [{ ptr, i8, [3 x i8], i32, i32, [4 x i8], ptr } { ptr @hf_credssp_supplementalCreds_item, i8 0, [3 x i8] zeroinitializer, i32 16, i32 4, [4 x i8] zeroinitializer, ptr @dissect_credssp_TSRemoteGuardPackageCred }], align 16
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_credssp() #0 {
   %1 = call i32 @proto_register_protocol(ptr noundef @.str.71, ptr noundef @.str.72, ptr noundef @.str.73)
   store i32 %1, ptr @proto_credssp, align 4
@@ -186,11 +185,13 @@ define hidden void @proto_register_credssp() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_credssp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -202,7 +203,9 @@ define internal i32 @dissect_credssp(ptr noundef %0, ptr noundef %1, ptr noundef
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #7
   store ptr null, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #7
   store ptr null, ptr %10, align 8
   %11 = load ptr, ptr %7, align 8
   %12 = icmp ne ptr %11, null
@@ -222,11 +225,11 @@ define internal i32 @dissect_credssp(ptr noundef %0, ptr noundef %1, ptr noundef
 
 21:                                               ; preds = %13, %4
   %22 = load ptr, ptr %6, align 8
-  %23 = getelementptr inbounds %struct._packet_info, ptr %22, i32 0, i32 1
+  %23 = getelementptr inbounds nuw %struct._packet_info, ptr %22, i32 0, i32 1
   %24 = load ptr, ptr %23, align 8
-  call void @col_set_str(ptr noundef %24, i32 noundef 34, ptr noundef @.str.72)
+  call void @col_set_str(ptr noundef %24, i32 noundef 35, ptr noundef @.str.72)
   %25 = load ptr, ptr %6, align 8
-  %26 = getelementptr inbounds %struct._packet_info, ptr %25, i32 0, i32 1
+  %26 = getelementptr inbounds nuw %struct._packet_info, ptr %25, i32 0, i32 1
   %27 = load ptr, ptr %26, align 8
   call void @col_clear(ptr noundef %27, i32 noundef 25)
   store i32 -1, ptr @creds_type, align 4
@@ -236,16 +239,21 @@ define internal i32 @dissect_credssp(ptr noundef %0, ptr noundef %1, ptr noundef
   %30 = load ptr, ptr %10, align 8
   %31 = load ptr, ptr %8, align 8
   %32 = call i32 @dissect_TSRequest_PDU(ptr noundef %28, ptr noundef %29, ptr noundef %30, ptr noundef %31)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #7
   ret i32 %32
 }
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @register_heur_dissector_list_with_description(ptr noundef, ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_reg_handoff_credssp() #0 {
   %1 = load i32, ptr @proto_credssp, align 4
   %2 = call ptr @find_dissector_add_dependency(ptr noundef @.str.75, i32 noundef %1)
@@ -262,13 +270,15 @@ define hidden void @proto_reg_handoff_credssp() #0 {
   ret void
 }
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_credssp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = alloca i32, align 4
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal zeroext i1 @dissect_credssp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca i1, align 1
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -281,173 +291,200 @@ define internal i32 @dissect_credssp_heur(ptr noundef %0, ptr noundef %1, ptr no
   %15 = alloca i32, align 4
   %16 = alloca i8, align 1
   %17 = alloca ptr, align 8
+  %18 = alloca i32, align 4
   store ptr %0, ptr %6, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
   store ptr %3, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 208, ptr %10) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #7
   store i32 0, ptr %11, align 4
-  %18 = load ptr, ptr %7, align 8
-  call void @asn1_ctx_init(ptr noundef %10, i32 noundef 0, i1 noundef zeroext true, ptr noundef %18)
-  %19 = load ptr, ptr %6, align 8
-  %20 = call i32 @tvb_captured_length(ptr noundef %19)
-  %21 = icmp ugt i32 %20, 7
-  br i1 %21, label %22, label %110
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %16) #7
+  %19 = load ptr, ptr %7, align 8
+  call void @asn1_ctx_init(ptr noundef %10, i32 noundef 0, i1 noundef zeroext true, ptr noundef %19)
+  %20 = load ptr, ptr %6, align 8
+  %21 = call i32 @tvb_captured_length(ptr noundef %20)
+  %22 = icmp ugt i32 %21, 7
+  br i1 %22, label %23, label %111
 
-22:                                               ; preds = %4
-  %23 = load ptr, ptr %6, align 8
-  %24 = load i32, ptr %11, align 4
-  %25 = call i32 @get_ber_identifier(ptr noundef %23, i32 noundef %24, ptr noundef %12, ptr noundef %13, ptr noundef %14)
-  store i32 %25, ptr %11, align 4
-  %26 = load i8, ptr %12, align 1
-  %27 = sext i8 %26 to i32
-  %28 = icmp eq i32 %27, 0
-  br i1 %28, label %29, label %109
+23:                                               ; preds = %4
+  %24 = load ptr, ptr %6, align 8
+  %25 = load i32, ptr %11, align 4
+  %26 = call i32 @get_ber_identifier(ptr noundef %24, i32 noundef %25, ptr noundef %12, ptr noundef %13, ptr noundef %14)
+  store i32 %26, ptr %11, align 4
+  %27 = load i8, ptr %12, align 1
+  %28 = sext i8 %27 to i32
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %30, label %110
 
-29:                                               ; preds = %22
-  %30 = load i32, ptr %14, align 4
-  %31 = icmp eq i32 %30, 16
-  br i1 %31, label %32, label %109
+30:                                               ; preds = %23
+  %31 = load i32, ptr %14, align 4
+  %32 = icmp eq i32 %31, 16
+  br i1 %32, label %33, label %110
 
-32:                                               ; preds = %29
-  %33 = load i8, ptr %13, align 1
-  %34 = trunc i8 %33 to i1
-  %35 = zext i1 %34 to i32
-  %36 = icmp eq i32 %35, 1
-  br i1 %36, label %37, label %109
+33:                                               ; preds = %30
+  %34 = load i8, ptr %13, align 1, !range !6, !noundef !7
+  %35 = trunc i8 %34 to i1
+  %36 = zext i1 %35 to i32
+  %37 = icmp eq i32 %36, 1
+  br i1 %37, label %38, label %110
 
-37:                                               ; preds = %32
-  %38 = load ptr, ptr %6, align 8
-  %39 = load i32, ptr %11, align 4
-  %40 = call i32 @get_ber_length(ptr noundef %38, i32 noundef %39, ptr noundef null, ptr noundef null)
-  store i32 %40, ptr %11, align 4
-  %41 = load ptr, ptr %6, align 8
-  %42 = load i32, ptr %11, align 4
-  %43 = call i32 @get_ber_identifier(ptr noundef %41, i32 noundef %42, ptr noundef %12, ptr noundef %13, ptr noundef %14)
-  store i32 %43, ptr %11, align 4
-  %44 = load i8, ptr %12, align 1
-  %45 = sext i8 %44 to i32
-  %46 = icmp eq i32 %45, 2
-  br i1 %46, label %47, label %108
+38:                                               ; preds = %33
+  %39 = load ptr, ptr %6, align 8
+  %40 = load i32, ptr %11, align 4
+  %41 = call i32 @get_ber_length(ptr noundef %39, i32 noundef %40, ptr noundef null, ptr noundef null)
+  store i32 %41, ptr %11, align 4
+  %42 = load ptr, ptr %6, align 8
+  %43 = load i32, ptr %11, align 4
+  %44 = call i32 @get_ber_identifier(ptr noundef %42, i32 noundef %43, ptr noundef %12, ptr noundef %13, ptr noundef %14)
+  store i32 %44, ptr %11, align 4
+  %45 = load i8, ptr %12, align 1
+  %46 = sext i8 %45 to i32
+  %47 = icmp eq i32 %46, 2
+  br i1 %47, label %48, label %109
 
-47:                                               ; preds = %37
-  %48 = load i32, ptr %14, align 4
-  %49 = icmp eq i32 %48, 0
-  br i1 %49, label %50, label %108
+48:                                               ; preds = %38
+  %49 = load i32, ptr %14, align 4
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %51, label %109
 
-50:                                               ; preds = %47
-  %51 = load ptr, ptr %6, align 8
-  %52 = load i32, ptr %11, align 4
-  %53 = call i32 @get_ber_length(ptr noundef %51, i32 noundef %52, ptr noundef null, ptr noundef null)
-  store i32 %53, ptr %11, align 4
-  %54 = load ptr, ptr %6, align 8
-  %55 = load i32, ptr %11, align 4
-  %56 = call i32 @get_ber_identifier(ptr noundef %54, i32 noundef %55, ptr noundef %12, ptr noundef %13, ptr noundef %14)
-  store i32 %56, ptr %11, align 4
-  %57 = load i8, ptr %12, align 1
-  %58 = sext i8 %57 to i32
-  %59 = icmp eq i32 %58, 0
-  br i1 %59, label %60, label %107
+51:                                               ; preds = %48
+  %52 = load ptr, ptr %6, align 8
+  %53 = load i32, ptr %11, align 4
+  %54 = call i32 @get_ber_length(ptr noundef %52, i32 noundef %53, ptr noundef null, ptr noundef null)
+  store i32 %54, ptr %11, align 4
+  %55 = load ptr, ptr %6, align 8
+  %56 = load i32, ptr %11, align 4
+  %57 = call i32 @get_ber_identifier(ptr noundef %55, i32 noundef %56, ptr noundef %12, ptr noundef %13, ptr noundef %14)
+  store i32 %57, ptr %11, align 4
+  %58 = load i8, ptr %12, align 1
+  %59 = sext i8 %58 to i32
+  %60 = icmp eq i32 %59, 0
+  br i1 %60, label %61, label %108
 
-60:                                               ; preds = %50
-  %61 = load i32, ptr %14, align 4
-  %62 = icmp eq i32 %61, 2
-  br i1 %62, label %63, label %107
+61:                                               ; preds = %51
+  %62 = load i32, ptr %14, align 4
+  %63 = icmp eq i32 %62, 2
+  br i1 %63, label %64, label %108
 
-63:                                               ; preds = %60
-  %64 = load ptr, ptr %6, align 8
-  %65 = load i32, ptr %11, align 4
-  %66 = call i32 @get_ber_length(ptr noundef %64, i32 noundef %65, ptr noundef %15, ptr noundef null)
-  store i32 %66, ptr %11, align 4
-  %67 = load ptr, ptr %6, align 8
-  %68 = load i32, ptr %11, align 4
-  %69 = call zeroext i8 @tvb_get_guint8(ptr noundef %67, i32 noundef %68)
-  store i8 %69, ptr %16, align 1
-  %70 = load i32, ptr %15, align 4
-  %71 = icmp eq i32 %70, 1
-  br i1 %71, label %72, label %106
+64:                                               ; preds = %61
+  %65 = load ptr, ptr %6, align 8
+  %66 = load i32, ptr %11, align 4
+  %67 = call i32 @get_ber_length(ptr noundef %65, i32 noundef %66, ptr noundef %15, ptr noundef null)
+  store i32 %67, ptr %11, align 4
+  %68 = load ptr, ptr %6, align 8
+  %69 = load i32, ptr %11, align 4
+  %70 = call zeroext i8 @tvb_get_uint8(ptr noundef %68, i32 noundef %69)
+  store i8 %70, ptr %16, align 1
+  %71 = load i32, ptr %15, align 4
+  %72 = icmp eq i32 %71, 1
+  br i1 %72, label %73, label %107
 
-72:                                               ; preds = %63
-  %73 = load i8, ptr %16, align 1
-  %74 = sext i8 %73 to i32
-  %75 = icmp sgt i32 %74, 1
-  br i1 %75, label %76, label %106
+73:                                               ; preds = %64
+  %74 = load i8, ptr %16, align 1
+  %75 = sext i8 %74 to i32
+  %76 = icmp sgt i32 %75, 1
+  br i1 %76, label %77, label %107
 
-76:                                               ; preds = %72
-  %77 = load i8, ptr %16, align 1
-  %78 = sext i8 %77 to i32
-  %79 = icmp slt i32 %78, 99
-  br i1 %79, label %80, label %106
+77:                                               ; preds = %73
+  %78 = load i8, ptr %16, align 1
+  %79 = sext i8 %78 to i32
+  %80 = icmp slt i32 %79, 99
+  br i1 %80, label %81, label %107
 
-80:                                               ; preds = %76
-  %81 = load i32, ptr @exported_pdu_tap, align 4
-  %82 = call i32 @have_tap_listener(i32 noundef %81)
-  %83 = icmp ne i32 %82, 0
+81:                                               ; preds = %77
+  %82 = load i32, ptr @exported_pdu_tap, align 4
+  %83 = call zeroext i1 @have_tap_listener(i32 noundef %82)
   br i1 %83, label %84, label %101
 
-84:                                               ; preds = %80
+84:                                               ; preds = %81
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #7
   %85 = load ptr, ptr %7, align 8
   %86 = call ptr @export_pdu_create_common_tags(ptr noundef %85, ptr noundef @.str.73, i16 noundef zeroext 12)
   store ptr %86, ptr %17, align 8
   %87 = load ptr, ptr %6, align 8
   %88 = call i32 @tvb_captured_length(ptr noundef %87)
   %89 = load ptr, ptr %17, align 8
-  %90 = getelementptr inbounds %struct._exp_pdu_data_t, ptr %89, i32 0, i32 2
+  %90 = getelementptr inbounds nuw %struct._exp_pdu_data_t, ptr %89, i32 0, i32 2
   store i32 %88, ptr %90, align 8
   %91 = load ptr, ptr %6, align 8
   %92 = call i32 @tvb_reported_length(ptr noundef %91)
   %93 = load ptr, ptr %17, align 8
-  %94 = getelementptr inbounds %struct._exp_pdu_data_t, ptr %93, i32 0, i32 3
+  %94 = getelementptr inbounds nuw %struct._exp_pdu_data_t, ptr %93, i32 0, i32 3
   store i32 %92, ptr %94, align 4
   %95 = load ptr, ptr %6, align 8
   %96 = load ptr, ptr %17, align 8
-  %97 = getelementptr inbounds %struct._exp_pdu_data_t, ptr %96, i32 0, i32 4
+  %97 = getelementptr inbounds nuw %struct._exp_pdu_data_t, ptr %96, i32 0, i32 4
   store ptr %95, ptr %97, align 8
   %98 = load i32, ptr @exported_pdu_tap, align 4
   %99 = load ptr, ptr %7, align 8
   %100 = load ptr, ptr %17, align 8
   call void @tap_queue_packet(i32 noundef %98, ptr noundef %99, ptr noundef %100)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #7
   br label %101
 
-101:                                              ; preds = %84, %80
+101:                                              ; preds = %84, %81
   %102 = load ptr, ptr %6, align 8
   %103 = load ptr, ptr %7, align 8
   %104 = load ptr, ptr %8, align 8
-  %105 = call i32 @dissect_credssp(ptr noundef %102, ptr noundef %103, ptr noundef %104, ptr noundef null)
-  store i32 1, ptr %5, align 4
-  br label %111
+  %105 = load ptr, ptr %9, align 8
+  %106 = call i32 @dissect_credssp(ptr noundef %102, ptr noundef %103, ptr noundef %104, ptr noundef %105)
+  store i1 true, ptr %5, align 1
+  store i32 1, ptr %18, align 4
+  br label %112
 
-106:                                              ; preds = %76, %72, %63
-  br label %107
-
-107:                                              ; preds = %106, %60, %50
+107:                                              ; preds = %77, %73, %64
   br label %108
 
-108:                                              ; preds = %107, %47, %37
+108:                                              ; preds = %107, %61, %51
   br label %109
 
-109:                                              ; preds = %108, %32, %29, %22
+109:                                              ; preds = %108, %48, %38
   br label %110
 
-110:                                              ; preds = %109, %4
-  store i32 0, ptr %5, align 4
+110:                                              ; preds = %109, %33, %30, %23
   br label %111
 
-111:                                              ; preds = %110, %101
-  %112 = load i32, ptr %5, align 4
-  ret i32 %112
+111:                                              ; preds = %110, %4
+  store i1 false, ptr %5, align 1
+  store i32 1, ptr %18, align 4
+  br label %112
+
+112:                                              ; preds = %111, %101
+  call void @llvm.lifetime.end.p0(i64 1, ptr %16) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #7
+  call void @llvm.lifetime.end.p0(i64 208, ptr %10) #7
+  %113 = load i1, ptr %5, align 1
+  ret i1 %113
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @find_tap_id(ptr noundef) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @col_clear(ptr noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_TSRequest_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -459,7 +496,9 @@ define internal i32 @dissect_TSRequest_PDU(ptr noundef %0, ptr noundef %1, ptr n
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #7
   store i32 0, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 208, ptr %10) #7
   %11 = load ptr, ptr %6, align 8
   call void @asn1_ctx_init(ptr noundef %10, i32 noundef 0, i1 noundef zeroext true, ptr noundef %11)
   %12 = load ptr, ptr %5, align 8
@@ -469,12 +508,18 @@ define internal i32 @dissect_TSRequest_PDU(ptr noundef %0, ptr noundef %1, ptr n
   %16 = call i32 @dissect_credssp_TSRequest(i1 noundef zeroext false, ptr noundef %12, i32 noundef %13, ptr noundef %10, ptr noundef %14, i32 noundef %15)
   store i32 %16, ptr %9, align 4
   %17 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 208, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #7
   ret i32 %17
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
+
+; Function Attrs: null_pointer_is_valid
 declare void @asn1_ctx_init(ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_credssp_TSRequest(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca i8, align 1
   %8 = alloca ptr, align 8
@@ -489,7 +534,7 @@ define internal i32 @dissect_credssp_TSRequest(i1 noundef zeroext %0, ptr nounde
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store i32 %5, ptr %12, align 4
-  %14 = load i8, ptr %7, align 1
+  %14 = load i8, ptr %7, align 1, !range !6, !noundef !7
   %15 = trunc i8 %14 to i1
   %16 = load ptr, ptr %10, align 8
   %17 = load ptr, ptr %11, align 8
@@ -503,9 +548,10 @@ define internal i32 @dissect_credssp_TSRequest(i1 noundef zeroext %0, ptr nounde
   ret i32 %23
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_ber_sequence(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_credssp_T_version(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca i8, align 1
   %8 = alloca ptr, align 8
@@ -520,7 +566,7 @@ define internal i32 @dissect_credssp_T_version(i1 noundef zeroext %0, ptr nounde
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store i32 %5, ptr %12, align 4
-  %14 = load i8, ptr %7, align 1
+  %14 = load i8, ptr %7, align 1, !range !6, !noundef !7
   %15 = trunc i8 %14 to i1
   %16 = load ptr, ptr %10, align 8
   %17 = load ptr, ptr %11, align 8
@@ -533,7 +579,7 @@ define internal i32 @dissect_credssp_T_version(i1 noundef zeroext %0, ptr nounde
   ret i32 %22
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_credssp_NegoData(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca i8, align 1
   %8 = alloca ptr, align 8
@@ -548,7 +594,7 @@ define internal i32 @dissect_credssp_NegoData(i1 noundef zeroext %0, ptr noundef
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store i32 %5, ptr %12, align 4
-  %14 = load i8, ptr %7, align 1
+  %14 = load i8, ptr %7, align 1, !range !6, !noundef !7
   %15 = trunc i8 %14 to i1
   %16 = load ptr, ptr %10, align 8
   %17 = load ptr, ptr %11, align 8
@@ -562,7 +608,7 @@ define internal i32 @dissect_credssp_NegoData(i1 noundef zeroext %0, ptr noundef
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_credssp_T_authInfo(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca i8, align 1
   %8 = alloca ptr, align 8
@@ -580,9 +626,12 @@ define internal i32 @dissect_credssp_T_authInfo(i1 noundef zeroext %0, ptr nound
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store i32 %5, ptr %12, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
   store ptr null, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
   store ptr null, ptr %14, align 8
-  %17 = load i8, ptr %7, align 1
+  call void @llvm.lifetime.start.p0(i64 56, ptr %15) #7
+  %17 = load i8, ptr %7, align 1, !range !6, !noundef !7
   %18 = trunc i8 %17 to i1
   %19 = load ptr, ptr %10, align 8
   %20 = load ptr, ptr %11, align 8
@@ -591,37 +640,40 @@ define internal i32 @dissect_credssp_T_authInfo(i1 noundef zeroext %0, ptr nound
   %23 = load i32, ptr %12, align 4
   %24 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %18, ptr noundef %19, ptr noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef %23, ptr noundef %13)
   store i32 %24, ptr %9, align 4
-  call void @llvm.memset.p0.i64(ptr align 8 %15, i8 0, i64 56, i1 false)
-  %25 = getelementptr inbounds %struct._gssapi_encrypt_info, ptr %15, i32 0, i32 0
-  store i16 1, ptr %25, align 8
-  %26 = load ptr, ptr @gssapi_wrap_handle, align 8
-  %27 = load ptr, ptr %13, align 8
-  %28 = load ptr, ptr %10, align 8
-  %29 = getelementptr inbounds %struct._asn1_ctx_t, ptr %28, i32 0, i32 3
-  %30 = load ptr, ptr %29, align 8
-  %31 = load ptr, ptr %11, align 8
-  %32 = call i32 @call_dissector_with_data(ptr noundef %26, ptr noundef %27, ptr noundef %30, ptr noundef %31, ptr noundef %15)
-  %33 = getelementptr inbounds %struct._gssapi_encrypt_info, ptr %15, i32 0, i32 5
-  %34 = load ptr, ptr %33, align 8
-  store ptr %34, ptr %14, align 8
-  %35 = load ptr, ptr %14, align 8
-  %36 = icmp ne ptr %35, null
-  br i1 %36, label %37, label %43
+  %25 = call ptr @memset.inline(ptr noundef %15, i32 noundef 0, i64 noundef 56) #7
+  %26 = getelementptr inbounds nuw %struct._gssapi_encrypt_info, ptr %15, i32 0, i32 0
+  store i16 1, ptr %26, align 8
+  %27 = load ptr, ptr @gssapi_wrap_handle, align 8
+  %28 = load ptr, ptr %13, align 8
+  %29 = load ptr, ptr %10, align 8
+  %30 = getelementptr inbounds nuw %struct._asn1_ctx_t, ptr %29, i32 0, i32 3
+  %31 = load ptr, ptr %30, align 8
+  %32 = load ptr, ptr %11, align 8
+  %33 = call i32 @call_dissector_with_data(ptr noundef %27, ptr noundef %28, ptr noundef %31, ptr noundef %32, ptr noundef %15)
+  %34 = getelementptr inbounds nuw %struct._gssapi_encrypt_info, ptr %15, i32 0, i32 5
+  %35 = load ptr, ptr %34, align 8
+  store ptr %35, ptr %14, align 8
+  %36 = load ptr, ptr %14, align 8
+  %37 = icmp ne ptr %36, null
+  br i1 %37, label %38, label %44
 
-37:                                               ; preds = %6
-  %38 = load ptr, ptr %14, align 8
-  %39 = load ptr, ptr %10, align 8
-  %40 = load ptr, ptr %11, align 8
-  %41 = load i32, ptr @hf_credssp_TSCredentials, align 4
-  %42 = call i32 @dissect_credssp_TSCredentials(i1 noundef zeroext false, ptr noundef %38, i32 noundef 0, ptr noundef %39, ptr noundef %40, i32 noundef %41)
-  br label %43
+38:                                               ; preds = %6
+  %39 = load ptr, ptr %14, align 8
+  %40 = load ptr, ptr %10, align 8
+  %41 = load ptr, ptr %11, align 8
+  %42 = load i32, ptr @hf_credssp_TSCredentials, align 4
+  %43 = call i32 @dissect_credssp_TSCredentials(i1 noundef zeroext false, ptr noundef %39, i32 noundef 0, ptr noundef %40, ptr noundef %41, i32 noundef %42)
+  br label %44
 
-43:                                               ; preds = %37, %6
-  %44 = load i32, ptr %9, align 4
-  ret i32 %44
+44:                                               ; preds = %38, %6
+  %45 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 56, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  ret i32 %45
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_credssp_T_pubKeyAuth(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca i8, align 1
   %8 = alloca ptr, align 8
@@ -639,9 +691,12 @@ define internal i32 @dissect_credssp_T_pubKeyAuth(i1 noundef zeroext %0, ptr nou
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store i32 %5, ptr %12, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
   store ptr null, ptr %13, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
   store ptr null, ptr %14, align 8
-  %17 = load i8, ptr %7, align 1
+  call void @llvm.lifetime.start.p0(i64 56, ptr %15) #7
+  %17 = load i8, ptr %7, align 1, !range !6, !noundef !7
   %18 = trunc i8 %17 to i1
   %19 = load ptr, ptr %10, align 8
   %20 = load ptr, ptr %11, align 8
@@ -650,36 +705,39 @@ define internal i32 @dissect_credssp_T_pubKeyAuth(i1 noundef zeroext %0, ptr nou
   %23 = load i32, ptr %12, align 4
   %24 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %18, ptr noundef %19, ptr noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef %23, ptr noundef %13)
   store i32 %24, ptr %9, align 4
-  call void @llvm.memset.p0.i64(ptr align 8 %15, i8 0, i64 56, i1 false)
-  %25 = getelementptr inbounds %struct._gssapi_encrypt_info, ptr %15, i32 0, i32 0
-  store i16 1, ptr %25, align 8
-  %26 = load ptr, ptr @gssapi_wrap_handle, align 8
-  %27 = load ptr, ptr %13, align 8
-  %28 = load ptr, ptr %10, align 8
-  %29 = getelementptr inbounds %struct._asn1_ctx_t, ptr %28, i32 0, i32 3
-  %30 = load ptr, ptr %29, align 8
-  %31 = load ptr, ptr %11, align 8
-  %32 = call i32 @call_dissector_with_data(ptr noundef %26, ptr noundef %27, ptr noundef %30, ptr noundef %31, ptr noundef %15)
-  %33 = getelementptr inbounds %struct._gssapi_encrypt_info, ptr %15, i32 0, i32 5
-  %34 = load ptr, ptr %33, align 8
-  store ptr %34, ptr %14, align 8
-  %35 = load ptr, ptr %14, align 8
-  %36 = icmp ne ptr %35, null
-  br i1 %36, label %37, label %42
+  %25 = call ptr @memset.inline(ptr noundef %15, i32 noundef 0, i64 noundef 56) #7
+  %26 = getelementptr inbounds nuw %struct._gssapi_encrypt_info, ptr %15, i32 0, i32 0
+  store i16 1, ptr %26, align 8
+  %27 = load ptr, ptr @gssapi_wrap_handle, align 8
+  %28 = load ptr, ptr %13, align 8
+  %29 = load ptr, ptr %10, align 8
+  %30 = getelementptr inbounds nuw %struct._asn1_ctx_t, ptr %29, i32 0, i32 3
+  %31 = load ptr, ptr %30, align 8
+  %32 = load ptr, ptr %11, align 8
+  %33 = call i32 @call_dissector_with_data(ptr noundef %27, ptr noundef %28, ptr noundef %31, ptr noundef %32, ptr noundef %15)
+  %34 = getelementptr inbounds nuw %struct._gssapi_encrypt_info, ptr %15, i32 0, i32 5
+  %35 = load ptr, ptr %34, align 8
+  store ptr %35, ptr %14, align 8
+  %36 = load ptr, ptr %14, align 8
+  %37 = icmp ne ptr %36, null
+  br i1 %37, label %38, label %43
 
-37:                                               ; preds = %6
-  %38 = load ptr, ptr %11, align 8
-  %39 = load i32, ptr @hf_credssp_decr_PublicKeyAuth, align 4
-  %40 = load ptr, ptr %14, align 8
-  %41 = call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %39, ptr noundef %40, i32 noundef 0, i32 noundef -1, i32 noundef 0)
-  br label %42
+38:                                               ; preds = %6
+  %39 = load ptr, ptr %11, align 8
+  %40 = load i32, ptr @hf_credssp_decr_PublicKeyAuth, align 4
+  %41 = load ptr, ptr %14, align 8
+  %42 = call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %40, ptr noundef %41, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  br label %43
 
-42:                                               ; preds = %37, %6
-  %43 = load i32, ptr %9, align 4
-  ret i32 %43
+43:                                               ; preds = %38, %6
+  %44 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 56, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
+  ret i32 %44
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_credssp_T_errorCode(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i8, align 1
@@ -704,7 +762,7 @@ define internal i32 @dissect_credssp_T_errorCode(i1 noundef zeroext %0, ptr noun
   br label %28
 
 18:                                               ; preds = %6
-  %19 = load i8, ptr %8, align 1
+  %19 = load i8, ptr %8, align 1, !range !6, !noundef !7
   %20 = trunc i8 %19 to i1
   %21 = load ptr, ptr %11, align 8
   %22 = load ptr, ptr %12, align 8
@@ -722,7 +780,7 @@ define internal i32 @dissect_credssp_T_errorCode(i1 noundef zeroext %0, ptr noun
   ret i32 %29
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_credssp_T_clientNonce(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i8, align 1
@@ -747,7 +805,7 @@ define internal i32 @dissect_credssp_T_clientNonce(i1 noundef zeroext %0, ptr no
   br label %28
 
 18:                                               ; preds = %6
-  %19 = load i8, ptr %8, align 1
+  %19 = load i8, ptr %8, align 1, !range !6, !noundef !7
   %20 = trunc i8 %19 to i1
   %21 = load ptr, ptr %11, align 8
   %22 = load ptr, ptr %12, align 8
@@ -765,11 +823,13 @@ define internal i32 @dissect_credssp_T_clientNonce(i1 noundef zeroext %0, ptr no
   ret i32 %29
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_ber_integer(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_ber_sequence_of(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_credssp_NegoData_item(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca i8, align 1
   %8 = alloca ptr, align 8
@@ -784,7 +844,7 @@ define internal i32 @dissect_credssp_NegoData_item(i1 noundef zeroext %0, ptr no
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store i32 %5, ptr %12, align 4
-  %14 = load i8, ptr %7, align 1
+  %14 = load i8, ptr %7, align 1, !range !6, !noundef !7
   %15 = trunc i8 %14 to i1
   %16 = load ptr, ptr %10, align 8
   %17 = load ptr, ptr %11, align 8
@@ -798,7 +858,7 @@ define internal i32 @dissect_credssp_NegoData_item(i1 noundef zeroext %0, ptr no
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_credssp_T_negoToken(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca i8, align 1
   %8 = alloca ptr, align 8
@@ -814,8 +874,9 @@ define internal i32 @dissect_credssp_T_negoToken(i1 noundef zeroext %0, ptr noun
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store i32 %5, ptr %12, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
   store ptr null, ptr %13, align 8
-  %15 = load i8, ptr %7, align 1
+  %15 = load i8, ptr %7, align 1, !range !6, !noundef !7
   %16 = trunc i8 %15 to i1
   %17 = load ptr, ptr %10, align 8
   %18 = load ptr, ptr %11, align 8
@@ -832,7 +893,7 @@ define internal i32 @dissect_credssp_T_negoToken(i1 noundef zeroext %0, ptr noun
   %26 = load ptr, ptr @gssapi_handle, align 8
   %27 = load ptr, ptr %13, align 8
   %28 = load ptr, ptr %10, align 8
-  %29 = getelementptr inbounds %struct._asn1_ctx_t, ptr %28, i32 0, i32 3
+  %29 = getelementptr inbounds nuw %struct._asn1_ctx_t, ptr %28, i32 0, i32 3
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %11, align 8
   %32 = call i32 @call_dissector(ptr noundef %26, ptr noundef %27, ptr noundef %30, ptr noundef %31)
@@ -840,19 +901,37 @@ define internal i32 @dissect_credssp_T_negoToken(i1 noundef zeroext %0, ptr noun
 
 33:                                               ; preds = %25, %6
   %34 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
   ret i32 %34
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_ber_octet_string(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+; Function Attrs: alwaysinline nounwind
+define internal ptr @memset.inline(ptr %0, i32 %1, i64 %2) #3 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store i32 %1, ptr %5, align 4
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i32, ptr %5, align 4
+  %9 = load i64, ptr %6, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = call i64 @llvm.objectsize.i64.p0(ptr %10, i1 false, i1 true, i1 true)
+  %12 = call ptr @__memset_chk(ptr noundef %7, i32 noundef %8, i64 noundef %9, i64 noundef %11) #7
+  ret ptr %12
+}
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @call_dissector_with_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_credssp_TSCredentials(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca i8, align 1
   %8 = alloca ptr, align 8
@@ -867,7 +946,7 @@ define internal i32 @dissect_credssp_TSCredentials(i1 noundef zeroext %0, ptr no
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store i32 %5, ptr %12, align 4
-  %14 = load i8, ptr %7, align 1
+  %14 = load i8, ptr %7, align 1, !range !6, !noundef !7
   %15 = trunc i8 %14 to i1
   %16 = load ptr, ptr %10, align 8
   %17 = load ptr, ptr %11, align 8
@@ -881,7 +960,13 @@ define internal i32 @dissect_credssp_TSCredentials(i1 noundef zeroext %0, ptr no
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: nounwind null_pointer_is_valid
+declare ptr @__memset_chk(ptr noundef, i32 noundef, i64 noundef, i64 noundef) #4
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.objectsize.i64.p0(ptr, i1 immarg, i1 immarg, i1 immarg) #5
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_credssp_T_credType(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca i8, align 1
   %8 = alloca ptr, align 8
@@ -896,7 +981,7 @@ define internal i32 @dissect_credssp_T_credType(i1 noundef zeroext %0, ptr nound
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store i32 %5, ptr %12, align 4
-  %14 = load i8, ptr %7, align 1
+  %14 = load i8, ptr %7, align 1, !range !6, !noundef !7
   %15 = trunc i8 %14 to i1
   %16 = load ptr, ptr %10, align 8
   %17 = load ptr, ptr %11, align 8
@@ -909,7 +994,7 @@ define internal i32 @dissect_credssp_T_credType(i1 noundef zeroext %0, ptr nound
   ret i32 %22
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_credssp_T_credentials(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca i8, align 1
   %8 = alloca ptr, align 8
@@ -925,8 +1010,9 @@ define internal i32 @dissect_credssp_T_credentials(i1 noundef zeroext %0, ptr no
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store i32 %5, ptr %12, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
   store ptr null, ptr %13, align 8
-  %15 = load i8, ptr %7, align 1
+  %15 = load i8, ptr %7, align 1, !range !6, !noundef !7
   %16 = trunc i8 %15 to i1
   %17 = load ptr, ptr %10, align 8
   %18 = load ptr, ptr %11, align 8
@@ -966,12 +1052,13 @@ define internal i32 @dissect_credssp_T_credentials(i1 noundef zeroext %0, ptr no
   %41 = call i32 @dissect_credssp_TSRemoteGuardCreds(i1 noundef zeroext false, ptr noundef %37, i32 noundef 0, ptr noundef %38, ptr noundef %39, i32 noundef %40)
   br label %42
 
-42:                                               ; preds = %36, %30, %24, %6
+42:                                               ; preds = %6, %36, %30, %24
   %43 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
   ret i32 %43
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_credssp_TSPasswordCreds(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca i8, align 1
   %8 = alloca ptr, align 8
@@ -986,7 +1073,7 @@ define internal i32 @dissect_credssp_TSPasswordCreds(i1 noundef zeroext %0, ptr 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store i32 %5, ptr %12, align 4
-  %14 = load i8, ptr %7, align 1
+  %14 = load i8, ptr %7, align 1, !range !6, !noundef !7
   %15 = trunc i8 %14 to i1
   %16 = load ptr, ptr %10, align 8
   %17 = load ptr, ptr %11, align 8
@@ -1000,7 +1087,7 @@ define internal i32 @dissect_credssp_TSPasswordCreds(i1 noundef zeroext %0, ptr 
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_credssp_TSSmartCardCreds(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca i8, align 1
   %8 = alloca ptr, align 8
@@ -1015,7 +1102,7 @@ define internal i32 @dissect_credssp_TSSmartCardCreds(i1 noundef zeroext %0, ptr
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store i32 %5, ptr %12, align 4
-  %14 = load i8, ptr %7, align 1
+  %14 = load i8, ptr %7, align 1, !range !6, !noundef !7
   %15 = trunc i8 %14 to i1
   %16 = load ptr, ptr %10, align 8
   %17 = load ptr, ptr %11, align 8
@@ -1029,7 +1116,7 @@ define internal i32 @dissect_credssp_TSSmartCardCreds(i1 noundef zeroext %0, ptr
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_credssp_TSRemoteGuardCreds(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca i8, align 1
   %8 = alloca ptr, align 8
@@ -1044,7 +1131,7 @@ define internal i32 @dissect_credssp_TSRemoteGuardCreds(i1 noundef zeroext %0, p
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store i32 %5, ptr %12, align 4
-  %14 = load i8, ptr %7, align 1
+  %14 = load i8, ptr %7, align 1, !range !6, !noundef !7
   %15 = trunc i8 %14 to i1
   %16 = load ptr, ptr %10, align 8
   %17 = load ptr, ptr %11, align 8
@@ -1058,7 +1145,7 @@ define internal i32 @dissect_credssp_TSRemoteGuardCreds(i1 noundef zeroext %0, p
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_credssp_OCTET_STRING(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca i8, align 1
   %8 = alloca ptr, align 8
@@ -1073,7 +1160,7 @@ define internal i32 @dissect_credssp_OCTET_STRING(i1 noundef zeroext %0, ptr nou
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store i32 %5, ptr %12, align 4
-  %14 = load i8, ptr %7, align 1
+  %14 = load i8, ptr %7, align 1, !range !6, !noundef !7
   %15 = trunc i8 %14 to i1
   %16 = load ptr, ptr %10, align 8
   %17 = load ptr, ptr %11, align 8
@@ -1086,7 +1173,7 @@ define internal i32 @dissect_credssp_OCTET_STRING(i1 noundef zeroext %0, ptr nou
   ret i32 %22
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_credssp_TSCspDataDetail(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca i8, align 1
   %8 = alloca ptr, align 8
@@ -1101,7 +1188,7 @@ define internal i32 @dissect_credssp_TSCspDataDetail(i1 noundef zeroext %0, ptr 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store i32 %5, ptr %12, align 4
-  %14 = load i8, ptr %7, align 1
+  %14 = load i8, ptr %7, align 1, !range !6, !noundef !7
   %15 = trunc i8 %14 to i1
   %16 = load ptr, ptr %10, align 8
   %17 = load ptr, ptr %11, align 8
@@ -1115,7 +1202,7 @@ define internal i32 @dissect_credssp_TSCspDataDetail(i1 noundef zeroext %0, ptr 
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_credssp_INTEGER(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca i8, align 1
   %8 = alloca ptr, align 8
@@ -1130,7 +1217,7 @@ define internal i32 @dissect_credssp_INTEGER(i1 noundef zeroext %0, ptr noundef 
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store i32 %5, ptr %12, align 4
-  %14 = load i8, ptr %7, align 1
+  %14 = load i8, ptr %7, align 1, !range !6, !noundef !7
   %15 = trunc i8 %14 to i1
   %16 = load ptr, ptr %10, align 8
   %17 = load ptr, ptr %11, align 8
@@ -1143,7 +1230,7 @@ define internal i32 @dissect_credssp_INTEGER(i1 noundef zeroext %0, ptr noundef 
   ret i32 %22
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_credssp_TSRemoteGuardPackageCred(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca i8, align 1
   %8 = alloca ptr, align 8
@@ -1158,7 +1245,7 @@ define internal i32 @dissect_credssp_TSRemoteGuardPackageCred(i1 noundef zeroext
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store i32 %5, ptr %12, align 4
-  %14 = load i8, ptr %7, align 1
+  %14 = load i8, ptr %7, align 1, !range !6, !noundef !7
   %15 = trunc i8 %14 to i1
   %16 = load ptr, ptr %10, align 8
   %17 = load ptr, ptr %11, align 8
@@ -1172,7 +1259,7 @@ define internal i32 @dissect_credssp_TSRemoteGuardPackageCred(i1 noundef zeroext
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_credssp_SEQUENCE_OF_TSRemoteGuardPackageCred(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca i8, align 1
   %8 = alloca ptr, align 8
@@ -1187,7 +1274,7 @@ define internal i32 @dissect_credssp_SEQUENCE_OF_TSRemoteGuardPackageCred(i1 nou
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store i32 %5, ptr %12, align 4
-  %14 = load i8, ptr %7, align 1
+  %14 = load i8, ptr %7, align 1, !range !6, !noundef !7
   %15 = trunc i8 %14 to i1
   %16 = load ptr, ptr %10, align 8
   %17 = load ptr, ptr %11, align 8
@@ -1201,7 +1288,7 @@ define internal i32 @dissect_credssp_SEQUENCE_OF_TSRemoteGuardPackageCred(i1 nou
   ret i32 %23
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_credssp_T_packageName(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca i8, align 1
   %8 = alloca ptr, align 8
@@ -1218,8 +1305,9 @@ define internal i32 @dissect_credssp_T_packageName(i1 noundef zeroext %0, ptr no
   store ptr %3, ptr %10, align 8
   store ptr %4, ptr %11, align 8
   store i32 %5, ptr %12, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #7
   store ptr null, ptr %13, align 8
-  %16 = load i8, ptr %7, align 1
+  %16 = load i8, ptr %7, align 1, !range !6, !noundef !7
   %17 = trunc i8 %16 to i1
   %18 = load ptr, ptr %10, align 8
   %19 = load ptr, ptr %8, align 8
@@ -1232,6 +1320,7 @@ define internal i32 @dissect_credssp_T_packageName(i1 noundef zeroext %0, ptr no
   br i1 %24, label %25, label %59
 
 25:                                               ; preds = %6
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #7
   %26 = load ptr, ptr %13, align 8
   %27 = call i32 @tvb_captured_length(ptr noundef %26)
   store i32 %27, ptr %14, align 4
@@ -1246,7 +1335,7 @@ define internal i32 @dissect_credssp_T_packageName(i1 noundef zeroext %0, ptr no
   %34 = call ptr @tvb_get_ptr(ptr noundef %32, i32 noundef 0, i32 noundef %33)
   %35 = load i32, ptr %14, align 4
   %36 = sext i32 %35 to i64
-  %37 = call i32 @memcmp(ptr noundef %34, ptr noundef @kerberos_pname, i64 noundef %36) #4
+  %37 = call i32 @memcmp(ptr noundef %34, ptr noundef @kerberos_pname, i64 noundef %36) #8
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %39, label %40
 
@@ -1266,7 +1355,7 @@ define internal i32 @dissect_credssp_T_packageName(i1 noundef zeroext %0, ptr no
   %47 = call ptr @tvb_get_ptr(ptr noundef %45, i32 noundef 0, i32 noundef %46)
   %48 = load i32, ptr %14, align 4
   %49 = sext i32 %48 to i64
-  %50 = call i32 @memcmp(ptr noundef %47, ptr noundef @ntlm_pname, i64 noundef %49) #4
+  %50 = call i32 @memcmp(ptr noundef %47, ptr noundef @ntlm_pname, i64 noundef %49) #8
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %52, label %53
 
@@ -1282,14 +1371,16 @@ define internal i32 @dissect_credssp_T_packageName(i1 noundef zeroext %0, ptr no
   %56 = load i32, ptr %12, align 4
   %57 = load ptr, ptr %13, align 8
   %58 = call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %56, ptr noundef %57, i32 noundef 0, i32 noundef -1, i32 noundef -2147483644)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #7
   br label %59
 
 59:                                               ; preds = %54, %6
   %60 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #7
   ret i32 %60
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_credssp_T_credBuffer(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i8, align 1
@@ -1300,108 +1391,134 @@ define internal i32 @dissect_credssp_T_credBuffer(i1 noundef zeroext %0, ptr nou
   %13 = alloca i32, align 4
   %14 = alloca ptr, align 8
   %15 = alloca ptr, align 8
-  %16 = zext i1 %0 to i8
-  store i8 %16, ptr %8, align 1
+  %16 = alloca i32, align 4
+  %17 = zext i1 %0 to i8
+  store i8 %17, ptr %8, align 1
   store ptr %1, ptr %9, align 8
   store i32 %2, ptr %10, align 4
   store ptr %3, ptr %11, align 8
   store ptr %4, ptr %12, align 8
   store i32 %5, ptr %13, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #7
   store ptr null, ptr %14, align 8
-  %17 = load i8, ptr %8, align 1
-  %18 = trunc i8 %17 to i1
-  %19 = load ptr, ptr %11, align 8
-  %20 = load ptr, ptr %12, align 8
-  %21 = load ptr, ptr %9, align 8
-  %22 = load i32, ptr %10, align 4
-  %23 = load i32, ptr %13, align 4
-  %24 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %18, ptr noundef %19, ptr noundef %20, ptr noundef %21, i32 noundef %22, i32 noundef %23, ptr noundef %14)
-  store i32 %24, ptr %10, align 4
-  %25 = load ptr, ptr %14, align 8
-  %26 = icmp ne ptr %25, null
-  br i1 %26, label %29, label %27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #7
+  %18 = load i8, ptr %8, align 1, !range !6, !noundef !7
+  %19 = trunc i8 %18 to i1
+  %20 = load ptr, ptr %11, align 8
+  %21 = load ptr, ptr %12, align 8
+  %22 = load ptr, ptr %9, align 8
+  %23 = load i32, ptr %10, align 4
+  %24 = load i32, ptr %13, align 4
+  %25 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %19, ptr noundef %20, ptr noundef %21, ptr noundef %22, i32 noundef %23, i32 noundef %24, ptr noundef %14)
+  store i32 %25, ptr %10, align 4
+  %26 = load ptr, ptr %14, align 8
+  %27 = icmp ne ptr %26, null
+  br i1 %27, label %30, label %28
 
-27:                                               ; preds = %6
-  %28 = load i32, ptr %10, align 4
-  store i32 %28, ptr %7, align 4
-  br label %52
+28:                                               ; preds = %6
+  %29 = load i32, ptr %10, align 4
+  store i32 %29, ptr %7, align 4
+  store i32 1, ptr %16, align 4
+  br label %53
 
-29:                                               ; preds = %6
-  %30 = load i32, ptr @credssp_TS_RGC_package, align 4
-  switch i32 %30, label %50 [
-    i32 1, label %31
-    i32 2, label %41
+30:                                               ; preds = %6
+  %31 = load i32, ptr @credssp_TS_RGC_package, align 4
+  switch i32 %31, label %51 [
+    i32 1, label %32
+    i32 2, label %42
   ]
 
-31:                                               ; preds = %29
-  %32 = load ptr, ptr %11, align 8
-  %33 = getelementptr inbounds %struct._asn1_ctx_t, ptr %32, i32 0, i32 4
-  %34 = load ptr, ptr %33, align 8
-  %35 = load i32, ptr @ett_credssp_RGC_CredBuffer, align 4
-  %36 = call ptr @proto_item_add_subtree(ptr noundef %34, i32 noundef %35)
-  store ptr %36, ptr %15, align 8
-  %37 = load ptr, ptr %14, align 8
-  %38 = load ptr, ptr %11, align 8
-  %39 = load ptr, ptr %15, align 8
-  %40 = call i32 @dissect_kerberos_KERB_TICKET_LOGON(ptr noundef %37, i32 noundef 0, ptr noundef %38, ptr noundef %39)
-  br label %50
+32:                                               ; preds = %30
+  %33 = load ptr, ptr %11, align 8
+  %34 = getelementptr inbounds nuw %struct._asn1_ctx_t, ptr %33, i32 0, i32 4
+  %35 = load ptr, ptr %34, align 8
+  %36 = load i32, ptr @ett_credssp_RGC_CredBuffer, align 4
+  %37 = call ptr @proto_item_add_subtree(ptr noundef %35, i32 noundef %36)
+  store ptr %37, ptr %15, align 8
+  %38 = load ptr, ptr %14, align 8
+  %39 = load ptr, ptr %11, align 8
+  %40 = load ptr, ptr %15, align 8
+  %41 = call i32 @dissect_kerberos_KERB_TICKET_LOGON(ptr noundef %38, i32 noundef 0, ptr noundef %39, ptr noundef %40)
+  br label %51
 
-41:                                               ; preds = %29
-  %42 = load ptr, ptr %11, align 8
-  %43 = getelementptr inbounds %struct._asn1_ctx_t, ptr %42, i32 0, i32 4
-  %44 = load ptr, ptr %43, align 8
-  %45 = load i32, ptr @ett_credssp_RGC_CredBuffer, align 4
-  %46 = call ptr @proto_item_add_subtree(ptr noundef %44, i32 noundef %45)
-  store ptr %46, ptr %15, align 8
-  %47 = load ptr, ptr %14, align 8
-  %48 = load ptr, ptr %15, align 8
-  %49 = call i32 @dissect_ntlmssp_NTLM_REMOTE_SUPPLEMENTAL_CREDENTIAL(ptr noundef %47, i32 noundef 0, ptr noundef %48)
-  br label %50
+42:                                               ; preds = %30
+  %43 = load ptr, ptr %11, align 8
+  %44 = getelementptr inbounds nuw %struct._asn1_ctx_t, ptr %43, i32 0, i32 4
+  %45 = load ptr, ptr %44, align 8
+  %46 = load i32, ptr @ett_credssp_RGC_CredBuffer, align 4
+  %47 = call ptr @proto_item_add_subtree(ptr noundef %45, i32 noundef %46)
+  store ptr %47, ptr %15, align 8
+  %48 = load ptr, ptr %14, align 8
+  %49 = load ptr, ptr %15, align 8
+  %50 = call i32 @dissect_ntlmssp_NTLM_REMOTE_SUPPLEMENTAL_CREDENTIAL(ptr noundef %48, i32 noundef 0, ptr noundef %49)
+  br label %51
 
-50:                                               ; preds = %41, %31, %29
-  %51 = load i32, ptr %10, align 4
-  store i32 %51, ptr %7, align 4
-  br label %52
+51:                                               ; preds = %30, %42, %32
+  %52 = load i32, ptr %10, align 4
+  store i32 %52, ptr %7, align 4
+  store i32 1, ptr %16, align 4
+  br label %53
 
-52:                                               ; preds = %50, %27
-  %53 = load i32, ptr %7, align 4
-  ret i32 %53
+53:                                               ; preds = %51, %28
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #7
+  %54 = load i32, ptr %7, align 4
+  ret i32 %54
 }
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) #1
 
-; Function Attrs: nounwind willreturn memory(read)
-declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #3
+; Function Attrs: nounwind null_pointer_is_valid willreturn memory(read)
+declare i32 @memcmp(ptr noundef, ptr noundef, i64 noundef) #6
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_kerberos_KERB_TICKET_LOGON(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @dissect_ntlmssp_NTLM_REMOTE_SUPPLEMENTAL_CREDENTIAL(ptr noundef, i32 noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @get_ber_identifier(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @get_ber_length(ptr noundef, i32 noundef, ptr noundef, ptr noundef) #1
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #1
 
-declare i32 @have_tap_listener(i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i1 @have_tap_listener(i32 noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare ptr @export_pdu_create_common_tags(ptr noundef, ptr noundef, i16 noundef zeroext) #1
 
+; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_reported_length(ptr noundef) #1
 
+; Function Attrs: null_pointer_is_valid
 declare void @tap_queue_packet(i32 noundef, ptr noundef, ptr noundef) #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind willreturn memory(read) }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { alwaysinline nounwind "min-legal-vector-width"="0" }
+attributes #4 = { nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind null_pointer_is_valid willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind }
+attributes #8 = { nounwind willreturn memory(read) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}

@@ -3,18 +3,15 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
-%struct.enum_val_t = type { ptr, ptr, i32 }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
 
-@proto_register_dvb_s2_table.hf_table = internal global [396 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_dvb_s2_table_id, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 4, i32 2, ptr @tabletype, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_section, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 4, i32 2, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_private, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 4, i32 2, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_reserved, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 4, i32 2, ptr null, i64 48, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_msb_len, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 4, i32 1, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lsb_len, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_network_interactive_id, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_reserved2, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 4, i32 2, ptr null, i64 192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_version_number, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 4, i32 1, ptr null, i64 62, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_current_next_indicator, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 4, i32 1, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_section_number, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_last_section_number, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_smt_id, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 4, i32 2, ptr @tabletype, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_smt_section_syntax_indicator, %struct._header_field_info { ptr @.str.24, ptr @.str.3, i32 5, i32 2, ptr null, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_smt_futur_use, %struct._header_field_info { ptr @.str.25, ptr @.str.26, i32 5, i32 2, ptr null, i64 16384, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_smt_reserved, %struct._header_field_info { ptr @.str.27, ptr @.str.7, i32 5, i32 2, ptr null, i64 12288, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_smt_section_length, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 5, i32 1, ptr null, i64 4095, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_smt_esn0, %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_smt_modcod, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_section_syntax_indic, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 4, i32 1, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_private_indicator, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 4, i32 1, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_reserved_1, %struct._header_field_info { ptr @.str.36, ptr @.str.37, i32 4, i32 1, ptr null, i64 48, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_section_length, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 5, i32 1, ptr null, i64 4095, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_mac_addres_6, %struct._header_field_info { ptr @.str.38, ptr @.str.39, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_mac_addres_5, %struct._header_field_info { ptr @.str.40, ptr @.str.41, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_mac_addres_4, %struct._header_field_info { ptr @.str.42, ptr @.str.43, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_mac_addres_3, %struct._header_field_info { ptr @.str.44, ptr @.str.45, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_mac_addres_2, %struct._header_field_info { ptr @.str.46, ptr @.str.47, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_mac_addres_1, %struct._header_field_info { ptr @.str.48, ptr @.str.49, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_reserved_2, %struct._header_field_info { ptr @.str.14, ptr @.str.50, i32 4, i32 1, ptr null, i64 192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_payload_scrambling_control, %struct._header_field_info { ptr @.str.51, ptr @.str.52, i32 4, i32 1, ptr null, i64 48, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_address_scrambling_control, %struct._header_field_info { ptr @.str.53, ptr @.str.54, i32 4, i32 1, ptr null, i64 12, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_LLC_SNAP_flag, %struct._header_field_info { ptr @.str.55, ptr @.str.56, i32 4, i32 1, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_current_next_indicator, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 4, i32 1, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_section_number, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_last_section_number, %struct._header_field_info { ptr @.str.22, ptr @.str.57, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_superframe_loop_count, %struct._header_field_info { ptr @.str.58, ptr @.str.59, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_superframe, %struct._header_field_info { ptr @.str.60, ptr @.str.61, i32 30, i32 0, ptr null, i64 0, ptr @.str.62, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sf_sequence, %struct._header_field_info { ptr @.str.63, ptr @.str.64, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sf_id, %struct._header_field_info { ptr @.str.65, ptr @.str.66, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sf_large_timing_uncertaintly_flag, %struct._header_field_info { ptr @.str.67, ptr @.str.68, i32 4, i32 2, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sf_uplink_polarization, %struct._header_field_info { ptr @.str.69, ptr @.str.70, i32 4, i32 2, ptr @table_uplinkPolarization, i64 3, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sf_absolute_time, %struct._header_field_info { ptr @.str.71, ptr @.str.72, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sf_duration, %struct._header_field_info { ptr @.str.73, ptr @.str.74, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sf_centre_frequency, %struct._header_field_info { ptr @.str.75, ptr @.str.76, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sf_count, %struct._header_field_info { ptr @.str.77, ptr @.str.78, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sf_frame_loop_count, %struct._header_field_info { ptr @.str.79, ptr @.str.80, i32 4, i32 1, ptr null, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sf_frame, %struct._header_field_info { ptr @.str.81, ptr @.str.82, i32 30, i32 0, ptr null, i64 0, ptr @.str.83, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sf_frame_type, %struct._header_field_info { ptr @.str.84, ptr @.str.85, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sf_frame_id, %struct._header_field_info { ptr @.str.86, ptr @.str.87, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sf_frame_start_time, %struct._header_field_info { ptr @.str.88, ptr @.str.89, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sf_frame_centre_frequency_offset, %struct._header_field_info { ptr @.str.90, ptr @.str.91, i32 14, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_rcst_status, %struct._header_field_info { ptr @.str.92, ptr @.str.93, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_network_status, %struct._header_field_info { ptr @.str.94, ptr @.str.95, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_loop_count, %struct._header_field_info { ptr @.str.96, ptr @.str.97, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_tbtp_group_id, %struct._header_field_info { ptr @.str.98, ptr @.str.99, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_tbtp_superframe_count, %struct._header_field_info { ptr @.str.77, ptr @.str.100, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_tbtp_frame_loop_count, %struct._header_field_info { ptr @.str.101, ptr @.str.102, i32 4, i32 1, ptr null, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_tbtp_sf_frame, %struct._header_field_info { ptr @.str.81, ptr @.str.103, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_tbtp_frame_number, %struct._header_field_info { ptr @.str.104, ptr @.str.105, i32 4, i32 1, ptr null, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_tbtp_btb_loop_count, %struct._header_field_info { ptr @.str.106, ptr @.str.107, i32 5, i32 1, ptr null, i64 2047, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_tbtp_assignment_count, %struct._header_field_info { ptr @.str.108, ptr @.str.109, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_tbtp_btp, %struct._header_field_info { ptr @.str.110, ptr @.str.111, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_tbtp_logon_id, %struct._header_field_info { ptr @.str.112, ptr @.str.113, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_tbtp_multiple_channel_flag, %struct._header_field_info { ptr @.str.114, ptr @.str.115, i32 4, i32 1, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_tbtp_assignment_type, %struct._header_field_info { ptr @.str.116, ptr @.str.117, i32 4, i32 1, ptr null, i64 96, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_tbtp_frame_vbdc_queue_empty_flag, %struct._header_field_info { ptr @.str.118, ptr @.str.119, i32 4, i32 1, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_tbtp_start_slot, %struct._header_field_info { ptr @.str.120, ptr @.str.121, i32 5, i32 1, ptr null, i64 2047, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_tbtp_channel_id, %struct._header_field_info { ptr @.str.122, ptr @.str.123, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_group_id, %struct._header_field_info { ptr @.str.124, ptr @.str.99, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_assign_context, %struct._header_field_info { ptr @.str.125, ptr @.str.126, i32 4, i32 2, ptr @table_assignContext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_superframe_count, %struct._header_field_info { ptr @.str.77, ptr @.str.100, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_assign_format, %struct._header_field_info { ptr @.str.127, ptr @.str.128, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_loop_count, %struct._header_field_info { ptr @.str.129, ptr @.str.102, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_number, %struct._header_field_info { ptr @.str.104, ptr @.str.105, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_assign_offset, %struct._header_field_info { ptr @.str.130, ptr @.str.131, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_assign_loop_count, %struct._header_field_info { ptr @.str.132, ptr @.str.133, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_assignment, %struct._header_field_info { ptr @.str.134, ptr @.str.135, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_assign_id8, %struct._header_field_info { ptr @.str.136, ptr @.str.137, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_assign_id16, %struct._header_field_info { ptr @.str.136, ptr @.str.138, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_assign_id24, %struct._header_field_info { ptr @.str.136, ptr @.str.139, i32 6, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_assign_id48, %struct._header_field_info { ptr @.str.136, ptr @.str.140, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_dynamic_tx_type, %struct._header_field_info { ptr @.str.141, ptr @.str.142, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_entry_loop_count, %struct._header_field_info { ptr @.str.143, ptr @.str.144, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_entry, %struct._header_field_info { ptr @.str.145, ptr @.str.146, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_entry_login_id, %struct._header_field_info { ptr @.str.147, ptr @.str.148, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_common_sytem_margin, %struct._header_field_info { ptr @.str.149, ptr @.str.150, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_mode_count, %struct._header_field_info { ptr @.str.151, ptr @.str.152, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_mode, %struct._header_field_info { ptr @.str.153, ptr @.str.154, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_mode_frame_length, %struct._header_field_info { ptr @.str.155, ptr @.str.156, i32 4, i32 2, ptr null, i64 192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_mode_pilot_symbols, %struct._header_field_info { ptr @.str.157, ptr @.str.158, i32 4, i32 2, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_mode_modcod, %struct._header_field_info { ptr @.str.159, ptr @.str.160, i32 4, i32 2, ptr @table_modcods, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_mode_modcod_system_margin, %struct._header_field_info { ptr @.str.161, ptr @.str.162, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_mode_isi, %struct._header_field_info { ptr @.str.163, ptr @.str.164, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_type_loop_count, %struct._header_field_info { ptr @.str.165, ptr @.str.166, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_type_branch, %struct._header_field_info { ptr @.str.84, ptr @.str.167, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_type, %struct._header_field_info { ptr @.str.84, ptr @.str.168, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_type_frame_duration, %struct._header_field_info { ptr @.str.169, ptr @.str.170, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_type_tx_format_class, %struct._header_field_info { ptr @.str.171, ptr @.str.172, i32 4, i32 2, ptr @table_frameType_txFormatClass, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_type_btu_duration, %struct._header_field_info { ptr @.str.173, ptr @.str.174, i32 6, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_type_btu_carrier_bw, %struct._header_field_info { ptr @.str.175, ptr @.str.176, i32 6, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_type_btu_symbol_rate, %struct._header_field_info { ptr @.str.177, ptr @.str.178, i32 6, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_type_time_unit_count, %struct._header_field_info { ptr @.str.179, ptr @.str.180, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_type_grid_repeat_count, %struct._header_field_info { ptr @.str.181, ptr @.str.182, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_type_grid_frequency_offset, %struct._header_field_info { ptr @.str.183, ptr @.str.184, i32 14, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_type_section_loop_count, %struct._header_field_info { ptr @.str.185, ptr @.str.186, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_type_section, %struct._header_field_info { ptr @.str.187, ptr @.str.188, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_type_section_default_tx_type, %struct._header_field_info { ptr @.str.189, ptr @.str.190, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_type_section_fix_acc_method, %struct._header_field_info { ptr @.str.191, ptr @.str.192, i32 4, i32 2, ptr null, i64 12, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_type_section_repeat_count, %struct._header_field_info { ptr @.str.193, ptr @.str.194, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_ID_loop_count, %struct._header_field_info { ptr @.str.101, ptr @.str.195, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_ID_branch, %struct._header_field_info { ptr @.str.81, ptr @.str.196, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_ID, %struct._header_field_info { ptr @.str.197, ptr @.str.198, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_ID_frame_duration, %struct._header_field_info { ptr @.str.199, ptr @.str.200, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_ID_total_timeslot_count, %struct._header_field_info { ptr @.str.201, ptr @.str.202, i32 5, i32 1, ptr null, i64 2047, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_ID_start_timeslot_number, %struct._header_field_info { ptr @.str.203, ptr @.str.204, i32 5, i32 1, ptr null, i64 2047, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_ID_timeslot_loop_count, %struct._header_field_info { ptr @.str.205, ptr @.str.206, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_ID_timeslot, %struct._header_field_info { ptr @.str.207, ptr @.str.208, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_ID_timeslot_timeslot_frequency_offset, %struct._header_field_info { ptr @.str.209, ptr @.str.210, i32 14, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_ID_timeslot_timeslot_time_offset, %struct._header_field_info { ptr @.str.211, ptr @.str.212, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_ID_timeslot_timeslot_id, %struct._header_field_info { ptr @.str.213, ptr @.str.214, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_ID_timeslot_repeat_count, %struct._header_field_info { ptr @.str.215, ptr @.str.216, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_loop_count, %struct._header_field_info { ptr @.str.217, ptr @.str.218, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_branch, %struct._header_field_info { ptr @.str.219, ptr @.str.220, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type, %struct._header_field_info { ptr @.str.219, ptr @.str.221, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_tx_content_type, %struct._header_field_info { ptr @.str.222, ptr @.str.223, i32 4, i32 2, ptr @table_txType_contentType, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_tx_format_class, %struct._header_field_info { ptr @.str.224, ptr @.str.225, i32 4, i32 2, ptr @table_frameType_txFormatClass, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_tx_format_data_length, %struct._header_field_info { ptr @.str.226, ptr @.str.227, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_tx_format_data, %struct._header_field_info { ptr @.str.228, ptr @.str.229, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_tx_block_size, %struct._header_field_info { ptr @.str.230, ptr @.str.231, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_threshold_es_n0, %struct._header_field_info { ptr @.str.232, ptr @.str.233, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_payload_size, %struct._header_field_info { ptr @.str.234, ptr @.str.235, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_modulation_scheme, %struct._header_field_info { ptr @.str.236, ptr @.str.237, i32 4, i32 2, ptr @table_txType_modulationScheme, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_p, %struct._header_field_info { ptr @.str.238, ptr @.str.239, i32 4, i32 2, ptr null, i64 0, ptr @.str.240, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_q0, %struct._header_field_info { ptr @.str.241, ptr @.str.242, i32 4, i32 2, ptr null, i64 15, ptr @.str.243, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_q1, %struct._header_field_info { ptr @.str.244, ptr @.str.245, i32 4, i32 2, ptr null, i64 15, ptr @.str.246, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_q2, %struct._header_field_info { ptr @.str.247, ptr @.str.248, i32 4, i32 2, ptr null, i64 15, ptr @.str.249, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_q3, %struct._header_field_info { ptr @.str.250, ptr @.str.251, i32 4, i32 2, ptr null, i64 15, ptr @.str.252, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_y_period, %struct._header_field_info { ptr @.str.253, ptr @.str.254, i32 4, i32 1, ptr null, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_w_period, %struct._header_field_info { ptr @.str.255, ptr @.str.256, i32 4, i32 1, ptr null, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_y_pattern, %struct._header_field_info { ptr @.str.257, ptr @.str.258, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_y_pattern_bit, %struct._header_field_info { ptr @.str.259, ptr @.str.260, i32 4, i32 2, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_w_pattern, %struct._header_field_info { ptr @.str.261, ptr @.str.262, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_w_pattern_bit, %struct._header_field_info { ptr @.str.263, ptr @.str.264, i32 4, i32 2, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_preamble_len, %struct._header_field_info { ptr @.str.265, ptr @.str.266, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_postamble_len, %struct._header_field_info { ptr @.str.267, ptr @.str.268, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_pilot_period, %struct._header_field_info { ptr @.str.269, ptr @.str.270, i32 5, i32 1, ptr null, i64 4095, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_pilot_block_len, %struct._header_field_info { ptr @.str.271, ptr @.str.272, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_pilot_sum, %struct._header_field_info { ptr @.str.273, ptr @.str.274, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_uw_symbol, %struct._header_field_info { ptr @.str.275, ptr @.str.276, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_uw_symbol_unit, %struct._header_field_info { ptr @.str.277, ptr @.str.278, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_uw_symbol_qpsk, %struct._header_field_info { ptr @.str.279, ptr @.str.280, i32 4, i32 2, ptr null, i64 192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_uw_symbol_8psk, %struct._header_field_info { ptr @.str.281, ptr @.str.282, i32 4, i32 2, ptr null, i64 224, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_uw_symbol_16qam, %struct._header_field_info { ptr @.str.283, ptr @.str.284, i32 4, i32 2, ptr null, i64 240, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_waveform_id, %struct._header_field_info { ptr @.str.285, ptr @.str.286, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_tx_start_offset, %struct._header_field_info { ptr @.str.287, ptr @.str.288, i32 7, i32 1, ptr null, i64 1048575, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_tx_start_offset_1, %struct._header_field_info { ptr @.str.287, ptr @.str.289, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_tx_start_offset_2, %struct._header_field_info { ptr @.str.287, ptr @.str.289, i32 6, i32 1, ptr null, i64 1048575, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_modulation_mh, %struct._header_field_info { ptr @.str.290, ptr @.str.291, i32 4, i32 1, ptr null, i64 224, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_modulation_ph, %struct._header_field_info { ptr @.str.292, ptr @.str.293, i32 4, i32 1, ptr null, i64 28, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_modulation_type, %struct._header_field_info { ptr @.str.294, ptr @.str.295, i32 4, i32 1, ptr @table_txType_modulationType, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_alpha_rc, %struct._header_field_info { ptr @.str.296, ptr @.str.297, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_code_rate, %struct._header_field_info { ptr @.str.298, ptr @.str.299, i32 4, i32 2, ptr @table_txType_codeRate, i64 28, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_constraint_length_k, %struct._header_field_info { ptr @.str.300, ptr @.str.301, i32 4, i32 2, ptr @table_txType_constraintLengthK, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_uw_length, %struct._header_field_info { ptr @.str.302, ptr @.str.303, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_nbr_uw_segments, %struct._header_field_info { ptr @.str.304, ptr @.str.305, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_uw_segment, %struct._header_field_info { ptr @.str.306, ptr @.str.307, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_uw_segment_start, %struct._header_field_info { ptr @.str.308, ptr @.str.309, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_uw_segment_length, %struct._header_field_info { ptr @.str.310, ptr @.str.311, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_param_interleaver, %struct._header_field_info { ptr @.str.312, ptr @.str.313, i32 4, i32 1, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_n, %struct._header_field_info { ptr @.str.314, ptr @.str.315, i32 5, i32 1, ptr null, i64 65520, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_s, %struct._header_field_info { ptr @.str.316, ptr @.str.317, i32 5, i32 1, ptr null, i64 4032, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_p_interleaver, %struct._header_field_info { ptr @.str.318, ptr @.str.239, i32 5, i32 1, ptr null, i64 16368, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_n1_12, %struct._header_field_info { ptr @.str.319, ptr @.str.320, i32 5, i32 1, ptr null, i64 4088, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_k1_12, %struct._header_field_info { ptr @.str.321, ptr @.str.322, i32 5, i32 1, ptr null, i64 2044, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_K2_12, %struct._header_field_info { ptr @.str.323, ptr @.str.324, i32 5, i32 1, ptr null, i64 1022, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_K3_12, %struct._header_field_info { ptr @.str.325, ptr @.str.326, i32 5, i32 1, ptr null, i64 511, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_pi_i, %struct._header_field_info { ptr @.str.327, ptr @.str.328, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_satellite_loop_count, %struct._header_field_info { ptr @.str.329, ptr @.str.330, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_satellite, %struct._header_field_info { ptr @.str.331, ptr @.str.332, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_satellite_id, %struct._header_field_info { ptr @.str.333, ptr @.str.334, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_satellite_x_coordinate, %struct._header_field_info { ptr @.str.335, ptr @.str.336, i32 22, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_satellite_y_coordinate, %struct._header_field_info { ptr @.str.337, ptr @.str.338, i32 22, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_satellite_z_coordinate, %struct._header_field_info { ptr @.str.339, ptr @.str.340, i32 22, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_network_descriptors_length, %struct._header_field_info { ptr @.str.341, ptr @.str.342, i32 5, i32 1, ptr null, i64 4095, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_multiplex_streams_spec_length, %struct._header_field_info { ptr @.str.343, ptr @.str.344, i32 5, i32 1, ptr null, i64 4095, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_multiplex, %struct._header_field_info { ptr @.str.345, ptr @.str.346, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_multiplex_forward_multiplex, %struct._header_field_info { ptr @.str.347, ptr @.str.348, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_multiplex_reward_multiplex, %struct._header_field_info { ptr @.str.349, ptr @.str.350, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_multiplex_original_network_id, %struct._header_field_info { ptr @.str.351, ptr @.str.352, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_multiplex_transport_descriptors_length, %struct._header_field_info { ptr @.str.353, ptr @.str.354, i32 5, i32 1, ptr null, i64 4095, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_reserved_future_use, %struct._header_field_info { ptr @.str.355, ptr @.str.356, i32 4, i32 2, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_reserved_tdt, %struct._header_field_info { ptr @.str.357, ptr @.str.7, i32 4, i32 2, ptr null, i64 48, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_tdt_date, %struct._header_field_info { ptr @.str.358, ptr @.str.359, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_tdt_hour, %struct._header_field_info { ptr @.str.360, ptr @.str.361, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_tdt_minute, %struct._header_field_info { ptr @.str.362, ptr @.str.363, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_tdt_second, %struct._header_field_info { ptr @.str.364, ptr @.str.365, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_svn_number, %struct._header_field_info { ptr @.str.366, ptr @.str.367, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_svn_prefix_size, %struct._header_field_info { ptr @.str.368, ptr @.str.369, i32 4, i32 1, ptr null, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_pt_count, %struct._header_field_info { ptr @.str.370, ptr @.str.371, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_protocol, %struct._header_field_info { ptr @.str.372, ptr @.str.373, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_pt_protocol_type, %struct._header_field_info { ptr @.str.374, ptr @.str.375, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_pt_address_size, %struct._header_field_info { ptr @.str.376, ptr @.str.377, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_pt_mapping_sections, %struct._header_field_info { ptr @.str.378, ptr @.str.379, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_pt_mapping_section, %struct._header_field_info { ptr @.str.380, ptr @.str.381, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_pt_ms_inclusion_start, %struct._header_field_info { ptr @.str.382, ptr @.str.383, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_pt_ms_inclusion_end, %struct._header_field_info { ptr @.str.384, ptr @.str.385, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_pt_ms_exclusions, %struct._header_field_info { ptr @.str.386, ptr @.str.387, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_pt_ms_exclusion, %struct._header_field_info { ptr @.str.388, ptr @.str.389, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_pt_ms_exclusion_start, %struct._header_field_info { ptr @.str.390, ptr @.str.391, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_pt_ms_exclusion_end, %struct._header_field_info { ptr @.str.392, ptr @.str.393, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_pt_ms_mac24_base, %struct._header_field_info { ptr @.str.394, ptr @.str.395, i32 6, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_pt_ms_mcast_prefix_size, %struct._header_field_info { ptr @.str.396, ptr @.str.397, i32 4, i32 1, ptr null, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_descriptor, %struct._header_field_info { ptr @.str.398, ptr @.str.399, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_tag, %struct._header_field_info { ptr @.str.400, ptr @.str.401, i32 4, i32 2, ptr @table_desc_type, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_length, %struct._header_field_info { ptr @.str.402, ptr @.str.403, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_nnd_char, %struct._header_field_info { ptr @.str.404, ptr @.str.405, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ld_fm_id, %struct._header_field_info { ptr @.str.406, ptr @.str.407, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ld_on_id, %struct._header_field_info { ptr @.str.408, ptr @.str.409, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ld_rm_id, %struct._header_field_info { ptr @.str.349, ptr @.str.410, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ld_service_id, %struct._header_field_info { ptr @.str.411, ptr @.str.412, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ld_linkage_type, %struct._header_field_info { ptr @.str.413, ptr @.str.414, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ld_ho_type, %struct._header_field_info { ptr @.str.415, ptr @.str.416, i32 4, i32 2, ptr null, i64 240, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ld_reserved_future_use, %struct._header_field_info { ptr @.str.355, ptr @.str.417, i32 4, i32 2, ptr null, i64 14, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ld_origin_type, %struct._header_field_info { ptr @.str.418, ptr @.str.419, i32 4, i32 2, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ld_network_id, %struct._header_field_info { ptr @.str.420, ptr @.str.421, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ld_initial_service_id, %struct._header_field_info { ptr @.str.422, ptr @.str.423, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ld_target_event_id, %struct._header_field_info { ptr @.str.424, ptr @.str.425, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ld_target_listed, %struct._header_field_info { ptr @.str.426, ptr @.str.427, i32 4, i32 2, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ld_event_simulcast, %struct._header_field_info { ptr @.str.428, ptr @.str.429, i32 4, i32 2, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ld_reserved, %struct._header_field_info { ptr @.str.357, ptr @.str.430, i32 4, i32 2, ptr null, i64 63, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ld_private_data, %struct._header_field_info { ptr @.str.431, ptr @.str.432, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ld_population_id_loop_count, %struct._header_field_info { ptr @.str.433, ptr @.str.434, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ld_population_id_base, %struct._header_field_info { ptr @.str.435, ptr @.str.436, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ld_population_id_mask, %struct._header_field_info { ptr @.str.437, ptr @.str.438, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_srld_satellite_id, %struct._header_field_info { ptr @.str.439, ptr @.str.440, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_srld_beam_id, %struct._header_field_info { ptr @.str.441, ptr @.str.442, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_srld_gateway_id, %struct._header_field_info { ptr @.str.443, ptr @.str.444, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_srld_reserved, %struct._header_field_info { ptr @.str.445, ptr @.str.446, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_srld_orbital_position, %struct._header_field_info { ptr @.str.447, ptr @.str.448, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_srld_west_east_flag, %struct._header_field_info { ptr @.str.449, ptr @.str.450, i32 4, i32 1, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_srld_superframe_sequence, %struct._header_field_info { ptr @.str.63, ptr @.str.451, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_srld_tx_frequency_offset, %struct._header_field_info { ptr @.str.452, ptr @.str.453, i32 6, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_srld_zero_frequency_offset, %struct._header_field_info { ptr @.str.454, ptr @.str.455, i32 6, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_srld_private_data, %struct._header_field_info { ptr @.str.431, ptr @.str.456, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lid_group_id, %struct._header_field_info { ptr @.str.457, ptr @.str.458, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lid_logon_id, %struct._header_field_info { ptr @.str.112, ptr @.str.459, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lid_continuous_carrier, %struct._header_field_info { ptr @.str.460, ptr @.str.461, i32 4, i32 2, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lid_security_handshake, %struct._header_field_info { ptr @.str.462, ptr @.str.463, i32 4, i32 2, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lid_prefix_flag, %struct._header_field_info { ptr @.str.464, ptr @.str.465, i32 4, i32 2, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lid_data_unit_label_flag, %struct._header_field_info { ptr @.str.466, ptr @.str.467, i32 4, i32 2, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lid_mini_slot_flag, %struct._header_field_info { ptr @.str.468, ptr @.str.469, i32 4, i32 2, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lid_contention_based_mini_slot_flag, %struct._header_field_info { ptr @.str.470, ptr @.str.471, i32 4, i32 2, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lid_capacity_type_flag, %struct._header_field_info { ptr @.str.472, ptr @.str.473, i32 4, i32 2, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lid_traffic_burst_type, %struct._header_field_info { ptr @.str.474, ptr @.str.475, i32 4, i32 2, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lid_connectivity, %struct._header_field_info { ptr @.str.476, ptr @.str.477, i32 4, i32 2, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lid_return_vpi, %struct._header_field_info { ptr @.str.478, ptr @.str.479, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lid_return_vci, %struct._header_field_info { ptr @.str.480, ptr @.str.481, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lid_return_signalling_vpi, %struct._header_field_info { ptr @.str.482, ptr @.str.483, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lid_return_signalling_vci, %struct._header_field_info { ptr @.str.484, ptr @.str.485, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lid_forward_signalling_vpi, %struct._header_field_info { ptr @.str.486, ptr @.str.487, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lid_forward_signalling_vci, %struct._header_field_info { ptr @.str.488, ptr @.str.489, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lid_return_trf_pid, %struct._header_field_info { ptr @.str.490, ptr @.str.491, i32 5, i32 1, ptr null, i64 8191, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lid_return_ctrl_mngm_pid, %struct._header_field_info { ptr @.str.492, ptr @.str.493, i32 5, i32 1, ptr null, i64 8191, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lid_cra_level, %struct._header_field_info { ptr @.str.494, ptr @.str.495, i32 6, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lid_vbdc_max, %struct._header_field_info { ptr @.str.496, ptr @.str.497, i32 5, i32 1, ptr null, i64 2047, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lid_rbdc_max, %struct._header_field_info { ptr @.str.498, ptr @.str.499, i32 6, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lid_rbdc_timeout, %struct._header_field_info { ptr @.str.500, ptr @.str.501, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_fipd_original_network_id, %struct._header_field_info { ptr @.str.408, ptr @.str.502, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_fipd_transport_stream_id, %struct._header_field_info { ptr @.str.503, ptr @.str.504, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_fipd_pid_loop_count, %struct._header_field_info { ptr @.str.505, ptr @.str.506, i32 4, i32 1, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_fipd_pid, %struct._header_field_info { ptr @.str.507, ptr @.str.508, i32 5, i32 1, ptr null, i64 8191, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ripd_continuous_carrier, %struct._header_field_info { ptr @.str.460, ptr @.str.509, i32 4, i32 1, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_desc_network_routing, %struct._header_field_info { ptr @.str.510, ptr @.str.511, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ripd_network_routing_label_loop_count, %struct._header_field_info { ptr @.str.512, ptr @.str.513, i32 4, i32 1, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ripd_allocation_desallocation_flag, %struct._header_field_info { ptr @.str.514, ptr @.str.515, i32 4, i32 1, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ripd_pid_flag, %struct._header_field_info { ptr @.str.516, ptr @.str.517, i32 4, i32 1, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ripd_pid_loop_count, %struct._header_field_info { ptr @.str.505, ptr @.str.518, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ripd_pid, %struct._header_field_info { ptr @.str.507, ptr @.str.519, i32 5, i32 1, ptr null, i64 8191, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ripd_vpi_vci_flag, %struct._header_field_info { ptr @.str.520, ptr @.str.521, i32 4, i32 1, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ripd_vpi_vci_loop_count, %struct._header_field_info { ptr @.str.522, ptr @.str.523, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ripd_vpi, %struct._header_field_info { ptr @.str.524, ptr @.str.525, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ripd_vci, %struct._header_field_info { ptr @.str.526, ptr @.str.527, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ripd_route_id_flag, %struct._header_field_info { ptr @.str.528, ptr @.str.529, i32 4, i32 1, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ripd_route_id_loop_count, %struct._header_field_info { ptr @.str.530, ptr @.str.531, i32 4, i32 1, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ripd_route_id, %struct._header_field_info { ptr @.str.532, ptr @.str.533, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ripd_channel_id, %struct._header_field_info { ptr @.str.122, ptr @.str.534, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_corcd_acq_response_timeout, %struct._header_field_info { ptr @.str.535, ptr @.str.536, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_corcd_sync_response_timeout, %struct._header_field_info { ptr @.str.537, ptr @.str.538, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_corcd_acq_max_losses, %struct._header_field_info { ptr @.str.539, ptr @.str.540, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_corcd_sync_max_losses, %struct._header_field_info { ptr @.str.541, ptr @.str.542, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_concd_superframe_id, %struct._header_field_info { ptr @.str.543, ptr @.str.544, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_concd_csc_response_timeout, %struct._header_field_info { ptr @.str.545, ptr @.str.546, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_concd_csc_max_losses, %struct._header_field_info { ptr @.str.547, ptr @.str.548, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_concd_max_time_before_retry, %struct._header_field_info { ptr @.str.549, ptr @.str.550, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sfld_satellite_id, %struct._header_field_info { ptr @.str.551, ptr @.str.552, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sfld_beam_id, %struct._header_field_info { ptr @.str.553, ptr @.str.554, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sfld_ncc_id, %struct._header_field_info { ptr @.str.555, ptr @.str.556, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sfld_multiplex_usage, %struct._header_field_info { ptr @.str.557, ptr @.str.558, i32 4, i32 1, ptr null, i64 224, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sfld_local_multiplex_id, %struct._header_field_info { ptr @.str.559, ptr @.str.560, i32 4, i32 1, ptr null, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sfld_frequency, %struct._header_field_info { ptr @.str.561, ptr @.str.562, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sfld_orbital_position, %struct._header_field_info { ptr @.str.447, ptr @.str.563, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sfld_west_east_flag, %struct._header_field_info { ptr @.str.449, ptr @.str.564, i32 4, i32 1, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sfld_polarization, %struct._header_field_info { ptr @.str.565, ptr @.str.566, i32 4, i32 1, ptr null, i64 96, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sfld_transmission_standard, %struct._header_field_info { ptr @.str.567, ptr @.str.568, i32 4, i32 1, ptr null, i64 24, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sfld_scrambling_sequence_selector, %struct._header_field_info { ptr @.str.569, ptr @.str.570, i32 4, i32 1, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sfld_roll_off, %struct._header_field_info { ptr @.str.571, ptr @.str.572, i32 4, i32 1, ptr null, i64 3, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sfld_symbol_rate, %struct._header_field_info { ptr @.str.573, ptr @.str.574, i32 6, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sfld_fec_inner, %struct._header_field_info { ptr @.str.575, ptr @.str.576, i32 4, i32 1, ptr null, i64 240, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sfld_input_stream_identifier, %struct._header_field_info { ptr @.str.577, ptr @.str.578, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sfld_reserved_for_forward_spreading, %struct._header_field_info { ptr @.str.579, ptr @.str.580, i32 4, i32 1, ptr null, i64 224, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sfld_scrambling_sequence_index, %struct._header_field_info { ptr @.str.581, ptr @.str.582, i32 6, i32 1, ptr null, i64 262143, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sfld_private_data, %struct._header_field_info { ptr @.str.431, ptr @.str.583, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sfld_ncr_private_data, %struct._header_field_info { ptr @.str.584, ptr @.str.585, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sfld_ncr_base_private_data, %struct._header_field_info { ptr @.str.586, ptr @.str.587, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sfld_ncr_ext_private_data, %struct._header_field_info { ptr @.str.588, ptr @.str.589, i32 5, i32 1, ptr null, i64 511, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_sync_achieved_time_threshold, %struct._header_field_info { ptr @.str.590, ptr @.str.591, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_max_sync_tries, %struct._header_field_info { ptr @.str.592, ptr @.str.593, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_sync_achieved_freq_threshold, %struct._header_field_info { ptr @.str.594, ptr @.str.595, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_ctrl_start_superframe_count, %struct._header_field_info { ptr @.str.596, ptr @.str.597, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_ctrl_frame_nbr, %struct._header_field_info { ptr @.str.598, ptr @.str.599, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_ctrl_repeat_period, %struct._header_field_info { ptr @.str.600, ptr @.str.601, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_ctrl_timeslot_nbr, %struct._header_field_info { ptr @.str.602, ptr @.str.603, i32 5, i32 1, ptr null, i64 2047, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_sync_start_superframe, %struct._header_field_info { ptr @.str.604, ptr @.str.605, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_sync_frame_nbr, %struct._header_field_info { ptr @.str.606, ptr @.str.607, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_sync_repeat_period, %struct._header_field_info { ptr @.str.608, ptr @.str.609, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_sync_slot_nbr, %struct._header_field_info { ptr @.str.610, ptr @.str.611, i32 5, i32 1, ptr null, i64 2047, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_time_correct_flag, %struct._header_field_info { ptr @.str.612, ptr @.str.613, i32 4, i32 2, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_power_correct_flag, %struct._header_field_info { ptr @.str.614, ptr @.str.615, i32 4, i32 2, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_freq_correct_flag, %struct._header_field_info { ptr @.str.616, ptr @.str.617, i32 4, i32 2, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_slot_type, %struct._header_field_info { ptr @.str.618, ptr @.str.619, i32 4, i32 2, ptr @table_timeslotContent, i64 24, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_burst_time_scaling, %struct._header_field_info { ptr @.str.620, ptr @.str.621, i32 4, i32 1, ptr null, i64 7, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_burst_time_correct, %struct._header_field_info { ptr @.str.622, ptr @.str.623, i32 12, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_power_ctrl_flag, %struct._header_field_info { ptr @.str.624, ptr @.str.625, i32 4, i32 2, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_power_correction, %struct._header_field_info { ptr @.str.626, ptr @.str.627, i32 12, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_power_esn0, %struct._header_field_info { ptr @.str.628, ptr @.str.629, i32 12, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_freq_correction, %struct._header_field_info { ptr @.str.630, ptr @.str.631, i32 13, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_slot_nbr, %struct._header_field_info { ptr @.str.632, ptr @.str.633, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_sf_sequence, %struct._header_field_info { ptr @.str.63, ptr @.str.634, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_frame_number, %struct._header_field_info { ptr @.str.104, ptr @.str.635, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_keep_id_after_logoff, %struct._header_field_info { ptr @.str.636, ptr @.str.637, i32 4, i32 2, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_power_ctrl_mode, %struct._header_field_info { ptr @.str.638, ptr @.str.639, i32 4, i32 2, ptr null, i64 48, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_rcst_access_status, %struct._header_field_info { ptr @.str.640, ptr @.str.641, i32 4, i32 2, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_logon_id, %struct._header_field_info { ptr @.str.642, ptr @.str.643, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_lowest_assign_id, %struct._header_field_info { ptr @.str.644, ptr @.str.645, i32 6, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_assign_id_count, %struct._header_field_info { ptr @.str.646, ptr @.str.647, i32 4, i32 2, ptr null, i64 240, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_unicast_mac24_count, %struct._header_field_info { ptr @.str.648, ptr @.str.649, i32 4, i32 2, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_mac24, %struct._header_field_info { ptr @.str.650, ptr @.str.651, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_mac24_prefix_size, %struct._header_field_info { ptr @.str.652, ptr @.str.653, i32 4, i32 2, ptr null, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_mac24_unicast, %struct._header_field_info { ptr @.str.654, ptr @.str.655, i32 6, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_mac24_mcast_mapping_method, %struct._header_field_info { ptr @.str.656, ptr @.str.657, i32 4, i32 2, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_mac24_mcast_ip_version_ind_pres, %struct._header_field_info { ptr @.str.658, ptr @.str.659, i32 4, i32 2, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_mac24_mcast_synthesis_field_size, %struct._header_field_info { ptr @.str.660, ptr @.str.661, i32 4, i32 2, ptr null, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_default_svn_number, %struct._header_field_info { ptr @.str.662, ptr @.str.663, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_reserved, %struct._header_field_info { ptr @.str.664, ptr @.str.665, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_mc_command_value, %struct._header_field_info { ptr @.str.666, ptr @.str.667, i32 5, i32 2, ptr @table_mobility_command_value, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_mc_command_parameter, %struct._header_field_info { ptr @.str.668, ptr @.str.669, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lsvd_group_count, %struct._header_field_info { ptr @.str.670, ptr @.str.671, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lsvd_oui, %struct._header_field_info { ptr @.str.672, ptr @.str.673, i32 7, i32 1, ptr null, i64 16777215, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lsvd_mcast_address, %struct._header_field_info { ptr @.str.674, ptr @.str.675, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lsvd_mcast_port, %struct._header_field_info { ptr @.str.676, ptr @.str.677, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lsvd_version_field_length, %struct._header_field_info { ptr @.str.678, ptr @.str.679, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lsvd_version_bytes, %struct._header_field_info { ptr @.str.680, ptr @.str.681, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_default_ctrl_random_interval, %struct._header_field_info { ptr @.str.682, ptr @.str.683, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_dynamic_rate_persistence, %struct._header_field_info { ptr @.str.684, ptr @.str.685, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_volume_backlog_persistence, %struct._header_field_info { ptr @.str.686, ptr @.str.687, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_lls_count, %struct._header_field_info { ptr @.str.688, ptr @.str.689, i32 4, i32 2, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_rc_count, %struct._header_field_info { ptr @.str.690, ptr @.str.691, i32 4, i32 2, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_ra_ac_count, %struct._header_field_info { ptr @.str.692, ptr @.str.693, i32 4, i32 2, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lls, %struct._header_field_info { ptr @.str.694, ptr @.str.695, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lls_index, %struct._header_field_info { ptr @.str.696, ptr @.str.697, i32 4, i32 2, ptr null, i64 60, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lls_random_access, %struct._header_field_info { ptr @.str.698, ptr @.str.699, i32 4, i32 2, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lls_dedicated_access, %struct._header_field_info { ptr @.str.700, ptr @.str.701, i32 4, i32 2, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lls_nominal_rc_index, %struct._header_field_info { ptr @.str.702, ptr @.str.703, i32 4, i32 2, ptr null, i64 240, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lls_nominal_da_ac_index, %struct._header_field_info { ptr @.str.704, ptr @.str.705, i32 4, i32 2, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lls_conditional_demand_rc_map, %struct._header_field_info { ptr @.str.706, ptr @.str.707, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lls_conditional_scheduler_da_ac_map, %struct._header_field_info { ptr @.str.708, ptr @.str.709, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lls_nominal_ra_ac_index, %struct._header_field_info { ptr @.str.710, ptr @.str.711, i32 4, i32 2, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lls_conditional_scheduler_ra_ac_map, %struct._header_field_info { ptr @.str.712, ptr @.str.713, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_rc, %struct._header_field_info { ptr @.str.714, ptr @.str.715, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_rc_index, %struct._header_field_info { ptr @.str.716, ptr @.str.717, i32 4, i32 2, ptr null, i64 240, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_rc_constant_assignment_provided, %struct._header_field_info { ptr @.str.718, ptr @.str.719, i32 4, i32 2, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_rc_volume_allowed, %struct._header_field_info { ptr @.str.720, ptr @.str.721, i32 4, i32 2, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_rc_rbdc_allowed, %struct._header_field_info { ptr @.str.722, ptr @.str.723, i32 4, i32 2, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_rc_maximum_service_rate, %struct._header_field_info { ptr @.str.724, ptr @.str.725, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_rc_minimum_service_rate, %struct._header_field_info { ptr @.str.726, ptr @.str.727, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_rc_constant_service_rate, %struct._header_field_info { ptr @.str.728, ptr @.str.729, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_rc_maximum_backlog, %struct._header_field_info { ptr @.str.730, ptr @.str.731, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ra_ac, %struct._header_field_info { ptr @.str.732, ptr @.str.733, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ra_ac_index, %struct._header_field_info { ptr @.str.734, ptr @.str.735, i32 4, i32 2, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ra_ac_max_unique_payload_per_block, %struct._header_field_info { ptr @.str.736, ptr @.str.737, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ra_ac_max_consecutive_block_accessed, %struct._header_field_info { ptr @.str.738, ptr @.str.739, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ra_ac_min_idle_block, %struct._header_field_info { ptr @.str.740, ptr @.str.741, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ra_ac_defaults_field_size, %struct._header_field_info { ptr @.str.742, ptr @.str.743, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ra_ac_defaults_for_ra_load_control, %struct._header_field_info { ptr @.str.744, ptr @.str.745, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_crc32, %struct._header_field_info { ptr @.str.746, ptr @.str.747, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
+@proto_register_dvb_s2_table.hf_table = internal global [396 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_dvb_s2_table_id, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 4, i32 2, ptr @tabletype, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_section, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 4, i32 2, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_private, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 4, i32 2, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_reserved, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 4, i32 2, ptr null, i64 48, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_msb_len, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 4, i32 1, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lsb_len, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_network_interactive_id, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_reserved2, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 4, i32 2, ptr null, i64 192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_version_number, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 4, i32 1, ptr null, i64 62, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_current_next_indicator, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 4, i32 1, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_section_number, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_last_section_number, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_smt_id, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 4, i32 2, ptr @tabletype, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_smt_section_syntax_indicator, %struct._header_field_info { ptr @.str.24, ptr @.str.3, i32 5, i32 2, ptr null, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_smt_futur_use, %struct._header_field_info { ptr @.str.25, ptr @.str.26, i32 5, i32 2, ptr null, i64 16384, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_smt_reserved, %struct._header_field_info { ptr @.str.27, ptr @.str.7, i32 5, i32 2, ptr null, i64 12288, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_smt_section_length, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 5, i32 1, ptr null, i64 4095, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_smt_esn0, %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_smt_modcod, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_section_syntax_indic, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 4, i32 1, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_private_indicator, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 4, i32 1, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_reserved_1, %struct._header_field_info { ptr @.str.36, ptr @.str.37, i32 4, i32 1, ptr null, i64 48, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_section_length, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 5, i32 1, ptr null, i64 4095, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_mac_addres_6, %struct._header_field_info { ptr @.str.38, ptr @.str.39, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_mac_addres_5, %struct._header_field_info { ptr @.str.40, ptr @.str.41, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_mac_addres_4, %struct._header_field_info { ptr @.str.42, ptr @.str.43, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_mac_addres_3, %struct._header_field_info { ptr @.str.44, ptr @.str.45, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_mac_addres_2, %struct._header_field_info { ptr @.str.46, ptr @.str.47, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_mac_addres_1, %struct._header_field_info { ptr @.str.48, ptr @.str.49, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_reserved_2, %struct._header_field_info { ptr @.str.14, ptr @.str.50, i32 4, i32 1, ptr null, i64 192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_payload_scrambling_control, %struct._header_field_info { ptr @.str.51, ptr @.str.52, i32 4, i32 1, ptr null, i64 48, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_address_scrambling_control, %struct._header_field_info { ptr @.str.53, ptr @.str.54, i32 4, i32 1, ptr null, i64 12, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_LLC_SNAP_flag, %struct._header_field_info { ptr @.str.55, ptr @.str.56, i32 4, i32 1, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_current_next_indicator, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 4, i32 1, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_section_number, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_last_section_number, %struct._header_field_info { ptr @.str.22, ptr @.str.57, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_superframe_loop_count, %struct._header_field_info { ptr @.str.58, ptr @.str.59, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_superframe, %struct._header_field_info { ptr @.str.60, ptr @.str.61, i32 30, i32 0, ptr null, i64 0, ptr @.str.62, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sf_sequence, %struct._header_field_info { ptr @.str.63, ptr @.str.64, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sf_id, %struct._header_field_info { ptr @.str.65, ptr @.str.66, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sf_large_timing_uncertainty_flag, %struct._header_field_info { ptr @.str.67, ptr @.str.68, i32 4, i32 2, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sf_uplink_polarization, %struct._header_field_info { ptr @.str.69, ptr @.str.70, i32 4, i32 2, ptr @table_uplinkPolarization, i64 3, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sf_absolute_time, %struct._header_field_info { ptr @.str.71, ptr @.str.72, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sf_duration, %struct._header_field_info { ptr @.str.73, ptr @.str.74, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sf_centre_frequency, %struct._header_field_info { ptr @.str.75, ptr @.str.76, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sf_count, %struct._header_field_info { ptr @.str.77, ptr @.str.78, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sf_frame_loop_count, %struct._header_field_info { ptr @.str.79, ptr @.str.80, i32 4, i32 1, ptr null, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sf_frame, %struct._header_field_info { ptr @.str.81, ptr @.str.82, i32 30, i32 0, ptr null, i64 0, ptr @.str.83, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sf_frame_type, %struct._header_field_info { ptr @.str.84, ptr @.str.85, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sf_frame_id, %struct._header_field_info { ptr @.str.86, ptr @.str.87, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sf_frame_start_time, %struct._header_field_info { ptr @.str.88, ptr @.str.89, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sf_frame_centre_frequency_offset, %struct._header_field_info { ptr @.str.90, ptr @.str.91, i32 14, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_rcst_status, %struct._header_field_info { ptr @.str.92, ptr @.str.93, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_network_status, %struct._header_field_info { ptr @.str.94, ptr @.str.95, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_loop_count, %struct._header_field_info { ptr @.str.96, ptr @.str.97, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_tbtp_group_id, %struct._header_field_info { ptr @.str.98, ptr @.str.99, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_tbtp_superframe_count, %struct._header_field_info { ptr @.str.77, ptr @.str.100, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_tbtp_frame_loop_count, %struct._header_field_info { ptr @.str.101, ptr @.str.102, i32 4, i32 1, ptr null, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_tbtp_sf_frame, %struct._header_field_info { ptr @.str.81, ptr @.str.103, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_tbtp_frame_number, %struct._header_field_info { ptr @.str.104, ptr @.str.105, i32 4, i32 1, ptr null, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_tbtp_btb_loop_count, %struct._header_field_info { ptr @.str.106, ptr @.str.107, i32 5, i32 1, ptr null, i64 2047, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_tbtp_assignment_count, %struct._header_field_info { ptr @.str.108, ptr @.str.109, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_tbtp_btp, %struct._header_field_info { ptr @.str.110, ptr @.str.111, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_tbtp_logon_id, %struct._header_field_info { ptr @.str.112, ptr @.str.113, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_tbtp_multiple_channel_flag, %struct._header_field_info { ptr @.str.114, ptr @.str.115, i32 4, i32 1, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_tbtp_assignment_type, %struct._header_field_info { ptr @.str.116, ptr @.str.117, i32 4, i32 1, ptr null, i64 96, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_tbtp_frame_vbdc_queue_empty_flag, %struct._header_field_info { ptr @.str.118, ptr @.str.119, i32 4, i32 1, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_tbtp_start_slot, %struct._header_field_info { ptr @.str.120, ptr @.str.121, i32 5, i32 1, ptr null, i64 2047, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_tbtp_channel_id, %struct._header_field_info { ptr @.str.122, ptr @.str.123, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_group_id, %struct._header_field_info { ptr @.str.124, ptr @.str.99, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_assign_context, %struct._header_field_info { ptr @.str.125, ptr @.str.126, i32 4, i32 2, ptr @table_assignContext, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_superframe_count, %struct._header_field_info { ptr @.str.77, ptr @.str.100, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_assign_format, %struct._header_field_info { ptr @.str.127, ptr @.str.128, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_loop_count, %struct._header_field_info { ptr @.str.129, ptr @.str.102, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_number, %struct._header_field_info { ptr @.str.104, ptr @.str.105, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_assign_offset, %struct._header_field_info { ptr @.str.130, ptr @.str.131, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_assign_loop_count, %struct._header_field_info { ptr @.str.132, ptr @.str.133, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_assignment, %struct._header_field_info { ptr @.str.134, ptr @.str.135, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_assign_id8, %struct._header_field_info { ptr @.str.136, ptr @.str.137, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_assign_id16, %struct._header_field_info { ptr @.str.136, ptr @.str.138, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_assign_id24, %struct._header_field_info { ptr @.str.136, ptr @.str.139, i32 6, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_assign_id48, %struct._header_field_info { ptr @.str.136, ptr @.str.140, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_dynamic_tx_type, %struct._header_field_info { ptr @.str.141, ptr @.str.142, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_entry_loop_count, %struct._header_field_info { ptr @.str.143, ptr @.str.144, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_entry, %struct._header_field_info { ptr @.str.145, ptr @.str.146, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_entry_login_id, %struct._header_field_info { ptr @.str.147, ptr @.str.148, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_common_sytem_margin, %struct._header_field_info { ptr @.str.149, ptr @.str.150, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_mode_count, %struct._header_field_info { ptr @.str.151, ptr @.str.152, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_mode, %struct._header_field_info { ptr @.str.153, ptr @.str.154, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_mode_frame_length, %struct._header_field_info { ptr @.str.155, ptr @.str.156, i32 4, i32 2, ptr null, i64 192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_mode_pilot_symbols, %struct._header_field_info { ptr @.str.157, ptr @.str.158, i32 4, i32 2, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_mode_modcod, %struct._header_field_info { ptr @.str.159, ptr @.str.160, i32 4, i32 2, ptr @table_modcods, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_mode_modcod_system_margin, %struct._header_field_info { ptr @.str.161, ptr @.str.162, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_mode_isi, %struct._header_field_info { ptr @.str.163, ptr @.str.164, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_type_loop_count, %struct._header_field_info { ptr @.str.165, ptr @.str.166, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_type_branch, %struct._header_field_info { ptr @.str.84, ptr @.str.167, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_type, %struct._header_field_info { ptr @.str.84, ptr @.str.168, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_type_frame_duration, %struct._header_field_info { ptr @.str.169, ptr @.str.170, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_type_tx_format_class, %struct._header_field_info { ptr @.str.171, ptr @.str.172, i32 4, i32 2, ptr @table_frameType_txFormatClass, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_type_btu_duration, %struct._header_field_info { ptr @.str.173, ptr @.str.174, i32 6, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_type_btu_carrier_bw, %struct._header_field_info { ptr @.str.175, ptr @.str.176, i32 6, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_type_btu_symbol_rate, %struct._header_field_info { ptr @.str.177, ptr @.str.178, i32 6, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_type_time_unit_count, %struct._header_field_info { ptr @.str.179, ptr @.str.180, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_type_grid_repeat_count, %struct._header_field_info { ptr @.str.181, ptr @.str.182, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_type_grid_frequency_offset, %struct._header_field_info { ptr @.str.183, ptr @.str.184, i32 14, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_type_section_loop_count, %struct._header_field_info { ptr @.str.185, ptr @.str.186, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_type_section, %struct._header_field_info { ptr @.str.187, ptr @.str.188, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_type_section_default_tx_type, %struct._header_field_info { ptr @.str.189, ptr @.str.190, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_type_section_fix_acc_method, %struct._header_field_info { ptr @.str.191, ptr @.str.192, i32 4, i32 2, ptr null, i64 12, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_type_section_repeat_count, %struct._header_field_info { ptr @.str.193, ptr @.str.194, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_ID_loop_count, %struct._header_field_info { ptr @.str.101, ptr @.str.195, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_ID_branch, %struct._header_field_info { ptr @.str.81, ptr @.str.196, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_ID, %struct._header_field_info { ptr @.str.197, ptr @.str.198, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_ID_frame_duration, %struct._header_field_info { ptr @.str.199, ptr @.str.200, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_ID_total_timeslot_count, %struct._header_field_info { ptr @.str.201, ptr @.str.202, i32 5, i32 1, ptr null, i64 2047, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_ID_start_timeslot_number, %struct._header_field_info { ptr @.str.203, ptr @.str.204, i32 5, i32 1, ptr null, i64 2047, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_ID_timeslot_loop_count, %struct._header_field_info { ptr @.str.205, ptr @.str.206, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_ID_timeslot, %struct._header_field_info { ptr @.str.207, ptr @.str.208, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_ID_timeslot_timeslot_frequency_offset, %struct._header_field_info { ptr @.str.209, ptr @.str.210, i32 14, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_ID_timeslot_timeslot_time_offset, %struct._header_field_info { ptr @.str.211, ptr @.str.212, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_ID_timeslot_timeslot_id, %struct._header_field_info { ptr @.str.213, ptr @.str.214, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_frame_ID_timeslot_repeat_count, %struct._header_field_info { ptr @.str.215, ptr @.str.216, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_loop_count, %struct._header_field_info { ptr @.str.217, ptr @.str.218, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_branch, %struct._header_field_info { ptr @.str.219, ptr @.str.220, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type, %struct._header_field_info { ptr @.str.219, ptr @.str.221, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_tx_content_type, %struct._header_field_info { ptr @.str.222, ptr @.str.223, i32 4, i32 2, ptr @table_txType_contentType, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_tx_format_class, %struct._header_field_info { ptr @.str.224, ptr @.str.225, i32 4, i32 2, ptr @table_frameType_txFormatClass, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_tx_format_data_length, %struct._header_field_info { ptr @.str.226, ptr @.str.227, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_tx_format_data, %struct._header_field_info { ptr @.str.228, ptr @.str.229, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_tx_block_size, %struct._header_field_info { ptr @.str.230, ptr @.str.231, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_threshold_es_n0, %struct._header_field_info { ptr @.str.232, ptr @.str.233, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_payload_size, %struct._header_field_info { ptr @.str.234, ptr @.str.235, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_modulation_scheme, %struct._header_field_info { ptr @.str.236, ptr @.str.237, i32 4, i32 2, ptr @table_txType_modulationScheme, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_p, %struct._header_field_info { ptr @.str.238, ptr @.str.239, i32 4, i32 2, ptr null, i64 0, ptr @.str.240, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_q0, %struct._header_field_info { ptr @.str.241, ptr @.str.242, i32 4, i32 2, ptr null, i64 15, ptr @.str.243, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_q1, %struct._header_field_info { ptr @.str.244, ptr @.str.245, i32 4, i32 2, ptr null, i64 15, ptr @.str.246, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_q2, %struct._header_field_info { ptr @.str.247, ptr @.str.248, i32 4, i32 2, ptr null, i64 15, ptr @.str.249, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_q3, %struct._header_field_info { ptr @.str.250, ptr @.str.251, i32 4, i32 2, ptr null, i64 15, ptr @.str.252, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_y_period, %struct._header_field_info { ptr @.str.253, ptr @.str.254, i32 4, i32 1, ptr null, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_w_period, %struct._header_field_info { ptr @.str.255, ptr @.str.256, i32 4, i32 1, ptr null, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_y_pattern, %struct._header_field_info { ptr @.str.257, ptr @.str.258, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_y_pattern_bit, %struct._header_field_info { ptr @.str.259, ptr @.str.260, i32 4, i32 2, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_w_pattern, %struct._header_field_info { ptr @.str.261, ptr @.str.262, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_w_pattern_bit, %struct._header_field_info { ptr @.str.263, ptr @.str.264, i32 4, i32 2, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_preamble_len, %struct._header_field_info { ptr @.str.265, ptr @.str.266, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_postamble_len, %struct._header_field_info { ptr @.str.267, ptr @.str.268, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_pilot_period, %struct._header_field_info { ptr @.str.269, ptr @.str.270, i32 5, i32 1, ptr null, i64 4095, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_pilot_block_len, %struct._header_field_info { ptr @.str.271, ptr @.str.272, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_pilot_sum, %struct._header_field_info { ptr @.str.273, ptr @.str.274, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_uw_symbol, %struct._header_field_info { ptr @.str.275, ptr @.str.276, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_uw_symbol_unit, %struct._header_field_info { ptr @.str.277, ptr @.str.278, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_uw_symbol_qpsk, %struct._header_field_info { ptr @.str.279, ptr @.str.280, i32 4, i32 2, ptr null, i64 192, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_uw_symbol_8psk, %struct._header_field_info { ptr @.str.281, ptr @.str.282, i32 4, i32 2, ptr null, i64 224, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_uw_symbol_16qam, %struct._header_field_info { ptr @.str.283, ptr @.str.284, i32 4, i32 2, ptr null, i64 240, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_waveform_id, %struct._header_field_info { ptr @.str.285, ptr @.str.286, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_tx_start_offset, %struct._header_field_info { ptr @.str.287, ptr @.str.288, i32 7, i32 1, ptr null, i64 1048575, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_tx_start_offset_1, %struct._header_field_info { ptr @.str.287, ptr @.str.289, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_tx_start_offset_2, %struct._header_field_info { ptr @.str.287, ptr @.str.289, i32 6, i32 1, ptr null, i64 1048575, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_modulation_mh, %struct._header_field_info { ptr @.str.290, ptr @.str.291, i32 4, i32 1, ptr null, i64 224, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_modulation_ph, %struct._header_field_info { ptr @.str.292, ptr @.str.293, i32 4, i32 1, ptr null, i64 28, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_modulation_type, %struct._header_field_info { ptr @.str.294, ptr @.str.295, i32 4, i32 1, ptr @table_txType_modulationType, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_alpha_rc, %struct._header_field_info { ptr @.str.296, ptr @.str.297, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_code_rate, %struct._header_field_info { ptr @.str.298, ptr @.str.299, i32 4, i32 2, ptr @table_txType_codeRate, i64 28, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_constraint_length_k, %struct._header_field_info { ptr @.str.300, ptr @.str.301, i32 4, i32 2, ptr @table_txType_constraintLengthK, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_uw_length, %struct._header_field_info { ptr @.str.302, ptr @.str.303, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_nbr_uw_segments, %struct._header_field_info { ptr @.str.304, ptr @.str.305, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_uw_segment, %struct._header_field_info { ptr @.str.306, ptr @.str.307, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_uw_segment_start, %struct._header_field_info { ptr @.str.308, ptr @.str.309, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_uw_segment_length, %struct._header_field_info { ptr @.str.310, ptr @.str.311, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_param_interleaver, %struct._header_field_info { ptr @.str.312, ptr @.str.313, i32 4, i32 1, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_n, %struct._header_field_info { ptr @.str.314, ptr @.str.315, i32 5, i32 1, ptr null, i64 65520, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_s, %struct._header_field_info { ptr @.str.316, ptr @.str.317, i32 5, i32 1, ptr null, i64 4032, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_p_interleaver, %struct._header_field_info { ptr @.str.318, ptr @.str.239, i32 5, i32 1, ptr null, i64 16368, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_n1_12, %struct._header_field_info { ptr @.str.319, ptr @.str.320, i32 5, i32 1, ptr null, i64 4088, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_k1_12, %struct._header_field_info { ptr @.str.321, ptr @.str.322, i32 5, i32 1, ptr null, i64 2044, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_K2_12, %struct._header_field_info { ptr @.str.323, ptr @.str.324, i32 5, i32 1, ptr null, i64 1022, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_K3_12, %struct._header_field_info { ptr @.str.325, ptr @.str.326, i32 5, i32 1, ptr null, i64 511, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_tx_type_pi_i, %struct._header_field_info { ptr @.str.327, ptr @.str.328, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_satellite_loop_count, %struct._header_field_info { ptr @.str.329, ptr @.str.330, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_satellite, %struct._header_field_info { ptr @.str.331, ptr @.str.332, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_satellite_id, %struct._header_field_info { ptr @.str.333, ptr @.str.334, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_satellite_x_coordinate, %struct._header_field_info { ptr @.str.335, ptr @.str.336, i32 22, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_satellite_y_coordinate, %struct._header_field_info { ptr @.str.337, ptr @.str.338, i32 22, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_satellite_z_coordinate, %struct._header_field_info { ptr @.str.339, ptr @.str.340, i32 22, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_network_descriptors_length, %struct._header_field_info { ptr @.str.341, ptr @.str.342, i32 5, i32 1, ptr null, i64 4095, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_multiplex_streams_spec_length, %struct._header_field_info { ptr @.str.343, ptr @.str.344, i32 5, i32 1, ptr null, i64 4095, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_multiplex, %struct._header_field_info { ptr @.str.345, ptr @.str.346, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_multiplex_forward_multiplex, %struct._header_field_info { ptr @.str.347, ptr @.str.348, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_multiplex_reward_multiplex, %struct._header_field_info { ptr @.str.349, ptr @.str.350, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_multiplex_original_network_id, %struct._header_field_info { ptr @.str.351, ptr @.str.352, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_multiplex_transport_descriptors_length, %struct._header_field_info { ptr @.str.353, ptr @.str.354, i32 5, i32 1, ptr null, i64 4095, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_reserved_future_use, %struct._header_field_info { ptr @.str.355, ptr @.str.356, i32 4, i32 2, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_reserved_tdt, %struct._header_field_info { ptr @.str.357, ptr @.str.7, i32 4, i32 2, ptr null, i64 48, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_tdt_date, %struct._header_field_info { ptr @.str.358, ptr @.str.359, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_tdt_hour, %struct._header_field_info { ptr @.str.360, ptr @.str.361, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_tdt_minute, %struct._header_field_info { ptr @.str.362, ptr @.str.363, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_tdt_second, %struct._header_field_info { ptr @.str.364, ptr @.str.365, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_svn_number, %struct._header_field_info { ptr @.str.366, ptr @.str.367, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_svn_prefix_size, %struct._header_field_info { ptr @.str.368, ptr @.str.369, i32 4, i32 1, ptr null, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_pt_count, %struct._header_field_info { ptr @.str.370, ptr @.str.371, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_protocol, %struct._header_field_info { ptr @.str.372, ptr @.str.373, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_pt_protocol_type, %struct._header_field_info { ptr @.str.374, ptr @.str.375, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_pt_address_size, %struct._header_field_info { ptr @.str.376, ptr @.str.377, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_pt_mapping_sections, %struct._header_field_info { ptr @.str.378, ptr @.str.379, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_pt_mapping_section, %struct._header_field_info { ptr @.str.380, ptr @.str.381, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_pt_ms_inclusion_start, %struct._header_field_info { ptr @.str.382, ptr @.str.383, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_pt_ms_inclusion_end, %struct._header_field_info { ptr @.str.384, ptr @.str.385, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_pt_ms_exclusions, %struct._header_field_info { ptr @.str.386, ptr @.str.387, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_pt_ms_exclusion, %struct._header_field_info { ptr @.str.388, ptr @.str.389, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_pt_ms_exclusion_start, %struct._header_field_info { ptr @.str.390, ptr @.str.391, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_pt_ms_exclusion_end, %struct._header_field_info { ptr @.str.392, ptr @.str.393, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_pt_ms_mac24_base, %struct._header_field_info { ptr @.str.394, ptr @.str.395, i32 6, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_pt_ms_mcast_prefix_size, %struct._header_field_info { ptr @.str.396, ptr @.str.397, i32 4, i32 1, ptr null, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_descriptor, %struct._header_field_info { ptr @.str.398, ptr @.str.399, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_tag, %struct._header_field_info { ptr @.str.400, ptr @.str.401, i32 4, i32 2, ptr @table_desc_type, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_length, %struct._header_field_info { ptr @.str.402, ptr @.str.403, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_nnd_char, %struct._header_field_info { ptr @.str.404, ptr @.str.405, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ld_fm_id, %struct._header_field_info { ptr @.str.406, ptr @.str.407, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ld_on_id, %struct._header_field_info { ptr @.str.408, ptr @.str.409, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ld_rm_id, %struct._header_field_info { ptr @.str.349, ptr @.str.410, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ld_service_id, %struct._header_field_info { ptr @.str.411, ptr @.str.412, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ld_linkage_type, %struct._header_field_info { ptr @.str.413, ptr @.str.414, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ld_ho_type, %struct._header_field_info { ptr @.str.415, ptr @.str.416, i32 4, i32 2, ptr null, i64 240, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ld_reserved_future_use, %struct._header_field_info { ptr @.str.355, ptr @.str.417, i32 4, i32 2, ptr null, i64 14, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ld_origin_type, %struct._header_field_info { ptr @.str.418, ptr @.str.419, i32 4, i32 2, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ld_network_id, %struct._header_field_info { ptr @.str.420, ptr @.str.421, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ld_initial_service_id, %struct._header_field_info { ptr @.str.422, ptr @.str.423, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ld_target_event_id, %struct._header_field_info { ptr @.str.424, ptr @.str.425, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ld_target_listed, %struct._header_field_info { ptr @.str.426, ptr @.str.427, i32 4, i32 2, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ld_event_simulcast, %struct._header_field_info { ptr @.str.428, ptr @.str.429, i32 4, i32 2, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ld_reserved, %struct._header_field_info { ptr @.str.357, ptr @.str.430, i32 4, i32 2, ptr null, i64 63, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ld_private_data, %struct._header_field_info { ptr @.str.431, ptr @.str.432, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ld_population_id_loop_count, %struct._header_field_info { ptr @.str.433, ptr @.str.434, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ld_population_id_base, %struct._header_field_info { ptr @.str.435, ptr @.str.436, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ld_population_id_mask, %struct._header_field_info { ptr @.str.437, ptr @.str.438, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_srld_satellite_id, %struct._header_field_info { ptr @.str.439, ptr @.str.440, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_srld_beam_id, %struct._header_field_info { ptr @.str.441, ptr @.str.442, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_srld_gateway_id, %struct._header_field_info { ptr @.str.443, ptr @.str.444, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_srld_reserved, %struct._header_field_info { ptr @.str.445, ptr @.str.446, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_srld_orbital_position, %struct._header_field_info { ptr @.str.447, ptr @.str.448, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_srld_west_east_flag, %struct._header_field_info { ptr @.str.449, ptr @.str.450, i32 4, i32 1, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_srld_superframe_sequence, %struct._header_field_info { ptr @.str.63, ptr @.str.451, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_srld_tx_frequency_offset, %struct._header_field_info { ptr @.str.452, ptr @.str.453, i32 6, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_srld_zero_frequency_offset, %struct._header_field_info { ptr @.str.454, ptr @.str.455, i32 6, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_srld_private_data, %struct._header_field_info { ptr @.str.431, ptr @.str.456, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lid_group_id, %struct._header_field_info { ptr @.str.457, ptr @.str.458, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lid_logon_id, %struct._header_field_info { ptr @.str.112, ptr @.str.459, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lid_continuous_carrier, %struct._header_field_info { ptr @.str.460, ptr @.str.461, i32 4, i32 2, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lid_security_handshake, %struct._header_field_info { ptr @.str.462, ptr @.str.463, i32 4, i32 2, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lid_prefix_flag, %struct._header_field_info { ptr @.str.464, ptr @.str.465, i32 4, i32 2, ptr null, i64 8, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lid_data_unit_label_flag, %struct._header_field_info { ptr @.str.466, ptr @.str.467, i32 4, i32 2, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lid_mini_slot_flag, %struct._header_field_info { ptr @.str.468, ptr @.str.469, i32 4, i32 2, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lid_contention_based_mini_slot_flag, %struct._header_field_info { ptr @.str.470, ptr @.str.471, i32 4, i32 2, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lid_capacity_type_flag, %struct._header_field_info { ptr @.str.472, ptr @.str.473, i32 4, i32 2, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lid_traffic_burst_type, %struct._header_field_info { ptr @.str.474, ptr @.str.475, i32 4, i32 2, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lid_connectivity, %struct._header_field_info { ptr @.str.476, ptr @.str.477, i32 4, i32 2, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lid_return_vpi, %struct._header_field_info { ptr @.str.478, ptr @.str.479, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lid_return_vci, %struct._header_field_info { ptr @.str.480, ptr @.str.481, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lid_return_signalling_vpi, %struct._header_field_info { ptr @.str.482, ptr @.str.483, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lid_return_signalling_vci, %struct._header_field_info { ptr @.str.484, ptr @.str.485, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lid_forward_signalling_vpi, %struct._header_field_info { ptr @.str.486, ptr @.str.487, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lid_forward_signalling_vci, %struct._header_field_info { ptr @.str.488, ptr @.str.489, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lid_return_trf_pid, %struct._header_field_info { ptr @.str.490, ptr @.str.491, i32 5, i32 1, ptr null, i64 8191, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lid_return_ctrl_mngm_pid, %struct._header_field_info { ptr @.str.492, ptr @.str.493, i32 5, i32 1, ptr null, i64 8191, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lid_cra_level, %struct._header_field_info { ptr @.str.494, ptr @.str.495, i32 6, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lid_vbdc_max, %struct._header_field_info { ptr @.str.496, ptr @.str.497, i32 5, i32 1, ptr null, i64 2047, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lid_rbdc_max, %struct._header_field_info { ptr @.str.498, ptr @.str.499, i32 6, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lid_rbdc_timeout, %struct._header_field_info { ptr @.str.500, ptr @.str.501, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_fipd_original_network_id, %struct._header_field_info { ptr @.str.408, ptr @.str.502, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_fipd_transport_stream_id, %struct._header_field_info { ptr @.str.503, ptr @.str.504, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_fipd_pid_loop_count, %struct._header_field_info { ptr @.str.505, ptr @.str.506, i32 4, i32 1, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_fipd_pid, %struct._header_field_info { ptr @.str.507, ptr @.str.508, i32 5, i32 1, ptr null, i64 8191, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ripd_continuous_carrier, %struct._header_field_info { ptr @.str.460, ptr @.str.509, i32 4, i32 1, ptr null, i64 16, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_desc_network_routing, %struct._header_field_info { ptr @.str.510, ptr @.str.511, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ripd_network_routing_label_loop_count, %struct._header_field_info { ptr @.str.512, ptr @.str.513, i32 4, i32 1, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ripd_allocation_desallocation_flag, %struct._header_field_info { ptr @.str.514, ptr @.str.515, i32 4, i32 1, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ripd_pid_flag, %struct._header_field_info { ptr @.str.516, ptr @.str.517, i32 4, i32 1, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ripd_pid_loop_count, %struct._header_field_info { ptr @.str.505, ptr @.str.518, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ripd_pid, %struct._header_field_info { ptr @.str.507, ptr @.str.519, i32 5, i32 1, ptr null, i64 8191, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ripd_vpi_vci_flag, %struct._header_field_info { ptr @.str.520, ptr @.str.521, i32 4, i32 1, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ripd_vpi_vci_loop_count, %struct._header_field_info { ptr @.str.522, ptr @.str.523, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ripd_vpi, %struct._header_field_info { ptr @.str.524, ptr @.str.525, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ripd_vci, %struct._header_field_info { ptr @.str.526, ptr @.str.527, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ripd_route_id_flag, %struct._header_field_info { ptr @.str.528, ptr @.str.529, i32 4, i32 1, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ripd_route_id_loop_count, %struct._header_field_info { ptr @.str.530, ptr @.str.531, i32 4, i32 1, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ripd_route_id, %struct._header_field_info { ptr @.str.532, ptr @.str.533, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ripd_channel_id, %struct._header_field_info { ptr @.str.122, ptr @.str.534, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_corcd_acq_response_timeout, %struct._header_field_info { ptr @.str.535, ptr @.str.536, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_corcd_sync_response_timeout, %struct._header_field_info { ptr @.str.537, ptr @.str.538, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_corcd_acq_max_losses, %struct._header_field_info { ptr @.str.539, ptr @.str.540, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_corcd_sync_max_losses, %struct._header_field_info { ptr @.str.541, ptr @.str.542, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_concd_superframe_id, %struct._header_field_info { ptr @.str.543, ptr @.str.544, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_concd_csc_response_timeout, %struct._header_field_info { ptr @.str.545, ptr @.str.546, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_concd_csc_max_losses, %struct._header_field_info { ptr @.str.547, ptr @.str.548, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_concd_max_time_before_retry, %struct._header_field_info { ptr @.str.549, ptr @.str.550, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sfld_satellite_id, %struct._header_field_info { ptr @.str.551, ptr @.str.552, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sfld_beam_id, %struct._header_field_info { ptr @.str.553, ptr @.str.554, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sfld_ncc_id, %struct._header_field_info { ptr @.str.555, ptr @.str.556, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sfld_multiplex_usage, %struct._header_field_info { ptr @.str.557, ptr @.str.558, i32 4, i32 1, ptr null, i64 224, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sfld_local_multiplex_id, %struct._header_field_info { ptr @.str.559, ptr @.str.560, i32 4, i32 1, ptr null, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sfld_frequency, %struct._header_field_info { ptr @.str.561, ptr @.str.562, i32 15, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sfld_orbital_position, %struct._header_field_info { ptr @.str.447, ptr @.str.563, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sfld_west_east_flag, %struct._header_field_info { ptr @.str.449, ptr @.str.564, i32 4, i32 1, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sfld_polarization, %struct._header_field_info { ptr @.str.565, ptr @.str.566, i32 4, i32 1, ptr null, i64 96, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sfld_transmission_standard, %struct._header_field_info { ptr @.str.567, ptr @.str.568, i32 4, i32 1, ptr null, i64 24, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sfld_scrambling_sequence_selector, %struct._header_field_info { ptr @.str.569, ptr @.str.570, i32 4, i32 1, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sfld_roll_off, %struct._header_field_info { ptr @.str.571, ptr @.str.572, i32 4, i32 1, ptr null, i64 3, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sfld_symbol_rate, %struct._header_field_info { ptr @.str.573, ptr @.str.574, i32 6, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sfld_fec_inner, %struct._header_field_info { ptr @.str.575, ptr @.str.576, i32 4, i32 1, ptr null, i64 240, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sfld_input_stream_identifier, %struct._header_field_info { ptr @.str.577, ptr @.str.578, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sfld_reserved_for_forward_spreading, %struct._header_field_info { ptr @.str.579, ptr @.str.580, i32 4, i32 1, ptr null, i64 224, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sfld_scrambling_sequence_index, %struct._header_field_info { ptr @.str.581, ptr @.str.582, i32 6, i32 1, ptr null, i64 262143, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sfld_private_data, %struct._header_field_info { ptr @.str.431, ptr @.str.583, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sfld_ncr_private_data, %struct._header_field_info { ptr @.str.584, ptr @.str.585, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sfld_ncr_base_private_data, %struct._header_field_info { ptr @.str.586, ptr @.str.587, i32 11, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_sfld_ncr_ext_private_data, %struct._header_field_info { ptr @.str.588, ptr @.str.589, i32 5, i32 1, ptr null, i64 511, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_sync_achieved_time_threshold, %struct._header_field_info { ptr @.str.590, ptr @.str.591, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_max_sync_tries, %struct._header_field_info { ptr @.str.592, ptr @.str.593, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_sync_achieved_freq_threshold, %struct._header_field_info { ptr @.str.594, ptr @.str.595, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_ctrl_start_superframe_count, %struct._header_field_info { ptr @.str.596, ptr @.str.597, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_ctrl_frame_nbr, %struct._header_field_info { ptr @.str.598, ptr @.str.599, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_ctrl_repeat_period, %struct._header_field_info { ptr @.str.600, ptr @.str.601, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_ctrl_timeslot_nbr, %struct._header_field_info { ptr @.str.602, ptr @.str.603, i32 5, i32 1, ptr null, i64 2047, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_sync_start_superframe, %struct._header_field_info { ptr @.str.604, ptr @.str.605, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_sync_frame_nbr, %struct._header_field_info { ptr @.str.606, ptr @.str.607, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_sync_repeat_period, %struct._header_field_info { ptr @.str.608, ptr @.str.609, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_sync_slot_nbr, %struct._header_field_info { ptr @.str.610, ptr @.str.611, i32 5, i32 1, ptr null, i64 2047, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_time_correct_flag, %struct._header_field_info { ptr @.str.612, ptr @.str.613, i32 4, i32 2, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_power_correct_flag, %struct._header_field_info { ptr @.str.614, ptr @.str.615, i32 4, i32 2, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_freq_correct_flag, %struct._header_field_info { ptr @.str.616, ptr @.str.617, i32 4, i32 2, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_slot_type, %struct._header_field_info { ptr @.str.618, ptr @.str.619, i32 4, i32 2, ptr @table_timeslotContent, i64 24, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_burst_time_scaling, %struct._header_field_info { ptr @.str.620, ptr @.str.621, i32 4, i32 1, ptr null, i64 7, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_burst_time_correct, %struct._header_field_info { ptr @.str.622, ptr @.str.623, i32 12, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_power_ctrl_flag, %struct._header_field_info { ptr @.str.624, ptr @.str.625, i32 4, i32 2, ptr null, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_power_correction, %struct._header_field_info { ptr @.str.626, ptr @.str.627, i32 12, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_power_esn0, %struct._header_field_info { ptr @.str.628, ptr @.str.629, i32 12, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_freq_correction, %struct._header_field_info { ptr @.str.630, ptr @.str.631, i32 13, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_slot_nbr, %struct._header_field_info { ptr @.str.632, ptr @.str.633, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_sf_sequence, %struct._header_field_info { ptr @.str.63, ptr @.str.634, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_frame_number, %struct._header_field_info { ptr @.str.104, ptr @.str.635, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_keep_id_after_logoff, %struct._header_field_info { ptr @.str.636, ptr @.str.637, i32 4, i32 2, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_power_ctrl_mode, %struct._header_field_info { ptr @.str.638, ptr @.str.639, i32 4, i32 2, ptr null, i64 48, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_rcst_access_status, %struct._header_field_info { ptr @.str.640, ptr @.str.641, i32 4, i32 2, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_logon_id, %struct._header_field_info { ptr @.str.642, ptr @.str.643, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_lowest_assign_id, %struct._header_field_info { ptr @.str.644, ptr @.str.645, i32 6, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_assign_id_count, %struct._header_field_info { ptr @.str.646, ptr @.str.647, i32 4, i32 2, ptr null, i64 240, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_unicast_mac24_count, %struct._header_field_info { ptr @.str.648, ptr @.str.649, i32 4, i32 2, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_mac24, %struct._header_field_info { ptr @.str.650, ptr @.str.651, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_mac24_prefix_size, %struct._header_field_info { ptr @.str.652, ptr @.str.653, i32 4, i32 2, ptr null, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_mac24_unicast, %struct._header_field_info { ptr @.str.654, ptr @.str.655, i32 6, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_mac24_mcast_mapping_method, %struct._header_field_info { ptr @.str.656, ptr @.str.657, i32 4, i32 2, ptr null, i64 64, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_mac24_mcast_ip_version_ind_pres, %struct._header_field_info { ptr @.str.658, ptr @.str.659, i32 4, i32 2, ptr null, i64 32, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_mac24_mcast_synthesis_field_size, %struct._header_field_info { ptr @.str.660, ptr @.str.661, i32 4, i32 2, ptr null, i64 31, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_default_svn_number, %struct._header_field_info { ptr @.str.662, ptr @.str.663, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_reserved, %struct._header_field_info { ptr @.str.664, ptr @.str.665, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_mc_command_value, %struct._header_field_info { ptr @.str.666, ptr @.str.667, i32 5, i32 2, ptr @table_mobility_command_value, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_mc_command_parameter, %struct._header_field_info { ptr @.str.668, ptr @.str.669, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lsvd_group_count, %struct._header_field_info { ptr @.str.670, ptr @.str.671, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lsvd_oui, %struct._header_field_info { ptr @.str.672, ptr @.str.673, i32 7, i32 1, ptr null, i64 16777215, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lsvd_mcast_address, %struct._header_field_info { ptr @.str.674, ptr @.str.675, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lsvd_mcast_port, %struct._header_field_info { ptr @.str.676, ptr @.str.677, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lsvd_version_field_length, %struct._header_field_info { ptr @.str.678, ptr @.str.679, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lsvd_version_bytes, %struct._header_field_info { ptr @.str.680, ptr @.str.681, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_default_ctrl_random_interval, %struct._header_field_info { ptr @.str.682, ptr @.str.683, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_dynamic_rate_persistence, %struct._header_field_info { ptr @.str.684, ptr @.str.685, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_volume_backlog_persistence, %struct._header_field_info { ptr @.str.686, ptr @.str.687, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_lls_count, %struct._header_field_info { ptr @.str.688, ptr @.str.689, i32 4, i32 2, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_rc_count, %struct._header_field_info { ptr @.str.690, ptr @.str.691, i32 4, i32 2, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_desc_ra_ac_count, %struct._header_field_info { ptr @.str.692, ptr @.str.693, i32 4, i32 2, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lls, %struct._header_field_info { ptr @.str.694, ptr @.str.695, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lls_index, %struct._header_field_info { ptr @.str.696, ptr @.str.697, i32 4, i32 2, ptr null, i64 60, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lls_random_access, %struct._header_field_info { ptr @.str.698, ptr @.str.699, i32 4, i32 2, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lls_dedicated_access, %struct._header_field_info { ptr @.str.700, ptr @.str.701, i32 4, i32 2, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lls_nominal_rc_index, %struct._header_field_info { ptr @.str.702, ptr @.str.703, i32 4, i32 2, ptr null, i64 240, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lls_nominal_da_ac_index, %struct._header_field_info { ptr @.str.704, ptr @.str.705, i32 4, i32 2, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lls_conditional_demand_rc_map, %struct._header_field_info { ptr @.str.706, ptr @.str.707, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lls_conditional_scheduler_da_ac_map, %struct._header_field_info { ptr @.str.708, ptr @.str.709, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lls_nominal_ra_ac_index, %struct._header_field_info { ptr @.str.710, ptr @.str.711, i32 4, i32 2, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_lls_conditional_scheduler_ra_ac_map, %struct._header_field_info { ptr @.str.712, ptr @.str.713, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_rc, %struct._header_field_info { ptr @.str.714, ptr @.str.715, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_rc_index, %struct._header_field_info { ptr @.str.716, ptr @.str.717, i32 4, i32 2, ptr null, i64 240, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_rc_constant_assignment_provided, %struct._header_field_info { ptr @.str.718, ptr @.str.719, i32 4, i32 2, ptr null, i64 4, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_rc_volume_allowed, %struct._header_field_info { ptr @.str.720, ptr @.str.721, i32 4, i32 2, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_rc_rbdc_allowed, %struct._header_field_info { ptr @.str.722, ptr @.str.723, i32 4, i32 2, ptr null, i64 1, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_rc_maximum_service_rate, %struct._header_field_info { ptr @.str.724, ptr @.str.725, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_rc_minimum_service_rate, %struct._header_field_info { ptr @.str.726, ptr @.str.727, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_rc_constant_service_rate, %struct._header_field_info { ptr @.str.728, ptr @.str.729, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_rc_maximum_backlog, %struct._header_field_info { ptr @.str.730, ptr @.str.731, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ra_ac, %struct._header_field_info { ptr @.str.732, ptr @.str.733, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ra_ac_index, %struct._header_field_info { ptr @.str.734, ptr @.str.735, i32 4, i32 2, ptr null, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ra_ac_max_unique_payload_per_block, %struct._header_field_info { ptr @.str.736, ptr @.str.737, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ra_ac_max_consecutive_block_accessed, %struct._header_field_info { ptr @.str.738, ptr @.str.739, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ra_ac_min_idle_block, %struct._header_field_info { ptr @.str.740, ptr @.str.741, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ra_ac_defaults_field_size, %struct._header_field_info { ptr @.str.742, ptr @.str.743, i32 4, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_ra_ac_defaults_for_ra_load_control, %struct._header_field_info { ptr @.str.744, ptr @.str.745, i32 30, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_dvb_s2_table_crc32, %struct._header_field_info { ptr @.str.746, ptr @.str.747, i32 7, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_dvb_s2_table_id = internal global i32 0, align 4
 @.str = private unnamed_addr constant [9 x i8] c"Table ID\00", align 1
 @.str.1 = private unnamed_addr constant [16 x i8] c"dvb-s2_table.id\00", align 1
-@tabletype = internal constant [26 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.758 }, %struct._value_string { i32 1, ptr @.str.759 }, %struct._value_string { i32 2, ptr @.str.760 }, %struct._value_string { i32 64, ptr @.str.761 }, %struct._value_string { i32 65, ptr @.str.762 }, %struct._value_string { i32 66, ptr @.str.763 }, %struct._value_string { i32 112, ptr @.str.764 }, %struct._value_string { i32 160, ptr @.str.765 }, %struct._value_string { i32 161, ptr @.str.766 }, %struct._value_string { i32 162, ptr @.str.767 }, %struct._value_string { i32 163, ptr @.str.768 }, %struct._value_string { i32 164, ptr @.str.769 }, %struct._value_string { i32 165, ptr @.str.770 }, %struct._value_string { i32 166, ptr @.str.771 }, %struct._value_string { i32 170, ptr @.str.772 }, %struct._value_string { i32 171, ptr @.str.773 }, %struct._value_string { i32 172, ptr @.str.774 }, %struct._value_string { i32 173, ptr @.str.775 }, %struct._value_string { i32 174, ptr @.str.776 }, %struct._value_string { i32 175, ptr @.str.777 }, %struct._value_string { i32 176, ptr @.str.778 }, %struct._value_string { i32 192, ptr @.str.779 }, %struct._value_string { i32 178, ptr @.str.780 }, %struct._value_string { i32 128, ptr @.str.781 }, %struct._value_string { i32 254, ptr @.str.782 }, %struct._value_string zeroinitializer], align 16
 @hf_dvb_s2_table_section = internal global i32 0, align 4
 @.str.2 = private unnamed_addr constant [14 x i8] c"Table Section\00", align 1
 @.str.3 = private unnamed_addr constant [21 x i8] c"dvb-s2_table.section\00", align 1
@@ -119,13 +116,12 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_dvb_s2_table_sf_id = internal global i32 0, align 4
 @.str.65 = private unnamed_addr constant [14 x i8] c"Superframe id\00", align 1
 @.str.66 = private unnamed_addr constant [19 x i8] c"dvb-s2_table.sf.id\00", align 1
-@hf_dvb_s2_table_sf_large_timing_uncertaintly_flag = internal global i32 0, align 4
+@hf_dvb_s2_table_sf_large_timing_uncertainty_flag = internal global i32 0, align 4
 @.str.67 = private unnamed_addr constant [41 x i8] c"Superframe large timing uncertainty flag\00", align 1
 @.str.68 = private unnamed_addr constant [46 x i8] c"dvb-s2_table.sf.large_timing_uncertainty_flag\00", align 1
 @hf_dvb_s2_table_sf_uplink_polarization = internal global i32 0, align 4
 @.str.69 = private unnamed_addr constant [31 x i8] c"Superframe uplink polarization\00", align 1
 @.str.70 = private unnamed_addr constant [36 x i8] c"dvb-s2_table.sf.uplink_polarization\00", align 1
-@table_uplinkPolarization = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.783 }, %struct._value_string { i32 1, ptr @.str.784 }, %struct._value_string { i32 2, ptr @.str.785 }, %struct._value_string { i32 3, ptr @.str.786 }, %struct._value_string zeroinitializer], align 16
 @hf_dvb_s2_table_sf_absolute_time = internal global i32 0, align 4
 @.str.71 = private unnamed_addr constant [38 x i8] c"Superframe absolute time (NCR format)\00", align 1
 @.str.72 = private unnamed_addr constant [25 x i8] c"dvb-s2_table.sf.absolute\00", align 1
@@ -211,7 +207,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_dvb_s2_table_assign_context = internal global i32 0, align 4
 @.str.125 = private unnamed_addr constant [25 x i8] c"Table assignment context\00", align 1
 @.str.126 = private unnamed_addr constant [28 x i8] c"dvb-s2_table.assign_context\00", align 1
-@table_assignContext = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.787 }, %struct._value_string { i32 1, ptr @.str.788 }, %struct._value_string { i32 2, ptr @.str.789 }, %struct._value_string { i32 3, ptr @.str.790 }, %struct._value_string { i32 4, ptr @.str.460 }, %struct._value_string zeroinitializer], align 16
 @hf_dvb_s2_table_superframe_count = internal global i32 0, align 4
 @hf_dvb_s2_table_assign_format = internal global i32 0, align 4
 @.str.127 = private unnamed_addr constant [24 x i8] c"Table assignment Format\00", align 1
@@ -267,7 +262,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_dvb_s2_table_tx_mode_modcod = internal global i32 0, align 4
 @.str.159 = private unnamed_addr constant [15 x i8] c"tx mode MODCOD\00", align 1
 @.str.160 = private unnamed_addr constant [28 x i8] c"dvb-s2_table.tx_mode.modcod\00", align 1
-@table_modcods = internal constant [33 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.791 }, %struct._value_string { i32 1, ptr @.str.792 }, %struct._value_string { i32 2, ptr @.str.793 }, %struct._value_string { i32 3, ptr @.str.794 }, %struct._value_string { i32 4, ptr @.str.795 }, %struct._value_string { i32 5, ptr @.str.796 }, %struct._value_string { i32 6, ptr @.str.797 }, %struct._value_string { i32 7, ptr @.str.798 }, %struct._value_string { i32 8, ptr @.str.799 }, %struct._value_string { i32 9, ptr @.str.800 }, %struct._value_string { i32 10, ptr @.str.801 }, %struct._value_string { i32 11, ptr @.str.802 }, %struct._value_string { i32 12, ptr @.str.803 }, %struct._value_string { i32 13, ptr @.str.804 }, %struct._value_string { i32 14, ptr @.str.805 }, %struct._value_string { i32 15, ptr @.str.806 }, %struct._value_string { i32 16, ptr @.str.807 }, %struct._value_string { i32 17, ptr @.str.808 }, %struct._value_string { i32 18, ptr @.str.809 }, %struct._value_string { i32 19, ptr @.str.810 }, %struct._value_string { i32 20, ptr @.str.811 }, %struct._value_string { i32 21, ptr @.str.812 }, %struct._value_string { i32 22, ptr @.str.813 }, %struct._value_string { i32 23, ptr @.str.814 }, %struct._value_string { i32 24, ptr @.str.815 }, %struct._value_string { i32 25, ptr @.str.816 }, %struct._value_string { i32 26, ptr @.str.817 }, %struct._value_string { i32 27, ptr @.str.818 }, %struct._value_string { i32 28, ptr @.str.819 }, %struct._value_string { i32 29, ptr @.str.820 }, %struct._value_string { i32 30, ptr @.str.820 }, %struct._value_string { i32 31, ptr @.str.820 }, %struct._value_string zeroinitializer], align 16
 @hf_dvb_s2_table_tx_mode_modcod_system_margin = internal global i32 0, align 4
 @.str.161 = private unnamed_addr constant [29 x i8] c"tx mode modcod system margin\00", align 1
 @.str.162 = private unnamed_addr constant [42 x i8] c"dvb-s2_table.tx_mode.modcod_system_margin\00", align 1
@@ -287,7 +281,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_dvb_s2_table_frame_type_tx_format_class = internal global i32 0, align 4
 @.str.171 = private unnamed_addr constant [27 x i8] c"Frame type tx format class\00", align 1
 @.str.172 = private unnamed_addr constant [40 x i8] c"dvb-s2_table.frame_type.tx_format_class\00", align 1
-@table_frameType_txFormatClass = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.357 }, %struct._value_string { i32 1, ptr @.str.821 }, %struct._value_string { i32 2, ptr @.str.822 }, %struct._value_string { i32 3, ptr @.str.823 }, %struct._value_string { i32 4, ptr @.str.824 }, %struct._value_string zeroinitializer], align 16
 @hf_dvb_s2_table_frame_type_btu_duration = internal global i32 0, align 4
 @.str.173 = private unnamed_addr constant [24 x i8] c"Frame type btu duration\00", align 1
 @.str.174 = private unnamed_addr constant [37 x i8] c"dvb-s2_table.frame_type.btu_duration\00", align 1
@@ -366,7 +359,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_dvb_s2_table_tx_type_tx_content_type = internal global i32 0, align 4
 @.str.222 = private unnamed_addr constant [24 x i8] c"Tx type tx content type\00", align 1
 @.str.223 = private unnamed_addr constant [37 x i8] c"dvb-s2_table.tx_type.tx_content_type\00", align 1
-@table_txType_contentType = internal constant [6 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.357 }, %struct._value_string { i32 1, ptr @.str.825 }, %struct._value_string { i32 2, ptr @.str.826 }, %struct._value_string { i32 3, ptr @.str.827 }, %struct._value_string { i32 4, ptr @.str.828 }, %struct._value_string zeroinitializer], align 16
 @hf_dvb_s2_table_tx_type_tx_format_class = internal global i32 0, align 4
 @.str.224 = private unnamed_addr constant [24 x i8] c"Tx type tx format class\00", align 1
 @.str.225 = private unnamed_addr constant [37 x i8] c"dvb-s2_table.tx_type.tx_format_class\00", align 1
@@ -388,7 +380,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_dvb_s2_table_tx_type_modulation_scheme = internal global i32 0, align 4
 @.str.236 = private unnamed_addr constant [26 x i8] c"Tx type modulation scheme\00", align 1
 @.str.237 = private unnamed_addr constant [39 x i8] c"dvb-s2_table.tx_type.modulation_scheme\00", align 1
-@table_txType_modulationScheme = internal constant [7 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.829 }, %struct._value_string { i32 1, ptr @.str.830 }, %struct._value_string { i32 2, ptr @.str.831 }, %struct._value_string { i32 3, ptr @.str.832 }, %struct._value_string { i32 4, ptr @.str.357 }, %struct._value_string { i32 5, ptr @.str.833 }, %struct._value_string zeroinitializer], align 16
 @hf_dvb_s2_table_tx_type_p = internal global i32 0, align 4
 @.str.238 = private unnamed_addr constant [10 x i8] c"Tx type P\00", align 1
 @.str.239 = private unnamed_addr constant [23 x i8] c"dvb-s2_table.tx_type.p\00", align 1
@@ -475,18 +466,15 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_dvb_s2_table_tx_type_modulation_type = internal global i32 0, align 4
 @.str.294 = private unnamed_addr constant [24 x i8] c"Tx type modulation type\00", align 1
 @.str.295 = private unnamed_addr constant [37 x i8] c"dvb-s2_table.tx_type.modulation_type\00", align 1
-@table_txType_modulationType = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.834 }, %struct._value_string { i32 1, ptr @.str.835 }, %struct._value_string zeroinitializer], align 16
 @hf_dvb_s2_table_tx_type_alpha_rc = internal global i32 0, align 4
 @.str.296 = private unnamed_addr constant [17 x i8] c"Tx type alpha_rc\00", align 1
 @.str.297 = private unnamed_addr constant [30 x i8] c"dvb-s2_table.tx_type.alpha_rc\00", align 1
 @hf_dvb_s2_table_tx_type_code_rate = internal global i32 0, align 4
 @.str.298 = private unnamed_addr constant [18 x i8] c"Tx type code rate\00", align 1
 @.str.299 = private unnamed_addr constant [31 x i8] c"dvb-s2_table.tx_type.code_rate\00", align 1
-@table_txType_codeRate = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.836 }, %struct._value_string { i32 1, ptr @.str.837 }, %struct._value_string { i32 2, ptr @.str.838 }, %struct._value_string { i32 3, ptr @.str.839 }, %struct._value_string zeroinitializer], align 16
 @hf_dvb_s2_table_tx_type_constraint_length_k = internal global i32 0, align 4
 @.str.300 = private unnamed_addr constant [28 x i8] c"Tx type constraint length K\00", align 1
 @.str.301 = private unnamed_addr constant [41 x i8] c"dvb-s2_table.tx_type.constraint_length_k\00", align 1
-@table_txType_constraintLengthK = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.840 }, %struct._value_string { i32 1, ptr @.str.841 }, %struct._value_string zeroinitializer], align 16
 @hf_dvb_s2_table_tx_type_uw_length = internal global i32 0, align 4
 @.str.302 = private unnamed_addr constant [18 x i8] c"Tx type UW length\00", align 1
 @.str.303 = private unnamed_addr constant [31 x i8] c"dvb-s2_table.tx_type.uw_length\00", align 1
@@ -638,7 +626,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_dvb_s2_table_desc_tag = internal global i32 0, align 4
 @.str.400 = private unnamed_addr constant [15 x i8] c"Descriptor tag\00", align 1
 @.str.401 = private unnamed_addr constant [22 x i8] c"dvb-s2_table.desc.tag\00", align 1
-@table_desc_type = internal constant [37 x %struct._value_string] [%struct._value_string { i32 74, ptr @.str.842 }, %struct._value_string { i32 162, ptr @.str.843 }, %struct._value_string { i32 160, ptr @.str.844 }, %struct._value_string { i32 161, ptr @.str.845 }, %struct._value_string { i32 164, ptr @.str.846 }, %struct._value_string { i32 166, ptr @.str.847 }, %struct._value_string { i32 167, ptr @.str.848 }, %struct._value_string { i32 168, ptr @.str.849 }, %struct._value_string { i32 169, ptr @.str.850 }, %struct._value_string { i32 171, ptr @.str.851 }, %struct._value_string { i32 172, ptr @.str.852 }, %struct._value_string { i32 173, ptr @.str.853 }, %struct._value_string { i32 174, ptr @.str.854 }, %struct._value_string { i32 176, ptr @.str.855 }, %struct._value_string { i32 177, ptr @.str.856 }, %struct._value_string { i32 178, ptr @.str.857 }, %struct._value_string { i32 181, ptr @.str.858 }, %struct._value_string { i32 182, ptr @.str.859 }, %struct._value_string { i32 183, ptr @.str.860 }, %struct._value_string { i32 184, ptr @.str.861 }, %struct._value_string { i32 185, ptr @.str.862 }, %struct._value_string { i32 186, ptr @.str.863 }, %struct._value_string { i32 187, ptr @.str.864 }, %struct._value_string { i32 188, ptr @.str.865 }, %struct._value_string { i32 189, ptr @.str.866 }, %struct._value_string { i32 190, ptr @.str.867 }, %struct._value_string { i32 191, ptr @.str.868 }, %struct._value_string { i32 192, ptr @.str.869 }, %struct._value_string { i32 193, ptr @.str.870 }, %struct._value_string { i32 194, ptr @.str.871 }, %struct._value_string { i32 196, ptr @.str.872 }, %struct._value_string { i32 197, ptr @.str.873 }, %struct._value_string { i32 198, ptr @.str.874 }, %struct._value_string { i32 199, ptr @.str.875 }, %struct._value_string { i32 200, ptr @.str.876 }, %struct._value_string { i32 64, ptr @.str.877 }, %struct._value_string zeroinitializer], align 16
 @hf_dvb_s2_table_desc_length = internal global i32 0, align 4
 @.str.402 = private unnamed_addr constant [18 x i8] c"Descriptor length\00", align 1
 @.str.403 = private unnamed_addr constant [25 x i8] c"dvb-s2_table.desc.length\00", align 1
@@ -973,7 +960,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_dvb_s2_table_desc_slot_type = internal global i32 0, align 4
 @.str.618 = private unnamed_addr constant [21 x i8] c"Descriptor slot type\00", align 1
 @.str.619 = private unnamed_addr constant [28 x i8] c"dvb-s2_table.desc.slot_type\00", align 1
-@table_timeslotContent = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.878 }, %struct._value_string { i32 1, ptr @.str.789 }, %struct._value_string { i32 2, ptr @.str.357 }, %struct._value_string { i32 3, ptr @.str.879 }, %struct._value_string zeroinitializer], align 16
 @hf_dvb_s2_table_desc_burst_time_scaling = internal global i32 0, align 4
 @.str.620 = private unnamed_addr constant [30 x i8] c"Descriptor burst time scaling\00", align 1
 @.str.621 = private unnamed_addr constant [37 x i8] c"dvb-s2_table.desc.burst_time_scaling\00", align 1
@@ -1047,7 +1033,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_dvb_s2_table_mc_command_value = internal global i32 0, align 4
 @.str.666 = private unnamed_addr constant [25 x i8] c"Descriptor command value\00", align 1
 @.str.667 = private unnamed_addr constant [35 x i8] c"dvb-s2_table.desc.mc_command_value\00", align 1
-@table_mobility_command_value = internal constant [8 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.880 }, %struct._value_string { i32 1, ptr @.str.881 }, %struct._value_string { i32 2, ptr @.str.882 }, %struct._value_string { i32 3, ptr @.str.883 }, %struct._value_string { i32 5, ptr @.str.884 }, %struct._value_string { i32 6, ptr @.str.885 }, %struct._value_string { i32 7, ptr @.str.886 }, %struct._value_string zeroinitializer], align 16
 @hf_dvb_s2_table_mc_command_parameter = internal global i32 0, align 4
 @.str.668 = private unnamed_addr constant [29 x i8] c"Descriptor command parameter\00", align 1
 @.str.669 = private unnamed_addr constant [39 x i8] c"dvb-s2_table.desc.mc_command_parameter\00", align 1
@@ -1198,7 +1183,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ett_dvb_s2_hdr_table_pt = internal global i32 0, align 4
 @ett_dvb_s2_hdr_table_pt_ms = internal global i32 0, align 4
 @ett_dvb_s2_hdr_table_pt_ms_exclusion = internal global i32 0, align 4
-@proto_register_dvb_s2_table.rcs_version = internal constant [3 x %struct.enum_val_t] [%struct.enum_val_t { ptr @.str.748, ptr @.str.749, i32 0 }, %struct.enum_val_t { ptr @.str.750, ptr @.str.751, i32 1 }, %struct.enum_val_t zeroinitializer], align 16
+@proto_register_dvb_s2_table.rcs_version = internal constant [3 x { ptr, ptr, i32, [4 x i8] }] [{ ptr, ptr, i32, [4 x i8] } { ptr @.str.748, ptr @.str.749, i32 0, [4 x i8] zeroinitializer }, { ptr, ptr, i32, [4 x i8] } { ptr @.str.750, ptr @.str.751, i32 1, [4 x i8] zeroinitializer }, { ptr, ptr, i32, [4 x i8] } zeroinitializer], align 16
 @.str.748 = private unnamed_addr constant [4 x i8] c"RCS\00", align 1
 @.str.749 = private unnamed_addr constant [13 x i8] c"RCS protocol\00", align 1
 @.str.750 = private unnamed_addr constant [5 x i8] c"RCS2\00", align 1
@@ -1236,116 +1221,130 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.780 = private unnamed_addr constant [5 x i8] c"MMT2\00", align 1
 @.str.781 = private unnamed_addr constant [4 x i8] c"SMT\00", align 1
 @.str.782 = private unnamed_addr constant [5 x i8] c"TIMB\00", align 1
-@.str.783 = private unnamed_addr constant [20 x i8] c"linear - horizontal\00", align 1
-@.str.784 = private unnamed_addr constant [18 x i8] c"linear - vertical\00", align 1
-@.str.785 = private unnamed_addr constant [16 x i8] c"circular - left\00", align 1
-@.str.786 = private unnamed_addr constant [17 x i8] c"circular - right\00", align 1
-@.str.787 = private unnamed_addr constant [20 x i8] c"All traffic context\00", align 1
-@.str.788 = private unnamed_addr constant [25 x i8] c"Transparent star traffic\00", align 1
-@.str.789 = private unnamed_addr constant [6 x i8] c"Logon\00", align 1
-@.str.790 = private unnamed_addr constant [25 x i8] c"Transparent mesh traffic\00", align 1
-@.str.791 = private unnamed_addr constant [14 x i8] c"DUMMY PLFRAME\00", align 1
-@.str.792 = private unnamed_addr constant [9 x i8] c"QPSK 1/4\00", align 1
-@.str.793 = private unnamed_addr constant [9 x i8] c"QPSK 1/3\00", align 1
-@.str.794 = private unnamed_addr constant [9 x i8] c"QPSK 2/5\00", align 1
-@.str.795 = private unnamed_addr constant [9 x i8] c"QPSK 1/2\00", align 1
-@.str.796 = private unnamed_addr constant [9 x i8] c"QPSK 3/5\00", align 1
-@.str.797 = private unnamed_addr constant [9 x i8] c"QPSK 2/3\00", align 1
-@.str.798 = private unnamed_addr constant [9 x i8] c"QPSK 3/4\00", align 1
-@.str.799 = private unnamed_addr constant [9 x i8] c"QPSK 4/5\00", align 1
-@.str.800 = private unnamed_addr constant [9 x i8] c"QPSK 5/6\00", align 1
-@.str.801 = private unnamed_addr constant [9 x i8] c"QPSK 8/9\00", align 1
-@.str.802 = private unnamed_addr constant [10 x i8] c"QPSK 9/10\00", align 1
-@.str.803 = private unnamed_addr constant [9 x i8] c"8PSK 3/5\00", align 1
-@.str.804 = private unnamed_addr constant [9 x i8] c"8PSK 2/3\00", align 1
-@.str.805 = private unnamed_addr constant [9 x i8] c"8PSK 3/4\00", align 1
-@.str.806 = private unnamed_addr constant [9 x i8] c"8PSK 5/6\00", align 1
-@.str.807 = private unnamed_addr constant [9 x i8] c"8PSK 8/9\00", align 1
-@.str.808 = private unnamed_addr constant [10 x i8] c"8PSK 9/10\00", align 1
-@.str.809 = private unnamed_addr constant [11 x i8] c"16APSK 2/3\00", align 1
-@.str.810 = private unnamed_addr constant [11 x i8] c"16APSK 3/4\00", align 1
-@.str.811 = private unnamed_addr constant [11 x i8] c"16APSK 4/5\00", align 1
-@.str.812 = private unnamed_addr constant [11 x i8] c"16APSK 5/6\00", align 1
-@.str.813 = private unnamed_addr constant [11 x i8] c"16APSK 8/9\00", align 1
-@.str.814 = private unnamed_addr constant [12 x i8] c"16APSK 9/10\00", align 1
-@.str.815 = private unnamed_addr constant [11 x i8] c"32APSK 3/4\00", align 1
-@.str.816 = private unnamed_addr constant [11 x i8] c"32APSK 4/5\00", align 1
-@.str.817 = private unnamed_addr constant [11 x i8] c"32APSK 5/6\00", align 1
-@.str.818 = private unnamed_addr constant [11 x i8] c"32APSK 8/9\00", align 1
-@.str.819 = private unnamed_addr constant [12 x i8] c"32APSK 9/10\00", align 1
-@.str.820 = private unnamed_addr constant [9 x i8] c"reserved\00", align 1
-@.str.821 = private unnamed_addr constant [37 x i8] c"Linear Modulation Burst Transmission\00", align 1
-@.str.822 = private unnamed_addr constant [47 x i8] c"Continuous Phase Modulation Burst Transmission\00", align 1
-@.str.823 = private unnamed_addr constant [24 x i8] c"Continuous Transmission\00", align 1
-@.str.824 = private unnamed_addr constant [53 x i8] c"Spread-Spectrum Linear Modulation Burst Transmission\00", align 1
-@.str.825 = private unnamed_addr constant [14 x i8] c"Logon payload\00", align 1
-@.str.826 = private unnamed_addr constant [16 x i8] c"Control payload\00", align 1
-@.str.827 = private unnamed_addr constant [28 x i8] c"Traffic and control payload\00", align 1
-@.str.828 = private unnamed_addr constant [16 x i8] c"Traffic payload\00", align 1
-@.str.829 = private unnamed_addr constant [16 x i8] c"Reserved (BPSK)\00", align 1
-@.str.830 = private unnamed_addr constant [5 x i8] c"QPSK\00", align 1
-@.str.831 = private unnamed_addr constant [5 x i8] c"8PSK\00", align 1
-@.str.832 = private unnamed_addr constant [6 x i8] c"16QAM\00", align 1
-@.str.833 = private unnamed_addr constant [10 x i8] c"pi/2-BPSK\00", align 1
-@.str.834 = private unnamed_addr constant [28 x i8] c"Quaternary - Linear mapping\00", align 1
-@.str.835 = private unnamed_addr constant [26 x i8] c"Quaternary - Gray mapping\00", align 1
-@.str.836 = private unnamed_addr constant [4 x i8] c"1/2\00", align 1
-@.str.837 = private unnamed_addr constant [4 x i8] c"2/3\00", align 1
-@.str.838 = private unnamed_addr constant [4 x i8] c"4/5\00", align 1
-@.str.839 = private unnamed_addr constant [4 x i8] c"6/7\00", align 1
-@.str.840 = private unnamed_addr constant [2 x i8] c"3\00", align 1
-@.str.841 = private unnamed_addr constant [2 x i8] c"4\00", align 1
-@.str.842 = private unnamed_addr constant [19 x i8] c"Linkage_descriptor\00", align 1
-@.str.843 = private unnamed_addr constant [28 x i8] c"Logon Initialize Descriptor\00", align 1
-@.str.844 = private unnamed_addr constant [30 x i8] c"Network_layer_info_descriptor\00", align 1
-@.str.845 = private unnamed_addr constant [30 x i8] c"Correction_message_descriptor\00", align 1
-@.str.846 = private unnamed_addr constant [64 x i8] c"SYNC_assign_descriptor (RCS) - control_assign_descriptor (RCS2)\00", align 1
-@.str.847 = private unnamed_addr constant [22 x i8] c"Echo_value_descriptor\00", align 1
-@.str.848 = private unnamed_addr constant [23 x i8] c"RCS_content_descriptor\00", align 1
-@.str.849 = private unnamed_addr constant [34 x i8] c"Satellite_forward_link_descriptor\00", align 1
-@.str.850 = private unnamed_addr constant [33 x i8] c"Satellite_return_link_descriptor\00", align 1
-@.str.851 = private unnamed_addr constant [73 x i8] c"Contention_Control_descriptor (RCS) - logon_contention_descriptor (RCS2)\00", align 1
-@.str.852 = private unnamed_addr constant [30 x i8] c"Correction_Control_descriptor\00", align 1
-@.str.853 = private unnamed_addr constant [36 x i8] c"Forward Interaction Path Descriptor\00", align 1
-@.str.854 = private unnamed_addr constant [35 x i8] c"Return Interaction Path Descriptor\00", align 1
-@.str.855 = private unnamed_addr constant [28 x i8] c"Mobility_control_descriptor\00", align 1
-@.str.856 = private unnamed_addr constant [40 x i8] c"Correction_message_extension_descriptor\00", align 1
-@.str.857 = private unnamed_addr constant [37 x i8] c"Return_Transmission_Modes_descriptor\00", align 1
-@.str.858 = private unnamed_addr constant [31 x i8] c"Implementation_type_descriptor\00", align 1
-@.str.859 = private unnamed_addr constant [29 x i8] c"LL_FEC_identifier_descriptor\00", align 1
-@.str.860 = private unnamed_addr constant [32 x i8] c"Frame_payload_format_descriptor\00", align 1
-@.str.861 = private unnamed_addr constant [38 x i8] c"Pointing_alignment_support_descriptor\00", align 1
-@.str.862 = private unnamed_addr constant [26 x i8] c"Logon_response_descriptor\00", align 1
-@.str.863 = private unnamed_addr constant [23 x i8] c"DHCP_option_descriptor\00", align 1
-@.str.864 = private unnamed_addr constant [31 x i8] c"lower_layer_service_descriptor\00", align 1
-@.str.865 = private unnamed_addr constant [27 x i8] c"TRANSEC_message_descriptor\00", align 1
-@.str.866 = private unnamed_addr constant [32 x i8] c"Forward_link_streams_descriptor\00", align 1
-@.str.867 = private unnamed_addr constant [26 x i8] c"Logon_Security_descriptor\00", align 1
-@.str.868 = private unnamed_addr constant [31 x i8] c"Transmission_offset_descriptor\00", align 1
-@.str.869 = private unnamed_addr constant [38 x i8] c"Random_assess_load_control_descriptor\00", align 1
-@.str.870 = private unnamed_addr constant [27 x i8] c"CLI_instruction_descriptor\00", align 1
-@.str.871 = private unnamed_addr constant [40 x i8] c"random_access_traffic_method_descriptor\00", align 1
-@.str.872 = private unnamed_addr constant [36 x i8] c"higher_layers_initialize_descriptor\00", align 1
-@.str.873 = private unnamed_addr constant [29 x i8] c"lowest_sw_version_descriptor\00", align 1
-@.str.874 = private unnamed_addr constant [23 x i8] c"Mesh_system_descriptor\00", align 1
-@.str.875 = private unnamed_addr constant [30 x i8] c"Extension_protocol_descriptor\00", align 1
-@.str.876 = private unnamed_addr constant [38 x i8] c"Continuous_carrier_control_descriptor\00", align 1
-@.str.877 = private unnamed_addr constant [24 x i8] c"Network Name Descriptor\00", align 1
-@.str.878 = private unnamed_addr constant [8 x i8] c"Traffic\00", align 1
-@.str.879 = private unnamed_addr constant [8 x i8] c"Control\00", align 1
-@.str.880 = private unnamed_addr constant [11 x i8] c"No Command\00", align 1
-@.str.881 = private unnamed_addr constant [41 x i8] c"Execute Forward And Return Link Handover\00", align 1
-@.str.882 = private unnamed_addr constant [30 x i8] c"Execute Forward Link Handover\00", align 1
-@.str.883 = private unnamed_addr constant [29 x i8] c"Execute Return Link Handover\00", align 1
-@.str.884 = private unnamed_addr constant [31 x i8] c"Send Transmitter Status Report\00", align 1
-@.str.885 = private unnamed_addr constant [21 x i8] c"Send Position Report\00", align 1
-@.str.886 = private unnamed_addr constant [17 x i8] c"Maximum NCR Time\00", align 1
-@.str.887 = private unnamed_addr constant [17 x i8] c"Unknown table id\00", align 1
-@.str.888 = private unnamed_addr constant [2 x i8] c" \00", align 1
+@tabletype = internal constant [26 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.758 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.759 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.760 }, { i32, [4 x i8], ptr } { i32 64, [4 x i8] zeroinitializer, ptr @.str.761 }, { i32, [4 x i8], ptr } { i32 65, [4 x i8] zeroinitializer, ptr @.str.762 }, { i32, [4 x i8], ptr } { i32 66, [4 x i8] zeroinitializer, ptr @.str.763 }, { i32, [4 x i8], ptr } { i32 112, [4 x i8] zeroinitializer, ptr @.str.764 }, { i32, [4 x i8], ptr } { i32 160, [4 x i8] zeroinitializer, ptr @.str.765 }, { i32, [4 x i8], ptr } { i32 161, [4 x i8] zeroinitializer, ptr @.str.766 }, { i32, [4 x i8], ptr } { i32 162, [4 x i8] zeroinitializer, ptr @.str.767 }, { i32, [4 x i8], ptr } { i32 163, [4 x i8] zeroinitializer, ptr @.str.768 }, { i32, [4 x i8], ptr } { i32 164, [4 x i8] zeroinitializer, ptr @.str.769 }, { i32, [4 x i8], ptr } { i32 165, [4 x i8] zeroinitializer, ptr @.str.770 }, { i32, [4 x i8], ptr } { i32 166, [4 x i8] zeroinitializer, ptr @.str.771 }, { i32, [4 x i8], ptr } { i32 170, [4 x i8] zeroinitializer, ptr @.str.772 }, { i32, [4 x i8], ptr } { i32 171, [4 x i8] zeroinitializer, ptr @.str.773 }, { i32, [4 x i8], ptr } { i32 172, [4 x i8] zeroinitializer, ptr @.str.774 }, { i32, [4 x i8], ptr } { i32 173, [4 x i8] zeroinitializer, ptr @.str.775 }, { i32, [4 x i8], ptr } { i32 174, [4 x i8] zeroinitializer, ptr @.str.776 }, { i32, [4 x i8], ptr } { i32 175, [4 x i8] zeroinitializer, ptr @.str.777 }, { i32, [4 x i8], ptr } { i32 176, [4 x i8] zeroinitializer, ptr @.str.778 }, { i32, [4 x i8], ptr } { i32 192, [4 x i8] zeroinitializer, ptr @.str.779 }, { i32, [4 x i8], ptr } { i32 178, [4 x i8] zeroinitializer, ptr @.str.780 }, { i32, [4 x i8], ptr } { i32 128, [4 x i8] zeroinitializer, ptr @.str.781 }, { i32, [4 x i8], ptr } { i32 254, [4 x i8] zeroinitializer, ptr @.str.782 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.784 = private unnamed_addr constant [20 x i8] c"linear - horizontal\00", align 1
+@.str.785 = private unnamed_addr constant [18 x i8] c"linear - vertical\00", align 1
+@.str.786 = private unnamed_addr constant [16 x i8] c"circular - left\00", align 1
+@.str.787 = private unnamed_addr constant [17 x i8] c"circular - right\00", align 1
+@table_uplinkPolarization = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.784 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.785 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.786 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.787 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.789 = private unnamed_addr constant [20 x i8] c"All traffic context\00", align 1
+@.str.790 = private unnamed_addr constant [25 x i8] c"Transparent star traffic\00", align 1
+@.str.791 = private unnamed_addr constant [6 x i8] c"Logon\00", align 1
+@.str.792 = private unnamed_addr constant [25 x i8] c"Transparent mesh traffic\00", align 1
+@table_assignContext = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.789 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.790 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.791 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.792 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.460 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.794 = private unnamed_addr constant [14 x i8] c"DUMMY PLFRAME\00", align 1
+@.str.795 = private unnamed_addr constant [9 x i8] c"QPSK 1/4\00", align 1
+@.str.796 = private unnamed_addr constant [9 x i8] c"QPSK 1/3\00", align 1
+@.str.797 = private unnamed_addr constant [9 x i8] c"QPSK 2/5\00", align 1
+@.str.798 = private unnamed_addr constant [9 x i8] c"QPSK 1/2\00", align 1
+@.str.799 = private unnamed_addr constant [9 x i8] c"QPSK 3/5\00", align 1
+@.str.800 = private unnamed_addr constant [9 x i8] c"QPSK 2/3\00", align 1
+@.str.801 = private unnamed_addr constant [9 x i8] c"QPSK 3/4\00", align 1
+@.str.802 = private unnamed_addr constant [9 x i8] c"QPSK 4/5\00", align 1
+@.str.803 = private unnamed_addr constant [9 x i8] c"QPSK 5/6\00", align 1
+@.str.804 = private unnamed_addr constant [9 x i8] c"QPSK 8/9\00", align 1
+@.str.805 = private unnamed_addr constant [10 x i8] c"QPSK 9/10\00", align 1
+@.str.806 = private unnamed_addr constant [9 x i8] c"8PSK 3/5\00", align 1
+@.str.807 = private unnamed_addr constant [9 x i8] c"8PSK 2/3\00", align 1
+@.str.808 = private unnamed_addr constant [9 x i8] c"8PSK 3/4\00", align 1
+@.str.809 = private unnamed_addr constant [9 x i8] c"8PSK 5/6\00", align 1
+@.str.810 = private unnamed_addr constant [9 x i8] c"8PSK 8/9\00", align 1
+@.str.811 = private unnamed_addr constant [10 x i8] c"8PSK 9/10\00", align 1
+@.str.812 = private unnamed_addr constant [11 x i8] c"16APSK 2/3\00", align 1
+@.str.813 = private unnamed_addr constant [11 x i8] c"16APSK 3/4\00", align 1
+@.str.814 = private unnamed_addr constant [11 x i8] c"16APSK 4/5\00", align 1
+@.str.815 = private unnamed_addr constant [11 x i8] c"16APSK 5/6\00", align 1
+@.str.816 = private unnamed_addr constant [11 x i8] c"16APSK 8/9\00", align 1
+@.str.817 = private unnamed_addr constant [12 x i8] c"16APSK 9/10\00", align 1
+@.str.818 = private unnamed_addr constant [11 x i8] c"32APSK 3/4\00", align 1
+@.str.819 = private unnamed_addr constant [11 x i8] c"32APSK 4/5\00", align 1
+@.str.820 = private unnamed_addr constant [11 x i8] c"32APSK 5/6\00", align 1
+@.str.821 = private unnamed_addr constant [11 x i8] c"32APSK 8/9\00", align 1
+@.str.822 = private unnamed_addr constant [12 x i8] c"32APSK 9/10\00", align 1
+@.str.823 = private unnamed_addr constant [9 x i8] c"reserved\00", align 1
+@table_modcods = internal constant [33 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.794 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.795 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.796 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.797 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.798 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.799 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.800 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.801 }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str.802 }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @.str.803 }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @.str.804 }, { i32, [4 x i8], ptr } { i32 11, [4 x i8] zeroinitializer, ptr @.str.805 }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @.str.806 }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @.str.807 }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @.str.808 }, { i32, [4 x i8], ptr } { i32 15, [4 x i8] zeroinitializer, ptr @.str.809 }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @.str.810 }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @.str.811 }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @.str.812 }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @.str.813 }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @.str.814 }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @.str.815 }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @.str.816 }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @.str.817 }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @.str.818 }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @.str.819 }, { i32, [4 x i8], ptr } { i32 26, [4 x i8] zeroinitializer, ptr @.str.820 }, { i32, [4 x i8], ptr } { i32 27, [4 x i8] zeroinitializer, ptr @.str.821 }, { i32, [4 x i8], ptr } { i32 28, [4 x i8] zeroinitializer, ptr @.str.822 }, { i32, [4 x i8], ptr } { i32 29, [4 x i8] zeroinitializer, ptr @.str.823 }, { i32, [4 x i8], ptr } { i32 30, [4 x i8] zeroinitializer, ptr @.str.823 }, { i32, [4 x i8], ptr } { i32 31, [4 x i8] zeroinitializer, ptr @.str.823 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.825 = private unnamed_addr constant [37 x i8] c"Linear Modulation Burst Transmission\00", align 1
+@.str.826 = private unnamed_addr constant [47 x i8] c"Continuous Phase Modulation Burst Transmission\00", align 1
+@.str.827 = private unnamed_addr constant [24 x i8] c"Continuous Transmission\00", align 1
+@.str.828 = private unnamed_addr constant [53 x i8] c"Spread-Spectrum Linear Modulation Burst Transmission\00", align 1
+@table_frameType_txFormatClass = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.357 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.825 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.826 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.827 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.828 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.830 = private unnamed_addr constant [14 x i8] c"Logon payload\00", align 1
+@.str.831 = private unnamed_addr constant [16 x i8] c"Control payload\00", align 1
+@.str.832 = private unnamed_addr constant [28 x i8] c"Traffic and control payload\00", align 1
+@.str.833 = private unnamed_addr constant [16 x i8] c"Traffic payload\00", align 1
+@table_txType_contentType = internal constant [6 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.357 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.830 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.831 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.832 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.833 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.835 = private unnamed_addr constant [16 x i8] c"Reserved (BPSK)\00", align 1
+@.str.836 = private unnamed_addr constant [5 x i8] c"QPSK\00", align 1
+@.str.837 = private unnamed_addr constant [5 x i8] c"8PSK\00", align 1
+@.str.838 = private unnamed_addr constant [6 x i8] c"16QAM\00", align 1
+@.str.839 = private unnamed_addr constant [10 x i8] c"pi/2-BPSK\00", align 1
+@table_txType_modulationScheme = internal constant [7 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.835 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.836 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.837 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.838 }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @.str.357 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.839 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.841 = private unnamed_addr constant [28 x i8] c"Quaternary - Linear mapping\00", align 1
+@.str.842 = private unnamed_addr constant [26 x i8] c"Quaternary - Gray mapping\00", align 1
+@table_txType_modulationType = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.841 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.842 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.844 = private unnamed_addr constant [4 x i8] c"1/2\00", align 1
+@.str.845 = private unnamed_addr constant [4 x i8] c"2/3\00", align 1
+@.str.846 = private unnamed_addr constant [4 x i8] c"4/5\00", align 1
+@.str.847 = private unnamed_addr constant [4 x i8] c"6/7\00", align 1
+@table_txType_codeRate = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.844 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.845 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.846 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.847 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.849 = private unnamed_addr constant [2 x i8] c"3\00", align 1
+@.str.850 = private unnamed_addr constant [2 x i8] c"4\00", align 1
+@table_txType_constraintLengthK = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.849 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.850 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.852 = private unnamed_addr constant [19 x i8] c"Linkage_descriptor\00", align 1
+@.str.853 = private unnamed_addr constant [28 x i8] c"Logon Initialize Descriptor\00", align 1
+@.str.854 = private unnamed_addr constant [30 x i8] c"Network_layer_info_descriptor\00", align 1
+@.str.855 = private unnamed_addr constant [30 x i8] c"Correction_message_descriptor\00", align 1
+@.str.856 = private unnamed_addr constant [64 x i8] c"SYNC_assign_descriptor (RCS) - control_assign_descriptor (RCS2)\00", align 1
+@.str.857 = private unnamed_addr constant [22 x i8] c"Echo_value_descriptor\00", align 1
+@.str.858 = private unnamed_addr constant [23 x i8] c"RCS_content_descriptor\00", align 1
+@.str.859 = private unnamed_addr constant [34 x i8] c"Satellite_forward_link_descriptor\00", align 1
+@.str.860 = private unnamed_addr constant [33 x i8] c"Satellite_return_link_descriptor\00", align 1
+@.str.861 = private unnamed_addr constant [73 x i8] c"Contention_Control_descriptor (RCS) - logon_contention_descriptor (RCS2)\00", align 1
+@.str.862 = private unnamed_addr constant [30 x i8] c"Correction_Control_descriptor\00", align 1
+@.str.863 = private unnamed_addr constant [36 x i8] c"Forward Interaction Path Descriptor\00", align 1
+@.str.864 = private unnamed_addr constant [35 x i8] c"Return Interaction Path Descriptor\00", align 1
+@.str.865 = private unnamed_addr constant [28 x i8] c"Mobility_control_descriptor\00", align 1
+@.str.866 = private unnamed_addr constant [40 x i8] c"Correction_message_extension_descriptor\00", align 1
+@.str.867 = private unnamed_addr constant [37 x i8] c"Return_Transmission_Modes_descriptor\00", align 1
+@.str.868 = private unnamed_addr constant [31 x i8] c"Implementation_type_descriptor\00", align 1
+@.str.869 = private unnamed_addr constant [29 x i8] c"LL_FEC_identifier_descriptor\00", align 1
+@.str.870 = private unnamed_addr constant [32 x i8] c"Frame_payload_format_descriptor\00", align 1
+@.str.871 = private unnamed_addr constant [38 x i8] c"Pointing_alignment_support_descriptor\00", align 1
+@.str.872 = private unnamed_addr constant [26 x i8] c"Logon_response_descriptor\00", align 1
+@.str.873 = private unnamed_addr constant [23 x i8] c"DHCP_option_descriptor\00", align 1
+@.str.874 = private unnamed_addr constant [31 x i8] c"lower_layer_service_descriptor\00", align 1
+@.str.875 = private unnamed_addr constant [27 x i8] c"TRANSEC_message_descriptor\00", align 1
+@.str.876 = private unnamed_addr constant [32 x i8] c"Forward_link_streams_descriptor\00", align 1
+@.str.877 = private unnamed_addr constant [26 x i8] c"Logon_Security_descriptor\00", align 1
+@.str.878 = private unnamed_addr constant [31 x i8] c"Transmission_offset_descriptor\00", align 1
+@.str.879 = private unnamed_addr constant [38 x i8] c"Random_assess_load_control_descriptor\00", align 1
+@.str.880 = private unnamed_addr constant [27 x i8] c"CLI_instruction_descriptor\00", align 1
+@.str.881 = private unnamed_addr constant [40 x i8] c"random_access_traffic_method_descriptor\00", align 1
+@.str.882 = private unnamed_addr constant [36 x i8] c"higher_layers_initialize_descriptor\00", align 1
+@.str.883 = private unnamed_addr constant [29 x i8] c"lowest_sw_version_descriptor\00", align 1
+@.str.884 = private unnamed_addr constant [23 x i8] c"Mesh_system_descriptor\00", align 1
+@.str.885 = private unnamed_addr constant [30 x i8] c"Extension_protocol_descriptor\00", align 1
+@.str.886 = private unnamed_addr constant [38 x i8] c"Continuous_carrier_control_descriptor\00", align 1
+@.str.887 = private unnamed_addr constant [24 x i8] c"Network Name Descriptor\00", align 1
+@table_desc_type = internal constant [37 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 74, [4 x i8] zeroinitializer, ptr @.str.852 }, { i32, [4 x i8], ptr } { i32 162, [4 x i8] zeroinitializer, ptr @.str.853 }, { i32, [4 x i8], ptr } { i32 160, [4 x i8] zeroinitializer, ptr @.str.854 }, { i32, [4 x i8], ptr } { i32 161, [4 x i8] zeroinitializer, ptr @.str.855 }, { i32, [4 x i8], ptr } { i32 164, [4 x i8] zeroinitializer, ptr @.str.856 }, { i32, [4 x i8], ptr } { i32 166, [4 x i8] zeroinitializer, ptr @.str.857 }, { i32, [4 x i8], ptr } { i32 167, [4 x i8] zeroinitializer, ptr @.str.858 }, { i32, [4 x i8], ptr } { i32 168, [4 x i8] zeroinitializer, ptr @.str.859 }, { i32, [4 x i8], ptr } { i32 169, [4 x i8] zeroinitializer, ptr @.str.860 }, { i32, [4 x i8], ptr } { i32 171, [4 x i8] zeroinitializer, ptr @.str.861 }, { i32, [4 x i8], ptr } { i32 172, [4 x i8] zeroinitializer, ptr @.str.862 }, { i32, [4 x i8], ptr } { i32 173, [4 x i8] zeroinitializer, ptr @.str.863 }, { i32, [4 x i8], ptr } { i32 174, [4 x i8] zeroinitializer, ptr @.str.864 }, { i32, [4 x i8], ptr } { i32 176, [4 x i8] zeroinitializer, ptr @.str.865 }, { i32, [4 x i8], ptr } { i32 177, [4 x i8] zeroinitializer, ptr @.str.866 }, { i32, [4 x i8], ptr } { i32 178, [4 x i8] zeroinitializer, ptr @.str.867 }, { i32, [4 x i8], ptr } { i32 181, [4 x i8] zeroinitializer, ptr @.str.868 }, { i32, [4 x i8], ptr } { i32 182, [4 x i8] zeroinitializer, ptr @.str.869 }, { i32, [4 x i8], ptr } { i32 183, [4 x i8] zeroinitializer, ptr @.str.870 }, { i32, [4 x i8], ptr } { i32 184, [4 x i8] zeroinitializer, ptr @.str.871 }, { i32, [4 x i8], ptr } { i32 185, [4 x i8] zeroinitializer, ptr @.str.872 }, { i32, [4 x i8], ptr } { i32 186, [4 x i8] zeroinitializer, ptr @.str.873 }, { i32, [4 x i8], ptr } { i32 187, [4 x i8] zeroinitializer, ptr @.str.874 }, { i32, [4 x i8], ptr } { i32 188, [4 x i8] zeroinitializer, ptr @.str.875 }, { i32, [4 x i8], ptr } { i32 189, [4 x i8] zeroinitializer, ptr @.str.876 }, { i32, [4 x i8], ptr } { i32 190, [4 x i8] zeroinitializer, ptr @.str.877 }, { i32, [4 x i8], ptr } { i32 191, [4 x i8] zeroinitializer, ptr @.str.878 }, { i32, [4 x i8], ptr } { i32 192, [4 x i8] zeroinitializer, ptr @.str.879 }, { i32, [4 x i8], ptr } { i32 193, [4 x i8] zeroinitializer, ptr @.str.880 }, { i32, [4 x i8], ptr } { i32 194, [4 x i8] zeroinitializer, ptr @.str.881 }, { i32, [4 x i8], ptr } { i32 196, [4 x i8] zeroinitializer, ptr @.str.882 }, { i32, [4 x i8], ptr } { i32 197, [4 x i8] zeroinitializer, ptr @.str.883 }, { i32, [4 x i8], ptr } { i32 198, [4 x i8] zeroinitializer, ptr @.str.884 }, { i32, [4 x i8], ptr } { i32 199, [4 x i8] zeroinitializer, ptr @.str.885 }, { i32, [4 x i8], ptr } { i32 200, [4 x i8] zeroinitializer, ptr @.str.886 }, { i32, [4 x i8], ptr } { i32 64, [4 x i8] zeroinitializer, ptr @.str.887 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.889 = private unnamed_addr constant [8 x i8] c"Traffic\00", align 1
+@.str.890 = private unnamed_addr constant [8 x i8] c"Control\00", align 1
+@table_timeslotContent = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.889 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.791 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.357 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.890 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.892 = private unnamed_addr constant [11 x i8] c"No Command\00", align 1
+@.str.893 = private unnamed_addr constant [41 x i8] c"Execute Forward And Return Link Handover\00", align 1
+@.str.894 = private unnamed_addr constant [30 x i8] c"Execute Forward Link Handover\00", align 1
+@.str.895 = private unnamed_addr constant [29 x i8] c"Execute Return Link Handover\00", align 1
+@.str.896 = private unnamed_addr constant [31 x i8] c"Send Transmitter Status Report\00", align 1
+@.str.897 = private unnamed_addr constant [21 x i8] c"Send Position Report\00", align 1
+@.str.898 = private unnamed_addr constant [17 x i8] c"Maximum NCR Time\00", align 1
+@table_mobility_command_value = internal constant [8 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.892 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.893 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.894 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.895 }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str.896 }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @.str.897 }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @.str.898 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.900 = private unnamed_addr constant [17 x i8] c"Unknown table id\00", align 1
+@.str.901 = private unnamed_addr constant [2 x i8] c" \00", align 1
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_dvb_s2_table() #0 {
   %1 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #4
   %2 = call i32 @proto_register_protocol(ptr noundef @.str.752, ptr noundef @.str.753, ptr noundef @.str.754)
   store i32 %2, ptr @proto_dvb_s2_table, align 4
   %3 = load i32, ptr @proto_dvb_s2_table, align 4
@@ -1357,15 +1356,21 @@ define hidden void @proto_register_dvb_s2_table() #0 {
   %7 = call ptr @prefs_register_protocol(i32 noundef %6, ptr noundef @proto_reg_handoff_dvb_s2_table)
   store ptr %7, ptr %1, align 8
   %8 = load ptr, ptr %1, align 8
-  call void @prefs_register_enum_preference(ptr noundef %8, ptr noundef @.str.755, ptr noundef @.str.756, ptr noundef @.str.757, ptr noundef @dvb_s2_rcs_version, ptr noundef @proto_register_dvb_s2_table.rcs_version, i32 noundef 0)
+  call void @prefs_register_enum_preference(ptr noundef %8, ptr noundef @.str.755, ptr noundef @.str.756, ptr noundef @.str.757, ptr noundef @dvb_s2_rcs_version, ptr noundef @proto_register_dvb_s2_table.rcs_version, i1 noundef zeroext false)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #4
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dvb_s2_table(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1381,25 +1386,38 @@ define internal i32 @dissect_dvb_s2_table(ptr noundef %0, ptr noundef %1, ptr no
   %16 = alloca i8, align 1
   %17 = alloca i8, align 1
   %18 = alloca i8, align 1
-  %19 = alloca i32, align 4
+  %19 = alloca i8, align 1
   %20 = alloca ptr, align 8
   %21 = alloca ptr, align 8
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
   store i32 0, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
   store i32 0, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %11) #4
   store i16 0, ptr %11, align 2
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #4
   store i8 0, ptr %12, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #4
   store i8 0, ptr %13, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %14) #4
   store i8 0, ptr %14, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %15) #4
   store i8 0, ptr %15, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %16) #4
   store i8 0, ptr %16, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %17) #4
   store i8 0, ptr %17, align 1
+  call void @llvm.lifetime.start.p0(i64 1, ptr %18) #4
   store i8 0, ptr %18, align 1
-  store i32 1, ptr %19, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %19) #4
+  store i8 1, ptr %19, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #4
   store ptr null, ptr %20, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #4
   %22 = load ptr, ptr %7, align 8
   %23 = load i32, ptr @proto_dvb_s2_table, align 4
   %24 = load ptr, ptr %5, align 8
@@ -1413,19 +1431,19 @@ define internal i32 @dissect_dvb_s2_table(ptr noundef %0, ptr noundef %1, ptr no
   %30 = load i32, ptr %10, align 4
   %31 = load i32, ptr %9, align 4
   %32 = add i32 %30, %31
-  %33 = call zeroext i8 @tvb_get_guint8(ptr noundef %29, i32 noundef %32)
+  %33 = call zeroext i8 @tvb_get_uint8(ptr noundef %29, i32 noundef %32)
   store i8 %33, ptr %12, align 1
   %34 = load ptr, ptr %6, align 8
-  %35 = getelementptr inbounds %struct._packet_info, ptr %34, i32 0, i32 1
+  %35 = getelementptr inbounds nuw %struct._packet_info, ptr %34, i32 0, i32 1
   %36 = load ptr, ptr %35, align 8
   %37 = load i8, ptr %12, align 1
   %38 = zext i8 %37 to i32
-  %39 = call ptr @val_to_str_const(i32 noundef %38, ptr noundef @tabletype, ptr noundef @.str.887)
+  %39 = call ptr @val_to_str_const(i32 noundef %38, ptr noundef @tabletype, ptr noundef @.str.900)
   call void @col_append_str(ptr noundef %36, i32 noundef 25, ptr noundef %39)
   %40 = load ptr, ptr %6, align 8
-  %41 = getelementptr inbounds %struct._packet_info, ptr %40, i32 0, i32 1
+  %41 = getelementptr inbounds nuw %struct._packet_info, ptr %40, i32 0, i32 1
   %42 = load ptr, ptr %41, align 8
-  call void @col_append_str(ptr noundef %42, i32 noundef 25, ptr noundef @.str.888)
+  call void @col_append_str(ptr noundef %42, i32 noundef 25, ptr noundef @.str.901)
   %43 = load ptr, ptr %21, align 8
   %44 = load i32, ptr @hf_dvb_s2_table_id, align 4
   %45 = load ptr, ptr %5, align 8
@@ -1612,7 +1630,7 @@ define internal i32 @dissect_dvb_s2_table(ptr noundef %0, ptr noundef %1, ptr no
   %201 = load i32, ptr %10, align 4
   %202 = load i32, ptr %9, align 4
   %203 = add i32 %201, %202
-  %204 = call zeroext i8 @tvb_get_guint8(ptr noundef %200, i32 noundef %203)
+  %204 = call zeroext i8 @tvb_get_uint8(ptr noundef %200, i32 noundef %203)
   store i8 %204, ptr %18, align 1
   %205 = load ptr, ptr %21, align 8
   %206 = load i32, ptr @hf_dvb_s2_mac_addres_6, align 4
@@ -1628,7 +1646,7 @@ define internal i32 @dissect_dvb_s2_table(ptr noundef %0, ptr noundef %1, ptr no
   %215 = load i32, ptr %10, align 4
   %216 = load i32, ptr %9, align 4
   %217 = add i32 %215, %216
-  %218 = call zeroext i8 @tvb_get_guint8(ptr noundef %214, i32 noundef %217)
+  %218 = call zeroext i8 @tvb_get_uint8(ptr noundef %214, i32 noundef %217)
   store i8 %218, ptr %17, align 1
   %219 = load ptr, ptr %21, align 8
   %220 = load i32, ptr @hf_dvb_s2_mac_addres_5, align 4
@@ -1702,7 +1720,7 @@ define internal i32 @dissect_dvb_s2_table(ptr noundef %0, ptr noundef %1, ptr no
   %284 = load i32, ptr %10, align 4
   %285 = load i32, ptr %9, align 4
   %286 = add i32 %284, %285
-  %287 = call zeroext i8 @tvb_get_guint8(ptr noundef %283, i32 noundef %286)
+  %287 = call zeroext i8 @tvb_get_uint8(ptr noundef %283, i32 noundef %286)
   store i8 %287, ptr %16, align 1
   %288 = load ptr, ptr %21, align 8
   %289 = load i32, ptr @hf_dvb_s2_mac_addres_4, align 4
@@ -1718,7 +1736,7 @@ define internal i32 @dissect_dvb_s2_table(ptr noundef %0, ptr noundef %1, ptr no
   %298 = load i32, ptr %10, align 4
   %299 = load i32, ptr %9, align 4
   %300 = add i32 %298, %299
-  %301 = call zeroext i8 @tvb_get_guint8(ptr noundef %297, i32 noundef %300)
+  %301 = call zeroext i8 @tvb_get_uint8(ptr noundef %297, i32 noundef %300)
   store i8 %301, ptr %15, align 1
   %302 = load ptr, ptr %21, align 8
   %303 = load i32, ptr @hf_dvb_s2_mac_addres_3, align 4
@@ -1734,7 +1752,7 @@ define internal i32 @dissect_dvb_s2_table(ptr noundef %0, ptr noundef %1, ptr no
   %312 = load i32, ptr %10, align 4
   %313 = load i32, ptr %9, align 4
   %314 = add i32 %312, %313
-  %315 = call zeroext i8 @tvb_get_guint8(ptr noundef %311, i32 noundef %314)
+  %315 = call zeroext i8 @tvb_get_uint8(ptr noundef %311, i32 noundef %314)
   store i8 %315, ptr %14, align 1
   %316 = load ptr, ptr %21, align 8
   %317 = load i32, ptr @hf_dvb_s2_mac_addres_2, align 4
@@ -1750,7 +1768,7 @@ define internal i32 @dissect_dvb_s2_table(ptr noundef %0, ptr noundef %1, ptr no
   %326 = load i32, ptr %10, align 4
   %327 = load i32, ptr %9, align 4
   %328 = add i32 %326, %327
-  %329 = call zeroext i8 @tvb_get_guint8(ptr noundef %325, i32 noundef %328)
+  %329 = call zeroext i8 @tvb_get_uint8(ptr noundef %325, i32 noundef %328)
   store i8 %329, ptr %13, align 1
   %330 = load ptr, ptr %21, align 8
   %331 = load i32, ptr @hf_dvb_s2_mac_addres_1, align 4
@@ -1943,11 +1961,11 @@ define internal i32 @dissect_dvb_s2_table(ptr noundef %0, ptr noundef %1, ptr no
 474:                                              ; preds = %473, %462
   %475 = load i8, ptr %12, align 1
   %476 = zext i8 %475 to i32
-  switch i32 %476, label %607 [
+  switch i32 %476, label %606 [
     i32 128, label %477
     i32 160, label %484
     i32 254, label %491
-    i32 176, label %503
+    i32 176, label %502
     i32 173, label %512
     i32 165, label %520
     i32 164, label %528
@@ -1961,14 +1979,14 @@ define internal i32 @dissect_dvb_s2_table(ptr noundef %0, ptr noundef %1, ptr no
     i32 64, label %589
     i32 65, label %589
     i32 178, label %598
-    i32 112, label %605
-    i32 0, label %606
-    i32 1, label %606
-    i32 2, label %606
-    i32 66, label %606
-    i32 162, label %606
-    i32 166, label %606
-    i32 192, label %606
+    i32 112, label %606
+    i32 0, label %605
+    i32 1, label %605
+    i32 2, label %605
+    i32 66, label %605
+    i32 162, label %605
+    i32 166, label %605
+    i32 192, label %605
   ]
 
 477:                                              ; preds = %474
@@ -1978,7 +1996,7 @@ define internal i32 @dissect_dvb_s2_table(ptr noundef %0, ptr noundef %1, ptr no
   %481 = add i32 %479, %480
   %482 = load ptr, ptr %21, align 8
   %483 = call i32 @dissect_dvb_s2_table_smt(ptr noundef %478, i32 noundef %481, ptr noundef %482)
-  br label %607
+  br label %606
 
 484:                                              ; preds = %474
   %485 = load ptr, ptr %5, align 8
@@ -1987,7 +2005,7 @@ define internal i32 @dissect_dvb_s2_table(ptr noundef %0, ptr noundef %1, ptr no
   %488 = add i32 %486, %487
   %489 = load ptr, ptr %21, align 8
   %490 = call i32 @dissect_dvb_s2_table_sct(ptr noundef %485, i32 noundef %488, ptr noundef %489)
-  br label %607
+  br label %606
 
 491:                                              ; preds = %474
   %492 = load ptr, ptr %5, align 8
@@ -1995,24 +2013,24 @@ define internal i32 @dissect_dvb_s2_table(ptr noundef %0, ptr noundef %1, ptr no
   %494 = load i32, ptr %9, align 4
   %495 = add i32 %493, %494
   %496 = load ptr, ptr %21, align 8
-  %497 = load i32, ptr %19, align 4
-  %498 = icmp ne i32 %497, 0
+  %497 = load i8, ptr %19, align 1, !range !6, !noundef !7
+  %498 = trunc i8 %497 to i1
   %499 = xor i1 %498, true
-  %500 = zext i1 %499 to i32
-  %501 = load ptr, ptr %6, align 8
-  %502 = call i32 @dissect_dvb_s2_table_tim(ptr noundef %492, i32 noundef %495, ptr noundef %496, i32 noundef %500, ptr noundef %501)
-  br label %607
+  %500 = load ptr, ptr %6, align 8
+  %501 = call i32 @dissect_dvb_s2_table_tim(ptr noundef %492, i32 noundef %495, ptr noundef %496, i1 noundef zeroext %499, ptr noundef %500)
+  br label %606
 
-503:                                              ; preds = %474
-  %504 = load ptr, ptr %5, align 8
-  %505 = load i32, ptr %10, align 4
-  %506 = load i32, ptr %9, align 4
-  %507 = add i32 %505, %506
-  %508 = load ptr, ptr %21, align 8
-  %509 = load i32, ptr %19, align 4
+502:                                              ; preds = %474
+  %503 = load ptr, ptr %5, align 8
+  %504 = load i32, ptr %10, align 4
+  %505 = load i32, ptr %9, align 4
+  %506 = add i32 %504, %505
+  %507 = load ptr, ptr %21, align 8
+  %508 = load i8, ptr %19, align 1, !range !6, !noundef !7
+  %509 = trunc i8 %508 to i1
   %510 = load ptr, ptr %6, align 8
-  %511 = call i32 @dissect_dvb_s2_table_tim(ptr noundef %504, i32 noundef %507, ptr noundef %508, i32 noundef %509, ptr noundef %510)
-  br label %607
+  %511 = call i32 @dissect_dvb_s2_table_tim(ptr noundef %503, i32 noundef %506, ptr noundef %507, i1 noundef zeroext %509, ptr noundef %510)
+  br label %606
 
 512:                                              ; preds = %474
   %513 = load ptr, ptr %5, align 8
@@ -2022,7 +2040,7 @@ define internal i32 @dissect_dvb_s2_table(ptr noundef %0, ptr noundef %1, ptr no
   %517 = load ptr, ptr %21, align 8
   %518 = load i16, ptr %11, align 2
   %519 = call i32 @dissect_dvb_s2_table_tbtp2(ptr noundef %513, i32 noundef %516, ptr noundef %517, i16 noundef zeroext %518)
-  br label %607
+  br label %606
 
 520:                                              ; preds = %474
   %521 = load ptr, ptr %5, align 8
@@ -2032,7 +2050,7 @@ define internal i32 @dissect_dvb_s2_table(ptr noundef %0, ptr noundef %1, ptr no
   %525 = load ptr, ptr %21, align 8
   %526 = load i16, ptr %11, align 2
   %527 = call i32 @dissect_dvb_s2_table_tbtp(ptr noundef %521, i32 noundef %524, ptr noundef %525, i16 noundef zeroext %526)
-  br label %607
+  br label %606
 
 528:                                              ; preds = %474
   %529 = load ptr, ptr %5, align 8
@@ -2041,7 +2059,7 @@ define internal i32 @dissect_dvb_s2_table(ptr noundef %0, ptr noundef %1, ptr no
   %532 = add i32 %530, %531
   %533 = load ptr, ptr %21, align 8
   %534 = call i32 @dissect_dvb_s2_table_cmt(ptr noundef %529, i32 noundef %532, ptr noundef %533)
-  br label %607
+  br label %606
 
 535:                                              ; preds = %474
   %536 = load ptr, ptr %5, align 8
@@ -2051,7 +2069,7 @@ define internal i32 @dissect_dvb_s2_table(ptr noundef %0, ptr noundef %1, ptr no
   %540 = load ptr, ptr %21, align 8
   %541 = load ptr, ptr %6, align 8
   %542 = call i32 @dissect_dvb_s2_table_fat(ptr noundef %536, i32 noundef %539, ptr noundef %540, ptr noundef %541)
-  br label %607
+  br label %606
 
 543:                                              ; preds = %474
   %544 = load ptr, ptr %5, align 8
@@ -2060,7 +2078,7 @@ define internal i32 @dissect_dvb_s2_table(ptr noundef %0, ptr noundef %1, ptr no
   %547 = add i32 %545, %546
   %548 = load ptr, ptr %21, align 8
   %549 = call i32 @dissect_dvb_s2_table_fct(ptr noundef %544, i32 noundef %547, ptr noundef %548)
-  br label %607
+  br label %606
 
 550:                                              ; preds = %474
   %551 = load ptr, ptr %5, align 8
@@ -2069,7 +2087,7 @@ define internal i32 @dissect_dvb_s2_table(ptr noundef %0, ptr noundef %1, ptr no
   %554 = add i32 %552, %553
   %555 = load ptr, ptr %21, align 8
   %556 = call i32 @dissect_dvb_s2_table_tmst2(ptr noundef %551, i32 noundef %554, ptr noundef %555)
-  br label %607
+  br label %606
 
 557:                                              ; preds = %474
   %558 = load ptr, ptr %5, align 8
@@ -2078,7 +2096,7 @@ define internal i32 @dissect_dvb_s2_table(ptr noundef %0, ptr noundef %1, ptr no
   %561 = add i32 %559, %560
   %562 = load ptr, ptr %21, align 8
   %563 = call i32 @dissect_dvb_s2_table_tmst(ptr noundef %558, i32 noundef %561, ptr noundef %562)
-  br label %607
+  br label %606
 
 564:                                              ; preds = %474
   %565 = load i32, ptr @dvb_s2_rcs_version, align 4
@@ -2095,7 +2113,7 @@ define internal i32 @dissect_dvb_s2_table(ptr noundef %0, ptr noundef %1, ptr no
   br label %574
 
 574:                                              ; preds = %567, %564
-  br label %607
+  br label %606
 
 575:                                              ; preds = %474
   %576 = load ptr, ptr %5, align 8
@@ -2104,7 +2122,7 @@ define internal i32 @dissect_dvb_s2_table(ptr noundef %0, ptr noundef %1, ptr no
   %579 = add i32 %577, %578
   %580 = load ptr, ptr %21, align 8
   %581 = call i32 @dissect_dvb_s2_table_bct(ptr noundef %576, i32 noundef %579, ptr noundef %580)
-  br label %607
+  br label %606
 
 582:                                              ; preds = %474
   %583 = load ptr, ptr %5, align 8
@@ -2113,7 +2131,7 @@ define internal i32 @dissect_dvb_s2_table(ptr noundef %0, ptr noundef %1, ptr no
   %586 = add i32 %584, %585
   %587 = load ptr, ptr %21, align 8
   %588 = call i32 @dissect_dvb_s2_table_spt(ptr noundef %583, i32 noundef %586, ptr noundef %587)
-  br label %607
+  br label %606
 
 589:                                              ; preds = %474, %474
   %590 = load ptr, ptr %5, align 8
@@ -2124,7 +2142,7 @@ define internal i32 @dissect_dvb_s2_table(ptr noundef %0, ptr noundef %1, ptr no
   %595 = load i8, ptr %12, align 1
   %596 = load ptr, ptr %6, align 8
   %597 = call i32 @dissect_dvb_s2_table_nit_rmt(ptr noundef %590, i32 noundef %593, ptr noundef %594, i8 noundef zeroext %595, ptr noundef %596)
-  br label %607
+  br label %606
 
 598:                                              ; preds = %474
   %599 = load ptr, ptr %5, align 8
@@ -2133,76 +2151,99 @@ define internal i32 @dissect_dvb_s2_table(ptr noundef %0, ptr noundef %1, ptr no
   %602 = add i32 %600, %601
   %603 = load ptr, ptr %21, align 8
   %604 = call i32 @dissect_dvb_s2_table_mmt2(ptr noundef %599, i32 noundef %602, ptr noundef %603)
-  br label %607
+  br label %606
 
-605:                                              ; preds = %474
-  br label %607
+605:                                              ; preds = %474, %474, %474, %474, %474, %474, %474
+  br label %606
 
-606:                                              ; preds = %474, %474, %474, %474, %474, %474, %474
-  br label %607
+606:                                              ; preds = %474, %605, %474, %598, %589, %582, %575, %574, %557, %550, %543, %535, %528, %520, %512, %502, %491, %484, %477
+  %607 = load i32, ptr @dvb_s2_rcs_version, align 4
+  %608 = icmp eq i32 %607, 0
+  br i1 %608, label %609, label %615
 
-607:                                              ; preds = %606, %605, %598, %589, %582, %575, %574, %557, %550, %543, %535, %528, %520, %512, %503, %491, %484, %477, %474
-  %608 = load i32, ptr @dvb_s2_rcs_version, align 4
-  %609 = icmp eq i32 %608, 0
-  br i1 %609, label %610, label %616
-
-610:                                              ; preds = %607
-  %611 = load i16, ptr %11, align 2
-  %612 = zext i16 %611 to i32
-  %613 = sub i32 %612, 8
-  %614 = load i32, ptr %9, align 4
-  %615 = add i32 %614, %613
-  store i32 %615, ptr %9, align 4
-  br label %626
-
-616:                                              ; preds = %607
-  %617 = load i32, ptr @dvb_s2_rcs_version, align 4
-  %618 = icmp eq i32 %617, 1
-  br i1 %618, label %619, label %625
-
-619:                                              ; preds = %616
-  %620 = load i16, ptr %11, align 2
-  %621 = zext i16 %620 to i32
-  %622 = sub i32 %621, 4
-  %623 = load i32, ptr %9, align 4
-  %624 = add i32 %623, %622
-  store i32 %624, ptr %9, align 4
+609:                                              ; preds = %606
+  %610 = load i16, ptr %11, align 2
+  %611 = zext i16 %610 to i32
+  %612 = sub i32 %611, 8
+  %613 = load i32, ptr %9, align 4
+  %614 = add i32 %613, %612
+  store i32 %614, ptr %9, align 4
   br label %625
 
-625:                                              ; preds = %619, %616
-  br label %626
+615:                                              ; preds = %606
+  %616 = load i32, ptr @dvb_s2_rcs_version, align 4
+  %617 = icmp eq i32 %616, 1
+  br i1 %617, label %618, label %624
 
-626:                                              ; preds = %625, %610
-  %627 = load i32, ptr %9, align 4
-  ret i32 %627
+618:                                              ; preds = %615
+  %619 = load i16, ptr %11, align 2
+  %620 = zext i16 %619 to i32
+  %621 = sub i32 %620, 4
+  %622 = load i32, ptr %9, align 4
+  %623 = add i32 %622, %621
+  store i32 %623, ptr %9, align 4
+  br label %624
+
+624:                                              ; preds = %618, %615
+  br label %625
+
+625:                                              ; preds = %624, %609
+  %626 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %17) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
+  ret i32 %626
 }
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #2
 
-declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
-define hidden void @proto_reg_handoff_dvb_s2_table() #0 {
+; Function Attrs: nounwind null_pointer_is_valid sspstrong uwtable
+define hidden void @proto_reg_handoff_dvb_s2_table() #3 {
   ret void
 }
 
-declare void @prefs_register_enum_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @prefs_register_enum_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) #2
 
-declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #2
 
-declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_uint8(ptr noundef, i32 noundef) #2
 
-declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare i32 @tvb_captured_length(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length(ptr noundef) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dvb_s2_table_smt(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -2211,6 +2252,7 @@ define internal i32 @dissect_dvb_s2_table_smt(ptr noundef %0, i32 noundef %1, pt
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
   store i32 0, ptr %7, align 4
   %8 = load ptr, ptr %6, align 8
   %9 = load i32, ptr @hf_dvb_s2_table_smt_id, align 4
@@ -2284,10 +2326,11 @@ define internal i32 @dissect_dvb_s2_table_smt(ptr noundef %0, i32 noundef %1, pt
   %73 = add i32 %72, 4
   store i32 %73, ptr %7, align 4
   %74 = load i32, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
   ret i32 %74
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dvb_s2_table_sct(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -2305,12 +2348,22 @@ define internal i32 @dissect_dvb_s2_table_sct(ptr noundef %0, i32 noundef %1, pt
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
   store i32 0, ptr %8, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #4
   %17 = load ptr, ptr %4, align 8
   %18 = load i32, ptr %5, align 4
   %19 = load i32, ptr %8, align 4
   %20 = add i32 %18, %19
-  %21 = call zeroext i8 @tvb_get_guint8(ptr noundef %17, i32 noundef %20)
+  %21 = call zeroext i8 @tvb_get_uint8(ptr noundef %17, i32 noundef %20)
   store i8 %21, ptr %9, align 1
   %22 = load ptr, ptr %6, align 8
   %23 = load i32, ptr @hf_dvb_s2_table_superframe_loop_count, align 4
@@ -2384,7 +2437,7 @@ define internal i32 @dissect_dvb_s2_table_sct(ptr noundef %0, i32 noundef %1, pt
   %72 = add i32 %71, 1
   store i32 %72, ptr %8, align 4
   %73 = load ptr, ptr %15, align 8
-  %74 = load i32, ptr @hf_dvb_s2_table_sf_large_timing_uncertaintly_flag, align 4
+  %74 = load i32, ptr @hf_dvb_s2_table_sf_large_timing_uncertainty_flag, align 4
   %75 = load ptr, ptr %4, align 8
   %76 = load i32, ptr %5, align 4
   %77 = load i32, ptr %8, align 4
@@ -2444,7 +2497,7 @@ define internal i32 @dissect_dvb_s2_table_sct(ptr noundef %0, i32 noundef %1, pt
   %126 = load i32, ptr %5, align 4
   %127 = load i32, ptr %8, align 4
   %128 = add i32 %126, %127
-  %129 = call zeroext i8 @tvb_get_guint8(ptr noundef %125, i32 noundef %128)
+  %129 = call zeroext i8 @tvb_get_uint8(ptr noundef %125, i32 noundef %128)
   %130 = zext i8 %129 to i32
   %131 = and i32 %130, 31
   %132 = trunc i32 %131 to i8
@@ -2541,7 +2594,7 @@ define internal i32 @dissect_dvb_s2_table_sct(ptr noundef %0, i32 noundef %1, pt
   %201 = load i32, ptr %12, align 4
   %202 = add i32 %201, 1
   store i32 %202, ptr %12, align 4
-  br label %142, !llvm.loop !4
+  br label %142, !llvm.loop !8
 
 203:                                              ; preds = %142
   %204 = load ptr, ptr %13, align 8
@@ -2555,7 +2608,7 @@ define internal i32 @dissect_dvb_s2_table_sct(ptr noundef %0, i32 noundef %1, pt
   %209 = load i32, ptr %11, align 4
   %210 = add i32 %209, 1
   store i32 %210, ptr %11, align 4
-  br label %31, !llvm.loop !6
+  br label %31, !llvm.loop !10
 
 211:                                              ; preds = %31
   %212 = load i32, ptr @dvb_s2_rcs_version, align 4
@@ -2577,15 +2630,25 @@ define internal i32 @dissect_dvb_s2_table_sct(ptr noundef %0, i32 noundef %1, pt
 
 224:                                              ; preds = %214, %211
   %225 = load i32, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
   ret i32 %225
 }
 
-; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dvb_s2_table_tim(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #0 {
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
+define internal i32 @dissect_dvb_s2_table_tim(ptr noundef %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
-  %9 = alloca i32, align 4
+  %9 = alloca i8, align 1
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
@@ -2593,92 +2656,99 @@ define internal i32 @dissect_dvb_s2_table_tim(ptr noundef %0, i32 noundef %1, pt
   store ptr %0, ptr %6, align 8
   store i32 %1, ptr %7, align 4
   store ptr %2, ptr %8, align 8
-  store i32 %3, ptr %9, align 4
+  %14 = zext i1 %3 to i8
+  store i8 %14, ptr %9, align 1
   store ptr %4, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
   store i32 0, ptr %12, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
   store i32 0, ptr %13, align 4
-  %14 = load i32, ptr %9, align 4
-  %15 = icmp ne i32 %14, 0
-  br i1 %15, label %16, label %24
+  %15 = load i8, ptr %9, align 1, !range !6, !noundef !7
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %17, label %25
 
-16:                                               ; preds = %5
+17:                                               ; preds = %5
   store i32 176, ptr %13, align 4
-  %17 = load ptr, ptr %8, align 8
-  %18 = load i32, ptr @hf_dvb_s2_table_rcst_status, align 4
-  %19 = load ptr, ptr %6, align 8
-  %20 = load i32, ptr %7, align 4
-  %21 = load i32, ptr %12, align 4
-  %22 = add i32 %20, %21
-  %23 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %18, ptr noundef %19, i32 noundef %22, i32 noundef 1, i32 noundef 0)
-  br label %32
+  %18 = load ptr, ptr %8, align 8
+  %19 = load i32, ptr @hf_dvb_s2_table_rcst_status, align 4
+  %20 = load ptr, ptr %6, align 8
+  %21 = load i32, ptr %7, align 4
+  %22 = load i32, ptr %12, align 4
+  %23 = add i32 %21, %22
+  %24 = call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %19, ptr noundef %20, i32 noundef %23, i32 noundef 1, i32 noundef 0)
+  br label %33
 
-24:                                               ; preds = %5
+25:                                               ; preds = %5
   store i32 254, ptr %13, align 4
-  %25 = load ptr, ptr %8, align 8
-  %26 = load i32, ptr @hf_dvb_s2_table_network_status, align 4
-  %27 = load ptr, ptr %6, align 8
-  %28 = load i32, ptr %7, align 4
-  %29 = load i32, ptr %12, align 4
-  %30 = add i32 %28, %29
-  %31 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %26, ptr noundef %27, i32 noundef %30, i32 noundef 1, i32 noundef 0)
-  br label %32
+  %26 = load ptr, ptr %8, align 8
+  %27 = load i32, ptr @hf_dvb_s2_table_network_status, align 4
+  %28 = load ptr, ptr %6, align 8
+  %29 = load i32, ptr %7, align 4
+  %30 = load i32, ptr %12, align 4
+  %31 = add i32 %29, %30
+  %32 = call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %27, ptr noundef %28, i32 noundef %31, i32 noundef 1, i32 noundef 0)
+  br label %33
 
-32:                                               ; preds = %24, %16
-  %33 = load i32, ptr %12, align 4
-  %34 = add i32 %33, 1
-  store i32 %34, ptr %12, align 4
-  %35 = load ptr, ptr %8, align 8
-  %36 = load i32, ptr @hf_dvb_s2_table_desc_loop_count, align 4
-  %37 = load ptr, ptr %6, align 8
-  %38 = load i32, ptr %7, align 4
-  %39 = load i32, ptr %12, align 4
-  %40 = add i32 %38, %39
-  %41 = call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %36, ptr noundef %37, i32 noundef %40, i32 noundef 1, i32 noundef 0)
-  %42 = load ptr, ptr %6, align 8
-  %43 = load i32, ptr %7, align 4
-  %44 = load i32, ptr %12, align 4
-  %45 = add i32 %43, %44
-  %46 = call zeroext i8 @tvb_get_guint8(ptr noundef %42, i32 noundef %45)
-  %47 = zext i8 %46 to i32
-  store i32 %47, ptr %11, align 4
-  %48 = load i32, ptr %12, align 4
-  %49 = add i32 %48, 1
-  store i32 %49, ptr %12, align 4
-  %50 = load ptr, ptr %6, align 8
-  %51 = load i32, ptr %7, align 4
-  %52 = load i32, ptr %12, align 4
-  %53 = add i32 %51, %52
-  %54 = load ptr, ptr %8, align 8
-  %55 = load i32, ptr %11, align 4
-  %56 = load i32, ptr %13, align 4
-  %57 = load ptr, ptr %10, align 8
-  %58 = call i32 @dissect_dvb_s2_table_desc(ptr noundef %50, i32 noundef %53, ptr noundef %54, i32 noundef %55, i32 noundef %56, ptr noundef %57)
-  %59 = load i32, ptr %12, align 4
-  %60 = add i32 %59, %58
-  store i32 %60, ptr %12, align 4
-  %61 = load i32, ptr @dvb_s2_rcs_version, align 4
-  %62 = icmp eq i32 %61, 0
-  br i1 %62, label %63, label %73
+33:                                               ; preds = %25, %17
+  %34 = load i32, ptr %12, align 4
+  %35 = add i32 %34, 1
+  store i32 %35, ptr %12, align 4
+  %36 = load ptr, ptr %8, align 8
+  %37 = load i32, ptr @hf_dvb_s2_table_desc_loop_count, align 4
+  %38 = load ptr, ptr %6, align 8
+  %39 = load i32, ptr %7, align 4
+  %40 = load i32, ptr %12, align 4
+  %41 = add i32 %39, %40
+  %42 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %37, ptr noundef %38, i32 noundef %41, i32 noundef 1, i32 noundef 0)
+  %43 = load ptr, ptr %6, align 8
+  %44 = load i32, ptr %7, align 4
+  %45 = load i32, ptr %12, align 4
+  %46 = add i32 %44, %45
+  %47 = call zeroext i8 @tvb_get_uint8(ptr noundef %43, i32 noundef %46)
+  %48 = zext i8 %47 to i32
+  store i32 %48, ptr %11, align 4
+  %49 = load i32, ptr %12, align 4
+  %50 = add i32 %49, 1
+  store i32 %50, ptr %12, align 4
+  %51 = load ptr, ptr %6, align 8
+  %52 = load i32, ptr %7, align 4
+  %53 = load i32, ptr %12, align 4
+  %54 = add i32 %52, %53
+  %55 = load ptr, ptr %8, align 8
+  %56 = load i32, ptr %11, align 4
+  %57 = load i32, ptr %13, align 4
+  %58 = load ptr, ptr %10, align 8
+  %59 = call i32 @dissect_dvb_s2_table_desc(ptr noundef %51, i32 noundef %54, ptr noundef %55, i32 noundef %56, i32 noundef %57, ptr noundef %58)
+  %60 = load i32, ptr %12, align 4
+  %61 = add i32 %60, %59
+  store i32 %61, ptr %12, align 4
+  %62 = load i32, ptr @dvb_s2_rcs_version, align 4
+  %63 = icmp eq i32 %62, 0
+  br i1 %63, label %64, label %74
 
-63:                                               ; preds = %32
-  %64 = load ptr, ptr %8, align 8
-  %65 = load i32, ptr @hf_dvb_s2_table_crc32, align 4
-  %66 = load ptr, ptr %6, align 8
-  %67 = load i32, ptr %7, align 4
-  %68 = load i32, ptr %12, align 4
-  %69 = add i32 %67, %68
-  %70 = call ptr @proto_tree_add_item(ptr noundef %64, i32 noundef %65, ptr noundef %66, i32 noundef %69, i32 noundef 4, i32 noundef 0)
-  %71 = load i32, ptr %12, align 4
-  %72 = add i32 %71, 4
-  store i32 %72, ptr %12, align 4
-  br label %73
+64:                                               ; preds = %33
+  %65 = load ptr, ptr %8, align 8
+  %66 = load i32, ptr @hf_dvb_s2_table_crc32, align 4
+  %67 = load ptr, ptr %6, align 8
+  %68 = load i32, ptr %7, align 4
+  %69 = load i32, ptr %12, align 4
+  %70 = add i32 %68, %69
+  %71 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %66, ptr noundef %67, i32 noundef %70, i32 noundef 4, i32 noundef 0)
+  %72 = load i32, ptr %12, align 4
+  %73 = add i32 %72, 4
+  store i32 %73, ptr %12, align 4
+  br label %74
 
-73:                                               ; preds = %63, %32
-  %74 = load i32, ptr %12, align 4
-  ret i32 %74
+74:                                               ; preds = %64, %33
+  %75 = load i32, ptr %12, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
+  ret i32 %75
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dvb_s2_table_tbtp2(ptr noundef %0, i32 noundef %1, ptr noundef %2, i16 noundef zeroext %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -2700,8 +2770,20 @@ define internal i32 @dissect_dvb_s2_table_tbtp2(ptr noundef %0, i32 noundef %1, 
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
   store i16 %3, ptr %8, align 2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #4
   store i32 0, ptr %14, align 4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %15) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %16) #4
   store i8 0, ptr %16, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #4
   %21 = load ptr, ptr %7, align 8
   %22 = load i32, ptr @hf_dvb_s2_table_group_id, align 4
   %23 = load ptr, ptr %5, align 8
@@ -2746,7 +2828,7 @@ define internal i32 @dissect_dvb_s2_table_tbtp2(ptr noundef %0, i32 noundef %1, 
   %58 = load i32, ptr %6, align 4
   %59 = load i32, ptr %14, align 4
   %60 = add i32 %58, %59
-  %61 = call zeroext i8 @tvb_get_guint8(ptr noundef %57, i32 noundef %60)
+  %61 = call zeroext i8 @tvb_get_uint8(ptr noundef %57, i32 noundef %60)
   store i8 %61, ptr %16, align 1
   %62 = load ptr, ptr %7, align 8
   %63 = load i32, ptr @hf_dvb_s2_table_assign_format, align 4
@@ -2762,7 +2844,7 @@ define internal i32 @dissect_dvb_s2_table_tbtp2(ptr noundef %0, i32 noundef %1, 
   %72 = load i32, ptr %6, align 4
   %73 = load i32, ptr %14, align 4
   %74 = add i32 %72, %73
-  %75 = call zeroext i8 @tvb_get_guint8(ptr noundef %71, i32 noundef %74)
+  %75 = call zeroext i8 @tvb_get_uint8(ptr noundef %71, i32 noundef %74)
   %76 = zext i8 %75 to i32
   store i32 %76, ptr %9, align 4
   %77 = load ptr, ptr %7, align 8
@@ -2993,7 +3075,7 @@ define internal i32 @dissect_dvb_s2_table_tbtp2(ptr noundef %0, i32 noundef %1, 
   store i32 %249, ptr %14, align 4
   br label %250
 
-250:                                              ; preds = %231, %212, %193, %183, %173, %163, %153, %139
+250:                                              ; preds = %139, %231, %212, %193, %183, %173, %163, %153
   %251 = load ptr, ptr %18, align 8
   %252 = load i32, ptr %14, align 4
   %253 = load i32, ptr %11, align 4
@@ -3005,7 +3087,7 @@ define internal i32 @dissect_dvb_s2_table_tbtp2(ptr noundef %0, i32 noundef %1, 
   %256 = load i32, ptr %13, align 4
   %257 = add i32 %256, 1
   store i32 %257, ptr %13, align 4
-  br label %134, !llvm.loop !7
+  br label %134, !llvm.loop !11
 
 258:                                              ; preds = %134
   %259 = load ptr, ptr %17, align 8
@@ -3019,16 +3101,28 @@ define internal i32 @dissect_dvb_s2_table_tbtp2(ptr noundef %0, i32 noundef %1, 
   %264 = load i32, ptr %12, align 4
   %265 = add i32 %264, 1
   store i32 %265, ptr %12, align 4
-  br label %86, !llvm.loop !8
+  br label %86, !llvm.loop !12
 
 266:                                              ; preds = %86
   %267 = load i16, ptr %8, align 2
   %268 = zext i16 %267 to i32
   %269 = sub i32 %268, 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %269
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dvb_s2_table_tbtp(ptr noundef %0, i32 noundef %1, ptr noundef %2, i16 noundef zeroext %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -3050,8 +3144,20 @@ define internal i32 @dissect_dvb_s2_table_tbtp(ptr noundef %0, i32 noundef %1, p
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
   store i16 %3, ptr %8, align 2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #4
   store i32 0, ptr %15, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %16) #4
   store i8 0, ptr %16, align 1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #4
   %21 = load ptr, ptr %7, align 8
   %22 = load i32, ptr @hf_dvb_s2_tbtp_group_id, align 4
   %23 = load ptr, ptr %5, align 8
@@ -3076,7 +3182,7 @@ define internal i32 @dissect_dvb_s2_table_tbtp(ptr noundef %0, i32 noundef %1, p
   %40 = load i32, ptr %6, align 4
   %41 = load i32, ptr %15, align 4
   %42 = add i32 %40, %41
-  %43 = call zeroext i8 @tvb_get_guint8(ptr noundef %39, i32 noundef %42)
+  %43 = call zeroext i8 @tvb_get_uint8(ptr noundef %39, i32 noundef %42)
   %44 = zext i8 %43 to i32
   %45 = and i32 %44, 31
   store i32 %45, ptr %9, align 4
@@ -3180,7 +3286,7 @@ define internal i32 @dissect_dvb_s2_table_tbtp(ptr noundef %0, i32 noundef %1, p
   %122 = load i32, ptr %6, align 4
   %123 = load i32, ptr %15, align 4
   %124 = add i32 %122, %123
-  %125 = call zeroext i8 @tvb_get_guint8(ptr noundef %121, i32 noundef %124)
+  %125 = call zeroext i8 @tvb_get_uint8(ptr noundef %121, i32 noundef %124)
   %126 = zext i8 %125 to i32
   %127 = and i32 %126, 128
   %128 = trunc i32 %127 to i8
@@ -3255,7 +3361,7 @@ define internal i32 @dissect_dvb_s2_table_tbtp(ptr noundef %0, i32 noundef %1, p
   %186 = load i32, ptr %14, align 4
   %187 = add i32 %186, 1
   store i32 %187, ptr %14, align 4
-  br label %96, !llvm.loop !9
+  br label %96, !llvm.loop !13
 
 188:                                              ; preds = %96
   %189 = load ptr, ptr %17, align 8
@@ -3269,7 +3375,7 @@ define internal i32 @dissect_dvb_s2_table_tbtp(ptr noundef %0, i32 noundef %1, p
   %194 = load i32, ptr %12, align 4
   %195 = add i32 %194, 1
   store i32 %195, ptr %12, align 4
-  br label %55, !llvm.loop !10
+  br label %55, !llvm.loop !14
 
 196:                                              ; preds = %55
   %197 = load i32, ptr @dvb_s2_rcs_version, align 4
@@ -3290,10 +3396,22 @@ define internal i32 @dissect_dvb_s2_table_tbtp(ptr noundef %0, i32 noundef %1, p
   %208 = load i16, ptr %8, align 2
   %209 = zext i16 %208 to i32
   %210 = sub i32 %209, 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %210
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dvb_s2_table_cmt(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -3307,12 +3425,18 @@ define internal i32 @dissect_dvb_s2_table_cmt(ptr noundef %0, i32 noundef %1, pt
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
   store i32 0, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #4
   %13 = load ptr, ptr %4, align 8
   %14 = load i32, ptr %5, align 4
   %15 = load i32, ptr %10, align 4
   %16 = add i32 %14, %15
-  %17 = call zeroext i8 @tvb_get_guint8(ptr noundef %13, i32 noundef %16)
+  %17 = call zeroext i8 @tvb_get_uint8(ptr noundef %13, i32 noundef %16)
   %18 = zext i8 %17 to i32
   store i32 %18, ptr %7, align 4
   %19 = load ptr, ptr %6, align 8
@@ -3389,7 +3513,7 @@ define internal i32 @dissect_dvb_s2_table_cmt(ptr noundef %0, i32 noundef %1, pt
   %75 = load i32, ptr %8, align 4
   %76 = add i32 %75, 1
   store i32 %76, ptr %8, align 4
-  br label %28, !llvm.loop !11
+  br label %28, !llvm.loop !15
 
 77:                                               ; preds = %28
   %78 = load i32, ptr @dvb_s2_rcs_version, align 4
@@ -3411,10 +3535,16 @@ define internal i32 @dissect_dvb_s2_table_cmt(ptr noundef %0, i32 noundef %1, pt
 
 90:                                               ; preds = %80, %77
   %91 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
   ret i32 %91
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dvb_s2_table_fat(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -3426,6 +3556,8 @@ define internal i32 @dissect_dvb_s2_table_fat(ptr noundef %0, i32 noundef %1, pt
   store i32 %1, ptr %6, align 4
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %7, align 8
   %12 = load i32, ptr @hf_dvb_s2_table_desc_loop_count, align 4
@@ -3438,7 +3570,7 @@ define internal i32 @dissect_dvb_s2_table_fat(ptr noundef %0, i32 noundef %1, pt
   %19 = load i32, ptr %6, align 4
   %20 = load i32, ptr %10, align 4
   %21 = add i32 %19, %20
-  %22 = call zeroext i8 @tvb_get_guint8(ptr noundef %18, i32 noundef %21)
+  %22 = call zeroext i8 @tvb_get_uint8(ptr noundef %18, i32 noundef %21)
   %23 = zext i8 %22 to i32
   store i32 %23, ptr %9, align 4
   %24 = load i32, ptr %10, align 4
@@ -3456,10 +3588,12 @@ define internal i32 @dissect_dvb_s2_table_fat(ptr noundef %0, i32 noundef %1, pt
   %35 = add i32 %34, %33
   store i32 %35, ptr %10, align 4
   %36 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
   ret i32 %36
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dvb_s2_table_fct(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -3477,12 +3611,22 @@ define internal i32 @dissect_dvb_s2_table_fct(ptr noundef %0, i32 noundef %1, pt
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
   store i32 0, ptr %12, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #4
   %17 = load ptr, ptr %4, align 8
   %18 = load i32, ptr %5, align 4
   %19 = load i32, ptr %12, align 4
   %20 = add i32 %18, %19
-  %21 = call zeroext i8 @tvb_get_guint8(ptr noundef %17, i32 noundef %20)
+  %21 = call zeroext i8 @tvb_get_uint8(ptr noundef %17, i32 noundef %20)
   %22 = zext i8 %21 to i32
   store i32 %22, ptr %7, align 4
   %23 = load ptr, ptr %6, align 8
@@ -3563,7 +3707,7 @@ define internal i32 @dissect_dvb_s2_table_fct(ptr noundef %0, i32 noundef %1, pt
   %85 = load i32, ptr %5, align 4
   %86 = load i32, ptr %12, align 4
   %87 = add i32 %85, %86
-  %88 = call zeroext i8 @tvb_get_guint8(ptr noundef %84, i32 noundef %87)
+  %88 = call zeroext i8 @tvb_get_uint8(ptr noundef %84, i32 noundef %87)
   %89 = zext i8 %88 to i32
   store i32 %89, ptr %10, align 4
   %90 = load ptr, ptr %15, align 8
@@ -3644,7 +3788,7 @@ define internal i32 @dissect_dvb_s2_table_fct(ptr noundef %0, i32 noundef %1, pt
   %151 = load i32, ptr %11, align 4
   %152 = add i32 %151, 1
   store i32 %152, ptr %11, align 4
-  br label %99, !llvm.loop !12
+  br label %99, !llvm.loop !16
 
 153:                                              ; preds = %99
   %154 = load ptr, ptr %13, align 8
@@ -3658,7 +3802,7 @@ define internal i32 @dissect_dvb_s2_table_fct(ptr noundef %0, i32 noundef %1, pt
   %159 = load i32, ptr %8, align 4
   %160 = add i32 %159, 1
   store i32 %160, ptr %8, align 4
-  br label %32, !llvm.loop !13
+  br label %32, !llvm.loop !17
 
 161:                                              ; preds = %32
   %162 = load i32, ptr @dvb_s2_rcs_version, align 4
@@ -3680,10 +3824,20 @@ define internal i32 @dissect_dvb_s2_table_fct(ptr noundef %0, i32 noundef %1, pt
 
 174:                                              ; preds = %164, %161
   %175 = load i32, ptr %12, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
   ret i32 %175
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dvb_s2_table_tmst2(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -3696,7 +3850,12 @@ define internal i32 @dissect_dvb_s2_table_tmst2(ptr noundef %0, i32 noundef %1, 
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
   store i32 0, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #4
   %12 = load ptr, ptr %6, align 8
   %13 = load i32, ptr @hf_dvb_s2_table_common_sytem_margin, align 4
   %14 = load ptr, ptr %4, align 8
@@ -3711,7 +3870,7 @@ define internal i32 @dissect_dvb_s2_table_tmst2(ptr noundef %0, i32 noundef %1, 
   %22 = load i32, ptr %5, align 4
   %23 = load i32, ptr %9, align 4
   %24 = add i32 %22, %23
-  %25 = call zeroext i8 @tvb_get_guint8(ptr noundef %21, i32 noundef %24)
+  %25 = call zeroext i8 @tvb_get_uint8(ptr noundef %21, i32 noundef %24)
   %26 = zext i8 %25 to i32
   store i32 %26, ptr %7, align 4
   %27 = load ptr, ptr %6, align 8
@@ -3796,14 +3955,19 @@ define internal i32 @dissect_dvb_s2_table_tmst2(ptr noundef %0, i32 noundef %1, 
   %93 = load i32, ptr %8, align 4
   %94 = add i32 %93, 1
   store i32 %94, ptr %8, align 4
-  br label %36, !llvm.loop !14
+  br label %36, !llvm.loop !18
 
 95:                                               ; preds = %36
   %96 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
   ret i32 %96
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dvb_s2_table_tmst(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -3816,12 +3980,17 @@ define internal i32 @dissect_dvb_s2_table_tmst(ptr noundef %0, i32 noundef %1, p
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
   store i32 0, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #4
   %12 = load ptr, ptr %4, align 8
   %13 = load i32, ptr %5, align 4
   %14 = load i32, ptr %9, align 4
   %15 = add i32 %13, %14
-  %16 = call zeroext i8 @tvb_get_guint8(ptr noundef %12, i32 noundef %15)
+  %16 = call zeroext i8 @tvb_get_uint8(ptr noundef %12, i32 noundef %15)
   %17 = zext i8 %16 to i32
   store i32 %17, ptr %7, align 4
   %18 = load ptr, ptr %6, align 8
@@ -3886,7 +4055,7 @@ define internal i32 @dissect_dvb_s2_table_tmst(ptr noundef %0, i32 noundef %1, p
   %66 = load i32, ptr %8, align 4
   %67 = add i32 %66, 1
   store i32 %67, ptr %8, align 4
-  br label %27, !llvm.loop !15
+  br label %27, !llvm.loop !19
 
 68:                                               ; preds = %27
   %69 = load i32, ptr @dvb_s2_rcs_version, align 4
@@ -3908,10 +4077,15 @@ define internal i32 @dissect_dvb_s2_table_tmst(ptr noundef %0, i32 noundef %1, p
 
 81:                                               ; preds = %71, %68
   %82 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
   ret i32 %82
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dvb_s2_table_fct2(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -3931,12 +4105,24 @@ define internal i32 @dissect_dvb_s2_table_fct2(ptr noundef %0, i32 noundef %1, p
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #4
   store i32 0, ptr %14, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
   %19 = load ptr, ptr %4, align 8
   %20 = load i32, ptr %5, align 4
   %21 = load i32, ptr %14, align 4
   %22 = add i32 %20, %21
-  %23 = call zeroext i8 @tvb_get_guint8(ptr noundef %19, i32 noundef %22)
+  %23 = call zeroext i8 @tvb_get_uint8(ptr noundef %19, i32 noundef %22)
   %24 = zext i8 %23 to i32
   store i32 %24, ptr %7, align 4
   %25 = load ptr, ptr %6, align 8
@@ -4047,7 +4233,7 @@ define internal i32 @dissect_dvb_s2_table_fct2(ptr noundef %0, i32 noundef %1, p
   %114 = load i32, ptr %5, align 4
   %115 = load i32, ptr %14, align 4
   %116 = add i32 %114, %115
-  %117 = call zeroext i8 @tvb_get_guint8(ptr noundef %113, i32 noundef %116)
+  %117 = call zeroext i8 @tvb_get_uint8(ptr noundef %113, i32 noundef %116)
   %118 = zext i8 %117 to i32
   store i32 %118, ptr %10, align 4
   %119 = load ptr, ptr %17, align 8
@@ -4086,14 +4272,14 @@ define internal i32 @dissect_dvb_s2_table_fct2(ptr noundef %0, i32 noundef %1, p
   %143 = load i32, ptr %11, align 4
   %144 = add i32 %143, 1
   store i32 %144, ptr %11, align 4
-  br label %128, !llvm.loop !16
+  br label %128, !llvm.loop !20
 
 145:                                              ; preds = %128
   %146 = load ptr, ptr %4, align 8
   %147 = load i32, ptr %5, align 4
   %148 = load i32, ptr %14, align 4
   %149 = add i32 %147, %148
-  %150 = call zeroext i8 @tvb_get_guint8(ptr noundef %146, i32 noundef %149)
+  %150 = call zeroext i8 @tvb_get_uint8(ptr noundef %146, i32 noundef %149)
   %151 = zext i8 %150 to i32
   store i32 %151, ptr %12, align 4
   %152 = load ptr, ptr %17, align 8
@@ -4164,7 +4350,7 @@ define internal i32 @dissect_dvb_s2_table_fct2(ptr noundef %0, i32 noundef %1, p
   %204 = load i32, ptr %13, align 4
   %205 = add i32 %204, 1
   store i32 %205, ptr %13, align 4
-  br label %161, !llvm.loop !17
+  br label %161, !llvm.loop !21
 
 206:                                              ; preds = %161
   %207 = load ptr, ptr %15, align 8
@@ -4178,14 +4364,26 @@ define internal i32 @dissect_dvb_s2_table_fct2(ptr noundef %0, i32 noundef %1, p
   %212 = load i32, ptr %8, align 4
   %213 = add i32 %212, 1
   store i32 %213, ptr %8, align 4
-  br label %34, !llvm.loop !18
+  br label %34, !llvm.loop !22
 
 214:                                              ; preds = %34
   %215 = load i32, ptr %14, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
   ret i32 %215
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dvb_s2_table_bct(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -4215,12 +4413,34 @@ define internal i32 @dissect_dvb_s2_table_bct(ptr noundef %0, i32 noundef %1, pt
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #4
   store i32 0, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %23) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %24) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %25) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %26) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %27) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %28) #4
   %29 = load ptr, ptr %4, align 8
   %30 = load i32, ptr %5, align 4
   %31 = load i32, ptr %16, align 4
   %32 = add i32 %30, %31
-  %33 = call zeroext i8 @tvb_get_guint8(ptr noundef %29, i32 noundef %32)
+  %33 = call zeroext i8 @tvb_get_uint8(ptr noundef %29, i32 noundef %32)
   %34 = zext i8 %33 to i32
   store i32 %34, ptr %7, align 4
   %35 = load ptr, ptr %6, align 8
@@ -4248,7 +4468,7 @@ define internal i32 @dissect_dvb_s2_table_bct(ptr noundef %0, i32 noundef %1, pt
   %51 = load i32, ptr %16, align 4
   %52 = add i32 %50, %51
   %53 = add i32 %52, 3
-  %54 = call zeroext i8 @tvb_get_guint8(ptr noundef %49, i32 noundef %53)
+  %54 = call zeroext i8 @tvb_get_uint8(ptr noundef %49, i32 noundef %53)
   %55 = zext i8 %54 to i32
   store i32 %55, ptr %9, align 4
   %56 = load ptr, ptr %6, align 8
@@ -4269,7 +4489,7 @@ define internal i32 @dissect_dvb_s2_table_bct(ptr noundef %0, i32 noundef %1, pt
   %69 = load i32, ptr %5, align 4
   %70 = load i32, ptr %16, align 4
   %71 = add i32 %69, %70
-  %72 = call zeroext i8 @tvb_get_guint8(ptr noundef %68, i32 noundef %71)
+  %72 = call zeroext i8 @tvb_get_uint8(ptr noundef %68, i32 noundef %71)
   store i8 %72, ptr %24, align 1
   %73 = load ptr, ptr %18, align 8
   %74 = load i32, ptr @hf_dvb_s2_table_tx_type, align 4
@@ -4295,7 +4515,7 @@ define internal i32 @dissect_dvb_s2_table_bct(ptr noundef %0, i32 noundef %1, pt
   %92 = load i32, ptr %5, align 4
   %93 = load i32, ptr %16, align 4
   %94 = add i32 %92, %93
-  %95 = call zeroext i8 @tvb_get_guint8(ptr noundef %91, i32 noundef %94)
+  %95 = call zeroext i8 @tvb_get_uint8(ptr noundef %91, i32 noundef %94)
   store i8 %95, ptr %23, align 1
   %96 = load ptr, ptr %18, align 8
   %97 = load i32, ptr @hf_dvb_s2_table_tx_type_tx_format_class, align 4
@@ -4387,7 +4607,7 @@ define internal i32 @dissect_dvb_s2_table_bct(ptr noundef %0, i32 noundef %1, pt
   %167 = load i32, ptr %5, align 4
   %168 = load i32, ptr %16, align 4
   %169 = add i32 %167, %168
-  %170 = call zeroext i8 @tvb_get_guint8(ptr noundef %166, i32 noundef %169)
+  %170 = call zeroext i8 @tvb_get_uint8(ptr noundef %166, i32 noundef %169)
   store i8 %170, ptr %27, align 1
   %171 = load ptr, ptr %18, align 8
   %172 = load i32, ptr @hf_dvb_s2_table_tx_type_modulation_scheme, align 4
@@ -4453,7 +4673,7 @@ define internal i32 @dissect_dvb_s2_table_bct(ptr noundef %0, i32 noundef %1, pt
   %226 = load i32, ptr %5, align 4
   %227 = load i32, ptr %16, align 4
   %228 = add i32 %226, %227
-  %229 = call zeroext i8 @tvb_get_guint8(ptr noundef %225, i32 noundef %228)
+  %229 = call zeroext i8 @tvb_get_uint8(ptr noundef %225, i32 noundef %228)
   %230 = zext i8 %229 to i32
   %231 = and i32 %230, 31
   %232 = trunc i32 %231 to i8
@@ -4472,7 +4692,7 @@ define internal i32 @dissect_dvb_s2_table_bct(ptr noundef %0, i32 noundef %1, pt
   %243 = load i32, ptr %5, align 4
   %244 = load i32, ptr %16, align 4
   %245 = add i32 %243, %244
-  %246 = call zeroext i8 @tvb_get_guint8(ptr noundef %242, i32 noundef %245)
+  %246 = call zeroext i8 @tvb_get_uint8(ptr noundef %242, i32 noundef %245)
   %247 = zext i8 %246 to i32
   %248 = and i32 %247, 31
   %249 = trunc i32 %248 to i8
@@ -4528,7 +4748,7 @@ define internal i32 @dissect_dvb_s2_table_bct(ptr noundef %0, i32 noundef %1, pt
   %287 = load i32, ptr %14, align 4
   %288 = add i32 %287, 1
   store i32 %288, ptr %14, align 4
-  br label %271, !llvm.loop !19
+  br label %271, !llvm.loop !23
 
 289:                                              ; preds = %271
   %290 = load ptr, ptr %18, align 8
@@ -4572,7 +4792,7 @@ define internal i32 @dissect_dvb_s2_table_bct(ptr noundef %0, i32 noundef %1, pt
   %318 = load i32, ptr %14, align 4
   %319 = add i32 %318, 1
   store i32 %319, ptr %14, align 4
-  br label %302, !llvm.loop !20
+  br label %302, !llvm.loop !24
 
 320:                                              ; preds = %302
   store i32 0, ptr %10, align 4
@@ -4580,7 +4800,7 @@ define internal i32 @dissect_dvb_s2_table_bct(ptr noundef %0, i32 noundef %1, pt
   %322 = load i32, ptr %5, align 4
   %323 = load i32, ptr %16, align 4
   %324 = add i32 %322, %323
-  %325 = call zeroext i8 @tvb_get_guint8(ptr noundef %321, i32 noundef %324)
+  %325 = call zeroext i8 @tvb_get_uint8(ptr noundef %321, i32 noundef %324)
   %326 = zext i8 %325 to i32
   %327 = load i32, ptr %10, align 4
   %328 = add i32 %327, %326
@@ -4599,7 +4819,7 @@ define internal i32 @dissect_dvb_s2_table_bct(ptr noundef %0, i32 noundef %1, pt
   %339 = load i32, ptr %5, align 4
   %340 = load i32, ptr %16, align 4
   %341 = add i32 %339, %340
-  %342 = call zeroext i8 @tvb_get_guint8(ptr noundef %338, i32 noundef %341)
+  %342 = call zeroext i8 @tvb_get_uint8(ptr noundef %338, i32 noundef %341)
   %343 = zext i8 %342 to i32
   %344 = load i32, ptr %10, align 4
   %345 = add i32 %344, %343
@@ -4628,7 +4848,7 @@ define internal i32 @dissect_dvb_s2_table_bct(ptr noundef %0, i32 noundef %1, pt
   %365 = load i32, ptr %5, align 4
   %366 = load i32, ptr %16, align 4
   %367 = add i32 %365, %366
-  %368 = call zeroext i8 @tvb_get_guint8(ptr noundef %364, i32 noundef %367)
+  %368 = call zeroext i8 @tvb_get_uint8(ptr noundef %364, i32 noundef %367)
   %369 = zext i8 %368 to i32
   %370 = load i32, ptr %10, align 4
   %371 = add i32 %370, %369
@@ -4743,7 +4963,7 @@ define internal i32 @dissect_dvb_s2_table_bct(ptr noundef %0, i32 noundef %1, pt
   %450 = load i32, ptr %11, align 4
   %451 = add i32 %450, 1
   store i32 %451, ptr %11, align 4
-  br label %401, !llvm.loop !21
+  br label %401, !llvm.loop !25
 
 452:                                              ; preds = %401
   br label %463
@@ -4858,7 +5078,7 @@ define internal i32 @dissect_dvb_s2_table_bct(ptr noundef %0, i32 noundef %1, pt
   %546 = load i32, ptr %5, align 4
   %547 = load i32, ptr %16, align 4
   %548 = add i32 %546, %547
-  %549 = call zeroext i8 @tvb_get_guint8(ptr noundef %545, i32 noundef %548)
+  %549 = call zeroext i8 @tvb_get_uint8(ptr noundef %545, i32 noundef %548)
   %550 = zext i8 %549 to i32
   %551 = mul i32 %550, 2
   %552 = sdiv i32 %551, 8
@@ -4890,7 +5110,7 @@ define internal i32 @dissect_dvb_s2_table_bct(ptr noundef %0, i32 noundef %1, pt
   %575 = load i32, ptr %5, align 4
   %576 = load i32, ptr %16, align 4
   %577 = add i32 %575, %576
-  %578 = call zeroext i8 @tvb_get_guint8(ptr noundef %574, i32 noundef %577)
+  %578 = call zeroext i8 @tvb_get_uint8(ptr noundef %574, i32 noundef %577)
   %579 = zext i8 %578 to i32
   store i32 %579, ptr %12, align 4
   %580 = load ptr, ptr %18, align 8
@@ -4951,14 +5171,14 @@ define internal i32 @dissect_dvb_s2_table_bct(ptr noundef %0, i32 noundef %1, pt
   %623 = load i32, ptr %13, align 4
   %624 = add i32 %623, 1
   store i32 %624, ptr %13, align 4
-  br label %589, !llvm.loop !22
+  br label %589, !llvm.loop !26
 
 625:                                              ; preds = %589
   %626 = load ptr, ptr %4, align 8
   %627 = load i32, ptr %5, align 4
   %628 = load i32, ptr %16, align 4
   %629 = add i32 %627, %628
-  %630 = call zeroext i8 @tvb_get_guint8(ptr noundef %626, i32 noundef %629)
+  %630 = call zeroext i8 @tvb_get_uint8(ptr noundef %626, i32 noundef %629)
   store i8 %630, ptr %28, align 1
   %631 = load ptr, ptr %18, align 8
   %632 = load i32, ptr @hf_dvb_s2_table_tx_type_param_interleaver, align 4
@@ -5079,7 +5299,7 @@ define internal i32 @dissect_dvb_s2_table_bct(ptr noundef %0, i32 noundef %1, pt
 728:                                              ; preds = %48, %48
   br label %729
 
-729:                                              ; preds = %728, %48
+729:                                              ; preds = %48, %728
   %730 = load ptr, ptr %18, align 8
   %731 = load i32, ptr @hf_dvb_s2_table_tx_type_tx_format_data, align 4
   %732 = load ptr, ptr %4, align 8
@@ -5101,14 +5321,36 @@ define internal i32 @dissect_dvb_s2_table_bct(ptr noundef %0, i32 noundef %1, pt
   %743 = load i32, ptr %8, align 4
   %744 = add i32 %743, 1
   store i32 %744, ptr %8, align 4
-  br label %44, !llvm.loop !23
+  br label %44, !llvm.loop !27
 
 745:                                              ; preds = %44
   %746 = load i32, ptr %16, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %28) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %27) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %26) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %25) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %24) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %23) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
   ret i32 %746
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dvb_s2_table_spt(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -5121,12 +5363,17 @@ define internal i32 @dissect_dvb_s2_table_spt(ptr noundef %0, i32 noundef %1, pt
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
   store i32 0, ptr %9, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #4
   %12 = load ptr, ptr %4, align 8
   %13 = load i32, ptr %5, align 4
   %14 = load i32, ptr %9, align 4
   %15 = add i32 %13, %14
-  %16 = call zeroext i8 @tvb_get_guint8(ptr noundef %12, i32 noundef %15)
+  %16 = call zeroext i8 @tvb_get_uint8(ptr noundef %12, i32 noundef %15)
   %17 = zext i8 %16 to i32
   store i32 %17, ptr %7, align 4
   %18 = load ptr, ptr %6, align 8
@@ -5207,7 +5454,7 @@ define internal i32 @dissect_dvb_s2_table_spt(ptr noundef %0, i32 noundef %1, pt
   %79 = load i32, ptr %8, align 4
   %80 = add i32 %79, 1
   store i32 %80, ptr %8, align 4
-  br label %27, !llvm.loop !24
+  br label %27, !llvm.loop !28
 
 81:                                               ; preds = %27
   %82 = load i32, ptr @dvb_s2_rcs_version, align 4
@@ -5229,10 +5476,15 @@ define internal i32 @dissect_dvb_s2_table_spt(ptr noundef %0, i32 noundef %1, pt
 
 94:                                               ; preds = %84, %81
   %95 = load i32, ptr %9, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
   ret i32 %95
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dvb_s2_table_nit_rmt(ptr noundef %0, i32 noundef %1, ptr noundef %2, i8 noundef zeroext %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -5254,7 +5506,17 @@ define internal i32 @dissect_dvb_s2_table_nit_rmt(ptr noundef %0, i32 noundef %1
   store ptr %2, ptr %8, align 8
   store i8 %3, ptr %9, align 1
   store ptr %4, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #4
   store i32 0, ptr %15, align 4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %16) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %17) #4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %18) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #4
   %21 = load ptr, ptr %6, align 8
   %22 = load i32, ptr %7, align 4
   %23 = load i32, ptr %15, align 4
@@ -5293,7 +5555,7 @@ define internal i32 @dissect_dvb_s2_table_nit_rmt(ptr noundef %0, i32 noundef %1
   %48 = load i32, ptr %11, align 4
   %49 = add i32 %47, %48
   %50 = add i32 %49, 1
-  %51 = call zeroext i8 @tvb_get_guint8(ptr noundef %44, i32 noundef %50)
+  %51 = call zeroext i8 @tvb_get_uint8(ptr noundef %44, i32 noundef %50)
   %52 = zext i8 %51 to i32
   %53 = add i32 %52, 2
   %54 = load i32, ptr %11, align 4
@@ -5305,7 +5567,7 @@ define internal i32 @dissect_dvb_s2_table_nit_rmt(ptr noundef %0, i32 noundef %1
   %57 = load i32, ptr %12, align 4
   %58 = add i32 %57, 1
   store i32 %58, ptr %12, align 4
-  br label %38, !llvm.loop !25
+  br label %38, !llvm.loop !29
 
 59:                                               ; preds = %38
   %60 = load ptr, ptr %6, align 8
@@ -5449,7 +5711,7 @@ define internal i32 @dissect_dvb_s2_table_nit_rmt(ptr noundef %0, i32 noundef %1
   %170 = load i32, ptr %11, align 4
   %171 = add i32 %169, %170
   %172 = add i32 %171, 1
-  %173 = call zeroext i8 @tvb_get_guint8(ptr noundef %166, i32 noundef %172)
+  %173 = call zeroext i8 @tvb_get_uint8(ptr noundef %166, i32 noundef %172)
   %174 = zext i8 %173 to i32
   %175 = add i32 %174, 2
   %176 = load i32, ptr %11, align 4
@@ -5461,7 +5723,7 @@ define internal i32 @dissect_dvb_s2_table_nit_rmt(ptr noundef %0, i32 noundef %1
   %179 = load i32, ptr %12, align 4
   %180 = add i32 %179, 1
   store i32 %180, ptr %12, align 4
-  br label %160, !llvm.loop !26
+  br label %160, !llvm.loop !30
 
 181:                                              ; preds = %160
   %182 = load ptr, ptr %6, align 8
@@ -5483,7 +5745,7 @@ define internal i32 @dissect_dvb_s2_table_nit_rmt(ptr noundef %0, i32 noundef %1
   %197 = load i32, ptr %14, align 4
   %198 = sub i32 %196, %197
   call void @proto_item_set_len(ptr noundef %195, i32 noundef %198)
-  br label %94, !llvm.loop !27
+  br label %94, !llvm.loop !31
 
 199:                                              ; preds = %94
   %200 = load i32, ptr @dvb_s2_rcs_version, align 4
@@ -5505,10 +5767,20 @@ define internal i32 @dissect_dvb_s2_table_nit_rmt(ptr noundef %0, i32 noundef %1
 
 212:                                              ; preds = %202, %199
   %213 = load i32, ptr %15, align 4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %17) #4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
   ret i32 %213
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dvb_s2_table_mmt2(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -5532,7 +5804,23 @@ define internal i32 @dissect_dvb_s2_table_mmt2(ptr noundef %0, i32 noundef %1, p
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #4
   store i32 0, ptr %15, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %21) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %22) #4
   %23 = load ptr, ptr %6, align 8
   %24 = load i32, ptr @hf_dvb_s2_table_svn_number, align 4
   %25 = load ptr, ptr %4, align 8
@@ -5557,7 +5845,7 @@ define internal i32 @dissect_dvb_s2_table_mmt2(ptr noundef %0, i32 noundef %1, p
   %42 = load i32, ptr %5, align 4
   %43 = load i32, ptr %15, align 4
   %44 = add i32 %42, %43
-  %45 = call zeroext i8 @tvb_get_guint8(ptr noundef %41, i32 noundef %44)
+  %45 = call zeroext i8 @tvb_get_uint8(ptr noundef %41, i32 noundef %44)
   %46 = zext i8 %45 to i32
   store i32 %46, ptr %7, align 4
   %47 = load ptr, ptr %6, align 8
@@ -5608,7 +5896,7 @@ define internal i32 @dissect_dvb_s2_table_mmt2(ptr noundef %0, i32 noundef %1, p
   %82 = load i32, ptr %5, align 4
   %83 = load i32, ptr %15, align 4
   %84 = add i32 %82, %83
-  %85 = call zeroext i8 @tvb_get_guint8(ptr noundef %81, i32 noundef %84)
+  %85 = call zeroext i8 @tvb_get_uint8(ptr noundef %81, i32 noundef %84)
   store i8 %85, ptr %22, align 1
   %86 = load ptr, ptr %19, align 8
   %87 = load i32, ptr @hf_dvb_s2_table_pt_address_size, align 4
@@ -5624,7 +5912,7 @@ define internal i32 @dissect_dvb_s2_table_mmt2(ptr noundef %0, i32 noundef %1, p
   %96 = load i32, ptr %5, align 4
   %97 = load i32, ptr %15, align 4
   %98 = add i32 %96, %97
-  %99 = call zeroext i8 @tvb_get_guint8(ptr noundef %95, i32 noundef %98)
+  %99 = call zeroext i8 @tvb_get_uint8(ptr noundef %95, i32 noundef %98)
   %100 = zext i8 %99 to i32
   store i32 %100, ptr %10, align 4
   %101 = load ptr, ptr %19, align 8
@@ -5693,7 +5981,7 @@ define internal i32 @dissect_dvb_s2_table_mmt2(ptr noundef %0, i32 noundef %1, p
   %153 = load i32, ptr %5, align 4
   %154 = load i32, ptr %15, align 4
   %155 = add i32 %153, %154
-  %156 = call zeroext i8 @tvb_get_guint8(ptr noundef %152, i32 noundef %155)
+  %156 = call zeroext i8 @tvb_get_uint8(ptr noundef %152, i32 noundef %155)
   %157 = zext i8 %156 to i32
   store i32 %157, ptr %13, align 4
   %158 = load ptr, ptr %20, align 8
@@ -5765,7 +6053,7 @@ define internal i32 @dissect_dvb_s2_table_mmt2(ptr noundef %0, i32 noundef %1, p
   %212 = load i32, ptr %14, align 4
   %213 = add i32 %212, 1
   store i32 %213, ptr %14, align 4
-  br label %167, !llvm.loop !28
+  br label %167, !llvm.loop !32
 
 214:                                              ; preds = %167
   %215 = load ptr, ptr %20, align 8
@@ -5799,7 +6087,7 @@ define internal i32 @dissect_dvb_s2_table_mmt2(ptr noundef %0, i32 noundef %1, p
   %238 = load i32, ptr %11, align 4
   %239 = add i32 %238, 1
   store i32 %239, ptr %11, align 4
-  br label %110, !llvm.loop !29
+  br label %110, !llvm.loop !33
 
 240:                                              ; preds = %110
   %241 = load ptr, ptr %16, align 8
@@ -5813,16 +6101,33 @@ define internal i32 @dissect_dvb_s2_table_mmt2(ptr noundef %0, i32 noundef %1, p
   %246 = load i32, ptr %8, align 4
   %247 = add i32 %246, 1
   store i32 %247, ptr %8, align 4
-  br label %56, !llvm.loop !30
+  br label %56, !llvm.loop !34
 
 248:                                              ; preds = %56
   %249 = load i32, ptr %15, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %22) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %21) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
   ret i32 %249
 }
 
-declare void @proto_item_set_len(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_item_set_len(ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -5889,31 +6194,82 @@ define internal i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %1, p
   store i32 %3, ptr %10, align 4
   store i32 %4, ptr %11, align 4
   store ptr %5, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #4
   store i32 0, ptr %17, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #4
   store i32 0, ptr %18, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #4
   store i32 0, ptr %19, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #4
   store i32 0, ptr %20, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #4
   store i32 0, ptr %21, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #4
   store i32 0, ptr %22, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #4
   store i32 0, ptr %23, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #4
   store i32 0, ptr %24, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %25) #4
   store i32 0, ptr %25, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %26) #4
   store i32 0, ptr %26, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %27) #4
   store i32 0, ptr %27, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %28) #4
   store i32 0, ptr %28, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %29) #4
   store i32 0, ptr %29, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %30) #4
   store i32 0, ptr %30, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %31) #4
   store i32 0, ptr %31, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %32) #4
   store i32 0, ptr %32, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %33) #4
   store i32 0, ptr %33, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %34) #4
   store i32 0, ptr %34, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %35) #4
   store i32 0, ptr %35, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %36) #4
   store i32 0, ptr %36, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %37) #4
   store i32 0, ptr %37, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %38) #4
   store i32 0, ptr %38, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %39) #4
   store i32 0, ptr %39, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %40) #4
   store i32 0, ptr %40, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %41) #4
   store i32 0, ptr %41, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %42) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %43) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %44) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %45) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %46) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %47) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %48) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %49) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %50) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %51) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %52) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %53) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %54) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %55) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %56) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %57) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %58) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %59) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %60) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %61) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %62) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %63) #4
   store i32 0, ptr %13, align 4
   br label %66
 
@@ -5929,7 +6285,7 @@ define internal i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %1, p
   %73 = load i32, ptr %17, align 4
   %74 = add i32 %72, %73
   %75 = add i32 %74, 1
-  %76 = call zeroext i8 @tvb_get_guint8(ptr noundef %71, i32 noundef %75)
+  %76 = call zeroext i8 @tvb_get_uint8(ptr noundef %71, i32 noundef %75)
   store i8 %76, ptr %43, align 1
   %77 = load ptr, ptr %9, align 8
   %78 = load i32, ptr @hf_dvb_s2_table_descriptor, align 4
@@ -5950,7 +6306,7 @@ define internal i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %1, p
   %91 = load i32, ptr %8, align 4
   %92 = load i32, ptr %17, align 4
   %93 = add i32 %91, %92
-  %94 = call zeroext i8 @tvb_get_guint8(ptr noundef %90, i32 noundef %93)
+  %94 = call zeroext i8 @tvb_get_uint8(ptr noundef %90, i32 noundef %93)
   store i8 %94, ptr %42, align 1
   %95 = load ptr, ptr %44, align 8
   %96 = load i32, ptr @hf_dvb_s2_table_desc_tag, align 4
@@ -6237,7 +6593,7 @@ define internal i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %1, p
   %321 = load i32, ptr %8, align 4
   %322 = load i32, ptr %17, align 4
   %323 = add i32 %321, %322
-  %324 = call zeroext i8 @tvb_get_guint8(ptr noundef %320, i32 noundef %323)
+  %324 = call zeroext i8 @tvb_get_uint8(ptr noundef %320, i32 noundef %323)
   %325 = zext i8 %324 to i32
   %326 = and i32 %325, 15
   %327 = trunc i32 %326 to i8
@@ -6333,7 +6689,7 @@ define internal i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %1, p
   %403 = load i8, ptr %52, align 1
   %404 = add i8 %403, 1
   store i8 %404, ptr %52, align 1
-  br label %344, !llvm.loop !31
+  br label %344, !llvm.loop !35
 
 405:                                              ; preds = %344
   %406 = load ptr, ptr %44, align 8
@@ -6393,7 +6749,7 @@ define internal i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %1, p
   %453 = load i32, ptr %8, align 4
   %454 = load i32, ptr %17, align 4
   %455 = add i32 %453, %454
-  %456 = call zeroext i8 @tvb_get_guint8(ptr noundef %452, i32 noundef %455)
+  %456 = call zeroext i8 @tvb_get_uint8(ptr noundef %452, i32 noundef %455)
   %457 = zext i8 %456 to i32
   %458 = and i32 %457, 15
   %459 = trunc i32 %458 to i8
@@ -6424,7 +6780,7 @@ define internal i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %1, p
   %477 = load i32, ptr %8, align 4
   %478 = load i32, ptr %17, align 4
   %479 = add i32 %477, %478
-  %480 = call zeroext i8 @tvb_get_guint8(ptr noundef %476, i32 noundef %479)
+  %480 = call zeroext i8 @tvb_get_uint8(ptr noundef %476, i32 noundef %479)
   %481 = zext i8 %480 to i32
   %482 = and i32 %481, 1
   %483 = trunc i32 %482 to i8
@@ -6433,7 +6789,7 @@ define internal i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %1, p
   %485 = load i32, ptr %8, align 4
   %486 = load i32, ptr %17, align 4
   %487 = add i32 %485, %486
-  %488 = call zeroext i8 @tvb_get_guint8(ptr noundef %484, i32 noundef %487)
+  %488 = call zeroext i8 @tvb_get_uint8(ptr noundef %484, i32 noundef %487)
   %489 = zext i8 %488 to i32
   %490 = and i32 %489, 2
   %491 = trunc i32 %490 to i8
@@ -6577,14 +6933,14 @@ define internal i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %1, p
   %599 = load i8, ptr %54, align 1
   %600 = add i8 %599, 1
   store i8 %600, ptr %54, align 1
-  br label %469, !llvm.loop !32
+  br label %469, !llvm.loop !36
 
 601:                                              ; preds = %469
   %602 = load ptr, ptr %7, align 8
   %603 = load i32, ptr %8, align 4
   %604 = load i32, ptr %17, align 4
   %605 = add i32 %603, %604
-  %606 = call zeroext i8 @tvb_get_guint8(ptr noundef %602, i32 noundef %605)
+  %606 = call zeroext i8 @tvb_get_uint8(ptr noundef %602, i32 noundef %605)
   %607 = zext i8 %606 to i32
   %608 = and i32 %607, 15
   %609 = trunc i32 %608 to i8
@@ -6615,7 +6971,7 @@ define internal i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %1, p
   %627 = load i32, ptr %8, align 4
   %628 = load i32, ptr %17, align 4
   %629 = add i32 %627, %628
-  %630 = call zeroext i8 @tvb_get_guint8(ptr noundef %626, i32 noundef %629)
+  %630 = call zeroext i8 @tvb_get_uint8(ptr noundef %626, i32 noundef %629)
   %631 = zext i8 %630 to i32
   %632 = and i32 %631, 4
   %633 = trunc i32 %632 to i8
@@ -6624,7 +6980,7 @@ define internal i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %1, p
   %635 = load i32, ptr %8, align 4
   %636 = load i32, ptr %17, align 4
   %637 = add i32 %635, %636
-  %638 = call zeroext i8 @tvb_get_guint8(ptr noundef %634, i32 noundef %637)
+  %638 = call zeroext i8 @tvb_get_uint8(ptr noundef %634, i32 noundef %637)
   %639 = zext i8 %638 to i32
   %640 = and i32 %639, 2
   %641 = trunc i32 %640 to i8
@@ -6758,14 +7114,14 @@ define internal i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %1, p
   %740 = load i8, ptr %56, align 1
   %741 = add i8 %740, 1
   store i8 %741, ptr %56, align 1
-  br label %619, !llvm.loop !33
+  br label %619, !llvm.loop !37
 
 742:                                              ; preds = %619
   %743 = load ptr, ptr %7, align 8
   %744 = load i32, ptr %8, align 4
   %745 = load i32, ptr %17, align 4
   %746 = add i32 %744, %745
-  %747 = call zeroext i8 @tvb_get_guint8(ptr noundef %743, i32 noundef %746)
+  %747 = call zeroext i8 @tvb_get_uint8(ptr noundef %743, i32 noundef %746)
   %748 = zext i8 %747 to i32
   %749 = and i32 %748, 15
   %750 = trunc i32 %749 to i8
@@ -6797,7 +7153,7 @@ define internal i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %1, p
   %769 = load i32, ptr %17, align 4
   %770 = add i32 %768, %769
   %771 = add i32 %770, 4
-  %772 = call zeroext i8 @tvb_get_guint8(ptr noundef %767, i32 noundef %771)
+  %772 = call zeroext i8 @tvb_get_uint8(ptr noundef %767, i32 noundef %771)
   store i8 %772, ptr %63, align 1
   %773 = load i8, ptr %63, align 1
   %774 = zext i8 %773 to i32
@@ -6886,7 +7242,7 @@ define internal i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %1, p
   %846 = load i8, ptr %58, align 1
   %847 = add i8 %846, 1
   store i8 %847, ptr %58, align 1
-  br label %760, !llvm.loop !34
+  br label %760, !llvm.loop !38
 
 848:                                              ; preds = %760
   br label %2165
@@ -6926,7 +7282,7 @@ define internal i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %1, p
   %876 = load i32, ptr %17, align 4
   %877 = add i32 %875, %876
   %878 = add i32 %877, 4
-  %879 = call zeroext i8 @tvb_get_guint8(ptr noundef %874, i32 noundef %878)
+  %879 = call zeroext i8 @tvb_get_uint8(ptr noundef %874, i32 noundef %878)
   %880 = zext i8 %879 to i32
   store i32 %880, ptr %19, align 4
   %881 = load i32, ptr %19, align 4
@@ -7126,7 +7482,7 @@ define internal i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %1, p
   %1034 = load i32, ptr %8, align 4
   %1035 = load i32, ptr %17, align 4
   %1036 = add i32 %1034, %1035
-  %1037 = call zeroext i8 @tvb_get_guint8(ptr noundef %1033, i32 noundef %1036)
+  %1037 = call zeroext i8 @tvb_get_uint8(ptr noundef %1033, i32 noundef %1036)
   %1038 = zext i8 %1037 to i32
   store i32 %1038, ptr %37, align 4
   %1039 = load ptr, ptr %44, align 8
@@ -7175,7 +7531,7 @@ define internal i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %1, p
   %1072 = load i32, ptr %33, align 4
   %1073 = add i32 %1072, 1
   store i32 %1073, ptr %33, align 4
-  br label %1048, !llvm.loop !35
+  br label %1048, !llvm.loop !39
 
 1074:                                             ; preds = %1048
   br label %1075
@@ -7410,7 +7766,7 @@ define internal i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %1, p
   %1268 = load i32, ptr %8, align 4
   %1269 = load i32, ptr %17, align 4
   %1270 = add i32 %1268, %1269
-  %1271 = call zeroext i8 @tvb_get_guint8(ptr noundef %1267, i32 noundef %1270)
+  %1271 = call zeroext i8 @tvb_get_uint8(ptr noundef %1267, i32 noundef %1270)
   %1272 = zext i8 %1271 to i32
   %1273 = and i32 %1272, 64
   store i32 %1273, ptr %23, align 4
@@ -7425,7 +7781,7 @@ define internal i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %1, p
   %1282 = load i32, ptr %8, align 4
   %1283 = load i32, ptr %17, align 4
   %1284 = add i32 %1282, %1283
-  %1285 = call zeroext i8 @tvb_get_guint8(ptr noundef %1281, i32 noundef %1284)
+  %1285 = call zeroext i8 @tvb_get_uint8(ptr noundef %1281, i32 noundef %1284)
   %1286 = zext i8 %1285 to i32
   %1287 = and i32 %1286, 32
   store i32 %1287, ptr %24, align 4
@@ -7445,7 +7801,7 @@ define internal i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %1, p
   %1299 = load i32, ptr %8, align 4
   %1300 = load i32, ptr %17, align 4
   %1301 = add i32 %1299, %1300
-  %1302 = call zeroext i8 @tvb_get_guint8(ptr noundef %1298, i32 noundef %1301)
+  %1302 = call zeroext i8 @tvb_get_uint8(ptr noundef %1298, i32 noundef %1301)
   %1303 = zext i8 %1302 to i32
   %1304 = and i32 %1303, 16
   store i32 %1304, ptr %25, align 4
@@ -7651,7 +8007,7 @@ define internal i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %1, p
   %1466 = load i32, ptr %8, align 4
   %1467 = load i32, ptr %17, align 4
   %1468 = add i32 %1466, %1467
-  %1469 = call zeroext i8 @tvb_get_guint8(ptr noundef %1465, i32 noundef %1468)
+  %1469 = call zeroext i8 @tvb_get_uint8(ptr noundef %1465, i32 noundef %1468)
   %1470 = zext i8 %1469 to i32
   %1471 = and i32 %1470, 15
   store i32 %1471, ptr %26, align 4
@@ -7691,7 +8047,7 @@ define internal i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %1, p
   %1496 = load i32, ptr %27, align 4
   %1497 = add i32 %1496, 1
   store i32 %1497, ptr %27, align 4
-  br label %1481, !llvm.loop !36
+  br label %1481, !llvm.loop !40
 
 1498:                                             ; preds = %1481
   %1499 = load i8, ptr %43, align 1
@@ -7701,7 +8057,7 @@ define internal i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %1, p
   %1503 = sub i32 %1501, %1502
   %1504 = sub i32 %1500, %1503
   store i32 %1504, ptr %22, align 4
-  br label %1443, !llvm.loop !37
+  br label %1443, !llvm.loop !41
 
 1505:                                             ; preds = %1443
   br label %2165
@@ -7718,7 +8074,7 @@ define internal i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %1, p
   %1515 = load i32, ptr %8, align 4
   %1516 = load i32, ptr %17, align 4
   %1517 = add i32 %1515, %1516
-  %1518 = call zeroext i8 @tvb_get_guint8(ptr noundef %1514, i32 noundef %1517)
+  %1518 = call zeroext i8 @tvb_get_uint8(ptr noundef %1514, i32 noundef %1517)
   %1519 = zext i8 %1518 to i32
   %1520 = and i32 %1519, 15
   store i32 %1520, ptr %28, align 4
@@ -7765,7 +8121,7 @@ define internal i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %1, p
   %1553 = load i32, ptr %8, align 4
   %1554 = load i32, ptr %17, align 4
   %1555 = add i32 %1553, %1554
-  %1556 = call zeroext i8 @tvb_get_guint8(ptr noundef %1552, i32 noundef %1555)
+  %1556 = call zeroext i8 @tvb_get_uint8(ptr noundef %1552, i32 noundef %1555)
   %1557 = zext i8 %1556 to i32
   %1558 = and i32 %1557, 1
   store i32 %1558, ptr %29, align 4
@@ -7788,7 +8144,7 @@ define internal i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %1, p
   %1572 = load i32, ptr %8, align 4
   %1573 = load i32, ptr %17, align 4
   %1574 = add i32 %1572, %1573
-  %1575 = call zeroext i8 @tvb_get_guint8(ptr noundef %1571, i32 noundef %1574)
+  %1575 = call zeroext i8 @tvb_get_uint8(ptr noundef %1571, i32 noundef %1574)
   %1576 = zext i8 %1575 to i32
   store i32 %1576, ptr %26, align 4
   %1577 = load ptr, ptr %49, align 8
@@ -7827,7 +8183,7 @@ define internal i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %1, p
   %1601 = load i32, ptr %30, align 4
   %1602 = add i32 %1601, 1
   store i32 %1602, ptr %30, align 4
-  br label %1586, !llvm.loop !38
+  br label %1586, !llvm.loop !42
 
 1603:                                             ; preds = %1586
   br label %1604
@@ -7837,7 +8193,7 @@ define internal i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %1, p
   %1606 = load i32, ptr %8, align 4
   %1607 = load i32, ptr %17, align 4
   %1608 = add i32 %1606, %1607
-  %1609 = call zeroext i8 @tvb_get_guint8(ptr noundef %1605, i32 noundef %1608)
+  %1609 = call zeroext i8 @tvb_get_uint8(ptr noundef %1605, i32 noundef %1608)
   %1610 = zext i8 %1609 to i32
   %1611 = and i32 %1610, 1
   store i32 %1611, ptr %31, align 4
@@ -7860,7 +8216,7 @@ define internal i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %1, p
   %1625 = load i32, ptr %8, align 4
   %1626 = load i32, ptr %17, align 4
   %1627 = add i32 %1625, %1626
-  %1628 = call zeroext i8 @tvb_get_guint8(ptr noundef %1624, i32 noundef %1627)
+  %1628 = call zeroext i8 @tvb_get_uint8(ptr noundef %1624, i32 noundef %1627)
   %1629 = zext i8 %1628 to i32
   store i32 %1629, ptr %32, align 4
   %1630 = load ptr, ptr %49, align 8
@@ -7909,7 +8265,7 @@ define internal i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %1, p
   %1663 = load i32, ptr %33, align 4
   %1664 = add i32 %1663, 1
   store i32 %1664, ptr %33, align 4
-  br label %1639, !llvm.loop !39
+  br label %1639, !llvm.loop !43
 
 1665:                                             ; preds = %1639
   br label %1666
@@ -7919,7 +8275,7 @@ define internal i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %1, p
   %1668 = load i32, ptr %8, align 4
   %1669 = load i32, ptr %17, align 4
   %1670 = add i32 %1668, %1669
-  %1671 = call zeroext i8 @tvb_get_guint8(ptr noundef %1667, i32 noundef %1670)
+  %1671 = call zeroext i8 @tvb_get_uint8(ptr noundef %1667, i32 noundef %1670)
   %1672 = zext i8 %1671 to i32
   %1673 = and i32 %1672, 1
   store i32 %1673, ptr %35, align 4
@@ -7942,7 +8298,7 @@ define internal i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %1, p
   %1687 = load i32, ptr %8, align 4
   %1688 = load i32, ptr %17, align 4
   %1689 = add i32 %1687, %1688
-  %1690 = call zeroext i8 @tvb_get_guint8(ptr noundef %1686, i32 noundef %1689)
+  %1690 = call zeroext i8 @tvb_get_uint8(ptr noundef %1686, i32 noundef %1689)
   %1691 = zext i8 %1690 to i32
   store i32 %1691, ptr %36, align 4
   %1692 = load ptr, ptr %49, align 8
@@ -7981,7 +8337,7 @@ define internal i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %1, p
   %1716 = load i32, ptr %34, align 4
   %1717 = add i32 %1716, 1
   store i32 %1717, ptr %34, align 4
-  br label %1701, !llvm.loop !40
+  br label %1701, !llvm.loop !44
 
 1718:                                             ; preds = %1701
   br label %1719
@@ -8003,7 +8359,7 @@ define internal i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %1, p
   %1730 = load i32, ptr %27, align 4
   %1731 = add i32 %1730, 1
   store i32 %1731, ptr %27, align 4
-  br label %1530, !llvm.loop !41
+  br label %1530, !llvm.loop !45
 
 1732:                                             ; preds = %1530
   br label %2165
@@ -8016,7 +8372,7 @@ define internal i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %1, p
   %1738 = load ptr, ptr %12, align 8
   %1739 = load ptr, ptr %44, align 8
   %1740 = load i32, ptr @ett_dvb_s2_hdr_table_desc, align 4
-  %1741 = call i32 @dissect_snmp_pdu(ptr noundef %1734, i32 noundef %1737, ptr noundef %1738, ptr noundef %1739, i32 noundef 1, i32 noundef %1740, i32 noundef 0)
+  %1741 = call i32 @dissect_snmp_pdu(ptr noundef %1734, i32 noundef %1737, ptr noundef %1738, ptr noundef %1739, i32 noundef 1, i32 noundef %1740, i1 noundef zeroext false)
   %1742 = load i8, ptr %43, align 1
   %1743 = zext i8 %1742 to i32
   %1744 = load i32, ptr %17, align 4
@@ -8184,7 +8540,7 @@ define internal i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %1, p
   %1884 = load i32, ptr %8, align 4
   %1885 = load i32, ptr %17, align 4
   %1886 = add i32 %1884, %1885
-  %1887 = call zeroext i8 @tvb_get_guint8(ptr noundef %1883, i32 noundef %1886)
+  %1887 = call zeroext i8 @tvb_get_uint8(ptr noundef %1883, i32 noundef %1886)
   %1888 = zext i8 %1887 to i32
   %1889 = and i32 %1888, 24
   %1890 = sdiv i32 %1889, 8
@@ -8235,7 +8591,7 @@ define internal i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %1, p
   %1925 = load i32, ptr %8, align 4
   %1926 = load i32, ptr %17, align 4
   %1927 = add i32 %1925, %1926
-  %1928 = call zeroext i8 @tvb_get_guint8(ptr noundef %1924, i32 noundef %1927)
+  %1928 = call zeroext i8 @tvb_get_uint8(ptr noundef %1924, i32 noundef %1927)
   %1929 = zext i8 %1928 to i32
   %1930 = and i32 %1929, 4
   store i32 %1930, ptr %39, align 4
@@ -8363,6 +8719,8 @@ define internal i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %1, p
   br i1 %2021, label %2022, label %2049
 
 2022:                                             ; preds = %2019
+  call void @llvm.lifetime.start.p0(i64 8, ptr %64) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %65) #4
   %2023 = load ptr, ptr %44, align 8
   %2024 = load i32, ptr @hf_dvb_s2_table_sfld_ncr_private_data, align 4
   %2025 = load ptr, ptr %7, align 8
@@ -8391,6 +8749,8 @@ define internal i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %1, p
   %2046 = add i32 %2044, %2045
   %2047 = add i32 %2046, 4
   %2048 = call ptr @proto_tree_add_item(ptr noundef %2041, i32 noundef %2042, ptr noundef %2043, i32 noundef %2047, i32 noundef 2, i32 noundef 0)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %65) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %64) #4
   br label %2058
 
 2049:                                             ; preds = %2019, %2016
@@ -8442,7 +8802,7 @@ define internal i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %1, p
   %2084 = load i32, ptr %8, align 4
   %2085 = load i32, ptr %17, align 4
   %2086 = add i32 %2084, %2085
-  %2087 = call zeroext i8 @tvb_get_guint8(ptr noundef %2083, i32 noundef %2086)
+  %2087 = call zeroext i8 @tvb_get_uint8(ptr noundef %2083, i32 noundef %2086)
   %2088 = zext i8 %2087 to i32
   store i32 %2088, ptr %40, align 4
   %2089 = load ptr, ptr %44, align 8
@@ -8499,7 +8859,7 @@ define internal i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %1, p
   %2131 = load i32, ptr %8, align 4
   %2132 = load i32, ptr %17, align 4
   %2133 = add i32 %2131, %2132
-  %2134 = call zeroext i8 @tvb_get_guint8(ptr noundef %2130, i32 noundef %2133)
+  %2134 = call zeroext i8 @tvb_get_uint8(ptr noundef %2130, i32 noundef %2133)
   %2135 = zext i8 %2134 to i32
   store i32 %2135, ptr %41, align 4
   %2136 = load ptr, ptr %44, align 8
@@ -8530,7 +8890,7 @@ define internal i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %1, p
   %2157 = load i32, ptr %27, align 4
   %2158 = add i32 %2157, 1
   store i32 %2158, ptr %27, align 4
-  br label %2098, !llvm.loop !42
+  br label %2098, !llvm.loop !46
 
 2159:                                             ; preds = %2098
   br label %2165
@@ -8550,14 +8910,65 @@ define internal i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %1, p
   %2167 = load i32, ptr %13, align 4
   %2168 = add i32 %2167, 1
   store i32 %2168, ptr %13, align 4
-  br label %66, !llvm.loop !43
+  br label %66, !llvm.loop !47
 
 2169:                                             ; preds = %66
   %2170 = load i32, ptr %17, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %63) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %62) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %61) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %60) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %59) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %58) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %57) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %56) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %55) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %54) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %53) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %52) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %51) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %50) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %49) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %48) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %47) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %46) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %45) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %44) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %43) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %42) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %41) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %40) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %39) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %38) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %37) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %36) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %35) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %34) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %33) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %32) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %31) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %30) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %29) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %28) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %27) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %25) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
   ret i32 %2170
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_dvb_s2_table_correct_msg(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -8570,12 +8981,17 @@ define internal i32 @dissect_dvb_s2_table_correct_msg(ptr noundef %0, i32 nounde
   store ptr %0, ptr %4, align 8
   store i32 %1, ptr %5, align 4
   store ptr %2, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #4
   store i32 0, ptr %7, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #4
   %12 = load ptr, ptr %4, align 8
   %13 = load i32, ptr %5, align 4
   %14 = load i32, ptr %7, align 4
   %15 = add i32 %13, %14
-  %16 = call zeroext i8 @tvb_get_guint8(ptr noundef %12, i32 noundef %15)
+  %16 = call zeroext i8 @tvb_get_uint8(ptr noundef %12, i32 noundef %15)
   %17 = zext i8 %16 to i32
   %18 = and i32 %17, 128
   %19 = trunc i32 %18 to i8
@@ -8584,7 +9000,7 @@ define internal i32 @dissect_dvb_s2_table_correct_msg(ptr noundef %0, i32 nounde
   %21 = load i32, ptr %5, align 4
   %22 = load i32, ptr %7, align 4
   %23 = add i32 %21, %22
-  %24 = call zeroext i8 @tvb_get_guint8(ptr noundef %20, i32 noundef %23)
+  %24 = call zeroext i8 @tvb_get_uint8(ptr noundef %20, i32 noundef %23)
   %25 = zext i8 %24 to i32
   %26 = and i32 %25, 32
   %27 = trunc i32 %26 to i8
@@ -8593,7 +9009,7 @@ define internal i32 @dissect_dvb_s2_table_correct_msg(ptr noundef %0, i32 nounde
   %29 = load i32, ptr %5, align 4
   %30 = load i32, ptr %7, align 4
   %31 = add i32 %29, %30
-  %32 = call zeroext i8 @tvb_get_guint8(ptr noundef %28, i32 noundef %31)
+  %32 = call zeroext i8 @tvb_get_uint8(ptr noundef %28, i32 noundef %31)
   %33 = zext i8 %32 to i32
   %34 = and i32 %33, 64
   %35 = trunc i32 %34 to i8
@@ -8663,7 +9079,7 @@ define internal i32 @dissect_dvb_s2_table_correct_msg(ptr noundef %0, i32 nounde
   %90 = load i32, ptr %5, align 4
   %91 = load i32, ptr %7, align 4
   %92 = add i32 %90, %91
-  %93 = call zeroext i8 @tvb_get_guint8(ptr noundef %89, i32 noundef %92)
+  %93 = call zeroext i8 @tvb_get_uint8(ptr noundef %89, i32 noundef %92)
   %94 = zext i8 %93 to i32
   %95 = and i32 %94, 128
   %96 = trunc i32 %95 to i8
@@ -8725,63 +9141,79 @@ define internal i32 @dissect_dvb_s2_table_correct_msg(ptr noundef %0, i32 nounde
 
 138:                                              ; preds = %128, %125
   %139 = load i32, ptr %7, align 4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #4
   ret i32 %139
 }
 
-declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #2
 
-declare i32 @dissect_snmp_pdu(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @dissect_snmp_pdu(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) #2
 
-declare ptr @proto_tree_add_bits_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_bits_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
-declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}
-!32 = distinct !{!32, !5}
-!33 = distinct !{!33, !5}
-!34 = distinct !{!34, !5}
-!35 = distinct !{!35, !5}
-!36 = distinct !{!36, !5}
-!37 = distinct !{!37, !5}
-!38 = distinct !{!38, !5}
-!39 = distinct !{!39, !5}
-!40 = distinct !{!40, !5}
-!41 = distinct !{!41, !5}
-!42 = distinct !{!42, !5}
-!43 = distinct !{!43, !5}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}
+!18 = distinct !{!18, !9}
+!19 = distinct !{!19, !9}
+!20 = distinct !{!20, !9}
+!21 = distinct !{!21, !9}
+!22 = distinct !{!22, !9}
+!23 = distinct !{!23, !9}
+!24 = distinct !{!24, !9}
+!25 = distinct !{!25, !9}
+!26 = distinct !{!26, !9}
+!27 = distinct !{!27, !9}
+!28 = distinct !{!28, !9}
+!29 = distinct !{!29, !9}
+!30 = distinct !{!30, !9}
+!31 = distinct !{!31, !9}
+!32 = distinct !{!32, !9}
+!33 = distinct !{!33, !9}
+!34 = distinct !{!34, !9}
+!35 = distinct !{!35, !9}
+!36 = distinct !{!36, !9}
+!37 = distinct !{!37, !9}
+!38 = distinct !{!38, !9}
+!39 = distinct !{!39, !9}
+!40 = distinct !{!40, !9}
+!41 = distinct !{!41, !9}
+!42 = distinct !{!42, !9}
+!43 = distinct !{!43, !9}
+!44 = distinct !{!44, !9}
+!45 = distinct !{!45, !9}
+!46 = distinct !{!46, !9}
+!47 = distinct !{!47, !9}

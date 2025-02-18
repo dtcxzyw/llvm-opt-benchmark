@@ -3,15 +3,10 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.hf_register_info = type { ptr, %struct._header_field_info }
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
-%struct._value_string = type { i32, ptr }
-%struct.ei_register_info = type { ptr, %struct.expert_field_info }
-%struct.expert_field_info = type { ptr, i32, i32, ptr, i32, ptr, i32, %struct.hf_register_info }
 %struct.expert_field = type { i32, i32 }
-%struct.CSN_DESCR = type { i16, i16, %union.anon.0, i64, i32, ptr, ptr, i32, ptr, ptr, ptr }
 %union.anon.0 = type { ptr }
-%struct.CSN_ChoiceElement_t = type { i8, i8, i32, %struct.CSN_DESCR }
 %struct.csnStream_t = type { i32, i32, ptr }
-%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i32, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i32, %struct.anon, i32, i32, i32, i32, ptr, i32, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32 }
+%struct._packet_info = type { ptr, ptr, i32, i32, %struct.nstime_t, %struct.nstime_t, %struct.nstime_t, i8, ptr, ptr, ptr, ptr, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, %struct._address, i32, ptr, i8, [3 x i8], %struct.anon, i32, i32, i32, i32, ptr, i8, ptr, ptr, i16, i16, i32, i32, i16, i32, i32, ptr, ptr, ptr, i8, i8, i16, i16, i16, i32, i16, i16, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
 %struct.anon = type { i8, [3 x i8] }
@@ -29,6 +24,8 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.Seg3A_SatellitePosition_t = type { i8, i16, i16 }
 %struct.Seg3A_BeamPosition_t = type { i16, i16 }
 %struct.Seg3A_MiscInfo_t = type { i8 }
+%struct.CSN_ChoiceElement_t = type { i8, i8, i8, %struct.CSN_DESCR }
+%struct.CSN_DESCR = type { i16, i16, %union.anon.0, i64, i8, ptr, ptr, i32, ptr, ptr, ptr }
 %struct.SystemInformation2_t = type { %struct.SI2_Block_Header_t, i8, %union.anon.1 }
 %struct.SI2_Block_Header_t = type { i8, i8, i8 }
 %union.anon.1 = type { %struct.Segment2A_t }
@@ -62,7 +59,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_seg1a_rachctrl_acc = internal global [16 x i32] zeroinitializer, align 16
 @.str.14 = private unnamed_addr constant [5 x i8] c"AC15\00", align 1
 @.str.15 = private unnamed_addr constant [30 x i8] c"gmr1.bcch.seg1a.rachctrl.ac15\00", align 1
-@seg1a_rachctrl_acc_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.212 }, %struct._value_string { i32 1, ptr @.str.213 }, %struct._value_string zeroinitializer], align 16
 @.str.16 = private unnamed_addr constant [23 x i8] c"Access Class 15 barred\00", align 1
 @.str.17 = private unnamed_addr constant [5 x i8] c"AC14\00", align 1
 @.str.18 = private unnamed_addr constant [30 x i8] c"gmr1.bcch.seg1a.rachctrl.ac14\00", align 1
@@ -112,7 +108,6 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_seg1a_rachctrl_cell_bar_access = internal global i32 0, align 4
 @.str.62 = private unnamed_addr constant [16 x i8] c"CELL_BAR_ACCESS\00", align 1
 @.str.63 = private unnamed_addr constant [41 x i8] c"gmr1.bcch.seg1a.rachctrl.cell_bar_access\00", align 1
-@seg1a_rachctrl_cell_bar_access_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.214 }, %struct._value_string { i32 1, ptr @.str.215 }, %struct._value_string zeroinitializer], align 16
 @hf_seg1a_miscinfo_sb_reselection_hysteresis = internal global i32 0, align 4
 @.str.64 = private unnamed_addr constant [26 x i8] c"SB_RESELECTION_HYSTERESIS\00", align 1
 @.str.65 = private unnamed_addr constant [51 x i8] c"gmr1.bcch.seg1a.miscinfo.sb_reselection_hysteresis\00", align 1
@@ -191,12 +186,10 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_seg2a_lainfo_imsi_attach_detach_ind = internal global i32 0, align 4
 @.str.117 = private unnamed_addr constant [23 x i8] c"IMSI attach-detach ind\00", align 1
 @.str.118 = private unnamed_addr constant [46 x i8] c"gmr1.bcch.seg2a.lainfo.imsi_attach_detach_ind\00", align 1
-@seg2a_lainfo_imsi_attach_detach_ind_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.217 }, %struct._value_string { i32 1, ptr @.str.218 }, %struct._value_string zeroinitializer], align 16
 @.str.119 = private unnamed_addr constant [63 x i8] c"Should MESs apply IMSI attach and detach procedure for this LA\00", align 1
 @hf_seg2a_lainfo_ecsc_indication = internal global i32 0, align 4
 @.str.120 = private unnamed_addr constant [16 x i8] c"ECSC indication\00", align 1
 @.str.121 = private unnamed_addr constant [39 x i8] c"gmr1.bcch.seg2a.lainfo.ecsc_indication\00", align 1
-@seg2a_lainfo_ecsc_indication_vals = internal constant [3 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.219 }, %struct._value_string { i32 1, ptr @.str.220 }, %struct._value_string zeroinitializer], align 16
 @.str.122 = private unnamed_addr constant [32 x i8] c"Early Classmark Sending Control\00", align 1
 @hf_seg2a_lainfo_si_update_ind = internal global i32 0, align 4
 @.str.123 = private unnamed_addr constant [14 x i8] c"SI update ind\00", align 1
@@ -334,10 +327,9 @@ target triple = "x86_64-pc-linux-gnu"
 @hf_si1_randomization_period = internal global i32 0, align 4
 @.str.203 = private unnamed_addr constant [21 x i8] c"Randomization Period\00", align 1
 @.str.204 = private unnamed_addr constant [34 x i8] c"gmr1.bcch.si.randomization_period\00", align 1
-@si1_randomization_period_vals = internal constant [5 x %struct._value_string] [%struct._value_string { i32 0, ptr @.str.225 }, %struct._value_string { i32 1, ptr @.str.226 }, %struct._value_string { i32 2, ptr @.str.227 }, %struct._value_string { i32 3, ptr @.str.228 }, %struct._value_string zeroinitializer], align 16
 @proto_register_gmr1_bcch.ett = internal global [1 x ptr] [ptr @ett_gmr1_bcch], align 8
 @ett_gmr1_bcch = internal global i32 0, align 4
-@proto_register_gmr1_bcch.ei = internal global [1 x %struct.ei_register_info] [%struct.ei_register_info { ptr @ei_unknown_segment, %struct.expert_field_info { ptr @.str.205, i32 150994944, i32 6291456, ptr @.str.206, i32 0, ptr null, i32 0, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
+@proto_register_gmr1_bcch.ei = internal global [1 x { ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } }] [{ ptr, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } } { ptr @ei_unknown_segment, { ptr, i32, i32, ptr, i32, [4 x i8], ptr, i32, [4 x i8], %struct.hf_register_info } { ptr @.str.205, i32 150994944, i32 6291456, ptr @.str.206, i32 0, [4 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, %struct.hf_register_info { ptr null, %struct._header_field_info { ptr null, ptr null, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } } } }], align 16
 @ei_unknown_segment = internal global %struct.expert_field zeroinitializer, align 4
 @.str.205 = private unnamed_addr constant [26 x i8] c"gmr1.bcch.unknown_segment\00", align 1
 @.str.206 = private unnamed_addr constant [17 x i8] c"Unknown segment!\00", align 1
@@ -349,149 +341,155 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.211 = private unnamed_addr constant [11 x i8] c"%d Hz (%d)\00", align 1
 @.str.212 = private unnamed_addr constant [21 x i8] c"not barred (allowed)\00", align 1
 @.str.213 = private unnamed_addr constant [21 x i8] c"barred (not allowed)\00", align 1
-@.str.214 = private unnamed_addr constant [23 x i8] c"The cell is not barred\00", align 1
-@.str.215 = private unnamed_addr constant [19 x i8] c"The cell is barred\00", align 1
-@.str.216 = private unnamed_addr constant [14 x i8] c"%2.1f dB (%u)\00", align 1
-@.str.217 = private unnamed_addr constant [66 x i8] c"MESs shall NOT apply IMSI attach and detach procedure for this LA\00", align 1
-@.str.218 = private unnamed_addr constant [62 x i8] c"MESs shall apply IMSI attach and detach procedure for this LA\00", align 1
-@.str.219 = private unnamed_addr constant [39 x i8] c"Early sending is explicitly prohibited\00", align 1
-@.str.220 = private unnamed_addr constant [37 x i8] c"Early sending is explicitly accepted\00", align 1
-@.str.221 = private unnamed_addr constant [13 x i8] c"%.1f %c (%d)\00", align 1
-@.str.222 = private unnamed_addr constant [13 x i8] c"%.1f %c (%u)\00", align 1
-@.str.223 = private unnamed_addr constant [14 x i8] c"%.3lf km (%u)\00", align 1
-@.str.224 = private unnamed_addr constant [16 x i8] c"%d minutes (%u)\00", align 1
-@.str.225 = private unnamed_addr constant [29 x i8] c"7 frames after this SI block\00", align 1
-@.str.226 = private unnamed_addr constant [30 x i8] c"15 frames after this SI block\00", align 1
-@.str.227 = private unnamed_addr constant [30 x i8] c"23 frames after this SI block\00", align 1
-@.str.228 = private unnamed_addr constant [30 x i8] c"31 frames after this SI block\00", align 1
-@.str.229 = private unnamed_addr constant [8 x i8] c"(BCCH) \00", align 1
-@.str.230 = private unnamed_addr constant [40 x i8] c"GMR-1 BCCH - System Information type %d\00", align 1
-@CSNDESCR_SystemInformation1_t = internal constant [4 x %struct.CSN_DESCR] [%struct.CSN_DESCR { i16 3, i16 0, %union.anon.0 { ptr @CSNDESCR_SI1_Block_Header_t }, i64 0, i32 0, ptr @.str.233, ptr null, i32 0, ptr null, ptr null, ptr null }, %struct.CSN_DESCR { i16 3, i16 0, %union.anon.0 { ptr @CSNDESCR_Segment1A_t }, i64 4, i32 0, ptr @.str.234, ptr null, i32 0, ptr null, ptr null, ptr null }, %struct.CSN_DESCR { i16 4, i16 25, %union.anon.0 { ptr @SI1_SegmentChoice }, i64 37, i32 0, ptr null, ptr null, i32 0, ptr @hf_si1_segment_choice, ptr null, ptr null }, %struct.CSN_DESCR { i16 0, i16 0, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.235, ptr null, i32 0, ptr null, ptr null, ptr null }], align 16
-@.str.231 = private unnamed_addr constant [37 x i8] c"System Information 1: Segment 1A, %s\00", align 1
-@SI1_SegmentChoice = internal constant [25 x %struct.CSN_ChoiceElement_t] [%struct.CSN_ChoiceElement_t { i8 6, i8 32, i32 1, %struct.CSN_DESCR { i16 3, i16 0, %union.anon.0 { ptr @CSNDESCR_Segment2Abis_t }, i64 38, i32 0, ptr @.str.252, ptr null, i32 0, ptr null, ptr null, ptr null } }, %struct.CSN_ChoiceElement_t { i8 6, i8 33, i32 1, %struct.CSN_DESCR { i16 3, i16 0, %union.anon.0 { ptr @CSNDESCR_Segment2Bbis_t }, i64 38, i32 0, ptr @.str.253, ptr null, i32 0, ptr null, ptr null, ptr null } }, %struct.CSN_ChoiceElement_t { i8 5, i8 0, i32 1, %struct.CSN_DESCR { i16 3, i16 0, %union.anon.0 { ptr @CSNDESCR_Segment3A_t }, i64 38, i32 0, ptr @.str.254, ptr null, i32 0, ptr null, ptr null, ptr null } }, %struct.CSN_ChoiceElement_t { i8 5, i8 1, i32 1, %struct.CSN_DESCR { i16 3, i16 0, %union.anon.0 { ptr @CSNDESCR_Segment3Bbis_t }, i64 38, i32 0, ptr @.str.255, ptr null, i32 0, ptr null, ptr null, ptr null } }, %struct.CSN_ChoiceElement_t { i8 5, i8 2, i32 1, %struct.CSN_DESCR { i16 3, i16 0, %union.anon.0 { ptr @CSNDESCR_Segment3C_t }, i64 38, i32 0, ptr @.str.256, ptr null, i32 0, ptr null, ptr null, ptr null } }, %struct.CSN_ChoiceElement_t { i8 5, i8 3, i32 1, %struct.CSN_DESCR { i16 3, i16 0, %union.anon.0 { ptr @CSNDESCR_Segment3D_t }, i64 38, i32 0, ptr @.str.257, ptr null, i32 0, ptr null, ptr null, ptr null } }, %struct.CSN_ChoiceElement_t { i8 5, i8 4, i32 1, %struct.CSN_DESCR { i16 3, i16 0, %union.anon.0 { ptr @CSNDESCR_Segment3Ebis_t }, i64 38, i32 0, ptr @.str.258, ptr null, i32 0, ptr null, ptr null, ptr null } }, %struct.CSN_ChoiceElement_t { i8 5, i8 5, i32 1, %struct.CSN_DESCR { i16 3, i16 0, %union.anon.0 { ptr @CSNDESCR_Segment3F_t }, i64 38, i32 0, ptr @.str.259, ptr null, i32 0, ptr null, ptr null, ptr null } }, %struct.CSN_ChoiceElement_t { i8 5, i8 6, i32 1, %struct.CSN_DESCR { i16 3, i16 0, %union.anon.0 { ptr @CSNDESCR_Segment3Gbis_t }, i64 38, i32 0, ptr @.str.260, ptr null, i32 0, ptr null, ptr null, ptr null } }, %struct.CSN_ChoiceElement_t { i8 5, i8 7, i32 1, %struct.CSN_DESCR { i16 3, i16 0, %union.anon.0 { ptr @CSNDESCR_Segment3H_t }, i64 38, i32 0, ptr @.str.261, ptr null, i32 0, ptr null, ptr null, ptr null } }, %struct.CSN_ChoiceElement_t { i8 5, i8 9, i32 1, %struct.CSN_DESCR { i16 3, i16 0, %union.anon.0 { ptr @CSNDESCR_Segment3I_t }, i64 38, i32 0, ptr @.str.262, ptr null, i32 0, ptr null, ptr null, ptr null } }, %struct.CSN_ChoiceElement_t { i8 5, i8 10, i32 1, %struct.CSN_DESCR { i16 3, i16 0, %union.anon.0 { ptr @CSNDESCR_Segment3Jbis_t }, i64 38, i32 0, ptr @.str.263, ptr null, i32 0, ptr null, ptr null, ptr null } }, %struct.CSN_ChoiceElement_t { i8 5, i8 11, i32 1, %struct.CSN_DESCR { i16 3, i16 0, %union.anon.0 { ptr @CSNDESCR_Segment3Kbis_t }, i64 38, i32 0, ptr @.str.264, ptr null, i32 0, ptr null, ptr null, ptr null } }, %struct.CSN_ChoiceElement_t { i8 7, i8 96, i32 1, %struct.CSN_DESCR { i16 3, i16 0, %union.anon.0 { ptr @CSNDESCR_Segment4A_t }, i64 38, i32 0, ptr @.str.265, ptr null, i32 0, ptr null, ptr null, ptr null } }, %struct.CSN_ChoiceElement_t { i8 7, i8 97, i32 1, %struct.CSN_DESCR { i16 3, i16 0, %union.anon.0 { ptr @CSNDESCR_Segment4B_t }, i64 38, i32 0, ptr @.str.266, ptr null, i32 0, ptr null, ptr null, ptr null } }, %struct.CSN_ChoiceElement_t { i8 7, i8 98, i32 1, %struct.CSN_DESCR { i16 3, i16 0, %union.anon.0 { ptr @CSNDESCR_Segment4C_t }, i64 38, i32 0, ptr @.str.267, ptr null, i32 0, ptr null, ptr null, ptr null } }, %struct.CSN_ChoiceElement_t { i8 7, i8 99, i32 1, %struct.CSN_DESCR { i16 3, i16 0, %union.anon.0 { ptr @CSNDESCR_Segment4D_t }, i64 38, i32 0, ptr @.str.268, ptr null, i32 0, ptr null, ptr null, ptr null } }, %struct.CSN_ChoiceElement_t { i8 7, i8 100, i32 1, %struct.CSN_DESCR { i16 3, i16 0, %union.anon.0 { ptr @CSNDESCR_Segment4E_t }, i64 38, i32 0, ptr @.str.269, ptr null, i32 0, ptr null, ptr null, ptr null } }, %struct.CSN_ChoiceElement_t { i8 7, i8 101, i32 1, %struct.CSN_DESCR { i16 3, i16 0, %union.anon.0 { ptr @CSNDESCR_Segment4F_t }, i64 38, i32 0, ptr @.str.270, ptr null, i32 0, ptr null, ptr null, ptr null } }, %struct.CSN_ChoiceElement_t { i8 7, i8 102, i32 1, %struct.CSN_DESCR { i16 3, i16 0, %union.anon.0 { ptr @CSNDESCR_Segment4G_t }, i64 38, i32 0, ptr @.str.271, ptr null, i32 0, ptr null, ptr null, ptr null } }, %struct.CSN_ChoiceElement_t { i8 7, i8 103, i32 1, %struct.CSN_DESCR { i16 3, i16 0, %union.anon.0 { ptr @CSNDESCR_Segment4H_t }, i64 38, i32 0, ptr @.str.272, ptr null, i32 0, ptr null, ptr null, ptr null } }, %struct.CSN_ChoiceElement_t { i8 7, i8 104, i32 1, %struct.CSN_DESCR { i16 3, i16 0, %union.anon.0 { ptr @CSNDESCR_Segment4I_t }, i64 38, i32 0, ptr @.str.273, ptr null, i32 0, ptr null, ptr null, ptr null } }, %struct.CSN_ChoiceElement_t { i8 7, i8 105, i32 1, %struct.CSN_DESCR { i16 3, i16 0, %union.anon.0 { ptr @CSNDESCR_Segment4J_t }, i64 38, i32 0, ptr @.str.274, ptr null, i32 0, ptr null, ptr null, ptr null } }, %struct.CSN_ChoiceElement_t { i8 7, i8 106, i32 1, %struct.CSN_DESCR { i16 3, i16 0, %union.anon.0 { ptr @CSNDESCR_Segment4K_t }, i64 38, i32 0, ptr @.str.275, ptr null, i32 0, ptr null, ptr null, ptr null } }, %struct.CSN_ChoiceElement_t { i8 0, i8 0, i32 1, %struct.CSN_DESCR { i16 34, i16 -1, %union.anon.0 { ptr @.str.276 }, i64 0, i32 0, ptr @.str.276, ptr @ei_unknown_segment, i32 0, ptr null, ptr null, ptr null } }], align 16
-@CSNDESCR_SystemInformation2_t = internal constant [3 x %struct.CSN_DESCR] [%struct.CSN_DESCR { i16 3, i16 0, %union.anon.0 { ptr @CSNDESCR_SI2_Block_Header_t }, i64 0, i32 0, ptr @.str.233, ptr null, i32 0, ptr null, ptr null, ptr null }, %struct.CSN_DESCR { i16 4, i16 7, %union.anon.0 { ptr @SI2_SegmentChoice }, i64 3, i32 0, ptr null, ptr null, i32 0, ptr @hf_si1_segment_choice, ptr null, ptr null }, %struct.CSN_DESCR { i16 0, i16 0, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.235, ptr null, i32 0, ptr null, ptr null, ptr null }], align 16
-@.str.232 = private unnamed_addr constant [25 x i8] c"System Information 2: %s\00", align 1
-@SI2_SegmentChoice = internal constant [7 x %struct.CSN_ChoiceElement_t] [%struct.CSN_ChoiceElement_t { i8 6, i8 32, i32 1, %struct.CSN_DESCR { i16 3, i16 0, %union.anon.0 { ptr @CSNDESCR_Segment2A_t }, i64 4, i32 0, ptr @.str.298, ptr null, i32 0, ptr null, ptr null, ptr null } }, %struct.CSN_ChoiceElement_t { i8 6, i8 33, i32 1, %struct.CSN_DESCR { i16 3, i16 0, %union.anon.0 { ptr @CSNDESCR_Segment2B_t }, i64 4, i32 0, ptr @.str.299, ptr null, i32 0, ptr null, ptr null, ptr null } }, %struct.CSN_ChoiceElement_t { i8 5, i8 1, i32 1, %struct.CSN_DESCR { i16 3, i16 0, %union.anon.0 { ptr @CSNDESCR_Segment3B_t }, i64 4, i32 0, ptr @.str.300, ptr null, i32 0, ptr null, ptr null, ptr null } }, %struct.CSN_ChoiceElement_t { i8 5, i8 4, i32 1, %struct.CSN_DESCR { i16 3, i16 0, %union.anon.0 { ptr @CSNDESCR_Segment3E_t }, i64 4, i32 0, ptr @.str.301, ptr null, i32 0, ptr null, ptr null, ptr null } }, %struct.CSN_ChoiceElement_t { i8 5, i8 6, i32 1, %struct.CSN_DESCR { i16 3, i16 0, %union.anon.0 { ptr @CSNDESCR_Segment3G_t }, i64 4, i32 0, ptr @.str.302, ptr null, i32 0, ptr null, ptr null, ptr null } }, %struct.CSN_ChoiceElement_t { i8 5, i8 10, i32 1, %struct.CSN_DESCR { i16 3, i16 0, %union.anon.0 { ptr @CSNDESCR_Segment3J_t }, i64 4, i32 0, ptr @.str.303, ptr null, i32 0, ptr null, ptr null, ptr null } }, %struct.CSN_ChoiceElement_t { i8 0, i8 0, i32 1, %struct.CSN_DESCR { i16 34, i16 -1, %union.anon.0 { ptr @.str.276 }, i64 0, i32 0, ptr @.str.276, ptr @ei_unknown_segment, i32 0, ptr null, ptr null, ptr null } }], align 16
-@CSNDESCR_SI1_Block_Header_t = internal constant [5 x %struct.CSN_DESCR] [%struct.CSN_DESCR { i16 2, i16 4, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.236, ptr null, i32 0, ptr @hf_si_protocol_version, ptr null, ptr null }, %struct.CSN_DESCR { i16 2, i16 1, %union.anon.0 zeroinitializer, i64 1, i32 0, ptr @.str.237, ptr null, i32 0, ptr @hf_si_block_type, ptr null, ptr null }, %struct.CSN_DESCR { i16 2, i16 2, %union.anon.0 zeroinitializer, i64 2, i32 0, ptr @.str.238, ptr null, i32 0, ptr @hf_si1_randomization_period, ptr null, ptr null }, %struct.CSN_DESCR { i16 2, i16 1, %union.anon.0 zeroinitializer, i64 3, i32 0, ptr @.str.66, ptr null, i32 0, ptr @hf_si_spare, ptr null, ptr null }, %struct.CSN_DESCR { i16 0, i16 0, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.235, ptr null, i32 0, ptr null, ptr null, ptr null }], align 16
-@.str.233 = private unnamed_addr constant [13 x i8] c"Block Header\00", align 1
-@CSNDESCR_Segment1A_t = internal constant [13 x %struct.CSN_DESCR] [%struct.CSN_DESCR { i16 2, i16 3, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.239, ptr null, i32 0, ptr @hf_seg1a_class_2_version, ptr null, ptr null }, %struct.CSN_DESCR { i16 2, i16 4, %union.anon.0 zeroinitializer, i64 1, i32 0, ptr @.str.240, ptr null, i32 0, ptr @hf_seg1a_class_3_version, ptr null, ptr null }, %struct.CSN_DESCR { i16 3, i16 0, %union.anon.0 { ptr @CSNDESCR_Seg1A_SyncInfo_t }, i64 2, i32 0, ptr @.str.241, ptr null, i32 0, ptr null, ptr null, ptr null }, %struct.CSN_DESCR { i16 3, i16 0, %union.anon.0 { ptr @CSNDESCR_Seg1A_RACHCtrlParams_t }, i64 5, i32 0, ptr @.str.242, ptr null, i32 0, ptr null, ptr null, ptr null }, %struct.CSN_DESCR { i16 3, i16 0, %union.anon.0 { ptr @CSNDESCR_Seg1A_MiscInfo_t }, i64 23, i32 0, ptr @.str.243, ptr null, i32 0, ptr null, ptr null, ptr null }, %struct.CSN_DESCR { i16 2, i16 1, %union.anon.0 zeroinitializer, i64 26, i32 0, ptr @.str.244, ptr null, i32 0, ptr @hf_seg1a_gbch_present, ptr null, ptr null }, %struct.CSN_DESCR { i16 2, i16 1, %union.anon.0 zeroinitializer, i64 27, i32 0, ptr @.str.245, ptr null, i32 0, ptr @hf_seg1a_test_gs, ptr null, ptr null }, %struct.CSN_DESCR { i16 2, i16 1, %union.anon.0 zeroinitializer, i64 28, i32 0, ptr @.str.246, ptr null, i32 0, ptr @hf_seg1a_test_gs2, ptr null, ptr null }, %struct.CSN_DESCR { i16 2, i16 3, %union.anon.0 zeroinitializer, i64 29, i32 0, ptr @.str.247, ptr null, i32 0, ptr @hf_seg1a_spare1, ptr null, ptr null }, %struct.CSN_DESCR { i16 2, i16 1, %union.anon.0 zeroinitializer, i64 30, i32 0, ptr @.str.78, ptr null, i32 0, ptr @hf_seg1a_cell_bar_access_extension2, ptr null, ptr null }, %struct.CSN_DESCR { i16 2, i16 5, %union.anon.0 zeroinitializer, i64 31, i32 0, ptr @.str.248, ptr null, i32 0, ptr @hf_seg1a_spare2, ptr null, ptr null }, %struct.CSN_DESCR { i16 2, i16 1, %union.anon.0 zeroinitializer, i64 32, i32 0, ptr @.str.81, ptr null, i32 0, ptr @hf_seg1a_cell_bar_access_extension, ptr null, ptr null }, %struct.CSN_DESCR { i16 0, i16 0, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.235, ptr null, i32 0, ptr null, ptr null, ptr null }], align 16
-@.str.234 = private unnamed_addr constant [11 x i8] c"Segment 1A\00", align 1
-@.str.235 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
-@.str.236 = private unnamed_addr constant [17 x i8] c"Protocol_Version\00", align 1
-@.str.237 = private unnamed_addr constant [11 x i8] c"Block_Type\00", align 1
-@.str.238 = private unnamed_addr constant [21 x i8] c"Randomization_Period\00", align 1
-@.str.239 = private unnamed_addr constant [16 x i8] c"Class_2_version\00", align 1
-@.str.240 = private unnamed_addr constant [16 x i8] c"Class_3_version\00", align 1
-@CSNDESCR_Seg1A_SyncInfo_t = internal constant [4 x %struct.CSN_DESCR] [%struct.CSN_DESCR { i16 2, i16 5, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.6, ptr null, i32 0, ptr @hf_seg1a_syncinfo_sb_frame_ts_offset, ptr null, ptr null }, %struct.CSN_DESCR { i16 2, i16 6, %union.anon.0 zeroinitializer, i64 1, i32 0, ptr @.str.8, ptr null, i32 0, ptr @hf_seg1a_syncinfo_sb_symbol_offset, ptr null, ptr null }, %struct.CSN_DESCR { i16 2, i16 8, %union.anon.0 zeroinitializer, i64 2, i32 0, ptr @.str.10, ptr null, i32 0, ptr @hf_seg1a_syncinfo_sa_freq_offset, ptr null, ptr null }, %struct.CSN_DESCR { i16 0, i16 0, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.235, ptr null, i32 0, ptr null, ptr null, ptr null }], align 16
-@.str.241 = private unnamed_addr constant [29 x i8] c"Synchronization Info Class 1\00", align 1
-@CSNDESCR_Seg1A_RACHCtrlParams_t = internal constant [4 x %struct.CSN_DESCR] [%struct.CSN_DESCR { i16 2, i16 2, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.249, ptr null, i32 0, ptr @hf_seg1a_rachctrl_max_retrans, ptr null, ptr null }, %struct.CSN_DESCR { i16 3, i16 0, %union.anon.0 { ptr @CSNDESCR_Seg1A_AccessClasses_t }, i64 1, i32 0, ptr @.str.250, ptr null, i32 0, ptr null, ptr null, ptr null }, %struct.CSN_DESCR { i16 2, i16 1, %union.anon.0 zeroinitializer, i64 17, i32 0, ptr @.str.62, ptr null, i32 0, ptr @hf_seg1a_rachctrl_cell_bar_access, ptr null, ptr null }, %struct.CSN_DESCR { i16 0, i16 0, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.235, ptr null, i32 0, ptr null, ptr null, ptr null }], align 16
-@.str.242 = private unnamed_addr constant [24 x i8] c"RACH Control Parameters\00", align 1
-@CSNDESCR_Seg1A_MiscInfo_t = internal constant [4 x %struct.CSN_DESCR] [%struct.CSN_DESCR { i16 2, i16 4, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.64, ptr null, i32 0, ptr @hf_seg1a_miscinfo_sb_reselection_hysteresis, ptr null, ptr null }, %struct.CSN_DESCR { i16 2, i16 1, %union.anon.0 zeroinitializer, i64 1, i32 0, ptr @.str.66, ptr null, i32 0, ptr @hf_seg1a_miscinfo_spare, ptr null, ptr null }, %struct.CSN_DESCR { i16 2, i16 1, %union.anon.0 zeroinitializer, i64 2, i32 0, ptr @.str.251, ptr null, i32 0, ptr @hf_seg1a_miscinfo_priority_access_ind, ptr null, ptr null }, %struct.CSN_DESCR { i16 0, i16 0, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.235, ptr null, i32 0, ptr null, ptr null, ptr null }], align 16
-@.str.243 = private unnamed_addr constant [18 x i8] c"Misc Info Class 1\00", align 1
-@.str.244 = private unnamed_addr constant [13 x i8] c"GBCH_Present\00", align 1
-@.str.245 = private unnamed_addr constant [8 x i8] c"Test_GS\00", align 1
-@.str.246 = private unnamed_addr constant [9 x i8] c"Test_GS2\00", align 1
-@.str.247 = private unnamed_addr constant [7 x i8] c"Spare1\00", align 1
-@.str.248 = private unnamed_addr constant [7 x i8] c"Spare2\00", align 1
-@.str.249 = private unnamed_addr constant [12 x i8] c"Max_Retrans\00", align 1
-@CSNDESCR_Seg1A_AccessClasses_t = internal constant [17 x %struct.CSN_DESCR] [%struct.CSN_DESCR { i16 2, i16 1, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.14, ptr null, i32 0, ptr getelementptr (i8, ptr @hf_seg1a_rachctrl_acc, i64 60), ptr null, ptr null }, %struct.CSN_DESCR { i16 2, i16 1, %union.anon.0 zeroinitializer, i64 1, i32 0, ptr @.str.17, ptr null, i32 0, ptr getelementptr (i8, ptr @hf_seg1a_rachctrl_acc, i64 56), ptr null, ptr null }, %struct.CSN_DESCR { i16 2, i16 1, %union.anon.0 zeroinitializer, i64 2, i32 0, ptr @.str.20, ptr null, i32 0, ptr getelementptr (i8, ptr @hf_seg1a_rachctrl_acc, i64 52), ptr null, ptr null }, %struct.CSN_DESCR { i16 2, i16 1, %union.anon.0 zeroinitializer, i64 3, i32 0, ptr @.str.23, ptr null, i32 0, ptr getelementptr (i8, ptr @hf_seg1a_rachctrl_acc, i64 48), ptr null, ptr null }, %struct.CSN_DESCR { i16 2, i16 1, %union.anon.0 zeroinitializer, i64 4, i32 0, ptr @.str.26, ptr null, i32 0, ptr getelementptr (i8, ptr @hf_seg1a_rachctrl_acc, i64 44), ptr null, ptr null }, %struct.CSN_DESCR { i16 2, i16 1, %union.anon.0 zeroinitializer, i64 5, i32 0, ptr @.str.29, ptr null, i32 0, ptr getelementptr (i8, ptr @hf_seg1a_rachctrl_acc, i64 40), ptr null, ptr null }, %struct.CSN_DESCR { i16 2, i16 1, %union.anon.0 zeroinitializer, i64 6, i32 0, ptr @.str.32, ptr null, i32 0, ptr getelementptr (i8, ptr @hf_seg1a_rachctrl_acc, i64 36), ptr null, ptr null }, %struct.CSN_DESCR { i16 2, i16 1, %union.anon.0 zeroinitializer, i64 7, i32 0, ptr @.str.35, ptr null, i32 0, ptr getelementptr (i8, ptr @hf_seg1a_rachctrl_acc, i64 32), ptr null, ptr null }, %struct.CSN_DESCR { i16 2, i16 1, %union.anon.0 zeroinitializer, i64 8, i32 0, ptr @.str.38, ptr null, i32 0, ptr getelementptr (i8, ptr @hf_seg1a_rachctrl_acc, i64 28), ptr null, ptr null }, %struct.CSN_DESCR { i16 2, i16 1, %union.anon.0 zeroinitializer, i64 9, i32 0, ptr @.str.41, ptr null, i32 0, ptr getelementptr (i8, ptr @hf_seg1a_rachctrl_acc, i64 24), ptr null, ptr null }, %struct.CSN_DESCR { i16 2, i16 1, %union.anon.0 zeroinitializer, i64 10, i32 0, ptr @.str.44, ptr null, i32 0, ptr getelementptr (i8, ptr @hf_seg1a_rachctrl_acc, i64 20), ptr null, ptr null }, %struct.CSN_DESCR { i16 2, i16 1, %union.anon.0 zeroinitializer, i64 11, i32 0, ptr @.str.47, ptr null, i32 0, ptr getelementptr (i8, ptr @hf_seg1a_rachctrl_acc, i64 16), ptr null, ptr null }, %struct.CSN_DESCR { i16 2, i16 1, %union.anon.0 zeroinitializer, i64 12, i32 0, ptr @.str.50, ptr null, i32 0, ptr getelementptr (i8, ptr @hf_seg1a_rachctrl_acc, i64 12), ptr null, ptr null }, %struct.CSN_DESCR { i16 2, i16 1, %union.anon.0 zeroinitializer, i64 13, i32 0, ptr @.str.53, ptr null, i32 0, ptr getelementptr (i8, ptr @hf_seg1a_rachctrl_acc, i64 8), ptr null, ptr null }, %struct.CSN_DESCR { i16 2, i16 1, %union.anon.0 zeroinitializer, i64 14, i32 0, ptr @.str.56, ptr null, i32 0, ptr getelementptr (i8, ptr @hf_seg1a_rachctrl_acc, i64 4), ptr null, ptr null }, %struct.CSN_DESCR { i16 2, i16 1, %union.anon.0 zeroinitializer, i64 15, i32 0, ptr @.str.59, ptr null, i32 0, ptr @hf_seg1a_rachctrl_acc, ptr null, ptr null }, %struct.CSN_DESCR { i16 0, i16 0, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.235, ptr null, i32 0, ptr null, ptr null, ptr null }], align 16
-@.str.250 = private unnamed_addr constant [15 x i8] c"Access Classes\00", align 1
-@.str.251 = private unnamed_addr constant [18 x i8] c"PriorityAccessInd\00", align 1
-@CSNDESCR_Segment2Abis_t = internal constant [8 x %struct.CSN_DESCR] [%struct.CSN_DESCR { i16 27, i16 2, %union.anon.0 zeroinitializer, i64 2, i32 0, ptr @.str.126, ptr null, i32 0, ptr @hf_seg2a_class_type, ptr null, ptr null }, %struct.CSN_DESCR { i16 27, i16 4, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.130, ptr null, i32 0, ptr @hf_seg2a_segment_type_abis, ptr null, ptr null }, %struct.CSN_DESCR { i16 2, i16 3, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.277, ptr null, i32 0, ptr @hf_seg2a_class_4_version, ptr null, ptr null }, %struct.CSN_DESCR { i16 3, i16 0, %union.anon.0 { ptr @CSNDESCR_Seg2A_SyncInfo_t }, i64 2, i32 0, ptr @.str.278, ptr null, i32 0, ptr null, ptr null, ptr null }, %struct.CSN_DESCR { i16 3, i16 0, %union.anon.0 { ptr @CSNDESCR_Seg2A_SelectionCriterion_t }, i64 8, i32 0, ptr @.str.279, ptr null, i32 0, ptr null, ptr null, ptr null }, %struct.CSN_DESCR { i16 3, i16 0, %union.anon.0 { ptr @CSNDESCR_Seg2A_MiscInfo_t }, i64 9, i32 0, ptr @.str.280, ptr null, i32 0, ptr null, ptr null, ptr null }, %struct.CSN_DESCR { i16 3, i16 0, %union.anon.0 { ptr @CSNDESCR_Seg2A_LAInfo_t }, i64 10, i32 0, ptr @.str.281, ptr null, i32 0, ptr null, ptr null, ptr null }, %struct.CSN_DESCR { i16 0, i16 0, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.235, ptr null, i32 0, ptr null, ptr null, ptr null }], align 16
-@.str.252 = private unnamed_addr constant [15 x i8] c"Segment 2A bis\00", align 1
-@CSNDESCR_Segment2Bbis_t = internal constant [3 x %struct.CSN_DESCR] [%struct.CSN_DESCR { i16 27, i16 2, %union.anon.0 zeroinitializer, i64 2, i32 0, ptr @.str.126, ptr null, i32 0, ptr @hf_seg2a_class_type, ptr null, ptr null }, %struct.CSN_DESCR { i16 27, i16 4, %union.anon.0 zeroinitializer, i64 1, i32 0, ptr @.str.134, ptr null, i32 0, ptr @hf_seg2b_segment_type_bbis, ptr null, ptr null }, %struct.CSN_DESCR { i16 0, i16 0, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.235, ptr null, i32 0, ptr null, ptr null, ptr null }], align 16
-@.str.253 = private unnamed_addr constant [15 x i8] c"Segment 2B bis\00", align 1
-@CSNDESCR_Segment3A_t = internal constant [9 x %struct.CSN_DESCR] [%struct.CSN_DESCR { i16 27, i16 1, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.136, ptr null, i32 0, ptr @hf_seg3a_class_type, ptr null, ptr null }, %struct.CSN_DESCR { i16 27, i16 4, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.128, ptr null, i32 0, ptr @hf_seg3a_segment_type_a, ptr null, ptr null }, %struct.CSN_DESCR { i16 31, i16 0, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.289, ptr null, i32 0, ptr @hf_seg3a_lai_dissector, ptr null, ptr @Seg3A_LAI_Dissector }, %struct.CSN_DESCR { i16 3, i16 0, %union.anon.0 { ptr @CSNDESCR_Seg3A_System_t }, i64 10, i32 0, ptr @.str.290, ptr null, i32 0, ptr null, ptr null, ptr null }, %struct.CSN_DESCR { i16 3, i16 0, %union.anon.0 { ptr @CSNDESCR_Seg3A_SatellitePosition_t }, i64 12, i32 0, ptr @.str.291, ptr null, i32 0, ptr null, ptr null, ptr null }, %struct.CSN_DESCR { i16 3, i16 0, %union.anon.0 { ptr @CSNDESCR_Seg3A_BeamPosition_t }, i64 18, i32 0, ptr @.str.292, ptr null, i32 0, ptr null, ptr null, ptr null }, %struct.CSN_DESCR { i16 3, i16 0, %union.anon.0 { ptr @CSNDESCR_Seg3A_MiscInfo_t }, i64 22, i32 0, ptr @.str.293, ptr null, i32 0, ptr null, ptr null, ptr null }, %struct.CSN_DESCR { i16 2, i16 4, %union.anon.0 zeroinitializer, i64 23, i32 0, ptr @.str.66, ptr null, i32 0, ptr @hf_seg3a_spare, ptr null, ptr null }, %struct.CSN_DESCR { i16 0, i16 0, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.235, ptr null, i32 0, ptr null, ptr null, ptr null }], align 16
-@.str.254 = private unnamed_addr constant [11 x i8] c"Segment 3A\00", align 1
-@CSNDESCR_Segment3Bbis_t = internal constant [3 x %struct.CSN_DESCR] [%struct.CSN_DESCR { i16 27, i16 1, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.136, ptr null, i32 0, ptr @hf_seg3a_class_type, ptr null, ptr null }, %struct.CSN_DESCR { i16 27, i16 4, %union.anon.0 zeroinitializer, i64 1, i32 0, ptr @.str.134, ptr null, i32 0, ptr @hf_seg3b_segment_type_bbis, ptr null, ptr null }, %struct.CSN_DESCR { i16 0, i16 0, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.235, ptr null, i32 0, ptr null, ptr null, ptr null }], align 16
-@.str.255 = private unnamed_addr constant [15 x i8] c"Segment 3B bis\00", align 1
-@CSNDESCR_Segment3C_t = internal constant [3 x %struct.CSN_DESCR] [%struct.CSN_DESCR { i16 27, i16 1, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.136, ptr null, i32 0, ptr @hf_seg3a_class_type, ptr null, ptr null }, %struct.CSN_DESCR { i16 27, i16 4, %union.anon.0 zeroinitializer, i64 2, i32 0, ptr @.str.168, ptr null, i32 0, ptr @hf_seg3c_segment_type_c, ptr null, ptr null }, %struct.CSN_DESCR { i16 0, i16 0, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.235, ptr null, i32 0, ptr null, ptr null, ptr null }], align 16
-@.str.256 = private unnamed_addr constant [11 x i8] c"Segment 3C\00", align 1
-@CSNDESCR_Segment3D_t = internal constant [3 x %struct.CSN_DESCR] [%struct.CSN_DESCR { i16 27, i16 1, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.136, ptr null, i32 0, ptr @hf_seg3a_class_type, ptr null, ptr null }, %struct.CSN_DESCR { i16 27, i16 4, %union.anon.0 zeroinitializer, i64 3, i32 0, ptr @.str.170, ptr null, i32 0, ptr @hf_seg3d_segment_type_d, ptr null, ptr null }, %struct.CSN_DESCR { i16 0, i16 0, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.235, ptr null, i32 0, ptr null, ptr null, ptr null }], align 16
-@.str.257 = private unnamed_addr constant [11 x i8] c"Segment 3D\00", align 1
-@CSNDESCR_Segment3Ebis_t = internal constant [3 x %struct.CSN_DESCR] [%struct.CSN_DESCR { i16 27, i16 1, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.136, ptr null, i32 0, ptr @hf_seg3a_class_type, ptr null, ptr null }, %struct.CSN_DESCR { i16 27, i16 4, %union.anon.0 zeroinitializer, i64 4, i32 0, ptr @.str.174, ptr null, i32 0, ptr @hf_seg3e_segment_type_ebis, ptr null, ptr null }, %struct.CSN_DESCR { i16 0, i16 0, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.235, ptr null, i32 0, ptr null, ptr null, ptr null }], align 16
-@.str.258 = private unnamed_addr constant [15 x i8] c"Segment 3E bis\00", align 1
-@CSNDESCR_Segment3F_t = internal constant [3 x %struct.CSN_DESCR] [%struct.CSN_DESCR { i16 27, i16 1, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.136, ptr null, i32 0, ptr @hf_seg3a_class_type, ptr null, ptr null }, %struct.CSN_DESCR { i16 27, i16 4, %union.anon.0 zeroinitializer, i64 5, i32 0, ptr @.str.176, ptr null, i32 0, ptr @hf_seg3f_segment_type_f, ptr null, ptr null }, %struct.CSN_DESCR { i16 0, i16 0, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.235, ptr null, i32 0, ptr null, ptr null, ptr null }], align 16
-@.str.259 = private unnamed_addr constant [11 x i8] c"Segment 3F\00", align 1
-@CSNDESCR_Segment3Gbis_t = internal constant [3 x %struct.CSN_DESCR] [%struct.CSN_DESCR { i16 27, i16 1, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.136, ptr null, i32 0, ptr @hf_seg3a_class_type, ptr null, ptr null }, %struct.CSN_DESCR { i16 27, i16 4, %union.anon.0 zeroinitializer, i64 6, i32 0, ptr @.str.180, ptr null, i32 0, ptr @hf_seg3g_segment_type_gbis, ptr null, ptr null }, %struct.CSN_DESCR { i16 0, i16 0, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.235, ptr null, i32 0, ptr null, ptr null, ptr null }], align 16
-@.str.260 = private unnamed_addr constant [15 x i8] c"Segment 3G bis\00", align 1
-@CSNDESCR_Segment3H_t = internal constant [3 x %struct.CSN_DESCR] [%struct.CSN_DESCR { i16 27, i16 1, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.136, ptr null, i32 0, ptr @hf_seg3a_class_type, ptr null, ptr null }, %struct.CSN_DESCR { i16 27, i16 4, %union.anon.0 zeroinitializer, i64 7, i32 0, ptr @.str.182, ptr null, i32 0, ptr @hf_seg3h_segment_type_h, ptr null, ptr null }, %struct.CSN_DESCR { i16 0, i16 0, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.235, ptr null, i32 0, ptr null, ptr null, ptr null }], align 16
-@.str.261 = private unnamed_addr constant [11 x i8] c"Segment 3H\00", align 1
-@CSNDESCR_Segment3I_t = internal constant [3 x %struct.CSN_DESCR] [%struct.CSN_DESCR { i16 27, i16 1, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.136, ptr null, i32 0, ptr @hf_seg3a_class_type, ptr null, ptr null }, %struct.CSN_DESCR { i16 27, i16 4, %union.anon.0 zeroinitializer, i64 9, i32 0, ptr @.str.184, ptr null, i32 0, ptr @hf_seg3i_segment_type_i, ptr null, ptr null }, %struct.CSN_DESCR { i16 0, i16 0, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.235, ptr null, i32 0, ptr null, ptr null, ptr null }], align 16
-@.str.262 = private unnamed_addr constant [11 x i8] c"Segment 3I\00", align 1
-@CSNDESCR_Segment3Jbis_t = internal constant [3 x %struct.CSN_DESCR] [%struct.CSN_DESCR { i16 27, i16 1, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.136, ptr null, i32 0, ptr @hf_seg3a_class_type, ptr null, ptr null }, %struct.CSN_DESCR { i16 27, i16 4, %union.anon.0 zeroinitializer, i64 10, i32 0, ptr @.str.188, ptr null, i32 0, ptr @hf_seg3j_segment_type_jbis, ptr null, ptr null }, %struct.CSN_DESCR { i16 0, i16 0, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.235, ptr null, i32 0, ptr null, ptr null, ptr null }], align 16
-@.str.263 = private unnamed_addr constant [15 x i8] c"Segment 3J bis\00", align 1
-@CSNDESCR_Segment3Kbis_t = internal constant [3 x %struct.CSN_DESCR] [%struct.CSN_DESCR { i16 27, i16 1, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.136, ptr null, i32 0, ptr @hf_seg3a_class_type, ptr null, ptr null }, %struct.CSN_DESCR { i16 27, i16 4, %union.anon.0 zeroinitializer, i64 11, i32 0, ptr @.str.190, ptr null, i32 0, ptr @hf_seg3k_segment_type_kbis, ptr null, ptr null }, %struct.CSN_DESCR { i16 0, i16 0, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.235, ptr null, i32 0, ptr null, ptr null, ptr null }], align 16
-@.str.264 = private unnamed_addr constant [15 x i8] c"Segment 3K bis\00", align 1
-@CSNDESCR_Segment4A_t = internal constant [3 x %struct.CSN_DESCR] [%struct.CSN_DESCR { i16 27, i16 3, %union.anon.0 zeroinitializer, i64 6, i32 0, ptr @.str.192, ptr null, i32 0, ptr @hf_seg4a_class_type, ptr null, ptr null }, %struct.CSN_DESCR { i16 27, i16 4, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.128, ptr null, i32 0, ptr @hf_seg4a_segment_type_a, ptr null, ptr null }, %struct.CSN_DESCR { i16 0, i16 0, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.235, ptr null, i32 0, ptr null, ptr null, ptr null }], align 16
-@.str.265 = private unnamed_addr constant [11 x i8] c"Segment 4A\00", align 1
-@CSNDESCR_Segment4B_t = internal constant [3 x %struct.CSN_DESCR] [%struct.CSN_DESCR { i16 27, i16 3, %union.anon.0 zeroinitializer, i64 6, i32 0, ptr @.str.192, ptr null, i32 0, ptr @hf_seg4a_class_type, ptr null, ptr null }, %struct.CSN_DESCR { i16 27, i16 4, %union.anon.0 zeroinitializer, i64 1, i32 0, ptr @.str.132, ptr null, i32 0, ptr @hf_seg4b_segment_type_b, ptr null, ptr null }, %struct.CSN_DESCR { i16 0, i16 0, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.235, ptr null, i32 0, ptr null, ptr null, ptr null }], align 16
-@.str.266 = private unnamed_addr constant [11 x i8] c"Segment 4B\00", align 1
-@CSNDESCR_Segment4C_t = internal constant [3 x %struct.CSN_DESCR] [%struct.CSN_DESCR { i16 27, i16 3, %union.anon.0 zeroinitializer, i64 6, i32 0, ptr @.str.192, ptr null, i32 0, ptr @hf_seg4a_class_type, ptr null, ptr null }, %struct.CSN_DESCR { i16 27, i16 4, %union.anon.0 zeroinitializer, i64 2, i32 0, ptr @.str.168, ptr null, i32 0, ptr @hf_seg4c_segment_type_c, ptr null, ptr null }, %struct.CSN_DESCR { i16 0, i16 0, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.235, ptr null, i32 0, ptr null, ptr null, ptr null }], align 16
-@.str.267 = private unnamed_addr constant [11 x i8] c"Segment 4C\00", align 1
-@CSNDESCR_Segment4D_t = internal constant [3 x %struct.CSN_DESCR] [%struct.CSN_DESCR { i16 27, i16 3, %union.anon.0 zeroinitializer, i64 6, i32 0, ptr @.str.192, ptr null, i32 0, ptr @hf_seg4a_class_type, ptr null, ptr null }, %struct.CSN_DESCR { i16 27, i16 4, %union.anon.0 zeroinitializer, i64 3, i32 0, ptr @.str.170, ptr null, i32 0, ptr @hf_seg4d_segment_type_d, ptr null, ptr null }, %struct.CSN_DESCR { i16 0, i16 0, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.235, ptr null, i32 0, ptr null, ptr null, ptr null }], align 16
-@.str.268 = private unnamed_addr constant [11 x i8] c"Segment 4D\00", align 1
-@CSNDESCR_Segment4E_t = internal constant [3 x %struct.CSN_DESCR] [%struct.CSN_DESCR { i16 27, i16 3, %union.anon.0 zeroinitializer, i64 6, i32 0, ptr @.str.192, ptr null, i32 0, ptr @hf_seg4a_class_type, ptr null, ptr null }, %struct.CSN_DESCR { i16 27, i16 4, %union.anon.0 zeroinitializer, i64 4, i32 0, ptr @.str.172, ptr null, i32 0, ptr @hf_seg4e_segment_type_e, ptr null, ptr null }, %struct.CSN_DESCR { i16 0, i16 0, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.235, ptr null, i32 0, ptr null, ptr null, ptr null }], align 16
-@.str.269 = private unnamed_addr constant [11 x i8] c"Segment 4E\00", align 1
-@CSNDESCR_Segment4F_t = internal constant [3 x %struct.CSN_DESCR] [%struct.CSN_DESCR { i16 27, i16 3, %union.anon.0 zeroinitializer, i64 6, i32 0, ptr @.str.192, ptr null, i32 0, ptr @hf_seg4a_class_type, ptr null, ptr null }, %struct.CSN_DESCR { i16 27, i16 4, %union.anon.0 zeroinitializer, i64 5, i32 0, ptr @.str.176, ptr null, i32 0, ptr @hf_seg4f_segment_type_f, ptr null, ptr null }, %struct.CSN_DESCR { i16 0, i16 0, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.235, ptr null, i32 0, ptr null, ptr null, ptr null }], align 16
-@.str.270 = private unnamed_addr constant [11 x i8] c"Segment 4F\00", align 1
-@CSNDESCR_Segment4G_t = internal constant [3 x %struct.CSN_DESCR] [%struct.CSN_DESCR { i16 27, i16 3, %union.anon.0 zeroinitializer, i64 6, i32 0, ptr @.str.192, ptr null, i32 0, ptr @hf_seg4a_class_type, ptr null, ptr null }, %struct.CSN_DESCR { i16 27, i16 4, %union.anon.0 zeroinitializer, i64 6, i32 0, ptr @.str.178, ptr null, i32 0, ptr @hf_seg4g_segment_type_g, ptr null, ptr null }, %struct.CSN_DESCR { i16 0, i16 0, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.235, ptr null, i32 0, ptr null, ptr null, ptr null }], align 16
-@.str.271 = private unnamed_addr constant [11 x i8] c"Segment 4G\00", align 1
-@CSNDESCR_Segment4H_t = internal constant [3 x %struct.CSN_DESCR] [%struct.CSN_DESCR { i16 27, i16 3, %union.anon.0 zeroinitializer, i64 6, i32 0, ptr @.str.192, ptr null, i32 0, ptr @hf_seg4a_class_type, ptr null, ptr null }, %struct.CSN_DESCR { i16 27, i16 4, %union.anon.0 zeroinitializer, i64 7, i32 0, ptr @.str.182, ptr null, i32 0, ptr @hf_seg4h_segment_type_h, ptr null, ptr null }, %struct.CSN_DESCR { i16 0, i16 0, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.235, ptr null, i32 0, ptr null, ptr null, ptr null }], align 16
-@.str.272 = private unnamed_addr constant [11 x i8] c"Segment 4H\00", align 1
-@CSNDESCR_Segment4I_t = internal constant [3 x %struct.CSN_DESCR] [%struct.CSN_DESCR { i16 27, i16 3, %union.anon.0 zeroinitializer, i64 6, i32 0, ptr @.str.192, ptr null, i32 0, ptr @hf_seg4a_class_type, ptr null, ptr null }, %struct.CSN_DESCR { i16 27, i16 4, %union.anon.0 zeroinitializer, i64 8, i32 0, ptr @.str.184, ptr null, i32 0, ptr @hf_seg4i_segment_type_i, ptr null, ptr null }, %struct.CSN_DESCR { i16 0, i16 0, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.235, ptr null, i32 0, ptr null, ptr null, ptr null }], align 16
-@.str.273 = private unnamed_addr constant [11 x i8] c"Segment 4I\00", align 1
-@CSNDESCR_Segment4J_t = internal constant [3 x %struct.CSN_DESCR] [%struct.CSN_DESCR { i16 27, i16 3, %union.anon.0 zeroinitializer, i64 6, i32 0, ptr @.str.192, ptr null, i32 0, ptr @hf_seg4a_class_type, ptr null, ptr null }, %struct.CSN_DESCR { i16 27, i16 4, %union.anon.0 zeroinitializer, i64 9, i32 0, ptr @.str.186, ptr null, i32 0, ptr @hf_seg4j_segment_type_j, ptr null, ptr null }, %struct.CSN_DESCR { i16 0, i16 0, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.235, ptr null, i32 0, ptr null, ptr null, ptr null }], align 16
-@.str.274 = private unnamed_addr constant [11 x i8] c"Segment 4J\00", align 1
-@CSNDESCR_Segment4K_t = internal constant [3 x %struct.CSN_DESCR] [%struct.CSN_DESCR { i16 27, i16 3, %union.anon.0 zeroinitializer, i64 6, i32 0, ptr @.str.192, ptr null, i32 0, ptr @hf_seg4a_class_type, ptr null, ptr null }, %struct.CSN_DESCR { i16 27, i16 4, %union.anon.0 zeroinitializer, i64 10, i32 0, ptr @.str.194, ptr null, i32 0, ptr @hf_seg4k_segment_type_k, ptr null, ptr null }, %struct.CSN_DESCR { i16 0, i16 0, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.235, ptr null, i32 0, ptr null, ptr null, ptr null }], align 16
-@.str.275 = private unnamed_addr constant [11 x i8] c"Segment 4K\00", align 1
-@.str.276 = private unnamed_addr constant [18 x i8] c"Unknown segment !\00", align 1
-@.str.277 = private unnamed_addr constant [16 x i8] c"Class_4_version\00", align 1
-@CSNDESCR_Seg2A_SyncInfo_t = internal constant [6 x %struct.CSN_DESCR] [%struct.CSN_DESCR { i16 2, i16 4, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.86, ptr null, i32 0, ptr @hf_seg2a_syncinfo_sa_sirfn_delay, ptr null, ptr null }, %struct.CSN_DESCR { i16 2, i16 5, %union.anon.0 zeroinitializer, i64 1, i32 0, ptr @.str.89, ptr null, i32 0, ptr @hf_seg2a_syncinfo_sa_bcch_stn, ptr null, ptr null }, %struct.CSN_DESCR { i16 2, i16 13, %union.anon.0 zeroinitializer, i64 2, i32 0, ptr @.str.282, ptr null, i32 0, ptr @hf_seg2a_syncinfo_superframe_num, ptr null, ptr null }, %struct.CSN_DESCR { i16 2, i16 2, %union.anon.0 zeroinitializer, i64 4, i32 0, ptr @.str.283, ptr null, i32 0, ptr @hf_seg2a_syncinfo_multiframe_num, ptr null, ptr null }, %struct.CSN_DESCR { i16 2, i16 1, %union.anon.0 zeroinitializer, i64 5, i32 0, ptr @.str.284, ptr null, i32 0, ptr @hf_seg2a_syncinfo_mffn_high_bit, ptr null, ptr null }, %struct.CSN_DESCR { i16 0, i16 0, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.235, ptr null, i32 0, ptr null, ptr null, ptr null }], align 16
-@.str.278 = private unnamed_addr constant [29 x i8] c"Synchronization Info Class 2\00", align 1
-@CSNDESCR_Seg2A_SelectionCriterion_t = internal constant [2 x %struct.CSN_DESCR] [%struct.CSN_DESCR { i16 2, i16 5, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.100, ptr null, i32 0, ptr @hf_seg2a_selcrit_rxlev_select_min, ptr null, ptr null }, %struct.CSN_DESCR { i16 0, i16 0, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.235, ptr null, i32 0, ptr null, ptr null, ptr null }], align 16
-@.str.279 = private unnamed_addr constant [20 x i8] c"Selection Criterion\00", align 1
-@CSNDESCR_Seg2A_MiscInfo_t = internal constant [2 x %struct.CSN_DESCR] [%struct.CSN_DESCR { i16 2, i16 4, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.103, ptr null, i32 0, ptr @hf_seg2a_miscinfo_sb_selection_power, ptr null, ptr null }, %struct.CSN_DESCR { i16 0, i16 0, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.235, ptr null, i32 0, ptr null, ptr null, ptr null }], align 16
-@.str.280 = private unnamed_addr constant [18 x i8] c"Misc Info Class 2\00", align 1
-@CSNDESCR_Seg2A_LAInfo_t = internal constant [8 x %struct.CSN_DESCR] [%struct.CSN_DESCR { i16 2, i16 2, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.105, ptr null, i32 0, ptr @hf_seg2a_lainfo_sa_pch_config, ptr null, ptr null }, %struct.CSN_DESCR { i16 2, i16 8, %union.anon.0 zeroinitializer, i64 1, i32 0, ptr @.str.108, ptr null, i32 0, ptr @hf_seg2a_lainfo_sa_bach_config, ptr null, ptr null }, %struct.CSN_DESCR { i16 2, i16 5, %union.anon.0 zeroinitializer, i64 2, i32 0, ptr @.str.111, ptr null, i32 0, ptr @hf_seg2a_lainfo_rach_ts_offset, ptr null, ptr null }, %struct.CSN_DESCR { i16 2, i16 2, %union.anon.0 zeroinitializer, i64 3, i32 0, ptr @.str.285, ptr null, i32 0, ptr @hf_seg2a_lainfo_n_page_occurrences, ptr null, ptr null }, %struct.CSN_DESCR { i16 2, i16 1, %union.anon.0 zeroinitializer, i64 4, i32 0, ptr @.str.286, ptr null, i32 0, ptr @hf_seg2a_lainfo_imsi_attach_detach_ind, ptr null, ptr null }, %struct.CSN_DESCR { i16 2, i16 1, %union.anon.0 zeroinitializer, i64 5, i32 0, ptr @.str.287, ptr null, i32 0, ptr @hf_seg2a_lainfo_ecsc_indication, ptr null, ptr null }, %struct.CSN_DESCR { i16 2, i16 1, %union.anon.0 zeroinitializer, i64 6, i32 0, ptr @.str.288, ptr null, i32 0, ptr @hf_seg2a_lainfo_si_update_ind, ptr null, ptr null }, %struct.CSN_DESCR { i16 0, i16 0, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.235, ptr null, i32 0, ptr null, ptr null, ptr null }], align 16
-@.str.281 = private unnamed_addr constant [16 x i8] c"LA Info Class 2\00", align 1
-@.str.282 = private unnamed_addr constant [14 x i8] c"SuperframeNum\00", align 1
-@.str.283 = private unnamed_addr constant [14 x i8] c"MultiframeNum\00", align 1
-@.str.284 = private unnamed_addr constant [13 x i8] c"MFFN_HighBit\00", align 1
-@.str.285 = private unnamed_addr constant [19 x i8] c"N_Page_Occurrences\00", align 1
-@.str.286 = private unnamed_addr constant [23 x i8] c"IMSI_attach_detach_ind\00", align 1
-@.str.287 = private unnamed_addr constant [9 x i8] c"ECSC_ind\00", align 1
-@.str.288 = private unnamed_addr constant [14 x i8] c"SI_update_ind\00", align 1
-@.str.289 = private unnamed_addr constant [4 x i8] c"LAI\00", align 1
-@CSNDESCR_Seg3A_System_t = internal constant [3 x %struct.CSN_DESCR] [%struct.CSN_DESCR { i16 2, i16 2, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.296, ptr null, i32 0, ptr @hf_seg3a_system_sat_id, ptr null, ptr null }, %struct.CSN_DESCR { i16 2, i16 4, %union.anon.0 zeroinitializer, i64 1, i32 0, ptr @.str.297, ptr null, i32 0, ptr @hf_seg3a_system_sys_id, ptr null, ptr null }, %struct.CSN_DESCR { i16 0, i16 0, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.235, ptr null, i32 0, ptr null, ptr null, ptr null }], align 16
-@.str.290 = private unnamed_addr constant [7 x i8] c"System\00", align 1
-@CSNDESCR_Seg3A_SatellitePosition_t = internal constant [4 x %struct.CSN_DESCR] [%struct.CSN_DESCR { i16 2, i16 8, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.155, ptr null, i32 0, ptr @hf_seg3a_satpos_latitude, ptr null, ptr null }, %struct.CSN_DESCR { i16 2, i16 12, %union.anon.0 zeroinitializer, i64 2, i32 0, ptr @.str.157, ptr null, i32 0, ptr @hf_seg3a_satpos_longitude, ptr null, ptr null }, %struct.CSN_DESCR { i16 2, i16 16, %union.anon.0 zeroinitializer, i64 4, i32 0, ptr @.str.159, ptr null, i32 0, ptr @hf_seg3a_satpos_radius, ptr null, ptr null }, %struct.CSN_DESCR { i16 0, i16 0, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.235, ptr null, i32 0, ptr null, ptr null, ptr null }], align 16
-@.str.291 = private unnamed_addr constant [19 x i8] c"Satellite Position\00", align 1
-@CSNDESCR_Seg3A_BeamPosition_t = internal constant [3 x %struct.CSN_DESCR] [%struct.CSN_DESCR { i16 2, i16 11, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.155, ptr null, i32 0, ptr @hf_seg3a_beam_latitude, ptr null, ptr null }, %struct.CSN_DESCR { i16 2, i16 12, %union.anon.0 zeroinitializer, i64 2, i32 0, ptr @.str.157, ptr null, i32 0, ptr @hf_seg3a_beam_longitude, ptr null, ptr null }, %struct.CSN_DESCR { i16 0, i16 0, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.235, ptr null, i32 0, ptr null, ptr null, ptr null }], align 16
-@.str.292 = private unnamed_addr constant [21 x i8] c"Beam Center Position\00", align 1
-@CSNDESCR_Seg3A_MiscInfo_t = internal constant [2 x %struct.CSN_DESCR] [%struct.CSN_DESCR { i16 2, i16 6, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.163, ptr null, i32 0, ptr @hf_seg3a_miscinfo_sb_reselection_timer, ptr null, ptr null }, %struct.CSN_DESCR { i16 0, i16 0, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.235, ptr null, i32 0, ptr null, ptr null, ptr null }], align 16
-@.str.293 = private unnamed_addr constant [18 x i8] c"Misc Info Class 3\00", align 1
-@.str.294 = private unnamed_addr constant [3 x i8] c"%d\00", align 1
-@.str.295 = private unnamed_addr constant [7 x i8] c"0x%04x\00", align 1
-@.str.296 = private unnamed_addr constant [13 x i8] c"Satellite_ID\00", align 1
-@.str.297 = private unnamed_addr constant [10 x i8] c"System_ID\00", align 1
-@CSNDESCR_SI2_Block_Header_t = internal global [4 x %struct.CSN_DESCR] [%struct.CSN_DESCR { i16 2, i16 4, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.236, ptr null, i32 0, ptr @hf_si_protocol_version, ptr null, ptr null }, %struct.CSN_DESCR { i16 2, i16 1, %union.anon.0 zeroinitializer, i64 1, i32 0, ptr @.str.237, ptr null, i32 0, ptr @hf_si_block_type, ptr null, ptr null }, %struct.CSN_DESCR { i16 2, i16 3, %union.anon.0 zeroinitializer, i64 2, i32 0, ptr @.str.66, ptr null, i32 0, ptr @hf_si_spare, ptr null, ptr null }, %struct.CSN_DESCR { i16 0, i16 0, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.235, ptr null, i32 0, ptr null, ptr null, ptr null }], align 16
-@CSNDESCR_Segment2A_t = internal constant [8 x %struct.CSN_DESCR] [%struct.CSN_DESCR { i16 27, i16 2, %union.anon.0 zeroinitializer, i64 2, i32 0, ptr @.str.126, ptr null, i32 0, ptr @hf_seg2a_class_type, ptr null, ptr null }, %struct.CSN_DESCR { i16 27, i16 4, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.128, ptr null, i32 0, ptr @hf_seg2a_segment_type_a, ptr null, ptr null }, %struct.CSN_DESCR { i16 2, i16 3, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.277, ptr null, i32 0, ptr @hf_seg2a_class_4_version, ptr null, ptr null }, %struct.CSN_DESCR { i16 3, i16 0, %union.anon.0 { ptr @CSNDESCR_Seg2A_SyncInfo_t }, i64 2, i32 0, ptr @.str.278, ptr null, i32 0, ptr null, ptr null, ptr null }, %struct.CSN_DESCR { i16 3, i16 0, %union.anon.0 { ptr @CSNDESCR_Seg2A_SelectionCriterion_t }, i64 8, i32 0, ptr @.str.279, ptr null, i32 0, ptr null, ptr null, ptr null }, %struct.CSN_DESCR { i16 3, i16 0, %union.anon.0 { ptr @CSNDESCR_Seg2A_MiscInfo_t }, i64 9, i32 0, ptr @.str.280, ptr null, i32 0, ptr null, ptr null, ptr null }, %struct.CSN_DESCR { i16 3, i16 0, %union.anon.0 { ptr @CSNDESCR_Seg2A_LAInfo_t }, i64 10, i32 0, ptr @.str.281, ptr null, i32 0, ptr null, ptr null, ptr null }, %struct.CSN_DESCR { i16 0, i16 0, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.235, ptr null, i32 0, ptr null, ptr null, ptr null }], align 16
-@.str.298 = private unnamed_addr constant [11 x i8] c"Segment 2A\00", align 1
-@CSNDESCR_Segment2B_t = internal constant [3 x %struct.CSN_DESCR] [%struct.CSN_DESCR { i16 27, i16 2, %union.anon.0 zeroinitializer, i64 2, i32 0, ptr @.str.126, ptr null, i32 0, ptr @hf_seg2a_class_type, ptr null, ptr null }, %struct.CSN_DESCR { i16 27, i16 4, %union.anon.0 zeroinitializer, i64 1, i32 0, ptr @.str.132, ptr null, i32 0, ptr @hf_seg2b_segment_type_b, ptr null, ptr null }, %struct.CSN_DESCR { i16 0, i16 0, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.235, ptr null, i32 0, ptr null, ptr null, ptr null }], align 16
-@.str.299 = private unnamed_addr constant [11 x i8] c"Segment 2B\00", align 1
-@CSNDESCR_Segment3B_t = internal constant [3 x %struct.CSN_DESCR] [%struct.CSN_DESCR { i16 27, i16 1, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.136, ptr null, i32 0, ptr @hf_seg3a_class_type, ptr null, ptr null }, %struct.CSN_DESCR { i16 27, i16 4, %union.anon.0 zeroinitializer, i64 1, i32 0, ptr @.str.132, ptr null, i32 0, ptr @hf_seg3b_segment_type_b, ptr null, ptr null }, %struct.CSN_DESCR { i16 0, i16 0, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.235, ptr null, i32 0, ptr null, ptr null, ptr null }], align 16
-@.str.300 = private unnamed_addr constant [11 x i8] c"Segment 3B\00", align 1
-@CSNDESCR_Segment3E_t = internal constant [3 x %struct.CSN_DESCR] [%struct.CSN_DESCR { i16 27, i16 1, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.136, ptr null, i32 0, ptr @hf_seg3a_class_type, ptr null, ptr null }, %struct.CSN_DESCR { i16 27, i16 4, %union.anon.0 zeroinitializer, i64 4, i32 0, ptr @.str.172, ptr null, i32 0, ptr @hf_seg3e_segment_type_e, ptr null, ptr null }, %struct.CSN_DESCR { i16 0, i16 0, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.235, ptr null, i32 0, ptr null, ptr null, ptr null }], align 16
-@.str.301 = private unnamed_addr constant [11 x i8] c"Segment 3E\00", align 1
-@CSNDESCR_Segment3G_t = internal constant [3 x %struct.CSN_DESCR] [%struct.CSN_DESCR { i16 27, i16 1, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.136, ptr null, i32 0, ptr @hf_seg3a_class_type, ptr null, ptr null }, %struct.CSN_DESCR { i16 27, i16 4, %union.anon.0 zeroinitializer, i64 6, i32 0, ptr @.str.178, ptr null, i32 0, ptr @hf_seg3g_segment_type_g, ptr null, ptr null }, %struct.CSN_DESCR { i16 0, i16 0, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.235, ptr null, i32 0, ptr null, ptr null, ptr null }], align 16
-@.str.302 = private unnamed_addr constant [11 x i8] c"Segment 3G\00", align 1
-@CSNDESCR_Segment3J_t = internal constant [3 x %struct.CSN_DESCR] [%struct.CSN_DESCR { i16 27, i16 1, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.136, ptr null, i32 0, ptr @hf_seg3a_class_type, ptr null, ptr null }, %struct.CSN_DESCR { i16 27, i16 4, %union.anon.0 zeroinitializer, i64 10, i32 0, ptr @.str.186, ptr null, i32 0, ptr @hf_seg3j_segment_type_j, ptr null, ptr null }, %struct.CSN_DESCR { i16 0, i16 0, %union.anon.0 zeroinitializer, i64 0, i32 0, ptr @.str.235, ptr null, i32 0, ptr null, ptr null, ptr null }], align 16
-@.str.303 = private unnamed_addr constant [11 x i8] c"Segment 3J\00", align 1
+@seg1a_rachctrl_acc_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.212 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.213 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.215 = private unnamed_addr constant [23 x i8] c"The cell is not barred\00", align 1
+@.str.216 = private unnamed_addr constant [19 x i8] c"The cell is barred\00", align 1
+@seg1a_rachctrl_cell_bar_access_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.215 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.216 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.218 = private unnamed_addr constant [14 x i8] c"%2.1f dB (%u)\00", align 1
+@.str.219 = private unnamed_addr constant [66 x i8] c"MESs shall NOT apply IMSI attach and detach procedure for this LA\00", align 1
+@.str.220 = private unnamed_addr constant [62 x i8] c"MESs shall apply IMSI attach and detach procedure for this LA\00", align 1
+@seg2a_lainfo_imsi_attach_detach_ind_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.219 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.220 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.222 = private unnamed_addr constant [39 x i8] c"Early sending is explicitly prohibited\00", align 1
+@.str.223 = private unnamed_addr constant [37 x i8] c"Early sending is explicitly accepted\00", align 1
+@seg2a_lainfo_ecsc_indication_vals = internal constant [3 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.222 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.223 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.225 = private unnamed_addr constant [13 x i8] c"%.1f %c (%d)\00", align 1
+@.str.226 = private unnamed_addr constant [13 x i8] c"%.1f %c (%u)\00", align 1
+@.str.227 = private unnamed_addr constant [14 x i8] c"%.3lf km (%u)\00", align 1
+@.str.228 = private unnamed_addr constant [16 x i8] c"%d minutes (%u)\00", align 1
+@.str.229 = private unnamed_addr constant [29 x i8] c"7 frames after this SI block\00", align 1
+@.str.230 = private unnamed_addr constant [30 x i8] c"15 frames after this SI block\00", align 1
+@.str.231 = private unnamed_addr constant [30 x i8] c"23 frames after this SI block\00", align 1
+@.str.232 = private unnamed_addr constant [30 x i8] c"31 frames after this SI block\00", align 1
+@si1_randomization_period_vals = internal constant [5 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str.229 }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.230 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.231 }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @.str.232 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
+@.str.234 = private unnamed_addr constant [8 x i8] c"(BCCH) \00", align 1
+@.str.235 = private unnamed_addr constant [40 x i8] c"GMR-1 BCCH - System Information type %d\00", align 1
+@.str.236 = private unnamed_addr constant [37 x i8] c"System Information 1: Segment 1A, %s\00", align 1
+@.str.237 = private unnamed_addr constant [25 x i8] c"System Information 2: %s\00", align 1
+@.str.238 = private unnamed_addr constant [13 x i8] c"Block Header\00", align 1
+@.str.239 = private unnamed_addr constant [11 x i8] c"Segment 1A\00", align 1
+@.str.240 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@CSNDESCR_SystemInformation1_t = internal constant [4 x { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr }] [{ i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 3, i16 0, [4 x i8] zeroinitializer, %union.anon.0 { ptr @CSNDESCR_SI1_Block_Header_t }, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.238, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 3, i16 0, [4 x i8] zeroinitializer, %union.anon.0 { ptr @CSNDESCR_Segment1A_t }, i64 4, i8 0, [7 x i8] zeroinitializer, ptr @.str.239, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 4, i16 25, [4 x i8] zeroinitializer, %union.anon.0 { ptr @SI1_SegmentChoice }, i64 37, i8 0, [7 x i8] zeroinitializer, ptr null, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_si1_segment_choice, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 0, i16 0, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.240, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }], align 16
+@.str.242 = private unnamed_addr constant [17 x i8] c"Protocol_Version\00", align 1
+@.str.243 = private unnamed_addr constant [11 x i8] c"Block_Type\00", align 1
+@.str.244 = private unnamed_addr constant [21 x i8] c"Randomization_Period\00", align 1
+@CSNDESCR_SI1_Block_Header_t = internal constant [5 x { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr }] [{ i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 4, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.242, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_si_protocol_version, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 1, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 1, i8 0, [7 x i8] zeroinitializer, ptr @.str.243, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_si_block_type, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 2, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 2, i8 0, [7 x i8] zeroinitializer, ptr @.str.244, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_si1_randomization_period, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 1, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 3, i8 0, [7 x i8] zeroinitializer, ptr @.str.66, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_si_spare, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 0, i16 0, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.240, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }], align 16
+@.str.246 = private unnamed_addr constant [16 x i8] c"Class_2_version\00", align 1
+@.str.247 = private unnamed_addr constant [16 x i8] c"Class_3_version\00", align 1
+@.str.248 = private unnamed_addr constant [29 x i8] c"Synchronization Info Class 1\00", align 1
+@.str.249 = private unnamed_addr constant [24 x i8] c"RACH Control Parameters\00", align 1
+@.str.250 = private unnamed_addr constant [18 x i8] c"Misc Info Class 1\00", align 1
+@.str.251 = private unnamed_addr constant [13 x i8] c"GBCH_Present\00", align 1
+@.str.252 = private unnamed_addr constant [8 x i8] c"Test_GS\00", align 1
+@.str.253 = private unnamed_addr constant [9 x i8] c"Test_GS2\00", align 1
+@.str.254 = private unnamed_addr constant [7 x i8] c"Spare1\00", align 1
+@.str.255 = private unnamed_addr constant [7 x i8] c"Spare2\00", align 1
+@CSNDESCR_Segment1A_t = internal constant [13 x { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr }] [{ i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 3, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.246, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg1a_class_2_version, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 4, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 1, i8 0, [7 x i8] zeroinitializer, ptr @.str.247, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg1a_class_3_version, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 3, i16 0, [4 x i8] zeroinitializer, %union.anon.0 { ptr @CSNDESCR_Seg1A_SyncInfo_t }, i64 2, i8 0, [7 x i8] zeroinitializer, ptr @.str.248, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 3, i16 0, [4 x i8] zeroinitializer, %union.anon.0 { ptr @CSNDESCR_Seg1A_RACHCtrlParams_t }, i64 5, i8 0, [7 x i8] zeroinitializer, ptr @.str.249, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 3, i16 0, [4 x i8] zeroinitializer, %union.anon.0 { ptr @CSNDESCR_Seg1A_MiscInfo_t }, i64 23, i8 0, [7 x i8] zeroinitializer, ptr @.str.250, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 1, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 26, i8 0, [7 x i8] zeroinitializer, ptr @.str.251, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg1a_gbch_present, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 1, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 27, i8 0, [7 x i8] zeroinitializer, ptr @.str.252, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg1a_test_gs, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 1, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 28, i8 0, [7 x i8] zeroinitializer, ptr @.str.253, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg1a_test_gs2, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 3, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 29, i8 0, [7 x i8] zeroinitializer, ptr @.str.254, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg1a_spare1, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 1, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 30, i8 0, [7 x i8] zeroinitializer, ptr @.str.78, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg1a_cell_bar_access_extension2, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 5, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 31, i8 0, [7 x i8] zeroinitializer, ptr @.str.255, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg1a_spare2, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 1, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 32, i8 0, [7 x i8] zeroinitializer, ptr @.str.81, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg1a_cell_bar_access_extension, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 0, i16 0, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.240, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }], align 16
+@CSNDESCR_Seg1A_SyncInfo_t = internal constant [4 x { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr }] [{ i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 5, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.6, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg1a_syncinfo_sb_frame_ts_offset, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 6, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 1, i8 0, [7 x i8] zeroinitializer, ptr @.str.8, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg1a_syncinfo_sb_symbol_offset, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 8, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 2, i8 0, [7 x i8] zeroinitializer, ptr @.str.10, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg1a_syncinfo_sa_freq_offset, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 0, i16 0, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.240, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }], align 16
+@.str.258 = private unnamed_addr constant [12 x i8] c"Max_Retrans\00", align 1
+@.str.259 = private unnamed_addr constant [15 x i8] c"Access Classes\00", align 1
+@CSNDESCR_Seg1A_RACHCtrlParams_t = internal constant [4 x { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr }] [{ i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 2, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.258, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg1a_rachctrl_max_retrans, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 3, i16 0, [4 x i8] zeroinitializer, %union.anon.0 { ptr @CSNDESCR_Seg1A_AccessClasses_t }, i64 1, i8 0, [7 x i8] zeroinitializer, ptr @.str.259, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 1, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 17, i8 0, [7 x i8] zeroinitializer, ptr @.str.62, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg1a_rachctrl_cell_bar_access, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 0, i16 0, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.240, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }], align 16
+@CSNDESCR_Seg1A_AccessClasses_t = internal constant [17 x { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr }] [{ i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 1, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.14, ptr null, i32 0, [4 x i8] zeroinitializer, ptr getelementptr (i8, ptr @hf_seg1a_rachctrl_acc, i64 60), ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 1, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 1, i8 0, [7 x i8] zeroinitializer, ptr @.str.17, ptr null, i32 0, [4 x i8] zeroinitializer, ptr getelementptr (i8, ptr @hf_seg1a_rachctrl_acc, i64 56), ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 1, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 2, i8 0, [7 x i8] zeroinitializer, ptr @.str.20, ptr null, i32 0, [4 x i8] zeroinitializer, ptr getelementptr (i8, ptr @hf_seg1a_rachctrl_acc, i64 52), ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 1, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 3, i8 0, [7 x i8] zeroinitializer, ptr @.str.23, ptr null, i32 0, [4 x i8] zeroinitializer, ptr getelementptr (i8, ptr @hf_seg1a_rachctrl_acc, i64 48), ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 1, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 4, i8 0, [7 x i8] zeroinitializer, ptr @.str.26, ptr null, i32 0, [4 x i8] zeroinitializer, ptr getelementptr (i8, ptr @hf_seg1a_rachctrl_acc, i64 44), ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 1, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 5, i8 0, [7 x i8] zeroinitializer, ptr @.str.29, ptr null, i32 0, [4 x i8] zeroinitializer, ptr getelementptr (i8, ptr @hf_seg1a_rachctrl_acc, i64 40), ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 1, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 6, i8 0, [7 x i8] zeroinitializer, ptr @.str.32, ptr null, i32 0, [4 x i8] zeroinitializer, ptr getelementptr (i8, ptr @hf_seg1a_rachctrl_acc, i64 36), ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 1, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 7, i8 0, [7 x i8] zeroinitializer, ptr @.str.35, ptr null, i32 0, [4 x i8] zeroinitializer, ptr getelementptr (i8, ptr @hf_seg1a_rachctrl_acc, i64 32), ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 1, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 8, i8 0, [7 x i8] zeroinitializer, ptr @.str.38, ptr null, i32 0, [4 x i8] zeroinitializer, ptr getelementptr (i8, ptr @hf_seg1a_rachctrl_acc, i64 28), ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 1, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 9, i8 0, [7 x i8] zeroinitializer, ptr @.str.41, ptr null, i32 0, [4 x i8] zeroinitializer, ptr getelementptr (i8, ptr @hf_seg1a_rachctrl_acc, i64 24), ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 1, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 10, i8 0, [7 x i8] zeroinitializer, ptr @.str.44, ptr null, i32 0, [4 x i8] zeroinitializer, ptr getelementptr (i8, ptr @hf_seg1a_rachctrl_acc, i64 20), ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 1, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 11, i8 0, [7 x i8] zeroinitializer, ptr @.str.47, ptr null, i32 0, [4 x i8] zeroinitializer, ptr getelementptr (i8, ptr @hf_seg1a_rachctrl_acc, i64 16), ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 1, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 12, i8 0, [7 x i8] zeroinitializer, ptr @.str.50, ptr null, i32 0, [4 x i8] zeroinitializer, ptr getelementptr (i8, ptr @hf_seg1a_rachctrl_acc, i64 12), ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 1, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 13, i8 0, [7 x i8] zeroinitializer, ptr @.str.53, ptr null, i32 0, [4 x i8] zeroinitializer, ptr getelementptr (i8, ptr @hf_seg1a_rachctrl_acc, i64 8), ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 1, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 14, i8 0, [7 x i8] zeroinitializer, ptr @.str.56, ptr null, i32 0, [4 x i8] zeroinitializer, ptr getelementptr (i8, ptr @hf_seg1a_rachctrl_acc, i64 4), ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 1, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 15, i8 0, [7 x i8] zeroinitializer, ptr @.str.59, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg1a_rachctrl_acc, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 0, i16 0, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.240, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }], align 16
+@.str.262 = private unnamed_addr constant [18 x i8] c"PriorityAccessInd\00", align 1
+@CSNDESCR_Seg1A_MiscInfo_t = internal constant [4 x { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr }] [{ i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 4, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.64, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg1a_miscinfo_sb_reselection_hysteresis, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 1, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 1, i8 0, [7 x i8] zeroinitializer, ptr @.str.66, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg1a_miscinfo_spare, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 1, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 2, i8 0, [7 x i8] zeroinitializer, ptr @.str.262, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg1a_miscinfo_priority_access_ind, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 0, i16 0, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.240, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }], align 16
+@.str.264 = private unnamed_addr constant [15 x i8] c"Segment 2A bis\00", align 1
+@.str.265 = private unnamed_addr constant [15 x i8] c"Segment 2B bis\00", align 1
+@.str.266 = private unnamed_addr constant [11 x i8] c"Segment 3A\00", align 1
+@.str.267 = private unnamed_addr constant [15 x i8] c"Segment 3B bis\00", align 1
+@.str.268 = private unnamed_addr constant [11 x i8] c"Segment 3C\00", align 1
+@.str.269 = private unnamed_addr constant [11 x i8] c"Segment 3D\00", align 1
+@.str.270 = private unnamed_addr constant [15 x i8] c"Segment 3E bis\00", align 1
+@.str.271 = private unnamed_addr constant [11 x i8] c"Segment 3F\00", align 1
+@.str.272 = private unnamed_addr constant [15 x i8] c"Segment 3G bis\00", align 1
+@.str.273 = private unnamed_addr constant [11 x i8] c"Segment 3H\00", align 1
+@.str.274 = private unnamed_addr constant [11 x i8] c"Segment 3I\00", align 1
+@.str.275 = private unnamed_addr constant [15 x i8] c"Segment 3J bis\00", align 1
+@.str.276 = private unnamed_addr constant [15 x i8] c"Segment 3K bis\00", align 1
+@.str.277 = private unnamed_addr constant [11 x i8] c"Segment 4A\00", align 1
+@.str.278 = private unnamed_addr constant [11 x i8] c"Segment 4B\00", align 1
+@.str.279 = private unnamed_addr constant [11 x i8] c"Segment 4C\00", align 1
+@.str.280 = private unnamed_addr constant [11 x i8] c"Segment 4D\00", align 1
+@.str.281 = private unnamed_addr constant [11 x i8] c"Segment 4E\00", align 1
+@.str.282 = private unnamed_addr constant [11 x i8] c"Segment 4F\00", align 1
+@.str.283 = private unnamed_addr constant [11 x i8] c"Segment 4G\00", align 1
+@.str.284 = private unnamed_addr constant [11 x i8] c"Segment 4H\00", align 1
+@.str.285 = private unnamed_addr constant [11 x i8] c"Segment 4I\00", align 1
+@.str.286 = private unnamed_addr constant [11 x i8] c"Segment 4J\00", align 1
+@.str.287 = private unnamed_addr constant [11 x i8] c"Segment 4K\00", align 1
+@.str.288 = private unnamed_addr constant [18 x i8] c"Unknown segment !\00", align 1
+@SI1_SegmentChoice = internal constant [25 x { i8, i8, i8, [5 x i8], { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } }] [{ i8, i8, i8, [5 x i8], { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } } { i8 6, i8 32, i8 1, [5 x i8] zeroinitializer, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 3, i16 0, [4 x i8] zeroinitializer, %union.anon.0 { ptr @CSNDESCR_Segment2Abis_t }, i64 38, i8 0, [7 x i8] zeroinitializer, ptr @.str.264, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null } }, { i8, i8, i8, [5 x i8], { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } } { i8 6, i8 33, i8 1, [5 x i8] zeroinitializer, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 3, i16 0, [4 x i8] zeroinitializer, %union.anon.0 { ptr @CSNDESCR_Segment2Bbis_t }, i64 38, i8 0, [7 x i8] zeroinitializer, ptr @.str.265, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null } }, { i8, i8, i8, [5 x i8], { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } } { i8 5, i8 0, i8 1, [5 x i8] zeroinitializer, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 3, i16 0, [4 x i8] zeroinitializer, %union.anon.0 { ptr @CSNDESCR_Segment3A_t }, i64 38, i8 0, [7 x i8] zeroinitializer, ptr @.str.266, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null } }, { i8, i8, i8, [5 x i8], { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } } { i8 5, i8 1, i8 1, [5 x i8] zeroinitializer, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 3, i16 0, [4 x i8] zeroinitializer, %union.anon.0 { ptr @CSNDESCR_Segment3Bbis_t }, i64 38, i8 0, [7 x i8] zeroinitializer, ptr @.str.267, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null } }, { i8, i8, i8, [5 x i8], { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } } { i8 5, i8 2, i8 1, [5 x i8] zeroinitializer, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 3, i16 0, [4 x i8] zeroinitializer, %union.anon.0 { ptr @CSNDESCR_Segment3C_t }, i64 38, i8 0, [7 x i8] zeroinitializer, ptr @.str.268, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null } }, { i8, i8, i8, [5 x i8], { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } } { i8 5, i8 3, i8 1, [5 x i8] zeroinitializer, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 3, i16 0, [4 x i8] zeroinitializer, %union.anon.0 { ptr @CSNDESCR_Segment3D_t }, i64 38, i8 0, [7 x i8] zeroinitializer, ptr @.str.269, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null } }, { i8, i8, i8, [5 x i8], { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } } { i8 5, i8 4, i8 1, [5 x i8] zeroinitializer, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 3, i16 0, [4 x i8] zeroinitializer, %union.anon.0 { ptr @CSNDESCR_Segment3Ebis_t }, i64 38, i8 0, [7 x i8] zeroinitializer, ptr @.str.270, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null } }, { i8, i8, i8, [5 x i8], { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } } { i8 5, i8 5, i8 1, [5 x i8] zeroinitializer, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 3, i16 0, [4 x i8] zeroinitializer, %union.anon.0 { ptr @CSNDESCR_Segment3F_t }, i64 38, i8 0, [7 x i8] zeroinitializer, ptr @.str.271, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null } }, { i8, i8, i8, [5 x i8], { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } } { i8 5, i8 6, i8 1, [5 x i8] zeroinitializer, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 3, i16 0, [4 x i8] zeroinitializer, %union.anon.0 { ptr @CSNDESCR_Segment3Gbis_t }, i64 38, i8 0, [7 x i8] zeroinitializer, ptr @.str.272, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null } }, { i8, i8, i8, [5 x i8], { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } } { i8 5, i8 7, i8 1, [5 x i8] zeroinitializer, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 3, i16 0, [4 x i8] zeroinitializer, %union.anon.0 { ptr @CSNDESCR_Segment3H_t }, i64 38, i8 0, [7 x i8] zeroinitializer, ptr @.str.273, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null } }, { i8, i8, i8, [5 x i8], { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } } { i8 5, i8 9, i8 1, [5 x i8] zeroinitializer, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 3, i16 0, [4 x i8] zeroinitializer, %union.anon.0 { ptr @CSNDESCR_Segment3I_t }, i64 38, i8 0, [7 x i8] zeroinitializer, ptr @.str.274, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null } }, { i8, i8, i8, [5 x i8], { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } } { i8 5, i8 10, i8 1, [5 x i8] zeroinitializer, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 3, i16 0, [4 x i8] zeroinitializer, %union.anon.0 { ptr @CSNDESCR_Segment3Jbis_t }, i64 38, i8 0, [7 x i8] zeroinitializer, ptr @.str.275, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null } }, { i8, i8, i8, [5 x i8], { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } } { i8 5, i8 11, i8 1, [5 x i8] zeroinitializer, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 3, i16 0, [4 x i8] zeroinitializer, %union.anon.0 { ptr @CSNDESCR_Segment3Kbis_t }, i64 38, i8 0, [7 x i8] zeroinitializer, ptr @.str.276, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null } }, { i8, i8, i8, [5 x i8], { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } } { i8 7, i8 96, i8 1, [5 x i8] zeroinitializer, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 3, i16 0, [4 x i8] zeroinitializer, %union.anon.0 { ptr @CSNDESCR_Segment4A_t }, i64 38, i8 0, [7 x i8] zeroinitializer, ptr @.str.277, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null } }, { i8, i8, i8, [5 x i8], { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } } { i8 7, i8 97, i8 1, [5 x i8] zeroinitializer, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 3, i16 0, [4 x i8] zeroinitializer, %union.anon.0 { ptr @CSNDESCR_Segment4B_t }, i64 38, i8 0, [7 x i8] zeroinitializer, ptr @.str.278, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null } }, { i8, i8, i8, [5 x i8], { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } } { i8 7, i8 98, i8 1, [5 x i8] zeroinitializer, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 3, i16 0, [4 x i8] zeroinitializer, %union.anon.0 { ptr @CSNDESCR_Segment4C_t }, i64 38, i8 0, [7 x i8] zeroinitializer, ptr @.str.279, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null } }, { i8, i8, i8, [5 x i8], { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } } { i8 7, i8 99, i8 1, [5 x i8] zeroinitializer, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 3, i16 0, [4 x i8] zeroinitializer, %union.anon.0 { ptr @CSNDESCR_Segment4D_t }, i64 38, i8 0, [7 x i8] zeroinitializer, ptr @.str.280, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null } }, { i8, i8, i8, [5 x i8], { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } } { i8 7, i8 100, i8 1, [5 x i8] zeroinitializer, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 3, i16 0, [4 x i8] zeroinitializer, %union.anon.0 { ptr @CSNDESCR_Segment4E_t }, i64 38, i8 0, [7 x i8] zeroinitializer, ptr @.str.281, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null } }, { i8, i8, i8, [5 x i8], { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } } { i8 7, i8 101, i8 1, [5 x i8] zeroinitializer, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 3, i16 0, [4 x i8] zeroinitializer, %union.anon.0 { ptr @CSNDESCR_Segment4F_t }, i64 38, i8 0, [7 x i8] zeroinitializer, ptr @.str.282, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null } }, { i8, i8, i8, [5 x i8], { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } } { i8 7, i8 102, i8 1, [5 x i8] zeroinitializer, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 3, i16 0, [4 x i8] zeroinitializer, %union.anon.0 { ptr @CSNDESCR_Segment4G_t }, i64 38, i8 0, [7 x i8] zeroinitializer, ptr @.str.283, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null } }, { i8, i8, i8, [5 x i8], { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } } { i8 7, i8 103, i8 1, [5 x i8] zeroinitializer, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 3, i16 0, [4 x i8] zeroinitializer, %union.anon.0 { ptr @CSNDESCR_Segment4H_t }, i64 38, i8 0, [7 x i8] zeroinitializer, ptr @.str.284, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null } }, { i8, i8, i8, [5 x i8], { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } } { i8 7, i8 104, i8 1, [5 x i8] zeroinitializer, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 3, i16 0, [4 x i8] zeroinitializer, %union.anon.0 { ptr @CSNDESCR_Segment4I_t }, i64 38, i8 0, [7 x i8] zeroinitializer, ptr @.str.285, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null } }, { i8, i8, i8, [5 x i8], { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } } { i8 7, i8 105, i8 1, [5 x i8] zeroinitializer, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 3, i16 0, [4 x i8] zeroinitializer, %union.anon.0 { ptr @CSNDESCR_Segment4J_t }, i64 38, i8 0, [7 x i8] zeroinitializer, ptr @.str.286, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null } }, { i8, i8, i8, [5 x i8], { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } } { i8 7, i8 106, i8 1, [5 x i8] zeroinitializer, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 3, i16 0, [4 x i8] zeroinitializer, %union.anon.0 { ptr @CSNDESCR_Segment4K_t }, i64 38, i8 0, [7 x i8] zeroinitializer, ptr @.str.287, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null } }, { i8, i8, i8, [5 x i8], { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } } { i8 0, i8 0, i8 1, [5 x i8] zeroinitializer, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 34, i16 -1, [4 x i8] zeroinitializer, %union.anon.0 { ptr @.str.288 }, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.288, ptr @ei_unknown_segment, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null } }], align 16
+@.str.290 = private unnamed_addr constant [16 x i8] c"Class_4_version\00", align 1
+@.str.291 = private unnamed_addr constant [29 x i8] c"Synchronization Info Class 2\00", align 1
+@.str.292 = private unnamed_addr constant [20 x i8] c"Selection Criterion\00", align 1
+@.str.293 = private unnamed_addr constant [18 x i8] c"Misc Info Class 2\00", align 1
+@.str.294 = private unnamed_addr constant [16 x i8] c"LA Info Class 2\00", align 1
+@CSNDESCR_Segment2Abis_t = internal constant [8 x { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr }] [{ i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 2, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 2, i8 0, [7 x i8] zeroinitializer, ptr @.str.126, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg2a_class_type, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 4, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.130, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg2a_segment_type_abis, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 3, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.290, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg2a_class_4_version, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 3, i16 0, [4 x i8] zeroinitializer, %union.anon.0 { ptr @CSNDESCR_Seg2A_SyncInfo_t }, i64 2, i8 0, [7 x i8] zeroinitializer, ptr @.str.291, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 3, i16 0, [4 x i8] zeroinitializer, %union.anon.0 { ptr @CSNDESCR_Seg2A_SelectionCriterion_t }, i64 8, i8 0, [7 x i8] zeroinitializer, ptr @.str.292, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 3, i16 0, [4 x i8] zeroinitializer, %union.anon.0 { ptr @CSNDESCR_Seg2A_MiscInfo_t }, i64 9, i8 0, [7 x i8] zeroinitializer, ptr @.str.293, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 3, i16 0, [4 x i8] zeroinitializer, %union.anon.0 { ptr @CSNDESCR_Seg2A_LAInfo_t }, i64 10, i8 0, [7 x i8] zeroinitializer, ptr @.str.294, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 0, i16 0, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.240, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }], align 16
+@.str.296 = private unnamed_addr constant [14 x i8] c"SuperframeNum\00", align 1
+@.str.297 = private unnamed_addr constant [14 x i8] c"MultiframeNum\00", align 1
+@.str.298 = private unnamed_addr constant [13 x i8] c"MFFN_HighBit\00", align 1
+@CSNDESCR_Seg2A_SyncInfo_t = internal constant [6 x { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr }] [{ i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 4, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.86, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg2a_syncinfo_sa_sirfn_delay, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 5, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 1, i8 0, [7 x i8] zeroinitializer, ptr @.str.89, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg2a_syncinfo_sa_bcch_stn, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 13, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 2, i8 0, [7 x i8] zeroinitializer, ptr @.str.296, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg2a_syncinfo_superframe_num, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 2, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 4, i8 0, [7 x i8] zeroinitializer, ptr @.str.297, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg2a_syncinfo_multiframe_num, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 1, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 5, i8 0, [7 x i8] zeroinitializer, ptr @.str.298, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg2a_syncinfo_mffn_high_bit, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 0, i16 0, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.240, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }], align 16
+@CSNDESCR_Seg2A_SelectionCriterion_t = internal constant [2 x { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr }] [{ i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 5, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.100, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg2a_selcrit_rxlev_select_min, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 0, i16 0, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.240, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }], align 16
+@CSNDESCR_Seg2A_MiscInfo_t = internal constant [2 x { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr }] [{ i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 4, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.103, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg2a_miscinfo_sb_selection_power, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 0, i16 0, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.240, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }], align 16
+@.str.302 = private unnamed_addr constant [19 x i8] c"N_Page_Occurrences\00", align 1
+@.str.303 = private unnamed_addr constant [23 x i8] c"IMSI_attach_detach_ind\00", align 1
+@.str.304 = private unnamed_addr constant [9 x i8] c"ECSC_ind\00", align 1
+@.str.305 = private unnamed_addr constant [14 x i8] c"SI_update_ind\00", align 1
+@CSNDESCR_Seg2A_LAInfo_t = internal constant [8 x { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr }] [{ i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 2, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.105, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg2a_lainfo_sa_pch_config, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 8, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 1, i8 0, [7 x i8] zeroinitializer, ptr @.str.108, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg2a_lainfo_sa_bach_config, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 5, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 2, i8 0, [7 x i8] zeroinitializer, ptr @.str.111, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg2a_lainfo_rach_ts_offset, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 2, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 3, i8 0, [7 x i8] zeroinitializer, ptr @.str.302, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg2a_lainfo_n_page_occurrences, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 1, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 4, i8 0, [7 x i8] zeroinitializer, ptr @.str.303, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg2a_lainfo_imsi_attach_detach_ind, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 1, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 5, i8 0, [7 x i8] zeroinitializer, ptr @.str.304, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg2a_lainfo_ecsc_indication, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 1, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 6, i8 0, [7 x i8] zeroinitializer, ptr @.str.305, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg2a_lainfo_si_update_ind, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 0, i16 0, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.240, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }], align 16
+@CSNDESCR_Segment2Bbis_t = internal constant [3 x { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr }] [{ i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 2, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 2, i8 0, [7 x i8] zeroinitializer, ptr @.str.126, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg2a_class_type, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 4, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 1, i8 0, [7 x i8] zeroinitializer, ptr @.str.134, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg2b_segment_type_bbis, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 0, i16 0, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.240, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }], align 16
+@.str.308 = private unnamed_addr constant [4 x i8] c"LAI\00", align 1
+@.str.309 = private unnamed_addr constant [7 x i8] c"System\00", align 1
+@.str.310 = private unnamed_addr constant [19 x i8] c"Satellite Position\00", align 1
+@.str.311 = private unnamed_addr constant [21 x i8] c"Beam Center Position\00", align 1
+@.str.312 = private unnamed_addr constant [18 x i8] c"Misc Info Class 3\00", align 1
+@CSNDESCR_Segment3A_t = internal constant [9 x { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr }] [{ i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 1, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.136, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg3a_class_type, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 4, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.128, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg3a_segment_type_a, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 31, i16 0, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.308, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg3a_lai_dissector, ptr null, ptr @Seg3A_LAI_Dissector }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 3, i16 0, [4 x i8] zeroinitializer, %union.anon.0 { ptr @CSNDESCR_Seg3A_System_t }, i64 10, i8 0, [7 x i8] zeroinitializer, ptr @.str.309, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 3, i16 0, [4 x i8] zeroinitializer, %union.anon.0 { ptr @CSNDESCR_Seg3A_SatellitePosition_t }, i64 12, i8 0, [7 x i8] zeroinitializer, ptr @.str.310, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 3, i16 0, [4 x i8] zeroinitializer, %union.anon.0 { ptr @CSNDESCR_Seg3A_BeamPosition_t }, i64 18, i8 0, [7 x i8] zeroinitializer, ptr @.str.311, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 3, i16 0, [4 x i8] zeroinitializer, %union.anon.0 { ptr @CSNDESCR_Seg3A_MiscInfo_t }, i64 22, i8 0, [7 x i8] zeroinitializer, ptr @.str.312, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 4, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 23, i8 0, [7 x i8] zeroinitializer, ptr @.str.66, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg3a_spare, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 0, i16 0, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.240, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }], align 16
+@.str.314 = private unnamed_addr constant [3 x i8] c"%d\00", align 1
+@.str.315 = private unnamed_addr constant [7 x i8] c"0x%04x\00", align 1
+@.str.316 = private unnamed_addr constant [13 x i8] c"Satellite_ID\00", align 1
+@.str.317 = private unnamed_addr constant [10 x i8] c"System_ID\00", align 1
+@CSNDESCR_Seg3A_System_t = internal constant [3 x { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr }] [{ i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 2, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.316, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg3a_system_sat_id, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 4, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 1, i8 0, [7 x i8] zeroinitializer, ptr @.str.317, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg3a_system_sys_id, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 0, i16 0, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.240, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }], align 16
+@CSNDESCR_Seg3A_SatellitePosition_t = internal constant [4 x { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr }] [{ i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 8, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.155, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg3a_satpos_latitude, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 12, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 2, i8 0, [7 x i8] zeroinitializer, ptr @.str.157, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg3a_satpos_longitude, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 16, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 4, i8 0, [7 x i8] zeroinitializer, ptr @.str.159, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg3a_satpos_radius, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 0, i16 0, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.240, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }], align 16
+@CSNDESCR_Seg3A_BeamPosition_t = internal constant [3 x { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr }] [{ i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 11, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.155, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg3a_beam_latitude, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 12, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 2, i8 0, [7 x i8] zeroinitializer, ptr @.str.157, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg3a_beam_longitude, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 0, i16 0, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.240, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }], align 16
+@CSNDESCR_Seg3A_MiscInfo_t = internal constant [2 x { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr }] [{ i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 6, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.163, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg3a_miscinfo_sb_reselection_timer, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 0, i16 0, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.240, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }], align 16
+@CSNDESCR_Segment3Bbis_t = internal constant [3 x { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr }] [{ i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 1, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.136, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg3a_class_type, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 4, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 1, i8 0, [7 x i8] zeroinitializer, ptr @.str.134, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg3b_segment_type_bbis, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 0, i16 0, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.240, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }], align 16
+@CSNDESCR_Segment3C_t = internal constant [3 x { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr }] [{ i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 1, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.136, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg3a_class_type, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 4, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 2, i8 0, [7 x i8] zeroinitializer, ptr @.str.168, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg3c_segment_type_c, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 0, i16 0, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.240, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }], align 16
+@CSNDESCR_Segment3D_t = internal constant [3 x { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr }] [{ i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 1, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.136, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg3a_class_type, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 4, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 3, i8 0, [7 x i8] zeroinitializer, ptr @.str.170, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg3d_segment_type_d, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 0, i16 0, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.240, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }], align 16
+@CSNDESCR_Segment3Ebis_t = internal constant [3 x { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr }] [{ i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 1, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.136, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg3a_class_type, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 4, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 4, i8 0, [7 x i8] zeroinitializer, ptr @.str.174, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg3e_segment_type_ebis, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 0, i16 0, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.240, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }], align 16
+@CSNDESCR_Segment3F_t = internal constant [3 x { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr }] [{ i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 1, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.136, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg3a_class_type, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 4, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 5, i8 0, [7 x i8] zeroinitializer, ptr @.str.176, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg3f_segment_type_f, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 0, i16 0, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.240, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }], align 16
+@CSNDESCR_Segment3Gbis_t = internal constant [3 x { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr }] [{ i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 1, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.136, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg3a_class_type, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 4, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 6, i8 0, [7 x i8] zeroinitializer, ptr @.str.180, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg3g_segment_type_gbis, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 0, i16 0, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.240, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }], align 16
+@CSNDESCR_Segment3H_t = internal constant [3 x { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr }] [{ i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 1, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.136, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg3a_class_type, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 4, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 7, i8 0, [7 x i8] zeroinitializer, ptr @.str.182, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg3h_segment_type_h, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 0, i16 0, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.240, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }], align 16
+@CSNDESCR_Segment3I_t = internal constant [3 x { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr }] [{ i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 1, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.136, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg3a_class_type, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 4, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 9, i8 0, [7 x i8] zeroinitializer, ptr @.str.184, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg3i_segment_type_i, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 0, i16 0, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.240, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }], align 16
+@CSNDESCR_Segment3Jbis_t = internal constant [3 x { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr }] [{ i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 1, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.136, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg3a_class_type, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 4, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 10, i8 0, [7 x i8] zeroinitializer, ptr @.str.188, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg3j_segment_type_jbis, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 0, i16 0, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.240, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }], align 16
+@CSNDESCR_Segment3Kbis_t = internal constant [3 x { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr }] [{ i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 1, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.136, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg3a_class_type, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 4, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 11, i8 0, [7 x i8] zeroinitializer, ptr @.str.190, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg3k_segment_type_kbis, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 0, i16 0, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.240, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }], align 16
+@CSNDESCR_Segment4A_t = internal constant [3 x { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr }] [{ i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 3, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 6, i8 0, [7 x i8] zeroinitializer, ptr @.str.192, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg4a_class_type, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 4, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.128, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg4a_segment_type_a, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 0, i16 0, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.240, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }], align 16
+@CSNDESCR_Segment4B_t = internal constant [3 x { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr }] [{ i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 3, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 6, i8 0, [7 x i8] zeroinitializer, ptr @.str.192, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg4a_class_type, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 4, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 1, i8 0, [7 x i8] zeroinitializer, ptr @.str.132, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg4b_segment_type_b, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 0, i16 0, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.240, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }], align 16
+@CSNDESCR_Segment4C_t = internal constant [3 x { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr }] [{ i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 3, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 6, i8 0, [7 x i8] zeroinitializer, ptr @.str.192, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg4a_class_type, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 4, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 2, i8 0, [7 x i8] zeroinitializer, ptr @.str.168, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg4c_segment_type_c, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 0, i16 0, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.240, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }], align 16
+@CSNDESCR_Segment4D_t = internal constant [3 x { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr }] [{ i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 3, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 6, i8 0, [7 x i8] zeroinitializer, ptr @.str.192, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg4a_class_type, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 4, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 3, i8 0, [7 x i8] zeroinitializer, ptr @.str.170, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg4d_segment_type_d, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 0, i16 0, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.240, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }], align 16
+@CSNDESCR_Segment4E_t = internal constant [3 x { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr }] [{ i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 3, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 6, i8 0, [7 x i8] zeroinitializer, ptr @.str.192, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg4a_class_type, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 4, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 4, i8 0, [7 x i8] zeroinitializer, ptr @.str.172, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg4e_segment_type_e, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 0, i16 0, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.240, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }], align 16
+@CSNDESCR_Segment4F_t = internal constant [3 x { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr }] [{ i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 3, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 6, i8 0, [7 x i8] zeroinitializer, ptr @.str.192, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg4a_class_type, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 4, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 5, i8 0, [7 x i8] zeroinitializer, ptr @.str.176, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg4f_segment_type_f, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 0, i16 0, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.240, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }], align 16
+@CSNDESCR_Segment4G_t = internal constant [3 x { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr }] [{ i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 3, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 6, i8 0, [7 x i8] zeroinitializer, ptr @.str.192, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg4a_class_type, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 4, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 6, i8 0, [7 x i8] zeroinitializer, ptr @.str.178, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg4g_segment_type_g, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 0, i16 0, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.240, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }], align 16
+@CSNDESCR_Segment4H_t = internal constant [3 x { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr }] [{ i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 3, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 6, i8 0, [7 x i8] zeroinitializer, ptr @.str.192, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg4a_class_type, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 4, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 7, i8 0, [7 x i8] zeroinitializer, ptr @.str.182, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg4h_segment_type_h, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 0, i16 0, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.240, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }], align 16
+@CSNDESCR_Segment4I_t = internal constant [3 x { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr }] [{ i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 3, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 6, i8 0, [7 x i8] zeroinitializer, ptr @.str.192, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg4a_class_type, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 4, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 8, i8 0, [7 x i8] zeroinitializer, ptr @.str.184, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg4i_segment_type_i, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 0, i16 0, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.240, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }], align 16
+@CSNDESCR_Segment4J_t = internal constant [3 x { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr }] [{ i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 3, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 6, i8 0, [7 x i8] zeroinitializer, ptr @.str.192, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg4a_class_type, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 4, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 9, i8 0, [7 x i8] zeroinitializer, ptr @.str.186, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg4j_segment_type_j, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 0, i16 0, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.240, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }], align 16
+@CSNDESCR_Segment4K_t = internal constant [3 x { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr }] [{ i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 3, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 6, i8 0, [7 x i8] zeroinitializer, ptr @.str.192, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg4a_class_type, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 4, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 10, i8 0, [7 x i8] zeroinitializer, ptr @.str.194, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg4k_segment_type_k, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 0, i16 0, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.240, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }], align 16
+@CSNDESCR_SystemInformation2_t = internal constant [3 x { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr }] [{ i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 3, i16 0, [4 x i8] zeroinitializer, %union.anon.0 { ptr @CSNDESCR_SI2_Block_Header_t }, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.238, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 4, i16 7, [4 x i8] zeroinitializer, %union.anon.0 { ptr @SI2_SegmentChoice }, i64 3, i8 0, [7 x i8] zeroinitializer, ptr null, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_si1_segment_choice, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 0, i16 0, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.240, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }], align 16
+@CSNDESCR_SI2_Block_Header_t = internal global [4 x { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr }] [{ i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 4, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.242, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_si_protocol_version, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 1, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 1, i8 0, [7 x i8] zeroinitializer, ptr @.str.243, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_si_block_type, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 3, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 2, i8 0, [7 x i8] zeroinitializer, ptr @.str.66, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_si_spare, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 0, i16 0, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.240, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }], align 16
+@.str.345 = private unnamed_addr constant [11 x i8] c"Segment 2A\00", align 1
+@.str.346 = private unnamed_addr constant [11 x i8] c"Segment 2B\00", align 1
+@.str.347 = private unnamed_addr constant [11 x i8] c"Segment 3B\00", align 1
+@.str.348 = private unnamed_addr constant [11 x i8] c"Segment 3E\00", align 1
+@.str.349 = private unnamed_addr constant [11 x i8] c"Segment 3G\00", align 1
+@.str.350 = private unnamed_addr constant [11 x i8] c"Segment 3J\00", align 1
+@SI2_SegmentChoice = internal constant [7 x { i8, i8, i8, [5 x i8], { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } }] [{ i8, i8, i8, [5 x i8], { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } } { i8 6, i8 32, i8 1, [5 x i8] zeroinitializer, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 3, i16 0, [4 x i8] zeroinitializer, %union.anon.0 { ptr @CSNDESCR_Segment2A_t }, i64 4, i8 0, [7 x i8] zeroinitializer, ptr @.str.345, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null } }, { i8, i8, i8, [5 x i8], { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } } { i8 6, i8 33, i8 1, [5 x i8] zeroinitializer, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 3, i16 0, [4 x i8] zeroinitializer, %union.anon.0 { ptr @CSNDESCR_Segment2B_t }, i64 4, i8 0, [7 x i8] zeroinitializer, ptr @.str.346, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null } }, { i8, i8, i8, [5 x i8], { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } } { i8 5, i8 1, i8 1, [5 x i8] zeroinitializer, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 3, i16 0, [4 x i8] zeroinitializer, %union.anon.0 { ptr @CSNDESCR_Segment3B_t }, i64 4, i8 0, [7 x i8] zeroinitializer, ptr @.str.347, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null } }, { i8, i8, i8, [5 x i8], { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } } { i8 5, i8 4, i8 1, [5 x i8] zeroinitializer, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 3, i16 0, [4 x i8] zeroinitializer, %union.anon.0 { ptr @CSNDESCR_Segment3E_t }, i64 4, i8 0, [7 x i8] zeroinitializer, ptr @.str.348, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null } }, { i8, i8, i8, [5 x i8], { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } } { i8 5, i8 6, i8 1, [5 x i8] zeroinitializer, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 3, i16 0, [4 x i8] zeroinitializer, %union.anon.0 { ptr @CSNDESCR_Segment3G_t }, i64 4, i8 0, [7 x i8] zeroinitializer, ptr @.str.349, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null } }, { i8, i8, i8, [5 x i8], { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } } { i8 5, i8 10, i8 1, [5 x i8] zeroinitializer, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 3, i16 0, [4 x i8] zeroinitializer, %union.anon.0 { ptr @CSNDESCR_Segment3J_t }, i64 4, i8 0, [7 x i8] zeroinitializer, ptr @.str.350, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null } }, { i8, i8, i8, [5 x i8], { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } } { i8 0, i8 0, i8 1, [5 x i8] zeroinitializer, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 34, i16 -1, [4 x i8] zeroinitializer, %union.anon.0 { ptr @.str.288 }, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.288, ptr @ei_unknown_segment, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null } }], align 16
+@CSNDESCR_Segment2A_t = internal constant [8 x { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr }] [{ i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 2, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 2, i8 0, [7 x i8] zeroinitializer, ptr @.str.126, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg2a_class_type, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 4, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.128, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg2a_segment_type_a, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 2, i16 3, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.290, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg2a_class_4_version, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 3, i16 0, [4 x i8] zeroinitializer, %union.anon.0 { ptr @CSNDESCR_Seg2A_SyncInfo_t }, i64 2, i8 0, [7 x i8] zeroinitializer, ptr @.str.291, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 3, i16 0, [4 x i8] zeroinitializer, %union.anon.0 { ptr @CSNDESCR_Seg2A_SelectionCriterion_t }, i64 8, i8 0, [7 x i8] zeroinitializer, ptr @.str.292, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 3, i16 0, [4 x i8] zeroinitializer, %union.anon.0 { ptr @CSNDESCR_Seg2A_MiscInfo_t }, i64 9, i8 0, [7 x i8] zeroinitializer, ptr @.str.293, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 3, i16 0, [4 x i8] zeroinitializer, %union.anon.0 { ptr @CSNDESCR_Seg2A_LAInfo_t }, i64 10, i8 0, [7 x i8] zeroinitializer, ptr @.str.294, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 0, i16 0, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.240, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }], align 16
+@CSNDESCR_Segment2B_t = internal constant [3 x { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr }] [{ i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 2, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 2, i8 0, [7 x i8] zeroinitializer, ptr @.str.126, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg2a_class_type, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 4, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 1, i8 0, [7 x i8] zeroinitializer, ptr @.str.132, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg2b_segment_type_b, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 0, i16 0, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.240, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }], align 16
+@CSNDESCR_Segment3B_t = internal constant [3 x { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr }] [{ i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 1, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.136, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg3a_class_type, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 4, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 1, i8 0, [7 x i8] zeroinitializer, ptr @.str.132, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg3b_segment_type_b, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 0, i16 0, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.240, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }], align 16
+@CSNDESCR_Segment3E_t = internal constant [3 x { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr }] [{ i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 1, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.136, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg3a_class_type, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 4, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 4, i8 0, [7 x i8] zeroinitializer, ptr @.str.172, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg3e_segment_type_e, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 0, i16 0, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.240, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }], align 16
+@CSNDESCR_Segment3G_t = internal constant [3 x { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr }] [{ i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 1, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.136, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg3a_class_type, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 4, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 6, i8 0, [7 x i8] zeroinitializer, ptr @.str.178, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg3g_segment_type_g, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 0, i16 0, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.240, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }], align 16
+@CSNDESCR_Segment3J_t = internal constant [3 x { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr }] [{ i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 1, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.136, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg3a_class_type, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 27, i16 4, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 10, i8 0, [7 x i8] zeroinitializer, ptr @.str.186, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @hf_seg3j_segment_type_j, ptr null, ptr null }, { i16, i16, [4 x i8], %union.anon.0, i64, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, ptr, ptr } { i16 0, i16 0, [4 x i8] zeroinitializer, %union.anon.0 zeroinitializer, i64 0, i8 0, [7 x i8] zeroinitializer, ptr @.str.240, ptr null, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null }], align 16
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_gmr1_bcch() #0 {
   %1 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %1) #5
   %2 = call i32 @proto_register_protocol(ptr noundef @.str.207, ptr noundef @.str.208, ptr noundef @.str.209)
   store i32 %2, ptr @proto_gmr1_bcch, align 4
   %3 = load i32, ptr @proto_gmr1_bcch, align 4
@@ -504,43 +502,50 @@ define hidden void @proto_register_gmr1_bcch() #0 {
   call void @expert_register_field_array(ptr noundef %6, ptr noundef @proto_register_gmr1_bcch.ei, i32 noundef 1)
   %7 = load i32, ptr @proto_gmr1_bcch, align 4
   %8 = call ptr @register_dissector(ptr noundef @.str.210, ptr noundef @dissect_gmr1_bcch, i32 noundef %7)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %1) #5
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @seg1a_syncinfo_sa_freq_offset_fmt(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #5
   %6 = load i32, ptr %4, align 4
   store i32 %6, ptr %5, align 4
   %7 = load ptr, ptr %3, align 8
-  %8 = load i32, ptr %5, align 4
-  %9 = mul i32 %8, 5
+  %8 = load ptr, ptr %3, align 8
+  %9 = call i64 @llvm.objectsize.i64.p0(ptr %8, i1 false, i1 true, i1 true)
   %10 = load i32, ptr %5, align 4
-  %11 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %7, i64 noundef 240, ptr noundef @.str.211, i32 noundef %9, i32 noundef %10) #3
+  %11 = mul i32 %10, 5
+  %12 = load i32, ptr %5, align 4
+  %13 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %7, i64 noundef 240, i32 noundef 2, i64 noundef %9, ptr noundef @.str.211, i32 noundef %11, i32 noundef %12)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #5
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @segx_half_db_value_fmt(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
-  %6 = load i32, ptr %4, align 4
-  %7 = uitofp i32 %6 to float
-  %8 = fmul float %7, 5.000000e-01
-  %9 = fpext float %8 to double
-  %10 = load i32, ptr %4, align 4
-  %11 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %5, i64 noundef 240, ptr noundef @.str.216, double noundef %9, i32 noundef %10) #3
+  %6 = load ptr, ptr %3, align 8
+  %7 = call i64 @llvm.objectsize.i64.p0(ptr %6, i1 false, i1 true, i1 true)
+  %8 = load i32, ptr %4, align 4
+  %9 = uitofp i32 %8 to float
+  %10 = fmul float %9, 5.000000e-01
+  %11 = fpext float %10 to double
+  %12 = load i32, ptr %4, align 4
+  %13 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %5, i64 noundef 240, i32 noundef 2, i64 noundef %7, ptr noundef @.str.218, double noundef %11, i32 noundef %12)
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @seg3a_latitude_fmt(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
@@ -548,8 +553,10 @@ define internal void @seg3a_latitude_fmt(ptr noundef %0, i32 noundef %1) #0 {
   %6 = alloca i8, align 1
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #5
   %7 = load i32, ptr %4, align 4
   store i32 %7, ptr %5, align 4
+  call void @llvm.lifetime.start.p0(i64 1, ptr %6) #5
   %8 = load i32, ptr %5, align 4
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %10, label %13
@@ -567,18 +574,22 @@ define internal void @seg3a_latitude_fmt(ptr noundef %0, i32 noundef %1) #0 {
 
 14:                                               ; preds = %13, %10
   %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %5, align 4
-  %17 = sitofp i32 %16 to float
-  %18 = fdiv float %17, 1.000000e+01
-  %19 = fpext float %18 to double
-  %20 = load i8, ptr %6, align 1
-  %21 = sext i8 %20 to i32
-  %22 = load i32, ptr %5, align 4
-  %23 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %15, i64 noundef 240, ptr noundef @.str.221, double noundef %19, i32 noundef %21, i32 noundef %22) #3
+  %16 = load ptr, ptr %3, align 8
+  %17 = call i64 @llvm.objectsize.i64.p0(ptr %16, i1 false, i1 true, i1 true)
+  %18 = load i32, ptr %5, align 4
+  %19 = sitofp i32 %18 to float
+  %20 = fdiv float %19, 1.000000e+01
+  %21 = fpext float %20 to double
+  %22 = load i8, ptr %6, align 1
+  %23 = sext i8 %22 to i32
+  %24 = load i32, ptr %5, align 4
+  %25 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %15, i64 noundef 240, i32 noundef 2, i64 noundef %17, ptr noundef @.str.225, double noundef %21, i32 noundef %23, i32 noundef %24)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #5
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @seg3a_longitude_fmt(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
@@ -586,6 +597,8 @@ define internal void @seg3a_longitude_fmt(ptr noundef %0, i32 noundef %1) #0 {
   %6 = alloca i8, align 1
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #5
+  call void @llvm.lifetime.start.p0(i64 1, ptr %6) #5
   %7 = load i32, ptr %4, align 4
   %8 = icmp ult i32 %7, 1800
   br i1 %8, label %9, label %11
@@ -605,18 +618,22 @@ define internal void @seg3a_longitude_fmt(ptr noundef %0, i32 noundef %1) #0 {
 
 14:                                               ; preds = %11, %9
   %15 = load ptr, ptr %3, align 8
-  %16 = load i32, ptr %5, align 4
-  %17 = sitofp i32 %16 to float
-  %18 = fdiv float %17, 1.000000e+01
-  %19 = fpext float %18 to double
-  %20 = load i8, ptr %6, align 1
-  %21 = sext i8 %20 to i32
-  %22 = load i32, ptr %4, align 4
-  %23 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %15, i64 noundef 240, ptr noundef @.str.222, double noundef %19, i32 noundef %21, i32 noundef %22) #3
+  %16 = load ptr, ptr %3, align 8
+  %17 = call i64 @llvm.objectsize.i64.p0(ptr %16, i1 false, i1 true, i1 true)
+  %18 = load i32, ptr %5, align 4
+  %19 = sitofp i32 %18 to float
+  %20 = fdiv float %19, 1.000000e+01
+  %21 = fpext float %20 to double
+  %22 = load i8, ptr %6, align 1
+  %23 = sext i8 %22 to i32
+  %24 = load i32, ptr %4, align 4
+  %25 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %15, i64 noundef 240, i32 noundef 2, i64 noundef %17, ptr noundef @.str.226, double noundef %21, i32 noundef %23, i32 noundef %24)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #5
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @seg3a_satpos_radius_fmt(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
@@ -624,48 +641,65 @@ define internal void @seg3a_satpos_radius_fmt(ptr noundef %0, i32 noundef %1) #0
   %6 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #5
   %7 = load i32, ptr %4, align 4
   store i32 %7, ptr %5, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #5
   %8 = load i32, ptr %5, align 4
   %9 = mul i32 %8, 5
   %10 = add i32 42162000, %9
   store i32 %10, ptr %6, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = load i32, ptr %6, align 4
-  %13 = sitofp i32 %12 to double
-  %14 = fdiv double %13, 1.000000e+03
-  %15 = load i32, ptr %5, align 4
-  %16 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %11, i64 noundef 240, ptr noundef @.str.223, double noundef %14, i32 noundef %15) #3
+  %12 = load ptr, ptr %3, align 8
+  %13 = call i64 @llvm.objectsize.i64.p0(ptr %12, i1 false, i1 true, i1 true)
+  %14 = load i32, ptr %6, align 4
+  %15 = sitofp i32 %14 to double
+  %16 = fdiv double %15, 1.000000e+03
+  %17 = load i32, ptr %5, align 4
+  %18 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %11, i64 noundef 240, i32 noundef 2, i64 noundef %13, ptr noundef @.str.227, double noundef %16, i32 noundef %17)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #5
   ret void
 }
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal void @seg3a_miscinfo_sb_reselection_timer_fmt(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
-  %6 = load i32, ptr %4, align 4
-  %7 = mul i32 %6, 4
+  %6 = load ptr, ptr %3, align 8
+  %7 = call i64 @llvm.objectsize.i64.p0(ptr %6, i1 false, i1 true, i1 true)
   %8 = load i32, ptr %4, align 4
-  %9 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %5, i64 noundef 240, ptr noundef @.str.224, i32 noundef %7, i32 noundef %8) #3
+  %9 = mul i32 %8, 4
+  %10 = load i32, ptr %4, align 4
+  %11 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %5, i64 noundef 240, i32 noundef 2, i64 noundef %7, ptr noundef @.str.228, i32 noundef %9, i32 noundef %10)
   ret void
 }
 
-declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) #2
 
-declare ptr @expert_register_protocol(i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @proto_register_subtree_array(ptr noundef, i32 noundef) #2
 
-declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @expert_register_protocol(i32 noundef) #2
 
-declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) #2
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_gmr1_bcch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -674,129 +708,158 @@ define internal i32 @dissect_gmr1_bcch(ptr noundef %0, ptr noundef %1, ptr nound
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca %struct.csnStream_t, align 8
-  %12 = alloca i32, align 4
+  %12 = alloca i8, align 1
   %13 = alloca ptr, align 8
   %14 = alloca ptr, align 8
   store ptr %0, ptr %5, align 8
   store ptr %1, ptr %6, align 8
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
   store ptr null, ptr %9, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
   store ptr null, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #5
   %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds %struct._packet_info, ptr %15, i32 0, i32 1
+  %16 = getelementptr inbounds nuw %struct._packet_info, ptr %15, i32 0, i32 1
   %17 = load ptr, ptr %16, align 8
-  call void @col_append_str(ptr noundef %17, i32 noundef 25, ptr noundef @.str.229)
+  call void @col_append_str(ptr noundef %17, i32 noundef 25, ptr noundef @.str.234)
   %18 = load ptr, ptr %5, align 8
   %19 = call zeroext i8 @tvb_get_bits8(ptr noundef %18, i32 noundef 0, i32 noundef 5)
   %20 = zext i8 %19 to i32
   %21 = and i32 %20, 1
-  store i32 %21, ptr %12, align 4
-  %22 = load ptr, ptr %7, align 8
-  %23 = load i32, ptr @proto_gmr1_bcch, align 4
-  %24 = load ptr, ptr %5, align 8
-  %25 = load i32, ptr %12, align 4
-  %26 = icmp ne i32 %25, 0
-  %27 = select i1 %26, i32 1, i32 2
-  %28 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %22, i32 noundef %23, ptr noundef %24, i32 noundef 0, i32 noundef -1, ptr noundef @.str.230, i32 noundef %27)
-  store ptr %28, ptr %9, align 8
-  %29 = load ptr, ptr %9, align 8
-  %30 = load i32, ptr @ett_gmr1_bcch, align 4
-  %31 = call ptr @proto_item_add_subtree(ptr noundef %29, i32 noundef %30)
-  store ptr %31, ptr %10, align 8
-  %32 = load ptr, ptr %5, align 8
-  %33 = call i32 @tvb_captured_length(ptr noundef %32)
-  %34 = mul i32 %33, 8
-  %35 = load ptr, ptr %6, align 8
-  call void @csnStreamInit(ptr noundef %11, i32 noundef 0, i32 noundef %34, ptr noundef %35)
-  %36 = load i32, ptr %12, align 4
-  %37 = icmp ne i32 %36, 0
-  br i1 %37, label %38, label %61
+  %22 = icmp ne i32 %21, 0
+  %23 = zext i1 %22 to i8
+  store i8 %23, ptr %12, align 1
+  %24 = load ptr, ptr %7, align 8
+  %25 = load i32, ptr @proto_gmr1_bcch, align 4
+  %26 = load ptr, ptr %5, align 8
+  %27 = load i8, ptr %12, align 1, !range !6, !noundef !7
+  %28 = trunc i8 %27 to i1
+  %29 = select i1 %28, i32 1, i32 2
+  %30 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %24, i32 noundef %25, ptr noundef %26, i32 noundef 0, i32 noundef -1, ptr noundef @.str.235, i32 noundef %29)
+  store ptr %30, ptr %9, align 8
+  %31 = load ptr, ptr %9, align 8
+  %32 = load i32, ptr @ett_gmr1_bcch, align 4
+  %33 = call ptr @proto_item_add_subtree(ptr noundef %31, i32 noundef %32)
+  store ptr %33, ptr %10, align 8
+  %34 = load ptr, ptr %5, align 8
+  %35 = call i32 @tvb_captured_length(ptr noundef %34)
+  %36 = mul i32 %35, 8
+  %37 = load ptr, ptr %6, align 8
+  call void @csnStreamInit(ptr noundef %11, i32 noundef 0, i32 noundef %36, ptr noundef %37)
+  %38 = load i8, ptr %12, align 1, !range !6, !noundef !7
+  %39 = trunc i8 %38 to i1
+  br i1 %39, label %40, label %63
 
-38:                                               ; preds = %4
-  %39 = load ptr, ptr %6, align 8
-  %40 = getelementptr inbounds %struct._packet_info, ptr %39, i32 0, i32 50
-  %41 = load ptr, ptr %40, align 8
-  %42 = call noalias ptr @wmem_alloc(ptr noundef %41, i64 noundef 62)
-  store ptr %42, ptr %13, align 8
-  %43 = load ptr, ptr %13, align 8
-  %44 = getelementptr inbounds %struct.SystemInformation1_t, ptr %43, i32 0, i32 2
-  store i8 24, ptr %44, align 1
-  %45 = load ptr, ptr %10, align 8
-  %46 = load ptr, ptr %5, align 8
-  %47 = load ptr, ptr %13, align 8
-  %48 = load i32, ptr @ett_gmr1_bcch, align 4
-  %49 = call signext i16 @csnStreamDissector(ptr noundef %45, ptr noundef %11, ptr noundef @CSNDESCR_SystemInformation1_t, ptr noundef %46, ptr noundef %47, i32 noundef %48)
-  %50 = load ptr, ptr %6, align 8
-  %51 = getelementptr inbounds %struct._packet_info, ptr %50, i32 0, i32 1
-  %52 = load ptr, ptr %51, align 8
-  %53 = load ptr, ptr %13, align 8
-  %54 = getelementptr inbounds %struct.SystemInformation1_t, ptr %53, i32 0, i32 2
-  %55 = load i8, ptr %54, align 1
-  %56 = zext i8 %55 to i64
-  %57 = getelementptr [25 x %struct.CSN_ChoiceElement_t], ptr @SI1_SegmentChoice, i64 0, i64 %56
-  %58 = getelementptr inbounds %struct.CSN_ChoiceElement_t, ptr %57, i32 0, i32 3
-  %59 = getelementptr inbounds %struct.CSN_DESCR, ptr %58, i32 0, i32 5
-  %60 = load ptr, ptr %59, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %52, i32 noundef 25, ptr noundef @.str.231, ptr noundef %60)
-  br label %84
+40:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  %41 = load ptr, ptr %6, align 8
+  %42 = getelementptr inbounds nuw %struct._packet_info, ptr %41, i32 0, i32 51
+  %43 = load ptr, ptr %42, align 8
+  %44 = call noalias ptr @wmem_alloc(ptr noundef %43, i64 noundef 62) #6
+  store ptr %44, ptr %13, align 8
+  %45 = load ptr, ptr %13, align 8
+  %46 = getelementptr inbounds nuw %struct.SystemInformation1_t, ptr %45, i32 0, i32 2
+  store i8 24, ptr %46, align 1
+  %47 = load ptr, ptr %10, align 8
+  %48 = load ptr, ptr %5, align 8
+  %49 = load ptr, ptr %13, align 8
+  %50 = load i32, ptr @ett_gmr1_bcch, align 4
+  %51 = call signext i16 @csnStreamDissector(ptr noundef %47, ptr noundef %11, ptr noundef @CSNDESCR_SystemInformation1_t, ptr noundef %48, ptr noundef %49, i32 noundef %50)
+  %52 = load ptr, ptr %6, align 8
+  %53 = getelementptr inbounds nuw %struct._packet_info, ptr %52, i32 0, i32 1
+  %54 = load ptr, ptr %53, align 8
+  %55 = load ptr, ptr %13, align 8
+  %56 = getelementptr inbounds nuw %struct.SystemInformation1_t, ptr %55, i32 0, i32 2
+  %57 = load i8, ptr %56, align 1
+  %58 = zext i8 %57 to i64
+  %59 = getelementptr [25 x %struct.CSN_ChoiceElement_t], ptr @SI1_SegmentChoice, i64 0, i64 %58
+  %60 = getelementptr inbounds nuw %struct.CSN_ChoiceElement_t, ptr %59, i32 0, i32 3
+  %61 = getelementptr inbounds nuw %struct.CSN_DESCR, ptr %60, i32 0, i32 5
+  %62 = load ptr, ptr %61, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %54, i32 noundef 25, ptr noundef @.str.236, ptr noundef %62)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  br label %86
 
-61:                                               ; preds = %4
-  %62 = load ptr, ptr %6, align 8
-  %63 = getelementptr inbounds %struct._packet_info, ptr %62, i32 0, i32 50
-  %64 = load ptr, ptr %63, align 8
-  %65 = call noalias ptr @wmem_alloc(ptr noundef %64, i64 noundef 22)
-  store ptr %65, ptr %14, align 8
-  %66 = load ptr, ptr %14, align 8
-  %67 = getelementptr inbounds %struct.SystemInformation2_t, ptr %66, i32 0, i32 1
-  store i8 6, ptr %67, align 1
-  %68 = load ptr, ptr %10, align 8
-  %69 = load ptr, ptr %5, align 8
-  %70 = load ptr, ptr %14, align 8
-  %71 = load i32, ptr @ett_gmr1_bcch, align 4
-  %72 = call signext i16 @csnStreamDissector(ptr noundef %68, ptr noundef %11, ptr noundef @CSNDESCR_SystemInformation2_t, ptr noundef %69, ptr noundef %70, i32 noundef %71)
-  %73 = load ptr, ptr %6, align 8
-  %74 = getelementptr inbounds %struct._packet_info, ptr %73, i32 0, i32 1
-  %75 = load ptr, ptr %74, align 8
-  %76 = load ptr, ptr %14, align 8
-  %77 = getelementptr inbounds %struct.SystemInformation2_t, ptr %76, i32 0, i32 1
-  %78 = load i8, ptr %77, align 1
-  %79 = zext i8 %78 to i64
-  %80 = getelementptr [7 x %struct.CSN_ChoiceElement_t], ptr @SI2_SegmentChoice, i64 0, i64 %79
-  %81 = getelementptr inbounds %struct.CSN_ChoiceElement_t, ptr %80, i32 0, i32 3
-  %82 = getelementptr inbounds %struct.CSN_DESCR, ptr %81, i32 0, i32 5
-  %83 = load ptr, ptr %82, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %75, i32 noundef 25, ptr noundef @.str.232, ptr noundef %83)
-  br label %84
+63:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  %64 = load ptr, ptr %6, align 8
+  %65 = getelementptr inbounds nuw %struct._packet_info, ptr %64, i32 0, i32 51
+  %66 = load ptr, ptr %65, align 8
+  %67 = call noalias ptr @wmem_alloc(ptr noundef %66, i64 noundef 22) #6
+  store ptr %67, ptr %14, align 8
+  %68 = load ptr, ptr %14, align 8
+  %69 = getelementptr inbounds nuw %struct.SystemInformation2_t, ptr %68, i32 0, i32 1
+  store i8 6, ptr %69, align 1
+  %70 = load ptr, ptr %10, align 8
+  %71 = load ptr, ptr %5, align 8
+  %72 = load ptr, ptr %14, align 8
+  %73 = load i32, ptr @ett_gmr1_bcch, align 4
+  %74 = call signext i16 @csnStreamDissector(ptr noundef %70, ptr noundef %11, ptr noundef @CSNDESCR_SystemInformation2_t, ptr noundef %71, ptr noundef %72, i32 noundef %73)
+  %75 = load ptr, ptr %6, align 8
+  %76 = getelementptr inbounds nuw %struct._packet_info, ptr %75, i32 0, i32 1
+  %77 = load ptr, ptr %76, align 8
+  %78 = load ptr, ptr %14, align 8
+  %79 = getelementptr inbounds nuw %struct.SystemInformation2_t, ptr %78, i32 0, i32 1
+  %80 = load i8, ptr %79, align 1
+  %81 = zext i8 %80 to i64
+  %82 = getelementptr [7 x %struct.CSN_ChoiceElement_t], ptr @SI2_SegmentChoice, i64 0, i64 %81
+  %83 = getelementptr inbounds nuw %struct.CSN_ChoiceElement_t, ptr %82, i32 0, i32 3
+  %84 = getelementptr inbounds nuw %struct.CSN_DESCR, ptr %83, i32 0, i32 5
+  %85 = load ptr, ptr %84, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %77, i32 noundef 25, ptr noundef @.str.237, ptr noundef %85)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  br label %86
 
-84:                                               ; preds = %61, %38
-  %85 = load ptr, ptr %5, align 8
-  %86 = call i32 @tvb_captured_length(ptr noundef %85)
-  ret i32 %86
+86:                                               ; preds = %63, %40
+  %87 = load ptr, ptr %5, align 8
+  %88 = call i32 @tvb_captured_length(ptr noundef %87)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 16, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  ret i32 %88
 }
 
-; Function Attrs: nounwind
-declare i32 @snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #2
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) #2
 
-declare zeroext i8 @tvb_get_bits8(ptr noundef, i32 noundef, i32 noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.objectsize.i64.p0(ptr, i1 immarg, i1 immarg, i1 immarg) #3
 
-declare ptr @proto_tree_add_protocol_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) #2
 
-declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare zeroext i8 @tvb_get_bits8(ptr noundef, i32 noundef, i32 noundef) #2
 
-declare void @csnStreamInit(ptr noundef, i32 noundef, i32 noundef, ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_protocol_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) #2
 
-declare i32 @tvb_captured_length(ptr noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) #2
 
-declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare void @csnStreamInit(ptr noundef, i32 noundef, i32 noundef, ptr noundef) #2
 
-declare signext i16 @csnStreamDissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #1
+; Function Attrs: null_pointer_is_valid
+declare i32 @tvb_captured_length(ptr noundef) #2
 
-declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid allocsize(1)
+declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) #4
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: null_pointer_is_valid
+declare signext i16 @csnStreamDissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
+
+; Function Attrs: null_pointer_is_valid
+declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) #2
+
+; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal signext i16 @Seg3A_LAI_Dissector(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca i16, align 2
   %7 = alloca ptr, align 8
@@ -809,235 +872,256 @@ define internal signext i16 @Seg3A_LAI_Dissector(ptr noundef %0, ptr noundef %1,
   %14 = alloca ptr, align 8
   %15 = alloca [5 x i8], align 1
   %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
   store ptr %0, ptr %7, align 8
   store ptr %1, ptr %8, align 8
   store ptr %2, ptr %9, align 8
   store ptr %3, ptr %10, align 8
   store i32 %4, ptr %11, align 4
-  %17 = load ptr, ptr %10, align 8
-  store ptr %17, ptr %12, align 8
-  %18 = load ptr, ptr %8, align 8
-  %19 = getelementptr inbounds %struct.csnStream_t, ptr %18, i32 0, i32 0
-  %20 = load i32, ptr %19, align 8
-  %21 = icmp slt i32 %20, 40
-  br i1 %21, label %22, label %23
-
-22:                                               ; preds = %5
-  store i16 -1, ptr %6, align 2
-  br label %195
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  %18 = load ptr, ptr %10, align 8
+  store ptr %18, ptr %12, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.start.p0(i64 5, ptr %15) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #5
+  %19 = load ptr, ptr %8, align 8
+  %20 = getelementptr inbounds nuw %struct.csnStream_t, ptr %19, i32 0, i32 0
+  %21 = load i32, ptr %20, align 8
+  %22 = icmp slt i32 %21, 40
+  br i1 %22, label %23, label %24
 
 23:                                               ; preds = %5
+  store i16 -1, ptr %6, align 2
+  store i32 1, ptr %17, align 4
+  br label %196
+
+24:                                               ; preds = %5
   store i32 0, ptr %16, align 4
-  br label %24
+  br label %25
 
-24:                                               ; preds = %39, %23
-  %25 = load i32, ptr %16, align 4
-  %26 = icmp slt i32 %25, 5
-  br i1 %26, label %27, label %42
+25:                                               ; preds = %40, %24
+  %26 = load i32, ptr %16, align 4
+  %27 = icmp slt i32 %26, 5
+  br i1 %27, label %28, label %43
 
-27:                                               ; preds = %24
-  %28 = load ptr, ptr %9, align 8
-  %29 = load ptr, ptr %8, align 8
-  %30 = getelementptr inbounds %struct.csnStream_t, ptr %29, i32 0, i32 1
-  %31 = load i32, ptr %30, align 4
-  %32 = load i32, ptr %16, align 4
-  %33 = shl i32 %32, 3
-  %34 = add i32 %31, %33
-  %35 = call zeroext i8 @tvb_get_bits8(ptr noundef %28, i32 noundef %34, i32 noundef 8)
-  %36 = load i32, ptr %16, align 4
-  %37 = sext i32 %36 to i64
-  %38 = getelementptr [5 x i8], ptr %15, i64 0, i64 %37
-  store i8 %35, ptr %38, align 1
-  br label %39
+28:                                               ; preds = %25
+  %29 = load ptr, ptr %9, align 8
+  %30 = load ptr, ptr %8, align 8
+  %31 = getelementptr inbounds nuw %struct.csnStream_t, ptr %30, i32 0, i32 1
+  %32 = load i32, ptr %31, align 4
+  %33 = load i32, ptr %16, align 4
+  %34 = shl i32 %33, 3
+  %35 = add i32 %32, %34
+  %36 = call zeroext i8 @tvb_get_bits8(ptr noundef %29, i32 noundef %35, i32 noundef 8)
+  %37 = load i32, ptr %16, align 4
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr [5 x i8], ptr %15, i64 0, i64 %38
+  store i8 %36, ptr %39, align 1
+  br label %40
 
-39:                                               ; preds = %27
-  %40 = load i32, ptr %16, align 4
-  %41 = add i32 %40, 1
-  store i32 %41, ptr %16, align 4
-  br label %24, !llvm.loop !4
+40:                                               ; preds = %28
+  %41 = load i32, ptr %16, align 4
+  %42 = add i32 %41, 1
+  store i32 %42, ptr %16, align 4
+  br label %25, !llvm.loop !8
 
-42:                                               ; preds = %24
-  %43 = getelementptr [5 x i8], ptr %15, i64 0, i64 0
-  %44 = load i8, ptr %43, align 1
-  %45 = zext i8 %44 to i32
-  %46 = and i32 %45, 15
-  %47 = mul i32 %46, 100
-  %48 = getelementptr [5 x i8], ptr %15, i64 0, i64 0
-  %49 = load i8, ptr %48, align 1
-  %50 = zext i8 %49 to i32
-  %51 = and i32 %50, 240
-  %52 = ashr i32 %51, 4
-  %53 = mul i32 %52, 10
-  %54 = add i32 %47, %53
-  %55 = getelementptr [5 x i8], ptr %15, i64 0, i64 1
-  %56 = load i8, ptr %55, align 1
-  %57 = zext i8 %56 to i32
-  %58 = and i32 %57, 15
-  %59 = add i32 %54, %58
-  %60 = trunc i32 %59 to i16
-  %61 = load ptr, ptr %12, align 8
-  %62 = getelementptr inbounds %struct.Seg3A_LAI_t, ptr %61, i32 0, i32 0
-  store i16 %60, ptr %62, align 2
-  %63 = getelementptr [5 x i8], ptr %15, i64 0, i64 2
-  %64 = load i8, ptr %63, align 1
-  %65 = zext i8 %64 to i32
-  %66 = and i32 %65, 15
-  %67 = mul i32 %66, 10
-  %68 = getelementptr [5 x i8], ptr %15, i64 0, i64 2
-  %69 = load i8, ptr %68, align 1
-  %70 = zext i8 %69 to i32
-  %71 = and i32 %70, 240
-  %72 = ashr i32 %71, 4
-  %73 = add i32 %67, %72
-  %74 = trunc i32 %73 to i16
-  %75 = load ptr, ptr %12, align 8
-  %76 = getelementptr inbounds %struct.Seg3A_LAI_t, ptr %75, i32 0, i32 1
-  store i16 %74, ptr %76, align 2
-  %77 = getelementptr [5 x i8], ptr %15, i64 0, i64 3
-  %78 = load i8, ptr %77, align 1
-  %79 = zext i8 %78 to i32
-  %80 = shl i32 %79, 8
-  %81 = getelementptr [5 x i8], ptr %15, i64 0, i64 4
-  %82 = load i8, ptr %81, align 1
-  %83 = zext i8 %82 to i32
-  %84 = or i32 %80, %83
-  %85 = trunc i32 %84 to i16
-  %86 = load ptr, ptr %12, align 8
-  %87 = getelementptr inbounds %struct.Seg3A_LAI_t, ptr %86, i32 0, i32 2
-  store i16 %85, ptr %87, align 2
-  %88 = load ptr, ptr %12, align 8
-  %89 = getelementptr inbounds %struct.Seg3A_LAI_t, ptr %88, i32 0, i32 2
-  %90 = load i16, ptr %89, align 2
-  %91 = zext i16 %90 to i32
-  %92 = ashr i32 %91, 10
-  %93 = and i32 %92, 63
-  %94 = trunc i32 %93 to i8
-  %95 = load ptr, ptr %12, align 8
-  %96 = getelementptr inbounds %struct.Seg3A_LAI_t, ptr %95, i32 0, i32 3
-  store i8 %94, ptr %96, align 2
-  %97 = load ptr, ptr %12, align 8
-  %98 = getelementptr inbounds %struct.Seg3A_LAI_t, ptr %97, i32 0, i32 2
-  %99 = load i16, ptr %98, align 2
-  %100 = zext i16 %99 to i32
-  %101 = and i32 %100, 1023
-  %102 = trunc i32 %101 to i16
-  %103 = load ptr, ptr %12, align 8
-  %104 = getelementptr inbounds %struct.Seg3A_LAI_t, ptr %103, i32 0, i32 4
-  store i16 %102, ptr %104, align 2
-  %105 = load ptr, ptr %7, align 8
-  %106 = load i32, ptr @hf_seg3a_lai_mcc, align 4
-  %107 = load ptr, ptr %9, align 8
-  %108 = load ptr, ptr %8, align 8
-  %109 = getelementptr inbounds %struct.csnStream_t, ptr %108, i32 0, i32 1
-  %110 = load i32, ptr %109, align 4
-  %111 = load ptr, ptr %12, align 8
-  %112 = getelementptr inbounds %struct.Seg3A_LAI_t, ptr %111, i32 0, i32 0
-  %113 = load i16, ptr %112, align 2
-  %114 = zext i16 %113 to i32
-  %115 = load ptr, ptr %12, align 8
-  %116 = getelementptr inbounds %struct.Seg3A_LAI_t, ptr %115, i32 0, i32 0
-  %117 = load i16, ptr %116, align 2
-  %118 = zext i16 %117 to i32
-  %119 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_uint_bits_format_value(ptr noundef %105, i32 noundef %106, ptr noundef %107, i32 noundef %110, i32 noundef 16, i32 noundef %114, i32 noundef 0, ptr noundef @.str.294, i32 noundef %118)
-  %120 = load ptr, ptr %7, align 8
-  %121 = load i32, ptr @hf_seg3a_lai_mnc, align 4
-  %122 = load ptr, ptr %9, align 8
-  %123 = load ptr, ptr %8, align 8
-  %124 = getelementptr inbounds %struct.csnStream_t, ptr %123, i32 0, i32 1
-  %125 = load i32, ptr %124, align 4
-  %126 = add i32 %125, 16
-  %127 = load ptr, ptr %12, align 8
-  %128 = getelementptr inbounds %struct.Seg3A_LAI_t, ptr %127, i32 0, i32 1
-  %129 = load i16, ptr %128, align 2
-  %130 = zext i16 %129 to i32
-  %131 = load ptr, ptr %12, align 8
-  %132 = getelementptr inbounds %struct.Seg3A_LAI_t, ptr %131, i32 0, i32 1
-  %133 = load i16, ptr %132, align 2
-  %134 = zext i16 %133 to i32
-  %135 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_uint_bits_format_value(ptr noundef %120, i32 noundef %121, ptr noundef %122, i32 noundef %126, i32 noundef 8, i32 noundef %130, i32 noundef 0, ptr noundef @.str.294, i32 noundef %134)
-  %136 = load ptr, ptr %7, align 8
-  %137 = load i32, ptr @hf_seg3a_lai_lac, align 4
-  %138 = load ptr, ptr %9, align 8
-  %139 = load ptr, ptr %8, align 8
-  %140 = getelementptr inbounds %struct.csnStream_t, ptr %139, i32 0, i32 1
-  %141 = load i32, ptr %140, align 4
-  %142 = add i32 %141, 24
-  %143 = load ptr, ptr %12, align 8
-  %144 = getelementptr inbounds %struct.Seg3A_LAI_t, ptr %143, i32 0, i32 2
-  %145 = load i16, ptr %144, align 2
-  %146 = zext i16 %145 to i32
-  %147 = load ptr, ptr %12, align 8
-  %148 = getelementptr inbounds %struct.Seg3A_LAI_t, ptr %147, i32 0, i32 2
-  %149 = load i16, ptr %148, align 2
-  %150 = zext i16 %149 to i32
-  %151 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_uint_bits_format_value(ptr noundef %136, i32 noundef %137, ptr noundef %138, i32 noundef %142, i32 noundef 16, i32 noundef %146, i32 noundef 0, ptr noundef @.str.295, i32 noundef %150)
-  store ptr %151, ptr %13, align 8
-  %152 = load ptr, ptr %13, align 8
-  %153 = load i32, ptr %11, align 4
-  %154 = call ptr @proto_item_add_subtree(ptr noundef %152, i32 noundef %153)
-  store ptr %154, ptr %14, align 8
-  %155 = load ptr, ptr %14, align 8
-  %156 = load i32, ptr @hf_seg3a_lai_msc_id, align 4
-  %157 = load ptr, ptr %9, align 8
-  %158 = load ptr, ptr %8, align 8
-  %159 = getelementptr inbounds %struct.csnStream_t, ptr %158, i32 0, i32 1
-  %160 = load i32, ptr %159, align 4
-  %161 = add i32 %160, 24
-  %162 = load ptr, ptr %12, align 8
-  %163 = getelementptr inbounds %struct.Seg3A_LAI_t, ptr %162, i32 0, i32 3
-  %164 = load i8, ptr %163, align 2
-  %165 = zext i8 %164 to i32
-  %166 = load ptr, ptr %12, align 8
-  %167 = getelementptr inbounds %struct.Seg3A_LAI_t, ptr %166, i32 0, i32 3
-  %168 = load i8, ptr %167, align 2
-  %169 = zext i8 %168 to i32
-  %170 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_uint_bits_format_value(ptr noundef %155, i32 noundef %156, ptr noundef %157, i32 noundef %161, i32 noundef 6, i32 noundef %165, i32 noundef 0, ptr noundef @.str.294, i32 noundef %169)
-  %171 = load ptr, ptr %14, align 8
-  %172 = load i32, ptr @hf_seg3a_lai_spot_beam_id, align 4
-  %173 = load ptr, ptr %9, align 8
-  %174 = load ptr, ptr %8, align 8
-  %175 = getelementptr inbounds %struct.csnStream_t, ptr %174, i32 0, i32 1
-  %176 = load i32, ptr %175, align 4
-  %177 = add i32 %176, 30
-  %178 = load ptr, ptr %12, align 8
-  %179 = getelementptr inbounds %struct.Seg3A_LAI_t, ptr %178, i32 0, i32 4
-  %180 = load i16, ptr %179, align 2
-  %181 = zext i16 %180 to i32
-  %182 = load ptr, ptr %12, align 8
-  %183 = getelementptr inbounds %struct.Seg3A_LAI_t, ptr %182, i32 0, i32 4
-  %184 = load i16, ptr %183, align 2
-  %185 = zext i16 %184 to i32
-  %186 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_uint_bits_format_value(ptr noundef %171, i32 noundef %172, ptr noundef %173, i32 noundef %177, i32 noundef 10, i32 noundef %181, i32 noundef 0, ptr noundef @.str.294, i32 noundef %185)
-  %187 = load ptr, ptr %8, align 8
-  %188 = getelementptr inbounds %struct.csnStream_t, ptr %187, i32 0, i32 0
-  %189 = load i32, ptr %188, align 8
-  %190 = sub i32 %189, 40
-  store i32 %190, ptr %188, align 8
-  %191 = load ptr, ptr %8, align 8
-  %192 = getelementptr inbounds %struct.csnStream_t, ptr %191, i32 0, i32 1
-  %193 = load i32, ptr %192, align 4
-  %194 = add i32 %193, 40
-  store i32 %194, ptr %192, align 4
+43:                                               ; preds = %25
+  %44 = getelementptr [5 x i8], ptr %15, i64 0, i64 0
+  %45 = load i8, ptr %44, align 1
+  %46 = zext i8 %45 to i32
+  %47 = and i32 %46, 15
+  %48 = mul i32 %47, 100
+  %49 = getelementptr [5 x i8], ptr %15, i64 0, i64 0
+  %50 = load i8, ptr %49, align 1
+  %51 = zext i8 %50 to i32
+  %52 = and i32 %51, 240
+  %53 = ashr i32 %52, 4
+  %54 = mul i32 %53, 10
+  %55 = add i32 %48, %54
+  %56 = getelementptr [5 x i8], ptr %15, i64 0, i64 1
+  %57 = load i8, ptr %56, align 1
+  %58 = zext i8 %57 to i32
+  %59 = and i32 %58, 15
+  %60 = add i32 %55, %59
+  %61 = trunc i32 %60 to i16
+  %62 = load ptr, ptr %12, align 8
+  %63 = getelementptr inbounds nuw %struct.Seg3A_LAI_t, ptr %62, i32 0, i32 0
+  store i16 %61, ptr %63, align 2
+  %64 = getelementptr [5 x i8], ptr %15, i64 0, i64 2
+  %65 = load i8, ptr %64, align 1
+  %66 = zext i8 %65 to i32
+  %67 = and i32 %66, 15
+  %68 = mul i32 %67, 10
+  %69 = getelementptr [5 x i8], ptr %15, i64 0, i64 2
+  %70 = load i8, ptr %69, align 1
+  %71 = zext i8 %70 to i32
+  %72 = and i32 %71, 240
+  %73 = ashr i32 %72, 4
+  %74 = add i32 %68, %73
+  %75 = trunc i32 %74 to i16
+  %76 = load ptr, ptr %12, align 8
+  %77 = getelementptr inbounds nuw %struct.Seg3A_LAI_t, ptr %76, i32 0, i32 1
+  store i16 %75, ptr %77, align 2
+  %78 = getelementptr [5 x i8], ptr %15, i64 0, i64 3
+  %79 = load i8, ptr %78, align 1
+  %80 = zext i8 %79 to i32
+  %81 = shl i32 %80, 8
+  %82 = getelementptr [5 x i8], ptr %15, i64 0, i64 4
+  %83 = load i8, ptr %82, align 1
+  %84 = zext i8 %83 to i32
+  %85 = or i32 %81, %84
+  %86 = trunc i32 %85 to i16
+  %87 = load ptr, ptr %12, align 8
+  %88 = getelementptr inbounds nuw %struct.Seg3A_LAI_t, ptr %87, i32 0, i32 2
+  store i16 %86, ptr %88, align 2
+  %89 = load ptr, ptr %12, align 8
+  %90 = getelementptr inbounds nuw %struct.Seg3A_LAI_t, ptr %89, i32 0, i32 2
+  %91 = load i16, ptr %90, align 2
+  %92 = zext i16 %91 to i32
+  %93 = ashr i32 %92, 10
+  %94 = and i32 %93, 63
+  %95 = trunc i32 %94 to i8
+  %96 = load ptr, ptr %12, align 8
+  %97 = getelementptr inbounds nuw %struct.Seg3A_LAI_t, ptr %96, i32 0, i32 3
+  store i8 %95, ptr %97, align 2
+  %98 = load ptr, ptr %12, align 8
+  %99 = getelementptr inbounds nuw %struct.Seg3A_LAI_t, ptr %98, i32 0, i32 2
+  %100 = load i16, ptr %99, align 2
+  %101 = zext i16 %100 to i32
+  %102 = and i32 %101, 1023
+  %103 = trunc i32 %102 to i16
+  %104 = load ptr, ptr %12, align 8
+  %105 = getelementptr inbounds nuw %struct.Seg3A_LAI_t, ptr %104, i32 0, i32 4
+  store i16 %103, ptr %105, align 2
+  %106 = load ptr, ptr %7, align 8
+  %107 = load i32, ptr @hf_seg3a_lai_mcc, align 4
+  %108 = load ptr, ptr %9, align 8
+  %109 = load ptr, ptr %8, align 8
+  %110 = getelementptr inbounds nuw %struct.csnStream_t, ptr %109, i32 0, i32 1
+  %111 = load i32, ptr %110, align 4
+  %112 = load ptr, ptr %12, align 8
+  %113 = getelementptr inbounds nuw %struct.Seg3A_LAI_t, ptr %112, i32 0, i32 0
+  %114 = load i16, ptr %113, align 2
+  %115 = zext i16 %114 to i32
+  %116 = load ptr, ptr %12, align 8
+  %117 = getelementptr inbounds nuw %struct.Seg3A_LAI_t, ptr %116, i32 0, i32 0
+  %118 = load i16, ptr %117, align 2
+  %119 = zext i16 %118 to i32
+  %120 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_uint_bits_format_value(ptr noundef %106, i32 noundef %107, ptr noundef %108, i32 noundef %111, i32 noundef 16, i32 noundef %115, i32 noundef 0, ptr noundef @.str.314, i32 noundef %119)
+  %121 = load ptr, ptr %7, align 8
+  %122 = load i32, ptr @hf_seg3a_lai_mnc, align 4
+  %123 = load ptr, ptr %9, align 8
+  %124 = load ptr, ptr %8, align 8
+  %125 = getelementptr inbounds nuw %struct.csnStream_t, ptr %124, i32 0, i32 1
+  %126 = load i32, ptr %125, align 4
+  %127 = add i32 %126, 16
+  %128 = load ptr, ptr %12, align 8
+  %129 = getelementptr inbounds nuw %struct.Seg3A_LAI_t, ptr %128, i32 0, i32 1
+  %130 = load i16, ptr %129, align 2
+  %131 = zext i16 %130 to i32
+  %132 = load ptr, ptr %12, align 8
+  %133 = getelementptr inbounds nuw %struct.Seg3A_LAI_t, ptr %132, i32 0, i32 1
+  %134 = load i16, ptr %133, align 2
+  %135 = zext i16 %134 to i32
+  %136 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_uint_bits_format_value(ptr noundef %121, i32 noundef %122, ptr noundef %123, i32 noundef %127, i32 noundef 8, i32 noundef %131, i32 noundef 0, ptr noundef @.str.314, i32 noundef %135)
+  %137 = load ptr, ptr %7, align 8
+  %138 = load i32, ptr @hf_seg3a_lai_lac, align 4
+  %139 = load ptr, ptr %9, align 8
+  %140 = load ptr, ptr %8, align 8
+  %141 = getelementptr inbounds nuw %struct.csnStream_t, ptr %140, i32 0, i32 1
+  %142 = load i32, ptr %141, align 4
+  %143 = add i32 %142, 24
+  %144 = load ptr, ptr %12, align 8
+  %145 = getelementptr inbounds nuw %struct.Seg3A_LAI_t, ptr %144, i32 0, i32 2
+  %146 = load i16, ptr %145, align 2
+  %147 = zext i16 %146 to i32
+  %148 = load ptr, ptr %12, align 8
+  %149 = getelementptr inbounds nuw %struct.Seg3A_LAI_t, ptr %148, i32 0, i32 2
+  %150 = load i16, ptr %149, align 2
+  %151 = zext i16 %150 to i32
+  %152 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_uint_bits_format_value(ptr noundef %137, i32 noundef %138, ptr noundef %139, i32 noundef %143, i32 noundef 16, i32 noundef %147, i32 noundef 0, ptr noundef @.str.315, i32 noundef %151)
+  store ptr %152, ptr %13, align 8
+  %153 = load ptr, ptr %13, align 8
+  %154 = load i32, ptr %11, align 4
+  %155 = call ptr @proto_item_add_subtree(ptr noundef %153, i32 noundef %154)
+  store ptr %155, ptr %14, align 8
+  %156 = load ptr, ptr %14, align 8
+  %157 = load i32, ptr @hf_seg3a_lai_msc_id, align 4
+  %158 = load ptr, ptr %9, align 8
+  %159 = load ptr, ptr %8, align 8
+  %160 = getelementptr inbounds nuw %struct.csnStream_t, ptr %159, i32 0, i32 1
+  %161 = load i32, ptr %160, align 4
+  %162 = add i32 %161, 24
+  %163 = load ptr, ptr %12, align 8
+  %164 = getelementptr inbounds nuw %struct.Seg3A_LAI_t, ptr %163, i32 0, i32 3
+  %165 = load i8, ptr %164, align 2
+  %166 = zext i8 %165 to i32
+  %167 = load ptr, ptr %12, align 8
+  %168 = getelementptr inbounds nuw %struct.Seg3A_LAI_t, ptr %167, i32 0, i32 3
+  %169 = load i8, ptr %168, align 2
+  %170 = zext i8 %169 to i32
+  %171 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_uint_bits_format_value(ptr noundef %156, i32 noundef %157, ptr noundef %158, i32 noundef %162, i32 noundef 6, i32 noundef %166, i32 noundef 0, ptr noundef @.str.314, i32 noundef %170)
+  %172 = load ptr, ptr %14, align 8
+  %173 = load i32, ptr @hf_seg3a_lai_spot_beam_id, align 4
+  %174 = load ptr, ptr %9, align 8
+  %175 = load ptr, ptr %8, align 8
+  %176 = getelementptr inbounds nuw %struct.csnStream_t, ptr %175, i32 0, i32 1
+  %177 = load i32, ptr %176, align 4
+  %178 = add i32 %177, 30
+  %179 = load ptr, ptr %12, align 8
+  %180 = getelementptr inbounds nuw %struct.Seg3A_LAI_t, ptr %179, i32 0, i32 4
+  %181 = load i16, ptr %180, align 2
+  %182 = zext i16 %181 to i32
+  %183 = load ptr, ptr %12, align 8
+  %184 = getelementptr inbounds nuw %struct.Seg3A_LAI_t, ptr %183, i32 0, i32 4
+  %185 = load i16, ptr %184, align 2
+  %186 = zext i16 %185 to i32
+  %187 = call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_uint_bits_format_value(ptr noundef %172, i32 noundef %173, ptr noundef %174, i32 noundef %178, i32 noundef 10, i32 noundef %182, i32 noundef 0, ptr noundef @.str.314, i32 noundef %186)
+  %188 = load ptr, ptr %8, align 8
+  %189 = getelementptr inbounds nuw %struct.csnStream_t, ptr %188, i32 0, i32 0
+  %190 = load i32, ptr %189, align 8
+  %191 = sub i32 %190, 40
+  store i32 %191, ptr %189, align 8
+  %192 = load ptr, ptr %8, align 8
+  %193 = getelementptr inbounds nuw %struct.csnStream_t, ptr %192, i32 0, i32 1
+  %194 = load i32, ptr %193, align 4
+  %195 = add i32 %194, 40
+  store i32 %195, ptr %193, align 4
   store i16 0, ptr %6, align 2
-  br label %195
+  store i32 1, ptr %17, align 4
+  br label %196
 
-195:                                              ; preds = %42, %22
-  %196 = load i16, ptr %6, align 2
-  ret i16 %196
+196:                                              ; preds = %43, %23
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #5
+  call void @llvm.lifetime.end.p0(i64 5, ptr %15) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  %197 = load i16, ptr %6, align 2
+  ret i16 %197
 }
 
-declare ptr @proto_tree_add_uint_bits_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) #1
+; Function Attrs: null_pointer_is_valid
+declare ptr @proto_tree_add_uint_bits_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind }
+attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nounwind }
+attributes #6 = { allocsize(1) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}

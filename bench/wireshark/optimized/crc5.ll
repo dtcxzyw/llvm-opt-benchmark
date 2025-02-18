@@ -5,7 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 @crc5_usb_bits.bvals = internal unnamed_addr constant [19 x i8] c"\1E\15\03\06\0C\18\19\1B\1F\17\07\0E\1C\11\0B\16\05\0A\14", align 16
 
-; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(none) uwtable
 define zeroext i8 @crc5_usb_11bit_input(i16 noundef zeroext %0) local_unnamed_addr #0 {
   %2 = zext i16 %0 to i32
   br label %3
@@ -30,13 +30,13 @@ define zeroext i8 @crc5_usb_11bit_input(i16 noundef zeroext %0) local_unnamed_ad
   %.1.i = phi i8 [ %11, %7 ], [ %.01012.i, %3 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 11
-  br i1 %exitcond.not.i, label %crc5_usb_bits.exit, label %3, !llvm.loop !4
+  br i1 %exitcond.not.i, label %crc5_usb_bits.exit, label %3, !llvm.loop !6
 
 crc5_usb_bits.exit:                               ; preds = %12
   ret i8 %.1.i
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(none) uwtable
 define zeroext i8 @crc5_usb_19bit_input(i32 noundef %0) local_unnamed_addr #0 {
   br label %2
 
@@ -59,19 +59,21 @@ define zeroext i8 @crc5_usb_19bit_input(i32 noundef %0) local_unnamed_addr #0 {
   %.1.i = phi i8 [ %9, %6 ], [ %.01012.i, %2 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 19
-  br i1 %exitcond.not.i, label %crc5_usb_bits.exit, label %2, !llvm.loop !4
+  br i1 %exitcond.not.i, label %crc5_usb_bits.exit, label %2, !llvm.loop !6
 
 crc5_usb_bits.exit:                               ; preds = %10
   ret i8 %.1.i
 }
 
-attributes #0 = { nofree norecurse nosync nounwind memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{i32 8, !"PIC Level", i32 2}
-!2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!1 = !{i32 8, !"cf-protection-return", i32 1}
+!2 = !{i32 8, !"cf-protection-branch", i32 1}
+!3 = !{i32 4, !"probe-stack", !"inline-asm"}
+!4 = !{i32 8, !"PIC Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
